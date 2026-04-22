@@ -39,6 +39,13 @@ insert into public.podcast_feeds (name, expert, rss_url) values
   )
 on conflict (rss_url) do nothing;
 
+-- RLS: anyone can read, service_role writes
+alter table public.podcast_feeds enable row level security;
+
+create policy "public_read_podcast_feeds"
+  on public.podcast_feeds for select
+  using (true);
+
 
 -- ─── podcast_episodes ─────────────────────────────────────────────────────────
 -- One row per RSS <item>. The agent inserts on discovery; status tracks progress.

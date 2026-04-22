@@ -2,22 +2,31 @@
   "project_name": "NFL_Dashboard",
   "schema_version": "1.0",
   "created": "2026-04-18",
-  "last_updated": "2026-04-18",
-  "last_session_date": null,
-  "session_count": 0,
+  "last_updated": "2026-04-22",
+  "last_session_date": "2026-04-22",
+  "session_count": 1,
   "health": {
     "status": "offseason",
-    "last_activity": "2026-04-18"
+    "last_activity": "2026-04-22"
   },
-  "status_summary": "NFL betting dashboard -- React + Vite + Supabase. Off-season mode. 6 active Claude hooks. Next: add session memory, HANDOFF.md auto-gen, port 8 skills from NCAA.",
+  "status_summary": "NFL betting dashboard -- React + Vite + Supabase. Off-season mode. Supabase RLS gap fixed (podcast_feeds). Dispatch tables live in Rosie's Supabase.",
   "open_tasks": [
+    "Apply 006_rls_podcast_feeds.sql to live Supabase project aambmuzfcojxqvbzhngp",
     "Port 8 skills from NCAA Dashboard",
     "Add build-handoff.js Stop hook",
-    "Add .nfl/memory.json cross-session state",
     "Add lessons-learned.md pattern accumulator"
   ],
   "blocked_tasks": [],
-  "completed_tasks": [],
-  "recent_decisions": [],
+  "completed_tasks": [
+    "Supabase RLS gap fix: podcast_feeds ENABLE ROW LEVEL SECURITY (006_rls_podcast_feeds.sql + 003_podcast.sql patched) — 2026-04-22",
+    "vitest + 65 unit tests (hedgeCalculator, agentTools, bankroll, futures, propsTools) — 2026-04-21",
+    "props-auto-grade.js: real Supabase player_stats query with graceful 42P01 degradation — 2026-04-21"
+  ],
+  "recent_decisions": [
+    {
+      "date": "2026-04-22",
+      "decision": "podcast_feeds RLS policy set to public_read (anon SELECT, service_role writes) — matches pattern of podcast_episodes and podcast_transcripts"
+    }
+  ],
   "self_improvement_queue": []
 }
