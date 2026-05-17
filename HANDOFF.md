@@ -1,56 +1,51 @@
 # NFL_Dashboard — Session Handoff
-> Auto-generated at session end. Read this to resume.
+> Fresh-session resume notes. Read this first, then WORKING-CONTEXT.md.
 
-**Date:** 2026-04-22
+**Date:** 2026-05-17
 **Branch:** main
+**Status:** Data Sprint in progress (DS-2 and DS-3 complete, DS-4 ready to run)
 
-## What shipped 2026-04-22 — Supabase RLS fix
+## What Shipped This Sprint
 
-| Item | Status | Notes |
-|------|--------|-------|
-| `supabase/migrations/006_rls_podcast_feeds.sql` | ✅ | Forward migration: `ALTER TABLE public.podcast_feeds ENABLE ROW LEVEL SECURITY` + `public_read_podcast_feeds` policy. Apply in Supabase SQL Editor at `aambmuzfcojxqvbzhngp`. |
-| `supabase/migrations/003_podcast.sql` patched | ✅ | RLS block added after seed INSERT so fresh deploys don't repeat the gap. |
-| Supabase alert resolved | ✅ | `rls_disabled_in_public` on `podcast_feeds` — only affected table; all others (odds_snapshots, line_movements, game_results, futures_odds_snapshots, podcast_episodes, podcast_transcripts, user_picks, user_bankroll_bets) had RLS enabled correctly. |
+### DS-2 — Schedule Spine
 
-**Action required:** Run `006_rls_podcast_feeds.sql` in the Supabase SQL editor for project `aambmuzfcojxqvbzhngp` to apply to the live database.
+- `supabase/migrations/007_games_schedule.sql` applied.
+- `agents/schedule-ingest.js` supports regular season + playoff representation (`--include-playoffs`).
+- Duplicate `game_id` for TBD playoff matchups resolved.
+- `public/schedule.json` regenerated from ingest.
 
----
+### DS-3 — Futures Breadth
 
-## Prior state (2026-04-19)
+- `agents/futures-odds-ingest.js` expanded to conference/division/awards market keys.
+- Explicit unavailable-market reporting added to run receipts.
+- Crash-safe and schema-compatible writes added.
+- `supabase/migrations/008_futures_breadth_dimensions.sql` applied and verified.
 
-### Uncommitted Changes
+### DS-4 — Research Intel Ingest
 
-### Modified
-- AGENTS.md
-- CLAUDE.md
-- HANDOFF_PROMPT.md
-- NFL_EVOLUTION_PLAN.md
-- RULES.md
-- TASK_BOARD.md
-- WORKING-CONTEXT.md
-- agents/nfl-auto-grade.js
-- agents/product/tier1/BETTING.md
-- agents/product/tier1/INTEL.md
-- contexts/offseason.md
-- docs/ANTI_PATTERNS.md
-- docs/GOTCHAS.md
-- docs/PIPELINE_AGENTS.md
-- docs/TESTING.md
-- package.json
-- src/App.jsx
-- src/components/dashboard/ExpertLeaderboard.jsx
-- src/components/dashboard/Standings.jsx
-- src/components/futures/PlayoffBracket.jsx
-- src/components/layout/Header.jsx
-- src/lib/agentTools.js
-- src/lib/bankroll.js
-- src/lib/constants.js
-- src/lib/injuries.js
-- src/lib/storage.js
-- tests/smoke.spec.js
+- `supabase/migrations/009_research_intel.sql` created and now confirmed applied.
+- `agents/research-intel-ingest.js` implemented for Action Network, BettingPros, VSiN.
+- Feed guardrails added to prevent OOM/non-feed payload crashes.
+- `src/lib/supabase.js` includes `getRecentResearchIntelNotes()` and `getRecentResearchPickSignals()`.
+- `package.json` scripts include `ingest-research-intel` and `ingest-research-intel:dry`.
 
-## In Progress
-_No In Progress tasks._
+## Current Blockers
+
+None. Migration 009 is now reported as successful.
+
+## Immediate Next Actions (Fresh Session)
+
+1. Run live DS-4 ingest using `npm run ingest-research-intel`.
+1. Validate inserts in Supabase by checking row counts in `research_intel_notes` and `research_pick_signals`.
+1. Spot-check latest inserted rows for `source`, `title`, `summary`, `bet_type`, and `confidence`.
+1. Review the latest DS-4 receipt under `.nfl/receipts/`.
+1. If validation is clean, commit remaining DS-4 verification updates and push.
+
+## Known Local-Only Noise (Do Not Commit)
+
+- `.nfl/receipts/` (run artifacts)
+- `supabase/.temp/` (local tooling cache)
+- `skills/deployment-flow/` (out-of-scope local doc)
 
 ---
-_Resume by reading CLAUDE.md → this file → TASK_BOARD.md_
+Resume order: CLAUDE.md → HANDOFF.md → WORKING-CONTEXT.md → TASK_BOARD.md
