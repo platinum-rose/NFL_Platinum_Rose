@@ -211,6 +211,54 @@ export async function getFuturesOddsHistory(team, marketType, days = 30) {
 }
 
 /**
+ * Get recent research intel notes for BETTING context preload.
+ * @param {number} hours — lookback window (default 72)
+ * @param {number} limit — max rows (default 200)
+ */
+export async function getRecentResearchIntelNotes(hours = 72, limit = 200) {
+  if (!isAvailable()) return [];
+  try {
+    const cutoff = new Date(Date.now() - hours * 60 * 60 * 1000).toISOString();
+    const { data, error } = await supabase
+      .from('research_intel_notes')
+      .select('id, source, title, summary, url, published_at, confidence, captured_at')
+      .gte('captured_at', cutoff)
+      .order('captured_at', { ascending: false })
+      .limit(limit);
+
+    if (error || !data) return [];
+    return data;
+  } catch (e) {
+    console.warn('[supabase] getRecentResearchIntelNotes failed:', e.message);
+    return [];
+  }
+}
+
+/**
+ * Get recent structured research pick signals for BETTING preload.
+ * @param {number} hours — lookback window (default 72)
+ * @param {number} limit — max rows (default 300)
+ */
+export async function getRecentResearchPickSignals(hours = 72, limit = 300) {
+  if (!isAvailable()) return [];
+  try {
+    const cutoff = new Date(Date.now() - hours * 60 * 60 * 1000).toISOString();
+    const { data, error } = await supabase
+      .from('research_pick_signals')
+      .select('id, note_id, source, team_or_market, bet_type, lean, rationale, event_ref, confidence, captured_at')
+      .gte('captured_at', cutoff)
+      .order('captured_at', { ascending: false })
+      .limit(limit);
+
+    if (error || !data) return [];
+    return data;
+  } catch (e) {
+    console.warn('[supabase] getRecentResearchPickSignals failed:', e.message);
+    return [];
+  }
+}
+
+/**
  * Get game results for auto-grading pending picks.
  * Table: game_results (written by NFLAutoGradeAgent)
  */
