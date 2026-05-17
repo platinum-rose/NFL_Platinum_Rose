@@ -98,6 +98,19 @@ Execution order is fixed for this sprint:
 2. DS-3 — futures breadth expansion
 3. DS-4 — research intel ingest v1
 
+### In-Flight Changes Folded Into This Plan
+
+- `agents/futures-odds-ingest.js` dotenv import is now the baseline server-agent env pattern for DS-3.
+- `package.json` + `package-lock.json` dotenv dependency updates are accepted as DS-3 prerequisites.
+- `skills/team-normalization.md` is promoted as a hard requirement for DS-2 joins across ESPN/TheOddsAPI/user data.
+- `.atlas-bridge/tasks.jsonl` queued futures refresh task (`c65590da-1b4e-4401-8198-2d8cc661e2e2`) is treated as seed execution for DS-3.
+
+### In-Flight Changes Explicitly Not In Scope for Data Sprint
+
+- `.atlas-bridge/sync.json` (bridge metadata)
+- `skills/deployment-flow/SKILL.md` (useful operational guidance, but not DS-2/DS-3/DS-4 scope)
+- `supabase/.temp/` artifacts (local tooling cache)
+
 ### DS-2 — Season Schedule Spine (P0)
 
 Objective:

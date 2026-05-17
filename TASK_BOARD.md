@@ -17,6 +17,12 @@
 3. Action Network / BettingPros / VSiN (written research)
 4. Podcast feeds (existing extraction path)
 
+### Data Sprint — In-Flight Work Incorporated
+
+1. `agents/futures-odds-ingest.js` already includes `dotenv/config`; DS-3 adopts this as the required server-agent env pattern.
+2. `skills/team-normalization.md` is now the DS-2 canonical guardrail for cross-source team joins.
+3. Existing bridge task `c65590da-1b4e-4401-8198-2d8cc661e2e2` (futures refresh) is treated as DS-3 seed work.
+
 ### Data Sprint — Core Tables (target state)
 
 | Table | Purpose | Status |
@@ -35,8 +41,8 @@
 
 | ID | Task | Priority | Notes |
 |----|------|----------|-------|
-| DS-2 | Build 2026 season schedule spine (`games`) | P0 | Ingest ESPN schedule into new canonical `games` table and local cache (`public/schedule.json`) with deterministic `game_id`; drives all weekly joins. |
-| DS-3 | Expand futures ingest breadth (`futures_odds_snapshots`) | P0 | Extend `agents/futures-odds-ingest.js` from Super Bowl-only to conference/division (+ awards where available), including explicit unavailable-market handling and run receipts. |
+| DS-2 | Build 2026 season schedule spine (`games`) | P0 | Ingest ESPN schedule into new canonical `games` table and local cache (`public/schedule.json`) with deterministic `game_id`; enforce team normalization (`skills/team-normalization.md`) on all joins. |
+| DS-3 | Expand futures ingest breadth (`futures_odds_snapshots`) | P0 | Extend `agents/futures-odds-ingest.js` from Super Bowl-only to conference/division (+ awards where available), including explicit unavailable-market handling and run receipts; keep `dotenv/config` server-agent env pattern. |
 | DS-4 | Research intel ingest v1 (`research_intel_notes`, `research_pick_signals`) | P1 | Add article + podcast normalization pipeline with source metadata, publish timestamps, and extracted picks/angles for BETTING context preload. |
 | F-9 | Sunday Slate Briefing mode (BETTING agent proactive entry) | P1 | Agent opens with best plays unprompted; "best plays" command triggers proactive output; replaces passive Q&A for game-day use |
 | F-10 | Performance feedback loop | P1 | ROI aggregation by bet type/team/situation; calibration signals injected into BETTING agent context at session start |
