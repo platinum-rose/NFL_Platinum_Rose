@@ -21,6 +21,7 @@
 // ═══════════════════════════════════════════════════════════════════════════════
 
 import { createClient } from '@supabase/supabase-js';
+import 'dotenv/config';
 
 const MAX_RETRIES     = 3;
 const MAX_RUNTIME_MS  = 90_000;   // 90s — more endpoints than regular agent
