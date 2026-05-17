@@ -9,6 +9,7 @@
 | ID | Task | Assignee | Notes |
 |----|------|----------|-------|
 | DS-1 | 2026 Data Sprint Kickoff (scope + sequencing) | PM Agent | Concrete implementation sequence locked: DS-2 (schedule spine) → DS-3 (futures breadth) → DS-4 (research intel ingest). |
+| F-9 | Sunday Slate Briefing mode (BETTING proactive entry) | feature-dev | Proactive mode scaffolded in AgentChat: Sunday auto-open briefing + manual `Best Plays` trigger. Pending: prompt calibration + game-day UX pass. |
 
 ### Data Sprint — Source Priority (Locked 2026-05-17)
 
@@ -30,8 +31,8 @@
 | `games` | Canonical 2026 season schedule spine (game_id, week, kickoff, home/away, status) | planned |
 | `game_odds_snapshots` | Time-series ML/spread/total by book and market | planned |
 | `futures_odds_snapshots` | Super Bowl/conference/division/awards futures snapshots | partial (SB live) |
-| `research_intel_notes` | Parsed article/podcast research with source attribution and confidence | planned |
-| `research_pick_signals` | Structured picks/leans extracted from intel sources | planned |
+| `research_intel_notes` | Parsed article/podcast research with source attribution and confidence | live validated (NFL-only ingest filter active) |
+| `research_pick_signals` | Structured picks/leans extracted from intel sources | live validated (NFL-only ingest filter active) |
 
 ---
 
@@ -44,7 +45,7 @@
 | DS-2 | Build 2026 season schedule spine (`games`) | P0 | Ingest ESPN schedule into new canonical `games` table and local cache (`public/schedule.json`) with deterministic `game_id`; enforce team normalization (`skills/team-normalization.md`) on all joins. |
 | DS-3 | Expand futures ingest breadth (`futures_odds_snapshots`) | P0 | Extend `agents/futures-odds-ingest.js` from Super Bowl-only to conference/division (+ awards where available), including explicit unavailable-market handling and run receipts; keep `dotenv/config` server-agent env pattern. |
 | DS-4 | Research intel ingest v1 (`research_intel_notes`, `research_pick_signals`) | P1 | Add article + podcast normalization pipeline with source metadata, publish timestamps, and extracted picks/angles for BETTING context preload. |
-| F-9 | Sunday Slate Briefing mode (BETTING agent proactive entry) | P1 | Agent opens with best plays unprompted; "best plays" command triggers proactive output; replaces passive Q&A for game-day use |
+| F-9 | Sunday Slate Briefing mode (BETTING agent proactive entry) | P1 | In progress — proactive Sunday opening + `Best Plays` command implemented in AgentChat; pending prompt tuning and game-day output validation. |
 | F-10 | Performance feedback loop | P1 | ROI aggregation by bet type/team/situation; calibration signals injected into BETTING agent context at session start |
 | F-11 | Article ingestion pipeline | P2 | Action Network, BettingPros, VSiN written content; same pattern as podcast pipeline → extract picks/angles → user_picks; blocked on RSS/scrape decision |
 | F-12 | Hermes/Obsidian NFL betting vault integration | P1 | Read + write path; BETTING agent writes session notes/angles/outcomes to vault post-session; reads coach tendencies/stats/DVOA/EPA at session start; blocked on Hermes MCP architecture |

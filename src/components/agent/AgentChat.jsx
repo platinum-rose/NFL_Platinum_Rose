@@ -25,6 +25,10 @@ import { ANTHROPIC_API_KEY, ANTHROPIC_API, OPENAI_API_KEY } from '../../lib/apiC
 const CHAT_HISTORY_KEY = 'nfl_betting_agent_chat_v1';
 const SESSION_KEY      = 'nfl_betting_agent_session_v1';
 const USER_API_KEY_KEY = 'nfl_betting_agent_apikey_v1';
+const SUNDAY_BRIEF_MODE_KEY = 'nfl_betting_agent_sunday_brief_mode_v1';
+
+const PROACTIVE_BRIEF_PROMPT =
+  'Run Sunday Slate Briefing mode now. Open with your best available NFL plays for this slate (or explicitly state no qualified edge). Use tools as needed. Format: top 3 plays, one teaser check, one hedge/watchout note, and confidence tiers. Keep it concise and actionable.';
 
 // ─── System Prompt Builder ───────────────────────────────────────────────────
 
@@ -287,6 +291,9 @@ export default function AgentChat() {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [sundayBriefMode, setSundayBriefMode] = useState(() =>
+    loadFromStorage(SUNDAY_BRIEF_MODE_KEY, true)
+  );
 
   // Context for system prompt
   const [contextLoaded, setContextLoaded] = useState(false);
@@ -386,12 +393,75 @@ export default function AgentChat() {
     }
   }, [input, isLoading, messages, apiKey, provider]);
 
+  const runProactiveBrief = useCallback(async (trigger = 'manual') => {
+    if (isLoading) return;
+    setError(null);
+    setIsLoading(true);
+
+    const hiddenPromptMessage = {
+      role: 'user',
+      content: PROACTIVE_BRIEF_PROMPT,
+      hidden: true,
+      meta: { trigger },
+    };
+
+    const updatedMessages = [...messages, hiddenPromptMessage];
+    setMessages(updatedMessages);
+
+    try {
+      const runFn = provider === 'anthropic' ? runAgentTurn : runOpenAIAgentTurn;
+      const finalMessages = await runFn({
+        apiKey,
+        systemPrompt: systemPromptRef.current,
+        messages: updatedMessages,
+        tools: BETTING_TOOLS,
+        executeToolFn: executeTool,
+        onStep: (step) => {
+          if (step.type === 'assistant') {
+            setMessages(prev => {
+              const last = prev[prev.length - 1];
+              if (last?.role === 'assistant') {
+                return [...prev.slice(0, -1), step.message];
+              }
+              return [...prev, step.message];
+            });
+          }
+        },
+      });
+
+      setMessages(finalMessages);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [apiKey, isLoading, messages, provider]);
+
+  const sendBestPlaysCommand = useCallback(async () => {
+    await runProactiveBrief('best_plays_command');
+  }, [runProactiveBrief]);
+
   const clearHistory = useCallback(() => {
     if (window.confirm('Clear all conversation history?')) {
       setMessages([]);
       saveToStorage(CHAT_HISTORY_KEY, []);
     }
   }, []);
+
+  useEffect(() => {
+    const day = new Date().getDay(); // Sunday=0
+    const isSunday = day === 0;
+    if (!contextLoaded || !sundayBriefMode || !isSunday) return;
+    if (!apiKey || isLoading || messages.length > 0) return;
+    runProactiveBrief('auto_sunday_open');
+  }, [
+    apiKey,
+    contextLoaded,
+    isLoading,
+    messages.length,
+    runProactiveBrief,
+    sundayBriefMode,
+  ]);
 
   // If no API key, show setup screen
   if (!apiKey) {
@@ -407,6 +477,7 @@ export default function AgentChat() {
   // Render messages for display (skip pure tool_result user messages — shown inline in tool cards)
   const displayMessages = messages.filter(msg => {
     if (msg.role === 'user') {
+      if (msg.hidden) return false;
       // Only show plain string user messages (not tool results)
       return typeof msg.content === 'string';
     }
@@ -428,6 +499,25 @@ export default function AgentChat() {
           </div>
         </div>
         <div className="flex items-center gap-2">
+          <button
+            onClick={sendBestPlaysCommand}
+            disabled={isLoading || !contextLoaded}
+            className="text-[10px] text-slate-300 hover:text-white px-2 py-1 rounded border border-slate-700 hover:border-emerald-500/50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            title="Run proactive Sunday slate briefing"
+          >
+            Best Plays
+          </button>
+          <button
+            onClick={() => {
+              const next = !sundayBriefMode;
+              setSundayBriefMode(next);
+              saveToStorage(SUNDAY_BRIEF_MODE_KEY, next);
+            }}
+            className="text-[10px] text-slate-300 hover:text-white px-2 py-1 rounded border border-slate-700 hover:border-emerald-500/50 transition-colors"
+            title="Toggle proactive Sunday open behavior"
+          >
+            Sunday Mode: {sundayBriefMode ? 'On' : 'Off'}
+          </button>
           {!envKey && (
             <button
               onClick={() => { saveToStorage(USER_API_KEY_KEY, ''); setApiKey(''); setProvider(null); }}

@@ -36,6 +36,49 @@ const FEEDS = [
   },
 ];
 
+const NFL_KEYWORDS = [
+  ' nfl ',
+  ' national football league ',
+  ' super bowl ',
+  ' afc ',
+  ' nfc ',
+  ' touchdown ',
+  ' quarterback ',
+  ' qb ',
+  ' week ',
+  ' spread ',
+  ' moneyline ',
+  ' over/under ',
+  ' over under ',
+  ' prop ',
+  ' betting ',
+  ' odds ',
+  ' draft ',
+  ' preseason ',
+  ' playoffs ',
+  ' wild card ',
+  ' divisional round ',
+  ' conference championship ',
+];
+
+const NON_NFL_HINTS = [
+  ' nba ',
+  ' mlb ',
+  ' nhl ',
+  ' wnba ',
+  ' ncaa basketball ',
+  ' march madness ',
+  ' ufc ',
+  ' golf ',
+  ' tennis ',
+  ' soccer ',
+  ' premier league ',
+  ' champions league ',
+  ' f1 ',
+  ' formula 1 ',
+  ' nascar ',
+];
+
 function getSupabase() {
   if (!SUPABASE_URL || !SUPABASE_KEY) {
     throw new Error('Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY');
@@ -119,6 +162,27 @@ function classifyBetType(text) {
   if (/moneyline|\bml\b/.test(t)) return 'moneyline';
   if (/mvp|coach of the year|rookie|division|conference|super bowl/.test(t)) return 'futures';
   return 'other';
+}
+
+function normalizeForMatch(value = '') {
+  return ` ${String(value).toLowerCase().replace(/\s+/g, ' ').trim()} `;
+}
+
+function looksNflRelevant(item, source = '') {
+  const haystack = normalizeForMatch([
+    source,
+    item.title,
+    item.description,
+    item.link,
+  ].join(' '));
+
+  const hasNfl = NFL_KEYWORDS.some(k => haystack.includes(k));
+  if (!hasNfl) {
+    return false;
+  }
+
+  const hasNonNfl = NON_NFL_HINTS.some(k => haystack.includes(k));
+  return !hasNonNfl;
 }
 
 function extractSignals(item, source, baseConfidence) {
@@ -304,9 +368,11 @@ async function main() {
 
   for (const feed of FEEDS) {
     const result = await fetchFeed(feed);
-    const feedItems = result.items
+    const recentItems = result.items
       .filter(item => !item.published_at || item.published_at >= cutoff)
       .slice(0, LIMIT_PER_FEED);
+
+    const feedItems = recentItems.filter(item => looksNflRelevant(item, feed.source));
 
     const notes = feedItems.map(item => {
       const canonical = canonicalizeUrl(item.link);
@@ -335,6 +401,8 @@ async function main() {
       status: result.status,
       reason: result.reason,
       fetched_items: result.items.length,
+      recent_items: recentItems.length,
+      nfl_items: feedItems.length,
       candidate_notes: notes.length,
       candidate_signals: signals.length,
     });
