@@ -26,9 +26,21 @@ const CHAT_HISTORY_KEY = 'nfl_betting_agent_chat_v1';
 const SESSION_KEY      = 'nfl_betting_agent_session_v1';
 const USER_API_KEY_KEY = 'nfl_betting_agent_apikey_v1';
 const SUNDAY_BRIEF_MODE_KEY = 'nfl_betting_agent_sunday_brief_mode_v1';
+const LAST_AUTO_BRIEF_DATE_KEY = 'nfl_betting_agent_last_auto_brief_date_v1';
 
 const PROACTIVE_BRIEF_PROMPT =
-  'Run Sunday Slate Briefing mode now. Open with your best available NFL plays for this slate (or explicitly state no qualified edge). Use tools as needed. Format: top 3 plays, one teaser check, one hedge/watchout note, and confidence tiers. Keep it concise and actionable.';
+  'Run Sunday Slate Briefing mode now. Open with your best available NFL plays for this slate (or explicitly state no qualified edge). Use tools as needed. Response format: (1) Top 3 plays with line/book/unit and tier, (2) one teaser check, (3) one hedge/watchout, (4) confidence + pass note where edge is insufficient. Keep it concise and actionable.';
+
+function isBestPlaysCommand(text = '') {
+  const t = String(text).trim().toLowerCase();
+  return (
+    t === 'best plays' ||
+    t === 'best play' ||
+    t === '/best plays' ||
+    t === '/best-play' ||
+    t === '/bestplays'
+  );
+}
 
 // ─── System Prompt Builder ───────────────────────────────────────────────────
 
@@ -359,7 +371,21 @@ export default function AgentChat() {
     setIsLoading(true);
 
     const userMsg = { role: 'user', content: text };
-    const updatedMessages = [...messages, userMsg];
+    let updatedMessages = [...messages, userMsg];
+
+    // F-9: typed "best plays" should force proactive slate output mode.
+    if (isBestPlaysCommand(text)) {
+      updatedMessages = [
+        ...updatedMessages,
+        {
+          role: 'user',
+          content: PROACTIVE_BRIEF_PROMPT,
+          hidden: true,
+          meta: { trigger: 'typed_best_plays_command' },
+        },
+      ];
+    }
+
     setMessages(updatedMessages);
 
     try {
@@ -453,6 +479,12 @@ export default function AgentChat() {
     const isSunday = day === 0;
     if (!contextLoaded || !sundayBriefMode || !isSunday) return;
     if (!apiKey || isLoading || messages.length > 0) return;
+
+    const today = new Date().toISOString().slice(0, 10);
+    const lastAutoDate = loadFromStorage(LAST_AUTO_BRIEF_DATE_KEY, '');
+    if (lastAutoDate === today) return;
+
+    saveToStorage(LAST_AUTO_BRIEF_DATE_KEY, today);
     runProactiveBrief('auto_sunday_open');
   }, [
     apiKey,
