@@ -17,6 +17,22 @@ export const supabase = SUPABASE_URL && SUPABASE_ANON_KEY
 
 const isAvailable = () => !!supabase;
 
+// Wrap any Supabase query promise with an 8-second hard timeout.
+// Prevents agent tool calls from hanging indefinitely during offseason
+// or when Supabase is slow / rate-limiting.
+const QUERY_TIMEOUT_MS = 8000;
+function withQueryTimeout(queryPromise) {
+  return Promise.race([
+    queryPromise,
+    new Promise((_, reject) =>
+      setTimeout(
+        () => reject(new Error('Supabase query timed out')),
+        QUERY_TIMEOUT_MS
+      )
+    ),
+  ]);
+}
+
 // ─── Odds ────────────────────────────────────────────────────────────────────
 
 /**
@@ -26,12 +42,14 @@ const isAvailable = () => !!supabase;
 export async function getLatestOddsSnapshot() {
   if (!isAvailable()) return null;
   try {
-    const { data, error } = await supabase
-      .from('odds_snapshots')
-      .select('games, fetched_at')
-      .order('fetched_at', { ascending: false })
-      .limit(1)
-      .single();
+    const { data, error } = await withQueryTimeout(
+      supabase
+        .from('odds_snapshots')
+        .select('games, fetched_at')
+        .order('fetched_at', { ascending: false })
+        .limit(1)
+        .single()
+    );
 
     if (error || !data) return null;
     return { games: data.games || [], fetchedAt: data.fetched_at };
@@ -52,12 +70,14 @@ export async function getLineMovementsDB(hours = 24) {
   if (!isAvailable()) return [];
   try {
     const cutoff = new Date(Date.now() - hours * 60 * 60 * 1000).toISOString();
-    const { data, error } = await supabase
-      .from('line_movements')
-      .select('*')
-      .gte('detected_at', cutoff)
-      .order('detected_at', { ascending: false })
-      .limit(200);
+    const { data, error } = await withQueryTimeout(
+      supabase
+        .from('line_movements')
+        .select('*')
+        .gte('detected_at', cutoff)
+        .order('detected_at', { ascending: false })
+        .limit(200)
+    );
 
     if (error || !data) return [];
 

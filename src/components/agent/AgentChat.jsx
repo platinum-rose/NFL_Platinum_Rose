@@ -241,7 +241,7 @@ function ApiKeySetup({ onKeySet }) {
 
 // ─── Status Bar ───────────────────────────────────────────────────────────────
 
-function AgentStatusBar({ openPicksCount, bankrollBalance, weekLabel, isLoading, provider }) {
+function AgentStatusBar({ openPicksCount, bankrollBalance, weekLabel, isLoading, briefingRunning, provider }) {
   const modelLabel = provider === 'anthropic'
     ? (ANTHROPIC_API.MODEL_DEFAULT || 'claude-sonnet-4-5')
     : 'gpt-4o-mini';
@@ -263,7 +263,11 @@ function AgentStatusBar({ openPicksCount, bankrollBalance, weekLabel, isLoading,
           <span>Balance: <span className="text-slate-300">${bankrollBalance}</span></span>
         </>
       )}
-      {isLoading && <span className="ml-auto text-amber-400 animate-pulse">Thinking…</span>}
+      {isLoading && (
+        <span className="ml-auto text-amber-400 animate-pulse">
+          {briefingRunning ? 'Briefing in progress…' : 'Thinking…'}
+        </span>
+      )}
     </div>
   );
 }
@@ -309,6 +313,10 @@ export default function AgentChat() {
 
   // Abort controller — cancelled when user clicks Clear during an active run
   const abortControllerRef = useRef(null);
+  // Flags whether the last abort was a self-imposed timeout (vs manual clear)
+  const isTimedOutRef = useRef(false);
+
+  const [isProactiveBriefRunning, setIsProactiveBriefRunning] = useState(false);
 
   // Context for system prompt
   const [contextLoaded, setContextLoaded] = useState(false);
@@ -427,6 +435,7 @@ export default function AgentChat() {
     if (isLoading) return;
     setError(null);
     setIsLoading(true);
+    setIsProactiveBriefRunning(true);
 
     const hiddenPromptMessage = {
       role: 'user',
@@ -440,6 +449,13 @@ export default function AgentChat() {
 
     const controller = new AbortController();
     abortControllerRef.current = controller;
+    isTimedOutRef.current = false;
+
+    const BRIEF_TIMEOUT_MS = 45000;
+    const timeoutId = setTimeout(() => {
+      isTimedOutRef.current = true;
+      controller.abort();
+    }, BRIEF_TIMEOUT_MS);
 
     try {
       const runFn = provider === 'anthropic' ? runAgentTurn : runOpenAIAgentTurn;
@@ -465,10 +481,23 @@ export default function AgentChat() {
 
       setMessages(finalMessages);
     } catch (err) {
-      if (err.name === 'AbortError') return; // user cancelled — silent
+      if (err.name === 'AbortError') {
+        if (isTimedOutRef.current) {
+          setMessages(prev => [
+            ...prev,
+            {
+              role: 'assistant',
+              content: [{ type: 'text', text: '⚠️ Briefing timed out (45s). Live data sources are likely unavailable — expected during the NFL offseason. No qualifying edge confirmed at this time.' }],
+            },
+          ]);
+        }
+        return; // silent on manual clear
+      }
       setError(err.message);
     } finally {
+      clearTimeout(timeoutId);
       setIsLoading(false);
+      setIsProactiveBriefRunning(false);
     }
   }, [apiKey, isLoading, messages, provider]);
 
@@ -586,6 +615,7 @@ export default function AgentChat() {
         bankrollBalance={bankrollBalance}
         weekLabel={weekLabel}
         isLoading={isLoading}
+        briefingRunning={isProactiveBriefRunning}
         provider={provider}
       />
 

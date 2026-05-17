@@ -234,7 +234,11 @@ export const OPENAI_BETTING_TOOLS = BETTING_TOOLS.map(t => ({
 async function toolGetOdds({ teams } = {}) {
   const snapshot = await getLatestOddsSnapshot();
   if (!snapshot) {
-    return { status: 'unavailable', message: 'No odds snapshot in Supabase. OddsIngestAgent may not have run yet.' };
+    return {
+      status: 'unavailable',
+      reason: 'No odds snapshot found — OddsIngestAgent has not run recently or it is the NFL offseason.',
+      guidance: 'Do not fabricate lines or spreads. State clearly that live odds are not loaded and advise the user to check back during the regular season.',
+    };
   }
 
   let games = snapshot.games || [];
@@ -260,7 +264,11 @@ async function toolGetOdds({ teams } = {}) {
 async function toolGetLineMovement({ game, hours = 24 } = {}) {
   const movements = await getLineMovementsDB(hours);
   if (!movements || movements.length === 0) {
-    return { status: 'unavailable', message: 'No line movements found in the requested window.', hours };
+    return {
+      status: 'unavailable',
+      reason: 'No line movements found — no sharp activity in the window or it is the NFL offseason.',
+      guidance: 'Do not fabricate movement data. Acknowledge that no line movement is available and do not speculate about steam or reverse-line action.',
+    };
   }
 
   let filtered = movements;
