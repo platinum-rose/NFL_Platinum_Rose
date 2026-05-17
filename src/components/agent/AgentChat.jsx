@@ -307,6 +307,9 @@ export default function AgentChat() {
     loadFromStorage(SUNDAY_BRIEF_MODE_KEY, true)
   );
 
+  // Abort controller — cancelled when user clicks Clear during an active run
+  const abortControllerRef = useRef(null);
+
   // Context for system prompt
   const [contextLoaded, setContextLoaded] = useState(false);
   const systemPromptRef = useRef('');
@@ -413,6 +416,7 @@ export default function AgentChat() {
 
       setMessages(finalMessages);
     } catch (err) {
+      if (err.name === 'AbortError') return; // user cancelled — silent
       setError(err.message);
     } finally {
       setIsLoading(false);
@@ -434,6 +438,9 @@ export default function AgentChat() {
     const updatedMessages = [...messages, hiddenPromptMessage];
     setMessages(updatedMessages);
 
+    const controller = new AbortController();
+    abortControllerRef.current = controller;
+
     try {
       const runFn = provider === 'anthropic' ? runAgentTurn : runOpenAIAgentTurn;
       const finalMessages = await runFn({
@@ -442,6 +449,7 @@ export default function AgentChat() {
         messages: updatedMessages,
         tools: BETTING_TOOLS,
         executeToolFn: executeTool,
+        signal: controller.signal,
         onStep: (step) => {
           if (step.type === 'assistant') {
             setMessages(prev => {
@@ -457,6 +465,7 @@ export default function AgentChat() {
 
       setMessages(finalMessages);
     } catch (err) {
+      if (err.name === 'AbortError') return; // user cancelled — silent
       setError(err.message);
     } finally {
       setIsLoading(false);
@@ -469,6 +478,9 @@ export default function AgentChat() {
 
   const clearHistory = useCallback(() => {
     if (window.confirm('Clear all conversation history?')) {
+      abortControllerRef.current?.abort();
+      setIsLoading(false);
+      setError(null);
       setMessages([]);
       saveToStorage(CHAT_HISTORY_KEY, []);
     }

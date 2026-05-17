@@ -18,9 +18,35 @@ import { ANTHROPIC_API } from './apiConfig.js';
 const OPENAI_COMPLETIONS = 'https://api.openai.com/v1/chat/completions';
 const OPENAI_DEFAULT_MODEL = 'gpt-4o-mini';
 
+// ─── Message Sanitizer ───────────────────────────────────────────────────────
+
+/**
+ * Strip fields that the Anthropic API does not accept before every outbound
+ * call.  Specifically:
+ *  - 'thinking' and 'redacted_thinking' blocks from assistant messages
+ *    (re-sending them causes HTTP 400 "Invalid data in redacted_thinking block")
+ *  - Extra client-side fields ('hidden', 'meta', etc.) from all messages
+ */
+function sanitizeMessagesForAPI(messages) {
+  return messages.map(msg => {
+    const clean = { role: msg.role };
+    if (msg.role === 'assistant' && Array.isArray(msg.content)) {
+      clean.content = msg.content.filter(
+        b => b.type !== 'thinking' && b.type !== 'redacted_thinking'
+      );
+    } else {
+      clean.content = msg.content;
+    }
+    return clean;
+  });
+}
+
 // ─── Anthropic Core Call ─────────────────────────────────────────────────────
 
-async function callAnthropic(apiKey, { model, system, messages, tools, maxTokens }) {
+async function callAnthropic(
+  apiKey,
+  { model, system, messages, tools, maxTokens, signal }
+) {
   const body = {
     model: model || ANTHROPIC_API.MODEL_DEFAULT,
     max_tokens: maxTokens || 4096,
@@ -29,22 +55,40 @@ async function callAnthropic(apiKey, { model, system, messages, tools, maxTokens
   if (system) body.system = system;
   if (tools && tools.length > 0) body.tools = tools;
 
-  const response = await fetch(ANTHROPIC_API.BASE_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': apiKey,
-      'anthropic-version': ANTHROPIC_API.VERSION,
-      'anthropic-dangerous-direct-browser-access': 'true',
-    },
-    body: JSON.stringify(body),
-  });
+  const MAX_RETRIES = 1;
+  const RETRY_DELAY_MS = 600;
 
-  if (!response.ok) {
-    const errBody = await response.json().catch(() => ({}));
-    throw new Error(errBody?.error?.message || `Anthropic API error: ${response.status}`);
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    if (attempt > 0) {
+      await new Promise(r => setTimeout(r, RETRY_DELAY_MS));
+    }
+
+    const response = await fetch(ANTHROPIC_API.BASE_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': ANTHROPIC_API.VERSION,
+        'anthropic-dangerous-direct-browser-access': 'true',
+      },
+      body: JSON.stringify(body),
+      signal,
+    });
+
+    // Retry once on transient server/rate-limit errors
+    if ((response.status === 429 || response.status === 503) &&
+        attempt < MAX_RETRIES) {
+      continue;
+    }
+
+    if (!response.ok) {
+      const errBody = await response.json().catch(() => ({}));
+      throw new Error(
+        errBody?.error?.message || `Anthropic API error: ${response.status}`
+      );
+    }
+    return response.json();
   }
-  return response.json();
 }
 
 // ─── OpenAI Format Conversion Helpers ────────────────────────────────────────
@@ -139,7 +183,10 @@ function fromOpenAIAssistant(msg) {
  *
  * Same signature as runAgentTurn — provider-transparent to the caller.
  */
-export async function runOpenAIAgentTurn({ apiKey, systemPrompt, messages, tools, model, executeToolFn, onStep }) {
+export async function runOpenAIAgentTurn({
+  apiKey, systemPrompt, messages, tools, model,
+  executeToolFn, onStep, signal,
+}) {
   const allMessages = [...messages];
   const openaiTools = toOpenAITools(tools);
   let iterations = 0;
@@ -158,6 +205,7 @@ export async function runOpenAIAgentTurn({ apiKey, systemPrompt, messages, tools
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${apiKey}`,
         },
+        signal,
         body: JSON.stringify({
           model: model || OPENAI_DEFAULT_MODEL,
           messages: openaiMessages,
@@ -216,7 +264,10 @@ export async function runOpenAIAgentTurn({ apiKey, systemPrompt, messages, tools
 
 // ─── Anthropic Agent Turn ─────────────────────────────────────────────────────
 
-export async function runAgentTurn({ apiKey, systemPrompt, messages, tools, model, executeToolFn, onStep }) {
+export async function runAgentTurn({
+  apiKey, systemPrompt, messages, tools, model,
+  executeToolFn, onStep, signal,
+}) {
   const allMessages = [...messages];
   let iterations = 0;
   const MAX_ITERATIONS = 10;
@@ -229,8 +280,9 @@ export async function runAgentTurn({ apiKey, systemPrompt, messages, tools, mode
       response = await callAnthropic(apiKey, {
         model,
         system: systemPrompt,
-        messages: allMessages,
+        messages: sanitizeMessagesForAPI(allMessages),
         tools,
+        signal,
       });
     } catch (err) {
       if (onStep) onStep({ type: 'error', error: err });
