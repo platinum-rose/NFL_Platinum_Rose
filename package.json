@@ -11,6 +11,8 @@
     "update-schedule": "node scripts/update-schedule.js",
     "ingest-schedule": "node agents/schedule-ingest.js --year 2026 --season-type 2 --start-week 1 --end-week 18",
     "ingest-schedule:full": "node agents/schedule-ingest.js --year 2026 --season-type 2 --start-week 1 --end-week 18 --include-playoffs",
+    "ingest-futures": "node agents/futures-odds-ingest.js --season 2026",
+    "ingest-futures:dry": "node agents/futures-odds-ingest.js --season 2026 --dry-run",
     "test:smoke": "playwright test",
     "resume": "node scripts/gen_resume.js",
     "test": "vitest run",

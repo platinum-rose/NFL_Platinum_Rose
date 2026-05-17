@@ -20,35 +20,87 @@
 //   - dry_run mode
 // ═══════════════════════════════════════════════════════════════════════════════
 
+import { mkdir, writeFile } from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { createClient } from '@supabase/supabase-js';
 import 'dotenv/config';
 
-const MAX_RETRIES     = 3;
-const MAX_RUNTIME_MS  = 90_000;   // 90s — more endpoints than regular agent
-const SNAPSHOT_TTL_DAYS = 30;     // Futures move slowly; keep 30 days of history
+const MAX_RETRIES = 3;
+const MAX_RUNTIME_MS = 90_000; // 90s — more endpoints than regular agent
+const SNAPSHOT_TTL_DAYS = 30; // Futures move slowly; keep 30 days of history
 
-const SUPABASE_URL  = process.env.SUPABASE_URL;
-const SUPABASE_KEY  = process.env.SUPABASE_SERVICE_ROLE_KEY;
-const ODDS_API_KEY  = process.env.ODDS_API_KEY;
-const DRY_RUN       = process.env.DRY_RUN === 'true';
+const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const ODDS_API_KEY = process.env.ODDS_API_KEY;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const ROOT = path.resolve(__dirname, '..');
+const RECEIPTS_DIR = path.join(ROOT, '.nfl', 'receipts');
+
+function getArgValue(flag) {
+  const idx = process.argv.indexOf(flag);
+  if (idx === -1) return null;
+  return process.argv[idx + 1] ?? null;
+}
+
+const ARG_DRY_RUN = process.argv.includes('--dry-run');
+const ARG_SEASON = Number(getArgValue('--season') || new Date().getUTCFullYear());
+const DRY_RUN = ARG_DRY_RUN || process.env.DRY_RUN === 'true';
 
 // ── TheOddsAPI futures sport keys → our market_type labels ───────────────────
 // Each entry costs 2 requests from the API quota.
 const FUTURES_MARKETS = [
   {
-    sportKey:   'americanfootball_nfl_super_bowl_winner',
+    sportKey: 'americanfootball_nfl_super_bowl_winner',
     marketType: 'superbowl',
-    label:      'Super Bowl Winner',
+    label: 'Super Bowl Winner',
   },
   {
-    sportKey:   'americanfootball_nfl_championship_winner',
+    sportKey: 'americanfootball_nfl_championship_winner',
     marketType: 'conference',
-    label:      'Conference Winner',
+    label: 'Conference Winner',
   },
   {
-    sportKey:   'americanfootball_nfl_division_winner',
+    sportKey: 'americanfootball_nfl_division_winner',
     marketType: 'division',
-    label:      'Division Winner',
+    label: 'Division Winner',
+  },
+  {
+    sportKey: 'americanfootball_nfl_regular_season_mvp',
+    marketType: 'award_mvp',
+    label: 'Most Valuable Player',
+  },
+  {
+    sportKey: 'americanfootball_nfl_offensive_player_of_the_year',
+    marketType: 'award_offensive_player_of_year',
+    label: 'Offensive Player of the Year',
+  },
+  {
+    sportKey: 'americanfootball_nfl_defensive_player_of_the_year',
+    marketType: 'award_defensive_player_of_year',
+    label: 'Defensive Player of the Year',
+  },
+  {
+    sportKey: 'americanfootball_nfl_offensive_rookie_of_the_year',
+    marketType: 'award_offensive_rookie_of_year',
+    label: 'Offensive Rookie of the Year',
+  },
+  {
+    sportKey: 'americanfootball_nfl_defensive_rookie_of_the_year',
+    marketType: 'award_defensive_rookie_of_year',
+    label: 'Defensive Rookie of the Year',
+  },
+  {
+    sportKey: 'americanfootball_nfl_comeback_player_of_the_year',
+    marketType: 'award_comeback_player_of_year',
+    label: 'Comeback Player of the Year',
+  },
+  {
+    sportKey: 'americanfootball_nfl_coach_of_the_year',
+    marketType: 'award_coach_of_year',
+    label: 'Coach of the Year',
   },
 ];
 
@@ -72,14 +124,26 @@ async function fetchWithRetry(url, retries = MAX_RETRIES) {
     try {
       const res = await fetch(url);
       if (res.status === 422 || res.status === 404) {
-        // Market not available (offseason / no odds posted yet)
-        console.log(`  ⚠️  ${res.status} — market not available: ${url.split('?')[0].split('/').pop()}`);
-        return null;
+        return {
+          status: 'unavailable',
+          reason: `HTTP ${res.status}`,
+          data: [],
+        };
       }
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return await res.json();
+      return {
+        status: 'available',
+        reason: null,
+        data: await res.json(),
+      };
     } catch (err) {
-      if (attempt === retries) throw err;
+      if (attempt === retries) {
+        return {
+          status: 'error',
+          reason: err.message,
+          data: [],
+        };
+      }
       const delay = attempt * 2000;
       console.log(`  Retry ${attempt}/${retries} in ${delay}ms — ${err.message}`);
       await new Promise(r => setTimeout(r, delay));
@@ -92,11 +156,31 @@ async function fetchWithRetry(url, retries = MAX_RETRIES) {
 // per market (e.g. "Super Bowl Winner"). Each event has bookmakers with
 // market.key === 'outrights', and outcomes where each outcome.name = team name.
 
-function parseOutrights(rawEvents, marketType) {
+function resolveMarketType(baseType, eventTitle = '') {
+  const title = eventTitle.toLowerCase();
+
+  if (baseType === 'conference') {
+    if (title.includes('afc')) return 'conference_afc';
+    if (title.includes('nfc')) return 'conference_nfc';
+  }
+
+  if (baseType === 'division') {
+    const m = title.match(/(afc|nfc)\s+(east|west|north|south)/);
+    if (m) return `division_${m[1]}_${m[2]}`;
+  }
+
+  return baseType;
+}
+
+function parseOutrights(rawEvents, marketType, season, capturedAt) {
   const rows = [];
-  const snapshotTime = new Date().toISOString();
 
   for (const event of rawEvents) {
+    const resolvedMarketType = resolveMarketType(
+      marketType,
+      event?.description || event?.title || ''
+    );
+
     for (const book of (event.bookmakers || [])) {
       const outrightMarket = (book.markets || []).find(m => m.key === 'outrights');
       if (!outrightMarket) continue;
@@ -111,12 +195,16 @@ function parseOutrights(rawEvents, marketType) {
         else              impliedProb = Math.abs(odds) / (Math.abs(odds) + 100);
 
         rows.push({
-          snapshot_time: snapshotTime,
-          market_type:   marketType,
+          snapshot_time: capturedAt,
+          market_type: resolvedMarketType,
           team:          outcome.name,
           book:          book.key,
           odds:          Math.round(odds),
           implied_prob:  parseFloat(impliedProb.toFixed(4)),
+          selection: outcome.name,
+          price: Math.round(odds),
+          captured_at: capturedAt,
+          season,
         });
       }
     }
@@ -137,16 +225,52 @@ function validateRows(rows) {
   );
 }
 
+async function writeReceipt(receipt) {
+  await mkdir(RECEIPTS_DIR, { recursive: true });
+  const ts = new Date().toISOString().replace(/[:.]/g, '-');
+  const filePath = path.join(RECEIPTS_DIR, `futures-ingest-${ts}.json`);
+  await writeFile(filePath, `${JSON.stringify(receipt, null, 2)}\n`, 'utf8');
+  return filePath;
+}
+
 // ── Write to Supabase ─────────────────────────────────────────────────────────
 
-async function writeSnapshots(supabase, rows) {
+async function hasEnhancedFuturesSchema(supabase) {
+  const { error } = await supabase
+    .from('futures_odds_snapshots')
+    .select('selection')
+    .limit(1);
+
+  if (error) {
+    const msg = String(error.message || '').toLowerCase();
+    if (msg.includes('column') && msg.includes('selection')) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+async function writeSnapshots(supabase, rows, useEnhancedColumns) {
   if (rows.length === 0) return 0;
 
   // Insert in batches of 200
   const BATCH = 200;
   let written = 0;
   for (let i = 0; i < rows.length; i += BATCH) {
-    const batch = rows.slice(i, i + BATCH);
+    const batch = rows.slice(i, i + BATCH).map(row => {
+      if (useEnhancedColumns) return row;
+
+      return {
+        snapshot_time: row.snapshot_time,
+        market_type: row.market_type,
+        team: row.team,
+        book: row.book,
+        odds: row.odds,
+        implied_prob: row.implied_prob,
+      };
+    });
+
     const { error } = await supabase.from('futures_odds_snapshots').insert(batch);
     if (error) throw new Error(`Supabase insert error: ${error.message}`);
     written += batch.length;
@@ -171,8 +295,12 @@ async function pruneOldSnapshots(supabase) {
 
 async function main() {
   const startTime = Date.now();
+  const runStartedAt = new Date().toISOString();
+  const capturedAt = new Date().toISOString();
   console.log('🏈 FuturesOddsIngestAgent starting…');
-  console.log(`   DRY_RUN=${DRY_RUN} | markets=${FUTURES_MARKETS.length}`);
+  console.log(
+    `   season=${ARG_SEASON} DRY_RUN=${DRY_RUN} | markets=${FUTURES_MARKETS.length}`
+  );
 
   // Validate env — degrade gracefully so GHA runs don't fail-spam
   if (!ODDS_API_KEY) {
@@ -186,8 +314,9 @@ async function main() {
 
   const effectiveDryRun = DRY_RUN || !SUPABASE_URL || !SUPABASE_KEY;
   const supabase = effectiveDryRun ? null : getSupabase();
-  const allRows  = [];
-  let   apiCalls = 0;
+  const allRows = [];
+  let apiCalls = 0;
+  const availability = [];
 
   // Fetch each futures market
   for (const market of FUTURES_MARKETS) {
@@ -202,12 +331,37 @@ async function main() {
       `&apiKey=${ODDS_API_KEY}&oddsFormat=american`;
 
     apiCalls++;
-    const raw = await fetchWithRetry(url);
-    if (!raw) { console.log(`  ⏭  Skipped (no data)`); continue; }
+    const result = await fetchWithRetry(url);
+    if (result.status !== 'available') {
+      const reason = result.reason || 'Unknown';
+      availability.push({
+        market: market.marketType,
+        label: market.label,
+        sportKey: market.sportKey,
+        status: result.status,
+        reason,
+        events: 0,
+        rows: 0,
+      });
+      console.log(`  ⏭  ${result.status}: ${reason}`);
+      continue;
+    }
 
-    const parsed   = parseOutrights(raw, market.marketType);
-    const valid    = validateRows(parsed);
-    const invalid  = parsed.length - valid.length;
+    const raw = result.data;
+
+    const parsed = parseOutrights(raw, market.marketType, ARG_SEASON, capturedAt);
+    const valid = validateRows(parsed);
+    const invalid = parsed.length - valid.length;
+
+    availability.push({
+      market: market.marketType,
+      label: market.label,
+      sportKey: market.sportKey,
+      status: 'available',
+      reason: null,
+      events: raw.length,
+      rows: valid.length,
+    });
 
     console.log(`  📥 ${raw.length} event(s), ${valid.length} rows (${invalid} invalid)`);
     if (invalid > 0) console.warn(`  ⚠️  ${invalid} rows failed validation`);
@@ -226,9 +380,24 @@ async function main() {
 
   console.log(`\n📋 Total rows collected: ${allRows.length} (${apiCalls} API calls)`);
 
+  const receipt = {
+    run_started_at: runStartedAt,
+    captured_at: capturedAt,
+    completed_at: new Date().toISOString(),
+    season: ARG_SEASON,
+    dry_run: effectiveDryRun,
+    api_calls: apiCalls,
+    total_rows: allRows.length,
+    available_markets: availability.filter(x => x.status === 'available').length,
+    unavailable_markets: availability.filter(x => x.status !== 'available').length,
+    markets: availability,
+  };
+
   if (effectiveDryRun) {
     console.log('🔍 DRY RUN — skipping Supabase write. Sample output:');
     console.table(allRows.slice(0, 10));
+    const receiptPath = await writeReceipt(receipt);
+    console.log(`🧾 Run receipt: ${receiptPath}`);
     console.log('✅ Dry run complete.');
     return;
   }
@@ -240,11 +409,19 @@ async function main() {
 
   // Write to Supabase
   console.log('\n💾 Writing to Supabase…');
-  const written = await writeSnapshots(supabase, allRows);
+  const hasEnhancedSchema = await hasEnhancedFuturesSchema(supabase);
+  if (!hasEnhancedSchema) {
+    console.log('  ℹ️  Enhanced DS-3 columns not present yet; writing legacy-compatible rows only.');
+  }
+
+  const written = await writeSnapshots(supabase, allRows, hasEnhancedSchema);
   console.log(`  ✅ Wrote ${written} rows to futures_odds_snapshots`);
 
   // Prune old data
   await pruneOldSnapshots(supabase);
+
+  const receiptPath = await writeReceipt(receipt);
+  console.log(`🧾 Run receipt: ${receiptPath}`);
 
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
   console.log(`\n✅ FuturesOddsIngestAgent done in ${elapsed}s`);
