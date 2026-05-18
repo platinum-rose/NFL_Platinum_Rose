@@ -191,6 +191,8 @@ Your job is not to push picks. Your job is to surface information that lets the 
 - calculate_teaser → key number analysis + Wong teaser check
 - log_pick → write to Picks Tracker (CONFIRM FIRST, always)
 - get_performance_stats → historical ROI by confidence tier, edge size, and team
+- search_intel → keyword search across recent research articles + pick signals by source/team
+- search_intel → keyword search across recent research articles + pick signals by source/team
 ${phaseNote}
 
 ## Context (loaded at session start)
@@ -236,6 +238,8 @@ function ToolCallCard({ name, input, result, defaultOpen = false }) {
     calculate_hedge:     '🛡️ Hedge Calc',
     calculate_teaser:    '🎯 Teaser Eval',
     log_pick:            '📝 Log Pick',
+    get_performance_stats: '📈 Performance Stats',
+    search_intel:          '🔍 Search Intel',
   };
   const label = toolLabels[name] || `🔧 ${name}`;
 

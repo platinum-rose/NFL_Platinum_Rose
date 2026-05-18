@@ -10,6 +10,7 @@ import { describe, it, expect, vi } from 'vitest';
 vi.mock('../../src/lib/supabase.js', () => ({
   getLatestOddsSnapshot: vi.fn(async () => null),
   getLineMovementsDB: vi.fn(async () => []),
+  searchResearchIntel: vi.fn(async () => ({ notes: [], signals: [] })),
   supabase: null,
 }));
 
@@ -54,8 +55,8 @@ import {
 
 describe('agentTools', () => {
   describe('BETTING_TOOLS', () => {
-    it('exports exactly 8 tools', () => {
-      expect(BETTING_TOOLS).toHaveLength(8);
+    it('exports exactly 9 tools', () => {
+      expect(BETTING_TOOLS).toHaveLength(9);
     });
 
     it('each tool has name, description, and input_schema', () => {
@@ -78,6 +79,7 @@ describe('agentTools', () => {
         'get_odds',
         'get_performance_stats',
         'log_pick',
+        'search_intel',
       ]);
     });
 
@@ -186,5 +188,53 @@ describe('agentTools', () => {
         expect(result.by_team[0]).toHaveProperty('winRate');
       }
     });
+
+    it('search_intel returns no_results when mock returns empty', async () => {
+      const result = await executeTool('search_intel', { query: 'Chiefs' });
+      expect(result).toHaveProperty('status', 'no_results');
+      expect(result.query).toBe('Chiefs');
+      expect(result).toHaveProperty('message');
+    });
+
+    it('search_intel returns error when query is missing', async () => {
+      const result = await executeTool('search_intel', {});
+      expect(result).toHaveProperty('error');
+    });
+
+    it('search_intel passes source filter through', async () => {
+      const { searchResearchIntel } = await import('../../src/lib/supabase.js');
+      await executeTool('search_intel', { query: 'Bills', source: 'VSiN', hours: 48 });
+      expect(searchResearchIntel).toHaveBeenCalledWith(
+        'Bills',
+        expect.objectContaining({ source: 'VSiN', hours: 48 }),
+      );
+    });
+
+    it('search_intel with results returns articles array', async () => {
+      const { searchResearchIntel } = await import('../../src/lib/supabase.js');
+      searchResearchIntel.mockResolvedValueOnce({
+        notes: [{
+          id: 1,
+          source: 'Action Network',
+          title: 'Chiefs look strong',
+          summary: 'Kansas City offense rolling',
+          url: 'https://example.com/1',
+          published_at: '2026-05-17T10:00:00Z',
+          confidence: 0.74,
+        }],
+        signals: [{
+          note_id: 1,
+          lean: 'KC -3.5',
+          bet_type: 'spread',
+          confidence: 0.66,
+        }],
+      });
+      const result = await executeTool('search_intel', { query: 'Chiefs' });
+      expect(result.result_count).toBe(1);
+      expect(result.articles[0].source).toBe('Action Network');
+      expect(result.articles[0].pick_signals).toHaveLength(1);
+      expect(result.articles[0].pick_signals[0].lean).toBe('KC -3.5');
+    });
+
   });
 });

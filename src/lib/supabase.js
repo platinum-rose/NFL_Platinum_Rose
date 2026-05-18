@@ -279,6 +279,53 @@ export async function getRecentResearchPickSignals(hours = 72, limit = 300) {
 }
 
 /**
+ * Search research intel notes by keyword across title and summary.
+ * Used by the BETTING agent's search_intel tool for mid-conversation lookups.
+ * @param {string} query — keyword or team name
+ * @param {object} opts
+ * @param {string} [opts.source] — filter to a single source
+ * @param {number} [opts.hours=168] — lookback window (default 7 days)
+ * @param {number} [opts.limit=5] — max notes to return
+ * @returns {{ notes: Array, signals: Array }}
+ */
+export async function searchResearchIntel(query, { source, hours = 168, limit = 5 } = {}) {
+  if (!isAvailable()) return { notes: [], signals: [] };
+  try {
+    const cutoff = new Date(Date.now() - hours * 60 * 60 * 1000).toISOString();
+    const term = `%${query}%`;
+
+    let notesQuery = supabase
+      .from('research_intel_notes')
+      .select('id, source, title, summary, url, published_at, confidence, captured_at')
+      .gte('captured_at', cutoff)
+      .or(`title.ilike.${term},summary.ilike.${term}`)
+      .order('captured_at', { ascending: false })
+      .limit(Math.min(limit, 10));
+
+    if (source) notesQuery = notesQuery.eq('source', source);
+
+    const { data: notes, error } = await notesQuery;
+    if (error || !notes) return { notes: [], signals: [] };
+
+    // Fetch pick signals attached to matched notes
+    let signals = [];
+    if (notes.length > 0) {
+      const noteIds = notes.map(n => n.id);
+      const { data: sigData } = await supabase
+        .from('research_pick_signals')
+        .select('note_id, source, team_or_market, bet_type, lean, rationale, confidence')
+        .in('note_id', noteIds);
+      signals = sigData || [];
+    }
+
+    return { notes, signals };
+  } catch (e) {
+    console.warn('[supabase] searchResearchIntel failed:', e.message);
+    return { notes: [], signals: [] };
+  }
+}
+
+/**
  * Get game results for auto-grading pending picks.
  * Table: game_results (written by NFLAutoGradeAgent)
  */

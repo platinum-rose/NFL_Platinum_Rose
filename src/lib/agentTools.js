@@ -5,10 +5,10 @@
 //
 // Tools: log_pick · get_odds · get_line_movement · analyze_matchup ·
 //        get_injury_report · calculate_hedge · calculate_teaser ·
-//        get_performance_stats
+//        get_performance_stats · search_intel
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import { getLatestOddsSnapshot, getLineMovementsDB } from './supabase.js';
+import { getLatestOddsSnapshot, getLineMovementsDB, searchResearchIntel } from './supabase.js';
 import {
   addPick,
   calculateStandings,
@@ -213,6 +213,33 @@ export const BETTING_TOOLS = [
       required: [],
     },
   },
+  {
+    name: 'search_intel',
+    description: 'Search recent research articles and pick signals by keyword, team, or source. Use when the Creator asks what a specific outlet said about a team or market (e.g. "what did Action Network say about the Chiefs?", "any VSiN angles on the Bills spread?"). Searches titles and summaries from the last 7 days by default.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        query: {
+          type: 'string',
+          description: 'Keyword, team name, or topic to search for (e.g. "Chiefs", "AFC West", "over")',
+        },
+        source: {
+          type: 'string',
+          enum: ['Action Network', 'BettingPros', 'ESPN NFL', 'VSiN'],
+          description: 'Optional — filter results to a single source',
+        },
+        hours: {
+          type: 'number',
+          description: 'Lookback window in hours (default: 168 = 7 days)',
+        },
+        limit: {
+          type: 'number',
+          description: 'Max articles to return (default: 5, max: 10)',
+        },
+      },
+      required: ['query'],
+    },
+  },
 ];
 
 // ─── Tool Executor ───────────────────────────────────────────────────────────
@@ -235,6 +262,7 @@ export async function executeTool(name, input) {
     case 'calculate_teaser': return toolCalculateTeaser(input);
     case 'log_pick':        return toolLogPick(input);
     case 'get_performance_stats': return toolGetPerformanceStats(input);
+    case 'search_intel':        return toolSearchIntel(input);
     default:
       return { error: `Unknown tool: ${name}` };
   }
@@ -641,5 +669,54 @@ function toolGetPerformanceStats({ source } = {}) {
     by_confidence: confBreakdown,
     by_edge: edgeBreakdown,
     by_team: byTeam,
+  };
+}
+
+async function toolSearchIntel({ query, source, hours = 168, limit = 5 } = {}) {
+  if (!query?.trim()) {
+    return { error: 'query is required.' };
+  }
+
+  const { notes, signals } = await searchResearchIntel(query.trim(), {
+    source,
+    hours,
+    limit,
+  });
+
+  if (notes.length === 0) {
+    return {
+      status: 'no_results',
+      query,
+      source: source || 'all sources',
+      window_hours: hours,
+      message: `No articles found matching "${query}" in the last ${hours}h. The intel agent may not have captured content on this topic yet.`,
+    };
+  }
+
+  // Group signals by note id for easy attachment
+  const signalsByNoteId = {};
+  signals.forEach(s => {
+    if (!signalsByNoteId[s.note_id]) signalsByNoteId[s.note_id] = [];
+    signalsByNoteId[s.note_id].push(s);
+  });
+
+  return {
+    query,
+    source: source || 'all sources',
+    window_hours: hours,
+    result_count: notes.length,
+    articles: notes.map(n => ({
+      source: n.source,
+      title: n.title,
+      summary: n.summary,
+      url: n.url,
+      published_at: n.published_at,
+      confidence: n.confidence,
+      pick_signals: (signalsByNoteId[n.id] || []).map(s => ({
+        lean: s.lean,
+        bet_type: s.bet_type,
+        confidence: s.confidence,
+      })),
+    })),
   };
 }
