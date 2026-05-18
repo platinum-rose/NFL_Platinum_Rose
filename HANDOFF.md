@@ -15,7 +15,7 @@
 
 **F-13 — X/Twitter sharp-account ingestion via RSSHub** — commit `4d1125b`
 - `config/sharp-accounts.json` — 8 sharp NFL accounts configured
-- `supabase/migrations/013_x_sharp_tweets.sql` — ⚠️ NOT yet applied (apply before tool works at runtime)
+- `supabase/migrations/013_x_sharp_tweets.sql` — applied ✅
 - `agents/x-sharp-ingest.js` — GHA Node.js agent (RSSHub RSS parsing, dedup via `url_hash`)
 - `.github/workflows/x-sharp-ingest.yml` — schedule: every 4h + hourly on game days
 - `src/lib/supabase.js` — `getRecentSharpTweets` + `searchSharpTweets`
@@ -29,15 +29,11 @@
 
 ## Immediate Next Actions
 
-1. **Apply migration 013** to Supabase before `search_sharp_tweets` tool works at runtime:
-   - Paste `supabase/migrations/013_x_sharp_tweets.sql` into Supabase SQL editor, or
-   - Run `npx supabase db push` (requires Supabase CLI linked to project)
-
-2. **Add `RSSHUB_BASE_URL` secret** to GitHub repo settings (optional — falls back to public `https://rsshub.app`):
+1. **Add `RSSHUB_BASE_URL` secret** to GitHub repo settings (optional — falls back to public `https://rsshub.app`):
    - Settings → Secrets → New repository secret → `RSSHUB_BASE_URL`
    - Self-hosted Docker instance recommended for production (avoids rate limits)
 
-3. **F-14** is the only remaining P2 backlog item.
+2. **F-14** is the only remaining P2 backlog item.
 
 ---
 
