@@ -1,11 +1,11 @@
 # NFL_Dashboard — Session Handoff
 > Fresh-session resume notes. Read this first, then TASK_BOARD.md.
 
-**Date:** 2026-05-17
+**Date:** 2026-05-18
 **Branch:** main
-**HEAD:** `24cacb7`
-**Tests:** 80/80 passing
-**Status:** F-12 complete and committed. Migration 012 applied.
+**HEAD:** `4d1125b`
+**Tests:** 84/84 passing
+**Status:** F-13 complete and committed. Migration 013 created (NOT YET applied to Supabase).
 
 ---
 
@@ -13,31 +13,31 @@
 
 ### What Shipped This Session
 
-**F-12 — NFL Betting Vault (Obsidian + Supabase dual backend)** — commit `24cacb7`
-- `supabase/migrations/012_vault_notes.sql` — applied ✅
-- `src/lib/vaultClient.js` — dual-backend VaultClient; switch via `VITE_VAULT_BACKEND`
-- `src/lib/agentTools.js` — `read_vault_note` + `write_vault_note` tools (11 tools total)
-- `src/components/agent/AgentChat.jsx` — vault reference notes pre-loaded into system prompt
-- `agents/obsidian-vault-sync.js` — one-shot Obsidian → Supabase sync script
-- 80/80 tests passing
+**F-13 — X/Twitter sharp-account ingestion via RSSHub** — commit `4d1125b`
+- `config/sharp-accounts.json` — 8 sharp NFL accounts configured
+- `supabase/migrations/013_x_sharp_tweets.sql` — ⚠️ NOT yet applied (apply before tool works at runtime)
+- `agents/x-sharp-ingest.js` — GHA Node.js agent (RSSHub RSS parsing, dedup via `url_hash`)
+- `.github/workflows/x-sharp-ingest.yml` — schedule: every 4h + hourly on game days
+- `src/lib/supabase.js` — `getRecentSharpTweets` + `searchSharpTweets`
+- `src/lib/agentTools.js` — `search_sharp_tweets` tool (12 tools total)
+- `src/components/agent/AgentChat.jsx` — sharp tweets injected into system prompt
+- 84/84 tests passing
 
-**DS-5, F-11 Ph.2, F-15** — committed `fc706f4` (prior session), migrations 010+011 applied
+> **F-12 (DONE)** — commit `24cacb7` — vault dual-backend + read/write tools
 
 ---
 
 ## Immediate Next Actions
 
-1. **Set env vars for local Obsidian backend** (if testing locally):
-   ```
-   VITE_VAULT_BACKEND=obsidian
-   VITE_OBSIDIAN_API_KEY=<from Obsidian Local REST API plugin>
-   VITE_OBSIDIAN_API_URL=https://localhost:27123
-   ```
-   Install plugin: Community Plugins → Local REST API → Enable → copy API key.
+1. **Apply migration 013** to Supabase before `search_sharp_tweets` tool works at runtime:
+   - Paste `supabase/migrations/013_x_sharp_tweets.sql` into Supabase SQL editor, or
+   - Run `npx supabase db push` (requires Supabase CLI linked to project)
 
-2. **Backlog review** — F-13 (Twitter/X sharp accounts) and F-14 (vault pre-load) are the next P2 items.
+2. **Add `RSSHUB_BASE_URL` secret** to GitHub repo settings (optional — falls back to public `https://rsshub.app`):
+   - Settings → Secrets → New repository secret → `RSSHUB_BASE_URL`
+   - Self-hosted Docker instance recommended for production (avoids rate limits)
 
-3. **Push to remote** when ready — `24cacb7` is committed but not pushed.
+3. **F-14** is the only remaining P2 backlog item.
 
 ---
 
