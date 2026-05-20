@@ -26,7 +26,7 @@
 | F-11 | Intel search tool (`search_intel`) | P1 | ~~Phase 1 — `search_intel` tool in `agentTools.js` + `searchResearchIntel(query, opts)` in `supabase.js`~~ → **Done — see DONE section.** ~~Phase 2 (FTS + body scraping)~~ → **Done — see DONE section.** |
 | F-12 | Hermes/Obsidian NFL betting vault integration | P1 | ~~Read + write path; BETTING agent writes session notes/angles/outcomes to vault post-session; reads coach tendencies/stats/DVOA/EPA at session start~~ → **Done — see DONE section.** |
 | F-13 | Twitter/X sharp-account ingestion | P2 | Creator has dedicated X account for Platinum Rose; follow list of sharp accounts; **DONE — see DONE section** |
-| F-14 | Vault pre-load (reference data) | P2 | Historical stats, team rosters, coaching data, game strategy books into NFL vault; offseason work; blocked on vault path |
+| F-14 | Vault pre-load (reference data) | P2 | Reference data structured as agentskills.io skill docs in `skills/`. Seed skills created: `nfl-coaching-tendencies/` and `nfl-analytical-reference/`. No seed script needed — data is directly discoverable from `skills/`. Expand `references/` subdirs as 2026 season data accumulates. |
 | F-15 | Props auto-grade GHA agent | P3 | ~~Grades nfl_props_picks_v1; parallel to nfl-auto-grade.js~~ → **Done — see DONE section.** |
 
 ### Bugs

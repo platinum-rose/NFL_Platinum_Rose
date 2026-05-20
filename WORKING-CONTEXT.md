@@ -54,13 +54,17 @@ Reference: TASK_BOARD.md, ## Offseason Architecture Vision below
 > Sourced from Creator Q&A session. This is the authoritative direction for all offseason build work.
 > PM Agent: all new task scoping must align with these four pillars.
 
-### Pillar 1 — Hermes/Obsidian NFL Betting Vault
+### Pillar 1 — NFL Betting Vault
 - A **dedicated NFL betting vault** (separate from personal Obsidian second brain) that evolves into a betting brain.
 - **Writes to vault** (after every BETTING session): angles played, outcomes, lessons learned, sharp signals noted.
 - **Reads from vault** (at BETTING agent conversation start): coach historical play-calling tendencies, game theory notes,
   statistical patterns, player season stats, DVOA, EPA, reference material ingested by the Creator.
 - Vault to be pre-loaded this offseason with: historical stats, team rosters, coaching data, game strategy reference books.
-- Integration mechanism: Hermes MCP server (being built with M6). Details TBD pending Hermes architecture finalization.
+- Integration mechanism: **F-12 delivered** — `vaultClient.js` dual-backend (Obsidian REST API + Supabase `vault_notes`);
+  BETTING agent tools `read_vault_note` / `write_vault_note` scoped to `NFL/` prefix.
+- Reference data architecture: **agentskills.io skill documents** in `skills/` directory (not a seed script).
+  Seed skills: `nfl-coaching-tendencies/SKILL.md`, `nfl-analytical-reference/SKILL.md`.
+  Expand `skills/*/references/` subdirs as 2026 season data accumulates.
 
 ### Pillar 2 — Expanded Data Ingestion
 Trusted sources by priority (Creator-confirmed 2026-05-08):
@@ -187,10 +191,11 @@ Success criteria:
 
 None.
 
-## Open Questions (blocking architecture finalization — 2026-05-08)
+## Open Questions (2026-05-08 — STATUS NOTES)
 
-1. **Hermes/Obsidian**: What is the current Hermes MCP server integration pattern? What vault path will
-   the NFL betting vault live at? What note format (frontmatter schema)?
+1. ~~**Hermes/Obsidian**~~: **RESOLVED (2026-05-20)** — F-12 delivered `vaultClient.js` with
+   Obsidian REST API + Supabase `vault_notes` backends. No Hermes MCP server needed.
+   Reference data lives in `skills/` as agentskills.io skill documents.
 2. **Twitter/X**: Does Creator have X API access (Basic/Premium tier)? Or is sharp-account ingestion
    a manual curation workflow via the dedicated account?
 3. **Article ingestion**: Action Network / BettingPros / VSiN — do any of these have usable RSS feeds,
@@ -221,11 +226,10 @@ Remote: origin/main synced
 **Vision locked (2026-05-08). Offseason build sequence targets Week 1 readiness.**
 Four open architecture questions must be answered before full task breakdown (see ## Open Questions above).
 
-Pending answers, work can begin on:
+Pending answers to open questions 2–4, work continues on:
 
 1. **F-9 Sunday Slate Briefing mode** — proactive BETTING agent entry point (Pillar 3)
-2. **F-10 Performance feedback loop** — ROI aggregation by bet type/team/situation (Pillar 4)
-3. **F-11 Article ingestion pipeline** — Action Network / BettingPros / VSiN written content (Pillar 2)
-4. **F-12 Hermes/Obsidian NFL vault integration** — read + write path (Pillar 1; blocked on open Q #1)
+2. **F-14 Reference data expansion** — add `references/` subdir data to existing seed skills as 2026
+   season data accumulates (Pillar 1)
 
 Run `npm run resume` to generate canonical resume command at session start.
