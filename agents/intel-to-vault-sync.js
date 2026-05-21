@@ -343,11 +343,14 @@ async function main() {
 
     const intelSection = buildIntelSection(abbr, teamArticles, teamTweets, weekLabel);
     const rawContent   = spliceIntelSection(existing, intelSection);
-    // Strip control chars and surrogate pairs (emoji) that PostgREST rejects
-    // as invalid JSON. Surrogate pairs (e.g. 🏀 = \uD83C\uDFC0) trigger PGRST102.
+    // Strip control chars and ALL surrogate code units before upserting.
+    // PostgREST / JSON.stringify both reject lone surrogates (PGRST102).
+    // Lone surrogates can arise when trunc() slices mid-emoji (e.g. cutting
+    // the 2-code-unit pair \uD83C\uDFC0 for 🏀 in half). Strip the entire
+    // U+D800-U+DFFF range so both complete pairs and lone orphans are removed.
     const newContent   = rawContent
-      .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '')       // control chars
-      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, '');            // surrogate pairs
+      .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '')  // control chars
+      .replace(/[\uD800-\uDFFF]/g, '');                     // all surrogate code units
 
     if (DRY_RUN) {
       console.log(`  [DRY RUN] ${vaultPath} — ${teamArticles.length} articles, ${teamTweets.length} tweets`);
