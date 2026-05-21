@@ -42,6 +42,9 @@ const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const DRY_RUN      = process.argv.includes('--dry-run') || process.env.DRY_RUN === 'true';
 const DAYS         = Number(process.env.INTEL_LOOKBACK_DAYS || 7);
 const MAX_ITEMS    = Number(process.env.INTEL_MAX_ITEMS_PER_TEAM || 10);
+// Injury lookback: default matches intel window, but injuries are kept longer
+// since an IR-stash from 3 weeks ago is still relevant game context.
+const INJ_DAYS     = Number(process.env.INJURY_LOOKBACK_DAYS || 21);
 
 const weekArg  = process.argv.indexOf('--week');
 const WEEK     = weekArg !== -1 ? Number(process.argv[weekArg + 1]) : null;
@@ -168,9 +171,32 @@ function spliceIntelSection(existingContent, newSection) {
   return existingContent.slice(0, headerIdx) + '\n' + newSection + '\n';
 }
 
+// Priority order for injury status rendering (lower = more urgent)
+const INJURY_STATUS_ORDER = {
+  Out: 0, 'Injured Reserve': 1, IR: 1, PUP: 2, Suspension: 2,
+  Doubtful: 3, Questionable: 4, Probable: 5, Active: 6,
+};
+
 /** Build the markdown for the intel section for one team. */
-function buildIntelSection(abbr, articles, tweets, weekLabel) {
+function buildIntelSection(abbr, articles, tweets, injuries, weekLabel) {
   const lines = [`${INTEL_SECTION_HEADER}`, ``, `_Auto-updated: ${nowIso()}${weekLabel ? ` (${weekLabel})` : ''}_`, ``];
+
+  // ── Injuries (F-19) ──────────────────────────────────────────────────────
+  if (injuries && injuries.length > 0) {
+    const sorted = [...injuries].sort((a, b) => {
+      const pa = INJURY_STATUS_ORDER[a.injury_status] ?? 99;
+      const pb = INJURY_STATUS_ORDER[b.injury_status] ?? 99;
+      return pa !== pb ? pa - pb : (b.reported_at || '').localeCompare(a.reported_at || '');
+    });
+    lines.push('### Injuries');
+    for (const inj of sorted) {
+      const type    = inj.injury_type ? ` (${inj.injury_type})` : '';
+      const pos     = inj.position ? `${inj.position} ` : '';
+      const snippet = inj.short_comment ? ` — ${trunc(inj.short_comment, 140)}` : '';
+      lines.push(`- **[${inj.injury_status}]** ${pos}${inj.player_name}${type}${snippet}`);
+    }
+    lines.push('');
+  }
 
   // F-17: separate analytical long-reads from betting/news articles
   const analyticalArticles = articles.filter(a => a.source_type === 'analytical');
@@ -212,7 +238,7 @@ function buildIntelSection(abbr, articles, tweets, weekLabel) {
     lines.push('');
   }
 
-  if (articles.length === 0 && tweets.length === 0) {
+  if (articles.length === 0 && tweets.length === 0 && (!injuries || injuries.length === 0)) {
     lines.push(`_No new intel in the past ${DAYS} days._`);
     lines.push('');
   }
@@ -290,7 +316,14 @@ async function main() {
 
   // ── Fetch intel ─────────────────────────────────────────────────────────────
 
-  const [articlesRes, tweetsRes] = await Promise.all([
+  // Injury lookback is wider than intel lookback (IR stash is relevant for weeks)
+  const injCutoff = (() => {
+    const d = new Date();
+    d.setDate(d.getDate() - INJ_DAYS);
+    return d.toISOString();
+  })();
+
+  const [articlesRes, tweetsRes, injuriesRes] = await Promise.all([
     supabase
       .from('research_intel_notes')
       .select('id, source, source_type, url, title, summary, published_at')
@@ -303,14 +336,31 @@ async function main() {
       .gte('captured_at', cutoff)
       .order('published_at', { ascending: false })
       .limit(500),
+    supabase
+      .from('player_injuries')
+      .select('espn_player_id, player_name, team_abbr, position, injury_status, injury_type, short_comment, reported_at')
+      .or(`injury_status.neq.Active,reported_at.gte.${injCutoff}`)
+      .order('reported_at', { ascending: false })
+      .limit(1000),
   ]);
 
   if (articlesRes.error) throw new Error(`Articles fetch: ${articlesRes.error.message}`);
   if (tweetsRes.error)   throw new Error(`Tweets fetch: ${tweetsRes.error.message}`);
+  if (injuriesRes.error) console.warn(`  [WARN] Injuries fetch: ${injuriesRes.error.message}`);
 
   const articles = articlesRes.data || [];
   const tweets   = tweetsRes.data   || [];
-  console.log(`  Fetched ${articles.length} articles, ${tweets.length} tweets`);
+  const allInjuries = injuriesRes.data || [];
+  console.log(`  Fetched ${articles.length} articles, ${tweets.length} tweets, ${allInjuries.length} injury records`);
+
+  // Build injuryMap: team_abbr → injury rows
+  const injuryMap = {};
+  for (const inj of allInjuries) {
+    const abbr = inj.team_abbr;
+    if (!abbr) continue;
+    if (!injuryMap[abbr]) injuryMap[abbr] = [];
+    injuryMap[abbr].push(inj);
+  }
 
   // ── Map to teams ────────────────────────────────────────────────────────────
 
@@ -370,7 +420,8 @@ async function main() {
     }
     if (noteRow) existing = noteRow.content || '';
 
-    const intelSection = buildIntelSection(abbr, teamArticles, teamTweets, weekLabel);
+    const teamInjuries = injuryMap[abbr] || [];
+    const intelSection = buildIntelSection(abbr, teamArticles, teamTweets, teamInjuries, weekLabel);
     const rawContent   = spliceIntelSection(existing, intelSection);
     // Strip control chars and ALL surrogate code units before upserting.
     // PostgREST / JSON.stringify both reject lone surrogates (PGRST102).
