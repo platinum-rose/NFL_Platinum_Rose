@@ -31,6 +31,9 @@ import {
   getRecentResearchIntelNotes,
   getRecentResearchPickSignals,
   getRecentSharpTweets,
+  getRecentPlayerInjuries,
+  getLatestWeekOdds,
+  getGameSplitsForWeek,
 } from '../../lib/supabase.js';
 import { loadReferenceNotes } from '../../lib/vaultClient.js';
 
@@ -155,7 +158,95 @@ function buildIntelSummary(intelData) {
   return lines.join('\n');
 }
 
-function buildSystemPrompt(picks, bankrollData, futuresData, schedule, intelData = null, vaultNotes = null, sharpTweets = null) {
+/**
+ * Build a grouped injury report block for the system prompt.
+ * Shows Out/Doubtful/Questionable/IR/PUP players grouped by team.
+ */
+function buildInjurySummary(injuries) {
+  if (!injuries?.length) return '  None reported (offseason or data pending).';
+  const byTeam = {};
+  for (const p of injuries) {
+    if (!byTeam[p.team_abbr]) byTeam[p.team_abbr] = [];
+    byTeam[p.team_abbr].push(p);
+  }
+  return Object.entries(byTeam)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([team, players]) =>
+      `  ${team}: ` +
+      players
+        .map(p =>
+          `${p.player_name} (${p.position || '?'}) — ` +
+          `${p.injury_status}${p.injury_type ? ` [${p.injury_type}]` : ''}`,
+        )
+        .join(', '),
+    )
+    .join('\n');
+}
+
+/**
+ * Build a compact current-lines block for the system prompt.
+ * Shows one row per game (spread + O/U) from the latest odds snapshot.
+ */
+function buildOddsSummary(odds) {
+  if (!odds?.length) {
+    return '  No lines available (offseason or ingest pending).';
+  }
+  const games = {};
+  for (const row of odds) {
+    if (!games[row.game_id]) {
+      games[row.game_id] = {
+        home: row.home_team, away: row.away_team,
+        commence: row.commence_time,
+      };
+    }
+    if (row.market === 'spread') {
+      games[row.game_id].spread = row.spread;
+      games[row.game_id].homePrice = row.home_price;
+      games[row.game_id].awayPrice = row.away_price;
+    }
+    if (row.market === 'total') {
+      games[row.game_id].total = row.total;
+    }
+    if (row.market === 'moneyline') {
+      games[row.game_id].mlHome = row.home_price;
+      games[row.game_id].mlAway = row.away_price;
+    }
+  }
+  return Object.values(games)
+    .map(g => {
+      const parts = [`  ${g.away} @ ${g.home}`];
+      if (g.spread != null) {
+        const favSign = g.spread <= 0 ? '' : '+';
+        parts.push(
+          `Spread: ${g.away} ${g.spread > 0 ? '+' : ''}${-g.spread} ` +
+          `(${g.awayPrice > 0 ? '+' : ''}${g.awayPrice ?? '?'})`,
+        );
+      }
+      if (g.total != null) parts.push(`O/U ${g.total}`);
+      return parts.join(' | ');
+    })
+    .join('\n');
+}
+
+/**
+ * Build a compact betting-splits block for the system prompt.
+ * Shows ticket% vs money% per game to surface sharp divergence.
+ */
+function buildSplitsSummary(splits) {
+  if (!splits?.length) return '  No splits data (offseason or ingest pending).';
+  return splits
+    .map(r => {
+      const homeT = r.spread_home_bettors != null ? `${r.spread_home_bettors}%t` : '--';
+      const homeM = r.spread_home_money   != null ? `${r.spread_home_money}%$`  : '--';
+      const ovrT  = r.total_over_bettors  != null ? `${r.total_over_bettors}%t` : '--';
+      const ovrM  = r.total_over_money    != null ? `${r.total_over_money}%$`   : '--';
+      return `  ${r.away_team} @ ${r.home_team} | ` +
+             `Spread home ${homeT}/${homeM} | O/U over ${ovrT}/${ovrM}`;
+    })
+    .join('\n');
+}
+
+function buildSystemPrompt(picks, bankrollData, futuresData, schedule, intelData = null, vaultNotes = null, sharpTweets = null, injuryData = null, currentOdds = null, splitsData = null) {
   const openPicks = (picks || []).filter(p => p.result === 'PENDING');
   const { label: weekLabel, phase } = getNFLWeekInfo();
   const today = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
@@ -228,6 +319,15 @@ ${sharpTweets && sharpTweets.length > 0 ? `
 ${sharpTweets.slice(0, 8).map(t => `  @${t.author_handle}: ${t.text.slice(0, 200)}${t.text.length > 200 ? '…' : ''}`).join('\n').slice(0, 2000)}` : ''}
 ${vaultNotes ? `\n### Vault Reference Notes (pre-loaded):\n${vaultNotes.slice(0, 3000)}` : ''}
 
+### Recent Injuries (Out/Doubtful/Questionable/IR/PUP):
+${buildInjurySummary(injuryData)}
+
+### Current Lines (Week ${getNFLWeekInfo().week || 'Offseason'}):
+${buildOddsSummary(currentOdds)}
+
+### Betting Splits — Public Action Network (Week ${getNFLWeekInfo().week || 'Offseason'}):
+${buildSplitsSummary(splitsData)}
+
 ### Upcoming Schedule:
 ${upcomingGames || '  No schedule data loaded'}
 
@@ -251,6 +351,7 @@ function ToolCallCard({ name, input, result, defaultOpen = false }) {
     search_sharp_tweets:   '🐦 Sharp Tweets',
     read_vault_note:       '📖 Read Vault Note',
     write_vault_note:      '📝 Write Vault Note',
+    get_betting_splits:    '📊 Betting Splits',
   };
   const label = toolLabels[name] || `🔧 ${name}`;
 
@@ -505,15 +606,22 @@ export default function AgentChat() {
         if (resp.ok) schedule = await resp.json();
       } catch { /* non-fatal */ }
 
-      const [intelNotes, intelSignals, vaultNotes, sharpTweets] = await Promise.all([
+      const [intelNotes, intelSignals, vaultNotes, sharpTweets, injuries, weekOdds, gameSplits] = await Promise.all([
         getRecentResearchIntelNotes(72, 200),
         getRecentResearchPickSignals(72, 50),
         loadReferenceNotes(),
         getRecentSharpTweets(48, 30),
+        getRecentPlayerInjuries(168, 100),
+        getLatestWeekOdds(getNFLWeekInfo().week),
+        getGameSplitsForWeek(getNFLWeekInfo().week),
       ]);
       const intelData = { notes: intelNotes, signals: intelSignals };
 
-      systemPromptRef.current = buildSystemPrompt(picks, bankroll, futures, schedule, intelData, vaultNotes || null, sharpTweets || null);
+      systemPromptRef.current = buildSystemPrompt(
+        picks, bankroll, futures, schedule,
+        intelData, vaultNotes || null, sharpTweets || null,
+        injuries || null, weekOdds || null, gameSplits || null,
+      );
       setContextLoaded(true);
     }
     loadContext();

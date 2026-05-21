@@ -65,8 +65,8 @@ import {
 
 describe('agentTools', () => {
   describe('BETTING_TOOLS', () => {
-    it('exports exactly 12 tools', () => {
-      expect(BETTING_TOOLS).toHaveLength(12);
+    it('exports exactly 13 tools', () => {
+      expect(BETTING_TOOLS).toHaveLength(13);
     });
 
     it('each tool has name, description, and input_schema', () => {
@@ -84,6 +84,7 @@ describe('agentTools', () => {
         'analyze_matchup',
         'calculate_hedge',
         'calculate_teaser',
+        'get_betting_splits',
         'get_injury_report',
         'get_line_movement',
         'get_odds',

@@ -720,3 +720,108 @@ export async function searchSharpTweets(query, { handle, tier, hours = 168, limi
     return [];
   }
 }
+
+/**
+ * Get recent significant player injuries for BETTING agent pre-load.
+ * Returns Out/Doubtful/Questionable/IR/PUP players captured within the
+ * last N hours.  Used as the `### Recent Injuries` context block.
+ * @param {number} hours  — lookback window (default 168 = 7 days)
+ * @param {number} limit  — max rows (default 100)
+ */
+export async function getRecentPlayerInjuries(hours = 168, limit = 100) {
+  if (!isAvailable()) return [];
+  try {
+    const cutoff = new Date(
+      Date.now() - hours * 60 * 60 * 1000,
+    ).toISOString();
+    const { data, error } = await supabase
+      .from('player_injuries')
+      .select(
+        'player_name, team_abbr, position, injury_status, ' +
+        'injury_type, short_comment, reported_at',
+      )
+      .in('injury_status', ['Out', 'Doubtful', 'Questionable', 'IR', 'PUP'])
+      .gte('captured_at', cutoff)
+      .order('reported_at', { ascending: false })
+      .limit(limit);
+    if (error || !data) return [];
+    return data;
+  } catch (e) {
+    console.warn('[supabase] getRecentPlayerInjuries failed:', e.message);
+    return [];
+  }
+}
+
+/**
+ * Get the latest odds snapshot for a specific NFL week.
+ * Deduplicates to one row per (game_id, market): most-recent capture wins,
+ * with DraftKings preferred over other books for consistency.
+ * Returns empty array during offseason / before data is available.
+ * @param {number} week    — NFL week number (0 or falsy → returns [])
+ * @param {number} season  — NFL season year (default 2026)
+ */
+export async function getLatestWeekOdds(week, season = 2026) {
+  if (!isAvailable() || !week) return [];
+  try {
+    const { data, error } = await supabase
+      .from('game_odds_snapshots')
+      .select(
+        'game_id, home_team, away_team, commence_time, book, ' +
+        'market, home_price, away_price, spread, total, captured_at',
+      )
+      .eq('season', season)
+      .eq('week', week)
+      .order('captured_at', { ascending: false })
+      .limit(500);
+    if (error || !data) return [];
+
+    // Deduplicate: data is already sorted newest-first.
+    // First pass: collect DraftKings rows (preferred book).
+    // Second pass: fill any remaining gaps with the first available book.
+    const seen = new Map();
+    for (const row of data) {
+      if (row.book === 'draftkings') {
+        const key = `${row.game_id}|${row.market}`;
+        if (!seen.has(key)) seen.set(key, row);
+      }
+    }
+    for (const row of data) {
+      const key = `${row.game_id}|${row.market}`;
+      if (!seen.has(key)) seen.set(key, row);
+    }
+    return [...seen.values()];
+  } catch (e) {
+    console.warn('[supabase] getLatestWeekOdds failed:', e.message);
+    return [];
+  }
+}
+
+// F-21: Game-level betting splits from Action Network
+// Returns one row per game for the given week — the most recent upserted snapshot.
+// Each row: { game_id, home_team, away_team, week,
+//             spread_home_bettors, spread_home_money,
+//             total_over_bettors,  total_over_money,
+//             ml_home_bettors,     ml_home_money,
+//             captured_at }
+export async function getGameSplitsForWeek(week, season = 2026) {
+  if (!isAvailable() || !week) return [];
+  try {
+    const { data, error } = await supabase
+      .from('game_splits')
+      .select([
+        'game_id', 'home_team', 'away_team', 'week',
+        'spread_home_bettors', 'spread_home_money',
+        'total_over_bettors',  'total_over_money',
+        'ml_home_bettors',     'ml_home_money',
+        'captured_at',
+      ].join(', '))
+      .eq('season', season)
+      .eq('week', week)
+      .order('captured_at', { ascending: false });
+    if (error) throw error;
+    return data || [];
+  } catch (e) {
+    console.warn('[supabase] getGameSplitsForWeek failed:', e.message);
+    return [];
+  }
+}

@@ -1,0 +1,78 @@
+# BettingSplitsIngestAgent — fetches public bettor% and money% from Action Network
+#
+# No API key required — Action Network has a public NFL games endpoint.
+#
+# Required repo secrets (Settings > Secrets > Actions):
+#   SUPABASE_URL              — https://aambmuzfcojxqvbzhngp.supabase.co
+#   SUPABASE_SERVICE_ROLE_KEY — service_role JWT
+#
+# Schedule:
+#   Offseason: once daily (9 AM UTC) — keeps infra warm, handles empty response
+#   Game week (Tue–Sat): 3×/day — captures splits as they develop
+#   Game days (Sun/Mon/Thu): every 2h — tracks sharp money movement pre-kickoff
+#
+# Offseason behavior:
+#   Action Network returns an empty games array when no NFL lines are posted.
+#   The agent handles this gracefully — logs and exits 0, no error/noise.
+
+name: Betting Splits Ingest
+
+on:
+  schedule:
+    # Game days (Sun, Mon, Thu) — every 2 hours for live line tracking
+    - cron: '0 */2 * * 0'
+    - cron: '0 */2 * * 1'
+    - cron: '0 */2 * * 4'
+    # Game week build-up (Tue, Wed, Fri, Sat) — 3×/day
+    - cron: '0 9,15,21 * * 2,3,5,6'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (fetch + parse only, no Supabase writes)'
+        required: false
+        default: false
+        type: boolean
+      dump:
+        description: 'Dump first game object from AN API (schema inspection)'
+        required: false
+        default: false
+        type: boolean
+      season:
+        description: 'Season year override (default: current year)'
+        required: false
+        default: ''
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  betting-splits-ingest:
+    name: Fetch AN betting splits + upsert game_splits
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run betting splits ingest
+        env:
+          SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          DRY_RUN:    ${{ inputs.dry_run  == true && 'true' || 'false' }}
+          SPLITS_SEASON: ${{ inputs.season != '' && inputs.season || '' }}
+        run: |
+          ARGS=""
+          if [ "${{ inputs.dump }}" = "true" ]; then ARGS="$ARGS --dump"; fi
+          if [ -n "${{ inputs.season }}" ]; then ARGS="$ARGS --season ${{ inputs.season }}"; fi
+          node agents/betting-splits-ingest.js $ARGS

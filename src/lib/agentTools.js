@@ -6,10 +6,10 @@
 // Tools: log_pick · get_odds · get_line_movement · analyze_matchup ·
 //        get_injury_report · calculate_hedge · calculate_teaser ·
 //        get_performance_stats · search_intel · search_sharp_tweets ·
-//        read_vault_note · write_vault_note
+//        read_vault_note · write_vault_note · get_betting_splits
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import { getLatestOddsSnapshot, getLineMovementsDB, searchResearchIntel, searchSharpTweets } from './supabase.js';
+import { getLatestOddsSnapshot, getLineMovementsDB, searchResearchIntel, searchSharpTweets, getGameSplitsForWeek } from './supabase.js';
 import { readVaultNote, writeVaultNote, todaySessionPath } from './vaultClient.js';
 import {
   addPick,
@@ -280,6 +280,24 @@ export const BETTING_TOOLS = [
     },
   },
   {
+    name: 'get_betting_splits',
+    description: 'Retrieve current betting splits (public bettor% and public money%) for this week\'s NFL games from Action Network. Use to identify sharp vs. public divergence: when money% differs significantly from ticket%, sharp money is on the minority side. Call this before any pick that hinges on contrarian or sharp-money angles.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        team: {
+          type: 'string',
+          description: 'Optional: filter to a specific team (e.g. "KC", "BUF"). Omit to return all games.',
+        },
+        week: {
+          type: 'number',
+          description: 'NFL week number. Omit to use the current week.',
+        },
+      },
+      required: [],
+    },
+  },
+  {
     name: 'search_sharp_tweets',
     description: 'Search recent tweets from tracked sharp NFL accounts (Warren Sharp, VSiN, Action Network, PFF, BettingPros, and others). Use when looking for sharp-money signals, line-move intel, injury reactions, or quick angles that may not yet appear in full articles.',
     input_schema: {
@@ -331,6 +349,7 @@ export async function executeTool(name, input) {
     case 'search_sharp_tweets': return toolSearchSharpTweets(input);
     case 'read_vault_note':     return toolReadVaultNote(input);
     case 'write_vault_note':    return toolWriteVaultNote(input);
+    case 'get_betting_splits': return toolGetBettingSplits(input);
     default:
       return { error: `Unknown tool: ${name}` };
   }
@@ -873,6 +892,81 @@ async function toolWriteVaultNote({ path, content, tags = [] } = {}) {
     path: safePath,
     char_count: content.trim().length,
     tags: tags || [],
-    message: `✅ Note saved to ${safePath}`,
+    message: `\u2705 Note saved to ${safePath}`,
+  };
+}
+
+async function toolGetBettingSplits({ team, week } = {}) {
+  const { getNFLWeekInfo } = await import('./nflWeek.js');
+  const currentWeek = week || getNFLWeekInfo().week;
+
+  if (!currentWeek) {
+    return {
+      status: 'offseason',
+      message: 'No active NFL games — splits are only available during the regular and postseason.',
+      splits: [],
+    };
+  }
+
+  const rows = await getGameSplitsForWeek(currentWeek);
+
+  if (!rows || rows.length === 0) {
+    return {
+      status: 'unavailable',
+      week: currentWeek,
+      message: 'No splits data in database. The betting-splits-ingest agent may not have run yet for this week, or lines have not been posted.',
+      splits: [],
+    };
+  }
+
+  // Optionally filter by team
+  let filtered = rows;
+  if (team && team.trim()) {
+    const q = team.trim().toUpperCase();
+    filtered = rows.filter(r =>
+      r.home_team?.toUpperCase().includes(q) ||
+      r.away_team?.toUpperCase().includes(q),
+    );
+    if (filtered.length === 0) {
+      return {
+        status: 'not_found',
+        week: currentWeek,
+        message: `No game found for team "${team}" in week ${currentWeek}.`,
+        splits: [],
+      };
+    }
+  }
+
+  const formatted = filtered.map(r => ({
+    matchup:       `${r.away_team} @ ${r.home_team}`,
+    game_id:       r.game_id,
+    spread: {
+      home_bettors: r.spread_home_bettors,
+      home_money:   r.spread_home_money,
+      away_bettors: r.spread_home_bettors != null ? 100 - r.spread_home_bettors : null,
+      away_money:   r.spread_home_money   != null ? 100 - r.spread_home_money   : null,
+    },
+    total: {
+      over_bettors:  r.total_over_bettors,
+      over_money:    r.total_over_money,
+      under_bettors: r.total_over_bettors != null ? 100 - r.total_over_bettors : null,
+      under_money:   r.total_over_money   != null ? 100 - r.total_over_money   : null,
+    },
+    moneyline: {
+      home_bettors: r.ml_home_bettors,
+      home_money:   r.ml_home_money,
+      away_bettors: r.ml_home_bettors != null ? 100 - r.ml_home_bettors : null,
+      away_money:   r.ml_home_money   != null ? 100 - r.ml_home_money   : null,
+    },
+    captured_at: r.captured_at,
+  }));
+
+  return {
+    status:  'ok',
+    week:    currentWeek,
+    source:  'actionnetwork',
+    count:   formatted.length,
+    splits:  formatted,
+    note: 'Sharp money divergence signal: when ticket% and money% differ significantly (>15%), the money side represents larger-bet (sharper) action.',
   };
 }
