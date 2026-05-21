@@ -62,7 +62,7 @@ const TEAM_ALIASES = {
   BAL: ['baltimore', 'ravens', 'bal', 'lamar'],
   CLE: ['cleveland', 'browns', 'cle'],
   CIN: ['cincinnati', 'bengals', 'cin', 'who dey'],
-  PIT: ['pittsburgh', 'steelers', 'pit', 'stillers'],
+  PIT: ['pittsburgh', 'steelers', 'pit ', 'stillers'],
   // AFC South
   HOU: ['houston', 'texans', 'hou'],
   TEN: ['tennessee', 'titans', 'ten'],
@@ -77,15 +77,15 @@ const TEAM_ALIASES = {
   DAL: ['dallas', 'cowboys', 'dal', 'america\'s team'],
   NYG: ['new york giants', 'giants', 'nyg', 'big blue'],
   PHI: ['philadelphia', 'eagles', 'phi', 'philly'],
-  WAS: ['washington', 'commanders', 'was', 'washington commanders'],
+  WAS: ['washington', 'commanders', 'was ', 'washington commanders'],
   // NFC North
-  CHI: ['chicago', 'bears', 'chi', 'monsters of the midway'],
+  CHI: ['chicago', 'bears', 'chi ', 'monsters of the midway'],
   DET: ['detroit', 'lions', 'det'],
   GB:  ['green bay', 'packers', 'gb ', 'cheeseheads', 'green bay packers'],
   MIN: ['minnesota', 'vikings', 'min'],
   // NFC South
   ATL: ['atlanta', 'falcons', 'atl'],
-  CAR: ['carolina', 'panthers', 'car'],
+  CAR: ['carolina', 'panthers', 'car '],
   NO:  ['new orleans', 'saints', 'no ', 'nola'],
   TB:  ['tampa bay', 'buccaneers', 'tb ', 'bucs'],
   // NFC West
@@ -343,9 +343,11 @@ async function main() {
 
     const intelSection = buildIntelSection(abbr, teamArticles, teamTweets, weekLabel);
     const rawContent   = spliceIntelSection(existing, intelSection);
-    // Strip null bytes and other control chars (< 0x20 except \n \r \t) that
-    // PostgreSQL rejects inside text sent via JSON-over-PostgREST.
-    const newContent   = rawContent.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '');
+    // Strip control chars and surrogate pairs (emoji) that PostgREST rejects
+    // as invalid JSON. Surrogate pairs (e.g. 🏀 = \uD83C\uDFC0) trigger PGRST102.
+    const newContent   = rawContent
+      .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '')       // control chars
+      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, '');            // surrogate pairs
 
     if (DRY_RUN) {
       console.log(`  [DRY RUN] ${vaultPath} — ${teamArticles.length} articles, ${teamTweets.length} tweets`);
