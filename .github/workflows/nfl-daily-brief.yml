@@ -39,6 +39,6 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           GMAIL_ADDRESS:             ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD:        ${{ secrets.GMAIL_APP_PASSWORD }}
-          TO_EMAIL:                  ${{ inputs.to_email || 'andrewlrose@hotmail.com, andrewlrose@gmail.com' }}
+          TO_EMAIL:                  ${{ inputs.to_email || 'andrewlrose@hotmail.com' }}
           DRY_RUN:                   ${{ inputs.dry_run || 'false' }}
         run: node agents/nfl-daily-brief.js
