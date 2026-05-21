@@ -19,12 +19,15 @@
     "resume": "node scripts/gen_resume.js",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "overnight": "node scripts/overnight.js"
+    "overnight": "node scripts/overnight.js",
+    "daily-brief": "node agents/nfl-daily-brief.js",
+    "daily-brief:dry": "node agents/nfl-daily-brief.js --dry-run"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.98.0",
     "dotenv": "^17.4.2",
     "lucide-react": "^0.562.0",
+    "nodemailer": "^6.9.16",
     "node-fetch": "^3.3.2",
     "papaparse": "^5.5.3",
     "react": "^19.2.0",

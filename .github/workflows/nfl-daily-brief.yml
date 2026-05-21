@@ -1,0 +1,44 @@
+name: NFL Daily Brief
+
+on:
+  schedule:
+    # 14:00 UTC daily = 7:00 AM PST / 10:00 AM EST
+    - cron: '0 14 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (generate brief, skip email send)'
+        type: boolean
+        default: true
+      to_email:
+        description: 'Override recipient email'
+        type: string
+        required: false
+
+jobs:
+  nfl-daily-brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Send NFL Daily Brief
+        env:
+          SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          GMAIL_ADDRESS:             ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD:        ${{ secrets.GMAIL_APP_PASSWORD }}
+          TO_EMAIL:                  ${{ inputs.to_email || 'andrewlrose@hotmail.com' }}
+          DRY_RUN:                   ${{ inputs.dry_run || 'false' }}
+        run: node agents/nfl-daily-brief.js
