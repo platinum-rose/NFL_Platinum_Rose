@@ -14,6 +14,7 @@ import { getBankrollData, saveBankrollData } from './lib/bankroll';
 import { loadUserPicks, loadUserBets } from './lib/supabase';
 
 // --- Components ---
+import AuthGate from './components/auth/AuthGate';
 import Header from './components/layout/Header';
 import Dashboard from './components/dashboard/Dashboard';
 const ExpertLeaderboard = lazy(() => import('./components/dashboard/ExpertLeaderboard'));
@@ -189,4 +190,11 @@ function App() {
     </div>
   );
 }
-export default App;
+
+export default function AppWithAuth() {
+  return (
+    <AuthGate>
+      <App />
+    </AuthGate>
+  );
+}

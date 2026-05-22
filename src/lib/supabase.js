@@ -825,3 +825,45 @@ export async function getGameSplitsForWeek(week, season = 2026) {
     return [];
   }
 }
+
+// ─── Auth helpers ─────────────────────────────────────────────────────────────
+
+/**
+ * Returns the current Supabase session, or null if not signed in.
+ * Safe to call before supabase is initialised.
+ */
+export async function getSession() {
+  if (!isAvailable()) return null;
+  const { data } = await supabase.auth.getSession();
+  return data?.session ?? null;
+}
+
+/**
+ * Sign in with email + password.
+ * @returns {{ session, error }}
+ */
+export async function signIn(email, password) {
+  if (!isAvailable()) return { session: null, error: new Error('Supabase unavailable') };
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+  return { session: data?.session ?? null, error: error ?? null };
+}
+
+/** Sign out the current user and clear the local session. */
+export async function signOut() {
+  if (!isAvailable()) return;
+  await supabase.auth.signOut();
+}
+
+/**
+ * Subscribe to auth state changes.
+ * Returns an unsubscribe function.
+ * @param {(session: import('@supabase/supabase-js').Session|null) => void} callback
+ */
+export function onAuthStateChange(callback) {
+  if (!isAvailable()) return () => {};
+  const { data: { subscription } } = supabase.auth.onAuthStateChange(
+    (_event, session) => callback(session)
+  );
+  return () => subscription.unsubscribe();
+}
+
