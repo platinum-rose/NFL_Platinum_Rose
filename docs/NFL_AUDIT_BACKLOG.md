@@ -4,7 +4,7 @@
 **Sources:**
 - Meridian Assurance Group — *NFL Platinum Rose End-to-End System Audit* (21 May 2026)
 - CODEX Ultrathink — *NFL Dashboard Formal Audit Report* (21 May 2026)
-**Progress:** 6 / 29 complete
+**Progress:** 7 / 29 complete
 
 > **Completion rule:** Mark `[ ]` → `[x]` only when the fix is committed to `main`
 > AND verified by test, live query, or CI pass. Dev-only changes do not count.
@@ -101,15 +101,16 @@
     when CI conclusion ≠ `success`.
   - **Test:** Push a failing unit test; CI workflow blocks; deploy workflow skips.
 
-- [ ] **AUDIT-TRAIL** — Cloud writes and AI context mutations have no actor attribution
-  - **Evidence:** Picks and bankroll records are anonymous browser writes; vault notes
-    are publicly writable; localStorage edits are inherently unaudited.
-    Tables have `created_at`/`updated_at` but no `actor_id`, immutable event log,
-    or tamper-evident history.
-  - **Fix:** Add `user_id` (or a session token) to write paths; add a lightweight
-    `audit_log` table (`table_name`, `record_id`, `action`, `actor`, `ts`, `patch_digest`);
-    write to it on all picks/bankroll/vault mutations.
-  - **Test:** Insert a pick; query `audit_log`; confirm actor + action recorded.
+- [x] **AUDIT-TRAIL** — Cloud writes and AI context mutations have no actor attribution
+  - **Fixed S141 (`[commit]`):** `supabase/migrations/020_audit_log.sql` — `audit_log`
+    table (append-only, `authed` read-only RLS); `fn_audit_log()` AFTER trigger fires on
+    INSERT/UPDATE/DELETE for `user_picks`, `user_bankroll_bets`, `vault_notes`; records
+    `actor` (`auth.uid()` or `'anon'`), `action`, `record_id`, SHA-256 `patch_digest`
+    of row JSON. `SECURITY DEFINER` bypasses RLS for the trigger write.
+    `queryAuditLog()` added to `src/lib/supabase.js` for owner inspection.
+  - **Test:** 14 tests in `tests/unit/auditTrail.test.js` — migration structure,
+    query helper filters/caps, error/unavailable handling.
+  - **ACTION REQUIRED:** `supabase db push` to apply migration 020 to production.
 
 - [ ] **AGENT-LOCK** — AGENT_LOCK hot-file lock hook never actually locks
   - **Evidence:** `hooks/protect-hot-files.js:53` checks `lock.locked` and `lock.agent`

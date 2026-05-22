@@ -869,3 +869,40 @@ export function onAuthStateChange(callback) {
   return () => subscription.unsubscribe();
 }
 
+// ─── F-AUDIT: Audit Log Reader ────────────────────────────────────────────────
+
+/**
+ * Query the audit_log table for recent write events.
+ * Requires an authenticated session (service_role or authed RLS policy).
+ *
+ * @param {object} opts
+ * @param {string}  [opts.tableName]  Filter to a specific table name.
+ * @param {string}  [opts.actor]      Filter to a specific actor (UUID or 'anon').
+ * @param {number}  [opts.limit=50]   Max rows to return.
+ * @returns {Promise<Array<{
+ *   id: number, ts: string, table_name: string, record_id: string,
+ *   action: string, actor: string, patch_digest: string
+ * }>>}
+ */
+export async function queryAuditLog({ tableName, actor, limit = 50 } = {}) {
+  if (!isAvailable()) return [];
+  try {
+    let q = supabase
+      .from('audit_log')
+      .select('id, ts, table_name, record_id, action, actor, patch_digest')
+      .order('ts', { ascending: false })
+      .limit(Math.min(limit, 200));
+
+    if (tableName) q = q.eq('table_name', tableName);
+    if (actor)     q = q.eq('actor', actor);
+
+    const { data, error } = await q;
+    if (error || !data) return [];
+    return data;
+  } catch (e) {
+    console.warn('[supabase] queryAuditLog failed (non-fatal):', e.message);
+    return [];
+  }
+}
+
+

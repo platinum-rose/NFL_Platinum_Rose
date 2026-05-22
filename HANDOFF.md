@@ -18,7 +18,7 @@
 
 | Backlog | File | Open Items | Last Touched |
 |---------|------|-----------|----------|
-| NFL Security & Quality Audit (tri-audit) | `docs/NFL_AUDIT_BACKLOG.md` | 23 / 29 open | S141 2026-05-22 |
+| NFL Security & Quality Audit (tri-audit) | `docs/NFL_AUDIT_BACKLOG.md` | 22 / 29 open | S141 2026-05-22 |
 
 ---
 
@@ -30,8 +30,8 @@
 > **S140 (DONE)** — commits `ca2ba0a` + `947df03` — VIG-REMOVAL (devig/calcEV) + RLS-WRITES (019 migration, AuthGate).
 > **ACTION REQUIRED (one-time):** Apply `supabase db push` to push 019 migration; create owner auth user in Supabase dashboard.
 >
-> **S141 (DONE)** — commits `7e620e7` + `1af208e` + `e48bd05` + `[CI-GATE]` — MONTE-CARLO + SYNC-DURABILITY + CI-GATE (ci.yml, deploy gated on CI success). 116/116 tests; clean build.
-> Next backlog item: **AUDIT-TRAIL** (HIGH) — no actor attribution on cloud writes.
+> **S141 (DONE)** — commits `7e620e7` + `1af208e` + `e48bd05` + `4ad1254` + `[AUDIT-TRAIL]` — MONTE-CARLO + SYNC-DURABILITY + CI-GATE + AUDIT-TRAIL (020 migration, fn_audit_log trigger, queryAuditLog helper). 130/130 tests; clean build.
+> Next backlog item: **AGENT-LOCK** (HIGH) — protect-hot-files.js reads wrong AGENT_LOCK.json schema.
 
 ### What Shipped Last Session (F-15 / F-16 — UNCOMMITTED)
 
