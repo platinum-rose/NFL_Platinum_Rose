@@ -4,7 +4,7 @@
 **Sources:**
 - Meridian Assurance Group — *NFL Platinum Rose End-to-End System Audit* (21 May 2026)
 - CODEX Ultrathink — *NFL Dashboard Formal Audit Report* (21 May 2026)
-**Progress:** 3 / 29 complete
+**Progress:** 4 / 29 complete
 
 > **Completion rule:** Mark `[ ]` → `[x]` only when the fix is committed to `main`
 > AND verified by test, live query, or CI pass. Dev-only changes do not count.
@@ -65,7 +65,14 @@
     Feed `pFair`, not raw implied, into all EV and Kelly calculations.
   - **Test:** Unit test asserting `devig(home_implied, away_implied)` sums to 1.0 ± 0.001.
 
-- [ ] **MONTE-CARLO** — DevLab simulation has statistical defect and freezes the UI
+- [x] **MONTE-CARLO** — DevLab simulation has statistical defect and freezes the UI
+  - **Fixed (S141, `7e620e7`):** Extracted pure sim math to `src/lib/devLabSim.js`
+    (`boxMuller()` draws independent uniforms per call; `runGameSim()` replaces inline
+    loop). Created `src/workers/simulationWorker.js` — off-thread Web Worker; no more
+    main-thread freeze on full slate. Iterations 2 000 → 10 000 for stable cover %.
+    9 new unit tests: mean/variance/correlation-independence for `boxMuller`; shape,
+    cover-sum, independence, favourite-wins sanity for `runGameSim`. 103/103 passing;
+    clean Vite build (worker bundled as separate 0.87 kB chunk).
   - **Evidence:** `src/components/dev-lab/DevLab.jsx:129-130` — `z1` and `z2` both derive
     from the same Box-Muller `Math.log(u1)` radius → spurious negative correlation between
     teams' score deviations. Default 2000 iters runs synchronously on the main thread
