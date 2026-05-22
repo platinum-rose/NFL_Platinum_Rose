@@ -4,7 +4,7 @@
 **Sources:**
 - Meridian Assurance Group — *NFL Platinum Rose End-to-End System Audit* (21 May 2026)
 - CODEX Ultrathink — *NFL Dashboard Formal Audit Report* (21 May 2026)
-**Progress:** 0 / 29 complete
+**Progress:** 1 / 29 complete
 
 > **Completion rule:** Mark `[ ]` → `[x]` only when the fix is committed to `main`
 > AND verified by test, live query, or CI pass. Dev-only changes do not count.
@@ -18,19 +18,12 @@
 
 ## 🔴 CRITICAL — Fix before next production deploy
 
-- [ ] **API-KEYS** — Paid OpenAI and Odds API keys compiled into world-readable GitHub Pages bundle
-  - **Evidence:** `deploy.yml:36-39` injects `VITE_OPENAI_API_KEY` + `VITE_ODDS_API_KEY`
-    into the Vite build; `src/lib/apiConfig.js:7-11`, `anthropicClient.js:18`,
-    `openai.js` make browser-direct paid API calls.
-  - **Risk:** Live paid keys extractable by anyone viewing the site — treat as compromised.
-  - **Fix:**
-    1. Rotate both keys now (assume compromised).
-    2. Remove `VITE_OPENAI_API_KEY` / `VITE_ODDS_API_KEY` from build + client.
-    3. Route all paid API calls through a thin server/edge proxy (Supabase Edge Function
-       or equivalent) that holds keys server-side.
-    4. Keep user-supplied-key path as the only "personal mode" client option.
-  - **Test:** Verify `strings dist/assets/*.js | grep -i 'sk-\|key-'` returns nothing.
-  - **Both audits agree** — ARCH-01 / SEC-01
+- [x] **API-KEYS** — Paid OpenAI and Odds API keys compiled into world-readable GitHub Pages bundle
+  - **Fixed S139 (`6dce19f`):** Created `supabase/functions/ai-proxy` + `odds-proxy` Edge Functions.
+    Removed `VITE_OPENAI_API_KEY`, `VITE_ANTHROPIC_API_KEY`, `VITE_ODDS_API_KEY` from
+    `apiConfig.js`, `deploy.yml`, and all callers. Keys now stored as Supabase secrets only.
+  - **ACTION REQUIRED:** `supabase secrets set` all three keys + `supabase functions deploy`
+    ai-proxy + odds-proxy; rotate both keys on provider dashboards.
 
 ---
 

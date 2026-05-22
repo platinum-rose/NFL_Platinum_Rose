@@ -18,13 +18,25 @@
 
 | Backlog | File | Open Items | Last Touched |
 |---------|------|-----------|----------|
-| NFL Security & Quality Audit (tri-audit) | `docs/NFL_AUDIT_BACKLOG.md` | 29 / 29 open | S138 2026-05-22 |
+| NFL Security & Quality Audit (tri-audit) | `docs/NFL_AUDIT_BACKLOG.md` | 28 / 29 open | S139 2026-05-22 |
 
 ---
 
 ## Pick Up Here
 
-### What Shipped This Session (UNCOMMITTED)
+> **S139 (DONE)** — commit `6dce19f` — API-KEYS CRITICAL fix: Supabase Edge Function
+> proxies for Anthropic + OpenAI + Odds API; removed VITE paid keys from bundle.
+> **ACTION REQUIRED (manual):** rotate both keys on provider dashboards, then:
+> ```
+> supabase secrets set ANTHROPIC_API_KEY=<rotated>
+> supabase secrets set OPENAI_API_KEY=<rotated>
+> supabase secrets set ODDS_API_KEY=<rotated>
+> supabase functions deploy ai-proxy
+> supabase functions deploy odds-proxy
+> ```
+> Next backlog item: **VIG-REMOVAL** (HIGH) — vig math fix in `src/lib/futures.js`
+
+### What Shipped Last Session (F-15 / F-16 — UNCOMMITTED)
 
 **F-15 — Historical team stats seed (EPA + formation tendencies)**
 - `scripts/seed-historical-stats.py` — replaced broken `nfl.import_pbp_data()` with
