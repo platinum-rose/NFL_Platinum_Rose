@@ -3,9 +3,13 @@
 
 import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS } from './storage';
 import { syncBet } from './supabase';
+import { enqueueDirty, dequeueSuccess } from './syncQueue';
 
-// Sync helper — fire and forget, never throws
-const fireSync = (bet) => syncBet(bet).catch(() => {});
+// Sync helper — writes locally first, queues for retry on cloud failure
+const fireSync = (bet) =>
+    syncBet(bet)
+        .then(() => dequeueSuccess('bet', bet.id))
+        .catch(() => enqueueDirty('bet', bet.id, bet));
 
 const STORAGE_KEY = PR_STORAGE_KEYS.BANKROLL.key;
 
@@ -110,7 +114,7 @@ export const addBet = (bet) => {
         potentialWin: bet.potentialWin || 0,
         ...bet
     };
-    
+
     data.bets.push(newBet);
     saveBankrollData(data);
     fireSync(newBet);  // cloud sync — non-blocking
@@ -123,13 +127,13 @@ export const addBet = (bet) => {
 export const updateBetResult = (betId, status, actualOdds = null) => {
     const data = getBankrollData();
     const betIndex = data.bets.findIndex(bet => bet.id === betId);
-    
+
     if (betIndex === -1) return false;
-    
+
     const bet = data.bets[betIndex];
     bet.status = status;
     bet.settledAt = new Date().toISOString();
-    
+
     // Calculate profit/loss
     if (status === BET_STATUS.WON) {
         const odds = actualOdds || bet.odds;
@@ -139,7 +143,7 @@ export const updateBetResult = (betId, status, actualOdds = null) => {
     } else if (status === BET_STATUS.PUSHED || status === BET_STATUS.VOID) {
         bet.profit = 0;
     }
-    
+
     data.bets[betIndex] = bet;
     saveBankrollData(data);
     fireSync(bet);  // cloud sync — non-blocking
@@ -152,9 +156,9 @@ export const updateBetResult = (betId, status, actualOdds = null) => {
 export const updateBet = (betId, updatedBet) => {
     const data = getBankrollData();
     const betIndex = data.bets.findIndex(bet => bet.id === betId);
-    
+
     if (betIndex === -1) return false;
-    
+
     // Preserve original metadata and update with new data
     const originalBet = data.bets[betIndex];
     const updatedBetData = {
@@ -162,7 +166,7 @@ export const updateBet = (betId, updatedBet) => {
         ...updatedBet,
         updatedAt: new Date().toISOString()
     };
-    
+
     data.bets[betIndex] = updatedBetData;
     saveBankrollData(data);
     fireSync(updatedBetData);  // cloud sync — non-blocking
@@ -189,13 +193,13 @@ export const calculateKellyUnit = (winProbability, odds, bankroll) => {
     const b = Math.abs(odds) > 100 ? (odds > 0 ? odds / 100 : 100 / Math.abs(odds)) : 1;
     const p = winProbability / 100; // Convert percentage to decimal
     const q = 1 - p;
-    
+
     // Kelly formula: f = (bp - q) / b
     const kellyFraction = (b * p - q) / b;
-    
+
     // Cap at 25% max bet size for safety
     const cappedFraction = Math.min(Math.max(kellyFraction, 0), 0.25);
-    
+
     return bankroll * cappedFraction;
 };
 
@@ -205,16 +209,16 @@ export const calculateKellyUnit = (winProbability, odds, bankroll) => {
 export const getRecommendedUnit = (confidence, bankroll, riskProfile = 'moderate') => {
     const profile = RISK_PROFILES[riskProfile];
     const confidenceMultiplier = confidence / 100; // 0-1 scale
-    
+
     // Base unit percentage from risk profile
     const basePercentage = profile.recommendedUnit;
-    
+
     // Adjust based on confidence
     const adjustedPercentage = basePercentage * (0.5 + confidenceMultiplier * 0.5);
-    
+
     // Cap at max for risk profile
     const finalPercentage = Math.min(adjustedPercentage, profile.maxUnitPercentage);
-    
+
     return {
         amount: bankroll * (finalPercentage / 100),
         percentage: finalPercentage,
@@ -228,7 +232,7 @@ export const getRecommendedUnit = (confidence, bankroll, riskProfile = 'moderate
 export const calculateAnalytics = (timeframe = 'all') => {
     const data = getBankrollData();
     let filteredBets = data.bets;
-    
+
     // Debug logging
     console.log('🔍 Analytics Debug:', {
         totalBetsInStorage: data.bets.length,
@@ -240,40 +244,40 @@ export const calculateAnalytics = (timeframe = 'all') => {
             source: bet.source
         }))
     });
-    
+
     // Filter by timeframe
     if (timeframe !== 'all') {
         const cutoffDate = getTimeframeCutoff(timeframe);
         filteredBets = data.bets.filter(bet => new Date(bet.timestamp) >= cutoffDate);
     }
-    
-    const settledBets = filteredBets.filter(bet => 
+
+    const settledBets = filteredBets.filter(bet =>
         [BET_STATUS.WON, BET_STATUS.LOST, BET_STATUS.PUSHED].includes(bet.status)
     );
-    
+
     const wins = settledBets.filter(bet => bet.status === BET_STATUS.WON);
     const losses = settledBets.filter(bet => bet.status === BET_STATUS.LOST);
     const pushes = settledBets.filter(bet => bet.status === BET_STATUS.PUSHED);
-    
+
     const totalWagered = settledBets.reduce((sum, bet) => sum + bet.amount, 0);
     const totalProfit = settledBets.reduce((sum, bet) => sum + (bet.profit || 0), 0);
-    
+
     const winRate = settledBets.length > 0 ? (wins.length / settledBets.length) * 100 : 0;
     const roi = totalWagered > 0 ? (totalProfit / totalWagered) * 100 : 0;
-    
+
     // Calculate average odds
     const avgWinOdds = wins.length > 0 ? wins.reduce((sum, bet) => sum + bet.odds, 0) / wins.length : 0;
     const avgLossOdds = losses.length > 0 ? losses.reduce((sum, bet) => sum + bet.odds, 0) / losses.length : 0;
-    
+
     // Units tracking
     const currentBankroll = data.settings.totalBankroll + totalProfit;
     const unitsWon = totalProfit / data.settings.unitSize;
-    
+
     // Streak calculations
     const currentStreak = calculateCurrentStreak(settledBets);
     const longestWinStreak = calculateLongestStreak(settledBets, BET_STATUS.WON);
     const longestLossStreak = calculateLongestStreak(settledBets, BET_STATUS.LOST);
-    
+
     return {
         // Basic stats
         totalBets: filteredBets.length, // All bets, not just settled
@@ -282,7 +286,7 @@ export const calculateAnalytics = (timeframe = 'all') => {
         wins: wins.length,
         losses: losses.length,
         pushes: pushes.length,
-        
+
         // Financial metrics
         totalWagered,
         totalProfit,
@@ -290,19 +294,19 @@ export const calculateAnalytics = (timeframe = 'all') => {
         winRate,
         roi,
         unitsWon,
-        
+
         // Advanced metrics
         avgWinOdds,
         avgLossOdds,
         avgWager: totalWagered / settledBets.length || 0,
         biggestWin: Math.max(...wins.map(bet => bet.profit || 0), 0),
         biggestLoss: Math.min(...losses.map(bet => bet.profit || 0), 0),
-        
+
         // Streaks
         currentStreak,
         longestWinStreak,
         longestLossStreak,
-        
+
         // Breakdowns
         betsByType: groupBetsByType(settledBets),
         weeklyPerformance: calculateWeeklyPerformance(settledBets),
@@ -339,11 +343,11 @@ const getTimeframeCutoff = (timeframe) => {
 
 const calculateCurrentStreak = (bets) => {
     if (bets.length === 0) return { type: 'none', count: 0 };
-    
+
     const sortedBets = [...bets].sort((a, b) => new Date(b.settledAt) - new Date(a.settledAt));
     let count = 0;
     let type = sortedBets[0].status === BET_STATUS.WON ? 'win' : 'loss';
-    
+
     for (const bet of sortedBets) {
         if (bet.status === BET_STATUS.PUSHED) continue;
         if ((type === 'win' && bet.status === BET_STATUS.WON) ||
@@ -353,14 +357,14 @@ const calculateCurrentStreak = (bets) => {
             break;
         }
     }
-    
+
     return { type, count };
 };
 
 const calculateLongestStreak = (bets, status) => {
     let longest = 0;
     let current = 0;
-    
+
     for (const bet of bets) {
         if (bet.status === status) {
             current++;
@@ -369,7 +373,7 @@ const calculateLongestStreak = (bets, status) => {
             current = 0;
         }
     }
-    
+
     return longest;
 };
 
@@ -412,12 +416,12 @@ const calculateRecentForm = (bets, count = 10) => {
 export const updateBankrollSettings = (newSettings) => {
     const data = getBankrollData();
     data.settings = { ...data.settings, ...newSettings };
-    
+
     // Recalculate unit size if bankroll or percentage changed
     if (newSettings.totalBankroll || newSettings.unitPercentage) {
         data.settings.unitSize = (data.settings.totalBankroll * data.settings.unitPercentage) / 100;
     }
-    
+
     saveBankrollData(data);
     return data.settings;
 };

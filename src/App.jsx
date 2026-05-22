@@ -11,7 +11,8 @@ import { useAutoGrade } from './hooks/useAutoGrade';
 import { INITIAL_EXPERTS } from './lib/experts';
 import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS } from './lib/storage';
 import { getBankrollData, saveBankrollData } from './lib/bankroll';
-import { loadUserPicks, loadUserBets } from './lib/supabase';
+import { loadUserPicks, loadUserBets, syncBet, syncPick, deleteSyncedPick } from './lib/supabase';
+import { flushDirtyQueue } from './lib/syncQueue';
 
 // --- Components ---
 import AuthGate from './components/auth/AuthGate';
@@ -87,7 +88,9 @@ function App() {
   // --- Auto-grade pending picks from Supabase game_results ---
   const { autoGraded, runGradingCheck, checking } = useAutoGrade();
 
-  // --- Boot hydration: restore picks + bets from Supabase if missing locally ---
+  // --- Boot hydration: restore picks + bets from Supabase if missing locally,
+  //     update locally-stale records when cloud has a newer updated_at, and
+  //     flush any dirty-queue items that failed during the previous session. ---
   useEffect(() => {
     async function hydrateFromSupabase() {
       try {
@@ -96,23 +99,55 @@ function App() {
 
         if (cloudPicks.length > 0) {
           const localPicks = loadFromStorage(PR_STORAGE_KEYS.PICKS.key, []);
-          const localIds = new Set(localPicks.map(p => p.id));
-          const added = cloudPicks.filter(p => !localIds.has(p.id));
-          if (added.length > 0) {
-            saveToStorage(PR_STORAGE_KEYS.PICKS.key, [...localPicks, ...added]);
-            console.log(`[sync] Hydrated ${added.length} picks from Supabase`);
-            hydrated = true;
+          const localById = new Map(localPicks.map(p => [p.id, p]));
+          const merged = [...localPicks];
+
+          cloudPicks.forEach(cp => {
+            const local = localById.get(cp.id);
+            if (!local) {
+              // New on cloud — add locally
+              merged.push(cp);
+              hydrated = true;
+            } else if (
+              cp.updatedAt && local.updatedAt &&
+              new Date(cp.updatedAt) > new Date(local.updatedAt)
+            ) {
+              // Cloud is newer — overwrite local
+              const idx = merged.findIndex(p => p.id === cp.id);
+              if (idx !== -1) merged[idx] = { ...local, ...cp };
+              hydrated = true;
+            }
+          });
+
+          if (hydrated) {
+            saveToStorage(PR_STORAGE_KEYS.PICKS.key, merged);
+            console.log('[sync] Picks hydrated/updated from Supabase');
           }
         }
 
         if (cloudBets.length > 0) {
           const localData = getBankrollData();
-          const localIds = new Set(localData.bets.map(b => String(b.id)));
-          const added = cloudBets.filter(b => !localIds.has(String(b.id)));
-          if (added.length > 0) {
-            localData.bets = [...localData.bets, ...added];
+          const localById = new Map(localData.bets.map(b => [String(b.id), b]));
+          let betsChanged = false;
+
+          cloudBets.forEach(cb => {
+            const local = localById.get(String(cb.id));
+            if (!local) {
+              localData.bets.push(cb);
+              betsChanged = true;
+            } else if (
+              cb.updatedAt && local.updatedAt &&
+              new Date(cb.updatedAt) > new Date(local.updatedAt)
+            ) {
+              const idx = localData.bets.findIndex(b => String(b.id) === String(cb.id));
+              if (idx !== -1) localData.bets[idx] = { ...local, ...cb };
+              betsChanged = true;
+            }
+          });
+
+          if (betsChanged) {
             saveBankrollData(localData);
-            console.log(`[sync] Hydrated ${added.length} bets from Supabase`);
+            console.log('[sync] Bets hydrated/updated from Supabase');
             hydrated = true;
           }
         }
@@ -122,7 +157,16 @@ function App() {
         console.warn('[sync] Boot hydration failed (non-fatal):', e.message);
       }
     }
-    hydrateFromSupabase();
+
+    async function flushQueue() {
+      try {
+        await flushDirtyQueue(syncBet, syncPick, deleteSyncedPick);
+      } catch (e) {
+        console.warn('[sync] Dirty-queue flush failed (non-fatal):', e.message);
+      }
+    }
+
+    hydrateFromSupabase().then(flushQueue);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // --- Derived Data (cross-cutting: merges schedule + experts + splits) ---

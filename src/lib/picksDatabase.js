@@ -12,10 +12,17 @@
 
 import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS } from './storage';
 import { syncPick, deleteSyncedPick } from './supabase';
+import { enqueueDirty, dequeueSuccess } from './syncQueue';
 
 // Sync helper — fire and forget, never throws
-const fireSync   = (pick)   => syncPick(pick).catch(() => {});
-const fireDelete  = (pickId) => deleteSyncedPick(pickId).catch(() => {});
+const fireSync   = (pick)   =>
+    syncPick(pick)
+        .then(() => dequeueSuccess('pick', pick.id))
+        .catch(() => enqueueDirty('pick', pick.id, pick));
+const fireDelete  = (pickId) =>
+    deleteSyncedPick(pickId)
+        .then(() => dequeueSuccess('deletePick', pickId))
+        .catch(() => enqueueDirty('deletePick', pickId, null));
 
 // ── Storage Keys (canonical refs) ───────────────────────────
 const STORAGE_KEY = PR_STORAGE_KEYS.PICKS.key;

@@ -538,6 +538,7 @@ export async function loadUserPicks() {
       visitorScore: r.visitor_score ?? null,
       gradedAt:     r.graded_at ?? null,
       createdAt:    r.created_at,
+      updatedAt:    r.updated_at ?? r.created_at ?? null,
       // Extended fields (populated for podcast/expert picks)
       rationale:    r.rationale   ?? null,
       expert:       r.expert      ?? null,
@@ -623,6 +624,7 @@ export async function loadUserBets() {
       potentialWin:  r.potential_win !== null ? Number(r.potential_win) : 0,
       profit:        r.profit !== null ? Number(r.profit) : null,
       settledAt:     r.settled_at ?? null,
+      updatedAt:     r.updated_at ?? r.timestamp ?? null,
     }));
   } catch (e) {
     console.warn('[supabase] loadUserBets failed (non-fatal):', e.message);
