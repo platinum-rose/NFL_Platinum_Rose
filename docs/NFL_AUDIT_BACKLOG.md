@@ -102,7 +102,7 @@
   - **Test:** Push a failing unit test; CI workflow blocks; deploy workflow skips.
 
 - [x] **AUDIT-TRAIL** — Cloud writes and AI context mutations have no actor attribution
-  - **Fixed S141 (`[commit]`):** `supabase/migrations/020_audit_log.sql` — `audit_log`
+  - **Fixed S141 (`1d938e2`):** `supabase/migrations/020_audit_log.sql` — `audit_log`
     table (append-only, `authed` read-only RLS); `fn_audit_log()` AFTER trigger fires on
     INSERT/UPDATE/DELETE for `user_picks`, `user_bankroll_bets`, `vault_notes`; records
     `actor` (`auth.uid()` or `'anon'`), `action`, `record_id`, SHA-256 `patch_digest`
@@ -110,7 +110,7 @@
     `queryAuditLog()` added to `src/lib/supabase.js` for owner inspection.
   - **Test:** 14 tests in `tests/unit/auditTrail.test.js` — migration structure,
     query helper filters/caps, error/unavailable handling.
-  - **ACTION REQUIRED:** `supabase db push` to apply migration 020 to production.
+  - **Migration 020 applied to production 2026-05-22.**
 
 - [ ] **AGENT-LOCK** — AGENT_LOCK hot-file lock hook never actually locks
   - **Evidence:** `hooks/protect-hot-files.js:53` checks `lock.locked` and `lock.agent`
