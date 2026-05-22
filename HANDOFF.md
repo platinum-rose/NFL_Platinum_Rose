@@ -18,7 +18,7 @@
 
 | Backlog | File | Open Items | Last Touched |
 |---------|------|-----------|----------|
-| NFL Security & Quality Audit (tri-audit) | `docs/NFL_AUDIT_BACKLOG.md` | 25 / 29 open | S141 2026-05-22 |
+| NFL Security & Quality Audit (tri-audit) | `docs/NFL_AUDIT_BACKLOG.md` | 24 / 29 open | S141 2026-05-22 |
 
 ---
 
@@ -30,8 +30,8 @@
 > **S140 (DONE)** — commits `ca2ba0a` + `947df03` — VIG-REMOVAL (devig/calcEV) + RLS-WRITES (019 migration, AuthGate).
 > **ACTION REQUIRED (one-time):** Apply `supabase db push` to push 019 migration; create owner auth user in Supabase dashboard.
 >
-> **S141 (DONE)** — commit `7e620e7` — MONTE-CARLO: Box-Muller fixed (independent draws), moved to Web Worker, iterations 2k→10k. 9 new tests; 103/103 passing; clean build.
-> Next backlog item: **SYNC-DURABILITY** (HIGH) — fire-and-forget bankroll sync, dirty-flag retry queue needed.
+> **S141 (DONE)** — commits `7e620e7` + `1af208e` + `e48bd05` — MONTE-CARLO (Box-Muller, Web Worker, 10k iters) + SYNC-DURABILITY (dirty-flag retry queue, timestamp-aware hydration). 116/116 tests; clean build.
+> Next backlog item: **CI-GATE** (HIGH) — no CI workflow runs ESLint or unit tests.
 
 ### What Shipped Last Session (F-15 / F-16 — UNCOMMITTED)
 

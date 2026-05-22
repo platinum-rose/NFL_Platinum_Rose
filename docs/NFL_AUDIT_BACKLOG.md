@@ -4,7 +4,7 @@
 **Sources:**
 - Meridian Assurance Group — *NFL Platinum Rose End-to-End System Audit* (21 May 2026)
 - CODEX Ultrathink — *NFL Dashboard Formal Audit Report* (21 May 2026)
-**Progress:** 4 / 29 complete
+**Progress:** 5 / 29 complete
 
 > **Completion rule:** Mark `[ ]` → `[x]` only when the fix is committed to `main`
 > AND verified by test, live query, or CI pass. Dev-only changes do not count.
@@ -84,16 +84,14 @@
     3. Raise default iteration count for stable cover percentages (≥ 10,000).
   - **Test:** Correlation of simulated team scores across 10,000 trials ≈ 0 ± 0.05.
 
-- [ ] **SYNC-DURABILITY** — Sync is fire-and-forget; writes can be silently lost
-  - **Evidence:** `src/lib/bankroll.js` `fireSync` swallows all `.catch(()=>{})`.
-    `supabase.js` upserts use `onConflict:'id'` with `updated_at=now()` and no version
-    guard — last write wins regardless of which is newer.
-    `App.jsx hydrateFromSupabase` merges by id-union only — cloud edits never overwrite
-    existing local records.
-  - **Fix:** Dirty-flag retry queue (write locally → mark dirty → retry until confirmed);
-    compare `updated_at` on hydration (keep newer by timestamp, not by load order);
-    propagate cloud updates to existing local IDs.
-  - **Test:** Simulate Supabase 503; confirm local pick is flagged dirty; confirm it syncs on next call.
+- [x] **SYNC-DURABILITY** — Sync is fire-and-forget; writes can be silently lost
+  - **Fixed S141 (`e48bd05`):** `src/lib/syncQueue.js` — persistent localStorage dirty queue;
+    `enqueueDirty`/`dequeueSuccess`/`flushDirtyQueue` with type+id dedup.
+    `bankroll.js` + `picksDatabase.js` `fireSync` now chains `.then(dequeue).catch(enqueue)`.
+    `supabase.js` normalizers add `updatedAt` field.
+    `App.jsx` `hydrateFromSupabase` replaced with timestamp-aware merge (cloud wins if
+    `updatedAt` newer); `flushDirtyQueue` called after hydration on every boot.
+  - **Test:** 13 tests in `tests/unit/syncQueue.test.js` — covers 503 scenario, retry-on-next-flush, dedup.
 
 - [ ] **CI-GATE** — No CI workflow runs ESLint or the 84 unit tests
   - **Evidence:** `grep 'vitest\|npm test\|eslint' .github/workflows/*.yml` returns nothing;
