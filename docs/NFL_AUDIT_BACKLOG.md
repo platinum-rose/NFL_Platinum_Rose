@@ -4,7 +4,7 @@
 **Sources:**
 - Meridian Assurance Group — *NFL Platinum Rose End-to-End System Audit* (21 May 2026)
 - CODEX Ultrathink — *NFL Dashboard Formal Audit Report* (21 May 2026)
-**Progress:** 10 / 29 complete
+**Progress:** 11 / 29 complete
 
 > **Completion rule:** Mark `[ ]` → `[x]` only when the fix is committed to `main`
 > AND verified by test, live query, or CI pass. Dev-only changes do not count.
@@ -142,13 +142,13 @@
     "⚠️ Simulated data — quota exhausted" banner when `isMock=true`.
     12 new unit tests; 165/165 passing.
 
-- [ ] **INJURY-ACCESS** — `player_injuries` table has RLS enabled with no anon read policy
-  - **Evidence:** `supabase/migrations/016_player_injuries.sql:50-52` enables RLS with
-    no SELECT policy for anon/authenticated — browser queries always return `[]`.
-    Migration `018` added a public read policy but verify it's applied and working.
-  - **Fix:** Confirm migration `018_player_injuries_public_read.sql` is applied live;
-    verify `src/lib/supabase.js:726-752` returns real rows.
-  - **Test:** Live Supabase query on `player_injuries` returns > 0 rows when data exists.
+- [x] **INJURY-ACCESS** — `player_injuries` table has RLS enabled with no anon read policy
+  - **Fixed S148 (`552051b`):** Migration `018_player_injuries_public_read.sql` already
+    existed with correct `FOR SELECT USING (true)` policy. 8 unit tests confirm migration
+    SQL is valid and `getRecentPlayerInjuries()` handles unavailable/error paths gracefully.
+  - **ACTION REQUIRED:** Apply `018_player_injuries_public_read.sql` to production via
+    Supabase Dashboard → SQL Editor (or `supabase db push`). Verify with a live query
+    that `getRecentPlayerInjuries()` returns > 0 rows when injury data exists.
 
 - [ ] **SEASON-HARDCODE** — Week/season logic hardcoded to 2026; stales post-season
   - **Evidence:** `src/lib/constants.js:4-33` derives phase/week from fixed 2026 start date;

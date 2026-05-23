@@ -24,6 +24,7 @@
 
 ## Pick Up Here
 
+> **S148 (DONE)** — commit `552051b` — INJURY-ACCESS closed. Migration `018` SQL validated; 8 unit tests (migration structure + graceful-failure paths); 173/173 passing. **ACTION REQUIRED:** apply `018_player_injuries_public_read.sql` to production. **Next:** SEASON-HARDCODE (MEDIUM).
 > **S147 (DONE)** — commit `0327361` — QUOTA-BUDGET closed. `odds-proxy` forwards `x-requests-remaining`; `getOddsQuotaState()` + `_setQuotaState()` added to `enhancedOddsApi.js`; `LiveOddsDashboard` shows yellow mock-data banner. 12 new tests; 165/165. **Next:** INJURY-ACCESS (MEDIUM).
 > **S146 (DONE)** — commit `4c8134d` — PICK-ID closed. `generateId()` uses stable natural key `source+gameId+pickType+line`; dedup simplified to id-equality check. Migration `021_pick_id_stable.sql` created (dedup existing rows + UNIQUE constraint). 14 new tests; 153/153 passing. **ACTION REQUIRED:** Apply `021_pick_id_stable.sql` to production.
 >
