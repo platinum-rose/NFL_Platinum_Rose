@@ -4,7 +4,7 @@
 **Sources:**
 - Meridian Assurance Group — *NFL Platinum Rose End-to-End System Audit* (21 May 2026)
 - CODEX Ultrathink — *NFL Dashboard Formal Audit Report* (21 May 2026)
-**Progress:** 8 / 29 complete
+**Progress:** 9 / 29 complete
 
 > **Completion rule:** Mark `[ ]` → `[x]` only when the fix is committed to `main`
 > AND verified by test, live query, or CI pass. Dev-only changes do not count.
@@ -124,12 +124,15 @@
 
 ## 🟡 MEDIUM — Fix before 2026 season kickoff
 
-- [ ] **PICK-ID** — Pick ID embeds `Date.now()` → re-logging same pick double-counts P&L
-  - **Evidence:** `src/lib/picksDatabase.js:58` — `id = \`${source}-${gameId}-${pickType}-${Date.now()}\``
-    means the same logical pick logged twice generates two rows; PK cannot dedup.
-  - **Fix:** Stable natural key: `${source}-${gameId}-${pickType}-${line}` (no timestamp).
-    Add `UNIQUE` DB constraint. Existing duplicate rows will need a one-time dedup migration.
-  - **Test:** Log same pick twice; confirm only 1 row exists; P&L unchanged.
+- [x] **PICK-ID** — Pick ID embeds `Date.now()` → re-logging same pick double-counts P&L
+  - **Fixed S146 (`4c8134d`):** `picksDatabase.js` `generateId()` now uses stable natural key
+    `${source}-${gameId}-${pickType}-${line}` (no timestamp). `addPick` dedup simplified to
+    `picks.some(p => p.id === pick.id)`. Migration `021_pick_id_stable.sql` deduplicates
+    existing rows (keep earliest `created_at` per group) and adds `UNIQUE` constraint on
+    `(source, game_id, pick_type, line)`.
+  - **ACTION REQUIRED:** Apply `supabase/migrations/021_pick_id_stable.sql` to production.
+  - **Test:** 14 tests in `tests/unit/pickId.test.js` — 8 stable-key tests + 6 dedup tests;
+    153/153 suite passing.
 
 - [ ] **QUOTA-BUDGET** — No Odds API quota tracking; silent mock-data fallback on exhaustion
   - **Evidence:** No `remaining-requests` header read anywhere; `enhancedOddsApi.js` falls

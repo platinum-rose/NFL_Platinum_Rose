@@ -18,12 +18,14 @@
 
 | Backlog | File | Open Items | Last Touched |
 |---------|------|-----------|----------|
-| NFL Security & Quality Audit (tri-audit) | `docs/NFL_AUDIT_BACKLOG.md` | 22 / 29 open | S141 2026-05-22 |
+| NFL Security & Quality Audit (tri-audit) | `docs/NFL_AUDIT_BACKLOG.md` | 20 / 29 open | S146 2026-05-22 |
 
 ---
 
 ## Pick Up Here
 
+> **S146 (DONE)** — commit `4c8134d` — PICK-ID closed. `generateId()` uses stable natural key `source+gameId+pickType+line`; dedup simplified to id-equality check. Migration `021_pick_id_stable.sql` created (dedup existing rows + UNIQUE constraint). 14 new tests; 153/153 passing. **ACTION REQUIRED:** Apply `021_pick_id_stable.sql` to production. **Next:** QUOTA-BUDGET (MEDIUM).
+>
 > **S139 (DONE)** — commit `6dce19f` — API-KEYS CRITICAL fix (proxy Edge Functions).
 > **ACTION REQUIRED (manual):** rotate Anthropic / OpenAI / Odds API keys then re-deploy Edge Functions (see S139 block in archive).
 
