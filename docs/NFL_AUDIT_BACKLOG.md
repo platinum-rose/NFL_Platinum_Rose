@@ -4,7 +4,7 @@
 **Sources:**
 - Meridian Assurance Group — *NFL Platinum Rose End-to-End System Audit* (21 May 2026)
 - CODEX Ultrathink — *NFL Dashboard Formal Audit Report* (21 May 2026)
-**Progress:** 16 / 29 complete
+**Progress:** 17 / 29 complete
 
 > **Completion rule:** Mark `[ ]` → `[x]` only when the fix is committed to `main`
 > AND verified by test, live query, or CI pass. Dev-only changes do not count.
@@ -203,11 +203,12 @@
     18 unit tests in `tests/unit/syncMerge.test.js` covering all branches. 468/468 passing.
   - **Test:** Manually update a pick in Supabase; reload on second device; confirm update visible.
 
-- [ ] **GIT-PUSH-RACE** — Two workflows push to `main` with no rebase or concurrency guard
-  - **Evidence:** `.github/workflows/splits_cron.yml` and `weekly-update.yml` both
-    `git push` to main; no `concurrency:` group; no `pull --rebase`; parallel runs race.
-  - **Fix:** Add `concurrency: { group: 'git-push-main', cancel-in-progress: false }` to
-    both workflows; add `git pull --rebase` before push with retry.
+- [x] **GIT-PUSH-RACE** — Two workflows push to `main` with no rebase or concurrency guard
+  - **Fixed S152 (`8cf3b2e`):** Added `concurrency: { group: git-push-main, cancel-in-progress: false }`
+    to both `splits_cron.yml` and `weekly-update.yml`. Replaced bare `git push` with a
+    3-attempt retry loop: `git pull --rebase origin main && git push`, back-off 5s/10s.
+    Also fixed `weekly-update.yml` unconditional push (was pushing even when nothing
+    committed); now guarded by the same `if ! git diff --quiet` check.
   - **Test:** Trigger both workflows simultaneously; confirm second waits for first.
 
 - [ ] **SCHEDULE-INGEST** — Single week failure aborts entire 18-week schedule ingest
