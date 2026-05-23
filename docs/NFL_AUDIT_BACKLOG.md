@@ -113,7 +113,7 @@
   - **Migration 020 applied to production 2026-05-22.**
 
 - [x] **AGENT-LOCK** — AGENT_LOCK hot-file lock hook never actually locks
-  - **Fixed S141 (`[commit]`):** `hooks/scripts/protect-hot-files.js` line 53 — changed
+  - **Fixed S141 (`df8bb45`):** `hooks/scripts/protect-hot-files.js` line 53 — changed
     `lock?.locked === true || lock?.agent` to
     `Array.isArray(lock?.activeLocks) && lock.activeLocks.length > 0`.
     Old fields (`locked`, `agent`) never existed; actual schema uses `activeLocks` array.
