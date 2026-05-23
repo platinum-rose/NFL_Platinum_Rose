@@ -13,6 +13,7 @@ import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS } from './lib/storage';
 import { getBankrollData, saveBankrollData } from './lib/bankroll';
 import { loadUserPicks, loadUserBets, syncBet, syncPick, deleteSyncedPick } from './lib/supabase';
 import { flushDirtyQueue } from './lib/syncQueue';
+import { mergeByUpdatedAt } from './lib/syncMerge';
 
 // --- Components ---
 import AuthGate from './components/auth/AuthGate';
@@ -99,53 +100,23 @@ function App() {
 
         if (cloudPicks.length > 0) {
           const localPicks = loadFromStorage(PR_STORAGE_KEYS.PICKS.key, []);
-          const localById = new Map(localPicks.map(p => [p.id, p]));
-          const merged = [...localPicks];
+          const { merged: mergedPicks, changed: picksChanged } =
+            mergeByUpdatedAt(localPicks, cloudPicks);
 
-          cloudPicks.forEach(cp => {
-            const local = localById.get(cp.id);
-            if (!local) {
-              // New on cloud — add locally
-              merged.push(cp);
-              hydrated = true;
-            } else if (
-              cp.updatedAt && local.updatedAt &&
-              new Date(cp.updatedAt) > new Date(local.updatedAt)
-            ) {
-              // Cloud is newer — overwrite local
-              const idx = merged.findIndex(p => p.id === cp.id);
-              if (idx !== -1) merged[idx] = { ...local, ...cp };
-              hydrated = true;
-            }
-          });
-
-          if (hydrated) {
-            saveToStorage(PR_STORAGE_KEYS.PICKS.key, merged);
+          if (picksChanged) {
+            saveToStorage(PR_STORAGE_KEYS.PICKS.key, mergedPicks);
             console.log('[sync] Picks hydrated/updated from Supabase');
+            hydrated = true;
           }
         }
 
         if (cloudBets.length > 0) {
           const localData = getBankrollData();
-          const localById = new Map(localData.bets.map(b => [String(b.id), b]));
-          let betsChanged = false;
-
-          cloudBets.forEach(cb => {
-            const local = localById.get(String(cb.id));
-            if (!local) {
-              localData.bets.push(cb);
-              betsChanged = true;
-            } else if (
-              cb.updatedAt && local.updatedAt &&
-              new Date(cb.updatedAt) > new Date(local.updatedAt)
-            ) {
-              const idx = localData.bets.findIndex(b => String(b.id) === String(cb.id));
-              if (idx !== -1) localData.bets[idx] = { ...local, ...cb };
-              betsChanged = true;
-            }
-          });
+          const { merged: mergedBets, changed: betsChanged } =
+            mergeByUpdatedAt(localData.bets, cloudBets);
 
           if (betsChanged) {
+            localData.bets = mergedBets;
             saveBankrollData(localData);
             console.log('[sync] Bets hydrated/updated from Supabase');
             hydrated = true;
