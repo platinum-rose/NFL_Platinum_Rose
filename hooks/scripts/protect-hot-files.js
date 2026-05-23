@@ -50,7 +50,7 @@ let hasLock = false;
 if (existsSync(lockFile)) {
   try {
     const lock = JSON.parse(readFileSync(lockFile, 'utf8'));
-    hasLock = lock?.locked === true || lock?.agent;
+    hasLock = Array.isArray(lock?.activeLocks) && lock.activeLocks.length > 0;
   } catch {
     // Can't parse lock file
   }

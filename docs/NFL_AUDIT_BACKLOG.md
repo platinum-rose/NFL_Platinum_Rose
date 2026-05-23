@@ -4,7 +4,7 @@
 **Sources:**
 - Meridian Assurance Group — *NFL Platinum Rose End-to-End System Audit* (21 May 2026)
 - CODEX Ultrathink — *NFL Dashboard Formal Audit Report* (21 May 2026)
-**Progress:** 7 / 29 complete
+**Progress:** 8 / 29 complete
 
 > **Completion rule:** Mark `[ ]` → `[x]` only when the fix is committed to `main`
 > AND verified by test, live query, or CI pass. Dev-only changes do not count.
@@ -112,13 +112,13 @@
     query helper filters/caps, error/unavailable handling.
   - **Migration 020 applied to production 2026-05-22.**
 
-- [ ] **AGENT-LOCK** — AGENT_LOCK hot-file lock hook never actually locks
-  - **Evidence:** `hooks/protect-hot-files.js:53` checks `lock.locked` and `lock.agent`
-    fields; `AGENT_LOCK.json` schema is `{locks, activeLocks, ...}` — the checked fields
-    don't exist, so every check evaluates as "no lock present" and the hook exits 0.
-  - **Fix:** Update `protect-hot-files.js` to read `AGENT_LOCK.json`'s actual schema
-    (`activeLocks` array); lock if `activeLocks.length > 0`.
-  - **Test:** Set `activeLocks: ["test-agent"]` in the lock file; confirm hook blocks write.
+- [x] **AGENT-LOCK** — AGENT_LOCK hot-file lock hook never actually locks
+  - **Fixed S141 (`[commit]`):** `hooks/scripts/protect-hot-files.js` line 53 — changed
+    `lock?.locked === true || lock?.agent` to
+    `Array.isArray(lock?.activeLocks) && lock.activeLocks.length > 0`.
+    Old fields (`locked`, `agent`) never existed; actual schema uses `activeLocks` array.
+  - **Test:** 9 tests in `tests/unit/agentLock.test.js` — empty array → no-lock,
+    populated array → locked, legacy schema → no-lock, invalid JSON → no-lock.
 
 ---
 
