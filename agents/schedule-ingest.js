@@ -155,10 +155,10 @@ function projectedPlayoffSlots(year) {
   return rows;
 }
 
-async function fetchWeek(year, seasonType, week) {
+export async function fetchWeek(year, seasonType, week) {
   const url =
     `${ESPN_SCOREBOARD}?dates=${year}&seasontype=${seasonType}&week=${week}`;
-  const res = await fetch(url);
+  const res = await fetch(url, { signal: AbortSignal.timeout(15_000) });
 
   if (!res.ok) {
     throw new Error(`ESPN request failed for week ${week}: HTTP ${res.status}`);
@@ -329,18 +329,29 @@ async function run() {
   );
 
   const allRows = [];
+  const failedWeeks = [];
   for (let week = cfg.startWeek; week <= cfg.endWeek; week += 1) {
-    const rows = await fetchWeek(cfg.year, cfg.seasonType, week);
-    console.log(`  Week ${week}: ${rows.length} game(s)`);
-    allRows.push(...rows);
+    try {
+      const rows = await fetchWeek(cfg.year, cfg.seasonType, week);
+      console.log(`  Week ${week}: ${rows.length} game(s)`);
+      allRows.push(...rows);
+    } catch (err) {
+      console.warn(`  Week ${week}: fetch failed \u2014 ${err.message}`);
+      failedWeeks.push(week);
+    }
   }
 
   if (cfg.includePlayoffs) {
     const playoffRows = [];
     for (let week = 1; week <= 4; week += 1) {
-      const rows = await fetchWeek(cfg.year, POSTSEASON_TYPE, week);
-      playoffRows.push(...rows);
-      console.log(`  Playoffs week ${week}: ${rows.length} ESPN game(s)`);
+      try {
+        const rows = await fetchWeek(cfg.year, POSTSEASON_TYPE, week);
+        playoffRows.push(...rows);
+        console.log(`  Playoffs week ${week}: ${rows.length} ESPN game(s)`);
+      } catch (err) {
+        console.warn(`  Playoffs week ${week}: fetch failed \u2014 ${err.message}`);
+        failedWeeks.push(`playoffs-w${week}`);
+      }
     }
 
     const realByWeek = new Map();
@@ -383,6 +394,7 @@ async function run() {
       include_playoffs: cfg.includePlayoffs,
       rows_fetched: validation.total,
       weeks_covered: validation.weeks,
+      failed_weeks: failedWeeks,
       duplicate_count: validation.duplicateCount,
       supabase_upsert: false,
       cache_written: CACHE_PATH,
@@ -405,6 +417,7 @@ async function run() {
       include_playoffs: cfg.includePlayoffs,
       rows_fetched: validation.total,
       weeks_covered: validation.weeks,
+      failed_weeks: failedWeeks,
       duplicate_count: validation.duplicateCount,
       supabase_upsert: false,
       supabase_skip_reason: 'missing credentials',
@@ -432,6 +445,7 @@ async function run() {
     include_playoffs: cfg.includePlayoffs,
     rows_fetched: validation.total,
     weeks_covered: validation.weeks,
+    failed_weeks: failedWeeks,
     duplicate_count: validation.duplicateCount,
     supabase_upsert: true,
     cache_written: CACHE_PATH,
