@@ -60,9 +60,13 @@ const readResults  = () => loadFromStorage(RESULTS_KEY, {});
 /** Write cached game results */
 const writeResults = (results) => saveToStorage(RESULTS_KEY, results);
 
-/** Generate a unique pick ID */
-const generateId = (source, gameId, pickType) => {
-  return `${source}-${gameId}-${pickType}-${Date.now()}`;
+/**
+ * Generate a stable pick ID from the natural key.
+ * Same source + gameId + pickType + line always produces the same ID,
+ * so re-logging an identical pick cannot create a duplicate row.
+ */
+const generateId = (source, gameId, pickType, line) => {
+  return `${source}-${gameId}-${pickType}-${line}`;
 };
 
 /**
@@ -122,7 +126,7 @@ export const validatePick = (pick) => {
  */
 export const addPick = (pickData) => {
   const pick = {
-    id:             generateId(pickData.source, pickData.gameId, pickData.pickType),
+    id:             generateId(pickData.source, pickData.gameId, pickData.pickType, pickData.line),
     gameId:         pickData.gameId,
     source:         pickData.source,
     pickType:       pickData.pickType,
@@ -151,13 +155,8 @@ export const addPick = (pickData) => {
 
   const picks = readPicks();
 
-  // Duplicate guard — same source + game + pickType within 60 s
-  const isDupe = picks.some(p =>
-    p.source === pick.source &&
-    p.gameId === pick.gameId &&
-    p.pickType === pick.pickType &&
-    Math.abs(new Date(p.createdAt) - new Date(pick.createdAt)) < 60_000
-  );
+  // Stable-key dedup — same source + gameId + pickType + line → same ID
+  const isDupe = picks.some(p => p.id === pick.id);
   if (isDupe) {
     console.warn('⚠️ Duplicate pick blocked:', pick.id);
     return null;
