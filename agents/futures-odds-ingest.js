@@ -271,10 +271,19 @@ async function hasEnhancedFuturesSchema(supabase) {
   return true;
 }
 
-async function writeSnapshots(supabase, rows, useEnhancedColumns) {
+export function truncateToHour(date) {
+  const d = new Date(date);
+  d.setUTCMinutes(0, 0, 0);
+  return d.toISOString();
+}
+
+export async function writeSnapshots(supabase, rows, useEnhancedColumns) {
   if (rows.length === 0) return 0;
 
-  // Insert in batches of 200
+  // Upsert in batches of 200 — idempotent on
+  // (market_type, team, book, snapshot_time).
+  // snapshot_time is pre-truncated to the UTC hour so re-runs within the same
+  // hour resolve to a no-op update rather than a duplicate insert.
   const BATCH = 200;
   let written = 0;
   for (let i = 0; i < rows.length; i += BATCH) {
@@ -291,8 +300,10 @@ async function writeSnapshots(supabase, rows, useEnhancedColumns) {
       };
     });
 
-    const { error } = await supabase.from('futures_odds_snapshots').insert(batch);
-    if (error) throw new Error(`Supabase insert error: ${error.message}`);
+    const { error } = await supabase
+      .from('futures_odds_snapshots')
+      .upsert(batch, { onConflict: 'market_type,team,book,snapshot_time' });
+    if (error) throw new Error(`Supabase upsert error: ${error.message}`);
     written += batch.length;
   }
   return written;
@@ -316,7 +327,7 @@ async function pruneOldSnapshots(supabase) {
 async function main() {
   const startTime = Date.now();
   const runStartedAt = new Date().toISOString();
-  const capturedAt = new Date().toISOString();
+  const capturedAt = truncateToHour(new Date());
   console.log('🏈 FuturesOddsIngestAgent starting…');
   console.log(
     `   season=${ARG_SEASON} DRY_RUN=${DRY_RUN} | markets=${FUTURES_MARKETS.length}`

@@ -232,17 +232,25 @@ function validateRows(rows) {
 
 // ── Supabase ─────────────────────────────────────────────────────────────────
 
-async function writeSnapshots(supabase, rows) {
-  // Batch insert in chunks of 500
+export function truncateToHour(date) {
+  const d = new Date(date);
+  d.setUTCMinutes(0, 0, 0);
+  return d.toISOString();
+}
+
+export async function writeSnapshots(supabase, rows) {
+  // Upsert in chunks of 500 — idempotent on (game_id, book, market, captured_at).
+  // captured_at is pre-truncated to the UTC hour so re-runs within the same
+  // hour resolve to a no-op update rather than a duplicate insert.
   const CHUNK = 500;
   let written = 0;
   for (let i = 0; i < rows.length; i += CHUNK) {
     const chunk = rows.slice(i, i + CHUNK);
     const { error } = await supabase
       .from('game_odds_snapshots')
-      .insert(chunk);
+      .upsert(chunk, { onConflict: 'game_id,book,market,captured_at' });
     if (error) {
-      console.error('  ✗ Insert error:', error.message);
+      console.error('  ✗ Upsert error:', error.message);
     } else {
       written += chunk.length;
     }
@@ -275,7 +283,7 @@ async function writeReceipt(data) {
 async function main() {
   const startTime    = Date.now();
   const runStartedAt = new Date().toISOString();
-  const capturedAt   = new Date().toISOString();
+  const capturedAt   = truncateToHour(new Date());
 
   console.log('🏈 GameOddsIngestAgent starting…');
   console.log(`   season=${SEASON} DRY_RUN=${DRY_RUN} | books=${SPORTSBOOKS} | markets=${MARKETS}`);
