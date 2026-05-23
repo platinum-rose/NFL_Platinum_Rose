@@ -4,7 +4,7 @@
 **Sources:**
 - Meridian Assurance Group — *NFL Platinum Rose End-to-End System Audit* (21 May 2026)
 - CODEX Ultrathink — *NFL Dashboard Formal Audit Report* (21 May 2026)
-**Progress:** 13 / 29 complete
+**Progress:** 14 / 29 complete
 
 > **Completion rule:** Mark `[ ]` → `[x]` only when the fix is committed to `main`
 > AND verified by test, live query, or CI pass. Dev-only changes do not count.
@@ -172,7 +172,7 @@
     in `betImport.js`, `no-empty` in `LineMovementTracker.jsx`. `.claude/**` ignored.
     `npm run lint`: 0 errors, 128 warnings; vitest 200/200.
 
-- [ ] **COVERAGE** — 8% line coverage; high-risk modules at 0%
+- [x] **COVERAGE** — 8% line coverage; high-risk modules at 0%
   - **Evidence:** `vitest.config.js` covers only `src/lib/**/*.js`; reported 8.11%
     statements. `supabase.js`, `vaultClient.js`, `storage.js`, `openai.js`,
     `anthropicClient.js`, `picksDatabase.js` all at 0%.
@@ -180,6 +180,10 @@
     compliance, hydration conflict logic, vault write path, season rollover edge cases.
     Set `coverageThreshold` after meaningful tests exist.
   - **Test:** Coverage report for `src/lib/` ≥ 40% after targeted additions.
+  - **Done (S151):** Added `storage.test.js` (27), `picksDatabase.test.js` (36),
+    expanded `bankroll.test.js` (+9), `actionParser.test.js` (+13 new functions).
+    450/450 tests pass. Coverage: 40.7% stmts / 42.58% lines. `coverageThreshold`
+    set in `vitest.config.js`. Commit: `a394e73`.
 
 - [ ] **STORAGE-BYPASS** — Storage abstraction bypassed with raw `localStorage` calls in ~5 files
   - **Evidence:** `AudioUploadModal.jsx:13-42`, `LiveOddsDashboard.jsx:35-79`,
