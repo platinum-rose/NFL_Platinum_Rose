@@ -4,7 +4,7 @@
 **Sources:**
 - Meridian Assurance Group — *NFL Platinum Rose End-to-End System Audit* (21 May 2026)
 - CODEX Ultrathink — *NFL Dashboard Formal Audit Report* (21 May 2026)
-**Progress:** 9 / 29 complete
+**Progress:** 10 / 29 complete
 
 > **Completion rule:** Mark `[ ]` → `[x]` only when the fix is committed to `main`
 > AND verified by test, live query, or CI pass. Dev-only changes do not count.
@@ -134,13 +134,13 @@
   - **Test:** 14 tests in `tests/unit/pickId.test.js` — 8 stable-key tests + 6 dedup tests;
     153/153 suite passing.
 
-- [ ] **QUOTA-BUDGET** — No Odds API quota tracking; silent mock-data fallback on exhaustion
-  - **Evidence:** No `remaining-requests` header read anywhere; `enhancedOddsApi.js` falls
-    back to `generateMockMultiBookData()` on quota exhaustion with no UI banner.
-  - **Fix:** Read `x-requests-remaining` response header; persist a monthly counter to
-    localStorage; show an explicit "⚠️ Simulated data — quota exhausted" banner when mock
-    data is served.
-  - **Test:** Mock quota exhaustion; confirm banner appears; confirm real API not called.
+- [x] **QUOTA-BUDGET** — No Odds API quota tracking; silent mock-data fallback on exhaustion
+  - **Fixed S147 (`0327361`):** `odds-proxy` edge function now forwards `x-requests-remaining`
+    header from TheOddsAPI. `enhancedOddsApi.js` adds `QUOTA_LS_KEY`, `getOddsQuotaState()`,
+    and `_setQuotaState()` — called in all 3 fetch paths (no-URL, success, error).
+    `LiveOddsDashboard` reads quota state on mount and after each fetch; shows yellow
+    "⚠️ Simulated data — quota exhausted" banner when `isMock=true`.
+    12 new unit tests; 165/165 passing.
 
 - [ ] **INJURY-ACCESS** — `player_injuries` table has RLS enabled with no anon read policy
   - **Evidence:** `supabase/migrations/016_player_injuries.sql:50-52` enables RLS with

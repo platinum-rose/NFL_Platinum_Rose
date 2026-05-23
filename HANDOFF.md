@@ -24,7 +24,8 @@
 
 ## Pick Up Here
 
-> **S146 (DONE)** — commit `4c8134d` — PICK-ID closed. `generateId()` uses stable natural key `source+gameId+pickType+line`; dedup simplified to id-equality check. Migration `021_pick_id_stable.sql` created (dedup existing rows + UNIQUE constraint). 14 new tests; 153/153 passing. **ACTION REQUIRED:** Apply `021_pick_id_stable.sql` to production. **Next:** QUOTA-BUDGET (MEDIUM).
+> **S147 (DONE)** — commit `0327361` — QUOTA-BUDGET closed. `odds-proxy` forwards `x-requests-remaining`; `getOddsQuotaState()` + `_setQuotaState()` added to `enhancedOddsApi.js`; `LiveOddsDashboard` shows yellow mock-data banner. 12 new tests; 165/165. **Next:** INJURY-ACCESS (MEDIUM).
+> **S146 (DONE)** — commit `4c8134d` — PICK-ID closed. `generateId()` uses stable natural key `source+gameId+pickType+line`; dedup simplified to id-equality check. Migration `021_pick_id_stable.sql` created (dedup existing rows + UNIQUE constraint). 14 new tests; 153/153 passing. **ACTION REQUIRED:** Apply `021_pick_id_stable.sql` to production.
 >
 > **S139 (DONE)** — commit `6dce19f` — API-KEYS CRITICAL fix (proxy Edge Functions).
 > **ACTION REQUIRED (manual):** rotate Anthropic / OpenAI / Odds API keys then re-deploy Edge Functions (see S139 block in archive).
