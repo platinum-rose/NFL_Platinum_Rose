@@ -5,6 +5,10 @@ on:
     - cron: '0 10 * * 2'
   workflow_dispatch: # Allows you to run it manually from the Actions tab for testing
 
+concurrency:
+  group: git-push-main
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -31,6 +35,12 @@ jobs:
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "actions@github.com"
           git add public/schedule.json
-          # Only commit if there are changes (prevents errors if schedule hasn't changed)
-          git commit -m "Auto-update schedule for the new week" || echo "No changes to commit"
-          git push
+          # Only commit and push if schedule changed
+          if ! { git diff --quiet && git diff --staged --quiet; }; then
+            git commit -m "Auto-update schedule for the new week"
+            for i in 1 2 3; do
+              git pull --rebase origin main && git push && break
+              echo "Push attempt $i failed, retrying in $((i * 5))s..."
+              sleep $((i * 5))
+            done
+          fi
