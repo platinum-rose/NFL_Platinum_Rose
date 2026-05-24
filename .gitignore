@@ -28,3 +28,11 @@ dist-ssr
 playwright-report/
 test-results/
 .playwright/
+
+# Generated / transient runtime artifacts
+betting_splits.json
+public/*.bak
+.nfl/session-log.jsonl
+.nfl/receipts/
+supabase/.temp/
+coverage/
