@@ -50,6 +50,8 @@ export default defineConfig([
         name: 'localStorage',
         message: 'Use loadFromStorage / saveToStorage / removeFromStorage from src/lib/storage.js instead of accessing localStorage directly.',
       }],
+      // Prevent raw console calls — route through src/lib/logger.js instead.
+      'no-console': 'error',
     },
   },
 
@@ -58,6 +60,14 @@ export default defineConfig([
     files: ['src/lib/storage.js'],
     rules: {
       'no-restricted-globals': 'off',
+    },
+  },
+
+  // ── Logger module: must use console directly (it IS the abstraction) ─────────
+  {
+    files: ['src/lib/logger.js'],
+    rules: {
+      'no-console': 'off',
     },
   },
 

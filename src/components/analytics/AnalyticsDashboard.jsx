@@ -44,7 +44,7 @@ export default function AnalyticsDashboard() {
         setDetailedStats(calculateDetailedAnalytics(bankrollData.bets, timeframe, betTypeFilter));
       }
     } catch (error) {
-      console.error('Error loading analytics:', error);
+      logger.error('Error loading analytics:', error);
       const testData = generateTestData();
       setAnalytics(testData.analytics);
       setDetailedStats(testData.detailedStats);

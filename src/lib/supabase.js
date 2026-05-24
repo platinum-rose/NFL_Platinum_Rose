@@ -55,7 +55,7 @@ export async function getLatestOddsSnapshot() {
     if (error || !data) return null;
     return { games: data.games || [], fetchedAt: data.fetched_at };
   } catch (e) {
-    console.warn('[supabase] getLatestOddsSnapshot failed:', e.message);
+    logger.warn('[supabase] getLatestOddsSnapshot failed:', e.message);
     return null;
   }
 }
@@ -96,7 +96,7 @@ export async function getLineMovementsDB(hours = 24) {
       timestamp: row.detected_at,
     }));
   } catch (e) {
-    console.warn('[supabase] getLineMovementsDB failed:', e.message);
+    logger.warn('[supabase] getLineMovementsDB failed:', e.message);
     return [];
   }
 }
@@ -123,7 +123,7 @@ export async function getLineHistoryDB(gameKey, hours = 7 * 24) {
     if (error || !data) return [];
     return data;
   } catch (e) {
-    console.warn('[supabase] getLineHistoryDB failed:', e.message);
+    logger.warn('[supabase] getLineHistoryDB failed:', e.message);
     return [];
   }
 }
@@ -150,7 +150,7 @@ export async function getActiveGameKeys(hours = 7 * 24) {
       return true;
     });
   } catch (e) {
-    console.warn('[supabase] getActiveGameKeys failed:', e.message);
+    logger.warn('[supabase] getActiveGameKeys failed:', e.message);
     return [];
   }
 }
@@ -200,7 +200,7 @@ export async function getLatestFuturesOdds() {
 
     return allRows;
   } catch (e) {
-    console.warn('[supabase] getLatestFuturesOdds failed:', e.message);
+    logger.warn('[supabase] getLatestFuturesOdds failed:', e.message);
     return [];
   }
 }
@@ -226,7 +226,7 @@ export async function getFuturesOddsHistory(team, marketType, days = 30) {
     if (error || !data) return [];
     return data;
   } catch (e) {
-    console.warn('[supabase] getFuturesOddsHistory failed:', e.message);
+    logger.warn('[supabase] getFuturesOddsHistory failed:', e.message);
     return [];
   }
 }
@@ -250,7 +250,7 @@ export async function getRecentResearchIntelNotes(hours = 72, limit = 200) {
     if (error || !data) return [];
     return data;
   } catch (e) {
-    console.warn('[supabase] getRecentResearchIntelNotes failed:', e.message);
+    logger.warn('[supabase] getRecentResearchIntelNotes failed:', e.message);
     return [];
   }
 }
@@ -274,7 +274,7 @@ export async function getRecentResearchPickSignals(hours = 72, limit = 300) {
     if (error || !data) return [];
     return data;
   } catch (e) {
-    console.warn('[supabase] getRecentResearchPickSignals failed:', e.message);
+    logger.warn('[supabase] getRecentResearchPickSignals failed:', e.message);
     return [];
   }
 }
@@ -341,7 +341,7 @@ export async function searchResearchIntel(query, { source, hours = 168, limit = 
 
     return { notes, signals };
   } catch (e) {
-    console.warn('[supabase] searchResearchIntel failed:', e.message);
+    logger.warn('[supabase] searchResearchIntel failed:', e.message);
     return { notes: [], signals: [] };
   }
 }
@@ -367,7 +367,7 @@ export async function getGameOddsForWeek(week, season = new Date().getFullYear()
     if (error || !data) return [];
     return data;
   } catch (e) {
-    console.warn('[supabase] getGameOddsForWeek failed:', e.message);
+    logger.warn('[supabase] getGameOddsForWeek failed:', e.message);
     return [];
   }
 }
@@ -386,7 +386,7 @@ export async function getGameResults({ week, season } = {}) {
     if (error || !data) return [];
     return data;
   } catch (e) {
-    console.warn('[supabase] getGameResults failed:', e.message);
+    logger.warn('[supabase] getGameResults failed:', e.message);
     return [];
   }
 }
@@ -408,7 +408,7 @@ export async function getGameResultsByIds(espnIds) {
     if (error || !data) return [];
     return data;
   } catch (e) {
-    console.warn('[supabase] getGameResultsByIds failed:', e.message);
+    logger.warn('[supabase] getGameResultsByIds failed:', e.message);
     return [];
   }
 }
@@ -440,7 +440,7 @@ export async function getPodcastEpisodes(limit = 30) {
     if (error || !data) return [];
     return data;
   } catch (e) {
-    console.warn('[supabase] getPodcastEpisodes failed:', e.message);
+    logger.warn('[supabase] getPodcastEpisodes failed:', e.message);
     return [];
   }
 }
@@ -485,7 +485,7 @@ export async function syncPick(pick) {
       units:         pick.units     ?? null,
     }, { onConflict: 'id' });
   } catch (e) {
-    console.warn('[supabase] syncPick failed (non-fatal):', e.message);
+    logger.warn('[supabase] syncPick failed (non-fatal):', e.message);
   }
 }
 
@@ -499,7 +499,7 @@ export async function deleteSyncedPick(pickId) {
   try {
     await supabase.from('user_picks').delete().eq('id', pickId);
   } catch (e) {
-    console.warn('[supabase] deleteSyncedPick failed (non-fatal):', e.message);
+    logger.warn('[supabase] deleteSyncedPick failed (non-fatal):', e.message);
   }
 }
 
@@ -546,7 +546,7 @@ export async function loadUserPicks() {
       units:        r.units !== null ? Number(r.units) : null,
     }));
   } catch (e) {
-    console.warn('[supabase] loadUserPicks failed (non-fatal):', e.message);
+    logger.warn('[supabase] loadUserPicks failed (non-fatal):', e.message);
     return [];
   }
 }
@@ -585,7 +585,7 @@ export async function syncBet(bet) {
       updated_at:     new Date().toISOString(),
     }, { onConflict: 'id' });
   } catch (e) {
-    console.warn('[supabase] syncBet failed (non-fatal):', e.message);
+    logger.warn('[supabase] syncBet failed (non-fatal):', e.message);
   }
 }
 
@@ -628,7 +628,7 @@ export async function loadUserBets() {
       updatedAt:     r.updated_at ?? r.timestamp ?? null,
     }));
   } catch (e) {
-    console.warn('[supabase] loadUserBets failed (non-fatal):', e.message);
+    logger.warn('[supabase] loadUserBets failed (non-fatal):', e.message);
     return [];
   }
 }
@@ -661,7 +661,7 @@ export async function getRecentSharpTweets(hours = 48, limit = 30) {
     if (error || !data) return [];
     return data;
   } catch (e) {
-    console.warn('[supabase] getRecentSharpTweets failed (non-fatal):', e.message);
+    logger.warn('[supabase] getRecentSharpTweets failed (non-fatal):', e.message);
     return [];
   }
 }
@@ -719,7 +719,7 @@ export async function searchSharpTweets(query, { handle, tier, hours = 168, limi
     if (error || !data) return [];
     return data;
   } catch (e) {
-    console.warn('[supabase] searchSharpTweets failed:', e.message);
+    logger.warn('[supabase] searchSharpTweets failed:', e.message);
     return [];
   }
 }
@@ -750,7 +750,7 @@ export async function getRecentPlayerInjuries(hours = 168, limit = 100) {
     if (error || !data) return [];
     return data;
   } catch (e) {
-    console.warn('[supabase] getRecentPlayerInjuries failed:', e.message);
+    logger.warn('[supabase] getRecentPlayerInjuries failed:', e.message);
     return [];
   }
 }
@@ -794,7 +794,7 @@ export async function getLatestWeekOdds(week, season = 2026) {
     }
     return [...seen.values()];
   } catch (e) {
-    console.warn('[supabase] getLatestWeekOdds failed:', e.message);
+    logger.warn('[supabase] getLatestWeekOdds failed:', e.message);
     return [];
   }
 }
@@ -824,7 +824,7 @@ export async function getGameSplitsForWeek(week, season = 2026) {
     if (error) throw error;
     return data || [];
   } catch (e) {
-    console.warn('[supabase] getGameSplitsForWeek failed:', e.message);
+    logger.warn('[supabase] getGameSplitsForWeek failed:', e.message);
     return [];
   }
 }
@@ -901,7 +901,7 @@ export async function queryAuditLog({ tableName, actor, limit = 50 } = {}) {
     if (error || !data) return [];
     return data;
   } catch (e) {
-    console.warn('[supabase] queryAuditLog failed (non-fatal):', e.message);
+    logger.warn('[supabase] queryAuditLog failed (non-fatal):', e.message);
     return [];
   }
 }

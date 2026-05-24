@@ -49,7 +49,7 @@ const OBSIDIAN_VAULT_PREFIX = import.meta.env.VITE_OBSIDIAN_NFL_PREFIX || 'NFL';
  */
 async function obsidianRead(path) {
   if (!OBSIDIAN_KEY) {
-    console.warn('[vault] VITE_OBSIDIAN_API_KEY not set — cannot read from Obsidian');
+    logger.warn('[vault] VITE_OBSIDIAN_API_KEY not set — cannot read from Obsidian');
     return null;
   }
   try {
@@ -63,12 +63,12 @@ async function obsidianRead(path) {
     });
     if (res.status === 404) return null;
     if (!res.ok) {
-      console.warn(`[vault] Obsidian read error ${res.status} for ${path}`);
+      logger.warn(`[vault] Obsidian read error ${res.status} for ${path}`);
       return null;
     }
     return await res.text();
   } catch (e) {
-    console.warn('[vault] Obsidian read failed:', e.message);
+    logger.warn('[vault] Obsidian read failed:', e.message);
     return null;
   }
 }
@@ -82,7 +82,7 @@ async function obsidianRead(path) {
  */
 async function obsidianWrite(path, content) {
   if (!OBSIDIAN_KEY) {
-    console.warn('[vault] VITE_OBSIDIAN_API_KEY not set — cannot write to Obsidian');
+    logger.warn('[vault] VITE_OBSIDIAN_API_KEY not set — cannot write to Obsidian');
     return false;
   }
   try {
@@ -95,12 +95,12 @@ async function obsidianWrite(path, content) {
       body: content,
     });
     if (!res.ok) {
-      console.warn(`[vault] Obsidian write error ${res.status} for ${path}`);
+      logger.warn(`[vault] Obsidian write error ${res.status} for ${path}`);
       return false;
     }
     return true;
   } catch (e) {
-    console.warn('[vault] Obsidian write failed:', e.message);
+    logger.warn('[vault] Obsidian write failed:', e.message);
     return false;
   }
 }
@@ -122,7 +122,7 @@ async function obsidianList(prefix) {
     // Obsidian REST API returns { files: ['path1', 'path2', ...] }
     return (data.files || []).filter(f => f.endsWith('.md'));
   } catch (e) {
-    console.warn('[vault] Obsidian list failed:', e.message);
+    logger.warn('[vault] Obsidian list failed:', e.message);
     return [];
   }
 }
@@ -140,7 +140,7 @@ async function supabaseRead(path) {
     if (error || !data) return null;
     return data.content;
   } catch (e) {
-    console.warn('[vault] Supabase read failed:', e.message);
+    logger.warn('[vault] Supabase read failed:', e.message);
     return null;
   }
 }
@@ -152,12 +152,12 @@ async function supabaseWrite(path, content, tags = [], source = 'agent') {
       .from('vault_notes')
       .upsert({ path, content, tags, source }, { onConflict: 'path' });
     if (error) {
-      console.warn('[vault] Supabase write failed:', error.message);
+      logger.warn('[vault] Supabase write failed:', error.message);
       return false;
     }
     return true;
   } catch (e) {
-    console.warn('[vault] Supabase write failed:', e.message);
+    logger.warn('[vault] Supabase write failed:', e.message);
     return false;
   }
 }
@@ -172,7 +172,7 @@ async function supabaseList(prefix) {
     if (error || !data) return [];
     return data.map(r => r.path);
   } catch (e) {
-    console.warn('[vault] Supabase list failed:', e.message);
+    logger.warn('[vault] Supabase list failed:', e.message);
     return [];
   }
 }
@@ -190,7 +190,7 @@ async function supabaseSearch(query) {
     if (error || !data) return [];
     return data;
   } catch (e) {
-    console.warn('[vault] Supabase search failed:', e.message);
+    logger.warn('[vault] Supabase search failed:', e.message);
     return [];
   }
 }
@@ -268,7 +268,7 @@ export async function loadReferenceNotes() {
 
     return contents.filter(Boolean).join('\n\n---\n\n');
   } catch (e) {
-    console.warn('[vault] loadReferenceNotes failed:', e.message);
+    logger.warn('[vault] loadReferenceNotes failed:', e.message);
     return '';
   }
 }

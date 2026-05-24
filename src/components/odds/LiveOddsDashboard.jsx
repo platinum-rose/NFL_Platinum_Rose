@@ -31,7 +31,7 @@ export default function LiveOddsDashboard() {
         if (snap?.games?.length) {
           const ageMin = Math.round((Date.now() - new Date(snap.fetchedAt).getTime()) / 60000);
           if (ageMin < 60) { // use if < 1 hour old
-            console.log(`☁️ Using Supabase odds snapshot (${ageMin}m old, ${snap.games.length} games)`);
+            logger.log(`☁️ Using Supabase odds snapshot (${ageMin}m old, ${snap.games.length} games)`);
             setGames(snap.games);
             setLastUpdate(new Date(snap.fetchedAt));
             // Mirror to cache so BetValueComparison + OddsCenter badge work
@@ -43,7 +43,7 @@ export default function LiveOddsDashboard() {
           }
         }
       } catch (e) {
-        console.warn('⚠️ Supabase unavailable, falling back to localStorage/API');
+        logger.warn('⚠️ Supabase unavailable, falling back to localStorage/API');
       }
 
       // 2. Try cache (< 10 min old)
@@ -52,7 +52,7 @@ export default function LiveOddsDashboard() {
       if (cached && cacheTime) {
         const age = Date.now() - parseInt(cacheTime);
         if (age < 10 * 60 * 1000) {
-          console.log('📦 Using localStorage cache (age: ' + Math.round(age / 60000) + ' min)');
+          logger.log('📦 Using localStorage cache (age: ' + Math.round(age / 60000) + ' min)');
           setGames(cached);
           setLastUpdate(new Date(parseInt(cacheTime)));
           setLoading(false);
@@ -72,7 +72,7 @@ export default function LiveOddsDashboard() {
   const loadOdds = async () => {
     setLoading(true);
     try {
-      console.log('🔄 Fetching odds from API (this counts against your 500/month limit)...');
+      logger.log('🔄 Fetching odds from API (this counts against your 500/month limit)...');
       const oddsData = await fetchMultiBookOdds();
       setGames(oddsData);
       setLastUpdate(new Date());
@@ -82,9 +82,9 @@ export default function LiveOddsDashboard() {
       saveToStorage(PR_STORAGE_KEYS.CACHED_ODDS.key, oddsData);
       saveToStorage(PR_STORAGE_KEYS.CACHED_ODDS_TIME.key, Date.now());
 
-      console.log(`✅ Loaded odds for ${oddsData.length} games (cached for 10 minutes)`);
+      logger.log(`✅ Loaded odds for ${oddsData.length} games (cached for 10 minutes)`);
     } catch (error) {
-      console.error('Failed to load odds:', error);
+      logger.error('Failed to load odds:', error);
     } finally {
       setLoading(false);
     }

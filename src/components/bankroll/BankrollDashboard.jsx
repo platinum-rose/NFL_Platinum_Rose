@@ -3,16 +3,16 @@
 
 import logger from '../../lib/logger';
 import React, { useState, useEffect } from 'react';
-import { 
-    DollarSign, TrendingUp, TrendingDown, Target, Calculator, 
+import {
+    DollarSign, TrendingUp, TrendingDown, Target, Calculator,
     Plus, Settings, Download, Upload, Calendar, BarChart3,
-    Award, AlertTriangle, Clock, CheckCircle 
+    Award, AlertTriangle, Clock, CheckCircle
 } from 'lucide-react';
-import { 
-    calculateAnalytics, 
-    getBankrollData, 
-    updateBankrollSettings, 
-    BET_STATUS, 
+import {
+    calculateAnalytics,
+    getBankrollData,
+    updateBankrollSettings,
+    BET_STATUS,
     BET_TYPES,
     exportBankrollData,
     importBankrollData,
@@ -196,7 +196,7 @@ export default function BankrollDashboard({ onAddBet, onShowCalculator, onImport
             setBankrollData(data);
             setAnalytics(analyticsData);
         } catch (error) {
-            console.error('Error loading bankroll data:', error);
+            logger.error('Error loading bankroll data:', error);
         } finally {
             setLoading(false);
         }
@@ -243,8 +243,8 @@ export default function BankrollDashboard({ onAddBet, onShowCalculator, onImport
                 </div>
                 <div className="flex items-center gap-3">
                     {/* Timeframe Filter */}
-                    <select 
-                        value={timeframe} 
+                    <select
+                        value={timeframe}
                         onChange={(e) => setTimeframe(e.target.value)}
                         className="bg-slate-800 border border-slate-700 text-white px-3 py-2 rounded-lg text-sm"
                     >
@@ -254,32 +254,32 @@ export default function BankrollDashboard({ onAddBet, onShowCalculator, onImport
                         <option value="week">Last 7 Days</option>
                         <option value="today">Today</option>
                     </select>
-                    
-                    <button 
+
+                    <button
                         onClick={onShowCalculator}
                         className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg text-white transition-colors"
                     >
                         <Calculator size={16} />
                         Calculator
                     </button>
-                    
-                    <button 
+
+                    <button
                         onClick={onImportBets}
                         className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-white transition-colors"
                     >
                         <Upload size={16} />
                         Import Bets
                     </button>
-                    
-                    <button 
+
+                    <button
                         onClick={onShowPending}
                         className="flex items-center gap-2 bg-amber-600 hover:bg-amber-700 px-4 py-2 rounded-lg text-white transition-colors"
                     >
                         <Clock size={16} />
                         Pending Bets
                     </button>
-                    
-                    <button 
+
+                    <button
                         onClick={onAddBet}
                         className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 px-4 py-2 rounded-lg text-white transition-colors"
                     >
@@ -320,7 +320,7 @@ export default function BankrollDashboard({ onAddBet, onShowCalculator, onImport
                             </p>
                         </div>
                         <div className={`p-3 rounded-full ${analytics.totalProfit >= 0 ? 'bg-emerald-900/20' : 'bg-red-900/20'}`}>
-                            {analytics.totalProfit >= 0 ? 
+                            {analytics.totalProfit >= 0 ?
                                 <TrendingUp className="w-6 h-6 text-emerald-400" /> :
                                 <TrendingDown className="w-6 h-6 text-red-400" />
                             }
@@ -375,13 +375,13 @@ export default function BankrollDashboard({ onAddBet, onShowCalculator, onImport
                                 <span className="text-white font-medium">{analytics.recentForm.toFixed(1)}%</span>
                             </div>
                             <div className="w-full bg-slate-700 rounded-full h-2">
-                                <div 
+                                <div
                                     className="bg-emerald-500 h-2 rounded-full transition-all duration-500"
                                     style={{ width: `${analytics.recentForm}%` }}
                                 ></div>
                             </div>
                         </div>
-                        
+
                         <div className="grid grid-cols-2 gap-4 pt-4">
                             <div className="text-center">
                                 <p className="text-slate-400 text-xs">Current Streak</p>
@@ -404,7 +404,7 @@ export default function BankrollDashboard({ onAddBet, onShowCalculator, onImport
                         {Object.entries(analytics.betsByType).map(([type, data]) => {
                             const winRate = data.count > 0 ? (data.wins / data.count) * 100 : 0;
                             const profitColor = data.profit >= 0 ? 'text-emerald-400' : 'text-red-400';
-                            
+
                             return (
                                 <div key={type} className="flex justify-between items-center">
                                     <div>
@@ -453,14 +453,14 @@ export default function BankrollDashboard({ onAddBet, onShowCalculator, onImport
 
             {/* Action Buttons */}
             <div className="flex justify-end gap-3">
-                <button 
+                <button
                     onClick={handleExport}
                     className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-lg text-white transition-colors"
                 >
                     <Download size={16} />
                     Export Data
                 </button>
-                <button 
+                <button
                     onClick={() => onShowSettings()}
                     className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 px-4 py-2 rounded-lg text-white transition-colors"
                 >
