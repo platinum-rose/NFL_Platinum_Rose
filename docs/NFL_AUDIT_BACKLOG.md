@@ -4,7 +4,7 @@
 **Sources:**
 - Meridian Assurance Group — *NFL Platinum Rose End-to-End System Audit* (21 May 2026)
 - CODEX Ultrathink — *NFL Dashboard Formal Audit Report* (21 May 2026)
-**Progress:** 22 / 29 complete
+**Progress:** 23 / 29 complete
 
 > **Completion rule:** Mark `[ ]` → `[x]` only when the fix is committed to `main`
 > AND verified by test, live query, or CI pass. Dev-only changes do not count.
@@ -261,10 +261,11 @@
 
 ## 🟢 LOW / HYGIENE — Clean up when convenient
 
-- [ ] **ARTIFACTS** — Generated/transient files committed to git
-  - `public/weekly_stats.json.bak`, `betting_splits.json` (root), `.nfl/*.jsonl`,
-    `.nfl/receipts/`, `supabase/.temp/cli-latest`
-  - **Fix:** `git rm --cached` for each; add patterns to `.gitignore`.
+- [x] **ARTIFACTS** — Generated/transient files committed to git — fixed `dbc5201`
+  - `git rm --cached`: `betting_splits.json`, `public/weekly_stats.json.bak`,
+    `supabase/.temp/cli-latest`, `.nfl/session-log.jsonl`, `.nfl/receipts/` (13 files).
+  - `.gitignore` patterns added: `betting_splits.json`, `public/*.bak`,
+    `.nfl/session-log.jsonl`, `.nfl/receipts/`, `supabase/.temp/`, `coverage/`.
 
 - [ ] **CONSOLE-LOGS** — ~102 `console.log` calls in `src/` ship in production bundle
   - **Evidence:** `picksDatabase.js:162/278/319`; `App.jsx` `onSyncOdds=()=>console.log("Sync")`.
