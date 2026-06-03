@@ -30,7 +30,7 @@ from .quality_gate import apply_quality_gate, reduce_picks
 def run(
     *,
     transcript: str,
-    episode_id: int | None,
+    episode_id: str | None,
     ollama_url: str,
     model: str,
     post_json=None,
@@ -66,7 +66,7 @@ def run(
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description="Extract NFL betting picks from a podcast transcript.")
     p.add_argument("--transcript", required=True, help="Path to transcript .txt file")
-    p.add_argument("--episode-id", type=int, default=None)
+    p.add_argument("--episode-id", default=None, help="Opaque episode identifier (string)")
     p.add_argument("--out", default=None, help="Write JSON here; default = stdout")
     p.add_argument(
         "--ollama-url",
