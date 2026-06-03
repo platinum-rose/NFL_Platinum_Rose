@@ -1,0 +1,125 @@
+{
+  "_meta": {
+    "agent": "FUTURES",
+    "version": "1.0.0",
+    "description": "Context manifest for the NFL FUTURES agent (Phase 6). Season-arc thinking, hedging math, line-decay analysis. Consumes podcast intel via PODCAST_INTEL_TOOLS shared with BETTING.",
+    "contextBudget": "~5500 tokens injected before first response"
+  },
+  "model": {
+    "default": "claude-sonnet-4-5",
+    "classifier": "claude-haiku-4-5",
+    "upgradeOn": ["multi-leg hedge across >1 market", "division-path projection with tiebreakers", "contradicting expert consensus across 3+ podcasts"],
+    "upgradeTo": "claude-opus-4"
+  },
+  "systemPrompt": {
+    "role": "FUTURES strategist — season-arc thinking",
+    "principles": [
+      "Think in season arcs, not single weeks. Always anchor a take to the schedule, division standings, and remaining strength of schedule.",
+      "Quote line-decay context: opening odds vs current odds, and what events moved the line (injury, upset, coaching change).",
+      "Cite podcast experts by name and date when their take supports or contradicts a recommendation. Never invent attributions.",
+      "When the Creator asks about hedging, show the math: stake at entry, current odds, hedge size, locked min/max profit. Use calculate_hedge.",
+      "Never auto-log picks. Confirm before calling log_pick.",
+      "Distinguish division winners, conference winners, MVP/awards, win totals, playoff prop futures. Use the right market identifier."
+    ],
+    "guardrails": [
+      "Picks flagged needs_review by the podcast pipeline are EXCLUDED from search_podcast_picks results — do not ask the Creator to override.",
+      "If a tool returns no_data, say so plainly. Do not extrapolate from absent data.",
+      "Quality_score < 0.6 means the extraction was uncertain; mention this when surfacing such picks."
+    ]
+  },
+  "contextLoader": [
+    {
+      "step": 1,
+      "label": "futures_portfolio",
+      "description": "Load open futures positions and exposure",
+      "sources": [
+        { "type": "localStorage", "key": "nfl_futures_portfolio_v1", "format": "json", "fallback": "{ \"positions\": [] }" }
+      ],
+      "inject": "Include: team, market, odds_at_entry, stake, current_odds_estimate, exposure. Use for hedge calculations and decay analysis."
+    },
+    {
+      "step": 2,
+      "label": "bankroll_config",
+      "description": "Load bankroll configuration for exposure checks",
+      "sources": [
+        { "type": "localStorage", "key": "nfl_bankroll_data_v1", "format": "json", "fallback": "{}" }
+      ],
+      "inject": "Extract: unit_size, current_balance, max_daily_units, max_single_bet_units. If missing, use defaults: unit_size=25, max_daily_units=10, max_single_bet_units=3."
+    },
+    {
+      "step": 3,
+      "label": "today_context",
+      "description": "Inject current date, NFL week, and season",
+      "sources": [
+        { "type": "runtime", "value": "new Date().toISOString().split('T')[0]" },
+        { "type": "fetch", "url": "./schedule.json", "format": "json", "fallback": "[]" }
+      ],
+      "inject": "Today's date, current NFL week (derived from schedule), weeks remaining in regular season, and season year."
+    }
+  ],
+  "tools": [
+    {
+      "name": "search_podcast_picks",
+      "source": "PODCAST_INTEL_TOOLS",
+      "description": "Search podcast picks; FUTURES agent typically filters by category='future'."
+    },
+    {
+      "name": "get_expert_history",
+      "source": "PODCAST_INTEL_TOOLS",
+      "description": "Recent pick log + category breakdown for one expert."
+    },
+    {
+      "name": "get_team_podcast_intel",
+      "source": "PODCAST_INTEL_TOOLS",
+      "description": "Picks for/against a team across recent podcasts; useful for division-winner and win-total context."
+    },
+    {
+      "name": "get_weekly_consensus",
+      "source": "PODCAST_INTEL_TOOLS",
+      "description": "Cross-expert consensus board for a given week."
+    },
+    {
+      "name": "get_futures_movement",
+      "source": "PODCAST_INTEL_TOOLS",
+      "description": "Timeline of expert picks for a single futures market — primary line-decay/sentiment-shift tool for FUTURES agent."
+    },
+    {
+      "name": "get_player_prop_context",
+      "source": "PODCAST_INTEL_TOOLS",
+      "description": "Used for award-race futures (MVP, OPOY) when a candidate is a single player."
+    },
+    {
+      "name": "calculate_hedge",
+      "source": "BETTING_TOOLS",
+      "description": "Hedge math for locking profit on an outright futures position with current spread/ML odds."
+    },
+    {
+      "name": "get_odds",
+      "source": "BETTING_TOOLS",
+      "description": "Pull current sportsbook odds; FUTURES uses this for current-line context on division/conference markets."
+    },
+    {
+      "name": "log_pick",
+      "source": "BETTING_TOOLS",
+      "description": "Record a futures pick with bet_type='future'. Always confirm before calling.",
+      "confirmation": "Always confirm with Creator before executing. Never auto-log."
+    }
+  ],
+  "deferredTools": {
+    "_note": "Spec §3 Phase 6 lists analyze_futures_hedge, project_division_paths, track_award_race as future additions. These are not yet implemented in agentTools.js; FUTURES agent currently relies on calculate_hedge + get_futures_movement + reasoning for the same use cases.",
+    "candidates": ["analyze_futures_hedge", "project_division_paths", "track_award_race"]
+  },
+  "persistenceKeys": {
+    "chatHistory": "nfl_futures_agent_chat_v1",
+    "sessionState": "nfl_futures_agent_session_v1"
+  },
+  "displayConfig": {
+    "headerColor": "indigo",
+    "icon": "trophy",
+    "agentLabel": "FUTURES",
+    "statusBar": {
+      "show": true,
+      "fields": ["open_futures_count", "total_futures_exposure_units", "weeks_remaining"]
+    }
+  }
+}
