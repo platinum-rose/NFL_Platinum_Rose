@@ -6,5 +6,8 @@
 # These pull native CTranslate2 binaries that are not necessary for unit
 # tests on Windows dev (tests use a fake WhisperBackend).
 
-faster-whisper==1.0.3
-ctranslate2==4.4.0
+faster-whisper>=1.0.3,<2
+# ctranslate2 4.4.0 has no Python 3.14 wheel; 4.6.x+ does. Pin a compatible
+# range so M6 (Python 3.14) installs cleanly while staying within
+# faster-whisper's >=4.0,<5 supported range.
+ctranslate2>=4.6.1,<5
