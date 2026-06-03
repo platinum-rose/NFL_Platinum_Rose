@@ -27,9 +27,12 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createRequire } from 'node:module';
 
 import { createClient } from '@supabase/supabase-js';
 import 'dotenv/config';
+
+const require = createRequire(import.meta.url);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
@@ -42,8 +45,9 @@ const ODDS_API_KEY  = process.env.ODDS_API_KEY;
 const SUPABASE_URL  = process.env.SUPABASE_URL;
 const SUPABASE_KEY  = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const DRY_RUN       = process.argv.includes('--dry-run') || process.env.DRY_RUN === 'true';
+const _seasonArgIdx = process.argv.indexOf('--season');
 const SEASON        = Number(
-  process.argv[process.argv.indexOf('--season') + 1] ||
+  (_seasonArgIdx !== -1 ? process.argv[_seasonArgIdx + 1] : null) ||
   process.env.GAME_ODDS_SEASON ||
   new Date().getFullYear()
 );
@@ -110,7 +114,7 @@ function normalizeTeam(name) {
   return TEAM_NAME_MAP[name] || name.toUpperCase().replace(/\s+/g, '_');
 }
 
-const { weekFromDate, buildGameId } = require('../packages/shared/src/week-utils');
+const { weekFromDate, buildGameId } = require('../packages/shared/src/week-utils'); // CJS via createRequire
 
 // ── Parsing ───────────────────────────────────────────────────────────────────
 
