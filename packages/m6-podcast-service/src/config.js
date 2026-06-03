@@ -35,4 +35,12 @@ export const config = {
   audioDir: process.env.NFL_AUDIO_DIR ?? '/var/lib/nfl/audio',
   transcriptDir: process.env.NFL_TRANSCRIPT_DIR ?? '/var/lib/nfl/transcripts',
   digestDir: process.env.NFL_DIGEST_DIR ?? '/var/lib/nfl/digest',
+
+  // Phase 4 wiring: where the Python extractor venv lives on M6.
+  pythonExecutable:
+    process.env.NFL_PYTHON_EXECUTABLE ??
+    '/home/andrewlrose/projects/NFL_Dashboard/packages/m6-podcast-service/python/.venv/bin/python',
+  pythonCwd:
+    process.env.NFL_PYTHON_CWD ??
+    '/home/andrewlrose/projects/NFL_Dashboard/packages/m6-podcast-service/python',
 };

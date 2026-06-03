@@ -39,14 +39,15 @@ export function getRun(id) {
 }
 
 /**
- * Enqueue a run and return its id immediately. The worker is a stub; replace
- * it in Phase 3 with the real pipeline orchestrator.
+ * Enqueue a run and return its id immediately. The worker is a stub by
+ * default; pass a real worker (e.g. buildPhase4Worker) from the route.
  *
  * @param {object} opts
- * @param {(run: Run) => Promise<void>} [opts.worker]  override for tests
+ * @param {(run: Run, input: object) => Promise<void>} [opts.worker]
+ * @param {object} [opts.input]   passed through to the worker
  * @returns {string} run_id
  */
-export function startRun({ worker } = {}) {
+export function startRun({ worker, input } = {}) {
   const id = crypto.randomUUID();
   const run = {
     id,
@@ -63,7 +64,7 @@ export function startRun({ worker } = {}) {
   Promise.resolve()
     .then(() => {
       run.status = 'running';
-      return fn(run);
+      return fn(run, input ?? {});
     })
     .then(() => {
       run.status = 'done';

@@ -7,6 +7,7 @@ import {
   getLastRunSummary,
   getQueueDepth,
 } from './runRegistry.js';
+import { buildPhase4Worker, parsePipelineInput } from './pipelineWorker.js';
 
 /**
  * Build a configured Fastify instance. Exposed as a function so tests can
@@ -18,6 +19,8 @@ import {
  */
 export function buildServer(opts = {}) {
   const hmacSecret = opts.hmacSecret ?? config.hmacSecret;
+  // Worker can be injected by tests to skip spawning Python.
+  const worker = opts.worker ?? buildPhase4Worker();
   const app = Fastify({
     logger: opts.logger ?? { level: config.nodeEnv === 'test' ? 'silent' : 'info' },
     bodyLimit: 1 * 1024 * 1024, // 1 MB; ingest payloads are tiny
@@ -59,7 +62,15 @@ export function buildServer(opts = {}) {
   const hmac = { preHandler: hmacGuard({ secret: hmacSecret }) };
 
   app.post('/ingest/run', hmac, async (request, reply) => {
-    const runId = startRun();
+    let input;
+    try {
+      input = parsePipelineInput(request.body);
+    } catch (err) {
+      return reply
+        .code(err.statusCode ?? 400)
+        .send({ error: 'bad_request', message: err.message });
+    }
+    const runId = startRun({ worker, input });
     reply.code(202);
     return { run_id: runId, status: 'queued' };
   });
