@@ -1,8 +1,9 @@
 """System prompt + few-shot examples for the extraction LLM.
 
-Kept terse on purpose — qwen3:8b follows tight instructions better than
-fluffy ones. Few-shots cover all 5 categories (spread / total / moneyline
-/ future / prop) so the model has at least one anchor per category.
+Kept terse on purpose — small instruction-tuned models (qwen2.5:3b,
+qwen3:8b) follow tight instructions better than fluffy ones. Few-shots
+cover all 5 categories (spread / total / moneyline / future / prop) so
+the model has at least one anchor per category.
 """
 
 from __future__ import annotations

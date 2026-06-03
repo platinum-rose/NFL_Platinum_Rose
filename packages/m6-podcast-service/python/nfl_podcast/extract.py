@@ -6,7 +6,7 @@ Usage:
         --episode-id 42 \\
         [--out /path/to/picks.json] \\
         [--ollama-url http://127.0.0.1:11434] \\
-        [--model qwen3:8b]
+        [--model qwen2.5:3b]
 
 Returns exit 0 on success. Quality gate outcome (including
 ``needs_cloud_fallback``) is included in the JSON envelope so the calling
@@ -72,7 +72,7 @@ def main(argv: list[str] | None = None) -> int:
         "--ollama-url",
         default=os.environ.get("OLLAMA_BASE_URL", "http://127.0.0.1:11434"),
     )
-    p.add_argument("--model", default=os.environ.get("OLLAMA_MODEL", "qwen3:8b"))
+    p.add_argument("--model", default=os.environ.get("OLLAMA_MODEL", "qwen2.5:3b"))
     args = p.parse_args(argv)
 
     text = Path(args.transcript).read_text(encoding="utf-8")

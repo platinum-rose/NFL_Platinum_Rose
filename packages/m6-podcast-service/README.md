@@ -1,7 +1,7 @@
 # nfl-podcast-service (M6)
 
 Local Fastify service that ingests NFL podcasts, transcribes them with
-faster-whisper, extracts picks with Ollama (qwen3:8b → GPT-4o fallback), and
+faster-whisper, extracts picks with Ollama (qwen2.5:3b → GPT-4o fallback), and
 serves digest pages over Tailscale + Funnel.
 
 Spec: `/memories/repo/nfl-podcast-pipeline-spec.md` (Phases 1–9).
@@ -187,7 +187,7 @@ extractor as a child process. The signed payload **must** include:
 {
   "transcript_path": "/var/lib/nfl/transcripts/<episode_id>.txt",
   "episode_id": "<supabase_episode_id>",
-  "model": "qwen3:8b",                       // optional; defaults to OLLAMA_MODEL
+  "model": "qwen2.5:3b",                       // optional; defaults to OLLAMA_MODEL
   "ollama_url": "http://127.0.0.1:11434"     // optional; defaults to OLLAMA_BASE_URL
 }
 ```
@@ -216,7 +216,7 @@ cd ~/projects/NFL_Dashboard && git pull
 ls /home/andrewlrose/projects/NFL_Dashboard/packages/m6-podcast-service/python/.venv/bin/python
 
 # 3. Confirm Ollama is up and the model is loaded
-ollama list | grep qwen3:8b
+ollama list | grep qwen2.5:3b
 curl -s http://127.0.0.1:11434/api/tags | head
 
 # 4. Add Phase 4 env vars to /etc/nfl-podcast.env (defaults are correct on M6;
@@ -224,7 +224,7 @@ curl -s http://127.0.0.1:11434/api/tags | head
 #       NFL_PYTHON_EXECUTABLE=/home/andrewlrose/projects/NFL_Dashboard/packages/m6-podcast-service/python/.venv/bin/python
 #       NFL_PYTHON_CWD=/home/andrewlrose/projects/NFL_Dashboard/packages/m6-podcast-service/python
 #       OLLAMA_BASE_URL=http://127.0.0.1:11434
-#       OLLAMA_MODEL=qwen3:8b
+#       OLLAMA_MODEL=qwen2.5:3b
 sudo nano /etc/nfl-podcast.env
 
 # 5. Restart and smoke-test

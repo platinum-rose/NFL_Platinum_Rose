@@ -30,7 +30,9 @@ export const config = {
   openaiApiKey: process.env.OPENAI_API_KEY ?? '',
 
   ollamaBaseUrl: process.env.OLLAMA_BASE_URL ?? 'http://127.0.0.1:11434',
-  ollamaModel: process.env.OLLAMA_MODEL ?? 'qwen3:8b',
+  // qwen2.5:3b is the safe default — qwen3:8b on M6 CPU times out on long
+  // transcripts (>3-step planning). Override via OLLAMA_MODEL when GPU is present.
+  ollamaModel: process.env.OLLAMA_MODEL ?? 'qwen2.5:3b',
 
   whisperModel: process.env.WHISPER_MODEL ?? 'large-v3-turbo',
   whisperModelDir: process.env.WHISPER_MODEL_DIR ?? '/var/lib/nfl/models',

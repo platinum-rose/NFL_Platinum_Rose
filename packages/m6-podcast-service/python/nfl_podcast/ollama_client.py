@@ -18,8 +18,9 @@ from dataclasses import dataclass
 from typing import Callable, Protocol
 
 
-# Cold-loading qwen3:8b on M6 CPU can take 90-180s on first call.
-# Override with OLLAMA_TIMEOUT env var (seconds) for slower hosts.
+# Cold-loading qwen2.5:3b on M6 CPU can take ~30-60s on first call;
+# qwen3:8b takes 90-180s. Override with OLLAMA_TIMEOUT env var (seconds).
+# Default 600s is generous for either model on slower hosts.
 _DEFAULT_OLLAMA_TIMEOUT = float(os.environ.get("OLLAMA_TIMEOUT", "600"))
 
 from .schema import EXTRACTION_RESPONSE_SCHEMA

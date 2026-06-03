@@ -22,7 +22,7 @@ def test_call_ollama_chat_parses_first_try():
     post, calls = _make_post([json.dumps(payload)])
     result = call_ollama_chat(
         base_url="http://x",
-        model="qwen3:8b",
+        model="qwen2.5:3b",
         system_prompt="sys",
         user_prompt="usr",
         post_json=post,
@@ -38,7 +38,7 @@ def test_call_ollama_chat_strips_fences():
     post, _ = _make_post([fenced])
     result = call_ollama_chat(
         base_url="http://x",
-        model="qwen3:8b",
+        model="qwen2.5:3b",
         system_prompt="s",
         user_prompt="u",
         post_json=post,
@@ -51,7 +51,7 @@ def test_call_ollama_chat_retries_then_succeeds():
     post, calls = _make_post(["not json", json.dumps(payload)])
     result = call_ollama_chat(
         base_url="http://x",
-        model="qwen3:8b",
+        model="qwen2.5:3b",
         system_prompt="s",
         user_prompt="u",
         post_json=post,
@@ -66,7 +66,7 @@ def test_call_ollama_chat_terminal_failure():
     with pytest.raises(RuntimeError):
         call_ollama_chat(
             base_url="http://x",
-            model="qwen3:8b",
+            model="qwen2.5:3b",
             system_prompt="s",
             user_prompt="u",
             post_json=post,
@@ -80,7 +80,7 @@ def test_call_ollama_chat_validates_picks_is_list():
     post, _ = _make_post([json.dumps(bad), json.dumps({"picks": []})])
     result = call_ollama_chat(
         base_url="http://x",
-        model="qwen3:8b",
+        model="qwen2.5:3b",
         system_prompt="s",
         user_prompt="u",
         post_json=post,

@@ -58,7 +58,7 @@ def test_extract_run_end_to_end():
         transcript=SHORT_TRANSCRIPT,
         episode_id=99,
         ollama_url="http://stub",
-        model="qwen3:8b",
+        model="qwen2.5:3b",
         post_json=make_post_json(canned),
     )
     assert result["episode_id"] == 99
@@ -92,7 +92,7 @@ def test_extract_run_triggers_fallback_on_low_quality():
         transcript=plain,
         episode_id=1,
         ollama_url="http://stub",
-        model="qwen3:8b",
+        model="qwen2.5:3b",
         post_json=make_post_json(weak),
     )
     assert result["needs_cloud_fallback"] is True

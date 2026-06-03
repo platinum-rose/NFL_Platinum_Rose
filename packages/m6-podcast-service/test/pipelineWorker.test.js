@@ -16,7 +16,7 @@ const cfg = {
   pythonExecutable: '/fake/python',
   pythonCwd: '/fake/cwd',
   ollamaBaseUrl: 'http://127.0.0.1:11434',
-  ollamaModel: 'qwen3:8b',
+  ollamaModel: 'qwen2.5:3b',
   whisperModel: 'large-v3-turbo',
   whisperModelDir: '/var/lib/nfl/models',
   transcriptDir: '/var/lib/nfl/transcripts',
@@ -95,7 +95,7 @@ describe('buildPhase4Worker', () => {
       calls.push(opts);
       return {
         json: {
-          model: 'qwen3:8b',
+          model: 'qwen2.5:3b',
           chunks: 5,
           picks: [{ team: 'KC' }, { team: 'BUF' }],
           dropped: [],
@@ -121,13 +121,13 @@ describe('buildPhase4Worker', () => {
       '--transcript', '/var/lib/nfl/transcripts/ep-1.txt',
       '--episode-id', 'ep-1',
       '--ollama-url', 'http://127.0.0.1:11434',
-      '--model', 'qwen3:8b',
+      '--model', 'qwen2.5:3b',
     ]);
 
     expect(run.stats).toEqual({
       phase: 4,
       episode_id: 'ep-1',
-      model: 'qwen3:8b',
+      model: 'qwen2.5:3b',
       chunks: 5,
       pick_count: 2,
       dropped_count: 0,
@@ -295,7 +295,7 @@ describe('buildFullPipelineWorker', () => {
       // extract
       return {
         json: {
-          model: 'qwen3:8b',
+          model: 'qwen2.5:3b',
           chunks: 3,
           picks: [{ team: 'KC' }],
           dropped: [],

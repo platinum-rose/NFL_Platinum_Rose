@@ -171,7 +171,7 @@ describe('GET /ingest/status/:run_id', () => {
     const body = JSON.stringify({
       transcript_path: '/var/lib/nfl/transcripts/ep-3.txt',
       episode_id: 'ep-3',
-      model: 'qwen3:8b',
+      model: 'qwen2.5:3b',
     });
     const startRes = await app.inject({
       method: 'POST',
@@ -201,7 +201,7 @@ describe('GET /ingest/status/:run_id', () => {
 
     const lastCall = workerCalls[workerCalls.length - 1];
     expect(lastCall.transcript_path).toBe('/var/lib/nfl/transcripts/ep-3.txt');
-    expect(lastCall.model).toBe('qwen3:8b');
+    expect(lastCall.model).toBe('qwen2.5:3b');
   });
 });
 
