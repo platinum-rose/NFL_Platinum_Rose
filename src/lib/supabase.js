@@ -315,6 +315,109 @@ export async function getFuturesOddsHistory(team, marketType, days = 30) {
   }
 }
 
+// All market_type values stored by futures-odds-ingest (conference/division use subtypes).
+const ALL_WATCHLIST_MARKET_TYPES = [
+  'superbowl',
+  'conference_afc', 'conference_nfc',
+  'division_afc_east', 'division_afc_north', 'division_afc_south', 'division_afc_west',
+  'division_nfc_east', 'division_nfc_north', 'division_nfc_south', 'division_nfc_west',
+  'wins', 'playoffs',
+];
+
+/**
+ * Batch-fetch futures odds history for multiple teams × markets.
+ * Returns a nested map: { [team]: { [marketType]: Array<{snapshot_time, bestOdds, book}> } }
+ * "bestOdds" per snapshot = longest (highest payout) odds across all books.
+ * For wins: filters to Over side (selection ILIKE 'Over%').
+ * For playoffs: filters to Yes side (selection = 'Yes').
+ *
+ * @param {string[]} teams — exact team names as stored (e.g. "Buffalo Bills")
+ * @param {string[]} _marketTypes — ignored; queries all known market subtypes automatically
+ * @param {number}   days  — how far back (default 60)
+ */
+export async function getWatchlistOddsHistory(teams, _marketTypes, days = 60) {
+  if (!isAvailable() || !teams?.length) return {};
+  try {
+    const cutoff = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
+
+    // Try with the selection column (migration 022+). If that column doesn't exist yet,
+    // fall back to the basic 5-column schema — wins/playoffs won't be filtered by side
+    // but at least the core markets will render.
+    let data, error;
+    ({ data, error } = await supabase
+      .from('futures_odds_snapshots')
+      .select('team, market_type, book, odds, snapshot_time, selection')
+      .in('team', teams)
+      .in('market_type', ALL_WATCHLIST_MARKET_TYPES)
+      .gte('snapshot_time', cutoff)
+      .order('snapshot_time', { ascending: true }));
+
+    if (error?.message?.toLowerCase().includes('selection')) {
+      // Pre-migration 022 schema — retry without selection column
+      ({ data, error } = await supabase
+        .from('futures_odds_snapshots')
+        .select('team, market_type, book, odds, snapshot_time')
+        .in('team', teams)
+        .in('market_type', ALL_WATCHLIST_MARKET_TYPES)
+        .gte('snapshot_time', cutoff)
+        .order('snapshot_time', { ascending: true }));
+    }
+
+    if (error || !data) return {};
+
+    // Group into { team: { marketType: [{snapshot_time, bestOdds, book}] } }
+    // Collapse each (team, market_type, snapshot_time window) to a single best-odds point.
+    const toDecimal = (o) => {
+      if (o == null) return 0;
+      if (o >= 100)  return o / 100 + 1;
+      if (o <= -100) return 100 / Math.abs(o) + 1;
+      return 2;
+    };
+
+    // Bucket snapshots within 30-minute windows so multiple books → one data point
+    const BUCKET_MS = 30 * 60 * 1000;
+    const grouped = {};
+    for (const row of data) {
+      const { team, market_type, book, odds, snapshot_time, selection } = row;
+
+      // For wins: only track the Over side (the "with the team" bet).
+      // For playoffs: only track the Yes side.
+      if (market_type === 'wins'    && selection && !String(selection).toLowerCase().startsWith('over')) continue;
+      if (market_type === 'playoffs' && selection && String(selection).toLowerCase() !== 'yes') continue;
+
+      if (!grouped[team]) grouped[team] = {};
+      if (!grouped[team][market_type]) grouped[team][market_type] = new Map();
+
+      const ts = new Date(snapshot_time).getTime();
+      const bucket = Math.floor(ts / BUCKET_MS) * BUCKET_MS;
+
+      const existing = grouped[team][market_type].get(bucket);
+      if (!existing || toDecimal(odds) > toDecimal(existing.bestOdds)) {
+        grouped[team][market_type].set(bucket, {
+          snapshot_time: new Date(bucket).toISOString(),
+          bestOdds: odds,
+          book,
+        });
+      }
+    }
+
+    // Convert Maps → sorted arrays
+    const result = {};
+    for (const [team, markets] of Object.entries(grouped)) {
+      result[team] = {};
+      for (const [market, bucketMap] of Object.entries(markets)) {
+        result[team][market] = [...bucketMap.values()].sort(
+          (a, b) => new Date(a.snapshot_time) - new Date(b.snapshot_time),
+        );
+      }
+    }
+    return result;
+  } catch (e) {
+    logger.warn('[supabase] getWatchlistOddsHistory failed:', e.message);
+    return {};
+  }
+}
+
 /**
  * Get recent research intel notes for BETTING context preload.
  * @param {number} hours — lookback window (default 72)
