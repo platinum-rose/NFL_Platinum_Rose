@@ -241,7 +241,7 @@ function ApiKeySetup({ onKeySet }) {
 
 // ─── Status Bar ───────────────────────────────────────────────────────────────
 
-function FuturesStatusBar({ openFuturesCount, weekLabel, isLoading, provider }) {
+function FuturesStatusBar({ openFuturesCount, weekLabel, isLoading, provider, activeModelLabel }) {
   const modelLabel = provider === 'anthropic'
     ? (ANTHROPIC_API.MODEL_DEFAULT || 'claude-sonnet-4-5')
     : 'gpt-4o-mini';
@@ -257,7 +257,7 @@ function FuturesStatusBar({ openFuturesCount, weekLabel, isLoading, provider }) 
       <span>{weekLabel}</span>
       <div className="h-3 w-px bg-slate-700" />
       <span>Open futures: <span className="text-slate-300">{openFuturesCount}</span></span>
-      {isLoading && <span className="ml-auto text-amber-400 animate-pulse">Thinking...</span>}
+      {isLoading && <span className="ml-auto text-amber-400 animate-pulse">Asking {activeModelLabel || (provider === "anthropic" ? "Claude" : "GPT-4o")}...</span>}
     </div>
   );
 }
@@ -280,6 +280,7 @@ export default function FuturesAgentChat() {
 
   const [apiKey, setApiKey] = useState(storedKey || '');
   const [provider, setProvider] = useState(storedProvider || 'anthropic');
+  const [activeModelLabel, setActiveModelLabel] = useState(null);
 
   const [messages, setMessages] = useState(() => loadFromStorage(CHAT_HISTORY_KEY, []));
   const [input, setInput] = useState('');
@@ -357,6 +358,8 @@ export default function FuturesAgentChat() {
               }
               return [...prev, step.message];
             });
+          } else if (step.type === 'provider_fallback') {
+            setActiveModelLabel(step.model + ' (fallback)');
           }
         },
       });
@@ -429,6 +432,7 @@ export default function FuturesAgentChat() {
         weekLabel={weekLabel}
         isLoading={isLoading}
         provider={provider}
+        activeModelLabel={activeModelLabel}
       />
 
       {/* Messages */}
