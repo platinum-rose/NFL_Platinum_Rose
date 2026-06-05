@@ -9,27 +9,26 @@ import {
 } from './runRegistry.js';
 import { buildPipelineWorker, parsePipelineInput } from './pipelineWorker.js';
 import { registerDigestRoutes } from './digest.js';
+import { registerShareRoutes } from './share.js';
 
 /**
  * Build a configured Fastify instance. Exposed as a function so tests can
  * spin up an isolated app per test.
  *
  * @param {object} [opts]
- * @param {string} [opts.hmacSecret]    override secret (for tests)
- * @param {object} [opts.logger]        Fastify logger config
- * @param {Function} [opts.worker]      inject a fake worker (for tests)
- * @param {object} [opts.cfg]           config override (e.g. { digestDir: tmpdir } for tests)
- * @param {Function} [opts.onRunComplete]
- *   Optional Phase 7a hook: called after a run reaches 'done'. Fail-soft --
- *   errors are logged but never flip the run to 'error'. Injected from
- *   server.js (real Supabase renderer) so this function stays sync and
- *   test-friendly.
+ * @param {string}   [opts.hmacSecret]     override HMAC secret (for tests)
+ * @param {object}   [opts.logger]         Fastify logger config
+ * @param {Function} [opts.worker]         inject a fake pipeline worker (for tests)
+ * @param {object}   [opts.cfg]            config override (e.g. { digestDir: tmpdir })
+ * @param {object}   [opts.supabase]       service-role Supabase client (Phase 8 share guard)
+ * @param {Function} [opts.onRunComplete]  Phase 7a incremental re-render hook (fail-soft)
  */
 export function buildServer(opts = {}) {
-  const hmacSecret = opts.hmacSecret ?? config.hmacSecret;
-  const worker = opts.worker ?? buildPipelineWorker();
+  const hmacSecret    = opts.hmacSecret ?? config.hmacSecret;
+  const worker        = opts.worker ?? buildPipelineWorker();
   const onRunComplete = opts.onRunComplete;
-  const cfg = opts.cfg ?? config;
+  const cfg           = opts.cfg ?? config;
+  const supabase      = opts.supabase ?? null;
 
   const app = Fastify({
     logger: opts.logger ?? { level: config.nodeEnv === 'test' ? 'silent' : 'info' },
@@ -55,18 +54,20 @@ export function buildServer(opts = {}) {
     },
   );
 
+  // Public health check
   app.get('/health', async () => {
     const last = getLastRunSummary();
     return {
       ok: true,
       service: 'nfl-podcast',
       version: '0.1.0',
-      last_run_at: last.last_run_at,
+      last_run_at:     last.last_run_at,
       last_run_status: last.last_run_status,
-      queue_depth: getQueueDepth(),
+      queue_depth:     getQueueDepth(),
     };
   });
 
+  // HMAC-gated ingest routes
   const hmac = { preHandler: hmacGuard({ secret: hmacSecret }) };
 
   app.post('/ingest/run', hmac, async (request, reply) => {
@@ -91,16 +92,15 @@ export function buildServer(opts = {}) {
     return run;
   });
 
-  // Phase 7 -- Tailscale-only digest routes (no auth; network is the gate).
-  // /digest/* must NOT be added to tailscale funnel -- only /share/* is public.
+  // Phase 7 -- Tailscale-only digest routes (no app auth; network is the gate).
+  // /digest/* must NOT be added to tailscale funnel.
   registerDigestRoutes(app, { cfg });
 
-  // Phase 8 stub -- /share/* (Funnel + signed token).
-  app.get('/share/*', async (_req, reply) =>
-    reply.code(501).send({ error: 'not_implemented', phase: 8 }),
-  );
+  // Phase 8 -- Public Funnel share routes (token-gated, audited).
+  // Only /share/* should appear in tailscale funnel.
+  registerShareRoutes(app, { cfg, supabase });
 
-  // Phase 3 stub -- transcript stream.
+  // Phase 3 stub -- transcript stream (Tailscale-only, future).
   app.get('/api/transcript/:id', async (_req, reply) =>
     reply.code(501).send({ error: 'not_implemented', phase: 3 }),
   );

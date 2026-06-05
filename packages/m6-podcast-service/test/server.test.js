@@ -205,10 +205,10 @@ describe('GET /ingest/status/:run_id', () => {
   });
 });
 
-describe('Phase 8/3 stubs return 501', () => {
-  // /digest/* routes now serve real files (Phase 7) -- not stubs.
+describe('Phase 3 stub returns 501', () => {
+  // /digest/* routes serve real files (Phase 7).
+  // /share/* routes now handle real token-gated requests (Phase 8).
   it.each([
-    '/share/episodes/abc',
     '/api/transcript/abc',
   ])('%s -> 501', async (url) => {
     const res = await app.inject({ method: 'GET', url });
