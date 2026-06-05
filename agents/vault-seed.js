@@ -137,14 +137,42 @@ const SCHEMAS = {
     tags: ['dvoa', 'analytics', 'reference'],
   },
   nflverse: {
-    detect: (headers) => headers.some(h => h === 'posteam' || h === 'defteam' || h === 'epa' || h.includes('epa_per')),
-    teamCol: (headers) => headers.find(h => h === 'team' || h === 'posteam' || h === 'defteam'),
+    // Matches PBP-style data (posteam/defteam/epa) and nfl_data_py player/team stats
+    // (passing_epa, rushing_epa, recent_team + position).
+    detect: (headers) =>
+      headers.some(h => h === 'posteam' || h === 'defteam' || h === 'epa' || h.includes('epa_per')) ||
+      headers.some(h => h === 'passing_epa' || h === 'rushing_epa' || h === 'receiving_epa') ||
+      (headers.includes('recent_team') && headers.includes('position')),
+    teamCol: (headers) => headers.find(h => h === 'posteam' || h === 'defteam' || h === 'recent_team' || h === 'team'),
     yearCol: (headers) => headers.find(h => h === 'season' || h === 'year'),
     label: 'nflverse',
     vaultPrefix: 'NFL/Reference/nflverse',
     teamVaultPrefix: 'NFL/Teams',
     teamSuffix: 'EPA',
     tags: ['epa', 'nflverse', 'analytics', 'reference'],
+  },
+  // ── Schedules / game results (nfl_data_py import_schedules / import_games) ──
+  schedules: {
+    detect: (headers) =>
+      headers.includes('home_team') && headers.includes('away_team') && headers.includes('spread_line'),
+    teamCol: (headers) => headers.find(h => h === 'home_team'),
+    yearCol: (headers) => headers.find(h => h === 'season'),
+    label: 'Schedule',
+    vaultPrefix: 'NFL/Reference/Schedules',
+    teamVaultPrefix: 'NFL/Teams',
+    teamSuffix: 'Schedule',
+    tags: ['schedule', 'games', 'nflverse', 'reference'],
+  },
+  // ── ESPN QBR / team efficiency (nfl_data_py import_espn_data) ────────────
+  espn: {
+    detect: (headers) => headers.some(h => h === 'qbr_total' || h === 'qb_team' || h === 'qbr_raw'),
+    teamCol: (headers) => headers.find(h => h === 'qb_team' || h === 'team'),
+    yearCol: (headers) => headers.find(h => h === 'season'),
+    label: 'ESPN QBR',
+    vaultPrefix: 'NFL/Reference/ESPN',
+    teamVaultPrefix: 'NFL/Teams',
+    teamSuffix: 'QBR',
+    tags: ['espn', 'qbr', 'analytics', 'nflverse', 'reference'],
   },
 };
 
