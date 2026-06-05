@@ -1,91 +1,113 @@
 # Session Handoff — June 4, 2026
 
-> **Branch:** main | **HEAD:** `2c3dcba` | **Tests:** 552/552 (pre-session baseline)
-> **Next session goal:** Podcast pipeline Phase 7a (render layer) → 7-serving → 7b (SPA tab)
+> **Branch:** main | **HEAD:** `51ac195` | **Tests:** 64/64 (m6-podcast-service)
+> **Next session goal:** ATLAS project consolidation — integrate all projects, unify Supabase accounts, GitHub org, credential registry
 
 ---
 
 ## What shipped this session
 
-### Phase 7c — Top Podcast Picks block in nfl-daily-brief ✅
-`agents/nfl-daily-brief.js` — 5 additive edits:
-- `fetchTopPodcastPicks` — 24h window, drops `needs_review`, confidence-sorted, cap 8
-- `renderTopPodcastPicks` — HTML block with category badge, confClass colors, optional M6 tailnet link
-- `buildPlainText` mirror — `TOP PODCAST PICKS` text block
-- `main()` wired: Promise.all, console log, sections[], buildPlainText, receipt stat
-- `main()` guarded behind `argv` check + exports for unit testing
+### Phase 7a — Static Digest Renderer (m6-podcast-service)
+`packages/m6-podcast-service/render/` — 4 new files:
+- `writeFile.js` — atomicWrite (*.tmp → rename) + ensureDir
+- `aggregate.js` — slugify, weekTagFor, seasonWeekFromDate, groupByExpert, weeklyConsensus, detectSlugCollisions
+- `templates.js` — esc() XSS choke point, layout(), pickCard(), intelList()
+- `index.js` — buildRenderer({supabase,cfg}): renderAll, renderForEpisode, renderEpisode, renderExpert, renderExpertWeek, renderWeekly
+- `scripts/render-digests.js` — CLI: all | episode --id | week --tag
+- `src/runRegistry.js` — onRunComplete hook (fail-soft, fire-and-forget after done)
+- `src/server.js` — shared Supabase client for renderer + Phase 8 guard
+- **10/10 tests** in `test/render.test.js`
 
-`tests/unit/dailyBriefPodcastPicks.test.js` — 9/9 passing. Covers filter/sort/cap, non-NFL exclusion, Supabase error, category/feedName, XSS escape, M6 link off/on.
+### Phase 7-serving — /digest/* Fastify routes
+`packages/m6-podcast-service/src/digest.js` — new:
+- resolveDigestPath() — param validation + containment assertion (traversal defense)
+- sendDigestFile() — atomic read, ETag conditional GET, response headers
+- registerDigestRoutes() — 4 Tailscale-only routes (no app auth)
+- `src/app.js` — replaced 501 stubs with registerDigestRoutes; added opts.cfg
+- **14/14 tests** in `test/digest.test.js`
 
-**Key gotcha fixed mid-session:** `main()` guard used `new URL(import.meta.url).pathname` which doesn't match `process.argv[1]` on Windows (path format mismatch). Fixed to `path.resolve(process.argv[1]) === path.resolve(__filename)`.
+### Phase 7b — Podcasts SPA Tab
+- `src/components/podcasts/PodcastDigestTab.jsx` — new full tab: episode list, Open digest (tailnet), Copy share link (Phase 8), Import picks (category fix + 0-1 confidence fix)
+- `src/lib/apiConfig.js` — added M6 = { BASE, FUNNEL_BASE }
+- `src/App.jsx` — 'podcasts' in VALID_TABS + lazy import + render slot
+- `src/components/layout/Header.jsx` — Radio icon + Podcasts NavTab
 
-### Futures Watch List — new sub-tab ✅
-New sub-tab in Futures → "Watch List" (between Market and Exposure).
+### Phase 8 — /share/* Partner Surface
+`packages/m6-podcast-service/src/share.js` — new:
+- shareGuard() — per-instance TTL cache, opaque 403 for all rejections
+- recordView() — fire-and-forget audit, IP /24 or /48 truncation
+- registerShareRoutes() — 4 public Funnel routes reusing digest.js resolver
+- mintToken / revokeToken / listTokens — service-role CLI helpers
+- `scripts/share-token.js` — mint | list --active | revoke --token CLI
+- `src/app.js` — registerShareRoutes wired; opts.supabase added
+- **10/10 tests** in `test/share.test.js`
 
-**Files changed:**
-- `src/components/futures/FuturesWatchList.jsx` — new component (~550 lines)
-- `src/components/futures/FuturesPortfolio.jsx` — added Watch List tab
-- `src/lib/storage.js` — added `FUTURES_WATCHLIST` key (`nfl_futures_watchlist_v1`, persistent)
-- `src/lib/supabase.js` — added `getWatchlistOddsHistory()` + `ALL_WATCHLIST_MARKET_TYPES`
+### Agent Provider Fallback
+- `src/lib/anthropicClient.js` — isCreditError() + auto-fallback to GPT-4o in runAgentTurn()
+- `supabase/functions/ai-proxy/index.ts` — updated to Deno.serve() (fixed CORS), added Gemini route
+- `src/components/agent/AgentChat.jsx` — activeModelLabel state + onStep provider_fallback handler + "Asking Claude/GPT-4o..." loading label
+- `src/components/agent/FuturesAgentChat.jsx` — same pattern
 
-**Features:**
-- Bills + Packers pre-loaded by default; Add Team modal for all 32 teams
-- 5 market cards per team: Super Bowl, Conf Winner (team-specific AFC/NFC), Div Winner (team-specific division), Win Total Over, Make Playoffs Yes
-- Per-card: current best odds + book, implied %, recharts sparkline, % change over window
-- Buy signals: 📈 Drifting (odds lengthened >12%), ⚡ Shortening (sharp steam, >12% contracted), 🎯 Target hit
-- Price target: click "Set price target" on any card, persisted to localStorage
-- Timeline popup: click 📅 calendar icon on any card with data → modal with dated chart, summary bar (first/latest/change/range), full data table with date + odds + implied + book
-- Team-level "signal" badge rolls up active signals
-
-**Critical bug fixed:** Supabase `futures_odds_snapshots` stores `conference_afc`/`conference_nfc` and `division_afc_east` etc. — not bare `conference`/`division`. Original query was matching nothing. Fixed by querying all 12 expanded subtypes. Component now resolves per-team keys using `NFL_TEAMS.conference` and `NFL_TEAMS.division`.
-
-### Futures odds seed script ✅
-`scripts/seed-futures-odds-0602.js` — one-time import of June 2 BetOnline + Bookmaker odds (284 rows). Schema-aware: detects whether migration 022 (selection/season columns + unique constraint) is applied, falls back gracefully to basic 5-column insert if not.
-
-**Seed was run this session** for SB/Conf/Div markets. Wins and Playoffs data in the seed depends on the `selection` column (migration 022). If those cards still show "Not yet available", apply migration 022 then re-run the seed script.
+### Ops completed
+- Supabase migrations 019 + 023 applied to prod (share_tokens + share_views now live)
+- stats-to-vault-sync run: 96 team-season rows → 35 vault notes (32 teams + 3 reference pages, 2023-2025)
+- ai-proxy Edge Function deployed with --no-verify-jwt (was never deployed before)
+- Supabase CLI re-linked to andrewlrose@hotmail.com account (NFL Dashboard project)
 
 ---
 
 ## State of the podcast pipeline
 
-### Done (Phases 1–6 + 7c)
-| Phase | What | Status |
-|-------|------|--------|
-| 1–6 | Full ingest pipeline (transcription → vault → Supabase) | ✅ Done |
-| 7c | Top Podcast Picks block in nfl-daily-brief.js | ✅ Done this session |
+All phases complete:
 
-### Build next (in order)
-| Phase | Spec | What | Blocker? |
-|-------|------|------|----------|
-| **7a** | `docs/PODCAST_PHASE7A_RENDER_SPEC.md` | Static HTML renderer under `packages/m6-podcast-service/render/` | None — start here |
-| **7-serving** | `docs/PODCAST_PHASE7_SERVING_SPEC.md` | `src/digest.js` Fastify routes over Tailscale | Needs 7a files to exist |
-| **7b** | `docs/PODCAST_PHASE7B_SPA_SPEC.md` | `PodcastDigestTab.jsx` + `?tab=podcasts` | Can start in parallel with 7-serving |
-| **Phase 8** | `docs/PODCAST_PHASE8_SHARE_SPEC.md` | Signed `/share/*` partner surface | Needs 7a + migration 023 |
+| Phase | Status |
+|-------|--------|
+| 1–6  | Full ingest pipeline | ✅ |
+| 7c   | Top Podcast Picks in nfl-daily-brief | ✅ |
+| 7a   | Static digest renderer | ✅ |
+| 7-serving | /digest/* Fastify routes | ✅ |
+| 7b   | PodcastDigestTab SPA | ✅ |
+| 8    | /share/* partner surface | ✅ |
 
-### Where to start
-**Read `docs/PODCAST_PHASE7A_RENDER_SPEC.md` first.** This is the critical-path blocker — it produces the HTML files that 7-serving exposes and 7b/Phase 8 link to. 7c links already point at the 7b tab URL (`?tab=podcasts`) and the M6 digest links (`/digest/episodes/<id>.html`) — both 404 harmlessly until 7a/7b ship.
+### Remaining podcast ops (non-blocking)
+- Apply migration 023 to prod → DONE ✅
+- Mint share tokens for Patrick/Amanda: `node scripts/share-token.js mint --partner "Patrick"`
+- Set VITE_M6_BASE in .env (+ rebuild) to enable "Open digest" links in the tab
 
 ---
 
-## Pending ops (carry forward from last session)
-These are NOT code — they gate full production behavior:
-- `supabase db push` migrations `018`, `019`, `021`, `022` — migration 022 unlocks `selection`/`season` columns and the unique upsert constraint
-- Migration `023` (podcast picks + `share_tokens`/`share_views`) — required before Phase 8
+## Pending ops backlog
 - Rotate Anthropic / OpenAI / Odds API keys + redeploy Edge Functions
-- Run `node agents/stats-to-vault-sync.js --seasons 2023,2024,2025` once to seed vault
+- Top up Anthropic API credits (GPT-4o fallback working in the meantime)
+- Add GEMINI_API_KEY to Supabase secrets if Gemini fallback tier wanted
+- Run supabase CLI update: `supabase update` (v2.101.0 → v2.105.0)
 
 ---
 
-## Open pre-existing console warnings (not blockers)
-- `betting_splits.json 404` — GitHub raw URL points to old repo name (`NFL_Platinum_Rose`); file doesn't exist there
-- `Live Odds: 0 games` — offseason, TheOddsAPI not returning game lines
-- `No ESPN team ID for: WSH` — Washington abbreviation mismatch in teams data
+## Next session: ATLAS consolidation
+
+**Goal:** Unify all projects under ATLAS so ATLAS and Rosie have full operational access everywhere.
+
+**The 4 problems to solve:**
+
+1. **Split Supabase accounts** — NFL Dashboard under `andrewlrose@hotmail.com`, ROSIE under `rosietherobotrose@gmail.com`. Fix: invite `andrewlrose@gmail.com` as Owner on every project from the dashboard.
+
+2. **No GitHub org** — 17 repos under personal account. Fix: create GitHub org (e.g. `andrewlrose-dev`), transfer repos, issue one org-scoped PAT for ATLAS/Rosie automation.
+
+3. **No credential registry** — each project's keys siloed in separate .env files. Fix: store all service credentials in ATLAS vault with domain partitions.
+
+4. **No formal project registry** — ATLAS nightly runner has hardcoded paths. Fix: `E:\dev\ATLAS\.atlas\projects.json` with structured metadata per project (owner, Supabase ref, GitHub URL, language, status).
+
+**Start here:**
+1. Read `.atlas/memory.json` + `HANDOFF.md` for current ATLAS state
+2. Read `/memories/repo/security-action-items.md` (GitHub Org Consolidation items)
+3. Begin with Supabase account consolidation (simplest, highest impact, enables CLI use)
 
 ---
 
 ## Resume command
 ```
-Resume NFL Dashboard. HEAD = 2c3dcba (main). Suite: 552/552.
-Phase 7c shipped. Next: Podcast Phase 7a render layer.
-Read docs/SESSION_HANDOFF_2026-06-04.md then docs/PODCAST_PHASE7A_RENDER_SPEC.md before touching any file.
+Resume NFL Dashboard / ATLAS consolidation. HEAD = 51ac195 (main). NFL podcast pipeline complete (Phases 1-8). 
+Next session: ATLAS project consolidation — unify Supabase accounts, GitHub org, credential registry.
+Read docs/SESSION_HANDOFF_2026-06-04.md (NFL) and E:\dev\ATLAS\HANDOFF.md before starting.
 ```
