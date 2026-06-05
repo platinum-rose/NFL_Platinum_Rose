@@ -8,7 +8,11 @@
   "model": {
     "default": "claude-sonnet-4-5",
     "classifier": "claude-haiku-4-5",
-    "upgradeOn": ["multi-leg hedge across >1 market", "division-path projection with tiebreakers", "contradicting expert consensus across 3+ podcasts"],
+    "upgradeOn": [
+      "multi-leg hedge across >1 market",
+      "division-path projection with tiebreakers",
+      "contradicting expert consensus across 3+ podcasts"
+    ],
     "upgradeTo": "claude-opus-4"
   },
   "systemPrompt": {
@@ -33,7 +37,12 @@
       "label": "futures_portfolio",
       "description": "Load open futures positions and exposure",
       "sources": [
-        { "type": "localStorage", "key": "nfl_futures_portfolio_v1", "format": "json", "fallback": "{ \"positions\": [] }" }
+        {
+          "type": "localStorage",
+          "key": "nfl_futures_portfolio_v1",
+          "format": "json",
+          "fallback": "{ \"positions\": [] }"
+        }
       ],
       "inject": "Include: team, market, odds_at_entry, stake, current_odds_estimate, exposure. Use for hedge calculations and decay analysis."
     },
@@ -42,7 +51,12 @@
       "label": "bankroll_config",
       "description": "Load bankroll configuration for exposure checks",
       "sources": [
-        { "type": "localStorage", "key": "nfl_bankroll_data_v1", "format": "json", "fallback": "{}" }
+        {
+          "type": "localStorage",
+          "key": "nfl_bankroll_data_v1",
+          "format": "json",
+          "fallback": "{}"
+        }
       ],
       "inject": "Extract: unit_size, current_balance, max_daily_units, max_single_bet_units. If missing, use defaults: unit_size=25, max_daily_units=10, max_single_bet_units=3."
     },
@@ -51,8 +65,16 @@
       "label": "today_context",
       "description": "Inject current date, NFL week, and season",
       "sources": [
-        { "type": "runtime", "value": "new Date().toISOString().split('T')[0]" },
-        { "type": "fetch", "url": "./schedule.json", "format": "json", "fallback": "[]" }
+        {
+          "type": "runtime",
+          "value": "new Date().toISOString().split('T')[0]"
+        },
+        {
+          "type": "fetch",
+          "url": "./schedule.json",
+          "format": "json",
+          "fallback": "[]"
+        }
       ],
       "inject": "Today's date, current NFL week (derived from schedule), weeks remaining in regular season, and season year."
     }
@@ -103,11 +125,26 @@
       "source": "BETTING_TOOLS",
       "description": "Record a futures pick with bet_type='future'. Always confirm before calling.",
       "confirmation": "Always confirm with Creator before executing. Never auto-log."
+    },
+    {
+      "name": "analyze_futures_hedge",
+      "source": "FUTURES_TOOLS",
+      "description": "Advanced 3-scenario hedge analyzer. Models hold / partial lock / full lock with line-appreciation context. Prefer over calculate_hedge for futures."
+    },
+    {
+      "name": "project_division_paths",
+      "source": "FUTURES_TOOLS",
+      "description": "Per-team division outlook: division/conference/SB odds with implied probs. Input: division (e.g. 'AFC West')."
+    },
+    {
+      "name": "track_award_race",
+      "source": "FUTURES_TOOLS",
+      "description": "Ranked award leaderboard by implied prob + expert mentions. Input: award = MVP | OPOY | DPOY | OROY | DROY | CPOY | COY."
     }
   ],
   "deferredTools": {
-    "_note": "Spec §3 Phase 6 lists analyze_futures_hedge, project_division_paths, track_award_race as future additions. These are not yet implemented in agentTools.js; FUTURES agent currently relies on calculate_hedge + get_futures_movement + reasoning for the same use cases.",
-    "candidates": ["analyze_futures_hedge", "project_division_paths", "track_award_race"]
+    "_note": "FUT-TOOLS shipped.",
+    "candidates": []
   },
   "persistenceKeys": {
     "chatHistory": "nfl_futures_agent_chat_v1",
@@ -119,7 +156,11 @@
     "agentLabel": "FUTURES",
     "statusBar": {
       "show": true,
-      "fields": ["open_futures_count", "total_futures_exposure_units", "weeks_remaining"]
+      "fields": [
+        "open_futures_count",
+        "total_futures_exposure_units",
+        "weeks_remaining"
+      ]
     }
   }
 }

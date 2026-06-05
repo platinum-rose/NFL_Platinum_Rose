@@ -1,12 +1,16 @@
 // src/lib/agentTools.js
 // ═══════════════════════════════════════════════════════════════════════════════
-// BETTING Agent — Tool Definitions + Executor
-// Implements the 8 tools defined in agents/manifests/betting.manifest.json.
+// BETTING + FUTURES Agent — Tool Definitions + Executor
+// Implements tools defined in agents/manifests/betting.manifest.json
+// and agents/manifests/futures.manifest.json.
 //
-// Tools: log_pick · get_odds · get_line_movement · analyze_matchup ·
-//        get_injury_report · calculate_hedge · calculate_teaser ·
-//        get_performance_stats · search_intel · search_sharp_tweets ·
-//        read_vault_note · write_vault_note · get_betting_splits
+// BETTING tools: log_pick · get_odds · get_line_movement · analyze_matchup ·
+//   get_injury_report · calculate_hedge · calculate_teaser ·
+//   get_performance_stats · search_intel · search_sharp_tweets ·
+//   read_vault_note · write_vault_note · get_betting_splits
+//
+// FUTURES tools (FUT-TOOLS): analyze_futures_hedge · project_division_paths ·
+//   track_award_race
 // ═══════════════════════════════════════════════════════════════════════════════
 
 import {
@@ -21,6 +25,7 @@ import {
   getWeeklyConsensus,
   getFuturesMovement,
   getPlayerPropContext,
+  getLatestFuturesOdds,
 } from './supabase.js';
 import { readVaultNote, writeVaultNote, todaySessionPath } from './vaultClient.js';
 import {
@@ -425,6 +430,80 @@ export const BETTING_TOOLS = [
   ...PODCAST_INTEL_TOOLS,
 ];
 
+
+// ─── FUTURES-Specific Tool Definitions ───────────────────────────────────────
+// Used by FuturesAgentChat. Consumed as [...BETTING_TOOLS, ...FUTURES_TOOLS].
+
+export const FUTURES_TOOLS = [
+  {
+    name: 'analyze_futures_hedge',
+    description: 'Advanced futures hedge analyzer. Goes beyond calculate_hedge by modeling three explicit scenarios (hold / partial hedge / full lock) and showing the line-appreciation gain since entry. Use when the Creator has an open futures position and wants to evaluate whether to hedge, how much, and what profit they can lock. Always show all three scenarios so the Creator can choose.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        stake: {
+          type: 'number',
+          description: 'Original wager in dollars (e.g. 50 for a $50 bet).',
+        },
+        entry_odds: {
+          type: 'number',
+          description: 'American odds at the time of the original bet (e.g. +500).',
+        },
+        current_odds: {
+          type: 'number',
+          description: 'Current American odds on the SAME position today (e.g. +200). Used to calculate line appreciation and current implied value.',
+        },
+        hedge_odds: {
+          type: 'number',
+          description: 'American odds available on the opposing/hedge side right now (e.g. -180 on the other team to win the division).',
+        },
+        hedge_description: {
+          type: 'string',
+          description: 'Short label for the hedge bet (e.g. "BUF to win AFC East", "field to win SB"). Displayed in the output for clarity.',
+        },
+        target_locked_profit: {
+          type: 'number',
+          description: 'Optional: desired guaranteed profit in dollars. If provided, calculates the partial hedge stake needed. If omitted, only break-even and full scenarios are shown.',
+        },
+      },
+      required: ['stake', 'entry_odds', 'current_odds', 'hedge_odds'],
+    },
+  },
+  {
+    name: 'project_division_paths',
+    description: 'Returns a division outlook: current futures odds per team, implied win probabilities, qualitative path assessment (schedule strength, key injuries, coaching context), and cross-market context (conference/SB odds). Use when the Creator asks "who wins the NFC West?" or "give me the AFC North breakdown". Requires a valid division name.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        division: {
+          type: 'string',
+          description: 'NFL division name. Accepted formats: "AFC West", "NFC North", "afc east", "nfc_south", etc. Case-insensitive.',
+        },
+      },
+      required: ['division'],
+    },
+  },
+  {
+    name: 'track_award_race',
+    description: 'Returns the current award race leaderboard: top candidates ranked by implied probability from sportsbook odds, with expert podcast mention counts. Use for MVP, OPOY, DPOY, OROY, DROY, CPOY, or COY award discussions. Returns up to 10 candidates with odds, implied probability, and expert sentiment.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        award: {
+          type: 'string',
+          enum: ['MVP', 'OPOY', 'DPOY', 'OROY', 'DROY', 'CPOY', 'COY'],
+          description: 'Award abbreviation. MVP = Most Valuable Player, OPOY = Offensive Player of Year, DPOY = Defensive Player of Year, OROY = Offensive Rookie of Year, DROY = Defensive Rookie of Year, CPOY = Comeback Player of Year, COY = Coach of Year.',
+        },
+        limit: {
+          type: 'number',
+          description: 'Max candidates to return (default: 10).',
+        },
+      },
+      required: ['award'],
+    },
+  },
+];
+
 // ─── Tool Executor ───────────────────────────────────────────────────────────
 
 /**
@@ -456,6 +535,10 @@ export async function executeTool(name, input) {
     case 'get_weekly_consensus':    return toolGetWeeklyConsensus(input);
     case 'get_futures_movement':    return toolGetFuturesMovement(input);
     case 'get_player_prop_context': return toolGetPlayerPropContext(input);
+    // FUT-TOOLS
+    case 'analyze_futures_hedge':   return toolAnalyzeFuturesHedge(input);
+    case 'project_division_paths':  return toolProjectDivisionPaths(input);
+    case 'track_award_race':        return toolTrackAwardRace(input);
     default:
       return { error: `Unknown tool: ${name}` };
   }
@@ -1190,5 +1273,322 @@ async function toolGetPlayerPropContext({ player, prop_type, weeks_back, limit }
     pick_count: out.picks.length,
     trend: out.trend,
     picks: out.picks.map(_formatPodcastPick),
+  };
+}
+
+
+// ─── FUT-TOOLS Implementations ────────────────────────────────────────────────
+
+/**
+ * analyze_futures_hedge
+ * Models three hedge scenarios for an open futures position:
+ *   1. Hold (no hedge) — full upside, line appreciation context
+ *   2. Full lock — guaranteed profit regardless of outcome
+ *   3. Partial lock — custom target_locked_profit if supplied
+ */
+function toolAnalyzeFuturesHedge({
+  stake,
+  entry_odds,
+  current_odds,
+  hedge_odds,
+  hedge_description = 'opposing side',
+  target_locked_profit,
+} = {}) {
+  if (!stake || entry_odds == null || current_odds == null || hedge_odds == null) {
+    return { status: 'invalid', message: 'stake, entry_odds, current_odds, and hedge_odds are all required.' };
+  }
+
+  const toDecimal = (american) =>
+    american > 0 ? (american / 100) + 1 : (100 / Math.abs(american)) + 1;
+  const toImpliedProb = (american) => {
+    if (american > 0) return 100 / (american + 100);
+    return Math.abs(american) / (Math.abs(american) + 100);
+  };
+  const fmt = (n) => parseFloat(n.toFixed(2));
+  const pct = (n) => parseFloat((n * 100).toFixed(1));
+
+  const entryDecimal   = toDecimal(entry_odds);
+  const hedgeDecimal   = toDecimal(hedge_odds);
+
+  const originalPayout = stake * entryDecimal;
+  const originalProfit = originalPayout - stake;
+
+  const currentImpliedProb = toImpliedProb(current_odds);
+  const entryImpliedProb   = toImpliedProb(entry_odds);
+  const impliedValueNow    = stake / currentImpliedProb;
+  const lineAppreciation   = fmt(impliedValueNow - stake);
+
+  // ── Scenario 1: Hold ──
+  const holdScenario = {
+    label: 'Hold — no hedge',
+    action: 'Do nothing. Let the position ride.',
+    if_wins: { profit: fmt(originalProfit), payout: fmt(originalPayout) },
+    if_loses: { profit: fmt(-stake) },
+    current_implied_prob: `${pct(currentImpliedProb)}%`,
+    entry_implied_prob:   `${pct(entryImpliedProb)}%`,
+    line_appreciation: lineAppreciation > 0
+      ? `+$${lineAppreciation} (position gained value since entry)`
+      : `$${lineAppreciation} (position lost value since entry)`,
+  };
+
+  // ── Scenario 2: Full lock ──
+  // Derive: win=originalProfit-H, lose=H*(hedgeDecimal-1)-stake → set equal
+  // H = originalPayout / hedgeDecimal
+  const fullHedgeStake   = originalPayout / hedgeDecimal;
+  const fullLockedProfit = originalProfit - fullHedgeStake;
+  const fullLockScenario = {
+    label: 'Full lock — guaranteed profit',
+    action: `Bet $${fmt(fullHedgeStake)} on ${hedge_description} at ${hedge_odds > 0 ? '+' : ''}${hedge_odds}.`,
+    hedge_stake: fmt(fullHedgeStake),
+    hedge_odds,
+    guaranteed_profit: fmt(fullLockedProfit),
+    roi_on_original_stake: `${pct(fullLockedProfit / stake)}%`,
+    if_original_wins:  { profit: fmt(originalProfit - fullHedgeStake), note: 'original wins, hedge loses' },
+    if_original_loses: { profit: fmt(fullHedgeStake * (hedgeDecimal - 1) - stake), note: 'original loses, hedge wins' },
+    note: fullLockedProfit >= 0
+      ? `Locks $${fmt(fullLockedProfit)} profit regardless of outcome.`
+      : `Warning: full lock results in guaranteed loss of $${fmt(Math.abs(fullLockedProfit))} — hedge odds too short.`,
+  };
+
+  // ── Scenario 3: Partial lock ──
+  let partialScenario = null;
+  if (target_locked_profit != null) {
+    const partialH = originalProfit - target_locked_profit;
+    if (partialH <= 0) {
+      partialScenario = {
+        label: 'Partial hedge',
+        note: `Cannot lock $${target_locked_profit} — exceeds original win profit of $${fmt(originalProfit)}.`,
+      };
+    } else {
+      // partialH > 0: always valid. When hedge odds are short, partialH can
+      // exceed fullHedgeStake — the lose-case floor will still be positive.
+      const loseOutcome = partialH * (hedgeDecimal - 1) - stake;
+      partialScenario = {
+        label: `Partial hedge — lock $${fmt(target_locked_profit)} profit`,
+        action: `Bet $${fmt(partialH)} on ${hedge_description} at ${hedge_odds > 0 ? '+' : ''}${hedge_odds}.`,
+        hedge_stake: fmt(partialH),
+        if_original_wins:  { profit: fmt(target_locked_profit) },
+        if_original_loses: { profit: fmt(loseOutcome) },
+        note: loseOutcome >= 0
+          ? `Wins: $${fmt(target_locked_profit)}. Loses: $${fmt(loseOutcome)} (still profitable).`
+          : `Wins: $${fmt(target_locked_profit)}. Loses: -$${fmt(Math.abs(loseOutcome))} (partial protection only).`,
+      };
+    }
+  }
+
+  return {
+    status: 'ok',
+    summary: {
+      original_stake: stake,
+      entry_odds,
+      current_odds,
+      potential_profit_if_wins: fmt(originalProfit),
+      potential_payout_if_wins: fmt(originalPayout),
+    },
+    scenarios: {
+      hold: holdScenario,
+      full_lock: fullLockScenario,
+      ...(partialScenario ? { partial_lock: partialScenario } : {}),
+    },
+  };
+}
+
+// ── Division → teams mapping ──────────────────────────────────────────────────
+const DIVISION_TEAMS = {
+  'afc east':  ['Buffalo Bills',     'Miami Dolphins',       'New England Patriots', 'New York Jets'],
+  'afc north': ['Baltimore Ravens',  'Cincinnati Bengals',   'Cleveland Browns',     'Pittsburgh Steelers'],
+  'afc south': ['Houston Texans',    'Indianapolis Colts',   'Jacksonville Jaguars', 'Tennessee Titans'],
+  'afc west':  ['Denver Broncos',    'Kansas City Chiefs',   'Los Angeles Chargers', 'Las Vegas Raiders'],
+  'nfc east':  ['Dallas Cowboys',    'New York Giants',      'Philadelphia Eagles',  'Washington Commanders'],
+  'nfc north': ['Chicago Bears',     'Detroit Lions',        'Green Bay Packers',    'Minnesota Vikings'],
+  'nfc south': ['Atlanta Falcons',   'Carolina Panthers',    'New Orleans Saints',   'Tampa Bay Buccaneers'],
+  'nfc west':  ['Arizona Cardinals', 'Los Angeles Rams',     'San Francisco 49ers',  'Seattle Seahawks'],
+};
+
+const DIVISION_MARKET_TYPES = {
+  'afc east': 'division_afc_east', 'afc north': 'division_afc_north',
+  'afc south': 'division_afc_south', 'afc west': 'division_afc_west',
+  'nfc east': 'division_nfc_east', 'nfc north': 'division_nfc_north',
+  'nfc south': 'division_nfc_south', 'nfc west': 'division_nfc_west',
+};
+
+const CONF_MARKET = { afc: 'conference_afc', nfc: 'conference_nfc' };
+
+/**
+ * project_division_paths
+ * Fetches current division/conference/SB odds from Supabase and returns
+ * a structured per-team outlook with implied probabilities.
+ */
+async function toolProjectDivisionPaths({ division } = {}) {
+  if (!division) return { status: 'invalid', message: 'division is required.' };
+
+  const divKey = division.toLowerCase().replace(/_/g, ' ').trim();
+  const teams  = DIVISION_TEAMS[divKey];
+  if (!teams) {
+    return {
+      status: 'invalid',
+      message: `Unknown division "${division}". Valid: ${Object.keys(DIVISION_TEAMS).map(d => d.toUpperCase()).join(', ')}.`,
+    };
+  }
+
+  const conf       = divKey.startsWith('afc') ? 'afc' : 'nfc';
+  const divMarket  = DIVISION_MARKET_TYPES[divKey];
+  const confMarket = CONF_MARKET[conf];
+
+  let allOdds = [];
+  try { allOdds = await getLatestFuturesOdds(); } catch (_) { allOdds = []; }
+
+  const toImpliedProb = (american) => {
+    if (american == null) return null;
+    return american > 0 ? 100 / (american + 100) : Math.abs(american) / (Math.abs(american) + 100);
+  };
+  const fmt = (n) => parseFloat(n.toFixed(1));
+
+  const bestOdds = (fullName, marketType) => {
+    const last = fullName.split(' ').pop().toLowerCase();
+    const rows = allOdds.filter(r =>
+      r.market_type === marketType &&
+      r.team && r.team.toLowerCase().includes(last)
+    );
+    if (!rows.length) return null;
+    return rows.reduce((best, r) => (r.odds > (best?.odds ?? -Infinity) ? r : best), null);
+  };
+
+  const fmtOdds = (o) => o == null ? 'n/a' : (o > 0 ? `+${o}` : String(o));
+
+  const teamRows = teams.map(fullName => {
+    const divRow  = bestOdds(fullName, divMarket);
+    const confRow = bestOdds(fullName, confMarket);
+    const sbRow   = bestOdds(fullName, 'superbowl');
+    const divProb = divRow ? toImpliedProb(divRow.odds) : null;
+    return {
+      team: fullName,
+      division_winner: {
+        odds: fmtOdds(divRow?.odds),
+        implied_prob: divProb ? `${fmt(divProb * 100)}%` : 'n/a',
+        book: divRow?.book ?? null,
+      },
+      conference_winner: {
+        odds: fmtOdds(confRow?.odds),
+        implied_prob: confRow ? `${fmt(toImpliedProb(confRow.odds) * 100)}%` : 'n/a',
+      },
+      super_bowl: {
+        odds: fmtOdds(sbRow?.odds),
+        implied_prob: sbRow ? `${fmt(toImpliedProb(sbRow.odds) * 100)}%` : 'n/a',
+      },
+      _sortKey: divProb ?? -1,
+    };
+  });
+
+  teamRows.sort((a, b) => b._sortKey - a._sortKey);
+  teamRows.forEach(r => delete r._sortKey);
+
+  const hasData = teamRows.some(r => r.division_winner.odds !== 'n/a');
+
+  return {
+    status: hasData ? 'ok' : 'no_data',
+    division: divKey.toUpperCase(),
+    conference: conf.toUpperCase(),
+    note: hasData
+      ? 'Division winner odds from latest Supabase snapshot. Use read_vault_note for coaching/DVOA context.'
+      : 'No division odds in Supabase yet — market typically opens July-August. Use vault reference data for qualitative analysis.',
+    teams: teamRows,
+  };
+}
+
+// ── Award → market_type mapping ───────────────────────────────────────────────
+const AWARD_MARKET_MAP = {
+  MVP:  { marketType: 'award_mvp',                     label: 'Most Valuable Player' },
+  OPOY: { marketType: 'award_offensive_player_of_year', label: 'Offensive Player of the Year' },
+  DPOY: { marketType: 'award_defensive_player_of_year', label: 'Defensive Player of the Year' },
+  OROY: { marketType: 'award_offensive_rookie_of_year', label: 'Offensive Rookie of the Year' },
+  DROY: { marketType: 'award_defensive_rookie_of_year', label: 'Defensive Rookie of the Year' },
+  CPOY: { marketType: 'award_comeback_player_of_year',  label: 'Comeback Player of the Year' },
+  COY:  { marketType: 'award_coach_of_year',            label: 'Coach of the Year' },
+};
+
+/**
+ * track_award_race
+ * Ranked award leaderboard from sportsbook odds + podcast expert mentions.
+ */
+async function toolTrackAwardRace({ award, limit = 10 } = {}) {
+  const key = String(award || '').toUpperCase();
+  const mapping = AWARD_MARKET_MAP[key];
+  if (!mapping) {
+    return {
+      status: 'invalid',
+      message: `Unknown award "${award}". Valid: ${Object.keys(AWARD_MARKET_MAP).join(', ')}.`,
+    };
+  }
+
+  const { marketType, label } = mapping;
+
+  let allOdds = [];
+  let podcastData = { picks: [], by_expert: {} };
+  try {
+    [allOdds, podcastData] = await Promise.all([
+      getLatestFuturesOdds(),
+      getFuturesMovement({ market: label, weeksBack: 16, limit: 200 }),
+    ]);
+  } catch (_) { allOdds = []; }
+
+  const toImpliedProb = (american) =>
+    american > 0 ? 100 / (american + 100) : Math.abs(american) / (Math.abs(american) + 100);
+  const fmt = (n) => parseFloat(n.toFixed(1));
+
+  const rows = allOdds.filter(r => r.market_type === marketType);
+  if (!rows.length) {
+    return {
+      status: 'no_data',
+      award: key,
+      label,
+      message: 'No odds data for this award yet — markets typically open July-August.',
+      podcast_mentions: podcastData.picks.length,
+    };
+  }
+
+  // Best odds per candidate (highest payout = most positive American odds)
+  const byCandidate = new Map();
+  for (const row of rows) {
+    if (!byCandidate.has(row.team) || row.odds > byCandidate.get(row.team).odds) {
+      byCandidate.set(row.team, row);
+    }
+  }
+
+  // Count podcast mentions per candidate by last name match
+  const mentionCounts = new Map();
+  for (const pick of (podcastData.picks || [])) {
+    const subject = String(pick.pick?.subject || pick.subject || '').toLowerCase();
+    if (!subject) continue;
+    for (const [name] of byCandidate) {
+      const last = name.split(' ').pop().toLowerCase();
+      if (subject.includes(last) || subject.includes(name.toLowerCase())) {
+        mentionCounts.set(name, (mentionCounts.get(name) || 0) + 1);
+      }
+    }
+  }
+
+  const leaderboard = [...byCandidate.values()]
+    .map(row => ({
+      candidate: row.team,
+      best_odds: row.odds > 0 ? `+${row.odds}` : String(row.odds),
+      implied_prob: `${fmt(toImpliedProb(row.odds) * 100)}%`,
+      best_book: row.book,
+      expert_mentions: mentionCounts.get(row.team) || 0,
+    }))
+    .sort((a, b) => parseFloat(b.implied_prob) - parseFloat(a.implied_prob))
+    .slice(0, limit)
+    .map((c, i) => ({ rank: i + 1, ...c }));
+
+  return {
+    status: 'ok',
+    award: key,
+    label,
+    candidate_count: byCandidate.size,
+    leaderboard,
+    podcast_context: {
+      total_expert_mentions: podcastData.picks.length,
+      experts_covering: Object.keys(podcastData.by_expert || {}),
+    },
   };
 }

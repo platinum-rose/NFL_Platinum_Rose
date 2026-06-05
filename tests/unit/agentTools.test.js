@@ -19,6 +19,7 @@ vi.mock('../../src/lib/supabase.js', () => ({
   getWeeklyConsensus: vi.fn(async () => ({ week: null, season: null, games: [] })),
   getFuturesMovement: vi.fn(async () => ({ market: null, picks: [], by_expert: {} })),
   getPlayerPropContext: vi.fn(async () => ({ player: null, prop_type: null, picks: [], trend: {} })),
+  getLatestFuturesOdds: vi.fn(async () => []),
   supabase: null,
 }));
 
@@ -66,6 +67,7 @@ vi.mock('../../src/lib/apiConfig.js', () => ({
 
 import {
   BETTING_TOOLS,
+  FUTURES_TOOLS,
   PODCAST_INTEL_TOOLS,
   OPENAI_BETTING_TOOLS,
   executeTool,
@@ -485,4 +487,177 @@ describe('agentTools', () => {
     });
 
   });
+
+  // ── FUT-TOOLS ──────────────────────────────────────────────────────────────
+
+  describe('analyze_futures_hedge', () => {
+    it('returns three scenarios for a position that has appreciated', async () => {
+      const result = await executeTool('analyze_futures_hedge', {
+        stake: 50,
+        entry_odds: 500,
+        current_odds: 200,
+        hedge_odds: -140,
+        hedge_description: 'field to win SB',
+      });
+      expect(result.status).toBe('ok');
+      expect(result.scenarios.hold).toBeDefined();
+      expect(result.scenarios.full_lock).toBeDefined();
+      expect(result.scenarios.partial_lock).toBeUndefined();
+      expect(result.summary.potential_profit_if_wins).toBe(250);
+      expect(result.scenarios.full_lock.hedge_stake).toBeGreaterThan(0);
+      expect(result.scenarios.full_lock.guaranteed_profit).toBeGreaterThan(0);
+    });
+
+    it('includes partial_lock when target_locked_profit is provided', async () => {
+      const result = await executeTool('analyze_futures_hedge', {
+        stake: 100,
+        entry_odds: 300,
+        current_odds: 150,
+        hedge_odds: -120,
+        target_locked_profit: 50,
+      });
+      expect(result.status).toBe('ok');
+      expect(result.scenarios.partial_lock).toBeDefined();
+      expect(result.scenarios.partial_lock.if_original_wins.profit).toBe(50);
+    });
+
+    it('partial_lock reports error when target exceeds win profit', async () => {
+      const result = await executeTool('analyze_futures_hedge', {
+        stake: 50,
+        entry_odds: 200,
+        current_odds: 150,
+        hedge_odds: -110,
+        target_locked_profit: 999,
+      });
+      expect(result.scenarios.partial_lock.note).toMatch(/exceed|Cannot lock/i);
+    });
+
+    it('shows line-appreciation on hold scenario when position gained value', async () => {
+      const result = await executeTool('analyze_futures_hedge', {
+        stake: 50,
+        entry_odds: 1000,
+        current_odds: 300,
+        hedge_odds: -200,
+      });
+      expect(result.scenarios.hold.line_appreciation).toMatch(/gained value/i);
+    });
+
+    it('returns invalid when required params are missing', async () => {
+      const result = await executeTool('analyze_futures_hedge', { stake: 50 });
+      expect(result.status).toBe('invalid');
+    });
+  });
+
+  describe('project_division_paths', () => {
+    it('returns no_data when Supabase has no futures odds', async () => {
+      const result = await executeTool('project_division_paths', { division: 'AFC West' });
+      expect(result.status).toBe('no_data');
+      expect(result.division).toBe('AFC WEST');
+      expect(result.teams).toHaveLength(4);
+    });
+
+    it('lists exactly 4 teams for every division', async () => {
+      const divisions = [
+        'AFC East','AFC North','AFC South','AFC West',
+        'NFC East','NFC North','NFC South','NFC West',
+      ];
+      for (const div of divisions) {
+        const result = await executeTool('project_division_paths', { division: div });
+        expect(result.teams).toHaveLength(4);
+      }
+    });
+
+    it('accepts underscored division names', async () => {
+      const result = await executeTool('project_division_paths', { division: 'nfc_west' });
+      expect(result.division).toBe('NFC WEST');
+      expect(result.teams).toHaveLength(4);
+    });
+
+    it('returns invalid for unknown division', async () => {
+      const result = await executeTool('project_division_paths', { division: 'Big Ten West' });
+      expect(result.status).toBe('invalid');
+      expect(result.message).toMatch(/Unknown division/i);
+    });
+
+    it('returns ok and ranks teams correctly when Supabase has data', async () => {
+      const { getLatestFuturesOdds } = await import('../../src/lib/supabase.js');
+      getLatestFuturesOdds.mockResolvedValueOnce([
+        { market_type: 'division_afc_west', team: 'Kansas City Chiefs',   odds: -120, book: 'DraftKings' },
+        { market_type: 'division_afc_west', team: 'Denver Broncos',       odds: +250, book: 'DraftKings' },
+        { market_type: 'division_afc_west', team: 'Las Vegas Raiders',    odds: +600, book: 'DraftKings' },
+        { market_type: 'division_afc_west', team: 'Los Angeles Chargers', odds: +350, book: 'DraftKings' },
+      ]);
+      const result = await executeTool('project_division_paths', { division: 'AFC West' });
+      expect(result.status).toBe('ok');
+      expect(result.teams[0].team).toBe('Kansas City Chiefs');
+    });
+  });
+
+  describe('track_award_race', () => {
+    it('returns no_data when Supabase has no award odds', async () => {
+      const result = await executeTool('track_award_race', { award: 'MVP' });
+      expect(result.status).toBe('no_data');
+      expect(result.award).toBe('MVP');
+      expect(result.label).toBe('Most Valuable Player');
+    });
+
+    it('resolves all valid award aliases without error', async () => {
+      for (const award of ['MVP','OPOY','DPOY','OROY','DROY','CPOY','COY']) {
+        const result = await executeTool('track_award_race', { award });
+        expect(result.status).not.toBe('invalid');
+        expect(result.award).toBe(award);
+      }
+    });
+
+    it('returns invalid for unknown award', async () => {
+      const result = await executeTool('track_award_race', { award: 'GOAT' });
+      expect(result.status).toBe('invalid');
+    });
+
+    it('returns ranked leaderboard sorted by implied prob', async () => {
+      const { getLatestFuturesOdds } = await import('../../src/lib/supabase.js');
+      getLatestFuturesOdds.mockResolvedValueOnce([
+        { market_type: 'award_mvp', team: 'Josh Allen',      odds: +350, book: 'DraftKings' },
+        { market_type: 'award_mvp', team: 'Lamar Jackson',   odds: +200, book: 'DraftKings' },
+        { market_type: 'award_mvp', team: 'Patrick Mahomes', odds: +600, book: 'FanDuel'    },
+      ]);
+      const result = await executeTool('track_award_race', { award: 'MVP' });
+      expect(result.status).toBe('ok');
+      expect(result.leaderboard[0].candidate).toBe('Lamar Jackson');
+      expect(result.leaderboard[0].rank).toBe(1);
+      expect(result.leaderboard).toHaveLength(3);
+    });
+
+    it('respects limit param', async () => {
+      const { getLatestFuturesOdds } = await import('../../src/lib/supabase.js');
+      getLatestFuturesOdds.mockResolvedValueOnce(
+        ['A','B','C','D','E'].map((p, i) => ({
+          market_type: 'award_mvp', team: `Player ${p}`,
+          odds: 200 + i * 100, book: 'DK',
+        }))
+      );
+      const result = await executeTool('track_award_race', { award: 'MVP', limit: 3 });
+      expect(result.leaderboard).toHaveLength(3);
+    });
+  });
+
+  describe('FUTURES_TOOLS export', () => {
+    it('exports exactly 3 FUT-TOOLS schemas', () => {
+      expect(FUTURES_TOOLS).toHaveLength(3);
+      const names = FUTURES_TOOLS.map(t => t.name);
+      expect(names).toContain('analyze_futures_hedge');
+      expect(names).toContain('project_division_paths');
+      expect(names).toContain('track_award_race');
+    });
+
+    it('each schema has name, description, and input_schema', () => {
+      for (const tool of FUTURES_TOOLS) {
+        expect(tool.name).toBeTruthy();
+        expect(tool.description).toBeTruthy();
+        expect(tool.input_schema?.type).toBe('object');
+        expect(tool.input_schema?.properties).toBeDefined();
+      }
+    });
+  });
+
 });

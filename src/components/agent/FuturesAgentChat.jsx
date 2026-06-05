@@ -18,7 +18,7 @@ import logger from '../../lib/logger';
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Send, Trophy, User, Wrench, ChevronDown, ChevronRight, Trash2, AlertCircle, Key, CheckCircle2 } from 'lucide-react';
 import { runAgentTurn, runOpenAIAgentTurn } from '../../lib/anthropicClient.js';
-import { BETTING_TOOLS, executeTool } from '../../lib/agentTools.js';
+import { BETTING_TOOLS, FUTURES_TOOLS, executeTool } from '../../lib/agentTools.js';
 import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS } from '../../lib/storage.js';
 import { getNFLWeekInfo } from '../../lib/constants.js';
 import { ANTHROPIC_API, AI_PROXY_URL } from '../../lib/apiConfig.js';
@@ -61,9 +61,14 @@ You think in season arcs, not single weeks. You anchor every take to the schedul
 - get_player_prop_context → player + prop type trend (used for award-race futures)
 
 ### Bankroll / odds (shared with BETTING)
-- calculate_hedge → hedge math for locking profit on outright futures
+- calculate_hedge → simple hedge math (single position, single hedge bet)
 - get_odds → current sportsbook odds (use for division/conference market context)
 - log_pick → record the futures pick (bet_type='future'). CONFIRM FIRST.
+
+### Futures-specific tools (FUT-TOOLS)
+- analyze_futures_hedge → advanced 3-scenario hedge analysis (hold / partial lock / full lock) with line-appreciation context. Prefer this over calculate_hedge for futures positions.
+- project_division_paths → current division winner odds per team with implied probs and conference/SB cross-reference. Use for division race analysis.
+- track_award_race → ranked leaderboard for MVP/OPOY/DPOY/OROY/DROY/CPOY/COY with odds, implied prob, and expert podcast mention counts.
 
 ## Context (loaded at session start)
 Today: ${today}
@@ -110,6 +115,9 @@ function ToolCallCard({ name, input, result, defaultOpen = false }) {
     calculate_hedge:         '\uD83D\uDD12 Hedge Math',
     get_odds:                '\uD83D\uDCB0 Get Odds',
     log_pick:                '\uD83D\uDCDD Log Pick',
+    analyze_futures_hedge:   '\uD83D\uDCC9 Futures Hedge',
+    project_division_paths:  '\uD83C\uDFC7 Division Paths',
+    track_award_race:        '\uD83C\uDFC6 Award Race',
   };
   const label = toolLabels[name] || `[tool] ${name}`;
 
@@ -347,7 +355,7 @@ export default function FuturesAgentChat() {
         apiKey,
         systemPrompt: systemPromptRef.current,
         messages: updatedMessages,
-        tools: BETTING_TOOLS,
+        tools: [...BETTING_TOOLS, ...FUTURES_TOOLS],
         executeToolFn: executeTool,
         onStep: (step) => {
           if (step.type === 'assistant') {
