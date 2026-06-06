@@ -35,9 +35,12 @@ const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 const DRY_RUN   = process.argv.includes('--dry-run');
-const ONLY_DIR  = process.argv[process.argv.indexOf('--dir')  + 1] || null;
-const ONLY_FILE = process.argv[process.argv.indexOf('--file') + 1] || null;
-const ONLY_TEAM = process.argv[process.argv.indexOf('--team') + 1]?.toUpperCase() || null;
+const _dirIdx   = process.argv.indexOf('--dir');
+const _fileIdx  = process.argv.indexOf('--file');
+const _teamIdx  = process.argv.indexOf('--team');
+const ONLY_DIR  = _dirIdx  !== -1 ? process.argv[_dirIdx  + 1] || null : null;
+const ONLY_FILE = _fileIdx !== -1 ? process.argv[_fileIdx + 1] || null : null;
+const ONLY_TEAM = _teamIdx !== -1 ? process.argv[_teamIdx + 1]?.toUpperCase() || null : null;
 
 // ─── Team normalization (inline — avoids ESM/browser import complexity) ───────
 
@@ -152,6 +155,19 @@ const SCHEMAS = {
     tags: ['epa', 'nflverse', 'analytics', 'reference'],
   },
   // ── Schedules / game results (nfl_data_py import_schedules / import_games) ──
+  // games.csv (completed only) and schedules.csv both match; dir-name hint
+  // routes games.csv → 'games' and schedules.csv → 'schedules' schema.
+  games: {
+    detect: (headers) =>
+      headers.includes('home_team') && headers.includes('away_team') && headers.includes('spread_line'),
+    teamCol: (headers) => headers.find(h => h === 'home_team'),
+    yearCol: (headers) => headers.find(h => h === 'season'),
+    label: 'Game Results',
+    vaultPrefix: 'NFL/Reference/GameResults',
+    teamVaultPrefix: 'NFL/Teams',
+    teamSuffix: 'Schedule',
+    tags: ['schedule', 'games', 'nflverse', 'reference'],
+  },
   schedules: {
     detect: (headers) =>
       headers.includes('home_team') && headers.includes('away_team') && headers.includes('spread_line'),
@@ -162,6 +178,17 @@ const SCHEMAS = {
     teamVaultPrefix: 'NFL/Teams',
     teamSuffix: 'Schedule',
     tags: ['schedule', 'games', 'nflverse', 'reference'],
+  },
+  // ── FTN charting (nfl_data_py import_ftn_data) — play-level, no team col ──
+  ftn: {
+    detect: (headers) => headers.some(h => h === 'ftn_game_id' || h === 'n_pass_rushers' || h === 'n_blitzers'),
+    teamCol: (_headers) => null,   // play-level data — no team column; league-wide note only
+    yearCol: (headers) => headers.find(h => h === 'season'),
+    label: 'FTN Charting',
+    vaultPrefix: 'NFL/Reference/FTN',
+    teamVaultPrefix: 'NFL/Teams',
+    teamSuffix: 'FTN',
+    tags: ['ftn', 'charting', 'analytics', 'nflverse', 'reference'],
   },
   // ── ESPN QBR / team efficiency (nfl_data_py import_espn_data) ────────────
   espn: {
@@ -176,8 +203,13 @@ const SCHEMAS = {
   },
 };
 
-function detectSchema(headers, dirName) {
-  // Dir-name hint takes priority
+function detectSchema(headers, dirName, fileName = null) {
+  // Filename hint takes highest priority (disambiguates files with identical headers)
+  if (fileName && SCHEMAS[fileName]) {
+    const s = SCHEMAS[fileName];
+    if (s.detect(headers)) return { name: fileName, ...s };
+  }
+  // Dir-name hint
   if (dirName && SCHEMAS[dirName]) {
     const s = SCHEMAS[dirName];
     if (s.detect(headers)) return { name: dirName, ...s };
@@ -293,7 +325,7 @@ async function processCSV(supabase, filePath, dirName, results) {
     return;
   }
 
-  const schema = detectSchema(headers, dirName);
+  const schema = detectSchema(headers, dirName, path.basename(filePath, path.extname(filePath)));
   if (!schema) {
     console.warn(`  [SKIP] ${filePath}: unknown schema (headers: ${headers.slice(0,6).join(', ')})`);
     return;
