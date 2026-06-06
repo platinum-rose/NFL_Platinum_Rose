@@ -180,6 +180,7 @@ const SCHEMAS = {
     tags: ['schedule', 'games', 'nflverse', 'reference'],
   },
   // ── FTN charting (nfl_data_py import_ftn_data) — play-level, no team col ──
+  // 185K+ rows — writes a metadata summary note instead of a full table dump
   ftn: {
     detect: (headers) => headers.some(h => h === 'ftn_game_id' || h === 'n_pass_rushers' || h === 'n_blitzers'),
     teamCol: (_headers) => null,   // play-level data — no team column; league-wide note only
@@ -189,6 +190,35 @@ const SCHEMAS = {
     teamVaultPrefix: 'NFL/Teams',
     teamSuffix: 'FTN',
     tags: ['ftn', 'charting', 'analytics', 'nflverse', 'reference'],
+    buildLeagueNote(rows, year, headers) {
+      const seasons = [...new Set(rows.map(r => r.season).filter(Boolean))].sort();
+      const weeks   = [...new Set(rows.map(r => r.week).filter(Boolean))].sort((a,b)=>+a-+b);
+      const metrics = headers.filter(h => !['ftn_game_id','nflverse_game_id','season','week',
+        'ftn_play_id','nflverse_play_id','date_pulled'].includes(h));
+      const passPlays  = rows.filter(r => r.is_screen_pass === '0' || r.n_pass_rushers).length;
+      const blitzPlays = rows.filter(r => +r.n_blitzers > 0).length;
+      const motionPlays = rows.filter(r => r.is_motion === '1' || r.is_motion === 'True').length;
+      return `# FTN Charting — ${seasons[0]}–${seasons[seasons.length-1]}
+
+_Source: nfl_data_py import_ftn_data | Updated: ${now()}_
+
+## Coverage
+- **Seasons:** ${seasons.join(', ')}
+- **Weeks:** ${weeks[0]}–${weeks[weeks.length-1]}
+- **Total plays charted:** ${rows.length.toLocaleString()}
+- **Blitz plays:** ${blitzPlays.toLocaleString()} (${(blitzPlays/rows.length*100).toFixed(1)}%)
+- **Motion plays:** ${motionPlays.toLocaleString()} (${(motionPlays/rows.length*100).toFixed(1)}%)
+
+## Columns (${headers.length} total)
+${metrics.map(h => `- \`${h}\``).join('\n')}
+
+## Usage
+Join on \`nflverse_game_id\` + \`nflverse_play_id\` with PBP data for team/player context.
+Raw CSV at \`data/vault-seed/nflverse/ftn_charting.csv\`.
+
+_Auto-generated from vault-seed ingestion. Play-level data — no per-team notes written._
+`;
+    },
   },
   // ── ESPN QBR / team efficiency (nfl_data_py import_espn_data) ────────────
   espn: {
@@ -238,11 +268,18 @@ function mdTable(rows, cols) {
 
 /** Format a generic CSV schema into a league-wide reference note */
 function buildLeagueNote(schema, rows, year, headers) {
+  // If schema provides a custom note builder, use it (e.g. play-level data too large for table)
+  if (typeof schema.buildLeagueNote === 'function') {
+    return schema.buildLeagueNote(rows, year, headers);
+  }
+
   const teamCol = schema.teamCol(headers);
   const metricCols = headers.filter(h => h !== teamCol && h !== schema.yearCol(headers));
   const displayCols = [teamCol, ...metricCols].slice(0, 10); // cap columns
 
-  const tableRows = rows.map(r => {
+  // Respect maxRows to prevent oversized tsvector content
+  const displayRows = schema.maxRows ? rows.slice(0, schema.maxRows) : rows;
+  const tableRows = displayRows.map(r => {
     const abbr = toAbbr(r[teamCol]) || r[teamCol];
     return { ...r, [teamCol]: abbr };
   });
