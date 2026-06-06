@@ -83,14 +83,42 @@ function toAbbr(input) {
 
 // ─── CSV Parser (no external dep) ─────────────────────────────────────────────
 
+function splitCSVLine(line) {
+  const vals = [];
+  let i = 0;
+  while (i < line.length || vals.length === 0) {
+    if (i >= line.length) { vals.push(''); break; }
+    if (line[i] === '"') {
+      let val = '';
+      i++;
+      while (i < line.length) {
+        if (line[i] === '"') {
+          if (line[i + 1] === '"') { val += '"'; i += 2; }
+          else { i++; break; }
+        } else {
+          val += line[i++];
+        }
+      }
+      vals.push(val.trim());
+      if (line[i] === ',') i++;
+    } else {
+      const end = line.indexOf(',', i);
+      if (end === -1) { vals.push(line.slice(i).trim()); break; }
+      vals.push(line.slice(i, end).trim());
+      i = end + 1;
+    }
+  }
+  return vals;
+}
+
 function parseCSV(text) {
   const lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').trim().split('\n');
   if (lines.length < 2) return { headers: [], rows: [] };
-  const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, '').toLowerCase().replace(/\s+/g, '_'));
+  const headers = splitCSVLine(lines[0]).map(h => h.toLowerCase().replace(/\s+/g, '_'));
   const rows = lines.slice(1)
     .filter(l => l.trim())
     .map(line => {
-      const vals = line.split(',').map(v => v.trim().replace(/^"|"$/g, ''));
+      const vals = splitCSVLine(line);
       return Object.fromEntries(headers.map((h, i) => [h, vals[i] ?? '']));
     });
   return { headers, rows };
@@ -218,6 +246,179 @@ Raw CSV at \`data/vault-seed/nflverse/ftn_charting.csv\`.
 
 _Auto-generated from vault-seed ingestion. Play-level data — no per-team notes written._
 `;
+    },
+  },
+
+  // -- Player Stats Weekly (nflverse stats_player release)
+  player_stats_weekly: {
+    detect: (headers) =>
+      headers.some(h => h === 'passing_epa' || h === 'rushing_epa') &&
+      headers.includes('week') && headers.includes('position') &&
+      !headers.includes('recent_team'),
+    teamCol: (headers) => headers.find(h => h === 'team' || h === 'recent_team'),
+    yearCol: (headers) => headers.find(h => h === 'season'),
+    label: 'Player Stats Weekly',
+    vaultPrefix: 'NFL/Reference/PlayerStatsWeekly',
+    teamVaultPrefix: 'NFL/Teams',
+    teamSuffix: 'PlayerStats',
+    tags: ['player-stats', 'weekly', 'nflverse', 'epa', 'reference'],
+    buildLeagueNote(rows, _year, _headers) {
+      const seasons = [...new Set(rows.map(r => r.season).filter(Boolean))].sort();
+      const latest  = seasons[seasons.length - 1];
+      const reg     = rows.filter(r => String(r.season) === String(latest) && r.season_type === 'REG');
+      function agg(subset, valKey) {
+        const map = {};
+        for (const r of subset) {
+          const k = r.player_display_name || r.player_name;
+          if (!map[k]) map[k] = { name: k, team: r.team || r.recent_team, val: 0 };
+          map[k].val += +r[valKey] || 0;
+        }
+        return Object.values(map).sort((a, b) => b.val - a.val);
+      }
+      const fmtRow = ({ name, team, val }) => `| ${name} | ${team} | ${Math.round(val)} |`;
+      const hdr    = '| Player | Team | Yds |\n|---|---|---|';
+      return [
+        `# Player Stats Weekly -- ${seasons[0]}-${latest}`,
+        `\n_Source: nflverse stats_player release | Updated: ${now()}_`,
+        `\n## Coverage`,
+        `- **Seasons:** ${seasons.join(', ')}`,
+        `- **Total rows:** ${rows.length.toLocaleString()}`,
+        `\n## ${latest} Leaders (REG)`,
+        `\n### Passing Yards`, hdr,
+        ...agg(reg.filter(r => r.position === 'QB'), 'passing_yards').slice(0, 10).map(fmtRow),
+        `\n### Rushing Yards`, hdr,
+        ...agg(reg.filter(r => r.position === 'RB'), 'rushing_yards').slice(0, 10).map(fmtRow),
+        `\n### Receiving Yards -- WR`, hdr,
+        ...agg(reg.filter(r => r.position === 'WR'), 'receiving_yards').slice(0, 10).map(fmtRow),
+        `\n### Receiving Yards -- TE`, hdr,
+        ...agg(reg.filter(r => r.position === 'TE'), 'receiving_yards').slice(0, 8).map(fmtRow),
+        `\n_Raw CSV: data/vault-seed/nflverse/player_stats_weekly.csv | Auto-generated._`,
+      ].join('\n');
+    },
+    buildTeamNote(teamRows, abbr, _year, _headers) {
+      const seasons = [...new Set(teamRows.map(r => r.season).filter(Boolean))].sort();
+      const sections = seasons.map(szn => {
+        const reg = teamRows.filter(r => String(r.season) === String(szn) && r.season_type === 'REG');
+        if (!reg.length) return null;
+        function topPlayer(pos, key) {
+          const map = {};
+          for (const r of reg.filter(r => r.position === pos)) {
+            const k = r.player_display_name || r.player_name;
+            if (!map[k]) map[k] = { name: k, val: 0 };
+            map[k].val += +r[key] || 0;
+          }
+          const top = Object.values(map).sort((a, b) => b.val - a.val)[0];
+          return top ? `${top.name} (${Math.round(top.val)})` : '--';
+        }
+        return [`### ${szn}`, `- **QB:** ${topPlayer('QB', 'passing_yards')}`,
+          `- **RB:** ${topPlayer('RB', 'rushing_yards')}`,
+          `- **WR:** ${topPlayer('WR', 'receiving_yards')}`,
+          `- **TE:** ${topPlayer('TE', 'receiving_yards')}`].join('\n');
+      }).filter(Boolean);
+      return `## Player Stats Weekly\n\n_Updated: ${now()}_\n\n${sections.join('\n\n')}\n`;
+    },
+  },
+  // -- Player Stats Seasonal (nflverse stats_player release)
+  player_stats_seasonal: {
+    detect: (headers) =>
+      headers.includes('recent_team') && headers.includes('games') &&
+      headers.some(h => h === 'passing_epa' || h === 'rushing_epa'),
+    teamCol: (headers) => headers.find(h => h === 'recent_team' || h === 'team'),
+    yearCol: (headers) => headers.find(h => h === 'season'),
+    label: 'Player Stats Seasonal',
+    vaultPrefix: 'NFL/Reference/PlayerStatsSeasonal',
+    teamVaultPrefix: 'NFL/Teams',
+    teamSuffix: 'PlayerStatsSeason',
+    tags: ['player-stats', 'seasonal', 'nflverse', 'epa', 'reference'],
+    buildLeagueNote(rows, _year, _headers) {
+      const seasons = [...new Set(rows.map(r => r.season).filter(Boolean))].sort();
+      const latest  = seasons[seasons.length - 1];
+      const reg     = rows.filter(r => String(r.season) === String(latest) && r.season_type === 'REG');
+      function topN(pos, key, n) {
+        return reg.filter(r => r.position === pos)
+          .sort((a, b) => (+b[key] || 0) - (+a[key] || 0)).slice(0, n)
+          .map(r => `| ${r.player_display_name || r.player_name} | ${r.recent_team || r.team} | ${Math.round(+r[key] || 0)} |`);
+      }
+      const hdr = '| Player | Team | Yds |\n|---|---|---|';
+      return [
+        `# Player Stats Seasonal -- ${seasons[0]}-${latest}`,
+        `\n_Source: nflverse stats_player release | Updated: ${now()}_`,
+        `\n## Coverage`, `- **Seasons:** ${seasons.join(', ')}`,
+        `- **Player-seasons:** ${rows.length.toLocaleString()}`,
+        `\n## ${latest} Leaders (REG)`,
+        `\n### Passing Yards`, hdr, ...topN('QB', 'passing_yards', 10),
+        `\n### Rushing Yards`, hdr, ...topN('RB', 'rushing_yards', 10),
+        `\n### Receiving Yards -- WR`, hdr, ...topN('WR', 'receiving_yards', 10),
+        `\n### Receiving Yards -- TE`, hdr, ...topN('TE', 'receiving_yards', 8),
+        `\n_Raw CSV: data/vault-seed/nflverse/player_stats_seasonal.csv | Auto-generated._`,
+      ].join('\n');
+    },
+    buildTeamNote(teamRows, abbr, _year, _headers) {
+      const seasons = [...new Set(teamRows.map(r => r.season).filter(Boolean))].sort();
+      const sections = seasons.map(szn => {
+        const reg = teamRows.filter(r => String(r.season) === String(szn) && r.season_type === 'REG');
+        if (!reg.length) return null;
+        function top(pos, key) {
+          const p = reg.filter(r => r.position === pos).sort((a, b) => (+b[key] || 0) - (+a[key] || 0))[0];
+          return p ? `${p.player_display_name || p.player_name} (${Math.round(+p[key] || 0)})` : '--';
+        }
+        return [`### ${szn}`, `- **QB:** ${top('QB', 'passing_yards')}`,
+          `- **RB:** ${top('RB', 'rushing_yards')}`, `- **WR:** ${top('WR', 'receiving_yards')}`,
+          `- **TE:** ${top('TE', 'receiving_yards')}`].join('\n');
+      }).filter(Boolean);
+      return `## Player Stats Seasonal\n\n_Updated: ${now()}_\n\n${sections.join('\n\n')}\n`;
+    },
+  },
+  // -- Team Stats Weekly (nflverse stats_team release)
+  team_stats: {
+    detect: (headers) =>
+      headers.includes('team') && headers.includes('week') &&
+      headers.some(h => h === 'passing_epa') && !headers.includes('player_id'),
+    teamCol: (headers) => headers.find(h => h === 'team'),
+    yearCol: (headers) => headers.find(h => h === 'season'),
+    label: 'Team Stats',
+    vaultPrefix: 'NFL/Reference/TeamStats',
+    teamVaultPrefix: 'NFL/Teams',
+    teamSuffix: 'TeamStats',
+    tags: ['team-stats', 'weekly', 'nflverse', 'epa', 'reference'],
+    buildLeagueNote(rows, _year, _headers) {
+      const seasons = [...new Set(rows.map(r => r.season).filter(Boolean))].sort();
+      const latest  = seasons[seasons.length - 1];
+      const reg     = rows.filter(r => String(r.season) === String(latest) && r.season_type === 'REG');
+      const byTeam  = {};
+      for (const r of reg) {
+        if (!byTeam[r.team]) byTeam[r.team] = { team: r.team, pepa: 0, repa: 0, pyds: 0, ryds: 0 };
+        byTeam[r.team].pepa += +r.passing_epa   || 0;
+        byTeam[r.team].repa += +r.rushing_epa   || 0;
+        byTeam[r.team].pyds += +r.passing_yards || 0;
+        byTeam[r.team].ryds += +r.rushing_yards || 0;
+      }
+      const tbl = ['| Team | Pass EPA | Rush EPA | Pass Yds | Rush Yds |', '|---|---|---|---|---|',
+        ...Object.values(byTeam).sort((a, b) => b.pepa - a.pepa)
+          .map(t => `| ${t.team} | ${t.pepa.toFixed(1)} | ${t.repa.toFixed(1)} | ${Math.round(t.pyds)} | ${Math.round(t.ryds)} |`)
+      ].join('\n');
+      return [`# Team Stats -- ${seasons[0]}-${latest}`,
+        `\n_Source: nflverse stats_team release | Updated: ${now()}_`,
+        `\n## Coverage`, `- **Seasons:** ${seasons.join(', ')}`,
+        `- **Total rows:** ${rows.length.toLocaleString()} team-weeks`,
+        `\n## ${latest} Season Totals (REG, by passing EPA)`, tbl,
+        `\n_Raw CSV: data/vault-seed/nflverse/team_stats.csv | Auto-generated._`].join('\n');
+    },
+    buildTeamNote(teamRows, abbr, _year, _headers) {
+      const seasons = [...new Set(teamRows.map(r => r.season).filter(Boolean))].sort();
+      const lines = seasons.map(szn => {
+        const reg = teamRows.filter(r => String(r.season) === String(szn) && r.season_type === 'REG');
+        if (!reg.length) return null;
+        const sum = key => reg.reduce((s, r) => s + (+r[key] || 0), 0);
+        return [`### ${szn} (${reg.length} weeks)`,
+          `- **Passing EPA:** ${sum('passing_epa').toFixed(1)}`,
+          `- **Rushing EPA:** ${sum('rushing_epa').toFixed(1)}`,
+          `- **Passing Yds:** ${Math.round(sum('passing_yards'))}`,
+          `- **Rushing Yds:** ${Math.round(sum('rushing_yards'))}`,
+          `- **Pass TDs:** ${Math.round(sum('passing_tds'))}`,
+          `- **Rush TDs:** ${Math.round(sum('rushing_tds'))}`].join('\n');
+      }).filter(Boolean);
+      return `## Team Stats\n\n_Updated: ${now()}_\n\n${lines.join('\n\n')}\n`;
     },
   },
   // ── ESPN QBR / team efficiency (nfl_data_py import_espn_data) ────────────
@@ -405,7 +606,9 @@ async function processCSV(supabase, filePath, dirName, results) {
   for (const [abbr, teamRows] of byTeam) {
     const teamPath    = `${schema.teamVaultPrefix}/${abbr}-${schema.teamSuffix}.md`;
     const sectionHeader = `${schema.label} — ${year}`;
-    const newSection    = buildTeamNote(schema, teamRows, abbr, year, headers);
+    const newSection    = typeof schema.buildTeamNote === 'function'
+      ? schema.buildTeamNote(teamRows, abbr, year, headers)
+      : buildTeamNote(schema, teamRows, abbr, year, headers);
 
     // Read existing note and merge
     let existingContent = null;
