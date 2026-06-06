@@ -3,10 +3,16 @@
 // F-21: Action Network betting splits ingest agent
 //
 // Fetches public-bettor % and public-money % for all current NFL games from
-// the Action Network public API and upserts them to `game_splits`.
+// the Action Network public API and writes to two tables:
+//   game_splits         — upsert on game_id (always the freshest snapshot)
+//   game_splits_history — pure append (one row per game per run, never updated)
+//
+// The history table enables movement analysis: how did ticket%/money% shift
+// from Tuesday open through Sunday kickoff? Sharp divergence signals live there.
 //
 // Design:
 //   - One row per game (upsert on game_id) — always the freshest snapshot
+//   - Every run appends a new history row regardless of whether splits changed
 //   - Graceful offseason handling: logs info and exits cleanly if no games
 //   - Defensive field extraction: tries multiple known AN response shapes
 //   - --dump flag: prints raw API response and exits (for schema inspection)
@@ -289,6 +295,23 @@ async function upsertSplits(supabase, rows) {
   return data?.length ?? 0;
 }
 
+/**
+ * Append every snapshot to game_splits_history — pure INSERT, no upsert.
+ * Strips updated_at (history rows are immutable) before inserting.
+ */
+async function insertHistory(supabase, rows) {
+  const historyRows = rows.map(({ updated_at: _drop, ...rest }) => rest);
+  const { error } = await supabase
+    .from('game_splits_history')
+    .insert(historyRows);
+  if (error) {
+    // Non-fatal: log but don't abort — current snapshot write already succeeded
+    console.warn(`  ⚠  game_splits_history insert failed: ${error.message}`);
+    return 0;
+  }
+  return historyRows.length;
+}
+
 // ── Receipt ───────────────────────────────────────────────────────────────────
 
 async function writeReceipt(receipt) {
@@ -367,17 +390,22 @@ async function main() {
     const supabase = getSupabase();
     console.log('\n→ Upserting to game_splits…');
     const written = await upsertSplits(supabase, rows);
-    console.log(`\n✓ ${written} rows upserted`);
+    console.log(`  ✓ ${written} rows upserted to game_splits`);
+
+    console.log('→ Appending to game_splits_history…');
+    const historyWritten = await insertHistory(supabase, rows);
+    console.log(`  ✓ ${historyWritten} rows inserted into game_splits_history`);
   }
 
   const elapsed = ((Date.now() - startMs) / 1000).toFixed(1);
   const receipt = {
-    status:      'ok',
-    captured_at: capturedAt,
-    season:      SEASON,
-    rows:        rows.length,
-    dry_run:     DRY_RUN,
-    elapsed_s:   Number(elapsed),
+    status:          'ok',
+    captured_at:     capturedAt,
+    season:          SEASON,
+    rows:            rows.length,
+    dry_run:         DRY_RUN,
+    history_written: DRY_RUN ? 0 : rows.length,
+    elapsed_s:       Number(elapsed),
   };
 
   await writeReceipt(receipt);
