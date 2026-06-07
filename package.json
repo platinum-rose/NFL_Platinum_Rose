@@ -28,6 +28,9 @@
     "seed:vault:dvoa": "node agents/vault-seed.js --dir dvoa",
     "seed:vault:ats": "node agents/vault-seed.js --dir ats",
     "seed:vault:splits": "node agents/vault-seed.js --dir splits",
+    "seed:vault:manual": "node agents/vault-seed.js --dir manual",
+    "ingest-tweets": "node agents/tweet-ingest.js",
+    "ingest-tweets:dry": "node agents/tweet-ingest.js --dry-run",
     "fetch:nflverse": "python scripts/fetch_nflverse_data.py",
     "fetch:nflverse:dry": "python scripts/fetch_nflverse_data.py --dry-run"
   },
