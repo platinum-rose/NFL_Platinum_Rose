@@ -873,7 +873,19 @@ export async function getPlayerPropContext({ player, propType, weeksBack = 6, li
 // ─── User Picks Sync ──────────────────────────────────────────────────────────
 // localStorage is the primary store. These functions provide fire-and-forget
 // cloud sync so data survives a browser cache clear and is accessible on
-// multiple devices. Permissive RLS on user_picks allows anon key writes.
+// multiple devices.  Migration 025 added per-user RLS; user_id is now attached
+// to every write so rows are scoped to the authenticated user.
+
+/**
+ * Returns the current authenticated user's UUID, or null if not signed in.
+ * Uses the cached session — no network call.
+ * @returns {Promise<string|null>}
+ */
+async function getCurrentUserId() {
+  if (!isAvailable()) return null;
+  const { data } = await supabase.auth.getSession();
+  return data?.session?.user?.id ?? null;
+}
 
 /**
  * Upsert a single pick to Supabase.
@@ -883,8 +895,10 @@ export async function getPlayerPropContext({ player, propType, weeksBack = 6, li
 export async function syncPick(pick) {
   if (!isAvailable() || !pick?.id) return;
   try {
+    const userId = await getCurrentUserId();
     await supabase.from('user_picks').upsert({
       id:            pick.id,
+      user_id:       userId,
       game_id:       pick.gameId,
       source:        pick.source,
       pick_type:     pick.pickType,
@@ -987,8 +1001,10 @@ export async function loadUserPicks() {
 export async function syncBet(bet) {
   if (!isAvailable() || !bet?.id) return;
   try {
+    const userId = await getCurrentUserId();
     await supabase.from('user_bankroll_bets').upsert({
       id:             bet.id,
+      user_id:        userId,
       timestamp:      bet.timestamp ? new Date(bet.timestamp).toISOString() : new Date().toISOString(),
       week:           bet.week ?? null,
       status:         bet.status ?? 'pending',
