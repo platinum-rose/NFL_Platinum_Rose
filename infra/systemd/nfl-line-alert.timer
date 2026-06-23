@@ -2,6 +2,11 @@
 Description=Run NFL line move alert every hour
 
 [Timer]
+# Run at :45 past every hour — gives odds-ingest.js (runs at :00 or :30) time to finish
+# and write to line_movements before we scan.
+# Offseason: odds-ingest.yml runs once daily at 12:00 UTC (5 AM PDT) so only
+# the 5:45 AM PDT run will find anything.  Swap odds-ingest.yml to '0 */4 * * *'
+# in August for in-season; this timer needs no change.
 OnCalendar=*:45:00
 RandomizedDelaySec=120
 Persistent=true
