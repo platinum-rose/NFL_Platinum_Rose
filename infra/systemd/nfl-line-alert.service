@@ -1,0 +1,14 @@
+[Unit]
+Description=NFL Line Move Alert — reads line_movements from Supabase, emails significant moves
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=andrewlrose
+WorkingDirectory=/home/andrewlrose/projects/NFL_Dashboard
+EnvironmentFile=/etc/nfl-line-alert.env
+ExecStart=/usr/bin/node agents/line-move-alert.js
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=nfl-line-alert
