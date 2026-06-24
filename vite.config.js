@@ -6,7 +6,7 @@ import path from "path"
 export default defineConfig({
   plugins: [react()],
 
-  base: '/',
+  base: '/platinum-rose-app/',
 
   resolve: {
     alias: {
