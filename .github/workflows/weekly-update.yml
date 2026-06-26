@@ -27,8 +27,14 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Fetch New Schedule
-        run: npm run update-schedule
+      - name: Fetch Full Season Schedule
+        # ingest-schedule fetches all 18 weeks from ESPN + upserts Supabase games table.
+        # Replaced single-week update-schedule.js (S220) which only wrote current week
+        # and would overwrite the full 272-game schedule.json each Tuesday.
+        env:
+          SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: npm run ingest-schedule
 
       - name: Commit and Push Changes
         run: |
