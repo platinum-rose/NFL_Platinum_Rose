@@ -87,7 +87,8 @@ const LOOKBACK     = Number(
 // ─── Vault path helpers ─────────────────────────────────────────────────────
 
 export const PATHS = {
-  expertLeaderboard: () => 'NFL/Reference/ExpertLeaderboard.md',
+  expertLeaderboard:  () => 'NFL/Reference/ExpertLeaderboard.md',
+  pickPerformance:    () => 'NFL/Reference/PickPerformance.md',
   team: (abbr)            => `NFL/Teams/${abbr}.md`,
   expert: (slug)          => `NFL/Experts/${slug}.md`,
   weekly: (season, week)  => `NFL/Weekly/${season}-W${week}.md`,
@@ -358,6 +359,35 @@ async function main() {
     }
   }
 
+  // ── PickPerformance.md ────────────────────────────────────────────────
+  // Reads graded user_picks and writes NFL/Reference/PickPerformance.md so
+  // the BETTING agent loads it via loadReferenceNotes() at session start.
+  {
+    const ppPath = PATHS.pickPerformance();
+    try {
+      const { data: userPickRows, error: upErr } = await supabase
+        .from('user_picks')
+        .select('id,pick_type,selection,line,result,is_home_team,source,game_date,created_at,home,visitor')
+        .neq('result', 'PENDING')
+        .order('created_at', { ascending: false })
+        .limit(500);
+      if (upErr) throw new Error(`fetch user_picks: ${upErr.message}`);
+
+      const ppContent = buildPickPerformanceMd(userPickRows || [], now);
+      const existing  = await readVaultNote(supabase, ppPath);
+      if (ppContent !== existing) {
+        if (!DRY_RUN) await writeVaultNote(supabase, ppPath, ppContent);
+        summary.written.push(ppPath);
+        console.log(`  ${DRY_RUN ? '[DRY] ' : ''}wrote ${ppPath} (${(userPickRows || []).length} graded picks)`);
+      } else {
+        console.log(`  [unchanged] ${ppPath}`);
+      }
+    } catch (e) {
+      summary.errors.push({ path: ppPath, message: e.message });
+      console.error(`  [FAIL] ${ppPath} — ${e.message}`);
+    }
+  }
+
   // ── Receipt ───────────────────────────────────────────────────────────
   summary.finished_at = new Date().toISOString();
   await mkdir(RECEIPTS_DIR, { recursive: true });
@@ -418,52 +448,4 @@ export function aggregateExpertLedger(picks) {
   let clvCount = 0;
   for (const p of graded) {
     if (typeof p.units_pl === 'number') units += p.units_pl;
-    if (typeof p.clv === 'number') {
-      clvSum += p.clv;
-      clvCount += 1;
-    }
-  }
-  const denom = wins + losses;
-  const winRate = denom > 0 ? wins / denom : null;
-  const avgUnitsRisked = picks.reduce((s, p) => s + (p.units || 1), 0) / Math.max(picks.length, 1);
-  const roi = denom > 0 && avgUnitsRisked > 0 ? units / (denom * avgUnitsRisked) : null;
-  return {
-    graded: graded.length,
-    wins,
-    losses,
-    pushes,
-    units,
-    roi,
-    win_rate: winRate,
-    clv_avg: clvCount > 0 ? clvSum / clvCount : null,
-    hot_categories: pickHotCategories(graded),
-  };
-}
-
-function pickHotCategories(graded) {
-  const buckets = {};
-  for (const p of graded) {
-    const k = p.category || 'other';
-    if (!buckets[k]) buckets[k] = { w: 0, total: 0 };
-    if (p.result === 'win') buckets[k].w += 1;
-    if (p.result === 'win' || p.result === 'loss') buckets[k].total += 1;
-  }
-  const out = [];
-  for (const [k, v] of Object.entries(buckets)) {
-    if (v.total >= 5 && v.w / v.total >= 0.6) out.push(k);
-  }
-  return out;
-}
-
-function byEpisodeDateDesc(a, b) {
-  return (b.episode_published_at || '').localeCompare(a.episode_published_at || '');
-}
-
-// Allow this module to be imported by tests without auto-executing main().
-if (import.meta.url === `file://${process.argv[1].replace(/\\/g, '/')}` ||
-    import.meta.url === `file:///${process.argv[1].replace(/\\/g, '/')}`) {
-  main().catch((e) => {
-    console.error(e);
-    process.exit(1);
-  });
-}
+    if (typeof p.clv === 'nu

@@ -1,0 +1,93 @@
+name: NFLverse Data Refresh
+
+# Runs once a year in March after Super Bowl data finalizes on nflverse CDN,
+# and on-demand any time you want to force a refresh.
+#
+# What it does:
+#   1. fetch_nflverse_data.py --force  → refreshes all 7 CSV files in data/vault-seed/nflverse/
+#   2. seed-historical-stats.py        → upserts nfl_team_season_stats + nfl_player_season_stats
+#      (--no-pbp for GHA speed; PBP/EPA run locally when you want full tendencies)
+#
+# Manual dispatch inputs let you override years and skip individual steps.
+# EPA/formation tendency columns (shotgun_rate, pass_rate, etc.) are left null
+# in the GHA run — populate them locally with: python scripts/seed-historical-stats.py --seasons 2022-2025
+
+on:
+  schedule:
+    # 10:00 AM UTC on March 1 — nflverse CDN typically has full prior-season data by late Feb
+    - cron: '0 10 1 3 *'
+  workflow_dispatch:
+    inputs:
+      seasons:
+        description: 'Season range to seed (e.g. 2022-2025 or 2025)'
+        type: string
+        default: '2020-2025'
+      skip_fetch:
+        description: 'Skip nflverse CSV fetch (use existing files)'
+        type: boolean
+        default: false
+      skip_seed:
+        description: 'Skip Supabase seed (fetch CSVs only)'
+        type: boolean
+        default: false
+      dry_run:
+        description: 'Dry run — print counts, no Supabase writes'
+        type: boolean
+        default: false
+
+jobs:
+  nflverse-refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: |
+          pip install nfl-data-py pandas supabase python-dotenv
+
+      - name: Fetch nflverse CSVs
+        if: ${{ inputs.skip_fetch != true }}
+        env:
+          SEASONS: ${{ inputs.seasons || '2020-2025' }}
+        run: |
+          # Parse season range into individual years for the fetch script
+          python scripts/fetch_nflverse_data.py --force
+        # Note: fetch_nflverse_data.py uses DEFAULT_YEARS [2022-2025].
+        # To override, edit that list or add --years support to the script.
+
+      - name: Seed historical stats (no PBP)
+        if: ${{ inputs.skip_seed != true }}
+        env:
+          SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          DRY_RUN:                   ${{ inputs.dry_run || 'false' }}
+        run: |
+          SEASONS="${{ inputs.seasons || '2020-2025' }}"
+          DRY="${{ inputs.dry_run == true && '--dry-run' || '' }}"
+          python scripts/seed-historical-stats.py \
+            --seasons "$SEASONS" \
+            --no-pbp \
+            $DRY
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "### NFLverse Data Refresh" >> $GITHUB_STEP_SUMMARY
+          echo "- Seasons: ${{ inputs.seasons || '2020-2025 (default)' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Fetch skipped: ${{ inputs.skip_fetch || 'false' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Seed skipped: ${{ inputs.skip_seed || 'false' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Dry run: ${{ inputs.dry_run || 'false' }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**EPA/formation tendencies** (shotgun_rate, pass_rate, no_huddle_rate) require a local PBP run:" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          echo "python scripts/seed-historical-stats.py --seasons 2022-2025" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
