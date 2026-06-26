@@ -57,8 +57,12 @@ const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY;
 const NARRATIVE_MODEL = process.env.FUTURES_NARRATIVE_MODEL || 'claude-sonnet-4-6';
 
-const SIGNAL_DAYS = Number(process.env.REPORT_LOOKBACK_DAYS ?? 7);
-const INTEL_DAYS  = Number(process.env.INTEL_LOOKBACK_DAYS ?? 30);
+const SIGNAL_DAYS = Number(process.env.REPORT_LOOKBACK_DAYS ?? 7);   // intel/tweets/signals recency
+const INTEL_DAYS  = Number(process.env.INTEL_LOOKBACK_DAYS ?? 30);   // articles recency
+// Odds history: futures move over weeks/months and are captured sporadically (manual exports +
+// daily API). Analyze the FULL season's snapshot_time series, not a fixed recency bucket.
+// ODDS_SINCE optionally floors the series at an ISO date (default: whole season).
+const ODDS_SINCE = process.env.ODDS_SINCE || null;
 
 const SHARP_BOOKS  = new Set(['betonline', 'bookmaker']);
 const PUBLIC_BOOKS = new Set(['draftkings', 'fanduel', 'betmgm', 'caesars']);
@@ -131,6 +135,13 @@ const fmtPct   = (p) => (p == null || isNaN(p)) ? '—' : `${(p * 100).toFixed(1
 const fmtDelta = (d) => (d == null || isNaN(d)) ? '—' : `${d >= 0 ? '+' : ''}${(d * 100).toFixed(1)}pp`;
 const isFuturesRelevant = (t) => !!t && FUTURES_KEYWORDS.some((k) => t.toLowerCase().includes(k));
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const SPARK = '▁▂▃▄▅▆▇█';
+function sparkline(vals) {
+  const v = vals.filter((x) => x != null && !isNaN(x));
+  if (v.length < 2) return '';
+  const min = Math.min(...v), max = Math.max(...v), span = (max - min) || 1;
+  return v.map((x) => SPARK[Math.min(SPARK.length - 1, Math.round(((x - min) / span) * (SPARK.length - 1)))]).join('');
+}
 
 function getSupabase() {
   if (!SUPABASE_URL || !SUPABASE_KEY) throw new Error('Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY');
@@ -139,12 +150,24 @@ function getSupabase() {
 
 // ── Data fetchers ────────────────────────────────────────────────────────────
 async function fetchSnapshots(sb) {
-  const since = new Date(Date.now() - SIGNAL_DAYS * 2 * 864e5).toISOString();
-  const { data, error } = await sb.from('futures_odds_snapshots')
-    .select('market_type, team, book, odds, implied_prob, line, over_price, under_price, captured_at, snapshot_time, season')
-    .gte('captured_at', since).order('captured_at', { ascending: true });
-  if (error) throw new Error(`fetchSnapshots: ${error.message}`);
-  return data || [];
+  // Full-season history, oldest→newest, paginated past PostgREST's 1000-row cap.
+  const PAGE = 1000;
+  let from = 0;
+  const all = [];
+  for (;;) {
+    let q = sb.from('futures_odds_snapshots')
+      .select('market_type, team, book, odds, implied_prob, line, over_price, under_price, captured_at, snapshot_time, season')
+      .eq('season', SEASON)
+      .order('snapshot_time', { ascending: true })
+      .range(from, from + PAGE - 1);
+    if (ODDS_SINCE) q = q.gte('snapshot_time', ODDS_SINCE);
+    const { data, error } = await q;
+    if (error) throw new Error(`fetchSnapshots: ${error.message}`);
+    all.push(...(data || []));
+    if (!data || data.length < PAGE) break;
+    from += PAGE;
+  }
+  return all;
 }
 async function fetchIntelNotes(sb) {
   const since = new Date(Date.now() - INTEL_DAYS * 864e5).toISOString();
@@ -190,35 +213,39 @@ async function fetchCoverageCounts(sb) {
 }
 
 // ── Odds analysis (consensus, divergence, movement) ──────────────────────────
-function groupSnapshots(rows) {
-  const cutoffRecent = Date.now() - 864e5;
-  const cutoffOld = Date.now() - SIGNAL_DAYS * 864e5;
-  const grouped = new Map();
+// Time-ordered series per market_type → team → book (sorted oldest→newest by snapshot_time).
+function groupSeries(rows) {
+  const g = new Map();
   for (const row of rows) {
-    const ts = new Date(row.captured_at || row.snapshot_time).getTime();
-    const bucket = ts >= cutoffRecent ? 'recent' : (ts >= cutoffOld ? 'old' : null);
-    if (!bucket) continue;
-    if (!grouped.has(row.market_type)) grouped.set(row.market_type, new Map());
-    const mm = grouped.get(row.market_type);
-    if (!mm.has(row.team)) mm.set(row.team, { recent: {}, old: {} });
-    const td = mm.get(row.team);
-    const existing = td[bucket][row.book];
-    const et = existing ? new Date(existing.captured_at || existing.snapshot_time).getTime() : 0;
-    if (!existing || (bucket === 'recent' && ts > et) || (bucket === 'old' && ts < et)) td[bucket][row.book] = row;
+    if (!g.has(row.market_type)) g.set(row.market_type, new Map());
+    const mm = g.get(row.market_type);
+    if (!mm.has(row.team)) mm.set(row.team, new Map());
+    const bb = mm.get(row.team);
+    if (!bb.has(row.book)) bb.set(row.book, []);
+    bb.get(row.book).push(row);
   }
-  return grouped;
+  const ts = (r) => new Date(r.snapshot_time || r.captured_at).getTime();
+  for (const mm of g.values()) for (const bb of mm.values())
+    for (const arr of bb.values()) arr.sort((a, b) => ts(a) - ts(b));
+  return g;
 }
-function computeTeamLine(books) {
-  const entries = Object.entries(books);
-  if (!entries.length) return null;
-  const all = [], sharp = [], pub = [], byBook = {};
-  for (const [book, row] of entries) {
-    const prob = row.implied_prob != null ? Number(row.implied_prob) : americanToImplied(row.odds);
-    byBook[book] = row.odds;
-    if (prob == null || isNaN(prob) || prob <= 0 || prob >= 1) continue;
-    all.push(prob);
-    if (SHARP_BOOKS.has(book)) sharp.push(prob);
-    if (PUBLIC_BOOKS.has(book)) pub.push(prob);
+const seriesProb = (r) => (r.implied_prob != null ? Number(r.implied_prob) : americanToImplied(r.odds));
+const validProb = (p) => p != null && !isNaN(p) && p > 0 && p < 1;
+const snapDay = (r) => String(r.snapshot_time || r.captured_at).slice(0, 10);
+const pickLatest = (arr) => arr[arr.length - 1];
+const pickEarliest = (arr) => arr[0];
+
+// Consensus across books using a per-book picker (latest / earliest snapshot), with sharp/public split.
+function consensusOf(bookSeries, pick) {
+  const all = [], sharp = [], pub = [], allBooks = {};
+  for (const [book, arr] of bookSeries.entries()) {
+    if (!arr.length) continue;
+    const r = pick(arr); const p = seriesProb(r);
+    allBooks[book] = r.odds;
+    if (!validProb(p)) continue;
+    all.push(p);
+    if (SHARP_BOOKS.has(book)) sharp.push(p);
+    if (PUBLIC_BOOKS.has(book)) pub.push(p);
   }
   if (!all.length) return null;
   const avg = (a) => a.reduce((x, y) => x + y, 0) / a.length;
@@ -227,16 +254,47 @@ function computeTeamLine(books) {
   return {
     consensus: avg(all), sharpImplied, publicImplied,
     divergence: (sharpImplied != null && publicImplied != null) ? sharpImplied - publicImplied : null,
-    allBooks: byBook,
+    allBooks,
   };
+}
+// Forward-filled consensus timeline across all distinct snapshot dates (trajectory / sparkline).
+function consensusTimeline(bookSeries) {
+  const days = [...new Set([...bookSeries.values()].flat().map(snapDay))].sort();
+  const out = [];
+  for (const d of days) {
+    const probs = [];
+    for (const arr of bookSeries.values()) {
+      let cur = null;
+      for (const r of arr) { if (snapDay(r) <= d) cur = r; else break; }
+      if (cur) { const p = seriesProb(cur); if (validProb(p)) probs.push(p); }
+    }
+    if (probs.length) out.push({ t: d, consensus: probs.reduce((x, y) => x + y, 0) / probs.length });
+  }
+  return out;
+}
+// Net movement since opening = avg over books (with ≥2 obs) of (latestProb − earliestProb). Null if none.
+function movementOf(bookSeries) {
+  const deltas = [];
+  for (const arr of bookSeries.values()) {
+    if (arr.length < 2) continue;
+    const a = seriesProb(pickEarliest(arr)), b = seriesProb(pickLatest(arr));
+    if (validProb(a) && validProb(b)) deltas.push(b - a);
+  }
+  return deltas.length ? deltas.reduce((x, y) => x + y, 0) / deltas.length : null;
 }
 function buildMarketSummary(mm) {
   const teams = [];
-  for (const [team, b] of mm.entries()) {
-    const line = computeTeamLine(b.recent);
-    if (!line) continue;
-    const old = Object.keys(b.old).length ? computeTeamLine(b.old) : null;
-    teams.push({ team, ...line, movement: old ? line.consensus - old.consensus : null });
+  for (const [team, bb] of mm.entries()) {
+    const cur = consensusOf(bb, pickLatest);
+    if (!cur) continue;
+    const series = consensusTimeline(bb);
+    teams.push({
+      team, ...cur, movement: movementOf(bb),
+      opening: series.length ? series[0].consensus : null,
+      firstDate: series.length ? series[0].t : null,
+      lastDate: series.length ? series[series.length - 1].t : null,
+      points: series.length, series,
+    });
   }
   return teams.sort((a, b) => b.consensus - a.consensus);
 }
@@ -244,35 +302,50 @@ function buildMarketSummary(mm) {
 // ── Win-total (line-based) analysis ──────────────────────────────────────────
 const fmtLineDelta = (d) => (d == null || isNaN(d)) ? '—' : `${d >= 0 ? '+' : ''}${d.toFixed(1)}`;
 
-function winConsensus(books) {
-  const rows = Object.values(books).filter((r) => r.line != null && !isNaN(Number(r.line)));
-  if (!rows.length) return null;
+const hasLine = (r) => r && r.line != null && !isNaN(Number(r.line));
+// Consensus win-total line across books using a per-book picker (latest / earliest line obs).
+function winConsensusOf(bookSeries, pick) {
+  const picked = [];
+  for (const arr of bookSeries.values()) {
+    const wl = arr.filter(hasLine);
+    if (wl.length) picked.push(pick(wl));
+  }
+  if (!picked.length) return null;
   const avg = (a) => a.reduce((x, y) => x + y, 0) / a.length;
-  const overs = rows.map((r) => r.over_price).filter((v) => v != null).map(Number);
-  const unders = rows.map((r) => r.under_price).filter((v) => v != null).map(Number);
+  const overs = picked.map((r) => r.over_price).filter((v) => v != null).map(Number);
+  const unders = picked.map((r) => r.under_price).filter((v) => v != null).map(Number);
   const byBook = {};
-  for (const r of rows) byBook[r.book] = Number(r.line);
+  for (const r of picked) byBook[r.book] = Number(r.line);
   return {
-    line: avg(rows.map((r) => Number(r.line))),
+    line: avg(picked.map((r) => Number(r.line))),
     over: overs.length ? Math.round(avg(overs)) : null,
     under: unders.length ? Math.round(avg(unders)) : null,
     byBook,
   };
 }
+// Win-total line movement = avg over books (with ≥2 line obs) of (latestLine − earliestLine).
+function winLineMovement(bookSeries) {
+  const deltas = [];
+  for (const arr of bookSeries.values()) {
+    const wl = arr.filter(hasLine);
+    if (wl.length < 2) continue;
+    deltas.push(Number(pickLatest(wl).line) - Number(pickEarliest(wl).line));
+  }
+  return deltas.length ? deltas.reduce((x, y) => x + y, 0) / deltas.length : null;
+}
 function buildWinTotalsSummary(mm) {
   const teams = [];
-  for (const [team, b] of mm.entries()) {
-    const recent = winConsensus(b.recent);
-    if (!recent) continue;
-    const old = Object.keys(b.old).length ? winConsensus(b.old) : null;
-    teams.push({ team, line: recent.line, over: recent.over, under: recent.under, byBook: recent.byBook, movement: old ? recent.line - old.line : null });
+  for (const [team, bb] of mm.entries()) {
+    const cur = winConsensusOf(bb, pickLatest);
+    if (!cur) continue;
+    teams.push({ team, line: cur.line, over: cur.over, under: cur.under, byBook: cur.byBook, movement: winLineMovement(bb) });
   }
   return teams.sort((a, b) => b.line - a.line); // most wins first
 }
 function winsHasLines(grouped) {
   const mm = grouped.get('wins');
   if (!mm || !mm.size) return false;
-  for (const b of mm.values()) if (Object.values(b.recent).some((r) => r.line != null)) return true;
+  for (const bb of mm.values()) for (const arr of bb.values()) if (arr.some(hasLine)) return true;
   return false;
 }
 
@@ -342,9 +415,12 @@ function buildCategoryModel(grouped) {
 function buildMovers(grouped) {
   const movers = [];
   for (const [mt, mm] of grouped.entries()) {
+    if (mt === 'wins') continue; // win-total movement is shown as line deltas in its own table
     for (const t of buildMarketSummary(mm)) {
       if (t.movement != null && Math.abs(t.movement) >= 0.01)
-        movers.push({ market: MARKET_LABELS[mt] || mt, team: t.team, delta: t.movement, consensus: t.consensus });
+        movers.push({ market: MARKET_LABELS[mt] || mt, team: t.team, delta: t.movement,
+          consensus: t.consensus, opening: t.opening, firstDate: t.firstDate, lastDate: t.lastDate,
+          points: t.points, spark: sparkline(t.series.map((s) => s.consensus)) });
     }
   }
   return movers.sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta)).slice(0, 25);
@@ -456,7 +532,7 @@ function renderMarkdown(model) {
   const L = [];
   L.push(`# NFL Futures Intel Report — ${model.reportDate}`, '');
   L.push(`> Season ${model.season} · generated ${model.generatedAt} · trigger: ${model.trigger}`);
-  L.push(`> Windows: ${INTEL_DAYS}d articles, ${SIGNAL_DAYS}d signals/movement · Narrative: ${model.engine.narrative}`, '');
+  L.push(`> Windows: odds = full ${model.season} season history · ${INTEL_DAYS}d articles · ${SIGNAL_DAYS}d signals · Narrative: ${model.engine.narrative}`, '');
 
   // Coverage audit
   L.push('## Coverage Audit', '');
@@ -480,7 +556,7 @@ function renderMarkdown(model) {
         L.push('| Team | Win Total | Over | Under | Δ |', '|---|---|---|---|---|');
         for (const t of sub.teams) L.push(`| ${t.team} | ${t.line.toFixed(1)} | ${fmtOdds(t.over)} | ${fmtOdds(t.under)} | ${fmtLineDelta(t.movement)} |`);
       } else {
-        L.push('| Team | Consensus | Implied | DK | FD | BetOnline | Bookmaker | 7d Δ |', '|---|---|---|---|---|---|---|---|');
+        L.push('| Team | Consensus | Implied | DK | FD | BetOnline | Bookmaker | Δ since open |', '|---|---|---|---|---|---|---|---|');
         for (const t of sub.teams.map(teamRow)) L.push(`| ${t.team} | ${t.american} | ${t.pct} | ${t.dk} | ${t.fd} | ${t.bol} | ${t.bm} | ${t.moveStr} |`);
       }
       L.push('');
@@ -488,11 +564,11 @@ function renderMarkdown(model) {
   }
 
   // Line movement + value spots
-  L.push('## Line Movement (7-Day)', '');
+  L.push('## Line Movement — Offseason (since opening snapshot)', '');
   if (model.movers.length) {
-    L.push('| Market | Team | Current | 7d Δ | Direction |', '|---|---|---|---|---|');
-    for (const m of model.movers) L.push(`| ${m.market} | ${m.team} | ${fmtPct(m.consensus)} | ${fmtDelta(m.delta)} | ${m.delta >= 0 ? '📈 shortening' : '📉 drifting'} |`);
-  } else L.push('_No significant movement in window._');
+    L.push('| Market | Team | Opening | Current | Net Δ | Trend | Window |', '|---|---|---|---|---|---|---|');
+    for (const m of model.movers) L.push(`| ${m.market} | ${m.team} | ${fmtPct(m.opening)} | ${fmtPct(m.consensus)} | ${fmtDelta(m.delta)} ${m.delta >= 0 ? '📈' : '📉'} | \`${m.spark || '—'}\` | ${m.firstDate || '—'}→${m.lastDate || '—'} (${m.points}) |`);
+  } else L.push('_No significant movement across loaded snapshots._');
   L.push('');
   L.push(`## Value Spots (Sharp/Public ≥${Math.round(DIVERGENCE_THRESHOLD * 100)}pp)`, '');
   if (model.valueSpots.length) {
@@ -536,7 +612,7 @@ function renderHtml(model) {
     const subs = cat.present ? cat.subsections.map((sub) => `
       ${cat.subsections.length > 1 ? `<h3>${esc(sub.label)}</h3>` : ''}
       ${sub.kind === 'wins' ? winsTable(sub.teams) : `<table>
-        <thead><tr><th>Team</th><th>Consensus</th><th>Implied</th><th>DK</th><th>FD</th><th>BetOnline</th><th>Bookmaker</th><th>7d Δ</th></tr></thead>
+        <thead><tr><th>Team</th><th>Consensus</th><th>Implied</th><th>DK</th><th>FD</th><th>BetOnline</th><th>Bookmaker</th><th>Δ since open</th></tr></thead>
         <tbody>${sub.teams.map(teamRow).map((t) => `<tr><td class="team">${esc(t.team)}</td><td class="mono">${t.american}</td><td class="mono">${t.pct}</td><td class="mono">${t.dk}</td><td class="mono">${t.fd}</td><td class="mono">${t.bol}</td><td class="mono">${t.bm}</td><td>${moveCell(t.move)}</td></tr>`).join('')}</tbody>
       </table>`}`).join('') : `<p class="empty">${esc(cat.note || 'No data in window.')}</p>`;
     return `<section id="${cat.id}" class="card">
@@ -552,7 +628,7 @@ function renderHtml(model) {
     <td>${stateBadge[r.state]}${r.note ? `<div class="subnote">${esc(r.note)}</div>` : ''}</td>
     <td class="mono">${r.seen}</td></tr>`).join('');
 
-  const moversRows = model.movers.length ? model.movers.map((m) => `<tr><td>${esc(m.market)}</td><td class="team">${esc(m.team)}</td><td class="mono">${fmtPct(m.consensus)}</td><td>${moveCell(m.delta)}</td><td>${m.delta >= 0 ? 'shortening' : 'drifting'}</td></tr>`).join('') : '<tr><td colspan="5" class="empty">No significant movement in window.</td></tr>';
+  const moversRows = model.movers.length ? model.movers.map((m) => `<tr><td>${esc(m.market)}</td><td class="team">${esc(m.team)}</td><td class="mono">${fmtPct(m.opening)}</td><td class="mono">${fmtPct(m.consensus)}</td><td>${moveCell(m.delta)}</td><td class="spark">${esc(m.spark)}</td><td class="mono muted">${esc(m.firstDate || '—')}→${esc(m.lastDate || '—')} (${m.points})</td></tr>`).join('') : '<tr><td colspan="7" class="empty">No significant movement across loaded snapshots.</td></tr>';
   const spotsRows = model.valueSpots.length ? model.valueSpots.map((s) => `<tr><td>${esc(s.market)}</td><td class="team">${esc(s.team)}</td><td class="mono">${fmtPct(s.sharpImplied)}</td><td class="mono">${fmtPct(s.publicImplied)}</td><td class="mono">${fmtDelta(s.divergence)}</td><td>${s.divergence > 0 ? '<span class="up">🔪 sharp lean</span>' : '<span class="down">🚨 overbet</span>'}</td></tr>`).join('') : '<tr><td colspan="6" class="empty">No divergence ≥ threshold.</td></tr>';
 
   const expertHtml = model.expertGroups.length ? model.expertGroups.map((g) => `
@@ -584,6 +660,7 @@ th{text-align:left;color:var(--mut);font-weight:600;border-bottom:1px solid var(
 td{padding:6px 8px;border-bottom:1px solid #20262f}tr:last-child td{border-bottom:none}
 .team{font-weight:600}.mono{font-variant-numeric:tabular-nums;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 .up{color:var(--up)}.down{color:var(--down)}.muted{color:var(--mut)}
+.spark{letter-spacing:1px;color:var(--ac);font-size:14px}
 .verdict{background:var(--card2);border-left:3px solid var(--ac);border-radius:6px;padding:10px 12px;margin:6px 0 12px;font-size:14px}
 .vlabel{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--ac);font-weight:700;margin-right:6px}
 .note{color:var(--warn);font-size:12.5px;margin:2px 0 8px}.subnote{color:var(--mut);font-size:12px;margin-top:2px}
@@ -601,7 +678,7 @@ footer{color:var(--mut);font-size:12px;border-top:1px solid var(--bd);margin-top
 </style></head><body><div class="wrap">
 <header class="top">
   <h1>🏈 NFL Futures Intel Report</h1>
-  <div class="sub">${esc(model.reportDate)} · Season ${model.season} · trigger: ${esc(model.trigger)} · windows ${INTEL_DAYS}d articles / ${SIGNAL_DAYS}d signals · narrative: ${esc(model.engine.narrative)}</div>
+  <div class="sub">${esc(model.reportDate)} · Season ${model.season} · trigger: ${esc(model.trigger)} · odds: full-season history · ${INTEL_DAYS}d articles / ${SIGNAL_DAYS}d signals · narrative: ${esc(model.engine.narrative)}</div>
 </header>
 <nav class="toc"><a href="#coverage">Coverage</a>${navItems}<a href="#movement">Movement</a><a href="#value">Value</a><a href="#experts">Experts</a></nav>
 
@@ -619,8 +696,8 @@ footer{color:var(--mut);font-size:12px;border-top:1px solid var(--bd);margin-top
 ${catHtml}
 
 <section id="movement" class="card">
-  <h2>📈 Line Movement (7-Day)</h2>
-  <table><thead><tr><th>Market</th><th>Team</th><th>Current</th><th>7d Δ</th><th>Direction</th></tr></thead><tbody>${moversRows}</tbody></table>
+  <h2>📈 Line Movement — Offseason <span class="muted" style="font-size:13px">since opening snapshot</span></h2>
+  <table><thead><tr><th>Market</th><th>Team</th><th>Opening</th><th>Current</th><th>Net Δ</th><th>Trend</th><th>Window</th></tr></thead><tbody>${moversRows}</tbody></table>
 </section>
 
 <section id="value" class="card">
@@ -737,7 +814,7 @@ async function main() {
     signals = await fetchPickSignals(sb, notes.map((n) => n.id));
   }
 
-  const grouped = groupSnapshots(snapshots);
+  const grouped = groupSeries(snapshots);
   const categories = buildCategoryModel(grouped);
   const movers = buildMovers(grouped);
   const valueSpots = buildValueSpots(grouped);
