@@ -2,133 +2,84 @@
 
 > **Purpose:** pick up the NFL Futures Intel Report build in a fresh session without prior chat context.
 > Read this top-to-bottom first. Repo root: `~/projects/NFL_Dashboard` (M6 canonical) / `E:\dev\projects\NFL_Dashboard` (Windows Cowork clone).
-> **HEAD at handoff:** `d1b9e58` on `main` (pushed + pulled to M6).
+> **HEAD at handoff:** `983feb7` on `main` (pushed + pulled to M6). Prior milestones: `d1b9e58` (S221 engine build), `436ffd7` (S220).
 
 ---
 
-## 1. Status snapshot (2026-06-25)
+## 1. Status snapshot (2026-06-26, S222)
 
 **Done & live**
-- Migrations `026_futures_reports` + `027_win_totals_line` **applied** in Supabase (also bundled in `supabase/APPLY_futures_migrations.sql`).
-- Report engine `agents/futures-intel-report-v2.js` (8 categories, coverage audit, expert grouping, hybrid Claude narrative, Markdown + styled HTML). Verified via `--sample`.
-- Bookmaker futures **ingested** to `futures_odds_snapshots`: **155 rows @ `snapshot_time='2026-06-25T00:00:00Z'`** (SB 32, conf 16/16, divisions 4×7, playoffs 32, wins 31). AFC East had no odds in the export (expected).
-- Parser `scripts/ingest_bookmaker_docx.py` (+ staged data `data/futures-imports/bookmaker-2026-06-25.json`).
-- Manual win-totals path `agents/win-totals-ingest.js` + `data/win-totals/2026.template.json`.
-- Most/Fewest-wins outright keys added to `agents/futures-odds-ingest.js`.
-- Workflow `futures-intel-report.yml` → runs v2, has `workflow_dispatch` (inputs: trigger, season, dry_run).
-- UI tab **Futures Report** (`src/components/futures/FuturesIntelReport.jsx`, wired in `App.jsx` + `Header.jsx`).
-- Dispatch edge function `supabase/functions/dispatch-futures-report/index.ts`.
-- Skill `skills/nfl-futures-report/SKILL.md`. Plan `docs/FUTURES_REPORT_PLAN.md`.
+- **A0 ✅** Parser uniform-keys fix (`scripts/ingest_bookmaker_docx.py`) committed `f219eb6`.
+- **A1 ✅** BetOnline 06-02 screenshots vision-extracted → `data/futures-imports/betonline-2026-06-02.json` (158 rows: SB 32, conf 16/16, div 32 incl. AFC East, wins 31, playoffs 31 — GB missing in wins/playoffs, cut at screenshot boundary). Ingested clean @ `2026-06-02T00:00:00Z`. A junk prior betonline snapshot (`12:00Z`, 220 rows / 156 polluted team names) was deleted.
+- **A2 ✅** `BKR_Odds_0602` (plain text, outrights only) → `data/futures-imports/bookmaker-2026-06-02.json` (96 rows). Matched a pre-existing clean 06-02 snapshot; deleted a duplicate `12:00Z`. Also backfilled `BKR_Futures_20260517` → `data/futures-imports/bookmaker-2026-05-17.json` (96 rows), ingested clean.
+- **Engine redesign ✅** `agents/futures-intel-report-v2.js` reworked for offseason analysis:
+  - Fetch keyed off **`snapshot_time` + season** (full history, paginated past PostgREST's 1000-row cap), not `captured_at ≥ now−14d`. Optional `ODDS_SINCE` ISO floor.
+  - **"Current" = latest snapshot per book** (was: last-24h bucket — that was the real cause of "3/8 categories"). Now resolves conference/division/playoffs/wins even when the newest book obs is weeks old.
+  - **Movement = net since opening**, computed per-book then averaged; plus a forward-filled consensus **trajectory + unicode sparkline** and the date window.
+  - Win totals reworked the same way (latest line per book, line-delta movement).
+- **Reusable ingest ✅** `scripts/ingest_futures_json.py <file.json> [--dry-run]` is now the standard path (stdlib only, idempotent upsert). Replaces the hand-pasted REST snippet.
+- First live report generated on M6 (`--trigger manual`): **7/8 categories present**, movement trajectories populating from the 05-17→06-25 Bookmaker series. `futures_reports` row + vault notes written.
 
-**Built but NOT yet deployed/active**
-- Dispatch edge function — **not deployed** (`supabase functions deploy dispatch-futures-report`) and secret `GITHUB_DISPATCH_TOKEN` **not set**.
-- `ANTHROPIC_API_KEY` — **not yet in GitHub Actions secrets** (needed for live narratives in the scheduled/dispatched workflow).
-- Dashboard with the new tab — **not built/deployed** to M6 yet.
-- Parser uniform-keys fix in `scripts/ingest_bookmaker_docx.py` — **committed? NO.** Edited on Windows disk after the `d1b9e58` push; **uncommitted**. See Task A0.
+**Data state (`futures_odds_snapshots`, all de-duplicated)**
+- `betonline` 06-02 (158) — 2nd sharp book.
+- `bookmaker` 05-17 (96 outrights) · 06-02 (96 outrights) · 06-25 (155, full incl. wins/playoffs).
+- `draftkings` / `fanduel` / `betmgm` — **Super Bowl only**, captured daily (TheOddsAPI).
+- → Two sharp books, multiple offseason dates. **Retention is safe** — nothing prunes the table (append-only).
 
-**Data state**
-- `futures_odds_snapshots`: 155 Bookmaker rows (one date). Consensus is **single-book** → sharp/public divergence + value-spots stay empty until a 2nd book loads.
-- `futures_reports`: empty (report not generated against live data yet).
+**Built but NOT yet deployed/active** (Phase 2 plumbing)
+- Dispatch edge function `dispatch-futures-report` — **not deployed**; secret `GITHUB_DISPATCH_TOKEN` **not set**.
+- `ANTHROPIC_API_KEY` — **not in GitHub Actions secrets** (needed for live narratives in scheduled/dispatched runs).
+- Dashboard with the Futures Report tab — not rebuilt/redeployed to M6 since the engine redesign.
 
 ---
 
 ## 2. Environment gotchas (read before touching anything)
 
-- **NTFS↔Linux mount truncation (sandbox only).** The Cowork sandbox served stale/truncated copies of actively-edited files. Authoritative edits go through the file tools (Windows `E:\dev`). **Never `git commit`/`push` from the sandbox** — it would capture truncated files + spurious diffs. Push from **Windows**; pull on M6.
-- **`docs/Futures_Odds/` is gitignored.** Raw `.docx`/screenshots do NOT sync via git. Pattern: parse to `data/futures-imports/<book>-<date>.json` (tracked) and ingest that on M6.
-- **PostgREST bulk upsert needs uniform keys** (`PGRST102 "All object keys must match"`). All objects in one POST must share the same key set. Parser fix addresses this going forward (Task A0); the manual REST snippet normalizes keys client-side.
-- **PowerShell line continuation is a backtick `` ` ``**, not `\`. Give Windows commands as single lines.
-- **Sandbox network egress is blocked** to Supabase / TheOddsAPI (HTTP 000). GitHub is reachable for read (`git ls-remote`) but do not push from sandbox (see truncation). DB writes run on M6 or via allowlisting Supabase in Capabilities + a fresh session.
-- **Unique constraint:** `futures_odds_snapshots` upserts on `(market_type, team, book, snapshot_time)` — idempotent per book per date.
+- **NTFS↔Linux mount truncation (sandbox only) — confirmed live this session.** The Cowork sandbox served a truncated 186-line copy of a 199-line script and could not execute it. **Authoritative edits go through the file tools (Windows `E:\dev`); never `git commit`/`push` from the sandbox.** Push from **Windows**; pull on **M6**.
+- **`docs/Futures_Odds/` is gitignored.** Raw `.docx`/`.png`/text exports do NOT sync. Pattern: parse → `data/futures-imports/<book>-<YYYY-MM-DD>.json` (tracked) → ingest that on M6.
+- **Sandbox network egress is blocked** to Supabase / TheOddsAPI. All DB writes + report runs happen on **M6**.
+- **Dated historical imports set `captured_at = snapshot_time`** (the export's real date). The engine now windows on `snapshot_time` so these no longer age out.
+- **Unique index `uq_futures_odds_snapshot`** on `(market_type, team, book, snapshot_time)` — idempotent per book per snapshot. Intra-day duplicates (e.g. a stray `12:00Z`) are distinct rows; clean them with a targeted `delete ... where snapshot_time='...'`.
+- **PowerShell ≠ bash.** Heredocs (`python3 - <<'PY'`) only work in the M6 bash shell, not Windows PowerShell. Use `scripts/ingest_futures_json.py` instead.
 
 ---
 
-## 3. Tasks
+## 3. Remaining tasks
 
-### A. Unblock & data ingestion
+### B. Deploy end-to-end (so the tab/button work)
+- **B1 —** `supabase functions deploy dispatch-futures-report`; `supabase secrets set GITHUB_DISPATCH_TOKEN=<fine-grained PAT, Actions:read+write on platinum-rose/NFL_Platinum_Rose>`. Optional `GITHUB_REPO`.
+- **B2 —** Add `ANTHROPIC_API_KEY` to GitHub repo secrets (live narratives). Optional repo var `FUTURES_NARRATIVE_MODEL` (default `claude-sonnet-4-6`).
+- **B3 — DONE** (first live report generated 2026-06-26). Re-run anytime: `node agents/futures-intel-report-v2.js --season 2026 --trigger manual`.
+- **B4 —** Build + deploy the dashboard to M6 so the **Futures Report** tab renders the new HTML (sparklines included — it renders stored report HTML in an iframe, so no React work needed) and **Regenerate** hits the edge function. Verify `VITE_VAULT_BACKEND=supabase` on M6.
 
-**A0 — Commit the parser uniform-keys fix (FIRST).**
-`scripts/ingest_bookmaker_docx.py` `to_snapshot_rows()` now emits all keys (line/over_price/under_price/implied_prob default `None`) so the script's own upsert won't hit `PGRST102`. It's edited on Windows but uncommitted.
-- From **Windows** `E:\dev\projects\NFL_Dashboard`: `git add scripts/ingest_bookmaker_docx.py; git commit -m "fix: uniform keys in bookmaker ingest"; git push`
-- Accept: M6 `git pull` then `python3 scripts/ingest_bookmaker_docx.py --file <docx> --dry-run` shows all rows with identical keys.
+### Value-spots / divergence (expectation correction)
+- Value-spots are **sharp-vs-public** divergence. We have two **sharp** books (betonline, bookmaker) but the **public** books (DK/FD/BetMGM) only price the **Super Bowl**. So divergence currently can only fire on SB. To populate conf/div/playoffs/wins value-spots, add **public-book exports** for those markets (or wait for sportsbooks to open them pre-season). Empty Value Spots today is correct, not a bug.
 
-**A1 — BetOnline screenshots → schema (HIGH VALUE).**
-Files: `docs/Futures_Odds/BEO_*_0602.png` (Jun 2, 2026): `BEO_SB`, `BEO_Conf`, `BEO_Div1/2`, `BEO_RegWins1/2/3`, `BEO_ToMakePlayoffs1/2/3`.
-- These are **images** → need a vision/OCR extraction pass (read each PNG, transcribe team/odds; win-total PNGs carry line + o/u).
-- Map to `book='betonline'`, `snapshot_time='2026-06-02T00:00:00Z'`.
-- Output `data/futures-imports/betonline-2026-06-02.json` (uniform keys), ingest via the REST snippet (Section 4) or the script.
-- **Why:** second sharp book → unlocks the report's sharp/public divergence + value-spot logic; second date → real line movement.
-- Accept: `select book,count(*) from futures_odds_snapshots group by 1` shows betonline rows; report value-spots populate.
+### History
+- **No Feb–Apr source data exists** (confirmed with Andy). Earliest export is `BKR_Futures_20260517`. Series baseline = **mid-May**. Forward retention is automatic. If older exports surface, parse → `data/futures-imports/` → `ingest_futures_json.py`.
 
-**A2 — `BKR_Odds_0602` (older Bookmaker, Jun 2).**
-File: `docs/Futures_Odds/BKR_Odds_0602` (no extension, ~2.8 KB). Confirm format (text? docx? json?) then ingest as `book='bookmaker'`, `snapshot_time='2026-06-02T00:00:00Z'` → gives a Bookmaker **two-date movement** baseline vs the 2026-06-25 rows.
-
-**A3 — Recurring ingest flow.** Decide the cadence for future exports. Options: (a) parse on Windows/sandbox → commit JSON → M6 ingests; (b) allowlist Supabase domain in Cowork Capabilities + fresh session → push from sandbox directly. Document chosen flow in `docs/FUTURES_REPORT_PLAN.md`.
-
-### B. Deploy the report end-to-end (so the tab/button work)
-
-**B1 — Deploy dispatch edge function.**
-`supabase functions deploy dispatch-futures-report`; then `supabase secrets set GITHUB_DISPATCH_TOKEN=<fine-grained PAT, Actions:read+write on platinum-rose/NFL_Platinum_Rose>`. Optional secret `GITHUB_REPO` (defaults to `platinum-rose/NFL_Platinum_Rose`).
-- Accept: `curl -X POST <func-url>` (anon) triggers a workflow run.
-
-**B2 — GitHub Actions secret.** Add `ANTHROPIC_API_KEY` to repo secrets (Settings → Secrets → Actions) so scheduled/dispatched runs produce live narratives. Optional repo var `FUTURES_NARRATIVE_MODEL` (default `claude-sonnet-4-6`).
-
-**B3 — Generate the first live report.** On M6: `node agents/futures-intel-report-v2.js --season 2026 --trigger manual` (needs `SUPABASE_*` + optional `ANTHROPIC_API_KEY` in `.env`). Confirm a `futures_reports` row + `NFL/Futures/FuturesIntel-Latest.md` vault note + `.nfl/reports/FuturesIntel-*.html` artifact.
-
-**B4 — Build & deploy dashboard.** Build the app and deploy to M6 (per existing deploy flow / `deploy.yml`) so the **Futures Report** tab renders the stored HTML and the **Regenerate** button hits the edge function. Verify `VITE_VAULT_BACKEND=supabase` on M6.
-- Accept: tab loads latest report; Regenerate triggers a build and the report refreshes.
-
-### C. Phase 1.5b — automated win-total capture (TheOddsAPI)
-
-**C1 —** When TheOddsAPI opens `americanfootball_nfl_season_wins` (~Jul–Aug), grab one live JSON sample on M6: `curl "https://api.the-odds-api.com/v4/sports/americanfootball_nfl_season_wins/odds?regions=us&markets=totals&oddsFormat=american&apiKey=$ODDS_API_KEY"`. Inspect shape (teams-as-events vs outcomes; where the `point`/line lives).
-**C2 —** Add a `totals`-market parser to `agents/futures-odds-ingest.js` (currently only parses `outrights`) → write `line` + `over_price` + `under_price` for `market_type='wins'`. Also verify whether `most_wins`/`least_wins` dedicated keys return data; if not, the engine already derives them from win-total lines.
-- Accept: scheduled `ingest-futures` populates win-total lines automatically; report Total/Most/Least-wins use live multi-book data.
+### C. Phase 1.5b — automated win-total capture (TheOddsAPI, ~Jul–Aug)
+- When `americanfootball_nfl_season_wins` opens, grab a live sample on M6, then add a `totals`-market parser to `agents/futures-odds-ingest.js` (writes `line`+`over_price`+`under_price` for `market_type='wins'`).
 
 ### D. Phase 4 — Deep Analysis Engine (THE PRODUCT)
+- Upgrade the narrative into a full analyst pass: recommended position + conviction per category, evidence-cited argument (expert signals by source, line movement, divergence), cross-market best-bets summary (top of report), contrarian/fade angles + stake sizing. Multi-pass: assemble evidence → Claude analyst → structured recommendations JSON → render; store in `futures_reports.model`. Now has real multi-date, multi-book input to reason over.
 
-Upgrade the narrative from short verdicts into a full analyst pass over the assembled corpus. Confirmed requirements (Andy):
-1. **Recommended position + conviction** per category/team (or "pass").
-2. **Detailed, evidence-cited argument** — cite supporting/refuting expert signals (by source), line movement, sharp/public divergence.
-3. **Cross-market best-bets summary** — ranked highest-conviction plays across all 8 categories (top of report).
-4. **Contrarian / fade angles + stake sizing** — where public is overweight, plus unit guidance.
-- Design: multi-pass — assemble evidence → LLM analyst (Claude) → structured recommendations JSON → render into HTML/MD. Store recommendations in the `futures_reports.model`.
-- Prereq for full value: ≥2 books loaded (so divergence is real) and live intel/podcast/tweet data in-window.
-
-### E. Coverage / sources (deferred items surfaced in every report's audit)
-- **E1 — Email-newsletter ingest** (Gmail/IMAP agent) — none today.
-- **E2 — Automated sharp-tweet ingest** — `x-sharp-ingest.js` dormant; needs self-hosted RSSHub on M6 (`RSSHUB_BASE_URL`). Manual tweet paste works now.
-- **E3 — Confirm `GROQ_API_KEY`** in GitHub secrets pre-week-1 (podcast transcription).
+### E. Coverage / sources (deferred)
+- E1 Email-newsletter ingest (none). E2 Automated sharp-tweet ingest (`x-sharp-ingest.js` dormant; needs self-hosted RSSHub on M6). E3 Confirm `GROQ_API_KEY` in GitHub secrets pre-week-1.
 
 ---
 
 ## 4. Handy commands
 
-**Ingest a parsed JSON to Supabase (M6, stdlib only):**
-```bash
-python3 - <<'PY'
-import json, urllib.request, urllib.error
-env={}
-for l in open('.env'):
-    l=l.strip()
-    if l and not l.startswith('#') and '=' in l:
-        k,v=l.split('=',1); env[k]=v.strip().strip('"').strip("'")
-url=env['SUPABASE_URL'].rstrip('/')+'/rest/v1/futures_odds_snapshots?on_conflict=market_type,team,book,snapshot_time'
-key=env['SUPABASE_SERVICE_ROLE_KEY']
-KEYS=['snapshot_time','captured_at','season','book','market_type','team','selection','odds','price','implied_prob','line','over_price','under_price']
-rows=[{k:r.get(k) for k in KEYS} for r in json.load(open('data/futures-imports/FILE.json'))]
-req=urllib.request.Request(url,data=json.dumps(rows).encode(),headers={'apikey':key,'Authorization':f'Bearer {key}','Content-Type':'application/json','Prefer':'resolution=merge-duplicates,return=minimal'},method='POST')
-try: print('OK',urllib.request.urlopen(req,timeout=30).status,len(rows))
-except urllib.error.HTTPError as e: print('HTTP',e.code,e.read().decode()[:600])
-PY
-```
+**Ingest a parsed JSON (M6):** `python3 scripts/ingest_futures_json.py data/futures-imports/<book>-<date>.json` (add `--dry-run` to preview).
 
 **Parse a Bookmaker docx → JSON:** `python3 scripts/ingest_bookmaker_docx.py --file docs/Futures_Odds/<file>.docx --dry-run --out data/futures-imports/<name>.json`
 
-**Run the report:** `node agents/futures-intel-report-v2.js --season 2026 --trigger manual` (or `--sample` offline, `--dry-run` no-write).
+**Run the report (M6):** `node agents/futures-intel-report-v2.js --season 2026 --trigger manual` (`--sample --dry-run` = offline smoke test; `ODDS_SINCE=2026-05-01` floors the window).
 
-**Verify ingest:** `select book, market_type, count(*) from futures_odds_snapshots group by 1,2 order by 1,2;`
+**Verify ingest:** `select book, snapshot_time::date, count(*) from futures_odds_snapshots group by 1,2 order by 1,2;`
 
 ---
 
 ## 5. Suggested order for next session
-A0 (commit fix) → A1 (BetOnline, highest value) → B1–B4 (deploy so the tab works) → B3 (first live report) → A2/A3 → C (when markets open) → D (the analysis engine). E-items as you go.
+B1–B2 (deploy dispatch + secrets) → B4 (dashboard rebuild so the tab shows the redesigned report) → D (the analysis engine). Add public-book exports whenever available to light up value-spots. C when TheOddsAPI season-wins opens.
