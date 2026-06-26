@@ -132,11 +132,14 @@ def parse(path):
 def to_snapshot_rows(parsed, book, when, season):
     out = []
     for r in parsed:
+        # Uniform key set across every row — PostgREST bulk upsert (PGRST102)
+        # requires all objects in the batch to share the same keys.
         base = dict(snapshot_time=when, captured_at=when, season=season,
                     market_type=r['market_type'], team=r['team'], selection=r['team'],
-                    book=book)
+                    book=book, odds=None, price=None, implied_prob=None,
+                    line=None, over_price=None, under_price=None)
         if r['market_type'] == 'wins':
-            base.update(odds=r.get('over') or -110, price=r.get('over') or -110, implied_prob=None,
+            base.update(odds=r.get('over') or -110, price=r.get('over') or -110,
                         line=r['line'], over_price=r.get('over'), under_price=r.get('under'))
         else:
             base.update(odds=r['odds'], price=r['odds'], implied_prob=r['implied'])
