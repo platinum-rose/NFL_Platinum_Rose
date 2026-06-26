@@ -48,6 +48,7 @@ const FuturesPortfolio = lazy(() => import('./components/futures/FuturesPortfoli
 const AgentChat = lazy(() => import('./components/agent/AgentChat'));
 const PropsAgentChat = lazy(() => import('./components/agent/PropsAgentChat'));
 const FuturesAgentChat = lazy(() => import('./components/agent/FuturesAgentChat'));
+const FuturesIntelReport = lazy(() => import('./components/futures/FuturesIntelReport'));
 const DFSOptimizer = lazy(() => import('./components/dfs/DFSOptimizer'));
 const PodcastDigestTab = lazy(() => import('./components/podcasts/PodcastDigestTab'));
 import FuturesEntryModal from './components/modals/FuturesEntryModal';
@@ -57,7 +58,7 @@ import AgentStatusModal from './components/modals/AgentStatusModal';
 
 const VALID_TABS = new Set([
   'dashboard','standings','mycard','devlab','bankroll',
-  'analytics','odds','picks','futures','futures-agent','agent','props','dfs','podcasts',
+  'analytics','odds','picks','futures','futures-agent','futures-report','agent','props','dfs','podcasts',
 ]);
 
 function App() {
@@ -200,6 +201,7 @@ function App() {
           {activeTab === 'picks' && <div className="animate-in fade-in zoom-in duration-300"><PicksTracker onOpenGradeModal={(gameData) => { setGradeGameData(gameData); openModal('gradeModal'); }} onAutoGrade={runGradingCheck} autoGrading={checking} onOpenPodcastModal={() => setPodcastModalOpen(true)} key={`picks-${picksRefreshKey}-${autoGraded}`} /></div>}
           {activeTab === 'futures' && <div className="animate-in fade-in zoom-in duration-300"><FuturesPortfolio onAddPosition={() => openModal('futuresEntry')} /></div>}
           {activeTab === 'futures-agent' && <div className="animate-in fade-in zoom-in duration-300"><FuturesAgentChat /></div>}
+          {activeTab === 'futures-report' && <div className="animate-in fade-in zoom-in duration-300"><FuturesIntelReport /></div>}
           {activeTab === 'agent' && <div className="animate-in fade-in zoom-in duration-300"><AgentChat /></div>}
           {activeTab === 'props' && <div className="animate-in fade-in zoom-in duration-300"><PropsAgentChat /></div>}
           {activeTab === 'dfs' && <div className="animate-in fade-in zoom-in duration-300"><DFSOptimizer /></div>}

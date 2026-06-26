@@ -122,6 +122,23 @@ const FUTURES_MARKETS = [
     marketType: 'superbowl_matchup',
     label: 'Exact Super Bowl Matchup',
   },
+  // Most / Fewest regular-season wins ("best record" / "worst record").
+  // Offered as outright markets at several books; TheOddsAPI exposes these
+  // dynamically when in season — 404/422 handled gracefully until they open.
+  // Verify exact keys via: GET /v4/sports?all=true&apiKey=<key>
+  // The v2 report engine (futures-intel-report-v2.js) falls back to a clearly
+  // labelled proxy ranking derived from the Super Bowl title market when these
+  // dedicated markets return no rows.
+  {
+    sportKey: 'americanfootball_nfl_most_regular_season_wins',
+    marketType: 'most_wins',
+    label: 'Most Regular Season Wins',
+  },
+  {
+    sportKey: 'americanfootball_nfl_fewest_regular_season_wins',
+    marketType: 'least_wins',
+    label: 'Fewest Regular Season Wins',
+  },
 ];
 
 const SPORTSBOOKS = 'draftkings,fanduel,betmgm,caesars,betonline,bookmaker';

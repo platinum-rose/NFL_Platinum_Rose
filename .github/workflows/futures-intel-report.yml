@@ -10,10 +10,20 @@ on:
     - cron: '0 14 * * 5'
   workflow_dispatch:
     inputs:
+      trigger:
+        description: 'Origin of this run (scheduled | on_demand_ui | skill | manual)'
+        type: string
+        required: false
+        default: 'manual'
+      season:
+        description: 'NFL season year'
+        type: string
+        required: false
+        default: '2026'
       dry_run:
-        description: 'Dry run (build report, skip vault write)'
+        description: 'Dry run (build report, skip Supabase writes)'
         type: boolean
-        default: true
+        default: false
       intel_days:
         description: 'Research articles lookback window (days)'
         type: string
@@ -25,10 +35,15 @@ on:
         required: false
         default: '7'
 
+# Allow only one report build at a time; a new on-demand run cancels a stale one.
+concurrency:
+  group: futures-intel-report
+  cancel-in-progress: false
+
 jobs:
   futures-intel-report:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
 
     steps:
       - name: Checkout
@@ -43,11 +58,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run Futures Intel Report
+      - name: Run Futures Intel Report (v2)
         env:
           SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          # Optional — enables the hybrid Claude narrative layer. If unset, the
+          # agent falls back to deterministic verdicts (no failure).
+          ANTHROPIC_API_KEY:         ${{ secrets.ANTHROPIC_API_KEY }}
+          FUTURES_NARRATIVE_MODEL:   ${{ vars.FUTURES_NARRATIVE_MODEL || 'claude-sonnet-4-6' }}
           DRY_RUN:                   ${{ inputs.dry_run || 'false' }}
           INTEL_LOOKBACK_DAYS:       ${{ inputs.intel_days || '30' }}
           REPORT_LOOKBACK_DAYS:      ${{ inputs.signal_days || '7' }}
-        run: node agents/futures-intel-report.js
+        run: >
+          node agents/futures-intel-report-v2.js
+          --season "${{ inputs.season || '2026' }}"
+          --trigger "${{ inputs.trigger || 'scheduled' }}"
