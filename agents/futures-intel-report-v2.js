@@ -64,7 +64,7 @@ const INTEL_DAYS  = Number(process.env.INTEL_LOOKBACK_DAYS ?? 30);   // articles
 // ODDS_SINCE optionally floors the series at an ISO date (default: whole season).
 const ODDS_SINCE = process.env.ODDS_SINCE || null;
 
-const SHARP_BOOKS  = new Set(['betonline', 'bookmaker']);
+const SHARP_BOOKS  = new Set(['betonline', 'bookmaker', 'betus']);
 const PUBLIC_BOOKS = new Set(['draftkings', 'fanduel', 'betmgm', 'caesars']);
 const DIVERGENCE_THRESHOLD = 0.08; // 8 percentage points
 
@@ -81,6 +81,11 @@ const CATEGORIES = [
 ];
 
 const MARKET_LABELS = {
+  superbowl: 'Super Bowl Winner',
+  playoffs: 'To Make the Playoffs',
+  most_wins: 'Most Wins',
+  least_wins: 'Least Wins',
+  superbowl_matchup: 'Super Bowl Exact Matchup',
   conference_afc: 'AFC Championship', conference_nfc: 'NFC Championship',
   division_afc_east: 'AFC East', division_afc_north: 'AFC North', division_afc_south: 'AFC South', division_afc_west: 'AFC West',
   division_nfc_east: 'NFC East', division_nfc_north: 'NFC North', division_nfc_south: 'NFC South', division_nfc_west: 'NFC West',
@@ -364,7 +369,7 @@ function buildCategoryModel(grouped) {
     if (def.kind === 'wins_total') {
       if (winsHasLines(grouped)) {
         cat.present = true;
-        cat.subsections.push({ label: def.label, kind: 'wins', teams: buildWinTotalsSummary(grouped.get('wins')).slice(0, def.topN) });
+        cat.subsections.push({ label: def.label, kind: 'wins', teams: buildWinTotalsSummary(grouped.get('wins')) });
       } else {
         cat.note = 'Win-total lines not loaded yet — seed them with `node agents/win-totals-ingest.js` (manual, from BetOnline/Bookmaker) or wait for TheOddsAPI season-wins (~Jul–Aug).';
       }
@@ -379,13 +384,13 @@ function buildCategoryModel(grouped) {
         const teams = buildMarketSummary(direct);
         const sorted = def.dir === 'asc' ? teams.slice().reverse() : teams;
         cat.present = true; cat.source = 'dedicated';
-        cat.subsections.push({ label: def.label, teams: sorted.slice(0, def.topN) });
+        cat.subsections.push({ label: def.label, teams: sorted });
       } else if (winsHasLines(grouped)) {
         const teams = buildWinTotalsSummary(grouped.get('wins')); // desc by line
         const ranked = def.dir === 'asc' ? teams.slice().reverse() : teams;
         cat.present = true; cat.source = 'wins_line';
         cat.note = `Ranked by consensus win-total line (${def.dir === 'desc' ? 'highest' : 'lowest'} first) from loaded sportsbook lines.`;
-        cat.subsections.push({ label: def.label, kind: 'wins', teams: ranked.slice(0, def.topN) });
+        cat.subsections.push({ label: def.label, kind: 'wins', teams: ranked });
       } else {
         const proxy = grouped.get(def.proxyFrom);
         if (proxy && proxy.size) {
@@ -393,7 +398,7 @@ function buildCategoryModel(grouped) {
           const ranked = def.dir === 'asc' ? teams.slice().reverse() : teams;
           cat.present = true; cat.source = 'proxy';
           cat.note = `Proxy ranking from Super Bowl title-market consensus (${def.dir === 'desc' ? 'favorites' : 'longshots'} first) — no win-total lines or dedicated market loaded yet. Replaced automatically once those arrive.`;
-          cat.subsections.push({ label: `${def.label} (proxy)`, teams: ranked.slice(0, def.topN) });
+          cat.subsections.push({ label: `${def.label} (proxy)`, teams: ranked });
         }
       }
       cats.push(cat);
@@ -409,7 +414,7 @@ function buildCategoryModel(grouped) {
     cat.present = true;
     for (const m of present) {
       const teams = buildMarketSummary(grouped.get(m));
-      cat.subsections.push({ label: MARKET_LABELS[m] || def.label, teams: teams.slice(0, def.topN) });
+      cat.subsections.push({ label: MARKET_LABELS[m] || def.label, teams });
     }
     cats.push(cat);
   }
@@ -432,12 +437,53 @@ function buildMovers(grouped) {
   }
   return movers.sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta)).slice(0, 25);
 }
-function buildValueSpots(grouped) {
+
+function valueSpotSourceLinks(market, team, notes = [], signals = []) {
+  const links = [];
+  const seen = new Set();
+  const teamLower = String(team || '').toLowerCase();
+  const nickLower = teamLower.split(' ').at(-1);
+  const marketWords = String(market || '').toLowerCase().split(/\W+/).filter((w) => w.length > 3);
+  const noteById = new Map(notes.map((n) => [n.id, n]));
+  const add = (n, why) => {
+    if (!n?.url || seen.has(n.url)) return;
+    seen.add(n.url);
+    links.push({ source: n.source, title: n.title || n.url, url: n.url, why });
+  };
+
+  for (const s of signals) {
+    const text = [s.team_or_market, s.bet_type, s.lean, s.rationale].filter(Boolean).join(' ').toLowerCase();
+    const teamHit = text.includes(teamLower) || (nickLower && text.includes(nickLower));
+    const marketHit = marketWords.some((w) => text.includes(w));
+    if (teamHit || marketHit) add(noteById.get(s.note_id), teamHit ? 'team signal' : 'market signal');
+  }
+  for (const n of notes) {
+    const text = [n.title, n.summary].filter(Boolean).join(' ').toLowerCase();
+    const teamHit = text.includes(teamLower) || (nickLower && text.includes(nickLower));
+    const marketHit = marketWords.some((w) => text.includes(w));
+    if (teamHit || marketHit) add(n, teamHit ? 'team article' : 'market article');
+    if (links.length >= 3) break;
+  }
+  return links.slice(0, 3);
+}
+
+function buildValueSpots(grouped, notes = [], signals = []) {
   const spots = [];
   for (const [mt, mm] of grouped.entries()) {
     for (const t of buildMarketSummary(mm)) {
-      if (t.divergence != null && Math.abs(t.divergence) >= DIVERGENCE_THRESHOLD)
-        spots.push({ market: MARKET_LABELS[mt] || mt, team: t.team, divergence: t.divergence, sharpImplied: t.sharpImplied, publicImplied: t.publicImplied });
+      if (t.divergence != null && Math.abs(t.divergence) >= DIVERGENCE_THRESHOLD) {
+        const market = MARKET_LABELS[mt] || mt;
+        spots.push({
+          market,
+          team: t.team,
+          divergence: t.divergence,
+          sharpImplied: t.sharpImplied,
+          publicImplied: t.publicImplied,
+          currentBooks: t.allBooks || {},
+          openingBooks: t.openingBooks || {},
+          sourceLinks: valueSpotSourceLinks(market, t.team, notes, signals),
+        });
+      }
     }
   }
   return spots.sort((a, b) => Math.abs(b.divergence) - Math.abs(a.divergence)).slice(0, 20);
@@ -540,7 +586,7 @@ async function buildNarratives(cats, expertGroups, movers, spots) {
 function teamRow(t) {
   return { team: t.team, american: fmtOdds(impliedToAmerican(t.consensus)), pct: fmtPct(t.consensus),
     dk: fmtOdds(t.allBooks?.draftkings), fd: fmtOdds(t.allBooks?.fanduel),
-    bol: fmtOdds(t.allBooks?.betonline), bm: fmtOdds(t.allBooks?.bookmaker),
+    bol: fmtOdds(t.allBooks?.betonline), bm: fmtOdds(t.allBooks?.bookmaker), btu: fmtOdds(t.allBooks?.betus),
     move: t.movement, moveStr: fmtDelta(t.movement) };
 }
 
@@ -572,8 +618,8 @@ function renderMarkdown(model) {
         L.push('| Team | Win Total | Over | Under | Δ |', '|---|---|---|---|---|');
         for (const t of sub.teams) L.push(`| ${t.team} | ${t.line.toFixed(1)} | ${fmtOdds(t.over)} | ${fmtOdds(t.under)} | ${fmtLineDelta(t.movement)} |`);
       } else {
-        L.push('| Team | Consensus | Implied | DK | FD | BetOnline | Bookmaker | Δ since open |', '|---|---|---|---|---|---|---|---|');
-        for (const t of sub.teams.map(teamRow)) L.push(`| ${t.team} | ${t.american} | ${t.pct} | ${t.dk} | ${t.fd} | ${t.bol} | ${t.bm} | ${t.moveStr} |`);
+        L.push('| Team | Consensus | Implied | BOL | BKR | BTU | DK | FD | Delta since open |', '|---|---|---|---|---|---|---|---|---|');
+        for (const t of sub.teams.map(teamRow)) L.push(`| ${t.team} | ${t.american} | ${t.pct} | ${t.bol} | ${t.bm} | ${t.btu} | ${t.dk} | ${t.fd} | ${t.moveStr} |`);
       }
       L.push('');
     }
@@ -588,8 +634,11 @@ function renderMarkdown(model) {
   L.push('');
   L.push(`## Value Spots (Sharp/Public ≥${Math.round(DIVERGENCE_THRESHOLD * 100)}pp)`, '');
   if (model.valueSpots.length) {
-    L.push('| Market | Team | Sharp | Public | Gap | Signal |', '|---|---|---|---|---|---|');
-    for (const s of model.valueSpots) L.push(`| ${s.market} | ${s.team} | ${fmtPct(s.sharpImplied)} | ${fmtPct(s.publicImplied)} | ${fmtDelta(s.divergence)} | ${s.divergence > 0 ? '🔪 sharp lean' : '🚨 overbet' } |`);
+    L.push('| Market | Team | Sharp | Public | Gap | Signal | Sources |', '|---|---|---|---|---|---|---|');
+    for (const s of model.valueSpots) {
+      const sources = (s.sourceLinks || []).map((l) => `[${l.source || 'source'}](${l.url})`).join(', ') || 'odds-derived';
+      L.push(`| ${s.market} | ${s.team} | ${fmtPct(s.sharpImplied)} | ${fmtPct(s.publicImplied)} | ${fmtDelta(s.divergence)} | ${s.divergence > 0 ? 'sharp lean' : 'possible overbet' } | ${sources} |`);
+    }
   } else L.push('_No divergence ≥ threshold._');
   L.push('');
 
@@ -799,6 +848,14 @@ function renderHtml(model) {
         const lbl = s.divergence > 0 ? '🔪 Sharp Lean' : '🚨 Overbet';
         const chipsNow  = (s.currentBooks  && Object.keys(s.currentBooks).length)  ? bookOddsChips(s.currentBooks)  : '';
         const chipsOpen = (s.openingBooks  && Object.keys(s.openingBooks).length)   ? bookOddsChips(s.openingBooks)  : '';
+        const explain = s.divergence > 0
+          ? 'Preferred sharp books imply a higher win probability than public books. That can point to sharper support or a stale public price.'
+          : 'Public books imply a higher win probability than preferred sharp books. Treat this as possible public tax or an overbet favorite.';
+        const src = (s.sourceLinks || []).length
+          ? '<div class="spot-sources"><span>Context</span>' + s.sourceLinks.map((l) =>
+              '<a href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(l.source || 'Source') + ': ' + esc(l.title || 'Article') + '</a>'
+            ).join('') + '</div>'
+          : '<div class="spot-sources no-src"><span>Context</span><em>Odds-derived signal; no matching expert article linked in this window.</em></div>';
         return '<div class="spot-card ' + labelCls + '">' +
           '<div class="spot-label">' + lbl + '</div>' +
           '<div class="spot-team">' + esc(s.team) + '</div>' +
@@ -808,8 +865,10 @@ function renderHtml(model) {
             '<span class="spot-gap">' + fmtDelta(s.divergence) + '</span>' +
             '<span>Public <b>' + fmtPct(s.publicImplied) + '</b></span>' +
           '</div>' +
+          '<div class="spot-explain">' + esc(explain) + '</div>' +
           (chipsNow  ? '<div class="spot-chips"><span class="spot-chips-lbl">Now</span>'  + chipsNow  + '</div>' : '') +
           (chipsOpen ? '<div class="spot-chips"><span class="spot-chips-lbl">Open</span>' + chipsOpen + '</div>' : '') +
+          src +
           '</div>';
       }).join('') + '</div>'
     : '<div class="empty-state">' +
@@ -1000,8 +1059,13 @@ th.muted{opacity:.5}
 .spot-nums{display:flex;align-items:center;justify-content:space-between;font-size:12.5px;margin-bottom:8px}
 .spot-gap{font-size:14px;font-weight:800}
 .spot-card.sharp .spot-gap{color:var(--green)}.spot-card.overbet .spot-gap{color:var(--red)}
+.spot-explain{font-size:12px;color:var(--tx2);line-height:1.5;margin:7px 0 9px}
 .spot-chips{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-top:5px}
 .spot-chips-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--tx3);width:30px;flex-shrink:0}
+.spot-sources{border-top:1px solid var(--bd);display:flex;flex-direction:column;gap:4px;margin-top:9px;padding-top:8px}
+.spot-sources span{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--tx3)}
+.spot-sources a{font-size:11.5px;line-height:1.4}
+.spot-sources em{font-size:11.5px;color:var(--tx3);font-style:normal;line-height:1.4}
 /* ── Expert signals ─────────────────────────────────────────────────────────── */
 .expert-card{background:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:14px 16px;margin-bottom:10px}
 .expert-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px}
@@ -1104,7 +1168,7 @@ ${model.categories.map(catSection).join('')}
 
 </div>
 <footer style="max-width:1100px;margin:0 auto;padding:16px 20px 40px">
-  Generated ${esc(model.generatedAt)} · Sharp books: BetOnline (BOL) · Bookmaker (BKR) · BetUS (BTU, pending) · Public ref: DraftKings · FanDuel · narrative: ${esc(model.engine.narrative)} · Not betting advice.
+  Generated ${esc(model.generatedAt)} · Sharp books: BetOnline (BOL) · Bookmaker (BKR) · BetUS (BTU) · Public ref: DraftKings · FanDuel · narrative: ${esc(model.engine.narrative)} · Not betting advice.
 </footer>
 </body></html>`;
 }
@@ -1212,8 +1276,8 @@ async function main() {
   const grouped = groupSeries(snapshots);
   const categories = buildCategoryModel(grouped);
   const movers = buildMovers(grouped);
-  const valueSpots = buildValueSpots(grouped);
   const expertGroups = buildExpertGroups(signals, notes, tweets);
+  const valueSpots = buildValueSpots(grouped, notes, signals);
   const coverage = buildCoverageAudit(counts, notes);
   const narratives = await buildNarratives(categories, expertGroups, movers, valueSpots);
 
