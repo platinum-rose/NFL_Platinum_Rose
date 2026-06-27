@@ -70,7 +70,7 @@ const DIVERGENCE_THRESHOLD = 0.08; // 8 percentage points
 
 // ── The 8 tracked futures categories (display order) ─────────────────────────
 const CATEGORIES = [
-  { id: 'superbowl',        label: 'Super Bowl Winner',       markets: ['superbowl'],          kind: 'outright',  topN: 12 },
+  { id: 'superbowl',        label: 'Super Bowl Winner',       markets: ['superbowl'],          kind: 'outright',  topN: 32 },
   { id: 'conference',       label: 'Conference Winners',      markets: ['conference_afc', 'conference_nfc'], kind: 'grouped', topN: 8 },
   { id: 'division',         label: 'Division Winners',        markets: ['division_afc_east','division_afc_north','division_afc_south','division_afc_west','division_nfc_east','division_nfc_north','division_nfc_south','division_nfc_west'], kind: 'grouped', topN: 4 },
   { id: 'wins',             label: 'Total Team Wins',         markets: ['wins'],               kind: 'wins_total', topN: 32 },
@@ -288,8 +288,13 @@ function buildMarketSummary(mm) {
     const cur = consensusOf(bb, pickLatest);
     if (!cur) continue;
     const series = consensusTimeline(bb);
+    const openingBooks = {};
+    for (const [book, arr] of bb.entries()) {
+      if (arr.length) { const r = pickEarliest(arr); if (r?.odds != null) openingBooks[book] = r.odds; }
+    }
     teams.push({
       team, ...cur, movement: movementOf(bb),
+      openingBooks,
       opening: series.length ? series[0].consensus : null,
       firstDate: series.length ? series[0].t : null,
       lastDate: series.length ? series[series.length - 1].t : null,
@@ -419,7 +424,9 @@ function buildMovers(grouped) {
     for (const t of buildMarketSummary(mm)) {
       if (t.movement != null && Math.abs(t.movement) >= 0.01)
         movers.push({ market: MARKET_LABELS[mt] || mt, team: t.team, delta: t.movement,
-          consensus: t.consensus, opening: t.opening, firstDate: t.firstDate, lastDate: t.lastDate,
+          consensus: t.consensus, opening: t.opening,
+          currentBooks: t.allBooks || {}, openingBooks: t.openingBooks || {},
+          firstDate: t.firstDate, lastDate: t.lastDate,
           points: t.points, spark: sparkline(t.series.map((s) => s.consensus)) });
     }
   }
@@ -438,9 +445,14 @@ function buildValueSpots(grouped) {
 
 // ── Expert grouping ──────────────────────────────────────────────────────────
 function buildExpertGroups(signals, notes, tweets) {
+  // Build lookup so each signal can carry its linked article's summary + URL
+  const noteById = Object.fromEntries(notes.map((n) => [String(n.id), n]));
   const groups = new Map();
   const ensure = (src) => { if (!groups.has(src)) groups.set(src, { source: src, signals: [], articles: [], tweets: [] }); return groups.get(src); };
-  for (const s of signals) ensure(s.source).signals.push(s);
+  for (const s of signals) {
+    const linked = noteById[String(s.note_id)];
+    ensure(s.source).signals.push({ ...s, articleTitle: linked?.title, articleUrl: linked?.url, articleSummary: linked?.summary });
+  }
   for (const n of notes) if (isFuturesRelevant(n.title) || isFuturesRelevant(n.summary)) ensure(n.source).articles.push(n);
   for (const t of tweets) if (isFuturesRelevant(t.text)) ensure(`@${t.author_handle}`).tweets.push(t);
   return [...groups.values()].sort((a, b) =>
@@ -448,14 +460,18 @@ function buildExpertGroups(signals, notes, tweets) {
 }
 
 // ── Coverage audit ───────────────────────────────────────────────────────────
-function buildCoverageAudit(counts) {
+function buildCoverageAudit(counts, notes = []) {
+  // Group fetched articles by source name for the expandable URL list
+  const bySource = {};
+  for (const n of notes) { if (!bySource[n.source]) bySource[n.source] = []; bySource[n.source].push(n); }
   const rows = EXPECTED_SOURCES.map((s) => {
     const seen = (counts[s.type] && counts[s.type][s.name]) || 0;
+    const articles = (bySource[s.name] || []).slice(0, 12); // up to 12 most recent
     let state;
     if (s.status === 'deferred') state = 'deferred';
     else if (seen > 0) state = 'covered';
     else state = s.status === 'manual' ? 'awaiting_input' : 'no_data';
-    return { ...s, seen, state };
+    return { ...s, seen, state, articles };
   });
   const summary = {
     active: rows.filter((r) => r.status === 'active').length,
@@ -594,124 +610,503 @@ function renderMarkdown(model) {
 }
 
 function renderHtml(model) {
-  const moveCell = (d) => d == null ? '<span class="muted">—</span>' :
-    `<span class="${d >= 0 ? 'up' : 'down'}">${d >= 0 ? '▲' : '▼'} ${fmtDelta(d)}</span>`;
-  const lineMoveCell = (d) => (d == null || d === 0) ? '<span class="muted">—</span>' :
-    `<span class="${d >= 0 ? 'up' : 'down'}">${d >= 0 ? '▲' : '▼'} ${fmtLineDelta(d)}</span>`;
-  const winsTable = (teams) => `
-      <table>
-        <thead><tr><th>Team</th><th>Win Total</th><th>Over</th><th>Under</th><th>Δ</th></tr></thead>
-        <tbody>${teams.map((t) => `<tr><td class="team">${esc(t.team)}</td><td class="mono">${t.line.toFixed(1)}</td><td class="mono">${fmtOdds(t.over)}</td><td class="mono">${fmtOdds(t.under)}</td><td>${lineMoveCell(t.movement)}</td></tr>`).join('')}</tbody>
-      </table>`;
-  const stateBadge = { covered: '<span class="b ok">covered</span>', no_data: '<span class="b warn">no data</span>',
-    awaiting_input: '<span class="b info">awaiting paste</span>', deferred: '<span class="b mute">deferred</span>' };
+  // ── Core helpers ─────────────────────────────────────────────────────────────
+  const prose = (s) => esc(s || '').replace(/\n/g, '<br>');
 
-  const navItems = model.categories.map((c) => `<a href="#${c.id}">${esc(c.label)}</a>`).join('');
+  // Preferred books (CA-legal offshore); DK/FD retained for proxy reference only
+  const PREF_BOOKS = ['betonline', 'bookmaker', 'betus'];
+  const BOOK_SHORT = { betonline: 'BOL', bookmaker: 'BKR', betus: 'BTU', draftkings: 'DK', fanduel: 'FD', betmgm: 'MGM', caesars: 'CZR' };
 
-  const catHtml = model.categories.map((cat) => {
-    const subs = cat.present ? cat.subsections.map((sub) => `
-      ${cat.subsections.length > 1 ? `<h3>${esc(sub.label)}</h3>` : ''}
-      ${sub.kind === 'wins' ? winsTable(sub.teams) : `<table>
-        <thead><tr><th>Team</th><th>Consensus</th><th>Implied</th><th>DK</th><th>FD</th><th>BetOnline</th><th>Bookmaker</th><th>Δ since open</th></tr></thead>
-        <tbody>${sub.teams.map(teamRow).map((t) => `<tr><td class="team">${esc(t.team)}</td><td class="mono">${t.american}</td><td class="mono">${t.pct}</td><td class="mono">${t.dk}</td><td class="mono">${t.fd}</td><td class="mono">${t.bol}</td><td class="mono">${t.bm}</td><td>${moveCell(t.move)}</td></tr>`).join('')}</tbody>
-      </table>`}`).join('') : `<p class="empty">${esc(cat.note || 'No data in window.')}</p>`;
-    return `<section id="${cat.id}" class="card">
-      <h2>${esc(cat.label)} ${cat.source === 'proxy' ? '<span class="b info">proxy</span>' : ''}</h2>
-      ${model.narratives[cat.id] ? `<div class="verdict"><span class="vlabel">Verdict</span> ${esc(model.narratives[cat.id])}</div>` : ''}
-      ${cat.note && cat.present ? `<p class="note">${esc(cat.note)}</p>` : ''}
-      ${subs}
-    </section>`;
+  // Best odds from preferred books: highest American odds = best payout for bettor
+  const bestPref = (booksObj) => {
+    let best = null, bestBook = null;
+    for (const b of PREF_BOOKS) {
+      const v = booksObj?.[b];
+      if (v == null) continue;
+      if (best === null || v > best) { best = v; bestBook = b; }
+    }
+    return best != null ? { odds: best, book: bestBook } : null;
+  };
+
+  // Per-book chips for mover cards (BOL / BKR / BTU only)
+  const bookOddsChips = (booksObj) => PREF_BOOKS.map((b) => {
+    const v = booksObj?.[b]; const lbl = BOOK_SHORT[b];
+    return v != null
+      ? '<span class="book-chip">' + lbl + ' <b class="mono">' + fmtOdds(v) + '</b></span>'
+      : '<span class="book-chip na">' + lbl + ' <span>—</span></span>';
   }).join('');
 
-  const coverageRows = model.coverage.rows.map((r) => `<tr>
-    <td>${esc(r.name)}</td><td class="mono">${esc(r.type)}</td>
-    <td>${stateBadge[r.state]}${r.note ? `<div class="subnote">${esc(r.note)}</div>` : ''}</td>
-    <td class="mono">${r.seen}</td></tr>`).join('');
+  // Delta chip — string concat (avoids nested backtick issues)
+  const delt = (d, fmtFn) => {
+    if (d == null) return '<span class="na">—</span>';
+    const cls = d >= 0 ? 'up' : 'dn';
+    const arrow = d >= 0 ? '▲' : '▼';
+    return '<span class="delt ' + cls + '">' + arrow + ' ' + fmtFn(d) + '</span>';
+  };
+  const deltaOdds = (d) => delt(d, fmtDelta);
+  const deltaLine = (d) => (d == null || d === 0) ? '<span class="na">—</span>' : delt(d, fmtLineDelta);
 
-  const moversRows = model.movers.length ? model.movers.map((m) => `<tr><td>${esc(m.market)}</td><td class="team">${esc(m.team)}</td><td class="mono">${fmtPct(m.opening)}</td><td class="mono">${fmtPct(m.consensus)}</td><td>${moveCell(m.delta)}</td><td class="spark">${esc(m.spark)}</td><td class="mono muted">${esc(m.firstDate || '—')}→${esc(m.lastDate || '—')} (${m.points})</td></tr>`).join('') : '<tr><td colspan="7" class="empty">No significant movement across loaded snapshots.</td></tr>';
-  const spotsRows = model.valueSpots.length ? model.valueSpots.map((s) => `<tr><td>${esc(s.market)}</td><td class="team">${esc(s.team)}</td><td class="mono">${fmtPct(s.sharpImplied)}</td><td class="mono">${fmtPct(s.publicImplied)}</td><td class="mono">${fmtDelta(s.divergence)}</td><td>${s.divergence > 0 ? '<span class="up">🔪 sharp lean</span>' : '<span class="down">🚨 overbet</span>'}</td></tr>`).join('') : '<tr><td colspan="6" class="empty">No divergence ≥ threshold.</td></tr>';
+  // Implied-probability bar cell (<td> included) — string concat
+  const probBar = (p) => {
+    if (p == null || isNaN(p)) return '<td class="na">—</td>';
+    const pct = p * 100;
+    const w = Math.min(Math.round(pct * 2.8), 100);
+    const cls = pct >= 30 ? 'hi' : pct >= 12 ? 'md' : 'lo';
+    return '<td><div class="pbar"><div class="pbar-fill ' + cls + '" style="width:' + w + '%"></div><span>' + fmtPct(p) + '</span></div></td>';
+  };
 
-  const expertHtml = model.expertGroups.length ? model.expertGroups.map((g) => `
-    <div class="expert">
-      <h4>${esc(g.source)} <span class="count">${g.signals.length}🎯 ${g.articles.length}📄 ${g.tweets.length}🐦</span></h4>
-      <ul>
-        ${g.signals.slice(0, 8).map((s) => `<li><b>${esc(s.team_or_market)}</b> — <span class="lean">${esc(String(s.lean).toUpperCase())}</span> <span class="mono">[${esc(s.bet_type)}]</span>${s.confidence ? ` <span class="muted">(${Math.round(s.confidence * 100)}%)</span>` : ''}${s.rationale ? `<div class="subnote">${esc(s.rationale)}</div>` : ''}</li>`).join('')}
-        ${g.articles.slice(0, 4).map((a) => `<li>📄 <a href="${esc(a.url)}" target="_blank" rel="noopener">${esc(a.title || 'Article')}</a></li>`).join('')}
-        ${g.tweets.slice(0, 4).map((t) => `<li>🐦 ${esc(String(t.text).slice(0, 160))}</li>`).join('')}
-      </ul>
-    </div>`).join('') : '<p class="empty">No expert futures signals in window.</p>';
+  // Status badge
+  const badge = (state) => ({
+    covered:        '<span class="b b-ok">✓ covered</span>',
+    no_data:        '<span class="b b-warn">no data</span>',
+    awaiting_input: '<span class="b b-info">awaiting</span>',
+    deferred:       '<span class="b b-mute">deferred</span>',
+  }[state] || '');
 
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NFL Futures Intel Report — ${esc(model.reportDate)}</title>
+  // ── Odds tables ──────────────────────────────────────────────────────────────
+  // Win totals: SoS placeholder column + collapse after collapseAfter teams
+  const winsTable = (teams, collapseAfter = 16) => {
+    const thead = '<thead><tr><th>Team</th><th colspan="2">Win Total</th><th>Over</th><th>Under</th><th>Δ</th><th>SoS</th></tr></thead>';
+    const mkRow = (t) => '<tr>' +
+      '<td class="tm">' + esc(t.team) + '</td>' +
+      '<td class="mono big-line">' + (t.line != null ? t.line.toFixed(1) : '—') + '</td>' +
+      '<td class="line-bar-cell"><div class="line-bar" style="width:' + Math.min(Math.round(((t.line || 0) / 17) * 100), 100) + '%"></div></td>' +
+      '<td class="mono">' + fmtOdds(t.over) + '</td>' +
+      '<td class="mono">' + fmtOdds(t.under) + '</td>' +
+      '<td>' + deltaLine(t.movement) + '</td>' +
+      '<td class="sos-cell"><span class="sos-na">—</span></td>' +
+      '</tr>';
+    const above = teams.slice(0, collapseAfter);
+    const below = teams.slice(collapseAfter);
+    const hidRows = below.length
+      ? '<details class="tbl-expand"><summary>' + below.length + ' more teams</summary>' +
+        '<div class="tbl-wrap" style="border-radius:0 0 10px 10px;border-top:none"><table>' +
+        thead + '<tbody>' + below.map(mkRow).join('') + '</tbody></table></div></details>'
+      : '';
+    return '<div class="tbl-wrap"><table>' + thead + '<tbody>' + above.map(mkRow).join('') + '</tbody></table>' + hidRows + '</div>';
+  };
+
+  // Outright table: BOL/BKR/BTU primary, DK/FD muted, Best(Pref), collapse after collapseAfter
+  const outrightTable = (teams, collapseAfter = 32) => {
+    const thead = '<thead><tr>' +
+      '<th>Team</th><th>Prob</th><th>Consensus</th>' +
+      '<th>BOL</th><th>BKR</th><th>BTU</th><th>Best</th>' +
+      '<th class="muted">DK</th><th class="muted">FD</th>' +
+      '<th>Δ open</th></tr></thead>';
+    const fmtCell = (v, muted) => {
+      if (v == null) return '<td class="na mono' + (muted ? ' muted' : '') + '">—</td>';
+      const n = typeof v === 'number' ? v : parseInt(v, 10);
+      const cls = isNaN(n) ? '' : n <= -200 ? ' c-fav' : n >= 500 ? ' c-dog' : '';
+      return '<td class="mono' + (muted ? ' muted' : '') + cls + '">' + fmtOdds(v) + '</td>';
+    };
+    const mkRow = (t) => {
+      const bp = bestPref(t.allBooks || {});
+      const bestCell = bp
+        ? '<td class="mono best-odds"><b>' + fmtOdds(bp.odds) + '</b> <span class="book-tag">' + BOOK_SHORT[bp.book] + '</span></td>'
+        : '<td class="na mono">—</td>';
+      return '<tr>' +
+        '<td class="tm">' + esc(t.team) + '</td>' +
+        probBar(t.consensus) +
+        '<td class="mono ac">' + fmtOdds(impliedToAmerican(t.consensus)) + '</td>' +
+        fmtCell(t.allBooks?.betonline, false) +
+        fmtCell(t.allBooks?.bookmaker, false) +
+        fmtCell(t.allBooks?.betus, false) +
+        bestCell +
+        fmtCell(t.allBooks?.draftkings, true) +
+        fmtCell(t.allBooks?.fanduel, true) +
+        '<td>' + deltaOdds(t.movement) + '</td>' +
+        '</tr>';
+    };
+    const above = teams.slice(0, collapseAfter);
+    const below = teams.slice(collapseAfter);
+    const hidRows = below.length
+      ? '<details class="tbl-expand"><summary>' + below.length + ' more teams</summary>' +
+        '<div class="tbl-wrap" style="border-radius:0 0 10px 10px;border-top:none"><table>' +
+        thead + '<tbody>' + below.map(mkRow).join('') + '</tbody></table></div></details>'
+      : '';
+    return '<div class="tbl-wrap"><table>' + thead + '<tbody>' + above.map(mkRow).join('') + '</tbody></table>' + hidRows + '</div>';
+  };
+
+  // ── Category section ─────────────────────────────────────────────────────────
+  const catSection = (cat) => {
+    const collapseAfter = cat.id === 'superbowl' ? 10 : 16;
+    const liveTag = !cat.present ? '<span class="b b-mute">no data</span>'
+      : cat.source === 'proxy' ? '<span class="b b-info">proxy</span>'
+      : '<span class="b b-ok">live</span>';
+    const content = !cat.present
+      ? '<p class="empty-note">' + esc(cat.note || 'No market data in window.') + '</p>'
+      : cat.subsections.map((sub) => {
+          const tbl = sub.kind === 'wins' ? winsTable(sub.teams, collapseAfter) : outrightTable(sub.teams, collapseAfter);
+          return (cat.subsections.length > 1 ? '<h3 class="sub-head">' + esc(sub.label) + '</h3>' : '') + tbl;
+        }).join('');
+    const verdictHtml = model.narratives[cat.id]
+      ? '<div class="verdict"><div class="verdict-label">Verdict</div><div class="verdict-body">' + prose(model.narratives[cat.id]) + '</div></div>'
+      : '';
+    const noteHtml = cat.note && cat.present ? '<div class="cat-note">' + esc(cat.note) + '</div>' : '';
+    return '<section id="' + cat.id + '" class="card cat-card">' +
+      '<div class="cat-head"><h2>' + esc(cat.label) + '</h2>' + liveTag + '</div>' +
+      verdictHtml + noteHtml + content + '</section>';
+  };
+
+  // ── Movement — card grid for top movers, table for the rest ─────────────────
+  const topMovers  = model.movers.slice(0, 9);
+  const restMovers = model.movers.slice(9);
+
+  const moverCard = (m) => {
+    const cls = m.delta >= 0 ? 'up' : 'dn';
+    const openChips = bookOddsChips(m.openingBooks || {});
+    const curChips  = bookOddsChips(m.currentBooks  || {});
+    return '<div class="mover-card ' + cls + '">' +
+      '<div class="mc-delta">' + (m.delta >= 0 ? '▲' : '▼') + ' ' + fmtDelta(m.delta) + '</div>' +
+      '<div class="mc-team">' + esc(m.team) + '</div>' +
+      '<div class="mc-market">' + esc(m.market) + '</div>' +
+      '<div class="mc-spark">' + esc(m.spark || '—') + '</div>' +
+      '<div class="mc-odds-section">' +
+        '<div class="mc-odds-row"><span class="mc-odds-lbl">Open</span>' + openChips + '</div>' +
+        '<div class="mc-odds-row"><span class="mc-odds-lbl">Now</span>' + curChips + '</div>' +
+      '</div>' +
+      '<div class="mc-meta">' + fmtPct(m.opening) + ' → ' + fmtPct(m.consensus) + ' · ' + esc(m.firstDate || '?') + ' → ' + esc(m.lastDate || '?') + '</div>' +
+      '</div>';
+  };
+
+  const moverRestTable = restMovers.length
+    ? '<div class="tbl-wrap" style="margin-top:14px"><table>' +
+      '<thead><tr><th>Team</th><th>Market</th><th>Opening</th><th>Current</th><th>Net Δ</th><th>Trend</th><th>Window</th></tr></thead><tbody>' +
+      restMovers.map((m) =>
+        '<tr>' +
+        '<td class="tm">' + esc(m.team) + '</td><td>' + esc(m.market) + '</td>' +
+        '<td class="mono">' + fmtPct(m.opening) + '</td><td class="mono">' + fmtPct(m.consensus) + '</td>' +
+        '<td>' + deltaOdds(m.delta) + '</td>' +
+        '<td class="spark">' + esc(m.spark || '—') + '</td>' +
+        '<td class="mono na">' + esc(m.firstDate || '—') + '→' + esc(m.lastDate || '—') + ' (' + m.points + ')</td>' +
+        '</tr>'
+      ).join('') +
+      '</tbody></table></div>'
+    : '';
+
+  const movementHtml = model.movers.length
+    ? '<div class="mover-grid">' + topMovers.map(moverCard).join('') + '</div>' + moverRestTable
+    : '<div class="empty-state">' +
+      '<div class="es-icon">📈</div>' +
+      '<div class="es-head">No significant movement yet</div>' +
+      '<div class="es-sub">Movement appears once a market has ≥2 snapshot dates. More snapshots accumulate through the offseason.</div>' +
+      '</div>';
+
+  // ── Value spots ──────────────────────────────────────────────────────────────
+  const valueHtml = model.valueSpots.length
+    ? '<div class="spots-grid">' + model.valueSpots.map((s) => {
+        const labelCls = s.divergence > 0 ? 'sharp' : 'overbet';
+        const lbl = s.divergence > 0 ? '🔪 Sharp Lean' : '🚨 Overbet';
+        const chipsNow  = (s.currentBooks  && Object.keys(s.currentBooks).length)  ? bookOddsChips(s.currentBooks)  : '';
+        const chipsOpen = (s.openingBooks  && Object.keys(s.openingBooks).length)   ? bookOddsChips(s.openingBooks)  : '';
+        return '<div class="spot-card ' + labelCls + '">' +
+          '<div class="spot-label">' + lbl + '</div>' +
+          '<div class="spot-team">' + esc(s.team) + '</div>' +
+          '<div class="spot-market">' + esc(s.market) + '</div>' +
+          '<div class="spot-nums">' +
+            '<span>Sharp <b>' + fmtPct(s.sharpImplied) + '</b></span>' +
+            '<span class="spot-gap">' + fmtDelta(s.divergence) + '</span>' +
+            '<span>Public <b>' + fmtPct(s.publicImplied) + '</b></span>' +
+          '</div>' +
+          (chipsNow  ? '<div class="spot-chips"><span class="spot-chips-lbl">Now</span>'  + chipsNow  + '</div>' : '') +
+          (chipsOpen ? '<div class="spot-chips"><span class="spot-chips-lbl">Open</span>' + chipsOpen + '</div>' : '') +
+          '</div>';
+      }).join('') + '</div>'
+    : '<div class="empty-state">' +
+      '<div class="es-icon">🎯</div>' +
+      '<div class="es-head">No divergence above threshold</div>' +
+      '<div class="es-sub">Value spots fire when sharp-book implied probability exceeds public-book by ≥' + Math.round(DIVERGENCE_THRESHOLD * 100) + 'pp. Public books (DK/FD/BetMGM) currently only price the Super Bowl market — conference/division/playoffs value spots will appear once those markets open pre-season.</div>' +
+      '</div>';
+
+  // ── Expert signals ───────────────────────────────────────────────────────────
+  const expertHtml = !model.expertGroups.length
+    ? '<div class="empty-state">' +
+      '<div class="es-icon">🗣️</div>' +
+      '<div class="es-head">No expert futures signals in window</div>' +
+      '<div class="es-sub">Signals appear when RSS articles contain futures picks, or when sharp tweets are pasted via the manual tweet tool.</div>' +
+      '</div>'
+    : model.expertGroups.map((g) => {
+        const counts = [
+          g.signals.length && (g.signals.length + ' pick' + (g.signals.length > 1 ? 's' : '')),
+          g.articles.length && (g.articles.length + ' article' + (g.articles.length > 1 ? 's' : '')),
+          g.tweets.length && (g.tweets.length + ' tweet' + (g.tweets.length > 1 ? 's' : '')),
+        ].filter(Boolean).join(' · ');
+        const signals = g.signals.slice(0, 8).map((s) => {
+          const summaryBlock = s.articleSummary
+            ? '<blockquote class="signal-summary">' + prose(s.articleSummary) + '</blockquote>'
+            : (s.rationale ? '<div class="sub-note">' + esc(s.rationale) + '</div>' : '');
+          const srcLink = s.articleUrl
+            ? '<div class="signal-src"><a href="' + esc(s.articleUrl) + '" target="_blank" rel="noopener">📄 ' + esc(s.articleTitle || 'Source article') + '</a></div>'
+            : '';
+          return '<li>' +
+            '<span class="lean">' + esc(String(s.lean).toUpperCase()) + '</span> ' +
+            '<span class="tm">' + esc(s.team_or_market) + '</span> ' +
+            '<span class="mono na">[' + esc(s.bet_type) + ']</span>' +
+            (s.confidence ? '<span class="conf">' + Math.round(s.confidence * 100) + '%</span>' : '') +
+            summaryBlock + srcLink + '</li>';
+        }).join('');
+        const articles = g.articles.slice(0, 4).map((a) =>
+          '<li>📄 <a href="' + esc(a.url) + '" target="_blank" rel="noopener">' + esc(a.title || 'Article') + '</a></li>'
+        ).join('');
+        const tweets = g.tweets.slice(0, 4).map((t) =>
+          '<li class="tweet-item">🐦 ' + esc(String(t.text).slice(0, 160)) + '</li>'
+        ).join('');
+        return '<div class="expert-card">' +
+          '<div class="expert-head">' +
+          '<span class="expert-name">' + esc(g.source) + '</span>' +
+          '<span class="expert-counts">' + counts + '</span></div>' +
+          '<ul class="expert-list">' + signals + articles + tweets + '</ul></div>';
+      }).join('');
+
+  // ── Coverage audit ───────────────────────────────────────────────────────────
+  const coverageHtml = (() => {
+    const s = model.coverage.summary;
+    const statsHtml =
+      '<div class="cov-stat"><span class="cs-num">' + s.active + '</span><span class="cs-lbl">configured</span></div>' +
+      '<div class="cov-stat up"><span class="cs-num">' + s.covered + '</span><span class="cs-lbl">covered</span></div>' +
+      '<div class="cov-stat warn"><span class="cs-num">' + s.no_data + '</span><span class="cs-lbl">no data</span></div>' +
+      '<div class="cov-stat na"><span class="cs-num">' + s.deferred + '</span><span class="cs-lbl">deferred</span></div>';
+    const rowsHtml = model.coverage.rows.map((r) => {
+      const articleList = (r.articles || []).length
+        ? '<details class="cov-articles"><summary>' + r.articles.length + ' article' + (r.articles.length > 1 ? 's' : '') + '</summary>' +
+          '<ul>' + r.articles.map((a) =>
+            '<li><a href="' + esc(a.url || '#') + '" target="_blank" rel="noopener">' + esc(a.title || a.url || 'Article') + '</a></li>'
+          ).join('') + '</ul></details>'
+        : '';
+      return '<tr>' +
+        '<td>' + esc(r.name) + '</td>' +
+        '<td class="mono na">' + esc(r.type) + '</td>' +
+        '<td>' + badge(r.state) + (r.note ? '<div class="sub-note">' + esc(r.note) + '</div>' : '') + articleList + '</td>' +
+        '<td class="mono">' + r.seen + '</td>' +
+        '</tr>';
+    }).join('');
+    return '<div class="cov-summary">' + statsHtml + '</div>' +
+      '<div class="tbl-wrap"><table><thead><tr><th>Source</th><th>Type</th><th>Status</th><th>#</th></tr></thead>' +
+      '<tbody>' + rowsHtml + '</tbody></table></div>';
+  })();
+
+  // ── Full document ────────────────────────────────────────────────────────────
+  const catNavLinks = model.categories.map((c) => '<a href="#' + c.id + '">' + esc(c.label) + '</a>').join('');
+  return `<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NFL Futures Intel — ${esc(model.reportDate)}</title>
 <style>
-:root{--bg:#0f1217;--card:#171b22;--card2:#1d2230;--bd:#2a3140;--tx:#e7ecf3;--mut:#8c97a8;--ac:#4ea1ff;--ok:#34d399;--warn:#fbbf24;--down:#f87171;--up:#34d399;--info:#60a5fa;}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
-.wrap{max-width:1080px;margin:0 auto;padding:28px 20px 80px}
-header.top{border-bottom:1px solid var(--bd);padding-bottom:16px;margin-bottom:20px}
-h1{font-size:26px;margin:0 0 6px}.sub{color:var(--mut);font-size:13px}
-nav.toc{position:sticky;top:0;background:rgba(15,18,23,.92);backdrop-filter:blur(6px);display:flex;flex-wrap:wrap;gap:6px;padding:10px 0;margin-bottom:18px;border-bottom:1px solid var(--bd);z-index:5}
-nav.toc a{font-size:12px;color:var(--mut);text-decoration:none;border:1px solid var(--bd);border-radius:999px;padding:3px 10px}
-nav.toc a:hover{color:var(--tx);border-color:var(--ac)}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:18px 20px;margin:14px 0}
-h2{font-size:19px;margin:0 0 10px;display:flex;align-items:center;gap:8px}h3{font-size:14px;color:var(--mut);margin:14px 0 6px;text-transform:uppercase;letter-spacing:.04em}
-h4{margin:0 0 6px;font-size:15px}
-table{width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:13.5px}
-th{text-align:left;color:var(--mut);font-weight:600;border-bottom:1px solid var(--bd);padding:6px 8px;font-size:11.5px;text-transform:uppercase;letter-spacing:.03em}
-td{padding:6px 8px;border-bottom:1px solid #20262f}tr:last-child td{border-bottom:none}
-.team{font-weight:600}.mono{font-variant-numeric:tabular-nums;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-.up{color:var(--up)}.down{color:var(--down)}.muted{color:var(--mut)}
-.spark{letter-spacing:1px;color:var(--ac);font-size:14px}
-.verdict{background:var(--card2);border-left:3px solid var(--ac);border-radius:6px;padding:10px 12px;margin:6px 0 12px;font-size:14px}
-.vlabel{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--ac);font-weight:700;margin-right:6px}
-.note{color:var(--warn);font-size:12.5px;margin:2px 0 8px}.subnote{color:var(--mut);font-size:12px;margin-top:2px}
-.empty{color:var(--mut);font-style:italic;padding:8px 0}
-.b{display:inline-block;font-size:11px;font-weight:700;padding:1px 8px;border-radius:999px}
-.b.ok{background:rgba(52,211,153,.15);color:var(--ok)}.b.warn{background:rgba(251,191,36,.15);color:var(--warn)}
-.b.info{background:rgba(96,165,250,.15);color:var(--info)}.b.mute{background:rgba(140,151,168,.15);color:var(--mut)}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media(max-width:760px){.grid2{grid-template-columns:1fr}}
-.expert{background:var(--card2);border:1px solid var(--bd);border-radius:10px;padding:12px 14px;margin:8px 0}
-.expert ul{margin:6px 0 0;padding-left:18px}.expert li{margin:3px 0}.lean{color:var(--ac);font-weight:700}
-.count{font-size:11px;color:var(--mut);font-weight:400;margin-left:6px}
-footer{color:var(--mut);font-size:12px;border-top:1px solid var(--bd);margin-top:24px;padding-top:14px}
-.summary{display:flex;gap:18px;flex-wrap:wrap;margin:4px 0 10px;font-size:13px}
-.summary b{font-size:18px;display:block}
-</style></head><body><div class="wrap">
-<header class="top">
-  <h1>🏈 NFL Futures Intel Report</h1>
-  <div class="sub">${esc(model.reportDate)} · Season ${model.season} · trigger: ${esc(model.trigger)} · odds: full-season history · ${INTEL_DAYS}d articles / ${SIGNAL_DAYS}d signals · narrative: ${esc(model.engine.narrative)}</div>
-</header>
-<nav class="toc"><a href="#coverage">Coverage</a>${navItems}<a href="#movement">Movement</a><a href="#value">Value</a><a href="#experts">Experts</a></nav>
+/* ── Design tokens ──────────────────────────────────────────────────────────── */
+:root{--bg:#080b0f;--s1:#0f1319;--s2:#161c26;--s3:#1d2536;--bd:#232d3f;--bd2:#2e3a50;--tx:#dce5f0;--tx2:#8fa0b8;--tx3:#5a6d84;--ac:#3d82f7;--green:#22c55e;--red:#f05252;--amber:#f59e0b;--spark:#60a5fa}
+/* ── Reset ──────────────────────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font:14px/1.6 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
+/* ── Report header ──────────────────────────────────────────────────────────── */
+.rpt-header{background:linear-gradient(135deg,#0d1420 0%,#111827 100%);border-bottom:1px solid var(--bd);padding:28px 20px 20px}
+.rpt-header .inner{max-width:1100px;margin:0 auto}
+.rpt-title{font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:8px}
+.rpt-meta{color:var(--tx2);font-size:12.5px;display:flex;flex-wrap:wrap;gap:6px 14px}
+.meta-dot{color:var(--tx3)}
+/* ── Sticky nav ─────────────────────────────────────────────────────────────── */
+.toc{position:sticky;top:0;z-index:20;background:rgba(8,11,15,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--bd);padding:0 20px;overflow-x:auto;white-space:nowrap}
+.toc-inner{display:flex;gap:4px;align-items:center;max-width:1100px;margin:0 auto;padding:8px 0}
+.toc a{flex-shrink:0;font-size:11.5px;font-weight:500;color:var(--tx2);border:1px solid transparent;border-radius:999px;padding:4px 11px;transition:all .15s}
+.toc a:hover{color:var(--tx);border-color:var(--bd2);text-decoration:none;background:var(--s2)}
+.toc-sep{color:var(--tx3);padding:0 4px;flex-shrink:0;font-size:12px}
+/* ── Layout ─────────────────────────────────────────────────────────────────── */
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px 100px}
+/* ── Cards ──────────────────────────────────────────────────────────────────── */
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:14px;padding:20px 22px;margin:14px 0}
+.card-head{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.card-head h2{font-size:17px;font-weight:700}
+/* ── Category cards ─────────────────────────────────────────────────────────── */
+.cat-card{border-left:3px solid var(--ac)}
+.cat-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.cat-head h2{font-size:17px;font-weight:700}
+.sub-head{font-size:11.5px;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.06em;margin:16px 0 6px}
+.cat-note{color:var(--amber);font-size:12.5px;margin-bottom:10px;line-height:1.5}
+.empty-note{color:var(--tx3);font-size:13px;font-style:italic;padding:8px 0}
+/* ── Verdict ────────────────────────────────────────────────────────────────── */
+.verdict{background:linear-gradient(to right,rgba(61,130,247,.1),transparent);border-left:3px solid var(--ac);border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:14px}
+.verdict-label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);margin-bottom:4px}
+.verdict-body{font-size:13.5px;color:var(--tx);line-height:1.7}
+/* ── Tables ─────────────────────────────────────────────────────────────────── */
+.tbl-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--bd)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+thead tr{background:var(--s2)}
+th{text-align:left;font-size:11px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.05em;padding:9px 12px;border-bottom:1px solid var(--bd);white-space:nowrap}
+td{padding:8px 12px;border-bottom:1px solid var(--bd)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(255,255,255,.018)}
+.tm{font-weight:600;color:var(--tx);white-space:nowrap}
+.mono{font-variant-numeric:tabular-nums;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.ac{color:var(--ac);font-weight:700}
+.na{color:var(--tx3)}
+.muted{color:var(--tx3);font-size:12px}
+th.muted{opacity:.5}
+.c-fav{color:var(--green)}
+.c-dog{color:var(--amber)}
+/* ── Best odds cell ─────────────────────────────────────────────────────────── */
+.best-odds{color:var(--amber);font-weight:700}
+.book-tag{font-size:10px;font-weight:600;color:var(--tx3);vertical-align:middle;margin-left:3px}
+/* ── Probability bar ────────────────────────────────────────────────────────── */
+.pbar{display:flex;align-items:center;gap:8px;min-width:110px}
+.pbar-fill{height:5px;border-radius:3px;flex-shrink:0;transition:width .3s}
+.pbar-fill.hi{background:var(--green)}.pbar-fill.md{background:var(--ac)}.pbar-fill.lo{background:var(--tx3)}
+.pbar span{font-size:12px;font-variant-numeric:tabular-nums;color:var(--tx2);white-space:nowrap}
+/* ── Win-total line bar ─────────────────────────────────────────────────────── */
+.big-line{font-size:15px;font-weight:700}
+.line-bar-cell{width:70px;vertical-align:middle}
+.line-bar{height:4px;background:linear-gradient(90deg,var(--ac),var(--green));border-radius:2px}
+/* ── SoS cell ───────────────────────────────────────────────────────────────── */
+.sos-cell{white-space:nowrap}
+.sos-na{color:var(--tx3);font-size:11px}
+.sos-easy{color:var(--green);font-weight:700;font-size:12px}
+.sos-hard{color:var(--red);font-weight:700;font-size:12px}
+/* ── Delta chip ─────────────────────────────────────────────────────────────── */
+.delt{font-size:12px;font-weight:700;white-space:nowrap}
+.delt.up{color:var(--green)}.delt.dn{color:var(--red)}
+/* ── Collapsible table sections (details/summary) ───────────────────────────── */
+.tbl-expand{border-top:1px solid var(--bd)}
+.tbl-expand summary{font-size:12px;color:var(--ac);padding:9px 14px;cursor:pointer;user-select:none;list-style:none;background:var(--s2)}
+.tbl-expand summary:hover{background:var(--s3)}
+.tbl-expand summary::marker,.tbl-expand summary::-webkit-details-marker{display:none}
+.tbl-expand summary::before{content:"▶  "}
+.tbl-expand[open] summary::before{content:"▼  "}
+/* ── Book chips (mover cards + value spots) ─────────────────────────────────── */
+.book-chip{display:inline-flex;align-items:center;gap:4px;font-size:11px;background:var(--s3);border:1px solid var(--bd);border-radius:6px;padding:2px 7px;margin:2px 2px 2px 0}
+.book-chip.na{color:var(--tx3)}
+.book-chip b{font-variant-numeric:tabular-nums}
+/* ── Mover cards ────────────────────────────────────────────────────────────── */
+.mover-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:10px}
+.mover-card{background:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:14px 16px}
+.mover-card.up{border-top:2px solid var(--green)}.mover-card.dn{border-top:2px solid var(--red)}
+.mc-delta{font-size:22px;font-weight:800;margin-bottom:4px}
+.mover-card.up .mc-delta{color:var(--green)}.mover-card.dn .mc-delta{color:var(--red)}
+.mc-team{font-size:14px;font-weight:700;margin-bottom:2px}
+.mc-market{font-size:12px;color:var(--tx2);margin-bottom:5px}
+.mc-spark{font-size:20px;letter-spacing:3px;color:var(--spark);margin-bottom:4px;line-height:1}
+.mc-odds-section{margin:8px 0;display:flex;flex-direction:column;gap:5px}
+.mc-odds-row{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.mc-odds-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--tx3);width:28px;flex-shrink:0}
+.mc-meta{font-size:11px;color:var(--tx3);font-variant-numeric:tabular-nums;margin-top:4px}
+/* ── Sparkline (table) ──────────────────────────────────────────────────────── */
+.spark{font-size:16px;letter-spacing:2px;color:var(--spark)}
+/* ── Value spot cards ───────────────────────────────────────────────────────── */
+.spots-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+.spot-card{background:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:14px 16px}
+.spot-card.sharp{border-left:3px solid var(--green)}.spot-card.overbet{border-left:3px solid var(--red)}
+.spot-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+.spot-card.sharp .spot-label{color:var(--green)}.spot-card.overbet .spot-label{color:var(--red)}
+.spot-team{font-size:15px;font-weight:700;margin-bottom:2px}
+.spot-market{font-size:12px;color:var(--tx2);margin-bottom:10px}
+.spot-nums{display:flex;align-items:center;justify-content:space-between;font-size:12.5px;margin-bottom:8px}
+.spot-gap{font-size:14px;font-weight:800}
+.spot-card.sharp .spot-gap{color:var(--green)}.spot-card.overbet .spot-gap{color:var(--red)}
+.spot-chips{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-top:5px}
+.spot-chips-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--tx3);width:30px;flex-shrink:0}
+/* ── Expert signals ─────────────────────────────────────────────────────────── */
+.expert-card{background:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+.expert-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px}
+.expert-name{font-size:14px;font-weight:700}
+.expert-counts{font-size:11.5px;color:var(--tx3)}
+.expert-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.expert-list li{font-size:13px}
+.lean{display:inline-block;font-size:11px;font-weight:700;color:var(--ac);background:rgba(61,130,247,.12);border-radius:4px;padding:1px 6px;margin-right:5px}
+.conf{font-size:11px;color:var(--tx3);margin-left:4px}
+.sub-note{font-size:12px;color:var(--tx3);margin-top:4px;padding-left:4px}
+.signal-summary{font-size:13px;color:var(--tx2);line-height:1.65;border-left:2px solid var(--bd2);padding:6px 12px;margin:8px 0;font-style:italic}
+.signal-src{font-size:12px;margin-top:4px}
+.tweet-item{color:var(--tx2)}
+/* ── Coverage audit ─────────────────────────────────────────────────────────── */
+.cov-summary{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:18px}
+.cov-stat{display:flex;flex-direction:column;align-items:center;gap:2px}
+.cs-num{font-size:30px;font-weight:800;line-height:1}
+.cs-lbl{font-size:10.5px;color:var(--tx3);text-transform:uppercase;letter-spacing:.05em}
+.cov-stat.up .cs-num{color:var(--green)}.cov-stat.warn .cs-num{color:var(--amber)}.cov-stat.na .cs-num{color:var(--tx3)}
+.cov-articles{margin-top:6px}
+.cov-articles summary{font-size:11.5px;color:var(--ac);cursor:pointer;user-select:none;list-style:none}
+.cov-articles summary::marker,.cov-articles summary::-webkit-details-marker{display:none}
+.cov-articles summary::before{content:"▶ "}
+.cov-articles[open] summary::before{content:"▼ "}
+.cov-articles ul{list-style:none;margin-top:6px;display:flex;flex-direction:column;gap:4px}
+.cov-articles li{font-size:12px}
+/* ── Badges ─────────────────────────────────────────────────────────────────── */
+.b{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px}
+.b-ok{background:rgba(34,197,94,.15);color:var(--green)}
+.b-warn{background:rgba(245,158,11,.15);color:var(--amber)}
+.b-info{background:rgba(61,130,247,.15);color:var(--ac)}
+.b-mute{background:rgba(90,109,132,.15);color:var(--tx3)}
+/* ── Empty states ───────────────────────────────────────────────────────────── */
+.empty-state{padding:32px 20px;text-align:center}
+.es-icon{font-size:36px;margin-bottom:10px;opacity:.45}
+.es-head{font-size:15px;font-weight:600;color:var(--tx2);margin-bottom:6px}
+.es-sub{font-size:13px;color:var(--tx3);max-width:500px;margin:0 auto;line-height:1.6}
+/* ── Footer ─────────────────────────────────────────────────────────────────── */
+footer{color:var(--tx3);font-size:12px;border-top:1px solid var(--bd);margin-top:32px;padding-top:16px;line-height:1.8}
+/* ── Responsive ─────────────────────────────────────────────────────────────── */
+@media(max-width:680px){
+  .mover-grid{grid-template-columns:repeat(2,1fr)}
+  .spots-grid{grid-template-columns:1fr}
+  .rpt-meta{gap:6px 10px}
+}
+</style></head><body>
 
-<section id="coverage" class="card">
-  <h2>📋 Coverage Audit</h2>
-  <div class="summary">
-    <div><b>${model.coverage.summary.active}</b> active sources</div>
-    <div><b class="up">${model.coverage.summary.covered}</b> covered this window</div>
-    <div><b style="color:var(--warn)">${model.coverage.summary.no_data}</b> no data</div>
-    <div><b class="muted">${model.coverage.summary.deferred}</b> deferred</div>
+<header class="rpt-header">
+  <div class="inner">
+    <div class="rpt-title">🏈 NFL Futures Intel Report</div>
+    <div class="rpt-meta">
+      <span>${esc(model.reportDate)}</span>
+      <span class="meta-dot">·</span>
+      <span>Season ${model.season}</span>
+      <span class="meta-dot">·</span>
+      <span>${model.categories.filter((c) => c.present).length}/${model.categories.length} categories live</span>
+      <span class="meta-dot">·</span>
+      <span>${model.meta.snapshots.toLocaleString()} odds rows</span>
+      <span class="meta-dot">·</span>
+      <span>narrative: ${esc(model.engine.narrative)}</span>
+      <span class="meta-dot">·</span>
+      <span>trigger: ${esc(model.trigger)}</span>
+    </div>
   </div>
-  <table><thead><tr><th>Source</th><th>Type</th><th>Status</th><th>Items</th></tr></thead><tbody>${coverageRows}</tbody></table>
-</section>
+</header>
 
-${catHtml}
+<nav class="toc"><div class="toc-inner">
+  <a href="#movement">📈 Movement</a>
+  <a href="#value">🎯 Value</a>
+  <span class="toc-sep">|</span>
+  ${catNavLinks}
+  <span class="toc-sep">|</span>
+  <a href="#experts">🗣️ Experts</a>
+  <a href="#coverage">📋 Coverage</a>
+</div></nav>
+
+<div class="wrap">
 
 <section id="movement" class="card">
-  <h2>📈 Line Movement — Offseason <span class="muted" style="font-size:13px">since opening snapshot</span></h2>
-  <table><thead><tr><th>Market</th><th>Team</th><th>Opening</th><th>Current</th><th>Net Δ</th><th>Trend</th><th>Window</th></tr></thead><tbody>${moversRows}</tbody></table>
+  <div class="card-head"><h2>📈 Line Movement</h2><span style="font-size:13px;color:var(--tx2)">since opening snapshot · BOL/BKR/BTU</span></div>
+  ${movementHtml}
 </section>
 
 <section id="value" class="card">
-  <h2>🎯 Value Spots <span class="muted" style="font-size:13px">sharp/public ≥ ${Math.round(DIVERGENCE_THRESHOLD * 100)}pp</span></h2>
-  <table><thead><tr><th>Market</th><th>Team</th><th>Sharp</th><th>Public</th><th>Gap</th><th>Signal</th></tr></thead><tbody>${spotsRows}</tbody></table>
+  <div class="card-head"><h2>🎯 Value Spots</h2><span style="font-size:13px;color:var(--tx2)">sharp / public ≥ ${Math.round(DIVERGENCE_THRESHOLD * 100)}pp</span></div>
+  ${valueHtml}
 </section>
 
+${model.categories.map(catSection).join('')}
+
 <section id="experts" class="card">
-  <h2>🗣️ Recommendations by Expert / Source</h2>
+  <div class="card-head"><h2>🗣️ Expert Signals</h2></div>
   ${expertHtml}
 </section>
 
-<footer>Generated ${esc(model.generatedAt)} · odds via TheOddsAPI consensus snapshots (sharp: BetOnline, Bookmaker · public: DraftKings, FanDuel, BetMGM, Caesars) · narrative engine: ${esc(model.engine.narrative)}. Not betting advice.</footer>
-</div></body></html>`;
+<section id="coverage" class="card">
+  <div class="card-head"><h2>📋 Coverage Audit</h2></div>
+  ${coverageHtml}
+</section>
+
+</div>
+<footer style="max-width:1100px;margin:0 auto;padding:16px 20px 40px">
+  Generated ${esc(model.generatedAt)} · Sharp books: BetOnline (BOL) · Bookmaker (BKR) · BetUS (BTU, pending) · Public ref: DraftKings · FanDuel · narrative: ${esc(model.engine.narrative)} · Not betting advice.
+</footer>
+</body></html>`;
 }
 
 // ── Sample data (offline review) ─────────────────────────────────────────────
@@ -819,7 +1214,7 @@ async function main() {
   const movers = buildMovers(grouped);
   const valueSpots = buildValueSpots(grouped);
   const expertGroups = buildExpertGroups(signals, notes, tweets);
-  const coverage = buildCoverageAudit(counts);
+  const coverage = buildCoverageAudit(counts, notes);
   const narratives = await buildNarratives(categories, expertGroups, movers, valueSpots);
 
   const model = {
