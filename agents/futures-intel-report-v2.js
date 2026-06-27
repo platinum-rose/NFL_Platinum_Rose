@@ -139,6 +139,29 @@ const fmtOdds  = (a) => (a == null || isNaN(a)) ? 'n/a' : (a >= 0 ? `+${a}` : `$
 const fmtPct   = (p) => (p == null || isNaN(p)) ? '—' : `${(p * 100).toFixed(1)}%`;
 const fmtDelta = (d) => (d == null || isNaN(d)) ? '—' : `${d >= 0 ? '+' : ''}${(d * 100).toFixed(1)}pp`;
 const isFuturesRelevant = (t) => !!t && FUTURES_KEYWORDS.some((k) => t.toLowerCase().includes(k));
+
+// NFL-specific relevance: require NFL content, reject other sports
+const NFL_TERMS_POS = ['nfl', 'super bowl', 'quarterback', 'nfc ', 'afc ', ' nfc', ' afc', 'fantasy football', 'running back', 'wide receiver', 'tight end', 'cornerback', 'linebacker', 'defensive end', 'safety nfl', 'offensive line', 'touchdown', 'nfl mvp', 'nfl draft', 'nfl season', 'nfl odds', 'nfl futures', 'nfl playoff', 'nfl win total'];
+const NON_NFL_TERMS = ['world cup', 'fifa', 'uefa', ' soccer', 'premier league', 'champions league', 'serie a', 'bundesliga', 'la liga', 'mls cup', 'copa america', ' nba ', ' nhl ', 'mlb ', 'tennis', 'wimbledon', 'ufc ', 'boxing', 'pga tour', 'formula 1', ' f1 ', 'nascar', 'olympics'];
+const isNflRelevant = (title, summary) => {
+  const txt = (String(title || '') + ' ' + String(summary || '')).toLowerCase();
+  if (NON_NFL_TERMS.some((k) => txt.includes(k))) return false;
+  return NFL_TERMS_POS.some((k) => txt.includes(k)) || isFuturesRelevant(txt);
+};
+
+// 32-team division map (used for grouping in Playoffs section)
+const TEAM_DIVISION = {
+  'Kansas City Chiefs': 'AFC West',   'Los Angeles Chargers': 'AFC West',  'Denver Broncos': 'AFC West',      'Las Vegas Raiders': 'AFC West',
+  'Baltimore Ravens':  'AFC North',   'Pittsburgh Steelers': 'AFC North',  'Cleveland Browns': 'AFC North',   'Cincinnati Bengals': 'AFC North',
+  'Houston Texans':    'AFC South',   'Indianapolis Colts': 'AFC South',   'Tennessee Titans': 'AFC South',   'Jacksonville Jaguars': 'AFC South',
+  'Buffalo Bills':     'AFC East',    'Miami Dolphins': 'AFC East',        'New York Jets': 'AFC East',       'New England Patriots': 'AFC East',
+  'Philadelphia Eagles':'NFC East',   'Dallas Cowboys': 'NFC East',        'New York Giants': 'NFC East',     'Washington Commanders': 'NFC East',
+  'Detroit Lions':     'NFC North',   'Green Bay Packers': 'NFC North',    'Minnesota Vikings': 'NFC North',  'Chicago Bears': 'NFC North',
+  'Atlanta Falcons':   'NFC South',   'New Orleans Saints': 'NFC South',   'Tampa Bay Buccaneers': 'NFC South','Carolina Panthers': 'NFC South',
+  'Los Angeles Rams':  'NFC West',    'Seattle Seahawks': 'NFC West',      'San Francisco 49ers': 'NFC West', 'Arizona Cardinals': 'NFC West',
+};
+const DIVISION_ORDER = ['AFC East','AFC North','AFC South','AFC West','NFC East','NFC North','NFC South','NFC West'];
+
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const SPARK = '▁▂▃▄▅▆▇█';
 function sparkline(vals) {
@@ -382,9 +405,10 @@ function buildCategoryModel(grouped) {
       const direct = grouped.get(def.markets[0]);
       if (direct && direct.size) {
         const teams = buildMarketSummary(direct);
-        const sorted = def.dir === 'asc' ? teams.slice().reverse() : teams;
+        // Dedicated market: highest probability = most likely outcome = show first (no reversal).
+        // dir-based reversal only applies to proxy/wins_line where direction is inferred from another market.
         cat.present = true; cat.source = 'dedicated';
-        cat.subsections.push({ label: def.label, teams: sorted });
+        cat.subsections.push({ label: def.label, teams });
       } else if (winsHasLines(grouped)) {
         const teams = buildWinTotalsSummary(grouped.get('wins')); // desc by line
         const ranked = def.dir === 'asc' ? teams.slice().reverse() : teams;
@@ -432,7 +456,9 @@ function buildMovers(grouped) {
           consensus: t.consensus, opening: t.opening,
           currentBooks: t.allBooks || {}, openingBooks: t.openingBooks || {},
           firstDate: t.firstDate, lastDate: t.lastDate,
-          points: t.points, spark: sparkline(t.series.map((s) => s.consensus)) });
+          points: t.points,
+          series: t.series || [],                                      // full series for SVG sparkline
+          spark: sparkline(t.series.map((s) => s.consensus)) });       // kept for Markdown renderer
     }
   }
   return movers.sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta)).slice(0, 25);
@@ -499,7 +525,7 @@ function buildExpertGroups(signals, notes, tweets) {
     const linked = noteById[String(s.note_id)];
     ensure(s.source).signals.push({ ...s, articleTitle: linked?.title, articleUrl: linked?.url, articleSummary: linked?.summary });
   }
-  for (const n of notes) if (isFuturesRelevant(n.title) || isFuturesRelevant(n.summary)) ensure(n.source).articles.push(n);
+  for (const n of notes) if (isNflRelevant(n.title, n.summary)) ensure(n.source).articles.push(n);
   for (const t of tweets) if (isFuturesRelevant(t.text)) ensure(`@${t.author_handle}`).tweets.push(t);
   return [...groups.values()].sort((a, b) =>
     (b.signals.length * 3 + b.articles.length + b.tweets.length) - (a.signals.length * 3 + a.articles.length + a.tweets.length));
@@ -509,7 +535,11 @@ function buildExpertGroups(signals, notes, tweets) {
 function buildCoverageAudit(counts, notes = []) {
   // Group fetched articles by source name for the expandable URL list
   const bySource = {};
-  for (const n of notes) { if (!bySource[n.source]) bySource[n.source] = []; bySource[n.source].push(n); }
+  for (const n of notes) {
+    if (!isNflRelevant(n.title, n.summary)) continue; // exclude non-NFL content
+    if (!bySource[n.source]) bySource[n.source] = [];
+    bySource[n.source].push(n);
+  }
   const rows = EXPECTED_SOURCES.map((s) => {
     const seen = (counts[s.type] && counts[s.type][s.name]) || 0;
     const articles = (bySource[s.name] || []).slice(0, 12); // up to 12 most recent
@@ -662,6 +692,36 @@ function renderHtml(model) {
   // ── Core helpers ─────────────────────────────────────────────────────────────
   const prose = (s) => esc(s || '').replace(/\n/g, '<br>');
 
+  // SVG line-graph sparkline. series = [{t, consensus}]. isUp drives line color.
+  // A dashed reference line is drawn at the opening value so direction-from-start is instant.
+  const svgSpark = (series, w = 110, h = 34) => {
+    if (!series || series.length < 2) return '<span class="na" style="font-size:11px">no trend data</span>';
+    const vals = series.map((s) => Number(s.consensus));
+    const minV = Math.min(...vals), maxV = Math.max(...vals);
+    const span = (maxV - minV) || 0.001;
+    const PAD = 3;
+    const xp = (i) => Math.round(PAD + (i / (vals.length - 1)) * (w - PAD * 2));
+    const yp = (v) => Math.round(PAD + (1 - (v - minV) / span) * (h - PAD * 2));
+    const pts = vals.map((v, i) => xp(i) + ',' + yp(v)).join(' ');
+    const openY  = yp(vals[0]);
+    const lastX  = xp(vals.length - 1), lastY = yp(vals[vals.length - 1]);
+    const isUp   = vals[vals.length - 1] >= vals[0];
+    const color  = isUp ? '#22c55e' : '#f05252';
+    return '<svg width="' + w + '" height="' + h + '" viewBox="0 0 ' + w + ' ' + h + '" style="overflow:visible;display:block">' +
+      // Opening reference line (dashed, subtle)
+      '<line x1="' + PAD + '" y1="' + openY + '" x2="' + (w - PAD) + '" y2="' + openY + '" stroke="#2e3a50" stroke-width="1" stroke-dasharray="3,2"/>' +
+      // Trend line
+      '<polyline points="' + pts + '" fill="none" stroke="' + color + '" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>' +
+      // Opening dot (gray)
+      '<circle cx="' + PAD + '" cy="' + openY + '" r="2" fill="#5a6d84"/>' +
+      // Current dot (colored)
+      '<circle cx="' + lastX + '" cy="' + lastY + '" r="2.8" fill="' + color + '"/>' +
+      '</svg>';
+  };
+
+  // Tiny version for table cells
+  const svgSparkSmall = (series) => svgSpark(series, 70, 22);
+
   // Preferred books (CA-legal offshore); DK/FD retained for proxy reference only
   const PREF_BOOKS = ['betonline', 'bookmaker', 'betus'];
   const BOOK_SHORT = { betonline: 'BOL', bookmaker: 'BKR', betus: 'BTU', draftkings: 'DK', fanduel: 'FD', betmgm: 'MGM', caesars: 'CZR' };
@@ -695,12 +755,12 @@ function renderHtml(model) {
   const deltaOdds = (d) => delt(d, fmtDelta);
   const deltaLine = (d) => (d == null || d === 0) ? '<span class="na">—</span>' : delt(d, fmtLineDelta);
 
-  // Implied-probability bar cell (<td> included) — string concat
+  // Implied-probability bar cell (<td> included) — linear 0-100% scale
   const probBar = (p) => {
     if (p == null || isNaN(p)) return '<td class="na">—</td>';
     const pct = p * 100;
-    const w = Math.min(Math.round(pct * 2.8), 100);
-    const cls = pct >= 30 ? 'hi' : pct >= 12 ? 'md' : 'lo';
+    const w = Math.min(Math.round(pct), 100); // linear: 50% prob = 50% bar fill
+    const cls = pct >= 40 ? 'hi' : pct >= 15 ? 'md' : 'lo';
     return '<td><div class="pbar"><div class="pbar-fill ' + cls + '" style="width:' + w + '%"></div><span>' + fmtPct(p) + '</span></div></td>';
   };
 
@@ -714,7 +774,7 @@ function renderHtml(model) {
 
   // ── Odds tables ──────────────────────────────────────────────────────────────
   // Win totals: SoS placeholder column + collapse after collapseAfter teams
-  const winsTable = (teams, collapseAfter = 16) => {
+  const winsTable = (teams) => {
     const thead = '<thead><tr><th>Team</th><th colspan="2">Win Total</th><th>Over</th><th>Under</th><th>Δ</th><th>SoS</th></tr></thead>';
     const mkRow = (t) => '<tr>' +
       '<td class="tm">' + esc(t.team) + '</td>' +
@@ -725,76 +785,98 @@ function renderHtml(model) {
       '<td>' + deltaLine(t.movement) + '</td>' +
       '<td class="sos-cell"><span class="sos-na">—</span></td>' +
       '</tr>';
-    const above = teams.slice(0, collapseAfter);
-    const below = teams.slice(collapseAfter);
-    const hidRows = below.length
-      ? '<details class="tbl-expand"><summary>' + below.length + ' more teams</summary>' +
-        '<div class="tbl-wrap" style="border-radius:0 0 10px 10px;border-top:none"><table>' +
-        thead + '<tbody>' + below.map(mkRow).join('') + '</tbody></table></div></details>'
-      : '';
-    return '<div class="tbl-wrap"><table>' + thead + '<tbody>' + above.map(mkRow).join('') + '</tbody></table>' + hidRows + '</div>';
+    return '<div class="tbl-wrap"><table>' + thead + '<tbody>' + teams.map(mkRow).join('') + '</tbody></table></div>';
   };
 
-  // Outright table: BOL/BKR/BTU primary, DK/FD muted, Best(Pref), collapse after collapseAfter
-  const outrightTable = (teams, collapseAfter = 32) => {
+  // Outright table: BOL/BKR/BTU + Best. DK/FD removed. Discrepancy highlighting when books differ >1500 pts.
+  const outrightTable = (teams, tableId = '') => {
+    const idAttr = tableId ? ' id="' + tableId + '"' : '';
     const thead = '<thead><tr>' +
-      '<th>Team</th><th>Prob</th><th>Consensus</th>' +
-      '<th>BOL</th><th>BKR</th><th>BTU</th><th>Best</th>' +
-      '<th class="muted">DK</th><th class="muted">FD</th>' +
-      '<th>Δ open</th></tr></thead>';
-    const fmtCell = (v, muted) => {
-      if (v == null) return '<td class="na mono' + (muted ? ' muted' : '') + '">—</td>';
+      '<th>Team</th>' +
+      '<th><span class="th-tip" data-tip="Implied win probability — average across all available books. Higher % = more likely to win.">Prob</span></th>' +
+      '<th><span class="th-tip" data-tip="American odds equivalent of the consensus implied probability (avg across all books). Gives you a quick odds read for the market as a whole.">Consensus</span></th>' +
+      '<th><span class="th-tip" data-tip="BetOnline odds — sharp offshore book.">BOL</span></th>' +
+      '<th><span class="th-tip" data-tip="Bookmaker odds — sharp offshore book.">BKR</span></th>' +
+      '<th><span class="th-tip" data-tip="BetUS odds — sharp offshore book.">BTU</span></th>' +
+      '<th><span class="th-tip" data-tip="Best available price across BOL/BKR/BTU. Shop here for the highest payout.">Best</span></th>' +
+      '<th><span class="th-tip" data-tip="Net change in implied probability (percentage points) since the opening snapshot. ▲ = team shortening (more favored). ▼ = drifting out.">Δ open</span></th></tr></thead>';
+    const fmtCell = (v, highlight) => {
+      if (v == null) return '<td class="na mono">—</td>';
       const n = typeof v === 'number' ? v : parseInt(v, 10);
       const cls = isNaN(n) ? '' : n <= -200 ? ' c-fav' : n >= 500 ? ' c-dog' : '';
-      return '<td class="mono' + (muted ? ' muted' : '') + cls + '">' + fmtOdds(v) + '</td>';
+      return '<td class="mono' + cls + (highlight ? ' disc-hi' : '') + '">' + fmtOdds(v) + '</td>';
     };
     const mkRow = (t) => {
       const bp = bestPref(t.allBooks || {});
       const bestCell = bp
         ? '<td class="mono best-odds"><b>' + fmtOdds(bp.odds) + '</b> <span class="book-tag">' + BOOK_SHORT[bp.book] + '</span></td>'
         : '<td class="na mono">—</td>';
-      return '<tr>' +
-        '<td class="tm">' + esc(t.team) + '</td>' +
+      // Flag big cross-book discrepancies (>1500 American odds pts apart among pref books with data)
+      const prefVals = PREF_BOOKS.map((b) => t.allBooks?.[b]).filter((v) => v != null);
+      const hasDisc = prefVals.length >= 2 && (Math.max(...prefVals) - Math.min(...prefVals)) > 1500;
+      return '<tr' + (hasDisc ? ' class="row-disc"' : '') + ' data-team="' + esc(t.team) + '">' +
+        '<td class="tm">' + esc(t.team) + (hasDisc ? '<span class="disc-badge" title="⚠ Large price gap between books — compare before buying">⚠</span>' : '') + '</td>' +
         probBar(t.consensus) +
         '<td class="mono ac">' + fmtOdds(impliedToAmerican(t.consensus)) + '</td>' +
-        fmtCell(t.allBooks?.betonline, false) +
-        fmtCell(t.allBooks?.bookmaker, false) +
-        fmtCell(t.allBooks?.betus, false) +
+        fmtCell(t.allBooks?.betonline, hasDisc) +
+        fmtCell(t.allBooks?.bookmaker, hasDisc) +
+        fmtCell(t.allBooks?.betus, hasDisc) +
         bestCell +
-        fmtCell(t.allBooks?.draftkings, true) +
-        fmtCell(t.allBooks?.fanduel, true) +
         '<td>' + deltaOdds(t.movement) + '</td>' +
         '</tr>';
     };
-    const above = teams.slice(0, collapseAfter);
-    const below = teams.slice(collapseAfter);
-    const hidRows = below.length
-      ? '<details class="tbl-expand"><summary>' + below.length + ' more teams</summary>' +
-        '<div class="tbl-wrap" style="border-radius:0 0 10px 10px;border-top:none"><table>' +
-        thead + '<tbody>' + below.map(mkRow).join('') + '</tbody></table></div></details>'
-      : '';
-    return '<div class="tbl-wrap"><table>' + thead + '<tbody>' + above.map(mkRow).join('') + '</tbody></table>' + hidRows + '</div>';
+    return '<div class="tbl-wrap"><table' + idAttr + '>' + thead + '<tbody>' + teams.map(mkRow).join('') + '</tbody></table></div>';
   };
 
   // ── Category section ─────────────────────────────────────────────────────────
   const catSection = (cat) => {
-    const collapseAfter = cat.id === 'superbowl' ? 10 : 16;
     const liveTag = !cat.present ? '<span class="b b-mute">no data</span>'
       : cat.source === 'proxy' ? '<span class="b b-info">proxy</span>'
       : '<span class="b b-ok">live</span>';
-    const content = !cat.present
-      ? '<p class="empty-note">' + esc(cat.note || 'No market data in window.') + '</p>'
-      : cat.subsections.map((sub) => {
-          const tbl = sub.kind === 'wins' ? winsTable(sub.teams, collapseAfter) : outrightTable(sub.teams, collapseAfter);
-          return (cat.subsections.length > 1 ? '<h3 class="sub-head">' + esc(sub.label) + '</h3>' : '') + tbl;
-        }).join('');
+
+    let content;
+    if (!cat.present) {
+      content = '<p class="empty-note">' + esc(cat.note || 'No market data in window.') + '</p>';
+    } else if (cat.id === 'playoffs') {
+      // Group playoffs by division so divisional strength context is visible
+      const teams = cat.subsections[0]?.teams || [];
+      const byDiv = {};
+      for (const t of teams) { const d = TEAM_DIVISION[t.team] || 'Other'; if (!byDiv[d]) byDiv[d] = []; byDiv[d].push(t); }
+      content = DIVISION_ORDER.filter((d) => byDiv[d]).map((div) =>
+        '<div class="div-head">' + esc(div) + '</div>' + outrightTable(byDiv[div])
+      ).join('');
+    } else if (cat.id === 'superbowl_matchup') {
+      // SB Exact Matchup with team filter
+      const teams = cat.subsections[0]?.teams || [];
+      // Extract unique individual teams from matchup strings (split on " vs ", "/", or " - ")
+      const allTeamNames = new Set();
+      for (const t of teams) {
+        const parts = t.team.split(/ vs | \/ | - /);
+        for (const p of parts) { const clean = p.trim(); if (clean) allTeamNames.add(clean); }
+      }
+      const sortedNames = [...allTeamNames].sort();
+      const filterUi = '<div class="matchup-filter">' +
+        '<span class="mf-lbl">Filter teams:</span>' +
+        '<input class="mf-input" id="mf-input" type="text" placeholder="Type team name(s) e.g. Lions, Ravens…" oninput="filterMatchups()">' +
+        '<span class="mf-count" id="mf-count">' + teams.length + ' matchups</span>' +
+        '<button class="mf-clear" onclick="document.getElementById(\'mf-input\').value=\'\';filterMatchups()">Clear</button>' +
+        '</div>';
+      content = filterUi + outrightTable(teams, 'matchup-tbl');
+    } else {
+      content = cat.subsections.map((sub) => {
+        const tbl = sub.kind === 'wins' ? winsTable(sub.teams) : outrightTable(sub.teams);
+        return (cat.subsections.length > 1 ? '<h3 class="sub-head">' + esc(sub.label) + '</h3>' : '') + tbl;
+      }).join('');
+    }
+
     const verdictHtml = model.narratives[cat.id]
       ? '<div class="verdict"><div class="verdict-label">Verdict</div><div class="verdict-body">' + prose(model.narratives[cat.id]) + '</div></div>'
       : '';
     const noteHtml = cat.note && cat.present ? '<div class="cat-note">' + esc(cat.note) + '</div>' : '';
     return '<section id="' + cat.id + '" class="card cat-card">' +
-      '<div class="cat-head"><h2>' + esc(cat.label) + '</h2>' + liveTag + '</div>' +
-      verdictHtml + noteHtml + content + '</section>';
+      '<div class="cat-head"><h2>' + esc(cat.label) + '</h2>' + liveTag +
+      '<button class="sec-toggle" onclick="toggleSec(this)" title="Collapse section">▼</button></div>' +
+      '<div class="sec-body">' + verdictHtml + noteHtml + content + '</div></section>';
   };
 
   // ── Movement — card grid for top movers, table for the rest ─────────────────
@@ -803,31 +885,61 @@ function renderHtml(model) {
 
   const moverCard = (m) => {
     const cls = m.delta >= 0 ? 'up' : 'dn';
-    const openChips = bookOddsChips(m.openingBooks || {});
-    const curChips  = bookOddsChips(m.currentBooks  || {});
+    // Find best current price among pref books for halo highlight
+    let bestBook = null, bestOdds = null;
+    for (const b of PREF_BOOKS) {
+      const v = m.currentBooks?.[b];
+      if (v != null && (bestOdds === null || v > bestOdds)) { bestOdds = v; bestBook = b; }
+    }
+    // Book grid: header row + opening row + current row
+    const bookGrid =
+      '<div class="mc-book-grid">' +
+        '<div class="mc-bg-hdr"><span>—</span>' + PREF_BOOKS.map((b) => '<span>' + BOOK_SHORT[b] + '</span>').join('') + '</div>' +
+        '<div class="mc-bg-row"><span class="lbl">Open</span>' +
+          PREF_BOOKS.map((b) => {
+            const v = m.openingBooks?.[b];
+            return v != null ? '<span class="cv mono">' + fmtOdds(v) + '</span>' : '<span class="na">—</span>';
+          }).join('') +
+        '</div>' +
+        '<div class="mc-bg-row"><span class="lbl">Now</span>' +
+          PREF_BOOKS.map((b) => {
+            const v = m.currentBooks?.[b];
+            if (v == null) return '<span class="na">—</span>';
+            return '<span class="cv mono' + (b === bestBook ? ' best-price' : '') + '">' + fmtOdds(v) + '</span>';
+          }).join('') +
+        '</div>' +
+      '</div>';
     return '<div class="mover-card ' + cls + '">' +
-      '<div class="mc-delta">' + (m.delta >= 0 ? '▲' : '▼') + ' ' + fmtDelta(m.delta) + '</div>' +
+      '<div class="mc-delta"><span class="th-tip" data-tip="Net change in implied win probability (percentage points) since the opening snapshot. pp = percentage points. ▲ = shortening (more favored). ▼ = drifting (less favored).">' + (m.delta >= 0 ? '▲' : '▼') + ' ' + fmtDelta(m.delta) + '</span></div>' +
       '<div class="mc-team">' + esc(m.team) + '</div>' +
       '<div class="mc-market">' + esc(m.market) + '</div>' +
-      '<div class="mc-spark">' + esc(m.spark || '—') + '</div>' +
-      '<div class="mc-odds-section">' +
-        '<div class="mc-odds-row"><span class="mc-odds-lbl">Open</span>' + openChips + '</div>' +
-        '<div class="mc-odds-row"><span class="mc-odds-lbl">Now</span>' + curChips + '</div>' +
-      '</div>' +
-      '<div class="mc-meta">' + fmtPct(m.opening) + ' → ' + fmtPct(m.consensus) + ' · ' + esc(m.firstDate || '?') + ' → ' + esc(m.lastDate || '?') + '</div>' +
+      '<div class="mc-spark" title="Implied probability trend — line shows movement across snapshot dates. Dashed line = opening value. Green dot = current.">' + svgSpark(m.series) + '</div>' +
+      bookGrid +
+      '<div class="mc-meta-row"><span class="mc-meta-lbl">Probability:</span> ' + fmtPct(m.opening) + ' open → ' + fmtPct(m.consensus) + ' now</div>' +
+      '<div class="mc-meta-row"><span class="mc-meta-lbl">Window:</span> ' + esc(m.firstDate || '?') + ' → ' + esc(m.lastDate || '?') + ' (' + m.points + ' snapshots)</div>' +
       '</div>';
   };
 
   const moverRestTable = restMovers.length
-    ? '<div class="tbl-wrap" style="margin-top:14px"><table>' +
-      '<thead><tr><th>Team</th><th>Market</th><th>Opening</th><th>Current</th><th>Net Δ</th><th>Trend</th><th>Window</th></tr></thead><tbody>' +
+    ? '<div class="tbl-wrap" style="margin-top:14px"><table id="mover-rest-tbl">' +
+      '<thead><tr>' +
+        '<th class="sort-col" onclick="sortMoverTbl(this,0)">Team<span class="si"></span></th>' +
+        '<th class="sort-col" onclick="sortMoverTbl(this,1)">Market<span class="si"></span></th>' +
+        '<th><span class="th-tip" data-tip="Implied probability at the first recorded snapshot">Open %</span></th>' +
+        '<th><span class="th-tip" data-tip="Current implied probability (latest snapshot)">Now %</span></th>' +
+        '<th class="sort-col" onclick="sortMoverTbl(this,4)"><span class="th-tip" data-tip="Net change in implied probability since opening (percentage points)">Δ pp</span><span class="si"></span></th>' +
+        '<th><span class="th-tip" data-tip="Probability trend line. Dashed = opening level. Green/red dot = current value.">Trend</span></th>' +
+        '<th><span class="th-tip" data-tip="Date range of snapshots used for this movement calculation">Window</span></th>' +
+      '</tr></thead><tbody>' +
       restMovers.map((m) =>
-        '<tr>' +
-        '<td class="tm">' + esc(m.team) + '</td><td>' + esc(m.market) + '</td>' +
-        '<td class="mono">' + fmtPct(m.opening) + '</td><td class="mono">' + fmtPct(m.consensus) + '</td>' +
+        '<tr data-market="' + esc(m.market) + '" data-delta="' + (m.delta || 0) + '">' +
+        '<td class="tm">' + esc(m.team) + '</td>' +
+        '<td>' + esc(m.market) + '</td>' +
+        '<td class="mono">' + fmtPct(m.opening) + '</td>' +
+        '<td class="mono">' + fmtPct(m.consensus) + '</td>' +
         '<td>' + deltaOdds(m.delta) + '</td>' +
-        '<td class="spark">' + esc(m.spark || '—') + '</td>' +
-        '<td class="mono na">' + esc(m.firstDate || '—') + '→' + esc(m.lastDate || '—') + ' (' + m.points + ')</td>' +
+        '<td style="padding:4px 12px">' + svgSparkSmall(m.series) + '</td>' +
+        '<td class="mono na">' + esc(m.firstDate || '—') + ' → ' + esc(m.lastDate || '—') + '</td>' +
         '</tr>'
       ).join('') +
       '</tbody></table></div>'
@@ -975,6 +1087,7 @@ a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
 .card{background:var(--s1);border:1px solid var(--bd);border-radius:14px;padding:20px 22px;margin:14px 0}
 .card-head{display:flex;align-items:center;gap:10px;margin-bottom:16px}
 .card-head h2{font-size:17px;font-weight:700}
+.cat-head .sec-toggle,.card-head .sec-toggle{margin-left:auto}
 /* ── Category cards ─────────────────────────────────────────────────────────── */
 .cat-card{border-left:3px solid var(--ac)}
 .cat-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
@@ -987,14 +1100,14 @@ a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
 .verdict-label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);margin-bottom:4px}
 .verdict-body{font-size:13.5px;color:var(--tx);line-height:1.7}
 /* ── Tables ─────────────────────────────────────────────────────────────────── */
-.tbl-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--bd)}
+.tbl-wrap{overflow-x:hidden;border-radius:10px;border:1px solid var(--bd)}
 table{width:100%;border-collapse:collapse;font-size:13.5px}
 thead tr{background:var(--s2)}
 th{text-align:left;font-size:11px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.05em;padding:9px 12px;border-bottom:1px solid var(--bd);white-space:nowrap}
 td{padding:8px 12px;border-bottom:1px solid var(--bd)}
 tr:last-child td{border-bottom:none}
 tr:hover td{background:rgba(255,255,255,.018)}
-.tm{font-weight:600;color:var(--tx);white-space:nowrap}
+.tm{font-weight:600;color:var(--tx);white-space:nowrap;max-width:180px;overflow:hidden;text-overflow:ellipsis}
 .mono{font-variant-numeric:tabular-nums;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 .ac{color:var(--ac);font-weight:700}
 .na{color:var(--tx3)}
@@ -1041,13 +1154,13 @@ th.muted{opacity:.5}
 .mover-card.up .mc-delta{color:var(--green)}.mover-card.dn .mc-delta{color:var(--red)}
 .mc-team{font-size:14px;font-weight:700;margin-bottom:2px}
 .mc-market{font-size:12px;color:var(--tx2);margin-bottom:5px}
-.mc-spark{font-size:20px;letter-spacing:3px;color:var(--spark);margin-bottom:4px;line-height:1}
+.mc-spark{margin:6px 0 4px;line-height:0}
 .mc-odds-section{margin:8px 0;display:flex;flex-direction:column;gap:5px}
 .mc-odds-row{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
 .mc-odds-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--tx3);width:28px;flex-shrink:0}
 .mc-meta{font-size:11px;color:var(--tx3);font-variant-numeric:tabular-nums;margin-top:4px}
-/* ── Sparkline (table) ──────────────────────────────────────────────────────── */
-.spark{font-size:16px;letter-spacing:2px;color:var(--spark)}
+/* ── Sparkline SVG (table) ─────────────────────────────────────────────────── */
+.spark{line-height:0}
 /* ── Value spot cards ───────────────────────────────────────────────────────── */
 .spots-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
 .spot-card{background:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:14px 16px}
@@ -1105,6 +1218,52 @@ th.muted{opacity:.5}
 .es-sub{font-size:13px;color:var(--tx3);max-width:500px;margin:0 auto;line-height:1.6}
 /* ── Footer ─────────────────────────────────────────────────────────────────── */
 footer{color:var(--tx3);font-size:12px;border-top:1px solid var(--bd);margin-top:32px;padding-top:16px;line-height:1.8}
+/* ── Collapsible sections ────────────────────────────────────────────────────── */
+.sec-toggle{background:none;border:1px solid var(--bd);border-radius:6px;color:var(--tx2);font-size:11px;cursor:pointer;padding:3px 9px;margin-left:auto;transition:all .15s;flex-shrink:0}
+.sec-toggle:hover{background:var(--s3);color:var(--tx)}
+.sec-body{transition:none}
+/* ── CSS Tooltips ────────────────────────────────────────────────────────────── */
+.th-tip{position:relative;cursor:help}
+.th-tip::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#1a2234;color:var(--tx);font-size:12px;font-weight:400;white-space:normal;width:220px;text-align:center;padding:7px 11px;border-radius:8px;border:1px solid var(--bd2);z-index:200;opacity:0;pointer-events:none;transition:opacity .12s;line-height:1.55;text-transform:none;letter-spacing:0;box-shadow:0 4px 20px rgba(0,0,0,.45)}
+th .th-tip::after{left:0;transform:none}
+.th-tip:hover::after{opacity:1}
+/* ── Book grid (mover cards) ─────────────────────────────────────────────────── */
+.mc-book-grid{margin:8px 0;border:1px solid var(--bd);border-radius:8px;overflow:hidden;font-size:12px}
+.mc-bg-hdr{display:grid;grid-template-columns:34px repeat(3,1fr);background:var(--s3);padding:4px 8px;gap:2px}
+.mc-bg-hdr span{font-size:9.5px;font-weight:700;color:var(--tx3);text-align:center;text-transform:uppercase;letter-spacing:.05em}
+.mc-bg-hdr span:first-child{text-align:left;color:transparent}
+.mc-bg-row{display:grid;grid-template-columns:34px repeat(3,1fr);padding:5px 8px;gap:2px;border-top:1px solid var(--bd);align-items:center}
+.mc-bg-row .lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--tx3)}
+.mc-bg-row .cv{text-align:center;font-variant-numeric:tabular-nums}
+.mc-bg-row .na{text-align:center;color:var(--tx3)}
+/* ── Best price halo ─────────────────────────────────────────────────────────── */
+.best-price{color:var(--green) !important;font-weight:800;background:rgba(34,197,94,.12);border-radius:5px;padding:1px 6px;box-shadow:0 0 0 1.5px rgba(34,197,94,.45)}
+/* ── Mover card meta ─────────────────────────────────────────────────────────── */
+.mc-meta-row{font-size:11px;color:var(--tx3);margin-top:5px;line-height:1.6;font-variant-numeric:tabular-nums}
+.mc-meta-lbl{font-weight:700;color:var(--tx3);margin-right:3px}
+/* ── Row discrepancy highlight ───────────────────────────────────────────────── */
+.row-disc{background:rgba(245,158,11,.04) !important}
+.row-disc .tm::after{content:" ⚠";font-size:10px;color:var(--amber)}
+.disc-hi{color:var(--amber) !important;font-weight:700}
+/* ── Prob bar — linear 0-100% scale, capped width ───────────────────────────── */
+.pbar{min-width:70px;max-width:100px}
+/* ── Sortable table ──────────────────────────────────────────────────────────── */
+th.sort-col{cursor:pointer;user-select:none;white-space:nowrap}
+th.sort-col:hover{color:var(--tx);background:var(--s3)}
+th.sort-col .si{font-size:9px;color:var(--tx3);margin-left:3px}
+th.sort-col.asc .si::after{content:"↑";color:var(--ac)}
+th.sort-col.desc .si::after{content:"↓";color:var(--ac)}
+th.sort-col:not(.asc):not(.desc) .si::after{content:"↕"}
+/* ── Matchup filter ──────────────────────────────────────────────────────────── */
+.matchup-filter{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px;padding:10px 14px;background:var(--s2);border-radius:8px;border:1px solid var(--bd)}
+.mf-lbl{font-size:11px;font-weight:700;color:var(--tx3);text-transform:uppercase;letter-spacing:.05em;flex-shrink:0}
+.mf-input{flex:1;min-width:160px;background:var(--s3);border:1px solid var(--bd2);border-radius:6px;color:var(--tx);font-size:13px;padding:5px 10px;outline:none}
+.mf-input:focus{border-color:var(--ac)}
+.mf-count{font-size:11.5px;color:var(--tx3)}
+.mf-clear{background:none;border:1px solid var(--bd);border-radius:6px;color:var(--tx3);font-size:12px;padding:4px 10px;cursor:pointer;transition:all .15s}
+.mf-clear:hover{border-color:var(--bd2);color:var(--tx)}
+/* ── Playoff division headers ────────────────────────────────────────────────── */
+.div-head{font-size:12px;font-weight:700;color:var(--tx2);text-transform:uppercase;letter-spacing:.06em;margin:18px 0 7px;padding-bottom:5px;border-bottom:1px solid var(--bd)}
 /* ── Responsive ─────────────────────────────────────────────────────────────── */
 @media(max-width:680px){
   .mover-grid{grid-template-columns:repeat(2,1fr)}
@@ -1145,31 +1304,89 @@ footer{color:var(--tx3);font-size:12px;border-top:1px solid var(--bd);margin-top
 <div class="wrap">
 
 <section id="movement" class="card">
-  <div class="card-head"><h2>📈 Line Movement</h2><span style="font-size:13px;color:var(--tx2)">since opening snapshot · BOL/BKR/BTU</span></div>
-  ${movementHtml}
+  <div class="card-head"><h2>📈 Line Movement</h2><span style="font-size:13px;color:var(--tx2)">since opening snapshot · BOL/BKR/BTU</span><button class="sec-toggle" onclick="toggleSec(this)" title="Collapse section">▼</button></div>
+  <div class="sec-body">${movementHtml}</div>
 </section>
 
 <section id="value" class="card">
-  <div class="card-head"><h2>🎯 Value Spots</h2><span style="font-size:13px;color:var(--tx2)">sharp / public ≥ ${Math.round(DIVERGENCE_THRESHOLD * 100)}pp</span></div>
-  ${valueHtml}
+  <div class="card-head"><h2>🎯 Value Spots</h2><span style="font-size:13px;color:var(--tx2)">sharp / public ≥ ${Math.round(DIVERGENCE_THRESHOLD * 100)}pp</span><button class="sec-toggle" onclick="toggleSec(this)" title="Collapse section">▼</button></div>
+  <div class="sec-body">${valueHtml}</div>
 </section>
 
 ${model.categories.map(catSection).join('')}
 
 <section id="experts" class="card">
-  <div class="card-head"><h2>🗣️ Expert Signals</h2></div>
-  ${expertHtml}
+  <div class="card-head"><h2>🗣️ Expert Signals</h2><button class="sec-toggle" onclick="toggleSec(this)" title="Collapse section">▼</button></div>
+  <div class="sec-body">${expertHtml}</div>
 </section>
 
 <section id="coverage" class="card">
-  <div class="card-head"><h2>📋 Coverage Audit</h2></div>
-  ${coverageHtml}
+  <div class="card-head"><h2>📋 Coverage Audit</h2><button class="sec-toggle" onclick="toggleSec(this)" title="Collapse section">▼</button></div>
+  <div class="sec-body">${coverageHtml}</div>
 </section>
 
 </div>
 <footer style="max-width:1100px;margin:0 auto;padding:16px 20px 40px">
   Generated ${esc(model.generatedAt)} · Sharp books: BetOnline (BOL) · Bookmaker (BKR) · BetUS (BTU) · Public ref: DraftKings · FanDuel · narrative: ${esc(model.engine.narrative)} · Not betting advice.
 </footer>
+<script>
+// ── Collapsible sections ──────────────────────────────────────────────────────
+function toggleSec(btn) {
+  const container = btn.closest('section') || btn.closest('.card');
+  const body = container && container.querySelector('.sec-body');
+  if (!body) return;
+  const collapsed = body.style.display === 'none';
+  body.style.display = collapsed ? '' : 'none';
+  btn.textContent = collapsed ? '▼' : '▶';
+  btn.title = collapsed ? 'Collapse section' : 'Expand section';
+}
+
+// ── Sortable movement table ───────────────────────────────────────────────────
+function sortMoverTbl(th, colIdx) {
+  const tbl = document.getElementById('mover-rest-tbl');
+  if (!tbl) return;
+  const tbody = tbl.querySelector('tbody');
+  const rows = Array.from(tbody.querySelectorAll('tr'));
+  const asc = !th.classList.contains('asc');
+  tbl.querySelectorAll('th.sort-col').forEach((h) => h.classList.remove('asc', 'desc'));
+  th.classList.add(asc ? 'asc' : 'desc');
+  rows.sort((a, b) => {
+    const av = colIdx === 4
+      ? parseFloat(a.dataset.delta || 0)
+      : a.cells[colIdx]?.textContent?.trim() || '';
+    const bv = colIdx === 4
+      ? parseFloat(b.dataset.delta || 0)
+      : b.cells[colIdx]?.textContent?.trim() || '';
+    if (colIdx === 4) return asc ? av - bv : bv - av;
+    return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+  });
+  rows.forEach((r) => tbody.appendChild(r));
+}
+
+// ── Matchup team filter ───────────────────────────────────────────────────────
+function filterMatchups() {
+  const input = document.getElementById('mf-input');
+  const count = document.getElementById('mf-count');
+  if (!input) return;
+  const terms = input.value.toLowerCase().split(',').map((s) => s.trim()).filter(Boolean);
+  const tbl = document.getElementById('matchup-tbl');
+  if (!tbl) return;
+  const allTbls = [tbl];
+  // Also filter the expanded details table if present
+  const detailTbl = tbl.closest('.tbl-wrap')?.nextElementSibling?.querySelector('table');
+  if (detailTbl) allTbls.push(detailTbl);
+  let visible = 0;
+  for (const t of allTbls) {
+    t.querySelectorAll('tbody tr').forEach((row) => {
+      const team = (row.dataset.team || '').toLowerCase();
+      const show = terms.length === 0 || terms.some((term) => team.includes(term));
+      row.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+  }
+  if (count) count.textContent = visible + ' matchup' + (visible !== 1 ? 's' : '');
+}
+</script>
 </body></html>`;
 }
 
@@ -1310,3 +1527,4 @@ async function main() {
 }
 
 main().catch((e) => { console.error('[futures-intel-report-v2] Fatal:', e.message); process.exit(1); });
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
