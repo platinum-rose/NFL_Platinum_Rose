@@ -208,6 +208,20 @@ function firstTag(xml, tagName) {
   return cleanHtml(xml.slice(start, start + mClose.index));
 }
 
+// Parse author byline from an RSS item chunk.
+// Priority: dc:creator → author → itunes:author (managingEditor is channel-level, skip).
+function parseItemAuthor(chunk) {
+  const raw =
+    firstTag(chunk, 'dc:creator') ||
+    firstTag(chunk, 'author') ||
+    firstTag(chunk, 'itunes:author') ||
+    null;
+  if (!raw) return null;
+  // Strip email addresses (some feeds use "email (Name)" format)
+  const cleaned = raw.replace(/[^\s]+@[^\s]+/g, '').replace(/[()]/g, '').trim();
+  return cleaned || null;
+}
+
 function parseRssItems(xml) {
   return xml
     .split(/<item[\s>]/i)
@@ -219,12 +233,14 @@ function parseRssItems(xml) {
       const description = firstTag(chunk, 'description');
       const pubDateRaw = firstTag(chunk, 'pubDate');
       const publishedAt = pubDateRaw ? new Date(pubDateRaw).toISOString() : null;
+      const author = parseItemAuthor(chunk);
 
       return {
         title: title || '(untitled)',
         link: link || guid,
         description: description || '',
         published_at: publishedAt,
+        author,
       };
     })
     .filter(item => !!item.link);
@@ -253,12 +269,16 @@ function parseAtomItems(xml) {
       const summary = firstTag(chunk, 'summary') || firstTag(chunk, 'content') || '';
       const dateRaw = firstTag(chunk, 'published') || firstTag(chunk, 'updated');
       const publishedAt = dateRaw ? new Date(dateRaw).toISOString() : null;
+      // Atom: <author><name>First Last</name></author>
+      const authorChunk = firstTag(chunk, 'author') || '';
+      const authorName = firstTag(authorChunk, 'name') || cleanHtml(authorChunk) || null;
 
       return {
         title: title || '(untitled)',
         link,
         description: cleanHtml(summary),
         published_at: publishedAt,
+        author: authorName || null,
       };
     })
     .filter(item => !!item.link);
@@ -524,6 +544,7 @@ async function main() {
         summary,
         published_at: item.published_at,
         confidence: feed.confidence,
+        author: item.author || null,
       };
     });
 
@@ -532,7 +553,7 @@ async function main() {
     const signals = feed.source_type === 'analytical'
       ? []
       : feedItems.flatMap(item =>
-          extractSignals(item, feed.source, feed.confidence)
+          extractSignals(item, feed.source, feed.confidence).map(s => ({ ...s, author: item.author || null }))
         );
 
     feedResults.push({
@@ -634,6 +655,7 @@ async function main() {
       return {
         note_id: noteId,
         source: signal.source,
+        author: signal.author || null,
         team_or_market: signal.team_or_market,
         bet_type: signal.bet_type,
         lean: signal.lean,

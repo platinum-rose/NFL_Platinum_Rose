@@ -30,7 +30,7 @@
 //   REPORT_LOOKBACK_DAYS  (default 7)   INTEL_LOOKBACK_DAYS (default 30)
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createClient } from '@supabase/supabase-js';
@@ -41,6 +41,17 @@ const __dirname  = path.dirname(__filename);
 const ROOT         = path.resolve(__dirname, '..');
 const RECEIPTS_DIR = path.join(ROOT, '.nfl', 'receipts');
 const REPORTS_DIR  = path.join(ROOT, '.nfl', 'reports');
+const SCHEDULE_PATH = path.join(ROOT, 'public', 'schedule.json');
+
+// Load 2026 schedule at startup (non-fatal — SoS degrades gracefully if missing)
+let SCHEDULE_GAMES = [];
+try {
+  const raw = JSON.parse(await readFile(SCHEDULE_PATH, 'utf8'));
+  SCHEDULE_GAMES = Array.isArray(raw) ? raw : (raw.games || []);
+  console.log(`  [schedule] ${SCHEDULE_GAMES.length} games loaded`);
+} catch (e) {
+  console.warn(`  [warn] schedule.json not loaded: ${e.message}`);
+}
 
 // ── Flags / config ──────────────────────────────────────────────────────────
 const argv = process.argv.slice(2);
@@ -66,7 +77,7 @@ const ODDS_SINCE = process.env.ODDS_SINCE || null;
 
 const SHARP_BOOKS  = new Set(['betonline', 'bookmaker', 'betus']);
 const PUBLIC_BOOKS = new Set(['draftkings', 'fanduel', 'betmgm', 'caesars']);
-const DIVERGENCE_THRESHOLD = 0.08; // 8 percentage points
+const DIVERGENCE_THRESHOLD = 0.05; // 5 percentage points
 
 // ── The 8 tracked futures categories (display order) ─────────────────────────
 const CATEGORIES = [
@@ -146,7 +157,8 @@ const NON_NFL_TERMS = ['world cup', 'fifa', 'uefa', ' soccer', 'premier league',
 const isNflRelevant = (title, summary) => {
   const txt = (String(title || '') + ' ' + String(summary || '')).toLowerCase();
   if (NON_NFL_TERMS.some((k) => txt.includes(k))) return false;
-  return NFL_TERMS_POS.some((k) => txt.includes(k)) || isFuturesRelevant(txt);
+  // Require an explicit NFL term — the futures fallback is too permissive for multi-sport sites
+  return NFL_TERMS_POS.some((k) => txt.includes(k));
 };
 
 // 32-team division map (used for grouping in Playoffs section)
@@ -200,7 +212,7 @@ async function fetchSnapshots(sb) {
 async function fetchIntelNotes(sb) {
   const since = new Date(Date.now() - INTEL_DAYS * 864e5).toISOString();
   const { data, error } = await sb.from('research_intel_notes')
-    .select('id, source, source_type, title, summary, url, published_at, confidence')
+    .select('id, source, source_type, title, summary, url, published_at, confidence, author')
     .gte('captured_at', since).order('published_at', { ascending: false }).limit(400);
   if (error) throw new Error(`fetchIntelNotes: ${error.message}`);
   return data || [];
@@ -208,7 +220,7 @@ async function fetchIntelNotes(sb) {
 async function fetchPickSignals(sb, noteIds) {
   if (!noteIds.length) return [];
   const { data, error } = await sb.from('research_pick_signals')
-    .select('note_id, source, team_or_market, bet_type, lean, rationale, confidence, captured_at')
+    .select('note_id, source, author, team_or_market, bet_type, lean, rationale, confidence, captured_at')
     .in('note_id', noteIds).order('confidence', { ascending: false }).limit(200);
   if (error) throw new Error(`fetchPickSignals: ${error.message}`);
   return data || [];
@@ -238,6 +250,33 @@ async function fetchCoverageCounts(sb) {
     .gte('captured_at', new Date(Date.now() - SIGNAL_DAYS * 864e5).toISOString()).limit(2000);
   counts.tweet['Sharp X / Twitter (manual paste)'] = (tw || []).length;
   return counts;
+}
+
+// ATS history (last 4 seasons) keyed by team abbreviation.
+async function fetchAtsAndSchedule(sb) {
+  try {
+    const { data, error } = await sb.from('nfl_team_season_stats')
+      .select('team, season, ats_wins, ats_losses')
+      .gte('season', 2022).lte('season', 2025);
+    if (error) { console.warn('[warn] nfl_team_season_stats:', error.message); return { atsSummary: {} }; }
+    const byAbbr = {};
+    for (const r of data || []) {
+      if (!byAbbr[r.team]) byAbbr[r.team] = { wins: 0, losses: 0, seasons: 0 };
+      byAbbr[r.team].wins   += (r.ats_wins   || 0);
+      byAbbr[r.team].losses += (r.ats_losses || 0);
+      byAbbr[r.team].seasons++;
+    }
+    const atsSummary = {};
+    for (const [abbr, d] of Object.entries(byAbbr)) {
+      const total = d.wins + d.losses;
+      atsSummary[abbr] = { pct: total > 0 ? d.wins / total : null, seasons: d.seasons, wins: d.wins, losses: d.losses };
+    }
+    console.log(`  [ats] ${Object.keys(atsSummary).length} teams loaded (2022-2025)`);
+    return { atsSummary };
+  } catch (e) {
+    console.warn('[warn] fetchAtsAndSchedule:', e.message);
+    return { atsSummary: {} };
+  }
 }
 
 // ── Odds analysis (consensus, divergence, movement) ──────────────────────────
@@ -347,13 +386,17 @@ function winConsensusOf(bookSeries, pick) {
   const avg = (a) => a.reduce((x, y) => x + y, 0) / a.length;
   const overs = picked.map((r) => r.over_price).filter((v) => v != null).map(Number);
   const unders = picked.map((r) => r.under_price).filter((v) => v != null).map(Number);
-  const byBook = {};
-  for (const r of picked) byBook[r.book] = Number(r.line);
+  const byBook = {}, overByBook = {}, underByBook = {};
+  for (const r of picked) {
+    byBook[r.book] = Number(r.line);
+    if (r.over_price  != null) overByBook[r.book]  = Number(r.over_price);
+    if (r.under_price != null) underByBook[r.book] = Number(r.under_price);
+  }
   return {
     line: avg(picked.map((r) => Number(r.line))),
     over: overs.length ? Math.round(avg(overs)) : null,
     under: unders.length ? Math.round(avg(unders)) : null,
-    byBook,
+    byBook, overByBook, underByBook,
   };
 }
 // Win-total line movement = avg over books (with ≥2 line obs) of (latestLine − earliestLine).
@@ -371,7 +414,7 @@ function buildWinTotalsSummary(mm) {
   for (const [team, bb] of mm.entries()) {
     const cur = winConsensusOf(bb, pickLatest);
     if (!cur) continue;
-    teams.push({ team, line: cur.line, over: cur.over, under: cur.under, byBook: cur.byBook, movement: winLineMovement(bb) });
+    teams.push({ team, line: cur.line, over: cur.over, under: cur.under, byBook: cur.byBook, overByBook: cur.overByBook, underByBook: cur.underByBook, movement: winLineMovement(bb) });
   }
   return teams.sort((a, b) => b.line - a.line); // most wins first
 }
@@ -380,6 +423,60 @@ function winsHasLines(grouped) {
   if (!mm || !mm.size) return false;
   for (const bb of mm.values()) for (const arr of bb.values()) if (arr.some(hasLine)) return true;
   return false;
+}
+
+// Attach SoS + ATS enrichment to all kind:'wins' teams across all categories.
+// Must be called after buildCategoryModel so team objects already exist.
+function enrichWinTotals(categories, { atsSummary = {}, schedule = [] } = {}) {
+  // Build full-name → abbr map from schedule
+  const nameToAbbr = {};
+  for (const g of schedule) {
+    if (g.visitorName && g.visitor) nameToAbbr[g.visitorName] = g.visitor;
+    if (g.homeName    && g.home)    nameToAbbr[g.homeName]    = g.home;
+  }
+
+  // Win totals map (full name → consensus line) for SoS opponent lookup
+  const winsCat = categories.find((c) => c.id === 'wins');
+  const baseTeams = winsCat?.subsections.flatMap((s) => s.teams || []) || [];
+  const winsMap = {};
+  for (const t of baseTeams) if (t.line != null) winsMap[t.team] = t.line;
+
+  // Compute raw SoS (sum of opponents' projected win totals)
+  const sosRaw = {};
+  for (const t of baseTeams) {
+    const abbr = nameToAbbr[t.team];
+    if (!abbr) continue;
+    const opps = schedule
+      .filter((g) => g.visitor === abbr || g.home === abbr)
+      .map((g) => g.visitor === abbr ? g.homeName : g.visitorName)
+      .filter(Boolean);
+    const oppWins = opps.map((opp) => winsMap[opp]).filter((v) => v != null);
+    sosRaw[t.team] = oppWins.length ? oppWins.reduce((a, b) => a + b, 0) : null;
+  }
+
+  // Rank: 1 = hardest (highest opponent win-total sum)
+  const sorted = Object.entries(sosRaw)
+    .filter(([, v]) => v != null).sort(([, a], [, b]) => b - a);
+  const sosRank = Object.fromEntries(sorted.map(([name], i) => [name, i + 1]));
+
+  if (sorted.length) {
+    const [hardName, hardVal] = sorted[0];
+    const [easyName, easyVal] = sorted[sorted.length - 1];
+    console.log(`  [sos] computed for ${sorted.length} teams | hardest: ${hardName} (${hardVal?.toFixed(1)}) | easiest: ${easyName} (${easyVal?.toFixed(1)})`);
+  }
+
+  // Apply enrichment to ALL kind:'wins' subsections across all categories
+  for (const cat of categories) {
+    for (const sub of cat.subsections) {
+      if (sub.kind !== 'wins') continue;
+      for (const t of sub.teams || []) {
+        const abbr = nameToAbbr[t.team];
+        t.sos     = sosRaw[t.team]  ?? null;
+        t.sosRank = sosRank[t.team] ?? null;
+        t.ats     = (abbr && atsSummary[abbr]) ? atsSummary[abbr] : null;
+      }
+    }
+  }
 }
 
 // ── Build the category model ─────────────────────────────────────────────────
@@ -493,26 +590,130 @@ function valueSpotSourceLinks(market, team, notes = [], signals = []) {
   return links.slice(0, 3);
 }
 
+const SPREAD_THRESHOLD    = 200; // min American-odds gap for outright futures (SB/conf/div/playoffs)
+const WINS_OU_THRESHOLD   = 10;  // min American-odds gap for win-total O/U prices (tight market)
+const BOOK_SHORT = { betonline: 'BOL', bookmaker: 'BKR', betus: 'BTU', draftkings: 'DK', fanduel: 'FD', betmgm: 'MGM', caesars: 'CZR' };
+
+// Strict expert signal match: team_or_market must contain the team's last word (nickname)
+function expertSignalsForTeam(team, signals = []) {
+  const nick = String(team || '').toLowerCase().split(' ').at(-1);
+  return signals
+    .filter((s) => {
+      const t = String(s.team_or_market || '').toLowerCase();
+      return nick && t.includes(nick);
+    })
+    .slice(0, 4);
+}
+
 function buildValueSpots(grouped, notes = [], signals = []) {
-  const spots = [];
+  const divSpots = [], spreadSpots = [], winsOuCards = [];
+  const PREF_ARR = ['betonline', 'bookmaker', 'betus'];
+
   for (const [mt, mm] of grouped.entries()) {
+    if (mt === 'wins') continue; // handled separately below with O/U logic
     for (const t of buildMarketSummary(mm)) {
+      const market = MARKET_LABELS[mt] || mt;
+
+      // Type 1: sharp/public divergence (requires public book data in DB)
       if (t.divergence != null && Math.abs(t.divergence) >= DIVERGENCE_THRESHOLD) {
-        const market = MARKET_LABELS[mt] || mt;
-        spots.push({
-          market,
-          team: t.team,
+        divSpots.push({
+          spotType: 'divergence', market, team: t.team,
           divergence: t.divergence,
-          sharpImplied: t.sharpImplied,
-          publicImplied: t.publicImplied,
-          currentBooks: t.allBooks || {},
-          openingBooks: t.openingBooks || {},
-          sourceLinks: valueSpotSourceLinks(market, t.team, notes, signals),
+          sharpImplied: t.sharpImplied, publicImplied: t.publicImplied,
+          currentBooks: t.allBooks || {}, openingBooks: t.openingBooks || {},
+          expertSignals: expertSignalsForTeam(t.team, signals),
         });
+      }
+
+      // Type 2: inter-sharp-book price spread (works with BOL/BKR/BTU only)
+      const vals = PREF_ARR.map((b) => ({ b, v: t.allBooks?.[b] })).filter((x) => x.v != null);
+      if (vals.length >= 2) {
+        const maxE = vals.reduce((a, x) => x.v > a.v ? x : a);
+        const minE = vals.reduce((a, x) => x.v < a.v ? x : a);
+        const spread = maxE.v - minE.v;
+        if (spread >= SPREAD_THRESHOLD) {
+          spreadSpots.push({
+            spotType: 'spread', market, team: t.team,
+            bestBook: maxE.b, worstBook: minE.b,
+            bestOdds: maxE.v, worstOdds: minE.v, spread,
+            currentBooks: t.allBooks || {}, openingBooks: t.openingBooks || {},
+            expertSignals: expertSignalsForTeam(t.team, signals),
+          });
+        }
       }
     }
   }
-  return spots.sort((a, b) => Math.abs(b.divergence) - Math.abs(a.divergence)).slice(0, 20);
+
+  // Type 3: Win total O/U — one card per team, line + over + under in one view
+  const winsMap = grouped.get('wins');
+  if (winsMap) {
+    for (const [team, bb] of winsMap.entries()) {
+      const latest = winConsensusOf(bb, pickLatest);
+      if (!latest) continue;
+      const { overByBook = {}, underByBook = {}, byBook = {}, line } = latest;
+
+      // Detect per-book line disagreement
+      const lineVals = PREF_ARR.map((b) => ({ b, v: byBook[b] })).filter((x) => x.v != null);
+      const uniqueLines = [...new Set(lineVals.map((x) => x.v))];
+      const lineNote = uniqueLines.length > 1
+        ? PREF_ARR.filter((b) => byBook[b] != null).map((b) => (BOOK_SHORT[b] || b) + ' ' + byBook[b]).join(' / ')
+        : null;
+
+      // Over prices
+      const overVals = PREF_ARR.map((b) => ({ b, v: overByBook[b] })).filter((x) => x.v != null);
+      const overBest = overVals.length >= 2 ? overVals.reduce((a, x) => x.v > a.v ? x : a) : null;
+      const overWorst = overVals.length >= 2 ? overVals.reduce((a, x) => x.v < a.v ? x : a) : null;
+      const overSpread = overBest && overWorst ? overBest.v - overWorst.v : 0;
+
+      // Under prices
+      const underVals = PREF_ARR.map((b) => ({ b, v: underByBook[b] })).filter((x) => x.v != null);
+      const underBest = underVals.length >= 2 ? underVals.reduce((a, x) => x.v > a.v ? x : a) : null;
+      const underWorst = underVals.length >= 2 ? underVals.reduce((a, x) => x.v < a.v ? x : a) : null;
+      const underSpread = underBest && underWorst ? underBest.v - underWorst.v : 0;
+
+      // Only include if there's at least one meaningful price gap or a line discrepancy
+      if (overSpread < WINS_OU_THRESHOLD && underSpread < WINS_OU_THRESHOLD && !lineNote) continue;
+
+      winsOuCards.push({
+        spotType: 'wins_ou', team, line,
+        lineNote,
+        overPrices: overVals,   // [{b, v}] for all books
+        underPrices: underVals,
+        overBest, overWorst, overSpread,
+        underBest, underWorst, underSpread,
+        expertSignals: expertSignalsForTeam(team, signals),
+      });
+    }
+  }
+  winsOuCards.sort((a, b) => Math.max(b.overSpread, b.underSpread) - Math.max(a.overSpread, a.underSpread));
+
+  divSpots.sort((a, b) => Math.abs(b.divergence) - Math.abs(a.divergence));
+
+  // Group spread spots by team — one card per team, all markets listed inside
+  const spreadByTeam = new Map();
+  for (const s of spreadSpots) {
+    if (!spreadByTeam.has(s.team)) {
+      spreadByTeam.set(s.team, {
+        spotType: 'spread', team: s.team,
+        markets: [],
+        sourceLinks: s.sourceLinks, // use first match's links
+      });
+    }
+    spreadByTeam.get(s.team).markets.push({
+      market: s.market,
+      bestBook: s.bestBook, worstBook: s.worstBook,
+      bestOdds: s.bestOdds, worstOdds: s.worstOdds,
+      spread: s.spread,
+    });
+  }
+  // Within each card: sort markets by spread desc; card sort by largest single-market spread
+  const mergedSpread = [...spreadByTeam.values()].map((card) => {
+    card.markets.sort((a, b) => b.spread - a.spread);
+    card.maxSpread = card.markets[0].spread;
+    return card;
+  }).sort((a, b) => b.maxSpread - a.maxSpread);
+
+  return [...divSpots, ...mergedSpread, ...winsOuCards].slice(0, 25);
 }
 
 // ── Expert grouping ──────────────────────────────────────────────────────────
@@ -571,16 +772,81 @@ async function callClaude(prompt) {
 }
 function deterministicVerdict(cat, movers, spots) {
   if (!cat.present) return cat.note || 'No market data available in the current window.';
-  const top = cat.subsections[0]?.teams?.[0];
-  const catMovers = movers.filter((m) => m.market.toLowerCase().includes(cat.label.split(' ')[0].toLowerCase())).slice(0, 2);
-  const catSpots = spots.filter((s) => s.market.toLowerCase().includes(cat.label.split(' ')[0].toLowerCase())).slice(0, 2);
+  const teams = cat.subsections.flatMap((s) => s.teams || []);
+  if (!teams.length) return 'Market present but no team data loaded.';
+  const top = teams[0];
+  const PREF = ['betonline', 'bookmaker', 'betus'];
+  const kw = cat.label.split(' ')[0].toLowerCase();
   const bits = [];
-  if (top && cat.subsections[0]?.kind === 'wins') bits.push(`Highest projected: ${top.team} ${top.line.toFixed(1)} wins (O ${fmtOdds(top.over)} / U ${fmtOdds(top.under)}).`);
-  else if (top) bits.push(`Consensus favorite: ${top.team} at ${fmtPct(top.consensus)} (${fmtOdds(impliedToAmerican(top.consensus))}).`);
-  if (catMovers.length) bits.push(`Notable move: ${catMovers.map((m) => `${m.team} ${fmtDelta(m.delta)}`).join(', ')}.`);
-  if (catSpots.length) bits.push(`Sharp/public gap: ${catSpots.map((s) => `${s.team} ${fmtDelta(s.divergence)}`).join(', ')}.`);
-  if (cat.source === 'proxy') bits.push('(Proxy ranking — treat as directional until the dedicated market opens.)');
-  return bits.join(' ') || 'Market present; no standout movement or divergence in window.';
+
+  // ── Lead: favorite + close contender ──────────────────────────────────────
+  if (cat.subsections[0]?.kind === 'wins') {
+    const bot = teams[teams.length - 1];
+    bits.push(`Win total leader: ${top.team} ${top.line.toFixed(1)} (O ${fmtOdds(top.over)} / U ${fmtOdds(top.under)}).`);
+    if (bot && bot.team !== top.team) bits.push(`Floor: ${bot.team} ${bot.line.toFixed(1)} (O ${fmtOdds(bot.over)} / U ${fmtOdds(bot.under)}).`);
+
+    // SoS angle
+    const withSos = teams.filter((t) => t.sos != null);
+    if (withSos.length >= 2) {
+      const hardest = withSos.reduce((a, t) => t.sos > a.sos ? t : a);
+      const easiest = withSos.reduce((a, t) => t.sos < a.sos ? t : a);
+      bits.push(`Schedule: ${hardest.team} faces the hardest slate (SoS #${hardest.sosRank}, ${hardest.sos.toFixed(1)} opp wins); ${easiest.team} gets the easiest (SoS #${easiest.sosRank}, ${easiest.sos.toFixed(1)}).`);
+      // Under risk: high line + hard schedule
+      const underRisk = teams.filter((t) => t.line >= 10 && t.sosRank != null && t.sosRank <= 10);
+      if (underRisk.length) bits.push(`Under risk: ${underRisk.map((t) => `${t.team} (${t.line.toFixed(1)} line, SoS #${t.sosRank})`).join(', ')} — high expectations vs tough opponents.`);
+      // Over value: modest line + easy schedule
+      const overValue = teams.filter((t) => t.line != null && t.line <= 9.5 && t.sosRank != null && t.sosRank >= 23);
+      if (overValue.length) bits.push(`Over value: ${overValue.map((t) => `${t.team} (${t.line.toFixed(1)} line, SoS #${t.sosRank})`).join(', ')} — soft slate could drive outperformance.`);
+    }
+
+    // ATS angle
+    const withAts = teams.filter((t) => t.ats?.pct != null);
+    if (withAts.length >= 2) {
+      const sorted = [...withAts].sort((a, b) => b.ats.pct - a.ats.pct);
+      const best = sorted[0], worst = sorted[sorted.length - 1];
+      bits.push(`ATS trend: ${best.team} covers ${Math.round(best.ats.pct * 100)}% (${best.ats.seasons}yr); ${worst.team} covers ${Math.round(worst.ats.pct * 100)}% — historical cover rate is a useful regression signal.`);
+      // Flag teams with strong ATS + easy schedule
+      const doublePos = withAts.filter((t) => t.ats.pct > 0.54 && t.sosRank != null && t.sosRank >= 20);
+      if (doublePos.length) bits.push(`Double positive: ${doublePos.map((t) => `${t.team} (${Math.round(t.ats.pct * 100)}% ATS, SoS #${t.sosRank})`).join(', ')} — strong cover rate on a soft schedule.`);
+    }
+  } else {
+    bits.push(`Favorite: ${top.team} at ${fmtPct(top.consensus)} implied (${fmtOdds(impliedToAmerican(top.consensus))}).`);
+    if (teams[1] && teams[1].consensus > 0.12)
+      bits.push(`Contender: ${teams[1].team} ${fmtOdds(impliedToAmerican(teams[1].consensus))}.`);
+
+    // ── Sleepers: meaningful implied prob but long odds ────────────────────
+    const sleepers = teams.filter((t) => t.consensus > 0.04 && t.consensus < 0.12 && impliedToAmerican(t.consensus) > 600);
+    if (sleepers.length)
+      bits.push(`Sleepers worth a look: ${sleepers.slice(0, 3).map((t) => `${t.team} ${fmtOdds(impliedToAmerican(t.consensus))}`).join(', ')}.`);
+
+    // ── Line movement signals ──────────────────────────────────────────────
+    const catMovers = movers.filter((m) => m.market?.toLowerCase().includes(kw)).slice(0, 2);
+    if (catMovers.length) {
+      const steam = catMovers.filter((m) => m.delta > 0);
+      const drift = catMovers.filter((m) => m.delta < 0);
+      if (steam.length) bits.push(`Shortening (sharp steam): ${steam.map((m) => `${m.team} ${fmtDelta(m.delta)}`).join(', ')}.`);
+      if (drift.length) bits.push(`Drifting (possible value): ${drift.map((m) => `${m.team} ${fmtDelta(m.delta)}`).join(', ')}.`);
+    }
+
+    // ── Sharp/public divergence ────────────────────────────────────────────
+    const catSpots = spots.filter((s) => s.market?.toLowerCase().includes(kw)).slice(0, 2);
+    if (catSpots.length)
+      bits.push(`Sharp edge: ${catSpots.map((s) => `${s.team} ${fmtDelta(s.divergence)} sharp/public gap`).join(', ')}.`);
+  }
+
+  // ── Price-shopping callout (gap > 500 pts between books) ──────────────────
+  const shopable = teams.filter((t) => {
+    const vals = PREF.map((b) => t.allBooks?.[b]).filter((v) => v != null);
+    return vals.length >= 2 && Math.max(...vals) - Math.min(...vals) > 500;
+  });
+  if (shopable.length) {
+    const ex = shopable[0];
+    const vals = PREF.map((b) => ex.allBooks?.[b]).filter((v) => v != null);
+    bits.push(`Shop lines: ${ex.team} ranges ${fmtOdds(Math.min(...vals))}–${fmtOdds(Math.max(...vals))} across sharp books.`);
+  }
+
+  if (cat.source === 'proxy') bits.push('Proxy ranking — treat as directional until the dedicated market opens.');
+  return bits.join(' ') || 'Market present; no standout signals in current window.';
 }
 async function buildNarratives(cats, expertGroups, movers, spots) {
   const out = {};
@@ -724,7 +990,6 @@ function renderHtml(model) {
 
   // Preferred books (CA-legal offshore); DK/FD retained for proxy reference only
   const PREF_BOOKS = ['betonline', 'bookmaker', 'betus'];
-  const BOOK_SHORT = { betonline: 'BOL', bookmaker: 'BKR', betus: 'BTU', draftkings: 'DK', fanduel: 'FD', betmgm: 'MGM', caesars: 'CZR' };
 
   // Best odds from preferred books: highest American odds = best payout for bettor
   const bestPref = (booksObj) => {
@@ -748,7 +1013,8 @@ function renderHtml(model) {
   // Delta chip — string concat (avoids nested backtick issues)
   const delt = (d, fmtFn) => {
     if (d == null) return '<span class="na">—</span>';
-    const cls = d >= 0 ? 'up' : 'dn';
+    const isZero = Math.abs(d) < 0.001;
+    const cls = isZero ? 'zero' : d >= 0 ? 'up' : 'dn';
     const arrow = d >= 0 ? '▲' : '▼';
     return '<span class="delt ' + cls + '">' + arrow + ' ' + fmtFn(d) + '</span>';
   };
@@ -773,59 +1039,146 @@ function renderHtml(model) {
   }[state] || '');
 
   // ── Odds tables ──────────────────────────────────────────────────────────────
-  // Win totals: SoS placeholder column + collapse after collapseAfter teams
-  const winsTable = (teams) => {
-    const thead = '<thead><tr><th>Team</th><th colspan="2">Win Total</th><th>Over</th><th>Under</th><th>Δ</th><th>SoS</th></tr></thead>';
-    const mkRow = (t) => '<tr>' +
-      '<td class="tm">' + esc(t.team) + '</td>' +
-      '<td class="mono big-line">' + (t.line != null ? t.line.toFixed(1) : '—') + '</td>' +
-      '<td class="line-bar-cell"><div class="line-bar" style="width:' + Math.min(Math.round(((t.line || 0) / 17) * 100), 100) + '%"></div></td>' +
-      '<td class="mono">' + fmtOdds(t.over) + '</td>' +
-      '<td class="mono">' + fmtOdds(t.under) + '</td>' +
-      '<td>' + deltaLine(t.movement) + '</td>' +
-      '<td class="sos-cell"><span class="sos-na">—</span></td>' +
-      '</tr>';
-    return '<div class="tbl-wrap"><table>' + thead + '<tbody>' + teams.map(mkRow).join('') + '</tbody></table></div>';
+  // Win totals: SoS placeholder column + optional row truncation
+  const winsTable = (teams, collapseAfter = 0) => {
+    const thead =
+      '<thead>' +
+      '<tr>' +
+        '<th rowspan="2">Team</th>' +
+        '<th rowspan="2" colspan="2">Line</th>' +
+        '<th colspan="3" style="text-align:center;padding-bottom:3px;border-bottom:none">Over</th>' +
+        '<th colspan="3" style="text-align:center;padding-bottom:3px;border-bottom:none">Under</th>' +
+        '<th rowspan="2">Δ</th>' +
+        '<th rowspan="2" title="Strength of Schedule — rank by sum of opponents projected win totals (1=hardest, 32=easiest). Tooltip shows raw opp-wins sum.">SoS</th>' +
+        '<th rowspan="2" title="ATS cover rate over last 4 seasons (2022–2025).">ATS%</th>' +
+      '</tr>' +
+      '<tr style="background:var(--s3)">' +
+        '<th style="font-size:10px;padding:3px 8px">BOL</th><th style="font-size:10px;padding:3px 8px">BKR</th><th style="font-size:10px;padding:3px 8px">BTU</th>' +
+        '<th style="font-size:10px;padding:3px 8px">BOL</th><th style="font-size:10px;padding:3px 8px">BKR</th><th style="font-size:10px;padding:3px 8px">BTU</th>' +
+      '</tr>' +
+      '</thead>';
+
+    const mkRow = (t, idx) => {
+      const hiddenCls = (collapseAfter > 0 && idx >= collapseAfter) ? ' class="hidden-row"' : '';
+
+      // Best Over: highest American odds across BOL/BKR/BTU
+      const overVals = PREF_BOOKS.map((b) => ({ b, v: t.overByBook?.[b] })).filter((x) => x.v != null);
+      const bestOverBook = overVals.length >= 2 ? overVals.reduce((a, x) => x.v > a.v ? x : a).b : null;
+
+      // Best Under: highest American odds across BOL/BKR/BTU
+      const underVals = PREF_BOOKS.map((b) => ({ b, v: t.underByBook?.[b] })).filter((x) => x.v != null);
+      const bestUnderBook = underVals.length >= 2 ? underVals.reduce((a, x) => x.v > a.v ? x : a).b : null;
+
+      const ouCell = (side, book) => {
+        const v = side === 'over' ? t.overByBook?.[book] : t.underByBook?.[book];
+        const isBest = book === (side === 'over' ? bestOverBook : bestUnderBook);
+        return v != null
+          ? '<td class="mono' + (isBest ? ' disc-hi-max' : '') + '">' + fmtOdds(v) + '</td>'
+          : '<td class="na mono">—</td>';
+      };
+
+      // SoS cell
+      const sosCell = t.sosRank != null
+        ? (() => {
+            const rank = t.sosRank;
+            const cls  = rank <= 8 ? 'color:var(--red)' : rank >= 25 ? 'color:var(--green)' : 'color:var(--tx2)';
+            const lbl  = rank <= 8 ? '🔴' : rank >= 25 ? '🟢' : '';
+            return '<td class="sos-cell" title="Opp projected wins: ' + (t.sos?.toFixed(1) || '?') + '"><span style="' + cls + ';font-weight:600">' + lbl + ' #' + rank + '</span></td>';
+          })()
+        : '<td class="sos-cell"><span class="sos-na">—</span></td>';
+
+      // ATS% cell
+      const atsCell = t.ats?.pct != null
+        ? (() => {
+            const pct = t.ats.pct;
+            const col = pct > 0.55 ? 'var(--green)' : pct < 0.45 ? 'var(--red)' : 'var(--tx2)';
+            const fw  = (pct > 0.55 || pct < 0.45) ? '700' : '400';
+            return '<td style="color:' + col + ';font-weight:' + fw + ';white-space:nowrap">' +
+              Math.round(pct * 100) + '% <span style="font-size:10px;color:var(--tx3)">(' + t.ats.seasons + 'yr)</span></td>';
+          })()
+        : '<td class="na">—</td>';
+
+      return '<tr' + hiddenCls + '>' +
+        '<td class="tm">' + esc(t.team) + '</td>' +
+        '<td class="mono big-line">' + (t.line != null ? t.line.toFixed(1) : '—') + '</td>' +
+        '<td class="line-bar-cell"><div class="line-bar" style="width:' + Math.min(Math.round(((t.line || 0) / 17) * 100), 100) + '%"></div></td>' +
+        ouCell('over',  'betonline') + ouCell('over',  'bookmaker') + ouCell('over',  'betus') +
+        ouCell('under', 'betonline') + ouCell('under', 'bookmaker') + ouCell('under', 'betus') +
+        '<td>' + deltaLine(t.movement) + '</td>' +
+        sosCell + atsCell +
+        '</tr>';
+    };
+
+    const rows = teams.map((t, i) => mkRow(t, i)).join('');
+    const showMore = (collapseAfter > 0 && teams.length > collapseAfter)
+      ? '<button class="show-more-btn">Show ' + (teams.length - collapseAfter) + ' more ▼</button>'
+      : '';
+    return '<div class="tbl-wrap"><table>' + thead + '<tbody>' + rows + '</tbody></table>' + showMore + '</div>';
   };
 
-  // Outright table: BOL/BKR/BTU + Best. DK/FD removed. Discrepancy highlighting when books differ >1500 pts.
-  const outrightTable = (teams, tableId = '') => {
+  // Outright table: Open | Prob | Consensus | BOL | BKR | BTU | Best | Change
+  // collapseAfter > 0 hides rows beyond that index, adds "Show N more" button.
+  // Per-cell discrepancy: amber=highest book, green=lowest book (when gap >1500 pts).
+  const outrightTable = (teams, tableId = '', collapseAfter = 0) => {
     const idAttr = tableId ? ' id="' + tableId + '"' : '';
     const thead = '<thead><tr>' +
-      '<th>Team</th>' +
-      '<th><span class="th-tip" data-tip="Implied win probability — average across all available books. Higher % = more likely to win.">Prob</span></th>' +
-      '<th><span class="th-tip" data-tip="American odds equivalent of the consensus implied probability (avg across all books). Gives you a quick odds read for the market as a whole.">Consensus</span></th>' +
-      '<th><span class="th-tip" data-tip="BetOnline odds — sharp offshore book.">BOL</span></th>' +
-      '<th><span class="th-tip" data-tip="Bookmaker odds — sharp offshore book.">BKR</span></th>' +
-      '<th><span class="th-tip" data-tip="BetUS odds — sharp offshore book.">BTU</span></th>' +
-      '<th><span class="th-tip" data-tip="Best available price across BOL/BKR/BTU. Shop here for the highest payout.">Best</span></th>' +
-      '<th><span class="th-tip" data-tip="Net change in implied probability (percentage points) since the opening snapshot. ▲ = team shortening (more favored). ▼ = drifting out.">Δ open</span></th></tr></thead>';
-    const fmtCell = (v, highlight) => {
+      '<th title="NFL team">Team</th>' +
+      '<th title="Consensus American odds at the first recorded opening snapshot">Open</th>' +
+      '<th title="Implied win probability — average across all available books. Higher % = more likely to win.">Prob</th>' +
+      '<th title="American odds equivalent of the consensus implied probability (avg across all books). Gives you a quick odds read for the market as a whole.">Consensus</th>' +
+      '<th title="BetOnline odds — sharp offshore book.">BOL</th>' +
+      '<th title="Bookmaker odds — sharp offshore book.">BKR</th>' +
+      '<th title="BetUS odds — sharp offshore book.">BTU</th>' +
+      '<th title="Best available price across BOL/BKR/BTU. Shop here for the highest payout.">Best</th>' +
+      '<th title="Net change in implied probability (percentage points) since opening snapshot. ▲ = shortening (more favored). ▼ = drifting out.">Change</th></tr></thead>';
+    const fmtCell = (v, discCls) => {
       if (v == null) return '<td class="na mono">—</td>';
       const n = typeof v === 'number' ? v : parseInt(v, 10);
       const cls = isNaN(n) ? '' : n <= -200 ? ' c-fav' : n >= 500 ? ' c-dog' : '';
-      return '<td class="mono' + cls + (highlight ? ' disc-hi' : '') + '">' + fmtOdds(v) + '</td>';
+      return '<td class="mono' + cls + (discCls ? ' ' + discCls : '') + '">' + fmtOdds(v) + '</td>';
     };
-    const mkRow = (t) => {
+    const mkRow = (t, idx) => {
       const bp = bestPref(t.allBooks || {});
       const bestCell = bp
         ? '<td class="mono best-odds"><b>' + fmtOdds(bp.odds) + '</b> <span class="book-tag">' + BOOK_SHORT[bp.book] + '</span></td>'
         : '<td class="na mono">—</td>';
-      // Flag big cross-book discrepancies (>1500 American odds pts apart among pref books with data)
+      // Per-cell discrepancy: green = highest American odds (best payout for bettor), amber = lowest (worst price)
       const prefVals = PREF_BOOKS.map((b) => t.allBooks?.[b]).filter((v) => v != null);
       const hasDisc = prefVals.length >= 2 && (Math.max(...prefVals) - Math.min(...prefVals)) > 1500;
-      return '<tr' + (hasDisc ? ' class="row-disc"' : '') + ' data-team="' + esc(t.team) + '">' +
+      const discClsMap = {};
+      if (prefVals.length >= 2) {
+        const maxVal = Math.max(...prefVals), minVal = Math.min(...prefVals);
+        for (const b of PREF_BOOKS) {
+          const v = t.allBooks?.[b];
+          if (v == null) continue;
+          if (v === maxVal) discClsMap[b] = 'disc-hi-max';          // always green = best payout
+          else if (v === minVal && hasDisc) discClsMap[b] = 'disc-hi-min'; // amber only for large gap
+        }
+      }
+      const isHidden = collapseAfter > 0 && idx >= collapseAfter;
+      const rowClasses = [isHidden ? 'hidden-row' : '', hasDisc ? 'row-disc' : ''].filter(Boolean).join(' ');
+      const openCell = t.opening != null
+        ? '<td class="mono ac">' + fmtOdds(impliedToAmerican(t.opening)) + '</td>'
+        : '<td class="na mono">—</td>';
+      return '<tr' + (rowClasses ? ' class="' + rowClasses + '"' : '') + ' data-team="' + esc(t.team) + '">' +
         '<td class="tm">' + esc(t.team) + (hasDisc ? '<span class="disc-badge" title="⚠ Large price gap between books — compare before buying">⚠</span>' : '') + '</td>' +
+        openCell +
         probBar(t.consensus) +
         '<td class="mono ac">' + fmtOdds(impliedToAmerican(t.consensus)) + '</td>' +
-        fmtCell(t.allBooks?.betonline, hasDisc) +
-        fmtCell(t.allBooks?.bookmaker, hasDisc) +
-        fmtCell(t.allBooks?.betus, hasDisc) +
+        fmtCell(t.allBooks?.betonline, discClsMap.betonline) +
+        fmtCell(t.allBooks?.bookmaker, discClsMap.bookmaker) +
+        fmtCell(t.allBooks?.betus, discClsMap.betus) +
         bestCell +
         '<td>' + deltaOdds(t.movement) + '</td>' +
         '</tr>';
     };
-    return '<div class="tbl-wrap"><table' + idAttr + '>' + thead + '<tbody>' + teams.map(mkRow).join('') + '</tbody></table></div>';
+    const rows = teams.map((t, i) => mkRow(t, i)).join('');
+    const showMore = (collapseAfter > 0 && teams.length > collapseAfter)
+      ? '<button class="show-more-btn">Show ' + (teams.length - collapseAfter) + ' more ▼</button>'
+      : '';
+    return '<div class="tbl-wrap">' +
+      '<table' + idAttr + '>' + thead + '<tbody>' + rows + '</tbody></table>' +
+      showMore + '</div>';
   };
 
   // ── Category section ─────────────────────────────────────────────────────────
@@ -857,14 +1210,17 @@ function renderHtml(model) {
       const sortedNames = [...allTeamNames].sort();
       const filterUi = '<div class="matchup-filter">' +
         '<span class="mf-lbl">Filter teams:</span>' +
-        '<input class="mf-input" id="mf-input" type="text" placeholder="Type team name(s) e.g. Lions, Ravens…" oninput="filterMatchups()">' +
+        '<div class="mf-chips" id="mf-chips">' +
+        sortedNames.map((n) => '<button class="mf-chip" data-team="' + esc(n.toLowerCase()) + '">' + esc(n) + '</button>').join('') +
+        '</div>' +
         '<span class="mf-count" id="mf-count">' + teams.length + ' matchups</span>' +
-        '<button class="mf-clear" onclick="document.getElementById(\'mf-input\').value=\'\';filterMatchups()">Clear</button>' +
+        '<button class="mf-clear" onclick="document.querySelectorAll(\'.mf-chip\').forEach(function(c){c.classList.remove(\'active\')});applyMatchupFilter()">Clear</button>' +
         '</div>';
       content = filterUi + outrightTable(teams, 'matchup-tbl');
     } else {
       content = cat.subsections.map((sub) => {
-        const tbl = sub.kind === 'wins' ? winsTable(sub.teams) : outrightTable(sub.teams);
+        const ca = (cat.id === 'superbowl') ? 10 : (cat.id === 'wins') ? 10 : 0;
+        const tbl = sub.kind === 'wins' ? winsTable(sub.teams, ca) : outrightTable(sub.teams, '', ca);
         return (cat.subsections.length > 1 ? '<h3 class="sub-head">' + esc(sub.label) + '</h3>' : '') + tbl;
       }).join('');
     }
@@ -874,8 +1230,7 @@ function renderHtml(model) {
       : '';
     const noteHtml = cat.note && cat.present ? '<div class="cat-note">' + esc(cat.note) + '</div>' : '';
     return '<section id="' + cat.id + '" class="card cat-card">' +
-      '<div class="cat-head"><h2>' + esc(cat.label) + '</h2>' + liveTag +
-      '<button class="sec-toggle" onclick="toggleSec(this)" title="Collapse section">▼</button></div>' +
+      '<div class="cat-head"><button class="sec-toggle" title="Collapse section">▼</button><h2>' + esc(cat.label) + '</h2>' + liveTag + '</div>' +
       '<div class="sec-body">' + verdictHtml + noteHtml + content + '</div></section>';
   };
 
@@ -954,39 +1309,165 @@ function renderHtml(model) {
       '</div>';
 
   // ── Value spots ──────────────────────────────────────────────────────────────
+  // Map a market label to a filter category key
+  function spotMarketCat(mkt) {
+    const m = (mkt || '').toLowerCase();
+    if (m.includes('super bowl')) return 'superbowl';
+    if (m.includes('championship') || m.includes('conference')) return 'conference';
+    if (/\b(afc|nfc) (east|west|north|south)\b/.test(m) || m.includes('division')) return 'division';
+    if (m.includes('win total') || m.includes('total wins') || m.includes('most wins') || m.includes('least wins')) return 'wins';
+    if (m.includes('playoff')) return 'playoffs';
+    return 'other';
+  }
+  const SPOT_CAT_LABEL = { superbowl: 'Super Bowl', conference: 'Conference', division: 'Division', wins: 'Win Total', playoffs: 'Playoffs', other: 'Other' };
+  const SPOT_CAT_ORDER = ['superbowl', 'conference', 'division', 'wins', 'playoffs', 'other'];
+
+  // Annotate each spot with its categories
+  const spotsTagged = model.valueSpots.map((s) => {
+    let cats;
+    if (s.spotType === 'wins_ou') {
+      cats = ['wins'];
+    } else if (s.spotType === 'spread') {
+      cats = [...new Set((s.markets || []).map((m) => spotMarketCat(m.market)))];
+    } else {
+      cats = [spotMarketCat(s.market || '')];
+    }
+    return { ...s, _cats: cats };
+  });
+
+  // Count per category for filter badge
+  const catCounts = {};
+  for (const s of spotsTagged) for (const c of s._cats) catCounts[c] = (catCounts[c] || 0) + 1;
+
+  const filterBar = '<div class="spots-filters" id="spots-filters">' +
+    '<button class="spot-filter active" data-filter="all">All <span class="sfc">' + spotsTagged.length + '</span></button>' +
+    SPOT_CAT_ORDER.filter((c) => catCounts[c]).map((c) =>
+      '<button class="spot-filter" data-filter="' + c + '">' + SPOT_CAT_LABEL[c] + ' <span class="sfc">' + catCounts[c] + '</span></button>'
+    ).join('') +
+    '</div>';
+
+  // Shared: render expert signals as bullet points
+  function expertBullets(signals) {
+    if (!signals || !signals.length) return '';
+    const items = signals.map((sig) => {
+      const byline = sig.author
+        ? esc(sig.author) + ' <span class="sig-outlet">(' + esc(sig.source || '') + ')</span>'
+        : esc(sig.source || '');
+      const lean = sig.lean ? ' → <b>' + esc(sig.lean) + '</b>' : '';
+      const why  = sig.rationale ? '<span class="sig-rationale"> — ' + esc(sig.rationale) + '</span>' : '';
+      return '<li><span class="sig-source">' + byline + '</span>' + lean + why + '</li>';
+    }).join('');
+    return '<div class="spot-experts"><div class="spot-experts-lbl">Expert takes</div><ul class="sig-list">' + items + '</ul></div>';
+  }
+
   const valueHtml = model.valueSpots.length
-    ? '<div class="spots-grid">' + model.valueSpots.map((s) => {
-        const labelCls = s.divergence > 0 ? 'sharp' : 'overbet';
-        const lbl = s.divergence > 0 ? '🔪 Sharp Lean' : '🚨 Overbet';
-        const chipsNow  = (s.currentBooks  && Object.keys(s.currentBooks).length)  ? bookOddsChips(s.currentBooks)  : '';
-        const chipsOpen = (s.openingBooks  && Object.keys(s.openingBooks).length)   ? bookOddsChips(s.openingBooks)  : '';
-        const explain = s.divergence > 0
-          ? 'Preferred sharp books imply a higher win probability than public books. That can point to sharper support or a stale public price.'
-          : 'Public books imply a higher win probability than preferred sharp books. Treat this as possible public tax or an overbet favorite.';
-        const src = (s.sourceLinks || []).length
-          ? '<div class="spot-sources"><span>Context</span>' + s.sourceLinks.map((l) =>
-              '<a href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(l.source || 'Source') + ': ' + esc(l.title || 'Article') + '</a>'
-            ).join('') + '</div>'
-          : '<div class="spot-sources no-src"><span>Context</span><em>Odds-derived signal; no matching expert article linked in this window.</em></div>';
-        return '<div class="spot-card ' + labelCls + '">' +
-          '<div class="spot-label">' + lbl + '</div>' +
-          '<div class="spot-team">' + esc(s.team) + '</div>' +
-          '<div class="spot-market">' + esc(s.market) + '</div>' +
-          '<div class="spot-nums">' +
-            '<span>Sharp <b>' + fmtPct(s.sharpImplied) + '</b></span>' +
-            '<span class="spot-gap">' + fmtDelta(s.divergence) + '</span>' +
-            '<span>Public <b>' + fmtPct(s.publicImplied) + '</b></span>' +
-          '</div>' +
-          '<div class="spot-explain">' + esc(explain) + '</div>' +
-          (chipsNow  ? '<div class="spot-chips"><span class="spot-chips-lbl">Now</span>'  + chipsNow  + '</div>' : '') +
-          (chipsOpen ? '<div class="spot-chips"><span class="spot-chips-lbl">Open</span>' + chipsOpen + '</div>' : '') +
-          src +
+    ? filterBar + '<div class="spots-list" id="spots-list">' + spotsTagged.map((s) => {
+        const catsAttr = s._cats.join(' ');
+        const catTags  = s._cats.map((c) => '<span class="spot-cat-tag ' + c + '">' + (SPOT_CAT_LABEL[c] || c) + '</span>').join('');
+        const experts  = expertBullets(s.expertSignals);
+
+        // ── wins_ou card ──────────────────────────────────────────────────────
+        if (s.spotType === 'wins_ou') {
+          const lineLabel = s.lineNote ? s.lineNote : (s.line != null ? s.line : '—');
+          const mkPriceRow = (side, vals, best, worst) => {
+            if (!vals || vals.length < 1) return '';
+            const allCols = vals.map((x) => {
+              const isBest = best && x.b === best.b;
+              const cls = isBest ? ' class="wou-best"' : '';
+              return '<td' + cls + '>' + fmtOdds(x.v) + '</td>';
+            }).join('');
+            return '<tr><td class="wou-side">' + side + '</td>' + allCols + '</tr>';
+          };
+          const bookHdrs = (s.overPrices || s.underPrices || []).length > 0
+            ? (s.overPrices.length ? s.overPrices : s.underPrices).map((x) => '<th>' + (BOOK_SHORT[x.b] || x.b) + '</th>').join('')
+            : '';
+          const overRow  = mkPriceRow('Over',  s.overPrices,  s.overBest,  s.overWorst);
+          const underRow = mkPriceRow('Under', s.underPrices, s.underBest, s.underWorst);
+          const lineNote = typeof s.lineNote === 'string'
+            ? '<div class="wou-line-note">⚠️ Line mismatch: ' + esc(s.lineNote) + '</div>' : '';
+          return '<div class="spot-card wins-ou" data-cats="' + catsAttr + '">' +
+            '<div class="spot-card-head">' +
+              '<button class="spot-toggle" title="Expand">▶</button>' +
+              '<div class="spot-card-meta">' +
+                '<span class="spot-team">' + esc(s.team) + '</span>' +
+                '<span class="spot-cat-tags">' + catTags + '</span>' +
+              '</div>' +
+              '<span class="spot-card-count">Win Total ' + esc(String(s.line ?? '—')) + '</span>' +
+            '</div>' +
+            '<div class="spot-card-body" style="display:none">' +
+              lineNote +
+              '<table class="wou-tbl"><thead><tr><th></th>' + bookHdrs + '</tr></thead><tbody>' + overRow + underRow + '</tbody></table>' +
+              '<div class="spot-explain">Green = best price. Buy the highlighted side/book. ' + (s.lineNote ? 'Line differs by book — verify before betting.' : '') + '</div>' +
+              experts +
+            '</div>' +
           '</div>';
+        }
+
+        // ── spread card (outrights) ───────────────────────────────────────────
+        if (s.spotType === 'spread') {
+          const n = s.markets?.length || 1;
+          const mktRows = (s.markets || []).map((m) => {
+            const bLbl = BOOK_SHORT[m.bestBook]  || m.bestBook;
+            const wLbl = BOOK_SHORT[m.worstBook] || m.worstBook;
+            return '<div class="spread-mkt-row">' +
+              '<span class="spread-mkt-name">' + esc(m.market) + '</span>' +
+              '<span class="spread-mkt-action">' + bLbl + ' <b>' + fmtOdds(m.bestOdds) + '</b></span>' +
+              '<span class="spread-mkt-ctx">(+' + m.spread + ' vs ' + wLbl + ')</span>' +
+            '</div>';
+          }).join('');
+          return '<div class="spot-card spread" data-cats="' + catsAttr + '">' +
+            '<div class="spot-card-head">' +
+              '<button class="spot-toggle" title="Expand">▶</button>' +
+              '<div class="spot-card-meta">' +
+                '<span class="spot-team">' + esc(s.team) + '</span>' +
+                '<span class="spot-cat-tags">' + catTags + '</span>' +
+              '</div>' +
+              '<span class="spot-card-count">' + n + ' market' + (n > 1 ? 's' : '') + '</span>' +
+            '</div>' +
+            '<div class="spot-card-body" style="display:none">' +
+              '<div class="spot-label">💰 Shop This Line</div>' +
+              '<div class="spread-mkts">' + mktRows + '</div>' +
+              '<div class="spot-explain">Buy the best-priced book before lines converge.</div>' +
+              experts +
+            '</div>' +
+          '</div>';
+        }
+
+        // ── divergence card (sharp vs public) ─────────────────────────────────
+        const chipsNow  = (s.currentBooks && Object.keys(s.currentBooks).length) ? bookOddsChips(s.currentBooks) : '';
+        const chipsOpen = (s.openingBooks && Object.keys(s.openingBooks).length)  ? bookOddsChips(s.openingBooks) : '';
+        const labelCls = s.divergence > 0 ? 'sharp' : 'overbet';
+        const lbl      = s.divergence > 0 ? '🔪 Sharp Lean' : '🚨 Overbet';
+        const explain  = s.divergence > 0
+          ? 'Sharp books imply a higher win probability than public books — possible sharp support or stale public price.'
+          : 'Public books imply higher probability than sharps — possible public tax or overbet favorite.';
+        return '<div class="spot-card ' + labelCls + '" data-cats="' + catsAttr + '">' +
+          '<div class="spot-card-head">' +
+            '<button class="spot-toggle" title="Expand">▶</button>' +
+            '<div class="spot-card-meta">' +
+              '<span class="spot-team">' + esc(s.team) + '</span>' +
+              '<span class="spot-cat-tags">' + catTags + '</span>' +
+            '</div>' +
+            '<span class="spot-card-count">' + lbl + '</span>' +
+          '</div>' +
+          '<div class="spot-card-body" style="display:none">' +
+            '<div class="spot-market">' + esc(s.market) + '</div>' +
+            '<div class="spot-nums">' +
+              '<span>Sharp <b>' + fmtPct(s.sharpImplied) + '</b></span>' +
+              '<span class="spot-gap">' + fmtDelta(s.divergence) + '</span>' +
+              '<span>Public <b>' + fmtPct(s.publicImplied) + '</b></span>' +
+            '</div>' +
+            '<div class="spot-explain">' + esc(explain) + '</div>' +
+            (chipsNow  ? '<div class="spot-chips"><span class="spot-chips-lbl">Now</span>'  + chipsNow  + '</div>' : '') +
+            (chipsOpen ? '<div class="spot-chips"><span class="spot-chips-lbl">Open</span>' + chipsOpen + '</div>' : '') +
+            experts +
+          '</div>' +
+        '</div>';
       }).join('') + '</div>'
     : '<div class="empty-state">' +
       '<div class="es-icon">🎯</div>' +
-      '<div class="es-head">No divergence above threshold</div>' +
-      '<div class="es-sub">Value spots fire when sharp-book implied probability exceeds public-book by ≥' + Math.round(DIVERGENCE_THRESHOLD * 100) + 'pp. Public books (DK/FD/BetMGM) currently only price the Super Bowl market — conference/division/playoffs value spots will appear once those markets open pre-season.</div>' +
+      '<div class="es-head">No value spots above threshold</div>' +
+      '<div class="es-sub">Spots fire when sharp books diverge ≥' + Math.round(DIVERGENCE_THRESHOLD * 100) + 'pp vs public books; when outright prices (SB/conf/div/playoffs) spread ≥' + SPREAD_THRESHOLD + ' pts across BOL/BKR/BTU; or when win-total O/U prices spread ≥' + WINS_OU_THRESHOLD + ' pts.</div>' +
       '</div>';
 
   // ── Expert signals ───────────────────────────────────────────────────────────
@@ -1085,12 +1566,12 @@ a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
 .wrap{max-width:1100px;margin:0 auto;padding:0 20px 100px}
 /* ── Cards ──────────────────────────────────────────────────────────────────── */
 .card{background:var(--s1);border:1px solid var(--bd);border-radius:14px;padding:20px 22px;margin:14px 0}
-.card-head{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.card-head{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-left:28px;position:relative}
 .card-head h2{font-size:17px;font-weight:700}
-.cat-head .sec-toggle,.card-head .sec-toggle{margin-left:auto}
+.cat-head .sec-toggle,.card-head .sec-toggle{position:absolute;left:-22px;top:50%;transform:translateY(-50%);flex-shrink:0;border-radius:0 6px 6px 0;border-left:none}
 /* ── Category cards ─────────────────────────────────────────────────────────── */
 .cat-card{border-left:3px solid var(--ac)}
-.cat-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.cat-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-left:28px;position:relative}
 .cat-head h2{font-size:17px;font-weight:700}
 .sub-head{font-size:11.5px;font-weight:600;color:var(--tx2);text-transform:uppercase;letter-spacing:.06em;margin:16px 0 6px}
 .cat-note{color:var(--amber);font-size:12.5px;margin-bottom:10px;line-height:1.5}
@@ -1116,7 +1597,7 @@ th.muted{opacity:.5}
 .c-fav{color:var(--green)}
 .c-dog{color:var(--amber)}
 /* ── Best odds cell ─────────────────────────────────────────────────────────── */
-.best-odds{color:var(--amber);font-weight:700}
+.best-odds{color:var(--green);font-weight:700}
 .book-tag{font-size:10px;font-weight:600;color:var(--tx3);vertical-align:middle;margin-left:3px}
 /* ── Probability bar ────────────────────────────────────────────────────────── */
 .pbar{display:flex;align-items:center;gap:8px;min-width:110px}
@@ -1161,10 +1642,57 @@ th.muted{opacity:.5}
 .mc-meta{font-size:11px;color:var(--tx3);font-variant-numeric:tabular-nums;margin-top:4px}
 /* ── Sparkline SVG (table) ─────────────────────────────────────────────────── */
 .spark{line-height:0}
+/* ── Value spot filters ─────────────────────────────────────────────────────── */
+.spots-filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.spot-filter{background:var(--s2);border:1px solid var(--bd);border-radius:20px;color:var(--tx2);font-size:12px;font-weight:600;cursor:pointer;padding:4px 12px;transition:all .15s}
+.spot-filter:hover{background:var(--s3);color:var(--tx)}
+.spot-filter.active{background:var(--ac);border-color:var(--ac);color:#fff}
+.sfc{font-weight:400;opacity:.8;margin-left:3px}
 /* ── Value spot cards ───────────────────────────────────────────────────────── */
-.spots-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
-.spot-card{background:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:14px 16px}
-.spot-card.sharp{border-left:3px solid var(--green)}.spot-card.overbet{border-left:3px solid var(--red)}
+.spots-list{display:flex;flex-direction:column;gap:6px}
+.spot-card{background:var(--s2);border:1px solid var(--bd);border-radius:10px;overflow:hidden}
+.spot-card.sharp{border-left:3px solid var(--green)}.spot-card.overbet{border-left:3px solid var(--red)}.spot-card.spread{border-left:3px solid var(--ac)}
+/* card header row */
+.spot-card-head{display:flex;align-items:center;gap:10px;padding:11px 14px;cursor:pointer;user-select:none}
+.spot-card-head:hover{background:var(--s3)}
+.spot-toggle{background:none;border:none;color:var(--tx3);font-size:11px;cursor:pointer;padding:0;flex-shrink:0;width:16px;text-align:center;transition:transform .15s}
+.spot-card.open>.spot-card-head>.spot-toggle{transform:rotate(90deg)}
+.spot-card-meta{display:flex;align-items:center;gap:8px;flex:1;min-width:0}
+.spot-cat-tags{display:flex;gap:4px;flex-wrap:wrap}
+.spot-cat-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:2px 7px;border-radius:10px;background:var(--s3);color:var(--tx2)}
+.spot-cat-tag.superbowl{color:var(--amber);background:rgba(245,158,11,.12)}
+.spot-cat-tag.conference{color:#a78bfa;background:rgba(167,139,250,.12)}
+.spot-cat-tag.division{color:var(--ac);background:rgba(59,130,246,.12)}
+.spot-cat-tag.wins{color:var(--green);background:rgba(34,197,94,.10)}
+.spot-cat-tag.playoffs{color:var(--tx2);background:var(--s3)}
+.spot-card-count{font-size:11px;color:var(--tx3);white-space:nowrap;flex-shrink:0}
+/* card body (collapsible) */
+.spot-card-body{padding:10px 14px 14px 40px;border-top:1px solid var(--bd)}
+.spot-card.spread .spot-label{color:var(--ac)}
+/* wins O/U table */
+.spot-card.wins-ou{border-left:3px solid var(--green)}
+.wou-tbl{width:100%;border-collapse:collapse;font-size:12.5px;margin:8px 0 6px}
+.wou-tbl th{color:var(--tx3);font-weight:600;font-size:11px;text-transform:uppercase;padding:3px 8px;text-align:right;border-bottom:1px solid var(--bd)}
+.wou-tbl th:first-child{text-align:left}
+.wou-tbl td{padding:5px 8px;text-align:right;font-weight:600;border-bottom:1px solid var(--bd)}
+.wou-tbl td:first-child{text-align:left}
+.wou-side{color:var(--tx2);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.wou-best{color:var(--green) !important;background:rgba(34,197,94,.10);border-radius:4px}
+.wou-line-note{font-size:11px;color:var(--amber);margin-bottom:6px}
+/* expert signals in value spots */
+.spot-experts{margin-top:10px;border-top:1px solid var(--bd);padding-top:8px}
+.spot-experts-lbl{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--tx3);margin-bottom:5px}
+.sig-list{margin:0;padding-left:14px;display:flex;flex-direction:column;gap:3px}
+.sig-list li{font-size:12px;color:var(--tx2);line-height:1.5}
+.sig-source{font-weight:700;color:var(--tx)}
+.sig-outlet{font-weight:400;color:var(--tx3)}
+.sig-rationale{color:var(--tx3)}
+.spread-mkts{display:flex;flex-direction:column;margin:8px 0 10px}
+.spread-mkt-row{display:flex;align-items:baseline;gap:8px;padding:6px 0;border-bottom:1px solid var(--bd)}
+.spread-mkt-row:last-child{border-bottom:none}
+.spread-mkt-name{flex:1;font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--tx3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.spread-mkt-action{color:var(--green);font-size:14px;font-weight:700;white-space:nowrap;flex-shrink:0}
+.spread-mkt-ctx{font-size:11px;color:var(--amber);white-space:nowrap;flex-shrink:0}
 .spot-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
 .spot-card.sharp .spot-label{color:var(--green)}.spot-card.overbet .spot-label{color:var(--red)}
 .spot-team{font-size:15px;font-weight:700;margin-bottom:2px}
@@ -1219,7 +1747,7 @@ th.muted{opacity:.5}
 /* ── Footer ─────────────────────────────────────────────────────────────────── */
 footer{color:var(--tx3);font-size:12px;border-top:1px solid var(--bd);margin-top:32px;padding-top:16px;line-height:1.8}
 /* ── Collapsible sections ────────────────────────────────────────────────────── */
-.sec-toggle{background:none;border:1px solid var(--bd);border-radius:6px;color:var(--tx2);font-size:11px;cursor:pointer;padding:3px 9px;margin-left:auto;transition:all .15s;flex-shrink:0}
+.sec-toggle{background:none;border:1px solid var(--bd);border-radius:6px;color:var(--tx2);font-size:11px;cursor:pointer;padding:3px 9px;transition:all .15s;flex-shrink:0}
 .sec-toggle:hover{background:var(--s3);color:var(--tx)}
 .sec-body{transition:none}
 /* ── CSS Tooltips ────────────────────────────────────────────────────────────── */
@@ -1245,6 +1773,19 @@ th .th-tip::after{left:0;transform:none}
 .row-disc{background:rgba(245,158,11,.04) !important}
 .row-disc .tm::after{content:" ⚠";font-size:10px;color:var(--amber)}
 .disc-hi{color:var(--amber) !important;font-weight:700}
+.disc-hi-max{color:var(--green) !important;font-weight:700;background:rgba(34,197,94,.10);border-radius:4px;padding:1px 4px}
+.disc-hi-min{color:var(--amber) !important;font-weight:700;background:rgba(245,158,11,.14);border-radius:4px;padding:1px 4px}
+/* ── Zero-delta orange ───────────────────────────────────────────────────────── */
+.delt.zero{color:var(--amber)}
+/* ── Row truncation (show-more) ──────────────────────────────────────────────── */
+.hidden-row{display:none !important}
+.show-more-btn{display:block;margin:6px auto 2px;background:none;border:1px solid var(--bd2);border-radius:6px;color:var(--tx3);font-size:11.5px;padding:4px 14px;cursor:pointer;transition:all .15s}
+.show-more-btn:hover{border-color:var(--ac);color:var(--ac)}
+/* ── Team chip filter ────────────────────────────────────────────────────────── */
+.mf-chips{display:flex;flex-wrap:wrap;gap:5px;flex:1}
+.mf-chip{background:var(--s3);border:1px solid var(--bd2);border-radius:20px;color:var(--tx2);font-size:11px;padding:3px 10px;cursor:pointer;transition:all .15s;white-space:nowrap}
+.mf-chip:hover{border-color:var(--bd2);color:var(--tx)}
+.mf-chip.active{background:var(--ac);border-color:var(--ac);color:#fff;font-weight:700}
 /* ── Prob bar — linear 0-100% scale, capped width ───────────────────────────── */
 .pbar{min-width:70px;max-width:100px}
 /* ── Sortable table ──────────────────────────────────────────────────────────── */
@@ -1304,24 +1845,24 @@ th.sort-col:not(.asc):not(.desc) .si::after{content:"↕"}
 <div class="wrap">
 
 <section id="movement" class="card">
-  <div class="card-head"><h2>📈 Line Movement</h2><span style="font-size:13px;color:var(--tx2)">since opening snapshot · BOL/BKR/BTU</span><button class="sec-toggle" onclick="toggleSec(this)" title="Collapse section">▼</button></div>
+  <div class="card-head"><button class="sec-toggle" title="Collapse section">▼</button><h2>📈 Line Movement</h2><span style="font-size:13px;color:var(--tx2)">since opening snapshot · BOL/BKR/BTU</span></div>
   <div class="sec-body">${movementHtml}</div>
 </section>
 
 <section id="value" class="card">
-  <div class="card-head"><h2>🎯 Value Spots</h2><span style="font-size:13px;color:var(--tx2)">sharp / public ≥ ${Math.round(DIVERGENCE_THRESHOLD * 100)}pp</span><button class="sec-toggle" onclick="toggleSec(this)" title="Collapse section">▼</button></div>
+  <div class="card-head"><button class="sec-toggle" title="Collapse section">▼</button><h2>🎯 Value Spots</h2><span style="font-size:13px;color:var(--tx2)">sharp / public ≥ ${Math.round(DIVERGENCE_THRESHOLD * 100)}pp</span></div>
   <div class="sec-body">${valueHtml}</div>
 </section>
 
 ${model.categories.map(catSection).join('')}
 
 <section id="experts" class="card">
-  <div class="card-head"><h2>🗣️ Expert Signals</h2><button class="sec-toggle" onclick="toggleSec(this)" title="Collapse section">▼</button></div>
+  <div class="card-head"><button class="sec-toggle" title="Collapse section">▼</button><h2>🗣️ Expert Signals</h2></div>
   <div class="sec-body">${expertHtml}</div>
 </section>
 
 <section id="coverage" class="card">
-  <div class="card-head"><h2>📋 Coverage Audit</h2><button class="sec-toggle" onclick="toggleSec(this)" title="Collapse section">▼</button></div>
+  <div class="card-head"><button class="sec-toggle" title="Collapse section">▼</button><h2>📋 Coverage Audit</h2></div>
   <div class="sec-body">${coverageHtml}</div>
 </section>
 
@@ -1330,61 +1871,99 @@ ${model.categories.map(catSection).join('')}
   Generated ${esc(model.generatedAt)} · Sharp books: BetOnline (BOL) · Bookmaker (BKR) · BetUS (BTU) · Public ref: DraftKings · FanDuel · narrative: ${esc(model.engine.narrative)} · Not betting advice.
 </footer>
 <script>
-// ── Collapsible sections ──────────────────────────────────────────────────────
-function toggleSec(btn) {
-  const container = btn.closest('section') || btn.closest('.card');
-  const body = container && container.querySelector('.sec-body');
-  if (!body) return;
-  const collapsed = body.style.display === 'none';
-  body.style.display = collapsed ? '' : 'none';
-  btn.textContent = collapsed ? '▼' : '▶';
-  btn.title = collapsed ? 'Collapse section' : 'Expand section';
+// ── Event delegation (covers sec-toggle, show-more-btn, mf-chip) ──────────────
+document.addEventListener('click', function(e) {
+  // Collapsible section toggle
+  var btn = e.target.closest('.sec-toggle');
+  if (btn) {
+    var container = btn.closest('section') || btn.closest('.card');
+    var body = container && container.querySelector('.sec-body');
+    if (body) {
+      var collapsed = body.style.display === 'none';
+      body.style.display = collapsed ? '' : 'none';
+      btn.textContent = collapsed ? '▼' : '▶';
+      btn.title = collapsed ? 'Collapse section' : 'Expand section';
+    }
+    return;
+  }
+  // Show more rows
+  var smBtn = e.target.closest('.show-more-btn');
+  if (smBtn) {
+    var wrap = smBtn.closest('.tbl-wrap');
+    if (wrap) wrap.querySelectorAll('.hidden-row').forEach(function(r) { r.classList.remove('hidden-row'); });
+    smBtn.remove();
+    return;
+  }
+  // Value spot card toggle
+  var stBtn = e.target.closest('.spot-toggle') || (e.target.closest('.spot-card-head') ? e.target.closest('.spot-card-head').querySelector('.spot-toggle') : null);
+  if (e.target.closest('.spot-card-head') && !e.target.closest('.spot-filter')) {
+    var card = e.target.closest('.spot-card');
+    if (card) {
+      var body = card.querySelector('.spot-card-body');
+      var tog  = card.querySelector('.spot-toggle');
+      if (body) {
+        var open = body.style.display !== 'none';
+        body.style.display = open ? 'none' : '';
+        card.classList.toggle('open', !open);
+        if (tog) { tog.textContent = open ? '▶' : '▼'; tog.title = open ? 'Expand' : 'Collapse'; }
+      }
+      return;
+    }
+  }
+  // Value spot market filter
+  var sfBtn = e.target.closest('.spot-filter');
+  if (sfBtn) {
+    document.querySelectorAll('.spot-filter').forEach(function(b) { b.classList.remove('active'); });
+    sfBtn.classList.add('active');
+    var filter = sfBtn.dataset.filter;
+    document.querySelectorAll('#spots-list .spot-card').forEach(function(card) {
+      var cats = (card.dataset.cats || '').split(' ');
+      card.style.display = (filter === 'all' || cats.includes(filter)) ? '' : 'none';
+    });
+    return;
+  }
+  // Team chip toggle
+  var chip = e.target.closest('.mf-chip');
+  if (chip) {
+    chip.classList.toggle('active');
+    applyMatchupFilter();
+    return;
+  }
+});
+
+// ── Matchup team chip filter ──────────────────────────────────────────────────
+function applyMatchupFilter() {
+  var chips = document.querySelectorAll('.mf-chip.active');
+  var count = document.getElementById('mf-count');
+  var tbl = document.getElementById('matchup-tbl');
+  if (!tbl) return;
+  var activeTeams = Array.from(chips).map(function(c) { return c.dataset.team; });
+  var visible = 0;
+  tbl.querySelectorAll('tbody tr').forEach(function(row) {
+    var team = (row.dataset.team || '').toLowerCase();
+    var show = activeTeams.length === 0 || activeTeams.some(function(t) { return team.includes(t); });
+    row.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  if (count) count.textContent = visible + ' matchup' + (visible !== 1 ? 's' : '');
 }
 
 // ── Sortable movement table ───────────────────────────────────────────────────
 function sortMoverTbl(th, colIdx) {
-  const tbl = document.getElementById('mover-rest-tbl');
+  var tbl = document.getElementById('mover-rest-tbl');
   if (!tbl) return;
-  const tbody = tbl.querySelector('tbody');
-  const rows = Array.from(tbody.querySelectorAll('tr'));
-  const asc = !th.classList.contains('asc');
-  tbl.querySelectorAll('th.sort-col').forEach((h) => h.classList.remove('asc', 'desc'));
+  var tbody = tbl.querySelector('tbody');
+  var rows = Array.from(tbody.querySelectorAll('tr'));
+  var asc = !th.classList.contains('asc');
+  tbl.querySelectorAll('th.sort-col').forEach(function(h) { h.classList.remove('asc', 'desc'); });
   th.classList.add(asc ? 'asc' : 'desc');
-  rows.sort((a, b) => {
-    const av = colIdx === 4
-      ? parseFloat(a.dataset.delta || 0)
-      : a.cells[colIdx]?.textContent?.trim() || '';
-    const bv = colIdx === 4
-      ? parseFloat(b.dataset.delta || 0)
-      : b.cells[colIdx]?.textContent?.trim() || '';
+  rows.sort(function(a, b) {
+    var av = colIdx === 4 ? parseFloat(a.dataset.delta || 0) : (a.cells[colIdx] ? a.cells[colIdx].textContent.trim() : '');
+    var bv = colIdx === 4 ? parseFloat(b.dataset.delta || 0) : (b.cells[colIdx] ? b.cells[colIdx].textContent.trim() : '');
     if (colIdx === 4) return asc ? av - bv : bv - av;
     return asc ? av.localeCompare(bv) : bv.localeCompare(av);
   });
-  rows.forEach((r) => tbody.appendChild(r));
-}
-
-// ── Matchup team filter ───────────────────────────────────────────────────────
-function filterMatchups() {
-  const input = document.getElementById('mf-input');
-  const count = document.getElementById('mf-count');
-  if (!input) return;
-  const terms = input.value.toLowerCase().split(',').map((s) => s.trim()).filter(Boolean);
-  const tbl = document.getElementById('matchup-tbl');
-  if (!tbl) return;
-  const allTbls = [tbl];
-  // Also filter the expanded details table if present
-  const detailTbl = tbl.closest('.tbl-wrap')?.nextElementSibling?.querySelector('table');
-  if (detailTbl) allTbls.push(detailTbl);
-  let visible = 0;
-  for (const t of allTbls) {
-    t.querySelectorAll('tbody tr').forEach((row) => {
-      const team = (row.dataset.team || '').toLowerCase();
-      const show = terms.length === 0 || terms.some((term) => team.includes(term));
-      row.style.display = show ? '' : 'none';
-      if (show) visible++;
-    });
-  }
-  if (count) count.textContent = visible + ' matchup' + (visible !== 1 ? 's' : '');
+  rows.forEach(function(r) { tbody.appendChild(r); });
 }
 </script>
 </body></html>`;
@@ -1480,18 +2059,25 @@ async function main() {
   console.log(`🏈 FuturesIntelReport v2 — ${reportDate} | season ${SEASON} | trigger ${TRIGGER} | sample=${SAMPLE} dry=${DRY_RUN}`);
 
   let snapshots, notes, signals, tweets, counts;
+  let enrichData = { atsSummary: {}, schedule: SCHEDULE_GAMES };
   if (SAMPLE) {
     snapshots = sampleSnapshots();
     const s = sampleIntel(); notes = s.notes; signals = s.signals; tweets = s.tweets;
     counts = { rss_article: { 'Action Network': 5, 'Sharp Football': 3, 'VSiN': 2, 'PFF': 4, 'ESPN NFL': 6 }, podcast: { 'Sharp or Square': 1, 'Even Money': 1 }, tweet: { 'Sharp X / Twitter (manual paste)': 1 } };
   } else {
     const sb = getSupabase();
-    [snapshots, notes, tweets, counts] = await Promise.all([fetchSnapshots(sb), fetchIntelNotes(sb), fetchSharpTweets(sb), fetchCoverageCounts(sb)]);
+    const [_snaps, _notes, _tweets, _counts, _ats] = await Promise.all([
+      fetchSnapshots(sb), fetchIntelNotes(sb), fetchSharpTweets(sb), fetchCoverageCounts(sb),
+      fetchAtsAndSchedule(sb),
+    ]);
+    snapshots = _snaps; notes = _notes; tweets = _tweets; counts = _counts;
+    enrichData = { atsSummary: _ats.atsSummary, schedule: SCHEDULE_GAMES };
     signals = await fetchPickSignals(sb, notes.map((n) => n.id));
   }
 
   const grouped = groupSeries(snapshots);
   const categories = buildCategoryModel(grouped);
+  enrichWinTotals(categories, enrichData);
   const movers = buildMovers(grouped);
   const expertGroups = buildExpertGroups(signals, notes, tweets);
   const valueSpots = buildValueSpots(grouped, notes, signals);
@@ -1527,4 +2113,3 @@ async function main() {
 }
 
 main().catch((e) => { console.error('[futures-intel-report-v2] Fatal:', e.message); process.exit(1); });
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
