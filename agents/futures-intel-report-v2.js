@@ -25,8 +25,6 @@
 //
 // Env:
 //   SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY   (required unless --sample)
-//   ANTHROPIC_API_KEY                         (optional — enables narrative layer)
-//   FUTURES_NARRATIVE_MODEL                   (default claude-sonnet-4-6)
 //   REPORT_LOOKBACK_DAYS  (default 7)   INTEL_LOOKBACK_DAYS (default 30)
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -65,8 +63,6 @@ const TRIGGER = argVal('--trigger', 'scheduled');
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
-const ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY;
-const NARRATIVE_MODEL = process.env.FUTURES_NARRATIVE_MODEL || 'claude-sonnet-4-6';
 
 const SIGNAL_DAYS = Number(process.env.REPORT_LOOKBACK_DAYS ?? 7);   // intel/tweets/signals recency
 const INTEL_DAYS  = Number(process.env.INTEL_LOOKBACK_DAYS ?? 30);   // articles recency
@@ -759,17 +755,7 @@ function buildCoverageAudit(counts, notes = []) {
   return { rows, summary };
 }
 
-// ── Hybrid narrative (Claude, optional) ──────────────────────────────────────
-async function callClaude(prompt) {
-  const res = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: { 'content-type': 'application/json', 'x-api-key': ANTHROPIC_KEY, 'anthropic-version': '2023-06-01' },
-    body: JSON.stringify({ model: NARRATIVE_MODEL, max_tokens: 700, messages: [{ role: 'user', content: prompt }] }),
-  });
-  if (!res.ok) { const errBody = await res.text(); throw new Error(`Anthropic HTTP ${res.status}: ${errBody}`); }
-  const j = await res.json();
-  return (j.content || []).map((c) => c.text || '').join('').trim();
-}
+
 // ── Deterministic verdict helpers ─────────────────────────────────────────────
 // Maps a cat.id to a mover's market label string (from MARKET_LABELS).
 function catMatchesMarket(catId, marketLabel) {
