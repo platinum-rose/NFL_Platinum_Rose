@@ -766,17 +766,41 @@ async function callClaude(prompt) {
     headers: { 'content-type': 'application/json', 'x-api-key': ANTHROPIC_KEY, 'anthropic-version': '2023-06-01' },
     body: JSON.stringify({ model: NARRATIVE_MODEL, max_tokens: 700, messages: [{ role: 'user', content: prompt }] }),
   });
-  if (!res.ok) throw new Error(`Anthropic HTTP ${res.status}`);
+  if (!res.ok) { const errBody = await res.text(); throw new Error(`Anthropic HTTP ${res.status}: ${errBody}`); }
   const j = await res.json();
   return (j.content || []).map((c) => c.text || '').join('').trim();
 }
-function deterministicVerdict(cat, movers, spots) {
+// ── Deterministic verdict helpers ─────────────────────────────────────────────
+// Maps a cat.id to a mover's market label string (from MARKET_LABELS).
+function catMatchesMarket(catId, marketLabel) {
+  const ml = (marketLabel || '').toLowerCase();
+  if (catId === 'superbowl' || catId === 'superbowl_matchup') return ml.includes('super bowl');
+  if (catId === 'conference') return ml.includes('championship') || ml.includes('conference');
+  if (catId === 'division') return /afc |nfc /.test(ml) && !ml.includes('championship');
+  if (catId === 'playoffs') return ml.includes('playoff');
+  if (catId === 'most_wins') return ml.includes('most wins');
+  if (catId === 'least_wins') return ml.includes('least wins');
+  return false;
+}
+// Maps a cat.id to a pick signal's bet_type / team_or_market text.
+function catSignalMatch(catId, s) {
+  const text = ((s.bet_type || '') + ' ' + (s.team_or_market || '')).toLowerCase();
+  if (catId === 'superbowl' || catId === 'superbowl_matchup') return /super.?bowl|sb winner|nfl champion/i.test(text);
+  if (catId === 'conference') return /conf(erence)?|afc champ|nfc champ/i.test(text);
+  if (catId === 'division') return /div(ision)?|afc (east|north|south|west)|nfc (east|north|south|west)/i.test(text);
+  if (catId === 'wins') return /win.?total|wins o\b|wins u\b|season wins/i.test(text);
+  if (catId === 'playoffs') return /playoff|make the playoffs|postseason/i.test(text);
+  if (catId === 'most_wins') return /most wins/i.test(text);
+  if (catId === 'least_wins') return /least wins/i.test(text);
+  return false;
+}
+
+function deterministicVerdict(cat, movers, spots, expertGroups = []) {
   if (!cat.present) return cat.note || 'No market data available in the current window.';
   const teams = cat.subsections.flatMap((s) => s.teams || []);
   if (!teams.length) return 'Market present but no team data loaded.';
   const top = teams[0];
   const PREF = ['betonline', 'bookmaker', 'betus'];
-  const kw = cat.label.split(' ')[0].toLowerCase();
   const bits = [];
 
   // ── Lead: favorite + close contender ──────────────────────────────────────
@@ -820,7 +844,7 @@ function deterministicVerdict(cat, movers, spots) {
       bits.push(`Sleepers worth a look: ${sleepers.slice(0, 3).map((t) => `${t.team} ${fmtOdds(impliedToAmerican(t.consensus))}`).join(', ')}.`);
 
     // ── Line movement signals ──────────────────────────────────────────────
-    const catMovers = movers.filter((m) => m.market?.toLowerCase().includes(kw)).slice(0, 2);
+    const catMovers = movers.filter((m) => catMatchesMarket(cat.id, m.market)).slice(0, 2);
     if (catMovers.length) {
       const steam = catMovers.filter((m) => m.delta > 0);
       const drift = catMovers.filter((m) => m.delta < 0);
@@ -829,7 +853,7 @@ function deterministicVerdict(cat, movers, spots) {
     }
 
     // ── Sharp/public divergence ────────────────────────────────────────────
-    const catSpots = spots.filter((s) => s.market?.toLowerCase().includes(kw)).slice(0, 2);
+    const catSpots = spots.filter((s) => catMatchesMarket(cat.id, s.market)).slice(0, 2);
     if (catSpots.length)
       bits.push(`Sharp edge: ${catSpots.map((s) => `${s.team} ${fmtDelta(s.divergence)} sharp/public gap`).join(', ')}.`);
   }
@@ -845,35 +869,28 @@ function deterministicVerdict(cat, movers, spots) {
     bits.push(`Shop lines: ${ex.team} ranges ${fmtOdds(Math.min(...vals))}–${fmtOdds(Math.max(...vals))} across sharp books.`);
   }
 
+  // ── Expert signal synthesis ───────────────────────────────────────────────
+  const catSigs = expertGroups
+    .flatMap((g) => g.signals.filter((s) => catSignalMatch(cat.id, s)).map((s) => ({ ...s, _source: g.source })))
+    .sort((a, b) => (b.confidence || 0) - (a.confidence || 0));
+  if (catSigs.length) {
+    const leanCounts = {};
+    for (const s of catSigs) { const l = (s.lean || 'unknown').toLowerCase(); leanCounts[l] = (leanCounts[l] || 0) + 1; }
+    const leanStr = Object.entries(leanCounts).sort((a, b) => b[1] - a[1]).map(([l, n]) => `${n}× ${l}`).join(', ');
+    const topSigs = catSigs.slice(0, 3).map((s) => {
+      const who = s.author ? `${s.author} (${s._source})` : s._source;
+      return `${who} → ${(s.lean || '').toUpperCase()} ${s.team_or_market}${s.rationale ? ` — ${s.rationale}` : ''}`;
+    });
+    bits.push(`Expert lean (${catSigs.length} signal${catSigs.length > 1 ? 's' : ''}): ${leanStr}. ${topSigs.join('; ')}.`);
+  }
+
   if (cat.source === 'proxy') bits.push('Proxy ranking — treat as directional until the dedicated market opens.');
   return bits.join(' ') || 'Market present; no standout signals in current window.';
 }
-async function buildNarratives(cats, expertGroups, movers, spots) {
+function buildNarratives(cats, expertGroups, movers, spots) {
   const out = {};
-  const expertBlurb = expertGroups.slice(0, 8).map((g) => {
-    const recs = g.signals.slice(0, 4).map((s) => `${s.team_or_market} ${s.lean} [${s.bet_type}]`).join('; ');
-    return `${g.source}: ${recs || `${g.articles.length} article(s), ${g.tweets.length} tweet(s)`}`;
-  }).join('\n');
-
   for (const cat of cats) {
-    if (!ANTHROPIC_KEY) { out[cat.id] = deterministicVerdict(cat, movers, spots); continue; }
-    try {
-      const teamLines = cat.subsections.flatMap((s) => s.teams.slice(0, 8).map((t) =>
-        s.kind === 'wins'
-          ? `${t.team}: ${t.line.toFixed(1)} win total (O ${fmtOdds(t.over)} / U ${fmtOdds(t.under)}), line move ${fmtLineDelta(t.movement)}`
-          : `${t.team}: ${fmtPct(t.consensus)} consensus, move ${fmtDelta(t.movement)}, sharp/public gap ${fmtDelta(t.divergence)}`)).join('\n');
-      const prompt = [
-        `You are a sharp NFL futures analyst. Write a concise (3–5 sentence) recommendation for the "${cat.label}" market for the ${SEASON} season.`,
-        `Synthesize the consensus odds, line movement, and sharp/public divergence below with expert opinion. Name the best value side(s) and whether line movement bolsters or refutes them. No hedging filler.`,
-        cat.source === 'proxy' ? 'NOTE: this ranking is a proxy from the Super Bowl market; flag that the dedicated market is not open yet.' : '',
-        `\nMARKET DATA:\n${teamLines || '(no live odds)'}`,
-        `\nEXPERT SIGNALS (all markets):\n${expertBlurb || '(none in window)'}`,
-      ].filter(Boolean).join('\n');
-      out[cat.id] = await callClaude(prompt);
-    } catch (e) {
-      console.warn(`  [warn] narrative fallback for ${cat.id}: ${e.message}`);
-      out[cat.id] = deterministicVerdict(cat, movers, spots);
-    }
+    out[cat.id] = deterministicVerdict(cat, movers, spots, expertGroups);
   }
   return out;
 }
@@ -2082,11 +2099,11 @@ async function main() {
   const expertGroups = buildExpertGroups(signals, notes, tweets);
   const valueSpots = buildValueSpots(grouped, notes, signals);
   const coverage = buildCoverageAudit(counts, notes);
-  const narratives = await buildNarratives(categories, expertGroups, movers, valueSpots);
+  const narratives = buildNarratives(categories, expertGroups, movers, valueSpots);
 
   const model = {
     season: SEASON, reportDate, generatedAt: nowIso(), trigger: TRIGGER,
-    engine: { narrative: ANTHROPIC_KEY ? `claude (${NARRATIVE_MODEL})` : 'deterministic' },
+    engine: { narrative: 'deterministic' },
     categories, movers, valueSpots, expertGroups, coverage, narratives,
     meta: { signal_days: SIGNAL_DAYS, intel_days: INTEL_DAYS, snapshots: snapshots.length,
       markets_with_data: grouped.size, intel_notes: notes.length, pick_signals: signals.length,
