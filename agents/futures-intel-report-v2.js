@@ -467,9 +467,10 @@ function enrichWinTotals(categories, { atsSummary = {}, schedule = [] } = {}) {
       if (sub.kind !== 'wins') continue;
       for (const t of sub.teams || []) {
         const abbr = nameToAbbr[t.team];
-        t.sos     = sosRaw[t.team]  ?? null;
-        t.sosRank = sosRank[t.team] ?? null;
-        t.ats     = (abbr && atsSummary[abbr]) ? atsSummary[abbr] : null;
+        t.sos      = sosRaw[t.team]  ?? null;
+        t.sosRank  = sosRank[t.team] ?? null;
+        t.sosTotal = sorted.length;            // pool size — used for relative quartile colouring
+        t.ats      = (abbr && atsSummary[abbr]) ? atsSummary[abbr] : null;
       }
     }
   }
@@ -871,7 +872,8 @@ function deterministicVerdict(cat, movers, spots, expertGroups = []) {
   }
 
   if (cat.source === 'proxy') bits.push('Proxy ranking — treat as directional until the dedicated market opens.');
-  return bits.join(' ') || 'Market present; no standout signals in current window.';
+  if (!bits.length) return 'Market present; no standout signals in current window.';
+  return bits.map((b) => '• ' + b).join('\n');
 }
 function buildNarratives(cats, expertGroups, movers, spots) {
   const out = {};
@@ -1080,13 +1082,17 @@ function renderHtml(model) {
           : '<td class="na mono">—</td>';
       };
 
-      // SoS cell
+      // SoS cell — quartiles relative to pool size so colour works even with sparse data
       const sosCell = t.sosRank != null
         ? (() => {
             const rank = t.sosRank;
-            const cls  = rank <= 8 ? 'color:var(--red)' : rank >= 25 ? 'color:var(--green)' : 'color:var(--tx2)';
-            const lbl  = rank <= 8 ? '🔴' : rank >= 25 ? '🟢' : '';
-            return '<td class="sos-cell" title="Opp projected wins: ' + (t.sos?.toFixed(1) || '?') + '"><span style="' + cls + ';font-weight:600">' + lbl + ' #' + rank + '</span></td>';
+            const n    = t.sosTotal || 32;
+            const hard = Math.max(2, Math.ceil(n * 0.25));   // top quartile = tough schedule
+            const easy = Math.min(n - 1, Math.floor(n * 0.75)); // bottom quartile = easy schedule
+            const cls  = rank <= hard ? 'color:var(--red)' : rank >= easy ? 'color:var(--green)' : 'color:var(--tx2)';
+            const lbl  = rank <= hard ? '🔴' : rank >= easy ? '🟢' : '⚪';
+            const tip  = 'Opp proj wins: ' + (t.sos?.toFixed(1) || '?') + ' | rank ' + rank + '/' + n + (rank <= hard ? ' (tough)' : rank >= easy ? ' (easy)' : ' (mid)');
+            return '<td class="sos-cell" title="' + tip + '"><span style="' + cls + ';font-weight:600">' + lbl + ' #' + rank + '</span></td>';
           })()
         : '<td class="sos-cell"><span class="sos-na">—</span></td>';
 
@@ -1222,7 +1228,12 @@ function renderHtml(model) {
       content = filterUi + outrightTable(teams, 'matchup-tbl');
     } else {
       content = cat.subsections.map((sub) => {
-        const ca = (cat.id === 'superbowl') ? 10 : (cat.id === 'wins') ? 10 : 0;
+        const ca = cat.id === 'superbowl'   ? 10
+                 : cat.id === 'wins'        ? 10
+                 : cat.id === 'conference'  ? 4    // show top 4 per conf, collapse rest
+                 : cat.id === 'division'    ? 2    // show top 2 per div, collapse rest
+                 : cat.id === 'playoffs'    ? 8
+                 : 0;
         const tbl = sub.kind === 'wins' ? winsTable(sub.teams, ca) : outrightTable(sub.teams, '', ca);
         return (cat.subsections.length > 1 ? '<h3 class="sub-head">' + esc(sub.label) + '</h3>' : '') + tbl;
       }).join('');
@@ -2079,6 +2090,42 @@ async function main() {
   }
 
   const grouped = groupSeries(snapshots);
+
+  // ── DIAGNOSTIC (temp — remove after BTU/movers root-cause found) ─────────────
+  {
+    const _bRows = snapshots.filter(r => r.book === 'betus');
+    console.log(`[diag] total rows=${snapshots.length} | betus rows=${_bRows.length}`);
+    if (_bRows.length) {
+      console.log(`[diag] betus markets: ${[...new Set(_bRows.map(r => r.market_type))].join(', ')}`);
+      const _ex = _bRows[0];
+      console.log(`[diag] betus[0]: market=${_ex.market_type} team=${_ex.team} odds=${_ex.odds} implied_prob=${_ex.implied_prob} season=${_ex.season}`);
+      const _bb = grouped.get(_ex.market_type)?.get(_ex.team);
+      const _arr = _bb?.get('betus');
+      console.log(`[diag] grouped betus slot: ${_arr ? `found, len=${_arr.length}, odds=${_arr[0]?.odds}` : 'MISSING'}`);
+      if (_arr?.length) {
+        const _cons = consensusOf(_bb, arr => arr[arr.length - 1]);
+        console.log(`[diag] consensusOf result: ${JSON.stringify(_cons)}`);
+      }
+    } else {
+      console.log(`[diag] all book keys: ${[...new Set(snapshots.map(r => r.book))].join(', ')}`);
+    }
+    // Movement diagnostic: log deltas for all team/market combos with 2+ snapshots
+    const _moves = [];
+    for (const [mt, mm] of grouped.entries()) {
+      if (mt === 'wins') continue;
+      for (const [team, bb] of mm.entries()) {
+        for (const [book, arr] of bb.entries()) {
+          if (arr.length >= 2) {
+            const a = seriesProb(arr[0]), b = seriesProb(arr[arr.length - 1]);
+            _moves.push(`${mt}/${team}/${book}: ${arr.length} snaps, delta=${((b-a)*100).toFixed(2)}pp`);
+          }
+        }
+      }
+    }
+    console.log(`[diag] series with 2+ snapshots (${_moves.length}):`, _moves.slice(0, 15).join(' | ') || 'NONE');
+  }
+  // ── END DIAGNOSTIC ────────────────────────────────────────────────────────────
+
   const categories = buildCategoryModel(grouped);
   enrichWinTotals(categories, enrichData);
   const movers = buildMovers(grouped);
