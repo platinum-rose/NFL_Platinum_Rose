@@ -512,7 +512,8 @@ function enrichPlayoffsPct(categories, grouped) {
 function buildCategoryModel(grouped) {
   const cats = [];
   for (const def of CATEGORIES) {
-    const cat = { id: def.id, label: def.label, kind: def.kind, present: false, subsections: [], note: null };
+    const cat = { id: def.id, label: def.label, kind: def.kind, present: false, subsections: [], note: null,
+                  collapseAfter: def.collapseAfter ?? 0, perDivDetails: !!def.perDivDetails, showNoOdds: !!def.showNoOdds };
 
     // Total Team Wins — line-based table from real win-total data.
     if (def.kind === 'wins_total') {
@@ -1381,7 +1382,7 @@ function renderHtml(model) {
         '<span class="mf-count" id="mf-count">' + teams.length + ' matchups</span>' +
         '<button class="mf-clear" onclick="document.querySelectorAll(\'.mf-chip\').forEach(function(c){c.classList.remove(\'active\')});applyMatchupFilter()">Clear</button>' +
         '</div>';
-      content = filterUi + outrightTable(teams, 'matchup-tbl');
+      content = filterUi + outrightTable(teams, 'matchup-tbl', cat.collapseAfter || 0);
     } else {
       // Generic subsection renderer — reads layout from cat config (CATEGORIES array)
       content = cat.subsections.map((sub) => {
