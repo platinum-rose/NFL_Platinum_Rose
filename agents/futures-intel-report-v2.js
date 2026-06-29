@@ -2090,49 +2090,11 @@ async function main() {
   }
 
   const grouped = groupSeries(snapshots);
-
-  // ── DIAGNOSTIC (temp — remove after BTU/movers root-cause found) ─────────────
-  {
-    const _bRows = snapshots.filter(r => r.book === 'betus');
-    console.log(`[diag] total rows=${snapshots.length} | betus rows=${_bRows.length}`);
-    if (_bRows.length) {
-      console.log(`[diag] betus markets: ${[...new Set(_bRows.map(r => r.market_type))].join(', ')}`);
-      const _ex = _bRows[0];
-      console.log(`[diag] betus[0]: market=${_ex.market_type} team=${_ex.team} odds=${_ex.odds} implied_prob=${_ex.implied_prob} season=${_ex.season}`);
-      const _bb = grouped.get(_ex.market_type)?.get(_ex.team);
-      const _arr = _bb?.get('betus');
-      console.log(`[diag] grouped betus slot: ${_arr ? `found, len=${_arr.length}, odds=${_arr[0]?.odds}` : 'MISSING'}`);
-      if (_arr?.length) {
-        const _cons = consensusOf(_bb, arr => arr[arr.length - 1]);
-        console.log(`[diag] consensusOf result: ${JSON.stringify(_cons)}`);
-      }
-    } else {
-      console.log(`[diag] all book keys: ${[...new Set(snapshots.map(r => r.book))].join(', ')}`);
-    }
-    // Movement diagnostic: log deltas for all team/market combos with 2+ snapshots
-    const _moves = [];
-    for (const [mt, mm] of grouped.entries()) {
-      if (mt === 'wins') continue;
-      for (const [team, bb] of mm.entries()) {
-        for (const [book, arr] of bb.entries()) {
-          if (arr.length >= 2) {
-            const a = seriesProb(arr[0]), b = seriesProb(arr[arr.length - 1]);
-            _moves.push(`${mt}/${team}/${book}: ${arr.length} snaps, delta=${((b-a)*100).toFixed(2)}pp`);
-          }
-        }
-      }
-    }
-    console.log(`[diag] series with 2+ snapshots (${_moves.length}):`, _moves.slice(0, 15).join(' | ') || 'NONE');
-  }
-  // ── END DIAGNOSTIC ────────────────────────────────────────────────────────────
-
   const categories = buildCategoryModel(grouped);
   enrichWinTotals(categories, enrichData);
   const movers = buildMovers(grouped);
-  console.log(`[diag2] movers: ${movers.length} | top 3: ${movers.slice(0,3).map(m=>`${m.market}/${m.team} delta=${(m.delta*100).toFixed(2)}pp`).join(', ') || 'NONE'}`);
   const expertGroups = buildExpertGroups(signals, notes, tweets);
   const valueSpots = buildValueSpots(grouped, notes, signals);
-  console.log(`[diag2] valueSpots: ${valueSpots.length}`);
   const coverage = buildCoverageAudit(counts, notes);
   const narratives = buildNarratives(categories, expertGroups, movers, valueSpots);
 
