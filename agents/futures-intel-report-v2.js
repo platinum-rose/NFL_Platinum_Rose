@@ -76,15 +76,20 @@ const PUBLIC_BOOKS = new Set(['draftkings', 'fanduel', 'betmgm', 'caesars']);
 const DIVERGENCE_THRESHOLD = 0.05; // 5 percentage points
 
 // ── The 8 tracked futures categories (display order) ─────────────────────────
+// LAYOUT SPEC (canonical — do not change without updating docs/FUTURES_REPORT_SPEC.md):
+//   collapseAfter : rows shown before "Show N more" button (0 = show all)
+//   perDivCollapse: when true, collapseAfter applies per-division sub-table
+//   showNoOdds    : when true, outright table adds a "No (est.)" column (playoffs only)
+//   perDivDetails : when true, each division sub-table is wrapped in a collapsible <details>
 const CATEGORIES = [
-  { id: 'superbowl',        label: 'Super Bowl Winner',       markets: ['superbowl'],          kind: 'outright',  topN: 32 },
-  { id: 'conference',       label: 'Conference Winners',      markets: ['conference_afc', 'conference_nfc'], kind: 'grouped', topN: 8 },
-  { id: 'division',         label: 'Division Winners',        markets: ['division_afc_east','division_afc_north','division_afc_south','division_afc_west','division_nfc_east','division_nfc_north','division_nfc_south','division_nfc_west'], kind: 'grouped', topN: 4 },
-  { id: 'wins',             label: 'Total Team Wins',         markets: ['wins'],               kind: 'wins_total', topN: 32 },
-  { id: 'playoffs',         label: 'To Make the Playoffs',    markets: ['playoffs'],           kind: 'outright',  topN: 20 },
-  { id: 'superbowl_matchup',label: 'Super Bowl Exact Matchup',markets: ['superbowl_matchup'],  kind: 'outright',  topN: 15 },
-  { id: 'most_wins',        label: 'Most Wins',               markets: ['most_wins'],          kind: 'wins_rank', proxyFrom: 'superbowl', dir: 'desc', topN: 10 },
-  { id: 'least_wins',       label: 'Least Wins',              markets: ['least_wins'],         kind: 'wins_rank', proxyFrom: 'superbowl', dir: 'asc',  topN: 10 },
+  { id: 'superbowl',        label: 'Super Bowl Winner',       markets: ['superbowl'],          kind: 'outright',  topN: 32, collapseAfter: 10 },
+  { id: 'conference',       label: 'Conference Winners',      markets: ['conference_afc', 'conference_nfc'], kind: 'grouped', topN: 16, collapseAfter: 6 },
+  { id: 'division',         label: 'Division Winners',        markets: ['division_afc_east','division_afc_north','division_afc_south','division_afc_west','division_nfc_east','division_nfc_north','division_nfc_south','division_nfc_west'], kind: 'grouped', topN: 4, collapseAfter: 4, perDivDetails: true },
+  { id: 'wins',             label: 'Total Team Wins',         markets: ['wins'],               kind: 'wins_total', topN: 32, collapseAfter: 10 },
+  { id: 'playoffs',         label: 'To Make the Playoffs',    markets: ['playoffs'],           kind: 'outright',  topN: 32, collapseAfter: 5, perDivDetails: true, showNoOdds: true },
+  { id: 'superbowl_matchup',label: 'Super Bowl Exact Matchup',markets: ['superbowl_matchup'],  kind: 'outright',  topN: 30, collapseAfter: 15 },
+  { id: 'most_wins',        label: 'Most Wins',               markets: ['most_wins'],          kind: 'wins_rank', proxyFrom: 'superbowl', dir: 'desc', topN: 32, collapseAfter: 10 },
+  { id: 'least_wins',       label: 'Least Wins',              markets: ['least_wins'],         kind: 'wins_rank', proxyFrom: 'superbowl', dir: 'asc',  topN: 32, collapseAfter: 10 },
 ];
 
 const MARKET_LABELS = {
@@ -1347,15 +1352,15 @@ function renderHtml(model) {
     let content;
     if (!cat.present) {
       content = '<p class="empty-note">' + esc(cat.note || 'No market data in window.') + '</p>';
-    } else if (cat.id === 'playoffs') {
-      // Group playoffs by division; each division independently collapsible; collapse rows after 5; show No (est.) column
+    } else if (cat.perDivDetails && cat.id === 'playoffs') {
+      // Group playoffs by division; each division independently collapsible <details>; No (est.) column
       const teams = cat.subsections[0]?.teams || [];
       const byDiv = {};
       for (const t of teams) { const d = TEAM_DIVISION[t.team] || 'Other'; if (!byDiv[d]) byDiv[d] = []; byDiv[d].push(t); }
       content = DIVISION_ORDER.filter((d) => byDiv[d]).map((div) =>
         '<details class="div-expand" open>' +
         '<summary class="div-expand-sum">' + esc(div) + '</summary>' +
-        outrightTable(byDiv[div], '', 5, { showNoOdds: true }) +
+        outrightTable(byDiv[div], '', cat.collapseAfter || 5, { showNoOdds: !!cat.showNoOdds }) +
         '</details>'
       ).join('');
     } else if (cat.id === 'superbowl_matchup') {
@@ -1378,17 +1383,14 @@ function renderHtml(model) {
         '</div>';
       content = filterUi + outrightTable(teams, 'matchup-tbl');
     } else {
+      // Generic subsection renderer — reads layout from cat config (CATEGORIES array)
       content = cat.subsections.map((sub) => {
-        const ca = cat.id === 'superbowl'   ? 10
-                 : cat.id === 'wins'        ? 10
-                 : cat.id === 'conference'  ? 6    // show top 6 per conf, collapse rest
-                 : cat.id === 'division'    ? 4    // show top 4 per div, collapse rest
-                 : 0; // playoffs handled above (5/div), matchup uses default 0
+        const ca = cat.collapseAfter ?? 0;
         const isWins = sub.kind === 'wins';
         const showEnrich = (cat.id === 'most_wins' || cat.id === 'least_wins') && !isWins;
         const tbl = isWins ? winsTable(sub.teams, ca) : outrightTable(sub.teams, '', ca, { showEnrich });
-        // DIV Winners: each subsection (= one division) is independently collapsible
-        if (cat.id === 'division') {
+        // perDivDetails: each subsection (= one div/conf sub) gets its own collapsible <details>
+        if (cat.perDivDetails) {
           return '<details class="div-expand" open><summary class="div-expand-sum">' + esc(sub.label) + '</summary>' + tbl + '</details>';
         }
         return (cat.subsections.length > 1 ? '<h3 class="sub-head">' + esc(sub.label) + '</h3>' : '') + tbl;
@@ -2270,32 +2272,134 @@ function applyMoverFilter(filter) {
 }
 
 // ── Sample data (offline review) ─────────────────────────────────────────────
+// PURPOSE: exercises every section of the report so --sample --dry-run validates the full layout.
+// COVERAGE REQUIREMENTS (match layout spec in docs/FUTURES_REPORT_SPEC.md):
+//   ✓ Super Bowl: 14+ teams (triggers collapseAfter=10 "Show more" button)
+//   ✓ Conference: 8+ per conf (triggers collapseAfter=6 "Show more" button)
+//   ✓ Division: all 8 divisions with 4 teams each (perDivDetails → 8 collapsible sections)
+//   ✓ Win Totals: 14+ teams (triggers collapseAfter=10 "Show more" button)
+//   ✓ Playoffs: 4+ teams per division across all 8 divs (perDivDetails → 8 collapsible sections)
+//   ✓ SB Exacta: 18+ matchups (triggers collapseAfter=15 "Show more" button)
+//   ✓ Most/Least Wins: 14+ teams (triggers collapseAfter=10 "Show more" button)
+//   ✓ Line Movement: 2 snapshot dates + price delta ≥0.01 pp → movers fire
+//   ✓ Value Spots: book spread ≥SPREAD_THRESHOLD (200 pts) on ≥1 team → spread spots fire
 function sampleSnapshots() {
   const now = new Date();
-  const old = new Date(Date.now() - 6 * 864e5);
+  const old = new Date(Date.now() - 8 * 864e5); // 8 days ago — clear movement window
   const mk = (market, team, book, odds, when) => ({ market_type: market, team, book, odds, implied_prob: null, captured_at: when.toISOString(), snapshot_time: when.toISOString(), season: SEASON });
   const rows = [];
-  const sb = [['Kansas City Chiefs', 600, 560], ['Buffalo Bills', 700, 720], ['Philadelphia Eagles', 800, 750], ['San Francisco 49ers', 850, 900], ['Baltimore Ravens', 900, 880], ['Detroit Lions', 1000, 950], ['Cincinnati Bengals', 1400, 1500], ['Houston Texans', 1600, 1550]];
-  for (const [team, oNow, oOld] of sb) for (const bk of ['draftkings', 'fanduel', 'betonline', 'bookmaker']) {
-    rows.push(mk('superbowl', team, bk, oNow + (bk === 'betonline' ? -40 : bk === 'fanduel' ? 30 : 0), now));
-    rows.push(mk('superbowl', team, bk, oOld, old));
-  }
-  for (const [team, o] of [['Kansas City Chiefs', -135], ['Baltimore Ravens', 260], ['Buffalo Bills', 280], ['Houston Texans', 380]]) for (const bk of ['draftkings', 'fanduel', 'betonline', 'bookmaker']) rows.push(mk('conference_afc', team, bk, o, now));
-  for (const [team, o] of [['Philadelphia Eagles', 240], ['San Francisco 49ers', 260], ['Detroit Lions', 300], ['Dallas Cowboys', 550]]) for (const bk of ['draftkings', 'fanduel', 'betonline', 'bookmaker']) rows.push(mk('conference_nfc', team, bk, o, now));
-  for (const [team, o] of [['Kansas City Chiefs', -200], ['Los Angeles Chargers', 350], ['Denver Broncos', 650], ['Las Vegas Raiders', 750]]) for (const bk of ['draftkings', 'fanduel', 'betonline', 'bookmaker']) rows.push(mk('division_afc_west', team, bk, o, now));
-  for (const [team, o] of [['Detroit Lions', -120], ['Green Bay Packers', 200], ['Minnesota Vikings', 450], ['Chicago Bears', 700]]) for (const bk of ['draftkings', 'fanduel', 'betonline', 'bookmaker']) rows.push(mk('division_nfc_north', team, bk, o, now));
-  for (const [team, o] of [['Kansas City Chiefs', -240], ['Buffalo Bills', -200], ['Philadelphia Eagles', -180], ['Cleveland Browns', 180], ['New England Patriots', 220]]) for (const bk of ['draftkings', 'fanduel', 'betonline', 'bookmaker']) rows.push(mk('playoffs', team, bk, o, now));
-  // Win totals (line-based): [team, lineNow, over, under, lineOld]
-  const wins = [
-    ['Kansas City Chiefs', 11.5, -120, 100, 11.5], ['Detroit Lions', 11.5, 105, -125, 11.0],
-    ['Baltimore Ravens', 11.5, -110, -110, 11.5], ['Buffalo Bills', 11.5, -115, -105, 11.5],
-    ['Philadelphia Eagles', 11.5, 100, -120, 11.0], ['San Francisco 49ers', 10.5, -130, 110, 11.0],
-    ['Carolina Panthers', 6.5, -115, -105, 6.5], ['New England Patriots', 7.5, 110, -130, 7.0],
+
+  // ── Super Bowl (14 teams, 2 snapshots, BOL -250 offset on top teams → fires spread spots) ──
+  const sbTeams = [
+    ['Kansas City Chiefs',     550,  620], ['Baltimore Ravens',       700,  740],
+    ['Buffalo Bills',          750,  780], ['Philadelphia Eagles',    800,  760],
+    ['San Francisco 49ers',    850,  900], ['Detroit Lions',          950,  980],
+    ['Cincinnati Bengals',    1200, 1300], ['Houston Texans',        1400, 1500],
+    ['Dallas Cowboys',        1600, 1800], ['Pittsburgh Steelers',   2000, 2200],
+    ['Los Angeles Chargers',  2500, 2800], ['Miami Dolphins',        3000, 3200],
+    ['New England Patriots',  4000, 4500], ['Chicago Bears',         5000, 5500],
   ];
-  for (const [team, line, over, under, lineOld] of wins) for (const bk of ['betonline', 'bookmaker']) {
-    const adj = bk === 'bookmaker' ? -0.0 : 0;
-    rows.push({ market_type: 'wins', team, book: bk, odds: over, implied_prob: null, line: line + adj, over_price: over, under_price: under, captured_at: now.toISOString(), snapshot_time: now.toISOString(), season: SEASON });
+  for (const [team, oNow, oOld] of sbTeams) for (const bk of ['draftkings', 'fanduel', 'betonline', 'bookmaker', 'betus']) {
+    // BOL is -250 pts on favorites (fires SPREAD_THRESHOLD=200 value spot), BKR +150, BTU +100, DK/FD base
+    const offset = bk === 'betonline' ? (oNow <= 800 ? -250 : -80) : bk === 'bookmaker' ? 150 : bk === 'betus' ? 100 : bk === 'fanduel' ? 50 : 0;
+    rows.push(mk('superbowl', team, bk, oNow + offset, now));
+    rows.push(mk('superbowl', team, bk, oOld + offset, old));
+  }
+
+  // ── Conference AFC (9 teams → triggers collapseAfter=6) ──
+  const confAfc = [
+    ['Kansas City Chiefs', -120], ['Baltimore Ravens', 240], ['Buffalo Bills', 260],
+    ['Houston Texans', 350], ['Cincinnati Bengals', 500], ['Pittsburgh Steelers', 600],
+    ['Los Angeles Chargers', 700], ['Miami Dolphins', 800], ['Cleveland Browns', 900],
+  ];
+  for (const [team, o] of confAfc) for (const bk of ['draftkings', 'fanduel', 'betonline', 'bookmaker', 'betus']) {
+    rows.push(mk('conference_afc', team, bk, o + (bk === 'betonline' ? -30 : bk === 'fanduel' ? 20 : 0), now));
+    rows.push(mk('conference_afc', team, bk, o + 50, old));
+  }
+
+  // ── Conference NFC (9 teams → triggers collapseAfter=6) ──
+  const confNfc = [
+    ['Philadelphia Eagles', 220], ['San Francisco 49ers', 240], ['Detroit Lions', 280],
+    ['Dallas Cowboys', 400], ['Minnesota Vikings', 600], ['Green Bay Packers', 700],
+    ['Tampa Bay Buccaneers', 900], ['Seattle Seahawks', 1000], ['Los Angeles Rams', 1100],
+  ];
+  for (const [team, o] of confNfc) for (const bk of ['draftkings', 'fanduel', 'betonline', 'bookmaker', 'betus']) {
+    rows.push(mk('conference_nfc', team, bk, o + (bk === 'betonline' ? -30 : bk === 'fanduel' ? 20 : 0), now));
+    rows.push(mk('conference_nfc', team, bk, o + 50, old));
+  }
+
+  // ── All 8 Divisions (4 teams each) ──
+  const divData = [
+    ['division_afc_east',  [['Buffalo Bills', -180], ['Miami Dolphins', 220], ['New England Patriots', 350], ['New York Jets', 550]]],
+    ['division_afc_north', [['Baltimore Ravens', -200], ['Pittsburgh Steelers', 280], ['Cincinnati Bengals', 300], ['Cleveland Browns', 500]]],
+    ['division_afc_south', [['Houston Texans', -150], ['Indianapolis Colts', 260], ['Jacksonville Jaguars', 400], ['Tennessee Titans', 600]]],
+    ['division_afc_west',  [['Kansas City Chiefs', -250], ['Los Angeles Chargers', 320], ['Denver Broncos', 600], ['Las Vegas Raiders', 800]]],
+    ['division_nfc_east',  [['Philadelphia Eagles', -200], ['Dallas Cowboys', 220], ['New York Giants', 500], ['Washington Commanders', 700]]],
+    ['division_nfc_north', [['Detroit Lions', -140], ['Green Bay Packers', 200], ['Minnesota Vikings', 380], ['Chicago Bears', 600]]],
+    ['division_nfc_south', [['Tampa Bay Buccaneers', 180], ['Atlanta Falcons', 240], ['New Orleans Saints', 450], ['Carolina Panthers', 800]]],
+    ['division_nfc_west',  [['San Francisco 49ers', -120], ['Seattle Seahawks', 240], ['Los Angeles Rams', 340], ['Arizona Cardinals', 700]]],
+  ];
+  for (const [mkt, teams] of divData) for (const [team, o] of teams) for (const bk of ['draftkings', 'fanduel', 'betonline', 'bookmaker', 'betus']) {
+    rows.push(mk(mkt, team, bk, o + (bk === 'betonline' ? -20 : bk === 'fanduel' ? 10 : 0), now));
+  }
+
+  // ── Playoffs (4+ teams per division across all 8 divs → all 8 perDivDetails sections visible) ──
+  const playoffTeams = [
+    // AFC East
+    ['Buffalo Bills', -280], ['Miami Dolphins', -140], ['New England Patriots', 180], ['New York Jets', 300],
+    // AFC North
+    ['Baltimore Ravens', -350], ['Pittsburgh Steelers', -160], ['Cincinnati Bengals', 120], ['Cleveland Browns', 250],
+    // AFC South
+    ['Houston Texans', -220], ['Indianapolis Colts', 120], ['Jacksonville Jaguars', 200], ['Tennessee Titans', 320],
+    // AFC West
+    ['Kansas City Chiefs', -400], ['Los Angeles Chargers', 100], ['Denver Broncos', 260], ['Las Vegas Raiders', 400],
+    // NFC East
+    ['Philadelphia Eagles', -320], ['Dallas Cowboys', -180], ['New York Giants', 240], ['Washington Commanders', 380],
+    // NFC North
+    ['Detroit Lions', -260], ['Green Bay Packers', -120], ['Minnesota Vikings', 180], ['Chicago Bears', 280],
+    // NFC South
+    ['Tampa Bay Buccaneers', -180], ['Atlanta Falcons', 120], ['New Orleans Saints', 240], ['Carolina Panthers', 600],
+    // NFC West
+    ['San Francisco 49ers', -300], ['Seattle Seahawks', 100], ['Los Angeles Rams', 200], ['Arizona Cardinals', 500],
+  ];
+  for (const [team, o] of playoffTeams) for (const bk of ['draftkings', 'fanduel', 'betonline', 'bookmaker', 'betus']) {
+    const boOffset = bk === 'betonline' ? (Math.abs(o) > 200 ? -40 : -20) : bk === 'betus' ? 20 : bk === 'fanduel' ? 10 : 0;
+    rows.push(mk('playoffs', team, bk, o + boOffset, now));
+    rows.push(mk('playoffs', team, bk, o + boOffset + (o < 0 ? 20 : -30), old));
+  }
+
+  // ── Win totals (16 teams → triggers collapseAfter=10) ──
+  const winsData = [
+    ['Kansas City Chiefs', 11.5, -120, 100, 11.5],  ['Baltimore Ravens', 11.5, -110, -110, 11.5],
+    ['Buffalo Bills', 11.0, -115, -105, 11.0],       ['Philadelphia Eagles', 11.0, 100, -120, 10.5],
+    ['San Francisco 49ers', 10.5, -130, 110, 11.0],  ['Detroit Lions', 11.5, 105, -125, 11.0],
+    ['Houston Texans', 10.0, -110, -110, 9.5],       ['Cincinnati Bengals', 9.5, 110, -130, 9.5],
+    ['Dallas Cowboys', 9.0, -115, -105, 9.0],        ['Pittsburgh Steelers', 8.5, 100, -120, 8.5],
+    ['Los Angeles Chargers', 9.5, -120, 100, 9.0],   ['Minnesota Vikings', 8.5, -105, -115, 8.0],
+    ['Carolina Panthers', 6.5, -115, -105, 6.5],     ['New England Patriots', 7.0, 110, -130, 7.0],
+    ['Chicago Bears', 7.5, 100, -120, 7.0],           ['Las Vegas Raiders', 6.0, -110, -110, 6.0],
+  ];
+  for (const [team, line, over, under, lineOld] of winsData) for (const bk of ['betonline', 'bookmaker', 'betus']) {
+    // BOL line offset: line split on some teams to trigger wins_line value spots
+    const lineAdj = bk === 'bookmaker' ? 0.5 : bk === 'betus' ? 0 : 0;
+    rows.push({ market_type: 'wins', team, book: bk, odds: over, implied_prob: null, line: line + lineAdj, over_price: over + (bk === 'betus' ? 15 : 0), under_price: under, captured_at: now.toISOString(), snapshot_time: now.toISOString(), season: SEASON });
     rows.push({ market_type: 'wins', team, book: bk, odds: over, implied_prob: null, line: lineOld, over_price: over, under_price: under, captured_at: old.toISOString(), snapshot_time: old.toISOString(), season: SEASON });
+  }
+
+  // ── SB Exacta matchups (18 matchups → triggers collapseAfter=15) ──
+  const matchups = [
+    ['Kansas City Chiefs vs Philadelphia Eagles', 600], ['Baltimore Ravens vs San Francisco 49ers', 900],
+    ['Buffalo Bills vs Detroit Lions', 1100],            ['Kansas City Chiefs vs San Francisco 49ers', 700],
+    ['Baltimore Ravens vs Philadelphia Eagles', 1000],   ['Buffalo Bills vs Philadelphia Eagles', 1200],
+    ['Kansas City Chiefs vs Detroit Lions', 800],        ['Houston Texans vs San Francisco 49ers', 2200],
+    ['Cincinnati Bengals vs Philadelphia Eagles', 2500], ['Baltimore Ravens vs Detroit Lions', 1400],
+    ['Kansas City Chiefs vs Dallas Cowboys', 1800],      ['Buffalo Bills vs San Francisco 49ers', 1300],
+    ['Los Angeles Chargers vs Philadelphia Eagles', 3000],['Pittsburgh Steelers vs Detroit Lions', 3500],
+    ['Houston Texans vs Detroit Lions', 2800],           ['Cincinnati Bengals vs San Francisco 49ers', 2600],
+    ['Dallas Cowboys vs San Francisco 49ers', 2000],     ['Miami Dolphins vs Philadelphia Eagles', 4000],
+  ];
+  for (const [matchup, o] of matchups) for (const bk of ['draftkings', 'fanduel', 'betonline', 'bookmaker', 'betus']) {
+    rows.push(mk('superbowl_matchup', matchup, bk, o + (bk === 'betonline' ? -50 : bk === 'fanduel' ? 30 : 0), now));
   }
   return rows;
 }
