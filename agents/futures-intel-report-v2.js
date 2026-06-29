@@ -2129,8 +2129,10 @@ async function main() {
   const categories = buildCategoryModel(grouped);
   enrichWinTotals(categories, enrichData);
   const movers = buildMovers(grouped);
+  console.log(`[diag2] movers: ${movers.length} | top 3: ${movers.slice(0,3).map(m=>`${m.market}/${m.team} delta=${(m.delta*100).toFixed(2)}pp`).join(', ') || 'NONE'}`);
   const expertGroups = buildExpertGroups(signals, notes, tweets);
   const valueSpots = buildValueSpots(grouped, notes, signals);
+  console.log(`[diag2] valueSpots: ${valueSpots.length}`);
   const coverage = buildCoverageAudit(counts, notes);
   const narratives = buildNarratives(categories, expertGroups, movers, valueSpots);
 
