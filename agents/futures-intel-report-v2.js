@@ -461,10 +461,13 @@ function enrichWinTotals(categories, { atsSummary = {}, schedule = [] } = {}) {
     console.log(`  [sos] computed for ${sorted.length} teams | hardest: ${hardName} (${hardVal?.toFixed(1)}) | easiest: ${easyName} (${easyVal?.toFixed(1)})`);
   }
 
-  // Apply enrichment to ALL kind:'wins' subsections across all categories
+  // Apply enrichment to:
+  //   a) ALL kind:'wins' subsections (Win Totals, Most/Least Wins wins_line fallback)
+  //   b) Most Wins / Least Wins categories regardless of subsection kind (direct/proxy markets)
+  const WIN_RANK_IDS = new Set(['most_wins', 'least_wins']);
   for (const cat of categories) {
     for (const sub of cat.subsections) {
-      if (sub.kind !== 'wins') continue;
+      if (sub.kind !== 'wins' && !WIN_RANK_IDS.has(cat.id)) continue;
       for (const t of sub.teams || []) {
         const abbr = nameToAbbr[t.team];
         t.sos      = sosRaw[t.team]  ?? null;
@@ -474,6 +477,30 @@ function enrichWinTotals(categories, { atsSummary = {}, schedule = [] } = {}) {
       }
     }
   }
+}
+
+// Attach implied playoff probability (avg across sharp books) to all kind:'wins' team objects.
+// Requires grouped series from groupSeries(). Called after enrichWinTotals.
+function enrichPlayoffsPct(categories, grouped) {
+  const playoffsMap = grouped.get('playoffs');
+  if (!playoffsMap) return;
+  const pctByTeam = {};
+  for (const [team, bb] of playoffsMap.entries()) {
+    const probs = [];
+    for (const [book, arr] of bb.entries()) {
+      if (!SHARP_BOOKS.has(book) || !arr.length) continue;
+      const p = seriesProb(pickLatest(arr));
+      if (validProb(p)) probs.push(p);
+    }
+    if (probs.length) pctByTeam[team] = probs.reduce((a, b) => a + b, 0) / probs.length;
+  }
+  for (const cat of categories) {
+    for (const sub of cat.subsections) {
+      if (sub.kind !== 'wins') continue;
+      for (const t of sub.teams || []) t.playoffsPct = pctByTeam[t.team] ?? null;
+    }
+  }
+  console.log(`  [playoffs%] enriched ${Object.keys(pctByTeam).length} teams`);
 }
 
 // ── Build the category model ─────────────────────────────────────────────────
@@ -587,8 +614,10 @@ function valueSpotSourceLinks(market, team, notes = [], signals = []) {
   return links.slice(0, 3);
 }
 
-const SPREAD_THRESHOLD    = 200; // min American-odds gap for outright futures (SB/conf/div/playoffs)
-const WINS_OU_THRESHOLD   = 10;  // min American-odds gap for win-total O/U prices (tight market)
+const SPREAD_THRESHOLD             = 200;  // min American-odds gap for outright futures (SB/conf/div)
+const WINS_OU_THRESHOLD            = 10;   // min American-odds gap for win-total O/U prices
+const PLAYOFF_DIVERGENCE_THRESHOLD = 0.08; // min implied-prob spread across sharp books for playoff spots (8pp)
+const WIN_LINE_DIVERGENCE_THRESHOLD = 0.5; // min wins-line disagreement across sharp books (in wins)
 const BOOK_SHORT = { betonline: 'BOL', bookmaker: 'BKR', betus: 'BTU', draftkings: 'DK', fanduel: 'FD', betmgm: 'MGM', caesars: 'CZR' };
 
 // Strict expert signal match: team_or_market must contain the team's last word (nickname)
@@ -710,7 +739,58 @@ function buildValueSpots(grouped, notes = [], signals = []) {
     return card;
   }).sort((a, b) => b.maxSpread - a.maxSpread);
 
-  return [...divSpots, ...mergedSpread, ...winsOuCards].slice(0, 25);
+  // Type 4: Playoffs implied-prob spread across sharp books (threshold in pp, not American pts)
+  const playoffsSpreadSpots = [];
+  const playoffsMap = grouped.get('playoffs');
+  if (playoffsMap) {
+    for (const [team, bb] of playoffsMap.entries()) {
+      const vals = PREF_ARR.map((b) => {
+        const arr = bb.get(b); if (!arr || !arr.length) return null;
+        const r = pickLatest(arr); const p = seriesProb(r);
+        return validProb(p) ? { b, p, odds: r.odds } : null;
+      }).filter(Boolean);
+      if (vals.length < 2) continue;
+      const maxV = vals.reduce((a, x) => x.p > a.p ? x : a);
+      const minV = vals.reduce((a, x) => x.p < a.p ? x : a);
+      const impliedSpread = maxV.p - minV.p;
+      if (impliedSpread < PLAYOFF_DIVERGENCE_THRESHOLD) continue;
+      playoffsSpreadSpots.push({
+        spotType: 'playoffs_spread',
+        market: 'To Make the Playoffs', team,
+        bestBook: maxV.b, worstBook: minV.b,
+        bestOdds: maxV.odds, worstOdds: minV.odds,
+        bestImplied: maxV.p, worstImplied: minV.p,
+        impliedSpread,
+        expertSignals: expertSignalsForTeam(team, signals),
+      });
+    }
+    playoffsSpreadSpots.sort((a, b) => b.impliedSpread - a.impliedSpread);
+  }
+
+  // Type 5: Win-total line-discrepancy (sharp books disagree on the O/U line number)
+  const winsLineSplitSpots = [];
+  if (winsMap) {
+    for (const [team, bb] of winsMap.entries()) {
+      const linesByBook = PREF_ARR.map((b) => {
+        const arr = bb.get(b); if (!arr) return null;
+        const wl = arr.filter(hasLine); if (!wl.length) return null;
+        const r = pickLatest(wl);
+        return { b, line: Number(r.line), over: r.over_price != null ? Number(r.over_price) : null, under: r.under_price != null ? Number(r.under_price) : null };
+      }).filter(Boolean);
+      if (linesByBook.length < 2) continue;
+      const lines = linesByBook.map((x) => x.line);
+      const lineSpread = Math.max(...lines) - Math.min(...lines);
+      if (lineSpread < WIN_LINE_DIVERGENCE_THRESHOLD) continue;
+      winsLineSplitSpots.push({
+        spotType: 'wins_line', team, market: 'Win Total',
+        bookLines: linesByBook, lineSpread,
+        expertSignals: expertSignalsForTeam(team, signals),
+      });
+    }
+    winsLineSplitSpots.sort((a, b) => b.lineSpread - a.lineSpread);
+  }
+
+  return [...divSpots, ...mergedSpread, ...winsOuCards, ...playoffsSpreadSpots, ...winsLineSplitSpots].slice(0, 35);
 }
 
 // ── Expert grouping ──────────────────────────────────────────────────────────
@@ -961,7 +1041,26 @@ function renderMarkdown(model) {
 
 function renderHtml(model) {
   // ── Core helpers ─────────────────────────────────────────────────────────────
-  const prose = (s) => esc(s || '').replace(/\n/g, '<br>');
+  // Render verdict text: lines starting with '•' become <ul><li> bullet lists;
+  // plain text lines become <p> elements. Mixed content is supported.
+  const prose = (s) => {
+    const lines = (s || '').split('\n');
+    const hasBullets = lines.some((l) => l.trimStart().startsWith('•'));
+    if (!hasBullets) return '<p>' + esc(s || '').replace(/\n/g, '</p><p>') + '</p>';
+    let html = '', inList = false;
+    for (const line of lines) {
+      const tr = line.trimStart();
+      if (tr.startsWith('•')) {
+        if (!inList) { html += '<ul class="verdict-list">'; inList = true; }
+        html += '<li>' + esc(tr.slice(1).trimStart()) + '</li>';
+      } else {
+        if (inList) { html += '</ul>'; inList = false; }
+        if (tr) html += '<p class="verdict-p">' + esc(tr) + '</p>';
+      }
+    }
+    if (inList) html += '</ul>';
+    return html;
+  };
 
   // SVG line-graph sparkline. series = [{t, consensus}]. isUp drives line color.
   // A dashed reference line is drawn at the opening value so direction-from-start is instant.
@@ -1028,11 +1127,11 @@ function renderHtml(model) {
 
   // Implied-probability bar cell (<td> included) — linear 0-100% scale
   const probBar = (p) => {
-    if (p == null || isNaN(p)) return '<td class="na">—</td>';
+    if (p == null || isNaN(p)) return '<td class="na" data-val="">—</td>';
     const pct = p * 100;
     const w = Math.min(Math.round(pct), 100); // linear: 50% prob = 50% bar fill
     const cls = pct >= 40 ? 'hi' : pct >= 15 ? 'md' : 'lo';
-    return '<td><div class="pbar"><div class="pbar-fill ' + cls + '" style="width:' + w + '%"></div><span>' + fmtPct(p) + '</span></div></td>';
+    return '<td data-val="' + pct.toFixed(2) + '"><div class="pbar"><div class="pbar-fill ' + cls + '" style="width:' + w + '%"></div><span>' + fmtPct(p) + '</span></div></td>';
   };
 
   // Status badge
@@ -1046,20 +1145,28 @@ function renderHtml(model) {
   // ── Odds tables ──────────────────────────────────────────────────────────────
   // Win totals: SoS placeholder column + optional row truncation
   const winsTable = (teams, collapseAfter = 0) => {
+    // col indices: 0=Team 1=Line 2=LineBar 3=OvBOL 4=OvBKR 5=OvBTU 6=UnBOL 7=UnBKR 8=UnBTU 9=Δ 10=SoS 11=Playoffs% 12=ATS%
+    const thS = (col, type, label, tip, extra = '') =>
+      '<th class="sort-col" data-col="' + col + '" data-sort="' + type + '" onclick="sortTable(this)"' + (tip ? ' title="' + tip + '"' : '') + extra + '>' + label + '<span class="si"></span></th>';
     const thead =
       '<thead>' +
       '<tr>' +
-        '<th rowspan="2">Team</th>' +
-        '<th rowspan="2" colspan="2">Line</th>' +
+        thS(0,  'alpha',   'Team', 'NFL team') +
+        thS(1,  'numeric', 'Line', 'Consensus win total line (O/U number)', ' rowspan="2" colspan="2"') +
         '<th colspan="3" style="text-align:center;padding-bottom:3px;border-bottom:none">Over</th>' +
         '<th colspan="3" style="text-align:center;padding-bottom:3px;border-bottom:none">Under</th>' +
-        '<th rowspan="2">Δ</th>' +
-        '<th rowspan="2" title="Strength of Schedule — rank by sum of opponents projected win totals (1=hardest, 32=easiest). Tooltip shows raw opp-wins sum.">SoS</th>' +
-        '<th rowspan="2" title="ATS cover rate over last 4 seasons (2022–2025).">ATS%</th>' +
+        thS(9,  'numeric', 'Δ',    'Net line movement since opening snapshot', ' rowspan="2"') +
+        thS(10, 'numeric', 'SoS',  'Strength of Schedule — rank by sum of opponents projected win totals (1=hardest)', ' rowspan="2"') +
+        thS(11, 'numeric', 'PO%',  'Implied probability of making the playoffs (avg of sharp books: BOL/BKR/BTU)', ' rowspan="2"') +
+        thS(12, 'numeric', 'ATS%', 'ATS cover rate over last 4 seasons (2022–2025)', ' rowspan="2"') +
       '</tr>' +
       '<tr style="background:var(--s3)">' +
-        '<th style="font-size:10px;padding:3px 8px">BOL</th><th style="font-size:10px;padding:3px 8px">BKR</th><th style="font-size:10px;padding:3px 8px">BTU</th>' +
-        '<th style="font-size:10px;padding:3px 8px">BOL</th><th style="font-size:10px;padding:3px 8px">BKR</th><th style="font-size:10px;padding:3px 8px">BTU</th>' +
+        thS(3, 'numeric', 'BOL', '', ' style="font-size:10px;padding:3px 8px"') +
+        thS(4, 'numeric', 'BKR', '', ' style="font-size:10px;padding:3px 8px"') +
+        thS(5, 'numeric', 'BTU', '', ' style="font-size:10px;padding:3px 8px"') +
+        thS(6, 'numeric', 'BOL', '', ' style="font-size:10px;padding:3px 8px"') +
+        thS(7, 'numeric', 'BKR', '', ' style="font-size:10px;padding:3px 8px"') +
+        thS(8, 'numeric', 'BTU', '', ' style="font-size:10px;padding:3px 8px"') +
       '</tr>' +
       '</thead>';
 
@@ -1078,8 +1185,8 @@ function renderHtml(model) {
         const v = side === 'over' ? t.overByBook?.[book] : t.underByBook?.[book];
         const isBest = book === (side === 'over' ? bestOverBook : bestUnderBook);
         return v != null
-          ? '<td class="mono' + (isBest ? ' disc-hi-max' : '') + '">' + fmtOdds(v) + '</td>'
-          : '<td class="na mono">—</td>';
+          ? '<td class="mono' + (isBest ? ' disc-hi-max' : '') + '" data-val="' + v + '">' + fmtOdds(v) + '</td>'
+          : '<td class="na mono" data-val="">—</td>';
       };
 
       // SoS cell — quartiles relative to pool size so colour works even with sparse data
@@ -1087,14 +1194,23 @@ function renderHtml(model) {
         ? (() => {
             const rank = t.sosRank;
             const n    = t.sosTotal || 32;
-            const hard = Math.max(2, Math.ceil(n * 0.25));   // top quartile = tough schedule
-            const easy = Math.min(n - 1, Math.floor(n * 0.75)); // bottom quartile = easy schedule
+            const hard = Math.max(2, Math.ceil(n * 0.25));
+            const easy = Math.min(n - 1, Math.floor(n * 0.75));
             const cls  = rank <= hard ? 'color:var(--red)' : rank >= easy ? 'color:var(--green)' : 'color:var(--tx2)';
             const lbl  = rank <= hard ? '🔴' : rank >= easy ? '🟢' : '⚪';
             const tip  = 'Opp proj wins: ' + (t.sos?.toFixed(1) || '?') + ' | rank ' + rank + '/' + n + (rank <= hard ? ' (tough)' : rank >= easy ? ' (easy)' : ' (mid)');
-            return '<td class="sos-cell" title="' + tip + '"><span style="' + cls + ';font-weight:600">' + lbl + ' #' + rank + '</span></td>';
+            return '<td class="sos-cell" data-val="' + rank + '" title="' + tip + '"><span style="' + cls + ';font-weight:600">' + lbl + ' #' + rank + '</span></td>';
           })()
-        : '<td class="sos-cell"><span class="sos-na">—</span></td>';
+        : '<td class="sos-cell" data-val=""><span class="sos-na">—</span></td>';
+
+      // Playoffs % cell — implied probability of making playoffs (avg sharp books)
+      const playoffsCell = t.playoffsPct != null
+        ? (() => {
+            const p   = t.playoffsPct;
+            const col = p > 0.60 ? 'var(--green)' : p >= 0.40 ? 'var(--amber)' : 'var(--tx2)';
+            return '<td data-val="' + (p * 100).toFixed(1) + '" style="color:' + col + ';font-weight:' + (p > 0.60 || p < 0.35 ? '700' : '400') + '">' + fmtPct(p) + '</td>';
+          })()
+        : '<td class="na" data-val="">—</td>';
 
       // ATS% cell
       const atsCell = t.ats?.pct != null
@@ -1102,19 +1218,19 @@ function renderHtml(model) {
             const pct = t.ats.pct;
             const col = pct > 0.55 ? 'var(--green)' : pct < 0.45 ? 'var(--red)' : 'var(--tx2)';
             const fw  = (pct > 0.55 || pct < 0.45) ? '700' : '400';
-            return '<td style="color:' + col + ';font-weight:' + fw + ';white-space:nowrap">' +
+            return '<td data-val="' + (pct * 100).toFixed(1) + '" style="color:' + col + ';font-weight:' + fw + ';white-space:nowrap">' +
               Math.round(pct * 100) + '% <span style="font-size:10px;color:var(--tx3)">(' + t.ats.seasons + 'yr)</span></td>';
           })()
-        : '<td class="na">—</td>';
+        : '<td class="na" data-val="">—</td>';
 
       return '<tr' + hiddenCls + '>' +
-        '<td class="tm">' + esc(t.team) + '</td>' +
-        '<td class="mono big-line">' + (t.line != null ? t.line.toFixed(1) : '—') + '</td>' +
+        '<td class="tm" data-val="' + esc(t.team) + '">' + esc(t.team) + '</td>' +
+        '<td class="mono big-line" data-val="' + (t.line ?? '') + '">' + (t.line != null ? t.line.toFixed(1) : '—') + '</td>' +
         '<td class="line-bar-cell"><div class="line-bar" style="width:' + Math.min(Math.round(((t.line || 0) / 17) * 100), 100) + '%"></div></td>' +
         ouCell('over',  'betonline') + ouCell('over',  'bookmaker') + ouCell('over',  'betus') +
         ouCell('under', 'betonline') + ouCell('under', 'bookmaker') + ouCell('under', 'betus') +
-        '<td>' + deltaLine(t.movement) + '</td>' +
-        sosCell + atsCell +
+        '<td data-val="' + (t.movement ?? '') + '">' + deltaLine(t.movement) + '</td>' +
+        sosCell + playoffsCell + atsCell +
         '</tr>';
     };
 
@@ -1127,30 +1243,38 @@ function renderHtml(model) {
 
   // Outright table: Open | Prob | Consensus | BOL | BKR | BTU | Best | Change
   // collapseAfter > 0 hides rows beyond that index, adds "Show N more" button.
-  // Per-cell discrepancy: amber=highest book, green=lowest book (when gap >1500 pts).
-  const outrightTable = (teams, tableId = '', collapseAfter = 0) => {
+  // All columns sortable via sortTable(). Per-cell discrepancy: green=best price, amber=worst.
+  const outrightTable = (teams, tableId = '', collapseAfter = 0, opts = {}) => {
     const idAttr = tableId ? ' id="' + tableId + '"' : '';
+    const showNo      = !!opts.showNoOdds;   // Playoffs: add estimated "No" column
+    const showEnrich  = !!opts.showEnrich;   // Most/Least Wins: add SoS + ATS% columns
+    const thS = (col, type, label, tip) =>
+      '<th class="sort-col" data-col="' + col + '" data-sort="' + type + '" onclick="sortTable(this)" title="' + tip + '">' + label + '<span class="si"></span></th>';
+    // Columns: 0=Team 1=Open 2=Prob 3=Consensus 4=BOL 5=BKR 6=BTU 7=Trend 8=Change [9=No(est)] [9/10=SoS/ATS%]
+    const noCol    = showNo     ? thS(9,  'numeric', 'No (est.)', 'Estimated "No" odds — implied complement of the consensus Yes probability. Not a real posted line.') : '';
+    const sosCol   = showEnrich ? thS(showNo ? 10 : 9,  'numeric', 'SoS',  'Strength of Schedule rank (1=hardest)') : '';
+    const atsCol   = showEnrich ? thS(showNo ? 11 : 10, 'numeric', 'ATS%', 'ATS cover rate over last 4 seasons') : '';
     const thead = '<thead><tr>' +
-      '<th title="NFL team">Team</th>' +
-      '<th title="Consensus American odds at the first recorded opening snapshot">Open</th>' +
-      '<th title="Implied win probability — average across all available books. Higher % = more likely to win.">Prob</th>' +
-      '<th title="American odds equivalent of the consensus implied probability (avg across all books). Gives you a quick odds read for the market as a whole.">Consensus</th>' +
-      '<th title="BetOnline odds — sharp offshore book.">BOL</th>' +
-      '<th title="Bookmaker odds — sharp offshore book.">BKR</th>' +
-      '<th title="BetUS odds — sharp offshore book.">BTU</th>' +
-      '<th title="Best available price across BOL/BKR/BTU. Shop here for the highest payout.">Best</th>' +
-      '<th title="Net change in implied probability (percentage points) since opening snapshot. ▲ = shortening (more favored). ▼ = drifting out.">Change</th></tr></thead>';
+      thS(0, 'alpha',   'Team',      'NFL team — click to sort alphabetically') +
+      thS(1, 'numeric', 'Open',      'Consensus American odds at the first recorded opening snapshot') +
+      thS(2, 'numeric', 'Prob',      'Implied win probability — average across all available books') +
+      thS(3, 'numeric', 'Consensus', 'American odds equivalent of consensus implied probability (avg all books)') +
+      thS(4, 'numeric', 'BOL',       'BetOnline odds — sharp offshore book') +
+      thS(5, 'numeric', 'BKR',       'Bookmaker odds — sharp offshore book') +
+      thS(6, 'numeric', 'BTU',       'BetUS odds — sharp offshore book') +
+      '<th title="Implied probability trend over snapshot history — sparkline shows movement from open to now">Trend</th>' +
+      thS(8, 'numeric', 'Change',    'Net change in implied probability (pp) since opening snapshot') +
+      noCol + sosCol + atsCol +
+      '</tr></thead>';
     const fmtCell = (v, discCls) => {
-      if (v == null) return '<td class="na mono">—</td>';
+      if (v == null) return '<td class="na mono" data-val="">—</td>';
       const n = typeof v === 'number' ? v : parseInt(v, 10);
       const cls = isNaN(n) ? '' : n <= -200 ? ' c-fav' : n >= 500 ? ' c-dog' : '';
-      return '<td class="mono' + cls + (discCls ? ' ' + discCls : '') + '">' + fmtOdds(v) + '</td>';
+      return '<td class="mono' + cls + (discCls ? ' ' + discCls : '') + '" data-val="' + (isNaN(n) ? '' : n) + '">' + fmtOdds(v) + '</td>';
     };
     const mkRow = (t, idx) => {
-      const bp = bestPref(t.allBooks || {});
-      const bestCell = bp
-        ? '<td class="mono best-odds"><b>' + fmtOdds(bp.odds) + '</b> <span class="book-tag">' + BOOK_SHORT[bp.book] + '</span></td>'
-        : '<td class="na mono">—</td>';
+      // Trend sparkline (replaces former Best column)
+      const trendCell = '<td style="padding:4px 8px">' + svgSparkSmall(t.series || []) + '</td>';
       // Per-cell discrepancy: green = highest American odds (best payout for bettor), amber = lowest (worst price)
       const prefVals = PREF_BOOKS.map((b) => t.allBooks?.[b]).filter((v) => v != null);
       const hasDisc = prefVals.length >= 2 && (Math.max(...prefVals) - Math.min(...prefVals)) > 1500;
@@ -1166,19 +1290,43 @@ function renderHtml(model) {
       }
       const isHidden = collapseAfter > 0 && idx >= collapseAfter;
       const rowClasses = [isHidden ? 'hidden-row' : '', hasDisc ? 'row-disc' : ''].filter(Boolean).join(' ');
+      const openOdds = impliedToAmerican(t.opening);
       const openCell = t.opening != null
-        ? '<td class="mono ac">' + fmtOdds(impliedToAmerican(t.opening)) + '</td>'
-        : '<td class="na mono">—</td>';
+        ? '<td class="mono ac" data-val="' + (openOdds ?? '') + '">' + fmtOdds(openOdds) + '</td>'
+        : '<td class="na mono" data-val="">—</td>';
+      const consOdds = impliedToAmerican(t.consensus);
       return '<tr' + (rowClasses ? ' class="' + rowClasses + '"' : '') + ' data-team="' + esc(t.team) + '">' +
-        '<td class="tm">' + esc(t.team) + (hasDisc ? '<span class="disc-badge" title="⚠ Large price gap between books — compare before buying">⚠</span>' : '') + '</td>' +
+        '<td class="tm" data-val="' + esc(t.team) + '">' + esc(t.team) + (hasDisc ? '<span class="disc-badge" title="⚠ Large price gap between books — compare before buying">⚠</span>' : '') + '</td>' +
         openCell +
         probBar(t.consensus) +
-        '<td class="mono ac">' + fmtOdds(impliedToAmerican(t.consensus)) + '</td>' +
+        '<td class="mono ac" data-val="' + (consOdds ?? '') + '">' + fmtOdds(consOdds) + '</td>' +
         fmtCell(t.allBooks?.betonline, discClsMap.betonline) +
         fmtCell(t.allBooks?.bookmaker, discClsMap.bookmaker) +
         fmtCell(t.allBooks?.betus, discClsMap.betus) +
-        bestCell +
-        '<td>' + deltaOdds(t.movement) + '</td>' +
+        trendCell +
+        '<td data-val="' + (t.movement != null ? (t.movement * 100).toFixed(2) : '') + '">' + deltaOdds(t.movement) + '</td>' +
+        (showNo ? (() => {
+          const noProb = t.consensus != null ? 1 - t.consensus : null;
+          const noOdds = noProb != null && noProb > 0 && noProb < 1 ? impliedToAmerican(noProb) : null;
+          return noOdds != null
+            ? '<td class="mono" data-val="' + noOdds + '">' + fmtOdds(noOdds) + '</td>'
+            : '<td class="na mono" data-val="">—</td>';
+        })() : '') +
+        (showEnrich ? (() => {
+          const rank = t.sosRank; const n = t.sosTotal || 32;
+          const sosCl = rank != null ? (rank <= Math.ceil(n * 0.25) ? 'color:var(--red)' : rank >= Math.floor(n * 0.75) ? 'color:var(--green)' : 'color:var(--tx2)') : '';
+          const sosCell = rank != null
+            ? '<td data-val="' + rank + '" title="SoS rank ' + rank + '/' + n + '"><span style="' + sosCl + ';font-weight:600">#' + rank + '</span></td>'
+            : '<td class="na" data-val="">—</td>';
+          const atsCell = t.ats?.pct != null
+            ? (() => {
+                const pct = t.ats.pct;
+                const col = pct > 0.55 ? 'var(--green)' : pct < 0.45 ? 'var(--red)' : 'var(--tx2)';
+                return '<td data-val="' + (pct * 100).toFixed(1) + '" style="color:' + col + '">' + Math.round(pct * 100) + '%</td>';
+              })()
+            : '<td class="na" data-val="">—</td>';
+          return sosCell + atsCell;
+        })() : '') +
         '</tr>';
     };
     const rows = teams.map((t, i) => mkRow(t, i)).join('');
@@ -1200,12 +1348,15 @@ function renderHtml(model) {
     if (!cat.present) {
       content = '<p class="empty-note">' + esc(cat.note || 'No market data in window.') + '</p>';
     } else if (cat.id === 'playoffs') {
-      // Group playoffs by division so divisional strength context is visible
+      // Group playoffs by division; each division independently collapsible; collapse rows after 5; show No (est.) column
       const teams = cat.subsections[0]?.teams || [];
       const byDiv = {};
       for (const t of teams) { const d = TEAM_DIVISION[t.team] || 'Other'; if (!byDiv[d]) byDiv[d] = []; byDiv[d].push(t); }
       content = DIVISION_ORDER.filter((d) => byDiv[d]).map((div) =>
-        '<div class="div-head">' + esc(div) + '</div>' + outrightTable(byDiv[div])
+        '<details class="div-expand" open>' +
+        '<summary class="div-expand-sum">' + esc(div) + '</summary>' +
+        outrightTable(byDiv[div], '', 5, { showNoOdds: true }) +
+        '</details>'
       ).join('');
     } else if (cat.id === 'superbowl_matchup') {
       // SB Exact Matchup with team filter
@@ -1230,11 +1381,16 @@ function renderHtml(model) {
       content = cat.subsections.map((sub) => {
         const ca = cat.id === 'superbowl'   ? 10
                  : cat.id === 'wins'        ? 10
-                 : cat.id === 'conference'  ? 4    // show top 4 per conf, collapse rest
-                 : cat.id === 'division'    ? 2    // show top 2 per div, collapse rest
-                 : cat.id === 'playoffs'    ? 8
-                 : 0;
-        const tbl = sub.kind === 'wins' ? winsTable(sub.teams, ca) : outrightTable(sub.teams, '', ca);
+                 : cat.id === 'conference'  ? 6    // show top 6 per conf, collapse rest
+                 : cat.id === 'division'    ? 4    // show top 4 per div, collapse rest
+                 : 0; // playoffs handled above (5/div), matchup uses default 0
+        const isWins = sub.kind === 'wins';
+        const showEnrich = (cat.id === 'most_wins' || cat.id === 'least_wins') && !isWins;
+        const tbl = isWins ? winsTable(sub.teams, ca) : outrightTable(sub.teams, '', ca, { showEnrich });
+        // DIV Winners: each subsection (= one division) is independently collapsible
+        if (cat.id === 'division') {
+          return '<details class="div-expand" open><summary class="div-expand-sum">' + esc(sub.label) + '</summary>' + tbl + '</details>';
+        }
         return (cat.subsections.length > 1 ? '<h3 class="sub-head">' + esc(sub.label) + '</h3>' : '') + tbl;
       }).join('');
     }
@@ -1248,12 +1404,26 @@ function renderHtml(model) {
       '<div class="sec-body">' + verdictHtml + noteHtml + content + '</div></section>';
   };
 
-  // ── Movement — card grid for top movers, table for the rest ─────────────────
-  const topMovers  = model.movers.slice(0, 9);
-  const restMovers = model.movers.slice(9);
+  // ── Movement — category pill filter + card grid + rest table ────────────────
+  const topMovers  = model.movers.slice(0, 8);
+  const restMovers = model.movers.slice(8);
+
+  // Build filter bar
+  const MOVER_CAT_LABELS = { superbowl: 'Super Bowl', conference: 'Conference', division: 'Division', wins: 'Win Total', playoffs: 'Playoffs', other: 'Other' };
+  const MOVER_CAT_ORDER  = ['superbowl', 'conference', 'division', 'wins', 'playoffs', 'other'];
+  const moverCatCounts = {};
+  for (const m of model.movers) { const c = spotMarketCat(m.market); moverCatCounts[c] = (moverCatCounts[c] || 0) + 1; }
+  const moverFilterBar = model.movers.length
+    ? '<div class="mover-filters" id="mover-filters">' +
+      '<button class="mover-filter active" data-filter="all">All <span class="sfc">' + model.movers.length + '</span></button>' +
+      MOVER_CAT_ORDER.filter((c) => moverCatCounts[c]).map((c) =>
+        '<button class="mover-filter" data-filter="' + c + '">' + MOVER_CAT_LABELS[c] + ' <span class="sfc">' + moverCatCounts[c] + '</span></button>'
+      ).join('') + '</div>'
+    : '';
 
   const moverCard = (m) => {
-    const cls = m.delta >= 0 ? 'up' : 'dn';
+    const cls  = m.delta >= 0 ? 'up' : 'dn';
+    const cats = spotMarketCat(m.market);
     // Find best current price among pref books for halo highlight
     let bestBook = null, bestOdds = null;
     for (const b of PREF_BOOKS) {
@@ -1278,7 +1448,7 @@ function renderHtml(model) {
           }).join('') +
         '</div>' +
       '</div>';
-    return '<div class="mover-card ' + cls + '">' +
+    return '<div class="mover-card ' + cls + '" data-cats="' + cats + '">' +
       '<div class="mc-delta"><span class="th-tip" data-tip="Net change in implied win probability (percentage points) since the opening snapshot. pp = percentage points. ▲ = shortening (more favored). ▼ = drifting (less favored).">' + (m.delta >= 0 ? '▲' : '▼') + ' ' + fmtDelta(m.delta) + '</span></div>' +
       '<div class="mc-team">' + esc(m.team) + '</div>' +
       '<div class="mc-market">' + esc(m.market) + '</div>' +
@@ -1290,7 +1460,9 @@ function renderHtml(model) {
   };
 
   const moverRestTable = restMovers.length
-    ? '<div class="tbl-wrap" style="margin-top:14px"><table id="mover-rest-tbl">' +
+    ? '<details class="tbl-expand" style="margin-top:14px">' +
+      '<summary class="tbl-expand-sum">Show ' + restMovers.length + ' more movers ▾</summary>' +
+      '<div class="tbl-wrap"><table id="mover-rest-tbl">' +
       '<thead><tr>' +
         '<th class="sort-col" onclick="sortMoverTbl(this,0)">Team<span class="si"></span></th>' +
         '<th class="sort-col" onclick="sortMoverTbl(this,1)">Market<span class="si"></span></th>' +
@@ -1301,7 +1473,7 @@ function renderHtml(model) {
         '<th><span class="th-tip" data-tip="Date range of snapshots used for this movement calculation">Window</span></th>' +
       '</tr></thead><tbody>' +
       restMovers.map((m) =>
-        '<tr data-market="' + esc(m.market) + '" data-delta="' + (m.delta || 0) + '">' +
+        '<tr data-market="' + esc(m.market) + '" data-delta="' + (m.delta || 0) + '" data-cats="' + spotMarketCat(m.market) + '">' +
         '<td class="tm">' + esc(m.team) + '</td>' +
         '<td>' + esc(m.market) + '</td>' +
         '<td class="mono">' + fmtPct(m.opening) + '</td>' +
@@ -1311,11 +1483,11 @@ function renderHtml(model) {
         '<td class="mono na">' + esc(m.firstDate || '—') + ' → ' + esc(m.lastDate || '—') + '</td>' +
         '</tr>'
       ).join('') +
-      '</tbody></table></div>'
+      '</tbody></table></div></details>'
     : '';
 
   const movementHtml = model.movers.length
-    ? '<div class="mover-grid">' + topMovers.map(moverCard).join('') + '</div>' + moverRestTable
+    ? moverFilterBar + '<div class="mover-grid">' + topMovers.map(moverCard).join('') + '</div>' + moverRestTable
     : '<div class="empty-state">' +
       '<div class="es-icon">📈</div>' +
       '<div class="es-head">No significant movement yet</div>' +
@@ -1412,6 +1584,56 @@ function renderHtml(model) {
               lineNote +
               '<table class="wou-tbl"><thead><tr><th></th>' + bookHdrs + '</tr></thead><tbody>' + overRow + underRow + '</tbody></table>' +
               '<div class="spot-explain">Green = best price. Buy the highlighted side/book. ' + (s.lineNote ? 'Line differs by book — verify before betting.' : '') + '</div>' +
+              experts +
+            '</div>' +
+          '</div>';
+        }
+
+        // ── wins_line card (books disagree on the O/U line number) ───────────
+        if (s.spotType === 'wins_line') {
+          const hdrs = s.bookLines.map((x) => '<th>' + (BOOK_SHORT[x.b] || x.b) + '</th>').join('');
+          const lineRow = '<tr><td class="wou-side">Line</td>' + s.bookLines.map((x) => '<td class="' + (x.line === Math.max(...s.bookLines.map(y => y.line)) ? 'wou-best' : '') + '">' + x.line.toFixed(1) + '</td>').join('') + '</tr>';
+          const overRow = '<tr><td class="wou-side">Over</td>' + s.bookLines.map((x) => x.over != null ? '<td>' + fmtOdds(x.over) + '</td>' : '<td class="na">—</td>').join('') + '</tr>';
+          const undrRow = '<tr><td class="wou-side">Under</td>' + s.bookLines.map((x) => x.under != null ? '<td>' + fmtOdds(x.under) + '</td>' : '<td class="na">—</td>').join('') + '</tr>';
+          return '<div class="spot-card wins-line" data-cats="' + catsAttr + '">' +
+            '<div class="spot-card-head">' +
+              '<button class="spot-toggle" title="Expand">▶</button>' +
+              '<div class="spot-card-meta">' +
+                '<span class="spot-team">' + esc(s.team) + '</span>' +
+                '<span class="spot-cat-tags">' + catTags + '</span>' +
+              '</div>' +
+              '<span class="spot-card-count">Line split ±' + s.lineSpread.toFixed(1) + ' wins</span>' +
+            '</div>' +
+            '<div class="spot-card-body" style="display:none">' +
+              '<div class="spot-label wins-line-lbl">📐 Line Disagreement</div>' +
+              '<table class="wou-tbl"><thead><tr><th></th>' + hdrs + '</tr></thead><tbody>' + lineRow + overRow + undrRow + '</tbody></table>' +
+              '<div class="spot-explain">Books disagree on the line — buy the higher Over or lower Under depending on your lean. Green = highest line (buy Over here if bullish).</div>' +
+              experts +
+            '</div>' +
+          '</div>';
+        }
+
+        // ── playoffs_spread card (implied prob gap across sharp books) ────────
+        if (s.spotType === 'playoffs_spread') {
+          const bLbl = BOOK_SHORT[s.bestBook]  || s.bestBook;
+          const wLbl = BOOK_SHORT[s.worstBook] || s.worstBook;
+          return '<div class="spot-card playoffs-spread" data-cats="' + catsAttr + '">' +
+            '<div class="spot-card-head">' +
+              '<button class="spot-toggle" title="Expand">▶</button>' +
+              '<div class="spot-card-meta">' +
+                '<span class="spot-team">' + esc(s.team) + '</span>' +
+                '<span class="spot-cat-tags">' + catTags + '</span>' +
+              '</div>' +
+              '<span class="spot-card-count">+' + Math.round(s.impliedSpread * 100) + 'pp implied spread</span>' +
+            '</div>' +
+            '<div class="spot-card-body" style="display:none">' +
+              '<div class="spot-market">To Make the Playoffs</div>' +
+              '<div class="spot-nums">' +
+                '<span>' + bLbl + ' <b>' + fmtOdds(s.bestOdds) + '</b> (' + fmtPct(s.bestImplied) + ')</span>' +
+                '<span class="spot-gap">+' + Math.round(s.impliedSpread * 100) + 'pp</span>' +
+                '<span>' + wLbl + ' <b>' + fmtOdds(s.worstOdds) + '</b> (' + fmtPct(s.worstImplied) + ')</span>' +
+              '</div>' +
+              '<div class="spot-explain">Sharp books disagree on playoff probability by ' + Math.round(s.impliedSpread * 100) + 'pp. Buy at ' + bLbl + ' for the best payout.</div>' +
               experts +
             '</div>' +
           '</div>';
@@ -1593,6 +1815,9 @@ a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
 /* ── Verdict ────────────────────────────────────────────────────────────────── */
 .verdict{background:linear-gradient(to right,rgba(61,130,247,.1),transparent);border-left:3px solid var(--ac);border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:14px}
 .verdict-label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);margin-bottom:4px}
+.verdict-list{margin:6px 0 4px 16px;padding:0;line-height:1.6}
+.verdict-list li{margin-bottom:3px;color:var(--tx2);font-size:13px}
+.verdict-p{margin:4px 0;color:var(--tx2);font-size:13px}
 .verdict-body{font-size:13.5px;color:var(--tx);line-height:1.7}
 /* ── Tables ─────────────────────────────────────────────────────────────────── */
 .tbl-wrap{overflow-x:hidden;border-radius:10px;border:1px solid var(--bd)}
@@ -1603,6 +1828,7 @@ td{padding:8px 12px;border-bottom:1px solid var(--bd)}
 tr:last-child td{border-bottom:none}
 tr:hover td{background:rgba(255,255,255,.018)}
 .tm{font-weight:600;color:var(--tx);white-space:nowrap;max-width:180px;overflow:hidden;text-overflow:ellipsis}
+#matchup-tbl .tm{max-width:none;min-width:200px;white-space:normal;overflow:visible;text-overflow:clip;resize:horizontal}
 .mono{font-variant-numeric:tabular-nums;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 .ac{color:var(--ac);font-weight:700}
 .na{color:var(--tx3)}
@@ -1656,6 +1882,11 @@ th.muted{opacity:.5}
 .mc-meta{font-size:11px;color:var(--tx3);font-variant-numeric:tabular-nums;margin-top:4px}
 /* ── Sparkline SVG (table) ─────────────────────────────────────────────────── */
 .spark{line-height:0}
+/* ── Mover category filter ───────────────────────────────────────────────────── */
+.mover-filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.mover-filter{background:var(--s2);border:1px solid var(--bd);border-radius:20px;color:var(--tx2);font-size:12px;font-weight:600;cursor:pointer;padding:4px 12px;transition:all .15s}
+.mover-filter:hover{background:var(--s3);color:var(--tx)}
+.mover-filter.active{background:var(--ac);border-color:var(--ac);color:#fff}
 /* ── Value spot filters ─────────────────────────────────────────────────────── */
 .spots-filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
 .spot-filter{background:var(--s2);border:1px solid var(--bd);border-radius:20px;color:var(--tx2);font-size:12px;font-weight:600;cursor:pointer;padding:4px 12px;transition:all .15s}
@@ -1665,7 +1896,8 @@ th.muted{opacity:.5}
 /* ── Value spot cards ───────────────────────────────────────────────────────── */
 .spots-list{display:flex;flex-direction:column;gap:6px}
 .spot-card{background:var(--s2);border:1px solid var(--bd);border-radius:10px;overflow:hidden}
-.spot-card.sharp{border-left:3px solid var(--green)}.spot-card.overbet{border-left:3px solid var(--red)}.spot-card.spread{border-left:3px solid var(--ac)}
+.spot-card.sharp{border-left:3px solid var(--green)}.spot-card.overbet{border-left:3px solid var(--red)}.spot-card.spread{border-left:3px solid var(--ac)}.spot-card.wins-line{border-left:3px solid var(--amber)}.spot-card.playoffs-spread{border-left:3px solid #a78bfa}
+.wins-line-lbl{color:var(--amber)}
 /* card header row */
 .spot-card-head{display:flex;align-items:center;gap:10px;padding:11px 14px;cursor:pointer;user-select:none}
 .spot-card-head:hover{background:var(--s3)}
@@ -1819,6 +2051,13 @@ th.sort-col:not(.asc):not(.desc) .si::after{content:"↕"}
 .mf-clear:hover{border-color:var(--bd2);color:var(--tx)}
 /* ── Playoff division headers ────────────────────────────────────────────────── */
 .div-head{font-size:12px;font-weight:700;color:var(--tx2);text-transform:uppercase;letter-spacing:.06em;margin:18px 0 7px;padding-bottom:5px;border-bottom:1px solid var(--bd)}
+.div-expand{border:1px solid var(--bd);border-radius:8px;margin-bottom:12px;overflow:hidden}
+.div-expand-sum{font-size:12px;font-weight:700;color:var(--tx);text-transform:uppercase;letter-spacing:.06em;padding:10px 14px;cursor:pointer;user-select:none;list-style:none;background:var(--s2);display:flex;align-items:center;gap:8px}
+.div-expand-sum:hover{background:var(--s3)}
+.div-expand-sum::marker,.div-expand-sum::-webkit-details-marker{display:none}
+.div-expand-sum::before{content:"▶ ";font-size:10px;color:var(--ac)}
+.div-expand[open] .div-expand-sum::before{content:"▼ ";font-size:10px}
+.div-expand .tbl-wrap{margin:0;border-radius:0;border-top:1px solid var(--bd)}
 /* ── Responsive ─────────────────────────────────────────────────────────────── */
 @media(max-width:680px){
   .mover-grid{grid-template-columns:repeat(2,1fr)}
@@ -1924,6 +2163,12 @@ document.addEventListener('click', function(e) {
       return;
     }
   }
+  // Mover category filter
+  var mfBtn = e.target.closest('.mover-filter');
+  if (mfBtn) {
+    applyMoverFilter(mfBtn.dataset.filter);
+    return;
+  }
   // Value spot market filter
   var sfBtn = e.target.closest('.spot-filter');
   if (sfBtn) {
@@ -1962,7 +2207,35 @@ function applyMatchupFilter() {
   if (count) count.textContent = visible + ' matchup' + (visible !== 1 ? 's' : '');
 }
 
-// ── Sortable movement table ───────────────────────────────────────────────────
+// ── Generic sortable table (all outright + wins tables) ──────────────────────
+// th must have data-col="N" and data-sort="numeric"|"alpha".
+function sortTable(th) {
+  var tbl = th.closest('table');
+  if (!tbl) return;
+  var colIdx   = parseInt(th.dataset.col || '0', 10);
+  var sortType = th.dataset.sort || 'alpha';
+  var tbody = tbl.querySelector('tbody');
+  var allRows = Array.from(tbody.querySelectorAll('tr'));
+  var asc = !th.classList.contains('asc');
+  tbl.querySelectorAll('th.sort-col').forEach(function(h) { h.classList.remove('asc', 'desc'); });
+  th.classList.add(asc ? 'asc' : 'desc');
+  allRows.sort(function(a, b) {
+    var ac = a.cells[colIdx]; var bc = b.cells[colIdx];
+    if (!ac || !bc) return 0;
+    var av = ac.dataset.val !== undefined ? ac.dataset.val : ac.textContent.trim();
+    var bv = bc.dataset.val !== undefined ? bc.dataset.val : bc.textContent.trim();
+    if (sortType === 'numeric') {
+      var an = parseFloat(av); var bn = parseFloat(bv);
+      if (isNaN(an)) an = asc ? Infinity : -Infinity;
+      if (isNaN(bn)) bn = asc ? Infinity : -Infinity;
+      return asc ? an - bn : bn - an;
+    }
+    return asc ? String(av).localeCompare(String(bv)) : String(bv).localeCompare(String(av));
+  });
+  allRows.forEach(function(r) { tbody.appendChild(r); });
+}
+
+// ── Sortable movement table (legacy — kept for mover rest table) ──────────────
 function sortMoverTbl(th, colIdx) {
   var tbl = document.getElementById('mover-rest-tbl');
   if (!tbl) return;
@@ -1978,6 +2251,19 @@ function sortMoverTbl(th, colIdx) {
     return asc ? av.localeCompare(bv) : bv.localeCompare(av);
   });
   rows.forEach(function(r) { tbody.appendChild(r); });
+}
+
+// ── Mover category filter ─────────────────────────────────────────────────────
+function applyMoverFilter(filter) {
+  document.querySelectorAll('.mover-filter').forEach(function(b) { b.classList.remove('active'); });
+  var activeBtn = document.querySelector('.mover-filter[data-filter="' + filter + '"]');
+  if (activeBtn) activeBtn.classList.add('active');
+  document.querySelectorAll('#movement .mover-card').forEach(function(card) {
+    card.style.display = (filter === 'all' || (card.dataset.cats || '') === filter) ? '' : 'none';
+  });
+  document.querySelectorAll('#mover-rest-tbl tbody tr').forEach(function(row) {
+    row.style.display = (filter === 'all' || (row.dataset.cats || '') === filter) ? '' : 'none';
+  });
 }
 </script>
 </body></html>`;
@@ -2092,6 +2378,7 @@ async function main() {
   const grouped = groupSeries(snapshots);
   const categories = buildCategoryModel(grouped);
   enrichWinTotals(categories, enrichData);
+  enrichPlayoffsPct(categories, grouped);
   const movers = buildMovers(grouped);
   const expertGroups = buildExpertGroups(signals, notes, tweets);
   const valueSpots = buildValueSpots(grouped, notes, signals);
