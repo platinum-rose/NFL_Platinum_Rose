@@ -175,6 +175,9 @@ def load_whisperx_backend(
                 diarization = _e.value
             if diarization is None:
                 raise RuntimeError("pyannote diarize_pipeline returned no annotation")
+            # pyannote 4.x wraps the Annotation in DiarizeOutput
+            if hasattr(diarization, 'speaker_diarization'):
+                diarization = diarization.speaker_diarization
 
             # 3. Assign speakers by temporal overlap
             labeled = _assign_speakers(segs, diarization)
