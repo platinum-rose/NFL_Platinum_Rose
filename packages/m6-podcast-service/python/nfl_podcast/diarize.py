@@ -163,7 +163,16 @@ def load_whisperx_backend(
             wav_tensor = torch.from_numpy(audio_np).view(n_ch, -1)
             if n_ch > 1:
                 wav_tensor = wav_tensor.mean(0, keepdim=True)
-            diarization = diarize_pipeline({"waveform": wav_tensor, "sample_rate": sr})
+            # pyannote 4.x Pipeline.__call__ returns a generator that yields
+            # intermediate hook results; the final item is the Annotation.
+            import types  # noqa: WPS433
+            _pipeline_out = diarize_pipeline({"waveform": wav_tensor, "sample_rate": sr})
+            if isinstance(_pipeline_out, types.GeneratorType):
+                diarization = None
+                for diarization in _pipeline_out:
+                    pass  # consume; last value is the Annotation
+            else:
+                diarization = _pipeline_out
 
             # 3. Assign speakers by temporal overlap
             labeled = _assign_speakers(segs, diarization)
