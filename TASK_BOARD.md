@@ -1,5 +1,5 @@
 # Platinum Rose — Task Board (NFL)
-> **Last updated:** 2026-06-04 (reconciled against HEAD `51ac195`)
+> **Last updated:** 2026-06-30 (reconciled against HEAD `2c0fb68`)
 > **Owner:** PM agent is the sole writer of this file.
 
 ---
@@ -10,49 +10,29 @@
 |----|------|----------|-------|
 | — | (none) | — | — |
 
-> **✅ Regression fixed (2026-06-03):** the 2 failing tests in
-> `tests/unit/oddsIdempotent.test.js` (`writeSnapshots` upsert on
-> `futures_odds_snapshots`) are resolved — `f1e6f19` had reverted the S152 upsert
-> path; restored it in `agents/futures-odds-ingest.js`. 552/552 green. See B-1.
-
-> **ID note:** `F-15` is used twice in this repo — "Props auto-grade GHA agent"
-> (DONE 2026-05-18) and the nflverse stats seed shipped in commit `5025af4`
-> (`feat(F-15/F-16)`). They are distinct work items; disambiguate by commit hash.
-
 ---
 
 ## 📋 BACKLOG
-
-### Features
-
-| ID | Task | Priority | Notes |
-|----|------|----------|-------|
-| DS-2 | Build 2026 season schedule spine (`games`) | P0 | ~~Ingest ESPN schedule into new canonical `games` table and local cache (`public/schedule.json`) with deterministic `game_id`; enforce team normalization (`skills/team-normalization.md`) on all joins.~~ → **Done — see DONE section.** |
-| DS-3 | Expand futures ingest breadth (`futures_odds_snapshots`) | P0 | ~~Extend `agents/futures-odds-ingest.js`…~~ → **Done — see DONE section.** |
-| DS-4 | Research intel ingest v1 (`research_intel_notes`, `research_pick_signals`) | P1 | ~~Add article + podcast normalization pipeline with source metadata, publish timestamps, and extracted picks/angles for BETTING context preload.~~ → **Done — see DONE section.** |
-| F-9 | Sunday Slate Briefing mode (BETTING agent proactive entry) | P1 | ~~In progress — proactive Sunday opening + `Best Plays` command implemented in AgentChat; pending prompt tuning and game-day output validation.~~ → **Done — see DONE section.** |
-| F-10 | Performance feedback loop | P1 | ~~ROI aggregation by bet type/team/situation; calibration signals injected into BETTING agent context at session start~~ → **Done — see DONE section.** |
-| F-11 | Intel search tool (`search_intel`) | P1 | ~~Phase 1 — `search_intel` tool in `agentTools.js` + `searchResearchIntel(query, opts)` in `supabase.js`~~ → **Done — see DONE section.** ~~Phase 2 (FTS + body scraping)~~ → **Done — see DONE section.** |
-| F-12 | Hermes/Obsidian NFL betting vault integration | P1 | ~~Read + write path; BETTING agent writes session notes/angles/outcomes to vault post-session; reads coach tendencies/stats/DVOA/EPA at session start~~ → **Done — see DONE section.** |
-| F-13 | Twitter/X sharp-account ingestion | P2 | Creator has dedicated X account for Platinum Rose; follow list of sharp accounts; **DONE — see DONE section** |
-| F-14 | Vault pre-load (reference data) | P2 | ~~Open (ongoing). Reference data structured as agentskills.io skill docs in `skills/`.~~ → **See open Features section above.** |
-| F-15 | Props auto-grade GHA agent | P3 | ~~Grades nfl_props_picks_v1; parallel to nfl-auto-grade.js~~ → **Done — see DONE section.** |
-
-### Podcast Intel Pipeline (M6) — All Phases Complete ✅
-> Phases 1–8 DONE (see DONE section + `docs/PODCAST_PIPELINE_PM_HANDOFF.md`).
 
 ### Features (open)
 
 | ID | Task | Priority | Notes |
 |----|------|----------|-------|
-| F-14 | Vault pre-load (reference data) | P2 | Open (ongoing). S159: ATLAS `skills/nfl-coaching-tendencies/` + `skills/nfl-analytical-reference/` seeded (all 32 teams coaching staff, 2025 final DVOA, team intel, glossary). `agents/vault-seed.js` built for CSV/JSON/MD ingestion. Drop files in `data/vault-seed/{pff,ats,splits,dvoa,nflverse,manual}/`. Andy collecting PFF/ATS/splits source data. |
-| FUT-TOOLS | Futures-specific agent tools | P3 | `futures.manifest.json` lists `analyze_futures_hedge`, `project_division_paths`, `track_award_race` under `deferredTools` — not yet implemented in `agentTools.js`. FUTURES chat reuses `BETTING_TOOLS` for now. |
+| F-24 | Debug Tailscale always-on URL | P0 | `https://atlas.tail1e459d.ts.net` failing. Check: `nfl-podcast.service` status on M6, `tailscale serve`/`funnel` config, `VITE_M6_BASE` in `.env`. Podcast Digest Tab "Open digest" links all broken until resolved. |
+| F-25 | Player Injury UI — dedicated view | P1 | Ingest (F-19) and BETTING agent injection (F-22) are done. Missing: dedicated injury tab or enriched matchup card showing impact-level badges. `InjuryReportModal.jsx` + `InjuryBadge.jsx` exist but may not be fully wired. |
+| F-27 | UI QC pass | P1 | Full audit across all 12+ tabs. Look for: broken buttons, dead routes, offseason-mode stale states, clunky workflows, features that can be deprecated or simplified. No code changes — produce a prioritised defect list first. |
+| F-26 | Fantasy Football features — spec + build | P2 | DFSOptimizer (F-7) is the only fantasy feature. Need spec: roster/waiver intel, weekly projections, FantasyDouche/Adam Levitan X feed already in sharp-accounts.json. Decide scope before building. |
+| F-14 | Vault pre-load (reference data) | P2 | `agents/vault-seed.js` + drop dirs built (S158). Coaching tendencies + DVOA seeded. Andy collecting PFF/ATS/splits source files — drop in `data/vault-seed/{pff,ats,splits}/` when ready. |
+| OPS-1 | stats-to-vault-sync recurring cron | P3 | `agents/stats-to-vault-sync.js` run once manually (S157, 35 vault notes). No GHA workflow exists — seasonal data goes stale. Add `nflverse-data-refresh.yml` trigger or cron. |
+
+### Podcast Intel Pipeline (M6) — All Phases Complete ✅
+> Phases 1–8 DONE. All ops closed (S239: migrations applied, odds-proxy deployed, share tokens minted). See DONE section + `docs/PODCAST_PIPELINE_PM_HANDOFF.md`.
 
 ### Bugs
 
 | ID | Task | Priority | Notes |
 |----|------|----------|-------|
-| B-1 | `oddsIdempotent` tests failing (futures upsert path) | P1 | ~~2 tests in `tests/unit/oddsIdempotent.test.js` fail.~~ → **FIXED 2026-06-03.** Root cause was `f1e6f19` reverting the S152 upsert path (`9ca2011`) to delete-then-insert. Restored `.upsert(..., { onConflict: 'market_type,team,book,snapshot_time' })` in `agents/futures-odds-ingest.js`; constraint `uq_futures_odds_snapshot` already in migration 022. 552/552. Uncommitted. |
+| — | (none) | — | — |
 
 ---
 
@@ -95,7 +75,12 @@
 | PODCAST-M6 | Podcast intel pipeline v2 (Phases 1–6) | 2026-06-03 | Commits `64b279d`→`df020a4`. P1 schema migration (M6 paths/quality/share tokens), P2 Fastify service skeleton (HMAC/runs/systemd) in `packages/m6-podcast-service/`, P3 Python transcription, P4 Python extractor + quality gate, P5 vault-rebuilder agent (fence-guard auto-sections), P6a 6 Supabase query helpers (12/12), P6b `PODCAST_INTEL_TOOLS` (6 tools) + executor, P6c `agents/manifests/futures.manifest.json`, P6d `FuturesAgentChat.jsx` + `?tab=futures-agent` (spec divergence: `?tab=futures` kept for FuturesPortfolio), P6e podcast tools in `betting.manifest.json`. See `docs/PODCAST_PIPELINE_PM_HANDOFF.md`. |
 | FUT-TOOLS | Futures-specific agent tools | 2026-06-05 | Commits `896455c`, `a48cfb5`. Implemented `analyze_futures_hedge` (3-scenario hedge model: hold/partial/full lock with line-appreciation context), `project_division_paths` (division winner odds + implied probs from Supabase), `track_award_race` (MVP/OPOY/DPOY/OROY/DROY/CPOY/COY ranked leaderboard). FUTURES_TOOLS exported; FuturesAgentChat wired; futures.manifest.json updated. 578/578 tests. |
 | vault-seed | Vault reference data ingestion agent | 2026-06-05 | Commit `a48cfb5`. `agents/vault-seed.js`: CSV/JSON/MD ingestion into vault_notes. Auto-detects schema (PFF, ATS, splits, DVOA, nflverse). Writes league-wide + per-team notes. `data/vault-seed/{pff,ats,splits,dvoa,nflverse,manual}/` drop dirs. README with column specs. 607/607 tests. |
-| PODCAST-P7-P8 | Podcast pipeline Phases 7a/7-serving/7b/7c/8 | 2026-06-04 | Commit `51ac195`. P7a: static digest renderer (`render/` — 4 files, 10/10 tests). P7-serving: `/digest/*` Fastify routes + `src/digest.js` (14/14 tests). P7b: `PodcastDigestTab.jsx` + `?tab=podcasts` lazy route + `apiConfig.M6`. P7c: `fetchTopPodcastPicks` + `renderTopPodcastPicks` in `nfl-daily-brief.js`. P8: signed `/share/*` partner surface + `src/share.js` + `scripts/share-token.js` (10/10 tests). Migrations 019+023 applied. ai-proxy Edge Fn deployed. GPT-4o auto-fallback wired. 64/64 tests. **Pending ops:** set `VITE_M6_BASE` in .env + rebuild; mint share tokens for Patrick/Amanda. |
+| PODCAST-P7-P8 | Podcast pipeline Phases 7a/7-serving/7b/7c/8 | 2026-06-04 | Commit `51ac195`. P7a: static digest renderer (`render/` — 4 files, 10/10 tests). P7-serving: `/digest/*` Fastify routes + `src/digest.js` (14/14 tests). P7b: `PodcastDigestTab.jsx` + `?tab=podcasts` lazy route + `apiConfig.M6`. P7c: `fetchTopPodcastPicks` + `renderTopPodcastPicks` in `nfl-daily-brief.js`. P8: signed `/share/*` partner surface + `src/share.js` + `scripts/share-token.js` (10/10 tests). Migrations 019+023 applied. ai-proxy Edge Fn deployed. GPT-4o auto-fallback wired. 64/64 tests. All pending ops closed (S158/S239): `VITE_M6_BASE` set, share tokens minted for Patrick + Amanda, `odds-proxy` deployed. |
+| B-1 | `oddsIdempotent` tests (futures upsert path) | 2026-06-03 | Root cause: `f1e6f19` reverted S152 upsert path to delete-then-insert. Restored `.upsert(..., { onConflict: 'market_type,team,book,snapshot_time' })` in `agents/futures-odds-ingest.js`. 552/552 green. Committed. |
+| PODCAST-L1-L5 | Local diarization pipeline (S235–S238) | 2026-06-30 | L1-L3 (`68da421`): `diarize.py` (pyannote 4.x), `speaker_map.py`, `show_hosts.json`, `experts_roster.json`; `transcribe.py` patched with `--diarize`/`--show-name`; 54 tests. Six pyannote 4.x compat fixes (generator API, DiarizeOutput unwrap, audio pre-load, PLDA patch). L4 (`5586a56`): `extract.py` gains `labeled_transcript` param; `prompts.py` adds speaker attribution. L5: `vault_note.py` — `build_vault_note` + `upsert_vault_note`, 32 tests. |
+| PODCAST-B1-B4 | Vault Bridge — podcast episode vault notes (S238–S239) | 2026-06-30 | B1: schema designed (`docs/LOCAL_PIPELINE_SPEC.md §8`). B2: `vault_note.py` — 32 tests (`5586a56`). B3: `backfill_vault_notes.py` — 59 done episodes backfilled (`5586a56`). B4 (`13fb03f`): `search_episode_vault_notes` added to `PODCAST_INTEL_TOOLS`; `betting.manifest.json` updated (14 tools); `futures.manifest.json` gets `search_episode_vault_notes` + `read_vault_note`. |
+| S239-OPS | Production ops close-out | 2026-06-30 | Commit `13fb03f`. Migrations 018/019/021/022 confirmed applied (all return "already exists"). `odds-proxy` Edge Fn deployed (was never deployed). Phantom `clever-endpoint` duplicate deleted. `supabase secrets list` confirms ANTHROPIC/OPENAI/ODDS keys set. |
+| S240-RECOVERY | NTFS recovery + LF enforcement | 2026-06-30 | Commit `2c0fb68`. 10 NTFS-truncated working-tree files restored from git HEAD objects (futures-intel-report-v2.js, experts.js, agentTools.js, research-intel-ingest.js, diarize.py, extract.py, prompts.py, vault_note.py, test_extract.py, backfill_vault_notes.py). `.gitattributes` (`* text=auto eol=lf`) committed via git plumbing. Known index quirk: `.gitattributes` not in git index (plumbing bypass) — cosmetic only, file is in HEAD tree. |
 
 ---
 
