@@ -149,8 +149,13 @@ def load_whisperx_backend(
                 if s.text.strip()
             ]
 
-            # 2. Diarize -- runs the full pyannote pipeline on the audio
-            diarization = diarize_pipeline(path)
+            # 2. Diarize -- pre-load audio via torchaudio to bypass torchcodec
+            # (torchcodec requires CUDA runtime; torchaudio works on CPU-only boxes)
+            import torchaudio  # noqa: WPS433
+            waveform, sample_rate = torchaudio.load(path)
+            if waveform.shape[0] > 1:
+                waveform = waveform.mean(dim=0, keepdim=True)
+            diarization = diarize_pipeline({"waveform": waveform, "sample_rate": sample_rate})
 
             # 3. Assign speakers by temporal overlap
             labeled = _assign_speakers(segs, diarization)
