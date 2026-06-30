@@ -149,13 +149,21 @@ def load_whisperx_backend(
                 if s.text.strip()
             ]
 
-            # 2. Diarize -- pre-load audio via torchaudio to bypass torchcodec
-            # (torchcodec requires CUDA runtime; torchaudio works on CPU-only boxes)
-            import torchaudio  # noqa: WPS433
-            waveform, sample_rate = torchaudio.load(path)
-            if waveform.shape[0] > 1:
-                waveform = waveform.mean(dim=0, keepdim=True)
-            diarization = diarize_pipeline({"waveform": waveform, "sample_rate": sample_rate})
+            # 2. Diarize -- pre-load audio via stdlib wave + numpy to bypass
+            # torchcodec (requires CUDA) and torchaudio (needs soundfile/sox backend).
+            # Input is guaranteed to be a 16 kHz mono WAV from audio_mod.normalize_to_wav.
+            import wave  # noqa: WPS433
+            import numpy as np  # noqa: WPS433
+            import torch  # noqa: WPS433
+            with wave.open(path, 'rb') as wf:
+                sr = wf.getframerate()
+                n_ch = wf.getnchannels()
+                raw = wf.readframes(wf.getnframes())
+            audio_np = np.frombuffer(raw, dtype=np.int16).astype(np.float32) / 32768.0
+            wav_tensor = torch.from_numpy(audio_np).view(n_ch, -1)
+            if n_ch > 1:
+                wav_tensor = wav_tensor.mean(0, keepdim=True)
+            diarization = diarize_pipeline({"waveform": wav_tensor, "sample_rate": sr})
 
             # 3. Assign speakers by temporal overlap
             labeled = _assign_speakers(segs, diarization)
