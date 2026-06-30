@@ -71,6 +71,63 @@ def test_extract_run_end_to_end():
     assert cats == {"spread", "total"}
 
 
+LABELED_TRANSCRIPT = (
+    "[0:00] Seth Woolcock: Welcome to the show, stacked slate this week. "
+    "[0:10] Seth Woolcock: I'm taking Kansas City minus three and a half against the Raiders. "
+    "Mahomes is healthy and the Vegas pass rush is hurting. Two units. "
+    "[0:28] Andrew Erickson: I'll back the under in Bills-Dolphins at forty-seven and a half. "
+    "Wind is going to be a factor in Buffalo, give me UNDER. "
+)
+
+
+def test_extract_run_uses_labeled_transcript_for_chunking():
+    """When labeled_transcript is provided, it (not transcript) is chunked and sent to the LLM."""
+    captured_prompts: list[str] = []
+
+    canned = {
+        "picks": [
+            {
+                "category": "spread",
+                "subject": "KC",
+                "subject_market": None,
+                "selection": "KC",
+                "team1": "KC",
+                "team2": "LV",
+                "line": -3.5,
+                "odds_american": None,
+                "summary": "Mahomes home; LV pass rush hurt",
+                "units": 2,
+                "confidence": 0.78,
+                "speaker": "Seth Woolcock",
+            }
+        ],
+        "intel": [],
+    }
+
+    def capturing_post_json(url, body, *, timeout):  # noqa: ARG001
+        captured_prompts.append(body["messages"][-1]["content"])
+        return {"message": {"role": "assistant", "content": json.dumps(canned)}}
+
+    result = extract.run(
+        transcript=SHORT_TRANSCRIPT,
+        labeled_transcript=LABELED_TRANSCRIPT,
+        episode_id=77,
+        ollama_url="http://stub",
+        model="qwen2.5:3b",
+        post_json=capturing_post_json,
+    )
+
+    assert result["episode_id"] == 77
+    assert result["chunks"] >= 1
+    # The LLM received the labeled transcript (speaker-prefixed), not the plain one
+    assert any("Seth Woolcock" in p for p in captured_prompts), (
+        "labeled_transcript with speaker names must be sent to the LLM"
+    )
+    # Pick with speaker attribution survives the gate
+    assert len(result["picks"]) >= 1
+    assert result["picks"][0].get("speaker") == "Seth Woolcock"
+
+
 def test_extract_run_triggers_fallback_on_low_quality():
     weak = {
         "picks": [

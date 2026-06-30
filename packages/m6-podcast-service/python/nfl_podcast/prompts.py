@@ -19,6 +19,8 @@ Return STRICT JSON with shape: {"picks": [...], "intel": ["..."]}.
 - picks: every explicit bet, with the schema below
 - intel: short factual bullets (injury, weather, role change) — no picks here
 
+Each transcript line may be prefixed [MM:SS] Speaker Name: — use the speaker name for the "speaker" field on the pick.
+
 Pick categories:
 - spread     team line (e.g. KC -3.5)
 - total      OVER/UNDER on a game total (e.g. 47.5 OVER)
@@ -44,11 +46,12 @@ Per-pick fields:
 - units (1–5; default 1 if not stated)
 - confidence (0..1, your read of conviction)
 - season, week, game_date (if stated; else null)
+- speaker (name from transcript prefix, or null if not labeled)
 """
 
 
 _EXAMPLE_TRANSCRIPT_1 = (
-    "...so I'm taking Kansas City minus three and a half against the Raiders "
+    "[0:28] Seth Woolcock: ...so I'm taking Kansas City minus three and a half against the Raiders "
     "this Sunday. Mahomes at home off a bye, Vegas pass rush is banged up "
     "with Crosby out — give me the Chiefs to cover. Two units."
 )
@@ -69,6 +72,7 @@ _EXAMPLE_OUTPUT_1 = {
             "season": None,
             "week": None,
             "game_date": None,
+            "speaker": "Seth Woolcock",
         }
     ],
     "intel": ["LV: Maxx Crosby out (pass rush degraded)"],
@@ -97,6 +101,7 @@ _EXAMPLE_OUTPUT_2 = {
             "season": None,
             "week": None,
             "game_date": None,
+            "speaker": None,
         }
     ],
     "intel": ["BUF wx: high wind expected"],
@@ -124,6 +129,7 @@ _EXAMPLE_OUTPUT_3 = {
             "season": None,
             "week": None,
             "game_date": None,
+            "speaker": None,
         }
     ],
     "intel": [],
@@ -151,6 +157,7 @@ _EXAMPLE_OUTPUT_4 = {
             "season": None,
             "week": None,
             "game_date": None,
+            "speaker": None,
         }
     ],
     "intel": ["NYG run defense: 4.8 ypc allowed"],

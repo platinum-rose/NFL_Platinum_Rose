@@ -30,12 +30,14 @@ from .quality_gate import apply_quality_gate, reduce_picks
 def run(
     *,
     transcript: str,
+    labeled_transcript: str | None = None,
     episode_id: str | None,
     ollama_url: str,
     model: str,
     post_json=None,
 ) -> dict:
-    chunks = chunk_mod.chunk_transcript(transcript)
+    text_for_chunks = labeled_transcript if labeled_transcript else transcript
+    chunks = chunk_mod.chunk_transcript(text_for_chunks)
     picks_per_chunk: list[tuple[int, str, list[dict]]] = []
     if post_json is None:
         post_json = httpx_post_json_factory()
@@ -66,6 +68,11 @@ def run(
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description="Extract NFL betting picks from a podcast transcript.")
     p.add_argument("--transcript", required=True, help="Path to transcript .txt file")
+    p.add_argument(
+        "--labeled-transcript",
+        default=None,
+        help="Path to speaker-labeled transcript .txt file (diarized); used for chunking when provided",
+    )
     p.add_argument("--episode-id", default=None, help="Opaque episode identifier (string)")
     p.add_argument("--out", default=None, help="Write JSON here; default = stdout")
     p.add_argument(
@@ -76,8 +83,12 @@ def main(argv: list[str] | None = None) -> int:
     args = p.parse_args(argv)
 
     text = Path(args.transcript).read_text(encoding="utf-8")
+    labeled_text: str | None = None
+    if args.labeled_transcript:
+        labeled_text = Path(args.labeled_transcript).read_text(encoding="utf-8")
     result = run(
         transcript=text,
+        labeled_transcript=labeled_text,
         episode_id=args.episode_id,
         ollama_url=args.ollama_url,
         model=args.model,
