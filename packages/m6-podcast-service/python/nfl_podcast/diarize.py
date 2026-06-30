@@ -126,10 +126,10 @@ def load_whisperx_backend(
         download_root=str(model_dir),
     )
 
-    # use_auth_token= is the pyannote 3.x API; token= also accepted in 4.x
+    # token= is the pyannote 4.x API (use_auth_token= was removed in 4.0)
     diarize_pipeline = Pipeline.from_pretrained(
         'pyannote/speaker-diarization-3.0',
-        use_auth_token=token,
+        token=token,
     )
 
     class _WhisperXBackend:
