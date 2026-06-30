@@ -119,13 +119,22 @@ const EXPECTED_SOURCES = [
   // Podcasts (podcast_feeds table)
   { name: 'Sharp or Square',              type: 'podcast', status: 'active' },
   { name: 'Even Money',                   type: 'podcast', status: 'active' },
-  { name: 'Action Network Sports Betting',type: 'podcast', status: 'active' },
+  { name: 'Sunday Sixpack',               type: 'podcast', status: 'deferred', note: 'Discontinued as standalone — content absorbed into Action Network Sports Betting Podcast' },
+  { name: 'BettingPros Podcast',          type: 'podcast', status: 'active',   note: 'iHeartPodcasts/The Volume — Perrault, Pisapia, Furman, Fitzmaurice, Erickson, Welsh, Bogman, Woolcock' },
+  { name: 'The Favorites',                type: 'podcast', status: 'active',   note: 'Simon Hunter + Chad Millman' },
+  { name: 'Action Network Sports Betting',type: 'podcast', status: 'active',   note: 'Koerner, Simon Hunter, Brandon Anderson, Collin Wilson + guests' },
   { name: 'Sharp Football Analysis',      type: 'podcast', status: 'active' },
+  // Articles that surface via existing RSS feeds (no separate feed needed)
+  { name: 'Betting Primer (Evan Abrams)', type: 'rss_article', status: 'active',   note: 'Action Network weekly article — surfaces via Action Network RSS' },
+  { name: "Tuley's Takes (Dave Tuley)",   type: 'rss_article', status: 'active',   note: 'VSiN weekly column — surfaces via VSiN RSS' },
+  // Article sites needing their own scraper
+  { name: 'Walter Football',              type: 'rss_article', status: 'deferred', note: 'walterfootball.com — scraper not yet built' },
   // Tweets (tweet-ingest.js — manual paste path; x-sharp-ingest dormant)
-  { name: 'Sharp X / Twitter (manual paste)', type: 'tweet',      status: 'manual' },
-  { name: 'Sharp X / Twitter (automated)',    type: 'tweet',      status: 'deferred', note: 'x-sharp-ingest dormant — awaiting self-hosted RSSHub on M6' },
+  { name: 'Lock n Cash',                  type: 'tweet',       status: 'manual',   note: 'Twitter/X — manual paste until RSSHub available' },
+  { name: 'Hitman',                       type: 'tweet',       status: 'manual',   note: 'Sharp Twitter/X personality — manual paste' },
+  { name: 'Sharp X / Twitter (automated)', type: 'tweet',      status: 'deferred', note: 'x-sharp-ingest dormant — awaiting self-hosted RSSHub on M6' },
   // Newsletters — not yet ingested
-  { name: 'Email newsletters',            type: 'newsletter', status: 'deferred', note: 'No Gmail/IMAP ingest agent yet — tracked in backlog' },
+  { name: 'Email newsletters',            type: 'newsletter',  status: 'deferred', note: 'No Gmail/IMAP ingest agent yet — tracked in backlog' },
 ];
 
 const FUTURES_KEYWORDS = [
