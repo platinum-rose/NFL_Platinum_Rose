@@ -7,7 +7,11 @@
   },
   "model": {
     "default": "claude-sonnet-4-5",
-    "upgradeOn": ["hedge calculation", "multi-leg parlay analysis", "contradicting model signals"],
+    "upgradeOn": [
+      "hedge calculation",
+      "multi-leg parlay analysis",
+      "contradicting model signals"
+    ],
     "upgradeTo": "claude-opus-4"
   },
   "contextLoader": [
@@ -16,8 +20,18 @@
       "label": "current_picks",
       "description": "Load open picks and bets from localStorage",
       "sources": [
-        { "type": "localStorage", "key": "pr_picks_v1", "format": "json", "fallback": "[]" },
-        { "type": "localStorage", "key": "nfl_bankroll_data_v1", "format": "json", "fallback": "{ \"bets\": [] }" }
+        {
+          "type": "localStorage",
+          "key": "pr_picks_v1",
+          "format": "json",
+          "fallback": "[]"
+        },
+        {
+          "type": "localStorage",
+          "key": "nfl_bankroll_data_v1",
+          "format": "json",
+          "fallback": "{ \"bets\": [] }"
+        }
       ],
       "inject": "Merge into a single array of open picks + bets. Label source (picks vs bankroll). Include: team, line, odds, bet_type, result, date_placed, amount_units."
     },
@@ -26,7 +40,12 @@
       "label": "bankroll_config",
       "description": "Load bankroll configuration for exposure checks",
       "sources": [
-        { "type": "localStorage", "key": "nfl_bankroll_data_v1", "format": "json", "fallback": "{}" }
+        {
+          "type": "localStorage",
+          "key": "nfl_bankroll_data_v1",
+          "format": "json",
+          "fallback": "{}"
+        }
       ],
       "inject": "Extract: unit_size, current_balance, max_daily_units, max_single_bet_units. If missing, use defaults: unit_size=25, max_daily_units=10, max_single_bet_units=3."
     },
@@ -35,7 +54,12 @@
       "label": "futures_portfolio",
       "description": "Load open futures positions and exposure",
       "sources": [
-        { "type": "localStorage", "key": "nfl_futures_portfolio_v1", "format": "json", "fallback": "{ \"positions\": [] }" }
+        {
+          "type": "localStorage",
+          "key": "nfl_futures_portfolio_v1",
+          "format": "json",
+          "fallback": "{ \"positions\": [] }"
+        }
       ],
       "inject": "Include: team, market, odds_at_entry, stake, current_odds_estimate, exposure. Use for hedge calculations."
     },
@@ -44,8 +68,16 @@
       "label": "today_context",
       "description": "Inject current date, NFL week, and active game count",
       "sources": [
-        { "type": "runtime", "value": "new Date().toISOString().split('T')[0]" },
-        { "type": "fetch", "url": "./schedule.json", "format": "json", "fallback": "[]" }
+        {
+          "type": "runtime",
+          "value": "new Date().toISOString().split('T')[0]"
+        },
+        {
+          "type": "fetch",
+          "url": "./schedule.json",
+          "format": "json",
+          "fallback": "[]"
+        }
       ],
       "inject": "Today's date, current NFL week (derived from schedule), number of games today and this week."
     }
@@ -55,18 +87,53 @@
       "name": "log_pick",
       "description": "Record a new pick or bet to the Creator's tracker",
       "parameters": {
-        "team": { "type": "string", "required": true },
-        "line": { "type": "number", "required": true, "description": "Spread or total line" },
-        "odds": { "type": "number", "required": true, "description": "American odds (e.g., -110)" },
+        "team": {
+          "type": "string",
+          "required": true
+        },
+        "line": {
+          "type": "number",
+          "required": true,
+          "description": "Spread or total line"
+        },
+        "odds": {
+          "type": "number",
+          "required": true,
+          "description": "American odds (e.g., -110)"
+        },
         "bet_type": {
           "type": "string",
           "required": true,
-          "enum": ["spread", "moneyline", "total", "team_total", "teaser", "parlay", "player_prop", "sgp", "future", "other"]
+          "enum": [
+            "spread",
+            "moneyline",
+            "total",
+            "team_total",
+            "teaser",
+            "parlay",
+            "player_prop",
+            "sgp",
+            "future",
+            "other"
+          ]
         },
-        "sport": { "type": "string", "default": "nfl" },
-        "amount_units": { "type": "number", "required": true, "description": "Wager in units" },
-        "notes": { "type": "string", "description": "Rationale or context for the pick" },
-        "book": { "type": "string", "description": "Sportsbook where the bet is placed" }
+        "sport": {
+          "type": "string",
+          "default": "nfl"
+        },
+        "amount_units": {
+          "type": "number",
+          "required": true,
+          "description": "Wager in units"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Rationale or context for the pick"
+        },
+        "book": {
+          "type": "string",
+          "description": "Sportsbook where the bet is placed"
+        }
       },
       "writes": "localStorage:pr_picks_v1",
       "confirmation": "Always confirm with Creator before executing. Never auto-log."
@@ -75,8 +142,19 @@
       "name": "get_odds",
       "description": "Retrieve current odds from all 8 sportsbooks for a given game",
       "parameters": {
-        "game_id": { "type": "string", "description": "Game identifier from schedule" },
-        "market": { "type": "string", "enum": ["spreads", "totals", "h2h"], "default": "spreads" }
+        "game_id": {
+          "type": "string",
+          "description": "Game identifier from schedule"
+        },
+        "market": {
+          "type": "string",
+          "enum": [
+            "spreads",
+            "totals",
+            "h2h"
+          ],
+          "default": "spreads"
+        }
       },
       "reads": "supabase:odds_snapshots",
       "returns": "[{ home, away, spread, total, ml_home, ml_away, book, last_updated }]",
@@ -86,7 +164,10 @@
       "name": "get_line_movement",
       "description": "Return opening vs. current line with directional movement",
       "parameters": {
-        "game_id": { "type": "string", "required": true }
+        "game_id": {
+          "type": "string",
+          "required": true
+        }
       },
       "reads": "supabase:line_movements",
       "returns": "{ game, open_spread, current_spread, open_total, current_total, direction, magnitude, sharp_flag }"
@@ -95,17 +176,31 @@
       "name": "analyze_matchup",
       "description": "Return model projections and intel summary for an NFL game",
       "parameters": {
-        "home_team": { "type": "string", "required": true },
-        "away_team": { "type": "string", "required": true }
+        "home_team": {
+          "type": "string",
+          "required": true
+        },
+        "away_team": {
+          "type": "string",
+          "required": true
+        }
       },
-      "reads": ["public/schedule.json", "public/weekly_stats.json", "supabase:odds_snapshots"],
+      "reads": [
+        "public/schedule.json",
+        "public/weekly_stats.json",
+        "supabase:odds_snapshots"
+      ],
       "returns": "{ home_proj, away_proj, predicted_margin, predicted_total, key_intel_bullets[], model_confidence }"
     },
     {
       "name": "get_injury_report",
       "description": "Return current injury designations for both teams",
       "parameters": {
-        "team_id": { "type": "string", "required": true, "description": "ESPN team ID or team abbreviation" }
+        "team_id": {
+          "type": "string",
+          "required": true,
+          "description": "ESPN team ID or team abbreviation"
+        }
       },
       "reads": "espn:injuries",
       "returns": "[{ player, position, status, injury_type, impact_estimate }]"
@@ -114,27 +209,49 @@
       "name": "calculate_hedge",
       "description": "Calculate hedge amounts for profit locking or loss cutting",
       "parameters": {
-        "original_bet_amount": { "type": "number", "required": true },
-        "original_odds": { "type": "number", "required": true },
-        "hedge_odds": { "type": "number", "required": true },
-        "target_profit_or_loss": { "type": "number", "description": "Target guaranteed amount (positive = profit)" }
+        "original_bet_amount": {
+          "type": "number",
+          "required": true
+        },
+        "original_odds": {
+          "type": "number",
+          "required": true
+        },
+        "hedge_odds": {
+          "type": "number",
+          "required": true
+        },
+        "target_profit_or_loss": {
+          "type": "number",
+          "description": "Target guaranteed amount (positive = profit)"
+        }
       },
       "returns": "{ hedge_amount, locked_profit, worst_case, best_case, recommendation }"
     },
     {
       "name": "calculate_teaser",
-      "description": "Evaluate teaser value — checks key number crossings (3, 7) and Wong qualification",
+      "description": "Evaluate teaser value \u2014 checks key number crossings (3, 7) and Wong qualification",
       "parameters": {
         "legs": {
           "type": "array",
           "items": {
-            "team": { "type": "string" },
-            "spread": { "type": "number" },
-            "teaser_points": { "type": "number", "default": 6 }
+            "team": {
+              "type": "string"
+            },
+            "spread": {
+              "type": "number"
+            },
+            "teaser_points": {
+              "type": "number",
+              "default": 6
+            }
           },
           "required": true
         },
-        "odds": { "type": "number", "description": "Teaser odds (e.g., -120 for standard 2-team 6pt)" }
+        "odds": {
+          "type": "number",
+          "description": "Teaser odds (e.g., -120 for standard 2-team 6pt)"
+        }
       },
       "returns": "{ legs_analysis[], crosses_key_numbers, wong_qualified, ev_estimate, recommendation }"
     },
@@ -142,16 +259,37 @@
       "name": "search_podcast_picks",
       "description": "Search recent expert picks from tracked podcasts. Use for team-, expert-, week-, and category-filtered podcast-derived betting intel. Excludes picks flagged needs_review.",
       "parameters": {
-        "team": { "type": "string", "description": "Team abbreviation (KC, BUF, ...) to filter by" },
-        "expert": { "type": "string", "description": "Expert name or partial match" },
+        "team": {
+          "type": "string",
+          "description": "Team abbreviation (KC, BUF, ...) to filter by"
+        },
+        "expert": {
+          "type": "string",
+          "description": "Expert name or partial match"
+        },
         "category": {
           "type": "string",
-          "enum": ["spread", "total", "moneyline", "future", "prop"],
+          "enum": [
+            "spread",
+            "total",
+            "moneyline",
+            "future",
+            "prop"
+          ],
           "description": "Pick category to filter by"
         },
-        "week": { "type": "number", "description": "NFL week (1-22)" },
-        "season": { "type": "number", "description": "NFL season year; defaults to current" },
-        "limit": { "type": "number", "description": "Max picks to return; default 25" }
+        "week": {
+          "type": "number",
+          "description": "NFL week (1-22)"
+        },
+        "season": {
+          "type": "number",
+          "description": "NFL season year; defaults to current"
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max picks to return; default 25"
+        }
       },
       "reads": "supabase:podcast_transcripts",
       "returns": "[{ expert, show, published_at, category, subject, selection, line, odds_american, units, confidence, quality_score, summary }]"
@@ -160,9 +298,19 @@
       "name": "get_expert_history",
       "description": "Return recent podcast pick history for one expert with category breakdown so the BETTING agent can cite who is active in sides/totals/moneyline/futures/props.",
       "parameters": {
-        "expert": { "type": "string", "required": true, "description": "Expert name or partial match" },
-        "weeks_back": { "type": "number", "description": "Look-back window in weeks; default 8" },
-        "limit": { "type": "number", "description": "Max picks to return; default 100" }
+        "expert": {
+          "type": "string",
+          "required": true,
+          "description": "Expert name or partial match"
+        },
+        "weeks_back": {
+          "type": "number",
+          "description": "Look-back window in weeks; default 8"
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max picks to return; default 100"
+        }
       },
       "reads": "supabase:podcast_transcripts",
       "returns": "{ expert, total_picks, category_counts, picks[] }"
@@ -171,9 +319,19 @@
       "name": "get_team_podcast_intel",
       "description": "Return picks for and against a specific team across recent podcast episodes, grouped by expert and side. Useful for matchup sentiment and team-level podcast consensus.",
       "parameters": {
-        "team": { "type": "string", "required": true, "description": "Team abbreviation (KC, BUF, ...)" },
-        "weeks_back": { "type": "number", "description": "Look-back window in weeks; default 4" },
-        "limit": { "type": "number", "description": "Max picks per side; default 50" }
+        "team": {
+          "type": "string",
+          "required": true,
+          "description": "Team abbreviation (KC, BUF, ...)"
+        },
+        "weeks_back": {
+          "type": "number",
+          "description": "Look-back window in weeks; default 4"
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max picks per side; default 50"
+        }
       },
       "reads": "supabase:podcast_transcripts",
       "returns": "{ team, for_team[], against_team[], experts[] }"
@@ -182,8 +340,15 @@
       "name": "get_weekly_consensus",
       "description": "Cross-expert weekly consensus board from podcast picks, grouped by matchup and side so BETTING can surface sharp alignment or contrarian splits.",
       "parameters": {
-        "week": { "type": "number", "required": true, "description": "NFL week (1-22)" },
-        "season": { "type": "number", "description": "NFL season year; defaults to current" }
+        "week": {
+          "type": "number",
+          "required": true,
+          "description": "NFL week (1-22)"
+        },
+        "season": {
+          "type": "number",
+          "description": "NFL season year; defaults to current"
+        }
       },
       "reads": "supabase:podcast_transcripts",
       "returns": "[{ matchup, category, side, expert_count, experts[], average_confidence }]"
@@ -192,9 +357,19 @@
       "name": "get_futures_movement",
       "description": "Return a timeline of expert picks for a specific futures market, ordered oldest-first, so BETTING or FUTURES can discuss line-decay and sentiment movement.",
       "parameters": {
-        "market": { "type": "string", "required": true, "description": "Futures market identifier such as AFC_North, MVP, or NFC_East_winner" },
-        "weeks_back": { "type": "number", "description": "Look-back window in weeks; default 12" },
-        "limit": { "type": "number", "description": "Max picks to return; default 100" }
+        "market": {
+          "type": "string",
+          "required": true,
+          "description": "Futures market identifier such as AFC_North, MVP, or NFC_East_winner"
+        },
+        "weeks_back": {
+          "type": "number",
+          "description": "Look-back window in weeks; default 12"
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max picks to return; default 100"
+        }
       },
       "reads": "supabase:podcast_transcripts",
       "returns": "[{ expert, show, published_at, market, selection, odds_american, confidence, summary }]"
@@ -203,13 +378,47 @@
       "name": "get_player_prop_context",
       "description": "Return recent expert prop picks for a single player and prop type, including OVER/UNDER trend counts and podcast rationale.",
       "parameters": {
-        "player": { "type": "string", "required": true, "description": "Player full name or partial match" },
-        "prop_type": { "type": "string", "required": true, "description": "Prop market identifier such as pass_yds, rush_yds, or receptions" },
-        "weeks_back": { "type": "number", "description": "Look-back window in weeks; default 6" },
-        "limit": { "type": "number", "description": "Max picks to return; default 30" }
+        "player": {
+          "type": "string",
+          "required": true,
+          "description": "Player full name or partial match"
+        },
+        "prop_type": {
+          "type": "string",
+          "required": true,
+          "description": "Prop market identifier such as pass_yds, rush_yds, or receptions"
+        },
+        "weeks_back": {
+          "type": "number",
+          "description": "Look-back window in weeks; default 6"
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max picks to return; default 30"
+        }
       },
       "reads": "supabase:podcast_transcripts",
       "returns": "{ player, prop_type, over_count, under_count, picks[] }"
+    },
+    {
+      "name": "search_episode_vault_notes",
+      "description": "List podcast episode vault note paths under NFL/Podcasts/. Use to find the exact vault path for an episode before calling read_vault_note to load picks, intel, and transcript index. Also use to enumerate available episodes for a show.",
+      "parameters": {
+        "show": {
+          "type": "string",
+          "description": "Show name or partial match. Omit to list all shows."
+        },
+        "episode": {
+          "type": "string",
+          "description": "Episode number or pub_date substring (e.g. 1011 or 2026-06). Optional."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max paths to return; default 20"
+        }
+      },
+      "reads": "supabase:vault_notes (NFL/Podcasts/ prefix)",
+      "returns": "{ total_matched, available_shows[], notes[{ path, show, pub_date, episode }], usage_hint }"
     }
   ],
   "persistenceKeys": {
@@ -222,7 +431,11 @@
     "agentLabel": "BETTING",
     "statusBar": {
       "show": true,
-      "fields": ["open_picks_count", "daily_units_used", "bankroll_balance"]
+      "fields": [
+        "open_picks_count",
+        "daily_units_used",
+        "bankroll_balance"
+      ]
     }
   }
 }

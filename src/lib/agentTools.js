@@ -27,7 +27,7 @@ import {
   getPlayerPropContext,
   getLatestFuturesOdds,
 } from './supabase.js';
-import { readVaultNote, writeVaultNote, todaySessionPath } from './vaultClient.js';
+import { readVaultNote, writeVaultNote, listVaultNotes, todaySessionPath } from './vaultClient.js';
 import {
   addPick,
   addParlay,
@@ -137,6 +137,19 @@ export const PODCAST_INTEL_TOOLS = [
         limit: { type: 'number', description: 'Max picks to return. Default: 30.' },
       },
       required: ['player', 'prop_type'],
+    },
+  },
+  {
+    name: 'search_episode_vault_notes',
+    description: 'List podcast episode vault note paths under NFL/Podcasts/. Use to find the exact vault path for an episode — e.g. "NFL/Podcasts/Sharp Football Analysis/2026-06-15-E1011.md" — before calling read_vault_note to load picks, intel bullets, and the transcript index. Also use to enumerate all available episodes for a show. Returns paths + parsed metadata (show, pub_date, episode number).',
+    input_schema: {
+      type: 'object',
+      properties: {
+        show: { type: 'string', description: 'Show name or partial match (e.g. "Sharp Football" matches "Sharp Football Analysis"). Omit to list all shows.' },
+        episode: { type: 'string', description: 'Episode number or pub_date substring to filter by (e.g. "1011" or "2026-06"). Optional.' },
+        limit: { type: 'number', description: 'Max paths to return. Default: 20.' },
+      },
+      required: [],
     },
   },
 ];
@@ -568,6 +581,7 @@ export async function executeTool(name, input) {
     case 'get_weekly_consensus':    return toolGetWeeklyConsensus(input);
     case 'get_futures_movement':    return toolGetFuturesMovement(input);
     case 'get_player_prop_context': return toolGetPlayerPropContext(input);
+    case 'search_episode_vault_notes': return toolSearchEpisodeVaultNotes(input);
     // FUT-TOOLS
     case 'analyze_futures_hedge':   return toolAnalyzeFuturesHedge(input);
     case 'project_division_paths':  return toolProjectDivisionPaths(input);
@@ -1371,6 +1385,69 @@ async function toolGetPlayerPropContext({ player, prop_type, weeks_back, limit }
   };
 }
 
+
+// ─── B4: Episode vault note lookup ────────────────────────────────────────────
+
+/**
+ * search_episode_vault_notes
+ * Lists podcast episode vault note paths under NFL/Podcasts/.
+ * Returns parsed metadata so the agent can cite episode paths and then
+ * call read_vault_note to load picks, intel, and transcript index.
+ */
+async function toolSearchEpisodeVaultNotes({ show, episode, limit = 20 } = {}) {
+  const PODCAST_PREFIX = 'NFL/Podcasts/';
+  const allPaths = await listVaultNotes(PODCAST_PREFIX);
+
+  if (!allPaths || allPaths.length === 0) {
+    return {
+      status: 'no_data',
+      message: 'No podcast vault notes found under NFL/Podcasts/. The backfill script may not have run yet.',
+      notes: [],
+    };
+  }
+
+  // Filter by show name (partial, case-insensitive)
+  let filtered = allPaths;
+  if (show && show.trim()) {
+    const q = show.trim().toLowerCase();
+    filtered = filtered.filter(p => p.toLowerCase().includes(q));
+  }
+
+  // Filter by episode number or pub_date substring
+  if (episode != null && String(episode).trim()) {
+    const q = String(episode).trim();
+    filtered = filtered.filter(p => p.includes(q));
+  }
+
+  // Parse path into structured metadata
+  // Path format: NFL/Podcasts/{show}/{pub_date}-E{episode}.md
+  const notes = filtered.slice(0, limit).map(p => {
+    const parts = p.split('/');
+    const showName = parts[2] ?? null;
+    const filename = parts[3] ?? '';
+    const m = filename.match(/^(\d{4}-\d{2}-\d{2})-E(\w+)\.md$/);
+    return {
+      path: p,
+      show: showName,
+      pub_date: m ? m[1] : null,
+      episode: m ? m[2] : null,
+    };
+  });
+
+  // Surface unique show names when no show filter was applied
+  const availableShows = show
+    ? undefined
+    : [...new Set(allPaths.map(p => p.split('/')[2]).filter(Boolean))].sort();
+
+  return {
+    status: 'ok',
+    total_matched: filtered.length,
+    returned: notes.length,
+    ...(availableShows ? { available_shows: availableShows } : {}),
+    notes,
+    usage_hint: 'Call read_vault_note with a path from this list to load the full episode note (picks table, intel bullets, transcript index).',
+  };
+}
 
 // ─── FUT-TOOLS Implementations ────────────────────────────────────────────────
 

@@ -16,7 +16,7 @@
     "upgradeTo": "claude-opus-4"
   },
   "systemPrompt": {
-    "role": "FUTURES strategist — season-arc thinking",
+    "role": "FUTURES strategist \u2014 season-arc thinking",
     "principles": [
       "Think in season arcs, not single weeks. Always anchor a take to the schedule, division standings, and remaining strength of schedule.",
       "Quote line-decay context: opening odds vs current odds, and what events moved the line (injury, upset, coaching change).",
@@ -26,7 +26,7 @@
       "Distinguish division winners, conference winners, MVP/awards, win totals, playoff prop futures. Use the right market identifier."
     ],
     "guardrails": [
-      "Picks flagged needs_review by the podcast pipeline are EXCLUDED from search_podcast_picks results — do not ask the Creator to override.",
+      "Picks flagged needs_review by the podcast pipeline are EXCLUDED from search_podcast_picks results \u2014 do not ask the Creator to override.",
       "If a tool returns no_data, say so plainly. Do not extrapolate from absent data.",
       "Quality_score < 0.6 means the extraction was uncertain; mention this when surfacing such picks."
     ]
@@ -103,12 +103,22 @@
     {
       "name": "get_futures_movement",
       "source": "PODCAST_INTEL_TOOLS",
-      "description": "Timeline of expert picks for a single futures market — primary line-decay/sentiment-shift tool for FUTURES agent."
+      "description": "Timeline of expert picks for a single futures market \u2014 primary line-decay/sentiment-shift tool for FUTURES agent."
     },
     {
       "name": "get_player_prop_context",
       "source": "PODCAST_INTEL_TOOLS",
       "description": "Used for award-race futures (MVP, OPOY) when a candidate is a single player."
+    },
+    {
+      "name": "search_episode_vault_notes",
+      "source": "PODCAST_INTEL_TOOLS",
+      "description": "List podcast episode vault note paths under NFL/Podcasts/. Use to find the exact path before calling read_vault_note to load picks, intel, and transcript index for a specific episode."
+    },
+    {
+      "name": "read_vault_note",
+      "source": "BETTING_TOOLS",
+      "description": "Read a vault note by path. Use after search_episode_vault_notes to load full episode content (picks table, intel bullets, transcript index) for deep citation. Also reads NFL/Futures/*.md for futures intel reports."
     },
     {
       "name": "calculate_hedge",
