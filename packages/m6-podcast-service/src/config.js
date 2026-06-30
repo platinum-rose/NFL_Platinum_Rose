@@ -48,4 +48,11 @@ export const config = {
   pythonCwd:
     process.env.NFL_PYTHON_CWD ??
     '/home/andrewlrose/projects/NFL_Dashboard/packages/m6-podcast-service/python',
+
+  // L1 diarize step uses a separate Python 3.12 venv with faster-whisper +
+  // pyannote.audio 4.0.6. The main .venv is Python 3.14 and cannot run whisperX.
+  // See docs/LOCAL_PIPELINE_SPEC.md §3 for setup instructions.
+  pythonDiarizeExecutable:
+    process.env.NFL_PYTHON_DIARIZE_EXECUTABLE ??
+    '/home/andrewlrose/projects/NFL_Dashboard/packages/m6-podcast-service/python/.venv-whisperx/bin/python',
 };

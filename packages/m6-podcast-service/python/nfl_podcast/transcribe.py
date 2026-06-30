@@ -5,21 +5,31 @@ is heavy and platform-specific (CPU-optimized .so files), so this module
 isolates it behind a small ``WhisperBackend`` protocol. Tests inject a fake;
 M6 production uses :func:`load_faster_whisper_backend`.
 
+L3 additions:
+  - ``transcribe_audio`` passes through the ``speaker`` attribute from
+    ``DiarizedSegment`` (or ``None`` for plain WhisperSegment).
+  - ``TranscriptionResult`` gains a ``diarized`` flag.
+  - ``write_outputs`` writes ``<episode_id>.labeled.txt`` when speaker labels
+    are present and ``labeled_transcript`` is supplied.
+  - ``_cli`` gains ``--diarize`` and ``--show-name`` flags; selects the
+    WhisperX backend and runs speaker mapping when appropriate.
+
 Pipeline (per spec):
-  1. ffmpeg normalize → 16 kHz mono WAV in /tmp
+  1. ffmpeg normalize -> 16 kHz mono WAV in /tmp
   2. If duration > 30 min, split at silence near 25-min boundaries
   3. Transcribe each segment with vad_filter=True, beam_size=5, language='en'
   4. Reassemble with corrected absolute timestamps
   5. Write outputs:
        /var/lib/nfl/transcripts/<episode_id>.txt           (plain text)
-       /var/lib/nfl/transcripts/<episode_id>.segments.json (timestamps)
+       /var/lib/nfl/transcripts/<episode_id>.segments.json (timestamps + optional speaker)
+       /var/lib/nfl/transcripts/<episode_id>.labeled.txt   (speaker-labeled, diarized only)
 """
 
 from __future__ import annotations
 
 import json
 import tempfile
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Iterable, Protocol
 
@@ -36,7 +46,7 @@ class WhisperSegment:
 class WhisperBackend(Protocol):
     """Minimal interface for a Whisper transcriber.
 
-    Production: faster-whisper.
+    Production: faster-whisper (or WhisperX diarizing backend).
     Tests: in-memory fake returning canned segments.
     """
 
@@ -46,10 +56,11 @@ class WhisperBackend(Protocol):
 @dataclass
 class TranscriptionResult:
     text: str
-    segments: list[dict]      # serializable dicts: {start, end, text, segment_idx}
+    segments: list[dict]      # serializable dicts: {start, end, text, segment_idx, speaker}
     audio_duration_sec: float
     model: str
     chunked: bool             # True if the source was split into >1 chunk
+    diarized: bool = field(default=False)  # True when speaker labels are present
 
 
 def transcribe_audio(
@@ -60,7 +71,13 @@ def transcribe_audio(
     work_dir: str | Path | None = None,
     runner: audio_mod.Runner | None = None,
 ) -> TranscriptionResult:
-    """Transcribe ``src_audio`` end-to-end with chunking + reassembly."""
+    """Transcribe ``src_audio`` end-to-end with chunking + reassembly.
+
+    If the backend yields ``DiarizedSegment`` instances (which have a
+    ``speaker`` attribute), the speaker label is forwarded into each
+    segment dict.  Plain ``WhisperSegment`` instances produce
+    ``"speaker": null`` in the output.
+    """
     src_path = Path(src_audio)
     if not src_path.exists():
         raise FileNotFoundError(src_path)
@@ -93,6 +110,8 @@ def transcribe_audio(
 
     final_segments: list[dict] = []
     text_parts: list[str] = []
+    any_speaker = False
+
     for audio_seg in audio_segments:
         for w in backend.transcribe(audio_seg.path):
             abs_start = audio_seg.start_sec + w.start
@@ -100,12 +119,17 @@ def transcribe_audio(
             txt = w.text.strip()
             if not txt:
                 continue
+            # Forward speaker label from DiarizedSegment; None for plain WhisperSegment.
+            speaker = getattr(w, 'speaker', None)
+            if speaker is not None:
+                any_speaker = True
             final_segments.append(
                 {
                     "start": round(abs_start, 3),
                     "end": round(abs_end, 3),
                     "text": txt,
                     "segment_idx": audio_seg.idx,
+                    "speaker": speaker,
                 }
             )
             text_parts.append(txt)
@@ -117,6 +141,7 @@ def transcribe_audio(
         audio_duration_sec=duration,
         model=model_name,
         chunked=chunked,
+        diarized=any_speaker,
     )
 
 
@@ -137,15 +162,29 @@ def write_outputs(
     *,
     episode_id: str,
     out_dir: str | Path,
-) -> tuple[Path, Path]:
-    """Write ``<episode_id>.txt`` and ``<episode_id>.segments.json``.
+    labeled_transcript: str | None = None,
+) -> tuple[Path, Path, Path | None]:
+    """Write ``<episode_id>.txt``, ``<episode_id>.segments.json``, and
+    optionally ``<episode_id>.labeled.txt``.
 
-    Returns ``(txt_path, segments_path)``. Creates ``out_dir`` as needed.
+    Args:
+        result: transcription result.
+        episode_id: base filename.
+        out_dir: output directory (created if needed).
+        labeled_transcript: pre-built speaker-labeled text
+            (``[MM:SS] Speaker: text`` format). When provided, written to
+            ``<episode_id>.labeled.txt``.  Pass the output of
+            ``speaker_map.build_labeled_transcript(result.segments)`` here.
+
+    Returns:
+        ``(txt_path, segments_path, labeled_txt_path | None)``
     """
     out_path = Path(out_dir)
     out_path.mkdir(parents=True, exist_ok=True)
+
     txt = out_path / f"{episode_id}.txt"
     seg = out_path / f"{episode_id}.segments.json"
+
     txt.write_text(result.text + "\n", encoding="utf-8")
     seg.write_text(
         json.dumps(
@@ -154,16 +193,25 @@ def write_outputs(
                 "model": result.model,
                 "audio_duration_sec": result.audio_duration_sec,
                 "chunked": result.chunked,
+                "diarized": result.diarized,
                 "segments": result.segments,
             },
             indent=2,
         ),
         encoding="utf-8",
     )
-    return txt, seg
+
+    labeled_txt: Path | None = None
+    if labeled_transcript is not None:
+        labeled_txt = out_path / f"{episode_id}.labeled.txt"
+        labeled_txt.write_text(labeled_transcript + "\n", encoding="utf-8")
+
+    return txt, seg, labeled_txt
 
 
-# ─── Production backend (lazy, optional dep) ────────────────────────────────
+# ---------------------------------------------------------------------------
+# Production backend (lazy, optional dep)
+# ---------------------------------------------------------------------------
 
 def load_faster_whisper_backend(
     *,
@@ -200,7 +248,9 @@ def load_faster_whisper_backend(
     return _Backend()
 
 
-# ─── CLI ────────────────────────────────────────────────────────────────────
+# ---------------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------------
 
 def _cli(argv: list[str] | None = None) -> int:
     import argparse
@@ -216,27 +266,69 @@ def _cli(argv: list[str] | None = None) -> int:
     p.add_argument("--model", default=os.environ.get("WHISPER_MODEL", "large-v3-turbo"))
     p.add_argument("--model-dir", default=os.environ.get("WHISPER_MODEL_DIR", "/var/lib/nfl/models"))
     p.add_argument("--work-dir", default=None, help="Scratch dir for ffmpeg output (default: /tmp/...)")
+    # L3: diarization flags
+    p.add_argument(
+        "--diarize",
+        action="store_true",
+        help="Use pyannote speaker diarization (requires HF_TOKEN + WHISPERX_DIARIZE=true)",
+    )
+    p.add_argument(
+        "--show-name",
+        default=None,
+        help="Show name for speaker->name mapping via experts roster (e.g. 'BettingPros Podcast')",
+    )
     args = p.parse_args(argv)
 
-    backend = load_faster_whisper_backend(
-        model_name=args.model,
-        model_dir=args.model_dir,
-    )
+    # Backend selection
+    diarized = False
+    if args.diarize:
+        from .diarize import load_whisperx_backend_or_fallback  # noqa: WPS433
+        backend, diarized = load_whisperx_backend_or_fallback(
+            whisper_model=args.model,
+            model_dir=args.model_dir,
+        )
+    else:
+        backend = load_faster_whisper_backend(
+            model_name=args.model,
+            model_dir=args.model_dir,
+        )
+
     result = transcribe_audio(
         args.audio,
         backend=backend,
         model_name=args.model,
         work_dir=args.work_dir,
     )
-    txt, seg = write_outputs(result, episode_id=args.episode_id, out_dir=args.out_dir)
+
+    # Speaker name resolution (L2)
+    labeled_transcript: str | None = None
+    if diarized and args.show_name:
+        from .speaker_map import (  # noqa: WPS433
+            apply_speaker_map,
+            build_labeled_transcript,
+            build_speaker_map,
+        )
+        spk_map = build_speaker_map(result.segments, args.show_name)
+        result.segments = apply_speaker_map(result.segments, spk_map)
+        labeled_transcript = build_labeled_transcript(result.segments)
+
+    txt, seg, labeled_txt = write_outputs(
+        result,
+        episode_id=args.episode_id,
+        out_dir=args.out_dir,
+        labeled_transcript=labeled_transcript,
+    )
+
     summary = {
         "episode_id": args.episode_id,
         "model": result.model,
         "audio_duration_sec": result.audio_duration_sec,
         "chunked": result.chunked,
+        "diarized": result.diarized,
         "segment_count": len(result.segments),
         "txt": str(txt),
         "segments_json": str(seg),
+        "labeled_txt": str(labeled_txt) if labeled_txt else None,
     }
     print(json.dumps(summary, indent=2))
     return 0

@@ -71,3 +71,28 @@ Flaky tests: none currently known — if a test flakes twice, investigate immedi
 ---
 
 *Add new patterns here after each session.*
+
+---
+
+## S235 — 2026-06-29
+
+### AssemblyAI speech_models
+`speech_model: 'best'` is fully deprecated. Replacement is `speech_models: ['universal-3-pro', 'universal-2']` — an array of two models. Single-element arrays are also rejected.
+
+### whisperX + Python 3.14 incompatibility
+whisperX requires Python `<3.14`. M6 `.venv` is Python 3.14. Fix: create `.venv-whisperx` with Python 3.12 for transcription/diarization only. `config.js pythonExecutable` is already overridable per-step.
+
+### huggingface-cli deprecated on M6
+Use `hf auth login` instead of `huggingface-cli login`. Upgrade with `hf update`.
+
+### Local LLM vs cloud for one-off extraction
+When API keys are exhausted, reading the full transcript into a long-context LLM in a single shot is viable and often better than chunked Ollama for debug/ad-hoc runs. Chunked Ollama is right for automated production.
+
+### Speaker attribution: two distinct layers
+(1) Diarization — who is SPEAKER_0 vs SPEAKER_1 (audio signal, pyannote/AssemblyAI). (2) Name resolution — speaker ID → real name (transcript text + experts roster). Fail independently; label separately in output (green = diarized, amber = context-inferred).
+
+### Fuzzy alias matching for rotating hosts
+For shows with rotating casts, use `rapidfuzz` against `experts.js` aliases over first 5 min of transcript. Threshold 0.82 handles transcription noise (e.g. "Woolcock"→"Wilcock"). Zero per-show host maintenance.
+
+### M6 hardware confirmed 2026-06-29
+AMD Ryzen 5 7640HS, 12 cores, 24 GB RAM, CPU-only. Peak podcast pipeline memory ~12-14 GB — fits in 22 GB available. Radeon 760M is integrated; do not attempt ROCm. Stored in `.nfl/memory.json` under `infrastructure.m6`.

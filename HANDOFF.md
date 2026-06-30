@@ -5,11 +5,10 @@
 
 > Fresh-session resume notes. Read this first, then TASK_BOARD.md.
 
-**Date:** 2026-06-03
-**Branch:** main (up to date with `origin/main`)
-**HEAD:** `df020a4` — `feat(agent-manifests): Phase 6e — podcast intel tools in BETTING manifest`
-**Tests:** 552 / 552 passing (oddsIdempotent regression fixed + committed 2026-06-03)
-**Status:** Podcast intel pipeline shipped through Phase 6e. **Phase 7 + 8 now fully specced (2026-06-03)** — start building at 7c. See `docs/SESSION_HANDOFF_2026-06-03_PODCAST_PHASE7.md`.
+**Date:** 2026-06-29
+**Branch:** main (HEAD: `0c7ff39`)
+**Tests:** 552 / 552 passing
+**Status:** M6 `.venv-whisperx` unblocked. Local diarization pipeline ready for L1-L6 implementation.
 
 ## Persistent Backlogs
 
@@ -19,9 +18,28 @@
 | Backlog | File | Open Items | Last Touched |
 |---------|------|-----------|----------|
 | NFL Security & Quality Audit (tri-audit) | `docs/NFL_AUDIT_BACKLOG.md` | **0 / 30 — COMPLETE** | S152 2026-05-23 |
+| Obsidian Vault Bridge — Podcast Intel | `docs/LOCAL_PIPELINE_SPEC.md` | **3 items open** (B2-B4 pending impl) | S236 2026-06-29 |
 
 > The tri-audit is fully closed (30/30, all tiers). Receipt: `docs/AUDIT_RECEIPT_2026-05-23.md`.
 > No CRITICAL items open — feature work is unblocked.
+
+### Obsidian Vault Bridge — Podcast Intel (S235, open)
+
+Goal: after `podcast-ingest.js` finishes extracting picks + intel for an episode, write a
+structured vault note to `NFL/Podcasts/<ShowName>/<YYYY-MM-DD>-E<ep>.md` so that ATLAS agents
+can reference specific episode analysis without querying Supabase directly.
+
+Open items:
+- [x] **B1** — Vault note schema designed: see `docs/LOCAL_PIPELINE_SPEC.md §8` — frontmatter, picks table, intel bullets, transcript index
+- [ ] **B2** — Implement `vault_note.py` + wire into `podcast-ingest.js` (spec §8 complete, code not yet written)
+- [ ] **B3** — Backfill: run bridge against all existing `status: 'done'` episodes in `podcast_transcripts`
+- [ ] **B4** — Wire vault notes into `BETTING` + `FUTURES` agent manifests so agents can cite episode-level sources
+
+Constraints:
+- Sensitivity tier: `green` (podcast intel is public content)
+- Use `vault_notes` Supabase table (already used by futures report) — avoids direct NTFS write
+- Note path convention: `NFL/Podcasts/{show}/{YYYY-MM-DD}-E{ep}.md`
+- Must include per-pick timestamps if `verbose_json` transcription was used
 
 ---
 
@@ -40,6 +58,27 @@
 ---
 
 ## Pick Up Here
+
+> **S236 complete (2026-06-29).** M6 `.venv-whisperx` blocker fully resolved. Python 3.12 installed via deadsnakes PPA. `.venv-whisperx` built with `torch==2.8.0 + torchaudio==2.8.0 + pyannote.audio==4.0.6 + faster-whisper==1.2.1 + rapidfuzz`. Key discoveries: (1) whisperX PyPI package unusable — use faster-whisper + pyannote directly; (2) `speaker-diarization-3.1` AND `3.0` both require `community-1` PLDA weights (allowlist-restricted) — patched installed `speaker_diarization.py` to wrap `get_plda()` in try/except; (3) use `pyannote/speaker-diarization-3.0` with `token=True` API; (4) torchcodec warning is harmless (soundfile fallback used). Spec updated: `docs/LOCAL_PIPELINE_SPEC.md §3` now reflects actual working install. `src/config.js` updated: added `pythonDiarizeExecutable` pointing to `.venv-whisperx/bin/python`. HF token `m6-whisperx` (fine-grained read) stored in `~/.cache/huggingface/token`. No new git commits this session (M6 + config-only work). **Next session first action:** implement L1 `diarize.py` — see `docs/LOCAL_PIPELINE_SPEC.md §4`. Use `pythonDiarizeExecutable` from config. Model: `pyannote/speaker-diarization-3.0`, device `cpu`, compute_type `int8`.
+>
+> **PLDA patch reminder:** must re-apply after any `.venv-whisperx` rebuild:
+> ```bash
+> PYANNOTE_SD=.venv-whisperx/lib/python3.12/site-packages/pyannote/audio/pipelines/speaker_diarization.py
+> sed -i 's/        self._plda = get_plda(plda, token=token, cache_dir=cache_dir)/        try:\n            self._plda = get_plda(plda, token=token, cache_dir=cache_dir)\n        except Exception:\n            self._plda = None/' $PYANNOTE_SD
+> ```
+
+> **S235 complete (2026-06-29).** E1011 full pipeline test completed: AssemblyAI diarization fixed (`speech_models: ['universal-3-pro','universal-2']`), Anthropic/OpenAI API keys exhausted → extraction done manually by Claude in Cowork reading full transcript → 13 picks + 34 intel items extracted → HTML report generated at `.nfl/reports/bettingpros-e1011-intel.html` (timestamps fixed, real diarization labels, speaker names resolved). Local pipeline fully specced: `docs/LOCAL_PIPELINE_SPEC.md` covers WhisperX+pyannote diarization (L1 `diarize.py`), fuzzy alias speaker mapping from experts roster (L2 `speaker_map.py`), Ollama extraction with speaker-labeled transcript (L4), vault note writer (L5 `vault_note.py`, closes B1+B2), and pipelineWorker.js wiring (L6). M6 specs confirmed: AMD Ryzen 5 7640HS, 12 cores, 24GB RAM, CPU-only — saved to `.nfl/memory.json`. **BLOCKER:** whisperX install failed on M6 — `.venv` is Python 3.14, whisperX requires `<3.14`. **Next session first action:** resolve Python version blocker (see below), then implement L1-L6 in order.
+>
+> **M6 whisperX blocker — fix before L1:**
+> The `.venv` is Python 3.14; whisperX max is `<3.14`. Two options:
+> - **Option A (recommended):** Create a Python 3.12 venv for whisperX only: `python3.12 -m venv .venv-whisperx && source .venv-whisperx/bin/activate && pip install whisperx rapidfuzz`. Update `config.js` `pythonExecutable` to point to `.venv-whisperx` for the transcribe step only.
+> - **Option B:** Pin `ctranslate2>=4.6.1` and install whisperX from source with patched requirements (riskier).
+> Also: `huggingface-cli` is deprecated on M6 → use `hf auth login` instead. HF model terms must be accepted in browser at: `huggingface.co/pyannote/speaker-diarization-3.1` + `huggingface.co/pyannote/segmentation-3.0`.
+>
+> **Build sequence (L1→L6, all pending):**
+> L1 `diarize.py` → L2 `speaker_map.py` + `show_hosts.json` → L3 live M6 test (2-min audio clip) → L4 `extract.py`/`prompts.py` → L5 `vault_note.py` → L6 `pipelineWorker.js`+`podcast-ingest.js`. Spec: `docs/LOCAL_PIPELINE_SPEC.md`.
+
+> **S234 complete (2026-06-29).** Experts roster fully rebuilt (`src/lib/experts.js` → 36 entries, 12 shows + 24 individual hosts, all with `sourceType`/`ingestStatus`/`note`). Two new podcast feeds live in Supabase via migration `029_podcast_feeds_update.sql` (The Favorites + BettingPros Podcast). `EXPECTED_SOURCES` in `futures-intel-report-v2.js` updated (Sunday Sixpack → deferred, BettingPros + The Favorites → active). NFL_Dashboard commit `0c7ff39` pushed. Obsidian vault bridge added to Persistent Backlogs (B1-B4 items). Wrote `agents/podcast-e1011-test.js` — full-pipeline one-off test for E1011 (AssemblyAI diarization + Anthropic extraction + chunked full-transcript + HTML report). **E1011 test still failing:** AssemblyAI `speech_model: 'best'` deprecated → fixed to `speech_models: ['universal-3-pro']` in the script but NOT yet verified. **Next session: run `node agents/podcast-e1011-test.js` first thing — should work now.** If it passes, review HTML report, then commit the test script and spec the Obsidian bridge (B1). M6 needs `git pull` for `0c7ff39`.
 
 > **Phase 6 — Podcast Intel surface (DONE through 6e)** — full detail in
 > `docs/PODCAST_PIPELINE_PM_HANDOFF.md`.

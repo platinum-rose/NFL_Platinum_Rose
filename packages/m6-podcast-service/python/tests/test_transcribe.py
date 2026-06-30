@@ -126,7 +126,7 @@ def test_write_outputs_creates_txt_and_segments(tmp_path):
         model="large-v3-turbo",
         chunked=False,
     )
-    txt, seg = transcribe.write_outputs(result, episode_id="ep-1", out_dir=tmp_path)
+    txt, seg, _ = transcribe.write_outputs(result, episode_id="ep-1", out_dir=tmp_path)
     assert txt.read_text(encoding="utf-8").strip() == "hello world"
     payload = json.loads(seg.read_text(encoding="utf-8"))
     assert payload["episode_id"] == "ep-1"
@@ -168,3 +168,107 @@ def test_transcribe_missing_file_raises(tmp_path):
             backend=FakeBackend(),
             model_name="x",
         )
+
+
+# ---------------------------------------------------------------------------
+# L3: speaker passthrough + diarized flag + write_outputs labeled.txt
+# ---------------------------------------------------------------------------
+
+from nfl_podcast.diarize import DiarizedSegment
+
+
+class FakeDiarizedBackend:
+    """Returns DiarizedSegments with speaker labels."""
+
+    def __init__(self, segments):
+        self._segments = segments
+
+    def transcribe(self, audio_path):
+        return self._segments
+
+
+def test_transcribe_passes_speaker_from_diarized_segment(tmp_path):
+    src = tmp_path / "ep.mp3"
+    src.write_bytes(b"fake")
+    backend = FakeDiarizedBackend([
+        DiarizedSegment(start=0.0, end=5.0, text="Hello.", speaker="SPEAKER_00"),
+        DiarizedSegment(start=5.0, end=10.0, text="World.", speaker="SPEAKER_01"),
+    ])
+    runner, _ = make_runner([
+        {"stdout": ""},
+        {"stdout": _ffprobe_payload(10.0)},
+    ])
+    result = transcribe.transcribe_audio(
+        src, backend=backend, model_name="large-v3-turbo",
+        work_dir=tmp_path / "work", runner=runner,
+    )
+    assert result.diarized is True
+    assert result.segments[0]["speaker"] == "SPEAKER_00"
+    assert result.segments[1]["speaker"] == "SPEAKER_01"
+
+
+def test_transcribe_speaker_none_for_plain_segment(tmp_path):
+    src = tmp_path / "ep.mp3"
+    src.write_bytes(b"fake")
+    backend = FakeBackend(default=[
+        WhisperSegment(start=0.0, end=5.0, text="Hello."),
+    ])
+    runner, _ = make_runner([
+        {"stdout": ""},
+        {"stdout": _ffprobe_payload(5.0)},
+    ])
+    result = transcribe.transcribe_audio(
+        src, backend=backend, model_name="large-v3-turbo",
+        work_dir=tmp_path / "work", runner=runner,
+    )
+    assert result.diarized is False
+    assert result.segments[0]["speaker"] is None
+
+
+def test_write_outputs_labeled_txt_written_when_provided(tmp_path):
+    result = transcribe.TranscriptionResult(
+        text="hello world",
+        segments=[{"start": 0.0, "end": 1.0, "text": "hello world", "segment_idx": 0, "speaker": "Seth Woolcock"}],
+        audio_duration_sec=1.0,
+        model="large-v3-turbo",
+        chunked=False,
+        diarized=True,
+    )
+    labeled = "[0:00] Seth Woolcock: hello world"
+    txt, seg, labeled_txt = transcribe.write_outputs(
+        result, episode_id="ep-1", out_dir=tmp_path, labeled_transcript=labeled,
+    )
+    assert labeled_txt is not None
+    assert labeled_txt.exists()
+    assert "Seth Woolcock" in labeled_txt.read_text()
+
+
+def test_write_outputs_no_labeled_txt_when_not_provided(tmp_path):
+    result = transcribe.TranscriptionResult(
+        text="hello",
+        segments=[{"start": 0.0, "end": 1.0, "text": "hello", "segment_idx": 0, "speaker": None}],
+        audio_duration_sec=1.0,
+        model="large-v3-turbo",
+        chunked=False,
+        diarized=False,
+    )
+    txt, seg, labeled_txt = transcribe.write_outputs(
+        result, episode_id="ep-2", out_dir=tmp_path,
+    )
+    assert labeled_txt is None
+    assert not (tmp_path / "ep-2.labeled.txt").exists()
+
+
+def test_write_outputs_segments_json_includes_diarized_flag(tmp_path):
+    result = transcribe.TranscriptionResult(
+        text="hi",
+        segments=[{"start": 0.0, "end": 1.0, "text": "hi", "segment_idx": 0, "speaker": "Seth Woolcock"}],
+        audio_duration_sec=1.0,
+        model="large-v3-turbo",
+        chunked=False,
+        diarized=True,
+    )
+    _, seg, _ = transcribe.write_outputs(result, episode_id="ep-3", out_dir=tmp_path)
+    payload = json.loads(seg.read_text())
+    assert payload["diarized"] is True
+    assert payload["segments"][0]["speaker"] == "Seth Woolcock"

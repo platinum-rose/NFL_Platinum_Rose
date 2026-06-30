@@ -2,14 +2,14 @@
   "project_name": "NFL_Dashboard",
   "schema_version": "1.0",
   "created": "2026-04-18",
-  "last_updated": "2026-05-08",
-  "last_session_date": "2026-05-08",
-  "session_count": 3,
+  "last_updated": "2026-06-29",
+  "last_session_date": "2026-06-29",
+  "session_count": 4,
   "health": {
     "status": "offseason",
-    "last_activity": "2026-05-08"
+    "last_activity": "2026-06-29"
   },
-  "status_summary": "NFL betting dashboard -- React + Vite + Supabase. Off-season mode. Futures ingest live: 96 Super Bowl rows written 2026-05-08 (conference/division 404 = offseason, expected). ODDS_API_KEY rotated (old key deactivated). F-9 Weekly Betting Analyst agent is next feature.",
+  "status_summary": "NFL betting dashboard -- React + Vite + Supabase. Off-season mode. Local WhisperX+pyannote pipeline unblocked on M6: .venv-whisperx (Python 3.12) live with torch 2.8.0 + pyannote.audio 4.0.6 + faster-whisper 1.2.1 + rapidfuzz. PLDA patch applied. speaker-diarization-3.0 model loaded OK. Next: implement L1-L6 (diarize.py → speaker_map.py → extract.py → vault_note.py → pipelineWorker.js).",
   "open_tasks": [
     "Add build-handoff.js Stop hook",
     "Add lessons-learned.md pattern accumulator"
@@ -27,6 +27,14 @@
   ],
   "recent_decisions": [
     {
+      "date": "2026-06-29",
+      "decision": "pyannote/speaker-diarization-3.1 and 3.0 both reference pyannote/speaker-diarization-community-1 for PLDA weights (allowlist-restricted). Fix: patch installed speaker_diarization.py to wrap get_plda() in try/except. Use speaker-diarization-3.0 model. Must re-apply patch after any venv rebuild."
+    },
+    {
+      "date": "2026-06-29",
+      "decision": "diarize.py uses pythonDiarizeExecutable (.venv-whisperx/bin/python) not pythonExecutable (.venv/bin/python). Added pythonDiarizeExecutable to src/config.js with NFL_PYTHON_DIARIZE_EXECUTABLE env override."
+    },
+    {
       "date": "2026-04-29",
       "decision": "Added dotenv/config import to futures-odds-ingest.js so server-side agents read non-VITE_ keys from .env automatically. Same pattern should be applied to odds-ingest.js and nfl-auto-grade.js when those are next touched."
     },
@@ -35,5 +43,22 @@
       "decision": "podcast_feeds RLS policy set to public_read (anon SELECT, service_role writes) — matches pattern of podcast_episodes and podcast_transcripts"
     }
   ],
-  "self_improvement_queue": []
+  "self_improvement_queue": [],
+  "infrastructure": {
+    "m6": {
+      "hostname": "ATLAS",
+      "user": "andrewlrose",
+      "os": "Ubuntu (Linux)",
+      "cpu": "AMD Ryzen 5 7640HS",
+      "cpu_cores": 12,
+      "ram_total_gb": 24,
+      "ram_available_gb": 22,
+      "swap_gb": 8,
+      "gpu": "Radeon 760M (integrated, RDNA 3) — treat as CPU-only for ML workloads; ROCm not configured",
+      "ml_device": "cpu",
+      "ml_compute_type": "int8",
+      "notes": "Plenty of headroom for whisperX + pyannote (~10-12 GB peak) + Ollama qwen2.5:3b (~3 GB) concurrently. 12 cores helps faster-whisper parallelism. No discrete GPU — all inference on CPU.",
+      "confirmed": "2026-06-29"
+    }
+  }
 }
