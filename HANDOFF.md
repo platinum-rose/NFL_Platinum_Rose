@@ -6,9 +6,9 @@
 > Fresh-session resume notes. Read this first, then TASK_BOARD.md.
 
 **Date:** 2026-06-30
-**Branch:** main (HEAD: `5586a56`)
-**Tests:** 117 pytest green (L1-L5); 552 JS (unchanged)
-**Status:** L4+L5+B3 complete. vault_note.py live, 59 episodes backfilled. Next: B4 vault note citations in agent manifests.
+**Branch:** main (HEAD: `b0232ef`)
+**Tests:** 64/64 m6-podcast-service · 117 pytest · 552 JS (unchanged)
+**Status:** S241 housekeeping complete. TASK_BOARD + memory.json reconciled against S158–S240. .gitattributes S240 index quirk fully resolved (now in HEAD + index). Next priorities: F-24 Tailscale debug (P0) → F-25 Injury UI → F-27 UI QC pass.
 
 ## Persistent Backlogs
 
@@ -58,6 +58,8 @@ Constraints:
 ---
 
 ## Pick Up Here
+
+> **S241 complete (2026-06-30).** Housekeeping + orientation session. (1) Scanned S155–S240 handoffs for stale tasks. (2) Generated HTML + Mermaid data flow diagrams (`E:\data\Obsidian\NFL_Dashboard_DataFlow.html` + `.mermaid`). (3) Reconciled TASK_BOARD.md against S158–S240: gutted done-graveyard backlog, added 6 real open items (F-24/F-25/F-26/F-27/F-14/OPS-1), added 5 DONE entries for S235–S240 work. (4) Updated memory.json (status_summary, open_tasks, completed_tasks, session_count). (5) Restored `.gitattributes` — S240 index quirk fully resolved (HEAD `b0232ef`). **Next session start with F-24 (Tailscale debug, P0)** — `https://atlas.tail1e459d.ts.net` is failing; check `nfl-podcast.service` status on M6, `tailscale serve`/`funnel` config, and `VITE_M6_BASE` in `.env`.
 
 > **S240 complete (2026-06-30).** Housekeeping + NTFS recovery session. Phase 7c / 7a / 7b / 7-serving / Phase 8 were all already committed in prior sessions (confirmed via `git log`). This session: (1) diagnosed 10 NTFS-truncated working-tree files (futures-intel-report-v2.js, experts.js, agentTools.js, research-intel-ingest.js, diarize.py, extract.py, prompts.py, vault_note.py, test_extract.py, backfill_vault_notes.py) — restored all from git HEAD objects; (2) added `.gitattributes` (`* text=auto eol=lf`) via git plumbing to prevent CRLF recurrence; (3) committed HANDOFF + memory.json updates. HEAD: `2de8230`. Tests: 64/64 green (m6-podcast-service). **Known index quirk:** `.gitattributes` is in HEAD tree and working tree but not in git index (plumbing bypass); `git diff HEAD` shows it as deleted — cosmetic only, file is committed and present. No open production actions. **Next session:** Phase 8 `/share/*` routes are committed — next feature work is `scripts/render-digests.js` CLI or NFL season prep. Confirm direction at session start.
 
