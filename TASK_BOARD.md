@@ -1,5 +1,5 @@
 # Platinum Rose — Task Board (NFL)
-> **Last updated:** 2026-06-30 S242 (HEAD `0a82e5d`)
+> **Last updated:** 2026-07-01 S244 (HEAD `9089759`)
 > **Owner:** PM agent is the sole writer of this file.
 
 ---
@@ -31,7 +31,7 @@
 
 | ID | Task | Priority | Notes |
 |----|------|----------|-------|
-| F-28 | Podcast digest pages return `not_found` | P1 | **S243 root cause confirmed (not a code regression):** `/var/lib/nfl/digest/` has been empty since creation Jun 2 — 59 `status='done'` episodes were never rendered. Both intended render triggers (incremental post-run hook + cron/CLI backfill per `docs/PODCAST_PHASE7A_RENDER_SPEC.md` §6/§7) have deployment gaps; neither is wired to a running cron/systemd unit on M6. **S244: found the actual backfill script location** — it is `packages/m6-podcast-service/scripts/render-digests.js`, *not* a repo-root `scripts/render-digests.js` (the path Andy's S243 attempt used, causing `MODULE_NOT_FOUND` — the script's own usage banner just says `node scripts/render-digests.js`, which only resolves if run from inside `packages/m6-podcast-service`). M6 path per `deploy/nfl-podcast.service`: `/home/andrewlrose/projects/NFL_Dashboard/packages/m6-podcast-service/`. Corrected backfill command to test: `cd /home/andrewlrose/projects/NFL_Dashboard/packages/m6-podcast-service && set -a && source /etc/nfl-podcast.env && set +a && node scripts/render-digests.js all`. Not yet run/confirmed — Cowork has no network path to M6 (ADR-0010), needs Andy to execute and relay output. Once digest files exist, re-test `/digest/episodes/*.html` and `/digest/experts/*.html` URLs. Separate/unconfirmed: Podcasts tab black-on-black CSS issue noted during S242 testing — may or may not share a root cause, needs its own look once digest files exist to test against. |
+| F-27a | Podcasts tab black-on-black CSS | P2 | Spun out of F-28 (was bundled in as "may be same root cause"). Now that digest files render correctly, this is confirmed a separate, unrelated CSS issue in the Podcasts tab — needs its own look. Fold into F-27 UI QC pass. |
 
 ---
 
@@ -39,6 +39,7 @@
 
 | ID | Task | Completed | Notes |
 |----|------|-----------|-------|
+| F-28 | Podcast digest pages return `not_found` | 2026-07-01 | **Two independent causes, both fixed.** (1) Deployment gap (S243): `/var/lib/nfl/digest/` had been empty since creation Jun 2 — 59 `status='done'` episodes were never rendered, because neither intended render trigger (incremental post-run hook nor cron/CLI backfill, `docs/PODCAST_PHASE7A_RENDER_SPEC.md` §6/§7) was ever wired to a running cron/systemd unit. (2) Real code bug (S244, found only by actually running the backfill): `render/index.js`'s `EPISODE_SELECT` queried `extraction_model`/`extraction_quality_score` as top-level `podcast_episodes` columns, but migration `023_podcast_pipeline_v2.sql` only ever added those columns to `podcast_transcripts` — every backfill attempt failed with `column podcast_episodes.extraction_model does not exist` regardless of path/env fixes. Unit tests never caught it because the fake Supabase test client's `.select()` is a no-op passthrough. Fixed: `EPISODE_SELECT` now nests the fields inside the `podcast_transcripts(...)` embed; `renderEpisodeBody` reads them off the normalized transcript object; test fixtures updated to match. Also fixed the backfill script path confusion (`packages/m6-podcast-service/scripts/render-digests.js`, not repo-root `scripts/`). Commit `9089759`, M6 pulled, confirmed live: `written 68 files (59 episodes, 4 experts, 1 weeks)`, `curl localhost:5060/digest/episodes/<id>.html` → `200`. **Still open, not yet done:** no recurring render trigger exists yet — new episodes still require a manual `render-digests.js all` until a systemd timer or the post-run hook is actually deployed (see spec §6/§7). Podcasts tab black-on-black CSS spun out as F-27a — confirmed unrelated now that files render. |
 | F-24 | Debug Tailscale always-on URL | 2026-06-30 | Root cause: stale dist bundle had dead `atlas.tail1e459d.ts.net` frozen in. Real machine is `atlas-m6`. `nfl-podcast.service` healthy on port 5060 since Jun 24. Tailscale Funnel correctly configured (`https://atlas-m6.tail1e459d.ts.net → :5060`). Fix: rebuilt dist with correct `VITE_M6_BASE`, deployed via scp to M6 `/var/www/nfl-dashboard/`. CI fix: added `VITE_M6_BASE` + `VITE_M6_FUNNEL_BASE` to `deploy.yml` (commit `39db924`). Merged remote schedule update + pushed `0a82e5d`. M6 needs `git pull`. |
 | F-0 | Phase 1: Governance Foundation | 2026-04-02 | SOUL.md, RULES.md, WORKING-CONTEXT.md, TASK_BOARD.md, AGENTS.md |
 | F-1 | Phase 2: Contexts + Hooks + Rules | 2026-04-02 | contexts/ (5), hooks/hooks.json, rules/ (4) |
