@@ -46,6 +46,10 @@ jobs:
           # intentionally absent here.
           VITE_SUPABASE_URL:      ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+          # Tailscale Funnel URL for M6 podcast digest + share endpoints.
+          # Public hostname — not a secret.
+          VITE_M6_BASE:           https://atlas-m6.tail1e459d.ts.net
+          VITE_M6_FUNNEL_BASE:    https://atlas-m6.tail1e459d.ts.net
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
