@@ -71,10 +71,10 @@ function ep1() {
     status: 'done',
     is_partial: false,
     duration_secs: 3600,
-    extraction_model: 'qwen3:8b',
-    extraction_quality_score: 0.82,
     podcast_feeds: { expert: 'sharp-sports', name: 'Sharp Sports Podcast' },
     podcast_transcripts: {
+      extraction_model: 'qwen3:8b',
+      extraction_quality_score: 0.82,
       picks: [
         {
           category: 'spread',
@@ -118,10 +118,10 @@ function ep2() {
     status: 'done',
     is_partial: false,
     duration_secs: 2400,
-    extraction_model: 'qwen3:8b',
-    extraction_quality_score: 0.79,
     podcast_feeds: { expert: 'betting-edge', name: 'Betting Edge Podcast' },
     podcast_transcripts: {
+      extraction_model: 'qwen3:8b',
+      extraction_quality_score: 0.79,
       picks: [
         {
           category: 'spread',
@@ -151,10 +151,10 @@ function epPartial() {
     status: 'done',
     is_partial: true,
     duration_secs: 600,
-    extraction_model: 'qwen3:8b',
-    extraction_quality_score: 0.5,
     podcast_feeds: { expert: 'sharp-sports', name: 'Sharp Sports Podcast' },
     podcast_transcripts: {
+      extraction_model: 'qwen3:8b',
+      extraction_quality_score: 0.5,
       picks: [],
       intel: ['Partial transcript — audio cut short'],
     },

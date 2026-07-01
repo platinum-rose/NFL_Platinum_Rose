@@ -1,5 +1,5 @@
 # Platinum Rose — Task Board (NFL)
-> **Last updated:** 2026-06-30 (reconciled against HEAD `2c0fb68`)
+> **Last updated:** 2026-06-30 S242 (HEAD `0a82e5d`)
 > **Owner:** PM agent is the sole writer of this file.
 
 ---
@@ -18,7 +18,6 @@
 
 | ID | Task | Priority | Notes |
 |----|------|----------|-------|
-| F-24 | Debug Tailscale always-on URL | P0 | `https://atlas.tail1e459d.ts.net` failing. Check: `nfl-podcast.service` status on M6, `tailscale serve`/`funnel` config, `VITE_M6_BASE` in `.env`. Podcast Digest Tab "Open digest" links all broken until resolved. |
 | F-25 | Player Injury UI — dedicated view | P1 | Ingest (F-19) and BETTING agent injection (F-22) are done. Missing: dedicated injury tab or enriched matchup card showing impact-level badges. `InjuryReportModal.jsx` + `InjuryBadge.jsx` exist but may not be fully wired. |
 | F-27 | UI QC pass | P1 | Full audit across all 12+ tabs. Look for: broken buttons, dead routes, offseason-mode stale states, clunky workflows, features that can be deprecated or simplified. No code changes — produce a prioritised defect list first. |
 | F-26 | Fantasy Football features — spec + build | P2 | DFSOptimizer (F-7) is the only fantasy feature. Need spec: roster/waiver intel, weekly projections, FantasyDouche/Adam Levitan X feed already in sharp-accounts.json. Decide scope before building. |
@@ -32,7 +31,7 @@
 
 | ID | Task | Priority | Notes |
 |----|------|----------|-------|
-| — | (none) | — | — |
+| F-28 | Podcast digest pages return `not_found` | P1 | **S243 root cause confirmed (not a code regression):** `/var/lib/nfl/digest/` has been empty since creation Jun 2 — 59 `status='done'` episodes were never rendered. Both intended render triggers (incremental post-run hook + cron/CLI backfill per `docs/PODCAST_PHASE7A_RENDER_SPEC.md` §6/§7) have deployment gaps; neither is wired to a running cron/systemd unit on M6. **S244: found the actual backfill script location** — it is `packages/m6-podcast-service/scripts/render-digests.js`, *not* a repo-root `scripts/render-digests.js` (the path Andy's S243 attempt used, causing `MODULE_NOT_FOUND` — the script's own usage banner just says `node scripts/render-digests.js`, which only resolves if run from inside `packages/m6-podcast-service`). M6 path per `deploy/nfl-podcast.service`: `/home/andrewlrose/projects/NFL_Dashboard/packages/m6-podcast-service/`. Corrected backfill command to test: `cd /home/andrewlrose/projects/NFL_Dashboard/packages/m6-podcast-service && set -a && source /etc/nfl-podcast.env && set +a && node scripts/render-digests.js all`. Not yet run/confirmed — Cowork has no network path to M6 (ADR-0010), needs Andy to execute and relay output. Once digest files exist, re-test `/digest/episodes/*.html` and `/digest/experts/*.html` URLs. Separate/unconfirmed: Podcasts tab black-on-black CSS issue noted during S242 testing — may or may not share a root cause, needs its own look once digest files exist to test against. |
 
 ---
 
@@ -40,6 +39,7 @@
 
 | ID | Task | Completed | Notes |
 |----|------|-----------|-------|
+| F-24 | Debug Tailscale always-on URL | 2026-06-30 | Root cause: stale dist bundle had dead `atlas.tail1e459d.ts.net` frozen in. Real machine is `atlas-m6`. `nfl-podcast.service` healthy on port 5060 since Jun 24. Tailscale Funnel correctly configured (`https://atlas-m6.tail1e459d.ts.net → :5060`). Fix: rebuilt dist with correct `VITE_M6_BASE`, deployed via scp to M6 `/var/www/nfl-dashboard/`. CI fix: added `VITE_M6_BASE` + `VITE_M6_FUNNEL_BASE` to `deploy.yml` (commit `39db924`). Merged remote schedule update + pushed `0a82e5d`. M6 needs `git pull`. |
 | F-0 | Phase 1: Governance Foundation | 2026-04-02 | SOUL.md, RULES.md, WORKING-CONTEXT.md, TASK_BOARD.md, AGENTS.md |
 | F-1 | Phase 2: Contexts + Hooks + Rules | 2026-04-02 | contexts/ (5), hooks/hooks.json, rules/ (4) |
 | F-2 | Phase 3: Dev Agent Architecture | 2026-04-02 | agents/dev/ — 15 adapted YAML-frontmatter prompts |
@@ -95,4 +95,3 @@
 ## Legend
 - **Priority:** P0 (critical path) · P1 (high) · P2 (medium) · P3 (low/backlog)
 - **Prefixes:** F- = feature, B- = bug
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          

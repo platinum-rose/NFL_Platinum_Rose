@@ -24,6 +24,14 @@ import {
 } from './aggregate.js';
 
 // ── Supabase SELECT columns ────────────────────────────────────────────────
+// NOTE: extraction_model / extraction_quality_score live on podcast_transcripts
+// (migration 023_podcast_pipeline_v2.sql), NOT on podcast_episodes — they were
+// previously (incorrectly) requested here as top-level episode columns, which
+// fails against the real schema with "column podcast_episodes.extraction_model
+// does not exist" (caught 2026-07-01 running the Phase 7a CLI against the live
+// DB for the first time; the unit-test fake Supabase client's select() is a
+// no-op passthrough, so it never caught the mismatch). Read them off the
+// normalized transcript object (see normalizeTranscript()), not the episode.
 const EPISODE_SELECT = [
   'id',
   'title',
@@ -31,10 +39,8 @@ const EPISODE_SELECT = [
   'status',
   'is_partial',
   'duration_secs',
-  'extraction_model',
-  'extraction_quality_score',
   'podcast_feeds(expert, name)',
-  'podcast_transcripts(picks, intel)',
+  'podcast_transcripts(picks, intel, extraction_model, extraction_quality_score)',
 ].join(', ');
 
 // ── Internal DB helpers ────────────────────────────────────────────────────
@@ -103,11 +109,11 @@ function renderEpisodeBody(episode) {
   }
   const dur = formatDuration(episode.duration_secs);
   if (dur) metaParts.push(`<span><strong>Duration:</strong> ${esc(dur)}</span>`);
-  if (episode.extraction_model) {
-    metaParts.push(`<span><strong>Model:</strong> ${esc(episode.extraction_model)}</span>`);
+  if (transcript.extraction_model) {
+    metaParts.push(`<span><strong>Model:</strong> ${esc(transcript.extraction_model)}</span>`);
   }
-  if (episode.extraction_quality_score != null) {
-    const pct = Math.round(episode.extraction_quality_score * 100);
+  if (transcript.extraction_quality_score != null) {
+    const pct = Math.round(transcript.extraction_quality_score * 100);
     metaParts.push(`<span><strong>Quality:</strong> ${esc(String(pct))}%</span>`);
   }
   if (metaParts.length) {
