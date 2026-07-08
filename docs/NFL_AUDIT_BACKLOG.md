@@ -4,9 +4,10 @@
 **Sources:**
 - Meridian Assurance Group â€” *NFL Platinum Rose End-to-End System Audit* (21 May 2026)
 - CODEX Ultrathink â€” *NFL Dashboard Formal Audit Report* (21 May 2026)
-**Progress:** 30 / 32 complete — 2 new items filed 2026-07-07 from the ATLAS/Rosie/NFL_Dashboard
-Fable tri-project audit (FABLE-01, FABLE-03), fixes drafted same day, pending native
-verification/deploy. Original 30/30 Meridian+CODEX set remains fully closed.
+**Progress:** 31 / 32 complete — 2 new items filed 2026-07-07 from the ATLAS/Rosie/NFL_Dashboard
+Fable tri-project audit (FABLE-01, FABLE-03). FABLE-03 closed 2026-07-08 (S269, committed).
+FABLE-01 fully live-verified (dry-run) and committed 2026-07-08 (S269) — only the live
+(non-dry-run) sync run remains, Andy's call. Original 30/30 Meridian+CODEX set remains fully closed.
 
 > **Completion rule:** Mark `[ ]` â†’ `[x]` only when the fix is committed to `main`
 > AND verified by test, live query, or CI pass. Dev-only changes do not count.
@@ -341,13 +342,15 @@ verification/deploy. Original 30/30 Meridian+CODEX set remains fully closed.
     `sensitivity:` block doesn't leak into the exported `content` field (cosmetic, not a security
     fix). Multi-segment paths (e.g. `NFL/Reference/CoachTendencies.md`) fetch correctly --
     the earlier `encodeURIComponent()` concern was a non-issue.
+  - **Committed 2026-07-08 (S269):** `agents/obsidian-vault-sync.js`, `scripts/tag-nfl-sensitivity.js`,
+    and this file landed on `main` as `9e03f8a` (merged with the auto schedule-update commit,
+    pushed as `040377d`).
   - **ACTION REQUIRED:** (1) decide whether to set `VAULT_SYNC_ALLOWED_TIERS=green,yellow` or
     keep the `green`-only default (moot for now -- all 255 notes are tagged `green`); (2) run the
     sync for real (drop `--dry-run`) and confirm the `vault_notes` table gained the expected 255
-    rows; (3) commit `agents/obsidian-vault-sync.js`, `scripts/tag-nfl-sensitivity.js`, and this
-    file to `main`. Mark `[x]` once committed and the live (non-dry-run) sync has been confirmed.
+    rows. Mark `[x]` once the live (non-dry-run) sync has been confirmed.
 
-- [ ] **FABLE-03** `CLAUDE.md` still documents the fixed key-in-browser env pattern
+- [x] **FABLE-03** `CLAUDE.md` still documents the fixed key-in-browser env pattern
   - **Evidence:** `CLAUDE.md`'s Environment Variables section still listed `VITE_OPENAI_API_KEY`
     and `VITE_ODDS_API_KEY` as browser env vars -- the exact pattern `src/lib/apiConfig.js`
     deliberately eliminated (`API-KEYS` above, closed S139) by moving paid keys behind the
@@ -359,4 +362,4 @@ verification/deploy. Original 30/30 Meridian+CODEX set remains fully closed.
     `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, `ODDS_API_KEY` and a one-line note pointing at
     `apiConfig.js`'s `AI_PROXY_URL`/`ODDS_PROXY_URL` pattern.
   - **ACTION REQUIRED:** none beyond normal commit -- this is a pure doc fix, no infra/migration
-    step. Mark `[x]` once committed.
+    step. Committed 2026-07-08 (S269) as part of `9e03f8a`/`040377d`. CLOSED.
