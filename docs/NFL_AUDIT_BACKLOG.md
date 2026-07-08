@@ -4,7 +4,9 @@
 **Sources:**
 - Meridian Assurance Group â€” *NFL Platinum Rose End-to-End System Audit* (21 May 2026)
 - CODEX Ultrathink â€” *NFL Dashboard Formal Audit Report* (21 May 2026)
-**Progress:** 30 / 30 complete
+**Progress:** 30 / 32 complete — 2 new items filed 2026-07-07 from the ATLAS/Rosie/NFL_Dashboard
+Fable tri-project audit (FABLE-01, FABLE-03), fixes drafted same day, pending native
+verification/deploy. Original 30/30 Meridian+CODEX set remains fully closed.
 
 > **Completion rule:** Mark `[ ]` â†’ `[x]` only when the fix is committed to `main`
 > AND verified by test, live query, or CI pass. Dev-only changes do not count.
@@ -305,3 +307,56 @@
   - **Evidence:** `CLAUDE.md` still says `E:\dev\projects\NFL_Dashboard`; actual repo is
     at `D:\DEV\github\NFL_Platinum_Rose` on some machines.
   - **Fix:** Update `CLAUDE.md` to either use a relative path or the canonical location.
+
+---
+
+## HIGH / MEDIUM -- 2026-07 Fable tri-project audit findings
+
+> Filed 2026-07-07 from the ATLAS/Rosie/NFL_Dashboard Fable audit (docs/audit/NFL_Dashboard_Audit_Report.md,
+> Findings 1 and 3). Finding 1 is a guardrail/data-safety change -- flagged by the audit for Andy's
+> sign-off rather than silently fixed. Andy approved proceeding 2026-07-07 (same-day Cowork session).
+
+- [ ] **FABLE-01** Vault-to-Supabase export has no sensitivity-tier check (partner-readable table)
+  - **Evidence:** `agents/obsidian-vault-sync.js` copies every note under the `NFL/` prefix into
+    the Supabase `vault_notes` table (readable via the anon key by betting partners, by design) --
+    the file never reads `sensitivity:` frontmatter at all, so the vault's fail-safe rule
+    (missing/invalid label -> treat as private, never export) was not applied here.
+  - **Fix drafted 2026-07-07:** added `parseSensitivity(content)` (same fail-safe regex parser
+    pattern as Rosie's `vault-sync-logic.js` -- missing/invalid frontmatter defaults to `red`,
+    never green). Added an `ALLOWED_EXPORT_TIERS` set, configurable via the new
+    `VAULT_SYNC_ALLOWED_TIERS` env var (default: `green` only -- the conservative default, since
+    whether partner-visible betting IP at the yellow tier is acceptable is Andy's business call,
+    not something the sync should assume). Notes whose sensitivity isn't in the allowed set are
+    skipped and logged (path + tier only, matching this file's existing no-content-in-logs style)
+    rather than silently dropped with no trace.
+  - **Live-verified 2026-07-08 (native dry-run):** Andy ran the dry-run and hit a separate,
+    genuine pre-existing bug found along the way -- `listNotes()` never recursed into subfolders,
+    so it silently found 0 notes against the real `NFL/Futures|Reference|Teams/` structure. Fixed
+    with a depth-capped recursive rewrite. Once fixed, the dry-run found all 255 notes but skipped
+    100% of them -- none had ever been given a `sensitivity:` frontmatter key, so the guardrail's
+    fail-safe correctly defaulted every one to `red`. Andy chose to bulk-tag all 255 as `green`
+    (public sports data, not family-sensitive) via a new hash-verified atomic script,
+    `scripts/tag-nfl-sensitivity.js` -- ran live, 255/255 tagged, 0 errors. Re-ran the sync
+    dry-run: 255/255 fetched, 0 errors, 0 skipped. Also added `stripFrontmatter()` so the
+    `sensitivity:` block doesn't leak into the exported `content` field (cosmetic, not a security
+    fix). Multi-segment paths (e.g. `NFL/Reference/CoachTendencies.md`) fetch correctly --
+    the earlier `encodeURIComponent()` concern was a non-issue.
+  - **ACTION REQUIRED:** (1) decide whether to set `VAULT_SYNC_ALLOWED_TIERS=green,yellow` or
+    keep the `green`-only default (moot for now -- all 255 notes are tagged `green`); (2) run the
+    sync for real (drop `--dry-run`) and confirm the `vault_notes` table gained the expected 255
+    rows; (3) commit `agents/obsidian-vault-sync.js`, `scripts/tag-nfl-sensitivity.js`, and this
+    file to `main`. Mark `[x]` once committed and the live (non-dry-run) sync has been confirmed.
+
+- [ ] **FABLE-03** `CLAUDE.md` still documents the fixed key-in-browser env pattern
+  - **Evidence:** `CLAUDE.md`'s Environment Variables section still listed `VITE_OPENAI_API_KEY`
+    and `VITE_ODDS_API_KEY` as browser env vars -- the exact pattern `src/lib/apiConfig.js`
+    deliberately eliminated (`API-KEYS` above, closed S139) by moving paid keys behind the
+    `ai-proxy`/`odds-proxy` Supabase Edge Functions. A future contributor (or agent) following the
+    stale doc could reintroduce the original leak.
+  - **Fix drafted 2026-07-07:** `CLAUDE.md`'s env-vars section rewritten to list only
+    `VITE_SUPABASE_URL`/`VITE_SUPABASE_ANON_KEY` under browser env, with a new
+    "Supabase Edge Function secrets (server-side only)" block listing `OPENAI_API_KEY`,
+    `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, `ODDS_API_KEY` and a one-line note pointing at
+    `apiConfig.js`'s `AI_PROXY_URL`/`ODDS_PROXY_URL` pattern.
+  - **ACTION REQUIRED:** none beyond normal commit -- this is a pure doc fix, no infra/migration
+    step. Mark `[x]` once committed.

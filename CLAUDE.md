@@ -41,21 +41,42 @@ npm run update-schedule  # Refresh schedule.json from external source
 - **Public files**: NEVER use hardcoded `/filename.json` — Vite base is `/platinum-rose-app/` so `public/` files must be fetched as relative `./filename.json`. Hardcoded `/` prefix 404s.
 
 ## Environment Variables
+
+**Fixed 2026-07-07 (Fable tri-project audit, Finding 3):** this section
+previously still documented `VITE_OPENAI_API_KEY` / `VITE_ODDS_API_KEY` as
+browser env vars — the exact pattern `src/lib/apiConfig.js` deliberately
+eliminated (see `API-KEYS` in `docs/NFL_AUDIT_BACKLOG.md`, closed S139) by
+moving paid keys behind server-side proxies. Do NOT reintroduce
+`VITE_OPENAI_API_KEY`, `VITE_ANTHROPIC_API_KEY`, or `VITE_ODDS_API_KEY` —
+`apiConfig.js` itself says these "must never appear in the browser bundle."
+
+Browser env (safe to bundle — public values only):
 ```
-VITE_ODDS_API_KEY=...          # TheOddsAPI key (500 requests/month on free plan)
-VITE_OPENAI_API_KEY=...        # OpenAI API key (for transcript analysis)
 VITE_SUPABASE_URL=...          # https://aambmuzfcojxqvbzhngp.supabase.co
 VITE_SUPABASE_ANON_KEY=...     # Supabase anon/public JWT (read-only)
 ```
-GHA-only secrets (not in .env):
+Accessed via `import.meta.env.VITE_*` in browser code.
+Centralized in `src/lib/apiConfig.js` — all endpoints and keys in one file.
+
+Paid/secret keys — stored as Supabase Edge Function secrets (`supabase secrets set`),
+never in `.env` or any `VITE_*` var. Read server-side only, via
+`Deno.env.get(...)` inside the functions listed:
+```
+OPENAI_API_KEY                 # ai-proxy edge function (GPT-4o extraction, transcript analysis)
+ANTHROPIC_API_KEY              # ai-proxy edge function
+GEMINI_API_KEY                 # ai-proxy edge function
+ODDS_API_KEY                   # odds-proxy edge function (TheOddsAPI, 500 req/month free plan)
+```
+The browser calls `AI_PROXY_URL` / `ODDS_PROXY_URL` (from `apiConfig.js`) instead
+of these APIs directly — the proxy holds the key, the browser never sees it.
+
+GHA-only secrets (not in .env, used by scheduled agent workflows):
 ```
 OPENAI_API_KEY                 # GPT-4o extraction (agents)
 GROQ_API_KEY                   # Free Whisper transcription, priority 1 (7200 sec/hr)
 ASSEMBLYAI_API_KEY             # Paid fallback transcription, priority 2 (no rate limit, URL-based)
 SUPABASE_SERVICE_ROLE_KEY      # Bypasses RLS for agent writes
 ```
-Accessed via `import.meta.env.VITE_*` in browser code.
-Centralized in `src/lib/apiConfig.js` — all endpoints and keys in one file.
 
 ## Tab Routing (App.jsx)
 | `activeTab` | Component |

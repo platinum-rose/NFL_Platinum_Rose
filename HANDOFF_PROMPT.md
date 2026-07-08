@@ -83,6 +83,6 @@ Next: props auto-grade pipeline (GHA). Read HANDOFF_PROMPT.md first.
 - `data/tweet-drops/` — drop screenshots/text/JSON here, run `npm run ingest-tweets`
 - `data/vault-seed/{pff,splits,manual}/` — drop CSVs/MDs here, run `npm run seed:vault`
 - Python scripts (`scripts/*.py`) are intentionally SEASON=2025 — defer to Aug 2026
-- Podcast pipeline is live on M6 at Tailscale `atlas.tail1e459d.ts.net`
+- Podcast pipeline is live on M6 at Tailscale `atlas-m6.tail1e459d.ts.net` (renamed from `atlas` Jun 2026)
 - Parlay grading: `setPickResult(id, 'WIN', { payout: X, effectiveTeamCount: N })`
 - RR grading: `setPickResult(id, 'WIN'/'LOSS', { wonCombinations, totalPayout, netUnits })`

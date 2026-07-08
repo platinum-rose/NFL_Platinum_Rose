@@ -2,32 +2,20 @@
   "project_name": "NFL_Dashboard",
   "schema_version": "1.0",
   "created": "2026-04-18",
-  "last_updated": "2026-06-30",
-  "last_session_date": "2026-06-30",
-  "session_count": 7,
+  "last_updated": "2026-06-29",
+  "last_session_date": "2026-06-29",
+  "session_count": 4,
   "health": {
     "status": "offseason",
-    "last_activity": "2026-06-30"
+    "last_activity": "2026-06-29"
   },
-  "status_summary": "NFL betting dashboard -- React + Vite + Supabase. Off-season mode. HEAD: 2c0fb68 (S240). ALL podcast pipeline phases 1–8 complete and committed. 64/64 m6-podcast-service tests, 117 pytest green, 552 JS unchanged. Podcast vault bridge B1-B4 closed. FUT-TOOLS (analyze_futures_hedge / project_division_paths / track_award_race) shipped S158. Tailscale serve+funnel live at https://atlas.tail1e459d.ts.net — currently failing (needs investigation). NEXT priorities: (1) debug Tailscale URL, (2) player injury UI, (3) Fantasy Football spec, (4) UI QC pass, (5) F-14 vault pre-load. TASK_BOARD.md stale (last updated 2026-06-04) — needs reconciliation.",
+  "status_summary": "NFL betting dashboard -- React + Vite + Supabase. Off-season mode. Local WhisperX+pyannote pipeline unblocked on M6: .venv-whisperx (Python 3.12) live with torch 2.8.0 + pyannote.audio 4.0.6 + faster-whisper 1.2.1 + rapidfuzz. PLDA patch applied. speaker-diarization-3.0 model loaded OK. Next: implement L1-L6 (diarize.py → speaker_map.py → extract.py → vault_note.py → pipelineWorker.js).",
   "open_tasks": [
-    "Debug Tailscale always-on URL failure (https://atlas.tail1e459d.ts.net)",
-    "NFL Season Prep: Player Injury tracking UI (ingest + agent injection done; UI view missing)",
-    "Spec + build Fantasy Football features",
-    "UI QC pass — broken buttons, stale features, simplification across 12+ tabs",
-    "F-14: Vault pre-load — PFF/ATS/splits/DVOA source data (structure seeded, data not loaded)",
-    "Update TASK_BOARD.md to reflect S158–S240 work",
-    "stats-to-vault-sync.js: no recurring cron — seasonal data goes stale"
+    "Add build-handoff.js Stop hook",
+    "Add lessons-learned.md pattern accumulator"
   ],
   "blocked_tasks": [],
   "completed_tasks": [
-    "S240: NTFS recovery — 10 truncated files restored from git objects, .gitattributes (LF enforcement) committed — 2026-06-30 (2c0fb68)",
-    "S239: B4 vault note citations in BETTING+FUTURES manifests; odds-proxy deployed; migrations 018/019/021/022 confirmed applied; all production actions closed — 2026-06-30 (13fb03f)",
-    "S238: L4 speaker attribution + L5 vault_note.py + B3 59-episode backfill — 2026-06-30 (5586a56)",
-    "S237: L1-L3 diarization pipeline (diarize.py, speaker_map.py, show_hosts.json, experts_roster.json) — 2026-06-30",
-    "S158: FUT-TOOLS shipped (analyze_futures_hedge, project_division_paths, track_award_race); Tailscale serve+funnel set up; share tokens minted — 2026-06-05 (29f88c4)",
-    "S157: Phase 7a/7-serving/7b/7c/8 committed; ai-proxy Edge Fn deployed; migrations 019+023 applied; stats-to-vault-sync run (35 vault notes) — 2026-06-04 (51ac195)",
-    "L4+L5+B3: extract.py labeled_transcript, vault_note.py, 59-episode backfill to vault_notes — 2026-06-30 (5586a56)",
     "Live futures ingest confirmed: 96 Super Bowl rows written to futures_odds_snapshots; ODDS_API_KEY rotated 2026-05-08",
     "Ported 2 missing skills from NCAA Dashboard: deployment-flow/SKILL.md (NFL-adapted) + team-normalization.md (NFL-adapted) — 2026-05-08",
     "006_rls_podcast_feeds.sql confirmed applied to live Supabase aambmuzfcojxqvbzhngp — 2026-05-08 (42710 on re-run confirms policy already live)",
@@ -38,34 +26,6 @@
     "props-auto-grade.js: real Supabase player_stats query with graceful 42P01 degradation — 2026-04-21"
   ],
   "recent_decisions": [
-    {
-      "date": "2026-06-30",
-      "decision": "TASK_BOARD.md and memory.json drifted significantly across S158-S240 (3+ weeks of podcast pipeline work). Going forward: update memory.json open_tasks and status_summary at every session close, not just HANDOFF.md."
-    },
-    {
-      "date": "2026-06-30",
-      "decision": "Phase 7a static digest renderer, CLI (render-digests.js), and all Phase 7+8 serving layers are fully committed and tested. No build work remains on podcast pipeline — next work is operational (Tailscale URL, season prep)."
-    },
-    {
-      "date": "2026-06-30",
-      "decision": "Supabase REST upsert requires BOTH Prefer: resolution=merge-duplicates header AND ?on_conflict=<col> query param. Header alone gives 409 Conflict on existing rows."
-    },
-    {
-      "date": "2026-06-30",
-      "decision": "vault_notes table (012_vault_notes.sql) source CHECK only allows 'manual'|'obsidian_sync'|'agent'. Use source='agent' for programmatic writes. No episode_id column — store as tag 'episode:<id>'."
-    },
-    {
-      "date": "2026-06-30",
-      "decision": "pyannote 4.x Pipeline.__call__ is a generator function; Annotation returned via StopIteration.value (not yielded). Must use next()+StopIteration.value pattern to retrieve it. Result is DiarizeOutput, unwrap via .speaker_diarization attribute."
-    },
-    {
-      "date": "2026-06-30",
-      "decision": "pyannote 4.x audio loading: file path fails without torchcodec/CUDA (NameError: AudioDecoder). Must pre-load audio as {waveform: tensor, sample_rate: int} dict using stdlib wave+numpy. Bypass torchcodec and torchaudio entirely."
-    },
-    {
-      "date": "2026-06-30",
-      "decision": "HF token stored with double hf_ prefix in .env (HF_TOKEN=hf_hf_XXX). Always verify with grep+head -c 15. Use hf auth login to persist token to ~/.cache/huggingface/token which pyannote reads at inference time."
-    },
     {
       "date": "2026-06-29",
       "decision": "pyannote/speaker-diarization-3.1 and 3.0 both reference pyannote/speaker-diarization-community-1 for PLDA weights (allowlist-restricted). Fix: patch installed speaker_diarization.py to wrap get_plda() in try/except. Use speaker-diarization-3.0 model. Must re-apply patch after any venv rebuild."

@@ -37,3 +37,51 @@
 - pyannote.audio 4.x warns about torchcodec on every import (FFmpeg shared lib mismatch).
 - It falls back to soundfile for audio I/O. The warning can be suppressed with
   `warnings.filterwarnings('ignore', category=UserWarning, module='pyannote')` if noisy.
+
+## S237 — 2026-06-30: pyannote 4.x pipeline API changes
+
+### Pipeline.__call__ is a generator; result is in StopIteration.value
+- In pyannote.audio 4.x, `Pipeline.__call__` is a generator function (supports progress hooks).
+- The `Annotation` is the generator's **return value**, NOT a yielded item.
+- `list(pipeline(...))` returns `[]`. Must capture via:
+  ```python
+  gen = pipeline(file)
+  try:
+      while True: next(gen)
+  except StopIteration as e:
+      annotation = e.value
+  ```
+- For-loop over generator leaves `annotation = None` if nothing is yielded.
+
+### Pipeline returns DiarizeOutput, not Annotation directly
+- `SpeakerDiarization.__call__` returns a `DiarizeOutput` dataclass, not a raw `Annotation`.
+- Unwrap with: `annotation = diarize_output.speaker_diarization`
+- Other fields: `.exclusive_speaker_diarization`, `.speaker_embeddings`
+
+### Audio must be pre-loaded as dict; file paths fail without torchcodec/CUDA
+- `Pipeline(audio_path_string)` calls `AudioDecoder(file["audio"])` internally.
+- `AudioDecoder` is from torchcodec which requires CUDA runtime (`libnvrtc.so`).
+- On CPU-only boxes: pass pre-loaded audio as `{"waveform": tensor, "sample_rate": int}`.
+- Use stdlib `wave` + numpy to load (torchaudio also fails without soundfile/sox backend):
+  ```python
+  with wave.open(path, 'rb') as wf:
+      sr, n_ch, raw = wf.getframerate(), wf.getnchannels(), wf.readframes(wf.getnframes())
+  audio = np.frombuffer(raw, dtype=np.int16).astype(np.float32) / 32768.0
+  wfm = torch.from_numpy(audio).view(n_ch, -1)
+  result = pipeline({"waveform": wfm, "sample_rate": sr})
+  ```
+
+### speaker-diarization-community-1 is separately gated
+- `speaker-diarization-3.0` depends on `pyannote/speaker-diarization-community-1` at inference time.
+- This is a separate gate from the 3.0 model gate — must accept terms at both HF pages.
+- After accepting: pre-warm with `hf_hub_download('pyannote/speaker-diarization-community-1', 'xvec_transform.npz')`.
+- `hf auth login --token $HF_TOKEN` (not deprecated `huggingface-cli`) persists token for pyannote.
+
+### HF token double-prefix pitfall
+- If `.env` already had `HF_TOKEN=` (empty) and you `echo 'HF_TOKEN=hf_xxx' >> .env`, grep returns the empty line first → token resolves as empty.
+- If token was pasted with prefix already present in key name, result is `hf_hf_XXX` (invalid).
+- Always verify with: `grep '^HF_TOKEN=' .env | tr -d '\r' | cut -d= -f2- | head -c 15`
+
+### .git/index.lock owned by Windows; can't rm from Linux sandbox
+- `.git/index.lock` created by Windows git process cannot be deleted from Linux (`Operation not permitted`).
+- Always commit from Windows PowerShell for this repo. Never attempt `git add/commit` from the bash sandbox.
