@@ -12,6 +12,7 @@
 //
 // Transcription priority: Groq → AssemblyAI → OpenAI Whisper
 
+import 'dotenv/config';    // load .env for local runs (no-op in CI where secrets are real env vars)
 import { createClient }    from '@supabase/supabase-js';
 import { createWriteStream, readFileSync, unlinkSync, statSync } from 'node:fs';
 import { pipeline }        from 'node:stream/promises';
@@ -128,6 +129,48 @@ function parseRssFeed(xml) {
 }
 
 // ─── RSS fetching ─────────────────────────────────────────────────────────────
+
+// ─── NFL relevance pre-filter ────────────────────────────────────────────────
+// Most configured feeds are multi-sport betting shows (Action Network, Even Money,
+// The Favorites, Sharp or Square, BettingPros), so their RSS carries plenty of
+// non-NFL episodes (PGA, NBA, MLB, UFC, VC crossovers). Transcription is metered and
+// MAX_PER_RUN-capped, so we skip episodes whose title clearly signals another sport/
+// topic — while KEEPING generically-titled betting episodes (e.g. "Best Bets July 14"),
+// which may still contain NFL segments. Permissive by design: skip only on an
+// unambiguous non-NFL signal; always keep anything with an explicit NFL/team hint.
+const NFL_TITLE_HINTS = [
+  'nfl', 'football', 'super bowl', 'afc', 'nfc', 'quarterback', ' qb ', 'training camp',
+  'cardinals', 'falcons', 'ravens', 'bills', 'panthers', 'bears', 'bengals', 'browns',
+  'cowboys', 'broncos', 'lions', 'packers', 'texans', 'colts', 'jaguars', 'chiefs',
+  'raiders', 'chargers', 'dolphins', 'vikings', 'patriots', 'saints', 'giants',
+  'jets', 'eagles', 'steelers', '49ers', 'niners', 'seahawks', 'buccaneers',
+  'titans', 'commanders',
+];
+
+const NON_NFL_TITLE_HINTS = [
+  'pga', 'golf', 'masters', 'ryder cup', 'liv golf',
+  'nba', 'wnba', 'basketball',
+  'mlb', 'baseball', 'world series',
+  'nhl', 'hockey', 'stanley cup',
+  'soccer', 'premier league', ' epl ', 'uefa', 'champions league', 'la liga', ' mls ', 'world cup',
+  'ufc', 'mma', 'boxing', 'fight night',
+  'tennis', 'wimbledon', ' atp ', ' wta ',
+  'nascar', 'formula 1', ' f1 ', 'indycar',
+  'venture capital', 'venture capitalist', 'crypto', 'stock market', 'wall street',
+  'college basketball', 'cbb',
+];
+
+/**
+ * Permissive NFL-relevance check on an episode title.
+ * Keep if any explicit NFL hint is present; else skip only if a clear non-NFL
+ * sport/topic signal is present; otherwise keep (generic betting episode).
+ */
+function isNflRelevantEpisode(title) {
+  const t = ` ${String(title ?? '').toLowerCase()} `;
+  if (NFL_TITLE_HINTS.some(h => t.includes(h))) return true;
+  if (NON_NFL_TITLE_HINTS.some(h => t.includes(h))) return false;
+  return true;
+}
 
 async function fetchRss(url) {
   const res = await fetch(url, {
@@ -270,9 +313,10 @@ async function transcribeWithAssemblyAI(audioUrl) {
   console.log(`    ⏳ AssemblyAI job submitted — id: ${transcriptId}`);
 
   // 2. Poll until complete (status: queued → processing → completed | error)
-  const POLL_INTERVAL_MS = 5_000;
+  const POLL_INTERVAL_MS = 10_000;         // gentle interval — AssemblyAI throttles rapid status polls
   const MAX_WAIT_MS      = 25 * 60 * 1000; // 25 min ceiling (podcast episodes can be long)
   const startPoll        = Date.now();
+  let   pollFailures     = 0;
 
   while (true) {
     if (Date.now() - startPoll > MAX_WAIT_MS) {
@@ -281,17 +325,24 @@ async function transcribeWithAssemblyAI(audioUrl) {
 
     await new Promise(r => setTimeout(r, POLL_INTERVAL_MS));
 
-    const pollRes = await fetch(`${ASSEMBLYAI_BASE}/transcript/${transcriptId}`, {
-      headers,
-      signal: AbortSignal.timeout(15_000),
-    });
-
-    if (!pollRes.ok) {
-      const err = await pollRes.text();
-      throw new Error(`AssemblyAI poll failed: ${err}`);
+    // A single slow/aborted status check must NOT kill the episode — AssemblyAI keeps
+    // transcribing server-side regardless. Retry transient poll errors until MAX_WAIT_MS;
+    // only a real 'error' status or the overall ceiling ends the attempt.
+    let result;
+    try {
+      const pollRes = await fetch(`${ASSEMBLYAI_BASE}/transcript/${transcriptId}`, {
+        headers,
+        signal: AbortSignal.timeout(20_000),
+      });
+      if (!pollRes.ok) throw new Error(`HTTP ${pollRes.status}: ${await pollRes.text()}`);
+      result = await pollRes.json();
+      pollFailures = 0;
+    } catch (err) {
+      pollFailures += 1;
+      const elapsedMin = ((Date.now() - startPoll) / 60000).toFixed(1);
+      console.log(`    ⏳ poll retry ${pollFailures} (${elapsedMin}m elapsed) — ${err.message}`);
+      continue;
     }
-
-    const result = await pollRes.json();
 
     if (result.status === 'completed') {
       const wordCount = result.words?.length ?? result.text?.split(/\s+/).length ?? 0;
@@ -467,8 +518,13 @@ async function run() {
       .in('guid', guids);
 
     const knownMap   = new Map((existing ?? []).map(r => [r.guid, r]));
-    const newEps     = episodes.filter(e => !knownMap.has(e.guid));
-    console.log(`  ↳ ${newEps.length} new (${knownMap.size} already known)`);
+    const discovered = episodes.filter(e => !knownMap.has(e.guid));
+    const newEps     = discovered.filter(e => {
+      if (isNflRelevantEpisode(e.title)) return true;
+      console.log(`  ⏭ skip (non-NFL): "${(e.title ?? '').slice(0, 70)}"`);
+      return false;
+    });
+    console.log(`  ↳ ${newEps.length} new (${knownMap.size} known, ${discovered.length - newEps.length} skipped non-NFL)`);
 
     // 4. Insert new episodes as 'pending' in Supabase
     if (newEps.length > 0 && !DRY_RUN) {
@@ -520,7 +576,11 @@ async function run() {
       }
     }
 
-    const toProcess = [...toProcessMap.values()];
+    const toProcess = [...toProcessMap.values()].filter(ep => {
+      if (isNflRelevantEpisode(ep.title)) return true;
+      console.log(`  ⏭ skip (non-NFL backlog): "${(ep.title ?? '').slice(0, 70)}"`);
+      return false;
+    });
     if (toProcess.length === 0) {
       console.log(`  ✅ No episodes to process`);
       continue;

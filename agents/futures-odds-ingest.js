@@ -141,7 +141,16 @@ const FUTURES_MARKETS = [
   },
 ];
 
-const SPORTSBOOKS = 'draftkings,fanduel,betmgm,caesars,betonline,bookmaker';
+// TheOddsAPI bookmaker keys (us region). NOTE: 'betonline' is NOT a valid key —
+// the correct key is 'betonlineag' (verified live 2026-07-15). 'bookmaker'
+// (Bookmaker.eu) is not on TheOddsAPI at all — that book is imported manually via
+// scripts/parse-futures-text.js; it stays here only as a harmless no-op reminder.
+// 'caesars' should be 'williamhill_us' and is paid-plan-only.
+const SPORTSBOOKS = 'draftkings,fanduel,betmgm,caesars,betonlineag,bookmaker';
+
+// Normalize TheOddsAPI bookmaker keys to the book labels ATLAS uses, so API-pulled
+// odds join the same line-movement series as historical manual imports.
+const BOOK_KEY_ALIAS = { betonlineag: 'betonline' };
 
 // ── Supabase client ───────────────────────────────────────────────────────────
 
@@ -235,7 +244,7 @@ function parseOutrights(rawEvents, marketType, season, capturedAt) {
           snapshot_time: capturedAt,
           market_type: resolvedMarketType,
           team:          outcome.name,
-          book:          book.key,
+          book:          BOOK_KEY_ALIAS[book.key] || book.key,
           odds:          Math.round(odds),
           implied_prob:  parseFloat(impliedProb.toFixed(4)),
           selection: outcome.name,

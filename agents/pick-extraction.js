@@ -8,6 +8,7 @@
 // Optional:   DRY_RUN=true  — log picks without writing to Supabase
 //             SCHEDULE_URL  — override URL for schedule.json (default: GitHub raw)
 
+import 'dotenv/config'; // load .env for local runs (no-op in CI where secrets are real env vars)
 import { createClient } from '@supabase/supabase-js';
 
 // ─── Config ───────────────────────────────────────────────────────────────────
