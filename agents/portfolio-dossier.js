@@ -118,6 +118,15 @@ async function fetchTeamStats() {
   for (const k of Object.keys(byTeam)) byTeam[k].sort((a, b) => b.season - a.season);
   return byTeam;
 }
+// 2026 schedule spine — grounds strength-of-schedule in the ACTUAL released slate,
+// not the model's (possibly stale) memory of who plays whom.
+async function fetchSchedule() {
+  const { data, error } = await sb.from('games')
+    .select('season, week, season_type, home_team, away_team, home_abbrev, away_abbrev')
+    .eq('season', SEASON);
+  if (error) { console.warn(`   ⚠ schedule: ${error.message} — SoS disabled`); return []; }
+  return data || [];
+}
 
 // ── odds view ────────────────────────────────────────────────────────────────
 function buildOddsView(snaps) {
@@ -292,6 +301,81 @@ function buildLeanView(pickSignals, userPicks, podcastRows) {
   return { findLean, coverage: cov };
 }
 
+// ════════════ STRENGTH-OF-SCHEDULE GROUNDING ══════════════════════════════════
+// Two opponent-quality measures for each team's 2026 slate:
+//   • market  — average opponent 2026 win-total consensus line (forward-looking,
+//               the sharpest signal: the market's live view of each opponent).
+//   • prior   — average opponent most-recent-season win% (classic backward SoS).
+// Both get a league rank where 1 = hardest schedule. A soft slate is a tailwind
+// for a win-total OVER / bounce-back and adds convexity to a division/playoff long.
+function buildOpponents(games) {
+  const opp = {}; // canonical nickname -> [{ opp, home }]
+  for (const g of games) {
+    if (g.season_type != null && g.season_type !== 2) continue; // regular season only
+    const h = normalizeTeam(g.home_team) || normalizeTeam(g.home_abbrev);
+    const a = normalizeTeam(g.away_team) || normalizeTeam(g.away_abbrev);
+    if (!h || !a || h === a) continue;
+    (opp[h] ??= []).push({ opp: a, home: true });
+    (opp[a] ??= []).push({ opp: h, home: false });
+  }
+  return opp;
+}
+function priorWinPct(seasons) {
+  if (!seasons) return null;
+  for (const s of seasons) { // sorted season-desc; take most recent complete record
+    if (s.wins != null && s.losses != null) {
+      const g = s.wins + s.losses + (s.ties || 0);
+      if (g > 0) return (s.wins + 0.5 * (s.ties || 0)) / g;
+    }
+  }
+  return null;
+}
+function buildSosView(oppByTeam, winsMarket, priorByTeam) {
+  // canonical lookups keyed by nickname
+  const winLineByNick = {};
+  for (const [tm, v] of Object.entries(winsMarket || {})) {
+    const nick = normalizeTeam(tm);
+    if (nick && v && v.consensus_line != null) winLineByNick[nick] = v.consensus_line;
+  }
+  const priorPctByNick = {};
+  for (const [nick, seasons] of Object.entries(priorByTeam || {})) {
+    const p = priorWinPct(seasons); if (p != null) priorPctByNick[nick] = p;
+  }
+  const avg = (xs) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null);
+  const raw = {};
+  for (const [team, opps] of Object.entries(oppByTeam)) {
+    const mkt = [], pri = []; let home = 0, away = 0;
+    for (const { opp, home: isHome } of opps) {
+      if (isHome) home++; else away++;
+      if (winLineByNick[opp] != null) mkt.push(winLineByNick[opp]);
+      if (priorPctByNick[opp] != null) pri.push(priorPctByNick[opp]);
+    }
+    raw[team] = {
+      opp_count: opps.length, home_games: home, away_games: away,
+      sos_market: round(avg(mkt), 2), sos_market_n: mkt.length,
+      sos_prior: round(avg(pri), 3), sos_prior_n: pri.length,
+    };
+  }
+  // league ranks: 1 = hardest (highest opponent quality)
+  const rankBy = (key) => {
+    Object.entries(raw).filter(([, v]) => v[key] != null)
+      .sort((a, b) => b[1][key] - a[1][key])
+      .forEach(([t], i) => { raw[t][`${key}_rank`] = i + 1; });
+  };
+  rankBy('sos_market'); rankBy('sos_prior');
+  const findSos = (team) => { const canon = normalizeTeam(team); return canon ? (raw[canon] || null) : null; };
+  const withMarket = Object.values(raw).filter((v) => v.sos_market != null).length;
+  return { findSos, raw, teams: Object.keys(raw).length, with_market: withMarket };
+}
+function sosTag(s) {
+  if (!s || !s.opp_count) return null;
+  return {
+    market: s.sos_market, market_rank: s.sos_market_rank,
+    prior: s.sos_prior, prior_rank: s.sos_prior_rank,
+    home: s.home_games, away: s.away_games,
+  };
+}
+
 // ── compact synthesis input ──────────────────────────────────────────────────
 function priorTag(seasons) {
   if (!seasons || !seasons.length) return null;
@@ -301,23 +385,25 @@ function priorTag(seasons) {
     return `${s.season}: ${[wl, ats].filter(Boolean).join(', ')}`;
   });
 }
-function buildSynthesisInput(markets, findLean, priorByTeam) {
+function buildSynthesisInput(markets, findLean, priorByTeam, findSos) {
   const out = {};
+  const sosOf = (tm) => (findSos ? sosTag(findSos(tm)) : null);
   for (const [mk, teams] of Object.entries(markets)) {
     const rows = [];
     for (const [tm, v] of Object.entries(teams)) {
       const prior = priorTag(priorByTeam[normalizeTeam(tm)]);
+      const sos = sosOf(tm);
       if (v.type === 'wins') {
         rows.push({ team: tm, consensus_line: v.consensus_line, line_spread: v.line_spread,
           over_prob_median: v.over_prob_median,
           best_over: v.best_over, best_over_book: v.best_over_book, best_under: v.best_under, best_under_book: v.best_under_book,
-          books: v.per_book, prior, lean: findLean(tm, mk) });
+          books: v.per_book, prior, sos, lean: findLean(tm, mk) });
       } else {
         rows.push({ team: tm, fair_prob: v.fair_prob, fair_american: v.fair_american,
           best_price: v.best_price, best_book: v.best_book, best_prob: v.best_prob,
           value_gap: v.value_gap, book_divergence: v.book_divergence, n_books: v.n_books,
           moves: Object.fromEntries(Object.entries(v.per_book).map(([b, d]) => [b, d.move_prob])),
-          prior, lean: findLean(tm, mk) });
+          prior, sos, lean: findLean(tm, mk) });
       }
     }
     rows.sort((a, b) => (Math.abs(b.value_gap ?? b.book_divergence ?? 0)) - (Math.abs(a.value_gap ?? a.book_divergence ?? 0)));
@@ -333,19 +419,32 @@ function leanTag(l) {
   if (l.n != null) return ` · lean n${l.n}${dir ? ` (${dir})` : ''}${l.avg_strength != null ? ` @${l.avg_strength}` : ''}`;
   return ` · lean a${l.article}/e${l.expert}/p${l.podcast}${dir ? ` (${dir})` : ''}`;
 }
+function sosMd(s) {
+  if (!s || s.market == null && s.prior == null) return '';
+  const hard = s.market_rank != null ? (s.market_rank <= 10 ? 'hard' : s.market_rank >= 23 ? 'soft' : 'avg') : '';
+  const parts = [];
+  if (s.market != null) parts.push(`mkt ${s.market}${s.market_rank != null ? ` #${s.market_rank}` : ''}${hard ? ` ${hard}` : ''}`);
+  if (s.prior != null) parts.push(`prior ${s.prior}${s.prior_rank != null ? ` #${s.prior_rank}` : ''}`);
+  return parts.length ? ` · SoS ${parts.join(' / ')}` : '';
+}
 function toMarkdown(meta, synth, experts) {
   const ic = meta.intel_coverage;
   const intelLine = ic.mode === 'normalized'
     ? `Intel: ${ic.signals} normalized signals, ${ic.team_market_combos} team-market combos, ${ic.experts} analysts, ${ic.adjacent_teams} teams w/ adjacent signals`
     : `Intel (inline fallback): article ${ic.article?.kept ?? 0}, expert ${ic.expert?.kept ?? 0}, podcast-picks ${ic.podcast_pick?.kept ?? 0}`;
+  const sc = meta.sos_coverage;
+  const sosLine = sc && sc.teams
+    ? `SoS: ${sc.teams} teams from ${sc.schedule_games} games (${sc.teams_with_market_sos} w/ market win-total opponents) · rank 1 = hardest`
+    : `SoS: no ${meta.season} schedule loaded — omitted`;
   const L = [`# Portfolio Dossier — ${meta.generated_at}`, '',
-    `Season ${meta.season} · ${meta.snapshot_count} snapshots · books: ${meta.books.join(', ')}`, intelLine, ''];
+    `Season ${meta.season} · ${meta.snapshot_count} snapshots · books: ${meta.books.join(', ')}`, intelLine, sosLine, ''];
   for (const [mk, rows] of Object.entries(synth)) {
     L.push(`## ${mk}  (${rows.length})`);
     for (const r of rows.slice(0, 8)) {
       const pr = r.prior ? ` · prior ${r.prior[0]}` : '';
-      if (r.consensus_line != null) L.push(`- **${r.team}** wins ${r.consensus_line} · O ${r.best_over ?? '-'}@${r.best_over_book ?? '-'} / U ${r.best_under ?? '-'}@${r.best_under_book ?? '-'}${leanTag(r.lean)}${pr}`);
-      else L.push(`- **${r.team}** fair ${r.fair_prob} · best ${r.best_price} @${r.best_book} · value_gap ${r.value_gap} · book_div ${r.book_divergence}${leanTag(r.lean)}${pr}`);
+      const ss = sosMd(r.sos);
+      if (r.consensus_line != null) L.push(`- **${r.team}** wins ${r.consensus_line} · O ${r.best_over ?? '-'}@${r.best_over_book ?? '-'} / U ${r.best_under ?? '-'}@${r.best_under_book ?? '-'}${leanTag(r.lean)}${pr}${ss}`);
+      else L.push(`- **${r.team}** fair ${r.fair_prob} · best ${r.best_price} @${r.best_book} · value_gap ${r.value_gap} · book_div ${r.book_divergence}${leanTag(r.lean)}${pr}${ss}`);
     }
     L.push('');
   }
@@ -363,13 +462,20 @@ function toMarkdown(meta, synth, experts) {
 // ── main ─────────────────────────────────────────────────────────────────────
 (async () => {
   console.log(`📊 Portfolio dossier — season ${SEASON}${SINCE ? ` since ${SINCE}` : ''}`);
-  const [snaps, pickSignals, userPicks, podcastRows, priorByTeam] = await Promise.all([
-    fetchSnapshots(), fetchPickSignals(), fetchUserPicks(), fetchPodcastIntel(), fetchTeamStats(),
+  const [snaps, pickSignals, userPicks, podcastRows, priorByTeam, games] = await Promise.all([
+    fetchSnapshots(), fetchPickSignals(), fetchUserPicks(), fetchPodcastIntel(), fetchTeamStats(), fetchSchedule(),
   ]);
   const books = [...new Set(snaps.map((s) => s.book))].sort();
-  console.log(`   ${snaps.length} snapshots · ${pickSignals.length} article signals · ${userPicks.length} expert picks · ${podcastRows.length} podcast transcripts · ${Object.keys(priorByTeam).length} teams w/ prior stats`);
+  console.log(`   ${snaps.length} snapshots · ${pickSignals.length} article signals · ${userPicks.length} expert picks · ${podcastRows.length} podcast transcripts · ${Object.keys(priorByTeam).length} teams w/ prior stats · ${games.length} schedule games`);
 
   const markets = buildOddsView(snaps);
+
+  // strength-of-schedule — depends on the wins market (for the market-implied metric)
+  const oppByTeam = buildOpponents(games);
+  const sos = buildSosView(oppByTeam, markets.wins || {}, priorByTeam);
+  const sos_coverage = { schedule_games: games.length, teams: sos.teams, teams_with_market_sos: sos.with_market };
+  if (sos.teams) console.log(`   SoS: ${sos.teams} teams (${sos.with_market} w/ market win-total opponents) from ${games.length} games`);
+  else console.log(`   SoS: no ${SEASON} schedule in games table — SoS omitted`);
 
   let findLean, adjacent_signals = {}, experts = {}, intel_coverage;
   const norm = await loadNormalizedSignals();
@@ -384,13 +490,14 @@ function toMarkdown(meta, synth, experts) {
     console.log(`   intel: inline fallback (run agents/signal-normalize.js for the richer layer)`);
   }
 
-  const synthesis_input = buildSynthesisInput(markets, findLean, priorByTeam);
+  const synthesis_input = buildSynthesisInput(markets, findLean, priorByTeam, sos.findSos);
   const meta = {
     generated_at: new Date().toISOString(), season: SEASON, since: SINCE,
     snapshot_count: snaps.length, books, market_types: Object.keys(markets),
-    signal_counts: { article: pickSignals.length, expert: userPicks.length, podcast_transcripts: podcastRows.length }, intel_coverage,
+    signal_counts: { article: pickSignals.length, expert: userPicks.length, podcast_transcripts: podcastRows.length },
+    intel_coverage, sos_coverage,
   };
-  const dossier = { meta, synthesis_input, experts, adjacent_signals, detail: markets };
+  const dossier = { meta, synthesis_input, experts, adjacent_signals, sos: sos.raw, detail: markets };
 
   await mkdir(OUT_DIR, { recursive: true });
   const date = new Date().toISOString().slice(0, 10);
