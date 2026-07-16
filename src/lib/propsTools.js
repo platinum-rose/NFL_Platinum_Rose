@@ -19,7 +19,7 @@
 //                                player-props endpoint is wired. Flagged TODO.)
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import { getLatestOddsSnapshot } from './supabase.js';
+import { getLatestOddsSnapshot, supabase, isAvailable } from './supabase.js';
 import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS } from './storage.js';
 import { LOCAL_DATA, ESPN_API } from './apiConfig.js';
 
@@ -191,6 +191,8 @@ export const PROPS_TOOLS = [
         odds:      { type: 'number', description: 'American odds on the pick' },
         units:     { type: 'number', description: 'Wager size in units' },
         book:      { type: 'string', description: 'Sportsbook' },
+        week:      { type: 'number', description: 'NFL week the prop is for (enables auto-grading). Include whenever known.' },
+        season:    { type: 'number', description: 'Season year (defaults to current NFL season).' },
         game_context: { type: 'string', description: 'Game (e.g. "KC @ BUF")' },
         notes:     { type: 'string', description: 'Rationale / context' },
         legs: {
@@ -563,10 +565,77 @@ function toolGetCorrelations() {
   };
 }
 
-function toolLogProp({ player, team, market, line, direction, odds, units, book, game_context, notes, legs }) {
+// Current NFL season (labeled by starting year; Jan/Feb belong to the prior year).
+function currentNflSeason() {
+  const d = new Date();
+  return d.getMonth() <= 1 ? d.getFullYear() - 1 : d.getFullYear();
+}
+
+// Resolve an nflverse player_id from a display name via player_stats (most recent
+// row wins). Returns null if not found — the grader then skips until backfilled.
+async function resolvePlayerId(name, season) {
+  if (!name || !isAvailable()) return null;
+  try {
+    const { data } = await supabase
+      .from('player_stats')
+      .select('player_id, season')
+      .ilike('player_name', name.trim())
+      .order('season', { ascending: false })
+      .limit(1);
+    return data?.[0]?.player_id ?? null;
+  } catch { return null; }
+}
+
+// Mirror a single prop into user_bankroll_bets as a gradable row so
+// agents/props-auto-grade.js can settle it. SGPs are logged as bet_type='sgp'
+// (not auto-graded — no single stat_column). Best-effort: never blocks logging.
+async function syncPropToBankroll(entry, { week, season }) {
+  if (!isAvailable()) return { synced: false, reason: 'supabase unavailable' };
+  const isSGP = Array.isArray(entry.legs) && entry.legs.length > 0;
+  const isRealMarket = !!PROP_MARKETS[entry.market];
+
+  // anytime-TD "yes" grades as over 0.5 total TDs
+  let statCol = null, line = entry.line, direction = entry.direction;
+  if (!isSGP && isRealMarket) {
+    statCol = entry.market;
+    if (entry.market === 'player_anytime_td') { direction = 'over'; line = line ?? 0.5; }
+  }
+  const playerId = statCol ? await resolvePlayerId(entry.player, season) : null;
+
+  const row = {
+    id: entry.id,
+    timestamp: entry.logged_at,
+    week: week ?? null,
+    season,
+    status: 'pending',
+    bet_type: isSGP ? 'sgp' : 'prop',
+    type: isSGP ? 'sgp' : 'prop',
+    graded: false,
+    result: null,
+    stat_column: statCol,
+    player_id: playerId,
+    player: entry.player,
+    line,
+    direction,
+    odds: entry.odds,
+    amount: entry.units,
+    source: 'PROPS_AGENT',
+    description: entry.game_context || entry.notes || null,
+    legs: isSGP ? entry.legs : [],
+    is_parlay: isSGP,
+  };
+  try {
+    const { error } = await supabase.from('user_bankroll_bets').upsert(row, { onConflict: 'id' });
+    if (error) return { synced: false, reason: error.message };
+    return { synced: true, gradable: !!(statCol && playerId), player_id: playerId, stat_column: statCol };
+  } catch (e) { return { synced: false, reason: e.message }; }
+}
+
+async function toolLogProp({ player, team, market, line, direction, odds, units, book, week, season, game_context, notes, legs }) {
   // Load existing prop picks
   const key = PR_STORAGE_KEYS.PROPS_PICKS.key;
   const existing = loadFromStorage(key, []);
+  const seasonY = typeof season === 'number' ? season : currentNflSeason();
 
   const id = `prop-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
   const entry = {
@@ -579,6 +648,8 @@ function toolLogProp({ player, team, market, line, direction, odds, units, book,
     odds:      typeof odds === 'number' ? odds : -110,
     units:     typeof units === 'number' ? units : 1,
     book:      book       || 'Unknown',
+    week:      typeof week === 'number' ? week : null,
+    season:    seasonY,
     game_context: game_context || null,
     notes:     notes      || '',
     legs:      Array.isArray(legs) ? legs : null,
@@ -590,12 +661,22 @@ function toolLogProp({ player, team, market, line, direction, odds, units, book,
   const next = [...existing, entry];
   saveToStorage(key, next);
 
+  // Best-effort mirror to Supabase so props-auto-grade can settle it.
+  const sync = await syncPropToBankroll(entry, { week: entry.week, season: seasonY });
+
+  const gradeNote = sync.synced
+    ? (sync.gradable
+        ? 'Synced to bankroll — will auto-grade after the game.'
+        : `Synced, but not auto-gradable yet${!entry.week ? ' (no week set)' : ''}${sync.stat_column && !sync.player_id ? ` (player_id unresolved for "${entry.player}")` : ''}.`)
+    : `Not synced to Supabase (${sync.reason}); logged locally.`;
+
   return {
     status: 'logged',
     pick_id: id,
+    sync,
     summary: legs?.length
       ? `✅ SGP Logged: ${legs.length} legs · ${odds > 0 ? '+' : ''}${odds} · ${units}u @ ${book || '?'}`
-      : `✅ Prop Logged: ${player} ${market} ${direction} ${line} (${odds > 0 ? '+' : ''}${odds}) · ${units}u @ ${book || '?'}`,
+      : `✅ Prop Logged: ${player} ${market} ${direction} ${line} (${odds > 0 ? '+' : ''}${odds}) · ${units}u @ ${book || '?'} — ${gradeNote}`,
     entry,
   };
 }
