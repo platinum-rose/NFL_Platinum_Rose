@@ -4,10 +4,10 @@
 **Sources:**
 - Meridian Assurance Group â€” *NFL Platinum Rose End-to-End System Audit* (21 May 2026)
 - CODEX Ultrathink â€” *NFL Dashboard Formal Audit Report* (21 May 2026)
-**Progress:** 31 / 32 complete — 2 new items filed 2026-07-07 from the ATLAS/Rosie/NFL_Dashboard
+**Progress:** 32 / 32 complete — ALL CLOSED. 2 items filed 2026-07-07 from the ATLAS/Rosie/NFL_Dashboard
 Fable tri-project audit (FABLE-01, FABLE-03). FABLE-03 closed 2026-07-08 (S269, committed).
-FABLE-01 fully live-verified (dry-run) and committed 2026-07-08 (S269) — only the live
-(non-dry-run) sync run remains, Andy's call. Original 30/30 Meridian+CODEX set remains fully closed.
+FABLE-01 closed 2026-07-16: live (non-dry-run) sync ran clean — 255/255 fetched, 0 skipped by
+sensitivity tier, 255 upserted, 0 errors (receipt in `.nfl/receipts/`). Original 30/30 Meridian+CODEX set remains fully closed.
 
 > **Completion rule:** Mark `[ ]` â†’ `[x]` only when the fix is committed to `main`
 > AND verified by test, live query, or CI pass. Dev-only changes do not count.
@@ -317,7 +317,7 @@ FABLE-01 fully live-verified (dry-run) and committed 2026-07-08 (S269) — only 
 > Findings 1 and 3). Finding 1 is a guardrail/data-safety change -- flagged by the audit for Andy's
 > sign-off rather than silently fixed. Andy approved proceeding 2026-07-07 (same-day Cowork session).
 
-- [ ] **FABLE-01** Vault-to-Supabase export has no sensitivity-tier check (partner-readable table)
+- [x] **FABLE-01** Vault-to-Supabase export has no sensitivity-tier check (partner-readable table)
   - **Evidence:** `agents/obsidian-vault-sync.js` copies every note under the `NFL/` prefix into
     the Supabase `vault_notes` table (readable via the anon key by betting partners, by design) --
     the file never reads `sensitivity:` frontmatter at all, so the vault's fail-safe rule
@@ -349,6 +349,10 @@ FABLE-01 fully live-verified (dry-run) and committed 2026-07-08 (S269) — only 
     keep the `green`-only default (moot for now -- all 255 notes are tagged `green`); (2) run the
     sync for real (drop `--dry-run`) and confirm the `vault_notes` table gained the expected 255
     rows. Mark `[x]` once the live (non-dry-run) sync has been confirmed.
+  - **CLOSED 2026-07-16:** live sync ran (Obsidian Local REST API reachable once Obsidian was
+    started on the Windows host — the earlier failure was a closed app, not a code bug). Result:
+    255 found / 255 fetched / 0 skipped by tier / 255 upserted / 0 errors, 40.9s; receipt written
+    to `.nfl/receipts/`. Kept the conservative `green`-only default (moot — all 255 notes are green).
 
 - [x] **FABLE-03** `CLAUDE.md` still documents the fixed key-in-browser env pattern
   - **Evidence:** `CLAUDE.md`'s Environment Variables section still listed `VITE_OPENAI_API_KEY`
