@@ -49,16 +49,26 @@ if (!DOSSIER) { console.error('✖ pass --dossier <path to dossier-*.json>'); pr
 if (!ANTHROPIC_KEY && !OPENAI_KEY) { console.error('✖ Need ANTHROPIC_API_KEY or OPENAI_API_KEY in .env'); process.exit(1); }
 const isOpenAI = (m) => /^(gpt|o[13])/i.test(m); // route gpt-4o / o1 / o3 to OpenAI, else Anthropic
 
-const SYSTEM_PROMPT = `You are a disciplined NFL futures + betting-market analyst producing a REVIEWABLE portfolio for a human bettor who makes all final decisions. You are decision support, not an instruction to bet. Be calibrated and skeptical, never promotional.
+const SYSTEM_PROMPT = `You are a sharp NFL futures + betting-market analyst producing a REVIEWABLE portfolio for a human bettor who makes all final decisions. You are decision support, not an instruction to bet. Be calibrated and skeptical, never promotional — but your job is to MINE the entire market for edge, not rubber-stamp favorites.
 
-You receive a DOSSIER of pre-computed market state: for each futures market/team you get the vig-stripped fair probability (median across books), the best available price and which book holds it, a value_gap (fair_prob minus best-price implied prob; positive = the backer is getting a better number than fair), cross-book divergence, recent line movement per book (move_prob, positive = shortened/steamed), and an aggregated lean count from articles/experts/podcasts (a=article, e=expert, p=podcast; net_over/net_under = direction) with sample notes.
+DOSSIER (your price/odds ground truth): for each futures market/team you get the vig-stripped fair probability (median across books), the best available price AT A PLACEABLE BOOK + which book holds it (FanDuel/DraftKings are excluded from best-price — the user can't bet them; win-total rows also carry best_over/best_under + their books), value_gap (fair_prob minus best-price implied prob; positive = the backer gets a better number than fair), cross-book divergence, per-book line movement (move_prob, positive = shortened/steamed), and a per-market LEAN from normalized intel: n = number of intel signals, with back/fade counts (outrights) or over/under counts (win totals) and avg_strength (0..1). A team can be "superbowl back" yet "wins under" — leans are PER-MARKET. Each lean sample carries 'who' (the analyst/outlet that said it), and the dossier's 'experts' map lists what each named analyst likes. Each team row also carries 'prior' — recent-season W-L / ATS records — use this to GROUND bounce-back theses in fact (a team that was e.g. "2025: 5-12" on injuries is a concrete regression candidate, not a guess). adjacent_signals holds game-level and prop leans per team (Week-1 correlation + hedge fuel).
 
-RULES:
-- Use ONLY the dossier. Never invent prices, teams, or markets. If a market is thin/absent (offseason markets return no odds), say so and do not fabricate a play.
-- A real edge needs a REASON the market is wrong, not just a positive value_gap (which can be stale juice or a book error). Cross-reference divergence, movement, and lean before trusting a gap.
-- Every recommendation MUST include its single strongest DISCONFIRMING factor — the best reason NOT to make the bet. A play with no honest counter-case is not ready.
-- Prefer a small number of well-supported plays over breadth. Cap core plays at ${MAX_PLAYS}.
-- Stake tiers are relative sizing guidance only (core > standard > small > speculative), never dollar amounts.
+WHAT TO HUNT (do NOT just list chalk):
+- ASYMMETRIC VALUE / LONGSHOTS: teams the market is likely UNDERPRICING because the price is anchored to a misleading prior-year record — e.g. a team that finished poorly on injuries or variance (not lack of talent), now with starters returning, a soft schedule, or a QB/roster/coaching upgrade. A long playoff / division / win-total / conference price on such a team is convex: small stake, large payoff, and true probability may sit well above the implied. NAME why the market is anchored wrong and what you think fair should be.
+- BOUNCE-BACK SCAN: explicitly weigh last-place / low-win-total teams for regression UP, and inflated favorites for regression DOWN.
+- HEDGING / CORRELATION: surface structures that lock value or cut variance — a longshot future + a correlated Week-1 side/total, or a favorite future hedged by a contrarian early-season bet. Put these in correlated_week1 with relationship.
+- DIVERSIFY by type = favorite | value | longshot | hedge. Aim for a real mix; a portfolio of only favorites has failed the assignment.
+- CITE SOURCES: when named analysts back a play (from a lean sample's 'who' or the experts map), name them in a "sources" array — the human wants to see WHO likes what (e.g. Warren Sharp, Simon Hunter, a specific podcast).
+- BE COMPREHENSIVE: scan every market (all 8 divisions, both conferences, win totals, playoffs, Super Bowl, most/least wins). Surface at least 12–20 plays across types, plus a generous watch list — stopping at a handful means you under-mined the market.
+
+USING KNOWLEDGE: prices, teams, and markets come ONLY from the dossier — never invent a price, and if a market is thin/absent say so rather than fabricate. But you MAY use your own NFL knowledge (rosters, prior-season results, injuries, schedule strength, coaching/QB changes) to build a thesis. Whenever a thesis rests on knowledge NOT in the dossier, set knowledge_based=true so the human can verify it, and let the disconfirming_factor flag the risk that your roster/injury knowledge is stale or wrong (your training may predate this season).
+
+DISCIPLINE:
+- PLACEABLE BOOKS ONLY: the user bets at Bookmaker, BetOnline, BetUS, and (via a proxy) the Vegas books — Circa, BetMGM, Caesars/WilliamHill. best_price/best_book (outrights) and best_over/best_under + their books (win totals) are ALREADY filtered to these placeable books. NEVER recommend a FanDuel or DraftKings price — those appear only as market context for fair value; the user cannot bet them. Every "book" in your output must be a placeable book (use the dossier's best_* fields).
+- A real edge needs a REASON the market is wrong (anchoring to last year, injury misread, soft schedule, stale line), not just a positive value_gap (which can be juice or a book error). Cross-reference divergence, movement, and lean.
+- Every recommendation MUST include its single strongest DISCONFIRMING factor — the best reason NOT to bet it. A play with no honest counter-case is not ready.
+- Size to conviction AND variance: favorites/value can be core|standard; longshots are small|speculative (convex, low hit-rate). Stake tiers are relative only, never dollars.
+- Cap the CORE book at ~${MAX_PLAYS}, but a longer tail of small longshot/hedge plays is welcome — breadth is fine when the tickets are cheap and convex.
 
 WEEK-1 CORRELATION & TIMING (important):
 - For each futures view, assess whether an imminent Week 1 (or early-season) result is a CATALYST that will move this futures price. If waiting for that result is likely to yield a materially better number — and the current price is not itself a fleeting value that will vanish — set timing.action = "wait" with the specific trigger and the expected direction/size of the move.
@@ -72,14 +82,17 @@ Return STRICT JSON only (no prose, no markdown fences), shape:
     {
       "market": "superbowl|conference_afc|division_nfc_east|wins|playoffs|...",
       "selection": "<team or over/under X.5>",
+      "type": "favorite|value|longshot|hedge",
       "book": "<book holding the price>",
       "price": <american odds number>,
       "model_fair_prob": <0..1>,
       "edge_pct": <number, model_fair_prob*payout - 1, in %>,
       "confidence": <0..100>,
       "stake_tier": "core|standard|small|speculative",
-      "thesis": "<=2 sentences",
-      "disconfirming_factor": "the single best reason not to bet it",
+      "knowledge_based": <true if the thesis leans on NFL knowledge not in the dossier>,
+      "thesis": "<=2 sentences; if longshot/value, name why the market is anchored wrong>",
+      "disconfirming_factor": "the single best reason not to bet it (flag stale-knowledge risk if relevant)",
+      "sources": [ "named analysts/outlets backing this, e.g. 'Warren Sharp', 'Sharp or Square'" ],
       "timing": { "action": "bet_now|wait|pair|pass", "trigger": "<what to watch, e.g. 'Team loses Week 1'>", "expected_move": "<direction/size>", "rationale": "<=1 sentence" },
       "correlated_week1": [ { "game": "<matchup or team>", "bet": "<side/total>", "relationship": "complement|hedge" } ]
     }
@@ -90,14 +103,17 @@ Return STRICT JSON only (no prose, no markdown fences), shape:
 
 function buildUserPrompt(dossier) {
   const m = dossier.meta;
-  return `DOSSIER META: season ${m.season}, ${m.snapshot_count} snapshots, books=${(m.books || []).join(',')}, markets=${(m.market_types || []).join(',')}. Signal counts: ${JSON.stringify(m.signal_counts)}.
+  return `DOSSIER META: season ${m.season}, ${m.snapshot_count} snapshots, books=${(m.books || []).join(',')}, markets=${(m.market_types || []).join(',')}. Intel: ${JSON.stringify(m.intel_coverage)}.
 
-Offseason note: many markets (division, conference, awards, playoffs, matchup) may have limited or single-book coverage until preseason; weight coverage in your confidence. The Super Bowl market is the most liquid right now.
+Offseason note: many markets (division, conference, awards, playoffs, matchup) may have limited or single-book coverage until preseason; weight coverage in your confidence. Super Bowl and win-total markets are the most liquid now — win totals especially are where bounce-back / longshot value tends to hide.
 
-SYNTHESIS INPUT (per market, sorted by strongest signal first):
+SYNTHESIS INPUT (per market, sorted by strongest signal first; lean is per-market with back/fade/over/under counts + avg_strength):
 ${JSON.stringify(dossier.synthesis_input)}
 
-Produce the portfolio JSON per the contract. Focus your strongest convictions where odds coverage, divergence, movement, and lean align. Explicitly use the Week-1 timing layer where a near-term result is a price catalyst.`;
+ADJACENT SIGNALS (game-level + prop leans per team — use for Week-1 correlation and hedges):
+${JSON.stringify(dossier.adjacent_signals || {})}
+
+Produce the portfolio JSON per the contract. Deliberately MINE for asymmetric value and bounce-back longshots — name why the market is anchored wrong — not just favorites; build hedges where correlation lets you lock value or cut variance; and use the Week-1 timing layer where a near-term result is a price catalyst.`;
 }
 
 // manual abort timer we always clear — avoids a dangling libuv handle at exit (Node v24)
@@ -177,13 +193,14 @@ function recCard(name, r, tag) {
   const t = r.timing || {};
   const wk1 = (r.correlated_week1 || []).map((w) => `${esc(w.game)}: ${esc(w.bet)} (${esc(w.relationship)})`).join('; ');
   return `<div class="rec ${tag}">
-    <div class="rh"><b>${esc(r.selection)}</b> <span class="mk">${esc(r.market)}</span>
+    <div class="rh"><b>${esc(r.selection)}</b> <span class="mk">${esc(r.market)}</span> <span class="typ">${esc(r.type || '')}</span>${r.knowledge_based ? ' <span class="kb">⚑ knowledge</span>' : ''}
       <span class="pr">${esc(r.price)} @${esc(r.book)}</span>
       <span class="tier ${esc(r.stake_tier)}">${esc(r.stake_tier)}</span>
       <span class="conf">conf ${esc(r.confidence)}</span></div>
     <div class="meta">fair ${esc(r.model_fair_prob)} · edge ${esc(r.edge_pct)}% ${name ? `· <i>${esc(name)}</i>` : ''}</div>
     <div class="th">${esc(r.thesis)}</div>
     <div class="dis">⚠ ${esc(r.disconfirming_factor)}</div>
+    ${r.sources?.length ? `<div class="src">📣 ${esc(r.sources.join(', '))}</div>` : ''}
     <div class="tim"><b>${esc(t.action)}</b>${t.trigger ? ` — trigger: ${esc(t.trigger)}` : ''}${t.expected_move ? ` · ${esc(t.expected_move)}` : ''}${t.rationale ? ` — ${esc(t.rationale)}` : ''}</div>
     ${wk1 ? `<div class="wk">Wk1 correlated: ${wk1}</div>` : ''}
   </div>`;
@@ -227,7 +244,7 @@ function renderHTML(diff, byModel, meta) {
 }
 function renderMD(diff, byModel, meta) {
   const { names, consensus, divergent } = diff;
-  const line = (name, r) => `- **${r.selection}** (${r.market}) ${r.price}@${r.book} · ${r.stake_tier} · conf ${r.confidence} · edge ${r.edge_pct}%\n  - ${r.thesis}\n  - ⚠ ${r.disconfirming_factor}\n  - timing: **${r.timing?.action}**${r.timing?.trigger ? ` — ${r.timing.trigger}` : ''}${r.timing?.expected_move ? ` (${r.timing.expected_move})` : ''}\n  - _${name}_`;
+  const line = (name, r) => `- [${(r.type || '?').toUpperCase()}] **${r.selection}** (${r.market}) ${r.price}@${r.book} · ${r.stake_tier} · conf ${r.confidence} · edge ${r.edge_pct}%${r.knowledge_based ? ' · ⚑knowledge' : ''}\n  - ${r.thesis}\n  - ⚠ ${r.disconfirming_factor}${r.sources?.length ? `\n  - 📣 sources: ${r.sources.join(', ')}` : ''}\n  - timing: **${r.timing?.action}**${r.timing?.trigger ? ` — ${r.timing.trigger}` : ''}${r.timing?.expected_move ? ` (${r.timing.expected_move})` : ''}\n  - _${name}_`;
   const L = [`# NFL Futures Portfolio (A/B) — ${meta.date}`, '', `Models: ${names.join(' + ')} · season ${meta.season}`, '',
     '> Decision support only — proposals for review, not instructions to bet.', '',
     `## High conviction — both models agree (${consensus.length})`];

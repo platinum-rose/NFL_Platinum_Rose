@@ -2,28 +2,18 @@
 // ═══════════════════════════════════════════════════════════════════════════════
 // Portfolio Analysis Dossier assembler (S274)
 //
-// Purpose: pull every signal the futures-intel report already ingests and pre-
-// compute the *decision-relevant* structure into ONE compact payload that a
+// Pre-computes the decision-relevant market structure into ONE compact payload a
 // top-tier model can reason over — the input side of the A/B portfolio pass.
+// Per market/team: vig-stripped fair prob, cross-book divergence, best price+book,
+// line movement, per-market normalized lean (with analyst attribution), prior-year
+// record grounding, plus an `experts` roster and `adjacent_signals` for correlation.
 //
-// It does NOT make recommendations. It computes, per market/team:
-//   • latest price + vig-stripped fair probability per book
-//   • cross-book divergence (the sharpest edge signal — where books disagree)
-//   • best available price + which book holds it
-//   • line movement over the snapshot history (steam vs drift, in prob + odds)
-//   • per-market lean from the normalized signal layer (signal-normalize.js), with
-//     the old inline resolver kept as a fallback when no normalized sidecar exists
+// Output: .nfl/portfolio/dossier-<date>.json { meta, synthesis_input, experts,
+//         adjacent_signals, detail }  and a .md summary.
 //
-// Output:
-//   • .nfl/portfolio/dossier-<date>.json   { meta, synthesis_input, adjacent_signals, detail }
-//   • .nfl/portfolio/dossier-<date>.md     human-readable summary
-// synthesis_input is the compact view the synthesis script sends to the models.
-//
-// Usage:
-//   node agents/portfolio-dossier.js [--season 2026] [--since 2026-06-01]
-//                                    [--model gpt-4o] [--signals <path to normalized-signals-*.json>]
-//
-// Env: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY   (loaded from .env via dotenv)
+// Usage: node agents/portfolio-dossier.js [--season 2026] [--since <ISO>]
+//        [--model gpt-4o] [--signals <path>]
+// Env: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
 // ═══════════════════════════════════════════════════════════════════════════════
 
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
@@ -40,9 +30,9 @@ const OUT_DIR = path.join(ROOT, '.nfl', 'portfolio');
 const argv = process.argv.slice(2);
 const getArg = (f, d) => { const i = argv.indexOf(f); return i >= 0 ? argv[i + 1] : d; };
 const SEASON = parseInt(getArg('--season', '2026'), 10);
-const SINCE = getArg('--since', null); // ISO date lower-bound on snapshot_time
-const MODEL = getArg('--model', 'gpt-4o'); // which normalized-signals-<model>.json to read
-const SIGNALS_PATH = getArg('--signals', null); // explicit override path
+const SINCE = getArg('--since', null);
+const MODEL = getArg('--model', 'gpt-4o');
+const SIGNALS_PATH = getArg('--signals', null);
 
 const SB_URL = process.env.SUPABASE_URL;
 const SB_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -66,11 +56,18 @@ const median = (xs) => {
 };
 const round = (x, n = 4) => (x == null ? null : Number(x.toFixed(n)));
 
-// Multiway markets whose per-book implied probs should be normalized to strip vig.
 const MULTIWAY = new Set(['superbowl', 'conference_afc', 'conference_nfc',
   'division_afc_east', 'division_afc_north', 'division_afc_south', 'division_afc_west',
   'division_nfc_east', 'division_nfc_north', 'division_nfc_south', 'division_nfc_west',
   'most_wins', 'least_wins', 'superbowl_matchup']);
+
+// Books the user can actually place at (BKR/BEO/BetUS directly; Vegas books via a
+// proxy). FanDuel/DraftKings are EXCLUDED from best-price selection — they still
+// inform fair value/divergence, but are never offered as the price to bet.
+// Override with BETTABLE_BOOKS env (comma-separated book keys).
+const BETTABLE_BOOKS = new Set((process.env.BETTABLE_BOOKS
+  || 'bookmaker,betonline,betus,betmgm,caesars,williamhill_us,williamhill,circa,mgm')
+  .split(',').map((s) => s.trim().toLowerCase()));
 
 // ── fetchers ───────────────────────────────────────────────────────────────
 async function fetchSnapshots() {
@@ -106,8 +103,23 @@ async function fetchPodcastIntel() {
     .order('processed_at', { ascending: false }).limit(300);
   return data || [];
 }
+// prior-year performance — grounds bounce-back theses in facts, not model memory.
+async function fetchTeamStats() {
+  let data = null;
+  for (const cols of ['team, season, wins, losses, ats_wins, ats_losses', 'team, season, ats_wins, ats_losses']) {
+    const r = await sb.from('nfl_team_season_stats').select(cols).gte('season', 2023).lte('season', 2025);
+    if (!r.error) { data = r.data; break; }
+  }
+  const byTeam = {}; // canonical nickname -> [{season,wins,losses,ats_wins,ats_losses}]
+  for (const r of data || []) {
+    const nick = normalizeTeam(r.team); if (!nick) continue;
+    (byTeam[nick] ??= []).push(r);
+  }
+  for (const k of Object.keys(byTeam)) byTeam[k].sort((a, b) => b.season - a.season);
+  return byTeam;
+}
 
-// ── core: collapse snapshots into per market/team state ──────────────────────
+// ── odds view ────────────────────────────────────────────────────────────────
 function buildOddsView(snaps) {
   const g = {};
   for (const r of snaps) {
@@ -115,12 +127,11 @@ function buildOddsView(snaps) {
     ((g[mk] ??= {})[tm] ??= {})[bk] ??= [];
     g[mk][tm][bk].push(r);
   }
-
   const markets = {};
   for (const [mk, teams] of Object.entries(g)) {
     const isWins = mk === 'wins';
     const teamOut = {};
-    const bookOverround = {}; // book -> sum(latest implied) across teams (multiway vig)
+    const bookOverround = {};
     if (MULTIWAY.has(mk)) {
       for (const [, books] of Object.entries(teams)) {
         for (const [bk, rows] of Object.entries(books)) {
@@ -130,7 +141,6 @@ function buildOddsView(snaps) {
         }
       }
     }
-
     for (const [tm, books] of Object.entries(teams)) {
       const perBook = {};
       const fairProbs = [];
@@ -141,10 +151,8 @@ function buildOddsView(snaps) {
         if (isWins) {
           perBook[bk] = {
             line: last.line, over: last.over_price, under: last.under_price,
-            over_prob: round(americanToProb(last.over_price)),
-            under_prob: round(americanToProb(last.under_price)),
-            first_line: first.line, last_line: last.line,
-            snapshots: rows.length, first_time: first.snapshot_time, last_time: last.snapshot_time,
+            over_prob: round(americanToProb(last.over_price)), under_prob: round(americanToProb(last.under_price)),
+            first_line: first.line, last_line: last.line, snapshots: rows.length,
           };
           if (last.line != null) winsLines.push(last.line);
         } else {
@@ -156,36 +164,32 @@ function buildOddsView(snaps) {
           const firstPrice = first.price ?? first.odds;
           perBook[bk] = {
             price: priceNow, implied: round(ipRaw), fair: round(fair),
-            first_price: firstPrice, last_price: priceNow,
-            move_prob: round((ipRaw ?? 0) - (americanToProb(firstPrice) ?? ipRaw ?? 0)),
-            snapshots: rows.length, first_time: first.snapshot_time, last_time: last.snapshot_time,
+            move_prob: round((ipRaw ?? 0) - (americanToProb(firstPrice) ?? ipRaw ?? 0)), snapshots: rows.length,
           };
-          if (priceNow != null && (bestPrice == null || priceNow > bestPrice)) { bestPrice = priceNow; bestBook = bk; }
+          if (priceNow != null && BETTABLE_BOOKS.has(bk) && (bestPrice == null || priceNow > bestPrice)) { bestPrice = priceNow; bestBook = bk; }
         }
       }
-
       if (isWins) {
         const overProbs = Object.values(perBook).map((b) => b.over_prob).filter((x) => x != null);
-        teamOut[tm] = {
-          type: 'wins', consensus_line: median(winsLines),
+        let bOver = null, bOverBk = null, bUnder = null, bUnderBk = null; // best placeable prices
+        for (const [bk, pb] of Object.entries(perBook)) {
+          if (!BETTABLE_BOOKS.has(bk)) continue;
+          if (pb.over != null && (bOver == null || pb.over > bOver)) { bOver = pb.over; bOverBk = bk; }
+          if (pb.under != null && (bUnder == null || pb.under > bUnder)) { bUnder = pb.under; bUnderBk = bk; }
+        }
+        teamOut[tm] = { type: 'wins', consensus_line: median(winsLines),
           line_spread: winsLines.length ? round(Math.max(...winsLines) - Math.min(...winsLines), 2) : null,
-          over_prob_median: round(median(overProbs)), per_book: perBook,
-        };
+          over_prob_median: round(median(overProbs)),
+          best_over: bOver, best_over_book: bOverBk, best_under: bUnder, best_under_book: bUnderBk, per_book: perBook };
       } else {
         const impliedList = Object.values(perBook).map((b) => b.implied).filter((x) => x != null);
-        const fairList = fairProbs.filter((x) => x != null);
+        const fairMed = round(median(fairProbs.filter((x) => x != null)));
         const divergence = impliedList.length ? round(Math.max(...impliedList) - Math.min(...impliedList)) : null;
-        const fairMed = round(median(fairList));
-        teamOut[tm] = {
-          type: 'outright',
-          fair_prob: fairMed, fair_american: probToAmerican(fairMed),
-          best_price: bestPrice, best_book: bestBook,
-          best_prob: round(americanToProb(bestPrice)),
-          book_divergence: divergence, n_books: impliedList.length,
-          per_book: perBook,
-        };
         const bp = americanToProb(bestPrice);
-        teamOut[tm].value_gap = (bp != null && fairMed != null) ? round(fairMed - bp) : null;
+        teamOut[tm] = { type: 'outright', fair_prob: fairMed, fair_american: probToAmerican(fairMed),
+          best_price: bestPrice, best_book: bestBook, best_prob: round(bp),
+          book_divergence: divergence, n_books: impliedList.length,
+          value_gap: (bp != null && fairMed != null) ? round(fairMed - bp) : null, per_book: perBook };
       }
     }
     markets[mk] = teamOut;
@@ -194,15 +198,12 @@ function buildOddsView(snaps) {
 }
 
 // ════════════ NORMALIZED SIGNAL LEAN LAYER (preferred) ════════════════════════
-// Reads signal-normalize.js output (.nfl/portfolio/normalized-signals-<model>.json):
-// per-(team,market) directional signals. Keyed per market so a team can be
-// "superbowl back" yet "wins under" simultaneously.
 const ODDS_SIGNAL_MARKETS = new Set(['superbowl', 'wins', 'playoffs', 'division', 'conference']);
 function toSignalMarket(dossierMk) {
   if (dossierMk === 'superbowl' || dossierMk === 'wins' || dossierMk === 'playoffs') return dossierMk;
   if (dossierMk.startsWith('division_')) return 'division';
   if (dossierMk.startsWith('conference_')) return 'conference';
-  return null; // most_wins/least_wins/superbowl_matchup have no direct signal market
+  return null;
 }
 async function loadNormalizedSignals() {
   const p = SIGNALS_PATH || path.join(OUT_DIR, `normalized-signals-${MODEL}.json`);
@@ -212,20 +213,23 @@ async function loadNormalizedSignals() {
   } catch { return null; }
 }
 function makeNormalizedFindLean(signals) {
-  const byTeamMarket = {};   // `${team}|${signalMarket}` -> {back,fade,over,under,n,strength,samples}
-  const adjacentByTeam = {}; // team -> [{market,direction,strength,why}] for game/prop/etc.
+  const byTeamMarket = {};
+  const adjacentByTeam = {};
+  const byAuthor = {}; // author -> [{team, market, direction, strength}] — the "experts" roster
   for (const s of signals) {
     if (s.is_nfl === false) continue;
     const team = normalizeTeam(s.team); if (!team) continue;
     const mk = String(s.market || '').toLowerCase();
     const dir = String(s.direction || 'na').toLowerCase();
+    const who = s.author || s.source_type;
+    if (s.author) (byAuthor[s.author] ??= []).push({ team, market: mk, direction: dir, strength: s.strength ?? null });
     if (ODDS_SIGNAL_MARKETS.has(mk)) {
       const e = (byTeamMarket[`${team}|${mk}`] ??= { back: 0, fade: 0, over: 0, under: 0, n: 0, strength: 0, samples: [] });
       if (['back', 'fade', 'over', 'under'].includes(dir)) e[dir]++;
       e.n++; e.strength += (typeof s.strength === 'number' ? s.strength : 0.5);
-      if (e.samples.length < 5) e.samples.push({ dir, strength: s.strength ?? null, src: s.source_type, why: (s.rationale || '').slice(0, 120) });
+      if (e.samples.length < 5) e.samples.push({ who, dir, strength: s.strength ?? null, why: (s.rationale || '').slice(0, 120) });
     } else {
-      (adjacentByTeam[team] ??= []).push({ market: mk, direction: dir, strength: s.strength ?? null, why: (s.rationale || '').slice(0, 120) });
+      (adjacentByTeam[team] ??= []).push({ market: mk, direction: dir, strength: s.strength ?? null, who, why: (s.rationale || '').slice(0, 120) });
     }
   }
   const findLean = (team, dossierMk) => {
@@ -234,44 +238,39 @@ function makeNormalizedFindLean(signals) {
     const e = byTeamMarket[`${canon}|${sMk}`]; if (!e) return null;
     return { back: e.back, fade: e.fade, over: e.over, under: e.under, n: e.n, avg_strength: round(e.strength / e.n, 2), samples: e.samples };
   };
-  return { findLean, adjacentByTeam, combos: Object.keys(byTeamMarket).length };
+  return { findLean, adjacentByTeam, byAuthor, combos: Object.keys(byTeamMarket).length };
 }
 
-// ── inline fallback lean layer (used only when no normalized sidecar) ─────────
+// ── inline fallback lean layer (only when no normalized sidecar) ──────────────
 const NON_NFL = /\b(nba|ncaa|college|cbb|mlb|baseball|world series|cy young|al mvp|nl mvp|ufc|mma|fighter|flyweight|bantamweight|pga|golf|open championship|scottish open|world cup|fifa|soccer|premier league|nhl|hockey|tennis|wnba|pistons|celtics|lakers|bulls|knicks|nets|heat|bucks|warriors|yankees|dodgers)\b/i;
-function resolveNflTeam(str, contextText) {
+function resolveNflTeam(str, ctx) {
   if (!str) return null;
-  if (contextText && NON_NFL.test(contextText)) return null;
+  if (ctx && NON_NFL.test(ctx)) return null;
   return normalizeTeam(str) || null;
 }
 function buildLeanView(pickSignals, userPicks, podcastRows) {
   const leans = {};
-  const cov = { article: { kept: 0, dropped: 0 }, expert: { kept: 0, dropped: 0 },
-    podcast_pick: { kept: 0, dropped: 0 }, podcast_intel_unparsed: 0 };
-  const add = (team, bucket, dir, conf, note, who) => {
+  const cov = { article: { kept: 0, dropped: 0 }, expert: { kept: 0, dropped: 0 }, podcast_pick: { kept: 0, dropped: 0 }, podcast_intel_unparsed: 0 };
+  const add = (team, bucket, dir, note, who) => {
     const e = (leans[team] ??= { team, article: 0, expert: 0, podcast: 0, back: 0, fade: 0, over: 0, under: 0, samples: [] });
     e[bucket]++;
     const d = String(dir || '').toLowerCase();
-    if (/\bunder\b/.test(d)) e.under++;
-    else if (/\bover\b/.test(d)) e.over++;
-    else if (/\b(fade|against|avoid|no|short)\b/.test(d)) e.fade++;
-    else e.back++;
-    if (e.samples.length < 6) e.samples.push({ src: who, dir: dir || 'back', conf: conf ?? null, note: (note || '').slice(0, 200) });
+    if (/\bunder\b/.test(d)) e.under++; else if (/\bover\b/.test(d)) e.over++;
+    else if (/\b(fade|against|avoid|no|short)\b/.test(d)) e.fade++; else e.back++;
+    if (e.samples.length < 6) e.samples.push({ who, dir: dir || 'back', note: (note || '').slice(0, 160) });
   };
   for (const s of pickSignals) {
     const ctx = `${s.team_or_market || ''} ${s.bet_type || ''} ${s.lean || ''} ${s.rationale || ''}`;
     const team = resolveNflTeam(s.team_or_market, ctx) || resolveNflTeam(s.lean, ctx);
     if (!team) { cov.article.dropped++; continue; }
-    cov.article.kept++;
-    add(team, 'article', s.lean || s.bet_type, s.confidence, s.rationale || s.team_or_market, s.author || s.source);
+    cov.article.kept++; add(team, 'article', s.lean || s.bet_type, s.rationale, s.author || s.source);
   }
   for (const p of userPicks) {
     const ctx = `${p.selection || ''} ${p.home || ''} ${p.visitor || ''} ${p.rationale || ''}`;
     const team = resolveNflTeam(p.selection, ctx) || resolveNflTeam(p.home, ctx);
     if (!team) { cov.expert.dropped++; continue; }
     cov.expert.kept++;
-    const dir = /^(over|under)$/i.test(p.selection || '') ? p.selection : p.pick_type;
-    add(team, 'expert', dir, p.confidence, p.rationale, p.expert || p.source);
+    add(team, 'expert', /^(over|under)$/i.test(p.selection || '') ? p.selection : p.pick_type, p.rationale, p.expert || p.source);
   }
   for (const row of podcastRows) {
     const intel = Array.isArray(row.intel) ? row.intel : [];
@@ -282,8 +281,7 @@ function buildLeanView(pickSignals, userPicks, podcastRows) {
       const ctx = `${pk.selection || ''} ${pk.team1 || ''} ${pk.team2 || ''} ${pk.summary || ''}`;
       const team = resolveNflTeam(pk.selection, ctx) || resolveNflTeam(pk.team1, ctx) || resolveNflTeam(pk.team2, ctx);
       if (!team) { cov.podcast_pick.dropped++; continue; }
-      cov.podcast_pick.kept++;
-      add(team, 'podcast', pk.type || pk.lean, pk.confidence, pk.summary, show);
+      cov.podcast_pick.kept++; add(team, 'podcast', pk.type || pk.lean, pk.summary, show);
     }
   }
   const findLean = (team) => {
@@ -295,20 +293,31 @@ function buildLeanView(pickSignals, userPicks, podcastRows) {
 }
 
 // ── compact synthesis input ──────────────────────────────────────────────────
-function buildSynthesisInput(markets, findLean) {
+function priorTag(seasons) {
+  if (!seasons || !seasons.length) return null;
+  return seasons.slice(0, 3).map((s) => {
+    const wl = (s.wins != null && s.losses != null) ? `${s.wins}-${s.losses}` : null;
+    const ats = (s.ats_wins != null && s.ats_losses != null) ? `${s.ats_wins}-${s.ats_losses} ATS` : null;
+    return `${s.season}: ${[wl, ats].filter(Boolean).join(', ')}`;
+  });
+}
+function buildSynthesisInput(markets, findLean, priorByTeam) {
   const out = {};
   for (const [mk, teams] of Object.entries(markets)) {
     const rows = [];
     for (const [tm, v] of Object.entries(teams)) {
+      const prior = priorTag(priorByTeam[normalizeTeam(tm)]);
       if (v.type === 'wins') {
         rows.push({ team: tm, consensus_line: v.consensus_line, line_spread: v.line_spread,
-          over_prob_median: v.over_prob_median, books: v.per_book, lean: findLean(tm, mk) });
+          over_prob_median: v.over_prob_median,
+          best_over: v.best_over, best_over_book: v.best_over_book, best_under: v.best_under, best_under_book: v.best_under_book,
+          books: v.per_book, prior, lean: findLean(tm, mk) });
       } else {
         rows.push({ team: tm, fair_prob: v.fair_prob, fair_american: v.fair_american,
           best_price: v.best_price, best_book: v.best_book, best_prob: v.best_prob,
           value_gap: v.value_gap, book_divergence: v.book_divergence, n_books: v.n_books,
           moves: Object.fromEntries(Object.entries(v.per_book).map(([b, d]) => [b, d.move_prob])),
-          lean: findLean(tm, mk) });
+          prior, lean: findLean(tm, mk) });
       }
     }
     rows.sort((a, b) => (Math.abs(b.value_gap ?? b.book_divergence ?? 0)) - (Math.abs(a.value_gap ?? a.book_divergence ?? 0)));
@@ -324,21 +333,27 @@ function leanTag(l) {
   if (l.n != null) return ` · lean n${l.n}${dir ? ` (${dir})` : ''}${l.avg_strength != null ? ` @${l.avg_strength}` : ''}`;
   return ` · lean a${l.article}/e${l.expert}/p${l.podcast}${dir ? ` (${dir})` : ''}`;
 }
-function toMarkdown(meta, synth) {
+function toMarkdown(meta, synth, experts) {
   const ic = meta.intel_coverage;
   const intelLine = ic.mode === 'normalized'
-    ? `Intel: ${ic.signals} normalized signals, ${ic.team_market_combos} team-market combos, ${ic.adjacent_teams} teams with adjacent (game/prop) signals`
+    ? `Intel: ${ic.signals} normalized signals, ${ic.team_market_combos} team-market combos, ${ic.experts} analysts, ${ic.adjacent_teams} teams w/ adjacent signals`
     : `Intel (inline fallback): article ${ic.article?.kept ?? 0}, expert ${ic.expert?.kept ?? 0}, podcast-picks ${ic.podcast_pick?.kept ?? 0}`;
   const L = [`# Portfolio Dossier — ${meta.generated_at}`, '',
     `Season ${meta.season} · ${meta.snapshot_count} snapshots · books: ${meta.books.join(', ')}`, intelLine, ''];
   for (const [mk, rows] of Object.entries(synth)) {
     L.push(`## ${mk}  (${rows.length})`);
     for (const r of rows.slice(0, 8)) {
-      if (r.consensus_line != null) {
-        L.push(`- **${r.team}** wins line ${r.consensus_line} (spread ${r.line_spread ?? '-'}), O% ${r.over_prob_median ?? '-'}${leanTag(r.lean)}`);
-      } else {
-        L.push(`- **${r.team}** fair ${r.fair_prob} (${r.fair_american}) · best ${r.best_price} @${r.best_book} · value_gap ${r.value_gap} · book_div ${r.book_divergence}${leanTag(r.lean)}`);
-      }
+      const pr = r.prior ? ` · prior ${r.prior[0]}` : '';
+      if (r.consensus_line != null) L.push(`- **${r.team}** wins ${r.consensus_line} · O ${r.best_over ?? '-'}@${r.best_over_book ?? '-'} / U ${r.best_under ?? '-'}@${r.best_under_book ?? '-'}${leanTag(r.lean)}${pr}`);
+      else L.push(`- **${r.team}** fair ${r.fair_prob} · best ${r.best_price} @${r.best_book} · value_gap ${r.value_gap} · book_div ${r.book_divergence}${leanTag(r.lean)}${pr}`);
+    }
+    L.push('');
+  }
+  if (experts && Object.keys(experts).length) {
+    L.push('## Experts / analysts (who likes what)');
+    for (const [name, picks] of Object.entries(experts).sort((a, b) => b[1].length - a[1].length).slice(0, 25)) {
+      const summary = picks.slice(0, 8).map((p) => `${p.team} ${p.market}/${p.direction}`).join(', ');
+      L.push(`- **${name}** (${picks.length}): ${summary}`);
     }
     L.push('');
   }
@@ -348,45 +363,41 @@ function toMarkdown(meta, synth) {
 // ── main ─────────────────────────────────────────────────────────────────────
 (async () => {
   console.log(`📊 Portfolio dossier — season ${SEASON}${SINCE ? ` since ${SINCE}` : ''}`);
-  const [snaps, pickSignals, userPicks, podcastRows] = await Promise.all([
-    fetchSnapshots(), fetchPickSignals(), fetchUserPicks(), fetchPodcastIntel(),
+  const [snaps, pickSignals, userPicks, podcastRows, priorByTeam] = await Promise.all([
+    fetchSnapshots(), fetchPickSignals(), fetchUserPicks(), fetchPodcastIntel(), fetchTeamStats(),
   ]);
   const books = [...new Set(snaps.map((s) => s.book))].sort();
-  console.log(`   ${snaps.length} snapshots · ${pickSignals.length} article signals · ${userPicks.length} expert picks · ${podcastRows.length} podcast transcripts`);
-  console.log(`   books: ${books.join(', ')}`);
+  console.log(`   ${snaps.length} snapshots · ${pickSignals.length} article signals · ${userPicks.length} expert picks · ${podcastRows.length} podcast transcripts · ${Object.keys(priorByTeam).length} teams w/ prior stats`);
 
   const markets = buildOddsView(snaps);
 
-  // Prefer the normalized signal layer; fall back to the inline resolver.
-  let findLean, adjacent_signals = {}, intel_coverage;
+  let findLean, adjacent_signals = {}, experts = {}, intel_coverage;
   const norm = await loadNormalizedSignals();
   if (norm && norm.signals.length) {
     const nf = makeNormalizedFindLean(norm.signals);
-    findLean = nf.findLean; adjacent_signals = nf.adjacentByTeam;
-    intel_coverage = { mode: 'normalized', signals: norm.signals.length, team_market_combos: nf.combos, adjacent_teams: Object.keys(adjacent_signals).length, source: path.basename(norm.path) };
-    console.log(`   intel: normalized signals — ${norm.signals.length} signals, ${nf.combos} team-market combos, ${intel_coverage.adjacent_teams} teams with adjacent signals (${intel_coverage.source})`);
+    findLean = nf.findLean; adjacent_signals = nf.adjacentByTeam; experts = nf.byAuthor;
+    intel_coverage = { mode: 'normalized', signals: norm.signals.length, team_market_combos: nf.combos, experts: Object.keys(experts).length, adjacent_teams: Object.keys(adjacent_signals).length, source: path.basename(norm.path) };
+    console.log(`   intel: normalized — ${norm.signals.length} signals, ${nf.combos} combos, ${intel_coverage.experts} analysts, ${intel_coverage.adjacent_teams} adjacent (${intel_coverage.source})`);
   } else {
     const inline = buildLeanView(pickSignals, userPicks, podcastRows);
     findLean = inline.findLean; intel_coverage = { mode: 'inline', ...inline.coverage };
-    console.log(`   intel: inline fallback (run agents/signal-normalize.js for the richer layer) — article ${inline.coverage.article.kept}, expert ${inline.coverage.expert.kept}, podcast-picks ${inline.coverage.podcast_pick.kept}`);
+    console.log(`   intel: inline fallback (run agents/signal-normalize.js for the richer layer)`);
   }
 
-  const synthesis_input = buildSynthesisInput(markets, findLean);
-
+  const synthesis_input = buildSynthesisInput(markets, findLean, priorByTeam);
   const meta = {
     generated_at: new Date().toISOString(), season: SEASON, since: SINCE,
     snapshot_count: snaps.length, books, market_types: Object.keys(markets),
-    signal_counts: { article: pickSignals.length, expert: userPicks.length, podcast_transcripts: podcastRows.length },
-    intel_coverage,
+    signal_counts: { article: pickSignals.length, expert: userPicks.length, podcast_transcripts: podcastRows.length }, intel_coverage,
   };
-  const dossier = { meta, synthesis_input, adjacent_signals, detail: markets };
+  const dossier = { meta, synthesis_input, experts, adjacent_signals, detail: markets };
 
   await mkdir(OUT_DIR, { recursive: true });
   const date = new Date().toISOString().slice(0, 10);
   const jsonPath = path.join(OUT_DIR, `dossier-${date}.json`);
   const mdPath = path.join(OUT_DIR, `dossier-${date}.md`);
   await writeFile(jsonPath, JSON.stringify(dossier, null, 2));
-  await writeFile(mdPath, toMarkdown(meta, synthesis_input));
+  await writeFile(mdPath, toMarkdown(meta, synthesis_input, experts));
   console.log(`✅ wrote ${jsonPath}`);
   console.log(`✅ wrote ${mdPath}`);
   console.log(`   next: node agents/portfolio-synthesize.js --dossier "${jsonPath}"`);

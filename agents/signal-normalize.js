@@ -105,7 +105,7 @@ async function gatherItems() {
       .select('id, title, summary, source, author').order('captured_at', { ascending: false }).limit(1000);
     for (const n of data || []) {
       const text = [n.title, n.summary].filter(Boolean).join(' — ');
-      if (text.trim()) items.push({ source_type: 'article', source_ref: `note:${n.id}`, raw_text: text });
+      if (text.trim()) items.push({ source_type: 'article', source_ref: `note:${n.id}`, raw_text: text, author: n.author || n.source || null });
     }
   }
   if (want('podcast_intel') || want('podcast_pick')) {
@@ -116,13 +116,13 @@ async function gatherItems() {
       if (want('podcast_intel') && Array.isArray(row.intel)) {
         row.intel.forEach((it, i) => {
           const text = typeof it === 'string' ? it : (it?.summary || it?.text || JSON.stringify(it));
-          if (text && text.trim()) items.push({ source_type: 'podcast_intel', source_ref: `t:${row.id}#intel${i}`, raw_text: `[${show}] ${text}` });
+          if (text && text.trim()) items.push({ source_type: 'podcast_intel', source_ref: `t:${row.id}#intel${i}`, raw_text: `[${show}] ${text}`, author: show });
         });
       }
       if (want('podcast_pick') && Array.isArray(row.picks)) {
         row.picks.forEach((pk, i) => {
           const text = [pk.type, pk.selection, pk.team1 && `${pk.team1} vs ${pk.team2}`, pk.summary].filter(Boolean).join(' | ');
-          if (text.trim()) items.push({ source_type: 'podcast_pick', source_ref: `t:${row.id}#pick${i}`, raw_text: `[${show}] ${text}` });
+          if (text.trim()) items.push({ source_type: 'podcast_pick', source_ref: `t:${row.id}#pick${i}`, raw_text: `[${show}] ${text}`, author: show });
         });
       }
     }
@@ -132,7 +132,7 @@ async function gatherItems() {
       .select('id, pick_type, selection, home, visitor, rationale, expert').eq('source', 'EXPERT').limit(1000);
     for (const p of data || []) {
       const text = [p.pick_type, p.selection, p.home && `${p.visitor} @ ${p.home}`, p.rationale].filter(Boolean).join(' | ');
-      if (text.trim()) items.push({ source_type: 'expert_pick', source_ref: `pick:${p.id}`, raw_text: `[${p.expert || 'expert'}] ${text}` });
+      if (text.trim()) items.push({ source_type: 'expert_pick', source_ref: `pick:${p.id}`, raw_text: `[${p.expert || 'expert'}] ${text}`, author: p.expert || 'expert' });
     }
   }
   return LIMIT ? items.slice(0, LIMIT) : items;
@@ -153,6 +153,7 @@ async function normalizeBatch(batch) {
       if (!canon) { dropped++; continue; }    // team didn't resolve → drop (non-NFL / vague)
       rows.push({
         model: MODEL, source_type: item.source_type, source_ref: item.source_ref,
+        author: item.author || null,
         raw_text: item.raw_text.slice(0, 600), team: canon,
         market: (sig.market || 'other').toLowerCase(),
         direction: (sig.direction || 'na').toLowerCase(),

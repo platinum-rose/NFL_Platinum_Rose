@@ -17,6 +17,7 @@ create table if not exists public.normalized_signals (
   model         text        not null,                 -- 'gpt-4o' | 'fable-5' | ...
   source_type   text        not null,                 -- article | podcast_intel | podcast_pick | expert_pick
   source_ref    text        not null,                 -- stable ref: note id / transcript id + index / pick id
+  author        text,                                 -- analyst / outlet / show that produced the signal
   raw_text      text,                                 -- original snippet, for audit
   team          text,                                 -- canonical NFL nickname (e.g. 'Rams'); null if not team-specific
   market        text,                                 -- superbowl|conference|division|wins|playoffs|game|award|prop|other
@@ -30,3 +31,12 @@ create table if not exists public.normalized_signals (
 
 create index if not exists normalized_signals_team_idx  on public.normalized_signals (team, market) where is_nfl;
 create index if not exists normalized_signals_model_idx on public.normalized_signals (model);
+
+-- Row Level Security: internal betting data, no client (anon/authenticated) access.
+-- The agents connect with the SERVICE_ROLE key, which bypasses RLS, so enabling this
+-- with NO policies locks out anon/authenticated while leaving signal-normalize.js and
+-- portfolio-dossier.js fully functional. (Consistent with keeping this table server-only.)
+alter table public.normalized_signals enable row level security;
+
+-- for tables created before the author column existed (idempotent):
+alter table public.normalized_signals add column if not exists author text;
