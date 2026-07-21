@@ -13,8 +13,15 @@
 //
 // Non-destructive: writes to podcast_reextractions (migration 030), keyed by
 //   (episode_id, model). The baseline podcast_transcripts.picks/.intel is left
-//   intact for A/B comparison. A future Fable pass runs with --model=fable-5 and
-//   writes its own rows alongside these.
+//   intact for A/B comparison.
+//
+// NOTE (2026-07-20): the "--model fable-5" idea once planned for THIS script
+// is superseded, not built here. Andy's decision was to replace the whole
+// Fable re-eval concept with a dedicated per-host Futures pipeline instead
+// (agents/podcast-host-summary.js) — see docs/PODCAST_HOST_SUMMARY_PIPELINE_PLAN.md.
+// A Fable-5 comparison pass, if built, belongs on that pipeline (its Phase 4),
+// not here. This script's --model flag stays generic/gpt-4o-only; passing
+// fable-5 here would just fail against OpenAI's API, not route anywhere.
 //
 // Also persists each episode's intel to the Obsidian vault as a markdown note
 //   (NFL/Podcasts/<Show>/<pub_date>-<slug>.md) via the Local REST API.
@@ -36,6 +43,7 @@
 import 'dotenv/config';
 import https from 'node:https';
 import { createClient } from '@supabase/supabase-js';
+import { chunkTranscript } from './lib/chunk-text.js';
 
 // ─── Config / args ────────────────────────────────────────────────────────────
 
@@ -138,18 +146,6 @@ async function extractChunk(chunk, source, idx, total) {
 }
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
-
-function chunkTranscript(text) {
-  const chunks = [];
-  let start = 0;
-  while (start < text.length) {
-    const end = Math.min(start + CHUNK_CHARS, text.length);
-    chunks.push(text.slice(start, end));
-    if (end >= text.length) break;
-    start = end - CHUNK_OVERLAP;
-  }
-  return chunks;
-}
 
 function pickKey(p) {
   return [p.selection, p.team1, p.team2, p.type, p.line]

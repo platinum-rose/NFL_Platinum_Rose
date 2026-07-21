@@ -18,6 +18,7 @@ import { createWriteStream, readFileSync, unlinkSync, statSync } from 'node:fs';
 import { pipeline }        from 'node:stream/promises';
 import { tmpdir }          from 'node:os';
 import { join }            from 'node:path';
+import { transcribeWithAssemblyAI } from './lib/assemblyai-transcribe.js';
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 
@@ -274,91 +275,11 @@ async function transcribeAudio(filePath) {
 }
 
 // ─── AssemblyAI transcription ─────────────────────────────────────────────────
-
-/**
- * Submits an audio URL to AssemblyAI for transcription and polls until complete.
- * AssemblyAI accepts a public URL directly — no file download required.
- * Docs: https://www.assemblyai.com/docs/api-reference/transcripts/submit
- *
- * @param {string} audioUrl  Public URL of the audio file
- * @returns {Promise<string>} Plain-text transcript
- */
-async function transcribeWithAssemblyAI(audioUrl) {
-  if (!ASSEMBLYAI_KEY) throw new Error('ASSEMBLYAI_API_KEY is not set');
-
-  console.log(`    🎤 Using AssemblyAI (URL-based, no download)`);
-
-  const ASSEMBLYAI_BASE = 'https://api.assemblyai.com/v2';
-  const headers = {
-    'Authorization': ASSEMBLYAI_KEY,
-    'Content-Type':  'application/json',
-  };
-
-  // 1. Submit transcription job
-  const submitRes = await fetch(`${ASSEMBLYAI_BASE}/transcript`, {
-    method:  'POST',
-    headers,
-    body:    JSON.stringify({ audio_url: audioUrl, language_code: 'en', speech_models: ['universal-2'] }),
-    signal:  AbortSignal.timeout(30_000),
-  });
-
-  if (!submitRes.ok) {
-    const err = await submitRes.text();
-    throw new Error(`AssemblyAI submit failed: ${err}`);
-  }
-
-  const { id: transcriptId } = await submitRes.json();
-  if (!transcriptId) throw new Error('AssemblyAI: no transcript ID returned');
-
-  console.log(`    ⏳ AssemblyAI job submitted — id: ${transcriptId}`);
-
-  // 2. Poll until complete (status: queued → processing → completed | error)
-  const POLL_INTERVAL_MS = 10_000;         // gentle interval — AssemblyAI throttles rapid status polls
-  const MAX_WAIT_MS      = 25 * 60 * 1000; // 25 min ceiling (podcast episodes can be long)
-  const startPoll        = Date.now();
-  let   pollFailures     = 0;
-
-  while (true) {
-    if (Date.now() - startPoll > MAX_WAIT_MS) {
-      throw new Error(`AssemblyAI: timed out after ${MAX_WAIT_MS / 60000} min`);
-    }
-
-    await new Promise(r => setTimeout(r, POLL_INTERVAL_MS));
-
-    // A single slow/aborted status check must NOT kill the episode — AssemblyAI keeps
-    // transcribing server-side regardless. Retry transient poll errors until MAX_WAIT_MS;
-    // only a real 'error' status or the overall ceiling ends the attempt.
-    let result;
-    try {
-      const pollRes = await fetch(`${ASSEMBLYAI_BASE}/transcript/${transcriptId}`, {
-        headers,
-        signal: AbortSignal.timeout(20_000),
-      });
-      if (!pollRes.ok) throw new Error(`HTTP ${pollRes.status}: ${await pollRes.text()}`);
-      result = await pollRes.json();
-      pollFailures = 0;
-    } catch (err) {
-      pollFailures += 1;
-      const elapsedMin = ((Date.now() - startPoll) / 60000).toFixed(1);
-      console.log(`    ⏳ poll retry ${pollFailures} (${elapsedMin}m elapsed) — ${err.message}`);
-      continue;
-    }
-
-    if (result.status === 'completed') {
-      const wordCount = result.words?.length ?? result.text?.split(/\s+/).length ?? 0;
-      console.log(`    ✍ AssemblyAI complete — ${wordCount.toLocaleString()} words`);
-      return result.text ?? '';
-    }
-
-    if (result.status === 'error') {
-      throw new Error(`AssemblyAI transcription error: ${result.error ?? 'unknown'}`);
-    }
-
-    // Still queued or processing — log progress
-    const elapsedMin = ((Date.now() - startPoll) / 60000).toFixed(1);
-    console.log(`    ⏳ AssemblyAI status: ${result.status} (${elapsedMin}m elapsed)`);
-  }
-}
+// Moved to agents/lib/assemblyai-transcribe.js (2026-07-20, S291) so
+// scripts/podcast-diarize-backfill.js can reuse the exact same submit/poll
+// logic. Imported at the top of this file; behavior is unchanged. Still uses
+// ASSEMBLYAI_KEY (from this file's env consts, below) implicitly via
+// transcribeWithAssemblyAI's process.env.ASSEMBLYAI_API_KEY default.
 
 // ─── Pick extraction via GPT-4o ───────────────────────────────────────────────
 
@@ -619,15 +540,29 @@ async function run() {
         .update({ status: 'transcribing' })
         .eq('id', episodeId);
 
+      // Multi-host shows need real diarization for per-host attribution (see
+      // agents/lib/speaker-attribution.js) — force AssemblyAI + speaker_labels
+      // for these regardless of Groq availability. Single-host shows keep using
+      // the free Groq default; diarization would be wasted spend for them.
+      const wantsDiarization = feed.needs_diarization === true;
+
       let tmpFile  = null;
       let modelUsed = 'whisper+gpt-4o'; // updated below per provider
       try {
         let transcript;
+        let speakerSegments = [];
 
-        if (USE_ASSEMBLYAI) {
-          // 5a. AssemblyAI path — submit URL directly, no download needed
+        if (wantsDiarization) {
+          // 5a. Diarized AssemblyAI path — always, even if Groq is available.
+          modelUsed = 'assemblyai-diarized+gpt-4o';
+          const result = await transcribeWithAssemblyAI(ep.audio_url, { diarize: true });
+          transcript = result.text;
+          speakerSegments = result.utterances;
+
+        } else if (USE_ASSEMBLYAI) {
+          // 5a. AssemblyAI path (Groq unavailable) — submit URL directly, no download needed
           modelUsed  = 'assemblyai+gpt-4o';
-          transcript = await transcribeWithAssemblyAI(ep.audio_url);
+          transcript = (await transcribeWithAssemblyAI(ep.audio_url)).text;
 
         } else {
           // 5a. Whisper path (Groq or OpenAI) — download first
@@ -656,7 +591,7 @@ async function run() {
             if (err instanceof RateLimitError && ASSEMBLYAI_KEY) {
               console.warn(`    ⚠ Groq rate-limited — falling back to AssemblyAI`);
               modelUsed  = 'assemblyai+gpt-4o';
-              transcript = await transcribeWithAssemblyAI(ep.audio_url);
+              transcript = (await transcribeWithAssemblyAI(ep.audio_url)).text;
             } else {
               throw err; // propagate — no fallback available
             }
@@ -681,12 +616,13 @@ async function run() {
         const { error: txErr } = await supabase
           .from('podcast_transcripts')
           .insert({
-            episode_id:      episodeId,
-            transcript_text: transcript,
-            picks:           picks,
-            intel:           intel,
-            whisper_minutes: whisperMinutes,
-            model_used:      modelUsed,
+            episode_id:       episodeId,
+            transcript_text:  transcript,
+            picks:            picks,
+            intel:            intel,
+            whisper_minutes:  whisperMinutes,
+            model_used:       modelUsed,
+            speaker_segments: speakerSegments,
           });
 
         if (txErr) throw new Error(`Transcript insert failed: ${txErr.message}`);

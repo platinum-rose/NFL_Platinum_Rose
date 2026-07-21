@@ -20,6 +20,10 @@ the vault, not just Supabase.
 > transcript (`status='done'`). Run the fixed `podcast-ingest.js` catch-up first so the archive is
 > as complete as possible, then re-extract.
 
+> **Scope note:** this script handles game-level **picks + intel**. Season-long **Futures**
+> (division/conference/Super Bowl/MVP predictions, per host, with cited stats and quotes) are a
+> separate pipeline — `agents/podcast-host-summary.js`, see `docs/PODCAST_HOST_SUMMARY_PIPELINE_PLAN.md`.
+
 ## Prerequisites
 
 1. **Apply the migration** (Supabase → SQL editor): paste the contents of
@@ -75,17 +79,21 @@ Portfolio-level: `select sum(jsonb_array_length(picks)) picks, sum(jsonb_array_l
 In **Obsidian**, open `NFL/Podcasts/` — each processed episode is a note with a Picks table + Intel
 list and `sensitivity: green` frontmatter.
 
-## The deferred Fable pass
+## Fable-5 pass — superseded, moved to the host-summary pipeline
 
-When token budget allows, run the same archive through Fable without touching the GPT-4o rows:
-```powershell
-node agents\podcast-reextract.js --model fable-5 --overwrite
-```
-> Note: the script currently calls the OpenAI Chat Completions endpoint. To actually route
-> `--model fable-5` to Fable, the `extractChunk()` request needs an Anthropic/Fable branch (base URL
-> + auth + message shape). Flag it when you're ready and it's a small addition — the table, chunking,
-> merge, vault-write, and A/B are already model-agnostic and will store Fable's rows side-by-side
-> with GPT-4o for direct comparison.
+**Retired 2026-07-20.** This section used to describe running this script's picks/intel
+re-extraction through Fable-5 for A/B comparison (`--model fable-5`). That never got built — the
+`--model` flag here still only calls OpenAI's Chat Completions endpoint, and passing `fable-5`
+would just error out, not route anywhere.
+
+Andy's decision was broader than "add a Fable branch to this script": replace the whole Fable
+re-eval concept with a dedicated **per-host Futures pipeline** — `agents/podcast-host-summary.js`
+— rather than bolting Fable-5 onto this picks/intel reextraction. See
+`docs/PODCAST_HOST_SUMMARY_PIPELINE_PLAN.md` for the full plan; its Phase 4 is where a future
+Fable-5 comparison pass belongs now (re-running the same episode set through Fable-5 against
+`podcast_host_summaries`, keyed the same non-destructive `(episode_id, host, model)` way this
+script's table is keyed). This script (`podcast-reextract.js`) keeps doing what it already does
+well — full-transcript picks/intel re-extraction — and isn't being extended with Fable-5 itself.
 
 ## Notes
 
