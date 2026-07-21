@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NFL Dashboard (Platinum Rose) — Project Overview & Recommendations Summary</title>
+<style>
+body{font-family:Georgia,'Times New Roman',serif;line-height:1.65;color:#1a1a2e;max-width:900px;margin:0 auto;padding:2rem 1.5rem;background:#fdfdfb}
+h1,h2,h3{font-family:'Segoe UI',Helvetica,Arial,sans-serif;color:#16324f;line-height:1.25}
+h1{border-bottom:3px solid #16324f;padding-bottom:.4rem;font-size:1.9rem}
+h2{border-bottom:1px solid #c9d4e0;padding-bottom:.25rem;margin-top:2.2rem;font-size:1.4rem}
+h3{margin-top:1.6rem;font-size:1.15rem}
+table{border-collapse:collapse;width:100%;margin:1.2rem 0;font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:.86rem}
+th{background:#16324f;color:#fff;text-align:left;padding:.55rem .7rem;vertical-align:top}
+td{border:1px solid #d5dde6;padding:.55rem .7rem;vertical-align:top}
+tr:nth-child(even) td{background:#f2f5f8}
+code{background:#eef1f4;padding:.1rem .35rem;border-radius:3px;font-family:Consolas,Menlo,monospace;font-size:.85em;color:#8b2635}
+pre{background:#1e2a38;color:#e8edf2;padding:1rem;border-radius:6px;overflow-x:auto;font-size:.85rem}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid #d4a017;margin:1rem 0;padding:.4rem 1rem;background:#faf6ea;color:#4a4a3a}
+a{color:#1b6ca8}
+em{color:#4a5568}
+hr{border:none;border-top:1px solid #c9d4e0;margin:2rem 0}
+li{margin:.35rem 0}
+@media print{body{max-width:none}}
+</style>
+</head>
+<body>
+<h1>NFL Dashboard (Platinum Rose) — Project Overview &amp; Recommendations Summary</h1>
+<p><em>Companion to the full <a href="./NFL_Dashboard_Audit_Report.md">NFL Dashboard Audit Report</a> — read this first.</em></p>
+<h2>What this project is</h2>
+<p>Platinum Rose is your NFL betting analytics hub — a web dashboard that pulls live odds from eight sportsbooks, tracks expert picks and how they actually perform, grades bets automatically after games, runs Monte Carlo simulations in a "Dev Lab," manages bankroll, and produces intel reports from podcasts, sharp Twitter accounts, and research notes. A crew of automated agents on GitHub's servers keeps the data fresh around the clock, especially on game days.</p>
+<h2>What it's trying to achieve</h2>
+<p>An edge: one place where line movements, expert consensus, injuries, and your own betting record come together so decisions are made on evidence instead of vibes — shared with betting partners via a public dashboard. "Working well" means odds are current within the hour on game days, picks get graded automatically and correctly, the intel reports actually surface signal, and your season-long record is trustworthy and never lost.</p>
+<h2>How well it's currently achieving that</h2>
+<p>The machinery genuinely works — 19 automated workflows keep odds, injuries, splits, transcripts, and grading flowing, and the engineering hygiene is real (this project already found and properly fixed the classic "secret keys visible in a public website" problem with a server-side proxy). Three things keep it short of its own standard. First, the vault-to-cloud copier doesn't check privacy labels before sharing notes with betting partners — probably harmless today, but it's the one guardrail this family of projects treats as sacred. Second, your hand-entered picks — data the code itself labels "must never be lost" — live in the browser's local storage, one "clear browsing data" click from oblivion. Third, everything automated depends on GitHub's building: hosting, scheduling, and secrets in one rented basket. Functionality: strong. Custody: needs work.</p>
+<h2>Recommendations summary</h2>
+<ol>
+<li><strong>Teach the vault-to-cloud copier to read privacy labels</strong> — and treat unlabeled notes as private, per the house rule. <em>(See Audit Report → Finding 1)</em></li>
+<li><strong>Move your hand-entered picks into the database</strong> (already running) instead of browser storage. <em>(Finding 4)</em></li>
+<li><strong>Fix the instruction manual</strong> that still documents the old, insecure way to store API keys. <em>(Finding 3)</em></li>
+<li><strong>Give the automation a home option</strong> — systemd timers on M6 so the robots aren't GitHub-only. <em>(Finding 2, <code>[Local-First]</code>)</em></li>
+<li><strong>Start nightly database backups</strong> — one habit, shared with Rosie's identical need. <em>(Roadmap item 5, <code>[Data-Ownership]</code>)</em></li>
+<li><strong>Local podcast transcription</strong> is the one AI job current hardware can already take over — do it when convenient. <em>(Roadmap item 6, <code>[Local-First]</code>)</em></li>
+<li><strong>Sweep the dead files</strong> (superseded v1 report agent, one-off test script) and add the auth-bypass tripwire. <em>(Findings 5–6)</em></li>
+</ol>
+<p>No code was changed during this audit; the reasoning is in the Audit Report's Change list.</p>
+</body>
+</html>

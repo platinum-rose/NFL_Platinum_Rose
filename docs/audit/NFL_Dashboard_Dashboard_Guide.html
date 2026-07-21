@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NFL Dashboard (Platinum Rose) — Dashboard Usage Guide</title>
+<style>
+body{font-family:Georgia,'Times New Roman',serif;line-height:1.65;color:#1a1a2e;max-width:900px;margin:0 auto;padding:2rem 1.5rem;background:#fdfdfb}
+h1,h2,h3{font-family:'Segoe UI',Helvetica,Arial,sans-serif;color:#16324f;line-height:1.25}
+h1{border-bottom:3px solid #16324f;padding-bottom:.4rem;font-size:1.9rem}
+h2{border-bottom:1px solid #c9d4e0;padding-bottom:.25rem;margin-top:2.2rem;font-size:1.4rem}
+h3{margin-top:1.6rem;font-size:1.15rem}
+table{border-collapse:collapse;width:100%;margin:1.2rem 0;font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:.86rem}
+th{background:#16324f;color:#fff;text-align:left;padding:.55rem .7rem;vertical-align:top}
+td{border:1px solid #d5dde6;padding:.55rem .7rem;vertical-align:top}
+tr:nth-child(even) td{background:#f2f5f8}
+code{background:#eef1f4;padding:.1rem .35rem;border-radius:3px;font-family:Consolas,Menlo,monospace;font-size:.85em;color:#8b2635}
+pre{background:#1e2a38;color:#e8edf2;padding:1rem;border-radius:6px;overflow-x:auto;font-size:.85rem}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid #d4a017;margin:1rem 0;padding:.4rem 1rem;background:#faf6ea;color:#4a4a3a}
+a{color:#1b6ca8}
+em{color:#4a5568}
+hr{border:none;border-top:1px solid #c9d4e0;margin:2rem 0}
+li{margin:.35rem 0}
+@media print{body{max-width:none}}
+</style>
+</head>
+<body>
+<h1>NFL Dashboard (Platinum Rose) — Dashboard Usage Guide</h1>
+<p><em>How to start, read, and maintain the Platinum Rose dashboard. Technical terms are explained the first time they appear.</em></p>
+<h2>Starting and accessing the dashboard</h2>
+<ul>
+<li><strong>Live site:</strong> deployed automatically to GitHub Pages (GitHub's free website hosting) whenever code lands on the main branch — the URL path is <code>/platinum-rose-app/</code>.</li>
+<li><strong>Local development:</strong> <code>npm run dev</code> → http://localhost:5173/platinum-rose-app/ (this runs Vite, the tool that serves the app while you work on it).</li>
+<li><strong>Login:</strong> the auth gate uses Supabase accounts (Supabase is the cloud database service the project runs on). Betting partners get read access to shared reference notes via the public dashboard.</li>
+</ul>
+<h2>What each tab shows</h2>
+<table>
+<thead>
+<tr>
+<th>Tab</th>
+<th>What it shows / how to read it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dashboard</td>
+<td>The landing grid — one card per matchup with lines, movement, and signals.</td>
+</tr>
+<tr>
+<td>Standings</td>
+<td>Expert leaderboard — who among the tracked experts is actually hitting.</td>
+</tr>
+<tr>
+<td>My Card</td>
+<td>Your personal betting card for the week. ⚠️ Hand-entered data here is stored in your browser (see audit Finding 4) — use the backup feature.</td>
+</tr>
+<tr>
+<td>Dev Lab</td>
+<td>Monte Carlo simulation lab (runs thousands of simulated outcomes to estimate edges).</td>
+</tr>
+<tr>
+<td>Bankroll</td>
+<td>Bankroll management — stake sizing and balance over time.</td>
+</tr>
+<tr>
+<td>Analytics</td>
+<td>Performance analytics on your picks and the experts'.</td>
+</tr>
+<tr>
+<td>Odds</td>
+<td>Live odds center + line-movement history across the eight books.</td>
+</tr>
+<tr>
+<td>Picks</td>
+<td>Pick tracking and grading — automated grading fills in results after games.</td>
+</tr>
+</tbody>
+</table>
+<h2>Data entered manually</h2>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>How to update it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Your picks / My Card</td>
+<td>Directly in the app. <strong>Back up regularly:</strong> the storage layer has a built-in backup/restore ("disaster recovery") — export after any big entry session.</td>
+</tr>
+<tr>
+<td>Expert picks (when not auto-extracted)</td>
+<td>Picks tab / expert consensus entry. AI extraction from transcripts fills most of this automatically.</td>
+</tr>
+<tr>
+<td>Vault reference notes (team notes, weekly signals)</td>
+<td>Written in Obsidian under the <code>NFL/</code> folder, then synced: <code>node agents/obsidian-vault-sync.js</code> (requires the Obsidian Local REST API plugin running — a small plugin that lets programs read your vault through a local doorway).</td>
+</tr>
+<tr>
+<td>Season/week overrides</td>
+<td>Env vars like <code>VITE_NFL_SEASON</code>; schedule refresh via <code>npm run update-schedule</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2>Data ingested automatically</h2>
+<p>All automation runs on <strong>GitHub Actions</strong> (GitHub's system for running scripts on a schedule in the cloud — their version of a cron job). The important ones:</p>
+<table>
+<thead>
+<tr>
+<th>Workflow</th>
+<th>Schedule (UTC)</th>
+<th>What it updates</th>
+<th>Where to check if it failed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>odds-ingest</code> / <code>game-odds-ingest</code></td>
+<td>hourly on game days (Sun/Mon/Thu), every 4h otherwise</td>
+<td>Live odds + line-movement history</td>
+<td>GitHub → Actions tab → the workflow's run log</td>
+</tr>
+<tr>
+<td><code>injury-ingest</code></td>
+<td>game-week mornings/evenings</td>
+<td>Injury reports from ESPN</td>
+<td>Actions tab; Dashboard cards missing injury badges</td>
+</tr>
+<tr>
+<td><code>betting-splits-ingest</code></td>
+<td>Sundays pre-game windows</td>
+<td>Public betting split percentages</td>
+<td>Actions tab</td>
+</tr>
+<tr>
+<td><code>nfl-auto-grade</code> / <code>props-auto-grade</code></td>
+<td>post-game windows</td>
+<td>Grades finished picks</td>
+<td>Picks tab still showing "pending" after a game</td>
+</tr>
+<tr>
+<td><code>pick-extraction</code> / <code>podcast-ingest</code></td>
+<td>after episodes drop</td>
+<td>AI-extracted expert picks from transcripts (Groq Whisper first, AssemblyAI fallback, GPT-4o extraction)</td>
+<td>Actions tab; Standings not updating</td>
+</tr>
+<tr>
+<td><code>x-sharp-ingest</code></td>
+<td>periodic</td>
+<td>Sharp-account tweets via RSSHub (an open-source bridge that turns Twitter/X accounts into readable feeds)</td>
+<td>Actions tab</td>
+</tr>
+<tr>
+<td><code>intel-to-vault-sync</code></td>
+<td>Sun + Wed 10:00</td>
+<td>Pushes fresh intel into team notes (<code>vault_notes</code> table)</td>
+<td>Actions tab; team notes missing recent items</td>
+</tr>
+<tr>
+<td><code>futures-intel-report</code></td>
+<td>weekly</td>
+<td>The futures intel HTML report</td>
+<td>Actions tab</td>
+</tr>
+<tr>
+<td><code>nflverse-data-refresh</code></td>
+<td>weekly</td>
+<td>Open-source NFL stats data</td>
+<td>Actions tab</td>
+</tr>
+<tr>
+<td><code>deploy</code></td>
+<td>on every push to main</td>
+<td>The live site itself</td>
+<td>Actions tab; site showing old version</td>
+</tr>
+</tbody>
+</table>
+<h2>Troubleshooting / spotting stale data</h2>
+<ul>
+<li><strong>First stop, always:</strong> GitHub → repository → <strong>Actions</strong> tab. A red ✗ on a workflow is the failure; open it and read the last log lines.</li>
+<li><strong>Odds look old:</strong> check the odds-ingest run — the most common cause is TheOddsAPI's free-tier quota (500 requests/month) running out late in the month. The app also caches odds for 10 minutes by design — that much lag is normal.</li>
+<li><strong>Picks stuck ungraded:</strong> the auto-grade workflow runs in post-game windows — wait for the window, then check its Actions log.</li>
+<li><strong>A whole game-day with nothing updating:</strong> GitHub Actions itself may be down (rare) — githubstatus.com; every agent can be run by hand from any machine with the repo and env vars (<code>node agents/&lt;name&gt;.js</code>, most support <code>--dry-run</code>).</li>
+<li><strong>Team notes missing this week's intel:</strong> <code>intel-to-vault-sync</code> only runs Sun/Wed — mid-week gaps are normal. For an immediate refresh: <code>npm run ingest-research-intel</code> then <code>node agents/intel-to-vault-sync.js</code>.</li>
+<li><strong>"My Card" is empty on a new machine:</strong> that data lives in the <em>browser</em>, not the cloud — restore from your storage backup file (and see audit Finding 4 for the permanent fix).</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NFL Dashboard (Platinum Rose) — Audit Report</title>
+<style>
+body{font-family:Georgia,'Times New Roman',serif;line-height:1.65;color:#1a1a2e;max-width:900px;margin:0 auto;padding:2rem 1.5rem;background:#fdfdfb}
+h1,h2,h3{font-family:'Segoe UI',Helvetica,Arial,sans-serif;color:#16324f;line-height:1.25}
+h1{border-bottom:3px solid #16324f;padding-bottom:.4rem;font-size:1.9rem}
+h2{border-bottom:1px solid #c9d4e0;padding-bottom:.25rem;margin-top:2.2rem;font-size:1.4rem}
+h3{margin-top:1.6rem;font-size:1.15rem}
+table{border-collapse:collapse;width:100%;margin:1.2rem 0;font-family:'Segoe UI',Helvetica,Arial,sans-serif;font-size:.86rem}
+th{background:#16324f;color:#fff;text-align:left;padding:.55rem .7rem;vertical-align:top}
+td{border:1px solid #d5dde6;padding:.55rem .7rem;vertical-align:top}
+tr:nth-child(even) td{background:#f2f5f8}
+code{background:#eef1f4;padding:.1rem .35rem;border-radius:3px;font-family:Consolas,Menlo,monospace;font-size:.85em;color:#8b2635}
+pre{background:#1e2a38;color:#e8edf2;padding:1rem;border-radius:6px;overflow-x:auto;font-size:.85rem}
+pre code{background:none;color:inherit;padding:0}
+blockquote{border-left:4px solid #d4a017;margin:1rem 0;padding:.4rem 1rem;background:#faf6ea;color:#4a4a3a}
+a{color:#1b6ca8}
+em{color:#4a5568}
+hr{border:none;border-top:1px solid #c9d4e0;margin:2rem 0}
+li{margin:.35rem 0}
+@media print{body{max-width:none}}
+</style>
+</head>
+<body>
+<h1>NFL Dashboard (Platinum Rose) — Audit Report</h1>
+<p><em>Audit date: 2026-07-07 · Auditor: Claude (Fable), full-codebase audit per Fable_Project_Audit_Prompt</em></p>
+<h2>Executive summary</h2>
+<p>NFL Platinum Rose is a well-run project that has already fixed its scariest historical problem — API keys in the public browser bundle — with a clean server-side proxy pattern, and it shows strong engineering hygiene (centralized API config, a localStorage key catalog with permanence levels, receipts on agent runs, an anti-patterns doc). The most significant open issue is a guardrail one: the Obsidian→Supabase vault sync copies note content into a cloud table readable by betting partners <strong>without checking sensitivity tiers</strong>, so a mis-filed or unlabeled note would be exported when the fail-safe rule says it must not be. The biggest structural facts to plan around: all automation (19 workflows) runs on GitHub Actions' cloud scheduler, the app is hosted on public GitHub Pages, and "critical" user-entered picks live in browser localStorage. None of these are wrong today; all three should be staged toward owned infrastructure as the project matures.</p>
+<h2>Findings table</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Issue</th>
+<th>Location</th>
+<th>Category</th>
+<th>Severity</th>
+<th>Recommended action</th>
+<th>Status</th>
+<th>Plain-language explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Vault→cloud export has no sensitivity-tier check: <code>obsidian-vault-sync.js</code> copies every note under the <code>NFL/</code> prefix from the local Obsidian vault into the Supabase <code>vault_notes</code> table (readable via the public anon key by design, for betting partners). No <code>sensitivity:</code> frontmatter is read; the fail-safe rule (missing/invalid → treat as 🔴, content never leaves) is not applied. NFL notes are <em>probably</em> all shareable — but the guardrail exists precisely for the mis-filed exception.</td>
+<td><code>agents/obsidian-vault-sync.js</code> (no <code>sensitivity</code> handling anywhere in the file)</td>
+<td>security / guardrail</td>
+<td><strong>high</strong></td>
+<td>Parse frontmatter before export; skip (and log) any note that isn't explicitly <code>green</code> — or explicitly <code>yellow</code> if you decide partner-visible betting IP is acceptable, but that's your call to make, not the sync's default. Flagged, not fixed, per guardrail rules.</td>
+<td><strong>flagged for review</strong></td>
+<td>A copying machine moves your NFL notes from your private vault to a shared shelf your betting partners can read. It never checks the privacy label on a note before copying. Today everything in that folder is probably fine to share — but the whole point of labels is the day something isn't.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>All automation lives on GitHub Actions: 19 workflow files run the ingest/grading/reporting agents on GitHub's cloud cron (game-day hourlies, 4-hour cycles, weekly reports). If GitHub is down, rate-limits, or the repo becomes private-billing-constrained, every automated data flow stops.</td>
+<td><code>.github/workflows/*.yml</code> (19 files)</td>
+<td>local-first / architecture</td>
+<td>med</td>
+<td>Keep GHA for now (it's free and reliable); write the equivalent systemd timers for M6 so the agents <em>can</em> run at home — most already read env vars and run via plain <code>node</code>, so this is mostly packaging. Tag <code>[Local-First]</code>, defer full cutover.</td>
+<td>flagged (design)</td>
+<td>Every robot that fetches odds, grades picks, and writes reports lives in GitHub's building, not yours. They're good tenants — but you don't own the building, and the agents themselves would run fine from the M6 box at home with minor setup.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Stale docs could reintroduce a fixed vulnerability: <code>CLAUDE.md</code>'s environment section still instructs setting <code>VITE_OPENAI_API_KEY</code> and <code>VITE_ODDS_API_KEY</code> — the exact pattern that bakes secret keys into the public browser bundle, which <code>src/lib/apiConfig.js</code> deliberately eliminated (keys now live server-side behind <code>ai-proxy</code>/<code>odds-proxy</code> edge functions, and the config file says "must never appear in the browser bundle").</td>
+<td><code>CLAUDE.md</code> env-vars section vs <code>src/lib/apiConfig.js:10-27</code></td>
+<td>security / docs</td>
+<td>med</td>
+<td>Update CLAUDE.md to document only <code>VITE_SUPABASE_URL</code> + <code>VITE_SUPABASE_ANON_KEY</code> for the browser, and point to the proxy pattern for everything paid. Flagged rather than auto-fixed: this audit's editing tool rewrites whole-file line endings (see ATLAS report Finding 2/3), which would bury a two-line doc fix in noise on a governance-critical file.</td>
+<td>flagged for review</td>
+<td>The instruction manual still teaches the old, dangerous way of storing keys — the way that would publish your OpenAI key to the internet, since the app itself is hosted publicly. The code was fixed; the manual wasn't. Someone following the manual in good faith would re-open the hole.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>"Critical" user data in browser localStorage: the storage catalog marks expert-consensus and picks data <code>permanence: 'critical'</code> ("must never be accidentally wiped — user entered data"), yet it lives in localStorage — erased by a browser-profile reset, "clear site data", or switching machines. A manual backup/restore feature exists but relies on remembering to use it.</td>
+<td><code>src/lib/storage.js</code> (PR_STORAGE_KEYS catalog)</td>
+<td>data-ownership</td>
+<td>med</td>
+<td>Sync critical-permanence keys to Supabase (the infrastructure is already there) with localStorage as cache; or at minimum auto-download a backup file weekly. Tag <code>[Data-Ownership]</code>.</td>
+<td>flagged for review</td>
+<td>Your hand-entered picks — the data the code itself labels "must never be lost" — are stored in the browser's short-term memory. One overzealous "clear browsing data" click and a season of records is gone. The database that could hold them safely is already running.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Dead/superseded files: <code>agents/futures-intel-report.js</code> (v1) is referenced by nothing except v2's "Supersedes" comment; <code>agents/podcast-e1011-test.js</code> is a one-off episode test script left in the agents directory.</td>
+<td><code>agents/futures-intel-report.js</code>, <code>agents/podcast-e1011-test.js</code></td>
+<td>dead code</td>
+<td>low</td>
+<td>Delete v1 (git history preserves it); move the episode test under a <code>agents/dev/</code> or tests directory. Not auto-fixed: file deletion was not possible through this audit environment's file layer (mount blocks unlink), and flagging keeps the removal reviewable.</td>
+<td>flagged for review</td>
+<td>An old version of the futures-report robot is still parked next to the new one, and a one-time test script never got cleaned up. Harmless, but the next person has to figure out which robot is real.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>VITE_BYPASS_AUTH === 'true'</code> skips the auth gate if set at build time. Fine as a dev convenience; dangerous only if it ever leaks into the production build command.</td>
+<td><code>src/components/auth/AuthGate.jsx:151</code></td>
+<td>security</td>
+<td>low</td>
+<td>Add a build-time assertion in <code>deploy.yml</code> that fails if <code>VITE_BYPASS_AUTH</code> is set. One-line CI guard.</td>
+<td>flagged for review</td>
+<td>There's a "leave the front door unlocked" switch for testing. It's off in production — worth adding a tripwire so it can never be accidentally left on when the house ships.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Vulture flagged <code>style</code> parameter in <code>_log()</code> as unused — <strong>false positive in practice</strong>: the parameter absorbs legacy Rich-markup call sites after the rich dependency was removed; removing it breaks callers. Documented so future audits don't "fix" it.</td>
+<td><code>scripts/fetch_nflverse_data.py:48</code></td>
+<td>deps-tests</td>
+<td>low</td>
+<td>Optionally rename to <code>_style</code> to silence analyzers. No behavior change made.</td>
+<td>no change</td>
+<td>An automated tool suggested deleting something that looks unused but is actually a shock absorber for older code. Noted so nobody rips it out.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Security posture (positive finding): no hardcoded secrets in <code>src/</code>, <code>agents/</code>, or <code>scripts/</code>; paid keys confined to GitHub Actions secrets and Supabase function secrets; the browser gets only the public anon key; X/Twitter ingest goes through RSSHub (self-hostable) rather than scraping or paid API; agent runs write JSON receipts to <code>.nfl/receipts/</code>.</td>
+<td>codebase-wide sweep</td>
+<td>security</td>
+<td>—</td>
+<td>Maintain. The apiConfig deprecation shims (<code>OPENAI_API_KEY = ''</code>) can be deleted once AgentChat imports are updated.</td>
+<td>no change needed</td>
+<td>We looked for the classic mistakes — passwords in code, secret keys reaching the public app — and found the project has already engineered them out properly.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Python utility scripts are clean: 10 files, one false-positive lint hit (Finding 7), no secrets, no vault writes. JS agents write vault <em>content</em> only to the Supabase <code>vault_notes</code> table — actual Obsidian file writes happen via the Local REST API plugin (localhost), not raw filesystem writes, so ATLAS's atomic-write discipline is not bypassed.</td>
+<td><code>scripts/</code>, <code>agents/</code></td>
+<td>architecture</td>
+<td>—</td>
+<td>None.</td>
+<td>no change needed</td>
+<td>The helper scripts are tidy, and — important given the family vault rules — this project doesn't write vault files directly; it goes through Obsidian's own local doorway, which is the polite way in.</td>
+</tr>
+</tbody>
+</table>
+<h2>Local-first &amp; offline-autonomy readiness</h2>
+<p>Overall: <strong>furthest from local-first of the three</strong> — by deliberate design (free cloud tiers everywhere), which is fine today. The map:</p>
+<table>
+<thead>
+<tr>
+<th>Dependency</th>
+<th>Where</th>
+<th>Behind abstraction?</th>
+<th>Local alternative</th>
+<th>Do now / defer</th>
+<th>What breaks if it vanished (plain language)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub Actions (scheduler)</td>
+<td>19 workflows</td>
+<td>agents are plain <code>node</code> scripts ✓</td>
+<td>systemd timers on M6</td>
+<td><strong>Do now, cheap:</strong> write the timer units (agents already env-driven); defer cutover</td>
+<td>All automatic data updates stop; every agent still runs by hand from any machine.</td>
+</tr>
+<tr>
+<td>GitHub Pages (hosting)</td>
+<td><code>deploy.yml</code></td>
+<td>standard Vite build ✓</td>
+<td>Caddy on M6 over Tailscale (Rosie already does exactly this)</td>
+<td>Defer; copy Rosie's pattern when wanted</td>
+<td>The public dashboard URL dies; <code>npm run build</code> + any web server revives it in minutes.</td>
+</tr>
+<tr>
+<td>Supabase</td>
+<td>odds/intel/grading tables, <code>vault_notes</code>, edge-function proxies</td>
+<td>standard Postgres ✓</td>
+<td>self-hosted Supabase</td>
+<td><strong>Do now, cheap:</strong> nightly <code>pg_dump</code> (same task as Rosie's — one backup habit, two projects)</td>
+<td>Live odds history, intel, and the AI proxy stop; data survives only if dumps exist.</td>
+</tr>
+<tr>
+<td>OpenAI GPT-4o</td>
+<td>pick extraction, transcript analysis (via <code>ai-proxy</code>)</td>
+<td>✅ proxied — one server-side call site</td>
+<td>local model behind the same proxy URL</td>
+<td><strong>Defer</strong> models; the proxy already gives you the swap point</td>
+<td>AI pick-extraction and podcast analysis pause; hand-entry still works.</td>
+</tr>
+<tr>
+<td>Groq (Whisper) → AssemblyAI</td>
+<td>podcast transcription fallback chain</td>
+<td>✅ priority chain already exists</td>
+<td>whisper.cpp on M6 — realistic on current hardware</td>
+<td><strong>Do now if desired</strong> — local Whisper is one of the few local-AI swaps that's already practical</td>
+<td>Podcast ingest pauses; local Whisper could take priority-1 slot today.</td>
+</tr>
+<tr>
+<td>TheOddsAPI (500 req/mo free)</td>
+<td>odds ingest agents</td>
+<td>endpoint config centralized ✓</td>
+<td>none — odds are inherently external data</td>
+<td>n/a — cache aggressively (already does, 10-min TTL)</td>
+<td>Live odds stop; there is no "local" source for sportsbook lines — this is a true external dependency.</td>
+</tr>
+<tr>
+<td>ESPN / nflverse</td>
+<td>injuries, stats</td>
+<td>nflverse is open data ✓</td>
+<td>nflverse files can be mirrored locally</td>
+<td>Do now, trivial: keep the downloaded CSVs (already in repo/public)</td>
+<td>Stats refresh stops; historical copies remain.</td>
+</tr>
+<tr>
+<td>RSSHub (X ingest)</td>
+<td><code>x-sharp-ingest.js</code></td>
+<td>✅ URL-configurable</td>
+<td>self-hosted RSSHub instance</td>
+<td>Defer; already swappable</td>
+<td>Sharp-account tweet feed stops until pointed at another instance.</td>
+</tr>
+<tr>
+<td>Obsidian Local REST API</td>
+<td>vault reads (<code>obsidian-vault-sync</code>, <code>vaultClient.js</code>)</td>
+<td>✅ already local</td>
+<td>—</td>
+<td>already local ✓</td>
+<td>Nothing — this is your own machine.</td>
+</tr>
+</tbody>
+</table>
+<h2>Data ownership &amp; vendor lock-in <code>[Data-Ownership]</code></h2>
+<p>Formats are healthy everywhere: <code>public/*.json</code> in the repo (plain JSON), Supabase (open Postgres), vault notes (markdown), nflverse (open CSVs). The exposures are <em>locational</em>, not format: <strong>GitHub</strong> — repo, hosting, automation, and secrets all in one provider; if the account were locked tomorrow, code survives in local clones but the site, the robots, and their secrets all stop at once (plain language: eggs, basket). <strong>Supabase</strong> — same story and same fix as Rosie: a scheduled dump makes this migration-pain instead of data-loss. <strong>Browser localStorage</strong> — the one place <em>user-entered</em> data lives outside your control perimeter entirely (Finding 4). <strong>TheOddsAPI/ESPN</strong> — feeds, not custodians; nothing of yours is stored there. Identity: GitHub login and Supabase auth; no Google/Apple sign-in dependencies found.</p>
+<h2>Evolution roadmap</h2>
+<ol>
+<li><strong>Add sensitivity-tier filtering to the vault→Supabase export</strong> (high, small diff). <em>(Finding 1)</em> <em>Plain language: teach the copying machine to read privacy labels before it copies — and to treat unlabeled notes as private, per the house rule.</em></li>
+<li><strong><code>[Data-Ownership]</code> Move critical-permanence localStorage keys into Supabase</strong> with local cache (med). <em>(Finding 4)</em> <em>Plain language: your hand-entered picks deserve the same database the odds get.</em></li>
+<li><strong>Fix CLAUDE.md's env documentation</strong> to match the proxy architecture (med, 10 minutes). <em>(Finding 3)</em> <em>Plain language: correct the manual before it teaches someone to re-open a fixed security hole.</em></li>
+<li><strong><code>[Local-First]</code> Package the agents as systemd timers on M6</strong> alongside their GHA twins (med — mostly packaging). <em>(Finding 2)</em> <em>Plain language: give the robots a bedroom at home, even if they keep working from GitHub's office most days.</em></li>
+<li><strong><code>[Data-Ownership]</code> Nightly Supabase <code>pg_dump</code></strong> — combine with Rosie's backup job (do now, cheap). <em>Plain language: one backup habit covers both family projects.</em></li>
+<li><strong><code>[Local-First]</code> Swap podcast transcription priority-1 to local whisper.cpp</strong> — the rare local-AI move that's practical on today's hardware (optional, do when convenient). <em>Plain language: turning podcasts into text is the one AI job your current computer can already do itself, free.</em></li>
+<li><strong>Delete superseded v1 agents and the one-off test script; add the <code>VITE_BYPASS_AUTH</code> CI tripwire</strong> (low). <em>(Findings 5–6)</em></li>
+</ol>
+<h2>DataFlow chart</h2>
+<p><strong>No structural changes were found</strong> — no modules, agents, workflows, or data paths were added or removed by this audit (no code changes were made — see Change list). <code>E:\data\Obsidian\NFL_Dashboard_DataFlow.html</code> (last updated 2026-07-01, with a <code>.mermaid</code> source alongside) was <strong>left untouched</strong>, per the audit brief.</p>
+<h2>Change list</h2>
+<p><strong>No code changes were made to NFL Dashboard.</strong> The two mechanical candidates both failed the safety bar: the vulture hit is a false positive (Finding 7), and the stale-file deletions could not be performed reviewably in this environment (Finding 5). The CLAUDE.md doc fix, though within the "outdated comments" fix-directly category, was deliberately deferred because the available editing tool rewrites whole-file line endings (demonstrated in the ATLAS portion of this audit), which on a governance file would create a misleading diff; the exact replacement text is specified in Finding 3 for a 2-minute manual apply.</p>
+</body>
+</html>

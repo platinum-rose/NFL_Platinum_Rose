@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NFL Dashboard — Data Flow</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:#080c10;color:#e0e6f0;font-family:system-ui,-apple-system,sans-serif;display:flex;flex-direction:column;overflow:hidden}
+
+/* ── Header ── */
+header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;padding:1rem 1.5rem;border-bottom:1px solid #1c2535;background:#0b1018;flex-shrink:0;z-index:100}
+header h1{font-size:1.1rem;font-weight:700;color:#00d2be;letter-spacing:.04em}
+.subtitle{font-size:.75rem;color:#4a6080;margin-top:1px}
+
+/* ── Legend ── */
+.legend{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center}
+.legend-item{display:flex;align-items:center;gap:.35rem;font-size:.7rem;color:#8aa0b8;cursor:pointer;padding:3px 8px;border-radius:4px;border:1px solid transparent;transition:.15s}
+.legend-item:hover{border-color:#2a3a50;background:#0f1b28}
+.legend-item.active{border-color:var(--cat-color);background:color-mix(in srgb,var(--cat-color) 12%,transparent)}
+.legend-dot{width:9px;height:9px;border-radius:50%;background:var(--cat-color);flex-shrink:0}
+
+/* ── Filter bar ── */
+.filter-bar{display:flex;gap:.5rem;align-items:center}
+.filter-btn{font-size:.7rem;padding:3px 10px;border:1px solid #2a3a50;border-radius:4px;background:transparent;color:#6a8aaa;cursor:pointer;transition:.15s}
+.filter-btn:hover,.filter-btn.active{background:#00d2be22;border-color:#00d2be;color:#00d2be}
+.reset-btn{font-size:.7rem;padding:3px 10px;border:1px solid #5a3030;border-radius:4px;background:transparent;color:#e08a8a;cursor:pointer;transition:.15s}
+.reset-btn:hover{background:#e08a8a22;border-color:#e08a8a;color:#ffb0b0}
+
+/* ── Canvas wrapper (scroll/pan region) ── */
+#canvas-wrap{flex:1;overflow:auto;position:relative;background:
+  linear-gradient(#0d1420 1px,transparent 1px) 0 0/40px 40px,
+  linear-gradient(90deg,#0d1420 1px,transparent 1px) 0 0/40px 40px,
+  #080c10;}
+
+/* ── Diagram canvas ── */
+#diagram{position:relative;width:1620px;height:1300px}
+#arrows-svg{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+
+/* ── Band labels (decorative, non-interactive orientation guides) ── */
+.band-label{position:absolute;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#3a5570;padding:2px 8px;background:#0f1620;border:1px solid #1c2535;border-radius:4px;pointer-events:none;white-space:nowrap}
+.band-sublabel{position:absolute;font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#2a4060;pointer-events:none;white-space:nowrap}
+
+/* ── Nodes ── */
+.node{
+  position:absolute;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:.35rem .6rem;border-radius:5px;cursor:grab;
+  border:1px solid var(--cat-border,#1e3050);
+  background:var(--cat-bg,#0f1e30);
+  color:#c8daf0;font-size:.72rem;line-height:1.3;
+  transition:box-shadow .15s,border-color .15s,opacity .15s;user-select:none;
+  width:140px;text-align:center;touch-action:none;
+}
+.node:hover{border-color:var(--cat-color,#00d2be);box-shadow:0 0 0 1px var(--cat-color,#00d2be)44;z-index:10}
+.node.dragging{cursor:grabbing;z-index:50;box-shadow:0 6px 24px #000a,0 0 0 2px var(--cat-color,#00d2be)66;opacity:.95}
+.node.highlighted{border-color:var(--cat-color,#00d2be)!important;box-shadow:0 0 0 2px var(--cat-color,#00d2be)44!important;background:color-mix(in srgb,var(--cat-color,#00d2be) 10%,#0d1826)!important}
+.node.dimmed{opacity:.16}
+.node small{font-size:.62rem;color:#4a6580;margin-top:1px;display:block}
+
+/* ── Category colours ── */
+.cat-odds   {--cat-color:#3b9eff;--cat-bg:#0c1a2e;--cat-border:#1a3a60}
+.cat-player {--cat-color:#ff7c3b;--cat-bg:#1a0e07;--cat-border:#3a1a08}
+.cat-intel  {--cat-color:#b06bff;--cat-bg:#130d1e;--cat-border:#2a1840}
+.cat-podcast{--cat-color:#00d2be;--cat-bg:#061816;--cat-border:#0a3530}
+.cat-ai     {--cat-color:#ffcc44;--cat-bg:#1a1400;--cat-border:#3a2c00}
+.cat-user   {--cat-color:#44e87a;--cat-bg:#061208;--cat-border:#0a2e14}
+.cat-meta   {--cat-color:#778899;--cat-bg:#0c1018;--cat-border:#1c2838}
+
+/* ── Tooltip ── */
+#tooltip{
+  position:fixed;z-index:200;pointer-events:none;
+  background:#0d1826f5;border:1px solid #2a3a50;
+  border-radius:6px;padding:.6rem .8rem;font-size:.72rem;
+  max-width:280px;line-height:1.5;color:#b0c8e0;
+  box-shadow:0 4px 20px #000a;opacity:0;transition:opacity .1s;
+}
+#tooltip.visible{opacity:1}
+#tooltip strong{color:#e0eeff;display:block;margin-bottom:4px;font-size:.78rem}
+#tooltip .tip-plain{display:block;color:#d8e6f5;margin-bottom:6px}
+#tooltip .tip-tech{display:block;color:#6a8aaa;font-size:.66rem;padding-top:5px;border-top:1px dashed #2a3a50}
+#tooltip .tip-tech b{color:#8aa8c8;font-weight:600}
+
+/* ── SVG arrows ── */
+.flow-path{opacity:.4;transition:opacity .2s}
+.flow-path.dimmed{opacity:.04}
+
+/* ── Help hint ── */
+.hint{font-size:.68rem;color:#3a5570;padding:.35rem 1.5rem;border-top:1px solid #1c2535;background:#0b1018;flex-shrink:0}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>NFL Dashboard — Data Flow</h1>
+    <div class="subtitle">Drag any node to rearrange &nbsp;·&nbsp; Hover a node for a plain-English explanation</div>
+  </div>
+  <div class="legend" id="legend">
+    <div class="legend-item" data-cat="odds"    style="--cat-color:#3b9eff"><div class="legend-dot"></div>Odds</div>
+    <div class="legend-item" data-cat="player"  style="--cat-color:#ff7c3b"><div class="legend-dot"></div>Player / Injury</div>
+    <div class="legend-item" data-cat="intel"   style="--cat-color:#b06bff"><div class="legend-dot"></div>Research Intel</div>
+    <div class="legend-item" data-cat="podcast" style="--cat-color:#00d2be"><div class="legend-dot"></div>Podcast Pipeline</div>
+    <div class="legend-item" data-cat="ai"      style="--cat-color:#ffcc44"><div class="legend-dot"></div>AI / Agent</div>
+    <div class="legend-item" data-cat="user"    style="--cat-color:#44e87a"><div class="legend-dot"></div>User Picks</div>
+    <div class="legend-item" data-cat="meta"    style="--cat-color:#778899"><div class="legend-dot"></div>Ops / Schedule</div>
+  </div>
+  <div class="filter-bar">
+    <button class="filter-btn active" id="btn-all" onclick="setFilter('all')">All</button>
+    <button class="filter-btn" onclick="setFilter('odds')">Odds</button>
+    <button class="filter-btn" onclick="setFilter('podcast')">Podcast</button>
+    <button class="filter-btn" onclick="setFilter('intel')">Intel</button>
+    <button class="filter-btn" onclick="setFilter('ai')">AI Agent</button>
+    <button class="reset-btn" onclick="resetLayout()">Reset Layout</button>
+  </div>
+</header>
+
+<div id="tooltip"></div>
+
+<div id="canvas-wrap">
+<div id="diagram">
+<svg id="arrows-svg"><defs>
+  <marker id="ah-odds"    markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#3b9eff"/></marker>
+  <marker id="ah-player"  markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#ff7c3b"/></marker>
+  <marker id="ah-intel"   markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#b06bff"/></marker>
+  <marker id="ah-podcast" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#00d2be"/></marker>
+  <marker id="ah-ai"      markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#ffcc44"/></marker>
+  <marker id="ah-user"    markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#44e87a"/></marker>
+  <marker id="ah-meta"    markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#778899"/></marker>
+</defs></svg>
+
+<!-- Band labels — decorative orientation guides only, not containers -->
+<div class="band-label" style="left:12px;top:14px">🌐 External Sources</div>
+<div class="band-label" style="left:12px;top:170px">⚙️ GitHub Actions — Automated Ingest</div>
+<div class="band-label" style="left:12px;top:370px">🖥️ Processing + Storage</div>
+<div class="band-sublabel" style="left:12px;top:400px">M6 Server</div>
+<div class="band-sublabel" style="left:756px;top:400px">Supabase PostgreSQL</div>
+<div class="band-label" style="left:12px;top:735px">☁️ AI + Edge Functions</div>
+<div class="band-label" style="left:12px;top:825px">🖥️ React SPA — GitHub Pages</div>
+<div class="band-sublabel" style="left:12px;top:855px">Agent Tabs</div>
+<div class="band-sublabel" style="left:12px;top:945px">Data Tabs</div>
+<div class="band-sublabel" style="left:12px;top:1035px">SPA Libraries</div>
+<div class="band-label" style="left:12px;top:1120px">📤 Outputs</div>
+
+<!-- ① EXTERNAL SOURCES -->
+<div class="node cat-odds"    id="n-odds-api"  data-cat="odds"    data-x="40"  data-y="40"  data-tip-plain="Fetches the latest betting lines from sportsbooks (point spreads, over/unders, moneylines, and season-long futures) several times a day." data-tip="TheOddsAPI|Spreads, totals, moneylines, futures across 10+ markets. Polled 4×/day + hourly on game days.">TheOddsAPI<small>spreads · totals · futures</small></div>
+<div class="node cat-player"  id="n-espn"      data-cat="player"  data-x="200" data-y="40"  data-tip-plain="Pulls player injury reports and the season schedule directly from ESPN — free, no login needed." data-tip="ESPN NFL API|Injury report feed (all 32 teams roster loop) + season schedule. Free public endpoint.">ESPN API<small>injuries · schedule</small></div>
+<div class="node cat-intel"   id="n-an"        data-cat="intel"   data-x="360" data-y="40"  data-tip-plain="Grabs how the betting public and the &quot;smart money&quot; are leaning on each game, plus betting articles." data-tip="Action Network|Betting splits (% bettors / % money) + editorial intel RSS. Public API + RSS.">Action Network<small>splits · intel RSS</small></div>
+<div class="node cat-intel"   id="n-x"         data-cat="intel"   data-x="520" data-y="40"  data-tip-plain="Follows well-known sharp bettors and analysts on X (like Warren Sharp and PFF) without needing an X account." data-tip="RSSHub / X Sharp Accounts|8 accounts: Warren Sharp, PFF, VSiN, FantasyDouche etc. Polled via RSSHub RSS bridge.">X Sharp Accounts<small>8 accounts via RSSHub</small></div>
+<div class="node cat-podcast" id="n-pod-rss"   data-cat="podcast" data-x="680" data-y="40"  data-tip-plain="Watches 36 football betting podcasts and notices as soon as a new episode drops." data-tip="Podcast RSS Feeds|36 shows tracked in podcast_feeds table. GHA fetches episode audio URLs and triggers M6 ingest.">Podcast RSS<small>36 shows / experts</small></div>
+<div class="node cat-meta"    id="n-nflverse"  data-cat="meta"    data-x="840" data-y="40"  data-tip-plain="Downloads historical play-by-play stats (back to 2019) used to figure out team and coach tendencies." data-tip="nflverse CDN|Historical PBP Parquet files (2019–present). Seeded seasonally via seed-historical-stats.py into nfl_team_season_stats.">nflverse CDN<small>PBP Parquet</small></div>
+<div class="node cat-user"    id="n-user"      data-cat="user"    data-x="1000" data-y="40" data-tip-plain="You — typing in a bet by hand, uploading a spreadsheet of past bets, or uploading an audio file to transcribe." data-tip="User Input|Manual bet entry, bulk CSV import, audio upload for ad-hoc podcast transcription, DFS lineup building.">👤 User<small>manual entry · audio</small></div>
+
+<!-- ② GITHUB ACTIONS INGEST -->
+<div class="node cat-odds"    id="n-gi-odds"   data-cat="odds"    data-x="40"  data-y="200" data-tip-plain="A robot that checks TheOddsAPI for updated point spreads and totals, several times a day." data-tip="game-odds-ingest.js|Fetches spreads / totals / h2h from TheOddsAPI. Appends to game_odds_snapshots. Runs 4×/day, hourly on Thu/Sun/Mon.">game-odds-ingest<small>4×/day · hourly game days</small></div>
+<div class="node cat-odds"    id="n-gi-fut"    data-cat="odds"    data-x="215" data-y="200" data-tip-plain="A robot that checks for updated season-long futures odds, like who wins the Super Bowl." data-tip="futures-odds-ingest.js|10 markets: SB, AFC/NFC, 8 divisions, 6 award markets. Upserts to futures_odds_snapshots.">futures-odds-ingest<small>10 markets</small></div>
+<div class="node cat-player"  id="n-gi-inj"    data-cat="player"  data-x="390" data-y="200" data-tip-plain="A robot that checks ESPN every day for updated player injury statuses." data-tip="injury-ingest.js|Polls ESPN roster loop for all 32 teams. Upserts on espn_injury_id. Runs daily + pre-game days.">injury-ingest<small>daily · pre-game</small></div>
+<div class="node cat-meta"    id="n-gi-sched"  data-cat="meta"    data-x="565" data-y="200" data-tip-plain="Sets up the season's full game schedule, one time, at the start of the year." data-tip="schedule-ingest.js|One-time season setup. 272 games into games table with deterministic game_id. Also writes public/schedule.json.">schedule-ingest<small>seasonal setup</small></div>
+<div class="node cat-odds"    id="n-gi-splits" data-cat="odds"    data-x="740" data-y="200" data-tip-plain="A robot that checks how the betting public is leaning on each game, updated every couple hours on game days." data-tip="betting-splits-ingest.js|Action Network public API. Spread/total/ML home % for bettors + money. Upserts game_splits on game_id.">splits-ingest<small>2h on game days</small></div>
+<div class="node cat-intel"   id="n-gi-intel"  data-cat="intel"   data-x="915" data-y="200" data-tip-plain="A robot that collects betting articles and analyst intel, twice a day." data-tip="research-intel-ingest.js|AN + VSiN + ESPN NFL RSS. Article body scraping (4000-char cap). FTS tsvector. NFL keyword filter (36 terms). 09:00 + 21:00 UTC.">intel-ingest<small>09:00 + 21:00 UTC</small></div>
+<div class="node cat-intel"   id="n-gi-x"      data-cat="intel"   data-x="40"  data-y="290" data-tip-plain="A robot that collects new posts from the sharp-bettor accounts list." data-tip="x-sharp-ingest.js|RSSHub RSS → x_sharp_tweets. Dedup via url_hash. FTS indexed. 4h + hourly game days.">x-sharp-ingest<small>4h · hourly game days</small></div>
+<div class="node cat-podcast" id="n-gi-pod"    data-cat="podcast" data-x="215" data-y="290" data-tip-plain="Notices a new podcast episode and kicks off the transcription + analysis pipeline on the home server." data-tip="podcast-ingest.js|Fetches new episode audio URLs from RSS feeds. POSTs to M6 Fastify via HMAC-signed webhook to start the pipeline.">podcast-ingest<small>triggers M6 via HMAC</small></div>
+<div class="node cat-meta"    id="n-gi-stats"  data-cat="meta"    data-x="390" data-y="290" data-tip-plain="Copies team stats into readable notes — run once each season, not automatic." data-tip="stats-to-vault-sync.js|Reads nfl_team_season_stats, writes per-team + league vault notes. No recurring cron — run manually each season.">stats-to-vault<small>seasonal / manual</small></div>
+<div class="node cat-ai"      id="n-gi-brief"  data-cat="ai"      data-x="565" data-y="290" data-tip-plain="Every morning, gathers the day's odds, injuries, and intel, then asks Claude to write a short summary." data-tip="nfl-daily-brief.js|Morning GHA cron. Assembles odds + intel + tweets + injuries + top podcast picks from Supabase. Calls ai-proxy for Claude summary. Emails to gmail + hotmail.">nfl-daily-brief<small>morning cron → email</small></div>
+<div class="node cat-meta"    id="n-gi-grade"  data-cat="meta"    data-x="740" data-y="290" data-tip-plain="Automatically checks whether your placed bets won or lost once games finish." data-tip="nfl-auto-grade.js|Grades pending user_picks against ESPN scores. Hourly on Sun/Thu/Mon. nfl_props_picks_v1 has a parallel props-auto-grade.js.">auto-grade<small>hourly Sun/Thu/Mon</small></div>
+<div class="node cat-odds"    id="n-gi-alert"  data-cat="odds"    data-x="915" data-y="290" data-tip-plain="Watches for sudden, meaningful line moves — a sign that &quot;sharp&quot; money is betting — and flags it." data-tip="line-move-alert.js|Runs as systemd timer on M6. Detects significant line moves in game_odds_snapshots. Notifies via configured channel.">line-move-alert<small>systemd on M6</small></div>
+
+<!-- ③ M6 SERVER -->
+<div class="node cat-podcast" id="n-m6-svc"    data-cat="podcast" data-x="40"  data-y="430" data-tip-plain="The traffic cop on the home server — receives the &quot;new episode&quot; signal and manages the whole job from start to finish." data-tip="m6-podcast-service|Fastify server on :5060. Receives HMAC-signed webhook from GHA. Manages run lifecycle via runRegistry. Exposes /health, /run, /digest/*, /share/*.">Fastify :5060<small>run lifecycle + routes</small></div>
+<div class="node cat-podcast" id="n-m6-trans"  data-cat="podcast" data-x="200" data-y="430" data-tip-plain="Listens to the podcast audio and converts the speech into text." data-tip="transcribe.py|faster-whisper large-v3 on CPU (int8). Produces raw transcript + optional --diarize flag to pipe through diarize.py.">transcribe.py<small>faster-whisper</small></div>
+<div class="node cat-podcast" id="n-m6-diar"   data-cat="podcast" data-x="360" data-y="430" data-tip-plain="Figures out who is talking and labels each part of the transcript with the speaker's name." data-tip="diarize.py|pyannote 4.x speaker-diarization-3.0. Labels transcript with [MM:SS] Speaker: prefixes. PLDA patch required after venv rebuild.">diarize.py<small>pyannote 4.x</small></div>
+<div class="node cat-podcast" id="n-m6-ext"    data-cat="podcast" data-x="520" data-y="430" data-tip-plain="Reads the transcript and pulls out the actual picks (team, bet type, odds) and betting insights mentioned." data-tip="extract.py|LLM pick + intel extraction. Accepts labeled_transcript for speaker attribution. Per-pick schema: category, selection, line, odds, summary, units, confidence, quality_score.">extract.py<small>LLM pick extraction</small></div>
+<div class="node cat-ai"      id="n-m6-llm"    data-cat="ai"      data-x="40"  data-y="520" data-tip-plain="The AI model that does the actual reading and pick-extraction — runs locally on the server for free." data-tip="Local LLM (Ollama)|Qwen2.5:3b on M6 CPU. Used by extract.py for pick extraction. ~3 GB RAM. Falls back to GPT-4o via ai-proxy if quality gate fails.">Local LLM<small>Qwen / Ollama</small></div>
+<div class="node cat-podcast" id="n-m6-render" data-cat="podcast" data-x="200" data-y="520" data-tip-plain="Takes the finished picks and notes and builds the actual web pages you look at." data-tip="render/index.js|buildRenderer({supabase,cfg}). Reads all done episodes. Writes episodes/&lt;id&gt;.html, experts/&lt;slug&gt;.html, experts/&lt;slug&gt;/&lt;week&gt;.html, weekly/&lt;week&gt;.html. Atomic writes (*.tmp → rename).">render/index.js<small>static HTML builder</small></div>
+<div class="node cat-podcast" id="n-m6-disk"   data-cat="podcast" data-x="360" data-y="520" data-tip-plain="Where the finished web pages actually live, saved on the server's hard drive." data-tip="/var/lib/nfl/digest/|On-disk HTML files. 3 subtrees: episodes/, experts/, weekly/. Written atomically. Served by /digest/* (tailnet) and /share/* (Funnel).">digest/ on disk<small>/var/lib/nfl/digest/</small></div>
+<div class="node cat-podcast" id="n-m6-dig"    data-cat="podcast" data-x="40"  data-y="610" data-tip-plain="The private web address — only reachable from your own devices — where you view a digest page." data-tip="GET /digest/*|Tailscale-only routes. ETag conditional GET. Path traversal defense. Requires tailnet connection to access.">GET /digest/*<small>Tailscale-only</small></div>
+<div class="node cat-podcast" id="n-m6-share"  data-cat="podcast" data-x="200" data-y="610" data-tip-plain="The public web address used to share a digest page with someone outside the family, via a time-limited link." data-tip="GET /share/*|Funnel-exposed public routes. Per-token TTL cache in shareGuard(). Opaque 403 on all rejections. recordView() audit trail (IP /24 truncated).">GET /share/*<small>Funnel — public</small></div>
+
+<!-- ③ SUPABASE -->
+<div class="node cat-odds"   id="n-t-games"  data-cat="odds"    data-x="756"  data-y="430" data-tip-plain="The master list of every game happening this season." data-tip="games|272 games, 2026 season spine. Deterministic game_id. Powers team normalization across all joins.">games<small>schedule spine</small></div>
+<div class="node cat-odds"   id="n-t-godd"   data-cat="odds"    data-x="916"  data-y="430" data-tip-plain="A running history of every odds update for every game, so you can see how a line moved over time." data-tip="game_odds_snapshots|Append-only time series. Spread/total/h2h per book per game. GIN indexes on game_id+market.">game_odds_snapshots<small>time-series</small></div>
+<div class="node cat-odds"   id="n-t-fuod"   data-cat="odds"    data-x="1076" data-y="430" data-tip-plain="A running history of season-long futures odds (Super Bowl, conference, division, awards) over time." data-tip="futures_odds_snapshots|10 markets (SB, conf, div, 6 awards). Upsert on market_type+team+book+snapshot_time.">futures_odds_snapshots<small>10 markets</small></div>
+<div class="node cat-odds"   id="n-t-split"  data-cat="odds"    data-x="1236" data-y="430" data-tip-plain="How the betting public and the smart money are leaning on each game." data-tip="game_splits|Action Network % bettors / % money for spread, total, ML per game. Upsert on game_id.">game_splits<small>AN %bettors/%money</small></div>
+<div class="node cat-intel"  id="n-t-intel"  data-cat="intel"   data-x="756"  data-y="520" data-tip-plain="Saved articles and podcast intel that you (or the AI) can search by keyword." data-tip="research_intel_notes|Articles + podcast intel. FTS tsvector with GIN index. body field (4000-char scraped). RLS: public read.">research_intel_notes<small>FTS · body scraped</small></div>
+<div class="node cat-intel"  id="n-t-tweet"  data-cat="intel"   data-x="916"  data-y="520" data-tip-plain="Saved posts from the sharp-bettor accounts, searchable by keyword." data-tip="x_sharp_tweets|Sharp account tweets. FTS. Dedup on url_hash. RLS public read.">x_sharp_tweets<small>FTS · dedup</small></div>
+<div class="node cat-intel"  id="n-t-vault"  data-cat="intel"   data-x="1076" data-y="520" data-tip-plain="Notes shared between this app and your Obsidian notebook — things like coaching tendencies or team stats." data-tip="vault_notes|Dual-backend: Supabase + Obsidian. FTS. source CHECK: manual|obsidian_sync|agent. Used for coaching tendencies, team stats, DVOA, podcast episode notes.">vault_notes<small>FTS · dual-backend</small></div>
+<div class="node cat-player" id="n-t-inj"    data-cat="player"  data-x="756"  data-y="610" data-tip-plain="The latest injury status for every player." data-tip="player_injuries|Upsert on espn_injury_id. All status tiers (Out/Doubtful/Q/Probable/IR/PUP). captured_at timestamp.">player_injuries<small>ESPN upsert</small></div>
+<div class="node cat-meta"   id="n-t-stats"  data-cat="meta"    data-x="916"  data-y="610" data-tip-plain="Team performance stats pulled from historical play-by-play data." data-tip="nfl_team_season_stats|192 rows (32 teams × 6 seasons). Includes shotgun_rate, no_huddle_rate, pass_rate from nflverse PBP.">team_season_stats<small>nflverse PBP</small></div>
+<div class="node cat-user"   id="n-t-picks"  data-cat="user"    data-x="1076" data-y="610" data-tip-plain="Every bet you've placed, plus whether it won or lost." data-tip="user_picks|All manual + imported bets. RLS per user. Graded by auto-grade.js. Source of truth for performance analytics.">user_picks<small>bets · graded</small></div>
+<div class="node cat-user"   id="n-t-futures"data-cat="user"    data-x="1236" data-y="610" data-tip-plain="Your season-long futures bets — Super Bowl, division winners, and the like." data-tip="user_futures|Futures portfolio positions. Used by HedgeCalculator and FuturesPortfolio tab.">user_futures<small>futures portfolio</small></div>
+<div class="node cat-podcast" id="n-t-feeds" data-cat="podcast" data-x="756"  data-y="700" data-tip-plain="The list of 36 podcasts being tracked." data-tip="podcast_feeds|36 shows. expert slug, display name, RSS URL, quality tier. Joined to episodes for renderer.">podcast_feeds<small>36 shows</small></div>
+<div class="node cat-podcast" id="n-t-eps"   data-cat="podcast" data-x="916"  data-y="700" data-tip-plain="Tracks where each podcast episode is in the pipeline — waiting, transcribing, extracting, done, or errored." data-tip="podcast_episodes|Per-episode status (queued/transcribing/extracting/done/error), is_partial flag, quality scores, extraction model.">podcast_episodes<small>status · quality</small></div>
+<div class="node cat-podcast" id="n-t-trans" data-cat="podcast" data-x="1076" data-y="700" data-tip-plain="The actual transcript, extracted picks, and betting insights for each episode." data-tip="podcast_transcripts|picks (JSONB array) + intel (text array). Per-pick: category, selection, line, odds, summary, units, confidence, quality_score, needs_review.">podcast_transcripts<small>picks JSONB · intel</small></div>
+<div class="node cat-podcast" id="n-t-share" data-cat="podcast" data-x="1236" data-y="700" data-tip-plain="The list of time-limited links used to share digest pages with people outside the family." data-tip="share_tokens|Per-partner TTL-gated tokens. Minted via scripts/share-token.js. share_views table records access audit trail with IP /24 truncation.">share_tokens<small>partner TTL tokens</small></div>
+
+<!-- ④ AI / EDGE -->
+<div class="node cat-ai" id="n-proxy"  data-cat="ai" data-x="40"  data-y="765" data-tip-plain="The switchboard for AI requests — sends them to Claude first, and automatically falls back to GPT-4o if Claude runs out of credits." data-tip="ai-proxy (Edge Function)|Supabase Edge Function. Routes to Claude (primary) → GPT-4o (fallback on credit error). CORS handled. isCreditError() detection in anthropicClient.js.">ai-proxy<small>Claude → GPT-4o fallback</small></div>
+<div class="node cat-ai" id="n-claude" data-cat="ai" data-x="220" data-y="765" data-tip-plain="The main AI (Anthropic's Claude) that powers the chat assistants and writes the daily summary." data-tip="Anthropic Claude|claude-sonnet. Primary model for all agent turns (BETTING, FUTURES, PROPS, daily brief). Auto-fallback when credits exhausted.">Anthropic Claude<small>claude-sonnet (primary)</small></div>
+<div class="node cat-ai" id="n-gpt4o"  data-cat="ai" data-x="400" data-y="765" data-tip-plain="The backup AI, used only if Claude is temporarily unavailable." data-tip="OpenAI GPT-4o|Fallback when Anthropic credits exhausted. isCreditError() triggers auto-switch. activeModelLabel shown in AgentChat UI.">OpenAI GPT-4o<small>credit-error fallback</small></div>
+
+<!-- ⑤ REACT SPA — Agent Tabs -->
+<div class="node cat-ai"   id="n-spa-bet"   data-cat="ai"   data-x="40"  data-y="885" data-tip-plain="The chat assistant on the Betting tab — it can look up odds, injuries, and intel to help you decide on a bet." data-tip="BETTING Agent (AgentChat.jsx)|14+ tools. Loads injuries, game odds, intel, tweets, splits, vault notes at session mount. buildSystemPrompt() assembles full context. Auto-switches model on credit error.">BETTING Agent<small>14+ tools</small></div>
+<div class="node cat-ai"   id="n-spa-fut"   data-cat="ai"   data-x="220" data-y="885" data-tip-plain="The chat assistant on the Futures tab — helps with season-long bets like Super Bowl or division winners." data-tip="FUTURES Agent (FuturesAgentChat.jsx)|analyze_futures_hedge, project_division_paths, track_award_race + podcast vault tools. Season-arc prompt. Reads futures_odds_snapshots.">FUTURES Agent<small>hedge · div · awards</small></div>
+<div class="node cat-ai"   id="n-spa-props" data-cat="ai"   data-x="400" data-y="885" data-tip-plain="The chat assistant on the Player Props tab." data-tip="PROPS Agent (PropsAgentChat.jsx)|Player props tools. Reads player_stats (degrades gracefully if table absent). Props auto-grade via separate GHA workflow.">PROPS Agent<small>player props</small></div>
+
+<!-- ⑤ REACT SPA — Data Tabs -->
+<div class="node cat-odds"    id="n-spa-odds"  data-cat="odds"    data-x="40"  data-y="975" data-tip-plain="The screen where you browse live odds, see how a line has moved, and spot arbitrage or steam moves." data-tip="Odds Center (LiveOddsDashboard.jsx)|Reads game_odds_snapshots. Live odds, line history, arbitrage finder, steam move tracker. Sub-tab routing.">Odds Center<small>live odds · arb finder</small></div>
+<div class="node cat-odds"    id="n-spa-fport" data-cat="odds"    data-x="220" data-y="975" data-tip-plain="Where you track your season-long futures bets and calculate hedges against them." data-tip="Futures Portfolio + Watch List|user_futures + futures_odds_snapshots. HedgeCalculator. FuturesWatchList. PlayoffBracket.">Futures Portfolio<small>portfolio · hedge calc</small></div>
+<div class="node cat-user"    id="n-spa-picks" data-cat="user"    data-x="400" data-y="975" data-tip-plain="Where you log your bets and see how you're doing — win rate, profit, and trends." data-tip="Picks Tracker + Analytics|Manual entry via BetEntryModal. Bulk import. Auto-grade display. Analytics dashboard: ROI / units / book analysis / trends.">Picks Tracker<small>entry · analytics</small></div>
+<div class="node cat-user"    id="n-spa-dfs"   data-cat="user"    data-x="580" data-y="975" data-tip-plain="A tool to help build daily fantasy sports lineups." data-tip="DFS Optimizer (DFSOptimizer.jsx)|DK/FD platform toggle. Greedy optimizer with lock/exclude. Save lineups. No live projection feed wired yet.">DFS Optimizer<small>DK / FD lineups</small></div>
+<div class="node cat-podcast" id="n-spa-pod"   data-cat="podcast" data-x="760" data-y="975" data-tip-plain="Where you browse podcast episodes and open their digest pages." data-tip="Podcast Digest Tab (PodcastDigestTab.jsx)|Lists episodes from Supabase. Open digest button (requires VITE_M6_BASE on tailnet). Copy share link for partner access. Import picks flow.">Podcast Digest<small>episodes · digest · share</small></div>
+
+<!-- ⑤ REACT SPA — Libraries -->
+<div class="node cat-meta" id="n-supa-lib" data-cat="meta" data-x="40"  data-y="1065" data-tip-plain="Behind-the-scenes code that fetches data from the database so the website can display it." data-tip="supabase.js|30+ typed query helpers. All reads use anon RLS key. Writes use service-role in agents. getRecentPlayerInjuries, buildInjurySummary, getLatestWeekOdds, buildOddsSummary, searchResearchIntel, etc.">supabase.js<small>30+ query helpers</small></div>
+<div class="node cat-ai"   id="n-tool-lib" data-cat="ai"   data-x="220" data-y="1065" data-tip-plain="Behind-the-scenes code that gives the AI chat assistants their &quot;tools&quot; — the ability to look things up." data-tip="agentTools.js|Tool executor. BETTING_TOOLS (14), PODCAST_INTEL_TOOLS (6), FUTURES_TOOLS (3 + spread). Each tool: schema + async handler. Injected into agent turns.">agentTools.js<small>tool executor</small></div>
+<div class="node cat-intel" id="n-vault-cli" data-cat="intel" data-x="400" data-y="1065" data-tip-plain="Behind-the-scenes code that reads and writes notes, either from the database or your Obsidian notebook." data-tip="vaultClient.js|Dual backend: SupabaseVaultBackend (default) or ObsidianRESTBackend. Switch via VITE_VAULT_BACKEND. read_vault_note + write_vault_note scoped to NFL/ path.">vaultClient.js<small>Supabase / Obsidian</small></div>
+
+<!-- ⑥ OUTPUTS -->
+<div class="node cat-ai"      id="n-out-email"   data-cat="ai"      data-x="40"  data-y="1150" data-tip-plain="The daily summary email that lands in your inbox each morning." data-tip="Daily Brief Email|Sent by nfl-daily-brief.js via GHA. Recipients: gmail + hotmail. Covers odds, injuries, intel, tweets, top podcast picks. Claude-written narrative summary.">📧 Daily Brief Email<small>gmail + hotmail</small></div>
+<div class="node cat-podcast" id="n-out-digest"  data-cat="podcast" data-x="230" data-y="1150" data-tip-plain="The finished podcast summary web pages." data-tip="Static Digest Pages|episodes/&lt;id&gt;.html · experts/&lt;slug&gt;.html · experts/&lt;slug&gt;/&lt;week&gt;.html · weekly/&lt;week&gt;.html. Self-contained, no JS, dark theme. Served from M6 disk.">📄 Digest Pages<small>episodes / experts / weekly</small></div>
+<div class="node cat-podcast" id="n-out-share"   data-cat="podcast" data-x="420" data-y="1150" data-tip-plain="Shareable links for digest pages, sent to people outside the family." data-tip="Partner Share Links|Signed TTL-gated URLs via /share/* Funnel. Minted for Patrick + Amanda. Audit-logged. Opaque 403 on expiry/invalid.">🔗 Share Links<small>Patrick · Amanda</small></div>
+<div class="node cat-intel"   id="n-out-vault"   data-cat="intel"   data-x="610" data-y="1150" data-tip-plain="Notes saved into your Obsidian notebook." data-tip="Obsidian Vault|Rosies_Brain vault on Windows. Vault notes synced via vaultClient.js (ObsidianRESTBackend) or manually via obsidian-vault-sync.js. Used by ATLAS agents.">📓 Obsidian Vault<small>Rosies_Brain</small></div>
+<div class="node cat-odds"    id="n-out-alert"   data-cat="odds"    data-x="800" data-y="1150" data-tip-plain="A notification when betting lines move significantly — a sign sharp money is in play." data-tip="Line Move Alerts|systemd timer on M6. Significant line moves in game_odds_snapshots trigger notification. Catches sharp money movement.">🔔 Line Alerts<small>significant moves</small></div>
+<div class="node cat-ai"      id="n-out-agent"   data-cat="ai"      data-x="990" data-y="1150" data-tip-plain="The written responses from the AI chat assistants, shown right in the app." data-tip="Agent Chat Responses|Claude (or GPT-4o) responses rendered in BETTING / FUTURES / PROPS tabs. react-markdown + remark-gfm. ToolCallCard shows tool usage. activeModelLabel shows current provider.">💬 Agent Responses<small>BETTING · FUTURES · PROPS</small></div>
+
+</div><!-- /diagram -->
+</div><!-- /canvas-wrap -->
+
+<div class="hint">Layout is saved automatically in this browser · use <strong>Reset Layout</strong> to restore the default arrangement</div>
+
+<script>
+// ── Node metadata (plain-English + technical detail) ────────────────────────
+const nodeData = {};
+document.querySelectorAll('.node').forEach(el => {
+  const techRaw = el.dataset.tip || '';
+  const sep = techRaw.indexOf('|');
+  const title = sep === -1 ? techRaw : techRaw.slice(0, sep);
+  const tech  = sep === -1 ? ''      : techRaw.slice(sep + 1);
+  nodeData[el.id] = {
+    cat: el.dataset.cat,
+    title: title || el.id,
+    plain: el.dataset.tipPlain || '',
+    tech: tech || '',
+  };
+});
+
+// ── Tooltip ────────────────────────────────────────────────────────────────
+const tip = document.getElementById('tooltip');
+let isDragging = false;
+
+document.querySelectorAll('.node').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    if (isDragging) return;
+    const d = nodeData[el.id];
+    if (!d) return;
+    tip.innerHTML = `<strong>${d.title}</strong>` +
+      `<span class="tip-plain">${d.plain}</span>` +
+      `<span class="tip-tech"><b>Technical:</b> ${d.tech}</span>`;
+    tip.classList.add('visible');
+  });
+  el.addEventListener('mousemove', e => {
+    if (isDragging) return;
+    const x = e.clientX + 16, y = e.clientY + 16;
+    tip.style.left = Math.min(x, window.innerWidth - 300) + 'px';
+    tip.style.top  = Math.min(y, window.innerHeight - 160) + 'px';
+  });
+  el.addEventListener('mouseleave', () => tip.classList.remove('visible'));
+});
+
+// ── Connection definitions [from, to, cat] ─────────────────────────────────
+const CONNS = [
+  // External → GHA
+  ['n-odds-api',  'n-gi-odds',   'odds'],
+  ['n-odds-api',  'n-gi-fut',    'odds'],
+  ['n-espn',      'n-gi-inj',    'player'],
+  ['n-espn',      'n-gi-sched',  'meta'],
+  ['n-an',        'n-gi-splits', 'odds'],
+  ['n-an',        'n-gi-intel',  'intel'],
+  ['n-x',         'n-gi-x',      'intel'],
+  ['n-pod-rss',   'n-gi-pod',    'podcast'],
+  ['n-nflverse',  'n-gi-stats',  'meta'],
+
+  // GHA → Supabase
+  ['n-gi-odds',   'n-t-godd',    'odds'],
+  ['n-gi-fut',    'n-t-fuod',    'odds'],
+  ['n-gi-inj',    'n-t-inj',     'player'],
+  ['n-gi-sched',  'n-t-games',   'meta'],
+  ['n-gi-splits', 'n-t-split',   'odds'],
+  ['n-gi-intel',  'n-t-intel',   'intel'],
+  ['n-gi-x',      'n-t-tweet',   'intel'],
+  ['n-gi-stats',  'n-t-stats',   'meta'],
+  ['n-gi-stats',  'n-t-vault',   'intel'],
+  ['n-gi-grade',  'n-t-picks',   'user'],
+
+  // GHA → M6
+  ['n-gi-pod',    'n-m6-svc',    'podcast'],
+
+  // M6 pipeline
+  ['n-m6-svc',    'n-m6-trans',  'podcast'],
+  ['n-m6-trans',  'n-m6-diar',   'podcast'],
+  ['n-m6-diar',   'n-m6-ext',    'podcast'],
+  ['n-m6-ext',    'n-m6-llm',    'ai'],
+  ['n-m6-ext',    'n-t-eps',     'podcast'],
+  ['n-m6-ext',    'n-t-trans',   'podcast'],
+  ['n-m6-ext',    'n-t-vault',   'podcast'],
+  ['n-t-eps',     'n-m6-render', 'podcast'],
+  ['n-t-trans',   'n-m6-render', 'podcast'],
+  ['n-t-feeds',   'n-m6-render', 'podcast'],
+  ['n-m6-render', 'n-m6-disk',   'podcast'],
+  ['n-m6-disk',   'n-m6-dig',    'podcast'],
+  ['n-m6-disk',   'n-m6-share',  'podcast'],
+  ['n-t-share',   'n-m6-share',  'podcast'],
+
+  // Daily brief
+  ['n-t-godd',    'n-gi-brief',  'ai'],
+  ['n-t-intel',   'n-gi-brief',  'ai'],
+  ['n-t-tweet',   'n-gi-brief',  'ai'],
+  ['n-t-inj',     'n-gi-brief',  'ai'],
+  ['n-t-trans',   'n-gi-brief',  'ai'],
+
+  // Alerts
+  ['n-t-godd',    'n-gi-alert',  'odds'],
+
+  // Supabase → SPA lib
+  ['n-t-godd',    'n-supa-lib',  'odds'],
+  ['n-t-fuod',    'n-supa-lib',  'odds'],
+  ['n-t-intel',   'n-supa-lib',  'intel'],
+  ['n-t-tweet',   'n-supa-lib',  'intel'],
+  ['n-t-inj',     'n-supa-lib',  'player'],
+  ['n-t-split',   'n-supa-lib',  'odds'],
+  ['n-t-vault',   'n-supa-lib',  'intel'],
+  ['n-t-trans',   'n-supa-lib',  'podcast'],
+  ['n-t-eps',     'n-supa-lib',  'podcast'],
+  ['n-t-picks',   'n-supa-lib',  'user'],
+  ['n-t-stats',   'n-supa-lib',  'meta'],
+
+  // SPA lib → UI
+  ['n-supa-lib',  'n-tool-lib',  'ai'],
+  ['n-supa-lib',  'n-spa-odds',  'odds'],
+  ['n-supa-lib',  'n-spa-fport', 'odds'],
+  ['n-supa-lib',  'n-spa-picks', 'user'],
+  ['n-supa-lib',  'n-spa-pod',   'podcast'],
+  ['n-tool-lib',  'n-spa-bet',   'ai'],
+  ['n-tool-lib',  'n-spa-fut',   'ai'],
+  ['n-tool-lib',  'n-spa-props', 'ai'],
+  ['n-tool-lib',  'n-vault-cli', 'intel'],
+  ['n-vault-cli', 'n-t-vault',   'intel'],
+  ['n-vault-cli', 'n-out-vault', 'intel'],
+
+  // Agent → AI proxy
+  ['n-spa-bet',   'n-proxy',     'ai'],
+  ['n-spa-fut',   'n-proxy',     'ai'],
+  ['n-spa-props', 'n-proxy',     'ai'],
+  ['n-gi-brief',  'n-proxy',     'ai'],
+  ['n-proxy',     'n-claude',    'ai'],
+  ['n-proxy',     'n-gpt4o',     'ai'],
+  ['n-claude',    'n-proxy',     'ai'],
+  ['n-gpt4o',     'n-proxy',     'ai'],
+  ['n-proxy',     'n-spa-bet',   'ai'],
+  ['n-proxy',     'n-spa-fut',   'ai'],
+  ['n-proxy',     'n-spa-props', 'ai'],
+
+  // User inputs
+  ['n-user',      'n-spa-picks', 'user'],
+  ['n-user',      'n-spa-dfs',   'user'],
+  ['n-user',      'n-spa-bet',   'ai'],
+  ['n-user',      'n-spa-pod',   'podcast'],
+
+  // SPA writes → Supabase
+  ['n-spa-picks', 'n-t-picks',   'user'],
+  ['n-spa-fport', 'n-t-futures', 'user'],
+  ['n-spa-pod',   'n-m6-svc',    'podcast'],
+
+  // M6 → Podcast Tab
+  ['n-m6-dig',    'n-spa-pod',   'podcast'],
+
+  // Outputs
+  ['n-gi-brief',  'n-out-email',  'ai'],
+  ['n-m6-disk',   'n-out-digest', 'podcast'],
+  ['n-m6-share',  'n-out-share',  'podcast'],
+  ['n-gi-alert',  'n-out-alert',  'odds'],
+  ['n-proxy',     'n-out-agent',  'ai'],
+];
+
+// ── Cat colours ────────────────────────────────────────────────────────────
+const CAT_COLOR = {
+  odds:    '#3b9eff',
+  player:  '#ff7c3b',
+  intel:   '#b06bff',
+  podcast: '#00d2be',
+  ai:      '#ffcc44',
+  user:    '#44e87a',
+  meta:    '#778899',
+};
+
+// ── Layout: default positions + persistence ────────────────────────────────
+const STORAGE_KEY = 'nfl-dataflow-layout-v1';
+const diagram = document.getElementById('diagram');
+
+function loadSavedLayout() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+  } catch (e) {
+    return {};
+  }
+}
+
+function savePositions() {
+  const positions = {};
+  document.querySelectorAll('.node').forEach(el => {
+    positions[el.id] = {
+      left: parseFloat(el.style.left) || 0,
+      top:  parseFloat(el.style.top)  || 0,
+    };
+  });
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(positions)); } catch (e) {}
+}
+
+function applyLayout() {
+  const saved = loadSavedLayout();
+  document.querySelectorAll('.node').forEach(el => {
+    const s = saved[el.id];
+    if (s) {
+      el.style.left = s.left + 'px';
+      el.style.top  = s.top  + 'px';
+    } else {
+      el.style.left = (el.dataset.x || 0) + 'px';
+      el.style.top  = (el.dataset.y || 0) + 'px';
+    }
+  });
+}
+
+function resetLayout() {
+  try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+  document.querySelectorAll('.node').forEach(el => {
+    el.style.left = (el.dataset.x || 0) + 'px';
+    el.style.top  = (el.dataset.y || 0) + 'px';
+  });
+  drawArrows();
+}
+
+// ── Draggable nodes ──────────────────────────────────────────────────────────
+function makeDraggable(el) {
+  el.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    el.setPointerCapture(e.pointerId);
+    el.classList.add('dragging');
+    isDragging = true;
+    tip.classList.remove('visible');
+
+    const startX = e.clientX, startY = e.clientY;
+    const origLeft = parseFloat(el.style.left) || 0;
+    const origTop  = parseFloat(el.style.top)  || 0;
+
+    function onMove(ev) {
+      const dx = ev.clientX - startX;
+      const dy = ev.clientY - startY;
+      let newLeft = origLeft + dx;
+      let newTop  = origTop  + dy;
+      newLeft = Math.max(0, Math.min(newLeft, diagram.offsetWidth  - el.offsetWidth));
+      newTop  = Math.max(0, Math.min(newTop,  diagram.offsetHeight - el.offsetHeight));
+      el.style.left = newLeft + 'px';
+      el.style.top  = newTop  + 'px';
+      drawArrows();
+    }
+    function onUp(ev) {
+      el.classList.remove('dragging');
+      isDragging = false;
+      try { el.releasePointerCapture(e.pointerId); } catch (err) {}
+      document.removeEventListener('pointermove', onMove);
+      document.removeEventListener('pointerup', onUp);
+      savePositions();
+    }
+    document.addEventListener('pointermove', onMove);
+    document.addEventListener('pointerup', onUp);
+  });
+}
+
+document.querySelectorAll('.node').forEach(makeDraggable);
+
+// ── Draw arrows ─────────────────────────────────────────────────────────────
+const svg = document.getElementById('arrows-svg');
+let pathEls = [];
+
+function nodeCenter(id) {
+  const el = document.getElementById(id);
+  if (!el) return null;
+  const r = el.getBoundingClientRect();
+  const dr = diagram.getBoundingClientRect();
+  return {
+    x: r.left - dr.left + r.width / 2,
+    y: r.top  - dr.top  + r.height / 2,
+    top:    r.top    - dr.top,
+    bottom: r.bottom - dr.top,
+    left:   r.left   - dr.left,
+    right:  r.right  - dr.left,
+  };
+}
+
+function cubicPath(ax, ay, bx, by) {
+  const dy = by - ay;
+  const dx = bx - ax;
+  const cp1x = ax + dx * 0.4;
+  const cp1y = ay + dy * 0.1;
+  const cp2x = bx - dx * 0.4;
+  const cp2y = by - dy * 0.1;
+  return `M${ax},${ay} C${cp1x},${cp1y} ${cp2x},${cp2y} ${bx},${by}`;
+}
+
+function drawArrows() {
+  pathEls.forEach(p => p.remove());
+  pathEls = [];
+
+  CONNS.forEach(([fromId, toId, cat]) => {
+    const a = nodeCenter(fromId);
+    const b = nodeCenter(toId);
+    if (!a || !b) return;
+
+    let ax = a.x, ay = a.bottom;
+    let bx = b.x, by = b.top;
+
+    if (Math.abs(a.y - b.y) < 40) {
+      ax = a.x < b.x ? a.right : a.left;
+      ay = a.y;
+      bx = a.x < b.x ? b.left  : b.right;
+      by = b.y;
+    } else if (a.y > b.y) {
+      ax = a.x; ay = a.top;
+      bx = b.x; by = b.bottom;
+    }
+
+    const color = CAT_COLOR[cat] || '#778899';
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', cubicPath(ax, ay, bx, by));
+    path.setAttribute('stroke', color);
+    path.setAttribute('stroke-width', '1.5');
+    path.setAttribute('fill', 'none');
+    path.setAttribute('marker-end', `url(#ah-${cat})`);
+    path.setAttribute('opacity', '0.4');
+    path.classList.add('flow-path');
+    path.dataset.cat = cat;
+    path.dataset.from = fromId;
+    path.dataset.to = toId;
+    svg.appendChild(path);
+    pathEls.push(path);
+  });
+}
+
+// ── Filter / highlight ──────────────────────────────────────────────────────
+let activeFilter = 'all';
+
+function setFilter(cat) {
+  activeFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  const btn = [...document.querySelectorAll('.filter-btn')].find(b => b.textContent.toLowerCase().includes(cat) || (cat === 'all' && b.id === 'btn-all'));
+  if (btn) btn.classList.add('active');
+  applyFilter();
+}
+
+function applyFilter() {
+  const all = activeFilter === 'all';
+  document.querySelectorAll('.node').forEach(n => {
+    if (all || n.dataset.cat === activeFilter) {
+      n.classList.remove('dimmed');
+    } else {
+      n.classList.remove('highlighted');
+      n.classList.add('dimmed');
+    }
+  });
+  pathEls.forEach(p => {
+    if (all || p.dataset.cat === activeFilter) {
+      p.setAttribute('opacity', '0.45');
+      p.classList.remove('dimmed');
+    } else {
+      p.setAttribute('opacity', '0.04');
+      p.classList.add('dimmed');
+    }
+  });
+  document.querySelectorAll('.legend-item').forEach(li => {
+    li.classList.toggle('active', !all && li.dataset.cat === activeFilter);
+  });
+}
+
+document.querySelectorAll('.legend-item').forEach(li => {
+  li.addEventListener('click', () => {
+    const cat = li.dataset.cat;
+    setFilter(activeFilter === cat ? 'all' : cat);
+  });
+});
+
+// ── Init ────────────────────────────────────────────────────────────────────
+applyLayout();
+
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(drawArrows, 80);
+});
+document.getElementById('canvas-wrap').addEventListener('scroll', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(drawArrows, 30);
+});
+
+requestAnimationFrame(() => setTimeout(drawArrows, 120));
+</script>
+</body>
+</html>
