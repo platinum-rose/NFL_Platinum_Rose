@@ -60,6 +60,7 @@ import { pathToFileURL } from 'node:url';
 import { createClient } from '@supabase/supabase-js';
 import { chunkTranscript } from './lib/chunk-text.js';
 import { buildSpeakerMap, applySpeakerMap, buildLabeledTranscript, loadShowConfig } from './lib/speaker-attribution.js';
+import { ensureObsidianReachable } from './lib/obsidian-launch.js';
 
 // ─── Config / args ────────────────────────────────────────────────────────────
 
@@ -336,6 +337,8 @@ async function runVaultSync(supabase) {
   console.log('PodcastHostSummaryAgent --vault-sync start');
   console.log(`  model=${MODEL} dryRun=${DRY_RUN} overwrite=${OVERWRITE}`);
 
+  if (!DRY_RUN) await ensureObsidianReachable({ url: `${OBSIDIAN_URL}/`, obsidianKey: OBSIDIAN_KEY });
+
   let sq = supabase
     .from('podcast_host_summaries')
     .select('episode_id, host, attribution_method, futures, chunk_count, vault_path')
@@ -409,6 +412,9 @@ async function main() {
   if (!NO_VAULT && !DRY_RUN && !OBSIDIAN_KEY) {
     console.error('❌ Missing OBSIDIAN_API_KEY (or pass --no-vault). Is Obsidian + Local REST API running?');
     process.exit(1);
+  }
+  if (!NO_VAULT && !DRY_RUN) {
+    await ensureObsidianReachable({ url: `${OBSIDIAN_URL}/`, obsidianKey: OBSIDIAN_KEY });
   }
 
   console.log('PodcastHostSummaryAgent start');
