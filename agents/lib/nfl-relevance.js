@@ -35,6 +35,16 @@ export const NFL_TITLE_HINTS = [
 
 export const NON_NFL_TITLE_HINTS = [
   'pga', 'golf', 'masters', 'ryder cup', 'liv golf',
+  // Named PGA Tour events -- Action Network's remaining backlog is mostly this
+  // tour's annual rotation, and none of these titles say "golf" or "pga"
+  // explicitly. Found live 2026-07-21 reviewing the task-9 dry-run: 20 of 23
+  // Action Network episodes selected were golf previews with 0 NFL content.
+  'travelers championship', 'memorial tournament', 'charles schwab challenge',
+  'byron nelson', 'truist championship', 'rbc heritage', 'valero texas open',
+  'houston open', 'valspar championship', 'players championship',
+  'arnold palmer invitational', 'john deere classic', 'canadian open',
+  'cadillac championship', 'scottish open', 'the open championship',
+  'us open betting', 'genesis invitational', 'invitational betting preview',
   'nba', 'wnba', 'basketball',
   'mlb', 'baseball', 'world series',
   'nhl', 'hockey', 'stanley cup',
@@ -43,7 +53,13 @@ export const NON_NFL_TITLE_HINTS = [
   'tennis', 'wimbledon', ' atp ', ' wta ',
   'nascar', 'formula 1', ' f1 ', 'indycar',
   'venture capital', 'venture capitalist', 'crypto', 'stock market', 'wall street',
-  'college basketball', 'cbb',
+  'college basketball', 'cbb', 'march madness', 'final four', 'sweet 16', 'elite eight',
+  // Horse racing -- Kentucky Derby / Preakness / Belmont are the Triple Crown,
+  // none of them say a sport name in the title.
+  'kentucky derby', 'preakness', 'belmont stakes', 'triple crown',
+  // Non-sport award shows that showed up in the backlog (e.g. "Academy Awards
+  // Betting Preview") -- these hosts also bet on entertainment markets.
+  'academy awards', 'oscars', 'grammys', 'emmys',
 ];
 
 /**
