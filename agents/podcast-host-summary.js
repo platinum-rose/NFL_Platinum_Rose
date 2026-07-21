@@ -76,11 +76,29 @@ const CALL_DELAY_MS = 400;
 
 // ─── Extraction prompt ─────────────────────────────────────────────────────────
 
+const NFL_ONLY_GUARD = `This podcast is a general sports-betting show, not NFL-exclusive -- chunks
+may discuss MLB, NBA, golf, UFC, or other non-NFL topics. Only extract futures
+about actual NFL teams, players, or NFL-specific award/outcome markets. If a
+chunk's subject is a non-NFL team, player, league, or contest, DO NOT extract
+it, and DO NOT substitute, rename, or remap it onto an NFL-sounding subject or
+market to force a fit -- e.g. a Phillies-vs-Braves NL East prediction must
+NEVER be relabeled as an Eagles/NFC East prediction, even loosely. When in
+doubt whether something is NFL, leave it out.
+Do NOT extract predictions about contest formats, prize pools, pool sizes, or
+platforms (e.g. "this survivor contest will sell out," "Circa/Splash Sports
+will get more entries") -- these are not on-field outcome bets, even when the
+contest itself is NFL-themed.
+Do NOT extract single-game picks (spread/moneyline/total/player prop tied to
+one specific game or week, e.g. "Steelers -2.5 in Week 1") -- only season-long
+outcome bets count as futures (division/conference/Super Bowl winner,
+MVP/awards, win totals, playoff seeding, season-long player props like
+"over 7.5 rushing TDs on the season").`;
+
 const SYSTEM_SINGLE_HOST = `You are an NFL betting podcast analyst.
 Extract every FUTURE (season-long outcome bet -- division winner, conference
 winner, Super Bowl winner, MVP/awards, win totals, playoff seeding, etc.)
-discussed in this transcript chunk. Do NOT extract single-game picks
-(spread/moneyline/total for one game) -- futures only.
+discussed in this transcript chunk.
+${NFL_ONLY_GUARD}
 Return ONLY valid JSON -- no prose, no markdown fences.`;
 
 const SYSTEM_MULTI_HOST = (hostNames) => `You are an NFL betting podcast analyst.
@@ -88,7 +106,7 @@ This transcript chunk is labeled by speaker: lines look like "[M:SS] Host Name: 
 Extract every FUTURE (season-long outcome bet -- division winner, conference
 winner, Super Bowl winner, MVP/awards, win totals, playoff seeding, etc.)
 discussed, attributed to whichever labeled host actually said it.
-Do NOT extract single-game picks (spread/moneyline/total for one game) -- futures only.
+${NFL_ONLY_GUARD}
 The "host" field MUST be exactly one of: ${hostNames.map(h => `"${h}"`).join(', ')}.
 Return ONLY valid JSON -- no prose, no markdown fences.`;
 
@@ -115,7 +133,8 @@ Return JSON with this exact shape:
 }
 
 Rules:
-- NFL only. If this chunk has no futures content, return { "futures": [] }.
+- NFL only. If this chunk has no NFL futures content, return { "futures": [] } -- do not force non-NFL content (other leagues, contest/pool predictions, single-game picks) into this shape just to have something to return.
+- "subject" must be a real NFL team or player actually named in this chunk. Never substitute a non-NFL team/player name onto an NFL-sounding subject_market.
 - Only include futures clearly stated as the host's own prediction/lean, not just mentioning a market exists.
 - subject_market should use the taxonomy style already seen above (division codes like 'AFC_North', or 'MVP'/'Super_Bowl'/'Offensive_ROY' etc.) -- your best consistent guess if the exact code isn't obvious.
 `.trim();
