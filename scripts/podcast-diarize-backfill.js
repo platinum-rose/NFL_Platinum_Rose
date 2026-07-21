@@ -24,6 +24,14 @@
 // This script logs a running estimate from podcast_episodes.duration_secs
 // before doing any paid work, and again in the dry-run preview.
 //
+// NFL relevance: selection applies the same permissive title filter
+// podcast-ingest.js uses at discovery time (agents/lib/nfl-relevance.js) so
+// non-NFL backlog episodes (found live during the first pilot run, 2026-07-20
+// — a "World Cup Final Preview" episode on Sharp or Square got selected before
+// this filter existed here) don't burn a paid diarization call. An explicit
+// --episode override bypasses this filter, same as it bypasses needs_diarization
+// and the already-diarized check — an explicit ask is always honored.
+//
 // Usage:
 //   node scripts/podcast-diarize-backfill.js --dry-run                    # preview only, no API calls
 //   node scripts/podcast-diarize-backfill.js --limit-per-show 2           # pilot batch (default)
@@ -38,6 +46,7 @@ import 'dotenv/config';
 import { createClient } from '@supabase/supabase-js';
 import { pathToFileURL } from 'node:url';
 import { transcribeWithAssemblyAI } from '../agents/lib/assemblyai-transcribe.js';
+import { isNflRelevantEpisode } from '../agents/lib/nfl-relevance.js';
 
 // ─── Config / args ────────────────────────────────────────────────────────────
 
@@ -71,8 +80,9 @@ const ASSEMBLYAI_HOURLY_RATE_USD = 0.37; // Best tier, rough order of magnitude 
  * @param {string|null} [args.showFilter]  Case-insensitive substring match on feed name.
  * @param {string|null} [args.episodeId]  If set, overrides everything else --
  *   returns just that one episode (still resolved against feeds/episodes so the
- *   caller has feed context), regardless of needs_diarization or existing
- *   speaker_segments (an explicit --episode ask is treated as "re-run this one").
+ *   caller has feed context), regardless of needs_diarization, existing
+ *   speaker_segments, or NFL-relevance (an explicit --episode ask is treated
+ *   as "re-run this one").
  * @returns {Array<{episode: Object, feed: Object}>}  Newest-first within each feed.
  */
 export function selectBackfillTargets({ feeds, episodes, transcripts, limitPerShow, showFilter = null, episodeId = null }) {
@@ -104,6 +114,12 @@ export function selectBackfillTargets({ feeds, episodes, transcripts, limitPerSh
   for (const ep of episodes) {
     if (!diarizedFeedIds.has(ep.feed_id)) continue;
     if (hasSegments.has(ep.id)) continue; // already diarized -- skip
+    // Same permissive title filter podcast-ingest.js applies at discovery time
+    // (agents/lib/nfl-relevance.js) -- applied here too so already-ingested
+    // non-NFL backlog (e.g. a "World Cup Final Preview" episode that predates
+    // or slipped past that filter) doesn't burn a paid diarization call. Found
+    // live during the first pilot run, 2026-07-20 -- see plan doc Phase 3.
+    if (!isNflRelevantEpisode(ep.title)) continue;
     if (!byFeed.has(ep.feed_id)) byFeed.set(ep.feed_id, []);
     byFeed.get(ep.feed_id).push(ep);
   }
@@ -186,12 +202,23 @@ async function main() {
     console.log(`\n  🎙 [${feed.name}] "${String(episode.title || '').slice(0, 66)}"`);
     try {
       const result = await transcribeWithAssemblyAI(episode.audio_url, { diarize: true });
-      const { error: upErr } = await supabase
+      // upsert, not update: most already-ingested episodes have NO podcast_transcripts
+      // row yet (transcript extraction is a separate, costlier step podcast-ingest.js
+      // only runs going forward, not against the historical backlog) -- a plain
+      // .update() silently matches zero rows in that case (PostgREST returns no
+      // error either way), so the paid AssemblyAI diarization result was being
+      // thrown away for any episode without a pre-existing row. Found 2026-07-21
+      // reviewing the pilot output: 7 of 10 diarized episodes never landed in the DB.
+      const { data: upData, error: upErr } = await supabase
         .from('podcast_transcripts')
-        .update({ transcript_text: result.text, speaker_segments: result.utterances })
-        .eq('episode_id', episode.id);
-      if (upErr) throw new Error(`transcript update failed: ${upErr.message}`);
-      console.log(`     ✅ updated — ${result.utterances.length} diarized turns`);
+        .upsert(
+          { episode_id: episode.id, transcript_text: result.text, speaker_segments: result.utterances },
+          { onConflict: 'episode_id' }
+        )
+        .select('episode_id');
+      if (upErr) throw new Error(`transcript upsert failed: ${upErr.message}`);
+      if (!upData?.length) throw new Error('transcript upsert reported success but wrote 0 rows');
+      console.log(`     ✅ upserted — ${result.utterances.length} diarized turns`);
       done++;
     } catch (err) {
       errors++;

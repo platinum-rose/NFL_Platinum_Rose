@@ -19,6 +19,7 @@ import { pipeline }        from 'node:stream/promises';
 import { tmpdir }          from 'node:os';
 import { join }            from 'node:path';
 import { transcribeWithAssemblyAI } from './lib/assemblyai-transcribe.js';
+import { isNflRelevantEpisode } from './lib/nfl-relevance.js';
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 
@@ -132,46 +133,10 @@ function parseRssFeed(xml) {
 // ─── RSS fetching ─────────────────────────────────────────────────────────────
 
 // ─── NFL relevance pre-filter ────────────────────────────────────────────────
-// Most configured feeds are multi-sport betting shows (Action Network, Even Money,
-// The Favorites, Sharp or Square, BettingPros), so their RSS carries plenty of
-// non-NFL episodes (PGA, NBA, MLB, UFC, VC crossovers). Transcription is metered and
-// MAX_PER_RUN-capped, so we skip episodes whose title clearly signals another sport/
-// topic — while KEEPING generically-titled betting episodes (e.g. "Best Bets July 14"),
-// which may still contain NFL segments. Permissive by design: skip only on an
-// unambiguous non-NFL signal; always keep anything with an explicit NFL/team hint.
-const NFL_TITLE_HINTS = [
-  'nfl', 'football', 'super bowl', 'afc', 'nfc', 'quarterback', ' qb ', 'training camp',
-  'cardinals', 'falcons', 'ravens', 'bills', 'panthers', 'bears', 'bengals', 'browns',
-  'cowboys', 'broncos', 'lions', 'packers', 'texans', 'colts', 'jaguars', 'chiefs',
-  'raiders', 'chargers', 'dolphins', 'vikings', 'patriots', 'saints', 'giants',
-  'jets', 'eagles', 'steelers', '49ers', 'niners', 'seahawks', 'buccaneers',
-  'titans', 'commanders',
-];
-
-const NON_NFL_TITLE_HINTS = [
-  'pga', 'golf', 'masters', 'ryder cup', 'liv golf',
-  'nba', 'wnba', 'basketball',
-  'mlb', 'baseball', 'world series',
-  'nhl', 'hockey', 'stanley cup',
-  'soccer', 'premier league', ' epl ', 'uefa', 'champions league', 'la liga', ' mls ', 'world cup',
-  'ufc', 'mma', 'boxing', 'fight night',
-  'tennis', 'wimbledon', ' atp ', ' wta ',
-  'nascar', 'formula 1', ' f1 ', 'indycar',
-  'venture capital', 'venture capitalist', 'crypto', 'stock market', 'wall street',
-  'college basketball', 'cbb',
-];
-
-/**
- * Permissive NFL-relevance check on an episode title.
- * Keep if any explicit NFL hint is present; else skip only if a clear non-NFL
- * sport/topic signal is present; otherwise keep (generic betting episode).
- */
-function isNflRelevantEpisode(title) {
-  const t = ` ${String(title ?? '').toLowerCase()} `;
-  if (NFL_TITLE_HINTS.some(h => t.includes(h))) return true;
-  if (NON_NFL_TITLE_HINTS.some(h => t.includes(h))) return false;
-  return true;
-}
+// Moved to agents/lib/nfl-relevance.js (2026-07-20, S291) so
+// scripts/podcast-diarize-backfill.js can apply the same filter when selecting
+// already-ingested episodes to re-diarize, not just newly-discovered RSS items.
+// Imported at the top of this file; behavior is unchanged.
 
 async function fetchRss(url) {
   const res = await fetch(url, {

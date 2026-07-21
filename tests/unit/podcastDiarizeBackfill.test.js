@@ -85,6 +85,36 @@ describe('selectBackfillTargets', () => {
     expect(out).toEqual([]);
   });
 
+  it('excludes episodes with a clear non-NFL title signal', () => {
+    const episodes = [
+      { ...ep('nfl1', 'f-sos', '2026-07-10'), title: 'NFL Week 1 Best Bets' },
+      { ...ep('wc1', 'f-sos', '2026-07-11'), title: 'WORLD CUP FINAL BETTING PREVIEW: Spain vs. Argentina' },
+    ];
+    const out = selectBackfillTargets({ feeds: FEEDS, episodes, transcripts: [], limitPerShow: 5 });
+    expect(out.map(t => t.episode.id)).toEqual(['nfl1']);
+  });
+
+  it('keeps generically-titled episodes with no explicit sport signal (permissive default)', () => {
+    const episodes = [{ ...ep('gen1', 'f-sos', '2026-07-10'), title: 'Best Bets of the Week' }];
+    const out = selectBackfillTargets({ feeds: FEEDS, episodes, transcripts: [], limitPerShow: 5 });
+    expect(out.map(t => t.episode.id)).toEqual(['gen1']);
+  });
+
+  it('a non-NFL episode does not count against the per-show cap -- the next NFL one still gets picked', () => {
+    const episodes = [
+      { ...ep('wc1', 'f-sos', '2026-07-15'), title: 'World Cup Final Preview' },
+      { ...ep('nfl1', 'f-sos', '2026-07-14'), title: 'NFL Week 1 Best Bets' },
+    ];
+    const out = selectBackfillTargets({ feeds: FEEDS, episodes, transcripts: [], limitPerShow: 1 });
+    expect(out.map(t => t.episode.id)).toEqual(['nfl1']);
+  });
+
+  it('episodeId override bypasses the NFL-relevance filter -- explicit ask always honored', () => {
+    const episodes = [{ ...ep('wc1', 'f-sos', '2026-07-10'), title: 'World Cup Final Preview' }];
+    const out = selectBackfillTargets({ feeds: FEEDS, episodes, transcripts: [], limitPerShow: 5, episodeId: 'wc1' });
+    expect(out.map(t => t.episode.id)).toEqual(['wc1']);
+  });
+
   it('returns empty when nothing matches', () => {
     const out = selectBackfillTargets({ feeds: FEEDS, episodes: [], transcripts: [], limitPerShow: 5 });
     expect(out).toEqual([]);
