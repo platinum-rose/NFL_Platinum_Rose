@@ -1,0 +1,92 @@
+name: NFL Roster Refresh
+
+# nfl-roster-refresh-audit-2026-07: keeps public.nfl_rosters (migration 038)
+# current on a 3x/WEEK cadence (Tue/Thu/Sat, per Andy — catches late-week
+# injury-driven elevations, not just the post-MNF transaction cycle), separate
+# from nflverse-data-refresh.yml's annual season-stats job — different purpose
+# (roster/trade state vs. season-end stats) and a different, much shorter
+# freshness requirement.
+#
+# What it does:
+#   1. fetch_nflverse_data.py --datasets rosters_weekly --years <current season> --force
+#      → downloads roster_weekly_<year>.parquet from nflverse-data's
+#        `weekly_rosters` release into data/vault-seed/nflverse/rosters_weekly.csv
+#   2. seed-nfl-rosters.py --seasons <current season>
+#      → upserts into Supabase nfl_rosters (idempotent, on_conflict
+#        season,week,game_type,team,full_name,gsis_id)
+#
+# Current season is computed at runtime (date -u +%Y), not hardcoded, so this
+# doesn't need a manual bump every year the way DEFAULT_YEARS in
+# fetch_nflverse_data.py does (a known staleness gap in that script, out of
+# scope for this task — noted, not fixed here).
+
+on:
+  schedule:
+    # 13:00 UTC Tue/Thu/Sat (2=Tue, 4=Thu, 6=Sat). Tue: after MNF wraps, ahead
+    # of the Wednesday injury-report/transaction cycle. Thu: ahead of TNF and
+    # catches early-week practice-squad moves. Sat: catches late-week
+    # elevations/injury designations ahead of Sunday's slate.
+    - cron: '0 13 * * 2,4,6'
+  workflow_dispatch:
+    inputs:
+      season:
+        description: 'Season to refresh (default: current year)'
+        type: string
+        default: ''
+      dry_run:
+        description: 'Dry run — print counts, no Supabase writes'
+        type: boolean
+        default: false
+
+jobs:
+  roster-refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: |
+          pip install nfl-data-py pandas pyarrow supabase python-dotenv
+
+      - name: Resolve season
+        id: season
+        run: |
+          SEASON="${{ inputs.season }}"
+          if [ -z "$SEASON" ]; then
+            SEASON=$(date -u +%Y)
+          fi
+          echo "season=$SEASON" >> "$GITHUB_OUTPUT"
+
+      - name: Fetch weekly roster data
+        env:
+          SEASON: ${{ steps.season.outputs.season }}
+        run: |
+          python scripts/fetch_nflverse_data.py \
+            --datasets rosters_weekly \
+            --years "$SEASON" \
+            --force
+
+      - name: Seed nfl_rosters
+        env:
+          SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SEASON: ${{ steps.season.outputs.season }}
+        run: |
+          DRY="${{ inputs.dry_run == true && '--dry-run' || '' }}"
+          python scripts/seed-nfl-rosters.py --seasons "$SEASON" $DRY
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "### NFL Roster Refresh" >> $GITHUB_STEP_SUMMARY
+          echo "- Season: ${{ steps.season.outputs.season }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Dry run: ${{ inputs.dry_run || 'false' }}" >> $GITHUB_STEP_SUMMARY

@@ -2,6 +2,7 @@
 
 > **Status:** Seed stub. Update with current-season ATS data after Week 1.
 > **Vault path:** `NFL/Teams/ARI.md`
+> **⚠️ STALE — flagged 2026-07-21 (nfl-roster-refresh-audit-2026-07):** Offensive Identity and Key Matchup Factors below were written around Kyler Murray as starting QB, violating this skill's own "not personnel-specific" design rule (see parent SKILL.md). Andy confirmed via live review that Murray is no longer on the roster (2026 trade). QB-specific lines are flagged inline — re-verify against the current roster before use.
 
 ## Team Identity
 
@@ -12,7 +13,7 @@
 
 ## Offensive Identity
 
-Kyler Murray: elite athlete when healthy, dual-threat disruption. Jonathan Gannon era: spread-based, vertical shots.
+Jonathan Gannon era: spread-based, vertical shots. *[QB1 personnel note needs re-verification — this line previously named Kyler Murray as a dual-threat starter; confirm the current starter before relying on any QB-specific analysis.]*
 
 ## Defensive Identity
 
@@ -33,7 +34,7 @@ Dome — no adjustment.
 
 ## Key Matchup Factors
 
-Murray health is everything — monitor knee and injury history. When Murray is 100%, ARI offense is Top 10.
+*[Needs re-verification against current roster — this section previously keyed entirely off Kyler Murray's health/injury history, who is no longer on the roster per the 2026 trade Andy confirmed.]*
 
 ## Coaching Profile
 

@@ -2,6 +2,7 @@
 
 > **Status:** Seed stub. Update with current-season ATS data after Week 1.
 > **Vault path:** `NFL/Teams/CHI.md`
+> **⚠️ AUDIT NOTE (2026-07-21, nfl-roster-refresh-audit-2026-07):** the sections below were found, during a full 32-team audit, to name specific skill players as part of the team's offensive/defensive identity — this violates this skill's own stated design rule (see parent SKILL.md: identity sections should be structural, "not personnel-specific") and is exactly the pattern that caused a real misjudgment during a 2026-07-21 review (see ARI.md, fixed with a confirmed correction). No per-player trade status has been verified for this specific file — treat any named player below as unconfirmed until cross-checked against `nfl_rosters` (once the weekly refresh is live) or a current source.
 
 ## Team Identity
 
@@ -13,10 +14,12 @@
 ## Offensive Identity
 
 Caleb Williams era: creative arm, extension plays. Ascending with weapons around him.
+> ⚠️ *Contains named-player references — not re-verified against current roster. Cross-check before relying on this for a specific player's current team (nfl-roster-refresh-audit-2026-07).*
 
 ## Defensive Identity
 
 Physical, gap-control focus. Montez Sweat pass rush anchor.
+> ⚠️ *Contains named-player references — not re-verified against current roster. Cross-check before relying on this for a specific player's current team (nfl-roster-refresh-audit-2026-07).*
 
 ## ATS Tendencies
 
@@ -34,6 +37,7 @@ Soldier Field + Lake Michigan wind = one of the most significant weather venues.
 ## Key Matchup Factors
 
 Wind is the single most impactful factor for CHI home games in November-January. Always check weather first.
+> ⚠️ *Contains named-player references — not re-verified against current roster. Cross-check before relying on this for a specific player's current team (nfl-roster-refresh-audit-2026-07).*
 
 ## Coaching Profile
 

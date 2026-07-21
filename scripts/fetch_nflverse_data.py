@@ -170,6 +170,23 @@ def _fetch_espn_data(years: list[int], cache: _Cache) -> "pd.DataFrame":
     return nfl.import_qbr(years=years, level="nfl", frequency="weekly")
 
 
+def _fetch_rosters_weekly(years: list[int], cache: _Cache) -> "pd.DataFrame":
+    # nfl-roster-refresh-audit-2026-07: week-level rosters (team, position,
+    # status, gsis_id per player per week) — dedicated `weekly_rosters`
+    # release tag, same repo/pattern as the stats_* fetches above. Confirmed
+    # live 2026-07-21: roster_weekly_2026.parquet last updated 2026-07-09,
+    # i.e. this gets refreshed during the season/offseason, not just once a
+    # year like the rest of this script's default cadence — that's *why*
+    # this dataset needs its own weekly GH Actions workflow
+    # (nfl-roster-refresh.yml) rather than riding along on this script's
+    # annual schedule.
+    return _read_parquets(
+        f"{_NFLVERSE_BASE}/weekly_rosters/roster_weekly_{{0}}.parquet",
+        years,
+        "rosters_weekly",
+    )
+
+
 # ---------------------------------------------------------------------------
 # Dataset registry
 # ---------------------------------------------------------------------------
@@ -216,6 +233,12 @@ DATASETS: list[dict] = [
         "file": "espn_data.csv",
         "fetch": _fetch_espn_data,
         "desc": "ESPN QBR (import_qbr, weekly) — qbr_total, pts_added, pressures",
+    },
+    {
+        "name": "rosters_weekly",
+        "file": "rosters_weekly.csv",
+        "fetch": _fetch_rosters_weekly,
+        "desc": "Week-level rosters: team/position/status/gsis_id per player (nfl-roster-refresh-audit-2026-07)",
     },
 ]
 

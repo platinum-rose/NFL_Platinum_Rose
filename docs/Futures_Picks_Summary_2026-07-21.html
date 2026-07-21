@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NFL Podcast Futures Picks — Summary Report</title>
+<style>
+:root {
+  --bg: #0f1115; --panel: #161a22; --panel2: #1c212b; --border: #2a3040;
+  --tx: #e8eaef; --tx2: #9aa4b8; --accent: #4f8cff; --best: #2ecc71; --best-bg: rgba(46,204,113,0.14);
+  --warn: #e0a52c; --chip: #232938;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--tx); font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin:0; padding: 24px; line-height:1.45; }
+h1 { font-size: 26px; margin-bottom: 4px; }
+.meta { color: var(--tx2); font-size: 13px; margin-bottom: 18px; }
+.intro { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; margin-bottom: 26px; font-size: 14px; color: var(--tx2); }
+.intro b { color: var(--tx); }
+.intro p { margin: 6px 0; }
+details.show { margin-bottom: 14px; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+details.show > summary { cursor: pointer; padding: 14px 18px; font-size: 19px; font-weight: 600; list-style: none; display:flex; align-items:center; gap:10px; }
+details.show > summary::-webkit-details-marker { display: none; }
+details.show > summary:before { content: '▸'; color: var(--accent); transition: transform .15s; }
+details.show[open] > summary:before { transform: rotate(90deg); }
+.show-body { padding: 4px 18px 16px 18px; }
+details.host { margin: 10px 0; border-top: 1px solid var(--border); padding-top: 10px; }
+details.host > summary { cursor:pointer; font-size:15px; font-weight:600; color: var(--tx); list-style:none; padding: 4px 0; }
+details.host > summary::-webkit-details-marker { display:none; }
+.host-count { color: var(--tx2); font-weight: 400; font-size: 12px; }
+.section-label { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--tx2); margin: 14px 0 6px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 10px; }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { color: var(--tx2); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: .03em; }
+tr:hover td { background: var(--panel2); }
+.subject { font-weight: 600; }
+.market-chip { display:inline-block; background: var(--chip); color: var(--tx2); border-radius: 4px; padding: 1px 6px; font-size: 11px; margin-top:3px;}
+.quote { color: var(--tx2); font-style: italic; font-size: 12px; margin-top: 4px; }
+.price { font-variant-numeric: tabular-nums; }
+.best { color: var(--best); font-weight: 700; background: var(--best-bg); border-radius: 4px; padding: 1px 6px; }
+.na { color: var(--tx2); }
+.lean-favor, .lean-over { color: var(--best); }
+.lean-against, .lean-under { color: #ff6b6b; }
+.lean-neutral { color: var(--tx2); }
+.cite { color: var(--tx2); font-size: 11.5px; }
+.why { color: var(--warn); font-size: 12px; }
+footer { color: var(--tx2); font-size: 12px; margin-top: 30px; border-top: 1px solid var(--border); padding-top: 14px; }
+</style>
+</head>
+<body>
+<h1>NFL Podcast Futures Picks — Summary Report</h1>
+<div class="meta">Generated 2026-07-21 &middot; ATLAS / NFL_Dashboard</div>
+<div class="intro">
+  <p><b>Source:</b> all 40 Obsidian vault notes written by ATLAS's S292 podcast host-summary backfill
+  (<code>E:\data\Obsidian\NFL\Podcasts\</code>), covering 75 summarized episodes. <b>207 total futures picks</b> extracted.</p>
+  <p><b>Current book prices:</b> latest snapshot per market from <code>futures_odds_snapshots</code>, pulled live
+  2026-07-21 for ATLAS's 3 tracked sharp books — <b>BOL</b> (BetOnline), <b>BKR</b> (Bookmaker), <b>BTU</b> (BetUS).
+  Best price at each pick is <span class="best">highlighted</span>. "Host price" is the specific number the host stated
+  in-episode (parsed from their quote/prediction), where they gave one.</p>
+  <p><b>Coverage:</b> 156 of 207 picks matched a live BOL/BKR/BTU market and show current prices below. The remaining 51
+  are listed per host under "Other picks discussed" with the specific reason — 19 are stat-leader bets ATLAS has no live
+  odds source for, 9 are award markets not currently ingested, ~20 are one-off mentions outside ATLAS's tracked season-futures
+  markets, and 3 could not be resolved to an NFL team.</p>
+</div>
+<details class="show" open><summary>Action Network Sports Betting <span class="host-count">(2 picks)</span></summary><div class="show-body"><details class="host"><summary>Guest <span class="host-count">(2 picks)</span></summary><div class="section-label">Outright / Matchup Picks</div><table><thead><tr><th>Subject / Market</th><th>Pick (reasoning)</th><th>Lean</th><th>Conviction</th><th>Host price</th><th>BOL</th><th>BKR</th><th>BTU</th><th>Episode</th></tr></thead><tbody><tr>
+      <td><div class="subject">Rams</div><span class="market-chip">Super_Bowl</span></td>
+      <td>Rams will not win the Super Bowl if Matt Stafford&#x27;s back gives out<div class="quote">&ldquo;If Matt Stafford&#x27;s back gives out in week two and Ty Simpson has to start, I promise you the Rams will not win the Super Bowl.&rdquo;</div></td>
+      <td class="lean-against">against</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">+500</td><td class="price">+501</td><td class="price"><span class="best">+550</span></td>
+      <td class="cite">NFL Draft First Round Recap &amp; Reaction | 2026<br>2026-04-24</td>
+    </tr><tr>
+      <td><div class="subject">Seattle</div><span class="market-chip">Super_Bowl</span></td>
+      <td>Seattle might run it back<div class="quote">&ldquo;Seattle might run it back. To be honest, if they can continue to get production out of Sam Darnold and he doesn&#x27;t regress.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">+1100</td><td class="price"><span class="best">+1107</span></td><td class="price">+1100</td>
+      <td class="cite">NFL Draft First Round Recap &amp; Reaction | 2026<br>2026-04-24</td>
+    </tr></tbody></table></details></div></details><details class="show" open><summary>BettingPros Podcast <span class="host-count">(33 picks)</span></summary><div class="show-body"><details class="host"><summary>Guest <span class="host-count">(32 picks)</span></summary><div class="section-label">Outright / Matchup Picks</div><table><thead><tr><th>Subject / Market</th><th>Pick (reasoning)</th><th>Lean</th><th>Conviction</th><th>Host price</th><th>BOL</th><th>BKR</th><th>BTU</th><th>Episode</th></tr></thead><tbody><tr>
+      <td><div class="subject">Los Angeles Chargers</div><span class="market-chip">Super_Bowl</span></td>
+      <td>The Los Angeles Chargers are going to win the Super Bowl at 17.<div class="quote">&ldquo;The Los Angeles Chargers are going to win the Super Bowl at 17.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price"><span class="best">+1800</span></td><td class="price">+1607</td><td class="price">+1700</td>
+      <td class="cite">NFL Futures Betting: Our Favorite Long Shot Picks for the 2026 Season (Ep. 1018)<br>2026-07-15</td>
+    </tr><tr>
+      <td><div class="subject">Dallas Cowboys</div><span class="market-chip">NFC_Conference</span></td>
+      <td>13 to 1 to win the NFC.<div class="quote">&ldquo;13 to 1 to win the NFC. They always look great on paper, every single year.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price">13 to 1</td>
+      <td class="price">+1200</td><td class="price"><span class="best">+1225</span></td><td class="price">+1200</td>
+      <td class="cite">NFL Futures Betting: Our Favorite Long Shot Picks for the 2026 Season (Ep. 1018)<br>2026-07-15</td>
+    </tr><tr>
+      <td><div class="subject">Cowboys</div><span class="market-chip">NFC_Winner</span></td>
+      <td>Cowboys finally get across the line, get back to the Super Bowl<div class="quote">&ldquo;Cowboys finally get across the line, get back to the super bowl for the first time in my lifetime.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">+1200</td><td class="price"><span class="best">+1225</span></td><td class="price">+1200</td>
+      <td class="cite">NFL Futures Betting: Our Favorite Long Shot Picks for the 2026 Season (Ep. 1018)<br>2026-07-15</td>
+    </tr><tr>
+      <td><div class="subject">Titans</div><span class="market-chip">AFC_South</span></td>
+      <td>Tennessee Titans to win the AFC south at 9 to 1<div class="quote">&ldquo;It&#x27;s the Tennessee Titans to win the AFC south at 9 to 1.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price">9 to 1</td>
+      <td class="price">+750</td><td class="price"><span class="best">+851</span></td><td class="price">+800</td>
+      <td class="cite">NFL Futures Betting: Our Favorite Long Shot Picks for the 2026 Season (Ep. 1018)<br>2026-07-15</td>
+    </tr><tr>
+      <td><div class="subject">Lions</div><span class="market-chip">NFC_North</span></td>
+      <td>I think they&#x27;re going to win the division<div class="quote">&ldquo;I&#x27;m all about the Lions this year in terms of futures. I think they&#x27;re going to win the division.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">+160</td><td class="price">+135</td><td class="price"><span class="best">+175</span></td>
+      <td class="cite">NFL Futures Picks 2026: Best Bets for Passing, Rushing &amp; Receiving Leaders (Ep. 1016)<br>2026-07-08</td>
+    </tr><tr>
+      <td><div class="subject">Lions</div><span class="market-chip">NFC</span></td>
+      <td>I think that they could win the NFC<div class="quote">&ldquo;I think that they could win the NFC.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price"><span class="best">+900</span></td><td class="price">+854</td><td class="price">+900</td>
+      <td class="cite">NFL Futures Picks 2026: Best Bets for Passing, Rushing &amp; Receiving Leaders (Ep. 1016)<br>2026-07-08</td>
+    </tr><tr>
+      <td><div class="subject">Chicago Bears</div><span class="market-chip">NFC_North</span></td>
+      <td>fade in some capacity, especially like in win losses<div class="quote">&ldquo;You gotta fade in some capacity, especially like in win losses, because the most hyped up team is always the team that disappoints.&rdquo;</div></td>
+      <td class="lean-against">against</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">+320</td><td class="price"><span class="best">+340</span></td><td class="price">+305</td>
+      <td class="cite">NFL Futures Picks 2026: Best Bets for Passing, Rushing &amp; Receiving Leaders (Ep. 1016)<br>2026-07-08</td>
+    </tr></tbody></table><div class="section-label">Win-Total (Over/Under) Picks &mdash; line / Over price / Under price</div><table><thead><tr><th>Subject / Market</th><th>Pick (reasoning)</th><th>Lean</th><th>Conviction</th><th>Host price</th><th>BOL</th><th>BKR</th><th>BTU</th><th>Episode</th></tr></thead><tbody><tr>
+      <td><div class="subject">49ers</div><span class="market-chip">NFC_West_Win_Total</span></td>
+      <td>fade the 49ers in the spot<div class="quote">&ldquo;I kind of want to fade the 49ers in the spot.&rdquo;</div></td>
+      <td class="lean-against">against</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">10.5 &nbsp;/&nbsp; O +105 &nbsp;/&nbsp; U -135</td><td class="price">9.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U +125</td><td class="price">10.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U -140</td>
+      <td class="cite">2026 NFL Week 1 Betting Predictions | Sharp Picks Before the Market Adjusts (Ep. 1013)<br>2026-07-01</td>
+    </tr><tr>
+      <td><div class="subject">Colts</div><span class="market-chip">AFC_South_Win_Total</span></td>
+      <td>fade Daniel Jones in this offense<div class="quote">&ldquo;I want to fade Daniel Jones in this offense.&rdquo;</div></td>
+      <td class="lean-against">against</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td><td class="price">7.5 &nbsp;/&nbsp; O -140 &nbsp;/&nbsp; U +120</td><td class="price">7.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td>
+      <td class="cite">2026 NFL Week 1 Betting Predictions | Sharp Picks Before the Market Adjusts (Ep. 1013)<br>2026-07-01</td>
+    </tr></tbody></table><div class="section-label">Other picks discussed &mdash; no live BOL/BKR/BTU price (23)</div><table><thead><tr><th>Subject / Market</th><th>Pick (reasoning)</th><th>Host price</th><th>Why no live price</th><th>Episode</th></tr></thead><tbody><tr>
+      <td><div class="subject">Trevor Lawrence</div><span class="market-chip">MVP</span></td>
+      <td>Trevor Lawrence, MVP is still my favorite ticket<div class="quote">&ldquo;Trevor Lawrence, MVP is still my favorite ticket when it comes to the awards market.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">No live BOL/BKR/BTU award-market odds currently ingested for this market.</td>
+      <td class="cite">NFL Futures Betting: Our Favorite Long Shot Picks for the 2026 Season (Ep. 1018)<br>2026-07-15</td>
+    </tr><tr>
+      <td><div class="subject">Trevor Lawrence</div><span class="market-chip">MVP</span></td>
+      <td>Trevor Lawrence at 24 to 1<div class="quote">&ldquo;So for those reasons, Trevor Lawrence at 24 to 1 when he was kind of in the conversation a little bit at the late end of last year, right?&rdquo;</div></td>
+      <td class="price">24 to 1</td>
+      <td class="why">No live BOL/BKR/BTU award-market odds currently ingested for this market.</td>
+      <td class="cite">NFL Futures Betting: Our Favorite Long Shot Picks for the 2026 Season (Ep. 1018)<br>2026-07-15</td>
+    </tr><tr>
+      <td><div class="subject">Travis Hunter</div><span class="market-chip">Comeback_Player_of_the_Year</span></td>
+      <td>Travis Hunter at 35 to 1<div class="quote">&ldquo;I think Travis Hunter at 35 to 1 this was the one I was most excited to talk about and I&#x27;m glad that you kind of see it my way as well.&rdquo;</div></td>
+      <td class="price">35 to 1</td>
+      <td class="why">No live BOL/BKR/BTU award-market odds currently ingested for this market.</td>
+      <td class="cite">NFL Futures Betting: Our Favorite Long Shot Picks for the 2026 Season (Ep. 1018)<br>2026-07-15</td>
+    </tr><tr>
+      <td><div class="subject">Elijah Surat</div><span class="market-chip">Offensive_ROY</span></td>
+      <td>Elijah Surat to win Offensive Rookie of the Year<div class="quote">&ldquo;Elijah Surat to win Offensive rookie of the year 92 to one.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">No live BOL/BKR/BTU award-market odds currently ingested for this market.</td>
+      <td class="cite">NFL Futures Betting: Our Favorite Long Shot Picks for the 2026 Season (Ep. 1018)<br>2026-07-15</td>
+    </tr><tr>
+      <td><div class="subject">Eli Stowers</div><span class="market-chip">Offensive_ROY</span></td>
+      <td>Eli Stowers to win Offensive Rookie of the Year<div class="quote">&ldquo;Eli Stowers to win offensive rookie of the year 92 to one.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">No live BOL/BKR/BTU award-market odds currently ingested for this market.</td>
+      <td class="cite">NFL Futures Betting: Our Favorite Long Shot Picks for the 2026 Season (Ep. 1018)<br>2026-07-15</td>
+    </tr><tr>
+      <td><div class="subject">Steelers</div><span class="market-chip">NFL_Least_Wins</span></td>
+      <td>Steelers to finish with the least amount of wins in the NFL<div class="quote">&ldquo;Betting at 40 to 1 for them to finish with the least amount of wins in the NFL.&rdquo;</div></td>
+      <td class="price">40 to 1</td>
+      <td class="why">Not a season-futures market ATLAS tracks live odds for.</td>
+      <td class="cite">NFL Futures Betting: Our Favorite Long Shot Picks for the 2026 Season (Ep. 1018)<br>2026-07-15</td>
+    </tr><tr>
+      <td><div class="subject">Fernando Mendoza</div><span class="market-chip">Offensive_ROY</span></td>
+      <td>Mendoza is going to win offensive of the year<div class="quote">&ldquo;I&#x27;m on the record very much think that Mendoza is going to win offensive of the year.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">No live BOL/BKR/BTU award-market odds currently ingested for this market.</td>
+      <td class="cite">NFL Futures Betting: Our Favorite Long Shot Picks for the 2026 Season (Ep. 1018)<br>2026-07-15</td>
+    </tr><tr>
+      <td><div class="subject">Zay Flowers</div><span class="market-chip">NFL_Receiving_Yards</span></td>
+      <td>Zay Flowers to go over 1500 receiving yards<div class="quote">&ldquo;Zay Flowers to go over 1500 receiving yards at 10 to 1.&rdquo;</div></td>
+      <td class="price">10 to 1</td>
+      <td class="why">No live odds source tracked for stat-leader markets (player_prop_odds table has no data yet).</td>
+      <td class="cite">NFL Futures Betting: Our Favorite Long Shot Picks for the 2026 Season (Ep. 1018)<br>2026-07-15</td>
+    </tr><tr>
+      <td><div class="subject">Bijan Robinson</div><span class="market-chip">NFL_Rushing_Touchdowns</span></td>
+      <td>Bijan Robinson leads the NFL in rushing touchdowns<div class="quote">&ldquo;Bijan Robinson leads the NFL in rushing touchdowns... 18:1 for Bijan to do it.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">No live odds source tracked for stat-leader markets (player_prop_odds table has no data yet).</td>
+      <td class="cite">NFL Futures Betting: Our Favorite Long Shot Picks for the 2026 Season (Ep. 1018)<br>2026-07-15</td>
+    </tr><tr>
+      <td><div class="subject">Bijan Robinson</div><span class="market-chip">NFL_Rushing_Touchdowns</span></td>
+      <td>to lead the NFL rushing touchdowns market<div class="quote">&ldquo;I got a lot of dirty birds on the card right now between my fate of them that was laddered down and the Bijan Robinson to lead the NFL rushing touchdowns market there at 18 to 1.&rdquo;</div></td>
+      <td class="price">18 to 1</td>
+      <td class="why">No live odds source tracked for stat-leader markets (player_prop_odds table has no data yet).</td>
+      <td class="cite">NFL Futures Betting: Our Favorite Long Shot Picks for the 2026 Season (Ep. 1018)<br>2026-07-15</td>
+    </tr><tr>
+      <td><div class="subject">Joe Burrow</div><span class="market-chip">Passing_Yards_Leader</span></td>
+      <td>Joe Burrow could push for 5,000 passing yards<div class="quote">&ldquo;If Joe Burrow stays healthy, Guy could push for 5,000 passing yards and that would surprise basically no one.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">No live odds source tracked for stat-leader markets (player_prop_odds table has no data yet).</td>
+      <td class="cite">NFL Futures Picks 2026: Best Bets for Passing, Rushing &amp; Receiving Leaders (Ep. 1016)<br>2026-07-08</td>
+    </tr><tr>
+      <td><div class="subject">Drake May</div><span class="market-chip">Passing_Yards_Leader</span></td>
+      <td>Drake May makes a lot of sense here<div class="quote">&ldquo;I think that Drake may makes a lot of sense here. He&#x27;s going to be throwing the ball a ton. Young upcoming superstar and he&#x27;s got a number one weapon like A.J. brown.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">No live odds source tracked for stat-leader markets (player_prop_odds table has no data yet).</td>
+      <td class="cite">NFL Futures Picks 2026: Best Bets for Passing, Rushing &amp; Receiving Leaders (Ep. 1016)<br>2026-07-08</td>
+    </tr><tr>
+      <td><div class="subject">Jared Goff</div><span class="market-chip">Passing_Yards_Leader</span></td>
+      <td>Jared Goff in your +750 for a full unit<div class="quote">&ldquo;Give me Jared goff in your +750 for a full unit.&rdquo;</div></td>
+      <td class="price">+750</td>
+      <td class="why">No live odds source tracked for stat-leader markets (player_prop_odds table has no data yet).</td>
+      <td class="cite">NFL Futures Picks 2026: Best Bets for Passing, Rushing &amp; Receiving Leaders (Ep. 1016)<br>2026-07-08</td>
+    </tr><tr>
+      <td><div class="subject">Caleb Williams</div><span class="market-chip">Passing_Yards_Leader</span></td>
+      <td>lead the NFL in passing yards<div class="quote">&ldquo;I like Caleb Williams at longer than 22 to 1 odds to lead the NFL in passing yards.&rdquo;</div></td>
+      <td class="price">22 to 1</td>
+      <td class="why">No live odds source tracked for stat-leader markets (player_prop_odds table has no data yet).</td>
+      <td class="cite">NFL Futures Picks 2026: Best Bets for Passing, Rushing &amp; Receiving Leaders (Ep. 1016)<br>2026-07-08</td>
+    </tr><tr>
+      <td><div class="subject">Trevor Lawrence</div><span class="market-chip">Passing_TD_Leader</span></td>
+      <td>love him for MVP as a long shot odds type of bet<div class="quote">&ldquo;Trevor Lawrence, for me, I love him for MVP as a long shot odds type of bet.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">No live odds source tracked for stat-leader markets (player_prop_odds table has no data yet).</td>
+      <td class="cite">NFL Futures Picks 2026: Best Bets for Passing, Rushing &amp; Receiving Leaders (Ep. 1016)<br>2026-07-08</td>
+    </tr><tr>
+      <td><div class="subject">Brock Purdy</div><span class="market-chip">Passing_TD_Leader</span></td>
+      <td>smart bet to make<div class="quote">&ldquo;Brock Purdy, 11 to 1. Those are the odds listed. So I think that this is just a smart bet to make.&rdquo;</div></td>
+      <td class="price">11 to 1</td>
+      <td class="why">No live odds source tracked for stat-leader markets (player_prop_odds table has no data yet).</td>
+      <td class="cite">NFL Futures Picks 2026: Best Bets for Passing, Rushing &amp; Receiving Leaders (Ep. 1016)<br>2026-07-08</td>
+    </tr><tr>
+      <td><div class="subject">Jahmyr Gibbs</div><span class="market-chip">Rushing_Yards_Leader</span></td>
+      <td>bet that I like the most on the board<div class="quote">&ldquo;I&#x27;m taking Jir Gibbs. That&#x27;s the bet that I like the most on the board. 7 to 1, 8 to 1, 9 to 1.&rdquo;</div></td>
+      <td class="price">7 to 1, 8 to 1, 9 to 1</td>
+      <td class="why">No live odds source tracked for stat-leader markets (player_prop_odds table has no data yet).</td>
+      <td class="cite">NFL Futures Picks 2026: Best Bets for Passing, Rushing &amp; Receiving Leaders (Ep. 1016)<br>2026-07-08</td>
+    </tr><tr>
+      <td><div class="subject">Jamar Chase</div><span class="market-chip">Offensive_Player_of_the_Year</span></td>
+      <td>Jamar Chase is going to be the best wide receiver in the NFL and never win offensive player of the year.<div class="quote">&ldquo;Jamar Chase is going to be the best wide receiver in the NFL and never win offensive player of the year.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">No live BOL/BKR/BTU award-market odds currently ingested for this market.</td>
+      <td class="cite">NFL Futures Picks 2026: Best Bets for Passing, Rushing &amp; Receiving Leaders (Ep. 1016)<br>2026-07-08</td>
+    </tr><tr>
+      <td><div class="subject">Jamar Chase</div><span class="market-chip">Receiving_Yards_Leader</span></td>
+      <td>Jamar Chase, likely to lead the NFL in receiving yards if he stays healthy.<div class="quote">&ldquo;Jamar Chase, likely to lead the NFL in receiving yards if he stays healthy.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">No live odds source tracked for stat-leader markets (player_prop_odds table has no data yet).</td>
+      <td class="cite">NFL Futures Picks 2026: Best Bets for Passing, Rushing &amp; Receiving Leaders (Ep. 1016)<br>2026-07-08</td>
+    </tr><tr>
+      <td><div class="subject">Joe Burrow</div><span class="market-chip">Passing_Yards_Leader</span></td>
+      <td>Joe Burrow, likely to lead the NFL in passing yards if he stays healthy.<div class="quote">&ldquo;Joe Burrow, likely to lead the NFL in passing yards if he stays healthy.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">No live odds source tracked for stat-leader markets (player_prop_odds table has no data yet).</td>
+      <td class="cite">NFL Futures Picks 2026: Best Bets for Passing, Rushing &amp; Receiving Leaders (Ep. 1016)<br>2026-07-08</td>
+    </tr><tr>
+      <td><div class="subject">AJ Brown</div><span class="market-chip">Receiving_Yards_Leader</span></td>
+      <td>AJ Brown is going to absolutely cook if you look at him.<div class="quote">&ldquo;AJ Brown is going to absolutely cook if you look at him.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">No live odds source tracked for stat-leader markets (player_prop_odds table has no data yet).</td>
+      <td class="cite">NFL Futures Picks 2026: Best Bets for Passing, Rushing &amp; Receiving Leaders (Ep. 1016)<br>2026-07-08</td>
+    </tr><tr>
+      <td><div class="subject">Mike Evans</div><span class="market-chip">Receiving_Touchdowns_Leader</span></td>
+      <td>Mike Evans is this year&#x27;s Devonte Adams when it comes to this guy is just going to catch a boatload of touchdowns.<div class="quote">&ldquo;Mike Evans is this year&#x27;s Devonte Adams when it comes to this guy is just going to catch a boatload of touchdowns.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">No live odds source tracked for stat-leader markets (player_prop_odds table has no data yet).</td>
+      <td class="cite">NFL Futures Picks 2026: Best Bets for Passing, Rushing &amp; Receiving Leaders (Ep. 1016)<br>2026-07-08</td>
+    </tr><tr>
+      <td><div class="subject">Christian Watson</div><span class="market-chip">Receiving_Yards_Leader</span></td>
+      <td>150 to 1 for him to lead the NFL on receiving yards<div class="quote">&ldquo;Christian Watson just takes one. Jacob Jacobs gets suspended. They gotta turn the ball over to Jordan Love. They just start throwing the ball across the yard.&rdquo;</div></td>
+      <td class="price">150 to 1</td>
+      <td class="why">No live odds source tracked for stat-leader markets (player_prop_odds table has no data yet).</td>
+      <td class="cite">NFL Futures Picks 2026: Best Bets for Passing, Rushing &amp; Receiving Leaders (Ep. 1016)<br>2026-07-08</td>
+    </tr></tbody></table></details><details class="host"><summary>Seth Woolcock <span class="host-count">(1 picks)</span></summary><div class="section-label">Other picks discussed &mdash; no live BOL/BKR/BTU price (1)</div><table><thead><tr><th>Subject / Market</th><th>Pick (reasoning)</th><th>Host price</th><th>Why no live price</th><th>Episode</th></tr></thead><tbody><tr>
+      <td><div class="subject">Steelers</div><span class="market-chip">AFC_North_Week_1</span></td>
+      <td>Steelers at minus two and a half<div class="quote">&ldquo;I know I&#x27;m down on the Steelers right now at minus two and a half for week one. Every other book has it at minus three and a half above that key number. I got it minus two and a half.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">Not a season-futures market ATLAS tracks live odds for.</td>
+      <td class="cite">The 5 NFL Betting Rules Professional Gamblers Never Break | How to Win in 2026 (Ep. 1019)<br>2026-07-16</td>
+    </tr></tbody></table></details></div></details><details class="show" open><summary>Even Money <span class="host-count">(68 picks)</span></summary><div class="show-body"><details class="host"><summary>Guest <span class="host-count">(38 picks)</span></summary><div class="section-label">Outright / Matchup Picks</div><table><thead><tr><th>Subject / Market</th><th>Pick (reasoning)</th><th>Lean</th><th>Conviction</th><th>Host price</th><th>BOL</th><th>BKR</th><th>BTU</th><th>Episode</th></tr></thead><tbody><tr>
+      <td><div class="subject">Rams</div><span class="market-chip">Super_Bowl</span></td>
+      <td>fire on the Rams, you know, nine to one<div class="quote">&ldquo;The second this news comes down, boom, fire on the Rams, you know, nine to one, whatever you&#x27;re able to get.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">+500</td><td class="price">+501</td><td class="price"><span class="best">+550</span></td>
+      <td class="cite">Betting Implications of the Myles Garrett &amp; AJ Brown trades<br>2026-06-02</td>
+    </tr></tbody></table><div class="section-label">Win-Total (Over/Under) Picks &mdash; line / Over price / Under price</div><table><thead><tr><th>Subject / Market</th><th>Pick (reasoning)</th><th>Lean</th><th>Conviction</th><th>Host price</th><th>BOL</th><th>BKR</th><th>BTU</th><th>Episode</th></tr></thead><tbody><tr>
+      <td><div class="subject">Bears</div><span class="market-chip">NFC_North_Win_Total</span></td>
+      <td>betting on the Bears<div class="quote">&ldquo;The question is how much of this is a season win total situation and we should be... betting on the Bears.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O +100 &nbsp;/&nbsp; U -130</td><td class="price">9.5 &nbsp;/&nbsp; O +123 &nbsp;/&nbsp; U -139</td><td class="price">9.5 &nbsp;/&nbsp; O +100 &nbsp;/&nbsp; U -130</td>
+      <td class="cite">Warren Sharp: NFL Schedule Release Bets<br>2026-05-19</td>
+    </tr><tr>
+      <td><div class="subject">Chargers</div><span class="market-chip">AFC_West_Win_Total</span></td>
+      <td>fading the Chargers<div class="quote">&ldquo;The question is how much of this is a season win total situation and we should be fading the Chargers.&rdquo;</div></td>
+      <td class="lean-against">against</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U +115</td><td class="price">9.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U +125</td><td class="price">9.5 &nbsp;/&nbsp; O -150 &nbsp;/&nbsp; U +120</td>
+      <td class="cite">Warren Sharp: NFL Schedule Release Bets<br>2026-05-19</td>
+    </tr><tr>
+      <td><div class="subject">Lions</div><span class="market-chip">NFC_North_Win_Total</span></td>
+      <td>overrated and going into the coming year<div class="quote">&ldquo;I know everyone loves the Lions this year. Perhaps a team that&#x27;s overrated and going into the coming year.&rdquo;</div></td>
+      <td class="lean-against">against</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">10.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td><td class="price">10.5 &nbsp;/&nbsp; O -120 &nbsp;/&nbsp; U +104</td><td class="price">10.5 &nbsp;/&nbsp; O -130 &nbsp;/&nbsp; U +100</td>
+      <td class="cite">Warren Sharp: NFL Schedule Release Bets<br>2026-05-19</td>
+    </tr><tr>
+      <td><div class="subject">Saints</div><span class="market-chip">NFC_South_Win_Total</span></td>
+      <td>great optimism from the Saints in the coming year<div class="quote">&ldquo;The Saints...had a real uptick and Chuck became a real quarterback. And so maybe great optimism from the Saints in the coming year.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td><td class="price">7.5 &nbsp;/&nbsp; O -132 &nbsp;/&nbsp; U +116</td><td class="price">7.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td>
+      <td class="cite">Warren Sharp: NFL Schedule Release Bets<br>2026-05-19</td>
+    </tr><tr>
+      <td><div class="subject">Lions</div><span class="market-chip">NFC_North_Win_Total</span></td>
+      <td>Detroit over nine and a half, minus 170<div class="quote">&ldquo;Detroit with the easiest schedule, I&#x27;m going to play over. But Ross, I&#x27;m not playing over 10. Minus 110. Because DraftKings, you can go ahead and ladder up and down and pick different numbers to play against.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">10.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td><td class="price">10.5 &nbsp;/&nbsp; O <span class="best">-120</span> &nbsp;/&nbsp; U +104</td><td class="price">10.5 &nbsp;/&nbsp; O -130 &nbsp;/&nbsp; U +100</td>
+      <td class="cite">How to bet on the 2026 NFL Schedule Release<br>2026-05-12</td>
+    </tr><tr>
+      <td><div class="subject">Cardinals</div><span class="market-chip">NFC_West_Win_Total</span></td>
+      <td>fading Arizona late in the year<div class="quote">&ldquo;I expect there&#x27;ll be value fading Arizona, Miami late in the year.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">4.5 &nbsp;/&nbsp; O +135 &nbsp;/&nbsp; U -165</td><td class="price">4.5 &nbsp;/&nbsp; O +132 &nbsp;/&nbsp; U <span class="best">-148</span></td><td class="price">4.5 &nbsp;/&nbsp; O +125 &nbsp;/&nbsp; U -155</td>
+      <td class="cite">How to bet on the 2026 NFL Schedule Release<br>2026-05-12</td>
+    </tr><tr>
+      <td><div class="subject">Giants</div><span class="market-chip">NFC_East_Win_Total</span></td>
+      <td>Giants over 7.5 wins<div class="quote">&ldquo;The giants over 7 half minus 110. I would absolutely recommend.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -120</td><td class="price">7.5 &nbsp;/&nbsp; O <span class="best">-103</span> &nbsp;/&nbsp; U -113</td><td class="price">7.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -120</td>
+      <td class="cite">How to bet on the 2026 Kentucky Derby &amp; NFL Draft Betting Takeaways!<br>2026-04-28</td>
+    </tr><tr>
+      <td><div class="subject">Raiders</div><span class="market-chip">AFC_West_Win_Total</span></td>
+      <td>Raiders over 5.5 wins<div class="quote">&ldquo;Las Vegas Raiders over five and a half minus 150. Likely a massive upgrade in quarterback.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">5.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U +115</td><td class="price">6.5 &nbsp;/&nbsp; O <span class="best">+130</span> &nbsp;/&nbsp; U -150</td><td class="price">5.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U +115</td>
+      <td class="cite">How to bet on the 2026 Kentucky Derby &amp; NFL Draft Betting Takeaways!<br>2026-04-28</td>
+    </tr><tr>
+      <td><div class="subject">Rams</div><span class="market-chip">NFC_West_Win_Total</span></td>
+      <td>Rams under 11.5 wins<div class="quote">&ldquo;I am going to recommend you bet against the Rams under 11 a half minus 145.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">11.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U +115</td><td class="price">11.5 &nbsp;/&nbsp; O -138 &nbsp;/&nbsp; U <span class="best">+122</span></td><td class="price">11.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U +115</td>
+      <td class="cite">How to bet on the 2026 Kentucky Derby &amp; NFL Draft Betting Takeaways!<br>2026-04-28</td>
+    </tr><tr>
+      <td><div class="subject">49ers</div><span class="market-chip">NFC_West_Win_Total</span></td>
+      <td>49ers under 10.5 wins<div class="quote">&ldquo;We&#x27;re going to go under with the niners under 10 app minus 145.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">10.5 &nbsp;/&nbsp; O +105 &nbsp;/&nbsp; U -135</td><td class="price">9.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U <span class="best">+125</span></td><td class="price">10.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U -140</td>
+      <td class="cite">How to bet on the 2026 Kentucky Derby &amp; NFL Draft Betting Takeaways!<br>2026-04-28</td>
+    </tr><tr>
+      <td><div class="subject">49ers</div><span class="market-chip">NFC_West_Win_Total</span></td>
+      <td>under 10.5<div class="quote">&ldquo;The Niners won 12 and 5 last year. They&#x27;re only plus 66 in point differential, which means they really should have only won ten and a half games. That&#x27;s where they&#x27;re lined currently, you know, this year. So I&#x27;m going to play Niners under.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">10.5 &nbsp;/&nbsp; O +105 &nbsp;/&nbsp; U -135</td><td class="price">9.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U <span class="best">+125</span></td><td class="price">10.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U -140</td>
+      <td class="cite">How to bet on the 2026 Kentucky Derby &amp; NFL Draft Betting Takeaways!<br>2026-04-28</td>
+    </tr><tr>
+      <td><div class="subject">Buccaneers</div><span class="market-chip">NFC_South_Win_Total</span></td>
+      <td>slight lean the over<div class="quote">&ldquo;I would say slight lean the over as well.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">8.5 &nbsp;/&nbsp; O +120 &nbsp;/&nbsp; U -150</td><td class="price">8.5 &nbsp;/&nbsp; O <span class="best">+126</span> &nbsp;/&nbsp; U -142</td><td class="price">8.5 &nbsp;/&nbsp; O +120 &nbsp;/&nbsp; U -150</td>
+      <td class="cite">First Look at 2026 NFC Season Win Totals<br>2026-04-07</td>
+    </tr><tr>
+      <td><div class="subject">Saints</div><span class="market-chip">NFC_South_Win_Total</span></td>
+      <td>slight lean to the over<div class="quote">&ldquo;I guess I would have a slight lean to the over for Tyler Schuck and the New Orleans Saints at seven and a half.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td><td class="price">7.5 &nbsp;/&nbsp; O <span class="best">-132</span> &nbsp;/&nbsp; U +116</td><td class="price">7.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td>
+      <td class="cite">First Look at 2026 NFC Season Win Totals<br>2026-04-07</td>
+    </tr><tr>
+      <td><div class="subject">Lions</div><span class="market-chip">NFC_North_Win_Total</span></td>
+      <td>under the 10 and a half<div class="quote">&ldquo;I would, I would be under the ten and a half right now for them.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">10.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U <span class="best">+105</span></td><td class="price">10.5 &nbsp;/&nbsp; O -120 &nbsp;/&nbsp; U +104</td><td class="price">10.5 &nbsp;/&nbsp; O -130 &nbsp;/&nbsp; U +100</td>
+      <td class="cite">First Look at 2026 NFC Season Win Totals<br>2026-04-07</td>
+    </tr><tr>
+      <td><div class="subject">Packers</div><span class="market-chip">NFC_North_Win_Total</span></td>
+      <td>lean under<div class="quote">&ldquo;It would be a lean to the under for the Packers.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -120 &nbsp;/&nbsp; U <span class="best">-110</span></td><td class="price">9.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -110</td><td class="price">9.5 &nbsp;/&nbsp; O -120 &nbsp;/&nbsp; U -110</td>
+      <td class="cite">First Look at 2026 NFC Season Win Totals<br>2026-04-07</td>
+    </tr><tr>
+      <td><div class="subject">Cowboys</div><span class="market-chip">NFC_East_Win_Total</span></td>
+      <td>lean over<div class="quote">&ldquo;I would lean over as well.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O <span class="best">+100</span> &nbsp;/&nbsp; U -130</td><td class="price">9.5 &nbsp;/&nbsp; O -103 &nbsp;/&nbsp; U -113</td><td class="price">9.5 &nbsp;/&nbsp; O -105 &nbsp;/&nbsp; U -125</td>
+      <td class="cite">First Look at 2026 NFC Season Win Totals<br>2026-04-07</td>
+    </tr><tr>
+      <td><div class="subject">Commanders</div><span class="market-chip">NFC_East_Win_Total</span></td>
+      <td>I&#x27;d rather go over than under for the commanders<div class="quote">&ldquo;I&#x27;d rather go over than under for the commanders, but I don&#x27;t have anything there.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O -130 &nbsp;/&nbsp; U +100</td><td class="price">7.5 &nbsp;/&nbsp; O <span class="best">-123</span> &nbsp;/&nbsp; U +107</td><td class="price">7.5 &nbsp;/&nbsp; O -130 &nbsp;/&nbsp; U +100</td>
+      <td class="cite">First Look at 2026 NFC Season Win Totals<br>2026-04-07</td>
+    </tr><tr>
+      <td><div class="subject">Vikings</div><span class="market-chip">NFC_North_Win_Total</span></td>
+      <td>bet over eight and a half<div class="quote">&ldquo;Gosh, we got to bet over eight and a half, Ross. I mean, the Vikings won nine games last year.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">8.5 &nbsp;/&nbsp; O <span class="best">-110</span> &nbsp;/&nbsp; U -120</td><td class="price">8.5 &nbsp;/&nbsp; O -118 &nbsp;/&nbsp; U +102</td><td class="price">8.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -120</td>
+      <td class="cite">NFL Free Agency Betting Takeaways &amp; NCAA Conference Tournament Bets<br>2026-03-10</td>
+    </tr><tr>
+      <td><div class="subject">Bills</div><span class="market-chip">AFC_East_Win_Total</span></td>
+      <td>lean over<div class="quote">&ldquo;I would look over, I would lean over as well for the reasons you mentioned.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">10.5 &nbsp;/&nbsp; O <span class="best">-130</span> &nbsp;/&nbsp; U +100</td><td class="price">10.5 &nbsp;/&nbsp; O -132 &nbsp;/&nbsp; U +116</td><td class="price">10.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Patriots</div><span class="market-chip">AFC_East_Win_Total</span></td>
+      <td>lean over<div class="quote">&ldquo;I&#x27;m with you. I would lean over on the Patriots as well.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -160 &nbsp;/&nbsp; U +130</td><td class="price">10.5 &nbsp;/&nbsp; O <span class="best">+115</span> &nbsp;/&nbsp; U -135</td><td class="price">9.5 &nbsp;/&nbsp; O -150 &nbsp;/&nbsp; U +120</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Dolphins</div><span class="market-chip">AFC_East_Win_Total</span></td>
+      <td>leaning over<div class="quote">&ldquo;I&#x27;m leaning over for both the Dolphins and the jets.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">4.5 &nbsp;/&nbsp; O <span class="best">+145</span> &nbsp;/&nbsp; U -175</td><td class="price">4.5 &nbsp;/&nbsp; O +141 &nbsp;/&nbsp; U -157</td><td class="price">4.5 &nbsp;/&nbsp; O +120 &nbsp;/&nbsp; U -150</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Ravens</div><span class="market-chip">AFC_North_Win_Total</span></td>
+      <td>lean under<div class="quote">&ldquo;I would probably lean under. I think that number&#x27;s right, though.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">11.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U <span class="best">-140</span></td><td class="price">11.5 &nbsp;/&nbsp; O +125 &nbsp;/&nbsp; U -141</td><td class="price">11.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U -140</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Bengals</div><span class="market-chip">AFC_North_Win_Total</span></td>
+      <td>lean under<div class="quote">&ldquo;Definitely leaning under. I&#x27;m not sure. I guess this is all because of assuming Burrows healthy the whole season, but I will lean under as well.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -170 &nbsp;/&nbsp; U <span class="best">+140</span></td><td class="price">10.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U -130</td><td class="price">9.5 &nbsp;/&nbsp; O -170 &nbsp;/&nbsp; U +140</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Browns</div><span class="market-chip">AFC_North_Win_Total</span></td>
+      <td>leaning under<div class="quote">&ldquo;I&#x27;m with you. I&#x27;m leaning under on the Cleveland Browns.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">5.5 &nbsp;/&nbsp; O -115 &nbsp;/&nbsp; U -115</td><td class="price">5.5 &nbsp;/&nbsp; O -118 &nbsp;/&nbsp; U <span class="best">-102</span></td><td class="price">5.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -120</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Texans</div><span class="market-chip">AFC_South_Win_Total</span></td>
+      <td>lean over<div class="quote">&ldquo;I&#x27;d be surprised if they didn&#x27;t in, in that division.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O <span class="best">-130</span> &nbsp;/&nbsp; U +100</td><td class="price">9.5 &nbsp;/&nbsp; O -138 &nbsp;/&nbsp; U +122</td><td class="price">9.5 &nbsp;/&nbsp; O -130 &nbsp;/&nbsp; U +100</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Jaguars</div><span class="market-chip">AFC_South_Win_Total</span></td>
+      <td>lean over<div class="quote">&ldquo;I&#x27;d be a little surprised if the Jaguars don&#x27;t get the double digit wins.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O <span class="best">+110</span> &nbsp;/&nbsp; U -140</td><td class="price">8.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +115</td><td class="price">9.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U -140</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Broncos</div><span class="market-chip">AFC_West_Win_Total</span></td>
+      <td>lean over<div class="quote">&ldquo;I would think that they would get the double digit wins there with Sean Payton and Bo Nix.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -130 &nbsp;/&nbsp; U +100</td><td class="price">9.5 &nbsp;/&nbsp; O <span class="best">-123</span> &nbsp;/&nbsp; U +107</td><td class="price">9.5 &nbsp;/&nbsp; O -125 &nbsp;/&nbsp; U -105</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Chiefs</div><span class="market-chip">AFC_West_Win_Total</span></td>
+      <td>slight lean to the Chiefs under<div class="quote">&ldquo;I will also slight lean to the Chiefs under.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">10.5 &nbsp;/&nbsp; O +120 &nbsp;/&nbsp; U -150</td><td class="price">10.5 &nbsp;/&nbsp; O +130 &nbsp;/&nbsp; U <span class="best">-146</span></td><td class="price">10.5 &nbsp;/&nbsp; O +120 &nbsp;/&nbsp; U -150</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Chargers</div><span class="market-chip">AFC_West_Win_Total</span></td>
+      <td>lean under<div class="quote">&ldquo;I&#x27;m not going over. If anything I guess I would lean under. But that feels like the right number for the Chargers to be at ten and a half.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U +115</td><td class="price">9.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U <span class="best">+125</span></td><td class="price">9.5 &nbsp;/&nbsp; O -150 &nbsp;/&nbsp; U +120</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Raiders</div><span class="market-chip">AFC_West_Win_Total</span></td>
+      <td>lean under<div class="quote">&ldquo;I would lean under, probably lean under as well because of the first year head coach, rookie quarterback.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">5.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U <span class="best">+115</span></td><td class="price">6.5 &nbsp;/&nbsp; O +130 &nbsp;/&nbsp; U -150</td><td class="price">5.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U +115</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr></tbody></table><div class="section-label">Other picks discussed &mdash; no live BOL/BKR/BTU price (7)</div><table><thead><tr><th>Subject / Market</th><th>Pick (reasoning)</th><th>Host price</th><th>Why no live price</th><th>Episode</th></tr></thead><tbody><tr>
+      <td><div class="subject">Circa</div><span class="market-chip">NFL_Survivor_Contest</span></td>
+      <td>Both contests are going to sail well over the guaranteed amount.<div class="quote">&ldquo;Both those contests are going to sail well over the guaranteed amount. I&#x27;d encourage everyone to get involved.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">Not a season-futures market ATLAS tracks live odds for.</td>
+      <td class="cite">Betting impact of the Giannis Antetokounmpo trade &amp; Survivor Pool Tips<br>2026-06-23</td>
+    </tr><tr>
+      <td><div class="subject">Splash Sports</div><span class="market-chip">NFL_Survivor_Contest</span></td>
+      <td>Both contests are going to sail well over the guaranteed amount.<div class="quote">&ldquo;Both those contests are going to sail well over the guaranteed amount. I&#x27;d encourage everyone to get involved.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">Not a season-futures market ATLAS tracks live odds for.</td>
+      <td class="cite">Betting impact of the Giannis Antetokounmpo trade &amp; Survivor Pool Tips<br>2026-06-23</td>
+    </tr><tr>
+      <td><div class="subject">Philadelphia Eagles</div><span class="market-chip">NFC_East_Win_Division</span></td>
+      <td>Philly, big underdog to win the division, I think is a solid wager<div class="quote">&ldquo;I think you can get Phillies still right around +350 right now to win the division. Yeah, the Braves should still be favored, but I think the Phillies are the better team right now and they could easily make up that deficit.&rdquo;</div></td>
+      <td class="price">+350</td>
+      <td class="why">Not a season-futures market ATLAS tracks live odds for.</td>
+      <td class="cite">Betting impact of the Giannis Antetokounmpo trade &amp; Survivor Pool Tips<br>2026-06-23</td>
+    </tr><tr>
+      <td><div class="subject">Derrick Henry</div><span class="market-chip">NFL_Season_Rushing_Yards</span></td>
+      <td>under 1275<div class="quote">&ldquo;Derrick Henry, Baltimore dude&#x27;s 32 years old. He is 1275 yards. He&#x27;s the number one running back in terms of, you know, rush yards that have been put up. I got to go under Ross, under 1275. Derek Henry.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">No live odds source tracked for stat-leader markets (player_prop_odds table has no data yet).</td>
+      <td class="cite">Brendan Sorsby eligibility fallout and NFL season-long player props<br>2026-06-09</td>
+    </tr><tr>
+      <td><div class="subject">A.J. Brown</div><span class="market-chip">NFL_Season_Receiving_Yards</span></td>
+      <td>under 1125<div class="quote">&ldquo;I want to ask you about A.J. brown, whose production fell off, as you know, for your Eagles now in New England. He&#x27;s at 11:25 and I frankly was surprised. So he&#x27;s being priced like he&#x27;s a top 10 wide receiver.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">No live odds source tracked for stat-leader markets (player_prop_odds table has no data yet).</td>
+      <td class="cite">Brendan Sorsby eligibility fallout and NFL season-long player props<br>2026-06-09</td>
+    </tr><tr>
+      <td><div class="subject">Cleveland</div><span class="market-chip">Win_Total</span></td>
+      <td>under six and a half<div class="quote">&ldquo;I don&#x27;t want any part of Cleveland. Cleveland season win number. I know it&#x27;s big. It&#x27;s under six and a half already.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">Not a season-futures market ATLAS tracks live odds for.</td>
+      <td class="cite">Betting Implications of the Myles Garrett &amp; AJ Brown trades<br>2026-06-02</td>
+    </tr><tr>
+      <td><div class="subject">Cowboys</div><span class="market-chip">NFC_East_Thanksgiving</span></td>
+      <td>Dallas plus one and a half on Thanksgiving<div class="quote">&ldquo;Dallas, wrong team favorite. We&#x27;re going to go Dallas plus one and a half on Thanksgiving.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">Not a season-futures market ATLAS tracks live odds for.</td>
+      <td class="cite">How to bet on the 2026 NFL Schedule Release<br>2026-05-12</td>
+    </tr></tbody></table></details><details class="host"><summary>Steve Fezzik <span class="host-count">(30 picks)</span></summary><div class="section-label">Win-Total (Over/Under) Picks &mdash; line / Over price / Under price</div><table><thead><tr><th>Subject / Market</th><th>Pick (reasoning)</th><th>Lean</th><th>Conviction</th><th>Host price</th><th>BOL</th><th>BKR</th><th>BTU</th><th>Episode</th></tr></thead><tbody><tr>
+      <td><div class="subject">Arizona Cardinals</div><span class="market-chip">NFC_West_Win_Total</span></td>
+      <td>no action<div class="quote">&ldquo;Four and a half&#x27;s just, you know, that&#x27;s a, that is a, an area code or A zip code, rather. That&#x27;s a zip code that I don&#x27;t want to drive through when I&#x27;m playing under.&rdquo;</div></td>
+      <td class="lean-neutral">neutral</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">4.5 &nbsp;/&nbsp; O +135 &nbsp;/&nbsp; U -165</td><td class="price">4.5 &nbsp;/&nbsp; O +132 &nbsp;/&nbsp; U -148</td><td class="price">4.5 &nbsp;/&nbsp; O +125 &nbsp;/&nbsp; U -155</td>
+      <td class="cite">First Look at 2026 NFC Season Win Totals<br>2026-04-07</td>
+    </tr><tr>
+      <td><div class="subject">LA Rams</div><span class="market-chip">NFC_West_Win_Total</span></td>
+      <td>under 11.5<div class="quote">&ldquo;Gotta go under 11 and a half.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">11.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U +115</td><td class="price">11.5 &nbsp;/&nbsp; O -138 &nbsp;/&nbsp; U <span class="best">+122</span></td><td class="price">11.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U +115</td>
+      <td class="cite">First Look at 2026 NFC Season Win Totals<br>2026-04-07</td>
+    </tr><tr>
+      <td><div class="subject">Seattle Seahawks</div><span class="market-chip">NFC_West_Win_Total</span></td>
+      <td>over 10.5<div class="quote">&ldquo;Seattle can win 11 games. Why not? I would lean over.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">10.5 &nbsp;/&nbsp; O <span class="best">-115</span> &nbsp;/&nbsp; U -115</td><td class="price">10.5 &nbsp;/&nbsp; O -123 &nbsp;/&nbsp; U +107</td><td class="price">10.5 &nbsp;/&nbsp; O -115 &nbsp;/&nbsp; U -115</td>
+      <td class="cite">First Look at 2026 NFC Season Win Totals<br>2026-04-07</td>
+    </tr><tr>
+      <td><div class="subject">Carolina Panthers</div><span class="market-chip">NFC_South_Win_Total</span></td>
+      <td>over 7.5<div class="quote">&ldquo;Carolina over seven and a half. I will trust him. It&#x27;s plus money too that that&#x27;s the over team in this division.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O <span class="best">+125</span> &nbsp;/&nbsp; U -155</td><td class="price">7.5 &nbsp;/&nbsp; O +113 &nbsp;/&nbsp; U -129</td><td class="price">7.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U -140</td>
+      <td class="cite">First Look at 2026 NFC Season Win Totals<br>2026-04-07</td>
+    </tr><tr>
+      <td><div class="subject">Buccaneers</div><span class="market-chip">NFC_South_Win_Total</span></td>
+      <td>lean slightly to the over<div class="quote">&ldquo;I&#x27;ll lean slightly to the over, though.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">8.5 &nbsp;/&nbsp; O +120 &nbsp;/&nbsp; U -150</td><td class="price">8.5 &nbsp;/&nbsp; O <span class="best">+126</span> &nbsp;/&nbsp; U -142</td><td class="price">8.5 &nbsp;/&nbsp; O +120 &nbsp;/&nbsp; U -150</td>
+      <td class="cite">First Look at 2026 NFC Season Win Totals<br>2026-04-07</td>
+    </tr><tr>
+      <td><div class="subject">Saints</div><span class="market-chip">NFC_South_Win_Total</span></td>
+      <td>look under seven and a half<div class="quote">&ldquo;I&#x27;m not seeing it. I would look under seven and a half.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td><td class="price">7.5 &nbsp;/&nbsp; O -132 &nbsp;/&nbsp; U <span class="best">+116</span></td><td class="price">7.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td>
+      <td class="cite">First Look at 2026 NFC Season Win Totals<br>2026-04-07</td>
+    </tr><tr>
+      <td><div class="subject">Bears</div><span class="market-chip">NFC_North_Win_Total</span></td>
+      <td>like under<div class="quote">&ldquo;I think the Bears are going to finish in last place. I don&#x27;t see it... I like under.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O +100 &nbsp;/&nbsp; U <span class="best">-130</span></td><td class="price">9.5 &nbsp;/&nbsp; O +123 &nbsp;/&nbsp; U -139</td><td class="price">9.5 &nbsp;/&nbsp; O +100 &nbsp;/&nbsp; U -130</td>
+      <td class="cite">First Look at 2026 NFC Season Win Totals<br>2026-04-07</td>
+    </tr><tr>
+      <td><div class="subject">Lions</div><span class="market-chip">NFC_North_Win_Total</span></td>
+      <td>going under ten and a half<div class="quote">&ldquo;I&#x27;m going under ten and a half.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">10.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U <span class="best">+105</span></td><td class="price">10.5 &nbsp;/&nbsp; O -120 &nbsp;/&nbsp; U +104</td><td class="price">10.5 &nbsp;/&nbsp; O -130 &nbsp;/&nbsp; U +100</td>
+      <td class="cite">First Look at 2026 NFC Season Win Totals<br>2026-04-07</td>
+    </tr><tr>
+      <td><div class="subject">Packers</div><span class="market-chip">NFC_North_Win_Total</span></td>
+      <td>under<div class="quote">&ldquo;So how the heck are they at ten and a half under?&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -120 &nbsp;/&nbsp; U <span class="best">-110</span></td><td class="price">9.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -110</td><td class="price">9.5 &nbsp;/&nbsp; O -120 &nbsp;/&nbsp; U -110</td>
+      <td class="cite">First Look at 2026 NFC Season Win Totals<br>2026-04-07</td>
+    </tr><tr>
+      <td><div class="subject">Vikings</div><span class="market-chip">NFC_North_Win_Total</span></td>
+      <td>over eight and a half<div class="quote">&ldquo;Not only do the Vikings go over eight and a half Ross, they win the division.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">8.5 &nbsp;/&nbsp; O <span class="best">-110</span> &nbsp;/&nbsp; U -120</td><td class="price">8.5 &nbsp;/&nbsp; O -118 &nbsp;/&nbsp; U +102</td><td class="price">8.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -120</td>
+      <td class="cite">First Look at 2026 NFC Season Win Totals<br>2026-04-07</td>
+    </tr><tr>
+      <td><div class="subject">Cowboys</div><span class="market-chip">NFC_East_Win_Total</span></td>
+      <td>lean over<div class="quote">&ldquo;I&#x27;m going to lean over with all that offensive talent.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O <span class="best">+100</span> &nbsp;/&nbsp; U -130</td><td class="price">9.5 &nbsp;/&nbsp; O -103 &nbsp;/&nbsp; U -113</td><td class="price">9.5 &nbsp;/&nbsp; O -105 &nbsp;/&nbsp; U -125</td>
+      <td class="cite">First Look at 2026 NFC Season Win Totals<br>2026-04-07</td>
+    </tr><tr>
+      <td><div class="subject">Giants</div><span class="market-chip">NFC_East_Win_Total</span></td>
+      <td>lean over<div class="quote">&ldquo;I&#x27;ll still lean over. We got an adult in the room coaching them now with Harbaugh.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -120</td><td class="price">7.5 &nbsp;/&nbsp; O <span class="best">-103</span> &nbsp;/&nbsp; U -113</td><td class="price">7.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -120</td>
+      <td class="cite">First Look at 2026 NFC Season Win Totals<br>2026-04-07</td>
+    </tr><tr>
+      <td><div class="subject">Eagles</div><span class="market-chip">NFC_East_Win_Total</span></td>
+      <td>like under<div class="quote">&ldquo;I&#x27;d like under.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U <span class="best">+115</span></td><td class="price">10.5 &nbsp;/&nbsp; O +122 &nbsp;/&nbsp; U -138</td><td class="price">10.5 &nbsp;/&nbsp; O +115 &nbsp;/&nbsp; U -145</td>
+      <td class="cite">First Look at 2026 NFC Season Win Totals<br>2026-04-07</td>
+    </tr><tr>
+      <td><div class="subject">Commanders</div><span class="market-chip">NFC_East_Win_Total</span></td>
+      <td>lean under<div class="quote">&ldquo;I would lean under. I got to see it.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O -130 &nbsp;/&nbsp; U +100</td><td class="price">7.5 &nbsp;/&nbsp; O -123 &nbsp;/&nbsp; U <span class="best">+107</span></td><td class="price">7.5 &nbsp;/&nbsp; O -130 &nbsp;/&nbsp; U +100</td>
+      <td class="cite">First Look at 2026 NFC Season Win Totals<br>2026-04-07</td>
+    </tr><tr>
+      <td><div class="subject">Bills</div><span class="market-chip">AFC_East_Win_Total</span></td>
+      <td>Bills go 12 and 5<div class="quote">&ldquo;As long as Josh Allen stays healthy, the bills go 12 and 5.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">10.5 &nbsp;/&nbsp; O <span class="best">-130</span> &nbsp;/&nbsp; U +100</td><td class="price">10.5 &nbsp;/&nbsp; O -132 &nbsp;/&nbsp; U +116</td><td class="price">10.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Patriots</div><span class="market-chip">AFC_East_Win_Total</span></td>
+      <td>Lean over the nine and a half<div class="quote">&ldquo;They can take a big step back and win 10 games and still get there. Lean over the nine and a half.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -160 &nbsp;/&nbsp; U +130</td><td class="price">10.5 &nbsp;/&nbsp; O <span class="best">+115</span> &nbsp;/&nbsp; U -135</td><td class="price">9.5 &nbsp;/&nbsp; O -150 &nbsp;/&nbsp; U +120</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Jets</div><span class="market-chip">AFC_East_Win_Total</span></td>
+      <td>could only look under<div class="quote">&ldquo;I think they absolutely could be the worst team in the NFL. Thus I could only look under.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">5.5 &nbsp;/&nbsp; O +100 &nbsp;/&nbsp; U -130</td><td class="price">5.5 &nbsp;/&nbsp; O -103 &nbsp;/&nbsp; U <span class="best">-113</span></td><td class="price">5.5 &nbsp;/&nbsp; O +100 &nbsp;/&nbsp; U -130</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Dolphins</div><span class="market-chip">AFC_East_Win_Total</span></td>
+      <td>lean over four and a half<div class="quote">&ldquo;I&#x27;ll lean over four and a half with the thought that, hey, you pick up a Kirk Cousins, that&#x27;s a great bet.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">4.5 &nbsp;/&nbsp; O <span class="best">+145</span> &nbsp;/&nbsp; U -175</td><td class="price">4.5 &nbsp;/&nbsp; O +141 &nbsp;/&nbsp; U -157</td><td class="price">4.5 &nbsp;/&nbsp; O +120 &nbsp;/&nbsp; U -150</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Ravens</div><span class="market-chip">AFC_North_Win_Total</span></td>
+      <td>lean a little to the under<div class="quote">&ldquo;I would actually lean a little to the under.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">11.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U <span class="best">-140</span></td><td class="price">11.5 &nbsp;/&nbsp; O +125 &nbsp;/&nbsp; U -141</td><td class="price">11.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U -140</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Bengals</div><span class="market-chip">AFC_North_Win_Total</span></td>
+      <td>lean under<div class="quote">&ldquo;I love Burrow. I love the production. But yeah, they only won six games last year, outscored by 80 points. I will lean under.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -170 &nbsp;/&nbsp; U <span class="best">+140</span></td><td class="price">10.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U -130</td><td class="price">9.5 &nbsp;/&nbsp; O -170 &nbsp;/&nbsp; U +140</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Browns</div><span class="market-chip">AFC_North_Win_Total</span></td>
+      <td>look heavily towards the under<div class="quote">&ldquo;I would look heavily towards the under. The Browns never win seven games.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">5.5 &nbsp;/&nbsp; O -115 &nbsp;/&nbsp; U -115</td><td class="price">5.5 &nbsp;/&nbsp; O -118 &nbsp;/&nbsp; U <span class="best">-102</span></td><td class="price">5.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -120</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Steelers</div><span class="market-chip">AFC_North_Win_Total</span></td>
+      <td>Love the under<div class="quote">&ldquo;Pittsburgh finishes last in the division. Love the under eight and a half.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U <span class="best">+115</span></td><td class="price">8.5 &nbsp;/&nbsp; O +115 &nbsp;/&nbsp; U -131</td><td class="price">7.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U +115</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Texans</div><span class="market-chip">AFC_South_Win_Total</span></td>
+      <td>lean over<div class="quote">&ldquo;Bottom line, you got that defense that plays out of their mind. CJ Stroud isn&#x27;t going to play worse. I will lean over.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O <span class="best">-130</span> &nbsp;/&nbsp; U +100</td><td class="price">9.5 &nbsp;/&nbsp; O -138 &nbsp;/&nbsp; U +122</td><td class="price">9.5 &nbsp;/&nbsp; O -130 &nbsp;/&nbsp; U +100</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Jaguars</div><span class="market-chip">AFC_South_Win_Total</span></td>
+      <td>look over<div class="quote">&ldquo;I reluctantly am going to give Trevor Lawrence the check mark for a good quarterback. So yeah, I would look over.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O <span class="best">+110</span> &nbsp;/&nbsp; U -140</td><td class="price">8.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +115</td><td class="price">9.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U -140</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Titans</div><span class="market-chip">AFC_South_Win_Total</span></td>
+      <td>look under<div class="quote">&ldquo;Check mark down. Unproven head coach. Check mark down. Unproven quarterback. Maybe he&#x27;ll be better. Check mark down. I would look under on the Titans.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">6.5 &nbsp;/&nbsp; O +100 &nbsp;/&nbsp; U -130</td><td class="price">6.5 &nbsp;/&nbsp; O +112 &nbsp;/&nbsp; U -128</td><td class="price">6.5 &nbsp;/&nbsp; O -105 &nbsp;/&nbsp; U <span class="best">-125</span></td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Broncos</div><span class="market-chip">AFC_West_Win_Total</span></td>
+      <td>look over<div class="quote">&ldquo;Nine Fs. Too light. It should be 10.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -130 &nbsp;/&nbsp; U +100</td><td class="price">9.5 &nbsp;/&nbsp; O <span class="best">-123</span> &nbsp;/&nbsp; U +107</td><td class="price">9.5 &nbsp;/&nbsp; O -125 &nbsp;/&nbsp; U -105</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Chiefs</div><span class="market-chip">AFC_West_Win_Total</span></td>
+      <td>lean under<div class="quote">&ldquo;I think they should win 10. 10 and a half&#x27;s too high. I would lean under.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">10.5 &nbsp;/&nbsp; O +120 &nbsp;/&nbsp; U -150</td><td class="price">10.5 &nbsp;/&nbsp; O +130 &nbsp;/&nbsp; U <span class="best">-146</span></td><td class="price">10.5 &nbsp;/&nbsp; O +120 &nbsp;/&nbsp; U -150</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Raiders</div><span class="market-chip">AFC_West_Win_Total</span></td>
+      <td>look under<div class="quote">&ldquo;It sure seems like a team with a better attitude. Crosby&#x27;s probably going to move on their stud defender.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">5.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U <span class="best">+115</span></td><td class="price">6.5 &nbsp;/&nbsp; O +130 &nbsp;/&nbsp; U -150</td><td class="price">5.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U +115</td>
+      <td class="cite">First Look at 2026 AFC Season Win Totals<br>2026-03-03</td>
+    </tr></tbody></table><div class="section-label">Other picks discussed &mdash; no live BOL/BKR/BTU price (2)</div><table><thead><tr><th>Subject / Market</th><th>Pick (reasoning)</th><th>Host price</th><th>Why no live price</th><th>Episode</th></tr></thead><tbody><tr>
+      <td><div class="subject">Tennessee Titans</div><span class="market-chip">AFC_Win_Total</span></td>
+      <td>Titans win total went up from six and a half to seven and a half<div class="quote">&ldquo;The Tennessee Titans did go up from six and a half to seven and a half.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">Not a season-futures market ATLAS tracks live odds for.</td>
+      <td class="cite">NFL Free Agency Betting Takeaways &amp; NCAA Conference Tournament Bets<br>2026-03-10</td>
+    </tr><tr>
+      <td><div class="subject">Miami Dolphins</div><span class="market-chip">AFC_Win_Total</span></td>
+      <td>Dolphins win total now at five and a half<div class="quote">&ldquo;Got into my head I&#x27;d go over five and a half.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">Not a season-futures market ATLAS tracks live odds for.</td>
+      <td class="cite">NFL Free Agency Betting Takeaways &amp; NCAA Conference Tournament Bets<br>2026-03-10</td>
+    </tr></tbody></table></details></div></details><details class="show" open><summary>Sharp Football Analysis <span class="host-count">(1 picks)</span></summary><div class="show-body"><details class="host"><summary>Warren Sharp <span class="host-count">(1 picks)</span></summary><div class="section-label">Other picks discussed &mdash; no live BOL/BKR/BTU price (1)</div><table><thead><tr><th>Subject / Market</th><th>Pick (reasoning)</th><th>Host price</th><th>Why no live price</th><th>Episode</th></tr></thead><tbody><tr>
+      <td><div class="subject">Kyler Murray</div><span class="market-chip">Super_Bowl</span></td>
+      <td>I just don&#x27;t think he&#x27;s winning a Super Bowl<div class="quote">&ldquo;I just don&#x27;t think he&#x27;s winning a Super Bowl, he&#x27;s not that type of a quarterback.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">&quot;Kyler Murray&quot; looks like a player, not a team — no team-outright market to compare against (likely an extraction quirk tagging this pick under a team-level market label).</td>
+      <td class="cite">Kyler Murray Trade Talk Is Crazy When You See These Stats<br>2026-02-27</td>
+    </tr></tbody></table></details></div></details><details class="show" open><summary>Sharp or Square <span class="host-count">(96 picks)</span></summary><div class="show-body"><details class="host"><summary>Chad Millman <span class="host-count">(12 picks)</span></summary><div class="section-label">Outright / Matchup Picks</div><table><thead><tr><th>Subject / Market</th><th>Pick (reasoning)</th><th>Lean</th><th>Conviction</th><th>Host price</th><th>BOL</th><th>BKR</th><th>BTU</th><th>Episode</th></tr></thead><tbody><tr>
+      <td><div class="subject">Patriots</div><span class="market-chip">AFC_East_Playoffs</span></td>
+      <td>Patriots to miss playoffs<div class="quote">&ldquo;I would not be uncomfortable taking a little taste of the Patriots at plus 150.&rdquo;</div></td>
+      <td class="lean-against">against</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">-220</td><td class="price"><span class="best">-215</span></td><td class="price">-220</td>
+      <td class="cite">NFL PLAYOFF BETTING PREDICTIONS<br>2026-07-07</td>
+    </tr><tr>
+      <td><div class="subject">Saints</div><span class="market-chip">NFC_South_Playoffs</span></td>
+      <td>Saints to make playoffs<div class="quote">&ldquo;I like that. Saint sides at plus 200.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">+170</td><td class="price"><span class="best">+200</span></td><td class="price">+170</td>
+      <td class="cite">NFL PLAYOFF BETTING PREDICTIONS<br>2026-07-07</td>
+    </tr><tr>
+      <td><div class="subject">Jaguars</div><span class="market-chip">AFC_South</span></td>
+      <td>Jaguars might miss the playoffs<div class="quote">&ldquo;If I had to pick one I&#x27;m with you probably would be the Jaguars. They just had so much brick their way last year.&rdquo;</div></td>
+      <td class="lean-against">against</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">+190</td><td class="price">+207</td><td class="price"><span class="best">+210</span></td>
+      <td class="cite">NFL PLAYOFF BETTING PREDICTIONS<br>2026-07-07</td>
+    </tr><tr>
+      <td><div class="subject">Chiefs</div><span class="market-chip">Super_Bowl</span></td>
+      <td>Chiefs at 13 to 1<div class="quote">&ldquo;The one I actually feel most confident about is the Chiefs at 13 to 1.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price">13 to 1</td>
+      <td class="price"><span class="best">+1600</span></td><td class="price">+1476</td><td class="price">+1500</td>
+      <td class="cite">NFL PLAYOFF BETTING PREDICTIONS<br>2026-07-07</td>
+    </tr><tr>
+      <td><div class="subject">Eagles vs Chiefs</div><span class="market-chip">Super_Bowl</span></td>
+      <td>Eagles to beat the Chiefs 101 Super Bowl<div class="quote">&ldquo;Eagles to beat the Chiefs 101 Super Bowl.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="na">—</td><td class="na">—</td><td class="price"><span class="best">+8000</span></td>
+      <td class="cite">NFL PLAYOFF BETTING PREDICTIONS<br>2026-07-07</td>
+    </tr><tr>
+      <td><div class="subject">Chiefs vs Eagles</div><span class="market-chip">Super_Bowl</span></td>
+      <td>Chiefs to beat the Eagles 101 Super Bowl<div class="quote">&ldquo;The Chiefs to beat the Eagles, same thing at Hard Rock 100, 101.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="na">—</td><td class="na">—</td><td class="price"><span class="best">+8000</span></td>
+      <td class="cite">NFL PLAYOFF BETTING PREDICTIONS<br>2026-07-07</td>
+    </tr><tr>
+      <td><div class="subject">Bengals vs Rams</div><span class="market-chip">Super_Bowl</span></td>
+      <td>Bengals to beat the Rams 100 to 1<div class="quote">&ldquo;Cincinnati Bengals to beat the Rams 100 to 1.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price">100 to 1</td>
+      <td class="na">—</td><td class="na">—</td><td class="price"><span class="best">+4000</span></td>
+      <td class="cite">NFL PLAYOFF BETTING PREDICTIONS<br>2026-07-07</td>
+    </tr><tr>
+      <td><div class="subject">Saints</div><span class="market-chip">NFC_Playoffs</span></td>
+      <td>Saints to make the playoffs at +200<div class="quote">&ldquo;My chad&#x27;s choice is going to be the New Orleans Saints to make the playoffs at plus 200.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price">+200</td>
+      <td class="price">+170</td><td class="price"><span class="best">+200</span></td><td class="price">+170</td>
+      <td class="cite">NFL PLAYOFF BETTING PREDICTIONS<br>2026-07-07</td>
+    </tr><tr>
+      <td><div class="subject">Patriots</div><span class="market-chip">AFC_East</span></td>
+      <td>Patriots to get 10 wins and potentially the seventh seed<div class="quote">&ldquo;If you&#x27;re a Patriots fan, I don&#x27;t know how they don&#x27;t get the 10 wins and 10 wins. We&#x27;ve seen the past. That&#x27;s good enough to get the seventh seed in the afc.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">+125</td><td class="price"><span class="best">+140</span></td><td class="price">+135</td>
+      <td class="cite">NFL PLAYOFF BETTING PREDICTIONS<br>2026-07-07</td>
+    </tr></tbody></table><div class="section-label">Other picks discussed &mdash; no live BOL/BKR/BTU price (3)</div><table><thead><tr><th>Subject / Market</th><th>Pick (reasoning)</th><th>Host price</th><th>Why no live price</th><th>Episode</th></tr></thead><tbody><tr>
+      <td><div class="subject">Bengals</div><span class="market-chip">AFC_One_Seed</span></td>
+      <td>Bengals to be the number one seed<div class="quote">&ldquo;Cincinnati is 11 to 1... My model has them literally neck and neck so just going based off values.&rdquo;</div></td>
+      <td class="price">11 to 1</td>
+      <td class="why">Not a season-futures market ATLAS tracks live odds for.</td>
+      <td class="cite">NFL PLAYOFF BETTING PREDICTIONS<br>2026-07-07</td>
+    </tr><tr>
+      <td><div class="subject">Unnamed Player</div><span class="market-chip">NFL_Draft_Top_10</span></td>
+      <td>I don&#x27;t see him being outside the top 10.<div class="quote">&ldquo;I don&#x27;t see him being outside the top 10. But this is definitely something that some teams will view negative.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">Not a season-futures market ATLAS tracks live odds for.</td>
+      <td class="cite">NFL Draft Betting Update: Rueben Bain, Ty Simpson Odds &amp; More<br>2026-04-16</td>
+    </tr><tr>
+      <td><div class="subject">Patrick Mahomes</div><span class="market-chip">Super_Bowl</span></td>
+      <td>Mahomes is the best quarterback to win a Super Bowl next year.<div class="quote">&ldquo;Mahomes. Every time it&#x27;s Mahomes. I don&#x27;t even care if he&#x27;s playing on one leg next year.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">&quot;Patrick Mahomes&quot; looks like a player, not a team — no team-outright market to compare against (likely an extraction quirk tagging this pick under a team-level market label).</td>
+      <td class="cite">NFL Quarterback Evaluation with Seth Wickersham of ESPN<br>2026-04-09</td>
+    </tr></tbody></table></details><details class="host"><summary>Guest <span class="host-count">(84 picks)</span></summary><div class="section-label">Outright / Matchup Picks</div><table><thead><tr><th>Subject / Market</th><th>Pick (reasoning)</th><th>Lean</th><th>Conviction</th><th>Host price</th><th>BOL</th><th>BKR</th><th>BTU</th><th>Episode</th></tr></thead><tbody><tr>
+      <td><div class="subject">Bears</div><span class="market-chip">NFC_North_Playoffs</span></td>
+      <td>Bears to miss playoffs<div class="quote">&ldquo;I would be betting against the Bears to make the playoffs. I am not high on the Bears.&rdquo;</div></td>
+      <td class="lean-against">against</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price"><span class="best">+105</span></td><td class="price">-125</td><td class="price">+100</td>
+      <td class="cite">NFL PLAYOFF BETTING PREDICTIONS<br>2026-07-07</td>
+    </tr><tr>
+      <td><div class="subject">Rams</div><span class="market-chip">NFC_West_Playoffs</span></td>
+      <td>Rams to miss playoffs<div class="quote">&ldquo;It&#x27;s plus 350 to not make the playoffs. That&#x27;s the better option to take every time is to miss the playoffs.&rdquo;</div></td>
+      <td class="lean-against">against</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">-500</td><td class="price"><span class="best">-495</span></td><td class="price">-500</td>
+      <td class="cite">NFL PLAYOFF BETTING PREDICTIONS<br>2026-07-07</td>
+    </tr><tr>
+      <td><div class="subject">Chiefs</div><span class="market-chip">AFC_West</span></td>
+      <td>Chiefs will make the playoffs<div class="quote">&ldquo;No matter what the expectations are, this is going to be a playoff team.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price"><span class="best">+175</span></td><td class="price">+168</td><td class="price">+170</td>
+      <td class="cite">NFL PLAYOFF BETTING PREDICTIONS<br>2026-07-07</td>
+    </tr><tr>
+      <td><div class="subject">Cowboys</div><span class="market-chip">NFC_East</span></td>
+      <td>Cowboys to make the playoffs<div class="quote">&ldquo;I just feel like that they&#x27;re being a little bit undervalued at plus 100 to make the playoffs.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price"><span class="best">+210</span></td><td class="price">+185</td><td class="price">+205</td>
+      <td class="cite">NFL PLAYOFF BETTING PREDICTIONS<br>2026-07-07</td>
+    </tr><tr>
+      <td><div class="subject">Cowboys</div><span class="market-chip">NFC_East_Playoffs</span></td>
+      <td>Cowboys to make the playoffs<div class="quote">&ldquo;I like a lot of Dallas Cowboys +100 to make the playoffs. Why is that not minus money?&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price">+100</td>
+      <td class="price"><span class="best">-105</span></td><td class="price">-115</td><td class="price">-105</td>
+      <td class="cite">NFL PLAYOFF BETTING PREDICTIONS<br>2026-07-07</td>
+    </tr><tr>
+      <td><div class="subject">Eagles vs Chiefs</div><span class="market-chip">Super_Bowl</span></td>
+      <td>Eagles, Chiefs Super Bowl matchup<div class="quote">&ldquo;I would do Eagles, Chiefs. That&#x27;s what I would do. A Super bowl matchup of Eagles, Chiefs.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="na">—</td><td class="na">—</td><td class="price"><span class="best">+8000</span></td>
+      <td class="cite">NFL PLAYOFF BETTING PREDICTIONS<br>2026-07-07</td>
+    </tr><tr>
+      <td><div class="subject">New Orleans Saints</div><span class="market-chip">NFC_Playoffs</span></td>
+      <td>Saints to make the playoffs at +200<div class="quote">&ldquo;So my chad&#x27;s choice is going to be the New Orleans Saints to make the playoffs at plus 200.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price">+200</td>
+      <td class="price">+170</td><td class="price"><span class="best">+200</span></td><td class="price">+170</td>
+      <td class="cite">NFL PLAYOFF BETTING PREDICTIONS<br>2026-07-07</td>
+    </tr><tr>
+      <td><div class="subject">Eagles vs Chiefs</div><span class="market-chip">Super_Bowl</span></td>
+      <td>Eagles to beat the Chiefs in the Super Bowl at 100 to 1<div class="quote">&ldquo;Eagles to beat the Chiefs in the Super bowl at 100 to 1.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price">100 to 1</td>
+      <td class="na">—</td><td class="na">—</td><td class="price"><span class="best">+8000</span></td>
+      <td class="cite">NFL PLAYOFF BETTING PREDICTIONS<br>2026-07-07</td>
+    </tr><tr>
+      <td><div class="subject">Patriots</div><span class="market-chip">Super_Bowl</span></td>
+      <td>Patriots now 16 to 1 super bodies<div class="quote">&ldquo;Is it better Patriots now? I think 16 to 1 super bodies.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price">16 to 1</td>
+      <td class="price"><span class="best">+2000</span></td><td class="price">+1704</td><td class="price">+1800</td>
+      <td class="cite">STANLEY CUP FINALS BETTING PREVIEW &amp; NFL TRADE REACTION - Canes vs. Golden Knights, Myles Garrett Trade<br>2026-06-02</td>
+    </tr><tr>
+      <td><div class="subject">Eagles</div><span class="market-chip">Super_Bowl</span></td>
+      <td>Eagles dropped down to 19 to 1<div class="quote">&ldquo;Eagles dropped down to 19 to 1. So not ton of movement but still enough, right?&rdquo;</div></td>
+      <td class="lean-against">against</td>
+      <td>65/100</td>
+      <td class="price">19 to 1</td>
+      <td class="price"><span class="best">+1800</span></td><td class="price">+1795</td><td class="price">+1800</td>
+      <td class="cite">STANLEY CUP FINALS BETTING PREVIEW &amp; NFL TRADE REACTION - Canes vs. Golden Knights, Myles Garrett Trade<br>2026-06-02</td>
+    </tr><tr>
+      <td><div class="subject">Eagles</div><span class="market-chip">Super_Bowl</span></td>
+      <td>no brainer super bowl value bet<div class="quote">&ldquo;this is a, a no brainer super bowl value bet to me.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price"><span class="best">+1800</span></td><td class="price">+1795</td><td class="price">+1800</td>
+      <td class="cite">STANLEY CUP FINALS BETTING PREVIEW &amp; NFL TRADE REACTION - Canes vs. Golden Knights, Myles Garrett Trade<br>2026-06-02</td>
+    </tr><tr>
+      <td><div class="subject">Rams</div><span class="market-chip">Super_Bowl</span></td>
+      <td>betting the Rams not to make the playoffs<div class="quote">&ldquo;betting the Rams not to make the playoffs. And I could totally get why nobody would want to bet on the Rams to win the Super Bowl.&rdquo;</div></td>
+      <td class="lean-against">against</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">+500</td><td class="price">+501</td><td class="price"><span class="best">+550</span></td>
+      <td class="cite">STANLEY CUP FINALS BETTING PREVIEW &amp; NFL TRADE REACTION - Canes vs. Golden Knights, Myles Garrett Trade<br>2026-06-02</td>
+    </tr><tr>
+      <td><div class="subject">Rams</div><span class="market-chip">Super_Bowl</span></td>
+      <td>Rams have the shortest odds to win the Super Bowl right now<div class="quote">&ldquo;Rams have the shortest odds to win the super bowl right now, ahead of the Ravens, Bill, Seahawks and Chiefs.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">+500</td><td class="price">+501</td><td class="price"><span class="best">+550</span></td>
+      <td class="cite">STANLEY CUP FINALS BETTING PREVIEW &amp; NFL TRADE REACTION - Canes vs. Golden Knights, Myles Garrett Trade<br>2026-06-02</td>
+    </tr><tr>
+      <td><div class="subject">Browns</div><span class="market-chip">AFC_North</span></td>
+      <td>Browns +7.5<div class="quote">&ldquo;I couldn&#x27;t believe this was over a touchdown. It&#x27;s like my God, in week one.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price"><span class="best">+2200</span></td><td class="price">+1478</td><td class="price">+1800</td>
+      <td class="cite">NFL WEEK 1 BETTING LINES - 2026 Regular Season Openers<br>2026-05-28</td>
+    </tr><tr>
+      <td><div class="subject">Titans</div><span class="market-chip">AFC_South</span></td>
+      <td>Titans -2.5<div class="quote">&ldquo;It&#x27;s the perfect number to take Cam Ward in this Tennessee team that we think would be in the jets.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">+750</td><td class="price"><span class="best">+851</span></td><td class="price">+800</td>
+      <td class="cite">NFL WEEK 1 BETTING LINES - 2026 Regular Season Openers<br>2026-05-28</td>
+    </tr><tr>
+      <td><div class="subject">Ravens</div><span class="market-chip">AFC_North</span></td>
+      <td>Ravens -3.5<div class="quote">&ldquo;I don&#x27;t get this line Chad, and I don&#x27;t hate your early read either.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">-110</td><td class="price"><span class="best">-109</span></td><td class="price">-115</td>
+      <td class="cite">NFL WEEK 1 BETTING LINES - 2026 Regular Season Openers<br>2026-05-28</td>
+    </tr><tr>
+      <td><div class="subject">Ravens</div><span class="market-chip">AFC_North</span></td>
+      <td>I&#x27;m gonna be pretty, pretty big on the Ravens<div class="quote">&ldquo;I&#x27;m gonna be pretty, pretty big on the Ravens&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">-110</td><td class="price"><span class="best">-109</span></td><td class="price">-115</td>
+      <td class="cite">NFL Schedule Release PART 2 with Warren Sharp<br>2026-05-26</td>
+    </tr><tr>
+      <td><div class="subject">Browns</div><span class="market-chip">AFC_North</span></td>
+      <td>sleeper team from that division will probably be the Browns<div class="quote">&ldquo;sleeper team from that division will probably be the Browns&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price"><span class="best">+2200</span></td><td class="price">+1478</td><td class="price">+1800</td>
+      <td class="cite">NFL Schedule Release PART 2 with Warren Sharp<br>2026-05-26</td>
+    </tr><tr>
+      <td><div class="subject">Giants</div><span class="market-chip">NFC_East</span></td>
+      <td>I hate the direction of the organization.<div class="quote">&ldquo;I hate the direction of the organization. And there&#x27;s just other teams where I&#x27;d rather be at their starting point than this Giants team.&rdquo;</div></td>
+      <td class="lean-against">against</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">+550</td><td class="price"><span class="best">+555</span></td><td class="price">+550</td>
+      <td class="cite">NFL MAILBAG - De&#x27;Von Achane Contract, NFL Schedule and More<br>2026-05-14</td>
+    </tr><tr>
+      <td><div class="subject">Jets</div><span class="market-chip">AFC_East</span></td>
+      <td>I definitely wouldn&#x27;t want to wake up a Jets fan.<div class="quote">&ldquo;The New York jets resigning Geno Smith is an under discussed part of the off season and one of the most genuinely hilarious things that&#x27;s happened in the NFL in the last 10 years.&rdquo;</div></td>
+      <td class="lean-against">against</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">+2000</td><td class="price"><span class="best">+2750</span></td><td class="price">+2000</td>
+      <td class="cite">NFL MAILBAG - De&#x27;Von Achane Contract, NFL Schedule and More<br>2026-05-14</td>
+    </tr><tr>
+      <td><div class="subject">Carolina Panthers</div><span class="market-chip">NFC_South</span></td>
+      <td>I still like the Carolina Panthers<div class="quote">&ldquo;Am I betting on the Falcons to win the NFC south because they drafted a cornerback and a wide receiver in the first two rounds? Probably not because I still like the Carolina Panthers.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price"><span class="best">+325</span></td><td class="price">+281</td><td class="price">+310</td>
+      <td class="cite">NFL DRAFT ANALYSIS PART 1: NFC Recap<br>2026-05-05</td>
+    </tr><tr>
+      <td><div class="subject">Panthers</div><span class="market-chip">NFC_South</span></td>
+      <td>Panthers to win the NFC South<div class="quote">&ldquo;Do you feel like my pick of the Panthers to win the NFC south is a little bit less of a sucker bet.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price"><span class="best">+325</span></td><td class="price">+281</td><td class="price">+310</td>
+      <td class="cite">NFL DRAFT ANALYSIS PART 1: NFC Recap<br>2026-05-05</td>
+    </tr><tr>
+      <td><div class="subject">Saints</div><span class="market-chip">NFC_South</span></td>
+      <td>The Saints could either win this division or have the number two pick next year.<div class="quote">&ldquo;The Saints could either win this division or have the number two pick next year and take Archie Manning.&rdquo;</div></td>
+      <td class="lean-neutral">neutral</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">+240</td><td class="price"><span class="best">+268</span></td><td class="price">+265</td>
+      <td class="cite">NFL DRAFT ANALYSIS PART 1: NFC Recap<br>2026-05-05</td>
+    </tr><tr>
+      <td><div class="subject">Browns</div><span class="market-chip">Super_Bowl</span></td>
+      <td>throw a little bit old<div class="quote">&ldquo;There are still some books out there. At 130 to 1 Super bowl odds on the Browns, I know it&#x27;s not going to happen, but we got to throw a little bit old.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price">130 to 1</td>
+      <td class="price"><span class="best">+30000</span></td><td class="price">+24752</td><td class="price">+20000</td>
+      <td class="cite">NFL DRAFT Betting Recap: Picks &amp; Predictions Results<br>2026-04-28</td>
+    </tr><tr>
+      <td><div class="subject">Rams</div><span class="market-chip">Super_Bowl</span></td>
+      <td>Rams to win the Super Bowl<div class="quote">&ldquo;Simon, the rams right now are plus 775 to win the Super Bowl. They have the shortest odds other than the Seahawks.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">+500</td><td class="price">+501</td><td class="price"><span class="best">+550</span></td>
+      <td class="cite">NFL Free Agency Reactions with Bill Barnwell<br>2026-03-10</td>
+    </tr><tr>
+      <td><div class="subject">Raiders</div><span class="market-chip">Super_Bowl</span></td>
+      <td>Raiders are not going to win the Super Bowl<div class="quote">&ldquo;The Raiders are 150 to 1 to win the Super Bowl. Well, I&#x27;m not saying the Raiders are going to win the super bowl, but I do love what the Raiders have done.&rdquo;</div></td>
+      <td class="lean-against">against</td>
+      <td>65/100</td>
+      <td class="price">150 to 1</td>
+      <td class="price">+8000</td><td class="price">+11688</td><td class="price"><span class="best">+15000</span></td>
+      <td class="cite">NFL Free Agency Reactions with Bill Barnwell<br>2026-03-10</td>
+    </tr></tbody></table><div class="section-label">Win-Total (Over/Under) Picks &mdash; line / Over price / Under price</div><table><thead><tr><th>Subject / Market</th><th>Pick (reasoning)</th><th>Lean</th><th>Conviction</th><th>Host price</th><th>BOL</th><th>BKR</th><th>BTU</th><th>Episode</th></tr></thead><tbody><tr>
+      <td><div class="subject">Chargers</div><span class="market-chip">AFC_West_Win_Total</span></td>
+      <td>attacking their under this season<div class="quote">&ldquo;That&#x27;s a team I think we&#x27;re going to get a huge advantage on attacking their under this season.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U +115</td><td class="price">9.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U <span class="best">+125</span></td><td class="price">9.5 &nbsp;/&nbsp; O -150 &nbsp;/&nbsp; U +120</td>
+      <td class="cite">NFL Schedule Release PART 2 with Warren Sharp<br>2026-05-26</td>
+    </tr><tr>
+      <td><div class="subject">Chargers</div><span class="market-chip">AFC_West_Win_Total</span></td>
+      <td>I&#x27;ve already basically put aside five figures to in season bet the Chargers win total<div class="quote">&ldquo;I&#x27;ve already basically put aside five figures to in season bet the Chargers win total like you can literally let Them win week one, week two against a, you know, a Cardinals and the Raiders opponents.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U +115</td><td class="price">9.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U <span class="best">+125</span></td><td class="price">9.5 &nbsp;/&nbsp; O -150 &nbsp;/&nbsp; U +120</td>
+      <td class="cite">NFL Schedule Release PART 2 with Warren Sharp<br>2026-05-26</td>
+    </tr><tr>
+      <td><div class="subject">Bears</div><span class="market-chip">NFC_North_Win_Total</span></td>
+      <td>fade the Bears<div class="quote">&ldquo;as a wise guy. They&#x27;re an easy fade, right? The first year head coach over overachieved, right. Won a division. No one thought they were going to win division, had a down year. Now you&#x27;re in a first place schedule. It&#x27;s. They&#x27;re an easy fade.&rdquo;</div></td>
+      <td class="lean-against">against</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O +100 &nbsp;/&nbsp; U -130</td><td class="price">9.5 &nbsp;/&nbsp; O +123 &nbsp;/&nbsp; U -139</td><td class="price">9.5 &nbsp;/&nbsp; O +100 &nbsp;/&nbsp; U -130</td>
+      <td class="cite">NFL Schedule Release PART 1 with Warren Sharp<br>2026-05-21</td>
+    </tr><tr>
+      <td><div class="subject">Giants</div><span class="market-chip">NFC_East_Win_Total</span></td>
+      <td>very Much under the 7 1/2 win total<div class="quote">&ldquo;This team goes very Much under the 7 1/2 win total&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -120</td><td class="price">7.5 &nbsp;/&nbsp; O -103 &nbsp;/&nbsp; U <span class="best">-113</span></td><td class="price">7.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -120</td>
+      <td class="cite">NFL MAILBAG - De&#x27;Von Achane Contract, NFL Schedule and More<br>2026-05-14</td>
+    </tr><tr>
+      <td><div class="subject">Panthers</div><span class="market-chip">NFC_South_Win_Total</span></td>
+      <td>over six and a half<div class="quote">&ldquo;The sucker bet you took was the over six and a half.&rdquo;</div></td>
+      <td class="lean-against">against</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O +125 &nbsp;/&nbsp; U -155</td><td class="price">7.5 &nbsp;/&nbsp; O +113 &nbsp;/&nbsp; U -129</td><td class="price">7.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U -140</td>
+      <td class="cite">NFL DRAFT ANALYSIS PART 1: NFC Recap<br>2026-05-05</td>
+    </tr><tr>
+      <td><div class="subject">Giants</div><span class="market-chip">NFC_East_Win_Total</span></td>
+      <td>It&#x27;s one of my favorite unders. So I already hit it at seven and a half.<div class="quote">&ldquo;It&#x27;s one of my favorite unders. So I already hit it at seven and a half.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -120</td><td class="price">7.5 &nbsp;/&nbsp; O -103 &nbsp;/&nbsp; U <span class="best">-113</span></td><td class="price">7.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -120</td>
+      <td class="cite">NFL DRAFT ANALYSIS PART 1: NFC Recap<br>2026-05-05</td>
+    </tr><tr>
+      <td><div class="subject">Arizona Cardinals</div><span class="market-chip">NFC_West_Win_Total</span></td>
+      <td>Under<div class="quote">&ldquo;Arizona four and a half. Under.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">4.5 &nbsp;/&nbsp; O +135 &nbsp;/&nbsp; U -165</td><td class="price">4.5 &nbsp;/&nbsp; O +132 &nbsp;/&nbsp; U <span class="best">-148</span></td><td class="price">4.5 &nbsp;/&nbsp; O +125 &nbsp;/&nbsp; U -155</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Carolina Panthers</div><span class="market-chip">NFC_South_Win_Total</span></td>
+      <td>Over<div class="quote">&ldquo;Carolina, six and a half...they could potentially get six wins in their division.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O <span class="best">+125</span> &nbsp;/&nbsp; U -155</td><td class="price">7.5 &nbsp;/&nbsp; O +113 &nbsp;/&nbsp; U -129</td><td class="price">7.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U -140</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Cleveland Browns</div><span class="market-chip">AFC_North_Win_Total</span></td>
+      <td>Under<div class="quote">&ldquo;The under six and a half feels like the safer bet.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">5.5 &nbsp;/&nbsp; O -115 &nbsp;/&nbsp; U -115</td><td class="price">5.5 &nbsp;/&nbsp; O -118 &nbsp;/&nbsp; U <span class="best">-102</span></td><td class="price">5.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -120</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Atlanta Falcons</div><span class="market-chip">NFC_South_Win_Total</span></td>
+      <td>Over<div class="quote">&ldquo;Atlanta seven and a half. I&#x27;m going with the over.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O +105 &nbsp;/&nbsp; U -135</td><td class="price">7.5 &nbsp;/&nbsp; O <span class="best">+112</span> &nbsp;/&nbsp; U -128</td><td class="price">7.5 &nbsp;/&nbsp; O +105 &nbsp;/&nbsp; U -135</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">New Orleans Saints</div><span class="market-chip">NFC_South_Win_Total</span></td>
+      <td>Over<div class="quote">&ldquo;New Orleans seven and a half. All right. I know you&#x27;re taking the over.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td><td class="price">7.5 &nbsp;/&nbsp; O <span class="best">-132</span> &nbsp;/&nbsp; U +116</td><td class="price">7.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">New Orleans Saints</div><span class="market-chip">NFC_South_Win_Total</span></td>
+      <td>over seven and a half<div class="quote">&ldquo;New Orleans seven and a half. All right. I know you&#x27;re taking the over.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td><td class="price">7.5 &nbsp;/&nbsp; O <span class="best">-132</span> &nbsp;/&nbsp; U +116</td><td class="price">7.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">New York Giants</div><span class="market-chip">NFC_East_Win_Total</span></td>
+      <td>under seven and a half<div class="quote">&ldquo;This is like one of my favorite under bets and I know some pros that have been hammering this over dart runs literally with his head down into guys.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -120</td><td class="price">7.5 &nbsp;/&nbsp; O -103 &nbsp;/&nbsp; U <span class="best">-113</span></td><td class="price">7.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -120</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Washington Commanders</div><span class="market-chip">NFC_East_Win_Total</span></td>
+      <td>under seven and a half<div class="quote">&ldquo;I&#x27;m taking the under. I get why you&#x27;re taking the over though, but to me I think it&#x27;s price right?&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O -130 &nbsp;/&nbsp; U +100</td><td class="price">7.5 &nbsp;/&nbsp; O -123 &nbsp;/&nbsp; U <span class="best">+107</span></td><td class="price">7.5 &nbsp;/&nbsp; O -130 &nbsp;/&nbsp; U +100</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Dallas Cowboys</div><span class="market-chip">NFC_East_Win_Total</span></td>
+      <td>over eight and a half<div class="quote">&ldquo;Dallas Cowboys 8 1/2. I&#x27;ll bite. I&#x27;m a sucker. I&#x27;ll take the over. I saw a lot of promise.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O <span class="best">+100</span> &nbsp;/&nbsp; U -130</td><td class="price">9.5 &nbsp;/&nbsp; O -103 &nbsp;/&nbsp; U -113</td><td class="price">9.5 &nbsp;/&nbsp; O -105 &nbsp;/&nbsp; U -125</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Cowboys</div><span class="market-chip">NFC_East_Win_Total</span></td>
+      <td>I&#x27;ll take the over. Eight and a half on the Cowboys.<div class="quote">&ldquo;I&#x27;ll bite. I&#x27;m a sucker. I&#x27;ll take the over. I saw a lot of promise. I&#x27;m excited about what that can do.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O <span class="best">+100</span> &nbsp;/&nbsp; U -130</td><td class="price">9.5 &nbsp;/&nbsp; O -103 &nbsp;/&nbsp; U -113</td><td class="price">9.5 &nbsp;/&nbsp; O -105 &nbsp;/&nbsp; U -125</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Giants</div><span class="market-chip">NFC_East_Win_Total</span></td>
+      <td>I&#x27;m down on the Giants.<div class="quote">&ldquo;I&#x27;m down on the Giants.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -120</td><td class="price">7.5 &nbsp;/&nbsp; O -103 &nbsp;/&nbsp; U <span class="best">-113</span></td><td class="price">7.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -120</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Colts</div><span class="market-chip">AFC_South_Win_Total</span></td>
+      <td>I&#x27;m going under here.<div class="quote">&ldquo;Indy 8 1/2. I&#x27;m going under here.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td><td class="price">7.5 &nbsp;/&nbsp; O -140 &nbsp;/&nbsp; U <span class="best">+120</span></td><td class="price">7.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Steelers</div><span class="market-chip">AFC_North_Win_Total</span></td>
+      <td>I&#x27;m taking the under.<div class="quote">&ldquo;Pitt is at eight and a half taking the under on Pittsburgh.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U <span class="best">+115</span></td><td class="price">8.5 &nbsp;/&nbsp; O +115 &nbsp;/&nbsp; U -131</td><td class="price">7.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U +115</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Buccaneers</div><span class="market-chip">NFC_South_Win_Total</span></td>
+      <td>I would lean towards the under.<div class="quote">&ldquo;If I had to make a pick, I would lean towards the under.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">8.5 &nbsp;/&nbsp; O +120 &nbsp;/&nbsp; U -150</td><td class="price">8.5 &nbsp;/&nbsp; O +126 &nbsp;/&nbsp; U <span class="best">-142</span></td><td class="price">8.5 &nbsp;/&nbsp; O +120 &nbsp;/&nbsp; U -150</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Bears</div><span class="market-chip">NFC_North_Win_Total</span></td>
+      <td>the smart bet probably is the under.<div class="quote">&ldquo;the smart bed probably is the under. You expect regression.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O +100 &nbsp;/&nbsp; U <span class="best">-130</span></td><td class="price">9.5 &nbsp;/&nbsp; O +123 &nbsp;/&nbsp; U -139</td><td class="price">9.5 &nbsp;/&nbsp; O +100 &nbsp;/&nbsp; U -130</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Chicago Bears</div><span class="market-chip">NFC_North_Win_Total</span></td>
+      <td>the smart bet probably is the under<div class="quote">&ldquo;the smart bed probably is the under. You. You expect regression. Last year they overachieved.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O +100 &nbsp;/&nbsp; U <span class="best">-130</span></td><td class="price">9.5 &nbsp;/&nbsp; O +123 &nbsp;/&nbsp; U -139</td><td class="price">9.5 &nbsp;/&nbsp; O +100 &nbsp;/&nbsp; U -130</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Cincinnati Bengals</div><span class="market-chip">AFC_North_Win_Total</span></td>
+      <td>over under nine and a half feels way too high for the Bengals<div class="quote">&ldquo;over under nine and a half feels way too high for the Bangles.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -170 &nbsp;/&nbsp; U <span class="best">+140</span></td><td class="price">10.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U -130</td><td class="price">9.5 &nbsp;/&nbsp; O -170 &nbsp;/&nbsp; U +140</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Denver Broncos</div><span class="market-chip">AFC_West_Win_Total</span></td>
+      <td>I&#x27;d rather be betting the over on this team than the under<div class="quote">&ldquo;I&#x27;d rather be betting the over on this team than the under.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -130 &nbsp;/&nbsp; U +100</td><td class="price">9.5 &nbsp;/&nbsp; O <span class="best">-123</span> &nbsp;/&nbsp; U +107</td><td class="price">9.5 &nbsp;/&nbsp; O -125 &nbsp;/&nbsp; U -105</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Denver Broncos</div><span class="market-chip">AFC_West_Win_Total</span></td>
+      <td>over<div class="quote">&ldquo;I think they&#x27;re another team that get to 11, 12 wins. Like I just think they&#x27;re going to be really competitive these next two, three years.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -130 &nbsp;/&nbsp; U +100</td><td class="price">9.5 &nbsp;/&nbsp; O <span class="best">-123</span> &nbsp;/&nbsp; U +107</td><td class="price">9.5 &nbsp;/&nbsp; O -125 &nbsp;/&nbsp; U -105</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Houston Texans</div><span class="market-chip">AFC_South_Win_Total</span></td>
+      <td>under<div class="quote">&ldquo;I&#x27;m just taking the under because we&#x27;re getting sitting right now. Just because it just feels like, you know, feels like a very high wind total.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -130 &nbsp;/&nbsp; U +100</td><td class="price">9.5 &nbsp;/&nbsp; O -138 &nbsp;/&nbsp; U <span class="best">+122</span></td><td class="price">9.5 &nbsp;/&nbsp; O -130 &nbsp;/&nbsp; U +100</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Jacksonville Jaguars</div><span class="market-chip">AFC_South_Win_Total</span></td>
+      <td>under<div class="quote">&ldquo;I&#x27;m not rushing to bet Jacksonville fully agree with your statement first place schedule.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U -140</td><td class="price">8.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U <span class="best">+115</span></td><td class="price">9.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U -140</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">New England Patriots</div><span class="market-chip">AFC_East_Win_Total</span></td>
+      <td>over<div class="quote">&ldquo;Now I&#x27;m leaning more to the over because it&#x27;s just, man, that division&#x27;s going to be so bad.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -160 &nbsp;/&nbsp; U +130</td><td class="price">10.5 &nbsp;/&nbsp; O <span class="best">+115</span> &nbsp;/&nbsp; U -135</td><td class="price">9.5 &nbsp;/&nbsp; O -150 &nbsp;/&nbsp; U +120</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Indianapolis Colts</div><span class="market-chip">AFC_South_Win_Total</span></td>
+      <td>under<div class="quote">&ldquo;Colts under for sure.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td><td class="price">7.5 &nbsp;/&nbsp; O -140 &nbsp;/&nbsp; U <span class="best">+120</span></td><td class="price">7.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">New York Giants</div><span class="market-chip">NFC_East_Win_Total</span></td>
+      <td>under<div class="quote">&ldquo;Giants under for sure.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -120</td><td class="price">7.5 &nbsp;/&nbsp; O -103 &nbsp;/&nbsp; U <span class="best">-113</span></td><td class="price">7.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -120</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Buffalo Bills</div><span class="market-chip">AFC_East_Win_Total</span></td>
+      <td>over<div class="quote">&ldquo;The Bills over for sure.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">10.5 &nbsp;/&nbsp; O <span class="best">-130</span> &nbsp;/&nbsp; U +100</td><td class="price">10.5 &nbsp;/&nbsp; O -132 &nbsp;/&nbsp; U +116</td><td class="price">10.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Cincinnati Bengals</div><span class="market-chip">AFC_North_Win_Total</span></td>
+      <td>under<div class="quote">&ldquo;Cincinnati under for sure.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -170 &nbsp;/&nbsp; U <span class="best">+140</span></td><td class="price">10.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U -130</td><td class="price">9.5 &nbsp;/&nbsp; O -170 &nbsp;/&nbsp; U +140</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Panthers</div><span class="market-chip">NFC_South_Win_Total</span></td>
+      <td>under<div class="quote">&ldquo;I&#x27;m more inclined to take the under. Especially the books. The books are telling themselves here they are getting 99% of the over money to the Carolina Panthers.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O +125 &nbsp;/&nbsp; U -155</td><td class="price">7.5 &nbsp;/&nbsp; O +113 &nbsp;/&nbsp; U <span class="best">-129</span></td><td class="price">7.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U -140</td>
+      <td class="cite">NFL Free Agency Reactions with Bill Barnwell<br>2026-03-10</td>
+    </tr><tr>
+      <td><div class="subject">Cardinals</div><span class="market-chip">NFC_West_Win_Total</span></td>
+      <td>not taking the over four and a half<div class="quote">&ldquo;I&#x27;ll give a little bit of love to Arizona not taking the over four and a half. That&#x27;s definitely an under look.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">4.5 &nbsp;/&nbsp; O +135 &nbsp;/&nbsp; U -165</td><td class="price">4.5 &nbsp;/&nbsp; O +132 &nbsp;/&nbsp; U <span class="best">-148</span></td><td class="price">4.5 &nbsp;/&nbsp; O +125 &nbsp;/&nbsp; U -155</td>
+      <td class="cite">NFL Free Agency Reactions with Bill Barnwell<br>2026-03-10</td>
+    </tr><tr>
+      <td><div class="subject">Browns</div><span class="market-chip">AFC_North_Win_Total</span></td>
+      <td>definite under six and a half<div class="quote">&ldquo;the Cleveland Browns were standing out to me as like a definite under six and a half.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">5.5 &nbsp;/&nbsp; O -115 &nbsp;/&nbsp; U -115</td><td class="price">5.5 &nbsp;/&nbsp; O -118 &nbsp;/&nbsp; U <span class="best">-102</span></td><td class="price">5.5 &nbsp;/&nbsp; O -110 &nbsp;/&nbsp; U -120</td>
+      <td class="cite">EARLY 2026 NFL SEASON WIN TOTALS - Part 1<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Ravens</div><span class="market-chip">AFC_North_Win_Total</span></td>
+      <td>under<div class="quote">&ldquo;In a tough division with unknown at the quarterback position, unknown at the head coaching position, the safe play is the under.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">11.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U <span class="best">-140</span></td><td class="price">11.5 &nbsp;/&nbsp; O +125 &nbsp;/&nbsp; U -141</td><td class="price">11.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U -140</td>
+      <td class="cite">EARLY 2026 NFL SEASON WIN TOTALS - Part 1<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Bills</div><span class="market-chip">AFC_East_Win_Total</span></td>
+      <td>easy over<div class="quote">&ldquo;This feels like an easy, easy over for me. Josh Allen... I got this graded over 11 and a half.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>80/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">10.5 &nbsp;/&nbsp; O <span class="best">-130</span> &nbsp;/&nbsp; U +100</td><td class="price">10.5 &nbsp;/&nbsp; O -132 &nbsp;/&nbsp; U +116</td><td class="price">10.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U +105</td>
+      <td class="cite">EARLY 2026 NFL SEASON WIN TOTALS - Part 1<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Lions</div><span class="market-chip">NFC_North_Win_Total</span></td>
+      <td>under<div class="quote">&ldquo;This is my second biggest bet I&#x27;ve made in this offseason. One in the under.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>80/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">10.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U <span class="best">+105</span></td><td class="price">10.5 &nbsp;/&nbsp; O -120 &nbsp;/&nbsp; U +104</td><td class="price">10.5 &nbsp;/&nbsp; O -130 &nbsp;/&nbsp; U +100</td>
+      <td class="cite">EARLY 2026 NFL SEASON WIN TOTALS - Part 1<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Detroit Lions</div><span class="market-chip">NFC_North_Win_Total</span></td>
+      <td>I really like this under on this Detroit team.<div class="quote">&ldquo;I really like this under on this Detroit team.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">10.5 &nbsp;/&nbsp; O -135 &nbsp;/&nbsp; U <span class="best">+105</span></td><td class="price">10.5 &nbsp;/&nbsp; O -120 &nbsp;/&nbsp; U +104</td><td class="price">10.5 &nbsp;/&nbsp; O -130 &nbsp;/&nbsp; U +100</td>
+      <td class="cite">EARLY 2026 NFL SEASON WIN TOTALS - Part 1<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Green Bay Packers</div><span class="market-chip">NFC_North_Win_Total</span></td>
+      <td>Over.<div class="quote">&ldquo;Over. Love it.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -120 &nbsp;/&nbsp; U -110</td><td class="price">9.5 &nbsp;/&nbsp; O <span class="best">-110</span> &nbsp;/&nbsp; U -110</td><td class="price">9.5 &nbsp;/&nbsp; O -120 &nbsp;/&nbsp; U -110</td>
+      <td class="cite">EARLY 2026 NFL SEASON WIN TOTALS - Part 1<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Kansas City Chiefs</div><span class="market-chip">AFC_West_Win_Total</span></td>
+      <td>leaning under<div class="quote">&ldquo;That&#x27;s why I&#x27;m leaning under your logic here is maybe you play the under.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">10.5 &nbsp;/&nbsp; O +120 &nbsp;/&nbsp; U -150</td><td class="price">10.5 &nbsp;/&nbsp; O +130 &nbsp;/&nbsp; U <span class="best">-146</span></td><td class="price">10.5 &nbsp;/&nbsp; O +120 &nbsp;/&nbsp; U -150</td>
+      <td class="cite">EARLY 2026 NFL SEASON WIN TOTALS - Part 1<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Denver Broncos</div><span class="market-chip">AFC_West_Win_Total</span></td>
+      <td>really love that, that opening number<div class="quote">&ldquo;I couldn&#x27;t believe that when I first saw it like that. To me one of the worst lines of the books.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -130 &nbsp;/&nbsp; U +100</td><td class="price">9.5 &nbsp;/&nbsp; O <span class="best">-123</span> &nbsp;/&nbsp; U +107</td><td class="price">9.5 &nbsp;/&nbsp; O -125 &nbsp;/&nbsp; U -105</td>
+      <td class="cite">EARLY 2026 NFL SEASON WIN TOTALS - Part 1<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Rams</div><span class="market-chip">NFC_West_Win_Total</span></td>
+      <td>Under<div class="quote">&ldquo;Under. I mean this Stafford coming off the MVP year I felt like everything broke their way.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">11.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U +115</td><td class="price">11.5 &nbsp;/&nbsp; O -138 &nbsp;/&nbsp; U <span class="best">+122</span></td><td class="price">11.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U +115</td>
+      <td class="cite">EARLY 2026 NFL SEASON WIN TOTALS - Part 1<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Eagles</div><span class="market-chip">NFC_East_Win_Total</span></td>
+      <td>Over<div class="quote">&ldquo;Over. I just think it&#x27;s because of the division. I do think the Eagles could take a step back but...that step back still feels like 11 to 10 wins.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">9.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U +115</td><td class="price">10.5 &nbsp;/&nbsp; O <span class="best">+122</span> &nbsp;/&nbsp; U -138</td><td class="price">10.5 &nbsp;/&nbsp; O +115 &nbsp;/&nbsp; U -145</td>
+      <td class="cite">EARLY 2026 NFL SEASON WIN TOTALS - Part 1<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">49ers</div><span class="market-chip">NFC_West_Win_Total</span></td>
+      <td>Under<div class="quote">&ldquo;I just took the under just because of the division, but yeah, I guess we disagree on this one.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">10.5 &nbsp;/&nbsp; O +105 &nbsp;/&nbsp; U -135</td><td class="price">9.5 &nbsp;/&nbsp; O -145 &nbsp;/&nbsp; U <span class="best">+125</span></td><td class="price">10.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U -140</td>
+      <td class="cite">EARLY 2026 NFL SEASON WIN TOTALS - Part 1<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Seahawks</div><span class="market-chip">NFC_West_Win_Total</span></td>
+      <td>Under<div class="quote">&ldquo;Under. People are seeing a trend here. I&#x27;ve taken the under on all three of these. These guys in this division.&rdquo;</div></td>
+      <td class="lean-under">under</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">10.5 &nbsp;/&nbsp; O -115 &nbsp;/&nbsp; U -115</td><td class="price">10.5 &nbsp;/&nbsp; O -123 &nbsp;/&nbsp; U <span class="best">+107</span></td><td class="price">10.5 &nbsp;/&nbsp; O -115 &nbsp;/&nbsp; U -115</td>
+      <td class="cite">EARLY 2026 NFL SEASON WIN TOTALS - Part 1<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Panthers</div><span class="market-chip">NFC_South_Win_Total</span></td>
+      <td>Over<div class="quote">&ldquo;What kind of sharper square participant would I be if I did not go with the Carolina Panthers over six and a half in the NFC South?&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O <span class="best">+125</span> &nbsp;/&nbsp; U -155</td><td class="price">7.5 &nbsp;/&nbsp; O +113 &nbsp;/&nbsp; U -129</td><td class="price">7.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U -140</td>
+      <td class="cite">EARLY 2026 NFL SEASON WIN TOTALS - Part 1<br>2026-03-03</td>
+    </tr><tr>
+      <td><div class="subject">Panthers</div><span class="market-chip">NFC_South_Win_Total</span></td>
+      <td>over six and a half<div class="quote">&ldquo;Why wouldn&#x27;t I take the over six and a half with Carolina Panthers?&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">7.5 &nbsp;/&nbsp; O <span class="best">+125</span> &nbsp;/&nbsp; U -155</td><td class="price">7.5 &nbsp;/&nbsp; O +113 &nbsp;/&nbsp; U -129</td><td class="price">7.5 &nbsp;/&nbsp; O +110 &nbsp;/&nbsp; U -140</td>
+      <td class="cite">EARLY 2026 NFL SEASON WIN TOTALS - Part 1<br>2026-03-03</td>
+    </tr></tbody></table><div class="section-label">Other picks discussed &mdash; no live BOL/BKR/BTU price (10)</div><table><thead><tr><th>Subject / Market</th><th>Pick (reasoning)</th><th>Host price</th><th>Why no live price</th><th>Episode</th></tr></thead><tbody><tr>
+      <td><div class="subject">Eagles</div><span class="market-chip">NFC_One_Seed</span></td>
+      <td>Eagles to be the number one seed<div class="quote">&ldquo;Eagles plus 800... If there&#x27;s a team primed to bounce back right now, is it not the Eagles?&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">Not a season-futures market ATLAS tracks live odds for.</td>
+      <td class="cite">NFL PLAYOFF BETTING PREDICTIONS<br>2026-07-07</td>
+    </tr><tr>
+      <td><div class="subject">Bengals</div><span class="market-chip">AFC_One_Seed</span></td>
+      <td>Bengals to be the number one seed<div class="quote">&ldquo;I like this opportunity on the Bengals at 11:1.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">Not a season-futures market ATLAS tracks live odds for.</td>
+      <td class="cite">NFL PLAYOFF BETTING PREDICTIONS<br>2026-07-07</td>
+    </tr><tr>
+      <td><div class="subject">Caleb Downs</div><span class="market-chip">Defensive_ROY</span></td>
+      <td>you can get him nine to one right now for rookie defensive rookie of the year<div class="quote">&ldquo;Caleb Downs, my guy, you can get him nine to one right now for rookie defensive rookie of the year.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">No live BOL/BKR/BTU award-market odds currently ingested for this market.</td>
+      <td class="cite">STANLEY CUP FINALS BETTING PREVIEW &amp; NFL TRADE REACTION - Canes vs. Golden Knights, Myles Garrett Trade<br>2026-06-02</td>
+    </tr><tr>
+      <td><div class="subject">Carson Beck</div><span class="market-chip">Offensive_ROY</span></td>
+      <td>15 to 1 for him to be rookie of the year, that&#x27;s a live number<div class="quote">&ldquo;I love the Beck pick because to me, 15 to 1 for him to be rookie of the year, that&#x27;s a live number.&rdquo;</div></td>
+      <td class="price">15 to 1</td>
+      <td class="why">No live BOL/BKR/BTU award-market odds currently ingested for this market.</td>
+      <td class="cite">NFL DRAFT ANALYSIS PART 1: NFC Recap<br>2026-05-05</td>
+    </tr><tr>
+      <td><div class="subject">Unnamed Player</div><span class="market-chip">NFL_Draft_Top_5</span></td>
+      <td>I would take the plus 350.<div class="quote">&ldquo;I would take the plus 350.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">Not a season-futures market ATLAS tracks live odds for.</td>
+      <td class="cite">NFL Draft Betting Update: Rueben Bain, Ty Simpson Odds &amp; More<br>2026-04-16</td>
+    </tr><tr>
+      <td><div class="subject">Wide Receivers</div><span class="market-chip">NFL_Draft</span></td>
+      <td>over five and a half wide receivers<div class="quote">&ldquo;right now you can get over five and a half wide receivers at plus 185, plus money at some books. And yeah, in this economy of wide receivers, I&#x27;m taking that.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">Not a season-futures market ATLAS tracks live odds for.</td>
+      <td class="cite">2026 NFL DRAFT GAMBLING KICK-OFF<br>2026-03-31</td>
+    </tr><tr>
+      <td><div class="subject">Buffalo Bills</div><span class="market-chip">NFL_Win_Total</span></td>
+      <td>over ten and a half<div class="quote">&ldquo;So far we&#x27;ve talked about like in Buffalo over ten and a half.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">Not a season-futures market ATLAS tracks live odds for.</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Carolina Panthers</div><span class="market-chip">NFL_Win_Total</span></td>
+      <td>over six and a half<div class="quote">&ldquo;I also took Carolina over six and a half.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">Not a season-futures market ATLAS tracks live odds for.</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Minnesota Vikings</div><span class="market-chip">NFL_Win_Total</span></td>
+      <td>over eight and a half<div class="quote">&ldquo;Which means when we talk about the Minnesota Vikings who are at what, seven and a half? I think eight and a half. All of a sudden with Kyler and the reputation of McCarthy, do we think, oh, that&#x27;s interesting. Is that I don&#x27;t hate it.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">Not a season-futures market ATLAS tracks live odds for.</td>
+      <td class="cite">NFL SEASON WIN TOTALS Part 2<br>2026-03-19</td>
+    </tr><tr>
+      <td><div class="subject">Raiders</div><span class="market-chip">Win_Total</span></td>
+      <td>Raiders over 5.5 wins<div class="quote">&ldquo;Mean, you were probably Going to be on their over five and a half at Hard Rock.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">Not a season-futures market ATLAS tracks live odds for.</td>
+      <td class="cite">NFL Free Agency Reactions with Bill Barnwell<br>2026-03-10</td>
+    </tr></tbody></table></details></div></details><details class="show" open><summary>The Favorites <span class="host-count">(7 picks)</span></summary><div class="show-body"><details class="host"><summary>Brandon Kravitz <span class="host-count">(3 picks)</span></summary><div class="section-label">Outright / Matchup Picks</div><table><thead><tr><th>Subject / Market</th><th>Pick (reasoning)</th><th>Lean</th><th>Conviction</th><th>Host price</th><th>BOL</th><th>BKR</th><th>BTU</th><th>Episode</th></tr></thead><tbody><tr>
+      <td><div class="subject">Rams</div><span class="market-chip">Super_Bowl</span></td>
+      <td>will start the season at the top of everybody&#x27;s power rankings<div class="quote">&ldquo;if Donald signs there, no doubt they will start the season at the top of everybody&#x27;s power rankings and certainly will be the highest power rated team going into the 2026 NFL season.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">+500</td><td class="price">+501</td><td class="price"><span class="best">+550</span></td>
+      <td class="cite">Venture Capitalists, Girl Dads &amp; The (British) Open with Kyle Murray<br>2026-07-14</td>
+    </tr></tbody></table><div class="section-label">Other picks discussed &mdash; no live BOL/BKR/BTU price (2)</div><table><thead><tr><th>Subject / Market</th><th>Pick (reasoning)</th><th>Host price</th><th>Why no live price</th><th>Episode</th></tr></thead><tbody><tr>
+      <td><div class="subject">Omarion Hampton</div><span class="market-chip">Rushing_Touchdowns</span></td>
+      <td>over seven and a half rushing touchdowns<div class="quote">&ldquo;I am going to go with over seven and a half rushing touchdowns for Omarion Hampton at minus 125.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">No live odds source tracked for stat-leader markets (player_prop_odds table has no data yet).</td>
+      <td class="cite">Gambling: America&#x27;s True National Pastime with Author David Bockino<br>2026-07-07</td>
+    </tr><tr>
+      <td><div class="subject">Brock Purdy</div><span class="market-chip">MVP</span></td>
+      <td>20 to 1 over on DraftKings to win MVP<div class="quote">&ldquo;What Devonte Adams did for Stafford, who just won the NFL MVP award. This is a guy I haven&#x27;t really given much thought to, but he&#x27;s a quarterback and that&#x27;s brock Purdy at 20 to 1 over on DraftKings to win MVP.&rdquo;</div></td>
+      <td class="price">20 to 1</td>
+      <td class="why">No live BOL/BKR/BTU award-market odds currently ingested for this market.</td>
+      <td class="cite">Fantasy Football Deep Dive with Sean Koerner | Part 2<br>2026-07-02</td>
+    </tr></tbody></table></details><details class="host"><summary>Guest <span class="host-count">(4 picks)</span></summary><div class="section-label">Outright / Matchup Picks</div><table><thead><tr><th>Subject / Market</th><th>Pick (reasoning)</th><th>Lean</th><th>Conviction</th><th>Host price</th><th>BOL</th><th>BKR</th><th>BTU</th><th>Episode</th></tr></thead><tbody><tr>
+      <td><div class="subject">Chiefs</div><span class="market-chip">Super_Bowl</span></td>
+      <td>Chiefs will be conservative with Mahomes to avoid risking the Super Bowl<div class="quote">&ldquo;We can&#x27;t win the super bowl in week one. We can only lose the super bowl in week one. If we get him injured worse, then our season is sunk.&rdquo;</div></td>
+      <td class="lean-favor">favor</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price"><span class="best">+1600</span></td><td class="price">+1476</td><td class="price">+1500</td>
+      <td class="cite">All Things NFL Injuries with Pro Football Doc David Chao<br>2026-07-16</td>
+    </tr></tbody></table><div class="section-label">Win-Total (Over/Under) Picks &mdash; line / Over price / Under price</div><table><thead><tr><th>Subject / Market</th><th>Pick (reasoning)</th><th>Lean</th><th>Conviction</th><th>Host price</th><th>BOL</th><th>BKR</th><th>BTU</th><th>Episode</th></tr></thead><tbody><tr>
+      <td><div class="subject">Browns</div><span class="market-chip">AFC_North_Win_Total</span></td>
+      <td>I&#x27;m taking the over.<div class="quote">&ldquo;I am running back the Browns over for this season. It has gone from six and a half to five and a half... Regardless, I&#x27;m taking the over. I think this team is a lot better.&rdquo;</div></td>
+      <td class="lean-over">over</td>
+      <td>65/100</td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="price">5.5 &nbsp;/&nbsp; O -115 &nbsp;/&nbsp; U -115</td><td class="price">5.5 &nbsp;/&nbsp; O -118 &nbsp;/&nbsp; U -102</td><td class="price">5.5 &nbsp;/&nbsp; O <span class="best">-110</span> &nbsp;/&nbsp; U -120</td>
+      <td class="cite">Gambling: America&#x27;s True National Pastime with Author David Bockino<br>2026-07-07</td>
+    </tr></tbody></table><div class="section-label">Other picks discussed &mdash; no live BOL/BKR/BTU price (2)</div><table><thead><tr><th>Subject / Market</th><th>Pick (reasoning)</th><th>Host price</th><th>Why no live price</th><th>Episode</th></tr></thead><tbody><tr>
+      <td><div class="subject">Michael Wilson</div><span class="market-chip">Receiving_Yards</span></td>
+      <td>go under his receiving total for the season.<div class="quote">&ldquo;Let&#x27;s sell high on Wilson and go under his receiving total for the season.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">No live odds source tracked for stat-leader markets (player_prop_odds table has no data yet).</td>
+      <td class="cite">Gambling: America&#x27;s True National Pastime with Author David Bockino<br>2026-07-07</td>
+    </tr><tr>
+      <td><div class="subject">Kyler Murray</div><span class="market-chip">NFC_North</span></td>
+      <td>should be all in on Murray for the Vikings<div class="quote">&ldquo;I think Kyler Murray, he&#x27;s still young enough. He&#x27;s got that rushing upside where he could be a top five, top ten fancy quarterback.&rdquo;</div></td>
+      <td class="price"><span class="na">—</span></td>
+      <td class="why">&quot;Kyler Murray&quot; looks like a player, not a team — no team-outright market to compare against (likely an extraction quirk tagging this pick under a team-level market label).</td>
+      <td class="cite">Fantasy Football Deep Dive with Sean Koerner | Part 2<br>2026-07-02</td>
+    </tr></tbody></table></details></div></details>
+<footer>NFL_Dashboard futures picks report &middot; sharp books tracked: BetOnline (BOL) &middot; Bookmaker (BKR) &middot; BetUS (BTU) &middot; not betting advice.</footer>
+</body>
+</html>
