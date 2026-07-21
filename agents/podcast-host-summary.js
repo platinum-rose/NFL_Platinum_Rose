@@ -38,6 +38,18 @@
 //   node agents/podcast-host-summary.js --overwrite         # redo even if rows exist for this model
 //   node agents/podcast-host-summary.js --model gpt-4o      # model knob (default gpt-4o)
 //
+//   node agents/podcast-host-summary.js --vault-sync        # DB-only vault write, no AssemblyAI/GPT-4o
+//   node agents/podcast-host-summary.js --vault-sync --dry-run     # preview which notes would be written
+//   node agents/podcast-host-summary.js --vault-sync --overwrite   # re-write notes even if vault_path already set
+//
+// --vault-sync mode: reads existing podcast_host_summaries rows (already-extracted
+// futures, from a prior --no-vault run) and just writes/updates the Obsidian notes --
+// zero AssemblyAI/GPT-4o calls, zero new cost. Built 2026-07-21 so a run done with
+// --no-vault (e.g. from M6, which can't reach Obsidian) can have its notes written
+// later from a machine that CAN reach Obsidian, without re-burning extraction cost.
+// Only syncs rows where vault_path IS NULL, unless --overwrite forces a re-sync of
+// everything (e.g. after a buildHostVaultNote template change).
+//
 // Env: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, OPENAI_API_KEY,
 //      OBSIDIAN_API_URL (default https://localhost:27123), OBSIDIAN_API_KEY
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -57,13 +69,14 @@ const argVal = (name, fallback = null) => {
 };
 const hasFlag = (name) => process.argv.includes(name);
 
-const DRY_RUN   = hasFlag('--dry-run');
-const NO_VAULT  = hasFlag('--no-vault');
-const OVERWRITE = hasFlag('--overwrite');
-const MODEL     = argVal('--model', 'gpt-4o');
-const LIMIT     = Number(argVal('--limit', '0')) || 0;
-const ONE_EP    = argVal('--episode', null);
-const SINCE     = argVal('--since', null);
+const DRY_RUN    = hasFlag('--dry-run');
+const NO_VAULT   = hasFlag('--no-vault');
+const OVERWRITE  = hasFlag('--overwrite');
+const VAULT_SYNC = hasFlag('--vault-sync');
+const MODEL      = argVal('--model', 'gpt-4o');
+const LIMIT      = Number(argVal('--limit', '0')) || 0;
+const ONE_EP     = argVal('--episode', null);
+const SINCE      = argVal('--since', null);
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -306,17 +319,97 @@ ${quotes}
 `;
 }
 
+// ─── --vault-sync mode: DB-only, no AssemblyAI/GPT-4o ──────────────────────────
+
+/**
+ * Writes/updates Obsidian notes from ALREADY-EXTRACTED podcast_host_summaries
+ * rows -- no OpenAI calls, no re-extraction. Requires episode/feed metadata
+ * (title, pub_date, show name) to rebuild the same vault_path + note shape
+ * main() would have used, since a --no-vault run stored vault_path as null.
+ */
+async function runVaultSync(supabase) {
+  if (!OBSIDIAN_KEY) {
+    console.error('❌ Missing OBSIDIAN_API_KEY. --vault-sync must run from a machine that can reach Obsidian Local REST API.');
+    process.exit(1);
+  }
+
+  console.log('PodcastHostSummaryAgent --vault-sync start');
+  console.log(`  model=${MODEL} dryRun=${DRY_RUN} overwrite=${OVERWRITE}`);
+
+  let sq = supabase
+    .from('podcast_host_summaries')
+    .select('episode_id, host, attribution_method, futures, chunk_count, vault_path')
+    .eq('model', MODEL);
+  if (!OVERWRITE) sq = sq.is('vault_path', null);
+  const { data: rows, error: sErr } = await sq;
+  if (sErr) { console.error(`❌ load podcast_host_summaries: ${sErr.message}`); process.exit(1); }
+  if (!rows?.length) { console.log('  Nothing to sync (no rows missing a vault_path -- pass --overwrite to re-sync everything).'); return; }
+
+  const epIds = [...new Set(rows.map(r => r.episode_id))];
+  const { data: episodes } = await supabase
+    .from('podcast_episodes').select('id, title, pub_date, feed_id').in('id', epIds);
+  const epById = new Map((episodes || []).map(e => [e.id, e]));
+  const feedIds = [...new Set((episodes || []).map(e => e.feed_id))];
+  const { data: feeds } = await supabase
+    .from('podcast_feeds').select('id, name').in('id', feedIds);
+  const feedById = new Map((feeds || []).map(f => [f.id, f]));
+
+  console.log(`  ${rows.length} row(s) to sync`);
+
+  let written = 0, errors = 0;
+  for (const row of rows) {
+    const ep = epById.get(row.episode_id);
+    const feed = ep ? feedById.get(ep.feed_id) : null;
+    if (!ep || !feed) {
+      console.error(`  ❌ ${row.episode_id}/${row.host}: missing episode or feed metadata, skipping`);
+      errors++;
+      continue;
+    }
+
+    const vaultPath = `NFL/Podcasts/${slugify(feed.name)}/${slugify(row.host)}/${(ep.pub_date || '').slice(0, 10) || 'undated'}-${slugify(ep.title)}.md`;
+    console.log(`  📝 [${feed.name}] ${row.host}: "${String(ep.title || '').slice(0, 60)}" → ${vaultPath}`);
+
+    if (DRY_RUN) continue;
+
+    try {
+      const md = buildHostVaultNote({
+        show: feed.name, host: row.host, title: ep.title, pubDate: ep.pub_date,
+        futures: row.futures || [], model: MODEL,
+        attributionMethod: row.attribution_method, chunkCount: row.chunk_count,
+      });
+      await obsidianPut(vaultPath, md);
+
+      const { error: upErr } = await supabase
+        .from('podcast_host_summaries')
+        .update({ vault_path: vaultPath })
+        .eq('episode_id', row.episode_id).eq('host', row.host).eq('model', MODEL);
+      if (upErr) throw new Error(`vault_path update failed: ${upErr.message}`);
+
+      written++;
+    } catch (err) {
+      console.error(`     ❌ ${err.message}`);
+      errors++;
+    }
+  }
+
+  console.log(`\n📊 Done. rows=${rows.length} written=${written} errors=${errors}`);
+  if (DRY_RUN) console.log('   [dry-run] no writes performed.');
+}
+
 // ─── Main ──────────────────────────────────────────────────────────────────────
 
 async function main() {
   if (!SUPABASE_URL || !SUPABASE_KEY) { console.error('❌ Missing SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY'); process.exit(1); }
+
+  const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, { auth: { persistSession: false } });
+
+  if (VAULT_SYNC) { await runVaultSync(supabase); return; }
+
   if (!OPENAI_KEY) { console.error('❌ Missing OPENAI_API_KEY'); process.exit(1); }
   if (!NO_VAULT && !DRY_RUN && !OBSIDIAN_KEY) {
     console.error('❌ Missing OBSIDIAN_API_KEY (or pass --no-vault). Is Obsidian + Local REST API running?');
     process.exit(1);
   }
-
-  const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, { auth: { persistSession: false } });
 
   console.log('PodcastHostSummaryAgent start');
   console.log(`  model=${MODEL} dryRun=${DRY_RUN} vault=${!NO_VAULT} overwrite=${OVERWRITE}`
