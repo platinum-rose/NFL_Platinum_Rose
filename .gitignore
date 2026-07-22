@@ -45,3 +45,7 @@ data/vault-seed/
 # Raw research intakes (vault-garden inputs, not repo content)
 docs/fantasy_football/
 docs/twitter/
+
+# Python bytecode caches (scripts/ has standalone .py utilities, no venv-level ignore existed)
+__pycache__/
+*.pyc

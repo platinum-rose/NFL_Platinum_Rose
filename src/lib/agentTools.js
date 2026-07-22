@@ -27,6 +27,7 @@ import {
   getPlayerPropContext,
   getLatestFuturesOdds,
   getFuturesOddsHistory,
+  PLACEABLE_BOOKS,
   getTeamSeasonStats,
   getTeamRoster,
   getNormalizedSignals,
@@ -618,7 +619,7 @@ export const FUTURES_TOOLS = [
   },
   {
     name: 'get_futures_odds_movement',
-    description: 'Returns the actual sportsbook odds movement over time for one team+market (opening vs. current, direction, magnitude) — NOT expert pick sentiment (use get_futures_movement for that). Use when the Creator asks "how have this team\'s Super Bowl odds moved" or wants to spot line value that\'s decaying or appreciating.',
+    description: 'Returns the actual sportsbook odds movement over time for one team+market (best PLACEABLE price at open vs. current, per-book movement, and a consensus/median movement figure) — NOT expert pick sentiment (use get_futures_movement for that). Use when the Creator asks "how have this team\'s Super Bowl odds moved" or wants to spot line value that\'s decaying or appreciating.',
     input_schema: {
       type: 'object',
       properties: {
@@ -640,13 +641,17 @@ export const FUTURES_TOOLS = [
           type: 'number',
           description: 'Look-back window in days. Default: 30.',
         },
+        season: {
+          type: 'number',
+          description: 'Defaults to the current year. Set explicitly if asking about a past season\'s futures.',
+        },
       },
       required: ['team', 'market_type'],
     },
   },
   {
     name: 'get_normalized_signals',
-    description: 'Returns cleaned, directional betting signals (team/market/direction/strength/rationale) normalized by an LLM pass across articles, podcast intel, and expert picks — richer and more structured than raw podcast search. NOTE: this table is currently service-role-only in Supabase RLS, so this tool may return no_data until that\'s resolved; if so, say that plainly rather than treating it as "no signals exist."',
+    description: 'Returns cleaned, directional betting signals (team/market/direction/strength/rationale) normalized by an LLM pass across articles, podcast intel, and expert picks — richer and more structured than raw podcast search. Public-read policy added migration 041 (2026-07-22); a no_data result means no signals matched the filters, not an access issue.',
     input_schema: {
       type: 'object',
       properties: {
@@ -2165,17 +2170,27 @@ async function toolGetStrengthOfSchedule({ team, season } = {}) {
  * get_futures_odds_movement
  * Real sportsbook odds movement over time (distinct from get_futures_movement,
  * which tracks expert PICK sentiment, not odds).
+ *
+ * 2026-07-22 fix (Codex review): this previously took history[0]/history[-1] —
+ * whichever row happened to be chronologically first/last across ALL books
+ * mixed together, which could compare two different books' quotes as if they
+ * were one continuous line and could include non-placeable books (FanDuel/
+ * DraftKings) the Creator can't actually bet at. Now computes: best PLACEABLE
+ * price at the earliest and latest snapshot times, a same-book movement list
+ * per book, and a consensus (median-across-books) movement figure — plus the
+ * old single best-vs-best comparison, kept as the headline read.
  */
-async function toolGetFuturesOddsMovement({ team, market_type, days = 30 } = {}) {
+async function toolGetFuturesOddsMovement({ team, market_type, days = 30, season } = {}) {
   if (!team || !market_type) {
     return { status: 'invalid', message: 'team and market_type are required.' };
   }
 
   const teamData = getTeam(team);
   const fullName = teamData?.fullName || team;
+  const yr = season || new Date().getFullYear();
 
   let history = [];
-  try { history = await getFuturesOddsHistory(fullName, market_type, days); } catch (_) { history = []; }
+  try { history = await getFuturesOddsHistory(fullName, market_type, days, yr); } catch (_) { history = []; }
 
   if (!history.length) {
     return {
@@ -2189,34 +2204,57 @@ async function toolGetFuturesOddsMovement({ team, market_type, days = 30 } = {})
   const toImpliedProb = (american) => american == null ? null
     : (american > 0 ? 100 / (american + 100) : Math.abs(american) / (Math.abs(american) + 100));
   const fmtOdds = (o) => o == null ? 'n/a' : (o > 0 ? `+${o}` : String(o));
+  const median = (xs) => { const s = [...xs].sort((a, b) => a - b); if (!s.length) return null; const m = Math.floor(s.length / 2); return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
 
-  const opening = history[0];
-  const current = history[history.length - 1];
-  const openProb = toImpliedProb(opening.odds);
-  const curProb  = toImpliedProb(current.odds);
+  const placeableRows = history.filter(h => PLACEABLE_BOOKS.has((h.book || '').toLowerCase()));
+  const pool = placeableRows.length ? placeableRows : history; // fall back to all books rather than returning nothing if none happen to be tagged placeable
+  const usedFallback = !placeableRows.length;
+
+  const times = [...new Set(pool.map(h => h.snapshot_time))].sort();
+  const earliestTime = times[0], latestTime = times[times.length - 1];
+  const bestAt = (time) => pool.filter(h => h.snapshot_time === time)
+    .reduce((best, h) => (best == null || h.odds > best.odds ? h : best), null); // higher american odds = better payout for the bettor
+  const opening = bestAt(earliestTime);
+  const current = bestAt(latestTime);
+  const openProb = toImpliedProb(opening?.odds);
+  const curProb = toImpliedProb(current?.odds);
+
+  // per-book movement: each book's own first vs. last snapshot in the window
+  const byBook = {};
+  for (const h of pool) (byBook[h.book] ??= []).push(h);
+  const perBookMovement = Object.entries(byBook).map(([book, rows]) => {
+    const sorted = [...rows].sort((a, b) => new Date(a.snapshot_time) - new Date(b.snapshot_time));
+    const first = sorted[0], last = sorted[sorted.length - 1];
+    return { book, opening_odds: fmtOdds(first.odds), current_odds: fmtOdds(last.odds), snapshots: sorted.length };
+  });
+
+  // consensus movement: median implied prob across all books at the earliest vs. latest snapshot round
+  const consensusOpenProb = median(pool.filter(h => h.snapshot_time === earliestTime).map(h => toImpliedProb(h.odds)).filter(p => p != null));
+  const consensusCurProb = median(pool.filter(h => h.snapshot_time === latestTime).map(h => toImpliedProb(h.odds)).filter(p => p != null));
 
   return {
     status: 'ok',
     team: fullName,
     market_type,
     days,
+    season: yr,
     snapshot_count: history.length,
-    opening: { date: opening.snapshot_time, odds: fmtOdds(opening.odds), book: opening.book },
-    current: { date: current.snapshot_time, odds: fmtOdds(current.odds), book: current.book },
-    direction: current.odds === opening.odds ? 'flat'
+    placeable_books_only: !usedFallback,
+    opening: { date: opening?.snapshot_time, odds: fmtOdds(opening?.odds), book: opening?.book },
+    current: { date: current?.snapshot_time, odds: fmtOdds(current?.odds), book: current?.book },
+    direction: (opening?.odds === current?.odds) ? 'flat'
       : (curProb > openProb ? 'shortening (more likely)' : 'lengthening (less likely)'),
-    implied_prob_change_pts: (openProb != null && curProb != null)
-      ? +((curProb - openProb) * 100).toFixed(1)
-      : null,
+    best_price_movement_pts: (openProb != null && curProb != null) ? +((curProb - openProb) * 100).toFixed(1) : null,
+    consensus_movement_pts: (consensusOpenProb != null && consensusCurProb != null) ? +((consensusCurProb - consensusOpenProb) * 100).toFixed(1) : null,
+    per_book_movement: perBookMovement,
     timeline: history.map(h => ({ date: h.snapshot_time, odds: fmtOdds(h.odds), book: h.book })),
   };
 }
 
 /**
  * get_normalized_signals
- * Cleaned, directional cross-source signals. May legitimately return no_data
- * if Supabase RLS hasn't been opened for this table yet — see the RLS note
- * on getNormalizedSignals in supabase.js.
+ * Cleaned, directional cross-source signals (public-read policy added
+ * migration 041 — RLS is no longer the reason this could come back empty).
  */
 async function toolGetNormalizedSignals({ team, market, direction, limit = 30 } = {}) {
   let rows = [];
@@ -2225,7 +2263,7 @@ async function toolGetNormalizedSignals({ team, market, direction, limit = 30 } 
   if (!rows.length) {
     return {
       status: 'no_data',
-      message: 'No normalized signals returned. This table (normalized_signals) is currently service-role-only in Supabase RLS — this could mean no signals exist yet, OR that a public-read policy hasn\'t been added for anon access. Say so plainly; don\'t assume the former.',
+      message: 'No normalized signals matched this query. This table is publicly readable (migration 041) — an empty result here means no signals exist for the given filters, not an access issue.',
     };
   }
 

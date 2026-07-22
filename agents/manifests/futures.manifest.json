@@ -174,7 +174,7 @@
     {
       "name": "get_normalized_signals",
       "source": "FUTURES_TOOLS",
-      "description": "S296: cleaned cross-source directional signals (normalized_signals). NOTE: table is currently service-role-only in RLS — may return no_data until Andy opens a public-read policy or the call is moved server-side."
+      "description": "S296: cleaned cross-source directional signals (normalized_signals). Public-read policy added migration 041 (2026-07-22)."
     },
     {
       "name": "get_podcast_host_summaries",

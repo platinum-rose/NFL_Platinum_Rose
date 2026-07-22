@@ -21,6 +21,7 @@ vi.mock('../../src/lib/supabase.js', () => ({
   getPlayerPropContext: vi.fn(async () => ({ player: null, prop_type: null, picks: [], trend: {} })),
   getLatestFuturesOdds: vi.fn(async () => []),
   getFuturesOddsHistory: vi.fn(async () => []),
+  PLACEABLE_BOOKS: new Set(['bookmaker', 'betonline', 'betus', 'betmgm', 'caesars', 'williamhill_us', 'williamhill', 'circa', 'mgm']),
   getTeamSeasonStats: vi.fn(async () => []),
   getTeamRoster: vi.fn(async () => []),
   getNormalizedSignals: vi.fn(async () => []),
@@ -792,7 +793,7 @@ describe('agentTools', () => {
       expect(result.status).toBe('no_data');
     });
 
-    it('computes direction and implied-prob change from opening vs current', async () => {
+    it('computes direction from opening vs current (falls back to all books when none are placeable)', async () => {
       const { getFuturesOddsHistory } = await import('../../src/lib/supabase.js');
       getFuturesOddsHistory.mockResolvedValueOnce([
         { snapshot_time: '2026-07-01T00:00:00Z', book: 'draftkings', odds: 2500 },
@@ -802,14 +803,34 @@ describe('agentTools', () => {
       expect(result.status).toBe('ok');
       expect(result.direction).toBe('shortening (more likely)');
       expect(result.snapshot_count).toBe(2);
+      expect(result.placeable_books_only).toBe(false);
+    });
+
+    it('picks the best PLACEABLE price at each snapshot round, ignoring a better non-placeable quote', async () => {
+      const { getFuturesOddsHistory } = await import('../../src/lib/supabase.js');
+      getFuturesOddsHistory.mockResolvedValueOnce([
+        { snapshot_time: '2026-07-01T00:00:00Z', book: 'draftkings', odds: 3000 }, // best price overall, but NOT placeable
+        { snapshot_time: '2026-07-01T00:00:00Z', book: 'betonline', odds: 2500 },  // best PLACEABLE price at open
+        { snapshot_time: '2026-07-21T00:00:00Z', book: 'draftkings', odds: 1500 },
+        { snapshot_time: '2026-07-21T00:00:00Z', book: 'betonline', odds: 1200 }, // best PLACEABLE price at current
+      ]);
+      const result = await executeTool('get_futures_odds_movement', { team: 'Chiefs', market_type: 'superbowl' });
+      expect(result.status).toBe('ok');
+      expect(result.placeable_books_only).toBe(true);
+      expect(result.opening.book).toBe('betonline');
+      expect(result.opening.odds).toBe('+2500');
+      expect(result.current.book).toBe('betonline');
+      expect(result.current.odds).toBe('+1200');
+      expect(result.per_book_movement.find(b => b.book === 'betonline')).toBeTruthy();
+      expect(result.consensus_movement_pts).not.toBeNull();
     });
   });
 
   describe('get_normalized_signals', () => {
-    it('returns no_data (and flags the RLS caveat) when Supabase has no rows', async () => {
+    it('returns no_data when Supabase has no matching rows', async () => {
       const result = await executeTool('get_normalized_signals', {});
       expect(result.status).toBe('no_data');
-      expect(result.message).toMatch(/service-role-only/i);
+      expect(result.message).toMatch(/normalized signals matched/i);
     });
 
     it('shapes signal rows when data exists', async () => {

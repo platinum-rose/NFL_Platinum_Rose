@@ -4,10 +4,11 @@
 **Sources:**
 - Meridian Assurance Group â€” *NFL Platinum Rose End-to-End System Audit* (21 May 2026)
 - CODEX Ultrathink â€” *NFL Dashboard Formal Audit Report* (21 May 2026)
-**Progress:** 32 / 32 complete — ALL CLOSED. 2 items filed 2026-07-07 from the ATLAS/Rosie/NFL_Dashboard
+**Progress:** Original 32 / 32 Meridian+CODEX+Fable audit items — ALL CLOSED. 2 items filed 2026-07-07 from the ATLAS/Rosie/NFL_Dashboard
 Fable tri-project audit (FABLE-01, FABLE-03). FABLE-03 closed 2026-07-08 (S269, committed).
 FABLE-01 closed 2026-07-16: live (non-dry-run) sync ran clean — 255/255 fetched, 0 skipped by
 sensitivity tier, 255 upserted, 0 errors (receipt in `.nfl/receipts/`). Original 30/30 Meridian+CODEX set remains fully closed.
+1 open follow-up filed 2026-07-21 (S296, GAMEID-FORMAT) — see "Follow-ups filed from later sessions" below; not part of the original audits.
 
 > **Completion rule:** Mark `[ ]` â†’ `[x]` only when the fix is committed to `main`
 > AND verified by test, live query, or CI pass. Dev-only changes do not count.
@@ -367,3 +368,46 @@ sensitivity tier, 255 upserted, 0 errors (receipt in `.nfl/receipts/`). Original
     `apiConfig.js`'s `AI_PROXY_URL`/`ODDS_PROXY_URL` pattern.
   - **ACTION REQUIRED:** none beyond normal commit -- this is a pure doc fix, no infra/migration
     step. Committed 2026-07-08 (S269) as part of `9e03f8a`/`040377d`. CLOSED.
+
+---
+
+## Follow-ups filed from later sessions (not part of the original Meridian/CODEX/Fable audits)
+
+- [ ] **GAMEID-FORMAT** -- Three incompatible `game_id` formats across live tables, all describing the same games
+  - **Filed 2026-07-21 (S296)**, found while building the Futures/Betting agent data-wiring work
+    (`docs/FUTURES_AGENT_DATA_INVENTORY_2026-07-21.md`). Not a bug in anything shipped that
+    session -- every new join built then resolves by `(season, week, home_abbrev, away_abbrev)`
+    specifically to route around this, and works correctly. Filed so a future session with room
+    to test carefully can decide whether to standardize.
+  - **The three formats, all live and actively written by GitHub Actions crons:**
+    1. `public.games.game_id` = `nfl_{season}_{seasonType}_w{WW}_{AWAY}_at_{HOME}` --
+       built by `agents/schedule-ingest.js`'s `makeGameId()`.
+    2. `public.game_odds_snapshots.game_id` / `public.game_splits_history.game_id` /
+       `public.game_splits.game_id` = `{season}_{WW}_{HOME}_{AWAY}` -- built by the shared
+       `buildGameId()` in `packages/shared/src/week-utils.js`, used by both
+       `agents/game-odds-ingest.js` and `agents/betting-splits-ingest.js`. Note the team
+       order is HOME-then-AWAY here, opposite of (1) and (3).
+    3. nflverse's own `schedules.csv`/`team_stats.csv` `game_id` = `{season}_{WW}_{AWAY}_{HOME}`
+       (no prefix). nflverse also uses some alternate team codes on top of this (`LA` not
+       `LAR`, `JAC` not `JAX`, `SD` not `LAC`, `OAK` not `LV`) -- a second landmine layered
+       on the first.
+  - **Why this matters:** any code that assumes `game_id` is a shared key across these tables
+    (e.g. a naive join between `games` and `game_odds_snapshots`) will silently match zero rows
+    or, worse, the wrong row if formats coincidentally collide. `scripts/seed-game-context.py`
+    hit a real, live version of this risk on its first production run (see that script's own
+    header comment and the FUTURES_AGENT_DATA_INVENTORY doc's "Live run" section) -- an
+    ambiguous-key collision between what looked like a regular-season game and a postseason
+    placeholder row sharing week numbers, since `season_type`/`game_type` isn't part of the
+    join key used there either.
+  - **Options considered, none acted on:** (a) do nothing beyond documenting + always joining
+    on (season, week, home/away abbreviation) rather than game_id strings -- lowest risk,
+    what every new join this session already does; (b) add a shared canonical-key helper
+    function future code is pointed at, without touching any live data or cron behavior --
+    low risk, prevents new bugs, doesn't fix existing tables; (c) pick one canonical format,
+    rewrite `schedule-ingest.js`/`game-odds-ingest.js`/`betting-splits-ingest.js` to build it,
+    and backfill every existing row across `games`/`game_odds_snapshots`/`game_splits`/
+    `game_splits_history` -- the real fix, but a multi-session project with real risk to live
+    odds/splits ingestion cron jobs; needs dedicated time to test each ingest script before
+    touching production.
+  - **ACTION REQUIRED:** Andy to decide which option (or none) when there's time for it --
+    not blocking any current feature.

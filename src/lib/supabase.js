@@ -289,23 +289,34 @@ export async function getLatestFuturesOdds() {
   }
 }
 
+// Books the Creator can actually place a bet at (mirrors agents/portfolio-dossier.js's
+// BETTABLE_BOOKS default) — FanDuel/DraftKings are excluded from "best price" reads
+// even though they still appear in raw history for market-context purposes.
+export const PLACEABLE_BOOKS = new Set(['bookmaker', 'betonline', 'betus', 'betmgm', 'caesars', 'williamhill_us', 'williamhill', 'circa', 'mgm']);
+
 /**
  * Get historical futures odds for a specific team+market (for trend chart).
+ * 2026-07-22 fix (Codex review): added the missing `season` filter — without
+ * it, this returned rows across EVERY season ever tracked for that team/market,
+ * silently mixing offseasons once more than one season's data accumulates.
  * @param {string} team        — exact team name as stored
  * @param {string} marketType  — 'superbowl' | 'conference' | 'division'
  * @param {number} days        — how far back (default 30 days)
+ * @param {number} [season]    — defaults to current year; pass null to disable the filter
  */
-export async function getFuturesOddsHistory(team, marketType, days = 30) {
+export async function getFuturesOddsHistory(team, marketType, days = 30, season = new Date().getFullYear()) {
   if (!isAvailable() || !team || !marketType) return [];
   try {
     const cutoff = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
-    const { data, error } = await supabase
+    let query = supabase
       .from('futures_odds_snapshots')
-      .select('snapshot_time, book, odds, implied_prob')
+      .select('snapshot_time, book, odds, implied_prob, season')
       .eq('team', team)
       .eq('market_type', marketType)
       .gte('snapshot_time', cutoff)
       .order('snapshot_time', { ascending: true });
+    if (season != null) query = query.eq('season', season);
+    const { data, error } = await query;
 
     if (error || !data) return [];
     return data;
@@ -489,14 +500,11 @@ export async function getTeamRoster({ team, position, limit = 100 } = {}) {
 /**
  * LLM-normalized directional betting signals (article/podcast_intel/podcast_pick/
  * expert_pick, cleaned into team/market/direction/strength). Table:
- * normalized_signals (migration 031).
+ * normalized_signals (migration 031, public-read policy added migration 041).
  *
- * ⚠️ RLS NOTE: this table is deliberately service-role-only — migration 031's own
- * comment says "internal betting data, no client (anon/authenticated) access."
- * The browser anon key this file uses will get zero rows back until Andy either
- * adds a public-read policy (mirroring every other table here) or this call is
- * moved server-side. Implemented so the tool is ready the moment that's decided;
- * not silently worked around.
+ * Migration 031 created this service-role-only on purpose; Andy decided
+ * 2026-07-21 to open public read access (migration 041) mirroring every other
+ * market-data table here. Writes still require the service-role key.
  */
 export async function getNormalizedSignals({ team, market, direction, minStrength = 0, limit = 30 } = {}) {
   if (!isAvailable()) return [];
@@ -566,10 +574,14 @@ export async function getStrengthOfSchedule({ season = new Date().getFullYear() 
       .eq('season', season);
     if (schedErr || !schedule?.length) return [];
 
+    // 2026-07-22 fix (Codex review): this query was missing the season filter
+    // the `games` query above already has — once more than one season's win-total
+    // lines exist in futures_odds_snapshots, this silently mixed them together.
     const { data: winsRows, error: winsErr } = await supabase
       .from('futures_odds_snapshots')
       .select('team, line, snapshot_time')
       .eq('market_type', 'wins')
+      .eq('season', season)
       .not('line', 'is', null)
       .order('snapshot_time', { ascending: false });
     if (winsErr || !winsRows?.length) return [];
