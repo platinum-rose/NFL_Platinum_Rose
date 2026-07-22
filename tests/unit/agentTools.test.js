@@ -20,6 +20,17 @@ vi.mock('../../src/lib/supabase.js', () => ({
   getFuturesMovement: vi.fn(async () => ({ market: null, picks: [], by_expert: {} })),
   getPlayerPropContext: vi.fn(async () => ({ player: null, prop_type: null, picks: [], trend: {} })),
   getLatestFuturesOdds: vi.fn(async () => []),
+  getFuturesOddsHistory: vi.fn(async () => []),
+  getTeamSeasonStats: vi.fn(async () => []),
+  getTeamRoster: vi.fn(async () => []),
+  getNormalizedSignals: vi.fn(async () => []),
+  getPodcastHostSummaries: vi.fn(async () => []),
+  getStrengthOfSchedule: vi.fn(async () => []),
+  getGameContext: vi.fn(async () => []),
+  getRefereeTendencies: vi.fn(async () => []),
+  getRosterHistory: vi.fn(async () => []),
+  getGameOddsForWeek: vi.fn(async () => []),
+  getGameSplitsHistory: vi.fn(async () => []),
   supabase: null,
 }));
 
@@ -86,8 +97,8 @@ import {
 
 describe('agentTools', () => {
   describe('BETTING_TOOLS', () => {
-    it('exports exactly 19 tools (13 base + 6 podcast intel)', () => {
-      expect(BETTING_TOOLS).toHaveLength(19);
+    it('exports exactly 20 tools (13 base + 7 podcast intel)', () => {
+      expect(BETTING_TOOLS).toHaveLength(20);
     });
 
     it('each tool has name, description, and input_schema', () => {
@@ -117,6 +128,7 @@ describe('agentTools', () => {
         'get_weekly_consensus',
         'log_pick',
         'read_vault_note',
+        'search_episode_vault_notes',
         'search_intel',
         'search_podcast_picks',
         'search_sharp_tweets',
@@ -124,7 +136,7 @@ describe('agentTools', () => {
       ]);
     });
 
-    it('PODCAST_INTEL_TOOLS contains the 6 phase-6 tools', () => {
+    it('PODCAST_INTEL_TOOLS contains the 7 phase-6 tools', () => {
       const names = PODCAST_INTEL_TOOLS.map(t => t.name).sort();
       expect(names).toEqual([
         'get_expert_history',
@@ -132,6 +144,7 @@ describe('agentTools', () => {
         'get_player_prop_context',
         'get_team_podcast_intel',
         'get_weekly_consensus',
+        'search_episode_vault_notes',
         'search_podcast_picks',
       ]);
     });
@@ -653,12 +666,22 @@ describe('agentTools', () => {
   });
 
   describe('FUTURES_TOOLS export', () => {
-    it('exports exactly 3 FUT-TOOLS schemas', () => {
-      expect(FUTURES_TOOLS).toHaveLength(3);
+    it('exports exactly 13 FUT-TOOLS schemas (3 original + 6 S296 track-1 + 4 S296 track-2)', () => {
+      expect(FUTURES_TOOLS).toHaveLength(13);
       const names = FUTURES_TOOLS.map(t => t.name);
       expect(names).toContain('analyze_futures_hedge');
       expect(names).toContain('project_division_paths');
       expect(names).toContain('track_award_race');
+      expect(names).toContain('get_team_analytics');
+      expect(names).toContain('get_team_roster');
+      expect(names).toContain('get_strength_of_schedule');
+      expect(names).toContain('get_futures_odds_movement');
+      expect(names).toContain('get_normalized_signals');
+      expect(names).toContain('get_podcast_host_summaries');
+      expect(names).toContain('get_game_context');
+      expect(names).toContain('get_referee_tendencies');
+      expect(names).toContain('get_roster_churn');
+      expect(names).toContain('get_clv_analysis');
     });
 
     it('each schema has name, description, and input_schema', () => {
@@ -668,6 +691,280 @@ describe('agentTools', () => {
         expect(tool.input_schema?.type).toBe('object');
         expect(tool.input_schema?.properties).toBeDefined();
       }
+    });
+  });
+
+  describe('get_team_analytics', () => {
+    it('returns invalid for an unrecognized team', async () => {
+      const result = await executeTool('get_team_analytics', { team: 'Not A Team' });
+      expect(result.status).toBe('invalid');
+    });
+
+    it('returns no_data when Supabase has no rows', async () => {
+      const result = await executeTool('get_team_analytics', { team: 'Chiefs' });
+      expect(result.status).toBe('no_data');
+      expect(result.team).toBe('KC');
+    });
+
+    it('shapes rows into offense/defense/tendencies when data exists', async () => {
+      const { getTeamSeasonStats } = await import('../../src/lib/supabase.js');
+      getTeamSeasonStats.mockResolvedValueOnce([{
+        team: 'KC', season: 2025, wins: 12, losses: 5, ties: 0,
+        off_epa_per_play: 0.09, off_epa_rank: 3, def_epa_per_play: -0.05, def_epa_rank: 8,
+        shotgun_rate: 0.62, no_huddle_rate: 0.08, pass_rate: 0.58,
+        home_ats_record: '6-3-0', away_ats_record: '5-3-0',
+      }]);
+      const result = await executeTool('get_team_analytics', { team: 'KC' });
+      expect(result.status).toBe('ok');
+      expect(result.teams[0].record).toBe('12-5');
+      expect(result.teams[0].offense.epa_rank).toBe(3);
+      expect(result.teams[0].tendencies.pass_rate).toBe(0.58);
+    });
+  });
+
+  describe('get_team_roster', () => {
+    it('returns invalid without a team', async () => {
+      const result = await executeTool('get_team_roster', {});
+      expect(result.status).toBe('invalid');
+    });
+
+    it('returns no_data when Supabase has no rows', async () => {
+      const result = await executeTool('get_team_roster', { team: 'ARI' });
+      expect(result.status).toBe('no_data');
+    });
+
+    it('shapes roster rows when data exists', async () => {
+      const { getTeamRoster } = await import('../../src/lib/supabase.js');
+      getTeamRoster.mockResolvedValueOnce([
+        { full_name: 'Jacoby Brissett', position: 'QB', depth_chart_position: 'QB1', jersey_number: 7, status: 'ACT', years_exp: 9, season: 2026, week: 3 },
+      ]);
+      const result = await executeTool('get_team_roster', { team: 'ARI' });
+      expect(result.status).toBe('ok');
+      expect(result.player_count).toBe(1);
+      expect(result.players[0].name).toBe('Jacoby Brissett');
+      expect(result.as_of).toEqual({ season: 2026, week: 3 });
+    });
+  });
+
+  describe('get_strength_of_schedule', () => {
+    it('returns no_data when Supabase has no rows', async () => {
+      const result = await executeTool('get_strength_of_schedule', {});
+      expect(result.status).toBe('no_data');
+    });
+
+    it('returns invalid for an unrecognized team', async () => {
+      const result = await executeTool('get_strength_of_schedule', { team: 'Not A Team' });
+      expect(result.status).toBe('invalid');
+    });
+
+    it('returns hardest/easiest when data exists and no team filter', async () => {
+      const { getStrengthOfSchedule } = await import('../../src/lib/supabase.js');
+      getStrengthOfSchedule.mockResolvedValueOnce([
+        { team_abbr: 'BUF', opponent_win_total_sum: 145.5, sos_rank: 1, sos_pool_size: 2 },
+        { team_abbr: 'MIA', opponent_win_total_sum: 130.0, sos_rank: 2, sos_pool_size: 2 },
+      ]);
+      const result = await executeTool('get_strength_of_schedule', {});
+      expect(result.status).toBe('ok');
+      expect(result.hardest.team_abbr).toBe('BUF');
+      expect(result.easiest.team_abbr).toBe('MIA');
+    });
+
+    it('returns a single team row when team filter matches', async () => {
+      const { getStrengthOfSchedule } = await import('../../src/lib/supabase.js');
+      getStrengthOfSchedule.mockResolvedValueOnce([
+        { team_abbr: 'KC', opponent_win_total_sum: 138.0, sos_rank: 5, sos_pool_size: 32 },
+      ]);
+      const result = await executeTool('get_strength_of_schedule', { team: 'Chiefs' });
+      expect(result.status).toBe('ok');
+      expect(result.team).toBe('KC');
+      expect(result.sos_rank).toBe(5);
+    });
+  });
+
+  describe('get_futures_odds_movement', () => {
+    it('returns invalid without required params', async () => {
+      const result = await executeTool('get_futures_odds_movement', { team: 'Chiefs' });
+      expect(result.status).toBe('invalid');
+    });
+
+    it('returns no_data when Supabase has no history', async () => {
+      const result = await executeTool('get_futures_odds_movement', { team: 'Chiefs', market_type: 'superbowl' });
+      expect(result.status).toBe('no_data');
+    });
+
+    it('computes direction and implied-prob change from opening vs current', async () => {
+      const { getFuturesOddsHistory } = await import('../../src/lib/supabase.js');
+      getFuturesOddsHistory.mockResolvedValueOnce([
+        { snapshot_time: '2026-07-01T00:00:00Z', book: 'draftkings', odds: 2500 },
+        { snapshot_time: '2026-07-21T00:00:00Z', book: 'draftkings', odds: 1200 },
+      ]);
+      const result = await executeTool('get_futures_odds_movement', { team: 'Chiefs', market_type: 'superbowl' });
+      expect(result.status).toBe('ok');
+      expect(result.direction).toBe('shortening (more likely)');
+      expect(result.snapshot_count).toBe(2);
+    });
+  });
+
+  describe('get_normalized_signals', () => {
+    it('returns no_data (and flags the RLS caveat) when Supabase has no rows', async () => {
+      const result = await executeTool('get_normalized_signals', {});
+      expect(result.status).toBe('no_data');
+      expect(result.message).toMatch(/service-role-only/i);
+    });
+
+    it('shapes signal rows when data exists', async () => {
+      const { getNormalizedSignals } = await import('../../src/lib/supabase.js');
+      getNormalizedSignals.mockResolvedValueOnce([
+        { team: 'Ravens', market: 'division', direction: 'back', strength: 0.8, rationale: 'strong roster', source_type: 'podcast_pick', author: 'Warren Sharp', model: 'gpt-4o', created_at: '2026-07-20T00:00:00Z' },
+      ]);
+      const result = await executeTool('get_normalized_signals', { team: 'Ravens' });
+      expect(result.status).toBe('ok');
+      expect(result.signals[0].team).toBe('Ravens');
+      expect(result.signals[0].strength).toBe(0.8);
+    });
+  });
+
+  describe('get_podcast_host_summaries', () => {
+    it('returns no_data when Supabase has no rows', async () => {
+      const result = await executeTool('get_podcast_host_summaries', {});
+      expect(result.status).toBe('no_data');
+    });
+
+    it('flattens futures arrays and filters by team client-side', async () => {
+      const { getPodcastHostSummaries } = await import('../../src/lib/supabase.js');
+      getPodcastHostSummaries.mockResolvedValueOnce([
+        {
+          host: 'Warren Sharp', episode_id: 'ep-1',
+          futures: [
+            { subject_market: 'AFC_North', subject: 'Ravens', prediction: 'win the division', lean: 'favor', confidence: 70, stats_cited: [], quote: 'Ravens are the class of the AFC North.' },
+            { subject_market: 'MVP', subject: 'Josh Allen', prediction: 'MVP favorite', lean: 'favor', confidence: 60, stats_cited: [], quote: 'Allen is my MVP pick.' },
+          ],
+        },
+      ]);
+      const result = await executeTool('get_podcast_host_summaries', { team: 'Ravens' });
+      expect(result.status).toBe('ok');
+      expect(result.count).toBe(1);
+      expect(result.futures[0].subject).toBe('Ravens');
+    });
+  });
+
+  describe('get_game_context', () => {
+    it('returns invalid for an unrecognized team', async () => {
+      const result = await executeTool('get_game_context', { team: 'Not A Team' });
+      expect(result.status).toBe('invalid');
+    });
+
+    it('returns no_data when Supabase has no rows', async () => {
+      const result = await executeTool('get_game_context', { team: 'Chiefs' });
+      expect(result.status).toBe('no_data');
+    });
+
+    it('shapes rest/venue/closing-line context when data exists', async () => {
+      const { getGameContext } = await import('../../src/lib/supabase.js');
+      getGameContext.mockResolvedValueOnce([{
+        game_id: 'nfl_2026_2_w05_KC_at_BUF', week: 5, kickoff_utc: '2026-10-05T17:00:00Z',
+        home_abbrev: 'BUF', away_abbrev: 'KC', away_rest: 6, home_rest: 10,
+        div_game: false, roof: 'outdoors', surface: 'grass', referee: 'Carl Cheffers',
+        closing_spread_line: -2.5, closing_total_line: 47.5, closing_home_moneyline: -140, closing_away_moneyline: 120,
+      }]);
+      const result = await executeTool('get_game_context', { team: 'BUF' });
+      expect(result.status).toBe('ok');
+      expect(result.games[0].rest.rest_edge_days).toBe(4);
+      expect(result.games[0].closing_lines.spread).toBe(-2.5);
+    });
+  });
+
+  describe('get_referee_tendencies', () => {
+    it('returns no_data when Supabase has no rows', async () => {
+      const result = await executeTool('get_referee_tendencies', {});
+      expect(result.status).toBe('no_data');
+    });
+
+    it('flags low-confidence small samples', async () => {
+      const { getRefereeTendencies } = await import('../../src/lib/supabase.js');
+      getRefereeTendencies.mockResolvedValueOnce([
+        { referee: 'Carl Cheffers', games_officiated: 51, seasons: [2022, 2023, 2024], avg_total_points: 44.08, avg_total_penalties: 11.26, avg_penalty_yards: 95.4, home_win_pct: 0.6275 },
+        { referee: 'Rookie Ref', games_officiated: 4, seasons: [2025], avg_total_points: 40.0, avg_total_penalties: 9.0, avg_penalty_yards: 80.0, home_win_pct: 0.5 },
+      ]);
+      const result = await executeTool('get_referee_tendencies', {});
+      expect(result.status).toBe('ok');
+      expect(result.referees[0].sample_confidence).toBe('moderate');
+      expect(result.referees[1].sample_confidence).toMatch(/low/);
+    });
+  });
+
+  describe('get_roster_churn', () => {
+    it('returns invalid without a team', async () => {
+      const result = await executeTool('get_roster_churn', {});
+      expect(result.status).toBe('invalid');
+    });
+
+    it('returns no_data when Supabase has no rows', async () => {
+      const result = await executeTool('get_roster_churn', { team: 'ARI' });
+      expect(result.status).toBe('no_data');
+    });
+
+    it('returns no_data when only one snapshot exists', async () => {
+      const { getRosterHistory } = await import('../../src/lib/supabase.js');
+      getRosterHistory.mockResolvedValueOnce([
+        { season: 2026, week: 5, full_name: 'Player A', gsis_id: 'p1', position: 'WR', status: 'ACT' },
+      ]);
+      const result = await executeTool('get_roster_churn', { team: 'ARI' });
+      expect(result.status).toBe('no_data');
+    });
+
+    it('computes adds/drops/status_changes across two snapshots', async () => {
+      const { getRosterHistory } = await import('../../src/lib/supabase.js');
+      getRosterHistory.mockResolvedValueOnce([
+        // Week 5 (current)
+        { season: 2026, week: 5, full_name: 'Player A', gsis_id: 'p1', position: 'WR', status: 'ACT' },
+        { season: 2026, week: 5, full_name: 'Player C', gsis_id: 'p3', position: 'CB', status: 'ACT' },
+        { season: 2026, week: 5, full_name: 'Player D', gsis_id: 'p4', position: 'QB', status: 'IR' },
+        // Week 4 (prior)
+        { season: 2026, week: 4, full_name: 'Player A', gsis_id: 'p1', position: 'WR', status: 'ACT' },
+        { season: 2026, week: 4, full_name: 'Player B', gsis_id: 'p2', position: 'RB', status: 'ACT' },
+        { season: 2026, week: 4, full_name: 'Player D', gsis_id: 'p4', position: 'QB', status: 'ACT' },
+      ]);
+      const result = await executeTool('get_roster_churn', { team: 'ARI' });
+      expect(result.status).toBe('ok');
+      expect(result.adds_count).toBe(1);
+      expect(result.adds[0].name).toBe('Player C');
+      expect(result.drops_count).toBe(1);
+      expect(result.drops[0].name).toBe('Player B');
+      expect(result.status_change_count).toBe(1);
+      expect(result.status_changes[0]).toMatchObject({ name: 'Player D', from: 'ACT', to: 'IR' });
+    });
+  });
+
+  describe('get_clv_analysis', () => {
+    it('returns invalid without required params', async () => {
+      const result = await executeTool('get_clv_analysis', { team: 'Chiefs' });
+      expect(result.status).toBe('invalid');
+    });
+
+    it('returns no_data when there is no closing-line context', async () => {
+      const result = await executeTool('get_clv_analysis', { team: 'Chiefs', week: 5 });
+      expect(result.status).toBe('no_data');
+    });
+
+    it('computes spread/total movement from tracked-open to closing', async () => {
+      const { getGameContext, getGameOddsForWeek } = await import('../../src/lib/supabase.js');
+      getGameContext.mockResolvedValueOnce([{
+        game_id: 'nfl_2026_2_w05_KC_at_BUF', week: 5,
+        home_abbrev: 'BUF', away_abbrev: 'KC',
+        closing_spread_line: -3.0, closing_total_line: 48.0,
+      }]);
+      getGameOddsForWeek.mockResolvedValueOnce([
+        { home_team: 'Bills', away_team: 'Chiefs', market: 'spread', spread: -1.5, captured_at: '2026-09-29T00:00:00Z' },
+        { home_team: 'Bills', away_team: 'Chiefs', market: 'total', total: 46.5, captured_at: '2026-09-29T00:00:00Z' },
+        { home_team: 'Bills', away_team: 'Chiefs', market: 'spread', spread: -2.5, captured_at: '2026-10-03T00:00:00Z' },
+      ]);
+      const result = await executeTool('get_clv_analysis', { team: 'BUF', week: 5 });
+      expect(result.status).toBe('ok');
+      expect(result.spread.tracked_open).toBe(-1.5);
+      expect(result.spread.closing).toBe(-3.0);
+      expect(result.spread.movement).toBe(-1.5);
+      expect(result.total.tracked_open).toBe(46.5);
     });
   });
 

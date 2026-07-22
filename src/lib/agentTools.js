@@ -26,6 +26,17 @@ import {
   getFuturesMovement,
   getPlayerPropContext,
   getLatestFuturesOdds,
+  getFuturesOddsHistory,
+  getTeamSeasonStats,
+  getTeamRoster,
+  getNormalizedSignals,
+  getPodcastHostSummaries,
+  getStrengthOfSchedule,
+  getGameContext,
+  getRefereeTendencies,
+  getRosterHistory,
+  getGameOddsForWeek,
+  getGameSplitsHistory,
 } from './supabase.js';
 import { readVaultNote, writeVaultNote, listVaultNotes, todaySessionPath } from './vaultClient.js';
 import {
@@ -40,7 +51,7 @@ import {
 } from './picksDatabase.js';
 import { PR_STORAGE_KEYS } from './storage.js';
 import { LOCAL_DATA, ESPN_API } from './apiConfig.js';
-import { normalizeTeam, getTeamAbbreviation } from './teams.js';
+import { normalizeTeam, getTeamAbbreviation, getTeam } from './teams.js';
 
 // ─── ESPN Team ID Mapping ─────────────────────────────────────────────────────
 // Used by get_injury_report tool
@@ -517,7 +528,7 @@ export const FUTURES_TOOLS = [
   },
   {
     name: 'project_division_paths',
-    description: 'Returns a division outlook: current futures odds per team, implied win probabilities, qualitative path assessment (schedule strength, key injuries, coaching context), and cross-market context (conference/SB odds). Use when the Creator asks "who wins the NFC West?" or "give me the AFC North breakdown". Requires a valid division name.',
+    description: 'Returns a division outlook: current futures odds per team, implied win probabilities, cross-market context (conference/SB odds), Strength of Schedule rank, and season analytics (record, EPA rank, ATS) where that data is seeded. Use when the Creator asks "who wins the NFC West?" or "give me the AFC North breakdown". Does NOT include injuries — call get_injury_report separately for that. Requires a valid division name.',
     input_schema: {
       type: 'object',
       properties: {
@@ -546,6 +557,220 @@ export const FUTURES_TOOLS = [
         },
       },
       required: ['award'],
+    },
+  },
+  // ── S296: data-wiring pass — tools onto tables that already existed but weren't
+  // reachable by the live agent. See docs/FUTURES_AGENT_DATA_INVENTORY_2026-07-21.md.
+  {
+    name: 'get_team_analytics',
+    description: 'Returns season-level team analytics: record, ATS record, O/U record, offensive/defensive EPA-per-play, formation tendencies (shotgun/no-huddle/pass rate), and league ranks (1=best, 32=worst). Use for "how good is this team really" questions beyond just their futures odds — this is the structured version of what CoachTendencies.md has as prose.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        team: {
+          type: 'string',
+          description: 'Team name or abbreviation (e.g. "Chiefs", "KC", "Kansas City Chiefs"). Omit to get all 32 teams.',
+        },
+        season: {
+          type: 'number',
+          description: 'Season year. Omit to get each team\'s most recent season on file.',
+        },
+      },
+      required: [],
+    },
+  },
+  {
+    name: 'get_team_roster',
+    description: 'Returns the current/latest known roster for a team — players, position, depth chart slot, status, jersey number. Use this before relying on any personnel-specific claim (a QB, a coach\'s system built around a specific player, etc.) since the hand-curated team notes can go stale after trades (e.g. the 2026 Kyler Murray trade was caught this way). Source: weekly nflverse roster snapshots.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        team: {
+          type: 'string',
+          required: true,
+          description: 'Team name or abbreviation (e.g. "Cardinals", "ARI").',
+        },
+        position: {
+          type: 'string',
+          description: 'Optional: filter to one position group (e.g. "QB", "WR").',
+        },
+      },
+      required: ['team'],
+    },
+  },
+  {
+    name: 'get_strength_of_schedule',
+    description: 'Returns each team\'s Strength of Schedule rank (1 = hardest slate) computed from the sum of their 2026 opponents\' consensus win-total lines — the same method used in the rendered Futures Intel Report, but queryable directly instead of only inside that report. Use for win-total over/under value calls and division-outlook context.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        team: {
+          type: 'string',
+          description: 'Optional: team name or abbreviation to return just one team\'s SoS. Omit for the full 32-team ranking.',
+        },
+        season: {
+          type: 'number',
+          description: 'Season year. Defaults to the current year.',
+        },
+      },
+      required: [],
+    },
+  },
+  {
+    name: 'get_futures_odds_movement',
+    description: 'Returns the actual sportsbook odds movement over time for one team+market (opening vs. current, direction, magnitude) — NOT expert pick sentiment (use get_futures_movement for that). Use when the Creator asks "how have this team\'s Super Bowl odds moved" or wants to spot line value that\'s decaying or appreciating.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        team: {
+          type: 'string',
+          required: true,
+          description: 'Full team name as tracked in odds data (e.g. "Kansas City Chiefs"). Use get_team_analytics or the division tools first if unsure of the exact form.',
+        },
+        market_type: {
+          type: 'string',
+          enum: ['superbowl', 'conference_afc', 'conference_nfc',
+            'division_afc_east', 'division_afc_north', 'division_afc_south', 'division_afc_west',
+            'division_nfc_east', 'division_nfc_north', 'division_nfc_south', 'division_nfc_west',
+            'wins', 'playoffs'],
+          required: true,
+          description: 'Futures market to track movement for.',
+        },
+        days: {
+          type: 'number',
+          description: 'Look-back window in days. Default: 30.',
+        },
+      },
+      required: ['team', 'market_type'],
+    },
+  },
+  {
+    name: 'get_normalized_signals',
+    description: 'Returns cleaned, directional betting signals (team/market/direction/strength/rationale) normalized by an LLM pass across articles, podcast intel, and expert picks — richer and more structured than raw podcast search. NOTE: this table is currently service-role-only in Supabase RLS, so this tool may return no_data until that\'s resolved; if so, say that plainly rather than treating it as "no signals exist."',
+    input_schema: {
+      type: 'object',
+      properties: {
+        team: {
+          type: 'string',
+          description: 'Optional: canonical team nickname (e.g. "Ravens") to filter by.',
+        },
+        market: {
+          type: 'string',
+          description: 'Optional: market category (superbowl|conference|division|wins|playoffs|game|award|prop|other).',
+        },
+        direction: {
+          type: 'string',
+          enum: ['back', 'fade', 'over', 'under', 'na'],
+          description: 'Optional: filter to one directional lean.',
+        },
+        limit: {
+          type: 'number',
+          description: 'Max signals to return. Default: 30.',
+        },
+      },
+      required: [],
+    },
+  },
+  {
+    name: 'get_podcast_host_summaries',
+    description: 'Returns per-host structured future summaries: prediction, lean, confidence, cited stats, and supporting quote for each future a host discussed. Richer than search_podcast_picks (which only has the flat pick shape) — use when the Creator wants to know WHY an expert holds a position, not just what it is.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        host: {
+          type: 'string',
+          description: 'Optional: host name or partial match (e.g. "Warren Sharp").',
+        },
+        team: {
+          type: 'string',
+          description: 'Optional: filter results to futures mentioning this team/subject (matched client-side against each future\'s subject).',
+        },
+        limit: {
+          type: 'number',
+          description: 'Max episode/host rows to scan. Default: 40.',
+        },
+      },
+      required: [],
+    },
+  },
+  // ── S296 track 2: rest/travel, CLV, referee tendencies, roster churn ──────
+  {
+    name: 'get_game_context',
+    description: 'Returns rest days for each side, division-game flag, venue (roof/surface), assigned referee, and nflverse\'s consensus closing lines for a game. Use for short-week/rest-differential angles and as the "true" closing number when discussing CLV.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        team: {
+          type: 'string',
+          description: 'Team name or abbreviation. Returns that team\'s upcoming/recent games.',
+        },
+        week: {
+          type: 'number',
+          description: 'NFL week (1-22). Omit for all weeks in range.',
+        },
+        season: {
+          type: 'number',
+          description: 'Season year. Omit for current.',
+        },
+      },
+      required: [],
+    },
+  },
+  {
+    name: 'get_referee_tendencies',
+    description: 'Returns historical tendencies for an NFL referee: games officiated, average combined score ("total-friendliness"), average penalties/penalty yards per game, and home-team win rate. Small samples (~17 games/season/ref) — always weigh games_officiated before treating an average as meaningful. Use after get_game_context surfaces the assigned referee for an upcoming game.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        referee: {
+          type: 'string',
+          description: 'Referee name or partial match (e.g. "Cheffers"). Omit to list all refs with data, sorted by games officiated.',
+        },
+      },
+      required: [],
+    },
+  },
+  {
+    name: 'get_roster_churn',
+    description: 'Diffs a team\'s roster between its two most recent weekly snapshots and returns adds/drops/status changes. Use as a leading indicator of instability (trades, injury-driven moves, practice-squad churn) beyond what a single-point-in-time roster or the injury report shows.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        team: {
+          type: 'string',
+          required: true,
+          description: 'Team name or abbreviation.',
+        },
+        weeks_back: {
+          type: 'number',
+          description: 'How many distinct weekly snapshots to compare (default 2 — i.e. most recent vs. prior).',
+        },
+      },
+      required: ['team'],
+    },
+  },
+  {
+    name: 'get_clv_analysis',
+    description: 'Closing Line Value check for one game: compares this app\'s earliest-tracked odds (proxy "opening") against nflverse\'s true consensus closing line, plus betting-splits divergence (ticket% vs money%) over the week if available. Use when the Creator asks whether a line move was sharp, or wants a post-mortem on how a game\'s number actually closed relative to when they bet it.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        team: {
+          type: 'string',
+          required: true,
+          description: 'Team name or abbreviation — either side of the game works.',
+        },
+        week: {
+          type: 'number',
+          required: true,
+          description: 'NFL week (1-22).',
+        },
+        season: {
+          type: 'number',
+          description: 'Season year. Defaults to current.',
+        },
+      },
+      required: ['team', 'week'],
     },
   },
 ];
@@ -586,6 +811,17 @@ export async function executeTool(name, input) {
     case 'analyze_futures_hedge':   return toolAnalyzeFuturesHedge(input);
     case 'project_division_paths':  return toolProjectDivisionPaths(input);
     case 'track_award_race':        return toolTrackAwardRace(input);
+    // S296 data-wiring pass
+    case 'get_team_analytics':        return toolGetTeamAnalytics(input);
+    case 'get_team_roster':           return toolGetTeamRoster(input);
+    case 'get_strength_of_schedule':  return toolGetStrengthOfSchedule(input);
+    case 'get_futures_odds_movement': return toolGetFuturesOddsMovement(input);
+    case 'get_normalized_signals':    return toolGetNormalizedSignals(input);
+    case 'get_podcast_host_summaries': return toolGetPodcastHostSummaries(input);
+    case 'get_game_context':          return toolGetGameContext(input);
+    case 'get_referee_tendencies':    return toolGetRefereeTendencies(input);
+    case 'get_roster_churn':          return toolGetRosterChurn(input);
+    case 'get_clv_analysis':          return toolGetClvAnalysis(input);
     default:
       return { error: `Unknown tool: ${name}` };
   }
@@ -1610,6 +1846,20 @@ async function toolProjectDivisionPaths({ division } = {}) {
   let allOdds = [];
   try { allOdds = await getLatestFuturesOdds(); } catch (_) { allOdds = []; }
 
+  // S296: enrich with real schedule-strength + EPA/ATS context (previously this
+  // tool's description promised this but the implementation never fetched it).
+  // Best-effort — failures here must not take down the odds response.
+  let statsByAbbr = {};
+  let sosByAbbr = {};
+  try {
+    const [statsRows, sosRows] = await Promise.all([
+      getTeamSeasonStats({}),
+      getStrengthOfSchedule({}),
+    ]);
+    for (const r of (statsRows || [])) statsByAbbr[r.team] = r;
+    for (const r of (sosRows || [])) sosByAbbr[r.team_abbr] = r;
+  } catch (_) { statsByAbbr = {}; sosByAbbr = {}; }
+
   const toImpliedProb = (american) => {
     if (american == null) return null;
     return american > 0 ? 100 / (american + 100) : Math.abs(american) / (Math.abs(american) + 100);
@@ -1633,6 +1883,9 @@ async function toolProjectDivisionPaths({ division } = {}) {
     const confRow = bestOdds(fullName, confMarket);
     const sbRow   = bestOdds(fullName, 'superbowl');
     const divProb = divRow ? toImpliedProb(divRow.odds) : null;
+    const abbr    = getTeamAbbreviation(fullName);
+    const stats   = abbr ? statsByAbbr[abbr] : null;
+    const sos     = abbr ? sosByAbbr[abbr] : null;
     return {
       team: fullName,
       division_winner: {
@@ -1648,6 +1901,19 @@ async function toolProjectDivisionPaths({ division } = {}) {
         odds: fmtOdds(sbRow?.odds),
         implied_prob: sbRow ? `${fmt(toImpliedProb(sbRow.odds) * 100)}%` : 'n/a',
       },
+      schedule_strength: sos ? {
+        sos_rank: sos.sos_rank,
+        sos_pool_size: sos.sos_pool_size,
+        opponent_win_total_sum: sos.opponent_win_total_sum,
+      } : null,
+      analytics: stats ? {
+        season: stats.season,
+        record: `${stats.wins ?? '?'}-${stats.losses ?? '?'}${stats.ties ? `-${stats.ties}` : ''}`,
+        off_epa_rank: stats.off_epa_rank,
+        def_epa_rank: stats.def_epa_rank,
+        ats_home: stats.home_ats_record,
+        ats_away: stats.away_ats_record,
+      } : null,
       _sortKey: divProb ?? -1,
     };
   });
@@ -1656,13 +1922,14 @@ async function toolProjectDivisionPaths({ division } = {}) {
   teamRows.forEach(r => delete r._sortKey);
 
   const hasData = teamRows.some(r => r.division_winner.odds !== 'n/a');
+  const hasEnrichment = teamRows.some(r => r.analytics || r.schedule_strength);
 
   return {
     status: hasData ? 'ok' : 'no_data',
     division: divKey.toUpperCase(),
     conference: conf.toUpperCase(),
     note: hasData
-      ? 'Division winner odds from latest Supabase snapshot. Use read_vault_note for coaching/DVOA context.'
+      ? `Division winner odds from latest Supabase snapshot.${hasEnrichment ? ' schedule_strength/analytics are populated where nfl_team_season_stats + SoS data is available.' : ' schedule_strength/analytics unavailable — call get_team_analytics/get_strength_of_schedule directly, or the underlying tables may not be seeded yet.'} Call get_injury_report separately for injuries — not duplicated here.`
       : 'No division odds in Supabase yet — market typically opens July-August. Use vault reference data for qualitative analysis.',
     teams: teamRows,
   };
@@ -1763,4 +2030,500 @@ async function toolTrackAwardRace({ award, limit = 10 } = {}) {
       experts_covering: Object.keys(podcastData.by_expert || {}),
     },
   };
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// S296 — data-wiring pass. Tools onto nfl_team_season_stats / nfl_rosters /
+// normalized_signals / podcast_host_summaries / real futures-odds movement /
+// Strength of Schedule — all previously in the data layer but unreachable by
+// the live agent. See docs/FUTURES_AGENT_DATA_INVENTORY_2026-07-21.md.
+// ═══════════════════════════════════════════════════════════════════════════════
+
+/**
+ * get_team_analytics
+ * Season-level team analytics: record, ATS, O/U, EPA/play, formation tendencies, ranks.
+ */
+async function toolGetTeamAnalytics({ team, season } = {}) {
+  const abbr = team ? getTeamAbbreviation(team) : null;
+  if (team && !abbr) {
+    return { status: 'invalid', message: `Unrecognized team "${team}".` };
+  }
+
+  let rows = [];
+  try { rows = await getTeamSeasonStats({ team: abbr, season }); } catch (_) { rows = []; }
+
+  if (!rows.length) {
+    return {
+      status: 'no_data',
+      team: abbr ?? null,
+      message: 'No season stats on file for this team/season yet.',
+    };
+  }
+
+  const shape = (r) => ({
+    team: r.team,
+    season: r.season,
+    record: `${r.wins ?? '?'}-${r.losses ?? '?'}${r.ties ? `-${r.ties}` : ''}`,
+    ats: (r.home_ats_record || r.away_ats_record)
+      ? { home: r.home_ats_record, away: r.away_ats_record }
+      : (r.ats_wins != null ? { overall: `${r.ats_wins}-${r.ats_losses}-${r.ats_pushes ?? 0}` } : null),
+    over_under: (r.over_count != null) ? `${r.over_count}O-${r.under_count}U-${r.push_count ?? 0}P` : null,
+    offense: {
+      points_per_game: r.points_for_pg,
+      yards_per_game: r.yards_pg,
+      epa_per_play: r.off_epa_per_play,
+      epa_rank: r.off_epa_rank,
+      third_down_pct: r.third_down_pct,
+      red_zone_pct: r.red_zone_pct,
+    },
+    defense: {
+      points_allowed_per_game: r.points_against_pg,
+      yards_allowed_per_game: r.yards_allowed_pg,
+      epa_per_play: r.def_epa_per_play,
+      epa_rank: r.def_epa_rank,
+    },
+    tendencies: {
+      shotgun_rate: r.shotgun_rate,
+      no_huddle_rate: r.no_huddle_rate,
+      pass_rate: r.pass_rate,
+    },
+    source: r.source,
+    updated_at: r.updated_at,
+  });
+
+  return { status: 'ok', count: rows.length, teams: rows.map(shape) };
+}
+
+/**
+ * get_team_roster
+ * Current/latest known roster for a team, from weekly nflverse snapshots.
+ */
+async function toolGetTeamRoster({ team, position } = {}) {
+  if (!team) return { status: 'invalid', message: 'team is required.' };
+  const abbr = getTeamAbbreviation(team);
+  if (!abbr) return { status: 'invalid', message: `Unrecognized team "${team}".` };
+
+  let players = [];
+  try { players = await getTeamRoster({ team: abbr, position }); } catch (_) { players = []; }
+
+  if (!players.length) {
+    return { status: 'no_data', team: abbr, message: 'No roster snapshot on file for this team yet.' };
+  }
+
+  return {
+    status: 'ok',
+    team: abbr,
+    as_of: { season: players[0].season, week: players[0].week },
+    player_count: players.length,
+    players: players.map(p => ({
+      name: p.full_name,
+      position: p.position,
+      depth_chart_position: p.depth_chart_position,
+      jersey_number: p.jersey_number,
+      status: p.status,
+      years_exp: p.years_exp,
+    })),
+  };
+}
+
+/**
+ * get_strength_of_schedule
+ * SoS rank (1 = hardest) from sum of opponents' consensus win-total lines.
+ */
+async function toolGetStrengthOfSchedule({ team, season } = {}) {
+  const abbr = team ? getTeamAbbreviation(team) : null;
+  if (team && !abbr) return { status: 'invalid', message: `Unrecognized team "${team}".` };
+
+  let rows = [];
+  try { rows = await getStrengthOfSchedule({ season: season || new Date().getFullYear() }); } catch (_) { rows = []; }
+
+  if (!rows.length) {
+    return {
+      status: 'no_data',
+      message: 'SoS requires both the season schedule (games table) and win-total lines (futures_odds_snapshots) to be seeded — one or both are missing for this season.',
+    };
+  }
+
+  if (abbr) {
+    const row = rows.find(r => r.team_abbr === abbr);
+    if (!row) {
+      return { status: 'no_data', team: abbr, message: 'No SoS data for this team (opponent win-total lines may be incomplete).' };
+    }
+    return { status: 'ok', team: abbr, ...row };
+  }
+
+  return {
+    status: 'ok',
+    pool_size: rows.length,
+    hardest: rows[0],
+    easiest: rows[rows.length - 1],
+    teams: rows,
+  };
+}
+
+/**
+ * get_futures_odds_movement
+ * Real sportsbook odds movement over time (distinct from get_futures_movement,
+ * which tracks expert PICK sentiment, not odds).
+ */
+async function toolGetFuturesOddsMovement({ team, market_type, days = 30 } = {}) {
+  if (!team || !market_type) {
+    return { status: 'invalid', message: 'team and market_type are required.' };
+  }
+
+  const teamData = getTeam(team);
+  const fullName = teamData?.fullName || team;
+
+  let history = [];
+  try { history = await getFuturesOddsHistory(fullName, market_type, days); } catch (_) { history = []; }
+
+  if (!history.length) {
+    return {
+      status: 'no_data',
+      team: fullName,
+      market_type,
+      message: 'No odds snapshots on file for this team/market in the look-back window.',
+    };
+  }
+
+  const toImpliedProb = (american) => american == null ? null
+    : (american > 0 ? 100 / (american + 100) : Math.abs(american) / (Math.abs(american) + 100));
+  const fmtOdds = (o) => o == null ? 'n/a' : (o > 0 ? `+${o}` : String(o));
+
+  const opening = history[0];
+  const current = history[history.length - 1];
+  const openProb = toImpliedProb(opening.odds);
+  const curProb  = toImpliedProb(current.odds);
+
+  return {
+    status: 'ok',
+    team: fullName,
+    market_type,
+    days,
+    snapshot_count: history.length,
+    opening: { date: opening.snapshot_time, odds: fmtOdds(opening.odds), book: opening.book },
+    current: { date: current.snapshot_time, odds: fmtOdds(current.odds), book: current.book },
+    direction: current.odds === opening.odds ? 'flat'
+      : (curProb > openProb ? 'shortening (more likely)' : 'lengthening (less likely)'),
+    implied_prob_change_pts: (openProb != null && curProb != null)
+      ? +((curProb - openProb) * 100).toFixed(1)
+      : null,
+    timeline: history.map(h => ({ date: h.snapshot_time, odds: fmtOdds(h.odds), book: h.book })),
+  };
+}
+
+/**
+ * get_normalized_signals
+ * Cleaned, directional cross-source signals. May legitimately return no_data
+ * if Supabase RLS hasn't been opened for this table yet — see the RLS note
+ * on getNormalizedSignals in supabase.js.
+ */
+async function toolGetNormalizedSignals({ team, market, direction, limit = 30 } = {}) {
+  let rows = [];
+  try { rows = await getNormalizedSignals({ team, market, direction, limit }); } catch (_) { rows = []; }
+
+  if (!rows.length) {
+    return {
+      status: 'no_data',
+      message: 'No normalized signals returned. This table (normalized_signals) is currently service-role-only in Supabase RLS — this could mean no signals exist yet, OR that a public-read policy hasn\'t been added for anon access. Say so plainly; don\'t assume the former.',
+    };
+  }
+
+  return {
+    status: 'ok',
+    count: rows.length,
+    signals: rows.map(r => ({
+      team: r.team,
+      market: r.market,
+      direction: r.direction,
+      strength: r.strength,
+      rationale: r.rationale,
+      source: r.source_type,
+      author: r.author,
+      model: r.model,
+      as_of: r.created_at,
+    })),
+  };
+}
+
+/**
+ * get_podcast_host_summaries
+ * Per-host structured future extraction (prediction/lean/confidence/stats_cited/quote).
+ * Filters client-side against the futures jsonb array since Supabase-js can't
+ * filter jsonb array elements natively.
+ */
+async function toolGetPodcastHostSummaries({ host, team, limit = 40 } = {}) {
+  let rows = [];
+  try { rows = await getPodcastHostSummaries({ host, limit }); } catch (_) { rows = []; }
+
+  if (!rows.length) {
+    return { status: 'no_data', message: 'No host summaries on file yet.' };
+  }
+
+  const teamQuery = team ? String(team).toLowerCase() : null;
+  const results = [];
+  for (const row of rows) {
+    const futures = Array.isArray(row.futures) ? row.futures : [];
+    for (const f of futures) {
+      if (teamQuery) {
+        const subj = String(f.subject || '').toLowerCase();
+        const subjMarket = String(f.subject_market || '').toLowerCase();
+        if (!subj.includes(teamQuery) && !subjMarket.includes(teamQuery)) continue;
+      }
+      results.push({
+        host: row.host,
+        episode_id: row.episode_id,
+        subject_market: f.subject_market,
+        subject: f.subject,
+        prediction: f.prediction,
+        lean: f.lean,
+        confidence: f.confidence,
+        stats_cited: f.stats_cited,
+        quote: f.quote,
+      });
+    }
+  }
+
+  if (!results.length) {
+    return {
+      status: 'no_data',
+      message: team ? `No futures mentioning "${team}" in the scanned window.` : 'No futures found in the scanned window.',
+    };
+  }
+
+  return { status: 'ok', count: results.length, futures: results.slice(0, 50) };
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// S296 track 2 — rest/travel, referee tendencies, roster churn, CLV.
+// ═══════════════════════════════════════════════════════════════════════════════
+
+/**
+ * get_game_context
+ * Rest days, division-game flag, venue, referee, closing lines for a team's games.
+ */
+async function toolGetGameContext({ team, week, season } = {}) {
+  const abbr = team ? getTeamAbbreviation(team) : null;
+  if (team && !abbr) return { status: 'invalid', message: `Unrecognized team "${team}".` };
+
+  let rows = [];
+  try { rows = await getGameContext({ season, week, team: abbr, limit: 10 }); } catch (_) { rows = []; }
+
+  if (!rows.length) {
+    return {
+      status: 'no_data',
+      message: 'No game context on file. Columns exist (migration 039) but scripts/seed-game-context.py may not have been run for this season/week yet.',
+    };
+  }
+
+  const shape = (r) => ({
+    game_id: r.game_id,
+    matchup: `${r.away_abbrev} @ ${r.home_abbrev}`,
+    week: r.week,
+    kickoff: r.kickoff_utc,
+    rest: {
+      away_days: r.away_rest,
+      home_days: r.home_rest,
+      rest_edge_days: (r.home_rest != null && r.away_rest != null) ? r.home_rest - r.away_rest : null,
+    },
+    div_game: r.div_game,
+    venue: { roof: r.roof, surface: r.surface },
+    referee: r.referee,
+    closing_lines: {
+      spread: r.closing_spread_line,
+      total: r.closing_total_line,
+      home_moneyline: r.closing_home_moneyline,
+      away_moneyline: r.closing_away_moneyline,
+    },
+  });
+
+  return { status: 'ok', count: rows.length, games: rows.map(shape) };
+}
+
+/**
+ * get_referee_tendencies
+ * Historical total-friendliness / penalty rate for a referee.
+ */
+async function toolGetRefereeTendencies({ referee } = {}) {
+  let rows = [];
+  try { rows = await getRefereeTendencies({ referee }); } catch (_) { rows = []; }
+
+  if (!rows.length) {
+    return {
+      status: 'no_data',
+      message: referee
+        ? `No tendency data for a referee matching "${referee}".`
+        : 'No referee tendency data on file yet — run scripts/derive_referee_tendencies.py.',
+    };
+  }
+
+  return {
+    status: 'ok',
+    count: rows.length,
+    referees: rows.map(r => ({
+      referee: r.referee,
+      games_officiated: r.games_officiated,
+      seasons: r.seasons,
+      avg_total_points: r.avg_total_points,
+      avg_total_penalties: r.avg_total_penalties,
+      avg_penalty_yards: r.avg_penalty_yards,
+      home_win_pct: r.home_win_pct,
+      sample_confidence: r.games_officiated >= 30 ? 'moderate' : 'low — small sample, weigh accordingly',
+    })),
+  };
+}
+
+/**
+ * get_roster_churn
+ * Week-over-week roster diff (adds/drops/status changes) for a team.
+ */
+async function toolGetRosterChurn({ team, weeks_back = 2 } = {}) {
+  if (!team) return { status: 'invalid', message: 'team is required.' };
+  const abbr = getTeamAbbreviation(team);
+  if (!abbr) return { status: 'invalid', message: `Unrecognized team "${team}".` };
+
+  let rows = [];
+  try { rows = await getRosterHistory({ team: abbr, weeksBack: weeks_back }); } catch (_) { rows = []; }
+
+  if (!rows.length) {
+    return { status: 'no_data', team: abbr, message: 'No roster history on file for this team yet.' };
+  }
+
+  const snapshots = new Map();
+  for (const r of rows) {
+    const key = `${r.season}-${r.week}`;
+    if (!snapshots.has(key)) snapshots.set(key, { season: r.season, week: r.week, players: new Map() });
+    snapshots.get(key).players.set(r.gsis_id || r.full_name, r);
+  }
+  const ordered = [...snapshots.values()].sort((a, b) => (b.season - a.season) || (b.week - a.week));
+
+  if (ordered.length < 2) {
+    return {
+      status: 'no_data',
+      team: abbr,
+      message: `Only one roster snapshot on file (season ${ordered[0]?.season} week ${ordered[0]?.week}) — churn needs at least two.`,
+    };
+  }
+
+  const [current, prior] = ordered;
+  const adds = [];
+  const drops = [];
+  const statusChanges = [];
+
+  for (const [key, player] of current.players) {
+    if (!prior.players.has(key)) {
+      adds.push({ name: player.full_name, position: player.position, status: player.status });
+    } else {
+      const priorPlayer = prior.players.get(key);
+      if (priorPlayer.status !== player.status) {
+        statusChanges.push({ name: player.full_name, position: player.position, from: priorPlayer.status, to: player.status });
+      }
+    }
+  }
+  for (const [key, player] of prior.players) {
+    if (!current.players.has(key)) {
+      drops.push({ name: player.full_name, position: player.position, last_status: player.status });
+    }
+  }
+
+  return {
+    status: 'ok',
+    team: abbr,
+    compared: {
+      current: { season: current.season, week: current.week },
+      prior: { season: prior.season, week: prior.week },
+    },
+    adds_count: adds.length,
+    drops_count: drops.length,
+    status_change_count: statusChanges.length,
+    adds,
+    drops,
+    status_changes: statusChanges,
+  };
+}
+
+/**
+ * get_clv_analysis
+ * Compares this app's earliest-tracked odds against nflverse's true closing
+ * line, plus betting-splits divergence over the week if available.
+ */
+async function toolGetClvAnalysis({ team, week, season } = {}) {
+  if (!team || !week) return { status: 'invalid', message: 'team and week are required.' };
+  const abbr = getTeamAbbreviation(team);
+  if (!abbr) return { status: 'invalid', message: `Unrecognized team "${team}".` };
+  const yr = season || new Date().getFullYear();
+
+  let contextRows = [];
+  try { contextRows = await getGameContext({ season: yr, week, team: abbr, limit: 5 }); } catch (_) { contextRows = []; }
+  const context = contextRows[0];
+
+  if (!context || context.closing_spread_line == null) {
+    return {
+      status: 'no_data',
+      team: abbr,
+      week,
+      message: 'No closing-line context on file for this game yet (needs scripts/seed-game-context.py to have run for this week).',
+    };
+  }
+
+  let oddsRows = [];
+  try { oddsRows = await getGameOddsForWeek(week, yr); } catch (_) { oddsRows = []; }
+  const gameOdds = oddsRows.filter(r => {
+    const h = getTeamAbbreviation(r.home_team);
+    const a = getTeamAbbreviation(r.away_team);
+    return h === context.home_abbrev && a === context.away_abbrev;
+  });
+
+  let splitsRows = [];
+  try { splitsRows = await getGameSplitsHistory({ season: yr, week }); } catch (_) { splitsRows = []; }
+  const gameSplits = splitsRows.filter(r => {
+    const h = getTeamAbbreviation(r.home_team);
+    const a = getTeamAbbreviation(r.away_team);
+    return h === context.home_abbrev && a === context.away_abbrev;
+  });
+
+  const spreadRows = gameOdds
+    .filter(r => r.market === 'spread' && r.spread != null)
+    .sort((a, b) => new Date(a.captured_at) - new Date(b.captured_at));
+  const totalRows = gameOdds
+    .filter(r => r.market === 'total' && r.total != null)
+    .sort((a, b) => new Date(a.captured_at) - new Date(b.captured_at));
+
+  const trackedOpenSpread = spreadRows[0]?.spread ?? null;
+  const trackedOpenTotal = totalRows[0]?.total ?? null;
+
+  const result = {
+    status: 'ok',
+    team: abbr,
+    matchup: `${context.away_abbrev} @ ${context.home_abbrev}`,
+    week,
+    season: yr,
+    spread: {
+      tracked_open: trackedOpenSpread,
+      closing: context.closing_spread_line,
+      movement: (trackedOpenSpread != null) ? +(context.closing_spread_line - trackedOpenSpread).toFixed(1) : null,
+    },
+    total: {
+      tracked_open: trackedOpenTotal,
+      closing: context.closing_total_line,
+      movement: (trackedOpenTotal != null) ? +(context.closing_total_line - trackedOpenTotal).toFixed(1) : null,
+    },
+    note: spreadRows.length
+      ? 'tracked_open is this app\'s earliest tracked snapshot for this game, not necessarily the true market open.'
+      : 'No tracked odds snapshots on file for this game — only the true closing line is available.',
+  };
+
+  if (gameSplits.length) {
+    const latest = gameSplits[gameSplits.length - 1];
+    result.betting_splits = {
+      as_of: latest.captured_at,
+      spread_home_bettors_pct: latest.spread_home_bettors,
+      spread_home_money_pct: latest.spread_home_money,
+      sharp_divergence: (latest.spread_home_money != null && latest.spread_home_bettors != null)
+        ? latest.spread_home_money - latest.spread_home_bettors
+        : null,
+    };
+  }
+
+  return result;
 }

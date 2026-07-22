@@ -150,10 +150,60 @@
       "name": "track_award_race",
       "source": "FUTURES_TOOLS",
       "description": "Ranked award leaderboard by implied prob + expert mentions. Input: award = MVP | OPOY | DPOY | OROY | DROY | CPOY | COY."
+    },
+    {
+      "name": "get_team_analytics",
+      "source": "FUTURES_TOOLS",
+      "description": "S296: season-level team analytics (record, ATS, O/U, EPA/play, formation tendencies, league ranks) from nfl_team_season_stats. Structured version of what CoachTendencies.md has as prose."
+    },
+    {
+      "name": "get_team_roster",
+      "source": "FUTURES_TOOLS",
+      "description": "S296: current/latest roster from weekly nflverse snapshots (nfl_rosters). Use to verify personnel before relying on a QB/coach-specific claim from the vault team notes, which can go stale after trades."
+    },
+    {
+      "name": "get_strength_of_schedule",
+      "source": "FUTURES_TOOLS",
+      "description": "S296: SoS rank (1=hardest) computed from opponents' consensus win-total lines — same method as the rendered Futures Intel Report, now directly queryable."
+    },
+    {
+      "name": "get_futures_odds_movement",
+      "source": "FUTURES_TOOLS",
+      "description": "S296: real sportsbook odds movement over time (opening vs current, direction, magnitude) from futures_odds_snapshots. Distinct from get_futures_movement, which tracks expert PICK sentiment, not odds."
+    },
+    {
+      "name": "get_normalized_signals",
+      "source": "FUTURES_TOOLS",
+      "description": "S296: cleaned cross-source directional signals (normalized_signals). NOTE: table is currently service-role-only in RLS — may return no_data until Andy opens a public-read policy or the call is moved server-side."
+    },
+    {
+      "name": "get_podcast_host_summaries",
+      "source": "FUTURES_TOOLS",
+      "description": "S296: per-host structured future extraction (prediction/lean/confidence/stats_cited/quote) from podcast_host_summaries — richer than search_podcast_picks."
+    },
+    {
+      "name": "get_game_context",
+      "source": "FUTURES_TOOLS",
+      "description": "S296 track 2: rest days, division-game flag, venue, referee, and nflverse's consensus closing lines (migration 039, seeded by scripts/seed-game-context.py). Composes data already downloaded by fetch_nflverse_data.py's schedules dataset — no new external source."
+    },
+    {
+      "name": "get_referee_tendencies",
+      "source": "FUTURES_TOOLS",
+      "description": "S296 track 2: per-referee total-friendliness + penalty rate (migration 040, derived by scripts/derive_referee_tendencies.py from schedules.csv + team_stats.csv, both already downloaded)."
+    },
+    {
+      "name": "get_roster_churn",
+      "source": "FUTURES_TOOLS",
+      "description": "S296 track 2: week-over-week roster diff (adds/drops/status changes) from nfl_rosters (migration 038, already weekly-snapshotted — no new table needed)."
+    },
+    {
+      "name": "get_clv_analysis",
+      "source": "FUTURES_TOOLS",
+      "description": "S296 track 2: tracked-open vs. nflverse closing line, plus betting-splits divergence (game_splits_history, migration 024 — built earlier, first tool to query it)."
     }
   ],
   "deferredTools": {
-    "_note": "FUT-TOOLS shipped.",
+    "_note": "FUT-TOOLS shipped. S296 track 1 added 6 tools wiring previously-unreachable tables; track 2 added 4 more (rest/travel, referee tendencies, roster churn, CLV) — see docs/FUTURES_AGENT_DATA_INVENTORY_2026-07-21.md.",
     "candidates": []
   },
   "persistenceKeys": {

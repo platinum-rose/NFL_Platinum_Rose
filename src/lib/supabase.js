@@ -418,6 +418,355 @@ export async function getWatchlistOddsHistory(teams, _marketTypes, days = 60) {
   }
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// S296 — Futures/Betting agent data-wiring pass. Everything below composes
+// tables that already existed but weren't reachable by the live chat agent
+// (see docs/FUTURES_AGENT_DATA_INVENTORY_2026-07-21.md for the full audit).
+// ═══════════════════════════════════════════════════════════════════════════════
+
+/**
+ * Team season analytics: record, ATS, O/U, EPA/play, formation tendencies
+ * (shotgun/no-huddle/pass rate), league ranks. Table: nfl_team_season_stats
+ * (migration 014 + formation columns added in 015).
+ * @param {object} opts
+ * @param {string} [opts.team]   — nflfastR abbreviation (e.g. 'KC'). Omit for all 32 teams.
+ * @param {number} [opts.season] — 4-digit year. Omit to get each team's most-recent season on file.
+ */
+export async function getTeamSeasonStats({ team, season } = {}) {
+  if (!isAvailable()) return [];
+  try {
+    let query = supabase.from('nfl_team_season_stats').select('*').order('season', { ascending: false });
+    if (team)   query = query.eq('team', team);
+    if (season) query = query.eq('season', season);
+    const { data, error } = await query;
+    if (error || !data) return [];
+    if (season) return data;
+    // No season given: collapse to each team's most-recent row only.
+    const seen = new Set();
+    const latest = [];
+    for (const row of data) {
+      if (seen.has(row.team)) continue;
+      seen.add(row.team);
+      latest.push(row);
+    }
+    return latest;
+  } catch (e) {
+    logger.warn('[supabase] getTeamSeasonStats failed:', e.message);
+    return [];
+  }
+}
+
+/**
+ * Current/latest known roster for a team. Table: nfl_rosters_latest view
+ * (migration 038) — one row per player at the most recent season/week
+ * snapshot, so "who's actually on this team right now" is answerable without
+ * the personnel-staleness problem the hand-curated vault team notes have
+ * (e.g. the Kyler Murray/ARI case caught in the roster-refresh audit).
+ * @param {object} opts
+ * @param {string} opts.team       — nflverse team abbreviation (e.g. 'KC')
+ * @param {string} [opts.position] — filter to one position (e.g. 'QB')
+ * @param {number} [opts.limit]    — max players (default 100 — full roster)
+ */
+export async function getTeamRoster({ team, position, limit = 100 } = {}) {
+  if (!isAvailable() || !team) return [];
+  try {
+    let query = supabase
+      .from('nfl_rosters_latest')
+      .select('full_name, position, depth_chart_position, jersey_number, status, years_exp, season, week')
+      .eq('team', team)
+      .order('position', { ascending: true })
+      .limit(limit);
+    if (position) query = query.eq('position', position);
+    const { data, error } = await query;
+    if (error || !data) return [];
+    return data;
+  } catch (e) {
+    logger.warn('[supabase] getTeamRoster failed:', e.message);
+    return [];
+  }
+}
+
+/**
+ * LLM-normalized directional betting signals (article/podcast_intel/podcast_pick/
+ * expert_pick, cleaned into team/market/direction/strength). Table:
+ * normalized_signals (migration 031).
+ *
+ * ⚠️ RLS NOTE: this table is deliberately service-role-only — migration 031's own
+ * comment says "internal betting data, no client (anon/authenticated) access."
+ * The browser anon key this file uses will get zero rows back until Andy either
+ * adds a public-read policy (mirroring every other table here) or this call is
+ * moved server-side. Implemented so the tool is ready the moment that's decided;
+ * not silently worked around.
+ */
+export async function getNormalizedSignals({ team, market, direction, minStrength = 0, limit = 30 } = {}) {
+  if (!isAvailable()) return [];
+  try {
+    let query = supabase
+      .from('normalized_signals')
+      .select('model, source_type, author, team, market, direction, strength, rationale, raw_text, created_at')
+      .eq('is_nfl', true)
+      .order('created_at', { ascending: false })
+      .limit(limit);
+    if (team)         query = query.eq('team', team);
+    if (market)       query = query.eq('market', market);
+    if (direction)    query = query.eq('direction', direction);
+    if (minStrength)  query = query.gte('strength', minStrength);
+    const { data, error } = await query;
+    if (error || !data) return [];
+    return data;
+  } catch (e) {
+    logger.warn('[supabase] getNormalizedSignals failed:', e.message);
+    return [];
+  }
+}
+
+/**
+ * Per-host structured future summaries (prediction/lean/confidence/stats_cited/
+ * quote per future per host) — richer than podcast_transcripts.picks but not
+ * queried by any existing tool. Table: podcast_host_summaries (migration 035).
+ * Filtering on the `futures` jsonb array (team/market match) happens client-side
+ * after fetch since Supabase-js doesn't filter jsonb-array elements natively.
+ * @param {object} opts
+ * @param {string} [opts.host]  — partial host name match
+ * @param {number} [opts.limit] — max rows (default 40)
+ */
+export async function getPodcastHostSummaries({ host, limit = 40 } = {}) {
+  if (!isAvailable()) return [];
+  try {
+    let query = supabase
+      .from('podcast_host_summaries')
+      .select('episode_id, host, model, attribution_method, futures, created_at')
+      .order('created_at', { ascending: false })
+      .limit(limit);
+    if (host) query = query.ilike('host', `%${host}%`);
+    const { data, error } = await query;
+    if (error || !data) return [];
+    return data;
+  } catch (e) {
+    logger.warn('[supabase] getPodcastHostSummaries failed:', e.message);
+    return [];
+  }
+}
+
+/**
+ * Strength of Schedule, computed the same way futures-intel-report-v2.js does
+ * (sum of opponents' consensus win-total line; rank 1 = hardest slate) — but
+ * as a directly queryable function instead of logic buried inside one report
+ * generator. Composes `games` (schedule) + `futures_odds_snapshots` (wins
+ * market line). No dedicated SoS table exists or is needed.
+ * @param {object} opts
+ * @param {number} [opts.season] — defaults to current year
+ */
+export async function getStrengthOfSchedule({ season = new Date().getFullYear() } = {}) {
+  if (!isAvailable()) return [];
+  try {
+    const { data: schedule, error: schedErr } = await supabase
+      .from('games')
+      .select('home_team, away_team, home_abbrev, away_abbrev')
+      .eq('season', season);
+    if (schedErr || !schedule?.length) return [];
+
+    const { data: winsRows, error: winsErr } = await supabase
+      .from('futures_odds_snapshots')
+      .select('team, line, snapshot_time')
+      .eq('market_type', 'wins')
+      .not('line', 'is', null)
+      .order('snapshot_time', { ascending: false });
+    if (winsErr || !winsRows?.length) return [];
+
+    // Consensus win-total line per team: average all book lines captured within
+    // 15 minutes of that team's most recent snapshot (mirrors getLatestFuturesOdds).
+    const latestTimeByTeam = new Map();
+    for (const row of winsRows) {
+      if (!latestTimeByTeam.has(row.team)) latestTimeByTeam.set(row.team, row.snapshot_time);
+    }
+    const linesByTeam = new Map();
+    for (const row of winsRows) {
+      const latestMs = new Date(latestTimeByTeam.get(row.team)).getTime();
+      const rowMs = new Date(row.snapshot_time).getTime();
+      if (latestMs - rowMs > 15 * 60 * 1000) continue;
+      if (!linesByTeam.has(row.team)) linesByTeam.set(row.team, []);
+      linesByTeam.get(row.team).push(row.line);
+    }
+    const winsMap = {};
+    for (const [team, lines] of linesByTeam) {
+      winsMap[team] = lines.reduce((a, b) => a + b, 0) / lines.length;
+    }
+
+    // Opponents per abbreviation, from the schedule.
+    const opponentsByAbbr = {};
+    for (const g of schedule) {
+      if (g.home_abbrev && g.away_team) (opponentsByAbbr[g.home_abbrev] ??= []).push(g.away_team);
+      if (g.away_abbrev && g.home_team) (opponentsByAbbr[g.away_abbrev] ??= []).push(g.home_team);
+    }
+
+    const rows = Object.entries(opponentsByAbbr)
+      .map(([abbr, opponents]) => {
+        const oppLines = opponents.map((name) => winsMap[name]).filter((v) => v != null);
+        return {
+          team_abbr: abbr,
+          opponent_win_total_sum: oppLines.length ? +oppLines.reduce((a, b) => a + b, 0).toFixed(1) : null,
+          opponents_with_lines: oppLines.length,
+          opponents_total: opponents.length,
+        };
+      })
+      .filter((r) => r.opponent_win_total_sum != null);
+
+    rows.sort((a, b) => b.opponent_win_total_sum - a.opponent_win_total_sum);
+    rows.forEach((r, i) => { r.sos_rank = i + 1; r.sos_pool_size = rows.length; });
+    return rows;
+  } catch (e) {
+    logger.warn('[supabase] getStrengthOfSchedule failed:', e.message);
+    return [];
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// S296 track 2 — rest/travel, CLV, referee tendencies, roster churn. All four
+// compose data already downloaded/tracked; none required a new external
+// source. See docs/FUTURES_AGENT_DATA_INVENTORY_2026-07-21.md.
+// ═══════════════════════════════════════════════════════════════════════════════
+
+/**
+ * Game context: rest days, division-game flag, venue, referee, and nflverse's
+ * consensus closing lines. Table: public.games, columns added in migration 039,
+ * seeded by scripts/seed-game-context.py.
+ * @param {object} opts
+ * @param {number} [opts.season]
+ * @param {number} [opts.week]
+ * @param {string} [opts.team]  — home_abbrev or away_abbrev match
+ * @param {number} [opts.limit] — default 50
+ */
+export async function getGameContext({ season, week, team, limit = 50 } = {}) {
+  if (!isAvailable()) return [];
+  try {
+    let query = supabase
+      .from('games')
+      .select('game_id, season, week, kickoff_utc, home_team, away_team, home_abbrev, away_abbrev, ' +
+        'away_rest, home_rest, div_game, roof, surface, referee, temp, wind, ' +
+        'closing_spread_line, closing_total_line, closing_home_moneyline, closing_away_moneyline')
+      .order('kickoff_utc', { ascending: true })
+      .limit(limit);
+    if (season) query = query.eq('season', season);
+    if (week)   query = query.eq('week', week);
+    if (team)   query = query.or(`home_abbrev.eq.${team},away_abbrev.eq.${team}`);
+    const { data, error } = await query;
+    if (error || !data) return [];
+    return data;
+  } catch (e) {
+    logger.warn('[supabase] getGameContext failed:', e.message);
+    return [];
+  }
+}
+
+/**
+ * Per-referee historical tendencies (total-friendliness, penalty rate).
+ * Table: referee_tendencies (migration 040), derived by
+ * scripts/derive_referee_tendencies.py from nflverse schedules.csv + team_stats.csv.
+ * @param {object} opts
+ * @param {string} [opts.referee] — exact or partial name match
+ */
+export async function getRefereeTendencies({ referee } = {}) {
+  if (!isAvailable()) return [];
+  try {
+    let query = supabase
+      .from('referee_tendencies')
+      .select('referee, games_officiated, seasons, avg_total_points, avg_total_penalties, avg_penalty_yards, home_win_pct, updated_at')
+      .order('games_officiated', { ascending: false });
+    if (referee) query = query.ilike('referee', `%${referee}%`);
+    const { data, error } = await query;
+    if (error || !data) return [];
+    return data;
+  } catch (e) {
+    logger.warn('[supabase] getRefereeTendencies failed:', e.message);
+    return [];
+  }
+}
+
+/**
+ * Raw weekly roster rows for a team across its last N snapshots, for
+ * week-over-week churn diffing (adds/drops/status changes) done by the tool
+ * layer. Table: public.nfl_rosters (migration 038) — NOT the _latest view,
+ * since churn needs multiple snapshots, not just the newest one.
+ * @param {object} opts
+ * @param {string} opts.team        — nflverse team abbreviation
+ * @param {number} [opts.weeksBack] — how many distinct (season,week) snapshots to include (default 2)
+ */
+export async function getRosterHistory({ team, weeksBack = 2 } = {}) {
+  if (!isAvailable() || !team) return [];
+  try {
+    // Find the most recent N distinct (season, week) pairs for this team first,
+    // then pull full rows for just those — avoids dragging the whole team history.
+    const { data: recentWeeks, error: weeksErr } = await supabase
+      .from('nfl_rosters')
+      .select('season, week')
+      .eq('team', team)
+      .order('season', { ascending: false })
+      .order('week', { ascending: false })
+      .limit(500); // enough rows to de-dup down to weeksBack distinct weeks even with large rosters
+    if (weeksErr || !recentWeeks?.length) return [];
+
+    const seen = new Set();
+    const targetWeeks = [];
+    for (const { season, week } of recentWeeks) {
+      const key = `${season}-${week}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      targetWeeks.push({ season, week });
+      if (targetWeeks.length >= weeksBack) break;
+    }
+    if (!targetWeeks.length) return [];
+
+    const { data, error } = await supabase
+      .from('nfl_rosters')
+      .select('season, week, full_name, gsis_id, position, depth_chart_position, status, jersey_number')
+      .eq('team', team)
+      .in('season', [...new Set(targetWeeks.map(w => w.season))])
+      .in('week', [...new Set(targetWeeks.map(w => w.week))]);
+    if (error || !data) return [];
+
+    // Filter to exactly the resolved (season, week) pairs (the .in() calls above
+    // are a coarse pre-filter when season/week ranges overlap across pairs).
+    const targetKeys = new Set(targetWeeks.map(w => `${w.season}-${w.week}`));
+    return data.filter(r => targetKeys.has(`${r.season}-${r.week}`));
+  } catch (e) {
+    logger.warn('[supabase] getRosterHistory failed:', e.message);
+    return [];
+  }
+}
+
+/**
+ * Time series of betting-splits snapshots for a game/week (public ticket% vs
+ * money%, so sharp-divergence movement is visible, not just the latest snapshot
+ * that game_splits already exposes via getGameSplitsForWeek). Table:
+ * game_splits_history (migration 024) — built for exactly this purpose but,
+ * per the S296 audit, never queried by any tool until now.
+ * @param {object} opts
+ * @param {number} [opts.season]
+ * @param {number} [opts.week]
+ * @param {string} [opts.team] — matches home_team or away_team (nickname form, e.g. 'Chiefs')
+ * @param {number} [opts.limit] — default 100
+ */
+export async function getGameSplitsHistory({ season, week, team, limit = 100 } = {}) {
+  if (!isAvailable()) return [];
+  try {
+    let query = supabase
+      .from('game_splits_history')
+      .select('game_id, season, week, home_team, away_team, spread_home_bettors, spread_home_money, total_over_bettors, total_over_money, ml_home_bettors, ml_home_money, captured_at')
+      .order('captured_at', { ascending: true })
+      .limit(limit);
+    if (season) query = query.eq('season', season);
+    if (week)   query = query.eq('week', week);
+    if (team)   query = query.or(`home_team.eq.${team},away_team.eq.${team}`);
+    const { data, error } = await query;
+    if (error || !data) return [];
+    return data;
+  } catch (e) {
+    logger.warn('[supabase] getGameSplitsHistory failed:', e.message);
+    return [];
+  }
+}
+
 /**
  * Get recent research intel notes for BETTING context preload.
  * @param {number} hours — lookback window (default 72)
