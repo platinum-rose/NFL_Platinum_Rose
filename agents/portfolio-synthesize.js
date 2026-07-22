@@ -47,6 +47,7 @@ import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { randomUUID } from 'node:crypto';
+import { normalizeTeam } from '../src/lib/teams.js';
 import 'dotenv/config';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -76,9 +77,11 @@ const isOpenAI = (m) => /^(gpt|o[13])/i.test(m); // route gpt-4o / o1 / o3 to Op
 
 const SYSTEM_PROMPT = `You are a sharp NFL futures + betting-market analyst producing a REVIEWABLE portfolio for a human bettor who makes all final decisions. You are decision support, not an instruction to bet. Be calibrated and skeptical, never promotional — but your job is to MINE the entire market for edge, not rubber-stamp favorites.
 
-DOSSIER (your price/odds ground truth): for each futures market/team you get the vig-stripped fair probability (median across books), the best available price AT A PLACEABLE BOOK + which book holds it (FanDuel/DraftKings are excluded from best-price — the user can't bet them; win-total rows also carry best_over/best_under + their books), value_gap (fair_prob minus best-price implied prob; positive = the backer gets a better number than fair), cross-book divergence, per-book line movement (move_prob, positive = shortened/steamed), and a per-market LEAN from normalized intel: n = number of intel signals, with back/fade counts (outrights) or over/under counts (win totals) and avg_strength (0..1). A team can be "superbowl back" yet "wins under" — leans are PER-MARKET. Each lean sample carries 'who' (the analyst/outlet that said it), and the dossier's 'experts' map lists what each named analyst likes. Each team row also carries 'prior' — recent-season W-L / ATS records — use this to GROUND bounce-back theses in fact (a team that was e.g. "2025: 5-12" on injuries is a concrete regression candidate, not a guess). Many team rows also carry 'sos' — strength of schedule computed from the ACTUAL 2026 schedule: sos.market = average opponent 2026 win-total line (LOWER = softer slate = tailwind for a win-total OVER / bounce-back / division long; HIGHER = gauntlet), sos.market_rank (1 = hardest, 32 = easiest), sos.prior = average opponent prior-year win% (classic backward-looking cross-check), plus home/away game counts. Prefer this over your own memory of who a team plays — the schedule is real and current; your recall of the 2026 slate may be wrong. adjacent_signals holds game-level and prop leans per team (Week-1 correlation + hedge fuel).
+DOSSIER (your price/odds ground truth): for each futures market/team you get the vig-stripped fair probability (median across books), the best available price AT A PLACEABLE BOOK + which book holds it (FanDuel/DraftKings are excluded from best-price — the user can't bet them; win-total rows also carry best_over/best_under + their books), value_gap (fair_prob minus best-price implied prob; positive = the backer gets a better number than fair), cross-book divergence, per-book line movement (move_prob, positive = shortened/steamed), and a per-market LEAN from normalized intel: n = number of intel signals, with back/fade counts (outrights) or over/under counts (win totals) and avg_strength (0..1). A team can be "superbowl back" yet "wins under" — leans are PER-MARKET. Each lean sample carries 'who' (the analyst/outlet that said it), and the dossier's 'experts' map lists what each named analyst likes. Each team's profile (see TEAM PROFILES below) also carries 'prior' — recent-season W-L / ATS records — use this to GROUND bounce-back theses in fact (a team that was e.g. "2025: 5-12" on injuries is a concrete regression candidate, not a guess). Most team profiles also carry 'sos' — strength of schedule computed from the ACTUAL 2026 schedule: sos.market = average opponent 2026 win-total line (LOWER = softer slate = tailwind for a win-total OVER / bounce-back / division long; HIGHER = gauntlet), sos.market_rank (1 = hardest, 32 = easiest), sos.prior = average opponent prior-year win% (classic backward-looking cross-check), plus home/away game counts. Prefer this over your own memory of who a team plays — the schedule is real and current; your recall of the 2026 slate may be wrong. adjacent_signals holds game-level and prop leans per team (Week-1 correlation + hedge fuel).
 
-NEW (2026-07-22): each team row also carries four season-aggregate signals, all optional — a null/zero-count signal means "not enough data yet", not "no edge here", especially early in the season:
+TEAM PROFILES (2026-07-22 live-run fix — schema change from the original design): the four season-aggregate signals below, plus 'prior' and 'sos', are NOT inlined on every market row anymore — the first real run of this pipeline blew past every model's context window (310K tokens vs gpt-4o's 128K) because the original design copied this whole blob onto ~740 rows across up to 11 markets per team. They now live ONCE per team in the top-level TEAM PROFILES map below, keyed by team name. Each market row still carries either a bare 'team_nick' (single-team markets — look up dossier.team_profiles[team_nick]) or 'team_a'/'team_b' (the superbowl_matchup market, which pairs two teams — look up each side separately). A market row's own fields (fair_prob, best_price, value_gap, moves, consensus_line, etc.) stay exactly as described below; only the team-context signals moved. When citing evidence_ids for a team-context field (e.g. 'analytics.off_epa_rank'), that citation is checked against the row's matched team profile, not the row itself — cite it the same way regardless.
+
+Each team profile carries four season-aggregate signals, all optional — a null/zero-count signal means "not enough data yet", not "no edge here", especially early in the season:
 - 'analytics' — current-season EPA/play (off/def) with league rank (1=best) and formation tendencies (shotgun/no-huddle/pass rate), from real play-by-play, not box scores. Use to CONFIRM or CHALLENGE a record-based thesis (e.g. a team that's 6-1 but def_epa_rank 28 is a regression-down candidate; a 2-5 team with off_epa_rank 8 is a bad-variance bounce-back candidate, not a bad team).
 - 'schedule_context' — games/short_rest_games/avg_rest/div_games for the team's OWN 2026 slate (distinct from sos, which is about opponent quality). A high short_rest_games count is a real tailwind for UNDER/fade theses late in a stretch; treat rest_known < games as partial-season coverage.
 - 'officiating_context' — games_with_ref/avg_total_points/avg_total_penalties, averaged across the specific referees already assigned to this team's known games. Ties are USUALLY 0 games early in a season (refs aren't assigned until close to kickoff) — only use this when games_with_ref is meaningfully >0, and always cite its own 'confidence' field ("very low" samples should never carry a thesis alone).
@@ -162,6 +165,9 @@ function buildUserPrompt(dossier) {
 Offseason note: many markets (division, conference, awards, playoffs, matchup) may have limited or single-book coverage until preseason; weight coverage in your confidence. Super Bowl and win-total markets are the most liquid now — win totals especially are where bounce-back / longshot value tends to hide.
 
 SIGNAL COVERAGE (2026-07-22 follow-up — how many of the 32 teams have each new per-team signal populated so far; low counts early in the season are expected, not a data bug): ${JSON.stringify(sig)}. Each team row below carries 'analytics' (EPA/formation), 'schedule_context' (own rest/travel), 'officiating_context' (assigned-referee tendencies, usually sparse pre-season), and 'clv_signal' (closing-line move + sharp-split divergence) per the field guide in your system prompt — use them where present, and don't treat an absent one as a negative signal, just an unavailable one.
+
+TEAM PROFILES (one entry per team — prior/sos/analytics/schedule_context/officiating_context/clv_signal/injuries, computed ONCE per team; market rows below reference these by 'team_nick', or by 'team_a'/'team_b' for superbowl_matchup pairings):
+${JSON.stringify(dossier.team_profiles || {})}
 
 SYNTHESIS INPUT (per market, sorted by strongest signal first; lean is per-market with back/fade/over/under counts + avg_strength):
 ${JSON.stringify(dossier.synthesis_input)}
@@ -394,6 +400,24 @@ function resolveEvidenceIds(evidenceIds, dossierRow) {
   });
 }
 
+// 2026-07-22 live-run fix: team-context fields (analytics/sos/schedule_context/
+// officiating_context/clv_signal/injuries/prior) no longer live inline on the
+// dossier row (see portfolio-dossier.js's team_profiles refactor — the original
+// per-row inlining was the majority of why the first real run blew past every
+// model's context window). Evidence citations like 'analytics.off_epa_rank'
+// still name a path AS IF it were on the row, so resolution merges the row's
+// matched team profile in before running resolvePath — the model's citation
+// syntax doesn't need to change, only where the pointer actually resolves.
+function teamProfileForRow(dossier, row) {
+  if (!row) return null;
+  const key = row.team_nick || row.team_a;
+  return (key && dossier?.team_profiles?.[key]) || null;
+}
+function evidenceRowFor(dossier, row) {
+  const profile = teamProfileForRow(dossier, row);
+  return profile ? { ...profile, ...row } : row;
+}
+
 // ── Code-owned validation (2026-07-22 follow-up, Codex review — item #1 priority:
 // "Code owns math. Code owns validation.") Runs AFTER the Risk/Editor stage and
 // BEFORE ranking. For each final candidate: confirms the market/selection exists
@@ -459,7 +483,8 @@ function validateRecommendation(candidate, dossier) {
   }
 
   // evidence check — attach resolution for rendering regardless of outcome
-  const evidenceResolved = resolveEvidenceIds(candidate.evidence_ids, row);
+  // (merge the row's team profile in first — see evidenceRowFor's comment)
+  const evidenceResolved = resolveEvidenceIds(candidate.evidence_ids, evidenceRowFor(dossier, row));
   next.evidence_resolved = evidenceResolved;
   let needsReview = !!candidate.needs_human_review;
   if (candidate.evidence_ids?.length && !evidenceResolved.some((e) => e.resolved)) {

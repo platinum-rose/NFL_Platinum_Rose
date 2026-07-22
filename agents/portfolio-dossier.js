@@ -708,34 +708,71 @@ function priorTag(seasons) {
     return `${s.season}: ${[wl, ats].filter(Boolean).join(', ')}`;
   });
 }
-function buildSynthesisInput(markets, findLean, priorByTeam, findSos, teamSignals, injuriesByTeam) {
-  const out = {};
-  const sosOf = (tm) => (findSos ? sosTag(findSos(tm)) : null);
+// Splits a "Team A vs Team B" compound selection (superbowl_matchup market)
+// into its two canonical team nicknames. 2026-07-22 LIVE-RUN FIX: normalizeTeam()
+// alone silently resolves a compound string to only its FIRST matching team
+// (it scans word-by-word and returns on the first hit) — this was a real,
+// previously-undetected bug. Every superbowl_matchup row's per-team context
+// (analytics/sos/injuries/etc) was actually just team A's data, mislabeled as
+// if it described the whole pairing; team B's context was silently dropped.
+// Matchup rows now carry explicit team_a/team_b instead of a misleading
+// single-team blob (see buildSynthesisInput below).
+function splitMatchupTeams(tm) {
+  const parts = String(tm || '').split(/\s+vs\.?\s+/i);
+  if (parts.length !== 2) return null;
+  const a = normalizeTeam(parts[0]), b = normalizeTeam(parts[1]);
+  return (a && b) ? { a, b } : null;
+}
+// ── shared team-profile map (2026-07-22 live-run fix) ─────────────────────────
+// Season-aggregate signals (prior, sos, analytics, schedule_context,
+// officiating_context, clv_signal, injuries) are IDENTICAL for a given team no
+// matter which market row it appears on. The original buildSynthesisInput()
+// recomputed and INLINED a full copy of this blob onto every single row across
+// every market (~740 rows in the first real run, across up to ~11 markets per
+// team) — that alone was the majority of why the dossier's first real run blew
+// gpt-4o's 128K context (310K tokens actual, and would have exceeded Claude's
+// 200K too). Computed ONCE per team here instead; synthesis_input rows below
+// now only carry market-specific fields + a team-name reference, and
+// portfolio-synthesize.js's prompt builder + evidence resolver look context up
+// from this map by team name.
+function buildTeamProfiles(teamNicks, priorByTeam, findSos, teamSignals, injuriesByTeam) {
   const { scheduleOut, officiatingOut, clvOut } = teamSignals || {};
-  const analyticsOf = (tm) => currentAnalytics(priorByTeam[normalizeTeam(tm)]);
+  const out = {};
+  for (const nick of teamNicks) {
+    out[nick] = {
+      prior: priorTag(priorByTeam[nick]),
+      sos: findSos ? sosTag(findSos(nick)) : null,
+      analytics: currentAnalytics(priorByTeam[nick]),
+      schedule_context: scheduleOut?.[nick] || null,
+      officiating_context: officiatingOut?.[nick] || null,
+      clv_signal: clvOut?.[nick] || null,
+      injuries: injuriesByTeam?.[nick] || null,
+    };
+  }
+  return out;
+}
+function buildSynthesisInput(markets, findLean) {
+  const out = {};
   for (const [mk, teams] of Object.entries(markets)) {
     const rows = [];
     for (const [tm, v] of Object.entries(teams)) {
-      const nick = normalizeTeam(tm);
-      const prior = priorTag(priorByTeam[nick]);
-      const sos = sosOf(tm);
-      const analytics = analyticsOf(tm);
-      const schedule_context = scheduleOut?.[nick] || null;
-      const officiating_context = officiatingOut?.[nick] || null;
-      const clv_signal = clvOut?.[nick] || null;
-      const injuries = injuriesByTeam?.[nick] || null;
-      const common = { prior, sos, analytics, schedule_context, officiating_context, clv_signal, injuries, lean: findLean(tm, mk) };
+      const mu = splitMatchupTeams(tm);
+      // toSignalMarket() (above) doesn't map 'superbowl_matchup' to anything, so
+      // findLean() already returned null for these rows before this fix too —
+      // made explicit here rather than left as an incidental side effect.
+      const lean = mu ? null : findLean(tm, mk);
+      const teamRef = mu ? { team_a: mu.a, team_b: mu.b } : { team_nick: normalizeTeam(tm) };
       if (v.type === 'wins') {
-        rows.push({ team: tm, consensus_line: v.consensus_line, line_spread: v.line_spread,
+        rows.push({ team: tm, ...teamRef, consensus_line: v.consensus_line, line_spread: v.line_spread,
           over_prob_median: v.over_prob_median,
           best_over: v.best_over, best_over_book: v.best_over_book, best_under: v.best_under, best_under_book: v.best_under_book,
-          books: v.per_book, ...common });
+          books: v.per_book, lean });
       } else {
-        rows.push({ team: tm, fair_prob: v.fair_prob, fair_american: v.fair_american,
+        rows.push({ team: tm, ...teamRef, fair_prob: v.fair_prob, fair_american: v.fair_american,
           best_price: v.best_price, best_book: v.best_book, best_prob: v.best_prob,
           value_gap: v.value_gap, book_divergence: v.book_divergence, n_books: v.n_books,
           moves: Object.fromEntries(Object.entries(v.per_book).map(([b, d]) => [b, d.move_prob])),
-          ...common });
+          lean });
       }
     }
     // 2026-07-22 fix (Codex review): wins rows have no value_gap/book_divergence
@@ -792,7 +829,7 @@ function injuriesMd(inj) {
   const qb = inj.qb_status ? ` QB:${inj.qb_status}` : '';
   return ` · injuries(${inj.injury_count})${flags}${qb}`;
 }
-function toMarkdown(meta, synth, experts) {
+function toMarkdown(meta, synth, experts, teamProfiles) {
   const ic = meta.intel_coverage;
   const intelLine = ic.mode === 'normalized'
     ? `Intel: ${ic.signals} normalized signals, ${ic.team_market_combos} team-market combos, ${ic.experts} analysts, ${ic.adjacent_teams} teams w/ adjacent signals`
@@ -808,13 +845,19 @@ function toMarkdown(meta, synth, experts) {
   for (const [mk, rows] of Object.entries(synth)) {
     L.push(`## ${mk}  (${rows.length})`);
     for (const r of rows.slice(0, 8)) {
-      const pr = r.prior ? ` · prior ${r.prior[0]}` : '';
-      const ss = sosMd(r.sos);
-      const an = analyticsMd(r.analytics);
-      const sched = scheduleMd(r.schedule_context);
-      const off = officiatingMd(r.officiating_context);
-      const clv = clvMd(r.clv_signal);
-      const inj = injuriesMd(r.injuries);
+      // 2026-07-22 live-run fix: team-profile fields no longer live inline on the
+      // row (see buildTeamProfiles/buildSynthesisInput) — look them up by team
+      // name. Matchup rows (team_a/team_b) report team_a's profile here; the .md
+      // is a human skim summary, not the model input, so single-team-labeled is
+      // an acceptable simplification (better than the old silently-wrong blob).
+      const prof = teamProfiles?.[r.team_nick || r.team_a] || {};
+      const pr = prof.prior ? ` · prior ${prof.prior[0]}` : '';
+      const ss = sosMd(prof.sos);
+      const an = analyticsMd(prof.analytics);
+      const sched = scheduleMd(prof.schedule_context);
+      const off = officiatingMd(prof.officiating_context);
+      const clv = clvMd(prof.clv_signal);
+      const inj = injuriesMd(prof.injuries);
       if (r.consensus_line != null) L.push(`- **${r.team}** wins ${r.consensus_line} · O ${r.best_over ?? '-'}@${r.best_over_book ?? '-'} (edge ${r.best_over_edge_pct ?? '-'}%, fair ${r.over_fair_prob ?? '-'}, n${r.line_consensus_confidence?.over_n_books ?? 0}) / U ${r.best_under ?? '-'}@${r.best_under_book ?? '-'} (edge ${r.best_under_edge_pct ?? '-'}%, fair ${r.under_fair_prob ?? '-'}, n${r.line_consensus_confidence?.under_n_books ?? 0})${r.line_value_signal ? ` · ${r.line_value_signal}` : ''}${leanTag(r.lean)}${pr}${ss}${an}${sched}${off}${clv}${inj}`);
       else L.push(`- **${r.team}** fair ${r.fair_prob} · best ${r.best_price} @${r.best_book} · value_gap ${r.value_gap} · book_div ${r.book_divergence}${leanTag(r.lean)}${pr}${ss}${an}${sched}${off}${clv}${inj}`);
     }
@@ -868,7 +911,21 @@ function toMarkdown(meta, synth, experts) {
     console.log(`   intel: inline fallback (run agents/signal-normalize.js for the richer layer)`);
   }
 
-  const synthesis_input = buildSynthesisInput(markets, findLean, priorByTeam, sos.findSos, teamSignals, injuriesByTeam);
+  // 2026-07-22 live-run fix: collect every distinct team nickname actually
+  // referenced across all markets (handles both single-team rows and
+  // "Team A vs Team B" matchup rows) so team_profiles covers exactly what
+  // synthesis_input needs — no more, no less.
+  const teamNickSet = new Set();
+  for (const teams of Object.values(markets)) {
+    for (const tm of Object.keys(teams)) {
+      const mu = splitMatchupTeams(tm);
+      if (mu) { teamNickSet.add(mu.a); teamNickSet.add(mu.b); }
+      else { const n = normalizeTeam(tm); if (n) teamNickSet.add(n); }
+    }
+  }
+  const team_profiles = buildTeamProfiles([...teamNickSet], priorByTeam, sos.findSos, teamSignals, injuriesByTeam);
+
+  const synthesis_input = buildSynthesisInput(markets, findLean);
   const signal_coverage = {
     teams_with_analytics: analyticsTeamCount,
     teams_with_schedule_context: Object.keys(teamSignals.scheduleOut).length,
@@ -883,14 +940,14 @@ function toMarkdown(meta, synth, experts) {
     signal_counts: { article: pickSignals.length, expert: userPicks.length, podcast_transcripts: podcastRows.length },
     intel_coverage, sos_coverage, signal_coverage,
   };
-  const dossier = { meta, synthesis_input, experts, adjacent_signals, sos: sos.raw, roster_churn: rosterChurnByTeam, injuries: injuriesByTeam, detail: markets };
+  const dossier = { meta, synthesis_input, experts, adjacent_signals, sos: sos.raw, roster_churn: rosterChurnByTeam, injuries: injuriesByTeam, team_profiles, detail: markets };
 
   await mkdir(OUT_DIR, { recursive: true });
   const date = new Date().toISOString().slice(0, 10);
   const jsonPath = path.join(OUT_DIR, `dossier-${date}.json`);
   const mdPath = path.join(OUT_DIR, `dossier-${date}.md`);
   await writeFile(jsonPath, JSON.stringify(dossier, null, 2));
-  await writeFile(mdPath, toMarkdown(meta, synthesis_input, experts));
+  await writeFile(mdPath, toMarkdown(meta, synthesis_input, experts, team_profiles));
   console.log(`✅ wrote ${jsonPath}`);
   console.log(`✅ wrote ${mdPath}`);
   console.log(`   next: node agents/portfolio-synthesize.js --dossier "${jsonPath}"`);
