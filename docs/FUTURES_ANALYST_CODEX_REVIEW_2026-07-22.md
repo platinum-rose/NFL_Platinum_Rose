@@ -19,6 +19,79 @@ It is not yet ready to treat model-ranked output as fully reliable "edge confide
 
 ## Highest-Priority Enhancements
 
+### 0. Add a Playoff Scenario Portfolio Layer
+
+Current risk: the workflow treats recommendations mostly as isolated futures or correlation clusters. It does not yet model the user's actual long-term portfolio strategy: building a set of high-odds playoff scenarios that can later become hedgeable option value.
+
+The portfolio is not just "find the best futures." It should support a **scenario-book strategy**:
+
+- Primary anchor plays, such as Bills and Packers.
+- Long-odds exacta / Super Bowl matchup combinations involving teams with high deep-run probability, such as Lions, Rams, Ravens, Chiefs, and Eagles.
+- Pocket bets that can be played against those long-odds tickets once playoff matchups are known.
+- Ladder stacks where one bet funds or reduces the liability of the next bet.
+
+Examples to explicitly model:
+
+- Bears Over 9.5 wins + Bears to make playoffs + small Bears Super Bowl position. If the win total and playoff bets win, those proceeds partially or fully pay for the Super Bowl liability.
+- Dolphins Over wins + Dolphins make playoffs + small Dolphins AFC ticket. Each successful leg lowers the effective remaining cost of the deeper futures position.
+- Bills / Packers primary positions plus exact matchup coverage using likely deep-run teams, with later playoff hedge paths mapped before the tickets are placed.
+
+Recommended fix: add a dedicated `portfolio_strategy` layer to the dossier and final report.
+
+It should distinguish:
+
+- `anchor_bet`: primary conviction play.
+- `ladder_bet`: a bet whose win funds a deeper position.
+- `coverage_bet`: high-odds ticket that covers a playoff path or matchup branch.
+- `option_bet`: long-odds ticket bought mainly for later hedge value.
+- `pocket_hedge`: future playoff bet reserved for use against an existing ticket.
+- `dead_cost`: amount that remains unrecovered if earlier ladder legs fail.
+- `funded_liability`: amount of a later futures ticket effectively paid for by prior wins.
+
+The analyst should output not only "recommended bets," but also **scenario maps**:
+
+```json
+{
+  "strategy_type": "playoff_scenario_book",
+  "anchor_positions": ["Bills Super Bowl", "Packers Super Bowl"],
+  "coverage_positions": [
+    "Bills vs Lions exact matchup",
+    "Packers vs Ravens exact matchup"
+  ],
+  "ladder_stacks": [
+    {
+      "team": "Bears",
+      "steps": [
+        { "bet": "Over 9.5 wins", "role": "funding_leg" },
+        { "bet": "Make playoffs", "role": "funding_leg" },
+        { "bet": "Super Bowl", "role": "option_bet" }
+      ],
+      "intent": "Use wins from earlier legs to reduce or eliminate Super Bowl ticket liability."
+    }
+  ],
+  "playoff_hedge_plan": [
+    {
+      "trigger": "Anchor team reaches conference championship",
+      "action": "Price hedge against opposing conference finalist",
+      "reserved_bankroll": "from ladder winnings or preassigned pocket stake"
+    }
+  ]
+}
+```
+
+The Risk/Portfolio Editor should evaluate:
+
+- Maximum total exposure if all ladder legs fail.
+- Effective cost basis if early legs win.
+- Which tickets create real playoff hedge optionality.
+- Whether exacta combinations cover enough plausible playoff paths.
+- Whether the book is overconcentrated in one conference, division, or QB injury scenario.
+- Whether a longshot has value as an option even if it is not the highest standalone EV bet.
+
+This should become a first-class section in the report, separate from "Strongest math edge" or "Longshots." Suggested section name:
+
+- `Scenario Book / Playoff Hedge Map`
+
 ### 1. Add a Code-Side Recommendation Validator
 
 Current risk: `portfolio-synthesize.js` trusts model-provided fields such as `edge_type`, `edge_pct`, `book`, `price`, `model_fair_prob`, and `evidence_ids`.
@@ -309,21 +382,24 @@ Recommended fix:
 
 ## Suggested Implementation Order
 
-1. Add post-committee validator.
-2. Fix win-total fair probability and edge math.
-3. Add `run_id` and persist passed/killed candidates.
-4. Add injury context to the batch dossier.
-5. Persist actual futures positions to Supabase.
-6. Fix season filtering in live futures/SOS helpers.
-7. Add deterministic correlation graph.
-8. Add award-market multi-way devig support.
-9. Add a basic season simulator.
-10. Add source-quality and expert-performance weighting.
+1. Add the playoff scenario portfolio layer.
+2. Add post-committee validator.
+3. Fix win-total fair probability and edge math.
+4. Add `run_id` and persist passed/killed candidates.
+5. Add injury context to the batch dossier.
+6. Persist actual futures positions to Supabase.
+7. Fix season filtering in live futures/SOS helpers.
+8. Add deterministic correlation graph.
+9. Add award-market multi-way devig support.
+10. Add a basic season simulator.
+11. Add source-quality and expert-performance weighting.
 
 ## Recommended Near-Term Definition Of Done
 
 Before treating a recommendation as a real bet candidate, it should pass:
 
+- Role in the portfolio is clear: anchor, ladder, coverage, option, hedge, or standalone.
+- Scenario-book exposure and funded-liability math are shown when relevant.
 - Price exists in the current dossier.
 - Book is placeable.
 - Edge math recomputes correctly.

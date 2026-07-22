@@ -33,6 +33,7 @@
 //   node agents/portfolio-synthesize.js --dossier .nfl/portfolio/dossier-<date>.json
 //     [--models claude-opus-4-8,claude-fable-5] [--max-plays 15] [--only opus|fable|gpt]
 //     [--skeptic-model <model>] [--risk-model <model>] [--skip-committee] [--no-persist]
+//     [--primary "Buffalo Bills,Green Bay Packers"]
 //   GPT-4o fallback (funded OpenAI key) — get a portfolio without Anthropic credits:
 //     node agents/portfolio-synthesize.js --models gpt-4o --dossier <path>
 //   Quick single-pass (no Skeptic/Risk calls, original S274 behavior):
@@ -41,6 +42,21 @@
 // Env: ANTHROPIC_API_KEY and/or OPENAI_API_KEY (required). SUPABASE_URL +
 //      SUPABASE_SERVICE_ROLE_KEY (optional, enables persistence). All from .env.
 //      Models starting gpt-/o1-/o3- route to OpenAI; everything else to Anthropic.
+//
+// HEDGE BASKETS & PARLAY LADDERS (2026-07-22, Andy's own portfolio-construction
+// strategy): beyond single recommendations, the committee also proposes (a)
+// hedge_baskets -- small stakes spread across superbowl_matchup (or other
+// combo-market) longshots on teams DIFFERENT from --primary, as variance
+// insurance, not an edge claim; and (b) parlay_ladders -- same-team sequential
+// stacks (e.g. Over 9.5 wins -> Make Playoffs -> Super Bowl) where each leg's
+// payout can fund the next leg's stake. The model only proposes WHICH legs and
+// WHY; ladderMath()/hedgeBasketMath() (code, relative "units" not dollars, same
+// stake_tier convention as everything else) compute the actual numbers from
+// REAL dossier prices, never the model's own math -- same discipline as
+// validateRecommendation(). v1 scope note: these do NOT go through the
+// Skeptic/Risk stages (those stages' schemas are built around single
+// recommendations) and are NOT persisted to Supabase yet (local .raw.json
+// only) -- both deliberate scope cuts for a first version, not oversights.
 // ═══════════════════════════════════════════════════════════════════════════════
 
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
@@ -69,6 +85,13 @@ const SKIP_COMMITTEE = argv.includes('--skip-committee');
 const NO_PERSIST = argv.includes('--no-persist');
 const SKEPTIC_MODEL = getArg('--skeptic-model', MODELS[0]);
 const RISK_MODEL = getArg('--risk-model', MODELS[0]);
+// 2026-07-22 follow-up (Andy's own portfolio-construction strategy, not a Codex
+// finding): his "primary" positions -- teams/markets he already has core
+// conviction on (e.g. Bills, Packers) -- inform hedge-basket construction
+// (baskets should hedge AGAINST these, not duplicate them) and give the
+// committee context on what's already core exposure. Comma-separated team
+// names; empty is fine (committee can still propose ladders on its own reads).
+const PRIMARY = getArg('--primary', '').split(',').map((s) => s.trim()).filter(Boolean);
 const ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY;
 const OPENAI_KEY = process.env.OPENAI_API_KEY;
 if (!DOSSIER) { console.error('✖ pass --dossier <path to dossier-*.json>'); process.exit(1); }
@@ -110,6 +133,11 @@ DISCIPLINE:
 - Every recommendation MUST include its single strongest DISCONFIRMING factor — the best reason NOT to bet it. A play with no honest counter-case is not ready.
 - Size to conviction AND variance: favorites/value can be core|standard; longshots are small|speculative (convex, low hit-rate). Stake tiers are relative only, never dollars.
 - Cap the CORE book at ~${MAX_PLAYS}, but a longer tail of small longshot/hedge plays is welcome — breadth is fine when the tickets are cheap and convex.
+
+HEDGE BASKETS & PARLAY LADDERS (2026-07-22 addition — beyond single recommendations, propose these two portfolio-construction structures when the dossier supports them; do NOT force either if nothing fits):
+- HEDGE BASKET: if the human's primary positions are given below (a short list of teams they already hold core conviction on), propose a "roulette basket" — several small stakes on superbowl_matchup pairings involving OTHER teams with real deep-run probability (grounded in fair_prob/analytics/sos from their team profiles, not vibes), specifically teams NOT in the primary list. The point is variance insurance if the primary picks miss, not a standalone edge claim — spread coverage across several plausible pairings rather than concentrating. If no primary positions are given, you may still propose a basket around the market's own best-priced deep-run contenders, but say so.
+- PARLAY LADDER: for a SINGLE team with a real, growing thesis across multiple correlated markets in natural resolution order (win-total settles first, then playoffs, then conference, then Super Bowl), propose a sequenced stack where an earlier leg's win could fund a later leg's stake — i.e., name the team and the ordered legs (each an existing market+selection from the dossier), and give ONE thesis for why this specific team supports a multi-stage stack (e.g. real record-vs-analytics divergence, a soft schedule, a personnel upgrade) — not just "would be nice if it worked."
+- For BOTH: only cite markets/selections that exist in the dossier (code resolves the real price — you do not need to compute payouts or liability yourself, that's handled after your response).
 
 WEEK-1 CORRELATION & TIMING (important):
 - For each futures view, assess whether an imminent Week 1 (or early-season) result is a CATALYST that will move this futures price. If waiting for that result is likely to yield a materially better number — and the current price is not itself a fleeting value that will vanish — set timing.action = "wait" with the specific trigger and the expected direction/size of the move.
@@ -154,13 +182,30 @@ Return STRICT JSON only (no prose, no markdown fences), shape:
     }
   ],
   "watch": [ { "market": "...", "selection": "...", "why": "on the radar but not a play yet" } ],
+  "hedge_baskets": [
+    {
+      "primary_hedged_against": ["<team names from the primary list this basket insures, if any>"],
+      "thesis": "<=2 sentences on why this spread of longshots is the right insurance",
+      "legs": [ { "market": "superbowl_matchup|...", "selection": "<team A vs team B, or other combo selection text>" } ]
+    }
+  ],
+  "parlay_ladders": [
+    {
+      "team": "<the one team this whole stack is about>",
+      "thesis": "<=2 sentences on why THIS team supports a multi-stage stack>",
+      "legs": [ { "market": "wins|playoffs|conference_afc|superbowl|...", "selection": "<selection text, ordered earliest-resolving first>" } ]
+    }
+  ],
   "portfolio_notes": "<=4 sentences on overall construction, correlation clusters, and coverage gaps"
 }`;
 
 function buildUserPrompt(dossier) {
   const m = dossier.meta;
   const sig = m.signal_coverage || {};
-  return `DOSSIER META: season ${m.season}, ${m.snapshot_count} snapshots, books=${(m.books || []).join(',')}, markets=${(m.market_types || []).join(',')}. Intel: ${JSON.stringify(m.intel_coverage)}.
+  const primaryLine = PRIMARY.length
+    ? `YOUR PRIMARY POSITIONS (the human's own core conviction plays — hedge baskets should cover OTHER teams, not these; these are context, not a request to re-recommend them): ${PRIMARY.join(', ')}.\n\n`
+    : '';
+  return `${primaryLine}DOSSIER META: season ${m.season}, ${m.snapshot_count} snapshots, books=${(m.books || []).join(',')}, markets=${(m.market_types || []).join(',')}. Intel: ${JSON.stringify(m.intel_coverage)}.
 
 Offseason note: many markets (division, conference, awards, playoffs, matchup) may have limited or single-book coverage until preseason; weight coverage in your confidence. Super Bowl and win-total markets are the most liquid now — win totals especially are where bounce-back / longshot value tends to hide.
 
@@ -178,7 +223,7 @@ ${JSON.stringify(dossier.adjacent_signals || {})}
 ROSTER CHURN (latest week-over-week nflverse roster diff per team — adds/drops/status_changes; a personnel-instability signal, not itself injury-specific):
 ${JSON.stringify(dossier.roster_churn || {})}
 
-Produce the portfolio JSON per the contract. Deliberately MINE for asymmetric value and bounce-back longshots — name why the market is anchored wrong — not just favorites; build hedges where correlation lets you lock value or cut variance; and use the Week-1 timing layer where a near-term result is a price catalyst.`;
+Produce the portfolio JSON per the contract. Deliberately MINE for asymmetric value and bounce-back longshots — name why the market is anchored wrong — not just favorites; build hedges where correlation lets you lock value or cut variance; use the Week-1 timing layer where a near-term result is a price catalyst; and propose hedge_baskets/parlay_ladders where the dossier genuinely supports one (do not force either).`;
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -364,15 +409,18 @@ function resolvePath(obj, pathStr) {
   return cur;
 }
 
-// Finds the dossier synthesis_input row a candidate's claims should trace back
-// to: match on market key (exact — candidate.market must equal a dossier
-// synthesis_input key) then fuzzy-match team name against the free-text
-// selection (selection is often a sentence like "Chiefs Over 9.5", not the
-// bare team name, so exact equality is unreliable).
-function findDossierRow(dossier, candidate) {
-  const rows = dossier?.synthesis_input?.[candidate?.market];
+// Finds the dossier synthesis_input row a market+selection should trace back
+// to: match on market key (exact — must equal a dossier synthesis_input key)
+// then fuzzy-match team name against the free-text selection (selection is
+// often a sentence like "Chiefs Over 9.5", not the bare team name, so exact
+// equality is unreliable). Shared by validateRecommendation and the hedge-
+// basket/parlay-ladder leg resolver below (2026-07-22 follow-up) — generalized
+// to take market/selection directly rather than only a recommendation-shaped
+// candidate object.
+function findDossierRowFor(dossier, market, selection) {
+  const rows = dossier?.synthesis_input?.[market];
   if (!rows || !rows.length) return null;
-  const sel = (candidate.selection || '').toLowerCase();
+  const sel = (selection || '').toLowerCase();
   if (!sel) return null;
   let best = null, bestScore = 0;
   for (const r of rows) {
@@ -384,6 +432,9 @@ function findDossierRow(dossier, candidate) {
     if (score > bestScore) { bestScore = score; best = r; }
   }
   return bestScore > 0 ? best : null;
+}
+function findDossierRow(dossier, candidate) {
+  return findDossierRowFor(dossier, candidate?.market, candidate?.selection);
 }
 
 // Resolves a candidate's evidence_ids against its matched dossier row. Returns
@@ -512,6 +563,88 @@ function validateRecommendation(candidate, dossier) {
   return { status: notes.length ? 'flagged' : 'ok', candidate: next };
 }
 
+// ── Hedge-basket / parlay-ladder math (2026-07-22, Andy's own portfolio-
+// construction strategy — not a Codex finding). Same "code owns math" rule as
+// validateRecommendation above: the model names WHICH legs and WHY, code
+// computes every number from the dossier's REAL placeable price, never the
+// model's own arithmetic. All stakes are relative "units" (default 1/leg) —
+// matching the existing stake_tier convention (never real dollars); Andy
+// scales to his own bankroll. ───────────────────────────────────────────────
+function legPayout(price, stake = 1) {
+  const dp = decimalPayout(price);
+  return dp == null ? null : round(stake * dp, 4); // total return (stake + profit) if the leg hits
+}
+function legProfit(price, stake = 1) {
+  const p = legPayout(price, stake);
+  return p == null ? null : round(p - stake, 4);
+}
+// Sequential same-team ladder (e.g. Over 9.5 wins -> Playoffs -> Super Bowl).
+// "Self-funding": each leg's net_stake_after_prior_wins assumes every earlier
+// leg ALSO hit and its profit is applied toward the next leg's full stake —
+// an optimistic planning view (legs resolve in real sequence over a season,
+// so this is "if the story keeps playing out", not a guarantee). Reports both
+// the full-exposure view (stake every leg independently) and the self-funding
+// view side by side so Andy can pick either approach when actually staking.
+function ladderMath(legs, unitStake = 1) {
+  let bankedProfit = 0;
+  const out = [];
+  for (const leg of legs) {
+    const netStake = round(Math.max(0, unitStake - bankedProfit), 4);
+    const fundedByPriorWins = round(Math.min(unitStake, bankedProfit), 4);
+    const profit = legProfit(leg.price, unitStake);
+    out.push({ ...leg, full_stake: unitStake, net_stake_after_prior_wins: netStake, funded_by_prior_wins: fundedByPriorWins, profit_at_full_stake: profit });
+    if (profit != null) bankedProfit += profit; // running total assumes this leg also hit
+  }
+  return { legs: out, total_full_exposure: round(unitStake * legs.length, 4), final_banked_profit_if_all_hit: round(bankedProfit, 4) };
+}
+// Hedge basket: N small stakes on combo-market longshots, pure insurance math
+// (not an edge claim) — no running/self-funding logic, each leg is independent.
+function hedgeBasketMath(legs, unitStake = 1) {
+  const out = legs.map((leg) => ({ ...leg, stake: unitStake, payout_if_hit: legPayout(leg.price, unitStake), profit_if_hit: legProfit(leg.price, unitStake) }));
+  return { legs: out, total_stake: round(unitStake * legs.length, 4) };
+}
+
+// Resolves one named leg (market + selection, as the model wrote it) to its
+// REAL dossier price/book — the model's own cited price/book (if any) is
+// ignored entirely for these structures; this is planning math, not a claim
+// about a specific number, so it always uses the dossier's current placeable
+// best price, same fields validateRecommendation checks against.
+function resolveLegAgainstDossier(leg, dossier) {
+  const row = findDossierRowFor(dossier, leg?.market, leg?.selection);
+  if (!row) return { ok: false, reason: `No dossier row for market="${leg?.market}" selection="${leg?.selection}".` };
+  const isWinsRow = row.consensus_line != null;
+  const side = isWinsRow ? sideOfSelection(leg.selection) : null;
+  let book = null, price = null;
+  if (isWinsRow) {
+    if (side === 'under') { book = row.best_under_book; price = row.best_under; }
+    else if (side === 'over') { book = row.best_over_book; price = row.best_over; }
+  } else { book = row.best_book; price = row.best_price; }
+  if (price == null) return { ok: false, reason: `Dossier has no placeable price for ${leg.selection} (${leg.market}).` };
+  return { ok: true, market: leg.market, selection: leg.selection, price, book };
+}
+function validateParlayLadder(ladder, dossier) {
+  const resolved = [], notes = [];
+  for (const leg of (ladder?.legs || [])) {
+    const r = resolveLegAgainstDossier(leg, dossier);
+    if (r.ok) resolved.push(r); else notes.push(r.reason);
+  }
+  if (!resolved.length) return { status: 'invalid', reason: `No legs resolved against the dossier for team="${ladder?.team}": ${notes.join(' ')}` };
+  const math = ladderMath(resolved);
+  return { status: notes.length ? 'flagged' : 'ok',
+    ladder: { team: ladder.team, thesis: ladder.thesis, proposed_by: ladder.proposed_by, ...math, unresolved_legs: notes } };
+}
+function validateHedgeBasket(basket, dossier) {
+  const resolved = [], notes = [];
+  for (const leg of (basket?.legs || [])) {
+    const r = resolveLegAgainstDossier(leg, dossier);
+    if (r.ok) resolved.push(r); else notes.push(r.reason);
+  }
+  if (!resolved.length) return { status: 'invalid', reason: `No legs resolved against the dossier: ${notes.join(' ')}` };
+  const math = hedgeBasketMath(resolved);
+  return { status: notes.length ? 'flagged' : 'ok',
+    basket: { primary_hedged_against: basket.primary_hedged_against || [], thesis: basket.thesis, proposed_by: basket.proposed_by, ...math, unresolved_legs: notes } };
+}
+
 // ── Stage 2 (Skeptic) merge ────────────────────────────────────────────────────
 // Applies each verdict onto its candidate by key; kills go to a separate list
 // (with the reason) instead of silently disappearing.
@@ -614,7 +747,32 @@ function recCard(r) {
     ${wk1 ? `<div class="wk">Wk1 correlated: ${wk1}</div>` : ''}
   </div>`;
 }
-function renderHTML(ranked, passed, killed, byModel, meta) {
+// 2026-07-22 addition: ladder/basket cards render a leg table instead of the
+// single-bet recCard shape — a different structure, not a variant of it.
+function legRow(leg, cols) { return `<tr>${cols.map((c) => `<td>${esc(leg[c])}</td>`).join('')}</tr>`; }
+function ladderCard(l) {
+  const cols = ['market', 'selection', 'price', 'book', 'full_stake', 'net_stake_after_prior_wins', 'profit_at_full_stake'];
+  const head = ['Market', 'Selection', 'Price', 'Book', 'Full stake', 'Net stake (self-funded)', 'Profit if hit'];
+  return `<div class="rec ladder">
+    <div class="rh"><b>${esc(l.team)}</b> <span class="et">PARLAY LADDER</span>${l.proposed_by ? ` <i>(${esc(l.proposed_by)})</i>` : ''}</div>
+    <div class="th">${esc(l.thesis || '')}</div>
+    <table class="stack-tbl"><thead><tr>${head.map((h) => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${(l.legs || []).map((leg) => legRow(leg, cols)).join('')}</tbody></table>
+    <div class="meta">Total full exposure: ${esc(l.total_full_exposure)} units · banked profit if every leg hits: ${esc(l.final_banked_profit_if_all_hit)} units</div>
+    ${l.unresolved_legs?.length ? `<div class="unresolved">⚠ ${l.unresolved_legs.map(esc).join('; ')}</div>` : ''}
+  </div>`;
+}
+function basketCard(b) {
+  const cols = ['market', 'selection', 'price', 'book', 'stake', 'payout_if_hit'];
+  const head = ['Market', 'Selection', 'Price', 'Book', 'Stake', 'Payout if hit'];
+  return `<div class="rec basket">
+    <div class="rh"><b>Hedge basket</b>${b.primary_hedged_against?.length ? ` <span class="mk">vs ${esc(b.primary_hedged_against.join(', '))}</span>` : ''}${b.proposed_by ? ` <i>(${esc(b.proposed_by)})</i>` : ''}</div>
+    <div class="th">${esc(b.thesis || '')}</div>
+    <table class="stack-tbl"><thead><tr>${head.map((h) => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${(b.legs || []).map((leg) => legRow(leg, cols)).join('')}</tbody></table>
+    <div class="meta">Total staked: ${esc(b.total_stake)} units</div>
+    ${b.unresolved_legs?.length ? `<div class="unresolved">⚠ ${b.unresolved_legs.map(esc).join('; ')}</div>` : ''}
+  </div>`;
+}
+function renderHTML(ranked, passed, killed, byModel, meta, ladders = [], baskets = []) {
   const names = Object.keys(byModel);
   const section = (title, list, empty) => `<h2>${esc(title)} (${list.length})</h2>${list.length ? list.map(recCard).join('') : `<p>${esc(empty)}</p>`}`;
   const watch = names.flatMap((n) => (byModel[n].watch || []).map((w) => `<li><b>${esc(w.selection)}</b> <span class="mk">${esc(w.market)}</span> — ${esc(w.why)} <i>(${esc(n)})</i></li>`)).join('');
@@ -639,6 +797,9 @@ function renderHTML(ranked, passed, killed, byModel, meta) {
  .tim{font-size:12px;background:#f8fafc;padding:4px 8px;border-radius:4px;margin-top:4px} .wk{font-size:12px;color:#4338ca;margin-top:3px}
  .unresolved{color:#b91c1c;font-weight:600}
  li{margin:5px 0}
+ .rec.ladder{border-left-color:#0891b2} .rec.basket{border-left-color:#ca8a04}
+ .stack-tbl{width:100%;border-collapse:collapse;font-size:12px;margin:6px 0}
+ .stack-tbl th,.stack-tbl td{border:1px solid #e5e7eb;padding:3px 6px;text-align:left}
 </style>
 <h1>NFL Futures Portfolio — Analyst Committee</h1>
 <div class="sub">${meta.date} · models: ${esc(names.join(' + '))} · season ${esc(meta.season)}${meta.committee_ran === false ? ' · <b>committee skipped (stage 1 only)</b>' : ''}</div>
@@ -648,11 +809,25 @@ ${section('Strongest thesis edge', ranked.thesis_edge, 'None tagged thesis-drive
 ${section('Strongest stale-price edge', ranked.stale_price_edge, 'None tagged stale-price.')}
 ${section('Best low-correlation portfolio adds', ranked.low_correlation_adds, 'None.')}
 ${section('Longshots (high risk / high upside)', ranked.longshots, 'None.')}
+<h2>Parlay ladders — self-funding stacks (${ladders.length})</h2>${ladders.length ? ladders.map(ladderCard).join('') : '<p>None proposed this run.</p>'}
+<h2>Hedge baskets — variance insurance (${baskets.length})</h2>${baskets.length ? baskets.map(basketCard).join('') : '<p>None proposed this run.</p>'}
 <h2>Passed / killed (${passed.length + killed.length})</h2><ul>${passList || '<li>None.</li>'}</ul>
 <h2>Watch list</h2><ul>${watch || '<li>None.</li>'}</ul>
 <h2>Construction notes</h2>${notes}`;
 }
-function renderMD(ranked, passed, killed, byModel, meta) {
+function ladderMD(l) {
+  const legLine = (leg) => `    - ${leg.market}: ${leg.selection} — ${leg.price}@${leg.book} · full stake ${leg.full_stake} · net stake (self-funded) ${leg.net_stake_after_prior_wins} · profit if hit ${leg.profit_at_full_stake}`;
+  return [`- **${l.team}** — ${l.thesis || ''}`, ...(l.legs || []).map(legLine),
+    `  - total full exposure ${l.total_full_exposure} units · banked profit if all hit ${l.final_banked_profit_if_all_hit} units`,
+    ...(l.unresolved_legs?.length ? [`  - ⚠ ${l.unresolved_legs.join('; ')}`] : [])].join('\n');
+}
+function basketMD(b) {
+  const legLine = (leg) => `    - ${leg.market}: ${leg.selection} — ${leg.price}@${leg.book} · stake ${leg.stake} · payout if hit ${leg.payout_if_hit}`;
+  return [`- **Hedge basket**${b.primary_hedged_against?.length ? ` vs ${b.primary_hedged_against.join(', ')}` : ''} — ${b.thesis || ''}`, ...(b.legs || []).map(legLine),
+    `  - total staked ${b.total_stake} units`,
+    ...(b.unresolved_legs?.length ? [`  - ⚠ ${b.unresolved_legs.join('; ')}`] : [])].join('\n');
+}
+function renderMD(ranked, passed, killed, byModel, meta, ladders = [], baskets = []) {
   const names = Object.keys(byModel);
   const line = (r) => `- [${(r.type || '?').toUpperCase()}/${(r.edge_type || '?').toUpperCase()}] **${r.selection}** (${r.market}) ${r.price}@${r.book} · ${r.stake_tier} · conf ${r.confidence} · edge ${r.edge_pct}%${r.knowledge_based ? ' · ⚑knowledge' : ''}${r.needs_human_review ? ' · 👤review' : ''}${r.bet_threshold ? ` · threshold ${r.bet_threshold}` : ''}\n${r.market_view ? `  - Market: ${r.market_view}\n` : ''}${r.football_view ? `  - Football: ${r.football_view}\n` : ''}  - ${r.thesis}\n  - ⚠ ${r.disconfirming_factor}${r.skeptic_note ? `\n  - 🕵 Skeptic (${r.skeptic_verdict}): ${r.skeptic_note}` : ''}${r.risk_note ? `\n  - ⚖ Risk: ${r.risk_note}` : ''}${r.evidence_resolved?.length ? `\n  - 🔗 ${r.evidence_resolved.map((e) => `${e.id}${e.resolved ? `=${JSON.stringify(e.value)}` : ' (unresolved)'}`).join(', ')}` : (r.evidence_ids?.length ? `\n  - 🔗 ${r.evidence_ids.join(', ')} (unresolved — no dossier row match)` : '')}${r.sources?.length ? `\n  - 📣 sources: ${r.sources.join(', ')}` : ''}\n  - timing: **${r.timing?.action}**${r.timing?.trigger ? ` — ${r.timing.trigger}` : ''}${r.timing?.expected_move ? ` (${r.timing.expected_move})` : ''}`;
   const section = (title, list) => {
@@ -669,6 +844,10 @@ function renderMD(ranked, passed, killed, byModel, meta) {
   L.push(...section('Strongest stale-price edge', ranked.stale_price_edge));
   L.push(...section('Best low-correlation portfolio adds', ranked.low_correlation_adds));
   L.push(...section('Longshots', ranked.longshots));
+  L.push(`## Parlay ladders — self-funding stacks (${ladders.length})`);
+  L.push(ladders.length ? ladders.map(ladderMD).join('\n') : 'None proposed this run.', '');
+  L.push(`## Hedge baskets — variance insurance (${baskets.length})`);
+  L.push(baskets.length ? baskets.map(basketMD).join('\n') : 'None proposed this run.', '');
   L.push(`## Passed / killed (${passed.length + killed.length})`);
   for (const p of [...killed, ...passed]) L.push(`- **${p.selection}** (${p.market}) — ${p.reason} _(${p.stage})_`);
   L.push('', '## Construction notes');
@@ -780,6 +959,12 @@ async function persistRecommendationRuns(meta, trail) {
   const { candidates } = mergeStage1(byModel);
   console.log(`   merged: ${candidates.length} unique candidates across ${ok.length} model(s)`);
 
+  // 2026-07-22 addition: collect hedge_baskets/parlay_ladders proposed by any
+  // model. v1 scope: NOT pushed through Skeptic/Risk (those stages' schemas
+  // are recommendation-shaped) — validated directly against the dossier below.
+  const rawHedgeBaskets = ok.flatMap((m) => (byModel[m].hedge_baskets || []).map((b) => ({ ...b, proposed_by: m })));
+  const rawParlayLadders = ok.flatMap((m) => (byModel[m].parlay_ladders || []).map((l) => ({ ...l, proposed_by: m })));
+
   const meta = { date: new Date().toISOString().slice(0, 10), season: dossier.meta.season, committee_ran: !SKIP_COMMITTEE, run_id: randomUUID() };
   let final = candidates, passed = [], killed = [];
   const raw2 = {};
@@ -824,12 +1009,27 @@ async function persistRecommendationRuns(meta, trail) {
   console.log(`   validator: ${final.length} valid (${validated.filter((v) => v.status === 'flagged').length} flagged for human review), ${invalidated.length} invalidated`);
   passed = [...passed, ...invalidated];
 
+  // Hedge-basket / parlay-ladder validation (code-owned, same pattern as
+  // validateRecommendation above) — resolves every leg against the real
+  // dossier price, drops structures where NO leg resolved, keeps partial
+  // matches flagged with their unresolved legs visible rather than hidden.
+  console.log(`🧺 Validating ${rawHedgeBaskets.length} hedge basket(s) + ${rawParlayLadders.length} parlay ladder(s)`);
+  const basketResults = rawHedgeBaskets.map((b) => validateHedgeBasket(b, dossier));
+  const ladderResults = rawParlayLadders.map((l) => validateParlayLadder(l, dossier));
+  const validBaskets = basketResults.filter((r) => r.status !== 'invalid').map((r) => r.basket);
+  const validLadders = ladderResults.filter((r) => r.status !== 'invalid').map((r) => r.ladder);
+  const invalidStacks = [...basketResults, ...ladderResults].filter((r) => r.status === 'invalid');
+  console.log(`   ${validBaskets.length} valid basket(s), ${validLadders.length} valid ladder(s) (${invalidStacks.length} invalidated: no leg resolved)`);
+
   const ranked = rankByAxis(final);
   await mkdir(OUT_DIR, { recursive: true });
   const base = path.join(OUT_DIR, `portfolio-${meta.date}`);
-  await writeFile(`${base}.html`, renderHTML(ranked, passed, killed, byModel, meta));
-  await writeFile(`${base}.md`, renderMD(ranked, passed, killed, byModel, meta));
-  await writeFile(`${base}.raw.json`, JSON.stringify({ meta, models: ok, raw, stage2_3: raw2, candidates, final, passed, killed }, null, 2));
+  await writeFile(`${base}.html`, renderHTML(ranked, passed, killed, byModel, meta, validLadders, validBaskets));
+  await writeFile(`${base}.md`, renderMD(ranked, passed, killed, byModel, meta, validLadders, validBaskets));
+  await writeFile(`${base}.raw.json`, JSON.stringify({ meta, models: ok, raw, stage2_3: raw2, candidates, final, passed, killed,
+    hedge_baskets: { raw: rawHedgeBaskets, valid: validBaskets },
+    parlay_ladders: { raw: rawParlayLadders, valid: validLadders },
+    invalidated_stacks: invalidStacks }, null, 2));
   await persistRecommendations(final, meta);
   await persistRecommendationRuns(meta, { stage1: candidates, killed, passed, final });
   console.log(`\n✅ ${base}.html`);
