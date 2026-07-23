@@ -15,7 +15,9 @@ const hasFlag = (name) => process.argv.includes(name);
 
 const SUPABASE_URL = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL;
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_ANON_KEY;
-const SHOW = argVal('--show', 'BettingPros Podcast');
+const ALL = hasFlag('--all');
+const SHOW_ARG = argVal('--show', null);
+const SHOW = SHOW_ARG || (ALL ? null : 'BettingPros Podcast');
 const OUT_DIR = argVal('--out-dir', path.join('data', 'podcasts', 'm6-diarized'));
 const LIMIT_TURNS = Number(argVal('--limit-turns', '0'));
 
@@ -26,7 +28,7 @@ for (let i = 0; i < process.argv.length; i += 1) {
     i += 1;
   }
 }
-if (!TERMS.length) {
+if (!TERMS.length && !ALL) {
   TERMS.push('ep. 1013', '1013', 'week 1 betting predictions', '2026-07-01');
   TERMS.push('ep. 1018', '1018', 'favorite long shot picks', '2026-07-15');
 }
@@ -37,11 +39,15 @@ Export diarized podcast transcripts from Supabase to local files.
 
 Usage:
   node scripts/export-podcast-diarized-transcripts.js
+  node scripts/export-podcast-diarized-transcripts.js --all
+  node scripts/export-podcast-diarized-transcripts.js --all --show "BettingPros Podcast"
   node scripts/export-podcast-diarized-transcripts.js --show "BettingPros Podcast" --term "Ep. 1018"
   node scripts/export-podcast-diarized-transcripts.js --limit-turns 25
 
 Options:
+  --all               Export every matching episode that has speaker_segments.
   --show <name>       Feed/show filter. Default: BettingPros Podcast.
+                      With --all and no --show, exports all shows.
   --term <text>       Episode title/date/id search term. Can be repeated.
   --out-dir <dir>     Output directory. Default: data/podcasts/m6-diarized.
   --limit-turns <n>   Export only first n diarized turns to Markdown preview. JSON stays complete.
@@ -58,6 +64,7 @@ function slugify(value) {
 }
 
 function matchesEpisode(ep) {
+  if (ALL) return true;
   const haystack = [
     ep.title,
     ep.pub_date,
@@ -127,12 +134,13 @@ async function main() {
 
   const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, { auth: { persistSession: false } });
 
-  const { data: feeds, error: fErr } = await supabase
+  let feedQuery = supabase
     .from('podcast_feeds')
-    .select('id, name, expert, needs_diarization')
-    .ilike('name', `%${SHOW}%`);
+    .select('id, name, expert, needs_diarization');
+  if (SHOW) feedQuery = feedQuery.ilike('name', `%${SHOW}%`);
+  const { data: feeds, error: fErr } = await feedQuery;
   if (fErr) throw new Error(`load feeds: ${fErr.message}`);
-  if (!feeds?.length) throw new Error(`No feed found matching "${SHOW}"`);
+  if (!feeds?.length) throw new Error(SHOW ? `No feed found matching "${SHOW}"` : 'No podcast feeds found');
 
   const feedIds = feeds.map((f) => f.id);
   const { data: episodes, error: eErr } = await supabase
@@ -144,7 +152,9 @@ async function main() {
 
   const selected = (episodes || []).filter(matchesEpisode);
   if (!selected.length) {
-    console.log(`No matching ${SHOW} episodes found for: ${TERMS.join(', ')}`);
+    console.log(ALL
+      ? `No episodes found${SHOW ? ` for ${SHOW}` : ''}.`
+      : `No matching ${SHOW || 'podcast'} episodes found for: ${TERMS.join(', ')}`);
     return;
   }
 
@@ -175,6 +185,14 @@ async function main() {
     const transcript = transcriptByEpisode.get(episode.id);
     if (!transcript) {
       console.log(`Skipping ${episode.title}: no transcript row`);
+      continue;
+    }
+    if (ALL && !Array.isArray(transcript.speaker_segments)) {
+      console.log(`Skipping ${episode.title}: no speaker_segments array`);
+      continue;
+    }
+    if (ALL && transcript.speaker_segments.length === 0) {
+      console.log(`Skipping ${episode.title}: no diarized speaker turns`);
       continue;
     }
     const base = `${String(episode.pub_date || '').slice(0, 10) || 'undated'}-${slugify(feed?.name)}-${slugify(episode.title)}`;
