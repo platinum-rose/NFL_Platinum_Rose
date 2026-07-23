@@ -19,9 +19,10 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Send, Trophy, User, Wrench, ChevronDown, ChevronRight, Trash2, AlertCircle, Key, CheckCircle2 } from 'lucide-react';
 import { runAgentTurn, runOpenAIAgentTurn } from '../../lib/anthropicClient.js';
 import { BETTING_TOOLS, FUTURES_TOOLS, executeTool } from '../../lib/agentTools.js';
-import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS } from '../../lib/storage.js';
+import { loadFromStorage, saveToStorage } from '../../lib/storage.js';
 import { getNFLWeekInfo } from '../../lib/constants.js';
 import { ANTHROPIC_API, AI_PROXY_URL } from '../../lib/apiConfig.js';
+import { getPositions, getParlays, POSITION_STATUS, PARLAY_STATUS } from '../../lib/futures.js';
 
 // ─── localStorage keys (per futures.manifest.json persistenceKeys) ───────────
 const CHAT_HISTORY_KEY = 'nfl_futures_agent_chat_v1';
@@ -29,10 +30,28 @@ const USER_API_KEY_KEY = 'nfl_betting_agent_apikey_v1'; // shared
 
 // ─── System Prompt ───────────────────────────────────────────────────────────
 
-function buildFuturesSystemPrompt(futuresPortfolio, schedule) {
+function buildFuturesSystemPrompt(futuresPortfolio, schedule, bankrollData = null) {
   const { label: weekLabel } = getNFLWeekInfo();
   const today = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-  const positions = (futuresPortfolio?.positions || []).filter(p => !p.closed_at);
+  const positions = (futuresPortfolio?.positions || [])
+    .filter(p => p.status === POSITION_STATUS.OPEN)
+    .map(p => ({
+      ...p,
+      market: p.type,
+      odds_at_entry: p.odds,
+      stake: p.stake,
+    }));
+  const parlays = (futuresPortfolio?.parlays || []).filter(p => p.status === PARLAY_STATUS.LIVE);
+  const fmtOdds = (odds) => odds == null ? '?' : (Number(odds) > 0 ? `+${Number(odds)}` : String(Number(odds)));
+  const positionLines = positions.length > 0
+    ? positions.slice(0, 12).map(p => {
+        const line = p.line != null ? ` ${p.selection || ''} ${p.line}` : (p.selection ? ` ${p.selection}` : '');
+        return `  - ${p.team || p.subject || '?'} ${p.type || '?'}${line} @ ${fmtOdds(p.odds)} - stake $${p.stake ?? '?'} - status ${p.status}`;
+      }).join('\n')
+    : '  None';
+  const parlayLines = parlays.length > 0
+    ? parlays.slice(0, 8).map(p => `  - ${p.name || p.id}: ${p.legs?.length || 0} legs, stake $${p.stake ?? '?'}, potential payout $${p.potentialPayout ?? '?'}, status ${p.status}`).join('\n')
+    : '  None';
   const upcomingGames = (schedule || []).slice(0, 12)
     .map(g => `  ${g.visitor || g.away_team || '?'} @ ${g.home || g.home_team || '?'}${g.date ? ` (${g.date})` : ''}`)
     .join('\n');
@@ -93,6 +112,12 @@ ${positions.length > 0
       return `  - ${p.team || p.subject || '?'} ${p.market || '?'} @ ${odds} · ${p.stake ?? '?'}u`;
     }).join('\n')
   : '  None'}
+
+### Live Open Parlays (${parlays.length}, unverified as hedge capacity unless the user confirms current house rules):
+${parlayLines}
+
+### Bankroll Snapshot:
+${bankrollData ? JSON.stringify(bankrollData) : '  No bankroll snapshot loaded'}
 
 ### Upcoming Schedule:
 ${upcomingGames || '  No schedule data loaded'}
@@ -333,19 +358,20 @@ export default function FuturesAgentChat() {
   const scrollRef = useRef(null);
 
   // Status bar data
-  const futuresPortfolio = loadFromStorage(PR_STORAGE_KEYS.FUTURES_PORTFOLIO?.key || 'nfl_futures_portfolio_v1', { positions: [] }) || { positions: [] };
-  const openFuturesCount = (futuresPortfolio.positions || []).filter(p => !p.closed_at).length;
+  const futuresPortfolio = { positions: getPositions(), parlays: getParlays() };
+  const openFuturesCount = (futuresPortfolio.positions || []).filter(p => p.status === POSITION_STATUS.OPEN).length;
 
   // Load context and build system prompt on mount
   useEffect(() => {
     async function loadContext() {
-      const portfolio = loadFromStorage(PR_STORAGE_KEYS.FUTURES_PORTFOLIO?.key || 'nfl_futures_portfolio_v1', { positions: [] });
+      const portfolio = { positions: getPositions(), parlays: getParlays() };
+      const bankrollData = loadFromStorage('nfl_bankroll_data_v1', null);
       let schedule = [];
       try {
         const resp = await fetch('./schedule.json');
         if (resp.ok) schedule = await resp.json();
       } catch { /* non-fatal */ }
-      systemPromptRef.current = buildFuturesSystemPrompt(portfolio, schedule);
+      systemPromptRef.current = buildFuturesSystemPrompt(portfolio, schedule, bankrollData);
       setContextLoaded(true);
     }
     loadContext();

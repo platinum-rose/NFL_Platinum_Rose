@@ -141,7 +141,8 @@ Return JSON with this exact shape:
       "lean": "favor | against | over | under | neutral",
       "confidence": number (50-95; use 65 if unstated),
       "stats_cited": ["string, any stats/historical data referenced"],
-      "quote": "string, direct quote or close paraphrase, max ~300 chars"
+      "quote": "string, direct quote or close paraphrase, max ~300 chars",
+      "source_timestamp": "string|null (M:SS or H:MM:SS from the transcript line where this pick was discussed; null if unavailable)"
     }
   ]
 }
@@ -151,6 +152,7 @@ Rules:
 - "subject" must be a real NFL team or player actually named in this chunk. Never substitute a non-NFL team/player name onto an NFL-sounding subject_market.
 - Only include futures clearly stated as the host's own prediction/lean, not just mentioning a market exists.
 - subject_market should use the taxonomy style already seen above (division codes like 'AFC_North', or 'MVP'/'Super_Bowl'/'Offensive_ROY' etc.) -- your best consistent guess if the exact code isn't obvious.
+- If transcript lines include timestamps like "[12:34] Host: text", copy the best timestamp for the pick into source_timestamp. Do not invent a timestamp when the source text has none.
 `.trim();
 
 async function extractChunk(chunk, idx, total, { multiHost, hostNames }) {
@@ -285,12 +287,13 @@ async function obsidianPut(notePath, markdown) {
 export function buildHostVaultNote({ show, host, title, pubDate, futures, model, attributionMethod, chunkCount }) {
   const date = (pubDate || '').slice(0, 10) || 'undated';
   const esc = (s) => String(s ?? '').replace(/\|/g, '\\|').replace(/\n/g, ' ');
+  const timestampFor = (f) => f.source_timestamp || f.timestamp || '';
   const rows = futures.length
     ? futures.map(f =>
-        `| ${esc(f.subject_market)} | ${esc(f.subject)} | ${esc(f.prediction).slice(0, 140)} | ${esc(f.lean)} | ${f.confidence ?? '—'} | ${(f.stats_cited || []).map(esc).join('; ')} |`
+        `| ${esc(f.subject_market)} | ${esc(f.subject)} | ${esc(f.prediction).slice(0, 140)} | ${esc(f.lean)} | ${f.confidence ?? '-'} | ${esc(timestampFor(f)) || '-'} | ${(f.stats_cited || []).map(esc).join('; ')} |`
       ).join('\n')
-    : '| — | (no futures discussed) | — | — | — | — |';
-  const quotes = futures.filter(f => f.quote).map(f => `- **${esc(f.subject)}**: "${esc(f.quote)}"`).join('\n') || '- (none)';
+    : '| - | (no futures discussed) | - | - | - | - | - |';
+  const quotes = futures.filter(f => f.quote).map(f => `- **${esc(f.subject)}**${timestampFor(f) ? ` (${esc(timestampFor(f))})` : ''}: "${esc(f.quote)}"`).join('\n') || '- (none)';
   return `---
 sensitivity: green
 source_system: podcast-host-summary
@@ -305,13 +308,13 @@ chunks_analyzed: ${chunkCount}
 generated: ${new Date().toISOString()}
 ---
 
-# ${host} on ${show} — ${title ?? 'Episode'}
-*Published: ${date} · attribution: ${attributionMethod} · via ${model}*
+# ${host} on ${show} - ${title ?? 'Episode'}
+*Published: ${date} - attribution: ${attributionMethod} - via ${model}*
 
 ## Futures discussed
 
-| Market | Subject | Prediction | Lean | Conf | Stats cited |
-|--------|---------|-----------|------|------|--------------|
+| Market | Subject | Prediction | Lean | Conf | Time | Stats cited |
+|--------|---------|-----------|------|------|------|--------------|
 ${rows}
 
 ## Quotes
@@ -319,7 +322,6 @@ ${rows}
 ${quotes}
 `;
 }
-
 // ─── --vault-sync mode: DB-only, no AssemblyAI/GPT-4o ──────────────────────────
 
 /**

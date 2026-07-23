@@ -1,0 +1,241 @@
+{
+  "id": "scenario-book-bills-packers",
+  "description": "Happy-path playoff scenario book with Bills/Packers anchors, exacta coverage, Bears ladder, and Dolphins ladder.",
+  "dossier": ".nfl/portfolio/dossier-2026-07-22.json",
+  "models": ["gpt-4o"],
+  "primary": ["Buffalo Bills", "Green Bay Packers"],
+  "skip_committee": false,
+  "responses": {
+    "stage1": {
+      "recommendations": [
+        {
+          "market": "wins",
+          "selection": "Chicago Bears Over 9.5 wins",
+          "type": "value",
+          "edge_type": "thesis",
+          "book": "bookmaker",
+          "price": 123,
+          "model_fair_prob": 0.51,
+          "edge_pct": 13.7,
+          "confidence": 72,
+          "stake_tier": "standard",
+          "knowledge_based": false,
+          "market_view": "Bears O9.5 is still plus-money at a placeable book while playoff pricing is closer to coin-flip territory.",
+          "football_view": "The schedule/rest context in the dossier is the supporting reason this can ladder into playoff optionality.",
+          "thesis": "Treat Bears O9.5 as the funding leg for a Bears playoff/Super Bowl ladder, not as an isolated futures bet.",
+          "disconfirming_factor": "The Bears still need proof that offensive efficiency catches up to the schedule advantage.",
+          "bet_threshold": "+105 or better",
+          "needs_human_review": true,
+          "evidence_ids": ["lean.samples[0]"],
+          "sources": ["Warren Sharp"],
+          "timing": {
+            "action": "bet_now",
+            "trigger": "Preseason number still +money",
+            "expected_move": "O9.5 could shorten if early schedule narrative gets steamed",
+            "rationale": "The ladder starts with the cheapest resolving leg."
+          },
+          "correlated_week1": []
+        },
+        {
+          "market": "wins",
+          "selection": "Miami Dolphins Over 4.5 wins",
+          "type": "longshot",
+          "edge_type": "thesis",
+          "book": "betonline",
+          "price": 145,
+          "model_fair_prob": 0.47,
+          "edge_pct": 15.2,
+          "confidence": 61,
+          "stake_tier": "small",
+          "knowledge_based": false,
+          "market_view": "Dolphins O4.5 is plus-money while their playoff and AFC prices remain extreme optionality.",
+          "football_view": "This is a rebound-path stack, so the win total must be right before the AFC leg matters.",
+          "thesis": "Use the Dolphins over as a low-cost first leg that can subsidize a tiny playoff/AFC position if the season starts correctly.",
+          "disconfirming_factor": "If the team is actually bottom-tier, the playoff and AFC tickets become dead optionality quickly.",
+          "bet_threshold": "+120 or better",
+          "needs_human_review": true,
+          "evidence_ids": [],
+          "sources": [],
+          "timing": {
+            "action": "wait",
+            "trigger": "Early injury/news confirmation",
+            "expected_move": "Could remain plus-money until market buys the rebound",
+            "rationale": "The ladder is more sensitive to team health than price alone."
+          },
+          "correlated_week1": []
+        }
+      ],
+      "watch": [
+        {
+          "market": "superbowl_matchup",
+          "selection": "Buffalo Bills vs Detroit Lions",
+          "why": "Useful exacta-style coverage against the Bills anchor if Detroit is the NFC path."
+        }
+      ],
+      "hedge_baskets": [
+        {
+          "primary_hedged_against": ["Buffalo Bills", "Green Bay Packers"],
+          "thesis": "Small exacta-style tickets cover several playoff branches around the two anchors and major NFC/AFC gatekeepers.",
+          "legs": [
+            { "market": "superbowl_matchup", "selection": "Buffalo Bills vs Detroit Lions", "role": "coverage_bet" },
+            { "market": "superbowl_matchup", "selection": "Buffalo Bills vs Philadelphia Eagles", "role": "coverage_bet" },
+            { "market": "superbowl_matchup", "selection": "Buffalo Bills vs Los Angeles Rams", "role": "coverage_bet" },
+            { "market": "superbowl_matchup", "selection": "Baltimore Ravens vs Green Bay Packers", "role": "coverage_bet" },
+            { "market": "superbowl_matchup", "selection": "Kansas City Chiefs vs Green Bay Packers", "role": "coverage_bet" }
+          ]
+        }
+      ],
+      "parlay_ladders": [
+        {
+          "team": "Chicago Bears",
+          "thesis": "Bears O9.5 plus a playoff ticket creates a funding path for a later NFC/Super Bowl option.",
+          "legs": [
+            { "market": "wins", "selection": "Chicago Bears Over 9.5 wins", "role": "funding_leg" },
+            { "market": "playoffs", "selection": "Chicago Bears", "role": "funding_leg" },
+            { "market": "conference_nfc", "selection": "Chicago Bears", "role": "option_bet" },
+            { "market": "superbowl", "selection": "Chicago Bears", "role": "option_bet" }
+          ]
+        },
+        {
+          "team": "Miami Dolphins",
+          "thesis": "Dolphins O4.5 is the cheap first leg; playoff/AFC are tiny continuation bets if the rebound thesis is alive.",
+          "legs": [
+            { "market": "wins", "selection": "Miami Dolphins Over 4.5 wins", "role": "funding_leg" },
+            { "market": "playoffs", "selection": "Miami Dolphins", "role": "funding_leg" },
+            { "market": "conference_afc", "selection": "Miami Dolphins", "role": "option_bet" }
+          ]
+        }
+      ],
+      "portfolio_strategy": {
+        "strategy_type": "playoff_scenario_book",
+        "anchor_positions": ["Buffalo Bills", "Green Bay Packers"],
+        "coverage_positions": [
+          "Buffalo Bills vs Detroit Lions",
+          "Buffalo Bills vs Philadelphia Eagles",
+          "Buffalo Bills vs Los Angeles Rams",
+          "Baltimore Ravens vs Green Bay Packers",
+          "Kansas City Chiefs vs Green Bay Packers"
+        ],
+        "ladder_stacks": [
+          {
+            "team": "Chicago Bears",
+            "steps": [
+              { "bet": "Bears O9.5", "role": "funding_leg" },
+              { "bet": "Bears playoffs", "role": "funding_leg" },
+              { "bet": "Bears Super Bowl", "role": "option_bet" }
+            ],
+            "intent": "Use first two wins to lower liability on the Super Bowl option."
+          },
+          {
+            "team": "Miami Dolphins",
+            "steps": [
+              { "bet": "Dolphins O4.5", "role": "funding_leg" },
+              { "bet": "Dolphins playoffs", "role": "funding_leg" },
+              { "bet": "Dolphins AFC", "role": "option_bet" }
+            ],
+            "intent": "Keep AFC exposure tiny unless early legs are live."
+          }
+        ],
+        "playoff_hedge_plan": [
+          {
+            "trigger": "Bills reach AFC title game against Ravens or Chiefs",
+            "action": "Price opponent moneyline/conference hedge against Bills Super Bowl and exacta exposure.",
+            "reserved_bankroll": "Pocket hedge reserve plus any ladder profits."
+          },
+          {
+            "trigger": "Packers reach NFC title game against Lions/Rams/Eagles",
+            "action": "Use matchup opponent price to protect Packers anchor while preserving exacta upside.",
+            "reserved_bankroll": "Preassigned reserve; do not add unless anchor equity is real."
+          }
+        ]
+      },
+      "portfolio_notes": "This is a scenario book, not a list of isolated positive-EV bets."
+    },
+    "skeptic": {
+      "verdicts": [
+        {
+          "key": "wins|chicago bears over 9.5 wins",
+          "verdict": "hold",
+          "confidence_delta": -2,
+          "skeptic_note": "Viable as a funding leg, but do not overstate the standalone edge.",
+          "stronger_disconfirming_factor": "The Bears ladder collapses if the offense stays merely average."
+        },
+        {
+          "key": "wins|miami dolphins over 4.5 wins",
+          "verdict": "downgrade",
+          "confidence_delta": -6,
+          "skeptic_note": "Treat as speculative rebound exposure only.",
+          "stronger_disconfirming_factor": "The low win total may reflect real roster/injury risk not captured by the stack."
+        }
+      ]
+    },
+    "risk_editor": {
+      "finalized": [
+        {
+          "key": "wins|chicago bears over 9.5 wins",
+          "stake_tier": "small",
+          "bet_threshold": "+110 or better",
+          "needs_human_review": true,
+          "portfolio_note": "Keep the Bears ladder sized as a funded option path, not a core book position."
+        },
+        {
+          "key": "wins|miami dolphins over 4.5 wins",
+          "stake_tier": "speculative",
+          "bet_threshold": "+130 or better",
+          "needs_human_review": true,
+          "portfolio_note": "Only continue the Dolphins ladder if early health and performance confirm the rebound premise."
+        }
+      ],
+      "passes": [],
+      "portfolio_notes": "Scenario structures are useful, but the book is concentrated in Bills/Packers plus elite NFC/AFC paths.",
+      "scenario_review": {
+        "max_exposure_note": "Dead cost is acceptable only if exacta basket stakes are fractional units.",
+        "funded_liability_note": "Bears and Dolphins ladders should be staked sequentially in practice; full exposure is the stress case.",
+        "coverage_note": "Coverage spans Bills-NFC and Packers-AFC paths but still misses some non-anchor Super Bowl pairings.",
+        "concentration_note": "Primary risk remains Bills/Packers concentration with Chiefs/Ravens/Eagles/Rams/Lions as the main opposing path cluster.",
+        "hedge_optionality_note": "Pocket hedges should be priced only when playoff matchups and anchor equity are known.",
+        "needs_human_review": true
+      }
+    }
+  },
+  "expect": {
+    "final_count": 0,
+    "passed_count": 2,
+    "valid_hedge_baskets": 1,
+    "valid_parlay_ladders": 2,
+    "invalidated_stacks": 0,
+    "portfolio_status": "active",
+    "anchor_teams_include": ["Buffalo Bills", "Green Bay Packers"],
+    "coverage_count": 5,
+    "coverage_selections_include": [
+      "Buffalo Bills vs Detroit Lions (superbowl_matchup)",
+      "Buffalo Bills vs Philadelphia Eagles (superbowl_matchup)",
+      "Buffalo Bills vs Los Angeles Rams (superbowl_matchup)",
+      "Baltimore Ravens vs Green Bay Packers (superbowl_matchup)",
+      "Kansas City Chiefs vs Green Bay Packers (superbowl_matchup)"
+    ],
+    "unresolved_raw_coverage_count": 0,
+    "ladder_count": 2,
+    "ladder_teams_include": ["Chicago Bears", "Miami Dolphins"],
+    "exposure_summary": {
+      "basket_total_stake": 5,
+      "ladder_full_exposure": 7,
+      "max_dead_cost_if_all_prepositioned": 12,
+      "max_dead_cost_if_strict_ladders": 7,
+      "funded_liability_if_ladders_hit": 5,
+      "invalidated_structure_count": 0
+    },
+    "resolved_legs_include": [
+      { "market": "superbowl_matchup", "selection": "Buffalo Bills vs Detroit Lions", "price": 5500, "book": "betus", "role": "coverage_bet" },
+      { "market": "superbowl_matchup", "selection": "Kansas City Chiefs vs Green Bay Packers", "price": 9000, "book": "betus", "role": "coverage_bet" },
+      { "market": "wins", "selection": "Chicago Bears Over 9.5 wins", "price": 112, "book": "bookmaker", "role": "funding_leg" },
+      { "market": "conference_afc", "selection": "Miami Dolphins", "price": 18580, "book": "bookmaker", "role": "option_bet" }
+    ],
+    "report_contains": [
+      "Scenario Book / Playoff Hedge Map",
+      "Ladder stacks:",
+      "strict dead cost 1 units; full exposure 4 units",
+      "Hedge baskets"
+    ]
+  }
+}

@@ -21,6 +21,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createClient } from '@supabase/supabase-js';
 import { normalizeTeam } from '../src/lib/teams.js';
+import { classifyMove, devigPair, fitWinDist, probOverLine, tailTable } from './lib/win-dist.js';
 import 'dotenv/config';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -63,7 +64,7 @@ const round = (x, n = 4) => (x == null ? null : Number(x.toFixed(n)));
 const MULTIWAY = new Set(['superbowl', 'conference_afc', 'conference_nfc',
   'division_afc_east', 'division_afc_north', 'division_afc_south', 'division_afc_west',
   'division_nfc_east', 'division_nfc_north', 'division_nfc_south', 'division_nfc_west',
-  'most_wins', 'least_wins', 'superbowl_matchup']);
+  'most_wins', 'least_wins', 'superbowl_matchup', 'division_exact_position']);
 // 2026-07-22 fix (Codex review): the hardcoded MULTIWAY set above never
 // included award_* markets (award_mvp, award_opoy, etc. — one book/vig pool
 // per award, same structural shape as division/conference/superbowl). Without
@@ -71,6 +72,7 @@ const MULTIWAY = new Set(['superbowl', 'conference_afc', 'conference_nfc',
 // single-outcome, silently wrong. isMultiway() is used everywhere MULTIWAY.has()
 // used to be checked directly.
 const isMultiway = (mk) => MULTIWAY.has(mk) || mk.startsWith('award_');
+const MAX_QUOTE_AGE_HOURS = Number(process.env.FUTURES_MAX_QUOTE_AGE_HOURS || 72);
 
 // Books the user can actually place at (BKR/BEO/BetUS directly; Vegas books via a
 // proxy). FanDuel/DraftKings are EXCLUDED from best-price selection — they still
@@ -79,6 +81,120 @@ const isMultiway = (mk) => MULTIWAY.has(mk) || mk.startsWith('award_');
 const BETTABLE_BOOKS = new Set((process.env.BETTABLE_BOOKS
   || 'bookmaker,betonline,betus,betmgm,caesars,williamhill_us,williamhill,circa,mgm')
   .split(',').map((s) => s.trim().toLowerCase()));
+
+function normalizeBook(book) {
+  return String(book || '?').trim().toLowerCase();
+}
+function quoteAgeHours(observedAt, asOf = new Date()) {
+  const t = observedAt ? new Date(observedAt).getTime() : NaN;
+  if (!Number.isFinite(t)) return null;
+  return round((asOf.getTime() - t) / 36e5, 2);
+}
+function quoteMeta(row, asOf = new Date()) {
+  const observedAt = row?.snapshot_time || row?.captured_at || null;
+  const ageHours = quoteAgeHours(observedAt, asOf);
+  return {
+    observed_at: observedAt,
+    quote_age_hours: ageHours,
+    availability_status: ageHours == null ? 'missing_observed_at' : (ageHours <= MAX_QUOTE_AGE_HOURS ? 'current' : 'stale'),
+    source_row_id: [
+      row?.market_type,
+      row?.team,
+      row?.selection,
+      row?.book,
+      observedAt,
+    ].filter(Boolean).join('|') || null,
+  };
+}
+function freshnessRank(meta) {
+  if (!meta) return -1;
+  if (meta.availability_status === 'current') return 2;
+  if (meta.availability_status === 'missing_observed_at') return 0;
+  return 1;
+}
+function isBetterOffer(price, meta, bestPrice, bestMeta) {
+  if (price == null) return false;
+  if (bestPrice == null) return true;
+  if (price !== bestPrice) return price > bestPrice;
+  const rank = freshnessRank(meta);
+  const bestRank = freshnessRank(bestMeta);
+  if (rank !== bestRank) return rank > bestRank;
+  const age = meta?.quote_age_hours;
+  const bestAge = bestMeta?.quote_age_hours;
+  if (age != null && bestAge != null && age !== bestAge) return age < bestAge;
+  return false;
+}
+function parseWinSideLabel(label) {
+  const m = String(label || '').match(/^(.+?)\s+(Over|Under)\s+(\d+(?:\.\d+)?)\s*$/i);
+  if (!m) return null;
+  const team = normalizeTeam(m[1]) || m[1].trim();
+  return { team, side: m[2].toLowerCase(), line: Number(m[3]) };
+}
+function parsePlayoffSideLabel(label) {
+  const m = String(label || '').match(/^(.+?)\s+(Yes|No)\s*$/i);
+  if (!m) return null;
+  const team = normalizeTeam(m[1]) || m[1].trim();
+  return { team, side: m[2].toLowerCase() };
+}
+function parseExactPositionLabel(label) {
+  const m = String(label || '').match(/^(.+?)\s+(1st|2nd|3rd|4th)$/i);
+  if (!m) return null;
+  const team = normalizeTeam(m[1]) || m[1].trim();
+  return { team, position: m[2].toLowerCase() };
+}
+function canonicalizeSnapshots(snaps) {
+  const out = [];
+  const wins = new Map();
+  const playoffs = new Map();
+  for (const r of snaps || []) {
+    const mk = r.market_type;
+    const book = normalizeBook(r.book);
+    const when = r.snapshot_time || r.captured_at || '';
+    if (mk === 'wins') {
+      const parsed = parseWinSideLabel(r.team) || parseWinSideLabel(r.selection);
+      if (parsed && r.line == null && r.over_price == null && r.under_price == null) {
+        const key = [mk, parsed.team, book, when, parsed.line].join('|');
+        const e = wins.get(key) || { ...r, team: parsed.team, selection: parsed.team, book, line: parsed.line, odds: null, price: null, implied_prob: null, over_price: null, under_price: null, _legacy_side_rows: [] };
+        if (parsed.side === 'over') e.over_price = r.price ?? r.odds;
+        if (parsed.side === 'under') e.under_price = r.price ?? r.odds;
+        e._legacy_side_rows.push({ side: parsed.side, label: r.team || r.selection, price: r.price ?? r.odds, observed_at: when });
+        wins.set(key, e);
+        continue;
+      }
+    }
+    if (mk === 'playoffs') {
+      const parsed = parsePlayoffSideLabel(r.team) || parsePlayoffSideLabel(r.selection);
+      if (parsed) {
+        const key = [mk, parsed.team, book, when].join('|');
+        const e = playoffs.get(key) || { ...r, team: parsed.team, selection: 'Yes', book, odds: null, price: null, implied_prob: null, yes_price: null, no_price: null, _legacy_side_rows: [] };
+        if (parsed.side === 'yes') {
+          e.yes_price = r.price ?? r.odds;
+          e.price = r.price ?? r.odds;
+          e.odds = r.odds ?? r.price;
+          e.implied_prob = r.implied_prob ?? americanToProb(e.price);
+        }
+        if (parsed.side === 'no') e.no_price = r.price ?? r.odds;
+        e._legacy_side_rows.push({ side: parsed.side, label: r.team || r.selection, price: r.price ?? r.odds, observed_at: when });
+        playoffs.set(key, e);
+        continue;
+      }
+    }
+    if (mk === 'division_exact_position') {
+      const parsed = parseExactPositionLabel(r.team) || parseExactPositionLabel(r.selection);
+      if (parsed) out.push({ ...r, team: `${parsed.team} ${parsed.position}`, selection: parsed.position, exact_position: parsed.position, exact_position_team: parsed.team, book });
+      else out.push({ ...r, book });
+      continue;
+    }
+    if (mk === 'wins' || mk === 'playoffs') {
+      const team = normalizeTeam(r.team) || r.team;
+      out.push({ ...r, team, selection: normalizeTeam(r.selection) || r.selection || team, book });
+      continue;
+    }
+    out.push({ ...r, book });
+  }
+  out.push(...wins.values(), ...playoffs.values());
+  return out;
+}
 
 // ── fetchers ───────────────────────────────────────────────────────────────
 async function fetchSnapshots() {
@@ -320,16 +436,20 @@ async function fetchRosterChurn() {
 // ── odds view ────────────────────────────────────────────────────────────────
 function buildOddsView(snaps) {
   const g = {};
-  for (const r of snaps) {
-    const mk = r.market_type, tm = r.team || r.selection || '?', bk = r.book || '?';
+  const normalized = canonicalizeSnapshots(snaps);
+  const asOf = new Date();
+  for (const r of normalized) {
+    const mk = r.market_type, tm = r.team || r.selection || '?', bk = normalizeBook(r.book);
     ((g[mk] ??= {})[tm] ??= {})[bk] ??= [];
     g[mk][tm][bk].push(r);
   }
   const markets = {};
   for (const [mk, teams] of Object.entries(g)) {
     const isWins = mk === 'wins';
+    const isPlayoffs = mk === 'playoffs';
     const teamOut = {};
     const bookOverround = {};
+    const exactPositionOverround = {};
     if (isMultiway(mk)) {
       for (const [, books] of Object.entries(teams)) {
         for (const [bk, rows] of Object.entries(books)) {
@@ -339,14 +459,26 @@ function buildOddsView(snaps) {
         }
       }
     }
+    if (mk === 'division_exact_position') {
+      for (const [tm, books] of Object.entries(teams)) {
+        for (const [bk, rows] of Object.entries(books)) {
+          const last = rows[rows.length - 1];
+          const key = `${bk}|${last.exact_position_team || tm}`;
+          const ip = last.implied_prob ?? americanToProb(last.price ?? last.odds);
+          if (ip != null) exactPositionOverround[key] = (exactPositionOverround[key] || 0) + ip;
+        }
+      }
+    }
     for (const [tm, books] of Object.entries(teams)) {
       const perBook = {};
       const fairProbs = [];
-      let bestPrice = null, bestBook = null;
+      let bestPrice = null, bestBook = null, bestMeta = null;
       const winsLines = [];
+      const winFitPoints = [];
       for (const [bk, rows] of Object.entries(books)) {
         const first = rows[0], last = rows[rows.length - 1];
         if (isWins) {
+          winFitPoints.push(...buildWinFitPointsFromRows(rows));
           // Same-book devig (self-consistent: uses THIS book's own over+under
           // pair at THIS book's own line, never mixed with another book's line —
           // see the line-grouped aggregation below for why that matters).
@@ -357,29 +489,52 @@ function buildOddsView(snaps) {
             over_prob: round(americanToProb(last.over_price)), under_prob: round(americanToProb(last.under_price)),
             fair_over: or ? round(oImp / or) : null, fair_under: or ? round(uImp / or) : null,
             first_line: first.line, last_line: last.line, snapshots: rows.length,
+            ...quoteMeta(last, asOf),
           };
           if (last.line != null) winsLines.push(last.line);
+        } else if (isPlayoffs) {
+          const yesPrice = last.yes_price ?? last.price ?? last.odds;
+          const noPrice = last.no_price ?? null;
+          const yesImp = americanToProb(yesPrice);
+          const noImp = americanToProb(noPrice);
+          const or = (yesImp != null && noImp != null) ? yesImp + noImp : null;
+          const fairYes = or ? yesImp / or : yesImp;
+          if (fairYes != null) fairProbs.push(fairYes);
+          const firstPrice = first.yes_price ?? first.price ?? first.odds;
+          const meta = quoteMeta(last, asOf);
+          perBook[bk] = {
+            yes_price: yesPrice, no_price: noPrice,
+            yes_implied: round(yesImp), no_implied: round(noImp),
+            fair_yes: round(fairYes), fair_no: or ? round(noImp / or) : null,
+            move_prob: round((yesImp ?? 0) - (americanToProb(firstPrice) ?? yesImp ?? 0)),
+            snapshots: rows.length,
+            ...meta,
+          };
+          if (BETTABLE_BOOKS.has(bk) && isBetterOffer(yesPrice, meta, bestPrice, bestMeta)) { bestPrice = yesPrice; bestBook = bk; bestMeta = meta; }
         } else {
           const priceNow = last.price ?? last.odds;
           const ipRaw = last.implied_prob ?? americanToProb(priceNow);
-          const or = bookOverround[bk];
+          const or = mk === 'division_exact_position' ? exactPositionOverround[`${bk}|${last.exact_position_team || tm}`] : bookOverround[bk];
           const fair = (isMultiway(mk) && or) ? ipRaw / or : ipRaw;
           if (fair != null) fairProbs.push(fair);
           const firstPrice = first.price ?? first.odds;
+          const meta = quoteMeta(last, asOf);
           perBook[bk] = {
             price: priceNow, implied: round(ipRaw), fair: round(fair),
             move_prob: round((ipRaw ?? 0) - (americanToProb(firstPrice) ?? ipRaw ?? 0)), snapshots: rows.length,
+            ...meta,
           };
-          if (priceNow != null && BETTABLE_BOOKS.has(bk) && (bestPrice == null || priceNow > bestPrice)) { bestPrice = priceNow; bestBook = bk; }
+          if (BETTABLE_BOOKS.has(bk) && isBetterOffer(priceNow, meta, bestPrice, bestMeta)) { bestPrice = priceNow; bestBook = bk; bestMeta = meta; }
         }
       }
       if (isWins) {
         const overProbs = Object.values(perBook).map((b) => b.over_prob).filter((x) => x != null);
         let bOver = null, bOverBk = null, bUnder = null, bUnderBk = null; // best placeable prices
+        let bOverMeta = null, bUnderMeta = null;
         for (const [bk, pb] of Object.entries(perBook)) {
           if (!BETTABLE_BOOKS.has(bk)) continue;
-          if (pb.over != null && (bOver == null || pb.over > bOver)) { bOver = pb.over; bOverBk = bk; }
-          if (pb.under != null && (bUnder == null || pb.under > bUnder)) { bUnder = pb.under; bUnderBk = bk; }
+          if (isBetterOffer(pb.over, pb, bOver, bOverMeta)) { bOver = pb.over; bOverBk = bk; bOverMeta = pb; }
+          if (isBetterOffer(pb.under, pb, bUnder, bUnderMeta)) { bUnder = pb.under; bUnderBk = bk; bUnderMeta = pb; }
         }
 
         // 2026-07-22 fix (Codex review): win-total rows previously had no
@@ -403,11 +558,27 @@ function buildOddsView(snaps) {
         };
         const overFair = bOverBk ? fairAtLine(perBook[bOverBk].line) : null;
         const underFair = bUnderBk ? fairAtLine(perBook[bUnderBk].line) : null;
+        const winDist = fitWinDist(winFitPoints);
+        const consensusFirstQ = median(Object.values(perBook).map((b) => b.fair_over).filter((x) => x != null));
+        const consensusLastQ = median(Object.values(perBook).map((b) => b.fair_over).filter((x) => x != null));
+        let bestEdgeOver = null, bestEdgeUnder = null;
+        for (const [bk, pb] of Object.entries(perBook)) {
+          pb.over_edge = matchedWinEdge(winDist, pb.line, pb.over, 'over');
+          pb.under_edge = matchedWinEdge(winDist, pb.line, pb.under, 'under');
+          pb.move_class = classifyMove({ first_q: pb.fair_over, last_q: pb.fair_over }, { first_q: consensusFirstQ, last_q: consensusLastQ });
+          if (BETTABLE_BOOKS.has(bk) && pb.over_edge != null && (!bestEdgeOver || pb.over_edge > bestEdgeOver.edge)) {
+            bestEdgeOver = { book: bk, line: pb.line, price: pb.over, edge: pb.over_edge };
+          }
+          if (BETTABLE_BOOKS.has(bk) && pb.under_edge != null && (!bestEdgeUnder || pb.under_edge > bestEdgeUnder.edge)) {
+            bestEdgeUnder = { book: bk, line: pb.line, price: pb.under, edge: pb.under_edge };
+          }
+        }
 
         teamOut[tm] = { type: 'wins', consensus_line: median(winsLines),
           line_spread: winsLines.length ? round(Math.max(...winsLines) - Math.min(...winsLines), 2) : null,
           over_prob_median: round(median(overProbs)),
           best_over: bOver, best_over_book: bOverBk, best_under: bUnder, best_under_book: bUnderBk, per_book: perBook,
+          win_dist: winDist, tails: tailTable(winDist), best_edge_over: bestEdgeOver, best_edge_under: bestEdgeUnder,
           over_fair_prob: overFair?.over ?? null, under_fair_prob: underFair?.under ?? null,
           best_over_edge_pct: overFair ? edgePctFromFair(overFair.over, bOver) : null,
           best_under_edge_pct: underFair ? edgePctFromFair(underFair.under, bUnder) : null,
@@ -416,19 +587,44 @@ function buildOddsView(snaps) {
             ? 'books disagree on the line itself — treat consensus_line/edge loosely until they converge'
             : 'books agree on the line' };
       } else {
-        const impliedList = Object.values(perBook).map((b) => b.implied).filter((x) => x != null);
+        const impliedList = Object.values(perBook).map((b) => b.implied ?? b.yes_implied).filter((x) => x != null);
         const fairMed = round(median(fairProbs.filter((x) => x != null)));
         const divergence = impliedList.length ? round(Math.max(...impliedList) - Math.min(...impliedList)) : null;
         const bp = americanToProb(bestPrice);
-        teamOut[tm] = { type: 'outright', fair_prob: fairMed, fair_american: probToAmerican(fairMed),
+        teamOut[tm] = { type: isPlayoffs ? 'playoffs' : 'outright', fair_prob: fairMed, fair_american: probToAmerican(fairMed),
           best_price: bestPrice, best_book: bestBook, best_prob: round(bp),
           book_divergence: divergence, n_books: impliedList.length,
-          value_gap: (bp != null && fairMed != null) ? round(fairMed - bp) : null, per_book: perBook };
+          value_gap: (bp != null && fairMed != null) ? round(fairMed - bp) : null, per_book: perBook,
+          best_observed_at: bestBook ? perBook[bestBook]?.observed_at : null,
+          best_quote_age_hours: bestBook ? perBook[bestBook]?.quote_age_hours : null,
+          best_availability_status: bestBook ? perBook[bestBook]?.availability_status : null };
       }
     }
     markets[mk] = teamOut;
   }
   return markets;
+}
+
+function buildWinFitPointsFromRows(rows) {
+  const points = [];
+  for (const row of [rows?.[0], rows?.[rows.length - 1]].filter(Boolean)) {
+    const d = devigPair(row.over_price, row.under_price);
+    if (row.line != null && d.pOver != null) {
+      points.push({
+        line: Number(row.line),
+        q: d.pOver,
+        w: row === rows?.[rows.length - 1] ? 1 : 0.5,
+      });
+    }
+  }
+  return points;
+}
+
+function matchedWinEdge(dist, line, price, side) {
+  if (!dist?.mu || !dist?.sigma || line == null || price == null) return null;
+  const overProb = probOverLine(dist, line);
+  const fair = side === 'under' ? (overProb == null ? null : 1 - overProb) : overProb;
+  return edgePctFromFair(fair, price);
 }
 
 // ════════════ NORMALIZED SIGNAL LEAN LAYER (preferred) ════════════════════════
@@ -765,11 +961,17 @@ function buildSynthesisInput(markets, findLean) {
       if (v.type === 'wins') {
         rows.push({ team: tm, ...teamRef, consensus_line: v.consensus_line, line_spread: v.line_spread,
           over_prob_median: v.over_prob_median,
+          over_fair_prob: v.over_fair_prob, under_fair_prob: v.under_fair_prob,
+          best_over_edge_pct: v.best_over_edge_pct, best_under_edge_pct: v.best_under_edge_pct,
+          line_consensus_confidence: v.line_consensus_confidence,
+          line_value_signal: v.line_value_signal,
+          win_dist: v.win_dist, tails: v.tails, best_edge_over: v.best_edge_over, best_edge_under: v.best_edge_under,
           best_over: v.best_over, best_over_book: v.best_over_book, best_under: v.best_under, best_under_book: v.best_under_book,
           books: v.per_book, lean });
       } else {
         rows.push({ team: tm, ...teamRef, fair_prob: v.fair_prob, fair_american: v.fair_american,
           best_price: v.best_price, best_book: v.best_book, best_prob: v.best_prob,
+          best_observed_at: v.best_observed_at, best_quote_age_hours: v.best_quote_age_hours, best_availability_status: v.best_availability_status,
           value_gap: v.value_gap, book_divergence: v.book_divergence, n_books: v.n_books,
           moves: Object.fromEntries(Object.entries(v.per_book).map(([b, d]) => [b, d.move_prob])),
           lean });
@@ -940,7 +1142,16 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
     signal_counts: { article: pickSignals.length, expert: userPicks.length, podcast_transcripts: podcastRows.length },
     intel_coverage, sos_coverage, signal_coverage,
   };
-  const dossier = { meta, synthesis_input, experts, adjacent_signals, sos: sos.raw, roster_churn: rosterChurnByTeam, injuries: injuriesByTeam, team_profiles, detail: markets };
+  const schedule = games.map((g) => ({
+    game_id: g.game_id,
+    season: g.season,
+    week: g.week,
+    season_type: g.season_type,
+    home: normalizeTeam(g.home_team || g.home_abbrev),
+    away: normalizeTeam(g.away_team || g.away_abbrev),
+    div_game: !!g.div_game,
+  })).filter((g) => g.home && g.away);
+  const dossier = { meta, synthesis_input, experts, adjacent_signals, sos: sos.raw, roster_churn: rosterChurnByTeam, injuries: injuriesByTeam, team_profiles, schedule, detail: markets };
 
   await mkdir(OUT_DIR, { recursive: true });
   const date = new Date().toISOString().slice(0, 10);

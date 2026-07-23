@@ -1,0 +1,21 @@
+{
+  "suite_version": "v0.1",
+  "status": "shadow_partial_heldout",
+  "created": "2026-07-22",
+  "description": "Initial held-out shadow package. Contract, semantic, portfolio, adversarial, and personalization suites have frozen offline cases; forecast/CLV remains unresolved until real closing or settled futures observations exist.",
+  "development_inputs": {
+    "dossier": ".nfl/portfolio/dossier-2026-07-22.json",
+    "simulation": ".nfl/portfolio/sim-2026-07-22.json",
+    "portfolio_corpus_outputs": ".nfl/portfolio/portfolio-2026-07-22-corpus-*.raw.json",
+    "personalization_ledger": "data/futures-imports/andy-portfolio-ledger-2026.json"
+  },
+  "suites": {
+    "contract_ingestion": { "minimum_cases": 50, "current_cases": 50, "file": "contract_ingestion.json" },
+    "forecast_market": { "minimum_observations": 200, "current_observations": 0 },
+    "analyst_semantics": { "minimum_cases": 50, "current_cases": 50, "file": "analyst_semantics.json" },
+    "portfolio_scenarios": { "minimum_cases": 25, "current_cases": 25, "file": "portfolio_scenarios.json" },
+    "adversarial_counterfactual": { "minimum_cases": 25, "current_cases": 25, "file": "adversarial_counterfactual.json" },
+    "personalization": { "minimum_cases": 10, "current_cases": 10, "file": "personalization.json" }
+  },
+  "verdict": "INSUFFICIENT_OUT_OF_SAMPLE_EVIDENCE"
+}

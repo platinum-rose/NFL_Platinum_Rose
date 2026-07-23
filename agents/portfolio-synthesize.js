@@ -33,7 +33,7 @@
 //   node agents/portfolio-synthesize.js --dossier .nfl/portfolio/dossier-<date>.json
 //     [--models claude-opus-4-8,claude-fable-5] [--max-plays 15] [--only opus|fable|gpt]
 //     [--skeptic-model <model>] [--risk-model <model>] [--skip-committee] [--no-persist]
-//     [--primary "Buffalo Bills,Green Bay Packers"]
+//     [--primary "Buffalo Bills,Green Bay Packers"] [--out-suffix scenario-v2]
 //   GPT-4o fallback (funded OpenAI key) — get a portfolio without Anthropic credits:
 //     node agents/portfolio-synthesize.js --models gpt-4o --dossier <path>
 //   Quick single-pass (no Skeptic/Risk calls, original S274 behavior):
@@ -43,27 +43,22 @@
 //      SUPABASE_SERVICE_ROLE_KEY (optional, enables persistence). All from .env.
 //      Models starting gpt-/o1-/o3- route to OpenAI; everything else to Anthropic.
 //
-// HEDGE BASKETS & PARLAY LADDERS (2026-07-22, Andy's own portfolio-construction
-// strategy): beyond single recommendations, the committee also proposes (a)
-// hedge_baskets -- small stakes spread across superbowl_matchup (or other
-// combo-market) longshots on teams DIFFERENT from --primary, as variance
-// insurance, not an edge claim; and (b) parlay_ladders -- same-team sequential
-// stacks (e.g. Over 9.5 wins -> Make Playoffs -> Super Bowl) where each leg's
-// payout can fund the next leg's stake. The model only proposes WHICH legs and
-// WHY; ladderMath()/hedgeBasketMath() (code, relative "units" not dollars, same
-// stake_tier convention as everything else) compute the actual numbers from
-// REAL dossier prices, never the model's own math -- same discipline as
-// validateRecommendation(). v1 scope note: these do NOT go through the
-// Skeptic/Risk stages (those stages' schemas are built around single
-// recommendations) and are NOT persisted to Supabase yet (local .raw.json
-// only) -- both deliberate scope cuts for a first version, not oversights.
+// SCENARIO BOOK / PLAYOFF HEDGE MAP (2026-07-22, Andy's own portfolio-
+// construction strategy): beyond single recommendations, the committee also
+// proposes high-odds playoff scenario structures: anchor positions, coverage
+// baskets around long-odds matchup combinations, same-team ladders where early
+// legs fund later option bets, and playoff hedge plans once real matchups are
+// known. The model only proposes WHICH legs and WHY; ladderMath()/
+// hedgeBasketMath() (code, relative "units" not dollars, same stake_tier
+// convention as everything else) compute numbers from REAL dossier prices,
+// never the model's own math -- same discipline as validateRecommendation().
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import { mkdir, writeFile, readFile } from 'node:fs/promises';
+import { mkdir, writeFile, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { randomUUID } from 'node:crypto';
-import { normalizeTeam } from '../src/lib/teams.js';
+import { NFL_TEAMS, normalizeTeam } from '../src/lib/teams.js';
 import 'dotenv/config';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -76,6 +71,7 @@ const DOSSIER = getArg('--dossier', null);
 const MODELS = getArg('--models', 'claude-opus-4-8,claude-fable-5').split(',').map((s) => s.trim()).filter(Boolean);
 const MAX_PLAYS = parseInt(getArg('--max-plays', '15'), 10);
 const ONLY = getArg('--only', null); // 'opus' | 'fable' — run a single model
+const OUT_SUFFIX = getArg('--out-suffix', '').trim();
 // Analyst committee (2026-07-22 follow-up): stage 1 (Market+Football Analyst,
 // the original A/B call above) -> stage 2 Skeptic -> stage 3 Risk/Editor.
 // --skip-committee falls back to the original single-pass behavior (cheaper/
@@ -85,6 +81,7 @@ const SKIP_COMMITTEE = argv.includes('--skip-committee');
 const NO_PERSIST = argv.includes('--no-persist');
 const SKEPTIC_MODEL = getArg('--skeptic-model', MODELS[0]);
 const RISK_MODEL = getArg('--risk-model', MODELS[0]);
+const LEDGER_PATH = getArg('--ledger', path.join(ROOT, 'data', 'futures-imports', 'andy-portfolio-ledger-2026.json'));
 // 2026-07-22 follow-up (Andy's own portfolio-construction strategy, not a Codex
 // finding): his "primary" positions -- teams/markets he already has core
 // conviction on (e.g. Bills, Packers) -- inform hedge-basket construction
@@ -135,8 +132,10 @@ DISCIPLINE:
 - Cap the CORE book at ~${MAX_PLAYS}, but a longer tail of small longshot/hedge plays is welcome — breadth is fine when the tickets are cheap and convex.
 
 HEDGE BASKETS & PARLAY LADDERS (2026-07-22 addition — beyond single recommendations, propose these two portfolio-construction structures when the dossier supports them; do NOT force either if nothing fits):
-- HEDGE BASKET: if the human's primary positions are given below (a short list of teams they already hold core conviction on), propose a "roulette basket" — several small stakes on superbowl_matchup pairings involving OTHER teams with real deep-run probability (grounded in fair_prob/analytics/sos from their team profiles, not vibes), specifically teams NOT in the primary list. The point is variance insurance if the primary picks miss, not a standalone edge claim — spread coverage across several plausible pairings rather than concentrating. If no primary positions are given, you may still propose a basket around the market's own best-priced deep-run contenders, but say so.
-- PARLAY LADDER: for a SINGLE team with a real, growing thesis across multiple correlated markets in natural resolution order (win-total settles first, then playoffs, then conference, then Super Bowl), propose a sequenced stack where an earlier leg's win could fund a later leg's stake — i.e., name the team and the ordered legs (each an existing market+selection from the dossier), and give ONE thesis for why this specific team supports a multi-stage stack (e.g. real record-vs-analytics divergence, a soft schedule, a personnel upgrade) — not just "would be nice if it worked."
+- HEDGE BASKET / COVERAGE BETS: if the human's primary positions are given below (a short list of teams they already hold core conviction on), propose a "roulette basket" — several small stakes on superbowl_matchup pairings involving OTHER teams with real deep-run probability (grounded in fair_prob/analytics/sos from their team profiles, not vibes), specifically teams NOT in the primary list. The point is variance insurance if the primary picks miss, not a standalone edge claim — spread coverage across several plausible pairings rather than concentrating. If no primary positions are given, you may still propose a basket around the market's own best-priced deep-run contenders, but say so.
+- PARLAY LADDER / LADDER BETS: for a SINGLE team with a real, growing thesis across multiple correlated markets in natural resolution order (win-total settles first, then playoffs, then conference, then Super Bowl), propose a sequenced stack where an earlier leg's win could fund a later leg's stake — i.e., name the team and the ordered legs (each an existing market+selection from the dossier), and give ONE thesis for why this specific team supports a multi-stage stack (e.g. real record-vs-analytics divergence, a soft schedule, a personnel upgrade) — not just "would be nice if it worked."
+- PLAYOFF HEDGE PLAN / POCKET HEDGES: propose a few trigger-based hedge actions that happen LATER, once real playoff matchups are known (e.g. "if Bills reach AFC title game against Ravens, price Ravens ML/conference hedge using reserved ladder profit"). These are NOT current bets and do not need dossier price resolution; they are future decision rules with trigger/action/reserved_bankroll.
+- ROLE TAXONOMY: use the terms anchor_bet (primary conviction), ladder_bet (early leg funds later leg), coverage_bet (covers a playoff path or matchup branch), option_bet (long-odds ticket bought mainly for later hedge value), pocket_hedge (future playoff bet reserved against an existing ticket), dead_cost (unrecovered cost if legs fail), and funded_liability (later stake paid by earlier wins).
 - For BOTH: only cite markets/selections that exist in the dossier (code resolves the real price — you do not need to compute payouts or liability yourself, that's handled after your response).
 
 WEEK-1 CORRELATION & TIMING (important):
@@ -193,19 +192,48 @@ Return STRICT JSON only (no prose, no markdown fences), shape:
     {
       "team": "<the one team this whole stack is about>",
       "thesis": "<=2 sentences on why THIS team supports a multi-stage stack>",
-      "legs": [ { "market": "wins|playoffs|conference_afc|superbowl|...", "selection": "<selection text, ordered earliest-resolving first>" } ]
+      "legs": [ { "market": "wins|playoffs|conference_afc|superbowl|...", "selection": "<selection text, ordered earliest-resolving first>", "role": "funding_leg|option_bet" } ]
     }
   ],
+  "portfolio_strategy": {
+    "strategy_type": "playoff_scenario_book",
+    "anchor_positions": ["<primary/core positions, if any>"],
+    "coverage_positions": ["<long-odds exacta/matchup coverage tickets>"],
+    "ladder_stacks": [
+      {
+        "team": "<team>",
+        "steps": [ { "bet": "<market + selection>", "role": "funding_leg|option_bet" } ],
+        "intent": "<how earlier legs fund or lower liability on later legs>"
+      }
+    ],
+    "playoff_hedge_plan": [
+      {
+        "trigger": "<future playoff condition>",
+        "action": "<what to price or bet once that condition is known>",
+        "reserved_bankroll": "<pocket stake, ladder winnings, or preassigned reserve>"
+      }
+    ]
+  },
   "portfolio_notes": "<=4 sentences on overall construction, correlation clusters, and coverage gaps"
 }`;
 
-function buildUserPrompt(dossier) {
+async function loadLedger() {
+  try {
+    return JSON.parse(await readFile(LEDGER_PATH, 'utf8'));
+  } catch (e) {
+    console.warn(`   ledger unavailable (${LEDGER_PATH}): ${e.message}`);
+    return null;
+  }
+}
+
+function buildUserPrompt(dossier, ledger = null) {
   const m = dossier.meta;
   const sig = m.signal_coverage || {};
   const primaryLine = PRIMARY.length
     ? `YOUR PRIMARY POSITIONS (the human's own core conviction plays — hedge baskets should cover OTHER teams, not these; these are context, not a request to re-recommend them): ${PRIMARY.join(', ')}.\n\n`
     : '';
-  return `${primaryLine}DOSSIER META: season ${m.season}, ${m.snapshot_count} snapshots, books=${(m.books || []).join(',')}, markets=${(m.market_types || []).join(',')}. Intel: ${JSON.stringify(m.intel_coverage)}.
+  const ledgerLine = ledger ? `USER PORTFOLIO LEDGER (authoritative for units, caps, existing tickets, and open-parlay policy; open parlays with eligible_as_required_hedge_resource=false are not guaranteed planning capacity):\n${JSON.stringify(ledger)}\n\n` : '';
+  return `${primaryLine}${ledgerLine}DOSSIER META: season ${m.season}, ${m.snapshot_count} snapshots, books=${(m.books || []).join(',')}, markets=${(m.market_types || []).join(',')}. Intel: ${JSON.stringify(m.intel_coverage)}.
 
 Offseason note: many markets (division, conference, awards, playoffs, matchup) may have limited or single-book coverage until preseason; weight coverage in your confidence. Super Bowl and win-total markets are the most liquid now — win totals especially are where bounce-back / longshot value tends to hide.
 
@@ -223,7 +251,7 @@ ${JSON.stringify(dossier.adjacent_signals || {})}
 ROSTER CHURN (latest week-over-week nflverse roster diff per team — adds/drops/status_changes; a personnel-instability signal, not itself injury-specific):
 ${JSON.stringify(dossier.roster_churn || {})}
 
-Produce the portfolio JSON per the contract. Deliberately MINE for asymmetric value and bounce-back longshots — name why the market is anchored wrong — not just favorites; build hedges where correlation lets you lock value or cut variance; use the Week-1 timing layer where a near-term result is a price catalyst; and propose hedge_baskets/parlay_ladders where the dossier genuinely supports one (do not force either).`;
+Produce the portfolio JSON per the contract. Deliberately MINE for asymmetric value and bounce-back longshots — name why the market is anchored wrong — not just favorites; build hedges where correlation lets you lock value or cut variance; use the Week-1 timing layer where a near-term result is a price catalyst; and propose hedge_baskets/parlay_ladders plus portfolio_strategy where the dossier genuinely supports a playoff scenario book (do not force any structure).`;
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -275,18 +303,26 @@ const RISK_EDITOR_SYSTEM_PROMPT = `You are the RISK/PORTFOLIO ANALYST and final 
 - Set needs_human_review: true for anything resting on thin data, real disagreement between market_view and football_view, a "downgrade" verdict from the Skeptic, or correlation with 2+ other candidates.
 - Set (or revise) stake_tier: core|standard|small|speculative — favorites/value can be core|standard; longshots and anything correlated with a bigger position should be small|speculative.
 - You MAY pass on a candidate for portfolio reasons even if the Skeptic held it — e.g. too correlated with a bigger, better-supported play, or the book/portfolio is already overexposed to that team/division. Put these in "passes" with a reason distinct from the Skeptic's own reasoning.
+- If scenario structures are supplied (hedge baskets, parlay ladders, or portfolio_strategy), evaluate them as a scenario book: maximum dead cost if legs fail, effective cost basis if early ladder legs win, whether matchup/exacta coverage spans enough plausible playoff paths, conference/division/QB-driver concentration, and whether each longshot creates real later hedge optionality rather than just another standalone lottery ticket.
 - Do not add new picks. Only finalize sizing/thresholds or pass on what you were given.
 
-Return STRICT JSON only: { "finalized": [ { "key": "<copied exactly>", "bet_threshold": "<...>", "needs_human_review": <bool>, "stake_tier": "core|standard|small|speculative", "risk_note": "<=1 sentence" } ], "passes": [ { "key": "<copied exactly>", "reason": "<why this doesn't make the final book>" } ], "portfolio_notes": "<=4 sentences on correlation clusters, overall exposure, coverage gaps>" }`;
+Return STRICT JSON only: { "finalized": [ { "key": "<copied exactly>", "bet_threshold": "<...>", "needs_human_review": <bool>, "stake_tier": "core|standard|small|speculative", "risk_note": "<=1 sentence" } ], "passes": [ { "key": "<copied exactly>", "reason": "<why this doesn't make the final book>" } ], "scenario_review": { "max_exposure_note": "<=1 sentence>", "funded_liability_note": "<=1 sentence>", "coverage_note": "<=1 sentence>", "concentration_note": "<=1 sentence>", "hedge_optionality_note": "<=1 sentence>", "needs_human_review": <bool> }, "portfolio_notes": "<=4 sentences on correlation clusters, overall exposure, coverage gaps>" }`;
 
-function buildRiskEditorUserPrompt(candidates) {
+function buildRiskEditorUserPrompt(candidates, scenarioInput = {}) {
   const compact = candidates.map((c) => ({
     key: c.key, market: c.market, selection: c.selection, type: c.type, edge_type: c.edge_type,
     price: c.price, book: c.book, edge_pct: c.edge_pct, confidence: c.confidence, stake_tier: c.stake_tier,
     thesis: c.thesis, disconfirming_factor: c.disconfirming_factor, skeptic_note: c.skeptic_note,
     skeptic_verdict: c.skeptic_verdict, correlated_week1: c.correlated_week1,
   }));
-  return `SURVIVING CANDIDATES (${compact.length}, post-Skeptic) — judge the PORTFOLIO as a whole:\n${JSON.stringify(compact)}\n\nReturn one finalized entry per surviving candidate you keep, plus any you pass on, matched by "key".`;
+  const scenarios = {
+    primary_positions: scenarioInput.primary || [],
+    user_portfolio_ledger: scenarioInput.ledger || null,
+    hedge_baskets: scenarioInput.hedge_baskets || [],
+    parlay_ladders: scenarioInput.parlay_ladders || [],
+    portfolio_strategy: scenarioInput.portfolio_strategy || [],
+  };
+  return `SURVIVING CANDIDATES (${compact.length}, post-Skeptic) — judge the PORTFOLIO as a whole:\n${JSON.stringify(compact)}\n\nSCENARIO STRUCTURES (stage-1 proposals, not yet code-math-validated here — evaluate their portfolio logic, not their arithmetic):\n${JSON.stringify(scenarios)}\n\nReturn one finalized entry per surviving candidate you keep, plus any you pass on, matched by "key", and include scenario_review for the scenario structures.`;
 }
 
 // Flattens the A/B (or single-model) stage-1 results into one candidate list,
@@ -422,6 +458,11 @@ function findDossierRowFor(dossier, market, selection) {
   if (!rows || !rows.length) return null;
   const sel = (selection || '').toLowerCase();
   if (!sel) return null;
+  if (market === 'superbowl_matchup') {
+    const wanted = matchupKeyFromSelection(selection);
+    if (!wanted) return null;
+    return rows.find((r) => matchupKeyFromRow(r) === wanted) || null;
+  }
   let best = null, bestScore = 0;
   for (const r of rows) {
     const team = (r.team || '').toLowerCase();
@@ -435,6 +476,22 @@ function findDossierRowFor(dossier, market, selection) {
 }
 function findDossierRow(dossier, candidate) {
   return findDossierRowFor(dossier, candidate?.market, candidate?.selection);
+}
+
+function matchupKeyFromTeams(a, b) {
+  const teams = [normalizeTeam(a), normalizeTeam(b)].filter(Boolean);
+  return teams.length === 2 ? teams.sort().join('|').toLowerCase() : null;
+}
+
+function matchupKeyFromSelection(selection) {
+  const parts = String(selection || '').split(/\s+(?:vs\.?|v\.?|versus|at|@)\s+/i);
+  if (parts.length < 2) return null;
+  return matchupKeyFromTeams(parts[0], parts.slice(1).join(' '));
+}
+
+function matchupKeyFromRow(row) {
+  if (row?.team_a && row?.team_b) return matchupKeyFromTeams(row.team_a, row.team_b);
+  return matchupKeyFromSelection(row?.team);
 }
 
 // Resolves a candidate's evidence_ids against its matched dossier row. Returns
@@ -480,14 +537,415 @@ function evidenceRowFor(dossier, row) {
 // fields don't support. Hard-invalid candidates are NOT silently dropped from
 // final — they're returned with status 'invalid' so main() can route them to a
 // separate invalidated[] list for the audit trail.
-const PRICE_TOLERANCE = 0.05; // 5% relative tolerance on decimal payout (rounding/snapshot drift)
+function marketFamily(market) {
+  const m = String(market || '').toLowerCase();
+  if (m === 'wins' || m === 'least_wins' || m === 'most_wins') return 'wins';
+  if (m === 'playoffs') return 'playoffs';
+  if (m === 'superbowl' || m === 'superbowl_matchup') return 'superbowl';
+  if (m.startsWith('conference_')) return 'conference';
+  if (m.startsWith('division_')) return 'division';
+  return m || 'other';
+}
+
+function teamAliasesForRow(row) {
+  const vals = [row?.team, row?.team_nick, row?.team_a, row?.team_b].filter(Boolean);
+  const out = new Set();
+  for (const v of vals) {
+    out.add(String(v).toLowerCase());
+    const n = normalizeTeam(v);
+    if (n) out.add(String(n).toLowerCase());
+  }
+  return out;
+}
+
+function signalTeamMatches(signalTeam, aliases) {
+  const raw = String(signalTeam || '').toLowerCase();
+  const norm = normalizeTeam(signalTeam);
+  return aliases.has(raw) || (norm && aliases.has(String(norm).toLowerCase()));
+}
+
+function cleanMarkdownCell(value) {
+  return String(value ?? '')
+    .replace(/\*\*/g, '')
+    .replace(/<sub>.*?<\/sub>/gi, '')
+    .replace(/&amp;/g, '&')
+    .replace(/&mdash;|â€”/g, '-')
+    .trim();
+}
+
+function splitMarkdownRow(line) {
+  return line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map(cleanMarkdownCell);
+}
+
+function parseEpisodeCell(value) {
+  const raw = cleanMarkdownCell(value);
+  const m = raw.match(/^(.*?)\s+\((\d{4}-\d{2}-\d{2})\)$/);
+  return {
+    episode: m ? m[1].trim() : raw,
+    episode_date: m ? m[2] : null,
+    timestamp: null,
+  };
+}
+
+async function findLatestPodcastSummaryPaths() {
+  const docsDir = path.join(ROOT, 'docs');
+  let files = [];
+  try {
+    files = await readdir(docsDir);
+  } catch {
+    return null;
+  }
+  const md = files
+    .filter((f) => /^Futures_Picks_Summary_\d{4}-\d{2}-\d{2}\.md$/i.test(f))
+    .sort()
+    .at(-1);
+  if (!md) return null;
+  const stem = md.replace(/\.md$/i, '');
+  const html = files.includes(`${stem}.html`) ? `${stem}.html` : null;
+  return {
+    md_path: path.join(docsDir, md),
+    html_path: html ? path.join(docsDir, html) : null,
+  };
+}
+
+async function loadPodcastEvidenceIndex() {
+  const paths = await findLatestPodcastSummaryPaths();
+  const narrativeRows = await loadPodcastNarrativeEvidenceRows();
+  if (!paths) return { rows: narrativeRows, summary_url: null, summary_path: null };
+  let text = '';
+  try {
+    text = await readFile(paths.md_path, 'utf8');
+  } catch {
+    return { rows: [], summary_url: null, summary_path: paths.md_path };
+  }
+
+  const summaryPath = paths.html_path || paths.md_path;
+  const summaryUrl = pathToFileURL(summaryPath).href;
+  let narrativeUrls = new Map();
+  try {
+    const narrativeIndex = JSON.parse(await readFile(path.join(ROOT, 'docs', 'podcast-narratives', 'index.json'), 'utf8'));
+    narrativeUrls = new Map((narrativeIndex.episodes || []).map((ep) => [
+      [normalizeSourceText(ep.show), normalizeSourceText(ep.title), ep.pub_date || ''].join('|'),
+      ep.html,
+    ]));
+  } catch {
+    narrativeUrls = new Map();
+  }
+  const rows = [];
+  let show = null;
+  let host = null;
+  let headers = null;
+
+  for (const line of text.split(/\r?\n/)) {
+    const showMatch = line.match(/^##\s+(.+?)\s*$/);
+    if (showMatch && !line.startsWith('###')) {
+      show = cleanMarkdownCell(showMatch[1]);
+      host = null;
+      headers = null;
+      continue;
+    }
+    const hostMatch = line.match(/^###\s+(.+?)\s*(?:<sub>|$)/);
+    if (hostMatch) {
+      host = cleanMarkdownCell(hostMatch[1]);
+      headers = null;
+      continue;
+    }
+    if (!line.trim().startsWith('|')) {
+      headers = null;
+      continue;
+    }
+    const cells = splitMarkdownRow(line);
+    if (cells.every((c) => /^-+$/.test(c))) continue;
+    if (cells.includes('Subject') && cells.includes('Market') && cells.includes('Episode')) {
+      headers = cells;
+      continue;
+    }
+    if (!headers || !show || !host || cells.length < Math.min(headers.length, 6)) continue;
+
+    const row = Object.fromEntries(headers.map((h, i) => [h, cells[i] ?? '']));
+    const episode = parseEpisodeCell(row.Episode);
+    const subject = cleanMarkdownCell(row.Subject);
+    const market = cleanMarkdownCell(row.Market);
+    if (!subject || !market || !episode.episode) continue;
+    rows.push({
+      show,
+      host,
+      subject,
+      subject_team: normalizeTeam(subject) || subject,
+      market,
+      pick: cleanMarkdownCell(row['Pick (reasoning)']),
+      lean: cleanMarkdownCell(row.Lean),
+      conviction: cleanMarkdownCell(row.Conviction),
+      host_price: cleanMarkdownCell(row['Host price']),
+      episode: episode.episode,
+      episode_date: episode.episode_date,
+      timestamp: episode.timestamp,
+      summary_url: narrativeUrls.get([normalizeSourceText(show), normalizeSourceText(episode.episode), episode.episode_date || ''].join('|')) || summaryUrl,
+      summary_path: summaryPath,
+    });
+  }
+
+  return { rows: [...narrativeRows, ...rows], summary_url: summaryUrl, summary_path: summaryPath };
+}
+
+async function loadPodcastNarrativeEvidenceRows() {
+  const indexPath = path.join(ROOT, 'docs', 'podcast-narratives', 'index.json');
+  let index = null;
+  try {
+    index = JSON.parse(await readFile(indexPath, 'utf8'));
+  } catch {
+    return [];
+  }
+  const rows = [];
+  for (const ep of (index.episodes || [])) {
+    if (!ep.markdown) continue;
+    const mdPath = fileURLToPath(ep.markdown);
+    let text = '';
+    try {
+      text = await readFile(mdPath, 'utf8');
+    } catch {
+      continue;
+    }
+    let headers = null;
+    let inTable = false;
+    for (const line of text.split(/\r?\n/)) {
+      if (line.startsWith('## Representative Quotes')) break;
+      if (!line.trim().startsWith('|')) {
+        if (inTable) headers = null;
+        continue;
+      }
+      const cells = splitMarkdownRow(line);
+      if (cells.every((c) => /^-+$/.test(c))) continue;
+      if (cells.includes('Expert') && cells.includes('Market') && cells.includes('Subject')) {
+        headers = cells;
+        inTable = true;
+        continue;
+      }
+      if (!headers || cells.length < headers.length) continue;
+      const row = Object.fromEntries(headers.map((h, i) => [h, cells[i] ?? '']));
+      if (!row.Subject || !row.Market) continue;
+      rows.push({
+        show: ep.show,
+        host: row.Expert,
+        subject: row.Subject,
+        subject_team: normalizeTeam(row.Subject) || row.Subject,
+        market: row.Market,
+        pick: row.Prediction,
+        lean: row.Lean,
+        conviction: row.Conf,
+        host_price: '',
+        episode: ep.title,
+        episode_date: ep.pub_date,
+        timestamp: row.Time && row.Time !== '-' ? row.Time : null,
+        summary_url: ep.html,
+        summary_path: mdPath,
+      });
+    }
+  }
+  return rows;
+}
+
+function normalizeSourceText(value) {
+  return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+}
+
+function evidenceMarketFamily(market) {
+  const m = String(market || '').toLowerCase();
+  if (m.includes('win_total') || m === 'win total') return 'wins';
+  if (m.includes('playoffs')) return 'playoffs';
+  if (m.includes('super_bowl')) return 'superbowl';
+  if (/^(afc|nfc)(?:_|$)/.test(m)) {
+    return /(east|north|south|west)/.test(m) ? 'division' : 'conference';
+  }
+  return marketFamily(market);
+}
+
+function evidenceDirection(row) {
+  const lean = String(row?.lean || '').toLowerCase();
+  const pick = String(row?.pick || '').toLowerCase();
+  if (/\bunder\b|against|fade|miss playoffs|not going to win/.test(`${lean} ${pick}`)) return 'under';
+  if (/\bover\b|favor|back|make playoffs|win the division|win the nfc|win the afc|win the super bowl/.test(`${lean} ${pick}`)) return 'over';
+  return null;
+}
+
+function directionsCompatible(signalDirection, evidenceDir) {
+  const dir = String(signalDirection || '').toLowerCase();
+  if (!evidenceDir) return false;
+  if (dir === evidenceDir) return true;
+  if ((dir === 'back' || dir === 'over') && evidenceDir === 'over') return true;
+  if ((dir === 'fade' || dir === 'under') && evidenceDir === 'under') return true;
+  return false;
+}
+
+function findPodcastEvidence(signal, evidenceIndex) {
+  const rows = evidenceIndex?.rows || [];
+  if (!rows.length || !signal?.team) return null;
+  const signalTeam = normalizeTeam(signal.team) || signal.team;
+  const source = normalizeSourceText(signal.who || signal.why || '');
+  const sigFamily = marketFamily(signal.market);
+  const scored = [];
+
+  for (const row of rows) {
+    const rowTeam = normalizeTeam(row.subject_team || row.subject) || row.subject;
+    if (normalizeTeam(rowTeam) !== normalizeTeam(signalTeam)) continue;
+
+    let score = 4;
+    const rowFamily = evidenceMarketFamily(row.market);
+    if (rowFamily === sigFamily) score += 2;
+    const rowDir = evidenceDirection(row);
+    if (directionsCompatible(signal.direction, rowDir)) score += 2;
+
+    const show = normalizeSourceText(row.show);
+    const host = normalizeSourceText(row.host);
+    const episode = normalizeSourceText(row.episode);
+    let sourceScore = 0;
+    if (source && (source === show || source === host || source === episode || episode.includes(source) || source.includes(episode))) sourceScore = 4;
+    else if (source && show && source.includes(show)) sourceScore = 2;
+    if (!sourceScore) continue;
+    score += sourceScore;
+
+    const why = normalizeSourceText(signal.why);
+    const pick = normalizeSourceText(row.pick);
+    if (why && pick && (why.includes(pick) || pick.includes(why))) score += 1;
+    if (row.timestamp) score += 1;
+    if (score >= 7) scored.push({ row, score });
+  }
+
+  scored.sort((a, b) => b.score - a.score || String(a.row.host).localeCompare(String(b.row.host)));
+  return scored[0]?.row || null;
+}
+
+function signalAlignment(recMarket, recSide, sigMarket, sigDirection) {
+  const recFamily = marketFamily(recMarket);
+  const sigFamily = marketFamily(sigMarket);
+  const dir = String(sigDirection || '').toLowerCase();
+  const positive = dir === 'back' || dir === 'over';
+  const negative = dir === 'fade' || dir === 'under';
+
+  if (recFamily === 'wins') {
+    if (recSide === 'over') {
+      if (dir === 'over' || (positive && sigFamily !== 'wins')) return 'aligned';
+      if (dir === 'under' || dir === 'fade') return 'opposing';
+    }
+    if (recSide === 'under') {
+      if (dir === 'under' || dir === 'fade') return 'aligned';
+      if (dir === 'over' || dir === 'back') return 'opposing';
+    }
+  }
+
+  if (['playoffs', 'conference', 'division', 'superbowl'].includes(recFamily)) {
+    if (positive && ['playoffs', 'conference', 'division', 'superbowl', 'wins'].includes(sigFamily)) return 'aligned';
+    if (negative && ['playoffs', 'conference', 'division', 'superbowl', 'wins'].includes(sigFamily)) return 'opposing';
+  }
+
+  if (positive) return 'related';
+  if (negative) return 'opposing';
+  return 'related';
+}
+
+function collectDossierSignals(candidate, dossier, row, podcastEvidence) {
+  if (!row) return [];
+  const aliases = teamAliasesForRow(row);
+  const recSide = row.consensus_line != null ? sideOfSelection(candidate.selection) : null;
+  const out = [];
+  const seen = new Set();
+  const add = (signal) => {
+    if (!signal?.who || !signalTeamMatches(signal.team || row.team_nick || row.team, aliases)) return;
+    const item = {
+      who: signal.who,
+      team: signal.team || row.team_nick || row.team,
+      market: signal.market || row.market || candidate.market,
+      direction: signal.direction || signal.dir,
+      strength: signal.strength,
+      why: signal.why,
+      source_type: signal.source_type,
+    };
+    item.alignment = signalAlignment(candidate.market, recSide, item.market, item.direction);
+    const podcastRow = findPodcastEvidence(item, podcastEvidence);
+    if (podcastRow) {
+      item.podcast_evidence = {
+        show: podcastRow.show,
+        host: podcastRow.host,
+        episode: podcastRow.episode,
+        episode_date: podcastRow.episode_date,
+        timestamp: podcastRow.timestamp,
+        pick: podcastRow.pick,
+        lean: podcastRow.lean,
+        conviction: podcastRow.conviction,
+        host_price: podcastRow.host_price,
+        summary_url: podcastRow.summary_url,
+      };
+    }
+    const key = [item.alignment, item.who, item.team, item.market, item.direction, item.strength, item.why].join('|').toLowerCase();
+    if (!seen.has(key)) {
+      seen.add(key);
+      out.push(item);
+    }
+  };
+
+  for (const sample of (row.lean?.samples || [])) {
+    add({ ...sample, team: row.team_nick || row.team, market: candidate.market, direction: sample.dir, source_type: 'market-row lean sample' });
+  }
+  for (const [who, picks] of Object.entries(dossier?.experts || {})) {
+    for (const pick of (picks || [])) add({ ...pick, who, source_type: 'normalized experts map' });
+  }
+
+  const order = { aligned: 0, opposing: 1, related: 2 };
+  return out
+    .sort((a, b) => (order[a.alignment] ?? 9) - (order[b.alignment] ?? 9) || (b.strength ?? 0) - (a.strength ?? 0) || String(a.who).localeCompare(String(b.who)))
+    .filter((s, i, arr) => {
+      const beforeSameBucket = arr.slice(0, i).filter((x) => x.alignment === s.alignment).length;
+      return s.alignment === 'aligned' ? beforeSameBucket < 5 : beforeSameBucket < 3;
+    });
+}
+
+const PRICE_TOLERANCE = 0; // exact line/book/price identity for futures recommendations
 const MATH_EDGE_MIN_PCT = 1;  // below this, dossier fields don't really support a "math" edge_type
+const MAX_QUOTE_AGE_HOURS = Number(process.env.FUTURES_MAX_QUOTE_AGE_HOURS || 72);
 
 function sideOfSelection(selection) {
   const s = (selection || '').toLowerCase();
   if (/\bunder\b/.test(s)) return 'under';
   if (/\bover\b/.test(s)) return 'over';
   return null;
+}
+function lineOfSelection(selection) {
+  const m = String(selection || '').match(/\b(?:over|under)\s+(\d+(?:\.\d+)?)\b/i);
+  return m ? Number(m[1]) : null;
+}
+function deterministicFairFor(row, side) {
+  if (!row) return null;
+  if (row.consensus_line != null) {
+    if (side === 'under' && row.sim_win_total?.under_prob != null) return row.sim_win_total.under_prob;
+    if (side === 'over' && row.sim_win_total?.over_prob != null) return row.sim_win_total.over_prob;
+    if (side === 'under') return row.under_fair_prob ?? null;
+    if (side === 'over') return row.over_fair_prob ?? null;
+    return null;
+  }
+  if (row.sim?.prob != null) return row.sim.prob;
+  return row.fair_prob ?? null;
+}
+function deterministicFairLowerFor(row, side) {
+  if (!row) return null;
+  if (row.consensus_line != null) {
+    if (side === 'under') return row.sim_win_total?.under_ci90?.lower ?? null;
+    if (side === 'over') return row.sim_win_total?.over_ci90?.lower ?? null;
+    return null;
+  }
+  return row.sim?.prob_ci90?.lower ?? null;
+}
+function isStandaloneRecommendation(candidate) {
+  const tag = `${candidate?.edge_type || ''} ${candidate?.type || ''}`.toLowerCase();
+  return !/\bhedge\b/.test(tag);
+}
+function quoteStatusFor(row, book) {
+  if (!row || !book) return null;
+  if (row.consensus_line != null) return row.books?.[book] || row.books?.[String(book).toLowerCase()] || null;
+  return {
+    observed_at: row.best_observed_at,
+    quote_age_hours: row.best_quote_age_hours,
+    availability_status: row.best_availability_status,
+  };
 }
 
 function validateRecommendation(candidate, dossier) {
@@ -523,6 +981,7 @@ function validateRecommendation(candidate, dossier) {
 
   // recompute edge_pct — code owns the math, never the model's self-reported figure
   const next = { ...candidate };
+  next.display_team = row.team_nick || row.team || row.team_a || normalizeTeam(candidate.selection) || candidate.selection;
   if (candidate.model_fair_prob != null && candidate.price != null) {
     const recomputed = edgePctFromFair(candidate.model_fair_prob, candidate.price);
     if (recomputed != null) {
@@ -570,6 +1029,100 @@ function validateRecommendation(candidate, dossier) {
 // model's own arithmetic. All stakes are relative "units" (default 1/leg) —
 // matching the existing stake_tier convention (never real dollars); Andy
 // scales to his own bankroll. ───────────────────────────────────────────────
+function validateRecommendationStrict(candidate, dossier, podcastEvidence) {
+  const notes = [];
+  const row = findDossierRow(dossier, candidate);
+  if (!row) {
+    return { status: 'invalid', candidate, reason: `No dossier row found for market="${candidate.market}" selection="${candidate.selection}" - cannot verify this pick against real data.` };
+  }
+
+  const isWinsRow = row.consensus_line != null;
+  const side = isWinsRow ? sideOfSelection(candidate.selection) : null;
+  let expectedBook = null, expectedPrice = null;
+  if (isWinsRow) {
+    if (side === 'under') { expectedBook = row.best_under_book; expectedPrice = row.best_under; }
+    else if (side === 'over') { expectedBook = row.best_over_book; expectedPrice = row.best_over; }
+    else notes.push('could not determine over/under side from selection text - book/price not checked against a specific side.');
+
+    const citedLine = lineOfSelection(candidate.selection);
+    const expectedLine = expectedBook ? row.books?.[expectedBook]?.line : null;
+    if (citedLine != null && expectedLine != null && citedLine !== expectedLine) {
+      return { status: 'invalid', candidate, reason: `Cited win-total line ${citedLine} does not match ${expectedBook}'s dossier line ${expectedLine} for ${candidate.selection}.` };
+    }
+  } else {
+    expectedBook = row.best_book; expectedPrice = row.best_price;
+  }
+
+  if (expectedBook && candidate.book && candidate.book.toLowerCase() !== expectedBook.toLowerCase()) {
+    return { status: 'invalid', candidate, reason: `Cited book "${candidate.book}" does not match the dossier's placeable best-price book "${expectedBook}" for ${candidate.selection} (${candidate.market}).` };
+  }
+
+  if (expectedPrice != null && candidate.price != null) {
+    const dp1 = decimalPayout(candidate.price), dp2 = decimalPayout(expectedPrice);
+    if (dp1 != null && dp2 != null && Math.abs(dp1 - dp2) / dp2 > PRICE_TOLERANCE) {
+      return { status: 'invalid', candidate, reason: `Cited price ${candidate.price} does not exactly match the dossier's price ${expectedPrice} at ${expectedBook} for ${candidate.selection} - likely stale or fabricated.` };
+    }
+  }
+
+  const q = quoteStatusFor(row, expectedBook);
+  if (q?.availability_status === 'stale' || (q?.quote_age_hours != null && q.quote_age_hours > MAX_QUOTE_AGE_HOURS)) {
+    return { status: 'invalid', candidate, reason: `Best quote at ${expectedBook} is stale (${q.quote_age_hours}h old, observed_at=${q.observed_at || 'missing'}).` };
+  }
+
+  const next = { ...candidate };
+  if (candidate.model_fair_prob != null && candidate.price != null) {
+    const recomputed = edgePctFromFair(candidate.model_fair_prob, candidate.price);
+    if (recomputed != null) {
+      if (candidate.edge_pct != null && Math.abs(recomputed - candidate.edge_pct) > 2) {
+        notes.push(`edge_pct recomputed from model_fair_prob/price: ${recomputed}% (model reported ${candidate.edge_pct}%) - using code-verified figure.`);
+      }
+      next.edge_pct = recomputed;
+    }
+  }
+
+  let needsReview = !!candidate.needs_human_review;
+  const codeFair = deterministicFairFor(row, side);
+  if (codeFair != null && expectedPrice != null) {
+    const codeEdge = edgePctFromFair(codeFair, expectedPrice);
+    const codeFairLower = deterministicFairLowerFor(row, side);
+    const codeEdgeLower = codeFairLower == null ? null : edgePctFromFair(codeFairLower, expectedPrice);
+    next.code_fair_prob = codeFair;
+    next.code_edge_pct = codeEdge;
+    if (codeFairLower != null) {
+      next.code_fair_prob_ci90 = { lower: codeFairLower, upper: row.consensus_line != null
+        ? (side === 'under' ? row.sim_win_total?.under_ci90?.upper : row.sim_win_total?.over_ci90?.upper)
+        : row.sim?.prob_ci90?.upper };
+      next.edge_lower_bound_pct = codeEdgeLower;
+    }
+    if (isStandaloneRecommendation(candidate) && codeEdge != null && codeEdge <= 0) {
+      return { status: 'invalid', candidate: next, reason: `Standalone recommendation is non-positive EV under code-owned fair probability (${codeEdge}%).` };
+    }
+    if (isStandaloneRecommendation(candidate) && codeEdgeLower != null && codeEdgeLower <= 0) {
+      return { status: 'invalid', candidate: next, reason: `Standalone recommendation lower-bound edge is non-positive under code-owned uncertainty (${codeEdgeLower}%).` };
+    }
+    if (candidate.edge_type === 'math' && codeEdge != null && codeEdge < MATH_EDGE_MIN_PCT) {
+      notes.push(`edge_type downgraded math->thesis: code-owned edge is ${codeEdge}%, below the ${MATH_EDGE_MIN_PCT}% math-edge floor.`);
+      next.edge_type = 'thesis';
+      needsReview = true;
+    }
+  } else if (isStandaloneRecommendation(candidate)) {
+    notes.push('code-owned fair probability unavailable for this market; final standalone recommendation needs human review.');
+    needsReview = true;
+  }
+
+  const evidenceResolved = resolveEvidenceIds(candidate.evidence_ids, evidenceRowFor(dossier, row));
+  next.evidence_resolved = evidenceResolved;
+  next.dossier_signals = collectDossierSignals(candidate, dossier, row, podcastEvidence);
+  if (candidate.evidence_ids?.length && !evidenceResolved.some((e) => e.resolved)) {
+    notes.push('none of the cited evidence_ids resolved against the matched dossier row - citations may be fabricated or mis-keyed.');
+    needsReview = true;
+  }
+
+  next.needs_human_review = needsReview;
+  if (notes.length) next.validation_notes = notes;
+  return { status: notes.length ? 'flagged' : 'ok', candidate: next };
+}
+
 function legPayout(price, stake = 1) {
   const dp = decimalPayout(price);
   return dp == null ? null : round(stake * dp, 4); // total return (stake + profit) if the leg hits
@@ -620,13 +1173,26 @@ function resolveLegAgainstDossier(leg, dossier) {
     else if (side === 'over') { book = row.best_over_book; price = row.best_over; }
   } else { book = row.best_book; price = row.best_price; }
   if (price == null) return { ok: false, reason: `Dossier has no placeable price for ${leg.selection} (${leg.market}).` };
-  return { ok: true, market: leg.market, selection: leg.selection, price, book };
+  return {
+    ok: true,
+    market: leg.market,
+    selection: leg.selection,
+    price,
+    book,
+    code_prob: deterministicFairFor(row, side),
+    code_prob_ci90: deterministicFairLowerFor(row, side) == null ? null : {
+      lower: deterministicFairLowerFor(row, side),
+      upper: isWinsRow
+        ? (side === 'under' ? row.sim_win_total?.under_ci90?.upper : row.sim_win_total?.over_ci90?.upper)
+        : row.sim?.prob_ci90?.upper,
+    },
+  };
 }
 function validateParlayLadder(ladder, dossier) {
   const resolved = [], notes = [];
   for (const leg of (ladder?.legs || [])) {
     const r = resolveLegAgainstDossier(leg, dossier);
-    if (r.ok) resolved.push(r); else notes.push(r.reason);
+    if (r.ok) resolved.push({ ...r, role: leg.role || null }); else notes.push(r.reason);
   }
   if (!resolved.length) return { status: 'invalid', reason: `No legs resolved against the dossier for team="${ladder?.team}": ${notes.join(' ')}` };
   const math = ladderMath(resolved);
@@ -637,12 +1203,262 @@ function validateHedgeBasket(basket, dossier) {
   const resolved = [], notes = [];
   for (const leg of (basket?.legs || [])) {
     const r = resolveLegAgainstDossier(leg, dossier);
-    if (r.ok) resolved.push(r); else notes.push(r.reason);
+    if (r.ok) resolved.push({ ...r, role: leg.role || null }); else notes.push(r.reason);
   }
   if (!resolved.length) return { status: 'invalid', reason: `No legs resolved against the dossier: ${notes.join(' ')}` };
   const math = hedgeBasketMath(resolved);
   return { status: notes.length ? 'flagged' : 'ok',
     basket: { primary_hedged_against: basket.primary_hedged_against || [], thesis: basket.thesis, proposed_by: basket.proposed_by, ...math, unresolved_legs: notes } };
+}
+
+function sumNumbers(xs) {
+  return round(xs.reduce((acc, x) => acc + (Number.isFinite(Number(x)) ? Number(x) : 0), 0), 4);
+}
+function legLabel(leg) {
+  return `${leg.selection || '?'} (${leg.market || '?'})`;
+}
+function matchupTeams(selection) {
+  const parts = String(selection || '').split(/\s+(?:vs\.?|v\.?)\s+/i).map((x) => normalizeTeam(x)).filter(Boolean);
+  return parts.length === 2 ? parts : [];
+}
+function classifyExactaRole(leg, primary = []) {
+  if (leg.market !== 'superbowl_matchup') return null;
+  const teams = matchupTeams(leg.selection);
+  if (teams.length !== 2) return 'unknown_exacta_role';
+  const anchors = new Set((primary || []).map((x) => normalizeTeam(x)).filter(Boolean));
+  const nAnchors = teams.filter((t) => anchors.has(t)).length;
+  if (nAnchors === 2) return 'anchor_correlation_amplifier';
+  if (nAnchors === 1) return 'opponent_coverage';
+  return 'anchor_failure_coverage';
+}
+function basketTerminalPayoff(basket) {
+  const legs = basket.legs || [];
+  const totalStake = basket.total_stake ?? sumNumbers(legs.map((l) => l.stake));
+  const scenarios = legs.map((leg) => ({
+    scenario: leg.bet,
+    prob: leg.code_prob ?? null,
+    prob_ci90: leg.code_prob_ci90 ?? null,
+    net_units_if_hits: leg.payout_if_hit == null ? null : round(leg.payout_if_hit - totalStake, 4),
+    exacta_role: leg.exacta_role || null,
+  }));
+  const knownProb = scenarios.every((s) => s.prob != null);
+  return {
+    assumption: 'Basket legs are scored as mutually exclusive terminal winners; unresolved joint paths stay out of expected value.',
+    total_stake_units: totalStake,
+    expected_net_units: knownProb ? round(scenarios.reduce((sum, s, i) => sum + Number(s.prob) * Number(legs[i].payout_if_hit || 0), 0) - totalStake, 4) : null,
+    no_leg_hits_net_units: round(-totalStake, 4),
+    scenarios,
+  };
+}
+function collectRawPlayoffHedgePlans(rawStrategies) {
+  const plans = [];
+  for (const strategy of rawStrategies || []) {
+    for (const plan of (strategy.playoff_hedge_plan || [])) {
+      plans.push({
+        trigger: plan.trigger || null,
+        action: plan.action || null,
+        reserved_bankroll: plan.reserved_bankroll || null,
+        proposed_by: strategy.proposed_by || null,
+      });
+    }
+  }
+  return plans;
+}
+function rawStrategyLabel(x) {
+  if (!x) return null;
+  if (typeof x === 'string') return x;
+  return x.team || x.selection || x.bet || x.position || x.market || null;
+}
+function collectRawLabels(rawStrategies, key) {
+  const labels = [];
+  for (const strategy of rawStrategies || []) {
+    const xs = strategy[key];
+    if (!Array.isArray(xs)) continue;
+    for (const x of xs) {
+      const label = rawStrategyLabel(x);
+      if (label) labels.push(label);
+    }
+  }
+  return [...new Set(labels)];
+}
+function defaultPlayoffHedgePlans(primary, baskets, ladders) {
+  const plans = [];
+  if (primary?.length) {
+    plans.push({
+      trigger: 'Any anchor position reaches a conference championship or the Super Bowl matchup is set.',
+      action: 'Price the live opponent hedge and compare guaranteed profit versus holding the anchor ticket.',
+      reserved_bankroll: 'Use a preassigned pocket-hedge reserve plus realized ladder profits, if available.',
+      proposed_by: 'code_default',
+    });
+  }
+  if (baskets?.length) {
+    plans.push({
+      trigger: 'A coverage/exacta basket leg becomes live deep in the playoffs.',
+      action: 'Price the opposite side or opponent moneyline before kickoff; hedge only if it improves minimum portfolio outcome.',
+      reserved_bankroll: 'Use the basket as option value; do not add hedge stake unless the live path creates real lock-in value.',
+      proposed_by: 'code_default',
+    });
+  }
+  if (ladders?.length) {
+    plans.push({
+      trigger: 'A ladder funding leg wins before the next futures leg is placed or hedged.',
+      action: 'Allocate realized profit toward the next option bet or keep it as playoff pocket-hedge bankroll.',
+      reserved_bankroll: 'Earlier ladder profits first; avoid increasing dead cost if the funding leg misses.',
+      proposed_by: 'code_default',
+    });
+  }
+  return plans;
+}
+function ladderScenario(ladder) {
+  const legs = ladder.legs || [];
+  const steps = legs.map((leg, i) => ({
+    bet: legLabel(leg),
+    role: leg.role || (i < legs.length - 1 ? 'funding_leg' : 'option_bet'),
+    market: leg.market,
+    selection: leg.selection,
+    price: leg.price,
+    book: leg.book,
+    full_stake: leg.full_stake,
+    net_stake_after_prior_wins: leg.net_stake_after_prior_wins,
+    funded_by_prior_wins: leg.funded_by_prior_wins,
+    profit_at_full_stake: leg.profit_at_full_stake,
+  }));
+  return {
+    team: ladder.team || null,
+    role: 'ladder_bet',
+    thesis: ladder.thesis || null,
+    proposed_by: ladder.proposed_by || null,
+    steps,
+    intent: 'Earlier funding legs can reduce or eliminate the cash cost of later option bets if the team thesis keeps playing out.',
+    dead_cost: {
+      if_all_legs_prepositioned: ladder.total_full_exposure ?? null,
+      if_strict_sequence: steps[0]?.full_stake ?? null,
+    },
+    funded_liability: {
+      by_prior_wins: sumNumbers(steps.map((s) => s.funded_by_prior_wins)),
+      final_banked_profit_if_all_hit: ladder.final_banked_profit_if_all_hit ?? null,
+    },
+    unresolved_legs: ladder.unresolved_legs || [],
+  };
+}
+function basketScenario(basket, primary = []) {
+  const legs = (basket.legs || []).map((leg) => ({
+    bet: legLabel(leg),
+    role: leg.role || 'option_bet',
+    market: leg.market,
+    selection: leg.selection,
+    price: leg.price,
+    book: leg.book,
+    stake: leg.stake,
+    payout_if_hit: leg.payout_if_hit,
+    profit_if_hit: leg.profit_if_hit,
+    code_prob: leg.code_prob ?? null,
+    code_prob_ci90: leg.code_prob_ci90 ?? null,
+    exacta_role: classifyExactaRole(leg, primary),
+  }));
+  const scenario = {
+    role: 'coverage_bet',
+    primary_hedged_against: basket.primary_hedged_against || [],
+    thesis: basket.thesis || null,
+    proposed_by: basket.proposed_by || null,
+    legs,
+    dead_cost: { if_all_legs_fail: basket.total_stake ?? null },
+    funded_liability: { if_one_leg_hits: 'See each leg payout_if_hit/profit_if_hit.' },
+    unresolved_legs: basket.unresolved_legs || [],
+  };
+  scenario.terminal_payoff_table = basketTerminalPayoff(scenario);
+  return scenario;
+}
+function coverageKey(selection) {
+  return String(selection || '')
+    .replace(/\s+\([^)]*\)\s*$/, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+function addCoveragePosition(out, seen, pos) {
+  const key = coverageKey(pos.selection);
+  if (!key) return;
+  const prior = seen.get(key);
+  if (prior) {
+    const merged = [...new Set([...(prior.primary_hedged_against || []), ...(pos.primary_hedged_against || [])])];
+    prior.primary_hedged_against = merged;
+    return;
+  }
+  seen.set(key, pos);
+  out.push(pos);
+}
+function buildPortfolioStrategy({ primary, baskets, ladders, rawStrategies, scenarioReview, invalidStacks }) {
+  const ladderStacks = (ladders || []).map(ladderScenario);
+  const coverageBaskets = (baskets || []).map((b) => basketScenario(b, primary));
+  const rawAnchors = collectRawLabels(rawStrategies, 'anchor_positions');
+  const rawCoverage = collectRawLabels(rawStrategies, 'coverage_positions');
+  const anchorNames = [...new Set([...(primary || []), ...rawAnchors])];
+  const rawPlans = collectRawPlayoffHedgePlans(rawStrategies);
+  const playoffHedgePlan = rawPlans.length ? rawPlans : defaultPlayoffHedgePlans(primary, baskets, ladders);
+  const basketStake = sumNumbers((baskets || []).map((b) => b.total_stake));
+  const ladderFullExposure = sumNumbers((ladders || []).map((l) => l.total_full_exposure));
+  const ladderStrictExposure = sumNumbers((ladders || []).map((l) => l.legs?.[0]?.full_stake));
+  const fundedLiability = sumNumbers(ladderStacks.flatMap((l) => (l.steps || []).map((s) => s.funded_by_prior_wins)));
+  const coveragePositions = [];
+  const seenCoverage = new Map();
+  const unresolvedRawCoverage = [];
+  for (const basket of coverageBaskets) {
+    for (const leg of basket.legs) {
+      addCoveragePosition(coveragePositions, seenCoverage, {
+        selection: leg.bet,
+        role: leg.exacta_role || 'coverage_bet',
+        primary_hedged_against: basket.primary_hedged_against,
+      });
+    }
+  }
+  for (const selection of rawCoverage) {
+    if (seenCoverage.has(coverageKey(selection))) {
+      addCoveragePosition(coveragePositions, seenCoverage, { selection, role: 'coverage_bet', primary_hedged_against: [] });
+    } else {
+      unresolvedRawCoverage.push({
+        selection,
+        role: 'coverage_bet',
+        reason: 'Model proposed this in portfolio_strategy.coverage_positions, but no validated hedge-basket leg resolved it against the dossier.',
+      });
+    }
+  }
+  return {
+    strategy_type: 'playoff_scenario_book',
+    status: (anchorNames.length || baskets?.length || ladders?.length || playoffHedgePlan.length) ? 'active' : 'not_proposed',
+    anchor_positions: anchorNames.map((team) => ({
+      team,
+      role: 'anchor_bet',
+      note: (primary || []).includes(team) ? 'Human-provided core conviction position.' : 'Model-proposed scenario-book anchor.',
+    })),
+    coverage_positions: coveragePositions,
+    unresolved_raw_coverage_positions: unresolvedRawCoverage,
+    ladder_stacks: ladderStacks,
+    coverage_baskets: coverageBaskets,
+    playoff_hedge_plan: playoffHedgePlan,
+    exposure_summary: {
+      basket_total_stake: basketStake,
+      ladder_full_exposure: ladderFullExposure,
+      max_dead_cost_if_all_prepositioned: round(basketStake + ladderFullExposure, 4),
+      max_dead_cost_if_strict_ladders: round(basketStake + ladderStrictExposure, 4),
+      funded_liability_if_ladders_hit: fundedLiability,
+      invalidated_structure_count: (invalidStacks || []).length,
+    },
+    role_taxonomy: {
+      anchor_bet: 'Primary conviction position.',
+      ladder_bet: 'Early leg intended to fund or reduce liability on later legs.',
+      coverage_bet: 'High-odds ticket covering a playoff path or matchup branch.',
+      anchor_correlation_amplifier: 'Exacta containing both anchor teams; it amplifies the same core thesis rather than hedging it.',
+      opponent_coverage: 'Exacta containing exactly one anchor team; it diversifies that anchor path across possible opponents.',
+      anchor_failure_coverage: 'Exacta containing no anchor teams; it is the closest matchup-ticket form of anchor-miss coverage.',
+      option_bet: 'Long-odds ticket bought mainly for later hedge value.',
+      pocket_hedge: 'Future playoff bet reserved against an existing ticket.',
+      dead_cost: 'Unrecovered cost if the structure fails.',
+      funded_liability: 'Later stake effectively paid by earlier wins.',
+    },
+    risk_review: scenarioReview || null,
+    raw_strategy_count: (rawStrategies || []).length,
+  };
 }
 
 // ── Stage 2 (Skeptic) merge ────────────────────────────────────────────────────
@@ -692,49 +1508,343 @@ function applyRiskEditor(candidates, riskOutput) {
 }
 
 // ── Ranking (code-owned, deterministic — Codex's own principle: the model
-// proposes, code ranks/audits) — groups the final survivors into six views.
-// A candidate CAN appear in more than one bucket (e.g. a longshot that's also
-// a stale-price story); this mirrors "rank into views," not "partition."
+// proposes, code ranks/audits). These are now tags for a single card, not
+// repeated page sections; the report renders one recommendation once.
 function rankByAxis(final) {
   const byEdgeType = (t) => final.filter((c) => c.edge_type === t);
   const mathEdge = byEdgeType('math').length ? byEdgeType('math') : [...final];
-  mathEdge.sort((a, b) => Math.abs(b.edge_pct || 0) - Math.abs(a.edge_pct || 0));
+  mathEdge.sort((a, b) => (b.edge_lower_bound_pct ?? b.code_edge_pct ?? b.edge_pct ?? -Infinity) - (a.edge_lower_bound_pct ?? a.code_edge_pct ?? a.edge_pct ?? -Infinity));
 
   const thesisEdge = byEdgeType('thesis');
   thesisEdge.sort((a, b) => (b.confidence || 0) - (a.confidence || 0));
 
   const stalePriceEdge = byEdgeType('stale_price');
-  stalePriceEdge.sort((a, b) => Math.abs(b.edge_pct || 0) - Math.abs(a.edge_pct || 0));
+  stalePriceEdge.sort((a, b) => (b.edge_lower_bound_pct ?? b.code_edge_pct ?? b.edge_pct ?? -Infinity) - (a.edge_lower_bound_pct ?? a.code_edge_pct ?? a.edge_pct ?? -Infinity));
 
   const lowCorrelationAdds = final
     .filter((c) => !(c.correlated_week1 && c.correlated_week1.length) && c.stake_tier !== 'speculative')
     .sort((a, b) => (b.confidence || 0) - (a.confidence || 0));
 
+  const isTrueLongshot = (c) => c.type === 'longshot' || c.edge_type === 'longshot' || Number(c.price) >= 500;
   const longshots = final
-    .filter((c) => c.stake_tier === 'speculative' || c.type === 'longshot' || c.edge_type === 'longshot')
-    .sort((a, b) => Math.abs(b.edge_pct || 0) - Math.abs(a.edge_pct || 0));
+    .filter(isTrueLongshot)
+    .sort((a, b) => (b.edge_lower_bound_pct ?? b.code_edge_pct ?? b.edge_pct ?? -Infinity) - (a.edge_lower_bound_pct ?? a.code_edge_pct ?? a.edge_pct ?? -Infinity));
 
-  return {
+  const ranked = {
+    all: final,
     math_edge: mathEdge.slice(0, MAX_PLAYS),
     thesis_edge: thesisEdge,
     stale_price_edge: stalePriceEdge,
     low_correlation_adds: lowCorrelationAdds,
     longshots,
   };
+  const categoryDefs = [
+    ['math_edge', 'Strongest Math'],
+    ['thesis_edge', 'Strongest Thesis'],
+    ['stale_price_edge', 'Stale Price'],
+    ['low_correlation_adds', 'Low Correlation'],
+    ['longshots', 'Longshot'],
+  ];
+  for (const rec of final) {
+    const tags = [];
+    for (const [key, label] of categoryDefs) {
+      if ((ranked[key] || []).some((x) => x.key === rec.key)) tags.push(label);
+    }
+    rec.report_tags = tags;
+  }
+  return ranked;
 }
 
 // ── render ───────────────────────────────────────────────────────────────────
 const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+const attr = (s) => esc(s).replace(/"/g, '&quot;');
+function labelMarket(market) {
+  const m = String(market || '').toLowerCase();
+  if (m === 'playoffs') return 'Make the Playoffs';
+  if (m === 'wins') return 'Win Total';
+  if (m === 'superbowl') return 'Win Super Bowl';
+  if (m === 'superbowl_matchup') return 'Super Bowl Matchup';
+  if (m === 'conference_afc') return 'Win AFC';
+  if (m === 'conference_nfc') return 'Win NFC';
+  if (m === 'division_exact_position') return 'Division Finish';
+  if (m.startsWith('division_')) return 'Win Division';
+  return String(market || 'Market').replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+}
+function humanizeMarketRefs(text) {
+  return String(text || '')
+    .replace(/\(superbowl_matchup\)/g, '(Super Bowl Matchup)')
+    .replace(/\(conference_afc\)/g, '(Win AFC)')
+    .replace(/\(conference_nfc\)/g, '(Win NFC)')
+    .replace(/\(superbowl\)/g, '(Win Super Bowl)')
+    .replace(/\(playoffs\)/g, '(Make the Playoffs)')
+    .replace(/\(wins\)/g, '(Win Total)')
+    .replace(/\bsuperbowl_matchup\b/g, 'Super Bowl Matchup')
+    .replace(/\bconference_afc\b/g, 'Win AFC')
+    .replace(/\bconference_nfc\b/g, 'Win NFC');
+}
+function labelType(type) {
+  const t = String(type || '').toLowerCase();
+  if (t === 'favorite') return 'Favorite Price';
+  if (t === 'longshot') return 'Longshot';
+  if (t === 'value') return 'Value Price';
+  if (t === 'hedge') return 'Hedge / Coverage';
+  return String(type || 'Pick Type').replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+}
+function labelEdgeType(edgeType) {
+  const e = String(edgeType || '').toLowerCase();
+  if (e === 'thesis') return 'Thesis Edge';
+  if (e === 'math') return 'Math Edge';
+  if (e === 'stale_price') return 'Stale Price';
+  if (e === 'longshot') return 'Longshot Edge';
+  return String(edgeType || 'Edge Type').replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+}
+function labelStakeTier(tier) {
+  const t = String(tier || '').toLowerCase();
+  if (t === 'core') return 'Core Stake';
+  if (t === 'standard') return 'Standard Stake';
+  if (t === 'small') return 'Small Stake';
+  if (t === 'speculative') return 'Small / Speculative';
+  return String(tier || 'Stake Tier').replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+}
+function labelRole(role) {
+  return String(role || '')
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+}
+function percent(n) {
+  if (n == null || Number.isNaN(Number(n))) return null;
+  return `${round(Number(n) * 100, 1)}%`;
+}
+function badge(cls, text, help) {
+  return `<span class="${esc(cls)}" title="${attr(help)}">${esc(text)}</span>`;
+}
+function badgeKeyHTML() {
+  const items = [
+    ['Market', 'What bet market this card is about, such as Make the Playoffs, Win Total, or Super Bowl Matchup.'],
+    ['Pick Type', 'The shape of the bet: favorite price, value bet, longshot, or hedge.'],
+    ['Edge Type', 'Why it is here: math edge is code-supported price value; thesis-driven means football/portfolio logic carries the case.'],
+    ['Needs Review', 'The report is asking for human judgment before action, usually because the price is expensive, evidence conflicts, or portfolio correlation matters.'],
+    ['Stake Tier', 'Suggested sizing bucket only. Speculative means small/coverage exposure, not a core position.'],
+    ['Fair / Edge', 'Fair is the model probability. Edge is expected value at the shown quote using that fair probability.'],
+    ['Simulation', 'Offline code forecast used as validation: probability, uncertainty range, and lower-bound edge when available.'],
+    ['Threshold', 'The worst price the report would normally accept. If the current quote is worse than the threshold, it is usually a pass or wait.'],
+    ['Source Quality', 'How traceable the supporting source trail is: named expert plus timestamp is strongest; no source trail is weakest.'],
+  ];
+  return `<details class="key" open><summary>How to read a pick card</summary><p>The first badges name the market, price profile, and why the pick surfaced. Price shows the best placeable book in the dossier. Fair probability is the model estimate; edge compares that fair probability to the current price. Needs Review means the pick has conflict, correlation, expensive pricing, or another reason for human judgment before action.</p><div class="key-grid">${items.map(([k, v]) => `<div><b>${esc(k)}</b><span>${esc(v)}</span></div>`).join('')}</div></details>`;
+}
+function isNamedPodcastHost(host) {
+  return !!host && !/^(guest|unknown|unclear|unattributed)$/i.test(String(host).trim());
+}
+function sourceQuality(rec) {
+  const signals = rec?.dossier_signals || [];
+  const podcastSignals = signals.filter((s) => s.podcast_evidence);
+  if (podcastSignals.some((s) => isNamedPodcastHost(s.podcast_evidence.host) && s.podcast_evidence.timestamp)) {
+    return {
+      key: 'named-timestamp',
+      label: 'Named Expert + Timestamp',
+      help: 'At least one supporting podcast source has a named speaker and timestamp in the local summary.',
+    };
+  }
+  if (podcastSignals.some((s) => isNamedPodcastHost(s.podcast_evidence.host))) {
+    return {
+      key: 'named-no-timestamp',
+      label: 'Named Expert, No Timestamp',
+      help: 'At least one supporting podcast source has a named speaker, but the local summary has no timestamp yet.',
+    };
+  }
+  if (podcastSignals.length) {
+    return {
+      key: 'unattributed',
+      label: 'Unattributed Speaker',
+      help: 'A matching podcast source exists, but the speaker is unknown, guest-labeled, or unattributed.',
+    };
+  }
+  if (signals.length || rec?.sources?.length || rec?.evidence_resolved?.some((e) => e.resolved)) {
+    return {
+      key: 'episode-article',
+      label: 'Episode-only / Article-only',
+      help: 'The report has source or dossier context, but no named timestamped podcast speaker is linked to this card.',
+    };
+  }
+  return {
+    key: 'none',
+    label: 'No Source Trail',
+    help: 'No expert, podcast, article, or resolved dossier source trail is attached to this offline corpus card.',
+  };
+}
+function sourceQualityBadgeHTML(rec) {
+  const q = sourceQuality(rec);
+  return badge(`sq sq-${q.key}`, q.label, q.help);
+}
+function sourceLabel(type) {
+  if (type === 'market-row lean sample') return 'direct market lean';
+  if (type === 'normalized experts map') return 'expert/source map';
+  return 'dossier';
+}
+function marketPhrase(market) {
+  const fam = marketFamily(market);
+  if (fam === 'wins') return 'win-total';
+  if (fam === 'playoffs') return 'playoff';
+  if (fam === 'division') return 'division';
+  if (fam === 'conference') return 'conference';
+  if (fam === 'superbowl') return 'Super Bowl';
+  return String(market || 'related');
+}
+function directionPhrase(direction, market) {
+  const dir = String(direction || '').toLowerCase();
+  const fam = marketFamily(market);
+  if (dir === 'over') return 'liked the Over';
+  if (dir === 'under') return 'liked the Under';
+  if (dir === 'favor') return fam === 'wins' ? 'leaned Over' : 'backed the team';
+  if (dir === 'against') return fam === 'wins' ? 'leaned Under' : 'faded the team';
+  if (dir === 'back') return fam === 'wins' ? 'leaned Over' : 'backed the team';
+  if (dir === 'fade') return fam === 'wins' ? 'leaned Under' : 'faded the team';
+  return 'had a related note';
+}
+function podcastHostLabel(evidence) {
+  const host = evidence?.host;
+  if (!host) return null;
+  if (/^(guest|unknown|unclear|unattributed)$/i.test(host)) return `Unattributed speaker on ${evidence.show}`;
+  return host;
+}
+function podcastSourceText(evidence) {
+  if (!evidence) return null;
+  const episode = evidence.episode ? `"${evidence.episode}"` : null;
+  const date = evidence.episode_date ? ` (${evidence.episode_date})` : '';
+  const time = evidence.timestamp ? ` at ${evidence.timestamp}` : ' (timestamp unavailable in local summary)';
+  return `source: ${evidence.show}${episode ? ` - ${episode}` : ''}${date}${time}`;
+}
+function signalSentence(s) {
+  const evidence = s.podcast_evidence;
+  const actor = podcastHostLabel(evidence) || s.who;
+  const base = `${actor} ${directionPhrase(evidence?.lean || s.direction, s.market)} in the ${marketPhrase(s.market)} market`;
+  const source = podcastSourceText(evidence) || `from the ${sourceLabel(s.source_type)}`;
+  const strength = s.strength != null ? `confidence ${s.strength}` : null;
+  const sourcePick = evidence?.pick && evidence.pick !== s.why ? `source note: ${evidence.pick}` : null;
+  const why = s.why ? `dossier note: ${s.why}` : null;
+  return [base, source, strength, why, sourcePick].filter(Boolean).join('; ');
+}
+function signalSentenceHTML(s) {
+  const evidence = s.podcast_evidence;
+  const sentence = esc(signalSentence(s));
+  if (!evidence?.summary_url) return sentence;
+  return `${sentence} <a href="${attr(evidence.summary_url)}">podcast summary</a>`;
+}
+function signalBlockHTML(signals) {
+  if (!signals?.length) return '';
+  const group = (label) => signals.filter((s) => s.alignment === label);
+  const row = (label, explainer, items) => items.length
+    ? `<div><b>${esc(label)}:</b> ${esc(explainer)}<ul>${items.map((s) => `<li>${signalSentenceHTML(s)}</li>`).join('')}</ul></div>`
+    : '';
+  return `<div class="ds"><b>Expert and source context</b><div class="meta">Offline dossier signals only. Podcast names come from the local host-summary file when available; timestamps appear only when the local summary includes one.</div>${row('Supports this pick', 'These signals point in the same general direction as the recommendation.', group('aligned'))}${row('Pushes against it', 'These signals point the other way or warn against the same team thesis.', group('opposing'))}${row('Related, not direct support', 'These mention the same team but are not a clean match for this market.', group('related'))}</div>`;
+}
+function signalBlockMD(signals) {
+  if (!signals?.length) return '';
+  const labels = [
+    ['aligned', 'Supports this pick'],
+    ['opposing', 'Pushes against it'],
+    ['related', 'Related, not direct support'],
+  ];
+  const bits = labels.flatMap(([key, label]) => {
+    const items = signals.filter((s) => s.alignment === key);
+    return items.length ? [`  - ${label}: ${items.map(signalSentence).join('; ')}`] : [];
+  });
+  return bits.length ? `\n  - Expert and source context: offline dossier signals only; not fresh analyst claims.\n${bits.join('\n')}` : '';
+}
+function impliedProbFromPrice(price) {
+  const dp = decimalPayout(price);
+  return dp ? 1 / dp : null;
+}
+function simulationSentence(r) {
+  if (r?.code_fair_prob == null) return null;
+  const simFair = percent(r.code_fair_prob) || r.code_fair_prob;
+  const implied = percent(impliedProbFromPrice(r.price));
+  const lowProb = r.code_fair_prob_ci90?.lower != null ? percent(r.code_fair_prob_ci90.lower) : null;
+  const highProb = r.code_fair_prob_ci90?.upper != null ? percent(r.code_fair_prob_ci90.upper) : null;
+  const range = lowProb && highProb ? `uncertainty range ${lowProb}-${highProb}` : null;
+  const edge = r.code_edge_pct != null ? `code edge ${r.code_edge_pct}%` : null;
+  const lowerEdge = r.edge_lower_bound_pct != null ? `lower-bound edge ${r.edge_lower_bound_pct}%` : null;
+  const impliedText = implied ? `market price implies about ${implied}` : null;
+  return [`Code forecast estimates this outcome at ${simFair}`, impliedText, range, edge, lowerEdge].filter(Boolean).join('; ') + '.';
+}
+function simulationBlockHTML(r) {
+  const sentence = simulationSentence(r);
+  if (!sentence) return '';
+  return `<div class="sim"><b>Monte Carlo / code forecast</b><div>${esc(sentence)}</div><div class="meta">Use this as a validation layer: it checks whether the recommendation still works under the offline forecast, not as a standalone order to bet.</div></div>`;
+}
+function simulationBlockMD(r) {
+  const sentence = simulationSentence(r);
+  return sentence ? `\n  - Monte Carlo / code forecast: ${sentence} Use this as validation, not a standalone order to bet.` : '';
+}
+function teamDisplayName(team) {
+  const key = normalizeTeam(team) || team;
+  return NFL_TEAMS[key]?.fullName || key || 'Other';
+}
+function groupRecommendationsByTeam(recs = []) {
+  const groups = new Map();
+  for (const rec of recs) {
+    const team = teamDisplayName(rec.display_team || rec.selection);
+    if (!groups.has(team)) groups.set(team, []);
+    groups.get(team).push(rec);
+  }
+  return [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+}
+function reportTags(rec) {
+  return rec.report_tags?.length ? rec.report_tags : [labelEdgeType(rec.edge_type)];
+}
+function anchorId(prefix, value) {
+  const slug = String(value || 'section').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'section';
+  return `${prefix}-${slug}`;
+}
+function recommendationBlurb(rec) {
+  const tags = reportTags(rec).join(' and ');
+  const action = rec.timing?.action === 'pass' ? 'is currently a pass/wait' : rec.timing?.action === 'bet_now' ? 'is marked as playable now if the price holds' : 'is mainly a watch/wait candidate';
+  const coverage = /coverage|exacta|hedge/i.test(`${rec.thesis || ''} ${rec.market_view || ''} ${rec.football_view || ''} ${rec.risk_note || ''}`)
+    ? ' but appears most useful as portfolio or exacta coverage rather than a clean standalone bet'
+    : '';
+  return `${rec.selection} matches ${tags}; it ${action}${coverage}.`;
+}
+function quickReadHTML(recs = []) {
+  if (!recs.length) return '<p>No final recommendations survived validation.</p>';
+  const items = recs.map((r) => `<li>${esc(recommendationBlurb(r))}</li>`).join('');
+  return `<div class="quick"><b>Quick read</b><ul>${items}</ul></div>`;
+}
+function teamQuickReadHTML(rows = []) {
+  if (!rows.length) return '';
+  return `<div class="team-read">${rows.map((r) => `<p>${esc(recommendationBlurb(r))}</p>`).join('')}</div>`;
+}
+function teamSectionsHTML(recs = []) {
+  const groups = groupRecommendationsByTeam(recs);
+  if (!groups.length) return '<p>No final recommendations survived validation.</p>';
+  return groups.map(([team, rows]) => `<details class="team-section" id="${attr(anchorId('team', team))}" open><summary>${esc(team)} (${rows.length})</summary>${teamQuickReadHTML(rows)}${rows.map(recCard).join('')}</details>`).join('');
+}
+function reportTOCHTML(ranked, { ladders = [], baskets = [], passed = [], killed = [], watchCount = 0 } = {}) {
+  const teams = groupRecommendationsByTeam(ranked?.all || []);
+  const teamLinks = teams.map(([team, rows]) => `<a class="toc-team" href="#${attr(anchorId('team', team))}">${esc(team)} <span>${rows.length}</span></a>`).join('');
+  const sections = [
+    ['#scenario-book', 'Scenario Book', null],
+    ['#parlay-ladders', 'Parlay Ladders', ladders.length],
+    ['#hedge-baskets', 'Hedge Baskets', baskets.length],
+    ['#passed-killed', 'Passed / Killed', passed.length + killed.length],
+    ['#watch-list', 'Watch List', watchCount],
+    ['#construction-notes', 'Notes', null],
+  ].map(([href, label, count]) => `<a href="${href}">${esc(label)}${count == null ? '' : ` <span>${esc(count)}</span>`}</a>`).join('');
+  return `<nav class="toc" aria-label="Report table of contents"><b>Jump to</b><div>${teamLinks || '<span class="muted">No surviving teams</span>'}</div><div>${sections}</div></nav>`;
+}
 function recCard(r) {
   const t = r.timing || {};
   const wk1 = (r.correlated_week1 || []).map((w) => `${esc(w.game)}: ${esc(w.bet)} (${esc(w.relationship)})`).join('; ');
-  const agree = r.agreement ? `${r.agreement.count}/${r.agreement.of} models` : '';
+  const modelAgree = r.agreement ? `${r.agreement.count} of ${r.agreement.of}` : '';
+  const thresholdState = r.bet_threshold ? ` Threshold: ${r.bet_threshold}.` : '';
+  const fair = percent(r.model_fair_prob) || r.model_fair_prob;
+  const tags = reportTags(r).map((tag) => badge('tag', tag, `Report tag: ${tag}.`)).join(' ');
   return `<div class="rec ${esc(r.edge_type || '')}">
-    <div class="rh"><b>${esc(r.selection)}</b> <span class="mk">${esc(r.market)}</span> <span class="typ">${esc(r.type || '')}</span> <span class="et">${esc(r.edge_type || '')}</span>${r.knowledge_based ? ' <span class="kb">⚑ knowledge</span>' : ''}${r.needs_human_review ? ' <span class="hr">👤 review</span>' : ''}
-      <span class="pr">${esc(r.price)} @${esc(r.book)}</span>
-      <span class="tier ${esc(r.stake_tier)}">${esc(r.stake_tier)}</span>
-      <span class="conf">conf ${esc(r.confidence)}</span></div>
-    <div class="meta">fair ${esc(r.model_fair_prob)} · edge ${esc(r.edge_pct)}% ${agree ? `· <i>${esc(agree)}</i>` : ''}${r.bet_threshold ? ` · threshold: ${esc(r.bet_threshold)}` : ''}</div>
+    <div class="rh"><div class="pick-main"><b>${esc(r.selection)}</b> ${badge('mk', labelMarket(r.market), `Market: ${labelMarket(r.market)}.`)} ${badge('typ', labelType(r.type), `Price type: ${labelType(r.type)}.`)} ${badge('et', labelEdgeType(r.edge_type), `Edge type: ${labelEdgeType(r.edge_type)}.`)}${tags ? ` ${tags}` : ''}${r.knowledge_based ? ` ${badge('kb', 'Knowledge-Based', 'Uses external football knowledge and needs extra freshness review.')}` : ''}${r.needs_human_review ? ` ${badge('hr', 'Needs Review', 'Human review is required because this pick is expensive, conflicted, or portfolio-sensitive.')}` : ''}</div>
+      <div class="quote-cluster"><span class="pr" title="${attr(`Best verified placeable quote in the dossier.${thresholdState}`)}">${esc(r.price)} @ ${esc(String(r.book || '').toUpperCase())}</span>
+      ${badge(`tier ${esc(r.stake_tier)}`, labelStakeTier(r.stake_tier), `Stake tier: ${labelStakeTier(r.stake_tier)}. This is a sizing bucket, not an instruction to bet.`)}
+      <span class="conf" title="${attr('Analyst confidence score on a 0-100 scale.')}">Confidence ${esc(r.confidence)}</span></div></div>
+    <div class="meta"><span title="${attr('Model fair probability estimate for this outcome.')}">Fair probability: ${esc(fair)}</span> &middot; <span title="${attr('Expected value at the shown price using model fair probability.')}">Estimated edge: ${esc(r.edge_pct)}%</span> ${modelAgree ? `&middot; <i title="${attr('How many participating models included this recommendation.')}">Models: ${esc(modelAgree)}</i>` : ''}${r.bet_threshold ? ` &middot; <span title="${attr('Worst price the report would normally accept before passing or waiting.')}">Play only at: ${esc(r.bet_threshold)}</span>` : ''}</div>
+    <div class="source-line">${sourceQualityBadgeHTML(r)}</div>
     ${r.market_view ? `<div class="mv"><b>Market:</b> ${esc(r.market_view)}</div>` : ''}
     ${r.football_view ? `<div class="fv"><b>Football:</b> ${esc(r.football_view)}</div>` : ''}
     <div class="th">${esc(r.thesis)}</div>
@@ -744,12 +1854,19 @@ function recCard(r) {
     ${r.evidence_resolved?.length ? `<div class="ev">🔗 ${r.evidence_resolved.map((e) => `${esc(e.id)}${e.resolved ? `=${esc(JSON.stringify(e.value))}` : ' <span class="unresolved">(unresolved)</span>'}`).join(', ')}</div>` : (r.evidence_ids?.length ? `<div class="ev">🔗 ${esc(r.evidence_ids.join(', '))} <span class="unresolved">(unresolved — no dossier row match)</span></div>` : '')}
     ${r.sources?.length ? `<div class="src">📣 ${esc(r.sources.join(', '))}</div>` : ''}
     <div class="tim"><b>${esc(t.action)}</b>${t.trigger ? ` — trigger: ${esc(t.trigger)}` : ''}${t.expected_move ? ` · ${esc(t.expected_move)}` : ''}${t.rationale ? ` — ${esc(t.rationale)}` : ''}</div>
+    ${simulationBlockHTML(r)}
+    ${signalBlockHTML(r.dossier_signals)}
     ${wk1 ? `<div class="wk">Wk1 correlated: ${wk1}</div>` : ''}
   </div>`;
 }
 // 2026-07-22 addition: ladder/basket cards render a leg table instead of the
 // single-bet recCard shape — a different structure, not a variant of it.
-function legRow(leg, cols) { return `<tr>${cols.map((c) => `<td>${esc(leg[c])}</td>`).join('')}</tr>`; }
+function legCell(leg, c) {
+  if (c === 'market') return labelMarket(leg[c]);
+  if (c === 'book') return String(leg[c] || '').toUpperCase();
+  return leg[c];
+}
+function legRow(leg, cols) { return `<tr>${cols.map((c) => `<td>${esc(legCell(leg, c))}</td>`).join('')}</tr>`; }
 function ladderCard(l) {
   const cols = ['market', 'selection', 'price', 'book', 'full_stake', 'net_stake_after_prior_wins', 'profit_at_full_stake'];
   const head = ['Market', 'Selection', 'Price', 'Book', 'Full stake', 'Net stake (self-funded)', 'Profit if hit'];
@@ -772,11 +1889,37 @@ function basketCard(b) {
     ${b.unresolved_legs?.length ? `<div class="unresolved">⚠ ${b.unresolved_legs.map(esc).join('; ')}</div>` : ''}
   </div>`;
 }
-function renderHTML(ranked, passed, killed, byModel, meta, ladders = [], baskets = []) {
-  const names = Object.keys(byModel);
+function modelNames(byModel) {
+  return Object.keys(byModel).filter((n) => !n.startsWith('__'));
+}
+function scenarioBookHTML(strategy) {
+  if (!strategy || strategy.status === 'not_proposed') return '<p>No scenario book proposed this run.</p>';
+  const exp = strategy.exposure_summary || {};
+  const anchors = (strategy.anchor_positions || []).map((a) => `<li>${esc(a.team)} <span class="et">${esc(labelRole(a.role))}</span></li>`).join('');
+  const coverage = (strategy.coverage_positions || []).slice(0, 12).map((c) => `<li>${esc(humanizeMarketRefs(c.selection))} <span class="et">${esc(labelRole(c.role))}</span></li>`).join('');
+  const unresolvedCoverage = (strategy.unresolved_raw_coverage_positions || []).map((c) => `<li>${esc(humanizeMarketRefs(c.selection))} <span class="et">${esc(labelRole(c.role))}</span> <span class="hr">${esc(humanizeMarketRefs(c.reason))}</span></li>`).join('');
+  const ladders = (strategy.ladder_stacks || []).map((l) => {
+    const steps = (l.steps || []).map((s) => `${s.selection || s.bet} ${s.price != null ? `${s.price}@${s.book || '?'}` : ''}`.trim()).join(' -> ');
+    return `<li><b>${esc(l.team || 'Ladder')}</b> <span class="et">${esc(l.role)}</span> — strict dead cost ${esc(l.dead_cost?.if_strict_sequence)}u; full exposure ${esc(l.dead_cost?.if_all_legs_prepositioned)}u; funded liability ${esc(l.funded_liability?.by_prior_wins)}u; banked if all hit ${esc(l.funded_liability?.final_banked_profit_if_all_hit)}u${steps ? `<div class="meta">${esc(steps)}</div>` : ''}</li>`;
+  }).join('');
+  const plans = (strategy.playoff_hedge_plan || []).map((p) => `<li><b>${esc(p.trigger)}</b> — ${esc(p.action)}${p.reserved_bankroll ? ` <i>Reserve: ${esc(p.reserved_bankroll)}</i>` : ''}</li>`).join('');
+  const rv = strategy.risk_review || {};
+  const riskBits = [rv.max_exposure_note, rv.funded_liability_note, rv.coverage_note, rv.concentration_note, rv.hedge_optionality_note].filter(Boolean);
+  return `<div class="scenario">
+    <div class="meta">Dead cost if all prepositioned: ${esc(exp.max_dead_cost_if_all_prepositioned)} units · strict-ladder dead cost: ${esc(exp.max_dead_cost_if_strict_ladders)} units · funded liability if ladders hit: ${esc(exp.funded_liability_if_ladders_hit)} units</div>
+    ${anchors ? `<h3>Anchors</h3><ul>${anchors}</ul>` : ''}
+    ${coverage ? `<h3>Coverage Positions</h3><ul>${coverage}</ul>` : ''}
+    ${unresolvedCoverage ? `<h3>Unresolved Coverage Ideas</h3><ul>${unresolvedCoverage}</ul>` : ''}
+    ${ladders ? `<h3>Ladder Stacks</h3><ul>${ladders}</ul>` : ''}
+    ${plans ? `<h3>Playoff Hedge Plan</h3><ul>${plans}</ul>` : ''}
+    ${riskBits.length ? `<h3>Risk Review</h3><ul>${riskBits.map((b) => `<li>${esc(b)}</li>`).join('')}</ul>` : ''}
+  </div>`;
+}
+function renderHTML(ranked, passed, killed, byModel, meta, ladders = [], baskets = [], portfolioStrategy = null) {
+  const names = modelNames(byModel);
   const section = (title, list, empty) => `<h2>${esc(title)} (${list.length})</h2>${list.length ? list.map(recCard).join('') : `<p>${esc(empty)}</p>`}`;
-  const watch = names.flatMap((n) => (byModel[n].watch || []).map((w) => `<li><b>${esc(w.selection)}</b> <span class="mk">${esc(w.market)}</span> — ${esc(w.why)} <i>(${esc(n)})</i></li>`)).join('');
-  const passList = [...killed, ...passed].map((p) => `<li><b>${esc(p.selection)}</b> <span class="mk">${esc(p.market)}</span> — ${esc(p.reason)} <i>(${esc(p.stage)})</i></li>`).join('');
+  const watch = names.flatMap((n) => (byModel[n].watch || []).map((w) => `<li><b>${esc(humanizeMarketRefs(w.selection))}</b> <span class="mk">${esc(labelMarket(w.market))}</span> — ${esc(humanizeMarketRefs(w.why))} <i>(${esc(n)})</i></li>`)).join('');
+  const passList = [...killed, ...passed].map((p) => `<li><b>${esc(humanizeMarketRefs(p.selection))}</b> <span class="mk">${esc(labelMarket(p.market))}</span> — ${esc(humanizeMarketRefs(p.reason))} <i>(${esc(p.stage)})</i></li>`).join('');
   const notes = names.map((n) => `<p><b>${esc(n)}:</b> ${esc(byModel[n].portfolio_notes)}</p>`).join('');
   return `<!doctype html><meta charset="utf-8"><title>NFL Portfolio ${meta.date}</title>
 <style>
@@ -784,72 +1927,153 @@ function renderHTML(ranked, passed, killed, byModel, meta, ladders = [], baskets
  h1{margin:0 0 4px} .sub{color:#666;margin-bottom:20px}
  h2{margin:26px 0 10px;padding-bottom:6px;border-bottom:2px solid #eee}
  .banner{background:#fff7ed;border:1px solid #fdba74;border-radius:8px;padding:10px 14px;margin:14px 0;font-size:13px}
+ .toc{background:#f8fafc;border:1px solid #dbe4ef;border-radius:8px;padding:10px 12px;margin:14px 0 18px;font-size:12px}
+ .toc b{display:block;color:#334155;margin-bottom:6px}.toc div{display:flex;gap:6px;flex-wrap:wrap;margin:5px 0}
+ .toc a{display:inline-flex;gap:5px;align-items:center;text-decoration:none;color:#334155;border:1px solid #dbe4ef;background:#fff;border-radius:999px;padding:3px 8px}
+ .toc a:hover{background:#eef2ff;border-color:#c7d2fe}.toc span{color:#64748b}
+ .key{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:8px 12px;margin:12px 0 18px;font-size:12px}
+ .key summary{cursor:pointer;font-weight:700;color:#334155}.key p{margin:7px 0;color:#475569}.key-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px 14px;margin-top:8px}
+ .key-grid div{display:flex;gap:6px}.key-grid b{min-width:76px;color:#334155}.key-grid span{color:#475569}
  .rec{border:1px solid #e5e7eb;border-left-width:4px;border-radius:8px;padding:10px 12px;margin:10px 0;border-left-color:#94a3b8}
  .rec.math{border-left-color:#2563eb} .rec.thesis{border-left-color:#16a34a} .rec.stale_price{border-left-color:#f59e0b}
  .rec.hedge{border-left-color:#8b5cf6} .rec.longshot{border-left-color:#dc2626}
- .rh{display:flex;gap:8px;align-items:center;flex-wrap:wrap} .mk{font-size:11px;background:#eef2ff;color:#3730a3;padding:1px 6px;border-radius:4px}
- .et{font-size:10px;background:#f1f5f9;color:#475569;padding:1px 6px;border-radius:4px;text-transform:uppercase}
- .hr{font-size:11px;color:#b45309}
- .pr{font-weight:600} .tier{font-size:11px;padding:1px 6px;border-radius:4px;background:#e5e7eb;text-transform:uppercase}
+ .rh{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}.pick-main,.quote-cluster{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.quote-cluster{margin-left:auto}
+ .mk,.typ,.et,.kb,.hr,.tier,.tag,.sq{font-size:11px;padding:2px 7px;border-radius:999px;white-space:nowrap}
+ .mk{background:#eef2ff;color:#3730a3}.typ{background:#ecfeff;color:#155e75}.et{background:#f1f5f9;color:#475569}.kb{background:#fef3c7;color:#92400e}
+ .tag{background:#f5f3ff;color:#6d28d9}
+ .sq{display:inline-flex;margin:2px 0;background:#f1f5f9;color:#334155;border:1px solid #cbd5e1}
+ .sq-named-timestamp{background:#dcfce7;color:#166534;border-color:#86efac}.sq-named-no-timestamp{background:#e0f2fe;color:#075985;border-color:#7dd3fc}
+ .sq-unattributed{background:#fef3c7;color:#92400e;border-color:#fcd34d}.sq-episode-article{background:#f5f3ff;color:#6d28d9;border-color:#ddd6fe}.sq-none{background:#fee2e2;color:#991b1b;border-color:#fecaca}
+ .source-line{margin:3px 0}
+ .hr{background:#fffbeb;color:#b45309;border:1px solid #fde68a}
+ .pr{font-weight:700} .tier{background:#e5e7eb;color:#374151}
  .tier.core{background:#dcfce7} .tier.speculative{background:#fee2e2} .conf{margin-left:auto;color:#666;font-size:12px}
  .meta{color:#666;font-size:12px;margin:3px 0} .mv,.fv{font-size:13px;margin:2px 0} .th{margin:4px 0} .dis{color:#b45309;font-size:13px;margin:3px 0}
  .sk{color:#7c3aed;font-size:12px;margin:3px 0} .rn{color:#0369a1;font-size:12px;margin:3px 0} .ev{color:#64748b;font-size:11px;margin:2px 0}
+ .ds,.sim{font-size:12px;margin:5px 0;padding:5px 7px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:4px}
+ .sim{background:#f0fdf4;border-color:#bbf7d0;color:#14532d}.sim .meta{color:#166534}
  .tim{font-size:12px;background:#f8fafc;padding:4px 8px;border-radius:4px;margin-top:4px} .wk{font-size:12px;color:#4338ca;margin-top:3px}
  .unresolved{color:#b91c1c;font-weight:600}
  li{margin:5px 0}
  .rec.ladder{border-left-color:#0891b2} .rec.basket{border-left-color:#ca8a04}
  .stack-tbl{width:100%;border-collapse:collapse;font-size:12px;margin:6px 0}
  .stack-tbl th,.stack-tbl td{border:1px solid #e5e7eb;padding:3px 6px;text-align:left}
+ .scenario h3{font-size:14px;margin:10px 0 4px}
+ .quick{background:#f8fafc;border:1px solid #dbe4ef;border-radius:8px;padding:10px 14px;margin:14px 0;font-size:13px}
+ .quick ul{margin:6px 0 0 18px;padding:0}
+ .team-section{border:1px solid #dbe4ef;border-radius:8px;margin:12px 0;background:#fff}
+ .team-section summary{cursor:pointer;font-weight:800;font-size:18px;padding:10px 12px;background:#f8fafc;border-radius:8px}
+ .team-section[open] summary{border-bottom:1px solid #dbe4ef;border-radius:8px 8px 0 0}
+ .team-read{padding:8px 12px 0;color:#334155;font-size:13px}.team-read p{margin:0 0 6px}
+ .team-section .rec{margin:10px 12px 12px}
+ .fold-section{border:1px solid #dbe4ef;border-radius:8px;margin:14px 0;background:#fff}
+ .fold-section summary{cursor:pointer;font-weight:800;font-size:17px;padding:10px 12px;background:#f8fafc;border-radius:8px}
+ .fold-section[open] summary{border-bottom:1px solid #dbe4ef;border-radius:8px 8px 0 0}
+ .fold-body{padding:2px 12px 12px}.fold-body>.rec{margin:10px 0}.fold-body ul{margin:8px 0 0 18px;padding:0}
 </style>
 <h1>NFL Futures Portfolio — Analyst Committee</h1>
 <div class="sub">${meta.date} · models: ${esc(names.join(' + '))} · season ${esc(meta.season)}${meta.committee_ran === false ? ' · <b>committee skipped (stage 1 only)</b>' : ''}</div>
 <div class="banner"><b>Decision support only.</b> These are model proposals for your review — not instructions to bet. Sizing and whether to play at all are your call. Every play lists its strongest disconfirming factor and (once through the committee) a Skeptic verdict; read both first.</div>
-${section('Strongest math edge', ranked.math_edge, 'None.')}
-${section('Strongest thesis edge', ranked.thesis_edge, 'None tagged thesis-driven.')}
-${section('Strongest stale-price edge', ranked.stale_price_edge, 'None tagged stale-price.')}
-${section('Best low-correlation portfolio adds', ranked.low_correlation_adds, 'None.')}
-${section('Longshots (high risk / high upside)', ranked.longshots, 'None.')}
-<h2>Parlay ladders — self-funding stacks (${ladders.length})</h2>${ladders.length ? ladders.map(ladderCard).join('') : '<p>None proposed this run.</p>'}
-<h2>Hedge baskets — variance insurance (${baskets.length})</h2>${baskets.length ? baskets.map(basketCard).join('') : '<p>None proposed this run.</p>'}
-<h2>Passed / killed (${passed.length + killed.length})</h2><ul>${passList || '<li>None.</li>'}</ul>
-<h2>Watch list</h2><ul>${watch || '<li>None.</li>'}</ul>
-<h2>Construction notes</h2>${notes}`;
+${badgeKeyHTML()}
+${reportTOCHTML(ranked, { ladders, baskets, passed, killed, watchCount: names.reduce((sum, n) => sum + (byModel[n].watch || []).length, 0) })}
+${quickReadHTML(ranked.all)}
+<h2>Recommendations by Team</h2>
+${teamSectionsHTML(ranked.all)}
+<h2 id="scenario-book">Scenario Book / Playoff Hedge Map</h2>${scenarioBookHTML(portfolioStrategy)}
+<details class="fold-section" id="parlay-ladders"><summary>Parlay ladders - self-funding stacks (${ladders.length})</summary><div class="fold-body">${ladders.length ? ladders.map(ladderCard).join('') : '<p>None proposed this run.</p>'}</div></details>
+<details class="fold-section" id="hedge-baskets"><summary>Hedge baskets - variance insurance (${baskets.length})</summary><div class="fold-body">${baskets.length ? baskets.map(basketCard).join('') : '<p>None proposed this run.</p>'}</div></details>
+<details class="fold-section" id="passed-killed"><summary>Passed / killed (${passed.length + killed.length})</summary><div class="fold-body"><ul>${passList || '<li>None.</li>'}</ul></div></details>
+<details class="fold-section" id="watch-list"><summary>Watch list</summary><div class="fold-body"><ul>${watch || '<li>None.</li>'}</ul></div></details>
+<h2 id="construction-notes">Construction notes</h2>${notes}`;
 }
 function ladderMD(l) {
-  const legLine = (leg) => `    - ${leg.market}: ${leg.selection} — ${leg.price}@${leg.book} · full stake ${leg.full_stake} · net stake (self-funded) ${leg.net_stake_after_prior_wins} · profit if hit ${leg.profit_at_full_stake}`;
+  const legLine = (leg) => `    - ${labelMarket(leg.market)}: ${leg.selection} — ${leg.price}@${leg.book} · full stake ${leg.full_stake} · net stake (self-funded) ${leg.net_stake_after_prior_wins} · profit if hit ${leg.profit_at_full_stake}`;
   return [`- **${l.team}** — ${l.thesis || ''}`, ...(l.legs || []).map(legLine),
     `  - total full exposure ${l.total_full_exposure} units · banked profit if all hit ${l.final_banked_profit_if_all_hit} units`,
     ...(l.unresolved_legs?.length ? [`  - ⚠ ${l.unresolved_legs.join('; ')}`] : [])].join('\n');
 }
 function basketMD(b) {
-  const legLine = (leg) => `    - ${leg.market}: ${leg.selection} — ${leg.price}@${leg.book} · stake ${leg.stake} · payout if hit ${leg.payout_if_hit}`;
+  const legLine = (leg) => `    - ${labelMarket(leg.market)}: ${leg.selection} — ${leg.price}@${leg.book} · stake ${leg.stake} · payout if hit ${leg.payout_if_hit}`;
   return [`- **Hedge basket**${b.primary_hedged_against?.length ? ` vs ${b.primary_hedged_against.join(', ')}` : ''} — ${b.thesis || ''}`, ...(b.legs || []).map(legLine),
     `  - total staked ${b.total_stake} units`,
     ...(b.unresolved_legs?.length ? [`  - ⚠ ${b.unresolved_legs.join('; ')}`] : [])].join('\n');
 }
-function renderMD(ranked, passed, killed, byModel, meta, ladders = [], baskets = []) {
-  const names = Object.keys(byModel);
-  const line = (r) => `- [${(r.type || '?').toUpperCase()}/${(r.edge_type || '?').toUpperCase()}] **${r.selection}** (${r.market}) ${r.price}@${r.book} · ${r.stake_tier} · conf ${r.confidence} · edge ${r.edge_pct}%${r.knowledge_based ? ' · ⚑knowledge' : ''}${r.needs_human_review ? ' · 👤review' : ''}${r.bet_threshold ? ` · threshold ${r.bet_threshold}` : ''}\n${r.market_view ? `  - Market: ${r.market_view}\n` : ''}${r.football_view ? `  - Football: ${r.football_view}\n` : ''}  - ${r.thesis}\n  - ⚠ ${r.disconfirming_factor}${r.skeptic_note ? `\n  - 🕵 Skeptic (${r.skeptic_verdict}): ${r.skeptic_note}` : ''}${r.risk_note ? `\n  - ⚖ Risk: ${r.risk_note}` : ''}${r.evidence_resolved?.length ? `\n  - 🔗 ${r.evidence_resolved.map((e) => `${e.id}${e.resolved ? `=${JSON.stringify(e.value)}` : ' (unresolved)'}`).join(', ')}` : (r.evidence_ids?.length ? `\n  - 🔗 ${r.evidence_ids.join(', ')} (unresolved — no dossier row match)` : '')}${r.sources?.length ? `\n  - 📣 sources: ${r.sources.join(', ')}` : ''}\n  - timing: **${r.timing?.action}**${r.timing?.trigger ? ` — ${r.timing.trigger}` : ''}${r.timing?.expected_move ? ` (${r.timing.expected_move})` : ''}`;
+function scenarioBookMD(strategy) {
+  if (!strategy || strategy.status === 'not_proposed') return 'No scenario book proposed this run.';
+  const exp = strategy.exposure_summary || {};
+  const L = [
+    `- Strategy type: ${strategy.strategy_type}`,
+    `- Dead cost if all prepositioned: ${exp.max_dead_cost_if_all_prepositioned} units`,
+    `- Strict-ladder dead cost: ${exp.max_dead_cost_if_strict_ladders} units`,
+    `- Funded liability if ladders hit: ${exp.funded_liability_if_ladders_hit} units`,
+  ];
+  if (strategy.anchor_positions?.length) {
+    L.push('- Anchors: ' + strategy.anchor_positions.map((a) => `${a.team} (${labelRole(a.role)})`).join(', '));
+  }
+  if (strategy.coverage_positions?.length) {
+    L.push('- Coverage positions:');
+    for (const c of strategy.coverage_positions.slice(0, 12)) L.push(`  - ${humanizeMarketRefs(c.selection)} (${labelRole(c.role)})`);
+  }
+  if (strategy.unresolved_raw_coverage_positions?.length) {
+    L.push('- Unresolved coverage ideas:');
+    for (const c of strategy.unresolved_raw_coverage_positions) L.push(`  - ${humanizeMarketRefs(c.selection)} (${labelRole(c.role)}) - ${humanizeMarketRefs(c.reason)}`);
+  }
+  if (strategy.ladder_stacks?.length) {
+    L.push('- Ladder stacks:');
+    for (const l of strategy.ladder_stacks) {
+      const steps = (l.steps || []).map((s) => `${humanizeMarketRefs(s.selection || s.bet)}${s.price != null ? ` ${s.price}@${s.book || '?'}` : ''}`).join(' -> ');
+      L.push(`  - ${l.team || 'Ladder'} (${labelRole(l.role)}): strict dead cost ${l.dead_cost?.if_strict_sequence} units; full exposure ${l.dead_cost?.if_all_legs_prepositioned} units; funded liability ${l.funded_liability?.by_prior_wins} units; banked if all hit ${l.funded_liability?.final_banked_profit_if_all_hit} units.`);
+      if (steps) L.push(`    - ${steps}`);
+    }
+  }
+  if (strategy.playoff_hedge_plan?.length) {
+    L.push('- Playoff hedge plan:');
+    for (const p of strategy.playoff_hedge_plan) L.push(`  - ${p.trigger}: ${p.action}${p.reserved_bankroll ? ` Reserve: ${p.reserved_bankroll}` : ''}`);
+  }
+  const rv = strategy.risk_review || {};
+  const riskBits = [rv.max_exposure_note, rv.funded_liability_note, rv.coverage_note, rv.concentration_note, rv.hedge_optionality_note].filter(Boolean);
+  if (riskBits.length) {
+    L.push('- Risk review:');
+    for (const bit of riskBits) L.push(`  - ${bit}`);
+  }
+  return L.join('\n');
+}
+function quickReadMD(recs = []) {
+  if (!recs.length) return 'No final recommendations survived validation.';
+  return recs.map((r) => `- ${recommendationBlurb(r)}`).join('\n');
+}
+function teamSectionsMD(recs = [], line) {
+  const groups = groupRecommendationsByTeam(recs);
+  if (!groups.length) return 'No final recommendations survived validation.';
+  return groups.map(([team, rows]) => [`### ${team} (${rows.length})`, ...rows.map((r) => `${line(r)}${simulationBlockMD(r)}${signalBlockMD(r.dossier_signals)}`), ''].join('\n')).join('\n');
+}
+function renderMD(ranked, passed, killed, byModel, meta, ladders = [], baskets = [], portfolioStrategy = null) {
+  const names = modelNames(byModel);
+  const line = (r) => `- **${r.selection}** · ${labelMarket(r.market)} · ${labelType(r.type)} · ${labelEdgeType(r.edge_type)}${r.needs_human_review ? ' · Needs Review' : ''}\n  - Quote: ${r.price}@${r.book} · ${labelStakeTier(r.stake_tier)} · Confidence ${r.confidence}\n  - Fair probability: ${percent(r.model_fair_prob) || r.model_fair_prob} · Estimated edge: ${r.edge_pct}%${r.agreement ? ` · Models: ${r.agreement.count} of ${r.agreement.of}` : ''}${r.bet_threshold ? ` · Play only at: ${r.bet_threshold}` : ''}\n  - Source quality: ${sourceQuality(r).label}\n${r.market_view ? `  - Market: ${r.market_view}\n` : ''}${r.football_view ? `  - Football: ${r.football_view}\n` : ''}  - ${r.thesis}\n  - ⚠ ${r.disconfirming_factor}${r.skeptic_note ? `\n  - 🕵 Skeptic (${r.skeptic_verdict}): ${r.skeptic_note}` : ''}${r.risk_note ? `\n  - ⚖ Risk: ${r.risk_note}` : ''}${r.evidence_resolved?.length ? `\n  - 🔗 ${r.evidence_resolved.map((e) => `${e.id}${e.resolved ? `=${JSON.stringify(e.value)}` : ' (unresolved)'}`).join(', ')}` : (r.evidence_ids?.length ? `\n  - 🔗 ${r.evidence_ids.join(', ')} (unresolved — no dossier row match)` : '')}${r.sources?.length ? `\n  - 📣 sources: ${r.sources.join(', ')}` : ''}\n  - timing: **${r.timing?.action}**${r.timing?.trigger ? ` — ${r.timing.trigger}` : ''}${r.timing?.expected_move ? ` (${r.timing.expected_move})` : ''}`;
   const section = (title, list) => {
     const L = [`## ${title} (${list.length})`];
     if (!list.length) L.push('None.');
-    for (const r of list) L.push(line(r));
+    for (const r of list) L.push(`${line(r)}${simulationBlockMD(r)}${signalBlockMD(r.dossier_signals)}`);
     L.push('');
     return L;
   };
   const L = [`# NFL Futures Portfolio (Analyst Committee) — ${meta.date}`, '', `Models: ${names.join(' + ')} · season ${meta.season}`, '',
-    '> Decision support only — proposals for review, not instructions to bet.', ''];
-  L.push(...section('Strongest math edge', ranked.math_edge));
-  L.push(...section('Strongest thesis edge', ranked.thesis_edge));
-  L.push(...section('Strongest stale-price edge', ranked.stale_price_edge));
-  L.push(...section('Best low-correlation portfolio adds', ranked.low_correlation_adds));
-  L.push(...section('Longshots', ranked.longshots));
+    '> Decision support only — proposals for review, not instructions to bet.', '',
+    '## How to read a pick card',
+    'Market names the bet, Pick Type describes the price profile, and Edge Type explains why the pick surfaced. Fair probability is the model estimate; Estimated edge compares that fair probability to the current price. Play only at is the worst price the report would normally accept. Needs Review means the pick has conflict, correlation, expensive pricing, or another reason for human judgment before action.',
+    ''];
+  L.push('## Quick read');
+  L.push(quickReadMD(ranked.all), '');
+  L.push('## Recommendations by Team');
+  L.push(teamSectionsMD(ranked.all, line));
+  L.push('## Scenario Book / Playoff Hedge Map');
+  L.push(scenarioBookMD(portfolioStrategy), '');
   L.push(`## Parlay ladders — self-funding stacks (${ladders.length})`);
   L.push(ladders.length ? ladders.map(ladderMD).join('\n') : 'None proposed this run.', '');
   L.push(`## Hedge baskets — variance insurance (${baskets.length})`);
   L.push(baskets.length ? baskets.map(basketMD).join('\n') : 'None proposed this run.', '');
   L.push(`## Passed / killed (${passed.length + killed.length})`);
-  for (const p of [...killed, ...passed]) L.push(`- **${p.selection}** (${p.market}) — ${p.reason} _(${p.stage})_`);
+  for (const p of [...killed, ...passed]) L.push(`- **${humanizeMarketRefs(p.selection)}** (${labelMarket(p.market)}) — ${humanizeMarketRefs(p.reason)} _(${p.stage})_`);
   L.push('', '## Construction notes');
   for (const n of names) L.push(`**${n}:** ${byModel[n].portfolio_notes || ''}`);
   return L.join('\n');
@@ -937,7 +2161,14 @@ async function persistRecommendationRuns(meta, trail) {
 // ── main ─────────────────────────────────────────────────────────────────────
 (async () => {
   const dossier = JSON.parse(await readFile(DOSSIER, 'utf8'));
-  const userContent = buildUserPrompt(dossier);
+  const ledger = await loadLedger();
+  const podcastEvidence = await loadPodcastEvidenceIndex();
+  if (podcastEvidence.rows.length) {
+    console.log(`   podcast source context: ${podcastEvidence.rows.length} offline host-summary pick row(s) from ${podcastEvidence.summary_path}`);
+  } else {
+    console.log('   podcast source context: no local Futures_Picks_Summary file found; dossier signals will render without host-summary links');
+  }
+  const userContent = buildUserPrompt(dossier, ledger);
   const models = ONLY ? MODELS.filter((m) => m.includes(ONLY)) : MODELS;
   console.log(`🧠 Stage 1 (Market+Football Analyst) with: ${models.join(' + ')}`);
 
@@ -959,34 +2190,47 @@ async function persistRecommendationRuns(meta, trail) {
   const { candidates } = mergeStage1(byModel);
   console.log(`   merged: ${candidates.length} unique candidates across ${ok.length} model(s)`);
 
-  // 2026-07-22 addition: collect hedge_baskets/parlay_ladders proposed by any
-  // model. v1 scope: NOT pushed through Skeptic/Risk (those stages' schemas
-  // are recommendation-shaped) — validated directly against the dossier below.
+  // 2026-07-22 addition: collect scenario-book structures proposed by any
+  // model. Stage 3 receives these for portfolio-level review; code below still
+  // resolves/math-validates every current-price leg against the dossier.
   const rawHedgeBaskets = ok.flatMap((m) => (byModel[m].hedge_baskets || []).map((b) => ({ ...b, proposed_by: m })));
   const rawParlayLadders = ok.flatMap((m) => (byModel[m].parlay_ladders || []).map((l) => ({ ...l, proposed_by: m })));
+  const rawPortfolioStrategies = ok.flatMap((m) => {
+    const s = byModel[m].portfolio_strategy;
+    if (!s) return [];
+    return (Array.isArray(s) ? s : [s]).map((strategy) => ({ ...strategy, proposed_by: m }));
+  });
 
   const meta = { date: new Date().toISOString().slice(0, 10), season: dossier.meta.season, committee_ran: !SKIP_COMMITTEE, run_id: randomUUID() };
   let final = candidates, passed = [], killed = [];
   const raw2 = {};
+  let scenarioReview = null;
 
   if (SKIP_COMMITTEE) {
     console.log('   (committee skipped: --skip-committee — stage 1 candidates used as-is)');
   } else {
     console.log(`🕵 Stage 2 (Skeptic) with: ${SKEPTIC_MODEL}`);
     try {
-      const { text } = await callModel(SKEPTIC_MODEL, SKEPTIC_SYSTEM_PROMPT, buildSkepticUserPrompt(candidates));
-      raw2.skeptic = text;
+      const { text, usage } = await callModel(SKEPTIC_MODEL, SKEPTIC_SYSTEM_PROMPT, buildSkepticUserPrompt(candidates));
+      raw2.skeptic = { text, usage };
       const { verdicts } = parseJSON(text);
       const applied = applySkepticVerdicts(candidates, verdicts);
       console.log(`   skeptic: ${applied.survivors.length} survive, ${applied.killed.length} killed`);
       killed = applied.killed;
 
       console.log(`⚖ Stage 3 (Risk/Portfolio + Editor) with: ${RISK_MODEL}`);
-      const { text: riskText } = await callModel(RISK_MODEL, RISK_EDITOR_SYSTEM_PROMPT, buildRiskEditorUserPrompt(applied.survivors));
-      raw2.risk_editor = riskText;
+      const { text: riskText, usage: riskUsage } = await callModel(RISK_MODEL, RISK_EDITOR_SYSTEM_PROMPT, buildRiskEditorUserPrompt(applied.survivors, {
+        primary: PRIMARY,
+        ledger,
+        hedge_baskets: rawHedgeBaskets,
+        parlay_ladders: rawParlayLadders,
+        portfolio_strategy: rawPortfolioStrategies,
+      }));
+      raw2.risk_editor = { text: riskText, usage: riskUsage };
       const riskOutput = parseJSON(riskText);
       const applied2 = applyRiskEditor(applied.survivors, riskOutput);
       final = applied2.final; passed = applied2.passed;
+      scenarioReview = riskOutput.scenario_review || null;
       console.log(`   risk/editor: ${final.length} final, ${passed.length} passed`);
       byModel.__committee_notes = riskOutput.portfolio_notes || null;
     } catch (e) {
@@ -1001,7 +2245,7 @@ async function persistRecommendationRuns(meta, trail) {
   // (fabricated market/selection/book/price) into their own list instead of
   // letting them ride silently into the final book.
   console.log(`🔍 Validating ${final.length} final candidate(s) against dossier ground truth`);
-  const validated = final.map((c) => validateRecommendation(c, dossier));
+  const validated = final.map((c) => validateRecommendationStrict(c, dossier, podcastEvidence));
   const invalidated = validated
     .filter((v) => v.status === 'invalid')
     .map((v) => ({ ...v.candidate, reason: v.reason, stage: 'validator' }));
@@ -1020,15 +2264,25 @@ async function persistRecommendationRuns(meta, trail) {
   const validLadders = ladderResults.filter((r) => r.status !== 'invalid').map((r) => r.ladder);
   const invalidStacks = [...basketResults, ...ladderResults].filter((r) => r.status === 'invalid');
   console.log(`   ${validBaskets.length} valid basket(s), ${validLadders.length} valid ladder(s) (${invalidStacks.length} invalidated: no leg resolved)`);
+  const portfolioStrategy = buildPortfolioStrategy({
+    primary: PRIMARY,
+    baskets: validBaskets,
+    ladders: validLadders,
+    rawStrategies: rawPortfolioStrategies,
+    scenarioReview,
+    invalidStacks,
+  });
 
   const ranked = rankByAxis(final);
   await mkdir(OUT_DIR, { recursive: true });
-  const base = path.join(OUT_DIR, `portfolio-${meta.date}`);
-  await writeFile(`${base}.html`, renderHTML(ranked, passed, killed, byModel, meta, validLadders, validBaskets));
-  await writeFile(`${base}.md`, renderMD(ranked, passed, killed, byModel, meta, validLadders, validBaskets));
+  const safeSuffix = OUT_SUFFIX ? `-${OUT_SUFFIX.replace(/[^a-z0-9_-]+/gi, '-').replace(/^-+|-+$/g, '')}` : '';
+  const base = path.join(OUT_DIR, `portfolio-${meta.date}${safeSuffix}`);
+  await writeFile(`${base}.html`, renderHTML(ranked, passed, killed, byModel, meta, validLadders, validBaskets, portfolioStrategy));
+  await writeFile(`${base}.md`, renderMD(ranked, passed, killed, byModel, meta, validLadders, validBaskets, portfolioStrategy));
   await writeFile(`${base}.raw.json`, JSON.stringify({ meta, models: ok, raw, stage2_3: raw2, candidates, final, passed, killed,
     hedge_baskets: { raw: rawHedgeBaskets, valid: validBaskets },
     parlay_ladders: { raw: rawParlayLadders, valid: validLadders },
+    portfolio_strategy: { raw: rawPortfolioStrategies, final: portfolioStrategy },
     invalidated_stacks: invalidStacks }, null, 2));
   await persistRecommendations(final, meta);
   await persistRecommendationRuns(meta, { stage1: candidates, killed, passed, final });

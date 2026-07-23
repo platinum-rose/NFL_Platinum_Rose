@@ -1,0 +1,452 @@
+{
+  "id": "supplemental-outperformers",
+  "description": "QA polish scenario for user-liked outperformer teams: Chargers, Bengals, Lions, Giants, Saints, and 49ers.",
+  "dossier": ".nfl/portfolio/dossier-2026-07-22.json",
+  "models": ["gpt-4o"],
+  "primary": ["Buffalo Bills", "Green Bay Packers"],
+  "skip_committee": false,
+  "responses": {
+    "stage1": {
+      "recommendations": [
+        {
+          "market": "wins",
+          "selection": "Los Angeles Chargers Over 9.5 wins",
+          "type": "value",
+          "edge_type": "thesis",
+          "book": "bookmaker",
+          "price": -145,
+          "model_fair_prob": 0.64,
+          "edge_pct": 8.14,
+          "confidence": 67,
+          "stake_tier": "small",
+          "knowledge_based": false,
+          "market_view": "Chargers playoff and AFC prices imply a contender path, while the win total remains the cleanest funding leg.",
+          "football_view": "The outperformer thesis needs early efficiency confirmation before adding deeper futures.",
+          "thesis": "Use Chargers O9.5 as a funding leg for a controlled AFC/Super Bowl ladder rather than buying every longshot up front.",
+          "disconfirming_factor": "The first leg is already juiced, so the ladder loses value if the market shortens before confirmation.",
+          "bet_threshold": "-145 or better",
+          "needs_human_review": true,
+          "evidence_ids": [],
+          "sources": [],
+          "timing": {
+            "action": "wait",
+            "trigger": "Early season price drift",
+            "expected_move": "If they stumble early, O9.5 may improve from the current juiced number.",
+            "rationale": "The position is more attractive if the market gives back a little juice."
+          },
+          "correlated_week1": []
+        },
+        {
+          "market": "wins",
+          "selection": "Cincinnati Bengals Over 9.5 wins",
+          "type": "value",
+          "edge_type": "thesis",
+          "book": "bookmaker",
+          "price": 110,
+          "model_fair_prob": 0.52,
+          "edge_pct": 9.2,
+          "confidence": 66,
+          "stake_tier": "small",
+          "knowledge_based": false,
+          "market_view": "Bengals O9.5 is still plus-money while playoff pricing is already favored.",
+          "football_view": "The market offers a ladder path if the offense performs like a playoff team.",
+          "thesis": "Bengals O9.5 can fund playoff/AFC/Super Bowl optionality if the bounce-back thesis is right.",
+          "disconfirming_factor": "If the AFC North is stronger than priced, the playoff leg may be less attractive than the win total.",
+          "bet_threshold": "+100 or better",
+          "needs_human_review": true,
+          "evidence_ids": [],
+          "sources": [],
+          "timing": {
+            "action": "bet_now",
+            "trigger": "Plus-money win total still available",
+            "expected_move": "A clean September could erase the plus price.",
+            "rationale": "The win total is the least expensive expression of the Bengals rebound path."
+          },
+          "correlated_week1": []
+        },
+        {
+          "market": "playoffs",
+          "selection": "Detroit Lions",
+          "type": "favorite",
+          "edge_type": "thesis",
+          "book": "betus",
+          "price": -200,
+          "model_fair_prob": 0.70,
+          "edge_pct": 5,
+          "confidence": 70,
+          "stake_tier": "small",
+          "knowledge_based": false,
+          "market_view": "Lions playoff price is expensive but still useful as coverage against Bills exacta branches.",
+          "football_view": "The team remains a deep-run coverage candidate rather than a pure bargain.",
+          "thesis": "Lions are a scenario-book coverage team: useful in exactas and playoff maps even when the standalone price is not cheap.",
+          "disconfirming_factor": "The NFC North overlap with Green Bay creates correlation risk for the Packers anchor.",
+          "bet_threshold": "-180 or better",
+          "needs_human_review": true,
+          "evidence_ids": [],
+          "sources": [],
+          "timing": {
+            "action": "pass",
+            "trigger": "Current price",
+            "expected_move": "Wait for any cheaper entry unless using as exacta coverage.",
+            "rationale": "The better use may be matchup coverage, not a standalone playoff bet."
+          },
+          "correlated_week1": []
+        },
+        {
+          "market": "playoffs",
+          "selection": "New York Giants",
+          "type": "longshot",
+          "edge_type": "math",
+          "book": "bookmaker",
+          "price": 315,
+          "model_fair_prob": 0.31,
+          "edge_pct": 28.65,
+          "confidence": 58,
+          "stake_tier": "speculative",
+          "knowledge_based": false,
+          "market_view": "Giants playoff price shows one of the cleaner positive value gaps in this supplemental set.",
+          "football_view": "The team needs the football thesis checked carefully because the price alone can overstate the case.",
+          "thesis": "Giants are a small speculative outperformer ticket and a very high-odds Bills exacta branch.",
+          "disconfirming_factor": "Longshot playoff paths can be mathematically interesting while still having fragile team-quality assumptions.",
+          "bet_threshold": "+275 or better",
+          "needs_human_review": true,
+          "evidence_ids": [],
+          "sources": [],
+          "timing": {
+            "action": "wait",
+            "trigger": "Early proof of competence",
+            "expected_move": "The price may remain playable until the offense proves it.",
+            "rationale": "Do not pay for the story before the team shows enough."
+          },
+          "correlated_week1": []
+        },
+        {
+          "market": "playoffs",
+          "selection": "New Orleans Saints",
+          "type": "longshot",
+          "edge_type": "math",
+          "book": "bookmaker",
+          "price": 200,
+          "model_fair_prob": 0.40,
+          "edge_pct": 20,
+          "confidence": 57,
+          "stake_tier": "speculative",
+          "knowledge_based": false,
+          "market_view": "Saints playoff price is a plus-money entry with usable longshot continuation prices.",
+          "football_view": "This needs close football validation because the Super Bowl/conference legs are extreme outcomes.",
+          "thesis": "Saints can be tested as a strict ladder: playoff first, then NFC and Super Bowl only if the path stays alive.",
+          "disconfirming_factor": "A low ceiling would make the conference and Super Bowl legs pure dead cost.",
+          "bet_threshold": "+180 or better",
+          "needs_human_review": true,
+          "evidence_ids": [],
+          "sources": [],
+          "timing": {
+            "action": "wait",
+            "trigger": "Market confirms improved team quality",
+            "expected_move": "Playoff ticket can stay plus-money until clear improvement appears.",
+            "rationale": "Use the ladder only if early evidence validates the upside."
+          },
+          "correlated_week1": []
+        },
+        {
+          "market": "wins",
+          "selection": "San Francisco 49ers Over 10.5 wins",
+          "type": "value",
+          "edge_type": "thesis",
+          "book": "betus",
+          "price": 110,
+          "model_fair_prob": 0.52,
+          "edge_pct": 9.2,
+          "confidence": 64,
+          "stake_tier": "small",
+          "knowledge_based": false,
+          "market_view": "49ers O10.5 is plus-money while their playoff price is already favorite territory.",
+          "football_view": "The team fits as a high-probability NFC branch against Bills exacta exposure.",
+          "thesis": "49ers outperformer exposure works best as Bills exacta coverage plus a selective win-total entry.",
+          "disconfirming_factor": "A high win-total line leaves little margin for injuries or schedule variance.",
+          "bet_threshold": "+100 or better",
+          "needs_human_review": true,
+          "evidence_ids": [],
+          "sources": [],
+          "timing": {
+            "action": "bet_now",
+            "trigger": "Plus-money O10.5",
+            "expected_move": "Could move toward favorite juice if they start healthy.",
+            "rationale": "The win total is the cleanest pre-playoff expression."
+          },
+          "correlated_week1": []
+        }
+      ],
+      "watch": [
+        {
+          "market": "superbowl_matchup",
+          "selection": "Buffalo Bills vs New Orleans Saints",
+          "why": "Extreme payout branch for a Saints outperformer path."
+        },
+        {
+          "market": "superbowl_matchup",
+          "selection": "Los Angeles Chargers vs Green Bay Packers",
+          "why": "AFC outperformer branch against the Packers anchor."
+        }
+      ],
+      "hedge_baskets": [
+        {
+          "primary_hedged_against": ["Buffalo Bills", "Green Bay Packers"],
+          "thesis": "Supplemental outperformer basket: pair AFC outperformers with Packers and NFC outperformers with Bills.",
+          "legs": [
+            { "market": "superbowl_matchup", "selection": "Los Angeles Chargers vs Green Bay Packers", "role": "coverage_bet" },
+            { "market": "superbowl_matchup", "selection": "Cincinnati Bengals vs Green Bay Packers", "role": "coverage_bet" },
+            { "market": "superbowl_matchup", "selection": "Buffalo Bills vs Detroit Lions", "role": "coverage_bet" },
+            { "market": "superbowl_matchup", "selection": "Buffalo Bills vs New York Giants", "role": "coverage_bet" },
+            { "market": "superbowl_matchup", "selection": "Buffalo Bills vs New Orleans Saints", "role": "coverage_bet" },
+            { "market": "superbowl_matchup", "selection": "Buffalo Bills vs San Francisco 49ers", "role": "coverage_bet" }
+          ]
+        }
+      ],
+      "parlay_ladders": [
+        {
+          "team": "Los Angeles Chargers",
+          "thesis": "Chargers ladder starts with the win total and only extends into AFC/Super Bowl if the contender path confirms.",
+          "legs": [
+            { "market": "wins", "selection": "Los Angeles Chargers Over 9.5 wins", "role": "funding_leg" },
+            { "market": "playoffs", "selection": "Los Angeles Chargers", "role": "funding_leg" },
+            { "market": "conference_afc", "selection": "Los Angeles Chargers", "role": "option_bet" },
+            { "market": "superbowl", "selection": "Los Angeles Chargers", "role": "option_bet" }
+          ]
+        },
+        {
+          "team": "Cincinnati Bengals",
+          "thesis": "Bengals plus-money win total can fund playoff and AFC/Super Bowl optionality if the rebound thesis starts correctly.",
+          "legs": [
+            { "market": "wins", "selection": "Cincinnati Bengals Over 9.5 wins", "role": "funding_leg" },
+            { "market": "playoffs", "selection": "Cincinnati Bengals", "role": "funding_leg" },
+            { "market": "conference_afc", "selection": "Cincinnati Bengals", "role": "option_bet" },
+            { "market": "superbowl", "selection": "Cincinnati Bengals", "role": "option_bet" }
+          ]
+        },
+        {
+          "team": "New Orleans Saints",
+          "thesis": "Saints ladder should be strict sequence only: playoff ticket first, then NFC/Super Bowl if early evidence justifies it.",
+          "legs": [
+            { "market": "playoffs", "selection": "New Orleans Saints", "role": "funding_leg" },
+            { "market": "conference_nfc", "selection": "New Orleans Saints", "role": "option_bet" },
+            { "market": "superbowl", "selection": "New Orleans Saints", "role": "option_bet" }
+          ]
+        }
+      ],
+      "portfolio_strategy": {
+        "strategy_type": "playoff_scenario_book",
+        "anchor_positions": ["Buffalo Bills", "Green Bay Packers"],
+        "coverage_positions": [
+          "Los Angeles Chargers vs Green Bay Packers",
+          "Cincinnati Bengals vs Green Bay Packers",
+          "Buffalo Bills vs Detroit Lions",
+          "Buffalo Bills vs New York Giants",
+          "Buffalo Bills vs New Orleans Saints",
+          "Buffalo Bills vs San Francisco 49ers"
+        ],
+        "ladder_stacks": [
+          {
+            "team": "Los Angeles Chargers",
+            "steps": [
+              { "bet": "Chargers O9.5", "role": "funding_leg" },
+              { "bet": "Chargers playoffs", "role": "funding_leg" },
+              { "bet": "Chargers AFC", "role": "option_bet" },
+              { "bet": "Chargers Super Bowl", "role": "option_bet" }
+            ],
+            "intent": "Use early wins/playoff confirmation before adding longshot continuation."
+          },
+          {
+            "team": "Cincinnati Bengals",
+            "steps": [
+              { "bet": "Bengals O9.5", "role": "funding_leg" },
+              { "bet": "Bengals playoffs", "role": "funding_leg" },
+              { "bet": "Bengals AFC", "role": "option_bet" },
+              { "bet": "Bengals Super Bowl", "role": "option_bet" }
+            ],
+            "intent": "Let the plus-money win total pay for optionality if the team starts hot."
+          },
+          {
+            "team": "New Orleans Saints",
+            "steps": [
+              { "bet": "Saints playoffs", "role": "funding_leg" },
+              { "bet": "Saints NFC", "role": "option_bet" },
+              { "bet": "Saints Super Bowl", "role": "option_bet" }
+            ],
+            "intent": "Keep this strict because the deeper legs are extreme longshots."
+          }
+        ],
+        "playoff_hedge_plan": [
+          {
+            "trigger": "Bills draw Lions, Giants, Saints, or 49ers path late in the NFC/Super Bowl branch",
+            "action": "Use exacta ticket value first; consider cash or open-parlay hedge only if the matchup creates real lock-in value.",
+            "reserved_bankroll": "Cash reserve plus flexible/crown open parlay slots, subject to house-rule confirmation."
+          },
+          {
+            "trigger": "Packers draw Chargers or Bengals path in a deep playoff/Super Bowl branch",
+            "action": "Price AFC opponent hedge without sacrificing the Packers anchor unless minimum outcome improves.",
+            "reserved_bankroll": "Do not spend crown slots before title-game/Super Bowl leverage."
+          }
+        ]
+      },
+      "portfolio_notes": "This supplemental QA case stresses outperformer teams, high-odds exacta coverage, and strict ladder sequencing."
+    },
+    "skeptic": {
+      "verdicts": [
+        {
+          "key": "wins|los angeles chargers over 9.5 wins",
+          "verdict": "hold",
+          "confidence_delta": -3,
+          "skeptic_note": "Good ladder candidate, but the first leg is already juiced.",
+          "stronger_disconfirming_factor": "Juiced O9.5 leaves less margin than a plus-money rebound profile."
+        },
+        {
+          "key": "wins|cincinnati bengals over 9.5 wins",
+          "verdict": "hold",
+          "confidence_delta": 0,
+          "skeptic_note": "Plus-money funding leg is the cleanest Bengals expression.",
+          "stronger_disconfirming_factor": "Division strength can still make the playoff continuation fragile."
+        },
+        {
+          "key": "playoffs|detroit lions",
+          "verdict": "downgrade",
+          "confidence_delta": -5,
+          "skeptic_note": "Better as exacta coverage than as a standalone playoff bet.",
+          "stronger_disconfirming_factor": "NFC North overlap with Green Bay creates portfolio concentration."
+        },
+        {
+          "key": "playoffs|new york giants",
+          "verdict": "hold",
+          "confidence_delta": -4,
+          "skeptic_note": "Keep speculative because team-quality uncertainty is high.",
+          "stronger_disconfirming_factor": "A good price does not solve a weak roster or QB uncertainty."
+        },
+        {
+          "key": "playoffs|new orleans saints",
+          "verdict": "hold",
+          "confidence_delta": -4,
+          "skeptic_note": "Strict ladder only; do not pre-buy all deep legs.",
+          "stronger_disconfirming_factor": "The ceiling case may be thinner than the price suggests."
+        },
+        {
+          "key": "wins|san francisco 49ers over 10.5 wins",
+          "verdict": "hold",
+          "confidence_delta": -2,
+          "skeptic_note": "Good coverage team, but high line means injury fragility.",
+          "stronger_disconfirming_factor": "The high win-total hurdle leaves little room for variance."
+        }
+      ]
+    },
+    "risk_editor": {
+      "finalized": [
+        {
+          "key": "wins|los angeles chargers over 9.5 wins",
+          "stake_tier": "small",
+          "bet_threshold": "-130 or better",
+          "needs_human_review": true,
+          "portfolio_note": "Prefer this as a watch/ladder trigger unless price improves."
+        },
+        {
+          "key": "wins|cincinnati bengals over 9.5 wins",
+          "stake_tier": "small",
+          "bet_threshold": "+100 or better",
+          "needs_human_review": true,
+          "portfolio_note": "This is the cleanest supplemental funding leg."
+        },
+        {
+          "key": "playoffs|detroit lions",
+          "stake_tier": "speculative",
+          "bet_threshold": "-175 or better",
+          "needs_human_review": true,
+          "portfolio_note": "Use Lions mainly through exacta coverage against Bills."
+        },
+        {
+          "key": "playoffs|new york giants",
+          "stake_tier": "speculative",
+          "bet_threshold": "+275 or better",
+          "needs_human_review": true,
+          "portfolio_note": "Tiny ticket only; exacta upside is the real reason to track it."
+        },
+        {
+          "key": "playoffs|new orleans saints",
+          "stake_tier": "speculative",
+          "bet_threshold": "+180 or better",
+          "needs_human_review": true,
+          "portfolio_note": "Strict sequence; do not preposition all deeper legs."
+        },
+        {
+          "key": "wins|san francisco 49ers over 10.5 wins",
+          "stake_tier": "small",
+          "bet_threshold": "+100 or better",
+          "needs_human_review": true,
+          "portfolio_note": "High-quality NFC coverage branch but not low-variance."
+        }
+      ],
+      "passes": [],
+      "portfolio_notes": "The supplemental group adds upside, but it also increases NFC concentration around the Packers/Bills exacta map.",
+      "scenario_review": {
+        "max_exposure_note": "Basket exposure is acceptable only as fractional-unit exacta coverage.",
+        "funded_liability_note": "Chargers, Bengals, and Saints ladders should be strict sequences; full prepositioned exposure is only a stress test.",
+        "coverage_note": "The basket covers all six supplemental teams against Bills/Packers anchors.",
+        "concentration_note": "Lions, Giants, Saints, and 49ers all live in the NFC branch, so Packers correlation must be watched.",
+        "hedge_optionality_note": "Open parlays can be treated as playoff hedge inventory, but house-rule timing needs confirmation before relying on them.",
+        "needs_human_review": true
+      }
+    }
+  },
+  "expect": {
+    "final_count": 1,
+    "passed_count": 5,
+    "valid_hedge_baskets": 1,
+    "valid_parlay_ladders": 3,
+    "invalidated_stacks": 0,
+    "portfolio_status": "active",
+    "anchor_teams_include": ["Buffalo Bills", "Green Bay Packers"],
+    "coverage_count": 6,
+    "coverage_selections_include": [
+      "Los Angeles Chargers vs Green Bay Packers (superbowl_matchup)",
+      "Cincinnati Bengals vs Green Bay Packers (superbowl_matchup)",
+      "Buffalo Bills vs Detroit Lions (superbowl_matchup)",
+      "Buffalo Bills vs New York Giants (superbowl_matchup)",
+      "Buffalo Bills vs New Orleans Saints (superbowl_matchup)",
+      "Buffalo Bills vs San Francisco 49ers (superbowl_matchup)"
+    ],
+    "unresolved_raw_coverage_count": 0,
+    "ladder_count": 3,
+    "ladder_teams_include": ["Los Angeles Chargers", "Cincinnati Bengals", "New Orleans Saints"],
+    "exposure_summary": {
+      "basket_total_stake": 6,
+      "ladder_full_exposure": 11,
+      "max_dead_cost_if_all_prepositioned": 17,
+      "max_dead_cost_if_strict_ladders": 9,
+      "funded_liability_if_ladders_hit": 7.6897,
+      "invalidated_structure_count": 0
+    },
+    "resolved_legs_include": [
+      { "market": "superbowl_matchup", "selection": "Los Angeles Chargers vs Green Bay Packers", "price": 9500, "book": "betus", "role": "coverage_bet" },
+      { "market": "superbowl_matchup", "selection": "Cincinnati Bengals vs Green Bay Packers", "price": 12000, "book": "betus", "role": "coverage_bet" },
+      { "market": "superbowl_matchup", "selection": "Buffalo Bills vs New Orleans Saints", "price": 22500, "book": "betus", "role": "coverage_bet" },
+      { "market": "wins", "selection": "Los Angeles Chargers Over 9.5 wins", "price": -145, "book": "betonline", "role": "funding_leg" },
+      { "market": "wins", "selection": "Cincinnati Bengals Over 9.5 wins", "price": 117, "book": "bookmaker", "role": "funding_leg" },
+      { "market": "conference_nfc", "selection": "New Orleans Saints", "price": 5500, "book": "bookmaker", "role": "option_bet" }
+    ],
+      "report_contains": [
+        "Supplemental outperformer basket",
+        "How to read a pick card",
+        "Make the Playoffs",
+        "Favorite Price",
+        "Thesis Edge",
+        "Play only at: -175 or better",
+        "Monte Carlo / code forecast",
+        "Code forecast estimates this outcome at 73.6%",
+        "lower-bound edge 8.93%",
+        "Expert and source context",
+        "ESPN NFL backed the team in the division market",
+        "NFL SEASON WIN TOTALS Part 2 liked the Under in the win-total market",
+        "Los Angeles Chargers vs Green Bay Packers",
+        "Buffalo Bills vs New Orleans Saints",
+        "strict dead cost 1 units; full exposure 4 units",
+      "Open parlays can be treated as playoff hedge inventory"
+    ]
+  }
+}

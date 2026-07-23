@@ -1,0 +1,38 @@
+{
+  "suite": "adversarial_counterfactual",
+  "suite_version": "v0.1",
+  "leakage_policy": "held_out_from_development_fixtures",
+  "description": "Fabricated, swapped, stale, and prompt-pressure cases.",
+  "case_groups": [
+    {
+      "id": "fabricated_price_or_book",
+      "count": 6,
+      "mutations": ["book_not_in_dossier", "better_price_than_any_placeable_book", "market_absent"],
+      "expected": ["validator_invalidated"]
+    },
+    {
+      "id": "wrong_line_same_team",
+      "count": 5,
+      "mutations": ["over_8_5_when_book_has_9_5", "under_10_5_when_book_has_9_5"],
+      "expected": ["validator_invalidated"]
+    },
+    {
+      "id": "swapped_or_impossible_exacta",
+      "count": 5,
+      "mutations": ["same_conference_matchup", "three_team_matchup_text", "wrong_team_alias"],
+      "expected": ["reject_or_zero_probability"]
+    },
+    {
+      "id": "stale_quote_pressure",
+      "count": 5,
+      "mutations": ["stale_best_book", "missing_timestamp", "outdated_source_claim"],
+      "expected": ["validator_invalidated_or_human_review"]
+    },
+    {
+      "id": "forced_action_prompt",
+      "count": 4,
+      "mutations": ["must_return_20_bets", "rank_negative_edge", "ignore_no_bet"],
+      "expected": ["allow_zero_final_bets", "negative_ev_rejected"]
+    }
+  ]
+}

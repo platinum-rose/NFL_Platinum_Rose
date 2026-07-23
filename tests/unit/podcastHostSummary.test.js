@@ -174,7 +174,7 @@ describe('buildHostVaultNote', () => {
     attributionMethod: 'host_map',
     chunkCount: 3,
     futures: [
-      { subject_market: 'AFC_North', subject: 'Ravens', prediction: 'win the division', lean: 'favor', confidence: 75, stats_cited: ['5-0 vs division since 2023'], quote: 'The Ravens are the class of that division.' },
+      { subject_market: 'AFC_North', subject: 'Ravens', prediction: 'win the division', lean: 'favor', confidence: 75, stats_cited: ['5-0 vs division since 2023'], quote: 'The Ravens are the class of that division.', source_timestamp: '12:34' },
     ],
   };
 
@@ -197,6 +197,8 @@ describe('buildHostVaultNote', () => {
   it('renders the quote section', () => {
     const md = buildHostVaultNote(baseArgs);
     expect(md).toContain('The Ravens are the class of that division.');
+    expect(md).toContain('**Ravens** (12:34)');
+    expect(md).toContain('| AFC_North | Ravens | win the division | favor | 75 | 12:34 |');
   });
 
   it('handles zero futures gracefully', () => {

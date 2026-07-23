@@ -1,0 +1,47 @@
+{
+  "suite": "contract_ingestion",
+  "suite_version": "v0.1",
+  "leakage_policy": "held_out_from_development_fixtures",
+  "description": "Malformed, stale, duplicate, and mixed-shape futures rows for canonicalization and freshness gates.",
+  "case_groups": [
+    {
+      "id": "wins_legacy_side_rows",
+      "count": 12,
+      "market": "wins",
+      "mutations": ["team_contains_over_under_side", "selection_duplicates_team", "missing_pair_side"],
+      "expected": ["merge_to_canonical_team", "no_side_text_in_team", "preserve_source_row_id"]
+    },
+    {
+      "id": "playoffs_legacy_yes_no_rows",
+      "count": 10,
+      "market": "playoffs",
+      "mutations": ["team_contains_yes_no_side", "asymmetric_yes_no_prices", "duplicate_book_snapshot"],
+      "expected": ["merge_yes_no_pair", "devig_binary_pair", "no_side_text_in_team"]
+    },
+    {
+      "id": "stale_or_missing_quote_lineage",
+      "count": 8,
+      "mutations": ["quote_age_above_max", "missing_observed_at", "old_best_price_new_context_price"],
+      "expected": ["mark_stale_or_missing", "exclude_from_final_recommendation"]
+    },
+    {
+      "id": "exact_position_grouping",
+      "count": 8,
+      "market": "division_exact_position",
+      "mutations": ["one_team_four_positions", "single_book_overround", "position_in_selection_text"],
+      "expected": ["group_by_team_position_pool", "devig_four_way_position_pool"]
+    },
+    {
+      "id": "placeable_book_filtering",
+      "count": 6,
+      "mutations": ["draftkings_best_overall", "fanduel_best_overall", "bookmaker_second_best"],
+      "expected": ["exclude_unplaceable_best_price", "select_best_placeable_book"]
+    },
+    {
+      "id": "market_identity_edges",
+      "count": 6,
+      "mutations": ["wrong_line_same_team", "wrong_book_same_price", "reversed_exacta_team_order"],
+      "expected": ["reject_wrong_line", "reject_wrong_book", "accept_reversed_exacta_only_when_same_two_teams"]
+    }
+  ]
+}

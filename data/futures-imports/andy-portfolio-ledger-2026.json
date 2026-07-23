@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "season": 2026,
+  "as_of": "2026-07-22",
+  "units": {
+    "futures_usd": 20,
+    "in_season_usd": 10
+  },
+  "limits": {
+    "primary_planned_cap_usd": 500,
+    "bills_superbowl_target_cap_usd": 200,
+    "packers_superbowl_target_cap_usd": 200,
+    "in_season_reserve_usd": null,
+    "playoff_cash_hedge_reserve_usd": null
+  },
+  "positions": [
+    {
+      "id": "bills_packers_exacta",
+      "market": "superbowl_matchup",
+      "selection": "Buffalo Bills vs Green Bay Packers",
+      "role": "anchor_correlation_amplifier",
+      "stake_usd": 100,
+      "price": 6500,
+      "status": "open",
+      "known_input": true
+    },
+    {
+      "id": "bills_sb",
+      "market": "superbowl",
+      "selection": "Buffalo Bills",
+      "role": "anchor_bet",
+      "current_stake_usd": null,
+      "target_cap_usd": 200,
+      "blended_price": null,
+      "status": "building",
+      "known_input": false,
+      "estimate_note": "Target cap was supplied; actual entry tickets and blended odds were not supplied."
+    },
+    {
+      "id": "packers_sb",
+      "market": "superbowl",
+      "selection": "Green Bay Packers",
+      "role": "anchor_bet",
+      "current_stake_usd": null,
+      "target_cap_usd": 200,
+      "blended_price": null,
+      "status": "building",
+      "known_input": false,
+      "estimate_note": "Target cap was supplied; actual entry tickets and blended odds were not supplied."
+    }
+  ],
+  "open_parlays": {
+    "source": "data/futures-imports/open-parlays-2026.json",
+    "availability_status": "unverified_house_rule_conflict",
+    "eligible_as_required_hedge_resource": false,
+    "summary": {
+      "total_tickets": 6,
+      "total_open_slots": 11,
+      "total_risked_usd": 162.5,
+      "displayed_potential_win_usd": 3327.12
+    },
+    "policy": "Preserve all records as open/unverified contingent assets. Do not fill, close, or rely on the slots as guaranteed capacity without explicit user approval."
+  }
+}

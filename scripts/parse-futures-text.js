@@ -265,6 +265,29 @@ function parseBetus(lines, book, when, season) {
   return rows;
 }
 
+function winBalance(row) {
+  const over = implied(row.over_price);
+  const under = implied(row.under_price);
+  if (over == null || under == null) return Number.POSITIVE_INFINITY;
+  return Math.abs(over - under);
+}
+
+function normalizeRows(rows) {
+  const nonWins = new Map();
+  const wins = new Map();
+  for (const r of rows) {
+    if (r.market_type === 'wins') {
+      const key = [r.book, r.snapshot_time, r.team].join('|');
+      const prev = wins.get(key);
+      if (!prev || winBalance(r) < winBalance(prev)) wins.set(key, r);
+      continue;
+    }
+    const key = [r.market_type, r.team, r.book, r.snapshot_time].join('|');
+    if (!nonWins.has(key)) nonWins.set(key, r);
+  }
+  return [...nonWins.values(), ...wins.values()];
+}
+
 function captureDate(file, explicit) {
   if (explicit) return explicit;
   const m = path.basename(file).match(/(20\d{6})/);
@@ -286,7 +309,7 @@ const lines = fs.readFileSync(file, 'utf8').split(/\r?\n/).map(normLine);
 const rows = book === 'bookmaker'
   ? parseBookmaker(lines, book, when, season)
   : parseBetus(lines, book, when, season);
-const normalized = rows.map((r) => Object.fromEntries(KEYS.map((k) => [k, r[k] ?? null])));
+const normalized = normalizeRows(rows).map((r) => Object.fromEntries(KEYS.map((k) => [k, r[k] ?? null])));
 const counts = new Map();
 for (const r of normalized) counts.set(r.market_type, (counts.get(r.market_type) || 0) + 1);
 console.log(`Parsed ${normalized.length} rows from ${path.basename(file)} book=${book} date=${d}`);

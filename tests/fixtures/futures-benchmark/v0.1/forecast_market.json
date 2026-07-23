@@ -1,0 +1,18 @@
+{
+  "suite": "forecast_market",
+  "suite_version": "v0.1",
+  "leakage_policy": "held_out_from_development_fixtures",
+  "description": "Forecast, calibration, and CLV observations. This file is intentionally unresolved until real closing or settled futures data exists.",
+  "observations": [
+    {
+      "id": "forecast_placeholder_2026_preseason",
+      "market": "wins",
+      "selection": "TBD",
+      "information_cutoff": "2026-07-22T00:00:00Z",
+      "forecast_prob": null,
+      "closing_price": null,
+      "outcome": null,
+      "status": "awaiting_real_closing_or_settled_result"
+    }
+  ]
+}

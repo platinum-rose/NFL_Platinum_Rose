@@ -1,0 +1,65 @@
+{
+  "id": "fabricated-exacta-quarantine",
+  "description": "Fake exacta combinations are invalidated, and raw-only coverage ideas are quarantined instead of promoted into the final scenario book.",
+  "dossier": ".nfl/portfolio/dossier-2026-07-22.json",
+  "models": ["gpt-4o"],
+  "primary": ["Buffalo Bills", "Green Bay Packers"],
+  "skip_committee": true,
+  "responses": {
+    "stage1": {
+      "recommendations": [],
+      "watch": [],
+      "hedge_baskets": [
+        {
+          "primary_hedged_against": ["Buffalo Bills", "Green Bay Packers"],
+          "thesis": "These look plausible by team quality but are not placeable matchup rows in the dossier.",
+          "legs": [
+            { "market": "superbowl_matchup", "selection": "Green Bay Packers vs Philadelphia Eagles", "role": "coverage_bet" },
+            { "market": "superbowl_matchup", "selection": "Chicago Bears vs Detroit Lions", "role": "coverage_bet" }
+          ]
+        }
+      ],
+      "parlay_ladders": [],
+      "portfolio_strategy": {
+        "strategy_type": "playoff_scenario_book",
+        "anchor_positions": ["Buffalo Bills", "Green Bay Packers"],
+        "coverage_positions": [
+          "Green Bay Packers vs Philadelphia Eagles",
+          "Chicago Bears vs Detroit Lions"
+        ],
+        "ladder_stacks": [],
+        "playoff_hedge_plan": []
+      },
+      "portfolio_notes": "Fabricated exacta rows should not become final coverage positions."
+    }
+  },
+  "expect": {
+    "final_count": 0,
+    "valid_hedge_baskets": 0,
+    "valid_parlay_ladders": 0,
+    "invalidated_stacks": 1,
+    "portfolio_status": "active",
+    "anchor_teams_include": ["Buffalo Bills", "Green Bay Packers"],
+    "coverage_count": 0,
+    "unresolved_raw_coverage_count": 2,
+    "ladder_count": 0,
+    "exposure_summary": {
+      "basket_total_stake": 0,
+      "ladder_full_exposure": 0,
+      "max_dead_cost_if_all_prepositioned": 0,
+      "max_dead_cost_if_strict_ladders": 0,
+      "funded_liability_if_ladders_hit": 0,
+      "invalidated_structure_count": 1
+    },
+    "no_resolved_legs_include": [
+      { "market": "superbowl_matchup", "selection": "Green Bay Packers vs Philadelphia Eagles" },
+      { "market": "superbowl_matchup", "selection": "Chicago Bears vs Detroit Lions" }
+    ],
+    "invalidated_stack_reason_includes": ["No legs resolved against the dossier"],
+    "report_contains": [
+      "Unresolved coverage ideas:",
+      "Green Bay Packers vs Philadelphia Eagles",
+      "Chicago Bears vs Detroit Lions"
+    ]
+  }
+}

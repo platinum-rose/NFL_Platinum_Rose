@@ -1,0 +1,56 @@
+{
+  "id": "reversed-exacta-resolution",
+  "description": "A real Super Bowl matchup resolves even when the analyst writes the two teams in reverse order.",
+  "dossier": ".nfl/portfolio/dossier-2026-07-22.json",
+  "models": ["gpt-4o"],
+  "primary": ["Buffalo Bills"],
+  "skip_committee": true,
+  "responses": {
+    "stage1": {
+      "recommendations": [],
+      "watch": [],
+      "hedge_baskets": [
+        {
+          "primary_hedged_against": ["Buffalo Bills"],
+          "thesis": "Same pairing as Bills-Lions, written in reverse order by the analyst.",
+          "legs": [
+            { "market": "superbowl_matchup", "selection": "Detroit Lions vs Buffalo Bills", "role": "coverage_bet" }
+          ]
+        }
+      ],
+      "parlay_ladders": [],
+      "portfolio_strategy": {
+        "strategy_type": "playoff_scenario_book",
+        "anchor_positions": ["Buffalo Bills"],
+        "coverage_positions": ["Detroit Lions vs Buffalo Bills"],
+        "ladder_stacks": [],
+        "playoff_hedge_plan": []
+      },
+      "portfolio_notes": "Reverse-order exacta should resolve to the same dossier row."
+    }
+  },
+  "expect": {
+    "final_count": 0,
+    "valid_hedge_baskets": 1,
+    "valid_parlay_ladders": 0,
+    "invalidated_stacks": 0,
+    "portfolio_status": "active",
+    "anchor_teams_include": ["Buffalo Bills"],
+    "coverage_count": 1,
+    "coverage_selections_include": ["Detroit Lions vs Buffalo Bills (superbowl_matchup)"],
+    "unresolved_raw_coverage_count": 0,
+    "ladder_count": 0,
+    "exposure_summary": {
+      "basket_total_stake": 1,
+      "ladder_full_exposure": 0,
+      "max_dead_cost_if_all_prepositioned": 1,
+      "max_dead_cost_if_strict_ladders": 1,
+      "funded_liability_if_ladders_hit": 0,
+      "invalidated_structure_count": 0
+    },
+    "resolved_legs_include": [
+      { "market": "superbowl_matchup", "selection": "Detroit Lions vs Buffalo Bills", "price": 5500, "book": "betus", "role": "coverage_bet" }
+    ],
+    "report_contains": ["Coverage positions:", "Detroit Lions vs Buffalo Bills"]
+  }
+}

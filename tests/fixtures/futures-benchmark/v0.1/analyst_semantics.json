@@ -1,0 +1,38 @@
+{
+  "suite": "analyst_semantics",
+  "suite_version": "v0.1",
+  "leakage_policy": "held_out_from_development_fixtures",
+  "description": "Evidence-support and contradiction cases for analyst claims. These are rubric cases, not model outputs.",
+  "case_groups": [
+    {
+      "id": "supported_numeric_claims",
+      "count": 12,
+      "claim_types": ["sos_rank", "prior_record", "win_dist_tail", "quote_age"],
+      "expected": ["resolve_exact_value", "include_source_date", "pass_when_claim_matches_value"]
+    },
+    {
+      "id": "unsupported_causal_claims",
+      "count": 10,
+      "claim_types": ["injury_return", "coordinator_upgrade", "qb_health", "camp_report"],
+      "expected": ["needs_human_review", "unsupported_claim_flag"]
+    },
+    {
+      "id": "contradictory_evidence",
+      "count": 10,
+      "claim_types": ["soft_schedule_but_hard_sos_rank", "healthy_team_but_injury_flag", "sharp_support_but_no_clv_sample"],
+      "expected": ["skeptic_should_downgrade_or_kill", "render_disconfirming_factor"]
+    },
+    {
+      "id": "thin_market_language",
+      "count": 8,
+      "claim_types": ["single_book_matchup", "single_book_exact_position", "wide_line_spread"],
+      "expected": ["avoid_positive_ev_language", "label_market_context_not_edge"]
+    },
+    {
+      "id": "no_bet_pressure",
+      "count": 10,
+      "claim_types": ["no_positive_lower_bound", "all_quotes_stale", "unresolved_required_evidence"],
+      "expected": ["allow_zero_final_bets", "preserve_pass_reason"]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "id": "partial-ladder-unresolved-leg",
+  "description": "A ladder with valid early legs and one non-dossier leg stays visible as flagged, with unresolved-leg notes preserved.",
+  "dossier": ".nfl/portfolio/dossier-2026-07-22.json",
+  "models": ["gpt-4o"],
+  "primary": ["Chicago Bears"],
+  "skip_committee": true,
+  "responses": {
+    "stage1": {
+      "recommendations": [],
+      "watch": [],
+      "hedge_baskets": [],
+      "parlay_ladders": [
+        {
+          "team": "Chicago Bears",
+          "thesis": "Keep the valid Bears funding legs, but do not hide the non-dossier MVP leg.",
+          "legs": [
+            { "market": "wins", "selection": "Chicago Bears Over 9.5 wins", "role": "funding_leg" },
+            { "market": "playoffs", "selection": "Chicago Bears", "role": "funding_leg" },
+            { "market": "mvp", "selection": "Caleb Williams MVP", "role": "option_bet" }
+          ]
+        }
+      ],
+      "portfolio_strategy": {
+        "strategy_type": "playoff_scenario_book",
+        "anchor_positions": ["Chicago Bears"],
+        "coverage_positions": [],
+        "ladder_stacks": [
+          {
+            "team": "Chicago Bears",
+            "steps": [
+              { "bet": "Bears O9.5", "role": "funding_leg" },
+              { "bet": "Bears playoffs", "role": "funding_leg" },
+              { "bet": "Caleb Williams MVP", "role": "option_bet" }
+            ],
+            "intent": "The last leg is deliberately outside the dossier and should be marked unresolved."
+          }
+        ],
+        "playoff_hedge_plan": []
+      },
+      "portfolio_notes": "Partial ladders should be kept when at least one leg resolves."
+    }
+  },
+  "expect": {
+    "final_count": 0,
+    "valid_hedge_baskets": 0,
+    "valid_parlay_ladders": 1,
+    "invalidated_stacks": 0,
+    "unresolved_ladder_leg_count": 1,
+    "portfolio_status": "active",
+    "anchor_teams_include": ["Chicago Bears"],
+    "coverage_count": 0,
+    "unresolved_raw_coverage_count": 0,
+    "ladder_count": 1,
+    "ladder_teams_include": ["Chicago Bears"],
+    "exposure_summary": {
+      "basket_total_stake": 0,
+      "ladder_full_exposure": 2,
+      "max_dead_cost_if_all_prepositioned": 2,
+      "max_dead_cost_if_strict_ladders": 1,
+      "funded_liability_if_ladders_hit": 1,
+      "invalidated_structure_count": 0
+    },
+    "resolved_legs_include": [
+      { "market": "wins", "selection": "Chicago Bears Over 9.5 wins", "price": 112, "book": "bookmaker", "role": "funding_leg" },
+      { "market": "playoffs", "selection": "Chicago Bears", "price": 105, "book": "betonline", "role": "funding_leg" }
+    ],
+    "report_contains": [
+      "No dossier row for market=\"mvp\" selection=\"Caleb Williams MVP\".",
+      "strict dead cost 1 units; full exposure 2 units"
+    ]
+  }
+}

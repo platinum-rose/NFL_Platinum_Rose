@@ -22,6 +22,9 @@
     "ingest-research-intel": "node agents/research-intel-ingest.js",
     "ingest-research-intel:dry": "node agents/research-intel-ingest.js --dry-run",
     "test:smoke": "playwright test",
+    "test:portfolio-corpus": "node scripts/run-portfolio-corpus.js",
+    "test:futures-dossier": "node scripts/futures-dossier-conformance.js",
+    "benchmark:futures": "node scripts/futures-benchmark.js",
     "resume": "node scripts/gen_resume.js",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
@@ -39,7 +42,9 @@
     "fetch:nflverse": "python scripts/fetch_nflverse_data.py",
     "fetch:nflverse:dry": "python scripts/fetch_nflverse_data.py --dry-run",
     "podcast-coverage": "node scripts/podcast-coverage.js",
-    "podcast-coverage:json": "node scripts/podcast-coverage.js --json"
+    "podcast-coverage:json": "node scripts/podcast-coverage.js --json",
+    "podcast-narratives": "node scripts/build-podcast-narratives.js",
+    "find:podcast-transcripts": "node scripts/find-podcast-transcripts.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.98.0",

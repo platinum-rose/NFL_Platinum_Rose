@@ -1,0 +1,35 @@
+{
+  "suite": "personalization",
+  "suite_version": "v0.1",
+  "leakage_policy": "held_out_from_development_fixtures",
+  "description": "Andy ledger, unit, cap, exacta-role, and open-parlay policy cases.",
+  "case_groups": [
+    {
+      "id": "unit_conversion",
+      "count": 2,
+      "expected": ["futures_unit_20_usd", "in_season_unit_10_usd"]
+    },
+    {
+      "id": "anchor_caps",
+      "count": 2,
+      "positions": ["Bills Super Bowl", "Packers Super Bowl"],
+      "expected": ["respect_200_usd_target_caps", "respect_500_usd_primary_cap"]
+    },
+    {
+      "id": "bills_packers_exacta",
+      "count": 2,
+      "position": "Bills vs Packers +6500 for $100",
+      "expected": ["load_as_open_position", "classify_as_anchor_correlation_amplifier"]
+    },
+    {
+      "id": "open_parlay_policy",
+      "count": 2,
+      "expected": ["preserve_open_records", "eligible_as_required_hedge_resource_false"]
+    },
+    {
+      "id": "sunk_cost_and_reserve",
+      "count": 2,
+      "expected": ["do_not_treat_sunk_parlay_stake_as_new_bankroll", "do_not_fill_open_slots_without_approval"]
+    }
+  ]
+}
