@@ -1,0 +1,597 @@
+# Sharp or Square - NFL WEEK 1 BETTING LINES - 2026 Regular Season Openers
+
+Published: 2026-05-28T15:00:00+00:00
+Episode ID: cd46d738-80ef-457b-aa0a-e839dac7b965
+Status: done
+Duration: 3266 seconds
+Audio: https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/clips/e73c998e-6e60-432f-8610-ae210140c5b1/291fe8ed-f80d-4107-9ee1-b34c015266d0/f3a969cf-e8de-40f7-935e-b4510119900e/audio.mp3?utm_source=Podcast&amp;in_playlist=51f38aeb-0341-43f7-a21b-b34c01526b07
+
+Transcript chars: 69353
+Speaker turns: 145
+Speaker labels: A, B, C
+
+## Existing Host Summary Rows
+
+- Guest (gpt-4o, unknown) futures=3
+
+## Diarized Turns
+
+### Speaker A [0:00-0:00]
+
+This is an iHeart podcast. Guaranteed Human.
+
+### Speaker B [0:00-0:00]
+
+If you've been sitting on a business idea for a while, consider this the sign to take action. It can even be made official today by creating a website with Wix Harmony. Just tell Wix Harmony what you want and it will build the entire site, business features included and everything can still be edited by hand. It's your website, your call. Try it@wix.com that's wix.com Amazon Health AI
+
+### Speaker C [0:00-0:00]
+
+presents painful thoughts why did I search the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole
+
+### Speaker A [0:00-0:00]
+
+filled with images of alarmingly graphic sores in various stages of ooze. I can clear my search history, but I can never unsee that.
+
+### Speaker C [0:00-0:00]
+
+Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
+
+### Speaker A [0:00-0:00]
+
+Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound.lilly.com
+
+### Speaker B [0:00-0:00]
+
+during Lowe's Pro Savings Days. Save more on the brands you trust to deliver on the job Right now
+
+### Speaker C [0:00-0:00]
+
+get a free Dewalt 20 volt max 8amp hour battery when you buy a
+
+### Speaker B [0:00-0:00]
+
+Dewalt 10 inch 20 volt max dual bevel compound miter saw plus get up to 35% off select major appliances. Save even more on what you need to keep the job mo. Best lineup is here at Lowe's valid through 731 while supplies last selection varies by location. See lowe's.com for more details. Welcome to Sharper Square presented by Hard Rock Bet. We are part of the Volume Podcast network. This is the betting show that makes the square sharper, makes the wise guys pay attention. I am Shad Millman. I am joined as always by my co host, my bff, my companion, my compadre professional better Simon Hunter. Hello Simon.
+
+### Speaker C [0:00-0:00]
+
+Chad. The league is a buzz and it's usually all about the week one lines. That's the rare times like other NFL teams, people in the league are hitting me up just being like this is what Vegas thinks of us. This is what they view us in our first matchup. That's a ridiculous line. This week honestly has been non stop about going to 18 game schedule, everyone. It feels like I don't know if it's gonna happen this upcoming season obviously,
+
+### Speaker B [0:00-0:00]
+
+but it can't happen this season.
+
+### Speaker C [0:00-0:00]
+
+Yeah, the way the people are talking right now, it just seems like it's, it's pretty much a given. Next year will be an 18 game schedule and that's just, it's usually not like that right now. Usually everyone's just a buzz about week one. But the fact that it's a real thing, this whole two by weeks, 18 games, teams playing two or three international games. There's a lot going on behind the scenes right now in the NFL and it's, it's a really interesting time just trying to figure out the next move because I feel like this is it, right? If we, if we go to 18 games, there's not a future of. Maybe there is, but not for a long time, right? This feels like the next step in that President's Weekend of the NFL Super Bowl. So yeah, it's a big deal. I know people in Atlanta are really mad because it's, you know, whatever it is, 16 months out, they still don't have a date yet for the, for 2028 Super Bowl. But yeah, it's, it's pretty exciting time around the NFL side.
+
+### Speaker B [0:00-0:00]
+
+I think for fans it's amazing. You get an extra game of football. The season goes a little Bit longer. The window from when it ends to when it begins gets a little bit shorter. It just extends all the joy. I think it's also indicative of a lot of what we talked about in the schedule show that, you know, part one of which we did, and part two with Warren Sharp, Roger Goodell in the NFL have given up all pretense of having an interest in player safety, player development, player needs, player wishes. They're about grinding out the revenue. And I feel like that's a significant sea change over the past decade. And they've got all the power, they can push everything onto the NFL Pennsylvania that they would like to push onto them. And there's such limited recourse. You know, less hitting during bye weeks is not the ultimate solve for long term health. I'm not, I'm not the guy who's advocating that it's a bad thing. I'm just saying this is clearly how the league perceives it. Between the international games, lack of rest, added games, they just want to make their money.
+
+### Speaker C [0:00-0:00]
+
+Yeah. And it's, it's always gonna be interesting where there's gonna be certain. There's always gonna be some people that just, you know, you like to complain, right? We all have a Larry David inside of us that just likes to complain. There's just, there's going to be people saying, well, the season's too long now, right.
+
+### Speaker B [0:00-0:00]
+
+And like I'm not, I'm not gonna
+
+### Speaker C [0:00-0:00]
+
+say that we might, but we might hit those points right? Where some years you're just that down here, especially betting wise, or maybe your team sucks where it does feel like it's too long of a season. I'm on the same boat as you where I can never get enough. But there is a limit. And I still think it's still a short enough season where it's special enough that the format of one game per week, that's always going to me be the saving grace in NFL like it just will never be oversaturated because of that, that week, man. Like that. Everyone knows that that week where either you win or you lose, it could be the longest week of your life as a fan waiting for that next game. So they just. Not that they stumbled into this perfect sport for America, but between the five seconds of action and the 30 seconds of nothing, with the cell phone culture, that was a huge bonus for this sports league. But this whole turn of, you know, gambling and the money that's coming to the league from it and the money that's coming from the TV partners, it's made it. So these players, I agree with you with a player safety even, they themselves are like, they see the money, they're just like that's another game check. And we've talked about it before. The league is voted on not by the veterans, it's voted on by the 20 year olds, the first year players, because that's how it is, right? Three, four years in the league and then you're out. That's the majority of the player union. So those guys, they're going to try to take that extra game check. So I would be shocked to see if the players don't pass this. But end of the day it is up to the players. If people don't realize that the cba, the players are the ones that decide if we go to 18 game, the owners can push for it. But end of the day it's all with the players and that's, that's the leverage. So I just can't see them turn around turning down that extra game check. And for someone that makes a living off bed net, I love it like an extra week of making money and I can't get over how much I'm so excited for the potential of this 18 game schedule.
+
+### Speaker B [0:00-0:01]
+
+Here's the good news. We have week one lines. It's what we're talking about today. It most replicates like a regular season show during the off season for us. A little over 100 days, which is hard to believe until regular season kicks off. That means it's time for the annual episode. Looking at week one lines, Simon, I've actually, I've done a little prep and research for this. I've got like legitimate. We might, we might have thoughts on a big balls. I might have thoughts on an exec decision. I don't know if you have thoughts on assignment says, but let's throw them out there. Let's do it. Let's. It's almost like we're having a training camp game. Week 1 Patriots go to Seattle kicking off the 2026 season Wednesday night after Labor Day. Wednesday night, first time there's a Super bowl rematch to start the season since. Broncos Panthers Super Bowl 50 It's a fun little nugget right there. The Rams and the Niners, we've talked about this taking place in Melbourne, Australia Thursday night, 10:30am Local kick so they're playing games at 10:30. They're playing a game at 10:35am I don't even know. Do you get up two hours early to sort of get your body ready for a 10:35am game what you're playing in Australia. Seattle's a four and a half point favorite in their game. The Rams are two and a half point favorites in their games. I've got an immediate thought. You ready?
+
+### Speaker C [0:01-0:01]
+
+Yeah. Good. To me
+
+### Speaker B [0:01-0:01]
+
+we're taking the Seahawks. That's my immediate thought. I don't have a strong opinion on the Rams and the Niners, but we're definitely taking the Seahawks.
+
+### Speaker C [0:01-0:01]
+
+Yeah. It feels like they're trying to bait us to take the Patriots. Right. It's.
+
+### Speaker B [0:01-0:01]
+
+This game is a blowout. This is an absolute blowout game. I don't care what anyone says. I think there were a lot of things about that Patriots team that got exposed in the super bowl that they haven't necessarily fixed in the off season. And we don't know what the impact of the variable Rossini controversy is going to be, but it's clearly had some impact in the off season and, and it's going to have some impact in the locker room even after they go through a month of training camp. Whatever it is. Like maybe the AJ Brown trade goes through and it changes my mind but I think there's just a difference in class with these two teams that won't have changed during the off season.
+
+### Speaker C [0:01-0:01]
+
+Yeah. That's the reason I'm not rushing about this right now. Right. Just because this number did touch forward a couple books. So clearly once again some professional mind this Patriot side. But I'm right there with you. It's like they're trying to get us to zag and I, I hate that ifl did this game to start like we literally then the season with this matchup and then start the year with this matchup. I'm not a fan of it like if it was the Chiefs, Bills, sure. Like you know I can get behind that or anything that with two big time quarterbacks. But yeah, we expect a aggressive year from Drake, Maine. You know we've seen Sam Darnold struggle. Tend to be struggling in the, in these, these big time moments in these games. So yeah, for me I'll be patient on this one and see where the number goes. But if this dips the four, three and a half once AJ Gets signed. I'm right there with you. I'll be on that Seahawks number.
+
+### Speaker B [0:01-0:01]
+
+What do we do about the Rams and The Niners at 2 1/2. The Rams 2 1/2 point favorites. Immediately in my head I wanted to bet the Niners we know they'll be healthy. It's, it's a neutral field. Everyone's playing under the same circumstances. Shanahan has tended to play against McVay really well. These are competitive matchups even when the teams aren't balanced because of the way Shanahan schemes. It should be the kind of game where things are relatively even and I'd want to play the dog even at two and a half.
+
+### Speaker C [0:01-0:01]
+
+Yeah, I actually like the Rams here. I like this Rams number. But if you do like the 49ers, which I agree it's just going to be a nice number for them just because it is in a neutral spot. It is the most random week of the year, which is week one. Wait for the plus three. I just think the public will come in like me and bet this Rams team, which, you know, I still think talent level wise, they're better than this 49ers team, the 49ers, you know, their wide receiver room is still not ideal and you know, it's a team that's been robust. Right. They've spent money on big time players and the rest of the roster is kind of very weak. So I don't hate your play though. I do think you'll be able to get a better number at this. I do think I'll go to plus three just because the Rams hype is going to keep building. They're just a team that people are going to keep falling in love with. The more you, you study that roster and you just see they're just simply all in for this year and, and you know, Was it Trent McDuffie? I forget which corner they signed, but
+
+### Speaker B [0:01-0:01]
+
+it's like, yeah, Trent McDuffie.
+
+### Speaker C [0:01-0:01]
+
+They're, they're, they're making these moves where they're attacking their biggest weaknesses on the defense and the rumors of them trying to get AJ AJ Brown and getting rid, trading Devonte Adams for him and make that type of move happen, like, I like that. It just shows less need. He knows they're trying to go all in right now. So yeah, I am shocked. This number's two and a half. I really thought I would open a three. But you must be just pros like you know, thinking the way Chad's thinking, which is neutral site, divisional game, you're giving me San Francisco +3. I'm going to take that. So maybe it doesn't get there until the season starts, but I do think eventually that's where it closes at Chad's professional.
+
+### Speaker B [0:01-0:01]
+
+Even in May, Chad's thinking like a pro. Which is what makes the Cleveland Browns plus seven and a half at the Jacksonville Jaguars. Again, all lines provided by hard Rock that seven and a half at the Jacksonville Jaguars. Simon, we have already. We've talked about so many times that we're invested in the Browns, and it's. It's a weird thing to say because we know they have quarterback issues. And I'm of the mind that when I read about Deshaun Watson competitiveness, development, trust from the Browns organization in the off season, I'm a little bit cynical about the way the media treats the off season in that everyone gets irrationally excited. And you see it fucking jets media slobbering over Cade Klubnick, right? And the coverage that he's just brilliant in a minicam session thrown in shorts against undrafted rookies. But the reason we've liked the Browns is their defense is amazing. They also draft really well and they got a lot of good complimentary players. And they still might be a little bit undervalued because people don't know who the quarterback is going to be. Should the Cleveland Browns be our big balls bet of week one for May.
+
+### Speaker C [0:01-0:01]
+
+I love it.
+
+### Speaker B [0:01-0:01]
+
+Big balls bet of the week presented by Hard Rock Bet.
+
+### Speaker C [0:01-0:01]
+
+You know what it takes?
+
+### Speaker B [0:01-0:01]
+
+It takes brass balls. Four in May. In May, this could change. But we like the value we're seeing in the half point, the hook and Cleveland at plus seven and a half, all of it.
+
+### Speaker C [0:01-0:01]
+
+I was shocked that this number was this big with Sean Watson. And, you know, I'm gonna keep obviously adjusting lines and attacking these lines, but I had this at four and a half. So I'm obviously off right now because three points. The books aren't just here to give away money. But then when I looked at the betting market and seeing there are a decent amount of money in beds coming on this Jaguar side, maybe I'm not that far off. And the books kind of have a. Of a nice little spot here for themselves with this brown steam. So it's. It's nice to be this early in the year already betting with the book. But I feel like this is one of those games where I think the general public is thinking the same way. You know, most fans are right? The Sean Watts hasn't played competitive football in years. The Browns, they have a good defense, but they can't score points offensively and they're just terrible. But we've seen it where desean Watson can get into these rhythms and can move the bulk and score points. I remember Chad's favorite story was that Ravens game where this guy basically had, what was it, a open wound or some type of injury where he basically played through it in the second half and had the game of his life. Like he still has tons of talent. Just can he be consistent here? So yeah, this Browns number right away, I'm right there with you. Chad jumped out to me. It's like you're giving me that defense, that D line specifically against that O line of the Jaguars which sure they might be good at run blocking but pass block and we've saw last year they struggled. Trevor Lawrence struggled with turnovers whenever he got too much pressure put on him. And this is like the ideal matchup for this Cleveland team. So I couldn't believe this was over a touchdown. It's like my God, in week one.
+
+### Speaker B [0:01-0:01]
+
+Yeah.
+
+### Speaker C [0:01-0:01]
+
+Getting over a touchdown if it's not a rookie or you know, a. I guess it is a first time head coach on the road. I just feel like that's way too many points away. Too much respect to that Jaguar side. So you know it's. It's one of the few big lines right. We've talked about. The books have gotten a little tighter on these week one lines. This is a few, few lines. That's actually over seven points, Chad. So I love that we're in alignment here.
+
+### Speaker B [0:01-0:01]
+
+I believe we're also going to be in alignment in the New York Jets Tennessee Titans game where the Tennessee Titans are short home favorites at minus two and a half against the New York Jets. It's been two seasons of us not getting it timed right with the Tennessee Titans. I think this is the season we do it and there, there is too much hype and excitement over the New York jets right now for zero reason. They had a good draft on paper but we don't know who the quarterback is going to be. Meaning, you know, Geno Smith circa 2014 is going to come back and be the New York jets quarterback. We do like Robert Sala. We do like Cam Ward. We do like the fact they've drafted in ways to support him. Short number. Give me the Tennessee Titans
+
+### Speaker C [0:01-0:01]
+
+Salah revenge game.
+
+### Speaker B [0:01-0:01]
+
+Solid revenge game. I forgot about that.
+
+### Speaker C [0:01-0:01]
+
+Yeah. I don't know, I feel like we should stick with our ban banning us from betting any type of Tennessee Titans game. I can't get over. We both be have half a mil each if we just baited the Titans. But yeah, I, I'm with you. The number feels like it's. It's the perfect number to take Cam Ward in this Tennessee team that we think would be in the jets. But you know it's going to be week one. It's going to be Geno Smith. What do you Do Last year he won his week one game at the Patriots. Like it's just week one's so stupid. So this game has stupid written all over it. Special teams, touchdowns, quarterbacks throwing the ball behind the lines. Other team are covering it for a touchdown. I just, I can't get over how dumb this game is going to be. So I'm going to be betting it with you. But yeah, it pains me to say I'm probably in agreeance with you right now. It's a Tennessee number. I probably would take Tennessee side.
+
+### Speaker B [0:01-0:01]
+
+Drunk game. It's the drunk game of the week.
+
+### Speaker C [0:01-0:01]
+
+Yeah.
+
+### Speaker B [0:01-0:01]
+
+I'm going to choose the next game. I can't remember last year. Did we do a chat's choice? I can't remember what we did. Give me the Baltimore Ravens. Three and a half point road favorites against the Indianapolis Colts.
+
+### Speaker C [0:01-0:01]
+
+Are you sure you want to do this? Are you willing to make a choice?
+
+### Speaker B [0:01-0:01]
+
+My choice. We can't run from who we are.
+
+### Speaker C [0:01-0:01]
+
+Sharp dudes can just see it, you
+
+### Speaker A [0:01-0:01]
+
+know what I mean?
+
+### Speaker B [0:01-0:01]
+
+I love Jesse Minter. I feel like he's going to bring a different energy to that team. I think he's really going to move that defense into a position where it's not having to wait half a year before it figures out what it is and how to play. I think they're lined up to be perfectly dominant against a Colts team that there are so many quarterbacking issues and I think we saw what their problems are when they don't have Daniel Jones and things aren't going perfectly for them. Executive decision. Chad's choice. Chad loves love. Baltimore Ravens minus three and a half. Am I stealing it from you? Tell me if you feel strongly about it, I can move off it.
+
+### Speaker C [0:01-0:01]
+
+No. Do you think? I honestly thought as soon as I saw his line I was like that's a trap because I am right there with you. The Ravens. Why is this not seven? There's no way Daniel Jones is back.
+
+### Speaker B [0:01-0:01]
+
+So I mean it makes no sense.
+
+### Speaker C [0:01-0:01]
+
+Yeah, it's most likely gonna be Anthony Richardson. So I, I. You could be catching the books with their pants down here. So I'm not gonna hate on the bed here but if this was, this is the same number come our Tuesday show in September. I in good faith cannot let us bet the Raven side because this number just does not make sense. Something's not computing here because everything you just talked about, I think that defense is going to be so much better with Minter like that guy. I think people under underrating how good of a defensive coach he is. And coming to the Ravens where they have talent, I feel like the only thing missing was really coaching for them defensively. And you know we've seen Lamar on that offense when he is healthy with Derrick Henry. They're dominant. I mean they're just so hard to stop because if you load the box they'll beat you over the top. And that's been the key with Lamar and his success in the NFL. So I I don't get this line Chad, and I don't hate your early read either. Like this type of game where if I'm going to throw money out and make it sit for the next three months, I can do it on a game like this watch I can easily bought out of a position later. Where is this really ever going to get to three or two and a half? No. So to me you're getting the best of the number you can possibly get right now on this Raven side.
+
+### Speaker B [0:01-0:01]
+
+I love when we're in agreement so early in the year. Vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. Wix has introd used WIX Harmony, a Vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And Wix Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com that's wix.com Are
+
+### Speaker A [0:01-0:01]
+
+you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia Syndrome Type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing, pregnant, plan to be or taking birth control pills. Taking zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor. Call 1-800-545-5979 or visit zepbound.lilly.com Amazon Pharmacy
+
+### Speaker C [0:01-0:01]
+
+presents Painful Thoughts of course I see
+
+### Speaker B [0:01-0:01]
+
+my co worker in line at the pharmacy. Can you tell I'm picking up prescription hemorrhoid cream? I'm probably standing weird.
+
+### Speaker C [0:01-0:01]
+
+Why is he smiling?
+
+### Speaker B [0:01-0:01]
+
+He knows he's gonna call me Hemorrhoid Lloyd tomorrow.
+
+### Speaker C [0:01-0:01]
+
+I know it. I gotta quit my job. Next time, avoid awkward conversations and get fast free delivery with Amazon Pharmacy Healthcare just got less painful. Awkward time to ask this, but hey,
+
+### Speaker B [0:01-0:01]
+
+did you download the trail map?
+
+### Speaker A [0:01-0:01]
+
+Yeah, no, I don't need to.
+
+### Speaker B [0:01-0:02]
+
+I don't understand. You're trusting your signal out here? I'm trusting T Mobile.
+
+### Speaker A [0:02-0:02]
+
+They have the best network and if
+
+### Speaker B [0:02-0:02]
+
+we end up in bumtots nowhere, well, we've got T satellite for backup.
+
+### Speaker C [0:02-0:02]
+
+Whoa. I don't trust my carrier that much.
+
+### Speaker B [0:02-0:02]
+
+We'll just use your phone as a flashlight. With America's best network and T satellite, we're keeping you connected in places you never thought possible.
+
+### Speaker C [0:02-0:02]
+
+And if you switch today, you get free phones for zero down and only
+
+### Speaker B [0:02-0:02]
+
+25 bucks a month per line for four lines.
+
+### Speaker C [0:02-0:02]
+
+Find out more@t mobile.com or visit your local store. Best Mobile Network Based on analysis by
+
+### Speaker B [0:02-0:02]
+
+Ooklib speed test intelligence data 2h 2025
+
+### Speaker C [0:02-0:02]
+
+with 24 monthly bill credits and 4
+
+### Speaker B [0:02-0:02]
+
+eligible port ins on essentials for well qualified customers with auto pay taxes fees and 35 connection charge per line credits and imbalance due if you pay off earlier. Cancel Contact US Finance Agreement example 299.99 Moto H5G required T satellite available with compatible device in most outdoor areas in the US where you can see the sky. Included with experience beyond $10 a month Audible News monthly cancel anytime visit t mobile.com Buffalo visiting Houston Buffalo Bills man, they are freaking hard luck, right? And so right now they are I'm looking at the screen. It's. They're one and a half point favorites on the road at the Houston Texas. I don't really have a strong opinion on this one.
+
+### Speaker C [0:02-0:02]
+
+Oh, no. This is easy. Easy bet. Houston plus one and a half. You have to take this every time. I don't even want to do it. But this is the exact game Josh Allen wins by one point. Like, this is just. We've seen this script many times and if he doesn't, they'll get rolled because this is such a good defense and it's Joe Brady's first game as a coach on the road, like just a tough spot. You're going against a good coach with a great defense. So, you know, we'll learn pretty quick. Right? DJ Moore. This is the type of game where he could be the game changer. Right? They have a really good secondary. That's what Josh is gonna need. He's gonna need a guy like him to step up and take the top off of the field so they can run the ball. That's the only way you could beat this Houston team. You have to be able to run the ball. So just a brutal, brutal matchup for the Bills to start the season. On the flip side for Houston, all the questions, right, C.J. this is as low as it gets. It feels like stock wise Chad, just everyone's out on him. People saying he doesn't deserve a second contract, people saying they'd rather have pay Bryce Young right now over someone like C.J. and I think he's heard the noise. I've heard a lot of stuff about him working this off season, just trying to get better, throwing, getting back to his old ways of being so great, throwing those deep balls off platform and, you know, could they have ruined them with having a horrible offensive line these last three years?
+
+### Speaker B [0:02-0:02]
+
+Yeah, happens.
+
+### Speaker C [0:02-0:02]
+
+Yeah, we've seen that with quarterbacks, right? They get the yips. It's just those hits add up mentally and physically and, you know, I don't know if they've addressed that offensive line needs, but I don't know if the Bills have the guys or the personnel that can really take advantage of that either. So the books know exactly what they're doing. This is going to be one of the biggest public sides for sure in this Bills team. Right. You're getting the Bills under two points. Why would you not take that? I can see right away what they're going to do, but I just think defensively, you look up matchup wise, Houston's the perfect defense for stopping a Quarterback like Josh Allen. They have linebackers, DNS, all athletic enough and fast enough to keep up with him once he gets outside of contained. So love this is one of the few games week one I really like jump out. I'm like my God, that's a great playoff matchup type of game. So yeah, tough, tough test for Joe Brady in his first game as a coach on the road against you know, one of the, one of the better coach defenses in all football.
+
+### Speaker B [0:02-0:02]
+
+Joe Burrow has said that this is I think the most talented team they've had since the super bowl several years ago when they lost to the Rams. They are three and a half point favorites at home against the Tampa Bay Buccaneers. And the Bucks are one of those teams last year that just we couldn't get the right read on and we were constantly feeling like when are they going to become in the second half of the year. We kept waiting for them to be the team they were in the first half of the year and they couldn't quite get over the top. Too many injuries, things caught up with them. I don't know that I've got enough faith to bet the Bengals who have just historically been one of those teams that let you down as three and a half point home favorites in week one on the road against the Buccaneers.
+
+### Speaker C [0:02-0:02]
+
+Simon says give me the bucks plus three and a half. I want to play a game. Simon says, I cannot believe this number is still up. That's how much I've been betting it. It's like these books are definitely going to move this to three. Bizarre, bizarre line. I do agree with Joe bro statement though. I do think this is the most talented team team he's had in his career. And we, we talked that year they made that super bowl run that had a lot to do with their defensive defensive coordinator and him figuring out my homes on the fly right there. What down 28 to seven and a half in that AFC championship game. I think Mahomes scored three total points the entire second half and that was really incredible what the Bengals coaching staff did. Now fast forward to this year. They might have more talent defensively. I don't know if they have the same great defensive coach and me and you both have our questions about LaFleur offensively. So yeah it's, I'm looking at this Bengals team that they tend to start slow and I think it was two years ago me and Chad. One of our favorite bets was the Patriots as a dog with Brissette against this Bengals team and the Bengals lost outright. And I remember Last year they kind of combated that. I think they. They made a one week one last year and it was. They're gonna have Joe Burrow play preseason games, which obviously that worked, right? The offense didn't come out as sluggish. The Bucs team is not as bad as people are perceiving. Like, this is a good team that was incredibly injured that second half of the year, especially a guy like Baker. And me and Chad have made a living on betting Baker as a dog in this exact Baker. Yes, the Bucks are less talented than the Bengals on paper. This is the exact type of game where he will. He could be down by 10. He's getting me and Chad that back door if not winning the game the final two minutes. Like he'll find a way to get those 14 points in the last two minutes. He's just time and time again, Baker, especially last year did it in the very beginning of the season when he was fully healthy. He finds a way to come back. That offense still has a bunch of really good weapons. I mean, their running game might be scary. Like they've added more players to that team that they're going to surprise people. So yeah, the Bucs right now with the hook. That's. That's my favorite bet on the board for sure. I just love Baker as a dog on the road Week one against a Bengals team that just public perception. I think they're a little overrated right now.
+
+### Speaker B [0:02-0:02]
+
+You cannot quit Baker. I cannot quit the Browns. You cannot quit Baker.
+
+### Speaker C [0:02-0:02]
+
+He's good to me as a dog. That's why I can't wait to have Evan's trends here because I'm sure as a dog, Baker's been good to me. It's just immediately I saw that number pop up. I just hit. Hit a bunch of different books for it. I couldn't believe it. So.
+
+### Speaker B [0:02-0:02]
+
+So this next game is. Is. Is a hard one for me and it's a hard one for us because the Bears are on the road playing the Carolina Panthers. Bears minus two and a half. So what are we going to do here? Classic rock in a hard place. Hard rock bet of the week because of course I want to at least be on the side of the Bears as short road favorites. But I know the right side is Carolina. We are going to be fading the Bears all season long. I feel like going into week one, Dave Canales is a really good coach. Obviously I believe in Ben Johnson, but this is the spot where we have backed Bryce Young again and again and again. You talk about betting Baker as A dog. Bryce Young as a dog in this spot since the middle of two seasons ago, 20, 24, he's been earning. You got to take the Panthers, I guess I got to say. You got to take the Panthers.
+
+### Speaker C [0:02-0:02]
+
+Gotta take the Panthers. Could you believe the total of this game, though? 44 and a half.
+
+### Speaker B [0:02-0:02]
+
+Yeah.
+
+### Speaker C [0:02-0:02]
+
+Feels incredibly low for 2, 2 offense that they're going to move the ball. That are very suspect to me.
+
+### Speaker B [0:02-0:02]
+
+Yes.
+
+### Speaker C [0:02-0:02]
+
+I know the Bears are trying to improve the defense, but they've also lost a couple key pieces. So I know they're going to be healthier, obviously, than last year, but. Yeah, I. I'm. I'm right. There we go. Panthers number line. I'm hoping that gets the three because that's where I'm going to be most comfortable with the Panthers. Just because what we've talked about a little bit about, like, if. If Ben Johnson is that dude and Caleb's that dude, this is the start to the party, right? This is the type of game they come out and they whoop on a bad Carolina Panthers defense that, you know, their strength, I guess you could say is partially in their D line. But you should be able to combat that with what they've done up front with this Bears team. That's like a sneakily kind of. Kind of a strength for this team in some aspects as well. So I love this number by the book, because it just. It's tempting both sides. Like, I can see why people are coming in the Bears, and I think that's why you're making the, you know, hard rock better the week, because it's. It is. It's a really hard, hard spot to pick, but I have to pick a side. Yeah, man, I could take Panthers as a dog here, and I think we'll both be in agreements. We're probably gonna have them our moneyline parlay like this. Yeah, really. When the Panthers were really good to us last year at home as a dog, when the general public does not believe in them, have a hard time thinking the public way back in the side. It's just they're not the sexy fun team the Bears are. And that's usually where the public goes, especially week one. They don't really know, you know, like most people, the outcomes are so random. They're kind of going to go what they know, what they trust. And their last memory is this Panthers team getting kind of rolled at home by that ramps. Even though it was a close game, betting wise, the Bears, you know, they went to. They went to overtime. They. They almost beat that Rams team for real. Like that was really competitive game. So I'm glad you're not just diving right back into your Bears love. You're making the right choice. You're the smart betters choice. Chad and going the Panthers.
+
+### Speaker B [0:02-0:02]
+
+Simon, I'm a professional. I make professional decisions. I don't make emotional decisions. We don't get emotional about a team, bud. Fox, are you too young to get that reference?
+
+### Speaker C [0:02-0:02]
+
+No, but I immediately thought of Tennessee. As you said, we don't get emotional. It's like, well, we sometimes do.
+
+### Speaker B [0:02-0:02]
+
+You know, I was in the city and yesterday I was driving home with my kid and I like, quick break, quick break. Before we go to our break, little pop culture break, there were five movies that we decided we had to watch. A couple of them that he hadn't seen. A couple of them are some of my favorite movies. Three Kings, David Russell, director with George Clooney, Spike Jones, Mark Wahlberg, brilliant movie. Loved it. He's never seen it. We're gonna watch it out of sight. Also George Clooney. I didn't even realize that Steven Soderbergh, Jennifer Lopez might be my favorite movie of all time. Elmore Leonard novel turned into a movie. Fucking brilliant. We're gonna watch that last night. This is the other movie he had never seen Swingers. He had never seen Swingers, which is a genre defining movie. He didn't realize that like your money and beautiful baby and Vegas baby all comes from that movie. It was brilliant. Brilliant, brilliant.
+
+### Speaker C [0:02-0:02]
+
+It's definitely a timepiece, though. I wonder if he actually liked it or he's just like, this movie is awful because.
+
+### Speaker B [0:02-0:02]
+
+No, no, he liked it because he tell me, he tell me he liked it. He laughed. But we were also laughing at the idea. Like so much of the movie is based on listening to messages on your answering machine or everyone taking separate cars to parties.
+
+### Speaker C [0:02-0:02]
+
+That was like, I showed it to a younger girl and she's like, it's all. All it is is them driving around in different places and how boring it is then leaving.
+
+### Speaker B [0:02-0:02]
+
+And then like obviously now you life
+
+### Speaker C [0:02-0:02]
+
+is back then though. That's what it was.
+
+### Speaker B [0:02-0:02]
+
+And now you would take an Uber. The other two movies which he's watched, which. Which are going to be part of our quintuple feature. Moneyball and Superbad. It was inspired because we listened to Jonah Hill on Smart List and it was a great episode and it made us laugh. And then we started talking about those movies. And when I thought of Wall street, but Fox, I thought of movies that are classics. All right. Nice detour. Let's hear from Hard Rock. Today's show is brought to you by our presenting sponsor, Hard Rock Bet, Florida's Sportsbook the second round of the NBA playoffs is here, and with win or go home energy on the hardwood, same game parlays are a great way to stack picks built especially for the playoff action. If you're ever late to tip off, don't worry, Hard Rock Bet lets you live bet all game long, from the first bucket to the final buzzer. Try your first bet on Hard Rock Bet today and you can score $150 in bonus bets. If you win, just place a $5 bet and if it hits, you get not only your winnings but also an extra $150 in bonus bets. Hard Rock Bet has new promos daily, so open up the app right now to see what promo you've got today. And sure, Hard Rock Bet is Florida's only legal sportsbook, but you don't have to be in Florida to join the party. Hard Rock Bet is also live in Arizona, Ohio, New Jersey, Indiana, Tennessee, Virginia, Illinois, Colorado and Michigan, with more states on the way. Download the Hard Rock Bet app today and let's get the party started. Payable in bonus bets, not a cash offer Offered by the Seminole Tribe of Florida in Florida. Offered by Seminole Hard Rock Digital, LLC and all other states must be 21 or over and physically present in Arizona, Colorado, Florida, Illinois, Indiana, Michigan, New Jersey, Ohio, Tennessee or Virginia. To play terms and conditions apply. Concerned about gambling in Florida? Call 1-833-Playwise in Indiana. If you or someone you know has a gambling problem and wants help, call 1-800-9 with it in Ohio, call 1-800-my reset gambling problem, call 1-800- gambler in Arizona, Colorado, Illinois, Michigan, New Jersey, Tennessee or Virginia. Vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. WIX has introduced Wix Harmony, a Vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And WIX Harmony doesn't require AI for everything. You can still click and edit anything manually, or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com that's wix.com Are
+
+### Speaker A [0:02-0:02]
+
+you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zeppbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor. Call 1-800-545-5979 or visit zepbound.lilly.com Amazon Health
+
+### Speaker C [0:02-0:02]
+
+AI presents painful thoughts I can't stop scratching my downtown. Yeah, but I'm not itching to go
+
+### Speaker B [0:02-0:03]
+
+downtown and tell a receptionist I'm here to talk about my downtown. Some things you'd rather type than say out loud.
+
+### Speaker C [0:03-0:03]
+
+There's no question too embarrassing for Amazon Health AI.
+
+### Speaker B [0:03-0:03]
+
+Chat your symptoms and get virtual care 24.
+
+### Speaker C [0:03-0:03]
+
+7 Healthcare just got less painful. Awkward time to ask this, but hey,
+
+### Speaker B [0:03-0:03]
+
+did you download the trail map?
+
+### Speaker A [0:03-0:03]
+
+Yeah, no, I don't need to.
+
+### Speaker B [0:03-0:03]
+
+I don't understand. You're trusting your signal out here? I'm trusting T Mobile.
+
+### Speaker A [0:03-0:03]
+
+They have the best network.
+
+### Speaker B [0:03-0:03]
+
+And if we end up in bumtots nowhere, well, we've got T Satellite for backup. Whoa.
+
+### Speaker C [0:03-0:03]
+
+I don't trust my carrier that much.
+
+### Speaker B [0:03-0:03]
+
+We'll just use your phone as a flashlight. With America's best network and T Satellite, we're keeping you connected in places you never thought possible.
+
+### Speaker C [0:03-0:03]
+
+And if you switch today, you get free phones for zero down and only
+
+### Speaker B [0:03-0:03]
+
+24.5 bucks a month per line for four lines.
+
+### Speaker C [0:03-0:03]
+
+Find out more@t mobile.com or visit your local store. Best Mobile Network Based on analysis by
+
+### Speaker B [0:03-0:03]
+
+Oklahoma speed test intelligence data 2H 2025 with 24 monthly bill credits and 4
+
+### Speaker A [0:03-0:03]
+
+eligible port ins on essentials for well
+
+### Speaker B [0:03-0:03]
+
+qualified customers with auto pay plus taxes fees and 35 connection charge per line credits and imbalance due if you pay off earlier. Cancel Contact Us Finance Agreement example 299.99 Moto Edge 5G required T Satellite available
+
+### Speaker C [0:03-0:03]
+
+with compatible device in most outdoor areas
+
+### Speaker B [0:03-0:03]
+
+in the US where you can see the sky. Included with experience beyond or $10 a month. However, news monthly cancel anytime. Visit t mobile.com hi buddy, I think it's the Tua vs Aaron Rodgers bowl now. Atlanta visiting the Pittsburgh Steelers. Steelers are minus 2 1/2 point favorites. I don't know man. Like we just don't know enough about tua. I like what the Falcons defense had been doing in the latter half of the year. I'm a huge B John Robinson guy. There's so many questions about the Steelers and what they're doing. If I had to lean, I'd probably lean Falcons. You know, sometimes you get on me if I don't make a choice. So my choice would be Falcons. But I'm not like this isn't a fine. If we were doing a final five, this would not be a final five for me.
+
+### Speaker C [0:03-0:03]
+
+Yeah, I once again it feels like a Pittsburgh line. It's Aaron Rodgers at home with that Pittsburgh team fully healthy. Like it's we handle Pittsburgh differently because usually they're all banged up by week six because they're just such an old team at this point. But this is the exact time. I guess we want to take them right under three at home against Penix or TUA on the road in their first start. You know the two angle I think would be better for them if he is the guy with Penix. I think that'd be a little bit of a tough.
+
+### Speaker B [0:03-0:03]
+
+You got to assume it's going to be tua.
+
+### Speaker C [0:03-0:03]
+
+Yeah. And that's fair. It's a fair assumption. Just the way we've seen Penix coming back from a major injury. So it's minus 130 at Hard Rock. So it shows that this this probably is going to go to three. So if you do like Atlanta, I would be patient. Like if this is, you know, the week before, I can see this being three and a half. Atlanta really can. Like I just don't. To me the veteran betters like myself, I'm much more Confident back in a Pittsburgh team. That's going to be not the sexy pick. Right. Atlanta has all the fantasy guys. Like when guys are doing their fantasy football drafts, I think Bijan Robinson's like the number two pick. So that's going to be on people's minds here. So I do think this would be a, a public dog come kickoff time just because McCarthy, Aaron Rodgers, there's just nothing sexy about it. It just, it feels like a, a kind of a, a lost season here with the old dog. So if you're, if you're looking for value right now, I think it is on the Pittsburgh sign at minus two and a half.
+
+### Speaker B [0:03-0:03]
+
+Okay. Okay, you disagree with me. New Orleans visiting Detroit. Look, the Lions are a six and a half point favorite. There is very clearly a consensus in the betting community that the Lions are a team that should rebound. They drafted well. They have been historically unhealthy for two seasons in a row, especially on the defensive side of the ball. Dan Campbell, we love as a coach, the expectations are they will improve. Until last year, the latter half of last year, they were always very good at covering very big numbers. And on the flip side, we got a real taste of what Tyler Schuck can do and what Kellen Moore can do. And they obviously believe in Tyler Schuck for this year. They're not going in thinking, okay, we're going to get Arch Manning. And so do you look at this and think six and a half is a big number for the Saints for the Lions to cover, or is it the exact red spot to bet the Saints?
+
+### Speaker C [0:03-0:03]
+
+If we had our contest lines, the Jags would be in, the Bucs would be in, and this game on the Detroit Lions would be in a lock to be.
+
+### Speaker B [0:03-0:03]
+
+I'm so glad you said that because. Because you just told me I was wrong about the Falcons and the Steelers. I was nervous to go all in on the Lions, but it just makes no sense to me. Of course the Lions are going to be in this.
+
+### Speaker C [0:03-0:03]
+
+Yeah, like, no, that game's not compared with this one, that Atlanta game. I don't really care about this game. I care about. This is not a game. I'm Ben Heavy in Hard Rock. I've literally had my guys in Florida who are on vacation going to the books for me because it's like there's not too many six and a half out there. So thank you, Hard Rock, for giving us this lovely number. And I can't believe the shuck hype is carrying into this season. I. I'm all aboard the shuck train but my God there's levels to this and it's one thing to be beating up, you know, banged up divisional foes in December then playing a fully healthy lines team coming off a down season with Madman Campbell at home like this feels like the exact type of game that this, this line team puts up 40 like everything they do well I feel like the Saints struggle with defensively now will be interesting Saints if they are going to lean into being more of a run heavy team. Right. I know they've gone out and you know you look at that roster and it's like okay, they have wide receivers, they got some, they got some weapons and you know I think Kamari is obviously going to be coming back but they're just a type of team that you expect offensive. They should be able to move the ball. But I just look at Detroit fully healthy. This type of game they, they steamroll. I know it feels got high spread to people. This is the type of game where if you're freaked out about that because it's week one put them in a teaser with the Bucks, a team I love. Take the Bucks up to nine and a half or you know a game I talk about with Houston, who I really like. You can get Houston out to seven and a half in a teaser with this one. Like those feels like really good numbers that tease up where you're taking Detroit down to minus a half and what world upsets happen all the time. Right. It's week one but this feels like this would be a strong case for a game that won't have an upset. This feels like a nice spot for this Lions team to start at home against a Saints team that let's say they overachieved last year. Right Chad? And if Sheriff Shuck takes that next step, he'll be able to keep this game close. It'll be a very competitive game. But this feels like this guy's had all this smoke blown up his ass the whole off season. He comes out here and just lays a total leg. The NFL gets tape on you and they have a whole offseason prepared for you. It's going to humble you very quickly. That's why you see guys, they can have a year success and they turn into a guy like tua, right? Where it's just once the league figures you out, you have to change the offense and things just never fall into place. So yeah, I, I people can tell I really like Detroit number especially at six and a half.
+
+### Speaker B [0:03-0:03]
+
+I'm glad you said that. I wish I, I shouldn't have been such a coward. I should have gone with my gut and just leaned into it. Arizona visiting the Los Angeles Chargers. Chargers are massive favorite here. I think it's one of the biggest favorites on the board. Ten and a half. Look, Jacoby Brissette is already saying he's sitting out camps because he wants a new contract. They got a new coach in Michael Flor. They went big and drafted the kid from from Notre Dame high up. Like none of it seems to make sense. And at least the Chargers for week one unless something happens in training camp will have their full offensive line. I'm inclined to either bet the Chargers or nothing here just because I don't like the number and I never really trust the Chargers.
+
+### Speaker C [0:03-0:03]
+
+Yeah, I'm in no rush to bet this one because I think it could be Carson Beck as a starter which and we talked a couple weeks ago I think he had good odds for rookie of the year just because he might be the only guy actually playing right Fernando Mendoza. As much as we think he should start it could be Kirk. It could be Kirk's job to keep for us most of the season. So yeah this is a number usually I blindly bet Arizona here right Double digit dogs Week one very profitable. But I could be patient if it is Beck. This could easily get up another four points like this could get to 14 and a half it's percent maybe it drops down to eight and a half eight and that's when maybe I'll come in on the Chargers. So yeah we can be quick on this one. I'm not going to take up a
+
+### Speaker B [0:03-0:03]
+
+spot yet on this either side this next one. So much intrigue for two teams that aren't going to be very good. Miami visiting the Las Vegas Raiders. The Raiders are three and a half point favorites. It's a Kirk Cousins line but it's also a Las Vegas Raider hype line. And don't forget they got Brock Bowers, they got Ashton Genty. Max Crosby is still going to be there. The real issue is we don't know what is going to be happening for Miami. They are in such rebuild mode. Malik Willis is going to be the starting quarterback. They just gave Devon Hn all that money but defensively they've got real issues and even though their new coach Jeff Halfley is a defensive minded coach doesn't mean that translates into week one. I think we get a real sense here in this first game between where the Raiders are with Kirk Cousins and some offensive weapons and how how much the Dolphins have to do in order to Improve as a team.
+
+### Speaker C [0:03-0:03]
+
+Yeah, you got to be a real sicko if you have a whole board and this is one of your favorite games. Yeah, I just gave. There's so much unknowns.
+
+### Speaker B [0:03-0:03]
+
+Dude. Corner TV game corner, corner corner Again
+
+### Speaker C [0:03-0:03]
+
+for our pick pools everyone's got. You got to pick every game. Yeah. If I have to take a side. Why would I not take the dog here? You're giving me three and a half points on two teams. That sure, the Raiders might be better on paper, but it's two rookie head coaches with potentially Fernanda Mendoza the quarterback. Like it's not a given. It's going to be Kirk. So yeah, it's. The bookmaker's got to hang a line. There is no way they're taking over a thousand dollars on either side on this one. Like this is the definition of a limited game because it's just you could get it. You could get exposed really bad. If you're the book here. If someone really does have good info and an inside edge on this one. So I think Chad's really read that this is a Kirk cousin lines true like it opened two and a half got bet the three. Now it's up to three and a half. I feel like that's pretty telling. The professionals think it's going to be Kirk here. So yeah, it's a game we don't need to force in here. Chad. We can keep it moving here. But if I had to pick a. Make a pick. If your pickpool locks in May. Yeah, I'll take the three and a half with Miami here. It's just too many unknowns to be taking the Raiders at minus three and a half at home.
+
+### Speaker B [0:03-0:03]
+
+The next game is another was another contender for Rock in a hard place. Green Bay visiting Minnesota. And Green bay is a 1 1/2 point favorite against the Minnesota Vikings. This to me is a line. It's a Kyler Murray line. Like people are assuming that this would not be the line of JJ McCarthy was starting. Not based on his performance last year, which is the only thing anyone has to go on. If JJ McCarthy was starting, I put the packers at 3 at least if not higher. The real question is Kyler Murray, Kevin o', Connell, that defense at home, that hype in the stadium. I'm not afraid to bet the Minnesota Vikings as underdogs in this spot. Kyler Murray is an underdog. Isn't that what we always love to do when he had a shittier team with a worst coach in Arizona?
+
+### Speaker C [0:03-0:03]
+
+Yeah, you're on the sharp side. I'll Tell you that much. A lot of pros have said that I'm on the other side where I'm like but this is Green Bay. We know exactly what they are and when they're healthy, they're one of the better teams in all of football. Like I mean think about how dominant that defense was when they were fully healthy to start the year year they were just rolling teams and teams could not move the ball. I mean if there is a guy that can stop an athletic quarterback, it's Parsons. Like Parsons is just as fast somehow as KYLER while weighing 100 pounds more. So you're right there with the pros. I tell you that much. Like the. As soon as this line opened up I same thought it's like this is. It just feels like that Houston game like this state trap line. The public is going to be hammering this road favorite in Green Bay. So once again I don't think you should bet.
+
+### Speaker B [0:03-0:03]
+
+No, I want to see where it goes.
+
+### Speaker C [0:03-0:03]
+
+Yeah, I think. I definitely think it's going to two, two and a half. Like I just. Who's betting? The Vikings, other than the professionals. This is such a pro side pro line. So wild, wild number hung by the books. Like they're clearly taking a stand on the Vikings here. I just. If they hung two and a half they would be getting so much more action on the Vikings and they don't even care like that fact that they've hung this number. So. So I like your at Chad, you're on the pro side. It's minus 115 now at hard Rock. So it shows that, you know, despite all this public money coming on Green Bay, they're still favoring it towards this Viking side which is very interesting.
+
+### Speaker B [0:03-0:03]
+
+I'm in midseason form right now. No comment on that.
+
+### Speaker C [0:03-0:03]
+
+Yeah, you're getting there.
+
+### Speaker B [0:03-0:03]
+
+Getting there. It's like you're a hard coach. Washington, Philadelphia. I'll let you take this one. The Eagles are four and a half point favorites against Jaden Daniels return. You know the commanders. That feels like a line where they're not getting their due for what they can be. They're getting their. It's a number that is reflective of what public perception is from last season. Maybe it's a line that is a little overinflated because the Eagles are the Eagles and they're such a public team. What's your take?
+
+### Speaker C [0:03-0:03]
+
+Yeah, interestingly on this side I really thought this would open at three, three and a half and you know the books are showing a lot of respect here to Philadelphia. Bumping it at this number. And the public have come in pretty heavy here early, early side the public and the professionals coming on Washington. But I think they have the same view as Chad, right? It's Washington is not as bad as they were last year. They'll be healthier here. But I have that same view for Philadelphia where it's like that Eagles team that everyone thinks is the top five offensive line. They were ranked 27th basically from week 11 on, offensive line wise.
+
+### Speaker B [0:03-0:03]
+
+But isn't that because they were without Lane Johnson?
+
+### Speaker C [0:03-0:03]
+
+Yeah, but I think he went. Yeah, that's part of it. And like, you know, their center, Jurgens, you know, he had to go get surgery off season. Landon Dickerson had to go get offseason surgery. Like their whole offensive line was just decimated with injuries. I think Saquon Barkley, after the halfway point the rest of the season only averaged three and a half yards per carry, which is a guy that, you know, you don't expect them to be that bad. They just, they couldn't move the ball. They just did not have an offensive line. Washington's try to do stuff, but they just have not done well in the draft. And they spent all this money on these veteran players last year because they thought they had a Super bowl winter. Right. With Jaden Daniels. And you're looking at this team defensively. You know, I like that they addressed that. They did try to do something in the draft, but overall they have so many holes. If the Eagles new offensive coordinator is a miracle worker. Yeah, you expect the Eagles to be much better, but this is week one. Like they're not going to be well into this offense here. This is going to be a lot of moving parts for them where Jayden Daniels is in the same offense. Like there's not going to be that much change from year to year. And just looking at this number divisionally, I want to go towards this Washington team, but this is another game where I think I could be patient, see where the number goes. Because yeah, people think it might drop with AJ Again traded. I think it's already built in. I think the books have already kind of put that half point into this line. So I could see this getting closer to six. That could get. See it getting closer below four. I just think the general public will come in on the Eagles once it gets closer to the season just because that's what they tend to do, right? They tend to bet these home favorites. So I don't hate the early Washington number. I'm just going to be patient on it.
+
+### Speaker B [0:03-0:04]
+
+We finally get a season where we don't have that ridiculous Monday Night Football doubleheader. So we got Sunday night game. We got Monday night game. Sunday night game. I love, I love the Cowboys. It. You can tell me it's square, you can tell me it's public. But you know, I'm not on the Giants this year and I actually feel like the Cowboys and Brian Schottenheimer last year they're two and a half point favorites at the Giants. I thought the Cowboys were pretty well coached last year offensively and their biggest failing was they had Matt Eberflus as the defensive coordinator and then had injuries. I do think they will be improved this year on defense and healthier. I think they will be a better team than they were last year. I'm not a buyer on the Giants. Tell me it's square. I don't care. Give me the cat.
+
+### Speaker C [0:04-0:04]
+
+Yeah, it's definitely, definitely square and definitely a line like we've talked about. There's. I know some pros who do like the Giants come this year and this is a line that jumped out to the them where it's like, look, they're not respecting this Giants team and they're still underrating them. It's like, I don't know, it feels like this is a little overrated. Shouldn't this be three, three and a half like you said, the Cowboys there are the established team. They are the team that has, you know, say what you want about Dak and that team about choking. He shows up in these type of games. I mean, last year they should have beat the Eagles opening night. CD could have caught those balls and that would have changed the whole trajectory of their entire season. That upset on week one one. So like those type of things, we've seen Dak in these type of games show up big time and I don't think the lights will be too bright from the flip side. Dart, he did show up in some primetime games, right? That game he had against the Eagles, I believe was a Thursday night game. He was incredible. I think he had like three opening drive touchdown start he could not miss in that game. So we've seen him do pretty well in prime time games as well. But also we know that this is a kid that he's going to have now a whole off season of New York blowing smoke up his ass and coming to this year. We'll see how he's doing, how he'll do. But everything I've heard from people within that organization, they're already like, guy, this guy needs to Be in the building earlier. This guy needs to leave the building later. We need him to be more committed right now because that's, that's not what you want. You don't want a quarterback who's obsessed with a life outside of football. Right? Like Joe Burrow can get away with it because he went to a Super bowl in year two. I guarantee you in year two, coming off his knee surgery, Joe Burrow was not out partying and doing this cup stuff Dart's doing right now. So I, I cannot believe this line's like you. I can't believe this line's under three. I think that's totally a Cowboys line right now. You know, come that Sunday, you know, in, in September, if it is up to three and a half. That's where I'm very tempted for this Giants because I do think this will be a close divisional game. It is week one, but under three, give me Dak and that offense every time. It's just we've seen him close out these type of games and divisionally he tends to own the NFC East.
+
+### Speaker B [0:04-0:04]
+
+Talking about Dak, Couldn't agree more, Simon. Last game on the board. Monday Night Football, the battle of injured quarterbacks. I think because the Kansas City Chiefs are 2 1/2 point home favorites against the Denver Broncos. The Kansas City Chiefs are not going to be two and a half point home favorites unless everybody believes Patrick Mahomes is going to be playing in that game. So it's going to be Bo Nix coming back from his ankle injury against Patrick Mahomes coming back from his knee injury to round out week one in Kansas City. Can't say I'm feeling it right now in this one.
+
+### Speaker C [0:04-0:04]
+
+No, Maybe I'm just too scarred from last year. I immediately went to Denver. I just think they're still the better team overall. The only difference is Mahomes. Mahomes, he is the cheat code. He's coming. Like you talked about Chad before the show, it'll be like exactly what, 10 months you said from the injury to the start. That's supposed to be a year recovery. Most doctors you've seen that do this professionally said he'd be back either mid October to early November. Tons of respect to him, that he's way ahead of his schedule and shows how freak of an athlete is and how his body's recovered. We've seen that happen, right? Adrian Peterson had a major knee injury. He came back early and won the MVP of the following year. Like these miracles do happen with modern medicine in these freak athletes bodies. But man, that feels like a lot to put onto his shoulders where this is not all on Bo Nick's shoulders. We've seen that with this team. It's not all about Bo. Right. He's just a cog in the machine. It's all about the head coach and Sean Payton. So giving me him as a dog on the road and potentially if we be patient here, Chad, this will get the three right. It's minus 120 right now.
+
+### Speaker B [0:04-0:04]
+
+Yeah, I see that.
+
+### Speaker C [0:04-0:04]
+
+Oh, I'm not going to make anyone here take Denver right away. Like that's. If you want to take it now, you could just throw them in a teaser, get up to eight and a half. But I think for patient if my homes comes back, maybe some questions about Bo Nix, we get that three, three and a half. Like I think the public will get us there. So this is a number right away. It jumped out to me that's a ton of value on this Denver team that they're just being undervalued. Like they have one of the best offensive lines on the best D lines in all football we saw last year. Like they're just a way better team than people. People realizing was there a more slept on quieter one seed in all football last year than them or you know, I guess you could say the Patriots. But it just, it felt like they were. It was all there for that Denver team. And you know, obviously with the injury to Bonix that changed everything. But from what I've heard from his recovery, he'll be in camp, he'll be doing preseason games. I just, I have more faith in him right now than I do in the Chiefs and especially at this dog number feels like it's a safety insurance against if Mahomes is out. Can you imagine if mom's out? Chad, we have him as a dog with Justin Fields now as the quarterback of the Chiefs that instantly will flip that number. So yeah, I, I'm glad that we both kind of want to take them or both just being like, ah, nothing I'm sure to do with this number because it's not the best number. I think the three, if you shop around that's, that's where we want to be at with this Denver side.
+
+### Speaker B [0:04-0:04]
+
+All right. We did have a little bit of fun. We did do Browns big balls Ravens are exact decision boxer Simon says rock and a hard place are the Panthers plus two and a half. But well obviously these are unofficial. We won't make it official until actual week one. It'll be fun to see how we contrast and compare that's our early Week one line release show. This has been Sharper Square part of the Volume Podcast Network. Watch or listen on YouTube at Sharper Square like this video. Subscribe to the channel. Download us from Spotify, Apple Pods wherever you get your pods Rate Review Subscribe. Leave us five stars. Say whatever you want. Feedback is a gift. Until next time. Love you.
+
+### Speaker C [0:04-0:04]
+
+Look at my man Janakowski like he looks like an imposter. Look at him. He looks like he bought that uniform at the Halloween display at Target and he snuck onto the field.
+
+### Speaker B [0:04-0:04]
+
+I'm U.S. transportation Secretary Sean Duffy. We all seem to be in a rush these days, from work to driving our kids around. But when you're behind the wheel, please do not speed. A few minutes saved by going faster is never worth the risk. So follow the speed limit, enjoy the drive, maybe bring some snacks for the kids. And know that along the way you're getting quality time with your family paid for by nhtsa.
+
+### Speaker A [0:04-0:04]
+
+When you're a maintenance engineer in a beverage manufacturing plant, you keep production lines moving and quality on track because there is no room for slowdowns. With Grainger's vast selection of high quality motors, sensors, belts and hard to find parts, you can get what you need fast and all in one place so nothing gets in the way of getting the job done. Call 1-800-GRAINGER clickranger.com or just stop by Grainger for the ones who get it done. Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have some severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zephone with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound.lily.com the Hulu original series Furious is now streaming on Hulu and Hulu on Disney. Starring Emmy Rossom as Alice Black, Furious follows a rookie FBI agent on the hunt for Catherine, played by Lola Petticrew, a mysterious and calculating female serial killer. While Alice upholds justice, Catherine kills for it, terrorizing the rich and powerful men of New York in her pursuit of vengeance. With secrets that change everything, Alice discovers there's a thin line between hunter and prey. Watch the Hulu Original series Furious on July 27, streaming on Hulu and Hulu on Disney for bundle subscribers. Terms apply. This is an iHeart podcast. Guaranteed Human.

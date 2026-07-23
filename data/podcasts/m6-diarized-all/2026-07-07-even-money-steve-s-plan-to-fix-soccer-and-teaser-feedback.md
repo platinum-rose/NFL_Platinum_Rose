@@ -1,0 +1,181 @@
+# Even Money - Steve’s Plan to Fix Soccer &amp; Teaser Feedback!
+
+Published: 2026-07-07T04:00:00+00:00
+Episode ID: ca9e1b77-6ae6-4bf9-beda-951718d49483
+Status: done
+Duration: 1753 seconds
+Audio: https://www.podtrac.com/pts/redirect.mp3/pdst.fm/e/arttrk.com/p/DF7K3/claritaspod.com/measure/pscrb.fm/rss/p/traffic.megaphone.fm/DFT2750524005.mp3
+
+Transcript chars: 24712
+Speaker turns: 41
+Speaker labels: A, B, C, D, E
+
+## Existing Host Summary Rows
+
+- None
+
+## Diarized Turns
+
+### Speaker A [0:00-0:00]
+
+Whatever you are watching this summer baseball, Golf, soccer, racing DraftKings has you covered for every single moment of it. The DraftKings sports app is now available in all 50 states, bringing the game straight to your fingertips wherever you are. New DraftKings customers sign up with code Ross. Spend 5 bucks to get 150 in rewards within 14 days. Includes all markets. That's Code Ross in partnership with DraftKings. The crown is yours.
+
+### Speaker B [0:00-0:00]
+
+Bet with DK Sports Book Gambling Problem Call 1-800-Gambler-1-800, My Reset Connecticut called 888-789-7777 visit ccpg.org on behalf of Boothill Casino in Kansas. Bet Tax Pass through May apply in Illinois 21 and over Boyd in Canada Event contract trading with DraftKings predictions involves risk of loss Availability varies Predictions offer void in New York Bet to get bonus bets that expire in 7 days Trade to get predictions dollars that expire in 1 year DOL rewards issued every 7 days via click to claim for 14 days 1 non withdrawable reward redeemable terms at DKNG Co Offer Limited time
+
+### Speaker C [0:00-0:00]
+
+Offer pays Checkout is offered by your banks and credit unions, so when you shop online at participating merchants, your cards appear in one place. PAYS it checks out. Activation required. See PAYS.com to learn more. Terms and conditions apply.
+
+### Speaker D [0:00-0:00]
+
+You're listening to DraftKings Network.
+
+### Speaker B [0:00-0:00]
+
+If you like to make your NFL games a little bit more interesting, you've come to the Right Place. It's the Even Money Podcast with Ross Tucker and Steve Pezik.
+
+### Speaker A [0:00-0:00]
+
+Yeah, Vegas, baby. Vegas. It is the Even Money Betting podcast. And if you like betting in particular on the NFL, you've come to the right place. Widely considered the number one NFL betting podcast in the world, which is really cool. Very humbling. We are with you once a week in the off season, two times a week during the NFL season. And you guys. You guys came to play with our questions last week. I got a bunch of responses as it relates to the teaser question and how we should handle it this year. We got to find out from Steve about his vacation if we had time last week in Lake Tahoe. We gotta talk about soccer. I I've seen some of his posts. We gotta talk about soccer and things they could do to fix it. I don't know if Steve has it better or not, but we can at least talk about how soccer could be improved. It's been fun to watch thus far. The Steve I speak of is the only two time winner at the Super Contest. Steve Fesic at Physic Sports and Only at physics Sports. I'm a former NFL offensive lineman Ross Tucker, 5 team, 7 years, long time ago, but parlayed that into being able to call NFL games for cbs, for Westwood One. I do the Eagles preseason games, which will also be here before you know. It would be like a month away at this point. Just insane how fast everything is going. But you've come to the right place to make sure you are ready for the NFL season. And we throw in some other bets, whether it's CFL or baseball or basketball or whatever. Basketball, by the way, has just been bananas over the last week or so. Steve, let's start though, with soccer. It's all everybody's been talking about. Well, I take that back. There's been a lot of conversation about the NBA too. So NBA off season, which sometimes I feel like gets more attention than NBA regular season and soccer. Some of the stuff in soccer, I really appreciate. Some of it just kind of cracks me up. One thing I appreciate about you is that you leave no stone unturned. There's no nothing that's untouchable in any sport. You have strong opinions about how sports could be improved. Sometimes I think that they make sense, Sometimes I think they're crazy. But that's okay. It makes it fun. We will get to your teaser questions or your teaser responses. I guess I should say momentarily. But let's start with some of Steve Fezick's soccer ideas. I'm looking forward to this one.
+
+### Speaker D [0:00-0:00]
+
+So the soccer purists are going to lose their mind because Fezik knows nothing about soccer and they know everything about soccer. So how could I improve it? I can tell you how, because I'm not too close to the sun. I haven't been brought up with the beautiful game and feeling like it's perfect. I'm like the NFL. The NFL is brilliant. They change the rules every year with the rules committee to make the game better. And the number one flaw with soccer, most Americans agree with this, too hard to score. So how can we improve scoring and the flow of the game? I would look towards the NHL, which is basically soccer and ice. Same thing. And it's faster. So when the goalie saves a shot on goal and he catches it, it's a disadvantageous situation. There is a face off in your end. So the goalie doesn't want to catch the buck if he doesn't have to. Same rule should be in soccer. Goalie can use his hands, but if he catches the ball, the opponent gets a corner kick. That would make scoring chances so much More prevalent, it would reward a team for matriculating the ball down the field, and he couldn't just have all of the momentum end by the goalie catching the ball. Ross.
+
+### Speaker A [0:00-0:00]
+
+I'm okay with it. It seems initially very unnatural for those guys to not be able to catch the ball, but it probably is on some level unnatural for hockey goalies to not just grab it every time. You know, to not just grab that. They had to get used to trying to find ways to knock it to their guy over here, tip it to their guy over there. So I'd be open to it. You know, one of the things I really appreciate about you, Steve, and we talk about this all the time, is that if they had started it the other way, the way you're discussing it, if someone came along and said, you know, maybe they should just be able to catch it whenever they want and do whatever they want with it, people would go crazy. They would hate that idea.
+
+### Speaker D [0:00-0:00]
+
+Stupidest rule ever. We're not supposed to be able to use our hands at all, but we're going to let the goalie catch the ball and stop all flow. Exactly. And pursuant to that, another rule, penalty kicks. Makes sense. You tackle a guy about to score, unless he's Harry Kane, and then it's okay. The penalty kick, the reward is you get to kick the ball right close to the goal and you make the kick. I don't know what it is. 78% of the time, it's like a free throw. And in the NBA, I'm fine with that. But, Ross, when you go to shootouts and you're deciding the World cup on shootouts, it should be skill based, not a whole lot of luck based. They need to move back the line for the kicks in the shootouts. I don't know if it's 3 yards, 5 yards, make it much more skillful. As it is now, it's just almost random luck that the goalie has to just guess and dive in one direction or the other. If they had always had the rule that the shootouts were four yards further back, back, and I propose, let's move the shootout line to the penalty kick line, they would lambaste me. They'd say, that's the stupidest idea I've ever heard. It's just pure luck at that point. Fez.
+
+### Speaker A [0:00-0:00]
+
+All right, so I have a couple questions. This one I don't understand as much. So why do you think moving it back? First of all, why do you think it's pure luck?
+
+### Speaker D [0:00-0:00]
+
+Because if the kicker executes a very good kick. The only way the goalie can stop it is to just basically guess and dive right before he kicks it to the left or to the right.
+
+### Speaker A [0:01-0:01]
+
+Okay, and why do you think moving it back 3 yards or 4 yards or whatever changes that?
+
+### Speaker D [0:01-0:01]
+
+Because now the goalie won't have to dive before the kick is made, and it will require the kicker to execute a much more accurate hard kick in order to score.
+
+### Speaker A [0:01-0:01]
+
+If you want to reach out to Steve, he's at Fezick Sports on social media. I am at Ross Tucker, NFL. We are at Ross Tucker Pod. Love those of you that check us out YouTube.com Ross Tucker, NFL I would say this, Steve, going back to the game, whenever that was last Wednesday night when the US Played against Bosnia Herzegovina. I mean, the red card on Flo Balogun or Belugin or however you say his last name like that, that made no sense to me. My favorite thing, though, Steve, is when the announcers say, the only person that knows for sure how much time is left is the referee. Can you imagine that in any other sport? I guess in football, you know, you can call timeouts and stuff or like in basketball, you need to know whether or not you need to get up a last shot. But wouldn't in soccer, wouldn't you want to know, like, there's 12 seconds left, you better try to kick it in the goal from there. Like, that is bananas to me. And by the way, I know he gives like a, a range. He'll say like, ah, there's about nine minutes of extra time here, but then stuff happens during the nine minutes of extra time. So then you don't know how much more he added after that. I mean, and then he has discretion. Like, if the team's about to score, he can let it go a little bit longer, whereas if it's just like at midfield, he'll just blow it. Like, that is. I mean, we're worried about other people betting and stuff. That, that is crazy to me.
+
+### Speaker D [0:01-0:01]
+
+I can, I believe the reason that they don't show the clock is like, if you have the ball and you have possession and you got 30 seconds left on the clock, right, you would want to stall the 30 seconds and then, boom, you're into the final possession and then go, you know, go for it. But it's so stupid. It's part of the game. Just like, how can the WNBA tell me within a tenth of a second how much time's left? But soccer, it's like, we'll let you know. I will say this. It's possible in his rookie year that the Bears court rookie quarterback Caleb was playing by soccer rules during his two minute drill, not really knowing how much time was left and that's why he struggled so much. But yes, can you imagine a two minute drill in football when, well, there's, there's anywhere between, you know, 20 seconds and 90 seconds left, guys. Good luck with that. Right? All right,
+
+### Speaker A [0:01-0:01]
+
+let's go through some of the emails we got Steve from our listeners. Listen, we're a democracy. We're transparent. Those of you that are loyal listeners or viewers, YouTube.com Ross Tucker, NFL. You know that we go ahead and we recap our bets each and every week. And for those of you maybe missed last week's episode, we are soliciting your opinion on what we should do with teasers this year. If you recall, teasers have been a big part of our success and portfolio. In particular, Wong teasers, they used to be minus 110, then they went to minus 120. And then all of a sudden last year, DraftKings, our sponsor, who we love by the way, and you should use the Code ross to get $200 in rewards, especially now that it's available in all 50 states. Love DraftKings. Love the code Ross. If you ever want to get your email, read the very next episode. The very next episode, send me a screenshot of you using the Code ross on the DraftKings app. Last year we had a number of you say I can still get teasers at minus 120. And so we and people really wanted our teasers. So we split the baby and decided to be graded at minus 125. Even though our official book DraftKings is minus 135. Sid King. Steve said I was going to suggest you put out teasers as liens because you're not scored on those. But if everyone else chimes in with minus 120, minus 125, I'm cool with that. I'm still shocked that I'm getting -110 on teasers. So that comes from Sid King. He's still getting -110. Say we could do it as liens, but then also said he's fine with whatever Michael Puma said. I have an offshore that still offers -115 on six point teasers and what? -125 on six and a half point teasers. So I think your listeners should work harder to get good accounts, which is interesting. Do you know Steve, what, what the disadvantages of the Offshores versus the, the. I mean they're they're kind of illegal. Right?
+
+### Speaker D [0:01-0:01]
+
+It's a gray area in terms of, you know, different offshores. And no one has ever been prosecuted for betting against an offshore. The question is the offshore itself, are they, you know, committing a crime? I'm not, I don't have a legal degree so I'm really not qualified to comment on that. But no one, if you're a better and you're worried about the legality, like I said, there's a precedent that no one has ever a better, has never been prosecuted for placing wagers. As far as the math and I think this is really important. It's one thing to say, hey, it's minus 120 versus minus 135. That's whether that's a really big deal. I would say it is. How big of a deal is. Think about each individual leg. So I have a chart and my chart and this is rounded. So don't come back at me and say it's off by 5 cents. I know I'm simplifying. If you can get a minus 110 two team NFL teaser, that's like laying minus 260. That's what Sid's doing on his two team NFL teasers. Each leg is minus 260. If you're laying minus 120, each leg is like minus 280. When you go to minus 130, you're laying minus 300. And at minus 135 teasers, that's like each leg at minus 310. So think about this. If you've got a two team six point teaser at minus 110, you're essentially laying minus 260 on all your bets. And if you're playing at DraftKings, you're laying minus 310. You're not going to win more than likely in the long run. It's just too, it's a bridge too far. An extra 50 cents you're bet, you're, you're wagering on each and every leg of your teasers. So you have to get better numbers. But you know, I'll say, you know, we're sponsored by DraftKings. We love DraftKings. They do so many things well. But don't bet your teasers at DraftKings. It's what's most important about this show is winning. And if you're going to play teasers, I do think personally -120 is readily available if you have enough outs and you're a prudent man and that's so if we grade at -125. I think we are actually being ultra conservative even though it is not available at DraftKings.
+
+### Speaker A [0:01-0:01]
+
+More great stuff right after this. There are so many examples all the time of people that should have had life insurance don't have life insurance needed to have life insurance. It's why I recommend Ethos because it makes getting life insurance fast and easy 100% online. We all do things to feel safe. We all do things to give us peace of mind. That's what Ethos does. They have a 4.8 out of 5 stars on Trustpilot with over 4,000 reviews. You get a quote in seconds, apply in minutes and get same day coverage. No medical exam. Up to 3 million in coverage. Take just 10 minutes to get covered today with life insurance through Ethos. Get your free quote@ethos.com Ross that's ethos.com Ross Application times may vary. Rates may vary. It is hot. Training camps are coming. It's time for Labat. Lebet knows a thing or two about friendly rivalries. Born in Canada, brewed in the U.S. united by the sacred art of trash talk. Listen, the best friendships are the people that make fun of you. No matter what stories you can't escape the and just enough roasting to keep things honest. It's time to crack a cold one, roast responsibly and give a toast. The people who give you the hardest time. Labat is brewed for the roast. I agreed and we still had success last year being graded at minus 125. By the way, before I forget, Steve, I did ask DraftKings about teasers on prediction markets and they said as of right now they don't have them. So for DraftKings prediction markets because DraftKings has prediction markets now, which I've been telling you. Which is why I've been telling you guys in the states that don't have sports betting like Florida, Texas, California, use the DraftKings app and use the code Ross. You can get it on their prediction market stuff. But they do not as of yet. The the answer I got was we do not as of yet have teasers on the prediction markets because of what it takes to put those markets together. So I know you were curious about that. Jocelyn says Absolutely Want teasers for your record. You could continue to compromise at -125. An alternative could be one to one, meaning if you win 10 teasers and lose eight, your record is 10 out of 18. Listeners can calculate your advice success based on their odds. Minus110 minus120, minus135, etc. Joslyn, that gets a little too complicated to have. Like us have to have it just by the win loss. And then people have to calculate that that's a little bit too much. Andrew says he has eight different sports books. He said just because some illegal bookies he says he has eight different sports books and the best teaser odds is minus 130. Interestingly, he said just because some sketchy illegal bookies take action at 110, 120 doesn't mean you should grade yourselves at a more favorable. Vague. If you want to stick with minus 125, I have no problem with that. But anything lower would be too disconnected from reality. That's fair.
+
+### Speaker D [0:01-0:01]
+
+And that entered into our discussion where we were struggling to find legitimate legal books at minus 120. So we said we're not going to grade at minus 120. Even though, like you said, there are some, they're still dealing -110.
+
+### Speaker A [0:01-0:01]
+
+Then Keith says, please keep giving out teasers. I think Grading them at minus 125 was a fair compromise. I would hate to miss out on a teaser that Steve doesn't feel like is worth it at minus 125, but would have been worth it at minus 120. In fairness, those of us that have been listening since the beginning should know how to put a Wong physic teaser together by now. That's interesting, Steve, because we know when we're doing them this season that we're graded at minus 125. But for these people, they still want them. If you would do them at minus one, how often do you think that's the case? That it's a teaser? You would do it minus 125, but I mean, you would do it minus 120, but you wouldn't do it at minus 125.
+
+### Speaker D [0:01-0:01]
+
+For me all the time. For most people, not that often. Having said that, Ross, I'm going to give an Easter egg out on this show. I'm going to give. I believe we spoke about this at least one time before, but given you're already using some of these accounts with some of these local bookies, etc, one thing that they oftentimes offer is that you can put your first teaser leg in with an open spot. All right, so you lock in the first leg, but the second leg you'll fill it later. All right. And this, there's an advantage play that I call resurrection teasers. I love this. So what you do is so you play Your first leg of the teaser. Let's say it's the hall of Fame game. Let's say you get Arizona plus one half, you tease them up to plus seven and a half, all right, with an open spot, and then Arizona, because they're terrible, gets killed in the hall of Fame game. It's the fourth quarter and they're down 21 and you're. They're about to lose. And the book will grade your lead, your teaser as a loss as soon as the game ends. So then you lickety split, you frantically, you panic and you go to fill the second leg of the teaser. Why? Because a lot of these books still grade a loss and a tie on a teaser as a tie. So if you can somehow find a way to tie on the second leg, then you're going to get your money back at some books. Check your rules. And so all of a sudden what are you going to do? You're going to take the Pittsburgh Steelers and you're going to tease minus three to plus three against Atlanta week one. And if by some miracle Atlanta and Tua can win the game by three points, then you'll have a 7% chance of getting your money back. I call those resurrection teasers. They only would be applicable on the situation I described where you can have an open spot and you fill it when the first leg's about to lose.
+
+### Speaker A [0:01-0:01]
+
+That is awesome. Kevin says you have to grade teasers the DK price since you're using their lines, pull all your data prices, numbers from the same book. You can't pick and choose. That's like saying you like a game listed at minus at three and a half on DraftKings. But some people are mailing you saying their book has it at minus three. You can't take that line. You can't cherry pick. And a hard no to involving prediction market numbers as those vary wildly and are constantly changing as more action comes in. I love even money. Kevin.
+
+### Speaker D [0:01-0:01]
+
+Okay, so Kevin, to quote, fair point, but to quote a line from Caddyshack, you know, Danny's talking to Chevy Chase and, and, and he's not happy. And he's like, I just don't want to go to college. And Chevy Chase says, says you don't have to. It's not Russia, Danny. Do whatever you want. Hey, you know, I mean, we, if we want a greater number at a not just available but widely available number that's not on DraftKings. You know what? I'm going to put on some Kenny Loggins. I'm all right. Nobody worry. About me and I'll grade -125. Thank you very much.
+
+### Speaker A [0:01-0:02]
+
+All right, Gary says he's definitely in favor of continuing with the teasers. Plenty of sports books offering -120. Anyone who's serious about betting and using teasers will be able to find them. And I'll do one more. Dean Dean says. Love your podcast. Love to hear you on the Dan Patrick show. You should take that show over when Dan retires. Love your insight and teaser bets. I'm one who gets minus 120, so I would love to see you guys continuing to continue giving out teasers. Just because DraftKings is doing minus 135 doesn't mean we can't get better at other sites. I vote to continue the teasers. I kind of feel like Steve, I mean what was that? 10 emails? 5. Like I kind of feel like the people have spoken. And that's every email I got, by the way. That's every email I got that people talk like I wasn't cherry picking or picking and choosing. So I think the people have spoken. I think we stay at minus 125. Your thoughts.
+
+### Speaker D [0:02-0:02]
+
+I agree. And hey, shout out to Dan Patrick, who I believe went grew up in Kettering, which is just south of Oakwood High School where I attended. So you know what a great show he has done forever. You've been a part of that. And I don't know if he went to Fairmont west or Fairmont east, but it's a small world. By the way, the Fairmont west chess team shout out to them National Champs 1981 National Champs. Ross. They lost in the state championship in Ohio. Have to ask mark Palmer Co. What the hell happened there?
+
+### Speaker A [0:02-0:02]
+
+Wow. All right, we got a question from Andrew. You said many times pros don't bet a team plus two and said they tease them up to plus eight. I'm in New York. I have eight sportsbook apps. Best Wong Teaser line I can get is minus 130. I used to bet Wong Teaser all the time but have need to stop the past couple years given my options. Are you still against betting a team plus two or do you prefer finding other games which cross 3, 7 and 10 to make a 10 point sweetheart teaser at minus 120.
+
+### Speaker D [0:02-0:02]
+
+What a great question. You know, I think a diversified portfolio might well make sense here where the teaser is so expensive. Maybe you play the plus two but maybe also play it in a three team NFL 10 point teaser, you know, up to plus 12. I like it better plus 12 and a half or 11 half because ties lose on 10 point teasers. And one thing we don't talk about very often, Ross, Diversification. Put them in every quarter, plus a half if you can find it. Plus a half is so good, especially in the first and third quarters.
+
+### Speaker A [0:02-0:02]
+
+Ooh, I like that. Steve. I. I love some of these summer episodes. I love getting your email questions. I absolutely love hearing from you guys about teasers. That was fun. So we're decided now on the teasers we will stay at -125 and do teasers. We got some good stuff coming next week. By the way, I didn't get a chance, Steve, to ask you about Lake Tahoe. We will do that. I know you had some thoughts on prediction markets as a source of truth and what our listeners or viewers should be doing right now to win this season. Next week's episode is going to be epic. He's at Physics Sports. I'm at Ross Tucker NFL. We're at Ross Tucker Pod. Make sure you subscribe and turn those notifications on. Good luck, everybody. Hope you guys win some money.
+
+### Speaker D [0:02-0:02]
+
+Did you know Sam's Club isn't a store? It's actually a club with cool finds and like a whole community.
+
+### Speaker A [0:02-0:02]
+
+It's a club.
+
+### Speaker D [0:02-0:02]
+
+Of course, Jason. It's in the name. Sam's Club. Oh, yeah. Come join us, Sam's Club. Best thing that's ever happened to you, financially. Go easy.
+
+### Speaker E [0:02-0:02]
+
+Sold by car on Carvana. Amazing offer, really.
+
+### Speaker D [0:02-0:02]
+
+I hit 200 on a scratcher.
+
+### Speaker E [0:02-0:02]
+
+Did the scratcher come to your house and hand you a check?
+
+### Speaker D [0:02-0:02]
+
+No.
+
+### Speaker E [0:02-0:02]
+
+How many scratchers did you hit to get that? I hit a button on Carvana.com once.
+
+### Speaker D [0:02-0:02]
+
+Okay, that's fair.
+
+### Speaker E [0:02-0:02]
+
+It's like the lottery, except you always win.
+
+### Speaker D [0:02-0:02]
+
+Not like the lottery at all, actually.
+
+### Speaker E [0:02-0:02]
+
+Exactly. Inexplicably good offers worth bragging about. Sell your car today on Carvana. Pickup fees may apply.
+
+### Speaker A [0:02-0:02]
+
+Thanks for tuning in to the Even Money podcast. Make sure to also check out the College Draft podcast and the Ross Tucker Football podcast, Both on the DraftKings network, YouTube or subscribe on your favorite podcast platform.

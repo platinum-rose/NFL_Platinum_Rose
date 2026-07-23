@@ -1,0 +1,465 @@
+# Sharp or Square - NFL Quarterback Evaluation with Seth Wickersham of ESPN
+
+Published: 2026-04-09T12:00:00+00:00
+Episode ID: 619e0e9f-de35-4b07-a0af-dd6a2d37aeb0
+Status: done
+Duration: 3233 seconds
+Audio: https://podtrac.com/pts/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/clips/e73c998e-6e60-432f-8610-ae210140c5b1/291fe8ed-f80d-4107-9ee1-b34c015266d0/58fed24f-2d5e-448e-b3dc-b4260113596c/audio.mp3?utm_source=Podcast&amp;in_playlist=51f38aeb-0341-43f7-a21b-b34c01526b07
+
+Transcript chars: 61648
+Speaker turns: 112
+Speaker labels: A, B, C, D, E
+
+## Existing Host Summary Rows
+
+- Chad Millman (gpt-4o, host_map) futures=1
+
+## Diarized Turns
+
+### Speaker A [0:00-0:00]
+
+This is an iHeart podcast. Guaranteed Human.
+
+### Speaker B [0:00-0:00]
+
+If you've been sitting on a business idea for a while, consider this the sign to take action. It can even be made official today by creating a website with Wix Harmony. Just tell Wix Harmony what you want and it will build the entire site, business features included and everything can still be edited by hand. It's your website, your call. Try it@wix.com that's wix.com Amazon Health AI
+
+### Speaker C [0:00-0:00]
+
+presents painful thoughts why did I search
+
+### Speaker A [0:00-0:00]
+
+the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores in various stages of ooze. I can clear my search history, but I can never unsee that.
+
+### Speaker D [0:00-0:00]
+
+Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
+
+### Speaker A [0:00-0:00]
+
+Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or
+
+### Speaker B [0:00-0:00]
+
+visit zepbound.lilly.com this is Tab Ramos from Inside American Soccer and this summer, Topgolf
+
+### Speaker C [0:00-0:00]
+
+is turning into the ultimate soccer destination. They've got a new soccer themed game you can play with your group, exclusive
+
+### Speaker E [0:00-0:00]
+
+food and drink items.
+
+### Speaker B [0:00-0:00]
+
+They've even installed full size soccer goals
+
+### Speaker C [0:00-0:00]
+
+so you can try to hit golf
+
+### Speaker B [0:00-0:00]
+
+balls right right into the net. And every match all summer long will
+
+### Speaker C [0:00-0:00]
+
+be on throughout the venue.
+
+### Speaker B [0:00-0:00]
+
+And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass which lets
+
+### Speaker C [0:00-0:00]
+
+you play every single day and bring up to five guests every visit.
+
+### Speaker B [0:00-0:00]
+
+Get yours now@TopGolf.com FunPass welcome to Sharper Square, presented by Hard Rock Bat. We are part of the Voluum Podcast Network. This is the show that makes us square sharper. It makes the wise guys pay attention. I am Chad Milden. I'm joined as always by my two BFFs, my two companions, my two compadres, my official co host and my good buddy Simon Hunter. Hello Simon. And also hello to Seth.
+
+### Speaker D [0:00-0:00]
+
+Chad, how we doing?
+
+### Speaker C [0:00-0:00]
+
+What's up?
+
+### Speaker B [0:00-0:00]
+
+Because we got, we got best selling authority, two time New York Times best selling author with a new book coming out in the fall, a compilation of stories called beyond that Hill. Seth, I'm glad you're on the show, Seti Wickersham, because all we do on this show is have bestselling authors come on and talk about their books. The last two authors we've had on this show and have both gone on to have bestselling books.
+
+### Speaker C [0:00-0:00]
+
+I think it's, I think it's the launching pad. There's no other way to describe. There's no other way. Think about it.
+
+### Speaker B [0:00-0:00]
+
+We, we continue to be the most literate sports betting podcast in America. Seth Simon and I have been discussing all things NFL draft and we will continue doing that today with you. Your book from the fall, American Kings, is a primer for anybody who wants to understand not just what makes a quarterback a quarterback, but how quarterback became sort of the cultural touchstone that it is today. Truly royalty in the United States. Tracing back the history all the way to today, quarterback will continue to be the most important position in all of sports as long as the NFL is in existence. And so for people who might have missed that show and still have a chance to go by the book, explain to people just how important the quarterback position is and how it evolved into what it is today. So we can frame a little bit about why Fernando Mendoza, going number one, is more than just a guy who could save the Raiders.
+
+### Speaker C [0:00-0:00]
+
+Yeah, well, that book was so much more work than the collection that I have Coming beyond that hill, I feel like I should have just titled that one Cashing In Twice. But, yeah, I mean, the quarterback position, as you know, it's fascinated me, you know, really going back to when I was in high school and, you know, you and I would throw footballs in the ESPN magazine offices in New York, you know, in between meetings. And, you know, even then, it was important for us to each throw a good spiral. And it's just such a unique job across sports and not just in America, but globally. Like, I. During the course of the book, I was sitting with the hall of Famer Steve Young, and I asked him, like, what are all the hats you have to wear as the starting quarterback for an NFL team? And he just started rattling them off. From field general to matinee idol to amateur psychologist to chief cheerleader, breathtaking asshole spokesperson for a multi billion dollar organization. All of these things. And I think he got to 17 hats total, and none of them were, oh, by the way, throw the ball through windows that nobody else can see, much less take advantage of while people are diving at your knees. And so how quarterback became so celebrated and achieved such a lofty status in our culture, I thought was fascinating. And then there's also just the nuts and bolts of what is it like to do it? What does it build within you? What does it destroy, and what do the people who do it at the highest level have to contend with for the rest of their life? Because it assumes such a big part of your Persona and your identity. And so those are the things that I was getting at. And as I look at the quarterbacks that are entering this year's draft,
+
+### Speaker B [0:00-0:00]
+
+I
+
+### Speaker C [0:00-0:01]
+
+see a bunch of guys who I think in different ways have all embodied all of those characteristics and worn all of those hats in different ways than, I think, for a lot of drafts. Like, I think that usually for a lot of drafts, you have guys who kind of come onto the scene, and Jaden Daniels, for instance, you know what I mean? Like, you know, like, takes over the season like a Rocket wins Heisman Trophy. And, you know, it's really kind of a really breathtakingly fast acclimation. I think that with Mendoza, it's similar in a lot of ways, but unique for him because of the path that he took there. And so I think that, like, of all the quarterbacks drafts that we've had for a while, I think that the top three names that we talk about for this year are kind of uniquely equipped to be successful in ways that I'm not sure we could say that for other classes.
+
+### Speaker B [0:01-0:01]
+
+Give me a little bit of background here on just Mendoza. Like, what is it that you see in the intangibles of that bucket list of 17 things, that list of 17 things that Steve Young is talking about? What is it that gets GMs most excited about Mendoza?
+
+### Speaker C [0:01-0:01]
+
+Well, really, all he has to get is one GM excited.
+
+### Speaker B [0:01-0:01]
+
+Yeah, right.
+
+### Speaker C [0:01-0:01]
+
+And I think that guy's pretty excited. I think the thing that's most interesting to me about Mendoza is I think from a basic standpoint, I love how. I love his size. Like, first of all, I think that, like the size factor and the fact that he's a legit 64 is a big differentiator for. For him and a lot of guys, the top guys in this year's draft. I love that when he's throwing, if you look at some of his best throws, he's throwing with a lot of anticipation. And I think that, like, that's kind of one of those skill sets. His soon to be boss, Tom Brady, once we were talking about accuracy and he and I, he said, you know, the most overlooked aspect of accuracy is decisiveness. And I thought that was a fascinating answer. But basically he's saying, like, you know, if you. It's like that Top Gun line, if you think you're dead. And I think that you can see Mendoza getting the ball out with anticipation. And so you can see that he's being decisive and playing with a lot of confidence. And then I think the final thing is just that, like, his football career wasn't supposed to go this way and easily could have ended. You know what I mean? He's. He's taken an atypical path. And I think that when I look at Mendoza going to the Raiders of all teams and having Tom Brady on board, so much of what Tom Brady is so proud of to this day is the path that he took, the fact that it was a harder and more challenging path than a lot of guys. And within that, one of the things he's always talking about is how lucky he was to have no eyes on him as a rookie. Like, he could make mistakes and be under the radar, and the press didn't care. They didn't even really notice him, and the coaches barely noticed him. And, you know, I think that he looks at guys like Peyton Manning and John Elway, Eli Manning, to an extent. You know, guys who were drafted first overall came up with a ton of expectation and hype and managed to live up to that because that's a unique challenge. And not every. Not every guy can do it. And so I was kind of thinking like, what's the, the biographical intersection between Brady and Mendoza? Because drafting a quarterback first overall is like the opposite of Tom Brady's path. And I think that, like, I think that that's where they cross. You know, they intersect is that like if they had not been so, you know, mentally tough, so strong willed, they probably would have had nice college careers and then gone on to the business world. But instead, you know, especially Mendoza just did something epic and legendary as Chad talks about all the time. And I think that's probably where Brady sees someone like Mendoza and sees a little bit of a reflection of his own experience.
+
+### Speaker D [0:01-0:01]
+
+Agree more. I definitely think Brady sees a lot of himself mentally in Mendoza. The question is, can he get there the NFL career wise, which is the 5am to midnight type of days, right? And like that's, that's why I think Mendoza is so pro for the Raiders is he seems like he's that kind of guy that like, like Tebow Thibaut is going to outwork everyone. Thibaut just didn't have the skill. Mendoza has the skill. He's got the arm throwing motion, he's got the footwork. You know, to me, especially when I talk to scouts, the question is always going to be the number one pick. The pressure is just so insane. The expectations are so insane. I talk to Chad all the time. The number one pick thing is so tough because it just doesn't work out. And the expectations are so tough that like Stafford is honestly the only number one pick that's really worked out in the last 15 years. Like you can go through all these number one picks. Not only does it matter so much about the team around these guys, it matters the organization, right? A lot of these number one picks are going to bad organizations. And you know, as much as we want to say how great Tom Brady is coming in there trying to change the culture of the Raiders, there's so much work to do. Mike, Madoc, Gruden, they sent the Raiders back to the stone age like it's it. It's taken them so many drafts now to catch up to it. And I look at Mendoza, love the talent, very excited for him. My. I try to explain to people though, you need to bring back expectations. If he, if he can reach Matt Ryan, which I compare a lot to him, a lot of his game reminds me of Matt Ryan. To me, that would be successful, an MVP season, reaching a Super bowl with the Raiders and that would be incredible to other people. That would be a bust which again, it's just. I would love to get your angle on this. Like, where do you see Mendoza's career? Projecting? What, what kind of envision do you have for him? Is he the type of guy where I can't see, but could you see him being at the league in eight years, Right, that his body doesn't hold up. Right. That he put too much stress on his body, that he, you know, as big as a frame as he has and as much as he carries that weight, can he keep adding to that? Because when I look at this class, he's the only guy to me worthy of the number one, the first round pick.
+
+### Speaker E [0:01-0:01]
+
+Right?
+
+### Speaker D [0:01-0:01]
+
+Like Ty Simpson. That kid's body to me just will not hold up in this league. Like, he's just, he's built lesser than Brock Purdy and we've seen Brock Purdy as good as Brock Purdy is. He's not held up. Mendota's got the body, Mendoza's got the big broad shoulders. He's like you said, he's 6, 4, 6 5. He is exactly what these scouts are looking for. Like, can you. Do you agree with me there? Is he more likely to be a bust or do you think the way you project out for him, can he be a solidified 15 year, 10 year starter in this league?
+
+### Speaker C [0:01-0:01]
+
+I mean, I like his chances of being a really good quarterback. You know what I mean? I think that like he's going to enter into a situation that has some benefits. You know, look at like him and Caleb Williams. All right. I mean, Caleb's going to the Bears. Sorry, Chad. And you know, he's playing for an organization that had a horrible track record for developing quarterbacks and a defensive coach and an offensive coordinator who hadn't really developed a quarterback on his own, where, you know, he's going to have the infrastructure of access to Tom Brady's mind. You know, he's, he's going to have an offensive coordinator who spent or you know, a head coach who spent his life on the offensive side of the ball and is coming off a Super bowl win when they did, you know, miraculous work with, you know, a quarterback that I think a lot of people didn't think had that upside. And I think that like, you know, you're, you're absolutely right. I mean, context matters. And you know, I think that he's going to a team that knows that a coaching staff that'll know how to protect him a little bit. And I don't mean just from like a pocket standpoint, but how to like Keep the pressures both in game and out of game at bay as best we can. And I think that he is well equipped for it. I will say that he's a little older. He had to play his best in huge games this year where there was a ton of pressure on them. And even though we could say they were playing with house money, they're Indiana. I mean, that's not how they think. And he came through, you know what I mean? And like, and so I think that like all of those things I look at as tremendous upside down at the same sense you look at someone like Nussmeier, who I loved. You know, I thought for as much hype as Manning got entering last year, I thought he was the, you know, that Nussmeier was the best quarterback in the sec and frankly it wasn't close. Like, I, I, and I think that like you look at him, he'll probably be the third or fourth quarterback picked. Had a tough senior year due to injury, which happens, but he has a ton of great football under his belt against the highest competition. And I think that if he goes to a team like Pittsburgh where he can maybe learn under Aaron Rodgers for a year, like that could lead him to being, to possibly being the best quarterback in the draft. I mean that's, that's the thing that makes this stuff so fun and also hard to project is that like we grade draft picks and players individually, but context matters for everything for them. And you know, you look two years ago people would say right now Caleb Williams clearly has the most upside of any quarterback in the class of 24, and he's earned that. But I mean, Bo Nix's statistics are so much better than anybody else's in every way, including wins. And you know, it's because he went to a good team with an offensive minded head coach from the start. Who knows what a successful program looks like and Caleb didn't. And so I think that like those are the types of comps that I think are really fascinating and it'll take a couple years to see how they shake out.
+
+### Speaker B [0:01-0:01]
+
+Well, I'm glad you bring up Bo Nix because you had that great section in the book and all that good reporting from Sean Payton about how he looked at quarterbacks and he had told you before the draft that he was taking Bo Nicks, that was the guy that he wanted and he had sort of identified. Explain because this was awesome. Explain how Sean Payton was looking and scouting quarterbacks and what mattered most to him and then see if you can extrapolate from that. And identify quarterbacks.
+
+### Speaker C [0:01-0:01]
+
+Yeah, I'd have to, like, we'd have to call up AI and run their numbers through everything. But he basically. So this is when he was with the Saints. And I've been rambling, so I'll. I'll go. I'll. I'll be as brief as I can. Cut me off if I'm rambling too long. But when he was with the Saints.
+
+### Speaker B [0:01-0:01]
+
+Seth, you're our guest. You can speak for as long as you.
+
+### Speaker C [0:01-0:01]
+
+All right. When he was at the Saints, he was looking to replace Drew Brees, and he liked Patrick Mahomes a lot. The problem with college quarterbacks nowadays is that you have these offenses that really came around in the Hal Mummy, Mike Leach turn of the century, early aughts that knew how to exploit space with incredibly simple concepts, but are very difficult to defend. And they take quarterbacks who really are average quarterbacks and produce superstars out of them. And so with college, you can't trust statistics coming out of college anymore because so many guys have incredible stats. I think that the guy who owns the record for touchdown passes at the highest level in college in a single season is Bailey Zappi, who's barely been able to hang on in the NFL. And so if you can't trust statistics and you really can't trust your eyes because the spacing is so different in college than in the NFL, then what can you trust? And he wanted to try to figure out a way to quantify processing speed, which of course is like the holy grail of quarterback evaluation. And so he developed this analytics formula that was kind of like a failure index, where he looked at total attempts and then looked at sacks taken, fumbles, interceptions per pass attempt, things like that, because he was basically like, look, if they take a lot of sacks, and Peyton considers sacks a quarterback statistic, not an offensive line statistic.
+
+### Speaker B [0:01-0:01]
+
+And.
+
+### Speaker C [0:01-0:01]
+
+And if they're fumbling a lot and if they have a high rate of interceptions, it probably means that they're not seeing the action very fast, and you're not going to improve that in the NFL. So that was the first year that he did it. It led him to really love Patrick Mahomes. Numbers like Patrick Mahomes scored the best out of that 2017 draft. As we all know, he was going to draft Patrick. Andy Reid swooped up, traded with Buffalo. The pick before the Saints got Mahomes changed his career. And so when Peyton got to Denver, he knew he was going to pick a quarterback. They were going to cut bait with Russell Wilson and eat the Cap number. And they were going to pick a quarterback. And he ran everyone through it, including Chad's boy Caleb Williams, and Bo Nix, by far the best averages out of that. And so what he saw with Bo was a guy who had played in bad weather at Oregon and barely fumbled, a guy who had completed a high percentage of his passes, a guy who, you know, just didn't turn the ball over a lot and didn't make a lot of mistakes. His sack numbers were so small. And so that was his. Helped him buy into Bo Nix. And then everything Bo Nick showed him from there on out kind of solidified it. So. So that was the gist of it. Caleb Williams didn't have great numbers coming out of there. Drake May didn't have big, you know, great numbers coming out of there. I think J.J. mcCarthy did, if I remember right. But it just shows that, like, maybe this isn't a silver bullet formula, but Sean believed in it. And it's one expert's opinion about how to try to figure out a way to measure, you know, what's the hardest thing to judge coming out of college, which is like, can these guys see the game quickly and decisively.
+
+### Speaker B [0:01-0:01]
+
+Well, you know who's got great processing speed?
+
+### Speaker C [0:01-0:01]
+
+Me.
+
+### Speaker B [0:01-0:01]
+
+Well, I was going to say Fernando Mendoza, also Seth Wickersham, sadly. What are you going to say?
+
+### Speaker D [0:01-0:02]
+
+Well, I was just say that's. That's my favorite part about this quarterback position is especially someone like me. I'm talking to NFL people. Talk constantly. Everyone thinks they have the secret formula, but there really isn't one. And that's what I love so much about it. Because we all have blind spots in life. Everybody has blind spots, whether you. If you. If you don't think you do, that's a blind spot. And, you know, I always think back to that Wentz Jared Goff draft where Dak Prescott ended up being the best quarterback. And, you know, you could say Dak dropped because the DUI and other stuff going on in college, there's more to it, right? There's always more to it. It's, how did he interview? All little stupid things like that. And, you know, Chad knows I am one of the biggest. Jalen hurts defenders. I don't even try to defend him anymore because it's either you believe in Jalen hurts, you get it or you don't. And I always love going back to his draft class because he was the forgotten man, right? You had the tr. You had these guys going up top. Joe Burrow, Justin Herbert. You know, I know we don't Believe in that. But Tua was supposed to be the guy in that direct class. He was supposed to be number one till Joe Burrow took over that Jordan Love went ahead of Hertz. And to me, what these teams missed, which I think how nailed was every, every step in Hertz's life, he dealt with adversity. And that's what like again, I go back to Mendoza, I love these guys who go through adversity. Bo Nix went through a ton of adversity. That him getting hurt in that game, which I would love to talk to you about, that, to me is as horrible as that was for Bo to go through. That's an amazing motivator for him going further because he was so close at AFC championship game and it was taken away from him because of a stupid little injury. And you know, Jalen hurts. We're into year five now and you still, still people immediate doubting him, which again, I get it, it's all part of it. But like I keep giving out the numbers. In five years as a starter, he's number one in winter percentage, he's fifth in total yards, he's third in total TDs, and he's 10th in QBR. So it's like when I'm evaluating these quarterbacks now, I try to always bring that in. Where I missed that with Hertz, I, I looked at Hertz's arm talent and I was like, this guy will never be a starter consisting in this league. He just is so inconsistent. What happened is he got to the league. Obviously he worked on that, he worked on his arm, but he found a system that worked for him, right? They found a way to use his legs. So when I look at Mendoza, I really do think as much as I, I do have doubts about him. We've seen him be able to use his legs, we've seen him use his body in a way in, in college. I would love to get your perspective on that is do you think his game from college can transition to NFL or do you think they're going to tear down everything Signetti did with him and kind of re. Rebuild up?
+
+### Speaker C [0:02-0:02]
+
+There's a lot in there. Number one, you know how, how when you were broken, how did you respond? I think that like that's such a critical factor. Brady is, is, you know, the face that we'll always think of in terms of like how someone can respond to that situation. With Mendoza, there's two routes to win in the NFL. You have your established franchise quarterback. He's your guy, you're committed to him. He's making a ton of money, and, you know, he's the face of the franchise. And then you have the other way, which is like, well, you're not sure, but you draft these guys that are on a rookie contract, you can put a ton of great surrounding talent around them, and, you know, it's a relatively inexpensive investment as you're trying to figure out whether this will work out. I mean, you know, when. When Chad and I were working together at espn, you know, the first quarterbacks picked in the draft were getting these huge contracts, much bigger than Tom Brady was getting. Like, Alex Smith was making so much more money than Tom Brady was making, and Tom had three rings because, you know, there was no rookie salary, rookie wage cap. And these agents like Tom Condon and Jimmy Sexton would just hold up teams. And, you know, it ended up being a blessing for those guys financially, but I think a complete curse in every single way. And I think that's one of the reasons why so few of those guys, maybe only Stafford, truly became universally considered great, was because they're going to bad teams, they're getting paid a ton of money, so there's fewer good players to surround them with. The coaches are under more pressure than ever to make it work with them. There's all these cultural problems within the locker room because you have guys who have established themselves who aren't making as much as he is, and all of those things colluded against a lot of these guys being successful. And I think that, like, the other route is the, you know, hurts a little bit route, the Russell Wilson route with Seattle, the route that the 49ers tried to take with Brock Purdy, where, you know, they clearly got to the overtime of a Super bowl win. The Broncos are doing with Bo Nicks, Patriots with Drake May, where it's like, you know, you basically take a guy, you hope he works out, but if you have to cut your losses, it doesn't screw up your franchise for the entire time. And so that's what they're going to do. Like, Brady has said that, you know, we were in his living room once and, you know, we were talking about the early part of his career, and he's like, yeah, we were a defensive team, and I just kind of managed the game. And I was like, dude, I don't think so. I mean, he led the league in touchdown passes his second year, which I pointed out to him, and he was like, it wasn't that many, though. And, you know, he won super bowls, especially the second Super bowl, you know, by throwing the ball 40 sometimes. I mean, that's not a game manager. But he, he, I think what he was trying to say, and he's kind of said this since then, is that he didn't think he was consistently excellent for a long time and he didn't think till 2004 he was consistently excellent. So that's 0102032 Super Bowls in three years before he thought he was consistently excellent. And so I think that like the model for bringing Mendoza into the league is the same type of thing where it's like you're managing someone. So that means, yeah, you're going to run RPOs and things, you know, speak the language that he's used to. But it's also the NFL and you have to figure out a way to stay ahead of defenses and give him a chance to, you know, run legit NFL offenses. And I think that like, in that regard, he's coming into a good situation. I mean, Kubiak, they, you know, that system. They know how to run, they know how to coach offense. And, you know, that can't be said for everybody.
+
+### Speaker B [0:02-0:02]
+
+Let's do a quick break here from our friends at Hard Rock and we'll come right back. Today's show is brought to you by our presenting sponsor, Hard Rock bet. Florida's sportsbook. Spring is in the air, and that can only mean one thing. Baseball is back in full swing. Hard Rock Bet makes it easy to bet on America's pass time in just a few easy taps. And it's not just picking winners. Bet on home runs, strikeouts, and so much more. And if you miss the first pitch, no problem. You can live bet every inning, every at all, the way to the final out. But maybe you're more into the NBA. The hardwood is heating up as the playoff push is on. And with Hard Rock Bet, every night is a shot to build the same game parlay and score a major bucket. However you draw it up, Hard Rock Bet gives you tons of ways to stack your picks into an epic same game parlay. Sign up today and double your winnings on your first 10 bets. Maximum $50. That's right, double your winnings on your first 10 bets. So if you would have won a hundred bucks on your bet, now it's 200. Download the hard Rock Bet app today. Get the party started. Offered by the Seminole Tribe of Florida in Florida. Offered by Seminole Hard Rock Digital, LLC and all other states must be 21 or over and physically present in Arizona, Colorado, Florida, Illinois, Indiana, Michigan, New Jersey, Ohio, Tennessee, or Virginia to play Terms and conditions apply. Concerned about gambling in Florida? Call 1-833-playwise in Indiana, if you or someone you know has a gambling problem and wants help, call 1809 with it in Ohio, call 1-800-My reset gambling problem, call 1-800- gambler in Arizona, Colorado, Illinois, Michigan, New Jersey, Tennessee and Virginia. Vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. Wix has introduced Wix Harmony, a Vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And WIX Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com that's wix.com Are
+
+### Speaker A [0:02-0:02]
+
+you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepat appetite containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck, stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound Lilly.com this is Daniel Cormier
+
+### Speaker E [0:02-0:02]
+
+from the Daniel Cormier Show. This podcast is sponsored by Total Wireless, the official wireless partner of ufc. All UFC fighters know power doesn't wait in the octagon or outside of it. You either make the move or you miss the moment. That's why you need a network that's as powerful as you are. With Total Wireless, you get unlimited 5G data keeping you in on all the action from the walkouts to the knockouts. You'll never miss a moment. That's coverage that you can count on for every single round. So when the moment happens, you're not catching up. You're already there. Now that that's a total power move. In the ufc, power isn't given, it's taken. So make your total power move today. Visit totalwireless.com or stop by your neighborhood Total Wireless store. 5G access requires a 5G capable device in a 5G service area. Monthly rates on the Total Base 5G Unlimited plan for new subscribers applies only to the monthly rate for your plan. Additional terms apply. See website for details.
+
+### Speaker D [0:02-0:02]
+
+Amazon Health AI presents Painful Thoughts why
+
+### Speaker A [0:02-0:02]
+
+did I search the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores in various stages of ooze. I can clear my search history, but I can never unsee that.
+
+### Speaker D [0:02-0:02]
+
+Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Health care just got less painful.
+
+### Speaker B [0:02-0:02]
+
+You know, seti, you bring up an interesting point about Brady and you did this in the Patriots book It's Better To Be Feared, which was laid out Brady's path to the NFL. And everyone always acts like he was Kurt Warner coming from nowhere and being a six round pick. And they show the the picture of him at the combine when he's got a scrawny body. But the guy was also a supreme athlete who was drafted to play Major League Baseball, who was heavily recruited out of high school. It's not like he was some guy who got plucked from obscurity and went to Michigan. He was recruited by usc, he was recruited by other big, big schools, and you don't get to Michigan because you're not a superior athlete who shows a lot of potential. The idea that Brady came out of nowhere and was sort of an inferior athlete, I think has become such a part of his myth making. It deserves a little bit of myth busting.
+
+### Speaker C [0:02-0:02]
+
+Yeah, I mean he was Always. First of all, if you watch his film in Michigan or even in high school, I mean the guy just, he could throw. He had a, he was a phenomenal, what they call arm talent. And I think that the problem was, was that it came out of what was a gangly body and he had horrible foot speed. I think we could just say that, you know what I mean? And even though he was, he could have played pro baseball, he wasn't Ricky Henderson. And so I think that like you combine all of those things with the fact of his situation at Michigan where, you know, the coaches, at least the head coach, you know, wasn't sure he really wanted him to be the starting quarterback. And that was kind of the thing that dogged him. And I think that like we were smarter about, even though we're not perfect, we're so much smarter about evaluating quarterbacks now than we were back then. And it was partly because of him and his success. And, and there's a lot of guys in that time, like there was Kurt Warner first, then Brady, then like Jake Delome, you know, there's all these guys who kind of like came out of nowhere who were really coming in and playing well in the league. Whereas like, if you look at it really since like, I want to say that Eli Manning, Roethlisberger, Philip Rivers, draft, just about every good quarterback ends up being a first round pick. I mean there's people like Brock Purdy, you know, who are outliers, but just about all of them are our, our first round picks. And you know, like, but, but yeah, when you look back at Brady, I think that like we want to think that, you know, nobody had ever heard of the guy when he was playing at, at Michigan in front of 100 something thousand people beating Ohio State and you know, winning a lot of big games in the Big Ten.
+
+### Speaker B [0:02-0:02]
+
+I mean he was thrown for 350 yards in bowl games. It's like, it's not like he was, it's not like he was a scrub. You know, we had on one of the co hosts for Fantasy Pros, which is a big podcast named Derek Brown, who loves to scout the draft. And we were having a long conversation about Ty Simpson and obviously Ty Simpson's name has gotten a lot of attention the past few weeks. Dan Orlovsky has been saying that he thinks he could be the number one pick. Whatever. It's absurd. Yeah, but when you look at Ty Simpson, how much of do you think the way he's being scouted is? As Derek would say, they're scouting the helmet versus scouting the guy.
+
+### Speaker C [0:02-0:02]
+
+Yeah. How do you separate player from system? And I think that we talk about system quarterbacks with kind of. It's a backhanded compliment, right? I mean, we think of, like, Chad Pennington, you know what I mean? This guy who would lead the league in arc, and, you know, he. You know, everyone's like, oh, that's the perfect system quarterback who just does smart things with the ball, but he's not Caleb Williams, you know, making these crazy throws. And like, every quarterback is a system quarterback. Like, there are some of them, like Caleb, who can do things outside of the system that are really special. But Caleb Williams is a system quarterback because look at him his first year and look at him his second year. I mean, the statistics and the. The presence are just night and day. If Joe Montana had not been drafted by a brilliant coach who happened to have come up with a system that was perfectly well suited for Joe Montana skills, I don't know if we're ever really talking about him. So, like, how do you separate them? I don't quite know. I think the. The biggest thing that I see with Simpson that worries me is just the height. I just think that, like, if I was at a Super bowl party and I'm like, six one, I was at a Super bowl party, and I look over and there's this guy next to me, and it's Miles Garrett. And I was like, oh, my God, like, how do you ever throw over that guy? Like, if you're a quarterback, how do you ever do it? Because he was so tall and he didn't even have his arms up. And I was like, how would you ever. If you're Brock Purdy, how do you ever get the ball over this guy? And so I think that, like, height ends up being one of the measurables that I think matters quite a bit. And, you know, I think that if you're 6:1, you're really hoping that you go to a perfect system, like Brock Purdy did with Kyle Shanahan, where they figure out ways to open up windows for you to see the field, because that's going to be really tough. And in college, it's just. It's just easier. And, like, height matters so much less in college because you can. First of all, the defensive linemen are all. All are in 6, 4, and above, but you can figure out ways, again, to create space both within the passing game in the secondary and blocking in the pocket to make things a lot, as they say, like, a clearer picture for the quarterback. So that's what I worry about with him.
+
+### Speaker B [0:02-0:03]
+
+I have two let's make a list questions for you. The first one is about systems and coaches and over the past couple years, especially this year after Sam Darnold won the super bowl, all of this conversation about Kevin o' Connell and what he for Kirk Cousins, what he had done for Sam Darnold, what he had done for Daniel Jones, what didn't happen with JJ McCarthy, what could happen with Kyler Murray. If you were to rank quarterback whisperers right now in the NFL, whose system is most friendly to quarterbacks? And there's so many guys, it could be Shanahan, McVeigh, O', Connell, now Kubiak. How would you order? And I don't. I don't want your order. I want your order based on your sources telling you who they think is the best quarterback whisperer in the NFL right now. Who is in. Who are people in awe? Could be Sean Payton.
+
+### Speaker C [0:03-0:03]
+
+Yeah, I mean, I think they'd probably go with the older guys, which would say Reed Peyton. I mean, it's funny, but McVeigh and Shanahan are kind of older guys now.
+
+### Speaker B [0:03-0:03]
+
+Yeah, right.
+
+### Speaker C [0:03-0:03]
+
+Even though they seem young, you know, Kyle's got more gray than both you and me, Chad. So, you know, they would go with them, and I think o' Connell would be up there, too. You know, that's the sense that I get. I mean, I think that, like, you know, we have a recency bias in the NFL, like, in. In sports in general. I mean, you know, we love to see who did what most recently and sort of crown them when, you know, people like Andy Reid and. And Sean Payton have done it for decades now. And, you know, I would push back a little bit, you know, this idea that, like, Dak is automatically the best quarterback out of that draft. Because, you know, I think that, like, what McVeigh was able to do with golf and what Goff was able to do in LA and has done since then, I think are pretty. Pretty impressive things. I mean, it's a good debate regardless, but that's what I would say.
+
+### Speaker B [0:03-0:03]
+
+Well, this is my question for you and Simon. Simon, you go first. And there's a very specific reason I'm asking this. You can have one quarterback next year to win a Super bowl, so it's taking out age as a factor. Right. Because you just want the best player, the best quarterback who can win you a Super bowl next year. Who is that quarterback? Simon, you go first.
+
+### Speaker D [0:03-0:03]
+
+Mahomes. Every time it's Mahomes. I don't even Care if he's playing on one leg next year at the still. Who, who is the guy when the other team looks across the sideline in January and they, they blow it and the other guy doesn't. Mahomes just he's the cheat code and you know there's. I won't get too much into it but what Seth talked about a little bit is a lot of scouts I know Chad. If you're left handed or if you're under 61 you are off their draft board. They want to waste a second and you'll be like well isn't that. Aren't they going to miss the diamond in the rough? Sure. But that is the rarest of diamonds. I mean it's just a left handed quarterback thing is a real thing like Penix. I know that was your guy Chad. People did not have by the way
+
+### Speaker B [0:03-0:03]
+
+everyone on this show is my guy. Caleb Mendoza. Penix. All of the true. By the way I freaking loved Penix at Indiana. Loved him.
+
+### Speaker D [0:03-0:03]
+
+So yeah that's again for me I'm. If it ain't broke I, I ain't going to try to fix it. I just. Mahomes this is if you're a believer in Mahomes and betting future markets this is as low as he's been since his rookie year. Like it's just he's not being talked about, you know, look, look at us going on and on by Mendoza in the toughest division all football. So yeah, I'm interested to hear where Seth goes with this but I, I'm still, I'm still heavily biased towards Mahomes.
+
+### Speaker C [0:03-0:03]
+
+Yeah, I mean it's hard to ever, ever bet against 15 because he's done it more times than the other guys have even had a chance to do it right. I mean he's been down in Super Bowls and come through, you know and you watch Josh Allen and you're just like you think you've never seen a player like him. I mean, you know it's like if Michael Vick had lived up to everything he could have been and is better. That's Josh Allen. I Chad knows this and it'll be, this will be out, you know, soon. But I spent the entire playoff run with the Denver Broncos. So I had all access and I was in every meeting, every decision, every game planning session, all of this stuff. And I just wanted to witness what the playoffs were like from the inside. And part of what they need to do as coaches is figure out ways to. Be honest in their assessment of their own team and the opponent. And so when you're about to play Josh Allen as they did in the first round, I mean, what do you do? What do you say about Josh Allen other than like the guy is by far the best player in the NFL right now and we have to hope, you know what I mean? So you have to like, number one, make sure that the players understand how good he is, but number two, figure out ways to give rooted and factual insight into him that give them confidence that they can do something productive against him. And one of the things that came up with Josh Allen, I have to go back and look at this, but it was something like 87 out of his career, 90 something interceptions that weren't like Hail Mary interceptions were thrown from the pocket. And so that said, like, look, if you keep this guy in the pocket, odds are he'll give you one. And if you let him scramble and he has a clear read of the field and nobody around him, you're probably going to get chewed up pretty good. And he threw two interceptions in that playoff game against Denver and they were both from the pocket. And so, you know, I don't know if a statistic like that exists for Patrick Mahomes, which is why I think you have to like go with him as great as Josh Allen is. But it's just kind of interesting how we look at these guys, how they're perceived and then, you know, the ways that you might be able to increase the odds of being successful against them.
+
+### Speaker B [0:03-0:03]
+
+Vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. Wix has introduced Wix Harmony, a Vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And WIX Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com that's wix.com Are
+
+### Speaker A [0:03-0:03]
+
+you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and check keep the weight off. Zepbound is Approved as a 2.55 7.5, 10, 12.5 or 15mg injection Zepbound contains tirzepatide and should not be used with other tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zephybound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor. Call 1-800-545-5979 or visit zepbound Lilly.com this
+
+### Speaker E [0:03-0:03]
+
+is Daniel Cormier from the Daniel Cormier Show. This podcast is sponsored by Total Wireless, the official wireless partner of ufc. All UFC fighters know power doesn't wait in the octagon or outside of it. You either make the move or you miss the moment. That's why you need a network that's as powerful as you are. With Total Wireless, you get unlimited 5G data keeping you in on all the action, from the walkouts to the knockouts. You'll never miss a moment. That's coverage that you can count on for every single round. So when the moment happens, you're not catching up. You're already there. Now that that's a total power move. In the ufc, power isn't given. It's taken. So make your total power move today. Visit totalwireless.com or stop by your neighborhood. Total Wireless Store 5G access requires a 5G capable device in a 5G service area. Monthly rates on the Total Base 5G Unlimited plan for new subscribers applies only to the monthly rate for your plan. Additional terms apply. See website for details.
+
+### Speaker D [0:03-0:03]
+
+Amazon Pharmacy presents Painful Thoughts of course
+
+### Speaker C [0:03-0:03]
+
+I see my coworker in line at the pharmacy. Can he tell I'm picking up prescription hemorrhoid cream? I'm probably standing weird. Why is he smiling? He knows he's gonna call me hemorrhoid Lloyd tomorrow. I know it. I gotta quit my job.
+
+### Speaker D [0:03-0:03]
+
+Next time, avoid awkward conversations and get fast free delivery with Amazon Pharmacy healthcare just got less painful. You saw the biggest change in the homes was the two high safety, right? It was okay. Mahomes got the best arms in the league. Let's make him beat us five yards at a time, which he could do when he had a 30 year old Travis Kelsey at Tyreek Hill. Now that they've missed on these receivers and Kelsey's aged out, you see it in those games in the homes every, every, those three, four, five yards, it's a grind because he just doesn't have the weapons like he used to. So that's the coolest thing too for me is the NFL always adjust to these incredible, incredible talents. And you see, it's like, okay, you are the best ever at these deep balls. We're going to take that away. And now you see my homes throw deep balls. People question like, oh, Mahomes isn't even that good at throwing deep passes anymore. It's like, yeah, because he only gets to do it maybe once every three games. It's just the teams have totally taken it away. And that's like you just said the Josh Allen part, it felt like he had no weakness. And you've highlighted what teams are really attacked with is they don't rush those edges.
+
+### Speaker C [0:03-0:03]
+
+Right.
+
+### Speaker D [0:03-0:03]
+
+They keep them hovering. They just kind of keep him in the pocket. It's like, okay, he's going to burn us. It is Josh Allen. But you've seen how teams have really taken that step back of he doesn't have a number one receiver, Josh Allen. Let's make him beat us with his arm. Like, okay, he's going to hit Kincaid for 15 yards up the middle. Yes. But we'll take that away next play. Make him force him outside to his number one receiver. So I, like I said, I love the chess match of football and people get on me all the time about it. You've never seen a higher level right now defenses, it's never been harder. Even Tom Brady, the greatest quarterback ever, talks about how he wishes he could come back because he sees so many little weaknesses in these defenses. Because he says it's the same defenses they were running in the early 2000s. And these guys, young guys, aren't used to it, but he, he's like, I've seen this. That's why you saw Stafford do so well. Because Stafford saw these defenses in 2008, 2009. So I, I Love that stuff. Just bringing back old school stuff with new age players. It's, it's one of my favorite parts to watch. I don't know about you, Seth, if you catch that stuff, but intrigued by that.
+
+### Speaker C [0:03-0:03]
+
+It was, it was always like what Belichick would do in big games when facing great passers is he would give them the run and dare them. Like with Peyton Manning, he had a defense where he had no interior defensive tackles. And so he, this was in a playoff game. He was giving Peyton Manning the run up the middle, letting him call run up the middle, up the gap, betting that a player as gifted as Peyton Manning would get bored calling that play and eventually would just say like, I just can't take it anymore, even though he's giving it to them. And when he would change out of that, he'd go right into a trap. And I think that, like, you see that, that, that was what his game plan with, you know, the, the bills in the 1990 Super bowl, the Rams in the 2001 Super Bowl. Facing Peyton, you know, he would, he would give them the. Give away the run, betting that their egos wouldn't let them take it, beat the hell out of the wide receivers. He was fearless about playing man to man defense and then again, just play safe defense and make them dink and dunk down the field thinking that they just don't have the patience for it and then they'll either the odds or the patience to do it. And that was the thing that teams always tried to do with Brady, especially at the end of his career, not knowing that that was Brady's, that he loved doing that. Like he loved taking the check down. If you look at a lot of the Patriots, Super Bowls, their running backs often were the leading receivers in those games because he would love nothing more than to drop the ball off to, you know, J.R. redmond and to pull like, you know, a deep cut there and you know, get them the ball in space and just keep moving the chains. And as Brady got older, teams started to give him that, thinking that that was the best way to defend him, when in fact the teams that defensed him well were the ones that dared him to throw deep and took away the inside stuff. And I thought that that was kind of an interesting chess match that you talk about. And it kind of speaks to like who Brady was and how he was coached. That the, the best way of shutting down the greatest quarterback ever was to actually force him to make the most highlight worthy throws.
+
+### Speaker B [0:03-0:03]
+
+You know, Seth, it's been a minute since the Bronco season ended. You might want to get that story in before next season starts.
+
+### Speaker C [0:03-0:03]
+
+I'm trying.
+
+### Speaker B [0:03-0:03]
+
+When you were there, since you opened the door and don't give away too much.
+
+### Speaker C [0:03-0:03]
+
+There's a lot of shit to go through, Chad. It's a lot of stuff.
+
+### Speaker B [0:03-0:03]
+
+I get it. I get it. I mean, I've practically written a book in the time since that season ended, and that story is coming out.
+
+### Speaker C [0:03-0:03]
+
+Me, too.
+
+### Speaker B [0:03-0:03]
+
+Obviously, everything with that season changed in one of those last plays of the game with Bo Nix, and it changed it. Like, pull back the curtain a little bit on what it's like in that locker room in that moment when all of a sudden it could have been a play call that Sean Payton regretted. It could have been a moment he didn't even realize was going to be significant. When you're there and all of a sudden they realize, oh, fuck, we just won this game and we lost. We won the battle and we lost the war, basically.
+
+### Speaker C [0:03-0:04]
+
+Absolutely. I mean, I was there when Sean found out, and I'll refrain from giving too many details because it was a pretty interesting moment to witness. But I mean, just imagine, you know, you spend all year with. With one goal, and, you know, Sean was saying in training camp, we're a Super bowl team. This team has a. And, you know, everybody was like, dude, whatever, man. And then everything during the season comes up. Denver, right, Chiefs and Mahomes have an off year, and then he gets hurt. The Chargers are, which were the team that Sean wanted to face the least in the playoffs because they matched up well against Denver. Get bounced, you know, by the Patriots. Patriots, you know, beatable, let's just put it that way. You know what I mean? There's nothing. Nobody's looking at the Patriots saying, like, how are we ever going to beat these guys? Joe Burrow misses the playoffs. Lamar Jackson misses the playoffs. All these things came up right for Denver. They end up with, you know, the first. The top seed in the AFC and the buy. And they go and face the game's best player and beat him in overtime. And, you know, within 20 minutes of that, you go from thinking, oh, my God, everything is coming as I saw it happening to. Unless we pull off something that hasn't happened since 1972, our season's over. Like, that was a startling moment to witness. And it was a very. I'd very. You guys know, as reporters, I mean, you know, it's like you hardly ever witness moments that are truly pure and honest and revealing. And I will always remember that meeting when Sean Was told that Bo Nix was out and watching how he handled it in that moment. Because, I mean, again, you go from thinking like, if Bo Nix is. Is available, they win that. That game. Yeah, there's no doubt.
+
+### Speaker B [0:04-0:04]
+
+Yeah.
+
+### Speaker C [0:04-0:04]
+
+And you know, those opportunities where everything comes up Denver happen once, you know, for your team, happen once every, like five years, if you're lucky. And that was how hard it was.
+
+### Speaker B [0:04-0:04]
+
+That's what it makes everything about winning a title feel that much more miraculous. You know, in one of the people that I'm talking to for my book that I've, you know, made a lot of progress on, they. When they were in college, they're so smart, and they got into the sports and analytics community, and they spent consecutive summers, one working for the Browns in college and one working for the Eagles in college. And they love football, they love being in the space, but they decided they didn't want to go work for a team because. Because they were never going to get full control over play calling. And they felt like if they were in the front office just doing the analysis, even if they were gm there's so much stuff that is so out of your control because of injuries and bad calls and bad fumbles and bad bounces that your entire career you can miss out on winning the ultimate prize based on things that you cannot dictate. And it's so frustrating. And that is something that happened to the Broncos this year. And it actually, when that, when that moment happens, you just feel for everybody because you know that it's all they're going to be thinking about. It's going to be 12 months of every single day thinking about that moment.
+
+### Speaker C [0:04-0:04]
+
+And, you know, to. To tie it full circle. I mean, like, we cannot know what happens on the field. And you can't accurately reflect quarter, you know, judge quarterback play unless you know what the intent of the play is. Because the human error factor comes in so much more than anybody realizes. Like, you have some receivers who aren't good at catching certain routes, so, you know, you don't think about that. You know what I mean? That maybe a receiver catches the fade better than they catch the square in. And so if they have a square in called or if the defense knows that and they're going to force them to run a square in and take away the fade. You have to account for other things. You have offensive linemen who, like Denver's all pro guard, was great all year, had a horrible game against the Patriots. Like, of all the things the Broncos factored in trying to, how do we win With a backup quarterback in the AFC Championship game, having the role pro guard get. Get his butt beat against the Patriots wasn't one of them. You have matchups. You have all of these things that come into play. And so when you look at a quarterback and you say, oh, you know, his completion percentage is very good, he, you know, he must be inaccurate. Like there's so many factors that go into just completion percentage that make it a difficult statistic to judge. Like, you know, maybe, you know, maybe it's not. Maybe Aaron Rodgers is the most accurate passer ever. And it's obvious because the guy could always put the ball wherever he wanted. But you're talking about a superhuman level of quarterbacking. And when we're trying to evaluate college quarterbacks again, it's so hard to trust statistics because statistics lie, especially in the college game.
+
+### Speaker B [0:04-0:04]
+
+Well, Seth, listen, I'm sure it's gonna be a perfectly timed great summer. Read that. Listen, Seth, I also. Everyone should go pre order beyond that Hill because I all the stories that are in there, I know I've read and I know they're brilliant. And we gotta keep our streak alive of having books and authors that become bestsellers on the most literate sports betting podcast. But if you're not going to order beyond that hill, at least go buy American Kings, available now everywhere books are sold. Steady, Wickersham. Great stuff, buddy. Thanks for coming on the podcast. Thanks for being such an expert on quarterbacks.
+
+### Speaker C [0:04-0:04]
+
+Great to see you guys.
+
+### Speaker B [0:04-0:04]
+
+This has been Sharper Square, part of the Volume Podcast Network. Watch or listen on YouTube at Sharper Square. Like the video. Subscribe to the channel. Download us from Spotify, Apple Pods, wherever you get your pods. Rate, Review. Subscribe. Leave us. Five stars. Say whatever you want. Feedback is a gift. Until next time. Love you.
+
+### Speaker C [0:04-0:04]
+
+This is actual comments made by Scoutstrap Profile.
+
+### Speaker D [0:04-0:04]
+
+Aaron Rodgers gets sacked a lot.
+
+### Speaker C [0:04-0:04]
+
+Doesn't have ability to change the release of the football, can't create on his own panics under pressure.
+
+### Speaker D [0:04-0:04]
+
+Gets flustered easily.
+
+### Speaker C [0:04-0:04]
+
+I'm U.S. transportation Secretary Sean Duffy. We all seem to be in a
+
+### Speaker B [0:04-0:04]
+
+rush these days, from work to driving our kids around.
+
+### Speaker C [0:04-0:04]
+
+But when you're behind the wheel, please do not speed. A few minutes saved by going faster is never worth the risk. So follow the speed limit, enjoy the
+
+### Speaker B [0:04-0:04]
+
+drive, maybe bring some snacks for the kids. And know that along the way, you're
+
+### Speaker C [0:04-0:04]
+
+getting quality time with your family, paid for by nhtsa.
+
+### Speaker A [0:04-0:04]
+
+Grainger knows. When you're a procurement manager for an office park, you're not managing one building. You're managing all of them. And to stay ahead, you need to see through walls and around corners. Lights about to fail, Filters ready to clog H Vac on its last leg. If you wait until something breaks, you're already behind. Count on Grainger for quality products, easy reordering and 24. 7 support. Call 1-800-GRAINGER, click grainger.com or just stop by Grainger for the ones who get it done. The Hulu Original Series Furious is now streaming on Hulu and Hulu on Disney. Starring Emmy Rossum as Alice Black, Furious follows a rookie FBI agent on the hunt for Catherine, played by Lola Petticrew, a mysterious and calculating female serial killer. While Alice upholds justice, Catherine kills for it, terrorizing the rich and powerful men of New York in her pursuit of vengeance. With secrets that change everything, Alice discovers there's a thin line between hunter and prey. Watch the Hulu Original series Furious on July 27, streaming on Hulu and Hulu on Disney for bundle subscribers terms apply.
+
+### Speaker C [0:04-0:04]
+
+The game started.
+
+### Speaker A [0:04-0:04]
+
+Call your dad.
+
+### Speaker B [0:04-0:04]
+
+I'm on it, Ma.
+
+### Speaker A [0:04-0:04]
+
+Hola.
+
+### Speaker B [0:04-0:04]
+
+Hello, Hijita. I can't hear you.
+
+### Speaker C [0:04-0:04]
+
+I'm at the stadium in Monterrey.
+
+### Speaker D [0:04-0:04]
+
+Cool.
+
+### Speaker E [0:04-0:04]
+
+Here.
+
+### Speaker A [0:04-0:04]
+
+Shout Go together.
+
+### Speaker B [0:04-0:04]
+
+Get non stop talk, tax and Data
+
+### Speaker A [0:04-0:04]
+
+in the U.S. mexico and Canada with
+
+### Speaker C [0:04-0:04]
+
+T Mobile, America's best network. Switch on the TLife app or on T mobile.com connectivity.
+
+### Speaker A [0:04-0:04]
+
+On qualifying plans not for extended international use, you must reside in the US
+
+### Speaker D [0:04-0:04]
+
+and primary usage must occur in our network.
+
+### Speaker B [0:04-0:04]
+
+Best Based on analysis by Ooklo Speed Test intelligence data to H 2025 this
+
+### Speaker A [0:04-0:04]
+
+is an iHeart podcast. Guaranteed human.
