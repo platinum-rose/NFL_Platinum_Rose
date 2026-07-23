@@ -98,7 +98,7 @@ async function main() {
   const feedIds = feeds.map((f) => f.id);
   const { data: episodes, error: eErr } = await supabase
     .from('podcast_episodes')
-    .select('id, feed_id, guid, title, pub_date, published_at, audio_url, duration_secs, status, processed_at')
+    .select('id, feed_id, guid, title, pub_date, audio_url, duration_secs, status, discovered_at')
     .in('feed_id', feedIds)
     .order('pub_date', { ascending: false });
   if (eErr) throw new Error(`load episodes: ${eErr.message}`);
@@ -150,7 +150,7 @@ async function main() {
         id: ep.id,
         show: feed?.name,
         title: ep.title,
-        pub_date: ep.pub_date || ep.published_at,
+        pub_date: ep.pub_date,
         status: ep.status,
         duration_secs: ep.duration_secs,
         audio_url: ep.audio_url,
