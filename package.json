@@ -44,7 +44,8 @@
     "podcast-coverage": "node scripts/podcast-coverage.js",
     "podcast-coverage:json": "node scripts/podcast-coverage.js --json",
     "podcast-narratives": "node scripts/build-podcast-narratives.js",
-    "find:podcast-transcripts": "node scripts/find-podcast-transcripts.js"
+    "find:podcast-transcripts": "node scripts/find-podcast-transcripts.js",
+    "podcast:diarization-forensics": "node scripts/podcast-diarization-forensics.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.98.0",
