@@ -1,0 +1,56 @@
+{
+  "season": 2026,
+  "mode": "local_manual_first",
+  "guardrails": {
+    "network_fetch_default": false,
+    "supabase_writes_default": false,
+    "live_model_calls_default": false,
+    "official_pick_generation_default": false
+  },
+  "preferred_sources": [
+    {
+      "source": "RotoWire",
+      "source_type": "rss",
+      "status": "approved_later",
+      "notes": "Free feed can be added in Phase 2 with explicit live fetch approval."
+    },
+    {
+      "source": "Team official sites",
+      "source_type": "team_site",
+      "status": "manual_or_approved_later"
+    },
+    {
+      "source": "ESPN beat writers",
+      "source_type": "beat_report",
+      "status": "manual_or_approved_later"
+    },
+    {
+      "source": "PFF",
+      "source_type": "rss",
+      "status": "manual_or_approved_later"
+    },
+    {
+      "source": "The Athletic",
+      "source_type": "manual",
+      "status": "manual_only",
+      "notes": "Do not scrape or bypass paywalls. Keep pasted excerpts short."
+    },
+    {
+      "source": "Local beat reporters",
+      "source_type": "beat_report",
+      "status": "manual_or_approved_later"
+    },
+    {
+      "source": "Official media and press conferences",
+      "source_type": "official_media",
+      "status": "manual_or_approved_later"
+    }
+  ],
+  "manual_inputs": {
+    "default_dir": "data/training-camp/2026/manual",
+    "supported_formats": ["markdown_frontmatter", "plain_text_headers", "json_array"]
+  },
+  "staleness": {
+    "warn_after_hours": 72
+  }
+}
