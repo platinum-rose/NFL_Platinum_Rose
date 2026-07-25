@@ -1,24 +1,33 @@
-# Sharp or Square - NFL DRAFT Betting Recap: Picks & Predictions Results
+# Sharp or Square - NFL DRAFT Betting Recap: Picks &amp; Predictions Results
 
 *Published: 2026-04-28 - Generated from offline podcast host-summary vault notes.*
 
 ## Narrative Summary
 
-The NFL discussion centered on Super Bowl. Across 1 extracted NFL futures, the lean mix was 1 back/over, 0 fade/under, and 0 neutral or unclear. Teams/players discussed included Browns.
+Episode participants: Chad Millman, Simon Hunter. The NFL discussion centered on Super Bowl. Across 1 extracted NFL futures, the lean mix was 1 back/over, 0 fade/under, and 0 neutral or unclear. Teams/players discussed included Browns.
 
-## Diarized Experts
+## Episode Participants
 
-- Simon Hunter: 1 extracted NFL futures, attribution unknown ([source note](file:///E:/data/Obsidian/NFL/Podcasts/sharp-or-square/guest/2026-04-28-nfl-draft-betting-recap-picks-and-predictions-results.md))
+- Chad Millman
+- Simon Hunter
+
+## Extracted Pick Attribution
+
+- Simon Hunter: 1 extracted NFL futures, attribution json_export_transcript_reconciled ([source note](file:///E:/dev/projects/NFL_Dashboard/data/podcasts/m6-diarized/2026-04-28-sharp-or-square-nfl-draft-betting-recap-picks-and-predictions-results.json))
 
 ## Best Bets / Clear Leans
 
 - **Simon Hunter**: Back Browns in Super Bowl - throw a little bit old.
 
+## Timing / Watchlist Conjectures
+
+- None extracted.
+
 ## NFL Futures Discussed
 
-| Expert | Market | Subject | Lean | Prediction | Conf | Time | Data Cited |
-|---|---|---|---|---|---:|---|---|
-| Simon Hunter | Super Bowl | Browns | Back | throw a little bit old | 65 | - | - |
+| Expert | Market | Subject | Lean | Type | Prediction | Conf | Time | Data Cited |
+|---|---|---|---|---|---|---:|---|---|
+| Simon Hunter | Super Bowl | Browns | Back | bet | throw a little bit old | 65 | - | - |
 
 ## Representative Quotes
 

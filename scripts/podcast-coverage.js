@@ -26,6 +26,7 @@
 import 'dotenv/config';
 import { createClient } from '@supabase/supabase-js';
 import { pathToFileURL } from 'node:url';
+import { isNflRelevantEpisode } from '../agents/lib/nfl-relevance.js';
 
 const argVal = (name, fallback = null) => {
   const i = process.argv.indexOf(name);
@@ -53,14 +54,31 @@ function tag(xml, tagName) {
   return xml.slice(start, start + closeM.index).replace(/<!\[CDATA\[|\]\]>/g, '').trim();
 }
 
+function parseRssItem(itemXml) {
+  const pubDateStr = tag(itemXml, 'pubDate');
+  const d = pubDateStr ? new Date(pubDateStr) : null;
+  return {
+    title: tag(itemXml, 'title') ?? '',
+    pubDate: d && !Number.isNaN(d.getTime()) ? d : null,
+  };
+}
+
 /** Returns the pubDate (Date|null) of the first <item> in the feed — feeds list newest-first. */
 export function latestRssPubDate(xml) {
   const items = xml.split(/<item[\s>]/).slice(1);
   if (!items.length) return null;
-  const pubDateStr = tag(items[0], 'pubDate');
-  if (!pubDateStr) return null;
-  const d = new Date(pubDateStr);
-  return Number.isNaN(d.getTime()) ? null : d;
+  return parseRssItem(items[0]).pubDate;
+}
+
+/** Returns the latest NFL-relevant RSS pubDate, ignoring clear non-NFL feed items. */
+export function latestRelevantRssPubDate(xml) {
+  const items = xml.split(/<item[\s>]/).slice(1);
+  for (const item of items) {
+    const parsed = parseRssItem(item);
+    if (!parsed.pubDate) continue;
+    if (isNflRelevantEpisode(parsed.title)) return parsed.pubDate;
+  }
+  return null;
 }
 
 async function fetchRss(url) {
@@ -112,28 +130,22 @@ async function main() {
 
   const results = [];
   for (const feed of filtered) {
-    // Latest ingested episode for this feed (any status).
-    const { data: latestEp } = await supabase
-      .from('podcast_episodes')
-      .select('pub_date, status')
-      .eq('feed_id', feed.id)
-      .order('pub_date', { ascending: false })
-      .limit(1)
-      .maybeSingle();
-
     // Status breakdown across all episodes for this feed.
     const { data: allEps } = await supabase
       .from('podcast_episodes')
-      .select('status')
+      .select('status, title, pub_date')
       .eq('feed_id', feed.id);
     const statusCounts = {};
     for (const e of allEps || []) statusCounts[e.status] = (statusCounts[e.status] || 0) + 1;
     const totalEpisodes = (allEps || []).length;
+    const latestEp = (allEps || [])
+      .filter(e => e.pub_date && isNflRelevantEpisode(e.title))
+      .sort((a, b) => String(b.pub_date).localeCompare(String(a.pub_date)))[0] ?? null;
 
     let rssLatest = null, rssError = null;
     try {
       const xml = await fetchRss(feed.rss_url);
-      rssLatest = latestRssPubDate(xml);
+      rssLatest = latestRelevantRssPubDate(xml);
     } catch (err) {
       rssError = err.message;
     }

@@ -4,8 +4,9 @@
 
 import 'dotenv/config';
 import { createClient } from '@supabase/supabase-js';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { buildSpeakerMap, applySpeakerMap, AD_SPEAKER_LABEL } from '../agents/lib/speaker-attribution.js';
 
 const argVal = (name, fallback = null) => {
   const i = process.argv.indexOf(name);
@@ -20,6 +21,7 @@ const SHOW_ARG = argVal('--show', null);
 const SHOW = SHOW_ARG || (ALL ? null : 'BettingPros Podcast');
 const OUT_DIR = argVal('--out-dir', path.join('data', 'podcasts', 'm6-diarized'));
 const LIMIT_TURNS = Number(argVal('--limit-turns', '0'));
+const METADATA_PATH = argVal('--metadata', path.join('data', 'podcasts', 'episode-metadata-overrides.json'));
 
 const TERMS = [];
 for (let i = 0; i < process.argv.length; i += 1) {
@@ -75,19 +77,57 @@ function matchesEpisode(ep) {
   return TERMS.some((term) => haystack.includes(term));
 }
 
-function msToStamp(ms) {
-  if (ms == null || Number.isNaN(Number(ms))) return '';
-  const total = Math.max(0, Math.round(Number(ms) / 1000));
+function secondsToStamp(seconds) {
+  if (seconds == null || Number.isNaN(Number(seconds))) return '';
+  const total = Math.max(0, Math.round(Number(seconds)));
   const h = Math.floor(total / 3600);
   const m = Math.floor((total % 3600) / 60);
   const s = total % 60;
   return h ? `${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}` : `${m}:${String(s).padStart(2, '0')}`;
 }
 
-function renderMarkdown({ episode, feed, transcript, hostSummaries }) {
-  const turns = Array.isArray(transcript.speaker_segments) ? transcript.speaker_segments : [];
+function speakerLabel(turn) {
+  const raw = turn.raw_speaker ?? turn.original_speaker ?? turn.speaker;
+  const mapped = turn.speaker || 'Unknown';
+  if (!raw || raw === mapped) return mapped;
+  return `${mapped} (Speaker ${raw})`;
+}
+
+async function loadMetadataOverrides(filePath) {
+  try {
+    const parsed = JSON.parse(await readFile(filePath, 'utf8'));
+    return Array.isArray(parsed.episodes) ? parsed.episodes : [];
+  } catch {
+    return [];
+  }
+}
+
+function findMetadataOverride(overrides, episode) {
+  const title = String(episode.title ?? '').toLowerCase();
+  return overrides.find((entry) => entry.episode_id === episode.id)
+    ?? overrides.find((entry) => entry.title && title === String(entry.title).toLowerCase())
+    ?? null;
+}
+
+function renderMarkdown({ episode, feed, transcript, hostSummaries, episodeMetadata }) {
+  const rawTurns = Array.isArray(transcript.speaker_segments) ? transcript.speaker_segments : [];
+  const speakerMap = buildSpeakerMap(rawTurns, feed.name, undefined, {
+    expectedParticipants: episodeMetadata?.expected_participants ?? [],
+  });
+  const turns = applySpeakerMap(
+    rawTurns.map((u) => ({ ...u, raw_speaker: u.speaker })),
+    speakerMap
+  );
   const previewTurns = LIMIT_TURNS > 0 ? turns.slice(0, LIMIT_TURNS) : turns;
-  const speakers = [...new Set(turns.map((u) => u?.speaker).filter(Boolean))];
+  const speakers = [...new Set(turns.map(speakerLabel).filter((label) => label && !label.startsWith(AD_SPEAKER_LABEL)))];
+  const mapped = Object.entries(speakerMap)
+    .filter(([, name]) => name !== AD_SPEAKER_LABEL)
+    .map(([label, name]) => `- Speaker ${label}: ${name}`)
+    .sort();
+  const ignored = Object.entries(speakerMap)
+    .filter(([, name]) => name === AD_SPEAKER_LABEL)
+    .map(([label]) => `- Speaker ${label}: ad/commercial audio ignored`)
+    .sort();
   const lines = [
     `# ${feed.name} - ${episode.title}`,
     '',
@@ -101,6 +141,14 @@ function renderMarkdown({ episode, feed, transcript, hostSummaries }) {
     `Speaker turns: ${turns.length}`,
     `Speaker labels: ${speakers.join(', ') || 'none'}`,
     '',
+    '## Speaker Map',
+    '',
+    ...(mapped.length ? mapped : ['- No speaker map available.']),
+    '',
+    '## Ignored Audio',
+    '',
+    ...(ignored.length ? ignored : ['- None classified as ad/commercial only.']),
+    '',
     '## Existing Host Summary Rows',
     '',
     ...(hostSummaries.length
@@ -111,10 +159,11 @@ function renderMarkdown({ episode, feed, transcript, hostSummaries }) {
     '',
   ];
   for (const u of previewTurns) {
-    const start = msToStamp(u.start);
-    const end = msToStamp(u.end);
+    if (u.speaker === AD_SPEAKER_LABEL) continue;
+    const start = secondsToStamp(u.start);
+    const end = secondsToStamp(u.end);
     const stamp = start || end ? ` [${start}${end ? `-${end}` : ''}]` : '';
-    lines.push(`### Speaker ${u.speaker || '?'}${stamp}`);
+    lines.push(`### ${speakerLabel(u)}${stamp}`);
     lines.push('');
     lines.push(String(u.text || '').trim());
     lines.push('');
@@ -159,6 +208,7 @@ async function main() {
   }
 
   await mkdir(OUT_DIR, { recursive: true });
+  const metadataOverrides = await loadMetadataOverrides(METADATA_PATH);
   const epIds = selected.map((e) => e.id);
   const { data: transcripts, error: tErr } = await supabase
     .from('podcast_transcripts')
@@ -199,15 +249,17 @@ async function main() {
     const jsonPath = path.join(OUT_DIR, `${base}.json`);
     const mdPath = path.join(OUT_DIR, `${base}.md`);
     const hostSummaries = summariesByEpisode.get(episode.id) || [];
+    const episodeMetadata = findMetadataOverride(metadataOverrides, episode);
     const payload = {
       exported_at: new Date().toISOString(),
       feed,
       episode,
+      episode_metadata: episodeMetadata,
       transcript,
       host_summaries: hostSummaries,
     };
     await writeFile(jsonPath, JSON.stringify(payload, null, 2));
-    await writeFile(mdPath, renderMarkdown({ episode, feed, transcript, hostSummaries }));
+    await writeFile(mdPath, renderMarkdown({ episode, feed, transcript, hostSummaries, episodeMetadata }));
     manifest.push({
       episode_id: episode.id,
       title: episode.title,

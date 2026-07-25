@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-07-23",
+  "season": 2026,
+  "week": 1,
+  "notes": "Manual/public snapshot for offline podcast report comparison. These lines are not fetched by the report builder.",
+  "games": [
+    {
+      "matchup": "Falcons vs Steelers",
+      "away": "Falcons",
+      "home": "Steelers",
+      "kickoff": "2026-09-13T17:00:00Z",
+      "sources": [
+        {
+          "book": "Bookmaker",
+          "as_of": "2026-07-23",
+          "source": "user-provided public line snapshot",
+          "spread": { "team": "Steelers", "line": -3, "odds": -103 },
+          "opponent_spread": { "team": "Falcons", "line": 3, "odds": -113 },
+          "total": { "line": 42, "over_odds": -108, "under_odds": -108 }
+        },
+        {
+          "book": "FanDuel Research",
+          "as_of": "2026-07-23",
+          "source": "https://www.fanduel.com/research/nfl/matchups/9157/falcons-steelers",
+          "spread": { "team": "Steelers", "line": -2.5, "odds": -120 },
+          "opponent_spread": { "team": "Falcons", "line": 2.5, "odds": -102 },
+          "total": { "line": 41.5, "over_odds": -105, "under_odds": -115 }
+        },
+        {
+          "book": "BetUS",
+          "as_of": "2026-07-23",
+          "source": "https://www.betus.com.pa/sportsbook/nfl/nfl-odds-week-1/falcons-vs-steelers/",
+          "spread": { "team": "Steelers", "line": -3, "odds": -110 },
+          "opponent_spread": { "team": "Falcons", "line": 3, "odds": -110 },
+          "total": { "line": 41.5, "over_odds": -110, "under_odds": -110 }
+        },
+        {
+          "book": "FOX Sports",
+          "as_of": "2026-07-23",
+          "source": "https://www.foxsports.com/nfl/week-1-atlanta-falcons-vs-pittsburgh-steelers-sep-13-2026-game-boxscore-11041?tab=odds",
+          "spread": { "team": "Steelers", "line": -3, "odds": null },
+          "opponent_spread": { "team": "Falcons", "line": 3, "odds": null },
+          "total": { "line": 41.5, "over_odds": -112, "under_odds": -107 }
+        },
+        {
+          "book": "OddsChecker",
+          "as_of": "2026-07-23",
+          "source": "https://www.oddschecker.com/us/football/nfl/atlanta-falcons-at-pittsburgh-steelers",
+          "spread": { "team": "Steelers", "line": -2, "odds": -110 },
+          "opponent_spread": { "team": "Falcons", "line": 2, "odds": -110 },
+          "total": { "line": 42.5, "over_odds": -110, "under_odds": -110 }
+        }
+      ]
+    }
+  ]
+}

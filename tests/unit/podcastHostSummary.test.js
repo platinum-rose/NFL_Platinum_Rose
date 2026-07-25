@@ -198,7 +198,7 @@ describe('buildHostVaultNote', () => {
     const md = buildHostVaultNote(baseArgs);
     expect(md).toContain('The Ravens are the class of that division.');
     expect(md).toContain('**Ravens** (12:34)');
-    expect(md).toContain('| AFC_North | Ravens | win the division | favor | 75 | 12:34 |');
+    expect(md).toContain('| AFC_North | Ravens | win the division | favor | bet | 75 | 12:34 |');
   });
 
   it('handles zero futures gracefully', () => {

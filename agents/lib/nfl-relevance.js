@@ -43,16 +43,19 @@ export const NON_NFL_TITLE_HINTS = [
   'byron nelson', 'truist championship', 'rbc heritage', 'valero texas open',
   'houston open', 'valspar championship', 'players championship',
   'arnold palmer invitational', 'john deere classic', 'canadian open',
-  'cadillac championship', 'scottish open', 'the open championship',
-  'us open betting', 'genesis invitational', 'invitational betting preview',
+  'cadillac championship', 'scottish open', 'the open championship', '3m open',
+  'british open', 'us open betting', 'genesis invitational', 'invitational betting preview',
   'nba', 'wnba', 'basketball',
+  'lebron', 'buckets podcast',
   'mlb', 'baseball', 'world series',
   'nhl', 'hockey', 'stanley cup',
   'soccer', 'premier league', ' epl ', 'uefa', 'champions league', 'la liga', ' mls ', 'world cup',
+  'england vs', 'brazil vs', 'usa vs', 'france predictions', 'norway betting', 'belgium betting',
   'ufc', 'mma', 'boxing', 'fight night',
   'tennis', 'wimbledon', ' atp ', ' wta ',
   'nascar', 'formula 1', ' f1 ', 'indycar',
   'venture capital', 'venture capitalist', 'crypto', 'stock market', 'wall street',
+  'college football', 'cfb', 'ncaa football',
   'college basketball', 'cbb', 'march madness', 'final four', 'sweet 16', 'elite eight',
   // Horse racing -- Kentucky Derby / Preakness / Belmont are the Triple Crown,
   // none of them say a sport name in the title.
@@ -60,6 +63,9 @@ export const NON_NFL_TITLE_HINTS = [
   // Non-sport award shows that showed up in the backlog (e.g. "Academy Awards
   // Betting Preview") -- these hosts also bet on entertainment markets.
   'academy awards', 'oscars', 'grammys', 'emmys',
+  // Entertainment/gambling-culture episodes are not NFL betting analysis even
+  // when they come from an NFL-adjacent betting feed.
+  'gambling movies', 'future of hollywood', 'screenwriter',
 ];
 
 /**
@@ -69,6 +75,12 @@ export const NON_NFL_TITLE_HINTS = [
  */
 export function isNflRelevantEpisode(title) {
   const t = ` ${String(title ?? '').toLowerCase()} `;
+  if (
+    ['college football', 'cfb', 'ncaa football'].some(h => t.includes(h)) &&
+    ![' nfl ', 'national football league'].some(h => t.includes(h))
+  ) {
+    return false;
+  }
   if (NFL_TITLE_HINTS.some(h => t.includes(h))) return true;
   if (NON_NFL_TITLE_HINTS.some(h => t.includes(h))) return false;
   return true;

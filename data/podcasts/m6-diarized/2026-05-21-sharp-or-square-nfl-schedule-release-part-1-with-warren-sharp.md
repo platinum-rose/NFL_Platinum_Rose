@@ -1,0 +1,377 @@
+# Sharp or Square - NFL Schedule Release PART 1 with Warren Sharp
+
+Published: 2026-05-21T15:00:00+00:00
+Episode ID: 5e1f06aa-1d42-409b-b834-0015739b8dde
+Status: done
+Duration: 2050 seconds
+Audio: https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/clips/e73c998e-6e60-432f-8610-ae210140c5b1/291fe8ed-f80d-4107-9ee1-b34c015266d0/49f21189-48c6-448c-b989-b44f00ed6b29/audio.mp3?utm_source=Podcast&amp;in_playlist=51f38aeb-0341-43f7-a21b-b34c01526b07
+
+Transcript chars: 41663
+Speaker turns: 88
+Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D), Guest (Speaker E)
+
+## Speaker Map
+
+- Speaker A: Guest
+- Speaker B: Chad Millman
+- Speaker C: Simon Hunter
+- Speaker D: Guest
+- Speaker E: Guest
+
+## Existing Host Summary Rows
+
+- Guest (gpt-4o, unknown) futures=1
+
+## Diarized Turns
+
+### Guest (Speaker A) [0:00-0:04]
+
+This is an iHeart podcast. Guaranteed Human.
+
+### Chad Millman (Speaker B) [0:04-0:34]
+
+If you've been sitting on a business idea for a while, consider this the sign to take action. It can even be made official today by creating a website with WIX Harmony. Just tell WIX Harmony what you want and it will build the entire site, business features included. And everything can still be edited by hand. It's your website, your call. Try it@wix.com that's wix.com Amazon Health AI
+
+### Simon Hunter (Speaker C) [0:34-0:47]
+
+presents painful thoughts why did I search the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores
+
+### Guest (Speaker A) [0:47-0:48]
+
+in various stages of ooze.
+
+### Simon Hunter (Speaker C) [0:50-1:02]
+
+I can clear my search history, but I can never unsee that. Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
+
+### Guest (Speaker D) [1:03-1:38]
+
+This is Daniel Cormier from the Daniel Cormier Show. This podcast is sponsored by Total Wireless, the official wireless partner of ufc. Power doesn't wait in the octagon or outside of it. You either make the move or you miss the moment. That's why you need a network that's just as powerful as you are with with Total Wireless, you get unlimited 5G data keeping you in the action from the walkouts to the knockouts. Now that's a total power move. Make your total power move today. Visit totalwireless.com or stop by your neighborhood Total Wireless Store. Additional terms apply. See totalwireless.com for details.
+
+### Guest (Speaker A) [1:38-3:07]
+
+Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity, obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zeppbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zeppbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zeppbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2, tell your doctor if you get a lump or swelling in your neck, stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing, pregnant, plan to be or taking birth control pills. Taking zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound.lilly.com
+
+### Chad Millman (Speaker B) [3:09-3:35]
+
+welcome to Sharper Square, presented by Hard Rock Bat. We are part of the Volume Podcast network. This is the show that makes the squares sharper and makes the wise guys pay attention. I am Chad Millman. I am joined as always by my co host, my companion, my compadre, my bff, Professional Better Simon Hunter. Hello, Simon.
+
+### Simon Hunter (Speaker C) [3:36-3:37]
+
+Chad. How we doing?
+
+### Chad Millman (Speaker B) [3:37-4:05]
+
+It's a great time of year, buddy. Listen, have you noticed a couple weeks ago I was asking you about Donnie Baseball taking over the fills and how that could be the spark that they need and you were taking a very Philly fan approach. It's all bad. The pitching sucks. The bullpen socks were too old. Philadelphia Phillies, 15 and 4 Since Donnie Baseball took over.
+
+### Simon Hunter (Speaker C) [4:05-4:50]
+
+Yeah, it might be as good as it gets, but I'll take it. It was, it's been a fun ride. Been crazy in Schwaberb as someone that just, you know, again, it's the old saying, Chad. Chicks dig the long ball. It's, it's the best. Who doesn't just love home runs and the sound he makes when he hits the ball long and every game, it's, it's one of the few players in MLB now you have to watch. Like if you know he's coming up the next inning, you got to put off whatever. You can't leave yet. You got to just stay and wait. And he delivers. Like, I got 20 home runs. I can't get over it. So, yeah, pretty, pretty insane, the turnaround. And yeah, Wheeler came back healthy. Now he's pitching well. And it's, it's all clicking right now for Philadelphia. Like I said though, it was April. We talked about it. Now it's mid May. It's a long, it's a long, long season.
+
+### Chad Millman (Speaker B) [4:51-4:54]
+
+Hey, you know where Kyle Schwarber went to college?
+
+### Simon Hunter (Speaker C) [4:55-4:57]
+
+Oh, yeah. He is a Hoosier guy.
+
+### Chad Millman (Speaker B) [4:57-5:02]
+
+Yeah, Indiana beat everybody. Indiana.
+
+### Simon Hunter (Speaker C) [5:03-5:09]
+
+No, I, I, I, I, I remember he was, he, he was at the same game you went to. Right. He was at the Georgia game.
+
+### Chad Millman (Speaker B) [5:10-5:15]
+
+I was at. It was in. You mean in Georgia. I was at. I was at the. Yeah. At the Oregon game.
+
+### Simon Hunter (Speaker C) [5:15-5:22]
+
+Yeah, yeah. At the Georgia Dome. So, yeah, you're right. It's you guys a billion alumni and he is one of them.
+
+### Chad Millman (Speaker B) [5:22-5:50]
+
+We do. You know, it's funny, I'm wearing this shirt today and I, I like the IU journalism school has asked me to review some like they're just thinking about changes to make to the program or whatever. And I'm looking at some of them and some of the things they say are like, we did very well in audience with our school newspaper digitally here and we made a lot of money in commemorative here. And I'm like, I wonder how much of that has to do with football. You know what I mean?
+
+### Simon Hunter (Speaker C) [5:51-5:54]
+
+Because Indiana football school now, people, let's go.
+
+### Chad Millman (Speaker B) [5:54-6:30]
+
+We're a football school. Whatever you can do to do more football coverage, lean in to that. Which is what we're doing today. Simon, because we've been jonesing to talk about the NFL schedule release which came out last week, we're diving deeply into it across two episodes with the help of a very special returning guest, longtime football data obsessive, the head honcho at Sharp Football Analysis. His new book is always a must read. Welcome back to the show, Warren Sharp.
+
+### Guest (Speaker E) [6:32-7:10]
+
+Thanks for having me, gentlemen. Yeah, I was listening to last year's show when we previewed the 2025 schedule. We got a lot of things right there and it was interesting to discuss. I felt like the league was doing a little bit of a better job with the schedule last year. This year as reverse course we're going to get into that. It's always a fun time because we do have these two months before all the training camps officially open. Hit the schedule right now. And Roger loves to try to fill up the calendar with NFL related tent poles and things that we need to be talking about. So we're going to feed the, feed the evil machine for a little while here.
+
+### Chad Millman (Speaker B) [7:10-8:20]
+
+Nothing evil about it, brother. We want as much football as we can possibly get. It's the most exciting sport to watch it. It fills our heart with joy. It's when we get the most action. We couldn't be happier. And you, because you're so gracious and because you know how much our fans love your book and how much we talk about your preseason annual publication, you are giving listeners of the show a $35 book for one. All they have to do is use the code, hold up the book. Warren Let them see it. $1. Use the code, Chad. Go to Sharp Football. Look at that. Look at all that intel, the graphics that you're getting in this fabulous book that Warren kills himself to put out to make all of us smarter. Thanks, Warren. You, thanks for coming on the show and thanks for giving away the book for one freaking dollar. That's a 3 $35 book for a dollar. I can tell you right now I'm not doing that with my book. So that is totally classy, Warren.
+
+### Guest (Speaker E) [8:20-8:33]
+
+I appreciate it and I appreciate all your listeners and followers who love the show. Hopefully this will help them get prepared for the season and I'll be slaving away working for the next two months to try to get it ready for everybody.
+
+### Chad Millman (Speaker B) [8:33-8:41]
+
+We're going to get into all the glory of the schedule. Simon, I know you want to get it. Warren, real quickly about some of the prime time scheduling stuff.
+
+### Simon Hunter (Speaker C) [8:43-9:36]
+
+Yeah, I would love to know just your view on. You've been doing this a long time. If this is the first notable time you've seen the league make a major effort to make. All these people are about to spend a ton of money on getting league contracts for TV rights. All these prime time games, like it's, there's like two, maybe three bad primetime games the entire season. Where most fans remember Thursdays were the throwaway Thursdays you would get seven or eight. You don't need to watch tonight, right? Bet it, forget it, make some money if you're lucky, but don't. You don't need to watch this game. I, I love what they've done. I'm kind of with Chad. I know it's some people view it as evil because some teams have such disadvantages, including the Eagles. I love it. Like all the best games, standalone games, best quarterbacks. This is literally been my dream since I was very young. Like this is what I want the NFL to be. So I'd love to get your view on. Is this, are we making this up or is this a real thing going on right now at the league?
+
+### Chad Millman (Speaker B) [9:36-9:36]
+
+Warren?
+
+### Guest (Speaker E) [9:37-13:20]
+
+No, this is definitely a real thing. First of all, I'm like you remembering the how they used to do color rush uniforms to try to make people want to watch. What is this team going to look like when they wear all mustard colored uniforms? I got better turn into this terrible Thursday night game to check it out. Now that's not an issue at all. So having listened to Mike north and his other scheduling assistants and these are guys that create the schedule for the NFL vice president of scheduling and some of the interviews that they've had immediately after they release the schedule. It is very clear the way that they are doing their modeling to develop the schedule in 2026. They are basically taking all the games. We know that there's 272 games. These are known in January when the season ends. And they are saying they're running them through their models and figuring out at which position will we get the highest total viewership across all 272games. Where should we stick this game? Where should we stick that game? Where should we stick this other game? Let's run all the permutations to figure out the net where we'll get the most total eyeballs that to watch 20, 26 NFL games. Once they get a schedule that will basically hit that while staying within the guardrails, then they can go to your Netflix, your, you know, your prime networks and things of that nature, and you can basically try to auction off these games to the highest bidders. They said every single game is a free agent. Now. We're going to try to package them. If they'll. If certain networks or groups or, you know, broadcasters want unpackaged, we'll try to pick games. But they're selling these games not based on just arbitrary. Oh, yeah, you've got Patrick Mahomes going up against Justin Herbert. It's. We think this game on this particular Thursday night will get X million people watching it. How valuable is that to you? And that is how they're producing the schedule now. It is not about trying to make balance. Remember, that's why we were in the color rush situation. Every team's got to have a primetime game. We want to try to spread it all around. And now it's about total eyeballs on the league. And, you know, from. From a pure fan perspective, I don't disagree with your opinion. The only caveat I would have to say is the Wednesday night before Thanksgiving. You know, as a content creator, in addition to just working, that is a tough game to like. That's the time you're trying to get ready for Thanksgiving. Historically, that was the time. So I don't love introducing that game ahead of the great slate of games on Thanksgiving. But to your overall point, this is the best slate of games that I can remember on holidays and in primetime in general. They have definitely made a massive effort to just ratchet up everything as it relates to the stakes in these games, the teams that are playing in these games, and just putting teams in game after game after game. If they think they're going to Be good. They're doing calculations in terms of determining if these games are going to be good and drive eyeballs based upon what they think is the best teams that are going to be playing. So they have to do calculations here in like March and April and after the draft is to figure out which teams they think are going to be the best, and then they're going to take those teams and figure out which. How they can pair them together on these primetime games. So there's a lot of calculations that the league is doing, but very few of those calculations are trying to make parity amongst the teams that are being represented on these primetime games. It's all about driving viewership by the end of the season.
+
+### Chad Millman (Speaker B) [13:20-14:04]
+
+It's an interesting exercise, the way you frame that the NFL is trying to, for lack of a better term, handicap who the best teams are going to be at the end of the season. So if you were trying to build out a season win total betting roadmap, you could do worse than incorporating how the NFL is building its schedule, which, by the way, it is an entirely different philosophy. They are trying to maximize dollars. They are trying to take advantage of their ability to be sort of the elephant in the room and dictate what terms are going to be for their future broadcast partners.
+
+### Simon Hunter (Speaker C) [14:04-14:04]
+
+And.
+
+### Chad Millman (Speaker B) [14:05-14:35]
+
+And they don't really care what the public response is. They don't really care what the political response is. They don't really care what the legislative response is. They're looking to maximize the dollars, which is how we as fans are getting these great matchups. And if this is what they think that the best teams are going to be. Simon, how much do we think about that? I've never really considered that the schedule as a, for lack of a better term, you know, key performance indicator. When I'm building out a roadmap for
+
+### Simon Hunter (Speaker C) [14:35-16:17]
+
+handicapping, I. I do in a sense that it's certain teams, you want to take a position against them because of it, right? We've always talked about. It's been easier to fade the Cowboys historically because their fans do usually just bet their overs. That's one thing. But just the TV schedule alone is brutal. I mean, we joked about last year. I think they had like three Thursday games. They had a really bizarre scenario during their season last year, and that did catch up to them, right? Think of all the injuries they had. Right. They just didn't have the bodies to replace that because it's. It's a grueling season and there's two teams we're going to touch on the one here that like really jump out to me of teams, it's going to be interesting to see how this, the season affects them because they have such horrible schedules. And like we talked about this, this league, this new world we're entering of this prime Netflix type of world chat. It's, it's great for fans because we don't need these color rush games. But yes, some of these teams, you know, like the Rams seven prime time games, because of what their quarterback got, mvp, they don't really have a home field advantage. The league wants to take advantage of that. Right? Like if they can put them in prime time games, it doesn't matter. They're not going to have the stadium filled with their fans anyway at 1 o'. Clock. Might as well put them in a prime time game. That, that's an organization that's happy to play in those primetime games. So yeah, it's my favorite message I got from a ton of fans who are just conspiracy theories. Chad was guess who's the first Monday night game of the year? The Chiefs, Denver. Two teams that need as much time as they can get. I know it's just one day, but people said that right away where it's like you don't think the league thinks about those type of things, right? Why not give Bo Nix Mahomes as much time as you possibly can get them in for week one. So I, I love all this behind the scenes conspiracy theory about the league because a lot of it feels pretty true.
+
+### Chad Millman (Speaker B) [16:17-17:08]
+
+Trev Warren, we're going to dig into a bunch of teams right off the top. There's an interesting disparity to me because one of your great stats that you've created is sort of rest advantage, where teams are getting a rest advantage over their opponents throughout the course of the season. Schedule winners in that category, Chicago and Buffalo. What's interesting is that the Bears, according to traditional metrics, which is aggregating last season's win percentage, actually have one of the hardest schedules in the NFL. So which wins out? Rest advantage or the hardest schedule in the NFL?
+
+### Guest (Speaker E) [17:09-18:04]
+
+To me, just across the board, strength of schedule of your opponents is going to drive more than rest edges. So, so rest edges are smaller, they're a little bit more abstract, sometimes harder to calculate, which is part of the reason why the NFL just has this opinion in general and they're leaning even more into it right now that rest doesn't matter at all. And so if you say that rest doesn't matter, then you can have carte blanche to do whatever you want. With the schedule, you could stick a team have seven games where they're at a rest deficit and another team in the league who has zero games where they're at a rest deficit. You could do whatever you want if you say rest doesn't matter. And so that's what the league is pivoted into. I definitely don't agree with that theory. But at the same time, who you play, which the league has no control over, is definitely more impactful in terms of your ability to win games than when you play those teams.
+
+### Chad Millman (Speaker B) [18:04-18:16]
+
+What do you mean has no control over? The league has entire control over who you play. Are you saying who you play on that particular Sunday? Not necessarily what the schedule looks like in May.
+
+### Guest (Speaker E) [18:17-19:21]
+
+Right. So the strength of schedule of your opponents is completely obviously dictated by where you finish week 18, where your standing was. That assigns your three opponents in the other divisions within your conference. You rotate playing two other divisions every year. And the league does not pick your schedule. It's determined by your standing. So third place finishes get third place opponents in the other divisions within your conference. And that's why we know in January, the day after week 18 ends, who you're going to be playing this upcoming year. And that's where all the networks start pummeling us with strength of schedule based on last year's win loss record, which is not the best way to calculate strength of schedule. But be that as it may, that's what they like to share with us. Then there's the strength of schedule as it relates to timing of those games, the rest analysis, which we don't find out until, you know, we get to this point. Once they actually release the schedule, then we can figure out those aspects. So, yeah, that's what I was referring to there.
+
+### Chad Millman (Speaker B) [19:21-20:43]
+
+You know, real quickly on the Bears and I want to, I want you to talk about the Eagles for a minute because I know Simon has thoughts there and we got to talk about the Bills. Just because those three teams happen to be in your rest advantage advantage and rest advantage disadvantage. The Bears have the hardest schedule heading into the season. The only team to win a playoff game or the last team, what is it? The last team to win a playoff game with this kind of strength of schedule. They have not won a playoff game since 2016. That from. That's from ESPN.com I think it was Dan Graziano, seven of the past 10 teams did not even make the playoffs that had the hardest schedule. Which to me, as much as I love the Bears, I've had a weird fade. The Bears feeling With the Lions having an easy schedule with the potential of Kyler Murray, with the packers being at full strength next year. Simon, you want to walk me off a ledge? You want to tell me I'm wrong? You want to tell me I'm thinking like a wise guy. Give me some feedback here.
+
+### Simon Hunter (Speaker C) [20:43-21:43]
+
+Yeah, as a wise guy. They're an easy fade, right? The first year head coach over overachieved, right. Won a division. No one thought they were going to win division, had a down year. Now you're in a first place schedule. It's. They're an easy fade. But that's as a Bear fan. This is how you know you have a top three quarterback. That's what you're basically going to need from Caleb to basically be the 1 seed or 2 seed this year. So it's, this is how legends are formed, Chad. Like it's all stacked against you guys. You should be terrible this year, honestly. Like you guys should be in fourth, fourth place, third place. It's. You just overachieved so much last year and even think about your playoff success, right? You, you almost made to the NFC championship off two back heel throws by Caleb. Like it's just that that was the kind of line you guys are walking last year. So I think your, your radar is right to be picking up there. They're probably a team we're going to look into fading this upcoming season and I think Warren's about to back it up here a little bit with some of the stats.
+
+### Guest (Speaker E) [21:43-25:49]
+
+There are some things to like about this team from a rest perspective. Now based on my strength of schedule, which I do believe is more impactful than anything related to rest. But the way I calculate strength of schedule, as you know, is I look at win totals, not last year's record. Because the future looking anticipates and accounts for different quarterbacks like your Kyler Murray. It accounts for new coaches, coaches that were fired, the draft, all of these types of things. Whereas if you just look at last year's win loss record, you ignore free agency, you ignore the draft, you like any player movement, any injuries, all that stuff just gets ignored and accounted for with your numbers. I still have the Chicago Bears as having the number six toughest schedule. When you're looking at strength of schedule overall and this isn't rest, this is just opponents. It's important to mainly look at the extremes, right? The top five, top eight best, top five, top eight worst. It's not really, hey, this is 16 versus 21. So this is great. I'm so much better than the 21st team. That's going to be irrelevant by the time this thing all is said and done. From a rest perspective though, I will say some positive things about the Chicago Bears because they do have plus 15 net days of rest, which is the best in the NFL. They also have five games where they play with more rest than their opponent. That's number one in the NFL. They only play two games with less rest than their opponent number plus three games net with more rest than their opponent. That is the most of any team in the NFL. So those are some positives. In addition, they play some of their most critical opponents with rest advantage. We'll talk, I don't know potentially about the bye weeks being a little bit less impactful from a rest perspective. Given CBA in 2011, the mandatory four days off used to be you could bet bye weeks teams off of bye weeks in from around like 2000 to 2010 and hit 56% ATS just betting on teams that are coming off of buys. Now you're actually down in the 48, 49% range by doing that because of the mandatory four days off. But the Bears have three games where they're playing off of mini buys and mini buys are more impactful in a positive manner than are full buys. And they're playing the Seahawks with three days of extra rest off of minibuy and they're playing the Lions with three days of rest off of minibuy. Two teams that they're going to be competing against in the nfc. In addition, a tough game against the Jaguars after playing on Thanksgiving, they have a minibuye heading into that game. Last year they had just one game where they played with a three day rest advantage or more. This year they've got four of those such games. I'll just throw out a statistic here as it relates to the Bears from an ATS perspective that you might find intriguing. Chad. This is a team that if they have played since 2020 with a rest deficit of at least three days, which is what we're talking about, that's the more impactful one. They are.09 straight up 1 in 8 ATS. That's a minus 79% ROI. But if they over that same span were playing without having a rest disadvantage, they were 55% ATS, which is a plus 4% ROI, which was the fourth best in the NFL. And their ROI was the worst in the NFL when they played with a rest disadvantage. So the same has held true under Ben Johnson last year. Obviously now we're talking about a very small sample size, but they went 112 straight up 111 and 1 ATS last year when they did not have a rest disadvantage, but when they did have a rest disadvantage, 02 straight up and against the spread last season. So this was a team. There are certain teams that have been more equipped to deal with rest disadvantages than others. This is a team that has not been as much in the past equipped to deal with rest disadvantages, but they're not going to have to really worry about that this year, whether they've become better under Ben Johnson or not, because they've got the best net rest edge of any team in the NFL this season.
+
+### Chad Millman (Speaker B) [25:50-28:14]
+
+Today's show is brought to you by our presenting sponsor, Hard Rock Bet. Florida's Sportsbook the second round of the NBA Playoffs is here and with Win or Go home energy on the hardwood, same game parlays are a great way to stack picks built especially for the playoff action. If you're ever late to tip off, don't worry. Hard Rock Bet lets you live bet all game long, from the first bucket to the final buzzer. Try your first bet on Hard Rock Bet today and you can score $150 in bonus bets. If you win, just place a $5 bet and if it hits, you get not only your winnings, but also an extra $150 in bonus bets. Hard Rock Bet has new promos daily, so open up the app right now to see what promo you've got today. And sure, Hard Rock Bet is Florida's only legal sportsbook, but you don't have to be in Florida to join the party. Hard Rock Bet is also live in Arizona, Ohio, New Jersey, Indiana, Tennessee, Virginia, Illinois, Colorado and Michigan, with more states on the way. Download the Hard Rock Bet app today and let's get the party started. Payable in bonus bets. Not a cash offer Offered by the Seminole Tribe of Florida in Florida. Offered by Seminole hard Rock Digital LLC in all other states. Must be 21 or over and physically present in Arizona, Colorado, Florida, Illinois, Indiana, Michigan, New Jersey, Ohio, Tennessee or Virginia. To play, terms and conditions apply. Concerned about gambling in Florida? Call 1833, playwise in Indiana. If you or someone you know has a gambling problem and wants help, call 1809 with it in Ohio, call 1-800-MY-SET GAMBLING PROBLEM. Call 1-800- GAMBLER in Arizona, Colorado, Illinois, Michigan, New Jersey, Tennessee or Virginia. Vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. WIX has introduced WIX Harmony, a vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payment security, and more built in. And Wix Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com that's wix.com Amazon
+
+### Simon Hunter (Speaker C) [28:14-28:20]
+
+Health AI presents painful thoughts why did I search the Internet for answers to
+
+### Guest (Speaker E) [28:20-28:21]
+
+my cold sore problem?
+
+### Simon Hunter (Speaker C) [28:22-28:27]
+
+Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores
+
+### Guest (Speaker A) [28:27-28:29]
+
+in various stages of ooze.
+
+### Simon Hunter (Speaker C) [28:31-28:43]
+
+I can clear my search history, but I can never unsee that. Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
+
+### Guest (Speaker A) [28:43-30:10]
+
+Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepat peptide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-4-5979 or
+
+### Guest (Speaker D) [30:10-31:09]
+
+visit zepboundlily.com this is Daniel Cormier from the Daniel Cormier Show. This podcast is sponsored by Total Wireless, the official wireless partner of ufc. All UFC fighters know power doesn't wait in the octagon or outside of it. You either make the move or you miss the moment. That's why you need a network that's as powerful as you are. With Total Wireless, you get unlimited 5G data keeping you in on all the action, from the walkouts to the knockouts. You, you'll never miss a moment. That's coverage that you can count on for every single round. So when the moment happens, you're not catching up. You're already there. Now that, that's a total power move in the ufc, power isn't given. It's taken. So make your total power move today. Visit totalwireless.com or stop by your neighborhood Total Wireless store. 5G access requires a 5G capable device in a 5G service area. Monthly rates on the Total Base 5G Unlimited plan for new subscribers applies only to the monthly rate for your plan. Additional terms apply. See website for details.
+
+### Chad Millman (Speaker B) [31:10-31:24]
+
+Simon we did not get to the Eagles, who have a massive rest disadvantage this year. When you look at it, are you like, it's the fucking Eagles. Who cares? We're going to be fine.
+
+### Simon Hunter (Speaker C) [31:25-32:22]
+
+Yeah, but people, I would say fans around here are more into the schedule than they had been in prior years of stuff that Warren's talking about, which I never would hear from a regular fan about two, three years ago. Now I have people come up to me like, yeah, it's, I think it's them and the Chargers, right? Play four different teams coming off buys that like, that is a big deal, right? Like, you can't just overlook those type of stats. So I'm, I'm happy, I'm happy to hear Warren break this down because I do look at them and look at their schedule. It's like, okay, they're still clear the best team in their division for a first place schedule. It's not that brutal, but it does feel like they have a lot of these weird primetime games throughout the season that just are putting them in bad spots and disadvantages. And you know, they're, they're one of the few teams going, I believe, to England to play a game and coming back not taking the bye weekend. I don't even know. It might be the Panthers. I feel like they're playing a team who's coming off a bye week that week. But yeah, Warren, tell me the bad news. How bad is this Eagles Rest disadvantage.
+
+### Guest (Speaker E) [32:23-36:00]
+
+Yeah, that's a great single game to isolate there with the Panthers game where the Eagles are traveling from London without the buy. Whereas the Panthers not only are playing in the states the week before, but they have a buy the week before. I meant playing their last game in the state. So they're not doing the traveling and they're coming off of a buy. That's going to be a real interesting that's week six against the Panthers. But yeah, as the Philadelphia Eagles, this is the kind of the real discussion that we had earlier. What's more important, the schedule of opponents or your rest? The Philadelphia Eagles play the seventh easiest schedule of opponents. If you look across the division, the Cowboys and the Commanders, they all play like bottom eight easy schedules of opponents. Their schedule of opponents are much more difficult, but both of those teams rank top five in net rest. The Eagles, sorry, the Commanders and the Cowboys. Whereas the Philadelphia Eagles ranked 31st in net rest at minus 15 days, exact opposite of the Chicago Bears. They rank 31st in prep and rest. They are playing six opponents that have over seven days to prepare for them, including those bye week games that you mentioned, Simon, so that is going to be something from a challenging perspective for them. Weeks one to nine they play four games with a rest disadvantage and zero games with a rest advantage. So it starts off difficult from a rest perspective for them. If there is any time in the calendar that you would want to be at a rest disadvantage, though it would probably be earlier on in the season when you're not banged up. And so that will play into their favor later on because from weeks 10 onwards they are plus seven days of net rest edge from weeks 10 onward, which includes their bye week. So that is a positive for them. The interesting thing about from a rest perspective is the Eagles play five games where they are at a rest disadvantage. The Commanders and the Cowboys only play one such game. So that's where I think the league could try to do a little bit better job of balancing things out within divisions. But it is what it is. The interesting note that I'll say Chad just mentioned at the top when he teed off to you Simon, about it's the Eagles. So should we really be concerned here because it's the Eagles, they can overcome this type of thing. Since 2015 when they've played with a rest disadvantage of at least three days, they are 7, 14 and 1 straight up an ATS recording a minus 36% ROI. So three days or worse rest advantage. They've been absolutely terrible even since 2020 right when they've made trips to the super bowl and won 3 and 5 straight up to 6 and 1 ATS, that's a minus 52% ROI. When they are playing with a rest disadvantage of at least three days, that's the third worst mark of any team in the NFL over that span. So they haven't exactly overachieved against difficult rest situations. And the reason I look at ATS when I'm looking at rest is because, you know, that's taking into consideration the point spread, which is the great equalizer. I'm looking at over or underperformance versus market expectation. I don't care about straight up. I care about are you performing better than you were expected to perform in a given situation. So Philadelphia Eagles difficult schedule of rest. Much easier schedule of opponents than their counterparts in the NFC East. So that's things that they should be trying to tackle this upcoming season.
+
+### Chad Millman (Speaker B) [36:00-37:20]
+
+You know what's interesting to me? I feel like after so many years for Roger Goodell of having to manage concussion issues, player health issues, lawsuits, don't forget there was a time where it wasn't guaranteed Roger Goodell was going to get renewed by the owners for his job. I mean, he's so in command of the job right now. I feel like he's entered the Dana White managing the UFC phase of his career where doesn't really care about it when anyone thinks doesn't really care about what fans may think individually. He's about how am I going to maximize revenue and I'm not going to think about having to even pretend to care about anything else. I don't know that he ever did care about anything else. But now he really doesn't even have to pretend to care about anything else. That's what I think about when teams like the Rams are in seven primetime games or the Eagles that are one of the biggest, most popular teams consistently have a rest disadvantage. In my head, I'm like the owners and the commissioner have really just gone all in on making this the most entertaining bloodsport possible for the rest of us.
+
+### Simon Hunter (Speaker C) [37:21-37:29]
+
+That and he I think his main goal he's always been just whatever the owners say. That's his job. Right. He's the punching bag for the owner.
+
+### Guest (Speaker D) [37:29-37:29]
+
+Yeah.
+
+### Simon Hunter (Speaker C) [37:30-37:31]
+
+None of these ideas are here.
+
+### Chad Millman (Speaker B) [37:31-37:34]
+
+He's the COVID right? Exactly. By the way, totally true.
+
+### Simon Hunter (Speaker C) [37:34-38:00]
+
+The my. Another great example is just this season he put and one of the most important divisions in all football, the NFC west. They're starting the season in Australia with a divisional game between the 49ers and the Rams. I would be losing my mind as a fan where it's like that could easily determine like it did last year who the one seed is going to be. Right. Those divisional games, especially in that big of a division, such a big deal. But Goodell needs to do what's right. Right.
+
+### Guest (Speaker D) [38:00-38:00]
+
+It's.
+
+### Simon Hunter (Speaker C) [38:00-38:21]
+
+It's entertainment. Like we might care as fans, but in the day it is a sports entertainment. And they are behind the NBA. Like the NBA. Sending Jordan to France in the 90s jumped that sport 50 years ahead of American football international. Like you can't overestimate how big of a deal it was sending Jordan to France and just that.
+
+### Chad Millman (Speaker B) [38:21-38:24]
+
+You mean Spain for the, for the Barcelona Olympics.
+
+### Simon Hunter (Speaker C) [38:25-38:31]
+
+Okay. And I remember him being in Paris, but it's just the Bulls went to Paris.
+
+### Chad Millman (Speaker B) [38:31-38:33]
+
+That's when he called the Louvre.
+
+### Simon Hunter (Speaker C) [38:33-39:25]
+
+Yes. It was just. He was like a rock star. That was a huge deal and it was just. It just shows where it's like they're trying to catch up down football. It's. It's an American thing. Chad knows like he, he travels. You don't. It's just not even on people's radar in other countries. In England now it is, right? It's working like the never ending sending these teams to England is working. So I, I think we totally see what, what Cadella's playing is, right, Chad? It's the London Jaguars. I know they're getting our stadium redone right now the third. If they go up to add teams this league, there's going to be a team. It feels like in London eventually. Like that's just where we're heading. The way these airplanes are, how comfortable these guys are, it's. There's no difference of flying there than flying from the east coast to the west coast. So it's. It feels that we're getting there. It's going to be an international sport before we know it.
+
+### Chad Millman (Speaker B) [39:25-40:38]
+
+Well look, your point's not lost on the NBA. As popular as the NFL is in, in the United States and it's obviously the, the biggest sport and much more popular than the NBA. But the MVP of the NBA the past two years is she, Gilgis Alexander who's from Canada. Before that we're talking about Jokic. And by the way, the top four invoke getters this year, SGA Jokic Wembanyama from France. Luca, like it is a. It is far and away international sport because of what you just said. It's because of 35 years of, of the NBA really leaning into it. All right. That's a wrap on part one of this episode. That's right. Part one of this episode of the 2026 NFL schedule. This has been Sharper Square part of the Volume Podcast Network. Our thanks to special guest Warren Sharp who will be back with part two of our NFL Schedule Release Show. Watch or listen on YouTube at Sharper Square like this video. Subscribe to the channel. Download us from Spotify, Apple Pods, wherever. Get your pods rate Review Subscribe. Leave us five stars. Say whatever you want. Feedback is a gift. Until next time. Love you.
+
+### Guest (Speaker E) [40:39-40:41]
+
+The other thing the NFL has done,
+
+### Chad Millman (Speaker B) [40:41-40:44]
+
+thank God is they got rid of
+
+### Guest (Speaker E) [40:44-40:53]
+
+that silly we've got to give every team one prime time game. You haven't earned the right to get a game. This is not a participation trophy league. Get out of here.
+
+### Chad Millman (Speaker B) [40:57-41:02]
+
+Wait, I came in for two things. How is this $47?
+
+### Simon Hunter (Speaker C) [41:02-41:04]
+
+All right, we're gonna need a plan here.
+
+### Guest (Speaker A) [41:04-41:12]
+
+Just start simple with bank of America Advantage Safe Balance Banking. No overdraft item fees, no monthly maintenance fee. If you're under 25 as a new
+
+### Simon Hunter (Speaker C) [41:12-41:14]
+
+checking customer, you can earn $100 when
+
+### Chad Millman (Speaker B) [41:14-41:17]
+
+you open an account and make qualifying Zeller debit transactions.
+
+### Simon Hunter (Speaker C) [41:17-41:19]
+
+Oh, that's actually really simple.
+
+### Guest (Speaker A) [41:20-41:21]
+
+Safe Balance Banking.
+
+### Simon Hunter (Speaker C) [41:21-41:22]
+
+One less thing to figure out.
+
+### Guest (Speaker A) [41:22-41:26]
+
+Learn more@bofa.com earn 100 terms and conditions apply.
+
+### Chad Millman (Speaker B) [41:26-41:27]
+
+Bank of America and a member FDIC.
+
+### Guest (Speaker E) [41:28-41:56]
+
+I'm U.S. transportation Secretary Sean Duffy. We all get distracted when we drive, whether it's from our phones or kids in the backseat bickering. But how we handle these distractions can be a matter of life or death. Before you get on the road for your next road trip, please put your phones on silent and take a mental note to focus on driving. Paid for by nhtsa.
+
+### Simon Hunter (Speaker C) [41:58-42:05]
+
+Big transfer news today. Who's moving me to the couch with Domino's? Best deal ever since they just added stuff.
+
+### Guest (Speaker E) [42:05-42:06]
+
+Crust any pizza?
+
+### Guest (Speaker D) [42:06-42:07]
+
+Any toppings?
+
+### Simon Hunter (Speaker C) [42:07-42:13]
+
+Now with stuffed crust for nice $9.99. It's a long term contract with no release clause only 9.99.
+
+### Guest (Speaker E) [42:14-42:15]
+
+Yeah, that sounds like the move.
+
+### Simon Hunter (Speaker C) [42:15-42:17]
+
+I'm heading straight to dom.
+
+### Guest (Speaker E) [42:19-42:20]
+
+Prices higher for some locations.
+
+### Simon Hunter (Speaker C) [42:20-42:24]
+
+Excludes Excel and specialty pizzas. Select this offer from 6:15 through 726 online only.
+
+### Guest (Speaker E) [42:24-42:26]
+
+Size availability varies by crust type.
+
+### Simon Hunter (Speaker C) [42:26-42:29]
+
+Max 7 topping 6 for pan and New York style crust. Minimum purchase required for delivery.
+
+### Guest (Speaker E) [42:29-42:32]
+
+Prices, participation, delivery area and charges may vary.
+
+### Guest (Speaker A) [42:34-43:07]
+
+Grainger knows. When you're a procurement manager for an office park, you're not managing one building, you're managing all of them. And to stay ahead, you need to see through walls and around corners, lights about to fail, filters ready to clog H Vac on its last leg. If you wait until something breaks, you're already behind. Count on Grainger for quality products, easy reordering and 24. 7 support. Call 1-800-GRAINGER click grainger.com or just stop by Grainger for the ones who get it done. This is an iHeart podcast. Guaranteed Human.

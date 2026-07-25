@@ -1,0 +1,150 @@
+# Even Money - NFL Schedule Release Betting Tips and NBA/NHL Playoff Semifinal Bets!
+
+Published: 2026-05-04T04:00:00+00:00
+Episode ID: f2d0e7ad-d32e-4794-9e77-39f5220775a2
+Status: done
+Duration: 1871 seconds
+Audio: https://www.podtrac.com/pts/redirect.mp3/pdst.fm/e/arttrk.com/p/DF7K3/claritaspod.com/measure/pscrb.fm/rss/p/traffic.megaphone.fm/DFT4418502412.mp3?updated=1777861413
+
+Transcript chars: 26205
+Speaker turns: 32
+Speaker labels: Ross Tucker (Speaker A), Steve Fezzik (Speaker B)
+
+## Speaker Map
+
+- Speaker A: Ross Tucker
+- Speaker B: Steve Fezzik
+
+## Existing Host Summary Rows
+
+- None
+
+## Diarized Turns
+
+### Ross Tucker (Speaker A) [0:02-0:05]
+
+You're listening to DraftKings Network.
+
+### Steve Fezzik (Speaker B) [0:09-2:40]
+
+If you like to make your NFL games a little bit more interesting, you've come to the right place. It's the Even Money Podcast with Ross Tucker and Steve Pezik. Yeah. Vegas, baby. Vegas. It is the Even Money Betting podcast, the number one NFL betting podcast in the galaxy. And there are NFL topics today. You know why? Because the NFL schedule is getting released next week, so we may have another episode before it's actually released. So we might go ahead and have even more tips a week from now. We are dropping this a day early. In fact, we're recording this on Sunday evening because of my schedule the next couple days. We figured it'd be better if you got it early as opposed to late. The we is my main man, Steve Fezik at physicsports and only at Physics Sports. On social media, he is the man, always has been. You can check me out at Ross Tucker NFL on social. Check us out at Ross Tucker Pod. Highly likely. We're getting to multiple email questions from you guys on today's show, which is super exciting. Love getting your email questions. Love those of you that have gotten the best Mother's Day gift ever from myfrontpagestory.com that's a surefire way to go right to the top of the list. They count as a sponsor. Myfrontpagestory.com Put your mom or your wife on the front cover of a newspaper that they deserve. Here's what we got. Gotta get Steve's thoughts on the NBA. I think a week ago Steve was all in on betting on the Celtics. That shows you how fast things can change. Definitely want to get Steve's thoughts on the Kentucky Derby. We for sure. Hopefully we'll get to some email questions. We should be able to. And maybe we should start with the Kentucky Derby, Steve. You know, it's a huge betting event. I know a lot of people put money on Renegade and some of the other horses. I know we don't talk much about horse racing on this show because it's typically not very profitable. We went over that in depth last week. But I am curious, Steve, what, what thoughts you had, if any, on the Kentucky Derby and the long shot winning?
+
+### Ross Tucker (Speaker A) [2:40-3:47]
+
+Yeah. So when you have 20 horses in the field, having a clean run in the race is so important. So there's a lot more volatility associated with the race. That being said, you know the proponents of betting on the Derby, when there's 20 horses, there's always five or six of them that they basically have no chance at. All and people will bet on them just because of their name. But bottom line is we talked about basic betting strategy and it was to look at the money that was coming in against the top horse or horses and fade them in horse matchups. And if you did that, Ross, you lost because Renegade was the clear horse people thought, the experts thought was going to struggle. He almost won, he finished second. So if you bet him in matchups, you probably lost every matchup that you played against him following that strategy. And hey, these are guidelines. They, they, you wind up with an edge doing it in the long run, but in the short run, you can have bad deres. I know I had a bad derby on my matchup betting. Not that I bet big, but I, I think I had five matchups against Renegade and lost them all.
+
+### Steve Fezzik (Speaker B) [3:47-3:59]
+
+I wonder why Renegade was the guy that the, you know, the Sharps were fading in the leading up to it. I wonder why that's the horse that they were fading and ended up having a, a, a, a great run.
+
+### Ross Tucker (Speaker A) [4:00-4:06]
+
+I think there was a medical concern, some foot issue. I'm not an expert. I don't know. I just listen to what people tell me.
+
+### Steve Fezzik (Speaker B) [4:07-4:17]
+
+Wow, that, that's fascinating. So the exact advice we gave out a week ago was basically the exact wrong advice, 100%.
+
+### Ross Tucker (Speaker A) [4:17-5:21]
+
+And hey, I'm completely transparent. I, you know, I will say the one thing in my industry that I can't stand is people, they ask someone who's an expert, how was your derby? How was your, your NFL week? How was your Monday Night Football? Great, great. Did great. I won, I won. And yet, yet then you put them and you take a look transparency wise, at the contest they're in and they're like 9 and 16. And you're like, well, how can you be having a great NCAA tournament if you're 9 and 16? They're like, oh, it just turned out, you know, all that was an aberration. It's always an aberration. Yet whenever they, you, you put them in with real numbers against real people, against other people. And that's why I, I'm a huge proponent of, I get it. Contests. It's like poker, poker terms a little bit different than cash, cash betting. But if you're good at this, you're going to do well in these public contests and you're, you're going to have placed and cast in several of them. And, and there's so many experts out there that have never done anything when it comes to the contest, despite entering them every year. And so I'm very jaded regarding that.
+
+### Steve Fezzik (Speaker B) [5:21-6:17]
+
+Well, I appreciate the transparency. That's why we grade every week during the NFL season. You, you can see and hear those of you that watch YouTube.com rawstucker NFL, you can see the, the bets we won, the bets we lost. We have a spreadsheet. These are public. Like you can always go back and watch or listen any episode we've ever had. I mean, they're archived, so there's nowhere to hide. But I do feel like a lot of the shows, they always just move on to the next day. They always just move on to the next games. They spend very little time talking about how they did the night before or the week before, probably because they don't have nearly the success that we are fortunate to have. You know, so interesting on the Derby there any other thoughts as it relates to the Derby or Derby golden or Golden Tempo or Preakness or anything like that?
+
+### Ross Tucker (Speaker A) [6:17-7:18]
+
+Steve oh, just whenever there's a major event, be it the Masters or be the Kentucky Derby, it would be easy to say, I'm not a horse specialist, I'm not a golf specialist, I should just skip it. But whenever there's a huge influx of money into anything, it typically results in there being some betting opportunities. So, like the World Cup's coming up. ROSS I don't know what planet the World cup is being played on this year, but I'll tell you this. Any competitive, here's my basic strategy. Any competitively priced women's World cup game, I like the first half under one because it's just been a money maker forever and it just seems so low. How can a total be one for an entire first half? And well, maybe when you got an outmatch team and Brazil's playing them, they can beat them 8:1. But you put, you put the US against China when they're both good, or Canada. And as sure as the sun's going to come up, you're going to wake up at halftime and it's going to be nil. Nil.
+
+### Steve Fezzik (Speaker B) [7:19-7:20]
+
+You're waking up at halftime.
+
+### Ross Tucker (Speaker A) [7:21-7:28]
+
+Well, I'm just, it depends upon where it is. I don't know where the World cup is. I don't know if it's in like, where is the World Cup? Do we know?
+
+### Steve Fezzik (Speaker B) [7:28-7:32]
+
+United States oh, you're talking about women's, the men's in the United States.
+
+### Ross Tucker (Speaker A) [7:32-7:35]
+
+I it shows how much I followed it. Okay.
+
+### Steve Fezzik (Speaker B) [7:35-7:42]
+
+I don't know when the women's is the men's, the United States, it's a really big deal, like a really big Deal.
+
+### Ross Tucker (Speaker A) [7:42-7:43]
+
+Not for me, apparently.
+
+### Steve Fezzik (Speaker B) [7:43-8:14]
+
+And then that's incredible that you don't know that, honestly. Incredible. But to your point, because it's in the U.S. i bet you there's a lot more betting on it. I bet you there's a lot more action on it this year because of all the excitement of being in the United States. So that's something to note for your, for your action and opportunity. Part of it. I thought you were saying we wake up at halftime because it was boring because there was no scoring. You wake up at halftime and it's zero. Zero.
+
+### Ross Tucker (Speaker A) [8:15-9:07]
+
+You know, people, the traditionalists are going to get angry at me. But if soccer, if the rule had always been that the goalie was not allowed to catch the ball, they could just use their hands to punch the ball. And then someone proposed, hey, let's let the goalie catch the ball and stop all the action, it would be ridiculed. The whole idea of soccer is you're not supposed to be able to use your hands. So why let in the NHL you're not allowed to catch. If you catch the puck, it's a face off in your end. It's a disadvantageous situation. They should change that rule to promote scoring. If the goalie catches it, it should be a corner kick for the other team. That'll eliminate that nonsense and you'll have much more action. But people are like, oh, there's, there's 30 billion people that love soccer. Why are you trying to fix it? But that's what makes the NFL great. Because the NFL improves their game with, with massive rules changes year after year with the rules committee and just keeps getting better and better.
+
+### Steve Fezzik (Speaker B) [9:08-10:15]
+
+You know, I love, I know everybody's just going to crush you, Steve, but I love your, your rule change ideas because if you really, and I know people that love soccer are going to say, that's crazy, but like you always say, if it had started out the other way, people would say, oh my gosh, this is so much better. You don't want to let the guy catch it, then there won't be as many goals. So I'm with you on that. We mentioned the derby. Steve, what about last week? Give me an update on the NBA playoffs. So as we're recording this, the Raptors and Cavs are playing game seven right now here on Sunday evening. But I, I was totally with you, Steve, on the Celtics a week ago. That was last Tuesday. Since then, they lost three games in a row. Two at home, two by double digits, and a team I thought had a great chance to go to the finals is now eliminated by Philadelphia. Unbelievable.
+
+### Ross Tucker (Speaker A) [10:15-12:32]
+
+Steve looked like they had a clear path. And what was interesting, you know, I'm arguing with some of my friends at. They were discussing, like, Philly, who would. Philly, you know, you know, going forward, Philly versus Boston, who do the Knicks want to play? All right. And I was like, you guys are smoking crack here because New York's going to be a big favorite against Philly, and they're going to be a sizable underdog against, you know, Boston, and maybe Philly will beat, you know, the Knicks now and I'll look foolish, but, you know, Tatum, obviously not playing game seven was a big deal, but it shouldn't even have come to that. Just amazing. We're setting up for a really bad NBA Finals because, you know, Oklahoma City against whoever survives in the east or even San Antonio, that could well get lucky. Hey, listen, I do want to give accolades to the NBA people. Show people are so hypercritical. The NBA has a problem. This tanking makes the production unwatchable. And this new proposed proposed rule, the pingpong relegation rule, where if you suck and you miss the playoffs and you miss the play in games, you get three. Three pingpong balls. But if you're really awful, the proposal is you're only going to get two ping pong balls. The three worst teams. Brilliant. It's going to stop all this nonsense. You literally have to put up with two months of teams like Utah or Washington trying to lose. And it's just amazing that they come up with a new idea that's such an improvement over the old system, which is just ridiculously flawed. And like I always use, if you had switched them, if the. If the proposed system had been the system all along and someone said, oh, we should reward all these teams with lots more ping pong balls for losing, you would be ridiculed. You'd be a dumbo. You're like, of course we're not going to do that. It's going to ruin the competitive aspect of the league. And the NFL has to be careful. Ross. No NFL team has ever tanked a game. The players play hard, but getting a good quarterback is so critical. And because of that, it's only a matter of time till we just have a travesty where we have two teams with both organizations trying to lose. And the NFL will indeed have to change their draft system and not just give the worst record team the number one pick
+
+### Steve Fezzik (Speaker B) [12:36-16:01]
+
+more great stuff right after this. Anybody else out there taking a look at all your finances and your affairs, if you will, after tax season. Well, we are. It's not always the most fun thing, but you got to make sure you're covered in every area, especially when you have kids. Which is why I am a huge fan of being able to get life insurance through Ethos. Here's the deal. You can just take 10 minutes to get covered today with life insurance through Ethos. Get your free quote@ethos.com Ross that is e t h o s.com/roche. Application times may vary. Did I say Roche? Ross Rates may vary. Here's all I know. Ethos makes getting life insurance fast and easy. It's 100% online. That's what we're talking about. Ethos.com Ross here's why I love Monarch. Most apps only tell you what you've already spent. I feel like we kind of know that, right? Here's the deal. Monarch is the personal finance app that tracks everything. Accounts, investments, savings goals and spending. And you can get your first year of Monarch for half off just $50 with promo code. Even being able to see all this is huge. They help you set goals, map out big purchases, see if you're actually on track before it's too late to adjust. The AI assistant. You can ask anything about your finances. They have AI insights. The AI weekly recap utilize AI for you use code even@monarch.com to get your first year half off at just $50. That 50% off your first year. And@monarch.com with code even you know what's fascinating to me about that is there are actually a number of examples in recent years where a team could have been the number could have gotten the number one pick, but they won a late season game and it changed everything. You know, you think about the Houston Texans could have had the number one pick Lovey Smith's last game. Instead they win. They get the number two pick. End up being CJ Stroud, who we thought was a lot better than Bryce Young. Now we're not as sure. And then I'm trying to the year that the jets took Zach Wilson, that was the year they they beat the Rams. Somehow in like Week 17, the jets would have had the number one pick. But they beat the Rams, who had a really good team. So instead they get the number two pick. The number one pick. Who's the number one pick in the Zach Wilson draft? He's good. Whoever it is. The quarterback. Was it Burrow? I can't remember. And yet the jets then get the second pick and it's Zach Wilson and Obviously, it's a disaster for Zach Wilson
+
+### Ross Tucker (Speaker A) [16:01-16:46]
+
+and you're going to have a season where you're going to have a dude like Burrow that had back to back years. Like Burrow had the one year at lsu and he's basically going to be Wemby in the NBA in terms of his impact and the like. And you it's just going to be too obvious once when it's a little bit unclear how good someone is. All right, we're not going to embarrass our organization by losing on purpose, but when you can get Wemby and all you need is the worst record, the Wemby equivalent in the NFL. Oh my goodness, Ross, the NFL. We'll talk about this. Clip this. It might take two years, it might take 10 years. There's no way the system's going to be in place in 12 years because there's going to be a complete embarrassment game and the NFL is going to have to step in.
+
+### Steve Fezzik (Speaker B) [16:46-18:32]
+
+By the way, it was 2021 with Zach Wilson and they, they would have had Trevor Lawrence with the number one pick. Trevor Lawrence, who had a very, very good season last year, leading the Jaguars to a division title and the playoffs. That was the difference for the jets winning that game. So I agree with you. I think teams are going to realize, especially in a year, you know, where they feel like there's a slam dunk. I mean, Steve, go back and look at who the Raiders played in week 17 and 18 last year when they were quote, unquote, fighting for the number one overall pick. Some of the guy, you know, that's when they put Max Crosby on ice. I'm not saying that the Raiders tried to lose those games, but they certainly had guys not playing that I, that, you know, Max Crosby said he wanted to play. Max Crosby felt like they were sitting him because they didn't want to win the game. So that's a, that's a real thing that you're talking about. Speaking of a real thing, the schedule, we believe. We don't know this, but we believe the schedule will be released next week. I think it's usually a Tuesday or a Wednesday, maybe a Thursday. Jack can check on that. Our trusty producer, Jack, when the date is, it usually gets released. So we might have another episode, Steve, next week before the draft, before the schedule is released. But I am curious. Let's just give our listeners a little taste of some of the things they should consider when the NFL schedule comes out.
+
+### Ross Tucker (Speaker A) [18:33-20:02]
+
+Well, I'm going to steal from you here on the very first thing, instead of looking at who you're going to play week one and week two, let's look at who you're going to play in your final two games. Ross but because these teams like the Arizona Cardinals, the Miami Dolphins, we just talked about it, winning is probably not going to be a priority. So if you get to play Arizona or Miami or Cleveland or the jets, you probably want to play them at the very end of the year when they have questionable motivations whether they even want to win, right? And if you are going to play somebody good, and I'll use the Rams as an example, you want to play them at home, week 18, the final week of the season, because hey, if you're hosting Buffalo, Buffalo might have already clinched the division. Maybe that team is not going to play their starters, especially on the road. The Rams have a long history of not caring when the game doesn't matter. So because of that, everyone looks at the Thursday night, the opening night and week one and week two. I would go, I'd reverse engineer it, I would start with the week 18 and then week 17 as my number one thing to look at. And then I love what Warren Sharp does with his rest advantages and disadvantageous situations. And Warren does all the work for you. He'll come on and he'll basically say, hey, here's the world's greatest spots and the worst spots for select NFL teams. Add them all up and tell you who got screwed and who got lucky
+
+### Steve Fezzik (Speaker B) [20:02-20:26]
+
+with the schedule, that is. There's a lot of good stuff there. So will you, Steve, when it comes out, will you go right to week 17 and 18 and look to potentially bet against some of those teams that we believe still, you know, might not have the answer at quarterback and late in the season might not be pulling out all the stops to win those games.
+
+### Ross Tucker (Speaker A) [20:27-21:37]
+
+I will look when the games of the year drop, which might take a few weeks for someone to do, but as soon as those games of the year drop, the first thing I look at exactly is week 17, the back end of the schedule. And if they deal with week 18 versus looking at what the lines are going to be weeks one and two, because the lines week one and two are going to be roughly correct. It's very rare when I'm looking at making a bet that I'm like, wow, that number is completely off early in the year. But late in the year, all the time, there's there. And the odds maker tends to stay anchored. Ross, they, they don't want to make a team too big of an underdog so it's rare that they make a team a double digit underdog in the last month of the season. So you get a game like if the Rams were hosting Arizona in December, for instance, the Rams probably should be 6 points better than average team. Arizona at that point will be like seven points worse. I mean, you could make the case that line should be minus 14. It's going to be minus nine and a half. So making bets like that, obviously uncertainty, maybe Stafford gets hurt, you could get screwed. But more often than not, you can find bigger edges late if you tie up your money for longer periods of time.
+
+### Steve Fezzik (Speaker B) [21:38-21:51]
+
+Wow. That, that. And by the way, DraftKings has told me that shortly after the NFL schedule is released, they'll have every game up, Steve. They'll have a, they'll have a lineup on every game for the whole season.
+
+### Ross Tucker (Speaker A) [21:54-22:16]
+
+So think how difficult that is and how great it is, you know, and how much, how much fun it is too, just to like go through and be able to map out, you know, and, and the right and the wrong way to do season wins. You don't want to say, hey, that team's favored by six, they're going to win that game. You want to say, that team's favored by six, they're going to win that game 70% of the time and just add up the incremental fractions.
+
+### Steve Fezzik (Speaker B) [22:17-25:19]
+
+By the way, according to Jack, it looks like the schedule will be released between Wednesday the 13th and Friday the 15th. Let me just tell you, it's not going to be Friday the 15th, so they won't get enough juice out of it. So my guess is it comes out the night of Wednesday the 13th, maybe Thursday the 14th. So midweek next week, the NFL schedule should be released. Don't go anywhere. Gotta pay some bills real quick. It is officially May, which means if your fridge isn't filled with Labatt Labatt Blue Light Labatte Blue Light Lime, you're doing it wrong. Labatt beer is brewed for the chirps, the salty jabs in your group chat, that one friend who hasn't changed his fantasy football team since 2019. Kevin, listen. Labat knows a thing or two about friendly rivalries. Born in Canada, brewed in the U.S. united by the sacred art of trash talk. Because the reality is, the best kinds of friendships comes with nicknames you didn't approve, stories you can't escape. Just enough roasting to keep things honest. So when your team is staring down third and long, crack a cold one, roast responsibly and give a toast. The People who give you the hardest time Labat brood for the roast. Steve this is exciting because we have time to get to some email questions which I love doing because our listeners or our viewers the people check us out YouTube.com Ross Tucker, NFL they have great questions, better questions than I can ask you a lot. And I love people that rate and review the show or take advantage of any of our sponsors. We they go to the top of the line ask you a question. There are some similarities on these questions. We'll start with Randy in Cleveland. I want to I love the show and want to say thank you. I have done very well particularly on teasers. I bet through a book that offers me -107 on sides and totals for every NFL game. They charge me minus 110 on six point teasers and minus 120 on six and a half point teasers and it looks like minus 160 on a 10.3 team teaser. Do you ever suggest sweetheart teasers at those odds and do you ever play more units if you get better odds like the ones I am currently getting? Appreciate the insights every week. I look forward to winning with you all this upcoming season. Think about what our numbers would have been last year Steve if we were still doing six point teasers at minus 1 10. Holy cow.
+
+### Ross Tucker (Speaker A) [25:19-26:38]
+
+Yeah, you know I did some, I'm doing some research here during the off season so it turns out we grade our teaser six points at minus 125. And Randy, we're still playing some selectively so if we're playing some weeks, a lot of them -125 then we are going to love those same bets at minus 110. So you have a great situation there. Your 10 point teaser is no good. Minus 160 because it's three teams you really need minus 130. Recognize if you do have minus 130. Ties usually lose. So don't play a like a minus 10 down to minus three because ties lose. Excuse me, a minus 13 down to a minus three play minus 12 and a half down to a minus two and a half. But that's a great situation. But here's the bad news Ross. When you're laying -125 on the first leg of a teaser or or for both legs of the teaser that's the equivalent of laying just over minus 300 on each individual leg. I got to tell you, I really think we've done very well with these. I'm going to have to scale back our teasers because it's just too much vigilance long term. Although we have done great, I think we've run really well, we've handicapped well and I don't think it's sustainable to win playing large volume at minus 125teasers.
+
+### Steve Fezzik (Speaker B) [26:38-27:17]
+
+Well, I'm doing it until it goes bad, but I appreciate your sentiment. Z also ran reviewed the show on Apple podcasts and this is crazy. Similar question six point teasers at minus 110 six and a half point teasers at minus 127 point teasers at minus 30. He can also play open teasers. Steve, what's my optimal teaser strategy On a weekly basis? Play every single possible teaser. Since I'm getting a great price, even if each leg has one to be paired with, should I still be playing open teasers each week too? Or what would your approach be?
+
+### Ross Tucker (Speaker A) [27:18-28:31]
+
+All right, this answer is going to be more valuable than probably the entire summer. All right, this is a pro secret. What you want to do is you only want to play open teasers and you want to play all the Wong teasers where we're teasing the minus eights down to minus twos and the plus twos up to plus eights. But we're going to leave them all with open spots. And here's why. Ross so let's say we're about to lose. Let's say we've teased the Bengals minus eight and they're down 10 in the fourth quarter and Burrow just threw an interception. Then we're going to go in and we're going to close that teaser. And what are we going to close it with? We are going to close it with a minus nine favorite and we're going to tease that second leg down to minus three. Why? Because we know the first leg is going to lose. So we're going to resurrect our teaser teaser resurrection that about 8% of the time when you lose the first leg, you're going to get your money back because we are not going to try to win our second leg. We are going to try to push our second leg because if on on most places a loss and a tie is a refund. So if that is indeed the case, check the rules at your place. Then you want to go ahead and play these resurrection teasers with open spots.
+
+### Steve Fezzik (Speaker B) [28:31-29:05]
+
+Resurrection teasers. Never heard of it before. Yet another reason why I love this show and you guys do as well. More NFL Schedule Release thoughts More of your email questions next week. You do not want to miss this. Steve is giving out the good stuff. The Pro tips. Good luck everybody. Hope you guys win some money. Thanks for tuning in to Even Money. Make sure to also check out the Ross Tucker Football Podcast, Fantasy Feast and College Draft, all on the DraftKings Network YouTube, or subscribe to the podcast on your favorite platform.

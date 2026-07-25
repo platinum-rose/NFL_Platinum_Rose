@@ -12,6 +12,8 @@ import {
   buildSpeakerMap,
   applySpeakerMap,
   buildLabeledTranscript,
+  extractIntroducedGuestName,
+  AD_SPEAKER_LABEL,
 } from '../../agents/lib/speaker-attribution.js';
 
 function utt(start, end, text, speaker = 'A') {
@@ -181,6 +183,21 @@ describe('buildSpeakerMap', () => {
     expect(result.B).toBe('Andrew Erickson');
   });
 
+  it('maps BettingPros co-hosts introduced by another speaker using the real roster shape', () => {
+    const realShapeExperts = [
+      { name: 'BettingPros Podcast', source: 'BettingPros', aliases: ['bettingpros podcast'], isShow: true },
+      { name: 'Seth Woolcock', source: 'BettingPros', aliases: ['seth woolcock', 'woolcock'] },
+      { name: 'Andrew Erickson', source: 'BettingPros', aliases: ['andrew erickson', 'erickson'] },
+    ];
+    const utts = [
+      utt(1, 36, "I'm your host, Seth Woolcock, back with the undertaker himself, Andrew Erickson.", 'A'),
+      utt(38, 54, 'Great to be here. Football season is just about here.', 'B'),
+    ];
+    const result = buildSpeakerMap(utts, 'BettingPros Podcast', realShapeExperts);
+    expect(result.A).toBe('Seth Woolcock');
+    expect(result.B).toBe('Andrew Erickson');
+  });
+
   it('handles Action Network Sports Betting’s rotating roster (correction: this show is NOT single-host)', () => {
     const utts = [
       utt(0, 5, "This is Sean Koerner.", 'A'),
@@ -189,6 +206,66 @@ describe('buildSpeakerMap', () => {
     const result = buildSpeakerMap(utts, 'Action Network Sports Betting', ACTION_NETWORK_EXPERTS);
     expect(result.A).toBe('Sean Koerner');
     expect(result.B).toBe('Chris Raybon');
+  });
+
+  it('does not mistake The Favorites host intro mentioning Kendra for Kendra herself', () => {
+    const utts = [
+      utt(170, 236, 'Welcome to the favorites presented by DraftKings. We are an Action Network podcast and my cohort Kendra Middleton is having a hard time keeping it together. Back at it with the first lady of the pod, Ms. Middleton, Evan Abrams, keeping us in check as well. Make it make sense.', 'F'),
+      utt(237, 286, 'Well, it is because he used to be. I think that this is embarrassing for him.', 'E'),
+      utt(923, 940, 'Kravitz at 10. I thought I was going to get a bouquet for this.', 'E'),
+      utt(3210, 3214, 'Evan Abrams, fly in out of the sky and grade the top 20 if you would.', 'F'),
+      utt(3215, 3240, 'Yeah, so I have two questions before I give you my overall thoughts.', 'H'),
+    ];
+    const result = buildSpeakerMap(utts, 'The Favorites', FAVORITES_EXPERTS, {
+      expectedParticipants: ['Brandon Kravitz', 'Kendra Middleton', 'Evan Abrams'],
+    });
+    expect(result.F).toBe('Brandon Kravitz');
+    expect(result.E).toBe('Kendra Middleton');
+    expect(result.H).toBe('Evan Abrams');
+  });
+
+  it('maps an introduced non-roster guest from adjacent host intro text', () => {
+    const utts = [
+      utt(130, 156, 'I am Chad Millman. I am joined as always by Simon Hunter. Hello Simon.', 'B'),
+      utt(157, 160, 'Chad. True sports dead period.', 'F'),
+      utt(258, 305, "He's celebrating two years as an NFL analyst at espn. Welcome to the show, Ben Solak.", 'B'),
+      utt(306, 309, 'Thanks, Chad. Appreciate it, brother.', 'D'),
+    ];
+    const result = buildSpeakerMap(utts, 'Sharp or Square', SHARP_EXPERTS);
+    expect(result.B).toBe('Chad Millman');
+    expect(result.F).toBe('Simon Hunter');
+    expect(result.D).toBe('Ben Solak');
+  });
+
+  it('classifies ad-only diarized labels separately from actual episode guests', () => {
+    const utts = [
+      utt(0, 60, 'This episode is sponsored by ZBiotics. Go to zbiotics.com and use code SHARPORSQUARE at checkout.', 'A'),
+      utt(135, 156, 'I am Chad Millman. I am joined as always by Simon Hunter. Hello Simon.', 'B'),
+      utt(157, 160, 'Chad. True sports dead period.', 'F'),
+      utt(258, 305, "He's celebrating two years as an NFL analyst at espn. Welcome to the show, Ben Solak.", 'B'),
+      utt(306, 309, 'Thanks, Chad. Appreciate it, brother.', 'D'),
+      utt(600, 660, 'Call 1-800-GRAINGER or visit grainger.com. Paid for by an advertiser.', 'C'),
+      utt(700, 760, 'Ally Bank member FDIC. Terms and conditions apply.', 'E'),
+    ];
+    const result = buildSpeakerMap(utts, 'Sharp or Square', SHARP_EXPERTS, {
+      expectedParticipants: ['Chad Millman', 'Simon Hunter', 'Ben Solak'],
+    });
+    expect(result.B).toBe('Chad Millman');
+    expect(result.F).toBe('Simon Hunter');
+    expect(result.D).toBe('Ben Solak');
+    expect(result.A).toBe(AD_SPEAKER_LABEL);
+    expect(result.C).toBe(AD_SPEAKER_LABEL);
+    expect(result.E).toBe(AD_SPEAKER_LABEL);
+  });
+});
+
+describe('extractIntroducedGuestName', () => {
+  it('extracts a guest name from a welcome phrase', () => {
+    expect(extractIntroducedGuestName('Welcome to the show, Ben Solak.')).toBe('Ben Solak');
+  });
+
+  it('returns null when no introduction phrase is present', () => {
+    expect(extractIntroducedGuestName('Thanks, Chad. Appreciate it, brother.')).toBeNull();
   });
 });
 

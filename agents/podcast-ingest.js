@@ -444,6 +444,32 @@ async function run() {
       .order('pub_date', { ascending: false })
       .limit(10);
 
+    const queuedIds = (queued ?? []).map(row => row.id).filter(Boolean);
+    let queuedWithTranscripts = new Set();
+    if (queuedIds.length > 0) {
+      const { data: existingTranscripts, error: transcriptErr } = await supabase
+        .from('podcast_transcripts')
+        .select('episode_id')
+        .in('episode_id', queuedIds);
+      if (transcriptErr) {
+        console.warn(`  ⚠ transcript lookup failed: ${transcriptErr.message}`);
+      } else {
+        queuedWithTranscripts = new Set((existingTranscripts ?? []).map(row => row.episode_id));
+      }
+    }
+
+    const staleDoneIds = queuedIds.filter(id => queuedWithTranscripts.has(id));
+    if (staleDoneIds.length > 0) {
+      console.log(`  ↳ ${staleDoneIds.length} queued episode(s) already have transcripts; skipping retry`);
+      if (!DRY_RUN) {
+        const { error: staleErr } = await supabase
+          .from('podcast_episodes')
+          .update({ status: 'done', error_msg: null })
+          .in('id', staleDoneIds);
+        if (staleErr) console.warn(`  ⚠ stale status repair failed: ${staleErr.message}`);
+      }
+    }
+
     // Merge: new episodes (use RSS data) + queued-from-DB (use DB row).
     // Use a Map keyed by guid to deduplicate.
     const toProcessMap = new Map();
@@ -451,6 +477,7 @@ async function run() {
       toProcessMap.set(ep.guid, { ...ep, _fromRss: true });
     }
     for (const row of (queued ?? [])) {
+      if (queuedWithTranscripts.has(row.id)) continue;
       if (!toProcessMap.has(row.guid)) {
         toProcessMap.set(row.guid, {
           guid:          row.guid,
@@ -462,11 +489,20 @@ async function run() {
       }
     }
 
+    const skippedNonNflIds = [];
     const toProcess = [...toProcessMap.values()].filter(ep => {
       if (isNflRelevantEpisode(ep.title)) return true;
       console.log(`  ⏭ skip (non-NFL backlog): "${(ep.title ?? '').slice(0, 70)}"`);
+      if (ep._dbId) skippedNonNflIds.push(ep._dbId);
       return false;
     });
+    if (skippedNonNflIds.length > 0 && !DRY_RUN) {
+      const { error: skipErr } = await supabase
+        .from('podcast_episodes')
+        .update({ status: 'skipped_non_nfl', error_msg: null })
+        .in('id', skippedNonNflIds);
+      if (skipErr) console.warn(`  ⚠ non-NFL skip status update failed: ${skipErr.message}`);
+    }
     if (toProcess.length === 0) {
       console.log(`  ✅ No episodes to process`);
       continue;

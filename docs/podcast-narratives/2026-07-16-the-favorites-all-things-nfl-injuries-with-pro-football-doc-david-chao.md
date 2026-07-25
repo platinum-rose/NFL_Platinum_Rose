@@ -6,19 +6,27 @@
 
 The NFL discussion centered on Super Bowl. Across 1 extracted NFL futures, the lean mix was 1 back/over, 0 fade/under, and 0 neutral or unclear. Teams/players discussed included Chiefs.
 
-## Diarized Experts
+## Episode Participants
 
-- David Chao: 1 extracted NFL futures, attribution unknown ([source note](file:///E:/data/Obsidian/NFL/Podcasts/the-favorites/guest/2026-07-16-all-things-nfl-injuries-with-pro-football-doc-david-chao.md))
+- No participant metadata loaded.
+
+## Extracted Pick Attribution
+
+- David Chao: 1 extracted NFL futures, attribution json_export_transcript_reconciled ([source note](file:///E:/dev/projects/NFL_Dashboard/data/podcasts/m6-diarized/2026-07-16-the-favorites-all-things-nfl-injuries-with-pro-football-doc-david-chao.json))
 
 ## Best Bets / Clear Leans
 
 - **David Chao**: Back Chiefs in Super Bowl - Chiefs will be conservative with Mahomes to avoid risking the Super Bowl.
 
+## Timing / Watchlist Conjectures
+
+- None extracted.
+
 ## NFL Futures Discussed
 
-| Expert | Market | Subject | Lean | Prediction | Conf | Time | Data Cited |
-|---|---|---|---|---|---:|---|---|
-| David Chao | Super Bowl | Chiefs | Back | Chiefs will be conservative with Mahomes to avoid risking the Super Bowl | 65 | - | - |
+| Expert | Market | Subject | Lean | Type | Prediction | Conf | Time | Data Cited |
+|---|---|---|---|---|---|---:|---|---|
+| David Chao | Super Bowl | Chiefs | Back | bet | Chiefs will be conservative with Mahomes to avoid risking the Super Bowl | 65 | - | - |
 
 ## Representative Quotes
 

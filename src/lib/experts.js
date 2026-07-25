@@ -9,7 +9,7 @@
  * - id: unique identifier
  * - name: display name
  * - source: primary show/outlet for display
- * - sourceType: 'podcast' | 'rss_article' | 'tweet' | 'newsletter'
+ * - sourceType: 'podcast' | 'rss_article' | 'tweet' | 'newsletter' | 'ai'
  * - ingestStatus: 'active' | 'manual' | 'deferred'
  * - note: (optional) context on where intel surfaces
  * - aliases: lowercase variations for name matching in ingested content
@@ -173,6 +173,19 @@ export const EXPERTS = [
   // ═══════════════════════════════════════════════════════════════════════════
 
   {
+    id: 37,
+    name: 'Platinum Rose AI',
+    source: 'Platinum Rose AI',
+    sourceType: 'ai',
+    ingestStatus: 'manual',
+    note: 'Paper-tracked AI expert. Official picks are locked through the human-verified Platinum Rose AI ledger, not podcast or RSS ingest.',
+    aliases: ['platinum rose ai', 'platinum rose', 'pra', 'pr ai'],
+    isShow: false,
+    record: '0-0',
+    lastWeek: '0-0',
+  },
+
+  {
     id: 12,
     name: 'Chad Millman',
     source: 'Sharp or Square',
@@ -287,7 +300,7 @@ export const EXPERTS = [
     sourceType: 'podcast',
     ingestStatus: 'active',
     note: 'BettingPros Podcast host/analyst',
-    aliases: ['seth woolcock', 'woolcock'],
+    aliases: ['seth woolcock', 'woolcock', 'seth wilcock', 'wilcock'],
     isShow: false,
     record: '0-0',
     lastWeek: '0-0',

@@ -4,22 +4,31 @@
 
 ## Narrative Summary
 
-The NFL discussion centered on Super Bowl. Across 1 extracted NFL futures, the lean mix was 1 back/over, 0 fade/under, and 0 neutral or unclear. Teams/players discussed included Patrick Mahomes.
+Episode participants: Chad Millman, Simon Hunter. The NFL discussion centered on Super Bowl. Across 1 extracted NFL futures, the lean mix was 1 back/over, 0 fade/under, and 0 neutral or unclear. Teams/players discussed included Patrick Mahomes.
 
-## Diarized Experts
+## Episode Participants
 
-- Chad Millman: 1 extracted NFL futures, attribution host_map ([source note](file:///E:/data/Obsidian/NFL/Podcasts/sharp-or-square/chad-millman/2026-04-09-nfl-quarterback-evaluation-with-seth-wickersham-of-espn.md))
+- Chad Millman
+- Simon Hunter
+
+## Extracted Pick Attribution
+
+- Chad Millman: 1 extracted NFL futures, attribution json_export_transcript_reconciled ([source note](file:///E:/dev/projects/NFL_Dashboard/data/podcasts/m6-diarized/2026-04-09-sharp-or-square-nfl-quarterback-evaluation-with-seth-wickersham-of-espn.json))
 
 ## Best Bets / Clear Leans
 
-- **Chad Millman**: Back Patrick Mahomes in Super Bowl - Mahomes is the best quarterback to win a Super Bowl next year..
+- **Chad Millman** (7:39): Back Patrick Mahomes in Super Bowl - Mahomes is the best quarterback to win a Super Bowl next year..
+
+## Timing / Watchlist Conjectures
+
+- None extracted.
 
 ## NFL Futures Discussed
 
-| Expert | Market | Subject | Lean | Prediction | Conf | Time | Data Cited |
-|---|---|---|---|---|---:|---|---|
-| Chad Millman | Super Bowl | Patrick Mahomes | Back | Mahomes is the best quarterback to win a Super Bowl next year. | 65 | - | - |
+| Expert | Market | Subject | Lean | Type | Prediction | Conf | Time | Data Cited |
+|---|---|---|---|---|---|---:|---|---|
+| Chad Millman | Super Bowl | Patrick Mahomes | Back | bet | Mahomes is the best quarterback to win a Super Bowl next year. | 65 | 7:39 | - |
 
 ## Representative Quotes
 
-- **Chad Millman on Patrick Mahomes:** "Mahomes. Every time it's Mahomes. I don't even care if he's playing on one leg next year."
+- **Chad Millman on Patrick Mahomes (7:39):** "Mahomes. Every time it's Mahomes. I don't even care if he's playing on one leg next year."

@@ -326,6 +326,7 @@ async function run() {
 
     // Build user_picks rows — skip non-NFL picks (UFC, NBA, etc.)
     const rows = [];
+    let transcriptErrors = 0;
     for (let i = 0; i < picks.length; i++) {
       const pick = picks[i];
 
@@ -351,12 +352,20 @@ async function run() {
         totalPicks++;
       } catch (buildErr) {
         console.error(`   ❌ Failed to build pick ${i}: ${buildErr.message}`);
+        transcriptErrors++;
         totalErrors++;
       }
     }
 
     if (rows.length === 0 || DRY_RUN) {
       if (DRY_RUN) console.log(`   [DRY RUN] Would upsert ${rows.length} pick(s)`);
+      if (!DRY_RUN && transcriptErrors === 0) {
+        await supabase
+          .from('podcast_transcripts')
+          .update({ picks_promoted_at: new Date().toISOString() })
+          .eq('id', transcript.id);
+        console.log('   ✅ Marked handled (all picks skipped)');
+      }
       continue;
     }
 

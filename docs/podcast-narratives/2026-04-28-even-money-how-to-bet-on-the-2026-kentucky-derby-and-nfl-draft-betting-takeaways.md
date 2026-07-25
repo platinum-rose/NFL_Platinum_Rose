@@ -1,4 +1,4 @@
-# Even Money - How to bet on the 2026 Kentucky Derby & NFL Draft Betting Takeaways!
+# Even Money - How to bet on the 2026 Kentucky Derby &amp; NFL Draft Betting Takeaways!
 
 *Published: 2026-04-28 - Generated from offline podcast host-summary vault notes.*
 
@@ -6,9 +6,13 @@
 
 The NFL discussion centered on NFC East Win Total, AFC West Win Total, NFC West Win Total. Across 5 extracted NFL futures, the lean mix was 2 back/over, 3 fade/under, and 0 neutral or unclear. Teams/players discussed included Giants, Raiders, Rams, 49ers.
 
-## Diarized Experts
+## Episode Participants
 
-- Ross Tucker: 5 extracted NFL futures, attribution unknown ([source note](file:///E:/data/Obsidian/NFL/Podcasts/even-money/guest/2026-04-28-how-to-bet-on-the-2026-kentucky-derby-and-nfl-draft-betting-.md))
+- No participant metadata loaded.
+
+## Extracted Pick Attribution
+
+- Ross Tucker: 5 extracted NFL futures, attribution json_export_transcript_reconciled ([source note](file:///E:/dev/projects/NFL_Dashboard/data/podcasts/m6-diarized/2026-04-28-even-money-how-to-bet-on-the-2026-kentucky-derby-and-nfl-draft-betting-takeaways.json))
 
 ## Best Bets / Clear Leans
 
@@ -18,15 +22,19 @@ The NFL discussion centered on NFC East Win Total, AFC West Win Total, NFC West 
 - **Ross Tucker**: Over Raiders in AFC West Win Total - Raiders over 5.5 wins.
 - **Ross Tucker**: Under Rams in NFC West Win Total - Rams under 11.5 wins.
 
+## Timing / Watchlist Conjectures
+
+- None extracted.
+
 ## NFL Futures Discussed
 
-| Expert | Market | Subject | Lean | Prediction | Conf | Time | Data Cited |
-|---|---|---|---|---|---:|---|---|
-| Ross Tucker | NFC East Win Total | Giants | Over | Giants over 7.5 wins | 65 | - | Giants went 4 and 13 last year; Minus 58 in point differential |
-| Ross Tucker | AFC West Win Total | Raiders | Over | Raiders over 5.5 wins | 65 | - | - |
-| Ross Tucker | NFC West Win Total | Rams | Under | Rams under 11.5 wins | 65 | - | - |
-| Ross Tucker | NFC West Win Total | 49ers | Under | 49ers under 10.5 wins | 65 | - | 49ers won 12 and 5 last year; Plus 66 in point differential |
-| Ross Tucker | NFC West Win Total | 49ers | Under | under 10.5 | 65 | - | Niners won 12 and 5 last year; plus 66 in point differential |
+| Expert | Market | Subject | Lean | Type | Prediction | Conf | Time | Data Cited |
+|---|---|---|---|---|---|---:|---|---|
+| Ross Tucker | NFC East Win Total | Giants | Over | bet | Giants over 7.5 wins | 65 | - | Giants went 4 and 13 last year; Minus 58 in point differential |
+| Ross Tucker | AFC West Win Total | Raiders | Over | bet | Raiders over 5.5 wins | 65 | - | - |
+| Ross Tucker | NFC West Win Total | Rams | Under | bet | Rams under 11.5 wins | 65 | - | - |
+| Ross Tucker | NFC West Win Total | 49ers | Under | bet | 49ers under 10.5 wins | 65 | - | 49ers won 12 and 5 last year; Plus 66 in point differential |
+| Ross Tucker | NFC West Win Total | 49ers | Under | bet | under 10.5 | 65 | - | Niners won 12 and 5 last year; plus 66 in point differential |
 
 ## Representative Quotes
 

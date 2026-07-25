@@ -1,0 +1,195 @@
+# Even Money - The 5 Best Sports Betting Contest Strategies
+
+Published: 2026-05-26T13:35:00+00:00
+Episode ID: 9f084bc2-fcb3-4a94-900c-75406906c5e9
+Status: done
+Duration: 1768 seconds
+Audio: https://www.podtrac.com/pts/redirect.mp3/pdst.fm/e/arttrk.com/p/DF7K3/claritaspod.com/measure/pscrb.fm/rss/p/traffic.megaphone.fm/DFT8150406869.mp3
+
+Transcript chars: 23237
+Speaker turns: 43
+Speaker labels: Ross Tucker (Speaker A), Guest (Speaker B), Guest (Speaker C)
+
+## Speaker Map
+
+- Speaker A: Ross Tucker
+- Speaker B: Guest
+- Speaker C: Guest
+
+## Existing Host Summary Rows
+
+- None
+
+## Diarized Turns
+
+### Ross Tucker (Speaker A) [0:02-0:05]
+
+You're listening to DraftKings Network.
+
+### Guest (Speaker B) [0:09-0:20]
+
+If you like to make your NFL games a little bit more interesting, you've come to the right place. It's the Even Money Podcast with Ross Tucker and Steve Pezyk. Yeah.
+
+### Guest (Speaker C) [0:20-4:05]
+
+Vegas, baby. Vegas. It is the Even Money Betting podcast, the number one NFL betting podcast in the world. You know why? Because A, people love the show whether they listen or watch YouTube.com Ross Tucker NFL and, and B, I said A or 1. I don't know, B, 2, whatever. We win. We actually win. We win like every year and certainly over time we definitely win. We'll get into more of that over the course of the off season. Today, though, a lot of you are going to love it is Steve's contest commandments. What does that mean? There's a lot of public contests out there for football season. They'll be starting up before you know it. This is our last episode before June. Everybody's got their full squad mini camps next week. The season is going to be here before you know it. So these contests are going to be popping up. Which ones should you enter? Where do you have the best chances? What about the contests that are just amongst your friends or maybe our friends at Splash Sports or what? There's a million different things to do and talk about a million different options. We happen to have the guy that, as far as I know, is the best publicly available contest participant over the last 30 years. If there's someone that's better, we would love to have them on the show. We would love to hear about him. But I'm putting my money until I see otherwise on my guy, Steve Fesik. He's at pheasicsports on social media and only at Pheasick Sports. There's a number of imposters trying to profit off of his name, off of his success. It's only at Physics Sports. I'm at Ross Tucker NFL, the former NFL offensive lineman that now calls games for CBS on television, Westwood One on radio. Very much looking forward to this season, but going to enjoy a little bit more of the off season before. Before the grind starts with the Eagles first preseason game in August. Got a little over two months to enjoy. You can check me out at Ross Tucker NFL. Certainly check us out at Ross Tucker Pod. Highly encourage you always to follow us on social media. Then you see what we're doing on the other shows. The college draft podcast. We're breaking down every draft choice and the Ross Tucker Football Podcast. Crazy interesting to hear from Will Levis, his mom, Beth Levis the last couple days with what she's doing during Mental health awareness Month, how her kids, including will have been affected. It's, it's wow. Everything to do with cell phones and social media. That, that was, I was not expecting the conversation to go that way, but it did. I am expecting this conversation to be about contest strategies. So let's start 30,000 foot view. Steve, before we get into your commandments, before we get into, you know, different strategies or what are the different type of contests that are available, what are the most well known contests? Certainly even like here in Pennsylvania. I know some of my family members participate in a survivor contest, whatever people call it suicide pool. I mean there's a lot out there that seems to be one of the most popular ones. What, what are the different contests that are available, Steve?
+
+### Ross Tucker (Speaker A) [4:05-5:24]
+
+So obviously I live in Las Vegas, so I'm Vegas centric, but it's. You nailed it, Ross. Throughout the country there's all kinds of offerings. And for someone who doesn't bet big, doesn't have a big bankroll, you know, free goes a long way. And inevitably there's all kinds of contests. Like the ultimate contest is like, like NCAA tournament. Like you perfect bracket, you get a billion dollars. Why not enter, right. If there's no entry fee and the like. So the, the cheapo contests are the free contests. I would enter all of them. Why not? It's a free roll. Or even here locally they have last man standing at station, pick one winner every week and survive in advance against the spread. $25 for one entry, $100 for five entries. Low roller paradise contests like that UGV. And a big part of the evidence, Ross, is that people get busy. It inevitably people just don't put in their picks. It's amazing. You'd say, oh, I've committed to doing it. But each and every year that happens further. There are some contests, obviously people trying to make a name, trying to grow a fan base and they just put up a prize pool and it's free for everyone. So for the low rollers, I would absolutely enter every one of those.
+
+### Guest (Speaker C) [5:26-5:46]
+
+Okay, what are some of the more popular, more well known ones? Obviously you won the super contest at the Westgate multiple years back to back, and correct me if I'm wrong, but you, you were in the money by a pretty solid margin in both at both circa and the Westgate last year, is that right?
+
+### Ross Tucker (Speaker A) [5:46-6:21]
+
+Yes. So the times they are changing. The Westgate sportsbook has been taken over by Caesars. Will there be a World Series of Sports Betting At Caesars now that they are controlled. The Westgate sportsbook we will see. I'm excited to see the announcement of what they're going to be doing. I did finish first in the second half Westgate contest last year after a horrific first half of the season. I went 34, 9 and 1 to pocket 50,000 in the Westgate second half of the season. But Circa has just.
+
+### Guest (Speaker C) [6:21-6:36]
+
+Pause, pause, pause, pause. Steve, I got a lot of questions before I forget. We'll get to the Circa on the Westgate. How does it work? Like how many, how many games do you pick each week? You said 34, nine and one. Second half of the year.
+
+### Ross Tucker (Speaker A) [6:37-6:41]
+
+Yeah. So five picks every week, 18 weeks.
+
+### Guest (Speaker C) [6:41-6:41]
+
+Against the spread.
+
+### Ross Tucker (Speaker A) [6:42-6:58]
+
+Against the spread, Exactly. So similar format to Circle. I'm sorry, the, the, the Circa Millions. And we will see the super contest. The Caesars folks say they're going to continue it and we're waiting to hear the details regarding it. Circa Millions.
+
+### Guest (Speaker C) [7:01-7:15]
+
+Okay. You get $50,000 for winning the second half. So they do that so that people that do terrible in the first half, like evidently you did still have incentive or still are excited about it 100%.
+
+### Ross Tucker (Speaker A) [7:16-7:43]
+
+And that's a tweak that's happened to a lot of contests. I give Derek Stevens and Jeff Benson credit at Circa for really innovating. That where there's quarterly prizes, there are first half prizes, there are booby prizes for the worst finishers. So because of that it's, it's a lot more attractive. You have a couple really bad weeks, you're not out of it. You can still win big money.
+
+### Guest (Speaker C) [7:45-7:46]
+
+What was the entry fee for that
+
+### Ross Tucker (Speaker A) [7:47-7:54]
+
+thousand dollars for circa? Millions and $1,000 I believe for Westgate it could be wrong. Could have been 1500.
+
+### Guest (Speaker C) [7:55-8:05]
+
+So let's just say it's a thousand for Westgate. You did horrible in the first half, but then because you won the second half, you won 50,000. So you won $49,000.
+
+### Ross Tucker (Speaker A) [8:06-8:58]
+
+Yes. And you know, this goes all the way back to 2005. I know. That was like a thousand years ago when I won the back to back contest and won 200,000 plus in each year. And I remember mid 2000s telling everyone what a tremendous overlay sports betting tournaments were. And people like universally laughed at me. What would Fezic. What could he possibly know that, that these hall of fame bookmakers don't know and he's smoking crack and like he doesn't even have a positive expectation. And then after I won like my sixth contest, people said, well, all right, maybe dude has a Point, but there was a period of time where I had a drought. But I've won, you know, three of the. I've had three contest wins in the past three years. And so people are like, okay, maybe he knows what he's talking about with these contests and you should listen.
+
+### Guest (Speaker C) [8:59-9:14]
+
+Okay, so places like Circa and Westgate have, what do they call just the super contest or whatever and you're picking five games a week. Then are there any big Survivor contests that you're in?
+
+### Ross Tucker (Speaker A) [9:14-10:18]
+
+Steve, while Circa Survivor has become the. It's everything for most people. So think about this. Why is it everything? There's a projection that there's going to be a prize pool of over $20 million this year. Ross, it's winner take all. So one person, one dude could win it all. Now that's unlikely. There's probably going to be about 20 winners. We will see. But if there's a whole lot of upsets, especially on the weeks like Christmas and Thanksgiving, you could well see a sole Survivor. Although it's very unlikely and it's the most exciting contest. That's why everyone love signing up for Circus Survivor. Now pulling back the curtain. There's a lot more luck in Circus Survivor than in Circa Millions, the contest where you pick five games a week against the spread. But with that luck, the Everyman has a much better chance to go ahead and go all the way and get the big title.
+
+### Guest (Speaker C) [10:19-11:01]
+
+So I have a question. I don't remember and correct me if I'm wrong, I don't remember you killing it on this show with our bets every week, the second half of last year, if you remember. So obviously Steve and I were both in the black. I had a really good year. We do very well on the show. I don't remember you doing that well. I mean, I know you did well the second half of the year, but not whatever that number you just threw out there. 36, 9 and 1. Obviously on this show we're placing our bets Tuesday morning at 8:25am what's the difference between that and and how you do it for Westgate and Circa?
+
+### Ross Tucker (Speaker A) [11:02-12:06]
+
+Great question. It's all about the point spread. It wouldn't be unusual on a Tuesday before our show that Ross and I might like an underdog plus three and a half on a game. Then fast forward to Saturday afternoon. That same game is two and a half. On the contest I might well be playing the favorite and minus two and a half. I play really good numbers. I look to get the best of it and in my own bets and in contest play. That's really what has differentiated me from other people. A lot of other folks in the media will say, say things like, hey, week one, I like the Vikings against Green Bay. I think they're going to win. I like them at any spread. And I'd be like, no, I only like the Vikings if they're the underdog. As soon as they become the favorite, like we talked about on Thanksgiving, I gave out on the show. I said, cowboys plus one half against the Eagles Thanksgiving. And now someone came up to me and said, oh, Fez, you like the Cowboys to beat the Eagles in November? I'm like, no, I like the Cowboys plus one half. Don't like them anymore. It's all about getting the best of the number.
+
+### Guest (Speaker C) [12:10-13:05]
+
+More great stuff right after this. Summer has officially started in my mind, which means it's even a better time to get some labat beer. They know a thing or two about friendly rivalries. Born in Canada, brewed in the US United by the sacred art of trash talks. You guys know the best friendships come with nicknames. You didn't approve. Man, there's way too many stories I can't escape and just enough roasting to keep things honest. So when your team is staring down third and long crack a cold one, roast responsibly and give a toast to the people who give you the hardest time. Le bat brewed for the roast. All right, so you mentioned specifically Thanksgiving and Christmas. Why for survivors?
+
+### Ross Tucker (Speaker A) [13:06-14:17]
+
+Because, and I gotta give credit for circa they innovent they invented the double week, I believe. Maybe they didn't invent it, but they perfected it. So come Thanksgiving week, you have to. If it's week 12, there's a week 12A and a 12B and you have to pick a survivor winner for the first half of the week and you have to pick a survivor winner the second half of the week. Well, last year all the favorites lost on Thanksgiving and that was wreaked havoc in survivor. But this year it's a different type of Havoc. Ross, there's five games and there's not one big favorite. There's 10 good teams playing early week Thanksgiving. Green Bay at the Rams, Chicago at Detroit, Philly at Dallas. You've got Kansas City at Buffalo, you've got Denver at Pittsburgh. None of those spreads are higher than three and a half, which is going to make it very difficult trying to chart your path in terms of which teams you want to save potentially for that weekend. It's the same thing for Christmas, same situation. A bunch of lines close to pick
+
+### Guest (Speaker C) [14:17-14:26]
+
+them so wait, do you think a lot of people should or will try to save picks, save teams for Thanksgiving and Christmas?
+
+### Ross Tucker (Speaker A) [14:26-15:14]
+
+Historically that has been the correct thing to do to chart a path. But historically you had situations where you had a projected seven point favorite. Now you don't have any big favorites. So you know, the only advice I can really give is that the Rams, Denver, Chicago and Buffalo, those four teams, Rams, Denver, Chicago, Buffalo, play early week Thanksgiving and early week Christmas because they have two games. If you are going to save some teams because you never know when a quarterback's going to get hurt and that changes the line six points potentially you might want to save those four teams because you've got two kicks at the can if you will potentially to use them early Thanksgiving or early Christmas.
+
+### Guest (Speaker C) [15:15-15:36]
+
+By the way, Steve does have a week one best bet that we will get to in a little bit. But we've got to get to your number one commandment. He has the five commandments of good contest play in ATS contests. Give me the, give me commandment number one.
+
+### Ross Tucker (Speaker A) [15:36-17:34]
+
+Steve, get your picks in before the deadline. Now this seems so simplistic I shouldn't even have to list it, but it's actually my number one commandment because it's remarkable how many people don't do it to the point that we're going to put an over under on the number of people who forget to, to put in their picks. And like famously there was one guy in Circus Survivor last year who had 10 entries, 10 entries, $10,000 bagel, no picks, week one, got the deadline wrong, didn't put any of them in. That, that's a quick 10,000. Although to be fair, to be fair, I remember there was the poker player Phil Ivey one time entered a $10,000 World Series of Poker tournament and he was playing apparently in some game in Vegas, high level game that was so valuable he's like, oh this is like I should be making 5,000 an hour in this game. I can't, I can't, I can't go play the tournament. It's, it's, I gotta just like lose my 10k because the, the other game is so bad. So maybe this guy had something else going on that was that important. But part of the overlay is even if there's like Derek Stevens and circa, they have a guarantee and it's going to be a 6 million dollar guarantee and circa millions. There was an overlay last year, but even if there wasn't an overlay there will be just from the people who don't get their picks in on some weeks. And more commonly with these quarterly prizes late in the year, Ross, inevitably there's someone who will be sucking and they'll say, well, I'm done. So for the year. And they just stop putting in their picks, forgetting that they could have won one of the later contest prizes for like the last three weeks or you know, the week 13 through 16. They have, they have prizes every three to four weeks. I think they have quarterly prizes in Circa and they have one six blocks in the super contest where you can win a contest.
+
+### Guest (Speaker C) [17:35-17:37]
+
+What do you mean overlay? What does that mean?
+
+### Ross Tucker (Speaker A) [17:37-18:07]
+
+Overlay is where they guarantee a certain amount of money. So Circa is guaranteeing $6 million in circa millions. They would need 6,000 entries to reach that. Six million they didn't get there last year, so they only got like 50, 600 to sign up. 5.6 million in the prize pool. And Circa just cuts a check. Here's 400,000. They put it right into the prize pool. So if everybody tied each and every week, everyone would get back an 8% return on investment.
+
+### Guest (Speaker C) [18:07-18:11]
+
+Ooh, okay, what's commandment number two, Steve?
+
+### Ross Tucker (Speaker A) [18:11-19:16]
+
+All right, we got to get our picks in, Ross, but we want to put them in as late as possible. So don't wait till the very last minute. But you want perfect information. You don't want to go ahead and submit your plays on Friday morning when the deadline is Saturday at 3pm because quarterbacks get injured, key injuries get reported late. So you want perfect information before you fire. You're firing against stale numbers, mind you, so you can take advantage oftentimes of playing a stale number with late breaking injury information. And you know, pursuant to that, you want to have a proxy if you're out of town that lets you. The proxy will put in your picks for you. Say if you're Nebraska and you just come out to Vegas in June, you sign up for the contest, your proxy is going to put your picks in. You want a proxy that's going to put them in as late as possible. So all of them are a little bit different in terms of when their cutoffs are. And you are at a key competitive disadvantage if you are submitting significantly earlier than your. Your competition.
+
+### Guest (Speaker C) [19:18-19:23]
+
+Got it. Okay. Given that, what is commandment number three?
+
+### Ross Tucker (Speaker A) [19:23-20:19]
+
+Don't play the Thursday game. I don't care that you absolutely love that Thursday game because even if you have the best of it. So you submit your picks ten minutes before the Thursday game kicks off. You got to play the other four games. And because of that that puts you at a huge competitive disadvantage, having to lock in four more games without having perfect information. Now, some contests let you change your other picks. Splash sports, you can submit your five picks, but if the game hasn't started, you can go back and change it. If that's the case, you can absolutely play the Thursday game. But if you're locked in on all five plays and you have to hit submit, I would say I can't ever remember playing a Thursday game because of that. Because then you're just pulling your hair out when the Friday injury reports come out and you have played with incomplete imperfect information and wind up with a bad number.
+
+### Guest (Speaker C) [20:20-20:33]
+
+Yeah, that doesn't make sense at all. I'm with you on that one, 1,000%. Okay, Steve Fesik five commandments of contest strategies commandment number four.
+
+### Ross Tucker (Speaker A) [20:33-21:22]
+
+Number four. Look to play great numbers. I don't care if you don't have an opinion on a game. Ross. If a line is minus three and it steams up to minus five, and for contest purposes you can lay minus three, it's poker players have a term. There's certain hands like certain poker players. I'm not good enough to fold pocket kings. If I get dealt pocket kings and you keep re raising me, I'm putting it all in. I don't care how many big blinds I have, I'm not good enough to lay down my kings against you. And even though I'm certain you have pocket aces. Similarly, if an NFL line is four and a half or higher and I can lay minus three, it's going on my contest card. I'm going with it because it's just too good a number not to make my top five picks.
+
+### Guest (Speaker C) [21:23-21:29]
+
+Okay, and then last but not least, what is your fifth contest commandment?
+
+### Ross Tucker (Speaker A) [21:30-22:28]
+
+Now this is controversial, but I feel strongly about this. Don't take a bad number. Let's say you love an underdog and the contest line is plus three, but the market line is three and a half. Whenever you play in a contest and you select a team, it's like having an implicit bet on that team of whatever that the value of your contest is times the percentage of that pick. So thousand dollar entry fee, I would say week one, it's like betting 200 approximately on that team. Well, I don't want to bet $200 +3 when I could just go to the window and bet plus three and a half on a straight bet. So if you love a game and you got screwed by the contest and they gave you a bad number, just leave it off. Your contest card and just bet more at DraftKings +3/2 or some other book. That's the way to invest in that team rather than take the bad number in the contest.
+
+### Guest (Speaker C) [22:30-24:04]
+
+Got it? Love it. All right, so number one, get your picks in. Number two, don't submit them early. Number three, you can't play the Thursday game. Number four, look to play great numbers. Number five, rarely correct to play a bad number. I want to make sure, by the way, everybody knows these next couple months we're going to get to a lot of your email questions, which is super fun because you guys, we get them all. We keep them all. You guys have amazing email questions. Keep sending them to me. Ross rosstucker.com make sure you put, you know, the questions for Steve or for even money in the subject line. And if you take advantage of any of our sponsors or if you just rate and review the show, we'll put your question at the top of the queue to make sure it gets answered. We also want everybody to know about the boot camp Steve is having. July 31st and August 1st. Save those dates. We'll get into more of that later in the show or next week we'll dive into it. But he is having a boot camp. It's July 31st and August 1st. Save the date. Some of you have direct message us about that. You've emailed us about that. He's having it. But we got to make sure we get to the best bet because we try to do a best bet every week. Steve has a best bet today. It's not NBA, it's not NHL. It's week, week one NFL. What do you got, Steve?
+
+### Ross Tucker (Speaker A) [24:04-24:33]
+
+All right, so Green Bay at the Vikings. You know, the Vikings won nine games last year with just horrific quarterback play. I think this should be a very competitive game. I am not confident Green Bay should be favored in this game. I think Minnesota could has the potential to go off as the favorite. And right now Green Bay is plus one and a half as the underdog. I'm sorry, Minnesota's plus one and a half. So as the underdog, I'm going to invest in the Vikings plus 1/2 as an NFL Week 1 best bet.
+
+### Guest (Speaker C) [24:35-24:37]
+
+And where is that game? Oh, they're home.
+
+### Ross Tucker (Speaker A) [24:37-24:40]
+
+Too big home field. Yes.
+
+### Guest (Speaker C) [24:41-25:02]
+
+Yeah, that's a good home field advantage as well. Green Bay certainly has some changes on the coaching staff. They lost their D coordinator. They lost their quarterback coach. They did not add a lot of pieces. So that is notable. We do have, we don't have enough time for a question, Steve. So just hit me up on the boot camp and what we need to know.
+
+### Ross Tucker (Speaker A) [25:03-25:56]
+
+So July 31, August 1, it'll be in Vegas. Set aside the dates. I'll give you the details. By the way, for those going to the Bet Bash seminar, which I would recommend, I will be on a panel Bet Bash that is the following week. I think it's August 4th. So you can incorporate both if you want to come out to Vegas, you, you know, for a full week. Really looking forward to that. Hey, I would be remiss. Had some great luck in these contests. Circa millions two of the last three years finished in the top 21 out of 5,000 plus people. But there's always somebody better. Ross, Jason Jarvis, this dude I believe I don't have the details. I think he had two top five finishes the last three years. So wow, that ain't luck. So anyone who's listening to Fez saying, well, he did well with these contests, but of course he doesn't bring up someone better. Now Jason Jarvis has just been.
+
+### Guest (Speaker C) [25:56-26:26]
+
+All right, well, kudos. Maybe we should get Jason Jarvis on the show at some point. What you all should do is make sure you're rating and reviewing. Subscribe and share the Even Money Betting podcast. We'll be back next week with some of your questions. Good luck everybody. Hope you guys win some money. Thanks for tuning in to the Even Money podcast. Make sure to also check out the College Draft podcast and the Ross Tucker Football podcast, Both on the DraftKings network, YouTube or subscribe on your favorite podcast platform.

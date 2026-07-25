@@ -6,21 +6,29 @@
 
 The NFL discussion centered on NFL Season Rushing Yards, NFL Season Receiving Yards. Across 2 extracted NFL futures, the lean mix was 0 back/over, 2 fade/under, and 0 neutral or unclear. Teams/players discussed included Derrick Henry, A.J. Brown.
 
-## Diarized Experts
+## Episode Participants
 
-- Ross Tucker: 2 extracted NFL futures, attribution unknown ([source note](file:///E:/data/Obsidian/NFL/Podcasts/even-money/guest/2026-06-09-brendan-sorsby-eligibility-fallout-and-nfl-season-long-playe.md))
+- No participant metadata loaded.
+
+## Extracted Pick Attribution
+
+- Ross Tucker: 2 extracted NFL futures, attribution json_export_transcript_reconciled ([source note](file:///E:/dev/projects/NFL_Dashboard/data/podcasts/m6-diarized/2026-06-09-even-money-brendan-sorsby-eligibility-fallout-and-nfl-season-long-player-props.json))
 
 ## Best Bets / Clear Leans
 
 - **Ross Tucker**: Under Derrick Henry in NFL Season Rushing Yards - under 1275. Reason/data cited: Derrick Henry is 32 years old; 1275 yards is the number set for him.
 - **Ross Tucker**: Under A.J. Brown in NFL Season Receiving Yards - under 1125. Reason/data cited: A.J. Brown's production fell off; He's at 1125 yards.
 
+## Timing / Watchlist Conjectures
+
+- None extracted.
+
 ## NFL Futures Discussed
 
-| Expert | Market | Subject | Lean | Prediction | Conf | Time | Data Cited |
-|---|---|---|---|---|---:|---|---|
-| Ross Tucker | NFL Season Rushing Yards | Derrick Henry | Under | under 1275 | 65 | - | Derrick Henry is 32 years old; 1275 yards is the number set for him |
-| Ross Tucker | NFL Season Receiving Yards | A.J. Brown | Under | under 1125 | 65 | - | A.J. Brown's production fell off; He's at 1125 yards |
+| Expert | Market | Subject | Lean | Type | Prediction | Conf | Time | Data Cited |
+|---|---|---|---|---|---|---:|---|---|
+| Ross Tucker | NFL Season Rushing Yards | Derrick Henry | Under | bet | under 1275 | 65 | - | Derrick Henry is 32 years old; 1275 yards is the number set for him |
+| Ross Tucker | NFL Season Receiving Yards | A.J. Brown | Under | bet | under 1125 | 65 | - | A.J. Brown's production fell off; He's at 1125 yards |
 
 ## Representative Quotes
 

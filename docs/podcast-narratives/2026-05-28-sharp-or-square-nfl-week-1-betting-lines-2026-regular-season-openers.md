@@ -4,28 +4,37 @@
 
 ## Narrative Summary
 
-The NFL discussion centered on AFC North, AFC South. Across 3 extracted NFL futures, the lean mix was 3 back/over, 0 fade/under, and 0 neutral or unclear. Teams/players discussed included Browns, Titans, Ravens.
+Episode participants: Chad Millman, Simon Hunter. The NFL discussion centered on AFC North, AFC South. Across 3 extracted NFL futures, the lean mix was 3 back/over, 0 fade/under, and 0 neutral or unclear. Teams/players discussed included Browns, Titans, Ravens.
 
-## Diarized Experts
+## Episode Participants
 
-- Simon Hunter: 3 extracted NFL futures, attribution unknown ([source note](file:///E:/data/Obsidian/NFL/Podcasts/sharp-or-square/guest/2026-05-28-nfl-week-1-betting-lines-2026-regular-season-openers.md))
+- Chad Millman
+- Simon Hunter
+
+## Extracted Pick Attribution
+
+- Simon Hunter: 3 extracted NFL futures, attribution json_export_transcript_reconciled ([source note](file:///E:/dev/projects/NFL_Dashboard/data/podcasts/m6-diarized/2026-05-28-sharp-or-square-nfl-week-1-betting-lines-2026-regular-season-openers.json))
 
 ## Best Bets / Clear Leans
 
-- **Simon Hunter**: Back Browns in AFC North - Browns +7.5. Reason/data cited: Browns defense is amazing; Trevor Lawrence struggled with turnovers.
-- **Simon Hunter**: Back Titans in AFC South - Titans -2.5.
-- **Simon Hunter**: Back Ravens in AFC North - Ravens -3.5. Reason/data cited: Ravens defense is going to be so much better with Minter.
+- **Simon Hunter** (15:42): Back Browns in AFC North - Browns +7.5. Reason/data cited: Browns defense is amazing; Trevor Lawrence struggled with turnovers.
+- **Simon Hunter** (18:39): Back Titans in AFC South - Titans -2.5.
+- **Simon Hunter** (20:54): Back Ravens in AFC North - Ravens -3.5. Reason/data cited: Ravens defense is going to be so much better with Minter.
+
+## Timing / Watchlist Conjectures
+
+- None extracted.
 
 ## NFL Futures Discussed
 
-| Expert | Market | Subject | Lean | Prediction | Conf | Time | Data Cited |
-|---|---|---|---|---|---:|---|---|
-| Simon Hunter | AFC North | Browns | Back | Browns +7.5 | 65 | - | Browns defense is amazing; Trevor Lawrence struggled with turnovers |
-| Simon Hunter | AFC South | Titans | Back | Titans -2.5 | 65 | - | - |
-| Simon Hunter | AFC North | Ravens | Back | Ravens -3.5 | 65 | - | Ravens defense is going to be so much better with Minter |
+| Expert | Market | Subject | Lean | Type | Prediction | Conf | Time | Data Cited |
+|---|---|---|---|---|---|---:|---|---|
+| Simon Hunter | AFC North | Browns | Back | bet | Browns +7.5 | 65 | 15:42 | Browns defense is amazing; Trevor Lawrence struggled with turnovers |
+| Simon Hunter | AFC South | Titans | Back | bet | Titans -2.5 | 65 | 18:39 | - |
+| Simon Hunter | AFC North | Ravens | Back | bet | Ravens -3.5 | 65 | 20:54 | Ravens defense is going to be so much better with Minter |
 
 ## Representative Quotes
 
-- **Simon Hunter on Browns:** "I couldn't believe this was over a touchdown. It's like my God, in week one."
-- **Simon Hunter on Titans:** "It's the perfect number to take Cam Ward in this Tennessee team that we think would be in the jets."
-- **Simon Hunter on Ravens:** "I don't get this line Chad, and I don't hate your early read either."
+- **Simon Hunter on Browns (15:42):** "I couldn't believe this was over a touchdown. It's like my God, in week one."
+- **Simon Hunter on Titans (18:39):** "It's the perfect number to take Cam Ward in this Tennessee team that we think would be in the jets."
+- **Simon Hunter on Ravens (20:54):** "I don't get this line Chad, and I don't hate your early read either."

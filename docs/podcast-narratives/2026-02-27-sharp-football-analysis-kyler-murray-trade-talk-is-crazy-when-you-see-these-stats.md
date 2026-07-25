@@ -6,7 +6,11 @@
 
 The NFL discussion centered on Super Bowl. Across 1 extracted NFL futures, the lean mix was 0 back/over, 1 fade/under, and 0 neutral or unclear. Teams/players discussed included Kyler Murray.
 
-## Diarized Experts
+## Episode Participants
+
+- No participant metadata loaded.
+
+## Extracted Pick Attribution
 
 - Warren Sharp: 1 extracted NFL futures, attribution single_host ([source note](file:///E:/data/Obsidian/NFL/Podcasts/sharp-football-analysis/warren-sharp/2026-02-27-kyler-murray-trade-talk-is-crazy-when-you-see-these-stats.md))
 
@@ -14,11 +18,15 @@ The NFL discussion centered on Super Bowl. Across 1 extracted NFL futures, the l
 
 - **Warren Sharp**: Fade Kyler Murray in Super Bowl - I just don't think he's winning a Super Bowl. Reason/data cited: Kyler Murray has not been good playing football, throwing the ball down the field in a dome for most of the last four years.
 
+## Timing / Watchlist Conjectures
+
+- None extracted.
+
 ## NFL Futures Discussed
 
-| Expert | Market | Subject | Lean | Prediction | Conf | Time | Data Cited |
-|---|---|---|---|---|---:|---|---|
-| Warren Sharp | Super Bowl | Kyler Murray | Fade | I just don't think he's winning a Super Bowl | 65 | - | Kyler Murray has not been good playing football, throwing the ball down the field in a dome for most of the last four years |
+| Expert | Market | Subject | Lean | Type | Prediction | Conf | Time | Data Cited |
+|---|---|---|---|---|---|---:|---|---|
+| Warren Sharp | Super Bowl | Kyler Murray | Fade | bet | I just don't think he's winning a Super Bowl | 65 | - | Kyler Murray has not been good playing football, throwing the ball down the field in a dome for most of the last four years |
 
 ## Representative Quotes
 

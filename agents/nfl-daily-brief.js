@@ -28,6 +28,7 @@
 // ═══════════════════════════════════════════════════════════════════════════════
 
 import { mkdir, writeFile } from 'node:fs/promises';
+import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createClient } from '@supabase/supabase-js';
@@ -38,6 +39,7 @@ const __filename  = fileURLToPath(import.meta.url);
 const __dirname   = path.dirname(__filename);
 const ROOT        = path.resolve(__dirname, '..');
 const RECEIPTS_DIR = path.join(ROOT, '.nfl', 'receipts');
+const FUTURES_OBSERVATION_LEDGER = path.join(ROOT, 'data', 'futures-benchmark', 'forecast-observations.json');
 
 // ── Config ────────────────────────────────────────────────────────────────────
 
@@ -603,6 +605,60 @@ function renderFutures(sbRows, moverRows) {
   </div>`;
 }
 
+function readFuturesObservationLedger() {
+  try {
+    if (!fs.existsSync(FUTURES_OBSERVATION_LEDGER)) return { observations: [] };
+    return JSON.parse(fs.readFileSync(FUTURES_OBSERVATION_LEDGER, 'utf8'));
+  } catch (e) {
+    console.warn(`readFuturesObservationLedger: ${e.message}`);
+    return { observations: [] };
+  }
+}
+
+function fmtClv(clv) {
+  if (clv == null || isNaN(Number(clv))) return 'pending';
+  const n = Number(clv);
+  return `${n > 0 ? '+' : ''}${n.toFixed(2)}%`;
+}
+
+function renderFuturesShadowCLV(ledger) {
+  const rows = ledger?.observations || [];
+  if (!rows.length) return '';
+  const sampleEligible = rows.filter(r => r.sample_eligible !== false);
+  const resolved = sampleEligible.filter(r => r.counts_toward_sample_minimum === true);
+  const pending = sampleEligible.filter(r => r.counts_toward_sample_minimum !== true);
+  const latest = [...sampleEligible]
+    .sort((a, b) => String(b.run_date || '').localeCompare(String(a.run_date || '')))
+    .slice(0, 6);
+
+  const body = latest.map(r => {
+    const clv = r.clv_pct == null
+      ? '<span style="color:#888;">pending</span>'
+      : `<span class="${Number(r.clv_pct) >= 0 ? 'up' : 'down'}">${fmtClv(r.clv_pct)}</span>`;
+    const close = r.closing_price == null ? '—' : fmtOdds(r.closing_price);
+    return `<tr>
+      <td class="team">${escapeHtml(r.selection || r.key || '—')}</td>
+      <td class="odds">${fmtOdds(r.recommended_price)} @ ${escapeHtml(r.book || '—')}</td>
+      <td class="odds">${close}</td>
+      <td>${clv}</td>
+    </tr>`;
+  }).join('');
+
+  return `<div class="section">
+    <div class="section-title">Futures Shadow CLV</div>
+    <p style="color:#888;font-size:12px;margin-top:0;">
+      ${resolved.length}/${sampleEligible.length} shadow recommendation(s) have stored CLV or result evidence.
+      ${pending.length} still pending. Evaluation only, not betting instructions.
+    </p>
+    <table>
+      <thead><tr>
+        <th>Shadow Pick</th><th>Logged</th><th>Checkpoint</th><th>CLV</th>
+      </tr></thead>
+      <tbody>${body}</tbody>
+    </table>
+  </div>`;
+}
+
 function renderTweets(tweets) {
   if (!tweets.length) {
     return `<div class="section">
@@ -833,13 +889,26 @@ function buildEmail(sections) {
 </html>`;
 }
 
-function buildPlainText(sbTable, tweets, notes, podcastEps, topPicks, injuries, games) {
+function buildPlainText(sbTable, tweets, notes, podcastEps, topPicks, injuries, games, futuresLedger) {
   const lines = [`NFL Daily Brief — ${nowStr()}`, ''];
 
   if (sbTable.length) {
     lines.push('SUPER BOWL FUTURES', '─'.repeat(40));
     sbTable.forEach(t => {
       lines.push(`${t.team.padEnd(5)} ${t.consensusProb.padEnd(8)} Sharp: ${t.sharpOdds}  Public: ${t.publicOdds}`);
+    });
+    lines.push('');
+  }
+
+  const shadowRows = futuresLedger?.observations || [];
+  if (shadowRows.length) {
+    const eligible = shadowRows.filter(r => r.sample_eligible !== false);
+    const resolved = eligible.filter(r => r.counts_toward_sample_minimum === true);
+    lines.push('FUTURES SHADOW CLV', '─'.repeat(40));
+    lines.push(`${resolved.length}/${eligible.length} shadow recommendation(s) have CLV/result evidence.`);
+    eligible.slice(-6).forEach(r => {
+      const close = r.closing_price == null ? 'pending' : fmtOdds(r.closing_price);
+      lines.push(`• ${r.selection}: logged ${fmtOdds(r.recommended_price)} @ ${r.book}; checkpoint ${close}; CLV ${fmtClv(r.clv_pct)}`);
     });
     lines.push('');
   }
@@ -953,6 +1022,7 @@ async function main() {
     fetchInjuries(supabase),
     fetchUpcomingGames(supabase),
   ]);
+  const futuresLedger = readFuturesObservationLedger();
 
   // Deduplicate injuries: keep only the most recent report per player per team.
   // The ingest table stores each status update as a new row.
@@ -973,6 +1043,7 @@ async function main() {
   console.log(`  Podcast picks: ${topPicks.length} rows`);
   console.log(`  Injuries:      ${injuries.length} rows (${dedupedInjuries.length} unique players)`);
   console.log(`  Upcoming games:${gameRows.length} rows`);
+  console.log(`  Futures CLV:   ${(futuresLedger.observations || []).length} shadow row(s)`);
 
   // Build SB table for plain text
   const sbTable = buildSBTable(sbSnaps);
@@ -980,6 +1051,7 @@ async function main() {
   // Render HTML sections
   const sections = [
     renderFutures(sbSnaps, sbMovers),
+    renderFuturesShadowCLV(futuresLedger),
     renderTweets(tweets),
     renderIntel(notes),
     renderPodcastIntel(podcastEps),
@@ -989,7 +1061,7 @@ async function main() {
   ];
 
   const htmlBody = buildEmail(sections);
-  const textBody = buildPlainText(sbTable, tweets, notes, podcastEps, topPicks, dedupedInjuries, gameRows);
+  const textBody = buildPlainText(sbTable, tweets, notes, podcastEps, topPicks, dedupedInjuries, gameRows, futuresLedger);
 
   const today   = new Date().toLocaleDateString('en-US', {
     weekday: 'long', month: 'long', day: 'numeric', year: 'numeric',
@@ -1027,6 +1099,7 @@ async function main() {
       podcast_picks:     topPicks.length,
       injuries:          injuries.length,
       game_rows:         gameRows.length,
+      futures_shadow_rows: (futuresLedger.observations || []).length,
     },
     success: true,
   };

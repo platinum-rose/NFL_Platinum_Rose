@@ -113,6 +113,13 @@ Extract every FUTURE (season-long outcome bet -- division winner, conference
 winner, Super Bowl winner, MVP/awards, win totals, playoff seeding, etc.)
 discussed in this transcript chunk.
 ${NFL_ONLY_GUARD}
+Also extract strategic timing conjectures tied to NFL futures, even when the
+speaker is not saying to bet immediately. Examples: "they could start 1-3,"
+"wait for the market to panic," "buy after a slow start," "the number may get
+better in September," or "do not bet this preseason, monitor for a better entry."
+These should still be represented as futures rows, but set
+"extraction_type": "timing_conjecture" and fill trigger_condition,
+betting_implication, and action_timing.
 Return ONLY valid JSON -- no prose, no markdown fences.`;
 
 const SYSTEM_MULTI_HOST = (hostNames) => `You are an NFL betting podcast analyst.
@@ -121,6 +128,13 @@ Extract every FUTURE (season-long outcome bet -- division winner, conference
 winner, Super Bowl winner, MVP/awards, win totals, playoff seeding, etc.)
 discussed, attributed to whichever labeled host actually said it.
 ${NFL_ONLY_GUARD}
+Also extract strategic timing conjectures tied to NFL futures, even when the
+speaker is not saying to bet immediately. Examples: "they could start 1-3,"
+"wait for the market to panic," "buy after a slow start," "the number may get
+better in September," or "do not bet this preseason, monitor for a better entry."
+These should still be represented as futures rows, but set
+"extraction_type": "timing_conjecture" and fill trigger_condition,
+betting_implication, and action_timing.
 The "host" field MUST be exactly one of: ${hostNames.map(h => `"${h}"`).join(', ')}.
 Return ONLY valid JSON -- no prose, no markdown fences.`;
 
@@ -142,7 +156,11 @@ Return JSON with this exact shape:
       "confidence": number (50-95; use 65 if unstated),
       "stats_cited": ["string, any stats/historical data referenced"],
       "quote": "string, direct quote or close paraphrase, max ~300 chars",
-      "source_timestamp": "string|null (M:SS or H:MM:SS from the transcript line where this pick was discussed; null if unavailable)"
+      "source_timestamp": "string|null (M:SS or H:MM:SS from the transcript line where this pick was discussed; null if unavailable)",
+      "extraction_type": "bet | timing_conjecture",
+      "trigger_condition": "string|null (for timing_conjecture only; e.g. 'Chiefs start 1-3')",
+      "betting_implication": "string|null (for timing_conjecture only; e.g. 'wait for a better Chiefs futures entry if the market overreacts')",
+      "action_timing": "bet_now | wait | monitor | avoid | unclear"
     }
   ]
 }
@@ -151,6 +169,8 @@ Rules:
 - NFL only. If this chunk has no NFL futures content, return { "futures": [] } -- do not force non-NFL content (other leagues, contest/pool predictions, single-game picks) into this shape just to have something to return.
 - "subject" must be a real NFL team or player actually named in this chunk. Never substitute a non-NFL team/player name onto an NFL-sounding subject_market.
 - Only include futures clearly stated as the host's own prediction/lean, not just mentioning a market exists.
+- Include timing conjectures when the speaker gives a conditional path that could affect futures entry timing or price, even if they are not recommending an immediate wager. For these, use lean "neutral" unless they clearly say the condition supports a future buy/fade.
+- Do NOT convert timing conjectures into immediate bets. Preserve the condition and timing in trigger_condition, betting_implication, and action_timing.
 - subject_market should use the taxonomy style already seen above (division codes like 'AFC_North', or 'MVP'/'Super_Bowl'/'Offensive_ROY' etc.) -- your best consistent guess if the exact code isn't obvious.
 - If transcript lines include timestamps like "[12:34] Host: text", copy the best timestamp for the pick into source_timestamp. Do not invent a timestamp when the source text has none.
 `.trim();
@@ -290,9 +310,9 @@ export function buildHostVaultNote({ show, host, title, pubDate, futures, model,
   const timestampFor = (f) => f.source_timestamp || f.timestamp || '';
   const rows = futures.length
     ? futures.map(f =>
-        `| ${esc(f.subject_market)} | ${esc(f.subject)} | ${esc(f.prediction).slice(0, 140)} | ${esc(f.lean)} | ${f.confidence ?? '-'} | ${esc(timestampFor(f)) || '-'} | ${(f.stats_cited || []).map(esc).join('; ')} |`
+        `| ${esc(f.subject_market)} | ${esc(f.subject)} | ${esc(f.prediction).slice(0, 140)} | ${esc(f.lean)} | ${esc(f.extraction_type || 'bet')} | ${f.confidence ?? '-'} | ${esc(timestampFor(f)) || '-'} | ${(f.stats_cited || []).map(esc).join('; ')} | ${esc(f.trigger_condition || '') || '-'} | ${esc(f.betting_implication || '') || '-'} | ${esc(f.action_timing || '') || '-'} |`
       ).join('\n')
-    : '| - | (no futures discussed) | - | - | - | - | - |';
+    : '| - | (no futures discussed) | - | - | - | - | - | - | - | - | - |';
   const quotes = futures.filter(f => f.quote).map(f => `- **${esc(f.subject)}**${timestampFor(f) ? ` (${esc(timestampFor(f))})` : ''}: "${esc(f.quote)}"`).join('\n') || '- (none)';
   return `---
 sensitivity: green
@@ -313,8 +333,8 @@ generated: ${new Date().toISOString()}
 
 ## Futures discussed
 
-| Market | Subject | Prediction | Lean | Conf | Time | Stats cited |
-|--------|---------|-----------|------|------|------|--------------|
+| Market | Subject | Prediction | Lean | Type | Conf | Time | Stats cited | Trigger | Betting implication | Action timing |
+|--------|---------|-----------|------|------|------|------|--------------|---------|---------------------|---------------|
 ${rows}
 
 ## Quotes
