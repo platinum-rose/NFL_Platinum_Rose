@@ -1,0 +1,39 @@
+{
+  "pick_id": "55555555-5555-4555-8555-555555555555",
+  "pick_scope": "futures",
+  "market_type": "superbowl_matchup",
+  "market": "superbowl_matchup",
+  "selection": "Buffalo Bills vs Green Bay Packers",
+  "team": "Buffalo Bills",
+  "opponent": "Green Bay Packers",
+  "book": "stub-betus",
+  "price": 6500,
+  "stake_tier": "speculative",
+  "stake_units": 0.25,
+  "confidence": 52,
+  "observed_at": "2026-07-24T00:00:00Z",
+  "source_ref": "stub inbox demo - exacta hold",
+  "bet_threshold": "Monitor-only until BetOnline secondary market is available for price shopping.",
+  "minimum_edge_pct": 3,
+  "market_view": "Stub: this demonstrates an exacta draft that can stay visible but should not be locked.",
+  "football_view": "Stub: the scenario can support portfolio planning, but not official tracking under the current hold.",
+  "thesis": "Stub only: this shows how a Bills/Packers exacta branch appears in the inbox while exactas are on hold.",
+  "disconfirming_factor": "Stub only: no secondary BetOnline market is available for price shopping in this demo.",
+  "evidence_ids": [
+    "stub.exacta.hold"
+  ],
+  "sources": [
+    "Stub Source"
+  ],
+  "data_snapshot": {
+    "stub": true,
+    "purpose": "candidate inbox demo"
+  },
+  "audit_note": "STUB ONLY - exacta hold demo, not a recommendation, not official, and not human verified.",
+  "inbox_state": {
+    "state": "rejected",
+    "rejected_at": "2026-07-24T05:02:48.295Z",
+    "reason": "Rejected from inbox UI",
+    "updated_at": "2026-07-24T05:02:48.297Z"
+  }
+}

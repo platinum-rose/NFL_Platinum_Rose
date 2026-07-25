@@ -16,7 +16,7 @@
 // Env: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import { mkdir, writeFile, readFile } from 'node:fs/promises';
+import { mkdir, writeFile, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createClient } from '@supabase/supabase-js';
@@ -328,6 +328,177 @@ function currentAnalytics(seasons) {
     no_huddle_rate: r.no_huddle_rate ?? null,
     pass_rate: r.pass_rate ?? null,
   };
+}
+function latestByTeam(rows, mapRow) {
+  const out = {};
+  for (const r of rows || []) {
+    const nick = normalizeTeam(r.team);
+    if (!nick || out[nick]) continue;
+    out[nick] = mapRow(r);
+  }
+  return out;
+}
+async function loadGeneratedProfileRows(prefix) {
+  const dir = path.join(ROOT, 'data', 'generated', 'team-profiles');
+  try {
+    const files = (await readdir(dir))
+      .filter((name) => name.startsWith(prefix) && name.endsWith('.json') && name.includes(String(SEASON)));
+    const payloads = [];
+    for (const file of files) {
+      try {
+        const payload = JSON.parse(await readFile(path.join(dir, file), 'utf8'));
+        if (Array.isArray(payload.rows) && Number(payload.meta?.season) === SEASON) {
+          payloads.push({ file, generated_at: payload.meta?.generated_at || '', rows: payload.rows });
+        }
+      } catch {
+        // Ignore malformed local review artifacts; Supabase remains primary.
+      }
+    }
+    payloads.sort((a, b) => String(b.generated_at).localeCompare(String(a.generated_at)));
+    return payloads[0]?.rows || [];
+  } catch {
+    return [];
+  }
+}
+async function fetchAdvancedAnalytics() {
+  const { data, error } = await sb.from('team_analytic_snapshots')
+    .select('season, week, team, source_key, source_name, source_url, snapshot_at, games_played, off_epa_per_play, def_epa_per_play, off_epa_rank, def_epa_rank, epa_per_dropback, qb_epa_per_dropback, dropback_success_rate, success_rate, cpoe, explosive_play_rate, explosive_pass_rate, explosive_run_rate, pressure_rate_allowed, pressure_rate_generated, sack_rate_allowed, sack_rate_generated, neutral_pass_rate, early_down_pass_rate, shotgun_rate, no_huddle_rate, play_action_rate, motion_rate, attribution_note')
+    .eq('season', SEASON)
+    .order('snapshot_at', { ascending: false })
+    .limit(2000);
+  if (error) {
+    console.warn(`   team_analytic_snapshots unavailable: ${error.message} - advanced analytics disabled`);
+    const localRows = await loadGeneratedProfileRows('team-analytic-snapshots-');
+    if (localRows.length) console.warn(`   using ${localRows.length} local generated analytics row(s)`);
+    return latestByTeam(localRows, (r) => r);
+  }
+  if (!(data || []).length) {
+    const localRows = await loadGeneratedProfileRows('team-analytic-snapshots-');
+    if (localRows.length) console.warn(`   using ${localRows.length} local generated analytics row(s)`);
+    return latestByTeam(localRows, (r) => r);
+  }
+  return latestByTeam(data, (r) => ({
+    season: r.season ?? null,
+    week: r.week ?? null,
+    source_key: r.source_key ?? null,
+    source_name: r.source_name ?? null,
+    source_url: r.source_url ?? null,
+    snapshot_at: r.snapshot_at ?? null,
+    games_played: r.games_played ?? null,
+    off_epa_per_play: r.off_epa_per_play ?? null,
+    def_epa_per_play: r.def_epa_per_play ?? null,
+    off_epa_rank: r.off_epa_rank ?? null,
+    def_epa_rank: r.def_epa_rank ?? null,
+    epa_per_dropback: r.epa_per_dropback ?? null,
+    qb_epa_per_dropback: r.qb_epa_per_dropback ?? null,
+    dropback_success_rate: r.dropback_success_rate ?? null,
+    success_rate: r.success_rate ?? null,
+    cpoe: r.cpoe ?? null,
+    explosive_play_rate: r.explosive_play_rate ?? null,
+    explosive_pass_rate: r.explosive_pass_rate ?? null,
+    explosive_run_rate: r.explosive_run_rate ?? null,
+    pressure_rate_allowed: r.pressure_rate_allowed ?? null,
+    pressure_rate_generated: r.pressure_rate_generated ?? null,
+    sack_rate_allowed: r.sack_rate_allowed ?? null,
+    sack_rate_generated: r.sack_rate_generated ?? null,
+    neutral_pass_rate: r.neutral_pass_rate ?? null,
+    early_down_pass_rate: r.early_down_pass_rate ?? null,
+    shotgun_rate: r.shotgun_rate ?? null,
+    no_huddle_rate: r.no_huddle_rate ?? null,
+    play_action_rate: r.play_action_rate ?? null,
+    motion_rate: r.motion_rate ?? null,
+    attribution_note: r.attribution_note ?? null,
+  }));
+}
+async function fetchDvoaSnapshots() {
+  const { data, error } = await sb.from('team_dvoa_snapshots')
+    .select('season, week, team, source_key, source_name, source_url, snapshot_at, games_played, overall_dvoa, overall_dvoa_rank, offensive_dvoa, offensive_dvoa_rank, defensive_dvoa, defensive_dvoa_rank, special_teams_dvoa, special_teams_dvoa_rank, weighted_dvoa, weighted_dvoa_rank, attribution_note')
+    .eq('season', SEASON)
+    .order('snapshot_at', { ascending: false })
+    .limit(2000);
+  if (error) {
+    console.warn(`   team_dvoa_snapshots unavailable: ${error.message} - DVOA disabled`);
+    const localRows = await loadGeneratedProfileRows('team-dvoa-snapshots-');
+    if (localRows.length) console.warn(`   using ${localRows.length} local generated DVOA row(s)`);
+    return latestByTeam(localRows, (r) => r);
+  }
+  if (!(data || []).length) {
+    const localRows = await loadGeneratedProfileRows('team-dvoa-snapshots-');
+    if (localRows.length) console.warn(`   using ${localRows.length} local generated DVOA row(s)`);
+    return latestByTeam(localRows, (r) => r);
+  }
+  return latestByTeam(data, (r) => ({
+    season: r.season ?? null,
+    week: r.week ?? null,
+    source_key: r.source_key ?? null,
+    source_name: r.source_name ?? null,
+    source_url: r.source_url ?? null,
+    snapshot_at: r.snapshot_at ?? null,
+    games_played: r.games_played ?? null,
+    overall_dvoa: r.overall_dvoa ?? null,
+    overall_dvoa_rank: r.overall_dvoa_rank ?? null,
+    offensive_dvoa: r.offensive_dvoa ?? null,
+    offensive_dvoa_rank: r.offensive_dvoa_rank ?? null,
+    defensive_dvoa: r.defensive_dvoa ?? null,
+    defensive_dvoa_rank: r.defensive_dvoa_rank ?? null,
+    special_teams_dvoa: r.special_teams_dvoa ?? null,
+    special_teams_dvoa_rank: r.special_teams_dvoa_rank ?? null,
+    weighted_dvoa: r.weighted_dvoa ?? null,
+    weighted_dvoa_rank: r.weighted_dvoa_rank ?? null,
+    attribution_note: r.attribution_note ?? null,
+  }));
+}
+async function fetchCoachingProfiles() {
+  const { data, error } = await sb.from('team_coaching_tendency_snapshots')
+    .select('season, week, team, head_coach, offensive_coordinator, defensive_coordinator, source_key, source_name, source_url, snapshot_at, sample_start, sample_end, games_sample, coordinator_continuity, fourth_down_aggression_rate, fourth_down_aggression_tier, neutral_pass_rate, early_down_pass_rate, shotgun_rate, no_huddle_rate, play_action_rate, motion_rate, rpo_rate, pace_seconds_per_play, red_zone_pass_rate, two_minute_aggression_tier, ats_by_role, trend_notes, stale_after')
+    .eq('season', SEASON)
+    .order('snapshot_at', { ascending: false })
+    .limit(2000);
+  if (error) {
+    console.warn(`   team_coaching_tendency_snapshots unavailable: ${error.message} - coaching profiles disabled`);
+    const localRows = await loadGeneratedProfileRows('team-coaching-tendency-snapshots-');
+    if (localRows.length) console.warn(`   using ${localRows.length} local generated coaching row(s)`);
+    return latestByTeam(localRows, (r) => r);
+  }
+  if (!(data || []).length) {
+    const localRows = await loadGeneratedProfileRows('team-coaching-tendency-snapshots-');
+    if (localRows.length) console.warn(`   using ${localRows.length} local generated coaching row(s)`);
+    return latestByTeam(localRows, (r) => r);
+  }
+  return latestByTeam(data, (r) => ({
+    season: r.season ?? null,
+    week: r.week ?? null,
+    head_coach: r.head_coach ?? null,
+    offensive_coordinator: r.offensive_coordinator ?? null,
+    defensive_coordinator: r.defensive_coordinator ?? null,
+    source_key: r.source_key ?? null,
+    source_name: r.source_name ?? null,
+    source_url: r.source_url ?? null,
+    snapshot_at: r.snapshot_at ?? null,
+    sample_start: r.sample_start ?? null,
+    sample_end: r.sample_end ?? null,
+    games_sample: r.games_sample ?? null,
+    coordinator_continuity: r.coordinator_continuity ?? null,
+    fourth_down_aggression_rate: r.fourth_down_aggression_rate ?? null,
+    fourth_down_aggression_tier: r.fourth_down_aggression_tier ?? null,
+    neutral_pass_rate: r.neutral_pass_rate ?? null,
+    early_down_pass_rate: r.early_down_pass_rate ?? null,
+    shotgun_rate: r.shotgun_rate ?? null,
+    no_huddle_rate: r.no_huddle_rate ?? null,
+    play_action_rate: r.play_action_rate ?? null,
+    motion_rate: r.motion_rate ?? null,
+    rpo_rate: r.rpo_rate ?? null,
+    pace_seconds_per_play: r.pace_seconds_per_play ?? null,
+    red_zone_pass_rate: r.red_zone_pass_rate ?? null,
+    two_minute_aggression_tier: r.two_minute_aggression_tier ?? null,
+    ats_by_role: r.ats_by_role ?? null,
+    trend_notes: r.trend_notes ?? null,
+    stale_after: r.stale_after ?? null,
+  }));
+}
+function mergeAnalytics(base, advanced) {
+  if (!base && !advanced) return null;
+  return { ...(base || {}), ...(advanced || {}) };
 }
 // 2026 schedule spine — grounds strength-of-schedule in the ACTUAL released slate,
 // not the model's (possibly stale) memory of who plays whom. Extended S296-follow-up
@@ -931,14 +1102,16 @@ function splitMatchupTeams(tm) {
 // now only carry market-specific fields + a team-name reference, and
 // portfolio-synthesize.js's prompt builder + evidence resolver look context up
 // from this map by team name.
-function buildTeamProfiles(teamNicks, priorByTeam, findSos, teamSignals, injuriesByTeam) {
+function buildTeamProfiles(teamNicks, priorByTeam, findSos, teamSignals, injuriesByTeam, advancedAnalyticsByTeam = {}, dvoaByTeam = {}, coachingByTeam = {}) {
   const { scheduleOut, officiatingOut, clvOut } = teamSignals || {};
   const out = {};
   for (const nick of teamNicks) {
     out[nick] = {
       prior: priorTag(priorByTeam[nick]),
       sos: findSos ? sosTag(findSos(nick)) : null,
-      analytics: currentAnalytics(priorByTeam[nick]),
+      analytics: mergeAnalytics(currentAnalytics(priorByTeam[nick]), advancedAnalyticsByTeam?.[nick]),
+      dvoa: dvoaByTeam?.[nick] || null,
+      coaching_profile: coachingByTeam?.[nick] || null,
       schedule_context: scheduleOut?.[nick] || null,
       officiating_context: officiatingOut?.[nick] || null,
       clv_signal: clvOut?.[nick] || null,
@@ -1010,7 +1183,28 @@ function analyticsMd(a) {
   const parts = [];
   if (a.off_epa_per_play != null) parts.push(`off EPA ${a.off_epa_per_play}${a.off_epa_rank != null ? ` #${a.off_epa_rank}` : ''}`);
   if (a.def_epa_per_play != null) parts.push(`def EPA ${a.def_epa_per_play}${a.def_epa_rank != null ? ` #${a.def_epa_rank}` : ''}`);
+  if (a.epa_per_dropback != null) parts.push(`EPA/db ${a.epa_per_dropback}`);
+  if (a.qb_epa_per_dropback != null) parts.push(`QB EPA/db ${a.qb_epa_per_dropback}`);
+  if (a.success_rate != null) parts.push(`success ${a.success_rate}`);
+  if (a.cpoe != null) parts.push(`CPOE ${a.cpoe}`);
   return parts.length ? ` · ${parts.join(' / ')}` : '';
+}
+function dvoaMd(d) {
+  if (!d) return '';
+  const parts = [];
+  if (d.overall_dvoa != null) parts.push(`overall ${d.overall_dvoa}${d.overall_dvoa_rank != null ? ` #${d.overall_dvoa_rank}` : ''}`);
+  if (d.offensive_dvoa != null) parts.push(`off ${d.offensive_dvoa}${d.offensive_dvoa_rank != null ? ` #${d.offensive_dvoa_rank}` : ''}`);
+  if (d.defensive_dvoa != null) parts.push(`def ${d.defensive_dvoa}${d.defensive_dvoa_rank != null ? ` #${d.defensive_dvoa_rank}` : ''}`);
+  return parts.length ? ` · DVOA ${parts.join(' / ')}` : '';
+}
+function coachingMd(c) {
+  if (!c) return '';
+  const parts = [];
+  if (c.head_coach) parts.push(c.head_coach);
+  if (c.fourth_down_aggression_tier) parts.push(`4D ${c.fourth_down_aggression_tier}`);
+  if (c.neutral_pass_rate != null) parts.push(`neutral pass ${c.neutral_pass_rate}`);
+  if (c.play_action_rate != null) parts.push(`PA ${c.play_action_rate}`);
+  return parts.length ? ` · coach ${parts.join(' / ')}` : '';
 }
 function scheduleMd(s) {
   if (!s || !s.rest_known) return '';
@@ -1041,7 +1235,7 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
     ? `SoS: ${sc.teams} teams from ${sc.schedule_games} games (${sc.teams_with_market_sos} w/ market win-total opponents) · rank 1 = hardest`
     : `SoS: no ${meta.season} schedule loaded — omitted`;
   const sig = meta.signal_coverage || {};
-  const signalLine = `Signals: ${sig.teams_with_analytics ?? 0} teams w/ EPA analytics · ${sig.teams_with_schedule_context ?? 0} w/ rest/travel · ${sig.teams_with_officiating ?? 0} w/ referee data · ${sig.teams_with_clv ?? 0} w/ CLV tracking · ${sig.teams_with_roster_churn ?? 0} w/ roster-churn data · ${sig.teams_with_injuries ?? 0} w/ injury data (2026-07-22 follow-up — early-season counts will be low by design, see FUTURES_AGENT_DATA_INVENTORY doc)`;
+  const signalLine = `Signals: ${sig.teams_with_analytics ?? 0} teams w/ EPA analytics · ${sig.teams_with_dvoa ?? 0} w/ DVOA snapshots · ${sig.teams_with_coaching_profile ?? 0} w/ coaching profiles · ${sig.teams_with_schedule_context ?? 0} w/ rest/travel · ${sig.teams_with_officiating ?? 0} w/ referee data · ${sig.teams_with_clv ?? 0} w/ CLV tracking · ${sig.teams_with_roster_churn ?? 0} w/ roster-churn data · ${sig.teams_with_injuries ?? 0} w/ injury data (2026-07-22 follow-up — early-season counts will be low by design, see FUTURES_AGENT_DATA_INVENTORY doc)`;
   const L = [`# Portfolio Dossier — ${meta.generated_at}`, '',
     `Season ${meta.season} · ${meta.snapshot_count} snapshots · books: ${meta.books.join(', ')}`, intelLine, sosLine, signalLine, ''];
   for (const [mk, rows] of Object.entries(synth)) {
@@ -1056,12 +1250,14 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
       const pr = prof.prior ? ` · prior ${prof.prior[0]}` : '';
       const ss = sosMd(prof.sos);
       const an = analyticsMd(prof.analytics);
+      const dv = dvoaMd(prof.dvoa);
+      const coach = coachingMd(prof.coaching_profile);
       const sched = scheduleMd(prof.schedule_context);
       const off = officiatingMd(prof.officiating_context);
       const clv = clvMd(prof.clv_signal);
       const inj = injuriesMd(prof.injuries);
-      if (r.consensus_line != null) L.push(`- **${r.team}** wins ${r.consensus_line} · O ${r.best_over ?? '-'}@${r.best_over_book ?? '-'} (edge ${r.best_over_edge_pct ?? '-'}%, fair ${r.over_fair_prob ?? '-'}, n${r.line_consensus_confidence?.over_n_books ?? 0}) / U ${r.best_under ?? '-'}@${r.best_under_book ?? '-'} (edge ${r.best_under_edge_pct ?? '-'}%, fair ${r.under_fair_prob ?? '-'}, n${r.line_consensus_confidence?.under_n_books ?? 0})${r.line_value_signal ? ` · ${r.line_value_signal}` : ''}${leanTag(r.lean)}${pr}${ss}${an}${sched}${off}${clv}${inj}`);
-      else L.push(`- **${r.team}** fair ${r.fair_prob} · best ${r.best_price} @${r.best_book} · value_gap ${r.value_gap} · book_div ${r.book_divergence}${leanTag(r.lean)}${pr}${ss}${an}${sched}${off}${clv}${inj}`);
+      if (r.consensus_line != null) L.push(`- **${r.team}** wins ${r.consensus_line} · O ${r.best_over ?? '-'}@${r.best_over_book ?? '-'} (edge ${r.best_over_edge_pct ?? '-'}%, fair ${r.over_fair_prob ?? '-'}, n${r.line_consensus_confidence?.over_n_books ?? 0}) / U ${r.best_under ?? '-'}@${r.best_under_book ?? '-'} (edge ${r.best_under_edge_pct ?? '-'}%, fair ${r.under_fair_prob ?? '-'}, n${r.line_consensus_confidence?.under_n_books ?? 0})${r.line_value_signal ? ` · ${r.line_value_signal}` : ''}${leanTag(r.lean)}${pr}${ss}${an}${dv}${coach}${sched}${off}${clv}${inj}`);
+      else L.push(`- **${r.team}** fair ${r.fair_prob} · best ${r.best_price} @${r.best_book} · value_gap ${r.value_gap} · book_div ${r.book_divergence}${leanTag(r.lean)}${pr}${ss}${an}${dv}${coach}${sched}${off}${clv}${inj}`);
     }
     L.push('');
   }
@@ -1079,9 +1275,10 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
 // ── main ─────────────────────────────────────────────────────────────────────
 (async () => {
   console.log(`📊 Portfolio dossier — season ${SEASON}${SINCE ? ` since ${SINCE}` : ''}`);
-  const [snaps, pickSignals, userPicks, podcastRows, priorByTeam, games, oddsOpenByGame, splitsLatestByGame, refereeByName, rosterChurnByTeam, injuriesByTeam] = await Promise.all([
+  const [snaps, pickSignals, userPicks, podcastRows, priorByTeam, games, oddsOpenByGame, splitsLatestByGame, refereeByName, rosterChurnByTeam, injuriesByTeam, advancedAnalyticsByTeam, dvoaByTeam, coachingByTeam] = await Promise.all([
     fetchSnapshots(), fetchPickSignals(), fetchUserPicks(), fetchPodcastIntel(), fetchTeamStats(), fetchSchedule(),
     fetchGameOddsOpen(), fetchGameSplitsLatest(), fetchRefereeTendencies(), fetchRosterChurn(), fetchInjuryContext(),
+    fetchAdvancedAnalytics(), fetchDvoaSnapshots(), fetchCoachingProfiles(),
   ]);
   const books = [...new Set(snaps.map((s) => s.book))].sort();
   console.log(`   ${snaps.length} snapshots · ${pickSignals.length} article signals · ${userPicks.length} expert picks · ${podcastRows.length} podcast transcripts · ${Object.keys(priorByTeam).length} teams w/ prior stats · ${games.length} schedule games`);
@@ -1097,8 +1294,12 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
 
   // S296 follow-up (2026-07-22): rest/travel, officiating, CLV per-team signals
   const teamSignals = buildTeamSignals(games, oddsOpenByGame, splitsLatestByGame, refereeByName);
-  const analyticsTeamCount = Object.keys(priorByTeam).filter((t) => currentAnalytics(priorByTeam[t])).length;
-  console.log(`   signals: ${analyticsTeamCount} teams w/ EPA analytics · ${Object.keys(teamSignals.scheduleOut).length} w/ rest data · ${Object.keys(teamSignals.officiatingOut).length} w/ referee data · ${Object.keys(teamSignals.clvOut).length} w/ CLV tracking · ${Object.keys(rosterChurnByTeam).length} w/ roster-churn data · ${Object.keys(injuriesByTeam).length} w/ injury data`);
+  const analyticsTeamSet = new Set([
+    ...Object.keys(priorByTeam).filter((t) => currentAnalytics(priorByTeam[t])),
+    ...Object.keys(advancedAnalyticsByTeam),
+  ]);
+  const analyticsTeamCount = analyticsTeamSet.size;
+  console.log(`   signals: ${analyticsTeamCount} teams w/ EPA analytics · ${Object.keys(dvoaByTeam).length} w/ DVOA · ${Object.keys(coachingByTeam).length} w/ coaching profiles · ${Object.keys(teamSignals.scheduleOut).length} w/ rest data · ${Object.keys(teamSignals.officiatingOut).length} w/ referee data · ${Object.keys(teamSignals.clvOut).length} w/ CLV tracking · ${Object.keys(rosterChurnByTeam).length} w/ roster-churn data · ${Object.keys(injuriesByTeam).length} w/ injury data`);
 
   let findLean, adjacent_signals = {}, experts = {}, intel_coverage;
   const norm = await loadNormalizedSignals();
@@ -1125,11 +1326,13 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
       else { const n = normalizeTeam(tm); if (n) teamNickSet.add(n); }
     }
   }
-  const team_profiles = buildTeamProfiles([...teamNickSet], priorByTeam, sos.findSos, teamSignals, injuriesByTeam);
+  const team_profiles = buildTeamProfiles([...teamNickSet], priorByTeam, sos.findSos, teamSignals, injuriesByTeam, advancedAnalyticsByTeam, dvoaByTeam, coachingByTeam);
 
   const synthesis_input = buildSynthesisInput(markets, findLean);
   const signal_coverage = {
     teams_with_analytics: analyticsTeamCount,
+    teams_with_dvoa: Object.keys(dvoaByTeam).length,
+    teams_with_coaching_profile: Object.keys(coachingByTeam).length,
     teams_with_schedule_context: Object.keys(teamSignals.scheduleOut).length,
     teams_with_officiating: Object.keys(teamSignals.officiatingOut).length,
     teams_with_clv: Object.keys(teamSignals.clvOut).length,

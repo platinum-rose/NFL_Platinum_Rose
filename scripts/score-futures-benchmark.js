@@ -9,7 +9,7 @@ const getArg = (name, fallback) => {
   const i = argv.indexOf(name);
   return i >= 0 ? argv[i + 1] : fallback;
 };
-const manifestPath = path.resolve(ROOT, getArg('--manifest', 'tests/fixtures/futures-benchmark/v0.1/manifest.json'));
+const manifestPath = path.resolve(ROOT, getArg('--manifest', 'tests/fixtures/futures-benchmark/v0.2/manifest.json'));
 const manifest = readJson(manifestPath);
 
 function readJson(file) {
@@ -51,11 +51,21 @@ function expandedCaseCount(suite) {
 function resolvedObservationCount(suite) {
   if (!suite) return 0;
   return (suite.observations || []).filter((o) => (
-    o.outcome != null || o.closing_price != null || o.closing_prob != null
+    o.counts_toward_sample_minimum !== false && o.sample_eligible !== false &&
+    (o.outcome != null || o.closing_price != null || o.closing_prob != null)
   )).length;
 }
+function forecastObservationSuite(manifest, suite) {
+  const rel = manifest.development_inputs?.forecast_observations || suite?.observation_ledger;
+  if (!rel) return suite;
+  const file = path.resolve(ROOT, rel);
+  if (!fs.existsSync(file)) return suite;
+  const ledger = readJson(file);
+  return { ...(suite || {}), observations: ledger.observations || [], external_ledger: rel };
+}
 function scoreFrozenSuite(name, cfg) {
-  const suite = readSuite(name);
+  let suite = readSuite(name);
+  if (name === 'forecast_market') suite = forecastObservationSuite(manifest, suite);
   if (!suite) return [fail(`suite.${name}.exists`, `${name}.json missing`)];
   const file = suitePath(name);
   const count = name === 'forecast_market' ? resolvedObservationCount(suite) : expandedCaseCount(suite);
@@ -66,8 +76,17 @@ function scoreFrozenSuite(name, cfg) {
   checks.push(count >= min
     ? pass(`suite.${name}.sample_minimum`, `${count}/${min}`)
     : fail(`suite.${name}.sample_minimum`, `${count}/${min}`));
+  if (cfg.current_cases != null && name !== 'forecast_market' && Number(cfg.current_cases) !== count) {
+    checks.push(fail(`suite.${name}.manifest_count`, `manifest current_cases=${cfg.current_cases}, expanded=${count}`));
+  }
+  if (cfg.current_observations != null && name === 'forecast_market' && Number(cfg.current_observations) !== count) {
+    checks.push(fail(`suite.${name}.manifest_count`, `manifest current_observations=${cfg.current_observations}, resolved=${count}`));
+  }
   if (suite.leakage_policy !== 'held_out_from_development_fixtures') {
     checks.push(fail(`suite.${name}.leakage_policy`, 'missing held-out leakage policy'));
+  }
+  if (name === 'forecast_market' && suite.external_ledger) {
+    checks.push(pass('suite.forecast_market.observation_ledger', suite.external_ledger));
   }
   return checks;
 }
@@ -119,6 +138,43 @@ function scoreLedger(ledger) {
   ];
 }
 
+function outcomeValue(outcome) {
+  if (outcome === 'won') return 1;
+  if (outcome === 'lost') return 0;
+  return null;
+}
+
+function clampProb(p) {
+  if (p == null || Number.isNaN(Number(p))) return null;
+  return Math.min(0.999999, Math.max(0.000001, Number(p)));
+}
+
+function mean(xs) {
+  const clean = xs.filter((x) => x != null && Number.isFinite(Number(x))).map(Number);
+  return clean.length ? clean.reduce((s, x) => s + x, 0) / clean.length : null;
+}
+function round(x, n = 4) {
+  return x == null ? null : Math.round(Number(x) * 10 ** n) / 10 ** n;
+}
+
+function scoreForecastLedger(ledger) {
+  if (!ledger) return [fail('forecast_observations.exists', 'forecast observation ledger missing')];
+  const rows = ledger.observations || [];
+  const eligible = rows.filter((o) => o.sample_eligible !== false);
+  const resolved = eligible.filter((o) => o.counts_toward_sample_minimum !== false && (o.closing_price != null || o.closing_implied_prob != null || o.outcome != null));
+  const clvRows = resolved.filter((o) => o.clv_pct != null);
+  const settled = resolved.map((o) => ({ p: clampProb(o.forecast_prob), y: outcomeValue(o.outcome) })).filter((o) => o.p != null && o.y != null);
+  const brier = mean(settled.map((o) => (o.p - o.y) ** 2));
+  const logLoss = mean(settled.map((o) => -(o.y * Math.log(o.p) + (1 - o.y) * Math.log(1 - o.p))));
+  const medianClv = clvRows.length ? clvRows.map((o) => Number(o.clv_pct)).sort((a, b) => a - b)[Math.floor((clvRows.length - 1) / 2)] : null;
+  return [
+    pass('forecast_observations.total', `${rows.length} row(s), ${eligible.length} sample-eligible`),
+    pass('forecast_observations.resolved', `${resolved.length} resolved row(s)`),
+    pass('forecast_observations.clv_rows', `${clvRows.length} CLV row(s)${medianClv == null ? '' : `, median ${round(medianClv, 4)}%`}`),
+    pass('forecast_observations.settled_rows', `${settled.length} settled calibration row(s)${brier == null ? '' : `, brier ${round(brier, 6)}, log_loss ${round(logLoss, 6)}`}`),
+  ];
+}
+
 function scoreCorpus(rawFiles) {
   const checks = [];
   checks.push(rawFiles.length >= 5 ? pass('portfolio.corpus_outputs', `${rawFiles.length} corpus raw outputs`) : fail('portfolio.corpus_outputs', `${rawFiles.length} corpus raw outputs`));
@@ -155,17 +211,30 @@ function evidenceGaps(manifest) {
   const gaps = [];
   for (const [suite, cfg] of Object.entries(manifest.suites || {})) {
     const min = cfg.minimum_cases ?? cfg.minimum_observations ?? 0;
-    const fileSuite = readSuite(suite);
+    let fileSuite = readSuite(suite);
+    if (suite === 'forecast_market') fileSuite = forecastObservationSuite(manifest, fileSuite);
     const cur = suite === 'forecast_market' ? resolvedObservationCount(fileSuite) : expandedCaseCount(fileSuite);
     if (cur < min) gaps.push({ suite, cur, min });
   }
   return gaps;
 }
 
+function evidenceGapReport(manifest) {
+  return evidenceGaps(manifest).map((g) => {
+    const cfg = manifest.suites?.[g.suite] || {};
+    return {
+      ...g,
+      missing: g.min - g.cur,
+      gate: cfg.evidence_gate || (g.suite === 'forecast_market' ? 'real_outcome_or_closing_price_required' : 'fixture_count_required'),
+    };
+  });
+}
+
 const input = manifest.development_inputs || {};
 const dossierPath = path.resolve(ROOT, input.dossier || '.nfl/portfolio/dossier-2026-07-22.json');
 const simPath = path.resolve(ROOT, input.simulation || '.nfl/portfolio/sim-2026-07-22.json');
 const ledgerPath = path.resolve(ROOT, input.personalization_ledger || 'data/futures-imports/andy-portfolio-ledger-2026.json');
+const forecastLedgerPath = path.resolve(ROOT, input.forecast_observations || 'data/futures-benchmark/forecast-observations.json');
 
 const mechanical = [];
 mechanical.push(exists(path.relative(ROOT, dossierPath)) ? pass('artifact.dossier', path.relative(ROOT, dossierPath)) : fail('artifact.dossier', 'missing'));
@@ -175,22 +244,29 @@ mechanical.push(exists(path.relative(ROOT, ledgerPath)) ? pass('artifact.ledger'
 const dossier = fs.existsSync(dossierPath) ? readJson(dossierPath) : null;
 const sim = fs.existsSync(simPath) ? readJson(simPath) : null;
 const ledger = fs.existsSync(ledgerPath) ? readJson(ledgerPath) : null;
+const forecastLedger = fs.existsSync(forecastLedgerPath) ? readJson(forecastLedgerPath) : null;
 if (dossier) mechanical.push(...scoreDossier(dossier));
 mechanical.push(...scoreSimulation(sim));
 if (ledger) mechanical.push(...scoreLedger(ledger));
+mechanical.push(...scoreForecastLedger(forecastLedger));
 mechanical.push(...scoreCorpus(globPortfolioRaw()));
 for (const [name, cfg] of Object.entries(manifest.suites || {})) mechanical.push(...scoreFrozenSuite(name, cfg));
 
-const gaps = evidenceGaps(manifest);
+const gaps = evidenceGapReport(manifest);
 const failedMechanical = mechanical.filter((c) => !c.ok && !/\.sample_minimum$/.test(c.id));
 
 console.log('# Futures Benchmark Scorer');
 console.log(`suite=${manifest.suite_version} status=${manifest.status}`);
+console.log(`manifest=${path.relative(ROOT, manifestPath)}`);
 console.log('## Mechanical gates');
 for (const c of mechanical) console.log(`${c.ok ? 'PASS' : 'FAIL'} ${c.id}: ${c.detail}`);
 console.log('## Evidence minimums');
-for (const g of gaps) console.log(`FAIL ${g.suite}: ${g.cur}/${g.min}`);
+for (const g of gaps) console.log(`FAIL ${g.suite}: ${g.cur}/${g.min} (${g.missing} missing; gate=${g.gate})`);
 if (!gaps.length) console.log('PASS sample_minimums: satisfied');
+console.log('## Shadow policy');
+console.log(`live_api_calls_allowed=${manifest.promotion_policy?.live_api_calls_allowed === true}`);
+console.log(`production_report_persistence_allowed=${manifest.promotion_policy?.production_report_persistence_allowed === true}`);
+console.log(`open_parlay_modification_allowed=${manifest.promotion_policy?.open_parlay_modification_allowed === true}`);
 
 if (failedMechanical.length) {
   console.log('VERDICT: SHADOW ONLY - QUALITY GAP');

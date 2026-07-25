@@ -1,0 +1,55 @@
+{
+  "expert_id": "platinum_rose_ai",
+  "display_name": "Platinum Rose AI",
+  "sport": "NFL",
+  "season": 2026,
+  "mode": "paper_tracked_human_verified",
+  "decision_boundary": {
+    "description": "Platinum Rose AI may propose plays, but a human must verify a proposal before it becomes an official tracked paper bet.",
+    "autonomous_betting_allowed": false,
+    "production_recommendation_persistence_requires_approval": true
+  },
+  "futures_portfolio": {
+    "bankroll_usd": 500,
+    "unit_usd": 20,
+    "allowed_unit_sizes": [0.25, 0.5, 1, 2],
+    "cutoff_user_label": "September 9, 2026 at 12:00 PM PST",
+    "cutoff_timezone": "America/Los_Angeles",
+    "cutoff_local_iso": "2026-09-09T12:00:00-07:00",
+    "cutoff_utc": "2026-09-09T19:00:00Z",
+    "pre_cutoff_policy": "The AI can propose futures before the cutoff, but it must account for preseason price movement, late-opening futures markets, and potential in-season futures entry points before asking for official tracking approval.",
+    "in_season_futures_policy": "Futures can remain candidates after the cutoff when new price dislocations appear because of performance, injuries, roster changes, or market liquidity."
+  },
+  "in_season_weekly": {
+    "bankroll_usd": 1000,
+    "unit_usd": 10,
+    "allowed_unit_sizes": [0.25, 0.5, 1, 2],
+    "scope": ["sides", "totals", "moneyline_dogs", "player_props", "teasers", "parlays"],
+    "deadline_policy": "Weekly official picks must be locked before the relevant market starts unless explicitly marked as a live/in-game paper play."
+  },
+  "sizing_map": {
+    "speculative": 0.25,
+    "small": 0.5,
+    "standard": 1,
+    "core": 2
+  },
+  "official_pick_requirements": {
+    "placeable_book_or_source_required": true,
+    "timestamped_odds_required": true,
+    "minimum_edge_threshold_required": true,
+    "confidence_grade_required": true,
+    "written_rationale_required": true,
+    "market_view_required": true,
+    "football_view_required": true,
+    "disconfirming_factor_required": true,
+    "evidence_ids_required": true,
+    "human_verification_required": true
+  },
+  "market_holds": [
+    {
+      "market": "superbowl_matchup",
+      "rule": "Exacta and Super Bowl matchup plays are monitor-only until a secondary BetOnline market appears for price shopping against BetUS or another placeable book."
+    }
+  ],
+  "lifecycle": ["proposal", "human_verified", "official_paper", "graded", "void", "superseded"]
+}

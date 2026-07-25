@@ -1,0 +1,48 @@
+{
+  "suite": "portfolio_scenarios",
+  "suite_version": "v0.2",
+  "leakage_policy": "held_out_from_development_fixtures",
+  "description": "Scenario-book, exacta-role, ladder, hedge map, and terminal payoff cases.",
+  "case_groups": [
+    {
+      "id": "anchor_exacta_amplifiers",
+      "count": 6,
+      "primary": ["Bills", "Packers"],
+      "markets": ["superbowl_matchup"],
+      "expected_roles": ["anchor_correlation_amplifier"]
+    },
+    {
+      "id": "single_anchor_opponent_coverage",
+      "count": 7,
+      "primary": ["Bills", "Packers"],
+      "markets": ["superbowl_matchup"],
+      "expected_roles": ["opponent_coverage"]
+    },
+    {
+      "id": "anchor_failure_exactas",
+      "count": 6,
+      "primary": ["Bills", "Packers"],
+      "markets": ["superbowl_matchup"],
+      "expected_roles": ["anchor_failure_coverage"]
+    },
+    {
+      "id": "same_team_ladders",
+      "count": 6,
+      "markets": ["wins", "playoffs", "superbowl"],
+      "expected": ["strict_sequence_dead_cost", "prepositioned_dead_cost", "funded_liability", "settlement_timing_note"]
+    },
+    {
+      "id": "terminal_payoff_tables",
+      "count": 5,
+      "markets": ["superbowl_matchup"],
+      "expected": ["expected_net_units_when_probs_known", "no_leg_hits_net_units", "scenario_net_units_if_hit"]
+    },
+    {
+      "id": "correlation_and_concentration",
+      "count": 2,
+      "markets": ["wins", "playoffs", "division", "superbowl"],
+      "expected": ["same_team_stack_flag", "same_division_cluster_flag", "incremental_exposure_summary"]
+    }
+  ]
+}
+

@@ -1,0 +1,41 @@
+{
+  "suite": "personalization",
+  "suite_version": "v0.2",
+  "leakage_policy": "held_out_from_development_fixtures",
+  "description": "Andy ledger, unit, cap, exacta-role, reserve, and open-parlay policy cases.",
+  "case_groups": [
+    {
+      "id": "unit_conversion",
+      "count": 2,
+      "expected": ["futures_unit_20_usd", "in_season_unit_10_usd"]
+    },
+    {
+      "id": "anchor_caps",
+      "count": 3,
+      "positions": ["Bills Super Bowl", "Packers Super Bowl"],
+      "expected": ["respect_200_usd_target_caps", "respect_500_usd_primary_cap", "unknown_current_stake_requires_human_review"]
+    },
+    {
+      "id": "bills_packers_exacta",
+      "count": 3,
+      "position": "Bills vs Packers +6500 for $100",
+      "expected": ["load_as_open_position", "classify_as_anchor_correlation_amplifier", "do_not_count_as_anchor_miss_coverage"]
+    },
+    {
+      "id": "open_parlay_policy",
+      "count": 3,
+      "expected": ["preserve_open_records", "availability_status_unverified_house_rule_conflict", "eligible_as_required_hedge_resource_false"]
+    },
+    {
+      "id": "sunk_cost_and_reserve",
+      "count": 3,
+      "expected": ["do_not_treat_sunk_parlay_stake_as_new_bankroll", "do_not_fill_open_slots_without_approval", "do_not_count_displayed_potential_win_as_guaranteed_capacity"]
+    },
+    {
+      "id": "incremental_exposure",
+      "count": 2,
+      "expected": ["new_bills_or_packers_adds_count_against_primary_cap", "hedge_label_requires_terminal_payoff_improvement"]
+    }
+  ]
+}
+

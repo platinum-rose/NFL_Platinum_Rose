@@ -31,6 +31,7 @@ const getArg = (flag, fallback = null) => {
 const LIST_ONLY = argv.includes('--list');
 const KEEP_GOING = argv.includes('--keep-going');
 const ONLY_SCENARIO = getArg('--scenario');
+const PROPOSAL_OUT_DIR = getArg('--proposal-out-dir');
 
 function safeSuffix(s) {
   return String(s || '').replace(/[^a-z0-9_-]+/gi, '-').replace(/^-+|-+$/g, '');
@@ -115,6 +116,7 @@ const args = [
 ];
 if (scenario.skip_committee) args.push('--skip-committee');
 if (scenario.max_plays) args.push('--max-plays', String(scenario.max_plays));
+if (process.env.PORTFOLIO_PROPOSAL_OUT_DIR) args.push('--proposal-out-dir', process.env.PORTFOLIO_PROPOSAL_OUT_DIR);
 
 process.argv = [process.argv[0], 'agents/portfolio-synthesize.js', ...args];
 const scriptUrl = pathToFileURL(path.join(process.cwd(), 'agents', 'portfolio-synthesize.js')).href;
@@ -219,6 +221,7 @@ async function runScenario(file) {
       ...process.env,
       PORTFOLIO_CORPUS_SCENARIO: file,
       PORTFOLIO_CORPUS_SUFFIX: suffix,
+      PORTFOLIO_PROPOSAL_OUT_DIR: PROPOSAL_OUT_DIR || '',
       OPENAI_API_KEY: process.env.OPENAI_API_KEY || 'offline-local-test',
       ANTHROPIC_API_KEY: process.env.ANTHROPIC_API_KEY || 'offline-local-test',
       SUPABASE_URL: '',

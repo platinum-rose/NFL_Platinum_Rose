@@ -34,6 +34,7 @@
 //     [--models claude-opus-4-8,claude-fable-5] [--max-plays 15] [--only opus|fable|gpt]
 //     [--skeptic-model <model>] [--risk-model <model>] [--skip-committee] [--no-persist]
 //     [--primary "Buffalo Bills,Green Bay Packers"] [--out-suffix scenario-v2]
+//     [--proposal-out-dir data/official-picks/proposals]
 //   GPT-4o fallback (funded OpenAI key) — get a portfolio without Anthropic credits:
 //     node agents/portfolio-synthesize.js --models gpt-4o --dossier <path>
 //   Quick single-pass (no Skeptic/Risk calls, original S274 behavior):
@@ -79,9 +80,13 @@ const OUT_SUFFIX = getArg('--out-suffix', '').trim();
 // default to the first stage-1 model so a single-model run needs no new flags.
 const SKIP_COMMITTEE = argv.includes('--skip-committee');
 const NO_PERSIST = argv.includes('--no-persist');
+const SHADOW_SLIM = argv.includes('--shadow-slim');
 const SKEPTIC_MODEL = getArg('--skeptic-model', MODELS[0]);
 const RISK_MODEL = getArg('--risk-model', MODELS[0]);
 const LEDGER_PATH = getArg('--ledger', path.join(ROOT, 'data', 'futures-imports', 'andy-portfolio-ledger-2026.json'));
+const WATCHLIST_PATH = getArg('--watchlist', path.join(ROOT, 'data', 'futures-imports', 'futures-watchlist-2026.json'));
+const OFFICIAL_CONFIG_PATH = getArg('--official-config', path.join(ROOT, 'data', 'futures-imports', 'platinum-rose-ai-official-2026.json'));
+const PROPOSAL_OUT_DIR = getArg('--proposal-out-dir', null);
 // 2026-07-22 follow-up (Andy's own portfolio-construction strategy, not a Codex
 // finding): his "primary" positions -- teams/markets he already has core
 // conviction on (e.g. Bills, Packers) -- inform hedge-basket construction
@@ -101,8 +106,10 @@ DOSSIER (your price/odds ground truth): for each futures market/team you get the
 
 TEAM PROFILES (2026-07-22 live-run fix — schema change from the original design): the four season-aggregate signals below, plus 'prior' and 'sos', are NOT inlined on every market row anymore — the first real run of this pipeline blew past every model's context window (310K tokens vs gpt-4o's 128K) because the original design copied this whole blob onto ~740 rows across up to 11 markets per team. They now live ONCE per team in the top-level TEAM PROFILES map below, keyed by team name. Each market row still carries either a bare 'team_nick' (single-team markets — look up dossier.team_profiles[team_nick]) or 'team_a'/'team_b' (the superbowl_matchup market, which pairs two teams — look up each side separately). A market row's own fields (fair_prob, best_price, value_gap, moves, consensus_line, etc.) stay exactly as described below; only the team-context signals moved. When citing evidence_ids for a team-context field (e.g. 'analytics.off_epa_rank'), that citation is checked against the row's matched team profile, not the row itself — cite it the same way regardless.
 
-Each team profile carries four season-aggregate signals, all optional — a null/zero-count signal means "not enough data yet", not "no edge here", especially early in the season:
-- 'analytics' — current-season EPA/play (off/def) with league rank (1=best) and formation tendencies (shotgun/no-huddle/pass rate), from real play-by-play, not box scores. Use to CONFIRM or CHALLENGE a record-based thesis (e.g. a team that's 6-1 but def_epa_rank 28 is a regression-down candidate; a 2-5 team with off_epa_rank 8 is a bad-variance bounce-back candidate, not a bad team).
+Each team profile carries season-aggregate signals, all optional — a null/zero-count signal means "not enough data yet", not "no edge here", especially early in the season:
+- 'analytics' — current-season EPA/play (off/def) with league rank (1=best), EPA per dropback / QB EPA per dropback when populated, success rate, CPOE, explosive rate, pressure/sack profile, and formation tendencies (shotgun/no-huddle/pass rate), from real play-by-play/imported analytic snapshots rather than box scores. Use to CONFIRM or CHALLENGE a record-based thesis (e.g. a team that's 6-1 but def_epa_rank 28 is a regression-down candidate; a 2-5 team with off_epa_rank 8 is a bad-variance bounce-back candidate, not a bad team).
+- 'dvoa' — source-stamped imported DVOA snapshot. Treat it as an imported analytic opinion with source/date/attribution, not as a locally computed metric. Cite the specific DVOA rank/value when it supports or contradicts EPA/price.
+- 'coaching_profile' — structured coaching tendency snapshot (coach/coordinator continuity, fourth-down tier, neutral/early-down pass rate, play-action/motion/no-huddle/pace, red-zone and two-minute tendencies). It can evolve during the season; cite sample dates/games when using it, and flag stale_after or thin samples.
 - 'schedule_context' — games/short_rest_games/avg_rest/div_games for the team's OWN 2026 slate (distinct from sos, which is about opponent quality). A high short_rest_games count is a real tailwind for UNDER/fade theses late in a stretch; treat rest_known < games as partial-season coverage.
 - 'officiating_context' — games_with_ref/avg_total_points/avg_total_penalties, averaged across the specific referees already assigned to this team's known games. Ties are USUALLY 0 games early in a season (refs aren't assigned until close to kickoff) — only use this when games_with_ref is meaningfully >0, and always cite its own 'confidence' field ("very low" samples should never carry a thesis alone).
 - 'clv_signal' — n_tracked/avg_closing_move_toward_team (positive = the line has been closing MORE in this team's favor than this app's own tracked-open number) plus sharp_lean_games/public_fade_games from betting-splits divergence (money% vs ticket%). A team with several sharp_lean_games and a positive avg_closing_move is a real "the smart market likes this team" signal, distinct from and complementary to your own analytics-based read — cite it as market behavior, not your own opinion.
@@ -124,6 +131,7 @@ WHAT TO HUNT (do NOT just list chalk):
 USING KNOWLEDGE: prices, teams, and markets come ONLY from the dossier — never invent a price, and if a market is thin/absent say so rather than fabricate. But you MAY use your own NFL knowledge (rosters, prior-season results, injuries, coaching/QB changes) to build a thesis. For SCHEDULE STRENGTH specifically, use the dossier's 'sos' field — it is grounded in the real 2026 slate — rather than your memory of who plays whom; only fall back to recall when a row lacks sos, and flag it. For CURRENT FORM, prefer 'analytics' (real EPA/play-by-play) over your own recall of who's playing well — your training may predate this season's actual play. Whenever a thesis rests on knowledge NOT in the dossier, set knowledge_based=true so the human can verify it, and let the disconfirming_factor flag the risk that your roster/injury knowledge is stale or wrong (your training may predate this season). A "soft/hard schedule" claim should cite the sos rank when it is available.
 
 DISCIPLINE:
+- OFFICIAL PAPER TRACKING: if a Platinum Rose AI official tracking contract is supplied, use its bankrolls, unit sizes, cutoff, stake tiers, and market holds when proposing sizes. Do not mark a play official yourself; every output is a proposal until the human verifies the price/source and approves official paper tracking.
 - PLACEABLE BOOKS ONLY: the user bets at Bookmaker, BetOnline, BetUS, and (via a proxy) the Vegas books — Circa, BetMGM, Caesars/WilliamHill. best_price/best_book (outrights) and best_over/best_under + their books (win totals) are ALREADY filtered to these placeable books. NEVER recommend a FanDuel or DraftKings price — those appear only as market context for fair value; the user cannot bet them. Every "book" in your output must be a placeable book (use the dossier's best_* fields).
 - A real edge needs a REASON the market is wrong (anchoring to last year, injury misread, soft schedule, stale line, EPA/record divergence, roster churn, sharp CLV move), not just a positive value_gap (which can be juice or a book error). Cross-reference divergence, movement, and lean.
 - SMALL-SAMPLE SIGNALS: 'officiating_context' and 'clv_signal' are built from very few games early in a season — never let either one carry a thesis alone (check games_with_ref / n_tracked and the officiating confidence field first); they should corroborate a thesis already grounded in analytics/sos/lean, not originate one on their own until sample sizes grow.
@@ -226,32 +234,139 @@ async function loadLedger() {
   }
 }
 
-function buildUserPrompt(dossier, ledger = null) {
+async function loadWatchlist() {
+  try {
+    const parsed = JSON.parse(await readFile(WATCHLIST_PATH, 'utf8'));
+    const items = Array.isArray(parsed) ? parsed : parsed.items;
+    if (!Array.isArray(items)) throw new Error('expected an array or { items: [...] }');
+    return Array.isArray(parsed) ? { items } : { ...parsed, items };
+  } catch (e) {
+    console.warn(`   watchlist unavailable (${WATCHLIST_PATH}): ${e.message}`);
+    return null;
+  }
+}
+
+async function loadOfficialConfig() {
+  try {
+    return JSON.parse(await readFile(OFFICIAL_CONFIG_PATH, 'utf8'));
+  } catch (e) {
+    console.warn(`   official config unavailable (${OFFICIAL_CONFIG_PATH}): ${e.message}`);
+    return null;
+  }
+}
+
+function buildUserPrompt(dossier, ledger = null, watchlist = null, officialConfig = null) {
+  const promptDossier = SHADOW_SLIM ? slimDossierForPrompt(dossier) : dossier;
   const m = dossier.meta;
   const sig = m.signal_coverage || {};
   const primaryLine = PRIMARY.length
     ? `YOUR PRIMARY POSITIONS (the human's own core conviction plays — hedge baskets should cover OTHER teams, not these; these are context, not a request to re-recommend them): ${PRIMARY.join(', ')}.\n\n`
     : '';
+  const officialLine = officialConfig
+    ? `PLATINUM ROSE AI OFFICIAL TRACKING CONTRACT (paper expert rules; proposals only until human verification):\n${JSON.stringify(officialConfig)}\n\n`
+    : '';
   const ledgerLine = ledger ? `USER PORTFOLIO LEDGER (authoritative for units, caps, existing tickets, and open-parlay policy; open parlays with eligible_as_required_hedge_resource=false are not guaranteed planning capacity):\n${JSON.stringify(ledger)}\n\n` : '';
-  return `${primaryLine}${ledgerLine}DOSSIER META: season ${m.season}, ${m.snapshot_count} snapshots, books=${(m.books || []).join(',')}, markets=${(m.market_types || []).join(',')}. Intel: ${JSON.stringify(m.intel_coverage)}.
+  const watchlistLine = watchlist?.items?.length
+    ? `HUMAN WATCHLIST TARGETS (explicitly evaluate these markets/teams against the dossier. Do not force a bet: for each target, either recommend it, put it in watch with a timing/price trigger, or pass and say why. Expand "ATB" / across_the_board into the listed markets only; exacta targets should become hedge_basket/coverage candidates only when a matching dossier price exists):\n${JSON.stringify(watchlist)}\n\n`
+    : '';
+  return `${officialLine}${primaryLine}${ledgerLine}${watchlistLine}DOSSIER META: season ${m.season}, ${m.snapshot_count} snapshots, books=${(m.books || []).join(',')}, markets=${(m.market_types || []).join(',')}. Intel: ${JSON.stringify(m.intel_coverage)}.
 
 Offseason note: many markets (division, conference, awards, playoffs, matchup) may have limited or single-book coverage until preseason; weight coverage in your confidence. Super Bowl and win-total markets are the most liquid now — win totals especially are where bounce-back / longshot value tends to hide.
 
-SIGNAL COVERAGE (2026-07-22 follow-up — how many of the 32 teams have each new per-team signal populated so far; low counts early in the season are expected, not a data bug): ${JSON.stringify(sig)}. Each team row below carries 'analytics' (EPA/formation), 'schedule_context' (own rest/travel), 'officiating_context' (assigned-referee tendencies, usually sparse pre-season), and 'clv_signal' (closing-line move + sharp-split divergence) per the field guide in your system prompt — use them where present, and don't treat an absent one as a negative signal, just an unavailable one.
+SIGNAL COVERAGE (2026-07-22 follow-up — how many of the 32 teams have each new per-team signal populated so far; low counts early in the season are expected, not a data bug): ${JSON.stringify(sig)}. Each team row below carries 'analytics' (EPA/formation/EPA per dropback when populated), 'dvoa' (source-stamped imported DVOA snapshot), 'coaching_profile' (structured tendencies and coordinator continuity), 'schedule_context' (own rest/travel), 'officiating_context' (assigned-referee tendencies, usually sparse pre-season), and 'clv_signal' (closing-line move + sharp-split divergence) per the field guide in your system prompt — use them where present, and don't treat an absent one as a negative signal, just an unavailable one.
 
-TEAM PROFILES (one entry per team — prior/sos/analytics/schedule_context/officiating_context/clv_signal/injuries, computed ONCE per team; market rows below reference these by 'team_nick', or by 'team_a'/'team_b' for superbowl_matchup pairings):
-${JSON.stringify(dossier.team_profiles || {})}
+TEAM PROFILES (one entry per team — prior/sos/analytics/dvoa/coaching_profile/schedule_context/officiating_context/clv_signal/injuries, computed ONCE per team; market rows below reference these by 'team_nick', or by 'team_a'/'team_b' for superbowl_matchup pairings):
+${JSON.stringify(promptDossier.team_profiles || {})}
 
 SYNTHESIS INPUT (per market, sorted by strongest signal first; lean is per-market with back/fade/over/under counts + avg_strength):
-${JSON.stringify(dossier.synthesis_input)}
+${JSON.stringify(promptDossier.synthesis_input)}
 
 ADJACENT SIGNALS (game-level + prop leans per team — use for Week-1 correlation and hedges):
-${JSON.stringify(dossier.adjacent_signals || {})}
+${JSON.stringify(promptDossier.adjacent_signals || {})}
 
 ROSTER CHURN (latest week-over-week nflverse roster diff per team — adds/drops/status_changes; a personnel-instability signal, not itself injury-specific):
-${JSON.stringify(dossier.roster_churn || {})}
+${JSON.stringify(promptDossier.roster_churn || {})}
 
 Produce the portfolio JSON per the contract. Deliberately MINE for asymmetric value and bounce-back longshots — name why the market is anchored wrong — not just favorites; build hedges where correlation lets you lock value or cut variance; use the Week-1 timing layer where a near-term result is a price catalyst; and propose hedge_baskets/parlay_ladders plus portfolio_strategy where the dossier genuinely supports a playoff scenario book (do not force any structure).`;
+}
+
+function keepKeys(obj, keys) {
+  const out = {};
+  for (const key of keys) {
+    if (obj?.[key] !== undefined) out[key] = obj[key];
+  }
+  return out;
+}
+
+function hasPrimary(row) {
+  if (!PRIMARY.length) return false;
+  const hay = [row.team, row.team_nick, row.team_a, row.team_b, row.selection].filter(Boolean).join(' ').toLowerCase();
+  return PRIMARY.some((p) => hay.includes(p.toLowerCase()) || hay.includes(String(normalizeTeam(p) || '').toLowerCase()));
+}
+
+function edgeMagnitude(row) {
+  if (row.consensus_line != null) return Math.max(Math.abs(row.best_over_edge_pct ?? 0), Math.abs(row.best_under_edge_pct ?? 0));
+  if (row.sim?.gap != null) return Math.abs(row.sim.gap);
+  return Math.abs(row.value_gap ?? row.book_divergence ?? 0);
+}
+
+function takeRows(rows, n) {
+  return [...(rows || [])]
+    .sort((a, b) => Number(hasPrimary(b)) - Number(hasPrimary(a)) || edgeMagnitude(b) - edgeMagnitude(a))
+    .slice(0, n);
+}
+
+function slimBookMap(books, sideFields = false) {
+  return Object.fromEntries(Object.entries(books || {}).map(([book, row]) => [book, sideFields
+    ? keepKeys(row, ['line', 'over', 'under', 'fair_over', 'fair_under', 'over_edge', 'under_edge', 'observed_at', 'quote_age_hours', 'availability_status'])
+    : keepKeys(row, ['price', 'yes_price', 'no_price', 'fair', 'fair_yes', 'fair_no', 'observed_at', 'quote_age_hours', 'availability_status'])
+  ]));
+}
+
+function slimMarketRow(row) {
+  if (row.consensus_line != null) {
+    return {
+      ...keepKeys(row, ['team', 'team_nick', 'consensus_line', 'line_spread', 'over_fair_prob', 'under_fair_prob', 'best_over_edge_pct', 'best_under_edge_pct', 'best_over', 'best_over_book', 'best_under', 'best_under_book', 'line_consensus_confidence', 'line_value_signal', 'lean', 'sim_win_total']),
+      books: slimBookMap(row.books, true),
+    };
+  }
+  return {
+    ...keepKeys(row, ['team', 'team_nick', 'team_a', 'team_b', 'fair_prob', 'fair_american', 'best_price', 'best_book', 'best_prob', 'best_observed_at', 'best_quote_age_hours', 'best_availability_status', 'value_gap', 'book_divergence', 'n_books', 'lean', 'sim']),
+    books: row.books ? slimBookMap(row.books, false) : undefined,
+  };
+}
+
+function slimTeamProfile(profile) {
+  return keepKeys(profile, ['team', 'prior', 'sos', 'analytics', 'dvoa', 'coaching_profile', 'schedule_context', 'clv_signal', 'injuries']);
+}
+
+function slimDossierForPrompt(dossier) {
+  const limits = {
+    wins: 32,
+    playoffs: 32,
+    superbowl: 32,
+    conference_afc: 16,
+    conference_nfc: 16,
+    superbowl_matchup: 80,
+    most_wins: 16,
+    least_wins: 16,
+    division_exact_position: 48,
+  };
+  const input = {};
+  for (const [market, rows] of Object.entries(dossier.synthesis_input || {})) {
+    const n = limits[market] ?? 4;
+    input[market] = takeRows(rows, n).map(slimMarketRow);
+  }
+  return {
+    team_profiles: Object.fromEntries(Object.entries(dossier.team_profiles || {}).map(([team, profile]) => [team, slimTeamProfile(profile)])),
+    synthesis_input: input,
+    adjacent_signals: Object.fromEntries(Object.entries(dossier.adjacent_signals || {}).map(([team, row]) => [team, {
+      game_lean_count: row.game_lean_count ?? row.games?.length ?? null,
+      prop_lean_count: row.prop_lean_count ?? row.props?.length ?? null,
+      strongest: row.strongest || null,
+    }])),
+    roster_churn: dossier.roster_churn || {},
+  };
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -476,6 +591,98 @@ function findDossierRowFor(dossier, market, selection) {
 }
 function findDossierRow(dossier, candidate) {
   return findDossierRowFor(dossier, candidate?.market, candidate?.selection);
+}
+
+function rowTeamMatches(row, team) {
+  const wanted = normalizeTeam(team);
+  if (!wanted) return false;
+  return [row?.team, row?.team_nick, row?.team_a, row?.team_b].some((value) => normalizeTeam(value) === wanted);
+}
+
+function findWatchlistRow(dossier, team, market) {
+  const rows = dossier?.synthesis_input?.[market] || [];
+  return rows.find((row) => rowTeamMatches(row, team)) || null;
+}
+
+function watchlistQuote(row, target) {
+  if (!row) return { text: 'No dossier row', book: null, price: null, edge: null };
+  const direction = String(target?.direction || '').toLowerCase();
+  if (target?.market === 'wins') {
+    const side = direction === 'under' ? 'under' : 'over';
+    const price = side === 'under' ? row.best_under : row.best_over;
+    const book = side === 'under' ? row.best_under_book : row.best_over_book;
+    const fair = side === 'under' ? row.under_fair_prob : row.over_fair_prob;
+    const edge = side === 'under' ? row.best_under_edge_pct : row.best_over_edge_pct;
+    return {
+      text: `${side.toUpperCase()} ${row.consensus_line ?? '?'} ${price ?? '?'}@${book || '?'}`,
+      book,
+      price,
+      fair_prob: fair,
+      edge_pct: edge,
+    };
+  }
+  return {
+    text: `${row.best_price ?? '?'}@${row.best_book || '?'}`,
+    book: row.best_book,
+    price: row.best_price,
+    fair_prob: row.fair_prob,
+    edge_pct: row.value_gap == null ? null : round(row.value_gap * 100, 2),
+  };
+}
+
+function watchlistStatus(row, quote) {
+  if (!row) return 'missing from dossier';
+  const simGap = row.sim?.gap ?? row.sim_win_total?.gap ?? null;
+  const nBooks = row.n_books ?? row.line_consensus_confidence?.over_n_books ?? null;
+  if (quote.edge_pct != null && Number(quote.edge_pct) < 0) return 'negative current edge';
+  if (simGap != null && Number(simGap) < 0) return 'simulation below market';
+  if (nBooks != null && Number(nBooks) <= 1) return 'thin market';
+  return 'reviewable';
+}
+
+function buildWatchlistReview(dossier, watchlist) {
+  const items = watchlist?.items || [];
+  return items.map((item) => {
+    const markets = (item.markets || []).flatMap((target) => {
+      if (target.market === 'superbowl_matchup') {
+        const rows = (dossier?.synthesis_input?.superbowl_matchup || [])
+          .filter((row) => rowTeamMatches(row, item.team))
+          .slice()
+          .sort((a, b) => (Number(a.best_price ?? 0) - Number(b.best_price ?? 0)))
+          .slice(0, 8);
+        return rows.length
+          ? rows.map((row) => {
+              const quote = watchlistQuote(row, target);
+              return {
+                market: target.market,
+                direction: target.direction || null,
+                selection: row.team,
+                quote: quote.text,
+                fair_prob: quote.fair_prob,
+                edge_pct: quote.edge_pct,
+                sim_gap: row.sim?.gap ?? null,
+                n_books: row.n_books ?? null,
+                status: watchlistStatus(row, quote),
+              };
+            })
+          : [{ market: target.market, direction: target.direction || null, selection: item.team, quote: 'No dossier row', status: 'missing from dossier' }];
+      }
+      const row = findWatchlistRow(dossier, item.team, target.market);
+      const quote = watchlistQuote(row, target);
+      return [{
+        market: target.market,
+        direction: target.direction || null,
+        selection: row?.team || item.team,
+        quote: quote.text,
+        fair_prob: quote.fair_prob,
+        edge_pct: quote.edge_pct,
+        sim_gap: row?.sim?.gap ?? row?.sim_win_total?.gap ?? null,
+        n_books: row?.n_books ?? row?.line_consensus_confidence?.over_n_books ?? null,
+        status: watchlistStatus(row, quote),
+      }];
+    });
+    return { ...item, markets };
+  });
 }
 
 function matchupKeyFromTeams(a, b) {
@@ -1121,6 +1328,190 @@ function validateRecommendationStrict(candidate, dossier, podcastEvidence) {
   next.needs_human_review = needsReview;
   if (notes.length) next.validation_notes = notes;
   return { status: notes.length ? 'flagged' : 'ok', candidate: next };
+}
+
+function proposalSlug(value, fallback = 'proposal') {
+  const s = String(value || fallback)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  return s || fallback;
+}
+
+function stakeUnitsForTier(officialConfig, tier) {
+  const sizing = officialConfig?.sizing_map || {};
+  return Number(sizing[tier] ?? sizing.speculative ?? 0.25);
+}
+
+function lineForProposal(candidate, row) {
+  if (!row || row.consensus_line == null) return null;
+  const book = candidate.book;
+  if (!book) return lineOfSelection(candidate.selection);
+  return row.books?.[book]?.line ?? row.books?.[String(book).toLowerCase()]?.line ?? lineOfSelection(candidate.selection);
+}
+
+function quoteObservedAt(candidate, row) {
+  const q = quoteStatusFor(row, candidate.book);
+  return q?.observed_at || row?.best_observed_at || null;
+}
+
+function proposalReadiness(config, proposal) {
+  const errors = [];
+  const warnings = [];
+  for (const key of ['market_type', 'selection', 'book']) {
+    if (!proposal[key]) errors.push(`${key} is required for proposal intake.`);
+  }
+  for (const key of ['thesis', 'market_view', 'football_view', 'disconfirming_factor']) {
+    if (!proposal[key]) errors.push(`${key} is required for proposal intake.`);
+  }
+  if (proposal.confidence == null || !Number.isFinite(Number(proposal.confidence))) warnings.push('confidence is required before lock.');
+  if (!proposal.observed_at) warnings.push('observed_at is required before lock.');
+  if (!proposal.source_ref && !proposal.source_url) warnings.push('source_ref or source_url is required before lock.');
+  if (!proposal.bet_threshold && proposal.minimum_edge_pct == null && proposal.edge_pct == null) warnings.push('bet_threshold, minimum_edge_pct, or edge_pct is required before lock.');
+  if (!proposal.evidence_ids?.length) warnings.push('evidence_ids are required before lock.');
+  const held = new Set((config?.market_holds || []).map((h) => h.market));
+  const exactaHold = held.has(proposal.market_type) || held.has(proposal.market);
+  if (exactaHold) warnings.push('Current exacta/Super Bowl matchup hold: monitor-only until secondary BetOnline price-shopping market exists.');
+  return {
+    proposal_ready: errors.length === 0,
+    lock_ready: false,
+    exacta_hold: exactaHold,
+    errors,
+    warnings,
+    info: ['Draft exported from Futures Agent output. Human verification is required before official paper tracking.'],
+  };
+}
+
+function candidateToOfficialProposal(candidate, dossier, meta, officialConfig) {
+  const row = findDossierRow(dossier, candidate);
+  const stakeTier = candidate.stake_tier || 'speculative';
+  const stakeUnits = stakeUnitsForTier(officialConfig, stakeTier);
+  const observedAt = quoteObservedAt(candidate, row);
+  const edge = candidate.code_edge_pct ?? candidate.edge_pct ?? null;
+  const team = candidate.display_team || row?.team_nick || row?.team || normalizeTeam(candidate.selection) || '';
+  return {
+    pick_id: randomUUID(),
+    pick_scope: 'futures',
+    market_type: candidate.market || 'futures',
+    market: candidate.market || 'futures',
+    selection: candidate.selection || '',
+    team,
+    opponent: row?.team_a && row?.team_b ? [row.team_a, row.team_b].filter((t) => t !== team).join(' / ') : '',
+    book: candidate.book || '',
+    price: candidate.price ?? null,
+    line: lineForProposal(candidate, row),
+    stake_tier: stakeTier,
+    stake_units: stakeUnits,
+    confidence: candidate.confidence ?? null,
+    observed_at: observedAt || '',
+    source_ref: `portfolio-synthesize ${meta.run_id} ${candidate.key || `${candidate.market}|${candidate.selection}`}`,
+    source_url: '',
+    bet_threshold: candidate.bet_threshold || '',
+    minimum_edge_pct: edge,
+    model_fair_prob: candidate.model_fair_prob ?? null,
+    edge_pct: edge,
+    market_view: candidate.market_view || '',
+    football_view: candidate.football_view || '',
+    thesis: candidate.thesis || '',
+    disconfirming_factor: candidate.disconfirming_factor || '',
+    evidence_ids: candidate.evidence_ids || [],
+    sources: candidate.sources || [],
+    timing: candidate.timing || null,
+    correlated_positions: candidate.correlated_week1 || [],
+    data_snapshot: {
+      proposal_exported_by: 'agents/portfolio-synthesize.js',
+      exported_at: new Date().toISOString(),
+      run_id: meta.run_id,
+      portfolio_date: meta.date,
+      candidate_key: candidate.key || null,
+      candidate_type: candidate.type || null,
+      edge_type: candidate.edge_type || null,
+      needs_human_review: !!candidate.needs_human_review,
+      validation_notes: candidate.validation_notes || [],
+      code_fair_prob: candidate.code_fair_prob ?? null,
+      code_edge_pct: candidate.code_edge_pct ?? null,
+      edge_lower_bound_pct: candidate.edge_lower_bound_pct ?? null,
+      agreement: candidate.agreement || null,
+      quote_source: {
+        observed_at: observedAt,
+        book: candidate.book || null,
+        market: candidate.market || null,
+      },
+    },
+    audit_note: 'Draft exported from Futures Agent final candidate output. Not official unless human-verified and locked.',
+  };
+}
+
+function renderProposalInboxMarkdown(manifest) {
+  const lines = [
+    '# Platinum Rose AI Candidate Inbox',
+    '',
+    `Generated: ${manifest.generated_at}`,
+    `Source run: ${manifest.run_id}`,
+    `Proposal count: ${manifest.proposals.length}`,
+    '',
+    '> Draft proposals only. Nothing here is an official pick until human-verified and locked in the Platinum Rose ledger.',
+    '',
+    '## Candidates',
+    '',
+  ];
+  if (!manifest.proposals.length) {
+    lines.push('_No proposals exported._');
+  } else {
+    for (const p of manifest.proposals) {
+      const status = p.readiness.proposal_ready ? 'proposal-ready' : 'needs work';
+      const hold = p.readiness.exacta_hold ? ' - exacta hold' : '';
+      lines.push(`- **${p.selection}** (${p.market_type}) - ${p.book} ${p.price ?? ''} - ${p.stake_units}u - ${status}${hold}`);
+      if (p.readiness.errors.length) lines.push(`  - Errors: ${p.readiness.errors.join(' | ')}`);
+      if (p.readiness.warnings.length) lines.push(`  - Warnings: ${p.readiness.warnings.join(' | ')}`);
+      lines.push(`  - File: ${p.file}`);
+    }
+  }
+  lines.push('');
+  return lines.join('\n');
+}
+
+async function exportOfficialProposalDrafts(finalCandidates, dossier, meta, officialConfig) {
+  if (!PROPOSAL_OUT_DIR) return null;
+  const outDir = path.resolve(ROOT, PROPOSAL_OUT_DIR);
+  await mkdir(outDir, { recursive: true });
+  const manifest = {
+    generated_at: new Date().toISOString(),
+    run_id: meta.run_id,
+    source: 'agents/portfolio-synthesize.js',
+    proposal_out_dir: path.relative(ROOT, outDir),
+    proposals: [],
+  };
+  for (const candidate of finalCandidates) {
+    const proposal = candidateToOfficialProposal(candidate, dossier, meta, officialConfig);
+    const readiness = proposalReadiness(officialConfig, proposal);
+    proposal.data_snapshot.proposal_readiness = readiness;
+    const fileName = [
+      meta.date,
+      proposalSlug(proposal.team || proposal.market_type),
+      proposalSlug(proposal.market_type),
+      proposalSlug(proposal.selection),
+      proposal.pick_id.slice(0, 8),
+    ].join('-') + '.json';
+    const filePath = path.join(outDir, fileName);
+    await writeFile(filePath, JSON.stringify(proposal, null, 2) + '\n', 'utf8');
+    manifest.proposals.push({
+      pick_id: proposal.pick_id,
+      selection: proposal.selection,
+      market_type: proposal.market_type,
+      book: proposal.book,
+      price: proposal.price,
+      stake_units: proposal.stake_units,
+      file: path.relative(ROOT, filePath),
+      readiness,
+    });
+  }
+  const manifestBase = path.join(outDir, `candidate-inbox-${meta.date}-${meta.run_id.slice(0, 8)}`);
+  await writeFile(`${manifestBase}.json`, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
+  await writeFile(`${manifestBase}.md`, renderProposalInboxMarkdown(manifest), 'utf8');
+  console.log(`   proposal drafts: ${manifest.proposals.length} exported to ${path.relative(ROOT, outDir)}`);
+  console.log(`   candidate inbox: ${manifestBase}.md`);
+  return manifest;
 }
 
 function legPayout(price, stake = 1) {
@@ -1822,6 +2213,7 @@ function reportTOCHTML(ranked, { ladders = [], baskets = [], passed = [], killed
   const teams = groupRecommendationsByTeam(ranked?.all || []);
   const teamLinks = teams.map(([team, rows]) => `<a class="toc-team" href="#${attr(anchorId('team', team))}">${esc(team)} <span>${rows.length}</span></a>`).join('');
   const sections = [
+    ['#human-watchlist', 'Human Watchlist', null],
     ['#scenario-book', 'Scenario Book', null],
     ['#parlay-ladders', 'Parlay Ladders', ladders.length],
     ['#hedge-baskets', 'Hedge Baskets', baskets.length],
@@ -1915,7 +2307,15 @@ function scenarioBookHTML(strategy) {
     ${riskBits.length ? `<h3>Risk Review</h3><ul>${riskBits.map((b) => `<li>${esc(b)}</li>`).join('')}</ul>` : ''}
   </div>`;
 }
-function renderHTML(ranked, passed, killed, byModel, meta, ladders = [], baskets = [], portfolioStrategy = null) {
+function watchlistReviewHTML(review = []) {
+  if (!review.length) return '<p>No human watchlist loaded.</p>';
+  return review.map((item) => {
+    const rows = (item.markets || []).map((m) => `<tr><td>${esc(labelMarket(m.market))}</td><td>${esc(m.selection || item.team)}</td><td>${esc(m.direction || '-')}</td><td>${esc(m.quote || '-')}</td><td>${esc(percent(m.fair_prob) || '-')}</td><td>${m.edge_pct == null ? '-' : `${esc(m.edge_pct)}%`}</td><td>${m.sim_gap == null ? '-' : `${esc(round(Number(m.sim_gap) * 100, 2))}%`}</td><td>${esc(m.status || '-')}</td></tr>`).join('');
+    return `<details class="fold-section" open><summary>${esc(item.label || item.team)} <span class="et">${esc(item.priority || 'watch')}</span></summary><div class="fold-body"><p class="meta">${esc(item.intent || '')}</p><table class="stack-tbl"><thead><tr><th>Market</th><th>Selection</th><th>Direction</th><th>Quote</th><th>Fair</th><th>Edge/Gap</th><th>Sim Gap</th><th>Status</th></tr></thead><tbody>${rows}</tbody></table></div></details>`;
+  }).join('');
+}
+
+function renderHTML(ranked, passed, killed, byModel, meta, ladders = [], baskets = [], portfolioStrategy = null, watchlistReview = []) {
   const names = modelNames(byModel);
   const section = (title, list, empty) => `<h2>${esc(title)} (${list.length})</h2>${list.length ? list.map(recCard).join('') : `<p>${esc(empty)}</p>`}`;
   const watch = names.flatMap((n) => (byModel[n].watch || []).map((w) => `<li><b>${esc(humanizeMarketRefs(w.selection))}</b> <span class="mk">${esc(labelMarket(w.market))}</span> — ${esc(humanizeMarketRefs(w.why))} <i>(${esc(n)})</i></li>`)).join('');
@@ -1977,6 +2377,7 @@ function renderHTML(ranked, passed, killed, byModel, meta, ladders = [], baskets
 ${badgeKeyHTML()}
 ${reportTOCHTML(ranked, { ladders, baskets, passed, killed, watchCount: names.reduce((sum, n) => sum + (byModel[n].watch || []).length, 0) })}
 ${quickReadHTML(ranked.all)}
+<h2 id="human-watchlist">Human Watchlist Review</h2>${watchlistReviewHTML(watchlistReview)}
 <h2>Recommendations by Team</h2>
 ${teamSectionsHTML(ranked.all)}
 <h2 id="scenario-book">Scenario Book / Playoff Hedge Map</h2>${scenarioBookHTML(portfolioStrategy)}
@@ -2038,6 +2439,20 @@ function scenarioBookMD(strategy) {
   }
   return L.join('\n');
 }
+function watchlistReviewMD(review = []) {
+  if (!review.length) return 'No human watchlist loaded.';
+  const L = [];
+  for (const item of review) {
+    L.push(`### ${item.label || item.team}`);
+    if (item.intent) L.push(item.intent);
+    L.push('', '| Market | Selection | Direction | Quote | Fair | Edge/Gap | Sim Gap | Status |', '|---|---|---|---:|---:|---:|---:|---|');
+    for (const m of item.markets || []) {
+      L.push(`| ${labelMarket(m.market)} | ${humanizeMarketRefs(m.selection || item.team)} | ${m.direction || '-'} | ${m.quote || '-'} | ${percent(m.fair_prob) || '-'} | ${m.edge_pct == null ? '-' : `${m.edge_pct}%`} | ${m.sim_gap == null ? '-' : `${round(Number(m.sim_gap) * 100, 2)}%`} | ${m.status || '-'} |`);
+    }
+    L.push('');
+  }
+  return L.join('\n');
+}
 function quickReadMD(recs = []) {
   if (!recs.length) return 'No final recommendations survived validation.';
   return recs.map((r) => `- ${recommendationBlurb(r)}`).join('\n');
@@ -2047,7 +2462,7 @@ function teamSectionsMD(recs = [], line) {
   if (!groups.length) return 'No final recommendations survived validation.';
   return groups.map(([team, rows]) => [`### ${team} (${rows.length})`, ...rows.map((r) => `${line(r)}${simulationBlockMD(r)}${signalBlockMD(r.dossier_signals)}`), ''].join('\n')).join('\n');
 }
-function renderMD(ranked, passed, killed, byModel, meta, ladders = [], baskets = [], portfolioStrategy = null) {
+function renderMD(ranked, passed, killed, byModel, meta, ladders = [], baskets = [], portfolioStrategy = null, watchlistReview = []) {
   const names = modelNames(byModel);
   const line = (r) => `- **${r.selection}** · ${labelMarket(r.market)} · ${labelType(r.type)} · ${labelEdgeType(r.edge_type)}${r.needs_human_review ? ' · Needs Review' : ''}\n  - Quote: ${r.price}@${r.book} · ${labelStakeTier(r.stake_tier)} · Confidence ${r.confidence}\n  - Fair probability: ${percent(r.model_fair_prob) || r.model_fair_prob} · Estimated edge: ${r.edge_pct}%${r.agreement ? ` · Models: ${r.agreement.count} of ${r.agreement.of}` : ''}${r.bet_threshold ? ` · Play only at: ${r.bet_threshold}` : ''}\n  - Source quality: ${sourceQuality(r).label}\n${r.market_view ? `  - Market: ${r.market_view}\n` : ''}${r.football_view ? `  - Football: ${r.football_view}\n` : ''}  - ${r.thesis}\n  - ⚠ ${r.disconfirming_factor}${r.skeptic_note ? `\n  - 🕵 Skeptic (${r.skeptic_verdict}): ${r.skeptic_note}` : ''}${r.risk_note ? `\n  - ⚖ Risk: ${r.risk_note}` : ''}${r.evidence_resolved?.length ? `\n  - 🔗 ${r.evidence_resolved.map((e) => `${e.id}${e.resolved ? `=${JSON.stringify(e.value)}` : ' (unresolved)'}`).join(', ')}` : (r.evidence_ids?.length ? `\n  - 🔗 ${r.evidence_ids.join(', ')} (unresolved — no dossier row match)` : '')}${r.sources?.length ? `\n  - 📣 sources: ${r.sources.join(', ')}` : ''}\n  - timing: **${r.timing?.action}**${r.timing?.trigger ? ` — ${r.timing.trigger}` : ''}${r.timing?.expected_move ? ` (${r.timing.expected_move})` : ''}`;
   const section = (title, list) => {
@@ -2064,6 +2479,8 @@ function renderMD(ranked, passed, killed, byModel, meta, ladders = [], baskets =
     ''];
   L.push('## Quick read');
   L.push(quickReadMD(ranked.all), '');
+  L.push('## Human Watchlist Review');
+  L.push(watchlistReviewMD(watchlistReview), '');
   L.push('## Recommendations by Team');
   L.push(teamSectionsMD(ranked.all, line));
   L.push('## Scenario Book / Playoff Hedge Map');
@@ -2162,13 +2579,21 @@ async function persistRecommendationRuns(meta, trail) {
 (async () => {
   const dossier = JSON.parse(await readFile(DOSSIER, 'utf8'));
   const ledger = await loadLedger();
+  const watchlist = await loadWatchlist();
+  const officialConfig = await loadOfficialConfig();
+  if (watchlist?.items?.length) {
+    console.log(`   human watchlist: ${watchlist.items.length} target(s) from ${WATCHLIST_PATH}`);
+  }
+  if (officialConfig?.expert_id) {
+    console.log(`   official paper expert: ${officialConfig.display_name || officialConfig.expert_id} from ${OFFICIAL_CONFIG_PATH}`);
+  }
   const podcastEvidence = await loadPodcastEvidenceIndex();
   if (podcastEvidence.rows.length) {
     console.log(`   podcast source context: ${podcastEvidence.rows.length} offline host-summary pick row(s) from ${podcastEvidence.summary_path}`);
   } else {
     console.log('   podcast source context: no local Futures_Picks_Summary file found; dossier signals will render without host-summary links');
   }
-  const userContent = buildUserPrompt(dossier, ledger);
+  const userContent = buildUserPrompt(dossier, ledger, watchlist, officialConfig);
   const models = ONLY ? MODELS.filter((m) => m.includes(ONLY)) : MODELS;
   console.log(`🧠 Stage 1 (Market+Football Analyst) with: ${models.join(' + ')}`);
 
@@ -2201,7 +2626,7 @@ async function persistRecommendationRuns(meta, trail) {
     return (Array.isArray(s) ? s : [s]).map((strategy) => ({ ...strategy, proposed_by: m }));
   });
 
-  const meta = { date: new Date().toISOString().slice(0, 10), season: dossier.meta.season, committee_ran: !SKIP_COMMITTEE, run_id: randomUUID() };
+  const meta = { date: new Date().toISOString().slice(0, 10), season: dossier.meta.season, committee_ran: !SKIP_COMMITTEE, run_id: randomUUID(), watchlist_path: watchlist?.items?.length ? WATCHLIST_PATH : null, watchlist_count: watchlist?.items?.length || 0 };
   let final = candidates, passed = [], killed = [];
   const raw2 = {};
   let scenarioReview = null;
@@ -2272,17 +2697,22 @@ async function persistRecommendationRuns(meta, trail) {
     scenarioReview,
     invalidStacks,
   });
+  const watchlistReview = buildWatchlistReview(dossier, watchlist);
 
   const ranked = rankByAxis(final);
+  const proposalInbox = await exportOfficialProposalDrafts(final, dossier, meta, officialConfig);
   await mkdir(OUT_DIR, { recursive: true });
   const safeSuffix = OUT_SUFFIX ? `-${OUT_SUFFIX.replace(/[^a-z0-9_-]+/gi, '-').replace(/^-+|-+$/g, '')}` : '';
   const base = path.join(OUT_DIR, `portfolio-${meta.date}${safeSuffix}`);
-  await writeFile(`${base}.html`, renderHTML(ranked, passed, killed, byModel, meta, validLadders, validBaskets, portfolioStrategy));
-  await writeFile(`${base}.md`, renderMD(ranked, passed, killed, byModel, meta, validLadders, validBaskets, portfolioStrategy));
+  await writeFile(`${base}.html`, renderHTML(ranked, passed, killed, byModel, meta, validLadders, validBaskets, portfolioStrategy, watchlistReview));
+  await writeFile(`${base}.md`, renderMD(ranked, passed, killed, byModel, meta, validLadders, validBaskets, portfolioStrategy, watchlistReview));
   await writeFile(`${base}.raw.json`, JSON.stringify({ meta, models: ok, raw, stage2_3: raw2, candidates, final, passed, killed,
+    human_watchlist: watchlist,
+    human_watchlist_review: watchlistReview,
     hedge_baskets: { raw: rawHedgeBaskets, valid: validBaskets },
     parlay_ladders: { raw: rawParlayLadders, valid: validLadders },
     portfolio_strategy: { raw: rawPortfolioStrategies, final: portfolioStrategy },
+    official_proposal_inbox: proposalInbox,
     invalidated_stacks: invalidStacks }, null, 2));
   await persistRecommendations(final, meta);
   await persistRecommendationRuns(meta, { stage1: candidates, killed, passed, final });

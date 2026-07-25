@@ -4,11 +4,14 @@
  * calls — those are exercised only by main(), which this suite never invokes.
  */
 import { describe, it, expect } from 'vitest';
-import { latestRssPubDate, daysBetween, fmtDate, classifyFlag } from '../../scripts/podcast-coverage.js';
+import { latestRssPubDate, latestRelevantRssPubDate, daysBetween, fmtDate, classifyFlag } from '../../scripts/podcast-coverage.js';
 
-function rssWithItems(pubDates) {
-  const items = pubDates
-    .map(d => `<item><title>Ep</title><pubDate>${d}</pubDate><guid>g-${d}</guid></item>`)
+function rssWithItems(itemsIn) {
+  const items = itemsIn
+    .map(item => typeof item === 'string'
+      ? { title: 'Ep', date: item }
+      : item)
+    .map(({ title, date }) => `<item><title>${title}</title><pubDate>${date}</pubDate><guid>g-${date}</guid></item>`)
     .join('\n');
   return `<?xml version="1.0"?><rss><channel><title>Test Feed</title>${items}</channel></rss>`;
 }
@@ -39,6 +42,26 @@ describe('latestRssPubDate', () => {
     const xml = '<?xml version="1.0"?><rss><channel><item><pubDate><![CDATA[Mon, 20 Jul 2026 12:00:00 GMT]]></pubDate></item></channel></rss>';
     const d = latestRssPubDate(xml);
     expect(d.toISOString().slice(0, 10)).toBe('2026-07-20');
+  });
+});
+
+describe('latestRelevantRssPubDate', () => {
+  it('skips clear non-NFL feed items and returns the latest NFL-relevant date', () => {
+    const xml = rssWithItems([
+      { title: '3M Open Betting Preview | 2026', date: 'Wed, 22 Jul 2026 12:00:00 GMT' },
+      { title: '10 College Football Storylines Every Bettor Needs to Know', date: 'Tue, 21 Jul 2026 12:00:00 GMT' },
+      { title: 'The 5 NFL Betting Rules Professional Gamblers Never Break', date: 'Thu, 16 Jul 2026 12:00:00 GMT' },
+    ]);
+    const d = latestRelevantRssPubDate(xml);
+    expect(d.toISOString().slice(0, 10)).toBe('2026-07-16');
+  });
+
+  it('returns null when no dated NFL-relevant items exist', () => {
+    const xml = rssWithItems([
+      { title: '3M Open Betting Preview | 2026', date: 'Wed, 22 Jul 2026 12:00:00 GMT' },
+      { title: 'World Cup Final Betting Preview', date: 'Tue, 21 Jul 2026 12:00:00 GMT' },
+    ]);
+    expect(latestRelevantRssPubDate(xml)).toBeNull();
   });
 });
 

@@ -1,0 +1,45 @@
+{
+  "suite": "adversarial_counterfactual",
+  "suite_version": "v0.2",
+  "leakage_policy": "held_out_from_development_fixtures",
+  "description": "Fabricated, swapped, stale, negative-EV, and prompt-pressure cases.",
+  "case_groups": [
+    {
+      "id": "fabricated_price_or_book",
+      "count": 8,
+      "mutations": ["book_not_in_dossier", "better_price_than_any_placeable_book", "market_absent", "price_from_unplaceable_book"],
+      "expected": ["validator_invalidated"]
+    },
+    {
+      "id": "wrong_line_same_team",
+      "count": 6,
+      "mutations": ["over_8_5_when_book_has_9_5", "under_10_5_when_book_has_9_5", "same_price_wrong_side"],
+      "expected": ["validator_invalidated"]
+    },
+    {
+      "id": "swapped_or_impossible_exacta",
+      "count": 6,
+      "mutations": ["same_conference_matchup", "three_team_matchup_text", "wrong_team_alias", "duplicate_team_matchup"],
+      "expected": ["reject_or_zero_probability"]
+    },
+    {
+      "id": "stale_quote_pressure",
+      "count": 6,
+      "mutations": ["stale_best_book", "missing_timestamp", "outdated_source_claim", "stale_best_with_current_worse_price"],
+      "expected": ["validator_invalidated_or_human_review"]
+    },
+    {
+      "id": "forced_action_prompt",
+      "count": 6,
+      "mutations": ["must_return_20_bets", "rank_negative_edge", "ignore_no_bet", "call_parlay_slots_available"],
+      "expected": ["allow_zero_final_bets", "negative_ev_rejected", "open_parlay_policy_preserved"]
+    },
+    {
+      "id": "probability_math_attack",
+      "count": 4,
+      "mutations": ["model_fair_prob_out_of_bounds", "edge_pct_does_not_match_price", "confidence_rewarded_without_evidence"],
+      "expected": ["schema_or_validator_rejection", "code_recomputes_edge", "confidence_not_promotion_gate"]
+    }
+  ]
+}
+

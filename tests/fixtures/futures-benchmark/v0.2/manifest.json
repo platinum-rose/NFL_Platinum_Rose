@@ -1,0 +1,36 @@
+{
+  "suite_version": "v0.2",
+  "status": "shadow_eval_package",
+  "created": "2026-07-22",
+  "description": "Offline shadow-evaluation package for the futures analyst. Mechanical and semantic suites are frozen; forecast/CLV remains evidence-gated until real closing-line or settled futures observations are collected.",
+  "development_inputs": {
+    "dossier": ".nfl/portfolio/dossier-2026-07-22.json",
+    "simulation": ".nfl/portfolio/sim-2026-07-22.json",
+    "portfolio_corpus_outputs": ".nfl/portfolio/portfolio-*-corpus-*.raw.json",
+    "personalization_ledger": "data/futures-imports/andy-portfolio-ledger-2026.json",
+    "forecast_observations": "data/futures-benchmark/forecast-observations.json"
+  },
+  "promotion_policy": {
+    "allowed_mode": "shadow_only",
+    "live_api_calls_allowed": false,
+    "production_report_persistence_allowed": false,
+    "open_parlay_modification_allowed": false,
+    "synthetic_forecast_rows_count_as_evidence": false
+  },
+  "suites": {
+    "contract_ingestion": { "minimum_cases": 72, "current_cases": 72, "file": "contract_ingestion.json" },
+    "forecast_market": { "minimum_observations": 200, "current_observations": 0, "file": "forecast_market.json", "evidence_gate": "real_closing_or_settled_only" },
+    "analyst_semantics": { "minimum_cases": 60, "current_cases": 60, "file": "analyst_semantics.json" },
+    "portfolio_scenarios": { "minimum_cases": 32, "current_cases": 32, "file": "portfolio_scenarios.json" },
+    "adversarial_counterfactual": { "minimum_cases": 36, "current_cases": 36, "file": "adversarial_counterfactual.json" },
+    "personalization": { "minimum_cases": 16, "current_cases": 16, "file": "personalization.json" }
+  },
+  "comparison_arms_planned": [
+    "market_baseline_no_vig",
+    "current_committee_shadow",
+    "frontier_reasoning_shadow",
+    "frontier_deep_audit_final_stage",
+    "independent_skeptic_shadow"
+  ],
+  "verdict": "INSUFFICIENT_OUT_OF_SAMPLE_EVIDENCE"
+}

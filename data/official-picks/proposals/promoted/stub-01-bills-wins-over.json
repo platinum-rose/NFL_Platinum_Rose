@@ -1,0 +1,44 @@
+{
+  "pick_id": "33333333-3333-4333-8333-333333333333",
+  "pick_scope": "futures",
+  "market_type": "wins",
+  "market": "regular_season_wins",
+  "selection": "Buffalo Bills Over 11.5",
+  "team": "Buffalo Bills",
+  "book": "stub-bookmaker",
+  "price": -105,
+  "line": 11.5,
+  "stake_tier": "standard",
+  "stake_units": 1,
+  "confidence": 68,
+  "observed_at": "2026-07-24T00:00:00Z",
+  "source_ref": "stub inbox demo - not a recommendation",
+  "bet_threshold": "-110 or better in this stub example",
+  "minimum_edge_pct": 2.5,
+  "model_fair_prob": 0.535,
+  "edge_pct": 3.6,
+  "market_view": "Stub: the example price is inside the stated threshold and would be treated as a candidate for review.",
+  "football_view": "Stub: the Bills profile would need schedule, DVOA, EPA, and injury confirmation before any real action.",
+  "thesis": "Stub only: this shows how a primary Bills anchor candidate would appear before human verification.",
+  "disconfirming_factor": "Stub only: preseason injury or price drift could make waiting better than locking now.",
+  "evidence_ids": [
+    "stub.bills.anchor",
+    "team_profiles.Buffalo Bills.dvoa"
+  ],
+  "sources": [
+    "Stub Source"
+  ],
+  "data_snapshot": {
+    "stub": true,
+    "purpose": "candidate inbox demo"
+  },
+  "audit_note": "STUB ONLY - not a recommendation, not official, and not human verified.",
+  "inbox_state": {
+    "state": "approved_official_paper",
+    "approved_at": "2026-07-24T04:54:21.147Z",
+    "ledger_path": "data\\official-picks\\platinum-rose-ai-2026.json",
+    "pick_id": "33333333-3333-4333-8333-333333333333",
+    "note": null,
+    "updated_at": "2026-07-24T04:54:21.150Z"
+  }
+}

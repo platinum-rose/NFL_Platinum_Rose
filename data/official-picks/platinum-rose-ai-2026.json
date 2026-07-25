@@ -1,0 +1,300 @@
+{
+  "meta": {
+    "ledger_id": "platinum_rose_ai_2026",
+    "expert_id": "platinum_rose_ai",
+    "display_name": "Platinum Rose AI",
+    "sport": "NFL",
+    "season": 2026,
+    "mode": "paper_tracked_human_verified",
+    "config_path": "data/futures-imports/platinum-rose-ai-official-2026.json",
+    "created_at": "2026-07-24T02:15:17.315Z",
+    "updated_at": "2026-07-24T04:54:34.853Z"
+  },
+  "bankrolls": {
+    "futures_portfolio": {
+      "bankroll_usd": 500,
+      "unit_usd": 20,
+      "allowed_unit_sizes": [
+        0.25,
+        0.5,
+        1,
+        2
+      ],
+      "cutoff_user_label": "September 9, 2026 at 12:00 PM PST",
+      "cutoff_timezone": "America/Los_Angeles",
+      "cutoff_local_iso": "2026-09-09T12:00:00-07:00",
+      "cutoff_utc": "2026-09-09T19:00:00Z",
+      "pre_cutoff_policy": "The AI can propose futures before the cutoff, but it must account for preseason price movement, late-opening futures markets, and potential in-season futures entry points before asking for official tracking approval.",
+      "in_season_futures_policy": "Futures can remain candidates after the cutoff when new price dislocations appear because of performance, injuries, roster changes, or market liquidity."
+    },
+    "in_season_weekly": {
+      "bankroll_usd": 1000,
+      "unit_usd": 10,
+      "allowed_unit_sizes": [
+        0.25,
+        0.5,
+        1,
+        2
+      ],
+      "scope": [
+        "sides",
+        "totals",
+        "moneyline_dogs",
+        "player_props",
+        "teasers",
+        "parlays"
+      ],
+      "deadline_policy": "Weekly official picks must be locked before the relevant market starts unless explicitly marked as a live/in-game paper play."
+    },
+    "sizing_map": {
+      "speculative": 0.25,
+      "small": 0.5,
+      "standard": 1,
+      "core": 2
+    }
+  },
+  "policy": {
+    "autonomous_betting_allowed": false,
+    "human_verification_required": true,
+    "market_holds": [
+      {
+        "market": "superbowl_matchup",
+        "rule": "Exacta and Super Bowl matchup plays are monitor-only until a secondary BetOnline market appears for price shopping against BetUS or another placeable book."
+      }
+    ]
+  },
+  "picks": [
+    {
+      "pick_id": "33333333-3333-4333-8333-333333333333",
+      "expert_key": "platinum_rose_ai",
+      "sport": "NFL",
+      "season": 2026,
+      "pick_scope": "futures",
+      "lifecycle": "official_paper",
+      "approval_state": "official_paper",
+      "portfolio_name": "futures_portfolio",
+      "bankroll_usd": 500,
+      "unit_size_usd": 20,
+      "stake_units": 1,
+      "stake_usd": 20,
+      "stake_tier": "standard",
+      "confidence": 68,
+      "confidence_tier": null,
+      "market_type": "wins",
+      "market": "regular_season_wins",
+      "selection": "Buffalo Bills Over 11.5",
+      "bet_type": null,
+      "side": null,
+      "team": "Buffalo Bills",
+      "opponent": null,
+      "event_id": null,
+      "week": null,
+      "starts_at": null,
+      "book": "stub-bookmaker",
+      "price": -105,
+      "line": 11.5,
+      "observed_at": "2026-07-24T00:00:00Z",
+      "source_url": null,
+      "source_ref": "stub inbox demo - not a recommendation",
+      "bet_threshold": "-110 or better in this stub example",
+      "minimum_edge_pct": 2.5,
+      "model_fair_prob": 0.535,
+      "edge_pct": 3.6,
+      "closing_price": null,
+      "closing_line": null,
+      "closing_observed_at": null,
+      "clv_pct": null,
+      "result_status": "pending",
+      "payout_units": null,
+      "net_units": null,
+      "resolved_at": null,
+      "result_note": null,
+      "source_model": null,
+      "source_run_id": null,
+      "market_view": "Stub: the example price is inside the stated threshold and would be treated as a candidate for review.",
+      "football_view": "Stub: the Bills profile would need schedule, DVOA, EPA, and injury confirmation before any real action.",
+      "thesis": "Stub only: this shows how a primary Bills anchor candidate would appear before human verification.",
+      "disconfirming_factor": "Stub only: preseason injury or price drift could make waiting better than locking now.",
+      "timing": null,
+      "correlated_positions": [],
+      "evidence_ids": [
+        "stub.bills.anchor",
+        "team_profiles.Buffalo Bills.dvoa"
+      ],
+      "sources": [
+        "Stub Source"
+      ],
+      "data_snapshot": {
+        "stub": true,
+        "purpose": "candidate inbox demo"
+      },
+      "human_verification_required": true,
+      "human_verified_at": "2026-07-24T04:54:21.147Z",
+      "official_at": "2026-07-24T04:54:21.147Z",
+      "locked_at": "2026-07-24T04:54:21.147Z",
+      "audit_note": "STUB ONLY - not a recommendation, not official, and not human verified.",
+      "created_at": "2026-07-24T04:54:21.145Z",
+      "updated_at": "2026-07-24T04:54:21.147Z"
+    },
+    {
+      "pick_id": "44444444-4444-4444-8444-444444444444",
+      "expert_key": "platinum_rose_ai",
+      "sport": "NFL",
+      "season": 2026,
+      "pick_scope": "weekly",
+      "lifecycle": "official_paper",
+      "approval_state": "official_paper",
+      "portfolio_name": "in_season_weekly",
+      "bankroll_usd": 1000,
+      "unit_size_usd": 10,
+      "stake_units": 0.5,
+      "stake_usd": 5,
+      "stake_tier": "small",
+      "confidence": 61,
+      "confidence_tier": null,
+      "market_type": "spread",
+      "market": "week_1_spread",
+      "selection": "Green Bay Packers -2.5",
+      "bet_type": null,
+      "side": null,
+      "team": "Green Bay Packers",
+      "opponent": "Stub Opponent",
+      "event_id": null,
+      "week": 1,
+      "starts_at": "2026-09-13T20:25:00Z",
+      "book": "stub-betonline",
+      "price": -110,
+      "line": -2.5,
+      "observed_at": "2026-07-24T00:00:00Z",
+      "source_url": null,
+      "source_ref": "stub inbox demo - weekly pick shell",
+      "bet_threshold": "-110 or better in this stub example",
+      "minimum_edge_pct": 1.5,
+      "model_fair_prob": null,
+      "edge_pct": null,
+      "closing_price": null,
+      "closing_line": null,
+      "closing_observed_at": null,
+      "clv_pct": null,
+      "result_status": "pending",
+      "payout_units": null,
+      "net_units": null,
+      "resolved_at": null,
+      "result_note": null,
+      "source_model": null,
+      "source_run_id": null,
+      "market_view": "Stub: this demonstrates an in-season weekly candidate with week and kickoff metadata.",
+      "football_view": "Stub: weekly picks should depend on current injury, weather, matchup, rest, and market movement checks.",
+      "thesis": "Stub only: this shows how Platinum Rose weekly plays can enter the same human approval queue.",
+      "disconfirming_factor": "Stub only: current injury/weather data is absent, so a real weekly play would need freshness checks.",
+      "timing": null,
+      "correlated_positions": [],
+      "evidence_ids": [
+        "stub.packers.weekly",
+        "schedule_context.week"
+      ],
+      "sources": [
+        "Stub Source"
+      ],
+      "data_snapshot": {
+        "stub": true,
+        "purpose": "candidate inbox demo"
+      },
+      "human_verification_required": true,
+      "human_verified_at": "2026-07-24T04:54:34.852Z",
+      "official_at": "2026-07-24T04:54:34.852Z",
+      "locked_at": "2026-07-24T04:54:34.852Z",
+      "audit_note": "STUB ONLY - not a recommendation, not official, and not human verified.",
+      "created_at": "2026-07-24T04:54:34.851Z",
+      "updated_at": "2026-07-24T04:54:34.852Z"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "ba731905-d4de-45c2-a418-debb8db6f5f7",
+      "pick_id": "33333333-3333-4333-8333-333333333333",
+      "event_type": "proposal_created",
+      "from_state": null,
+      "to_state": "proposal",
+      "note": "STUB ONLY - not a recommendation, not official, and not human verified.",
+      "payload": {
+        "selection": "Buffalo Bills Over 11.5",
+        "market_type": "wins",
+        "stake_units": 1,
+        "via": "approve"
+      },
+      "created_at": "2026-07-24T04:54:21.147Z"
+    },
+    {
+      "event_id": "ee5f134f-6d26-4a42-a02e-d80f5e45193c",
+      "pick_id": "33333333-3333-4333-8333-333333333333",
+      "event_type": "human_verified",
+      "from_state": "proposal",
+      "to_state": "human_verified",
+      "note": "Approved as valid Platinum Rose AI paper pick.",
+      "payload": {
+        "source_ref": "stub inbox demo - not a recommendation",
+        "source_url": null,
+        "observed_at": "2026-07-24T00:00:00Z"
+      },
+      "created_at": "2026-07-24T04:54:21.147Z"
+    },
+    {
+      "event_id": "072b12d5-32e4-4de7-8e0e-c302d47cbd78",
+      "pick_id": "33333333-3333-4333-8333-333333333333",
+      "event_type": "official_locked",
+      "from_state": "human_verified",
+      "to_state": "official_paper",
+      "note": null,
+      "payload": {
+        "selection": "Buffalo Bills Over 11.5",
+        "price": -105,
+        "stake_units": 1
+      },
+      "created_at": "2026-07-24T04:54:21.147Z"
+    },
+    {
+      "event_id": "d92973d9-233c-4bbc-89b1-771471bb9112",
+      "pick_id": "44444444-4444-4444-8444-444444444444",
+      "event_type": "proposal_created",
+      "from_state": null,
+      "to_state": "proposal",
+      "note": "STUB ONLY - not a recommendation, not official, and not human verified.",
+      "payload": {
+        "selection": "Green Bay Packers -2.5",
+        "market_type": "spread",
+        "stake_units": 0.5,
+        "via": "approve"
+      },
+      "created_at": "2026-07-24T04:54:34.853Z"
+    },
+    {
+      "event_id": "e6c59e8f-9419-41f6-8e70-0472b0abe107",
+      "pick_id": "44444444-4444-4444-8444-444444444444",
+      "event_type": "human_verified",
+      "from_state": "proposal",
+      "to_state": "human_verified",
+      "note": "Approved as valid Platinum Rose AI paper pick.",
+      "payload": {
+        "source_ref": "stub inbox demo - weekly pick shell",
+        "source_url": null,
+        "observed_at": "2026-07-24T00:00:00Z"
+      },
+      "created_at": "2026-07-24T04:54:34.853Z"
+    },
+    {
+      "event_id": "878ce6f3-3f5c-4eff-b1c1-327916bd1734",
+      "pick_id": "44444444-4444-4444-8444-444444444444",
+      "event_type": "official_locked",
+      "from_state": "human_verified",
+      "to_state": "official_paper",
+      "note": null,
+      "payload": {
+        "selection": "Green Bay Packers -2.5",
+        "price": -110,
+        "stake_units": 0.5
+      },
+      "created_at": "2026-07-24T04:54:34.853Z"
+    }
+  ]
+}

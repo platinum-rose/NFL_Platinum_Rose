@@ -8,6 +8,7 @@ const args = process.argv.slice(2);
 const noPersist = args.includes('--no-persist');
 const suite = args.includes('--suite') ? args[args.indexOf('--suite') + 1] : 'preconditions';
 const repeats = args.includes('--repeats') ? Number(args[args.indexOf('--repeats') + 1]) : 1;
+const manifest = args.includes('--manifest') ? args[args.indexOf('--manifest') + 1] : 'tests/fixtures/futures-benchmark/v0.2/manifest.json';
 const dossier = path.join(ROOT, '.nfl', 'portfolio', 'dossier-2026-07-22.json');
 const ledger = path.join(ROOT, 'data', 'futures-imports', 'andy-portfolio-ledger-2026.json');
 
@@ -28,12 +29,13 @@ checks.push({ id: 'ledger.exists', ok: fs.existsSync(ledger), detail: ledger });
 checks.push({ id: 'forecast.win_dist', ok: exists('agents/lib/win-dist.js'), detail: 'Matched-line win distribution module must exist.' });
 checks.push({ id: 'forecast.schedule_sim', ok: exists('agents/portfolio-simulate.js'), detail: 'Schedule simulation module must exist.' });
 checks.push({ id: 'benchmark.fixture_package', ok: exists('tests/fixtures/futures-benchmark'), detail: 'Held-out benchmark package must be frozen.' });
+checks.push({ id: 'benchmark.manifest', ok: exists(manifest), detail: manifest });
 checks.push({ id: 'benchmark.scorer', ok: exists('scripts/score-futures-benchmark.js'), detail: 'Automated scorer must exist.' });
 
 const conformance = run('dossier_conformance', process.execPath, ['scripts/futures-dossier-conformance.js', '--dossier', dossier]);
 checks.push({ id: 'dossier.conformance', ok: conformance.status === 0, detail: conformance.status === 0 ? conformance.stdout : conformance.stderr.split('\n').slice(0, 8).join(' | ') });
 
-const scorer = run('benchmark_scorer', process.execPath, ['scripts/score-futures-benchmark.js']);
+const scorer = run('benchmark_scorer', process.execPath, ['scripts/score-futures-benchmark.js', '--manifest', manifest]);
 const scorerVerdict = (scorer.stdout.match(/VERDICT:\s*(.+)/) || [])[1] || null;
 const scorerRan = !!scorerVerdict;
 const scorerEvidenceGap = scorerVerdict === 'SHADOW ONLY - INSUFFICIENT EVIDENCE';

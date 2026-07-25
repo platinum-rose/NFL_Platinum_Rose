@@ -1,0 +1,45 @@
+{
+  "pick_id": "44444444-4444-4444-8444-444444444444",
+  "pick_scope": "weekly",
+  "market_type": "spread",
+  "market": "week_1_spread",
+  "selection": "Green Bay Packers -2.5",
+  "team": "Green Bay Packers",
+  "opponent": "Stub Opponent",
+  "week": 1,
+  "starts_at": "2026-09-13T20:25:00Z",
+  "book": "stub-betonline",
+  "price": -110,
+  "line": -2.5,
+  "stake_tier": "small",
+  "stake_units": 0.5,
+  "confidence": 61,
+  "observed_at": "2026-07-24T00:00:00Z",
+  "source_ref": "stub inbox demo - weekly pick shell",
+  "bet_threshold": "-110 or better in this stub example",
+  "minimum_edge_pct": 1.5,
+  "market_view": "Stub: this demonstrates an in-season weekly candidate with week and kickoff metadata.",
+  "football_view": "Stub: weekly picks should depend on current injury, weather, matchup, rest, and market movement checks.",
+  "thesis": "Stub only: this shows how Platinum Rose weekly plays can enter the same human approval queue.",
+  "disconfirming_factor": "Stub only: current injury/weather data is absent, so a real weekly play would need freshness checks.",
+  "evidence_ids": [
+    "stub.packers.weekly",
+    "schedule_context.week"
+  ],
+  "sources": [
+    "Stub Source"
+  ],
+  "data_snapshot": {
+    "stub": true,
+    "purpose": "candidate inbox demo"
+  },
+  "audit_note": "STUB ONLY - not a recommendation, not official, and not human verified.",
+  "inbox_state": {
+    "state": "approved_official_paper",
+    "approved_at": "2026-07-24T04:54:34.852Z",
+    "ledger_path": "data\\official-picks\\platinum-rose-ai-2026.json",
+    "pick_id": "44444444-4444-4444-8444-444444444444",
+    "note": null,
+    "updated_at": "2026-07-24T04:54:34.855Z"
+  }
+}

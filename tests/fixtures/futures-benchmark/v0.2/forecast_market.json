@@ -1,0 +1,46 @@
+{
+  "suite": "forecast_market",
+  "suite_version": "v0.2",
+  "leakage_policy": "held_out_from_development_fixtures",
+  "description": "Forecast, calibration, and CLV observations. Only real closing-line or settled futures observations count toward sample minimums.",
+  "observation_ledger": "data/futures-benchmark/forecast-observations.json",
+  "collection_targets": [
+    {
+      "id": "win_totals_close",
+      "market": "wins",
+      "target_count": 64,
+      "required_fields": ["information_cutoff", "team", "side", "line", "recommended_price", "closing_price", "closing_at", "forecast_prob", "market_no_vig_prob"]
+    },
+    {
+      "id": "playoffs_close",
+      "market": "playoffs",
+      "target_count": 64,
+      "required_fields": ["information_cutoff", "team", "side", "recommended_price", "closing_price", "closing_at", "forecast_prob", "market_no_vig_prob"]
+    },
+    {
+      "id": "division_conference_superbowl_close",
+      "market": "outright",
+      "target_count": 48,
+      "required_fields": ["information_cutoff", "market", "selection", "recommended_price", "closing_price", "closing_at", "forecast_prob", "market_no_vig_prob"]
+    },
+    {
+      "id": "settled_outcomes",
+      "market": "mixed",
+      "target_count": 24,
+      "required_fields": ["information_cutoff", "market", "selection", "forecast_prob", "outcome", "settled_at"]
+    }
+  ],
+  "observations": [
+    {
+      "id": "forecast_collection_target_2026_preseason",
+      "market": "mixed",
+      "selection": "collection target only",
+      "information_cutoff": "2026-07-22T00:00:00Z",
+      "forecast_prob": null,
+      "closing_price": null,
+      "outcome": null,
+      "status": "awaiting_real_closing_or_settled_result",
+      "counts_toward_sample_minimum": false
+    }
+  ]
+}

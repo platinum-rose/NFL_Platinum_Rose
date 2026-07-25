@@ -1,0 +1,29 @@
+{
+  "pick_id": "22222222-2222-4222-8222-222222222222",
+  "pick_scope": "futures",
+  "market_type": "superbowl_matchup",
+  "market": "superbowl_matchup",
+  "selection": "Example Team / Example Opponent exacta",
+  "team": "Example Team",
+  "opponent": "Example Opponent",
+  "book": "single-book-example",
+  "price": 5000,
+  "stake_tier": "speculative",
+  "stake_units": 0.25,
+  "confidence": 50,
+  "observed_at": "2026-01-01T00:00:00Z",
+  "source_ref": "example only - monitor-only exacta hold",
+  "bet_threshold": "Monitor only until a secondary BetOnline market appears for price shopping.",
+  "minimum_edge_pct": 3,
+  "market_view": "Example exacta market view for workflow testing only.",
+  "football_view": "Example exacta football view for workflow testing only.",
+  "thesis": "This fake exacta proposal exists only to verify that exacta holds cannot be locked as official paper picks.",
+  "disconfirming_factor": "The real-world hold rule is still unresolved.",
+  "evidence_ids": [
+    "example.exacta_hold"
+  ],
+  "sources": [
+    "Example Source"
+  ],
+  "audit_note": "Example only; this should remain monitor-only."
+}

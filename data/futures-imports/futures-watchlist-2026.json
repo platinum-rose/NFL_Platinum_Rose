@@ -1,0 +1,151 @@
+{
+  "season": 2026,
+  "updated_at": "2026-07-23",
+  "purpose": "Human-maintained futures watchlist for portfolio-synthesize. These are evaluation targets, not betting instructions.",
+  "rules": [
+    {
+      "market": "superbowl_matchup",
+      "rule": "Exacta matchup plays are monitor-only until a secondary BetOnline market is available for price shopping against BetUS or another placeable book."
+    }
+  ],
+  "items": [
+    {
+      "id": "buf-anchor-atb",
+      "team": "Bills",
+      "label": "Buffalo Bills anchor across the board",
+      "markets": [
+        {
+          "market": "wins",
+          "direction": "over"
+        },
+        {
+          "market": "playoffs",
+          "direction": "make"
+        },
+        {
+          "market": "division_afc_east",
+          "direction": "win"
+        },
+        {
+          "market": "conference_afc",
+          "direction": "win"
+        },
+        {
+          "market": "superbowl",
+          "direction": "win"
+        },
+        {
+          "market": "superbowl_matchup",
+          "direction": "coverage"
+        }
+      ],
+      "priority": "anchor",
+      "intent": "Primary portfolio anchor. Evaluate Bills exposure across win total, playoffs, division, AFC, Super Bowl, and priced Super Bowl matchup branches against NFC opponents. Exactas should be treated as anchor amplification or opponent coverage, not standalone recommendations. Hold matchup plays for monitoring only until a secondary BetOnline market is available for price shopping."
+    },
+    {
+      "id": "gb-anchor-atb",
+      "team": "Packers",
+      "label": "Green Bay Packers anchor across the board",
+      "markets": [
+        {
+          "market": "wins",
+          "direction": "over"
+        },
+        {
+          "market": "playoffs",
+          "direction": "make"
+        },
+        {
+          "market": "division_nfc_north",
+          "direction": "win"
+        },
+        {
+          "market": "conference_nfc",
+          "direction": "win"
+        },
+        {
+          "market": "superbowl",
+          "direction": "win"
+        },
+        {
+          "market": "superbowl_matchup",
+          "direction": "coverage"
+        }
+      ],
+      "priority": "anchor",
+      "intent": "Primary portfolio anchor. Evaluate Packers exposure across win total, playoffs, division, NFC, Super Bowl, and priced Super Bowl matchup branches against AFC opponents. Exactas should be treated as anchor amplification or opponent coverage, not standalone recommendations. Hold matchup plays for monitoring only until a secondary BetOnline market is available for price shopping."
+    },
+    {
+      "id": "nyg-wins-over",
+      "team": "Giants",
+      "label": "NY Giants win total over",
+      "markets": [
+        {
+          "market": "wins",
+          "direction": "over"
+        }
+      ],
+      "priority": "standard",
+      "intent": "Evaluate whether the current win-total over is playable now or better as an early-season wait candidate."
+    },
+    {
+      "id": "cin-atb",
+      "team": "Bengals",
+      "label": "CIN Bengals across the board",
+      "markets": [
+        {
+          "market": "wins",
+          "direction": "over"
+        },
+        {
+          "market": "playoffs",
+          "direction": "make"
+        },
+        {
+          "market": "division_afc_north",
+          "direction": "win"
+        },
+        {
+          "market": "conference_afc",
+          "direction": "win"
+        },
+        {
+          "market": "superbowl",
+          "direction": "win"
+        }
+      ],
+      "priority": "high",
+      "intent": "ATB means evaluate the full ladder from win total through Super Bowl, including whether early legs can fund later exposure."
+    },
+    {
+      "id": "no-playoffs",
+      "team": "Saints",
+      "label": "Saints make the playoffs",
+      "markets": [
+        {
+          "market": "playoffs",
+          "direction": "make"
+        }
+      ],
+      "priority": "standard",
+      "intent": "Evaluate Saints make-playoffs price as the preferred upside exposure instead of the NFC South division market."
+    },
+    {
+      "id": "kc-sb-exactas",
+      "team": "Chiefs",
+      "label": "KC Chiefs Super Bowl and exactas",
+      "markets": [
+        {
+          "market": "superbowl",
+          "direction": "win"
+        },
+        {
+          "market": "superbowl_matchup",
+          "direction": "coverage"
+        }
+      ],
+      "priority": "high",
+      "intent": "Evaluate Chiefs Super Bowl price and exacta/matchup coverage as option value; exactas should resolve against actual dossier matchup rows. Hold matchup plays for monitoring only until a secondary BetOnline market is available for price shopping."
+    }
+  ]
+}

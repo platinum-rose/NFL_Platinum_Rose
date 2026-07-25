@@ -1,0 +1,2385 @@
+{
+  "meta": {
+    "generated_at": "2026-07-24T01:51:21.194Z",
+    "season": 2025,
+    "week": 18,
+    "stale_after": "2026-08-07T01:51:21.194Z",
+    "source_file_mtimes": {
+      "games": "2026-06-05T23:29:04.928Z",
+      "team_stats": "2026-06-06T01:26:03.837Z"
+    },
+    "row_count": 32,
+    "target_table": "team_coaching_tendency_snapshots",
+    "write_mode": "local_json_only"
+  },
+  "rows": [
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "49ers",
+      "head_coach": "Kyle Shanahan",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-03",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5555,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 11,
+          "losses": 6,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 4,
+          "losses": 4,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 7,
+          "losses": 2,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 1,
+          "losses": 4,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 10,
+          "losses": 2,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 3,
+          "losses": 3,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.5555). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 601,
+        "offensive_plays": 1082
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Bears",
+      "head_coach": "Ben Johnson",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-08",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5422,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 9,
+          "losses": 7,
+          "pushes": 1
+        },
+        "home": {
+          "wins": 4,
+          "losses": 3,
+          "pushes": 1
+        },
+        "away": {
+          "wins": 5,
+          "losses": 4,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 5,
+          "losses": 5,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 4,
+          "losses": 2,
+          "pushes": 1
+        },
+        "division": {
+          "wins": 2,
+          "losses": 4,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.5422). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 598,
+        "offensive_plays": 1103
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Bengals",
+      "head_coach": "Zac Taylor",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.6395,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 8,
+          "losses": 9,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 4,
+          "losses": 5,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 4,
+          "losses": 4,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 5,
+          "losses": 6,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 3,
+          "losses": 3,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 2,
+          "losses": 4,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is high (0.6395). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 676,
+        "offensive_plays": 1057
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Bills",
+      "head_coach": "Sean McDermott",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.4945,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 8,
+          "losses": 9,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 4,
+          "losses": 5,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 4,
+          "losses": 4,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 2,
+          "losses": 0,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 6,
+          "losses": 9,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 3,
+          "losses": 3,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is low (0.4945). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 535,
+        "offensive_plays": 1082
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Broncos",
+      "head_coach": "Sean Payton",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5824,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 7,
+          "losses": 10,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 5,
+          "losses": 4,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 2,
+          "losses": 6,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 4,
+          "losses": 1,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 3,
+          "losses": 9,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 2,
+          "losses": 4,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.5824). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 636,
+        "offensive_plays": 1092
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Browns",
+      "head_coach": "Kevin Stefanski",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5913,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 8,
+          "losses": 9,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 6,
+          "losses": 3,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 2,
+          "losses": 6,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 7,
+          "losses": 7,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 1,
+          "losses": 2,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 4,
+          "losses": 2,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.5913). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 609,
+        "offensive_plays": 1030
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Buccaneers",
+      "head_coach": "Todd Bowles",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-03",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5581,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 5,
+          "losses": 12,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 1,
+          "losses": 7,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 4,
+          "losses": 5,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 2,
+          "losses": 4,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 3,
+          "losses": 8,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 2,
+          "losses": 4,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.5581). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 596,
+        "offensive_plays": 1068
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Cardinals",
+      "head_coach": "Jonathan Gannon",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.6592,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 6,
+          "losses": 11,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 1,
+          "losses": 7,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 5,
+          "losses": 4,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 5,
+          "losses": 9,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 1,
+          "losses": 2,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 1,
+          "losses": 5,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is high (0.6592). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 708,
+        "offensive_plays": 1074
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Chargers",
+      "head_coach": "Jim Harbaugh",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-05",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5744,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 9,
+          "losses": 8,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 6,
+          "losses": 3,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 3,
+          "losses": 5,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 4,
+          "losses": 1,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 5,
+          "losses": 7,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 5,
+          "losses": 1,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.5744). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 629,
+        "offensive_plays": 1095
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Chiefs",
+      "head_coach": "Andy Reid",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-05",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5947,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 6,
+          "losses": 11,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 5,
+          "losses": 4,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 1,
+          "losses": 7,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 2,
+          "losses": 1,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 4,
+          "losses": 10,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 2,
+          "losses": 4,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.5947). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 631,
+        "offensive_plays": 1061
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Colts",
+      "head_coach": "Shane Steichen",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5658,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 9,
+          "losses": 8,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 4,
+          "losses": 5,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 5,
+          "losses": 3,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 5,
+          "losses": 3,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 4,
+          "losses": 5,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 3,
+          "losses": 3,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.5658). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 576,
+        "offensive_plays": 1018
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Commanders",
+      "head_coach": "Dan Quinn",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5111,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 7,
+          "losses": 10,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 4,
+          "losses": 4,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 3,
+          "losses": 6,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 5,
+          "losses": 8,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 2,
+          "losses": 2,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 4,
+          "losses": 2,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is low (0.5111). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 506,
+        "offensive_plays": 990
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Cowboys",
+      "head_coach": "Brian Schottenheimer",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-04",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5848,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 7,
+          "losses": 10,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 4,
+          "losses": 4,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 3,
+          "losses": 6,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 5,
+          "losses": 2,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 2,
+          "losses": 8,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 3,
+          "losses": 3,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.5848). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 655,
+        "offensive_plays": 1120
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Dolphins",
+      "head_coach": "Mike McDaniel",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5448,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 8,
+          "losses": 9,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 5,
+          "losses": 4,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 3,
+          "losses": 5,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 5,
+          "losses": 6,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 3,
+          "losses": 3,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 4,
+          "losses": 2,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.5448). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 517,
+        "offensive_plays": 949
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Eagles",
+      "head_coach": "Nick Sirianni",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-04",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5267,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 10,
+          "losses": 7,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 4,
+          "losses": 4,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 6,
+          "losses": 3,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 2,
+          "losses": 0,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 8,
+          "losses": 7,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 2,
+          "losses": 4,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.5267). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 532,
+        "offensive_plays": 1010
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Falcons",
+      "head_coach": "Raheem Morris",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5448,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 9,
+          "losses": 8,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 3,
+          "losses": 5,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 6,
+          "losses": 3,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 7,
+          "losses": 3,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 2,
+          "losses": 5,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 2,
+          "losses": 4,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.5448). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 571,
+        "offensive_plays": 1048
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Giants",
+      "head_coach": "Brian Daboll",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.529,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 9,
+          "losses": 8,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 4,
+          "losses": 4,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 5,
+          "losses": 4,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 8,
+          "losses": 7,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 1,
+          "losses": 1,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 3,
+          "losses": 3,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.529). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 574,
+        "offensive_plays": 1085
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Jaguars",
+      "head_coach": "Liam Coen",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5526,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 12,
+          "losses": 5,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 7,
+          "losses": 2,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 5,
+          "losses": 3,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 5,
+          "losses": 3,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 7,
+          "losses": 2,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 5,
+          "losses": 1,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.5526). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 604,
+        "offensive_plays": 1093
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Jets",
+      "head_coach": "Aaron Glenn",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5485,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 7,
+          "losses": 10,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 4,
+          "losses": 5,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 3,
+          "losses": 5,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 7,
+          "losses": 8,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 0,
+          "losses": 2,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 0,
+          "losses": 6,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.5485). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 554,
+        "offensive_plays": 1010
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Lions",
+      "head_coach": "Dan Campbell",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5842,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 8,
+          "losses": 9,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 4,
+          "losses": 4,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 4,
+          "losses": 5,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 2,
+          "losses": 4,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 6,
+          "losses": 5,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 2,
+          "losses": 4,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.5842). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 621,
+        "offensive_plays": 1063
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Packers",
+      "head_coach": "Matt LaFleur",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5129,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 6,
+          "losses": 11,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 4,
+          "losses": 4,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 2,
+          "losses": 7,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 1,
+          "losses": 2,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 5,
+          "losses": 9,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 4,
+          "losses": 2,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is low (0.5129). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 518,
+        "offensive_plays": 1010
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Panthers",
+      "head_coach": "Dave Canales",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-03",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.544,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 10,
+          "losses": 7,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 5,
+          "losses": 3,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 5,
+          "losses": 4,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 10,
+          "losses": 5,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 0,
+          "losses": 2,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 4,
+          "losses": 2,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.544). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 550,
+        "offensive_plays": 1011
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Patriots",
+      "head_coach": "Mike Vrabel",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5268,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 12,
+          "losses": 5,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 5,
+          "losses": 4,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 7,
+          "losses": 1,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 4,
+          "losses": 2,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 8,
+          "losses": 3,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 5,
+          "losses": 1,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.5268). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 550,
+        "offensive_plays": 1044
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Raiders",
+      "head_coach": "Pete Carroll",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.6108,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 7,
+          "losses": 10,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 4,
+          "losses": 5,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 3,
+          "losses": 5,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 6,
+          "losses": 8,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 1,
+          "losses": 2,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 3,
+          "losses": 3,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is high (0.6108). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 579,
+        "offensive_plays": 948
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Rams",
+      "head_coach": "Sean McVay",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5718,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 12,
+          "losses": 5,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 6,
+          "losses": 2,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 6,
+          "losses": 3,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 1,
+          "losses": 1,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 11,
+          "losses": 4,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 4,
+          "losses": 2,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.5718). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 621,
+        "offensive_plays": 1086
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Ravens",
+      "head_coach": "John Harbaugh",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.4795,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 6,
+          "losses": 11,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 2,
+          "losses": 7,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 4,
+          "losses": 4,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 1,
+          "losses": 2,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 5,
+          "losses": 9,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 2,
+          "losses": 4,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is low (0.4795). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 467,
+        "offensive_plays": 974
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Saints",
+      "head_coach": "Kellen Moore",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5953,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 9,
+          "losses": 8,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 3,
+          "losses": 5,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 6,
+          "losses": 3,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 6,
+          "losses": 7,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 3,
+          "losses": 1,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 4,
+          "losses": 2,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.5953). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 640,
+        "offensive_plays": 1075
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Seahawks",
+      "head_coach": "Mike Macdonald",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-03",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5005,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 12,
+          "losses": 5,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 4,
+          "losses": 4,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 8,
+          "losses": 1,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 2,
+          "losses": 1,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 10,
+          "losses": 4,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 4,
+          "losses": 2,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is low (0.5005). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 508,
+        "offensive_plays": 1015
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Steelers",
+      "head_coach": "Mike Tomlin",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5881,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 9,
+          "losses": 7,
+          "pushes": 1
+        },
+        "home": {
+          "wins": 6,
+          "losses": 3,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 3,
+          "losses": 4,
+          "pushes": 1
+        },
+        "favorite": {
+          "wins": 5,
+          "losses": 3,
+          "pushes": 1
+        },
+        "underdog": {
+          "wins": 4,
+          "losses": 4,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 4,
+          "losses": 2,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.5881). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 581,
+        "offensive_plays": 988
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Texans",
+      "head_coach": "DeMeco Ryans",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5634,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 9,
+          "losses": 8,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 5,
+          "losses": 4,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 4,
+          "losses": 4,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 5,
+          "losses": 3,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 4,
+          "losses": 5,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 3,
+          "losses": 3,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.5634). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 613,
+        "offensive_plays": 1088
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Titans",
+      "head_coach": "Brian Callahan",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-07",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.6235,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 7,
+          "losses": 10,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 4,
+          "losses": 5,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 3,
+          "losses": 5,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 7,
+          "losses": 10,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 0,
+          "losses": 0,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 1,
+          "losses": 5,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is high (0.6235). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 626,
+        "offensive_plays": 1004
+      }
+    },
+    {
+      "season": 2025,
+      "week": 18,
+      "team": "Vikings",
+      "head_coach": "Kevin O'Connell",
+      "offensive_coordinator": null,
+      "defensive_coordinator": null,
+      "source_key": "nflverse_games_team_stats",
+      "source_name": "nflverse games.csv + team_stats.csv",
+      "source_url": "https://github.com/nflverse/nflverse-data",
+      "snapshot_at": "2026-07-24T01:51:21.194Z",
+      "sample_start": "2025-09-08",
+      "sample_end": "2026-01-04",
+      "games_sample": 17,
+      "coordinator_continuity": null,
+      "fourth_down_aggression_rate": null,
+      "fourth_down_aggression_tier": null,
+      "neutral_pass_rate": 0.5702,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "rpo_rate": null,
+      "pace_seconds_per_play": null,
+      "red_zone_pass_rate": null,
+      "two_minute_aggression_tier": null,
+      "ats_by_role": {
+        "overall": {
+          "wins": 9,
+          "losses": 8,
+          "pushes": 0
+        },
+        "home": {
+          "wins": 4,
+          "losses": 4,
+          "pushes": 0
+        },
+        "away": {
+          "wins": 5,
+          "losses": 4,
+          "pushes": 0
+        },
+        "favorite": {
+          "wins": 4,
+          "losses": 5,
+          "pushes": 0
+        },
+        "underdog": {
+          "wins": 5,
+          "losses": 3,
+          "pushes": 0
+        },
+        "division": {
+          "wins": 4,
+          "losses": 2,
+          "pushes": 0
+        }
+      },
+      "trend_notes": "All-situation pass tendency is middle (0.5702). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+      "stale_after": "2026-08-07T01:51:21.194Z",
+      "raw": {
+        "source_files": [
+          "data/vault-seed/nflverse/games.csv",
+          "data/vault-seed/nflverse/team_stats.csv"
+        ],
+        "source_file_mtimes": {
+          "games": "2026-06-05T23:29:04.928Z",
+          "team_stats": "2026-06-06T01:26:03.837Z"
+        },
+        "offensive_dropbacks": 544,
+        "offensive_plays": 954
+      }
+    }
+  ]
+}
