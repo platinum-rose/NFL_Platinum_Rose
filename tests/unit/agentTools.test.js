@@ -4,7 +4,7 @@
  * Run: npx vitest run
  * Coverage: npx vitest run --coverage
  */
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 
 // Mock all I/O dependencies so the module loads cleanly in Node.
 vi.mock('../../src/lib/supabase.js', () => ({
@@ -84,7 +84,7 @@ vi.mock('../../src/lib/storage.js', () => ({
 }));
 
 vi.mock('../../src/lib/apiConfig.js', () => ({
-  LOCAL_DATA: { SCHEDULE: '', WEEKLY_STATS: '' },
+  LOCAL_DATA: { SCHEDULE: '', WEEKLY_STATS: '', YOUTUBE_FUTURES_INTEL: './youtube-futures-agent-intel-summary.json' },
   ESPN_API: { INJURIES_URL: '' },
 }));
 
@@ -98,8 +98,8 @@ import {
 
 describe('agentTools', () => {
   describe('BETTING_TOOLS', () => {
-    it('exports exactly 20 tools (13 base + 7 podcast intel)', () => {
-      expect(BETTING_TOOLS).toHaveLength(20);
+    it('exports exactly 21 tools (13 base + 8 podcast intel)', () => {
+      expect(BETTING_TOOLS).toHaveLength(21);
     });
 
     it('each tool has name, description, and input_schema', () => {
@@ -127,6 +127,7 @@ describe('agentTools', () => {
         'get_player_prop_context',
         'get_team_podcast_intel',
         'get_weekly_consensus',
+        'get_youtube_futures_intel',
         'log_pick',
         'read_vault_note',
         'search_episode_vault_notes',
@@ -137,7 +138,7 @@ describe('agentTools', () => {
       ]);
     });
 
-    it('PODCAST_INTEL_TOOLS contains the 7 phase-6 tools', () => {
+    it('PODCAST_INTEL_TOOLS contains the 8 phase-6/S301 tools', () => {
       const names = PODCAST_INTEL_TOOLS.map(t => t.name).sort();
       expect(names).toEqual([
         'get_expert_history',
@@ -145,6 +146,7 @@ describe('agentTools', () => {
         'get_player_prop_context',
         'get_team_podcast_intel',
         'get_weekly_consensus',
+        'get_youtube_futures_intel',
         'search_episode_vault_notes',
         'search_podcast_picks',
       ]);
@@ -509,6 +511,102 @@ describe('agentTools', () => {
       });
       expect(result.status).toBe('ok');
       expect(result.trend.OVER).toBe(1);
+    });
+
+    // ── S300/S301 local YouTube/Gemini agent intel tool tests ───────────────
+
+    const YOUTUBE_INTEL_FIXTURE = {
+      generated_at: '2026-07-25T02:16:55.061Z',
+      status: 'local_agent_intel_summary_only',
+      guardrail: 'Reviewed local podcast intel for agent context only. This is not an official pick ledger, production recommendation, Supabase write, or parlay mutation.',
+      items: [
+        {
+          item_id: 'youtube-1__ATL__make_playoffs__NO____-213__1350',
+          lane: 'futures_pick',
+          team: 'ATL',
+          market: 'make_playoffs',
+          side: 'NO',
+          line: null,
+          price: -213,
+          speaker: 'Seth Woolcock',
+          rationale: 'Messy QB situation.',
+          supporting_quote: '',
+          review_flags: ['price_not_in_quote'],
+          reviewer_notes: '',
+          source: { episode_id: 'youtube-1', episode_title: 'Ep 1', show: 'BettingPros YouTube', timestamp_url: 'https://youtube.com/watch?v=1&t=1350s', source_timestamp: 1350 },
+        },
+        {
+          item_id: 'youtube-2__KC__mvp__Mahomes___-500__200',
+          lane: 'futures_pick',
+          team: 'KC',
+          market: 'mvp',
+          side: 'Mahomes',
+          line: null,
+          price: -500,
+          speaker: 'Simon Hunter',
+          rationale: 'Still the best QB.',
+          supporting_quote: 'Mahomes is the pick again.',
+          review_flags: [],
+          reviewer_notes: '',
+          source: { episode_id: 'youtube-2', episode_title: 'Ep 2', show: 'Sharp or Square', timestamp_url: 'https://youtube.com/watch?v=2&t=200s', source_timestamp: 200 },
+        },
+        {
+          item_id: 'youtube-3__KC__injury__Mahomes__questionable',
+          lane: 'injury_intel',
+          team: 'KC',
+          market: 'injury',
+          side: 'Mahomes',
+          line: null,
+          price: null,
+          speaker: 'Chad Millman',
+          rationale: 'Knee recovery timeline unclear.',
+          supporting_quote: '',
+          review_flags: [],
+          reviewer_notes: '',
+          source: { episode_id: 'youtube-2', episode_title: 'Ep 2', show: 'Sharp or Square', timestamp_url: 'https://youtube.com/watch?v=2&t=210s', source_timestamp: 210 },
+        },
+      ],
+    };
+
+    afterEach(() => {
+      vi.unstubAllGlobals();
+    });
+
+    it('get_youtube_futures_intel returns no_data when the local summary fetch fails', async () => {
+      vi.stubGlobal('fetch', vi.fn(async () => ({ ok: false })));
+      const result = await executeTool('get_youtube_futures_intel', {});
+      expect(result.status).toBe('no_data');
+      expect(result.items).toEqual([]);
+    });
+
+    it('get_youtube_futures_intel returns all items with guardrail when unfiltered', async () => {
+      vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => YOUTUBE_INTEL_FIXTURE })));
+      const result = await executeTool('get_youtube_futures_intel', {});
+      expect(result.status).toBe('ok');
+      expect(result.total_matched).toBe(3);
+      expect(result.guardrail).toMatch(/not an official pick ledger/);
+    });
+
+    it('get_youtube_futures_intel filters by team and preserves review_flags', async () => {
+      vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => YOUTUBE_INTEL_FIXTURE })));
+      const result = await executeTool('get_youtube_futures_intel', { team: 'ATL' });
+      expect(result.status).toBe('ok');
+      expect(result.total_matched).toBe(1);
+      expect(result.items[0].review_flags).toEqual(['price_not_in_quote']);
+    });
+
+    it('get_youtube_futures_intel filters by lane and market together', async () => {
+      vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => YOUTUBE_INTEL_FIXTURE })));
+      const result = await executeTool('get_youtube_futures_intel', { team: 'KC', lane: 'injury_intel' });
+      expect(result.status).toBe('ok');
+      expect(result.total_matched).toBe(1);
+      expect(result.items[0].market).toBe('injury');
+    });
+
+    it('get_youtube_futures_intel returns no_data when filters match nothing', async () => {
+      vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => YOUTUBE_INTEL_FIXTURE })));
+      const result = await executeTool('get_youtube_futures_intel', { team: 'BUF' });
+      expect(result.status).toBe('no_data');
     });
 
   });

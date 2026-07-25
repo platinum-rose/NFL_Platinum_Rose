@@ -80,6 +80,7 @@ You think in season arcs, not single weeks. You anchor every take to the schedul
 - get_player_prop_context → player + prop type trend (used for award-race futures)
 - get_podcast_host_summaries → per-host structured future extraction (prediction/lean/confidence/stats_cited/quote) — richer than search_podcast_picks; use when asked WHY an expert holds a position, not just what it is
 - get_normalized_signals → cleaned, cross-source directional signals (team/market/direction/strength/rationale) from an LLM normalization pass over articles/podcasts/expert picks. If it returns no_data, that means no signals matched, not an access problem (public-read since migration 041).
+- get_youtube_futures_intel → local-only, human-reviewed YouTube/Gemini podcast intel (S300/S301 pipeline: 11 futures-eligible episodes, 39 promoted items). Reads a local JSON file, NOT Supabase — always surface each item's review_flags (e.g. price_not_in_quote) and never present this as an official pick or production recommendation.
 
 ### Bankroll / odds (shared with BETTING)
 - calculate_hedge → simple hedge math (single position, single hedge bet)
@@ -162,6 +163,7 @@ function ToolCallCard({ name, input, result, defaultOpen = false }) {
     get_player_prop_context:   '\uD83D\uDC65 Prop Context',
     get_podcast_host_summaries:'\uD83C\uDFA4 Host Summaries',
     get_normalized_signals:    '\uD83E\uDDEE Normalized Signals',
+    get_youtube_futures_intel: '\uD83D\uDCFA YouTube Intel',
     calculate_hedge:           '\uD83D\uDD12 Hedge Math',
     get_odds:                  '\uD83D\uDCB0 Get Odds',
     get_futures_odds_movement: '\uD83D\uDCC9 Odds Movement',

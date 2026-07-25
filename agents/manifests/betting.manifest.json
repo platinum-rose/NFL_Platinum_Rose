@@ -419,6 +419,35 @@
       },
       "reads": "supabase:vault_notes (NFL/Podcasts/ prefix)",
       "returns": "{ total_matched, available_shows[], notes[{ path, show, pub_date, episode }], usage_hint }"
+    },
+    {
+      "name": "get_youtube_futures_intel",
+      "description": "S300/S301: local-only, human-reviewed YouTube/Gemini podcast intel research context (11 futures-eligible episodes, 39 promoted items; 1 bad DET division_winner +1500 extraction rejected). Distinct from search_podcast_picks: reads a local JSON file synced to public/, not Supabase. Every item carries source episode/timestamp, supporting_quote, and review_flags (e.g. price_not_in_quote) — always surface review_flags when citing an item. Never an official pick, production recommendation, or Supabase-backed source.",
+      "parameters": {
+        "team": {
+          "type": "string",
+          "description": "Team abbreviation (KC, BUF, ATL, ...) to filter by"
+        },
+        "market": {
+          "type": "string",
+          "description": "Market identifier to filter by (e.g. division_winner, make_playoffs, mvp, win_total)"
+        },
+        "lane": {
+          "type": "string",
+          "enum": [
+            "futures_pick",
+            "injury_intel",
+            "non_futures_betting"
+          ],
+          "description": "Item lane to filter by"
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max items to return; default 25"
+        }
+      },
+      "reads": "public/youtube-futures-agent-intel-summary.json (local-only; not Supabase)",
+      "returns": "{ status, guardrail, generated_at, total_matched, returned, items[{ item_id, lane, team, market, side, line, price, speaker, rationale, supporting_quote, review_flags[], reviewer_notes, source }] }"
     }
   ],
   "persistenceKeys": {

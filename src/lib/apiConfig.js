@@ -55,6 +55,10 @@ export const GITHUB_RAW = {
 export const LOCAL_DATA = {
   SCHEDULE: './schedule.json',
   WEEKLY_STATS: './weekly_stats.json',
+  // S300/S301: local-only, human-reviewed YouTube/Gemini podcast intel summary.
+  // Synced to public/ by scripts/build-youtube-futures-agent-intel-summary.js.
+  // Read-only research context — never a production pick source.
+  YOUTUBE_FUTURES_INTEL: './youtube-futures-agent-intel-summary.json',
 };
 // --- Supabase ---
 export const SUPABASE = {

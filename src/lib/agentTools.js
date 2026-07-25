@@ -164,6 +164,20 @@ export const PODCAST_INTEL_TOOLS = [
       required: [],
     },
   },
+  {
+    name: 'get_youtube_futures_intel',
+    description: 'Local-only, human-reviewed YouTube/Gemini podcast intel research context (S300/S301 pipeline). Distinct from search_podcast_picks: this reads a local JSON file (data/shadow-harness/review/youtube-futures-agent-intel-summary.json, synced to public/), not Supabase, and covers 11 futures-eligible YouTube episodes with 39 human-promoted items. Every item carries source episode/timestamp, supporting_quote, and review_flags (e.g. "price_not_in_quote") — always surface review_flags when citing an item, and never present this as an official pick, production recommendation, or Supabase-backed source. Use for team/market/lane-filtered research context alongside podcast/Supabase tools, not in place of them.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        team: { type: 'string', description: 'Team abbreviation (KC, BUF, ATL, ...) to filter by.' },
+        market: { type: 'string', description: 'Market identifier to filter by (e.g. "division_winner", "make_playoffs", "mvp", "win_total").' },
+        lane: { type: 'string', enum: ['futures_pick', 'injury_intel', 'non_futures_betting'], description: 'Item lane to filter by.' },
+        limit: { type: 'number', description: 'Max items to return. Default: 25.' },
+      },
+      required: [],
+    },
+  },
 ];
 
 export const BETTING_TOOLS = [
@@ -812,6 +826,7 @@ export async function executeTool(name, input) {
     case 'get_futures_movement':    return toolGetFuturesMovement(input);
     case 'get_player_prop_context': return toolGetPlayerPropContext(input);
     case 'search_episode_vault_notes': return toolSearchEpisodeVaultNotes(input);
+    case 'get_youtube_futures_intel': return toolGetYoutubeFuturesIntel(input);
     // FUT-TOOLS
     case 'analyze_futures_hedge':   return toolAnalyzeFuturesHedge(input);
     case 'project_division_paths':  return toolProjectDivisionPaths(input);
@@ -1687,6 +1702,60 @@ async function toolSearchEpisodeVaultNotes({ show, episode, limit = 20 } = {}) {
     ...(availableShows ? { available_shows: availableShows } : {}),
     notes,
     usage_hint: 'Call read_vault_note with a path from this list to load the full episode note (picks table, intel bullets, transcript index).',
+  };
+}
+
+// ─── S301: Local YouTube/Gemini agent intel summary ──────────────────────────
+
+/**
+ * get_youtube_futures_intel
+ * Reads the local, human-reviewed YouTube/Gemini podcast intel summary
+ * (data/shadow-harness/review/youtube-futures-agent-intel-summary.json,
+ * synced to public/ by scripts/build-youtube-futures-agent-intel-summary.js)
+ * and returns team/market/lane-filtered items.
+ *
+ * This is local-only research context: no Supabase, no live API call, no
+ * production recommendation. review_flags (e.g. "price_not_in_quote") must
+ * be preserved and surfaced by the caller — never silently dropped.
+ */
+async function toolGetYoutubeFuturesIntel({ team, market, lane, limit = 25 } = {}) {
+  let summary = null;
+  try {
+    const resp = await fetch(LOCAL_DATA.YOUTUBE_FUTURES_INTEL);
+    if (resp.ok) summary = await resp.json();
+  } catch { /* non-fatal — fall through to no_data below */ }
+
+  if (!summary || !Array.isArray(summary.items) || summary.items.length === 0) {
+    return {
+      status: 'no_data',
+      message: 'No local YouTube futures intel summary found. Run npm.cmd run youtube:agent-intel-summary to (re)generate it.',
+      items: [],
+    };
+  }
+
+  let items = summary.items;
+  if (team && team.trim()) {
+    const q = team.trim().toUpperCase();
+    items = items.filter(i => (i.team || '').toUpperCase() === q);
+  }
+  if (market && market.trim()) {
+    const q = market.trim().toLowerCase();
+    items = items.filter(i => (i.market || '').toLowerCase() === q);
+  }
+  if (lane && lane.trim()) {
+    const q = lane.trim().toLowerCase();
+    items = items.filter(i => (i.lane || '').toLowerCase() === q);
+  }
+
+  const capped = items.slice(0, limit);
+
+  return {
+    status: capped.length > 0 ? 'ok' : 'no_data',
+    guardrail: summary.guardrail || 'Reviewed local podcast intel for agent context only. This is not an official pick ledger, production recommendation, Supabase write, or parlay mutation.',
+    generated_at: summary.generated_at,
+    total_matched: items.length,
+    returned: capped.length,
+    items: capped,
   };
 }
 

@@ -116,6 +116,11 @@
       "description": "List podcast episode vault note paths under NFL/Podcasts/. Use to find the exact path before calling read_vault_note to load picks, intel, and transcript index for a specific episode."
     },
     {
+      "name": "get_youtube_futures_intel",
+      "source": "PODCAST_INTEL_TOOLS",
+      "description": "S300/S301: local-only, human-reviewed YouTube/Gemini podcast intel (11 futures-eligible episodes, 39 promoted items). Reads a local JSON file, not Supabase — team/market/lane-filtered, with source timestamps, supporting quotes, and review_flags preserved. Read-only research context; never an official pick or production recommendation."
+    },
+    {
       "name": "read_vault_note",
       "source": "BETTING_TOOLS",
       "description": "Read a vault note by path. Use after search_episode_vault_notes to load full episode content (picks table, intel bullets, transcript index) for deep citation. Also reads NFL/Futures/*.md for futures intel reports."
