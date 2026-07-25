@@ -22,6 +22,11 @@ dist-ssr
 *.sln
 *.sw?
 .env
+config/youtube-oauth-client.json
+config/youtube-podcast-sources.local.json
+data/secrets/
+data/podcasts/youtube-account-discovery.json
+data/podcasts/youtube-discovery-state.json
 # Playwright
 playwright-report/
 test-results/
@@ -33,6 +38,9 @@ public/*.bak
 .nfl/reports/
 .nfl/receipts/
 .nfl/portfolio/
+.nfl/official-picks/
+.nfl/training-camp/
+data/generated/official-picks-server-debug/
 supabase/.temp/
 coverage/
 docs/Futures_Odds/

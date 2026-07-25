@@ -12,18 +12,34 @@
 
 ## Last Session Summary
 
-- Date: 2026-07-22
+- Date: 2026-07-25
 - Branch: `main`
-- HEAD: `4cbd3be` (`docs: add Codex handoff for the hedge-basket/parlay-ladder reconciliation thread`)
-- Working tree: intentionally dirty with the futures audit, offline corpus, portfolio-builder changes, and handoff files
-- Verification: portfolio corpus 5/5 passed; futures dossier conformance passed; podcast host-summary unit test passed; changed Node entry points pass `node --check`
-- Live API calls: none in this audit/benchmark-handoff work
+- Working tree: intentionally dirty with futures/report/podcast work, generated reports, official-picks local artifacts, training-camp planning docs, and YouTube/Gemini local-intel workflow
+- Latest timestamped handoff: `handoffs/2026-07-25-futures-betting-youtube-intel-wiring-handoff.md`
+- Latest work spec: `docs/TRAINING_CAMP_INTEL_SPEC_2026.md`
+- Verification: `get_youtube_futures_intel` tool added and unit-tested (94/94 in `tests/unit/agentTools.test.js`); full `npm test` suite not run this session (sandbox time-limit) — run before next commit
+- Live API calls: none this session
 - Supabase writes: none
 - Open parlay changes: none
 
 ## Current Objective
 
-Determine whether the futures analyst can generate recommendations intelligent enough to justify risking money. The system has now been audited as a whole: ingestion, dossier, prompts/committee, deterministic validation, portfolio construction, scenario-book hedging, personalization, live chat, and evaluation strategy.
+Build a local-first training camp intelligence layer that captures source-stamped camp reports for all 32 teams, supports manual pasted notes as first-class inputs, and later feeds compact nuggets into futures dossiers for Bills/Packers anchor planning and longshot hedge scouting.
+
+This sits alongside the futures analyst audit work below; it does not authorize live recommendation runs or official real AI-generated proposals.
+
+Latest completed adjacent workstream: YouTube/Gemini podcast intel is now local, reviewed, and agent-readable. Human review promoted 39 items, rejected the bad `DET division_winner +1500` extraction, and built `data/shadow-harness/review/youtube-futures-agent-intel-summary.json`.
+
+Current training-camp spec and handoff:
+
+- `docs/TRAINING_CAMP_INTEL_SPEC_2026.md`
+- `handoffs/2026-07-24-training-camp-intel-spec-handoff.md`
+
+Current YouTube/Gemini handoff:
+
+- `handoffs/2026-07-25-youtube-gemini-local-intel-handoff.md`
+
+Prior canonical futures audit:
 
 Canonical audit:
 
@@ -35,7 +51,7 @@ Supporting portfolio/corpus handoff:
 
 Latest timestamped handoff:
 
-- `handoffs/2026-07-22-1635.md`
+- `handoffs/2026-07-22-2135.md`
 
 ## Audit Verdict
 
@@ -136,14 +152,21 @@ Leave these pre-existing untracked scratch files alone:
 
 ## Immediate Next Steps
 
-1. Read `handoffs/2026-07-22-1635.md` for the latest report UX and podcast-source state.
-2. Inspect the new HTML UX: one card per team section, lower sections collapsed, no repeated ranking-card drops.
-3. Consider adding a report table of contents and source-quality badges.
-4. Plan podcast timestamp backfill before rerunning host-summary extraction; existing summaries do not yet contain timestamps.
-5. Continue P0-P2 audit work only after preserving the current offline UX/podcast improvements.
+1. Read `docs/TRAINING_CAMP_INTEL_SPEC_2026.md`.
+2. Read `handoffs/2026-07-24-training-camp-intel-spec-handoff.md`.
+3. Implement local-only Phase 1: schema/manual importer/snapshot writer/report generator/test.
+4. Do not start live RSS fetching until explicitly approved.
+5. Keep the older futures P0-P2 audit guardrails in force.
+
+If continuing YouTube/Gemini local intel instead:
+
+1. Read `handoffs/2026-07-25-futures-betting-youtube-intel-wiring-handoff.md` (S302: FUTURES/BETTING agent wiring, just completed).
+2. Run full `npm.cmd test` locally to confirm suite-wide count (not run last session due to sandbox time-limit).
+3. Manually smoke-test `get_youtube_futures_intel` from the FUTURES/BETTING agent chat UI (dev server) against the live tool-call loop.
+4. Batch live-queue benchmark: execute `--live-shadow` across remaining phase queues as new YouTube episodes are published.
 
 ## Resume Command
 
 ```text
-Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. HEAD = 4cbd3be (main) with uncommitted futures-audit and portfolio-corpus work. Suite: portfolio corpus 5/5 plus both Node syntax checks passing. Read HANDOFF_PROMPT.md, then docs/FUTURES_ANALYST_SYSTEM_INTELLIGENCE_AUDIT_2026-07-22.md; implement the P0-P2 build order beginning with P0, then run the audit's post-P0-P2 benchmark protocol. Do not make a live API call, persist a report, or modify open parlay slots without explicit approval.
+Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF_PROMPT.md, WORKING-CONTEXT.md, and handoffs\2026-07-25-futures-betting-youtube-intel-wiring-handoff.md first. Current task: continue from the completed FUTURES/BETTING agent wiring for local YouTube/Gemini intel (S302). Verified state: get_youtube_futures_intel tool added to PODCAST_INTEL_TOOLS in src/lib/agentTools.js (team/market/lane filters, review_flags preserved), public/youtube-futures-agent-intel-summary.json synced by scripts/build-youtube-futures-agent-intel-summary.js, both agent manifests updated, FuturesAgentChat.jsx system prompt + tool label updated, tests/unit/agentTools.test.js passing 94/94 (89 pre-existing + 5 new). Full npm test suite NOT run this session (sandbox time-limit) — run it before next commit. Guardrails: do not make live API calls, write to Supabase, persist production recommendations, or modify open parlay slots without explicit approval. Recommended next: full npm test run, then a live dev-server smoke test of the new tool from the FUTURES/BETTING agent chat UI. If returning to F-30 training camp intel instead, read docs\TRAINING_CAMP_INTEL_SPEC_2026.md and handoffs\2026-07-24-training-camp-intel-spec-handoff.md.
 ```

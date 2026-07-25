@@ -36,8 +36,8 @@ Session: ~Xh | Model: [model name]
 ## GOTCHAS DISCOVERED
 - [anti-pattern or trap found this session]
 
-## RESUME COMMAND
-[One copy-pasteable sentence to continue in a fresh chat]
+## Resume Prompt
+[Required. One copy-pasteable prompt for the next fresh session. It must include workspace path, files to read first, current objective, latest verified state, immediate next step, and any guardrails such as no live API/model calls, no Supabase writes, and no betting/parlay changes without approval.]
 ```
 
 ---
@@ -53,9 +53,9 @@ Display the same content in chat, formatted as:
    - Current state of any in-progress work
    - Immediate next steps in priority order
    - Anti-patterns encountered
-   - **Resume Command**: One copy-pasteable sentence
+   - **Resume Prompt**: One copy-pasteable prompt
 
-Then tell the user: "Handoff saved to `handoffs/YYYY-MM-DD-HHMM.md`. To continue: paste the Resume Command into a fresh chat."
+Then tell the user: "Handoff saved to `handoffs/YYYY-MM-DD-HHMM.md`. To continue: paste the Resume Prompt into a fresh chat."
 
 ---
 
