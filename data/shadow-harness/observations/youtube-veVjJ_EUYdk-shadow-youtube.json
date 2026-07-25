@@ -1,0 +1,132 @@
+{
+  "episode_slug": "youtube-veVjJ_EUYdk",
+  "show": "YouTube Discovery",
+  "date": "manual",
+  "priority": "manual",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "input_source": "youtube_video_url",
+  "run": {
+    "run_id": "youtube_gemini_f6267c01c1cb",
+    "mode": "live-youtube",
+    "model": "gemini-3.5-flash",
+    "input_source": "youtube_video_url",
+    "youtube_url": "https://www.youtube.com/watch?v=veVjJ_EUYdk",
+    "latency_ms": 98843,
+    "estimated_cost_usd": 0.030279,
+    "input_tokens": 295726,
+    "output_tokens": 1765,
+    "raw_model_response": "{\n  \"transcript_summary\": \"Seth Woolcock and Andrew Erickson from the BettingPros Podcast discuss and break down their favorite bets, value plays, and long shots for the 2026 NFL future award markets, including MVP, OPOY, DPOY, OROY, and DROY.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 122.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"All right and welcome into the BettingPros podcast... time to place your bets for the NFL future award markets.\"\n    },\n    {\n      \"start\": 122.0,\n      \"end\": 174.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"And Andrew, let's start in the MVP market where last year Matthew Stafford won the NFL MVP.\"\n    },\n    {\n      \"start\": 174.0,\n      \"end\": 312.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"So the ones that I like the most from the favorites are Joe Burrow and Justin Herbert. Those are kind of the two guys that stand out to me as some decent values.\"\n    },\n    {\n      \"start\": 312.0,\n      \"end\": 350.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Hey, that's totally understandable... any thoughts about maybe slow playing that or do you think this is the year they start fast?\"\n    },\n    {\n      \"start\": 350.0,\n      \"end\": 418.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Well, if you recall to last year, they didn't have a slow start. They were 2 and 0... So I'm not as hesitant to fire on this now.\"\n    },\n    {\n      \"start\": 418.0,\n      \"end\": 513.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Justin Herbert, who I think is probably my favorite of the two of the more favored guys. He did get an MVP vote last year.\"\n    },\n    {\n      \"start\": 513.0,\n      \"end\": 518.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"It's an interesting number... what's your best overall value, maybe a little bit of a long shot in this particular market, Andrew?\"\n    },\n    {\n      \"start\": 518.0,\n      \"end\": 605.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"For me it's Trevor Lawrence at 24 to 1 to win the MVP award. I don't always want to cite fantasy stats, but after week 5, no quarterback scored more fantasy points than Trevor Lawrence did.\"\n    },\n    {\n      \"start\": 605.0,\n      \"end\": 731.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Not bad odds at all there... Let's go to the Offensive Player of the Year market...\"\n    },\n    {\n      \"start\": 731.0,\n      \"end\": 745.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"For me it's going to be Ja'Marr Chase... 12 to 1 for Offensive Player of the Year...\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"LAC\",\n      \"market\": \"mvp\",\n      \"side\": \"OVER\",\n      \"line\": null,\n      \"price\": 1100,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 418,\n      \"rationale\": \"Justin Herbert is his favorite choice among the top favorites, projecting a career year with a revamped Chargers coaching staff.\"\n    },\n    {\n      \"team\": \"CIN\",\n      \"market\": \"mvp\",\n      \"side\": \"OVER\",\n      \"line\": null,\n      \"price\": 1000,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 174,\n      \"rationale\": \"Whenever Joe Burrow is healthy, he plays at an MVP level, and the Bengals have the third easiest schedule in the league.\"\n    },\n    {\n      \"team\": \"JAX\",\n      \"market\": \"mvp\",\n      \"side\": \"OVER\",\n      \"line\": null,\n      \"price\": 2400,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 518,\n      \"rationale\": \"Trevor Lawrence was incredibly productive in the second half of last season and offers elite long-shot value at 24 to 1.\"\n    },\n    {\n      \"team\": \"CIN\",\n      \"market\": \"opoy\",\n      \"side\": \"OVER\",\n      \"line\": null,\n      \"price\": 1200,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 731,\n      \"rationale\": \"Chase is too talented of a player to go through his career without winning OPOY, especially with a healthy Joe Burrow.\"\n    },\n    {\n      \"team\": \"LV\",\n      \"market\": \"opoy\",\n      \"side\": \"OVER\",\n      \"line\": null,\n      \"price\": 8000,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 731,\n      \"rationale\": \"Highly talented tight end/wide receiver hybrid who has massive upside and could see double-digit targets weekly.\"\n    },\n    {\n      \"team\": \"LAR\",\n      \"market\": \"dpoy\",\n      \"side\": \"OVER\",\n      \"line\": null,\n      \"price\": 450,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 612,\n      \"rationale\": \"Myles Garrett is in a perfect situation with the Los Angeles Rams to repeat his dominant numbers and win back-to-back awards.\"\n    },\n    {\n      \"team\": \"LV\",\n      \"market\": \"oroy\",\n      \"side\": \"OVER\",\n      \"line\": null,\n      \"price\": 400,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 808,\n      \"rationale\": \"Mendoza has the inside track as the starting quarterback in an offense that loves to pass, which heavily favors quarterback OROY winners.\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Justin Herbert MVP\",\n      \"timestamp\": 418,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"Justin Herbert, who I think is probably my favorite of the two of the more favored guys.\"\n    },\n    {\n      \"topic\": \"Trevor Lawrence MVP\",\n      \"timestamp\": 518,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"For me it's Trevor Lawrence at 24 to 1 to win the MVP award.\"\n    },\n    {\n      \"topic\": \"Ja'Marr Chase OPOY\",\n      \"timestamp\": 731,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"For me it's going to be Ja'Marr Chase... 12 to 1 for Offensive Player of the Year.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+    "extracted_picks": [
+      {
+        "team": "LAC",
+        "market": "mvp",
+        "side": "OVER",
+        "line": null,
+        "price": 1100,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 418,
+        "rationale": "Justin Herbert is his favorite choice among the top favorites, projecting a career year with a revamped Chargers coaching staff."
+      },
+      {
+        "team": "CIN",
+        "market": "mvp",
+        "side": "OVER",
+        "line": null,
+        "price": 1000,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 174,
+        "rationale": "Whenever Joe Burrow is healthy, he plays at an MVP level, and the Bengals have the third easiest schedule in the league."
+      },
+      {
+        "team": "JAX",
+        "market": "mvp",
+        "side": "OVER",
+        "line": null,
+        "price": 2400,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 518,
+        "rationale": "Trevor Lawrence was incredibly productive in the second half of last season and offers elite long-shot value at 24 to 1."
+      },
+      {
+        "team": "CIN",
+        "market": "opoy",
+        "side": "OVER",
+        "line": null,
+        "price": 1200,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 731,
+        "rationale": "Chase is too talented of a player to go through his career without winning OPOY, especially with a healthy Joe Burrow."
+      },
+      {
+        "team": "LV",
+        "market": "opoy",
+        "side": "OVER",
+        "line": null,
+        "price": 8000,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 731,
+        "rationale": "Highly talented tight end/wide receiver hybrid who has massive upside and could see double-digit targets weekly."
+      },
+      {
+        "team": "LAR",
+        "market": "dpoy",
+        "side": "OVER",
+        "line": null,
+        "price": 450,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 612,
+        "rationale": "Myles Garrett is in a perfect situation with the Los Angeles Rams to repeat his dominant numbers and win back-to-back awards."
+      },
+      {
+        "team": "LV",
+        "market": "oroy",
+        "side": "OVER",
+        "line": null,
+        "price": 400,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 808,
+        "rationale": "Mendoza has the inside track as the starting quarterback in an offense that loves to pass, which heavily favors quarterback OROY winners."
+      }
+    ],
+    "quote_timestamps": [
+      {
+        "topic": "Justin Herbert MVP",
+        "timestamp": 418,
+        "speaker": "Andrew Erickson",
+        "quote": "Justin Herbert, who I think is probably my favorite of the two of the more favored guys."
+      },
+      {
+        "topic": "Trevor Lawrence MVP",
+        "timestamp": 518,
+        "speaker": "Andrew Erickson",
+        "quote": "For me it's Trevor Lawrence at 24 to 1 to win the MVP award."
+      },
+      {
+        "topic": "Ja'Marr Chase OPOY",
+        "timestamp": 731,
+        "speaker": "Andrew Erickson",
+        "quote": "For me it's going to be Ja'Marr Chase... 12 to 1 for Offensive Player of the Year."
+      }
+    ]
+  },
+  "scoring": {
+    "score_status": "not_scored",
+    "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+    "total_ground_truth": 0,
+    "total_shadow_extracted": 7,
+    "full_exact_matches": 0,
+    "precision_pct": "not scored",
+    "recall_pct": "not scored",
+    "f1_score_pct": "not scored",
+    "dimension_accuracy": {
+      "team": null,
+      "market": null,
+      "side": null,
+      "line": null,
+      "price": null,
+      "speaker": null,
+      "source_timestamp": null
+    }
+  }
+}

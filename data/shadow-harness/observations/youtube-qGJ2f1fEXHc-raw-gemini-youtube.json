@@ -1,0 +1,28 @@
+{
+  "episode_slug": "youtube-qGJ2f1fEXHc",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "input_source": "youtube_video_url",
+  "youtube_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc",
+  "raw_model_response": "{\n  \"transcript_summary\": \"Seth Woolcock and Andrew Erickson discuss longshot futures bets for the 2026 NFL season. Andrew Erickson highlights value on the Chargers to win the Super Bowl, the Cowboys to win the NFC, and the Titans to win the AFC South.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 258.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"All right and welcome into the BettingPros NFL podcast...\"\n    },\n    {\n      \"start\": 258.0,\n      \"end\": 445.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"The Los Angeles Chargers are going to win the Super Bowl at 17 to 1 odds...\"\n    },\n    {\n      \"start\": 445.0,\n      \"end\": 668.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"13 to 1 to win the NFC... Dallas Cowboys...\"\n    },\n    {\n      \"start\": 668.0,\n      \"end\": 703.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"The Tennessee Titans to win the AFC South at 9 to 1...\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"Los Angeles Chargers\",\n      \"market\": \"Super Bowl Winners\",\n      \"side\": \"Winner\",\n      \"line\": null,\n      \"price\": \"+1700\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 258,\n      \"rationale\": \"Believes the Chargers under Jim Harbaugh and Mike McDaniel can make a run, with Justin Herbert playing his best football.\"\n    },\n    {\n      \"team\": \"Dallas Cowboys\",\n      \"market\": \"NFC Conference Champions\",\n      \"side\": \"Winner\",\n      \"line\": null,\n      \"price\": \"+1300\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 445,\n      \"rationale\": \"High on Dak Prescott with CeeDee Lamb and George Pickens, alongside a revamped defense featuring Quinnen Williams and draft upgrades.\"\n    },\n    {\n      \"team\": \"Tennessee Titans\",\n      \"market\": \"AFC South Champions\",\n      \"side\": \"Winner\",\n      \"line\": null,\n      \"price\": \"+900\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 668,\n      \"rationale\": \"Likes the transition to Robert Saleh as head coach and Brian Daboll as offensive coordinator, expecting Cam Ward to take a massive second-year leap.\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Chargers Super Bowl\",\n      \"timestamp\": 258,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"The Los Angeles Chargers are going to win the Super Bowl at 17 to 1 odds.\"\n    },\n    {\n      \"topic\": \"Cowboys NFC Conference\",\n      \"timestamp\": 445,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"13 to 1 to win the NFC.\"\n    },\n    {\n      \"topic\": \"Titans AFC South\",\n      \"timestamp\": 668,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"The Tennessee Titans to win the AFC South at 9 to 1.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+  "quote_timestamps": [
+    {
+      "topic": "Chargers Super Bowl",
+      "timestamp": 258,
+      "speaker": "Andrew Erickson",
+      "quote": "The Los Angeles Chargers are going to win the Super Bowl at 17 to 1 odds."
+    },
+    {
+      "topic": "Cowboys NFC Conference",
+      "timestamp": 445,
+      "speaker": "Andrew Erickson",
+      "quote": "13 to 1 to win the NFC."
+    },
+    {
+      "topic": "Titans AFC South",
+      "timestamp": 668,
+      "speaker": "Andrew Erickson",
+      "quote": "The Tennessee Titans to win the AFC South at 9 to 1."
+    }
+  ]
+}

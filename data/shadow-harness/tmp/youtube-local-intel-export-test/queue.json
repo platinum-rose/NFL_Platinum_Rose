@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-07-25T02:16:39.075Z",
+  "status": "local_intel_queue_only",
+  "guardrail": "Local reviewed intel queue only. This is not an official pick ledger, production recommendation, Supabase write, or parlay mutation.",
+  "source_report": "data\\shadow-harness\\reports\\youtube-futures-intel-review-latest.json",
+  "source_status_ledger": "data\\shadow-harness\\tmp\\youtube-local-intel-export-test\\status.json",
+  "promoted_status": "promote_to_local_intel",
+  "total_status_items": 40,
+  "exported_items": 1,
+  "skipped_items": 39,
+  "missing_report_items": [],
+  "grouped_counts": {
+    "by_lane": {
+      "futures_pick": 1
+    },
+    "by_team": {
+      "CAR": 1
+    },
+    "by_market": {
+      "win_total": 1
+    }
+  },
+  "items": [
+    {
+      "item_id": "youtube-4OxpAX6UJlM__CAR__win_total__UNDER__6.5__140__328",
+      "item_lane": "futures_pick",
+      "team": "CAR",
+      "market": "win_total",
+      "side": "UNDER",
+      "line": 6.5,
+      "price": 140,
+      "speaker": "Derek Brown",
+      "rationale": "Panthers have the third hardest schedule based on projected win totals. Six of their eight wins last season were decided by three or fewer points.",
+      "supporting_quote": "I'm taking the under six and a half wins for the Carolina Panthers this year because you can get it at plus 140",
+      "review_flags": [],
+      "reviewer_notes": "fixture promotion only",
+      "source": {
+        "episode_id": "youtube-4OxpAX6UJlM",
+        "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+        "show": "BettingPros YouTube",
+        "video_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM",
+        "source_timestamp": 328,
+        "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=328s"
+      }
+    }
+  ]
+}

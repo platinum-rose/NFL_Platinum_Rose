@@ -1,0 +1,165 @@
+{
+  "priority": 3,
+  "episode_slug": "2026-03-19-sharp-or-square-nfl-season-win-totals-part-2",
+  "show": "Sharp or Square",
+  "date": "2026-03-19",
+  "run": {
+    "run_id": "gemini_shadow_665ca19398d5",
+    "episode_slug": "2026-03-19-sharp-or-square-nfl-season-win-totals-part-2",
+    "show": "Sharp or Square",
+    "date": "2026-03-19",
+    "priority": 3,
+    "timestamp": "2026-07-24T07:39:03.025Z",
+    "model": "gemini-2.0-flash",
+    "duration_secs": 2978,
+    "latency_ms": 2111,
+    "estimated_cost_usd": 0.010495,
+    "input_audio_tokens": 95296,
+    "output_tokens": 2100,
+    "extracted_picks": [
+      {
+        "team": "BUF",
+        "market": "win_total",
+        "side": "OVER",
+        "line": 10.5,
+        "price": -115,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 349
+      },
+      {
+        "team": "DEN",
+        "market": "win_total",
+        "side": "OVER",
+        "line": 9.5,
+        "price": -110,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 863
+      },
+      {
+        "team": "DET",
+        "market": "win_total",
+        "side": "UNDER",
+        "line": 10.5,
+        "price": 115,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 628
+      },
+      {
+        "team": "GB",
+        "market": "win_total",
+        "side": "OVER",
+        "line": 10.5,
+        "price": -110,
+        "speaker": "Chad Millman",
+        "source_timestamp": 702
+      },
+      {
+        "team": "GB",
+        "market": "win_total",
+        "side": "OVER",
+        "line": 10.5,
+        "price": -110,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 705
+      },
+      {
+        "team": "PHI",
+        "market": "win_total",
+        "side": "OVER",
+        "line": 10.5,
+        "price": 100,
+        "speaker": "Chad Millman",
+        "source_timestamp": 1050
+      },
+      {
+        "team": "PHI",
+        "market": "win_total",
+        "side": "OVER",
+        "line": 10.5,
+        "price": 100,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 1055
+      },
+      {
+        "team": "BAL",
+        "market": "win_total",
+        "side": "UNDER",
+        "line": 10.5,
+        "price": 115,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 491
+      },
+      {
+        "team": "BAL",
+        "market": "win_total",
+        "side": "UNDER",
+        "line": 10.5,
+        "price": 115,
+        "speaker": "Chad Millman",
+        "source_timestamp": 495
+      },
+      {
+        "team": "KC",
+        "market": "win_total",
+        "side": "UNDER",
+        "line": 10.5,
+        "price": -105,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 750
+      },
+      {
+        "team": "KC",
+        "market": "win_total",
+        "side": "UNDER",
+        "line": 10.5,
+        "price": -105,
+        "speaker": "Chad Millman",
+        "source_timestamp": 755
+      },
+      {
+        "team": "LAR",
+        "market": "win_total",
+        "side": "UNDER",
+        "line": 10.5,
+        "price": 115,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 1002
+      },
+      {
+        "team": "SF",
+        "market": "win_total",
+        "side": "UNDER",
+        "line": 10.5,
+        "price": -115,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 1180
+      },
+      {
+        "team": "SEA",
+        "market": "win_total",
+        "side": "UNDER",
+        "line": 10.5,
+        "price": -110,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 1260
+      },
+      {
+        "team": "CAR",
+        "market": "win_total",
+        "side": "OVER",
+        "line": 6.5,
+        "price": -110,
+        "speaker": "Chad Millman",
+        "source_timestamp": 1450
+      }
+    ]
+  },
+  "scoring": {
+    "total_ground_truth": 15,
+    "total_shadow_extracted": 15,
+    "full_exact_matches": 15,
+    "precision_pct": 100,
+    "recall_pct": 100,
+    "f1_score_pct": 100
+  }
+}

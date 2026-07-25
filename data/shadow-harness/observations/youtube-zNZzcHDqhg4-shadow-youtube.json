@@ -1,0 +1,60 @@
+{
+  "episode_slug": "youtube-zNZzcHDqhg4",
+  "show": "YouTube Discovery",
+  "date": "manual",
+  "priority": "manual",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "input_source": "youtube_video_url",
+  "run": {
+    "run_id": "youtube_gemini_df43801b9247",
+    "mode": "live-youtube",
+    "model": "gemini-3.5-flash",
+    "input_source": "youtube_video_url",
+    "youtube_url": "https://www.youtube.com/watch?v=zNZzcHDqhg4",
+    "latency_ms": 38345,
+    "estimated_cost_usd": 0.022838,
+    "input_tokens": 226560,
+    "output_tokens": 455,
+    "raw_model_response": "{\n  \"transcript_summary\": \"Warren Sharp tiers all 32 NFL receiving rooms (wide receivers and tight ends) for a projected 2026 season from S-tier down to F-tier. He analyzes player movements and roster projections, highlighting top-tier groups like the Bengals, Cowboys, Lions, and Vikings while placing the Dolphins at the bottom.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 562.0,\n      \"speaker\": \"Warren Sharp\",\n      \"text\": \"Let's rank all 32 receiving rooms around the NFL. Let's tier them S-tier to F-tier... I know we're still in June, but it's not too early to start thinking about the 2026 NFL season... We are officially done with the book, and it is checking in at 619 pages...\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"IND\",\n      \"market\": \"player_receiving_yds\",\n      \"side\": \"OVER\",\n      \"line\": null,\n      \"price\": null,\n      \"speaker\": \"Warren Sharp\",\n      \"source_timestamp\": 400,\n      \"rationale\": \"Josh Downs is projected to take on a much larger workload this season, making his rising receiving yards prop line justified if he can stay healthy.\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Josh Downs Prop\",\n      \"timestamp\": 400,\n      \"speaker\": \"Warren Sharp\",\n      \"quote\": \"His receiving yards prop has been bet up, up, up, and rightfully so, if he can stay healthy.\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 400,\n      \"field\": \"line\",\n      \"reason\": \"Specific line number for Josh Downs' receiving yards prop was not explicitly mentioned.\"\n    }\n  ]\n}",
+    "extracted_picks": [
+      {
+        "team": "IND",
+        "market": "player_receiving_yds",
+        "side": "OVER",
+        "line": null,
+        "price": null,
+        "speaker": "Warren Sharp",
+        "source_timestamp": 400,
+        "rationale": "Josh Downs is projected to take on a much larger workload this season, making his rising receiving yards prop line justified if he can stay healthy."
+      }
+    ],
+    "quote_timestamps": [
+      {
+        "topic": "Josh Downs Prop",
+        "timestamp": 400,
+        "speaker": "Warren Sharp",
+        "quote": "His receiving yards prop has been bet up, up, up, and rightfully so, if he can stay healthy."
+      }
+    ]
+  },
+  "scoring": {
+    "score_status": "not_scored",
+    "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+    "total_ground_truth": 0,
+    "total_shadow_extracted": 1,
+    "full_exact_matches": 0,
+    "precision_pct": "not scored",
+    "recall_pct": "not scored",
+    "f1_score_pct": "not scored",
+    "dimension_accuracy": {
+      "team": null,
+      "market": null,
+      "side": null,
+      "line": null,
+      "price": null,
+      "speaker": null,
+      "source_timestamp": null
+    }
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "episode_slug": "2026-03-03-sharp-or-square-early-2026-nfl-season-win-totals-part-1",
+  "show": "Sharp or Square",
+  "date": "2026-03-03",
+  "priority": 2,
+  "mode": "live-shadow",
+  "model": "gemini-3.5-flash",
+  "run": {
+    "run_id": "live_gemini_08bf63617c93",
+    "mode": "live-shadow",
+    "model": "gemini-3.5-flash",
+    "latency_ms": 32817,
+    "estimated_cost_usd": 0.00209,
+    "input_tokens": 9407,
+    "output_tokens": 2873,
+    "raw_model_response": "{\n  \"transcript_summary\": \"Hosts Chad Millman and Simon Hunter dissect the newly released 2026 NFL season win totals from Hard Rock Bet. They identify high-value targets, focusing on early mispriced numbers for teams like the Buffalo Bills, Detroit Lions, Denver Broncos, and Carolina Panthers.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 156.0,\n      \"speaker\": \"Ad Read\",\n      \"text\": \"Advertisements for Wix Harmony, Amazon Health AI, Zepbound, and Lowe's Pro Rewards.\"\n    },\n    {\n      \"start\": 156.0,\n      \"end\": 210.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Welcome to Sharper Square, presented by Hard Rock Bet. We are part of the Volume Podcast Network. I'm joined as always by my BFF, professional bettor Simon Hunter. We're going to talk season win totals that came out in advance of free agency and the draft.\"\n    },\n    {\n      \"start\": 210.0,\n      \"end\": 268.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"For the Cleveland Browns, six and a half feels pretty high and we don't know how that defense is going to be with the new DC. I have not placed a single bet on them, but you can be patient on that over.\"\n    },\n    {\n      \"start\": 268.0,\n      \"end\": 315.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Let's run down the ten and a halfs. First one, Baltimore ten and a half. One, two, three, under. Value is under at plus 115.\"\n    },\n    {\n      \"start\": 315.0,\n      \"end\": 348.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"I agree with the Ravens under. Too many questions about the head coach hire, and Lamar has missed playoffs three of the last five years. If he is fully healthy they hit the over, but that hasn't happened in some time.\"\n    },\n    {\n      \"start\": 348.0,\n      \"end\": 402.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"For the Buffalo Bills at ten and a half, this feels like an easy, easy over for me. I love Joe Brady making that offense work. I got this graded over 11 and a half.\"\n    },\n    {\n      \"start\": 402.0,\n      \"end\": 450.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"On Detroit ten and a half, this is my second biggest under bet of the offseason. That O-line is done with injuries and retirements, and Green Bay and the Bears are going to be better.\"\n    },\n    {\n      \"start\": 450.0,\n      \"end\": 510.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Green Bay ten and a half, we lean over. If they stay healthy, that defense improves under Parsons, and they are the best value to win that division.\"\n    },\n    {\n      \"start\": 510.0,\n      \"end\": 560.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Kansas City Chiefs ten and a half, stay away or lean under until we know Mahomes's status. Denver at nine and a half is one of the worst lines by the books. They're going to get absolutely hammered to over.\"\n    },\n    {\n      \"start\": 560.0,\n      \"end\": 690.0,\n      \"speaker\": \"Ad Read\",\n      \"text\": \"Advertisements for Hard Rock Bet, Wix, Amazon Health AI, and Total Wireless.\"\n    },\n    {\n      \"start\": 690.0,\n      \"end\": 745.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"On the Rams at ten and a half, I lean under. Stafford is coming off an MVP year but you're banking on him having back-to-back career years and staying healthy.\"\n    },\n    {\n      \"start\": 745.0,\n      \"end\": 790.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"For the Philadelphia Eagles ten and a half, we both say over. Even with a down year they still have too much talent.\"\n    },\n    {\n      \"start\": 790.0,\n      \"end\": 840.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"San Francisco ten and a half, I lean under. They are about to lose Trent Williams and we'll see how Purdy deals with pressure without him.\"\n    },\n    {\n      \"start\": 840.0,\n      \"end\": 880.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Seattle ten and a half, I lean under because of the Super Bowl hangover and paying a lot of guys. Sam Darnold is not a top ten quarterback.\"\n    },\n    {\n      \"start\": 880.0,\n      \"end\": 945.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"My choice is the Carolina Panthers over six and a half. The division is highly competitive and their defense got better. Why wouldn't I take the over?\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"BAL\",\n      \"market\": \"win_total\",\n      \"side\": \"UNDER\",\n      \"line\": 10.5,\n      \"price\": 115,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 268,\n      \"rationale\": \"Value play at +115, with concerns on how the new defense scheme under Minter holds up.\"\n    },\n    {\n      \"team\": \"BAL\",\n      \"market\": \"win_total\",\n      \"side\": \"UNDER\",\n      \"line\": 10.5,\n      \"price\": 115,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 315,\n      \"rationale\": \"Lamar health concerns and questions surrounding coaching changes in a tough division.\"\n    },\n    {\n      \"team\": \"BUF\",\n      \"market\": \"win_total\",\n      \"side\": \"OVER\",\n      \"line\": 10.5,\n      \"price\": null,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 348,\n      \"rationale\": \"Simon has this graded at over 11.5. Josh Allen is elite and they have an easy division featuring the Jets and Dolphins.\"\n    },\n    {\n      \"team\": \"DET\",\n      \"market\": \"win_total\",\n      \"side\": \"UNDER\",\n      \"line\": 10.5,\n      \"price\": 110,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 402,\n      \"rationale\": \"Simon's second biggest bet of the offseason. The Lions' offensive line faces severe regression due to injuries and retirements.\"\n    },\n    {\n      \"team\": \"GB\",\n      \"market\": \"win_total\",\n      \"side\": \"OVER\",\n      \"line\": 10.5,\n      \"price\": null,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 450,\n      \"rationale\": \"Packers had terrible injury luck last year and should see defensive improvement under Parsons.\"\n    },\n    {\n      \"team\": \"KC\",\n      \"market\": \"win_total\",\n      \"side\": \"UNDER\",\n      \"line\": 10.5,\n      \"price\": -105,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 510,\n      \"rationale\": \"Uncertainty surrounding Mahomes's health and potential missed games makes early over too risky.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"market\": \"win_total\",\n      \"side\": \"OVER\",\n      \"line\": 9.5,\n      \"price\": null,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 530,\n      \"rationale\": \"Considered a bad line by the books. Great O-line, improving quarterback Bo Nix, and highly motivated after missing out last year.\"\n    },\n    {\n      \"team\": \"LAR\",\n      \"market\": \"win_total\",\n      \"side\": \"UNDER\",\n      \"line\": 10.5,\n      \"price\": 115,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 690,\n      \"rationale\": \"Rams had a perfect run last year, but Stafford is unlikely to repeat back-to-back career years cleanly.\"\n    },\n    {\n      \"team\": \"PHI\",\n      \"market\": \"win_total\",\n      \"side\": \"OVER\",\n      \"line\": 10.5,\n      \"price\": null,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 745,\n      \"rationale\": \"High talent ceiling with strong draft selections; even a floor year yields 10-11 wins.\"\n    },\n    {\n      \"team\": \"SF\",\n      \"market\": \"win_total\",\n      \"side\": \"UNDER\",\n      \"line\": 10.5,\n      \"price\": null,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 790,\n      \"rationale\": \"Pending loss of Trent Williams will expose Brock Purdy to high pressure situations.\"\n    },\n    {\n      \"team\": \"SEA\",\n      \"market\": \"win_total\",\n      \"side\": \"UNDER\",\n      \"line\": 10.5,\n      \"price\": null,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 840,\n      \"rationale\": \"Super Bowl hangover is real, and paying major contracts makes depth harder. Sam Darnold has high turnover risks.\"\n    },\n    {\n      \"team\": \"CAR\",\n      \"market\": \"win_total\",\n      \"side\": \"OVER\",\n      \"line\": 6.5,\n      \"price\": null,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 880,\n      \"rationale\": \"Chad's Choice pick. The NFC South division is extremely weak, the Panthers' defense has improved, and Bryce Young has late-game magic.\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Ravens Under\",\n      \"timestamp\": 268,\n      \"speaker\": \"Chad Millman\",\n      \"quote\": \"Baltimore minus ten and a half. One, two, three. Under.\"\n    },\n    {\n      \"topic\": \"Bills Over\",\n      \"timestamp\": 348,\n      \"speaker\": \"Simon Hunter\",\n      \"quote\": \"I got this graded over 11 and a half.\"\n    },\n    {\n      \"topic\": \"Broncos Over Line Error\",\n      \"timestamp\": 530,\n      \"speaker\": \"Simon Hunter\",\n      \"quote\": \"Denver nine and a half. I couldn't believe that when I first saw it... To me, one of the worst lines of the books.\"\n    },\n    {\n      \"topic\": \"Lions Under\",\n      \"timestamp\": 402,\n      \"speaker\": \"Simon Hunter\",\n      \"quote\": \"This is again just like the Bills. This is my second biggest bet I've made in this offseason.\"\n    },\n    {\n      \"topic\": \"Carolina Choice\",\n      \"timestamp\": 880,\n      \"speaker\": \"Chad Millman\",\n      \"quote\": \"Why wouldn't I take the Panthers, whose defense got better last year? Whose coach I like, who Bryce Young I believe in... Why wouldn't I take the over?\"\n    }\n  ]\n}",
+    "extracted_picks": [
+      {
+        "team": "BAL",
+        "market": "win_total",
+        "side": "UNDER",
+        "line": 10.5,
+        "price": 115,
+        "speaker": "Chad Millman",
+        "source_timestamp": 268,
+        "rationale": "Value play at +115, with concerns on how the new defense scheme under Minter holds up."
+      },
+      {
+        "team": "BAL",
+        "market": "win_total",
+        "side": "UNDER",
+        "line": 10.5,
+        "price": 115,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 315,
+        "rationale": "Lamar health concerns and questions surrounding coaching changes in a tough division."
+      },
+      {
+        "team": "BUF",
+        "market": "win_total",
+        "side": "OVER",
+        "line": 10.5,
+        "price": null,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 348,
+        "rationale": "Simon has this graded at over 11.5. Josh Allen is elite and they have an easy division featuring the Jets and Dolphins."
+      },
+      {
+        "team": "DET",
+        "market": "win_total",
+        "side": "UNDER",
+        "line": 10.5,
+        "price": 110,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 402,
+        "rationale": "Simon's second biggest bet of the offseason. The Lions' offensive line faces severe regression due to injuries and retirements."
+      },
+      {
+        "team": "GB",
+        "market": "win_total",
+        "side": "OVER",
+        "line": 10.5,
+        "price": null,
+        "speaker": "Chad Millman",
+        "source_timestamp": 450,
+        "rationale": "Packers had terrible injury luck last year and should see defensive improvement under Parsons."
+      },
+      {
+        "team": "KC",
+        "market": "win_total",
+        "side": "UNDER",
+        "line": 10.5,
+        "price": -105,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 510,
+        "rationale": "Uncertainty surrounding Mahomes's health and potential missed games makes early over too risky."
+      },
+      {
+        "team": "DEN",
+        "market": "win_total",
+        "side": "OVER",
+        "line": 9.5,
+        "price": null,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 530,
+        "rationale": "Considered a bad line by the books. Great O-line, improving quarterback Bo Nix, and highly motivated after missing out last year."
+      },
+      {
+        "team": "LAR",
+        "market": "win_total",
+        "side": "UNDER",
+        "line": 10.5,
+        "price": 115,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 690,
+        "rationale": "Rams had a perfect run last year, but Stafford is unlikely to repeat back-to-back career years cleanly."
+      },
+      {
+        "team": "PHI",
+        "market": "win_total",
+        "side": "OVER",
+        "line": 10.5,
+        "price": null,
+        "speaker": "Chad Millman",
+        "source_timestamp": 745,
+        "rationale": "High talent ceiling with strong draft selections; even a floor year yields 10-11 wins."
+      },
+      {
+        "team": "SF",
+        "market": "win_total",
+        "side": "UNDER",
+        "line": 10.5,
+        "price": null,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 790,
+        "rationale": "Pending loss of Trent Williams will expose Brock Purdy to high pressure situations."
+      },
+      {
+        "team": "SEA",
+        "market": "win_total",
+        "side": "UNDER",
+        "line": 10.5,
+        "price": null,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 840,
+        "rationale": "Super Bowl hangover is real, and paying major contracts makes depth harder. Sam Darnold has high turnover risks."
+      },
+      {
+        "team": "CAR",
+        "market": "win_total",
+        "side": "OVER",
+        "line": 6.5,
+        "price": null,
+        "speaker": "Chad Millman",
+        "source_timestamp": 880,
+        "rationale": "Chad's Choice pick. The NFC South division is extremely weak, the Panthers' defense has improved, and Bryce Young has late-game magic."
+      }
+    ],
+    "quote_timestamps": [
+      {
+        "topic": "Ravens Under",
+        "timestamp": 268,
+        "speaker": "Chad Millman",
+        "quote": "Baltimore minus ten and a half. One, two, three. Under."
+      },
+      {
+        "topic": "Bills Over",
+        "timestamp": 348,
+        "speaker": "Simon Hunter",
+        "quote": "I got this graded over 11 and a half."
+      },
+      {
+        "topic": "Broncos Over Line Error",
+        "timestamp": 530,
+        "speaker": "Simon Hunter",
+        "quote": "Denver nine and a half. I couldn't believe that when I first saw it... To me, one of the worst lines of the books."
+      },
+      {
+        "topic": "Lions Under",
+        "timestamp": 402,
+        "speaker": "Simon Hunter",
+        "quote": "This is again just like the Bills. This is my second biggest bet I've made in this offseason."
+      },
+      {
+        "topic": "Carolina Choice",
+        "timestamp": 880,
+        "speaker": "Chad Millman",
+        "quote": "Why wouldn't I take the Panthers, whose defense got better last year? Whose coach I like, who Bryce Young I believe in... Why wouldn't I take the over?"
+      }
+    ]
+  },
+  "scoring": {
+    "total_ground_truth": 15,
+    "total_shadow_extracted": 12,
+    "full_exact_matches": 0,
+    "precision_pct": 0,
+    "recall_pct": 0,
+    "f1_score_pct": 0,
+    "dimension_accuracy": {
+      "team": 80,
+      "market": 80,
+      "side": 80,
+      "line": 80,
+      "price": 26.67,
+      "speaker": 73.33,
+      "source_timestamp": 6.67
+    }
+  }
+}

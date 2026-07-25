@@ -1,0 +1,49 @@
+{
+  "episode_slug": "youtube-G5tbI-M8muY",
+  "show": "YouTube Discovery",
+  "date": "manual",
+  "priority": "manual",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "input_source": "youtube_video_url",
+  "run": {
+    "run_id": "youtube_gemini_14e68fe21456",
+    "mode": "live-youtube",
+    "model": "gemini-3.5-flash",
+    "input_source": "youtube_video_url",
+    "youtube_url": "https://www.youtube.com/watch?v=G5tbI-M8muY",
+    "latency_ms": 21707,
+    "estimated_cost_usd": 0.014679,
+    "input_tokens": 142203,
+    "output_tokens": 1148,
+    "raw_model_response": "{\n  \"transcript_summary\": \"Ross Tucker and Greg Cosell conduct a 2026 season preview for the NFC North, analyzing the Chicago Bears, Detroit Lions, Green Bay Packers, and Minnesota Vikings. They discuss key quarterback developments, offensive and defensive schemes, and roster changes, followed by league financial updates in 'Tuck's Takes'.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 12.0,\n      \"speaker\": \"Greg Cosell\",\n      \"text\": \"Discussion on a past first-round quarterback pick by the Vikings that has not panned out.\"\n    },\n    {\n      \"start\": 12.0,\n      \"end\": 25.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Podcast introduction and sponsor mentions.\"\n    },\n    {\n      \"start\": 25.0,\n      \"end\": 79.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Introduction of Greg Cosell and setting the stage for the NFC North preview.\"\n    },\n    {\n      \"start\": 79.0,\n      \"end\": 228.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Ross and Greg discuss the revelation that Greg has never pumped gas in his life due to living in New Jersey.\"\n    },\n    {\n      \"start\": 228.0,\n      \"end\": 367.0,\n      \"speaker\": \"Greg Cosell\",\n      \"text\": \"Chicago Bears 2026 season preview: Analyzing the drafting of tight end Sam Roush and the potential use of multiple tight end sets by offensive coordinator Ben Johnson.\"\n    },\n    {\n      \"start\": 367.0,\n      \"end\": 522.0,\n      \"speaker\": \"Greg Cosell\",\n      \"text\": \"Evaluation of Caleb Williams heading into year three, examining his development, operational strengths, and areas needing improvement.\"\n    },\n    {\n      \"start\": 522.0,\n      \"end\": 643.0,\n      \"speaker\": \"Greg Cosell\",\n      \"text\": \"Bears defense breakdown, highlighting additions in the secondary like Kobe Bryant and Dylan Thieneman, and Devin Bush at linebacker.\"\n    },\n    {\n      \"start\": 643.0,\n      \"end\": 807.0,\n      \"speaker\": \"Greg Cosell\",\n      \"text\": \"Detroit Lions 2026 season preview: Roster shifts on the offensive line, Jared Goff's pocket efficiency, and Jahmyr Gibbs' elite standing.\"\n    },\n    {\n      \"start\": 807.0,\n      \"end\": 867.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Evaluating the Lions' secondary injuries and defensive question marks heading into the season.\"\n    },\n    {\n      \"start\": 867.0,\n      \"end\": 1006.0,\n      \"speaker\": \"Greg Cosell\",\n      \"text\": \"Green Bay Packers 2026 season preview: Discussion on extensions for Isaiah McDuffie and Devonte Wyatt, and Matt LaFleur's commitment to the run game.\"\n    },\n    {\n      \"start\": 1006.0,\n      \"end\": 1094.0,\n      \"speaker\": \"Greg Cosell\",\n      \"text\": \"Analysis of the Packers' defensive coordinator shift to Jonathan Gannon, their safety duo, and Jordan Love's physical traits.\"\n    },\n    {\n      \"start\": 1094.0,\n      \"end\": 1274.0,\n      \"speaker\": \"Greg Cosell\",\n      \"text\": \"Minnesota Vikings 2026 season preview: Discussing Kyler Murray's fit under Kevin O'Connell's highly choreographed offense.\"\n    },\n    {\n      \"start\": 1274.0,\n      \"end\": 1400.0,\n      \"speaker\": \"Greg Cosell\",\n      \"text\": \"Vikings defense analysis, covering Brian Flores' unique zone-blitz schemes, Dallas Turner's pass-rush expectations, and a look back at J.J. McCarthy's fit.\"\n    },\n    {\n      \"start\": 1400.0,\n      \"end\": 1440.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Introduction of 'Tuck's Takes' covering league financial developments and training camp arrivals.\"\n    }\n  ],\n  \"extracted_picks\": [],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Vikings Starting Quarterback\",\n      \"timestamp\": 1271,\n      \"speaker\": \"Greg Cosell\",\n      \"quote\": \"I would bet that Murray would be the starter.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+    "extracted_picks": [],
+    "quote_timestamps": [
+      {
+        "topic": "Vikings Starting Quarterback",
+        "timestamp": 1271,
+        "speaker": "Greg Cosell",
+        "quote": "I would bet that Murray would be the starter."
+      }
+    ]
+  },
+  "scoring": {
+    "score_status": "not_scored",
+    "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+    "total_ground_truth": 0,
+    "total_shadow_extracted": 0,
+    "full_exact_matches": 0,
+    "precision_pct": "not scored",
+    "recall_pct": "not scored",
+    "f1_score_pct": "not scored",
+    "dimension_accuracy": {
+      "team": null,
+      "market": null,
+      "side": null,
+      "line": null,
+      "price": null,
+      "speaker": null,
+      "source_timestamp": null
+    }
+  }
+}

@@ -1,0 +1,684 @@
+{
+  "evaluated_at": "2026-07-24T23:58:44.613Z",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "batch_label": "saved-futures",
+  "total_episodes_evaluated": 5,
+  "total_episodes_scored": 0,
+  "average_f1_score_pct": null,
+  "total_cost_usd": 0.147135,
+  "average_cost_usd": 0.029427,
+  "total_latency_ms": 485292,
+  "average_latency_ms": 97058,
+  "total_extracted_picks": 33,
+  "queue_runs": [
+    {
+      "episode_slug": "youtube-4OxpAX6UJlM",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "run": {
+        "run_id": "youtube_gemini_2ffda2651b95",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM",
+        "latency_ms": 73032,
+        "estimated_cost_usd": 0.027144,
+        "input_tokens": 262327,
+        "output_tokens": 2278,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Chris Welsh, Andrew Erickson, and Derek Brown conduct a draft of their favorite NFL futures bets for the upcoming season. They select three win totals, three division winners, and three MVP candidates, debating the schedule difficulty and team outlooks.\",\n  \"speaker_segments\": [\n    { \"start\": 0.0, \"end\": 180.0, \"speaker\": \"Chris Welsh\", \"text\": \"Welcome into BettingPros for the Ultimate NFL Futures Draft Card with Andrew Erickson and Derek Brown.\" },\n    { \"start\": 180.0, \"end\": 304.0, \"speaker\": \"Derek Brown\", \"text\": \"Discussion of draft strategy and setup for selecting the win totals, division winners, and MVP awards.\" },\n    { \"start\": 304.0, \"end\": 463.0, \"speaker\": \"Derek Brown\", \"text\": \"Derek Brown selects the Carolina Panthers Under 6.5 wins at +140 as the first pick.\" },\n    { \"start\": 463.0, \"end\": 618.0, \"speaker\": \"Andrew Erickson\", \"text\": \"Andrew Erickson drafts the Los Angeles Chargers Over 9.5 wins as the second pick.\" },\n    { \"start\": 618.0, \"end\": 955.0, \"speaker\": \"Chris Welsh\", \"text\": \"Chris Welsh picks Drake Maye for Season MVP at +1329 to end the first round.\" },\n    { \"start\": 955.0, \"end\": 1094.0, \"speaker\": \"Chris Welsh\", \"text\": \"Chris Welsh starts the second round by selecting the New England Patriots to win their division.\" },\n    { \"start\": 1094.0, \"end\": 1214.0, \"speaker\": \"Andrew Erickson\", \"text\": \"Andrew Erickson selects Trevor Lawrence for Season MVP at +1750.\" },\n    { \"start\": 1214.0, \"end\": 1412.0, \"speaker\": \"Derek Brown\", \"text\": \"Derek Brown selects Bo Nix for Season MVP at +4000.\" },\n    { \"start\": 1412.0, \"end\": 1614.0, \"speaker\": \"Derek Brown\", \"text\": \"Derek Brown selects the New Orleans Saints to win their division to kick off the final round.\" },\n    { \"start\": 1614.0, \"end\": 1740.0, \"speaker\": \"Andrew Erickson\", \"text\": \"Andrew Erickson selects the Detroit Lions to win their division.\" },\n    { \"start\": 1740.0, \"end\": 1900.0, \"speaker\": \"Chris Welsh\", \"text\": \"Chris Welsh ends the draft by picking the Indianapolis Colts Over 7.5 wins, followed by a recap.\" }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"CAR\",\n      \"market\": \"win_total\",\n      \"side\": \"UNDER\",\n      \"line\": 6.5,\n      \"price\": 140,\n      \"speaker\": \"Derek Brown\",\n      \"source_timestamp\": 328,\n      \"rationale\": \"Panthers have the third hardest schedule based on projected win totals. Six of their eight wins last season were decided by three or fewer points.\"\n    },\n    {\n      \"team\": \"LAC\",\n      \"market\": \"win_total\",\n      \"side\": \"OVER\",\n      \"line\": 9.5,\n      \"price\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 464,\n      \"rationale\": \"Jim Harbaugh previously won 11 games in back-to-back seasons. Easy early-season schedule against the Cardinals and Raiders.\"\n    },\n    {\n      \"team\": \"NE\",\n      \"market\": \"mvp\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1329,\n      \"speaker\": \"Chris Welsh\",\n      \"source_timestamp\": 619,\n      \"rationale\": \"Maye is surrounded by strong weapons including AJ Brown, J.K. Dobbins, and TreVeyon Henderson, presenting immense value at long odds.\"\n    },\n    {\n      \"team\": \"NE\",\n      \"market\": \"division_winner\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 150,\n      \"speaker\": \"Chris Welsh\",\n      \"source_timestamp\": 956,\n      \"rationale\": \"Welsh views the AFC East as a two-team race between the Patriots and the Bills, making the Patriots a value play at over +150.\"\n    },\n    {\n      \"team\": \"JAX\",\n      \"market\": \"mvp\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1750,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1095,\n      \"rationale\": \"Lawrence fits the statistical profile of a breakout MVP candidate entering his age-27 season with an improved set of pass catchers.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"market\": \"mvp\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 4000,\n      \"speaker\": \"Derek Brown\",\n      \"source_timestamp\": 1215,\n      \"rationale\": \"Denver is projected to run a fast-paced offense under Sean Payton, and the addition of Jaylen Waddle provides Nix with a game-changing target.\"\n    },\n    {\n      \"team\": \"NO\",\n      \"market\": \"division_winner\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 280,\n      \"speaker\": \"Derek Brown\",\n      \"source_timestamp\": 1413,\n      \"rationale\": \"Saints possess the second easiest schedule in the league. Key additions and late-season offensive efficiency point to NFC South success.\"\n    },\n    {\n      \"team\": \"DET\",\n      \"market\": \"division_winner\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1500,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1615,\n      \"rationale\": \"The Lions had the easiest schedule in the NFL and a dominant point differential (+68) despite finishing with bad luck in several close contests.\"\n    },\n    {\n      \"team\": \"IND\",\n      \"market\": \"win_total\",\n      \"side\": \"OVER\",\n      \"line\": 7.5,\n      \"price\": null,\n      \"speaker\": \"Chris Welsh\",\n      \"source_timestamp\": 1741,\n      \"rationale\": \"They cleared this win total last year despite historically bad injury luck. The line of 7.5 represents a safe floor.\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Carolina Under 6.5 Wins\",\n      \"timestamp\": 328,\n      \"speaker\": \"Derek Brown\",\n      \"quote\": \"I'm taking the under six and a half wins for the Carolina Panthers this year because you can get it at plus 140\"\n    },\n    {\n      \"topic\": \"Chargers Over 9.5 Wins\",\n      \"timestamp\": 464,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"I'm taking the Chargers over nine and a half wins\"\n    },\n    {\n      \"topic\": \"Drake Maye MVP\",\n      \"timestamp\": 619,\n      \"speaker\": \"Chris Welsh\",\n      \"quote\": \"I am smash taking Drake Maye at MVP.\"\n    },\n    {\n      \"topic\": \"Patriots Division Winner\",\n      \"timestamp\": 956,\n      \"speaker\": \"Chris Welsh\",\n      \"quote\": \"I'm going to go with the Patriots.\"\n    },\n    {\n      \"topic\": \"Trevor Lawrence MVP\",\n      \"timestamp\": 1095,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"Trevor Lawrence ... Season MVP\"\n    },\n    {\n      \"topic\": \"Bo Nix MVP\",\n      \"timestamp\": 1215,\n      \"speaker\": \"Derek Brown\",\n      \"quote\": \"I'm going to go with Bo Nix plus 4000 for MVP\"\n    },\n    {\n      \"topic\": \"Saints Division Winner\",\n      \"timestamp\": 1413,\n      \"speaker\": \"Derek Brown\",\n      \"quote\": \"I'm going plus 280 on the New Orleans Saints to take the division\"\n    },\n    {\n      \"topic\": \"Lions Division Winner\",\n      \"timestamp\": 1615,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"Why can't I use the Lions? ... Detroit Lions\"\n    },\n    {\n      \"topic\": \"Colts Over 7.5 Wins\",\n      \"timestamp\": 1741,\n      \"speaker\": \"Chris Welsh\",\n      \"quote\": \"I am going to go with a win total with the Indianapolis Colts here of over seven and a half\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 464,\n      \"field\": \"price\",\n      \"reason\": \"Andrew Erickson mentioned Hard Rock Bet but did not explicitly state the price of the Chargers win total.\"\n    },\n    {\n      \"timestamp\": 1741,\n      \"field\": \"price\",\n      \"reason\": \"Chris Welsh noted the 7.5 line but did not mention the associated juice or price.\"\n    }\n  ]\n}",
+        "extracted_picks": [
+          {
+            "team": "CAR",
+            "market": "win_total",
+            "side": "UNDER",
+            "line": 6.5,
+            "price": 140,
+            "speaker": "Derek Brown",
+            "source_timestamp": 328,
+            "rationale": "Panthers have the third hardest schedule based on projected win totals. Six of their eight wins last season were decided by three or fewer points."
+          },
+          {
+            "team": "LAC",
+            "market": "win_total",
+            "side": "OVER",
+            "line": 9.5,
+            "price": null,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 464,
+            "rationale": "Jim Harbaugh previously won 11 games in back-to-back seasons. Easy early-season schedule against the Cardinals and Raiders."
+          },
+          {
+            "team": "NE",
+            "market": "mvp",
+            "side": "YES",
+            "line": null,
+            "price": 1329,
+            "speaker": "Chris Welsh",
+            "source_timestamp": 619,
+            "rationale": "Maye is surrounded by strong weapons including AJ Brown, J.K. Dobbins, and TreVeyon Henderson, presenting immense value at long odds."
+          },
+          {
+            "team": "NE",
+            "market": "division_winner",
+            "side": "YES",
+            "line": null,
+            "price": 150,
+            "speaker": "Chris Welsh",
+            "source_timestamp": 956,
+            "rationale": "Welsh views the AFC East as a two-team race between the Patriots and the Bills, making the Patriots a value play at over +150."
+          },
+          {
+            "team": "JAX",
+            "market": "mvp",
+            "side": "YES",
+            "line": null,
+            "price": 1750,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 1095,
+            "rationale": "Lawrence fits the statistical profile of a breakout MVP candidate entering his age-27 season with an improved set of pass catchers."
+          },
+          {
+            "team": "DEN",
+            "market": "mvp",
+            "side": "YES",
+            "line": null,
+            "price": 4000,
+            "speaker": "Derek Brown",
+            "source_timestamp": 1215,
+            "rationale": "Denver is projected to run a fast-paced offense under Sean Payton, and the addition of Jaylen Waddle provides Nix with a game-changing target."
+          },
+          {
+            "team": "NO",
+            "market": "division_winner",
+            "side": "YES",
+            "line": null,
+            "price": 280,
+            "speaker": "Derek Brown",
+            "source_timestamp": 1413,
+            "rationale": "Saints possess the second easiest schedule in the league. Key additions and late-season offensive efficiency point to NFC South success."
+          },
+          {
+            "team": "DET",
+            "market": "division_winner",
+            "side": "YES",
+            "line": null,
+            "price": 1500,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 1615,
+            "rationale": "The Lions had the easiest schedule in the NFL and a dominant point differential (+68) despite finishing with bad luck in several close contests."
+          },
+          {
+            "team": "IND",
+            "market": "win_total",
+            "side": "OVER",
+            "line": 7.5,
+            "price": null,
+            "speaker": "Chris Welsh",
+            "source_timestamp": 1741,
+            "rationale": "They cleared this win total last year despite historically bad injury luck. The line of 7.5 represents a safe floor."
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Carolina Under 6.5 Wins",
+            "timestamp": 328,
+            "speaker": "Derek Brown",
+            "quote": "I'm taking the under six and a half wins for the Carolina Panthers this year because you can get it at plus 140"
+          },
+          {
+            "topic": "Chargers Over 9.5 Wins",
+            "timestamp": 464,
+            "speaker": "Andrew Erickson",
+            "quote": "I'm taking the Chargers over nine and a half wins"
+          },
+          {
+            "topic": "Drake Maye MVP",
+            "timestamp": 619,
+            "speaker": "Chris Welsh",
+            "quote": "I am smash taking Drake Maye at MVP."
+          },
+          {
+            "topic": "Patriots Division Winner",
+            "timestamp": 956,
+            "speaker": "Chris Welsh",
+            "quote": "I'm going to go with the Patriots."
+          },
+          {
+            "topic": "Trevor Lawrence MVP",
+            "timestamp": 1095,
+            "speaker": "Andrew Erickson",
+            "quote": "Trevor Lawrence ... Season MVP"
+          },
+          {
+            "topic": "Bo Nix MVP",
+            "timestamp": 1215,
+            "speaker": "Derek Brown",
+            "quote": "I'm going to go with Bo Nix plus 4000 for MVP"
+          },
+          {
+            "topic": "Saints Division Winner",
+            "timestamp": 1413,
+            "speaker": "Derek Brown",
+            "quote": "I'm going plus 280 on the New Orleans Saints to take the division"
+          },
+          {
+            "topic": "Lions Division Winner",
+            "timestamp": 1615,
+            "speaker": "Andrew Erickson",
+            "quote": "Why can't I use the Lions? ... Detroit Lions"
+          },
+          {
+            "topic": "Colts Over 7.5 Wins",
+            "timestamp": 1741,
+            "speaker": "Chris Welsh",
+            "quote": "I am going to go with a win total with the Indianapolis Colts here of over seven and a half"
+          }
+        ]
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 9,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    },
+    {
+      "episode_slug": "youtube-aOUy4-ZRzbE",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "run": {
+        "run_id": "youtube_gemini_29b2800adde6",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE",
+        "latency_ms": 153035,
+        "estimated_cost_usd": 0.03215,
+        "input_tokens": 310097,
+        "output_tokens": 2851,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Hosts Seth Woolcock and Andrew Erickson break down their favorite future bets for the 2026 NFL season, including division winners, teams to make/miss the playoffs, and conference number one seed futures.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 205.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"All right and welcome into the BettingPros NFL Podcast. The slow down portion of the off season rolls on which makes now the perfect time to continue to get invested with the futures market.\"\n    },\n    {\n      \"start\": 205.0,\n      \"end\": 421.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"For me, the first bet is the long shot. I'm going to go with the Tennessee Titans to win the AFC South at +850.\"\n    },\n    {\n      \"start\": 421.0,\n      \"end\": 699.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"New Orleans Saints... Saints to win the NFC South... +280 on Hard Rock Bet. And I do want to preface this with a warning that you may want to wait to buy in on the New Orleans Saints.\"\n    },\n    {\n      \"start\": 699.0,\n      \"end\": 821.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Bengals and Chargers... I believe it's the Ravens that are the favorites to win the AFC North, and I believe it's probably the Denver Broncos that are the favorites to win the AFC West with Mahomes still coming off of his injury.\"\n    },\n    {\n      \"start\": 821.0,\n      \"end\": 1107.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Dallas Cowboys to make the playoffs, I really like this bet at even money... I also do like as a long shot 14 to 1 to be the number one seed in the NFC.\"\n    },\n    {\n      \"start\": 1107.0,\n      \"end\": 1350.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Indianapolis Colts to miss the playoffs. This one is juicy at -185 on Hard Rock Bet, but the Colts have never made the playoffs under Shane Steichen.\"\n    },\n    {\n      \"start\": 1350.0,\n      \"end\": 1611.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"I'm going to go with the Atlanta Falcons to miss the playoffs. I'm on the no side at -213. I just think this season for Atlanta has disaster written all over it.\"\n    },\n    {\n      \"start\": 1611.0,\n      \"end\": 1735.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"The Chicago Bears to miss the playoffs... is -125. Which is kind of odd just based on the buzz.\"\n    },\n    {\n      \"start\": 1735.0,\n      \"end\": 2073.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"The Green Bay Packers to make the playoffs. I'm on the yes side of this at -116.\"\n    },\n    {\n      \"start\": 2073.0,\n      \"end\": 2376.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"The Detroit Lions to be the number one seed in the NFC at +650 on our sponsor Hard Rock Bet.\"\n    },\n    {\n      \"start\": 2376.0,\n      \"end\": 2524.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Cincinnati Bengals... No. 1 seed in AFC at +800.\"\n    },\n    {\n      \"start\": 2524.0,\n      \"end\": 2704.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"I'm going to go with the Atlanta Falcons to make the number one overall pick... +1351.\"\n    },\n    {\n      \"start\": 2704.0,\n      \"end\": 2793.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Give me the Chargers +190 to win the AFC West.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"TEN\",\n      \"market\": \"division_winner\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 850,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 205,\n      \"rationale\": \"Follows the worst-to-first division trend with a second-year quarterback (Cam Ward) breakout and defensive upgrades.\"\n    },\n    {\n      \"team\": \"NO\",\n      \"market\": \"division_winner\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 280,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 421,\n      \"rationale\": \"Strong path to go worst-to-first in NFC South with an easy schedule after a tough initial two weeks.\"\n    },\n    {\n      \"team\": \"CIN\",\n      \"market\": \"division_winner\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 190,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 699,\n      \"rationale\": \"Correlates with a healthy Joe Burrow. Third-easiest schedule in the NFL.\"\n    },\n    {\n      \"team\": \"LAC\",\n      \"market\": \"division_winner\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 180,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 699,\n      \"rationale\": \"Massive coaching upgrade with Jim Harbaugh/Mike McDaniel, plus anticipated positive regression in injury luck.\"\n    },\n    {\n      \"team\": \"DAL\",\n      \"market\": \"make_playoffs\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 100,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 821,\n      \"rationale\": \"Highly underrated scoring defense; strong offensive core of Prescott, Lamb, and Pickens.\"\n    },\n    {\n      \"team\": \"DAL\",\n      \"market\": \"conference_no_1_seed\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1400,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 821,\n      \"rationale\": \"Long shot option if the defense reaches elite top-10 tier and offense remains highly productive.\"\n    },\n    {\n      \"team\": \"IND\",\n      \"market\": \"make_playoffs\",\n      \"side\": \"NO\",\n      \"line\": null,\n      \"price\": -185,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1107,\n      \"rationale\": \"Starting quarterback coming off a torn Achilles; key offensive piece Alec Pierce missing training camp time.\"\n    },\n    {\n      \"team\": \"ATL\",\n      \"market\": \"make_playoffs\",\n      \"side\": \"NO\",\n      \"line\": null,\n      \"price\": -213,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 1350,\n      \"rationale\": \"Messy quarterback situation with Tua and MPJ, brutal non-division schedule, and loss of James Pierce Jr.\"\n    },\n    {\n      \"team\": \"CHI\",\n      \"market\": \"make_playoffs\",\n      \"side\": \"NO\",\n      \"line\": null,\n      \"price\": -125,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1611,\n      \"rationale\": \"The most overhyped team of the off-season. Weak edge rush/defensive line and regression expected in close-game/turnover luck.\"\n    },\n    {\n      \"team\": \"GB\",\n      \"market\": \"make_playoffs\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": -116,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 1735,\n      \"rationale\": \"Consistency with Jordan Love; several key targets returning fully healthy; notable pass rush/secondary additions.\"\n    },\n    {\n      \"team\": \"DET\",\n      \"market\": \"conference_no_1_seed\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 650,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 2073,\n      \"rationale\": \"Easiest overall schedule in the league with highly favorable indoor splits.\"\n    },\n    {\n      \"team\": \"CIN\",\n      \"market\": \"conference_no_1_seed\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 800,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 2376,\n      \"rationale\": \"Strong correlation to division winner bet with highly favorable strength of schedule.\"\n    },\n    {\n      \"team\": \"ATL\",\n      \"market\": \"no_1_overall_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1351,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 2524,\n      \"rationale\": \"If a complete collapse occurs or they trade up from a high position to grab Arch Manning.\"\n    },\n    {\n      \"team\": \"LAC\",\n      \"market\": \"division_winner\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 190,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 2704,\n      \"rationale\": \"Closing recommendation of the show, reinforcing belief in the Chargers to start hot.\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Titans AFC South Winner\",\n      \"timestamp\": 205,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"I'm going to go with the Tennessee Titans to win the AFC South at +850.\"\n    },\n    {\n      \"topic\": \"Saints division winner\",\n      \"timestamp\": 421,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"Saints to win the NFC South... is +280 on Hard Rock Bet.\"\n    },\n    {\n      \"topic\": \"Colts to miss playoffs\",\n      \"timestamp\": 1107,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"Indianapolis Colts to miss the playoffs... is -185 on Hard Rock Bet.\"\n    },\n    {\n      \"topic\": \"Bears to miss playoffs\",\n      \"timestamp\": 1611,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"Chicago Bears to miss the playoffs... is -125.\"\n    },\n    {\n      \"topic\": \"Lions No. 1 Seed\",\n      \"timestamp\": 2073,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"The Detroit Lions to be the number one seed in the NFC at +650.\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 2704,\n      \"field\": \"price\",\n      \"reason\": \"Chargers AFC West price is listed as +180 early in the show but mentioned as +190 during the final recap.\"\n    }\n  ]\n}",
+        "extracted_picks": [
+          {
+            "team": "TEN",
+            "market": "division_winner",
+            "side": "YES",
+            "line": null,
+            "price": 850,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 205,
+            "rationale": "Follows the worst-to-first division trend with a second-year quarterback (Cam Ward) breakout and defensive upgrades."
+          },
+          {
+            "team": "NO",
+            "market": "division_winner",
+            "side": "YES",
+            "line": null,
+            "price": 280,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 421,
+            "rationale": "Strong path to go worst-to-first in NFC South with an easy schedule after a tough initial two weeks."
+          },
+          {
+            "team": "CIN",
+            "market": "division_winner",
+            "side": "YES",
+            "line": null,
+            "price": 190,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 699,
+            "rationale": "Correlates with a healthy Joe Burrow. Third-easiest schedule in the NFL."
+          },
+          {
+            "team": "LAC",
+            "market": "division_winner",
+            "side": "YES",
+            "line": null,
+            "price": 180,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 699,
+            "rationale": "Massive coaching upgrade with Jim Harbaugh/Mike McDaniel, plus anticipated positive regression in injury luck."
+          },
+          {
+            "team": "DAL",
+            "market": "make_playoffs",
+            "side": "YES",
+            "line": null,
+            "price": 100,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 821,
+            "rationale": "Highly underrated scoring defense; strong offensive core of Prescott, Lamb, and Pickens."
+          },
+          {
+            "team": "DAL",
+            "market": "conference_no_1_seed",
+            "side": "YES",
+            "line": null,
+            "price": 1400,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 821,
+            "rationale": "Long shot option if the defense reaches elite top-10 tier and offense remains highly productive."
+          },
+          {
+            "team": "IND",
+            "market": "make_playoffs",
+            "side": "NO",
+            "line": null,
+            "price": -185,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 1107,
+            "rationale": "Starting quarterback coming off a torn Achilles; key offensive piece Alec Pierce missing training camp time."
+          },
+          {
+            "team": "ATL",
+            "market": "make_playoffs",
+            "side": "NO",
+            "line": null,
+            "price": -213,
+            "speaker": "Seth Woolcock",
+            "source_timestamp": 1350,
+            "rationale": "Messy quarterback situation with Tua and MPJ, brutal non-division schedule, and loss of James Pierce Jr."
+          },
+          {
+            "team": "CHI",
+            "market": "make_playoffs",
+            "side": "NO",
+            "line": null,
+            "price": -125,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 1611,
+            "rationale": "The most overhyped team of the off-season. Weak edge rush/defensive line and regression expected in close-game/turnover luck."
+          },
+          {
+            "team": "GB",
+            "market": "make_playoffs",
+            "side": "YES",
+            "line": null,
+            "price": -116,
+            "speaker": "Seth Woolcock",
+            "source_timestamp": 1735,
+            "rationale": "Consistency with Jordan Love; several key targets returning fully healthy; notable pass rush/secondary additions."
+          },
+          {
+            "team": "DET",
+            "market": "conference_no_1_seed",
+            "side": "YES",
+            "line": null,
+            "price": 650,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 2073,
+            "rationale": "Easiest overall schedule in the league with highly favorable indoor splits."
+          },
+          {
+            "team": "CIN",
+            "market": "conference_no_1_seed",
+            "side": "YES",
+            "line": null,
+            "price": 800,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 2376,
+            "rationale": "Strong correlation to division winner bet with highly favorable strength of schedule."
+          },
+          {
+            "team": "ATL",
+            "market": "no_1_overall_pick",
+            "side": "YES",
+            "line": null,
+            "price": 1351,
+            "speaker": "Seth Woolcock",
+            "source_timestamp": 2524,
+            "rationale": "If a complete collapse occurs or they trade up from a high position to grab Arch Manning."
+          },
+          {
+            "team": "LAC",
+            "market": "division_winner",
+            "side": "YES",
+            "line": null,
+            "price": 190,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 2704,
+            "rationale": "Closing recommendation of the show, reinforcing belief in the Chargers to start hot."
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Titans AFC South Winner",
+            "timestamp": 205,
+            "speaker": "Andrew Erickson",
+            "quote": "I'm going to go with the Tennessee Titans to win the AFC South at +850."
+          },
+          {
+            "topic": "Saints division winner",
+            "timestamp": 421,
+            "speaker": "Andrew Erickson",
+            "quote": "Saints to win the NFC South... is +280 on Hard Rock Bet."
+          },
+          {
+            "topic": "Colts to miss playoffs",
+            "timestamp": 1107,
+            "speaker": "Andrew Erickson",
+            "quote": "Indianapolis Colts to miss the playoffs... is -185 on Hard Rock Bet."
+          },
+          {
+            "topic": "Bears to miss playoffs",
+            "timestamp": 1611,
+            "speaker": "Andrew Erickson",
+            "quote": "Chicago Bears to miss the playoffs... is -125."
+          },
+          {
+            "topic": "Lions No. 1 Seed",
+            "timestamp": 2073,
+            "speaker": "Andrew Erickson",
+            "quote": "The Detroit Lions to be the number one seed in the NFC at +650."
+          }
+        ]
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 14,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    },
+    {
+      "episode_slug": "youtube-veVjJ_EUYdk",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "run": {
+        "run_id": "youtube_gemini_f6267c01c1cb",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=veVjJ_EUYdk",
+        "latency_ms": 98843,
+        "estimated_cost_usd": 0.030279,
+        "input_tokens": 295726,
+        "output_tokens": 1765,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Seth Woolcock and Andrew Erickson from the BettingPros Podcast discuss and break down their favorite bets, value plays, and long shots for the 2026 NFL future award markets, including MVP, OPOY, DPOY, OROY, and DROY.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 122.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"All right and welcome into the BettingPros podcast... time to place your bets for the NFL future award markets.\"\n    },\n    {\n      \"start\": 122.0,\n      \"end\": 174.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"And Andrew, let's start in the MVP market where last year Matthew Stafford won the NFL MVP.\"\n    },\n    {\n      \"start\": 174.0,\n      \"end\": 312.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"So the ones that I like the most from the favorites are Joe Burrow and Justin Herbert. Those are kind of the two guys that stand out to me as some decent values.\"\n    },\n    {\n      \"start\": 312.0,\n      \"end\": 350.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Hey, that's totally understandable... any thoughts about maybe slow playing that or do you think this is the year they start fast?\"\n    },\n    {\n      \"start\": 350.0,\n      \"end\": 418.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Well, if you recall to last year, they didn't have a slow start. They were 2 and 0... So I'm not as hesitant to fire on this now.\"\n    },\n    {\n      \"start\": 418.0,\n      \"end\": 513.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Justin Herbert, who I think is probably my favorite of the two of the more favored guys. He did get an MVP vote last year.\"\n    },\n    {\n      \"start\": 513.0,\n      \"end\": 518.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"It's an interesting number... what's your best overall value, maybe a little bit of a long shot in this particular market, Andrew?\"\n    },\n    {\n      \"start\": 518.0,\n      \"end\": 605.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"For me it's Trevor Lawrence at 24 to 1 to win the MVP award. I don't always want to cite fantasy stats, but after week 5, no quarterback scored more fantasy points than Trevor Lawrence did.\"\n    },\n    {\n      \"start\": 605.0,\n      \"end\": 731.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Not bad odds at all there... Let's go to the Offensive Player of the Year market...\"\n    },\n    {\n      \"start\": 731.0,\n      \"end\": 745.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"For me it's going to be Ja'Marr Chase... 12 to 1 for Offensive Player of the Year...\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"LAC\",\n      \"market\": \"mvp\",\n      \"side\": \"OVER\",\n      \"line\": null,\n      \"price\": 1100,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 418,\n      \"rationale\": \"Justin Herbert is his favorite choice among the top favorites, projecting a career year with a revamped Chargers coaching staff.\"\n    },\n    {\n      \"team\": \"CIN\",\n      \"market\": \"mvp\",\n      \"side\": \"OVER\",\n      \"line\": null,\n      \"price\": 1000,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 174,\n      \"rationale\": \"Whenever Joe Burrow is healthy, he plays at an MVP level, and the Bengals have the third easiest schedule in the league.\"\n    },\n    {\n      \"team\": \"JAX\",\n      \"market\": \"mvp\",\n      \"side\": \"OVER\",\n      \"line\": null,\n      \"price\": 2400,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 518,\n      \"rationale\": \"Trevor Lawrence was incredibly productive in the second half of last season and offers elite long-shot value at 24 to 1.\"\n    },\n    {\n      \"team\": \"CIN\",\n      \"market\": \"opoy\",\n      \"side\": \"OVER\",\n      \"line\": null,\n      \"price\": 1200,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 731,\n      \"rationale\": \"Chase is too talented of a player to go through his career without winning OPOY, especially with a healthy Joe Burrow.\"\n    },\n    {\n      \"team\": \"LV\",\n      \"market\": \"opoy\",\n      \"side\": \"OVER\",\n      \"line\": null,\n      \"price\": 8000,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 731,\n      \"rationale\": \"Highly talented tight end/wide receiver hybrid who has massive upside and could see double-digit targets weekly.\"\n    },\n    {\n      \"team\": \"LAR\",\n      \"market\": \"dpoy\",\n      \"side\": \"OVER\",\n      \"line\": null,\n      \"price\": 450,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 612,\n      \"rationale\": \"Myles Garrett is in a perfect situation with the Los Angeles Rams to repeat his dominant numbers and win back-to-back awards.\"\n    },\n    {\n      \"team\": \"LV\",\n      \"market\": \"oroy\",\n      \"side\": \"OVER\",\n      \"line\": null,\n      \"price\": 400,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 808,\n      \"rationale\": \"Mendoza has the inside track as the starting quarterback in an offense that loves to pass, which heavily favors quarterback OROY winners.\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Justin Herbert MVP\",\n      \"timestamp\": 418,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"Justin Herbert, who I think is probably my favorite of the two of the more favored guys.\"\n    },\n    {\n      \"topic\": \"Trevor Lawrence MVP\",\n      \"timestamp\": 518,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"For me it's Trevor Lawrence at 24 to 1 to win the MVP award.\"\n    },\n    {\n      \"topic\": \"Ja'Marr Chase OPOY\",\n      \"timestamp\": 731,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"For me it's going to be Ja'Marr Chase... 12 to 1 for Offensive Player of the Year.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+        "extracted_picks": [
+          {
+            "team": "LAC",
+            "market": "mvp",
+            "side": "YES",
+            "line": null,
+            "price": 1100,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 418,
+            "rationale": "Justin Herbert is his favorite choice among the top favorites, projecting a career year with a revamped Chargers coaching staff."
+          },
+          {
+            "team": "CIN",
+            "market": "mvp",
+            "side": "YES",
+            "line": null,
+            "price": 1000,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 174,
+            "rationale": "Whenever Joe Burrow is healthy, he plays at an MVP level, and the Bengals have the third easiest schedule in the league."
+          },
+          {
+            "team": "JAX",
+            "market": "mvp",
+            "side": "YES",
+            "line": null,
+            "price": 2400,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 518,
+            "rationale": "Trevor Lawrence was incredibly productive in the second half of last season and offers elite long-shot value at 24 to 1."
+          },
+          {
+            "team": "CIN",
+            "market": "opoy",
+            "side": "YES",
+            "line": null,
+            "price": 1200,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 731,
+            "rationale": "Chase is too talented of a player to go through his career without winning OPOY, especially with a healthy Joe Burrow."
+          },
+          {
+            "team": "LV",
+            "market": "opoy",
+            "side": "YES",
+            "line": null,
+            "price": 8000,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 731,
+            "rationale": "Highly talented tight end/wide receiver hybrid who has massive upside and could see double-digit targets weekly."
+          },
+          {
+            "team": "LAR",
+            "market": "dpoy",
+            "side": "YES",
+            "line": null,
+            "price": 450,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 612,
+            "rationale": "Myles Garrett is in a perfect situation with the Los Angeles Rams to repeat his dominant numbers and win back-to-back awards."
+          },
+          {
+            "team": "LV",
+            "market": "oroy",
+            "side": "YES",
+            "line": null,
+            "price": 400,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 808,
+            "rationale": "Mendoza has the inside track as the starting quarterback in an offense that loves to pass, which heavily favors quarterback OROY winners."
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Justin Herbert MVP",
+            "timestamp": 418,
+            "speaker": "Andrew Erickson",
+            "quote": "Justin Herbert, who I think is probably my favorite of the two of the more favored guys."
+          },
+          {
+            "topic": "Trevor Lawrence MVP",
+            "timestamp": 518,
+            "speaker": "Andrew Erickson",
+            "quote": "For me it's Trevor Lawrence at 24 to 1 to win the MVP award."
+          },
+          {
+            "topic": "Ja'Marr Chase OPOY",
+            "timestamp": 731,
+            "speaker": "Andrew Erickson",
+            "quote": "For me it's going to be Ja'Marr Chase... 12 to 1 for Offensive Player of the Year."
+          }
+        ]
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 7,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    },
+    {
+      "episode_slug": "youtube-qGJ2f1fEXHc",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "run": {
+        "run_id": "youtube_gemini_d4acf60b508e",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc",
+        "latency_ms": 78571,
+        "estimated_cost_usd": 0.025419,
+        "input_tokens": 250877,
+        "output_tokens": 829,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Seth Woolcock and Andrew Erickson discuss longshot futures bets for the 2026 NFL season. Andrew Erickson highlights value on the Chargers to win the Super Bowl, the Cowboys to win the NFC, and the Titans to win the AFC South.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 258.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"All right and welcome into the BettingPros NFL podcast...\"\n    },\n    {\n      \"start\": 258.0,\n      \"end\": 445.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"The Los Angeles Chargers are going to win the Super Bowl at 17 to 1 odds...\"\n    },\n    {\n      \"start\": 445.0,\n      \"end\": 668.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"13 to 1 to win the NFC... Dallas Cowboys...\"\n    },\n    {\n      \"start\": 668.0,\n      \"end\": 703.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"The Tennessee Titans to win the AFC South at 9 to 1...\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"Los Angeles Chargers\",\n      \"market\": \"Super Bowl Winners\",\n      \"side\": \"Winner\",\n      \"line\": null,\n      \"price\": \"+1700\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 258,\n      \"rationale\": \"Believes the Chargers under Jim Harbaugh and Mike McDaniel can make a run, with Justin Herbert playing his best football.\"\n    },\n    {\n      \"team\": \"Dallas Cowboys\",\n      \"market\": \"NFC Conference Champions\",\n      \"side\": \"Winner\",\n      \"line\": null,\n      \"price\": \"+1300\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 445,\n      \"rationale\": \"High on Dak Prescott with CeeDee Lamb and George Pickens, alongside a revamped defense featuring Quinnen Williams and draft upgrades.\"\n    },\n    {\n      \"team\": \"Tennessee Titans\",\n      \"market\": \"AFC South Champions\",\n      \"side\": \"Winner\",\n      \"line\": null,\n      \"price\": \"+900\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 668,\n      \"rationale\": \"Likes the transition to Robert Saleh as head coach and Brian Daboll as offensive coordinator, expecting Cam Ward to take a massive second-year leap.\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Chargers Super Bowl\",\n      \"timestamp\": 258,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"The Los Angeles Chargers are going to win the Super Bowl at 17 to 1 odds.\"\n    },\n    {\n      \"topic\": \"Cowboys NFC Conference\",\n      \"timestamp\": 445,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"13 to 1 to win the NFC.\"\n    },\n    {\n      \"topic\": \"Titans AFC South\",\n      \"timestamp\": 668,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"The Tennessee Titans to win the AFC South at 9 to 1.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+        "extracted_picks": [
+          {
+            "team": "LAC",
+            "market": "super_bowl_winner",
+            "side": "YES",
+            "line": null,
+            "price": 1700,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 258,
+            "rationale": "Believes the Chargers under Jim Harbaugh and Mike McDaniel can make a run, with Justin Herbert playing his best football."
+          },
+          {
+            "team": "DAL",
+            "market": "conference_winner",
+            "side": "YES",
+            "line": null,
+            "price": 1300,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 445,
+            "rationale": "High on Dak Prescott with CeeDee Lamb and George Pickens, alongside a revamped defense featuring Quinnen Williams and draft upgrades."
+          },
+          {
+            "team": "TEN",
+            "market": "division_winner",
+            "side": "YES",
+            "line": null,
+            "price": 900,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 668,
+            "rationale": "Likes the transition to Robert Saleh as head coach and Brian Daboll as offensive coordinator, expecting Cam Ward to take a massive second-year leap."
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Chargers Super Bowl",
+            "timestamp": 258,
+            "speaker": "Andrew Erickson",
+            "quote": "The Los Angeles Chargers are going to win the Super Bowl at 17 to 1 odds."
+          },
+          {
+            "topic": "Cowboys NFC Conference",
+            "timestamp": 445,
+            "speaker": "Andrew Erickson",
+            "quote": "13 to 1 to win the NFC."
+          },
+          {
+            "topic": "Titans AFC South",
+            "timestamp": 668,
+            "speaker": "Andrew Erickson",
+            "quote": "The Tennessee Titans to win the AFC South at 9 to 1."
+          }
+        ]
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 3,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    },
+    {
+      "episode_slug": "youtube-b9NL40Zogkw",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "run": {
+        "run_id": "youtube_gemini_0b39d11b4f6d",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=b9NL40Zogkw",
+        "latency_ms": 81811,
+        "estimated_cost_usd": 0.032143,
+        "input_tokens": 305913,
+        "output_tokens": 3878,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Brandon and Kendra Middleton debate Tom Brady's post-retirement endorsement deals and rumored WWE match with Logan Paul. They then begin their countdown of the top 10 starting quarterbacks for the upcoming NFL season, starting with a debate around Justin Herbert and Sam Darnold.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 70.0,\n      \"speaker\": \"Intro\",\n      \"text\": \"[Music]\"\n    },\n    {\n      \"start\": 70.0,\n      \"end\": 124.0,\n      \"speaker\": \"Brandon\",\n      \"text\": \"Welcome to the Favorites presented by DraftKings. The crown is yours. We are an Action Network podcast and my co-host, Kendra Middleton, is having a hard time keeping it together. Back at it with the first lady of the pod, Miss Middleton, Evan Abrams keeping us in check as well. Top 20 continues, our top 20 quarterbacks in the NFL. We're going 10 through 1 here and we will have Evan Abrams grade it all at the end. We'll have these lists posted on social media as well. So, if two 50-minute episodes are not for you and you just want to digest it quickly, we'll give you the morsel as well. Tom Brady was a man once on the top of a list like this. Now he appears to be setting himself up for a wrestling match with Logan Paul. And look, I am not anti-pro wrestling, Kendra, but Brady feels more like a cologne ad than a main event at SummerSlam. Make it make sense.\"\n    },\n    {\n      \"start\": 124.0,\n      \"end\": 174.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Well, it's because he used to be. I remember when he was playing, he was so particular about who he would sign brand deals with. The only one that I think I can remember—I don't remember if it was Tag Heuer or Rolex, but he was very particular. There were very few brands that I saw Tom Brady sign and do ads with because he didn't have to, and he doesn't have to do this now. I can't decide if this is the definition of divorced dad or if he truly is just willing to whore himself out for any kind of money. And I do think that this is embarrassing for him. It's tarnishing his legacy, it's tarnishing his brand, and I get that it probably has to do something with the marriage of Fanatics. But what's worse to me than the WWE deal is him hawking pizza. A guy that refused to eat tomatoes for his entire career is now hawking Pizza Hut to me? No. No. No, sit down. I'm done.\"\n    },\n    {\n      \"start\": 174.0,\n      \"end\": 177.0,\n      \"speaker\": \"Brandon\",\n      \"text\": \"Wasn't he in Subway? He was in Subway commercials too, I believe.\"\n    },\n    {\n      \"start\": 177.0,\n      \"end\": 190.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Which is like, I think that that's less offensive in a way because there's at least like some, I don't know if you want to use the word freshness about it because it's definitely some cloned shit, even the vegetables. However, you like...\"\n    },\n    {\n      \"start\": 190.0,\n      \"end\": 195.0,\n      \"speaker\": \"Brandon\",\n      \"text\": \"That was Kendra Middleton that said that by the way, I am here for the—I am here for the Subway endorsement, okay? For the sub.\"\n    },\n    {\n      \"start\": 195.0,\n      \"end\": 215.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"And you can at least be like, okay, that, you know, pedophile Jared guy lost all this weight with these sandwiches, maybe this is like somewhat healthy for some people out there, this is them doing their best. You cannot tell me that Pizza Hut is doing your best. Sit down and shut up. I don't believe you. You are literally whoring yourself out for a dollar and I hate it.\"\n    },\n    {\n      \"start\": 215.0,\n      \"end\": 221.0,\n      \"speaker\": \"Brandon\",\n      \"text\": \"He also did that, um, the Roast, which is equally as embarrassing as the rest of this.\"\n    },\n    {\n      \"start\": 221.0,\n      \"end\": 236.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"No, they paid him $30 million to do that. They're paying him $10 million for this WWE crap. But he doesn't need it. He doesn't need it.\"\n    },\n    {\n      \"start\": 236.0,\n      \"end\": 271.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"He definitely doesn't need it. It's not like Gisele took his money, she had more than he did. So, yeah, I got to be honest, this is controversial, this is so controversial. But if my significant other—if I was Gisele and I was like, all right, I was the number one top person at my craft, I retired, I settled down, I birthed your children, I lived in Foxborough, Massachusetts for 20 years of my life and I was like, all right, time to come home, be a family man, get to know your kids, maybe take a vacation. And you were like, you know what, Tampa Bay. I would start screwing my jiu-jitsu instructor too.\"\n    },\n    {\n      \"start\": 271.0,\n      \"end\": 316.0,\n      \"speaker\": \"Brandon\",\n      \"text\": \"Slipped. Um, my question in regards, this is a philosophical question involving yourself in the WWE. Again, I am a pro wrestling apologist more than anything else, yet I find myself cringing at this like the rest of you. Like people who look at pro wrestling as if you're better than it. I'm not one of those people, yet I look at this and I'm like this doesn't make any fucking sense and it's weird and it's awkward. Why is it that I feel that way about Brady, like it's beneath Brady? But Bad Bunny was a part of it, we've seen Floyd Mayweather be a part of pro wrestling, I could go down the list of other celebrities that have been part—why is it that we are looking through this lens?\"\n    },\n    {\n      \"start\": 316.0,\n      \"end\": 351.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"I can tell you why. Because they always cared about it and because Tom Brady is better than Logan Paul. It's literally that he is better than Logan Paul. He's better than some really crappy stage slap at an influencer event. He's better than flipping him off in some weird bird-off at the World Cup final in the executive suites. It's because for his entire career, he has presented himself as the Rolex guy, the guy who doesn't eat tomatoes, who needs to have his body...\"\n    },\n    {\n      \"start\": 351.0,\n      \"end\": 355.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Who needs to have his body with him all the time.\"\n    },\n    {\n      \"start\": 355.0,\n      \"end\": 357.0,\n      \"speaker\": \"Brandon\",\n      \"text\": \"I've found AirPods, we're not interested.\"\n    },\n    {\n      \"start\": 357.0,\n      \"end\": 382.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"His health posse around him. And now he's hawking Pizza Hut and slapping Logan Paul for a couple dollars, that's why. At least Bad Bunny and, you know, when Gronk did it for a minute, they were fans. It fit their personality, it fit their MO, it fit their brand. Tom Brady is Rolex and, you know, nice steakhouses where they don't cook your steak on anything other than a hot stone, and not Pizza Hut and SummerSlam. I'm sorry, that's the difference.\"\n    },\n    {\n      \"start\": 382.0,\n      \"end\": 389.0,\n      \"speaker\": \"Brandon\",\n      \"text\": \"That, uh, well said. Evan disagrees with all of this by the way. Evan, would you like to, to slam the gavel down?\"\n    },\n    {\n      \"start\": 389.0,\n      \"end\": 409.0,\n      \"speaker\": \"Evan Abrams\",\n      \"text\": \"Well, yeah, I'm just going to say he was under the Belichick curse for 20 plus years. He won all these titles, he goes to all these Super Bowls, he's TB12, he's got the methods, this is what led to the greatness. He is now in freedom. This is what anyone—this feels the absolute most normal thing ever. Like, I actually...\"\n    },\n    {\n      \"start\": 409.0,\n      \"end\": 415.0,\n      \"speaker\": \"Brandon\",\n      \"text\": \"So you're comparing this essentially to someone who's like left Catholic school.\"\n    },\n    {\n      \"start\": 415.0,\n      \"end\": 417.0,\n      \"speaker\": \"Evan Abrams\",\n      \"text\": \"He's living his life, like he's enjoying...\"\n    },\n    {\n      \"start\": 417.0,\n      \"end\": 419.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Divorced dad.\"\n    },\n    {\n      \"start\": 419.0,\n      \"end\": 453.0,\n      \"speaker\": \"Evan Abrams\",\n      \"text\": \"But it's like, it seems ridiculous that if I was Tom Brady and I spent all these years eating nothing but avocado, and it's like now it's time to enjoy what you've done. Like, it's time for pro wrestling and stupid crap and eating bullshit, and he's still going to look the way he is and he's hanging with the kids. Like, he's just living the dream now.\"\n    },\n    {\n      \"start\": 453.0,\n      \"end\": 457.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"But does it not feel fake to you because that's never been his personality?\"\n    },\n    {\n      \"start\": 457.0,\n      \"end\": 465.0,\n      \"speaker\": \"Evan Abrams\",\n      \"text\": \"Of course, because he was trying to win and also he couldn't under that stupid team. If he would have won all these titles with the Cardinals, I assume it would have been a lot different, but...\"\n    },\n    {\n      \"start\": 465.0,\n      \"end\": 471.0,\n      \"speaker\": \"Brandon\",\n      \"text\": \"I think if Brady gets fat, it'll be, it'll feel more genuine. He's got to get fat.\"\n    },\n    {\n      \"start\": 471.0,\n      \"end\": 473.0,\n      \"speaker\": \"Evan Abrams\",\n      \"text\": \"He's got to get fat.\"\n    },\n    {\n      \"start\": 473.0,\n      \"end\": 475.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Do we owe Bill an apology?\"\n    },\n    {\n      \"start\": 475.0,\n      \"end\": 477.0,\n      \"speaker\": \"Brandon\",\n      \"text\": \"Do we owe Bill an apology?\"\n    },\n    {\n      \"start\": 477.0,\n      \"end\": 478.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"I'm asking if we do.\"\n    },\n    {\n      \"start\": 478.0,\n      \"end\": 480.0,\n      \"speaker\": \"Evan Abrams\",\n      \"text\": \"We owe Tom an apology.\"\n    },\n    {\n      \"start\": 480.0,\n      \"end\": 497.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"I don't think so. I think that it's giving divorced dad trying to stay relevant. And maybe, you know, we owe Bill an apology thinking he was the cringiest one in this scenario. But really, it takes two to tango and they were both cringey and weird and annoying and it just happened that they worked out together because they were the same type of insane.\"\n    },\n    {\n      \"start\": 497.0,\n      \"end\": 505.0,\n      \"speaker\": \"Evan Abrams\",\n      \"text\": \"From what we've seen since they both left, Bill has been ten times cringier, I feel like, than Tom, but that's just me.\"\n    },\n    {\n      \"start\": 505.0,\n      \"end\": 529.0,\n      \"speaker\": \"Brandon\",\n      \"text\": \"Put it on a pole. Um, I am curious to see what Kendra's top 10 quarterbacks look like. I'm confident we're going to have some disagreement here. I'm also confident that if you want to place a bet on any of these quarterbacks, the best place to do it is the DraftKings Sportsbook app.\"\n    },\n    {\n      \"start\": 529.0,\n      \"end\": 559.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"The dog days of summer are here and as temperatures heat up, so do the new customer bonus rewards from our partner DraftKings. In fact, the DraftKings Sportsbook app is now available in all 50 states, bringing the excitement straight to your fingertips wherever you are, from Florida to Texas to California, you'll never miss a beat. Follow every moment, every matchup, and every highlight. Sweat all the games you love in a seamless experience. No matter where you're watching, you're always connected and in the game with one app. Right now, new DraftKings customers can turn five bucks into $150 in total bonuses. All you have to do is use promo code FAVORITES when you download the DraftKings Sportsbook app and sign up. That's code FAVORITES when you sign up to turn $5 into $150 in total bonus rewards. Football season is on the horizon so get in while things are hot. DraftKings, the crown is yours.\"\n    },\n    {\n      \"start\": 559.0,\n      \"end\": 582.0,\n      \"speaker\": \"Brandon\",\n      \"text\": \"Time to get back to the list. Again, if you want to review 11 through 20, we will have those out for you on social media, or you can do what any responsible adult would do and just listen to the podcast. But let's get going with our top 10. Kendra, back to you for the list. Who do you have?\"\n    },\n    {\n      \"start\": 582.0,\n      \"end\": 599.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"I fucked up. I fucked up you guys. I literally made fun of Justin Herbert and I did the exact same thing that he does where I stared at this list for days and for too long and took him off of here and forgot to plug him back in as I was doing my final reads. So, I originally had Sam Darnold here, but I'm going to make it Sam Darnold/Justin Herbert because I think that they suck in the same way, so they can kiss and suck in slot 10.\"\n    }\n  ],\n  \"extracted_picks\": [],\n  \"quote_timestamps\": [],\n  \"uncertainty_flags\": []\n}",
+        "extracted_picks": [],
+        "quote_timestamps": []
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 0,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    }
+  ]
+}

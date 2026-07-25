@@ -1,0 +1,340 @@
+{
+  "evaluated_at": "2026-07-25T00:33:20.479Z",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "batch_label": "saved-futures",
+  "total_episodes_evaluated": 5,
+  "total_episodes_scored": 0,
+  "average_f1_score_pct": null,
+  "total_cost_usd": 0.10735,
+  "average_cost_usd": 0.02147,
+  "total_latency_ms": 462266,
+  "average_latency_ms": 92453,
+  "total_extracted_picks": 7,
+  "queue_runs": [
+    {
+      "episode_slug": "youtube-uirj8AVs8so",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "run": {
+        "run_id": "youtube_gemini_946d151ab7a1",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=uirj8AVs8so",
+        "latency_ms": 70593,
+        "estimated_cost_usd": 0.019258,
+        "input_tokens": 185448,
+        "output_tokens": 1782,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Seth Woolcock and Andrew Erickson from BettingPros share their favorite early spread and total bets for Week 1 of the NFL season. They analyze key matchups such as Cowboys vs. Giants, Steelers vs. Falcons, and Titans vs. Jets using historical trends and roster changes.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 34.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"All right and welcome into the BettingPros NFL Podcast. The regular season gets underway in 70 days from now, but it's never too early to place your bets for Week 1. That's right, the boys are back in town giving you the lines that you need to jump on now before they move.\"\n    },\n    {\n      \"start\": 34.0,\n      \"end\": 107.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"4th of July marks the start of football season. Not the start of summer for you kids out there. No man, super excited. Excited today because we're talking about Week 1. Right? We're going to have training camp in July. Week 1 is going to be sooner here before you even know it.\"\n    },\n    {\n      \"start\": 107.0,\n      \"end\": 127.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"It really feels like football season is just about here. I remember as a kid in July always going down to Steelers training camp in Latrobe, Pennsylvania there. My grandfather in the driver's seat there, like, rocking NFL Radio, listening to all the training camp beats from around the league.\"\n    },\n    {\n      \"start\": 127.0,\n      \"end\": 304.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Yes, I have gone many years when I was younger, when I've been part of FantasyPros I've gone and done some boots on the ground analysis. Unfortunately, though, a lot of times I've gone to training camp and have actually had bad takeaways.\"\n    },\n    {\n      \"start\": 304.0,\n      \"end\": 354.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Yeah, maybe a little scrapping going on too there at the joint practices, that's always fun. I remember early in my media days, I was covering the Steelers training camp for my college newspaper and like Vance McDonald, tight end one, that was the takeaway for me. So I'm guilty of it as well.\"\n    },\n    {\n      \"start\": 354.0,\n      \"end\": 403.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"And Erickson, let's get to our conversation starting with the early spread bets, where you're taking us to maybe the greatest city in the world, but maybe they don't have the best team in the world out of the gates this week.\"\n    },\n    {\n      \"start\": 403.0,\n      \"end\": 518.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"I am taking the Dallas Cowboys laying 1.5 points on the road against the New York Giants. This is the Sunday Night Football matchup, and it's actually a rematch of Week 18 from last year where the Dallas Cowboys were going to MetLife.\"\n    },\n    {\n      \"start\": 518.0,\n      \"end\": 609.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"And before that last game we saw between these two where it was a lot of Joe Milton, the last time the Giants had beat the Cowboys was 2021. So it just goes to show here, 1.5 just doesn't feel good enough. Like you said, no Malik Nabers out there.\"\n    },\n    {\n      \"start\": 609.0,\n      \"end\": 643.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Yes, it is a much bigger line than this one and a half. Dak Prescott always been very good especially on the road, 10 and 6 against the spread as a road favorite within the division. I just think the Dallas Cowboys are a far superior team.\"\n    },\n    {\n      \"start\": 643.0,\n      \"end\": 694.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Give me a little Pittsburgh Steelers -2.5 against the Falcons. I talked a ton last week, Erickson, about how I'm fading the Falcons from a futures perspective. I like what the Steelers have done at least from a one-year standpoint.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"DAL\",\n      \"market\": \"spread\",\n      \"side\": \"FAVORITE\",\n      \"line\": -1.5,\n      \"price\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 244,\n      \"rationale\": \"Dak Prescott has owned the Giants historically, boasting a 14-3 straight-up record against them, and the Cowboys are a far superior team overall.\"\n    },\n    {\n      \"team\": \"PIT\",\n      \"market\": \"spread\",\n      \"side\": \"FAVORITE\",\n      \"line\": -2.5,\n      \"price\": null,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 407,\n      \"rationale\": \"Seth is fading the Falcons due to their questionable quarterback situation and new coaching staff, while liking the Steelers' off-season improvements on defense and at wide receiver.\"\n    },\n    {\n      \"team\": \"TEN\",\n      \"market\": \"spread\",\n      \"side\": \"FAVORITE\",\n      \"line\": -2.5,\n      \"price\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 649,\n      \"rationale\": \"Robert Saleh's defense historically matches up well, and the Titans offense should show immediate improvements under Brian Callahan playing at home.\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Cowboys Spread\",\n      \"timestamp\": 244,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"I am taking the Dallas Cowboys laying 1.5 points on the road against the New York Giants.\"\n    },\n    {\n      \"topic\": \"Steelers Spread\",\n      \"timestamp\": 407,\n      \"speaker\": \"Seth Woolcock\",\n      \"quote\": \"give me a little Pittsburgh Steelers -2.5 against the Falcons\"\n    },\n    {\n      \"topic\": \"Titans Spread\",\n      \"timestamp\": 649,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"Tennessee Titans laying 2.5 points at home against the New York Jets\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 244,\n      \"field\": \"price\",\n      \"reason\": \"Specific betting price/odds were not explicitly spoken by the speaker.\"\n    },\n    {\n      \"timestamp\": 407,\n      \"field\": \"price\",\n      \"reason\": \"Specific betting price/odds were not explicitly spoken by the speaker.\"\n    },\n    {\n      \"timestamp\": 649,\n      \"field\": \"price\",\n      \"reason\": \"Specific betting price/odds were not explicitly spoken by the speaker.\"\n    }\n  ]\n}",
+        "extracted_picks": [
+          {
+            "team": "DAL",
+            "market": "spread",
+            "side": "FAVORITE",
+            "line": -1.5,
+            "price": null,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 244,
+            "rationale": "Dak Prescott has owned the Giants historically, boasting a 14-3 straight-up record against them, and the Cowboys are a far superior team overall."
+          },
+          {
+            "team": "PIT",
+            "market": "spread",
+            "side": "FAVORITE",
+            "line": -2.5,
+            "price": null,
+            "speaker": "Seth Woolcock",
+            "source_timestamp": 407,
+            "rationale": "Seth is fading the Falcons due to their questionable quarterback situation and new coaching staff, while liking the Steelers' off-season improvements on defense and at wide receiver."
+          },
+          {
+            "team": "TEN",
+            "market": "spread",
+            "side": "FAVORITE",
+            "line": -2.5,
+            "price": null,
+            "speaker": "Andrew Erickson",
+            "source_timestamp": 649,
+            "rationale": "Robert Saleh's defense historically matches up well, and the Titans offense should show immediate improvements under Brian Callahan playing at home."
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Cowboys Spread",
+            "timestamp": 244,
+            "speaker": "Andrew Erickson",
+            "quote": "I am taking the Dallas Cowboys laying 1.5 points on the road against the New York Giants."
+          },
+          {
+            "topic": "Steelers Spread",
+            "timestamp": 407,
+            "speaker": "Seth Woolcock",
+            "quote": "give me a little Pittsburgh Steelers -2.5 against the Falcons"
+          },
+          {
+            "topic": "Titans Spread",
+            "timestamp": 649,
+            "speaker": "Andrew Erickson",
+            "quote": "Tennessee Titans laying 2.5 points at home against the New York Jets"
+          }
+        ]
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 3,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    },
+    {
+      "episode_slug": "youtube-WbuAvbsVF_w",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "run": {
+        "run_id": "youtube_gemini_9dc3bf37453f",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=WbuAvbsVF_w",
+        "latency_ms": 166092,
+        "estimated_cost_usd": 0.02423,
+        "input_tokens": 239758,
+        "output_tokens": 635,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Brandon Kravitz and Kendra Middleton introduce their two-part series ranking the top 20 NFL starting quarterbacks. They also recap the soccer World Cup, Spain's victory, and the confusion surrounding three-way moneyline betting markets.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 113.0,\n      \"speaker\": null,\n      \"text\": \"[Intro music and graphic loop]\"\n    },\n    {\n      \"start\": 113.0,\n      \"end\": 155.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Welcome to The Favorites presented by DraftKings. The crown is yours. We are an Action Network podcast. I'm Brandon Kravitz, your host, back at it with the first lady of the pod, Kendra Middleton. Evan Abrams, stat hound, always ready to catch us on any statistical shenanigans that we may get into on today's podcast. Top 20 quarterbacks in the NFL, we've got a two-part episode to get to. I have been waiting to dig into this all off-season. I can almost smell the pigskin, Kendra, and I am ready to go mano-a-mano with you.\"\n    },\n    {\n      \"start\": 155.0,\n      \"end\": 175.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Yeah, is that how it goes? Alright, we'll take it.\"\n    },\n    {\n      \"start\": 175.0,\n      \"end\": 213.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"So, real quick, to tie a bow on how we've all spent the last month of our lives. The World Cup has come and gone. Shout out to Spain for hoisting the cup. Maybe by 2030, Kendra, you and I can figure out how to log a moneyline bet properly on the app. I think that would be wonderful.\"\n    },\n    {\n      \"start\": 213.0,\n      \"end\": 229.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"I don't think that was our fault, I'm really going to be honest with you. Because I love Action, I love the homies, thanks for paying me and helping me love my job. However, if I log onto an app and the two things to pop up are moneylines, and you're going to give me Spain and Argentina, I should be able to just choose Spain, I'm sorry.\"\n    }\n  ],\n  \"extracted_picks\": [],\n  \"quote_timestamps\": [],\n  \"uncertainty_flags\": []\n}",
+        "extracted_picks": [],
+        "quote_timestamps": []
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 0,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    },
+    {
+      "episode_slug": "youtube-xAwNym8Y7Xg",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "run": {
+        "run_id": "youtube_gemini_fd1ed212cfad",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=xAwNym8Y7Xg",
+        "latency_ms": 132519,
+        "estimated_cost_usd": 0.026015,
+        "input_tokens": 257051,
+        "output_tokens": 775,
+        "raw_model_response": "{\n  \"transcript_summary\": \"The hosts introduce the episode by reflecting on England's World Cup exit and comparing the national team's struggles to the Toronto Maple Leafs and Buffalo Bills. Dr. David Chao then joins to discuss SIC Score's injury-based betting edge, focusing on Patrick Mahomes' recovery timeline from his ACL/LCL injury.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 52.0,\n      \"end\": 270.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Brandon Kravitz introduces the show, Stuckey, and Kendra Middleton, and previews the guest Dr. David Chao. He discusses his disappointed France ticket and the Spain vs. Argentina World Cup matchup.\"\n    },\n    {\n      \"start\": 270.0,\n      \"end\": 309.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Kendra discusses England's tactical mistakes, Jordan Pickford's performance, and asks if England is more like the Toronto Maple Leafs or the Buffalo Bills of soccer.\"\n    },\n    {\n      \"start\": 309.0,\n      \"end\": 408.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Stuckey criticizes England's prevent defense and questionable substitutions in the second half/fourth quarter.\"\n    },\n    {\n      \"start\": 408.0,\n      \"end\": 509.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Kendra Middleton delivers a DraftKings Sportsbook promotional offer.\"\n    },\n    {\n      \"start\": 509.0,\n      \"end\": 811.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Dr. David Chao joins the show, explaining SicScore.com's injury-based algorithm and how to leverage injury analysis for an edge in sports betting and fantasy football.\"\n    },\n    {\n      \"start\": 811.0,\n      \"end\": 673.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Dr. Chao analyzes Patrick Mahomes' recovery from a torn ACL and LCL, explaining the three-pronged criteria for returning to play and predicting that the Chiefs will start Justin Fields in Week 1 to be conservative.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"KC\",\n      \"market\": \"player_decision\",\n      \"side\": \"Justin Fields Day 1 Starter\",\n      \"line\": null,\n      \"price\": null,\n      \"speaker\": \"Dr. David Chao\",\n      \"source_timestamp\": 517,\n      \"rationale\": \"Believes the Chiefs will be conservative with Mahomes' multi-ligament recovery (ACL + LCL) and start Justin Fields in Week 1.\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Justin Fields Starter\",\n      \"timestamp\": 517,\n      \"speaker\": \"Dr. David Chao\",\n      \"quote\": \"Let's roll with Justin Fields. I think Justin Fields knows that too, that's why he went there, he's the Day 1 starter, we've been saying it for a while.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+        "extracted_picks": [
+          {
+            "team": "KC",
+            "market": "player_decision",
+            "side": "YES",
+            "line": null,
+            "price": null,
+            "speaker": "Dr. David Chao",
+            "source_timestamp": 517,
+            "rationale": "Believes the Chiefs will be conservative with Mahomes' multi-ligament recovery (ACL + LCL) and start Justin Fields in Week 1."
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Justin Fields Starter",
+            "timestamp": 517,
+            "speaker": "Dr. David Chao",
+            "quote": "Let's roll with Justin Fields. I think Justin Fields knows that too, that's why he went there, he's the Day 1 starter, we've been saying it for a while."
+          }
+        ]
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 1,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    },
+    {
+      "episode_slug": "youtube-zNZzcHDqhg4",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "run": {
+        "run_id": "youtube_gemini_df43801b9247",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=zNZzcHDqhg4",
+        "latency_ms": 38345,
+        "estimated_cost_usd": 0.022838,
+        "input_tokens": 226560,
+        "output_tokens": 455,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Warren Sharp tiers all 32 NFL receiving rooms (wide receivers and tight ends) for a projected 2026 season from S-tier down to F-tier. He analyzes player movements and roster projections, highlighting top-tier groups like the Bengals, Cowboys, Lions, and Vikings while placing the Dolphins at the bottom.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 562.0,\n      \"speaker\": \"Warren Sharp\",\n      \"text\": \"Let's rank all 32 receiving rooms around the NFL. Let's tier them S-tier to F-tier... I know we're still in June, but it's not too early to start thinking about the 2026 NFL season... We are officially done with the book, and it is checking in at 619 pages...\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"IND\",\n      \"market\": \"player_receiving_yds\",\n      \"side\": \"OVER\",\n      \"line\": null,\n      \"price\": null,\n      \"speaker\": \"Warren Sharp\",\n      \"source_timestamp\": 400,\n      \"rationale\": \"Josh Downs is projected to take on a much larger workload this season, making his rising receiving yards prop line justified if he can stay healthy.\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Josh Downs Prop\",\n      \"timestamp\": 400,\n      \"speaker\": \"Warren Sharp\",\n      \"quote\": \"His receiving yards prop has been bet up, up, up, and rightfully so, if he can stay healthy.\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 400,\n      \"field\": \"line\",\n      \"reason\": \"Specific line number for Josh Downs' receiving yards prop was not explicitly mentioned.\"\n    }\n  ]\n}",
+        "extracted_picks": [
+          {
+            "team": "IND",
+            "market": "player_receiving_yds",
+            "side": "OVER",
+            "line": null,
+            "price": null,
+            "speaker": "Warren Sharp",
+            "source_timestamp": 400,
+            "rationale": "Josh Downs is projected to take on a much larger workload this season, making his rising receiving yards prop line justified if he can stay healthy."
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Josh Downs Prop",
+            "timestamp": 400,
+            "speaker": "Warren Sharp",
+            "quote": "His receiving yards prop has been bet up, up, up, and rightfully so, if he can stay healthy."
+          }
+        ]
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 1,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    },
+    {
+      "episode_slug": "youtube-mg5iBe5I5tU",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "run": {
+        "run_id": "youtube_gemini_c112dc4019db",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=mg5iBe5I5tU",
+        "latency_ms": 54717,
+        "estimated_cost_usd": 0.015009,
+        "input_tokens": 145771,
+        "output_tokens": 1079,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Ross Tucker and Steve Fezzik introduce their new partnership with SIC Score (Sports Injury Central) for the upcoming NFL season. Steve Fezzik breaks down how to use injury data for betting and shares a Week 1 7-point teaser pick involving the Jaguars and Vikings.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 11.0,\n      \"end\": 176.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Introduces the Even Money betting podcast, welcoming Steve Fezzik, and teasing a major announcement.\"\n    },\n    {\n      \"start\": 176.0,\n      \"end\": 430.0,\n      \"speaker\": \"Steve Fezzik\",\n      \"text\": \"Discusses his new partnership with the SIC Score (Sports Injury Central) group and explains the importance of tracking cluster injuries, specifically on the offensive line.\"\n    },\n    {\n      \"start\": 430.0,\n      \"end\": 539.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Asks Steve how much he values training camp information and news like holdouts or injuries.\"\n    },\n    {\n      \"start\": 539.0,\n      \"end\": 675.0,\n      \"speaker\": \"Steve Fezzik\",\n      \"text\": \"Explains how bettors react to training camp news and mentions regression to the mean for highly injured teams.\"\n    },\n    {\n      \"start\": 675.0,\n      \"end\": 803.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Asks why bettors don't simply tail the SIC Score model if it hits at over a 56% win rate.\"\n    },\n    {\n      \"start\": 803.0,\n      \"end\": 1107.0,\n      \"speaker\": \"Steve Fezzik\",\n      \"text\": \"Explains market dynamics, citing Dr. Bob Sports as an historical example, and how long-term records eventually begin to move the betting markets.\"\n    },\n    {\n      \"start\": 1107.0,\n      \"end\": 1291.0,\n      \"speaker\": \"Steve Fezzik\",\n      \"text\": \"Reveals his Week 1 teaser pick, using the Jaguars teased down to -0.5 and the Vikings teased up to +8.5 on DraftKings.\"\n    },\n    {\n      \"start\": 1291.0,\n      \"end\": 1373.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Asks about the line movement on the Vikings game and why there aren't more pick'em lines.\"\n    },\n    {\n      \"start\": 1373.0,\n      \"end\": 1439.0,\n      \"speaker\": \"Steve Fezzik\",\n      \"text\": \"Explains the impact of vig and why a zero tie is highly unlikely, justifying the teaser value.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"JAC\",\n      \"market\": \"game_line\",\n      \"side\": \"JAC\",\n      \"line\": -0.5,\n      \"price\": -150,\n      \"speaker\": \"Steve Fezzik\",\n      \"source_timestamp\": 1108,\n      \"rationale\": \"Part of a 2-team 7-point teaser for Week 1, teasing Jacksonville down from -7.5 to -0.5.\"\n    },\n    {\n      \"team\": \"MIN\",\n      \"market\": \"game_line\",\n      \"side\": \"MIN\",\n      \"line\": 8.5,\n      \"price\": -150,\n      \"speaker\": \"Steve Fezzik\",\n      \"source_timestamp\": 1108,\n      \"rationale\": \"Part of a 2-team 7-point teaser for Week 1, taking Minnesota from +1.5 up to +8.5.\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Week 1 Teaser Pick\",\n      \"timestamp\": 1108,\n      \"speaker\": \"Steve Fezzik\",\n      \"quote\": \"I'm going to take the Jacksonville Jaguars down from -7.5 to -0.5 as the first leg in my teaser... and then I'm going to take the Vikings for my second leg from +1.5 up to +8.5.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+        "extracted_picks": [
+          {
+            "team": "JAC",
+            "market": "game_line",
+            "side": "JAC",
+            "line": -0.5,
+            "price": -150,
+            "speaker": "Steve Fezzik",
+            "source_timestamp": 1108,
+            "rationale": "Part of a 2-team 7-point teaser for Week 1, teasing Jacksonville down from -7.5 to -0.5."
+          },
+          {
+            "team": "MIN",
+            "market": "game_line",
+            "side": "NO",
+            "line": 8.5,
+            "price": -150,
+            "speaker": "Steve Fezzik",
+            "source_timestamp": 1108,
+            "rationale": "Part of a 2-team 7-point teaser for Week 1, taking Minnesota from +1.5 up to +8.5."
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Week 1 Teaser Pick",
+            "timestamp": 1108,
+            "speaker": "Steve Fezzik",
+            "quote": "I'm going to take the Jacksonville Jaguars down from -7.5 to -0.5 as the first leg in my teaser... and then I'm going to take the Vikings for my second leg from +1.5 up to +8.5."
+          }
+        ]
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 2,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    }
+  ]
+}

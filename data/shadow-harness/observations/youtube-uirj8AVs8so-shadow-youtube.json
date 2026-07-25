@@ -1,0 +1,92 @@
+{
+  "episode_slug": "youtube-uirj8AVs8so",
+  "show": "YouTube Discovery",
+  "date": "manual",
+  "priority": "manual",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "input_source": "youtube_video_url",
+  "run": {
+    "run_id": "youtube_gemini_946d151ab7a1",
+    "mode": "live-youtube",
+    "model": "gemini-3.5-flash",
+    "input_source": "youtube_video_url",
+    "youtube_url": "https://www.youtube.com/watch?v=uirj8AVs8so",
+    "latency_ms": 70593,
+    "estimated_cost_usd": 0.019258,
+    "input_tokens": 185448,
+    "output_tokens": 1782,
+    "raw_model_response": "{\n  \"transcript_summary\": \"Seth Woolcock and Andrew Erickson from BettingPros share their favorite early spread and total bets for Week 1 of the NFL season. They analyze key matchups such as Cowboys vs. Giants, Steelers vs. Falcons, and Titans vs. Jets using historical trends and roster changes.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 34.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"All right and welcome into the BettingPros NFL Podcast. The regular season gets underway in 70 days from now, but it's never too early to place your bets for Week 1. That's right, the boys are back in town giving you the lines that you need to jump on now before they move.\"\n    },\n    {\n      \"start\": 34.0,\n      \"end\": 107.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"4th of July marks the start of football season. Not the start of summer for you kids out there. No man, super excited. Excited today because we're talking about Week 1. Right? We're going to have training camp in July. Week 1 is going to be sooner here before you even know it.\"\n    },\n    {\n      \"start\": 107.0,\n      \"end\": 127.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"It really feels like football season is just about here. I remember as a kid in July always going down to Steelers training camp in Latrobe, Pennsylvania there. My grandfather in the driver's seat there, like, rocking NFL Radio, listening to all the training camp beats from around the league.\"\n    },\n    {\n      \"start\": 127.0,\n      \"end\": 304.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Yes, I have gone many years when I was younger, when I've been part of FantasyPros I've gone and done some boots on the ground analysis. Unfortunately, though, a lot of times I've gone to training camp and have actually had bad takeaways.\"\n    },\n    {\n      \"start\": 304.0,\n      \"end\": 354.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Yeah, maybe a little scrapping going on too there at the joint practices, that's always fun. I remember early in my media days, I was covering the Steelers training camp for my college newspaper and like Vance McDonald, tight end one, that was the takeaway for me. So I'm guilty of it as well.\"\n    },\n    {\n      \"start\": 354.0,\n      \"end\": 403.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"And Erickson, let's get to our conversation starting with the early spread bets, where you're taking us to maybe the greatest city in the world, but maybe they don't have the best team in the world out of the gates this week.\"\n    },\n    {\n      \"start\": 403.0,\n      \"end\": 518.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"I am taking the Dallas Cowboys laying 1.5 points on the road against the New York Giants. This is the Sunday Night Football matchup, and it's actually a rematch of Week 18 from last year where the Dallas Cowboys were going to MetLife.\"\n    },\n    {\n      \"start\": 518.0,\n      \"end\": 609.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"And before that last game we saw between these two where it was a lot of Joe Milton, the last time the Giants had beat the Cowboys was 2021. So it just goes to show here, 1.5 just doesn't feel good enough. Like you said, no Malik Nabers out there.\"\n    },\n    {\n      \"start\": 609.0,\n      \"end\": 643.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Yes, it is a much bigger line than this one and a half. Dak Prescott always been very good especially on the road, 10 and 6 against the spread as a road favorite within the division. I just think the Dallas Cowboys are a far superior team.\"\n    },\n    {\n      \"start\": 643.0,\n      \"end\": 694.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Give me a little Pittsburgh Steelers -2.5 against the Falcons. I talked a ton last week, Erickson, about how I'm fading the Falcons from a futures perspective. I like what the Steelers have done at least from a one-year standpoint.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"DAL\",\n      \"market\": \"spread\",\n      \"side\": \"FAVORITE\",\n      \"line\": -1.5,\n      \"price\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 244,\n      \"rationale\": \"Dak Prescott has owned the Giants historically, boasting a 14-3 straight-up record against them, and the Cowboys are a far superior team overall.\"\n    },\n    {\n      \"team\": \"PIT\",\n      \"market\": \"spread\",\n      \"side\": \"FAVORITE\",\n      \"line\": -2.5,\n      \"price\": null,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 407,\n      \"rationale\": \"Seth is fading the Falcons due to their questionable quarterback situation and new coaching staff, while liking the Steelers' off-season improvements on defense and at wide receiver.\"\n    },\n    {\n      \"team\": \"TEN\",\n      \"market\": \"spread\",\n      \"side\": \"FAVORITE\",\n      \"line\": -2.5,\n      \"price\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 649,\n      \"rationale\": \"Robert Saleh's defense historically matches up well, and the Titans offense should show immediate improvements under Brian Callahan playing at home.\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Cowboys Spread\",\n      \"timestamp\": 244,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"I am taking the Dallas Cowboys laying 1.5 points on the road against the New York Giants.\"\n    },\n    {\n      \"topic\": \"Steelers Spread\",\n      \"timestamp\": 407,\n      \"speaker\": \"Seth Woolcock\",\n      \"quote\": \"give me a little Pittsburgh Steelers -2.5 against the Falcons\"\n    },\n    {\n      \"topic\": \"Titans Spread\",\n      \"timestamp\": 649,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"Tennessee Titans laying 2.5 points at home against the New York Jets\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 244,\n      \"field\": \"price\",\n      \"reason\": \"Specific betting price/odds were not explicitly spoken by the speaker.\"\n    },\n    {\n      \"timestamp\": 407,\n      \"field\": \"price\",\n      \"reason\": \"Specific betting price/odds were not explicitly spoken by the speaker.\"\n    },\n    {\n      \"timestamp\": 649,\n      \"field\": \"price\",\n      \"reason\": \"Specific betting price/odds were not explicitly spoken by the speaker.\"\n    }\n  ]\n}",
+    "extracted_picks": [
+      {
+        "team": "DAL",
+        "market": "spread",
+        "side": "FAVORITE",
+        "line": -1.5,
+        "price": null,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 244,
+        "rationale": "Dak Prescott has owned the Giants historically, boasting a 14-3 straight-up record against them, and the Cowboys are a far superior team overall."
+      },
+      {
+        "team": "PIT",
+        "market": "spread",
+        "side": "FAVORITE",
+        "line": -2.5,
+        "price": null,
+        "speaker": "Seth Woolcock",
+        "source_timestamp": 407,
+        "rationale": "Seth is fading the Falcons due to their questionable quarterback situation and new coaching staff, while liking the Steelers' off-season improvements on defense and at wide receiver."
+      },
+      {
+        "team": "TEN",
+        "market": "spread",
+        "side": "FAVORITE",
+        "line": -2.5,
+        "price": null,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 649,
+        "rationale": "Robert Saleh's defense historically matches up well, and the Titans offense should show immediate improvements under Brian Callahan playing at home."
+      }
+    ],
+    "quote_timestamps": [
+      {
+        "topic": "Cowboys Spread",
+        "timestamp": 244,
+        "speaker": "Andrew Erickson",
+        "quote": "I am taking the Dallas Cowboys laying 1.5 points on the road against the New York Giants."
+      },
+      {
+        "topic": "Steelers Spread",
+        "timestamp": 407,
+        "speaker": "Seth Woolcock",
+        "quote": "give me a little Pittsburgh Steelers -2.5 against the Falcons"
+      },
+      {
+        "topic": "Titans Spread",
+        "timestamp": 649,
+        "speaker": "Andrew Erickson",
+        "quote": "Tennessee Titans laying 2.5 points at home against the New York Jets"
+      }
+    ]
+  },
+  "scoring": {
+    "score_status": "not_scored",
+    "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+    "total_ground_truth": 0,
+    "total_shadow_extracted": 3,
+    "full_exact_matches": 0,
+    "precision_pct": "not scored",
+    "recall_pct": "not scored",
+    "f1_score_pct": "not scored",
+    "dimension_accuracy": {
+      "team": null,
+      "market": null,
+      "side": null,
+      "line": null,
+      "price": null,
+      "speaker": null,
+      "source_timestamp": null
+    }
+  }
+}
