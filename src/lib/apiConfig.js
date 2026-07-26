@@ -92,3 +92,12 @@ export const M6 = {
     ''
   ).replace(/\/$/, ''),
 };
+
+// --- Official Picks local inbox/ledger server (F-29) ---
+// Local-only Node server (scripts/official-pick-inbox-server.js), loopback
+// bound, launched via `npm run official:picks:serve` or
+// `Launch Platinum Rose Inbox.cmd`. Never assume it's running -- the tab
+// must probe it and show an offline state if the fetch fails.
+export const OFFICIAL_PICKS = {
+  BASE: (import.meta.env.VITE_OFFICIAL_PICKS_BASE || 'http://127.0.0.1:8787').replace(/\/$/, ''),
+};

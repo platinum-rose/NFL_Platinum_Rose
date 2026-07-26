@@ -233,7 +233,23 @@ async function handleApi(action, req, res) {
   }
 }
 
+// Local-only tool (bound to 127.0.0.1). CORS is opened so the main React
+// dashboard -- served from a different origin/port (Vite dev server or a
+// static production build) -- can call this API from the browser. Since the
+// server never leaves loopback, this does not expose anything to the network.
+function setCors(res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+}
+
 const server = http.createServer(async (req, res) => {
+  setCors(res);
+  if (req.method === 'OPTIONS') {
+    res.writeHead(204);
+    res.end();
+    return;
+  }
   const url = new URL(req.url, `http://${req.headers.host}`);
   if (req.method === 'POST' && url.pathname === '/api/approve') return handleApi('approve', req, res);
   if (req.method === 'POST' && url.pathname === '/api/reject') return handleApi('reject', req, res);
