@@ -1,0 +1,82 @@
+name: Stats to Vault Sync
+
+# OPS-1 — agents/stats-to-vault-sync.js had no recurring trigger; it had only
+# ever been run once manually (S157, 35 vault notes seeded), so vault EPA/
+# ATS/formation-tendency notes go stale as soon as new season data lands.
+#
+# What it does: bridges nfl_team_season_stats (Supabase) -> vault_notes,
+# writing NFL/Teams/<ABBR>.md "## Season Stats" sections + a league-wide
+# NFL/Reference/TeamStats-<Y>.md per season, per agents/stats-to-vault-sync.js.
+#
+# Scheduled to follow nflverse-data-refresh.yml (runs 10:00 UTC on March 1) by
+# a few hours, so this always syncs the freshest seeded stats. Also runnable
+# any time via workflow_dispatch — e.g. right after a local/manual
+# seed-historical-stats.py run that includes EPA/formation tendencies (the
+# GHA nflverse refresh runs --no-pbp, so those columns need a local run first
+# per that workflow's own summary step).
+
+on:
+  schedule:
+    # 2:00 PM UTC on March 1 — a few hours after nflverse-data-refresh.yml's
+    # 10:00 UTC seed, so nfl_team_season_stats is already updated.
+    - cron: '0 14 1 3 *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (no vault_notes writes)'
+        required: false
+        default: false
+        type: boolean
+      seasons:
+        description: 'Comma-separated seasons to sync (default: last 3 completed, e.g. 2023,2024,2025)'
+        required: false
+        default: ''
+        type: string
+      team:
+        description: 'Single team abbreviation to sync (e.g. KC). Leave blank for all 32.'
+        required: false
+        default: ''
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  stats-to-vault-sync:
+    name: Sync nfl_team_season_stats -> vault_notes
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run stats-to-vault-sync
+        env:
+          SUPABASE_URL:              ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          DRY_RUN:       ${{ inputs.dry_run == true && 'true' || 'false' }}
+          STATS_SEASONS: ${{ inputs.seasons != '' && inputs.seasons || '' }}
+        run: |
+          ARGS=""
+          if [ -n "${{ inputs.seasons }}" ]; then ARGS="$ARGS --seasons ${{ inputs.seasons }}"; fi
+          if [ -n "${{ inputs.team }}" ]; then ARGS="$ARGS --team ${{ inputs.team }}"; fi
+          if [ "${{ inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          node agents/stats-to-vault-sync.js $ARGS
+
+      - name: Upload receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stats-to-vault-sync-receipt-${{ github.run_number }}
+          path: .nfl/receipts/stats-vault-*.json
+          retention-days: 30
