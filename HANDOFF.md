@@ -1,55 +1,52 @@
-# NFL_Dashboard — Session Handoff (S300 + S301)
+# NFL_Dashboard — Session Handoff (S302–S308)
 
-> Fresh-session resume notes. Read this first, then TASK_BOARD.md and `handoffs/2026-07-25-youtube-gemini-shadow-harness-handoff.md`.
+> Fresh-session resume notes. Read this first, then TASK_BOARD.md and WORKING-CONTEXT.md.
 
-**Date:** 2026-07-25  
+**Date:** 2026-07-26  
 **Branch:** main  
-**Status:** YouTube/Gemini Local Intel Pilot + Live Multimodal Shadow Harness Complete.
+**Status:** F-29 (Official Picks tab), F-25 (Injury Center), F-27 (UI QC pass + fixes), F-26 (Fantasy Value Board) all shipped this run.
 
 ---
 
 ## Pick Up Here
 
-> **S300 + S301 complete (2026-07-25).**
-> 
-> ### Session 300 Summary:
-> - YouTube OAuth, candidate discovery (`youtube-podcast-sweep.js`), and human review gate completed.
-> - 11 futures-eligible episodes processed, 39 human-promoted items exported to `data/shadow-harness/review/youtube-futures-agent-intel-summary.json`.
-> - 1 bad item (`DET division_winner +1500`) rejected due to `price_not_in_quote` (leak check = 0).
+> **S302–S308 complete (2026-07-26). HEAD `d5a3e0a`, pushed and confirmed.**
 >
-> ### Session 301 Summary:
-> - Reconciled gold-standard note for `2026-03-03-sharp-or-square-early-2026-nfl-season-win-totals-part-1.md` written to `data/vault-seed/manual/`.
-> - Refactored `scripts/gemini-podcast-shadow-harness.js` to decouple `--simulate` (dry-run) and `--live-shadow` (real Gemini 3.5 Flash API execution).
-> - Created Python runner `scripts/run_gemini_live_shadow.py` using `gemini-3.5-flash`.
-> - Raw model output persisted separately to `data/shadow-harness/observations/*-raw-gemini.json`.
-> - Non-circular 7-dimension match scoring engine implemented and validated against independent ground truth.
-> - End-to-end telemetry verified: ~20.9s – 32.8s API latency, ~$0.002 – $0.004 per run cost.
-> - Architecture specs authored: `docs/antigravity/GEMINI_AUDIO_MIGRATION_SPEC.md` and `docs/antigravity/FULL_TEST_TRANSCRIPTION_COMPARISON.md`.
-> - Added `"podcast:shadow": "node scripts/gemini-podcast-shadow-harness.js"` to `package.json`.
+> - **S302**: Wired FUTURES/BETTING agents to the local YouTube/Gemini intel summary (`get_youtube_futures_intel` tool).
+> - **S303 (F-29)**: New `OfficialPicksTab.jsx` (`?tab=official-picks`) — wires the local inbox server (127.0.0.1:8787) + ledger scorecard into the dashboard, with CORS added to the server. Approve/reject not yet exercised against a live draft (F-29b).
+> - **S304 (F-25)**: New `InjuryCenter.jsx` (`?tab=injuries`) — league-wide injury view, all 32 teams, worst-impact-first. Per-game injury UI was already fully wired; this filled the missing league-wide gap.
+> - **S305 (F-27)**: Full UI QC pass across all 17 tabs (audit-only, no code changes per its own scope). Findings: `docs/F27_UI_QC_FINDINGS_2026-07-26.md`. Real defects spun out as F-27b/c/d/e.
+> - **S306 (F-27b)**: Fixed — Dashboard matchup cards were showing "right now" as every game's kickoff time (fabricated `commence_time`) instead of `schedule.json`'s real `kickoff_utc`.
+> - **S307–S308 (F-26)**: Root-caused why the fantasy value board had produced zero real projections since it was first built: `player_season_stats` was never seeded (fixed) + Supabase's default 1000-row cap was silently truncating the query before it reached QB/RB/WR/TE (fixed with `.in('position', POSITIONS)`). Built `FantasyValueBoard.jsx` (`?tab=fantasy`) to render it in-app. Yahoo Fantasy API access is gated behind a new approval process (`sports.yahoo.com/developer/access/`) — application submitted, **awaiting Yahoo's review (1–2 week SLA)**. Kickers out of scope (not meaningfully drafted); IDP/team-DEF scoring needs per-league weights, filed as F-26b, blocked on the same Yahoo approval.
+>
+> **Not yet done:** F-29b (live approve/reject smoke test), F-31 (live watchlist re-run), F-32 (full `npm test` re-run + live YouTube-intel smoke test), F-27c/d/e (remaining QC findings — injury mock/live indicator, PulseModal dead section, ContestLinesModal dead button).
 
 ---
 
-## Key Handoff File
+## Key Handoff Files
 
-📄 **[handoffs/2026-07-25-youtube-gemini-shadow-harness-handoff.md](file:///e:/dev/projects/NFL_Dashboard/handoffs/2026-07-25-youtube-gemini-shadow-harness-handoff.md)**
+📄 **[TASK_BOARD.md](file:///e:/dev/projects/NFL_Dashboard/TASK_BOARD.md)** — full backlog/DONE history, PM-owned.
+📄 **[WORKING-CONTEXT.md](file:///e:/dev/projects/NFL_Dashboard/WORKING-CONTEXT.md)** — active milestone + next-immediate-action.
+📄 **[docs/F27_UI_QC_FINDINGS_2026-07-26.md](file:///e:/dev/projects/NFL_Dashboard/docs/F27_UI_QC_FINDINGS_2026-07-26.md)** — full UI QC findings.
 
 ---
 
 ## Guardrails
 
 - Do not make live API calls, write to Supabase, persist production recommendations, generate official real AI proposals, or modify open parlay slots without explicit user approval.
-- Treat local Gemini extractions as source-backed research context requiring market validation.
+- Official Picks tab / ledger: paper-tracked, human-verified only — never autonomous. Hold real AI proposal generation until the full futures synthesis run.
+- Fantasy value board is decision support (Phase A, history-based) — not advice; rookies show "No Projection", not a fabricated number.
 
 ---
 
 ## Recommended Next Step
 
-Wire the `FUTURES` and `BETTING` agents to consume `data/shadow-harness/review/youtube-futures-agent-intel-summary.json` as read-only research context (preserving source timestamps, quotes, review flags, and pick lanes).
+Yahoo Fantasy API access is pending approval (1–2 week SLA) — nothing to do there until it clears. In the meantime: F-29b (smoke-test Official Picks approve/reject against a real draft), F-32 (full `npm test` re-run — hasn't been run end-to-end in several sessions; also live-smoke-test `get_youtube_futures_intel`), or F-27c/d/e (remaining QC findings — injury live/mock indicator, PulseModal's dead Critical Injuries section, ContestLinesModal's dead Fetch Official Lines button).
 
 ---
 
 ## Resume Prompt
 
 ```text
-Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF_PROMPT.md, WORKING-CONTEXT.md, handoffs\2026-07-25-youtube-gemini-shadow-harness-handoff.md, docs\antigravity\GEMINI_AUDIO_MIGRATION_SPEC.md, and docs\antigravity\FULL_TEST_TRANSCRIPTION_COMPARISON.md first. Current task: continue from S300/S301 completed YouTube/Gemini pipeline & shadow harness work. Verified state: (1) 11 futures-eligible YouTube episodes processed, 39 human-promoted intel items exported, 1 bad DET item rejected; (2) Gemini 3.5 Flash shadow harness refactored into --simulate and --live-shadow modes; (3) raw Gemini outputs saved to data/shadow-harness/observations/*-raw-gemini.json; (4) real Gemini 3.5 Flash API execution verified with non-circular 7-dimension match scoring, ~20.9s-32.8s latency, and ~$0.002-$0.004 run cost. Guardrails: do not make live API calls, write to Supabase, persist production recommendations, or modify open parlay slots without explicit approval. Recommended next: wire Futures/Betting agents to consume the local agent-intel summary (data/shadow-harness/review/youtube-futures-agent-intel-summary.json) as read-only research context.
+Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF_PROMPT.md, WORKING-CONTEXT.md, and TASK_BOARD.md first. HEAD = d5a3e0a (main), pushed and confirmed. S302-S308 shipped this run: F-29 Official Picks tab (local inbox/ledger server wired into the dashboard, ?tab=official-picks), F-25 Injury Center (league-wide injury view, ?tab=injuries), F-27 UI QC pass across all 17 tabs (audit-only findings in docs/F27_UI_QC_FINDINGS_2026-07-26.md) plus its F-27b fix (Dashboard matchup cards were showing the wrong game time), and F-26 Fantasy Value Board (?tab=fantasy) plus a root-cause fix for why it had produced zero real projections since it was built (player_season_stats never seeded + Supabase's default 1000-row cap silently truncating the query before it reached QB/RB/WR/TE). Yahoo Fantasy API access is gated behind a new approval process; application submitted, awaiting review (1-2 week SLA) -- F-26's remaining Yahoo-dependent work and F-26b (IDP/team-DEF scoring) are blocked until then. Guardrails: no live API calls, no Supabase writes, no official AI proposal generation, no parlay slot changes without explicit approval. Recommended next: F-29b (live approve/reject smoke test), F-32 (full npm test re-run), or F-27c/d/e (remaining QC findings).
 ```

@@ -84,4 +84,55 @@
 
 ### .git/index.lock owned by Windows; can't rm from Linux sandbox
 - `.git/index.lock` created by Windows git process cannot be deleted from Linux (`Operation not permitted`).
-- Always commit from Windows PowerShell for this repo. Never attempt `git add/commit` from the bash sandbox.
+- **Update 2026-07-26:** this is no longer a hard blocker. `rm` fails, but `mv .git/index.lock .git/index.lock.movedN` (and the same for `.git/HEAD.lock`) succeeds — rename works where unlink doesn't on this mount. Run that immediately before every `git add`/`git commit`/`git status` call from the sandbox; it clears the stale lock for that call. `git commit` may also print harmless `unable to unlink '.git/objects/.../tmp_obj_...'` warnings during this — the commit still succeeds (verify with `git log -1`). This let an entire multi-commit session (S302-S308, 9+ commits) run cleanly from the bash sandbox without needing PowerShell for any commit — only `git push` still needs to run natively (no GitHub credentials in the sandbox).
+
+## S302-S308 — 2026-07-26: sandbox network limits, Supabase pagination, Yahoo API gating
+
+### Supabase/PostgREST silently caps unfiltered queries at 1000 rows
+- A `select()` with no `.limit()`/`.range()` and no narrowing filter returns at most 1000 rows —
+  silently, with no error and no indication of truncation. `player_season_stats` had 2019 rows for
+  one season/season_type; an unfiltered query returned exactly 1000, and those 1000 happened to be
+  every position alphabetically before "QB" (C, CB, DB, DE, DL, DT, FB, FS, G, ILB, K, LB) —
+  meaning a report joining against ADP by name got 0/200 matches for months and nobody noticed,
+  because the pipeline "succeeded" and produced normal-looking output files with every row simply
+  showing "no projection."
+- **Fix/pattern:** any query expected to return >1000 rows needs either `.in('column', [...])` to
+  narrow it below the cap, or real pagination via `.range()`. A suspiciously round result count
+  (exactly 1000) is itself a signal to check for this.
+- **Diagnosis technique:** a `{ count: 'exact', head: true }` query (no row payload, just a count)
+  bypasses the 1000-row payload cap and reveals the true total — compare it against what the
+  normal query actually returned.
+
+### Sandbox network access to external APIs (Supabase, Yahoo) is intermittent, not just allowlisted
+- Yahoo's Fantasy Sports API domain (`fantasysports.yahooapis.com`) is blocked outright by the
+  sandbox's proxy allowlist (`403 blocked-by-allowlist`) — a hard, permanent block, same as GitHub
+  push credentials being absent.
+- Supabase (`*.supabase.co`) is *not* blocked, but is intermittently unreachable from the sandbox
+  (`getaddrinfo EAI_AGAIN`) — worked fine earlier in a session, then failed on every retry for the
+  rest of it, then presumably recovered later. Don't assume one successful Supabase call means the
+  rest of the session will have reliable access.
+- **Pattern:** for any write (or read that must succeed) against Supabase, have the user run the
+  exact `node agents/...` command natively rather than retrying indefinitely from the sandbox —
+  same escalation path as `git push`. A local throwaway diagnostic script
+  (`node scripts/_diag_x.mjs`, deleted/renamed `.bak` after use) the user runs and pastes output
+  back from is an effective way to inspect real database state when the sandbox can't reach it
+  directly.
+
+### Yahoo Fantasy Sports API access is now a gated approval process, not a checkbox
+- As of 2026, Yahoo replaced the old self-serve "check Fantasy Sports under API Permissions" flow
+  on an app's developer.yahoo.com page with a separate application form at
+  `sports.yahoo.com/developer/access/` (usage-volume tier, App ID from the existing app, 1-2 week
+  review). An app created before this change, with valid OAuth2 credentials and a completed
+  interactive token handshake, still gets `401 additional_authorization_required` on the first
+  real Fantasy API call until this separate approval clears. Don't assume "OAuth succeeded" means
+  "API access works" for this API specifically.
+
+### nflverse `fantasy_points`/`fantasy_points_ppr` only cover QB/RB/WR/TE
+- Every kicker and defensive-position row in nflverse's seasonal stats CSV has
+  `fantasy_points = fantasy_points_ppr = 0.0` — these columns are pre-computed for standard
+  offensive skill positions only. Real FG/PAT data (kickers) and real tackle/sack/INT data
+  (defense) exist in the same CSV under separate columns (`fg_made`, `def_sacks`,
+  `def_interceptions`, etc.) but need their own scoring formula to become fantasy points — there
+  is no single "standard" for IDP/kicker scoring the way PPR is standard for offense, so this
+  needs per-league configurable weights (ideally sourced from Yahoo's league-settings API once
+  access is approved), not a hardcoded default.

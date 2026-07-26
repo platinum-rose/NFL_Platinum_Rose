@@ -1,28 +1,28 @@
 {
   "project_name": "NFL_Dashboard",
   "bridge_version": "1.0",
-  "last_updated": "2026-04-17",
-  "last_atlas_sync": null,
-  "session_count": 0,
+  "last_updated": "2026-07-26",
+  "last_atlas_sync": "2026-07-26",
+  "session_count": 8,
   "health": {
-    "status": "stale",
-    "days_since_push": 14,
+    "status": "active",
+    "days_since_push": 0,
     "open_pr_count": 0,
-    "last_commit_msg": "Unknown",
+    "last_commit_msg": "S308: TASK_BOARD/WORKING-CONTEXT refresh for Fantasy tab",
     "last_commit_author": "andrewlrose"
   },
-  "status_summary": "NFL betting analytics dashboard. 15 dev agents + 4 product Tier-1 + 5 GHA pipeline agents. Manifest-based agent tools, Supabase + localStorage dual-write, multi-model routing (Sonnet/Opus). 8 shipped features. Last push 14 days ago — off-season slump expected.",
+  "status_summary": "NFL betting analytics dashboard, now in preseason (season starts 2026-09-08). This run (S302-S308) shipped 4 new tabs (Official Picks, Injury Center, Fantasy Value Board) and 1 fix (Dashboard game-time bug), plus a full 17-tab UI QC audit. Root-caused and fixed a longstanding bug where the fantasy value board had never produced a real projection since it was built. Yahoo Fantasy API access is pending Yahoo's own approval process (1-2 week SLA) -- not blocked on us.",
   "alerts": [
     {
-      "id": "nfl_stale_push",
-      "message": "NFL_Dashboard last push 14 days ago — off-season expected; verify no pending PR",
+      "id": "yahoo_api_pending_approval",
+      "message": "Yahoo Fantasy Sports API access application submitted 2026-07-26 (sports.yahoo.com/developer/access/) -- awaiting Yahoo review. Blocks F-26's Yahoo ADP/league-settings pull and F-26b (IDP/team-DEF scoring).",
       "severity": "info",
-      "timestamp": "2026-04-17T00:00:00",
+      "timestamp": "2026-07-26T00:00:00",
       "resolved": false
     }
   ],
   "metrics": {
-    "test_count": 12,
+    "test_count": 94,
     "agent_count": 24,
     "skills_count": 0,
     "hooks_count": 7,
@@ -30,23 +30,30 @@
     "maturity_tier": 1,
     "primary_season": "NFL (Sep-Jan)",
     "off_season": true,
-    "features_shipped": 8
+    "features_shipped": 12
   },
   "open_tasks": [
-    {
-      "id": "nfl_wave2_memory",
-      "description": "Wire NFL .atlas-bridge memory.json into active session sync — Wave 2",
-      "priority": 2,
-      "created_at": "2026-04-17T00:00:00",
-      "owner": "ATLAS"
-    },
     {
       "id": "nfl_skills_gap",
       "description": "NFL Dashboard has 0 SKILL.md files — port from NCAA or create net-new for off-season",
       "priority": 3,
       "created_at": "2026-04-17T00:00:00",
       "owner": "Andy"
+    },
+    {
+      "id": "yahoo_approval_followup",
+      "description": "Once Yahoo Fantasy API access is approved: run yahoo-adp-ingest.js live, yahoo-league-settings.js, extend it to capture IDP/team-DEF scoring weights (F-26b)",
+      "priority": 2,
+      "created_at": "2026-07-26T00:00:00",
+      "owner": "ATLAS"
     }
   ],
-  "session_log": []
+  "session_log": [
+    {
+      "sessions": "S302-S308",
+      "date": "2026-07-26",
+      "summary": "F-29 Official Picks tab, F-25 Injury Center, F-27 UI QC pass + F-27b fix (Dashboard game-time bug), F-26 Fantasy Value Board + root-caused/fixed a 0-match join bug (Supabase 1000-row cap) that had silently broken it since it was first built.",
+      "head": "d5a3e0a"
+    }
+  ]
 }
