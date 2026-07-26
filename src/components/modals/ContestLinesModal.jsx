@@ -1,29 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { ListFilter, X, RefreshCw, DownloadCloud, Activity, Save } from 'lucide-react';
+import { ListFilter, X, Activity, Save } from 'lucide-react';
 
 export default function ContestLinesModal({ isOpen, onClose, games, onUpdateContestLines }) {
   const [lines, setLines] = useState({});
-  const [isUpdating, setIsUpdating] = useState(false);
 
   // Initialize with existing contest lines
-  useEffect(() => { 
-      if(isOpen) { 
-          const init = {}; 
-          games.forEach(g => init[g.id] = g.contestSpread || ''); 
-          setLines(init); 
-      } 
+  useEffect(() => {
+      if(isOpen) {
+          const init = {};
+          games.forEach(g => init[g.id] = g.contestSpread || '');
+          setLines(init);
+      }
   }, [isOpen, games]);
 
   if(!isOpen) return null;
-
-  // Placeholder for Official Line Fetching
-  const handleLoadOfficial = () => { 
-      setIsUpdating(true); 
-      setTimeout(() => { 
-          alert("Official Contest Lines for this week are not yet published via API. Please input manually or Sync Live Odds.");
-          setIsUpdating(false); 
-      }, 800); 
-  };
 
   // Syncs Live Spreads into the Contest Fields
   const handleSyncLive = () => { 
@@ -50,15 +40,12 @@ export default function ContestLinesModal({ isOpen, onClose, games, onUpdateCont
         </div>
 
         {/* TOOLBAR */}
-        <div className="p-3 bg-slate-900 border-b border-slate-800 flex gap-3 justify-center">
-            <button onClick={handleLoadOfficial} disabled={isUpdating} className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold rounded-lg border border-slate-600 flex items-center gap-2 transition-all">
-                {isUpdating ? <RefreshCw className="animate-spin" size={14}/> : <DownloadCloud size={14}/>} 
-                Fetch Official Lines
-            </button>
+        <div className="p-3 bg-slate-900 border-b border-slate-800 flex items-center gap-3 justify-center">
             <button onClick={handleSyncLive} className="px-4 py-2 bg-emerald-900/30 hover:bg-emerald-900/50 text-emerald-400 text-xs font-bold rounded-lg border border-emerald-500/30 flex items-center gap-2 transition-all">
-                <Activity size={14}/> 
+                <Activity size={14}/>
                 Sync Live Odds
             </button>
+            <span className="text-[11px] text-slate-500">Official contest lines aren't available via API &mdash; enter manually below or sync live spreads.</span>
         </div>
 
         {/* GRID */}

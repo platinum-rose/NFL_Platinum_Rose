@@ -1,5 +1,6 @@
 import React from 'react';
 import { X, Activity, TrendingUp, Users, AlertTriangle, Zap, CloudRain, Thermometer } from 'lucide-react';
+import { getInjuryStatusStyle } from '../../lib/injuries';
 
 export default function PulseModal({ isOpen, onClose, games = [] }) {
   if (!isOpen) return null;
@@ -10,8 +11,21 @@ export default function PulseModal({ isOpen, onClose, games = [] }) {
       const weather = [];   // Bad Weather Games
       const sharps = [];    // Money > Ticket discrepancies
       const publicFade = []; // Extreme Public plays to fade
+      const criticalInjuries = []; // OUT/critical-impact players (F-27d)
 
       games.forEach(g => {
+          // CRITICAL INJURY CHECK — reuses the same injuries.home/visitor
+          // shape App.jsx already merges onto each game for MatchupCard.
+          const collectCritical = (list, teamAbbrev) => {
+              (list || []).forEach(inj => {
+                  if (inj.impact === 'critical' || inj.status === 'OUT') {
+                      criticalInjuries.push({ ...inj, team: teamAbbrev });
+                  }
+              });
+          };
+          collectCritical(g.injuries?.home, g.home);
+          collectCritical(g.injuries?.visitor, g.visitor);
+
           // WEATHER CHECK (Mocking detection based on potential strings)
           // Ideally, 'game.weather' comes from your API. We search for keywords.
           const w = (g.weather || "").toLowerCase();
@@ -46,10 +60,13 @@ export default function PulseModal({ isOpen, onClose, games = [] }) {
           if (vTix > 75) publicFade.push({ team: g.visitor, pct: vTix });
       });
 
-      return { rlm, weather, sharps, publicFade };
+      // Worst-first: OUT before questionable-critical, then alphabetical by team
+      criticalInjuries.sort((a, b) => (a.status === 'OUT' ? 0 : 1) - (b.status === 'OUT' ? 0 : 1));
+
+      return { rlm, weather, sharps, publicFade, criticalInjuries };
   };
 
-  const { rlm, weather, sharps, publicFade } = getInsights();
+  const { rlm, weather, sharps, publicFade, criticalInjuries } = getInsights();
 
   return (
     <div className="fixed inset-0 z-[80] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-in fade-in duration-200">
@@ -135,14 +152,33 @@ export default function PulseModal({ isOpen, onClose, games = [] }) {
                     </ul>
                 )}
                 
-                {/* INJURY / NEWS PLACEHOLDER (Future Feature) */}
+                {/* CRITICAL INJURIES — wired up via F-25's injuries.home/visitor (F-27d) */}
                 <div className="mt-8 pt-4 border-t border-slate-800">
                     <h3 className="text-slate-500 font-bold flex items-center gap-2 mb-2 uppercase tracking-wider text-[10px]">
                         <AlertTriangle size={12} /> Critical Injuries
                     </h3>
-                    <div className="text-xs text-slate-600 bg-slate-900/50 p-3 rounded border border-slate-800/50 italic">
-                        No critical tags loaded from API.
-                    </div>
+                    {criticalInjuries.length === 0 ? (
+                        <div className="text-xs text-slate-600 bg-slate-900/50 p-3 rounded border border-slate-800/50 italic">
+                            No OUT or critical-impact tags this slate.
+                        </div>
+                    ) : (
+                        <ul className="space-y-2">
+                            {criticalInjuries.slice(0, 8).map((inj, i) => (
+                                <li key={`${inj.team}-${inj.name}-${i}`} className="flex justify-between items-center text-xs bg-slate-900/50 p-2.5 rounded border border-slate-800/50">
+                                    <div className="min-w-0">
+                                        <span className="text-white font-bold">{inj.name}</span>
+                                        <span className="text-slate-500 ml-1">{inj.team} &middot; {inj.position}</span>
+                                    </div>
+                                    <span
+                                        className="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold ml-2"
+                                        style={{ backgroundColor: `${getInjuryStatusStyle(inj.status).color}33`, color: getInjuryStatusStyle(inj.status).color }}
+                                    >
+                                        {inj.status}
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
                 </div>
             </div>
 

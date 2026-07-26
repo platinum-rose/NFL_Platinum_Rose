@@ -1,12 +1,12 @@
 // File: src/components/dashboard/MatchupCard.jsx
-import React, { useState, useRef, useEffect } from 'react';
-import { 
-  TrendingUp, Activity, Trophy, ExternalLink, List, Calculator, Cloud, 
-  Sun, Umbrella, Snowflake, Wind, ChevronRight, X, Thermometer, Split, 
+import React, { useState, useRef, useEffect, useMemo } from 'react';
+import {
+  TrendingUp, Activity, Trophy, ExternalLink, List, Calculator, Cloud,
+  Sun, Umbrella, Snowflake, Wind, ChevronRight, X, Thermometer, Split,
   User, CheckCircle, AlertTriangle, DollarSign
 } from 'lucide-react';
 import { InjurySummary, InjuryImpactIcon } from '../ui/InjuryBadge';
-import { getTopInjuries } from '../../lib/injuries';
+import { getTopInjuries, getInjuryDataSourceState } from '../../lib/injuries';
 import { TEAM_LOGOS } from '../../lib/teams';
 
 const clean = (val) => parseFloat(String(val).replace(/[^0-9.]/g, '')) || 0;
@@ -23,6 +23,12 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
   const formatLine = (val) => { if(!val && val !== 0) return '-'; return val > 0 ? `+${val}` : val; };
   const formatGameTime = (dateStr) => { if (!dateStr) return 'TBD'; const date = new Date(dateStr); if (isNaN(date.getTime())) return 'TBD'; return new Intl.DateTimeFormat('en-US', { timeZone: 'America/Los_Angeles', weekday: 'long', hour: 'numeric', minute: '2-digit', }).format(date); };
   const isSelected = (type, side) => { const betId = `${game.id}-${type}-${side}-std`; return myBets.some(b => b.uniqueKey === betId); };
+
+  // F-27c — flag when a team's injury badges came from the mock fallback
+  // (ESPN feed unavailable for that team) instead of a live report.
+  const injurySourceState = useMemo(() => getInjuryDataSourceState(), [game.injuries]); // eslint-disable-line react-hooks/exhaustive-deps
+  const visitorInjuryIsMock = injurySourceState.mockTeams.includes(game.visitor);
+  const homeInjuryIsMock = injurySourceState.mockTeams.includes(game.home);
 
   const WeatherDisplay = () => {
       const [weather, setWeather] = useState(game.weather && game.weather !== 'Open Field' ? game.weather : null);
@@ -322,13 +328,20 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
                 <div className="font-black text-lg text-white leading-none tracking-tight">{game.visitor}</div>
                 <div className="text-[10px] text-slate-500 font-mono mt-1">{game.visitorRecord || '(0-0)'}</div>
                 {/* Injury Summary */}
-                <div className="mt-1">
-                    <InjurySummary 
+                <div className="mt-1 flex items-center justify-center gap-1">
+                    <InjurySummary
                         injuries={getTopInjuries(game.injuries?.visitor || [], 2)}
                         teamAbbrev={game.visitor}
                         maxDisplay={2}
                         onClick={onShowInjuries}
                     />
+                    {visitorInjuryIsMock && (
+                        <AlertTriangle
+                            size={10}
+                            className="text-amber-400 shrink-0"
+                            title="Simulated injury data — ESPN's live feed was unavailable for this team"
+                        />
+                    )}
                 </div>
             </div>
             <button onClick={() => onPlaceBet(game.id, 'moneyline', 'visitor', game.visitor_ml)} className={`mt-1 px-3 py-1 rounded-full text-[10px] transition-all font-bold border ${isSelected('moneyline', 'visitor') ? 'bg-emerald-900/20 text-emerald-300 border-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.5)]' : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:text-white'}`}>
@@ -364,13 +377,20 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
                 <div className="font-black text-lg text-white leading-none tracking-tight">{game.home}</div>
                 <div className="text-[10px] text-slate-500 font-mono mt-1">{game.homeRecord || '(0-0)'}</div>
                 {/* Injury Summary */}
-                <div className="mt-1">
-                    <InjurySummary 
+                <div className="mt-1 flex items-center justify-center gap-1">
+                    <InjurySummary
                         injuries={getTopInjuries(game.injuries?.home || [], 2)}
                         teamAbbrev={game.home}
                         maxDisplay={2}
                         onClick={onShowInjuries}
                     />
+                    {homeInjuryIsMock && (
+                        <AlertTriangle
+                            size={10}
+                            className="text-amber-400 shrink-0"
+                            title="Simulated injury data — ESPN's live feed was unavailable for this team"
+                        />
+                    )}
                 </div>
             </div>
             <button onClick={() => onPlaceBet(game.id, 'moneyline', 'home', game.home_ml)} className={`mt-1 px-3 py-1 rounded-full text-[10px] transition-all font-bold border ${isSelected('moneyline', 'home') ? 'bg-emerald-900/20 text-emerald-300 border-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.5)]' : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:text-white'}`}>

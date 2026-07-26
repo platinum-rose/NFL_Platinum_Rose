@@ -1,16 +1,22 @@
 // src/components/modals/InjuryReportModal.jsx
 // Detailed injury report modal
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { X, AlertTriangle, CheckCircle, Clock } from 'lucide-react';
 import { InjuryBadge, InjuryImpactIcon } from '../ui/InjuryBadge';
-import { getInjuryStatusStyle, getTeamImpactSummary } from '../../lib/injuries';
+import { getInjuryStatusStyle, getTeamImpactSummary, getInjuryDataSourceState } from '../../lib/injuries';
 
 export default function InjuryReportModal({ isOpen, game, injuries, onClose }) {
+    // F-27c — flag whether either team's data came from the mock fallback
+    // (must run before the early return to keep hook order stable).
+    const sourceState = useMemo(() => getInjuryDataSourceState(), [injuries]); // eslint-disable-line react-hooks/exhaustive-deps
+
     if (!isOpen || !game) return null;
 
     const homeInjuries = injuries[game.home] || [];
     const visitorInjuries = injuries[game.visitor] || [];
+    const homeIsMock = sourceState.mockTeams.includes(game.home);
+    const visitorIsMock = sourceState.mockTeams.includes(game.visitor);
     
     const renderTeamInjuries = (teamInjuries, teamName, teamAbbrev) => {
         if (teamInjuries.length === 0) {
@@ -101,6 +107,11 @@ export default function InjuryReportModal({ isOpen, game, injuries, onClose }) {
                                 <h4 className="text-lg font-bold text-white flex items-center gap-2">
                                     {game.visitor}
                                     <span className="text-slate-400 text-sm">({visitorInjuries.length} injuries)</span>
+                                    {visitorIsMock && (
+                                        <span title="Simulated data — ESPN's live feed was unavailable for this team" className="flex items-center gap-1 text-[10px] font-bold text-amber-400 bg-amber-900/30 border border-amber-700/50 rounded-full px-2 py-0.5">
+                                            <AlertTriangle size={10} /> SIMULATED
+                                        </span>
+                                    )}
                                 </h4>
                                 <div className={`px-3 py-1 rounded-full text-xs font-medium ${
                                     visitorImpact.level === 'critical' ? 'bg-red-900 text-red-300' :
@@ -120,6 +131,11 @@ export default function InjuryReportModal({ isOpen, game, injuries, onClose }) {
                                 <h4 className="text-lg font-bold text-white flex items-center gap-2">
                                     {game.home}
                                     <span className="text-slate-400 text-sm">({homeInjuries.length} injuries)</span>
+                                    {homeIsMock && (
+                                        <span title="Simulated data — ESPN's live feed was unavailable for this team" className="flex items-center gap-1 text-[10px] font-bold text-amber-400 bg-amber-900/30 border border-amber-700/50 rounded-full px-2 py-0.5">
+                                            <AlertTriangle size={10} /> SIMULATED
+                                        </span>
+                                    )}
                                 </h4>
                                 <div className={`px-3 py-1 rounded-full text-xs font-medium ${
                                     homeImpact.level === 'critical' ? 'bg-red-900 text-red-300' :

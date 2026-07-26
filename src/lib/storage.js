@@ -115,6 +115,12 @@ export const PR_STORAGE_KEYS = {
     permanence: 'ephemeral',
     description: 'Odds API quota state (remaining requests + month)',
   },
+  // Injury data source (F-27c) ————————————————————————————————————————————
+  INJURY_SOURCE: {
+    key: 'nfl_injury_source_v1',
+    permanence: 'ephemeral',
+    description: 'Live/mock-fallback state from the last injury fetch (per-team)',
+  },
   // Sync dirty queue —————————————————————————————————————————————————————
   SYNC_QUEUE: {
     key: 'nfl_sync_dirty_queue_v1',

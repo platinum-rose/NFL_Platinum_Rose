@@ -3,6 +3,7 @@
 
 import logger from './logger';
 import { normalizeTeam } from './teams.js';
+import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS } from './storage.js';
 
 // Try multiple ESPN API endpoints for injury data
 const ESPN_INJURY_APIS = [
@@ -57,13 +58,15 @@ const MOCK_INJURIES = {
 };
 
 /**
- * Fetch injury data for a specific team
+ * Fetch injury data for a specific team, plus whether it came from the
+ * live ESPN feed or the mock fallback (F-27c). Internal — callers that
+ * only need the array should use the public `fetchTeamInjuries` below.
  */
-export const fetchTeamInjuries = async (teamAbbrev) => {
+const _fetchTeamInjuriesWithSource = async (teamAbbrev) => {
     const teamId = ESPN_TEAM_IDS[teamAbbrev?.toUpperCase()];
     if (!teamId) {
         logger.warn(`⚠️ No ESPN team ID for: ${teamAbbrev}`);
-        return MOCK_INJURIES[teamAbbrev] || [];
+        return { injuries: MOCK_INJURIES[teamAbbrev] || [], isMock: true };
     }
 
     // Try multiple API endpoints until one works
@@ -71,28 +74,60 @@ export const fetchTeamInjuries = async (teamAbbrev) => {
         const apiUrl = ESPN_INJURY_APIS[i];
         try {
             const url = apiUrl.replace('{TEAM_ID}', teamId);
-            
+
             const response = await fetch(url);
-            
+
             if (!response.ok) {
                 if (i === 0) logger.log(`🏥 ESPN API ${response.status} for ${teamAbbrev}, trying alternatives...`);
                 continue; // Try next API
             }
-            
+
             const data = await response.json();
             const injuries = normalizeInjuries(data.items || data.injuries || []);
             logger.log(`✅ Live injuries for ${teamAbbrev}: ${injuries.length} players`);
-            return injuries;
-            
+            return { injuries, isMock: false };
+
         } catch (error) {
             if (i === 0) logger.log(`🏥 ESPN API error for ${teamAbbrev}, trying alternatives...`);
             continue; // Try next API
         }
     }
-    
+
     // All APIs failed, use mock data
     logger.log(`🏥 Using mock injuries for ${teamAbbrev}: ${(MOCK_INJURIES[teamAbbrev] || []).length} players`);
-    return MOCK_INJURIES[teamAbbrev] || [];
+    return { injuries: MOCK_INJURIES[teamAbbrev] || [], isMock: true };
+};
+
+/**
+ * Fetch injury data for a specific team
+ */
+export const fetchTeamInjuries = async (teamAbbrev) => {
+    const { injuries } = await _fetchTeamInjuriesWithSource(teamAbbrev);
+    return injuries;
+};
+
+/**
+ * Persist which teams fell back to mock data on the last `fetchAllInjuries`
+ * run, so the UI can warn when injury data isn't live (F-27c — mirrors the
+ * isMock pattern in enhancedOddsApi.js's getOddsQuotaState).
+ */
+const _setInjurySourceState = (mockTeams) => {
+    saveToStorage(PR_STORAGE_KEYS.INJURY_SOURCE.key, {
+        mockTeams,
+        fetchedAt: Date.now(),
+    });
+};
+
+/**
+ * Returns { mockTeams: string[], isMock: boolean, fetchedAt: number|null }
+ * describing whether the last injury fetch fell back to mock/stale data,
+ * and for which teams specifically.
+ */
+export const getInjuryDataSourceState = () => {
+    const state = loadFromStorage(PR_STORAGE_KEYS.INJURY_SOURCE.key, null);
+    if (!state) return { mockTeams: [], isMock: false, fetchedAt: null };
+    const mockTeams = state.mockTeams || [];
+    return { mockTeams, isMock: mockTeams.length > 0, fetchedAt: state.fetchedAt || null };
 };
 
 /**
@@ -100,29 +135,32 @@ export const fetchTeamInjuries = async (teamAbbrev) => {
  */
 export const fetchAllInjuries = async (schedule = []) => {
     logger.log("🏥 Fetching injury reports for all teams...");
-    
+
     const teams = new Set();
     schedule.forEach(game => {
         if (game.home) teams.add(game.home);
         if (game.visitor) teams.add(game.visitor);
     });
-    
+
     const injuryPromises = Array.from(teams).map(async team => {
-        const injuries = await fetchTeamInjuries(team);
-        return { team, injuries };
+        const { injuries, isMock } = await _fetchTeamInjuriesWithSource(team);
+        return { team, injuries, isMock };
     });
-    
+
     const results = await Promise.all(injuryPromises);
-    
+
     // Convert to object format: { "SEA": [...], "NE": [...] }
     const injuryData = {};
-    results.forEach(({ team, injuries }) => {
+    const mockTeams = [];
+    results.forEach(({ team, injuries, isMock }) => {
         injuryData[team] = injuries;
+        if (isMock) mockTeams.push(team);
     });
-    
+    _setInjurySourceState(mockTeams);
+
     const totalInjuries = Object.values(injuryData).reduce((sum, arr) => sum + arr.length, 0);
-    logger.log(`✅ Injury reports loaded: ${totalInjuries} injuries across ${teams.size} teams`);
-    
+    logger.log(`✅ Injury reports loaded: ${totalInjuries} injuries across ${teams.size} teams (${mockTeams.length} mock fallback)`);
+
     return injuryData;
 };
 

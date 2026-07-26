@@ -11,9 +11,9 @@
 // no new data source, no new fetch.
 
 import React, { useMemo, useState } from 'react';
-import { HeartPulse, Search, CheckCircle, Filter } from 'lucide-react';
+import { HeartPulse, Search, CheckCircle, Filter, AlertTriangle } from 'lucide-react';
 import { InjuryBadge, InjuryImpactIcon } from '../ui/InjuryBadge';
-import { getTeamImpactSummary } from '../../lib/injuries';
+import { getTeamImpactSummary, getInjuryDataSourceState } from '../../lib/injuries';
 import { NFL_TEAMS } from '../../lib/teams';
 
 const STATUS_FILTERS = ['ALL', 'OUT', 'DOUBTFUL', 'QUESTIONABLE', 'PROBABLE'];
@@ -26,7 +26,7 @@ const IMPACT_BADGE_CLASS = {
   none: 'bg-green-900 text-green-300 border-green-800',
 };
 
-function TeamInjuryCard({ team, injuries }) {
+function TeamInjuryCard({ team, injuries, isMock }) {
   const impact = getTeamImpactSummary(injuries);
   const sorted = [...injuries].sort((a, b) => {
     const impactPriority = { critical: 1, high: 2, medium: 3, low: 4 };
@@ -45,6 +45,11 @@ function TeamInjuryCard({ team, injuries }) {
               <img src={team.logo} alt={team.abbreviation} className="w-6 h-6 object-contain" loading="lazy" />
             )}
             <span className="font-bold text-white truncate">{team.fullName || team.name}</span>
+            {isMock && (
+              <span title="Simulated data — ESPN's live feed was unavailable for this team" className="shrink-0 text-amber-400">
+                <AlertTriangle size={12} />
+              </span>
+            )}
           </div>
           <div className="text-[11px] text-slate-500">{team.division}</div>
         </div>
@@ -83,6 +88,10 @@ export default function InjuryCenter({ injuries = {} }) {
 
   const hasData = Object.keys(injuries).length > 0;
 
+  // F-27c — surface whether the last fetch fell back to mock data for any
+  // teams (ESPN feed failure), instead of silently showing stale/fake rows.
+  const sourceState = useMemo(() => getInjuryDataSourceState(), [injuries]); // eslint-disable-line react-hooks/exhaustive-deps
+
   const leagueStats = useMemo(() => {
     const stats = { OUT: 0, DOUBTFUL: 0, QUESTIONABLE: 0, PROBABLE: 0, teamsAffected: 0 };
     Object.values(injuries).forEach((list) => {
@@ -109,7 +118,7 @@ export default function InjuryCenter({ injuries = {} }) {
             abbrev.toLowerCase().includes(q);
           return matchesStatus && matchesSearch;
         });
-        return { team, injuries: filtered, rawCount: raw.length };
+        return { team, injuries: filtered, rawCount: raw.length, isMock: sourceState.mockTeams.includes(abbrev) };
       })
       .filter((row) => {
         if (q && !(
@@ -129,7 +138,7 @@ export default function InjuryCenter({ injuries = {} }) {
         if (rankA !== rankB) return rankA - rankB;
         return (a.team.fullName || '').localeCompare(b.team.fullName || '');
       });
-  }, [injuries, search, statusFilter, hideClear]);
+  }, [injuries, search, statusFilter, hideClear, sourceState]);
 
   return (
     <div className="animate-in fade-in zoom-in duration-300 space-y-5 pb-8">
@@ -145,6 +154,17 @@ export default function InjuryCenter({ injuries = {} }) {
           </div>
         </div>
       </div>
+
+      {/* Mock-fallback warning — shown whenever the last fetch used mock data for any teams (F-27c) */}
+      {sourceState.isMock && (
+        <div className="flex items-center gap-3 px-4 py-3 bg-yellow-900/40 border border-yellow-600/50 rounded-lg text-yellow-300 text-sm">
+          <AlertTriangle size={16} className="shrink-0" />
+          <span>
+            Simulated data for {sourceState.mockTeams.length} team{sourceState.mockTeams.length === 1 ? '' : 's'} &mdash;
+            ESPN's live feed was unavailable: <strong>{sourceState.mockTeams.join(', ')}</strong>. These are <strong>not live</strong> reports.
+          </span>
+        </div>
+      )}
 
       {/* Stats bar */}
       <div className="flex flex-wrap gap-2.5">
@@ -221,7 +241,7 @@ export default function InjuryCenter({ injuries = {} }) {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {teamRows.map((row) => (
-            <TeamInjuryCard key={row.team.abbreviation} team={row.team} injuries={row.injuries} />
+            <TeamInjuryCard key={row.team.abbreviation} team={row.team} injuries={row.injuries} isMock={row.isMock} />
           ))}
         </div>
       )}
