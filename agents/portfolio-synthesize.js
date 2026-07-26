@@ -60,6 +60,7 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { randomUUID } from 'node:crypto';
 import { NFL_TEAMS, normalizeTeam } from '../src/lib/teams.js';
+import { validateBoardBatch } from './lib/board-validate.js';
 import 'dotenv/config';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -2015,6 +2016,7 @@ function badgeKeyHTML() {
     ['Pick Type', 'The shape of the bet: favorite price, value bet, longshot, or hedge.'],
     ['Edge Type', 'Why it is here: math edge is code-supported price value; thesis-driven means football/portfolio logic carries the case.'],
     ['Needs Review', 'The report is asking for human judgment before action, usually because the price is expensive, evidence conflicts, or portfolio correlation matters.'],
+    ['Board Validator Flag', 'A mechanical, code-owned check failed (bettable book, thin-market n_books>=3 kill switch, sim-price-only market policy, or a dossier-edge cross-check) — kept visible per annotate-and-keep policy, not auto-dropped. Treat as a hard stop-and-review, not a stylistic warning.'],
     ['Stake Tier', 'Suggested sizing bucket only. Speculative means small/coverage exposure, not a core position.'],
     ['Fair / Edge', 'Fair is the model probability. Edge is expected value at the shown quote using that fair probability.'],
     ['Simulation', 'Offline code forecast used as validation: probability, uncertainty range, and lower-bound edge when available.'],
@@ -2230,8 +2232,8 @@ function recCard(r) {
   const thresholdState = r.bet_threshold ? ` Threshold: ${r.bet_threshold}.` : '';
   const fair = percent(r.model_fair_prob) || r.model_fair_prob;
   const tags = reportTags(r).map((tag) => badge('tag', tag, `Report tag: ${tag}.`)).join(' ');
-  return `<div class="rec ${esc(r.edge_type || '')}">
-    <div class="rh"><div class="pick-main"><b>${esc(r.selection)}</b> ${badge('mk', labelMarket(r.market), `Market: ${labelMarket(r.market)}.`)} ${badge('typ', labelType(r.type), `Price type: ${labelType(r.type)}.`)} ${badge('et', labelEdgeType(r.edge_type), `Edge type: ${labelEdgeType(r.edge_type)}.`)}${tags ? ` ${tags}` : ''}${r.knowledge_based ? ` ${badge('kb', 'Knowledge-Based', 'Uses external football knowledge and needs extra freshness review.')}` : ''}${r.needs_human_review ? ` ${badge('hr', 'Needs Review', 'Human review is required because this pick is expensive, conflicted, or portfolio-sensitive.')}` : ''}</div>
+  return `<div class="rec ${esc(r.edge_type || '')}${r.validation?.length ? ' has-validation' : ''}">
+    <div class="rh"><div class="pick-main"><b>${esc(r.selection)}</b> ${badge('mk', labelMarket(r.market), `Market: ${labelMarket(r.market)}.`)} ${badge('typ', labelType(r.type), `Price type: ${labelType(r.type)}.`)} ${badge('et', labelEdgeType(r.edge_type), `Edge type: ${labelEdgeType(r.edge_type)}.`)}${tags ? ` ${tags}` : ''}${r.knowledge_based ? ` ${badge('kb', 'Knowledge-Based', 'Uses external football knowledge and needs extra freshness review.')}` : ''}${r.needs_human_review ? ` ${badge('hr', 'Needs Review', 'Human review is required because this pick is expensive, conflicted, or portfolio-sensitive.')}` : ''}${r.validation?.length ? ` ${badge('bv', 'Board Validator Flag', 'Failed one or more mechanical checks (bettable book, thin-market kill switch, or dossier-edge cross-check). Kept visible per annotate-and-keep policy — review before betting.')}` : ''}</div>
       <div class="quote-cluster"><span class="pr" title="${attr(`Best verified placeable quote in the dossier.${thresholdState}`)}">${esc(r.price)} @ ${esc(String(r.book || '').toUpperCase())}</span>
       ${badge(`tier ${esc(r.stake_tier)}`, labelStakeTier(r.stake_tier), `Stake tier: ${labelStakeTier(r.stake_tier)}. This is a sizing bucket, not an instruction to bet.`)}
       <span class="conf" title="${attr('Analyst confidence score on a 0-100 scale.')}">Confidence ${esc(r.confidence)}</span></div></div>
@@ -2241,6 +2243,7 @@ function recCard(r) {
     ${r.football_view ? `<div class="fv"><b>Football:</b> ${esc(r.football_view)}</div>` : ''}
     <div class="th">${esc(r.thesis)}</div>
     <div class="dis">⚠ ${esc(r.disconfirming_factor)}</div>
+    ${r.validation?.length ? `<div class="bv-flag">🚫 Board validator: ${r.validation.map(esc).join(' &middot; ')}</div>` : ''}
     ${r.skeptic_note ? `<div class="sk">🕵 Skeptic (${esc(r.skeptic_verdict)}): ${esc(r.skeptic_note)}</div>` : ''}
     ${r.risk_note ? `<div class="rn">⚖ Risk: ${esc(r.risk_note)}</div>` : ''}
     ${r.evidence_resolved?.length ? `<div class="ev">🔗 ${r.evidence_resolved.map((e) => `${esc(e.id)}${e.resolved ? `=${esc(JSON.stringify(e.value))}` : ' <span class="unresolved">(unresolved)</span>'}`).join(', ')}</div>` : (r.evidence_ids?.length ? `<div class="ev">🔗 ${esc(r.evidence_ids.join(', '))} <span class="unresolved">(unresolved — no dossier row match)</span></div>` : '')}
@@ -2337,8 +2340,11 @@ function renderHTML(ranked, passed, killed, byModel, meta, ladders = [], baskets
  .rec{border:1px solid #e5e7eb;border-left-width:4px;border-radius:8px;padding:10px 12px;margin:10px 0;border-left-color:#94a3b8}
  .rec.math{border-left-color:#2563eb} .rec.thesis{border-left-color:#16a34a} .rec.stale_price{border-left-color:#f59e0b}
  .rec.hedge{border-left-color:#8b5cf6} .rec.longshot{border-left-color:#dc2626}
+ .rec.has-validation{border-color:#dc2626;border-left-color:#dc2626}
+ .bv{background:#fee2e2;color:#991b1b;border:1px solid #fecaca}
+ .bv-flag{color:#991b1b;background:#fef2f2;border:1px solid #fecaca;border-radius:4px;padding:4px 7px;font-size:12px;margin:4px 0;font-weight:600}
  .rh{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}.pick-main,.quote-cluster{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.quote-cluster{margin-left:auto}
- .mk,.typ,.et,.kb,.hr,.tier,.tag,.sq{font-size:11px;padding:2px 7px;border-radius:999px;white-space:nowrap}
+ .mk,.typ,.et,.kb,.hr,.bv,.tier,.tag,.sq{font-size:11px;padding:2px 7px;border-radius:999px;white-space:nowrap}
  .mk{background:#eef2ff;color:#3730a3}.typ{background:#ecfeff;color:#155e75}.et{background:#f1f5f9;color:#475569}.kb{background:#fef3c7;color:#92400e}
  .tag{background:#f5f3ff;color:#6d28d9}
  .sq{display:inline-flex;margin:2px 0;background:#f1f5f9;color:#334155;border:1px solid #cbd5e1}
@@ -2464,7 +2470,7 @@ function teamSectionsMD(recs = [], line) {
 }
 function renderMD(ranked, passed, killed, byModel, meta, ladders = [], baskets = [], portfolioStrategy = null, watchlistReview = []) {
   const names = modelNames(byModel);
-  const line = (r) => `- **${r.selection}** · ${labelMarket(r.market)} · ${labelType(r.type)} · ${labelEdgeType(r.edge_type)}${r.needs_human_review ? ' · Needs Review' : ''}\n  - Quote: ${r.price}@${r.book} · ${labelStakeTier(r.stake_tier)} · Confidence ${r.confidence}\n  - Fair probability: ${percent(r.model_fair_prob) || r.model_fair_prob} · Estimated edge: ${r.edge_pct}%${r.agreement ? ` · Models: ${r.agreement.count} of ${r.agreement.of}` : ''}${r.bet_threshold ? ` · Play only at: ${r.bet_threshold}` : ''}\n  - Source quality: ${sourceQuality(r).label}\n${r.market_view ? `  - Market: ${r.market_view}\n` : ''}${r.football_view ? `  - Football: ${r.football_view}\n` : ''}  - ${r.thesis}\n  - ⚠ ${r.disconfirming_factor}${r.skeptic_note ? `\n  - 🕵 Skeptic (${r.skeptic_verdict}): ${r.skeptic_note}` : ''}${r.risk_note ? `\n  - ⚖ Risk: ${r.risk_note}` : ''}${r.evidence_resolved?.length ? `\n  - 🔗 ${r.evidence_resolved.map((e) => `${e.id}${e.resolved ? `=${JSON.stringify(e.value)}` : ' (unresolved)'}`).join(', ')}` : (r.evidence_ids?.length ? `\n  - 🔗 ${r.evidence_ids.join(', ')} (unresolved — no dossier row match)` : '')}${r.sources?.length ? `\n  - 📣 sources: ${r.sources.join(', ')}` : ''}\n  - timing: **${r.timing?.action}**${r.timing?.trigger ? ` — ${r.timing.trigger}` : ''}${r.timing?.expected_move ? ` (${r.timing.expected_move})` : ''}`;
+  const line = (r) => `- **${r.selection}** · ${labelMarket(r.market)} · ${labelType(r.type)} · ${labelEdgeType(r.edge_type)}${r.needs_human_review ? ' · Needs Review' : ''}${r.validation?.length ? ' · 🚫 BOARD VALIDATOR FLAG' : ''}\n  - Quote: ${r.price}@${r.book} · ${labelStakeTier(r.stake_tier)} · Confidence ${r.confidence}\n  - Fair probability: ${percent(r.model_fair_prob) || r.model_fair_prob} · Estimated edge: ${r.edge_pct}%${r.agreement ? ` · Models: ${r.agreement.count} of ${r.agreement.of}` : ''}${r.bet_threshold ? ` · Play only at: ${r.bet_threshold}` : ''}\n  - Source quality: ${sourceQuality(r).label}\n${r.market_view ? `  - Market: ${r.market_view}\n` : ''}${r.football_view ? `  - Football: ${r.football_view}\n` : ''}  - ${r.thesis}\n  - ⚠ ${r.disconfirming_factor}${r.validation?.length ? `\n  - 🚫 Board validator: ${r.validation.join(' · ')}` : ''}${r.skeptic_note ? `\n  - 🕵 Skeptic (${r.skeptic_verdict}): ${r.skeptic_note}` : ''}${r.risk_note ? `\n  - ⚖ Risk: ${r.risk_note}` : ''}${r.evidence_resolved?.length ? `\n  - 🔗 ${r.evidence_resolved.map((e) => `${e.id}${e.resolved ? `=${JSON.stringify(e.value)}` : ' (unresolved)'}`).join(', ')}` : (r.evidence_ids?.length ? `\n  - 🔗 ${r.evidence_ids.join(', ')} (unresolved — no dossier row match)` : '')}${r.sources?.length ? `\n  - 📣 sources: ${r.sources.join(', ')}` : ''}\n  - timing: **${r.timing?.action}**${r.timing?.trigger ? ` — ${r.timing.trigger}` : ''}${r.timing?.expected_move ? ` (${r.timing.expected_move})` : ''}`;
   const section = (title, list) => {
     const L = [`## ${title} (${list.length})`];
     if (!list.length) L.push('None.');
@@ -2677,6 +2683,17 @@ async function persistRecommendationRuns(meta, trail) {
   final = validated.filter((v) => v.status !== 'invalid').map((v) => v.candidate);
   console.log(`   validator: ${final.length} valid (${validated.filter((v) => v.status === 'flagged').length} flagged for human review), ${invalidated.length} invalidated`);
   passed = [...passed, ...invalidated];
+
+  // Mechanical board validator (F-33, spec-win-dist-and-coherence-sim.md §A.5).
+  // Additive to the strict validation above, not a replacement: annotate-and-
+  // keep (locked decision #3) — stamps `validation` violations onto a
+  // candidate without dropping it, covering checks strict validation doesn't
+  // make (book-is-bettable, n_books>=3 thin-market kill switch, the
+  // superbowl_matchup sim-price-only policy, and an independent dossier-edge
+  // cross-check). Violating recs stay in `final` and render flagged in HTML.
+  final = validateBoardBatch(final, dossier);
+  const boardFlagged = final.filter((c) => c.validation?.length).length;
+  if (boardFlagged) console.log(`   board validator: ${boardFlagged} candidate(s) flagged (kept, annotated) — see 'validation' on each rec`);
 
   // Hedge-basket / parlay-ladder validation (code-owned, same pattern as
   // validateRecommendation above) — resolves every leg against the real
