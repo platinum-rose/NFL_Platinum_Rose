@@ -43,12 +43,13 @@ const Dashboard = ({
     return m;
   }, [stats]);
 
+  // F-27b fix: this used to fabricate commence_time as "right now" for every
+  // game (plus unused status/home_score/visitor_score fields), so every
+  // matchup card displayed the current time instead of the real kickoff.
+  // schedule.json already carries the real kickoff time as `kickoff_utc`.
   const enriched = useMemo(() => schedule.map(game => ({
     ...game,
-    commence_time: new Date().toISOString(),
-    status: 'SCHEDULED',
-    home_score: 0,
-    visitor_score: 0,
+    commence_time: game.kickoff_utc || null,
     homeStats: statsMap.get(game.home) || {},
     visStats:  statsMap.get(game.visitor) || {},
   })), [schedule, statsMap]);
