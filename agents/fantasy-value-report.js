@@ -82,9 +82,17 @@ async function fetchSeasonStats() {
     season = data?.[0]?.season;
     if (!season) throw new Error('no rows in player_season_stats — run agents/player-stats-ingest.js first');
   }
+  // Filter server-side to the positions this report actually uses (QB/RB/WR/TE).
+  // Without this, Supabase's default 1000-row response cap silently truncates
+  // the unfiltered query before it reaches skill positions at all — confirmed
+  // 2026-07-26: the first 1000 rows for season=2025/REG are entirely
+  // C/CB/DB/DE/DL/DT/FB/FS/G/ILB/K/LB (alphabetically before QB), while the
+  // true count for QB/RB/WR/TE alone is 610, comfortably under the cap. This
+  // is why every value-board run through 2026-07-26 showed 0 projections.
   const { data, error } = await sb.from('player_season_stats')
     .select('player_id, player_name, position, team, season, season_type, games, fantasy_points, fantasy_points_ppr, targets, target_share')
-    .eq('season', season).eq('season_type', 'REG');
+    .eq('season', season).eq('season_type', 'REG')
+    .in('position', POSITIONS);
   if (error) throw new Error(`player_season_stats: ${error.message}`);
   return { season, rows: data || [] };
 }
