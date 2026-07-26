@@ -205,4 +205,21 @@ export const getInjuryStatusStyle = (status) => {
     return INJURY_STATUS[status] || INJURY_STATUS['QUESTIONABLE'];
 };
 
+/**
+ * Roll a team's injury list up into a single "how bad is this" summary.
+ * Shared by InjuryReportModal (per-game) and InjuryCenter (league-wide, F-25)
+ * so the two views agree on what counts as critical/high/etc.
+ * `rank` is lower = worse, for sorting teams worst-first.
+ */
+export const getTeamImpactSummary = (teamInjuries = []) => {
+    const criticalCount = teamInjuries.filter(i => i.impact === 'critical').length;
+    const highCount = teamInjuries.filter(i => i.impact === 'high').length;
+
+    if (criticalCount > 0) return { level: 'critical', text: `${criticalCount} Critical`, rank: 0 };
+    if (highCount > 1) return { level: 'high', text: `${highCount} High Impact`, rank: 1 };
+    if (highCount > 0) return { level: 'medium', text: `${highCount} Notable`, rank: 2 };
+    if (teamInjuries.length > 0) return { level: 'low', text: 'Minor', rank: 3 };
+    return { level: 'none', text: 'Clear', rank: 4 };
+};
+
 export { INJURY_STATUS };

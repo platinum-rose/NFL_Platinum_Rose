@@ -4,7 +4,7 @@
 import React from 'react';
 import { X, AlertTriangle, CheckCircle, Clock } from 'lucide-react';
 import { InjuryBadge, InjuryImpactIcon } from '../ui/InjuryBadge';
-import { getInjuryStatusStyle } from '../../lib/injuries';
+import { getInjuryStatusStyle, getTeamImpactSummary } from '../../lib/injuries';
 
 export default function InjuryReportModal({ isOpen, game, injuries, onClose }) {
     if (!isOpen || !game) return null;
@@ -69,18 +69,8 @@ export default function InjuryReportModal({ isOpen, game, injuries, onClose }) {
         );
     };
 
-    const getTotalImpact = (injuries) => {
-        const criticalCount = injuries.filter(i => i.impact === 'critical').length;
-        const highCount = injuries.filter(i => i.impact === 'high').length;
-        
-        if (criticalCount > 0) return { level: 'critical', text: `${criticalCount} Critical` };
-        if (highCount > 1) return { level: 'high', text: `${highCount} High Impact` };
-        if (highCount > 0) return { level: 'medium', text: `${highCount} Notable` };
-        return { level: 'low', text: 'Minor' };
-    };
-
-    const homeImpact = getTotalImpact(homeInjuries);
-    const visitorImpact = getTotalImpact(visitorInjuries);
+    const homeImpact = getTeamImpactSummary(homeInjuries);
+    const visitorImpact = getTeamImpactSummary(visitorInjuries);
 
     return (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
