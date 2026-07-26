@@ -1,5 +1,5 @@
 # Platinum Rose — Task Board (NFL)
-> **Last updated:** 2026-07-26 S306 (HEAD `fb316f2`)
+> **Last updated:** 2026-07-26 S307 (HEAD `57b2d3c`)
 > **Owner:** PM agent is the sole writer of this file.
 
 ---
@@ -50,6 +50,7 @@
 
 | ID | Task | Completed | Notes |
 |----|------|-----------|-------|
+| — | Fantasy value board 0-match join bug root-caused + fixed | 2026-07-26 | Commit `57b2d3c` (S307). Every run since the board was first built (07-16, 07-18) showed 200/200 "no projection" — root cause was two-fold: `player_season_stats` was never seeded in production (fixed, 7963 rows), then `fetchSeasonStats()`'s unfiltered query was silently truncated by Supabase's default 1000-row cap before reaching QB/RB/WR/TE (fixed with `.in('position', POSITIONS)`). Verified: 62 value plays / 42 reaches / 45 no-projection on re-run — first real output this pipeline has ever produced. |
 | F-27b | Dashboard matchup cards show wrong game time | 2026-07-26 | Commit `fb316f2` (S306). `Dashboard.jsx`'s `enriched` memo fabricated `commence_time: new Date().toISOString()` for every game, so `MatchupCard.jsx:308` rendered "right now" as the kickoff time on every card. Fixed to use `schedule.json`'s real `kickoff_utc`. Also dropped the unused `status`/`home_score`/`visitor_score` fields riding alongside it — confirmed nothing downstream read them. |
 | F-27 | UI QC pass | 2026-07-26 | Audit-only per its own scope — no code changes. Findings written up in full at `docs/F27_UI_QC_FINDINGS_2026-07-26.md`. Checked all 17 tabs for dead routes (none — `VALID_TABS`/`Header.jsx`/`App.jsx` render block all agree), empty click handlers/dead links (none found), and swept for `TODO`/`stub`/`placeholder` markers + native `alert`/`confirm` usage. Real findings spun out as F-27b (P1, Dashboard shows wrong game time on every card), F-27c (P2, injury data has no live/mock indicator), F-27d (P2, PulseModal's Critical Injuries section is a dead placeholder), F-27e (P3, ContestLinesModal's official-lines button is a no-op). Also noted: BET-1/PROPS-1 stubs are already tracked (no new action); 46 native `alert()`/`confirm()` calls across 18 files are clunky but not broken (no dedicated task filed — cosmetic). |
 | F-25 | Player Injury UI — dedicated view | 2026-07-25 | Commit `ba00bfe` (S304). Per-game injury UI (MatchupCard badges + InjuryReportModal) was already fully wired -- confirmed by tracing the data path end to end. Built the actual missing piece: `InjuryCenter.jsx` (`?tab=injuries`), a league-wide view of all 32 teams sorted worst-impact-first, with a stats bar, player/team search, status filter chips, and a "hide clear teams" toggle. Extracted the impact-rollup logic into a shared `getTeamImpactSummary()` in `lib/injuries.js` (also fixes a pre-existing cosmetic bug where zero-injury teams were mislabeled "Minor" instead of "Clear"); `InjuryReportModal.jsx` now uses the same helper. No new data source — reuses the existing `useSchedule` injuries fetch. |
