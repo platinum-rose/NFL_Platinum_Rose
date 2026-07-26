@@ -245,6 +245,12 @@ function toHtml(meta, board) {
   await writeFile(`${base}.json`, JSON.stringify({ meta, board }, null, 2));
   await writeFile(`${base}.md`, toMarkdown(meta, board));
   await writeFile(`${base}.html`, toHtml(meta, board));
+  // Public copy so the Fantasy tab can fetch it via LOCAL_DATA.FANTASY_VALUE_BOARD
+  // (src/lib/apiConfig.js) — same pattern as public/schedule.json and
+  // public/youtube-futures-agent-intel-summary.json.
+  const OUT_PUBLIC = path.join(ROOT, 'public', 'fantasy-value-board.json');
+  await writeFile(OUT_PUBLIC, JSON.stringify({ meta, board }, null, 2));
   console.log(`✅ ${base}.md / .html / .json`);
+  console.log(`   Wrote public copy: ${OUT_PUBLIC}`);
   console.log(`   ${nValues} value plays · ${board.filter((b) => b.tier === 'reach').length} reaches · ${board.filter((b) => b.tier === 'no_projection').length} no-projection`);
 })().catch((e) => { console.error('✖', e.message); process.exitCode = 1; });

@@ -59,6 +59,10 @@ export const LOCAL_DATA = {
   // Synced to public/ by scripts/build-youtube-futures-agent-intel-summary.js.
   // Read-only research context — never a production pick source.
   YOUTUBE_FUTURES_INTEL: './youtube-futures-agent-intel-summary.json',
+  // F-26: Phase A fantasy value-vs-ADP board. Synced to public/ by
+  // agents/fantasy-value-report.js. Decision support for draft prep —
+  // not a live recommendation feed; regenerate manually to refresh.
+  FANTASY_VALUE_BOARD: './fantasy-value-board.json',
 };
 // --- Supabase ---
 export const SUPABASE = {

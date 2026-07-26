@@ -53,6 +53,7 @@ const DFSOptimizer = lazy(() => import('./components/dfs/DFSOptimizer'));
 const PodcastDigestTab = lazy(() => import('./components/podcasts/PodcastDigestTab'));
 const OfficialPicksTab = lazy(() => import('./components/official-picks/OfficialPicksTab'));
 const InjuryCenter = lazy(() => import('./components/injuries/InjuryCenter'));
+const FantasyValueBoard = lazy(() => import('./components/fantasy/FantasyValueBoard'));
 import FuturesEntryModal from './components/modals/FuturesEntryModal';
 import StorageBackupModal from './components/modals/StorageBackupModal';
 import PodcastIngestModal from './components/modals/PodcastIngestModal';
@@ -60,7 +61,7 @@ import AgentStatusModal from './components/modals/AgentStatusModal';
 
 const VALID_TABS = new Set([
   'dashboard','standings','mycard','devlab','bankroll',
-  'analytics','odds','picks','futures','futures-agent','futures-report','agent','props','dfs','podcasts','official-picks','injuries',
+  'analytics','odds','picks','futures','futures-agent','futures-report','agent','props','dfs','podcasts','official-picks','injuries','fantasy',
 ]);
 
 function App() {
@@ -210,6 +211,7 @@ function App() {
           {activeTab === 'podcasts' && <div className="animate-in fade-in zoom-in duration-300"><PodcastDigestTab /></div>}
           {activeTab === 'official-picks' && <div className="animate-in fade-in zoom-in duration-300"><OfficialPicksTab /></div>}
           {activeTab === 'injuries' && <div className="animate-in fade-in zoom-in duration-300"><InjuryCenter injuries={injuries} /></div>}
+          {activeTab === 'fantasy' && <div className="animate-in fade-in zoom-in duration-300"><FantasyValueBoard /></div>}
         </Suspense>
       </main>
 
