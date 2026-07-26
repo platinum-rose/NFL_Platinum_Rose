@@ -5,7 +5,7 @@ import { existsSync } from 'node:fs';
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { getTeamAbbreviation, NFL_TEAMS, normalizeTeam } from '../src/lib/teams.js';
+import { getTeamAbbreviation, NFL_TEAMS } from '../src/lib/teams.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -38,7 +38,7 @@ const LINKED_MARKET_RULES = [
   ['week_1_spread', /\b(week 1|early-season|preseason|starter|injury|line movement)\b/i],
 ];
 
-function parseArgs(argv) {
+export function parseArgs(argv) {
   const out = { _: [] };
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
@@ -58,7 +58,7 @@ function parseArgs(argv) {
   return out;
 }
 
-function todayPacificDate() {
+export function todayPacificDate() {
   return new Intl.DateTimeFormat('en-CA', {
     timeZone: 'America/Los_Angeles',
     year: 'numeric',
@@ -67,11 +67,11 @@ function todayPacificDate() {
   }).format(new Date());
 }
 
-function nowIso() {
+export function nowIso() {
   return new Date().toISOString();
 }
 
-function sha(value) {
+export function sha(value) {
   return createHash('sha256').update(String(value)).digest('hex');
 }
 
@@ -80,7 +80,7 @@ function canonicalTeamAbbr(value) {
   return abbr || null;
 }
 
-function allTeams() {
+export function allTeams() {
   return Object.entries(NFL_TEAMS)
     .map(([nick, team]) => ({
       nick,
@@ -207,7 +207,7 @@ function anchorRelevance(team, text) {
   return [...new Set(out)];
 }
 
-function inferTeams(meta, body) {
+export function inferTeams(meta, body) {
   const rawTeams = splitList(meta.teams || meta.team);
   const fromMeta = rawTeams.map(canonicalTeamAbbr).filter(Boolean);
   if (fromMeta.length) return [...new Set(fromMeta)];
@@ -226,7 +226,7 @@ function normalizeTags(value, signalType) {
   return [...new Set(['camp', signalType, ...splitList(value)])].filter(Boolean);
 }
 
-function toIntelRecord({ raw, team, sourceFile, season, capturedFallback }) {
+export function toIntelRecord({ raw, team, sourceFile, season, capturedFallback }) {
   const body = raw.body ?? raw.raw_excerpt ?? raw.summary ?? '';
   const summary = summarize(body, raw.summary);
   const sourceType = raw.source_type || 'manual';
@@ -296,7 +296,7 @@ async function parseManualFile(filePath, season, capturedFallback) {
   return teams.map((team) => toIntelRecord({ raw, team, sourceFile: filePath, season, capturedFallback }));
 }
 
-function dedupeItems(items) {
+export function dedupeItems(items) {
   const byKey = new Map();
   for (const item of items) {
     const key = `${item.team}|${item.dedupe_key}`;
@@ -312,7 +312,7 @@ function dedupeItems(items) {
   );
 }
 
-function buildSnapshot({ season, generatedAt, items, inputDir }) {
+export function buildSnapshot({ season, generatedAt, items, inputDir, feedHealth = null }) {
   const teamRows = {};
   for (const team of allTeams()) {
     teamRows[team.team] = { ...team, items: [] };
@@ -338,10 +338,16 @@ function buildSnapshot({ season, generatedAt, items, inputDir }) {
       recommendation_status: 'intel_only_not_picks',
       guardrails: {
         live_model_calls: false,
-        network_fetches: false,
+        // F-30b: true only when the Phase 2 RSS scout performed a live fetch
+        // (feedHealth present) — Phase 1 manual-only builds stay false.
+        network_fetches: Boolean(feedHealth),
         supabase_writes: false,
         official_picks_generated: false,
       },
+      // F-30b — per-feed fetch outcomes from the RSS scout, surfaced in the
+      // report so a failed/rate-limited feed is visible, not silent. Null
+      // for manual-only (Phase 1) builds.
+      feed_health: feedHealth,
     },
     items,
     teams: teamRows,
@@ -371,7 +377,7 @@ function itemLine(item, generatedAt) {
   return `- [${item.signal_type}]${player} ${item.summary} (${source}${review})\n  - Relevance: ${item.betting_relevance}\n  - Markets: ${item.linked_markets.join(', ')}${item.anchor_relevance.length ? ` | Anchor: ${item.anchor_relevance.join(', ')}` : ''}`;
 }
 
-function renderMarkdown(snapshot) {
+export function renderMarkdown(snapshot) {
   const { meta } = snapshot;
   const lines = [
     `# Training Camp Intel Snapshot - ${meta.generated_at.slice(0, 10)}`,
@@ -384,6 +390,17 @@ function renderMarkdown(snapshot) {
     `Items: ${meta.item_count} | High priority: ${meta.high_priority_count}`,
     '',
   ];
+
+  // F-30b — feed health table, only present when the RSS scout ran live.
+  if (Array.isArray(meta.feed_health) && meta.feed_health.length) {
+    lines.push('## Feed Health (RSS Scout)', '');
+    lines.push('| Source | Status | Items Kept | Notes |', '|---|---|---|---|');
+    for (const feed of meta.feed_health) {
+      const notes = feed.reason || '';
+      lines.push(`| ${feed.source} | ${feed.status} | ${feed.kept_items ?? 0} | ${notes} |`);
+    }
+    lines.push('');
+  }
 
   lines.push('## Team Coverage', '');
   for (const team of Object.values(snapshot.teams)) {
@@ -414,8 +431,22 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
-function renderHtml(snapshot) {
+export function renderHtml(snapshot) {
   const { meta } = snapshot;
+  const feedHealthSection = Array.isArray(meta.feed_health) && meta.feed_health.length
+    ? `<h2>Feed Health (RSS Scout)</h2>
+    <table class="feed-health">
+      <thead><tr><th>Source</th><th>Status</th><th>Items Kept</th><th>Notes</th></tr></thead>
+      <tbody>
+        ${meta.feed_health.map((feed) => `<tr class="status-${escapeHtml(feed.status)}">
+          <td>${escapeHtml(feed.source)}</td>
+          <td>${escapeHtml(feed.status)}</td>
+          <td>${feed.kept_items ?? 0}</td>
+          <td class="muted">${escapeHtml(feed.reason || '')}</td>
+        </tr>`).join('\n')}
+      </tbody>
+    </table>`
+    : '';
   const itemCard = (item) => `<li>
     <div><strong>${escapeHtml(item.signal_type)}</strong> ${item.player ? `<span class="muted">${escapeHtml(item.player)}</span>` : ''}</div>
     <p>${escapeHtml(item.summary)}</p>
@@ -460,6 +491,9 @@ function renderHtml(snapshot) {
     p { margin:5px 0; }
     .label { font-size:12px; font-weight:700; color:var(--accent); text-transform:uppercase; }
     .empty { color:var(--muted); padding:0 14px 14px; }
+    table.feed-health { width:100%; border-collapse:collapse; background:var(--paper); border:1px solid var(--line); border-radius:8px; overflow:hidden; margin-bottom:18px; }
+    table.feed-health th, table.feed-health td { text-align:left; padding:8px 12px; border-bottom:1px solid var(--line); font-size:13px; }
+    table.feed-health tr.status-error td, table.feed-health tr.status-unavailable td { color:var(--warn); }
   </style>
 </head>
 <body>
@@ -475,6 +509,7 @@ function renderHtml(snapshot) {
       <div class="metric"><span>Not Collected Yet</span><strong>${meta.teams_without_intel}</strong></div>
       <div class="metric"><span>High Priority</span><strong>${meta.high_priority_count}</strong></div>
     </section>
+    ${feedHealthSection}
     <h2>Team Coverage</h2>
     ${teamSections}
   </main>
@@ -486,7 +521,7 @@ async function readSnapshot(snapshotPath) {
   return JSON.parse(await readFile(snapshotPath, 'utf8'));
 }
 
-async function writeSnapshotAndReports(snapshot, outDir, reportDir, date) {
+export async function writeSnapshotAndReports(snapshot, outDir, reportDir, date) {
   await mkdir(outDir, { recursive: true });
   await mkdir(reportDir, { recursive: true });
   const jsonPath = path.join(outDir, `training-camp-intel-${date}.json`);
@@ -501,6 +536,20 @@ async function writeSnapshotAndReports(snapshot, outDir, reportDir, date) {
   return { jsonPath, latestPath, mdPath, htmlPath };
 }
 
+/**
+ * Parse every manual note/article in `inputDir` into flat intel records
+ * (pre-dedup). Extracted so the F-30b RSS scout can combine these with
+ * live-fetched items and run a single dedupeItems()/buildSnapshot() pass.
+ */
+export async function parseManualDirectory(inputDir, season, capturedFallback) {
+  const files = await listInputFiles(inputDir);
+  const parsed = [];
+  for (const file of files) {
+    parsed.push(...await parseManualFile(file, season, capturedFallback));
+  }
+  return { files, items: parsed };
+}
+
 export async function buildTrainingCampIntel(options = {}) {
   const season = Number(options.season || DEFAULT_SEASON);
   const generatedAt = options.generatedAt || nowIso();
@@ -510,11 +559,7 @@ export async function buildTrainingCampIntel(options = {}) {
   const reportDir = path.resolve(ROOT, options.reportDir || DEFAULT_REPORT_DIR);
   const capturedFallback = options.capturedAt || generatedAt;
 
-  const files = await listInputFiles(inputDir);
-  const parsed = [];
-  for (const file of files) {
-    parsed.push(...await parseManualFile(file, season, capturedFallback));
-  }
+  const { files, items: parsed } = await parseManualDirectory(inputDir, season, capturedFallback);
   const items = dedupeItems(parsed);
   const snapshot = buildSnapshot({ season, generatedAt, items, inputDir });
 

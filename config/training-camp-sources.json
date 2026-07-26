@@ -5,29 +5,33 @@
     "network_fetch_default": false,
     "supabase_writes_default": false,
     "live_model_calls_default": false,
-    "official_pick_generation_default": false
+    "official_pick_generation_default": false,
+    "notes": "network_fetch_default stays false at rest -- scripts/training-camp-rss-scout.js (F-30b, approved 2026-07-26) requires an explicit --live flag on every invocation, not just a one-time approval, so a stray cron/CI run can never silently start fetching."
   },
   "preferred_sources": [
     {
       "source": "RotoWire",
       "source_type": "rss",
-      "status": "approved_later",
-      "notes": "Free feed can be added in Phase 2 with explicit live fetch approval."
+      "status": "live_phase2",
+      "notes": "Wired as 'Rotowire NFL' in scripts/training-camp-rss-scout.js FEEDS (2026-07-26)."
     },
     {
       "source": "Team official sites",
       "source_type": "team_site",
-      "status": "manual_or_approved_later"
+      "status": "manual_only",
+      "notes": "No single aggregable RSS source across 32 team sites -- stays manual-paste for now."
     },
     {
       "source": "ESPN beat writers",
       "source_type": "beat_report",
-      "status": "manual_or_approved_later"
+      "status": "live_phase2",
+      "notes": "ESPN NFL league-wide RSS feed wired (2026-07-26); individual beat-writer feeds still manual."
     },
     {
       "source": "PFF",
       "source_type": "rss",
-      "status": "manual_or_approved_later"
+      "status": "live_phase2",
+      "notes": "Wired in scripts/training-camp-rss-scout.js FEEDS (2026-07-26)."
     },
     {
       "source": "The Athletic",
@@ -38,14 +42,41 @@
     {
       "source": "Local beat reporters",
       "source_type": "beat_report",
-      "status": "manual_or_approved_later"
+      "status": "manual_only"
     },
     {
       "source": "Official media and press conferences",
       "source_type": "official_media",
-      "status": "manual_or_approved_later"
+      "status": "manual_only"
+    },
+    {
+      "source": "Pro Football Talk",
+      "source_type": "rss",
+      "status": "live_phase2",
+      "notes": "Wired 2026-07-26. Not in the original preferred_sources list, but already an approved free feed in agents/research-intel-ingest.js."
+    },
+    {
+      "source": "Sharp Football Analysis",
+      "source_type": "rss",
+      "status": "live_phase2",
+      "notes": "Wired 2026-07-26. Not in the original preferred_sources list, but already an approved free feed in agents/research-intel-ingest.js."
+    },
+    {
+      "source": "Football Outsiders",
+      "source_type": "rss",
+      "status": "live_phase2",
+      "notes": "Wired 2026-07-26. Not in the original preferred_sources list, but already an approved free feed in agents/research-intel-ingest.js."
     }
   ],
+  "phase2_scout": {
+    "script": "scripts/training-camp-rss-scout.js",
+    "npm_scripts": ["training-camp:scout", "training-camp:scout:live"],
+    "invocation": "npm run training-camp:scout:live -- --dry-run   (fetch live, do not persist -- health check only)\nnpm run training-camp:scout:live               (fetch live and write the merged snapshot)",
+    "flags": ["--live", "--dry-run", "--no-persist", "--camp-only", "--source"],
+    "camp_only_default": true,
+    "dedupe": "by canonical URL, merged with manual items in the same team+dedupe_key pass (dedupeItems in training-camp-intel.js)",
+    "approved_by": "Andy, 2026-07-26"
+  },
   "manual_inputs": {
     "default_dir": "data/training-camp/2026/manual",
     "supported_formats": ["markdown_frontmatter", "plain_text_headers", "json_array"]
