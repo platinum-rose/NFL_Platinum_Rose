@@ -1,25 +1,24 @@
-# NFL_Dashboard — Session Handoff (S302–S308)
+# NFL_Dashboard — Session Handoff (S309–S313)
 
 > Fresh-session resume notes. Read this first, then TASK_BOARD.md and WORKING-CONTEXT.md.
 
-**Date:** 2026-07-26  
+**Date:** 2026-07-27  
 **Branch:** main  
-**Status:** F-29 (Official Picks tab), F-25 (Injury Center), F-27 (UI QC pass + fixes), F-26 (Fantasy Value Board) all shipped this run.
+**Status:** F-27c/d/e (UI QC fixes), F-30b (RSS scout Phase 2), F-33 (board validator), OPS-1 (stats-to-vault cron), F-30c (live feed-health check) all shipped this run.
 
 ---
 
 ## Pick Up Here
 
-> **S302–S308 complete (2026-07-26). HEAD `d5a3e0a`, pushed and confirmed.**
+> **S309–S313 complete (2026-07-27). HEAD `c687af4`, pushed and confirmed (`5b98df4..c687af4`).**
 >
-> - **S302**: Wired FUTURES/BETTING agents to the local YouTube/Gemini intel summary (`get_youtube_futures_intel` tool).
-> - **S303 (F-29)**: New `OfficialPicksTab.jsx` (`?tab=official-picks`) — wires the local inbox server (127.0.0.1:8787) + ledger scorecard into the dashboard, with CORS added to the server. Approve/reject not yet exercised against a live draft (F-29b).
-> - **S304 (F-25)**: New `InjuryCenter.jsx` (`?tab=injuries`) — league-wide injury view, all 32 teams, worst-impact-first. Per-game injury UI was already fully wired; this filled the missing league-wide gap.
-> - **S305 (F-27)**: Full UI QC pass across all 17 tabs (audit-only, no code changes per its own scope). Findings: `docs/F27_UI_QC_FINDINGS_2026-07-26.md`. Real defects spun out as F-27b/c/d/e.
-> - **S306 (F-27b)**: Fixed — Dashboard matchup cards were showing "right now" as every game's kickoff time (fabricated `commence_time`) instead of `schedule.json`'s real `kickoff_utc`.
-> - **S307–S308 (F-26)**: Root-caused why the fantasy value board had produced zero real projections since it was first built: `player_season_stats` was never seeded (fixed) + Supabase's default 1000-row cap was silently truncating the query before it reached QB/RB/WR/TE (fixed with `.in('position', POSITIONS)`). Built `FantasyValueBoard.jsx` (`?tab=fantasy`) to render it in-app. Yahoo Fantasy API access is gated behind a new approval process (`sports.yahoo.com/developer/access/`) — application submitted, **awaiting Yahoo's review (1–2 week SLA)**. Kickers out of scope (not meaningfully drafted); IDP/team-DEF scoring needs per-league weights, filed as F-26b, blocked on the same Yahoo approval.
+> - **S309 (F-27c/d/e)**: `lib/injuries.js` now tracks live/mock-fallback state per team, surfaced in `InjuryCenter.jsx`/`InjuryReportModal.jsx`/`MatchupCard.jsx`. `PulseModal.jsx`'s "Critical Injuries" section now renders real data instead of a placeholder. `ContestLinesModal.jsx`'s dead "Fetch Official Lines" button removed. Also cleaned up 7 stray debug scripts from an earlier session.
+> - **S310 (F-30b)**: New `scripts/training-camp-rss-scout.js` — 6-feed RSS/Atom scout with camp-keyword prefilter, team tagging, dedup-merge with manual notes. Network fetch gated behind `--live` on every invocation. 15 new unit tests.
+> - **S311 (F-33)**: New `agents/lib/board-validate.js` — mechanical board validator (bettable-book check, thin-market kill switch, sim-price-only policy, quoted-combo check, edge cross-check), wired into `portfolio-synthesize.js` as additive/annotate-and-keep. Board-corrected a stale item description along the way. 25 new unit tests. Follow-up filed as F-33b.
+> - **S312 (OPS-1)**: New `.github/workflows/stats-to-vault-sync.yml` — recurring cron for a script that already worked but had no scheduled trigger.
+> - **S313 (F-30c)**: Andy ran the RSS scout live natively (Windows, outside the sandbox) — 5/6 feeds healthy, 1 error (Football Outsiders, non-blocking).
 >
-> **Not yet done:** F-29b (live approve/reject smoke test), F-31 (live watchlist re-run), F-32 (full `npm test` re-run + live YouTube-intel smoke test), F-27c/d/e (remaining QC findings — injury mock/live indicator, PulseModal dead section, ContestLinesModal dead button).
+> **Not yet done:** F-32 (full `npm test`/`vite build` re-run — needs native run, sandbox hits a ~45s command timeout), F-29b (live approve/reject smoke test, needs a real draft), F-31 (live futures watchlist re-run — real paid model cost, needs explicit approval), F-33b (Feature B test coverage gap), F-27a (Podcasts tab CSS — needs visual debugging this sandbox can't do).
 
 ---
 
@@ -41,12 +40,12 @@
 
 ## Recommended Next Step
 
-Yahoo Fantasy API access is pending approval (1–2 week SLA) — nothing to do there until it clears. In the meantime: F-29b (smoke-test Official Picks approve/reject against a real draft), F-32 (full `npm test` re-run — hasn't been run end-to-end in several sessions; also live-smoke-test `get_youtube_futures_intel`), or F-27c/d/e (remaining QC findings — injury live/mock indicator, PulseModal's dead Critical Injuries section, ContestLinesModal's dead Fetch Official Lines button).
+Yahoo Fantasy API access is still pending approval (1–2 week SLA) — nothing to do there until it clears. In the meantime: F-32 (full `npm test`/`vite build` re-run, needs a native run — sandbox hits a ~45s command timeout), F-29b (smoke-test Official Picks approve/reject against a real draft), F-31 (live futures watchlist re-run — real paid model cost, needs explicit per-run approval), F-33b (Feature B test coverage gap), or F-27a (Podcasts tab CSS — needs visual/browser debugging this sandbox can't do).
 
 ---
 
 ## Resume Prompt
 
 ```text
-Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF_PROMPT.md, WORKING-CONTEXT.md, and TASK_BOARD.md first. HEAD = d5a3e0a (main), pushed and confirmed. S302-S308 shipped this run: F-29 Official Picks tab (local inbox/ledger server wired into the dashboard, ?tab=official-picks), F-25 Injury Center (league-wide injury view, ?tab=injuries), F-27 UI QC pass across all 17 tabs (audit-only findings in docs/F27_UI_QC_FINDINGS_2026-07-26.md) plus its F-27b fix (Dashboard matchup cards were showing the wrong game time), and F-26 Fantasy Value Board (?tab=fantasy) plus a root-cause fix for why it had produced zero real projections since it was built (player_season_stats never seeded + Supabase's default 1000-row cap silently truncating the query before it reached QB/RB/WR/TE). Yahoo Fantasy API access is gated behind a new approval process; application submitted, awaiting review (1-2 week SLA) -- F-26's remaining Yahoo-dependent work and F-26b (IDP/team-DEF scoring) are blocked until then. Guardrails: no live API calls, no Supabase writes, no official AI proposal generation, no parlay slot changes without explicit approval. Recommended next: F-29b (live approve/reject smoke test), F-32 (full npm test re-run), or F-27c/d/e (remaining QC findings).
+Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF.md, WORKING-CONTEXT.md, and TASK_BOARD.md first. HEAD = c687af4 (main), pushed and confirmed. S309-S313 shipped this run: F-27c/d/e (injury mock/live indicator, PulseModal critical injuries, ContestLinesModal dead button), F-30b (training camp RSS scout Phase 2, live fetch gated behind --live), F-33 (mechanical board validator, additive/annotate-and-keep, board-corrected a stale item description), OPS-1 (stats-to-vault-sync recurring GHA cron), F-30c (first live feed-health check, ran natively -- 5/6 feeds healthy, Football Outsiders errored non-blocking). Yahoo Fantasy API access is still gated behind approval, awaiting review (1-2 week SLA) -- F-26's remaining Yahoo-dependent work and F-26b are blocked until then. Guardrails: no live paid API calls, no Supabase writes, no official AI proposal generation, no parlay slot changes without explicit approval. This sandbox cannot reach espn.com/pff.com/rotowire.com/openai.com/supabase.co -- anything needing live network access needs a native run. Recommended next: F-32 (full test/build re-run, native), F-29b (needs a real draft), F-31 (paid model re-run, needs cost approval), F-33b (test coverage gap), or F-27a (Podcasts CSS, needs visual debugging).
 ```
