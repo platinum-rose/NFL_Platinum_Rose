@@ -448,4 +448,33 @@ export function aggregateExpertLedger(picks) {
   let clvCount = 0;
   for (const p of graded) {
     if (typeof p.units_pl === 'number') units += p.units_pl;
-    if (typeof p.clv === 'nu
+    if (typeof p.clv === 'number') {
+      clvSum += p.clv;
+      clvCount += 1;
+    }
+  }
+  const decided = wins + losses;
+  return {
+    graded: graded.length,
+    wins,
+    losses,
+    pushes,
+    units: Math.round(units * 100) / 100,
+    roi: graded.length > 0 ? Math.round((units / graded.length) * 1000) / 1000 : null,
+    win_rate: decided > 0 ? Math.round((wins / decided) * 1000) / 1000 : null,
+    clv_avg: clvCount > 0 ? Math.round((clvSum / clvCount) * 1000) / 1000 : null,
+  };
+}
+
+function byEpisodeDateDesc(a, b) {
+  return (b.episode_published_at || '').localeCompare(a.episode_published_at || '');
+}
+
+// Allow this module to be imported by tests without auto-executing main().
+if (import.meta.url === `file://${process.argv[1].replace(/\\/g, '/')}` ||
+    import.meta.url === `file:///${process.argv[1].replace(/\\/g, '/')}`) {
+  main().catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
+}

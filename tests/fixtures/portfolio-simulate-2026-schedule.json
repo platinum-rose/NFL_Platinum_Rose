@@ -1890,5 +1890,40 @@
         "sigma": 2.7
       }
     }
-  ]
+  ],
+  "division_fair_probs": {
+    "Ravens": 0.4737,
+    "Bengals": 0.3289,
+    "Steelers": 0.1439,
+    "Browns": 0.0479,
+    "Jaguars": 0.2941,
+    "Texans": 0.4103,
+    "Colts": 0.1933,
+    "Titans": 0.1009,
+    "Chargers": 0.3179,
+    "Broncos": 0.2939,
+    "Chiefs": 0.3363,
+    "Raiders": 0.0529,
+    "Cowboys": 0.2973,
+    "Eagles": 0.3947,
+    "Giants": 0.1395,
+    "Commanders": 0.1715,
+    "Packers": 0.2578,
+    "Lions": 0.347,
+    "Bears": 0.2148,
+    "Vikings": 0.1637,
+    "Buccaneers": 0.3117,
+    "Saints": 0.2493,
+    "Panthers": 0.2219,
+    "Falcons": 0.2071,
+    "Rams": 0.4651,
+    "Seahawks": 0.293,
+    "Cardinals": 0.0112,
+    "49ers": 0.2268,
+    "Bills": 0.545,
+    "Patriots": 0.3865,
+    "Jets": 0.0431,
+    "Dolphins": 0.0253
+  },
+  "_division_fair_probs_source": "Real de-vigged fair_prob per team from .nfl/portfolio/dossier-2026-07-16.json synthesis_input.division_* (all 8 divisions, 32 teams)."
 }

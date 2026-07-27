@@ -16,6 +16,9 @@ const SEED = Number(getArg('--seed', '274'));
 const SIGMA_R = Number(getArg('--sigma-r', '0.15'));
 const OUT = getArg('--out', null);
 const PATCH_DOSSIER = !argv.includes('--no-patch-dossier');
+const CALIBRATE = !argv.includes('--no-calibrate');
+const CALIBRATE_COARSE_SIMS = Number(getArg('--calibrate-coarse-sims', '500'));
+const CALIBRATE_REFINE_SIMS = Number(getArg('--calibrate-refine-sims', '1500'));
 
 const TEAMS = Object.keys(NFL_TEAMS);
 const DIVISION = Object.fromEntries(TEAMS.map((t) => [t, NFL_TEAMS[t].division]));
@@ -87,6 +90,24 @@ function winDistMeans(dossier) {
   return out;
 }
 
+// De-vigged book-consensus division-win probabilities, keyed by team nickname.
+// Source: the 8 `division_*` markets in synthesis_input, each row's `fair_prob`
+// (already de-vigged across books -- distinct from `best_prob`, which is a
+// single book's implied prob and carries that book's vig). Used only to
+// calibrate HFA/scale (spec B.2 step 1) -- never as a substitute for the sim's
+// own division output.
+function divisionFairProbs(dossier) {
+  const out = {};
+  for (const [market, rows] of Object.entries(dossier.synthesis_input || {})) {
+    if (!market.startsWith('division_')) continue;
+    for (const row of rows || []) {
+      const t = row.team_nick || normalizeTeam(row.team);
+      if (t && row.fair_prob != null) out[t] = row.fair_prob;
+    }
+  }
+  return out;
+}
+
 function compareTeams(a, b, state, rand) {
   const wa = state.wins[a], wb = state.wins[b];
   if (wa !== wb) return wb - wa;
@@ -111,6 +132,111 @@ function playGame(home, away, ratings, rand, hfa) {
   return rand() < gameProb(home, away, ratings, hfa) ? home : away;
 }
 
+const DIVISIONS = [...new Set(TEAMS.map((t) => DIVISION[t]))];
+
+// Cheap division-winner-only season simulation: same regular-season game loop
+// and tiebreak logic (compareTeams) as runSimulation's full loop, but skips
+// seeding/playoffs/matchup bookkeeping -- used only inside calibrateGlobalParams'
+// search, where we need many (hfa, scale) trials and don't care about the rest
+// of the market probabilities yet.
+function simulateDivisionProbs(schedule, solvedRatings, hfa, sigmaR, rand, n) {
+  const counts = Object.fromEntries(TEAMS.map((t) => [t, 0]));
+  for (let sim = 0; sim < n; sim++) {
+    const ratings = Object.fromEntries(TEAMS.map((t) => [t, solvedRatings[t] + randn(rand) * sigmaR]));
+    const state = {
+      wins: Object.fromEntries(TEAMS.map((t) => [t, 0])),
+      divWins: Object.fromEntries(TEAMS.map((t) => [t, 0])),
+      confWins: Object.fromEntries(TEAMS.map((t) => [t, 0])),
+      h2h: Object.fromEntries(TEAMS.map((t) => [t, {}])),
+    };
+    for (const g of schedule) {
+      const winner = playGame(g.home, g.away, ratings, rand, hfa);
+      const loser = winner === g.home ? g.away : g.home;
+      state.wins[winner]++;
+      state.h2h[winner][loser] = (state.h2h[winner][loser] || 0) + 1;
+      if (DIVISION[g.home] === DIVISION[g.away]) state.divWins[winner]++;
+      if (CONFERENCE[g.home] === CONFERENCE[g.away]) state.confWins[winner]++;
+    }
+    for (const div of DIVISIONS) {
+      const inDiv = TEAMS.filter((t) => DIVISION[t] === div);
+      const winner = inDiv.sort((a, b) => compareTeams(a, b, state, rand))[0];
+      counts[winner]++;
+    }
+  }
+  return Object.fromEntries(TEAMS.map((t) => [t, counts[t] / n]));
+}
+
+// Spec B.2 step 1: calibrate the two global params (HFA, scale) by minimizing
+// squared deviation between sim division probs and de-vigged book division
+// probs. Deliberately only 2 d.o.f. across 32 teams -- it cannot absorb
+// per-team edges, so post-calibration per-team residuals stay signal, not
+// model error. Coarse-to-fine grid search (cheap: 2 free params, no gradient
+// needed) rather than a full optimizer -- keeps the implementation simple and
+// dependency-free, matching every other piece of this module.
+function calibrateGlobalParams(schedule, mus, bookProbs, opts = {}) {
+  const teams = Object.keys(bookProbs).filter((t) => TEAMS.includes(t));
+  if (teams.length < 16) return null; // not enough book coverage to calibrate against
+  const rand = rng(opts.seed ?? 274);
+  const sigmaR = opts.sigmaR ?? 0.15;
+  const coarseSims = opts.coarseSims ?? 500;
+  const refineSims = opts.refineSims ?? 1500;
+
+  function sseAt(hfa, scale, n) {
+    const solved = solveRatings(schedule, mus, { hfa, scale });
+    const probs = simulateDivisionProbs(schedule, solved.ratings, hfa, sigmaR, rand, n);
+    let sse = 0;
+    for (const t of teams) { const d = probs[t] - bookProbs[t]; sse += d * d; }
+    return sse;
+  }
+
+  // 3x3 coarse grid + a local refinement pass (8 neighbors around the coarse
+  // winner, half a grid-step away). Cheap on purpose: 2 free params over a
+  // smooth loss surface don't need a dense search, and this runs as part of
+  // every dossier build (spec target: whole sim under ~30s at 100k sims).
+  const hfaGrid = [0.20, 0.28, 0.36];
+  const scaleGrid = [0.82, 1.0, 1.18];
+  let best = null;
+  let evaluations = 0;
+  for (const hfa of hfaGrid) {
+    for (const scale of scaleGrid) {
+      const sse = sseAt(hfa, scale, coarseSims);
+      evaluations++;
+      if (!best || sse < best.sse) best = { hfa, scale, sse };
+    }
+  }
+
+  const hfaStep = (hfaGrid[1] - hfaGrid[0]) / 2;
+  const scaleStep = (scaleGrid[1] - scaleGrid[0]) / 2;
+  let refined = { ...best, sse: sseAt(best.hfa, best.scale, refineSims) };
+  evaluations++;
+  for (const dh of [-hfaStep, 0, hfaStep]) {
+    for (const ds of [-scaleStep, 0, scaleStep]) {
+      if (dh === 0 && ds === 0) continue;
+      const hfa = Math.max(0.05, round(best.hfa + dh, 4));
+      const scale = Math.max(0.3, round(best.scale + ds, 4));
+      const sse = sseAt(hfa, scale, refineSims);
+      evaluations++;
+      if (sse < refined.sse) refined = { hfa, scale, sse };
+    }
+  }
+
+  // Report the actual mean |gap| (the spec's B.6 "calibration honesty" metric
+  // is MAE, not RMSE) at the chosen params, using a fresh higher-sim pass for
+  // a cleaner read than the search itself needed.
+  const finalSolved = solveRatings(schedule, mus, { hfa: refined.hfa, scale: refined.scale });
+  const finalProbs = simulateDivisionProbs(schedule, finalSolved.ratings, refined.hfa, sigmaR, rand, opts.reportSims ?? refineSims);
+  const meanAbsGap = teams.reduce((s, t) => s + Math.abs(finalProbs[t] - bookProbs[t]), 0) / teams.length;
+
+  return {
+    hfa: round(refined.hfa, 4),
+    scale: round(refined.scale, 4),
+    sse: round(refined.sse, 6),
+    mean_abs_gap: round(meanAbsGap, 4),
+    n_teams: teams.length,
+    evaluations,
+  };
+}
+
 function simulatePlayoffs(seeds, ratings, rand, hfa) {
   const wc = [
     playGame(seeds[1], seeds[6], ratings, rand, hfa),
@@ -129,7 +255,26 @@ function runSimulation(dossier, opts = {}) {
   const teamsWithMu = Object.keys(mus).length;
   if (teamsWithMu < 28) throw new Error(`Need win_dist on at least 28 teams; found ${teamsWithMu}. Re-run portfolio-dossier first.`);
   if (schedule.length < 250) throw new Error(`Need regular-season schedule in dossier; found ${schedule.length} games.`);
-  const solved = solveRatings(schedule, mus, opts);
+
+  // Spec B.2 step 1: calibrate HFA/scale against de-vigged book division odds,
+  // unless the caller pinned explicit hfa/scale (tests, mostly) or opted out.
+  // No-ops (falls back to the 0.28/1 defaults via solveRatings) when the
+  // dossier doesn't carry division market rows -- e.g. the synthetic/round-robin
+  // fixtures used elsewhere in the test suite.
+  let calibration = null;
+  const wantsCalibration = opts.calibrate !== false && opts.hfa == null && opts.scale == null;
+  if (wantsCalibration) {
+    const bookDivisionProbs = opts.divisionFairProbs ?? divisionFairProbs(dossier);
+    calibration = calibrateGlobalParams(schedule, mus, bookDivisionProbs, {
+      seed: opts.seed ?? SEED,
+      sigmaR: opts.sigmaR ?? SIGMA_R,
+      coarseSims: opts.calibrateCoarseSims ?? CALIBRATE_COARSE_SIMS,
+      refineSims: opts.calibrateRefineSims ?? CALIBRATE_REFINE_SIMS,
+    });
+  }
+  const solved = solveRatings(schedule, mus, calibration
+    ? { ...opts, hfa: calibration.hfa, scale: calibration.scale }
+    : opts);
   const rand = rng(opts.seed ?? SEED);
   const n = opts.sims ?? SIMS;
   const counts = Object.fromEntries(TEAMS.map((t) => [t, {
@@ -198,7 +343,17 @@ function runSimulation(dossier, opts = {}) {
   }
   const matchupProb = Object.fromEntries(Object.entries(matchup).map(([k, v]) => [k, round(v / n, 6)]));
   return {
-    meta: { sim_version: 'coherence-v1', sims: n, seed: opts.seed ?? SEED, sigma_r: opts.sigmaR ?? SIGMA_R, schedule_games: schedule.length, ratings_mae: solved.mae },
+    meta: {
+      sim_version: 'coherence-v1',
+      sims: n,
+      seed: opts.seed ?? SEED,
+      sigma_r: opts.sigmaR ?? SIGMA_R,
+      schedule_games: schedule.length,
+      ratings_mae: solved.mae,
+      hfa: solved.hfa,
+      scale: solved.scale,
+      calibration,
+    },
     teams,
     matchup: matchupProb,
     conservation: conservation(teams, matchupProb),
@@ -298,17 +453,32 @@ function round(x, n = 4) {
   return x == null ? null : Math.round(x * 10 ** n) / 10 ** n;
 }
 
-export { conservation, expectedWins, patchDossier, runSimulation, solveRatings };
+export {
+  calibrateGlobalParams, conservation, divisionFairProbs, expectedWins,
+  patchDossier, runSimulation, simulateDivisionProbs, solveRatings,
+};
 
 async function main() {
   const dossier = JSON.parse(await readFile(DOSSIER, 'utf8'));
-  const sim = runSimulation(dossier, { sims: SIMS, seed: SEED, sigmaR: SIGMA_R });
+  const sim = runSimulation(dossier, {
+    sims: SIMS,
+    seed: SEED,
+    sigmaR: SIGMA_R,
+    calibrate: CALIBRATE,
+    calibrateCoarseSims: CALIBRATE_COARSE_SIMS,
+    calibrateRefineSims: CALIBRATE_REFINE_SIMS,
+  });
   const date = dossier.meta?.generated_at?.slice(0, 10) || new Date().toISOString().slice(0, 10);
   const outPath = OUT ? path.resolve(ROOT, OUT) : path.join(OUT_DIR, `sim-${date}.json`);
   await mkdir(path.dirname(outPath), { recursive: true });
   await writeFile(outPath, JSON.stringify(sim, null, 2));
   if (PATCH_DOSSIER) await writeFile(DOSSIER, JSON.stringify(patchDossier(dossier, sim), null, 2));
   console.log(`sim: ${sim.meta.sims} seasons, schedule ${sim.meta.schedule_games}, ratings MAE ${sim.meta.ratings_mae}`);
+  if (sim.meta.calibration) {
+    console.log(`calibration: hfa ${sim.meta.hfa}, scale ${sim.meta.scale}, mean|gap| ${sim.meta.calibration.mean_abs_gap} (${sim.meta.calibration.n_teams} teams, ${sim.meta.calibration.evaluations} evals)`);
+  } else {
+    console.log(`calibration: skipped (hfa ${sim.meta.hfa}, scale ${sim.meta.scale} — defaults; no division book data or --no-calibrate)`);
+  }
   console.log(`conservation: playoffs ${sim.conservation.playoffs_sum}, SB ${sim.conservation.superbowl_sum}, matchup ${sim.conservation.matchup_sum}`);
   console.log(`wrote ${outPath}`);
 }

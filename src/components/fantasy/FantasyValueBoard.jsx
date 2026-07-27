@@ -13,7 +13,7 @@
 
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
 import { Shirt, RefreshCw, Search, TrendingUp, TrendingDown, Minus, HelpCircle } from 'lucide-react';
-import { FANTASY_VALUE_BOARD } from '../../lib/apiConfig';
+import { LOCAL_DATA } from '../../lib/apiConfig';
 
 const POSITION_FILTERS = ['ALL', 'QB', 'RB', 'WR', 'TE'];
 const TIER_FILTERS = ['ALL', 'strong_value', 'value', 'fair', 'reach', 'no_projection'];
@@ -108,7 +108,7 @@ export default function FantasyValueBoard() {
   const load = useCallback(async () => {
     setState('loading');
     try {
-      const res = await fetch(FANTASY_VALUE_BOARD);
+      const res = await fetch(LOCAL_DATA.FANTASY_VALUE_BOARD);
       if (res.status === 404) { setState('missing'); return; }
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const json = await res.json();

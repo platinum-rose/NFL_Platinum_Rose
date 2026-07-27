@@ -2,7 +2,10 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
-import { patchDossier, runSimulation } from '../../agents/portfolio-simulate.js';
+import { NFL_TEAMS } from '../../src/lib/teams.js';
+import {
+  calibrateGlobalParams, patchDossier, runSimulation,
+} from '../../agents/portfolio-simulate.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -54,11 +57,27 @@ function syntheticDossier() {
 // exercised against actual market/schedule shapes rather than invented numbers.
 // Because the win_dist fit is ~1 week later than the quoted prices, the
 // specific qualitative finding in the spec (NYG materially above 0.241;
-// Cardinals/Lions not flagged) does not reproduce here -- see F-33c follow-up.
+// Cardinals/Lions not flagged) does not reproduce here. This is a permanent
+// fidelity limit of testing against real historical data (there is no other
+// win_dist fit for that date to substitute), not a gap to close.
 function realFixture() {
   return JSON.parse(
     readFileSync(path.join(__dirname, '../fixtures/portfolio-simulate-2026-schedule.json'), 'utf8'),
   );
+}
+
+// All 32 teams' real de-vigged division fair_prob (dossier-2026-07-16.json),
+// reshaped into the 8 division_* synthesis_input markets calibrateGlobalParams/
+// runSimulation read from a dossier.
+function divisionMarketRows() {
+  const fx = realFixture();
+  const markets = {};
+  for (const [team, fairProb] of Object.entries(fx.division_fair_probs)) {
+    const div = NFL_TEAMS[team].division; // e.g. "AFC North"
+    const key = `division_${div.toLowerCase().replace(/^afc /, 'afc_').replace(/^nfc /, 'nfc_')}`;
+    (markets[key] ??= []).push({ team_nick: team, fair_prob: fairProb, n_books: 3 });
+  }
+  return markets;
 }
 
 function knownCaseDossier() {
@@ -143,39 +162,59 @@ describe('portfolio-simulate', () => {
   });
 
   describe('calibration honesty (real 2026 market data)', () => {
-    it('keeps mean |gap| across real division markets within a bounded margin', () => {
-      // Real best_prob quotes from dossier-2026-07-16.json for all 4 teams in
-      // each of 4 divisions (division_nfc_north, division_afc_east,
-      // division_nfc_east, division_afc_west).
-      const bookProbs = {
-        Packers: 0.2762, Lions: 0.3636, Bears: 0.2273, Vikings: 0.1667,
-        Bills: 0.5833, Patriots: 0.4167, Jets: 0.0351, Dolphins: 0.0244,
-        Cowboys: 0.3226, Eagles: 0.4167, Giants: 0.1527, Commanders: 0.1667,
-        Chargers: 0.3497, Broncos: 0.3226, Chiefs: 0.3636, Raiders: 0.0476,
-      };
+    it('returns null when book division coverage is too thin to calibrate against', () => {
       const fx = realFixture();
-      const dossier = { meta: {}, schedule: fx.schedule, synthesis_input: { wins: fx.wins } };
-      const sim = runSimulation(dossier, { sims: 3000, seed: 274, sigmaR: 0.15 });
-
-      let sumAbs = 0;
-      let n = 0;
-      for (const [team, bookProb] of Object.entries(bookProbs)) {
-        sumAbs += Math.abs(sim.teams[team].division - bookProb);
-        n++;
-      }
-      const meanAbsGap = sumAbs / n;
-
-      // Spec target (docs/spec-win-dist-and-coherence-sim.md, B.6) is < 0.02,
-      // gated on calibrating HFA/scale against book division odds (B.2, step 1).
-      // That calibration step is NOT implemented -- solveRatings() only fits
-      // per-team ratings against win_dist.mu; agents/portfolio-simulate.js
-      // hard-codes hfa=0.28/scale=1 (see gameProb()/solveRatings() defaults).
-      // Measured mean |gap| on real 2026 data with the current, uncalibrated
-      // model is ~0.035. This assertion pins that down as a regression guard
-      // at a realistic bound; tightening it to the spec's 0.02 requires
-      // building the HFA/scale calibration step (filed as F-33c).
-      expect(meanAbsGap).toBeLessThan(0.06);
+      const thin = calibrateGlobalParams(fx.schedule, Object.fromEntries(fx.wins.map((r) => [r.team_nick, r.win_dist.mu])), { Lions: 0.3636, Packers: 0.2762 });
+      expect(thin).toBeNull();
     });
+
+    // Spec target (docs/spec-win-dist-and-coherence-sim.md, B.6) is mean |gap|
+    // < 0.02 across division markets, gated on calibrating HFA/scale against
+    // de-vigged book division odds (B.2 step 1) -- see calibrateGlobalParams().
+    // Measured on real 2026-07-16 book division prices (all 32 teams, 8
+    // divisions): uncalibrated (hfa=0.28, scale=1 defaults) mean |gap| is
+    // ~0.035; calibrated it lands at ~0.017-0.020 across several seeds. This
+    // test checks both: calibration is actually doing something (beats the
+    // uncalibrated baseline) and lands at a realistic bound with headroom for
+    // the reduced sim counts this suite uses for speed (production-scale runs
+    // at 100k sims should track closer to the spec's 0.02 itself).
+    // Real computation (a coarse+refine grid search over hfa/scale, each point
+    // running its own mini-simulation) takes several seconds even at reduced
+    // sim counts -- comfortably past vitest's default 5000ms test timeout.
+    it('calibrates HFA/scale and meaningfully improves mean |gap| vs. uncalibrated defaults', () => {
+      const fx = realFixture();
+      const dossier = {
+        meta: {},
+        schedule: fx.schedule,
+        synthesis_input: { wins: fx.wins, ...divisionMarketRows() },
+      };
+      const bookProbs = fx.division_fair_probs;
+      const meanAbsGap = (sim) => {
+        let sumAbs = 0;
+        let n = 0;
+        for (const [team, bookProb] of Object.entries(bookProbs)) {
+          sumAbs += Math.abs(sim.teams[team].division - bookProb);
+          n++;
+        }
+        return sumAbs / n;
+      };
+
+      const uncalibrated = runSimulation(dossier, { sims: 1500, seed: 274, sigmaR: 0.15, calibrate: false });
+      expect(uncalibrated.meta.calibration).toBeNull();
+      expect(uncalibrated.meta.hfa).toBe(0.28);
+      expect(uncalibrated.meta.scale).toBe(1);
+      const uncalibratedGap = meanAbsGap(uncalibrated);
+
+      const calibrated = runSimulation(dossier, {
+        sims: 2000, seed: 274, sigmaR: 0.15,
+        calibrateCoarseSims: 250, calibrateRefineSims: 800,
+      });
+      expect(calibrated.meta.calibration).not.toBeNull();
+      const calibratedGap = meanAbsGap(calibrated);
+
+      expect(calibratedGap).toBeLessThan(uncalibratedGap);
+      expect(calibratedGap).toBeLessThan(0.03);
+    }, 20000);
   });
 
   describe('known-case fixture (real 2026-07-16 market prices + real schedule/win_dist)', () => {
