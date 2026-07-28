@@ -166,13 +166,20 @@ export const PODCAST_INTEL_TOOLS = [
   },
   {
     name: 'get_youtube_futures_intel',
-    description: 'Local-only, human-reviewed YouTube/Gemini podcast intel research context (S300/S301 pipeline). Distinct from search_podcast_picks: this reads a local JSON file (data/shadow-harness/review/youtube-futures-agent-intel-summary.json, synced to public/), not Supabase, and covers 11 futures-eligible YouTube episodes with 39 human-promoted items. Every item carries source episode/timestamp, supporting_quote, and review_flags (e.g. "price_not_in_quote") — always surface review_flags when citing an item, and never present this as an official pick, production recommendation, or Supabase-backed source. Use for team/market/lane-filtered research context alongside podcast/Supabase tools, not in place of them.',
+    description: 'Local-only, human-reviewed YouTube/Gemini podcast intel research context (S300-S317 pipeline). Distinct from search_podcast_picks: this reads a local JSON file (data/shadow-harness/review/youtube-futures-agent-intel-summary.json, synced to public/), not Supabase. Returns two item shapes: explicit picks/leans (item_type: "pick", single "lane") and non-pick analysis commentary (item_type: "note", one or more "relevance_tags" — e.g. a role-expansion note can be both fantasy_intel and matchup_analysis). Every item carries source episode/timestamp and review_flags (e.g. "price_not_in_quote", "thin_summary") — always surface review_flags when citing an item, and never present this as an official pick, production recommendation, or Supabase-backed source. "team" matches a pick’s team or any of a note’s teams; "market" only applies to picks (notes are excluded when market is set); "lane" matches a pick’s lane or any of a note’s relevance_tags. Use for team/market/lane-filtered research context alongside podcast/Supabase tools, not in place of them.',
     input_schema: {
       type: 'object',
       properties: {
-        team: { type: 'string', description: 'Team abbreviation (KC, BUF, ATL, ...) to filter by.' },
-        market: { type: 'string', description: 'Market identifier to filter by (e.g. "division_winner", "make_playoffs", "mvp", "win_total").' },
-        lane: { type: 'string', enum: ['futures_pick', 'injury_intel', 'non_futures_betting'], description: 'Item lane to filter by.' },
+        team: { type: 'string', description: 'Team abbreviation (KC, BUF, ATL, ...) to filter by. Matches pick.team or note.teams[].' },
+        market: { type: 'string', description: 'Market identifier to filter by (e.g. "division_winner", "make_playoffs", "mvp", "win_total"). Picks only — excludes notes when set.' },
+        lane: {
+          type: 'string',
+          enum: [
+            'futures_pick', 'non_futures_betting', 'injury_intel', 'training_camp_intel', 'market_context',
+            'survivor_pickem_pick', 'fantasy_intel', 'matchup_analysis', 'roster_transaction_intel', 'survivor_pickem_intel',
+          ],
+          description: 'Pick lane or note relevance tag to filter by. Pick-only lanes: futures_pick, non_futures_betting, injury_intel, training_camp_intel, market_context, survivor_pickem_pick. Note-only tags: fantasy_intel, matchup_analysis, roster_transaction_intel, survivor_pickem_intel (a note can carry several tags; matches if any equal this value).',
+        },
         limit: { type: 'number', description: 'Max items to return. Default: 25.' },
       },
       required: [],
@@ -1714,18 +1721,28 @@ async function toolSearchEpisodeVaultNotes({ show, episode, limit = 20 } = {}) {
  * synced to public/ by scripts/build-youtube-futures-agent-intel-summary.js)
  * and returns team/market/lane-filtered items.
  *
+ * Merges two item shapes from the summary file: picks (item_type: 'pick',
+ * single item.lane) and analysis notes (item_type: 'note', item.teams[] +
+ * item.relevance_tags[] since a note can matter to more than one consumer).
+ * The `lane` filter matches a pick's lane OR any tag in a note's
+ * relevance_tags. The `market` filter only applies to picks (notes have no
+ * market concept, so they're excluded whenever market is set).
+ *
  * This is local-only research context: no Supabase, no live API call, no
- * production recommendation. review_flags (e.g. "price_not_in_quote") must
- * be preserved and surfaced by the caller — never silently dropped.
+ * production recommendation. review_flags (e.g. "price_not_in_quote",
+ * "thin_summary") must be preserved and surfaced by the caller — never
+ * silently dropped.
  */
-async function toolGetYoutubeFuturesIntel({ team, market, lane, limit = 25 } = {}) {
+export async function toolGetYoutubeFuturesIntel({ team, market, lane, limit = 25 } = {}) {
   let summary = null;
   try {
     const resp = await fetch(LOCAL_DATA.YOUTUBE_FUTURES_INTEL);
     if (resp.ok) summary = await resp.json();
   } catch { /* non-fatal — fall through to no_data below */ }
 
-  if (!summary || !Array.isArray(summary.items) || summary.items.length === 0) {
+  const hasPicks = summary && Array.isArray(summary.items) && summary.items.length > 0;
+  const hasNotes = summary && Array.isArray(summary.notes) && summary.notes.length > 0;
+  if (!summary || (!hasPicks && !hasNotes)) {
     return {
       status: 'no_data',
       message: 'No local YouTube futures intel summary found. Run npm.cmd run youtube:agent-intel-summary to (re)generate it.',
@@ -1733,18 +1750,28 @@ async function toolGetYoutubeFuturesIntel({ team, market, lane, limit = 25 } = {
     };
   }
 
-  let items = summary.items;
+  let items = [...(summary.items || []), ...(summary.notes || [])];
+
   if (team && team.trim()) {
     const q = team.trim().toUpperCase();
-    items = items.filter(i => (i.team || '').toUpperCase() === q);
+    items = items.filter(i => (
+      i.item_type === 'note'
+        ? (i.teams || []).map(t => String(t).toUpperCase()).includes(q)
+        : (i.team || '').toUpperCase() === q
+    ));
   }
   if (market && market.trim()) {
+    // Notes have no market concept — market filtering only ever matches picks.
     const q = market.trim().toLowerCase();
-    items = items.filter(i => (i.market || '').toLowerCase() === q);
+    items = items.filter(i => i.item_type !== 'note' && (i.market || '').toLowerCase() === q);
   }
   if (lane && lane.trim()) {
     const q = lane.trim().toLowerCase();
-    items = items.filter(i => (i.lane || '').toLowerCase() === q);
+    items = items.filter(i => (
+      i.item_type === 'note'
+        ? (i.relevance_tags || []).map(t => String(t).toLowerCase()).includes(q)
+        : (i.lane || '').toLowerCase() === q
+    ));
   }
 
   const capped = items.slice(0, limit);

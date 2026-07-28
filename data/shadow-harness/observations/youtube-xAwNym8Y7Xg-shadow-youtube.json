@@ -7,34 +7,158 @@
   "model": "gemini-3.5-flash",
   "input_source": "youtube_video_url",
   "run": {
-    "run_id": "youtube_gemini_fd1ed212cfad",
+    "run_id": "youtube_gemini_a4d0750e50de",
     "mode": "live-youtube",
     "model": "gemini-3.5-flash",
     "input_source": "youtube_video_url",
     "youtube_url": "https://www.youtube.com/watch?v=xAwNym8Y7Xg",
-    "latency_ms": 132519,
-    "estimated_cost_usd": 0.026015,
-    "input_tokens": 257051,
-    "output_tokens": 775,
-    "raw_model_response": "{\n  \"transcript_summary\": \"The hosts introduce the episode by reflecting on England's World Cup exit and comparing the national team's struggles to the Toronto Maple Leafs and Buffalo Bills. Dr. David Chao then joins to discuss SIC Score's injury-based betting edge, focusing on Patrick Mahomes' recovery timeline from his ACL/LCL injury.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 52.0,\n      \"end\": 270.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Brandon Kravitz introduces the show, Stuckey, and Kendra Middleton, and previews the guest Dr. David Chao. He discusses his disappointed France ticket and the Spain vs. Argentina World Cup matchup.\"\n    },\n    {\n      \"start\": 270.0,\n      \"end\": 309.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Kendra discusses England's tactical mistakes, Jordan Pickford's performance, and asks if England is more like the Toronto Maple Leafs or the Buffalo Bills of soccer.\"\n    },\n    {\n      \"start\": 309.0,\n      \"end\": 408.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Stuckey criticizes England's prevent defense and questionable substitutions in the second half/fourth quarter.\"\n    },\n    {\n      \"start\": 408.0,\n      \"end\": 509.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Kendra Middleton delivers a DraftKings Sportsbook promotional offer.\"\n    },\n    {\n      \"start\": 509.0,\n      \"end\": 811.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Dr. David Chao joins the show, explaining SicScore.com's injury-based algorithm and how to leverage injury analysis for an edge in sports betting and fantasy football.\"\n    },\n    {\n      \"start\": 811.0,\n      \"end\": 673.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Dr. Chao analyzes Patrick Mahomes' recovery from a torn ACL and LCL, explaining the three-pronged criteria for returning to play and predicting that the Chiefs will start Justin Fields in Week 1 to be conservative.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"KC\",\n      \"market\": \"player_decision\",\n      \"side\": \"Justin Fields Day 1 Starter\",\n      \"line\": null,\n      \"price\": null,\n      \"speaker\": \"Dr. David Chao\",\n      \"source_timestamp\": 517,\n      \"rationale\": \"Believes the Chiefs will be conservative with Mahomes' multi-ligament recovery (ACL + LCL) and start Justin Fields in Week 1.\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Justin Fields Starter\",\n      \"timestamp\": 517,\n      \"speaker\": \"Dr. David Chao\",\n      \"quote\": \"Let's roll with Justin Fields. I think Justin Fields knows that too, that's why he went there, he's the Day 1 starter, we've been saying it for a while.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+    "latency_ms": 132775,
+    "estimated_cost_usd": 0.02681,
+    "input_tokens": 257707,
+    "output_tokens": 2597,
+    "raw_model_response": "{\n  \"transcript_summary\": \"The Favorites Podcast hosts discuss the upcoming Spain vs. Argentina match, sharing their favorite betting picks. They are joined by Dr. David Chao, who provides expert injury analysis for several NFL players, including Patrick Mahomes, Micah Parsons, and Tyreek Hill.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 52.0,\n      \"end\": 84.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Introduces the podcast hosts (Stuckey, Brandon, and Kendra) and previews the arrival of guest Dr. David Chao.\"\n    },\n    {\n      \"start\": 84.0,\n      \"end\": 308.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Discusses her impressions of the tournament, the upcoming final match, and presents a promotional offer for DraftKings.\"\n    },\n    {\n      \"start\": 309.0,\n      \"end\": 822.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Provides detailed medical perspective on Patrick Mahomes' recovery timeline and explains the general criteria for player returns to play.\"\n    },\n    {\n      \"start\": 823.0,\n      \"end\": 1111.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Explains the difficulties of hiding injuries in the modern NFL and discusses Drake Maye's throwing shoulder injury.\"\n    },\n    {\n      \"start\": 1112.0,\n      \"end\": 1271.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Elaborates on historical injury data and explains why injury rates are perceived to be much higher due to intense social media coverage.\"\n    },\n    {\n      \"start\": 1272.0,\n      \"end\": 1555.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Details knee injuries for Tyreek Hill and Tank Dell, highlighting the impact on speed-reliant players.\"\n    },\n    {\n      \"start\": 1556.0,\n      \"end\": 1774.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Gives updates on Maxx Crosby and rookie Jermod McCoy's knee issues and their long-term health implications.\"\n    },\n    {\n      \"start\": 1775.0,\n      \"end\": 1966.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Compares Micah Parsons' and Patrick Mahomes' knee recovery paths and the demands of their respective positions.\"\n    },\n    {\n      \"start\": 1967.0,\n      \"end\": 2154.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Conducts a quick quarterback health lightning round evaluating Daniel Jones, Bo Nix, and Jayden Daniels.\"\n    },\n    {\n      \"start\": 2155.0,\n      \"end\": 2341.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Addresses the high-risk Falcons quarterback room of Tua Tagovailoa and Michael Penix.\"\n    },\n    {\n      \"start\": 2342.0,\n      \"end\": 2507.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Explains recurring foot injuries in larger linemen, focusing on Caleb Banks and Tyree Wilson.\"\n    },\n    {\n      \"start\": 2508.0,\n      \"end\": 2597.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Evaluates Cam Skattebo's physical play style and historical comparables.\"\n    },\n    {\n      \"start\": 2598.0,\n      \"end\": 2656.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Refutes the theory that the San Francisco power plant causes team injuries.\"\n    },\n    {\n      \"start\": 2657.0,\n      \"end\": 2819.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Closes out the podcast by gathering the group's best bets and predictions for the Spain vs. Argentina final.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"Spain/Argentina\",\n      \"market\": \"total\",\n      \"side\": \"OVER\",\n      \"line\": 2.5,\n      \"price\": 135,\n      \"week\": null,\n      \"speaker\": \"Kendra Middleton\",\n      \"source_timestamp\": 2671,\n      \"rationale\": \"Believes both Messi and Yamal are likely to score, predicting an active over game.\"\n    },\n    {\n      \"team\": \"Spain/Argentina\",\n      \"market\": \"first_half_draw\",\n      \"side\": \"DRAW\",\n      \"line\": null,\n      \"price\": -105,\n      \"week\": null,\n      \"speaker\": \"Brandon Kravitz\",\n      \"source_timestamp\": 2698,\n      \"rationale\": \"Expects a tight, low-scoring first half due to Spain's strong defensive shape in a final.\"\n    },\n    {\n      \"team\": \"Spain/Argentina\",\n      \"market\": \"first_half_total\",\n      \"side\": \"UNDER\",\n      \"line\": null,\n      \"price\": 138,\n      \"week\": null,\n      \"speaker\": \"Brandon Kravitz\",\n      \"source_timestamp\": 2701,\n      \"rationale\": \"Believes there is a strong chance of a scoreless first half.\"\n    },\n    {\n      \"team\": \"Spain\",\n      \"market\": \"to_lift_cup\",\n      \"side\": \"SPAIN\",\n      \"line\": null,\n      \"price\": -150,\n      \"week\": null,\n      \"speaker\": \"Stuckey\",\n      \"source_timestamp\": 2737,\n      \"rationale\": \"Spain has been the best team all tournament and showed a masterclass in holding a lead, whereas Argentina has escaped multiple times.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"KC\"],\n      \"players\": [\"Patrick Mahomes\"],\n      \"topic\": \"Patrick Mahomes ACL/LCL recovery outlook\",\n      \"summary\": \"Dr. Chao believes Mahomes' recovery will be treated conservatively. He would play if it were the Super Bowl, but the Chiefs are expected to sit him early in the season.\",\n      \"speaker\": \"Dr. David Chao\",\n      \"source_timestamp\": 800,\n      \"quote\": \"If week one were the Super Bowl, guarantee, book it, Patrick Mahomes would play and start that game. But it's not the Super Bowl... I see them being conservative.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"GB\"],\n      \"players\": [\"Micah Parsons\"],\n      \"topic\": \"Micah Parsons late return expectation\",\n      \"summary\": \"Dr. Chao flags Micah Parsons as a candidate to start on the PUP list and have a delayed return to play, contrasting with Mahomes' timeline due to positional demands.\",\n      \"speaker\": \"Dr. David Chao\",\n      \"source_timestamp\": 1790,\n      \"quote\": \"We fully expect him to start on PUP, and we don't expect him to come off PUP as soon as he's eligible. I think it's mid-to-late season before he returns.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"MIA\"],\n      \"players\": [\"Tyreek Hill\"],\n      \"topic\": \"Tyreek Hill status\",\n      \"summary\": \"Dr. Chao states Tyreek Hill will likely not play this season because of his devastating multi-ligament knee injury and financial insurance incentives.\",\n      \"speaker\": \"Dr. David Chao\",\n      \"source_timestamp\": 1280,\n      \"quote\": \"Tyreek Hill, I've said all along, he's not playing this season. It's a multi-ligament injury... and at age 32, why would he?\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"ATL\"],\n      \"players\": [\"Michael Penix\", \"Tua Tagovailoa\"],\n      \"topic\": \"High-risk Falcons quarterback room\",\n      \"summary\": \"Dr. Chao highlights major injury concerns in Atlanta's quarterback room, pointing out Michael Penix's extensive surgical history and Tua's high vulnerability to concussions.\",\n      \"speaker\": \"Dr. David Chao\",\n      \"source_timestamp\": 2067,\n      \"quote\": \"They play a position that is very prone to injury... Michael Penix has had a number of injuries that are season ending... Tua, if he were to get another concussion, it probably wouldn't be a one-week sit-out.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"MIN\"],\n      \"players\": [\"Caleb Banks\"],\n      \"topic\": \"lineman foot fractures risk\",\n      \"summary\": \"Dr. Chao notes that large defensive tackles like Caleb Banks face recurring foot fractures because modern athletic development adds muscle power without increasing bone/tendon thickness.\",\n      \"speaker\": \"Dr. David Chao\",\n      \"source_timestamp\": 2397,\n      \"quote\": \"Caleb Banks... had multiple fractures of his metatarsal... The plug means there's long-term articular cartilage issues... It's a concern.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Mahomes return\",\n      \"timestamp\": 800,\n      \"speaker\": \"Dr. David Chao\",\n      \"quote\": \"If week one were the Super Bowl, guarantee, book it, Patrick Mahomes would play and start that game.\"\n    },\n    {\n      \"topic\": \"Spain vs Argentina Over\",\n      \"timestamp\": 2671,\n      \"speaker\": \"Kendra Middleton\",\n      \"quote\": \"I like the over 2.5 +135 over on DraftKings.\"\n    },\n    {\n      \"topic\": \"Spain to Lift the Cup\",\n      \"timestamp\": 2737,\n      \"speaker\": \"Stuckey\",\n      \"quote\": \"I'm going to go with Spain to lift the cup at -150.\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 2701,\n      \"field\": \"line\",\n      \"reason\": \"First half under line was not explicitly specified by the speaker (typically 0.5 or 1.0).\"\n    }\n  ]\n}",
     "extracted_picks": [
       {
-        "team": "KC",
-        "market": "player_decision",
-        "side": "YES",
+        "team": "SPA",
+        "market": "total",
+        "side": "OVER",
+        "line": 2.5,
+        "price": 135,
+        "week": null,
+        "speaker": "Kendra Middleton",
+        "source_timestamp": 2671,
+        "rationale": "Believes both Messi and Yamal are likely to score, predicting an active over game."
+      },
+      {
+        "team": "SPA",
+        "market": "first_half_draw",
+        "side": "DRAW",
         "line": null,
-        "price": null,
+        "price": -105,
+        "week": null,
+        "speaker": "Brandon Kravitz",
+        "source_timestamp": 2698,
+        "rationale": "Expects a tight, low-scoring first half due to Spain's strong defensive shape in a final."
+      },
+      {
+        "team": "SPA",
+        "market": "first_half_total",
+        "side": "UNDER",
+        "line": null,
+        "price": 138,
+        "week": null,
+        "speaker": "Brandon Kravitz",
+        "source_timestamp": 2701,
+        "rationale": "Believes there is a strong chance of a scoreless first half."
+      },
+      {
+        "team": "SPA",
+        "market": "to_lift_cup",
+        "side": "NO",
+        "line": null,
+        "price": -150,
+        "week": null,
+        "speaker": "Stuckey",
+        "source_timestamp": 2737,
+        "rationale": "Spain has been the best team all tournament and showed a masterclass in holding a lead, whereas Argentina has escaped multiple times."
+      }
+    ],
+    "analysis_notes": [
+      {
+        "note_type": "injury_or_health",
+        "teams": [
+          "KC"
+        ],
+        "players": [
+          "Patrick Mahomes"
+        ],
+        "topic": "Patrick Mahomes ACL/LCL recovery outlook",
+        "summary": "Dr. Chao believes Mahomes' recovery will be treated conservatively. He would play if it were the Super Bowl, but the Chiefs are expected to sit him early in the season.",
         "speaker": "Dr. David Chao",
-        "source_timestamp": 517,
-        "rationale": "Believes the Chiefs will be conservative with Mahomes' multi-ligament recovery (ACL + LCL) and start Justin Fields in Week 1."
+        "source_timestamp": 800,
+        "quote": "If week one were the Super Bowl, guarantee, book it, Patrick Mahomes would play and start that game. But it's not the Super Bowl... I see them being conservative.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "injury_or_health",
+        "teams": [
+          "GB"
+        ],
+        "players": [
+          "Micah Parsons"
+        ],
+        "topic": "Micah Parsons late return expectation",
+        "summary": "Dr. Chao flags Micah Parsons as a candidate to start on the PUP list and have a delayed return to play, contrasting with Mahomes' timeline due to positional demands.",
+        "speaker": "Dr. David Chao",
+        "source_timestamp": 1790,
+        "quote": "We fully expect him to start on PUP, and we don't expect him to come off PUP as soon as he's eligible. I think it's mid-to-late season before he returns.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "MIA"
+        ],
+        "players": [
+          "Tyreek Hill"
+        ],
+        "topic": "Tyreek Hill status",
+        "summary": "Dr. Chao states Tyreek Hill will likely not play this season because of his devastating multi-ligament knee injury and financial insurance incentives.",
+        "speaker": "Dr. David Chao",
+        "source_timestamp": 1280,
+        "quote": "Tyreek Hill, I've said all along, he's not playing this season. It's a multi-ligament injury... and at age 32, why would he?",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "injury_or_health",
+        "teams": [
+          "ATL"
+        ],
+        "players": [
+          "Michael Penix",
+          "Tua Tagovailoa"
+        ],
+        "topic": "High-risk Falcons quarterback room",
+        "summary": "Dr. Chao highlights major injury concerns in Atlanta's quarterback room, pointing out Michael Penix's extensive surgical history and Tua's high vulnerability to concussions.",
+        "speaker": "Dr. David Chao",
+        "source_timestamp": 2067,
+        "quote": "They play a position that is very prone to injury... Michael Penix has had a number of injuries that are season ending... Tua, if he were to get another concussion, it probably wouldn't be a one-week sit-out.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "MIN"
+        ],
+        "players": [
+          "Caleb Banks"
+        ],
+        "topic": "lineman foot fractures risk",
+        "summary": "Dr. Chao notes that large defensive tackles like Caleb Banks face recurring foot fractures because modern athletic development adds muscle power without increasing bone/tendon thickness.",
+        "speaker": "Dr. David Chao",
+        "source_timestamp": 2397,
+        "quote": "Caleb Banks... had multiple fractures of his metatarsal... The plug means there's long-term articular cartilage issues... It's a concern.",
+        "confidence": "stated"
       }
     ],
     "quote_timestamps": [
       {
-        "topic": "Justin Fields Starter",
-        "timestamp": 517,
+        "topic": "Mahomes return",
+        "timestamp": 800,
         "speaker": "Dr. David Chao",
-        "quote": "Let's roll with Justin Fields. I think Justin Fields knows that too, that's why he went there, he's the Day 1 starter, we've been saying it for a while."
+        "quote": "If week one were the Super Bowl, guarantee, book it, Patrick Mahomes would play and start that game."
+      },
+      {
+        "topic": "Spain vs Argentina Over",
+        "timestamp": 2671,
+        "speaker": "Kendra Middleton",
+        "quote": "I like the over 2.5 +135 over on DraftKings."
+      },
+      {
+        "topic": "Spain to Lift the Cup",
+        "timestamp": 2737,
+        "speaker": "Stuckey",
+        "quote": "I'm going to go with Spain to lift the cup at -150."
       }
     ]
   },
@@ -42,7 +166,7 @@
     "score_status": "not_scored",
     "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
     "total_ground_truth": 0,
-    "total_shadow_extracted": 1,
+    "total_shadow_extracted": 4,
     "full_exact_matches": 0,
     "precision_pct": "not scored",
     "recall_pct": "not scored",

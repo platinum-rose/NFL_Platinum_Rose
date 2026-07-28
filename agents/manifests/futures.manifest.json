@@ -118,7 +118,7 @@
     {
       "name": "get_youtube_futures_intel",
       "source": "PODCAST_INTEL_TOOLS",
-      "description": "S300/S301: local-only, human-reviewed YouTube/Gemini podcast intel (11 futures-eligible episodes, 39 promoted items). Reads a local JSON file, not Supabase — team/market/lane-filtered, with source timestamps, supporting quotes, and review_flags preserved. Read-only research context; never an official pick or production recommendation."
+      "description": "S300-S317: local-only, human-reviewed YouTube/Gemini podcast intel. Reads a local JSON file, not Supabase — returns both picks (single lane) and analysis notes (relevance_tags[], can carry several), team/market/lane-filtered, with source timestamps and review_flags preserved. Read-only research context; never an official pick or production recommendation."
     },
     {
       "name": "read_vault_note",

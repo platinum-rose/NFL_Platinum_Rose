@@ -46,6 +46,23 @@ Task:
 4. Preserve source timestamps in seconds from the start of the video.
 5. Include short verbatim quotes that justify important extracted items.
 6. Use null for unknown price, line, or speaker instead of inventing values.
+7. Also extract "analysis_notes": non-pick commentary worth capturing on its own —
+   team/player evaluations, injury or health context, roster/depth-chart notes,
+   coaching or scheme discussion, matchup analysis, schedule context, fantasy
+   relevance, or market sentiment. Do this even when a note doesn't accompany an
+   explicit numbered pick.
+8. IMPORTANT: populate "analysis_notes" even on episodes with zero
+   "extracted_picks". Pure-analysis episodes (no explicit bets) still get a full
+   "analysis_notes" array — never return both arrays empty just because there was
+   no explicit pick; capture the substance of what was actually discussed.
+9. If a host declares an explicit weekly survivor-pool pick (a single team,
+   straight up, no line) or a pick'em pick, record it in "extracted_picks" with
+   "market": "survivor_pick" or "market": "pickem_pick" respectively. For these
+   two markets: "team" is the pick, "side" and "price" are null (not applicable —
+   these are not priced or over/under bets).
+10. When a pick or lean is tied to a specific NFL week, set "week" to that week
+    number (integer, e.g. 5). Use null when no specific week applies (e.g. a
+    season-long futures pick).
 
 Return ONLY a JSON object with this exact structure:
 {{
@@ -60,9 +77,34 @@ Return ONLY a JSON object with this exact structure:
       "side": "OVER",
       "line": 10.5,
       "price": -115,
+      "week": null,
       "speaker": "Simon Hunter",
       "source_timestamp": 349,
       "rationale": "Graded over 11.5; 4 easy division wins vs MIA/NYJ."
+    }},
+    {{
+      "team": "KC",
+      "market": "survivor_pick",
+      "side": null,
+      "line": null,
+      "price": null,
+      "week": 5,
+      "speaker": "Chad Millman",
+      "source_timestamp": 812,
+      "rationale": "Easiest matchup on the board this week, safe survivor call."
+    }}
+  ],
+  "analysis_notes": [
+    {{
+      "note_type": "team_evaluation",
+      "teams": ["KC"],
+      "players": ["Patrick Mahomes"],
+      "topic": "Mahomes ramp-up concern",
+      "summary": "Hosts flagged Mahomes looking rusty in camp reps and questioned Week 1 readiness.",
+      "speaker": "Chad Millman",
+      "source_timestamp": 570,
+      "quote": "He didn't look right out there today.",
+      "confidence": "stated"
     }}
   ],
   "quote_timestamps": [
@@ -72,6 +114,13 @@ Return ONLY a JSON object with this exact structure:
     {{ "timestamp": 349, "field": "price", "reason": "price was not spoken clearly" }}
   ]
 }}
+
+Notes on "analysis_notes" field values:
+- "note_type" must be one of: team_evaluation, player_evaluation, injury_or_health,
+  roster_or_depth_chart, coaching_or_scheme, matchup_analysis, schedule_context,
+  fantasy_relevance, market_sentiment, other.
+- "confidence" must be one of: stated, implied, speculative.
+- "teams" and "players" are arrays and may be empty ([]) if not applicable.
 """
 
 
@@ -137,7 +186,7 @@ def parse_model_json(response_text):
     try:
         return json.loads(repaired)
     except Exception:
-        return {"raw_text": response_text, "extracted_picks": []}
+        return {"raw_text": response_text, "extracted_picks": [], "analysis_notes": []}
 
 
 def main():

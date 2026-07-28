@@ -23,11 +23,30 @@ const YES_NO_MARKETS = new Set([
 const FUTURES_MARKETS = new Set([
   'win_total', 'make_playoffs', 'division_winner', 'conference_winner', 'conference_no_1_seed',
   'super_bowl_winner', 'mvp', 'opoy', 'dpoy', 'oroy', 'droy', 'coach_of_the_year',
-  'no_1_overall_pick'
+  'no_1_overall_pick',
+  // Added during "fix now" pass off the manual quality read (Phase 4): these
+  // canonical markets were missing entirely, so normalizeMarket() fell through
+  // to a raw slug and picks landed in market_context with a spurious
+  // non_futures_market flag even though they're clearly season-long futures.
+  'comeback_player_of_the_year', 'fewest_wins', 'interceptions_leader', 'rushing_tds_leader',
+  'season_receiving_yards', 'season_passing_yards', 'season_passing_tds', 'season_rushing_tds'
 ]);
 const NON_FUTURES_BETTING_MARKETS = new Set([
   'spread', 'game_line', 'moneyline', 'total', 'player_prop', 'player_receiving_yds'
 ]);
+const SURVIVOR_PICKEM_MARKETS = new Set(['survivor_pick', 'pickem_pick']);
+const NOTE_TYPE_TAG_MAP = {
+  team_evaluation: ['matchup_analysis'],
+  player_evaluation: ['fantasy_intel'],
+  injury_or_health: ['injury_intel'],
+  roster_or_depth_chart: ['roster_transaction_intel'],
+  coaching_or_scheme: ['matchup_analysis'],
+  matchup_analysis: ['matchup_analysis'],
+  schedule_context: ['market_context'],
+  fantasy_relevance: ['fantasy_intel'],
+  market_sentiment: ['market_context'],
+  other: ['market_context']
+};
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -43,16 +62,28 @@ function normalizeMarket(raw) {
   if (clean.includes('win_total') || clean === 'wins' || clean.includes('season_win')) return 'win_total';
   if (clean.includes('make_playoff') || clean === 'playoffs') return 'make_playoffs';
   if (clean.includes('division_winner') || clean.includes('division_champion') || clean.includes('division_champ') || clean.includes('afc_south_champ')) return 'division_winner';
-  if (clean.includes('conference_no_1_seed') || clean.includes('no_1_seed') || clean.includes('number_1_seed')) return 'conference_no_1_seed';
+  if (clean.includes('conference_no_1_seed') || clean.includes('no_1_seed') || clean.includes('number_1_seed') || clean.includes('number_one_seed')) return 'conference_no_1_seed';
   if (clean.includes('super_bowl')) return 'super_bowl_winner';
-  if (clean.includes('conference_champion') || clean.includes('conference_winner') || clean.includes('nfc_conference') || clean.includes('afc_conference')) return 'conference_winner';
+  if (clean.includes('conference_champion') || clean.includes('conference_winner') || clean.includes('nfc_conference') || clean.includes('afc_conference') || clean.includes('nfc_champion') || clean.includes('afc_champion')) return 'conference_winner';
   if (clean.includes('overall_pick') || clean.includes('no_1_overall') || clean.includes('number_1_overall')) return 'no_1_overall_pick';
-  if (clean === 'mvp' || clean.includes('most_valuable_player')) return 'mvp';
+  if (clean.includes('mvp') || clean.includes('most_valuable_player')) return 'mvp';
   if (clean === 'opoy' || clean.includes('offensive_player_of_the_year')) return 'opoy';
   if (clean === 'dpoy' || clean.includes('defensive_player_of_the_year')) return 'dpoy';
   if (clean === 'oroy' || clean.includes('offensive_rookie_of_the_year')) return 'oroy';
   if (clean === 'droy' || clean.includes('defensive_rookie_of_the_year')) return 'droy';
   if (clean.includes('coach_of_the_year')) return 'coach_of_the_year';
+  // Added during "fix now" pass off the manual quality read (Phase 4): these
+  // raw market slugs were falling through to the generic `return clean`
+  // fallback (no canonical name), so they never matched FUTURES_MARKETS and
+  // landed in market_context with a spurious non_futures_market flag.
+  if (clean.includes('comeback_player')) return 'comeback_player_of_the_year';
+  if (clean.includes('fewest_win')) return 'fewest_wins';
+  if (clean.includes('receiving_yard')) return 'season_receiving_yards';
+  if (clean.includes('passing_yard')) return 'season_passing_yards';
+  if (clean.includes('passing_touchdown') || clean.includes('passing_td')) return 'season_passing_tds';
+  if (clean.includes('interception')) return 'interceptions_leader';
+  if (clean.includes('rushing_touchdown') && clean.includes('leader')) return 'rushing_tds_leader';
+  if (clean.includes('rushing_touchdown') || clean.includes('rushing_td')) return 'season_rushing_tds';
   return clean;
 }
 
@@ -60,6 +91,13 @@ function normalizeSide(raw, market) {
   const clean = String(raw || 'UNKNOWN').trim().toUpperCase();
   if (YES_NO_MARKETS.has(market) && (clean === 'UNKNOWN' || clean.includes('OVER') || clean.includes('WIN') || clean.includes('YES') || clean.includes('TO WIN'))) return 'YES';
   if (YES_NO_MARKETS.has(market) && (clean.includes('NO') || clean.includes('UNDER') || clean.includes('FADE'))) return 'NO';
+  // Bug fix (Phase 3 verification, surfaced by survivor_pick/pickem_pick's
+  // legitimately-null side): the literal fallback string "UNKNOWN" itself
+  // contains the substring "NO" (U-N-K-N-O-W-N), so the .includes('NO')
+  // check below was silently mis-classifying every missing/null side as
+  // side="NO" for non-YES/NO markets. Must short-circuit on the exact
+  // "UNKNOWN" sentinel before any substring heuristics run.
+  if (clean === 'UNKNOWN') return 'UNKNOWN';
   if (clean.includes('OVER')) return 'OVER';
   if (clean.includes('UNDER')) return 'UNDER';
   if (clean.includes('YES') || clean.includes('WIN')) return 'YES';
@@ -77,8 +115,30 @@ function normalizePick(p) {
     side: normalizeSide(p.side || p.selection, market),
     line: p.line != null && p.line !== '' ? Number(p.line) : null,
     price: p.price != null && p.price !== '' ? Number(p.price) : null,
+    week: p.week != null && p.week !== '' ? Number(p.week) : null,
     source_timestamp: Number(p.source_timestamp || p.timestamp || 0),
     rationale: p.rationale || ''
+  };
+}
+
+function normalizeNote(n) {
+  const teams = Array.isArray(n.teams)
+    ? n.teams
+      .map(t => TEAM_FIXUPS[String(t || '').toUpperCase()] || String(t || '').toUpperCase())
+      .filter(t => VALID_TEAMS.has(t))
+    : [];
+  const players = Array.isArray(n.players) ? n.players.filter(Boolean).map(String) : [];
+  return {
+    ...n,
+    note_type: String(n.note_type || 'other').trim().toLowerCase().replace(/[^a-z0-9]+/g, '_'),
+    teams,
+    players,
+    topic: n.topic || '',
+    summary: n.summary || '',
+    speaker: n.speaker || '',
+    source_timestamp: Number(n.source_timestamp || n.timestamp || 0),
+    quote: n.quote || '',
+    confidence: n.confidence || 'stated'
   };
 }
 
@@ -119,16 +179,37 @@ function suspiciousPriceShape(pick) {
   return false;
 }
 
-function findSupportingQuote(row, pick) {
+// Exclusive quote-to-pick assignment: each quote_timestamps entry is matched
+// to at most one pick (whichever pick is truly closest to it, within 90s).
+// The previous design let every pick independently grab "the nearest quote
+// within 90s" with no notion that another, closer pick had already claimed
+// it — so two distinct picks landing e.g. 29 seconds apart in the same
+// episode could both display the same supporting_quote, even when that
+// quote clearly belongs to only one of them (found via manual review of a
+// real run: two different Round-of-the-Year picks both showed the same
+// "Fernando Mendoza at +400" quote). Assigning quotes globally per-episode
+// rather than per-pick fixes this: a pick only gets a quote it actually won.
+function assignQuotesForRow(row) {
   const quotes = row.observation.run?.quote_timestamps || [];
-  const target = Number(pick.source_timestamp || 0);
-  let best = null;
+  const picks = row.picks;
+  const bestForPick = new Array(picks.length).fill(null);
   for (const quote of quotes) {
-    const delta = Math.abs(Number(quote.timestamp || 0) - target);
-    if (delta > 90) continue;
-    if (!best || delta < best.delta) best = { ...quote, delta };
+    const qTime = Number(quote.timestamp || 0);
+    let bestPickIdx = -1;
+    let bestDelta = Infinity;
+    picks.forEach((pick, pIdx) => {
+      const delta = Math.abs(Number(pick.source_timestamp || 0) - qTime);
+      if (delta <= 90 && delta < bestDelta) {
+        bestDelta = delta;
+        bestPickIdx = pIdx;
+      }
+    });
+    if (bestPickIdx === -1) continue;
+    const candidate = { ...quote, delta: bestDelta };
+    const existing = bestForPick[bestPickIdx];
+    if (!existing || candidate.delta < existing.delta) bestForPick[bestPickIdx] = candidate;
   }
-  return best;
+  return bestForPick;
 }
 
 function stablePickId(pick) {
@@ -143,13 +224,38 @@ function stablePickId(pick) {
   ].join('__');
 }
 
+function stableNoteId(note) {
+  return [
+    'note',
+    note.episode_id,
+    note.note_type || 'other',
+    (note.topic || '').toLowerCase().trim().replace(/\s+/g, '_').slice(0, 40),
+    note.source_timestamp || 0
+  ].join('__');
+}
+
 function classifyPick(pick) {
   const text = `${pick.episode_title || ''} ${pick.market || ''} ${pick.rationale || ''}`.toLowerCase();
+  if (SURVIVOR_PICKEM_MARKETS.has(pick.market)) return 'survivor_pickem_pick';
   if (NON_FUTURES_BETTING_MARKETS.has(pick.market)) return 'non_futures_betting';
   if (text.includes('injury') || text.includes('acl') || text.includes('achilles') || text.includes('ligament') || pick.market === 'player_decision') return 'injury_intel';
   if (text.includes('training camp') || text.includes('camp') || text.includes('sic score')) return 'training_camp_intel';
   if (FUTURES_MARKETS.has(pick.market)) return 'futures_pick';
   return 'market_context';
+}
+
+// Notes can matter to more than one consumer at once (e.g. a role-expansion
+// note is both fantasy-relevant and futures context), so classifyNote returns
+// an array of relevance tags rather than a single lane.
+function classifyNote(note) {
+  const tags = new Set(NOTE_TYPE_TAG_MAP[note.note_type] || ['market_context']);
+  const text = `${note.topic || ''} ${note.summary || ''} ${note.quote || ''}`.toLowerCase();
+  if (text.includes('injury') || text.includes('acl') || text.includes('achilles') || text.includes('ligament')) tags.add('injury_intel');
+  if (text.includes('training camp') || text.includes('camp') || text.includes('sic score')) tags.add('training_camp_intel');
+  if (text.includes('fantasy') || text.includes('target share') || text.includes('breakout') || text.includes('bust') || text.includes('waiver')) tags.add('fantasy_intel');
+  if (text.includes('trade') || text.includes('depth chart') || text.includes('coaching staff') || text.includes('signed') || text.includes('released') || text.includes('cut from')) tags.add('roster_transaction_intel');
+  if (text.includes('survivor') || text.includes("pick'em") || text.includes('pickem') || text.includes('pick em')) tags.add('survivor_pickem_intel');
+  return Array.from(tags);
 }
 
 function defaultReviewStatus(pick) {
@@ -173,15 +279,30 @@ function reviewFlags(pick) {
   return flags;
 }
 
+function defaultNoteReviewStatus(note) {
+  return note.review_flags.length > 0 ? 'needs_review' : 'pending_review';
+}
+
+function noteReviewFlags(note) {
+  const flags = [];
+  if (!note.summary || note.summary.length < 15) flags.push('thin_summary');
+  if ((!note.teams || note.teams.length === 0) && (!note.players || note.players.length === 0)) flags.push('no_team_or_player');
+  if (!note.source_timestamp) flags.push('missing_timestamp');
+  if (!note.quote) flags.push('missing_quote');
+  return flags;
+}
+
 function loadObservation(candidate) {
   const obsPath = path.join(OBS_DIR, `${candidate.id}-shadow-youtube.json`);
   if (!fs.existsSync(obsPath)) return null;
   const observation = readJson(obsPath);
   const picks = (observation.run?.extracted_picks || []).map(normalizePick);
+  const notes = (observation.run?.analysis_notes || []).map(normalizeNote);
   return {
     candidate,
     observation,
     picks,
+    notes,
     obsPath
   };
 }
@@ -198,15 +319,17 @@ function loadReviewStatus() {
   return readJson(REVIEW_STATUS_PATH);
 }
 
-function writeReviewStatus(existing, picks) {
+function writeReviewStatus(existing, picks, notes) {
   const existingById = new Map((existing.items || []).map(item => [item.item_id, item]));
-  const items = picks.map(pick => {
+
+  const pickItems = picks.map(pick => {
     const prior = existingById.get(pick.item_id) || {};
     const status = prior.status && prior.status !== 'pending_review'
       ? prior.status
       : defaultReviewStatus(pick);
     return {
       item_id: pick.item_id,
+      item_type: 'pick',
       status,
       item_lane: pick.item_lane,
       episode_id: pick.episode_id,
@@ -216,6 +339,7 @@ function writeReviewStatus(existing, picks) {
       side: pick.side,
       line: pick.line,
       price: pick.price,
+      week: pick.week ?? null,
       source_timestamp: pick.source_timestamp,
       review_flags: pick.review_flags,
       supporting_quote: pick.supporting_quote || '',
@@ -223,12 +347,40 @@ function writeReviewStatus(existing, picks) {
       updated_at: prior.updated_at || null
     };
   });
+
+  const noteItems = (notes || []).map(note => {
+    const prior = existingById.get(note.item_id) || {};
+    const status = prior.status && prior.status !== 'pending_review'
+      ? prior.status
+      : defaultNoteReviewStatus(note);
+    return {
+      item_id: note.item_id,
+      item_type: 'note',
+      status,
+      relevance_tags: note.relevance_tags,
+      episode_id: note.episode_id,
+      episode_title: note.episode_title,
+      note_type: note.note_type,
+      teams: note.teams,
+      players: note.players,
+      topic: note.topic,
+      summary: note.summary,
+      speaker: note.speaker,
+      source_timestamp: note.source_timestamp,
+      quote: note.quote,
+      confidence: note.confidence,
+      review_flags: note.review_flags,
+      reviewer_notes: prior.reviewer_notes || '',
+      updated_at: prior.updated_at || null
+    };
+  });
+
   writeJson(REVIEW_STATUS_PATH, {
     generated_at: new Date().toISOString(),
     status: 'local_review_status_only',
     guardrail: 'Human-editable local status file. This does not promote official picks or write production recommendations.',
     allowed_statuses: ['pending_review', 'needs_review', 'context_only', 'promote_to_local_intel', 'reject'],
-    items
+    items: [...pickItems, ...noteItems]
   });
 }
 
@@ -245,8 +397,9 @@ const missing = futuresCandidates.filter(candidate => !fs.existsSync(path.join(O
 
 const allPicks = [];
 for (const row of rows) {
-  for (const pick of row.picks) {
-    const supportingQuote = findSupportingQuote(row, pick);
+  const quoteAssignments = assignQuotesForRow(row);
+  row.picks.forEach((pick, pickIndex) => {
+    const supportingQuote = quoteAssignments[pickIndex];
     const rowPick = {
       episode_id: row.candidate.id,
       episode_title: row.candidate.title,
@@ -261,7 +414,7 @@ for (const row of rows) {
     };
     rowPick.review_flags = reviewFlags(rowPick);
     allPicks.push(rowPick);
-  }
+  });
 }
 
 const duplicateKeys = new Map();
@@ -279,10 +432,31 @@ for (const pick of allPicks) {
   pick.item_lane = classifyPick(pick);
 }
 
-const existingReviewStatus = loadReviewStatus();
-writeReviewStatus(existingReviewStatus, allPicks);
+const allNotes = [];
+for (const row of rows) {
+  for (const note of row.notes) {
+    const rowNote = {
+      episode_id: row.candidate.id,
+      episode_title: row.candidate.title,
+      show: row.candidate.show,
+      video_url: row.candidate.url,
+      timestamp_url: youtubeTimestamp(row.candidate.url, note.source_timestamp),
+      ...note
+    };
+    rowNote.review_flags = noteReviewFlags(rowNote);
+    allNotes.push(rowNote);
+  }
+}
 
-const laneCounts = allPicks.reduce((acc, pick) => {
+for (const note of allNotes) {
+  note.item_id = stableNoteId(note);
+  note.relevance_tags = classifyNote(note);
+}
+
+const existingReviewStatus = loadReviewStatus();
+writeReviewStatus(existingReviewStatus, allPicks, allNotes);
+
+const pickLaneCounts = allPicks.reduce((acc, pick) => {
   acc[pick.item_lane] = (acc[pick.item_lane] || 0) + 1;
   return acc;
 }, {});
@@ -290,6 +464,21 @@ const flagCounts = allPicks.reduce((acc, pick) => {
   for (const flag of pick.review_flags) acc[flag] = (acc[flag] || 0) + 1;
   return acc;
 }, {});
+const noteTagCounts = allNotes.reduce((acc, note) => {
+  for (const tag of note.relevance_tags) acc[tag] = (acc[tag] || 0) + 1;
+  return acc;
+}, {});
+const noteFlagCounts = allNotes.reduce((acc, note) => {
+  for (const flag of note.review_flags) acc[flag] = (acc[flag] || 0) + 1;
+  return acc;
+}, {});
+// Combined lane/tag view so the weekly report surfaces note volume alongside
+// pick volume in one place (Phase 3 step 5); pickLaneCounts above stays
+// available separately for pure pick-only breakdowns.
+const laneCounts = { ...pickLaneCounts };
+for (const [tag, count] of Object.entries(noteTagCounts)) {
+  laneCounts[tag] = (laneCounts[tag] || 0) + count;
+}
 
 const summary = {
   generated_at: new Date().toISOString(),
@@ -301,7 +490,12 @@ const summary = {
   total_extracted_picks: allPicks.length,
   flagged_picks: allPicks.filter(pick => pick.review_flags.length > 0).length,
   item_lane_counts: laneCounts,
+  pick_lane_counts: pickLaneCounts,
   review_flag_counts: flagCounts,
+  total_analysis_notes: allNotes.length,
+  flagged_notes: allNotes.filter(note => note.review_flags.length > 0).length,
+  note_relevance_tag_counts: noteTagCounts,
+  note_review_flag_counts: noteFlagCounts,
   total_cost_usd: Number(rows.reduce((sum, row) => sum + Number(row.observation.run?.estimated_cost_usd || 0), 0).toFixed(6)),
   average_latency_ms: rows.length ? Math.round(rows.reduce((sum, row) => sum + Number(row.observation.run?.latency_ms || 0), 0) / rows.length) : 0
 };
@@ -318,9 +512,11 @@ const report = {
     cost_usd: row.observation.run?.estimated_cost_usd || 0,
     latency_ms: row.observation.run?.latency_ms || 0,
     extracted_pick_count: row.picks.length,
+    extracted_note_count: row.notes.length,
     no_pick_context: row.picks.length === 0 ? 'No explicit betting picks extracted; review as contextual intel only.' : null
   })),
-  picks: allPicks
+  picks: allPicks,
+  notes: allNotes
 };
 
 fs.mkdirSync(REPORT_DIR, { recursive: true });
@@ -343,11 +539,15 @@ const lines = [
   `- Missing observations: ${summary.missing_observations}`,
   `- Extracted picks/leads: ${summary.total_extracted_picks}`,
   `- Flagged picks/leads: ${summary.flagged_picks}`,
+  `- Analysis notes: ${summary.total_analysis_notes}`,
+  `- Flagged notes: ${summary.flagged_notes}`,
   `- Total Gemini cost: $${summary.total_cost_usd}`,
   `- Average latency: ${summary.average_latency_ms} ms`,
   `- Review status file: ${path.relative(ROOT, REVIEW_STATUS_PATH)}`,
   '',
   '## Lane Counts',
+  '',
+  '_Combined pick lanes + note relevance tags. See Note Tag Counts below for the notes-only breakdown._',
   '',
   '| Lane | Count |',
   '|---|---:|',
@@ -359,17 +559,33 @@ const lines = [
   '|---|---:|',
   ...Object.entries(summary.review_flag_counts).sort(([a], [b]) => a.localeCompare(b)).map(([flag, count]) => `| ${flag} | ${count} |`),
   '',
+  '## Note Tag Counts',
+  '',
+  '| Tag | Count |',
+  '|---|---:|',
+  ...Object.entries(summary.note_relevance_tag_counts).sort(([a], [b]) => a.localeCompare(b)).map(([tag, count]) => `| ${tag} | ${count} |`),
+  '',
   '## Episode Coverage',
   '',
-  '| Score | Picks | Cost | Episode | URL |',
-  '|---:|---:|---:|---|---|',
-  ...report.episodes.map(ep => `| ${ep.futures_score ?? ''} | ${ep.extracted_pick_count} | $${Number(ep.cost_usd).toFixed(5)} | ${mdCell(ep.title)} | ${ep.url} |`),
+  '| Score | Picks | Notes | Cost | Episode | URL |',
+  '|---:|---:|---:|---:|---|---|',
+  ...report.episodes.map(ep => `| ${ep.futures_score ?? ''} | ${ep.extracted_pick_count} | ${ep.extracted_note_count} | $${Number(ep.cost_usd).toFixed(5)} | ${mdCell(ep.title)} | ${ep.url} |`),
   '',
   '## Extracted Picks And Leans',
   '',
-  '| Lane | Episode | Team | Market | Side | Line | Price | Speaker | Time | Flags | Quote | Rationale |',
-  '|---|---|---|---|---|---:|---:|---|---|---|---|---|',
-  ...allPicks.map(pick => `| ${pick.item_lane} | ${mdCell(pick.episode_title)} | ${pick.team} | ${pick.market} | ${pick.side} | ${pick.line ?? ''} | ${priceText(pick.price)} | ${mdCell(pick.speaker)} | [${pick.source_timestamp}s](${pick.timestamp_url}) | ${pick.review_flags.join(', ')} | ${mdCell(pick.supporting_quote)} | ${mdCell(pick.rationale)} |`)
+  '| Lane | Episode | Team | Market | Side | Line | Price | Week | Speaker | Time | Flags | Quote | Rationale |',
+  '|---|---|---|---|---|---:|---:|---:|---|---|---|---|---|',
+  ...allPicks.map(pick => `| ${pick.item_lane} | ${mdCell(pick.episode_title)} | ${pick.team} | ${pick.market} | ${pick.side} | ${pick.line ?? ''} | ${priceText(pick.price)} | ${pick.week ?? ''} | ${mdCell(pick.speaker)} | [${pick.source_timestamp}s](${pick.timestamp_url}) | ${pick.review_flags.join(', ')} | ${mdCell(pick.supporting_quote)} | ${mdCell(pick.rationale)} |`),
+  '',
+  '## Analysis & Context Notes',
+  '',
+  allNotes.length > 0
+    ? '| Tags | Episode | Note Type | Teams | Players | Speaker | Time | Confidence | Flags | Summary | Quote |'
+    : '_No analysis notes extracted yet — re-run episodes against the Phase 1 schema (see docs/PODCAST_HOLISTIC_INTEL_EXTRACTION_PLAN.md Phase 4) to populate this section._',
+  ...(allNotes.length > 0 ? [
+    '|---|---|---|---|---|---|---|---|---|---|---|',
+    ...allNotes.map(note => `| ${note.relevance_tags.join(', ')} | ${mdCell(note.episode_title)} | ${note.note_type} | ${mdCell((note.teams || []).join(', '))} | ${mdCell((note.players || []).join(', '))} | ${mdCell(note.speaker)} | [${note.source_timestamp}s](${note.timestamp_url}) | ${note.confidence} | ${note.review_flags.join(', ')} | ${mdCell(note.summary)} | ${mdCell(note.quote)} |`)
+  ] : [])
 ];
 
 if (missing.length > 0) {
@@ -381,4 +597,4 @@ fs.writeFileSync(mdOut, `${lines.join('\n')}\n`);
 console.log(`Wrote YouTube futures review JSON: ${jsonOut}`);
 console.log(`Wrote YouTube futures review Markdown: ${mdOut}`);
 console.log(`Wrote YouTube futures review status: ${REVIEW_STATUS_PATH}`);
-console.log(`Review summary: episodes=${summary.observed_episodes} picks=${summary.total_extracted_picks} flagged=${summary.flagged_picks} missing=${summary.missing_observations}`);
+console.log(`Review summary: episodes=${summary.observed_episodes} picks=${summary.total_extracted_picks} flagged=${summary.flagged_picks} notes=${summary.total_analysis_notes} flagged_notes=${summary.flagged_notes} missing=${summary.missing_observations}`);

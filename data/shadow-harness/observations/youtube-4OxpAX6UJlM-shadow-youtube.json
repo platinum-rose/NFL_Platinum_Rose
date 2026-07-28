@@ -7,16 +7,16 @@
   "model": "gemini-3.5-flash",
   "input_source": "youtube_video_url",
   "run": {
-    "run_id": "youtube_gemini_2ffda2651b95",
+    "run_id": "youtube_gemini_f8391f591fab",
     "mode": "live-youtube",
     "model": "gemini-3.5-flash",
     "input_source": "youtube_video_url",
     "youtube_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM",
-    "latency_ms": 73032,
-    "estimated_cost_usd": 0.027144,
-    "input_tokens": 262327,
-    "output_tokens": 2278,
-    "raw_model_response": "{\n  \"transcript_summary\": \"Chris Welsh, Andrew Erickson, and Derek Brown conduct a draft of their favorite NFL futures bets for the upcoming season. They select three win totals, three division winners, and three MVP candidates, debating the schedule difficulty and team outlooks.\",\n  \"speaker_segments\": [\n    { \"start\": 0.0, \"end\": 180.0, \"speaker\": \"Chris Welsh\", \"text\": \"Welcome into BettingPros for the Ultimate NFL Futures Draft Card with Andrew Erickson and Derek Brown.\" },\n    { \"start\": 180.0, \"end\": 304.0, \"speaker\": \"Derek Brown\", \"text\": \"Discussion of draft strategy and setup for selecting the win totals, division winners, and MVP awards.\" },\n    { \"start\": 304.0, \"end\": 463.0, \"speaker\": \"Derek Brown\", \"text\": \"Derek Brown selects the Carolina Panthers Under 6.5 wins at +140 as the first pick.\" },\n    { \"start\": 463.0, \"end\": 618.0, \"speaker\": \"Andrew Erickson\", \"text\": \"Andrew Erickson drafts the Los Angeles Chargers Over 9.5 wins as the second pick.\" },\n    { \"start\": 618.0, \"end\": 955.0, \"speaker\": \"Chris Welsh\", \"text\": \"Chris Welsh picks Drake Maye for Season MVP at +1329 to end the first round.\" },\n    { \"start\": 955.0, \"end\": 1094.0, \"speaker\": \"Chris Welsh\", \"text\": \"Chris Welsh starts the second round by selecting the New England Patriots to win their division.\" },\n    { \"start\": 1094.0, \"end\": 1214.0, \"speaker\": \"Andrew Erickson\", \"text\": \"Andrew Erickson selects Trevor Lawrence for Season MVP at +1750.\" },\n    { \"start\": 1214.0, \"end\": 1412.0, \"speaker\": \"Derek Brown\", \"text\": \"Derek Brown selects Bo Nix for Season MVP at +4000.\" },\n    { \"start\": 1412.0, \"end\": 1614.0, \"speaker\": \"Derek Brown\", \"text\": \"Derek Brown selects the New Orleans Saints to win their division to kick off the final round.\" },\n    { \"start\": 1614.0, \"end\": 1740.0, \"speaker\": \"Andrew Erickson\", \"text\": \"Andrew Erickson selects the Detroit Lions to win their division.\" },\n    { \"start\": 1740.0, \"end\": 1900.0, \"speaker\": \"Chris Welsh\", \"text\": \"Chris Welsh ends the draft by picking the Indianapolis Colts Over 7.5 wins, followed by a recap.\" }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"CAR\",\n      \"market\": \"win_total\",\n      \"side\": \"UNDER\",\n      \"line\": 6.5,\n      \"price\": 140,\n      \"speaker\": \"Derek Brown\",\n      \"source_timestamp\": 328,\n      \"rationale\": \"Panthers have the third hardest schedule based on projected win totals. Six of their eight wins last season were decided by three or fewer points.\"\n    },\n    {\n      \"team\": \"LAC\",\n      \"market\": \"win_total\",\n      \"side\": \"OVER\",\n      \"line\": 9.5,\n      \"price\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 464,\n      \"rationale\": \"Jim Harbaugh previously won 11 games in back-to-back seasons. Easy early-season schedule against the Cardinals and Raiders.\"\n    },\n    {\n      \"team\": \"NE\",\n      \"market\": \"mvp\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1329,\n      \"speaker\": \"Chris Welsh\",\n      \"source_timestamp\": 619,\n      \"rationale\": \"Maye is surrounded by strong weapons including AJ Brown, J.K. Dobbins, and TreVeyon Henderson, presenting immense value at long odds.\"\n    },\n    {\n      \"team\": \"NE\",\n      \"market\": \"division_winner\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 150,\n      \"speaker\": \"Chris Welsh\",\n      \"source_timestamp\": 956,\n      \"rationale\": \"Welsh views the AFC East as a two-team race between the Patriots and the Bills, making the Patriots a value play at over +150.\"\n    },\n    {\n      \"team\": \"JAX\",\n      \"market\": \"mvp\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1750,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1095,\n      \"rationale\": \"Lawrence fits the statistical profile of a breakout MVP candidate entering his age-27 season with an improved set of pass catchers.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"market\": \"mvp\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 4000,\n      \"speaker\": \"Derek Brown\",\n      \"source_timestamp\": 1215,\n      \"rationale\": \"Denver is projected to run a fast-paced offense under Sean Payton, and the addition of Jaylen Waddle provides Nix with a game-changing target.\"\n    },\n    {\n      \"team\": \"NO\",\n      \"market\": \"division_winner\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 280,\n      \"speaker\": \"Derek Brown\",\n      \"source_timestamp\": 1413,\n      \"rationale\": \"Saints possess the second easiest schedule in the league. Key additions and late-season offensive efficiency point to NFC South success.\"\n    },\n    {\n      \"team\": \"DET\",\n      \"market\": \"division_winner\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1500,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1615,\n      \"rationale\": \"The Lions had the easiest schedule in the NFL and a dominant point differential (+68) despite finishing with bad luck in several close contests.\"\n    },\n    {\n      \"team\": \"IND\",\n      \"market\": \"win_total\",\n      \"side\": \"OVER\",\n      \"line\": 7.5,\n      \"price\": null,\n      \"speaker\": \"Chris Welsh\",\n      \"source_timestamp\": 1741,\n      \"rationale\": \"They cleared this win total last year despite historically bad injury luck. The line of 7.5 represents a safe floor.\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Carolina Under 6.5 Wins\",\n      \"timestamp\": 328,\n      \"speaker\": \"Derek Brown\",\n      \"quote\": \"I'm taking the under six and a half wins for the Carolina Panthers this year because you can get it at plus 140\"\n    },\n    {\n      \"topic\": \"Chargers Over 9.5 Wins\",\n      \"timestamp\": 464,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"I'm taking the Chargers over nine and a half wins\"\n    },\n    {\n      \"topic\": \"Drake Maye MVP\",\n      \"timestamp\": 619,\n      \"speaker\": \"Chris Welsh\",\n      \"quote\": \"I am smash taking Drake Maye at MVP.\"\n    },\n    {\n      \"topic\": \"Patriots Division Winner\",\n      \"timestamp\": 956,\n      \"speaker\": \"Chris Welsh\",\n      \"quote\": \"I'm going to go with the Patriots.\"\n    },\n    {\n      \"topic\": \"Trevor Lawrence MVP\",\n      \"timestamp\": 1095,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"Trevor Lawrence ... Season MVP\"\n    },\n    {\n      \"topic\": \"Bo Nix MVP\",\n      \"timestamp\": 1215,\n      \"speaker\": \"Derek Brown\",\n      \"quote\": \"I'm going to go with Bo Nix plus 4000 for MVP\"\n    },\n    {\n      \"topic\": \"Saints Division Winner\",\n      \"timestamp\": 1413,\n      \"speaker\": \"Derek Brown\",\n      \"quote\": \"I'm going plus 280 on the New Orleans Saints to take the division\"\n    },\n    {\n      \"topic\": \"Lions Division Winner\",\n      \"timestamp\": 1615,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"Why can't I use the Lions? ... Detroit Lions\"\n    },\n    {\n      \"topic\": \"Colts Over 7.5 Wins\",\n      \"timestamp\": 1741,\n      \"speaker\": \"Chris Welsh\",\n      \"quote\": \"I am going to go with a win total with the Indianapolis Colts here of over seven and a half\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 464,\n      \"field\": \"price\",\n      \"reason\": \"Andrew Erickson mentioned Hard Rock Bet but did not explicitly state the price of the Chargers win total.\"\n    },\n    {\n      \"timestamp\": 1741,\n      \"field\": \"price\",\n      \"reason\": \"Chris Welsh noted the 7.5 line but did not mention the associated juice or price.\"\n    }\n  ]\n}",
+    "latency_ms": 59775,
+    "estimated_cost_usd": 0.026994,
+    "input_tokens": 262983,
+    "output_tokens": 1739,
+    "raw_model_response": "{\n  \"transcript_summary\": \"In this episode of the BettingPros Podcast, Chris Welsh, Andrew Erickson, and Derek Brown conduct an NFL futures draft card, selecting win totals, division winners, and MVP awards. The hosts analyze schedules, coaching changes, and roster upgrades to identify the best value bets on the board.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 180.0,\n      \"speaker\": \"Chris Welsh\",\n      \"text\": \"What's up friends and welcome into BettingPros for the Ultimate NFL Futures Draft Card. Yes, you heard it right. In this episode, me, Chris Welsh, with Andrew Erickson and the King of Bros, Derek Brown, are not only going to be giving you nine future bets, but we are going to be doing a draft around them. We've got three categories: we're looking at win totals, division winners, and MVP award.\"\n    },\n    {\n      \"start\": 180.0,\n      \"end\": 327.0,\n      \"speaker\": \"Derek Brown\",\n      \"text\": \"I feel pretty convicted about where I want to go first only because I feel like two of these bets are the best values on the board for me. So I don't want to get sniped in that realm.\"\n    },\n    {\n      \"start\": 328.0,\n      \"end\": 462.0,\n      \"speaker\": \"Derek Brown\",\n      \"text\": \"So I actually think this is one of the best values on the board. I don't think that I'm going to get sniped or I'm going to snipe anybody else here, but I'm taking the under six and a half wins for the Carolina Panthers this year because you can get it at plus 140. They have the third hardest schedule based on projected win totals right now, guys. Six of their eight wins last year were by three or fewer points.\"\n    },\n    {\n      \"start\": 463.0,\n      \"end\": 618.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"I'm also going to stick with win totals. So I don't know if my strategy or DBro's strategy is very different from the way that you're looking at the board, Welsh, but I'm taking the Chargers over nine and a half wins which you can find over on Hard Rock Bet. They've won 11 games in back-to-back seasons with Jim Harbaugh as the Chargers' head coach. They have a really easy schedule to open the season.\"\n    },\n    {\n      \"start\": 619.0,\n      \"end\": 702.0,\n      \"speaker\": \"Chris Welsh\",\n      \"text\": \"We are going to the MVP market, and we are... now, maybe you're going to go in a different direction, I don't know, but I am smash-taking Drake Maye at MVP. I think the Patriots are in a fantastic position to be able to roll again. He's got his weapon, AJ Brown is the piece, and frankly, Dobbins.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"CAR\",\n      \"market\": \"win_total\",\n      \"side\": \"UNDER\",\n      \"line\": 6.5,\n      \"price\": 140,\n      \"week\": null,\n      \"speaker\": \"Derek Brown\",\n      \"source_timestamp\": 328,\n      \"rationale\": \"They have the third hardest schedule based on projected win totals. Also, six of their eight wins last year were by three or fewer points, indicating regression.\"\n    },\n    {\n      \"team\": \"LAC\",\n      \"market\": \"win_total\",\n      \"side\": \"OVER\",\n      \"line\": 9.5,\n      \"price\": -160,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 463,\n      \"rationale\": \"They have won 11 games in back-to-back seasons under head coach Jim Harbaugh. They also have an incredibly easy schedule to open the season.\"\n    },\n    {\n      \"team\": \"NE\",\n      \"market\": \"mvp\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1329,\n      \"week\": null,\n      \"speaker\": \"Chris Welsh\",\n      \"source_timestamp\": 619,\n      \"rationale\": \"Entering his second year, Drake Maye has elite weapons like AJ Brown and J.K. Dobbins surrounding him, posing a great dark-horse MVP path for a team that could win 13+ games.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"CAR\"],\n      \"players\": [],\n      \"topic\": \"Panthers Regression Concerns\",\n      \"summary\": \"Derek Brown points out that the Panthers are highly prone to regression because six of their eight wins from the previous season were decided by a mere three points or fewer.\",\n      \"speaker\": \"Derek Brown\",\n      \"source_timestamp\": 344,\n      \"quote\": \"Six of their eight wins last year were by three or fewer points.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"schedule_context\",\n      \"teams\": [\"LAC\"],\n      \"players\": [],\n      \"topic\": \"Chargers Easy Start\",\n      \"summary\": \"Andrew Erickson highlights that the Chargers start their season against the Cardinals and Raiders, making a 2-0 start highly probable.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 482,\n      \"quote\": \"Because when you start the season against the Cardinals and the Raiders, chances are your season's going to start 2-0.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"NE\"],\n      \"players\": [\"Drake Maye\", \"A.J. Brown\", \"J.K. Dobbins\"],\n      \"topic\": \"Maye's Offensive Weapons\",\n      \"summary\": \"Chris Welsh projects a massive leap forward for Drake Maye due to his supporting cast, specifically naming AJ Brown and J.K. Dobbins as key offensive engines.\",\n      \"speaker\": \"Chris Welsh\",\n      \"source_timestamp\": 673,\n      \"quote\": \"He's got his weapon: AJ Brown is the piece, and frankly, Dobbins.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Panthers Under 6.5\",\n      \"timestamp\": 334,\n      \"speaker\": \"Derek Brown\",\n      \"quote\": \"I'm taking the under six and a half wins for the Carolina Panthers this year.\"\n    },\n    {\n      \"topic\": \"Chargers Over 9.5\",\n      \"timestamp\": 465,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"I'm taking the Chargers over nine and a half wins which you can find over on Hard Rock Bet.\"\n    },\n    {\n      \"topic\": \"Drake Maye MVP\",\n      \"timestamp\": 626,\n      \"speaker\": \"Chris Welsh\",\n      \"quote\": \"I am smash-taking Drake Maye at MVP.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
     "extracted_picks": [
       {
         "team": "CAR",
@@ -24,19 +24,21 @@
         "side": "UNDER",
         "line": 6.5,
         "price": 140,
+        "week": null,
         "speaker": "Derek Brown",
         "source_timestamp": 328,
-        "rationale": "Panthers have the third hardest schedule based on projected win totals. Six of their eight wins last season were decided by three or fewer points."
+        "rationale": "They have the third hardest schedule based on projected win totals. Also, six of their eight wins last year were by three or fewer points, indicating regression."
       },
       {
         "team": "LAC",
         "market": "win_total",
         "side": "OVER",
         "line": 9.5,
-        "price": null,
+        "price": -160,
+        "week": null,
         "speaker": "Andrew Erickson",
-        "source_timestamp": 464,
-        "rationale": "Jim Harbaugh previously won 11 games in back-to-back seasons. Easy early-season schedule against the Cardinals and Raiders."
+        "source_timestamp": 463,
+        "rationale": "They have won 11 games in back-to-back seasons under head coach Jim Harbaugh. They also have an incredibly easy schedule to open the season."
       },
       {
         "team": "NE",
@@ -44,125 +46,75 @@
         "side": "UNKNOWN",
         "line": null,
         "price": 1329,
+        "week": null,
         "speaker": "Chris Welsh",
         "source_timestamp": 619,
-        "rationale": "Maye is surrounded by strong weapons including AJ Brown, J.K. Dobbins, and TreVeyon Henderson, presenting immense value at long odds."
-      },
+        "rationale": "Entering his second year, Drake Maye has elite weapons like AJ Brown and J.K. Dobbins surrounding him, posing a great dark-horse MVP path for a team that could win 13+ games."
+      }
+    ],
+    "analysis_notes": [
       {
-        "team": "NE",
-        "market": "division_winner",
-        "side": "UNKNOWN",
-        "line": null,
-        "price": 150,
-        "speaker": "Chris Welsh",
-        "source_timestamp": 956,
-        "rationale": "Welsh views the AFC East as a two-team race between the Patriots and the Bills, making the Patriots a value play at over +150."
-      },
-      {
-        "team": "JAX",
-        "market": "mvp",
-        "side": "UNKNOWN",
-        "line": null,
-        "price": 1750,
-        "speaker": "Andrew Erickson",
-        "source_timestamp": 1095,
-        "rationale": "Lawrence fits the statistical profile of a breakout MVP candidate entering his age-27 season with an improved set of pass catchers."
-      },
-      {
-        "team": "DEN",
-        "market": "mvp",
-        "side": "UNKNOWN",
-        "line": null,
-        "price": 4000,
+        "note_type": "team_evaluation",
+        "teams": [
+          "CAR"
+        ],
+        "players": [],
+        "topic": "Panthers Regression Concerns",
+        "summary": "Derek Brown points out that the Panthers are highly prone to regression because six of their eight wins from the previous season were decided by a mere three points or fewer.",
         "speaker": "Derek Brown",
-        "source_timestamp": 1215,
-        "rationale": "Denver is projected to run a fast-paced offense under Sean Payton, and the addition of Jaylen Waddle provides Nix with a game-changing target."
+        "source_timestamp": 344,
+        "quote": "Six of their eight wins last year were by three or fewer points.",
+        "confidence": "stated"
       },
       {
-        "team": "NO",
-        "market": "division_winner",
-        "side": "UNKNOWN",
-        "line": null,
-        "price": 280,
-        "speaker": "Derek Brown",
-        "source_timestamp": 1413,
-        "rationale": "Saints possess the second easiest schedule in the league. Key additions and late-season offensive efficiency point to NFC South success."
-      },
-      {
-        "team": "DET",
-        "market": "division_winner",
-        "side": "UNKNOWN",
-        "line": null,
-        "price": 1500,
+        "note_type": "schedule_context",
+        "teams": [
+          "LAC"
+        ],
+        "players": [],
+        "topic": "Chargers Easy Start",
+        "summary": "Andrew Erickson highlights that the Chargers start their season against the Cardinals and Raiders, making a 2-0 start highly probable.",
         "speaker": "Andrew Erickson",
-        "source_timestamp": 1615,
-        "rationale": "The Lions had the easiest schedule in the NFL and a dominant point differential (+68) despite finishing with bad luck in several close contests."
+        "source_timestamp": 482,
+        "quote": "Because when you start the season against the Cardinals and the Raiders, chances are your season's going to start 2-0.",
+        "confidence": "stated"
       },
       {
-        "team": "IND",
-        "market": "win_total",
-        "side": "OVER",
-        "line": 7.5,
-        "price": null,
+        "note_type": "player_evaluation",
+        "teams": [
+          "NE"
+        ],
+        "players": [
+          "Drake Maye",
+          "A.J. Brown",
+          "J.K. Dobbins"
+        ],
+        "topic": "Maye's Offensive Weapons",
+        "summary": "Chris Welsh projects a massive leap forward for Drake Maye due to his supporting cast, specifically naming AJ Brown and J.K. Dobbins as key offensive engines.",
         "speaker": "Chris Welsh",
-        "source_timestamp": 1741,
-        "rationale": "They cleared this win total last year despite historically bad injury luck. The line of 7.5 represents a safe floor."
+        "source_timestamp": 673,
+        "quote": "He's got his weapon: AJ Brown is the piece, and frankly, Dobbins.",
+        "confidence": "stated"
       }
     ],
     "quote_timestamps": [
       {
-        "topic": "Carolina Under 6.5 Wins",
-        "timestamp": 328,
+        "topic": "Panthers Under 6.5",
+        "timestamp": 334,
         "speaker": "Derek Brown",
-        "quote": "I'm taking the under six and a half wins for the Carolina Panthers this year because you can get it at plus 140"
+        "quote": "I'm taking the under six and a half wins for the Carolina Panthers this year."
       },
       {
-        "topic": "Chargers Over 9.5 Wins",
-        "timestamp": 464,
+        "topic": "Chargers Over 9.5",
+        "timestamp": 465,
         "speaker": "Andrew Erickson",
-        "quote": "I'm taking the Chargers over nine and a half wins"
+        "quote": "I'm taking the Chargers over nine and a half wins which you can find over on Hard Rock Bet."
       },
       {
         "topic": "Drake Maye MVP",
-        "timestamp": 619,
+        "timestamp": 626,
         "speaker": "Chris Welsh",
-        "quote": "I am smash taking Drake Maye at MVP."
-      },
-      {
-        "topic": "Patriots Division Winner",
-        "timestamp": 956,
-        "speaker": "Chris Welsh",
-        "quote": "I'm going to go with the Patriots."
-      },
-      {
-        "topic": "Trevor Lawrence MVP",
-        "timestamp": 1095,
-        "speaker": "Andrew Erickson",
-        "quote": "Trevor Lawrence ... Season MVP"
-      },
-      {
-        "topic": "Bo Nix MVP",
-        "timestamp": 1215,
-        "speaker": "Derek Brown",
-        "quote": "I'm going to go with Bo Nix plus 4000 for MVP"
-      },
-      {
-        "topic": "Saints Division Winner",
-        "timestamp": 1413,
-        "speaker": "Derek Brown",
-        "quote": "I'm going plus 280 on the New Orleans Saints to take the division"
-      },
-      {
-        "topic": "Lions Division Winner",
-        "timestamp": 1615,
-        "speaker": "Andrew Erickson",
-        "quote": "Why can't I use the Lions? ... Detroit Lions"
-      },
-      {
-        "topic": "Colts Over 7.5 Wins",
-        "timestamp": 1741,
-        "speaker": "Chris Welsh",
-        "quote": "I am going to go with a win total with the Indianapolis Colts here of over seven and a half"
+        "quote": "I am smash-taking Drake Maye at MVP."
       }
     ]
   },
@@ -170,7 +122,7 @@
     "score_status": "not_scored",
     "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
     "total_ground_truth": 0,
-    "total_shadow_extracted": 9,
+    "total_shadow_extracted": 3,
     "full_exact_matches": 0,
     "precision_pct": "not scored",
     "recall_pct": "not scored",

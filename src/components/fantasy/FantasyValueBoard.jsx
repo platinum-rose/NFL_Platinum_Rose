@@ -12,7 +12,7 @@
 // F-26b) -- this only covers QB/RB/WR/TE, which is all the generator scores.
 
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
-import { Shirt, RefreshCw, Search, TrendingUp, TrendingDown, Minus, HelpCircle } from 'lucide-react';
+import { Shirt, RefreshCw, Search, TrendingUp, TrendingDown, Minus, HelpCircle, Mic } from 'lucide-react';
 import { LOCAL_DATA } from '../../lib/apiConfig';
 
 const POSITION_FILTERS = ['ALL', 'QB', 'RB', 'WR', 'TE'];
@@ -97,6 +97,152 @@ function StatChip({ label, value, className }) {
   );
 }
 
+// ─── Podcast Fantasy Intel panel (Phase 3, S302) ─────────────────────────────
+// Read-only surface for fantasy_intel-tagged analysis notes from the local
+// Gemini/YouTube podcast intel pipeline — the same summary file the
+// get_youtube_futures_intel agent tool reads (public/youtube-futures-agent-
+// intel-summary.json). No new agent, no new manifest, just a new read path
+// into an existing file. See docs/PODCAST_HOLISTIC_INTEL_EXTRACTION_PLAN.md
+// Phase 3 step 3.
+
+function PodcastNoteCard({ note }) {
+  return (
+    <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
+      <div className="flex items-center gap-2 flex-wrap mb-1.5">
+        {(note.teams || []).map((t) => (
+          <span key={t} className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{t}</span>
+        ))}
+        {(note.players || []).length > 0 && (
+          <span className="font-bold text-white text-sm">{note.players.join(', ')}</span>
+        )}
+        <span className="ml-auto flex items-center gap-1 flex-wrap">
+          {(note.relevance_tags || []).map((tag) => (
+            <span key={tag} className="text-[9px] px-1.5 py-0.5 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20 uppercase tracking-wider font-bold">
+              {tag.replace(/_/g, ' ')}
+            </span>
+          ))}
+        </span>
+      </div>
+      {note.topic && <div className="text-sm text-slate-200 font-semibold">{note.topic}</div>}
+      {note.summary && <p className="text-xs text-slate-400 mt-1">{note.summary}</p>}
+      <div className="flex items-center gap-3 mt-2 text-[11px] text-slate-600 flex-wrap">
+        {note.speaker && <span>{note.speaker}</span>}
+        {note.confidence && <span className="uppercase tracking-wider">{note.confidence}</span>}
+        {note.source?.episode_title && (
+          note.source?.timestamp_url
+            ? <a href={note.source.timestamp_url} target="_blank" rel="noreferrer" className="text-slate-500 hover:text-amber-300 underline decoration-dotted truncate max-w-[220px]">{note.source.episode_title}</a>
+            : <span className="truncate max-w-[220px]">{note.source.episode_title}</span>
+        )}
+      </div>
+      {(note.review_flags || []).length > 0 && (
+        <div className="text-[10px] text-rose-400 mt-1.5">Flags: {note.review_flags.join(', ')}</div>
+      )}
+    </div>
+  );
+}
+
+function PodcastFantasyIntelPanel() {
+  const [state, setState] = useState('loading'); // loading | ready | missing | error
+  const [notes, setNotes] = useState([]);
+  const [generatedAt, setGeneratedAt] = useState(null);
+  const [team, setTeam] = useState('');
+  const [player, setPlayer] = useState('');
+  const [expanded, setExpanded] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch(LOCAL_DATA.YOUTUBE_FUTURES_INTEL);
+        if (res.status === 404) { if (!cancelled) setState('missing'); return; }
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const json = await res.json();
+        if (cancelled) return;
+        const fantasyNotes = (json.notes || []).filter((n) => (n.relevance_tags || []).includes('fantasy_intel'));
+        setNotes(fantasyNotes);
+        setGeneratedAt(json.generated_at || null);
+        setState('ready');
+      } catch (e) {
+        if (!cancelled) setState('error');
+      }
+    })();
+    return () => { cancelled = true; };
+  }, []);
+
+  const filtered = useMemo(() => {
+    const teamQ = team.trim().toUpperCase();
+    const playerQ = player.trim().toLowerCase();
+    return notes.filter((n) => {
+      if (teamQ && !(n.teams || []).some((t) => String(t).toUpperCase() === teamQ)) return false;
+      if (playerQ && !(n.players || []).some((p) => String(p).toLowerCase().includes(playerQ))) return false;
+      return true;
+    });
+  }, [notes, team, player]);
+
+  // Nothing to show and nothing to explain — stay out of the way rather than
+  // adding an empty section to every load of the tab (this data only exists
+  // once episodes are re-run against the Phase 1 analysis_notes schema).
+  if (state === 'missing' || (state === 'ready' && notes.length === 0)) return null;
+
+  return (
+    <div className="bg-slate-900/60 border border-slate-800 rounded-xl overflow-hidden">
+      <button
+        onClick={() => setExpanded((v) => !v)}
+        className="w-full flex items-center justify-between gap-3 px-4 py-3 text-left"
+      >
+        <div className="flex items-center gap-2.5">
+          <div className="p-1.5 bg-amber-500/10 rounded-lg">
+            <Mic size={15} className="text-amber-400" />
+          </div>
+          <div>
+            <div className="text-sm font-bold text-white">Podcast Fantasy Intel</div>
+            <p className="text-[11px] text-slate-500">
+              {state === 'loading' && 'Loading...'}
+              {state === 'error' && 'Failed to load podcast intel'}
+              {state === 'ready' && `${filtered.length} of ${notes.length} note${notes.length === 1 ? '' : 's'} · human-reviewed, local-only · not an official pick`}
+            </p>
+          </div>
+        </div>
+        <span className="text-slate-500 text-xs">{expanded ? 'Hide' : 'Show'}</span>
+      </button>
+
+      {expanded && state === 'ready' && (
+        <div className="px-4 pb-4 space-y-3">
+          <div className="text-[11px] text-slate-500 bg-slate-950 border border-slate-800 rounded-lg px-3 py-2">
+            Role/target-share/breakout-bust commentary pulled from podcast transcripts by the local
+            Gemini/YouTube intel pipeline, human-reviewed before promotion. Read-only research
+            context — not an official pick, projection input, or production recommendation.
+            {generatedAt && ` Generated ${new Date(generatedAt).toLocaleString()}.`}
+          </div>
+          <div className="flex flex-wrap gap-2.5">
+            <input
+              value={team}
+              onChange={(e) => setTeam(e.target.value)}
+              placeholder="Filter team (e.g. KC)"
+              className="bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white placeholder:text-slate-600 focus:outline-none focus:border-slate-600 w-40"
+            />
+            <input
+              value={player}
+              onChange={(e) => setPlayer(e.target.value)}
+              placeholder="Filter player name"
+              className="bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-white placeholder:text-slate-600 focus:outline-none focus:border-slate-600 w-48"
+            />
+          </div>
+          {filtered.length === 0 ? (
+            <div className="text-center py-8 text-slate-500 text-xs">No notes match the current filters.</div>
+          ) : (
+            <div className="space-y-2.5">
+              {filtered.map((note) => (
+                <PodcastNoteCard key={note.item_id} note={note} />
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function FantasyValueBoard() {
   const [state, setState] = useState('loading'); // loading | ready | missing | error
   const [data, setData] = useState(null);
@@ -174,6 +320,8 @@ export default function FantasyValueBoard() {
         "No Projection" since they have no prior-year data. QB/RB/WR/TE only — kickers, IDP, and
         team defense aren't modeled yet (TASK_BOARD F-26b).
       </div>
+
+      <PodcastFantasyIntelPanel />
 
       {state === 'loading' && (
         <div className="flex items-center justify-center py-20 text-slate-500 gap-3">

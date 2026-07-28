@@ -106,16 +106,27 @@ function normalizeExtractedMarket(raw) {
   if (clean.includes('win_total') || clean === 'wins' || clean.includes('season_win')) return 'win_total';
   if (clean.includes('make_playoff') || clean === 'playoffs') return 'make_playoffs';
   if (clean.includes('division_winner') || clean.includes('division_champion') || clean.includes('division_champ') || clean.includes('afc_south_champ')) return 'division_winner';
-  if (clean.includes('conference_no_1_seed') || clean.includes('no_1_seed') || clean.includes('number_1_seed')) return 'conference_no_1_seed';
+  if (clean.includes('conference_no_1_seed') || clean.includes('no_1_seed') || clean.includes('number_1_seed') || clean.includes('number_one_seed')) return 'conference_no_1_seed';
   if (clean.includes('super_bowl')) return 'super_bowl_winner';
-  if (clean.includes('conference_champion') || clean.includes('conference_winner') || clean.includes('nfc_conference') || clean.includes('afc_conference')) return 'conference_winner';
+  if (clean.includes('conference_champion') || clean.includes('conference_winner') || clean.includes('nfc_conference') || clean.includes('afc_conference') || clean.includes('nfc_champion') || clean.includes('afc_champion')) return 'conference_winner';
   if (clean.includes('overall_pick') || clean.includes('no_1_overall') || clean.includes('number_1_overall')) return 'no_1_overall_pick';
-  if (clean === 'mvp' || clean.includes('most_valuable_player')) return 'mvp';
+  if (clean.includes('mvp') || clean.includes('most_valuable_player')) return 'mvp';
   if (clean === 'opoy' || clean.includes('offensive_player_of_the_year')) return 'opoy';
   if (clean === 'dpoy' || clean.includes('defensive_player_of_the_year')) return 'dpoy';
   if (clean === 'oroy' || clean.includes('offensive_rookie_of_the_year')) return 'oroy';
   if (clean === 'droy' || clean.includes('defensive_rookie_of_the_year')) return 'droy';
   if (clean.includes('coach_of_the_year')) return 'coach_of_the_year';
+  // Mirrored from build-youtube-futures-intel-review.js during the "fix now"
+  // pass (Phase 4 manual quality read): these raw slugs were falling through
+  // to the generic `return clean` with no canonical name.
+  if (clean.includes('comeback_player')) return 'comeback_player_of_the_year';
+  if (clean.includes('fewest_win')) return 'fewest_wins';
+  if (clean.includes('receiving_yard')) return 'season_receiving_yards';
+  if (clean.includes('passing_yard')) return 'season_passing_yards';
+  if (clean.includes('passing_touchdown') || clean.includes('passing_td')) return 'season_passing_tds';
+  if (clean.includes('interception')) return 'interceptions_leader';
+  if (clean.includes('rushing_touchdown') && clean.includes('leader')) return 'rushing_tds_leader';
+  if (clean.includes('rushing_touchdown') || clean.includes('rushing_td')) return 'season_rushing_tds';
   return clean;
 }
 
@@ -123,6 +134,11 @@ function normalizeExtractedSide(raw, market) {
   const clean = String(raw || 'UNKNOWN').trim().toUpperCase();
   if (YES_NO_MARKETS.has(market) && (clean === 'UNKNOWN' || clean.includes('OVER') || clean.includes('WIN') || clean.includes('YES') || clean.includes('TO WIN'))) return 'YES';
   if (YES_NO_MARKETS.has(market) && (clean.includes('NO') || clean.includes('UNDER') || clean.includes('FADE'))) return 'NO';
+  // Bug fix mirrored from build-youtube-futures-intel-review.js: "UNKNOWN"
+  // contains the substring "NO", so the .includes('NO') fallback below was
+  // silently mis-classifying every missing/null side as "NO" for markets
+  // outside YES_NO_MARKETS (e.g. survivor_pick/pickem_pick with side: null).
+  if (clean === 'UNKNOWN') return 'UNKNOWN';
   if (clean.includes('OVER')) return 'OVER';
   if (clean.includes('UNDER')) return 'UNDER';
   if (clean.includes('YES') || clean.includes('WIN')) return 'YES';

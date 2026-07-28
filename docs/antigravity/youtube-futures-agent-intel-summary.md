@@ -1,12 +1,13 @@
 # YouTube Futures Agent Intel Summary
 
-Generated: 2026-07-25T17:37:22.728Z
+Generated: 2026-07-28T06:39:48.003Z
 
 > Reviewed local podcast intel for agent context only. This does not create official picks, production recommendations, Supabase writes, or parlay changes.
 
 ## Summary
 
 - Exported local intel items: 39
+- Exported local intel notes: 0
 - Source queue: data/shadow-harness/review/youtube-futures-local-intel-queue.json
 - Rejected DET division_winner +1500 leak check: 0
 
@@ -17,6 +18,11 @@ Generated: 2026-07-25T17:37:22.728Z
 | futures_pick | 29 |
 | injury_intel | 4 |
 | non_futures_betting | 6 |
+
+## Note Relevance Tag Counts
+
+| Tag | Count |
+|---|---:|
 
 ## Market Counts
 
@@ -291,4 +297,8 @@ Generated: 2026-07-25T17:37:22.728Z
 | Lane | Side | Line | Price | Source | Flags | Quote | Rationale |
 |---|---|---:|---:|---|---|---|---|
 | non_futures_betting | FAVORITE | -2.5 |  | [9 Early NFL Week 1 Best Bets To Make NOW \| ATS, Totals & Moneyline Picks & Predictions (2026)](https://www.youtube.com/watch?v=uirj8AVs8so&t=649s) | non_futures_market, missing_price | Tennessee Titans laying 2.5 points at home against the New York Jets | Robert Saleh's defense historically matches up well, and the Titans offense should show immediate improvements under Brian Callahan playing at home. |
+
+## Analysis Notes
+
+_No analysis notes promoted yet._
 

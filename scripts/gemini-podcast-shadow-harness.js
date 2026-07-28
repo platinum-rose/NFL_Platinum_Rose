@@ -158,16 +158,28 @@ function normalizeMarket(raw) {
   if (clean.includes('win_total') || clean === 'wins' || clean.includes('season_win')) return 'win_total';
   if (clean.includes('make_playoff') || clean === 'playoffs') return 'make_playoffs';
   if (clean.includes('division_winner') || clean.includes('division_champion') || clean.includes('division_champ') || clean.includes('afc_south_champ') || clean.includes('afc_north_champ') || clean.includes('afc_east_champ') || clean.includes('afc_west_champ') || clean.includes('nfc_south_champ') || clean.includes('nfc_north_champ') || clean.includes('nfc_east_champ') || clean.includes('nfc_west_champ')) return 'division_winner';
-  if (clean.includes('conference_no_1_seed') || clean.includes('no_1_seed') || clean.includes('number_1_seed')) return 'conference_no_1_seed';
+  if (clean.includes('conference_no_1_seed') || clean.includes('no_1_seed') || clean.includes('number_1_seed') || clean.includes('number_one_seed')) return 'conference_no_1_seed';
   if (clean.includes('super_bowl')) return 'super_bowl_winner';
-  if (clean.includes('conference_champion') || clean.includes('conference_winner') || clean.includes('nfc_conference') || clean.includes('afc_conference')) return 'conference_winner';
+  if (clean.includes('conference_champion') || clean.includes('conference_winner') || clean.includes('nfc_conference') || clean.includes('afc_conference') || clean.includes('nfc_champion') || clean.includes('afc_champion')) return 'conference_winner';
   if (clean.includes('overall_pick') || clean.includes('no_1_overall') || clean.includes('number_1_overall')) return 'no_1_overall_pick';
-  if (clean === 'mvp' || clean.includes('most_valuable_player')) return 'mvp';
+  if (clean.includes('mvp') || clean.includes('most_valuable_player')) return 'mvp';
   if (clean === 'opoy' || clean.includes('offensive_player_of_the_year')) return 'opoy';
   if (clean === 'dpoy' || clean.includes('defensive_player_of_the_year')) return 'dpoy';
   if (clean === 'oroy' || clean.includes('offensive_rookie_of_the_year')) return 'oroy';
   if (clean === 'droy' || clean.includes('defensive_rookie_of_the_year')) return 'droy';
   if (clean.includes('coach_of_the_year')) return 'coach_of_the_year';
+  // Mirrored from build-youtube-futures-intel-review.js during the "fix now"
+  // pass (Phase 4 manual quality read): these raw slugs were falling through
+  // with no canonical name (this file's normalizeSide is already safe against
+  // the separate UNKNOWN/NO substring bug fixed in the other two files).
+  if (clean.includes('comeback_player')) return 'comeback_player_of_the_year';
+  if (clean.includes('fewest_win')) return 'fewest_wins';
+  if (clean.includes('receiving_yard')) return 'season_receiving_yards';
+  if (clean.includes('passing_yard')) return 'season_passing_yards';
+  if (clean.includes('passing_touchdown') || clean.includes('passing_td')) return 'season_passing_tds';
+  if (clean.includes('interception')) return 'interceptions_leader';
+  if (clean.includes('rushing_touchdown') && clean.includes('leader')) return 'rushing_tds_leader';
+  if (clean.includes('rushing_touchdown') || clean.includes('rushing_td')) return 'season_rushing_tds';
   if (clean.includes('spread')) return 'spread';
   if (clean.includes('future')) return 'futures';
   if (clean.includes('prop')) return 'player_prop';
@@ -182,9 +194,33 @@ function normalizePick(p) {
     side: normalizeSide(p.side || p.selection, market),
     line: p.line != null && p.line !== '' ? Number(p.line) : null,
     price: p.price != null && p.price !== '' ? Number(p.price) : null,
+    week: p.week != null && p.week !== '' ? Number(p.week) : null,
     speaker: p.speaker || 'Host',
     source_timestamp: Number(p.source_timestamp || p.timestamp || 0),
     rationale: p.rationale || ''
+  };
+}
+
+// Phase 1 (2026-07-27): the analysis_notes array added to the Gemini prompt
+// contract (scripts/run_gemini_youtube_shadow.py / run_gemini_live_shadow.py)
+// has to be carried through this harness too, or it silently gets dropped
+// before it ever reaches the observation file that
+// scripts/build-youtube-futures-intel-review.js reads.
+function normalizeNote(n) {
+  const teams = Array.isArray(n.teams)
+    ? n.teams.map((t) => normalizeTeam(t)).filter((t) => t && t !== 'UNK')
+    : [];
+  const players = Array.isArray(n.players) ? n.players.filter(Boolean).map(String) : [];
+  return {
+    note_type: String(n.note_type || 'other').trim().toLowerCase().replace(/[^a-z0-9]+/g, '_'),
+    teams,
+    players,
+    topic: n.topic || '',
+    summary: n.summary || '',
+    speaker: n.speaker || '',
+    source_timestamp: Number(n.source_timestamp || n.timestamp || 0),
+    quote: n.quote || '',
+    confidence: n.confidence || 'stated'
   };
 }
 
@@ -325,6 +361,7 @@ function runLiveGeminiShadow(item) {
     const rawPicks = parsedJson.extracted_picks || [];
 
     const extractedPicks = rawPicks.map(normalizePick);
+    const analysisNotes = (parsedJson.analysis_notes || []).map(normalizeNote);
 
     return {
       run_id: `live_gemini_${crypto.randomBytes(6).toString('hex')}`,
@@ -337,6 +374,7 @@ function runLiveGeminiShadow(item) {
       output_tokens: jsonRes.output_tokens || 0,
       raw_model_response: jsonRes.raw_model_response || '',
       extracted_picks: extractedPicks,
+      analysis_notes: analysisNotes,
       quote_timestamps: parsedJson.quote_timestamps || []
     };
   } catch (err) {
@@ -374,6 +412,7 @@ function runLiveGeminiYoutube(item) {
     const parsedJson = jsonRes.parsed_json || {};
     const rawPicks = parsedJson.extracted_picks || [];
     const extractedPicks = rawPicks.map(normalizePick);
+    const analysisNotes = (parsedJson.analysis_notes || []).map(normalizeNote);
 
     return {
       run_id: `youtube_gemini_${crypto.randomBytes(6).toString('hex')}`,
@@ -387,6 +426,7 @@ function runLiveGeminiYoutube(item) {
       output_tokens: jsonRes.output_tokens || 0,
       raw_model_response: jsonRes.raw_model_response || '',
       extracted_picks: extractedPicks,
+      analysis_notes: analysisNotes,
       quote_timestamps: parsedJson.quote_timestamps || []
     };
   } catch (err) {
@@ -418,6 +458,7 @@ function runSimulatedShadow(item, baselineJson) {
     output_tokens: 2100,
     raw_model_response: "[SIMULATED DRY-RUN RESPONSE]",
     extracted_picks: getBaselineGroundTruth(baselineJson),
+    analysis_notes: [],
     quote_timestamps: []
   };
 }

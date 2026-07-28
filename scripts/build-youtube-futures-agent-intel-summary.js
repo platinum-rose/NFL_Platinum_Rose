@@ -53,12 +53,14 @@ function sortItems(items) {
 function compactItem(item) {
   return {
     item_id: item.item_id,
+    item_type: 'pick',
     lane: item.item_lane,
     team: item.team,
     market: item.market,
     side: item.side,
     line: item.line,
     price: item.price,
+    week: item.week ?? null,
     speaker: item.speaker,
     rationale: item.rationale,
     supporting_quote: item.supporting_quote || '',
@@ -72,6 +74,38 @@ function compactItem(item) {
       source_timestamp: item.source?.source_timestamp
     }
   };
+}
+
+function compactNote(note) {
+  return {
+    item_id: note.item_id,
+    item_type: 'note',
+    relevance_tags: note.relevance_tags || [],
+    note_type: note.note_type,
+    teams: note.teams || [],
+    players: note.players || [],
+    topic: note.topic || '',
+    summary: note.summary || '',
+    speaker: note.speaker,
+    confidence: note.confidence || 'stated',
+    quote: note.quote || '',
+    review_flags: note.review_flags || [],
+    reviewer_notes: note.reviewer_notes || '',
+    source: {
+      episode_id: note.source?.episode_id,
+      episode_title: note.source?.episode_title,
+      show: note.source?.show,
+      timestamp_url: note.source?.timestamp_url,
+      source_timestamp: note.source?.source_timestamp
+    }
+  };
+}
+
+function countByMulti(items, key) {
+  return items.reduce((acc, item) => {
+    for (const value of (item[key] || [])) acc[value] = (acc[value] || 0) + 1;
+    return acc;
+  }, {});
 }
 
 function countBy(items, key) {
@@ -88,6 +122,10 @@ if (!fs.existsSync(QUEUE_PATH)) {
 
 const queue = readJson(QUEUE_PATH);
 const items = sortItems(queue.items || []);
+const notes = [...(queue.notes || [])].sort((a, b) => (
+  String(a.source?.episode_title || '').localeCompare(String(b.source?.episode_title || ''))
+  || Number(a.source?.source_timestamp || 0) - Number(b.source?.source_timestamp || 0)
+));
 const badLions = items.filter(item => (
   item.team === 'DET'
   && item.market === 'division_winner'
@@ -126,17 +164,20 @@ const summary = {
   guardrail: 'Reviewed local podcast intel for agent context only. This is not an official pick ledger, production recommendation, Supabase write, or parlay mutation.',
   source_queue: path.relative(ROOT, QUEUE_PATH),
   exported_items: items.length,
+  exported_notes: notes.length,
   counts: {
     by_lane: countBy(items, 'item_lane'),
     by_team: countBy(items, 'team'),
-    by_market: countBy(items, 'market')
+    by_market: countBy(items, 'market'),
+    by_relevance_tag: countByMulti(notes, 'relevance_tags')
   },
   rejected_leak_checks: {
     det_division_winner_plus_1500: badLions.length
   },
   by_team: byTeam,
   by_market: byMarket,
-  items: items.map(compactItem)
+  items: items.map(compactItem),
+  notes: notes.map(compactNote)
 };
 
 writeJson(OUT_JSON, summary);
@@ -152,6 +193,7 @@ const lines = [
   '## Summary',
   '',
   `- Exported local intel items: ${summary.exported_items}`,
+  `- Exported local intel notes: ${summary.exported_notes}`,
   `- Source queue: ${summary.source_queue}`,
   `- Rejected DET division_winner +1500 leak check: ${summary.rejected_leak_checks.det_division_winner_plus_1500}`,
   '',
@@ -160,6 +202,12 @@ const lines = [
   '| Lane | Count |',
   '|---|---:|',
   ...Object.entries(summary.counts.by_lane).sort(([a], [b]) => a.localeCompare(b)).map(([lane, count]) => `| ${lane} | ${count} |`),
+  '',
+  '## Note Relevance Tag Counts',
+  '',
+  '| Tag | Count |',
+  '|---|---:|',
+  ...Object.entries(summary.counts.by_relevance_tag).sort(([a], [b]) => a.localeCompare(b)).map(([tag, count]) => `| ${tag} | ${count} |`),
   '',
   '## Market Counts',
   '',
@@ -184,10 +232,22 @@ for (const teamGroup of byTeam) {
   }
 }
 
+lines.push('## Analysis Notes', '');
+if (notes.length > 0) {
+  lines.push('| Tags | Note Type | Teams | Players | Source | Confidence | Flags | Summary | Quote |');
+  lines.push('|---|---|---|---|---|---|---|---|---|');
+  for (const note of notes.map(compactNote)) {
+    lines.push(`| ${note.relevance_tags.join(', ')} | ${note.note_type} | ${mdCell(note.teams.join(', '))} | ${mdCell(note.players.join(', '))} | [${mdCell(note.source.episode_title)}](${note.source.timestamp_url}) | ${note.confidence} | ${(note.review_flags || []).join(', ')} | ${mdCell(note.summary)} | ${mdCell(note.quote)} |`);
+  }
+} else {
+  lines.push('_No analysis notes promoted yet._');
+}
+lines.push('');
+
 fs.mkdirSync(path.dirname(OUT_MD), { recursive: true });
 fs.writeFileSync(OUT_MD, `${lines.join('\n')}\n`);
 
 console.log(`Wrote YouTube futures agent intel JSON: ${OUT_JSON}`);
 console.log(`Wrote YouTube futures agent intel public copy: ${OUT_PUBLIC}`);
 console.log(`Wrote YouTube futures agent intel Markdown: ${OUT_MD}`);
-console.log(`Agent summary: items=${summary.exported_items} det_bad_leaks=${summary.rejected_leak_checks.det_division_winner_plus_1500}`);
+console.log(`Agent summary: items=${summary.exported_items} notes=${summary.exported_notes} det_bad_leaks=${summary.rejected_leak_checks.det_division_winner_plus_1500}`);

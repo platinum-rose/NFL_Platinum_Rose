@@ -22,6 +22,12 @@
 import { getLatestOddsSnapshot, supabase, isAvailable } from './supabase.js';
 import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS } from './storage.js';
 import { LOCAL_DATA, ESPN_API } from './apiConfig.js';
+// get_youtube_futures_intel is genuinely shared (already the BETTING/FUTURES
+// podcast-intel tool) rather than BETTING-internal machinery, so PROPS reuses
+// it directly instead of duplicating the fetch/filter logic — closes the gap
+// where PROPS had zero podcast/YouTube intel access (fantasy_intel and
+// matchup_analysis tags are the ones most relevant to prop research).
+import { PODCAST_INTEL_TOOLS, toolGetYoutubeFuturesIntel } from './agentTools.js';
 
 // ─── ESPN Team ID Mapping (shared with agentTools; duplicated here so PROPS is
 //    a self-contained module that doesn't cross-import BETTING internals) ─────
@@ -213,19 +219,22 @@ export const PROPS_TOOLS = [
       required: ['direction', 'odds', 'units'],
     },
   },
+  // Shared with BETTING/FUTURES — see import comment above.
+  PODCAST_INTEL_TOOLS.find(t => t.name === 'get_youtube_futures_intel'),
 ];
 
 // ─── Tool Executor ───────────────────────────────────────────────────────────
 
 export async function executePropTool(name, input) {
   switch (name) {
-    case 'get_player_props':      return toolGetPlayerProps(input);
-    case 'analyze_prop':          return toolAnalyzeProp(input);
-    case 'get_prop_line_shop':    return toolGetPropLineShop(input);
-    case 'build_sgp':             return toolBuildSGP(input);
-    case 'check_backup_depth':    return toolCheckBackupDepth(input);
-    case 'get_prop_correlations': return toolGetCorrelations();
-    case 'log_prop':              return toolLogProp(input);
+    case 'get_player_props':          return toolGetPlayerProps(input);
+    case 'analyze_prop':              return toolAnalyzeProp(input);
+    case 'get_prop_line_shop':        return toolGetPropLineShop(input);
+    case 'build_sgp':                 return toolBuildSGP(input);
+    case 'check_backup_depth':        return toolCheckBackupDepth(input);
+    case 'get_prop_correlations':     return toolGetCorrelations();
+    case 'log_prop':                  return toolLogProp(input);
+    case 'get_youtube_futures_intel': return toolGetYoutubeFuturesIntel(input);
     default:
       return { error: `Unknown PROPS tool: ${name}` };
   }

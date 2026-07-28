@@ -7,66 +7,248 @@
   "model": "gemini-3.5-flash",
   "input_source": "youtube_video_url",
   "run": {
-    "run_id": "youtube_gemini_d4acf60b508e",
+    "run_id": "youtube_gemini_69a070342ada",
     "mode": "live-youtube",
     "model": "gemini-3.5-flash",
     "input_source": "youtube_video_url",
     "youtube_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc",
-    "latency_ms": 78571,
-    "estimated_cost_usd": 0.025419,
-    "input_tokens": 250877,
-    "output_tokens": 829,
-    "raw_model_response": "{\n  \"transcript_summary\": \"Seth Woolcock and Andrew Erickson discuss longshot futures bets for the 2026 NFL season. Andrew Erickson highlights value on the Chargers to win the Super Bowl, the Cowboys to win the NFC, and the Titans to win the AFC South.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 258.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"All right and welcome into the BettingPros NFL podcast...\"\n    },\n    {\n      \"start\": 258.0,\n      \"end\": 445.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"The Los Angeles Chargers are going to win the Super Bowl at 17 to 1 odds...\"\n    },\n    {\n      \"start\": 445.0,\n      \"end\": 668.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"13 to 1 to win the NFC... Dallas Cowboys...\"\n    },\n    {\n      \"start\": 668.0,\n      \"end\": 703.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"The Tennessee Titans to win the AFC South at 9 to 1...\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"Los Angeles Chargers\",\n      \"market\": \"Super Bowl Winners\",\n      \"side\": \"Winner\",\n      \"line\": null,\n      \"price\": \"+1700\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 258,\n      \"rationale\": \"Believes the Chargers under Jim Harbaugh and Mike McDaniel can make a run, with Justin Herbert playing his best football.\"\n    },\n    {\n      \"team\": \"Dallas Cowboys\",\n      \"market\": \"NFC Conference Champions\",\n      \"side\": \"Winner\",\n      \"line\": null,\n      \"price\": \"+1300\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 445,\n      \"rationale\": \"High on Dak Prescott with CeeDee Lamb and George Pickens, alongside a revamped defense featuring Quinnen Williams and draft upgrades.\"\n    },\n    {\n      \"team\": \"Tennessee Titans\",\n      \"market\": \"AFC South Champions\",\n      \"side\": \"Winner\",\n      \"line\": null,\n      \"price\": \"+900\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 668,\n      \"rationale\": \"Likes the transition to Robert Saleh as head coach and Brian Daboll as offensive coordinator, expecting Cam Ward to take a massive second-year leap.\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Chargers Super Bowl\",\n      \"timestamp\": 258,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"The Los Angeles Chargers are going to win the Super Bowl at 17 to 1 odds.\"\n    },\n    {\n      \"topic\": \"Cowboys NFC Conference\",\n      \"timestamp\": 445,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"13 to 1 to win the NFC.\"\n    },\n    {\n      \"topic\": \"Titans AFC South\",\n      \"timestamp\": 668,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"The Tennessee Titans to win the AFC South at 9 to 1.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+    "latency_ms": 78893,
+    "estimated_cost_usd": 0.026425,
+    "input_tokens": 251533,
+    "output_tokens": 3180,
+    "raw_model_response": "{\n  \"transcript_summary\": \"Seth Woolcock and Andrew Erickson look ahead to the simulated 2026 NFL season, providing futures bets and longshot awards. They discuss roster overhauls, coaching hires, and potential breakout players for several franchises.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 257.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Intro and discussion about historical sports underdog stories.\"\n    },\n    {\n      \"start\": 257.0,\n      \"end\": 444.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Discussion on Los Angeles Chargers Super Bowl futures.\"\n    },\n    {\n      \"start\": 444.0,\n      \"end\": 667.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Discussion on Dallas Cowboys NFC Champion longshot.\"\n    },\n    {\n      \"start\": 667.0,\n      \"end\": 972.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Discussion on Tennessee Titans AFC South Champions futures.\"\n    },\n    {\n      \"start\": 972.0,\n      \"end\": 1202.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Discussion on Trevor Lawrence MVP futures.\"\n    },\n    {\n      \"start\": 1202.0,\n      \"end\": 1435.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Discussion on Travis Hunter Comeback Player of the Year futures.\"\n    },\n    {\n      \"start\": 1435.0,\n      \"end\": 1539.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Discussion on Brock Bowers Offensive Player of the Year futures.\"\n    },\n    {\n      \"start\": 1539.0,\n      \"end\": 1636.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Discussion on Malachi Lawrence Defensive Rookie of the Year.\"\n    },\n    {\n      \"start\": 1636.0,\n      \"end\": 1925.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Discussion on Elijah Sarratt and Eli Stowers OROY futures.\"\n    },\n    {\n      \"start\": 1925.0,\n      \"end\": 2201.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Discussion on Pittsburgh Steelers fewest wins future.\"\n    },\n    {\n      \"start\": 2201.0,\n      \"end\": 2468.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Discussion on Zay Flowers receiving yards player milestones.\"\n    },\n    {\n      \"start\": 2468.0,\n      \"end\": 2754.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Discussion on Fernando Mendoza passing touchdowns milestone.\"\n    },\n    {\n      \"start\": 2754.0,\n      \"end\": 2911.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Discussion on D'Angelo Ponds leading the NFL in interceptions.\"\n    },\n    {\n      \"start\": 2911.0,\n      \"end\": 3100.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Discussion on Bijan Robinson rushing touchdowns leader and show outro.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"LAC\",\n      \"market\": \"super_bowl_winner\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1700,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 258,\n      \"rationale\": \"Jim Harbaugh has the capability to get this team to the Super Bowl, and Mike McDaniel as OC will cook with Justin Herbert.\"\n    },\n    {\n      \"team\": \"DAL\",\n      \"market\": \"nfc_champion\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1300,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 445,\n      \"rationale\": \"Dak Prescott has elite options in CeeDee Lamb and George Pickens. Defense got Quinn Williams and will be top 10.\"\n    },\n    {\n      \"team\": \"TEN\",\n      \"market\": \"afc_south_champion\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 900,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 668,\n      \"rationale\": \"Betting on the worst-to-first trend. Cam Ward will take a massive second-year leap under Brian Daboll.\"\n    },\n    {\n      \"team\": \"JAX\",\n      \"market\": \"mvp\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 2400,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 973,\n      \"rationale\": \"Historically, first-time MVPs peak around age 27. Lawrence has deep weapons in Brian Thomas Jr., Jakobi Meyers, and Parker Washington.\"\n    },\n    {\n      \"team\": \"JAX\",\n      \"market\": \"comeback_player_of_the_year\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 3500,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1203,\n      \"rationale\": \"Voters will reward him for his unique two-way contribution playing both WR and CB coming off an injury.\"\n    },\n    {\n      \"team\": \"LV\",\n      \"market\": \"offensive_player_of_the_year\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 8000,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1436,\n      \"rationale\": \"He can break tight end records, Kubiak's system will highlight his skillset with a high target share.\"\n    },\n    {\n      \"team\": \"DAL\",\n      \"market\": \"defensive_rookie_of_the_year\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 2500,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1540,\n      \"rationale\": \"Pass rusher expected to rack up sack numbers in Dallas's high profile defense.\"\n    },\n    {\n      \"team\": \"BAL\",\n      \"market\": \"offensive_rookie_of_the_year\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 9245,\n      \"week\": null,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 1637,\n      \"rationale\": \"Most pro-ready WR in the class, playing with Lamar Jackson, will get early field time.\"\n    },\n    {\n      \"team\": \"PHI\",\n      \"market\": \"offensive_rookie_of_the_year\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 9245,\n      \"week\": null,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 1637,\n      \"rationale\": \"Athletic freak at tight end who fits Kellen Moore's 12-personnel system.\"\n    },\n    {\n      \"team\": \"PIT\",\n      \"market\": \"fewest_wins\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 4000,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1926,\n      \"rationale\": \"Old roster, Mike Tomlin magic is gone, and Mike McCarthy's history of low-win seasons when things unravel.\"\n    },\n    {\n      \"team\": \"BAL\",\n      \"market\": \"receiving_yards\",\n      \"side\": \"OVER\",\n      \"line\": 1500.0,\n      \"price\": 1000,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 2202,\n      \"rationale\": \"Receiving yards have gone up every year, no competition for targets as Mark Andrews is cooked.\"\n    },\n    {\n      \"team\": \"LV\",\n      \"market\": \"passing_touchdowns\",\n      \"side\": \"OVER\",\n      \"line\": 25.0,\n      \"price\": 1400,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 2469,\n      \"rationale\": \"Mendoza will throw plenty of TDs in Raiders red zone system, taking over from Kirk Cousins.\"\n    },\n    {\n      \"team\": \"NYJ\",\n      \"market\": \"most_interceptions\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 2755,\n      \"rationale\": \"Aggressive CB in a Jets defense that will see positive regression in turnover luck.\"\n    },\n    {\n      \"team\": \"ATL\",\n      \"market\": \"rushing_touchdowns_leader\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1800,\n      \"week\": null,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 2912,\n      \"rationale\": \"Zac Robinson's offense will feed Bijan Robinson. Goal line issues for Tua means more rushing opportunities.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"roster_or_depth_chart\",\n      \"teams\": [\"ATL\"],\n      \"players\": [\"Tua Tagovailoa\", \"Michael Penix Jr.\"],\n      \"topic\": \"Falcons QB Competition\",\n      \"summary\": \"Tua Tagovailoa is playing on a league-minimum deal for the Atlanta Falcons, competing with Michael Penix Jr. for the starting job.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 343,\n      \"quote\": \"And now Tua is playing for the league minimum for the Atlanta Falcons in a quarterback competition with Michael Penix Jr.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"roster_or_depth_chart\",\n      \"teams\": [\"LV\"],\n      \"players\": [\"Kirk Cousins\", \"Fernando Mendoza\"],\n      \"topic\": \"Raiders QB depth chart\",\n      \"summary\": \"Kirk Cousins is starting for the Raiders, but there is speculation that rookie Fernando Mendoza could take over.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 2511,\n      \"quote\": \"I think that after a couple weeks they are going to be like, 'let's get Mendoza in there, we've seen enough of Kirk Cousins.'\",\n      \"confidence\": \"speculative\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"PIT\"],\n      \"players\": [\"Aaron Rodgers\"],\n      \"topic\": \"Steelers coaching and QB\",\n      \"summary\": \"Mike McCarthy is the head coach of the Steelers, and Aaron Rodgers is their aging starting quarterback, with Drew Allar and Will Howard as backups.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1980,\n      \"quote\": \"And Aaron Rodgers is terrible, what if they decide, hey, we're going to use Drew Allar, we're going to use Will Howard because Rodgers is cooked.\",\n      \"confidence\": \"speculative\"\n    },\n    {\n      \"note_type\": \"roster_or_depth_chart\",\n      \"teams\": [\"JAX\"],\n      \"players\": [\"Travis Hunter\"],\n      \"topic\": \"Travis Hunter two-way role\",\n      \"summary\": \"Travis Hunter is expected to play both wide receiver and cornerback for the Jacksonville Jaguars.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1210,\n      \"quote\": \"He is doing something no other player has really done in such a long time, and that's like having success playing both ways.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Chargers SB futures\",\n      \"timestamp\": 258,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"Chargers over Lions, I think was the prediction I made.\"\n    },\n    {\n      \"topic\": \"Titans futures\",\n      \"timestamp\": 668,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"This is a trend type of play, it's the Tennessee Titans to win the AFC South.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
     "extracted_picks": [
       {
-        "team": "LOS",
-        "market": "super bowl winners",
-        "side": "WINNER",
+        "team": "LAC",
+        "market": "super_bowl_winner",
+        "side": "UNKNOWN",
         "line": null,
         "price": 1700,
+        "week": null,
         "speaker": "Andrew Erickson",
         "source_timestamp": 258,
-        "rationale": "Believes the Chargers under Jim Harbaugh and Mike McDaniel can make a run, with Justin Herbert playing his best football."
+        "rationale": "Jim Harbaugh has the capability to get this team to the Super Bowl, and Mike McDaniel as OC will cook with Justin Herbert."
       },
       {
         "team": "DAL",
-        "market": "nfc conference champions",
-        "side": "WINNER",
+        "market": "nfc_champion",
+        "side": "UNKNOWN",
         "line": null,
         "price": 1300,
+        "week": null,
         "speaker": "Andrew Erickson",
         "source_timestamp": 445,
-        "rationale": "High on Dak Prescott with CeeDee Lamb and George Pickens, alongside a revamped defense featuring Quinnen Williams and draft upgrades."
+        "rationale": "Dak Prescott has elite options in CeeDee Lamb and George Pickens. Defense got Quinn Williams and will be top 10."
       },
       {
         "team": "TEN",
-        "market": "afc south champions",
-        "side": "WINNER",
+        "market": "division_winner",
+        "side": "UNKNOWN",
         "line": null,
         "price": 900,
+        "week": null,
         "speaker": "Andrew Erickson",
         "source_timestamp": 668,
-        "rationale": "Likes the transition to Robert Saleh as head coach and Brian Daboll as offensive coordinator, expecting Cam Ward to take a massive second-year leap."
+        "rationale": "Betting on the worst-to-first trend. Cam Ward will take a massive second-year leap under Brian Daboll."
+      },
+      {
+        "team": "JAX",
+        "market": "mvp",
+        "side": "UNKNOWN",
+        "line": null,
+        "price": 2400,
+        "week": null,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 973,
+        "rationale": "Historically, first-time MVPs peak around age 27. Lawrence has deep weapons in Brian Thomas Jr., Jakobi Meyers, and Parker Washington."
+      },
+      {
+        "team": "JAX",
+        "market": "comeback_player_of_the_year",
+        "side": "UNKNOWN",
+        "line": null,
+        "price": 3500,
+        "week": null,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 1203,
+        "rationale": "Voters will reward him for his unique two-way contribution playing both WR and CB coming off an injury."
+      },
+      {
+        "team": "LV",
+        "market": "opoy",
+        "side": "UNKNOWN",
+        "line": null,
+        "price": 8000,
+        "week": null,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 1436,
+        "rationale": "He can break tight end records, Kubiak's system will highlight his skillset with a high target share."
+      },
+      {
+        "team": "DAL",
+        "market": "droy",
+        "side": "UNKNOWN",
+        "line": null,
+        "price": 2500,
+        "week": null,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 1540,
+        "rationale": "Pass rusher expected to rack up sack numbers in Dallas's high profile defense."
+      },
+      {
+        "team": "BAL",
+        "market": "oroy",
+        "side": "UNKNOWN",
+        "line": null,
+        "price": 9245,
+        "week": null,
+        "speaker": "Seth Woolcock",
+        "source_timestamp": 1637,
+        "rationale": "Most pro-ready WR in the class, playing with Lamar Jackson, will get early field time."
+      },
+      {
+        "team": "PHI",
+        "market": "oroy",
+        "side": "UNKNOWN",
+        "line": null,
+        "price": 9245,
+        "week": null,
+        "speaker": "Seth Woolcock",
+        "source_timestamp": 1637,
+        "rationale": "Athletic freak at tight end who fits Kellen Moore's 12-personnel system."
+      },
+      {
+        "team": "PIT",
+        "market": "fewest_wins",
+        "side": "UNKNOWN",
+        "line": null,
+        "price": 4000,
+        "week": null,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 1926,
+        "rationale": "Old roster, Mike Tomlin magic is gone, and Mike McCarthy's history of low-win seasons when things unravel."
+      },
+      {
+        "team": "BAL",
+        "market": "receiving_yards",
+        "side": "OVER",
+        "line": 1500,
+        "price": 1000,
+        "week": null,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 2202,
+        "rationale": "Receiving yards have gone up every year, no competition for targets as Mark Andrews is cooked."
+      },
+      {
+        "team": "LV",
+        "market": "passing_touchdowns",
+        "side": "OVER",
+        "line": 25,
+        "price": 1400,
+        "week": null,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 2469,
+        "rationale": "Mendoza will throw plenty of TDs in Raiders red zone system, taking over from Kirk Cousins."
+      },
+      {
+        "team": "NYJ",
+        "market": "most_interceptions",
+        "side": "UNKNOWN",
+        "line": null,
+        "price": null,
+        "week": null,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 2755,
+        "rationale": "Aggressive CB in a Jets defense that will see positive regression in turnover luck."
+      },
+      {
+        "team": "ATL",
+        "market": "rushing_touchdowns_leader",
+        "side": "UNKNOWN",
+        "line": null,
+        "price": 1800,
+        "week": null,
+        "speaker": "Seth Woolcock",
+        "source_timestamp": 2912,
+        "rationale": "Zac Robinson's offense will feed Bijan Robinson. Goal line issues for Tua means more rushing opportunities."
+      }
+    ],
+    "analysis_notes": [
+      {
+        "note_type": "roster_or_depth_chart",
+        "teams": [
+          "ATL"
+        ],
+        "players": [
+          "Tua Tagovailoa",
+          "Michael Penix Jr."
+        ],
+        "topic": "Falcons QB Competition",
+        "summary": "Tua Tagovailoa is playing on a league-minimum deal for the Atlanta Falcons, competing with Michael Penix Jr. for the starting job.",
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 343,
+        "quote": "And now Tua is playing for the league minimum for the Atlanta Falcons in a quarterback competition with Michael Penix Jr.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "roster_or_depth_chart",
+        "teams": [
+          "LV"
+        ],
+        "players": [
+          "Kirk Cousins",
+          "Fernando Mendoza"
+        ],
+        "topic": "Raiders QB depth chart",
+        "summary": "Kirk Cousins is starting for the Raiders, but there is speculation that rookie Fernando Mendoza could take over.",
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 2511,
+        "quote": "I think that after a couple weeks they are going to be like, 'let's get Mendoza in there, we've seen enough of Kirk Cousins.'",
+        "confidence": "speculative"
+      },
+      {
+        "note_type": "coaching_or_scheme",
+        "teams": [
+          "PIT"
+        ],
+        "players": [
+          "Aaron Rodgers"
+        ],
+        "topic": "Steelers coaching and QB",
+        "summary": "Mike McCarthy is the head coach of the Steelers, and Aaron Rodgers is their aging starting quarterback, with Drew Allar and Will Howard as backups.",
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 1980,
+        "quote": "And Aaron Rodgers is terrible, what if they decide, hey, we're going to use Drew Allar, we're going to use Will Howard because Rodgers is cooked.",
+        "confidence": "speculative"
+      },
+      {
+        "note_type": "roster_or_depth_chart",
+        "teams": [
+          "JAX"
+        ],
+        "players": [
+          "Travis Hunter"
+        ],
+        "topic": "Travis Hunter two-way role",
+        "summary": "Travis Hunter is expected to play both wide receiver and cornerback for the Jacksonville Jaguars.",
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 1210,
+        "quote": "He is doing something no other player has really done in such a long time, and that's like having success playing both ways.",
+        "confidence": "stated"
       }
     ],
     "quote_timestamps": [
       {
-        "topic": "Chargers Super Bowl",
+        "topic": "Chargers SB futures",
         "timestamp": 258,
         "speaker": "Andrew Erickson",
-        "quote": "The Los Angeles Chargers are going to win the Super Bowl at 17 to 1 odds."
+        "quote": "Chargers over Lions, I think was the prediction I made."
       },
       {
-        "topic": "Cowboys NFC Conference",
-        "timestamp": 445,
-        "speaker": "Andrew Erickson",
-        "quote": "13 to 1 to win the NFC."
-      },
-      {
-        "topic": "Titans AFC South",
+        "topic": "Titans futures",
         "timestamp": 668,
         "speaker": "Andrew Erickson",
-        "quote": "The Tennessee Titans to win the AFC South at 9 to 1."
+        "quote": "This is a trend type of play, it's the Tennessee Titans to win the AFC South."
       }
     ]
   },
@@ -74,7 +256,7 @@
     "score_status": "not_scored",
     "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
     "total_ground_truth": 0,
-    "total_shadow_extracted": 3,
+    "total_shadow_extracted": 14,
     "full_exact_matches": 0,
     "precision_pct": "not scored",
     "recall_pct": "not scored",

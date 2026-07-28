@@ -105,6 +105,21 @@
       },
       "writes": "localStorage:nfl_props_picks_v1",
       "confirmation": "Always confirm with Creator before executing. Never auto-log."
+    },
+    {
+      "name": "get_youtube_futures_intel",
+      "description": "Shared with BETTING/FUTURES (S300-S317 pipeline). Local-only, human-reviewed YouTube/Gemini podcast intel — not Supabase. Returns picks (single lane) and analysis notes (relevance_tags[], can carry several); for PROPS the most relevant tags are fantasy_intel (role/target-share/breakout-bust commentary) and matchup_analysis (scheme/coaching confidence not tied to a number). Every item carries source episode/timestamp and review_flags — always surface review_flags when citing an item. Read-only research context; never an official pick or production recommendation.",
+      "parameters": {
+        "team": { "type": "string", "description": "Team abbreviation to filter by. Matches a pick's team or any of a note's teams." },
+        "market": { "type": "string", "description": "Market identifier (picks only — excludes notes when set)." },
+        "lane": {
+          "type": "string",
+          "enum": ["futures_pick", "non_futures_betting", "injury_intel", "training_camp_intel", "market_context", "survivor_pickem_pick", "fantasy_intel", "matchup_analysis", "roster_transaction_intel", "survivor_pickem_intel"],
+          "description": "Pick lane or note relevance tag. PROPS will mostly use fantasy_intel / matchup_analysis / injury_intel."
+        },
+        "limit": { "type": "number", "default": 25 }
+      },
+      "reads": "public/youtube-futures-agent-intel-summary.json (local-only; not Supabase)"
     }
   ],
   "persistenceKeys": {

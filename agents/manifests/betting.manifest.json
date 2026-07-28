@@ -422,24 +422,31 @@
     },
     {
       "name": "get_youtube_futures_intel",
-      "description": "S300/S301: local-only, human-reviewed YouTube/Gemini podcast intel research context (11 futures-eligible episodes, 39 promoted items; 1 bad DET division_winner +1500 extraction rejected). Distinct from search_podcast_picks: reads a local JSON file synced to public/, not Supabase. Every item carries source episode/timestamp, supporting_quote, and review_flags (e.g. price_not_in_quote) — always surface review_flags when citing an item. Never an official pick, production recommendation, or Supabase-backed source.",
+      "description": "S300-S317: local-only, human-reviewed YouTube/Gemini podcast intel research context (1 bad DET division_winner +1500 extraction rejected on every rebuild). Distinct from search_podcast_picks: reads a local JSON file synced to public/, not Supabase. Returns two item shapes: picks (item_type: pick, single lane) and analysis notes (item_type: note, one or more relevance_tags — a note can be e.g. both fantasy_intel and matchup_analysis). Every item carries source episode/timestamp and review_flags (e.g. price_not_in_quote, thin_summary) — always surface review_flags when citing an item. Never an official pick, production recommendation, or Supabase-backed source.",
       "parameters": {
         "team": {
           "type": "string",
-          "description": "Team abbreviation (KC, BUF, ATL, ...) to filter by"
+          "description": "Team abbreviation (KC, BUF, ATL, ...) to filter by. Matches a pick's team or any of a note's teams."
         },
         "market": {
           "type": "string",
-          "description": "Market identifier to filter by (e.g. division_winner, make_playoffs, mvp, win_total)"
+          "description": "Market identifier to filter by (e.g. division_winner, make_playoffs, mvp, win_total). Picks only — excludes notes when set."
         },
         "lane": {
           "type": "string",
           "enum": [
             "futures_pick",
+            "non_futures_betting",
             "injury_intel",
-            "non_futures_betting"
+            "training_camp_intel",
+            "market_context",
+            "survivor_pickem_pick",
+            "fantasy_intel",
+            "matchup_analysis",
+            "roster_transaction_intel",
+            "survivor_pickem_intel"
           ],
-          "description": "Item lane to filter by"
+          "description": "Pick lane or note relevance tag to filter by. Pick-only: futures_pick, non_futures_betting, injury_intel, training_camp_intel, market_context, survivor_pickem_pick. Note-only: fantasy_intel, matchup_analysis, roster_transaction_intel, survivor_pickem_intel (matches if any of the note's tags equal this value)."
         },
         "limit": {
           "type": "number",
@@ -447,7 +454,7 @@
         }
       },
       "reads": "public/youtube-futures-agent-intel-summary.json (local-only; not Supabase)",
-      "returns": "{ status, guardrail, generated_at, total_matched, returned, items[{ item_id, lane, team, market, side, line, price, speaker, rationale, supporting_quote, review_flags[], reviewer_notes, source }] }"
+      "returns": "{ status, guardrail, generated_at, total_matched, returned, items[ pick: { item_id, item_type: 'pick', lane, team, market, side, line, price, week, speaker, rationale, supporting_quote, review_flags[], reviewer_notes, source } | note: { item_id, item_type: 'note', relevance_tags[], note_type, teams[], players[], topic, summary, speaker, confidence, quote, review_flags[], reviewer_notes, source } ] }"
     }
   ],
   "persistenceKeys": {

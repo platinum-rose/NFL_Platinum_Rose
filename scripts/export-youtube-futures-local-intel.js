@@ -51,9 +51,12 @@ if (!fs.existsSync(statusPath)) throw new Error(`Missing review status ledger: $
 const report = readJson(reportPath);
 const statusLedger = readJson(statusPath);
 const picksById = new Map((report.picks || []).map(item => [item.item_id, item]));
+const notesById = new Map((report.notes || []).map(item => [item.item_id, item]));
 const promotedStatuses = (statusLedger.items || []).filter(item => item.status === 'promote_to_local_intel');
+const promotedPickStatuses = promotedStatuses.filter(item => (item.item_type || 'pick') === 'pick');
+const promotedNoteStatuses = promotedStatuses.filter(item => item.item_type === 'note');
 
-const exportedItems = promotedStatuses.map(status => {
+const exportedItems = promotedPickStatuses.map(status => {
   const pick = picksById.get(status.item_id);
   if (!pick) {
     return {
@@ -71,6 +74,7 @@ const exportedItems = promotedStatuses.map(status => {
     side: pick.side,
     line: pick.line,
     price: pick.price,
+    week: pick.week ?? null,
     speaker: pick.speaker || null,
     rationale: pick.rationale || '',
     supporting_quote: pick.supporting_quote || '',
@@ -87,8 +91,50 @@ const exportedItems = promotedStatuses.map(status => {
   };
 });
 
-const missingReportItems = exportedItems.filter(item => item.export_error);
+const exportedNotes = promotedNoteStatuses.map(status => {
+  const note = notesById.get(status.item_id);
+  if (!note) {
+    return {
+      item_id: status.item_id,
+      export_error: 'status_item_missing_from_review_report',
+      reviewer_notes: status.reviewer_notes || ''
+    };
+  }
+
+  return {
+    item_id: note.item_id,
+    relevance_tags: note.relevance_tags || [],
+    note_type: note.note_type,
+    teams: note.teams || [],
+    players: note.players || [],
+    topic: note.topic || '',
+    summary: note.summary || '',
+    speaker: note.speaker || null,
+    confidence: note.confidence || 'stated',
+    quote: note.quote || '',
+    review_flags: note.review_flags || [],
+    reviewer_notes: status.reviewer_notes || '',
+    source: {
+      episode_id: note.episode_id,
+      episode_title: note.episode_title,
+      show: note.show,
+      video_url: note.video_url,
+      source_timestamp: note.source_timestamp,
+      timestamp_url: note.timestamp_url
+    }
+  };
+});
+
+const missingReportItems = [...exportedItems, ...exportedNotes].filter(item => item.export_error);
 const cleanItems = exportedItems.filter(item => !item.export_error);
+const cleanNotes = exportedNotes.filter(item => !item.export_error);
+
+function groupCountMulti(items, key) {
+  return items.reduce((acc, item) => {
+    for (const value of (item[key] || [])) acc[value] = (acc[value] || 0) + 1;
+    return acc;
+  }, {});
+}
 
 const payload = {
   generated_at: new Date().toISOString(),
@@ -99,6 +145,7 @@ const payload = {
   promoted_status: 'promote_to_local_intel',
   total_status_items: (statusLedger.items || []).length,
   exported_items: cleanItems.length,
+  exported_notes: cleanNotes.length,
   skipped_items: (statusLedger.items || []).length - promotedStatuses.length,
   missing_report_items: missingReportItems,
   grouped_counts: {
@@ -106,7 +153,11 @@ const payload = {
     by_team: groupCount(cleanItems, 'team'),
     by_market: groupCount(cleanItems, 'market')
   },
-  items: cleanItems
+  note_grouped_counts: {
+    by_relevance_tag: groupCountMulti(cleanNotes, 'relevance_tags')
+  },
+  items: cleanItems,
+  notes: cleanNotes
 };
 
 writeJson(outPath, payload);
@@ -121,6 +172,7 @@ const lines = [
   '## Summary',
   '',
   `- Exported items: ${payload.exported_items}`,
+  `- Exported notes: ${payload.exported_notes}`,
   `- Skipped review items: ${payload.skipped_items}`,
   `- Missing report items: ${payload.missing_report_items.length}`,
   `- Source status: ${path.relative(ROOT, statusPath)}`,
@@ -128,9 +180,19 @@ const lines = [
   '',
   '## Exported Intel',
   '',
-  '| Lane | Team | Market | Side | Line | Price | Episode | Time | Notes | Quote | Rationale |',
-  '|---|---|---|---|---:|---:|---|---|---|---|---|',
-  ...cleanItems.map(item => `| ${item.item_lane} | ${item.team} | ${item.market} | ${item.side} | ${item.line ?? ''} | ${priceText(item.price)} | ${mdCell(item.source.episode_title)} | [${item.source.source_timestamp}s](${item.source.timestamp_url}) | ${mdCell(item.reviewer_notes)} | ${mdCell(item.supporting_quote)} | ${mdCell(item.rationale)} |`)
+  '| Lane | Team | Market | Side | Line | Price | Week | Episode | Time | Notes | Quote | Rationale |',
+  '|---|---|---|---|---:|---:|---:|---|---|---|---|---|',
+  ...cleanItems.map(item => `| ${item.item_lane} | ${item.team} | ${item.market} | ${item.side} | ${item.line ?? ''} | ${priceText(item.price)} | ${item.week ?? ''} | ${mdCell(item.source.episode_title)} | [${item.source.source_timestamp}s](${item.source.timestamp_url}) | ${mdCell(item.reviewer_notes)} | ${mdCell(item.supporting_quote)} | ${mdCell(item.rationale)} |`),
+  '',
+  '## Exported Analysis Notes',
+  '',
+  cleanNotes.length > 0
+    ? '| Tags | Note Type | Teams | Players | Episode | Time | Confidence | Notes | Summary | Quote |'
+    : '_No analysis notes promoted yet._',
+  ...(cleanNotes.length > 0 ? [
+    '|---|---|---|---|---|---|---|---|---|---|',
+    ...cleanNotes.map(note => `| ${(note.relevance_tags || []).join(', ')} | ${note.note_type} | ${mdCell((note.teams || []).join(', '))} | ${mdCell((note.players || []).join(', '))} | ${mdCell(note.source.episode_title)} | [${note.source.source_timestamp}s](${note.source.timestamp_url}) | ${note.confidence} | ${mdCell(note.reviewer_notes)} | ${mdCell(note.summary)} | ${mdCell(note.quote)} |`)
+  ] : [])
 ];
 
 fs.mkdirSync(path.dirname(mdPath), { recursive: true });
@@ -138,7 +200,7 @@ fs.writeFileSync(mdPath, `${lines.join('\n')}\n`);
 
 console.log(`Wrote local intel queue JSON: ${outPath}`);
 console.log(`Wrote local intel queue Markdown: ${mdPath}`);
-console.log(`Exported ${payload.exported_items} promoted item(s); skipped ${payload.skipped_items}.`);
+console.log(`Exported ${payload.exported_items} promoted item(s), ${payload.exported_notes} promoted note(s); skipped ${payload.skipped_items}.`);
 if (missingReportItems.length > 0) {
   console.log(`Missing report items: ${missingReportItems.length}`);
 }
