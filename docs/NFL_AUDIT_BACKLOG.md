@@ -8,7 +8,7 @@
 Fable tri-project audit (FABLE-01, FABLE-03). FABLE-03 closed 2026-07-08 (S269, committed).
 FABLE-01 closed 2026-07-16: live (non-dry-run) sync ran clean — 255/255 fetched, 0 skipped by
 sensitivity tier, 255 upserted, 0 errors (receipt in `.nfl/receipts/`). Original 30/30 Meridian+CODEX set remains fully closed.
-1 open follow-up filed 2026-07-21 (S296, GAMEID-FORMAT) — see "Follow-ups filed from later sessions" below; not part of the original audits.
+1 follow-up filed 2026-07-21 (S296, GAMEID-FORMAT) — resolved 2026-07-27 (option b, shared canonical-key helper); see "Follow-ups filed from later sessions" below; not part of the original audits.
 
 > **Completion rule:** Mark `[ ]` â†’ `[x]` only when the fix is committed to `main`
 > AND verified by test, live query, or CI pass. Dev-only changes do not count.
@@ -373,7 +373,7 @@ sensitivity tier, 255 upserted, 0 errors (receipt in `.nfl/receipts/`). Original
 
 ## Follow-ups filed from later sessions (not part of the original Meridian/CODEX/Fable audits)
 
-- [ ] **GAMEID-FORMAT** -- Three incompatible `game_id` formats across live tables, all describing the same games
+- [x] **GAMEID-FORMAT** -- Three incompatible `game_id` formats across live tables, all describing the same games
   - **Filed 2026-07-21 (S296)**, found while building the Futures/Betting agent data-wiring work
     (`docs/FUTURES_AGENT_DATA_INVENTORY_2026-07-21.md`). Not a bug in anything shipped that
     session -- every new join built then resolves by `(season, week, home_abbrev, away_abbrev)`
@@ -409,5 +409,24 @@ sensitivity tier, 255 upserted, 0 errors (receipt in `.nfl/receipts/`). Original
     `game_splits_history` -- the real fix, but a multi-session project with real risk to live
     odds/splits ingestion cron jobs; needs dedicated time to test each ingest script before
     touching production.
-  - **ACTION REQUIRED:** Andy to decide which option (or none) when there's time for it --
-    not blocking any current feature.
+  - **RESOLVED (option b), 2026-07-27:** Andy chose option (b) -- a shared canonical-key
+    helper for new code, no changes to any live table or ingest script. Built
+    `src/lib/gameId.js`: `parseGamesTableId()`/`parseOddsSplitsId()`/`parseNflverseId()`
+    parse each of the 3 real formats (source must be specified explicitly for formats
+    (2)/(3) -- they're the identical string shape with opposite team order, so
+    auto-detection isn't offered, since guessing wrong silently swaps home/away);
+    `canonicalGameKey()`/`canonicalGameKeyFromAny()` fold any of them into one new,
+    in-memory-only join key (`{season}-t{seasonType}-w{WW}-{HOME}-{AWAY}`, standardized
+    team codes via the existing `getTeamAbbreviation()`, never written to any table).
+    Reuses `src/lib/teams.js`'s existing alt-code table rather than adding a 4th ad hoc
+    team-code map (schedule-ingest.js, game-odds-ingest.js, and betting-splits-ingest.js
+    each already have their own). 16 new tests (`tests/unit/gameId.test.js`) prove the
+    core claim: the same real game described by all 3 live formats -- including
+    nflverse's alternate codes (SD/OAK/LA/JAC) -- collapses to the identical canonical
+    key, and that differing `seasonType` correctly produces *different* keys (guards
+    the exact week-number collision `seed-game-context.py` hit in production). `eslint`
+    clean; `npx vitest run tests/unit/gameId.test.js` -- 16/16 passing natively in this
+    sandbox (pure functions, fast). **Not done:** the 3 existing ingest scripts and the
+    4 live tables are untouched -- this is a new tool for future joins to use, not a
+    migration of what's already running. Option (c) (full standardize + backfill)
+    remains open if ever wanted; Andy explicitly deferred it as higher-risk/multi-session.
