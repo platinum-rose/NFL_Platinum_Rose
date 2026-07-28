@@ -841,5 +841,159 @@
         }
       ]
     }
-  ]
+  ],
+  "extracted_picks": [
+    {
+      "team": "BAL",
+      "market": "win_total",
+      "side": "UNDER",
+      "line": 10.5,
+      "price": 115,
+      "speaker": "Simon Hunter",
+      "source_timestamp": 288,
+      "timestamp_source": "doc_transcript_excerpt"
+    },
+    {
+      "team": "BAL",
+      "market": "win_total",
+      "side": "UNDER",
+      "line": 10.5,
+      "price": 115,
+      "speaker": "Chad Millman",
+      "source_timestamp": 282,
+      "timestamp_source": "doc_transcript_excerpt"
+    },
+    {
+      "team": "BUF",
+      "market": "win_total",
+      "side": "OVER",
+      "line": 10.5,
+      "price": -115,
+      "speaker": "Simon Hunter",
+      "source_timestamp": 349,
+      "timestamp_source": "doc_transcript_excerpt"
+    },
+    {
+      "team": "DET",
+      "market": "win_total",
+      "side": "UNDER",
+      "line": 10.5,
+      "price": 115,
+      "speaker": "Simon Hunter",
+      "source_timestamp": 388,
+      "timestamp_source": "doc_transcript_excerpt"
+    },
+    {
+      "team": "GB",
+      "market": "win_total",
+      "side": "OVER",
+      "line": 10.5,
+      "price": -110,
+      "speaker": "Chad Millman",
+      "source_timestamp": 505,
+      "timestamp_source": "estimated_midpoint_of_2_live_runs"
+    },
+    {
+      "team": "GB",
+      "market": "win_total",
+      "side": "OVER",
+      "line": 10.5,
+      "price": -110,
+      "speaker": "Simon Hunter",
+      "source_timestamp": 515,
+      "timestamp_source": "estimated_midpoint_of_2_live_runs"
+    },
+    {
+      "team": "PHI",
+      "market": "win_total",
+      "side": "OVER",
+      "line": 10.5,
+      "price": 100,
+      "speaker": "Chad Millman",
+      "source_timestamp": 875,
+      "timestamp_source": "estimated_midpoint_of_2_live_runs"
+    },
+    {
+      "team": "PHI",
+      "market": "win_total",
+      "side": "OVER",
+      "line": 10.5,
+      "price": 100,
+      "speaker": "Simon Hunter",
+      "source_timestamp": 880,
+      "timestamp_source": "estimated_midpoint_of_2_live_runs"
+    },
+    {
+      "team": "KC",
+      "market": "win_total",
+      "side": "UNDER",
+      "line": 10.5,
+      "price": -105,
+      "speaker": "Simon Hunter",
+      "source_timestamp": 575,
+      "timestamp_source": "estimated_midpoint_of_2_live_runs"
+    },
+    {
+      "team": "KC",
+      "market": "win_total",
+      "side": "OVER",
+      "line": 10.5,
+      "price": -105,
+      "speaker": "Chad Millman",
+      "source_timestamp": 570,
+      "timestamp_source": "estimated_midpoint_of_2_live_runs",
+      "note": "Corrected 2026-07-27 by Andy directly (authoritative, not inferred): this is a genuine real disagreement between the hosts, not a transcription error either way. Chad is conditionally on the Over, contingent on Mahomes returning to full form early in the season -- any diminishment from the ramp-up back puts him in the Under camp. The original doc-table ground truth (UNDER/PASS for both hosts) was wrong on Chad specifically; the 2026-07-27 live-youtube Gemini run's OVER read was correct. Price kept at -105 (unconfirmed at the corrected side; update if a real number surfaces)."
+    },
+    {
+      "team": "DEN",
+      "market": "win_total",
+      "side": "OVER",
+      "line": 9.5,
+      "price": -110,
+      "speaker": "Simon Hunter",
+      "source_timestamp": 863,
+      "timestamp_source": "doc_transcript_excerpt"
+    },
+    {
+      "team": "LAR",
+      "market": "win_total",
+      "side": "UNDER",
+      "line": 10.5,
+      "price": 115,
+      "speaker": "Simon Hunter",
+      "source_timestamp": 815,
+      "timestamp_source": "estimated_midpoint_of_2_live_runs"
+    },
+    {
+      "team": "SF",
+      "market": "win_total",
+      "side": "UNDER",
+      "line": 10.5,
+      "price": -115,
+      "speaker": "Simon Hunter",
+      "source_timestamp": 922,
+      "timestamp_source": "estimated_midpoint_of_2_live_runs"
+    },
+    {
+      "team": "SEA",
+      "market": "win_total",
+      "side": "UNDER",
+      "line": 10.5,
+      "price": -110,
+      "speaker": "Simon Hunter",
+      "source_timestamp": 982,
+      "timestamp_source": "estimated_midpoint_of_2_live_runs"
+    },
+    {
+      "team": "CAR",
+      "market": "win_total",
+      "side": "OVER",
+      "line": 6.5,
+      "price": -110,
+      "speaker": "Chad Millman",
+      "source_timestamp": 1050,
+      "timestamp_source": "estimated_midpoint_of_2_live_runs"
+    }
+  ],
+  "extracted_picks_provenance": "Restored 2026-07-27 (S302) from docs/antigravity/FULL_TEST_TRANSCRIPTION_COMPARISON.md's verified 15-pick ledger (sourced from the AssemblyAI+GPT-4o pipeline's real output). This field was present when the harness's 2026-07-27 --live-shadow run scored total_ground_truth=15 against it, then was found empty on this same date after a 2026-07-23 re-export of this file -- restored here so future --live-shadow/--live-youtube runs can score automatically again. 4 of 15 rows' source_timestamp are taken directly from the comparison doc's quoted transcript excerpt; the other 11 are estimated (see each row's timestamp_source) since no independent timestamp was ever published for those teams."
 }

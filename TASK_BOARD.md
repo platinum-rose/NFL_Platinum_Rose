@@ -1,5 +1,5 @@
 # Platinum Rose — Task Board (NFL)
-> **Last updated:** 2026-07-27 S317 (HEAD `21caa1d`; OPS-2, GAMEID-FORMAT, and this session's doc updates are still uncommitted — see WORKING-CONTEXT.md's Next Immediate Action)
+> **Last updated:** 2026-07-27 S317 (HEAD `911a1df`; OPS-2, GAMEID-FORMAT, and S317's doc updates committed+pushed natively — `f643614`, `e3e417b`, `911a1df`. See WORKING-CONTEXT.md's Next Immediate Action for what's still open.)
 > **Owner:** PM agent is the sole writer of this file.
 
 ---
