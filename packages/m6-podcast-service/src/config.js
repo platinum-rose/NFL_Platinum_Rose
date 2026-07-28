@@ -41,6 +41,16 @@ export const config = {
   transcriptDir: process.env.NFL_TRANSCRIPT_DIR ?? '/var/lib/nfl/transcripts',
   digestDir: process.env.NFL_DIGEST_DIR ?? '/var/lib/nfl/digest',
 
+  // OPS-2: periodic full digest re-render (`renderAll()`), independent of the
+  // per-episode onRunComplete hook (Phase 7a) -- heals drift from picks graded
+  // by nfl-auto-grade.js (a separate GHA process this service never sees run).
+  // Same operation as the manual `render-digests.js all` operator command.
+  // Default 6h, matching the podcast ingest agent's own GHA cadence. Set to 0
+  // to disable (e.g. in tests/dev where a background timer isn't wanted).
+  digestRenderAllIntervalMs: Number(
+    process.env.NFL_DIGEST_RENDER_ALL_INTERVAL_MS ?? 6 * 60 * 60 * 1000,
+  ),
+
   // Phase 4 wiring: where the Python extractor venv lives on M6.
   pythonExecutable:
     process.env.NFL_PYTHON_EXECUTABLE ??
