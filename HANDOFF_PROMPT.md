@@ -1,6 +1,6 @@
 # HANDOFF_PROMPT.md - NFL Platinum Rose
 
-> Rolling session handoff. Read this first in a fresh session, then read `WORKING-CONTEXT.md` and `TASK_BOARD.md`.
+> Rolling session handoff. Read this first in a fresh session, then read `HANDOFF.md`, `WORKING-CONTEXT.md`, `TASK_BOARD.md`, and the latest timestamped handoff.
 
 ## Persistent Backlogs
 
@@ -8,84 +8,97 @@
 
 | Backlog | File | Open Items | Last Touched |
 |---|---|---:|---|
-| NFL Dashboard Audit Findings | `docs/NFL_AUDIT_BACKLOG.md` | 1 (`GAMEID-FORMAT`, unrelated/non-blocking) | 2026-07-21 |
+| NFL Dashboard Audit Findings | `docs/NFL_AUDIT_BACKLOG.md` | Review current file before editing; this handoff did not modify it. | 2026-07-27 |
+| Season Readiness | `docs/SEASON_READINESS_SMOKE_TEST_LATEST.md` | 6 watch items, 0 fails. | 2026-07-29 |
 
 ## Last Session Summary
 
-- Date: 2026-07-27 (sessions S309-S313)
-- Branch: `main`
-- Working tree: clean, HEAD `c687af4`, pushed and confirmed (`5b98df4..c687af4`)
-- Latest timestamped handoff: `handoffs/2026-07-27-0224.md`
-- Verification: F-30b's RSS scout unit-tested (15/15, mocked) then live-verified natively (S313: 5/6 feeds healthy). F-33's board validator unit-tested (25/25) plus regression-checked against `winDist.test.js`/`portfolioSimulate.test.js`. Full `npm test` suite not run end-to-end this session (sandbox ~45s command timeout) — tracked as F-32.
-- Live API calls: none from the sandbox. Andy ran one live RSS fetch natively (S313, read-only feed check, `--dry-run` so nothing persisted).
+- Date: 2026-07-29 UTC.
+- Branch: `main`.
+- HEAD observed: `dc6be68`.
+- Working tree: dirty by design; stage narrowly.
+- Latest timestamped handoff: `handoffs/2026-07-29-0405-season-readiness-youtube-futures-handoff.md`.
+- Verification:
+  - `npm.cmd run test:youtube-futures-review` passed.
+  - `npm.cmd run test:youtube-local-intel-export` passed.
+  - `npm.cmd run test:youtube-agent-intel-summary` passed.
+  - `npm.cmd run smoke:season -- --require-services` passed.
+- Live/paid calls: none.
 - Supabase writes: none.
+- Official-pick approvals: none.
 - Open parlay changes: none.
 
 ## Current Objective
 
-Working through `TASK_BOARD.md`'s backlog item by item, verifying each against actual code before trusting the board's description (it has been stale more than once this cycle — F-33 and OPS-1 both needed board corrections). This session closed out the remaining F-27 UI QC findings, shipped training-camp RSS scout Phase 2 plus its first live-network verification, added the win-dist/coherence-sim spec's missing mechanical board validator, and gave `stats-to-vault-sync.js` a recurring cron trigger it never had.
+Prepare the NFL Dashboard for season kickoff with a local/read-only smoke test and by making the YouTube/Gemini futures intel export reflect already-completed human review.
 
-## Sandbox Network Constraint (read before choosing next task)
+## Completed This Session
 
-This Cowork sandbox's outbound proxy can reach `api.anthropic.com` and `github.com` but blocks espn.com, pff.com, rotowire.com, sharpfootballanalysis.com, footballoutsiders.com, profootballtalk.nbcsports.com, `api.openai.com`, and `*.supabase.co`. Confirmed repeatedly (F-30c, OPS-1's Supabase check). Any task needing live RSS/API/Supabase access must be run natively by Andy (Windows PowerShell, `E:\dev\projects\NFL_Dashboard`) — the sandbox can prep the command and interpret pasted output, but cannot execute it directly. The sandbox bash tool also has a hard ~45s timeout, which blocks full `vite build` / full 38-file `npm test` runs — those need a native run too (F-32).
+- Added `smoke:season`, implemented by `scripts/season-readiness-smoke.js`.
+- Generated `docs/SEASON_READINESS_SMOKE_TEST_LATEST.md` plus timestamped `.nfl/readiness/` reports.
+- Fixed YouTube/Gemini review persistence:
+  - Per-episode `human_verification` now promotes verified futures picks to local intel.
+  - Resolved disputed/fabricated rows now default to `reject`.
+  - Legacy review-match metadata and direct Andy review decisions are preserved through rebuilds.
+  - Season-long futures markets stay in `futures_pick` even when rationale text mentions injuries.
+- Cross-checked current review rows against legacy commit `95cca82` and recovered 18 exact semantic matches.
+- Applied Andy's final decisions on the last 7 futures review rows:
+  - Rejected 5 unresolved awards props from `youtube-veVjJ_EUYdk`.
+  - Promoted `NYG Jaxson Dart season rushing TDs Over 5.5`.
+  - Promoted `SF Brock Purdy MVP +2000`.
+- Final YouTube futures state:
+  - 45 promoted futures items.
+  - 6 rejected futures items.
+  - 0 futures items left in `needs_review` / `pending_review`.
+  - Hallucinated `TEN win_total OVER` remains rejected.
 
-## Andy's Known Personalization
+## Latest Smoke Result
 
-- Futures unit: `$20`
-- In-season unit: `$10`
-- Bills vs Packers exacta: `$100` at `+6500`
-- Bills Super Bowl target cap: about `$200`
-- Packers Super Bowl target cap: about `$200`
-- Primary planned exposure cap: about `$500`
-- Bills and Packers are anchors; their exacta is a cross-anchor amplifier, not a hedge
-- Six open parlays exist with 11 open slots and `$162.50` sunk stake, but all are beyond 90 days and their availability is unresolved
-- Kickers are explicitly out of scope for fantasy scoring (not meaningfully drafted with strategy)
+- Verdict: `READY WITH WATCH ITEMS`.
+- Counts: PASS 11 / WARN 6 / FAIL 0 / INFO 1.
+- YouTube futures intel: PASS, `exported_items: 45`.
+- Local services: dashboard, schedule asset, YouTube intel asset, official-picks inbox, and M6 health all returned HTTP 200.
 
-Do not fill, close, modify, or rely on an open parlay unless Andy explicitly directs it after resolving the house rule.
+## Modified And Added Files
 
-## Safe Commands
-
-```powershell
-npm.cmd run test:portfolio-corpus
-npm.cmd run training-camp:scout:live -- --dry-run
-node --check agents\portfolio-synthesize.js
-node --check agents\lib\board-validate.js
-node --check scripts\training-camp-rss-scout.js
-```
-
-Do not run a live paid LLM analyst command, write to Supabase, overwrite canonical reports, or modify open parlay records without explicit approval.
-
-## Modified And Added Files (S309-S313)
-
-- `src/lib/injuries.js`, `src/lib/storage.js` - injury live/mock-fallback source tracking (F-27c)
-- `src/components/injuries/InjuryCenter.jsx`, `src/components/modals/InjuryReportModal.jsx`, `src/components/dashboard/MatchupCard.jsx` - mock-data warning surfacing (F-27c)
-- `src/components/modals/PulseModal.jsx` - real Critical Injuries data instead of placeholder (F-27d)
-- `src/components/modals/ContestLinesModal.jsx` - removed dead "Fetch Official Lines" button (F-27e)
-- `scripts/training-camp-intel.js` - refactored to export reusable pieces (F-30b)
-- `scripts/training-camp-rss-scout.js` - new RSS/Atom scout, 6 feeds, `--live` gated (F-30b)
-- `config/training-camp-sources.json`, `package.json` - scout wiring (F-30b)
-- `tests/unit/trainingCampRssScout.test.js` - 15 new tests (F-30b)
-- `agents/lib/board-validate.js` - new mechanical board validator (F-33)
-- `agents/portfolio-synthesize.js` - wired validator in, additive/annotate-and-keep (F-33)
-- `tests/unit/boardValidate.test.js` - 25 new tests (F-33)
-- `.github/workflows/stats-to-vault-sync.yml` - new recurring cron (OPS-1)
-- `TASK_BOARD.md`, `WORKING-CONTEXT.md`, `HANDOFF.md`, `HANDOFF_PROMPT.md` - refreshed session state
-- `handoffs/2026-07-27-0224.md` - this session's full timestamped handoff
+- `package.json`
+- `scripts/season-readiness-smoke.js`
+- `scripts/build-youtube-futures-intel-review.js`
+- `scripts/export-youtube-futures-local-intel.js`
+- `scripts/test-youtube-futures-intel-review.js`
+- `scripts/test-youtube-agent-intel-summary.js`
+- `data/shadow-harness/fixtures/youtube-futures-intel-review-expected.json`
+- `data/shadow-harness/reports/youtube-futures-intel-review-latest.json`
+- `data/shadow-harness/review/youtube-futures-intel-review-status.json`
+- `data/shadow-harness/review/youtube-futures-local-intel-queue.json`
+- `data/shadow-harness/review/youtube-futures-agent-intel-summary.json`
+- `public/youtube-futures-agent-intel-summary.json`
+- `docs/antigravity/youtube-futures-intel-review-latest.md`
+- `docs/antigravity/youtube-futures-local-intel-queue.md`
+- `docs/antigravity/youtube-futures-agent-intel-summary.md`
+- `docs/SEASON_READINESS_SMOKE_TEST_LATEST.md`
+- `.nfl/readiness/*`
+- `HANDOFF.md`
+- `HANDOFF_PROMPT.md`
+- `handoffs/2026-07-29-0405-season-readiness-youtube-futures-handoff.md`
 
 ## Immediate Next Steps
 
-Pick one:
+1. Review and commit this narrow diff.
+2. Create one real official-picks proposal draft and exercise approve/reject through the inbox UI.
+3. Confirm whether migration 044 has been applied live before relying on production official-picks flows.
+4. Address the clearest pre-kickoff betting-surface gaps: props live data source and DraftKings/FanDuel bet-slip parsers.
+5. Refresh/review training-camp intel closer to kickoff; current latest RSS scout has one feed issue: Football Outsiders fetch failed.
 
-1. **F-32** - full `npm test`/`vite build` re-run, needs a native run (sandbox timeout). Also live-smoke-test `get_youtube_futures_intel` from the FUTURES/BETTING chat UI.
-2. **F-29b** - Official Picks live approve/reject smoke test. Needs a real draft in `data/official-picks/proposals/active/` first (currently empty).
-3. **F-31** - live futures watchlist re-run (`--no-persist --out-suffix watchlist-v2`). Real paid Anthropic/OpenAI model call — needs Andy's explicit per-run cost go-ahead, not yet given.
-4. **F-33b** - `tests/unit/portfolioSimulate.test.js` only has 1 test; the spec's B.6 acceptance criteria (conservation, mean-within-tolerance, known-case fixture, calibration honesty, determinism) aren't fully covered.
-5. **F-27a** - Podcasts tab black-on-black CSS. Needs visual/browser debugging tools this sandbox doesn't have.
+## Guardrails
 
-Also still pending: Yahoo Fantasy API access (application submitted 2026-07-26, awaiting review, 1-2 week SLA) — blocks the rest of F-26 and all of F-26b.
+- Do not make live paid model/API calls without explicit approval.
+- Do not write Supabase, approve official picks, persist production recommendations, or modify open parlays without explicit approval.
+- Podcast/YouTube intel is reviewed local context only, not an official pick ledger.
+- Keep QA output and fixtures distinct from analyst opinions or betting authorization.
 
 ## Resume Command
 
 ```text
-Resume Platinum Rose NFL. HEAD = c687af4 (main). Suite: not re-run this session (F-32). S309-S313 shipped: F-27c/d/e (injury mock indicator, PulseModal critical injuries, ContestLinesModal dead button), F-30b (training camp RSS scout Phase 2), F-33 (mechanical board validator), OPS-1 (stats-to-vault-sync cron), F-30c (live feed-health check, ran natively, 5/6 healthy). Next: F-32, F-29b, F-31 (needs cost approval), F-33b, or F-27a. Read HANDOFF_PROMPT.md for full context before touching any file.
+Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF_PROMPT.md, HANDOFF.md, WORKING-CONTEXT.md, TASK_BOARD.md, and handoffs\2026-07-29-0405-season-readiness-youtube-futures-handoff.md first. HEAD observed during handoff was dc6be68; working tree is dirty with intended season-readiness smoke and YouTube-futures repair artifacts, so stage narrowly and do not sweep unrelated files. Completed: added smoke:season; fixed YouTube/Gemini human-verification persistence; recovered 18 legacy-promoted semantic matches from commit 95cca82; applied Andy's final decisions on the last 7 futures rows; regenerated review/export/agent/public summaries. Verified: test:youtube-futures-review, test:youtube-local-intel-export, test:youtube-agent-intel-summary, and smoke:season -- --require-services all passed. Final YouTube futures state is 45 promoted, 6 rejected, 0 pending/needs-review, with TEN win-total Over rejected as hallucinated. Guardrails: no paid model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval. Recommended next: review and commit this narrow diff, then smoke-test a real official-picks proposal through the inbox, confirm migration 044 live status, and prioritize props live source plus bet-slip parser implementation before kickoff.
 ```

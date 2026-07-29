@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T19:15:37.923Z",
+  "generated_at": "2026-07-29T04:00:17.820Z",
   "status": "local_review_status_only",
   "guardrail": "Human-editable local status file. This does not promote official picks or write production recommendations.",
   "allowed_statuses": [
@@ -13,7 +13,7 @@
     {
       "item_id": "youtube-4OxpAX6UJlM__CAR__win_total__UNDER__6.5__140__328",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-4OxpAX6UJlM",
       "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
@@ -27,14 +27,26 @@
       "review_flags": [
         "price_not_in_quote"
       ],
-      "supporting_quote": "I'm taking the under six and a half wins for the Carolina Panthers this year.",
+      "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, after reprocessing for full-duration coverage and the null-side/player-name fixes.",
+        "result": "All 9 extracted picks confirmed accurate (Panthers/Chargers/Colts win totals, Patriots/Saints/Lions division winners, Maye/Lawrence/Nix MVP picks).",
+        "known_caveat": null,
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
     {
-      "item_id": "youtube-4OxpAX6UJlM__LAC__win_total__OVER__9.5__-160__463",
+      "item_id": "youtube-4OxpAX6UJlM__LAC__win_total__OVER__9.5__-150__464",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-4OxpAX6UJlM",
       "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
@@ -42,18 +54,30 @@
       "market": "win_total",
       "side": "OVER",
       "line": 9.5,
-      "price": -160,
+      "price": -150,
       "week": null,
-      "source_timestamp": 463,
+      "source_timestamp": 464,
       "review_flags": [
         "price_not_in_quote"
       ],
-      "supporting_quote": "I'm taking the Chargers over nine and a half wins which you can find over on Hard Rock Bet.",
+      "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, after reprocessing for full-duration coverage and the null-side/player-name fixes.",
+        "result": "All 9 extracted picks confirmed accurate (Panthers/Chargers/Colts win totals, Patriots/Saints/Lions division winners, Maye/Lawrence/Nix MVP picks).",
+        "known_caveat": null,
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
     {
-      "item_id": "youtube-4OxpAX6UJlM__NE__mvp__YES____1329__619",
+      "item_id": "youtube-4OxpAX6UJlM__NE__mvp__YES____1329__620",
       "item_type": "pick",
       "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
@@ -65,18 +89,229 @@
       "line": null,
       "price": 1329,
       "week": null,
-      "source_timestamp": 619,
+      "source_timestamp": 620,
       "review_flags": [
         "price_not_in_quote"
       ],
-      "supporting_quote": "I am smash-taking Drake Maye at MVP.",
+      "supporting_quote": "It was one of the easiest schedules in the last century for the Patriots.",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, after reprocessing for full-duration coverage and the null-side/player-name fixes.",
+        "result": "All 9 extracted picks confirmed accurate (Panthers/Chargers/Colts win totals, Patriots/Saints/Lions division winners, Maye/Lawrence/Nix MVP picks).",
+        "known_caveat": null,
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
-      "updated_at": "2026-07-25T02:10:54.698Z"
+      "updated_at": null
+    },
+    {
+      "item_id": "youtube-4OxpAX6UJlM__NE__division_winner__YES______956",
+      "item_type": "pick",
+      "status": "promote_to_local_intel",
+      "item_lane": "futures_pick",
+      "episode_id": "youtube-4OxpAX6UJlM",
+      "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+      "team": "NE",
+      "market": "division_winner",
+      "side": "YES",
+      "line": null,
+      "price": null,
+      "week": null,
+      "source_timestamp": 956,
+      "review_flags": [
+        "missing_price"
+      ],
+      "supporting_quote": "The Bills don't have the same offensive line coach... that was a significant loss.",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, after reprocessing for full-duration coverage and the null-side/player-name fixes.",
+        "result": "All 9 extracted picks confirmed accurate (Panthers/Chargers/Colts win totals, Patriots/Saints/Lions division winners, Maye/Lawrence/Nix MVP picks).",
+        "known_caveat": null,
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
+      "reviewer_notes": "",
+      "updated_at": null
+    },
+    {
+      "item_id": "youtube-4OxpAX6UJlM__JAX__mvp__YES____1750__1027",
+      "item_type": "pick",
+      "status": "promote_to_local_intel",
+      "item_lane": "futures_pick",
+      "episode_id": "youtube-4OxpAX6UJlM",
+      "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+      "team": "JAX",
+      "market": "mvp",
+      "side": "YES",
+      "line": null,
+      "price": 1750,
+      "week": null,
+      "source_timestamp": 1027,
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, after reprocessing for full-duration coverage and the null-side/player-name fixes.",
+        "result": "All 9 extracted picks confirmed accurate (Panthers/Chargers/Colts win totals, Patriots/Saints/Lions division winners, Maye/Lawrence/Nix MVP picks).",
+        "known_caveat": null,
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
+      "reviewer_notes": "",
+      "updated_at": null
+    },
+    {
+      "item_id": "youtube-4OxpAX6UJlM__DEN__mvp__YES____4000__1217",
+      "item_type": "pick",
+      "status": "promote_to_local_intel",
+      "item_lane": "futures_pick",
+      "episode_id": "youtube-4OxpAX6UJlM",
+      "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+      "team": "DEN",
+      "market": "mvp",
+      "side": "YES",
+      "line": null,
+      "price": 4000,
+      "week": null,
+      "source_timestamp": 1217,
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, after reprocessing for full-duration coverage and the null-side/player-name fixes.",
+        "result": "All 9 extracted picks confirmed accurate (Panthers/Chargers/Colts win totals, Patriots/Saints/Lions division winners, Maye/Lawrence/Nix MVP picks).",
+        "known_caveat": null,
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
+      "reviewer_notes": "",
+      "updated_at": null
+    },
+    {
+      "item_id": "youtube-4OxpAX6UJlM__NO__division_winner__YES____280__1413",
+      "item_type": "pick",
+      "status": "promote_to_local_intel",
+      "item_lane": "futures_pick",
+      "episode_id": "youtube-4OxpAX6UJlM",
+      "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+      "team": "NO",
+      "market": "division_winner",
+      "side": "YES",
+      "line": null,
+      "price": 280,
+      "week": null,
+      "source_timestamp": 1413,
+      "review_flags": [
+        "price_not_in_quote",
+        "duplicate_candidate"
+      ],
+      "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, after reprocessing for full-duration coverage and the null-side/player-name fixes.",
+        "result": "All 9 extracted picks confirmed accurate (Panthers/Chargers/Colts win totals, Patriots/Saints/Lions division winners, Maye/Lawrence/Nix MVP picks).",
+        "known_caveat": null,
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
+      "reviewer_notes": "",
+      "updated_at": null
+    },
+    {
+      "item_id": "youtube-4OxpAX6UJlM__DET__division_winner__YES____160__1619",
+      "item_type": "pick",
+      "status": "promote_to_local_intel",
+      "item_lane": "futures_pick",
+      "episode_id": "youtube-4OxpAX6UJlM",
+      "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+      "team": "DET",
+      "market": "division_winner",
+      "side": "YES",
+      "line": null,
+      "price": 160,
+      "week": null,
+      "source_timestamp": 1619,
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, after reprocessing for full-duration coverage and the null-side/player-name fixes.",
+        "result": "All 9 extracted picks confirmed accurate (Panthers/Chargers/Colts win totals, Patriots/Saints/Lions division winners, Maye/Lawrence/Nix MVP picks).",
+        "known_caveat": null,
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
+      "reviewer_notes": "",
+      "updated_at": null
+    },
+    {
+      "item_id": "youtube-4OxpAX6UJlM__IND__win_total__OVER__7.5__-160__1801",
+      "item_type": "pick",
+      "status": "promote_to_local_intel",
+      "item_lane": "futures_pick",
+      "episode_id": "youtube-4OxpAX6UJlM",
+      "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+      "team": "IND",
+      "market": "win_total",
+      "side": "OVER",
+      "line": 7.5,
+      "price": -160,
+      "week": null,
+      "source_timestamp": 1801,
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, after reprocessing for full-duration coverage and the null-side/player-name fixes.",
+        "result": "All 9 extracted picks confirmed accurate (Panthers/Chargers/Colts win totals, Patriots/Saints/Lions division winners, Maye/Lawrence/Nix MVP picks).",
+        "known_caveat": null,
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
+      "reviewer_notes": "",
+      "updated_at": null
     },
     {
       "item_id": "youtube-aOUy4-ZRzbE__TEN__division_winner__YES____850__205",
       "item_type": "pick",
-      "status": "pending_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-aOUy4-ZRzbE",
       "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
@@ -89,13 +324,22 @@
       "source_timestamp": 205,
       "review_flags": [],
       "supporting_quote": "I'm going to go with the Tennessee Titans to win the AFC South at +850.",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": {
+        "ref": "95cca82",
+        "prior_item_id": "youtube-aOUy4-ZRzbE__TEN__division_winner__YES____850__205",
+        "match": "episode_team_market_side_line_price",
+        "recovered_at": "2026-07-29T03:39:12.040Z"
+      },
+      "human_review_decision": null,
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__TEN__division_winner__YES____850__205); item_id timestamp drifted after reprocessing.",
+      "updated_at": "2026-07-29T03:39:12.040Z"
     },
     {
       "item_id": "youtube-aOUy4-ZRzbE__NO__division_winner__YES____280__421",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-aOUy4-ZRzbE",
       "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
@@ -107,16 +351,26 @@
       "week": null,
       "source_timestamp": 421,
       "review_flags": [
-        "price_not_in_quote"
+        "price_not_in_quote",
+        "duplicate_candidate"
       ],
       "supporting_quote": "You may want to wait to buy in on the New Orleans Saints.",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": {
+        "ref": "95cca82",
+        "prior_item_id": "youtube-aOUy4-ZRzbE__NO__division_winner__YES____280__421",
+        "match": "episode_team_market_side_line_price",
+        "recovered_at": "2026-07-29T03:39:12.040Z"
+      },
+      "human_review_decision": null,
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__NO__division_winner__YES____280__421); item_id timestamp drifted after reprocessing.",
+      "updated_at": "2026-07-29T03:39:12.040Z"
     },
     {
       "item_id": "youtube-aOUy4-ZRzbE__CIN__division_winner__YES____190__727",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-aOUy4-ZRzbE",
       "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
@@ -131,14 +385,23 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": {
+        "ref": "95cca82",
+        "prior_item_id": "youtube-aOUy4-ZRzbE__CIN__division_winner__YES____190__699",
+        "match": "episode_team_market_side_line_price",
+        "recovered_at": "2026-07-29T03:39:12.040Z"
+      },
+      "human_review_decision": null,
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__CIN__division_winner__YES____190__699); item_id timestamp drifted after reprocessing.",
+      "updated_at": "2026-07-29T03:39:12.040Z"
     },
     {
       "item_id": "youtube-aOUy4-ZRzbE__LAC__division_winner__YES____180__1024",
       "item_type": "pick",
-      "status": "needs_review",
-      "item_lane": "injury_intel",
+      "status": "promote_to_local_intel",
+      "item_lane": "futures_pick",
       "episode_id": "youtube-aOUy4-ZRzbE",
       "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
       "team": "LAC",
@@ -152,13 +415,22 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": {
+        "ref": "95cca82",
+        "prior_item_id": "youtube-aOUy4-ZRzbE__LAC__division_winner__YES____180__699",
+        "match": "episode_team_market_side_line_price",
+        "recovered_at": "2026-07-29T03:39:12.040Z"
+      },
+      "human_review_decision": null,
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__LAC__division_winner__YES____180__699); item_id timestamp drifted after reprocessing.",
+      "updated_at": "2026-07-29T03:39:12.040Z"
     },
     {
       "item_id": "youtube-aOUy4-ZRzbE__DAL__make_playoffs__YES____100__1062",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-aOUy4-ZRzbE",
       "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
@@ -173,14 +445,23 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": {
+        "ref": "95cca82",
+        "prior_item_id": "youtube-aOUy4-ZRzbE__DAL__make_playoffs__YES____100__821",
+        "match": "episode_team_market_side_line_price",
+        "recovered_at": "2026-07-29T03:39:12.040Z"
+      },
+      "human_review_decision": null,
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__DAL__make_playoffs__YES____100__821); item_id timestamp drifted after reprocessing.",
+      "updated_at": "2026-07-29T03:39:12.040Z"
     },
     {
       "item_id": "youtube-aOUy4-ZRzbE__IND__make_playoffs__NO____-185__1108",
       "item_type": "pick",
-      "status": "needs_review",
-      "item_lane": "injury_intel",
+      "status": "promote_to_local_intel",
+      "item_lane": "futures_pick",
       "episode_id": "youtube-aOUy4-ZRzbE",
       "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
       "team": "IND",
@@ -194,13 +475,22 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": {
+        "ref": "95cca82",
+        "prior_item_id": "youtube-aOUy4-ZRzbE__IND__make_playoffs__NO____-185__1107",
+        "match": "episode_team_market_side_line_price",
+        "recovered_at": "2026-07-29T03:39:12.040Z"
+      },
+      "human_review_decision": null,
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__IND__make_playoffs__NO____-185__1107); item_id timestamp drifted after reprocessing.",
+      "updated_at": "2026-07-29T03:39:12.040Z"
     },
     {
       "item_id": "youtube-aOUy4-ZRzbE__ATL__make_playoffs__NO____-213__1380",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-aOUy4-ZRzbE",
       "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
@@ -215,13 +505,22 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": {
+        "ref": "95cca82",
+        "prior_item_id": "youtube-aOUy4-ZRzbE__ATL__make_playoffs__NO____-213__1350",
+        "match": "episode_team_market_side_line_price",
+        "recovered_at": "2026-07-29T03:39:12.040Z"
+      },
+      "human_review_decision": null,
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__ATL__make_playoffs__NO____-213__1350); item_id timestamp drifted after reprocessing.",
+      "updated_at": "2026-07-29T03:39:12.040Z"
     },
     {
       "item_id": "youtube-aOUy4-ZRzbE__CHI__make_playoffs__NO____-125__1491",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-aOUy4-ZRzbE",
       "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
@@ -236,13 +535,22 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": {
+        "ref": "95cca82",
+        "prior_item_id": "youtube-aOUy4-ZRzbE__CHI__make_playoffs__NO____-125__1611",
+        "match": "episode_team_market_side_line_price",
+        "recovered_at": "2026-07-29T03:39:12.040Z"
+      },
+      "human_review_decision": null,
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__CHI__make_playoffs__NO____-125__1611); item_id timestamp drifted after reprocessing.",
+      "updated_at": "2026-07-29T03:39:12.040Z"
     },
     {
       "item_id": "youtube-aOUy4-ZRzbE__GB__make_playoffs__YES____-116__1675",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-aOUy4-ZRzbE",
       "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
@@ -257,13 +565,22 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": {
+        "ref": "95cca82",
+        "prior_item_id": "youtube-aOUy4-ZRzbE__GB__make_playoffs__YES____-116__1735",
+        "match": "episode_team_market_side_line_price",
+        "recovered_at": "2026-07-29T03:39:12.040Z"
+      },
+      "human_review_decision": null,
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__GB__make_playoffs__YES____-116__1735); item_id timestamp drifted after reprocessing.",
+      "updated_at": "2026-07-29T03:39:12.040Z"
     },
     {
       "item_id": "youtube-aOUy4-ZRzbE__DET__conference_no_1_seed__YES____650__1834",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-aOUy4-ZRzbE",
       "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
@@ -278,13 +595,22 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": {
+        "ref": "95cca82",
+        "prior_item_id": "youtube-aOUy4-ZRzbE__DET__conference_no_1_seed__YES____650__2073",
+        "match": "episode_team_market_side_line_price",
+        "recovered_at": "2026-07-29T03:39:12.040Z"
+      },
+      "human_review_decision": null,
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__DET__conference_no_1_seed__YES____650__2073); item_id timestamp drifted after reprocessing.",
+      "updated_at": "2026-07-29T03:39:12.040Z"
     },
     {
       "item_id": "youtube-aOUy4-ZRzbE__CIN__conference_no_1_seed__YES____800__1936",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-aOUy4-ZRzbE",
       "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
@@ -299,13 +625,22 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": {
+        "ref": "95cca82",
+        "prior_item_id": "youtube-aOUy4-ZRzbE__CIN__conference_no_1_seed__YES____800__2376",
+        "match": "episode_team_market_side_line_price",
+        "recovered_at": "2026-07-29T03:39:12.040Z"
+      },
+      "human_review_decision": null,
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__CIN__conference_no_1_seed__YES____800__2376); item_id timestamp drifted after reprocessing.",
+      "updated_at": "2026-07-29T03:39:12.040Z"
     },
     {
       "item_id": "youtube-aOUy4-ZRzbE__ATL__no_1_overall_pick__YES____1351__2044",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-aOUy4-ZRzbE",
       "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
@@ -320,13 +655,22 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": {
+        "ref": "95cca82",
+        "prior_item_id": "youtube-aOUy4-ZRzbE__ATL__no_1_overall_pick__YES____1351__2524",
+        "match": "episode_team_market_side_line_price",
+        "recovered_at": "2026-07-29T03:39:12.040Z"
+      },
+      "human_review_decision": null,
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__ATL__no_1_overall_pick__YES____1351__2524); item_id timestamp drifted after reprocessing.",
+      "updated_at": "2026-07-29T03:39:12.040Z"
     },
     {
       "item_id": "youtube-veVjJ_EUYdk__LAC__mvp__YES____1100__184",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-veVjJ_EUYdk",
       "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
@@ -341,13 +685,22 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": {
+        "ref": "95cca82",
+        "prior_item_id": "youtube-veVjJ_EUYdk__LAC__mvp__YES____1100__418",
+        "match": "episode_team_market_side_line_price",
+        "recovered_at": "2026-07-29T03:39:12.040Z"
+      },
+      "human_review_decision": null,
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-veVjJ_EUYdk__LAC__mvp__YES____1100__418); item_id timestamp drifted after reprocessing.",
+      "updated_at": "2026-07-29T03:39:12.040Z"
     },
     {
       "item_id": "youtube-veVjJ_EUYdk__CIN__mvp__YES____1000__174",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-veVjJ_EUYdk",
       "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
@@ -362,13 +715,22 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": {
+        "ref": "95cca82",
+        "prior_item_id": "youtube-veVjJ_EUYdk__CIN__mvp__YES____1000__174",
+        "match": "episode_team_market_side_line_price",
+        "recovered_at": "2026-07-29T03:39:12.040Z"
+      },
+      "human_review_decision": null,
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-veVjJ_EUYdk__CIN__mvp__YES____1000__174); item_id timestamp drifted after reprocessing.",
+      "updated_at": "2026-07-29T03:39:12.040Z"
     },
     {
       "item_id": "youtube-veVjJ_EUYdk__JAX__mvp__YES____2400__639",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-veVjJ_EUYdk",
       "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
@@ -384,13 +746,22 @@
         "duplicate_candidate"
       ],
       "supporting_quote": "For me, it's Trevor Lawrence at 24:1 to win the MVP award.",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": {
+        "ref": "95cca82",
+        "prior_item_id": "youtube-veVjJ_EUYdk__JAX__mvp__YES____2400__518",
+        "match": "episode_team_market_side_line_price",
+        "recovered_at": "2026-07-29T03:39:12.040Z"
+      },
+      "human_review_decision": null,
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-veVjJ_EUYdk__JAX__mvp__YES____2400__518); item_id timestamp drifted after reprocessing.",
+      "updated_at": "2026-07-29T03:39:12.040Z"
     },
     {
       "item_id": "youtube-veVjJ_EUYdk__CIN__opoy__YES____1200__896",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-veVjJ_EUYdk",
       "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
@@ -405,13 +776,22 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": {
+        "ref": "95cca82",
+        "prior_item_id": "youtube-veVjJ_EUYdk__CIN__opoy__YES____1200__731",
+        "match": "episode_team_market_side_line_price",
+        "recovered_at": "2026-07-29T03:39:12.040Z"
+      },
+      "human_review_decision": null,
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-veVjJ_EUYdk__CIN__opoy__YES____1200__731); item_id timestamp drifted after reprocessing.",
+      "updated_at": "2026-07-29T03:39:12.040Z"
     },
     {
       "item_id": "youtube-veVjJ_EUYdk__LV__opoy__YES____8000__1081",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-veVjJ_EUYdk",
       "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
@@ -427,13 +807,22 @@
         "duplicate_candidate"
       ],
       "supporting_quote": "",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": {
+        "ref": "95cca82",
+        "prior_item_id": "youtube-veVjJ_EUYdk__LV__opoy__YES____8000__731",
+        "match": "episode_team_market_side_line_price",
+        "recovered_at": "2026-07-29T03:39:12.040Z"
+      },
+      "human_review_decision": null,
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-veVjJ_EUYdk__LV__opoy__YES____8000__731); item_id timestamp drifted after reprocessing.",
+      "updated_at": "2026-07-29T03:39:12.040Z"
     },
     {
       "item_id": "youtube-veVjJ_EUYdk__LAR__dpoy__YES____450__1211",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-veVjJ_EUYdk",
       "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
@@ -448,13 +837,22 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": {
+        "ref": "95cca82",
+        "prior_item_id": "youtube-veVjJ_EUYdk__LAR__dpoy__YES____450__612",
+        "match": "episode_team_market_side_line_price",
+        "recovered_at": "2026-07-29T03:39:12.040Z"
+      },
+      "human_review_decision": null,
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-veVjJ_EUYdk__LAR__dpoy__YES____450__612); item_id timestamp drifted after reprocessing.",
+      "updated_at": "2026-07-29T03:39:12.040Z"
     },
     {
       "item_id": "youtube-veVjJ_EUYdk__JAX__dpoy__YES____6000__1395",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "reject",
       "item_lane": "futures_pick",
       "episode_id": "youtube-veVjJ_EUYdk",
       "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
@@ -469,13 +867,22 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": {
+        "decided_by": "Andy",
+        "decided_at": "2026-07-29T03:59:26.056Z",
+        "decision": "reject",
+        "reason": "User confirmed these unresolved award props should be rejected."
+      },
+      "reviewer_notes": "Andy decision 2026-07-29T03:59:26.056Z: reject; not confirmed for local futures intel.",
+      "updated_at": "2026-07-29T03:59:26.056Z"
     },
     {
       "item_id": "youtube-veVjJ_EUYdk__LV__oroy__YES____450__1510",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "reject",
       "item_lane": "futures_pick",
       "episode_id": "youtube-veVjJ_EUYdk",
       "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
@@ -490,13 +897,22 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "I think that my favorite bet, my favorite value, is just Fernando Mendoza at +400.",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": {
+        "decided_by": "Andy",
+        "decided_at": "2026-07-29T03:59:26.056Z",
+        "decision": "reject",
+        "reason": "User confirmed these unresolved award props should be rejected."
+      },
+      "reviewer_notes": "Andy decision 2026-07-29T03:59:26.056Z: reject; not confirmed for local futures intel.",
+      "updated_at": "2026-07-29T03:59:26.056Z"
     },
     {
       "item_id": "youtube-veVjJ_EUYdk__CLE__oroy__YES____3000__1539",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "reject",
       "item_lane": "futures_pick",
       "episode_id": "youtube-veVjJ_EUYdk",
       "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
@@ -511,13 +927,22 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": {
+        "decided_by": "Andy",
+        "decided_at": "2026-07-29T03:59:26.056Z",
+        "decision": "reject",
+        "reason": "User confirmed these unresolved award props should be rejected."
+      },
+      "reviewer_notes": "Andy decision 2026-07-29T03:59:26.056Z: reject; not confirmed for local futures intel.",
+      "updated_at": "2026-07-29T03:59:26.056Z"
     },
     {
       "item_id": "youtube-veVjJ_EUYdk__WAS__droy__YES____850__1848",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "reject",
       "item_lane": "futures_pick",
       "episode_id": "youtube-veVjJ_EUYdk",
       "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
@@ -532,13 +957,22 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": {
+        "decided_by": "Andy",
+        "decided_at": "2026-07-29T03:59:26.056Z",
+        "decision": "reject",
+        "reason": "User confirmed these unresolved award props should be rejected."
+      },
+      "reviewer_notes": "Andy decision 2026-07-29T03:59:26.056Z: reject; not confirmed for local futures intel.",
+      "updated_at": "2026-07-29T03:59:26.056Z"
     },
     {
       "item_id": "youtube-veVjJ_EUYdk__MIA__droy__YES____2200__1943",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "reject",
       "item_lane": "futures_pick",
       "episode_id": "youtube-veVjJ_EUYdk",
       "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
@@ -553,8 +987,17 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": {
+        "decided_by": "Andy",
+        "decided_at": "2026-07-29T03:59:26.056Z",
+        "decision": "reject",
+        "reason": "User confirmed these unresolved award props should be rejected."
+      },
+      "reviewer_notes": "Andy decision 2026-07-29T03:59:26.056Z: reject; not confirmed for local futures intel.",
+      "updated_at": "2026-07-29T03:59:26.056Z"
     },
     {
       "item_id": "youtube-qGJ2f1fEXHc__LAC__super_bowl_winner__YES____1700__258",
@@ -574,13 +1017,25 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "Chargers over Lions, I think was the prediction I made.",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, including all previously-uncaptured player-level markets.",
+        "result": "All 14 extracted picks confirmed accurate. All 6 remaining \"(player not captured)\" picks were resolved by Andy's listen: LV opoy = Brock Bowers, DAL droy = Malachi Lawrence, BAL oroy = Elijah Sarratt, PHI oroy = Eli Stowers, BAL season_receiving_yards = Zay Flowers, NYJ interceptions_leader = D'Angelo Ponds. All 6 names were also present in the model's own speaker_segments, which the original player-name patch pass had not checked (it only searched rationale text and analysis_notes).",
+        "known_caveat": "The player-name patch process (2026-07-28) initially missed names that existed only in speaker_segments rather than rationale/analysis_notes -- a gap worth fixing in the general backfill method for any other episode still marked \"(player not captured)\".",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": "2026-07-25T02:10:54.698Z"
     },
     {
       "item_id": "youtube-qGJ2f1fEXHc__DAL__conference_winner__YES____1300__445",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-qGJ2f1fEXHc",
       "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
@@ -595,6 +1050,18 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, including all previously-uncaptured player-level markets.",
+        "result": "All 14 extracted picks confirmed accurate. All 6 remaining \"(player not captured)\" picks were resolved by Andy's listen: LV opoy = Brock Bowers, DAL droy = Malachi Lawrence, BAL oroy = Elijah Sarratt, PHI oroy = Eli Stowers, BAL season_receiving_yards = Zay Flowers, NYJ interceptions_leader = D'Angelo Ponds. All 6 names were also present in the model's own speaker_segments, which the original player-name patch pass had not checked (it only searched rationale text and analysis_notes).",
+        "known_caveat": "The player-name patch process (2026-07-28) initially missed names that existed only in speaker_segments rather than rationale/analysis_notes -- a gap worth fixing in the general backfill method for any other episode still marked \"(player not captured)\".",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
@@ -616,13 +1083,25 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "This is a trend type of play, it's the Tennessee Titans to win the AFC South.",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, including all previously-uncaptured player-level markets.",
+        "result": "All 14 extracted picks confirmed accurate. All 6 remaining \"(player not captured)\" picks were resolved by Andy's listen: LV opoy = Brock Bowers, DAL droy = Malachi Lawrence, BAL oroy = Elijah Sarratt, PHI oroy = Eli Stowers, BAL season_receiving_yards = Zay Flowers, NYJ interceptions_leader = D'Angelo Ponds. All 6 names were also present in the model's own speaker_segments, which the original player-name patch pass had not checked (it only searched rationale text and analysis_notes).",
+        "known_caveat": "The player-name patch process (2026-07-28) initially missed names that existed only in speaker_segments rather than rationale/analysis_notes -- a gap worth fixing in the general backfill method for any other episode still marked \"(player not captured)\".",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": "2026-07-25T02:10:54.698Z"
     },
     {
       "item_id": "youtube-qGJ2f1fEXHc__JAX__mvp__YES____2400__973",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-qGJ2f1fEXHc",
       "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
@@ -638,14 +1117,26 @@
         "duplicate_candidate"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, including all previously-uncaptured player-level markets.",
+        "result": "All 14 extracted picks confirmed accurate. All 6 remaining \"(player not captured)\" picks were resolved by Andy's listen: LV opoy = Brock Bowers, DAL droy = Malachi Lawrence, BAL oroy = Elijah Sarratt, PHI oroy = Eli Stowers, BAL season_receiving_yards = Zay Flowers, NYJ interceptions_leader = D'Angelo Ponds. All 6 names were also present in the model's own speaker_segments, which the original player-name patch pass had not checked (it only searched rationale text and analysis_notes).",
+        "known_caveat": "The player-name patch process (2026-07-28) initially missed names that existed only in speaker_segments rather than rationale/analysis_notes -- a gap worth fixing in the general backfill method for any other episode still marked \"(player not captured)\".",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
     {
       "item_id": "youtube-qGJ2f1fEXHc__JAX__comeback_player_of_the_year__UNKNOWN____3500__1203",
       "item_type": "pick",
-      "status": "context_only",
-      "item_lane": "injury_intel",
+      "status": "promote_to_local_intel",
+      "item_lane": "futures_pick",
       "episode_id": "youtube-qGJ2f1fEXHc",
       "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
       "team": "JAX",
@@ -660,13 +1151,25 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, including all previously-uncaptured player-level markets.",
+        "result": "All 14 extracted picks confirmed accurate. All 6 remaining \"(player not captured)\" picks were resolved by Andy's listen: LV opoy = Brock Bowers, DAL droy = Malachi Lawrence, BAL oroy = Elijah Sarratt, PHI oroy = Eli Stowers, BAL season_receiving_yards = Zay Flowers, NYJ interceptions_leader = D'Angelo Ponds. All 6 names were also present in the model's own speaker_segments, which the original player-name patch pass had not checked (it only searched rationale text and analysis_notes).",
+        "known_caveat": "The player-name patch process (2026-07-28) initially missed names that existed only in speaker_segments rather than rationale/analysis_notes -- a gap worth fixing in the general backfill method for any other episode still marked \"(player not captured)\".",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
     {
       "item_id": "youtube-qGJ2f1fEXHc__LV__opoy__YES____8000__1436",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-qGJ2f1fEXHc",
       "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
@@ -682,13 +1185,25 @@
         "duplicate_candidate"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, including all previously-uncaptured player-level markets.",
+        "result": "All 14 extracted picks confirmed accurate. All 6 remaining \"(player not captured)\" picks were resolved by Andy's listen: LV opoy = Brock Bowers, DAL droy = Malachi Lawrence, BAL oroy = Elijah Sarratt, PHI oroy = Eli Stowers, BAL season_receiving_yards = Zay Flowers, NYJ interceptions_leader = D'Angelo Ponds. All 6 names were also present in the model's own speaker_segments, which the original player-name patch pass had not checked (it only searched rationale text and analysis_notes).",
+        "known_caveat": "The player-name patch process (2026-07-28) initially missed names that existed only in speaker_segments rather than rationale/analysis_notes -- a gap worth fixing in the general backfill method for any other episode still marked \"(player not captured)\".",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
     {
       "item_id": "youtube-qGJ2f1fEXHc__DAL__droy__YES____2500__1540",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-qGJ2f1fEXHc",
       "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
@@ -703,13 +1218,25 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, including all previously-uncaptured player-level markets.",
+        "result": "All 14 extracted picks confirmed accurate. All 6 remaining \"(player not captured)\" picks were resolved by Andy's listen: LV opoy = Brock Bowers, DAL droy = Malachi Lawrence, BAL oroy = Elijah Sarratt, PHI oroy = Eli Stowers, BAL season_receiving_yards = Zay Flowers, NYJ interceptions_leader = D'Angelo Ponds. All 6 names were also present in the model's own speaker_segments, which the original player-name patch pass had not checked (it only searched rationale text and analysis_notes).",
+        "known_caveat": "The player-name patch process (2026-07-28) initially missed names that existed only in speaker_segments rather than rationale/analysis_notes -- a gap worth fixing in the general backfill method for any other episode still marked \"(player not captured)\".",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
     {
       "item_id": "youtube-qGJ2f1fEXHc__BAL__oroy__YES____9245__1637",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-qGJ2f1fEXHc",
       "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
@@ -724,13 +1251,25 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, including all previously-uncaptured player-level markets.",
+        "result": "All 14 extracted picks confirmed accurate. All 6 remaining \"(player not captured)\" picks were resolved by Andy's listen: LV opoy = Brock Bowers, DAL droy = Malachi Lawrence, BAL oroy = Elijah Sarratt, PHI oroy = Eli Stowers, BAL season_receiving_yards = Zay Flowers, NYJ interceptions_leader = D'Angelo Ponds. All 6 names were also present in the model's own speaker_segments, which the original player-name patch pass had not checked (it only searched rationale text and analysis_notes).",
+        "known_caveat": "The player-name patch process (2026-07-28) initially missed names that existed only in speaker_segments rather than rationale/analysis_notes -- a gap worth fixing in the general backfill method for any other episode still marked \"(player not captured)\".",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
     {
       "item_id": "youtube-qGJ2f1fEXHc__PHI__oroy__YES____9245__1637",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-qGJ2f1fEXHc",
       "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
@@ -745,13 +1284,25 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, including all previously-uncaptured player-level markets.",
+        "result": "All 14 extracted picks confirmed accurate. All 6 remaining \"(player not captured)\" picks were resolved by Andy's listen: LV opoy = Brock Bowers, DAL droy = Malachi Lawrence, BAL oroy = Elijah Sarratt, PHI oroy = Eli Stowers, BAL season_receiving_yards = Zay Flowers, NYJ interceptions_leader = D'Angelo Ponds. All 6 names were also present in the model's own speaker_segments, which the original player-name patch pass had not checked (it only searched rationale text and analysis_notes).",
+        "known_caveat": "The player-name patch process (2026-07-28) initially missed names that existed only in speaker_segments rather than rationale/analysis_notes -- a gap worth fixing in the general backfill method for any other episode still marked \"(player not captured)\".",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
     {
       "item_id": "youtube-qGJ2f1fEXHc__PIT__fewest_wins__UNKNOWN____4000__1926",
       "item_type": "pick",
-      "status": "context_only",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-qGJ2f1fEXHc",
       "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
@@ -767,13 +1318,25 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, including all previously-uncaptured player-level markets.",
+        "result": "All 14 extracted picks confirmed accurate. All 6 remaining \"(player not captured)\" picks were resolved by Andy's listen: LV opoy = Brock Bowers, DAL droy = Malachi Lawrence, BAL oroy = Elijah Sarratt, PHI oroy = Eli Stowers, BAL season_receiving_yards = Zay Flowers, NYJ interceptions_leader = D'Angelo Ponds. All 6 names were also present in the model's own speaker_segments, which the original player-name patch pass had not checked (it only searched rationale text and analysis_notes).",
+        "known_caveat": "The player-name patch process (2026-07-28) initially missed names that existed only in speaker_segments rather than rationale/analysis_notes -- a gap worth fixing in the general backfill method for any other episode still marked \"(player not captured)\".",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
     {
       "item_id": "youtube-qGJ2f1fEXHc__BAL__season_receiving_yards__OVER__1500__1000__2202",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-qGJ2f1fEXHc",
       "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
@@ -788,13 +1351,25 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, including all previously-uncaptured player-level markets.",
+        "result": "All 14 extracted picks confirmed accurate. All 6 remaining \"(player not captured)\" picks were resolved by Andy's listen: LV opoy = Brock Bowers, DAL droy = Malachi Lawrence, BAL oroy = Elijah Sarratt, PHI oroy = Eli Stowers, BAL season_receiving_yards = Zay Flowers, NYJ interceptions_leader = D'Angelo Ponds. All 6 names were also present in the model's own speaker_segments, which the original player-name patch pass had not checked (it only searched rationale text and analysis_notes).",
+        "known_caveat": "The player-name patch process (2026-07-28) initially missed names that existed only in speaker_segments rather than rationale/analysis_notes -- a gap worth fixing in the general backfill method for any other episode still marked \"(player not captured)\".",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
     {
       "item_id": "youtube-qGJ2f1fEXHc__LV__season_passing_tds__OVER__25__1400__2469",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-qGJ2f1fEXHc",
       "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
@@ -809,13 +1384,25 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, including all previously-uncaptured player-level markets.",
+        "result": "All 14 extracted picks confirmed accurate. All 6 remaining \"(player not captured)\" picks were resolved by Andy's listen: LV opoy = Brock Bowers, DAL droy = Malachi Lawrence, BAL oroy = Elijah Sarratt, PHI oroy = Eli Stowers, BAL season_receiving_yards = Zay Flowers, NYJ interceptions_leader = D'Angelo Ponds. All 6 names were also present in the model's own speaker_segments, which the original player-name patch pass had not checked (it only searched rationale text and analysis_notes).",
+        "known_caveat": "The player-name patch process (2026-07-28) initially missed names that existed only in speaker_segments rather than rationale/analysis_notes -- a gap worth fixing in the general backfill method for any other episode still marked \"(player not captured)\".",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
     {
       "item_id": "youtube-qGJ2f1fEXHc__NYJ__interceptions_leader__UNKNOWN______2755",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-qGJ2f1fEXHc",
       "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
@@ -831,13 +1418,25 @@
         "missing_price"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, including all previously-uncaptured player-level markets.",
+        "result": "All 14 extracted picks confirmed accurate. All 6 remaining \"(player not captured)\" picks were resolved by Andy's listen: LV opoy = Brock Bowers, DAL droy = Malachi Lawrence, BAL oroy = Elijah Sarratt, PHI oroy = Eli Stowers, BAL season_receiving_yards = Zay Flowers, NYJ interceptions_leader = D'Angelo Ponds. All 6 names were also present in the model's own speaker_segments, which the original player-name patch pass had not checked (it only searched rationale text and analysis_notes).",
+        "known_caveat": "The player-name patch process (2026-07-28) initially missed names that existed only in speaker_segments rather than rationale/analysis_notes -- a gap worth fixing in the general backfill method for any other episode still marked \"(player not captured)\".",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
     {
       "item_id": "youtube-qGJ2f1fEXHc__ATL__season_rushing_tds__UNKNOWN____1800__2912",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-qGJ2f1fEXHc",
       "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
@@ -853,13 +1452,66 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, including all previously-uncaptured player-level markets.",
+        "result": "All 14 extracted picks confirmed accurate. All 6 remaining \"(player not captured)\" picks were resolved by Andy's listen: LV opoy = Brock Bowers, DAL droy = Malachi Lawrence, BAL oroy = Elijah Sarratt, PHI oroy = Eli Stowers, BAL season_receiving_yards = Zay Flowers, NYJ interceptions_leader = D'Angelo Ponds. All 6 names were also present in the model's own speaker_segments, which the original player-name patch pass had not checked (it only searched rationale text and analysis_notes).",
+        "known_caveat": "The player-name patch process (2026-07-28) initially missed names that existed only in speaker_segments rather than rationale/analysis_notes -- a gap worth fixing in the general backfill method for any other episode still marked \"(player not captured)\".",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
     {
-      "item_id": "youtube-b9NL40Zogkw__NE__season_rushing_tds__OVER__5.5__180__263",
+      "item_id": "youtube-b9NL40Zogkw__TEN__win_total__OVER______1945",
       "item_type": "pick",
-      "status": "pending_review",
+      "status": "reject",
+      "item_lane": "futures_pick",
+      "episode_id": "youtube-b9NL40Zogkw",
+      "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
+      "team": "TEN",
+      "market": "win_total",
+      "side": "OVER",
+      "line": null,
+      "price": null,
+      "week": null,
+      "source_timestamp": 1945,
+      "review_flags": [
+        "missing_win_total_line",
+        "missing_price"
+      ],
+      "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
+        "result": "2 of 3 extracted picks confirmed accurate (NE season_rushing_tds Drake Maye, NE season_passing_yards Drake Maye). The 3rd (TEN win_total) is REJECTED as fabricated -- see that pick's own disputed field. All real content in this episode has now been verified one way or the other.",
+        "known_caveat": "One pick (TEN win_total, ts=1945) is REJECTED/fabricated, not real. Do not count it as episode content.",
+        "do_not_reverify": true
+      },
+      "disputed": {
+        "flagged_by": "Andy",
+        "flagged_date": "2026-07-28",
+        "status": "REJECTED — CONFIRMED INACCURATE",
+        "reason": "Investigation found no support anywhere in the episode's transcript for a Tennessee win-total discussion (see prior investigation notes). Andy has now listened and confirmed this pick did not happen — rejected outright, not just unverified. Working theory (model fabrication rather than mistimestamp) treated as confirmed.",
+        "action": "Kept in the dataset with this REJECTED status for audit-trail purposes rather than deleted. Excluded from any active pick count/summary; do not treat as real content from this episode.",
+        "resolved": true
+      },
+      "legacy_review_match": null,
+      "human_review_decision": null,
+      "reviewer_notes": "",
+      "updated_at": null
+    },
+    {
+      "item_id": "youtube-b9NL40Zogkw__NE__season_rushing_tds__OVER__5.5__180__2963",
+      "item_type": "pick",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-b9NL40Zogkw",
       "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
@@ -869,16 +1521,28 @@
       "line": 5.5,
       "price": 180,
       "week": null,
-      "source_timestamp": 263,
+      "source_timestamp": 2963,
       "review_flags": [],
-      "supporting_quote": "Drake Maye over 5.5 rushing touchdowns, +180 is my favorite bet that I have logged all season long.",
+      "supporting_quote": "My absolute favorite bet of the season is Drake Maye over five and a half rushing touchdowns at plus 180.",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
+        "result": "2 of 3 extracted picks confirmed accurate (NE season_rushing_tds Drake Maye, NE season_passing_yards Drake Maye). The 3rd (TEN win_total) is REJECTED as fabricated -- see that pick's own disputed field. All real content in this episode has now been verified one way or the other.",
+        "known_caveat": "One pick (TEN win_total, ts=1945) is REJECTED/fabricated, not real. Do not count it as episode content.",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
     {
-      "item_id": "youtube-b9NL40Zogkw__NE__season_passing_yards__OVER__4000__135__292",
+      "item_id": "youtube-b9NL40Zogkw__NE__season_passing_yards__OVER__4000__135__3053",
       "item_type": "pick",
-      "status": "pending_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-b9NL40Zogkw",
       "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
@@ -888,9 +1552,21 @@
       "line": 4000,
       "price": 135,
       "week": null,
-      "source_timestamp": 292,
+      "source_timestamp": 3053,
       "review_flags": [],
-      "supporting_quote": "I like Drake Maye as well, 4,000+ passing yards at +135.",
+      "supporting_quote": "I'm taking Drake Maye over 4,000 passing yards at plus 135.",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
+        "result": "2 of 3 extracted picks confirmed accurate (NE season_rushing_tds Drake Maye, NE season_passing_yards Drake Maye). The 3rd (TEN win_total) is REJECTED as fabricated -- see that pick's own disputed field. All real content in this episode has now been verified one way or the other.",
+        "known_caveat": "One pick (TEN win_total, ts=1945) is REJECTED/fabricated, not real. Do not count it as episode content.",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
@@ -913,6 +1589,18 @@
         "missing_price"
       ],
       "supporting_quote": "I am taking the Dallas Cowboys laying 1.5 points on the road against the New York Giants.",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
+        "result": "All 9 extracted picks confirmed accurate.",
+        "known_caveat": "The HOU moneyline pick's rationale says C.J. Stroud is entering \"his second year\" -- Andy flagged this as factually wrong (2026 is Stroud's 3rd NFL season, having debuted in 2023). This is the host's/model's own claim as extracted, not an extraction error to correct; left as-is (matching the analysis_notes quote, which says the same thing) with this caveat attached rather than silently rewritten.",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
@@ -935,6 +1623,18 @@
         "missing_price"
       ],
       "supporting_quote": "Give me a little Pittsburgh Steelers minus 2.5 against the Falcons.",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
+        "result": "All 9 extracted picks confirmed accurate.",
+        "known_caveat": "The HOU moneyline pick's rationale says C.J. Stroud is entering \"his second year\" -- Andy flagged this as factually wrong (2026 is Stroud's 3rd NFL season, having debuted in 2023). This is the host's/model's own claim as extracted, not an extraction error to correct; left as-is (matching the analysis_notes quote, which says the same thing) with this caveat attached rather than silently rewritten.",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
@@ -957,6 +1657,18 @@
         "missing_price"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
+        "result": "All 9 extracted picks confirmed accurate.",
+        "known_caveat": "The HOU moneyline pick's rationale says C.J. Stroud is entering \"his second year\" -- Andy flagged this as factually wrong (2026 is Stroud's 3rd NFL season, having debuted in 2023). This is the host's/model's own claim as extracted, not an extraction error to correct; left as-is (matching the analysis_notes quote, which says the same thing) with this caveat attached rather than silently rewritten.",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
@@ -979,6 +1691,18 @@
         "missing_price"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
+        "result": "All 9 extracted picks confirmed accurate.",
+        "known_caveat": "The HOU moneyline pick's rationale says C.J. Stroud is entering \"his second year\" -- Andy flagged this as factually wrong (2026 is Stroud's 3rd NFL season, having debuted in 2023). This is the host's/model's own claim as extracted, not an extraction error to correct; left as-is (matching the analysis_notes quote, which says the same thing) with this caveat attached rather than silently rewritten.",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
@@ -1001,6 +1725,18 @@
         "missing_price"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
+        "result": "All 9 extracted picks confirmed accurate.",
+        "known_caveat": "The HOU moneyline pick's rationale says C.J. Stroud is entering \"his second year\" -- Andy flagged this as factually wrong (2026 is Stroud's 3rd NFL season, having debuted in 2023). This is the host's/model's own claim as extracted, not an extraction error to correct; left as-is (matching the analysis_notes quote, which says the same thing) with this caveat attached rather than silently rewritten.",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
@@ -1023,6 +1759,18 @@
         "missing_price"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
+        "result": "All 9 extracted picks confirmed accurate.",
+        "known_caveat": "The HOU moneyline pick's rationale says C.J. Stroud is entering \"his second year\" -- Andy flagged this as factually wrong (2026 is Stroud's 3rd NFL season, having debuted in 2023). This is the host's/model's own claim as extracted, not an extraction error to correct; left as-is (matching the analysis_notes quote, which says the same thing) with this caveat attached rather than silently rewritten.",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
@@ -1045,6 +1793,18 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
+        "result": "All 9 extracted picks confirmed accurate.",
+        "known_caveat": "The HOU moneyline pick's rationale says C.J. Stroud is entering \"his second year\" -- Andy flagged this as factually wrong (2026 is Stroud's 3rd NFL season, having debuted in 2023). This is the host's/model's own claim as extracted, not an extraction error to correct; left as-is (matching the analysis_notes quote, which says the same thing) with this caveat attached rather than silently rewritten.",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
@@ -1067,6 +1827,18 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
+        "result": "All 9 extracted picks confirmed accurate.",
+        "known_caveat": "The HOU moneyline pick's rationale says C.J. Stroud is entering \"his second year\" -- Andy flagged this as factually wrong (2026 is Stroud's 3rd NFL season, having debuted in 2023). This is the host's/model's own claim as extracted, not an extraction error to correct; left as-is (matching the analysis_notes quote, which says the same thing) with this caveat attached rather than silently rewritten.",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
@@ -1089,13 +1861,25 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
+        "result": "All 9 extracted picks confirmed accurate.",
+        "known_caveat": "The HOU moneyline pick's rationale says C.J. Stroud is entering \"his second year\" -- Andy flagged this as factually wrong (2026 is Stroud's 3rd NFL season, having debuted in 2023). This is the host's/model's own claim as extracted, not an extraction error to correct; left as-is (matching the analysis_notes quote, which says the same thing) with this caveat attached rather than silently rewritten.",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
     {
       "item_id": "youtube-WbuAvbsVF_w__NYG__season_rushing_tds__OVER__5.5____2472",
       "item_type": "pick",
-      "status": "needs_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-WbuAvbsVF_w",
       "episode_title": "Ranking the Top 20 NFL Quarterbacks for 2026! | The Favorites",
@@ -1110,13 +1894,22 @@
         "missing_price"
       ],
       "supporting_quote": "I have a Jaxson Dart over 5.5 rushing touchdowns play to give you guys.",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": {
+        "decided_by": "Andy",
+        "decided_at": "2026-07-29T03:59:26.056Z",
+        "decision": "promote_to_local_intel",
+        "reason": "User confirmed as true and approved elevation."
+      },
+      "reviewer_notes": "Andy decision 2026-07-29T03:59:26.056Z: confirmed true and elevated to local futures intel.",
+      "updated_at": "2026-07-29T03:59:26.056Z"
     },
     {
       "item_id": "youtube-WbuAvbsVF_w__SF__mvp__YES____2000__2507",
       "item_type": "pick",
-      "status": "pending_review",
+      "status": "promote_to_local_intel",
       "item_lane": "futures_pick",
       "episode_id": "youtube-WbuAvbsVF_w",
       "episode_title": "Ranking the Top 20 NFL Quarterbacks for 2026! | The Favorites",
@@ -1129,13 +1922,22 @@
       "source_timestamp": 2507,
       "review_flags": [],
       "supporting_quote": "I have Brock Purdy 20 to 1 to win MVP.",
-      "reviewer_notes": "",
-      "updated_at": null
+      "human_verification": null,
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": {
+        "decided_by": "Andy",
+        "decided_at": "2026-07-29T03:59:26.056Z",
+        "decision": "promote_to_local_intel",
+        "reason": "User confirmed as true and approved elevation."
+      },
+      "reviewer_notes": "Andy decision 2026-07-29T03:59:26.056Z: confirmed true and elevated to local futures intel.",
+      "updated_at": "2026-07-29T03:59:26.056Z"
     },
     {
       "item_id": "youtube-xAwNym8Y7Xg__SPAIN/ARGENTINA__total__OVER__2.5__135__2671",
       "item_type": "pick",
-      "status": "context_only",
+      "status": "reject",
       "item_lane": "non_futures_betting",
       "episode_id": "youtube-xAwNym8Y7Xg",
       "episode_title": "NFL Injury Expert Dr. David Chao On The Major NFL Injury Storylines",
@@ -1151,13 +1953,32 @@
         "non_futures_market"
       ],
       "supporting_quote": "I like the over 2.5 +135 over on DraftKings.",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual review against the Podcast_Intel_Verification_Report.docx picks list.",
+        "result": "All 4 extracted \"picks\" are World Cup (Spain vs Argentina) soccer bets, not NFL bets, and have been rejected as out of scope. This episode has no actual NFL betting picks -- its real content is Dr. David Chao's injury analysis, captured in analysis_notes rather than extracted_picks, and is not itself in dispute.",
+        "known_caveat": "The extraction prompt did not tell the model to ignore non-NFL sports at the time of this run; a prompt fix to explicitly exclude non-NFL content would prevent this from recurring on future non-NFL-adjacent episodes.",
+        "do_not_reverify": true
+      },
+      "disputed": {
+        "flagged_by": "Andy",
+        "flagged_date": "2026-07-28",
+        "status": "REJECTED — NON-NFL, OUT OF SCOPE",
+        "reason": "This is a World Cup soccer pick (Spain vs Argentina final), not an NFL bet. The hosts made it as a fun aside; the extraction prompt at the time of this run didn't tell the model to ignore non-NFL sports.",
+        "action": "Kept in the dataset for audit-trail purposes rather than deleted. Excluded from NFL pick counts/summary.",
+        "resolved": true
+      },
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
     {
       "item_id": "youtube-xAwNym8Y7Xg__SPAIN/ARGENTINA__first_half_draw__DRAW____-105__2698",
       "item_type": "pick",
-      "status": "context_only",
+      "status": "reject",
       "item_lane": "injury_intel",
       "episode_id": "youtube-xAwNym8Y7Xg",
       "episode_title": "NFL Injury Expert Dr. David Chao On The Major NFL Injury Storylines",
@@ -1174,13 +1995,32 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual review against the Podcast_Intel_Verification_Report.docx picks list.",
+        "result": "All 4 extracted \"picks\" are World Cup (Spain vs Argentina) soccer bets, not NFL bets, and have been rejected as out of scope. This episode has no actual NFL betting picks -- its real content is Dr. David Chao's injury analysis, captured in analysis_notes rather than extracted_picks, and is not itself in dispute.",
+        "known_caveat": "The extraction prompt did not tell the model to ignore non-NFL sports at the time of this run; a prompt fix to explicitly exclude non-NFL content would prevent this from recurring on future non-NFL-adjacent episodes.",
+        "do_not_reverify": true
+      },
+      "disputed": {
+        "flagged_by": "Andy",
+        "flagged_date": "2026-07-28",
+        "status": "REJECTED — NON-NFL, OUT OF SCOPE",
+        "reason": "This is a World Cup soccer pick (Spain vs Argentina final), not an NFL bet. The hosts made it as a fun aside; the extraction prompt at the time of this run didn't tell the model to ignore non-NFL sports.",
+        "action": "Kept in the dataset for audit-trail purposes rather than deleted. Excluded from NFL pick counts/summary.",
+        "resolved": true
+      },
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
     {
       "item_id": "youtube-xAwNym8Y7Xg__SPAIN/ARGENTINA__first_half_total__UNDER____138__2701",
       "item_type": "pick",
-      "status": "context_only",
+      "status": "reject",
       "item_lane": "injury_intel",
       "episode_id": "youtube-xAwNym8Y7Xg",
       "episode_title": "NFL Injury Expert Dr. David Chao On The Major NFL Injury Storylines",
@@ -1197,13 +2037,32 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual review against the Podcast_Intel_Verification_Report.docx picks list.",
+        "result": "All 4 extracted \"picks\" are World Cup (Spain vs Argentina) soccer bets, not NFL bets, and have been rejected as out of scope. This episode has no actual NFL betting picks -- its real content is Dr. David Chao's injury analysis, captured in analysis_notes rather than extracted_picks, and is not itself in dispute.",
+        "known_caveat": "The extraction prompt did not tell the model to ignore non-NFL sports at the time of this run; a prompt fix to explicitly exclude non-NFL content would prevent this from recurring on future non-NFL-adjacent episodes.",
+        "do_not_reverify": true
+      },
+      "disputed": {
+        "flagged_by": "Andy",
+        "flagged_date": "2026-07-28",
+        "status": "REJECTED — NON-NFL, OUT OF SCOPE",
+        "reason": "This is a World Cup soccer pick (Spain vs Argentina final), not an NFL bet. The hosts made it as a fun aside; the extraction prompt at the time of this run didn't tell the model to ignore non-NFL sports.",
+        "action": "Kept in the dataset for audit-trail purposes rather than deleted. Excluded from NFL pick counts/summary.",
+        "resolved": true
+      },
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
     {
       "item_id": "youtube-xAwNym8Y7Xg__SPAIN__to_lift_cup__SPAIN____-150__2737",
       "item_type": "pick",
-      "status": "context_only",
+      "status": "reject",
       "item_lane": "injury_intel",
       "episode_id": "youtube-xAwNym8Y7Xg",
       "episode_title": "NFL Injury Expert Dr. David Chao On The Major NFL Injury Storylines",
@@ -1219,6 +2078,25 @@
         "non_futures_market"
       ],
       "supporting_quote": "I'm going to go with Spain to lift the cup at -150.",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual review against the Podcast_Intel_Verification_Report.docx picks list.",
+        "result": "All 4 extracted \"picks\" are World Cup (Spain vs Argentina) soccer bets, not NFL bets, and have been rejected as out of scope. This episode has no actual NFL betting picks -- its real content is Dr. David Chao's injury analysis, captured in analysis_notes rather than extracted_picks, and is not itself in dispute.",
+        "known_caveat": "The extraction prompt did not tell the model to ignore non-NFL sports at the time of this run; a prompt fix to explicitly exclude non-NFL content would prevent this from recurring on future non-NFL-adjacent episodes.",
+        "do_not_reverify": true
+      },
+      "disputed": {
+        "flagged_by": "Andy",
+        "flagged_date": "2026-07-28",
+        "status": "REJECTED — NON-NFL, OUT OF SCOPE",
+        "reason": "This is a World Cup soccer pick (Spain vs Argentina final), not an NFL bet. The hosts made it as a fun aside; the extraction prompt at the time of this run didn't tell the model to ignore non-NFL sports.",
+        "action": "Kept in the dataset for audit-trail purposes rather than deleted. Excluded from NFL pick counts/summary.",
+        "resolved": true
+      },
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
@@ -1241,6 +2119,18 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "I'm going to take the Jacksonville Jaguars down from minus seven and a half to minus a half... Vikings... up to plus eight and a half.",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
+        "result": "Both extracted picks confirmed accurate (the 7-point teaser: Jacksonville -0.5 and Minnesota +8.5, Week 1).",
+        "known_caveat": "\"teaser\" is not yet a canonical recognized market type in this pipeline's taxonomy (passes through unmapped), and its MINUS/PLUS side convention differs from the usual OVER/UNDER/team-code shape -- accurate as extracted, just a market type worth adding formally if teaser picks become common.",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
@@ -1263,11 +2153,23 @@
         "price_not_in_quote"
       ],
       "supporting_quote": "",
+      "human_verification": {
+        "verified": true,
+        "verified_by": "Andy",
+        "verified_date": "2026-07-28",
+        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
+        "result": "Both extracted picks confirmed accurate (the 7-point teaser: Jacksonville -0.5 and Minnesota +8.5, Week 1).",
+        "known_caveat": "\"teaser\" is not yet a canonical recognized market type in this pipeline's taxonomy (passes through unmapped), and its MINUS/PLUS side convention differs from the usual OVER/UNDER/team-code shape -- accurate as extracted, just a market type worth adding formally if teaser picks become common.",
+        "do_not_reverify": true
+      },
+      "disputed": null,
+      "legacy_review_match": null,
+      "human_review_decision": null,
       "reviewer_notes": "",
       "updated_at": null
     },
     {
-      "item_id": "note__youtube-4OxpAX6UJlM__team_evaluation__panthers_regression_concerns__344",
+      "item_id": "note__youtube-4OxpAX6UJlM__coaching_or_scheme__harbaugh_and_mcdaniels_offensive_impact__464",
       "item_type": "note",
       "status": "pending_review",
       "relevance_tags": [
@@ -1275,23 +2177,49 @@
       ],
       "episode_id": "youtube-4OxpAX6UJlM",
       "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
-      "note_type": "team_evaluation",
+      "note_type": "coaching_or_scheme",
       "teams": [
-        "CAR"
+        "LAC"
       ],
-      "players": [],
-      "topic": "Panthers Regression Concerns",
-      "summary": "Derek Brown points out that the Panthers are highly prone to regression because six of their eight wins from the previous season were decided by a mere three points or fewer.",
-      "speaker": "Derek Brown",
-      "source_timestamp": 344,
-      "quote": "Six of their eight wins last year were by three or fewer points.",
+      "players": [
+        "Justin Herbert"
+      ],
+      "topic": "Harbaugh and McDaniels offensive impact",
+      "summary": "Erickson notes Jim Harbaugh and Mike McDaniels (as OC) will boost Justin Herbert's performance, leading to the Chargers' best offensive season.",
+      "speaker": "Andrew Erickson",
+      "source_timestamp": 464,
+      "quote": "Justin Herbert is going to have his best season of his NFL career.",
       "confidence": "stated",
       "review_flags": [],
       "reviewer_notes": "",
       "updated_at": null
     },
     {
-      "item_id": "note__youtube-4OxpAX6UJlM__schedule_context__chargers_easy_start__482",
+      "item_id": "note__youtube-4OxpAX6UJlM__roster_or_depth_chart__bills_offensive_line_coaching_change__956",
+      "item_type": "note",
+      "status": "pending_review",
+      "relevance_tags": [
+        "roster_transaction_intel"
+      ],
+      "episode_id": "youtube-4OxpAX6UJlM",
+      "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+      "note_type": "roster_or_depth_chart",
+      "teams": [
+        "BUF"
+      ],
+      "players": [],
+      "topic": "Bills offensive line coaching change",
+      "summary": "Erickson points out the Bills lost their offensive line coach to retirement, which is a major underrated loss given their previous line stability.",
+      "speaker": "Andrew Erickson",
+      "source_timestamp": 956,
+      "quote": "The Bills don't have the same offensive line coach... that was a significant loss.",
+      "confidence": "stated",
+      "review_flags": [],
+      "reviewer_notes": "",
+      "updated_at": null
+    },
+    {
+      "item_id": "note__youtube-4OxpAX6UJlM__schedule_context__historic_easy_schedule_for_patriots__620",
       "item_type": "note",
       "status": "pending_review",
       "relevance_tags": [
@@ -1301,44 +2229,42 @@
       "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
       "note_type": "schedule_context",
       "teams": [
-        "LAC"
+        "NE"
       ],
-      "players": [],
-      "topic": "Chargers Easy Start",
-      "summary": "Andrew Erickson highlights that the Chargers start their season against the Cardinals and Raiders, making a 2-0 start highly probable.",
+      "players": [
+        "Drake Maye"
+      ],
+      "topic": "Historic easy schedule for Patriots",
+      "summary": "Erickson highlights FTN Almanac's note that the Patriots' schedule in this future simulation is one of the easiest in the last century.",
       "speaker": "Andrew Erickson",
-      "source_timestamp": 482,
-      "quote": "Because when you start the season against the Cardinals and the Raiders, chances are your season's going to start 2-0.",
+      "source_timestamp": 620,
+      "quote": "It was one of the easiest schedules in the last century for the Patriots.",
       "confidence": "stated",
       "review_flags": [],
       "reviewer_notes": "",
       "updated_at": null
     },
     {
-      "item_id": "note__youtube-4OxpAX6UJlM__player_evaluation__maye's_offensive_weapons__673",
+      "item_id": "note__youtube-4OxpAX6UJlM__other__age_narrative_for_first-time_mvp_winners__1027",
       "item_type": "note",
-      "status": "pending_review",
+      "status": "needs_review",
       "relevance_tags": [
-        "fantasy_intel"
+        "market_context"
       ],
       "episode_id": "youtube-4OxpAX6UJlM",
       "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
-      "note_type": "player_evaluation",
-      "teams": [
-        "NE"
-      ],
-      "players": [
-        "Drake Maye",
-        "A.J. Brown",
-        "J.K. Dobbins"
-      ],
-      "topic": "Maye's Offensive Weapons",
-      "summary": "Chris Welsh projects a massive leap forward for Drake Maye due to his supporting cast, specifically naming AJ Brown and J.K. Dobbins as key offensive engines.",
-      "speaker": "Chris Welsh",
-      "source_timestamp": 673,
-      "quote": "He's got his weapon: AJ Brown is the piece, and frankly, Dobbins.",
+      "note_type": "other",
+      "teams": [],
+      "players": [],
+      "topic": "Age narrative for first-time MVP winners",
+      "summary": "Erickson discusses how since 2007, the average age of a first-time NFL MVP winner is 27 years old, which Trevor Lawrence and Bo Nix fit.",
+      "speaker": "Andrew Erickson",
+      "source_timestamp": 1027,
+      "quote": "Since 2007... the average age of the first-time MVP winner has been 27 years old.",
       "confidence": "stated",
-      "review_flags": [],
+      "review_flags": [
+        "no_team_or_player"
+      ],
       "reviewer_notes": "",
       "updated_at": null
     },
@@ -1581,87 +2507,7 @@
       "updated_at": null
     },
     {
-      "item_id": "note__youtube-b9NL40Zogkw__roster_or_depth_chart__patriots_offensive_upgrades_in_2026__172",
-      "item_type": "note",
-      "status": "pending_review",
-      "relevance_tags": [
-        "roster_transaction_intel"
-      ],
-      "episode_id": "youtube-b9NL40Zogkw",
-      "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
-      "note_type": "roster_or_depth_chart",
-      "teams": [
-        "NE"
-      ],
-      "players": [
-        "Drake Maye",
-        "Romeo Doubs",
-        "A.J. Brown"
-      ],
-      "topic": "Patriots offensive upgrades in 2026",
-      "summary": "The hosts note that Drake Maye's value has increased significantly due to New England acquiring major targets Romeo Doubs and A.J. Brown.",
-      "speaker": "Kendra Middleton",
-      "source_timestamp": 172,
-      "quote": "But now you add Romeo Doubs and AJ Brown to this offense... I think that this team could find another gear.",
-      "confidence": "stated",
-      "review_flags": [],
-      "reviewer_notes": "",
-      "updated_at": null
-    },
-    {
-      "item_id": "note__youtube-b9NL40Zogkw__player_evaluation__brock_purdy_omission_from_top_10__308",
-      "item_type": "note",
-      "status": "pending_review",
-      "relevance_tags": [
-        "fantasy_intel"
-      ],
-      "episode_id": "youtube-b9NL40Zogkw",
-      "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
-      "note_type": "player_evaluation",
-      "teams": [
-        "SF"
-      ],
-      "players": [
-        "Brock Purdy"
-      ],
-      "topic": "Brock Purdy omission from Top 10",
-      "summary": "Evan Abrams criticizes the hosts for completely omitting Brock Purdy from their top-10 rankings, noting Purdy leads in several advanced metrics and belongs in the top tier.",
-      "speaker": "Evan Abrams",
-      "source_timestamp": 308,
-      "quote": "Purdy is number one in basically any advanced statistical category... Purdy's a top four quarterback.",
-      "confidence": "stated",
-      "review_flags": [],
-      "reviewer_notes": "",
-      "updated_at": null
-    },
-    {
-      "item_id": "note__youtube-b9NL40Zogkw__player_evaluation__baker_mayfield_ranking_critique__356",
-      "item_type": "note",
-      "status": "pending_review",
-      "relevance_tags": [
-        "fantasy_intel"
-      ],
-      "episode_id": "youtube-b9NL40Zogkw",
-      "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
-      "note_type": "player_evaluation",
-      "teams": [
-        "TB"
-      ],
-      "players": [
-        "Baker Mayfield"
-      ],
-      "topic": "Baker Mayfield ranking critique",
-      "summary": "Abrams points out that Baker Mayfield (ranked #16 by the hosts) has performed as a top 10 quarterback over the previous two seasons and is undervalued.",
-      "speaker": "Evan Abrams",
-      "source_timestamp": 356,
-      "quote": "Baker's probably a little bit lower on most lists than yours... he was definitely a top ten quarterback over the last two years.",
-      "confidence": "stated",
-      "review_flags": [],
-      "reviewer_notes": "",
-      "updated_at": null
-    },
-    {
-      "item_id": "note__youtube-b9NL40Zogkw__player_evaluation__lamar_jackson_availability_and_health__110",
+      "item_id": "note__youtube-b9NL40Zogkw__player_evaluation__playoff_and_health_concerns__1857",
       "item_type": "note",
       "status": "pending_review",
       "relevance_tags": [
@@ -1676,11 +2522,89 @@
       "players": [
         "Lamar Jackson"
       ],
-      "topic": "Lamar Jackson availability and health",
-      "summary": "Kendra explains her decision to rank Lamar Jackson at #5, citing recurring injuries and ill-timed sicknesses that compromise his presence during critical late-season stretches.",
+      "topic": "Playoff and health concerns",
+      "summary": "Kendra expresses concern over Lamar Jackson's history of injuries and late-season illnesses at crucial moments, preventing her from placing him in her top four.",
       "speaker": "Kendra Middleton",
-      "source_timestamp": 110,
-      "quote": "I love him, I'm his biggest apologist... but the injuries, lack of availability, whatever it is, I can't have him any higher than this.",
+      "source_timestamp": 1857,
+      "quote": "The injuries and illnesses at the most pivotal times of the year are a major concern.",
+      "confidence": "stated",
+      "review_flags": [],
+      "reviewer_notes": "",
+      "updated_at": null
+    },
+    {
+      "item_id": "note__youtube-b9NL40Zogkw__player_evaluation__stafford_pocket_awareness__2157",
+      "item_type": "note",
+      "status": "pending_review",
+      "relevance_tags": [
+        "fantasy_intel"
+      ],
+      "episode_id": "youtube-b9NL40Zogkw",
+      "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
+      "note_type": "player_evaluation",
+      "teams": [
+        "LAR"
+      ],
+      "players": [
+        "Matthew Stafford"
+      ],
+      "topic": " Stafford pocket awareness",
+      "summary": "Kendra highly praises Matthew Stafford's elite situational awareness and 'sixth sense' for pressure in the pocket, though his age and back issues remain a slight concern.",
+      "speaker": "Kendra Middleton",
+      "source_timestamp": 2157,
+      "quote": "His pocket awareness is unbelievable; he has a sixth sense for pressure.",
+      "confidence": "stated",
+      "review_flags": [],
+      "reviewer_notes": "",
+      "updated_at": null
+    },
+    {
+      "item_id": "note__youtube-b9NL40Zogkw__player_evaluation__burrow_durability_and_passion__2239",
+      "item_type": "note",
+      "status": "pending_review",
+      "relevance_tags": [
+        "fantasy_intel"
+      ],
+      "episode_id": "youtube-b9NL40Zogkw",
+      "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
+      "note_type": "player_evaluation",
+      "teams": [
+        "CIN"
+      ],
+      "players": [
+        "Joe Burrow"
+      ],
+      "topic": "Burrow durability and passion",
+      "summary": "Kendra questions if the physical toll of playing behind a weak Bengals offensive line is affecting Joe Burrow's love for the game, while Brandon still classifies him as elite when active.",
+      "speaker": "Kendra Middleton",
+      "source_timestamp": 2239,
+      "quote": "I do wonder if the physical toll of his career is starting to kill his passion.",
+      "confidence": "stated",
+      "review_flags": [],
+      "reviewer_notes": "",
+      "updated_at": null
+    },
+    {
+      "item_id": "note__youtube-b9NL40Zogkw__player_evaluation__purdy_metric_dominance__2730",
+      "item_type": "note",
+      "status": "pending_review",
+      "relevance_tags": [
+        "fantasy_intel"
+      ],
+      "episode_id": "youtube-b9NL40Zogkw",
+      "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
+      "note_type": "player_evaluation",
+      "teams": [
+        "SF"
+      ],
+      "players": [
+        "Brock Purdy"
+      ],
+      "topic": "Purdy metric dominance",
+      "summary": "Evan Abrams points out that Brock Purdy leads almost all key advanced efficiency metrics over the last two seasons, making his omission from the hosts' top ten lists questionable.",
+      "speaker": "Evan Abrams",
+      "source_timestamp": 2730,
+      "quote": "Purdy ranks first in basically every advanced metric over the last two seasons, including EPA per play and success rate.",
       "confidence": "stated",
       "review_flags": [],
       "reviewer_notes": "",
@@ -2214,37 +3138,7 @@
       "updated_at": null
     },
     {
-      "item_id": "note__youtube-zNZzcHDqhg4__coaching_or_scheme__bears_offensive_system__448",
-      "item_type": "note",
-      "status": "pending_review",
-      "relevance_tags": [
-        "matchup_analysis"
-      ],
-      "episode_id": "youtube-zNZzcHDqhg4",
-      "episode_title": "2026 NFL Receiving Rooms Tier List | Full Rankings",
-      "note_type": "coaching_or_scheme",
-      "teams": [
-        "CHI"
-      ],
-      "players": [
-        "Luther Burden",
-        "Rome Odunze",
-        "Colston Loveland",
-        "Cole Kmet",
-        "Ben Johnson"
-      ],
-      "topic": "Bears offensive system",
-      "summary": "Sharp expects the Bears' receiving group to be highly successful under play-caller Ben Johnson, grading them in the A-tier.",
-      "speaker": "Warren Sharp",
-      "source_timestamp": 448,
-      "quote": "They're going to be elevated with a great play-caller like Ben Johnson.",
-      "confidence": "stated",
-      "review_flags": [],
-      "reviewer_notes": "",
-      "updated_at": null
-    },
-    {
-      "item_id": "note__youtube-zNZzcHDqhg4__team_evaluation__bengals_s-tier_evaluation__487",
+      "item_id": "note__youtube-zNZzcHDqhg4__team_evaluation__cardinals_tier_evaluation__311",
       "item_type": "note",
       "status": "pending_review",
       "relevance_tags": [
@@ -2254,98 +3148,255 @@
       "episode_title": "2026 NFL Receiving Rooms Tier List | Full Rankings",
       "note_type": "team_evaluation",
       "teams": [
-        "CIN"
+        "ARI"
       ],
       "players": [
-        "Ja'Marr Chase",
-        "Tee Higgins"
+        "Marvin Harrison Jr.",
+        "Trey McBride"
       ],
-      "topic": "Bengals S-Tier evaluation",
-      "summary": "Sharp places Cincinnati in S-tier solely because of Chase and Higgins, despite an otherwise average supporting cast.",
-      "speaker": "Warren Sharp",
-      "source_timestamp": 487,
-      "quote": "The pairing of Ja'Marr Chase and Tee Higgins when healthy is absolutely elite.",
-      "confidence": "stated",
-      "review_flags": [],
-      "reviewer_notes": "",
-      "updated_at": null
-    },
-    {
-      "item_id": "note__youtube-zNZzcHDqhg4__player_evaluation__panthers_offensive_struggles__391",
-      "item_type": "note",
-      "status": "pending_review",
-      "relevance_tags": [
-        "fantasy_intel"
-      ],
-      "episode_id": "youtube-zNZzcHDqhg4",
-      "episode_title": "2026 NFL Receiving Rooms Tier List | Full Rankings",
-      "note_type": "player_evaluation",
-      "teams": [
-        "CAR"
-      ],
-      "players": [
-        "Tetairoa McMillan"
-      ],
-      "topic": "Panthers offensive struggles",
-      "summary": "Sharp ranks the Panthers in E-tier, highlighting that outside of Tetairoa McMillan, no Panther receiver surpassed 400 yards last season.",
-      "speaker": "Warren Sharp",
-      "source_timestamp": 391,
-      "quote": "No one else on the Panthers had more than 400 receiving yards last season.",
-      "confidence": "stated",
-      "review_flags": [],
-      "reviewer_notes": "",
-      "updated_at": null
-    },
-    {
-      "item_id": "note__youtube-zNZzcHDqhg4__player_evaluation__kyle_pitts_progress_query__211",
-      "item_type": "note",
-      "status": "pending_review",
-      "relevance_tags": [
-        "fantasy_intel"
-      ],
-      "episode_id": "youtube-zNZzcHDqhg4",
-      "episode_title": "2026 NFL Receiving Rooms Tier List | Full Rankings",
-      "note_type": "player_evaluation",
-      "teams": [
-        "ATL"
-      ],
-      "players": [
-        "Kyle Pitts",
-        "Drake London"
-      ],
-      "topic": "Kyle Pitts progress query",
-      "summary": "Sharp questions whether Kyle Pitts' late-season progress was a flash in the pan or true talent, placing the Falcons in C-tier.",
-      "speaker": "Warren Sharp",
-      "source_timestamp": 211,
-      "quote": "Was that more of a flash in the pan or getting back to what his true talent was coming out of school?",
-      "confidence": "speculative",
-      "review_flags": [],
-      "reviewer_notes": "",
-      "updated_at": null
-    },
-    {
-      "item_id": "note__youtube-zNZzcHDqhg4__player_evaluation__bills_receiving_group_limits__311",
-      "item_type": "note",
-      "status": "pending_review",
-      "relevance_tags": [
-        "fantasy_intel"
-      ],
-      "episode_id": "youtube-zNZzcHDqhg4",
-      "episode_title": "2026 NFL Receiving Rooms Tier List | Full Rankings",
-      "note_type": "player_evaluation",
-      "teams": [
-        "BUF"
-      ],
-      "players": [
-        "DJ Moore",
-        "Khalil Shakir",
-        "Josh Allen"
-      ],
-      "topic": "Bills receiving group limits",
-      "summary": "Sharp notes that while DJ Moore helps, the Bills are a league-average C-tier group whose true performance is masked by Josh Allen's greatness.",
+      "topic": "Cardinals Tier Evaluation",
+      "summary": "Warren Sharp slots the Cardinals receiving room in the low B-tier, noting that Trey McBride's excellence offsets wide receiver limitations, though the quarterback situation slightly limits the ceiling.",
       "speaker": "Warren Sharp",
       "source_timestamp": 311,
-      "quote": "The reality is this is just about a league-average receiving corps in my opinion.",
+      "quote": "Trey McBride makes up for a lot that the receivers are lacking.",
+      "confidence": "stated",
+      "review_flags": [],
+      "reviewer_notes": "",
+      "updated_at": null
+    },
+    {
+      "item_id": "note__youtube-zNZzcHDqhg4__player_evaluation__ravens_big-play_limitations__450",
+      "item_type": "note",
+      "status": "pending_review",
+      "relevance_tags": [
+        "fantasy_intel"
+      ],
+      "episode_id": "youtube-zNZzcHDqhg4",
+      "episode_title": "2026 NFL Receiving Rooms Tier List | Full Rankings",
+      "note_type": "player_evaluation",
+      "teams": [
+        "BAL"
+      ],
+      "players": [
+        "Zay Flowers",
+        "Mark Andrews"
+      ],
+      "topic": "Ravens Big-Play Limitations",
+      "summary": "Flowers has a low big-play rate with only 50% of his receptions yielding 10+ yards, while Mark Andrews' metric efficiency has slipped to 94th, placing the room in the D-tier.",
+      "speaker": "Warren Sharp",
+      "source_timestamp": 450,
+      "quote": "Only 50% of Zay Flowers' receptions produced 10 or more yards.",
+      "confidence": "stated",
+      "review_flags": [],
+      "reviewer_notes": "",
+      "updated_at": null
+    },
+    {
+      "item_id": "note__youtube-zNZzcHDqhg4__team_evaluation__bears_youth_movement__741",
+      "item_type": "note",
+      "status": "pending_review",
+      "relevance_tags": [
+        "matchup_analysis"
+      ],
+      "episode_id": "youtube-zNZzcHDqhg4",
+      "episode_title": "2026 NFL Receiving Rooms Tier List | Full Rankings",
+      "note_type": "team_evaluation",
+      "teams": [
+        "CHI"
+      ],
+      "players": [
+        "Luther Burden"
+      ],
+      "topic": "Bears Youth Movement",
+      "summary": "Despite losing DJ Moore, the Bears receive an A-tier rating due to Luther Burden's development (652 yards as a rookie) alongside Rome Odunze and Cole Kmet.",
+      "speaker": "Warren Sharp",
+      "source_timestamp": 741,
+      "quote": "Luther Burden... had 652 yards as a rookie.",
+      "confidence": "stated",
+      "review_flags": [],
+      "reviewer_notes": "",
+      "updated_at": null
+    },
+    {
+      "item_id": "note__youtube-zNZzcHDqhg4__team_evaluation__broncos_most_improved_unit__1201",
+      "item_type": "note",
+      "status": "pending_review",
+      "relevance_tags": [
+        "matchup_analysis"
+      ],
+      "episode_id": "youtube-zNZzcHDqhg4",
+      "episode_title": "2026 NFL Receiving Rooms Tier List | Full Rankings",
+      "note_type": "team_evaluation",
+      "teams": [
+        "DEN"
+      ],
+      "players": [
+        "Courtland Sutton",
+        "Jaylen Waddle"
+      ],
+      "topic": "Broncos Most Improved Unit",
+      "summary": "Denver's receiving unit is the most improved year-over-year in Sharp's rankings, climbing from 24th to 10th overall after adding Jaylen Waddle to Sutton and Franklin.",
+      "speaker": "Warren Sharp",
+      "source_timestamp": 1201,
+      "quote": "They moved up the most year-over-year... from 24th to 10th.",
+      "confidence": "stated",
+      "review_flags": [],
+      "reviewer_notes": "",
+      "updated_at": null
+    },
+    {
+      "item_id": "note__youtube-zNZzcHDqhg4__player_evaluation__colts_roster_concerns__1640",
+      "item_type": "note",
+      "status": "pending_review",
+      "relevance_tags": [
+        "fantasy_intel"
+      ],
+      "episode_id": "youtube-zNZzcHDqhg4",
+      "episode_title": "2026 NFL Receiving Rooms Tier List | Full Rankings",
+      "note_type": "player_evaluation",
+      "teams": [
+        "IND"
+      ],
+      "players": [
+        "Josh Downs",
+        "Alec Pierce"
+      ],
+      "topic": "Colts Roster Concerns",
+      "summary": "With Michael Pittman Jr. gone and Alec Pierce's health status highly uncertain, Josh Downs will be forced into a high-volume role, making the room highly unstable.",
+      "speaker": "Warren Sharp",
+      "source_timestamp": 1640,
+      "quote": "His receiving yards prop has been bet up... if he can stay healthy.",
+      "confidence": "implied",
+      "review_flags": [],
+      "reviewer_notes": "",
+      "updated_at": null
+    },
+    {
+      "item_id": "note__youtube-zNZzcHDqhg4__team_evaluation__dolphins_depth_issues__2212",
+      "item_type": "note",
+      "status": "pending_review",
+      "relevance_tags": [
+        "matchup_analysis"
+      ],
+      "episode_id": "youtube-zNZzcHDqhg4",
+      "episode_title": "2026 NFL Receiving Rooms Tier List | Full Rankings",
+      "note_type": "team_evaluation",
+      "teams": [
+        "MIA"
+      ],
+      "players": [
+        "Greg Dulcich"
+      ],
+      "topic": "Dolphins Depth Issues",
+      "summary": "The Dolphins receive an F-tier rating and are ranked 32nd in the league due to an extreme lack of proven veteran depth behind their young players.",
+      "speaker": "Warren Sharp",
+      "source_timestamp": 2212,
+      "quote": "They fell to 32 for us this year.",
+      "confidence": "stated",
+      "review_flags": [],
+      "reviewer_notes": "",
+      "updated_at": null
+    },
+    {
+      "item_id": "note__youtube-zNZzcHDqhg4__team_evaluation__vikings_top-tier_ranking__2501",
+      "item_type": "note",
+      "status": "pending_review",
+      "relevance_tags": [
+        "matchup_analysis"
+      ],
+      "episode_id": "youtube-zNZzcHDqhg4",
+      "episode_title": "2026 NFL Receiving Rooms Tier List | Full Rankings",
+      "note_type": "team_evaluation",
+      "teams": [
+        "MIN"
+      ],
+      "players": [
+        "Justin Jefferson"
+      ],
+      "topic": "Vikings Top-Tier Ranking",
+      "summary": "Minnesota secures an S-tier spot primarily driven by the unmatched individual gravity and talent of Justin Jefferson.",
+      "speaker": "Warren Sharp",
+      "source_timestamp": 2501,
+      "quote": "It is largely on the shoulders of Justin Jefferson.",
+      "confidence": "stated",
+      "review_flags": [],
+      "reviewer_notes": "",
+      "updated_at": null
+    },
+    {
+      "item_id": "note__youtube-zNZzcHDqhg4__coaching_or_scheme__patriots_offensive_shift__2723",
+      "item_type": "note",
+      "status": "pending_review",
+      "relevance_tags": [
+        "matchup_analysis"
+      ],
+      "episode_id": "youtube-zNZzcHDqhg4",
+      "episode_title": "2026 NFL Receiving Rooms Tier List | Full Rankings",
+      "note_type": "coaching_or_scheme",
+      "teams": [
+        "NE"
+      ],
+      "players": [
+        "AJ Brown"
+      ],
+      "topic": "Patriots Offensive Shift",
+      "summary": "Under Alex Van Pelt, the Patriots are expected to deploy a more pass-heavy scheme, which should maximize the newly acquired AJ Brown.",
+      "speaker": "Warren Sharp",
+      "source_timestamp": 2723,
+      "quote": "They're going to be throwing the ball more in New England.",
+      "confidence": "implied",
+      "review_flags": [],
+      "reviewer_notes": "",
+      "updated_at": null
+    },
+    {
+      "item_id": "note__youtube-zNZzcHDqhg4__injury_or_health__nabers_health_risk__2841",
+      "item_type": "note",
+      "status": "pending_review",
+      "relevance_tags": [
+        "injury_intel"
+      ],
+      "episode_id": "youtube-zNZzcHDqhg4",
+      "episode_title": "2026 NFL Receiving Rooms Tier List | Full Rankings",
+      "note_type": "injury_or_health",
+      "teams": [
+        "NYG"
+      ],
+      "players": [
+        "Malik Nabers"
+      ],
+      "topic": "Nabers Health Risk",
+      "summary": "Nabers' status remains a major wild card for the Giants' offense after he was limited to just four games last season due to injury.",
+      "speaker": "Warren Sharp",
+      "source_timestamp": 2841,
+      "quote": "He played only four games last year because of the injury.",
+      "confidence": "stated",
+      "review_flags": [],
+      "reviewer_notes": "",
+      "updated_at": null
+    },
+    {
+      "item_id": "note__youtube-zNZzcHDqhg4__team_evaluation__eagles_post-brown_outlook__3027",
+      "item_type": "note",
+      "status": "pending_review",
+      "relevance_tags": [
+        "matchup_analysis"
+      ],
+      "episode_id": "youtube-zNZzcHDqhg4",
+      "episode_title": "2026 NFL Receiving Rooms Tier List | Full Rankings",
+      "note_type": "team_evaluation",
+      "teams": [
+        "PHI"
+      ],
+      "players": [
+        "AJ Brown",
+        "DeVonta Smith"
+      ],
+      "topic": "Eagles Post-Brown Outlook",
+      "summary": "The Eagles are graded as a fringe A-tier unit; while they are still strong with DeVonta Smith and Dallas Goedert, losing AJ Brown caps their previous S-tier upside.",
+      "speaker": "Warren Sharp",
+      "source_timestamp": 3027,
+      "quote": "This is an A-tier even losing AJ Brown.",
       "confidence": "stated",
       "review_flags": [],
       "reviewer_notes": "",

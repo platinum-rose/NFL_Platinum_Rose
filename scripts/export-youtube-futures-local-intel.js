@@ -79,6 +79,8 @@ const exportedItems = promotedPickStatuses.map(status => {
     rationale: pick.rationale || '',
     supporting_quote: pick.supporting_quote || '',
     review_flags: pick.review_flags || [],
+    human_verification: pick.human_verification || null,
+    disputed: pick.disputed || null,
     reviewer_notes: status.reviewer_notes || '',
     source: {
       episode_id: pick.episode_id,

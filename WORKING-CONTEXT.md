@@ -6,6 +6,15 @@
 
 ## Active Milestone: YouTube / Gemini Local Intel & Shadow Harness
 
+- **S318 Completed (2026-07-29)**: Season readiness smoke + YouTube futures review repair.
+  - Added `npm.cmd run smoke:season` (`scripts/season-readiness-smoke.js`) and generated `docs/SEASON_READINESS_SMOKE_TEST_LATEST.md` plus `.nfl/readiness/` timestamped reports.
+  - Fixed the YouTube/Gemini persistence gap: per-episode `human_verification` and resolved dispute audit trails now drive the local review ledger/export defaults.
+  - Recovered 18 legacy human-reviewed promoted futures rows from commit `95cca82` after reprocessing changed timestamps/item IDs.
+  - Andy decided the final 7 unresolved rows: 5 awards props rejected, `NYG Jaxson Dart season_rushing_tds OVER 5.5` and `SF Brock Purdy MVP +2000` promoted.
+  - Final YouTube futures state: 45 promoted futures items, 6 rejected futures items, 0 futures items left in `needs_review`/`pending_review`; hallucinated `TEN win_total OVER` remains rejected.
+  - Verified: `test:youtube-futures-review`, `test:youtube-local-intel-export`, `test:youtube-agent-intel-summary`, and `smoke:season -- --require-services` all passed. Latest smoke: READY WITH WATCH ITEMS, PASS 11 / WARN 6 / FAIL 0 / INFO 1.
+  - Latest handoff: `handoffs/2026-07-29-0405-season-readiness-youtube-futures-handoff.md`.
+
 - **S300 Completed**: YouTube OAuth, discovery, 11 candidate episodes processed, 39 human-promoted items exported to `data/shadow-harness/review/youtube-futures-agent-intel-summary.json`, 1 bad DET item rejected (`det_bad_leaks=0`).
 - **S301 Completed**:
   - Reconciled 13-team gold-standard note for Win Totals Part 1 (`data/vault-seed/manual/2026-03-03-sharp-or-square-early-2026-nfl-season-win-totals-part-1.md`).
@@ -63,7 +72,18 @@
 
 ---
 
-## Next Immediate Action
+## Next Immediate Action (Current - 2026-07-29)
+
+**Season readiness / YouTube futures repair is complete but uncommitted:** review the narrow dirty diff, then commit the smoke-test command and YouTube futures repair/regenerated artifacts together. Latest detailed handoff: `handoffs/2026-07-29-0405-season-readiness-youtube-futures-handoff.md`.
+
+Recommended next after commit:
+- Create one real official-picks proposal draft and exercise approve/reject through the inbox UI.
+- Confirm whether migration 044 has been applied live before relying on production official-picks flows.
+- Prioritize the two clearest pre-kickoff betting-surface gaps: live props data source and DraftKings/FanDuel bet-slip parsers.
+- Refresh/review training-camp intel closer to kickoff; latest RSS scout receipt covers 32 teams, 10 with intel, and one feed issue (`Football Outsiders: fetch failed`).
+- Keep older open context in view: Yahoo Fantasy API approval still blocks F-26/F-26b, `NFL-ATLAS-3` weekly-cron wiring still needs a decision, and `NFL-ATLAS-2` is still blocked on digest redesign scoping answers.
+
+## Previous Immediate Action (S317 Historical)
 
 **Committed + pushed (2026-07-27, native):** OPS-2 (`f643614`), GAMEID-FORMAT option b (`e3e417b`), and S317's doc refresh — TASK_BOARD.md, WORKING-CONTEXT.md, NFL_AUDIT_BACKLOG.md, plus a new `docs/NFL_UNFINISHED_WORK_SCAN_2026-07-27.md` cross-check doc (`911a1df`). HEAD is now `911a1df..21caa1d` ahead, pushed clean to `origin/main`. Hit a stale `.git/index.lock` on the sandbox mount first (same class of issue as S286/S314 — the sandbox can create the lock but can't remove it); resolved with a native `Remove-Item -Force .git\index.lock` before committing.
 

@@ -54,7 +54,7 @@ for (const needle of expected.must_include) {
   assert(pick, `missing expected pick shape ${JSON.stringify(needle)}`);
 }
 
-assert(status.items.length === report.picks.length, 'review status item count must match report pick count');
+assert(status.items.length === report.picks.length + report.notes.length, 'review status item count must match report pick and note count');
 assert(status.allowed_statuses.includes('promote_to_local_intel'), 'status ledger must support local intel promotion');
 assert(status.allowed_statuses.includes('reject'), 'status ledger must support rejection');
 
@@ -62,15 +62,31 @@ const lionsDivision = report.picks.find(item => (
   item.episode_id === 'youtube-4OxpAX6UJlM'
   && item.team === 'DET'
   && item.market === 'division_winner'
-  && item.price === 1500
+  && item.price === 160
 ));
-assert(lionsDivision, 'expected suspicious Lions division winner extraction to remain visible');
+assert(lionsDivision, 'expected verified Lions division winner extraction to remain visible');
 assert(lionsDivision.review_flags.includes('price_not_in_quote'), 'Lions division price should be flagged as unsupported by quote');
-assert(lionsDivision.review_flags.includes('suspicious_price_shape'), 'Lions division price should be flagged as suspicious shape');
 const lionsStatus = status.items.find(item => item.item_id === lionsDivision.item_id);
 assert(
-  lionsStatus?.status === 'needs_review' || lionsStatus?.status === 'reject',
-  'Lions suspicious price should remain blocked from promotion'
+  lionsStatus?.status === 'promote_to_local_intel',
+  'human-verified Lions futures pick should promote to local intel despite quote-quality flags'
+);
+
+const fabricatedTitansWinTotal = report.picks.find(item => (
+  item.episode_id === 'youtube-b9NL40Zogkw'
+  && item.team === 'TEN'
+  && item.market === 'win_total'
+  && item.side === 'OVER'
+));
+assert(fabricatedTitansWinTotal, 'expected fabricated TEN win-total extraction to remain visible for audit');
+const fabricatedStatus = status.items.find(item => item.item_id === fabricatedTitansWinTotal.item_id);
+assert(
+  fabricatedStatus?.status === 'reject',
+  'fabricated TEN win-total extraction should be rejected'
+);
+assert(
+  fabricatedStatus?.disputed?.resolved === true,
+  'fabricated TEN win-total rejection should preserve the disputed audit trail'
 );
 
 console.log('YouTube futures intel review fixture passed.');

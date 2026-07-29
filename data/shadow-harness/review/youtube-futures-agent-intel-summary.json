@@ -1,23 +1,58 @@
 {
-  "generated_at": "2026-07-28T19:15:38.283Z",
+  "generated_at": "2026-07-29T04:00:31.515Z",
   "status": "local_agent_intel_summary_only",
   "guardrail": "Reviewed local podcast intel for agent context only. This is not an official pick ledger, production recommendation, Supabase write, or parlay mutation.",
-  "source_queue": "data/shadow-harness/review/youtube-futures-local-intel-queue.json",
-  "exported_items": 3,
+  "source_queue": "data\\shadow-harness\\review\\youtube-futures-local-intel-queue.json",
+  "exported_items": 45,
   "exported_notes": 0,
   "counts": {
     "by_lane": {
-      "futures_pick": 3
+      "futures_pick": 45
     },
     "by_team": {
-      "LAC": 1,
-      "NE": 1,
-      "TEN": 1
+      "ATL": 3,
+      "BAL": 2,
+      "CAR": 1,
+      "CHI": 1,
+      "CIN": 4,
+      "DAL": 3,
+      "DEN": 1,
+      "DET": 2,
+      "GB": 1,
+      "IND": 2,
+      "JAX": 4,
+      "LAC": 4,
+      "LAR": 1,
+      "LV": 3,
+      "NE": 4,
+      "NO": 2,
+      "NYG": 1,
+      "NYJ": 1,
+      "PHI": 1,
+      "PIT": 1,
+      "SF": 1,
+      "TEN": 2
     },
     "by_market": {
+      "make_playoffs": 5,
+      "no_1_overall_pick": 1,
+      "season_rushing_tds": 3,
+      "oroy": 2,
+      "season_receiving_yards": 1,
+      "win_total": 3,
+      "conference_no_1_seed": 2,
+      "division_winner": 8,
+      "mvp": 8,
+      "opoy": 3,
+      "conference_winner": 1,
+      "droy": 1,
+      "comeback_player_of_the_year": 1,
       "super_bowl_winner": 1,
-      "mvp": 1,
-      "division_winner": 1
+      "dpoy": 1,
+      "season_passing_tds": 1,
+      "season_passing_yards": 1,
+      "interceptions_leader": 1,
+      "fewest_wins": 1
     },
     "by_relevance_tag": {}
   },
@@ -26,12 +61,909 @@
   },
   "by_team": [
     {
-      "team": "LAC",
+      "team": "ATL",
+      "count": 3,
+      "lanes": {
+        "futures_pick": 3
+      },
+      "markets": [
+        {
+          "market": "make_playoffs",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-aOUy4-ZRzbE__ATL__make_playoffs__NO____-213__1380",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "ATL",
+              "market": "make_playoffs",
+              "side": "NO",
+              "line": null,
+              "price": -213,
+              "week": null,
+              "speaker": "Seth Woolcock",
+              "rationale": "The team has two quarterbacks (Tua and Michael Penix Jr.), indicating likely instability. The defense has lost James Pierce Jr., and they face a brutal out-of-division schedule.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__ATL__make_playoffs__NO____-213__1350); item_id timestamp drifted after reprocessing.",
+              "source": {
+                "episode_id": "youtube-aOUy4-ZRzbE",
+                "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=1380s",
+                "source_timestamp": 1380
+              }
+            }
+          ]
+        },
+        {
+          "market": "no_1_overall_pick",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-aOUy4-ZRzbE__ATL__no_1_overall_pick__YES____1351__2044",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "ATL",
+              "market": "no_1_overall_pick",
+              "side": "YES",
+              "line": null,
+              "price": 1351,
+              "week": null,
+              "speaker": "Seth Woolcock",
+              "rationale": "Part of a full fade of the Falcons, expecting a highly unstable quarterback room and defensive regression to bottom out their season.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__ATL__no_1_overall_pick__YES____1351__2524); item_id timestamp drifted after reprocessing.",
+              "source": {
+                "episode_id": "youtube-aOUy4-ZRzbE",
+                "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=2044s",
+                "source_timestamp": 2044
+              }
+            }
+          ]
+        },
+        {
+          "market": "season_rushing_tds",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-qGJ2f1fEXHc__ATL__season_rushing_tds__UNKNOWN____1800__2912",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "ATL",
+              "market": "season_rushing_tds",
+              "side": "UNKNOWN",
+              "line": null,
+              "price": 1800,
+              "week": null,
+              "speaker": "Seth Woolcock",
+              "rationale": "Zac Robinson's offense will feed Bijan Robinson. Goal line issues for Tua means more rushing opportunities.",
+              "supporting_quote": "",
+              "review_flags": [
+                "unclear_side",
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-qGJ2f1fEXHc",
+                "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=2912s",
+                "source_timestamp": 2912
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "BAL",
+      "count": 2,
+      "lanes": {
+        "futures_pick": 2
+      },
+      "markets": [
+        {
+          "market": "oroy",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-qGJ2f1fEXHc__BAL__oroy__YES____9245__1637",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "BAL",
+              "market": "oroy",
+              "side": "YES",
+              "line": null,
+              "price": 9245,
+              "week": null,
+              "speaker": "Seth Woolcock",
+              "rationale": "Most pro-ready WR in the class, playing with Lamar Jackson, will get early field time.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-qGJ2f1fEXHc",
+                "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=1637s",
+                "source_timestamp": 1637
+              }
+            }
+          ]
+        },
+        {
+          "market": "season_receiving_yards",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-qGJ2f1fEXHc__BAL__season_receiving_yards__OVER__1500__1000__2202",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "BAL",
+              "market": "season_receiving_yards",
+              "side": "OVER",
+              "line": 1500,
+              "price": 1000,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Receiving yards have gone up every year, no competition for targets as Mark Andrews is cooked.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-qGJ2f1fEXHc",
+                "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=2202s",
+                "source_timestamp": 2202
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "CAR",
       "count": 1,
       "lanes": {
         "futures_pick": 1
       },
       "markets": [
+        {
+          "market": "win_total",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-4OxpAX6UJlM__CAR__win_total__UNDER__6.5__140__328",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "CAR",
+              "market": "win_total",
+              "side": "UNDER",
+              "line": 6.5,
+              "price": 140,
+              "week": null,
+              "speaker": "Derek Brown",
+              "rationale": "Panthers have the third hardest schedule based on projected win totals. 6 of their 8 wins last year were by 3 or fewer points.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-4OxpAX6UJlM",
+                "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=328s",
+                "source_timestamp": 328
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "CHI",
+      "count": 1,
+      "lanes": {
+        "futures_pick": 1
+      },
+      "markets": [
+        {
+          "market": "make_playoffs",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-aOUy4-ZRzbE__CHI__make_playoffs__NO____-125__1491",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "CHI",
+              "market": "make_playoffs",
+              "side": "NO",
+              "line": null,
+              "price": -125,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Fading the most hyped team in the NFL. Despite Caleb Williams' potential, their defense remains a weakness, and they face the 3rd-biggest increase in schedule difficulty.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__CHI__make_playoffs__NO____-125__1611); item_id timestamp drifted after reprocessing.",
+              "source": {
+                "episode_id": "youtube-aOUy4-ZRzbE",
+                "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=1491s",
+                "source_timestamp": 1491
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "CIN",
+      "count": 4,
+      "lanes": {
+        "futures_pick": 4
+      },
+      "markets": [
+        {
+          "market": "conference_no_1_seed",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-aOUy4-ZRzbE__CIN__conference_no_1_seed__YES____800__1936",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "CIN",
+              "market": "conference_no_1_seed",
+              "side": "YES",
+              "line": null,
+              "price": 800,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Correlates with their division winner value and highly favorable schedule strength.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__CIN__conference_no_1_seed__YES____800__2376); item_id timestamp drifted after reprocessing.",
+              "source": {
+                "episode_id": "youtube-aOUy4-ZRzbE",
+                "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=1936s",
+                "source_timestamp": 1936
+              }
+            }
+          ]
+        },
+        {
+          "market": "division_winner",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-aOUy4-ZRzbE__CIN__division_winner__YES____190__727",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "CIN",
+              "market": "division_winner",
+              "side": "YES",
+              "line": null,
+              "price": 190,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Bengals have the 3rd-easiest schedule in the NFL, a healthy Joe Burrow, and a defense poised to take a second-year jump under Al Golden.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__CIN__division_winner__YES____190__699); item_id timestamp drifted after reprocessing.",
+              "source": {
+                "episode_id": "youtube-aOUy4-ZRzbE",
+                "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=727s",
+                "source_timestamp": 727
+              }
+            }
+          ]
+        },
+        {
+          "market": "mvp",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-veVjJ_EUYdk__CIN__mvp__YES____1000__174",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "CIN",
+              "market": "mvp",
+              "side": "YES",
+              "line": null,
+              "price": 1000,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Return to health and Cincinnati's favorable schedule make Burrow a top contender if the team reaches double-digit wins.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-veVjJ_EUYdk__CIN__mvp__YES____1000__174); item_id timestamp drifted after reprocessing.",
+              "source": {
+                "episode_id": "youtube-veVjJ_EUYdk",
+                "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=veVjJ_EUYdk&t=174s",
+                "source_timestamp": 174
+              }
+            }
+          ]
+        },
+        {
+          "market": "opoy",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-veVjJ_EUYdk__CIN__opoy__YES____1200__896",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "CIN",
+              "market": "opoy",
+              "side": "YES",
+              "line": null,
+              "price": 1200,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Chase is a top-tier receiver in his prime with Joe Burrow and is highly likely to lead the league in receiving yards.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-veVjJ_EUYdk__CIN__opoy__YES____1200__731); item_id timestamp drifted after reprocessing.",
+              "source": {
+                "episode_id": "youtube-veVjJ_EUYdk",
+                "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=veVjJ_EUYdk&t=896s",
+                "source_timestamp": 896
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "DAL",
+      "count": 3,
+      "lanes": {
+        "futures_pick": 3
+      },
+      "markets": [
+        {
+          "market": "conference_winner",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-qGJ2f1fEXHc__DAL__conference_winner__YES____1300__445",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "DAL",
+              "market": "conference_winner",
+              "side": "YES",
+              "line": null,
+              "price": 1300,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Dak Prescott has elite options in CeeDee Lamb and George Pickens. Defense got Quinn Williams and will be top 10.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-qGJ2f1fEXHc",
+                "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=445s",
+                "source_timestamp": 445
+              }
+            }
+          ]
+        },
+        {
+          "market": "droy",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-qGJ2f1fEXHc__DAL__droy__YES____2500__1540",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "DAL",
+              "market": "droy",
+              "side": "YES",
+              "line": null,
+              "price": 2500,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Pass rusher expected to rack up sack numbers in Dallas's high profile defense.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-qGJ2f1fEXHc",
+                "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=1540s",
+                "source_timestamp": 1540
+              }
+            }
+          ]
+        },
+        {
+          "market": "make_playoffs",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-aOUy4-ZRzbE__DAL__make_playoffs__YES____100__1062",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "DAL",
+              "market": "make_playoffs",
+              "side": "YES",
+              "line": null,
+              "price": 100,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Clay's projections have them as the 6th seed. If Dak Prescott is healthy, the offense will produce, and the defense has been heavily upgraded.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__DAL__make_playoffs__YES____100__821); item_id timestamp drifted after reprocessing.",
+              "source": {
+                "episode_id": "youtube-aOUy4-ZRzbE",
+                "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=1062s",
+                "source_timestamp": 1062
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "DEN",
+      "count": 1,
+      "lanes": {
+        "futures_pick": 1
+      },
+      "markets": [
+        {
+          "market": "mvp",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-4OxpAX6UJlM__DEN__mvp__YES____4000__1217",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "DEN",
+              "market": "mvp",
+              "side": "YES",
+              "line": null,
+              "price": 4000,
+              "week": null,
+              "speaker": "Derek Brown",
+              "rationale": "Bo Nix is in a fast-paced offense under Sean Payton and now has a vertical threat in Jaylen Waddle.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-4OxpAX6UJlM",
+                "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=1217s",
+                "source_timestamp": 1217
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "DET",
+      "count": 2,
+      "lanes": {
+        "futures_pick": 2
+      },
+      "markets": [
+        {
+          "market": "conference_no_1_seed",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-aOUy4-ZRzbE__DET__conference_no_1_seed__YES____650__1834",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "DET",
+              "market": "conference_no_1_seed",
+              "side": "YES",
+              "line": null,
+              "price": 650,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "The Lions have the easiest schedule in the NFL and only play outdoors twice between weeks 5 and 16.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__DET__conference_no_1_seed__YES____650__2073); item_id timestamp drifted after reprocessing.",
+              "source": {
+                "episode_id": "youtube-aOUy4-ZRzbE",
+                "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=1834s",
+                "source_timestamp": 1834
+              }
+            }
+          ]
+        },
+        {
+          "market": "division_winner",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-4OxpAX6UJlM__DET__division_winner__YES____160__1619",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "DET",
+              "market": "division_winner",
+              "side": "YES",
+              "line": null,
+              "price": 160,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Detroit finished last in the division despite scoring the most points due to terrible injury luck, which should regress positively.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-4OxpAX6UJlM",
+                "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=1619s",
+                "source_timestamp": 1619
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "GB",
+      "count": 1,
+      "lanes": {
+        "futures_pick": 1
+      },
+      "markets": [
+        {
+          "market": "make_playoffs",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-aOUy4-ZRzbE__GB__make_playoffs__YES____-116__1675",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "GB",
+              "market": "make_playoffs",
+              "side": "YES",
+              "line": null,
+              "price": -116,
+              "week": null,
+              "speaker": "Seth Woolcock",
+              "rationale": "Jordan Love has consistently made the playoffs. Key offensive weapons are fully healthy, and defensive additions like Javon Hargrave will shore up their run defense.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__GB__make_playoffs__YES____-116__1735); item_id timestamp drifted after reprocessing.",
+              "source": {
+                "episode_id": "youtube-aOUy4-ZRzbE",
+                "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=1675s",
+                "source_timestamp": 1675
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "IND",
+      "count": 2,
+      "lanes": {
+        "futures_pick": 2
+      },
+      "markets": [
+        {
+          "market": "make_playoffs",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-aOUy4-ZRzbE__IND__make_playoffs__NO____-185__1108",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "IND",
+              "market": "make_playoffs",
+              "side": "NO",
+              "line": null,
+              "price": -185,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "The Colts have never made the playoffs under Shane Steichen, and Daniel Jones is coming off a torn Achilles.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__IND__make_playoffs__NO____-185__1107); item_id timestamp drifted after reprocessing.",
+              "source": {
+                "episode_id": "youtube-aOUy4-ZRzbE",
+                "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=1108s",
+                "source_timestamp": 1108
+              }
+            }
+          ]
+        },
+        {
+          "market": "win_total",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-4OxpAX6UJlM__IND__win_total__OVER__7.5__-160__1801",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "IND",
+              "market": "win_total",
+              "side": "OVER",
+              "line": 7.5,
+              "price": -160,
+              "week": null,
+              "speaker": "Chris Welsh",
+              "rationale": "Colts cashed this win total last year despite an unprecedented injury streak, showing high base stability.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-4OxpAX6UJlM",
+                "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=1801s",
+                "source_timestamp": 1801
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "JAX",
+      "count": 4,
+      "lanes": {
+        "futures_pick": 4
+      },
+      "markets": [
+        {
+          "market": "comeback_player_of_the_year",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-qGJ2f1fEXHc__JAX__comeback_player_of_the_year__UNKNOWN____3500__1203",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "JAX",
+              "market": "comeback_player_of_the_year",
+              "side": "UNKNOWN",
+              "line": null,
+              "price": 3500,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Voters will reward him for his unique two-way contribution playing both WR and CB coming off an injury.",
+              "supporting_quote": "",
+              "review_flags": [
+                "unclear_side",
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-qGJ2f1fEXHc",
+                "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=1203s",
+                "source_timestamp": 1203
+              }
+            }
+          ]
+        },
+        {
+          "market": "mvp",
+          "count": 3,
+          "items": [
+            {
+              "item_id": "youtube-qGJ2f1fEXHc__JAX__mvp__YES____2400__973",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "JAX",
+              "market": "mvp",
+              "side": "YES",
+              "line": null,
+              "price": 2400,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Historically, first-time MVPs peak around age 27. Lawrence has deep weapons in Brian Thomas Jr., Jakobi Meyers, and Parker Washington.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote",
+                "duplicate_candidate"
+              ],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-qGJ2f1fEXHc",
+                "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=973s",
+                "source_timestamp": 973
+              }
+            },
+            {
+              "item_id": "youtube-4OxpAX6UJlM__JAX__mvp__YES____1750__1027",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "JAX",
+              "market": "mvp",
+              "side": "YES",
+              "line": null,
+              "price": 1750,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Trevor Lawrence hits the prime first-time MVP age of 27 and has a fully loaded group of weapons.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-4OxpAX6UJlM",
+                "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=1027s",
+                "source_timestamp": 1027
+              }
+            },
+            {
+              "item_id": "youtube-veVjJ_EUYdk__JAX__mvp__YES____2400__639",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "JAX",
+              "market": "mvp",
+              "side": "YES",
+              "line": null,
+              "price": 2400,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Lawrence is in his second year in Coen's system and generated elite red zone/rushing metrics late last year.",
+              "supporting_quote": "For me, it's Trevor Lawrence at 24:1 to win the MVP award.",
+              "review_flags": [
+                "price_not_in_quote",
+                "duplicate_candidate"
+              ],
+              "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-veVjJ_EUYdk__JAX__mvp__YES____2400__518); item_id timestamp drifted after reprocessing.",
+              "source": {
+                "episode_id": "youtube-veVjJ_EUYdk",
+                "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=veVjJ_EUYdk&t=639s",
+                "source_timestamp": 639
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "LAC",
+      "count": 4,
+      "lanes": {
+        "futures_pick": 4
+      },
+      "markets": [
+        {
+          "market": "division_winner",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-aOUy4-ZRzbE__LAC__division_winner__YES____180__1024",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "LAC",
+              "market": "division_winner",
+              "side": "YES",
+              "line": null,
+              "price": 180,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Strong positive injury regression candidate after being the second most injured team in the AFC. Easy opening schedule (Cardinals, Raiders).",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__LAC__division_winner__YES____180__699); item_id timestamp drifted after reprocessing.",
+              "source": {
+                "episode_id": "youtube-aOUy4-ZRzbE",
+                "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=1024s",
+                "source_timestamp": 1024
+              }
+            }
+          ]
+        },
+        {
+          "market": "mvp",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-veVjJ_EUYdk__LAC__mvp__YES____1100__184",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "LAC",
+              "market": "mvp",
+              "side": "YES",
+              "line": null,
+              "price": 1100,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "High value at 11:1 under a new offensive system with improved offensive line health and depth.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-veVjJ_EUYdk__LAC__mvp__YES____1100__418); item_id timestamp drifted after reprocessing.",
+              "source": {
+                "episode_id": "youtube-veVjJ_EUYdk",
+                "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=veVjJ_EUYdk&t=184s",
+                "source_timestamp": 184
+              }
+            }
+          ]
+        },
         {
           "market": "super_bowl_winner",
           "count": 1,
@@ -62,11 +994,538 @@
               }
             }
           ]
+        },
+        {
+          "market": "win_total",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-4OxpAX6UJlM__LAC__win_total__OVER__9.5__-150__464",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "LAC",
+              "market": "win_total",
+              "side": "OVER",
+              "line": 9.5,
+              "price": -150,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Chargers won 11 games back-to-back under Jim Harbaugh, face a very easy schedule to open the season.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-4OxpAX6UJlM",
+                "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=464s",
+                "source_timestamp": 464
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "LAR",
+      "count": 1,
+      "lanes": {
+        "futures_pick": 1
+      },
+      "markets": [
+        {
+          "market": "dpoy",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-veVjJ_EUYdk__LAR__dpoy__YES____450__1211",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "LAR",
+              "market": "dpoy",
+              "side": "YES",
+              "line": null,
+              "price": 450,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Upgraded situation with the Rams will put Garrett in positive game scripts to rack up high sack totals.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-veVjJ_EUYdk__LAR__dpoy__YES____450__612); item_id timestamp drifted after reprocessing.",
+              "source": {
+                "episode_id": "youtube-veVjJ_EUYdk",
+                "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=veVjJ_EUYdk&t=1211s",
+                "source_timestamp": 1211
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "LV",
+      "count": 3,
+      "lanes": {
+        "futures_pick": 3
+      },
+      "markets": [
+        {
+          "market": "opoy",
+          "count": 2,
+          "items": [
+            {
+              "item_id": "youtube-qGJ2f1fEXHc__LV__opoy__YES____8000__1436",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "LV",
+              "market": "opoy",
+              "side": "YES",
+              "line": null,
+              "price": 8000,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "He can break tight end records, Kubiak's system will highlight his skillset with a high target share.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote",
+                "duplicate_candidate"
+              ],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-qGJ2f1fEXHc",
+                "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=1436s",
+                "source_timestamp": 1436
+              }
+            },
+            {
+              "item_id": "youtube-veVjJ_EUYdk__LV__opoy__YES____8000__1081",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "LV",
+              "market": "opoy",
+              "side": "YES",
+              "line": null,
+              "price": 8000,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Extremely high value on a versatile pass catcher whose target share should skyrocket in Kubiak's system.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote",
+                "duplicate_candidate"
+              ],
+              "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-veVjJ_EUYdk__LV__opoy__YES____8000__731); item_id timestamp drifted after reprocessing.",
+              "source": {
+                "episode_id": "youtube-veVjJ_EUYdk",
+                "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=veVjJ_EUYdk&t=1081s",
+                "source_timestamp": 1081
+              }
+            }
+          ]
+        },
+        {
+          "market": "season_passing_tds",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-qGJ2f1fEXHc__LV__season_passing_tds__OVER__25__1400__2469",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "LV",
+              "market": "season_passing_tds",
+              "side": "OVER",
+              "line": 25,
+              "price": 1400,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Mendoza will throw plenty of TDs in Raiders red zone system, taking over from Kirk Cousins.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-qGJ2f1fEXHc",
+                "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=2469s",
+                "source_timestamp": 2469
+              }
+            }
+          ]
         }
       ]
     },
     {
       "team": "NE",
+      "count": 4,
+      "lanes": {
+        "futures_pick": 4
+      },
+      "markets": [
+        {
+          "market": "division_winner",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-4OxpAX6UJlM__NE__division_winner__YES______956",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "NE",
+              "market": "division_winner",
+              "side": "YES",
+              "line": null,
+              "price": null,
+              "week": null,
+              "speaker": "Chris Welsh",
+              "rationale": "Patriots have a highly efficient offense and a far more favorable schedule compared to the division rival Buffalo Bills.",
+              "supporting_quote": "The Bills don't have the same offensive line coach... that was a significant loss.",
+              "review_flags": [
+                "missing_price"
+              ],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-4OxpAX6UJlM",
+                "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=956s",
+                "source_timestamp": 956
+              }
+            }
+          ]
+        },
+        {
+          "market": "mvp",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-4OxpAX6UJlM__NE__mvp__YES____1329__620",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "NE",
+              "market": "mvp",
+              "side": "YES",
+              "line": null,
+              "price": 1329,
+              "week": null,
+              "speaker": "Chris Welsh",
+              "rationale": "Drake Maye has elite weapons like AJ Brown and Jahan Dotson in this simulation and is poised for a massive second-year breakout.",
+              "supporting_quote": "It was one of the easiest schedules in the last century for the Patriots.",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-4OxpAX6UJlM",
+                "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=620s",
+                "source_timestamp": 620
+              }
+            }
+          ]
+        },
+        {
+          "market": "season_passing_yards",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-b9NL40Zogkw__NE__season_passing_yards__OVER__4000__135__3053",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "NE",
+              "market": "season_passing_yards",
+              "side": "OVER",
+              "line": 4000,
+              "price": 135,
+              "week": null,
+              "speaker": "Brandon",
+              "rationale": "Brandon expects a huge statistical output from Drake Maye with the arrival of elite perimeter weapons in AJ Brown and Romeo Doubs.",
+              "supporting_quote": "I'm taking Drake Maye over 4,000 passing yards at plus 135.",
+              "review_flags": [],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-b9NL40Zogkw",
+                "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
+                "show": "The Action Network: Sports Betting Picks & Tips",
+                "timestamp_url": "https://www.youtube.com/watch?v=b9NL40Zogkw&t=3053s",
+                "source_timestamp": 3053
+              }
+            }
+          ]
+        },
+        {
+          "market": "season_rushing_tds",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-b9NL40Zogkw__NE__season_rushing_tds__OVER__5.5__180__2963",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "NE",
+              "market": "season_rushing_tds",
+              "side": "OVER",
+              "line": 5.5,
+              "price": 180,
+              "week": null,
+              "speaker": "Kendra Middleton",
+              "rationale": "Kendra loves Drake Maye's goal-line rushing potential and thinks the plus-money price offers superb value.",
+              "supporting_quote": "My absolute favorite bet of the season is Drake Maye over five and a half rushing touchdowns at plus 180.",
+              "review_flags": [],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-b9NL40Zogkw",
+                "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
+                "show": "The Action Network: Sports Betting Picks & Tips",
+                "timestamp_url": "https://www.youtube.com/watch?v=b9NL40Zogkw&t=2963s",
+                "source_timestamp": 2963
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "NO",
+      "count": 2,
+      "lanes": {
+        "futures_pick": 2
+      },
+      "markets": [
+        {
+          "market": "division_winner",
+          "count": 2,
+          "items": [
+            {
+              "item_id": "youtube-4OxpAX6UJlM__NO__division_winner__YES____280__1413",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "NO",
+              "market": "division_winner",
+              "side": "YES",
+              "line": null,
+              "price": 280,
+              "week": null,
+              "speaker": "Derek Brown",
+              "rationale": "Saints possess the second easiest schedule in the league and added veteran playmakers on both sides of the ball.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote",
+                "duplicate_candidate"
+              ],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-4OxpAX6UJlM",
+                "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=1413s",
+                "source_timestamp": 1413
+              }
+            },
+            {
+              "item_id": "youtube-aOUy4-ZRzbE__NO__division_winner__YES____280__421",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "NO",
+              "market": "division_winner",
+              "side": "YES",
+              "line": null,
+              "price": 280,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Worst-to-first candidate. Tyler Shough had great intermediate passing metrics as a rookie, and they have the second-easiest overall schedule.",
+              "supporting_quote": "You may want to wait to buy in on the New Orleans Saints.",
+              "review_flags": [
+                "price_not_in_quote",
+                "duplicate_candidate"
+              ],
+              "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__NO__division_winner__YES____280__421); item_id timestamp drifted after reprocessing.",
+              "source": {
+                "episode_id": "youtube-aOUy4-ZRzbE",
+                "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=421s",
+                "source_timestamp": 421
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "NYG",
+      "count": 1,
+      "lanes": {
+        "futures_pick": 1
+      },
+      "markets": [
+        {
+          "market": "season_rushing_tds",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-WbuAvbsVF_w__NYG__season_rushing_tds__OVER__5.5____2472",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "NYG",
+              "market": "season_rushing_tds",
+              "side": "OVER",
+              "line": 5.5,
+              "price": null,
+              "week": null,
+              "speaker": "Kendra Middleton",
+              "rationale": "Even if Dart has durability concerns, Kendra believes the Giants' offensive design inside the 10 and 5-yard lines will make him a prime rushing threat to eclipse this mark.",
+              "supporting_quote": "I have a Jaxson Dart over 5.5 rushing touchdowns play to give you guys.",
+              "review_flags": [
+                "missing_price"
+              ],
+              "reviewer_notes": "Andy decision 2026-07-29T03:59:26.056Z: confirmed true and elevated to local futures intel.",
+              "source": {
+                "episode_id": "youtube-WbuAvbsVF_w",
+                "episode_title": "Ranking the Top 20 NFL Quarterbacks for 2026! | The Favorites",
+                "show": "The Action Network: Sports Betting Picks & Tips",
+                "timestamp_url": "https://www.youtube.com/watch?v=WbuAvbsVF_w&t=2472s",
+                "source_timestamp": 2472
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "NYJ",
+      "count": 1,
+      "lanes": {
+        "futures_pick": 1
+      },
+      "markets": [
+        {
+          "market": "interceptions_leader",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-qGJ2f1fEXHc__NYJ__interceptions_leader__UNKNOWN______2755",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "NYJ",
+              "market": "interceptions_leader",
+              "side": "UNKNOWN",
+              "line": null,
+              "price": null,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Aggressive CB in a Jets defense that will see positive regression in turnover luck.",
+              "supporting_quote": "",
+              "review_flags": [
+                "unclear_side",
+                "missing_price"
+              ],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-qGJ2f1fEXHc",
+                "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=2755s",
+                "source_timestamp": 2755
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "PHI",
+      "count": 1,
+      "lanes": {
+        "futures_pick": 1
+      },
+      "markets": [
+        {
+          "market": "oroy",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-qGJ2f1fEXHc__PHI__oroy__YES____9245__1637",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "PHI",
+              "market": "oroy",
+              "side": "YES",
+              "line": null,
+              "price": 9245,
+              "week": null,
+              "speaker": "Seth Woolcock",
+              "rationale": "Athletic freak at tight end who fits Kellen Moore's 12-personnel system.",
+              "supporting_quote": "",
+              "review_flags": [
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-qGJ2f1fEXHc",
+                "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=1637s",
+                "source_timestamp": 1637
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "PIT",
+      "count": 1,
+      "lanes": {
+        "futures_pick": 1
+      },
+      "markets": [
+        {
+          "market": "fewest_wins",
+          "count": 1,
+          "items": [
+            {
+              "item_id": "youtube-qGJ2f1fEXHc__PIT__fewest_wins__UNKNOWN____4000__1926",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "PIT",
+              "market": "fewest_wins",
+              "side": "UNKNOWN",
+              "line": null,
+              "price": 4000,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Old roster, Mike Tomlin magic is gone, and Mike McCarthy's history of low-win seasons when things unravel.",
+              "supporting_quote": "",
+              "review_flags": [
+                "unclear_side",
+                "price_not_in_quote"
+              ],
+              "reviewer_notes": "",
+              "source": {
+                "episode_id": "youtube-qGJ2f1fEXHc",
+                "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=1926s",
+                "source_timestamp": 1926
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "SF",
       "count": 1,
       "lanes": {
         "futures_pick": 1
@@ -77,28 +1536,26 @@
           "count": 1,
           "items": [
             {
-              "item_id": "youtube-4OxpAX6UJlM__NE__mvp__YES____1329__619",
+              "item_id": "youtube-WbuAvbsVF_w__SF__mvp__YES____2000__2507",
               "item_type": "pick",
               "lane": "futures_pick",
-              "team": "NE",
+              "team": "SF",
               "market": "mvp",
               "side": "YES",
               "line": null,
-              "price": 1329,
+              "price": 2000,
               "week": null,
-              "speaker": "Chris Welsh",
-              "rationale": "Entering his second year, Drake Maye has elite weapons like AJ Brown and J.K. Dobbins surrounding him, posing a great dark-horse MVP path for a team that could win 13+ games.",
-              "supporting_quote": "I am smash-taking Drake Maye at MVP.",
-              "review_flags": [
-                "price_not_in_quote"
-              ],
-              "reviewer_notes": "",
+              "speaker": "Brandon Kravitz",
+              "rationale": "Brandon believes that if Purdy can win double-digit games and put up elite numbers with target additions like Mike Evans, he has massive value at 20-1 to win MVP.",
+              "supporting_quote": "I have Brock Purdy 20 to 1 to win MVP.",
+              "review_flags": [],
+              "reviewer_notes": "Andy decision 2026-07-29T03:59:26.056Z: confirmed true and elevated to local futures intel.",
               "source": {
-                "episode_id": "youtube-4OxpAX6UJlM",
-                "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
-                "show": "BettingPros YouTube",
-                "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=619s",
-                "source_timestamp": 619
+                "episode_id": "youtube-WbuAvbsVF_w",
+                "episode_title": "Ranking the Top 20 NFL Quarterbacks for 2026! | The Favorites",
+                "show": "The Action Network: Sports Betting Picks & Tips",
+                "timestamp_url": "https://www.youtube.com/watch?v=WbuAvbsVF_w&t=2507s",
+                "source_timestamp": 2507
               }
             }
           ]
@@ -107,14 +1564,14 @@
     },
     {
       "team": "TEN",
-      "count": 1,
+      "count": 2,
       "lanes": {
-        "futures_pick": 1
+        "futures_pick": 2
       },
       "markets": [
         {
           "market": "division_winner",
-          "count": 1,
+          "count": 2,
           "items": [
             {
               "item_id": "youtube-qGJ2f1fEXHc__TEN__division_winner__YES____900__668",
@@ -140,6 +1597,29 @@
                 "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=668s",
                 "source_timestamp": 668
               }
+            },
+            {
+              "item_id": "youtube-aOUy4-ZRzbE__TEN__division_winner__YES____850__205",
+              "item_type": "pick",
+              "lane": "futures_pick",
+              "team": "TEN",
+              "market": "division_winner",
+              "side": "YES",
+              "line": null,
+              "price": 850,
+              "week": null,
+              "speaker": "Andrew Erickson",
+              "rationale": "Follows the worst-to-first trend with a second-year QB breakout (Cam Ward) and Brian Daboll running a system optimized for mobile quarterbacks.",
+              "supporting_quote": "I'm going to go with the Tennessee Titans to win the AFC South at +850.",
+              "review_flags": [],
+              "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__TEN__division_winner__YES____850__205); item_id timestamp drifted after reprocessing.",
+              "source": {
+                "episode_id": "youtube-aOUy4-ZRzbE",
+                "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+                "show": "BettingPros YouTube",
+                "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=205s",
+                "source_timestamp": 205
+              }
             }
           ]
         }
@@ -148,17 +1628,141 @@
   ],
   "by_market": [
     {
-      "market": "division_winner",
+      "market": "comeback_player_of_the_year",
       "count": 1,
       "teams": [
+        "JAX"
+      ]
+    },
+    {
+      "market": "conference_no_1_seed",
+      "count": 2,
+      "teams": [
+        "CIN",
+        "DET"
+      ]
+    },
+    {
+      "market": "conference_winner",
+      "count": 1,
+      "teams": [
+        "DAL"
+      ]
+    },
+    {
+      "market": "division_winner",
+      "count": 8,
+      "teams": [
+        "CIN",
+        "DET",
+        "LAC",
+        "NE",
+        "NO",
         "TEN"
       ]
     },
     {
+      "market": "dpoy",
+      "count": 1,
+      "teams": [
+        "LAR"
+      ]
+    },
+    {
+      "market": "droy",
+      "count": 1,
+      "teams": [
+        "DAL"
+      ]
+    },
+    {
+      "market": "fewest_wins",
+      "count": 1,
+      "teams": [
+        "PIT"
+      ]
+    },
+    {
+      "market": "interceptions_leader",
+      "count": 1,
+      "teams": [
+        "NYJ"
+      ]
+    },
+    {
+      "market": "make_playoffs",
+      "count": 5,
+      "teams": [
+        "ATL",
+        "CHI",
+        "DAL",
+        "GB",
+        "IND"
+      ]
+    },
+    {
       "market": "mvp",
+      "count": 8,
+      "teams": [
+        "CIN",
+        "DEN",
+        "JAX",
+        "LAC",
+        "NE",
+        "SF"
+      ]
+    },
+    {
+      "market": "no_1_overall_pick",
+      "count": 1,
+      "teams": [
+        "ATL"
+      ]
+    },
+    {
+      "market": "opoy",
+      "count": 3,
+      "teams": [
+        "CIN",
+        "LV"
+      ]
+    },
+    {
+      "market": "oroy",
+      "count": 2,
+      "teams": [
+        "BAL",
+        "PHI"
+      ]
+    },
+    {
+      "market": "season_passing_tds",
+      "count": 1,
+      "teams": [
+        "LV"
+      ]
+    },
+    {
+      "market": "season_passing_yards",
       "count": 1,
       "teams": [
         "NE"
+      ]
+    },
+    {
+      "market": "season_receiving_yards",
+      "count": 1,
+      "teams": [
+        "BAL"
+      ]
+    },
+    {
+      "market": "season_rushing_tds",
+      "count": 3,
+      "teams": [
+        "ATL",
+        "NE",
+        "NYG"
       ]
     },
     {
@@ -167,9 +1771,672 @@
       "teams": [
         "LAC"
       ]
+    },
+    {
+      "market": "win_total",
+      "count": 3,
+      "teams": [
+        "CAR",
+        "IND",
+        "LAC"
+      ]
     }
   ],
   "items": [
+    {
+      "item_id": "youtube-aOUy4-ZRzbE__ATL__make_playoffs__NO____-213__1380",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "ATL",
+      "market": "make_playoffs",
+      "side": "NO",
+      "line": null,
+      "price": -213,
+      "week": null,
+      "speaker": "Seth Woolcock",
+      "rationale": "The team has two quarterbacks (Tua and Michael Penix Jr.), indicating likely instability. The defense has lost James Pierce Jr., and they face a brutal out-of-division schedule.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__ATL__make_playoffs__NO____-213__1350); item_id timestamp drifted after reprocessing.",
+      "source": {
+        "episode_id": "youtube-aOUy4-ZRzbE",
+        "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=1380s",
+        "source_timestamp": 1380
+      }
+    },
+    {
+      "item_id": "youtube-aOUy4-ZRzbE__ATL__no_1_overall_pick__YES____1351__2044",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "ATL",
+      "market": "no_1_overall_pick",
+      "side": "YES",
+      "line": null,
+      "price": 1351,
+      "week": null,
+      "speaker": "Seth Woolcock",
+      "rationale": "Part of a full fade of the Falcons, expecting a highly unstable quarterback room and defensive regression to bottom out their season.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__ATL__no_1_overall_pick__YES____1351__2524); item_id timestamp drifted after reprocessing.",
+      "source": {
+        "episode_id": "youtube-aOUy4-ZRzbE",
+        "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=2044s",
+        "source_timestamp": 2044
+      }
+    },
+    {
+      "item_id": "youtube-qGJ2f1fEXHc__ATL__season_rushing_tds__UNKNOWN____1800__2912",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "ATL",
+      "market": "season_rushing_tds",
+      "side": "UNKNOWN",
+      "line": null,
+      "price": 1800,
+      "week": null,
+      "speaker": "Seth Woolcock",
+      "rationale": "Zac Robinson's offense will feed Bijan Robinson. Goal line issues for Tua means more rushing opportunities.",
+      "supporting_quote": "",
+      "review_flags": [
+        "unclear_side",
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-qGJ2f1fEXHc",
+        "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=2912s",
+        "source_timestamp": 2912
+      }
+    },
+    {
+      "item_id": "youtube-qGJ2f1fEXHc__BAL__oroy__YES____9245__1637",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "BAL",
+      "market": "oroy",
+      "side": "YES",
+      "line": null,
+      "price": 9245,
+      "week": null,
+      "speaker": "Seth Woolcock",
+      "rationale": "Most pro-ready WR in the class, playing with Lamar Jackson, will get early field time.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-qGJ2f1fEXHc",
+        "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=1637s",
+        "source_timestamp": 1637
+      }
+    },
+    {
+      "item_id": "youtube-qGJ2f1fEXHc__BAL__season_receiving_yards__OVER__1500__1000__2202",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "BAL",
+      "market": "season_receiving_yards",
+      "side": "OVER",
+      "line": 1500,
+      "price": 1000,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Receiving yards have gone up every year, no competition for targets as Mark Andrews is cooked.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-qGJ2f1fEXHc",
+        "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=2202s",
+        "source_timestamp": 2202
+      }
+    },
+    {
+      "item_id": "youtube-4OxpAX6UJlM__CAR__win_total__UNDER__6.5__140__328",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "CAR",
+      "market": "win_total",
+      "side": "UNDER",
+      "line": 6.5,
+      "price": 140,
+      "week": null,
+      "speaker": "Derek Brown",
+      "rationale": "Panthers have the third hardest schedule based on projected win totals. 6 of their 8 wins last year were by 3 or fewer points.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-4OxpAX6UJlM",
+        "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=328s",
+        "source_timestamp": 328
+      }
+    },
+    {
+      "item_id": "youtube-aOUy4-ZRzbE__CHI__make_playoffs__NO____-125__1491",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "CHI",
+      "market": "make_playoffs",
+      "side": "NO",
+      "line": null,
+      "price": -125,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Fading the most hyped team in the NFL. Despite Caleb Williams' potential, their defense remains a weakness, and they face the 3rd-biggest increase in schedule difficulty.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__CHI__make_playoffs__NO____-125__1611); item_id timestamp drifted after reprocessing.",
+      "source": {
+        "episode_id": "youtube-aOUy4-ZRzbE",
+        "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=1491s",
+        "source_timestamp": 1491
+      }
+    },
+    {
+      "item_id": "youtube-aOUy4-ZRzbE__CIN__conference_no_1_seed__YES____800__1936",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "CIN",
+      "market": "conference_no_1_seed",
+      "side": "YES",
+      "line": null,
+      "price": 800,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Correlates with their division winner value and highly favorable schedule strength.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__CIN__conference_no_1_seed__YES____800__2376); item_id timestamp drifted after reprocessing.",
+      "source": {
+        "episode_id": "youtube-aOUy4-ZRzbE",
+        "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=1936s",
+        "source_timestamp": 1936
+      }
+    },
+    {
+      "item_id": "youtube-aOUy4-ZRzbE__CIN__division_winner__YES____190__727",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "CIN",
+      "market": "division_winner",
+      "side": "YES",
+      "line": null,
+      "price": 190,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Bengals have the 3rd-easiest schedule in the NFL, a healthy Joe Burrow, and a defense poised to take a second-year jump under Al Golden.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__CIN__division_winner__YES____190__699); item_id timestamp drifted after reprocessing.",
+      "source": {
+        "episode_id": "youtube-aOUy4-ZRzbE",
+        "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=727s",
+        "source_timestamp": 727
+      }
+    },
+    {
+      "item_id": "youtube-veVjJ_EUYdk__CIN__mvp__YES____1000__174",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "CIN",
+      "market": "mvp",
+      "side": "YES",
+      "line": null,
+      "price": 1000,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Return to health and Cincinnati's favorable schedule make Burrow a top contender if the team reaches double-digit wins.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-veVjJ_EUYdk__CIN__mvp__YES____1000__174); item_id timestamp drifted after reprocessing.",
+      "source": {
+        "episode_id": "youtube-veVjJ_EUYdk",
+        "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=veVjJ_EUYdk&t=174s",
+        "source_timestamp": 174
+      }
+    },
+    {
+      "item_id": "youtube-veVjJ_EUYdk__CIN__opoy__YES____1200__896",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "CIN",
+      "market": "opoy",
+      "side": "YES",
+      "line": null,
+      "price": 1200,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Chase is a top-tier receiver in his prime with Joe Burrow and is highly likely to lead the league in receiving yards.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-veVjJ_EUYdk__CIN__opoy__YES____1200__731); item_id timestamp drifted after reprocessing.",
+      "source": {
+        "episode_id": "youtube-veVjJ_EUYdk",
+        "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=veVjJ_EUYdk&t=896s",
+        "source_timestamp": 896
+      }
+    },
+    {
+      "item_id": "youtube-qGJ2f1fEXHc__DAL__conference_winner__YES____1300__445",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "DAL",
+      "market": "conference_winner",
+      "side": "YES",
+      "line": null,
+      "price": 1300,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Dak Prescott has elite options in CeeDee Lamb and George Pickens. Defense got Quinn Williams and will be top 10.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-qGJ2f1fEXHc",
+        "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=445s",
+        "source_timestamp": 445
+      }
+    },
+    {
+      "item_id": "youtube-qGJ2f1fEXHc__DAL__droy__YES____2500__1540",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "DAL",
+      "market": "droy",
+      "side": "YES",
+      "line": null,
+      "price": 2500,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Pass rusher expected to rack up sack numbers in Dallas's high profile defense.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-qGJ2f1fEXHc",
+        "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=1540s",
+        "source_timestamp": 1540
+      }
+    },
+    {
+      "item_id": "youtube-aOUy4-ZRzbE__DAL__make_playoffs__YES____100__1062",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "DAL",
+      "market": "make_playoffs",
+      "side": "YES",
+      "line": null,
+      "price": 100,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Clay's projections have them as the 6th seed. If Dak Prescott is healthy, the offense will produce, and the defense has been heavily upgraded.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__DAL__make_playoffs__YES____100__821); item_id timestamp drifted after reprocessing.",
+      "source": {
+        "episode_id": "youtube-aOUy4-ZRzbE",
+        "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=1062s",
+        "source_timestamp": 1062
+      }
+    },
+    {
+      "item_id": "youtube-4OxpAX6UJlM__DEN__mvp__YES____4000__1217",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "DEN",
+      "market": "mvp",
+      "side": "YES",
+      "line": null,
+      "price": 4000,
+      "week": null,
+      "speaker": "Derek Brown",
+      "rationale": "Bo Nix is in a fast-paced offense under Sean Payton and now has a vertical threat in Jaylen Waddle.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-4OxpAX6UJlM",
+        "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=1217s",
+        "source_timestamp": 1217
+      }
+    },
+    {
+      "item_id": "youtube-aOUy4-ZRzbE__DET__conference_no_1_seed__YES____650__1834",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "DET",
+      "market": "conference_no_1_seed",
+      "side": "YES",
+      "line": null,
+      "price": 650,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "The Lions have the easiest schedule in the NFL and only play outdoors twice between weeks 5 and 16.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__DET__conference_no_1_seed__YES____650__2073); item_id timestamp drifted after reprocessing.",
+      "source": {
+        "episode_id": "youtube-aOUy4-ZRzbE",
+        "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=1834s",
+        "source_timestamp": 1834
+      }
+    },
+    {
+      "item_id": "youtube-4OxpAX6UJlM__DET__division_winner__YES____160__1619",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "DET",
+      "market": "division_winner",
+      "side": "YES",
+      "line": null,
+      "price": 160,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Detroit finished last in the division despite scoring the most points due to terrible injury luck, which should regress positively.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-4OxpAX6UJlM",
+        "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=1619s",
+        "source_timestamp": 1619
+      }
+    },
+    {
+      "item_id": "youtube-aOUy4-ZRzbE__GB__make_playoffs__YES____-116__1675",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "GB",
+      "market": "make_playoffs",
+      "side": "YES",
+      "line": null,
+      "price": -116,
+      "week": null,
+      "speaker": "Seth Woolcock",
+      "rationale": "Jordan Love has consistently made the playoffs. Key offensive weapons are fully healthy, and defensive additions like Javon Hargrave will shore up their run defense.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__GB__make_playoffs__YES____-116__1735); item_id timestamp drifted after reprocessing.",
+      "source": {
+        "episode_id": "youtube-aOUy4-ZRzbE",
+        "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=1675s",
+        "source_timestamp": 1675
+      }
+    },
+    {
+      "item_id": "youtube-aOUy4-ZRzbE__IND__make_playoffs__NO____-185__1108",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "IND",
+      "market": "make_playoffs",
+      "side": "NO",
+      "line": null,
+      "price": -185,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "The Colts have never made the playoffs under Shane Steichen, and Daniel Jones is coming off a torn Achilles.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__IND__make_playoffs__NO____-185__1107); item_id timestamp drifted after reprocessing.",
+      "source": {
+        "episode_id": "youtube-aOUy4-ZRzbE",
+        "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=1108s",
+        "source_timestamp": 1108
+      }
+    },
+    {
+      "item_id": "youtube-4OxpAX6UJlM__IND__win_total__OVER__7.5__-160__1801",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "IND",
+      "market": "win_total",
+      "side": "OVER",
+      "line": 7.5,
+      "price": -160,
+      "week": null,
+      "speaker": "Chris Welsh",
+      "rationale": "Colts cashed this win total last year despite an unprecedented injury streak, showing high base stability.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-4OxpAX6UJlM",
+        "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=1801s",
+        "source_timestamp": 1801
+      }
+    },
+    {
+      "item_id": "youtube-qGJ2f1fEXHc__JAX__comeback_player_of_the_year__UNKNOWN____3500__1203",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "JAX",
+      "market": "comeback_player_of_the_year",
+      "side": "UNKNOWN",
+      "line": null,
+      "price": 3500,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Voters will reward him for his unique two-way contribution playing both WR and CB coming off an injury.",
+      "supporting_quote": "",
+      "review_flags": [
+        "unclear_side",
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-qGJ2f1fEXHc",
+        "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=1203s",
+        "source_timestamp": 1203
+      }
+    },
+    {
+      "item_id": "youtube-qGJ2f1fEXHc__JAX__mvp__YES____2400__973",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "JAX",
+      "market": "mvp",
+      "side": "YES",
+      "line": null,
+      "price": 2400,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Historically, first-time MVPs peak around age 27. Lawrence has deep weapons in Brian Thomas Jr., Jakobi Meyers, and Parker Washington.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote",
+        "duplicate_candidate"
+      ],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-qGJ2f1fEXHc",
+        "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=973s",
+        "source_timestamp": 973
+      }
+    },
+    {
+      "item_id": "youtube-4OxpAX6UJlM__JAX__mvp__YES____1750__1027",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "JAX",
+      "market": "mvp",
+      "side": "YES",
+      "line": null,
+      "price": 1750,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Trevor Lawrence hits the prime first-time MVP age of 27 and has a fully loaded group of weapons.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-4OxpAX6UJlM",
+        "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=1027s",
+        "source_timestamp": 1027
+      }
+    },
+    {
+      "item_id": "youtube-veVjJ_EUYdk__JAX__mvp__YES____2400__639",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "JAX",
+      "market": "mvp",
+      "side": "YES",
+      "line": null,
+      "price": 2400,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Lawrence is in his second year in Coen's system and generated elite red zone/rushing metrics late last year.",
+      "supporting_quote": "For me, it's Trevor Lawrence at 24:1 to win the MVP award.",
+      "review_flags": [
+        "price_not_in_quote",
+        "duplicate_candidate"
+      ],
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-veVjJ_EUYdk__JAX__mvp__YES____2400__518); item_id timestamp drifted after reprocessing.",
+      "source": {
+        "episode_id": "youtube-veVjJ_EUYdk",
+        "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=veVjJ_EUYdk&t=639s",
+        "source_timestamp": 639
+      }
+    },
+    {
+      "item_id": "youtube-aOUy4-ZRzbE__LAC__division_winner__YES____180__1024",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "LAC",
+      "market": "division_winner",
+      "side": "YES",
+      "line": null,
+      "price": 180,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Strong positive injury regression candidate after being the second most injured team in the AFC. Easy opening schedule (Cardinals, Raiders).",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__LAC__division_winner__YES____180__699); item_id timestamp drifted after reprocessing.",
+      "source": {
+        "episode_id": "youtube-aOUy4-ZRzbE",
+        "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=1024s",
+        "source_timestamp": 1024
+      }
+    },
+    {
+      "item_id": "youtube-veVjJ_EUYdk__LAC__mvp__YES____1100__184",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "LAC",
+      "market": "mvp",
+      "side": "YES",
+      "line": null,
+      "price": 1100,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "High value at 11:1 under a new offensive system with improved offensive line health and depth.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-veVjJ_EUYdk__LAC__mvp__YES____1100__418); item_id timestamp drifted after reprocessing.",
+      "source": {
+        "episode_id": "youtube-veVjJ_EUYdk",
+        "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=veVjJ_EUYdk&t=184s",
+        "source_timestamp": 184
+      }
+    },
     {
       "item_id": "youtube-qGJ2f1fEXHc__LAC__super_bowl_winner__YES____1700__258",
       "item_type": "pick",
@@ -196,7 +2463,159 @@
       }
     },
     {
-      "item_id": "youtube-4OxpAX6UJlM__NE__mvp__YES____1329__619",
+      "item_id": "youtube-4OxpAX6UJlM__LAC__win_total__OVER__9.5__-150__464",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "LAC",
+      "market": "win_total",
+      "side": "OVER",
+      "line": 9.5,
+      "price": -150,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Chargers won 11 games back-to-back under Jim Harbaugh, face a very easy schedule to open the season.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-4OxpAX6UJlM",
+        "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=464s",
+        "source_timestamp": 464
+      }
+    },
+    {
+      "item_id": "youtube-veVjJ_EUYdk__LAR__dpoy__YES____450__1211",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "LAR",
+      "market": "dpoy",
+      "side": "YES",
+      "line": null,
+      "price": 450,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Upgraded situation with the Rams will put Garrett in positive game scripts to rack up high sack totals.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-veVjJ_EUYdk__LAR__dpoy__YES____450__612); item_id timestamp drifted after reprocessing.",
+      "source": {
+        "episode_id": "youtube-veVjJ_EUYdk",
+        "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=veVjJ_EUYdk&t=1211s",
+        "source_timestamp": 1211
+      }
+    },
+    {
+      "item_id": "youtube-qGJ2f1fEXHc__LV__opoy__YES____8000__1436",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "LV",
+      "market": "opoy",
+      "side": "YES",
+      "line": null,
+      "price": 8000,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "He can break tight end records, Kubiak's system will highlight his skillset with a high target share.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote",
+        "duplicate_candidate"
+      ],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-qGJ2f1fEXHc",
+        "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=1436s",
+        "source_timestamp": 1436
+      }
+    },
+    {
+      "item_id": "youtube-veVjJ_EUYdk__LV__opoy__YES____8000__1081",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "LV",
+      "market": "opoy",
+      "side": "YES",
+      "line": null,
+      "price": 8000,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Extremely high value on a versatile pass catcher whose target share should skyrocket in Kubiak's system.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote",
+        "duplicate_candidate"
+      ],
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-veVjJ_EUYdk__LV__opoy__YES____8000__731); item_id timestamp drifted after reprocessing.",
+      "source": {
+        "episode_id": "youtube-veVjJ_EUYdk",
+        "episode_title": "Top 10 NFL Futures Bets to Make Now | MVP, Rookie of the Year & More!",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=veVjJ_EUYdk&t=1081s",
+        "source_timestamp": 1081
+      }
+    },
+    {
+      "item_id": "youtube-qGJ2f1fEXHc__LV__season_passing_tds__OVER__25__1400__2469",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "LV",
+      "market": "season_passing_tds",
+      "side": "OVER",
+      "line": 25,
+      "price": 1400,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Mendoza will throw plenty of TDs in Raiders red zone system, taking over from Kirk Cousins.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-qGJ2f1fEXHc",
+        "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=2469s",
+        "source_timestamp": 2469
+      }
+    },
+    {
+      "item_id": "youtube-4OxpAX6UJlM__NE__division_winner__YES______956",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "NE",
+      "market": "division_winner",
+      "side": "YES",
+      "line": null,
+      "price": null,
+      "week": null,
+      "speaker": "Chris Welsh",
+      "rationale": "Patriots have a highly efficient offense and a far more favorable schedule compared to the division rival Buffalo Bills.",
+      "supporting_quote": "The Bills don't have the same offensive line coach... that was a significant loss.",
+      "review_flags": [
+        "missing_price"
+      ],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-4OxpAX6UJlM",
+        "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=956s",
+        "source_timestamp": 956
+      }
+    },
+    {
+      "item_id": "youtube-4OxpAX6UJlM__NE__mvp__YES____1329__620",
       "item_type": "pick",
       "lane": "futures_pick",
       "team": "NE",
@@ -206,8 +2625,8 @@
       "price": 1329,
       "week": null,
       "speaker": "Chris Welsh",
-      "rationale": "Entering his second year, Drake Maye has elite weapons like AJ Brown and J.K. Dobbins surrounding him, posing a great dark-horse MVP path for a team that could win 13+ games.",
-      "supporting_quote": "I am smash-taking Drake Maye at MVP.",
+      "rationale": "Drake Maye has elite weapons like AJ Brown and Jahan Dotson in this simulation and is poised for a massive second-year breakout.",
+      "supporting_quote": "It was one of the easiest schedules in the last century for the Patriots.",
       "review_flags": [
         "price_not_in_quote"
       ],
@@ -216,8 +2635,231 @@
         "episode_id": "youtube-4OxpAX6UJlM",
         "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
         "show": "BettingPros YouTube",
-        "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=619s",
-        "source_timestamp": 619
+        "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=620s",
+        "source_timestamp": 620
+      }
+    },
+    {
+      "item_id": "youtube-b9NL40Zogkw__NE__season_passing_yards__OVER__4000__135__3053",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "NE",
+      "market": "season_passing_yards",
+      "side": "OVER",
+      "line": 4000,
+      "price": 135,
+      "week": null,
+      "speaker": "Brandon",
+      "rationale": "Brandon expects a huge statistical output from Drake Maye with the arrival of elite perimeter weapons in AJ Brown and Romeo Doubs.",
+      "supporting_quote": "I'm taking Drake Maye over 4,000 passing yards at plus 135.",
+      "review_flags": [],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-b9NL40Zogkw",
+        "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
+        "show": "The Action Network: Sports Betting Picks & Tips",
+        "timestamp_url": "https://www.youtube.com/watch?v=b9NL40Zogkw&t=3053s",
+        "source_timestamp": 3053
+      }
+    },
+    {
+      "item_id": "youtube-b9NL40Zogkw__NE__season_rushing_tds__OVER__5.5__180__2963",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "NE",
+      "market": "season_rushing_tds",
+      "side": "OVER",
+      "line": 5.5,
+      "price": 180,
+      "week": null,
+      "speaker": "Kendra Middleton",
+      "rationale": "Kendra loves Drake Maye's goal-line rushing potential and thinks the plus-money price offers superb value.",
+      "supporting_quote": "My absolute favorite bet of the season is Drake Maye over five and a half rushing touchdowns at plus 180.",
+      "review_flags": [],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-b9NL40Zogkw",
+        "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
+        "show": "The Action Network: Sports Betting Picks & Tips",
+        "timestamp_url": "https://www.youtube.com/watch?v=b9NL40Zogkw&t=2963s",
+        "source_timestamp": 2963
+      }
+    },
+    {
+      "item_id": "youtube-4OxpAX6UJlM__NO__division_winner__YES____280__1413",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "NO",
+      "market": "division_winner",
+      "side": "YES",
+      "line": null,
+      "price": 280,
+      "week": null,
+      "speaker": "Derek Brown",
+      "rationale": "Saints possess the second easiest schedule in the league and added veteran playmakers on both sides of the ball.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote",
+        "duplicate_candidate"
+      ],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-4OxpAX6UJlM",
+        "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=1413s",
+        "source_timestamp": 1413
+      }
+    },
+    {
+      "item_id": "youtube-aOUy4-ZRzbE__NO__division_winner__YES____280__421",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "NO",
+      "market": "division_winner",
+      "side": "YES",
+      "line": null,
+      "price": 280,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Worst-to-first candidate. Tyler Shough had great intermediate passing metrics as a rookie, and they have the second-easiest overall schedule.",
+      "supporting_quote": "You may want to wait to buy in on the New Orleans Saints.",
+      "review_flags": [
+        "price_not_in_quote",
+        "duplicate_candidate"
+      ],
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__NO__division_winner__YES____280__421); item_id timestamp drifted after reprocessing.",
+      "source": {
+        "episode_id": "youtube-aOUy4-ZRzbE",
+        "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=421s",
+        "source_timestamp": 421
+      }
+    },
+    {
+      "item_id": "youtube-WbuAvbsVF_w__NYG__season_rushing_tds__OVER__5.5____2472",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "NYG",
+      "market": "season_rushing_tds",
+      "side": "OVER",
+      "line": 5.5,
+      "price": null,
+      "week": null,
+      "speaker": "Kendra Middleton",
+      "rationale": "Even if Dart has durability concerns, Kendra believes the Giants' offensive design inside the 10 and 5-yard lines will make him a prime rushing threat to eclipse this mark.",
+      "supporting_quote": "I have a Jaxson Dart over 5.5 rushing touchdowns play to give you guys.",
+      "review_flags": [
+        "missing_price"
+      ],
+      "reviewer_notes": "Andy decision 2026-07-29T03:59:26.056Z: confirmed true and elevated to local futures intel.",
+      "source": {
+        "episode_id": "youtube-WbuAvbsVF_w",
+        "episode_title": "Ranking the Top 20 NFL Quarterbacks for 2026! | The Favorites",
+        "show": "The Action Network: Sports Betting Picks & Tips",
+        "timestamp_url": "https://www.youtube.com/watch?v=WbuAvbsVF_w&t=2472s",
+        "source_timestamp": 2472
+      }
+    },
+    {
+      "item_id": "youtube-qGJ2f1fEXHc__NYJ__interceptions_leader__UNKNOWN______2755",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "NYJ",
+      "market": "interceptions_leader",
+      "side": "UNKNOWN",
+      "line": null,
+      "price": null,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Aggressive CB in a Jets defense that will see positive regression in turnover luck.",
+      "supporting_quote": "",
+      "review_flags": [
+        "unclear_side",
+        "missing_price"
+      ],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-qGJ2f1fEXHc",
+        "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=2755s",
+        "source_timestamp": 2755
+      }
+    },
+    {
+      "item_id": "youtube-qGJ2f1fEXHc__PHI__oroy__YES____9245__1637",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "PHI",
+      "market": "oroy",
+      "side": "YES",
+      "line": null,
+      "price": 9245,
+      "week": null,
+      "speaker": "Seth Woolcock",
+      "rationale": "Athletic freak at tight end who fits Kellen Moore's 12-personnel system.",
+      "supporting_quote": "",
+      "review_flags": [
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-qGJ2f1fEXHc",
+        "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=1637s",
+        "source_timestamp": 1637
+      }
+    },
+    {
+      "item_id": "youtube-qGJ2f1fEXHc__PIT__fewest_wins__UNKNOWN____4000__1926",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "PIT",
+      "market": "fewest_wins",
+      "side": "UNKNOWN",
+      "line": null,
+      "price": 4000,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Old roster, Mike Tomlin magic is gone, and Mike McCarthy's history of low-win seasons when things unravel.",
+      "supporting_quote": "",
+      "review_flags": [
+        "unclear_side",
+        "price_not_in_quote"
+      ],
+      "reviewer_notes": "",
+      "source": {
+        "episode_id": "youtube-qGJ2f1fEXHc",
+        "episode_title": "14 LONGSHOT NFL Futures To Make Now | SLEEPERS, Player Props Picks & Predictions",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=1926s",
+        "source_timestamp": 1926
+      }
+    },
+    {
+      "item_id": "youtube-WbuAvbsVF_w__SF__mvp__YES____2000__2507",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "SF",
+      "market": "mvp",
+      "side": "YES",
+      "line": null,
+      "price": 2000,
+      "week": null,
+      "speaker": "Brandon Kravitz",
+      "rationale": "Brandon believes that if Purdy can win double-digit games and put up elite numbers with target additions like Mike Evans, he has massive value at 20-1 to win MVP.",
+      "supporting_quote": "I have Brock Purdy 20 to 1 to win MVP.",
+      "review_flags": [],
+      "reviewer_notes": "Andy decision 2026-07-29T03:59:26.056Z: confirmed true and elevated to local futures intel.",
+      "source": {
+        "episode_id": "youtube-WbuAvbsVF_w",
+        "episode_title": "Ranking the Top 20 NFL Quarterbacks for 2026! | The Favorites",
+        "show": "The Action Network: Sports Betting Picks & Tips",
+        "timestamp_url": "https://www.youtube.com/watch?v=WbuAvbsVF_w&t=2507s",
+        "source_timestamp": 2507
       }
     },
     {
@@ -243,6 +2885,29 @@
         "show": "BettingPros YouTube",
         "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=668s",
         "source_timestamp": 668
+      }
+    },
+    {
+      "item_id": "youtube-aOUy4-ZRzbE__TEN__division_winner__YES____850__205",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "TEN",
+      "market": "division_winner",
+      "side": "YES",
+      "line": null,
+      "price": 850,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Follows the worst-to-first trend with a second-year QB breakout (Cam Ward) and Brian Daboll running a system optimized for mobile quarterbacks.",
+      "supporting_quote": "I'm going to go with the Tennessee Titans to win the AFC South at +850.",
+      "review_flags": [],
+      "reviewer_notes": "Recovered 2026-07-29T03:39:12.040Z: exact semantic match to legacy human-reviewed promoted ledger at 95cca82 (youtube-aOUy4-ZRzbE__TEN__division_winner__YES____850__205); item_id timestamp drifted after reprocessing.",
+      "source": {
+        "episode_id": "youtube-aOUy4-ZRzbE",
+        "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+        "show": "BettingPros YouTube",
+        "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=205s",
+        "source_timestamp": 205
       }
     }
   ],

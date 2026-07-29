@@ -2,18 +2,25 @@
   "futures_candidates": 11,
   "observed_episodes": 11,
   "missing_observations": 0,
-  "total_extracted_picks": 40,
+  "total_extracted_picks": 66,
   "item_lane_counts": {
-    "futures_pick": 30,
-    "injury_intel": 4,
-    "non_futures_betting": 6
+    "fantasy_intel": 16,
+    "futures_pick": 51,
+    "injury_intel": 13,
+    "market_context": 4,
+    "matchup_analysis": 16,
+    "non_futures_betting": 10,
+    "roster_transaction_intel": 6,
+    "training_camp_intel": 3
   },
   "review_flag_counts": {
-    "duplicate_candidate": 2,
-    "missing_price": 7,
-    "non_futures_market": 7,
-    "price_not_in_quote": 20,
-    "suspicious_price_shape": 1
+    "duplicate_candidate": 6,
+    "invalid_team": 4,
+    "missing_price": 10,
+    "missing_win_total_line": 1,
+    "non_futures_market": 15,
+    "price_not_in_quote": 50,
+    "unclear_side": 4
   },
   "must_include": [
     {
@@ -27,14 +34,21 @@
       "item_lane": "futures_pick"
     },
     {
-      "team": "JAX",
-      "market": "game_line",
+      "team": "HOU",
+      "market": "moneyline",
       "item_lane": "non_futures_betting"
     },
     {
       "team": "DET",
       "market": "division_winner",
-      "price": 1500,
+      "price": 160,
+      "item_lane": "futures_pick"
+    },
+    {
+      "episode_id": "youtube-b9NL40Zogkw",
+      "team": "TEN",
+      "market": "win_total",
+      "side": "OVER",
       "item_lane": "futures_pick"
     }
   ]

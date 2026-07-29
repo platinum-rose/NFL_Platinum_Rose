@@ -1,0 +1,189 @@
+{
+  "generated_at": "2026-07-29T02:57:44.157Z",
+  "summary": {
+    "verdict": "NOT READY",
+    "counts": {
+      "PASS": 7,
+      "WARN": 7,
+      "FAIL": 3,
+      "INFO": 1
+    }
+  },
+  "checks": [
+    {
+      "area": "Repo",
+      "name": "Working tree",
+      "status": "WARN",
+      "details": "There are local changes; stage narrowly and avoid sweeping unrelated work.",
+      "evidence": {
+        "files": [
+          "M package.json",
+          "?? .nfl/readiness/",
+          "?? docs/SEASON_READINESS_SMOKE_TEST_LATEST.md",
+          "?? scripts/season-readiness-smoke.js"
+        ]
+      }
+    },
+    {
+      "area": "Scripts",
+      "name": "Season command surface",
+      "status": "PASS",
+      "details": "Expected build, test, data, official-picks, training-camp, and futures commands are present.",
+      "evidence": {}
+    },
+    {
+      "area": "Local Data",
+      "name": "2026 schedule",
+      "status": "PASS",
+      "details": "Public schedule has 272 regular-season games across 18 weeks with kickoff times.",
+      "evidence": {
+        "games": 272,
+        "weeks": 18
+      }
+    },
+    {
+      "area": "Local Data",
+      "name": "YouTube futures intel",
+      "status": "WARN",
+      "details": "Public intel summary is valid but thin; refresh/review before relying on it for season prep.",
+      "evidence": {
+        "exported_items": 3,
+        "generated_at": "2026-07-28T19:15:38.283Z"
+      }
+    },
+    {
+      "area": "Local Data",
+      "name": "Fantasy value board",
+      "status": "PASS",
+      "details": "Fantasy board is present with a draftable player pool.",
+      "evidence": {
+        "players": 200,
+        "no_projection": 45,
+        "generated_for": "2026-07-26"
+      }
+    },
+    {
+      "area": "Futures",
+      "name": "Latest portfolio report",
+      "status": "WARN",
+      "details": "Latest watchlist report exists, but validator flags remain; treat cards as review-only.",
+      "evidence": {
+        "file": ".nfl\\portfolio\\portfolio-2026-07-27-watchlist-v2.raw.json",
+        "watchlist_count": 6,
+        "candidates": 5,
+        "final_cards": 3,
+        "validator_flagged": 3,
+        "validator_killed": 2
+      }
+    },
+    {
+      "area": "Training Camp",
+      "name": "Local report",
+      "status": "PASS",
+      "details": "Training-camp report artifacts exist.",
+      "evidence": {
+        "files": [
+          ".nfl\\training-camp\\training-camp-intel-2026-07-24.html",
+          ".nfl\\training-camp\\training-camp-intel-2026-07-24.md"
+        ]
+      }
+    },
+    {
+      "area": "Training Camp",
+      "name": "RSS scout receipt",
+      "status": "PASS",
+      "details": "Latest scout receipt covers 32 teams, 10 with intel, 1 feed issue(s).",
+      "evidence": {
+        "file": ".nfl\\receipts\\training-camp-rss-scout-2026-07-27T01-54-30-053Z.json",
+        "live": true,
+        "written": false,
+        "item_count": 14,
+        "feed_issues": [
+          "Football Outsiders: fetch failed"
+        ]
+      }
+    },
+    {
+      "area": "Official Picks",
+      "name": "Active proposal draft",
+      "status": "WARN",
+      "details": "No active proposal drafts exist, so approve/reject cannot be end-to-end smoke-tested yet.",
+      "evidence": {}
+    },
+    {
+      "area": "Official Picks",
+      "name": "Migration 044",
+      "status": "WARN",
+      "details": "Official-picks migration exists locally; live application status still needs confirmation before production use.",
+      "evidence": {}
+    },
+    {
+      "area": "Known Gaps",
+      "name": "Bet-slip parsers",
+      "status": "WARN",
+      "details": "DraftKings/FanDuel slip parsing still needs a real implementation or verification.",
+      "evidence": {}
+    },
+    {
+      "area": "Known Gaps",
+      "name": "Props data source",
+      "status": "WARN",
+      "details": "Props tooling still appears to depend on stub/mock data, not a live prop source.",
+      "evidence": {}
+    },
+    {
+      "area": "Known Gaps",
+      "name": "Human approval guardrail",
+      "status": "INFO",
+      "details": "Smoke test does not approve picks, write Supabase, make paid model calls, or mutate open parlays.",
+      "evidence": {}
+    },
+    {
+      "area": "Local Services",
+      "name": "Dashboard dev server",
+      "status": "PASS",
+      "details": "http://127.0.0.1:5173/platinum-rose-app/ returned HTTP 200.",
+      "evidence": {
+        "url": "http://127.0.0.1:5173/platinum-rose-app/",
+        "http_status": 200
+      }
+    },
+    {
+      "area": "Local Services",
+      "name": "Dashboard public schedule asset",
+      "status": "FAIL",
+      "details": "http://127.0.0.1:5173/platinum-rose-app/schedule.json was not reachable (timeout).",
+      "evidence": {
+        "url": "http://127.0.0.1:5173/platinum-rose-app/schedule.json"
+      }
+    },
+    {
+      "area": "Local Services",
+      "name": "Dashboard YouTube intel asset",
+      "status": "FAIL",
+      "details": "http://127.0.0.1:5173/platinum-rose-app/youtube-futures-agent-intel-summary.json was not reachable (timeout).",
+      "evidence": {
+        "url": "http://127.0.0.1:5173/platinum-rose-app/youtube-futures-agent-intel-summary.json"
+      }
+    },
+    {
+      "area": "Local Services",
+      "name": "Official picks inbox",
+      "status": "PASS",
+      "details": "http://127.0.0.1:8787/api/inbox returned HTTP 200.",
+      "evidence": {
+        "url": "http://127.0.0.1:8787/api/inbox",
+        "http_status": 200
+      }
+    },
+    {
+      "area": "Local Services",
+      "name": "M6 podcast health",
+      "status": "FAIL",
+      "details": "http://127.0.0.1:5060/health was not reachable (fetch failed).",
+      "evidence": {
+        "url": "http://127.0.0.1:5060/health"
+      }
+    }
+  ]
+}

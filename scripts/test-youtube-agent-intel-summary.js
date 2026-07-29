@@ -21,12 +21,12 @@ execFileSync(process.execPath, ['scripts/build-youtube-futures-agent-intel-summa
 
 const summary = readJson(SUMMARY_PATH);
 assert(summary.status === 'local_agent_intel_summary_only', 'summary status should remain local-only');
-assert(summary.exported_items === 39, `expected 39 promoted items; got ${summary.exported_items}`);
+assert(summary.exported_items === 45, `expected 45 promoted items; got ${summary.exported_items}`);
 assert(summary.rejected_leak_checks.det_division_winner_plus_1500 === 0, 'bad Lions row leaked through rejection check');
 assert(!summary.items.some(item => item.team === 'DET' && item.market === 'division_winner' && Number(item.price) === 1500), 'bad Lions item present in summary items');
-assert(summary.counts.by_lane.futures_pick === 29, 'expected 29 futures pick items');
-assert(summary.counts.by_lane.injury_intel === 4, 'expected 4 injury intel items');
-assert(summary.counts.by_lane.non_futures_betting === 6, 'expected 6 non-futures betting items');
+assert(summary.counts.by_lane.futures_pick === 45, 'expected 45 futures pick items');
+assert(!summary.items.some(item => item.team === 'TEN' && item.market === 'win_total' && item.side === 'OVER'), 'fabricated TEN win-total item present in summary items');
+assert(summary.items.some(item => item.team === 'DET' && item.market === 'division_winner' && Number(item.price) === 160), 'expected verified Lions division winner item');
 assert(summary.by_team.some(group => group.team === 'LAC'), 'expected Chargers intel group');
 assert(summary.by_market.some(group => group.market === 'division_winner'), 'expected division winner market group');
 

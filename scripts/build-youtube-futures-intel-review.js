@@ -251,9 +251,9 @@ function classifyPick(pick) {
   const text = `${pick.episode_title || ''} ${pick.market || ''} ${pick.rationale || ''}`.toLowerCase();
   if (SURVIVOR_PICKEM_MARKETS.has(pick.market)) return 'survivor_pickem_pick';
   if (NON_FUTURES_BETTING_MARKETS.has(pick.market)) return 'non_futures_betting';
+  if (FUTURES_MARKETS.has(pick.market)) return 'futures_pick';
   if (text.includes('injury') || text.includes('acl') || text.includes('achilles') || text.includes('ligament') || pick.market === 'player_decision') return 'injury_intel';
   if (text.includes('training camp') || text.includes('camp') || text.includes('sic score')) return 'training_camp_intel';
-  if (FUTURES_MARKETS.has(pick.market)) return 'futures_pick';
   return 'market_context';
 }
 
@@ -272,9 +272,25 @@ function classifyNote(note) {
 }
 
 function defaultReviewStatus(pick) {
+  if (isRejectedDispute(pick.disputed)) return 'reject';
+  if (pick.human_verification?.verified) {
+    return pick.item_lane === 'futures_pick' ? 'promote_to_local_intel' : 'context_only';
+  }
   if (pick.review_flags.includes('non_futures_market')) return 'context_only';
   if (pick.review_flags.length > 0) return 'needs_review';
   return 'pending_review';
+}
+
+function isRejectedDispute(disputed) {
+  if (!disputed || disputed.resolved !== true) return false;
+  const text = [disputed.status, disputed.reason, disputed.action]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase();
+  return text.includes('reject')
+    || text.includes('inaccurate')
+    || text.includes('fabricat')
+    || text.includes('out of scope');
 }
 
 function reviewFlags(pick) {
@@ -314,6 +330,7 @@ function loadObservation(candidate) {
   return {
     candidate,
     observation,
+    humanVerification: observation.human_verification || null,
     picks,
     notes,
     obsPath
@@ -337,9 +354,12 @@ function writeReviewStatus(existing, picks, notes) {
 
   const pickItems = picks.map(pick => {
     const prior = existingById.get(pick.item_id) || {};
-    const status = prior.status && prior.status !== 'pending_review'
-      ? prior.status
-      : defaultReviewStatus(pick);
+    const derivedStatus = defaultReviewStatus(pick);
+    const status = (pick.human_verification?.verified || isRejectedDispute(pick.disputed))
+      ? derivedStatus
+      : prior.status && prior.status !== 'pending_review'
+        ? prior.status
+        : derivedStatus;
     return {
       item_id: pick.item_id,
       item_type: 'pick',
@@ -356,6 +376,10 @@ function writeReviewStatus(existing, picks, notes) {
       source_timestamp: pick.source_timestamp,
       review_flags: pick.review_flags,
       supporting_quote: pick.supporting_quote || '',
+      human_verification: pick.human_verification || null,
+      disputed: pick.disputed || null,
+      legacy_review_match: prior.legacy_review_match || pick.legacy_review_match || null,
+      human_review_decision: prior.human_review_decision || pick.human_review_decision || null,
       reviewer_notes: prior.reviewer_notes || '',
       updated_at: prior.updated_at || null
     };
@@ -418,6 +442,7 @@ for (const row of rows) {
       episode_title: row.candidate.title,
       show: row.candidate.show,
       video_url: row.candidate.url,
+      human_verification: row.humanVerification,
       timestamp_url: youtubeTimestamp(row.candidate.url, pick.source_timestamp),
       ...pick,
       supporting_quote: supportingQuote?.quote || '',
