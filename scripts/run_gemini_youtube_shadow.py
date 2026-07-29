@@ -29,6 +29,47 @@ MODEL_NAME = "gemini-3.5-flash"
 
 
 def build_prompt(meta):
+    duration_seconds = meta.get("duration_seconds")
+    if duration_seconds:
+        duration_minutes = round(duration_seconds / 60, 1)
+        duration_line = (
+            f"Runtime: this video is {duration_seconds} seconds long "
+            f"(~{duration_minutes} minutes), start to finish."
+        )
+        duration_enforcement = f"""
+11. FULL-DURATION COVERAGE IS MANDATORY. This video runs {duration_seconds}
+    seconds (~{duration_minutes} minutes). Your "speaker_segments" MUST extend
+    contiguously in time all the way to the end of the video — the final
+    segment's "end" value should land within roughly 60 seconds of
+    {duration_seconds}. Likewise, keep listening and extracting
+    "extracted_picks" / "analysis_notes" for the ENTIRE runtime, not just the
+    opening portion. Do NOT stop early because the early segments already
+    contained substantial content, and do NOT stop early because you believe
+    you have "enough" — a partial transcript of a long episode is a failure
+    even if what you captured is accurate. If the video continues, keep
+    analyzing until you actually reach the end.
+12. Self-report your own coverage. Include a top-level "coverage_check" object:
+    {{ "video_duration_seconds": {duration_seconds}, "last_analyzed_timestamp": <int, the timestamp of the last thing you actually analyzed>, "reached_end_of_video": <true/false, be honest — false if you stopped before the video ended for any reason> }}.
+"""
+    else:
+        duration_line = (
+            "Runtime: not provided in advance — determine it yourself from the "
+            "video and keep analyzing all the way to the actual end; do not "
+            "assume the episode is over just because the discussion reaches a "
+            "natural-sounding pause."
+        )
+        duration_enforcement = """
+11. FULL-DURATION COVERAGE IS MANDATORY even though an exact runtime wasn't
+    given to you. Keep extracting "speaker_segments" / "extracted_picks" /
+    "analysis_notes" contiguously until you reach the actual end of the video
+    file — never stop early because the early portion already contained
+    substantial content, and never stop just because you believe you've
+    captured "enough". A partial transcript of a long episode is a failure
+    even when what you did capture is accurate.
+12. Self-report your own coverage. Include a top-level "coverage_check" object:
+    { "video_duration_seconds": <your own best estimate of the video's total length in seconds>, "last_analyzed_timestamp": <int, the timestamp of the last thing you actually analyzed>, "reached_end_of_video": <true/false, be honest — false if you stopped before the video ended for any reason> }.
+"""
+
     return f"""
 You are an expert NFL betting analyst and podcast video transcription/extraction engine.
 
@@ -38,6 +79,7 @@ Episode metadata:
 Title: {meta.get("title", "NFL Podcast")}
 Show: {meta.get("show", "Podcast")}
 Date: {meta.get("date", "2026")}
+{duration_line}
 
 Task:
 1. Transcribe and summarize the betting-relevant sections.
@@ -63,16 +105,34 @@ Task:
 10. When a pick or lean is tied to a specific NFL week, set "week" to that week
     number (integer, e.g. 5). Use null when no specific week applies (e.g. a
     season-long futures pick).
-
+11. PLAYER-AWARD MARKETS MUST NAME THE PLAYER. For any pick whose market is
+    "mvp", "opoy", "dpoy", "oroy", "droy", or "comeback_player_of_the_year",
+    the pick is fundamentally about a PERSON, not a team — "team" alone
+    (e.g. "NE" for a Patriots MVP pick) is not enough to identify who was
+    actually picked. Always include a "player" field with the player's full
+    name for these six markets. Use null for "player" on every other market
+    where there is no individual player being picked (win_total,
+    division_winner, spread, etc.) — don't force a player name where the pick
+    is genuinely team-level. Found necessary 2026-07-28: the original schema
+    had no "player" slot at all, so player-award picks could only be
+    identified by team code, with the player's name sometimes surviving only
+    inside free-text "rationale" and sometimes not captured anywhere.
+{duration_enforcement}
 Return ONLY a JSON object with this exact structure:
 {{
   "transcript_summary": "Brief 2-sentence summary of the episode",
+  "coverage_check": {{
+    "video_duration_seconds": {duration_seconds if duration_seconds else "null"},
+    "last_analyzed_timestamp": 0,
+    "reached_end_of_video": false
+  }},
   "speaker_segments": [
     {{ "start": 0.0, "end": 15.0, "speaker": "Chad Millman", "text": "sample text" }}
   ],
   "extracted_picks": [
     {{
       "team": "BUF",
+      "player": null,
       "market": "win_total",
       "side": "OVER",
       "line": 10.5,
@@ -84,6 +144,7 @@ Return ONLY a JSON object with this exact structure:
     }},
     {{
       "team": "KC",
+      "player": null,
       "market": "survivor_pick",
       "side": null,
       "line": null,
@@ -92,6 +153,18 @@ Return ONLY a JSON object with this exact structure:
       "speaker": "Chad Millman",
       "source_timestamp": 812,
       "rationale": "Easiest matchup on the board this week, safe survivor call."
+    }},
+    {{
+      "team": "KC",
+      "player": "Patrick Mahomes",
+      "market": "mvp",
+      "side": "YES",
+      "line": null,
+      "price": 450,
+      "week": null,
+      "speaker": "Chad Millman",
+      "source_timestamp": 900,
+      "rationale": "Best supporting cast of his career; MVP is squarely in play."
     }}
   ],
   "analysis_notes": [
@@ -154,6 +227,7 @@ def extract_youtube(url, meta):
     cost_usd = round(((input_tokens / 1_000_000) * 0.10) + ((output_tokens / 1_000_000) * 0.40), 6)
 
     parsed_json = parse_model_json(response_text)
+    coverage = assess_coverage(parsed_json, meta.get("duration_seconds"))
 
     return {
         "model": MODEL_NAME,
@@ -165,7 +239,77 @@ def extract_youtube(url, meta):
         "output_tokens": output_tokens,
         "raw_model_response": response_text,
         "parsed_json": parsed_json,
+        "coverage_assessment": coverage,
     }
+
+
+def assess_coverage(parsed_json, duration_seconds_hint):
+    """Best-effort, code-side sanity check for the under-extraction failure mode
+    found 2026-07-28 (model stops analyzing a long video well before its real
+    end, without any indication in the returned JSON that anything is wrong).
+    Does not trust the model's self-reported "coverage_check" alone -- also
+    cross-checks against the last speaker_segment / pick / note timestamp, since
+    a model that stopped early may also under-report its own stopping point.
+    Returns a dict with a human-readable "suspected_incomplete" bool and the
+    evidence behind it; never raises.
+    """
+    if not isinstance(parsed_json, dict):
+        return {"suspected_incomplete": None, "reason": "response did not parse as JSON"}
+
+    segs = parsed_json.get("speaker_segments") or []
+    picks = parsed_json.get("extracted_picks") or []
+    notes = parsed_json.get("analysis_notes") or []
+
+    last_seg_end = 0
+    for s in segs:
+        end = s.get("end", s.get("stop", 0)) or 0
+        try:
+            last_seg_end = max(last_seg_end, float(end))
+        except (TypeError, ValueError):
+            continue
+
+    last_item_ts = last_seg_end
+    for item in picks + notes:
+        ts = item.get("source_timestamp") or 0
+        try:
+            last_item_ts = max(last_item_ts, float(ts))
+        except (TypeError, ValueError):
+            continue
+
+    coverage_check = parsed_json.get("coverage_check") or {}
+    self_reported_duration = coverage_check.get("video_duration_seconds")
+    self_reported_reached_end = coverage_check.get("reached_end_of_video")
+
+    duration_estimate = duration_seconds_hint or self_reported_duration
+    result = {
+        "last_covered_timestamp": last_item_ts,
+        "self_reported_reached_end": self_reported_reached_end,
+        "duration_used_for_check": duration_estimate,
+        "suspected_incomplete": None,
+        "reason": None,
+    }
+
+    if self_reported_reached_end is False:
+        result["suspected_incomplete"] = True
+        result["reason"] = "model explicitly self-reported reached_end_of_video=false"
+        return result
+
+    if duration_estimate:
+        coverage_ratio = last_item_ts / duration_estimate if duration_estimate else 0
+        result["coverage_ratio"] = round(coverage_ratio, 3)
+        if coverage_ratio < 0.85:
+            result["suspected_incomplete"] = True
+            result["reason"] = (
+                f"last covered timestamp ({last_item_ts:.0f}s) is only "
+                f"{coverage_ratio:.0%} of the known/estimated duration "
+                f"({duration_estimate:.0f}s)"
+            )
+            return result
+        result["suspected_incomplete"] = False
+        return result
+
+    result["reason"] = "no duration hint provided and model did not self-report one; cannot check"
+    return result
 
 
 def parse_model_json(response_text):
@@ -195,12 +339,26 @@ def main():
     parser.add_argument("--episode-title", default="NFL Podcast", help="Episode title")
     parser.add_argument("--show", default="Podcast", help="Show name")
     parser.add_argument("--date", default="2026", help="Episode date")
+    parser.add_argument(
+        "--duration-seconds",
+        type=int,
+        default=None,
+        help=(
+            "The video's actual runtime in seconds, if known (e.g. from the "
+            "YouTube player). Strongly recommended for episodes over ~15 "
+            "minutes -- passing this lets the model enforce full-duration "
+            "coverage and lets this script auto-detect early stopping. "
+            "Added 2026-07-28 after confirming the model can silently stop "
+            "analyzing a long episode a fraction of the way through."
+        ),
+    )
     args = parser.parse_args()
 
     meta = {
         "title": args.episode_title,
         "show": args.show,
         "date": args.date,
+        "duration_seconds": args.duration_seconds,
     }
 
     try:
@@ -208,6 +366,15 @@ def main():
     except Exception as exc:
         print(json.dumps({"error": str(exc), "mode": "youtube_video_url", "model": MODEL_NAME}))
         sys.exit(1)
+
+    coverage = result.get("coverage_assessment") or {}
+    if coverage.get("suspected_incomplete"):
+        print(
+            f"WARNING: suspected incomplete extraction -- {coverage.get('reason')}. "
+            f"Re-run may be needed; consider passing --duration-seconds explicitly "
+            f"if you didn't already.",
+            file=sys.stderr,
+        )
 
     print(json.dumps(result, indent=2))
 

@@ -1110,6 +1110,133 @@ export async function getExpertHistory({ expert, weeksBack = 8, limit = 100 } = 
   };
 }
 
+// ─── Phase 5 (podcast Gemini intel, production) ───────────────────────────────
+// Minimal local copies of classifyPick/classifyNote from scripts/lib/gemini-
+// pick-normalize.js — not imported directly, since src/ is a browser bundle
+// and scripts/ is a Node-only tree. Keep in sync manually if the canonical
+// taxonomy in that file changes (same tradeoff already accepted for the 3
+// existing server-side mirrors flagged in docs/PODCAST_HOLISTIC_INTEL_
+// EXTRACTION_PLAN.md's Phase 4 quality-read fixes).
+const GEMINI_FUTURES_MARKETS = new Set([
+  'win_total', 'make_playoffs', 'division_winner', 'conference_winner', 'conference_no_1_seed',
+  'super_bowl_winner', 'mvp', 'opoy', 'dpoy', 'oroy', 'droy', 'coach_of_the_year', 'no_1_overall_pick',
+  'comeback_player_of_the_year', 'fewest_wins', 'interceptions_leader', 'rushing_tds_leader',
+  'season_receiving_yards', 'season_passing_yards', 'season_passing_tds', 'season_rushing_tds',
+]);
+const GEMINI_NON_FUTURES_MARKETS = new Set(['spread', 'game_line', 'moneyline', 'total', 'player_prop', 'player_receiving_yds']);
+const GEMINI_SURVIVOR_PICKEM_MARKETS = new Set(['survivor_pick', 'pickem_pick']);
+const GEMINI_NOTE_TYPE_TAG_MAP = {
+  team_evaluation: ['matchup_analysis'], player_evaluation: ['fantasy_intel'],
+  injury_or_health: ['injury_intel'], roster_or_depth_chart: ['roster_transaction_intel'],
+  coaching_or_scheme: ['matchup_analysis'], matchup_analysis: ['matchup_analysis'],
+  schedule_context: ['market_context'], fantasy_relevance: ['fantasy_intel'],
+  market_sentiment: ['market_context'], other: ['market_context'],
+};
+
+function classifyGeminiPick(pick) {
+  if (GEMINI_SURVIVOR_PICKEM_MARKETS.has(pick.market)) return 'survivor_pickem_pick';
+  if (GEMINI_NON_FUTURES_MARKETS.has(pick.market)) return 'non_futures_betting';
+  const text = String(pick.rationale || '').toLowerCase();
+  if (text.includes('injury') || text.includes('acl') || text.includes('achilles') || text.includes('ligament')) return 'injury_intel';
+  if (text.includes('training camp') || text.includes('camp')) return 'training_camp_intel';
+  if (GEMINI_FUTURES_MARKETS.has(pick.market)) return 'futures_pick';
+  return 'market_context';
+}
+
+function classifyGeminiNote(note) {
+  const tags = new Set(GEMINI_NOTE_TYPE_TAG_MAP[note.note_type] || ['market_context']);
+  const text = `${note.topic || ''} ${note.summary || ''} ${note.quote || ''}`.toLowerCase();
+  if (text.includes('injury') || text.includes('acl') || text.includes('achilles') || text.includes('ligament')) tags.add('injury_intel');
+  if (text.includes('training camp') || text.includes('camp')) tags.add('training_camp_intel');
+  if (text.includes('fantasy') || text.includes('target share') || text.includes('breakout') || text.includes('bust') || text.includes('waiver')) tags.add('fantasy_intel');
+  if (text.includes('trade') || text.includes('depth chart') || text.includes('coaching staff')) tags.add('roster_transaction_intel');
+  if (text.includes('survivor') || text.includes('pickem') || text.includes("pick'em")) tags.add('survivor_pickem_intel');
+  return Array.from(tags);
+}
+
+/**
+ * Flatten promoted podcast_gemini_intel rows into pick/note items matching
+ * the same shape the local shadow-harness JSON summary produces (item_type,
+ * item_lane / relevance_tags, episode_id, episode_title, ...) so
+ * get_youtube_futures_intel's existing team/market/lane filters keep working
+ * unchanged. Only promoted_at IS NOT NULL rows are ever returned — this is
+ * the real production review gate (migration 045), not the local-only
+ * bookkeeping file the shadow-harness pipeline still uses in parallel.
+ */
+async function _flattenGeminiIntel({ limit = 200 } = {}) {
+  if (!isAvailable()) return [];
+  try {
+    const { data, error } = await withQueryTimeout(
+      supabase
+        .from('podcast_gemini_intel')
+        .select(`
+          episode_id, model, picks, analysis_notes, promoted_at, created_at,
+          podcast_episodes ( title, pub_date )
+        `)
+        .not('promoted_at', 'is', null)
+        .order('created_at', { ascending: false })
+        .limit(limit)
+    );
+    if (error || !Array.isArray(data)) return [];
+    const items = [];
+    for (const row of data) {
+      const ep = Array.isArray(row.podcast_episodes) ? row.podcast_episodes[0] : row.podcast_episodes;
+      const episodeTitle = ep?.title || '';
+      for (const pick of (row.picks || [])) {
+        items.push({
+          item_type: 'pick',
+          item_lane: classifyGeminiPick(pick),
+          episode_id: row.episode_id,
+          episode_title: episodeTitle,
+          team: pick.team, market: pick.market, side: pick.side, line: pick.line,
+          price: pick.price, week: pick.week ?? null,
+          source_timestamp: pick.source_timestamp, supporting_quote: pick.rationale || '',
+          review_flags: [],
+        });
+      }
+      for (const note of (row.analysis_notes || [])) {
+        items.push({
+          item_type: 'note',
+          relevance_tags: classifyGeminiNote(note),
+          episode_id: row.episode_id,
+          episode_title: episodeTitle,
+          note_type: note.note_type, teams: note.teams || [], players: note.players || [],
+          topic: note.topic, summary: note.summary, speaker: note.speaker,
+          source_timestamp: note.source_timestamp, quote: note.quote, confidence: note.confidence,
+          review_flags: [],
+        });
+      }
+    }
+    return items;
+  } catch (e) {
+    logger.warn('[supabase] _flattenGeminiIntel failed:', e.message);
+    return [];
+  }
+}
+
+/**
+ * Team/market/lane-filtered podcast Gemini intel (picks + analysis notes),
+ * production-promoted only. Tool: `get_youtube_futures_intel` (Phase 5 —
+ * replaces that tool's prior local-JSON-only data source).
+ * @param {{ team?: string, market?: string, lane?: string, limit?: number }} opts
+ */
+export async function getPodcastGeminiIntel({ team, market, lane, limit = 25 } = {}) {
+  let items = await _flattenGeminiIntel({ limit: 200 });
+  if (team && team.trim()) {
+    const q = team.trim().toUpperCase();
+    items = items.filter(i => (i.item_type === 'note' ? (i.teams || []).map(t => String(t).toUpperCase()).includes(q) : (i.team || '').toUpperCase() === q));
+  }
+  if (market && market.trim()) {
+    const q = market.trim().toLowerCase();
+    items = items.filter(i => i.item_type !== 'note' && (i.market || '').toLowerCase() === q);
+  }
+  if (lane && lane.trim()) {
+    const q = lane.trim().toLowerCase();
+    items = items.filter(i => (i.item_type === 'note' ? (i.relevance_tags || []).map(t => String(t).toLowerCase()).includes(q) : (i.item_lane || '').toLowerCase() === q));
+  }
+  return items.slice(0, limit);
+}
+
 /**
  * Picks for and against a given team across recent episodes.
  * Tool: `get_team_podcast_intel`.

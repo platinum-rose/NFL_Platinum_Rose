@@ -38,6 +38,7 @@ import {
   getRosterHistory,
   getGameOddsForWeek,
   getGameSplitsHistory,
+  getPodcastGeminiIntel,
 } from './supabase.js';
 import { readVaultNote, writeVaultNote, listVaultNotes, todaySessionPath } from './vaultClient.js';
 import {
@@ -166,7 +167,7 @@ export const PODCAST_INTEL_TOOLS = [
   },
   {
     name: 'get_youtube_futures_intel',
-    description: 'Local-only, human-reviewed YouTube/Gemini podcast intel research context (S300-S317 pipeline). Distinct from search_podcast_picks: this reads a local JSON file (data/shadow-harness/review/youtube-futures-agent-intel-summary.json, synced to public/), not Supabase. Returns two item shapes: explicit picks/leans (item_type: "pick", single "lane") and non-pick analysis commentary (item_type: "note", one or more "relevance_tags" — e.g. a role-expansion note can be both fantasy_intel and matchup_analysis). Every item carries source episode/timestamp and review_flags (e.g. "price_not_in_quote", "thin_summary") — always surface review_flags when citing an item, and never present this as an official pick, production recommendation, or Supabase-backed source. "team" matches a pick’s team or any of a note’s teams; "market" only applies to picks (notes are excluded when market is set); "lane" matches a pick’s lane or any of a note’s relevance_tags. Use for team/market/lane-filtered research context alongside podcast/Supabase tools, not in place of them.',
+    description: 'Production Gemini video-extraction podcast intel (Phase 5, podcast_gemini_intel table). Gemini reads podcast YouTube videos directly and extracts both explicit picks/leans (item_type: "pick", single "lane") and non-pick analysis commentary (item_type: "note", one or more "relevance_tags" — e.g. a role-expansion note can be both fantasy_intel and matchup_analysis). Every returned row has passed the production review gate (promoted_at set by a human reviewer via agents/podcast-gemini-intel.js --promote) — unpromoted extractions are never returned by this tool. Distinct from search_podcast_picks (the GPT-4o/AssemblyAI transcript pipeline, agents/podcast-ingest.js) — this is a separate, parallel-running extraction model; the two are not yet reconciled/deduped against each other, so the same real-world pick may appear from both tools independently. "team" matches a pick’s team or any of a note’s teams; "market" only applies to picks (notes are excluded when market is set); "lane" matches a pick’s lane or any of a note’s relevance_tags. Still not an official pick ledger or parlay mutation — use alongside other podcast/Supabase tools for corroboration, not as sole source.',
     input_schema: {
       type: 'object',
       properties: {
@@ -1712,77 +1713,45 @@ async function toolSearchEpisodeVaultNotes({ show, episode, limit = 20 } = {}) {
   };
 }
 
-// ─── S301: Local YouTube/Gemini agent intel summary ──────────────────────────
+// ─── Phase 5: production YouTube/Gemini podcast intel (Supabase-backed) ──────
 
 /**
  * get_youtube_futures_intel
- * Reads the local, human-reviewed YouTube/Gemini podcast intel summary
- * (data/shadow-harness/review/youtube-futures-agent-intel-summary.json,
- * synced to public/ by scripts/build-youtube-futures-agent-intel-summary.js)
- * and returns team/market/lane-filtered items.
+ * Queries podcast_gemini_intel (Supabase, migration 045) via
+ * getPodcastGeminiIntel, filtered to promoted_at IS NOT NULL — i.e. rows a
+ * human has already reviewed and promoted via
+ * `node agents/podcast-gemini-intel.js --promote`. This replaced the S300-
+ * S317-era local JSON snapshot (data/shadow-harness/review/youtube-futures-
+ * agent-intel-summary.json) as this tool's data source once the Phase 5
+ * production review gate shipped; the local shadow-harness pipeline itself
+ * (scripts/gemini-podcast-shadow-harness.js and friends) keeps running in
+ * parallel as a separate research/bench-scoring track, per Decision 8 of
+ * docs/PODCAST_HOLISTIC_INTEL_EXTRACTION_PLAN.md.
  *
- * Merges two item shapes from the summary file: picks (item_type: 'pick',
- * single item.lane) and analysis notes (item_type: 'note', item.teams[] +
- * item.relevance_tags[] since a note can matter to more than one consumer).
- * The `lane` filter matches a pick's lane OR any tag in a note's
- * relevance_tags. The `market` filter only applies to picks (notes have no
- * market concept, so they're excluded whenever market is set).
- *
- * This is local-only research context: no Supabase, no live API call, no
- * production recommendation. review_flags (e.g. "price_not_in_quote",
- * "thin_summary") must be preserved and surfaced by the caller — never
- * silently dropped.
+ * Merges two item shapes: picks (item_type: 'pick', single item.item_lane)
+ * and analysis notes (item_type: 'note', item.teams[] + item.relevance_tags[]
+ * since a note can matter to more than one consumer). The `lane` filter
+ * matches a pick's lane OR any tag in a note's relevance_tags. The `market`
+ * filter only applies to picks (notes have no market concept, so they're
+ * excluded whenever market is set).
  */
 export async function toolGetYoutubeFuturesIntel({ team, market, lane, limit = 25 } = {}) {
-  let summary = null;
-  try {
-    const resp = await fetch(LOCAL_DATA.YOUTUBE_FUTURES_INTEL);
-    if (resp.ok) summary = await resp.json();
-  } catch { /* non-fatal — fall through to no_data below */ }
+  const items = await getPodcastGeminiIntel({ team, market, lane, limit });
 
-  const hasPicks = summary && Array.isArray(summary.items) && summary.items.length > 0;
-  const hasNotes = summary && Array.isArray(summary.notes) && summary.notes.length > 0;
-  if (!summary || (!hasPicks && !hasNotes)) {
+  if (!items.length) {
     return {
       status: 'no_data',
-      message: 'No local YouTube futures intel summary found. Run npm.cmd run youtube:agent-intel-summary to (re)generate it.',
+      message: 'No promoted podcast_gemini_intel rows match this filter. Run node agents/podcast-gemini-intel.js --review to see what is pending promotion.',
       items: [],
     };
   }
 
-  let items = [...(summary.items || []), ...(summary.notes || [])];
-
-  if (team && team.trim()) {
-    const q = team.trim().toUpperCase();
-    items = items.filter(i => (
-      i.item_type === 'note'
-        ? (i.teams || []).map(t => String(t).toUpperCase()).includes(q)
-        : (i.team || '').toUpperCase() === q
-    ));
-  }
-  if (market && market.trim()) {
-    // Notes have no market concept — market filtering only ever matches picks.
-    const q = market.trim().toLowerCase();
-    items = items.filter(i => i.item_type !== 'note' && (i.market || '').toLowerCase() === q);
-  }
-  if (lane && lane.trim()) {
-    const q = lane.trim().toLowerCase();
-    items = items.filter(i => (
-      i.item_type === 'note'
-        ? (i.relevance_tags || []).map(t => String(t).toLowerCase()).includes(q)
-        : (i.lane || '').toLowerCase() === q
-    ));
-  }
-
-  const capped = items.slice(0, limit);
-
   return {
-    status: capped.length > 0 ? 'ok' : 'no_data',
-    guardrail: summary.guardrail || 'Reviewed local podcast intel for agent context only. This is not an official pick ledger, production recommendation, Supabase write, or parlay mutation.',
-    generated_at: summary.generated_at,
+    status: 'ok',
+    guardrail: 'Production Gemini podcast extraction, promoted via human review (agents/podcast-gemini-intel.js --promote). Not yet reconciled against the GPT-4o/AssemblyAI pipeline (search_podcast_picks) — corroborate before treating as sole source. Not an official pick ledger or parlay mutation.',
     total_matched: items.length,
-    returned: capped.length,
-    items: capped,
+    returned: items.length,
+    items,
   };
 }
 

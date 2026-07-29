@@ -136,3 +136,148 @@
   is no single "standard" for IDP/kicker scoring the way PPR is standard for offense, so this
   needs per-league configurable weights (ideally sourced from Yahoo's league-settings API once
   access is approved), not a hardcoded default.
+
+## S314 — 2026-07-28: Podcast intel verification pass (Gemini extraction pipeline)
+
+### Two more distinct bugs found in `scripts/gemini-podcast-shadow-harness.js`'s `normalizeSide`, on top of the S304-era bare-`'N'`-token fix
+- **Full-duration coverage gap:** the model can silently stop analyzing a long episode a fraction
+  of the way through and return a normal-looking, validly-parsed JSON response as if it were
+  complete — nothing in the original prompt told it the video's real runtime or forbade stopping
+  early, and nothing downstream checked whether the last extracted timestamp was anywhere near the
+  video's actual end. Found on 3 of 13 real episodes (confirmed live by Andy on one, corroborated
+  by token-usage-vs-coverage analysis on the other two). **Fix:** `scripts/run_gemini_youtube_shadow.py`'s
+  prompt now accepts an optional `--duration-seconds` and, when given, hard-requires the model to
+  cover the full runtime and self-report a `coverage_check` object (`last_analyzed_timestamp`,
+  `reached_end_of_video`); a new `assess_coverage()` cross-checks that self-report against the
+  actual last-covered timestamp rather than trusting it blindly (catches the model claiming
+  `reached_end_of_video: true` when the ratio says otherwise). All 3 affected episodes reprocessed
+  2026-07-28 with 100% coverage confirmed both ways.
+- **Null-side hard-lock:** a second, separate defect in the same file's `normalizeSide` —
+  `if (!raw) return 'UNKNOWN';` short-circuited BEFORE the yesNoMarket UNKNOWN→YES resolution logic
+  ever ran, so every null/missing side on a division_winner/mvp/etc. pick was permanently stuck as
+  the literal string "UNKNOWN" instead of resolving to "YES". The two sibling copies
+  (`scripts/youtube-podcast-sweep.js`, `scripts/build-youtube-futures-intel-review.js`) did NOT
+  have this specific defect — only this one file did, which is exactly the "3 hand-mirrored
+  copies drift independently" risk this project has hit before. 6 of 9 freshly-reprocessed picks
+  on one episode were affected; fixed and re-derived from the already-stored raw Gemini response,
+  no new API calls needed.
+- **Practical note for reprocessing a single episode manually:** `--episode <slug>` becomes the
+  literal output filename (`<slug>-shadow-youtube.json`) when the episode isn't already in
+  `docs/antigravity/GEMINI_SHADOW_YOUTUBE_QUEUE.md`. Using the same placeholder slug (e.g.
+  `--episode manual`) across multiple runs silently overwrites the previous run's output —
+  always pass the real target slug (matching the existing `youtube-<video_id>` filename) per run.
+
+### CLI redirection gotcha
+- Never paste literal placeholder tokens like `<secs>` into a command meant for the user to run —
+  PowerShell (and bash) both interpret a bare `<` as redirection and error out
+  (`RedirectionNotSupported` in PowerShell). Use a plain word like `PUT_SECONDS_HERE` instead, or
+  fill in a real example value.
+
+### Human verification tracking
+- Added a `human_verification` block (top-level, sibling to `run`) to shadow-harness observation
+  files as the durable "Andy manually confirmed this against source audio" marker —
+  `verified`/`verified_by`/`verified_date`/`method`/`result`/`known_caveat`/`do_not_reverify`.
+  Applied so far (2026-07-28), 3 episodes fully verified accurate:
+  - `2026-03-03-sharp-or-square-early-2026-nfl-season-win-totals-part-1` — all 22 picks confirmed;
+    known ~4min timestamp-label drift from the 49ers pick onward doesn't affect pick content.
+  - `2026-07-21-sharp-or-square-nfl-training-camp-questions-with-ben-solak-of-espn` — all 4 picks
+    confirmed, no caveats.
+  - `youtube-4OxpAX6UJlM` — all 9 picks confirmed, after the coverage/side/player-name fixes below.
+  - 10 of 13 real episodes remain unverified.
+
+### extracted_picks schema had no field for the individual player on player-specific markets
+- The original schema only had `team` on a pick — fine for team-level markets (win_total,
+  division_winner, etc.), but wrong for the twelve markets that are fundamentally about a person:
+  `mvp`, `opoy`, `dpoy`, `oroy`, `droy`, `comeback_player_of_the_year`, and the six individual
+  stat-leader/prop markets (`interceptions_leader`, `rushing_tds_leader`,
+  `season_receiving_yards`, `season_passing_yards`, `season_passing_tds`, `season_rushing_tds`).
+  Andy caught this twice: an MVP pick showing only "NE" instead of Drake Maye, and a
+  `season_rushing_tds` pick on team "NYG" that was actually about QB Jaxson Dart specifically —
+  the team code alone silently obscured which quarterback the pick was even about.
+- **Fix:** `scripts/run_gemini_youtube_shadow.py`'s prompt now requires a `player` field
+  (nullable, only populated for these 12 markets) with an explicit example in the schema.
+  `gemini-podcast-shadow-harness.js::normalizePick` updated to carry it through (its sibling
+  copies in `youtube-podcast-sweep.js` / `build-youtube-futures-intel-review.js` already used
+  object-spread and needed no change). Existing data backfilled where the name was already
+  present in that episode's own extracted data (rationale text or a cross-referenced
+  analysis_notes entry) — 28 affected picks across 13 episodes, 16 backfilled, 12 explicitly
+  flagged `player: null` with a `player_source` explanation rather than left silently blank.
+  One backfill (`Joe Burrow`, CIN MVP pick) was itself a correction to a first pass that missed
+  a name sitting directly in the rationale text — worth a second, careful read when doing this
+  kind of manual backfill, not just a skim.
+  Future sessions/tooling should treat `do_not_reverify: true` episodes as trusted and skip them
+  in any future spot-check pass.
+
+### YES/NO market picks displayed ambiguously ("IND make playoffs NO")
+- Terse `{team} {market} {side}` concatenation reads confusingly for YES/NO markets — "IND make
+  playoffs NO" is easy to misparse, even though the underlying data was correct (side:"NO" on
+  make_playoffs genuinely means "predicted to miss"). Fixed the *display* only, in the narrative
+  report's `pickLabel()`: YES/NO markets now render as a plain-English prediction ("IND predicted
+  NOT to make the playoffs") via a per-market phrase map (`YES_NO_MARKET_PHRASING`). Not a data
+  bug, purely a readability fix — worth remembering that "the data was right, the label was
+  confusing" is a distinct failure mode from an actual extraction/normalization error, and the two
+  need different fixes (don't "fix" a display problem by touching the underlying data).
+
+### First confirmed likely-fabricated pick (not just mistimed)
+- Andy could not locate a `TEN win_total OVER` pick (youtube-b9NL40Zogkw, listed at 32:25) anywhere
+  in the source audio. Investigation went further than the earlier timestamp-drift finding: this
+  episode's full `speaker_segments` transcript is complete and continuous end-to-end (confirmed via
+  the same coverage-check machinery as the full-duration-coverage fix), and no segment anywhere in
+  it mentions Tennessee or the Titans — the segments around that timestamp are a QB-rankings
+  discussion (Lamar Jackson, then Matthew Stafford). The episode's other two picks (both Drake
+  Maye) each have an exact corroborating quote in `quote_timestamps`; this one has none anywhere.
+  Working theory: the model fabricated this pick outright rather than mis-timestamping something
+  real that was actually said.
+- **Handling:** added a `disputed` field to the pick itself in the observation file
+  (`flagged_by`/`flagged_date`/`status`/`reason`/`action`) rather than deleting the pick — not
+  proven false, only unsupported, so it stays visible with a loud warning instead of silently
+  vanishing. Rendered as a bold red warning line under the pick in the narrative docx and a
+  bright-red highlighted row in the xlsx (new `disputed_fill`, takes priority over the
+  verified/yellow/orange fills). The episode's `human_verification.verified` is `"partial"` (not
+  `true`/`do_not_reverify`) until this specific pick is resolved. This is a genuinely different
+  category of problem from every other bug found in this project so far (side-normalization,
+  coverage gaps, missing player names) — those were all systematic code defects with a clear fix;
+  this is a single unsupported data point that may just need to stay flagged indefinitely.
+
+### Verification status as of this entry
+- 8 of 13 episodes fully verified (`do_not_reverify: true`): win-totals Part 1 (22/22 picks),
+  Ben Solak training camp (4/4), BettingPros futures-draft (9/9, post-fixes), Top-10-QB-Rankings
+  (2/3 confirmed + 1 rejected, see below), Even Money teaser episode (2/2), 14-Longshot-Futures
+  (14/14), 9 Early Week 1 Best Bets (9/9, with a caveat), and the Dr. David Chao injury episode
+  (0 real NFL picks — its 4 extracted items are all non-NFL World Cup picks, rejected as out of scope).
+- 1 of 13 partially reviewed: Top 10 NFL Futures Bets (`youtube-veVjJ_EUYdk`) — Andy confirmed one
+  player identity (LAC mvp = Justin Herbert) but explicitly declined to verify the rest of this
+  episode's picks for accuracy ("I don't care too much about these markets"). Left unverified as a
+  whole; not marked `do_not_reverify`.
+- 4 of 13 episodes remain fully unverified: `youtube-WbuAvbsVF_w`, `youtube-aOUy4-ZRzbE`,
+  `youtube-G5tbI-M8muY` (no picks, analysis-only), `youtube-zNZzcHDqhg4` (no picks, analysis-only).
+- 9 Early Week 1 Best Bets caveat: the HOU moneyline pick's rationale calls C.J. Stroud a "second
+  year" player; 2026 is actually his 3rd NFL season. This is the host's/model's own claim as
+  extracted (matches the analysis_notes quote verbatim), not an extraction defect — left as-is with
+  the caveat attached rather than silently corrected. All 9 picks otherwise confirmed accurate.
+- Dr. David Chao episode: all 4 extracted "picks" are World Cup (Spain vs Argentina) soccer bets the
+  hosts made as an aside; nothing in the extraction prompt at the time told the model to ignore
+  non-NFL sports. Andy confirmed 2026-07-28 these are out of scope. Each now carries a `disputed`
+  block (`status: "REJECTED — NON-NFL, OUT OF SCOPE"`, `resolved: true`) — same audit-trail pattern
+  as the TEN pick, kept rather than deleted. Distinguished visually from the TEN-style rejection: the
+  xlsx fill logic now checks `disputed.status` for "NON-NFL" and keeps the existing orange "wrong
+  sport" color instead of switching to the bright-red "fabricated/inaccurate NFL pick" color, since
+  the two failure modes mean different things to a reader skimming the sheet.
+- The TEN win_total pick on Top-10-QB-Rankings (`youtube-b9NL40Zogkw`), previously flagged as
+  UNVERIFIED/LIKELY HALLUCINATED, was upgraded 2026-07-28 to `disputed.status: "REJECTED — CONFIRMED
+  INACCURATE"` with `resolved: true` after Andy listened and confirmed the pick did not happen. It
+  stays in the dataset (never deleted) but is excluded from the episode's confirmed-pick count; the
+  episode as a whole is now `human_verification.verified: true` since its other 2 picks were also
+  confirmed. Report-rendering code (`pickBullet()` in the docx generator, and the xlsx dispute-note
+  logic) was updated to show a red "❌ REJECTED" style for `disputed.resolved: true` picks, distinct
+  from the amber "⚠" styling still used for an open/unresolved dispute.
+- Second player-name backfill gap found and fixed 2026-07-28: the original patch pass (see above) only
+  checked `rationale` text and `analysis_notes` for a player's name, never the model's own
+  `speaker_segments` transcript. Andy caught 6 missed names by ear on the 14-Longshot-Futures episode
+  (`youtube-qGJ2f1fEXHc`) that turned out to already be sitting in speaker_segments almost verbatim
+  (e.g. "Brock Bowers at 80:1" matching a LV opoy pick priced at exactly +8000). Prompted a full re-scan
+  of every remaining "(player not captured)" pick against speaker_segments across all 13 episodes,
+  which recovered 5 more names on `youtube-veVjJ_EUYdk` (Justin Herbert, Brock Bowers, Josh Hines-Allen,
+  Sonny Styles, Jacob Rodriguez). Of 28 total player-level-market picks across the dataset, 27 now have
+  a name; the sole remaining gap (`youtube-veVjJ_EUYdk`, CLE oroy) has genuinely no name anywhere in the
+  extracted data (rationale, notes, or transcript) and needs an actual audio listen.

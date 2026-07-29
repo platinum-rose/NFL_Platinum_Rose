@@ -2,6 +2,15 @@
   "episode_slug": "youtube-uirj8AVs8so",
   "show": "YouTube Discovery",
   "date": "manual",
+  "human_verification": {
+    "verified": true,
+    "verified_by": "Andy",
+    "verified_date": "2026-07-28",
+    "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
+    "result": "All 9 extracted picks confirmed accurate.",
+    "known_caveat": "The HOU moneyline pick's rationale says C.J. Stroud is entering \"his second year\" -- Andy flagged this as factually wrong (2026 is Stroud's 3rd NFL season, having debuted in 2023). This is the host's/model's own claim as extracted, not an extraction error to correct; left as-is (matching the analysis_notes quote, which says the same thing) with this caveat attached rather than silently rewritten.",
+    "do_not_reverify": true
+  },
   "priority": "manual",
   "mode": "live-youtube",
   "model": "gemini-3.5-flash",
@@ -43,7 +52,7 @@
       {
         "team": "TEN",
         "market": "spread",
-        "side": "NO",
+        "side": "TEN",
         "line": -2.5,
         "price": null,
         "week": 1,
@@ -109,7 +118,7 @@
       {
         "team": "MIN",
         "market": "moneyline",
-        "side": "NO",
+        "side": "MIN",
         "line": null,
         "price": 100,
         "week": 1,

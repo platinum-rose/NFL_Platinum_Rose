@@ -2,6 +2,15 @@
   "episode_slug": "youtube-mg5iBe5I5tU",
   "show": "YouTube Discovery",
   "date": "manual",
+  "human_verification": {
+    "verified": true,
+    "verified_by": "Andy",
+    "verified_date": "2026-07-28",
+    "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
+    "result": "Both extracted picks confirmed accurate (the 7-point teaser: Jacksonville -0.5 and Minnesota +8.5, Week 1).",
+    "known_caveat": "\"teaser\" is not yet a canonical recognized market type in this pipeline's taxonomy (passes through unmapped), and its MINUS/PLUS side convention differs from the usual OVER/UNDER/team-code shape -- accurate as extracted, just a market type worth adding formally if teaser picks become common.",
+    "do_not_reverify": true
+  },
   "priority": "manual",
   "mode": "live-youtube",
   "model": "gemini-3.5-flash",
@@ -21,7 +30,7 @@
       {
         "team": "JAX",
         "market": "teaser",
-        "side": "NO",
+        "side": "MINUS",
         "line": 0.5,
         "price": -150,
         "week": 1,

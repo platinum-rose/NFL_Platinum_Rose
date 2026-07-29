@@ -54,6 +54,11 @@ const RUN_QUEUE = argv.includes('--queue');
 const PHASE_ARG = getArg('--phase', null);
 const EPISODE_ARG = getArg('--episode', null);
 const YOUTUBE_URL_ARG = getArg('--youtube-url', null);
+// Added 2026-07-28 alongside the full-duration-coverage prompt fix -- pass the
+// video's real runtime (seconds) so Gemini is instructed not to stop analyzing
+// partway through a long episode. Look the number up from the YouTube player
+// (right side of the scrubber) when reprocessing a specific episode.
+const DURATION_SECONDS_ARG = getArg('--duration-seconds', null);
 
 const QUEUE_DOC = path.join(ROOT, 'docs', 'antigravity', 'GEMINI_SHADOW_YOUTUBE_QUEUE.md');
 const METADATA_OVERRIDES = path.join(ROOT, 'data', 'podcasts', 'episode-metadata-overrides.json');
@@ -127,9 +132,34 @@ function normalizeTeam(raw) {
   return TEAM_MAP[clean] || String(raw).toUpperCase().slice(0, 3);
 }
 
-function normalizeSide(raw, market = 'general') {
-  if (!raw) return 'UNKNOWN';
-  const clean = String(raw).trim().toUpperCase();
+// BUG FOUND + FIXED 2026-07-28 (Andy's post-Phase-4 verification-report request):
+// the fallback lists at the bottom used to include bare single-letter tokens
+// 'Y' and 'N' matched via clean.includes(v) -- since almost every string
+// contains the letter N somewhere, this silently flipped side to "NO" for ANY
+// pick whose raw side value happened to contain an "N", regardless of market
+// (confirmed on real data: TEN/CIN/DEN/MIN/IND/NE/NO/NYG/NYJ team codes, plus
+// unrelated values like "MINUS"). This was NOT the same bug as the already-
+// fixed "UNKNOWN contains NO" issue (S304/Phase 4) -- a distinct defect in
+// THIS file's own copy of the logic, undetected until a direct scan of the
+// 13 real processed episodes found 11/85 picks (13%) with a wrong side value.
+// Fix: (1) drop the bare 'Y'/'N' tokens entirely; (2) add a team-code
+// short-circuit -- Gemini's own convention for these markets is often to put
+// the picked team's own abbreviation in `side` (e.g. side:"TEN" for "Titans
+// win the AFC South") rather than a literal YES token, and team codes
+// routinely contain NO/WIN-shaped substrings that collided with the checks
+// below -- so resolve that case FIRST, before any substring heuristics run.
+function normalizeSide(raw, market = 'general', team = null) {
+  // BUG FOUND + FIXED 2026-07-28 (second pass, found while reviewing today's
+  // reprocessing output): this copy used to `if (!raw) return 'UNKNOWN';`
+  // BEFORE the yesNoMarket check ever ran, so every null/missing side on a
+  // division_winner/mvp/etc. pick was hard-locked to the literal string
+  // "UNKNOWN" and never got a chance to resolve to "YES" the way the sibling
+  // copies in youtube-podcast-sweep.js and build-youtube-futures-intel-
+  // review.js already correctly do (they fold the null case into `clean`
+  // instead of returning early). Confirmed live: 6 of 9 freshly reprocessed
+  // picks on youtube-4OxpAX6UJlM came back side:"UNKNOWN" for what should
+  // have been "YES" outright picks. Fixed to match the other two copies.
+  const clean = String(raw || 'UNKNOWN').trim().toUpperCase();
   const yesNoMarket = [
     'division_winner',
     'conference_winner',
@@ -143,12 +173,13 @@ function normalizeSide(raw, market = 'general') {
     'coach_of_the_year',
     'no_1_overall_pick'
   ].includes(market);
+  if (yesNoMarket && team && clean === String(team).toUpperCase()) return 'YES';
   if (yesNoMarket && (clean === 'UNKNOWN' || clean.includes('OVER') || clean.includes('WIN') || clean.includes('YES') || clean.includes('TO WIN'))) return 'YES';
   if (yesNoMarket && (clean.includes('NO') || clean.includes('UNDER') || clean.includes('FADE'))) return 'NO';
   if (clean.includes('OVER')) return 'OVER';
   if (clean.includes('UNDER')) return 'UNDER';
-  if (['YES', 'Y', 'WIN', 'WINNER', 'TO WIN'].some(v => clean === v || clean.includes(v))) return 'YES';
-  if (['NO', 'N', 'FADE'].some(v => clean === v || clean.includes(v))) return 'NO';
+  if (['YES', 'WIN', 'WINNER', 'TO WIN'].some(v => clean === v || clean.includes(v))) return 'YES';
+  if (['NO', 'FADE'].some(v => clean === v || clean.includes(v))) return 'NO';
   return clean;
 }
 
@@ -170,8 +201,9 @@ function normalizeMarket(raw) {
   if (clean.includes('coach_of_the_year')) return 'coach_of_the_year';
   // Mirrored from build-youtube-futures-intel-review.js during the "fix now"
   // pass (Phase 4 manual quality read): these raw slugs were falling through
-  // with no canonical name (this file's normalizeSide is already safe against
-  // the separate UNKNOWN/NO substring bug fixed in the other two files).
+  // with no canonical name. (Correction 2026-07-28: the claim this file's
+  // normalizeSide was "already safe" was wrong -- it had its own distinct
+  // bare-single-letter-token bug, fixed above.)
   if (clean.includes('comeback_player')) return 'comeback_player_of_the_year';
   if (clean.includes('fewest_win')) return 'fewest_wins';
   if (clean.includes('receiving_yard')) return 'season_receiving_yards';
@@ -186,12 +218,19 @@ function normalizeMarket(raw) {
   return clean;
 }
 
+// Added 2026-07-28: "player" carries the individual named on player-award
+// markets (mvp/opoy/dpoy/oroy/droy/comeback_player_of_the_year) -- the
+// original schema had no such field, so these picks could only be identified
+// by team code, with the player's actual name surviving (if at all) only
+// inside free-text "rationale". See run_gemini_youtube_shadow.py prompt fix.
 function normalizePick(p) {
   const market = normalizeMarket(p.market);
+  const team = normalizeTeam(p.team);
   return {
-    team: normalizeTeam(p.team),
+    team,
+    player: p.player || null,
     market,
-    side: normalizeSide(p.side || p.selection, market),
+    side: normalizeSide(p.side || p.selection, market, team),
     line: p.line != null && p.line !== '' ? Number(p.line) : null,
     price: p.price != null && p.price !== '' ? Number(p.price) : null,
     week: p.week != null && p.week !== '' ? Number(p.week) : null,
@@ -395,13 +434,22 @@ function runLiveGeminiYoutube(item) {
 
   const pyScript = path.join(ROOT, 'scripts', 'run_gemini_youtube_shadow.py');
   try {
-    const rawOutput = execFileSync('python', [
+    const cliArgs = [
       pyScript,
       '--url', youtubeUrl,
       '--episode-title', item.episodeTitle,
       '--show', item.show,
       '--date', item.date
-    ], { encoding: 'utf8' });
+    ];
+    // Added 2026-07-28: pass the real video runtime through when the caller
+    // has it (item.durationSecs), so the model is instructed to cover the
+    // ENTIRE episode instead of silently stopping partway through -- this is
+    // the fix for the confirmed under-extraction bug (some long episodes only
+    // got analyzed through their first 10-15 minutes). Pass --duration-seconds
+    // manually when reprocessing an episode you know the runtime of.
+    if (item.durationSecs) cliArgs.push('--duration-seconds', String(Math.round(item.durationSecs)));
+
+    const rawOutput = execFileSync('python', cliArgs, { encoding: 'utf8' });
     const jsonRes = JSON.parse(rawOutput);
 
     if (jsonRes.error) {
@@ -413,6 +461,10 @@ function runLiveGeminiYoutube(item) {
     const rawPicks = parsedJson.extracted_picks || [];
     const extractedPicks = rawPicks.map(normalizePick);
     const analysisNotes = (parsedJson.analysis_notes || []).map(normalizeNote);
+    const coverage = jsonRes.coverage_assessment || null;
+    if (coverage?.suspected_incomplete) {
+      console.error(`   ⚠️  Suspected incomplete extraction for ${item.episodeSlug}: ${coverage.reason}`);
+    }
 
     return {
       run_id: `youtube_gemini_${crypto.randomBytes(6).toString('hex')}`,
@@ -427,7 +479,8 @@ function runLiveGeminiYoutube(item) {
       raw_model_response: jsonRes.raw_model_response || '',
       extracted_picks: extractedPicks,
       analysis_notes: analysisNotes,
-      quote_timestamps: parsedJson.quote_timestamps || []
+      quote_timestamps: parsedJson.quote_timestamps || [],
+      coverage_assessment: coverage
     };
   } catch (err) {
     console.error(`   Live YouTube Gemini API Execution Error: ${err.message}`);
@@ -581,8 +634,13 @@ async function main() {
       episodeTitle: EPISODE_ARG,
       youtubeTarget: YOUTUBE_URL_ARG,
       baselineRelPath: null,
-      episodeSlug: EPISODE_ARG
+      episodeSlug: EPISODE_ARG,
+      durationSecs: DURATION_SECONDS_ARG ? Number(DURATION_SECONDS_ARG) : null
     }];
+  } else if (DURATION_SECONDS_ARG && targetItems.length === 1) {
+    // Also honor --duration-seconds when re-running a queue-matched episode
+    // (not just the fully-manual --youtube-url path above).
+    targetItems[0].durationSecs = Number(DURATION_SECONDS_ARG);
   }
 
   if (targetItems.length === 0) {

@@ -2,6 +2,15 @@
   "episode_slug": "2026-03-03-sharp-or-square-early-2026-nfl-season-win-totals-part-1",
   "show": "Sharp or Square",
   "date": "2026-03-03",
+  "human_verification": {
+    "verified": true,
+    "verified_by": "Andy",
+    "verified_date": "2026-07-28",
+    "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
+    "result": "All 22 extracted picks confirmed accurate (team/market/side/line/price/speaker/rationale all match the audio).",
+    "known_caveat": "Timestamps from the 49ers pick onward (source_timestamp >= 1055) read ~4 minutes earlier than the true moment in the video due to a confirmed model timestamp-drift issue (see docs/PODCAST_HOLISTIC_INTEL_EXTRACTION_PLAN.md verification notes / 2026-07-28 report) -- this affects the timestamp label only, not the pick content itself, which was verified correct.",
+    "do_not_reverify": true
+  },
   "priority": 2,
   "mode": "live-youtube",
   "model": "gemini-3.5-flash",

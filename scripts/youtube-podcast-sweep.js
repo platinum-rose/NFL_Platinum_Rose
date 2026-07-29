@@ -130,8 +130,15 @@ function normalizeExtractedMarket(raw) {
   return clean;
 }
 
-function normalizeExtractedSide(raw, market) {
+function normalizeExtractedSide(raw, market, team = null) {
   const clean = String(raw || 'UNKNOWN').trim().toUpperCase();
+  // Mirrored fix 2026-07-28 (see gemini-podcast-shadow-harness.js /
+  // build-youtube-futures-intel-review.js same-day comments): Gemini often
+  // puts the picked team's own code in `side` for YES/NO markets rather than
+  // a literal YES token -- short-circuit that case before any substring
+  // heuristics run, confirmed necessary by a direct scan of all 13 real
+  // processed episodes (11/85 picks, 13%, had a wrong side value).
+  if (YES_NO_MARKETS.has(market) && team && clean === String(team).toUpperCase()) return 'YES';
   if (YES_NO_MARKETS.has(market) && (clean === 'UNKNOWN' || clean.includes('OVER') || clean.includes('WIN') || clean.includes('YES') || clean.includes('TO WIN'))) return 'YES';
   if (YES_NO_MARKETS.has(market) && (clean.includes('NO') || clean.includes('UNDER') || clean.includes('FADE'))) return 'NO';
   // Bug fix mirrored from build-youtube-futures-intel-review.js: "UNKNOWN"
@@ -153,7 +160,7 @@ function normalizeExtractedPick(p) {
     ...p,
     team,
     market,
-    side: normalizeExtractedSide(p.side || p.selection, market),
+    side: normalizeExtractedSide(p.side || p.selection, market, team),
     line: p.line != null && p.line !== '' ? Number(p.line) : null,
     price: p.price != null && p.price !== '' ? Number(p.price) : null,
     source_timestamp: Number(p.source_timestamp || p.timestamp || 0)

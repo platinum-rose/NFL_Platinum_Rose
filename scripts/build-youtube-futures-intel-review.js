@@ -87,8 +87,21 @@ function normalizeMarket(raw) {
   return clean;
 }
 
-function normalizeSide(raw, market) {
+function normalizeSide(raw, market, team = null) {
   const clean = String(raw || 'UNKNOWN').trim().toUpperCase();
+  // BUG FOUND + FIXED 2026-07-28 (Andy's verification-report request): Gemini's
+  // own convention for YES/NO markets is often to put the picked team's own
+  // abbreviation in `side` (e.g. side:"TEN" for "Titans win the AFC South")
+  // rather than a literal YES token. A sibling copy of this function in
+  // scripts/gemini-podcast-shadow-harness.js had a bare single-letter 'N'
+  // fallback token that turned this into a silent bug (any side containing
+  // the letter N read as "NO"); THIS copy didn't have that specific defect,
+  // but it still didn't resolve team-code sides to their real YES meaning --
+  // confirmed via a direct scan of all 13 real processed episodes (11/85
+  // picks, 13%, had a side value that didn't reflect the actual pick). Add
+  // the team-code short-circuit here too so both copies agree and neither
+  // silently returns a raw team code where a real YES/NO belongs.
+  if (YES_NO_MARKETS.has(market) && team && clean === String(team).toUpperCase()) return 'YES';
   if (YES_NO_MARKETS.has(market) && (clean === 'UNKNOWN' || clean.includes('OVER') || clean.includes('WIN') || clean.includes('YES') || clean.includes('TO WIN'))) return 'YES';
   if (YES_NO_MARKETS.has(market) && (clean.includes('NO') || clean.includes('UNDER') || clean.includes('FADE'))) return 'NO';
   // Bug fix (Phase 3 verification, surfaced by survivor_pick/pickem_pick's
@@ -112,7 +125,7 @@ function normalizePick(p) {
     ...p,
     team,
     market,
-    side: normalizeSide(p.side || p.selection, market),
+    side: normalizeSide(p.side || p.selection, market, team),
     line: p.line != null && p.line !== '' ? Number(p.line) : null,
     price: p.price != null && p.price !== '' ? Number(p.price) : null,
     week: p.week != null && p.week !== '' ? Number(p.week) : null,
@@ -312,7 +325,7 @@ function loadReviewStatus() {
     return {
       generated_at: new Date().toISOString(),
       status: 'local_review_status_only',
-      guardrail: 'Human-editable local status file. This does not promote official picks or write production recommendations.',
+      guardrail: 'Human-editable local status file for the research/bench-scoring shadow-harness track. This file itself does not promote official picks or write production recommendations. A separate PRODUCTION review gate now exists (podcast_gemini_intel, migration 045, promoted via agents/podcast-gemini-intel.js --promote) — see docs/PODCAST_HOLISTIC_INTEL_EXTRACTION_PLAN.md Phase 5. The two pipelines run in parallel and are not reconciled against each other.',
       items: []
     };
   }
@@ -483,7 +496,7 @@ for (const [tag, count] of Object.entries(noteTagCounts)) {
 const summary = {
   generated_at: new Date().toISOString(),
   status: 'local_review_only',
-  guardrail: 'Do not promote these Gemini-derived observations to official picks or production recommendations without human review.',
+  guardrail: 'This local shadow-harness track requires human review before anything is treated as a real pick. For actual production promotion, see podcast_gemini_intel (migration 045) and agents/podcast-gemini-intel.js --promote (docs/PODCAST_HOLISTIC_INTEL_EXTRACTION_PLAN.md Phase 5) -- a separate, real review gate this local JSON file does not itself enforce.',
   futures_candidates: futuresCandidates.length,
   observed_episodes: rows.length,
   missing_observations: missing.length,

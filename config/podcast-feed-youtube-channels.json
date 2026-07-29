@@ -1,0 +1,49 @@
+{
+  "_comment": "Explicit feed-name -> YouTube channel mapping for scripts/resolve-youtube-episode-urls.js (Phase 5 step 1 of docs/PODCAST_HOLISTIC_INTEL_EXTRACTION_PLAN.md). Deliberately NOT auto-derived from name similarity between podcast_feeds and config/youtube-podcast-sources.local.json's candidate_channels -- a silent wrong guess here would misattribute a YouTube video's Gemini extraction to the wrong show/episode in production. Entries can specify either a verified channel_id (UC..., 24 chars) or a channel_handle (e.g. 'bettingpros') -- handles are resolved to a real channel_id at run time via the YouTube Data API's channels?forHandle= lookup (scripts/resolve-youtube-episode-urls.js::resolveChannelId), so no guessed UC-string is ever hardcoded for a mapping that was only found via web search.",
+  "_status": "Approximated -- name/web-search-matched, not content-verified. Andy: please confirm all 6 mappings (or correct channel_id/channel_handle) before running --apply.",
+  "feeds": [
+    {
+      "feed_name": "Sharp or Square",
+      "channel_id": "UCzWldAuZDg1ctieD_SJdDSw",
+      "channel_title": "Sharp or Square",
+      "match_basis": "exact name match against config/youtube-podcast-sources.local.json candidate_channels",
+      "confidence": "approximated"
+    },
+    {
+      "feed_name": "Action Network Sports Betting",
+      "channel_id": "UCLbe62TJjEM1a7gnvTIsxkw",
+      "channel_title": "The Action Network: Sports Betting Picks & Tips",
+      "match_basis": "podcast_feeds.expert = 'Action Network' matches candidate_channels title substring",
+      "confidence": "approximated"
+    },
+    {
+      "feed_name": "Sharp Football Analysis",
+      "channel_id": "UC5Me5Jw0nSj1qF6ZfibrFMw",
+      "channel_title": "Warren Sharp",
+      "match_basis": "podcast_feeds.expert = 'Warren Sharp' matches candidate_channels title exactly",
+      "confidence": "approximated"
+    },
+    {
+      "feed_name": "Even Money",
+      "channel_handle": "RossTuckerNFL",
+      "channel_title": "Ross Tucker (personal/Ross Tucker Media channel)",
+      "match_basis": "web search: 'Even Money - Ross Tucker's bet on the Panthers for Week 5' confirmed as an actual video title on this channel, so Even Money content is posted here -- but this looks like Ross Tucker's broader personal channel, not an Even-Money-dedicated one. Title/date fuzzy-matching should still filter correctly, but expect more non-matching noise in the upload list than a dedicated channel.",
+      "confidence": "approximated_lower"
+    },
+    {
+      "feed_name": "The Favorites",
+      "channel_id": "UCLbe62TJjEM1a7gnvTIsxkw",
+      "channel_title": "The Action Network: Sports Betting Picks & Tips (shared with Action Network Sports Betting feed above)",
+      "match_basis": "web search: multiple sources describe The Favorites as posting to 'the Action Network YouTube channel' rather than its own dedicated channel -- reusing the already-confirmed Action Network channel_id rather than guessing a separate one. Title-matching ('The Favorites Podcast' branding in video titles) is what actually disambiguates these two shows' episodes on the same channel, not the channel_id.",
+      "confidence": "approximated_shared_channel"
+    },
+    {
+      "feed_name": "BettingPros Podcast",
+      "channel_handle": "bettingpros",
+      "channel_title": "BettingPros",
+      "match_basis": "web search: two independent sources (Amazon listing text + iHeart podcast page) both state the show is at youtube.com/bettingpros. Higher confidence than Even Money's mapping since this looks like a dedicated show channel, not a personal one.",
+      "confidence": "approximated"
+    }
+  ],
+  "unmapped_feeds_note": "All 6 active podcast_feeds shows (per supabase/migrations/003_podcast.sql + 029_podcast_feeds_update.sql) now have a proposed channel mapping as of 2026-07-28. None of the 3 added this pass (Even Money, The Favorites, BettingPros Podcast) were confirmed against actual channel content in this session -- WebSearch found supporting evidence (specific video titles/URLs) but this sandbox could not fetch the live YouTube channel pages to verify channel_id/handle directly (web_fetch timed out on both youtube.com/bettingpros and youtube.com/RossTuckerNFL). Run scripts/resolve-youtube-episode-urls.js WITHOUT --apply first and read the printed match list before trusting any of the 3 new entries."
+}

@@ -2,6 +2,15 @@
   "episode_slug": "youtube-qGJ2f1fEXHc",
   "show": "YouTube Discovery",
   "date": "manual",
+  "human_verification": {
+    "verified": true,
+    "verified_by": "Andy",
+    "verified_date": "2026-07-28",
+    "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick, including all previously-uncaptured player-level markets.",
+    "result": "All 14 extracted picks confirmed accurate. All 6 remaining \"(player not captured)\" picks were resolved by Andy's listen: LV opoy = Brock Bowers, DAL droy = Malachi Lawrence, BAL oroy = Elijah Sarratt, PHI oroy = Eli Stowers, BAL season_receiving_yards = Zay Flowers, NYJ interceptions_leader = D'Angelo Ponds. All 6 names were also present in the model's own speaker_segments, which the original player-name patch pass had not checked (it only searched rationale text and analysis_notes).",
+    "known_caveat": "The player-name patch process (2026-07-28) initially missed names that existed only in speaker_segments rather than rationale/analysis_notes -- a gap worth fixing in the general backfill method for any other episode still marked \"(player not captured)\".",
+    "do_not_reverify": true
+  },
   "priority": "manual",
   "mode": "live-youtube",
   "model": "gemini-3.5-flash",
@@ -21,7 +30,7 @@
       {
         "team": "LAC",
         "market": "super_bowl_winner",
-        "side": "UNKNOWN",
+        "side": "YES",
         "line": null,
         "price": 1700,
         "week": null,
@@ -31,8 +40,8 @@
       },
       {
         "team": "DAL",
-        "market": "nfc_champion",
-        "side": "UNKNOWN",
+        "market": "conference_winner",
+        "side": "YES",
         "line": null,
         "price": 1300,
         "week": null,
@@ -43,7 +52,7 @@
       {
         "team": "TEN",
         "market": "division_winner",
-        "side": "UNKNOWN",
+        "side": "YES",
         "line": null,
         "price": 900,
         "week": null,
@@ -54,13 +63,15 @@
       {
         "team": "JAX",
         "market": "mvp",
-        "side": "UNKNOWN",
+        "side": "YES",
         "line": null,
         "price": 2400,
         "week": null,
         "speaker": "Andrew Erickson",
         "source_timestamp": 973,
-        "rationale": "Historically, first-time MVPs peak around age 27. Lawrence has deep weapons in Brian Thomas Jr., Jakobi Meyers, and Parker Washington."
+        "rationale": "Historically, first-time MVPs peak around age 27. Lawrence has deep weapons in Brian Thomas Jr., Jakobi Meyers, and Parker Washington.",
+        "player": "Trevor Lawrence",
+        "player_source": "named in rationale (\"Lawrence\")"
       },
       {
         "team": "JAX",
@@ -71,51 +82,61 @@
         "week": null,
         "speaker": "Andrew Erickson",
         "source_timestamp": 1203,
-        "rationale": "Voters will reward him for his unique two-way contribution playing both WR and CB coming off an injury."
+        "rationale": "Voters will reward him for his unique two-way contribution playing both WR and CB coming off an injury.",
+        "player": "Travis Hunter",
+        "player_source": "cross-referenced from this episode's own analysis_notes (\"Travis Hunter two-way role\")"
       },
       {
         "team": "LV",
         "market": "opoy",
-        "side": "UNKNOWN",
+        "side": "YES",
         "line": null,
         "price": 8000,
         "week": null,
         "speaker": "Andrew Erickson",
         "source_timestamp": 1436,
-        "rationale": "He can break tight end records, Kubiak's system will highlight his skillset with a high target share."
+        "rationale": "He can break tight end records, Kubiak's system will highlight his skillset with a high target share.",
+        "player": "Brock Bowers",
+        "player_source": "Andy confirmed by listen 2026-07-28; also present in the model's own speaker_segments (\"Discussion on Brock Bowers Offensive Player of the Year futures\") which the earlier patch pass missed by only checking rationale/analysis_notes text."
       },
       {
         "team": "DAL",
         "market": "droy",
-        "side": "UNKNOWN",
+        "side": "YES",
         "line": null,
         "price": 2500,
         "week": null,
         "speaker": "Andrew Erickson",
         "source_timestamp": 1540,
-        "rationale": "Pass rusher expected to rack up sack numbers in Dallas's high profile defense."
+        "rationale": "Pass rusher expected to rack up sack numbers in Dallas's high profile defense.",
+        "player": "Malachi Lawrence",
+        "player_source": "Andy confirmed by listen 2026-07-28; also present in the model's own speaker_segments (\"Discussion on Malachi Lawrence Defensive Rookie of the Year\") which the earlier patch pass missed by only checking rationale/analysis_notes text."
       },
       {
         "team": "BAL",
         "market": "oroy",
-        "side": "UNKNOWN",
+        "side": "YES",
         "line": null,
         "price": 9245,
         "week": null,
         "speaker": "Seth Woolcock",
         "source_timestamp": 1637,
-        "rationale": "Most pro-ready WR in the class, playing with Lamar Jackson, will get early field time."
+        "rationale": "Most pro-ready WR in the class, playing with Lamar Jackson, will get early field time.",
+        "player": "Elijah Sarratt",
+        "player_source": "Andy confirmed by listen 2026-07-28; also present in the model's own speaker_segments (\"Discussion on Elijah Sarratt and Eli Stowers OROY futures\") which the earlier patch pass missed by only checking rationale/analysis_notes text."
       },
       {
         "team": "PHI",
         "market": "oroy",
-        "side": "UNKNOWN",
+        "side": "YES",
         "line": null,
         "price": 9245,
         "week": null,
         "speaker": "Seth Woolcock",
         "source_timestamp": 1637,
-        "rationale": "Athletic freak at tight end who fits Kellen Moore's 12-personnel system."
+        "rationale": "Athletic freak at tight end who fits Kellen Moore's 12-personnel system.",
+        "player": "Eli Stowers",
+        "player_source": "Andy confirmed by listen 2026-07-28; also present in the model's own speaker_segments (\"Discussion on Elijah Sarratt and Eli Stowers OROY futures\") which the earlier patch pass missed by only checking rationale/analysis_notes text."
       },
       {
         "team": "PIT",
@@ -130,47 +151,55 @@
       },
       {
         "team": "BAL",
-        "market": "receiving_yards",
+        "market": "season_receiving_yards",
         "side": "OVER",
         "line": 1500,
         "price": 1000,
         "week": null,
         "speaker": "Andrew Erickson",
         "source_timestamp": 2202,
-        "rationale": "Receiving yards have gone up every year, no competition for targets as Mark Andrews is cooked."
+        "rationale": "Receiving yards have gone up every year, no competition for targets as Mark Andrews is cooked.",
+        "player": "Zay Flowers",
+        "player_source": "Andy confirmed by listen 2026-07-28; also present in the model's own speaker_segments (\"Discussion on Zay Flowers receiving yards player milestones\") which the earlier patch pass missed by only checking rationale/analysis_notes text."
       },
       {
         "team": "LV",
-        "market": "passing_touchdowns",
+        "market": "season_passing_tds",
         "side": "OVER",
         "line": 25,
         "price": 1400,
         "week": null,
         "speaker": "Andrew Erickson",
         "source_timestamp": 2469,
-        "rationale": "Mendoza will throw plenty of TDs in Raiders red zone system, taking over from Kirk Cousins."
+        "rationale": "Mendoza will throw plenty of TDs in Raiders red zone system, taking over from Kirk Cousins.",
+        "player": "Fernando Mendoza",
+        "player_source": "named in rationale (\"Mendoza\")"
       },
       {
         "team": "NYJ",
-        "market": "most_interceptions",
+        "market": "interceptions_leader",
         "side": "UNKNOWN",
         "line": null,
         "price": null,
         "week": null,
         "speaker": "Andrew Erickson",
         "source_timestamp": 2755,
-        "rationale": "Aggressive CB in a Jets defense that will see positive regression in turnover luck."
+        "rationale": "Aggressive CB in a Jets defense that will see positive regression in turnover luck.",
+        "player": "D'Angelo Ponds",
+        "player_source": "Andy confirmed by listen 2026-07-28; also present in the model's own speaker_segments (\"Discussion on D'Angelo Ponds leading the NFL in interceptions\") which the earlier patch pass missed by only checking rationale/analysis_notes text."
       },
       {
         "team": "ATL",
-        "market": "rushing_touchdowns_leader",
+        "market": "rushing_tds_leader",
         "side": "UNKNOWN",
         "line": null,
         "price": 1800,
         "week": null,
         "speaker": "Seth Woolcock",
         "source_timestamp": 2912,
-        "rationale": "Zac Robinson's offense will feed Bijan Robinson. Goal line issues for Tua means more rushing opportunities."
+        "rationale": "Zac Robinson's offense will feed Bijan Robinson. Goal line issues for Tua means more rushing opportunities.",
+        "player": "Bijan Robinson",
+        "player_source": "named in rationale (\"Bijan Robinson\")"
       }
     ],
     "analysis_notes": [

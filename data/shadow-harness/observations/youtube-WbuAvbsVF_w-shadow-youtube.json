@@ -20,25 +20,29 @@
     "extracted_picks": [
       {
         "team": "NYG",
-        "market": "player_rushing_touchdowns",
+        "market": "season_rushing_tds",
         "side": "OVER",
         "line": 5.5,
         "price": null,
         "week": null,
         "speaker": "Kendra Middleton",
         "source_timestamp": 2472,
-        "rationale": "Even if Dart has durability concerns, Kendra believes the Giants' offensive design inside the 10 and 5-yard lines will make him a prime rushing threat to eclipse this mark."
+        "rationale": "Even if Dart has durability concerns, Kendra believes the Giants' offensive design inside the 10 and 5-yard lines will make him a prime rushing threat to eclipse this mark.",
+        "player": "Jaxson Dart",
+        "player_source": "named in rationale (\"Dart\") -- caught by Andy, team code alone (NYG) obscured that this is a QB rushing prop"
       },
       {
         "team": "SF",
-        "market": "award_mvp",
-        "side": "UNKNOWN",
+        "market": "mvp",
+        "side": "YES",
         "line": null,
         "price": 2000,
         "week": null,
         "speaker": "Brandon Kravitz",
         "source_timestamp": 2507,
-        "rationale": "Brandon believes that if Purdy can win double-digit games and put up elite numbers with target additions like Mike Evans, he has massive value at 20-1 to win MVP."
+        "rationale": "Brandon believes that if Purdy can win double-digit games and put up elite numbers with target additions like Mike Evans, he has massive value at 20-1 to win MVP.",
+        "player": "Brock Purdy",
+        "player_source": "named in rationale (\"Purdy\")"
       }
     ],
     "analysis_notes": [
