@@ -122,11 +122,11 @@ export function classifyAvailabilityEvent({ status, text = '' } = {}) {
   if (LIMITED_PATTERNS.some((re) => re.test(body))) {
     return { event_type: 'limited', availability_trend: 'stable' };
   }
+  if (normalized === 'ACTIVE_NEWS') return { event_type: 'active_news', availability_trend: 'unknown' };
   if (SETBACK_PATTERNS.some((re) => re.test(body))) {
     return { event_type: 'setback', availability_trend: 'worsening' };
   }
   if (normalized === 'PROBABLE') return { event_type: 'probable', availability_trend: 'improving' };
-  if (normalized === 'ACTIVE_NEWS') return { event_type: 'active_news', availability_trend: 'unknown' };
   return { event_type: 'status_update', availability_trend: 'unknown' };
 }
 

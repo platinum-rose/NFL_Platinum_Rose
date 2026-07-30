@@ -28,6 +28,14 @@ describe('classifyAvailabilityEvent', () => {
     expect(event).toEqual({ event_type: 'limited_return', availability_trend: 'improving' });
   });
 
+  it('does not turn active historical injury context into a setback', () => {
+    const event = classifyAvailabilityEvent({
+      status: 'Active',
+      text: 'Active after missing last season with a torn ACL.',
+    });
+    expect(event).toEqual({ event_type: 'active_news', availability_trend: 'unknown' });
+  });
+
   it('classifies severe status labels as worsening availability', () => {
     expect(classifyAvailabilityEvent({ status: 'Injured Reserve', text: 'expected to miss the season' })).toEqual({
       event_type: 'ir',
