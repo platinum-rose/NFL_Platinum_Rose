@@ -21,6 +21,7 @@ The crash-recovered dirty work was split into narrow commits instead of staged a
 - `f6cee97` - Clean podcast deep-dive synthesis evidence.
 - `817ec29` - Update futures synthesis handoff checkpoint.
 - `5b2db46` - Add frontier futures synthesis evidence packet.
+- `1c5cdee` - Document training camp source recovery.
 
 No paid model calls, Supabase writes, official-pick approvals, production recommendation persistence, or open-parlay changes were made by Codex during this triage.
 
@@ -34,10 +35,13 @@ Service/readiness:
 
 Source audit:
 - `npm.cmd run intel:source-audit`
-- Recalibrated result: `PASSABLE`; Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7.
+- Last fully passing recalibrated result: `PASSABLE`; Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7.
+- Current result after BetOnline normalization and recovery-action update: `BLOCKED`; Current 2 / Review 16 / Stale 1 / Blocked 0 / Missing 0 / Context 7.
 - Latest artifacts:
   - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.json`
   - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.html`
+  - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-39-21-827Z.json`
+  - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-39-21-827Z.html`
   - `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`
   - `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md`
   - `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md`
@@ -65,8 +69,8 @@ Futures parser/import:
 Training camp:
 - `npm.cmd run test:training-camp-intel`
 - `npm.cmd run test:training-camp-rss-scout`
-- Latest snapshot equals timestamped `data/training-camp/2026/training-camp-intel-2026-07-30.json`.
-- Latest snapshot: 16 items, 32 teams, 12 teams with intel, 3 high priority, intel-only.
+- Current app-facing latest snapshot equals timestamped `data/training-camp/2026/training-camp-intel-2026-07-30.json`, but both are now empty placeholders in the dirty worktree.
+- Recovered verified snapshot: `data/training-camp/2026/recovered/training-camp-intel-2026-07-30-0346-verified.json`, 16 items, 32 teams, 12 teams with intel, 3 high priority, intel-only.
 
 ---
 

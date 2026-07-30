@@ -15,9 +15,9 @@ This is a source-readiness checklist, not a betting recommendation and not appro
 - Post-BetOnline written check: `npm.cmd run intel:source-audit`
 - Current written verdict: `BLOCKED`
 - Current written counts: Current 2 / Review 16 / Stale 1 / Blocked 0 / Missing 0 / Context 7 / Inference 1
-- Current written JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-24-41-613Z.json`
-- Current written HTML: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-24-41-613Z.html`
-- Current stale source: the worktree copy of `data/training-camp/2026/latest.json` is an all-32 empty placeholder. The verified 16-item snapshot is preserved at `data/training-camp/2026/recovered/training-camp-intel-2026-07-30-0346-verified.json`; restore it or approve a fresh live RSS scout before model synthesis.
+- Current written JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-39-21-827Z.json`
+- Current written HTML: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-39-21-827Z.html`
+- Current stale source: the worktree copy of `data/training-camp/2026/latest.json` is an all-32 empty placeholder. The audit action now points to the verified 16-item snapshot preserved at `data/training-camp/2026/recovered/training-camp-intel-2026-07-30-0346-verified.json`; restore it or approve a fresh live RSS scout before model synthesis.
 
 ## Scope Decision
 
@@ -66,6 +66,7 @@ The current focus is futures portfolio synthesis readiness. The following are ou
 - `node scripts/ingest-futures-json.js --file data/futures-imports/betonline-2026-07-29.json --dry-run` passed with 160 rows and no DB write.
 - `npm.cmd run intel:source-audit` returned `BLOCKED` only because the current training-camp latest snapshot is an empty placeholder.
 - `data/training-camp/2026/recovered/training-camp-intel-2026-07-30-0346-verified.json` parsed successfully and shows 16 items across 12 teams from `2026-07-30T03:46:07.745Z`.
+- `node --check scripts\build-intel-source-audit-report.js` passed after adding the recovered-snapshot action to empty training-camp latest reports.
 
 ## Required Caveats Before Frontier Synthesis
 

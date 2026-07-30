@@ -42,19 +42,20 @@ Use `localhost:5174` for the recovered dashboard session. Earlier probes against
 - `f6cee97` - Clean podcast deep-dive synthesis evidence.
 - `817ec29` - Update futures synthesis handoff checkpoint.
 - `5b2db46` - Add frontier futures synthesis evidence packet.
+- `1c5cdee` - Document training camp source recovery.
 
 Latest source-readiness state:
 - Source-audit gate now removes execution-only DK/FD bet-slip and weekly live-props plumbing from the futures-synthesis freshness check.
 - Last fully passing written source audit: `PASSABLE`, Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7.
-- Post-BetOnline written source audit: `BLOCKED`, Current 2 / Review 16 / Stale 1 / Blocked 0 / Missing 0 / Context 7. The stale item is the current worktree training-camp latest snapshot, which is an all-32 empty placeholder. A verified 16-item recovery copy is preserved at `data/training-camp/2026/recovered/training-camp-intel-2026-07-30-0346-verified.json`.
+- Current written source audit: `BLOCKED`, Current 2 / Review 16 / Stale 1 / Blocked 0 / Missing 0 / Context 7. The stale item is the current worktree training-camp latest snapshot, which is an all-32 empty placeholder. The audit action now points to the verified 16-item recovery copy at `data/training-camp/2026/recovered/training-camp-intel-2026-07-30-0346-verified.json`.
 - Frontier synthesis packet: `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md`.
 - BetOnline manual review: `docs/FUTURES_ODDS_BETONLINE_2026-07-29_MANUAL_REVIEW.md`.
 - BetOnline normalized import: `data/futures-imports/betonline-2026-07-29.json`.
 - Latest artifacts:
   - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.json`
   - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.html`
-  - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-24-41-613Z.json` - current blocked audit after BetOnline normalization.
-  - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-24-41-613Z.html` - current blocked audit after BetOnline normalization.
+  - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-39-21-827Z.json` - current blocked audit after BetOnline normalization and recovery-action update.
+  - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-39-21-827Z.html` - current blocked audit after BetOnline normalization and recovery-action update.
   - `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`
 
 ---

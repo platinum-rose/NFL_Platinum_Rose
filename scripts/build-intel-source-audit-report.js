@@ -758,14 +758,30 @@ async function collectResearchArticleIntel(sources) {
 
 async function collectTrainingCamp(sources) {
   const snapshotPath = 'data/training-camp/2026/latest.json';
+  const recoveryPath = 'data/training-camp/2026/recovered/training-camp-intel-2026-07-30-0346-verified.json';
   const snapshotStat = await exists(snapshotPath);
+  const recoveryStat = await exists(recoveryPath);
+  const recoverySnapshot = recoveryStat ? await readJson(recoveryPath, {}) : null;
+  const hasRecoveredSnapshot = (recoverySnapshot?.meta?.item_count || 0) > 0;
+  const recoveredAction = hasRecoveredSnapshot
+    ? `Restore ${recoveryPath} into latest.json and the July 30 timestamped snapshot, or approve a fresh live RSS scout.`
+    : 'Collect/manual-paste or persist RSS scout results first.';
+  const recoveredDetails = hasRecoveredSnapshot
+    ? [{
+      label: 'Recovered verified snapshot',
+      value: `${recoverySnapshot.meta.generated_at}; ${recoverySnapshot.meta.item_count} items across ${recoverySnapshot.meta.teams_with_intel} teams; path ${recoveryPath}`,
+    }]
+    : [];
   if (!snapshotStat) {
     addSource(sources, {
       group: 'Training Camp',
       name: 'Training camp local snapshot',
       status: 'missing',
       evidence: 'No latest training-camp snapshot found.',
-      action: 'Build manual/RSS training-camp snapshot before synthesis.',
+      action: hasRecoveredSnapshot
+        ? recoveredAction
+        : 'Build manual/RSS training-camp snapshot before synthesis.',
+      details: recoveredDetails,
     });
   } else {
     const snapshot = await readJson(snapshotPath, {});
@@ -777,7 +793,8 @@ async function collectTrainingCamp(sources) {
       evidence: `${snapshot.meta?.team_count || 0} teams; ${snapshot.meta?.teams_with_intel || 0} teams with manual intel; ${snapshot.meta?.item_count || 0} items.`,
       action: snapshot.meta?.item_count > 0
         ? 'Review/highlight before synthesis.'
-        : 'This is an all-32 empty placeholder. Collect/manual-paste or persist RSS scout results first.',
+        : `This is an all-32 empty placeholder. ${recoveredAction}`,
+      details: snapshot.meta?.item_count > 0 ? [] : recoveredDetails,
       path: snapshotPath,
     });
   }

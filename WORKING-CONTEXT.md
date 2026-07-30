@@ -34,21 +34,24 @@ Safe recovered work has been committed in narrow checkpoints:
 - `f6cee97` - Clean podcast deep-dive synthesis evidence.
 - `817ec29` - Update futures synthesis handoff checkpoint.
 - `5b2db46` - Add frontier futures synthesis evidence packet.
+- `1c5cdee` - Document training camp source recovery.
 
 `npm.cmd run intel:source-audit` has been recalibrated around the active objective: verifying current intel sources for a maximum-effort frontier-model futures portfolio synthesis. DK/FD bet-slip parsers and weekly live props are execution/regular-season plumbing and are out of scope for this synthesis-readiness gate.
 
-Latest source audit:
+Current source audit:
 
 ```powershell
 npm.cmd run intel:source-audit
 ```
 
-Result: `PASSABLE`, Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7. Latest artifacts:
+Current result: `BLOCKED`, Current 2 / Review 16 / Stale 1 / Blocked 0 / Missing 0 / Context 7. The only stale item is the app-facing training-camp latest snapshot, and the audit now names the recovered 16-item snapshot as the restore source.
 
-- `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.json`
-- `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.html`
+- Last fully passing audit: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.json`
+- Current audit JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-39-21-827Z.json`
+- Current audit HTML: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-39-21-827Z.html`
 - `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`
 - `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md`
+- `docs/TRAINING_CAMP_SOURCE_RECONCILIATION_2026-07-30.md`
 - `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md`
 
 BetOnline July 29 screenshots have now been manually normalized:

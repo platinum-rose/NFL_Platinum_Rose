@@ -15,16 +15,16 @@ Resolve this before the frontier-model run:
 ## Verified Source Gate
 
 - Source-readiness checklist: `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md`
-- Latest source audit JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.json`
+- Last fully passing source audit JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.json`
 - Latest dashboard copy: `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`
-- Audit generated at: `2026-07-30T07:41:18.119Z`
-- Verdict: `PASSABLE`
-- Counts: Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7 / Inference 1
-- Frontier ready: true
+- Last fully passing audit generated at: `2026-07-30T07:41:18.119Z`
+- Last fully passing verdict: `PASSABLE`
+- Last fully passing counts: Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7 / Inference 1
+- Current frontier ready: false until the training-camp latest snapshot is restored or refreshed.
 - Guardrails observed by the audit: live_fetches false, model_calls false, supabase_writes false, official_pick_approvals false, portfolio_mutations false
-- Post-BetOnline written check: `npm.cmd run intel:source-audit` returned `BLOCKED`, Current 2 / Review 16 / Stale 1 / Blocked 0 / Missing 0 / Context 7 / Inference 1, solely because the current training-camp latest snapshot is an empty placeholder.
-- Current written audit JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-24-41-613Z.json`
-- Current written audit HTML: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-24-41-613Z.html`
+- Current written check: `npm.cmd run intel:source-audit` returned `BLOCKED`, Current 2 / Review 16 / Stale 1 / Blocked 0 / Missing 0 / Context 7 / Inference 1, solely because the current training-camp latest snapshot is an empty placeholder.
+- Current written audit JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-39-21-827Z.json`
+- Current written audit HTML: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-39-21-827Z.html`
 
 Out of scope for this packet:
 
