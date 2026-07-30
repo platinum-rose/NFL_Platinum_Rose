@@ -11,6 +11,7 @@ export default function Header({
   onOpenSplitsData,
   onOpenTeasers,
   onOpenContest,
+  onOpenPredictionConverter,
   onImport,
   onAnalyze,
   onManage,
@@ -96,6 +97,7 @@ export default function Header({
                 <ToolButton onClick={onOpenContest} icon={ListFilter} label="Contest" colorClass="text-orange-400" />
                 <ToolButton onClick={onOpenSplits} icon={Activity} label="Pulse" colorClass="text-rose-400" />
                 <ToolButton onClick={onOpenSplitsData} icon={BarChart3} label="Splits" colorClass="text-cyan-400" />
+                <ToolButton onClick={onOpenPredictionConverter} icon={TrendingUp} label="Kalshi/Poly" colorClass="text-emerald-400" />
             </div>
 
             {/* RIGHT: DATA BUTTONS */}
