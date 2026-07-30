@@ -23,6 +23,7 @@ import { createHash }      from 'node:crypto';
 import { fileURLToPath }   from 'node:url';
 
 import { createClient }    from '@supabase/supabase-js';
+import { ensureVaultFrontmatter } from './lib/vaultFrontmatter.js';
 import 'dotenv/config';
 
 const __filename   = fileURLToPath(import.meta.url);
@@ -728,14 +729,20 @@ function getSupabase() {
 
 async function upsertNote(supabase, { path: vaultPath, content, tags, source = 'agent' }, results) {
   const entry = { path: vaultPath, status: null };
+  const noteContent = ensureVaultFrontmatter(content, {
+    title: vaultPath.replace(/^NFL\//, '').replace(/\.md$/i, '').replace(/\//g, ' - '),
+    sourceSystem: 'vault-seed',
+    sourceType: 'reference-seed',
+    tags,
+  });
   if (DRY_RUN) {
     entry.status = 'dry-run';
-    console.log(`  [DRY-RUN] ${vaultPath} (${content.length} chars)`);
+    console.log(`  [DRY-RUN] ${vaultPath} (${noteContent.length} chars)`);
     results.push(entry);
     return;
   }
   const { error } = await supabase.from('vault_notes')
-    .upsert({ path: vaultPath, content, tags, source }, { onConflict: 'path' });
+    .upsert({ path: vaultPath, content: noteContent, tags, source }, { onConflict: 'path' });
   if (error) {
     entry.status = 'error';
     entry.error  = error.message;

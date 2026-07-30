@@ -2,7 +2,7 @@
 // Publish canonical, reconciled podcast episode notes from the local generated
 // narrative/deep-dive reports. No model, database, or network calls.
 
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile, rename, rm } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -101,6 +101,23 @@ ${body}
 `;
 }
 
+async function writeVaultFileAtomic(outPath, content) {
+  const vaultRoot = path.resolve(VAULT_ROOT);
+  const resolved = path.resolve(outPath);
+  if (resolved !== vaultRoot && !resolved.startsWith(vaultRoot + path.sep)) {
+    throw new Error(`path traversal blocked: ${outPath}`);
+  }
+  await mkdir(path.dirname(resolved), { recursive: true });
+  const tmpPath = `${resolved}.tmp.${process.pid}.${Date.now()}`;
+  try {
+    await writeFile(tmpPath, content, 'utf8');
+    await rename(tmpPath, resolved);
+  } catch (err) {
+    await rm(tmpPath, { force: true }).catch(() => {});
+    throw err;
+  }
+}
+
 async function main() {
   const narrativeIndex = JSON.parse(await readFile(NARRATIVE_INDEX, 'utf8'));
   let deepDiveIndex = { episodes: [] };
@@ -135,8 +152,7 @@ async function main() {
   }
 
   for (const row of writes) {
-    await mkdir(path.dirname(row.outPath), { recursive: true });
-    await writeFile(row.outPath, row.note, 'utf8');
+    await writeVaultFileAtomic(row.outPath, row.note);
   }
   console.log(`wrote ${writes.length} reconciled podcast note(s) under ${path.join(VAULT_ROOT, OUT_PREFIX)}`);
 }

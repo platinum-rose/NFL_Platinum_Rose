@@ -65,6 +65,7 @@ import {
   renderPlayerProp,
   SECTION_VERSION,
 } from './lib/vaultRebuilderRenderers.js';
+import { ensureVaultFrontmatter } from './lib/vaultFrontmatter.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
@@ -135,7 +136,12 @@ async function readVaultNote(supabase, vaultPath) {
 }
 
 async function writeVaultNote(supabase, vaultPath, content) {
-  const sanitized = content
+  const sanitized = ensureVaultFrontmatter(content, {
+    title: vaultPath.replace(/^NFL\//, '').replace(/\.md$/i, '').replace(/\//g, ' - '),
+    sourceSystem: 'vault-rebuilder',
+    sourceType: 'rebuilt-vault-note',
+    tags: ['vault-rebuilder'],
+  })
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '')
     .replace(/[\uD800-\uDFFF]/g, '');

@@ -33,6 +33,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createClient } from '@supabase/supabase-js';
 import 'dotenv/config';
+import { ensureVaultFrontmatter } from './lib/vaultFrontmatter.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
@@ -2436,8 +2437,14 @@ function sanitize(s) { return String(s).replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F
 
 async function writeVault(sb, md, reportDate) {
   for (const p of [`NFL/Futures/FuturesIntel-${reportDate}.md`, 'NFL/Futures/FuturesIntel-Latest.md']) {
+    const content = ensureVaultFrontmatter(sanitize(md), {
+      title: `NFL Futures Intel Report - ${reportDate}`,
+      sourceSystem: 'futures-intel-report-v2',
+      sourceType: 'futures-report',
+      tags: ['futures', 'intel', 'auto-report', 'v2'],
+    });
     const { error } = await sb.from('vault_notes').upsert(
-      { path: p, content: sanitize(md), tags: ['futures', 'intel', 'auto-report', 'v2'], source: 'agent' }, { onConflict: 'path' });
+      { path: p, content, tags: ['futures', 'intel', 'auto-report', 'v2'], source: 'agent' }, { onConflict: 'path' });
     if (error) throw new Error(`vault ${p}: ${error.message}`);
     console.log(`  [OK] vault → ${p}`);
   }

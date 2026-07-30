@@ -31,6 +31,7 @@ import { fileURLToPath } from 'node:url';
 
 import { createClient } from '@supabase/supabase-js';
 import 'dotenv/config';
+import { ensureVaultFrontmatter } from './lib/vaultFrontmatter.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
@@ -428,7 +429,12 @@ async function main() {
     // Lone surrogates can arise when trunc() slices mid-emoji (e.g. cutting
     // the 2-code-unit pair \uD83C\uDFC0 for 🏀 in half). Strip the entire
     // U+D800-U+DFFF range so both complete pairs and lone orphans are removed.
-    const newContent   = rawContent
+    const newContent   = ensureVaultFrontmatter(rawContent, {
+      title: `${abbr} NFL Team Note`,
+      sourceSystem: 'intel-to-vault-sync',
+      sourceType: 'team-intel',
+      tags: ['team', abbr.toLowerCase(), 'auto-intel'],
+    })
       // eslint-disable-next-line no-control-regex
       .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '')  // control chars
       .replace(/[\uD800-\uDFFF]/g, '');                     // all surrogate code units
@@ -464,10 +470,16 @@ async function main() {
     if (DRY_RUN) {
       console.log(`\n  [DRY RUN] ${signalsPath} — cross-team summary`);
     } else {
+      const noteContent = ensureVaultFrontmatter(signalsContent, {
+        title: 'NFL Weekly Signals',
+        sourceSystem: 'intel-to-vault-sync',
+        sourceType: 'weekly-signals',
+        tags: ['reference', 'signals', 'auto-intel'],
+      });
       const { error } = await supabase
         .from('vault_notes')
         .upsert(
-          { path: signalsPath, content: signalsContent, tags: ['reference', 'signals', 'auto-intel'], source: 'agent' },
+          { path: signalsPath, content: noteContent, tags: ['reference', 'signals', 'auto-intel'], source: 'agent' },
           { onConflict: 'path' },
         );
       if (error) {

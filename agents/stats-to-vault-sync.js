@@ -28,6 +28,7 @@ import { fileURLToPath }    from 'node:url';
 
 import { createClient } from '@supabase/supabase-js';
 import 'dotenv/config';
+import { ensureVaultFrontmatter } from './lib/vaultFrontmatter.js';
 
 const __filename   = fileURLToPath(import.meta.url);
 const __dirname    = path.dirname(__filename);
@@ -298,7 +299,12 @@ async function main() {
 
     const statsSection = buildTeamStatsSection(abbr, teamRows);
     const rawContent   = spliceStatsSection(existing, statsSection);
-    const newContent   = rawContent
+    const newContent   = ensureVaultFrontmatter(rawContent, {
+      title: `${abbr} NFL Team Note`,
+      sourceSystem: 'stats-to-vault-sync',
+      sourceType: 'team-stats',
+      tags: ['team', abbr.toLowerCase(), 'stats', 'auto-stats'],
+    })
       // eslint-disable-next-line no-control-regex
       .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '') // control chars
       .replace(/[\uD800-\uDFFF]/g, '');                   // lone surrogates
@@ -338,7 +344,12 @@ async function main() {
       if (!seasonRows || seasonRows.length === 0) continue;
 
       const refPath    = `NFL/Reference/TeamStats-${season}.md`;
-      const refContent = buildLeagueStatsNote(season, seasonRows);
+      const refContent = ensureVaultFrontmatter(buildLeagueStatsNote(season, seasonRows), {
+        title: `NFL Team Stats ${season}`,
+        sourceSystem: 'stats-to-vault-sync',
+        sourceType: 'team-stats-reference',
+        tags: ['reference', 'stats', `season-${season}`, 'auto-stats'],
+      });
 
       if (DRY_RUN) {
         console.log(`  [DRY RUN] ${refPath} — ${seasonRows.length} teams`);

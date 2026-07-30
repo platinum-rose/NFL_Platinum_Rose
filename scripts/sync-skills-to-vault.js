@@ -31,6 +31,7 @@ import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join, basename, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createClient } from '@supabase/supabase-js';
+import { ensureVaultFrontmatter } from '../agents/lib/vaultFrontmatter.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -123,10 +124,16 @@ const ALL_ENTRIES = [...STATIC_ENTRIES, ...buildTeamEntries()];
 
 async function upsertNote(dest, content, tags) {
   if (DRY_RUN) return;
+  const noteContent = ensureVaultFrontmatter(content, {
+    title: dest.replace(/^NFL\//, '').replace(/\.md$/i, '').replace(/\//g, ' - '),
+    sourceSystem: 'sync-skills-to-vault',
+    sourceType: 'skill-reference',
+    tags,
+  });
   const { error } = await supabase
     .from('vault_notes')
     .upsert(
-      { path: dest, content, tags, source: 'manual' },
+      { path: dest, content: noteContent, tags, source: 'manual' },
       { onConflict: 'path' },
     );
   if (error) {

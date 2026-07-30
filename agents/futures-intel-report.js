@@ -28,6 +28,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createClient } from '@supabase/supabase-js';
+import { ensureVaultFrontmatter } from './lib/vaultFrontmatter.js';
 import 'dotenv/config';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -588,10 +589,16 @@ async function writeToVault(supabase, content, reportDate) {
   ];
 
   for (const { path: notePath, tags } of upserts) {
+    const noteContent = ensureVaultFrontmatter(sanitized, {
+      title: `NFL Futures Intel Report - ${reportDate}`,
+      sourceSystem: 'futures-intel-report',
+      sourceType: 'futures-report',
+      tags,
+    });
     const { error } = await supabase
       .from('vault_notes')
       .upsert(
-        { path: notePath, content: sanitized, tags, source: 'agent' },
+        { path: notePath, content: noteContent, tags, source: 'agent' },
         { onConflict: 'path' },
       );
     if (error) throw new Error(`Vault write to ${notePath}: ${error.message}`);
