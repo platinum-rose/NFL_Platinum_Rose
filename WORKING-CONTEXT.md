@@ -32,6 +32,7 @@ Safe recovered work has been committed in narrow checkpoints:
 - `96376e1` - Recalibrate futures synthesis source audit.
 - `0cd942a` - Add futures synthesis source readiness checklist.
 - `f6cee97` - Clean podcast deep-dive synthesis evidence.
+- `817ec29` - Update futures synthesis handoff checkpoint.
 
 `npm.cmd run intel:source-audit` has been recalibrated around the active objective: verifying current intel sources for a maximum-effort frontier-model futures portfolio synthesis. DK/FD bet-slip parsers and weekly live props are execution/regular-season plumbing and are out of scope for this synthesis-readiness gate.
 
@@ -47,6 +48,7 @@ Result: `PASSABLE`, Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Co
 - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.html`
 - `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`
 - `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md`
+- `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md`
 
 Important caveats:
 - BetOnline has current July 29 screenshots, but the structured BetOnline JSON import is stale. Do not use stale structured BetOnline rows as source of truth unless normalized or manually reviewed against the screenshots.
@@ -133,11 +135,12 @@ Review/stage narrowly by workstream. Do not use `git add -A`.
 
 **Crash recovery and safe workstream checkpoints are committed:** continue from `handoffs/2026-07-30-0655-workstream-triage-handoff.md`.
 
-**Current main focus:** verify and package current intel sources for a deep-dive futures portfolio synthesis from a frontier model. Do not spend current-cycle attention on DK/FD bet-slip parsers or weekly live props.
+**Current main focus:** run a deep-dive futures portfolio synthesis from a frontier model using the prepared evidence packet. Do not spend current-cycle attention on DK/FD bet-slip parsers or weekly live props.
 
 Recommended next:
-- Use `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md` as the accepted-source matrix for the frontier-model evidence packet.
-- Normalize or manually review the current July 29 BetOnline screenshots before treating BetOnline as a placeable-price source of truth.
+- Use `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md` as the current model-ready evidence packet.
+- Decide whether to normalize or manually review the current July 29 BetOnline screenshots before the model run, or proceed with BetOnline exact prices excluded.
+- Ask explicit approval before any paid/frontier model call.
 - Review `scripts/overnight.js`, `docs/NFL_DASHBOARD_USER_GUIDE.md`, and `infra/systemd/` separately before committing any ops automation.
 - Clean older retry artifacts only after deciding they are no longer useful crash-window evidence.
 

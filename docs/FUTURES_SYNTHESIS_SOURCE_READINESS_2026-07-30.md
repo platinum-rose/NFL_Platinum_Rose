@@ -51,7 +51,7 @@ The current focus is futures portfolio synthesis readiness. The following are ou
 - `node --check agents\lib\speaker-attribution.js` passed.
 - `npm.cmd run podcast-deep-dives` regenerated 57 transcript deep dives.
 - Hard promo/legal scan over `docs\podcast-transcript-deep-dives` returned no matches for DraftKings promo/legal, Total Wireless, sponsorship copy, gamble-responsibly, or DKNG/legal disclaimers.
-- Broad ad-context scan returned 7 residual matches; each was reviewed as contextual false-positive residue rather than sponsor/legal copy.
+- Expanded hard promo/legal scan, including Hard Rock break/promo phrasing, returned no matches; remaining sportsbook mentions are retained only as price/context references.
 - `docs/podcast-transcript-deep-dives/index.json` parsed with Count 57 / Episodes 57 / GeneratedAt `2026-07-30T07:40:54.220Z`.
 - All `docs/podcast-transcript-deep-dives/*.json` parsed successfully.
 - All `data/podcasts/m6-diarized-all/*.json` parsed successfully.
@@ -67,5 +67,5 @@ The current focus is futures portfolio synthesis readiness. The following are ou
 ## Next Acceptance Steps
 
 1. Normalize or manually review BetOnline screenshots before using BetOnline as a placeable-price source.
-2. Build the frontier-model evidence packet from accepted sources only.
+2. Use `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md` as the frontier-model evidence packet.
 3. Ask for explicit approval before any paid model/API call or persisted recommendation output.
