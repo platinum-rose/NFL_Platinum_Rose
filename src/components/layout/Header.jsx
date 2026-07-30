@@ -142,6 +142,7 @@ export default function Header({
             <NavTab id="official-picks" label="Official Picks" icon={ShieldCheck} />
             <NavTab id="injuries" label="Injuries" icon={HeartPulse} />
             <NavTab id="fantasy" label="Fantasy" icon={Shirt} />
+            <NavTab id="training-camp" label="Camp Intel" icon={Activity} />
         </div>
       </div>
 
