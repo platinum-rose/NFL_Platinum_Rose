@@ -45,6 +45,8 @@ Source audit:
   - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T15-21-51-624Z.html`
   - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T16-14-57-708Z.json`
   - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T16-14-57-708Z.html`
+  - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T16-50-56-165Z.json`
+  - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T16-50-56-165Z.html`
   - `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`
   - `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md`
   - `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md`
@@ -55,7 +57,7 @@ Source audit:
   - `docs/FUTURES_ODDS_BETONLINE_2026-07-29_MANUAL_REVIEW.md`
   - Verified with `npm.cmd run futures:betonline-0729`, `node scripts/build-betonline-0729-import.js --check-only`, and `node scripts/ingest-futures-json.js --file data/futures-imports/betonline-2026-07-29.json --dry-run`.
 - Current caveat: the fresh live training-camp latest snapshot is still review/highlight context, not an official recommendation source. It contains 19 items across 10 teams, 4 high-priority items, and 6 feed-health entries.
-- Player availability caveat: `data/player-availability/latest.json` contains 797 events across all 32 teams with 122 improving and 194 worsening, generated `2026-07-30T16:09:38.156Z`. Use individual rows as futures context; the broad `major_count` is not a confirmed star/depth ranking.
+- Player availability caveat: `data/player-availability/latest.json` contains 796 events across all 32 teams with 121 improving, 194 worsening, 26 OL worsening, 36 defensive-front worsening, 7 OL cluster teams, and 12 defensive-front cluster teams, generated `2026-07-30T16:50:29.570Z`. Use individual rows as futures context; OL clusters can impair the team's offense, while defensive-front clusters can boost opponent offensive/scoring conditions.
 
 Targeted syntax/lint:
 - `node --check scripts/build-intel-source-audit-report.js`

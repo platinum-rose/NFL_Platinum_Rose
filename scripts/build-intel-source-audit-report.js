@@ -854,7 +854,7 @@ async function collectPlayerAvailability(sources) {
     name: 'Player availability snapshot',
     status: eventCount <= 0 || stale ? 'stale' : 'review',
     freshness: `${generated} (${hoursOld ?? '?'}h old)`,
-    evidence: `${eventCount} availability events across ${snapshot.meta?.teams_with_events || 0} teams; improving=${snapshot.meta?.improving_count || 0}; worsening=${snapshot.meta?.worsening_count || 0}; major=${snapshot.meta?.major_count || 0}; source issues=${sourceIssues.length}.`,
+    evidence: `${eventCount} availability events across ${snapshot.meta?.teams_with_events || 0} teams; improving=${snapshot.meta?.improving_count || 0}; worsening=${snapshot.meta?.worsening_count || 0}; major=${snapshot.meta?.major_count || 0}; OL worsening=${snapshot.meta?.offensive_line_worsening_count || 0}; defensive-front worsening=${snapshot.meta?.defensive_front_worsening_count || 0}; OL cluster teams=${snapshot.meta?.teams_with_ol_cluster_risk || 0}; defensive-front cluster teams=${snapshot.meta?.teams_with_defensive_front_cluster_risk || 0}; source issues=${sourceIssues.length}.`,
     action: eventCount > 0
       ? 'Review/highlight key returns, setbacks, PUP/IR timing, and snap-count risks before synthesis.'
       : 'Refresh the availability snapshot before synthesis.',

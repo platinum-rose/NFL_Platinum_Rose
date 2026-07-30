@@ -26,8 +26,8 @@
   - Dashboard, schedule asset, YouTube intel asset, official-picks inbox, and M6 health all returned HTTP 200.
   - `npm.cmd run intel:source-audit` was recalibrated around futures-portfolio synthesis freshness, excluding DK/FD bet-slip parser and weekly live-props plumbing from the current gate.
   - Last fully passing audit was `PASSABLE`: Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7.
-  - Current source audit is `PASSABLE`: Current 2 / Review 18 / Stale 0 / Blocked 0 / Missing 0 / Context 7. A fresh approved live RSS scout refreshed the app-facing July 30 training-camp files to 19 items across 10 teams, and player availability covers 797 events across all 32 teams.
-  - Current source-audit artifacts: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T16-14-57-708Z.json`, `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T16-14-57-708Z.html`, and `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`.
+  - Current source audit is `PASSABLE`: Current 2 / Review 18 / Stale 0 / Blocked 0 / Missing 0 / Context 7. A fresh approved live RSS scout refreshed the app-facing July 30 training-camp files to 19 items across 10 teams, and player availability covers 796 events across all 32 teams with OL and defensive-front cluster flags.
+  - Current source-audit artifacts: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T16-50-56-165Z.json`, `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T16-50-56-165Z.html`, and `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`.
 - Live/paid model calls during recovery: none by Codex.
 - Supabase writes during recovery: none by Codex.
 - Official-pick approvals: none.
@@ -81,7 +81,7 @@ Continue from the crash-recovery triage checkpoint. The current objective is a m
   - `scripts/build-player-availability.js`
   - `data/player-availability/latest.json`
   - `docs/player-availability/player-availability-latest.md`
-  - `npm.cmd run player-availability:live` generated 797 events across 32 teams with 122 improving and 194 worsening; no Supabase writes or model calls.
+  - `npm.cmd run player-availability:live` generated 796 events across 32 teams with 121 improving, 194 worsening, 26 OL worsening, and 36 defensive-front worsening; no Supabase writes or model calls.
 
 ## Recovered Workstream Status
 

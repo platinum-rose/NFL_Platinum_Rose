@@ -14,7 +14,7 @@ This audit is local/read-only except for generated Markdown/HTML/JSON evidence f
 | Verify podcast/expert intel source quality | Proven with caveats | `npm.cmd run podcast-deep-dives` regenerated 57 transcript deep dives from local M6 exports at `2026-07-30T08:48:17.626Z`; referenced Markdown/HTML files exist; hard ad/legal scan returned no matches for the current generated deep dives. Podcast output remains research context, not betting authority. |
 | Verify article/RSS intel source quality | Proven with caveats | Article review parsed: 39 articles reviewed, 0 actual pick candidates, 8 market/inference leads, 103 contextual notes. Research ingest receipt has 10 configured feeds and 1 feed issue. Use article leads as synthesis context only. |
 | Verify training-camp intel freshness | Proven with caveat | `data/training-camp/2026/latest.json` and `data/training-camp/2026/training-camp-intel-2026-07-30.json` now contain the fresh approved live RSS scout snapshot generated `2026-07-30T15:21:34.180Z`: 19 items across 10 teams. Review/highlight before model synthesis. |
-| Verify player injury/return availability context | Proven with caveat | `data/player-availability/latest.json` was generated `2026-07-30T16:09:38.156Z` with 797 events across 32 teams: 122 improving, 194 worsening. Use it as player-availability context, not a direct pick trigger. |
+| Verify player injury/return availability context | Proven with caveat | `data/player-availability/latest.json` was generated `2026-07-30T16:50:29.570Z` with 796 events across 32 teams: 121 improving, 194 worsening, 26 OL worsening, 36 defensive-front worsening, 7 OL cluster teams, and 12 defensive-front cluster teams. Use it as player-availability context, not a direct pick trigger. |
 | Verify generated source audit frontier readiness | Proven for source freshness | Current audit is `PASSABLE`, Current 2 / Review 18 / Stale 0 / Blocked 0 / Missing 0 / Context 7 / Inference 1. |
 | Produce maximum-effort frontier-model narrative and pick recommendations | Not started by design | Source gate must clear first, then the user must explicitly approve any paid/frontier model call and any persisted recommendation output. |
 
@@ -34,7 +34,7 @@ node scripts/ingest-futures-json.js --file data/futures-imports/betonline-2026-0
 
 ## Latest Counts
 
-- Current source audit: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T16-14-57-708Z.json`
+- Current source audit: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T16-50-56-165Z.json`
 - Current audit verdict: `PASSABLE`
 - Current audit counts: Current 2 / Review 18 / Stale 0 / Blocked 0 / Missing 0 / Context 7 / Inference 1
 - Sole stale source: none
@@ -44,7 +44,7 @@ node scripts/ingest-futures-json.js --file data/futures-imports/betonline-2026-0
 - Podcast deep dives: 57 episodes, generated `2026-07-30T08:48:17.626Z`
 - Article review: 39 articles, 8 market/inference leads, 103 contextual notes
 - Fresh live training-camp snapshot: 19 items across 10 teams, generated `2026-07-30T15:21:34.180Z`
-- Player availability snapshot: 797 events across 32 teams, 122 improving, 194 worsening, generated `2026-07-30T16:09:38.156Z`
+- Player availability snapshot: 796 events across 32 teams, 121 improving, 194 worsening, 26 OL worsening, 36 defensive-front worsening, generated `2026-07-30T16:50:29.570Z`
 
 ## Required Next Action
 

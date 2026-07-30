@@ -2,8 +2,10 @@ import { describe, expect, it } from 'vitest';
 import {
   availabilityEventFromInjuryRecord,
   availabilityEventFromTrainingCampItem,
+  availabilityGroup,
   buildAvailabilitySnapshot,
   classifyAvailabilityEvent,
+  clusterAvailabilitySummary,
   normalizeInjuryStatus,
 } from '../../agents/lib/player-availability.js';
 
@@ -38,6 +40,30 @@ describe('classifyAvailabilityEvent', () => {
   });
 });
 
+describe('availabilityGroup and clusterAvailabilitySummary', () => {
+  it('separates offensive line from defensive front injuries', () => {
+    expect(availabilityGroup('OT')).toBe('offensive_line');
+    expect(availabilityGroup('G')).toBe('offensive_line');
+    expect(availabilityGroup('C')).toBe('offensive_line');
+    expect(availabilityGroup('DE')).toBe('defensive_front');
+    expect(availabilityGroup('DT')).toBe('defensive_front');
+    expect(availabilityGroup('EDGE')).toBe('defensive_front');
+  });
+
+  it('flags reciprocal defensive-front cluster risk for opponent offense', () => {
+    const summary = clusterAvailabilitySummary([
+      { position: 'DE', availability_trend: 'worsening' },
+      { position: 'DT', availability_trend: 'worsening' },
+      { position: 'OT', availability_trend: 'worsening' },
+      { position: 'G', availability_trend: 'worsening' },
+    ]);
+
+    expect(summary.offensive_line.cluster_risk).toBe(true);
+    expect(summary.defensive_front.cluster_risk).toBe(true);
+    expect(summary.defensive_front.opponent_offense_boost_risk).toBe(true);
+  });
+});
+
 describe('availabilityEventFromInjuryRecord', () => {
   it('turns an ESPN row into a futures-friendly availability event', () => {
     const row = {
@@ -61,8 +87,24 @@ describe('availabilityEventFromInjuryRecord', () => {
     expect(event.availability_trend).toBe('improving');
     expect(event.injury_type).toBe('back');
     expect(event.impact_bucket).toBe('qb_major');
+    expect(event.availability_group).toBe('quarterback');
     expect(event.linked_markets).toContain('wins');
     expect(event.linked_markets).toContain('player_props');
+  });
+
+  it('marks offensive linemen as offensive-line major risks', () => {
+    const event = availabilityEventFromInjuryRecord({
+      espn_injury_id: 'ol1',
+      player_name: 'Left Tackle A',
+      team_abbr: 'GB',
+      position: 'OT',
+      injury_status: 'Out',
+      short_comment: 'Left Tackle A (knee) was placed on the active/PUP list.',
+    }, { season: 2026 });
+
+    expect(event.impact_bucket).toBe('offensive_line_major');
+    expect(event.availability_group).toBe('offensive_line');
+    expect(event.availability_trend).toBe('worsening');
   });
 });
 
@@ -86,7 +128,8 @@ describe('availabilityEventFromTrainingCampItem', () => {
 
     expect(event.event_type).toBe('return_to_practice');
     expect(event.availability_trend).toBe('improving');
-    expect(event.impact_bucket).toBe('defensive_major');
+    expect(event.impact_bucket).toBe('defensive_front_major');
+    expect(event.availability_group).toBe('defensive_front');
     expect(event.needs_human_review).toBe(true);
   });
 });
@@ -123,6 +166,8 @@ describe('buildAvailabilitySnapshot', () => {
     expect(snapshot.meta.worsening_count).toBe(1);
     expect(snapshot.teams.BUF.event_count).toBe(2);
     expect(snapshot.teams.BUF.major_count).toBe(2);
+    expect(snapshot.teams.BUF.defensive_front_worsening_count).toBe(1);
+    expect(snapshot.teams.BUF.cluster_risks.defensive_front.opponent_offense_boost_risk).toBe(true);
     expect(snapshot.meta.source_health).toHaveLength(1);
   });
 });

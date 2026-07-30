@@ -43,21 +43,46 @@ const KEY_POSITION_GROUPS = {
   WR: 'skill_major',
   TE: 'skill_major',
   FB: 'skill_major',
-  T: 'trench_major',
-  G: 'trench_major',
-  C: 'trench_major',
-  OL: 'trench_major',
-  OT: 'trench_major',
-  OG: 'trench_major',
-  DE: 'defensive_major',
-  DT: 'defensive_major',
-  DL: 'defensive_major',
-  EDGE: 'defensive_major',
+  T: 'offensive_line_major',
+  G: 'offensive_line_major',
+  C: 'offensive_line_major',
+  OL: 'offensive_line_major',
+  OT: 'offensive_line_major',
+  OG: 'offensive_line_major',
+  DE: 'defensive_front_major',
+  DT: 'defensive_front_major',
+  DL: 'defensive_front_major',
+  NT: 'defensive_front_major',
+  EDGE: 'defensive_front_major',
   OLB: 'defensive_major',
   LB: 'defensive_major',
   CB: 'defensive_major',
   S: 'defensive_major',
   DB: 'defensive_major',
+};
+
+const AVAILABILITY_GROUPS = {
+  QB: 'quarterback',
+  RB: 'offensive_skill',
+  WR: 'offensive_skill',
+  TE: 'offensive_skill',
+  FB: 'offensive_skill',
+  T: 'offensive_line',
+  G: 'offensive_line',
+  C: 'offensive_line',
+  OL: 'offensive_line',
+  OT: 'offensive_line',
+  OG: 'offensive_line',
+  DE: 'defensive_front',
+  DT: 'defensive_front',
+  DL: 'defensive_front',
+  NT: 'defensive_front',
+  EDGE: 'defensive_front',
+  OLB: 'linebacker',
+  LB: 'linebacker',
+  CB: 'secondary',
+  S: 'secondary',
+  DB: 'secondary',
 };
 
 function sha(value) {
@@ -120,6 +145,31 @@ export function impactBucket(position, text = '') {
   return 'depth_only';
 }
 
+export function availabilityGroup(position) {
+  const pos = String(position || '').toUpperCase();
+  return AVAILABILITY_GROUPS[pos] || 'other';
+}
+
+export function clusterAvailabilitySummary(events = []) {
+  const summary = {
+    offensive_line: { total: 0, worsening: 0, improving: 0, cluster_risk: false },
+    defensive_front: { total: 0, worsening: 0, improving: 0, cluster_risk: false, opponent_offense_boost_risk: false },
+  };
+
+  for (const event of events || []) {
+    const group = event.availability_group || availabilityGroup(event.position);
+    if (!summary[group]) continue;
+    summary[group].total += 1;
+    if (event.availability_trend === 'worsening') summary[group].worsening += 1;
+    if (event.availability_trend === 'improving') summary[group].improving += 1;
+  }
+
+  summary.offensive_line.cluster_risk = summary.offensive_line.worsening >= 2;
+  summary.defensive_front.cluster_risk = summary.defensive_front.worsening >= 2;
+  summary.defensive_front.opponent_offense_boost_risk = summary.defensive_front.worsening >= 1;
+  return summary;
+}
+
 function compactSummary(value, maxChars = 260) {
   const clean = String(value || '').replace(/\s+/g, ' ').trim();
   return clean.length > maxChars ? `${clean.slice(0, maxChars - 3).trim()}...` : clean;
@@ -159,6 +209,7 @@ export function availabilityEventFromInjuryRecord(record, options = {}) {
     needs_human_review: true,
     linked_markets: linkedMarketsForAvailability(text),
     impact_bucket: impactBucket(record.position, text),
+    availability_group: availabilityGroup(record.position),
     dedupe_key: record.espn_injury_id || record.source_url || `${team}|${playerName}|${status}|${event_type}`,
   };
 }
@@ -197,6 +248,7 @@ export function availabilityEventFromTrainingCampItem(item, options = {}) {
     needs_human_review: item.needs_human_review ?? true,
     linked_markets: item.linked_markets?.length ? item.linked_markets : linkedMarketsForAvailability(text),
     impact_bucket: impactBucket(item.position, text),
+    availability_group: availabilityGroup(item.position),
     dedupe_key: item.dedupe_key || sourceUrl || item.id,
   };
 }
@@ -235,13 +287,30 @@ export function buildAvailabilitySnapshot({ season = 2026, generatedAt = new Dat
       improving_count: 0,
       worsening_count: 0,
       major_count: 0,
+      offensive_line_count: 0,
+      offensive_line_worsening_count: 0,
+      defensive_front_count: 0,
+      defensive_front_worsening_count: 0,
+      cluster_risks: null,
       events: [],
     };
     team.event_count += 1;
     if (event.availability_trend === 'improving') team.improving_count += 1;
     if (event.availability_trend === 'worsening') team.worsening_count += 1;
     if (event.impact_bucket !== 'depth_only') team.major_count += 1;
+    if (event.availability_group === 'offensive_line') {
+      team.offensive_line_count += 1;
+      if (event.availability_trend === 'worsening') team.offensive_line_worsening_count += 1;
+    }
+    if (event.availability_group === 'defensive_front') {
+      team.defensive_front_count += 1;
+      if (event.availability_trend === 'worsening') team.defensive_front_worsening_count += 1;
+    }
     if (team.events.length < 12) team.events.push(event);
+  }
+
+  for (const team of Object.values(teams)) {
+    team.cluster_risks = clusterAvailabilitySummary(events.filter((event) => event.team_abbr === team.team_abbr));
   }
 
   return {
@@ -254,6 +323,10 @@ export function buildAvailabilitySnapshot({ season = 2026, generatedAt = new Dat
       improving_count: events.filter((e) => e.availability_trend === 'improving').length,
       worsening_count: events.filter((e) => e.availability_trend === 'worsening').length,
       major_count: events.filter((e) => e.impact_bucket !== 'depth_only').length,
+      offensive_line_worsening_count: events.filter((e) => e.availability_group === 'offensive_line' && e.availability_trend === 'worsening').length,
+      defensive_front_worsening_count: events.filter((e) => e.availability_group === 'defensive_front' && e.availability_trend === 'worsening').length,
+      teams_with_ol_cluster_risk: Object.values(teams).filter((team) => team.cluster_risks?.offensive_line?.cluster_risk).length,
+      teams_with_defensive_front_cluster_risk: Object.values(teams).filter((team) => team.cluster_risks?.defensive_front?.cluster_risk).length,
       recommendation_status: 'availability_intel_only_not_picks',
       guardrails: {
         live_model_calls: false,

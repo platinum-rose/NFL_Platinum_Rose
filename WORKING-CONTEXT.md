@@ -45,11 +45,11 @@ Current source audit:
 npm.cmd run intel:source-audit
 ```
 
-Current result: `PASSABLE`, Current 2 / Review 18 / Stale 0 / Blocked 0 / Missing 0 / Context 7. A fresh approved live RSS scout refreshed the app-facing July 30 training-camp files to 19 items across 10 teams, and player availability was snapshotted with 797 events across all 32 teams.
+Current result: `PASSABLE`, Current 2 / Review 18 / Stale 0 / Blocked 0 / Missing 0 / Context 7. A fresh approved live RSS scout refreshed the app-facing July 30 training-camp files to 19 items across 10 teams, and player availability was snapshotted with 796 events across all 32 teams, including OL and defensive-front cluster flags.
 
 - Last fully passing audit: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.json`
-- Current audit JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T16-14-57-708Z.json`
-- Current audit HTML: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T16-14-57-708Z.html`
+- Current audit JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T16-50-56-165Z.json`
+- Current audit HTML: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T16-50-56-165Z.html`
 - `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`
 - `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md`
 - `docs/FUTURES_SYNTHESIS_REQUIREMENT_AUDIT_2026-07-30.md`
@@ -69,7 +69,7 @@ Important caveats:
 - Current worktree copies of `data/training-camp/2026/latest.json` and `data/training-camp/2026/training-camp-intel-2026-07-30.json` contain the fresh approved live RSS scout snapshot generated `2026-07-30T15:21:34.180Z`: 19 items across 10 teams, 4 high-priority items, and 6 feed-health entries. Five feeds were available; Football Outsiders still returned `fetch failed`. Use it as review/highlight context before synthesis.
 - Review items are not blockers by themselves; they must be accepted, rejected, or caveated before a frontier-model run.
 - Podcast/deep-dive output was regenerated after expanding ad/legal filtering to catch sponsored-by copy. The hard promo/legal scan is clean; remaining sportsbook mentions are price/context references.
-- Player availability is local/review context, generated from the ESPN injuries API plus training-camp availability-like notes. `major_count` is a broad position-group flag, not a confirmed star/depth rank; inspect individual player rows before moving futures exposure.
+- Player availability is local/review context, generated from the ESPN injuries API plus training-camp availability-like notes. It separates OL cluster risk from defensive-front cluster risk; inspect individual player rows before moving futures exposure.
 
 Remaining dirty work is intentional:
 - Overnight/ops automation files: `scripts/overnight.js`, `docs/NFL_DASHBOARD_USER_GUIDE.md`, and `infra/systemd/`. Review separately because they change live-fetch automation assumptions and contain Linux/encoding/command assumptions.

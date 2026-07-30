@@ -442,15 +442,40 @@ async function fetchPlayerAvailabilityContext() {
           source: event.source,
           published_at: event.published_at,
         }));
+      const mapAvailabilityEvent = (event) => ({
+        player_name: event.player_name,
+        position: event.position,
+        event_type: event.event_type,
+        status: event.normalized_status,
+        impact_bucket: event.impact_bucket,
+        availability_group: event.availability_group,
+        summary: event.short_summary,
+        source: event.source,
+        published_at: event.published_at,
+        needs_human_review: event.needs_human_review,
+      });
+      const offensiveLineRisks = events
+        .filter((event) => event.availability_group === 'offensive_line' && event.availability_trend === 'worsening')
+        .slice(0, 8)
+        .map(mapAvailabilityEvent);
+      const defensiveFrontRisks = events
+        .filter((event) => event.availability_group === 'defensive_front' && event.availability_trend === 'worsening')
+        .slice(0, 8)
+        .map(mapAvailabilityEvent);
       byTeam[nick] = {
         snapshot_at: parsed.meta?.generated_at || null,
         event_count: team.event_count || events.length,
         improving_count: team.improving_count || 0,
         worsening_count: team.worsening_count || 0,
         major_count: team.major_count || 0,
+        offensive_line_worsening_count: team.offensive_line_worsening_count || 0,
+        defensive_front_worsening_count: team.defensive_front_worsening_count || 0,
+        cluster_risks: team.cluster_risks || null,
         key_returns: improving,
         key_absences: worsening,
         snap_count_risks: snapCountRisks,
+        offensive_line_risks: offensiveLineRisks,
+        defensive_front_risks: defensiveFrontRisks,
         needs_human_review: events.some((event) => event.needs_human_review),
       };
     }
