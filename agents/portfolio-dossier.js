@@ -360,6 +360,106 @@ async function loadGeneratedProfileRows(prefix) {
     return [];
   }
 }
+async function fetchTrainingCampIntel() {
+  const latestPath = path.join(ROOT, 'data', 'training-camp', String(SEASON), 'latest.json');
+  try {
+    const raw = await readFile(latestPath, 'utf8');
+    const parsed = JSON.parse(raw);
+    const byTeam = {};
+    if (parsed && parsed.teams) {
+      for (const [team, value] of Object.entries(parsed.teams)) {
+        const norm = normalizeTeam(team);
+        if (!norm) continue;
+        const items = Array.isArray(value) ? value : (value.items || []);
+        const compactItems = items.slice(0, 5).map((it) => ({
+          id: it.id,
+          signal_type: it.signal_type,
+          summary: it.summary,
+          source: it.source,
+          published_at: it.published_at,
+          signal_strength: it.signal_strength,
+          confidence: it.confidence,
+          linked_markets: it.linked_markets || [],
+        }));
+        byTeam[norm] = {
+          snapshot_at: parsed.meta?.generated_at || parsed.snapshot_at || null,
+          items_count: items.length,
+          high_priority_count: items.filter((x) => (x.signal_strength || 0) >= 0.7).length,
+          nuggets: compactItems,
+        };
+      }
+    }
+    return byTeam;
+  } catch (_err) {
+    return {};
+  }
+}
+
+async function fetchPlayerAvailabilityContext() {
+  const latestPath = path.join(ROOT, 'data', 'player-availability', 'latest.json');
+  try {
+    const parsed = JSON.parse(await readFile(latestPath, 'utf8'));
+    const byTeam = {};
+    for (const [abbr, team] of Object.entries(parsed.teams || {})) {
+      const nick = normalizeTeam(abbr);
+      if (!nick) continue;
+      const events = team.events || [];
+      const improving = events
+        .filter((event) => event.availability_trend === 'improving')
+        .slice(0, 6)
+        .map((event) => ({
+          player_name: event.player_name,
+          position: event.position,
+          event_type: event.event_type,
+          impact_bucket: event.impact_bucket,
+          summary: event.short_summary,
+          source: event.source,
+          published_at: event.published_at,
+          needs_human_review: event.needs_human_review,
+        }));
+      const worsening = events
+        .filter((event) => event.availability_trend === 'worsening')
+        .slice(0, 6)
+        .map((event) => ({
+          player_name: event.player_name,
+          position: event.position,
+          event_type: event.event_type,
+          status: event.normalized_status,
+          impact_bucket: event.impact_bucket,
+          summary: event.short_summary,
+          source: event.source,
+          published_at: event.published_at,
+          needs_human_review: event.needs_human_review,
+        }));
+      const snapCountRisks = events
+        .filter((event) => /limited|snap_count/.test(event.event_type) || /snap count|limited snap|pitch count/i.test(event.short_summary || ''))
+        .slice(0, 6)
+        .map((event) => ({
+          player_name: event.player_name,
+          position: event.position,
+          event_type: event.event_type,
+          summary: event.short_summary,
+          source: event.source,
+          published_at: event.published_at,
+        }));
+      byTeam[nick] = {
+        snapshot_at: parsed.meta?.generated_at || null,
+        event_count: team.event_count || events.length,
+        improving_count: team.improving_count || 0,
+        worsening_count: team.worsening_count || 0,
+        major_count: team.major_count || 0,
+        key_returns: improving,
+        key_absences: worsening,
+        snap_count_risks: snapCountRisks,
+        needs_human_review: events.some((event) => event.needs_human_review),
+      };
+    }
+    return byTeam;
+  } catch (_err) {
+    return {};
+  }
+}
+
 async function fetchAdvancedAnalytics() {
   const { data, error } = await sb.from('team_analytic_snapshots')
     .select('season, week, team, source_key, source_name, source_url, snapshot_at, games_played, off_epa_per_play, def_epa_per_play, off_epa_rank, def_epa_rank, epa_per_dropback, qb_epa_per_dropback, dropback_success_rate, success_rate, cpoe, explosive_play_rate, explosive_pass_rate, explosive_run_rate, pressure_rate_allowed, pressure_rate_generated, sack_rate_allowed, sack_rate_generated, neutral_pass_rate, early_down_pass_rate, shotgun_rate, no_huddle_rate, play_action_rate, motion_rate, attribution_note')
@@ -1102,7 +1202,7 @@ function splitMatchupTeams(tm) {
 // now only carry market-specific fields + a team-name reference, and
 // portfolio-synthesize.js's prompt builder + evidence resolver look context up
 // from this map by team name.
-function buildTeamProfiles(teamNicks, priorByTeam, findSos, teamSignals, injuriesByTeam, advancedAnalyticsByTeam = {}, dvoaByTeam = {}, coachingByTeam = {}) {
+function buildTeamProfiles(teamNicks, priorByTeam, findSos, teamSignals, injuriesByTeam, advancedAnalyticsByTeam = {}, dvoaByTeam = {}, coachingByTeam = {}, trainingCampIntelByTeam = {}, playerAvailabilityByTeam = {}) {
   const { scheduleOut, officiatingOut, clvOut } = teamSignals || {};
   const out = {};
   for (const nick of teamNicks) {
@@ -1116,6 +1216,8 @@ function buildTeamProfiles(teamNicks, priorByTeam, findSos, teamSignals, injurie
       officiating_context: officiatingOut?.[nick] || null,
       clv_signal: clvOut?.[nick] || null,
       injuries: injuriesByTeam?.[nick] || null,
+      training_camp_intel: trainingCampIntelByTeam?.[nick] || null,
+      player_availability: playerAvailabilityByTeam?.[nick] || null,
     };
   }
   return out;
@@ -1275,13 +1377,13 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
 // ── main ─────────────────────────────────────────────────────────────────────
 (async () => {
   console.log(`📊 Portfolio dossier — season ${SEASON}${SINCE ? ` since ${SINCE}` : ''}`);
-  const [snaps, pickSignals, userPicks, podcastRows, priorByTeam, games, oddsOpenByGame, splitsLatestByGame, refereeByName, rosterChurnByTeam, injuriesByTeam, advancedAnalyticsByTeam, dvoaByTeam, coachingByTeam] = await Promise.all([
+  const [snaps, pickSignals, userPicks, podcastRows, priorByTeam, games, oddsOpenByGame, splitsLatestByGame, refereeByName, rosterChurnByTeam, injuriesByTeam, advancedAnalyticsByTeam, dvoaByTeam, coachingByTeam, trainingCampIntelByTeam, playerAvailabilityByTeam] = await Promise.all([
     fetchSnapshots(), fetchPickSignals(), fetchUserPicks(), fetchPodcastIntel(), fetchTeamStats(), fetchSchedule(),
     fetchGameOddsOpen(), fetchGameSplitsLatest(), fetchRefereeTendencies(), fetchRosterChurn(), fetchInjuryContext(),
-    fetchAdvancedAnalytics(), fetchDvoaSnapshots(), fetchCoachingProfiles(),
+    fetchAdvancedAnalytics(), fetchDvoaSnapshots(), fetchCoachingProfiles(), fetchTrainingCampIntel(), fetchPlayerAvailabilityContext(),
   ]);
   const books = [...new Set(snaps.map((s) => s.book))].sort();
-  console.log(`   ${snaps.length} snapshots · ${pickSignals.length} article signals · ${userPicks.length} expert picks · ${podcastRows.length} podcast transcripts · ${Object.keys(priorByTeam).length} teams w/ prior stats · ${games.length} schedule games`);
+  console.log(`   ${snaps.length} snapshots · ${pickSignals.length} article signals · ${userPicks.length} expert picks · ${podcastRows.length} podcast transcripts · ${Object.keys(priorByTeam).length} teams w/ prior stats · ${games.length} schedule games · ${Object.keys(trainingCampIntelByTeam).length} teams w/ camp intel`);
 
   const markets = buildOddsView(snaps);
 
@@ -1299,7 +1401,7 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
     ...Object.keys(advancedAnalyticsByTeam),
   ]);
   const analyticsTeamCount = analyticsTeamSet.size;
-  console.log(`   signals: ${analyticsTeamCount} teams w/ EPA analytics · ${Object.keys(dvoaByTeam).length} w/ DVOA · ${Object.keys(coachingByTeam).length} w/ coaching profiles · ${Object.keys(teamSignals.scheduleOut).length} w/ rest data · ${Object.keys(teamSignals.officiatingOut).length} w/ referee data · ${Object.keys(teamSignals.clvOut).length} w/ CLV tracking · ${Object.keys(rosterChurnByTeam).length} w/ roster-churn data · ${Object.keys(injuriesByTeam).length} w/ injury data`);
+  console.log(`   signals: ${analyticsTeamCount} teams w/ EPA analytics · ${Object.keys(dvoaByTeam).length} w/ DVOA · ${Object.keys(coachingByTeam).length} w/ coaching profiles · ${Object.keys(teamSignals.scheduleOut).length} w/ rest data · ${Object.keys(teamSignals.officiatingOut).length} w/ referee data · ${Object.keys(teamSignals.clvOut).length} w/ CLV tracking · ${Object.keys(rosterChurnByTeam).length} w/ roster-churn data · ${Object.keys(injuriesByTeam).length} w/ injury data · ${Object.keys(trainingCampIntelByTeam).length} w/ camp intel`);
 
   let findLean, adjacent_signals = {}, experts = {}, intel_coverage;
   const norm = await loadNormalizedSignals();
@@ -1326,7 +1428,7 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
       else { const n = normalizeTeam(tm); if (n) teamNickSet.add(n); }
     }
   }
-  const team_profiles = buildTeamProfiles([...teamNickSet], priorByTeam, sos.findSos, teamSignals, injuriesByTeam, advancedAnalyticsByTeam, dvoaByTeam, coachingByTeam);
+  const team_profiles = buildTeamProfiles([...teamNickSet], priorByTeam, sos.findSos, teamSignals, injuriesByTeam, advancedAnalyticsByTeam, dvoaByTeam, coachingByTeam, trainingCampIntelByTeam, playerAvailabilityByTeam);
 
   const synthesis_input = buildSynthesisInput(markets, findLean);
   const signal_coverage = {
@@ -1338,6 +1440,7 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
     teams_with_clv: Object.keys(teamSignals.clvOut).length,
     teams_with_roster_churn: Object.keys(rosterChurnByTeam).length,
     teams_with_injuries: Object.keys(injuriesByTeam).length,
+    teams_with_player_availability: Object.keys(playerAvailabilityByTeam).length,
   };
   const meta = {
     generated_at: new Date().toISOString(), season: SEASON, since: SINCE,
@@ -1354,7 +1457,7 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
     away: normalizeTeam(g.away_team || g.away_abbrev),
     div_game: !!g.div_game,
   })).filter((g) => g.home && g.away);
-  const dossier = { meta, synthesis_input, experts, adjacent_signals, sos: sos.raw, roster_churn: rosterChurnByTeam, injuries: injuriesByTeam, team_profiles, schedule, detail: markets };
+  const dossier = { meta, synthesis_input, experts, adjacent_signals, sos: sos.raw, roster_churn: rosterChurnByTeam, injuries: injuriesByTeam, player_availability: playerAvailabilityByTeam, team_profiles, schedule, detail: markets };
 
   await mkdir(OUT_DIR, { recursive: true });
   const date = new Date().toISOString().slice(0, 10);

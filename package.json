@@ -34,6 +34,8 @@
     "training-camp:report": "node scripts/training-camp-intel.js report",
     "training-camp:scout": "node scripts/training-camp-rss-scout.js",
     "training-camp:scout:live": "node scripts/training-camp-rss-scout.js --live",
+    "player-availability": "node scripts/build-player-availability.js",
+    "player-availability:live": "node scripts/build-player-availability.js --live-injuries",
     "test:training-camp-intel": "node scripts/test-training-camp-intel.js",
     "test:training-camp-rss-scout": "vitest run tests/unit/trainingCampRssScout.test.js",
     "profile:analytics": "node scripts/build-team-analytics-snapshots.js --season 2025",

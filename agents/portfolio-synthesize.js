@@ -118,7 +118,7 @@ Separately, the top-level dossier.roster_churn map (not per-market — one entry
 
 WIN-TOTAL MATH (2026-07-22 fix — previously wins rows had NO code-owned fair probability or edge at all; use these now instead of eyeballing the raw price): each wins row carries 'over_fair_prob'/'under_fair_prob' — a vig-stripped fair probability computed ONLY from books that share the SAME line as the best price (never mixed across lines — an Over 8.5 -105 and an Over 9.5 +120 are NOT the same bet and are never blended) — plus 'best_over_edge_pct'/'best_under_edge_pct' computed directly from that fair prob against the best placeable price, and 'line_consensus_confidence' (over_n_books/under_n_books — how many books actually agree at that specific line; treat a 1-book confidence figure as much weaker than a 4-book one). 'line_value_signal' flags when books disagree on the line itself (>0.5 spread) — treat consensus_line/edge loosely when that fires. Use best_over_edge_pct/best_under_edge_pct as your primary win-total edge signal, not vibes off the raw price.
 
-INJURIES (2026-07-22 addition): each team row carries 'injuries' when available — injury_count, key_position_flags (which of QB/OL/EDGE/CB/WR1/RB1/TE1 groups have a real absence), qb_status, and freshness (how recent the report is). Any thesis that leans on roster health MUST either cite this field or set needs_human_review=true — do not assume health status from memory when this field is present and contradicts it.
+INJURIES AND PLAYER AVAILABILITY: each team profile carries 'injuries' when available — injury_count, key_position_flags, qb_status, and freshness. It can also carry 'player_availability' from the local availability snapshot: key_returns, key_absences, snap_count_risks, improving/worsening counts, and review flags. Any thesis that leans on roster health, players returning from injury, snap-count restrictions, PUP/IR timing, or setbacks MUST cite injuries/player_availability or set needs_human_review=true. Do not assume health status from memory when these fields are present and contradict it.
 
 WHAT TO HUNT (do NOT just list chalk):
 - ASYMMETRIC VALUE / LONGSHOTS: teams the market is likely UNDERPRICING because the price is anchored to a misleading prior-year record — e.g. a team that finished poorly on injuries or variance (not lack of talent), now with starters returning, a soft schedule, or a QB/roster/coaching upgrade. A long playoff / division / win-total / conference price on such a team is convex: small stake, large payoff, and true probability may sit well above the implied. NAME why the market is anchored wrong and what you think fair should be.
@@ -338,7 +338,7 @@ function slimMarketRow(row) {
 }
 
 function slimTeamProfile(profile) {
-  return keepKeys(profile, ['team', 'prior', 'sos', 'analytics', 'dvoa', 'coaching_profile', 'schedule_context', 'clv_signal', 'injuries']);
+  return keepKeys(profile, ['team', 'prior', 'sos', 'analytics', 'dvoa', 'coaching_profile', 'schedule_context', 'clv_signal', 'injuries', 'player_availability']);
 }
 
 function slimDossierForPrompt(dossier) {

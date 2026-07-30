@@ -21,6 +21,7 @@ const SOURCE_GROUPS = [
   'Expert and Podcast Intel',
   'Web Article Intel',
   'Training Camp',
+  'Player Availability',
   'Team Data',
   'Operational Readiness',
 ];
@@ -827,6 +828,44 @@ async function collectTrainingCamp(sources) {
   }
 }
 
+async function collectPlayerAvailability(sources) {
+  const snapshotPath = 'data/player-availability/latest.json';
+  const snapshotStat = await exists(snapshotPath);
+  if (!snapshotStat) {
+    addSource(sources, {
+      group: 'Player Availability',
+      name: 'Player availability snapshot',
+      status: 'missing',
+      evidence: 'No local player availability snapshot found.',
+      action: 'Run `npm.cmd run player-availability:live` before frontier synthesis so returning-player and setback news is available.',
+      path: snapshotPath,
+    });
+    return;
+  }
+
+  const snapshot = await readJson(snapshotPath, {});
+  const generated = snapshot.meta?.generated_at || snapshotStat.mtime.toISOString();
+  const hoursOld = ageHours(generated);
+  const stale = hoursOld !== null && hoursOld > 72;
+  const sourceIssues = (snapshot.meta?.source_health || []).filter((source) => source.status === 'error' || source.status === 'missing');
+  const eventCount = snapshot.meta?.event_count || 0;
+  addSource(sources, {
+    group: 'Player Availability',
+    name: 'Player availability snapshot',
+    status: eventCount <= 0 || stale ? 'stale' : 'review',
+    freshness: `${generated} (${hoursOld ?? '?'}h old)`,
+    evidence: `${eventCount} availability events across ${snapshot.meta?.teams_with_events || 0} teams; improving=${snapshot.meta?.improving_count || 0}; worsening=${snapshot.meta?.worsening_count || 0}; major=${snapshot.meta?.major_count || 0}; source issues=${sourceIssues.length}.`,
+    action: eventCount > 0
+      ? 'Review/highlight key returns, setbacks, PUP/IR timing, and snap-count risks before synthesis.'
+      : 'Refresh the availability snapshot before synthesis.',
+    details: (snapshot.meta?.source_health || []).map((source) => ({
+      label: source.source,
+      value: `${source.status}${source.evidence ? `; ${source.evidence}` : ''}${source.reason ? `; ${source.reason}` : ''}`,
+    })),
+    path: snapshotPath,
+  });
+}
+
 async function collectTeamData(sources) {
   const schedule = await readJson('public/schedule.json', []);
   const regular = Array.isArray(schedule)
@@ -1156,6 +1195,7 @@ async function main() {
   await collectPodcastIntel(sources);
   await collectResearchArticleIntel(sources);
   await collectTrainingCamp(sources);
+  await collectPlayerAvailability(sources);
   await collectTeamData(sources);
   await collectOperationalReadiness(sources);
 
