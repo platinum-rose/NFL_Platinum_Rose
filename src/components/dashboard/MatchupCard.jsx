@@ -9,6 +9,7 @@ import { InjurySummary, InjuryImpactIcon } from '../ui/InjuryBadge';
 import { getTopInjuries, getInjuryDataSourceState } from '../../lib/injuries';
 import { TEAM_LOGOS } from '../../lib/teams';
 import { getContractForGame, getContractsForTeam } from '../../lib/predictionMarketStore';
+import { getSecondaryMatchupsForGame } from '../../lib/secondaryMatchupStore';
 
 const clean = (val) => parseFloat(String(val).replace(/[^0-9.]/g, '')) || 0;
 const getAbbr = (name) => {
@@ -20,6 +21,9 @@ const STADIUM_DATA = { "Cardinals": { type: "Dome", lat: 33.5276, long: -112.262
 const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjuries, onAddBankrollBet, experts, myBets = [], simData }) => {
   const [showPicks, setShowPicks] = useState(false);
   const [showMoneyline, setShowMoneyline] = useState(false);
+  const [showSecondary, setShowSecondary] = useState(false);
+
+  const secMatchups = useMemo(() => getSecondaryMatchupsForGame(game.visitor, game.home), [game.visitor, game.home]);
 
   const formatLine = (val) => { if(!val && val !== 0) return '-'; return val > 0 ? `+${val}` : val; };
   const formatGameTime = (dateStr) => { if (!dateStr) return 'TBD'; const date = new Date(dateStr); if (isNaN(date.getTime())) return 'TBD'; return new Intl.DateTimeFormat('en-US', { timeZone: 'America/Los_Angeles', weekday: 'long', hour: 'numeric', minute: '2-digit', }).format(date); };
@@ -457,6 +461,74 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
               {game.teaser && <div className="flex items-center gap-2 px-2 py-1 bg-purple-900/40 border border-purple-500/40 rounded text-[10px] font-bold text-purple-200 shadow-sm"><List size={12} /> Wong Teaser: {game.teaserSide}</div>}
               {activeBadges.map((badge, idx) => (<div key={idx} className={`px-2 py-1 rounded text-[10px] font-bold border shadow-sm ${badge.color}`}>{badge.type}: {badge.text}</div>))}
           </div>
+      )}
+
+      {/* SECONDARY MATCHUP VULNERABILITY BADGE & DRAWER */}
+      {secMatchups && (secMatchups.maxTier === 'high' || secMatchups.maxTier === 'medium' || secMatchups.hasAbsences) && (
+        <div className="mb-4">
+          <button
+            onClick={() => setShowSecondary(!showSecondary)}
+            className={`w-full flex items-center justify-between px-3 py-1.5 rounded-lg border text-xs font-bold transition-all ${
+              secMatchups.maxTier === 'high'
+                ? 'bg-rose-950/40 border-rose-500/50 text-rose-300 hover:bg-rose-900/40'
+                : secMatchups.maxTier === 'medium'
+                ? 'bg-amber-950/40 border-amber-500/50 text-amber-300 hover:bg-amber-900/40'
+                : 'bg-cyan-950/30 border-cyan-500/30 text-cyan-300 hover:bg-cyan-900/30'
+            }`}
+          >
+            <div className="flex items-center gap-2">
+              <span>🛡️</span>
+              <span>SEC MISMATCH: {secMatchups.maxTier.toUpperCase()} ({secMatchups.maxSeverity.toFixed(1)})</span>
+            </div>
+            <span className="text-[10px] text-slate-400 font-normal">
+              {showSecondary ? 'Hide Details ▲' : 'View Scheme & Absences ▼'}
+            </span>
+          </button>
+
+          {showSecondary && (
+            <div className="mt-2 bg-slate-950/80 border border-slate-800 rounded-lg p-3 space-y-3 text-xs animate-in fade-in duration-150">
+              {secMatchups.visOffVsHomeDef && (
+                <div>
+                  <div className="font-bold text-slate-300 flex justify-between border-b border-slate-800 pb-1 mb-1">
+                    <span>{game.visitor} Offense vs {game.home} Defense</span>
+                    <span className="text-emerald-400 font-mono capitalize">{secMatchups.visOffVsHomeDef.coverage_scheme?.primary_coverage_family || 'Standard'}</span>
+                  </div>
+                  {secMatchups.visOffVsHomeDef.secondary_absences?.map((abs, i) => (
+                    <div key={i} className="text-rose-400 text-[11px] font-mono">
+                      ⚠ {abs.player_name} ({abs.position}) — {abs.event_type.toUpperCase()}
+                    </div>
+                  ))}
+                  {secMatchups.visOffVsHomeDef.target_receivers?.slice(0, 2).map((rec, i) => (
+                    <div key={i} className="text-emerald-300 text-[11px] flex justify-between">
+                      <span>🚀 {rec.player_name} ({rec.notes || 'WR'})</span>
+                      <span className="font-mono">Opp Score: {rec.opportunity_score}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {secMatchups.homeOffVsVisDef && (
+                <div>
+                  <div className="font-bold text-slate-300 flex justify-between border-b border-slate-800 pb-1 mb-1">
+                    <span>{game.home} Offense vs {game.visitor} Defense</span>
+                    <span className="text-emerald-400 font-mono capitalize">{secMatchups.homeOffVsVisDef.coverage_scheme?.primary_coverage_family || 'Standard'}</span>
+                  </div>
+                  {secMatchups.homeOffVsVisDef.secondary_absences?.map((abs, i) => (
+                    <div key={i} className="text-rose-400 text-[11px] font-mono">
+                      ⚠ {abs.player_name} ({abs.position}) — {abs.event_type.toUpperCase()}
+                    </div>
+                  ))}
+                  {secMatchups.homeOffVsVisDef.target_receivers?.slice(0, 2).map((rec, i) => (
+                    <div key={i} className="text-emerald-300 text-[11px] flex justify-between text-slate-300 font-mono">
+                      <span>🚀 {rec.player_name} ({rec.notes || 'WR'})</span>
+                      <span className="font-mono">Opp Score: {rec.opportunity_score}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       )}
 
       {allPicks.length > 0 && (
