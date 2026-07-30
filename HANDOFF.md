@@ -4,9 +4,9 @@
 
 **Date:** 2026-07-30 UTC / 2026-07-29 Pacific
 **Branch:** main
-**HEAD observed before latest handoff:** `642349e`
+**HEAD observed before latest recalibration:** `d58f8e3`
 **Latest timestamped handoff:** `handoffs/2026-07-30-0655-workstream-triage-handoff.md`
-**Status:** Crash recovery and safe source/article, futures, and training-camp checkpoints committed. Podcast regeneration and overnight/ops automation remain dirty by design.
+**Status:** Crash recovery committed. Source audit recalibrated toward futures-portfolio synthesis readiness; DK/FD bet-slip parsers and weekly live props are out of current scope.
 
 ---
 
@@ -36,6 +36,15 @@ Use `localhost:5174` for the recovered dashboard session. Earlier probes against
 - `0e64d66` - Add local source and article intel review tooling.
 - `9273269` - Import July 29 primary futures odds.
 - `642349e` - Refresh July 30 training camp intel snapshot.
+- `d58f8e3` - Document post-recovery workstream triage.
+
+Latest recalibration in progress:
+- Source-audit gate now removes execution-only DK/FD bet-slip and weekly live-props plumbing from the futures-synthesis freshness check.
+- Latest source audit: `PASSABLE`, Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7.
+- Latest artifacts:
+  - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-10-51-837Z.json`
+  - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-10-51-837Z.html`
+  - `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`
 
 ---
 
@@ -75,12 +84,12 @@ Do not stage this as one sweep. Review and stage by workstream.
 
 ## Recommended Next Step
 
-Review the podcast/deep-dive regeneration first. Either fix the generator/filter so sponsor/ad beats do not enter deep-dive output, or explicitly accept the current generated output as raw/review-only context. Review `scripts/overnight.js` separately because adding live feeds to overnight automation should be an explicit operational decision.
+Review the 17 source-audit review items and decide which are accepted as current evidence for the maximum-effort futures portfolio synthesis. The only known quality issue that can contaminate narrative synthesis is the podcast/deep-dive sponsor/ad leakage, so resolve or explicitly caveat that before a frontier-model run.
 
 ---
 
 ## Resume Prompt
 
 ```text
-Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF.md, HANDOFF_PROMPT.md, WORKING-CONTEXT.md, TASK_BOARD.md, handoffs\2026-07-30-0635-crash-recovery-source-audit-handoff.md, and handoffs\2026-07-30-0655-workstream-triage-handoff.md first. Crash recovery was committed in 87476f0; source/article intel tooling in 0e64d66; July 29 primary futures imports in 9273269; July 30 training-camp snapshot in 642349e. Verified service smoke is READY WITH WATCH ITEMS, PASS 11 / WARN 6 / FAIL 0 / INFO 1 using localhost:5174. Source audit is regenerated and blocked only by DraftKings/FanDuel parser implementation or verification. Targeted node checks, eslint, futures parser reproduction, and training-camp tests passed. Remaining dirty work is intentionally limited to podcast/deep-dive regeneration, overnight/ops automation docs, and older retry artifacts. Do not use git add -A. Guardrails: no paid model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval.
+Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF.md, HANDOFF_PROMPT.md, WORKING-CONTEXT.md, TASK_BOARD.md, handoffs\2026-07-30-0635-crash-recovery-source-audit-handoff.md, and handoffs\2026-07-30-0655-workstream-triage-handoff.md first. Current focus is verifying current intel sources for a maximum-effort frontier-model futures portfolio synthesis, not DK/FD bet-slip parsers or weekly live props. Crash recovery was committed in 87476f0; source/article intel tooling in 0e64d66; July 29 primary futures imports in 9273269; July 30 training-camp snapshot in 642349e; post-recovery triage in d58f8e3. Latest source audit is PASSABLE, Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7. Latest source-audit artifacts are .nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-10-51-837Z.json and docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html. BetOnline has current July 29 screenshots; stale structured BetOnline rows must not be used as source of truth unless normalized or manually reviewed. Next: resolve or caveat podcast/deep-dive sponsor/ad leakage, review/accept the 17 source-audit review items, then prepare the evidence packet for the frontier-model futures portfolio narrative and recommendations. Guardrails: no paid model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval.
 ```

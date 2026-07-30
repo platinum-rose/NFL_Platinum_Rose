@@ -30,7 +30,23 @@ Safe recovered work has been committed in narrow checkpoints:
 - `9273269` - Import July 29 primary futures odds.
 - `642349e` - Refresh July 30 training camp intel snapshot.
 
-`npm.cmd run intel:source-audit` was regenerated after service recovery and is now blocked only by DraftKings/FanDuel parser implementation or verification.
+`npm.cmd run intel:source-audit` has been recalibrated around the active objective: verifying current intel sources for a maximum-effort frontier-model futures portfolio synthesis. DK/FD bet-slip parsers and weekly live props are execution/regular-season plumbing and are out of scope for this synthesis-readiness gate.
+
+Latest source audit:
+
+```powershell
+npm.cmd run intel:source-audit
+```
+
+Result: `PASSABLE`, Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7. Latest artifacts:
+
+- `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-10-51-837Z.json`
+- `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-10-51-837Z.html`
+- `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`
+
+Important caveats:
+- BetOnline has current July 29 screenshots, but the structured BetOnline JSON import is stale. Do not use stale structured BetOnline rows as source of truth unless normalized or manually reviewed against the screenshots.
+- Review items are not blockers by themselves; they must be accepted, rejected, or caveated before a frontier-model run.
 
 Remaining dirty work is intentional:
 - Podcast/deep-dive regeneration, including new July 21-23 episode files and a 57-episode index. Do not commit until sponsor/ad language is filtered or explicitly accepted as raw/review-only context.
@@ -113,14 +129,17 @@ Review/stage narrowly by workstream. Do not use `git add -A`.
 
 **Crash recovery and safe workstream checkpoints are committed:** continue from `handoffs/2026-07-30-0655-workstream-triage-handoff.md`.
 
+**Current main focus:** verify and package current intel sources for a deep-dive futures portfolio synthesis from a frontier model. Do not spend current-cycle attention on DK/FD bet-slip parsers or weekly live props.
+
 Recommended next:
-- Review the podcast/deep-dive regeneration first. Either fix the sponsor/ad filter and regenerate, or explicitly accept the current output as raw/review-only context before committing.
+- Review the 17 source-audit review items and decide which are accepted as current synthesis evidence.
+- Resolve or explicitly caveat the podcast/deep-dive sponsor/ad leakage before using generated narrative/deep-dive text in the synthesis packet.
+- Normalize or manually review the current July 29 BetOnline screenshots before treating BetOnline as a placeable-price source of truth.
 - Review `scripts/overnight.js`, `docs/NFL_DASHBOARD_USER_GUIDE.md`, and `infra/systemd/` separately before committing any ops automation.
 - Clean older retry artifacts only after deciding they are no longer useful crash-window evidence.
 
 - Create one real official-picks proposal draft and exercise approve/reject through the inbox UI.
 - Confirm whether migration 044 has been applied live before relying on production official-picks flows.
-- Prioritize the two clearest pre-kickoff betting-surface gaps: live props data source and DraftKings/FanDuel bet-slip parsers.
 - Refresh/review training-camp intel closer to kickoff; latest RSS scout receipt covers 32 teams, 10 with intel, and one feed issue (`Football Outsiders: fetch failed`).
 - Keep older open context in view: Yahoo Fantasy API approval still blocks F-26/F-26b, `NFL-ATLAS-3` weekly-cron wiring still needs a decision, and `NFL-ATLAS-2` is still blocked on digest redesign scoping answers.
 

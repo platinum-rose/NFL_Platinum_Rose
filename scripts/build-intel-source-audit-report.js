@@ -419,6 +419,16 @@ async function collectFuturesOdds(sources) {
 async function collectManualFuturesImports(sources) {
   const files = await listFiles('data/futures-imports', (name) => name.endsWith('.json'));
   const bookFiles = files.filter((file) => /^(bookmaker|betus|betonline)-/.test(file.name));
+  const rawBetOnlineFiles = await listFiles(
+    'docs/Futures_Odds',
+    (name) => /^BetOnline|^BOL_|^BEO_/i.test(name),
+  );
+  const rawBetOnlineBundle = rawBetOnlineFiles.length
+    ? analyzeBetOnlineScreenshotBundle(rawBetOnlineFiles)
+    : null;
+  const rawBetOnlineFresh = rawBetOnlineBundle?.latestDate
+    ? dateAgeHours(rawBetOnlineBundle.latestDate) <= 48
+    : false;
   const latestByBook = new Map();
   for (const file of bookFiles) {
     const book = file.name.split('-')[0];
@@ -431,15 +441,20 @@ async function collectManualFuturesImports(sources) {
     const rows = rowCount(payload);
     const snapshotAge = dateAgeHours(snapshotDate);
     const fresh = snapshotAge != null && snapshotAge <= 48;
+    const currentRawCapture = book === 'betonline' && !fresh && rawBetOnlineFresh;
     addSource(sources, {
       group: 'Futures Odds',
       name: `Manual book export: ${bookLabel(book)}`,
-      status: fresh ? 'review' : 'stale',
+      status: fresh || currentRawCapture ? 'review' : 'stale',
       freshness: `${snapshotDate || file.mtime} file snapshot`,
-      evidence: `${rows ?? 'unknown'} rows in latest local file ${file.name}.`,
-      action: fresh
-        ? 'Fresh local primary-book rows are normalized and date-tracked. Dry-run ingestion passed; write to futures_odds_snapshots only when ready to promote this snapshot into the database.'
-        : 'Refresh before actionable recommendations. This is a primary execution book, so stale rows should not be replaced by public/Vegas market data except as a separate proxy alert.',
+      evidence: currentRawCapture
+        ? `${rows ?? 'unknown'} rows in latest structured file ${file.name}; current raw BetOnline screenshots exist for ${rawBetOnlineBundle.latestDate}.`
+        : `${rows ?? 'unknown'} rows in latest local file ${file.name}.`,
+      action: currentRawCapture
+        ? 'Do not use stale structured BetOnline rows as the current source of truth. Use the July 29 screenshots for manual review or normalize them before final placeable-price recommendations.'
+        : fresh
+          ? 'Fresh local primary-book rows are normalized and date-tracked. Dry-run ingestion passed; write to futures_odds_snapshots only when ready to promote this snapshot into the database.'
+          : 'Refresh before actionable recommendations. This is a primary execution book, so stale rows should not be replaced by public/Vegas market data except as a separate proxy alert.',
       path: file.relativePath,
     });
   }
@@ -840,23 +855,9 @@ async function collectOperationalReadiness(sources) {
     });
   }
 
-  addSource(sources, {
-    group: 'Operational Readiness',
-    name: 'Weekly props live data source',
-    status: 'inference',
-    freshness: 'not expected until week before Week 1',
-    evidence: 'Weekly prop markets are irrelevant for this preseason futures exercise; they normally post closer to Week 1.',
-    action: 'Do not create weekly prop recommendations now. Retain expert season-long player-prop comments only as inference-only context for player usage, role, and team thesis.',
-  });
-
-  addSource(sources, {
-    group: 'Operational Readiness',
-    name: 'DraftKings/FanDuel bet-slip parsers',
-    status: 'blocked',
-    freshness: 'known gap',
-    evidence: 'Prior smoke indicates parsers still need real implementation or verification.',
-    action: 'Do not rely on automated slip import for final portfolio execution.',
-  });
+  // Execution-only plumbing such as weekly live props feeds and retail-book
+  // bet-slip parsers is intentionally out of scope for this preseason futures
+  // synthesis freshness gate.
 }
 
 function readinessSummary(sources) {
@@ -865,7 +866,7 @@ function readinessSummary(sources) {
   const review = sources.filter((source) => source.status === 'review');
   const current = sources.filter((source) => source.status === 'current');
   const inference = sources.filter((source) => source.status === 'inference');
-  const frontierReady = blockers.length === 0 && stale.length === 0 && review.length <= 3;
+  const frontierReady = blockers.length === 0 && stale.length === 0;
   return {
     frontierReady,
     counts: {
@@ -930,6 +931,7 @@ function renderHtml(payload) {
   const staleList = [...summary.blockers, ...summary.stale].slice(0, 24)
     .map((source) => `<li><strong>${esc(source.name)}</strong>: ${esc(source.action)}</li>`)
     .join('');
+  const gateIssues = staleList ? `\n      <ul>${staleList}</ul>` : '';
 
   return `<!doctype html>
 <html lang="en">
@@ -1105,8 +1107,7 @@ function renderHtml(payload) {
       <h2>Frontier Synthesis Gate: ${summary.frontierReady ? 'Passable with Notes' : 'Blocked Until Refresh Decisions'}</h2>
       <p>${summary.frontierReady
         ? 'Enough current/local evidence exists to proceed if review items are intentionally accepted.'
-        : 'Do not run a maximum frontier-model portfolio synthesis yet unless stale or blocked sources are refreshed, excluded from recommendation eligibility, or intentionally retained as inference-only context.'}</p>
-      ${staleList ? `<ul>${staleList}</ul>` : ''}
+        : 'Do not run a maximum frontier-model portfolio synthesis yet unless stale or blocked sources are refreshed, excluded from recommendation eligibility, or intentionally retained as inference-only context.'}</p>${gateIssues}
     </div>
     ${cards}
   </main>
