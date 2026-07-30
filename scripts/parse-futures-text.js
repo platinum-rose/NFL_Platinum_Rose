@@ -198,11 +198,27 @@ function parseBetus(lines, book, when, season) {
   let currentTeam = null;
   let currentWinsTeam = null;
   let pendingWin = null;
+  let inAlternateWins = false;
 
   for (const line of lines) {
     if (!line) continue;
+    if (line.startsWith('NFL Alternate Season Wins :')) {
+      currentMarket = null;
+      currentTeam = null;
+      currentWinsTeam = null;
+      pendingWin = null;
+      inAlternateWins = true;
+      continue;
+    }
     if (line.startsWith('Rot ')) {
       const header = line.slice(4);
+      if (inAlternateWins) {
+        currentMarket = null;
+        currentTeam = null;
+        currentWinsTeam = null;
+        pendingWin = null;
+        continue;
+      }
       currentMarket = betusMarket(header);
       currentTeam = null;
       currentWinsTeam = null;
@@ -220,6 +236,7 @@ function parseBetus(lines, book, when, season) {
       continue;
     }
     if (line.startsWith('NFL Regular Season Wins :')) {
+      inAlternateWins = false;
       currentMarket = 'wins';
       currentWinsTeam = canonTeam(line.split(':').slice(1).join(':'));
       pendingWin = null;
