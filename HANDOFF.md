@@ -6,7 +6,7 @@
 **Branch:** main
 **HEAD observed before BetOnline normalization checkpoint:** `5b2db46`
 **Latest timestamped handoff:** `handoffs/2026-07-30-1256-antigravity-agents-handoff.md`
-**Status:** Tuned player availability parser for active/PUP text extraction and historical injury false positives (f72b58f). Pushed clean to main/origin/main. 32-team manual secondary matchup seed files (a5ad873) and Antigravity IDE .agents/skills/ autodiscovery (de5c9c0) are committed and pushed. Working tree is clean.
+**Status:** Automated live prediction market ingest pipeline built and executed (9ccf2f0) — 137 contracts auto-aggregated from Kalshi and Polymarket APIs. Converter engine, fee adjusters, and calculator UI committed and pushed to main/origin/main. Working tree is clean.
 
 ---
 
