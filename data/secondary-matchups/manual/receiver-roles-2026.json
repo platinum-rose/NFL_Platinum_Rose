@@ -1,68 +1,1839 @@
 [
   {
+    "team": "ARI",
+    "player_name": "Marvin Harrison Jr.",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "field_stretcher"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "boundary",
+      "deep",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "ARI #1 WR Alpha."
+  },
+  {
+    "team": "ARI",
+    "player_name": "Michael Wilson",
+    "position": "WR",
+    "roles": [
+      "z_receiver"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "boundary",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "ARI Outside WR2."
+  },
+  {
+    "team": "ARI",
+    "player_name": "Greg Dortch",
+    "position": "WR",
+    "roles": [
+      "slot"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "slot",
+      "underneath"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "ARI Slot WR."
+  },
+  {
+    "team": "ARI",
+    "player_name": "Trey McBride",
+    "position": "TE",
+    "roles": [
+      "te_middle",
+      "red_zone"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "middle",
+      "intermediate",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "ARI Elite Target Share TE."
+  },
+  {
     "team": "ATL",
     "player_name": "Drake London",
     "position": "WR",
-    "roles": ["alpha_x", "red_zone"],
+    "roles": [
+      "alpha_x",
+      "red_zone"
+    ],
     "target_share_tier": "alpha",
-    "route_area_tags": ["boundary", "intermediate", "red_zone"],
-    "source": "manual_poc",
-    "source_url": "",
-    "notes": "POC receiver role seed."
+    "route_area_tags": [
+      "boundary",
+      "intermediate",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "ATL WR1 Alpha."
   },
   {
     "team": "ATL",
     "player_name": "Darnell Mooney",
     "position": "WR",
-    "roles": ["z_receiver", "field_stretcher"],
+    "roles": [
+      "z_receiver",
+      "field_stretcher"
+    ],
     "target_share_tier": "medium",
-    "route_area_tags": ["deep", "boundary"],
-    "source": "manual_poc",
-    "source_url": "",
-    "notes": "POC receiver role seed."
+    "route_area_tags": [
+      "deep",
+      "boundary"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "ATL Speed WR2."
   },
   {
-    "team": "NO",
-    "player_name": "Chris Olave",
+    "team": "ATL",
+    "player_name": "Kyle Pitts",
+    "position": "TE",
+    "roles": [
+      "te_middle",
+      "field_stretcher"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "middle",
+      "deep"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "ATL Hybrid TE."
+  },
+  {
+    "team": "BAL",
+    "player_name": "Zay Flowers",
     "position": "WR",
-    "roles": ["alpha_x", "field_stretcher"],
+    "roles": [
+      "alpha_x",
+      "slot"
+    ],
     "target_share_tier": "alpha",
-    "route_area_tags": ["deep", "boundary", "intermediate"],
-    "source": "manual_poc",
-    "source_url": "",
-    "notes": "POC receiver role seed."
+    "route_area_tags": [
+      "boundary",
+      "slot",
+      "underneath"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "BAL Primary Target."
   },
   {
-    "team": "NO",
-    "player_name": "Rashid Shaheed",
+    "team": "BAL",
+    "player_name": "Rashod Bateman",
     "position": "WR",
-    "roles": ["z_receiver", "field_stretcher"],
+    "roles": [
+      "z_receiver",
+      "field_stretcher"
+    ],
     "target_share_tier": "medium",
-    "route_area_tags": ["deep"],
-    "source": "manual_poc",
-    "source_url": "",
-    "notes": "POC receiver role seed."
+    "route_area_tags": [
+      "deep",
+      "boundary"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "BAL Outside WR."
+  },
+  {
+    "team": "BAL",
+    "player_name": "Mark Andrews",
+    "position": "TE",
+    "roles": [
+      "te_middle",
+      "red_zone"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "middle",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "BAL All-Pro TE."
+  },
+  {
+    "team": "BAL",
+    "player_name": "Isaiah Likely",
+    "position": "TE",
+    "roles": [
+      "te_middle",
+      "red_zone"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "middle",
+      "seam"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "BAL Playmaking TE2."
+  },
+  {
+    "team": "BUF",
+    "player_name": "Keon Coleman",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "red_zone"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "boundary",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "BUF Rookie X WR."
+  },
+  {
+    "team": "BUF",
+    "player_name": "Khalil Shakir",
+    "position": "WR",
+    "roles": [
+      "slot",
+      "possession"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "slot",
+      "underneath"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "BUF YAC Slot WR."
+  },
+  {
+    "team": "BUF",
+    "player_name": "Dalton Kincaid",
+    "position": "TE",
+    "roles": [
+      "te_middle",
+      "slot"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "middle",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "BUF Receiving TE."
+  },
+  {
+    "team": "CAR",
+    "player_name": "Adam Thielen",
+    "position": "WR",
+    "roles": [
+      "slot",
+      "possession"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "slot",
+      "underneath"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CAR Veteran Slot."
+  },
+  {
+    "team": "CAR",
+    "player_name": "Diontae Johnson",
+    "position": "WR",
+    "roles": [
+      "alpha_x"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "boundary",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CAR Target Volume WR."
+  },
+  {
+    "team": "CAR",
+    "player_name": "Xavier Legette",
+    "position": "WR",
+    "roles": [
+      "z_receiver",
+      "field_stretcher"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "deep",
+      "boundary"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CAR Rookie WR."
+  },
+  {
+    "team": "CHI",
+    "player_name": "DJ Moore",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "z_receiver"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "boundary",
+      "intermediate",
+      "deep"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CHI WR1."
+  },
+  {
+    "team": "CHI",
+    "player_name": "Keenan Allen",
+    "position": "WR",
+    "roles": [
+      "slot",
+      "possession"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "slot",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CHI Veteran Slot."
+  },
+  {
+    "team": "CHI",
+    "player_name": "Rome Odunze",
+    "position": "WR",
+    "roles": [
+      "z_receiver",
+      "field_stretcher"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "deep",
+      "boundary"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CHI Rookie 1st Round WR."
+  },
+  {
+    "team": "CHI",
+    "player_name": "Cole Kmet",
+    "position": "TE",
+    "roles": [
+      "te_middle",
+      "red_zone"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "middle",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CHI TE."
+  },
+  {
+    "team": "CIN",
+    "player_name": "Ja'Marr Chase",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "field_stretcher",
+      "slot"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "boundary",
+      "deep",
+      "slot"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CIN All-Pro Alpha WR."
+  },
+  {
+    "team": "CIN",
+    "player_name": "Tee Higgins",
+    "position": "WR",
+    "roles": [
+      "z_receiver",
+      "red_zone"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "boundary",
+      "deep",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CIN Premium WR2."
+  },
+  {
+    "team": "CIN",
+    "player_name": "Mike Gesicki",
+    "position": "TE",
+    "roles": [
+      "te_middle",
+      "slot"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "middle",
+      "slot"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CIN Big Slot TE."
+  },
+  {
+    "team": "CLE",
+    "player_name": "Amari Cooper",
+    "position": "WR",
+    "roles": [
+      "alpha_x"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "boundary",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CLE Route Technician WR1."
+  },
+  {
+    "team": "CLE",
+    "player_name": "Jerry Jeudy",
+    "position": "WR",
+    "roles": [
+      "z_receiver",
+      "slot"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "slot",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CLE WR2."
+  },
+  {
+    "team": "CLE",
+    "player_name": "David Njoku",
+    "position": "TE",
+    "roles": [
+      "te_middle",
+      "red_zone"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "middle",
+      "red_zone",
+      "underneath"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CLE YAC TE."
+  },
+  {
+    "team": "DAL",
+    "player_name": "CeeDee Lamb",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "slot",
+      "red_zone"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "boundary",
+      "slot",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "DAL All-Pro Alpha Target Monster."
+  },
+  {
+    "team": "DAL",
+    "player_name": "Brandin Cooks",
+    "position": "WR",
+    "roles": [
+      "z_receiver",
+      "field_stretcher"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "deep",
+      "boundary"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "DAL Speed WR."
+  },
+  {
+    "team": "DAL",
+    "player_name": "Jake Ferguson",
+    "position": "TE",
+    "roles": [
+      "te_middle",
+      "red_zone"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "middle",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "DAL TE1."
+  },
+  {
+    "team": "DEN",
+    "player_name": "Courtland Sutton",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "red_zone"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "boundary",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "DEN X Receiver."
+  },
+  {
+    "team": "DEN",
+    "player_name": "Josh Reynolds",
+    "position": "WR",
+    "roles": [
+      "z_receiver"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "boundary",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "DEN WR2."
+  },
+  {
+    "team": "DEN",
+    "player_name": "Marvin Mims Jr.",
+    "position": "WR",
+    "roles": [
+      "field_stretcher",
+      "slot"
+    ],
+    "target_share_tier": "rotational",
+    "route_area_tags": [
+      "deep",
+      "slot"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "DEN Speed Threat."
+  },
+  {
+    "team": "DET",
+    "player_name": "Amon-Ra St. Brown",
+    "position": "WR",
+    "roles": [
+      "slot",
+      "alpha_x",
+      "possession"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "slot",
+      "intermediate",
+      "underneath"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "DET All-Pro Slot Alpha."
+  },
+  {
+    "team": "DET",
+    "player_name": "Jameson Williams",
+    "position": "WR",
+    "roles": [
+      "z_receiver",
+      "field_stretcher"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "deep",
+      "boundary"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "DET Deep Threat."
+  },
+  {
+    "team": "DET",
+    "player_name": "Sam LaPorta",
+    "position": "TE",
+    "roles": [
+      "te_middle",
+      "red_zone"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "middle",
+      "red_zone",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "DET All-Pro TE."
+  },
+  {
+    "team": "GB",
+    "player_name": "Christian Watson",
+    "position": "WR",
+    "roles": [
+      "z_receiver",
+      "field_stretcher"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "deep",
+      "boundary"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "GB Deep Threat."
+  },
+  {
+    "team": "GB",
+    "player_name": "Romeo Doubs",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "red_zone"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "boundary",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "GB Boundary WR."
+  },
+  {
+    "team": "GB",
+    "player_name": "Jayden Reed",
+    "position": "WR",
+    "roles": [
+      "slot",
+      "possession"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "slot",
+      "underneath"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "GB Playmaking Slot."
+  },
+  {
+    "team": "GB",
+    "player_name": "Luke Musgrave",
+    "position": "TE",
+    "roles": [
+      "te_middle"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "middle",
+      "seam"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "GB Athletic TE."
+  },
+  {
+    "team": "HOU",
+    "player_name": "Nico Collins",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "field_stretcher"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "boundary",
+      "deep",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "HOU Dominant Alpha WR1."
+  },
+  {
+    "team": "HOU",
+    "player_name": "Stefon Diggs",
+    "position": "WR",
+    "roles": [
+      "slot",
+      "z_receiver"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "slot",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "HOU All-Pro Acquisition."
+  },
+  {
+    "team": "HOU",
+    "player_name": "Tank Dell",
+    "position": "WR",
+    "roles": [
+      "z_receiver",
+      "field_stretcher"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "deep",
+      "slot"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "HOU Explosive Playmaker."
+  },
+  {
+    "team": "HOU",
+    "player_name": "Dalton Schultz",
+    "position": "TE",
+    "roles": [
+      "te_middle"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "middle",
+      "underneath"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "HOU Reliable TE."
+  },
+  {
+    "team": "IND",
+    "player_name": "Michael Pittman Jr.",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "possession"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "boundary",
+      "intermediate",
+      "underneath"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "IND Heavy Volume WR1."
+  },
+  {
+    "team": "IND",
+    "player_name": "Alec Pierce",
+    "position": "WR",
+    "roles": [
+      "z_receiver",
+      "field_stretcher"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "deep"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "IND Deep Threat."
+  },
+  {
+    "team": "IND",
+    "player_name": "Josh Downs",
+    "position": "WR",
+    "roles": [
+      "slot"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "slot",
+      "underneath"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "IND High-Efficiency Slot."
+  },
+  {
+    "team": "JAX",
+    "player_name": "Brian Thomas Jr.",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "field_stretcher"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "boundary",
+      "deep"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "JAX 1st Round Rookie WR."
+  },
+  {
+    "team": "JAX",
+    "player_name": "Christian Kirk",
+    "position": "WR",
+    "roles": [
+      "slot"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "slot",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "JAX Slot WR."
+  },
+  {
+    "team": "JAX",
+    "player_name": "Gabe Davis",
+    "position": "WR",
+    "roles": [
+      "z_receiver",
+      "field_stretcher"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "deep",
+      "boundary"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "JAX Deep Threat."
+  },
+  {
+    "team": "JAX",
+    "player_name": "Evan Engram",
+    "position": "TE",
+    "roles": [
+      "te_middle",
+      "slot"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "middle",
+      "underneath",
+      "slot"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "JAX High Volume TE."
+  },
+  {
+    "team": "KC",
+    "player_name": "Rashee Rice",
+    "position": "WR",
+    "roles": [
+      "slot",
+      "alpha_x"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "slot",
+      "underneath",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "KC YAC Target Leader."
+  },
+  {
+    "team": "KC",
+    "player_name": "Xavier Worthy",
+    "position": "WR",
+    "roles": [
+      "z_receiver",
+      "field_stretcher"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "deep",
+      "boundary"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "KC 4.21 Speed 1st Rounder."
+  },
+  {
+    "team": "KC",
+    "player_name": "Hollywood Brown",
+    "position": "WR",
+    "roles": [
+      "z_receiver",
+      "field_stretcher"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "deep",
+      "slot"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "KC Veteran Speed WR."
+  },
+  {
+    "team": "KC",
+    "player_name": "Travis Kelce",
+    "position": "TE",
+    "roles": [
+      "te_middle",
+      "red_zone"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "middle",
+      "intermediate",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "KC All-Pro Future HOF TE."
+  },
+  {
+    "team": "LV",
+    "player_name": "Davante Adams",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "red_zone"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "boundary",
+      "intermediate",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "LV All-Pro Route Master."
+  },
+  {
+    "team": "LV",
+    "player_name": "Jakobi Meyers",
+    "position": "WR",
+    "roles": [
+      "slot",
+      "possession"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "slot",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "LV Reliable WR2."
+  },
+  {
+    "team": "LV",
+    "player_name": "Brock Bowers",
+    "position": "TE",
+    "roles": [
+      "te_middle",
+      "slot"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "middle",
+      "slot",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "LV 1st Round Generational TE."
+  },
+  {
+    "team": "LAC",
+    "player_name": "Ladd McConkey",
+    "position": "WR",
+    "roles": [
+      "slot",
+      "alpha_x"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "slot",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "LAC Rookie Target Leader."
+  },
+  {
+    "team": "LAC",
+    "player_name": "Joshua Palmer",
+    "position": "WR",
+    "roles": [
+      "z_receiver"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "boundary",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "LAC Outside WR."
+  },
+  {
+    "team": "LAC",
+    "player_name": "Quentin Johnston",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "field_stretcher"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "boundary",
+      "deep"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "LAC 1st Round WR."
+  },
+  {
+    "team": "LAR",
+    "player_name": "Cooper Kupp",
+    "position": "WR",
+    "roles": [
+      "slot",
+      "alpha_x",
+      "possession"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "slot",
+      "intermediate",
+      "underneath"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "LAR Triple Crown WR."
+  },
+  {
+    "team": "LAR",
+    "player_name": "Puka Nacua",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "possession",
+      "red_zone"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "boundary",
+      "intermediate",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "LAR Record-Breaking All-Pro."
+  },
+  {
+    "team": "LAR",
+    "player_name": "Demarcus Robinson",
+    "position": "WR",
+    "roles": [
+      "z_receiver"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "boundary",
+      "deep"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "LAR Veteran WR3."
+  },
+  {
+    "team": "MIA",
+    "player_name": "Tyreek Hill",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "field_stretcher",
+      "slot"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "deep",
+      "boundary",
+      "slot"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "MIA All-Pro Cheetah."
+  },
+  {
+    "team": "MIA",
+    "player_name": "Jaylen Waddle",
+    "position": "WR",
+    "roles": [
+      "z_receiver",
+      "field_stretcher"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "deep",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "MIA Elite Speed WR2."
+  },
+  {
+    "team": "MIA",
+    "player_name": "Jonnu Smith",
+    "position": "TE",
+    "roles": [
+      "te_middle"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "middle",
+      "underneath"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "MIA YAC TE."
   },
   {
     "team": "MIN",
     "player_name": "Justin Jefferson",
     "position": "WR",
-    "roles": ["alpha_x", "field_stretcher"],
+    "roles": [
+      "alpha_x",
+      "field_stretcher"
+    ],
     "target_share_tier": "alpha",
-    "route_area_tags": ["boundary", "deep", "intermediate"],
-    "source": "manual_poc",
-    "source_url": "",
-    "notes": "POC receiver role seed."
+    "route_area_tags": [
+      "boundary",
+      "deep",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "MIN Premier WR in NFL."
   },
   {
     "team": "MIN",
     "player_name": "Jordan Addison",
     "position": "WR",
-    "roles": ["z_receiver", "slot"],
+    "roles": [
+      "z_receiver",
+      "slot"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "slot",
+      "intermediate",
+      "deep"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "MIN Touchdown Machine WR2."
+  },
+  {
+    "team": "MIN",
+    "player_name": "T.J. Hockenson",
+    "position": "TE",
+    "roles": [
+      "te_middle"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "middle",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "MIN Pro-Bowl TE."
+  },
+  {
+    "team": "NE",
+    "player_name": "Ja'Lynn Polk",
+    "position": "WR",
+    "roles": [
+      "alpha_x"
+    ],
     "target_share_tier": "medium",
-    "route_area_tags": ["slot", "intermediate", "deep"],
-    "source": "manual_poc",
-    "source_url": "",
-    "notes": "POC receiver role seed."
+    "route_area_tags": [
+      "boundary",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NE 2nd Round Rookie WR."
+  },
+  {
+    "team": "NE",
+    "player_name": "DeMario Douglas",
+    "position": "WR",
+    "roles": [
+      "slot"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "slot",
+      "underneath"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NE Quick Slot WR."
+  },
+  {
+    "team": "NE",
+    "player_name": "Hunter Henry",
+    "position": "TE",
+    "roles": [
+      "te_middle",
+      "red_zone"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "middle",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NE Veteran TE."
+  },
+  {
+    "team": "NO",
+    "player_name": "Chris Olave",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "field_stretcher"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "deep",
+      "boundary",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NO Smooth Route WR1."
+  },
+  {
+    "team": "NO",
+    "player_name": "Rashid Shaheed",
+    "position": "WR",
+    "roles": [
+      "z_receiver",
+      "field_stretcher"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "deep"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NO Elite Deep Threat."
+  },
+  {
+    "team": "NO",
+    "player_name": "Taysom Hill",
+    "position": "TE",
+    "roles": [
+      "te_middle",
+      "red_zone"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "underneath",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NO Offensive Weapon."
+  },
+  {
+    "team": "NYG",
+    "player_name": "Malik Nabers",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "field_stretcher",
+      "slot"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "boundary",
+      "deep",
+      "slot"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NYG Explosive 1st Round Alpha."
+  },
+  {
+    "team": "NYG",
+    "player_name": "Wan'Dale Robinson",
+    "position": "WR",
+    "roles": [
+      "slot",
+      "possession"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "slot",
+      "underneath"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NYG High Volume Slot."
+  },
+  {
+    "team": "NYG",
+    "player_name": "Darius Slayton",
+    "position": "WR",
+    "roles": [
+      "z_receiver",
+      "field_stretcher"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "deep"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NYG Deep Threat."
+  },
+  {
+    "team": "NYJ",
+    "player_name": "Garrett Wilson",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "slot"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "boundary",
+      "slot",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NYJ All-Pro Target Monster."
+  },
+  {
+    "team": "NYJ",
+    "player_name": "Mike Williams",
+    "position": "WR",
+    "roles": [
+      "z_receiver",
+      "red_zone"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "boundary",
+      "deep",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NYJ Contested Catch Veteran."
+  },
+  {
+    "team": "NYJ",
+    "player_name": "Tyler Conklin",
+    "position": "TE",
+    "roles": [
+      "te_middle"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "middle",
+      "underneath"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NYJ TE."
+  },
+  {
+    "team": "PHI",
+    "player_name": "A.J. Brown",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "red_zone"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "boundary",
+      "intermediate",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "PHI Dominant All-Pro Alpha."
+  },
+  {
+    "team": "PHI",
+    "player_name": "DeVonta Smith",
+    "position": "WR",
+    "roles": [
+      "z_receiver",
+      "field_stretcher"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "deep",
+      "boundary",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "PHI Slim Reaper WR1B."
+  },
+  {
+    "team": "PHI",
+    "player_name": "Dallas Goedert",
+    "position": "TE",
+    "roles": [
+      "te_middle"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "middle",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "PHI YAC TE."
+  },
+  {
+    "team": "PIT",
+    "player_name": "George Pickens",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "field_stretcher"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "boundary",
+      "deep",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "PIT Contested Catch WR1."
+  },
+  {
+    "team": "PIT",
+    "player_name": "Van Jefferson",
+    "position": "WR",
+    "roles": [
+      "z_receiver"
+    ],
+    "target_share_tier": "rotational",
+    "route_area_tags": [
+      "boundary"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "PIT Veteran WR."
+  },
+  {
+    "team": "PIT",
+    "player_name": "Pat Freiermuth",
+    "position": "TE",
+    "roles": [
+      "te_middle",
+      "red_zone"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "middle",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "PIT TE1."
+  },
+  {
+    "team": "SF",
+    "player_name": "Brandon Aiyuk",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "field_stretcher"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "boundary",
+      "deep",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "SF All-Pro Route Master."
+  },
+  {
+    "team": "SF",
+    "player_name": "Deebo Samuel",
+    "position": "WR",
+    "roles": [
+      "z_receiver",
+      "slot",
+      "possession"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "slot",
+      "underneath",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "SF All-Pro Wide Back."
+  },
+  {
+    "team": "SF",
+    "player_name": "Jauan Jennings",
+    "position": "WR",
+    "roles": [
+      "slot",
+      "possession"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "slot",
+      "third_down"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "SF 3rd Down Clutch WR."
+  },
+  {
+    "team": "SF",
+    "player_name": "George Kittle",
+    "position": "TE",
+    "roles": [
+      "te_middle",
+      "field_stretcher",
+      "red_zone"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "middle",
+      "deep",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "SF All-Pro YAC Monster."
+  },
+  {
+    "team": "SEA",
+    "player_name": "DK Metcalf",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "field_stretcher",
+      "red_zone"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "boundary",
+      "deep",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "SEA Physical Freak WR1."
+  },
+  {
+    "team": "SEA",
+    "player_name": "Tyler Lockett",
+    "position": "WR",
+    "roles": [
+      "z_receiver",
+      "possession"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "deep",
+      "slot"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "SEA Veteran Technician."
+  },
+  {
+    "team": "SEA",
+    "player_name": "Jaxon Smith-Njigba",
+    "position": "WR",
+    "roles": [
+      "slot",
+      "possession"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "slot",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "SEA Rising Slot Star."
+  },
+  {
+    "team": "SEA",
+    "player_name": "Noah Fant",
+    "position": "TE",
+    "roles": [
+      "te_middle"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "middle",
+      "seam"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "SEA Athletic TE."
+  },
+  {
+    "team": "TB",
+    "player_name": "Mike Evans",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "field_stretcher",
+      "red_zone"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "boundary",
+      "deep",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "TB 1,000-yard Streak HOF WR."
+  },
+  {
+    "team": "TB",
+    "player_name": "Chris Godwin",
+    "position": "WR",
+    "roles": [
+      "slot",
+      "possession"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "slot",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "TB Elite Slot WR."
+  },
+  {
+    "team": "TB",
+    "player_name": "Jalen McMillan",
+    "position": "WR",
+    "roles": [
+      "z_receiver"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "boundary"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "TB Rookie WR3."
+  },
+  {
+    "team": "TB",
+    "player_name": "Cade Otton",
+    "position": "TE",
+    "roles": [
+      "te_middle"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "middle"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "TB TE."
+  },
+  {
+    "team": "TEN",
+    "player_name": "DeAndre Hopkins",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "red_zone"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "boundary",
+      "red_zone"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "TEN Veteran HOF WR."
+  },
+  {
+    "team": "TEN",
+    "player_name": "Calvin Ridley",
+    "position": "WR",
+    "roles": [
+      "z_receiver",
+      "field_stretcher"
+    ],
+    "target_share_tier": "high",
+    "route_area_tags": [
+      "deep",
+      "boundary"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "TEN Speed Free Agent."
+  },
+  {
+    "team": "TEN",
+    "player_name": "Tyler Boyd",
+    "position": "WR",
+    "roles": [
+      "slot"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "slot",
+      "underneath"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "TEN Slot Veteran."
+  },
+  {
+    "team": "TEN",
+    "player_name": "Chigoziem Okonkwo",
+    "position": "TE",
+    "roles": [
+      "te_middle"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "middle",
+      "seam"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "TEN YAC TE."
+  },
+  {
+    "team": "WAS",
+    "player_name": "Terry McLaurin",
+    "position": "WR",
+    "roles": [
+      "alpha_x",
+      "field_stretcher"
+    ],
+    "target_share_tier": "alpha",
+    "route_area_tags": [
+      "boundary",
+      "deep",
+      "intermediate"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "WAS Scary Terry WR1."
+  },
+  {
+    "team": "WAS",
+    "player_name": "Jahan Dotson",
+    "position": "WR",
+    "roles": [
+      "z_receiver",
+      "slot"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "slot",
+      "boundary"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "WAS WR2."
+  },
+  {
+    "team": "WAS",
+    "player_name": "Zach Ertz",
+    "position": "TE",
+    "roles": [
+      "te_middle",
+      "possession"
+    ],
+    "target_share_tier": "medium",
+    "route_area_tags": [
+      "middle",
+      "underneath"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "WAS Veteran TE."
   }
 ]

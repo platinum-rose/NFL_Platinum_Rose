@@ -1,16 +1,189 @@
 [
   {
-    "team": "PIT",
+    "team": "ARI",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "zone_match",
+    "scheme_tags": [
+      "zone_heavy",
+      "two_high",
+      "match_zone"
+    ],
+    "pressure_profile": "front_dependent",
+    "confidence": 0.65,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Gannon zone match defense with two-high split safety tendency.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "ATL",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "match_zone",
+    "scheme_tags": [
+      "match_zone",
+      "two_high",
+      "quarters"
+    ],
+    "pressure_profile": "balanced",
+    "confidence": 0.7,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Jimmy Lake quarters/match zone scheme relying on Jessie Bates deep range.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "BAL",
     "season": 2026,
     "week": 1,
     "primary_coverage_family": "man_match",
-    "scheme_tags": ["man_heavy", "single_high", "blitz_heavy"],
+    "scheme_tags": [
+      "man_heavy",
+      "single_high",
+      "blitz_heavy"
+    ],
     "pressure_profile": "aggressive",
-    "confidence": 0.58,
-    "source": "manual_poc",
-    "source_url": "",
-    "notes": "Manual proof-of-concept placeholder. Replace with charting or reviewed weekly source before betting use.",
-    "updated_at": "2026-07-30T16:55:00.000Z",
+    "confidence": 0.85,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Orr aggressive blitz-heavy man match structure with Kyle Hamilton roaming.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "BUF",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "zone_heavy",
+    "scheme_tags": [
+      "zone_heavy",
+      "two_high",
+      "quarters"
+    ],
+    "pressure_profile": "coverage_first",
+    "confidence": 0.8,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "McDermott Cover 4 / Cover 6 zone-heavy structure featuring Taron Johnson in slot.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "CAR",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "zone_heavy",
+    "scheme_tags": [
+      "zone_heavy",
+      "single_high"
+    ],
+    "pressure_profile": "passive",
+    "confidence": 0.6,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Ejiro Evero 3-4 base zone scheme funneling passing volume underneath.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "CHI",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "cover_2_two_high",
+    "scheme_tags": [
+      "zone_heavy",
+      "two_high"
+    ],
+    "pressure_profile": "front_dependent",
+    "confidence": 0.75,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Eberflus Tampa 2 / Cover 4 hybrid shell relying on Jaylon Johnson lock down.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "CIN",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "match_zone",
+    "scheme_tags": [
+      "match_zone",
+      "single_high"
+    ],
+    "pressure_profile": "aggressive",
+    "confidence": 0.72,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Anarumo disguises and post-snap rotation using single-high and match principles.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "CLE",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "man_heavy",
+    "scheme_tags": [
+      "man_heavy",
+      "single_high",
+      "blitz_heavy"
+    ],
+    "pressure_profile": "aggressive",
+    "confidence": 0.82,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Jim Schwartz high-frequency Press Man / Cover 1 with aggressive 4-man rush.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "DAL",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "single_high_man",
+    "scheme_tags": [
+      "single_high",
+      "man_heavy",
+      "blitz_heavy"
+    ],
+    "pressure_profile": "blitz_heavy",
+    "confidence": 0.78,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Mike Zimmer aggressive Cover 1/Cover 3 blitz-heavy secondary structure.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "DEN",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "man_match",
+    "scheme_tags": [
+      "man_heavy",
+      "single_high",
+      "blitz_heavy"
+    ],
+    "pressure_profile": "blitz_heavy",
+    "confidence": 0.8,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Vance Joseph heavy blitz and man press around Patrick Surtain II shadow assignments.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
     "stale_after": "2026-09-15T00:00:00.000Z"
   },
   {
@@ -18,13 +191,18 @@
     "season": 2026,
     "week": 1,
     "primary_coverage_family": "match_zone",
-    "scheme_tags": ["match_zone", "two_high", "quarters"],
+    "scheme_tags": [
+      "match_zone",
+      "two_high",
+      "quarters"
+    ],
     "pressure_profile": "front_dependent",
-    "confidence": 0.52,
-    "source": "manual_poc",
-    "source_url": "",
-    "notes": "Manual proof-of-concept placeholder for testing safety/slot vulnerability routing.",
-    "updated_at": "2026-07-30T16:55:00.000Z",
+    "confidence": 0.75,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Aaron Glenn split-safety match zone featuring Kerby Joseph and Brian Branch.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
     "stale_after": "2026-09-15T00:00:00.000Z"
   },
   {
@@ -32,13 +210,389 @@
     "season": 2026,
     "week": 1,
     "primary_coverage_family": "zone_match",
-    "scheme_tags": ["zone_heavy", "match_zone"],
+    "scheme_tags": [
+      "zone_heavy",
+      "match_zone"
+    ],
     "pressure_profile": "balanced",
-    "confidence": 0.45,
-    "source": "manual_poc",
-    "source_url": "",
-    "notes": "Manual proof-of-concept placeholder for slot-corner injury routing.",
-    "updated_at": "2026-07-30T16:55:00.000Z",
+    "confidence": 0.7,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Jeff Hafley aggressive zone-match system with Xavier McKinney deep safety range.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "HOU",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "cover_4_quarters",
+    "scheme_tags": [
+      "quarters",
+      "two_high",
+      "zone_heavy"
+    ],
+    "pressure_profile": "front_dependent",
+    "confidence": 0.8,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "DeMeco Ryans Cover 4/Cover 6 zone shell anchored by Derek Stingley Jr.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "IND",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "cover_3_zone",
+    "scheme_tags": [
+      "zone_heavy",
+      "single_high"
+    ],
+    "pressure_profile": "coverage_first",
+    "confidence": 0.75,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Gus Bradley classic Cover 3 / Quarters system funneling plays to Kenny Moore II.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "JAX",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "man_heavy",
+    "scheme_tags": [
+      "man_heavy",
+      "blitz_heavy",
+      "single_high"
+    ],
+    "pressure_profile": "aggressive",
+    "confidence": 0.72,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Ryan Nielsen aggressive press-man scheme relying on Tyson Campbell.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "KC",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "match_zone",
+    "scheme_tags": [
+      "match_zone",
+      "blitz_heavy",
+      "two_high"
+    ],
+    "pressure_profile": "aggressive",
+    "confidence": 0.85,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Steve Spagnuolo intricate blitz packages and post-snap rotation around Trent McDuffie.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "LV",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "cover_3_zone",
+    "scheme_tags": [
+      "zone_heavy",
+      "single_high"
+    ],
+    "pressure_profile": "front_dependent",
+    "confidence": 0.68,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Patrick Graham adaptable zone-first scheme featuring Nate Hobbs in nickel.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "LAC",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "match_zone",
+    "scheme_tags": [
+      "match_zone",
+      "two_high",
+      "quarters"
+    ],
+    "pressure_profile": "coverage_first",
+    "confidence": 0.78,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Jesse Minter Ravens-style match zone structure with Derwin James in hybrid role.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "LAR",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "zone_match",
+    "scheme_tags": [
+      "zone_heavy",
+      "two_high"
+    ],
+    "pressure_profile": "front_dependent",
+    "confidence": 0.7,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Chris Shula Fangio-lineage soft zone two-high shell.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "MIA",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "match_zone",
+    "scheme_tags": [
+      "match_zone",
+      "two_high",
+      "quarters"
+    ],
+    "pressure_profile": "coverage_first",
+    "confidence": 0.78,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Anthony Weaver two-high match zone scheme built around Jalen Ramsey and Jevon Holland.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "MIN",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "blitz_heavy",
+    "scheme_tags": [
+      "blitz_heavy",
+      "match_zone",
+      "two_high"
+    ],
+    "pressure_profile": "blitz_heavy",
+    "confidence": 0.88,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Brian Flores league-highest blitz rate with psycho fronts and Harrison Smith roaming.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "NE",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "man_heavy",
+    "scheme_tags": [
+      "man_heavy",
+      "single_high"
+    ],
+    "pressure_profile": "coverage_first",
+    "confidence": 0.75,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Jerod Mayo Belichick-lineage press man featuring Christian Gonzalez.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "NO",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "cover_1_man",
+    "scheme_tags": [
+      "man_heavy",
+      "single_high"
+    ],
+    "pressure_profile": "aggressive",
+    "confidence": 0.76,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Dennis Allen aggressive Cover 1 man press with Marshon Lattimore and Tyrann Mathieu.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "NYG",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "man_match",
+    "scheme_tags": [
+      "man_heavy",
+      "blitz_heavy"
+    ],
+    "pressure_profile": "blitz_heavy",
+    "confidence": 0.72,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Shane Bowen pressure-heavy scheme utilizing Deonte Banks on outside receivers.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "NYJ",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "cover_3_zone",
+    "scheme_tags": [
+      "zone_heavy",
+      "two_high",
+      "quarters"
+    ],
+    "pressure_profile": "front_dependent",
+    "confidence": 0.88,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Robert Saleh elite Cover 3/Quarters zone shell led by Sauce Gardner and DJ Reed.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "PHI",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "match_zone",
+    "scheme_tags": [
+      "match_zone",
+      "two_high",
+      "quarters"
+    ],
+    "pressure_profile": "front_dependent",
+    "confidence": 0.82,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Vic Fangio master match zone / split safety system with Quinyon Mitchell and Cooper DeJean.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "PIT",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "man_match",
+    "scheme_tags": [
+      "man_heavy",
+      "single_high",
+      "blitz_heavy"
+    ],
+    "pressure_profile": "aggressive",
+    "confidence": 0.82,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Mike Tomlin/Teryl Austin Cover 1/Cover 3 aggressive shell with Joey Porter Jr. and Minkah Fitzpatrick.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "SF",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "zone_heavy",
+    "scheme_tags": [
+      "zone_heavy",
+      "two_high",
+      "quarters"
+    ],
+    "pressure_profile": "front_dependent",
+    "confidence": 0.85,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Nick Sorensen 4-3 Cover 3/Cover 4 zone shell anchored by Charvarius Ward and Fred Warner.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "SEA",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "match_zone",
+    "scheme_tags": [
+      "match_zone",
+      "single_high",
+      "two_high"
+    ],
+    "pressure_profile": "aggressive",
+    "confidence": 0.8,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Mike Macdonald Ravens-style disguise/match zone featuring Devon Witherspoon.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "TB",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "zone_heavy",
+    "scheme_tags": [
+      "zone_heavy",
+      "two_high",
+      "blitz_heavy"
+    ],
+    "pressure_profile": "blitz_heavy",
+    "confidence": 0.8,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Todd Bowles heavy pressure and simulated pressure with Antoine Winfield Jr.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "TEN",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "match_zone",
+    "scheme_tags": [
+      "match_zone",
+      "single_high"
+    ],
+    "pressure_profile": "front_dependent",
+    "confidence": 0.72,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Dennard Wilson Ravens-lineage match zone featuring L'Jarius Sneed shadow coverage.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
+    "stale_after": "2026-09-15T00:00:00.000Z"
+  },
+  {
+    "team": "WAS",
+    "season": 2026,
+    "week": 1,
+    "primary_coverage_family": "zone_heavy",
+    "scheme_tags": [
+      "zone_heavy",
+      "two_high"
+    ],
+    "pressure_profile": "passive",
+    "confidence": 0.62,
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "source_date": "2026-07-30",
+    "notes": "Dan Quinn Cover 3 / Quarters zone structure featuring Mike Sainristil in nickel.",
+    "updated_at": "2026-07-30T17:00:00.000Z",
     "stale_after": "2026-09-15T00:00:00.000Z"
   }
 ]

@@ -1,29 +1,672 @@
 [
   {
-    "team": "PIT",
-    "player_name": "Jalen Ramsey",
+    "team": "ARI",
+    "player_name": "Max Melton",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "boundary_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "ARI CB1 starter."
+  },
+  {
+    "team": "ARI",
+    "player_name": "Starling Thomas V",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "rotational",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "ARI CB2 starter."
+  },
+  {
+    "team": "ARI",
+    "player_name": "Garrett Williams",
+    "position": "CB",
+    "role": "slot_cb",
+    "side": "slot",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "slot"
+    ],
+    "weakness_tags": [
+      "slot_wr_boost",
+      "inside_seam_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "ARI Nickel CB."
+  },
+  {
+    "team": "ARI",
+    "player_name": "Budda Baker",
+    "position": "S",
+    "role": "hybrid_safety",
+    "side": "middle",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "te_middle",
+      "slot"
+    ],
+    "weakness_tags": [
+      "te_middle_boost",
+      "slot_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "ARI Elite All-Pro Safety."
+  },
+  {
+    "team": "ARI",
+    "player_name": "Jalen Thompson",
+    "position": "S",
+    "role": "free_safety",
+    "side": "middle",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "field_stretcher"
+    ],
+    "weakness_tags": [
+      "deep_pass_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "ARI Free Safety."
+  },
+  {
+    "team": "ATL",
+    "player_name": "A.J. Terrell",
     "position": "CB",
     "role": "outside_cb1",
     "side": "boundary",
     "impact_tier": "elite",
-    "receiver_archetypes_impacted": ["alpha_x", "field_stretcher"],
-    "weakness_tags": ["outside_wr_boost", "alpha_wr_boost", "boundary_wr_boost"],
-    "source": "manual_poc",
-    "source_url": "",
-    "notes": "POC elite-tag seed; verify with paid/free charting before betting use."
+    "receiver_archetypes_impacted": [
+      "alpha_x",
+      "boundary_wr_boost"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "alpha_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "ATL Shutdown CB1."
   },
   {
-    "team": "PIT",
-    "player_name": "Joey Porter Jr.",
+    "team": "ATL",
+    "player_name": "Mike Hughes",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "ATL CB2."
+  },
+  {
+    "team": "ATL",
+    "player_name": "Dee Alford",
+    "position": "CB",
+    "role": "slot_cb",
+    "side": "slot",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "slot"
+    ],
+    "weakness_tags": [
+      "slot_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "ATL Nickel."
+  },
+  {
+    "team": "ATL",
+    "player_name": "Jessie Bates III",
+    "position": "S",
+    "role": "free_safety",
+    "side": "middle",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "field_stretcher",
+      "post_cross_boost"
+    ],
+    "weakness_tags": [
+      "deep_pass_boost",
+      "post_cross_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "ATL Elite Centerfield FS."
+  },
+  {
+    "team": "ATL",
+    "player_name": "Justin Simmons",
+    "position": "S",
+    "role": "strong_safety",
+    "side": "middle",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "te_middle"
+    ],
+    "weakness_tags": [
+      "te_middle_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "ATL Pro-Bowl Safety."
+  },
+  {
+    "team": "BAL",
+    "player_name": "Marlon Humphrey",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "alpha_x",
+      "slot"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "alpha_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "BAL All-Pro CB."
+  },
+  {
+    "team": "BAL",
+    "player_name": "Nate Wiggins",
     "position": "CB",
     "role": "outside_cb2",
     "side": "field",
     "impact_tier": "plus",
-    "receiver_archetypes_impacted": ["alpha_x", "z_receiver"],
-    "weakness_tags": ["outside_wr_boost", "boundary_wr_boost"],
-    "source": "manual_poc",
-    "source_url": "",
-    "notes": "POC plus-tag seed; verify before betting use."
+    "receiver_archetypes_impacted": [
+      "z_receiver",
+      "field_stretcher"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "BAL 1st round CB."
+  },
+  {
+    "team": "BAL",
+    "player_name": "Arthur Maulet",
+    "position": "CB",
+    "role": "slot_cb",
+    "side": "slot",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "slot"
+    ],
+    "weakness_tags": [
+      "slot_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "BAL Nickel CB."
+  },
+  {
+    "team": "BAL",
+    "player_name": "Kyle Hamilton",
+    "position": "S",
+    "role": "hybrid_safety",
+    "side": "middle",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "te_middle",
+      "slot",
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "te_middle_boost",
+      "slot_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "BAL All-Pro Swiss Army Knife."
+  },
+  {
+    "team": "BAL",
+    "player_name": "Marcus Williams",
+    "position": "S",
+    "role": "free_safety",
+    "side": "middle",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "field_stretcher"
+    ],
+    "weakness_tags": [
+      "deep_pass_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "BAL Deep Safety."
+  },
+  {
+    "team": "BUF",
+    "player_name": "Christian Benford",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "BUF CB1."
+  },
+  {
+    "team": "BUF",
+    "player_name": "Rasul Douglas",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "BUF CB2."
+  },
+  {
+    "team": "BUF",
+    "player_name": "Taron Johnson",
+    "position": "CB",
+    "role": "slot_cb",
+    "side": "slot",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "slot"
+    ],
+    "weakness_tags": [
+      "slot_wr_boost",
+      "inside_seam_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "BUF All-Pro Nickel."
+  },
+  {
+    "team": "CAR",
+    "player_name": "Jaycee Horn",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "alpha_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CAR Lockdown CB1."
+  },
+  {
+    "team": "CAR",
+    "player_name": "Mike Jackson",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CAR CB2."
+  },
+  {
+    "team": "CAR",
+    "player_name": "Xavier Woods",
+    "position": "S",
+    "role": "free_safety",
+    "side": "middle",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "field_stretcher"
+    ],
+    "weakness_tags": [
+      "deep_pass_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CAR Safety."
+  },
+  {
+    "team": "CHI",
+    "player_name": "Jaylon Johnson",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "alpha_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CHI All-Pro CB1."
+  },
+  {
+    "team": "CHI",
+    "player_name": "Tyrique Stevenson",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CHI CB2."
+  },
+  {
+    "team": "CHI",
+    "player_name": "Kyler Gordon",
+    "position": "CB",
+    "role": "slot_cb",
+    "side": "slot",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "slot"
+    ],
+    "weakness_tags": [
+      "slot_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CHI Nickel."
+  },
+  {
+    "team": "CHI",
+    "player_name": "Jaquan Brisker",
+    "position": "S",
+    "role": "strong_safety",
+    "side": "middle",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "te_middle"
+    ],
+    "weakness_tags": [
+      "te_middle_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CHI Enforcer SS."
+  },
+  {
+    "team": "CIN",
+    "player_name": "Cam Taylor-Britt",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CIN CB1."
+  },
+  {
+    "team": "CIN",
+    "player_name": "DJ Turner II",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "z_receiver",
+      "field_stretcher"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CIN Speedy CB2."
+  },
+  {
+    "team": "CIN",
+    "player_name": "Mike Hilton",
+    "position": "CB",
+    "role": "slot_cb",
+    "side": "slot",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "slot"
+    ],
+    "weakness_tags": [
+      "slot_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CIN Premier Blitz Nickel."
+  },
+  {
+    "team": "CLE",
+    "player_name": "Denzel Ward",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "alpha_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CLE Pro-Bowl Shutdown CB."
+  },
+  {
+    "team": "CLE",
+    "player_name": "Martin Emerson Jr.",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CLE Press CB2."
+  },
+  {
+    "team": "CLE",
+    "player_name": "Greg Newsome II",
+    "position": "CB",
+    "role": "slot_cb",
+    "side": "slot",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "slot"
+    ],
+    "weakness_tags": [
+      "slot_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "CLE Slot CB."
+  },
+  {
+    "team": "DAL",
+    "player_name": "Trevon Diggs",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "alpha_x",
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "DAL Ballhawk CB."
+  },
+  {
+    "team": "DAL",
+    "player_name": "DaRon Bland",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "z_receiver",
+      "slot"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "slot_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "DAL All-Pro Pick-6 record holder."
+  },
+  {
+    "team": "DEN",
+    "player_name": "Patrick Surtain II",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "alpha_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "DEN #1 Shutdown Corner in NFL."
+  },
+  {
+    "team": "DEN",
+    "player_name": "Riley Moss",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "DEN CB2."
+  },
+  {
+    "team": "DEN",
+    "player_name": "Ja'Quan McMillian",
+    "position": "CB",
+    "role": "slot_cb",
+    "side": "slot",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "slot"
+    ],
+    "weakness_tags": [
+      "slot_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "DEN Playmaking Slot."
+  },
+  {
+    "team": "DET",
+    "player_name": "Terrion Arnold",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "DET 1st round rookie CB1."
+  },
+  {
+    "team": "DET",
+    "player_name": "Carlton Davis III",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "DET Veteran Press CB."
   },
   {
     "team": "DET",
@@ -32,11 +675,17 @@
     "role": "deep_safety",
     "side": "middle",
     "impact_tier": "elite",
-    "receiver_archetypes_impacted": ["field_stretcher", "te_middle"],
-    "weakness_tags": ["deep_pass_boost", "post_cross_boost"],
-    "source": "manual_poc",
-    "source_url": "",
-    "notes": "POC deep-safety seed; verify before betting use."
+    "receiver_archetypes_impacted": [
+      "field_stretcher",
+      "te_middle"
+    ],
+    "weakness_tags": [
+      "deep_pass_boost",
+      "post_cross_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "DET Deep Safety."
   },
   {
     "team": "DET",
@@ -45,11 +694,52 @@
     "role": "hybrid_safety",
     "side": "slot",
     "impact_tier": "plus",
-    "receiver_archetypes_impacted": ["slot", "te_middle"],
-    "weakness_tags": ["slot_wr_boost", "te_middle_boost"],
-    "source": "manual_poc",
-    "source_url": "",
-    "notes": "POC hybrid safety seed; verify before betting use."
+    "receiver_archetypes_impacted": [
+      "slot",
+      "te_middle"
+    ],
+    "weakness_tags": [
+      "slot_wr_boost",
+      "te_middle_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "DET Versatile DB."
+  },
+  {
+    "team": "GB",
+    "player_name": "Jaire Alexander",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "alpha_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "GB All-Pro Corner."
+  },
+  {
+    "team": "GB",
+    "player_name": "Eric Stokes",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "GB Speed CB2."
   },
   {
     "team": "GB",
@@ -58,10 +748,975 @@
     "role": "slot_cb",
     "side": "slot",
     "impact_tier": "starter",
-    "receiver_archetypes_impacted": ["slot"],
-    "weakness_tags": ["slot_wr_boost", "inside_seam_boost"],
-    "source": "manual_poc",
-    "source_url": "",
-    "notes": "POC slot-corner seed; verify before betting use."
+    "receiver_archetypes_impacted": [
+      "slot"
+    ],
+    "weakness_tags": [
+      "slot_wr_boost",
+      "inside_seam_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "GB Slot CB."
+  },
+  {
+    "team": "GB",
+    "player_name": "Xavier McKinney",
+    "position": "S",
+    "role": "free_safety",
+    "side": "middle",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "field_stretcher"
+    ],
+    "weakness_tags": [
+      "deep_pass_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "GB Elite Free Safety acquisition."
+  },
+  {
+    "team": "HOU",
+    "player_name": "Derek Stingley Jr.",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "alpha_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "HOU Shutdown CB1."
+  },
+  {
+    "team": "HOU",
+    "player_name": "Kamari Lassiter",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "HOU Rookie CB2."
+  },
+  {
+    "team": "HOU",
+    "player_name": "Jalen Pitre",
+    "position": "S",
+    "role": "hybrid_safety",
+    "side": "slot",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "slot",
+      "te_middle"
+    ],
+    "weakness_tags": [
+      "slot_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "HOU Nickel/Safety."
+  },
+  {
+    "team": "IND",
+    "player_name": "JuJu Brents",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "IND Tall CB1."
+  },
+  {
+    "team": "IND",
+    "player_name": "Kenny Moore II",
+    "position": "CB",
+    "role": "slot_cb",
+    "side": "slot",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "slot"
+    ],
+    "weakness_tags": [
+      "slot_wr_boost",
+      "inside_seam_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "IND Premier Slot Defender."
+  },
+  {
+    "team": "JAX",
+    "player_name": "Tyson Campbell",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "JAX CB1."
+  },
+  {
+    "team": "JAX",
+    "player_name": "Darnell Savage",
+    "position": "S",
+    "role": "free_safety",
+    "side": "middle",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "field_stretcher"
+    ],
+    "weakness_tags": [
+      "deep_pass_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "JAX Safety."
+  },
+  {
+    "team": "KC",
+    "player_name": "Trent McDuffie",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "alpha_x",
+      "slot"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "slot_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "KC All-Pro Corner."
+  },
+  {
+    "team": "KC",
+    "player_name": "Jaylen Watson",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "KC Physical CB2."
+  },
+  {
+    "team": "KC",
+    "player_name": "Justin Reid",
+    "position": "S",
+    "role": "hybrid_safety",
+    "side": "middle",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "te_middle"
+    ],
+    "weakness_tags": [
+      "te_middle_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "KC Veteran Safety Leader."
+  },
+  {
+    "team": "LV",
+    "player_name": "Jack Jones",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "LV Playmaking CB."
+  },
+  {
+    "team": "LV",
+    "player_name": "Nate Hobbs",
+    "position": "CB",
+    "role": "slot_cb",
+    "side": "slot",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "slot"
+    ],
+    "weakness_tags": [
+      "slot_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "LV Tough Slot CB."
+  },
+  {
+    "team": "LAC",
+    "player_name": "Asante Samuel Jr.",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "LAC Ballhawk CB."
+  },
+  {
+    "team": "LAC",
+    "player_name": "Derwin James Jr.",
+    "position": "S",
+    "role": "hybrid_safety",
+    "side": "middle",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "te_middle",
+      "slot"
+    ],
+    "weakness_tags": [
+      "te_middle_boost",
+      "slot_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "LAC All-Pro Safety."
+  },
+  {
+    "team": "LAR",
+    "player_name": "Tre'Davious White",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "LAR Veteran CB."
+  },
+  {
+    "team": "LAR",
+    "player_name": "Darious Williams",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "LAR Returning Zone CB."
+  },
+  {
+    "team": "LAR",
+    "player_name": "Kamren Curl",
+    "position": "S",
+    "role": "box_safety",
+    "side": "middle",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "te_middle"
+    ],
+    "weakness_tags": [
+      "te_middle_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "LAR Box Safety."
+  },
+  {
+    "team": "MIA",
+    "player_name": "Jalen Ramsey",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "alpha_x",
+      "field_stretcher"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "alpha_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "MIA All-Pro Corner."
+  },
+  {
+    "team": "MIA",
+    "player_name": "Kendall Fuller",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "MIA Smart Tech CB."
+  },
+  {
+    "team": "MIA",
+    "player_name": "Jevon Holland",
+    "position": "S",
+    "role": "free_safety",
+    "side": "middle",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "field_stretcher"
+    ],
+    "weakness_tags": [
+      "deep_pass_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "MIA Top Tier Free Safety."
+  },
+  {
+    "team": "MIN",
+    "player_name": "Stephon Gilmore",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "MIN Veteran Corner."
+  },
+  {
+    "team": "MIN",
+    "player_name": "Byron Murphy Jr.",
+    "position": "CB",
+    "role": "slot_cb",
+    "side": "slot",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "slot"
+    ],
+    "weakness_tags": [
+      "slot_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "MIN Inside/Outside CB."
+  },
+  {
+    "team": "MIN",
+    "player_name": "Harrison Smith",
+    "position": "S",
+    "role": "hybrid_safety",
+    "side": "middle",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "te_middle",
+      "slot"
+    ],
+    "weakness_tags": [
+      "te_middle_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "MIN Future HOF Disguise Specialist."
+  },
+  {
+    "team": "NE",
+    "player_name": "Christian Gonzalez",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "alpha_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NE Rising Lockdown CB1."
+  },
+  {
+    "team": "NE",
+    "player_name": "Jonathan Jones",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NE Speed CB."
+  },
+  {
+    "team": "NE",
+    "player_name": "Kyle Dugger",
+    "position": "S",
+    "role": "strong_safety",
+    "side": "middle",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "te_middle"
+    ],
+    "weakness_tags": [
+      "te_middle_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NE Heavy Hitting SS."
+  },
+  {
+    "team": "NO",
+    "player_name": "Marshon Lattimore",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "alpha_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NO Premier Man CB1."
+  },
+  {
+    "team": "NO",
+    "player_name": "Paulson Adebo",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NO Physical CB2."
+  },
+  {
+    "team": "NO",
+    "player_name": "Tyrann Mathieu",
+    "position": "S",
+    "role": "free_safety",
+    "side": "middle",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "field_stretcher"
+    ],
+    "weakness_tags": [
+      "deep_pass_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NO Honey Badger Safety."
+  },
+  {
+    "team": "NYG",
+    "player_name": "Deonte Banks",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NYG Athletic Press CB1."
+  },
+  {
+    "team": "NYG",
+    "player_name": "Cor'Dale Flott",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NYG CB2."
+  },
+  {
+    "team": "NYJ",
+    "player_name": "Sauce Gardner",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "alpha_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NYJ All-Pro Premier Corner."
+  },
+  {
+    "team": "NYJ",
+    "player_name": "DJ Reed",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NYJ Elite CB2."
+  },
+  {
+    "team": "NYJ",
+    "player_name": "Michael Carter II",
+    "position": "CB",
+    "role": "slot_cb",
+    "side": "slot",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "slot"
+    ],
+    "weakness_tags": [
+      "slot_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "NYJ Premier Slot Corner."
+  },
+  {
+    "team": "PHI",
+    "player_name": "Darius Slay",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "PHI Veteran CB1."
+  },
+  {
+    "team": "PHI",
+    "player_name": "Quinyon Mitchell",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "PHI 1st round CB."
+  },
+  {
+    "team": "PHI",
+    "player_name": "Cooper DeJean",
+    "position": "CB",
+    "role": "slot_cb",
+    "side": "slot",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "slot"
+    ],
+    "weakness_tags": [
+      "slot_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "PHI Versatile Rookie DB."
+  },
+  {
+    "team": "PIT",
+    "player_name": "Joey Porter Jr.",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "alpha_x",
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "boundary_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "PIT Press Corner."
+  },
+  {
+    "team": "PIT",
+    "player_name": "Donte Jackson",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "PIT Speed CB2."
+  },
+  {
+    "team": "PIT",
+    "player_name": "Minkah Fitzpatrick",
+    "position": "S",
+    "role": "free_safety",
+    "side": "middle",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "field_stretcher",
+      "post_cross_boost"
+    ],
+    "weakness_tags": [
+      "deep_pass_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "PIT All-Pro Free Safety."
+  },
+  {
+    "team": "SF",
+    "player_name": "Charvarius Ward",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "alpha_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "SF All-Pro Press Corner."
+  },
+  {
+    "team": "SF",
+    "player_name": "Deommodore Lenoir",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "z_receiver",
+      "slot"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "slot_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "SF Versatile Inside/Out CB."
+  },
+  {
+    "team": "SF",
+    "player_name": "Talanoa Hufanga",
+    "position": "S",
+    "role": "box_safety",
+    "side": "middle",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "te_middle"
+    ],
+    "weakness_tags": [
+      "te_middle_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "SF All-Pro Box Enforcer."
+  },
+  {
+    "team": "SEA",
+    "player_name": "Riq Woolen",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "SEA Length & Speed CB1."
+  },
+  {
+    "team": "SEA",
+    "player_name": "Devon Witherspoon",
+    "position": "CB",
+    "role": "slot_cb",
+    "side": "slot",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "slot",
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "slot_wr_boost",
+      "inside_seam_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "SEA All-Pro Nickel/Corner."
+  },
+  {
+    "team": "SEA",
+    "player_name": "Julian Love",
+    "position": "S",
+    "role": "free_safety",
+    "side": "middle",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "field_stretcher"
+    ],
+    "weakness_tags": [
+      "deep_pass_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "SEA Pro-Bowl Safety."
+  },
+  {
+    "team": "TB",
+    "player_name": "Jamel Dean",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "TB Speed CB1."
+  },
+  {
+    "team": "TB",
+    "player_name": "Zyon McCollum",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "TB Athletic CB2."
+  },
+  {
+    "team": "TB",
+    "player_name": "Antoine Winfield Jr.",
+    "position": "S",
+    "role": "free_safety",
+    "side": "middle",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "field_stretcher",
+      "te_middle",
+      "slot"
+    ],
+    "weakness_tags": [
+      "deep_pass_boost",
+      "slot_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "TB Highest Paid All-Pro Safety."
+  },
+  {
+    "team": "TEN",
+    "player_name": "L'Jarius Sneed",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost",
+      "alpha_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "TEN Lockdown Press CB1."
+  },
+  {
+    "team": "TEN",
+    "player_name": "Chidobe Awuzie",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "z_receiver"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "TEN Veteran CB2."
+  },
+  {
+    "team": "TEN",
+    "player_name": "Roger McCreary",
+    "position": "CB",
+    "role": "slot_cb",
+    "side": "slot",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "slot"
+    ],
+    "weakness_tags": [
+      "slot_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "TEN Nickel Corner."
+  },
+  {
+    "team": "WAS",
+    "player_name": "Benjamin St-Juste",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": [
+      "alpha_x"
+    ],
+    "weakness_tags": [
+      "outside_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "WAS CB1."
+  },
+  {
+    "team": "WAS",
+    "player_name": "Mike Sainristil",
+    "position": "CB",
+    "role": "slot_cb",
+    "side": "slot",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": [
+      "slot"
+    ],
+    "weakness_tags": [
+      "slot_wr_boost"
+    ],
+    "source": "manual_seed_2026",
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "WAS Playmaking Rookie Slot."
   }
 ]

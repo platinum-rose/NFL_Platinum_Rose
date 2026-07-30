@@ -3,11 +3,11 @@
     "schema": "secondary_matchup_vulnerability_snapshot_v1",
     "season": 2026,
     "week": 1,
-    "generated_at": "2026-07-30T18:18:11.397Z",
+    "generated_at": "2026-07-30T20:11:51.528Z",
     "game_count": 16,
     "matchup_count": 32,
     "matchups_with_secondary_absences": 25,
-    "high_or_medium_vulnerabilities": 3,
+    "high_or_medium_vulnerabilities": 7,
     "recommendation_status": "manual_matchup_intel_only_not_picks",
     "manual_seed_coverage": {
       "required_team_count": 32,
@@ -45,106 +45,16 @@
         "TEN",
         "WAS"
       ],
-      "coverage_scheme_team_count": 3,
-      "secondary_role_team_count": 3,
-      "receiver_role_team_count": 3,
-      "missing_coverage_scheme_teams": [
-        "ARI",
-        "ATL",
-        "BAL",
-        "BUF",
-        "CAR",
-        "CHI",
-        "CIN",
-        "CLE",
-        "DAL",
-        "DEN",
-        "HOU",
-        "IND",
-        "JAX",
-        "KC",
-        "LAC",
-        "LAR",
-        "LV",
-        "MIA",
-        "MIN",
-        "NE",
-        "NO",
-        "NYG",
-        "NYJ",
-        "PHI",
-        "SEA",
-        "SF",
-        "TB",
-        "TEN",
-        "WAS"
-      ],
-      "missing_secondary_role_teams": [
-        "ARI",
-        "ATL",
-        "BAL",
-        "BUF",
-        "CAR",
-        "CHI",
-        "CIN",
-        "CLE",
-        "DAL",
-        "DEN",
-        "HOU",
-        "IND",
-        "JAX",
-        "KC",
-        "LAC",
-        "LAR",
-        "LV",
-        "MIA",
-        "MIN",
-        "NE",
-        "NO",
-        "NYG",
-        "NYJ",
-        "PHI",
-        "SEA",
-        "SF",
-        "TB",
-        "TEN",
-        "WAS"
-      ],
-      "missing_receiver_role_teams": [
-        "ARI",
-        "BAL",
-        "BUF",
-        "CAR",
-        "CHI",
-        "CIN",
-        "CLE",
-        "DAL",
-        "DEN",
-        "DET",
-        "GB",
-        "HOU",
-        "IND",
-        "JAX",
-        "KC",
-        "LAC",
-        "LAR",
-        "LV",
-        "MIA",
-        "NE",
-        "NYG",
-        "NYJ",
-        "PHI",
-        "PIT",
-        "SEA",
-        "SF",
-        "TB",
-        "TEN",
-        "WAS"
-      ],
-      "coverage_scheme_rows_with_source_url": 0,
-      "secondary_role_rows_with_source_url": 0,
-      "receiver_role_rows_with_source_url": 0,
-      "complete": false
+      "coverage_scheme_team_count": 32,
+      "secondary_role_team_count": 32,
+      "receiver_role_team_count": 32,
+      "missing_coverage_scheme_teams": [],
+      "missing_secondary_role_teams": [],
+      "missing_receiver_role_teams": [],
+      "coverage_scheme_rows_with_source_url": 32,
+      "secondary_role_rows_with_source_url": 98,
+      "receiver_role_rows_with_source_url": 107,
+      "complete": true
     },
     "guardrails": {
       "paid_data_used": false,
@@ -156,17 +66,17 @@
       {
         "source": "Manual coverage schemes",
         "status": "available",
-        "evidence": "3 row(s) from data/secondary-matchups/manual/coverage-schemes-2026.json."
+        "evidence": "32 row(s) from data/secondary-matchups/manual/coverage-schemes-2026.json."
       },
       {
         "source": "Manual secondary player roles",
         "status": "available",
-        "evidence": "5 row(s) from data/secondary-matchups/manual/secondary-roles-2026.json."
+        "evidence": "98 row(s) from data/secondary-matchups/manual/secondary-roles-2026.json."
       },
       {
         "source": "Manual receiver roles",
         "status": "available",
-        "evidence": "6 row(s) from data/secondary-matchups/manual/receiver-roles-2026.json."
+        "evidence": "107 row(s) from data/secondary-matchups/manual/receiver-roles-2026.json."
       },
       {
         "source": "Player availability snapshot",
@@ -192,7 +102,18 @@
       "defense_team": "SEA",
       "defense_team_nick": "Seahawks",
       "offense_venue": "away",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "match_zone",
+          "single_high",
+          "two_high"
+        ],
+        "primary_coverage_family": "match_zone",
+        "pressure_profile": "aggressive",
+        "confidence": 0.8,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Mike Macdonald Ravens-style disguise/match zone featuring Devon Witherspoon."
+      },
       "secondary_absences": [
         {
           "player_name": "Nick Emmanwori",
@@ -212,12 +133,77 @@
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "boundary_wr_boost",
+        "deep_pass_boost",
+        "inside_seam_boost",
+        "post_cross_boost",
+        "slot_wr_boost",
+        "underneath_volume_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "DeMario Douglas",
+          "team": "NE",
+          "roles": [
+            "slot"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "slot",
+            "underneath"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "inside_seam_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 3.6,
+          "notes": "NE Quick Slot WR.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Hunter Henry",
+          "team": "NE",
+          "roles": [
+            "te_middle",
+            "red_zone"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "middle",
+            "red_zone"
+          ],
+          "matched_weakness_tags": [
+            "inside_seam_boost"
+          ],
+          "opportunity_score": 0.8,
+          "notes": "NE Veteran TE.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Ja'Lynn Polk",
+          "team": "NE",
+          "roles": [
+            "alpha_x"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "boundary",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "boundary_wr_boost"
+          ],
+          "opportunity_score": 0.8,
+          "notes": "NE 2nd Round Rookie WR.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 1.2,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.32,
+      "confidence": 0.72,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -239,7 +225,17 @@
       "defense_team": "NE",
       "defense_team_nick": "Patriots",
       "offense_venue": "home",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "man_heavy",
+          "single_high"
+        ],
+        "primary_coverage_family": "man_heavy",
+        "pressure_profile": "coverage_first",
+        "confidence": 0.75,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Jerod Mayo Belichick-lineage press man featuring Christian Gonzalez."
+      },
       "secondary_absences": [
         {
           "player_name": "Brenden Schooler",
@@ -267,21 +263,100 @@
           "summary": "Coach Mike Vrabel says Gonzalez is expected to increase his participation during training camp after practicing in limited fashion during the Patriots' mandatory minicamp, Phil Perry of NBC Sports Boston reports.",
           "source": "ESPN injuries API",
           "published_at": "2026-07-24T19:18:00.000Z",
-          "role": null,
-          "side": null,
-          "impact_tier": "unrated",
-          "primary_receiver_archetypes_impacted": [],
-          "weakness_tags": [],
-          "severity_score": 0.55,
+          "role": "outside_cb1",
+          "side": "boundary",
+          "impact_tier": "elite",
+          "primary_receiver_archetypes_impacted": [
+            "alpha_x"
+          ],
+          "weakness_tags": [
+            "outside_wr_boost",
+            "alpha_wr_boost",
+            "boundary_wr_boost"
+          ],
+          "severity_score": 1.65,
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
-      "target_receivers": [],
-      "severity_score": 1.75,
-      "elite_absence_count": 0,
-      "vulnerability_tier": "watch",
-      "confidence": 0.35,
+      "weakness_tags": [
+        "alpha_wr_boost",
+        "boundary_wr_boost",
+        "deep_pass_boost",
+        "outside_wr_boost",
+        "post_cross_boost",
+        "slot_wr_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "DK Metcalf",
+          "team": "SEA",
+          "roles": [
+            "alpha_x",
+            "field_stretcher",
+            "red_zone"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "boundary",
+            "deep",
+            "red_zone"
+          ],
+          "matched_weakness_tags": [
+            "outside_wr_boost",
+            "alpha_wr_boost",
+            "boundary_wr_boost",
+            "deep_pass_boost",
+            "post_cross_boost"
+          ],
+          "opportunity_score": 7.5,
+          "notes": "SEA Physical Freak WR1.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Tyler Lockett",
+          "team": "SEA",
+          "roles": [
+            "z_receiver",
+            "possession"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "deep",
+            "slot"
+          ],
+          "matched_weakness_tags": [
+            "outside_wr_boost",
+            "deep_pass_boost",
+            "post_cross_boost"
+          ],
+          "opportunity_score": 3.6,
+          "notes": "SEA Veteran Technician.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Jaxon Smith-Njigba",
+          "team": "SEA",
+          "roles": [
+            "slot",
+            "possession"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "slot",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost"
+          ],
+          "opportunity_score": 1.2,
+          "notes": "SEA Rising Slot Star.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
+      "severity_score": 2.85,
+      "elite_absence_count": 1,
+      "vulnerability_tier": "medium",
+      "confidence": 0.8,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -303,7 +378,17 @@
       "defense_team": "LAR",
       "defense_team_nick": "Rams",
       "offense_venue": "away",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "zone_heavy",
+          "two_high"
+        ],
+        "primary_coverage_family": "zone_match",
+        "pressure_profile": "front_dependent",
+        "confidence": 0.7,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Chris Shula Fangio-lineage soft zone two-high shell."
+      },
       "secondary_absences": [
         {
           "player_name": "Al'zillion Hamilton",
@@ -323,12 +408,58 @@
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "slot_wr_boost",
+        "underneath_volume_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Deebo Samuel",
+          "team": "SF",
+          "roles": [
+            "z_receiver",
+            "slot",
+            "possession"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "slot",
+            "underneath",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 3,
+          "notes": "SF All-Pro Wide Back.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Jauan Jennings",
+          "team": "SF",
+          "roles": [
+            "slot",
+            "possession"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "slot",
+            "third_down"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 1.6,
+          "notes": "SF 3rd Down Clutch WR.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 1.2,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.32,
+      "confidence": 0.65,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -350,7 +481,18 @@
       "defense_team": "SF",
       "defense_team_nick": "49ers",
       "offense_venue": "home",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "zone_heavy",
+          "two_high",
+          "quarters"
+        ],
+        "primary_coverage_family": "zone_heavy",
+        "pressure_profile": "front_dependent",
+        "confidence": 0.85,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Nick Sorensen 4-3 Cover 3/Cover 4 zone shell anchored by Charvarius Ward and Fred Warner."
+      },
       "secondary_absences": [
         {
           "player_name": "Malik Mustapha",
@@ -387,12 +529,61 @@
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "slot_wr_boost",
+        "te_middle_boost",
+        "underneath_volume_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Cooper Kupp",
+          "team": "LAR",
+          "roles": [
+            "slot",
+            "alpha_x",
+            "possession"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "slot",
+            "intermediate",
+            "underneath"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 3,
+          "notes": "LAR Triple Crown WR.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Puka Nacua",
+          "team": "LAR",
+          "roles": [
+            "alpha_x",
+            "possession",
+            "red_zone"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "boundary",
+            "intermediate",
+            "red_zone"
+          ],
+          "matched_weakness_tags": [
+            "underneath_volume_boost",
+            "te_middle_boost"
+          ],
+          "opportunity_score": 3,
+          "notes": "LAR Record-Breaking All-Pro.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 2.2,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.38,
+      "confidence": 0.76,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -414,7 +605,17 @@
       "defense_team": "CIN",
       "defense_team_nick": "Bengals",
       "offense_venue": "away",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "match_zone",
+          "single_high"
+        ],
+        "primary_coverage_family": "match_zone",
+        "pressure_profile": "aggressive",
+        "confidence": 0.72,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Anarumo disguises and post-snap rotation using single-high and match principles."
+      },
       "secondary_absences": [
         {
           "player_name": "DJ Turner II",
@@ -425,21 +626,113 @@
           "summary": "Turner (calf) was active in Wednesday's training camp practice, mixing it up with Ja'Marr Chase during 7-on-7 and 11-on-11 drills, Geoff Hobson of the Bengals' official site reports.",
           "source": "ESPN injuries API",
           "published_at": "2026-07-30T00:07:00.000Z",
-          "role": null,
-          "side": null,
-          "impact_tier": "unrated",
-          "primary_receiver_archetypes_impacted": [],
-          "weakness_tags": [],
-          "severity_score": 0.85,
+          "role": "outside_cb2",
+          "side": "field",
+          "impact_tier": "starter",
+          "primary_receiver_archetypes_impacted": [
+            "z_receiver",
+            "field_stretcher"
+          ],
+          "weakness_tags": [
+            "outside_wr_boost",
+            "boundary_wr_boost"
+          ],
+          "severity_score": 1.27,
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
-      "target_receivers": [],
-      "severity_score": 0.85,
+      "weakness_tags": [
+        "boundary_wr_boost",
+        "deep_pass_boost",
+        "inside_seam_boost",
+        "outside_wr_boost",
+        "post_cross_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Mike Evans",
+          "team": "TB",
+          "roles": [
+            "alpha_x",
+            "field_stretcher",
+            "red_zone"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "boundary",
+            "deep",
+            "red_zone"
+          ],
+          "matched_weakness_tags": [
+            "outside_wr_boost",
+            "boundary_wr_boost",
+            "deep_pass_boost",
+            "post_cross_boost"
+          ],
+          "opportunity_score": 6,
+          "notes": "TB 1,000-yard Streak HOF WR.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Jalen McMillan",
+          "team": "TB",
+          "roles": [
+            "z_receiver"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "boundary"
+          ],
+          "matched_weakness_tags": [
+            "outside_wr_boost",
+            "deep_pass_boost",
+            "post_cross_boost"
+          ],
+          "opportunity_score": 2.4,
+          "notes": "TB Rookie WR3.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Chris Godwin",
+          "team": "TB",
+          "roles": [
+            "slot",
+            "possession"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "slot",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "inside_seam_boost"
+          ],
+          "opportunity_score": 1.5,
+          "notes": "TB Elite Slot WR.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Cade Otton",
+          "team": "TB",
+          "roles": [
+            "te_middle"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "middle"
+          ],
+          "matched_weakness_tags": [
+            "inside_seam_boost"
+          ],
+          "opportunity_score": 0.8,
+          "notes": "TB TE.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
+      "severity_score": 1.27,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.3,
+      "confidence": 0.74,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -461,7 +754,18 @@
       "defense_team": "TB",
       "defense_team_nick": "Buccaneers",
       "offense_venue": "home",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "zone_heavy",
+          "two_high",
+          "blitz_heavy"
+        ],
+        "primary_coverage_family": "zone_heavy",
+        "pressure_profile": "blitz_heavy",
+        "confidence": 0.8,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Todd Bowles heavy pressure and simulated pressure with Antoine Winfield Jr."
+      },
       "secondary_absences": [
         {
           "player_name": "Benjamin Morrison",
@@ -498,12 +802,59 @@
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "hot_read_boost",
+        "slot_wr_boost",
+        "underneath_volume_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Ja'Marr Chase",
+          "team": "CIN",
+          "roles": [
+            "alpha_x",
+            "field_stretcher",
+            "slot"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "boundary",
+            "deep",
+            "slot"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 3,
+          "notes": "CIN All-Pro Alpha WR.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Mike Gesicki",
+          "team": "CIN",
+          "roles": [
+            "te_middle",
+            "slot"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "middle",
+            "slot"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 1.6,
+          "notes": "CIN Big Slot TE.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 2.05,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.37,
+      "confidence": 0.73,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -533,9 +884,9 @@
         ],
         "primary_coverage_family": "match_zone",
         "pressure_profile": "front_dependent",
-        "confidence": 0.52,
-        "source_url": null,
-        "notes": "Manual proof-of-concept placeholder for testing safety/slot vulnerability routing."
+        "confidence": 0.75,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Aaron Glenn split-safety match zone featuring Kerby Joseph and Brian Branch."
       },
       "secondary_absences": [
         {
@@ -630,8 +981,8 @@
             "post_cross_boost"
           ],
           "opportunity_score": 3,
-          "notes": "POC receiver role seed.",
-          "source_url": null
+          "notes": "NO Smooth Route WR1.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         },
         {
           "player_name": "Rashid Shaheed",
@@ -640,7 +991,7 @@
             "z_receiver",
             "field_stretcher"
           ],
-          "target_share_tier": "medium",
+          "target_share_tier": "high",
           "route_area_tags": [
             "deep"
           ],
@@ -648,15 +999,35 @@
             "deep_pass_boost",
             "post_cross_boost"
           ],
+          "opportunity_score": 2.4,
+          "notes": "NO Elite Deep Threat.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Taysom Hill",
+          "team": "NO",
+          "roles": [
+            "te_middle",
+            "red_zone"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "underneath",
+            "red_zone"
+          ],
+          "matched_weakness_tags": [
+            "te_middle_boost",
+            "inside_seam_boost"
+          ],
           "opportunity_score": 1.6,
-          "notes": "POC receiver role seed.",
-          "source_url": null
+          "notes": "NO Offensive Weapon.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
       "severity_score": 7.5,
       "elite_absence_count": 2,
       "vulnerability_tier": "high",
-      "confidence": 0.87,
+      "confidence": 0.95,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -678,14 +1049,97 @@
       "defense_team": "NO",
       "defense_team_nick": "Saints",
       "offense_venue": "home",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "man_heavy",
+          "single_high"
+        ],
+        "primary_coverage_family": "cover_1_man",
+        "pressure_profile": "aggressive",
+        "confidence": 0.76,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Dennis Allen aggressive Cover 1 man press with Marshon Lattimore and Tyrann Mathieu."
+      },
       "secondary_absences": [],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "alpha_wr_boost",
+        "boundary_wr_boost",
+        "deep_pass_boost",
+        "outside_wr_boost",
+        "post_cross_boost",
+        "slot_wr_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Amon-Ra St. Brown",
+          "team": "DET",
+          "roles": [
+            "slot",
+            "alpha_x",
+            "possession"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "slot",
+            "intermediate",
+            "underneath"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "outside_wr_boost",
+            "alpha_wr_boost",
+            "boundary_wr_boost"
+          ],
+          "opportunity_score": 6,
+          "notes": "DET All-Pro Slot Alpha.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Jameson Williams",
+          "team": "DET",
+          "roles": [
+            "z_receiver",
+            "field_stretcher"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "deep",
+            "boundary"
+          ],
+          "matched_weakness_tags": [
+            "outside_wr_boost",
+            "deep_pass_boost",
+            "post_cross_boost"
+          ],
+          "opportunity_score": 3.6,
+          "notes": "DET Deep Threat.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Sam LaPorta",
+          "team": "DET",
+          "roles": [
+            "te_middle",
+            "red_zone"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "middle",
+            "red_zone",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "alpha_wr_boost"
+          ],
+          "opportunity_score": 1.5,
+          "notes": "DET All-Pro TE.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 0,
       "elite_absence_count": 0,
       "vulnerability_tier": "low",
-      "confidence": 0.25,
+      "confidence": 0.64,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -707,7 +1161,17 @@
       "defense_team": "TEN",
       "defense_team_nick": "Titans",
       "offense_venue": "away",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "match_zone",
+          "single_high"
+        ],
+        "primary_coverage_family": "match_zone",
+        "pressure_profile": "front_dependent",
+        "confidence": 0.72,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Dennard Wilson Ravens-lineage match zone featuring L'Jarius Sneed shadow coverage."
+      },
       "secondary_absences": [
         {
           "player_name": "Nazeeh Johnson",
@@ -727,12 +1191,78 @@
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "boundary_wr_boost",
+        "deep_pass_boost",
+        "inside_seam_boost",
+        "post_cross_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Garrett Wilson",
+          "team": "NYJ",
+          "roles": [
+            "alpha_x",
+            "slot"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "boundary",
+            "slot",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "boundary_wr_boost",
+            "inside_seam_boost"
+          ],
+          "opportunity_score": 3,
+          "notes": "NYJ All-Pro Target Monster.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Mike Williams",
+          "team": "NYJ",
+          "roles": [
+            "z_receiver",
+            "red_zone"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "boundary",
+            "deep",
+            "red_zone"
+          ],
+          "matched_weakness_tags": [
+            "deep_pass_boost",
+            "post_cross_boost"
+          ],
+          "opportunity_score": 1.6,
+          "notes": "NYJ Contested Catch Veteran.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Tyler Conklin",
+          "team": "NYJ",
+          "roles": [
+            "te_middle"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "middle",
+            "underneath"
+          ],
+          "matched_weakness_tags": [
+            "inside_seam_boost"
+          ],
+          "opportunity_score": 0.8,
+          "notes": "NYJ TE.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 0.55,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.28,
+      "confidence": 0.66,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -754,14 +1284,86 @@
       "defense_team": "NYJ",
       "defense_team_nick": "Jets",
       "offense_venue": "home",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "zone_heavy",
+          "two_high",
+          "quarters"
+        ],
+        "primary_coverage_family": "cover_3_zone",
+        "pressure_profile": "front_dependent",
+        "confidence": 0.88,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Robert Saleh elite Cover 3/Quarters zone shell led by Sauce Gardner and DJ Reed."
+      },
       "secondary_absences": [],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "slot_wr_boost",
+        "te_middle_boost",
+        "underneath_volume_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Tyler Boyd",
+          "team": "TEN",
+          "roles": [
+            "slot"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "slot",
+            "underneath"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 1.6,
+          "notes": "TEN Slot Veteran.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "DeAndre Hopkins",
+          "team": "TEN",
+          "roles": [
+            "alpha_x",
+            "red_zone"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "boundary",
+            "red_zone"
+          ],
+          "matched_weakness_tags": [
+            "te_middle_boost"
+          ],
+          "opportunity_score": 1.5,
+          "notes": "TEN Veteran HOF WR.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Chigoziem Okonkwo",
+          "team": "TEN",
+          "roles": [
+            "te_middle"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "middle",
+            "seam"
+          ],
+          "matched_weakness_tags": [
+            "te_middle_boost"
+          ],
+          "opportunity_score": 0.8,
+          "notes": "TEN YAC TE.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 0,
       "elite_absence_count": 0,
       "vulnerability_tier": "low",
-      "confidence": 0.25,
+      "confidence": 0.68,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -783,7 +1385,17 @@
       "defense_team": "IND",
       "defense_team_nick": "Colts",
       "offense_venue": "away",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "zone_heavy",
+          "single_high"
+        ],
+        "primary_coverage_family": "cover_3_zone",
+        "pressure_profile": "coverage_first",
+        "confidence": 0.75,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Gus Bradley classic Cover 3 / Quarters system funneling plays to Kenny Moore II."
+      },
       "secondary_absences": [
         {
           "player_name": "Charvarius Ward",
@@ -820,12 +1432,61 @@
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "boundary_wr_boost",
+        "deep_pass_boost",
+        "post_cross_boost",
+        "slot_wr_boost",
+        "underneath_volume_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Zay Flowers",
+          "team": "BAL",
+          "roles": [
+            "alpha_x",
+            "slot"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "boundary",
+            "slot",
+            "underneath"
+          ],
+          "matched_weakness_tags": [
+            "boundary_wr_boost",
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 4.5,
+          "notes": "BAL Primary Target.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Rashod Bateman",
+          "team": "BAL",
+          "roles": [
+            "z_receiver",
+            "field_stretcher"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "deep",
+            "boundary"
+          ],
+          "matched_weakness_tags": [
+            "deep_pass_boost",
+            "post_cross_boost"
+          ],
+          "opportunity_score": 1.6,
+          "notes": "BAL Outside WR.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 1.7,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.35,
+      "confidence": 0.69,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -847,7 +1508,18 @@
       "defense_team": "BAL",
       "defense_team_nick": "Ravens",
       "offense_venue": "home",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "man_heavy",
+          "single_high",
+          "blitz_heavy"
+        ],
+        "primary_coverage_family": "man_match",
+        "pressure_profile": "aggressive",
+        "confidence": 0.85,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Orr aggressive blitz-heavy man match structure with Kyle Hamilton roaming."
+      },
       "secondary_absences": [
         {
           "player_name": "Bilhal Kone",
@@ -867,12 +1539,81 @@
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "alpha_wr_boost",
+        "boundary_wr_boost",
+        "deep_pass_boost",
+        "hot_read_boost",
+        "outside_wr_boost",
+        "post_cross_boost",
+        "slot_wr_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Michael Pittman Jr.",
+          "team": "IND",
+          "roles": [
+            "alpha_x",
+            "possession"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "boundary",
+            "intermediate",
+            "underneath"
+          ],
+          "matched_weakness_tags": [
+            "outside_wr_boost",
+            "alpha_wr_boost",
+            "boundary_wr_boost"
+          ],
+          "opportunity_score": 4.5,
+          "notes": "IND Heavy Volume WR1.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Alec Pierce",
+          "team": "IND",
+          "roles": [
+            "z_receiver",
+            "field_stretcher"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "deep"
+          ],
+          "matched_weakness_tags": [
+            "outside_wr_boost",
+            "deep_pass_boost",
+            "post_cross_boost"
+          ],
+          "opportunity_score": 2.4,
+          "notes": "IND Deep Threat.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Josh Downs",
+          "team": "IND",
+          "roles": [
+            "slot"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "slot",
+            "underneath"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost"
+          ],
+          "opportunity_score": 1.2,
+          "notes": "IND High-Efficiency Slot.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 1.2,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.32,
+      "confidence": 0.74,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -902,9 +1643,9 @@
         ],
         "primary_coverage_family": "man_match",
         "pressure_profile": "aggressive",
-        "confidence": 0.58,
-        "source_url": null,
-        "notes": "Manual proof-of-concept placeholder. Replace with charting or reviewed weekly source before betting use."
+        "confidence": 0.82,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Mike Tomlin/Teryl Austin Cover 1/Cover 3 aggressive shell with Joey Porter Jr. and Minkah Fitzpatrick."
       },
       "secondary_absences": [
         {
@@ -916,8 +1657,8 @@
           "summary": "The Steelers placed Porter (back) on the active/PUP list Tuesday.",
           "source": "ESPN injuries API",
           "published_at": "2026-07-28T17:18:00.000Z",
-          "role": "outside_cb2",
-          "side": "field",
+          "role": "outside_cb1",
+          "side": "boundary",
           "impact_tier": "plus",
           "primary_receiver_archetypes_impacted": [
             "alpha_x",
@@ -925,7 +1666,8 @@
           ],
           "weakness_tags": [
             "outside_wr_boost",
-            "boundary_wr_boost"
+            "boundary_wr_boost",
+            "alpha_wr_boost"
           ],
           "severity_score": 2.7,
           "needs_human_review": true
@@ -956,19 +1698,12 @@
           "summary": "The Steelers have placed Ramsey (knee) on the active/physically unable to perform list to start training camp, Teresa Varley of the team's official site reports.",
           "source": "ESPN injuries API",
           "published_at": "2026-07-28T15:43:00.000Z",
-          "role": "outside_cb1",
-          "side": "boundary",
-          "impact_tier": "elite",
-          "primary_receiver_archetypes_impacted": [
-            "alpha_x",
-            "field_stretcher"
-          ],
-          "weakness_tags": [
-            "outside_wr_boost",
-            "alpha_wr_boost",
-            "boundary_wr_boost"
-          ],
-          "severity_score": 3.6,
+          "role": null,
+          "side": null,
+          "impact_tier": "unrated",
+          "primary_receiver_archetypes_impacted": [],
+          "weakness_tags": [],
+          "severity_score": 1.2,
           "needs_human_review": true
         }
       ],
@@ -1001,8 +1736,8 @@
             "boundary_wr_boost"
           ],
           "opportunity_score": 4.5,
-          "notes": "POC receiver role seed.",
-          "source_url": null
+          "notes": "ATL WR1 Alpha.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         },
         {
           "player_name": "Darnell Mooney",
@@ -1022,14 +1757,34 @@
             "post_cross_boost"
           ],
           "opportunity_score": 2.4,
-          "notes": "POC receiver role seed.",
-          "source_url": null
+          "notes": "ATL Speed WR2.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Kyle Pitts",
+          "team": "ATL",
+          "roles": [
+            "te_middle",
+            "field_stretcher"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "middle",
+            "deep"
+          ],
+          "matched_weakness_tags": [
+            "deep_pass_boost",
+            "post_cross_boost"
+          ],
+          "opportunity_score": 2.4,
+          "notes": "ATL Hybrid TE.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 7.5,
-      "elite_absence_count": 2,
+      "severity_score": 5.1,
+      "elite_absence_count": 1,
       "vulnerability_tier": "high",
-      "confidence": 0.89,
+      "confidence": 0.95,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1051,7 +1806,18 @@
       "defense_team": "ATL",
       "defense_team_nick": "Falcons",
       "offense_venue": "home",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "match_zone",
+          "two_high",
+          "quarters"
+        ],
+        "primary_coverage_family": "match_zone",
+        "pressure_profile": "balanced",
+        "confidence": 0.7,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Jimmy Lake quarters/match zone scheme relying on Jessie Bates deep range."
+      },
       "secondary_absences": [
         {
           "player_name": "Billy Bowman Jr.",
@@ -1088,12 +1854,76 @@
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "inside_seam_boost",
+        "post_cross_boost",
+        "slot_wr_boost",
+        "te_middle_boost",
+        "underneath_volume_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Pat Freiermuth",
+          "team": "PIT",
+          "roles": [
+            "te_middle",
+            "red_zone"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "middle",
+            "red_zone"
+          ],
+          "matched_weakness_tags": [
+            "te_middle_boost",
+            "inside_seam_boost"
+          ],
+          "opportunity_score": 2.4,
+          "notes": "PIT TE1.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "George Pickens",
+          "team": "PIT",
+          "roles": [
+            "alpha_x",
+            "field_stretcher"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "boundary",
+            "deep",
+            "red_zone"
+          ],
+          "matched_weakness_tags": [
+            "post_cross_boost"
+          ],
+          "opportunity_score": 1.5,
+          "notes": "PIT Contested Catch WR1.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Van Jefferson",
+          "team": "PIT",
+          "roles": [
+            "z_receiver"
+          ],
+          "target_share_tier": "rotational",
+          "route_area_tags": [
+            "boundary"
+          ],
+          "matched_weakness_tags": [
+            "post_cross_boost"
+          ],
+          "opportunity_score": 0.4,
+          "notes": "PIT Veteran WR.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 2.05,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.37,
+      "confidence": 0.74,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1115,14 +1945,93 @@
       "defense_team": "CAR",
       "defense_team_nick": "Panthers",
       "offense_venue": "away",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "zone_heavy",
+          "single_high"
+        ],
+        "primary_coverage_family": "zone_heavy",
+        "pressure_profile": "passive",
+        "confidence": 0.6,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Ejiro Evero 3-4 base zone scheme funneling passing volume underneath."
+      },
       "secondary_absences": [],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "boundary_wr_boost",
+        "deep_pass_boost",
+        "post_cross_boost",
+        "slot_wr_boost",
+        "underneath_volume_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "DJ Moore",
+          "team": "CHI",
+          "roles": [
+            "alpha_x",
+            "z_receiver"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "boundary",
+            "intermediate",
+            "deep"
+          ],
+          "matched_weakness_tags": [
+            "boundary_wr_boost",
+            "deep_pass_boost",
+            "post_cross_boost"
+          ],
+          "opportunity_score": 4.5,
+          "notes": "CHI WR1.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Keenan Allen",
+          "team": "CHI",
+          "roles": [
+            "slot",
+            "possession"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "slot",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 2.4,
+          "notes": "CHI Veteran Slot.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Rome Odunze",
+          "team": "CHI",
+          "roles": [
+            "z_receiver",
+            "field_stretcher"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "deep",
+            "boundary"
+          ],
+          "matched_weakness_tags": [
+            "deep_pass_boost",
+            "post_cross_boost"
+          ],
+          "opportunity_score": 2.4,
+          "notes": "CHI Rookie 1st Round WR.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 0,
       "elite_absence_count": 0,
       "vulnerability_tier": "low",
-      "confidence": 0.25,
+      "confidence": 0.58,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1144,7 +2053,17 @@
       "defense_team": "CHI",
       "defense_team_nick": "Bears",
       "offense_venue": "home",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "zone_heavy",
+          "two_high"
+        ],
+        "primary_coverage_family": "cover_2_two_high",
+        "pressure_profile": "front_dependent",
+        "confidence": 0.75,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Eberflus Tampa 2 / Cover 4 hybrid shell relying on Jaylon Johnson lock down."
+      },
       "secondary_absences": [
         {
           "player_name": "Elijah Hicks",
@@ -1172,21 +2091,52 @@
           "summary": "Gordon (calf) is still dealing with the injury he suffered during the offseason, Patrick Finley of the Chicago Sun-Times reports.",
           "source": "ESPN injuries API",
           "published_at": "2026-07-28T19:24:00.000Z",
-          "role": null,
-          "side": null,
-          "impact_tier": "unrated",
-          "primary_receiver_archetypes_impacted": [],
-          "weakness_tags": [],
-          "severity_score": 1.2,
+          "role": "slot_cb",
+          "side": "slot",
+          "impact_tier": "plus",
+          "primary_receiver_archetypes_impacted": [
+            "slot"
+          ],
+          "weakness_tags": [
+            "slot_wr_boost",
+            "inside_seam_boost"
+          ],
+          "severity_score": 2.7,
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
-      "target_receivers": [],
-      "severity_score": 2.4,
-      "elite_absence_count": 0,
-      "vulnerability_tier": "watch",
-      "confidence": 0.39,
+      "weakness_tags": [
+        "inside_seam_boost",
+        "slot_wr_boost",
+        "underneath_volume_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Adam Thielen",
+          "team": "CAR",
+          "roles": [
+            "slot",
+            "possession"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "slot",
+            "underneath"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "inside_seam_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 3.6,
+          "notes": "CAR Veteran Slot.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
+      "severity_score": 3.9,
+      "elite_absence_count": 1,
+      "vulnerability_tier": "medium",
+      "confidence": 0.79,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1208,7 +2158,18 @@
       "defense_team": "JAX",
       "defense_team_nick": "Jaguars",
       "offense_venue": "away",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "man_heavy",
+          "blitz_heavy",
+          "single_high"
+        ],
+        "primary_coverage_family": "man_heavy",
+        "pressure_profile": "aggressive",
+        "confidence": 0.72,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Ryan Nielsen aggressive press-man scheme relying on Tyson Campbell."
+      },
       "secondary_absences": [
         {
           "player_name": "Jourdan Lewis",
@@ -1228,12 +2189,83 @@
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "alpha_wr_boost",
+        "boundary_wr_boost",
+        "deep_pass_boost",
+        "hot_read_boost",
+        "outside_wr_boost",
+        "post_cross_boost",
+        "slot_wr_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Amari Cooper",
+          "team": "CLE",
+          "roles": [
+            "alpha_x"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "boundary",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "outside_wr_boost",
+            "alpha_wr_boost",
+            "boundary_wr_boost"
+          ],
+          "opportunity_score": 4.5,
+          "notes": "CLE Route Technician WR1.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Jerry Jeudy",
+          "team": "CLE",
+          "roles": [
+            "z_receiver",
+            "slot"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "slot",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "outside_wr_boost",
+            "deep_pass_boost",
+            "post_cross_boost",
+            "slot_wr_boost"
+          ],
+          "opportunity_score": 3.2,
+          "notes": "CLE WR2.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "David Njoku",
+          "team": "CLE",
+          "roles": [
+            "te_middle",
+            "red_zone"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "middle",
+            "red_zone",
+            "underneath"
+          ],
+          "matched_weakness_tags": [
+            "alpha_wr_boost"
+          ],
+          "opportunity_score": 1.2,
+          "notes": "CLE YAC TE.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 0.85,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.3,
+      "confidence": 0.67,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1255,7 +2287,18 @@
       "defense_team": "CLE",
       "defense_team_nick": "Browns",
       "offense_venue": "home",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "man_heavy",
+          "single_high",
+          "blitz_heavy"
+        ],
+        "primary_coverage_family": "man_heavy",
+        "pressure_profile": "aggressive",
+        "confidence": 0.82,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Jim Schwartz high-frequency Press Man / Cover 1 with aggressive 4-man rush."
+      },
       "secondary_absences": [
         {
           "player_name": "Denzel Ward",
@@ -1266,12 +2309,18 @@
           "summary": "Ward (neck) and the Browns have agreed to a two-year, $62.2 million contract extension, Ian Rapoport of NFL Network reports.",
           "source": "ESPN injuries API",
           "published_at": "2026-07-28T21:42:00.000Z",
-          "role": null,
-          "side": null,
-          "impact_tier": "unrated",
-          "primary_receiver_archetypes_impacted": [],
-          "weakness_tags": [],
-          "severity_score": 0.55,
+          "role": "outside_cb1",
+          "side": "boundary",
+          "impact_tier": "elite",
+          "primary_receiver_archetypes_impacted": [
+            "alpha_x"
+          ],
+          "weakness_tags": [
+            "outside_wr_boost",
+            "alpha_wr_boost",
+            "boundary_wr_boost"
+          ],
+          "severity_score": 1.65,
           "needs_human_review": true
         },
         {
@@ -1292,12 +2341,103 @@
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
-      "target_receivers": [],
-      "severity_score": 1.4,
-      "elite_absence_count": 0,
-      "vulnerability_tier": "watch",
-      "confidence": 0.33,
+      "weakness_tags": [
+        "alpha_wr_boost",
+        "boundary_wr_boost",
+        "deep_pass_boost",
+        "hot_read_boost",
+        "outside_wr_boost",
+        "post_cross_boost",
+        "slot_wr_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Brian Thomas Jr.",
+          "team": "JAX",
+          "roles": [
+            "alpha_x",
+            "field_stretcher"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "boundary",
+            "deep"
+          ],
+          "matched_weakness_tags": [
+            "outside_wr_boost",
+            "alpha_wr_boost",
+            "boundary_wr_boost",
+            "deep_pass_boost",
+            "post_cross_boost"
+          ],
+          "opportunity_score": 6,
+          "notes": "JAX 1st Round Rookie WR.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Gabe Davis",
+          "team": "JAX",
+          "roles": [
+            "z_receiver",
+            "field_stretcher"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "deep",
+            "boundary"
+          ],
+          "matched_weakness_tags": [
+            "outside_wr_boost",
+            "deep_pass_boost",
+            "post_cross_boost"
+          ],
+          "opportunity_score": 2.4,
+          "notes": "JAX Deep Threat.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Evan Engram",
+          "team": "JAX",
+          "roles": [
+            "te_middle",
+            "slot"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "middle",
+            "underneath",
+            "slot"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost"
+          ],
+          "opportunity_score": 1.5,
+          "notes": "JAX High Volume TE.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Christian Kirk",
+          "team": "JAX",
+          "roles": [
+            "slot"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "slot",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost"
+          ],
+          "opportunity_score": 1.2,
+          "notes": "JAX Slot WR.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
+      "severity_score": 2.5,
+      "elite_absence_count": 1,
+      "vulnerability_tier": "medium",
+      "confidence": 0.85,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1319,7 +2459,18 @@
       "defense_team": "HOU",
       "defense_team_nick": "Texans",
       "offense_venue": "away",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "quarters",
+          "two_high",
+          "zone_heavy"
+        ],
+        "primary_coverage_family": "cover_4_quarters",
+        "pressure_profile": "front_dependent",
+        "confidence": 0.8,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "DeMeco Ryans Cover 4/Cover 6 zone shell anchored by Derek Stingley Jr."
+      },
       "secondary_absences": [
         {
           "player_name": "M.J. Stewart",
@@ -1339,12 +2490,77 @@
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "slot_wr_boost",
+        "te_middle_boost",
+        "underneath_volume_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Dalton Kincaid",
+          "team": "BUF",
+          "roles": [
+            "te_middle",
+            "slot"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "middle",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "te_middle_boost",
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 3.6,
+          "notes": "BUF Receiving TE.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Khalil Shakir",
+          "team": "BUF",
+          "roles": [
+            "slot",
+            "possession"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "slot",
+            "underneath"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 2.4,
+          "notes": "BUF YAC Slot WR.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Keon Coleman",
+          "team": "BUF",
+          "roles": [
+            "alpha_x",
+            "red_zone"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "boundary",
+            "red_zone"
+          ],
+          "matched_weakness_tags": [
+            "te_middle_boost"
+          ],
+          "opportunity_score": 1.2,
+          "notes": "BUF Rookie X WR.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 1.2,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.32,
+      "confidence": 0.72,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1366,7 +2582,18 @@
       "defense_team": "BUF",
       "defense_team_nick": "Bills",
       "offense_venue": "home",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "zone_heavy",
+          "two_high",
+          "quarters"
+        ],
+        "primary_coverage_family": "zone_heavy",
+        "pressure_profile": "coverage_first",
+        "confidence": 0.8,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "McDermott Cover 4 / Cover 6 zone-heavy structure featuring Taron Johnson in slot."
+      },
       "secondary_absences": [
         {
           "player_name": "Dorian Strong",
@@ -1386,12 +2613,55 @@
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "slot_wr_boost",
+        "te_middle_boost",
+        "underneath_volume_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Stefon Diggs",
+          "team": "HOU",
+          "roles": [
+            "slot",
+            "z_receiver"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "slot",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 2.4,
+          "notes": "HOU All-Pro Acquisition.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Dalton Schultz",
+          "team": "HOU",
+          "roles": [
+            "te_middle"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "middle",
+            "underneath"
+          ],
+          "matched_weakness_tags": [
+            "te_middle_boost"
+          ],
+          "opportunity_score": 0.8,
+          "notes": "HOU Reliable TE.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 1.2,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.32,
+      "confidence": 0.68,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1413,7 +2683,17 @@
       "defense_team": "LV",
       "defense_team_nick": "Raiders",
       "offense_venue": "away",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "zone_heavy",
+          "single_high"
+        ],
+        "primary_coverage_family": "cover_3_zone",
+        "pressure_profile": "front_dependent",
+        "confidence": 0.68,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Patrick Graham adaptable zone-first scheme featuring Nate Hobbs in nickel."
+      },
       "secondary_absences": [
         {
           "player_name": "Jermod McCoy",
@@ -1433,12 +2713,64 @@
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "boundary_wr_boost",
+        "deep_pass_boost",
+        "post_cross_boost",
+        "slot_wr_boost",
+        "underneath_volume_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Tyreek Hill",
+          "team": "MIA",
+          "roles": [
+            "alpha_x",
+            "field_stretcher",
+            "slot"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "deep",
+            "boundary",
+            "slot"
+          ],
+          "matched_weakness_tags": [
+            "boundary_wr_boost",
+            "deep_pass_boost",
+            "post_cross_boost",
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 7.5,
+          "notes": "MIA All-Pro Cheetah.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Jaylen Waddle",
+          "team": "MIA",
+          "roles": [
+            "z_receiver",
+            "field_stretcher"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "deep",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "deep_pass_boost",
+            "post_cross_boost"
+          ],
+          "opportunity_score": 3,
+          "notes": "MIA Elite Speed WR2.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 0.55,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.28,
+      "confidence": 0.6,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1460,7 +2792,18 @@
       "defense_team": "MIA",
       "defense_team_nick": "Dolphins",
       "offense_venue": "home",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "match_zone",
+          "two_high",
+          "quarters"
+        ],
+        "primary_coverage_family": "match_zone",
+        "pressure_profile": "coverage_first",
+        "confidence": 0.78,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Anthony Weaver two-high match zone scheme built around Jalen Ramsey and Jevon Holland."
+      },
       "secondary_absences": [
         {
           "player_name": "JuJu Brents",
@@ -1514,12 +2857,83 @@
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "inside_seam_boost",
+        "post_cross_boost",
+        "slot_wr_boost",
+        "te_middle_boost",
+        "underneath_volume_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Brock Bowers",
+          "team": "LV",
+          "roles": [
+            "te_middle",
+            "slot"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "middle",
+            "slot",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "te_middle_boost",
+            "inside_seam_boost",
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 6,
+          "notes": "LV 1st Round Generational TE.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Jakobi Meyers",
+          "team": "LV",
+          "roles": [
+            "slot",
+            "possession"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "slot",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "inside_seam_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 2.4,
+          "notes": "LV Reliable WR2.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Davante Adams",
+          "team": "LV",
+          "roles": [
+            "alpha_x",
+            "red_zone"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "boundary",
+            "intermediate",
+            "red_zone"
+          ],
+          "matched_weakness_tags": [
+            "te_middle_boost"
+          ],
+          "opportunity_score": 1.5,
+          "notes": "LV All-Pro Route Master.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 3.25,
       "elite_absence_count": 0,
       "vulnerability_tier": "medium",
-      "confidence": 0.45,
+      "confidence": 0.84,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1541,14 +2955,90 @@
       "defense_team": "MIN",
       "defense_team_nick": "Vikings",
       "offense_venue": "away",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "blitz_heavy",
+          "match_zone",
+          "two_high"
+        ],
+        "primary_coverage_family": "blitz_heavy",
+        "pressure_profile": "blitz_heavy",
+        "confidence": 0.88,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Brian Flores league-highest blitz rate with psycho fronts and Harrison Smith roaming."
+      },
       "secondary_absences": [],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "hot_read_boost",
+        "inside_seam_boost",
+        "post_cross_boost",
+        "slot_wr_boost",
+        "underneath_volume_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Jayden Reed",
+          "team": "GB",
+          "roles": [
+            "slot",
+            "possession"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "slot",
+            "underneath"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "inside_seam_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 3.6,
+          "notes": "GB Playmaking Slot.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Christian Watson",
+          "team": "GB",
+          "roles": [
+            "z_receiver",
+            "field_stretcher"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "deep",
+            "boundary"
+          ],
+          "matched_weakness_tags": [
+            "post_cross_boost"
+          ],
+          "opportunity_score": 1.2,
+          "notes": "GB Deep Threat.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Luke Musgrave",
+          "team": "GB",
+          "roles": [
+            "te_middle"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "middle",
+            "seam"
+          ],
+          "matched_weakness_tags": [
+            "inside_seam_boost"
+          ],
+          "opportunity_score": 0.8,
+          "notes": "GB Athletic TE.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 0,
       "elite_absence_count": 0,
       "vulnerability_tier": "low",
-      "confidence": 0.25,
+      "confidence": 0.68,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1577,9 +3067,9 @@
         ],
         "primary_coverage_family": "zone_match",
         "pressure_profile": "balanced",
-        "confidence": 0.45,
-        "source_url": null,
-        "notes": "Manual proof-of-concept placeholder for slot-corner injury routing."
+        "confidence": 0.7,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Jeff Hafley aggressive zone-match system with Xavier McKinney deep safety range."
       },
       "secondary_absences": [
         {
@@ -1636,7 +3126,7 @@
             "z_receiver",
             "slot"
           ],
-          "target_share_tier": "medium",
+          "target_share_tier": "high",
           "route_area_tags": [
             "slot",
             "intermediate",
@@ -1648,9 +3138,9 @@
             "inside_seam_boost",
             "underneath_volume_boost"
           ],
-          "opportunity_score": 3.2,
-          "notes": "POC receiver role seed.",
-          "source_url": null
+          "opportunity_score": 4.8,
+          "notes": "MIN Touchdown Machine WR2.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         },
         {
           "player_name": "Justin Jefferson",
@@ -1669,14 +3159,32 @@
             "post_cross_boost"
           ],
           "opportunity_score": 1.5,
-          "notes": "POC receiver role seed.",
-          "source_url": null
+          "notes": "MIN Premier WR in NFL.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "T.J. Hockenson",
+          "team": "MIN",
+          "roles": [
+            "te_middle"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "middle",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "inside_seam_boost"
+          ],
+          "opportunity_score": 1.5,
+          "notes": "MIN Pro-Bowl TE.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
       "severity_score": 2.47,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.64,
+      "confidence": 0.76,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1698,14 +3206,95 @@
       "defense_team": "PHI",
       "defense_team_nick": "Eagles",
       "offense_venue": "away",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "match_zone",
+          "two_high",
+          "quarters"
+        ],
+        "primary_coverage_family": "match_zone",
+        "pressure_profile": "front_dependent",
+        "confidence": 0.82,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Vic Fangio master match zone / split safety system with Quinyon Mitchell and Cooper DeJean."
+      },
       "secondary_absences": [],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "inside_seam_boost",
+        "post_cross_boost",
+        "slot_wr_boost",
+        "te_middle_boost",
+        "underneath_volume_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Jahan Dotson",
+          "team": "WAS",
+          "roles": [
+            "z_receiver",
+            "slot"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "slot",
+            "boundary"
+          ],
+          "matched_weakness_tags": [
+            "post_cross_boost",
+            "slot_wr_boost",
+            "inside_seam_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 3.2,
+          "notes": "WAS WR2.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Zach Ertz",
+          "team": "WAS",
+          "roles": [
+            "te_middle",
+            "possession"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "middle",
+            "underneath"
+          ],
+          "matched_weakness_tags": [
+            "te_middle_boost",
+            "inside_seam_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 2.4,
+          "notes": "WAS Veteran TE.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Terry McLaurin",
+          "team": "WAS",
+          "roles": [
+            "alpha_x",
+            "field_stretcher"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "boundary",
+            "deep",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "post_cross_boost"
+          ],
+          "opportunity_score": 1.5,
+          "notes": "WAS Scary Terry WR1.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 0,
       "elite_absence_count": 0,
       "vulnerability_tier": "low",
-      "confidence": 0.25,
+      "confidence": 0.66,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1727,7 +3316,17 @@
       "defense_team": "WAS",
       "defense_team_nick": "Commanders",
       "offense_venue": "home",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "zone_heavy",
+          "two_high"
+        ],
+        "primary_coverage_family": "zone_heavy",
+        "pressure_profile": "passive",
+        "confidence": 0.62,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Dan Quinn Cover 3 / Quarters zone structure featuring Mike Sainristil in nickel."
+      },
       "secondary_absences": [
         {
           "player_name": "Trey Amos",
@@ -1764,12 +3363,15 @@
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
+      "weakness_tags": [
+        "slot_wr_boost",
+        "underneath_volume_boost"
+      ],
       "target_receivers": [],
       "severity_score": 2.05,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.37,
+      "confidence": 0.59,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1791,14 +3393,111 @@
       "defense_team": "LAC",
       "defense_team_nick": "Chargers",
       "offense_venue": "away",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "match_zone",
+          "two_high",
+          "quarters"
+        ],
+        "primary_coverage_family": "match_zone",
+        "pressure_profile": "coverage_first",
+        "confidence": 0.78,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Jesse Minter Ravens-style match zone structure with Derwin James in hybrid role."
+      },
       "secondary_absences": [],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "inside_seam_boost",
+        "post_cross_boost",
+        "slot_wr_boost",
+        "te_middle_boost",
+        "underneath_volume_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Trey McBride",
+          "team": "ARI",
+          "roles": [
+            "te_middle",
+            "red_zone"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "middle",
+            "intermediate",
+            "red_zone"
+          ],
+          "matched_weakness_tags": [
+            "te_middle_boost",
+            "inside_seam_boost"
+          ],
+          "opportunity_score": 3,
+          "notes": "ARI Elite Target Share TE.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Greg Dortch",
+          "team": "ARI",
+          "roles": [
+            "slot"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "slot",
+            "underneath"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "inside_seam_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 2.4,
+          "notes": "ARI Slot WR.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Marvin Harrison Jr.",
+          "team": "ARI",
+          "roles": [
+            "alpha_x",
+            "field_stretcher"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "boundary",
+            "deep",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "post_cross_boost"
+          ],
+          "opportunity_score": 1.5,
+          "notes": "ARI #1 WR Alpha.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Michael Wilson",
+          "team": "ARI",
+          "roles": [
+            "z_receiver"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "boundary",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "post_cross_boost"
+          ],
+          "opportunity_score": 0.8,
+          "notes": "ARI Outside WR2.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 0,
       "elite_absence_count": 0,
       "vulnerability_tier": "low",
-      "confidence": 0.25,
+      "confidence": 0.68,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1820,7 +3519,18 @@
       "defense_team": "ARI",
       "defense_team_nick": "Cardinals",
       "offense_venue": "home",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "zone_heavy",
+          "two_high",
+          "match_zone"
+        ],
+        "primary_coverage_family": "zone_match",
+        "pressure_profile": "front_dependent",
+        "confidence": 0.65,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Gannon zone match defense with two-high split safety tendency."
+      },
       "secondary_absences": [
         {
           "player_name": "Joey Blount",
@@ -1848,21 +3558,90 @@
           "summary": "Williams (Achilles) was placed on the active/PUP list Thursday, Darren Urban of the Cardinals' official site reports.",
           "source": "ESPN injuries API",
           "published_at": "2026-07-23T21:38:00.000Z",
-          "role": null,
-          "side": null,
-          "impact_tier": "unrated",
-          "primary_receiver_archetypes_impacted": [],
-          "weakness_tags": [],
-          "severity_score": 1.2,
+          "role": "slot_cb",
+          "side": "slot",
+          "impact_tier": "starter",
+          "primary_receiver_archetypes_impacted": [
+            "slot"
+          ],
+          "weakness_tags": [
+            "slot_wr_boost",
+            "inside_seam_boost"
+          ],
+          "severity_score": 1.8,
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
-      "target_receivers": [],
-      "severity_score": 1.75,
+      "weakness_tags": [
+        "inside_seam_boost",
+        "post_cross_boost",
+        "slot_wr_boost",
+        "underneath_volume_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Ladd McConkey",
+          "team": "LAC",
+          "roles": [
+            "slot",
+            "alpha_x"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "slot",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "inside_seam_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 4.5,
+          "notes": "LAC Rookie Target Leader.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Joshua Palmer",
+          "team": "LAC",
+          "roles": [
+            "z_receiver"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "boundary",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "post_cross_boost"
+          ],
+          "opportunity_score": 0.8,
+          "notes": "LAC Outside WR.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Quentin Johnston",
+          "team": "LAC",
+          "roles": [
+            "alpha_x",
+            "field_stretcher"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "boundary",
+            "deep"
+          ],
+          "matched_weakness_tags": [
+            "post_cross_boost"
+          ],
+          "opportunity_score": 0.8,
+          "notes": "LAC 1st Round WR.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
+      "severity_score": 2.35,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.35,
+      "confidence": 0.74,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1884,7 +3663,17 @@
       "defense_team": "NYG",
       "defense_team_nick": "Giants",
       "offense_venue": "away",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "man_heavy",
+          "blitz_heavy"
+        ],
+        "primary_coverage_family": "man_match",
+        "pressure_profile": "blitz_heavy",
+        "confidence": 0.72,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Shane Bowen pressure-heavy scheme utilizing Deonte Banks on outside receivers."
+      },
       "secondary_absences": [
         {
           "player_name": "Rico Payton",
@@ -1904,12 +3693,79 @@
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "alpha_wr_boost",
+        "hot_read_boost",
+        "outside_wr_boost",
+        "slot_wr_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "CeeDee Lamb",
+          "team": "DAL",
+          "roles": [
+            "alpha_x",
+            "slot",
+            "red_zone"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "boundary",
+            "slot",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "outside_wr_boost",
+            "alpha_wr_boost",
+            "slot_wr_boost"
+          ],
+          "opportunity_score": 4.5,
+          "notes": "DAL All-Pro Alpha Target Monster.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Jake Ferguson",
+          "team": "DAL",
+          "roles": [
+            "te_middle",
+            "red_zone"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "middle",
+            "red_zone"
+          ],
+          "matched_weakness_tags": [
+            "alpha_wr_boost"
+          ],
+          "opportunity_score": 1.2,
+          "notes": "DAL TE1.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Brandin Cooks",
+          "team": "DAL",
+          "roles": [
+            "z_receiver",
+            "field_stretcher"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "deep",
+            "boundary"
+          ],
+          "matched_weakness_tags": [
+            "outside_wr_boost"
+          ],
+          "opportunity_score": 0.8,
+          "notes": "DAL Speed WR.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 1.35,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.33,
+      "confidence": 0.7,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1931,7 +3787,18 @@
       "defense_team": "DAL",
       "defense_team_nick": "Cowboys",
       "offense_venue": "home",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "single_high",
+          "man_heavy",
+          "blitz_heavy"
+        ],
+        "primary_coverage_family": "single_high_man",
+        "pressure_profile": "blitz_heavy",
+        "confidence": 0.78,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Mike Zimmer aggressive Cover 1/Cover 3 blitz-heavy secondary structure."
+      },
       "secondary_absences": [
         {
           "player_name": "P.J. Locke",
@@ -1959,21 +3826,102 @@
           "summary": "Bland is all set to participate in the Cowboys' training camp activities, Terence Watson of cowboyswire.com reports.",
           "source": "ESPN injuries API",
           "published_at": "2026-07-29T21:44:00.000Z",
-          "role": null,
-          "side": null,
-          "impact_tier": "unrated",
-          "primary_receiver_archetypes_impacted": [],
-          "weakness_tags": [],
-          "severity_score": 0.85,
+          "role": "outside_cb2",
+          "side": "field",
+          "impact_tier": "elite",
+          "primary_receiver_archetypes_impacted": [
+            "z_receiver",
+            "slot"
+          ],
+          "weakness_tags": [
+            "outside_wr_boost",
+            "slot_wr_boost",
+            "boundary_wr_boost"
+          ],
+          "severity_score": 2.55,
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
-      "target_receivers": [],
-      "severity_score": 1.7,
-      "elite_absence_count": 0,
-      "vulnerability_tier": "watch",
-      "confidence": 0.35,
+      "weakness_tags": [
+        "alpha_wr_boost",
+        "boundary_wr_boost",
+        "deep_pass_boost",
+        "hot_read_boost",
+        "outside_wr_boost",
+        "post_cross_boost",
+        "slot_wr_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Malik Nabers",
+          "team": "NYG",
+          "roles": [
+            "alpha_x",
+            "field_stretcher",
+            "slot"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "boundary",
+            "deep",
+            "slot"
+          ],
+          "matched_weakness_tags": [
+            "outside_wr_boost",
+            "alpha_wr_boost",
+            "boundary_wr_boost",
+            "deep_pass_boost",
+            "post_cross_boost",
+            "slot_wr_boost"
+          ],
+          "opportunity_score": 9,
+          "notes": "NYG Explosive 1st Round Alpha.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Darius Slayton",
+          "team": "NYG",
+          "roles": [
+            "z_receiver",
+            "field_stretcher"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "deep"
+          ],
+          "matched_weakness_tags": [
+            "outside_wr_boost",
+            "deep_pass_boost",
+            "post_cross_boost"
+          ],
+          "opportunity_score": 2.4,
+          "notes": "NYG Deep Threat.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Wan'Dale Robinson",
+          "team": "NYG",
+          "roles": [
+            "slot",
+            "possession"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "slot",
+            "underneath"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost"
+          ],
+          "opportunity_score": 1.2,
+          "notes": "NYG High Volume Slot.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
+      "severity_score": 3.4,
+      "elite_absence_count": 1,
+      "vulnerability_tier": "medium",
+      "confidence": 0.85,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1995,7 +3943,18 @@
       "defense_team": "KC",
       "defense_team_nick": "Chiefs",
       "offense_venue": "away",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "match_zone",
+          "blitz_heavy",
+          "two_high"
+        ],
+        "primary_coverage_family": "match_zone",
+        "pressure_profile": "aggressive",
+        "confidence": 0.85,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Steve Spagnuolo intricate blitz packages and post-snap rotation around Trent McDuffie."
+      },
       "secondary_absences": [
         {
           "player_name": "Jadon Canady",
@@ -2015,12 +3974,59 @@
           "needs_human_review": true
         }
       ],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "hot_read_boost",
+        "inside_seam_boost",
+        "post_cross_boost",
+        "slot_wr_boost",
+        "underneath_volume_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Marvin Mims Jr.",
+          "team": "DEN",
+          "roles": [
+            "field_stretcher",
+            "slot"
+          ],
+          "target_share_tier": "rotational",
+          "route_area_tags": [
+            "deep",
+            "slot"
+          ],
+          "matched_weakness_tags": [
+            "post_cross_boost",
+            "slot_wr_boost",
+            "inside_seam_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 1.6,
+          "notes": "DEN Speed Threat.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Josh Reynolds",
+          "team": "DEN",
+          "roles": [
+            "z_receiver"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "boundary",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "post_cross_boost"
+          ],
+          "opportunity_score": 0.8,
+          "notes": "DEN WR2.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 0.85,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.3,
+      "confidence": 0.68,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -2042,14 +4048,119 @@
       "defense_team": "DEN",
       "defense_team_nick": "Broncos",
       "offense_venue": "home",
-      "coverage_scheme": null,
+      "coverage_scheme": {
+        "scheme_tags": [
+          "man_heavy",
+          "single_high",
+          "blitz_heavy"
+        ],
+        "primary_coverage_family": "man_match",
+        "pressure_profile": "blitz_heavy",
+        "confidence": 0.8,
+        "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+        "notes": "Vance Joseph heavy blitz and man press around Patrick Surtain II shadow assignments."
+      },
       "secondary_absences": [],
-      "weakness_tags": [],
-      "target_receivers": [],
+      "weakness_tags": [
+        "alpha_wr_boost",
+        "boundary_wr_boost",
+        "deep_pass_boost",
+        "hot_read_boost",
+        "outside_wr_boost",
+        "post_cross_boost",
+        "slot_wr_boost"
+      ],
+      "target_receivers": [
+        {
+          "player_name": "Rashee Rice",
+          "team": "KC",
+          "roles": [
+            "slot",
+            "alpha_x"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "slot",
+            "underneath",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "outside_wr_boost",
+            "alpha_wr_boost",
+            "boundary_wr_boost"
+          ],
+          "opportunity_score": 6,
+          "notes": "KC YAC Target Leader.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Xavier Worthy",
+          "team": "KC",
+          "roles": [
+            "z_receiver",
+            "field_stretcher"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "deep",
+            "boundary"
+          ],
+          "matched_weakness_tags": [
+            "outside_wr_boost",
+            "deep_pass_boost",
+            "post_cross_boost"
+          ],
+          "opportunity_score": 3.6,
+          "notes": "KC 4.21 Speed 1st Rounder.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Hollywood Brown",
+          "team": "KC",
+          "roles": [
+            "z_receiver",
+            "field_stretcher"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "deep",
+            "slot"
+          ],
+          "matched_weakness_tags": [
+            "outside_wr_boost",
+            "deep_pass_boost",
+            "post_cross_boost"
+          ],
+          "opportunity_score": 2.4,
+          "notes": "KC Veteran Speed WR.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Travis Kelce",
+          "team": "KC",
+          "roles": [
+            "te_middle",
+            "red_zone"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "middle",
+            "intermediate",
+            "red_zone"
+          ],
+          "matched_weakness_tags": [
+            "alpha_wr_boost"
+          ],
+          "opportunity_score": 1.5,
+          "notes": "KC All-Pro Future HOF TE.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        }
+      ],
       "severity_score": 0,
       "elite_absence_count": 0,
       "vulnerability_tier": "low",
-      "confidence": 0.25,
+      "confidence": 0.69,
       "use_cases": [
         "wr_props",
         "qb_props",
