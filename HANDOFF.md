@@ -4,17 +4,17 @@
 
 **Date:** 2026-07-30 UTC / 2026-07-29 Pacific
 **Branch:** main
-**HEAD observed:** `c814f78`
-**Latest timestamped handoff:** `handoffs/2026-07-30-0635-crash-recovery-source-audit-handoff.md`
-**Status:** Crash recovered; service-aware smoke is green with watch items; post-recovery source audit regenerated; source-audit/article-intel/podcast/training-camp work remains dirty and uncommitted.
+**HEAD observed before latest handoff:** `642349e`
+**Latest timestamped handoff:** `handoffs/2026-07-30-0655-workstream-triage-handoff.md`
+**Status:** Crash recovery and safe source/article, futures, and training-camp checkpoints committed. Podcast regeneration and overnight/ops automation remain dirty by design.
 
 ---
 
 ## Pick Up Here
 
-The computer crashed during a dirty source-freshness/readiness workstream that started after the July 29 season-smoke and YouTube/Gemini futures reconciliation handoff. The immediate recovery task is complete: all local services are reachable and the service-aware smoke check is back to `READY WITH WATCH ITEMS`.
+The computer crashed during a dirty source-freshness/readiness workstream that started after the July 29 season-smoke and YouTube/Gemini futures reconciliation handoff. The immediate recovery task is complete, and the safe recovered work has been split into narrow commits.
 
-Recovered service command:
+Latest verified service command:
 
 ```powershell
 npm.cmd run smoke:season -- --require-services --dev-base http://localhost:5174/platinum-rose-app
@@ -30,16 +30,21 @@ Use `localhost:5174` for the recovered dashboard session. Earlier probes against
 
 ---
 
-## Recovered Dirty Work
+## Completed Checkpoints
 
-Current dirty work includes:
-- Source audit tooling: `scripts/build-intel-source-audit-report.js`, `npm.cmd run intel:source-audit`, `.nfl/source-audit/`, and `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`.
-- Article intel review tooling: `scripts/build-article-intel-review.js`, `npm.cmd run article:intel-review`, `data/research-intel/review/`, and `docs/article-intel-review/`.
-- Research intel feed hardening in `agents/research-intel-ingest.js`, including Walter Football and stricter non-NFL filtering.
-- July 30 training-camp refresh: 16 items, 32 teams, 12 teams with intel; Football Outsiders still failing.
-- Manual futures imports for BetUS and Bookmaker dated 2026-07-29, plus a BetUS alternate-wins parser guard.
-- Large regenerated podcast/deep-dive surface, including new July 21-23 episode files and a 57-episode index.
-- Overnight pipeline additions and untracked ops docs/systemd files.
+- `87476f0` - Document crash recovery source audit state.
+- `0e64d66` - Add local source and article intel review tooling.
+- `9273269` - Import July 29 primary futures odds.
+- `642349e` - Refresh July 30 training camp intel snapshot.
+
+---
+
+## Remaining Dirty Work
+
+Current remaining dirty work includes:
+- Large regenerated podcast/deep-dive surface, including new July 21-23 episode files and a 57-episode index. This was not committed because sponsor/ad language was found inside generated deep-dive output and needs a filter/quality pass or explicit acceptance.
+- Overnight pipeline additions and untracked ops docs/systemd files. This was not committed because it adds live training-camp RSS scouting to automation and the docs contain Linux/encoding/command assumptions.
+- Older untracked retry artifacts under `.nfl/readiness/` and `.nfl/source-audit/`.
 
 Do not stage this as one sweep. Review and stage by workstream.
 
@@ -47,6 +52,7 @@ Do not stage this as one sweep. Review and stage by workstream.
 
 ## Key Files
 
+- `handoffs/2026-07-30-0655-workstream-triage-handoff.md` - current triage handoff.
 - `handoffs/2026-07-30-0635-crash-recovery-source-audit-handoff.md` - detailed crash-recovery handoff.
 - `handoffs/2026-07-29-0405-season-readiness-youtube-futures-handoff.md` - prior completed checkpoint.
 - `docs/SEASON_READINESS_SMOKE_TEST_LATEST.md` - latest readiness report.
@@ -69,14 +75,12 @@ Do not stage this as one sweep. Review and stage by workstream.
 
 ## Recommended Next Step
 
-Review the dirty work by workstream before committing. The post-recovery source audit was regenerated at `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T06-37-17-726Z.json`; it is now blocked only by DraftKings/FanDuel bet-slip parser implementation or verification, not by local service recovery.
-
-Decide commit boundaries for source-audit/article tooling, research/training-camp/futures imports, podcast generated artifacts, and ops docs.
+Review the podcast/deep-dive regeneration first. Either fix the generator/filter so sponsor/ad beats do not enter deep-dive output, or explicitly accept the current generated output as raw/review-only context. Review `scripts/overnight.js` separately because adding live feeds to overnight automation should be an explicit operational decision.
 
 ---
 
 ## Resume Prompt
 
 ```text
-Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF.md, HANDOFF_PROMPT.md, WORKING-CONTEXT.md, TASK_BOARD.md, handoffs\2026-07-29-0405-season-readiness-youtube-futures-handoff.md, and handoffs\2026-07-30-0635-crash-recovery-source-audit-handoff.md first. HEAD observed during crash recovery was c814f78. The machine crashed during a dirty source-freshness/readiness workstream after the July 29 YouTube/season-smoke handoff. Recovered work includes new source-audit tooling, article-intel review tooling, research-intel feed hardening, a July 30 training-camp RSS refresh, BetUS/Bookmaker futures imports, BetUS parser adjustment, regenerated podcast/deep-dive artifacts, overnight pipeline additions, and ops docs. Post-crash service smoke passed with READY WITH WATCH ITEMS, PASS 11 / WARN 6 / FAIL 0 / INFO 1 using npm.cmd run smoke:season -- --require-services --dev-base http://localhost:5174/platinum-rose-app. Official picks inbox and M6 passed on 8787 and 5060. Post-recovery intel:source-audit was regenerated and is BLOCKED only by DraftKings/FanDuel parser implementation or verification; service-smoke is no longer a blocker. Review/stage narrowly by workstream; do not use git add -A. Guardrails: no paid model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval.
+Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF.md, HANDOFF_PROMPT.md, WORKING-CONTEXT.md, TASK_BOARD.md, handoffs\2026-07-30-0635-crash-recovery-source-audit-handoff.md, and handoffs\2026-07-30-0655-workstream-triage-handoff.md first. Crash recovery was committed in 87476f0; source/article intel tooling in 0e64d66; July 29 primary futures imports in 9273269; July 30 training-camp snapshot in 642349e. Verified service smoke is READY WITH WATCH ITEMS, PASS 11 / WARN 6 / FAIL 0 / INFO 1 using localhost:5174. Source audit is regenerated and blocked only by DraftKings/FanDuel parser implementation or verification. Targeted node checks, eslint, futures parser reproduction, and training-camp tests passed. Remaining dirty work is intentionally limited to podcast/deep-dive regeneration, overnight/ops automation docs, and older retry artifacts. Do not use git add -A. Guardrails: no paid model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval.
 ```

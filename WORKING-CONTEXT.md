@@ -6,7 +6,8 @@
 
 ## Current Recovery State - 2026-07-30 UTC / 2026-07-29 Pacific
 
-**Crash recovery documented:** `handoffs/2026-07-30-0635-crash-recovery-source-audit-handoff.md`.
+**Latest triage handoff:** `handoffs/2026-07-30-0655-workstream-triage-handoff.md`.
+**Crash recovery detail:** `handoffs/2026-07-30-0635-crash-recovery-source-audit-handoff.md`.
 
 The machine crashed during a dirty source-freshness/readiness workstream after the July 29 season-smoke and YouTube/Gemini futures reconciliation handoff. Local services have been restarted and verified:
 
@@ -22,7 +23,21 @@ npm.cmd run smoke:season -- --require-services --dev-base http://localhost:5174/
 
 Result: `READY WITH WATCH ITEMS`, PASS 11 / WARN 6 / FAIL 0 / INFO 1. Use `localhost:5174` for this recovered Vite session; `127.0.0.1:5174` failed in smoke even while the browser-visible localhost URL worked.
 
-Dirty work recovered but not yet committed includes source-audit tooling, article-intel review tooling, research feed hardening, July 30 training-camp refresh, BetUS/Bookmaker futures imports, BetUS alternate-wins parser guard, regenerated podcast/deep-dive artifacts, overnight pipeline additions, and ops docs. `npm.cmd run intel:source-audit` was regenerated after service recovery and is now blocked only by DraftKings/FanDuel parser implementation or verification. Review/stage narrowly by workstream. Do not use `git add -A`.
+Safe recovered work has been committed in narrow checkpoints:
+
+- `87476f0` - Document crash recovery source audit state.
+- `0e64d66` - Add local source and article intel review tooling.
+- `9273269` - Import July 29 primary futures odds.
+- `642349e` - Refresh July 30 training camp intel snapshot.
+
+`npm.cmd run intel:source-audit` was regenerated after service recovery and is now blocked only by DraftKings/FanDuel parser implementation or verification.
+
+Remaining dirty work is intentional:
+- Podcast/deep-dive regeneration, including new July 21-23 episode files and a 57-episode index. Do not commit until sponsor/ad language is filtered or explicitly accepted as raw/review-only context.
+- Overnight/ops automation files: `scripts/overnight.js`, `docs/NFL_DASHBOARD_USER_GUIDE.md`, and `infra/systemd/`. Review separately because they change live-fetch automation assumptions and contain Linux/encoding/command assumptions.
+- Older retry artifacts under `.nfl/readiness/` and `.nfl/source-audit/`; latest successful reports are already committed.
+
+Review/stage narrowly by workstream. Do not use `git add -A`.
 
 ---
 
@@ -94,11 +109,15 @@ Dirty work recovered but not yet committed includes source-audit tooling, articl
 
 ---
 
-## Next Immediate Action (Current - 2026-07-29)
+## Next Immediate Action (Current - 2026-07-30 UTC / 2026-07-29 Pacific)
 
-**Season readiness / YouTube futures repair is complete but uncommitted:** review the narrow dirty diff, then commit the smoke-test command and YouTube futures repair/regenerated artifacts together. Latest detailed handoff: `handoffs/2026-07-29-0405-season-readiness-youtube-futures-handoff.md`.
+**Crash recovery and safe workstream checkpoints are committed:** continue from `handoffs/2026-07-30-0655-workstream-triage-handoff.md`.
 
-Recommended next after commit:
+Recommended next:
+- Review the podcast/deep-dive regeneration first. Either fix the sponsor/ad filter and regenerate, or explicitly accept the current output as raw/review-only context before committing.
+- Review `scripts/overnight.js`, `docs/NFL_DASHBOARD_USER_GUIDE.md`, and `infra/systemd/` separately before committing any ops automation.
+- Clean older retry artifacts only after deciding they are no longer useful crash-window evidence.
+
 - Create one real official-picks proposal draft and exercise approve/reject through the inbox UI.
 - Confirm whether migration 044 has been applied live before relying on production official-picks flows.
 - Prioritize the two clearest pre-kickoff betting-surface gaps: live props data source and DraftKings/FanDuel bet-slip parsers.
