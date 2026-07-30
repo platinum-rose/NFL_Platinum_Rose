@@ -20,6 +20,7 @@ The crash-recovered dirty work was split into narrow commits instead of staged a
 - `0cd942a` - Add futures synthesis source readiness checklist.
 - `f6cee97` - Clean podcast deep-dive synthesis evidence.
 - `817ec29` - Update futures synthesis handoff checkpoint.
+- `5b2db46` - Add frontier futures synthesis evidence packet.
 
 No paid model calls, Supabase writes, official-pick approvals, production recommendation persistence, or open-parlay changes were made by Codex during this triage.
 
@@ -41,7 +42,12 @@ Source audit:
   - `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md`
   - `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md`
 - Scope decision: DraftKings/FanDuel bet-slip parser implementation and weekly live-props source are not part of the current preseason futures synthesis freshness gate.
-- Caveat: BetOnline has current July 29 screenshots, but stale structured BetOnline rows must not be used as source of truth unless normalized or manually reviewed.
+- BetOnline normalization:
+  - `scripts/build-betonline-0729-import.js`
+  - `data/futures-imports/betonline-2026-07-29.json`, 160 rows
+  - `docs/FUTURES_ODDS_BETONLINE_2026-07-29_MANUAL_REVIEW.md`
+  - Verified with `npm.cmd run futures:betonline-0729`, `node scripts/build-betonline-0729-import.js --check-only`, and `node scripts/ingest-futures-json.js --file data/futures-imports/betonline-2026-07-29.json --dry-run`.
+- Current caveat: the current worktree training-camp latest snapshot is an all-32 empty placeholder. Restore the verified 16-item snapshot or approve a fresh live RSS scout before model synthesis.
 
 Targeted syntax/lint:
 - `node --check scripts/build-intel-source-audit-report.js`
@@ -114,11 +120,12 @@ Reason not removed:
 
 ## Recommended Next Step
 
-Start with the prepared evidence packet for the frontier-model futures portfolio synthesis:
+Start with the remaining source-gate issue for the frontier-model futures portfolio synthesis:
 
-1. Use `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md` as the current model-ready evidence packet.
-2. Decide whether to normalize or manually review the current July 29 BetOnline screenshots before the model run, or proceed with BetOnline exact prices excluded.
-3. Ask explicit approval before any paid/frontier model call.
+1. Restore the verified 16-item training-camp snapshot or approve a fresh live RSS scout.
+2. Rerun `npm.cmd run intel:source-audit` and require 0 stale / 0 blocked / 0 missing sources.
+3. Use `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md` as the evidence packet.
+4. Ask explicit approval before any paid/frontier model call.
 
 Paid model calls still require explicit approval.
 
@@ -127,5 +134,5 @@ Paid model calls still require explicit approval.
 ## Resume Prompt
 
 ```text
-Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF.md, HANDOFF_PROMPT.md, WORKING-CONTEXT.md, TASK_BOARD.md, docs\FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md, docs\FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md, handoffs\2026-07-30-0635-crash-recovery-source-audit-handoff.md, and handoffs\2026-07-30-0655-workstream-triage-handoff.md first. Current focus is a maximum-effort frontier-model futures portfolio narrative and recommendation synthesis, not DK/FD bet-slip parsers or weekly live props. Crash recovery was committed in 87476f0; source/article intel tooling in 0e64d66; July 29 primary futures imports in 9273269; July 30 training-camp snapshot in 642349e; post-recovery triage in d58f8e3; source-audit recalibration in 96376e1; source-readiness checklist in 0cd942a; podcast cleanup/evidence checkpoint in f6cee97; handoff checkpoint in 817ec29. Latest source audit is PASSABLE, Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7. Latest source-audit artifacts are .nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.json and docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html. Podcast/deep-dive output was regenerated after expanded ad/legal filtering; the expanded hard promo/legal scan is clean and remaining sportsbook mentions are price/context references. The model-ready evidence packet is docs\FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md. BetOnline has current July 29 screenshots; stale structured BetOnline rows must not be used as source of truth unless normalized or manually reviewed. Next: decide whether to normalize/review BetOnline screenshots before the model run or proceed with BetOnline exact prices excluded, then ask explicit approval for any paid/frontier model call. Guardrails: no paid model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval.
+Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF.md, HANDOFF_PROMPT.md, WORKING-CONTEXT.md, TASK_BOARD.md, docs\FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md, docs\FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md, docs\FUTURES_ODDS_BETONLINE_2026-07-29_MANUAL_REVIEW.md, handoffs\2026-07-30-0635-crash-recovery-source-audit-handoff.md, and handoffs\2026-07-30-0655-workstream-triage-handoff.md first. Current focus is a maximum-effort frontier-model futures portfolio narrative and recommendation synthesis, not DK/FD bet-slip parsers or weekly live props. BetUS, Bookmaker/BKR, and BetOnline July 29 imports are current; BetOnline was manually normalized into data\futures-imports\betonline-2026-07-29.json with 160 rows and a manual review doc preserving playoff No-side prices. Current blocker: data\training-camp\2026\latest.json and data\training-camp\2026\training-camp-intel-2026-07-30.json are uncommitted all-32 empty placeholders, while the last verified July 30 snapshot had 16 items across 12 teams. Next: restore the verified training-camp snapshot or approve a fresh live RSS scout, rerun npm.cmd run intel:source-audit, then ask explicit approval for any paid/frontier model call. Guardrails: no paid model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval.
 ```

@@ -516,15 +516,25 @@ async function collectRawPrimaryBookOddsExports(sources) {
 
     if (group.key === 'BetOnline' && candidates.some((candidate) => /\.(png|jpe?g)$/i.test(candidate.name))) {
       const bundle = analyzeBetOnlineScreenshotBundle(candidates);
+      const normalizedPath = bundle.latestDate
+        ? `data/futures-imports/betonline-${bundle.latestDate}.json`
+        : null;
+      const normalizedPayload = normalizedPath ? await readJson(normalizedPath, null) : null;
+      const normalizedRows = rowCount(normalizedPayload);
+      const hasNormalizedBundle = normalizedRows != null && normalizedRows > 0;
       addSource(sources, {
         group: 'Futures Odds',
         name: 'Raw current sportsbook export: BetOnline',
         status: 'review',
         freshness: `${bundle.latestDate || file.mtime} screenshot snapshot`,
-        evidence: bundle.evidence,
-        action: 'Screenshots are captured and date-identifiable, but structured values are not yet parsed into futures_odds_snapshots. Normalize this bundle into betonline-2026-07-29 rows before line-movement comparison or actionable use.',
+        evidence: hasNormalizedBundle
+          ? `${bundle.evidence} Matching normalized import ${path.basename(normalizedPath)} has ${normalizedRows} rows.`
+          : bundle.evidence,
+        action: hasNormalizedBundle
+          ? `Screenshots are captured, date-identifiable, and normalized into ${normalizedPath}. Use the normalized JSON for exact listed-market prices; use the manual review doc for playoff No-side values.`
+          : 'Screenshots are captured and date-identifiable, but structured values are not yet parsed into futures_odds_snapshots. Normalize this bundle into betonline-2026-07-29 rows before line-movement comparison or actionable use.',
         details: bundle.details,
-        path: bundle.latestFiles[0]?.relativePath || file.relativePath,
+        path: hasNormalizedBundle ? normalizedPath : bundle.latestFiles[0]?.relativePath || file.relativePath,
       });
       continue;
     }

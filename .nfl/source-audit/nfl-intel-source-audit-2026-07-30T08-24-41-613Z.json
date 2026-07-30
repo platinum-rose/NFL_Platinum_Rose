@@ -1,0 +1,1083 @@
+{
+  "generated_at": "2026-07-30T08:24:41.613Z",
+  "guardrails": {
+    "live_fetches": false,
+    "model_calls": false,
+    "supabase_writes": false,
+    "official_pick_approvals": false,
+    "portfolio_mutations": false
+  },
+  "summary": {
+    "frontierReady": false,
+    "counts": {
+      "current": 2,
+      "review": 16,
+      "stale": 1,
+      "blocked": 0,
+      "missing": 0,
+      "context": 7,
+      "inference": 1
+    },
+    "blockers": [],
+    "stale": [
+      {
+        "group": "Training Camp",
+        "name": "Training camp local snapshot",
+        "status": "stale",
+        "freshness": "2026-07-30T08:07:12.833Z",
+        "evidence": "32 teams; 0 teams with manual intel; 0 items.",
+        "action": "This is an all-32 empty placeholder. Collect/manual-paste or persist RSS scout results first.",
+        "details": [],
+        "path": "data/training-camp/2026/latest.json"
+      }
+    ],
+    "review": [
+      {
+        "group": "Futures Odds",
+        "name": "TheOddsAPI futures ingest receipt",
+        "status": "review",
+        "freshness": "2026-07-30T03:00:00.000Z (5.4h old)",
+        "evidence": "1 available / 14 unavailable markets; 128 rows; 15 API calls.",
+        "action": "Use available rows as public market data. For betting recommendations, require a primary-book quote or an explicit Vegas-proxy alert.",
+        "details": [
+          {
+            "label": "Super Bowl Winner: available",
+            "value": "128 rows from 1 event(s)"
+          },
+          {
+            "label": "Conference Winner: unavailable",
+            "value": "HTTP 404; 0 rows"
+          },
+          {
+            "label": "Division Winner: unavailable",
+            "value": "HTTP 404; 0 rows"
+          },
+          {
+            "label": "MVP: unavailable",
+            "value": "HTTP 404; 0 rows"
+          },
+          {
+            "label": "Offensive Player of the Year: unavailable",
+            "value": "HTTP 404; 0 rows"
+          },
+          {
+            "label": "Defensive Player of the Year: unavailable",
+            "value": "HTTP 404; 0 rows"
+          },
+          {
+            "label": "Offensive Rookie of the Year: unavailable",
+            "value": "HTTP 404; 0 rows"
+          },
+          {
+            "label": "Defensive Rookie of the Year: unavailable",
+            "value": "HTTP 404; 0 rows"
+          },
+          {
+            "label": "Comeback Player of the Year: unavailable",
+            "value": "HTTP 404; 0 rows"
+          },
+          {
+            "label": "Coach of the Year: unavailable",
+            "value": "HTTP 404; 0 rows"
+          },
+          {
+            "label": "Regular Season Win Total: unavailable",
+            "value": "HTTP 404; 0 rows"
+          },
+          {
+            "label": "Make the Playoffs: unavailable",
+            "value": "HTTP 404; 0 rows"
+          },
+          {
+            "label": "Exact Super Bowl Matchup: unavailable",
+            "value": "HTTP 404; 0 rows"
+          },
+          {
+            "label": "Most Regular Season Wins: unavailable",
+            "value": "HTTP 404; 0 rows"
+          },
+          {
+            "label": "Fewest Regular Season Wins: unavailable",
+            "value": "HTTP 404; 0 rows"
+          }
+        ],
+        "path": ".nfl\\receipts\\futures-ingest-2026-07-30T03-17-50-478Z.json"
+      },
+      {
+        "group": "Futures Odds",
+        "name": "Public/API team futures market coverage",
+        "status": "review",
+        "freshness": "2026-07-30T03:00:00.000Z",
+        "evidence": "1 public/API team-futures market(s) refreshed; 7 unavailable. Fresh public rows are market data, not primary-book execution quotes.",
+        "action": "Use this lane for consensus, broad market shape, and Vegas-proxy alerts only. Actionable recommendations still require BKR, BetUS, or BetOnline prices.",
+        "details": [
+          {
+            "label": "Super Bowl Winner: available",
+            "value": "128 rows from 1 event(s)"
+          },
+          {
+            "label": "Conference Winner: unavailable",
+            "value": "HTTP 404; not an actionable blocker by itself"
+          },
+          {
+            "label": "Division Winner: unavailable",
+            "value": "HTTP 404; not an actionable blocker by itself"
+          },
+          {
+            "label": "Regular Season Win Total: unavailable",
+            "value": "HTTP 404; not an actionable blocker by itself"
+          },
+          {
+            "label": "Make the Playoffs: unavailable",
+            "value": "HTTP 404; not an actionable blocker by itself"
+          },
+          {
+            "label": "Exact Super Bowl Matchup: unavailable",
+            "value": "HTTP 404; not an actionable blocker by itself"
+          },
+          {
+            "label": "Most Regular Season Wins: unavailable",
+            "value": "HTTP 404; not an actionable blocker by itself"
+          },
+          {
+            "label": "Fewest Regular Season Wins: unavailable",
+            "value": "HTTP 404; not an actionable blocker by itself"
+          }
+        ],
+        "path": ".nfl\\receipts\\futures-ingest-2026-07-30T03-17-50-478Z.json"
+      },
+      {
+        "group": "Futures Odds",
+        "name": "Manual book export: BetOnline",
+        "status": "review",
+        "freshness": "2026-07-29 file snapshot",
+        "evidence": "160 rows in latest local file betonline-2026-07-29.json.",
+        "action": "Fresh local primary-book rows are normalized and date-tracked. Dry-run ingestion passed; write to futures_odds_snapshots only when ready to promote this snapshot into the database.",
+        "details": [],
+        "path": "data\\futures-imports\\betonline-2026-07-29.json"
+      },
+      {
+        "group": "Futures Odds",
+        "name": "Manual book export: BetUS",
+        "status": "review",
+        "freshness": "2026-07-29 file snapshot",
+        "evidence": "416 rows in latest local file betus-2026-07-29.json.",
+        "action": "Fresh local primary-book rows are normalized and date-tracked. Dry-run ingestion passed; write to futures_odds_snapshots only when ready to promote this snapshot into the database.",
+        "details": [],
+        "path": "data\\futures-imports\\betus-2026-07-29.json"
+      },
+      {
+        "group": "Futures Odds",
+        "name": "Manual book export: Bookmaker",
+        "status": "review",
+        "freshness": "2026-07-29 file snapshot",
+        "evidence": "128 rows in latest local file bookmaker-2026-07-29.json.",
+        "action": "Fresh local primary-book rows are normalized and date-tracked. Dry-run ingestion passed; write to futures_odds_snapshots only when ready to promote this snapshot into the database.",
+        "details": [],
+        "path": "data\\futures-imports\\bookmaker-2026-07-29.json"
+      },
+      {
+        "group": "Futures Odds",
+        "name": "Raw current sportsbook export: Bookmaker/BKR",
+        "status": "review",
+        "freshness": "2026-07-30T04:00:54.220Z raw text snapshot",
+        "evidence": "BKR_Odds_0729: 3672 text lines; includes awards, player season totals, stat leaders, alternate win ladders, and game lines.",
+        "action": "Use as current primary-book market memory. Team futures can be actionable after parsing; awards/player/stat markets are inference inputs for futures and fantasy agents unless explicitly promoted.",
+        "details": [
+          {
+            "label": "Core team futures",
+            "value": "44 market marker(s)"
+          },
+          {
+            "label": "Awards",
+            "value": "7 market marker(s)"
+          },
+          {
+            "label": "Season-long player totals",
+            "value": "110 market marker(s)"
+          },
+          {
+            "label": "League stat leaders",
+            "value": "8 market marker(s)"
+          },
+          {
+            "label": "Week 1/game lines",
+            "value": "5 market marker(s)"
+          }
+        ],
+        "path": "docs\\Futures_Odds\\BKR_Odds_0729"
+      },
+      {
+        "group": "Futures Odds",
+        "name": "Raw current sportsbook export: BetUS",
+        "status": "review",
+        "freshness": "2026-07-30T04:16:11.483Z raw text snapshot",
+        "evidence": "BetUS_ALL_0729: 1976 text lines; includes team futures, exact matchups, win ladders, early-season records, short-window player stat races, and Week 1 markets.",
+        "action": "Use as current primary-book market memory. Strong fantasy inference source for early role/volume/ceiling priors; team futures are actionable only after structured parse and normal portfolio gates.",
+        "details": [
+          {
+            "label": "Conference winners",
+            "value": "2 market(s), 32 row(s)"
+          },
+          {
+            "label": "Division winners",
+            "value": "8 market(s), 32 row(s)"
+          },
+          {
+            "label": "Super Bowl winner",
+            "value": "1 market(s), 32 row(s)"
+          },
+          {
+            "label": "Exact Super Bowl matchups",
+            "value": "1 market(s), 256 row(s)"
+          },
+          {
+            "label": "Main win totals",
+            "value": "32 market(s), 64 row(s)"
+          },
+          {
+            "label": "Make playoffs",
+            "value": "32 market(s), 62 row(s)"
+          },
+          {
+            "label": "Early team records",
+            "value": "37 market(s), 208 row(s)"
+          },
+          {
+            "label": "3-week player stat races",
+            "value": "6 market(s), 266 row(s)"
+          },
+          {
+            "label": "Week 1 player milestones",
+            "value": "2 market(s), 74 row(s)"
+          },
+          {
+            "label": "Alternate win ladders",
+            "value": "64 market(s), 128 row(s)"
+          },
+          {
+            "label": "Conference wild card",
+            "value": "2 market(s), 32 row(s)"
+          }
+        ],
+        "path": "docs\\Futures_Odds\\BetUS_ALL_0729"
+      },
+      {
+        "group": "Futures Odds",
+        "name": "Raw current sportsbook export: BetOnline",
+        "status": "review",
+        "freshness": "2026-07-29 screenshot snapshot",
+        "evidence": "9 dated screenshot(s): BEO_MakePlayoffs3_0729.PNG, BEO_MakePlayoffs2_0729.PNG, BEO_MakePlayoffs1_0729.PNG, BEO_RegWins3_0729.PNG, BEO_RegWins2_0729.PNG, BEO_RegWins1_0729.PNG, BEO_SB_0729.PNG, BEO_Div_0729.PNG, BEO_Conf_0729.PNG. Matching normalized import betonline-2026-07-29.json has 160 rows.",
+        "action": "Screenshots are captured, date-identifiable, and normalized into data/futures-imports/betonline-2026-07-29.json. Use the normalized JSON for exact listed-market prices; use the manual review doc for playoff No-side values.",
+        "details": [
+          {
+            "label": "Conference winners",
+            "value": "1 screenshot(s)"
+          },
+          {
+            "label": "Division winners",
+            "value": "1 screenshot(s)"
+          },
+          {
+            "label": "Super Bowl winner",
+            "value": "1 screenshot(s)"
+          },
+          {
+            "label": "Regular season win totals",
+            "value": "3 screenshot(s)"
+          },
+          {
+            "label": "Make playoffs",
+            "value": "3 screenshot(s)"
+          }
+        ],
+        "path": "data/futures-imports/betonline-2026-07-29.json"
+      },
+      {
+        "group": "Futures Portfolio",
+        "name": "Latest local portfolio report",
+        "status": "review",
+        "freshness": "2026-07-27T18:16:26.065Z",
+        "evidence": "5 candidates, 3 final cards, 2 passed, 0 killed, 0 invalidated.",
+        "action": "Treat as review-only; do not promote until stale/unavailable markets are resolved.",
+        "details": [],
+        "path": ".nfl\\portfolio\\portfolio-2026-07-27-watchlist-v2.raw.json"
+      },
+      {
+        "group": "Expert and Podcast Intel",
+        "name": "Primary M6 diarized store",
+        "status": "review",
+        "freshness": "2026-07-22T16:55:00+00:00",
+        "evidence": "54 manifest episodes; latest: 2026 NFL Quarterback Rankings | Part 2.",
+        "action": "Run podcast sweep/export if any target shows published after this latest episode date.",
+        "details": [],
+        "path": "data\\podcasts\\m6-diarized\\manifest.json"
+      },
+      {
+        "group": "Expert and Podcast Intel",
+        "name": "All-export M6 diarized store",
+        "status": "review",
+        "freshness": "2026-07-23T21:25:07+00:00",
+        "evidence": "57 manifest episodes; latest: Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners &amp; Award Sleepers (Ep. 1022).",
+        "action": "Run podcast sweep/export if any target shows published after this latest episode date.",
+        "details": [],
+        "path": "data\\podcasts\\m6-diarized-all\\manifest.json"
+      },
+      {
+        "group": "Expert and Podcast Intel",
+        "name": "Generated podcast narratives and deep dives",
+        "status": "review",
+        "freshness": "latest generated docs include July 21-22 episodes",
+        "evidence": "37 narratives; 57 deep dives.",
+        "action": "Good for review, but regenerate after any new podcast ingestion before final synthesis.",
+        "details": [],
+        "path": "docs/podcast-transcript-deep-dives/index.html"
+      },
+      {
+        "group": "Web Article Intel",
+        "name": "Research/article RSS ingest",
+        "status": "review",
+        "freshness": "2026-07-30T04:48:36.397Z (3.6h old)",
+        "evidence": "10 configured feeds; 82 NFL candidate article notes; 39 inserted notes; feed issues=1.",
+        "action": "Review new notes/signals in Supabase/vault context before synthesis.",
+        "details": [
+          {
+            "label": "Action Network: available",
+            "value": "1 NFL items from 1 fetched; notes=1; signals=1"
+          },
+          {
+            "label": "BettingPros: available",
+            "value": "3 NFL items from 100 fetched; notes=3; signals=3"
+          },
+          {
+            "label": "Walter Football: available",
+            "value": "10 NFL items from 327 fetched; notes=10; signals=0"
+          },
+          {
+            "label": "ESPN NFL: available",
+            "value": "20 NFL items from 27 fetched; notes=20; signals=1"
+          },
+          {
+            "label": "VSiN: available",
+            "value": "8 NFL items from 25 fetched; notes=8; signals=0"
+          },
+          {
+            "label": "Sharp Football: available",
+            "value": "17 NFL items from 20 fetched; notes=17; signals=0"
+          },
+          {
+            "label": "Pro Football Talk: available",
+            "value": "7 NFL items from 30 fetched; notes=7; signals=0"
+          },
+          {
+            "label": "PFF: available",
+            "value": "11 NFL items from 25 fetched; notes=11; signals=0"
+          },
+          {
+            "label": "Rotowire NFL: available",
+            "value": "5 NFL items from 5 fetched; notes=5; signals=0"
+          },
+          {
+            "label": "Football Outsiders: error",
+            "value": "0 NFL items from 0 fetched; notes=0; signals=0; fetch failed"
+          }
+        ],
+        "path": ".nfl\\receipts\\research-intel-ingest-2026-07-30T04-48-36-398Z.json"
+      },
+      {
+        "group": "Web Article Intel",
+        "name": "Article full-body intel review",
+        "status": "review",
+        "freshness": "2026-07-30T05:14:49.488Z (3.2h old)",
+        "evidence": "39 articles reviewed; 0 actual pick candidates; 8 market/inference leads; 103 contextual notes; 3 likely non-NFL false positives.",
+        "action": "Use actual-pick candidates for human review; use market/inference leads as synthesis context only. Do not trust the raw research_pick_signals count as article QA.",
+        "details": [
+          {
+            "label": "Action Network",
+            "value": "1 article(s); 0 actual pick candidate(s); 0 market/inference lead(s); 2 contextual note(s)"
+          },
+          {
+            "label": "BettingPros",
+            "value": "3 article(s); 0 actual pick candidate(s); 0 market/inference lead(s); 0 contextual note(s)"
+          },
+          {
+            "label": "ESPN NFL",
+            "value": "20 article(s); 0 actual pick candidate(s); 0 market/inference lead(s); 36 contextual note(s)"
+          },
+          {
+            "label": "Pro Football Talk",
+            "value": "2 article(s); 0 actual pick candidate(s); 1 market/inference lead(s); 7 contextual note(s)"
+          },
+          {
+            "label": "Rotowire NFL",
+            "value": "3 article(s); 0 actual pick candidate(s); 1 market/inference lead(s); 13 contextual note(s)"
+          },
+          {
+            "label": "Walter Football",
+            "value": "10 article(s); 0 actual pick candidate(s); 6 market/inference lead(s); 45 contextual note(s)"
+          }
+        ],
+        "path": "docs/article-intel-review/article-intel-review-latest.html"
+      },
+      {
+        "group": "Training Camp",
+        "name": "Training camp RSS scout",
+        "status": "review",
+        "freshness": "2026-07-30T03:46:07.745Z",
+        "evidence": "16 live-feed items across 12 teams; written=true; feed issues=1.",
+        "action": "Review merged output.",
+        "details": [
+          {
+            "label": "ESPN NFL",
+            "value": "available; fetched 27; kept 9"
+          },
+          {
+            "label": "Pro Football Talk",
+            "value": "available; fetched 30; kept 4"
+          },
+          {
+            "label": "PFF",
+            "value": "available; fetched 25; kept 2"
+          },
+          {
+            "label": "Rotowire NFL",
+            "value": "available; fetched 5; kept 1"
+          },
+          {
+            "label": "Sharp Football",
+            "value": "available; fetched 20; kept 0"
+          },
+          {
+            "label": "Football Outsiders",
+            "value": "error; fetched 0; kept 0; fetch failed"
+          }
+        ],
+        "path": ".nfl\\receipts\\training-camp-rss-scout-2026-07-30T03-46-10-171Z.json"
+      },
+      {
+        "group": "Operational Readiness",
+        "name": "Latest season readiness smoke",
+        "status": "review",
+        "freshness": "2026-07-30T06:32:10.053Z",
+        "evidence": "READY WITH WATCH ITEMS; PASS 11 / WARN 6 / FAIL 0.",
+        "action": "Watch items should be resolved or explicitly waived before synthesis.",
+        "details": [],
+        "path": ".nfl\\readiness\\season-readiness-2026-07-30T06-32-10-053Z.json"
+      }
+    ],
+    "inference": [
+      {
+        "group": "Futures Odds",
+        "name": "Awards and season-long player futures",
+        "status": "inference",
+        "freshness": "price excluded from recommendation eligibility",
+        "evidence": "7 award-market endpoint(s) tracked only as inference context. Expert mentions can inform player, coach, team, and narrative strength.",
+        "action": "Exclude awards from betting recommendations. Use only as qualitative inference when expert/podcast sources call out the underlying player or coach thesis.",
+        "details": [
+          {
+            "label": "MVP: unavailable",
+            "value": "HTTP 404; price not needed for this exercise"
+          },
+          {
+            "label": "Offensive Player of the Year: unavailable",
+            "value": "HTTP 404; price not needed for this exercise"
+          },
+          {
+            "label": "Defensive Player of the Year: unavailable",
+            "value": "HTTP 404; price not needed for this exercise"
+          },
+          {
+            "label": "Offensive Rookie of the Year: unavailable",
+            "value": "HTTP 404; price not needed for this exercise"
+          },
+          {
+            "label": "Defensive Rookie of the Year: unavailable",
+            "value": "HTTP 404; price not needed for this exercise"
+          },
+          {
+            "label": "Comeback Player of the Year: unavailable",
+            "value": "HTTP 404; price not needed for this exercise"
+          },
+          {
+            "label": "Coach of the Year: unavailable",
+            "value": "HTTP 404; price not needed for this exercise"
+          }
+        ],
+        "path": ".nfl\\receipts\\futures-ingest-2026-07-30T03-17-50-478Z.json"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "group": "Execution Policy",
+      "name": "Primary bet-placement books",
+      "status": "context",
+      "freshness": "2026-07-30T08:24:41.613Z",
+      "evidence": "Primary books: Bookmaker/BKR, BetUS, BetOnline. Public/Vegas books are market data only unless a major price discrepancy deserves proxy attention.",
+      "action": "Recommendations should be placeable at a primary book. Elevate non-primary prices as Vegas-proxy alerts only when the value is large enough to justify manual action.",
+      "details": [],
+      "path": ""
+    },
+    {
+      "group": "Futures Odds",
+      "name": "TheOddsAPI futures ingest receipt",
+      "status": "review",
+      "freshness": "2026-07-30T03:00:00.000Z (5.4h old)",
+      "evidence": "1 available / 14 unavailable markets; 128 rows; 15 API calls.",
+      "action": "Use available rows as public market data. For betting recommendations, require a primary-book quote or an explicit Vegas-proxy alert.",
+      "details": [
+        {
+          "label": "Super Bowl Winner: available",
+          "value": "128 rows from 1 event(s)"
+        },
+        {
+          "label": "Conference Winner: unavailable",
+          "value": "HTTP 404; 0 rows"
+        },
+        {
+          "label": "Division Winner: unavailable",
+          "value": "HTTP 404; 0 rows"
+        },
+        {
+          "label": "MVP: unavailable",
+          "value": "HTTP 404; 0 rows"
+        },
+        {
+          "label": "Offensive Player of the Year: unavailable",
+          "value": "HTTP 404; 0 rows"
+        },
+        {
+          "label": "Defensive Player of the Year: unavailable",
+          "value": "HTTP 404; 0 rows"
+        },
+        {
+          "label": "Offensive Rookie of the Year: unavailable",
+          "value": "HTTP 404; 0 rows"
+        },
+        {
+          "label": "Defensive Rookie of the Year: unavailable",
+          "value": "HTTP 404; 0 rows"
+        },
+        {
+          "label": "Comeback Player of the Year: unavailable",
+          "value": "HTTP 404; 0 rows"
+        },
+        {
+          "label": "Coach of the Year: unavailable",
+          "value": "HTTP 404; 0 rows"
+        },
+        {
+          "label": "Regular Season Win Total: unavailable",
+          "value": "HTTP 404; 0 rows"
+        },
+        {
+          "label": "Make the Playoffs: unavailable",
+          "value": "HTTP 404; 0 rows"
+        },
+        {
+          "label": "Exact Super Bowl Matchup: unavailable",
+          "value": "HTTP 404; 0 rows"
+        },
+        {
+          "label": "Most Regular Season Wins: unavailable",
+          "value": "HTTP 404; 0 rows"
+        },
+        {
+          "label": "Fewest Regular Season Wins: unavailable",
+          "value": "HTTP 404; 0 rows"
+        }
+      ],
+      "path": ".nfl\\receipts\\futures-ingest-2026-07-30T03-17-50-478Z.json"
+    },
+    {
+      "group": "Futures Odds",
+      "name": "Public/API team futures market coverage",
+      "status": "review",
+      "freshness": "2026-07-30T03:00:00.000Z",
+      "evidence": "1 public/API team-futures market(s) refreshed; 7 unavailable. Fresh public rows are market data, not primary-book execution quotes.",
+      "action": "Use this lane for consensus, broad market shape, and Vegas-proxy alerts only. Actionable recommendations still require BKR, BetUS, or BetOnline prices.",
+      "details": [
+        {
+          "label": "Super Bowl Winner: available",
+          "value": "128 rows from 1 event(s)"
+        },
+        {
+          "label": "Conference Winner: unavailable",
+          "value": "HTTP 404; not an actionable blocker by itself"
+        },
+        {
+          "label": "Division Winner: unavailable",
+          "value": "HTTP 404; not an actionable blocker by itself"
+        },
+        {
+          "label": "Regular Season Win Total: unavailable",
+          "value": "HTTP 404; not an actionable blocker by itself"
+        },
+        {
+          "label": "Make the Playoffs: unavailable",
+          "value": "HTTP 404; not an actionable blocker by itself"
+        },
+        {
+          "label": "Exact Super Bowl Matchup: unavailable",
+          "value": "HTTP 404; not an actionable blocker by itself"
+        },
+        {
+          "label": "Most Regular Season Wins: unavailable",
+          "value": "HTTP 404; not an actionable blocker by itself"
+        },
+        {
+          "label": "Fewest Regular Season Wins: unavailable",
+          "value": "HTTP 404; not an actionable blocker by itself"
+        }
+      ],
+      "path": ".nfl\\receipts\\futures-ingest-2026-07-30T03-17-50-478Z.json"
+    },
+    {
+      "group": "Futures Odds",
+      "name": "Awards and season-long player futures",
+      "status": "inference",
+      "freshness": "price excluded from recommendation eligibility",
+      "evidence": "7 award-market endpoint(s) tracked only as inference context. Expert mentions can inform player, coach, team, and narrative strength.",
+      "action": "Exclude awards from betting recommendations. Use only as qualitative inference when expert/podcast sources call out the underlying player or coach thesis.",
+      "details": [
+        {
+          "label": "MVP: unavailable",
+          "value": "HTTP 404; price not needed for this exercise"
+        },
+        {
+          "label": "Offensive Player of the Year: unavailable",
+          "value": "HTTP 404; price not needed for this exercise"
+        },
+        {
+          "label": "Defensive Player of the Year: unavailable",
+          "value": "HTTP 404; price not needed for this exercise"
+        },
+        {
+          "label": "Offensive Rookie of the Year: unavailable",
+          "value": "HTTP 404; price not needed for this exercise"
+        },
+        {
+          "label": "Defensive Rookie of the Year: unavailable",
+          "value": "HTTP 404; price not needed for this exercise"
+        },
+        {
+          "label": "Comeback Player of the Year: unavailable",
+          "value": "HTTP 404; price not needed for this exercise"
+        },
+        {
+          "label": "Coach of the Year: unavailable",
+          "value": "HTTP 404; price not needed for this exercise"
+        }
+      ],
+      "path": ".nfl\\receipts\\futures-ingest-2026-07-30T03-17-50-478Z.json"
+    },
+    {
+      "group": "Futures Odds",
+      "name": "Manual book export: BetOnline",
+      "status": "review",
+      "freshness": "2026-07-29 file snapshot",
+      "evidence": "160 rows in latest local file betonline-2026-07-29.json.",
+      "action": "Fresh local primary-book rows are normalized and date-tracked. Dry-run ingestion passed; write to futures_odds_snapshots only when ready to promote this snapshot into the database.",
+      "details": [],
+      "path": "data\\futures-imports\\betonline-2026-07-29.json"
+    },
+    {
+      "group": "Futures Odds",
+      "name": "Manual book export: BetUS",
+      "status": "review",
+      "freshness": "2026-07-29 file snapshot",
+      "evidence": "416 rows in latest local file betus-2026-07-29.json.",
+      "action": "Fresh local primary-book rows are normalized and date-tracked. Dry-run ingestion passed; write to futures_odds_snapshots only when ready to promote this snapshot into the database.",
+      "details": [],
+      "path": "data\\futures-imports\\betus-2026-07-29.json"
+    },
+    {
+      "group": "Futures Odds",
+      "name": "Manual book export: Bookmaker",
+      "status": "review",
+      "freshness": "2026-07-29 file snapshot",
+      "evidence": "128 rows in latest local file bookmaker-2026-07-29.json.",
+      "action": "Fresh local primary-book rows are normalized and date-tracked. Dry-run ingestion passed; write to futures_odds_snapshots only when ready to promote this snapshot into the database.",
+      "details": [],
+      "path": "data\\futures-imports\\bookmaker-2026-07-29.json"
+    },
+    {
+      "group": "Futures Portfolio",
+      "name": "Human futures watchlist",
+      "status": "context",
+      "freshness": "2026-07-23",
+      "evidence": "6 watchlist targets, including Bills/Packers anchors and supplemental targets.",
+      "action": "Every target must be recommend, watch with trigger, or pass with reason during synthesis.",
+      "details": [],
+      "path": "data\\futures-imports\\futures-watchlist-2026.json"
+    },
+    {
+      "group": "Futures Portfolio",
+      "name": "Portfolio ledger and open exposure",
+      "status": "context",
+      "freshness": "2026-07-22",
+      "evidence": "3 positions plus 0 open parlay records.",
+      "action": "Use for exposure and hedge context only; do not mutate without explicit approval.",
+      "details": [],
+      "path": "data\\futures-imports\\andy-portfolio-ledger-2026.json"
+    },
+    {
+      "group": "Futures Odds",
+      "name": "Raw current sportsbook export: Bookmaker/BKR",
+      "status": "review",
+      "freshness": "2026-07-30T04:00:54.220Z raw text snapshot",
+      "evidence": "BKR_Odds_0729: 3672 text lines; includes awards, player season totals, stat leaders, alternate win ladders, and game lines.",
+      "action": "Use as current primary-book market memory. Team futures can be actionable after parsing; awards/player/stat markets are inference inputs for futures and fantasy agents unless explicitly promoted.",
+      "details": [
+        {
+          "label": "Core team futures",
+          "value": "44 market marker(s)"
+        },
+        {
+          "label": "Awards",
+          "value": "7 market marker(s)"
+        },
+        {
+          "label": "Season-long player totals",
+          "value": "110 market marker(s)"
+        },
+        {
+          "label": "League stat leaders",
+          "value": "8 market marker(s)"
+        },
+        {
+          "label": "Week 1/game lines",
+          "value": "5 market marker(s)"
+        }
+      ],
+      "path": "docs\\Futures_Odds\\BKR_Odds_0729"
+    },
+    {
+      "group": "Futures Odds",
+      "name": "Raw current sportsbook export: BetUS",
+      "status": "review",
+      "freshness": "2026-07-30T04:16:11.483Z raw text snapshot",
+      "evidence": "BetUS_ALL_0729: 1976 text lines; includes team futures, exact matchups, win ladders, early-season records, short-window player stat races, and Week 1 markets.",
+      "action": "Use as current primary-book market memory. Strong fantasy inference source for early role/volume/ceiling priors; team futures are actionable only after structured parse and normal portfolio gates.",
+      "details": [
+        {
+          "label": "Conference winners",
+          "value": "2 market(s), 32 row(s)"
+        },
+        {
+          "label": "Division winners",
+          "value": "8 market(s), 32 row(s)"
+        },
+        {
+          "label": "Super Bowl winner",
+          "value": "1 market(s), 32 row(s)"
+        },
+        {
+          "label": "Exact Super Bowl matchups",
+          "value": "1 market(s), 256 row(s)"
+        },
+        {
+          "label": "Main win totals",
+          "value": "32 market(s), 64 row(s)"
+        },
+        {
+          "label": "Make playoffs",
+          "value": "32 market(s), 62 row(s)"
+        },
+        {
+          "label": "Early team records",
+          "value": "37 market(s), 208 row(s)"
+        },
+        {
+          "label": "3-week player stat races",
+          "value": "6 market(s), 266 row(s)"
+        },
+        {
+          "label": "Week 1 player milestones",
+          "value": "2 market(s), 74 row(s)"
+        },
+        {
+          "label": "Alternate win ladders",
+          "value": "64 market(s), 128 row(s)"
+        },
+        {
+          "label": "Conference wild card",
+          "value": "2 market(s), 32 row(s)"
+        }
+      ],
+      "path": "docs\\Futures_Odds\\BetUS_ALL_0729"
+    },
+    {
+      "group": "Futures Odds",
+      "name": "Raw current sportsbook export: BetOnline",
+      "status": "review",
+      "freshness": "2026-07-29 screenshot snapshot",
+      "evidence": "9 dated screenshot(s): BEO_MakePlayoffs3_0729.PNG, BEO_MakePlayoffs2_0729.PNG, BEO_MakePlayoffs1_0729.PNG, BEO_RegWins3_0729.PNG, BEO_RegWins2_0729.PNG, BEO_RegWins1_0729.PNG, BEO_SB_0729.PNG, BEO_Div_0729.PNG, BEO_Conf_0729.PNG. Matching normalized import betonline-2026-07-29.json has 160 rows.",
+      "action": "Screenshots are captured, date-identifiable, and normalized into data/futures-imports/betonline-2026-07-29.json. Use the normalized JSON for exact listed-market prices; use the manual review doc for playoff No-side values.",
+      "details": [
+        {
+          "label": "Conference winners",
+          "value": "1 screenshot(s)"
+        },
+        {
+          "label": "Division winners",
+          "value": "1 screenshot(s)"
+        },
+        {
+          "label": "Super Bowl winner",
+          "value": "1 screenshot(s)"
+        },
+        {
+          "label": "Regular season win totals",
+          "value": "3 screenshot(s)"
+        },
+        {
+          "label": "Make playoffs",
+          "value": "3 screenshot(s)"
+        }
+      ],
+      "path": "data/futures-imports/betonline-2026-07-29.json"
+    },
+    {
+      "group": "Futures Portfolio",
+      "name": "Latest local portfolio report",
+      "status": "review",
+      "freshness": "2026-07-27T18:16:26.065Z",
+      "evidence": "5 candidates, 3 final cards, 2 passed, 0 killed, 0 invalidated.",
+      "action": "Treat as review-only; do not promote until stale/unavailable markets are resolved.",
+      "details": [],
+      "path": ".nfl\\portfolio\\portfolio-2026-07-27-watchlist-v2.raw.json"
+    },
+    {
+      "group": "Expert and Podcast Intel",
+      "name": "YouTube/Gemini reviewed futures intel",
+      "status": "current",
+      "freshness": "2026-07-29T04:00:31.515Z (28.4h old)",
+      "evidence": "45 promoted/exported items; 115 review records; leak checks {\"det_division_winner_plus_1500\":0}.",
+      "action": "Use as source-stamped research context, not betting authority. Refresh only if new YouTube candidates exist after last sweep.",
+      "details": [],
+      "path": "data/shadow-harness/review/youtube-futures-agent-intel-summary.json"
+    },
+    {
+      "group": "Expert and Podcast Intel",
+      "name": "Primary M6 diarized store",
+      "status": "review",
+      "freshness": "2026-07-22T16:55:00+00:00",
+      "evidence": "54 manifest episodes; latest: 2026 NFL Quarterback Rankings | Part 2.",
+      "action": "Run podcast sweep/export if any target shows published after this latest episode date.",
+      "details": [],
+      "path": "data\\podcasts\\m6-diarized\\manifest.json"
+    },
+    {
+      "group": "Expert and Podcast Intel",
+      "name": "All-export M6 diarized store",
+      "status": "review",
+      "freshness": "2026-07-23T21:25:07+00:00",
+      "evidence": "57 manifest episodes; latest: Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners &amp; Award Sleepers (Ep. 1022).",
+      "action": "Run podcast sweep/export if any target shows published after this latest episode date.",
+      "details": [],
+      "path": "data\\podcasts\\m6-diarized-all\\manifest.json"
+    },
+    {
+      "group": "Expert and Podcast Intel",
+      "name": "Generated podcast narratives and deep dives",
+      "status": "review",
+      "freshness": "latest generated docs include July 21-22 episodes",
+      "evidence": "37 narratives; 57 deep dives.",
+      "action": "Good for review, but regenerate after any new podcast ingestion before final synthesis.",
+      "details": [],
+      "path": "docs/podcast-transcript-deep-dives/index.html"
+    },
+    {
+      "group": "Web Article Intel",
+      "name": "Research/article RSS ingest",
+      "status": "review",
+      "freshness": "2026-07-30T04:48:36.397Z (3.6h old)",
+      "evidence": "10 configured feeds; 82 NFL candidate article notes; 39 inserted notes; feed issues=1.",
+      "action": "Review new notes/signals in Supabase/vault context before synthesis.",
+      "details": [
+        {
+          "label": "Action Network: available",
+          "value": "1 NFL items from 1 fetched; notes=1; signals=1"
+        },
+        {
+          "label": "BettingPros: available",
+          "value": "3 NFL items from 100 fetched; notes=3; signals=3"
+        },
+        {
+          "label": "Walter Football: available",
+          "value": "10 NFL items from 327 fetched; notes=10; signals=0"
+        },
+        {
+          "label": "ESPN NFL: available",
+          "value": "20 NFL items from 27 fetched; notes=20; signals=1"
+        },
+        {
+          "label": "VSiN: available",
+          "value": "8 NFL items from 25 fetched; notes=8; signals=0"
+        },
+        {
+          "label": "Sharp Football: available",
+          "value": "17 NFL items from 20 fetched; notes=17; signals=0"
+        },
+        {
+          "label": "Pro Football Talk: available",
+          "value": "7 NFL items from 30 fetched; notes=7; signals=0"
+        },
+        {
+          "label": "PFF: available",
+          "value": "11 NFL items from 25 fetched; notes=11; signals=0"
+        },
+        {
+          "label": "Rotowire NFL: available",
+          "value": "5 NFL items from 5 fetched; notes=5; signals=0"
+        },
+        {
+          "label": "Football Outsiders: error",
+          "value": "0 NFL items from 0 fetched; notes=0; signals=0; fetch failed"
+        }
+      ],
+      "path": ".nfl\\receipts\\research-intel-ingest-2026-07-30T04-48-36-398Z.json"
+    },
+    {
+      "group": "Web Article Intel",
+      "name": "Article full-body intel review",
+      "status": "review",
+      "freshness": "2026-07-30T05:14:49.488Z (3.2h old)",
+      "evidence": "39 articles reviewed; 0 actual pick candidates; 8 market/inference leads; 103 contextual notes; 3 likely non-NFL false positives.",
+      "action": "Use actual-pick candidates for human review; use market/inference leads as synthesis context only. Do not trust the raw research_pick_signals count as article QA.",
+      "details": [
+        {
+          "label": "Action Network",
+          "value": "1 article(s); 0 actual pick candidate(s); 0 market/inference lead(s); 2 contextual note(s)"
+        },
+        {
+          "label": "BettingPros",
+          "value": "3 article(s); 0 actual pick candidate(s); 0 market/inference lead(s); 0 contextual note(s)"
+        },
+        {
+          "label": "ESPN NFL",
+          "value": "20 article(s); 0 actual pick candidate(s); 0 market/inference lead(s); 36 contextual note(s)"
+        },
+        {
+          "label": "Pro Football Talk",
+          "value": "2 article(s); 0 actual pick candidate(s); 1 market/inference lead(s); 7 contextual note(s)"
+        },
+        {
+          "label": "Rotowire NFL",
+          "value": "3 article(s); 0 actual pick candidate(s); 1 market/inference lead(s); 13 contextual note(s)"
+        },
+        {
+          "label": "Walter Football",
+          "value": "10 article(s); 0 actual pick candidate(s); 6 market/inference lead(s); 45 contextual note(s)"
+        }
+      ],
+      "path": "docs/article-intel-review/article-intel-review-latest.html"
+    },
+    {
+      "group": "Training Camp",
+      "name": "Training camp local snapshot",
+      "status": "stale",
+      "freshness": "2026-07-30T08:07:12.833Z",
+      "evidence": "32 teams; 0 teams with manual intel; 0 items.",
+      "action": "This is an all-32 empty placeholder. Collect/manual-paste or persist RSS scout results first.",
+      "details": [],
+      "path": "data/training-camp/2026/latest.json"
+    },
+    {
+      "group": "Training Camp",
+      "name": "Training camp RSS scout",
+      "status": "review",
+      "freshness": "2026-07-30T03:46:07.745Z",
+      "evidence": "16 live-feed items across 12 teams; written=true; feed issues=1.",
+      "action": "Review merged output.",
+      "details": [
+        {
+          "label": "ESPN NFL",
+          "value": "available; fetched 27; kept 9"
+        },
+        {
+          "label": "Pro Football Talk",
+          "value": "available; fetched 30; kept 4"
+        },
+        {
+          "label": "PFF",
+          "value": "available; fetched 25; kept 2"
+        },
+        {
+          "label": "Rotowire NFL",
+          "value": "available; fetched 5; kept 1"
+        },
+        {
+          "label": "Sharp Football",
+          "value": "available; fetched 20; kept 0"
+        },
+        {
+          "label": "Football Outsiders",
+          "value": "error; fetched 0; kept 0; fetch failed"
+        }
+      ],
+      "path": ".nfl\\receipts\\training-camp-rss-scout-2026-07-30T03-46-10-171Z.json"
+    },
+    {
+      "group": "Team Data",
+      "name": "2026 schedule spine",
+      "status": "current",
+      "freshness": "public/schedule.json",
+      "evidence": "272 regular-season games; 18 weeks.",
+      "action": "Use as join spine for schedule, SoS, rest, and matchup context.",
+      "details": [],
+      "path": "public/schedule.json"
+    },
+    {
+      "group": "Team Data",
+      "name": "Team profile: team-coaching-tendency-snapshots-2025-w18",
+      "status": "context",
+      "freshness": "2026-07-24T01:51:21.194Z",
+      "evidence": "32 rows; source-stamped preseason/historical profile data.",
+      "action": "Use as context; do not treat as live injury/camp news.",
+      "details": [],
+      "path": "data\\generated\\team-profiles\\team-coaching-tendency-snapshots-2025-w18.json"
+    },
+    {
+      "group": "Team Data",
+      "name": "Team profile: team-analytic-snapshots-2025-w18",
+      "status": "context",
+      "freshness": "2026-07-24T01:51:21.117Z",
+      "evidence": "32 rows; source-stamped preseason/historical profile data.",
+      "action": "Use as context; do not treat as live injury/camp news.",
+      "details": [],
+      "path": "data\\generated\\team-profiles\\team-analytic-snapshots-2025-w18.json"
+    },
+    {
+      "group": "Team Data",
+      "name": "Team profile: team-dvoa-snapshots-2025",
+      "status": "context",
+      "freshness": "2026-07-24T01:51:20.936Z",
+      "evidence": "32 rows; source-stamped preseason/historical profile data.",
+      "action": "Use as context; do not treat as live injury/camp news.",
+      "details": [],
+      "path": "data\\generated\\team-profiles\\team-dvoa-snapshots-2025.json"
+    },
+    {
+      "group": "Team Data",
+      "name": "Fantasy value vs ADP board",
+      "status": "context",
+      "freshness": "2026-07-26",
+      "evidence": "200 players; 45 no-projection rows.",
+      "action": "Useful for player/usage priors, not a futures odds source.",
+      "details": [],
+      "path": "public/fantasy-value-board.json"
+    },
+    {
+      "group": "Operational Readiness",
+      "name": "Latest season readiness smoke",
+      "status": "review",
+      "freshness": "2026-07-30T06:32:10.053Z",
+      "evidence": "READY WITH WATCH ITEMS; PASS 11 / WARN 6 / FAIL 0.",
+      "action": "Watch items should be resolved or explicitly waived before synthesis.",
+      "details": [],
+      "path": ".nfl\\readiness\\season-readiness-2026-07-30T06-32-10-053Z.json"
+    }
+  ]
+}

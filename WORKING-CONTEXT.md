@@ -33,6 +33,7 @@ Safe recovered work has been committed in narrow checkpoints:
 - `0cd942a` - Add futures synthesis source readiness checklist.
 - `f6cee97` - Clean podcast deep-dive synthesis evidence.
 - `817ec29` - Update futures synthesis handoff checkpoint.
+- `5b2db46` - Add frontier futures synthesis evidence packet.
 
 `npm.cmd run intel:source-audit` has been recalibrated around the active objective: verifying current intel sources for a maximum-effort frontier-model futures portfolio synthesis. DK/FD bet-slip parsers and weekly live props are execution/regular-season plumbing and are out of scope for this synthesis-readiness gate.
 
@@ -50,8 +51,16 @@ Result: `PASSABLE`, Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Co
 - `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md`
 - `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md`
 
+BetOnline July 29 screenshots have now been manually normalized:
+
+- Generator: `scripts/build-betonline-0729-import.js`
+- Normalized import: `data/futures-imports/betonline-2026-07-29.json` (160 rows)
+- Manual review doc: `docs/FUTURES_ODDS_BETONLINE_2026-07-29_MANUAL_REVIEW.md`
+- Verified no-write commands: `npm.cmd run futures:betonline-0729`, `node scripts/build-betonline-0729-import.js --check-only`, and `node scripts/ingest-futures-json.js --file data/futures-imports/betonline-2026-07-29.json --dry-run`
+
 Important caveats:
-- BetOnline has current July 29 screenshots, but the structured BetOnline JSON import is stale. Do not use stale structured BetOnline rows as source of truth unless normalized or manually reviewed against the screenshots.
+- BetOnline exact Super Bowl matchup was not present in the July 29 screenshot bundle.
+- Current worktree copies of `data/training-camp/2026/latest.json` and `data/training-camp/2026/training-camp-intel-2026-07-30.json` are uncommitted all-32 empty placeholders. The last verified July 30 snapshot had 16 items across 12 teams; restore it or approve a fresh live RSS scout before model synthesis.
 - Review items are not blockers by themselves; they must be accepted, rejected, or caveated before a frontier-model run.
 - Podcast/deep-dive output was regenerated after expanded ad/legal filtering. The expanded hard promo/legal scan is clean; remaining sportsbook mentions are price/context references.
 
@@ -135,11 +144,12 @@ Review/stage narrowly by workstream. Do not use `git add -A`.
 
 **Crash recovery and safe workstream checkpoints are committed:** continue from `handoffs/2026-07-30-0655-workstream-triage-handoff.md`.
 
-**Current main focus:** run a deep-dive futures portfolio synthesis from a frontier model using the prepared evidence packet. Do not spend current-cycle attention on DK/FD bet-slip parsers or weekly live props.
+**Current main focus:** clear the final source-gate issue, then run a deep-dive futures portfolio synthesis from a frontier model using the prepared evidence packet. Do not spend current-cycle attention on DK/FD bet-slip parsers or weekly live props.
 
 Recommended next:
 - Use `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md` as the current model-ready evidence packet.
-- Decide whether to normalize or manually review the current July 29 BetOnline screenshots before the model run, or proceed with BetOnline exact prices excluded.
+- Restore the verified 16-item training-camp snapshot or approve a fresh live RSS scout.
+- Rerun `npm.cmd run intel:source-audit` and require 0 stale / 0 blocked / 0 missing sources before model synthesis.
 - Ask explicit approval before any paid/frontier model call.
 - Review `scripts/overnight.js`, `docs/NFL_DASHBOARD_USER_GUIDE.md`, and `infra/systemd/` separately before committing any ops automation.
 - Clean older retry artifacts only after deciding they are no longer useful crash-window evidence.

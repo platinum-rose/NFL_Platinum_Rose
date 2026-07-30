@@ -15,7 +15,7 @@
 
 - Date: 2026-07-30 UTC / 2026-07-29 Pacific.
 - Branch: `main`.
-- HEAD observed before frontier packet checkpoint: `817ec29`.
+- HEAD observed before BetOnline normalization checkpoint: `5b2db46`.
 - Working tree: dirty by design; stage narrowly.
 - Latest timestamped handoff: `handoffs/2026-07-30-0655-workstream-triage-handoff.md`.
 - Detailed crash-recovery handoff: `handoffs/2026-07-30-0635-crash-recovery-source-audit-handoff.md`.
@@ -34,7 +34,7 @@
 
 ## Current Objective
 
-Continue from the crash-recovery triage checkpoint. The current objective is a maximum-effort frontier-model futures portfolio synthesis using the prepared local evidence packet. DK/FD bet-slip parsers and weekly live props are out of scope for this focus.
+Continue from the crash-recovery triage checkpoint. The current objective is a maximum-effort frontier-model futures portfolio synthesis using the prepared local evidence packet. BetOnline July 29 screenshots are now normalized; the remaining source-gate issue is the current empty training-camp latest snapshot. DK/FD bet-slip parsers and weekly live props are out of scope for this focus.
 
 ## Completed In Recovery
 
@@ -57,6 +57,7 @@ Continue from the crash-recovery triage checkpoint. The current objective is a m
   - `0cd942a` - Add futures synthesis source readiness checklist.
   - `f6cee97` - Clean podcast deep-dive synthesis evidence.
   - `817ec29` - Update futures synthesis handoff checkpoint.
+  - `5b2db46` - Add frontier futures synthesis evidence packet.
 - Created `handoffs/2026-07-30-0655-workstream-triage-handoff.md`.
 - Refreshed `HANDOFF.md` and this rolling handoff so future sessions resume from the triage checkpoint.
 - Recalibrated `scripts/build-intel-source-audit-report.js`:
@@ -66,6 +67,11 @@ Continue from the crash-recovery triage checkpoint. The current objective is a m
 - Added `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md` as the current source-acceptance checklist.
 - Expanded podcast/deep-dive ad/legal filtering, regenerated the 57-episode deep-dive set, and documented source acceptance plus verification receipts in `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md`.
 - Added `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md` as the model-ready local evidence packet and approval-gated run path.
+- Added BetOnline July 29 normalization:
+  - `scripts/build-betonline-0729-import.js`
+  - `data/futures-imports/betonline-2026-07-29.json`
+  - `docs/FUTURES_ODDS_BETONLINE_2026-07-29_MANUAL_REVIEW.md`
+  - `npm.cmd run futures:betonline-0729`, `node scripts/build-betonline-0729-import.js --check-only`, and `node scripts/ingest-futures-json.js --file data/futures-imports/betonline-2026-07-29.json --dry-run` passed with 160 rows and no DB write.
 
 ## Recovered Workstream Status
 
@@ -101,6 +107,11 @@ Continue from the crash-recovery triage checkpoint. The current objective is a m
   - New July 21-23 episode files.
   - `docs/podcast-transcript-deep-dives/index.json` now shows 57 episodes.
   - Status: committed in `f6cee97`; ad/legal filter expanded and regenerated. Expanded hard promo/legal scan is clean; remaining sportsbook mentions are price/context references.
+- BetOnline July 29 normalization:
+  - `scripts/build-betonline-0729-import.js` generates the import and manual review doc from all nine BEO screenshots.
+  - `data/futures-imports/betonline-2026-07-29.json` has 160 rows: Super Bowl, AFC/NFC conference, all divisions, playoffs Yes, and wins.
+  - `docs/FUTURES_ODDS_BETONLINE_2026-07-29_MANUAL_REVIEW.md` preserves playoff No-side prices not represented in the current uniform import schema.
+  - Status: local-only and no-write verified; no Supabase promotion has happened.
 - Ops/documentation:
   - `scripts/overnight.js` adds research intel, training-camp scout, and daily brief steps.
   - New untracked `docs/NFL_DASHBOARD_USER_GUIDE.md`.
@@ -109,13 +120,15 @@ Continue from the crash-recovery triage checkpoint. The current objective is a m
 
 ## Immediate Next Steps
 
-1. Use `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md` as the current model-ready evidence packet.
+1. Resolve the current training-camp snapshot conflict: restore the verified 16-item July 30 snapshot or approve a fresh live RSS scout.
 
-2. Decide whether to normalize or manually review the current July 29 BetOnline screenshots before the model run, or proceed with BetOnline exact prices excluded.
+2. Rerun `npm.cmd run intel:source-audit` and require 0 stale / 0 blocked / 0 missing sources before model synthesis.
 
-3. Review `scripts/overnight.js`, `docs/NFL_DASHBOARD_USER_GUIDE.md`, and `infra/systemd/` separately before committing any ops automation.
+3. Use `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md` as the evidence packet for the approval-gated frontier-model run.
 
-4. Clean older retry artifacts only after deciding they are no longer useful crash-window evidence.
+4. Review `scripts/overnight.js`, `docs/NFL_DASHBOARD_USER_GUIDE.md`, and `infra/systemd/` separately before committing any ops automation.
+
+5. Clean older retry artifacts only after deciding they are no longer useful crash-window evidence.
 
 ## Guardrails
 
@@ -128,5 +141,5 @@ Continue from the crash-recovery triage checkpoint. The current objective is a m
 ## Resume Command
 
 ```text
-Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF_PROMPT.md, HANDOFF.md, WORKING-CONTEXT.md, TASK_BOARD.md, docs\FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md, docs\FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md, handoffs\2026-07-30-0635-crash-recovery-source-audit-handoff.md, and handoffs\2026-07-30-0655-workstream-triage-handoff.md first. Current focus is a maximum-effort frontier-model futures portfolio narrative and recommendation synthesis, not DK/FD bet-slip parsers or weekly live props. Crash recovery was committed in 87476f0; source/article intel tooling in 0e64d66; July 29 primary futures imports in 9273269; July 30 training-camp snapshot in 642349e; post-recovery triage in d58f8e3; source-audit recalibration in 96376e1; source-readiness checklist in 0cd942a; podcast cleanup/evidence checkpoint in f6cee97; handoff checkpoint in 817ec29. Latest source audit is PASSABLE, Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7. Latest source-audit artifacts are .nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.json and docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html. Podcast/deep-dive output was regenerated after expanded ad/legal filtering; the expanded hard promo/legal scan is clean and remaining sportsbook mentions are price/context references. The model-ready evidence packet is docs\FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md. BetOnline has current July 29 screenshots; stale structured BetOnline rows must not be used as source of truth unless normalized or manually reviewed. Next: decide whether to normalize/review BetOnline screenshots before the model run or proceed with BetOnline exact prices excluded, then ask explicit approval for any paid/frontier model call. Guardrails: no paid model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval.
+Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF_PROMPT.md, HANDOFF.md, WORKING-CONTEXT.md, TASK_BOARD.md, docs\FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md, docs\FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md, docs\FUTURES_ODDS_BETONLINE_2026-07-29_MANUAL_REVIEW.md, handoffs\2026-07-30-0635-crash-recovery-source-audit-handoff.md, and handoffs\2026-07-30-0655-workstream-triage-handoff.md first. Current focus is a maximum-effort frontier-model futures portfolio narrative and recommendation synthesis, not DK/FD bet-slip parsers or weekly live props. BetUS, Bookmaker/BKR, and BetOnline July 29 imports are current; BetOnline was manually normalized into data\futures-imports\betonline-2026-07-29.json with 160 rows and a manual review doc preserving playoff No-side prices. Current blocker: data\training-camp\2026\latest.json and data\training-camp\2026\training-camp-intel-2026-07-30.json are uncommitted all-32 empty placeholders, while the last verified July 30 snapshot had 16 items across 12 teams. Next: restore the verified training-camp snapshot or approve a fresh live RSS scout, rerun npm.cmd run intel:source-audit, then ask explicit approval for any paid/frontier model call. Guardrails: no paid model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval.
 ```
