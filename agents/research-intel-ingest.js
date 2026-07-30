@@ -33,12 +33,19 @@ const FEEDS = [
   },
   {
     // BettingPros: /nfl/news/feed/ returns HTML; /feed/ is valid RSS but
-    // 2.27MB — allow a higher per-feed limit so we can read the top 20 items.
+    // Can exceed 3MB in-season, so allow a higher per-feed limit while still
+    // capping the payload.
     source: 'BettingPros',
     url: 'https://www.bettingpros.com/feed/',
     confidence: 0.72,
-    maxBytes: 3_000_000,
+    maxBytes: 4_500_000,
     source_type: 'betting',
+  },
+  {
+    source: 'Walter Football',
+    url: 'https://walterfootball.com/rss.xml',
+    confidence: 0.63,
+    source_type: 'analytical',
   },
   {
     // BettingPros /nfl/news/feed/ returns HTML — using ESPN NFL RSS instead
@@ -147,6 +154,10 @@ const NON_NFL_HINTS = [
   ' march madness ',
   ' ufc ',
   ' golf ',
+  ' pga ',
+  ' rocket classic ',
+  ' tbt ',
+  ' the basketball tournament ',
   ' tennis ',
   ' soccer ',
   ' premier league ',
@@ -335,6 +346,14 @@ function looksNflRelevant(item, source = '') {
   // Only apply non-NFL block to the title — descriptions can have cross-sport
   // sidebar links that would otherwise kill valid NFL articles.
   const titleHasNonNfl = NON_NFL_HINTS.some(k => titleHaystack.includes(k));
+  if (titleHasNonNfl && !/\b(nfl|football|super bowl|afc|nfc)\b/i.test(titleHaystack)) return false;
+
+  // Generic betting/picks language in an all-sports feed is not NFL evidence.
+  // Require an actual football term in the item metadata before ingesting.
+  if (!/\b(nfl|football|super bowl|afc|nfc|quarterback|qb|touchdown|playoff|division|training camp|preseason)\b/i.test(fullHaystack)) {
+    return false;
+  }
+
   return !titleHasNonNfl;
 }
 
