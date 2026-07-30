@@ -15,9 +15,9 @@
 
 - Date: 2026-07-30 UTC / 2026-07-29 Pacific.
 - Branch: `main`.
-- Current pushed HEAD: `29065e9`.
+- Current pushed HEAD: `6d8acdc`.
 - Working tree: dirty by design; stage narrowly.
-- Latest timestamped handoff: `handoffs/2026-07-30-1101-camp-intel-ui-handoff.md`.
+- Latest timestamped handoff: `handoffs/2026-07-30-1259-codex-protocol-access-handoff.md`.
 - Detailed crash-recovery handoff: `handoffs/2026-07-30-0635-crash-recovery-source-audit-handoff.md`.
 - Prior completed checkpoint: `handoffs/2026-07-29-0405-season-readiness-youtube-futures-handoff.md`.
 - Verification:
@@ -33,6 +33,7 @@
 - Official-pick approvals: none.
 - Open parlay changes: none.
 - Latest pushed checkpoint: Training Camp Intel UI tab added and mojibake cleaned in `29065e9`; post-pipeline task plan committed in `26c85b2`.
+- New pushed checkpoints after `12aa0cf`: fantasy value board (`4436095`), guarded overnight ops automation (`c797669`), secondary-matchup seed-gap exposure (`8695b57`), stale retry artifact gitignore cleanup (`d7fb7a0`), Antigravity `.agents/skills/` configs (`de5c9c0`), and Antigravity handoff refresh (`6d8acdc`).
 
 ## Current Objective
 
@@ -153,9 +154,10 @@ Continue from the crash-recovery triage checkpoint. The current objective is a m
 - Podcast/YouTube/article/training-camp intel is reviewed local context only, not an official pick ledger.
 - Keep QA output and generated artifacts distinct from analyst opinions or betting authorization.
 - Stage narrowly; do not use `git add -A`.
+- On resume, scan project-local `.codex/rules/`, `.codex/hooks.json`, `skills/`, `agents/`, and hook folders before planning. Use relevant local `SKILL.md` guidance and project agents/workflows when they fit the task, while keeping guardrails and explicit-approval boundaries intact.
 
 ## Resume Command
 
 ```text
-Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF_PROMPT.md, HANDOFF.md, WORKING-CONTEXT.md, TASK_BOARD.md, handoffs\2026-07-30-post-pipeline-push-task-plan.md, and handoffs\2026-07-30-1101-camp-intel-ui-handoff.md first. Current pushed HEAD is 29065e9 on main/origin/main. The injury/player-availability/OL-DL/secondary-matchup pipeline work and the Training Camp Intel UI tab are already committed and pushed; do not recommit them. Remaining dirty workstreams are fantasy value board, overnight/ops automation, and old retry artifacts. Stage narrowly; do not use git add -A. Guardrails: no paid/frontier model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval. Immediate next step: review the fantasy value board workstream first, then ops automation, then stale retry artifacts, then resume secondary-matchup seed completion and parser-quality tasks.
+Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF_PROMPT.md, HANDOFF.md, WORKING-CONTEXT.md, TASK_BOARD.md, handoffs\2026-07-30-1259-codex-protocol-access-handoff.md, and handoffs\2026-07-30-1256-antigravity-agents-handoff.md first. Before planning, scan `.codex/rules/`, `.codex/hooks.json`, `skills/`, `agents/`, `.agents/skills/`, and hook folders for relevant project-local skills, agents, and hooks; read only task-relevant local SKILL.md files and use matching project workflows when appropriate. Current pushed HEAD is 6d8acdc on main/origin/main. Fantasy value board, overnight/ops automation, stale retry artifact cleanup, secondary-matchup seed-gap exposure, Antigravity `.agents/skills/`, and the 12:56 handoff are already committed and pushed; do not recommit them. Preserve uncommitted Codex protocol edits unless intentionally reconciling them. Stage narrowly; do not use git add -A. Guardrails: no paid/frontier model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval. Immediate next step: start a fresh Codex session rooted at E:\dev, verify write access to ATLAS/GitHub/projects, then apply the same Project Capability Scan resume rule to ATLAS.
 ```
