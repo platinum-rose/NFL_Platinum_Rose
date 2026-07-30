@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * overnight.js — NFL Dashboard Overnight Pipeline
+ * overnight.js - NFL Dashboard Overnight Pipeline
  *
  * Weekly batch run (typically Sunday night after games).
  * Orchestrates the full data refresh cycle:
@@ -16,7 +16,7 @@
  *
  * Usage:
  *   node scripts/overnight.js [--week <1-18>] [--dry-run]
- *   npm run overnight (add to package.json scripts)
+ *     [--live-research-intel] [--live-camp-scout] [--send-daily-brief]
  *
  * Environment:
  *   SUPABASE_URL, SUPABASE_ANON_KEY, ODDS_API_KEY (required)
@@ -63,34 +63,48 @@ function writeMemory(data) {
 async function main() {
   const args = process.argv.slice(2);
   const dryRun = args.includes('--dry-run');
+  const liveResearchIntel = args.includes('--live-research-intel');
+  const liveCampScout = args.includes('--live-camp-scout');
+  const sendDailyBrief = args.includes('--send-daily-brief');
   const weekIdx = args.indexOf('--week');
   const week = weekIdx >= 0 ? args[weekIdx + 1] : null;
   const today = new Date().toISOString().slice(0, 10);
 
-  console.log(`\n${ dryRun ? '[DRY RUN] ' : ''}NFL Dashboard Overnight Pipeline — ${today}`);
+  console.log(`\n${ dryRun ? '[DRY RUN] ' : ''}NFL Dashboard Overnight Pipeline - ${today}`);
   if (week) console.log(`Week: ${week}`);
+  if (!liveResearchIntel) console.log('Research intel step will run in dry-run mode unless --live-research-intel is passed.');
+  if (!liveCampScout) console.log('Training camp scout will run without live RSS unless --live-camp-scout is passed.');
+  if (!sendDailyBrief) console.log('Daily brief email is skipped unless --send-daily-brief is passed.');
   console.log('='.repeat(60));
 
   const steps = [
     { name: 'monitor', script: 'agents/monitor.js', args: [] },
     { name: 'odds-ingest', script: 'agents/odds-ingest.js', args: week ? ['--week', week] : [] },
+    { name: 'research-intel', script: 'agents/research-intel-ingest.js', args: liveResearchIntel ? [] : ['--dry-run'] },
+    { name: 'training-camp-scout', script: 'scripts/training-camp-rss-scout.js', args: liveCampScout ? ['--live'] : [] },
     { name: 'auto-grade', script: 'agents/nfl-auto-grade.js', args: [] },
     { name: 'props-auto-grade', script: 'agents/props-auto-grade.js', args: [] },
     { name: 'futures-ingest', script: 'agents/futures-odds-ingest.js', args: [] },
     { name: 'podcast-ingest', script: 'agents/podcast-ingest.js', args: [] },
+    { name: 'daily-brief', script: 'agents/nfl-daily-brief.js', args: [], skip: !sendDailyBrief },
   ];
 
   const results = [];
   for (const step of steps) {
     const scriptPath = join(ROOT, step.script);
+    if (step.skip) {
+      console.log(`\nStep: ${step.name} - SKIP (explicit opt-in not passed)`);
+      results.push({ step: step.name, status: 'skipped' });
+      continue;
+    }
     if (!existsSync(scriptPath)) {
-      console.log(`\nStep: ${step.name} — SKIP (script not found: ${step.script})`);
+      console.log(`\nStep: ${step.name} - SKIP (script not found: ${step.script})`);
       results.push({ step: step.name, status: 'skipped' });
       continue;
     }
     console.log(`\nStep: ${step.name}`);
     if (dryRun) {
-      console.log(`  DRY RUN — would run: node ${step.script}`);
+      console.log(`  DRY RUN - would run: node ${[step.script, ...step.args].join(' ')}`);
       results.push({ step: step.name, status: 'dry-run' });
     } else {
       const { ok } = await runAgent(scriptPath, step.args);
@@ -101,7 +115,7 @@ async function main() {
   // Write overnight report
   mkdirSync(REPORTS_DIR, { recursive: true });
   const reportLines = [
-    `# NFL Dashboard Overnight Report — ${today}`,
+    `# NFL Dashboard Overnight Report - ${today}`,
     `\n> Generated: ${new Date().toISOString()}`,
     `\n## Step Results`,
     '| Step | Status |',
