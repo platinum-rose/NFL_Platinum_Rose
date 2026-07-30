@@ -6,8 +6,9 @@
 
 ## Current Recovery State - 2026-07-30 UTC / 2026-07-29 Pacific
 
-**Latest triage handoff:** `handoffs/2026-07-30-0655-workstream-triage-handoff.md`.
+**Latest triage handoff:** `handoffs/2026-07-30-1101-camp-intel-ui-handoff.md`.
 **Crash recovery detail:** `handoffs/2026-07-30-0635-crash-recovery-source-audit-handoff.md`.
+**Current pushed HEAD:** `29065e9` on `main` / `origin/main`.
 
 The machine crashed during a dirty source-freshness/readiness workstream after the July 29 season-smoke and YouTube/Gemini futures reconciliation handoff. Local services have been restarted and verified:
 

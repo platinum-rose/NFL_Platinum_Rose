@@ -5,8 +5,8 @@
 **Date:** 2026-07-30 UTC / 2026-07-29 Pacific
 **Branch:** main
 **HEAD observed before BetOnline normalization checkpoint:** `5b2db46`
-**Latest timestamped handoff:** `handoffs/2026-07-30-0655-workstream-triage-handoff.md`
-**Status:** Crash recovery committed. Source audit recalibrated toward futures-portfolio synthesis readiness; podcast/deep-dive ad filtering has been expanded and verified; frontier synthesis packet is prepared; BetOnline July 29 screenshots are normalized; player availability is locally snapshotted. DK/FD bet-slip parsers and weekly live props are out of current scope.
+**Latest timestamped handoff:** `handoffs/2026-07-30-1101-camp-intel-ui-handoff.md`
+**Status:** Pipeline work and Training Camp Intel UI are committed and pushed through `29065e9`. Source audit remains recalibrated toward futures-portfolio synthesis readiness; player availability and secondary matchup proof of concept are locally snapshotted. Fantasy value board, overnight/ops automation, and old retry artifacts remain dirty workstreams for separate review.
 
 ---
 
@@ -44,6 +44,8 @@ Use `localhost:5174` for the recovered dashboard session. Earlier probes against
 - `5b2db46` - Add frontier futures synthesis evidence packet.
 - `1c5cdee` - Document training camp source recovery.
 - `b0b57ed` - Point source audit at recovered camp snapshot.
+- `26c85b2` - Document post-pipeline push task plan.
+- `29065e9` - Add training camp intel dashboard tab.
 
 Latest source-readiness state:
 - Source-audit gate now removes execution-only DK/FD bet-slip and weekly live-props plumbing from the futures-synthesis freshness check.
@@ -78,7 +80,9 @@ Do not stage this as one sweep. Review and stage by workstream.
 
 ## Key Files
 
-- `handoffs/2026-07-30-0655-workstream-triage-handoff.md` - current triage handoff.
+- `handoffs/2026-07-30-1101-camp-intel-ui-handoff.md` - current Camp Intel UI and post-push handoff.
+- `handoffs/2026-07-30-post-pipeline-push-task-plan.md` - post-pipeline push task plan.
+- `handoffs/2026-07-30-0655-workstream-triage-handoff.md` - prior triage handoff.
 - `handoffs/2026-07-30-0635-crash-recovery-source-audit-handoff.md` - detailed crash-recovery handoff.
 - `handoffs/2026-07-29-0405-season-readiness-youtube-futures-handoff.md` - prior completed checkpoint.
 - `docs/SEASON_READINESS_SMOKE_TEST_LATEST.md` - latest readiness report.
@@ -115,5 +119,5 @@ Use `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md` as the curr
 ## Resume Prompt
 
 ```text
-Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF.md, HANDOFF_PROMPT.md, WORKING-CONTEXT.md, TASK_BOARD.md, docs\FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md, docs\FUTURES_SYNTHESIS_REQUIREMENT_AUDIT_2026-07-30.md, docs\TRAINING_CAMP_SOURCE_RECONCILIATION_2026-07-30.md, docs\player-availability\player-availability-latest.md, docs\FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md, docs\FUTURES_ODDS_BETONLINE_2026-07-29_MANUAL_REVIEW.md, handoffs\2026-07-30-0635-crash-recovery-source-audit-handoff.md, and handoffs\2026-07-30-0655-workstream-triage-handoff.md first. Current focus is a maximum-effort frontier-model futures portfolio narrative and recommendation synthesis, not DK/FD bet-slip parsers or weekly live props. BetUS, Bookmaker/BKR, and BetOnline July 29 imports are current and dry-run ingestable; BetOnline was manually normalized into data\futures-imports\betonline-2026-07-29.json with 160 rows and a manual review doc preserving playoff No-side prices. Current source audit is PASSABLE after fresh training-camp and player-availability snapshots: Current 2 / Review 18 / Stale 0 / Blocked 0 / Missing 0 / Context 7. Next: ask explicit approval for any paid/frontier model synthesis call, then use docs\FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md as the evidence packet. Guardrails: no paid model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval.
+Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF.md, HANDOFF_PROMPT.md, WORKING-CONTEXT.md, TASK_BOARD.md, handoffs\2026-07-30-post-pipeline-push-task-plan.md, and handoffs\2026-07-30-1101-camp-intel-ui-handoff.md first. Current pushed HEAD is 29065e9 on main/origin/main. The injury/player-availability/OL-DL/secondary-matchup pipeline work and the Training Camp Intel UI tab are already committed and pushed; do not recommit them. Remaining dirty workstreams are fantasy value board, overnight/ops automation, and old retry artifacts. Stage narrowly; do not use git add -A. Guardrails: no paid/frontier model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval. Immediate next step: review the fantasy value board workstream first, then ops automation, then stale retry artifacts, then resume secondary-matchup seed completion and parser-quality tasks.
 ```

@@ -15,9 +15,9 @@
 
 - Date: 2026-07-30 UTC / 2026-07-29 Pacific.
 - Branch: `main`.
-- HEAD observed before BetOnline normalization checkpoint: `5b2db46`.
+- Current pushed HEAD: `29065e9`.
 - Working tree: dirty by design; stage narrowly.
-- Latest timestamped handoff: `handoffs/2026-07-30-0655-workstream-triage-handoff.md`.
+- Latest timestamped handoff: `handoffs/2026-07-30-1101-camp-intel-ui-handoff.md`.
 - Detailed crash-recovery handoff: `handoffs/2026-07-30-0635-crash-recovery-source-audit-handoff.md`.
 - Prior completed checkpoint: `handoffs/2026-07-29-0405-season-readiness-youtube-futures-handoff.md`.
 - Verification:
@@ -32,6 +32,7 @@
 - Supabase writes during recovery: none by Codex.
 - Official-pick approvals: none.
 - Open parlay changes: none.
+- Latest pushed checkpoint: Training Camp Intel UI tab added and mojibake cleaned in `29065e9`; post-pipeline task plan committed in `26c85b2`.
 
 ## Current Objective
 
@@ -62,7 +63,7 @@ Continue from the crash-recovery triage checkpoint. The current objective is a m
   - `1c5cdee` - Document training camp source recovery.
   - `b0b57ed` - Point source audit at recovered camp snapshot.
 - Created `handoffs/2026-07-30-0655-workstream-triage-handoff.md`.
-- Refreshed `HANDOFF.md` and this rolling handoff so future sessions resume from the triage checkpoint.
+- Refreshed `HANDOFF.md` and this rolling handoff so future sessions resume from the Camp Intel UI checkpoint.
 - Recalibrated `scripts/build-intel-source-audit-report.js`:
   - Execution-only DK/FD bet-slip parser and weekly live-props checks no longer block the futures-synthesis freshness gate.
   - Stale structured BetOnline rows no longer count as stale if current July 29 BetOnline screenshots are present; the report requires manual review/normalization before using BetOnline as source of truth.
@@ -156,5 +157,5 @@ Continue from the crash-recovery triage checkpoint. The current objective is a m
 ## Resume Command
 
 ```text
-Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF_PROMPT.md, HANDOFF.md, WORKING-CONTEXT.md, TASK_BOARD.md, docs\FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md, docs\FUTURES_SYNTHESIS_REQUIREMENT_AUDIT_2026-07-30.md, docs\TRAINING_CAMP_SOURCE_RECONCILIATION_2026-07-30.md, docs\player-availability\player-availability-latest.md, docs\FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md, docs\FUTURES_ODDS_BETONLINE_2026-07-29_MANUAL_REVIEW.md, handoffs\2026-07-30-0635-crash-recovery-source-audit-handoff.md, and handoffs\2026-07-30-0655-workstream-triage-handoff.md first. Current focus is a maximum-effort frontier-model futures portfolio narrative and recommendation synthesis, not DK/FD bet-slip parsers or weekly live props. BetUS, Bookmaker/BKR, and BetOnline July 29 imports are current and dry-run ingestable; BetOnline was manually normalized into data\futures-imports\betonline-2026-07-29.json with 160 rows and a manual review doc preserving playoff No-side prices. Current source audit is PASSABLE after fresh training-camp and player-availability snapshots: Current 2 / Review 18 / Stale 0 / Blocked 0 / Missing 0 / Context 7. Next: ask explicit approval for any paid/frontier model synthesis call, then use docs\FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md as the evidence packet. Guardrails: no paid model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval.
+Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF_PROMPT.md, HANDOFF.md, WORKING-CONTEXT.md, TASK_BOARD.md, handoffs\2026-07-30-post-pipeline-push-task-plan.md, and handoffs\2026-07-30-1101-camp-intel-ui-handoff.md first. Current pushed HEAD is 29065e9 on main/origin/main. The injury/player-availability/OL-DL/secondary-matchup pipeline work and the Training Camp Intel UI tab are already committed and pushed; do not recommit them. Remaining dirty workstreams are fantasy value board, overnight/ops automation, and old retry artifacts. Stage narrowly; do not use git add -A. Guardrails: no paid/frontier model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval. Immediate next step: review the fantasy value board workstream first, then ops automation, then stale retry artifacts, then resume secondary-matchup seed completion and parser-quality tasks.
 ```
