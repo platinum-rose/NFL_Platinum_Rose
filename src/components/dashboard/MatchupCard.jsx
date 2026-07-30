@@ -8,6 +8,7 @@ import {
 import { InjurySummary, InjuryImpactIcon } from '../ui/InjuryBadge';
 import { getTopInjuries, getInjuryDataSourceState } from '../../lib/injuries';
 import { TEAM_LOGOS } from '../../lib/teams';
+import { getContractForGame, getContractsForTeam } from '../../lib/predictionMarketStore';
 
 const clean = (val) => parseFloat(String(val).replace(/[^0-9.]/g, '')) || 0;
 const getAbbr = (name) => {
@@ -365,6 +366,23 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
             <TeaserSelector />
             {/* 🔥 NEW PROP BUTTON */}
             <PropSelector />
+            {/* 📊 PREDICTION MARKET BADGE */}
+            {(() => {
+              const contract = getContractForGame(game.visitor, game.home) || getContractsForTeam(game.home)[0];
+              if (!contract) return null;
+              const netOddsStr = contract.net_american_odds > 0 ? `+${contract.net_american_odds}` : `${contract.net_american_odds}`;
+              return (
+                <div className="mt-2 text-center bg-emerald-950/40 border border-emerald-500/30 rounded-lg p-1.5 flex items-center justify-between text-[10px] shadow-sm">
+                  <div className="flex items-center gap-1">
+                    <span className="text-emerald-400 font-bold uppercase">[{contract.exchange}]</span>
+                    <span className="text-slate-300 truncate max-w-[110px]" title={contract.title}>{contract.title}</span>
+                  </div>
+                  <div className="font-mono text-emerald-300 font-bold">
+                    {contract.price_cents}¢ ({netOddsStr})
+                  </div>
+                </div>
+              );
+            })()}
         </div>
 
         {/* HOME */}

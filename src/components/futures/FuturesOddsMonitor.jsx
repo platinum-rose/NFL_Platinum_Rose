@@ -10,6 +10,7 @@ import {
 import { getPositions, FUTURES_TYPE_LABELS, POSITION_STATUS } from '../../lib/futures';
 import { getLatestFuturesOdds } from '../../lib/supabase';
 import { TEAM_LOGOS } from '../../lib/teams';
+import { getContractsForTeam } from '../../lib/predictionMarketStore';
 
 // ── Odds math ─────────────────────────────────────────────────────────────────
 const toDecimal = (american) => {
@@ -322,6 +323,38 @@ export default function FuturesOddsMonitor() {
                           })}
                       </div>
                     )}
+
+                    {/* Prediction Markets (Kalshi / Polymarket) section */}
+                    {(() => {
+                      const pmContracts = getContractsForTeam(pos.team, pos.type);
+                      if (!pmContracts.length) return null;
+                      return (
+                        <div className="mt-3 pt-3 border-t border-slate-800">
+                          <div className="text-[10px] uppercase font-bold text-emerald-400 tracking-wider mb-2 flex items-center gap-1.5">
+                            <span>📊 Prediction Market Rates (Net Fee-Adjusted)</span>
+                          </div>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {pmContracts.slice(0, 3).map((pm) => (
+                              <div
+                                key={pm.id}
+                                className="flex items-center justify-between bg-emerald-950/30 border border-emerald-500/30 rounded-lg px-3 py-2 text-xs"
+                              >
+                                <div>
+                                  <span className="font-bold text-emerald-300 uppercase text-[10px] mr-1.5">[{pm.exchange}]</span>
+                                  <span className="text-slate-300 text-[11px] truncate max-w-[160px] inline-block align-bottom">{pm.title}</span>
+                                </div>
+                                <div className="text-right ml-2 shrink-0">
+                                  <span className="text-emerald-400 font-mono font-bold text-sm block">
+                                    {pm.net_american_odds > 0 ? `+${pm.net_american_odds}` : pm.net_american_odds}
+                                  </span>
+                                  <span className="text-slate-400 text-[10px] font-mono">{pm.price_cents}¢ ({pm.decimal_odds}x)</span>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })()}
 
                     {/* Implied prob comparison */}
                     {best && (
