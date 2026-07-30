@@ -25,38 +25,9 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 ## Conversation Beats
 
-### 1. Total (0:00-1:29)
+### 1. General discussion (0:00-2:54)
 
-Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker B), Guest (Speaker D)
-
-Topics: Total
-
-Conclusion: No firm pick surfaced.
-
-Matchup: Not inferred.
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: No firm pick surfaced in this beat; it is mostly context around Total. Rationale themes: injury and availability.
-
-Mindset / reasoning clues:
-  - None pulled.
-
-Betting language / picks:
-  - Steve Fezzik (Speaker B): Bet Tax Pass through May apply in Illinois 21 and over Boyd in Canada Event contract trading with DraftKings predictions involves risk of loss Availability varies Predictions offer void in New York Bet to get bonus bets that expire in 7 days Trade to get predictions dollars that expire in 1 year DOL rewards issued every 7 days via click to claim for 14 days 1 non withdrawable reward redeemable terms at DKNG Co Offer Limited time
-
-Representative lines:
-  - Ross Tucker (Speaker A): Whatever you are watching this summer baseball, Golf, soccer, racing DraftKings has you covered for every single moment of it.
-  - Ross Tucker (Speaker A): The DraftKings sports app is now available in all 50 states, bringing the game straight to your fingertips wherever you are.
-  - Ross Tucker (Speaker A): Spend 5 bucks to get 150 in rewards within 14 days.
-
-### 2. General discussion (1:32-2:54)
-
-Speakers: Steve Fezzik (Speaker B), Ross Tucker (Speaker A)
+Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker B)
 
 Topics: General
 
@@ -70,7 +41,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around general football context. Rationale themes: market price/line movement, offensive personnel.
+Summary: No firm pick surfaced in this beat; it is mostly context around general football context. Rationale themes: market price/line movement, injury and availability, offensive personnel.
 
 Mindset / reasoning clues:
   - Steve Fezzik (Speaker B): If you like to make your NFL games a little bit more interesting, you've come to the Right Place.
@@ -82,10 +53,10 @@ Betting language / picks:
 
 Representative lines:
   - Ross Tucker (Speaker A): I'm a former NFL offensive lineman Ross Tucker, 5 team, 7 years, long time ago, but parlayed that into being able to call NFL games for cbs, for Westwood One.
-  - Ross Tucker (Speaker A): I don't know if Steve has it better or not, but we can at least talk about how soccer could be improved.
-  - Ross Tucker (Speaker A): I got a bunch of responses as it relates to the teaser question and how we should handle it this year.
+  - Ross Tucker (Speaker A): Whatever you are watching this summer baseball, Golf, soccer, racing DraftKings has you covered for every single moment of it.
+  - Ross Tucker (Speaker A): The DraftKings sports app is now available in all 50 states, bringing the game straight to your fingertips wherever you are.
 
-### 3. Eagles / Total (2:54-4:04)
+### 2. Eagles / Total (2:54-4:04)
 
 Speakers: Ross Tucker (Speaker A)
 
@@ -115,7 +86,7 @@ Representative lines:
   - Ross Tucker (Speaker A): And we throw in some other bets, whether it's CFL or baseball or basketball or whatever.
   - Ross Tucker (Speaker A): But you've come to the right place to make sure you are ready for the NFL season.
 
-### 4. General discussion (4:04-6:08)
+### 3. General discussion (4:04-6:08)
 
 Speakers: Ross Tucker (Speaker A), Guest (Speaker D)
 
@@ -147,7 +118,7 @@ Representative lines:
   - Ross Tucker (Speaker A): It seems initially very unnatural for those guys to not be able to catch the ball, but it probably is on some level unnatural for hockey goalies to not just grab it every time.
   - Guest (Speaker D): So when the goalie saves a shot on goal and he catches it, it's a disadvantageous situation.
 
-### 5. Total (6:08-7:22)
+### 4. Total (6:08-7:22)
 
 Speakers: Ross Tucker (Speaker A), Guest (Speaker D)
 
@@ -177,7 +148,7 @@ Representative lines:
   - Guest (Speaker D): We're not supposed to be able to use our hands at all, but we're going to let the goalie catch the ball and stop all flow.
   - Guest (Speaker D): The penalty kick, the reward is you get to kick the ball right close to the goal and you make the kick.
 
-### 6. General discussion (7:22-10:58)
+### 5. General discussion (7:22-10:58)
 
 Speakers: Guest (Speaker D), Ross Tucker (Speaker A)
 
@@ -213,7 +184,7 @@ Representative lines:
   - Ross Tucker (Speaker A): I mean, the red card on Flo Balogun or Belugin or however you say his last name like that, that made no sense to me.
   - Guest (Speaker D): Just like, how can the WNBA tell me within a tenth of a second how much time's left?
 
-### 7. Bears / Draft (10:58-12:13)
+### 6. Bears / Draft (10:58-12:13)
 
 Speakers: Guest (Speaker D), Ross Tucker (Speaker A)
 
@@ -242,7 +213,7 @@ Representative lines:
   - Guest (Speaker D): But yes, can you imagine a two minute drill in football when, well, there's, there's anywhere between, you know, 20 seconds and 90 seconds left, guys.
   - Ross Tucker (Speaker A): And for those of you maybe missed last week's episode, we are soliciting your opinion on what we should do with teasers this year.
 
-### 8. General discussion (12:13-15:00)
+### 7. General discussion (12:13-15:00)
 
 Speakers: Ross Tucker (Speaker A), Guest (Speaker D)
 
@@ -275,7 +246,7 @@ Representative lines:
   - Ross Tucker (Speaker A): Say we could do it as liens, but then also said he's fine with whatever Michael Puma said.
   - Guest (Speaker D): I'm not, I don't have a legal degree so I'm really not qualified to comment on that.
 
-### 9. Spread (15:00-16:13)
+### 8. Spread (15:00-16:13)
 
 Speakers: Guest (Speaker D)
 
@@ -308,7 +279,7 @@ Representative lines:
   - Guest (Speaker D): And if you're playing at DraftKings, you're laying minus 310.
   - Guest (Speaker D): When you go to minus 130, you're laying minus 300.
 
-### 10. Total (16:13-17:26)
+### 9. Total (16:13-17:26)
 
 Speakers: Guest (Speaker D), Ross Tucker (Speaker A)
 
@@ -340,7 +311,7 @@ Representative lines:
   - Ross Tucker (Speaker A): Get your free quote@ethos.com Ross that's ethos.com Ross Application times may vary.
   - Ross Tucker (Speaker A): You get a quote in seconds, apply in minutes and get same day coverage.
 
-### 11. Cardinals (17:26-22:53)
+### 10. Cardinals (17:26-22:53)
 
 Speakers: Ross Tucker (Speaker A), Guest (Speaker D)
 
@@ -377,7 +348,7 @@ Representative lines:
   - Guest (Speaker D): Even though, like you said, there are some, they're still dealing -110.
   - Ross Tucker (Speaker A): I think Grading them at minus 125 was a fair compromise.
 
-### 12. Falcons / Steelers / Spread (22:53-24:04)
+### 11. Falcons / Steelers / Spread (22:53-24:04)
 
 Speakers: Guest (Speaker D), Ross Tucker (Speaker A)
 
@@ -410,7 +381,7 @@ Representative lines:
   - Guest (Speaker D): They only would be applicable on the situation I described where you can have an open spot and you fill it when the first leg's about to lose.
   - Ross Tucker (Speaker A): Kevin says you have to grade teasers the DK price since you're using their lines, pull all your data prices, numbers from the same book.
 
-### 13. Total (24:04-25:16)
+### 12. Total (24:04-25:16)
 
 Speakers: Guest (Speaker D), Ross Tucker (Speaker A)
 
@@ -444,7 +415,7 @@ Representative lines:
   - Ross Tucker (Speaker A): All right, Gary says he's definitely in favor of continuing with the teasers.
   - Guest (Speaker D): And Chevy Chase says, says you don't have to.
 
-### 14. Super Bowl (25:16-26:29)
+### 13. Super Bowl (25:16-26:29)
 
 Speakers: Ross Tucker (Speaker A), Guest (Speaker D)
 
@@ -477,7 +448,7 @@ Representative lines:
   - Guest (Speaker D): By the way, the Fairmont west chess team shout out to them National Champs 1981 National Champs.
   - Guest (Speaker D): And I don't know if he went to Fairmont west or Fairmont east, but it's a small world.
 
-### 15. General discussion (26:29-29:13)
+### 14. General discussion (26:29-29:13)
 
 Speakers: Ross Tucker (Speaker A), Guest (Speaker D), Guest (Speaker E)
 

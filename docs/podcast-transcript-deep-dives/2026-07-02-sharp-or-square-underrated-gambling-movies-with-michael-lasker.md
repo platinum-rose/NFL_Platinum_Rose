@@ -561,7 +561,7 @@ Representative lines:
   - Chad Millman (Speaker B): We leave, we get on a plane, we go to Montreal, he gets another private room and he's got his own private croupier.
   - Chad Millman (Speaker B): He draws a million dollars of his own money from an account that's at the casino.
 
-### 17. General discussion (31:44-34:41)
+### 17. General discussion (31:49-34:41)
 
 Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
@@ -585,7 +585,6 @@ Mindset / reasoning clues:
   - Chad Millman (Speaker B): And if you're ever late to kickoff, don't worry.
 
 Betting language / picks:
-  - Chad Millman (Speaker B): Let me take a quick break from our friends at Hard Rock.
   - Chad Millman (Speaker B): A winning bet plus an extra $150 to bet with.
 
 Representative lines:

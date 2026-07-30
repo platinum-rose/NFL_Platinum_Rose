@@ -194,11 +194,11 @@ Representative lines:
   - Evan Abrams (Speaker H): Like it's time for pro wrestling and stupid crap and eating bullshit and he's still going to look the way he is.
   - Evan Abrams (Speaker H): From what we seen since they both left, bill got weird 10 times cringier, I feel like than Tom.
 
-### 6. Total / Draft (10:12-12:22)
+### 6. Draft (10:12-12:22)
 
 Speakers: Brandon Kravitz (Speaker F), Kendra Middleton (Speaker E)
 
-Topics: Total, Draft
+Topics: Draft
 
 Conclusion: No firm pick surfaced.
 
@@ -210,7 +210,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Total, Draft. Rationale themes: injury and availability.
+Summary: No firm pick surfaced in this beat; it is mostly context around Draft. Rationale themes: injury and availability.
 
 Mindset / reasoning clues:
   - Kendra Middleton (Speaker E): Sweat all the games you love in a seamless experience.
@@ -220,8 +220,8 @@ Betting language / picks:
 
 Representative lines:
   - Kendra Middleton (Speaker E): In fact, the DraftKings sports app is now available in all 50 states, bringing the excitement straight to your fingertips wherever you are, from Florida to Texas to California, you'll never miss a beat.
-  - Kendra Middleton (Speaker E): With one app right now, new DraftKings customers can turn five bucks into 150 and total bonuses.
-  - Kendra Middleton (Speaker E): The dog days of summer are here, and as temperatures heat up, so do the new customer bonus rewards from our partner, DraftKings.
+  - Kendra Middleton (Speaker E): No matter where you're watching, you're always connected and in the game.
+  - Kendra Middleton (Speaker E): Football season is on the horizon, so get in while things are hot.
 
 ### 7. General discussion (13:02-16:16)
 

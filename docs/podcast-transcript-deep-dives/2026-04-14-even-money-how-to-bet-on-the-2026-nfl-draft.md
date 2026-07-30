@@ -25,11 +25,11 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 ## Conversation Beats
 
-### 1. Total (0:00-1:12)
+### 1. General discussion (0:00-1:56)
 
-Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker B)
+Speakers: Ross Tucker (Speaker A), Guest (Speaker C), Steve Fezzik (Speaker B)
 
-Topics: Total
+Topics: General
 
 Conclusion: No firm pick surfaced.
 
@@ -41,23 +41,22 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Total. Rationale themes: injury and availability.
+Summary: No firm pick surfaced in this beat; it is mostly context around general football context. Rationale themes: injury and availability.
 
 Mindset / reasoning clues:
-  - None pulled.
+  - Steve Fezzik (Speaker B): If you like to make your NFL games a little bit more interesting, you've come to the right place.
 
 Betting language / picks:
-  - Steve Fezzik (Speaker B): Bet Tax Pass through May apply in Illinois 21 and over Boyd in Canada Event contract trading with DraftKings predictions involves risk of loss Availability varies Predictions offer void in New York Bet to get bonus bets that expire in seven days Trade to get predictions dollars that expire in one year DOL rewards issued every seven days via click to claim for 14 days One non withdrawable reward redeemable terms at DKNG Co Offer limited time offer pays Checkout is offered by your banks and credit unions, so when you
-  - Ross Tucker (Speaker A): The Crown is yours bet with DK
+  - None pulled.
 
 Representative lines:
   - Ross Tucker (Speaker A): Whatever you are watching this summer baseball, Golf, soccer, racing DraftKings has you covered for every single moment of it.
   - Ross Tucker (Speaker A): The DraftKings sports app is now available in all 50 states, bringing the game straight to your fingertips wherever you are.
-  - Ross Tucker (Speaker A): New DraftKings customers sign up with code Ross spend 5 bucks to get 150 in rewards within 14 days.
+  - Steve Fezzik (Speaker B): It's the Even Money Podcast with Ross Tucker and Steve Pezik.
 
-### 2. Draft / Props (1:12-2:23)
+### 2. Draft / Props (2:03-3:15)
 
-Speakers: Guest (Speaker C), Steve Fezzik (Speaker B), Ross Tucker (Speaker A)
+Speakers: Ross Tucker (Speaker A)
 
 Topics: Draft, Props
 
@@ -74,22 +73,22 @@ Current market: No current public-line snapshot loaded for this matchup.
 Summary: No firm pick surfaced in this beat; it is mostly context around Draft, Props.
 
 Mindset / reasoning clues:
-  - Steve Fezzik (Speaker B): If you like to make your NFL games a little bit more interesting, you've come to the right place.
   - Ross Tucker (Speaker A): We love that every single year.
 
 Betting language / picks:
+  - Ross Tucker (Speaker A): Steve has a new Major League Baseball bet that he likes and I love getting to your email questions.
   - Ross Tucker (Speaker A): Steve will tell you today how to bet the NFL Draft.
 
 Representative lines:
   - Ross Tucker (Speaker A): Next week we should have an NFL Draft prop betting expert which will be a lot of fun.
-  - Ross Tucker (Speaker A): The crown is yours and we are nine days as of this recording away from the 2026 NFL Draft.
-  - Steve Fezzik (Speaker B): It's the Even Money Podcast with Ross Tucker and Steve Pezik.
+  - Ross Tucker (Speaker A): A bunch of you know more and more and have better questions than I could ever ask Steve from a betting strategy standpoint.
+  - Ross Tucker (Speaker A): But there's also a little bit of a master's recap how it went down from a betting perspective.
 
-### 3. General discussion (2:23-4:21)
+### 3. Draft (3:15-4:41)
 
 Speakers: Ross Tucker (Speaker A)
 
-Topics: General
+Topics: Draft
 
 Conclusion: Ross Tucker (Speaker A): I think it's awesome content so make sure you take advantage of any of the sponsors that you hear on the show you can just take a picture of you drinking a Labat or buying a labat.
 
@@ -101,60 +100,25 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about general football context. Rationale themes: offensive personnel.
+Summary: The beat is mainly about Draft. Rationale themes: market price/line movement, offensive personnel.
 
 Mindset / reasoning clues:
-  - None pulled.
+  - Ross Tucker (Speaker A): We love talking about betting the draft and things change quickly.
 
 Betting language / picks:
   - Ross Tucker (Speaker A): I think it's awesome content so make sure you take advantage of any of the sponsors that you hear on the show you can just take a picture of you drinking a Labat or buying a labat.
-  - Ross Tucker (Speaker A): Steve has a new Major League Baseball bet that he likes and I love getting to your email questions.
+  - Ross Tucker (Speaker A): Since we are pretty generally considered, Steve, the number one NFL betting podcast in the world, this is going to be a pretty unique conversation because I can remember three, four, five years ago, Steve, we loved betting the draft.
 
 Representative lines:
   - Ross Tucker (Speaker A): Send that to me, Ross RossTucker.com you can of course sign up for Ethos, the life insurance or the Monarch app, whatever it is.
   - Ross Tucker (Speaker A): The Steve I reference is the terrific at Pheasix Sports on social media, Steve Fezzi, only two time winner of the super contest.
-  - Ross Tucker (Speaker A): A bunch of you know more and more and have better questions than I could ever ask Steve from a betting strategy standpoint.
+  - Ross Tucker (Speaker A): Just go ahead, give us a five star rating, give us a review, quick screenshot on your phone.
 
-### 4. Draft / Total (4:28-5:39)
+### 4. Raiders / Total / Draft (4:41-5:59)
 
 Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
 
-Topics: Draft, Total
-
-Conclusion: Guest (Speaker C): You could go are they going to go over or under 93 and a half their spot in the draft.
-
-Matchup: Not inferred.
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: The beat is mainly about Draft, Total. Reasoning clue: Guest (Speaker C) - Because you're not deciding it on the playing field. Rationale themes: market price/line movement.
-
-Mindset / reasoning clues:
-  - Guest (Speaker C): Betting opportunities go back four years.
-  - Guest (Speaker C): Because you're not deciding it on the playing field.
-  - Ross Tucker (Speaker A): We love talking about betting the draft and things change quickly.
-
-Betting language / picks:
-  - Guest (Speaker C): My goodness, there would be over unders on like 50, 75 dudes at multiple sports books in Vegas.
-  - Guest (Speaker C): They felt that players were under or overvalued.
-  - Guest (Speaker C): You could go are they going to go over or under 93 and a half their spot in the draft.
-  - Ross Tucker (Speaker A): Since we are pretty generally considered, Steve, the number one NFL betting podcast in the world, this is going to be a pretty unique conversation because I can remember three, four, five years ago, Steve, we loved betting the draft.
-  - Guest (Speaker C): And word got out that teams were under.
-
-Representative lines:
-  - Guest (Speaker C): Yeah, so what's that song Video killed the radio Star Sharps killed the draft.
-  - Ross Tucker (Speaker A): We've learned in the legalized sports betting world, it's hard, it's not the way it used to be.
-  - Guest (Speaker C): It's being decided in all of the draft rooms.
-
-### 5. Raiders / Draft / Total (5:39-6:49)
-
-Speakers: Guest (Speaker C), Ross Tucker (Speaker A)
-
-Topics: Raiders, Draft, Total
+Topics: Raiders, Total, Draft
 
 Conclusion: Guest (Speaker C): So if you could play them under 75 and a half, you're going to win that bet.
 
@@ -166,26 +130,29 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about Raiders, Draft, Total. Reasoning clue: Guest (Speaker C) - And the sportsbooks got so beat up on those sort of wagers, they just took their ball and went home. Rationale themes: market price/line movement, home/road and scheduling spot, offensive personnel.
+Summary: The beat is mainly about Raiders, Total, Draft. Reasoning clue: Guest (Speaker C) - Because you're not deciding it on the playing field. Rationale themes: home/road and scheduling spot.
 
 Mindset / reasoning clues:
-  - None pulled.
+  - Guest (Speaker C): Betting opportunities go back four years.
+  - Guest (Speaker C): Because you're not deciding it on the playing field.
 
 Betting language / picks:
-  - Ross Tucker (Speaker A): I would usually take the over, but what do they call it, like a content card or something?
+  - Guest (Speaker C): My goodness, there would be over unders on like 50, 75 dudes at multiple sports books in Vegas.
+  - Guest (Speaker C): They felt that players were under or overvalued.
   - Guest (Speaker C): So if you could play them under 75 and a half, you're going to win that bet.
-  - Ross Tucker (Speaker A): Number One is, you know, a couple years ago, I used to do stuff with DraftKings for the NFL Draft.
+  - Guest (Speaker C): You could go are they going to go over or under 93 and a half their spot in the draft.
+  - Guest (Speaker C): And word got out that teams were under.
 
 Representative lines:
   - Guest (Speaker C): And I live here in Las Vegas and I look at the betting menus, I can't even find in a lot of places any draft props at many books.
+  - Guest (Speaker C): Yeah, so what's that song Video killed the radio Star Sharps killed the draft.
   - Guest (Speaker C): And the sportsbooks got so beat up on those sort of wagers, they just took their ball and went home.
-  - Ross Tucker (Speaker A): It usually revolved around how many offensive linemen would get drafted in the first round.
 
-### 6. Titans / Total / Draft (6:49-8:03)
+### 5. Draft / Total (5:59-7:14)
 
-Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
+Speakers: Guest (Speaker C), Ross Tucker (Speaker A)
 
-Topics: Titans, Total, Draft
+Topics: Draft, Total
 
 Conclusion: No firm pick surfaced.
 
@@ -197,30 +164,27 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Titans, Total, Draft. Reasoning clue: Ross Tucker (Speaker A) - I, I think it's just really, really tough for them to make any money on it. Rationale themes: market price/line movement.
+Summary: No firm pick surfaced in this beat; it is mostly context around Draft, Total. Reasoning clue: Ross Tucker (Speaker A) - I, I think it's just really, really tough for them to make any money on it. Rationale themes: market price/line movement, offensive personnel.
 
 Mindset / reasoning clues:
-  - Guest (Speaker C): And so inevitably, as we get closer and closer to that selection date, there's going to hit a point where the Titans are going to call Love saying, hey, we're, we're taking you.
   - Ross Tucker (Speaker A): And it's, you know, I think it's a lot of work, you know, because they have to have someone changing things as soon as all the, any new information comes out.
   - Ross Tucker (Speaker A): I, I think it's just really, really tough for them to make any money on it.
   - Ross Tucker (Speaker A): It was my understanding in me doing something like that.
 
 Betting language / picks:
-  - Guest (Speaker C): And all of a sudden, boom, over, under and love four and a half.
-  - Guest (Speaker C): Look no further than is Love going to go number four to the Tennessee Titans, right?
-  - Guest (Speaker C): And the under goes to minus 140, minus 160, minus 220.
-  - Guest (Speaker C): We're going to take you at number four if you're there.
+  - Ross Tucker (Speaker A): I would usually take the over, but what do they call it, like a content card or something?
+  - Ross Tucker (Speaker A): Number One is, you know, a couple years ago, I used to do stuff with DraftKings for the NFL Draft.
 
 Representative lines:
-  - Guest (Speaker C): And then he talks to his people and there's people in the draft room and it's really hard to not have word get out.
   - Ross Tucker (Speaker A): I, I just think it's so as you would stay, say, Steve, information driven, that people are able to get an edge on them.
-  - Ross Tucker (Speaker A): Especially when you have baseball going on NBA playoffs, you know, NHL playoffs.
+  - Ross Tucker (Speaker A): It usually revolved around how many offensive linemen would get drafted in the first round.
+  - Ross Tucker (Speaker A): And then, you know, they would have it up on the app and I would post it to social media.
 
-### 7. Draft / Super Bowl / Total (8:03-9:37)
+### 6. Titans / Total / Draft (7:14-8:32)
 
-Speakers: Guest (Speaker C), Ross Tucker (Speaker A)
+Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
 
-Topics: Draft, Super Bowl, Total
+Topics: Titans, Total, Draft, Super Bowl
 
 Conclusion: No firm pick surfaced.
 
@@ -232,25 +196,58 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Draft, Super Bowl. Rationale themes: market price/line movement.
+Summary: No firm pick surfaced in this beat; it is mostly context around Titans, Total, Draft. Reasoning clue: Guest (Speaker C) - They're not going to take him. Rationale themes: market price/line movement.
 
 Mindset / reasoning clues:
+  - Guest (Speaker C): And so inevitably, as we get closer and closer to that selection date, there's going to hit a point where the Titans are going to call Love saying, hey, we're, we're taking you.
   - Guest (Speaker C): It's like the color of the Gatorade at the super bowl once or how long is the national anthem.
+
+Betting language / picks:
+  - Guest (Speaker C): And all of a sudden, boom, over, under and love four and a half.
+  - Guest (Speaker C): Look no further than is Love going to go number four to the Tennessee Titans, right?
+  - Guest (Speaker C): And the under goes to minus 140, minus 160, minus 220.
+  - Guest (Speaker C): And absent a trade, he's going over four and a half.
+  - Guest (Speaker C): We're going to take you at number four if you're there.
+
+Representative lines:
+  - Guest (Speaker C): And then he talks to his people and there's people in the draft room and it's really hard to not have word get out.
+  - Guest (Speaker C): They're not going to take him.
+  - Guest (Speaker C): It doesn't matter how much you move the vigilant when it's predetermined what the outcome is going to be.
+
+### 7. Draft (8:32-9:47)
+
+Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
+
+Topics: Draft
+
+Conclusion: No firm pick surfaced.
+
+Matchup: Not inferred.
+
+Spread: Not surfaced.
+
+Total: Not surfaced.
+
+Current market: No current public-line snapshot loaded for this matchup.
+
+Summary: No firm pick surfaced in this beat; it is mostly context around Draft. Reasoning clue: Guest (Speaker C) - When it comes to other things, I think it is worth it.
+
+Mindset / reasoning clues:
+  - Guest (Speaker C): When it comes to other things, I think it is worth it.
+  - Guest (Speaker C): Like putting up college football games of the year.
   - Ross Tucker (Speaker A): Like, I guess, I wonder how much value there is.
   - Ross Tucker (Speaker A): In terms of the NFL draft being a loss leader, it just seems to me like if they kept the limits low but had a lot of options that they might be able to drive a lot of people to their buck, whoever it is, and then get sort of the residual benefits from it.
   - Ross Tucker (Speaker A): One is, isn't there value though?
 
 Betting language / picks:
-  - Guest (Speaker C): And absent a trade, he's going over four and a half.
   - Ross Tucker (Speaker A): Is there value in still having the most NFL draft stuff up so that you have the reputation as having the most stuff up and also with the idea or the hope that people come there to bet the draft and then they throw something on the NBA or the NHL or baseball while they're there.
-  - Guest (Speaker C): They're not going to take him.
 
 Representative lines:
   - Guest (Speaker C): It's a great question and I feel when it comes to the draft, no, it's not worth it.
-  - Guest (Speaker C): It doesn't matter how much you move the vigilant when it's predetermined what the outcome is going to be.
   - Ross Tucker (Speaker A): Steve, I mean, look, people way smarter than me, I'm sure do those numbers and crunch those numbers.
+  - Ross Tucker (Speaker A): There's still a lot of competition in the sports betting space.
 
-### 8. Titans / Draft / Moneyline (9:37-10:47)
+### 8. Titans / Draft / Moneyline (9:47-10:58)
 
 Speakers: Guest (Speaker C), Ross Tucker (Speaker A)
 
@@ -266,11 +263,10 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Titans, Draft, Moneyline. Reasoning clue: Guest (Speaker C) - When it comes to other things, I think it is worth it. Rationale themes: market price/line movement.
+Summary: No firm pick surfaced in this beat; it is mostly context around Titans, Draft, Moneyline. Reasoning clue: Ross Tucker (Speaker A) - We're going to do a devote a whole episode to this because they are so popular probably in May, maybe in June. Rationale themes: market price/line movement.
 
 Mindset / reasoning clues:
-  - Guest (Speaker C): When it comes to other things, I think it is worth it.
-  - Guest (Speaker C): Like putting up college football games of the year.
+  - Ross Tucker (Speaker A): We're going to do a devote a whole episode to this because they are so popular probably in May, maybe in June.
 
 Betting language / picks:
   - Guest (Speaker C): So your number is completely wrong.
@@ -281,7 +277,7 @@ Representative lines:
   - Ross Tucker (Speaker A): The other question I have before we get into the other sports, isn't this where the cow she's and the poly markets and I know we're going to have a much longer conversation on this, Steve.
   - Guest (Speaker C): And that team Tennessee closes -7 and a half in that game.
 
-### 9. Draft / Total / Props (10:47-12:21)
+### 9. Draft / Total / Props (10:58-12:21)
 
 Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
 
@@ -297,10 +293,9 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Draft, Total. Reasoning clue: Ross Tucker (Speaker A) - We're going to do a devote a whole episode to this because they are so popular probably in May, maybe in June. Rationale themes: market price/line movement, quarterback evaluation.
+Summary: No firm pick surfaced in this beat; it is mostly context around Draft, Total. Rationale themes: market price/line movement, quarterback evaluation.
 
 Mindset / reasoning clues:
-  - Ross Tucker (Speaker A): We're going to do a devote a whole episode to this because they are so popular probably in May, maybe in June.
   - Guest (Speaker C): But these prediction markets where they don't want any risk and they're just matching up players in each direction make a whole lot of sense, especially like you mentioned, in a situation like this where there's so much uncertainty.
 
 Betting language / picks:

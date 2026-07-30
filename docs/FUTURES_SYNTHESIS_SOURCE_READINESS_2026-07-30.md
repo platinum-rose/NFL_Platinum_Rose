@@ -9,8 +9,10 @@ This is a source-readiness checklist, not a betting recommendation and not appro
 - Latest audit command: `npm.cmd run intel:source-audit`
 - Latest verdict: `PASSABLE`
 - Counts: Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7 / Inference 1
-- Latest JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-10-51-837Z.json`
-- Latest HTML: `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`
+- Latest generated at: `2026-07-30T07:41:18.119Z`
+- Latest JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.json`
+- Latest HTML: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.html`
+- Latest dashboard copy: `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`
 
 ## Scope Decision
 
@@ -21,42 +23,49 @@ The current focus is futures portfolio synthesis readiness. The following are ou
 - Official-picks approval/proposal persistence.
 - Supabase writes or portfolio mutation.
 
-## Accepted Current Evidence
+## Source Acceptance Matrix
 
-- Primary sportsbook structured rows:
-  - BetUS 2026-07-29, 416 rows.
-  - Bookmaker 2026-07-29, 128 rows.
-- Raw current primary-book exports:
-  - Bookmaker/BKR 2026-07-29 raw text.
-  - BetUS 2026-07-29 raw text.
-  - BetOnline 2026-07-29 screenshots.
-- Reviewed YouTube/Gemini futures intel:
-  - 45 promoted/exported items.
-  - 115 review records.
-  - Known DET bad-leak check is 0.
-- Article/research intel:
-  - RSS ingest ran 2026-07-30.
-  - Article full-body review covers 39 articles.
-  - 0 actual pick candidates, 8 market/inference leads, 103 contextual notes.
-- Training camp intel:
-  - 2026-07-30 local snapshot.
-  - 16 items, 32 teams, 12 teams with intel.
-- Team/context data:
-  - 2026 schedule spine has 272 regular-season games.
-  - 2025 analytics, coaching tendency, and DVOA team profiles are present.
-  - Fantasy value board is available as player/usage context only.
+| Source | Decision | Use in frontier synthesis |
+|---|---|---|
+| TheOddsAPI futures ingest receipt | Accepted with caveat | Public market context only. One market was available and 14 were unavailable, so betting recommendations still require a primary-book quote or an explicit Vegas-proxy alert. |
+| Public/API team futures market coverage | Accepted with caveat | Consensus and market-shape context only. Do not treat public/API gaps as blockers when primary-book exports are current. |
+| Manual book export: BetUS | Accepted | Fresh normalized 2026-07-29 primary-book rows, 416 rows. Can be used as current placeable-price evidence after normal portfolio gates. |
+| Manual book export: Bookmaker | Accepted | Fresh normalized 2026-07-29 primary-book rows, 128 rows. Can be used as current placeable-price evidence after normal portfolio gates. |
+| Manual book export: BetOnline | Accepted with caveat | Current July 29 screenshots exist, but stale structured 2026-07-14 rows are not source of truth. Use screenshots manually or normalize before exact-price/actionable use. |
+| Raw current sportsbook export: Bookmaker/BKR | Accepted | Current primary-book market memory from `BKR_Odds_0729`; raw prices remain authoritative until replaced by a newer export. |
+| Raw current sportsbook export: BetUS | Accepted | Current primary-book market memory from `BetUS_ALL_0729`; useful for futures prices and fantasy role/volume inference. |
+| Raw current sportsbook export: BetOnline | Accepted with caveat | Current screenshots are date-identifiable. Normalize to `betonline-2026-07-29` rows before line-movement comparison or actionable recommendation use. |
+| Latest local portfolio report | Accepted with caveat | Prior context only. It was generated before the current source-acceptance pass and must be rebuilt before any final recommendation packet. |
+| Primary M6 diarized store | Accepted with caveat | 54-episode store remains useful context, but the all-export store is the newer podcast source for synthesis. |
+| All-export M6 diarized store | Accepted | 57 manifest episodes through the July 23 futures-card episode. Use this as the current podcast transcript base. |
+| Generated podcast narratives and deep dives | Accepted with caveat | Regenerated after the expanded ad/legal filter. Expanded hard promo/legal scan is clean; sportsbook mentions that remain are price/context references rather than ad/legal copy. |
+| Research/article RSS ingest | Accepted with caveat | Fresh July 30 review lane with one feed issue. Use as research context, not direct pick authority. |
+| Article full-body intel review | Accepted with caveat | 39 articles reviewed, 0 actual pick candidates, 8 market/inference leads, 103 contextual notes. Use leads as context only. |
+| Training camp local snapshot | Accepted | 2026-07-30 snapshot covers all 32 teams, 16 items, 12 teams with intel. |
+| Training camp RSS scout | Accepted with caveat | 16 live-feed items across 12 teams with one feed issue. Review merged output before model synthesis. |
+| Latest season readiness smoke | Accepted with caveat | READY WITH WATCH ITEMS, PASS 11 / WARN 6 / FAIL 0. Watch items are waived for source freshness but still matter for product readiness. |
+
+## Verification Receipts
+
+- `node --check scripts\build-podcast-transcript-deep-dives.js` passed.
+- `node --check agents\lib\speaker-attribution.js` passed.
+- `npm.cmd run podcast-deep-dives` regenerated 57 transcript deep dives.
+- Hard promo/legal scan over `docs\podcast-transcript-deep-dives` returned no matches for DraftKings promo/legal, Total Wireless, sponsorship copy, gamble-responsibly, or DKNG/legal disclaimers.
+- Broad ad-context scan returned 7 residual matches; each was reviewed as contextual false-positive residue rather than sponsor/legal copy.
+- `docs/podcast-transcript-deep-dives/index.json` parsed with Count 57 / Episodes 57 / GeneratedAt `2026-07-30T07:40:54.220Z`.
+- All `docs/podcast-transcript-deep-dives/*.json` parsed successfully.
+- All `data/podcasts/m6-diarized-all/*.json` parsed successfully.
+- `npm.cmd run intel:source-audit` returned `PASSABLE` with 0 stale, 0 blocked, and 0 missing sources.
 
 ## Required Caveats Before Frontier Synthesis
 
 - BetOnline has current July 29 screenshots, but the structured BetOnline JSON import is stale. Do not use stale BetOnline structured rows as source of truth unless they are normalized or manually reviewed against the screenshots.
-- Podcast/deep-dive generated output has known sponsor/ad leakage. Use raw/source-stamped M6 transcript evidence or explicitly caveat generated deep-dive text until the filter is fixed and regenerated.
-- The latest portfolio synthesis artifact is useful prior context, but it was generated on 2026-07-27. Rebuild the synthesis packet after accepting or caveating the current July 30 source bundle.
+- Generated podcast/deep-dive text is accepted only after the July 30 ad/legal-filter regeneration. If new podcast ingestion runs again, regenerate and re-scan before model synthesis.
+- The latest portfolio synthesis artifact is useful prior context, but it was generated before this source-acceptance pass. Rebuild the synthesis packet from accepted current sources.
 - Season readiness is `READY WITH WATCH ITEMS`, PASS 11 / WARN 6 / FAIL 0. The watch items are not source-freshness blockers, but should be explicitly waived or noted before model execution.
 
 ## Next Acceptance Steps
 
-1. Mark each of the 17 audit review items as accepted, accepted-with-caveat, or excluded.
-2. Resolve or caveat podcast/deep-dive sponsor/ad leakage.
-3. Normalize or manually review BetOnline screenshots before using BetOnline as a placeable-price source.
-4. Build the frontier-model evidence packet from accepted sources only.
-5. Ask for explicit approval before any paid model/API call or persisted recommendation output.
+1. Normalize or manually review BetOnline screenshots before using BetOnline as a placeable-price source.
+2. Build the frontier-model evidence packet from accepted sources only.
+3. Ask for explicit approval before any paid model/API call or persisted recommendation output.

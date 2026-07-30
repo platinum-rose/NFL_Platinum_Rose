@@ -25,38 +25,9 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 ## Conversation Beats
 
-### 1. Total (0:00-1:29)
+### 1. General discussion (0:00-3:36)
 
-Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker B), Guest (Speaker C)
-
-Topics: Total
-
-Conclusion: No firm pick surfaced.
-
-Matchup: Not inferred.
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: No firm pick surfaced in this beat; it is mostly context around Total. Rationale themes: injury and availability.
-
-Mindset / reasoning clues:
-  - None pulled.
-
-Betting language / picks:
-  - Steve Fezzik (Speaker B): Bet Tax Pass through May apply in Illinois 21 and over Boyd in Canada Event contract trading with DraftKings predictions involves risk of loss Availability varies Predictions offer void in New York Bet to get bonus bets that expire in 7 days Trade to get predictions dollars that expire in 1 year DOL rewards issued every 7 days via click to claim for 14 days 1 non withdrawable reward redeemable terms at DKNG Co Offer Limited time offer pays Checkout is offered by your banks and credit unions, so when you shop online at participating merchants, your cards appear in one place.
-
-Representative lines:
-  - Ross Tucker (Speaker A): Whatever you are watching this summer baseball, Golf, soccer, racing DraftKings has you covered for every single moment of it.
-  - Ross Tucker (Speaker A): The DraftKings sports app is now available in all 50 states, bringing the game straight to your fingertips wherever you are.
-  - Ross Tucker (Speaker A): New DraftKings customers sign up with code Ross spend 5 bucks to get 150 in rewards within 14 days.
-
-### 2. General discussion (1:32-3:36)
-
-Speakers: Steve Fezzik (Speaker B), Ross Tucker (Speaker A)
+Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker B)
 
 Topics: General
 
@@ -70,7 +41,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around general football context. Reasoning clue: Ross Tucker (Speaker A) - We gotta dive into those with Steve for sure because that's big news in the betting world. Rationale themes: market price/line movement, offensive personnel, trend or regression angle.
+Summary: No firm pick surfaced in this beat; it is mostly context around general football context. Reasoning clue: Ross Tucker (Speaker A) - We gotta dive into those with Steve for sure because that's big news in the betting world. Rationale themes: market price/line movement, injury and availability, offensive personnel.
 
 Mindset / reasoning clues:
   - Ross Tucker (Speaker A): Some of you, by the way, will notice we're recording a little bit later on Tuesday mornings in the off season because we don't need Steve getting up at 4am to record at 5:25am local in the off season.
@@ -85,10 +56,10 @@ Betting language / picks:
 
 Representative lines:
   - Ross Tucker (Speaker A): Email me a screenshot with whatever question you've ever wanted to ask a professional sports better and one of the smartest people I know at physics sports, I'm Ross Tucker, former NFL offensive lineman.
-  - Ross Tucker (Speaker A): Now I call game CBS on the TV side West would want on the radio side, you can hit me up at Ross Tucker NFL.
-  - Ross Tucker (Speaker A): I want to get his thoughts even though it's not NFL related on the Giannis trade from last night.
+  - Ross Tucker (Speaker A): Whatever you are watching this summer baseball, Golf, soccer, racing DraftKings has you covered for every single moment of it.
+  - Ross Tucker (Speaker A): The DraftKings sports app is now available in all 50 states, bringing the game straight to your fingertips wherever you are.
 
-### 3. Dolphins / Draft / Win Totals (3:36-4:47)
+### 2. Dolphins / Draft / Win Totals (3:36-4:47)
 
 Speakers: Ross Tucker (Speaker A)
 
@@ -118,7 +89,7 @@ Representative lines:
   - Ross Tucker (Speaker A): Got a bunch of shows, Ross Tucker Football podcast, College Draft Podcast which is a college football betting show during the season.
   - Ross Tucker (Speaker A): I don't even know antetokounmpo I, I, I, I can't even say his last name that well.
 
-### 4. Raiders (4:47-5:58)
+### 3. Raiders (4:47-5:58)
 
 Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
 
@@ -148,7 +119,7 @@ Representative lines:
   - Guest (Speaker C): So I did get a text from my friend Chris the Bear Felica and he says the Bucks deserve this shit deal.
   - Ross Tucker (Speaker A): Since it's been reported that the Celtics tried to trade Jaylen Brown but the Bucks turned them down.
 
-### 5. Dolphins / Total / Win Totals (5:58-7:13)
+### 4. Dolphins / Total / Win Totals (5:58-7:13)
 
 Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
 
@@ -184,7 +155,7 @@ Representative lines:
   - Guest (Speaker C): But then I got a text from one of my.
   - Ross Tucker (Speaker A): Maybe short the stock, if you will.
 
-### 6. Raiders / Dolphins / Spread (7:13-15:39)
+### 5. Raiders / Dolphins / Spread (7:13-15:39)
 
 Speakers: Guest (Speaker C), Ross Tucker (Speaker A)
 
@@ -217,7 +188,7 @@ Representative lines:
   - Guest (Speaker C): But you're not going to use the Raiders the rest of the year.
   - Ross Tucker (Speaker A): I don't follow it quite as closely as you, but the Circa has a $20 million Survivor contest, the biggest ever, and then splash sports.
 
-### 7. Total (8:27-9:38)
+### 6. Total (8:27-9:38)
 
 Speakers: Guest (Speaker C), Ross Tucker (Speaker A)
 
@@ -251,7 +222,7 @@ Representative lines:
   - Guest (Speaker C): So Splash Sports, Even with the 7% rake, I would absolutely recommend it to everyone.
   - Guest (Speaker C): There's double weeks in the in the Circa that are Christmas and Thanksgiving.
 
-### 8. Total (9:38-10:52)
+### 7. Total (9:38-10:52)
 
 Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
 
@@ -284,7 +255,7 @@ Representative lines:
   - Ross Tucker (Speaker A): And then the next thing would be.
   - Ross Tucker (Speaker A): But that's just online, correct?
 
-### 9. Browns / Jaguars / Total (10:52-13:56)
+### 8. Browns / Jaguars / Total (10:52-13:56)
 
 Speakers: Guest (Speaker C), Ross Tucker (Speaker A)
 
@@ -321,7 +292,7 @@ Representative lines:
   - Guest (Speaker C): I'll buy in for $1,000 and order the most expensive cocktail I can get away with.
   - Ross Tucker (Speaker A): Didn't you lose like what happened to the thousand bucks?
 
-### 10. Lions / Saints (13:56-14:11)
+### 9. Lions / Saints (13:56-14:11)
 
 Speakers: Guest (Speaker C)
 
@@ -350,7 +321,7 @@ Representative lines:
   - Guest (Speaker C): So where I'm going here maybe you want to be contrarian.
   - Guest (Speaker C): That's probably a good teaser.
 
-### 11. Chargers / Week 1 (14:11-14:26)
+### 10. Chargers / Week 1 (14:11-14:26)
 
 Speakers: Guest (Speaker C)
 
@@ -378,7 +349,7 @@ Betting language / picks:
 Representative lines:
   - Guest (Speaker C): If you go contrarian and you use those teams and your survivor, do you really want to do that?
 
-### 12. General discussion (15:45-18:21)
+### 11. General discussion (15:45-18:21)
 
 Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
 
@@ -411,7 +382,7 @@ Representative lines:
   - Ross Tucker (Speaker A): I feel like I would need at least two.
   - Ross Tucker (Speaker A): I feel like I could sleep at night.
 
-### 13. Cardinals (18:21-19:34)
+### 12. Cardinals (18:21-19:34)
 
 Speakers: Guest (Speaker C), Ross Tucker (Speaker A)
 
@@ -444,7 +415,7 @@ Representative lines:
   - Ross Tucker (Speaker A): Is this the same Steve Fezick on your show that I subscribed to?
   - Ross Tucker (Speaker A): Mercado Miscarriage Emmanuel D.
 
-### 14. Total (19:35-20:48)
+### 13. Total (19:35-20:48)
 
 Speakers: Guest (Speaker C), Ross Tucker (Speaker A)
 
@@ -477,7 +448,7 @@ Representative lines:
   - Guest (Speaker C): So if you're buying my picks, I'm sorry, you're being scammed.
   - Guest (Speaker C): The only way to reach me is Twitter at Pheasix Sports.
 
-### 15. Cardinals / Week 1 (20:48-21:59)
+### 14. Cardinals / Week 1 (20:48-21:59)
 
 Speakers: Guest (Speaker C), Ross Tucker (Speaker A)
 
@@ -510,7 +481,7 @@ Representative lines:
   - Guest (Speaker C): Someone's pretending to be me, but this isn't my real last name.
   - Ross Tucker (Speaker A): You did say that you had something on the hall of Fame game.
 
-### 16. Bengals (21:59-23:09)
+### 15. Bengals (21:59-23:09)
 
 Speakers: Guest (Speaker C), Ross Tucker (Speaker A)
 
@@ -545,7 +516,7 @@ Representative lines:
   - Guest (Speaker C): Remember, we're tying up our money for five months when we're betting this stuff.
   - Ross Tucker (Speaker A): Three weeks ago I saw that the Devil I have no idea when this email is from.
 
-### 17. Bengals (23:09-24:24)
+### 16. Bengals (23:09-24:24)
 
 Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
 
@@ -579,7 +550,7 @@ Representative lines:
   - Ross Tucker (Speaker A): They were two games out of the wild card at that time.
   - Ross Tucker (Speaker A): Last weekend they just swept the first place Mets this might have been from last year are playing extremely well have a two and a half game leading the wild card race and on DK right now it's minus 110 minus 100 to make miss the playoffs.
 
-### 18. Eagles / Falcons / Division (24:24-25:40)
+### 17. Eagles / Falcons / Division (24:24-25:40)
 
 Speakers: Guest (Speaker C), Ross Tucker (Speaker A)
 
@@ -613,7 +584,7 @@ Representative lines:
   - Guest (Speaker C): The Phillies, who are playing good baseball look to be the best team in the division right now.
   - Ross Tucker (Speaker A): Then we got an email speaking of the Giannis trade, which you knew nothing about, which is hilarious.
 
-### 19. Spread (25:40-26:58)
+### 18. Spread (25:40-26:58)
 
 Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
 
@@ -646,7 +617,7 @@ Representative lines:
   - Guest (Speaker C): And if anything, basketball seems more variable than the NFL, even though you're only scoring by twos and threes.
   - Guest (Speaker C): The you only get four points or four and a half points.
 
-### 20. General discussion (26:58-29:34)
+### 19. General discussion (26:58-29:34)
 
 Speakers: Guest (Speaker C), Ross Tucker (Speaker A), Guest (Speaker D), Steve Fezzik (Speaker B)
 

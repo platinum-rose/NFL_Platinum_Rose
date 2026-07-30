@@ -57,9 +57,9 @@ Betting language / picks:
   - Ross Tucker (Speaker A): Generally considered the number one NFL betting podcast in the world.
 
 Representative lines:
-  - Ross Tucker (Speaker A): The Crown is yours bet with DK
   - Ross Tucker (Speaker A): Whatever you are watching this summer baseball, Golf, soccer, racing DraftKings has you covered for every single moment of it.
   - Ross Tucker (Speaker A): The DraftKings sports app is now available in all 50 states, bringing the game straight to your fingertips wherever you are.
+  - Guest (Speaker C): Wayfair's Black Friday in July sale is happening now, so you can finally get the style you've been waiting for.
 
 ### 2. Injuries / Total (5:21-6:39)
 

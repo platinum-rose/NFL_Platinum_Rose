@@ -8,7 +8,6 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 - B: Chad Millman
 - C: Simon Hunter
-- G: Guest
 - H: Guest
 - I: Guest
 - J: Guest
@@ -24,6 +23,7 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 - D: ad/commercial audio ignored
 - E: ad/commercial audio ignored
 - F: ad/commercial audio ignored
+- G: ad/commercial audio ignored
 - K: ad/commercial audio ignored
 
 ## Timing / Watchlist Conjectures
@@ -32,9 +32,9 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 ## Conversation Beats
 
-### 1. General discussion (0:08-1:41)
+### 1. General discussion (0:08-2:32)
 
-Speakers: Chad Millman (Speaker B), Guest (Speaker G)
+Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
 Topics: General
 
@@ -57,15 +57,15 @@ Betting language / picks:
   - None pulled.
 
 Representative lines:
-  - Guest (Speaker G): Cormier from the Daniel Cormier Show.
-  - Chad Millman (Speaker B): It can even be made official today
-  - Chad Millman (Speaker B): It's your website, your call.
+  - Simon Hunter (Speaker C): I am joined as always by my co host, my companion, my compadre, my
+  - Chad Millman (Speaker B): This is the betting show that makes a squares.
+  - Chad Millman (Speaker B): Chopra makes the wise guys pay attention.
 
-### 2. Rams / Total / Schedule (1:41-3:46)
+### 2. Rams / Schedule (2:34-3:46)
 
-Speakers: Guest (Speaker G), Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker H)
+Speakers: Simon Hunter (Speaker C), Chad Millman (Speaker B), Guest (Speaker H)
 
-Topics: Rams, Total, Schedule
+Topics: Rams, Schedule
 
 Conclusion: Simon Hunter (Speaker C): Without further ado, let's dive right back in.
 
@@ -77,7 +77,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about Rams, Total, Schedule. Rationale themes: market price/line movement, injury and availability, home/road and scheduling spot.
+Summary: The beat is mainly about Rams, Schedule. Rationale themes: injury and availability, home/road and scheduling spot, trend or regression angle.
 
 Mindset / reasoning clues:
   - Chad Millman (Speaker B): Once again we're joined by special guest Warren Sharp of Sharp football analysis.
@@ -879,7 +879,7 @@ Representative lines:
   - Simon Hunter (Speaker C): I would say they're pushing rest matters less than the cash we can make from putting good games and good spots to make more money publicly.
   - Guest (Speaker H): I mean, I've heard them say that they don't believe rest is a factor.
 
-### 29. Playoffs / Schedule (23:37-24:54)
+### 29. Playoffs / Schedule (23:37-25:11)
 
 Speakers: Guest (Speaker H), Chad Millman (Speaker B)
 
@@ -902,47 +902,18 @@ Mindset / reasoning clues:
   - Chad Millman (Speaker B): If you're ever late to tip off, don't worry.
 
 Betting language / picks:
-  - Chad Millman (Speaker B): If you win, just place a $5 bet and if it hits, you get not only your winnings, but also an extra $150 in bonus bets.
+  - None pulled.
 
 Representative lines:
   - Chad Millman (Speaker B): The second round of the NBA playoffs is here and with win or go home energy on the hardwood, same game parlays are a great way to stack picks built especially for the playoff action.
-  - Chad Millman (Speaker B): Offered by Seminole Hard Rock Digital LLC in all other states.
   - Guest (Speaker H): And you know the evil machine making the money.
+  - Chad Millman (Speaker B): Concerned about gambling in Florida?
 
-### 30. General discussion (25:05-28:12)
+### 30. Cardinals / Chargers / Raiders (25:22-30:06)
 
-Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker J), Guest (Speaker G)
+Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker J), Guest (Speaker I)
 
-Topics: General
-
-Conclusion: No firm pick surfaced.
-
-Matchup: Not inferred.
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: No firm pick surfaced in this beat; it is mostly context around general football context.
-
-Mindset / reasoning clues:
-  - None pulled.
-
-Betting language / picks:
-  - None pulled.
-
-Representative lines:
-  - Chad Millman (Speaker B): You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you.
-  - Chad Millman (Speaker B): what you want and generate a site ready to use right away, complete with forms, payments, security and more built in.
-  - Guest (Speaker J): Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores in various stages of ooze.
-
-### 31. Cardinals / Chargers / Raiders (28:12-29:24)
-
-Speakers: Guest (Speaker G), Guest (Speaker I)
-
-Topics: Cardinals, Chargers, Raiders, Total, Week 1, Win Totals
+Topics: Cardinals, Chargers, Raiders, Total, Injuries, Week 1, Win Totals
 
 Conclusion: No firm pick surfaced.
 
@@ -954,26 +925,31 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Cardinals, Chargers, Raiders, Total, Week 1. Rationale themes: market price/line movement.
+Summary: No firm pick surfaced in this beat; it is mostly context around Cardinals, Chargers, Raiders, Total, Injuries. Reasoning clue: Guest (Speaker I) - Like they're just, they want to get the viewership and they're not going to worry about your team because you don't really have a fan base complaining to this front office. Rationale themes: quarterback evaluation, injury and availability, home/road and scheduling spot.
 
 Mindset / reasoning clues:
-  - None pulled.
+  - Guest (Speaker I): But this is a team that already gets an injury bug and now they're at a huge rest disadvantage because of what a little bit of what Warren's talking about here, which is I think NFL is showing their hand.
+  - Guest (Speaker I): It's a big deal if he moves half a game to 11, like that's to me the exact position I want to be in because I could see Herbert getting to 10 wins because he's that talented.
+  - Guest (Speaker I): Like they're just, they want to get the viewership and they're not going to worry about your team because you don't really have a fan base complaining to this front office.
+  - Guest (Speaker I): They'll throw you in primetime games, they'll put you in awful spots because they don't care.
+  - Guest (Speaker I): I think it is ten and a half.
 
 Betting language / picks:
   - Guest (Speaker I): We're going to talk about when we do over unders, but I've already basically put aside five figures to in season bet the Chargers win total like you can literally let Them win week one, week two against a, you know, a Cardinals and the Raiders opponents.
+  - Guest (Speaker I): You're one of these teams that's moved to a different new stadium over the last couple of years, but you have a talented quarterback.
   - Guest (Speaker I): And that's going to be a huge advantage to take because even if it's.
   - Guest (Speaker I): You can take it now, right?
 
 Representative lines:
-  - Guest (Speaker G): Monthly rates on the Total Base 5G Unlimited plan for new subscribers applies only to the monthly rate for your plan.
-  - Guest (Speaker G): With Total Wireless, you get unlimited 5G data keeping you in on all the action, from the walkouts to the knockouts.
-  - Guest (Speaker G): This podcast is sponsored by Total Wireless, the official wireless partner of ufc.
+  - Chad Millman (Speaker B): You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you.
+  - Chad Millman (Speaker B): what you want and generate a site ready to use right away, complete with forms, payments, security and more built in.
+  - Guest (Speaker J): Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores in various stages of ooze.
 
-### 32. Chargers / Rams / Injuries (29:24-30:17)
+### 31. Chargers / Rams (30:06-30:17)
 
 Speakers: Guest (Speaker I)
 
-Topics: Chargers, Rams, Injuries, Total
+Topics: Chargers, Rams
 
 Conclusion: No firm pick surfaced.
 
@@ -985,24 +961,19 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Chargers, Rams, Injuries, Total. Reasoning clue: Guest (Speaker I) - Like they're just, they want to get the viewership and they're not going to worry about your team because you don't really have a fan base complaining to this front office. Rationale themes: quarterback evaluation, injury and availability, home/road and scheduling spot.
+Summary: No firm pick surfaced in this beat; it is mostly context around Chargers, Rams.
 
 Mindset / reasoning clues:
-  - Guest (Speaker I): But this is a team that already gets an injury bug and now they're at a huge rest disadvantage because of what a little bit of what Warren's talking about here, which is I think NFL is showing their hand.
-  - Guest (Speaker I): It's a big deal if he moves half a game to 11, like that's to me the exact position I want to be in because I could see Herbert getting to 10 wins because he's that talented.
-  - Guest (Speaker I): Like they're just, they want to get the viewership and they're not going to worry about your team because you don't really have a fan base complaining to this front office.
-  - Guest (Speaker I): They'll throw you in primetime games, they'll put you in awful spots because they don't care.
-  - Guest (Speaker I): I think it is ten and a half.
+  - None pulled.
 
 Betting language / picks:
-  - Guest (Speaker I): You're one of these teams that's moved to a different new stadium over the last couple of years, but you have a talented quarterback.
+  - None pulled.
 
 Representative lines:
   - Guest (Speaker I): So I thought it was really interesting when you see what's going on with the Rams and the Chargers.
   - Guest (Speaker I): It's two teams that, you know, moved la now it's been five, six years and they just have not really had a foothold.
-  - Guest (Speaker I): A little bit of if you don't have a great home field advantage, you don't have a die hard home field.
 
-### 33. 49ers / Total (30:17-30:22)
+### 32. 49ers / Total (30:17-30:22)
 
 Speakers: Guest (Speaker I)
 
@@ -1029,7 +1000,7 @@ Betting language / picks:
 Representative lines:
   - None pulled.
 
-### 34. Chargers / Raiders / Rams (30:22-30:32)
+### 33. Chargers / Raiders / Rams (30:22-30:32)
 
 Speakers: Guest (Speaker I)
 
@@ -1056,7 +1027,7 @@ Betting language / picks:
 Representative lines:
   - None pulled.
 
-### 35. 49ers / Coaching (30:33-31:43)
+### 34. 49ers / Coaching (30:33-31:43)
 
 Speakers: Simon Hunter (Speaker C), Guest (Speaker H)
 
@@ -1086,7 +1057,7 @@ Representative lines:
   - Guest (Speaker H): But even if you felt that way, you could trade down some of these picks, get more assets and still get the guy that you're looking to get.
   - Simon Hunter (Speaker C): You know, you mentioned the Niners last year.
 
-### 36. 49ers / Coaching / Super Bowl (31:43-32:54)
+### 35. 49ers / Coaching / Super Bowl (31:43-32:54)
 
 Speakers: Guest (Speaker H)
 
@@ -1116,7 +1087,7 @@ Representative lines:
   - Guest (Speaker H): And if you want a little fun nugget blast from the past, go search for this exact show that we did last year on almost this exact date one year ago.
   - Guest (Speaker H): You will find us talking about the same exact story with the 49ers.
 
-### 37. Colts / Coaching / Injuries (32:54-34:07)
+### 36. Colts / Coaching / Injuries (32:54-34:07)
 
 Speakers: Guest (Speaker H), Guest (Speaker I)
 
@@ -1150,7 +1121,7 @@ Representative lines:
   - Guest (Speaker H): It's frustrating that he sometimes falls in love with these mid round running backs that he thinks he has to have on the team and it's also frustrating that John lynch just goes way off the board and doesn't understand value and as a result I think is limiting the ceiling of where this team could go.
   - Guest (Speaker I): Simon, we talk all the time about these organizations with just an owner that becomes buddy buddy with these GMs and it's, you know, it's what happens.
 
-### 38. Rams / Seahawks / Total (34:07-35:20)
+### 37. Rams / Seahawks / Total (34:07-35:20)
 
 Speakers: Guest (Speaker I)
 
@@ -1185,13 +1156,13 @@ Representative lines:
   - Guest (Speaker I): I feel like we're all on the same page.
   - Guest (Speaker I): Like they had a great coaching.
 
-### 39. 49ers / Draft / Coaching (35:20-36:38)
+### 38. 49ers / Draft / Coaching (35:20-37:50)
 
-Speakers: Guest (Speaker H), Simon Hunter (Speaker C), Guest (Speaker G)
+Speakers: Guest (Speaker H), Simon Hunter (Speaker C)
 
 Topics: 49ers, Draft, Coaching, Schedule
 
-Conclusion: Guest (Speaker G): You play to win the game, you
+Conclusion: No firm pick surfaced.
 
 Matchup: Not inferred.
 
@@ -1201,23 +1172,22 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about 49ers, Draft, Coaching. Reasoning clue: Guest (Speaker H) - John lynch came out after the draft and said Brock Purdy was Brian Greasy the quarterback coach and Slow. Rationale themes: quarterback evaluation, coaching and scheme, home/road and scheduling spot.
+Summary: No firm pick surfaced in this beat; it is mostly context around 49ers, Draft, Coaching. Reasoning clue: Guest (Speaker H) - John lynch came out after the draft and said Brock Purdy was Brian Greasy the quarterback coach and Slow. Rationale themes: quarterback evaluation, coaching and scheme, home/road and scheduling spot.
 
 Mindset / reasoning clues:
   - Simon Hunter (Speaker C): Our thanks to Warren Sharp for joining us as always to cover the 2026 NFL schedule.
 
 Betting language / picks:
   - Guest (Speaker H): That Brock Purdy pick was not even John lynch.
-  - Guest (Speaker G): You play to win the game, you
 
 Representative lines:
   - Guest (Speaker H): John lynch came out after the draft and said Brock Purdy was Brian Greasy the quarterback coach and Slow.
   - Guest (Speaker H): Not Bobby Slow but his brother who was a scout for the 49ers.
   - Simon Hunter (Speaker C): We end our two episodes in 2026 harping on the Niners.
 
-### 40. Total (37:48-39:06)
+### 39. Total (37:50-39:06)
 
-Speakers: Guest (Speaker H), Simon Hunter (Speaker C), Guest (Speaker I), Guest (Speaker L)
+Speakers: Simon Hunter (Speaker C), Guest (Speaker H), Guest (Speaker I), Guest (Speaker L)
 
 Topics: Total
 

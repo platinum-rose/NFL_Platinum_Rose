@@ -23,9 +23,9 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 ## Conversation Beats
 
-### 1. Schedule (0:01-1:16)
+### 1. Schedule (0:08-1:21)
 
-Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker B)
+Speakers: Steve Fezzik (Speaker B)
 
 Topics: Schedule
 
@@ -50,15 +50,15 @@ Betting language / picks:
   - Steve Fezzik (Speaker B): It is the Even Money Betting podcast, the number one NFL betting podcast in the galaxy.
 
 Representative lines:
+  - Steve Fezzik (Speaker B): We're getting to multiple email questions from you guys on today's show, which is super exciting.
   - Steve Fezzik (Speaker B): The we is my main man, Steve Fezik at physicsports and only at Physics Sports.
   - Steve Fezzik (Speaker B): We figured it'd be better if you got it early as opposed to late.
-  - Steve Fezzik (Speaker B): It's the Even Money Podcast with Ross Tucker and Steve Pezik.
 
-### 2. General discussion (1:16-2:29)
+### 2. Total (1:21-2:34)
 
 Speakers: Steve Fezzik (Speaker B)
 
-Topics: General
+Topics: Total
 
 Conclusion: No firm pick surfaced.
 
@@ -70,7 +70,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around general football context. Reasoning clue: Steve Fezzik (Speaker B) - I think a week ago Steve was all in on betting on the Celtics.
+Summary: No firm pick surfaced in this beat; it is mostly context around Total. Reasoning clue: Steve Fezzik (Speaker B) - I think a week ago Steve was all in on betting on the Celtics.
 
 Mindset / reasoning clues:
   - Steve Fezzik (Speaker B): I know we don't talk much about horse racing on this show because it's typically not very profitable.
@@ -79,48 +79,16 @@ Mindset / reasoning clues:
   - Steve Fezzik (Speaker B): Love getting your email questions.
 
 Betting language / picks:
-  - None pulled.
+  - Steve Fezzik (Speaker B): We went over that in depth last week.
 
 Representative lines:
   - Steve Fezzik (Speaker B): Myfrontpagestory.com Put your mom or your wife on the front cover of a newspaper that they deserve.
-  - Steve Fezzik (Speaker B): We're getting to multiple email questions from you guys on today's show, which is super exciting.
   - Steve Fezzik (Speaker B): I know a lot of people put money on Renegade and some of the other horses.
+  - Steve Fezzik (Speaker B): Definitely want to get Steve's thoughts on the Kentucky Derby.
 
-### 3. Total (2:29-3:41)
+### 3. General discussion (2:34-6:47)
 
 Speakers: Steve Fezzik (Speaker B), Ross Tucker (Speaker A)
-
-Topics: Total
-
-Conclusion: Ross Tucker (Speaker A): But bottom line is we talked about basic betting strategy and it was to look at the money that was coming in against the top horse or horses and fade them in horse matchups.
-
-Matchup: Not inferred.
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: The beat is mainly about Total. Reasoning clue: Ross Tucker (Speaker A) - And if you did that, Ross, you lost because Renegade was the clear horse people thought, the experts thought was going to struggle. Rationale themes: market price/line movement, offensive personnel.
-
-Mindset / reasoning clues:
-  - Ross Tucker (Speaker A): And if you did that, Ross, you lost because Renegade was the clear horse people thought, the experts thought was going to struggle.
-
-Betting language / picks:
-  - Ross Tucker (Speaker A): But bottom line is we talked about basic betting strategy and it was to look at the money that was coming in against the top horse or horses and fade them in horse matchups.
-  - Ross Tucker (Speaker A): All and people will bet on them just because of their name.
-  - Steve Fezzik (Speaker B): We went over that in depth last week.
-  - Ross Tucker (Speaker A): So if you bet him in matchups, you probably lost every matchup that you played against him following that strategy.
-
-Representative lines:
-  - Ross Tucker (Speaker A): That being said, you know the proponents of betting on the Derby, when there's 20 horses, there's always five or six of them that they basically have no chance at.
-  - Steve Fezzik (Speaker B): But I am curious, Steve, what, what thoughts you had, if any, on the Kentucky Derby and the long shot winning?
-  - Ross Tucker (Speaker A): They, they, you wind up with an edge doing it in the long run, but in the short run, you can have bad deres.
-
-### 4. General discussion (3:41-6:47)
-
-Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker B)
 
 Topics: General
 
@@ -134,26 +102,28 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about general football context. Reasoning clue: Ross Tucker (Speaker A) - I think there was a medical concern, some foot issue. Rationale themes: market price/line movement.
+Summary: The beat is mainly about general football context. Reasoning clue: Ross Tucker (Speaker A) - I think there was a medical concern, some foot issue. Rationale themes: market price/line movement, offensive personnel.
 
 Mindset / reasoning clues:
   - Steve Fezzik (Speaker B): They spend very little time talking about how they did the night before or the week before, probably because they don't have nearly the success that we are fortunate to have.
   - Steve Fezzik (Speaker B): You know, so interesting on the Derby there any other thoughts as it relates to the Derby or Derby golden or Golden Tempo or Preakness or anything like that?
+  - Ross Tucker (Speaker A): And if you did that, Ross, you lost because Renegade was the clear horse people thought, the experts thought was going to struggle.
   - Ross Tucker (Speaker A): I think there was a medical concern, some foot issue.
   - Ross Tucker (Speaker A): So, like the World Cup's coming up.
-  - Ross Tucker (Speaker A): And you're like, well, how can you be having a great NCAA tournament if you're 9 and 16?
 
 Betting language / picks:
+  - Ross Tucker (Speaker A): But bottom line is we talked about basic betting strategy and it was to look at the money that was coming in against the top horse or horses and fade them in horse matchups.
   - Ross Tucker (Speaker A): Not that I bet big, but I, I think I had five matchups against Renegade and lost them all.
+  - Ross Tucker (Speaker A): All and people will bet on them just because of their name.
   - Ross Tucker (Speaker A): And yet, yet then you put them and you take a look transparency wise, at the contest they're in and they're like 9 and 16.
   - Steve Fezzik (Speaker B): Like you can always go back and watch or listen any episode we've ever had.
 
 Representative lines:
+  - Ross Tucker (Speaker A): And you're like, well, how can you be having a great NCAA tournament if you're 9 and 16?
   - Steve Fezzik (Speaker B): But I do feel like a lot of the shows, they always just move on to the next day.
   - Ross Tucker (Speaker A): It's like poker, poker terms a little bit different than cash, cash betting.
-  - Ross Tucker (Speaker A): They're like, oh, it just turned out, you know, all that was an aberration.
 
-### 5. Total (6:47-8:00)
+### 4. Total (6:47-8:00)
 
 Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker B)
 
@@ -186,7 +156,7 @@ Representative lines:
   - Ross Tucker (Speaker A): And well, maybe when you got an outmatch team and Brazil's playing them, they can beat them 8:1.
   - Ross Tucker (Speaker A): How can a total be one for an entire first half?
 
-### 6. General discussion (8:00-10:07)
+### 5. General discussion (8:00-10:07)
 
 Speakers: Steve Fezzik (Speaker B), Ross Tucker (Speaker A)
 
@@ -218,7 +188,7 @@ Representative lines:
   - Ross Tucker (Speaker A): And then someone proposed, hey, let's let the goalie catch the ball and stop all the action, it would be ridiculed.
   - Steve Fezzik (Speaker B): So as we're recording this, the Raptors and Cavs are playing game seven right now here on Sunday evening.
 
-### 7. Eagles (10:07-11:20)
+### 6. Eagles (10:07-11:20)
 
 Speakers: Steve Fezzik (Speaker B), Ross Tucker (Speaker A)
 
@@ -251,7 +221,7 @@ Representative lines:
   - Ross Tucker (Speaker A): But if you're really awful, the proposal is you're only going to get two ping pong balls.
   - Ross Tucker (Speaker A): And what was interesting, you know, I'm arguing with some of my friends at.
 
-### 8. Commanders / Draft / Total (11:20-12:31)
+### 7. Commanders / Draft / Total (11:20-12:31)
 
 Speakers: Ross Tucker (Speaker A)
 
@@ -285,7 +255,7 @@ Representative lines:
   - Ross Tucker (Speaker A): It's going to ruin the competitive aspect of the league.
   - Ross Tucker (Speaker A): It's going to stop all this nonsense.
 
-### 9. Texans (12:35-15:19)
+### 8. Texans (12:35-15:19)
 
 Speakers: Steve Fezzik (Speaker B)
 
@@ -318,7 +288,7 @@ Representative lines:
   - Steve Fezzik (Speaker B): They help you set goals, map out big purchases, see if you're actually on track before it's too late to adjust.
   - Steve Fezzik (Speaker B): Anybody else out there taking a look at all your finances and your affairs, if you will, after tax season.
 
-### 10. Jets / Rams / Draft (15:19-16:33)
+### 9. Jets / Rams / Draft (15:19-16:33)
 
 Speakers: Steve Fezzik (Speaker B), Ross Tucker (Speaker A)
 
@@ -351,7 +321,7 @@ Representative lines:
   - Ross Tucker (Speaker A): All right, we're not going to embarrass our organization by losing on purpose, but when you can get Wemby and all you need is the worst record, the Wemby equivalent in the NFL.
   - Steve Fezzik (Speaker B): But they beat the Rams, who had a really good team.
 
-### 11. Jaguars / Jets / Division (16:33-17:14)
+### 10. Jaguars / Jets / Division (16:33-17:14)
 
 Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker B)
 
@@ -381,7 +351,7 @@ Representative lines:
   - Steve Fezzik (Speaker B): Trevor Lawrence, who had a very, very good season last year, leading the Jaguars to a division title and the playoffs.
   - Steve Fezzik (Speaker B): That was the difference for the jets winning that game.
 
-### 12. Raiders / Schedule / Draft (17:14-18:31)
+### 11. Raiders / Schedule / Draft (17:14-18:31)
 
 Speakers: Steve Fezzik (Speaker B)
 
@@ -412,7 +382,7 @@ Representative lines:
   - Steve Fezzik (Speaker B): Let's just give our listeners a little taste of some of the things they should consider when the NFL schedule comes out.
   - Steve Fezzik (Speaker B): We don't know this, but we believe the schedule will be released next week.
 
-### 13. Cardinals / Dolphins / Browns (18:32-18:55)
+### 12. Cardinals / Dolphins / Browns (18:32-18:55)
 
 Speakers: Ross Tucker (Speaker A)
 
@@ -440,7 +410,7 @@ Betting language / picks:
 Representative lines:
   - None pulled.
 
-### 14. Bills / Rams / Week 1 (18:55-20:10)
+### 13. Bills / Rams / Week 1 (18:55-20:10)
 
 Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker B)
 
@@ -472,7 +442,7 @@ Representative lines:
   - Ross Tucker (Speaker A): He'll come on and he'll basically say, hey, here's the world's greatest spots and the worst spots for select NFL teams.
   - Steve Fezzik (Speaker B): with the schedule, that is.
 
-### 15. Cardinals / Rams / Spread (20:10-21:25)
+### 14. Cardinals / Rams / Spread (20:10-21:25)
 
 Speakers: Steve Fezzik (Speaker B), Ross Tucker (Speaker A)
 
@@ -506,7 +476,7 @@ Representative lines:
   - Ross Tucker (Speaker A): I mean, you could make the case that line should be minus 14.
   - Ross Tucker (Speaker A): But late in the year, all the time, there's there.
 
-### 16. Schedule (21:25-22:43)
+### 15. Schedule (21:25-22:43)
 
 Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker B)
 
@@ -538,7 +508,7 @@ Representative lines:
   - Ross Tucker (Speaker A): But more often than not, you can find bigger edges late if you tie up your money for longer periods of time.
   - Steve Fezzik (Speaker B): Let me just tell you, it's not going to be Friday the 15th, so they won't get enough juice out of it.
 
-### 17. Bills (22:43-24:04)
+### 16. Bills (22:43-24:04)
 
 Speakers: Steve Fezzik (Speaker B)
 
@@ -567,7 +537,7 @@ Representative lines:
   - Steve Fezzik (Speaker B): It is officially May, which means if your fridge isn't filled with Labatt Labatt Blue Light Labatte Blue Light Lime, you're doing it wrong.
   - Steve Fezzik (Speaker B): Gotta pay some bills real quick.
 
-### 18. Browns (24:04-25:18)
+### 17. Browns (24:04-25:18)
 
 Speakers: Steve Fezzik (Speaker B)
 
@@ -598,7 +568,7 @@ Representative lines:
   - Steve Fezzik (Speaker B): Think about what our numbers would have been last year Steve if we were still doing six point teasers at minus 1 10.
   - Steve Fezzik (Speaker B): I look forward to winning with you all this upcoming season.
 
-### 19. Spread / Total (25:19-26:31)
+### 18. Spread / Total (25:19-26:31)
 
 Speakers: Ross Tucker (Speaker A)
 
@@ -631,7 +601,7 @@ Representative lines:
   - Ross Tucker (Speaker A): I got to tell you, I really think we've done very well with these.
   - Ross Tucker (Speaker A): So you have a great situation there.
 
-### 20. General discussion (26:31-27:43)
+### 19. General discussion (26:31-27:43)
 
 Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker B)
 
@@ -663,7 +633,7 @@ Representative lines:
   - Steve Fezzik (Speaker B): Similar question six point teasers at minus 110 six and a half point teasers at minus 127 point teasers at minus 30.
   - Ross Tucker (Speaker A): All right, this answer is going to be more valuable than probably the entire summer.
 
-### 21. Bengals / Schedule (27:43-29:01)
+### 20. Bengals / Schedule (27:43-29:01)
 
 Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker B)
 

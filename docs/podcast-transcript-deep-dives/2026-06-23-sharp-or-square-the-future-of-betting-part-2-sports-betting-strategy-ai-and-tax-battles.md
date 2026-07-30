@@ -8,7 +8,7 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 - D: Chad Millman
 - H: Simon Hunter
-- G: Guest
+- I: Guest
 - K: Guest
 
 ## Expected Participants
@@ -22,7 +22,7 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 - C: ad/commercial audio ignored
 - E: ad/commercial audio ignored
 - F: ad/commercial audio ignored
-- I: ad/commercial audio ignored
+- G: ad/commercial audio ignored
 - J: ad/commercial audio ignored
 
 ## Timing / Watchlist Conjectures
@@ -31,69 +31,11 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 ## Conversation Beats
 
-### 1. Total (0:38-1:51)
+### 1. General discussion (0:38-4:09)
 
-Speakers: Chad Millman (Speaker D), Guest (Speaker G)
+Speakers: Chad Millman (Speaker D), Simon Hunter (Speaker H)
 
-Topics: Total
-
-Conclusion: No firm pick surfaced.
-
-Matchup: Not inferred.
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: No firm pick surfaced in this beat; it is mostly context around Total. Rationale themes: market price/line movement.
-
-Mindset / reasoning clues:
-  - None pulled.
-
-Betting language / picks:
-  - None pulled.
-
-Representative lines:
-  - Guest (Speaker G): This podcast is sponsored by Total Wireless, the official wireless partner of ufc.
-  - Chad Millman (Speaker D): Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores
-  - Chad Millman (Speaker D): I can clear my search history, but I can never unsee that.
-
-### 2. Total (1:51-3:06)
-
-Speakers: Guest (Speaker G), Simon Hunter (Speaker H), Chad Millman (Speaker D)
-
-Topics: Total
-
-Conclusion: No firm pick surfaced.
-
-Matchup: Not inferred.
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: No firm pick surfaced in this beat; it is mostly context around Total. Rationale themes: market price/line movement.
-
-Mindset / reasoning clues:
-  - None pulled.
-
-Betting language / picks:
-  - None pulled.
-
-Representative lines:
-  - Guest (Speaker G): With Total Wireless, you get unlimited 5G data keeping you in the action from the walkouts to the knockouts.
-  - Simon Hunter (Speaker H): We've talked a lot about AI during this NFL off season, how it's being used, how you're using it, how bettors are using it.
-  - Guest (Speaker G): Visit totalwireless.com or stop by your neighborhood Total Wireless Store.
-
-### 3. Total (3:06-4:18)
-
-Speakers: Simon Hunter (Speaker H), Chad Millman (Speaker D)
-
-Topics: Total
+Topics: General
 
 Conclusion: Chad Millman (Speaker D): That back in the day, our whole lives, you bet a thousand, you're petting the juice, the books.
 
@@ -105,7 +47,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about Total. Reasoning clue: Simon Hunter (Speaker H) - I want to start there because I do think that's a big issue for people.
+Summary: The beat is mainly about general football context. Reasoning clue: Simon Hunter (Speaker H) - I want to start there because I do think that's a big issue for people.
 
 Mindset / reasoning clues:
   - Simon Hunter (Speaker H): Because I think a lot of people thought it would go away, and it doesn't look like it's going away.
@@ -113,21 +55,20 @@ Mindset / reasoning clues:
   - Simon Hunter (Speaker H): I want to start there because I do think that's a big issue for people.
 
 Betting language / picks:
-  - Chad Millman (Speaker D): Not only are you losing on the vig, the government now is taking 10% off your losses, which means at the end of the year, if you had bet $1,000 total and you'd lost a thousand and you won a thousand, you pay no taxes.
   - Chad Millman (Speaker D): That back in the day, our whole lives, you bet a thousand, you're petting the juice, the books.
   - Chad Millman (Speaker D): Yeah, let's take him a perspective of just Joe Schmo, that your average better, right, Goes to the sportsbook, say he has $2,000 on him.
   - Chad Millman (Speaker D): You bet that thousand to win, and you bet that thousand you lost.
 
 Representative lines:
   - Simon Hunter (Speaker H): Can you just remind people what the issue is and how it punishes betters and then how it's impacting you directly this year in 2026?
-  - Chad Millman (Speaker D): Now you have to pay 10% of your losses, which, again, I don't think people get out a big deal.
-  - Chad Millman (Speaker D): So they're taking 10 cents off you, whatever it may be.
+  - Simon Hunter (Speaker H): We've talked a lot about AI during this NFL off season, how it's being used, how you're using it, how bettors are using it.
+  - Simon Hunter (Speaker H): I am joined as always by my co host, my bff, my companion, my compadre professional Better Simon Hunter.
 
-### 4. General discussion (4:18-5:42)
+### 2. Total (4:09-5:20)
 
 Speakers: Chad Millman (Speaker D)
 
-Topics: General
+Topics: Total
 
 Conclusion: No firm pick surfaced.
 
@@ -139,7 +80,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around general football context. Reasoning clue: Chad Millman (Speaker D) - It's not the end all be all for me really is not.
+Summary: No firm pick surfaced in this beat; it is mostly context around Total. Reasoning clue: Chad Millman (Speaker D) - It's not the end all be all for me really is not.
 
 Mindset / reasoning clues:
   - Chad Millman (Speaker D): They've totally killed that whole group of professional betters because there's no way you can continue making a livelihood that way.
@@ -149,15 +90,16 @@ Mindset / reasoning clues:
   - Chad Millman (Speaker D): And like someone like me, an obscene amount of money.
 
 Betting language / picks:
+  - Chad Millman (Speaker D): Not only are you losing on the vig, the government now is taking 10% off your losses, which means at the end of the year, if you had bet $1,000 total and you'd lost a thousand and you won a thousand, you pay no taxes.
   - Chad Millman (Speaker D): And someone like me who just I pick my spots and I can bet big on certain spots.
   - Chad Millman (Speaker D): All 16 NFL games, they'll bet whatever it is.
 
 Representative lines:
-  - Chad Millman (Speaker D): So I'm not going to wink at you and tell you there's ways around it, but the government really thinks they're going to outsmart professional betters and get our tax money.
-  - Chad Millman (Speaker D): We're looking for easy money and how to keep money away from the government, let alone paying 10 on my losses.
-  - Chad Millman (Speaker D): And you know, we're again, we're sponsored by a sports splits work here.
+  - Chad Millman (Speaker D): Now you have to pay 10% of your losses, which, again, I don't think people get out a big deal.
+  - Chad Millman (Speaker D): Their margin say it is 5 to 6%, which is pretty normal.
+  - Chad Millman (Speaker D): So I know a lot of pros who have models with all that.
 
-### 5. Total (5:42-6:52)
+### 3. Total (5:20-6:38)
 
 Speakers: Chad Millman (Speaker D), Simon Hunter (Speaker H)
 
@@ -177,7 +119,6 @@ Summary: No firm pick surfaced in this beat; it is mostly context around Total. 
 
 Mindset / reasoning clues:
   - Chad Millman (Speaker D): Ever since that bill is put into place, it's never not brought up between professionals because it is such a big deal.
-  - Chad Millman (Speaker D): And I'm trying to scream this at my buddy because it's like, dude, you don't get how much money that is.
   - Simon Hunter (Speaker H): Because if you're doing it on a consistent basis, that money adds up.
   - Chad Millman (Speaker D): Because in my little world, it is the conversation constantly.
 
@@ -185,14 +126,13 @@ Betting language / picks:
   - Simon Hunter (Speaker H): I bet a lot of people listening to this show, if you looked at everything your total bet amount over the course of a football season, you'd look at it and be like, holy shit, how did that happen?
   - Simon Hunter (Speaker H): It doesn't mean you're betting a ton of money on every game, but if you add up every bet that you made, that's how much you're betting over the course of a year.
   - Chad Millman (Speaker D): I, I told you I couldn't get over how people weren't talking about it in media and just in general in the gambling space.
-  - Chad Millman (Speaker D): I know normal people who work with normal jobs, they'll pull up their account, their Hard Rock account and say 40,000 bet, 38,000 loss, right?
 
 Representative lines:
+  - Chad Millman (Speaker D): So I'm not going to wink at you and tell you there's ways around it, but the government really thinks they're going to outsmart professional betters and get our tax money.
+  - Chad Millman (Speaker D): We're looking for easy money and how to keep money away from the government, let alone paying 10 on my losses.
   - Simon Hunter (Speaker H): It just means that your flow is in, out, in, out, in, out on a regular basis ends up adding up to that.
-  - Chad Millman (Speaker D): People have really been talking about the gambling space for the last year.
-  - Chad Millman (Speaker D): So in their mind, again, it's only 2,000, but now you're paying 10%.
 
-### 6. General discussion (6:52-8:07)
+### 4. General discussion (6:38-8:07)
 
 Speakers: Chad Millman (Speaker D), Simon Hunter (Speaker H)
 
@@ -212,20 +152,22 @@ Summary: No firm pick surfaced in this beat; it is mostly context around general
 
 Mindset / reasoning clues:
   - Chad Millman (Speaker D): We're talking a little bit about it here, but it's going to be very interesting to see how it goes forward because I think it's too late at this stage for it to be taken out.
+  - Chad Millman (Speaker D): And I'm trying to scream this at my buddy because it's like, dude, you don't get how much money that is.
   - Chad Millman (Speaker D): I think no matter what 20, 26, you're going to get taxed at 10%.
   - Chad Millman (Speaker D): And especially when you're not thinking that way, like Chad's talking about here in his mind, well, I only won $2,000.
   - Chad Millman (Speaker D): Like it's, it's, it's going to be a huge deal.
 
 Betting language / picks:
   - Chad Millman (Speaker D): Like people don't realize how much powerful people there are that sports bet and they don't sports bet.
+  - Chad Millman (Speaker D): I know normal people who work with normal jobs, they'll pull up their account, their Hard Rock account and say 40,000 bet, 38,000 loss, right?
   - Chad Millman (Speaker D): People just don't bet enough to think about it.
 
 Representative lines:
   - Chad Millman (Speaker D): Maybe next year in April, tax season comes around, but it's going to be a rude awakening to a lot of people.
+  - Chad Millman (Speaker D): So in their mind, again, it's only 2,000, but now you're paying 10%.
   - Chad Millman (Speaker D): These people, millions and millions and millions on a weekend.
-  - Simon Hunter (Speaker H): I don't know how it's going anywhere at this point.
 
-### 7. Bills (8:07-9:19)
+### 5. Bills (8:07-9:19)
 
 Speakers: Simon Hunter (Speaker H), Chad Millman (Speaker D)
 
@@ -258,7 +200,7 @@ Representative lines:
   - Simon Hunter (Speaker H): I know the American Gaming association was touting how well it had worked with Congress for advantages for the gaming industry.
   - Simon Hunter (Speaker H): I don't know how it gets stricken from the bill as it stands at this juncture.
 
-### 8. General discussion (9:19-11:30)
+### 6. General discussion (9:19-11:30)
 
 Speakers: Chad Millman (Speaker D), Simon Hunter (Speaker H)
 
@@ -291,7 +233,7 @@ Representative lines:
   - Chad Millman (Speaker D): It's a big deal like that end of the year tax.
   - Simon Hunter (Speaker H): People abhor gamblers and people of bore gambling and we didn't talk to Chris Gerlacher about this.
 
-### 9. Total (11:30-12:43)
+### 7. Total (11:30-12:43)
 
 Speakers: Chad Millman (Speaker D)
 
@@ -327,9 +269,9 @@ Representative lines:
   - Chad Millman (Speaker D): Now the guy's spending 30 minutes giving out his gambling opinions which you do not care about and running all of his gambling ads.
   - Chad Millman (Speaker D): As someone living there that has an opinion and has a voting right and it's very different from mine, years of life experience.
 
-### 10. General discussion (12:43-20:09)
+### 8. General discussion (12:43-20:09)
 
-Speakers: Chad Millman (Speaker D), Simon Hunter (Speaker H)
+Speakers: Chad Millman (Speaker D), Simon Hunter (Speaker H), Guest (Speaker I)
 
 Topics: General
 
@@ -343,7 +285,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about general football context. Reasoning clue: Chad Millman (Speaker D) - And that's why I think we're seeing. Rationale themes: market price/line movement, offensive personnel.
+Summary: The beat is mainly about general football context. Reasoning clue: Chad Millman (Speaker D) - And that's why I think we're seeing. Rationale themes: market price/line movement, injury and availability, offensive personnel.
 
 Mindset / reasoning clues:
   - Chad Millman (Speaker D): I mean, people were jumping out of buildings because of the fall of Wall street in the markets.
@@ -353,7 +295,6 @@ Mindset / reasoning clues:
   - Chad Millman (Speaker D): That's why I do feel bad for people who are like, look how many lives it's destroying.
 
 Betting language / picks:
-  - Simon Hunter (Speaker H): Let's do a quick word from Hard Rock and we'll come back and I will share them.
   - Chad Millman (Speaker D): I don't see it regressing or going back to the mean.
 
 Representative lines:
@@ -361,7 +302,7 @@ Representative lines:
   - Chad Millman (Speaker D): It's just like Wall street, though.
   - Simon Hunter (Speaker H): I don't trust my carrier that much.
 
-### 11. Commanders / Total / Spread (20:09-21:19)
+### 9. Commanders / Total / Spread (20:09-21:19)
 
 Speakers: Simon Hunter (Speaker H)
 
@@ -394,7 +335,7 @@ Representative lines:
   - Simon Hunter (Speaker H): You said something really interesting to me about the integration of sports betting into games.
   - Simon Hunter (Speaker H): That has always been the tug and pull between gambling, not gambling.
 
-### 12. General discussion (21:19-23:17)
+### 10. General discussion (21:19-23:17)
 
 Speakers: Simon Hunter (Speaker H), Chad Millman (Speaker D)
 
@@ -428,7 +369,7 @@ Representative lines:
   - Chad Millman (Speaker D): But yeah, I get, like I said, I think it's the commercialization where that's what's really getting people.
   - Chad Millman (Speaker D): But I said to them it's just, it's got to be sanctioned by the government, like that's all it is.
 
-### 13. Super Bowl (23:17-24:29)
+### 11. Super Bowl (23:17-24:29)
 
 Speakers: Chad Millman (Speaker D)
 
@@ -461,7 +402,7 @@ Representative lines:
   - Chad Millman (Speaker D): I, I do think though, like you've talked a little about here, Chad, that you know, as we go forward here, I think there will be a pullback on some of the, some of the stuff we've seen where, you know, should it be legal that some, some girl on TikTok who's just turned 18 or 19 year olds promoting to younger kids on these predictive markets.
   - Chad Millman (Speaker D): There's a championship game.
 
-### 14. General discussion (24:29-30:02)
+### 12. General discussion (24:29-30:02)
 
 Speakers: Chad Millman (Speaker D), Simon Hunter (Speaker H)
 
@@ -498,7 +439,7 @@ Representative lines:
   - Chad Millman (Speaker D): I hate it because there's so much that goes on that's just untaught that people just don't talk about.
   - Simon Hunter (Speaker H): There's every game, every market is being looked at and examined for some kind of impropriety.
 
-### 15. Coaching / Draft / Injuries (30:02-31:22)
+### 13. Coaching / Draft / Injuries (30:02-31:22)
 
 Speakers: Simon Hunter (Speaker H)
 
@@ -529,7 +470,7 @@ Betting language / picks:
 Representative lines:
   - Simon Hunter (Speaker H): And it'll be some NFL teams problem.
 
-### 16. Total / Props / Spread (31:23-32:37)
+### 14. Total / Props / Spread (31:23-32:37)
 
 Speakers: Chad Millman (Speaker D)
 
@@ -564,7 +505,7 @@ Representative lines:
   - Chad Millman (Speaker D): Like we just talking about.
   - Chad Millman (Speaker D): I mean my favorite thing I've learned is they flag, they're figuring out how to flag accounts of girlfriends of athletes, which is a whole other world.
 
-### 17. General discussion (32:37-34:02)
+### 15. General discussion (32:37-34:02)
 
 Speakers: Chad Millman (Speaker D)
 
@@ -597,7 +538,7 @@ Representative lines:
   - Chad Millman (Speaker D): Like, I don't want it to be tarnished.
   - Chad Millman (Speaker D): Like, I've talked to some scouts.
 
-### 18. Draft (34:02-35:16)
+### 16. Draft (34:02-35:16)
 
 Speakers: Chad Millman (Speaker D), Simon Hunter (Speaker H)
 
@@ -630,9 +571,9 @@ Representative lines:
   - Simon Hunter (Speaker H): It's not something that they can retroactively say, okay, you're suspended for four games.
   - Simon Hunter (Speaker H): This is going to be one of the challenges both in the locker room and with the fan base.
 
-### 19. General discussion (35:16-43:07)
+### 17. General discussion (35:16-44:47)
 
-Speakers: Chad Millman (Speaker D), Simon Hunter (Speaker H), Guest (Speaker G)
+Speakers: Chad Millman (Speaker D), Simon Hunter (Speaker H), Guest (Speaker K)
 
 Topics: General
 
@@ -666,35 +607,6 @@ Representative lines:
   - Chad Millman (Speaker D): I I talk a little bit about there's I know pros who are selling AI models and they're laughing at me being like, yeah, these people are going to be.
   - Chad Millman (Speaker D): I just see how other people are using it and how much money they're making because they found an edge with it against these sports books.
   - Chad Millman (Speaker D): Their phones, they have to turn it in and the teams have to check what apps they've been on and different things like that, like these.
-
-### 20. Total (43:07-44:47)
-
-Speakers: Guest (Speaker G), Guest (Speaker K)
-
-Topics: Total
-
-Conclusion: No firm pick surfaced.
-
-Matchup: Not inferred.
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: No firm pick surfaced in this beat; it is mostly context around Total. Rationale themes: market price/line movement.
-
-Mindset / reasoning clues:
-  - None pulled.
-
-Betting language / picks:
-  - None pulled.
-
-Representative lines:
-  - Guest (Speaker G): With Total Wireless, you you get unlimited 5G data keeping you in the action from the walkouts to the knockouts.
-  - Guest (Speaker K): They set standards, broke records, empowered people to build bigger and higher, to dig deeper, to make the impossible possible.
-  - Guest (Speaker G): This podcast is sponsored by Total Wireless, the official wireless partner of ufc.
 
 ## Extracted Picks From Existing Host Summary Rows
 

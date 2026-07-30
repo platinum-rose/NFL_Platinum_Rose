@@ -377,9 +377,9 @@ Betting language / picks:
   - Seth Woolcock (Speaker C): I don't go into the week and like have a roadmap of hey, here's who I'm going to bet right away, right by looking at the teams and just the matchups or we're looking again at that odds board@bettingpros.com and that is showing us the path.
 
 Representative lines:
-  - Seth Woolcock (Speaker C): And while you're at it, download the free Betting Pros app today and try the new smart money tool.
   - Seth Woolcock (Speaker C): Let us know down below your favorite NFL betting rules that you're following this season.
   - Seth Woolcock (Speaker C): Man's top five NFL betting roles that the professionals are never breaking.
+  - Seth Woolcock (Speaker C): Follow us on X and TikTok, eddingpros and Instagram eddingprosnfl.
 
 ## Extracted Picks From Existing Host Summary Rows
 

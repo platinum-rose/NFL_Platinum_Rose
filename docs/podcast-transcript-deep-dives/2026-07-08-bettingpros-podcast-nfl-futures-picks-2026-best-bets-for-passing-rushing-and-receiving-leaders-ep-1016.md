@@ -559,7 +559,7 @@ Betting language / picks:
 Representative lines:
   - Andrew Erickson (Speaker C): All right, Andrew, we're talking about running backs who might change the game here in 2026 starting with the most rushing yards odds and the favorites are Jonathan Taylor at 6 to 1, Derrick Henry at at 669 Bijan Robinson at 7:33 James Cook 7:50, Jir Gibbs 9 to 1, Saquon Barkley 10 to 1 and then pretty big gap from everyone else down.
   - Andrew Erickson (Speaker C): So could be good stuff out there on the west coast for Brock Purdy.
-  - Andrew Erickson (Speaker C): And that's why you should download the free Betting Pros app today.
+  - Andrew Erickson (Speaker C): Let's get to the rushing leader futures.
 
 ### 17. Lions / Props / Injuries (18:48-20:01)
 
@@ -1028,74 +1028,11 @@ Representative lines:
   - Andrew Erickson (Speaker C): So let's go ahead, let's move forward to receivers.
   - Guest (Speaker B): But there's no way it was this long.
 
-### 31. General discussion (37:21-38:45)
+### 31. General discussion (37:21-39:07)
 
 Speakers: Andrew Erickson (Speaker C)
 
 Topics: General
-
-Conclusion: Andrew Erickson (Speaker C): Place a $5 bet and if it hits you, not only are going to score $150 in bonus bets, but you're going to get your winnings back as well.
-
-Matchup: Not inferred.
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: The beat is mainly about general football context. Rationale themes: market price/line movement, offensive personnel.
-
-Mindset / reasoning clues:
-  - Andrew Erickson (Speaker C): And for the next couple weeks, every match is going to feel like a final.
-  - Andrew Erickson (Speaker C): And if you're ever late to kickoff, like myself, don't worry.
-
-Betting language / picks:
-  - Andrew Erickson (Speaker C): Place a $5 bet and if it hits you, not only are going to score $150 in bonus bets, but you're going to get your winnings back as well.
-  - Andrew Erickson (Speaker C): Plus, Hard Rock also offers new promos daily.
-
-Representative lines:
-  - Andrew Erickson (Speaker C): Yes, it's Florida's sportsbook in the world's biggest soccer tournament is upon us.
-  - Andrew Erickson (Speaker C): National pride still on the line and superstars are chasing immortality.
-  - Andrew Erickson (Speaker C): Of course, the US we did lose this week, but everyone's still watching.
-
-### 32. Cardinals / Titans / Props (38:50-40:02)
-
-Speakers: Andrew Erickson (Speaker C), Guest (Speaker B)
-
-Topics: Cardinals, Titans, Props
-
-Conclusion: Guest (Speaker B): Just going back to Jamar Chase.
-
-Matchup: Cardinals vs Titans
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: The beat is mainly about Cardinals, Titans, Props. Rationale themes: market price/line movement.
-
-Mindset / reasoning clues:
-  - Andrew Erickson (Speaker C): Erickson, who do you like in this particular market?
-
-Betting language / picks:
-  - Andrew Erickson (Speaker C): Brown plus 950 Justin Jefferson for a bounce back at 14 one CD Lamb at plus 1567 Nico Collins at 16 to 1 AJ Brown at 20 to 1 Drake London at 20 to 1.
-  - Andrew Erickson (Speaker C): Concern about gambling in Florida, call 1-833-play- wise in Indiana.
-  - Guest (Speaker B): Just going back to Jamar Chase.
-  - Andrew Erickson (Speaker C): Jamar Chase at the top here at 6 to 1 plus 669 for Jackson Smith, Najigba Puka, Nakua plus 733Amon Ross St.
-
-Representative lines:
-  - Andrew Erickson (Speaker C): Hard Rock is also live in Arizona, Ohio, New Jersey, Indiana, Tennessee, Virginia, Illinois, Colorado and Michigan.
-  - Andrew Erickson (Speaker C): All right, and we're getting into the receiving leaders of futures where for the receiving yards.
-  - Andrew Erickson (Speaker C): Those are your favorites.
-
-### 33. Props / Awards / Total (40:02-41:14)
-
-Speakers: Guest (Speaker B), Andrew Erickson (Speaker C)
-
-Topics: Props, Awards, Total
 
 Conclusion: No firm pick surfaced.
 
@@ -1107,27 +1044,90 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Props, Awards. Reasoning clue: Andrew Erickson (Speaker C) - Whatever year that was, I think that has to be one. Rationale themes: quarterback evaluation, offensive personnel.
+Summary: No firm pick surfaced in this beat; it is mostly context around general football context. Rationale themes: market price/line movement, offensive personnel.
+
+Mindset / reasoning clues:
+  - Andrew Erickson (Speaker C): And for the next couple weeks, every match is going to feel like a final.
+  - Andrew Erickson (Speaker C): And if you're ever late to kickoff, like myself, don't worry.
+
+Betting language / picks:
+  - None pulled.
+
+Representative lines:
+  - Andrew Erickson (Speaker C): Yes, it's Florida's sportsbook in the world's biggest soccer tournament is upon us.
+  - Andrew Erickson (Speaker C): National pride still on the line and superstars are chasing immortality.
+  - Andrew Erickson (Speaker C): Of course, the US we did lose this week, but everyone's still watching.
+
+### 32. Props / Awards / Total (39:29-40:41)
+
+Speakers: Andrew Erickson (Speaker C), Guest (Speaker B)
+
+Topics: Props, Awards, Total
+
+Conclusion: Guest (Speaker B): Just going back to Jamar Chase.
+
+Matchup: Not inferred.
+
+Spread: Not surfaced.
+
+Total: Not surfaced.
+
+Current market: No current public-line snapshot loaded for this matchup.
+
+Summary: The beat is mainly about Props, Awards. Reasoning clue: Guest (Speaker B) - So I think it's interesting when you look at duos that have actually done this. Rationale themes: market price/line movement, quarterback evaluation, offensive personnel.
 
 Mindset / reasoning clues:
   - Guest (Speaker B): So I think it's interesting when you look at duos that have actually done this.
-  - Andrew Erickson (Speaker C): I think they had some runs there Did I get any of them yet?
-  - Andrew Erickson (Speaker C): Whatever year that was, I think that has to be one.
-  - Andrew Erickson (Speaker C): Can I get a, like a Peyton Manning and maybe like a Wes Welker type of season, too?
+  - Andrew Erickson (Speaker C): Erickson, who do you like in this particular market?
 
 Betting language / picks:
   - Guest (Speaker B): I talked about him as one of my favorite bets for offensive player of the year, something that he has yet to win, which just seems like a total anomaly that Jamar Chase is going to be the best wide receiver in the NFL and never win offensive player of the year.
+  - Andrew Erickson (Speaker C): Brown plus 950 Justin Jefferson for a bounce back at 14 one CD Lamb at plus 1567 Nico Collins at 16 to 1 AJ Brown at 20 to 1 Drake London at 20 to 1.
+  - Guest (Speaker B): Just going back to Jamar Chase.
+  - Andrew Erickson (Speaker C): Jamar Chase at the top here at 6 to 1 plus 669 for Jackson Smith, Najigba Puka, Nakua plus 733Amon Ross St.
 
 Representative lines:
   - Guest (Speaker B): And had it not been for Saquon BARKLEY Rushing for 2,000 yards, he would have likely won offensive player of the year two years ago when he also led the league receiving yards.
   - Guest (Speaker B): The quarterback has led the NFL in passing yards and one of his wide receivers has led the NFL and receiving yards already gave one away.
   - Guest (Speaker B): What's correlated to that award is are you the wide receiver that leads the NFL in receiving yards?
 
-### 34. Bengals / Cardinals / Props (41:14-42:24)
+### 33. Bengals / Props (40:41-41:53)
 
 Speakers: Guest (Speaker B), Andrew Erickson (Speaker C)
 
-Topics: Bengals, Cardinals, Props
+Topics: Bengals, Props
+
+Conclusion: No firm pick surfaced.
+
+Matchup: Not inferred.
+
+Spread: Not surfaced.
+
+Total: Not surfaced.
+
+Current market: No current public-line snapshot loaded for this matchup.
+
+Summary: No firm pick surfaced in this beat; it is mostly context around Bengals, Props. Reasoning clue: Andrew Erickson (Speaker C) - Whatever year that was, I think that has to be one. Rationale themes: quarterback evaluation.
+
+Mindset / reasoning clues:
+  - Guest (Speaker B): It didn't happen because JSN led a league in receiving yards.
+  - Andrew Erickson (Speaker C): I think they had some runs there Did I get any of them yet?
+  - Andrew Erickson (Speaker C): Whatever year that was, I think that has to be one.
+  - Andrew Erickson (Speaker C): Can I get a, like a Peyton Manning and maybe like a Wes Welker type of season, too?
+
+Betting language / picks:
+  - None pulled.
+
+Representative lines:
+  - Guest (Speaker B): So the Bengals did it in two.
+  - Guest (Speaker B): Sam Darnold did not lead the NFL and passing yards.
+  - Guest (Speaker B): The quarterback list is pretty uninspiring for the most part.
+
+### 34. Bengals / Cardinals / Props (41:53-43:40)
+
+Speakers: Guest (Speaker B), Andrew Erickson (Speaker C)
+
+Topics: Bengals, Cardinals, Props, Injuries
 
 Conclusion: No firm pick surfaced.
 
@@ -1139,41 +1139,13 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Bengals, Cardinals, Props. Reasoning clue: Guest (Speaker B) - Greatest show on turf, because this was not Kurt Warner. Rationale themes: quarterback evaluation.
-
-Mindset / reasoning clues:
-  - Guest (Speaker B): It didn't happen because JSN led a league in receiving yards.
-  - Guest (Speaker B): Greatest show on turf, because this was not Kurt Warner.
-
-Betting language / picks:
-  - None pulled.
-
-Representative lines:
-  - Andrew Erickson (Speaker C): Went to the Cardinals name Slate on.
-  - Guest (Speaker B): So the Bengals did it in two.
-  - Guest (Speaker B): Sam Darnold did not lead the NFL and passing yards.
-
-### 35. Bengals / Props / Injuries (42:24-43:35)
-
-Speakers: Guest (Speaker B), Andrew Erickson (Speaker C)
-
-Topics: Bengals, Props, Injuries
-
-Conclusion: No firm pick surfaced.
-
-Matchup: Not inferred.
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: No firm pick surfaced in this beat; it is mostly context around Bengals, Props, Injuries. Reasoning clue: Guest (Speaker B) - However, if I'm going to pivot away from that, I do think that the Bengals defense might be a little bit more improved and Maybe they're not throwing as nearly as much as they need to. Rationale themes: market price/line movement, quarterback evaluation, injury and availability.
+Summary: No firm pick surfaced in this beat; it is mostly context around Bengals, Cardinals, Props, Injuries. Reasoning clue: Guest (Speaker B) - Greatest show on turf, because this was not Kurt Warner. Rationale themes: market price/line movement, quarterback evaluation, injury and availability.
 
 Mindset / reasoning clues:
   - Guest (Speaker B): So that's the combination I kind of like betting on here.
+  - Guest (Speaker B): Greatest show on turf, because this was not Kurt Warner.
   - Guest (Speaker B): The other guy I like going to is player I love for this upcoming season in fantasy and in futures bettings is AJ Brown.
+  - Guest (Speaker B): I've seen what McDaniels has done in offenses when he's had a alpha player like AJ Brown.
 
 Betting language / picks:
   - Guest (Speaker B): Again, pairing the quarterback who I like to lead the NFL in passing yards with, Drake May, pairing him with his number one wide receiver in A.J.
@@ -1184,7 +1156,7 @@ Representative lines:
   - Guest (Speaker B): Jamar Chase, likely to leave the NFL and receiving yards if he stays healthy.
   - Guest (Speaker B): Joe Burrow, likely to leave the NFL and passing yards if he stays healthy.
 
-### 36. Broncos / Raiders / Props (43:35-44:23)
+### 35. Broncos / Raiders / Props (43:40-44:23)
 
 Speakers: Guest (Speaker B)
 
@@ -1205,7 +1177,6 @@ Summary: The beat is mainly about Broncos, Raiders, Props. Reasoning clue: Guest
 Mindset / reasoning clues:
   - Guest (Speaker B): And you get seasons like Devonte Adams with the Raiders and you get Brandon Marshall from the Denver Broncos where these guys just see absolute bonkers types of target share.
   - Guest (Speaker B): But from a yardage perspective, I think A.J.
-  - Guest (Speaker B): I've seen what McDaniels has done in offenses when he's had a alpha player like AJ Brown.
 
 Betting language / picks:
   - Guest (Speaker B): So Romeo Dobbs as a number two compliment, I think he's more likely to influence defenses in the red zone, so maybe he can.
@@ -1217,7 +1188,7 @@ Representative lines:
   - Guest (Speaker B): brown is going to absolutely cook if you look at him.
   - Guest (Speaker B): brown's touchdown potential.
 
-### 37. Eagles / Props (44:23-45:36)
+### 36. Eagles / Props (44:23-45:36)
 
 Speakers: Guest (Speaker B), Andrew Erickson (Speaker C)
 
@@ -1248,7 +1219,7 @@ Representative lines:
   - Andrew Erickson (Speaker C): brown here who, you know, has all the motivation in the world to stop reading books on the sideline, get his head in the game and go out there and, you know, potentially lead the league in receiving.
   - Guest (Speaker B): brown was a more focal point of the Philadelphia Eagles offense and actually wanted to be there.
 
-### 38. Patriots / Props / Injuries (45:36-46:48)
+### 37. Patriots / Props / Injuries (45:36-46:48)
 
 Speakers: Andrew Erickson (Speaker C), Guest (Speaker B)
 
@@ -1279,7 +1250,7 @@ Representative lines:
   - Andrew Erickson (Speaker C): Devonte Adams, though, at 8 to 1 after just an insane stretch last season, where he was catching touchdowns left and right.
   - Andrew Erickson (Speaker C): Let's go to receiving touchdown leaders here where your favorites are once again, Jamar Chase, 7 to 1.
 
-### 39. 49ers / Vikings / Props (46:48-47:59)
+### 38. 49ers / Vikings / Props (46:48-47:59)
 
 Speakers: Guest (Speaker B), Andrew Erickson (Speaker C)
 
@@ -1313,7 +1284,7 @@ Representative lines:
   - Guest (Speaker B): So you're getting this at 40 to 1 for a player that looking at historically he was put on earth to catch touchdowns.
   - Guest (Speaker B): So the 49ers passing game was built around him in the red zone.
 
-### 40. Props (47:59-49:10)
+### 39. Props (47:59-49:10)
 
 Speakers: Guest (Speaker B), Andrew Erickson (Speaker C)
 
@@ -1350,7 +1321,7 @@ Representative lines:
   - Guest (Speaker B): And you're getting those odds at 40 to 1.
   - Guest (Speaker B): Mike Evans scores double digit touchdowns.
 
-### 41. Chiefs / Injuries (49:10-50:21)
+### 40. Chiefs / Injuries (49:10-50:21)
 
 Speakers: Andrew Erickson (Speaker C), Guest (Speaker B)
 
@@ -1383,7 +1354,7 @@ Representative lines:
   - Guest (Speaker B): Like how can you bank on that?
   - Guest (Speaker B): Mahomes coming off his injury, but.
 
-### 42. Props (50:21-51:35)
+### 41. Props (50:21-51:35)
 
 Speakers: Guest (Speaker B), Andrew Erickson (Speaker C)
 
@@ -1419,7 +1390,7 @@ Representative lines:
   - Guest (Speaker B): I'm just saying last year you know who they were funneling targets to in the red zone constantly?
   - Andrew Erickson (Speaker C): Or do you think maybe it's just too many mouths to feed?
 
-### 43. 49ers / Chargers / Props (51:35-52:47)
+### 42. 49ers / Chargers / Props (51:35-52:47)
 
 Speakers: Guest (Speaker B)
 
@@ -1453,7 +1424,7 @@ Representative lines:
   - Guest (Speaker B): And if you look at how many guys hit those yardage marks last year, five other wide receivers had at least 1350 receiving yards.
   - Guest (Speaker B): So Lama Conkey, if he takes off in this Chargers offense, 60 to 1.
 
-### 44. Injuries / Draft / Props (52:47-53:58)
+### 43. Injuries / Draft / Props (52:47-53:58)
 
 Speakers: Guest (Speaker B), Andrew Erickson (Speaker C)
 
@@ -1488,7 +1459,7 @@ Representative lines:
   - Guest (Speaker B): 150 to 1 for him to lead the NFL on receiving yards.
   - Guest (Speaker B): So I didn't have any other touchdown bets, but those were some of the yardage guys.
 
-### 45. General discussion (53:58-56:34)
+### 44. General discussion (53:58-56:34)
 
 Speakers: Andrew Erickson (Speaker C), Guest (Speaker B)
 
@@ -1511,7 +1482,7 @@ Mindset / reasoning clues:
   - Andrew Erickson (Speaker C): But for the rest of them, I love the honorable mentions that we threw out.
 
 Betting language / picks:
-  - Andrew Erickson (Speaker C): Plus, download the Beg Pros app today for trivia master Andrew Erickson.
+  - None pulled.
 
 Representative lines:
   - Guest (Speaker B): connectapy on qualifying plans not for extended international use, you must reside in the

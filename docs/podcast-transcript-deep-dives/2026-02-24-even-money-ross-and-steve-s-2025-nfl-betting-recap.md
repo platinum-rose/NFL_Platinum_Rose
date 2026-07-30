@@ -24,9 +24,9 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 ## Conversation Beats
 
-### 1. Bills (0:01-1:15)
+### 1. Bills (0:09-1:21)
 
-Speakers: Guest (Speaker A), Ross Tucker (Speaker B), Steve Fezzik (Speaker C)
+Speakers: Ross Tucker (Speaker B), Steve Fezzik (Speaker C)
 
 Topics: Bills
 
@@ -52,9 +52,9 @@ Betting language / picks:
 Representative lines:
   - Steve Fezzik (Speaker C): We'll get to a couple at least today, especially the one from Paul Szmanski who has my jersey and sends me pictures of him wearing my Bills jersey at different stadiums.
   - Steve Fezzik (Speaker C): Some of the email questions we've gotten from you guys Ross RossTucker.com are incredible.
-  - Steve Fezzik (Speaker C): Only one episode per week in the off season, but man are they good.
+  - Steve Fezzik (Speaker C): A detailed breakdown of where it went right and where it went wrong.
 
-### 2. Win Totals / Total (1:15-2:30)
+### 2. Win Totals / Total (1:21-2:37)
 
 Speakers: Steve Fezzik (Speaker C)
 
@@ -84,7 +84,7 @@ Representative lines:
   - Steve Fezzik (Speaker C): The Steve I always talk about is the legend, the only two time winner of the super contest out there in Vegas.
   - Steve Fezzik (Speaker C): At the same time, Steve and I will be talking about the big moves in NFL free agency.
 
-### 3. General discussion (2:30-5:00)
+### 3. General discussion (2:37-5:00)
 
 Speakers: Steve Fezzik (Speaker C), Guest (Speaker A)
 

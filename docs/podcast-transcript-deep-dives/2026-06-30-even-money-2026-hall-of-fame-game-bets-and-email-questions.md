@@ -45,12 +45,12 @@ Mindset / reasoning clues:
   - None pulled.
 
 Betting language / picks:
-  - Ross Tucker (Speaker A): The Crown is yours bet with DK
+  - None pulled.
 
 Representative lines:
   - Ross Tucker (Speaker A): Whatever you are watching this summer baseball, Golf, soccer, racing DraftKings has you covered for every single moment of it.
   - Ross Tucker (Speaker A): The DraftKings sports app is now available in all 50 states, bringing the game straight to your fingertips wherever you are.
-  - Ross Tucker (Speaker A): New DraftKings customers sign up with code Ross spend 5 bucks to get 150 in rewards within 14 days.
+  - Ross Tucker (Speaker A): It is the Even Money Podcast presented of course by DraftKings.
 
 ### 2. Draft (2:01-3:13)
 

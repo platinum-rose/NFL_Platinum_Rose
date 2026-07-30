@@ -371,11 +371,11 @@ Representative lines:
   - Seth Woolcock (Speaker D): And speaking of those retread head coaches, you're certainly backing one here down in the Music City.
   - Seth Woolcock (Speaker D): Yeah, hopefully for my case and and betters alike they do.
 
-### 12. Jets / Titans / Spread (11:22-15:29)
+### 12. Jets / Titans / Spread (11:22-15:08)
 
 Speakers: Andrew Erickson (Speaker C), Seth Woolcock (Speaker D)
 
-Topics: Jets, Titans, Spread, Week 1, Coaching, Total
+Topics: Jets, Titans, Spread, Coaching, Total, Week 1
 
 Conclusion: Seth Woolcock (Speaker D): Play under 39 and a half points and I agree that I think the Titans are going to win this game, but I don't think we should lose sight of the fact that these teams both bottom four in yards per game and scoring a year ago.
 
@@ -387,32 +387,30 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about Jets, Titans, Spread, Week 1. Reasoning clue: Seth Woolcock (Speaker D) - But like I think it's tough to ask for them to be difference makers. Rationale themes: market price/line movement, coaching and scheme, injury and availability.
+Summary: The beat is mainly about Jets, Titans, Spread, Coaching. Reasoning clue: Andrew Erickson (Speaker C) - So this one, the trend does actually work in my favor with the Tennessee Titans laying two and a half points at home against the New York Jets. Rationale themes: market price/line movement, coaching and scheme, injury and availability.
 
 Mindset / reasoning clues:
   - Andrew Erickson (Speaker C): But come on man, like we know that he was head coach of the jets and for the most part he was put in situations where he had terrible quarterbacks.
-  - Seth Woolcock (Speaker D): But even if he is like I think this guy's cooked anyways, Erickson, honestly.
   - Seth Woolcock (Speaker D): I like the jets like in what they did from a rebuilding standpoint, right?
-  - Seth Woolcock (Speaker D): But like I think it's tough to ask for them to be difference makers.
   - Andrew Erickson (Speaker C): Man, I like this guy's going to be super motivated again.
 
 Betting language / picks:
   - Seth Woolcock (Speaker D): And we're on to the early total bets where I'm going right back to that same game that you just alluded to, the New York jets versus the Tennessee Titans.
   - Seth Woolcock (Speaker D): I'm going under 39 and a half points and I agree that I think the Titans are going to win this game, but I don't think we should lose sight of the fact that these teams both bottom four in yards per game and scoring a year ago.
-  - Seth Woolcock (Speaker D): So if you're betting a team to make the playoffs, miss the playoffs, win a division, or chase that number one seed, or you're putting some early week one bets down like we are today.
-  - Seth Woolcock (Speaker D): It's all, you know, guns are pointing that he will be under center in week one here.
   - Seth Woolcock (Speaker D): Make sure you're tracking the market and getting the best number available by downloading the Betting Pros app today.
+  - Andrew Erickson (Speaker C): Every NFL coach is motivated to win every single game.
+  - Andrew Erickson (Speaker C): He had to play terrible quarterbacks.
 
 Representative lines:
   - Andrew Erickson (Speaker C): So this one, the trend does actually work in my favor with the Tennessee Titans laying two and a half points at home against the New York Jets.
   - Andrew Erickson (Speaker C): And the biggest difference Robert saw last year and even as a head coach with the New York jets, the guy has shown a proven track record of he gets the most out of his personnel.
-  - Seth Woolcock (Speaker D): You can compare odds, track your bets, follow expert picks, monitor line movement and and keep your futures cards all organized all season long.
+  - Seth Woolcock (Speaker D): And then the Jets 17.6 points per game.
 
-### 13. Titans / 49ers / Spread (12:11-13:25)
+### 13. Titans / 49ers / Spread (12:11-13:37)
 
 Speakers: Andrew Erickson (Speaker C), Seth Woolcock (Speaker D)
 
-Topics: Titans, 49ers, Spread, Total, Week 1
+Topics: Titans, 49ers, Spread, Playoffs, Week 1, Division
 
 Conclusion: Andrew Erickson (Speaker C): So I will take the Titans laying the points again.
 
@@ -424,7 +422,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about Titans, 49ers, Spread, Total. Reasoning clue: Andrew Erickson (Speaker C) - I think that we can start this season on a solid foot and I think it happens in Nashville in week one. Rationale themes: quarterback evaluation, coaching and scheme, home/road and scheduling spot.
+Summary: The beat is mainly about Titans, 49ers, Spread, Playoffs. Reasoning clue: Andrew Erickson (Speaker C) - I think that we can start this season on a solid foot and I think it happens in Nashville in week one. Rationale themes: market price/line movement, quarterback evaluation, coaching and scheme.
 
 Mindset / reasoning clues:
   - Andrew Erickson (Speaker C): So I think Salah does that with his personnel getting the most out of it, whereas Aaron Glenn basically showed the complete opposite of that last and I'm definitely not the lowest.
@@ -432,21 +430,22 @@ Mindset / reasoning clues:
   - Andrew Erickson (Speaker C): But in this particular matchup, like I definitely want to be on the Titans side of Geno Smith playing on the road.
 
 Betting language / picks:
+  - Seth Woolcock (Speaker D): So if you're betting a team to make the playoffs, miss the playoffs, win a division, or chase that number one seed, or you're putting some early week one bets down like we are today.
   - Andrew Erickson (Speaker C): Give me the Tennessee Titans Cam Ward with Brian Dabal.
   - Andrew Erickson (Speaker C): Even though this was probably going to be a lower scoring game, I think that's something that you have a play on as well.
   - Andrew Erickson (Speaker C): So I will take the Titans laying the points again.
-  - Andrew Erickson (Speaker C): I guess I just trust Robert Saleh in this defense to take care of business.
+  - Seth Woolcock (Speaker D): You can compare odds, track your bets, follow expert picks, monitor line movement and and keep your futures cards all organized all season long.
 
 Representative lines:
   - Andrew Erickson (Speaker C): And Last year the 49ers had nobody left and yet this defense was still hanging in games helping the 49ers win in close contest.
+  - Andrew Erickson (Speaker C): I guess I just trust Robert Saleh in this defense to take care of business.
   - Seth Woolcock (Speaker D): I certainly agree with you there and I'll add some more thoughts to this game when we get into those total bets.
-  - Seth Woolcock (Speaker D): But first, a real quick reminder that when you're betting NFL futures or even game lines, the numbers you get is what matters here, folks.
 
-### 14. Seahawks / Titans / Total (15:29-16:03)
+### 14. Seahawks / Titans / Total (15:08-16:03)
 
 Speakers: Seth Woolcock (Speaker D)
 
-Topics: Seahawks, Titans, Total
+Topics: Seahawks, Titans, Total, Week 1
 
 Conclusion: Seth Woolcock (Speaker D): But I just think this is the year to fade him coming off a year where he threw for just over 200 yards per game, 19 to 17 touchdown to interception ratio.
 
@@ -458,13 +457,17 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about Seahawks, Titans, Total. Rationale themes: injury and availability, offensive personnel.
+Summary: The beat is mainly about Seahawks, Titans, Total, Week 1. Reasoning clue: Seth Woolcock (Speaker D) - But like I think it's tough to ask for them to be difference makers. Rationale themes: injury and availability, offensive personnel.
 
 Mindset / reasoning clues:
+  - Seth Woolcock (Speaker D): But even if he is like I think this guy's cooked anyways, Erickson, honestly.
+  - Seth Woolcock (Speaker D): But like I think it's tough to ask for them to be difference makers.
   - Seth Woolcock (Speaker D): And like I'm a fan of what the Titans did.
 
 Betting language / picks:
   - Seth Woolcock (Speaker D): But I just think this is the year to fade him coming off a year where he threw for just over 200 yards per game, 19 to 17 touchdown to interception ratio.
+  - Seth Woolcock (Speaker D): It's all, you know, guns are pointing that he will be under center in week one here.
+  - Seth Woolcock (Speaker D): And in week one plus Geno Smith a little bit in hot water right now.
   - Seth Woolcock (Speaker D): I still think though it might take a little bit for K.
 
 Representative lines:
@@ -641,8 +644,8 @@ Betting language / picks:
 
 Representative lines:
   - Seth Woolcock (Speaker D): You have Derek Henry, you have JT in the backfield, Alec Pierce not going to likely be, you know, seeing a lot of reps here early in training camp at least as he continues to recover from his off season injury there.
-  - Seth Woolcock (Speaker D): Hard Rock is the top Raid sportsbook app built to viva lacopa.
   - Seth Woolcock (Speaker D): And if you're you're never too late for kickoff either.
+  - Seth Woolcock (Speaker D): National pride is on the line.
 
 ### 20. Moneyline (24:10-25:51)
 
@@ -663,7 +666,7 @@ Current market: No current public-line snapshot loaded for this matchup.
 Summary: The beat is mainly about Moneyline.
 
 Mindset / reasoning clues:
-  - Seth Woolcock (Speaker D): Don't worry, Hard Rock has it coming covered.
+  - None pulled.
 
 Betting language / picks:
   - Seth Woolcock (Speaker D): So be sure to check out the no Goals, no Problem and Super Sub two promos designed to get your favorite bet insured all tournament long.
@@ -673,7 +676,7 @@ Betting language / picks:
 Representative lines:
   - Seth Woolcock (Speaker D): They have live betting options all match long from that first minute until that final whistle.
   - Seth Woolcock (Speaker D): Keep that in mind if you're down there in the great state this summer.
-  - Seth Woolcock (Speaker D): So we're talking profit boost, no sweat bets, bonus bets and more.
+  - Seth Woolcock (Speaker D): Now that's what I call getting the summer party started.
 
 ### 21. Texans / Bills / Super Bowl (25:51-29:30)
 

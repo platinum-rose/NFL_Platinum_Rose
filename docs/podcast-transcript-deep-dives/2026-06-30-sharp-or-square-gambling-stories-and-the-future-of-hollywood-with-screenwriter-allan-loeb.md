@@ -11,6 +11,7 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 - D: Guest
 - G: Guest
 - H: Guest
+- K: Guest
 
 ## Expected Participants
 
@@ -23,7 +24,6 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 - F: ad/commercial audio ignored
 - I: ad/commercial audio ignored
 - J: ad/commercial audio ignored
-- K: ad/commercial audio ignored
 - L: ad/commercial audio ignored
 - M: ad/commercial audio ignored
 
@@ -287,7 +287,7 @@ Representative lines:
 
 ### 9. General discussion (20:06-32:10)
 
-Speakers: Chad Millman (Speaker B), Guest (Speaker A), Guest (Speaker G), Guest (Speaker H)
+Speakers: Chad Millman (Speaker B), Guest (Speaker A), Guest (Speaker G), Guest (Speaker K), Guest (Speaker H)
 
 Topics: General
 
@@ -301,7 +301,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about general football context. Reasoning clue: Guest (Speaker H) - Instead of taking me hours and hours to plug in data into my models, AI does the stuff already programmed for me. Rationale themes: home/road and scheduling spot.
+Summary: The beat is mainly about general football context. Reasoning clue: Guest (Speaker H) - Instead of taking me hours and hours to plug in data into my models, AI does the stuff already programmed for me. Rationale themes: market price/line movement, injury and availability, home/road and scheduling spot.
 
 Mindset / reasoning clues:
   - Guest (Speaker H): AI, there's some stuff I can't talk about here because of contractual stuff, but I will say I've been very upfront about it.
@@ -315,7 +315,7 @@ Betting language / picks:
   - Guest (Speaker H): And even as a runner, I was building out models and like, going on Reddit and trying to take other people's models and trying to get really good at it.
   - Guest (Speaker H): So, like, building back up a bankroll after that.
   - Guest (Speaker H): Like, I can watch World cup games and not bet on it.
-  - Chad Millman (Speaker B): If it wins, you also score $150 in bonus bets, a winning bet plus an extra $150 to bet with.
+  - Guest (Speaker H): Bet on the right edges and sit out other times where they're kind of missing things?
 
 Representative lines:
   - Guest (Speaker H): When I first got into this in 2011, if I would have told you what a life is like in 2026 using a and all this other shit, you would think you're lying.
@@ -553,7 +553,7 @@ Representative lines:
 
 ### 17. General discussion (44:36-51:56)
 
-Speakers: Guest (Speaker G), Chad Millman (Speaker B), Guest (Speaker D), Guest (Speaker A), Guest (Speaker H)
+Speakers: Guest (Speaker G), Chad Millman (Speaker B), Guest (Speaker D), Guest (Speaker A), Guest (Speaker K), Guest (Speaker H)
 
 Topics: General
 
@@ -567,7 +567,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around general football context. Rationale themes: market price/line movement.
+Summary: No firm pick surfaced in this beat; it is mostly context around general football context. Rationale themes: market price/line movement, injury and availability, offensive personnel.
 
 Mindset / reasoning clues:
   - Chad Millman (Speaker B): On the other side of it, my wife can't hear me, she's like, where you're going to have to get a job and if you're going to have to bartend or do whatever.
@@ -685,9 +685,9 @@ Representative lines:
   - Guest (Speaker G): We need universal basic income narrative, especially with agentic AI and new and entrepreneurship is going to be fascinating.
   - Guest (Speaker G): I do think I'm a little bit more, and I've said this before, I'm a little bit more optimistic.
 
-### 21. General discussion (59:31-1:01:47)
+### 21. General discussion (59:31-1:03:53)
 
-Speakers: Guest (Speaker G), Chad Millman (Speaker B), Guest (Speaker A)
+Speakers: Guest (Speaker G), Chad Millman (Speaker B), Guest (Speaker A), Guest (Speaker K)
 
 Topics: General
 
@@ -711,8 +711,8 @@ Betting language / picks:
 
 Representative lines:
   - Guest (Speaker G): And that's going to create a whole new economy which is going to be very disruptive for many brands and legacy businesses.
+  - Guest (Speaker K): Based on analysis by Euclid's B test intelligence data speeds vary due to local network characteristics and management.
   - Guest (Speaker G): But it's going to create a lot of new wealth in interesting places and a lot of new jobs in interesting places.
-  - Guest (Speaker A): activity to help adults with obesity or some adults with overweight who also have
 
 ## Extracted Picks From Existing Host Summary Rows
 

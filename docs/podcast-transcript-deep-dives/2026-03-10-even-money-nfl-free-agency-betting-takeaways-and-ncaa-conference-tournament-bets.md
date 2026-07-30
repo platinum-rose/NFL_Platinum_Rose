@@ -23,7 +23,7 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 ## Conversation Beats
 
-### 1. General discussion (0:01-1:46)
+### 1. General discussion (0:05-1:46)
 
 Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker B)
 

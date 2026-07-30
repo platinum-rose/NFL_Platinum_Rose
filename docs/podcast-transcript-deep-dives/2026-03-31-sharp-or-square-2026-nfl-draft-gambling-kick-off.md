@@ -534,7 +534,6 @@ Current market: No current public-line snapshot loaded for this matchup.
 Summary: The beat is mainly about Total, Draft. Reasoning clue: Guest (Speaker D) - Because history is showing in a lot of these markets. Rationale themes: market price/line movement, home/road and scheduling spot, offensive personnel.
 
 Mindset / reasoning clues:
-  - Chad Millman (Speaker B): Let's do a quick message from Hard Rock because I got an important question for you, Derek, coming out of that.
   - Guest (Speaker D): But when you want to dial down just to the offensive tackles and then zoom out larger to the offensive line market, there's money to be made.
   - Guest (Speaker D): Because history is showing in a lot of these markets.
 

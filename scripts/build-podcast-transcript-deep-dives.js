@@ -5,7 +5,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { buildSpeakerMap, applySpeakerMap, AD_SPEAKER_LABEL, AD_COPY_RE } from '../agents/lib/speaker-attribution.js';
+import { buildSpeakerMap, applySpeakerMap, AD_SPEAKER_LABEL, AD_COPY_RE, AD_CONTEXT_RE } from '../agents/lib/speaker-attribution.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -75,7 +75,11 @@ const MARKET_TOPICS = {
 const MINDSET_RE = /\b(i think|i believe|i trust|i don't trust|for me|because|reason|concern|worry|fade|buy|back|like|love|hate|value|overvalued|undervalued|ceiling|floor|regress|regression|sharp|market)\b/i;
 const PICK_RE = /\b(bet|pick|play|take|give me|lay|fade|back|over|under|moneyline|money line|to win|plus|odds|ticket|wager|number)\b/i;
 const TIMING_CONJECTURE_RE = /\b(start(?:ing)?\s+(?:one|1)\s+and\s+(?:three|3)|start(?:ing)?\s+1-3|slow\s+start|slow\s+to\s+start|buy\s+after|better\s+(?:number|price|entry)|market\s+(?:panic|overreact|overreacts|overreaction)|see it before|before i start actually believing)\b/i;
-const AD_RE = /\b(amazon|pharmacy|orderly\s*meds|orderlymeds|pedigree|dog food|vitamin good bites|free delivery|healthcare|promo|bonus bet|terms and conditions|download the app|subscribe|youtube|apple podcasts|spotify|hard rock bet|gambling problem|iheart podcast|paid for by|must be 21|call 1-800|not a cash offer|wix|apollo|grainger|american express|membership rewards|spinquest|spin quest|mcdonald'?s|refreshers|popping boba|free to play social casino|iheart ?radio app|wherever you get your podcasts|podcast network|terms and points cap apply)\b/i;
+const AD_RE = /\b(amazon|pharmacy|orderly\s*meds|orderlymeds|pedigree|dog food|vitamin good bites|free delivery|healthcare|promo|bonus bet|bonus bets|bonus rewards|terms and conditions|download the app|download .* app today|subscribe|youtube|apple podcasts|spotify|hard rock bet|gambling problem|gamble responsibly|iheart podcast|paid for by|must be 21|call 1-800|call 1-833|1-800-?\s*gambler|1-833-?\s*playwise|not a cash offer|wix|apollo|grainger|american express|membership rewards|spinquest|spin quest|mcdonald'?s|refreshers|popping boba|free to play social casino|iheart ?radio app|wherever you get your podcasts|wherever you download|podcast network|terms and points cap apply|use code|sign up with code|at checkout|welcome offer|offer limited time|new draftkings customers|new customer bonus|turn five bucks|spend (?:five|5) bucks|the crown is yours|draftkings network|dkng\.?co|predictions offer void|checkout is offered by your banks|advisory services provided|securities offered by|total wireless|official wireless partner|official sportsbook partner|presenting sponsor|today'?s show is brought to you)\b/i;
+
+function isAdCopy(text) {
+  return AD_RE.test(text) || AD_COPY_RE.test(text) || AD_CONTEXT_RE.test(text);
+}
 
 function argValue(name, fallback = null) {
   const i = process.argv.indexOf(name);
@@ -168,13 +172,13 @@ function topicKey(topics) {
 function usefulTurn(turn) {
   const text = cleanText(turn.text);
   if (turn.speaker === AD_SPEAKER_LABEL) return false;
-  if (!text || AD_RE.test(text) || AD_COPY_RE.test(text)) return false;
+  if (!text || isAdCopy(text)) return false;
   return true;
 }
 
 function usefulSentence(sentence) {
   const text = cleanText(sentence);
-  if (!text || AD_RE.test(text) || AD_COPY_RE.test(text)) return false;
+  if (!text || isAdCopy(text)) return false;
   if (/^\W*$/.test(text)) return false;
   return true;
 }
@@ -515,7 +519,7 @@ function buildQuoteBuckets(sentences) {
     .filter((s) => MINDSET_RE.test(s.sentence))
     .sort((a, b) => quoteSpecificityScore(b.sentence) - quoteSpecificityScore(a.sentence));
   const representativeCandidates = sentences
-    .filter((s) => !AD_RE.test(s.sentence))
+    .filter((s) => !isAdCopy(s.sentence))
     .sort((a, b) => scoreSentence(b.sentence) - scoreSentence(a.sentence));
 
   const pickTalk = takeUnique(pickCandidates, 5);

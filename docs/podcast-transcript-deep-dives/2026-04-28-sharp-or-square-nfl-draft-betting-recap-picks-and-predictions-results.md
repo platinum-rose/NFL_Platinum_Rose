@@ -633,7 +633,6 @@ Summary: The beat is mainly about Cardinals. Rationale themes: market price/line
 Mindset / reasoning clues:
   - Chad Millman (Speaker B): Well, look, the love thing, I want to dig into, I want to do that after the break.
   - Simon Hunter (Speaker C): And it's like when how he does these moves, it just feels like the smart move.
-  - Chad Millman (Speaker B): Let's do a quick break from Hard Rock and then we can dig into Love and Simon.
 
 Betting language / picks:
   - Chad Millman (Speaker B): I want to talk about Ty Simpson and I want to talk about the running backs because that was the biggest bet at plus 500 that we discussed.

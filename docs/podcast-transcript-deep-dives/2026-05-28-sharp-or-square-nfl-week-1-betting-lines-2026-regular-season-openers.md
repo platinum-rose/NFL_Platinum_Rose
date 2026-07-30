@@ -951,7 +951,6 @@ Mindset / reasoning clues:
 
 Betting language / picks:
   - Chad Millman (Speaker B): qualified customers with auto pay plus taxes fees and 35 connection charge per line credits and imbalance due if you pay off earlier.
-  - Chad Millman (Speaker B): If you win, just place a $5 bet and if it hits, you get not only your winnings but also an extra $150 in bonus bets.
   - Chad Millman (Speaker B): And now you would take an Uber.
 
 Representative lines:

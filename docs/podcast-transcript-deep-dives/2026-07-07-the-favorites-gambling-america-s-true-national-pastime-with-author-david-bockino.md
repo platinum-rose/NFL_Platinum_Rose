@@ -265,7 +265,7 @@ Speakers: Kendra Middleton (Speaker G), Brandon Kravitz (Speaker C), Guest (Spea
 
 Topics: Total, Win Totals, Schedule
 
-Conclusion: Kendra Middleton (Speaker G): From Florida to Texas to California, new DraftKings customers can sign up with code FAVORITES, spend five bucks and get $200 back in bonuses.
+Conclusion: Kendra Middleton (Speaker G): I think the thing that makes me the most mad is that we have so many sports to play here, but travel, soccer is so expensive and we're not going to get any better as a soccer nation until that changes.
 
 Matchup: Not inferred.
 
@@ -284,7 +284,6 @@ Betting language / picks:
   - Kendra Middleton (Speaker G): I think the thing that makes me the most mad is that we have so many sports to play here, but travel, soccer is so expensive and we're not going to get any better as a soccer nation until that changes.
   - Brandon Kravitz (Speaker C): But first, let's check in with the best place for any Over Under.
   - Brandon Kravitz (Speaker C): David Bikino, author of the book over under, coming up.
-  - Kendra Middleton (Speaker G): From Florida to Texas to California, new DraftKings customers can sign up with code FAVORITES, spend five bucks and get $200 back in bonuses.
 
 Representative lines:
   - Kendra Middleton (Speaker G): The DraftKings sports app is now available in all 50 states, bringing the excitement straight to your fingertips wherever you are.
@@ -1016,9 +1015,9 @@ Representative lines:
   - Brandon Kravitz (Speaker C): all in on the Jags But Brian Thomas Jr.
   - Brandon Kravitz (Speaker C): Just stick with your just stick with your team.
 
-### 31. Cardinals / Chargers / Total (55:49-56:58)
+### 31. Cardinals / Chargers / Total (55:49-56:38)
 
-Speakers: Brandon Kravitz (Speaker C), Guest (Speaker E)
+Speakers: Brandon Kravitz (Speaker C)
 
 Topics: Cardinals, Chargers, Total, Props, Coaching, Injuries
 

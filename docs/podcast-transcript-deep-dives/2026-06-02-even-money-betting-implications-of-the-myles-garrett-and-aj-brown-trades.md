@@ -23,7 +23,7 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 ## Conversation Beats
 
-### 1. General discussion (0:01-4:45)
+### 1. General discussion (0:05-4:45)
 
 Speakers: Ross Tucker (Speaker A), Guest (Speaker B)
 
@@ -50,9 +50,9 @@ Betting language / picks:
   - Ross Tucker (Speaker A): And by the way, I'm a firm believer, if you evaluate podcasts per minute, how can you not rate us number one?
 
 Representative lines:
-  - Ross Tucker (Speaker A): Pays Checkout is offered by your banks and credit unions, so when you shop online at participating merchants, your cards appear in one place paes it checks out.
   - Guest (Speaker B): Most of us are one good deal away from finally replacing that worn out rug, fixing up the backyard, or getting the bedroom we actually want.
   - Guest (Speaker B): Wayfair's Black Friday in July sale get up to 80% off area rugs and up to 60% off off outdoor and bedroom furniture.
+  - Guest (Speaker B): Shop Wayfair's huge selection of styles and find the piece to fit your style, budget and space.
 
 ### 2. Rams / 49ers / Spread (4:45-15:35)
 

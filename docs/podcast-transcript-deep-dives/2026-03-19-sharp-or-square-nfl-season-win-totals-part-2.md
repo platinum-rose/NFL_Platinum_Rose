@@ -916,6 +916,7 @@ Mindset / reasoning clues:
 
 Betting language / picks:
   - Chad Millman (Speaker B): That means if you would have won a hundred dollars on your bet, now it's 200.
+  - Simon Hunter (Speaker C): Best Mobile Network Based on analysis by Ooklab Speed Test Intelligence data 2H 2025 with 24 monthly bill credits and 4 eligible port ins on essentials for well qualified customers with autopay plus taxes, fees and 35 connection charge per line credits and imbalance to if you pay off earlier.
 
 Representative lines:
   - Simon Hunter (Speaker C): Cancel Contact US Finance Agreement example 299.99 Moto H5G required T satellite available with compatible device in most outdoor areas in
@@ -1418,7 +1419,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about Bills, Chargers, Total, Coaching. Reasoning clue: Chad Millman (Speaker B) - I think that Sean Payton is a good enough coach that a 107 team with this talent is not at all inconceivable to me. Rationale themes: market price/line movement, coaching and scheme, home/road and scheduling spot.
+Summary: The beat is mainly about Bills, Chargers, Total, Coaching. Reasoning clue: Chad Millman (Speaker B) - I think that Sean Payton is a good enough coach that a 107 team with this talent is not at all inconceivable to me. Rationale themes: market price/line movement, coaching and scheme, injury and availability.
 
 Mindset / reasoning clues:
   - Simon Hunter (Speaker C): And I do think you're being priced here at nine and a half because, you know, first place schedule obviously and this the division is so tough.
@@ -1432,6 +1433,7 @@ Betting language / picks:
   - Chad Millman (Speaker B): I'd rather be betting the over on this team than the under.
   - Simon Hunter (Speaker C): I'm thinking they're over.
   - Chad Millman (Speaker B): We know Bo Nicks will be back.
+  - Simon Hunter (Speaker C): Best Mobile Network based on analysis by OOKLA Speed Test Intelligence data 2H 2025 with 24 monthly bill credits and 4 eligible pour ins on essentials for well qualified customers with autopay plus taxes, fees and 35 connection charge per line credits and imbalance 2 if you payoff earlier, cancel contact US Finance Agreement example $299.99 Moto Edge 5G required T Satellite available with compatible device in most outdoor areas
 
 Representative lines:
   - Chad Millman (Speaker B): The Chargers are, you know, could be 15 and 2.

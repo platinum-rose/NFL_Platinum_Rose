@@ -278,7 +278,6 @@ Mindset / reasoning clues:
 
 Betting language / picks:
   - Simon Hunter (Speaker E): They're sort of vaguely described as doing sports analysis or sports, but the knowledge that there is this elite class of people who run hedge fund like operations to bet on sports, I still think it hasn't quite seeped out into the consciousness in the UK and maybe not in the US either.
-  - Chad Millman (Speaker B): If you win, just place a $5 bet and if it hits, you get not only your winnings, but also an extra hundred and fifty dollars in bonus bets.
   - Simon Hunter (Speaker E): No one will take your bets.
 
 Representative lines:

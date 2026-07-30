@@ -995,13 +995,13 @@ Representative lines:
   - Guest (Speaker D): So Carrier, to me, interesting storyline with him being a Vegas Golden Knight who won a Stanley cup with them.
   - Guest (Speaker D): But as fate would have it, they got Tavarez by Mitch Marner who plays for Vegas and he.
 
-### 32. Total (39:58-41:09)
+### 32. Total (39:58-41:23)
 
 Speakers: Guest (Speaker D), Chad Millman (Speaker B)
 
 Topics: Total
 
-Conclusion: Chad Millman (Speaker B): Let's do a quick word from our friends at Hard Rock and come back and touch a little bit more on series props, exotics, et cetera.
+Conclusion: Guest (Speaker D): But I think that first period 00 bet will be one to play the entire series because they just, these two teams both just love stopping pucks more than they like scoring on.
 
 Matchup: Not inferred.
 
@@ -1023,15 +1023,14 @@ Mindset / reasoning clues:
 Betting language / picks:
   - Guest (Speaker D): But I think that first period 00 bet will be one to play the entire series because they just, these two teams both just love stopping pucks more than they like scoring on.
   - Chad Millman (Speaker B): Yes, but I don't know if you gave us a different bet on either the sides or on the total, which is five and a half.
-  - Chad Millman (Speaker B): Let's do a quick word from our friends at Hard Rock and come back and touch a little bit more on series props, exotics, et cetera.
   - Chad Millman (Speaker B): So wait, but what you just gave us a first goal bet?
 
 Representative lines:
   - Guest (Speaker D): And the big thing was he just could never perform for Toronto in the playoffs and now he's the Khan's myth favorite.
+  - Chad Millman (Speaker B): Despite my feelings about New York fans, I could not be more excited about this matchup.
   - Guest (Speaker D): Smythe and then bring the cup to his hometown of Toronto for his day with the Cup.
-  - Chad Millman (Speaker B): Ah, okay, I missed that.
 
-### 33. Super Bowl / Total (41:09-42:55)
+### 33. Super Bowl / Total (41:23-42:55)
 
 Speakers: Chad Millman (Speaker B)
 
@@ -1047,19 +1046,18 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Super Bowl, Total. Rationale themes: defensive quality.
+Summary: No firm pick surfaced in this beat; it is mostly context around Super Bowl, Total.
 
 Mindset / reasoning clues:
   - None pulled.
 
 Betting language / picks:
   - Chad Millman (Speaker B): The season is almost over, so shoot your shot while you can and same game parlays let you stack your picks for an even bigger payout.
-  - Chad Millman (Speaker B): If you win, just place a five dollar bet and if it hits, you get not only your winnings but also an extra $150 in bonus bets.
 
 Representative lines:
-  - Chad Millman (Speaker B): Today's show is brought to you by our presenting sponsor, Hard Rock Bat Florida's Sportsbook the NBA Finals are here, the lights are brighter, the pressure is every possession can define a legacy.
   - Chad Millman (Speaker B): Will San Antonio hang another championship banner?
-  - Chad Millman (Speaker B): Despite my feelings about New York fans, I could not be more excited about this matchup.
+  - Chad Millman (Speaker B): Will New York end its title drought?
+  - Chad Millman (Speaker B): Concerned about gambling in Florida?
 
 ### 34. Injuries (43:02-45:55)
 

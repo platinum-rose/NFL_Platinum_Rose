@@ -24,9 +24,9 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 ## Conversation Beats
 
-### 1. Raiders / Win Totals / Draft (0:01-1:14)
+### 1. Raiders / Win Totals / Draft (0:08-1:20)
 
-Speakers: Guest (Speaker A), Ross Tucker (Speaker B), Steve Fezzik (Speaker C)
+Speakers: Ross Tucker (Speaker B), Steve Fezzik (Speaker C), Guest (Speaker A)
 
 Topics: Raiders, Win Totals, Draft, Total
 
@@ -51,10 +51,10 @@ Betting language / picks:
 
 Representative lines:
   - Steve Fezzik (Speaker C): Yes, we will talk with Steve, our professional sports better in Las Vegas.
+  - Steve Fezzik (Speaker C): But we start with our bread and butter which is the professional football league called the NFL.
   - Ross Tucker (Speaker B): It's the Even Money podcast with Ross Tucker and Steve Pezik.
-  - Steve Fezzik (Speaker C): The great Steve Fesic at Physics Sports.
 
-### 2. Draft (1:14-2:33)
+### 2. Draft (1:20-2:33)
 
 Speakers: Steve Fezzik (Speaker C)
 

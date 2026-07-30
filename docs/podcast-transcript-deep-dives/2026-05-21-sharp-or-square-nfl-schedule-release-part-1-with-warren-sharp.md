@@ -8,7 +8,6 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 - B: Chad Millman
 - C: Simon Hunter
-- D: Guest
 - E: Guest
 
 ## Expected Participants
@@ -18,6 +17,7 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 ## Ignored Audio
 
 - A: ad/commercial audio ignored
+- D: ad/commercial audio ignored
 
 ## Timing / Watchlist Conjectures
 
@@ -25,38 +25,9 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 ## Conversation Beats
 
-### 1. Total (0:19-1:34)
+### 1. General discussion (0:19-3:44)
 
-Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D)
-
-Topics: Total
-
-Conclusion: No firm pick surfaced.
-
-Matchup: Not inferred.
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: No firm pick surfaced in this beat; it is mostly context around Total. Rationale themes: market price/line movement.
-
-Mindset / reasoning clues:
-  - None pulled.
-
-Betting language / picks:
-  - None pulled.
-
-Representative lines:
-  - Guest (Speaker D): That's why you need a network that's just as powerful as you are with with Total Wireless, you get unlimited 5G data keeping you in the action from the walkouts to the knockouts.
-  - Guest (Speaker D): This podcast is sponsored by Total Wireless, the official wireless partner of ufc.
-  - Guest (Speaker D): Visit totalwireless.com or stop by your neighborhood Total Wireless Store.
-
-### 2. General discussion (1:34-3:44)
-
-Speakers: Guest (Speaker D), Chad Millman (Speaker B), Simon Hunter (Speaker C)
+Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
 Topics: General
 
@@ -80,10 +51,10 @@ Betting language / picks:
 
 Representative lines:
   - Chad Millman (Speaker B): I am joined as always by my co host, my companion, my compadre, my bff, Professional Better Simon Hunter.
+  - Simon Hunter (Speaker C): presents painful thoughts why did I search the Internet for answers to my cold sore problem?
   - Chad Millman (Speaker B): This is the show that makes the squares sharper and makes the wise guys pay attention.
-  - Chad Millman (Speaker B): welcome to Sharper Square, presented by Hard Rock Bat.
 
-### 3. Eagles / Total / Injuries (3:44-4:56)
+### 2. Eagles / Total / Injuries (3:44-4:56)
 
 Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
@@ -118,7 +89,7 @@ Representative lines:
   - Simon Hunter (Speaker C): Been crazy in Schwaberb as someone that just, you know, again, it's the old saying, Chad.
   - Chad Millman (Speaker B): Hey, you know where Kyle Schwarber went to college?
 
-### 4. General discussion (4:56-6:12)
+### 3. General discussion (4:56-6:12)
 
 Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
@@ -150,7 +121,7 @@ Representative lines:
   - Chad Millman (Speaker B): Whatever you can do to do more football coverage, lean in to that.
   - Simon Hunter (Speaker C): It's you guys a billion alumni and he is one of them.
 
-### 5. Schedule (6:12-7:27)
+### 4. Schedule (6:12-7:27)
 
 Speakers: Chad Millman (Speaker B), Guest (Speaker E)
 
@@ -181,7 +152,7 @@ Representative lines:
   - Guest (Speaker E): Yeah, I was listening to last year's show when we previewed the 2025 schedule.
   - Guest (Speaker E): So we're going to feed the, feed the evil machine for a little while here.
 
-### 6. Schedule (7:27-8:38)
+### 5. Schedule (7:27-8:38)
 
 Speakers: Chad Millman (Speaker B), Guest (Speaker E)
 
@@ -211,7 +182,7 @@ Representative lines:
   - Chad Millman (Speaker B): Look at all that intel, the graphics that you're getting in this fabulous book that Warren kills himself to put out to make all of us smarter.
   - Chad Millman (Speaker B): You, thanks for coming on the show and thanks for giving away the book for one freaking dollar.
 
-### 7. Eagles (8:38-9:52)
+### 6. Eagles (8:38-9:52)
 
 Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker E)
 
@@ -244,7 +215,7 @@ Representative lines:
   - Simon Hunter (Speaker C): Yeah, I would love to know just your view on.
   - Simon Hunter (Speaker C): Like this is what I want the NFL to be.
 
-### 8. Schedule / Total (9:52-11:04)
+### 7. Schedule / Total (9:52-11:04)
 
 Speakers: Guest (Speaker E)
 
@@ -273,7 +244,7 @@ Representative lines:
   - Guest (Speaker E): Let's run all the permutations to figure out the net where we'll get the most total eyeballs that to watch 20, 26 NFL games.
   - Guest (Speaker E): It is very clear the way that they are doing their modeling to develop the schedule in 2026.
 
-### 9. Chiefs / Schedule / Spread (11:04-12:17)
+### 8. Chiefs / Schedule / Spread (11:04-12:17)
 
 Speakers: Guest (Speaker E)
 
@@ -302,7 +273,7 @@ Representative lines:
   - Guest (Speaker E): We think this game on this particular Thursday night will get X million people watching it.
   - Guest (Speaker E): And that is how they're producing the schedule now.
 
-### 10. Draft (12:17-13:30)
+### 9. Draft (12:17-13:30)
 
 Speakers: Guest (Speaker E), Chad Millman (Speaker B)
 
@@ -332,7 +303,7 @@ Representative lines:
   - Guest (Speaker E): So there's a lot of calculations that the league is doing, but very few of those calculations are trying to make parity amongst the teams that are being represented on these primetime games.
   - Guest (Speaker E): They're doing calculations in terms of determining if these games are going to be good and drive eyeballs based upon what they think is the best teams that are going to be playing.
 
-### 11. Schedule / Win Totals / Total (13:30-14:43)
+### 10. Schedule / Win Totals / Total (13:30-14:43)
 
 Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
@@ -362,7 +333,7 @@ Representative lines:
   - Chad Millman (Speaker B): I've never really considered that the schedule as a, for lack of a better term, you know, key performance indicator.
   - Chad Millman (Speaker B): They're looking to maximize the dollars, which is how we as fans are getting these great matchups.
 
-### 12. Cowboys / Rams / Injuries (14:43-15:55)
+### 11. Cowboys / Rams / Injuries (14:43-15:55)
 
 Speakers: Simon Hunter (Speaker C)
 
@@ -397,7 +368,7 @@ Representative lines:
   - Simon Hunter (Speaker C): It's a grueling season and there's two teams we're going to touch on the one here that like really jump out to me of teams, it's going to be interesting to see how this, the season affects them because they have such horrible schedules.
   - Simon Hunter (Speaker C): They had a really bizarre scenario during their season last year, and that did catch up to them, right?
 
-### 13. Chiefs / Schedule / Total (15:55-16:37)
+### 12. Chiefs / Schedule / Total (15:55-16:37)
 
 Speakers: Simon Hunter (Speaker C), Chad Millman (Speaker B)
 
@@ -427,7 +398,7 @@ Representative lines:
   - Chad Millman (Speaker B): Trev Warren, we're going to dig into a bunch of teams right off the top.
   - Simon Hunter (Speaker C): Chad was guess who's the first Monday night game of the year?
 
-### 14. Bears / Bills / Schedule (16:37-17:50)
+### 13. Bears / Bills / Schedule (16:37-17:50)
 
 Speakers: Chad Millman (Speaker B), Guest (Speaker E)
 
@@ -456,7 +427,7 @@ Representative lines:
   - Chad Millman (Speaker B): Schedule winners in that category, Chicago and Buffalo.
   - Guest (Speaker E): With the schedule, you could stick a team have seven games where they're at a rest deficit and another team in the league who has zero games where they're at a rest deficit.
 
-### 15. Bears / Eagles / Bills (17:50-34:23)
+### 14. Bears / Eagles / Bills (17:50-34:23)
 
 Speakers: Guest (Speaker E), Chad Millman (Speaker B)
 
@@ -493,7 +464,7 @@ Representative lines:
   - Chad Millman (Speaker B): The last team to win a playoff game with this kind of strength of schedule.
   - Guest (Speaker E): Whereas the Philadelphia Eagles ranked 31st in net rest at minus 15 days, exact opposite of the Chicago Bears.
 
-### 16. Bears / Lions / Packers (20:11-21:24)
+### 15. Bears / Lions / Packers (20:11-21:24)
 
 Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
@@ -527,7 +498,7 @@ Representative lines:
   - Simon Hunter (Speaker C): That's what you're basically going to need from Caleb to basically be the 1 seed or 2 seed this year.
   - Simon Hunter (Speaker C): Now you're in a first place schedule.
 
-### 17. Bears / Schedule / Draft (21:24-22:34)
+### 16. Bears / Schedule / Draft (21:24-22:34)
 
 Speakers: Simon Hunter (Speaker C), Guest (Speaker E)
 
@@ -562,7 +533,7 @@ Representative lines:
   - Guest (Speaker E): Now based on my strength of schedule, which I do believe is more impactful than anything related to rest.
   - Guest (Speaker E): When you're looking at strength of schedule overall and this isn't rest, this is just opponents.
 
-### 18. Bears / Schedule / Spread (22:34-24:18)
+### 17. Bears / Schedule / Spread (22:34-24:18)
 
 Speakers: Guest (Speaker E)
 
@@ -595,7 +566,7 @@ Representative lines:
   - Guest (Speaker E): That's number one in the NFL.
   - Guest (Speaker E): We'll talk, I don't know potentially about the bye weeks being a little bit less impactful from a rest perspective.
 
-### 19. Lions / Seahawks / Conference (24:18-24:31)
+### 18. Lions / Seahawks / Conference (24:18-24:31)
 
 Speakers: Guest (Speaker E)
 
@@ -623,7 +594,7 @@ Representative lines:
   - Guest (Speaker E): And they're playing the Seahawks with three days of extra rest off of minibuy and they're playing the Lions with three days of rest off of minibuy.
   - Guest (Speaker E): Two teams that they're going to be competing against in the nfc.
 
-### 20. Bears / Jaguars / Spread (24:31-25:49)
+### 19. Bears / Jaguars / Spread (24:31-25:49)
 
 Speakers: Guest (Speaker E)
 
@@ -654,7 +625,7 @@ Representative lines:
   - Guest (Speaker E): In addition, a tough game against the Jaguars after playing on Thanksgiving, they have a minibuye heading into that game.
   - Guest (Speaker E): This is a team that if they have played since 2020 with a rest deficit of at least three days, which is what we're talking about, that's the more impactful one.
 
-### 21. Playoffs (25:55-27:16)
+### 20. Playoffs (25:55-27:16)
 
 Speakers: Chad Millman (Speaker B)
 
@@ -676,14 +647,13 @@ Mindset / reasoning clues:
   - Chad Millman (Speaker B): If you're ever late to tip off, don't worry.
 
 Betting language / picks:
-  - Chad Millman (Speaker B): If you win, just place a $5 bet and if it hits, you get not only your winnings, but also an extra $150 in bonus bets.
+  - None pulled.
 
 Representative lines:
   - Chad Millman (Speaker B): Florida's Sportsbook the second round of the NBA Playoffs is here and with Win or Go home energy on the hardwood, same game parlays are a great way to stack picks built especially for the playoff action.
-  - Chad Millman (Speaker B): Offered by Seminole hard Rock Digital LLC in all other states.
   - Chad Millman (Speaker B): Concerned about gambling in Florida?
 
-### 22. Injuries (27:16-28:27)
+### 21. Injuries (27:16-28:27)
 
 Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker E)
 
@@ -712,40 +682,11 @@ Representative lines:
   - Chad Millman (Speaker B): You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you.
   - Chad Millman (Speaker B): It's a smart solution to the frustration of repeatedly prompting AI just to make small changes.
 
-### 23. General discussion (28:30-30:13)
+### 22. Eagles (28:30-31:24)
 
-Speakers: Simon Hunter (Speaker C), Guest (Speaker D)
+Speakers: Simon Hunter (Speaker C), Chad Millman (Speaker B)
 
-Topics: General
-
-Conclusion: No firm pick surfaced.
-
-Matchup: Not inferred.
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: No firm pick surfaced in this beat; it is mostly context around general football context.
-
-Mindset / reasoning clues:
-  - None pulled.
-
-Betting language / picks:
-  - None pulled.
-
-Representative lines:
-  - Guest (Speaker D): visit zepboundlily.com this is Daniel Cormier from the Daniel Cormier Show.
-  - Simon Hunter (Speaker C): I can clear my search history, but I can never unsee that.
-  - Simon Hunter (Speaker C): Don't go down the rabbit hole.
-
-### 24. Eagles / Total (30:13-31:24)
-
-Speakers: Guest (Speaker D), Chad Millman (Speaker B)
-
-Topics: Eagles, Total
+Topics: Eagles
 
 Conclusion: No firm pick surfaced.
 
@@ -757,7 +698,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Eagles, Total. Rationale themes: market price/line movement, home/road and scheduling spot.
+Summary: No firm pick surfaced in this beat; it is mostly context around Eagles. Rationale themes: home/road and scheduling spot.
 
 Mindset / reasoning clues:
   - Chad Millman (Speaker B): When you look at it, are you like, it's the fucking Eagles.
@@ -767,10 +708,10 @@ Betting language / picks:
 
 Representative lines:
   - Chad Millman (Speaker B): Simon we did not get to the Eagles, who have a massive rest disadvantage this year.
-  - Guest (Speaker D): Monthly rates on the Total Base 5G Unlimited plan for new subscribers applies only to the monthly rate for your plan.
-  - Guest (Speaker D): With Total Wireless, you get unlimited 5G data keeping you in on all the action, from the walkouts to the knockouts.
+  - Simon Hunter (Speaker C): I can clear my search history, but I can never unsee that.
+  - Simon Hunter (Speaker C): Don't go down the rabbit hole.
 
-### 25. Chargers / Panthers / Schedule (31:25-32:17)
+### 23. Chargers / Panthers / Schedule (31:25-32:17)
 
 Speakers: Simon Hunter (Speaker C)
 
@@ -804,7 +745,7 @@ Representative lines:
   - Simon Hunter (Speaker C): Like, you can't just overlook those type of stats.
   - Simon Hunter (Speaker C): It might be the Panthers.
 
-### 26. Eagles / Panthers / Schedule (32:17-33:10)
+### 24. Eagles / Panthers / Schedule (32:17-33:10)
 
 Speakers: Simon Hunter (Speaker C), Guest (Speaker E)
 
@@ -835,7 +776,7 @@ Representative lines:
   - Guest (Speaker E): That's going to be a real interesting that's week six against the Panthers.
   - Simon Hunter (Speaker C): How bad is this Eagles Rest disadvantage.
 
-### 27. Commanders / Cowboys / Division (33:10-34:35)
+### 25. Commanders / Cowboys / Division (33:10-34:35)
 
 Speakers: Guest (Speaker E)
 
@@ -863,7 +804,7 @@ Betting language / picks:
 Representative lines:
   - Guest (Speaker E): Their schedule of opponents are much more difficult, but both of those teams rank top five in net rest.
 
-### 28. Commanders / Cowboys / Eagles (33:22-33:28)
+### 26. Commanders / Cowboys / Eagles (33:22-33:28)
 
 Speakers: Guest (Speaker E)
 
@@ -890,7 +831,7 @@ Betting language / picks:
 Representative lines:
   - Guest (Speaker E): The Eagles, sorry, the Commanders and the Cowboys.
 
-### 29. Eagles / Spread / Schedule (34:35-35:53)
+### 27. Eagles / Spread / Schedule (34:35-35:53)
 
 Speakers: Guest (Speaker E)
 
@@ -921,7 +862,7 @@ Representative lines:
   - Guest (Speaker E): The interesting note that I'll say Chad just mentioned at the top when he teed off to you Simon, about it's the Eagles.
   - Guest (Speaker E): Much easier schedule of opponents than their counterparts in the NFC East.
 
-### 30. Eagles / Rams / Injuries (35:53-37:11)
+### 28. Eagles / Rams / Injuries (35:53-37:11)
 
 Speakers: Guest (Speaker E), Chad Millman (Speaker B)
 
@@ -952,9 +893,9 @@ Representative lines:
   - Guest (Speaker E): So that's things that they should be trying to tackle this upcoming season.
   - Chad Millman (Speaker B): But now he really doesn't even have to pretend to care about anything else.
 
-### 31. 49ers / Rams / Conference (37:11-38:24)
+### 29. 49ers / Rams / Conference (37:11-38:24)
 
-Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D)
+Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
 Topics: 49ers, Rams, Conference, Division, Playoffs
 
@@ -985,7 +926,7 @@ Representative lines:
   - Simon Hunter (Speaker C): Another great example is just this season he put and one of the most important divisions in all football, the NFC west.
   - Simon Hunter (Speaker C): Those divisional games, especially in that big of a division, such a big deal.
 
-### 32. Jaguars (38:24-39:34)
+### 30. Jaguars (38:24-39:34)
 
 Speakers: Simon Hunter (Speaker C), Chad Millman (Speaker B)
 
@@ -1018,7 +959,7 @@ Representative lines:
   - Simon Hunter (Speaker C): He was like a rock star.
   - Chad Millman (Speaker B): As popular as the NFL is in, in the United States and it's obviously the, the biggest sport and much more popular than the NBA.
 
-### 33. Schedule / MVP (39:34-40:46)
+### 31. Schedule / MVP (39:34-40:46)
 
 Speakers: Chad Millman (Speaker B), Guest (Speaker E)
 
@@ -1048,9 +989,9 @@ Representative lines:
   - Chad Millman (Speaker B): Part one of this episode of the 2026 NFL schedule.
   - Chad Millman (Speaker B): And by the way, the top four invoke getters this year, SGA Jokic Wembanyama from France.
 
-### 34. General discussion (40:46-42:31)
+### 32. General discussion (40:46-42:31)
 
-Speakers: Guest (Speaker E), Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D)
+Speakers: Guest (Speaker E), Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
 Topics: General
 

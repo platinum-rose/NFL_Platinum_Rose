@@ -14,7 +14,6 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 - I: Guest
 - J: Guest
 - K: Guest
-- M: Guest
 
 ## Expected Participants
 
@@ -26,6 +25,7 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 - D: ad/commercial audio ignored
 - E: ad/commercial audio ignored
 - L: ad/commercial audio ignored
+- M: ad/commercial audio ignored
 
 ## Timing / Watchlist Conjectures
 
@@ -1306,9 +1306,9 @@ Representative lines:
   - Guest (Speaker A): If he goes inside the top five and stuff like that, he might not even be on the board.
   - Guest (Speaker A): And Mansur Delane, like again matching up their depth chart.
 
-### 39. Titans / Giants / Draft (57:44-59:28)
+### 39. Titans / Giants / Draft (57:44-1:00:09)
 
-Speakers: Guest (Speaker A), Chad Millman (Speaker G), Guest (Speaker K)
+Speakers: Guest (Speaker A), Chad Millman (Speaker G), Guest (Speaker K), Simon Hunter (Speaker H), Guest (Speaker B)
 
 Topics: Titans, Giants, Draft
 
@@ -1325,7 +1325,7 @@ Current market: No current public-line snapshot loaded for this matchup.
 Summary: No firm pick surfaced in this beat; it is mostly context around Titans, Giants, Draft. Rationale themes: market price/line movement.
 
 Mindset / reasoning clues:
-  - None pulled.
+  - Simon Hunter (Speaker H): Buy your car online on Autotrader.
 
 Betting language / picks:
   - Guest (Speaker A): And then if Makai Lemon is sitting there and he's at the top of the board and we've already seen Adam Peters and company value the type of skill set of somebody that can play the underneath, get yak yards with them.
@@ -1335,38 +1335,8 @@ Betting language / picks:
 
 Representative lines:
   - Guest (Speaker A): Unfortunately, Deebo is not Debo of Prime part of his career at this point.
-  - Guest (Speaker A): If that's the case, he's off the board.
-  - Chad Millman (Speaker G): Thanks for coming on, brother.
-
-### 40. Injuries / Schedule (59:28-1:00:40)
-
-Speakers: Guest (Speaker A), Chad Millman (Speaker G), Guest (Speaker K), Simon Hunter (Speaker H), Guest (Speaker B), Guest (Speaker M)
-
-Topics: Injuries, Schedule
-
-Conclusion: No firm pick surfaced.
-
-Matchup: Not inferred.
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: No firm pick surfaced in this beat; it is mostly context around Injuries, Schedule. Rationale themes: market price/line movement, injury and availability, home/road and scheduling spot.
-
-Mindset / reasoning clues:
-  - Guest (Speaker M): Your stock market investments deserve a second opinion at Henyon and Walsh.
-  - Simon Hunter (Speaker H): Buy your car online on Autotrader.
-
-Betting language / picks:
-  - None pulled.
-
-Representative lines:
-  - Guest (Speaker M): Advisory services provided by Henning and Walsh Asset Management securities offered by Henning and Walsh Inc.
-  - Guest (Speaker M): It only takes a second to schedule your free second opinion.
-  - Guest (Speaker M): You get them with your health, so why not with your wealth?
+  - Guest (Speaker K): You must reside in the US and primary usage must occur in our network.
+  - Simon Hunter (Speaker H): then finish online or at the dealership.
 
 ## Extracted Picks From Existing Host Summary Rows
 

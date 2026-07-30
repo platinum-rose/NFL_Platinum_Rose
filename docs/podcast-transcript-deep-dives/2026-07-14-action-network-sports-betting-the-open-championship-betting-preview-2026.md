@@ -446,9 +446,9 @@ Betting language / picks:
   - Guest (Speaker E): qualified customers with autopay plus 10 taxes
 
 Representative lines:
+  - Guest (Speaker C): Best Mobile Network Based on analysis by Ooklev speed test intelligence data 2H 2025 with 24 monthly bill credits and 4 eligible port ins on essentials for well
   - Evan Abrams (Speaker A): Special in venue activations, exclusive food and drink items inspired by the global game and at more than 60 locations.
   - Guest (Speaker C): With America's best network and T Satellite, we're keeping you connected in places you never thought possible.
-  - Guest (Speaker C): And if you switch today, you get free phones for zero down and only 25 bucks a month per line for four lines.
 
 ### 14. Moneyline / Total (18:56-20:44)
 

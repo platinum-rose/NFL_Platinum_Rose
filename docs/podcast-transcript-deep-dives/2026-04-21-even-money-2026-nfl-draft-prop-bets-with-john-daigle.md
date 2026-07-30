@@ -24,9 +24,9 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 ## Conversation Beats
 
-### 1. Draft (0:01-1:13)
+### 1. Draft (0:08-1:19)
 
-Speakers: Guest (Speaker A), Ross Tucker (Speaker B), Steve Fezzik (Speaker C)
+Speakers: Ross Tucker (Speaker B), Steve Fezzik (Speaker C), Guest (Speaker A)
 
 Topics: Draft
 
@@ -56,7 +56,7 @@ Representative lines:
   - Steve Fezzik (Speaker C): And it is NFL Draft Week 2026.
   - Ross Tucker (Speaker B): It's the Even Money podcast with Ross Tucker and Steve Pezik.
 
-### 2. Draft / Props / Total (1:13-2:25)
+### 2. Draft / Props / Total (1:19-2:38)
 
 Speakers: Steve Fezzik (Speaker C), Ross Tucker (Speaker B)
 
@@ -75,7 +75,8 @@ Current market: No current public-line snapshot loaded for this matchup.
 Summary: No firm pick surfaced in this beat; it is mostly context around Draft, Props.
 
 Mindset / reasoning clues:
-  - None pulled.
+  - Steve Fezzik (Speaker C): A few years ago, I remember you and I, we talked NFL draft betting for like three weeks and you were talking about how it was one of the most profitable events on the calendar.
+  - Ross Tucker (Speaker B): So just a lot happening right now for sports fans like us.
 
 Betting language / picks:
   - Steve Fezzik (Speaker C): Plus Steve has an NBA playoff betting philosophy that has proved very profitable over the years.
@@ -86,9 +87,9 @@ Representative lines:
   - Steve Fezzik (Speaker C): And yes, he's won awards for his fantasy sports writing which by the way dovetails very nicely with prop betting.
   - Steve Fezzik (Speaker C): And he's been on the show before to talk about NFL draft prop bets.
 
-### 3. Total / Draft / Win Totals (2:25-3:38)
+### 3. Total / Draft / Win Totals (2:38-4:08)
 
-Speakers: Ross Tucker (Speaker B), Steve Fezzik (Speaker C), Guest (Speaker A)
+Speakers: Steve Fezzik (Speaker C), Guest (Speaker A)
 
 Topics: Total, Draft, Win Totals
 
@@ -106,27 +107,25 @@ Summary: The beat is mainly about Total, Draft. Reasoning clue: Guest (Speaker A
 
 Mindset / reasoning clues:
   - Guest (Speaker A): And these books have taken their ball and gone home to just as an example, one of the biggest books, I'm not going to mention them by name because I love them.
-  - Steve Fezzik (Speaker C): A few years ago, I remember you and I, we talked NFL draft betting for like three weeks and you were talking about how it was one of the most profitable events on the calendar.
   - Guest (Speaker A): Yeah, because Vegas doesn't book the draft.
-  - Ross Tucker (Speaker B): So just a lot happening right now for sports fans like us.
 
 Betting language / picks:
   - Guest (Speaker A): But I was taking a look at Jeremiah Love's current number over under five and a half.
   - Guest (Speaker A): They have over 100cent straddle between the bid and the ask there with a 300 limit.
+  - Guest (Speaker A): Straddle is the difference between betting and over or an under.
   - Steve Fezzik (Speaker C): We would go over everything and we would crush it.
   - Guest (Speaker A): The under is a big favorite.
-  - Guest (Speaker A): Now the under is minus 335.
 
 Representative lines:
   - Steve Fezzik (Speaker C): You don't really even bet the draft much anymore, do you?
+  - Guest (Speaker A): Now the under is minus 335.
   - Guest (Speaker A): Basically Vegas has lost on the draft or at best broken even.
-  - Steve Fezzik (Speaker C): Steve, I wanted you to give us the 30,000 foot perspective.
 
-### 4. Total / Draft (3:38-4:49)
+### 4. Draft (4:08-5:24)
 
 Speakers: Guest (Speaker A), Steve Fezzik (Speaker C), Ross Tucker (Speaker B)
 
-Topics: Total, Draft
+Topics: Draft
 
 Conclusion: No firm pick surfaced.
 
@@ -138,23 +137,23 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Total, Draft.
+Summary: No firm pick surfaced in this beat; it is mostly context around Draft. Reasoning clue: Ross Tucker (Speaker B) - Since I've been doing this just because now what's happened as well as the low lower limits which makes the research just takes up more time honestly and doesn't make it worth that time anymore. Rationale themes: home/road and scheduling spot.
 
 Mindset / reasoning clues:
-  - None pulled.
+  - Ross Tucker (Speaker B): Since I've been doing this just because now what's happened as well as the low lower limits which makes the research just takes up more time honestly and doesn't make it worth that time anymore.
 
 Betting language / picks:
-  - Guest (Speaker A): Straddle is the difference between betting and over or an under.
   - Guest (Speaker A): But what happens if you get a big favorite that should be like minus 200 plus 170 would be a traditional 30 cent type straddle.
   - Guest (Speaker A): And on this draft it's more like, you know, minus 250 plus 17060 cent straddles.
+  - Ross Tucker (Speaker B): They're getting the information first rather than giving us a chance to win.
   - Guest (Speaker A): Pricing on pick them in each direction.
 
 Representative lines:
+  - Ross Tucker (Speaker B): But in this case I completely agree with Steve across the board and that I'll even have some of my fewest draft bets of all time.
+  - Ross Tucker (Speaker B): I absolutely listen to Steve first and foremost and usually there is a difference in us being at home jumping on DraftKings, jumping on another site and betting.
   - Guest (Speaker A): So in traditional betting markets if the yes no was 5050 it would be minus 110 in each direction and now books are going to minus 120.
-  - Guest (Speaker A): God, couldn't win betting into those bigger differentials I guess.
-  - Steve Fezzik (Speaker C): John, I'm curious to get your perspective on this
 
-### 5. Draft (4:49-6:05)
+### 5. Draft (5:24-6:35)
 
 Speakers: Ross Tucker (Speaker B), Steve Fezzik (Speaker C)
 
@@ -170,26 +169,28 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about Draft. Reasoning clue: Ross Tucker (Speaker B) - Since I've been doing this just because now what's happened as well as the low lower limits which makes the research just takes up more time honestly and doesn't make it worth that time anymore. Rationale themes: home/road and scheduling spot.
+Summary: The beat is mainly about Draft.
 
 Mindset / reasoning clues:
-  - Ross Tucker (Speaker B): Since I've been doing this just because now what's happened as well as the low lower limits which makes the research just takes up more time honestly and doesn't make it worth that time anymore.
+  - Steve Fezzik (Speaker C): Like, I have friends that I don't think they really look at the straddle.
+  - Steve Fezzik (Speaker C): Like, they're not like you in terms of really trying to profit from it.
+  - Steve Fezzik (Speaker C): I feel like most people I talk to aren't like you guys.
+  - Steve Fezzik (Speaker C): I don't think they really like most.
 
 Betting language / picks:
   - Steve Fezzik (Speaker C): So, Steve, my theory on this is that they've intentionally made it that way because they don't want people like you two to bet on the draft, but they still want to have something up for the people that just want to have action on the draft and something to bet on and don't really care that much about the straddle or the limits.
   - Steve Fezzik (Speaker C): They really just want to lay down three to five bets, whatever the dollar amount is.
-  - Ross Tucker (Speaker B): They're getting the information first rather than giving us a chance to win.
 
 Representative lines:
   - Ross Tucker (Speaker B): But I just figured for the recreational better, who could still get down, you know, 10 to $20, the long shots are probably the way they're betting the 20, 26 draft.
-  - Ross Tucker (Speaker B): But in this case I completely agree with Steve across the board and that I'll even have some of my fewest draft bets of all time.
-  - Ross Tucker (Speaker B): I absolutely listen to Steve first and foremost and usually there is a difference in us being at home jumping on DraftKings, jumping on another site and betting.
+  - Ross Tucker (Speaker B): And that's why for this in particular I really only brought a Lot of long shots.
+  - Ross Tucker (Speaker B): There's a couple of, you know, thinner lines that we'll discuss.
 
-### 6. General discussion (6:05-7:15)
+### 6. Draft / Spread (6:35-7:46)
 
 Speakers: Steve Fezzik (Speaker C), Guest (Speaker A)
 
-Topics: General
+Topics: Draft, Spread
 
 Conclusion: Guest (Speaker A): Don't bet a bunch of dudes to win the tournament because guess what?
 
@@ -201,28 +202,27 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about general football context.
+Summary: The beat is mainly about Draft, Spread.
 
 Mindset / reasoning clues:
-  - Steve Fezzik (Speaker C): Like, I have friends that I don't think they really look at the straddle.
-  - Steve Fezzik (Speaker C): Like, they're not like you in terms of really trying to profit from it.
-  - Steve Fezzik (Speaker C): I feel like most people I talk to aren't like you guys.
-  - Steve Fezzik (Speaker C): I don't think they really like most.
+  - None pulled.
 
 Betting language / picks:
+  - Guest (Speaker A): So that is an exception to my basic strategy, which is more based on mathematics, where I say, like, don't bet a specific team is going to score exactly 19 points because you never get value with bets like that.
   - Guest (Speaker A): Don't bet a bunch of dudes to win the tournament because guess what?
+  - Guest (Speaker A): The exception to the rule is something like the draft, where literally if you're doing all your research and, and you know, or you have some information that teams really like a dude and you can bet him to go to a select team at 8 to 1, 10 to 1.
   - Guest (Speaker A): Don't bet the needle in the haystack long shot bets, all right?
 
 Representative lines:
+  - Guest (Speaker A): I know for a fact there are guys that do very, very well with those needle in the haystack type bets.
   - Steve Fezzik (Speaker C): It's more just increasing the entertainment of something that they're going to consume anyway, 100%.
   - Guest (Speaker A): Everybody else, if you have a portfolio of eight dudes, you can go 0 and 8 and lose.
-  - Guest (Speaker A): And, you know, one exception to the rule in terms of I am huge negative.
 
-### 7. Giants / Bengals / Draft (7:15-8:47)
+### 7. Giants / Bengals / Draft (7:46-9:00)
 
-Speakers: Guest (Speaker A), Steve Fezzik (Speaker C), Ross Tucker (Speaker B)
+Speakers: Steve Fezzik (Speaker C), Ross Tucker (Speaker B)
 
-Topics: Giants, Bengals, Draft, Awards, Spread, Total
+Topics: Giants, Bengals, Draft, Awards, Total
 
 Conclusion: Ross Tucker (Speaker B): Just because with the giants holding number five and number 10, I think that's why there's suddenly become steam on them drafting potentially Jordan Tyson, wide receiver at number five overall, and then instead taking a defensive player at number 10.
 
@@ -234,24 +234,24 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about Giants, Bengals, Draft, Awards. Reasoning clue: Ross Tucker (Speaker B) - Caleb downs went number 10 overall to the Bengals. Rationale themes: market price/line movement, defensive quality, offensive personnel.
+Summary: The beat is mainly about Giants, Bengals, Draft, Awards. Reasoning clue: Ross Tucker (Speaker B) - But if it is waiting to 10, then I think that's where Caleb Downs begins to go. Rationale themes: market price/line movement, defensive quality, offensive personnel.
 
 Mindset / reasoning clues:
-  - None pulled.
+  - Ross Tucker (Speaker B): But if it is waiting to 10, then I think that's where Caleb Downs begins to go.
 
 Betting language / picks:
-  - Guest (Speaker A): So that is an exception to my basic strategy, which is more based on mathematics, where I say, like, don't bet a specific team is going to score exactly 19 points because you never get value with bets like that.
   - Ross Tucker (Speaker B): Just because with the giants holding number five and number 10, I think that's why there's suddenly become steam on them drafting potentially Jordan Tyson, wide receiver at number five overall, and then instead taking a defensive player at number 10.
   - Ross Tucker (Speaker B): That has obviously changed since the Bengals used that pick to grab Dexter Lawrence from the Giants, which actually opens up the door for Caleb Downs to now get pushed further.
   - Steve Fezzik (Speaker C): You have him over nine and a half at plus 110.
-  - Guest (Speaker A): The exception to the rule is something like the draft, where literally if you're doing all your research and, and you know, or you have some information that teams really like a dude and you can bet him to go to a select team at 8 to 1, 10 to 1.
-
-Representative lines:
   - Ross Tucker (Speaker B): Caleb downs went number 10 overall to the Bengals.
-  - Ross Tucker (Speaker B): In my initial mock draft on Establish the Run, which I'll put out a final one for for scorings, since that's what happens, is that in order to determine the most accurate mock drafters in the country.
   - Steve Fezzik (Speaker C): Your first bet is Caleb Downs, the outstanding safety from Ohio State.
 
-### 8. Cowboys / Titans / Total (8:47-10:02)
+Representative lines:
+  - Ross Tucker (Speaker B): In my initial mock draft on Establish the Run, which I'll put out a final one for for scorings, since that's what happens, is that in order to determine the most accurate mock drafters in the country.
+  - Ross Tucker (Speaker B): We know the Giants weakness last year was their secondary.
+  - Ross Tucker (Speaker B): That's the position that they have to address, whether it be safety or cornerback in this draft.
+
+### 8. Cowboys / Titans / Total (9:00-10:11)
 
 Speakers: Ross Tucker (Speaker B), Steve Fezzik (Speaker C)
 
@@ -261,7 +261,7 @@ Conclusion: Ross Tucker (Speaker B): Understanding a player's floor in this case
 
 Matchup: Cowboys vs Titans
 
-Spread: Cowboys -5
+Spread: Not surfaced.
 
 Total: Not surfaced.
 
@@ -271,23 +271,22 @@ Summary: The beat is mainly about Cowboys, Titans, Total. Reasoning clue: Ross T
 
 Mindset / reasoning clues:
   - Steve Fezzik (Speaker C): It's funny because I've seen a lot of people saying he won't make it to 12, he won't make it to 12 with the Cowboys.
-  - Ross Tucker (Speaker B): But if it is waiting to 10, then I think that's where Caleb Downs begins to go.
   - Ross Tucker (Speaker B): But right now I don't think the market is adjusting enough for the fact that Caleb's Downs really only has one or two outs inside the top nine.
   - Ross Tucker (Speaker B): Otherwise, I think he falls beyond 10 and beyond.
 
 Betting language / picks:
   - Ross Tucker (Speaker B): aim running back the early consensus, and I really believe it became a consensus just because no one knew what was happening with a new regime or under Robert Sala and the Titans at number four overall was that that was the organization that was going to take Notre Dame running back Jeremiah Love.
+  - Ross Tucker (Speaker B): Since then though, since all the national reporters that we trust, Peter Schrager, Adam Schefter, the list goes on, have gained more information, it seems like Jeremiah Love is absolutely not being taken at number four.
   - Ross Tucker (Speaker B): Understanding a player's floor in this case though, I think they could be one pick off and 10 is a juicy out.
   - Steve Fezzik (Speaker C): Talk to me about Jeremiah Love and what bet you like with the nerd
   - Ross Tucker (Speaker B): We have seen some steam that a team may trade up for him, especially if Sunny Styles comes off the board at number four, number five.
-  - Ross Tucker (Speaker B): And usually the books are very on top of that kind of number.
 
 Representative lines:
+  - Ross Tucker (Speaker B): And usually the books are very on top of that kind of number.
   - Ross Tucker (Speaker B): I was actually shocked that the number wasn't 10 and a half.
-  - Ross Tucker (Speaker B): And they will at some point with 5 or 10.
   - Steve Fezzik (Speaker C): But you don't need him to make it to 12.
 
-### 9. Titans / Cardinals / Jets (10:02-10:36)
+### 9. Titans / Cardinals / Jets (10:11-10:36)
 
 Speakers: Ross Tucker (Speaker B)
 
@@ -311,7 +310,6 @@ Mindset / reasoning clues:
 Betting language / picks:
   - Ross Tucker (Speaker B): I think with again being under a new defensive minded coach in Robert Salah that we are looking at, even if Reese and Bailey were to go two and three, there's still a chance the Titans instead leap at someone like Sunny Styles over Jeremiah Love.
   - Ross Tucker (Speaker B): And really all that was happening is that everyone was assuming in some kind of order, edge rushers Arvo Reese and David Bailey were going to go number two and three overall to the jets and Cardinals, which then forced the Titans hand to take the best player available, which in this case would be or in a lot of people's minds be Jeremiah Love.
-  - Ross Tucker (Speaker B): Since then though, since all the national reporters that we trust, Peter Schrager, Adam Schefter, the list goes on, have gained more information, it seems like Jeremiah Love is absolutely not being taken at number four.
 
 Representative lines:
   - Ross Tucker (Speaker B): But I don't think that's the case at all.

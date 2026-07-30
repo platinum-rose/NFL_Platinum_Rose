@@ -755,7 +755,7 @@ Representative lines:
   - Chad Millman (Speaker B): I just want to, I want to run through all the playoff teams and make sure we're not missing anyone.
   - Chad Millman (Speaker B): You mentioned the Chargers.
 
-### 24. Chargers / Jaguars / Division (20:25-23:35)
+### 24. Chargers / Jaguars / Division (20:25-24:42)
 
 Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
@@ -778,16 +778,16 @@ Mindset / reasoning clues:
   - Simon Hunter (Speaker C): But yeah, for us and the Jaguars, I think we have both of the same question about Trevor Lawrence.
   - Chad Millman (Speaker B): I like the quarterback for the Chargers better than the Jags.
   - Chad Millman (Speaker B): The Jags are, I think, let me get my glasses here.
-  - Chad Millman (Speaker B): Look, I love the coaches for both teams.
+  - Chad Millman (Speaker B): And for the next month, every match feels like a final.
 
 Betting language / picks:
   - Chad Millman (Speaker B): I like the, the way the Chargers, I think their path to improving is a little bit easier because their offensive line will just naturally be better because they're getting players back.
   - Simon Hunter (Speaker C): For the Chargers, I think they can win their play their way out of it with the offense they have.
 
 Representative lines:
+  - Chad Millman (Speaker B): And if you're ever late to kickoff, don't worry.
+  - Chad Millman (Speaker B): Look, I love the coaches for both teams.
   - Simon Hunter (Speaker C): Chargers had so many things though against them, you only could see more improvement.
-  - Chad Millman (Speaker B): The Chargers are minus 180.
-  - Chad Millman (Speaker B): But their division is so hard.
 
 ### 25. Colts / Texans (21:12-21:22)
 
@@ -910,38 +910,7 @@ Representative lines:
   - Simon Hunter (Speaker C): One of them is going to get knocked out by the Chiefs.
   - Simon Hunter (Speaker C): They just had so much brick their way last year.
 
-### 29. Chiefs (23:35-24:48)
-
-Speakers: Chad Millman (Speaker B)
-
-Topics: Chiefs
-
-Conclusion: No firm pick surfaced.
-
-Matchup: Not inferred.
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: No firm pick surfaced in this beat; it is mostly context around Chiefs. Reasoning clue: Chad Millman (Speaker B) - Let's do a quick break from Hard Rock because then I want to talk about the Chiefs on the other side. Rationale themes: market price/line movement, offensive personnel.
-
-Mindset / reasoning clues:
-  - Chad Millman (Speaker B): Let's do a quick break from Hard Rock because then I want to talk about the Chiefs on the other side.
-  - Chad Millman (Speaker B): And for the next month, every match feels like a final.
-  - Chad Millman (Speaker B): And if you're ever late to kickoff, don't worry.
-
-Betting language / picks:
-  - None pulled.
-
-Representative lines:
-  - Chad Millman (Speaker B): And Super Sub 2 promos designed to give your bets insurance all tournament long.
-  - Chad Millman (Speaker B): We're talking profit boosts, no sweat bets, bonus bets and more.
-  - Chad Millman (Speaker B): And be sure to check out no goals, no problem.
-
-### 30. General discussion (24:53-28:46)
+### 29. General discussion (24:42-28:46)
 
 Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
@@ -970,7 +939,7 @@ Representative lines:
   - Simon Hunter (Speaker C): Well, if we don't understand the full context in which our nation was founded, we won't understand the full context in which our nation now finds itself.
   - Chad Millman (Speaker B): You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you.
 
-### 31. Chiefs / Patriots / Injuries (29:15-30:25)
+### 30. Chiefs / Patriots / Injuries (29:15-30:25)
 
 Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
@@ -1001,7 +970,7 @@ Representative lines:
   - Simon Hunter (Speaker C): I will be shocked to see how many people have the Chiefs in their top 10.
   - Chad Millman (Speaker B): We talked about the Chiefs just for a second before the break.
 
-### 32. Browns / Chiefs / Super Bowl (30:25-31:36)
+### 31. Browns / Chiefs / Super Bowl (30:25-31:36)
 
 Speakers: Simon Hunter (Speaker C), Chad Millman (Speaker B)
 
@@ -1037,7 +1006,7 @@ Representative lines:
   - Chad Millman (Speaker B): Plus 550 to make the playoffs.
   - Chad Millman (Speaker B): We've been comfortable betting The Browns at 200 1.
 
-### 33. Eagles / Cowboys / Week 1 (32:51-33:52)
+### 32. Eagles / Cowboys / Week 1 (32:51-33:52)
 
 Speakers: Simon Hunter (Speaker C)
 
@@ -1071,7 +1040,7 @@ Representative lines:
   - Simon Hunter (Speaker C): I don't know that's gonna be as the great Dallas is.
   - Simon Hunter (Speaker C): They did go out and get guys and you know that partial straight as much crap as we gave them.
 
-### 34. Giants / Coaching / Schedule (33:53-35:04)
+### 33. Giants / Coaching / Schedule (33:53-35:04)
 
 Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
@@ -1105,7 +1074,7 @@ Representative lines:
   - Simon Hunter (Speaker C): It's the same thing here with the Giants, right?
   - Chad Millman (Speaker B): I am so down on the New York Football Giants.
 
-### 35. Ravens / Coaching / Draft (35:04-36:23)
+### 34. Ravens / Coaching / Draft (35:04-36:23)
 
 Speakers: Simon Hunter (Speaker C), Chad Millman (Speaker B)
 
@@ -1142,7 +1111,7 @@ Representative lines:
   - Simon Hunter (Speaker C): And you can point to, well, look how great he was as a playoff coach before Lamar.
   - Simon Hunter (Speaker C): He says, yeah, I'm, I'm going to be smarter with the ball, but if I need to get that first down, I'm still going to get it.
 
-### 36. Steelers / Ravens / Conference (36:23-37:34)
+### 35. Steelers / Ravens / Conference (36:23-37:34)
 
 Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
@@ -1175,7 +1144,7 @@ Representative lines:
   - Chad Millman (Speaker B): And he consistently made bad strategic decisions about how to use that quarterback.
   - Simon Hunter (Speaker C): Lamar Jackson was part of the third greatest DVOA team ever in recorded history.
 
-### 37. Chiefs / Giants / Total (37:34-38:45)
+### 36. Chiefs / Giants / Total (37:34-38:45)
 
 Speakers: Simon Hunter (Speaker C), Chad Millman (Speaker B)
 
@@ -1209,7 +1178,7 @@ Representative lines:
   - Simon Hunter (Speaker C): The third greatest team in the history of that recordkeeping lost at home to a Chiefs team that Chad probably remembers this.
   - Simon Hunter (Speaker C): So this computer doesn't know Lamar is one of the greatest athletes ever to live.
 
-### 38. Giants (38:45-39:58)
+### 37. Giants (38:45-39:58)
 
 Speakers: Simon Hunter (Speaker C), Chad Millman (Speaker B)
 
@@ -1238,7 +1207,7 @@ Representative lines:
   - Chad Millman (Speaker B): It's a buildup of this byproduct, not dehydration, that's to blame for rough days after drinking.
   - Chad Millman (Speaker B): When you drink, alcohol gets converted into a toxic byproduct in the gut.
 
-### 39. Rams / Ravens / Bills (39:58-43:01)
+### 38. Rams / Ravens / Bills (39:58-43:01)
 
 Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
@@ -1275,7 +1244,7 @@ Representative lines:
   - Simon Hunter (Speaker C): The odds of you doing it again, I'll go way high.
   - Simon Hunter (Speaker C): Before all this hype went on with the Rams.
 
-### 40. Bills / Vikings (43:01-43:22)
+### 39. Bills / Vikings (43:01-43:22)
 
 Speakers: Simon Hunter (Speaker C), Chad Millman (Speaker B)
 
@@ -1305,7 +1274,7 @@ Representative lines:
   - Simon Hunter (Speaker C): It's just whatever it is, you haven't been invited to the party.
   - Simon Hunter (Speaker C): I wouldn't put them in my round robin if I was you, Chad.
 
-### 41. Rams (43:22-43:25)
+### 40. Rams (43:22-43:25)
 
 Speakers: Chad Millman (Speaker B)
 
@@ -1332,7 +1301,7 @@ Betting language / picks:
 Representative lines:
   - None pulled.
 
-### 42. Bills / Chiefs / Ravens (43:25-46:53)
+### 41. Bills / Chiefs / Ravens (43:25-46:53)
 
 Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
@@ -1360,7 +1329,7 @@ Betting language / picks:
 Representative lines:
   - Chad Millman (Speaker B): The Ravens have a new head coach, the Bills have a new head coach, and something feels a little bit off.
 
-### 43. Chiefs / Seahawks (43:28-43:46)
+### 42. Chiefs / Seahawks (43:28-43:46)
 
 Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
@@ -1391,7 +1360,7 @@ Representative lines:
   - Simon Hunter (Speaker C): Well, wait, then I'll give you my exactos later.
   - Chad Millman (Speaker B): We'll go to your exactos then.
 
-### 44. 49ers / Chargers / Chiefs (43:46-43:53)
+### 43. 49ers / Chargers / Chiefs (43:46-43:53)
 
 Speakers: Chad Millman (Speaker B)
 
@@ -1419,13 +1388,13 @@ Representative lines:
   - Chad Millman (Speaker B): After Kansas City, it's the Niners, the Lions, the Chargers, the Eagles.
   - Chad Millman (Speaker B): You know what I would do right now?
 
-### 45. Eagles / Chiefs / Super Bowl (43:53-55:16)
+### 44. Eagles / Chiefs / Super Bowl (43:53-51:07)
 
 Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
 Topics: Eagles, Chiefs, Super Bowl, Conference, Playoffs, Injuries
 
-Conclusion: Chad Millman (Speaker B): Simon and I are back on Tuesday.
+Conclusion: No firm pick surfaced.
 
 Matchup: Eagles vs Chiefs
 
@@ -1435,7 +1404,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about Eagles, Chiefs, Super Bowl, Conference. Reasoning clue: Simon Hunter (Speaker C) - Because we need a lot of luck to obviously get there. Rationale themes: market price/line movement, injury and availability.
+Summary: No firm pick surfaced in this beat; it is mostly context around Eagles, Chiefs, Super Bowl, Conference. Reasoning clue: Simon Hunter (Speaker C) - Because we need a lot of luck to obviously get there. Rationale themes: market price/line movement, injury and availability.
 
 Mindset / reasoning clues:
   - Simon Hunter (Speaker C): I think they're both top two, top three teams in their respected conferences.
@@ -1446,16 +1415,16 @@ Mindset / reasoning clues:
 Betting language / picks:
   - Chad Millman (Speaker B): All right, Eagles chief Super bowl matchup, number one seed in each conference.
   - Simon Hunter (Speaker C): And I basically bet it was like 5k to win 300k, people.
-  - Chad Millman (Speaker B): Simon and I are back on Tuesday.
   - Simon Hunter (Speaker C): So if you're new here, people, that means if I bet a grand, I can win 100k on that bet.
   - Simon Hunter (Speaker C): Now I only need to bet $3,000 is to win 300k.
+  - Simon Hunter (Speaker C): That's why we want to bet these crazy odds.
 
 Representative lines:
-  - Chad Millman (Speaker B): So our Simon says presented by Hard Rock bets Eagles to beat the Chiefs in the Super bowl at 100 to 1.
   - Simon Hunter (Speaker C): So I just, it just shows where two year, two, three years ago, the Eagles and Chiefs were just so much more hyped.
   - Simon Hunter (Speaker C): Eagles to beat the Chiefs 101 Super Bowl.
+  - Chad Millman (Speaker B): A Super bowl matchup of Eagles, Chiefs.
 
-### 46. Cowboys / Giants (45:05-45:14)
+### 45. Cowboys / Giants (45:05-45:14)
 
 Speakers: Simon Hunter (Speaker C)
 
@@ -1483,7 +1452,7 @@ Representative lines:
   - Simon Hunter (Speaker C): Giants don't have a great defense.
   - Simon Hunter (Speaker C): Watch doesn't have a great defense.
 
-### 47. Eagles (45:14-45:25)
+### 46. Eagles (45:14-45:25)
 
 Speakers: Simon Hunter (Speaker C)
 
@@ -1511,7 +1480,7 @@ Betting language / picks:
 Representative lines:
   - Simon Hunter (Speaker C): The 1 seed will be in grass.
 
-### 48. Rams / Seahawks / Division (45:25-45:36)
+### 47. Rams / Seahawks / Division (45:25-45:36)
 
 Speakers: Simon Hunter (Speaker C)
 
@@ -1538,6 +1507,39 @@ Betting language / picks:
 Representative lines:
   - Simon Hunter (Speaker C): I know last year, obviously they were both fighting for the one seed.
   - Simon Hunter (Speaker C): These teams tend to cannibalize themselves, right?
+
+### 48. Seahawks / Bears / Division (45:36-46:12)
+
+Speakers: Simon Hunter (Speaker C), Chad Millman (Speaker B)
+
+Topics: Seahawks, Bears, Division, Conference
+
+Conclusion: No firm pick surfaced.
+
+Matchup: Seahawks vs Bears
+
+Spread: Seahawks -15
+
+Total: Not surfaced.
+
+Current market: No current public-line snapshot loaded for this matchup.
+
+Summary: No firm pick surfaced in this beat; it is mostly context around Seahawks, Bears, Division, Conference. Reasoning clue: Simon Hunter (Speaker C) - I think Seattle at this point last year were 15 to 1 to be the 1 seed. Rationale themes: home/road and scheduling spot, trend or regression angle.
+
+Mindset / reasoning clues:
+  - Simon Hunter (Speaker C): I think Seattle at this point last year were 15 to 1 to be the 1 seed.
+  - Simon Hunter (Speaker C): The Bears, they basically won that second seed one year division on like the last day of the year.
+  - Simon Hunter (Speaker C): Just like Seattle last year.
+  - Chad Millman (Speaker B): There's anyone else in there that you think is worth any value?
+
+Betting language / picks:
+  - Simon Hunter (Speaker C): Don't take the chalk, everyone.
+  - Simon Hunter (Speaker C): Take the long shots, people.
+
+Representative lines:
+  - Simon Hunter (Speaker C): It's just the, the AFC is the same exact thing here we're going to talk about.
+  - Simon Hunter (Speaker C): All these things had to break right for them to get that division.
+  - Simon Hunter (Speaker C): We're too focused on what happened last year rather than what might be happening always.
 
 ## Extracted Picks From Existing Host Summary Rows
 

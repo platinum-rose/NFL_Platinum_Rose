@@ -485,8 +485,8 @@ Betting language / picks:
 
 Representative lines:
   - Guest (Speaker C): qualified customers with autopay plus taxes, fees
+  - Guest (Speaker B): Best Mobile Network Based on analysis by OV Speed Test Intelligence data 2H 2025 with 24 monthly bill credits and 4 eligible port ins on essentials for well
   - Guest (Speaker B): I am holding on to a ticket.
-  - Guest (Speaker F): While the world keeps finding new ways to nickel and dime you, Boost Mobile gives you unlimited wireless at one set price for life.
 
 ### 15. Moneyline / Total / Props (25:02-26:13)
 
@@ -1027,7 +1027,7 @@ Representative lines:
 
 ### 31. Injuries / Total (48:16-51:55)
 
-Speakers: Guest (Speaker D), Guest (Speaker E), Evan Abrams (Speaker A), Guest (Speaker B), Guest (Speaker F)
+Speakers: Guest (Speaker D), Evan Abrams (Speaker A), Guest (Speaker B), Guest (Speaker E), Guest (Speaker F)
 
 Topics: Injuries, Total
 

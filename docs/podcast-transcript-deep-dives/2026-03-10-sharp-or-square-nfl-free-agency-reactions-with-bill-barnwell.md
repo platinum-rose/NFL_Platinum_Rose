@@ -308,15 +308,15 @@ Representative lines:
   - Guest (Speaker C): But, but you have to remember the Falcons finished with the exact same record as the Carolina Panthers.
   - Guest (Speaker C): And like, yes, they made the postseason.
 
-### 10. Panthers / Eagles (17:42-40:21)
+### 10. Eagles / Panthers (17:42-18:54)
 
 Speakers: Simon Hunter (Speaker D), Guest (Speaker C)
 
-Topics: Panthers, Eagles
+Topics: Eagles, Panthers
 
 Conclusion: No firm pick surfaced.
 
-Matchup: Panthers vs Eagles
+Matchup: Eagles vs Panthers
 
 Spread: Not surfaced.
 
@@ -324,7 +324,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Panthers, Eagles. Reasoning clue: Guest (Speaker C) - But we're talking about a guy who retired in college because he had concussion concerns, who suffered a concussion last year with the Eagles, thankfully did not miss time because of it, who has a torn ACL, a torn Achilles in his first five... Rationale themes: market price/line movement, defensive quality, trend or regression angle.
+Summary: No firm pick surfaced in this beat; it is mostly context around Eagles, Panthers. Reasoning clue: Guest (Speaker C) - But we're talking about a guy who retired in college because he had concussion concerns, who suffered a concussion last year with the Eagles, thankfully did not miss time because of it, who has a torn ACL, a torn Achilles in his first five... Rationale themes: market price/line movement, defensive quality, trend or regression angle.
 
 Mindset / reasoning clues:
   - Guest (Speaker C): But we're talking about a guy who retired in college because he had concussion concerns, who suffered a concussion last year with the Eagles, thankfully did not miss time because of it, who has a torn ACL, a torn Achilles in his first five NFL seasons.
@@ -714,48 +714,17 @@ Betting language / picks:
 Representative lines:
   - Chad Millman (Speaker B): Hard Rock Vet is rolling out daily dance and boosts featuring a live profit boost and a parlay profit boost every single day Today.
   - Chad Millman (Speaker B): You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you.
-  - Chad Millman (Speaker B): Offered by Seminole Tribe of Florida in Florida Offered by Seminole hard Rock Digital LLC in all other states.
+  - Chad Millman (Speaker B): It's a smart solution to the frustration of repeatedly prompting AI just to make small changes.
 
-### 23. Rams / Bears / Total (37:13-39:52)
+### 23. Total (37:13-38:28)
 
 Speakers: Chad Millman (Speaker B), Guest (Speaker C), Simon Hunter (Speaker D)
 
-Topics: Rams, Bears, Total, Win Totals
-
-Conclusion: Chad Millman (Speaker B): Back your most improved teams because look, a lot of these season win totals haven't moved off of free agency in the first 24 hours.
-
-Matchup: Rams vs Bears
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: The beat is mainly about Rams, Bears, Total, Win Totals. Rationale themes: market price/line movement, offensive personnel.
-
-Mindset / reasoning clues:
-  - Guest (Speaker C): Arguing that a thing I did not like was actually good.
-  - Guest (Speaker C): I don't trust my carrier that much.
-
-Betting language / picks:
-  - Chad Millman (Speaker B): Give me your most improved teams because look, a lot of these season win totals haven't moved off of free agency in the first 24 hours.
-  - Chad Millman (Speaker B): I went over a pothole and a little pee came out.
-
-Representative lines:
-  - Guest (Speaker C): But by the way, would you guys not be impressed if the Rams offered Harrison or not Harrison, Butler, Brandon, Aubrey, excuse me.
-  - Chad Millman (Speaker B): Who are your most improved teams right now, including the Chicago Bears.
-  - Chad Millman (Speaker B): So Simon just mentioned the Rams.
-
-### 24. Browns / Cowboys (39:52-40:15)
-
-Speakers: Guest (Speaker C), Chad Millman (Speaker B)
-
-Topics: Browns, Cowboys
+Topics: Total
 
 Conclusion: No firm pick surfaced.
 
-Matchup: Browns vs Cowboys
+Matchup: Not inferred.
 
 Spread: Not surfaced.
 
@@ -763,28 +732,87 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Browns, Cowboys. Reasoning clue: Guest (Speaker C) - But their, their two biggest weaknesses were in the kicking game, on special teams and at quarterback. Rationale themes: market price/line movement, quarterback evaluation.
+Summary: No firm pick surfaced in this beat; it is mostly context around Total. Rationale themes: market price/line movement, injury and availability, offensive personnel.
 
 Mindset / reasoning clues:
-  - Chad Millman (Speaker B): If, if the Browns did it, they'd be like God, the Browns idiots.
+  - Guest (Speaker C): I don't trust my carrier that much.
+
+Betting language / picks:
+  - Chad Millman (Speaker B): I went over a pothole and a little pee came out.
+  - Guest (Speaker C): Best Mobile Network Based on analysis o Speed Test intelligence data to H 2025 with 24 monthly bill credits and 4 eligible pour ins on essentials for well qualified customers with autopay plus taxes, fees and $35 connection charge per line credits and imbalance to if you pay off earlier, cancel contact US Finance Agreement example 299.99 Moto Edge 5G required T Satellite available with compatible device in most outdoor areas in the US where you can see the sky included with experience beyond
+
+Representative lines:
+  - Guest (Speaker C): With America's best network and T satellite, we're keeping you connected in places you never thought possible.
+  - Guest (Speaker C): And if you switch today, you get free phones for zero down and only 25 bucks a month per line for four lines.
+  - Chad Millman (Speaker B): we end up in bumtots nowhere, well, we've got T satellite for backup.
+
+### 24. Bears / Rams / Win Totals (38:29-39:40)
+
+Speakers: Guest (Speaker C), Chad Millman (Speaker B)
+
+Topics: Bears, Rams, Win Totals
+
+Conclusion: Chad Millman (Speaker B): Back your most improved teams because look, a lot of these season win totals haven't moved off of free agency in the first 24 hours.
+
+Matchup: Bears vs Rams
+
+Spread: Not surfaced.
+
+Total: Not surfaced.
+
+Current market: No current public-line snapshot loaded for this matchup.
+
+Summary: The beat is mainly about Bears, Rams, Win Totals.
+
+Mindset / reasoning clues:
+  - Guest (Speaker C): Arguing that a thing I did not like was actually good.
+
+Betting language / picks:
+  - Chad Millman (Speaker B): Give me your most improved teams because look, a lot of these season win totals haven't moved off of free agency in the first 24 hours.
+
+Representative lines:
+  - Chad Millman (Speaker B): Who are your most improved teams right now, including the Chicago Bears.
+  - Chad Millman (Speaker B): So Simon just mentioned the Rams.
+  - Guest (Speaker C): I would throw the Rams out there.
+
+### 25. Cowboys / Rams (39:40-40:07)
+
+Speakers: Guest (Speaker C), Chad Millman (Speaker B)
+
+Topics: Cowboys, Rams
+
+Conclusion: No firm pick surfaced.
+
+Matchup: Cowboys vs Rams
+
+Spread: Not surfaced.
+
+Total: Not surfaced.
+
+Current market: No current public-line snapshot loaded for this matchup.
+
+Summary: No firm pick surfaced in this beat; it is mostly context around Cowboys, Rams. Rationale themes: market price/line movement.
+
+Mindset / reasoning clues:
+  - None pulled.
 
 Betting language / picks:
   - Guest (Speaker C): If they offered Brendan Aubrey $10 million a year and dared the Cowboys to match, they threw up a second round pick.
 
 Representative lines:
-  - Guest (Speaker C): But their, their two biggest weaknesses were in the kicking game, on special teams and at quarterback.
+  - Guest (Speaker C): But by the way, would you guys not be impressed if the Rams offered Harrison or not Harrison, Butler, Brandon, Aubrey, excuse me.
   - Chad Millman (Speaker B): You talk about benefit of doubt, less need would get the benefit of the doubt.
   - Chad Millman (Speaker B): By the way you talk about benefit of the doubt.
 
-### 25. Rams / Seahawks / Super Bowl (40:21-42:48)
+### 26. Browns / Eagles (40:07-40:18)
 
-Speakers: Guest (Speaker C), Chad Millman (Speaker B)
+Speakers: Chad Millman (Speaker B), Guest (Speaker C)
 
-Topics: Rams, Seahawks, Super Bowl, Conference
+Topics: Browns, Eagles
 
-Conclusion: Guest (Speaker C): They brought back cam curl which I like.
+Conclusion: No firm pick surfaced.
 
-Matchup: Rams vs Seahawks
+Matchup: Browns vs Eagles
 
 Spread: Not surfaced.
 
@@ -792,30 +820,55 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about Rams, Seahawks, Super Bowl, Conference. Reasoning clue: Guest (Speaker C) - But this was a case where it was because that was what cost them in the biggest games. Rationale themes: market price/line movement, defensive quality, offensive personnel.
+Summary: No firm pick surfaced in this beat; it is mostly context around Browns, Eagles. Reasoning clue: Guest (Speaker C) - But their, their two biggest weaknesses were in the kicking game, on special teams and at quarterback. Rationale themes: quarterback evaluation, trend or regression angle.
+
+Mindset / reasoning clues:
+  - Chad Millman (Speaker B): If, if the Browns did it, they'd be like God, the Browns idiots.
+
+Betting language / picks:
+  - None pulled.
+
+Representative lines:
+  - Guest (Speaker C): When they lost games last year, they lost to the Eagles.
+  - Guest (Speaker C): But their, their two biggest weaknesses were in the kicking game, on special teams and at quarterback.
+
+### 27. Panthers / Seahawks / Conference (40:18-41:26)
+
+Speakers: Guest (Speaker C), Chad Millman (Speaker B)
+
+Topics: Panthers, Seahawks, Conference, Super Bowl
+
+Conclusion: Guest (Speaker C): They brought back cam curl which I like.
+
+Matchup: Panthers vs Seahawks
+
+Spread: Not surfaced.
+
+Total: Not surfaced.
+
+Current market: No current public-line snapshot loaded for this matchup.
+
+Summary: The beat is mainly about Panthers, Seahawks, Conference, Super Bowl. Reasoning clue: Guest (Speaker C) - But this was a case where it was because that was what cost them in the biggest games. Rationale themes: market price/line movement, defensive quality, offensive personnel.
 
 Mindset / reasoning clues:
   - Guest (Speaker C): It was one of those cases where people like me looked at the roster in September and said if they fail, it's going to be because of this.
   - Guest (Speaker C): But this was a case where it was because that was what cost them in the biggest games.
-  - Guest (Speaker C): That feels like just the perfect fit for what the Rams needed.
   - Guest (Speaker C): And so I love what they did.
 
 Betting language / picks:
-  - Guest (Speaker C): They can play five, six defensive backs all the time, the way the Seahawks did on their way to the Super Bowl.
   - Guest (Speaker C): They brought back cam curl which I like.
-  - Guest (Speaker C): They can play coverage behind those great front four.
   - Guest (Speaker C): They trade the late first round pick.
 
 Representative lines:
   - Guest (Speaker C): They lost to the Seahawks in the NFC championship game.
-  - Guest (Speaker C): But, but you're talking about a Rams team that needed to get cornerback better immediately.
+  - Guest (Speaker C): They lost to the Carolina Panthers who we mentioned earlier.
   - Guest (Speaker C): can I Say this in a Disney friendly way, to heck with those picks attitude towards from Les Ste.
 
-### 26. Ravens / Rams / Total (41:31-52:22)
+### 28. Rams / Ravens / Total (41:27-52:22)
 
 Speakers: Guest (Speaker C)
 
-Topics: Ravens, Rams, Total
+Topics: Rams, Ravens, Total
 
 Conclusion: No firm pick surfaced.
 
@@ -827,7 +880,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Ravens, Rams, Total. Reasoning clue: Guest (Speaker C) - I would say a team that I think has negatively harmed themselves is the Baltimore Ravens, where I know they traded for Max Crosby. Rationale themes: market price/line movement, quarterback evaluation, defensive quality.
+Summary: No firm pick surfaced in this beat; it is mostly context around Rams, Ravens, Total. Reasoning clue: Guest (Speaker C) - I would say a team that I think has negatively harmed themselves is the Baltimore Ravens, where I know they traded for Max Crosby. Rationale themes: market price/line movement, quarterback evaluation, defensive quality.
 
 Mindset / reasoning clues:
   - Guest (Speaker C): Because unlike other teams where you hear about the Ravens being in win now mode when they trade for Max Crosby, the Rams actually are in win now mode.
@@ -841,10 +894,40 @@ Betting language / picks:
 
 Representative lines:
   - Guest (Speaker C): But they need to fix cornerback and so getting Trent McDuffie, who's going to be the perfect fit for what they need playing inside and outside blitzing, playing to the line of scrimmage is a great fit.
+  - Guest (Speaker C): But, but you're talking about a Rams team that needed to get cornerback better immediately.
   - Guest (Speaker C): The Ravens needed edge, rusher help.
-  - Guest (Speaker C): And they would have played it more if they had defensive backs and quarterbacks specifically they felt good about.
 
-### 27. Raiders / Seahawks / Coaching (42:48-45:18)
+### 29. Rams / Seahawks / Super Bowl (42:21-42:48)
+
+Speakers: Guest (Speaker C)
+
+Topics: Rams, Seahawks, Super Bowl
+
+Conclusion: No firm pick surfaced.
+
+Matchup: Rams vs Seahawks
+
+Spread: Not surfaced.
+
+Total: Not surfaced.
+
+Current market: No current public-line snapshot loaded for this matchup.
+
+Summary: No firm pick surfaced in this beat; it is mostly context around Rams, Seahawks, Super Bowl. Rationale themes: defensive quality.
+
+Mindset / reasoning clues:
+  - Guest (Speaker C): That feels like just the perfect fit for what the Rams needed.
+
+Betting language / picks:
+  - Guest (Speaker C): They can play five, six defensive backs all the time, the way the Seahawks did on their way to the Super Bowl.
+  - Guest (Speaker C): They can play coverage behind those great front four.
+
+Representative lines:
+  - Guest (Speaker C): They can run all the exotic blitzes and sim pressures they want.
+  - Guest (Speaker C): And then I'll give you another one.
+  - Guest (Speaker C): I will not go far from Los Angeles.
+
+### 30. Raiders / Seahawks / Coaching (42:48-45:18)
 
 Speakers: Guest (Speaker C), Chad Millman (Speaker B)
 
@@ -881,7 +964,7 @@ Representative lines:
   - Guest (Speaker C): They're going to have a quarterback, the first overall pick, presumably in Fernando Mendoza, who Needs help.
   - Guest (Speaker C): Some guys who can blitz, who can play in coverage, there's still work to be done.
 
-### 28. 49ers / Rams / Super Bowl (44:01-44:40)
+### 31. 49ers / Rams / Super Bowl (44:01-44:40)
 
 Speakers: Guest (Speaker C), Chad Millman (Speaker B)
 
@@ -910,7 +993,7 @@ Representative lines:
   - Guest (Speaker C): But there's a, a much more realistic sense to what can we do to get better quickly, logically.
   - Guest (Speaker C): And they have those two first round picks, which is going to go a long way.
 
-### 29. Jets / Raiders (45:18-45:40)
+### 32. Jets / Raiders (45:18-45:40)
 
 Speakers: Chad Millman (Speaker B), Guest (Speaker C), Simon Hunter (Speaker D)
 
@@ -939,7 +1022,7 @@ Representative lines:
   - Chad Millman (Speaker B): The jets never give their coaches help.
   - Simon Hunter (Speaker D): Organizationally, it just shows that, you know, they, they missed last year, right?
 
-### 30. Patriots / Division / Super Bowl (45:40-46:22)
+### 33. Patriots / Division / Super Bowl (45:40-46:22)
 
 Speakers: Simon Hunter (Speaker D)
 
@@ -971,7 +1054,7 @@ Representative lines:
   - Simon Hunter (Speaker D): I, I can talk myself into them getting a couple wins here in this division, that everyone's so on.
   - Simon Hunter (Speaker D): They'll always have that weak one against the Patriots.
 
-### 31. Chargers / Chiefs (46:22-46:26)
+### 34. Chargers / Chiefs (46:22-46:26)
 
 Speakers: Simon Hunter (Speaker D)
 
@@ -998,7 +1081,7 @@ Betting language / picks:
 Representative lines:
   - Simon Hunter (Speaker D): The Chargers, so on, the Chiefs, so on.
 
-### 32. Raiders / Broncos / Coaching (46:26-47:28)
+### 35. Raiders / Broncos / Coaching (46:26-47:28)
 
 Speakers: Simon Hunter (Speaker D), Guest (Speaker C)
 
@@ -1029,7 +1112,7 @@ Representative lines:
   - Guest (Speaker C): Yeah, I, I will say that when, when you see teams make a significant leap, the two things that almost always change are upgrade a quarterback, upgrade a head coach.
   - Simon Hunter (Speaker D): You know, what could possibly be another great year from Denver?
 
-### 33. Bears / Ravens (47:29-48:31)
+### 36. Bears / Ravens (47:29-48:31)
 
 Speakers: Chad Millman (Speaker B), Guest (Speaker C)
 
@@ -1060,7 +1143,7 @@ Representative lines:
   - Chad Millman (Speaker B): But I, I'm, I'm surprised they didn't, I'm surprised they didn't do it last year when it's become so clear how important the center is.
   - Guest (Speaker C): Yeah, I mean it is a legitimately important position and it just, it's just making your young quarterback's life easier.
 
-### 34. Chiefs / Texans / Draft (48:31-49:28)
+### 37. Chiefs / Texans / Draft (48:31-49:28)
 
 Speakers: Guest (Speaker C), Chad Millman (Speaker B)
 
@@ -1093,7 +1176,7 @@ Representative lines:
   - Guest (Speaker C): And so I do believe this is a position that was probably underpaid for a while and we'll see.
   - Guest (Speaker C): And you think about some guys who have struggled, who have not had great centers to J.
 
-### 35. Eagles / Raiders (49:28-50:05)
+### 38. Eagles / Raiders (49:28-50:05)
 
 Speakers: Guest (Speaker C), Simon Hunter (Speaker D)
 
@@ -1122,7 +1205,7 @@ Representative lines:
   - Simon Hunter (Speaker D): I wanted what my Eagles team just did.
   - Simon Hunter (Speaker D): That means you've drafted really well, you're paying in house.
 
-### 36. Eagles / Patriots / Total (50:05-51:15)
+### 39. Eagles / Patriots / Total (50:05-51:15)
 
 Speakers: Simon Hunter (Speaker D), Guest (Speaker C)
 
@@ -1154,7 +1237,7 @@ Representative lines:
   - Simon Hunter (Speaker D): But we saw last year New England, biggest spender out of every team.
   - Guest (Speaker C): I mean, it's just a really low hit rate for moves on the first day, the first sort of 36 hours of free agency.
 
-### 37. Texans / Chargers / Total (52:22-53:38)
+### 40. Texans / Chargers / Total (52:22-53:38)
 
 Speakers: Guest (Speaker C), Chad Millman (Speaker B)
 
@@ -1187,7 +1270,7 @@ Representative lines:
   - Guest (Speaker C): They traded Adafe away who signed elsewhere in free agency after he got traded to the Chargers.
   - Guest (Speaker C): They're gonna have to hit on all of those second, third, fourth, fifth round picks or a lot of them.
 
-### 38. Patriots / Texans / Injuries (53:39-54:51)
+### 41. Patriots / Texans / Injuries (53:39-54:51)
 
 Speakers: Guest (Speaker C)
 
@@ -1222,7 +1305,7 @@ Representative lines:
   - Guest (Speaker C): You trade you Scruggs, who has not worked out as a second round pick.
   - Guest (Speaker C): stroud got the, the heck beat out of him by the Patriots in the snow.
 
-### 39. Draft (54:51-56:03)
+### 42. Draft (54:51-56:03)
 
 Speakers: Guest (Speaker C)
 
@@ -1258,7 +1341,7 @@ Representative lines:
   - Guest (Speaker C): Will Anderson, who is awesome, one of the best players in football, is going to get a new deal.
   - Guest (Speaker C): We're just, they're putting him in and saying, okay, you're going to be our right tackle.
 
-### 40. General discussion (56:03-1:00:12)
+### 43. General discussion (56:03-1:00:12)
 
 Speakers: Guest (Speaker C), Chad Millman (Speaker B), Simon Hunter (Speaker D)
 
@@ -1288,7 +1371,7 @@ Representative lines:
   - Chad Millman (Speaker B): You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you.
   - Guest (Speaker C): With America's best network and T satellite, we're keeping you connected in places you never thought possible.
 
-### 41. Titans / Giants / Coaching (1:00:12-1:01:24)
+### 44. Titans / Giants / Coaching (1:00:12-1:01:24)
 
 Speakers: Guest (Speaker C)
 
@@ -1321,7 +1404,7 @@ Representative lines:
   - Guest (Speaker C): Jamari DK was a gadget player for Tennessee last year.
   - Guest (Speaker C): Giants are one of the worst run games in football.
 
-### 42. Steelers / Titans / Draft (1:01:24-1:02:36)
+### 45. Steelers / Titans / Draft (1:01:24-1:02:36)
 
 Speakers: Guest (Speaker C), Chad Millman (Speaker B), Simon Hunter (Speaker D)
 
@@ -1354,7 +1437,7 @@ Representative lines:
   - Guest (Speaker C): He couldn't have waited for one of the 84 other blocking tight ends who are going to make a million or $2 million a couple weeks from now to get that deal done.
   - Guest (Speaker C): They find blocking tight ends in the draft or infrequency for a couple million dollars.
 
-### 43. Colts / Steelers (1:02:36-1:03:17)
+### 46. Colts / Steelers (1:02:36-1:03:17)
 
 Speakers: Simon Hunter (Speaker D)
 
@@ -1384,7 +1467,7 @@ Representative lines:
   - Simon Hunter (Speaker D): He had eight good games and he's looking for 50 million a year where if I am them, if they had a real owner, they would step in and they would say, we're gonna have Kyler 1.5 million and roll the dice.
   - Simon Hunter (Speaker D): I feel bad for the Colts they're totally stuck.
 
-### 44. Cardinals / Titans / Division (1:03:17-1:03:58)
+### 47. Cardinals / Titans / Division (1:03:17-1:03:58)
 
 Speakers: Simon Hunter (Speaker D)
 
@@ -1413,7 +1496,7 @@ Representative lines:
   - Simon Hunter (Speaker D): Arizona Cardinals, I, I basically said they should fold up and they shouldn't finish out.
   - Simon Hunter (Speaker D): Arizona set themselves right up for that.
 
-### 45. Cardinals / Jets / Total (1:03:58-1:04:44)
+### 48. Cardinals / Jets / Total (1:03:58-1:04:44)
 
 Speakers: Simon Hunter (Speaker D), Guest (Speaker C)
 
@@ -1448,97 +1531,6 @@ Representative lines:
   - Simon Hunter (Speaker D): Them and the jets are trying to set themselves up for that.
   - Simon Hunter (Speaker D): Arizona, I know exactly what they're doing right now.
   - Simon Hunter (Speaker D): I know what they're really doing.
-
-### 46. Steelers / Cardinals / Playoffs (1:04:44-1:05:09)
-
-Speakers: Guest (Speaker C)
-
-Topics: Steelers, Cardinals, Playoffs, Super Bowl, Week 1
-
-Conclusion: No firm pick surfaced.
-
-Matchup: Steelers vs Cardinals
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: No firm pick surfaced in this beat; it is mostly context around Steelers, Cardinals, Playoffs, Super Bowl.
-
-Mindset / reasoning clues:
-  - Guest (Speaker C): Steelers just feels like they have a very diluted idea of where they stand and what they need to be.
-
-Betting language / picks:
-  - Guest (Speaker C): No, everyone else is trying to win a Super bowl or I guess the Cardinals are trying to get Arch Manning.
-
-Representative lines:
-  - Guest (Speaker C): The Steelers are trying to make it to the postseason and don't care about anything else once they get there.
-  - Guest (Speaker C): The way I described them a couple weeks ago was incurious about making it past the opening round of the playoffs.
-  - Guest (Speaker C): And so when you look at their moves from that lens, it makes sense.
-
-### 47. Steelers / Colts / Total (1:05:09-1:06:23)
-
-Speakers: Guest (Speaker C), Simon Hunter (Speaker D)
-
-Topics: Steelers, Colts, Total, Super Bowl
-
-Conclusion: Guest (Speaker C): I went back and looked at all of those great Steelers teams who made it to the super bowl under Tom and Under Cower 2122 of their most used players were guys who were drafted by the Steelers or undrafted free agents who the Steelers brought in and developed.
-
-Matchup: Rams vs Steelers
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: The beat is mainly about Steelers, Colts, Total, Super Bowl. Reasoning clue: Guest (Speaker C) - But I, I just to your point, like I think about, I actually wrote about this when Tomlin left. Rationale themes: market price/line movement, quarterback evaluation, defensive quality.
-
-Mindset / reasoning clues:
-  - Guest (Speaker C): But I, I just to your point, like I think about, I actually wrote about this when Tomlin left.
-  - Guest (Speaker C): And that feels like they just have lost.
-  - Simon Hunter (Speaker D): Like Bill do you think Joey Porter Jr.
-
-Betting language / picks:
-  - Guest (Speaker C): Well, Michael Pittman's average like 10 yards of reception over the last few years that is perfect for the Steelers.
-  - Guest (Speaker C): I went back and looked at all of those great Steelers teams who made it to the super bowl under Tom and Under Cower 2122 of their most used players were guys who were drafted by the Steelers or undrafted free agents who the Steelers brought in and developed.
-  - Simon Hunter (Speaker D): Is a number one corner in this league?
-
-Representative lines:
-  - Guest (Speaker C): Not a question about adding a good player, but they have signed veteran quarterback after veteran cornerback Patrick Peterson, Jalen Ramsey in years past and those moves typically have not been great for the Pittsburgh.
-  - Guest (Speaker C): You trade for Michael Pittman, who's basically a salary dump for the Colts when they signed Alec Pierce.
-  - Guest (Speaker C): What makes the Steelers the Steelers.
-
-### 48. Steelers / Super Bowl (1:06:23-1:07:37)
-
-Speakers: Guest (Speaker C), Chad Millman (Speaker B)
-
-Topics: Steelers, Super Bowl
-
-Conclusion: No firm pick surfaced.
-
-Matchup: Not inferred.
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: No firm pick surfaced in this beat; it is mostly context around Steelers, Super Bowl. Reasoning clue: Guest (Speaker C) - If they just leaned into that, I think they would be fine. Rationale themes: quarterback evaluation.
-
-Mindset / reasoning clues:
-  - Guest (Speaker C): If they just leaned into that, I think they would be fine.
-
-Betting language / picks:
-  - Guest (Speaker C): And the Steelers would rather go 9 and 8 year after year after year and have no hope of winning a Super bowl than take that step backwards in the hopes of actually taking a bigger step forward.
-
-Representative lines:
-  - Chad Millman (Speaker B): And next week we got March Madness, Part two of our NFL Win Totals episode, which is rapidly changing given the free agency dynamics.
-  - Chad Millman (Speaker B): We're talking Academy Awards with our good friend Hollywood insider Michael Lasker, who knows everything about the Oscars.
-  - Guest (Speaker C): But leaning into that means you're going to have a two or three year window where you stink.
 
 ## Extracted Picks From Existing Host Summary Rows
 

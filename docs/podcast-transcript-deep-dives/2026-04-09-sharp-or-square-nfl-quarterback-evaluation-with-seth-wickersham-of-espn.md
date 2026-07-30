@@ -9,7 +9,6 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 - B: Chad Millman
 - C: Simon Hunter
 - D: Guest
-- E: Guest
 
 ## Expected Participants
 
@@ -18,6 +17,7 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 ## Ignored Audio
 
 - A: ad/commercial audio ignored
+- E: ad/commercial audio ignored
 
 ## Timing / Watchlist Conjectures
 
@@ -27,7 +27,7 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 ### 1. General discussion (0:22-4:31)
 
-Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D), Guest (Speaker E)
+Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D)
 
 Topics: General
 
@@ -285,7 +285,7 @@ Representative lines:
 
 ### 9. Raiders / MVP / Super Bowl (13:24-14:35)
 
-Speakers: Guest (Speaker D), Guest (Speaker E)
+Speakers: Guest (Speaker D)
 
 Topics: Raiders, MVP, Super Bowl
 
@@ -693,7 +693,7 @@ Speakers: Simon Hunter (Speaker C), Chad Millman (Speaker B)
 
 Topics: Coaching
 
-Conclusion: Chad Millman (Speaker B): Let's do a quick break here from our friends at Hard Rock and we'll come right back.
+Conclusion: No firm pick surfaced.
 
 Matchup: Not inferred.
 
@@ -703,14 +703,14 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about Coaching. Reasoning clue: Simon Hunter (Speaker C) - And I think that like, in that regard, he's coming into a good situation. Rationale themes: quarterback evaluation, coaching and scheme, offensive personnel.
+Summary: No firm pick surfaced in this beat; it is mostly context around Coaching. Reasoning clue: Simon Hunter (Speaker C) - And I think that like, in that regard, he's coming into a good situation. Rationale themes: quarterback evaluation, coaching and scheme, offensive personnel.
 
 Mindset / reasoning clues:
   - Simon Hunter (Speaker C): And so I think that like the model for bringing Mendoza into the league is the same type of thing where it's like you're managing someone.
   - Simon Hunter (Speaker C): And I think that like, in that regard, he's coming into a good situation.
 
 Betting language / picks:
-  - Chad Millman (Speaker B): Let's do a quick break here from our friends at Hard Rock and we'll come right back.
+  - None pulled.
 
 Representative lines:
   - Simon Hunter (Speaker C): But it's also the NFL and you have to figure out a way to stay ahead of defenses and give him a chance to, you know, run legit NFL offenses.
@@ -749,9 +749,9 @@ Representative lines:
   - Chad Millman (Speaker B): Sign up today and double your winnings on your first 10 bets.
   - Chad Millman (Speaker B): That's right, double your winnings on your first 10 bets.
 
-### 23. General discussion (31:09-33:43)
+### 23. General discussion (31:09-34:59)
 
-Speakers: Chad Millman (Speaker B), Guest (Speaker E)
+Speakers: Chad Millman (Speaker B), Guest (Speaker D)
 
 Topics: General
 
@@ -778,36 +778,7 @@ Representative lines:
   - Chad Millman (Speaker B): It's a smart solution to the frustration of repeatedly prompting AI just to make small changes.
   - Chad Millman (Speaker B): Vibe coding is everywhere right now, but it's not just for apps anymore.
 
-### 24. Total (33:43-34:59)
-
-Speakers: Guest (Speaker E), Guest (Speaker D)
-
-Topics: Total
-
-Conclusion: No firm pick surfaced.
-
-Matchup: Not inferred.
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: No firm pick surfaced in this beat; it is mostly context around Total. Rationale themes: market price/line movement.
-
-Mindset / reasoning clues:
-  - None pulled.
-
-Betting language / picks:
-  - None pulled.
-
-Representative lines:
-  - Guest (Speaker E): Monthly rates on the Total Base 5G Unlimited plan for new subscribers applies only to the monthly rate for your plan.
-  - Guest (Speaker E): With Total Wireless, you get unlimited 5G data keeping you in on all the action from the walkouts to the knockouts.
-  - Guest (Speaker E): This podcast is sponsored by Total Wireless, the official wireless partner of ufc.
-
-### 25. Patriots / Draft / Injuries (35:01-36:19)
+### 24. Patriots / Draft / Injuries (35:01-36:19)
 
 Speakers: Guest (Speaker D), Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
@@ -839,7 +810,7 @@ Representative lines:
   - Chad Millman (Speaker B): And they show the the picture of him at the combine when he's got a scrawny body.
   - Guest (Speaker D): Health care just got less painful.
 
-### 26. Coaching / Draft (36:19-37:34)
+### 25. Coaching / Draft (36:19-37:34)
 
 Speakers: Simon Hunter (Speaker C)
 
@@ -871,7 +842,7 @@ Representative lines:
   - Simon Hunter (Speaker C): And even though he was, he could have played pro baseball, he wasn't Ricky Henderson.
   - Simon Hunter (Speaker C): He had a, he was a phenomenal, what they call arm talent.
 
-### 27. Draft (37:34-38:47)
+### 26. Draft (37:34-38:47)
 
 Speakers: Simon Hunter (Speaker C), Chad Millman (Speaker B)
 
@@ -904,7 +875,7 @@ Representative lines:
   - Chad Millman (Speaker B): And we were having a long conversation about Ty Simpson and obviously Ty Simpson's name has gotten a lot of attention the past few weeks.
   - Chad Millman (Speaker B): Yeah, but when you look at Ty Simpson, how much of do you think the way he's being scouted is?
 
-### 28. General discussion (38:47-39:59)
+### 27. General discussion (38:47-39:59)
 
 Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
@@ -937,7 +908,7 @@ Representative lines:
   - Chad Millman (Speaker B): As Derek would say, they're scouting the helmet versus scouting the guy.
   - Simon Hunter (Speaker C): This guy who would lead the league in arc, and, you know, he.
 
-### 29. Total / Super Bowl / Coaching (39:59-41:13)
+### 28. Total / Super Bowl / Coaching (39:59-41:13)
 
 Speakers: Simon Hunter (Speaker C)
 
@@ -972,7 +943,7 @@ Representative lines:
   - Simon Hunter (Speaker C): Like, if you're a quarterback, how do you ever do it?
   - Simon Hunter (Speaker C): And I was like, how would you ever.
 
-### 30. Super Bowl / Total (41:13-42:24)
+### 29. Super Bowl / Total (41:13-42:24)
 
 Speakers: Simon Hunter (Speaker C), Chad Millman (Speaker B)
 
@@ -1002,7 +973,7 @@ Representative lines:
   - Chad Millman (Speaker B): And there's so many guys, it could be Shanahan, McVeigh, O', Connell, now Kubiak.
   - Chad Millman (Speaker B): I have two let's make a list questions for you.
 
-### 31. Draft (42:24-43:35)
+### 30. Draft (42:24-43:35)
 
 Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
@@ -1035,7 +1006,7 @@ Representative lines:
   - Simon Hunter (Speaker C): Even though they seem young, you know, Kyle's got more gray than both you and me, Chad.
   - Simon Hunter (Speaker C): I mean, it's funny, but McVeigh and Shanahan are kind of older guys now.
 
-### 32. Chiefs / Super Bowl / Draft (43:35-44:48)
+### 31. Chiefs / Super Bowl / Draft (43:35-44:48)
 
 Speakers: Simon Hunter (Speaker C), Chad Millman (Speaker B), Guest (Speaker D)
 
@@ -1068,7 +1039,7 @@ Representative lines:
   - Guest (Speaker D): Who, who is the guy when the other team looks across the sideline in January and they, they blow it and the other guy doesn't.
   - Guest (Speaker D): Every time it's Mahomes.
 
-### 33. Chiefs / Division / Draft (44:48-46:02)
+### 32. Chiefs / Division / Draft (44:48-46:02)
 
 Speakers: Guest (Speaker D), Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
@@ -1100,7 +1071,7 @@ Representative lines:
   - Guest (Speaker D): So yeah, I'm interested to hear where Seth goes with this but I, I'm still, I'm still heavily biased towards Mahomes.
   - Guest (Speaker D): If it ain't broke I, I ain't going to try to fix it.
 
-### 34. Broncos / Playoffs (46:02-47:18)
+### 33. Broncos / Playoffs (46:02-47:18)
 
 Speakers: Simon Hunter (Speaker C)
 
@@ -1131,7 +1102,7 @@ Representative lines:
   - Simon Hunter (Speaker C): So I had all access and I was in every meeting, every decision, every game planning session, all of this stuff.
   - Simon Hunter (Speaker C): And part of what they need to do as coaches is figure out ways to.
 
-### 35. Chiefs / Broncos / Props (47:18-57:54)
+### 34. Chiefs / Broncos / Props (47:18-57:54)
 
 Speakers: Simon Hunter (Speaker C), Chad Millman (Speaker B)
 
@@ -1165,9 +1136,9 @@ Representative lines:
   - Simon Hunter (Speaker C): Denver, right, Chiefs and Mahomes have an off year, and then he gets hurt.
   - Simon Hunter (Speaker C): And if you let him scramble and he has a clear read of the field and nobody around him, you're probably going to get chewed up pretty good.
 
-### 36. General discussion (48:40-50:26)
+### 35. General discussion (48:40-51:47)
 
-Speakers: Chad Millman (Speaker B), Guest (Speaker E)
+Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D)
 
 Topics: General
 
@@ -1181,7 +1152,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around general football context.
+Summary: No firm pick surfaced in this beat; it is mostly context around general football context. Rationale themes: defensive quality.
 
 Mindset / reasoning clues:
   - None pulled.
@@ -1191,38 +1162,10 @@ Betting language / picks:
 
 Representative lines:
   - Chad Millman (Speaker B): It's a smart solution to the frustration of repeatedly prompting AI just to make small changes.
-  - Guest (Speaker E): is Daniel Cormier from the Daniel Cormier Show.
+  - Guest (Speaker D): You saw the biggest change in the homes was the two high safety, right?
+  - Simon Hunter (Speaker C): Can he tell I'm picking up prescription hemorrhoid cream?
 
-### 37. Total (50:26-51:38)
-
-Speakers: Guest (Speaker E), Simon Hunter (Speaker C)
-
-Topics: Total
-
-Conclusion: No firm pick surfaced.
-
-Matchup: Not inferred.
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: No firm pick surfaced in this beat; it is mostly context around Total. Rationale themes: market price/line movement.
-
-Mindset / reasoning clues:
-  - None pulled.
-
-Betting language / picks:
-  - None pulled.
-
-Representative lines:
-  - Guest (Speaker E): Monthly rates on the Total Base 5G Unlimited plan for new subscribers applies only to the monthly rate for your plan.
-  - Guest (Speaker E): With Total Wireless, you get unlimited 5G data keeping you in on all the action, from the walkouts to the knockouts.
-  - Guest (Speaker E): This podcast is sponsored by Total Wireless, the official wireless partner of ufc.
-
-### 38. Chiefs (51:43-52:55)
+### 36. Chiefs (51:47-52:58)
 
 Speakers: Guest (Speaker D), Simon Hunter (Speaker C)
 
@@ -1238,7 +1181,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about Chiefs. Reasoning clue: Guest (Speaker D) - It's like, yeah, because he only gets to do it maybe once every three games. Rationale themes: market price/line movement, defensive quality, offensive personnel.
+Summary: The beat is mainly about Chiefs. Reasoning clue: Guest (Speaker D) - It's like, yeah, because he only gets to do it maybe once every three games. Rationale themes: market price/line movement, offensive personnel.
 
 Mindset / reasoning clues:
   - Guest (Speaker D): Now that they've missed on these receivers and Kelsey's aged out, you see it in those games in the homes every, every, those three, four, five yards, it's a grind because he just doesn't have the weapons like he used to.
@@ -1256,7 +1199,7 @@ Representative lines:
   - Guest (Speaker D): It's like, okay, he's going to burn us.
   - Guest (Speaker D): Mahomes got the best arms in the league.
 
-### 39. Playoffs (52:55-54:10)
+### 37. Playoffs (52:58-54:10)
 
 Speakers: Guest (Speaker D), Simon Hunter (Speaker C)
 
@@ -1292,7 +1235,7 @@ Representative lines:
   - Guest (Speaker D): And these guys, young guys, aren't used to it, but he, he's like, I've seen this.
   - Guest (Speaker D): Like, okay, he's going to hit Kincaid for 15 yards up the middle.
 
-### 40. Bills / Rams / Super Bowl (54:10-55:24)
+### 38. Bills / Rams / Super Bowl (54:10-55:24)
 
 Speakers: Simon Hunter (Speaker C)
 
@@ -1324,7 +1267,7 @@ Representative lines:
   - Simon Hunter (Speaker C): And when he would change out of that, he'd go right into a trap.
   - Simon Hunter (Speaker C): Facing Peyton, you know, he would, he would give them the.
 
-### 41. Patriots (55:24-56:34)
+### 39. Patriots (55:24-56:34)
 
 Speakers: Simon Hunter (Speaker C), Chad Millman (Speaker B)
 
@@ -1355,7 +1298,7 @@ Representative lines:
   - Simon Hunter (Speaker C): And I thought that that was kind of an interesting chess match that you talk about.
   - Chad Millman (Speaker B): When you were there, since you opened the door and don't give away too much.
 
-### 42. Broncos / Chargers (57:54-57:59)
+### 40. Broncos / Chargers (57:54-57:59)
 
 Speakers: Simon Hunter (Speaker C)
 
@@ -1382,7 +1325,7 @@ Betting language / picks:
 Representative lines:
   - None pulled.
 
-### 43. Browns / Eagles / Injuries (59:59-1:00:46)
+### 41. Browns / Eagles / Injuries (59:59-1:00:46)
 
 Speakers: Chad Millman (Speaker B)
 
@@ -1411,7 +1354,7 @@ Representative lines:
   - Chad Millman (Speaker B): When they were in college, they're so smart, and they got into the sports and analytics community, and they spent consecutive summers, one working for the Browns in college and one working for the Eagles in college.
   - Chad Millman (Speaker B): And it's so frustrating.
 
-### 44. General discussion (1:02:13-1:04:05)
+### 42. General discussion (1:02:13-1:04:05)
 
 Speakers: Simon Hunter (Speaker C), Chad Millman (Speaker B), Guest (Speaker D)
 
@@ -1444,9 +1387,9 @@ Representative lines:
   - Simon Hunter (Speaker C): And so when you look at a quarterback and you say, oh, you know, his completion percentage is very good, he, you know, he must be inaccurate.
   - Chad Millman (Speaker B): And we gotta keep our streak alive of having books and authors that become bestsellers on the most literate sports betting podcast.
 
-### 45. Total (1:04:05-1:06:25)
+### 43. Total (1:04:05-1:06:25)
 
-Speakers: Simon Hunter (Speaker C), Guest (Speaker D), Chad Millman (Speaker B), Guest (Speaker E)
+Speakers: Simon Hunter (Speaker C), Guest (Speaker D), Chad Millman (Speaker B)
 
 Topics: Total
 

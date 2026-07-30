@@ -310,7 +310,6 @@ Mindset / reasoning clues:
   - Chad Millman (Speaker B): And for the next month, every match feels like a final.
 
 Betting language / picks:
-  - Chad Millman (Speaker B): If it wins, you also score $150 in bonus bets, a winning bet plus an extra $150 to bet with.
   - Guest (Speaker A): Most cleaners talk about what they take away.
 
 Representative lines:

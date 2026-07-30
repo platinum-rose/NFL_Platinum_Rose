@@ -890,7 +890,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Cowboys, Draft, Total. Rationale themes: market price/line movement, injury and availability, offensive personnel.
+Summary: No firm pick surfaced in this beat; it is mostly context around Cowboys, Draft, Total. Rationale themes: market price/line movement, offensive personnel.
 
 Mindset / reasoning clues:
   - Andrew Erickson (Speaker B): So I do like it, especially at this long shot of an odd okay.
@@ -900,7 +900,6 @@ Mindset / reasoning clues:
 Betting language / picks:
   - Andrew Erickson (Speaker B): Because that is basically guaranteeing okay, he's going to be nothing burger second round pick.
   - Andrew Erickson (Speaker B): Which is why you're getting the odds like this.
-  - Seth Woolcock (Speaker A): And speaking of long shots, there's still some out there available on Hard Rock, BET Florida Sportsbook, that is our presenting sponsor for today's show.
 
 Representative lines:
   - Andrew Erickson (Speaker B): That being said, Dallas Goddard, older guy, you know, if he gets banged up, he's missed time in the past y and they got to kind of throw Eli Stowers in there into maybe a more expanded role.
@@ -931,8 +930,6 @@ Mindset / reasoning clues:
 Betting language / picks:
   - Seth Woolcock (Speaker A): So whether you're betting to back your country, well, we can't do that anymore.
   - Seth Woolcock (Speaker A): And be sure to check out no goals, no problems, and the Super Sub, two promos that are designed to give you bet insurance all tournament long.
-  - Seth Woolcock (Speaker A): Place a five dollar bet and if it hits you, not only are going to get your winnings, but also an extra $150 in bonus bets to use.
-  - Seth Woolcock (Speaker A): Plus, Hard Rock also offers new promos every single day.
 
 Representative lines:
   - Seth Woolcock (Speaker A): With Holland, Messi, Mbappe and the boys still out there pounding the pitch there, you can build a same game parlay for the biggest matches of the tournament.

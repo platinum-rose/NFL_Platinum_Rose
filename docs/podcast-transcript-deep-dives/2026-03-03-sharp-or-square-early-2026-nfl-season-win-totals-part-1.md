@@ -50,7 +50,6 @@ Mindset / reasoning clues:
   - Chad Millman (Speaker B): of the show because we are co stars, we're compadres, we're companions, and we're a couple.
 
 Betting language / picks:
-  - Chad Millman (Speaker B): Cloes.com terms for details subject to change welcome to Sharper Square, presented by Hard Rock Back.
   - Chad Millman (Speaker B): I was just thinking back there that
 
 Representative lines:
@@ -537,11 +536,11 @@ Representative lines:
   - Chad Millman (Speaker B): It's a smart solution to the frustration of repeatedly prompting AI just to make small changes.
   - Chad Millman (Speaker B): Vibe coding is everywhere right now, but it's not just for apps anymore.
 
-### 17. Injuries / Total (19:33-21:39)
+### 17. Injuries (19:33-21:43)
 
 Speakers: Simon Hunter (Speaker C), Chad Millman (Speaker B)
 
-Topics: Injuries, Total
+Topics: Injuries
 
 Conclusion: No firm pick surfaced.
 
@@ -553,7 +552,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Injuries, Total. Rationale themes: injury and availability.
+Summary: No firm pick surfaced in this beat; it is mostly context around Injuries. Rationale themes: market price/line movement, injury and availability.
 
 Mindset / reasoning clues:
   - None pulled.
@@ -562,11 +561,11 @@ Betting language / picks:
   - None pulled.
 
 Representative lines:
-  - Chad Millman (Speaker B): This podcast is sponsored by Total Wireless, the official wireless partner of ufc.
+  - Chad Millman (Speaker B): All UFC fighters know power doesn't wait in the octagon or outside of it, you either make the move or you miss the moment.
   - Simon Hunter (Speaker C): Health AI presents painful thoughts I I can't stop scratching my downtown.
   - Chad Millman (Speaker B): go downtown and tell a receptionist I'm here to talk about my downtown.
 
-### 18. Rams / Seahawks / Total (21:39-23:48)
+### 18. Rams / Seahawks / Total (21:43-23:48)
 
 Speakers: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
@@ -597,7 +596,7 @@ Betting language / picks:
 Representative lines:
   - Simon Hunter (Speaker C): The only thing that didn't break their way was the refs Blue dead at 2 point conversion that they ruled not they wrote a backward pass and that's why Seattle had home field advantage and that literally.
   - Chad Millman (Speaker B): Monthly rates on the Total Base 5G Unlimited plan for new subscribers applies only to the monthly rate for your plan.
-  - Chad Millman (Speaker B): With Total Wireless, you get unlimited 5G data keeping you in on all the action from the walkouts to the knockouts.
+  - Chad Millman (Speaker B): Rams, the team we loved all of last year.
 
 ### 19. Eagles / Total / Division (23:48-24:59)
 

@@ -217,7 +217,6 @@ Betting language / picks:
   - Kendra Middleton (Speaker C): But you really can't go wrong with either back to kick off your draft, really in any format, whether it's, you know, standard half ppr, PPR doesn't matter.
   - Brandon Kravitz (Speaker E): 20 plus years of experience and he is here to help guide us through some what will hopefully be good decisions along our journey to fantasy football excellence in 2026.
   - Brandon Kravitz (Speaker E): But the thing all of us need to know first and foremost is who's the top guy this year in fantasy and is it format dependent you mean number one overall?
-  - Brandon Kravitz (Speaker E): Plus, new DraftKings customers can sign up with the code FAVORITES.
   - Kendra Middleton (Speaker C): Number one overall, yeah.
 
 Representative lines:

@@ -2,13 +2,25 @@
 
 Published: 2026-07-14T20:06:50+00:00
 Episode ID: 74273bc4-7de3-4261-a528-7f096639f876
-Status: pending
+Status: done
 Duration: 2189 seconds
 Audio: https://podtrac.com/pts/redirect.mp3/traffic.omny.fm/d/clips/e73c998e-6e60-432f-8610-ae210140c5b1/390f52fb-437c-4290-bdaa-b3ec011d3fc8/cf1fb20d-c9ef-4bc0-9372-b4870137bfec/audio.mp3?utm_source=Podcast&amp;in_playlist=2d9ae039-d4b2-4a37-8a77-b3ec011d3fce
 
 Transcript chars: 49171
 Speaker turns: 69
-Speaker labels: A, B, C, D, E, F
+Speaker labels: Evan Abrams (Speaker A), Guest (Speaker C), Guest (Speaker E), Guest (Speaker F)
+
+## Speaker Map
+
+- Speaker A: Evan Abrams
+- Speaker C: Guest
+- Speaker E: Guest
+- Speaker F: Guest
+
+## Ignored Audio
+
+- Speaker B: ad/commercial audio ignored
+- Speaker D: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
@@ -16,278 +28,206 @@ Speaker labels: A, B, C, D, E, F
 
 ## Diarized Turns
 
-### Speaker A [0:00-0:00]
+### Evan Abrams (Speaker A) [0:00-0:36]
 
 This is Tab Ramos from Inside American Soccer and this summer topgolf is turning into the ultimate soccer destination. They've got a new soccer themed game you can play with your group, exclusive food and drink items. They've even installed full size soccer goals so you can try to hit golf balls right into the net. And every match all summer long will be on throughout the venue. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass, which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com FunPass Amazon Health AI
 
-### Speaker B [0:00-0:00]
-
-presents Painful Thoughts why did I search
-
-### Speaker C [0:00-0:00]
+### Guest (Speaker C) [0:40-0:45]
 
 the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole
 
-### Speaker D [0:00-0:00]
-
-filled with images of alarmingly graphic sores in various stages of ooze. I can clear my search history, but I can never unsee that.
-
-### Speaker B [0:00-0:00]
-
-Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful. A burst pipe? A dead water heater. The AC calling it quits. Who do you call? Homeserve is an easy way to handle unexpected home repairs with plans covering stuff basic homeowners insurance usually won't. Instead of scrambling for a contractor, you make one call to get the repair process. Join the millions of customers who trust HomeServe right now. Go to HomeServe.com podcast for 50% less your first year. That's HomeServe.com podcast savings compared to renewal price void in Florida Bite into a
-
-### Speaker D [0:00-0:00]
-
-stacked sandwich made with Hero Bread and the only thing you'll think is delicious. You won't think it has up to 19 grams protein, 11 to 32 grams of fiber, or just 0 to 5 grams net carbs. But it does. Kero bread. No compromises. Just loaves, buns, tortillas, bagels and noodles packed with flavor. Right now. Get 10% off at Hero Co with code iheart. That's H E R O C O code iheart. All figures per serving of Herobread. See Nutrition Facts on Hero Co. There's a fire inside you you can't ignore. Stand still. Not a chance. You're a lifelong learner who's come this far. Now we are here to help you keep going further. Capella University what can't you do? Visit capella.edu to learn more. The Action Network Podcast Better than most.
-
-### Speaker C [0:00-0:00]
+### Guest (Speaker C) [2:24-2:25]
 
 Better than most.
 
-### Speaker E [0:00-0:00]
+### Guest (Speaker E) [2:26-2:27]
 
 Better than most.
 
-### Speaker B [0:00-0:00]
-
-Winner. Winner.
-
-### Speaker C [0:00-0:00]
+### Guest (Speaker C) [2:28-2:29]
 
 Chicken down
 
-### Speaker B [0:00-0:00]
-
-four. You got real talent.
-
-### Speaker C [0:00-0:00]
+### Guest (Speaker C) [2:37-2:41]
 
 Go concentrate on golf. Welcome to the Action Network Podcast.
 
-### Speaker F [0:00-0:00]
+### Guest (Speaker F) [2:41-4:05]
 
 This is your British Open preview. Lucky for me, I'M joined by our golf experts Spencer Aguiar and Kyle Murray, as we unpack the 154th Open Championship. It's going to be played this week at Royal Brookdale Golf Club In Southport, about 45 minutes north of Liverpool. And when you talk about this course, you have to look at it through the lens of the post2017 renovations by McKenzie and Ebert. They reshaped the back nine. I think that's what's really the, the biggest elements of the new challenge, or at least in the last 10 years on this course, they added 89 yards to that back nine. And really that's where the biggest test in this closing stretch is located. So I'll get both of your takes on that, weather wise. First, though, it's going to be warm, not hot, but it will be dry and wind isn't projected to hit the double digits. So the images of Opens of yesteryear with the field battling the elements, that's not on the table as of right now. Of course, it's the UK Weather can change on a dime. So something to keep a track of as we move closer to Thursday. The field itself, as I mentioned, they may not be battling necessarily those elements, but they're going to be battling each other. And it's as star studded as you could imagine. As one of the majors, only two golfers, Scotty Scheffler and Rory McIlroy, are shorter than 181 Scotty at +650 and Rory +840. But let's talk about this track. Spencer, let's get it started here. What is the most significant feature of this course for you and how does it impact your model?
 
-### Speaker C [0:00-0:00]
+### Guest (Speaker C) [4:05-7:40]
 
 I think that's a good question. I mean, you talked about part of it. I would say at the very beginning that it's going to be firmer and faster conditions than we've probably gotten here in the past. And if you look at this venue as a whole, like in 2008 or 2017, specifically the 2008 version, that's one of the most difficult Open championships that we've seen in some time, with the winning score being over par. I don't think you're necessarily going to get as much of that during this go around. As you said, the weather looks pretty by European standards, pristine. Like you're always going to have wind that's going to come into play. It's a coastal course that at any given time gusts are going to hit the area and it's one of the hard things to predict. But you don't see the 60 mile per hour gusts in the forecast that you sometimes get for a venue like this. When I ran numbers and I looked at this course, if you look at both of those iterations in 2008 and 2017, there was this compounding impact of accuracy off the tee. Being wayward and missing the short grass on your first shot really started to compile and compound on itself in. In situations so like miss by a little and I think you can still find yourself in a favorable spot. When you miss by a lot. You start to see this overall landscape of the rough, the large dunes spread throughout the overall still windy nature that you're still going to have some wins there that take toll on this field. And I thought that was probably for me one of the more interesting quirks that I wanted to try to look into. Because these fairways, unlike some of the link style courses that you get, are very flat in nature. It doesn't mean that there's not creativity that you come to expect from an open championship throughout. But a lot of that is more of a of the oddity holds true as you go off course or you miss your target. Not necessarily when you hit the short grass here. So I, I kind of took to double down on the thought of off the tee. I saw really large upticks in off the tee and around the green acumen needed to survive this course. I think players that can find the short grass and scramble when they don't hit a green are going to be the ones that do better than those who miss the fairway and then find themselves with a true half shot or even sometimes full shot penalty when they have to hack it out. There is a big discussion in the space of what does that mean from a metric standpoint. What should we be looking at most heavily? And at the end of the day it's a little bit closer to average than I normally would get on on all the four strokes gain metrics across the board, which technically means putting is going to be less. Based off of that answer, I'm always more on the left side. I know Kyle is himself, but I'm even less than I usually am in that area. I think the approach stuff is the tricky part. I would be curious to hear Kyle's answer on this because these are hard greens to hit. And I noticed in my model that players that had thrived in the past at courses where there's difficult approach shots are typically the ones that seem to do well here over and over again. So long irons would probably be The, The. If we're trying to find a bucket here, 150 plus yards would be where I am trying to locate. But more so than that, I'm just looking for creativity players that can take difficult and different shots and shapes with those approaches coming in. But like, the number one recipe for me is you have to be in the short grass to be able to do any of that. And then a good stout scrambling game is going to. Is going to really work itself up the leaderboard. So there's a lot of names, Michael, that I'll talk about throughout the show that fit that profile, but that's how I built my model this week.
 
-### Speaker F [0:00-0:00]
+### Guest (Speaker F) [7:41-8:13]
 
 Now, Kyle, you were just on the Favorites podcast cutting it up with that team, talking about, you know, your plays and the course itself. Is this such an intricate course that has so many different outcomes that you can find different entry points into discussing it, or are you a little bit more in that tunnel vision mindset where your model is showing, hey, there's this handful of golfers that everything matches in terms of, you know, their, their shot making in terms of their recent form, history with the track, everything like that. So is it tighter for you or is this something where you can really kind of talk all day about this course and take it in different directions?
 
-### Speaker E [0:00-0:01]
+### Guest (Speaker E) [8:14-10:33]
 
 Yeah, I would say it's. It's on the tighter side in terms of the way my model is seeing things and the way I'm. I'm sort of seeing things this week. I. I do think that there are a couple of, I guess, longer shot names that sort of, in my opinion, they're just a little bit mispriced where they, they sort of do fit that profile, that mold, but maybe the market's not seeing it that way. So I think that there's a. A couple of ways of sort of approaching that question, but I would say overall, in general, that it's a pretty tighter range of outcomes for me in terms of the guys who I'm looking at to have a good chance this week. I think it's a little bit different than last week, where last week I was a little bit higher on maybe some longer shots for the Scottish Open. But I think Spencer outlined it pretty well. I mean, in terms of what I'm seeing for this course, I do sounds like I agree with him quite a bit. I'm grading putting as the least important stat for me this week, and I'm very high in terms of comparing it to previous weeks, even comparing it to last week where we saw a similar style. Obviously, it's not going to be cut and paste. But in terms of around the green play, that's going to be a very important and crucial feature this week for me. I even went and sort of kind of put together a metric of Lynx, Lynx game, around the green play. We're kind of looking more at sand saves and these sorts of lies that we're going to typically see. And I think that Spencer laid it out great. I do think that you guys have both talked about the wind. Personally, when we get these sorts of events, I kind of like to see the wind because I think it makes modeling it a little bit easier in terms of keying in on some guys who play well in those conditions and sort of fading guys who don't. But then again, you have this sort of narrative on some guys who maybe haven't performed well in the wind in the past. And you go to an open style event here where you're automatically getting discounts on those guys because of their narrative or their reputation for not playing well on link style courses or in the wind. But yeah, this is still going to be a link style course, but obviously these courses play completely different. We talked about it a lot last week where you're seeing huge, huge amounts of sway in terms of the scoring based on the wind. And that's going to be the same thing here. I think. It's going to be obviously much more difficult this week than last regardless. But obviously if the wind isn't going to be howling like we've seen it at times at, you know, British Opens in the past, it's certainly going to play a little bit different. So I think it also opens up some value for those guys as well. But for the most part, I would say it's a pretty, pretty core group of guys that I'm looking at.
 
-### Speaker F [0:01-0:01]
+### Guest (Speaker F) [10:34-11:11]
 
 All right, let's get into some of your plays here. We're going to start with you, Spencer. In the head to head market, you like Maverick McNeely plus 105 over Brooks Koepka. And when you look At Brooks, from 2015 to 2021, he had four top tens at the Open Championship, but since then he's been cut twice at the British Open tied for 64th, tied for 43rd. Toss in some injury concerns. And listen, I get it, Brooks is still a name, but for him to be favored here, I don't necessarily see that. And I guess my question is, is this play predicated on Maverick playing consistently and banking on Brooks imploding, or do you think there's a world where Maverick finishes inside the top 20 and just outguns him.
 
-### Speaker C [0:01-0:01]
+### Guest (Speaker C) [11:12-14:18]
 
 I mean, honestly, in this situation, I think you get a little bit of both to this answer. I bet Maverick McNeely last year at the Open Championship at a triple digit number. I, I don't have him on my outright card during this go around, but if you've listened to this major podcast that we've done throughout the year, McNeely's been a large staple of conversations. I, I've bet him to make the cut in pretty much every single major that we've talked about in. Unfortunately for this iteration of this event, you're not going to necessarily get the price that we were getting in some of these other tournaments where he was closer in the minus 120, minus 130, minus 140 range, we now have him over minus 200. So when I was trying to find things, and at the end of the day, it's like the one thing I always say when I talk about matchups is I'm trying to find a player to fade more than anything else. When you can find both situations to work together of having a player that you also want to back against them, that's where you get these large disparities that come into play in my model to where there are multiple outlets for victory. There's the victory that ensues if Koepka is still injured. There's still problems that are going on in that area. He misses the cut. And there's also the, the, the flip side of that where McNeely is a fringe top 25 golfer in my model through a lot of the, the different metrics that I am trying to pull from that really like him. Like I, I think of the wind stuff and I agree with, with Kyle in, in a vacuum situation here. I think what ends up happening at these majors in general is you get over correction that occurs on name brand golfers. And a lot of times it causes other options to either float higher than they should be because the perception is that those golfers cannot win the golf tournament. Whether that remains true or not in this situation, it sometimes ends up trickling out into placement wagers into matchups. And I thought this was one of those situations where you take Koepka specifically in this spot. You know, he opens at 50 to 1 almost across the board at places, and we've seen nothing but him drifting up. And, and I think the market is starting to correct itself. But when you get this large disparity to start where one name is a triple digit option, the other one's at 50 to 1 because of name brand and name recognition and you get a golfer with McNeely that yeah, you might be lacking some of those high end results and high end finishes. He is churning out top 40s week in and week out and he's doing it consistently at the majors over and over again. I think I've come on even Michael and talked about him to be top 40 in every major throughout this entire year. Not even just the made cut stuff. So it's, as I said, it's not as simple this week to get exposure to him, but this was my favorite way to get exposure. And you know, the number is on the move as we speak right now. It's, it's the tough thing about recording the show when we do is sometimes these numbers start to shift. But I, I think there's value on this price up until like the -150s, -160s depending on how I run it. So I still think that there's favorable totals no matter where you're finding on Nick Neely over Koepka.
 
-### Speaker F [0:01-0:01]
+### Guest (Speaker F) [14:18-14:51]
 
 Kyle, what are your thoughts on Koepka? You know we talked about it in the Scottish Open preview coming in with that injury and he had every opportunity to make the cut. He ends up going with two bogeys and a double bogey on the back nine to miss it by two shots. So over two days he showcased a little bit of his ceiling and certainly some concerns whether it's a physical element, something between the ears or just not quite locking in and being able to push through some of those more challenging stretches. Do you also agree that he's a little bit overpriced here just because of the name brand element?
 
-### Speaker E [0:01-0:01]
+### Guest (Speaker E) [14:52-16:14]
 
 Yeah, I think the name brand element is certainly probably a big driving force into it and again, it's similar to what we talked about last week. But I also think an element to him being a little bit overvalued this week or maybe starting a little bit overvalued. Like Spencer mentioned, the numbers are sort of starting to drift away from Koepka in the market. But again it comes back to injury reporting in golf. I think when it's difficult to have clarity on that like it, it's I think going to lead to maybe mispricing in either direction, I suppose. But for me in this one I would probably read it as clearly. There's not a great feel on the health of Brooks Koepka. We talked about that a lot last week, you know, when we were talking about Marco Penge and how he had a week prior to his upcoming week where he played well, we haven't had that with Brooks. He obviously withdrew Canadian Open and now he's missed two cuts in a row and obviously all the speculation about injury stuff is still there and very valid. So for me, it's tough in, in golf, like it's difficult to make assumptions. Like in other sports we can sort of assume, okay, this guy's had a hamstring injury for two weeks in the NFL. Maybe, you know, he's going to be limited to start and maybe he'll come back. You can sort of get those trends a little bit more in terms of assuming or trying to predict them. It's just very difficult in golf because we don't really have an understanding on where these guys are at with injuries. So I think that's also something that leads to maybe some mispricing. And in this case for Brooks, Kafka being a little bit overvalued in the
 
-### Speaker F [0:01-0:01]
+### Guest (Speaker F) [16:14-16:40]
 
 summer, sweating bets and cooling down with some water ice is good, but the way to make it great is with Action Pro. We've officially launched our summer sale to go along with our brand new features for the World Cup. We have Moneyline over under spread and player prop projections like anytime goal scorer for Action Pro users all throughout the World Cup. Starting now, new users can get 3 months of Action Pro for the price of 2 months. Go to actionnetwork.compro to get in on this offer now so you can become the smartest, better you can be.
 
-### Speaker A [0:01-0:01]
+### Evan Abrams (Speaker A) [16:40-17:36]
 
 This is Tab Ramos from inside American Soccer and this summer topgolf is turning into the ultimate soccer destination. They're not just throwing games on in the background. Topgolf is going all in on soccer. They've got a new soccer themed game you can play with your group. Special in venue activations, exclusive food and drink items inspired by the global game and at more than 60 locations. They've even installed full size soccer goals so you can try to hit golf balls right into the net. And every match all summer long will be on throughout the venue. So it's a great place to watch with friends, hang out, compete a little bit and enjoy the atmosphere. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass which lets you play every single day and bring up to five guests every visit. Get yours now at topgolf.com/fun pass. Summer hits different at Topgolf.
 
-### Speaker B [0:01-0:01]
-
-Amazon Health AI presents Painful Thoughts I
-
-### Speaker E [0:01-0:01]
+### Guest (Speaker E) [17:42-17:45]
 
 I can't stop scratching my downtown Mm
 
-### Speaker F [0:01-0:01]
+### Guest (Speaker F) [17:45-17:47]
 
 yeah, but I'm not itching to go
 
-### Speaker E [0:01-0:01]
+### Guest (Speaker E) [17:47-17:56]
 
 downtown and tell a receptionist I'm here to talk about my downtown. Some things you'd rather type than say out loud.
 
-### Speaker B [0:01-0:01]
-
-There's no question too embarrassing for Amazon Health. AI chat your symptoms and get virtual care 24. 7 Healthcare just got less painful. Awkward time to ask this, but hey,
-
-### Speaker F [0:01-0:01]
+### Guest (Speaker F) [18:09-18:11]
 
 did you download the trail map?
 
-### Speaker D [0:01-0:01]
-
-Yeah, no, I don't need to.
-
-### Speaker E [0:01-0:01]
+### Guest (Speaker E) [18:13-18:13]
 
 I don't understand.
 
-### Speaker C [0:01-0:01]
+### Guest (Speaker C) [18:13-18:15]
 
 You're trusting your signal out here?
 
-### Speaker D [0:01-0:01]
-
-I'm trusting T Mobile. They have the best network and if we end up in bumtots nowhere, well, we've got T Satellite for backup. Whoa.
-
-### Speaker E [0:01-0:01]
+### Guest (Speaker E) [18:22-18:23]
 
 I don't trust my carrier that much.
 
-### Speaker D [0:01-0:01]
-
-We'll just use your phone as a flashlight.
-
-### Speaker C [0:01-0:01]
+### Guest (Speaker C) [18:27-18:50]
 
 With America's best network and T Satellite, we're keeping you connected in places you never thought possible. And if you switch today, you get free phones for zero down and only 25 bucks a month per line for four lines. Find out more@t mobile.com or visit your local store. Best Mobile Network Based on analysis by Ooklev speed test intelligence data 2H 2025 with 24 monthly bill credits and 4 eligible port ins on essentials for well
 
-### Speaker E [0:01-0:01]
+### Guest (Speaker E) [18:50-18:52]
 
 qualified customers with autopay plus 10 taxes
 
-### Speaker C [0:01-0:01]
+### Guest (Speaker C) [18:52-19:06]
 
 fees and $35 connection charge per line credits and a balance too if you pay off early or cancel. Contact Us Finance Agreement example $299.99 MotoEdge 5G required T Satellite available with compatible device in most outdoor areas in the US where you can see the sky included with experience beyond under $10 a month. However, news monthly cancel anytime.
 
-### Speaker D [0:01-0:01]
-
-Visit t mobile.com Bite into a stacked sandwich made with Hero Bread or a fully loaded bagel and the only thing you'll think is delicious. You won't think it's up to 19 grams of protein, but it is. You wouldn't believe it has 11 to 32 grams of fiber, but it does. Herobread makes loaves, buns, tortillas, bagels and noodles packed with taste, but without all the net carbs, we're talking 0 to 5 grams net carbs per serving. With HeroBread there are no compromises, just flavor. There's none of the stiff baked goods you'd expect from better for your brands. There's just the soft, fluffy bread you crave, plus small batch drops of indulgent favorites like the popular 2 gram net carb Hero croissant and 3 gram net carb Hero pain au chocolat. And right now, Herobred is offering 10% off your order. Go to Hero Co and use code IHEART at checkout that's code IHEARTO CO. All figures per serving of HeroBread. See Nutrition Facts on Hero CO. A
-
-### Speaker B [0:01-0:01]
-
-burst pipe, a dead water heater, the AC calling it quits. Who do you call? HomeServe is an easy way to handle unexpected home repairs with plans covering stuff basic homeowners insurance usually won't. Instead of scrambling for a contractor, you make one call to get the repair process started. Join the millions of customers who trust HomeServe right now. Go to HomeServe.com podcast for 50% less your first year. That's HomeServe.com podcast savings compared to renewal price void in Florida.
-
-### Speaker F [0:01-0:01]
+### Guest (Speaker F) [20:37-21:21]
 
 Spencer mentioned earlier in the show placement wagers potentially being a bit off as they can have this mismatched correlation to, you know, outright odds. And that's not necessarily what you're looking at and certainly when it looks to, you know, plus money on just making the cut. It's not someone who's going to win this tournament, but you believe that Jesper Svensson at +125 is the way to go here and his recent start at the Genesis Scottish Open, he finished tied for 52nd, one under. A fine week, you know, nothing to write home about, but he certainly showed that he's playing well. He's on reasonable footing coming in, particularly on a Lynx heavy stretch which matters so much in the Open because you want to have that preparation on similar turf coming in. Talk to me more about Jesper and what he brings to the table.
 
-### Speaker C [0:01-0:01]
+### Guest (Speaker C) [21:21-24:48]
 
 Yeah, it's game fit for me. I like for these majors to try to find some of these plus number options to make the cut that are not going to necessarily be the names that everybody's familiar with and we're not going to the top of the board. I'm trying to find value as we move across this and I talked at the very beginning part of this show how much I think it matters to find the fairway and to be able to scramble and I, I ended up putting together a metric that was just a 5050 split of can you find the fairway? What do your numbers look like off the tee? And, and I tried to merge it to a link style venue for any of these answers. For what this is worth, this is not just taking generic stats of a player that can go bomb and gouge in some venue and you know, you're missing a lot of fairways doing that. I, I'm always trying to merge the data to fit the course specifically here, Royal Burkdale that we have this week. So it's like Find me similar courses off the tee and then find me the ability to scramble and have a high end around the green. Game on link style venues and what does it produce. And I'm going to rapid fire through these names right now because when I put that category together you're going to hear pretty much all the top end guys and in my opinion one outlier that enters this mix here. So I'm going to do this quickly. Fleetwood. This is in order by the way from 1 to 15. Fleetwood Scheffler Fitzpatrick. Our good boy Siwu Kim that I do like this week. I don't have them in any, in any market but I think he's a great DFS play. Rory McElroy, Min Wu Lee Patrick Cantlay, Keegan Bradley Cameron Young, John Rom, Terrell Hatton, Russell Henley, Aaron Rye, Robert McIntyre. That's the first 14. The 15th name to enter the mix there and right beneath him at 16th would be Xander is Jesper Svensson at 15. It's one of those situations of one of these things does not look like the other. One of these things doesn't belong in this mix, at least from a name recognition standpoint. So when I saw that I, I decided to dive deeper into the profile to see what does this look like in other areas. What does the proximity look like at a course like this. And 60 second in my model when you just put them on any generic venue in overall proximity he ends up jumping the 27th here and a lot of that is the hard to hit greens and the difficult approach play and the similar courses and even he's inside the top 30 for 20, 26 approach in general. So I really like this profile that he put to the, to the the mix here and that he's kind of bringing us a lot of the link scrambling stuff is above what his baseline looks like. Top 25 player there inside of the top 35. When we look at off the T approach and around the green. Kyle's already mentioned it. I'm going to double and triple down on this. That putting is also the lowest for me on this. The putter is the problem for Jesper like that. That's where this big red flag comes into play. 112th in my model maybe that ends up capping the upside ever so slightly. But for a bet like this I just need him to play four rounds of golf and in particular I really just need him to get to the weekend and get that bet paid and, and start that third round and that bet it's going to be a winner So I thought at plus 125, you know, I, I came with Putnam at the Open or The, sorry, the U.S. open and the PGA Championship had McNeely at the Masters. This is going to try to go 4 for 4 on these, on this show. This is probably the most volatile of the mix, but top 35 golfer for me overall was just a massive disparity when you look at the other names next to him in that mix.
 
-### Speaker F [0:01-0:02]
+### Guest (Speaker F) [24:49-25:41]
 
 All right, Kyle, you're going with a bigger name. Tyrell had in the top 20 at +175. And I think what's interesting right off the bat is some of the stats just bubble to the surface. A short game and ball striking are both well above average. And Lynx Golf generally tends to reward that combination. Creativity around the greens also help flighted command. Know of those shots, you know, into the winds. We'll see if the wind does spike on Saturday and Sunday. And certainly he's one of the best in the world at working with the wind. He's also no stranger to contending at this major. His best Finish came in 2016 when he finished fifth. But he was also top 20 in three of his last four here at the British Open. Now, he did underwhelm a tiny bit at the Scottish Open, but he still finished in a tie for 17th. So he cashed those top 20 tickets. Where is your cutoff here? Or are you diversifying? Are you taking them to win outright? Top 5, 10, 20. But why was top 20 the one that you brought specifically for this placement wager?
 
-### Speaker E [0:02-0:02]
+### Guest (Speaker E) [25:42-28:02]
 
 Yeah, it's been a. It's been a question I've been asking myself about Hatton here for the. I guess the last, like, 24 hours, I suppose. Obviously he projects really well for me. He graded out well last week. I brought him to the show as an outright pick. Talked about how I bet him top 20 and top 10 as well. Obviously cash the top 20. But I can't help but be a little bit disappointed based on what I think he should have done. I mean, when you look at his profile, from just last week alone, he gained strokes in every category except for approach, which does not sound like a Tyrrell Hatton week. I talked about how typically when you're looking at a Hatton profile, it's great ball striking, struggles with the putter. But I liked him a lot last week because he had a history of putting well on slow greens. And when I'm talking about putting this week, it's typically going to be the same thing as last week. I think putting is Going to be obviously not as important as other categories this week, but when guys have that big swing and splits and they, they putt great on slow surfaces. And that's exactly what Hatton does this week. I mean, I think that's a big positive for him. When you're talking about a guy who really checks a lot of boxes throughout the rest of his game, obviously he, if the wind does get there, I think he's probably going to be a guy who's middle of the pack for me. I do think that he probably grades out better if there's a little bit. If there's less wind. I'm as the 37th best player in wind from, from a strokes game perspective. So in terms of all those things, Hatton grades out really well. Again, I do think that the reason why I'm not, you know, bringing another outright play for Hatton is mostly price at 36 to 1. I think there's a couple of guys who, you know, a little bit better values in that range or, you know, even a little bit longer pricing there. So that's the main reason I, I guess for from an upside perspective, Hatton is still a guy who I do think has that top percent, top percentile outcome to win an event like this and to win a major, obviously we haven't seen it. He's been a guy who's performed well in lots of majors but hasn't pulled through and won one. I do still think that he can do that, but for me this week, it just comes down to price. I mean, he still grades out as a value in the outright market, but when you have two or three other guys in this range alone that are either equal or slightly better options here in that price range, that kind of comes down to why he was a top 20 play for me. Also like him as a top 10 option for, you know, a little bit of a longer shot there. But overall, that's the main reason why I stuck to top 20 for Haddon.
 
-### Speaker F [0:02-0:02]
+### Guest (Speaker F) [28:03-28:42]
 
 All right, let's turn to outrights now. Spencer, you're going with Tommy Fleetwood, 21 to 1 to cash here. Fleetwood, for those not in the now, he grew up right down the road from Royal Birkdale, snuck under the course as a kid, and now he's this hometown favorite trying to become the first Englishman to win the Open since Nick Faldo in 1992. So a lot of emotion at least putting wind in his sails. Or you could make the argument that makes you play a little bit tighter with those expectations. I could see either side of the argument. But in terms of his overall ceiling, it's sky high. His fit for this course is exactly where you'd like to see it. But he hasn't scored a top 10 since the memorial. Why do you see him putting it all together here, Spencer?
 
-### Speaker C [0:02-0:02]
+### Guest (Speaker C) [28:42-33:48]
 
 You know, it comes down to the math, Michael. You know, I. I did a show earlier in the week with Jeff Feinberg for everybody who knows him. I'm sure if you are in the golf space, you do. And I thought Jeff brought up a really good answer as I gave this Fleetwood taken. He compared Fleetwood to Xander before Xander won his first major to where a lot of people back him every single week. There's disappointment that ensues. There's the discussion that he can't get across the finish line. But you consistently see this price stick in a range that is lower than expectation. And quite frankly, if you look at the sharper markets continues to push down the board to where in a wave where, you know, he opens in the 20s and at the sharper books. You see him in the teens now. And I think you have to ask yourself the question. I understand that there is this perceived lack of win equity that he brings to the mix. But at the end of the day, all I can do from a model building perspective is try to run numbers and try to run math and figure out statistically where somebody should rank. I there are back end metrics that you can try to recalculate. I even said this last week when I took Fleetwood where you can condense totals and make it a little bit like, like I said last week, Fleetwood. I think I said it on this show at least. Fleetwood was one of the best top 20 bets on the board. He ended up being one of the best outright values that I had. Also doesn't get there in the outright market. Ends up getting the top 20. So it's like right on part of it, wrong on the other half of it. But I am going to keep betting this as I keep getting prices that are this far off in my model. I have Fleetwood as the third projected favorite in this field. I have him as somebody who is closer to that 16 or 17 to 1 mark than this 20 to 1 totals that we got to open this tournament. And even if we circle this back to the off the T plus around the green conversation that I had about Spencer and why I liked him. If you remember, Tommy Fleetwood was the number one player that came off the board there. That's in front of Scotty Scheffler. It's in front of Matthew Fitzpatrick. It's in front of Rory McElroy. Doesn't mean that he's necessarily in front of Scotty Scheffler to win from Win Equity. He's not even ahead of Matthew Fitzpatrick. When it looks at the numbers, that would be the 1 and the 2. Fleetwood, surprisingly for everybody, listens, was the 3 for me. Rory is the 4. So a little bit of a hodgepodge output from what the market has. Even though it's the same top four there. I just think that at the end of the day, this is a golfer that is always going to get an enhanced price in situations because of the lack of belief from the public that he can get across the finish line. It's every time I bring this name or I post it or, or it's mentioned on a show or it's mentioned in discord. Like I understand the risk that I am taking here. I understand that this is a golfer that has not won a lot on the PGA Tour. And if you take the one victory that he does, it's a limited field event is a name though at the end of the day that wins over in Europe. Eight victories there on the DP World Tour. We've seen him beat all the top players in the world. And I. I just think it's tough to win a golf event a lot of those tournaments that he was not able to get across the finish line. Yeah, he did not make the putt that he needed to to win. It could have been as simple at the Travelers last year. Maybe Keegan doesn't make birdie on 18 and it doesn't force him to make a bogey. You look at the Canadian Open against Nick Taylor where Nick Taylor ends up draining. I don't know what it was a 90, 100 foot putt to end up winning. Like there are so many situations where Fleetwood's been on the wrong end of it. I'm not saying he's gonna even necessarily make the putt that it is to win, but if you're up by two strokes, sometimes you can just sit there and win. So I'm betting on the price here. And the last thing I want to say before we move into Kyle's pick. I don't know if Kyle has room on his card. I like Terrell Hatton quite a bit. I. If you look at what Hatton did last week, It's a disappointing 17th place finish. He opened this tournament with a triple bogey on hole number one. Shot himself to the very bottom of the leaderboard through nine holes. He's still plus three. He plays the last 60 plus holes at 11 under par. I mean, that's not necessarily going to probably get him to win this tournament, but this very easily could have been a top five finish. If he finishes top five, I kind of think with all the steam that he had last week, he's probably inside of the 20s and not closer to this 40 to 1 number or 35 to 1 plus, depending on what the best price you can find right now on it. I like Hatton a lot. Hatton's on my outright card. I have a very condensed card that I've put together. It's also very English heavy on it. It's, it's Fleetwood, it's Hatton, and I got a number on Fitzpatrick before that thing dipped early. I don't know if that means that I should also be betting England to win the World Cup. I know that I said earlier on I don't know a ton about the World Cup. Although I will say this, Michael, for not knowing anything about the World Cup, I am3.0 so far on bets on the World cup by just kind of betting movement on it. So I'll probably, for the sake of this bet England to advance past Argentina at least and we'll go from there and see. But it's a very English heavy card for me that I have in general.
 
-### Speaker F [0:02-0:02]
+### Guest (Speaker F) [33:48-34:30]
 
 All right, you're going Tommy Fleetwood, the fan favorite. We're going to go in the opposite direction with Kyle's pick. Wyndham Clark, 41 1. You can argue he's the hottest player on tour. He wins the CJ Cup. Byron Nelson, the US Open, third at the Memorial, tied fifth at the Travelers, Just played well at the Scottish Open. Didn't threaten to win that one, but, you know, continued to pull that momentum with him. But this number says he's barely a top 15 option to win outright. Does the public just hate him that much? Like, what is the explanation for this? Because I feel like the math is just not math. And if you go ahead and do a blind taste test, you know, blind resume, don't put his name up there, you're probably closer to what, 25 to 1 on a price like this. Like, what is the deal with this number?
 
-### Speaker E [0:02-0:02]
+### Guest (Speaker E) [34:31-38:38]
 
 Yeah, I think first of all, when you say that you could argue that he's the hottest player on tour, I think you would actually have an easier argument doing that than arguing that he isn't the hottest player on tour right now. I mean, the way that his game is just shaking out right now, he's in absolute elite form. I think the one thing about his price, and that's part of the reason why I do see so much value here, and I think it's mostly fluff or narrative based. But obviously Spencer and I have some DFS background And you know, when a player wins an event, usually the next week, the public is is down on that player. And I think that's the case here. But not necessarily event after event, but it's from one major to the next. I think people have a hard time stepping back and thinking, okay, Wyndham Clark's going to win two majors in one year. And I think that's a fair sentiment. But when it comes down to how the event is actually going to shake out, what he did at the US Open doesn't really have any bearings on what's going to happen here at the British Open. So I think that's a big reason why we're seeing this Number still at 411 as the best number that I'm seeing. I mean, when you look at the way that I'm grading out Windham Clark this week in my model, first of all, I already talked about the form. His form metric is number one in this field. In terms of the ceiling that he has. He has the best ceiling of anybody in my model this week as well. From a strokes gain perspective, he's third here thanks to an incredible run, obviously over the past few months. But over the last 12 rounds, he's number one in total strokes gained. Over the last 24 rounds, still number one in total strokes gained. And when you go back over the last six months, seventh in total strokes gained in this field. So obviously he's been playing incredibly well. A lot of that has been done with some, some nice putt luck or I guess, you know, exceptional putting on the green. He's third in strokes game putting over the last 24 rounds, but he's getting it done. Teed green as well, fourth in teed green over the last 24 rounds. So when you look at all these things that are just lining up from a form perspective, Wyndham Clark, I think he's someone who certainly strikes me as someone who might be a very streaky player or hot and cold player. Obviously we've seen it when, you know, he won a few years back there at the US Open where he was on that incredible run and struggled to bounce back after that. And now he's again on a great run. So I do think he is one of those players that you do want to sort of catch when they're in that form, then obviously there's much arguing that he is in elite form right now. I've talked about this a couple times, but when we did the US Open, I think the PGA Championship kind of tried to put together a major pedigree. And obviously when you're talking about Wyndham Clark, we know he has major pedigree. He already has two US Opens. But for this week I put together a metric that was open pedigree, which is basically obviously high pressure rounds, whether that be big tournaments or fourth round strokes gain totals. And then obviously looking at link style play, US Open and British Open historical finishes. And Wyndham Clark shakes out as the number two player in terms of that metric behind just Scottie Shively. So obviously there's a lot to say about guys ahead of him in terms of who he has to beat here. There's a ton of talent, obviously. Mike, you mentioned at the top of the show that this is obviously a star studded field, but Wyndham Clark has certainly has a couple of legs to stand on in terms of where he's at in terms of the top 10 or top five guys in this field. And like you mentioned, he's outside the top 12 in a lot of books and, and where they're shaking this thing out. So I think there's just a lot of value on Windham Clark. He's easily the best value in my model this week. When I was looking at ways to bet him, he was I think appearing in four of the head to head matchups as well. And one of the reasons why I didn't bring a head to head pick to the show today is because they're all basically Windham Clark as the top plays in my model. And I was already going to talk about him for the outright plays. So yeah, very high on Wyndham Clark this week. And I guess to sum it up, I think the main reason why we are still getting value here is, is because of the sentiment that is this really a guy who can win two majors in one year? Is this really a guy who can go back to back at majors? It's just obviously not something that is easy to do and I think that is leading to maybe some decrease in sentiment. And I know people don't like Wyndham Clark as it is, but I still think that this 40 to 1, 41 to 1 number, wherever you can find it, is just too long.
 
-### Speaker F [0:02-0:02]
+### Guest (Speaker F) [38:38-39:13]
 
 Here, let me close the show on this. The last six British Opens there's been some pretty comfortable cushions between first and second place. Scotty won by four strokes last year. Year. But twice in the last six years it has been a six stroke runaway. And you can get paid handsomely on that. It's almost. Let me check the odds here. Best number I could find, seven to one on the winning margin to be by five strokes or more. I'll go to you first, Spencer. Any interest in a runaway given that the conditions, at least as of recording, should be a little bit calmer on the win side, do you see somebody just putting it together and steamrolling the competition?
 
-### Speaker C [0:02-0:02]
+### Guest (Speaker C) [39:14-40:45]
 
 I mean, if we're looking specifically at names, the two that are most likely to do it will obviously probably be Scotty and Rory. I do think that the problem that ensues with a bet like that is, you know, Kyle talked about the weather at the very beginning and I agree with him wholeheartedly to where I would rather this be very gusty and out of control. I think it's easier to try to find viewpoints that you can kind of just latch onto and you can attach a lot of weight to them. Without that in the forecast, I would worry a little bit that this thing could clump together and doesn't allow somebody to run it away. I think where you get some of these big disparities is where you get weather edges between waves where maybe one wave gets completely removed and you get a golfer that is multiple shots better than everybody else when he played that wave and you see him win by seven or eight shots. Like that would be the negative to all of this. That would be the one, I guess, pushback that I would have. But like, even if you look at when it was played here in 2017, Spieth and Kutcher, while they were very close to one another, they pulled away from the rest of the pack. A little bit of different setup this year, but it's not like historically we haven't seen that come to fruition where you can pull away and separate from the pack. I. I don't know if it's going to be for me, Mike, but I mean, I think anytime that you can find unique markets and if you think you can find an edge in it, it's. It's always worth having the discussion.
 
-### Speaker F [0:02-0:02]
+### Guest (Speaker F) [40:45-41:08]
 
 Now, Kyle, I learn new things every single week hosting this show. And there's a new phrase, at least in the golf vernacular, the clumping that we're talking about here. Are you more interested in the clumping and perhaps at seven to two this going to a playoff or do you think we're going to whisk properly until this is properly blended. And seven to one for someone to win by five strokes or more is the better value play between those two.
 
-### Speaker E [0:02-0:03]
+### Guest (Speaker E) [41:09-41:52]
 
 Yeah, I mean, I think I talked about the, you know, the, the clumping or I guess the, the clustering. I know that's a, a big word for like ownership stuff in dfs, but yeah, I do think it is very important here in the PGA streets, especially this week. I think for me I would probably based on the way I'm seeing this top end of guys Now, I think 50 to 1 and, and shorter. There's just a lot of guys in this range to where I would probably tend to believe that it's going to be a pretty close, closely contested tournament here. But to your point, it has been a trend at the Open and I do think that seven to one would be a decent number there. I think that obviously it's not a, you know, even money bet there for a reason, but for seven to one, I think that that's certainly worth a look.
 
-### Speaker F [0:03-0:03]
+### Guest (Speaker F) [41:52-42:26]
 
 All right, that's going to do it for us here on the Action Network podcast. Thanks for tuning in. Be sure to check out actionnetwork.com and the Action app for all of our great golf betting and DFS content. And even better, sign up for Action Pro. Go to actionnetwork.compro to take advantage of our new World cup offer. You can get three months of Action Pro for the price of two months. You can find Spencer on X over at T Off Sports and Kyle at KMerDFs. They're on the same handles on our free award winning Action Network app for Spencer Aguiar and Kyle Murray. I'm Mike Calabrese. Best of luck with your bets this weekend and we'll see you here next time on the Action Network Network podcast.
 
-### Speaker D [0:03-0:03]
-
-Action Network reminds you, please gamble responsibly. If you or someone you care about has a gambling problem, help is available 247 at 1-800-GAMBLER.
-
-### Speaker A [0:03-0:03]
+### Evan Abrams (Speaker A) [42:47-43:21]
 
 This is tab Ramos from inside American Soccer and this summer topgolf is turning into the ultimate soccer destination. They've got a new soccer themed game you can play with your group, exclusive food and drink items. They've even installed full size soccer goals so you can try to hit golf balls right into the net. And every match all summer long will be on throughout the venue. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass which lets you play every single day and bring up to five guests every visit get yours now at topgolf.com/fun pass
 
-### Speaker C [0:03-0:03]
+### Guest (Speaker C) [43:23-43:24]
 
 the game started. Call your dad.
 
-### Speaker D [0:03-0:03]
-
-I'm on it.
-
-### Speaker C [0:03-0:03]
+### Guest (Speaker C) [43:25-43:46]
 
 Ma Holopa hello Hijita I can't hear you. I'm at the stadium in Monterrey. Here shout go all together. Get non stop talk tax and Data in the US, Mexico and Canada with T Mobile America's Best Network. Switch on the TLife app or on t mobile.com connectapy on qualifying plans not for extended international use. You must reside in the US in
 
-### Speaker B [0:03-0:03]
-
-primary usage must occur in our network.
-
-### Speaker C [0:03-0:03]
+### Guest (Speaker C) [43:48-43:52]
 
 Best Based on analysis by Ooklo Speed Test intelligence data to H 2025 this
 
-### Speaker D [0:03-0:03]
-
-is Bethany Frankel from Just Be with Bethenny Frankel. Most dog food is marketing, not nutrition. That is why Biggie and Smalls eat just food for dogs. Real 100% human grade food with ingredients I actually recognize. And yes, I do see the difference. Better digestion, healthier skin skin, more energy. Dogs that feel better. My babies. If you've been on the fence about switching, stop overthinking it. What's more important than your furry babies and their health? Go to justfood for dogs.com right now and get 50% off your first box. No code needed. Just try it.
-
-### Speaker E [0:03-0:03]
+### Guest (Speaker E) [44:28-44:29]
 
 This is Tony Ayo from the Real
 
-### Speaker A [0:03-0:03]
+### Evan Abrams (Speaker A) [44:29-44:32]
 
 Report with Tony Ayo and Uncle Murder. You ever notice how everything keeps going up?
 
-### Speaker E [0:03-0:03]
+### Guest (Speaker E) [44:32-44:37]
 
 Rent, streaming, even extra Sosa at your favorite burrito spot. But with Boost Mobile, you don't have
 
-### Speaker A [0:03-0:03]
+### Evan Abrams (Speaker A) [44:37-44:43]
 
 to play the Willis Go up soon game. Boost Mobile offers an unlimited talk, text and data plan at a price that'll never go up.
 
-### Speaker E [0:03-0:03]
+### Guest (Speaker E) [44:43-44:45]
 
 It's the same price you'll pay for
 
-### Speaker A [0:03-0:03]
+### Evan Abrams (Speaker A) [44:45-44:47]
 
 Life Switch now for unlimited wireless at
 
-### Speaker E [0:03-0:03]
+### Guest (Speaker E) [44:47-44:48]
 
 a price that'll never go up.
 
-### Speaker A [0:03-0:03]
+### Evan Abrams (Speaker A) [44:48-44:58]
 
 Only at boost mobile. After 30 gigabytes, customers may experience slower speeds. Customers will pay $25 a month as long as they remain active on the Boost Unlimited plan.
-
-### Speaker D [0:03-0:03]
-
-You know what quality feels like. You can see it in the way a fabric moves, recognize it in a flawless fit, and appreciate it in the details that make our styles unique. It's the standard Coldwater Creek has honored for over 40 years, derived from a rich Mountain west heritage and designed for today in styles that are distinctively Coldwater Creek. For a wardrobe you can count on season after season, visit coldwatercreek.com shop new arrivals and save 15% on purchases. $75 or more with Code Iheartra.

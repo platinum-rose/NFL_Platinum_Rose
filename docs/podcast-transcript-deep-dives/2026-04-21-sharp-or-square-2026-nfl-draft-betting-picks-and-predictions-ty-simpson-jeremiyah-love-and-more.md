@@ -311,7 +311,6 @@ Mindset / reasoning clues:
 
 Betting language / picks:
   - Guest (Speaker E): But you know, again, back to the Bengals can't draft.
-  - Chad Millman (Speaker B): All right, quick word from Hard Rock and then we're coming back to get serious about some draft betting.
   - Chad Millman (Speaker B): So if you would have won 100 bucks on your bet, now it's 200.
 
 Representative lines:
@@ -1031,9 +1030,9 @@ Betting language / picks:
   - None pulled.
 
 Representative lines:
-  - Chad Millman (Speaker B): Visit totalwireless.com or stop by your neighborhood Total Wireless store.
   - Simon Hunter (Speaker C): Every bowl has 100% complete nutrition supporting six health essentials.
   - Chad Millman (Speaker B): The more our kids see us put on our seat belts, the more natural it is for them to put theirs on, too.
+  - Chad Millman (Speaker B): Make your total power move today.
 
 ## Extracted Picks From Existing Host Summary Rows
 

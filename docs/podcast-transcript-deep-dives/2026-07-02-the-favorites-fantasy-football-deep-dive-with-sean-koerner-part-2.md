@@ -57,50 +57,13 @@ Representative lines:
   - Guest (Speaker A): Keep your lights on, your food cold, and your family calm when the grid goes down.
   - Guest (Speaker A): That means you can recharge twice as fast, but only while supplies last.
 
-### 2. General discussion (1:22-6:21)
+### 2. Vikings / Falcons / Draft (1:22-7:33)
 
 Speakers: Brandon Kravitz (Speaker F), Guest (Speaker E), Guest (Speaker G), Guest (Speaker C)
 
-Topics: General
-
-Conclusion: Guest (Speaker C): So get back to reading your book.
-
-Matchup: Not inferred.
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: The beat is mainly about general football context. Reasoning clue: Brandon Kravitz (Speaker F) - Yeah, I think my phone is growing. Rationale themes: market price/line movement.
-
-Mindset / reasoning clues:
-  - Brandon Kravitz (Speaker F): These two other clowns on this show have been giving me a hard time because I have purchased the latest fantasy football magazine off the shelves at the local grocery store.
-  - Brandon Kravitz (Speaker F): I mean, it feels like with so much info online, you're pumping out stuff that you don't need to do this anymore.
-  - Brandon Kravitz (Speaker F): There's just something nostalgic for me about spending.
-  - Guest (Speaker G): Sorry, I think there's been a mistake.
-  - Brandon Kravitz (Speaker F): Yeah, I think my phone is growing.
-
-Betting language / picks:
-  - Guest (Speaker C): So get back to reading your book.
-  - Guest (Speaker C): Back when I was younger, like I mentioned, I was obsessed with fancy football.
-  - Brandon Kravitz (Speaker F): Back at it with the first lady of the pod, Kendra Middleton.
-  - Brandon Kravitz (Speaker F): Now, Sean, we're back for part two.
-  - Brandon Kravitz (Speaker F): Plus, there's just something that's more sanitary, perhaps about taking the magazine into the bathroom with you.
-
-Representative lines:
-  - Brandon Kravitz (Speaker F): Sweat all the games that you love in real time with a seamless experience in all 50 states.
-  - Guest (Speaker C): Like if my wife and I were going to the beach and I had some.
-  - Guest (Speaker G): I even have seven days to love it or return it.
-
-### 3. Vikings / Falcons / Draft (6:21-7:33)
-
-Speakers: Brandon Kravitz (Speaker F), Guest (Speaker C)
-
 Topics: Vikings, Falcons, Draft, Total
 
-Conclusion: No firm pick surfaced.
+Conclusion: Guest (Speaker C): So get back to reading your book.
 
 Matchup: Vikings vs Falcons
 
@@ -110,23 +73,28 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Vikings, Falcons, Draft, Total. Reasoning clue: Brandon Kravitz (Speaker F) - One of the reasons we have fallen in love is because they once again have a quarterback that we can believe in, Kyler Murray. Rationale themes: quarterback evaluation, trend or regression angle.
+Summary: The beat is mainly about Vikings, Falcons, Draft, Total. Reasoning clue: Brandon Kravitz (Speaker F) - One of the reasons we have fallen in love is because they once again have a quarterback that we can believe in, Kyler Murray. Rationale themes: market price/line movement, quarterback evaluation, trend or regression angle.
 
 Mindset / reasoning clues:
+  - Brandon Kravitz (Speaker F): These two other clowns on this show have been giving me a hard time because I have purchased the latest fantasy football magazine off the shelves at the local grocery store.
   - Brandon Kravitz (Speaker F): One of the reasons we have fallen in love is because they once again have a quarterback that we can believe in, Kyler Murray.
-  - Guest (Speaker C): Yeah, I, I definitely like getting him in that range.
-  - Guest (Speaker C): And last year, same thing with like Daniel Jones.
-  - Brandon Kravitz (Speaker F): That feels like an absolute steal.
+  - Brandon Kravitz (Speaker F): I mean, it feels like with so much info online, you're pumping out stuff that you don't need to do this anymore.
+  - Brandon Kravitz (Speaker F): There's just something nostalgic for me about spending.
+  - Guest (Speaker G): Sorry, I think there's been a mistake.
 
 Betting language / picks:
   - Guest (Speaker C): And this, this gives me similar to vibes when I was high on Sam, irrationally high on Sam Darnold heading into his 2024 season with the Vikings because I thought he could kind of revive his career there under Kevin o' Connell and he had, you know, one of the best receivers in the game and Justin Jefferson.
+  - Guest (Speaker C): So get back to reading your book.
+  - Guest (Speaker C): Back when I was younger, like I mentioned, I was obsessed with fancy football.
+  - Brandon Kravitz (Speaker F): Back at it with the first lady of the pod, Kendra Middleton.
+  - Brandon Kravitz (Speaker F): Now, Sean, we're back for part two.
 
 Representative lines:
+  - Brandon Kravitz (Speaker F): Sweat all the games that you love in real time with a seamless experience in all 50 states.
   - Brandon Kravitz (Speaker F): The biggest moves in fantasy football that happened this off season, whether it's via the draft, free agency trade or whatever, and the way that it impacts those individual players and the players around them.
-  - Brandon Kravitz (Speaker F): There we are now a newly minted Minnesota Vikings podcast.
-  - Brandon Kravitz (Speaker F): Sean, should we be all in on Murray for the Vikings?
+  - Brandon Kravitz (Speaker F): Plus, there's just something that's more sanitary, perhaps about taking the magazine into the bathroom with you.
 
-### 4. Colts / Week 1 (7:33-8:43)
+### 3. Colts / Week 1 (7:33-8:43)
 
 Speakers: Guest (Speaker C)
 
@@ -158,7 +126,7 @@ Representative lines:
   - Guest (Speaker C): You know, he has Jordan Addison, Juwan Jennings, TJ Hawkinson, he has plenty of weapons around him.
   - Guest (Speaker C): You know, it wouldn't shock me if Kyler Murray burns me once again, but I just don't see how.
 
-### 5. Vikings / Cardinals / Total (8:44-9:57)
+### 4. Vikings / Cardinals / Total (8:44-9:57)
 
 Speakers: Guest (Speaker E), Guest (Speaker C), Brandon Kravitz (Speaker F)
 
@@ -192,7 +160,7 @@ Representative lines:
   - Guest (Speaker C): But you know, if there's such a dumpster fire where, you know, at the end of the season, you know, they're, they missed the playoffs, they're in tank mode.
   - Brandon Kravitz (Speaker F): is not a ringing endorsement of Kyler Murray with the Vikings.
 
-### 6. 49ers / Cardinals / Total (9:57-10:52)
+### 5. 49ers / Cardinals / Total (9:57-10:52)
 
 Speakers: Guest (Speaker C), Brandon Kravitz (Speaker F)
 
@@ -223,7 +191,7 @@ Representative lines:
   - Brandon Kravitz (Speaker F): Mike Evans to the 49ers.
   - Brandon Kravitz (Speaker F): After 12 productive and loyal years in Tampa, we have Evans finally donning a different jersey.
 
-### 7. Rams / 49ers / Props (10:52-12:13)
+### 6. Rams / 49ers / Props (10:52-12:13)
 
 Speakers: Guest (Speaker C), Brandon Kravitz (Speaker F)
 
@@ -256,7 +224,7 @@ Representative lines:
   - Brandon Kravitz (Speaker F): My, my ears perked up when he started comparing the 49ers to the Rams.
   - Guest (Speaker C): Matthew Stafford's red zone woes he had the season before.
 
-### 8. 49ers / MVP / Total (12:13-13:24)
+### 7. 49ers / MVP / Total (12:13-13:24)
 
 Speakers: Brandon Kravitz (Speaker F), Guest (Speaker C)
 
@@ -289,7 +257,7 @@ Representative lines:
   - Brandon Kravitz (Speaker F): What Devonte Adams did for Stafford, who just won the NFL MVP award.
   - Guest (Speaker C): I mean, McCaffrey could get hurt and then you know, the, the entire offense falls on Purdy shoulders.
 
-### 9. 49ers / Injuries (13:24-14:36)
+### 8. 49ers / Injuries (13:24-14:36)
 
 Speakers: Guest (Speaker E), Guest (Speaker C)
 
@@ -320,7 +288,7 @@ Representative lines:
   - Guest (Speaker C): Yeah, I'm actually a big fan of the substation theory.
   - Guest (Speaker E): I have kind of a 1 1/2/2 parter here.
 
-### 10. Bills / Injuries / Spread (14:36-15:48)
+### 9. Bills / Injuries / Spread (14:36-15:48)
 
 Speakers: Guest (Speaker C)
 
@@ -354,7 +322,7 @@ Representative lines:
   - Guest (Speaker C): But I also think that, you know, Shanahan really rides the players hard in practice.
   - Guest (Speaker C): But yeah, hopefully they can stay healthy.
 
-### 11. Chiefs / Seahawks / Injuries (15:48-17:03)
+### 10. Chiefs / Seahawks / Injuries (15:48-17:03)
 
 Speakers: Guest (Speaker C), Brandon Kravitz (Speaker F), Guest (Speaker E)
 
@@ -389,7 +357,7 @@ Representative lines:
   - Guest (Speaker C): I mean he, he split a ton of work with Charbonnet, lost a lot of goal line scores to Charbonnet the past couple seasons.
   - Brandon Kravitz (Speaker F): Andy Reid used to be known for creating fantasy dynamos at the position.
 
-### 12. Chiefs / Total (17:03-18:14)
+### 11. Chiefs / Total (17:03-18:14)
 
 Speakers: Guest (Speaker C), Brandon Kravitz (Speaker F), Guest (Speaker E)
 
@@ -423,7 +391,7 @@ Representative lines:
   - Guest (Speaker C): He's being drafted, you know, Inside the top 12 currently so, you know, you're not going to fool anybody with that.
   - Guest (Speaker C): But unfortunately Charbonnet, you know, he tore his ACL super late.
 
-### 13. Week 1 / Injuries (18:14-19:29)
+### 12. Week 1 / Injuries (18:14-19:29)
 
 Speakers: Guest (Speaker C), Guest (Speaker E), Brandon Kravitz (Speaker F)
 
@@ -459,7 +427,7 @@ Representative lines:
   - Guest (Speaker C): So where Charbonnet did see a lot of goal line work, you know, his first few seasons, A.J.
   - Guest (Speaker C): So I don't think right before the
 
-### 14. Cardinals / Seahawks / Super Bowl (19:29-20:43)
+### 13. Cardinals / Seahawks / Super Bowl (19:29-20:43)
 
 Speakers: Guest (Speaker C), Brandon Kravitz (Speaker F), Guest (Speaker E)
 
@@ -494,7 +462,7 @@ Representative lines:
   - Guest (Speaker C): barner could be, you know, scoring two to three of those going forward.
   - Brandon Kravitz (Speaker F): Insanely talented player on terrible team.
 
-### 15. Draft (20:43-21:56)
+### 14. Draft (20:43-21:56)
 
 Speakers: Brandon Kravitz (Speaker F), Guest (Speaker C)
 
@@ -526,7 +494,7 @@ Representative lines:
   - Brandon Kravitz (Speaker F): Defense is key in on him and he just has those, those rookie bumps.
   - Brandon Kravitz (Speaker F): Is this a guy that you'd be comfortable taking in the first round of a redraft league?
 
-### 16. Cardinals / Draft (21:56-23:08)
+### 15. Cardinals / Draft (21:56-23:08)
 
 Speakers: Guest (Speaker C), Guest (Speaker E)
 
@@ -562,7 +530,7 @@ Representative lines:
   - Guest (Speaker E): So his projections are sitting right there with Derrick Henry.
   - Guest (Speaker C): They're going to be in a ton of trailing game scripts.
 
-### 17. Injuries / Props / Total (23:10-24:24)
+### 16. Injuries / Props / Total (23:10-24:24)
 
 Speakers: Guest (Speaker C), Brandon Kravitz (Speaker F)
 
@@ -595,7 +563,7 @@ Representative lines:
   - Guest (Speaker C): But until that happens, I, I, I'm gonna have to go with Derek Henry here.
   - Brandon Kravitz (Speaker F): I don't think he's been on one team of mine his entire career.
 
-### 18. Patriots (24:24-25:37)
+### 17. Patriots (24:24-25:37)
 
 Speakers: Guest (Speaker G), Brandon Kravitz (Speaker F)
 
@@ -624,7 +592,7 @@ Representative lines:
   - Guest (Speaker G): The patriot power generator 2200x from 4patriots keeps your lights on when the grid goes down.
   - Guest (Speaker G): Keep your lights on, your food cold and your family calm when the grid goes down.
 
-### 19. Chiefs (25:47-27:52)
+### 18. Chiefs (25:47-27:52)
 
 Speakers: Brandon Kravitz (Speaker F), Guest (Speaker C), Guest (Speaker E), Guest (Speaker G)
 
@@ -653,7 +621,7 @@ Representative lines:
   - Guest (Speaker C): beautifully rendered, you know, sentences and paragraphs about enlightenment ideals, does also have this darker history to it.
   - Guest (Speaker E): Are you guys big Chiefs fans?
 
-### 20. Patriots / MVP (27:53-29:03)
+### 19. Patriots / MVP (27:53-29:03)
 
 Speakers: Brandon Kravitz (Speaker F), Guest (Speaker C), Guest (Speaker G)
 
@@ -683,7 +651,7 @@ Representative lines:
   - Guest (Speaker G): We're following the case live as the criminal charges finally come to a conclusion.
   - Brandon Kravitz (Speaker F): And do you agree with what Brown does for the quarterback in, in terms of fantasy?
 
-### 21. Patriots / Total / Super Bowl (29:03-30:19)
+### 20. Patriots / Total / Super Bowl (29:03-30:19)
 
 Speakers: Guest (Speaker C), Guest (Speaker E)
 
@@ -716,7 +684,7 @@ Representative lines:
   - Guest (Speaker C): He might open up, you know, Drake made a scramble more, you know, if, if they're putting more attention on A.J.
   - Guest (Speaker C): you know, he might find more lanes when he's scrambling.
 
-### 22. Patriots / Draft / Coaching (30:19-31:34)
+### 21. Patriots / Draft / Coaching (30:19-31:34)
 
 Speakers: Guest (Speaker E), Guest (Speaker C), Brandon Kravitz (Speaker F)
 
@@ -748,7 +716,7 @@ Representative lines:
   - Brandon Kravitz (Speaker F): AJ Brown or Devonte Smith, who would you draft first in fantasy?
   - Guest (Speaker C): I'm hoping Drake May can overcome it and this doesn't become a distraction for him.
 
-### 23. Vikings / Draft / Total (31:34-32:46)
+### 22. Vikings / Draft / Total (31:34-32:46)
 
 Speakers: Brandon Kravitz (Speaker F), Guest (Speaker C), Guest (Speaker E)
 
@@ -781,9 +749,9 @@ Representative lines:
   - Brandon Kravitz (Speaker F): We are going to nominate a fantasy bust, the man who will ruin your fantasy leagues.
   - Guest (Speaker C): I would lean AJ but yeah, I would not be shocked if Smith has a career.
 
-### 24. Bills / Total / Conference (32:46-34:45)
+### 23. Bills / Total / Conference (32:46-34:29)
 
-Speakers: Brandon Kravitz (Speaker F), Guest (Speaker E), Guest (Speaker G)
+Speakers: Brandon Kravitz (Speaker F), Guest (Speaker E)
 
 Topics: Bills, Total, Conference, Injuries, Playoffs
 

@@ -541,7 +541,7 @@ Mindset / reasoning clues:
   - Chad Millman (Speaker B): And if you're ever late to tip off, don't worry.
 
 Betting language / picks:
-  - Chad Millman (Speaker B): If you win, just place a $5 bet and if it hits, you get not only your winnings but also an extra $150 in bonus bets.
+  - None pulled.
 
 Representative lines:
   - Chad Millman (Speaker B): You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you.

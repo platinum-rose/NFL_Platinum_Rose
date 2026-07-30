@@ -27,7 +27,7 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 ### 1. Schedule (0:00-1:18)
 
-Speakers: Ross Tucker (Speaker A), Guest (Speaker B), Guest (Speaker C)
+Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
 
 Topics: Schedule
 

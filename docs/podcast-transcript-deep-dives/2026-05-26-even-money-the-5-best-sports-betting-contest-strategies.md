@@ -24,9 +24,9 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 ## Conversation Beats
 
-### 1. Total (0:01-1:12)
+### 1. Total (0:08-1:22)
 
-Speakers: Ross Tucker (Speaker A), Guest (Speaker B), Guest (Speaker C)
+Speakers: Guest (Speaker B), Guest (Speaker C)
 
 Topics: Total
 
@@ -56,11 +56,11 @@ Representative lines:
   - Guest (Speaker B): It's the Even Money Podcast with Ross Tucker and Steve Pezyk.
   - Guest (Speaker C): Everybody's got their full squad mini camps next week.
 
-### 2. Total (1:12-2:25)
+### 2. Eagles / Total (1:22-2:41)
 
 Speakers: Guest (Speaker C)
 
-Topics: Total
+Topics: Eagles, Total
 
 Conclusion: No firm pick surfaced.
 
@@ -72,7 +72,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Total. Rationale themes: market price/line movement, injury and availability, offensive personnel.
+Summary: No firm pick surfaced in this beat; it is mostly context around Eagles, Total. Rationale themes: market price/line movement, injury and availability, offensive personnel.
 
 Mindset / reasoning clues:
   - Guest (Speaker C): If there's someone that's better, we would love to have them on the show.
@@ -80,18 +80,19 @@ Mindset / reasoning clues:
 
 Betting language / picks:
   - Guest (Speaker C): We happen to have the guy that, as far as I know, is the best publicly available contest participant over the last 30 years.
+  - Guest (Speaker C): Got a little over two months to enjoy.
   - Guest (Speaker C): There's a number of imposters trying to profit off of his name, off of his success.
 
 Representative lines:
+  - Guest (Speaker C): Before the grind starts with the Eagles first preseason game in August.
   - Guest (Speaker C): I'm at Ross Tucker NFL, the former NFL offensive lineman that now calls games for CBS on television, Westwood One on radio.
   - Guest (Speaker C): What about the contests that are just amongst your friends or maybe our friends at Splash Sports or what?
-  - Guest (Speaker C): There's a million different things to do and talk about a million different options.
 
-### 3. Eagles / Draft / Injuries (2:25-3:38)
+### 3. Draft / Injuries (2:41-3:54)
 
 Speakers: Guest (Speaker C)
 
-Topics: Eagles, Draft, Injuries, Total
+Topics: Draft, Injuries
 
 Conclusion: No firm pick surfaced.
 
@@ -103,20 +104,20 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Eagles, Draft, Injuries. Rationale themes: injury and availability.
+Summary: No firm pick surfaced in this beat; it is mostly context around Draft, Injuries. Rationale themes: injury and availability.
 
 Mindset / reasoning clues:
-  - None pulled.
+  - Guest (Speaker C): Certainly even like here in Pennsylvania.
 
 Betting language / picks:
-  - Guest (Speaker C): Got a little over two months to enjoy.
+  - None pulled.
 
 Representative lines:
   - Guest (Speaker C): Crazy interesting to hear from Will Levis, his mom, Beth Levis the last couple days with what she's doing during Mental health awareness Month, how her kids, including will have been affected.
-  - Guest (Speaker C): Before the grind starts with the Eagles first preseason game in August.
+  - Guest (Speaker C): Steve, before we get into your commandments, before we get into, you know, different strategies or what are the different type of contests that are available, what are the most well known contests?
   - Guest (Speaker C): We're breaking down every draft choice and the Ross Tucker Football Podcast.
 
-### 4. Raiders / Spread (3:38-4:49)
+### 4. Raiders / Spread (3:54-5:06)
 
 Speakers: Guest (Speaker C), Ross Tucker (Speaker A)
 
@@ -137,7 +138,7 @@ Summary: No firm pick surfaced in this beat; it is mostly context around Raiders
 Mindset / reasoning clues:
   - Ross Tucker (Speaker A): Like the ultimate contest is like, like NCAA tournament.
   - Ross Tucker (Speaker A): Like you perfect bracket, you get a billion dollars.
-  - Guest (Speaker C): Certainly even like here in Pennsylvania.
+  - Ross Tucker (Speaker A): Low roller paradise contests like that UGV.
   - Ross Tucker (Speaker A): If there's no entry fee and the like.
 
 Betting language / picks:
@@ -145,11 +146,11 @@ Betting language / picks:
   - Ross Tucker (Speaker A): And for someone who doesn't bet big, doesn't have a big bankroll, you know, free goes a long way.
 
 Representative lines:
-  - Guest (Speaker C): Steve, before we get into your commandments, before we get into, you know, different strategies or what are the different type of contests that are available, what are the most well known contests?
   - Ross Tucker (Speaker A): So obviously I live in Las Vegas, so I'm Vegas centric, but it's.
-  - Guest (Speaker C): I know some of my family members participate in a survivor contest, whatever people call it suicide pool.
+  - Guest (Speaker C): I mean there's a lot out there that seems to be one of the most popular ones.
+  - Guest (Speaker C): What, what are the different contests that are available, Steve?
 
-### 5. Total (4:49-6:01)
+### 5. Total (5:06-6:21)
 
 Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
 
@@ -168,7 +169,7 @@ Current market: No current public-line snapshot loaded for this matchup.
 Summary: The beat is mainly about Total. Rationale themes: trend or regression angle.
 
 Mindset / reasoning clues:
-  - Ross Tucker (Speaker A): Low roller paradise contests like that UGV.
+  - None pulled.
 
 Betting language / picks:
   - Ross Tucker (Speaker A): The Westgate sportsbook has been taken over by Caesars.
@@ -176,12 +177,12 @@ Betting language / picks:
 
 Representative lines:
   - Ross Tucker (Speaker A): There are some contests, obviously people trying to make a name, trying to grow a fan base and they just put up a prize pool and it's free for everyone.
+  - Ross Tucker (Speaker A): I did finish first in the second half Westgate contest last year after a horrific first half of the season.
   - Ross Tucker (Speaker A): Will there be a World Series of Sports Betting At Caesars now that they are controlled.
-  - Ross Tucker (Speaker A): So for the low rollers, I would absolutely enter every one of those.
 
-### 6. Spread (6:01-7:15)
+### 6. Spread (6:21-7:33)
 
-Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
+Speakers: Guest (Speaker C), Ross Tucker (Speaker A)
 
 Topics: Spread
 
@@ -195,20 +196,21 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Spread. Rationale themes: trend or regression angle.
+Summary: No firm pick surfaced in this beat; it is mostly context around Spread. Reasoning clue: Ross Tucker (Speaker A) - So because of that it's, it's a lot more attractive. Rationale themes: trend or regression angle.
 
 Mindset / reasoning clues:
   - Guest (Speaker C): So they do that so that people that do terrible in the first half, like evidently you did still have incentive or still are excited about it 100%.
+  - Ross Tucker (Speaker A): So because of that it's, it's a lot more attractive.
 
 Betting language / picks:
   - Guest (Speaker C): Like how many, how many games do you pick each week?
 
 Representative lines:
-  - Ross Tucker (Speaker A): I did finish first in the second half Westgate contest last year after a horrific first half of the season.
+  - Ross Tucker (Speaker A): That where there's quarterly prizes, there are first half prizes, there are booby prizes for the worst finishers.
   - Ross Tucker (Speaker A): The Caesars folks say they're going to continue it and we're waiting to hear the details regarding it.
-  - Ross Tucker (Speaker A): I went 34, 9 and 1 to pocket 50,000 in the Westgate second half of the season.
+  - Ross Tucker (Speaker A): I give Derek Stevens and Jeff Benson credit at Circa for really innovating.
 
-### 7. General discussion (7:15-9:24)
+### 7. General discussion (7:33-9:24)
 
 Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
 
@@ -224,7 +226,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about general football context. Reasoning clue: Ross Tucker (Speaker A) - So because of that it's, it's a lot more attractive.
+Summary: The beat is mainly about general football context. Reasoning clue: Guest (Speaker C) - You did horrible in the first half, but then because you won the second half, you won 50,000.
 
 Mindset / reasoning clues:
   - Guest (Speaker C): Okay, so places like Circa and Westgate have, what do they call just the super contest or whatever and you're picking five games a week.
@@ -239,8 +241,8 @@ Betting language / picks:
 
 Representative lines:
   - Ross Tucker (Speaker A): Millions and $1,000 I believe for Westgate it could be wrong.
-  - Ross Tucker (Speaker A): So because of that it's, it's a lot more attractive.
   - Ross Tucker (Speaker A): And people like universally laughed at me.
+  - Ross Tucker (Speaker A): And I remember mid 2000s telling everyone what a tremendous overlay sports betting tournaments were.
 
 ### 8. Spread / Total (9:24-10:37)
 

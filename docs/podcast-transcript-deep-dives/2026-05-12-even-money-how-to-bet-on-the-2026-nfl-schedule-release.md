@@ -23,9 +23,9 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 ## Conversation Beats
 
-### 1. 49ers / Cowboys / Schedule (0:01-5:25)
+### 1. 49ers / Cowboys / Schedule (0:08-5:25)
 
-Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker B)
+Speakers: Steve Fezzik (Speaker B), Ross Tucker (Speaker A)
 
 Topics: 49ers, Cowboys, Schedule
 

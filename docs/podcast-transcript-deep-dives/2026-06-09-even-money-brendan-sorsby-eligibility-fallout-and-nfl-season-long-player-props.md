@@ -24,7 +24,7 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 ## Conversation Beats
 
-### 1. General discussion (0:01-1:33)
+### 1. General discussion (0:06-1:33)
 
 Speakers: Guest (Speaker A), Guest (Speaker B), Ross Tucker (Speaker C)
 
@@ -199,14 +199,12 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about general football context. Reasoning clue: Ross Tucker (Speaker C) - And, and the thing I think that people miss on Steve, it, you know, because everybody's like blaming the sports books or I saw where I on social media, someone said you do a show for DraftKings Network, you're part of the problem. Rationale themes: market price/line movement, quarterback evaluation.
+Summary: The beat is mainly about general football context. Rationale themes: market price/line movement, quarterback evaluation.
 
 Mindset / reasoning clues:
   - Ross Tucker (Speaker C): And actually, since everything's legalized now, it's a lot easier for them to figure out when stuff like this is going on.
   - Ross Tucker (Speaker C): You know, when it was just guys doing offshore and bodog.com and my buddies and stuff like that.
-  - Ross Tucker (Speaker C): And it's always like, wait a minute, I've been doing a show for DraftKings Network.
   - Guest (Speaker A): But every single person that gets caught, it's like an episode of Dumb and Dumber.
-  - Ross Tucker (Speaker C): And, and the thing I think that people miss on Steve, it, you know, because everybody's like blaming the sports books or I saw where I on social media, someone said you do a show for DraftKings Network, you're part of the problem.
 
 Betting language / picks:
   - Ross Tucker (Speaker C): To my knowledge, this is the first starting quarterback or quarterback that's been betting on his team and still ruled eligible to play like people always want to.

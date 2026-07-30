@@ -652,7 +652,6 @@ Betting language / picks:
   - Chad Millman (Speaker B): Maybe they can come up with that and get it posted before we get back on the other side.
   - Simon Hunter (Speaker F): I know a guy, Chad, that does take that kind of action if you want to get some money down on that.
   - Chad Millman (Speaker B): There's a full slate almost every day to bet on building up the same game.
-  - Chad Millman (Speaker B): If it wins, you bet 150 in bonus bets on top of your winnings.
 
 Representative lines:
   - Chad Millman (Speaker B): You can still click and edit anything manually, or select an element and have Aria, your AI agent, make updates for you.

@@ -29,6 +29,8 @@ Safe recovered work has been committed in narrow checkpoints:
 - `0e64d66` - Add local source and article intel review tooling.
 - `9273269` - Import July 29 primary futures odds.
 - `642349e` - Refresh July 30 training camp intel snapshot.
+- `96376e1` - Recalibrate futures synthesis source audit.
+- `0cd942a` - Add futures synthesis source readiness checklist.
 
 `npm.cmd run intel:source-audit` has been recalibrated around the active objective: verifying current intel sources for a maximum-effort frontier-model futures portfolio synthesis. DK/FD bet-slip parsers and weekly live props are execution/regular-season plumbing and are out of scope for this synthesis-readiness gate.
 
@@ -40,17 +42,18 @@ npm.cmd run intel:source-audit
 
 Result: `PASSABLE`, Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7. Latest artifacts:
 
-- `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-10-51-837Z.json`
-- `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-10-51-837Z.html`
+- `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.json`
+- `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.html`
 - `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`
 - `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md`
 
 Important caveats:
 - BetOnline has current July 29 screenshots, but the structured BetOnline JSON import is stale. Do not use stale structured BetOnline rows as source of truth unless normalized or manually reviewed against the screenshots.
 - Review items are not blockers by themselves; they must be accepted, rejected, or caveated before a frontier-model run.
+- Podcast/deep-dive output was regenerated after expanded ad/legal filtering. The expanded hard promo/legal scan is clean; remaining sportsbook mentions are price/context references.
 
 Remaining dirty work is intentional:
-- Podcast/deep-dive regeneration, including new July 21-23 episode files and a 57-episode index. Do not commit until sponsor/ad language is filtered or explicitly accepted as raw/review-only context.
+- Podcast/deep-dive regeneration, including new July 21-23 episode files and a 57-episode index. Stage this only with the focused source-readiness package; do not sweep in unrelated crash artifacts.
 - Overnight/ops automation files: `scripts/overnight.js`, `docs/NFL_DASHBOARD_USER_GUIDE.md`, and `infra/systemd/`. Review separately because they change live-fetch automation assumptions and contain Linux/encoding/command assumptions.
 - Older retry artifacts under `.nfl/readiness/` and `.nfl/source-audit/`; latest successful reports are already committed.
 
@@ -133,8 +136,7 @@ Review/stage narrowly by workstream. Do not use `git add -A`.
 **Current main focus:** verify and package current intel sources for a deep-dive futures portfolio synthesis from a frontier model. Do not spend current-cycle attention on DK/FD bet-slip parsers or weekly live props.
 
 Recommended next:
-- Review `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md` and mark the 17 source-audit review items as accepted, accepted-with-caveat, or excluded.
-- Resolve or explicitly caveat the podcast/deep-dive sponsor/ad leakage before using generated narrative/deep-dive text in the synthesis packet.
+- Use `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md` as the accepted-source matrix for the frontier-model evidence packet.
 - Normalize or manually review the current July 29 BetOnline screenshots before treating BetOnline as a placeable-price source of truth.
 - Review `scripts/overnight.js`, `docs/NFL_DASHBOARD_USER_GUIDE.md`, and `infra/systemd/` separately before committing any ops automation.
 - Clean older retry artifacts only after deciding they are no longer useful crash-window evidence.

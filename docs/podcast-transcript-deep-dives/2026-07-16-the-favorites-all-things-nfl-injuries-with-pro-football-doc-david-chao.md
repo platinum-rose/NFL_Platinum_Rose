@@ -203,7 +203,6 @@ Mindset / reasoning clues:
 
 Betting language / picks:
   - Brandon Kravitz (Speaker D): By the way, this site helps tremendously in terms of putting a number to the injuries that we discuss on this podcast on a weekly basis.
-  - Kendra Middleton (Speaker B): Plus, new DraftKings customers can sign up with code FAVORITES and get $200 in bonuses after you spend just five bucks.
 
 Representative lines:
   - Brandon Kravitz (Speaker D): They have been winning at A rate of 56 and a half percent on NFL spreads and you all know how difficult it is to do that.
@@ -1258,7 +1257,7 @@ Representative lines:
   - Kendra Middleton (Speaker B): Plus 135 first half draw.
   - Guest (Speaker C): You look at some of their defenders that they've signed have had injuries.
 
-### 41. Total / Moneyline / Super Bowl (49:42-50:58)
+### 41. Total / Moneyline / Super Bowl (49:42-50:54)
 
 Speakers: Brandon Kravitz (Speaker D), Guest (Speaker C), Guest (Speaker A)
 
@@ -1282,7 +1281,6 @@ Mindset / reasoning clues:
 
 Betting language / picks:
   - Brandon Kravitz (Speaker D): I think there's a chance we go scoreless in the first half so I'll take the plus 138 on the first half under and a first half draw at minus 105.
-  - Brandon Kravitz (Speaker D): You can slam that together over on DraftKings, where the crown is yours.
   - Brandon Kravitz (Speaker D): And Kendra has the over on two and a half goals.
   - Brandon Kravitz (Speaker D): The moneyline draw or the first half.
 
@@ -1293,7 +1291,7 @@ Representative lines:
 
 ### 42. Total (50:58-54:53)
 
-Speakers: Brandon Kravitz (Speaker D), Guest (Speaker A), Kendra Middleton (Speaker B), Guest (Speaker C)
+Speakers: Brandon Kravitz (Speaker D), Guest (Speaker C), Guest (Speaker A), Kendra Middleton (Speaker B)
 
 Topics: Total
 
@@ -1317,9 +1315,9 @@ Betting language / picks:
   - Guest (Speaker A): But with Boost Mobile, you don't have to play the Willis Go up soon game.
 
 Representative lines:
-  - Guest (Speaker C): Visit totalwireless.com or stop by your neighborhood Total Wireless Store.
   - Kendra Middleton (Speaker B): Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems.
   - Guest (Speaker A): strategies that help protect what matters so you can preserve your progress while creating a path forward.
+  - Kendra Middleton (Speaker B): Tell your doctor if you experience vision changes before scheduled procedures with anesthesia.
 
 ## Extracted Picks From Existing Host Summary Rows
 

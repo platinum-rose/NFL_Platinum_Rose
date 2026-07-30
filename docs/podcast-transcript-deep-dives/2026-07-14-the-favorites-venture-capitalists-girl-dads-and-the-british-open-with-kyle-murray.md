@@ -10,11 +10,11 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 - G: Kendra Middleton
 - A: Guest
 - C: Guest
-- E: Guest
 - F: Guest
 - H: Guest
 - I: Guest
 - L: Guest
+- M: Guest
 
 ## Expected Participants
 
@@ -23,9 +23,9 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 ## Ignored Audio
 
 - D: ad/commercial audio ignored
+- E: ad/commercial audio ignored
 - J: ad/commercial audio ignored
 - K: ad/commercial audio ignored
-- M: ad/commercial audio ignored
 
 ## Timing / Watchlist Conjectures
 
@@ -33,9 +33,9 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 ## Conversation Beats
 
-### 1. Week 1 (0:00-1:39)
+### 1. Week 1 (0:00-2:15)
 
-Speakers: Guest (Speaker A), Guest (Speaker C), Guest (Speaker E)
+Speakers: Guest (Speaker A), Guest (Speaker C), Guest (Speaker F)
 
 Topics: Week 1
 
@@ -52,7 +52,7 @@ Current market: No current public-line snapshot loaded for this matchup.
 Summary: No firm pick surfaced in this beat; it is mostly context around Week 1. Rationale themes: market price/line movement.
 
 Mindset / reasoning clues:
-  - None pulled.
+  - Guest (Speaker F): Do you want to find a stress free way to buy your next car?
 
 Betting language / picks:
   - None pulled.
@@ -62,11 +62,72 @@ Representative lines:
   - Guest (Speaker A): At Edward Jones, we believe rich isn't about having life all figured out, it's opening yourself to all the possibilities.
   - Guest (Speaker A): Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores in various stages of ooze.
 
-### 2. Total (1:39-2:57)
+### 2. Total (2:15-3:26)
 
-Speakers: Guest (Speaker E), Guest (Speaker F), Brandon Kravitz (Speaker B)
+Speakers: Guest (Speaker F), Brandon Kravitz (Speaker B)
 
 Topics: Total
+
+Conclusion: Brandon Kravitz (Speaker B): Back at it with my people, the prime minister of Degen Nation, Stuckey, who has now once again re released BBOC College Football Edition.
+
+Matchup: Not inferred.
+
+Spread: Not surfaced.
+
+Total: Not surfaced.
+
+Current market: No current public-line snapshot loaded for this matchup.
+
+Summary: The beat is mainly about Total. Reasoning clue: Brandon Kravitz (Speaker B) - Make sure you go and check that out because the college football season is right around the corner. Rationale themes: market price/line movement, defensive quality.
+
+Mindset / reasoning clues:
+  - Brandon Kravitz (Speaker B): Make sure you go and check that out because the college football season is right around the corner.
+
+Betting language / picks:
+  - Guest (Speaker F): From luxury cars to family rides, CarMax has options for almost every price range, including more than 25,000 cars priced under $25,000.
+  - Brandon Kravitz (Speaker B): Back at it with my people, the prime minister of Degen Nation, Stuckey, who has now once again re released BBOC College Football Edition.
+
+Representative lines:
+  - Guest (Speaker F): And if you want to browse with confidence, get pre qualified online with no impact on your credit score and shop cars within your budget.
+  - Guest (Speaker F): Just head to CarMax.com for details and get Pre qualified today.
+  - Brandon Kravitz (Speaker B): The first lady of the pod, Kendra Middleton is here.
+
+### 3. Browns / Jets (3:26-4:40)
+
+Speakers: Brandon Kravitz (Speaker B), Kendra Middleton (Speaker G), Guest (Speaker H)
+
+Topics: Browns, Jets
+
+Conclusion: Guest (Speaker H): I'll be back next week with the primary kickoff.
+
+Matchup: Browns vs Jets
+
+Spread: Not surfaced.
+
+Total: Not surfaced.
+
+Current market: No current public-line snapshot loaded for this matchup.
+
+Summary: The beat is mainly about Browns, Jets. Reasoning clue: Guest (Speaker H) - We have a few episodes that are out now that are worth checking out I think with Phil Steele, Stanford Steve just recorded one. Rationale themes: home/road and scheduling spot.
+
+Mindset / reasoning clues:
+  - Kendra Middleton (Speaker G): I went through this whole thing on my Saturday show about how I don't want to wish summer away because I'm such a sun baby and I hate the winter here, but I truly would kill for a Browns Jets Thursday night football game right.
+  - Guest (Speaker H): We have a few episodes that are out now that are worth checking out I think with Phil Steele, Stanford Steve just recorded one.
+  - Brandon Kravitz (Speaker B): I mean I love me some baseball, but I'm ready for some football.
+
+Betting language / picks:
+  - Guest (Speaker H): I'll be back next week with the primary kickoff.
+
+Representative lines:
+  - Brandon Kravitz (Speaker B): We are down to the final four in the World cup or really, I guess the final three by the time you're listening to this, Jordan Walker is our home Run Derby champion.
+  - Brandon Kravitz (Speaker B): Stucky, how are the the projections going across the college football landscape?
+  - Brandon Kravitz (Speaker B): I'm excited about the preseason, let alone the start of the regular season.
+
+### 4. Conference / Injuries (4:40-5:51)
+
+Speakers: Guest (Speaker H), Brandon Kravitz (Speaker B)
+
+Topics: Conference, Injuries
 
 Conclusion: No firm pick surfaced.
 
@@ -78,82 +139,22 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around Total. Rationale themes: market price/line movement.
+Summary: No firm pick surfaced in this beat; it is mostly context around Conference, Injuries. Rationale themes: injury and availability.
 
 Mindset / reasoning clues:
-  - Guest (Speaker F): Do you want to find a stress free way to buy your next car?
+  - None pulled.
 
 Betting language / picks:
-  - Guest (Speaker F): From luxury cars to family rides, CarMax has options for almost every price range, including more than 25,000 cars priced under $25,000.
+  - None pulled.
 
 Representative lines:
-  - Guest (Speaker E): With Total Wireless, you get unlimited 5G data keeping you in the action from the walkouts to the knockouts.
-  - Guest (Speaker F): And if you want to browse with confidence, get pre qualified online with no impact on your credit score and shop cars within your budget.
-  - Guest (Speaker E): This podcast is sponsored by Total Wireless, the official wireless partner of ufc.
-
-### 3. Browns / Jets (2:57-4:08)
-
-Speakers: Brandon Kravitz (Speaker B), Kendra Middleton (Speaker G)
-
-Topics: Browns, Jets
-
-Conclusion: Brandon Kravitz (Speaker B): Back at it with my people, the prime minister of Degen Nation, Stuckey, who has now once again re released BBOC College Football Edition.
-
-Matchup: Browns vs Jets
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: The beat is mainly about Browns, Jets. Reasoning clue: Brandon Kravitz (Speaker B) - Make sure you go and check that out because the college football season is right around the corner. Rationale themes: home/road and scheduling spot, defensive quality.
-
-Mindset / reasoning clues:
-  - Kendra Middleton (Speaker G): I went through this whole thing on my Saturday show about how I don't want to wish summer away because I'm such a sun baby and I hate the winter here, but I truly would kill for a Browns Jets Thursday night football game right.
-  - Brandon Kravitz (Speaker B): Make sure you go and check that out because the college football season is right around the corner.
-  - Brandon Kravitz (Speaker B): I mean I love me some baseball, but I'm ready for some football.
-
-Betting language / picks:
-  - Brandon Kravitz (Speaker B): Back at it with my people, the prime minister of Degen Nation, Stuckey, who has now once again re released BBOC College Football Edition.
-
-Representative lines:
-  - Brandon Kravitz (Speaker B): We are down to the final four in the World cup or really, I guess the final three by the time you're listening to this, Jordan Walker is our home Run Derby champion.
-  - Brandon Kravitz (Speaker B): I'm excited about the preseason, let alone the start of the regular season.
-  - Brandon Kravitz (Speaker B): Kendra, I've waited as long as I could and I officially have the bug.
-
-### 4. Conference / Injuries (4:08-5:25)
-
-Speakers: Brandon Kravitz (Speaker B), Guest (Speaker H)
-
-Topics: Conference, Injuries
-
-Conclusion: Guest (Speaker H): I'll be back next week with the primary kickoff.
-
-Matchup: Not inferred.
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: The beat is mainly about Conference, Injuries. Reasoning clue: Guest (Speaker H) - We have a few episodes that are out now that are worth checking out I think with Phil Steele, Stanford Steve just recorded one. Rationale themes: injury and availability.
-
-Mindset / reasoning clues:
-  - Guest (Speaker H): We have a few episodes that are out now that are worth checking out I think with Phil Steele, Stanford Steve just recorded one.
-
-Betting language / picks:
-  - Guest (Speaker H): I'll be back next week with the primary kickoff.
-
-Representative lines:
+  - Guest (Speaker H): But yeah, in the thick of, in the thick of freebies right now and updating everything and going through rosters and I, it's one of my favorite things to do just trying to figure out the puzzle.
   - Guest (Speaker H): We'll preview every single team basically starting next week through, you know, the first or second week of August, we'll have every single all 138 teams covered.
   - Guest (Speaker H): So I've gone through all every team, every roster, updated everything, off to do it all again next month and then do it all again the night before.
-  - Guest (Speaker H): Each podcast I'll run through it again, update, raw news, injuries, blah blah blah.
 
-### 5. Seahawks / Cowboys / Super Bowl (5:25-7:52)
+### 5. Seahawks / Cowboys / Super Bowl (5:51-7:52)
 
-Speakers: Guest (Speaker H), Brandon Kravitz (Speaker B), Kendra Middleton (Speaker G)
+Speakers: Kendra Middleton (Speaker G), Brandon Kravitz (Speaker B), Guest (Speaker H)
 
 Topics: Seahawks, Cowboys, Super Bowl
 
@@ -184,7 +185,7 @@ Betting language / picks:
 Representative lines:
   - Brandon Kravitz (Speaker B): In between Seattle and Dallas, I would say 12 and a half confidently.
   - Guest (Speaker H): I mean Nick's probably around like 10ish.
-  - Guest (Speaker H): But yeah, in the thick of, in the thick of freebies right now and updating everything and going through rosters and I, it's one of my favorite things to do just trying to figure out the puzzle.
+  - Brandon Kravitz (Speaker B): $9.6 billion off of the sale of the Seattle Seahawks.
 
 ### 6. Packers / Steelers (7:09-7:15)
 
@@ -545,7 +546,7 @@ Representative lines:
   - Kendra Middleton (Speaker G): But on the Aaron Donald front, I just think, all right, let's say he is a shell of himself or God forbid something happens to him injury wise, it is a net positive to have that, that amount of experience in your locker room, let alone like the leadership that you get out of him.
   - Brandon Kravitz (Speaker B): If all their stars stay healthy, there's no way anybody beats them.
 
-### 18. Rams / Draft / Total (14:09-15:22)
+### 18. Rams / Draft / Total (14:09-15:27)
 
 Speakers: Guest (Speaker H), Brandon Kravitz (Speaker B), Kendra Middleton (Speaker G)
 
@@ -570,16 +571,15 @@ Mindset / reasoning clues:
 
 Betting language / picks:
   - Brandon Kravitz (Speaker B): A lot more of that to come on the favorites over the next couple of weeks.
-  - Kendra Middleton (Speaker G): Plus, new DraftKings customers can sign up with code FAVORITES and get $200 in bonuses after you spend just five bucks.
 
 Representative lines:
   - Brandon Kravitz (Speaker B): Yeah, if Donald signs there, no doubt they will start the season at the top of everybody's power rankings and certainly will be the highest power rated team going into the 2026 NFL season.
   - Guest (Speaker H): Not enough, not enough people are talking about this most likely suspension of Alaric Jackson, the blindside tackle was very good for Matt Stafford, who's 38.
   - Kendra Middleton (Speaker G): The cup is heating up right now and we've teamed up with DraftKings to bring you a brand new offer.
 
-### 19. General discussion (15:22-20:16)
+### 19. General discussion (15:32-20:16)
 
-Speakers: Kendra Middleton (Speaker G), Guest (Speaker I), Brandon Kravitz (Speaker B), Guest (Speaker C), Guest (Speaker F), Guest (Speaker L), Guest (Speaker H)
+Speakers: Guest (Speaker I), Brandon Kravitz (Speaker B), Guest (Speaker C), Guest (Speaker F), Guest (Speaker L), Guest (Speaker M), Guest (Speaker H)
 
 Topics: General
 
@@ -593,7 +593,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about general football context. Reasoning clue: Guest (Speaker C) - This is always a fun tournament for me because I'm a night owl. Rationale themes: market price/line movement, offensive personnel.
+Summary: The beat is mainly about general football context. Reasoning clue: Guest (Speaker C) - This is always a fun tournament for me because I'm a night owl. Rationale themes: market price/line movement, injury and availability, offensive personnel.
 
 Mindset / reasoning clues:
   - Guest (Speaker C): This is always a fun tournament for me because I'm a night owl.
@@ -601,11 +601,12 @@ Mindset / reasoning clues:
 
 Betting language / picks:
   - Brandon Kravitz (Speaker B): Kyle, welcome back to the show.
+  - Guest (Speaker M): Best Mobile Network Based on Analysis by Ooklev Speedtest Intelligence data 2h 2025 with 24 monthly bill credits and 4 eligible port ins on essentials for well qualified customers with autopay plus taxes, fees and $35 connection charge per line credits and imbalance due if you pay off earlier.
 
 Representative lines:
   - Guest (Speaker I): That's why your dedicated financial advisor meets you where you are with personalized financial strategies that help protect what matters so you can preserve your progress while creating a path forward.
+  - Guest (Speaker M): Cancel Contact Us Finance Agreement example $299.99 MotoEdge 5G required T Satellite available with compatible device in most outdoor areas in the US where you can see the sky.
   - Brandon Kravitz (Speaker B): With America's Best Network and T Satellite, we're keeping you connected in places you never thought possible.
-  - Brandon Kravitz (Speaker B): And if you switch today, you get free phones for zero down and only 25 bucks a month per line for four lines.
 
 ### 20. Schedule (20:16-21:29)
 
@@ -1219,7 +1220,7 @@ Representative lines:
 
 ### 38. Total (48:46-49:58)
 
-Speakers: Brandon Kravitz (Speaker B), Guest (Speaker L), Guest (Speaker F), Kendra Middleton (Speaker G), Guest (Speaker C)
+Speakers: Brandon Kravitz (Speaker B), Guest (Speaker L), Guest (Speaker F), Kendra Middleton (Speaker G), Guest (Speaker C), Guest (Speaker M)
 
 Topics: Total
 
@@ -1252,11 +1253,11 @@ Representative lines:
   - Guest (Speaker C): So that means you're gonna, you're gonna tail my bet then here, right?
   - Kendra Middleton (Speaker G): We didn't know their wife ahead of time was having a girl, but they announced that they're having a girl.
 
-### 39. General discussion (49:58-52:28)
+### 39. Injuries (49:58-56:51)
 
-Speakers: Guest (Speaker C), Brandon Kravitz (Speaker B), Kendra Middleton (Speaker G), Guest (Speaker H)
+Speakers: Guest (Speaker C), Brandon Kravitz (Speaker B), Kendra Middleton (Speaker G), Guest (Speaker H), Guest (Speaker I), Guest (Speaker L)
 
-Topics: General
+Topics: Injuries
 
 Conclusion: Guest (Speaker H): I'm going back to the well.
 
@@ -1268,12 +1269,13 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about general football context. Reasoning clue: Guest (Speaker H) - I think is game fits really well. Rationale themes: market price/line movement, trend or regression angle.
+Summary: The beat is mainly about Injuries. Reasoning clue: Guest (Speaker H) - I think is game fits really well. Rationale themes: market price/line movement, injury and availability, offensive personnel.
 
 Mindset / reasoning clues:
   - Guest (Speaker C): So I love wind up Clark this week.
   - Guest (Speaker H): I think is game fits really well.
   - Brandon Kravitz (Speaker B): It's like taking PEDs on the Golf course guys.
+  - Guest (Speaker C): Yeah, that sounds like the move.
 
 Betting language / picks:
   - Guest (Speaker H): I think he'll be near the top and be consistently and not sure if I'll sprinkle a little bit on him to win it, but I think he's a good bet to finish in the top 20 at the current price.
@@ -1283,67 +1285,9 @@ Betting language / picks:
   - Guest (Speaker H): I'm going back to the well.
 
 Representative lines:
+  - Guest (Speaker I): That's why your dedicated financial advisor meets you where you are with personalized financial strategies that help protect what matters so you can preserve your progress while creating a path forward.
   - Guest (Speaker H): He's going to hit greens in regulation iron play putting.
   - Kendra Middleton (Speaker G): I was hoping you would talk me off one of the two bets that I had into our notes, but you told me that you liked both of them and so now I don't know which direction to go.
-  - Guest (Speaker H): Russell Henley top 20 plus 175.
-
-### 40. Draft / Total (52:28-53:39)
-
-Speakers: Brandon Kravitz (Speaker B), Guest (Speaker C), Guest (Speaker I)
-
-Topics: Draft, Total
-
-Conclusion: No firm pick surfaced.
-
-Matchup: Not inferred.
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: No firm pick surfaced in this beat; it is mostly context around Draft, Total.
-
-Mindset / reasoning clues:
-  - None pulled.
-
-Betting language / picks:
-  - Brandon Kravitz (Speaker B): You can get all of those over on Draft Kings where the crown is yours.
-
-Representative lines:
-  - Guest (Speaker I): That's why your dedicated financial advisor meets you where you are with personalized financial strategies that help protect what matters so you can preserve your progress while creating a path forward.
-  - Guest (Speaker I): we believe rich is more than caring about the latest and greatest.
-  - Guest (Speaker C): Action Network reminds you, please gamble responsibly.
-
-### 41. Injuries (53:39-56:51)
-
-Speakers: Guest (Speaker I), Guest (Speaker C), Guest (Speaker H), Brandon Kravitz (Speaker B), Guest (Speaker L)
-
-Topics: Injuries
-
-Conclusion: No firm pick surfaced.
-
-Matchup: Not inferred.
-
-Spread: Not surfaced.
-
-Total: Not surfaced.
-
-Current market: No current public-line snapshot loaded for this matchup.
-
-Summary: No firm pick surfaced in this beat; it is mostly context around Injuries. Rationale themes: market price/line movement, injury and availability, offensive personnel.
-
-Mindset / reasoning clues:
-  - Guest (Speaker C): Yeah, that sounds like the move.
-
-Betting language / picks:
-  - None pulled.
-
-Representative lines:
-  - Guest (Speaker L): It's a simple daily habit that supports their health and and gives us another moment to enjoy together.
-  - Guest (Speaker L): Their unique texture cleans down to the gum line and supports cleaner teeth after 28 days when fed daily.
-  - Guest (Speaker C): Minimum purchase required for delivery prices, participation, delivery area and charges may vary.
 
 ## Extracted Picks From Existing Host Summary Rows
 

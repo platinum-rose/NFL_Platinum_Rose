@@ -189,11 +189,11 @@ Representative lines:
   - Kendra Middleton (Speaker B): I mean, that's what I think.
   - Brandon Kravitz (Speaker A): Red Panda, and everyone would have just been, yes, yes, Evan, Great poll.
 
-### 6. Total / Draft (9:00-10:13)
+### 6. Draft (9:00-10:27)
 
 Speakers: Brandon Kravitz (Speaker A), Kendra Middleton (Speaker B)
 
-Topics: Total, Draft
+Topics: Draft
 
 Conclusion: Brandon Kravitz (Speaker A): All I've heard my whole life is, father Time is undefeated, yet LeBron Messi and Shakira have just been punching back.
 
@@ -205,7 +205,7 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about Total, Draft. Reasoning clue: Kendra Middleton (Speaker B) - I think we should give the World cup halftime show to Shakira. Rationale themes: injury and availability.
+Summary: The beat is mainly about Draft. Reasoning clue: Kendra Middleton (Speaker B) - I think we should give the World cup halftime show to Shakira. Rationale themes: injury and availability.
 
 Mindset / reasoning clues:
   - Kendra Middleton (Speaker B): I think we should give the World cup halftime show to Shakira.
@@ -217,12 +217,12 @@ Betting language / picks:
 
 Representative lines:
   - Kendra Middleton (Speaker B): In fact, the DraftKings sports app is now available in all 50 states, bringing the excitement straight to your fingertips wherever you are, from Florida to Texas to California, you'll never miss a beat.
-  - Kendra Middleton (Speaker B): With one app run right now, new DraftKings customers can turn five bucks into 150 and total bonuses.
-  - Kendra Middleton (Speaker B): The dog days of summer are here, and as temperatures heat up, so do the new customer bonus rewards from our partner, DraftKings.
+  - Brandon Kravitz (Speaker A): But before we get to that, no pocket is complete without the Draft King sports app.
+  - Kendra Middleton (Speaker B): No matter where you're watching, you're always connected and in the game.
 
-### 7. General discussion (10:13-13:41)
+### 7. General discussion (10:32-13:41)
 
-Speakers: Kendra Middleton (Speaker B), Brandon Kravitz (Speaker A)
+Speakers: Brandon Kravitz (Speaker A), Kendra Middleton (Speaker B)
 
 Topics: General
 
@@ -1130,7 +1130,7 @@ Representative lines:
   - Kendra Middleton (Speaker B): It's, it's about the water, the maintenance, the upkeep, the paint that it takes having to pay the landscapers.
   - Brandon Kravitz (Speaker A): And Cam Scatter Boo is probably going to backflip his way out of the offense anyway.
 
-### 35. MVP / Injuries (48:40-49:55)
+### 35. MVP / Injuries (48:40-50:01)
 
 Speakers: Kendra Middleton (Speaker B), Brandon Kravitz (Speaker A)
 
@@ -1166,9 +1166,9 @@ Representative lines:
   - Brandon Kravitz (Speaker A): If CMC is either slowed down or just out of the offense altogether.
   - Brandon Kravitz (Speaker A): We'll see what 10 through 1 has in store for us.
 
-### 36. General discussion (49:55-52:55)
+### 36. General discussion (50:06-52:55)
 
-Speakers: Brandon Kravitz (Speaker A), Kendra Middleton (Speaker B)
+Speakers: Kendra Middleton (Speaker B), Brandon Kravitz (Speaker A)
 
 Topics: General
 

@@ -532,7 +532,7 @@ Speakers: Guest (Speaker D), Chad Millman (Speaker B)
 
 Topics: Vikings, Draft, Playoffs
 
-Conclusion: Chad Millman (Speaker B): quick word from Hard Rock and then we're coming back.
+Conclusion: No firm pick surfaced.
 
 Matchup: Not inferred.
 
@@ -542,14 +542,13 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about Vikings, Draft, Playoffs. Rationale themes: defensive quality.
+Summary: No firm pick surfaced in this beat; it is mostly context around Vikings, Draft, Playoffs. Rationale themes: defensive quality.
 
 Mindset / reasoning clues:
   - Chad Millman (Speaker B): I love building same game parlays however you draw it up.
   - Chad Millman (Speaker B): If you're ever late for tip off, don't worry.
 
 Betting language / picks:
-  - Chad Millman (Speaker B): quick word from Hard Rock and then we're coming back.
   - Guest (Speaker D): Yeah, Minnesota could definitely take an edge or a defensive lineman.
   - Guest (Speaker D): But this all goes down to they could take a defensive lineman or an edge with their first pick and it's not getting mocked out there.
   - Guest (Speaker D): You get this at plus 250 plus 300 a lot of Books all right,
@@ -557,7 +556,7 @@ Betting language / picks:
 Representative lines:
   - Chad Millman (Speaker B): It's NBA playoff time where the lights are brighter, the pressure is higher, and every possession can change a series.
   - Guest (Speaker D): They have already talked about religiously this offseason about possibly even trading Jonathan Garnard, who's still on this roster.
-  - Chad Millman (Speaker B): Today's show is brought to you by our presenting sponsor, Hard Rock Bats Florida Sports Book.
+  - Guest (Speaker D): If that goes down on draft night or even day two.
 
 ### 18. General discussion (21:05-26:01)
 
@@ -578,7 +577,6 @@ Current market: No current public-line snapshot loaded for this matchup.
 Summary: No firm pick surfaced in this beat; it is mostly context around general football context. Rationale themes: market price/line movement, injury and availability, offensive personnel.
 
 Mindset / reasoning clues:
-  - Chad Millman (Speaker B): Concern about gambling in Florida, call 1-833-Playwise in Indiana.
   - Simon Hunter (Speaker C): I don't trust my carrier that much.
 
 Betting language / picks:
@@ -1039,9 +1037,9 @@ Betting language / picks:
   - Chad Millman (Speaker B): With the 42nd pick in the 2010 NFL Drafts, the new England Patriots select Rob Gronkowski, Tight end, Arizona.
 
 Representative lines:
-  - Chad Millman (Speaker B): With Total Wireless, you get unlimited 5G data keeping you in the action from the walkouts to the knockouts.
-  - Chad Millman (Speaker B): This podcast is sponsored by Total Wireless, the official wireless partner of ufc.
-  - Chad Millman (Speaker B): Visit totalwireless.com or stop by your neighborhood Total Wireless store.
+  - Chad Millman (Speaker B): The more our kids see us put on our seatbelts, the more natural it is for them to put theirs on, too.
+  - Chad Millman (Speaker B): Make your total power move today.
+  - Chad Millman (Speaker B): Now that's a total power move.
 
 ## Extracted Picks From Existing Host Summary Rows
 
