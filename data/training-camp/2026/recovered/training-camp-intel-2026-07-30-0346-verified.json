@@ -1,0 +1,1279 @@
+{
+  "meta": {
+    "schema": "training_camp_intel_snapshot_v1",
+    "season": 2026,
+    "generated_at": "2026-07-30T03:46:07.745Z",
+    "input_dir": "data\\training-camp\\2026\\manual",
+    "team_count": 32,
+    "teams_with_intel": 12,
+    "teams_without_intel": 20,
+    "item_count": 16,
+    "high_priority_count": 3,
+    "local_only": true,
+    "recommendation_status": "intel_only_not_picks",
+    "guardrails": {
+      "live_model_calls": false,
+      "network_fetches": true,
+      "supabase_writes": false,
+      "official_picks_generated": false
+    },
+    "feed_health": [
+      {
+        "source": "ESPN NFL",
+        "url": "https://www.espn.com/espn/rss/nfl/news",
+        "status": "available",
+        "reason": null,
+        "fetched_items": 27,
+        "kept_items": 9
+      },
+      {
+        "source": "Pro Football Talk",
+        "url": "https://profootballtalk.nbcsports.com/feed/",
+        "status": "available",
+        "reason": null,
+        "fetched_items": 30,
+        "kept_items": 4
+      },
+      {
+        "source": "PFF",
+        "url": "https://www.pff.com/feed",
+        "status": "available",
+        "reason": null,
+        "fetched_items": 25,
+        "kept_items": 2
+      },
+      {
+        "source": "Rotowire NFL",
+        "url": "https://www.rotowire.com/rss/news.php?sport=NFL",
+        "status": "available",
+        "reason": null,
+        "fetched_items": 5,
+        "kept_items": 1
+      },
+      {
+        "source": "Sharp Football",
+        "url": "https://www.sharpfootballanalysis.com/feed/",
+        "status": "available",
+        "reason": null,
+        "fetched_items": 20,
+        "kept_items": 0
+      },
+      {
+        "source": "Football Outsiders",
+        "url": "https://www.footballoutsiders.com/rss.xml",
+        "status": "error",
+        "reason": "fetch failed",
+        "fetched_items": 0,
+        "kept_items": 0
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "camp_bc714fcd0e1ebeb2",
+      "season": 2026,
+      "team": "BAL",
+      "player": null,
+      "position": null,
+      "source": "ESPN NFL",
+      "source_type": "rss",
+      "source_url": "https://www.espn.com/nfl/story/_/id/49480322/ravens-madubuike-neck-practices-1st-10-months",
+      "published_at": "2026-07-29T20:33:49.000Z",
+      "captured_at": "2026-07-30T03:46:07.745Z",
+      "signal_type": "other",
+      "signal_strength": 0.56,
+      "confidence": 0.68,
+      "summary": "Ravens' Madubuike (neck) returns to practice",
+      "raw_excerpt": "Pro Bowl defensive tackle Nnamdi Madubuike practiced for the first time in 10 months on Wednesday, which provided a celebratory start to the Ravens' first training camp under coach Jesse Minter.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "other"
+      ],
+      "dedupe_key": "https://www.espn.com/nfl/story/_/id/49480322/ravens-madubuike-neck-practices-1st-10-months",
+      "source_file": null
+    },
+    {
+      "id": "camp_5ca7873e649660cb",
+      "season": 2026,
+      "team": "CIN",
+      "player": null,
+      "position": null,
+      "source": "ESPN NFL",
+      "source_type": "rss",
+      "source_url": "https://www.espn.com/nfl/story/_/id/49481418/bengals-shemar-stewart-carted-left-leg-injury",
+      "published_at": "2026-07-30T04:05:02.000Z",
+      "captured_at": "2026-07-30T03:46:07.745Z",
+      "signal_type": "injury",
+      "signal_strength": 0.82,
+      "confidence": 0.68,
+      "summary": "Bengals' Stewart carted off with left leg injury",
+      "raw_excerpt": "Bengals defensive end Shemar Stewart was carted off the field Wednesday with a left leg injury suffered during the first day of training camp.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins",
+        "make_playoffs",
+        "week_1_spread"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "injury"
+      ],
+      "dedupe_key": "https://www.espn.com/nfl/story/_/id/49481418/bengals-shemar-stewart-carted-left-leg-injury",
+      "source_file": null
+    },
+    {
+      "id": "camp_cfe46f7569621b15",
+      "season": 2026,
+      "team": "CIN",
+      "player": null,
+      "position": null,
+      "source": "PFF",
+      "source_type": "rss",
+      "source_url": "https://www.pff.com/news/nfl-cincinnati-bengals-2026-preview/",
+      "published_at": "2026-07-28T14:16:19.000Z",
+      "captured_at": "2026-07-30T03:46:07.745Z",
+      "signal_type": "other",
+      "signal_strength": 0.18,
+      "confidence": 0.68,
+      "summary": "Cincinnati Bengals 2026 preview: Joe Burrow leads a revamped roster following major offseason additions",
+      "raw_excerpt": "With Joe Burrow healthy and a heavily revamped defense following the blockbuster trade for Dexter Lawrence, expectations are sky-high for Cincinnati in 2026.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "other"
+      ],
+      "dedupe_key": "https://www.pff.com/news/nfl-cincinnati-bengals-2026-preview/",
+      "source_file": null
+    },
+    {
+      "id": "camp_4cc3e84c09924013",
+      "season": 2026,
+      "team": "CLE",
+      "player": null,
+      "position": null,
+      "source": "ESPN NFL",
+      "source_type": "rss",
+      "source_url": "https://www.espn.com/nfl/story/_/id/49481317/sources-browns-grant-delpit-agree-3-year-48m-extension",
+      "published_at": "2026-07-29T20:33:49.000Z",
+      "captured_at": "2026-07-30T03:46:07.745Z",
+      "signal_type": "other",
+      "signal_strength": 0.18,
+      "confidence": 0.68,
+      "summary": "Sources: Browns, Delpit agree to $48M extension",
+      "raw_excerpt": "Browns safety Grant Delpit is signing a three-year, $48 million extension that also includes $35 million guaranteed, sources told ESPN's Adam Schefter and NFL Network's Ian Rapoport on Wednesday.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "other"
+      ],
+      "dedupe_key": "https://www.espn.com/nfl/story/_/id/49481317/sources-browns-grant-delpit-agree-3-year-48m-extension",
+      "source_file": null
+    },
+    {
+      "id": "camp_a66b90a6364559a7",
+      "season": 2026,
+      "team": "CLE",
+      "player": null,
+      "position": null,
+      "source": "PFF",
+      "source_type": "rss",
+      "source_url": "https://www.pff.com/news/nfl-cleveland-browns-2026-preview/",
+      "published_at": "2026-07-28T15:37:58.000Z",
+      "captured_at": "2026-07-30T03:46:07.745Z",
+      "signal_type": "other",
+      "signal_strength": 0.56,
+      "confidence": 0.68,
+      "summary": "Cleveland Browns 2026 preview: Todd Monken takes over rebuilt offense and a defense without Myles Garrett",
+      "raw_excerpt": "Following the blockbuster trade of reigning Defensive Player of the Year Myles Garrett, new head coach Todd Monken steps in to helm a complete Cleveland Browns roster overhaul. Armed with four top 35 draft picks and a heavily restructured offensive line, Cleveland aims to build a sustainable environment for its next franchise quarterback.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "other"
+      ],
+      "dedupe_key": "https://www.pff.com/news/nfl-cleveland-browns-2026-preview/",
+      "source_file": null
+    },
+    {
+      "id": "camp_dac08967bc1f2070",
+      "season": 2026,
+      "team": "DAL",
+      "player": null,
+      "position": null,
+      "source": "Rotowire NFL",
+      "source_type": "rss",
+      "source_url": "https://www.rotowire.com//football/player/ceedee-lamb-14411",
+      "published_at": "2026-07-29T22:38:00.000Z",
+      "captured_at": "2026-07-30T03:46:07.745Z",
+      "signal_type": "depth_chart",
+      "signal_strength": 0.82,
+      "confidence": 0.68,
+      "summary": "CeeDee Lamb: Playing usual role in training camp",
+      "raw_excerpt": "Lamb worked with the Cowboys' first-team offense in the first team drill of Wednesday's practice, Jon Machota of The Athletic reports. Visit RotoWire.com for more analysis on this update.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "depth_chart"
+      ],
+      "dedupe_key": "https://www.rotowire.com//football/player/ceedee-lamb-14411",
+      "source_file": null
+    },
+    {
+      "id": "camp_20d6b6cca4c8c6ee",
+      "season": 2026,
+      "team": "DEN",
+      "player": null,
+      "position": null,
+      "source": "Pro Football Talk",
+      "source_type": "rss",
+      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/sean-payton-on-jonathon-cooper-were-staying-the-course-with-league-protocol",
+      "published_at": "2026-07-29T21:34:06.000Z",
+      "captured_at": "2026-07-30T03:46:07.745Z",
+      "signal_type": "other",
+      "signal_strength": 0.18,
+      "confidence": 0.68,
+      "summary": "Sean Payton on Jonathon Cooper: We're staying the course with league protocol",
+      "raw_excerpt": "Broncos linebacker Jonathon Cooper didn't take part in the team's minicamp after being arrested twice on domestic violence charges, but he is back with the team and participated in their first practice of training camp on Wednesday.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "other"
+      ],
+      "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/sean-payton-on-jonathon-cooper-were-staying-the-course-with-league-protocol",
+      "source_file": null
+    },
+    {
+      "id": "camp_5b879431ede8b7b2",
+      "season": 2026,
+      "team": "DET",
+      "player": null,
+      "position": null,
+      "source": "ESPN NFL",
+      "source_type": "rss",
+      "source_url": "https://www.espn.com/nfl/story/_/id/49368181/training-camp-2026-latest-news-intel-updates-buzz-all-32-teams",
+      "published_at": "2026-07-30T01:14:04.000Z",
+      "captured_at": "2026-07-30T03:46:07.745Z",
+      "signal_type": "injury",
+      "signal_strength": 0.34,
+      "confidence": 0.68,
+      "summary": "Latest news, buzz from training camps: Giants kick off in West Virginia; Gibbs sits out Lions' practice",
+      "raw_excerpt": "Get all the news, intel and insights on NFL training camps from our team of reporters in the field.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "injury"
+      ],
+      "dedupe_key": "https://www.espn.com/nfl/story/_/id/49368181/training-camp-2026-latest-news-intel-updates-buzz-all-32-teams",
+      "source_file": null
+    },
+    {
+      "id": "camp_f139d8fc74fd9990",
+      "season": 2026,
+      "team": "DET",
+      "player": null,
+      "position": null,
+      "source": "ESPN NFL",
+      "source_type": "rss",
+      "source_url": "https://www.espn.com/nfl/story/_/id/49479468/lions-campbell-arnold-release-unfortunate-best",
+      "published_at": "2026-07-29T20:33:50.000Z",
+      "captured_at": "2026-07-30T03:46:07.745Z",
+      "signal_type": "other",
+      "signal_strength": 0.56,
+      "confidence": 0.68,
+      "summary": "Campbell: Arnold's release difficult but necessary",
+      "raw_excerpt": "As Lions veterans reported to training camp this week, head coach Dan Campbell addressed the team for the first time about the release of former CB Terrion Arnold on Tuesday night.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "other"
+      ],
+      "dedupe_key": "https://www.espn.com/nfl/story/_/id/49479468/lions-campbell-arnold-release-unfortunate-best",
+      "source_file": null
+    },
+    {
+      "id": "camp_2414cd80c36548b9",
+      "season": 2026,
+      "team": "HOU",
+      "player": null,
+      "position": null,
+      "source": "ESPN NFL",
+      "source_type": "rss",
+      "source_url": "https://www.espn.com/nfl/story/_/id/49480267/texans-had-productive-contract-talks-stroud-says-gm",
+      "published_at": "2026-07-29T20:33:50.000Z",
+      "captured_at": "2026-07-30T03:46:07.745Z",
+      "signal_type": "other",
+      "signal_strength": 0.18,
+      "confidence": 0.68,
+      "summary": "GM: Texans, Stroud have had 'productive' talks",
+      "raw_excerpt": "Texans GM Nick Caserio says the team has had \"productive conversations\" with quarterback C.J. Stroud on a contract extension dating back to the spring.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "other"
+      ],
+      "dedupe_key": "https://www.espn.com/nfl/story/_/id/49480267/texans-had-productive-contract-talks-stroud-says-gm",
+      "source_file": null
+    },
+    {
+      "id": "camp_6371c32ba7d52d55",
+      "season": 2026,
+      "team": "MIN",
+      "player": null,
+      "position": null,
+      "source": "Pro Football Talk",
+      "source_type": "rss",
+      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/jamal-adams-on-joining-the-vikings-the-skys-the-limit",
+      "published_at": "2026-07-30T03:22:21.000Z",
+      "captured_at": "2026-07-30T03:46:07.745Z",
+      "signal_type": "other",
+      "signal_strength": 0.18,
+      "confidence": 0.68,
+      "summary": "Jamal Adams on joining the Vikings: \"The sky's the limit\"",
+      "raw_excerpt": "Veteran defender Jamal Adams joined the Vikings not long before the opening of training camp.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "other"
+      ],
+      "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/jamal-adams-on-joining-the-vikings-the-skys-the-limit",
+      "source_file": null
+    },
+    {
+      "id": "camp_2c07e733b5f117e6",
+      "season": 2026,
+      "team": "NYG",
+      "player": null,
+      "position": null,
+      "source": "ESPN NFL",
+      "source_type": "rss",
+      "source_url": "https://www.espn.com/nfl/story/_/id/49368181/training-camp-2026-latest-news-intel-updates-buzz-all-32-teams",
+      "published_at": "2026-07-30T01:14:04.000Z",
+      "captured_at": "2026-07-30T03:46:07.745Z",
+      "signal_type": "injury",
+      "signal_strength": 0.34,
+      "confidence": 0.68,
+      "summary": "Latest news, buzz from training camps: Giants kick off in West Virginia; Gibbs sits out Lions' practice",
+      "raw_excerpt": "Get all the news, intel and insights on NFL training camps from our team of reporters in the field.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "injury"
+      ],
+      "dedupe_key": "https://www.espn.com/nfl/story/_/id/49368181/training-camp-2026-latest-news-intel-updates-buzz-all-32-teams",
+      "source_file": null
+    },
+    {
+      "id": "camp_dfce72e39a967234",
+      "season": 2026,
+      "team": "SEA",
+      "player": null,
+      "position": null,
+      "source": "Pro Football Talk",
+      "source_type": "rss",
+      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/seahawks-sign-undrafted-rookie-wr-kyre-duplessis",
+      "published_at": "2026-07-29T23:01:29.000Z",
+      "captured_at": "2026-07-30T03:46:07.745Z",
+      "signal_type": "roster_move",
+      "signal_strength": 0.45,
+      "confidence": 0.68,
+      "summary": "Seahawks sign undrafted rookie WR Kyre Duplessis",
+      "raw_excerpt": "The Seahawks signed wide receiver Kyre Duplessis on Wednesday, the team announced.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "roster_move"
+      ],
+      "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/seahawks-sign-undrafted-rookie-wr-kyre-duplessis",
+      "source_file": null
+    },
+    {
+      "id": "camp_d2ebdd0703b55957",
+      "season": 2026,
+      "team": "TB",
+      "player": null,
+      "position": null,
+      "source": "Pro Football Talk",
+      "source_type": "rss",
+      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/todd-bowles-theres-always-distractions-these-happen-to-be-two-of-our-biggest-players",
+      "published_at": "2026-07-29T20:59:20.000Z",
+      "captured_at": "2026-07-30T03:46:07.745Z",
+      "signal_type": "other",
+      "signal_strength": 0.18,
+      "confidence": 0.68,
+      "summary": "Todd Bowles: There's always distractions, these happen to be two of our biggest players",
+      "raw_excerpt": "The Buccaneers entered training camp with a pair of contract impasses taking center stage.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "other"
+      ],
+      "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/todd-bowles-theres-always-distractions-these-happen-to-be-two-of-our-biggest-players",
+      "source_file": null
+    },
+    {
+      "id": "camp_5c42d7ab4b132f9a",
+      "season": 2026,
+      "team": "TB",
+      "player": null,
+      "position": null,
+      "source": "ESPN NFL",
+      "source_type": "rss",
+      "source_url": "https://www.espn.com/nfl/story/_/id/49471832/vita-vea-trade-request-fits-buccaneers-defensive-tackle-five-teams-patriots-49ers",
+      "published_at": "2026-07-29T14:26:17.000Z",
+      "captured_at": "2026-07-30T03:46:07.745Z",
+      "signal_type": "other",
+      "signal_strength": 0.34,
+      "confidence": 0.68,
+      "summary": "Five trade fits for Vita Vea: Which NFL teams could land the talented defensive tackle?",
+      "raw_excerpt": "The 31-year-old Vea has been a cornerstone of Tampa Bay's defense, but he requested a trade on Monday. Here are five teams that could be landing spots in a potential deal.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "other"
+      ],
+      "dedupe_key": "https://www.espn.com/nfl/story/_/id/49471832/vita-vea-trade-request-fits-buccaneers-defensive-tackle-five-teams-patriots-49ers",
+      "source_file": null
+    },
+    {
+      "id": "camp_b4bc77e8d0ab2d4d",
+      "season": 2026,
+      "team": "WAS",
+      "player": null,
+      "position": null,
+      "source": "ESPN NFL",
+      "source_type": "rss",
+      "source_url": "https://www.espn.com/nfl/story/_/id/49481418/bengals-shemar-stewart-carted-left-leg-injury",
+      "published_at": "2026-07-30T04:05:02.000Z",
+      "captured_at": "2026-07-30T03:46:07.745Z",
+      "signal_type": "injury",
+      "signal_strength": 0.82,
+      "confidence": 0.68,
+      "summary": "Bengals' Stewart carted off with left leg injury",
+      "raw_excerpt": "Bengals defensive end Shemar Stewart was carted off the field Wednesday with a left leg injury suffered during the first day of training camp.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins",
+        "make_playoffs",
+        "week_1_spread"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "injury"
+      ],
+      "dedupe_key": "https://www.espn.com/nfl/story/_/id/49481418/bengals-shemar-stewart-carted-left-leg-injury",
+      "source_file": null
+    }
+  ],
+  "teams": {
+    "ARI": {
+      "nick": "Cardinals",
+      "team": "ARI",
+      "full_name": "Arizona Cardinals",
+      "division": "NFC West",
+      "conference": "NFC",
+      "items": []
+    },
+    "ATL": {
+      "nick": "Falcons",
+      "team": "ATL",
+      "full_name": "Atlanta Falcons",
+      "division": "NFC South",
+      "conference": "NFC",
+      "items": []
+    },
+    "BAL": {
+      "nick": "Ravens",
+      "team": "BAL",
+      "full_name": "Baltimore Ravens",
+      "division": "AFC North",
+      "conference": "AFC",
+      "items": [
+        {
+          "id": "camp_bc714fcd0e1ebeb2",
+          "season": 2026,
+          "team": "BAL",
+          "player": null,
+          "position": null,
+          "source": "ESPN NFL",
+          "source_type": "rss",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49480322/ravens-madubuike-neck-practices-1st-10-months",
+          "published_at": "2026-07-29T20:33:49.000Z",
+          "captured_at": "2026-07-30T03:46:07.745Z",
+          "signal_type": "other",
+          "signal_strength": 0.56,
+          "confidence": 0.68,
+          "summary": "Ravens' Madubuike (neck) returns to practice",
+          "raw_excerpt": "Pro Bowl defensive tackle Nnamdi Madubuike practiced for the first time in 10 months on Wednesday, which provided a celebratory start to the Ravens' first training camp under coach Jesse Minter.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "other"
+          ],
+          "dedupe_key": "https://www.espn.com/nfl/story/_/id/49480322/ravens-madubuike-neck-practices-1st-10-months",
+          "source_file": null
+        }
+      ]
+    },
+    "BUF": {
+      "nick": "Bills",
+      "team": "BUF",
+      "full_name": "Buffalo Bills",
+      "division": "AFC East",
+      "conference": "AFC",
+      "items": []
+    },
+    "CAR": {
+      "nick": "Panthers",
+      "team": "CAR",
+      "full_name": "Carolina Panthers",
+      "division": "NFC South",
+      "conference": "NFC",
+      "items": []
+    },
+    "CHI": {
+      "nick": "Bears",
+      "team": "CHI",
+      "full_name": "Chicago Bears",
+      "division": "NFC North",
+      "conference": "NFC",
+      "items": []
+    },
+    "CIN": {
+      "nick": "Bengals",
+      "team": "CIN",
+      "full_name": "Cincinnati Bengals",
+      "division": "AFC North",
+      "conference": "AFC",
+      "items": [
+        {
+          "id": "camp_5ca7873e649660cb",
+          "season": 2026,
+          "team": "CIN",
+          "player": null,
+          "position": null,
+          "source": "ESPN NFL",
+          "source_type": "rss",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49481418/bengals-shemar-stewart-carted-left-leg-injury",
+          "published_at": "2026-07-30T04:05:02.000Z",
+          "captured_at": "2026-07-30T03:46:07.745Z",
+          "signal_type": "injury",
+          "signal_strength": 0.82,
+          "confidence": 0.68,
+          "summary": "Bengals' Stewart carted off with left leg injury",
+          "raw_excerpt": "Bengals defensive end Shemar Stewart was carted off the field Wednesday with a left leg injury suffered during the first day of training camp.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins",
+            "make_playoffs",
+            "week_1_spread"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "injury"
+          ],
+          "dedupe_key": "https://www.espn.com/nfl/story/_/id/49481418/bengals-shemar-stewart-carted-left-leg-injury",
+          "source_file": null
+        },
+        {
+          "id": "camp_cfe46f7569621b15",
+          "season": 2026,
+          "team": "CIN",
+          "player": null,
+          "position": null,
+          "source": "PFF",
+          "source_type": "rss",
+          "source_url": "https://www.pff.com/news/nfl-cincinnati-bengals-2026-preview/",
+          "published_at": "2026-07-28T14:16:19.000Z",
+          "captured_at": "2026-07-30T03:46:07.745Z",
+          "signal_type": "other",
+          "signal_strength": 0.18,
+          "confidence": 0.68,
+          "summary": "Cincinnati Bengals 2026 preview: Joe Burrow leads a revamped roster following major offseason additions",
+          "raw_excerpt": "With Joe Burrow healthy and a heavily revamped defense following the blockbuster trade for Dexter Lawrence, expectations are sky-high for Cincinnati in 2026.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "other"
+          ],
+          "dedupe_key": "https://www.pff.com/news/nfl-cincinnati-bengals-2026-preview/",
+          "source_file": null
+        }
+      ]
+    },
+    "CLE": {
+      "nick": "Browns",
+      "team": "CLE",
+      "full_name": "Cleveland Browns",
+      "division": "AFC North",
+      "conference": "AFC",
+      "items": [
+        {
+          "id": "camp_4cc3e84c09924013",
+          "season": 2026,
+          "team": "CLE",
+          "player": null,
+          "position": null,
+          "source": "ESPN NFL",
+          "source_type": "rss",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49481317/sources-browns-grant-delpit-agree-3-year-48m-extension",
+          "published_at": "2026-07-29T20:33:49.000Z",
+          "captured_at": "2026-07-30T03:46:07.745Z",
+          "signal_type": "other",
+          "signal_strength": 0.18,
+          "confidence": 0.68,
+          "summary": "Sources: Browns, Delpit agree to $48M extension",
+          "raw_excerpt": "Browns safety Grant Delpit is signing a three-year, $48 million extension that also includes $35 million guaranteed, sources told ESPN's Adam Schefter and NFL Network's Ian Rapoport on Wednesday.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "other"
+          ],
+          "dedupe_key": "https://www.espn.com/nfl/story/_/id/49481317/sources-browns-grant-delpit-agree-3-year-48m-extension",
+          "source_file": null
+        },
+        {
+          "id": "camp_a66b90a6364559a7",
+          "season": 2026,
+          "team": "CLE",
+          "player": null,
+          "position": null,
+          "source": "PFF",
+          "source_type": "rss",
+          "source_url": "https://www.pff.com/news/nfl-cleveland-browns-2026-preview/",
+          "published_at": "2026-07-28T15:37:58.000Z",
+          "captured_at": "2026-07-30T03:46:07.745Z",
+          "signal_type": "other",
+          "signal_strength": 0.56,
+          "confidence": 0.68,
+          "summary": "Cleveland Browns 2026 preview: Todd Monken takes over rebuilt offense and a defense without Myles Garrett",
+          "raw_excerpt": "Following the blockbuster trade of reigning Defensive Player of the Year Myles Garrett, new head coach Todd Monken steps in to helm a complete Cleveland Browns roster overhaul. Armed with four top 35 draft picks and a heavily restructured offensive line, Cleveland aims to build a sustainable environment for its next franchise quarterback.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "other"
+          ],
+          "dedupe_key": "https://www.pff.com/news/nfl-cleveland-browns-2026-preview/",
+          "source_file": null
+        }
+      ]
+    },
+    "DAL": {
+      "nick": "Cowboys",
+      "team": "DAL",
+      "full_name": "Dallas Cowboys",
+      "division": "NFC East",
+      "conference": "NFC",
+      "items": [
+        {
+          "id": "camp_dac08967bc1f2070",
+          "season": 2026,
+          "team": "DAL",
+          "player": null,
+          "position": null,
+          "source": "Rotowire NFL",
+          "source_type": "rss",
+          "source_url": "https://www.rotowire.com//football/player/ceedee-lamb-14411",
+          "published_at": "2026-07-29T22:38:00.000Z",
+          "captured_at": "2026-07-30T03:46:07.745Z",
+          "signal_type": "depth_chart",
+          "signal_strength": 0.82,
+          "confidence": 0.68,
+          "summary": "CeeDee Lamb: Playing usual role in training camp",
+          "raw_excerpt": "Lamb worked with the Cowboys' first-team offense in the first team drill of Wednesday's practice, Jon Machota of The Athletic reports. Visit RotoWire.com for more analysis on this update.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "depth_chart"
+          ],
+          "dedupe_key": "https://www.rotowire.com//football/player/ceedee-lamb-14411",
+          "source_file": null
+        }
+      ]
+    },
+    "DEN": {
+      "nick": "Broncos",
+      "team": "DEN",
+      "full_name": "Denver Broncos",
+      "division": "AFC West",
+      "conference": "AFC",
+      "items": [
+        {
+          "id": "camp_20d6b6cca4c8c6ee",
+          "season": 2026,
+          "team": "DEN",
+          "player": null,
+          "position": null,
+          "source": "Pro Football Talk",
+          "source_type": "rss",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/sean-payton-on-jonathon-cooper-were-staying-the-course-with-league-protocol",
+          "published_at": "2026-07-29T21:34:06.000Z",
+          "captured_at": "2026-07-30T03:46:07.745Z",
+          "signal_type": "other",
+          "signal_strength": 0.18,
+          "confidence": 0.68,
+          "summary": "Sean Payton on Jonathon Cooper: We're staying the course with league protocol",
+          "raw_excerpt": "Broncos linebacker Jonathon Cooper didn't take part in the team's minicamp after being arrested twice on domestic violence charges, but he is back with the team and participated in their first practice of training camp on Wednesday.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "other"
+          ],
+          "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/sean-payton-on-jonathon-cooper-were-staying-the-course-with-league-protocol",
+          "source_file": null
+        }
+      ]
+    },
+    "DET": {
+      "nick": "Lions",
+      "team": "DET",
+      "full_name": "Detroit Lions",
+      "division": "NFC North",
+      "conference": "NFC",
+      "items": [
+        {
+          "id": "camp_5b879431ede8b7b2",
+          "season": 2026,
+          "team": "DET",
+          "player": null,
+          "position": null,
+          "source": "ESPN NFL",
+          "source_type": "rss",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49368181/training-camp-2026-latest-news-intel-updates-buzz-all-32-teams",
+          "published_at": "2026-07-30T01:14:04.000Z",
+          "captured_at": "2026-07-30T03:46:07.745Z",
+          "signal_type": "injury",
+          "signal_strength": 0.34,
+          "confidence": 0.68,
+          "summary": "Latest news, buzz from training camps: Giants kick off in West Virginia; Gibbs sits out Lions' practice",
+          "raw_excerpt": "Get all the news, intel and insights on NFL training camps from our team of reporters in the field.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "injury"
+          ],
+          "dedupe_key": "https://www.espn.com/nfl/story/_/id/49368181/training-camp-2026-latest-news-intel-updates-buzz-all-32-teams",
+          "source_file": null
+        },
+        {
+          "id": "camp_f139d8fc74fd9990",
+          "season": 2026,
+          "team": "DET",
+          "player": null,
+          "position": null,
+          "source": "ESPN NFL",
+          "source_type": "rss",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49479468/lions-campbell-arnold-release-unfortunate-best",
+          "published_at": "2026-07-29T20:33:50.000Z",
+          "captured_at": "2026-07-30T03:46:07.745Z",
+          "signal_type": "other",
+          "signal_strength": 0.56,
+          "confidence": 0.68,
+          "summary": "Campbell: Arnold's release difficult but necessary",
+          "raw_excerpt": "As Lions veterans reported to training camp this week, head coach Dan Campbell addressed the team for the first time about the release of former CB Terrion Arnold on Tuesday night.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "other"
+          ],
+          "dedupe_key": "https://www.espn.com/nfl/story/_/id/49479468/lions-campbell-arnold-release-unfortunate-best",
+          "source_file": null
+        }
+      ]
+    },
+    "GB": {
+      "nick": "Packers",
+      "team": "GB",
+      "full_name": "Green Bay Packers",
+      "division": "NFC North",
+      "conference": "NFC",
+      "items": []
+    },
+    "HOU": {
+      "nick": "Texans",
+      "team": "HOU",
+      "full_name": "Houston Texans",
+      "division": "AFC South",
+      "conference": "AFC",
+      "items": [
+        {
+          "id": "camp_2414cd80c36548b9",
+          "season": 2026,
+          "team": "HOU",
+          "player": null,
+          "position": null,
+          "source": "ESPN NFL",
+          "source_type": "rss",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49480267/texans-had-productive-contract-talks-stroud-says-gm",
+          "published_at": "2026-07-29T20:33:50.000Z",
+          "captured_at": "2026-07-30T03:46:07.745Z",
+          "signal_type": "other",
+          "signal_strength": 0.18,
+          "confidence": 0.68,
+          "summary": "GM: Texans, Stroud have had 'productive' talks",
+          "raw_excerpt": "Texans GM Nick Caserio says the team has had \"productive conversations\" with quarterback C.J. Stroud on a contract extension dating back to the spring.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "other"
+          ],
+          "dedupe_key": "https://www.espn.com/nfl/story/_/id/49480267/texans-had-productive-contract-talks-stroud-says-gm",
+          "source_file": null
+        }
+      ]
+    },
+    "IND": {
+      "nick": "Colts",
+      "team": "IND",
+      "full_name": "Indianapolis Colts",
+      "division": "AFC South",
+      "conference": "AFC",
+      "items": []
+    },
+    "JAX": {
+      "nick": "Jaguars",
+      "team": "JAX",
+      "full_name": "Jacksonville Jaguars",
+      "division": "AFC South",
+      "conference": "AFC",
+      "items": []
+    },
+    "KC": {
+      "nick": "Chiefs",
+      "team": "KC",
+      "full_name": "Kansas City Chiefs",
+      "division": "AFC West",
+      "conference": "AFC",
+      "items": []
+    },
+    "LAC": {
+      "nick": "Chargers",
+      "team": "LAC",
+      "full_name": "Los Angeles Chargers",
+      "division": "AFC West",
+      "conference": "AFC",
+      "items": []
+    },
+    "LAR": {
+      "nick": "Rams",
+      "team": "LAR",
+      "full_name": "Los Angeles Rams",
+      "division": "NFC West",
+      "conference": "NFC",
+      "items": []
+    },
+    "LV": {
+      "nick": "Raiders",
+      "team": "LV",
+      "full_name": "Las Vegas Raiders",
+      "division": "AFC West",
+      "conference": "AFC",
+      "items": []
+    },
+    "MIA": {
+      "nick": "Dolphins",
+      "team": "MIA",
+      "full_name": "Miami Dolphins",
+      "division": "AFC East",
+      "conference": "AFC",
+      "items": []
+    },
+    "MIN": {
+      "nick": "Vikings",
+      "team": "MIN",
+      "full_name": "Minnesota Vikings",
+      "division": "NFC North",
+      "conference": "NFC",
+      "items": [
+        {
+          "id": "camp_6371c32ba7d52d55",
+          "season": 2026,
+          "team": "MIN",
+          "player": null,
+          "position": null,
+          "source": "Pro Football Talk",
+          "source_type": "rss",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/jamal-adams-on-joining-the-vikings-the-skys-the-limit",
+          "published_at": "2026-07-30T03:22:21.000Z",
+          "captured_at": "2026-07-30T03:46:07.745Z",
+          "signal_type": "other",
+          "signal_strength": 0.18,
+          "confidence": 0.68,
+          "summary": "Jamal Adams on joining the Vikings: \"The sky's the limit\"",
+          "raw_excerpt": "Veteran defender Jamal Adams joined the Vikings not long before the opening of training camp.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "other"
+          ],
+          "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/jamal-adams-on-joining-the-vikings-the-skys-the-limit",
+          "source_file": null
+        }
+      ]
+    },
+    "NE": {
+      "nick": "Patriots",
+      "team": "NE",
+      "full_name": "New England Patriots",
+      "division": "AFC East",
+      "conference": "AFC",
+      "items": []
+    },
+    "NO": {
+      "nick": "Saints",
+      "team": "NO",
+      "full_name": "New Orleans Saints",
+      "division": "NFC South",
+      "conference": "NFC",
+      "items": []
+    },
+    "NYG": {
+      "nick": "Giants",
+      "team": "NYG",
+      "full_name": "New York Giants",
+      "division": "NFC East",
+      "conference": "NFC",
+      "items": [
+        {
+          "id": "camp_2c07e733b5f117e6",
+          "season": 2026,
+          "team": "NYG",
+          "player": null,
+          "position": null,
+          "source": "ESPN NFL",
+          "source_type": "rss",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49368181/training-camp-2026-latest-news-intel-updates-buzz-all-32-teams",
+          "published_at": "2026-07-30T01:14:04.000Z",
+          "captured_at": "2026-07-30T03:46:07.745Z",
+          "signal_type": "injury",
+          "signal_strength": 0.34,
+          "confidence": 0.68,
+          "summary": "Latest news, buzz from training camps: Giants kick off in West Virginia; Gibbs sits out Lions' practice",
+          "raw_excerpt": "Get all the news, intel and insights on NFL training camps from our team of reporters in the field.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "injury"
+          ],
+          "dedupe_key": "https://www.espn.com/nfl/story/_/id/49368181/training-camp-2026-latest-news-intel-updates-buzz-all-32-teams",
+          "source_file": null
+        }
+      ]
+    },
+    "NYJ": {
+      "nick": "Jets",
+      "team": "NYJ",
+      "full_name": "New York Jets",
+      "division": "AFC East",
+      "conference": "AFC",
+      "items": []
+    },
+    "PHI": {
+      "nick": "Eagles",
+      "team": "PHI",
+      "full_name": "Philadelphia Eagles",
+      "division": "NFC East",
+      "conference": "NFC",
+      "items": []
+    },
+    "PIT": {
+      "nick": "Steelers",
+      "team": "PIT",
+      "full_name": "Pittsburgh Steelers",
+      "division": "AFC North",
+      "conference": "AFC",
+      "items": []
+    },
+    "SEA": {
+      "nick": "Seahawks",
+      "team": "SEA",
+      "full_name": "Seattle Seahawks",
+      "division": "NFC West",
+      "conference": "NFC",
+      "items": [
+        {
+          "id": "camp_dfce72e39a967234",
+          "season": 2026,
+          "team": "SEA",
+          "player": null,
+          "position": null,
+          "source": "Pro Football Talk",
+          "source_type": "rss",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/seahawks-sign-undrafted-rookie-wr-kyre-duplessis",
+          "published_at": "2026-07-29T23:01:29.000Z",
+          "captured_at": "2026-07-30T03:46:07.745Z",
+          "signal_type": "roster_move",
+          "signal_strength": 0.45,
+          "confidence": 0.68,
+          "summary": "Seahawks sign undrafted rookie WR Kyre Duplessis",
+          "raw_excerpt": "The Seahawks signed wide receiver Kyre Duplessis on Wednesday, the team announced.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "roster_move"
+          ],
+          "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/seahawks-sign-undrafted-rookie-wr-kyre-duplessis",
+          "source_file": null
+        }
+      ]
+    },
+    "SF": {
+      "nick": "49ers",
+      "team": "SF",
+      "full_name": "San Francisco 49ers",
+      "division": "NFC West",
+      "conference": "NFC",
+      "items": []
+    },
+    "TB": {
+      "nick": "Buccaneers",
+      "team": "TB",
+      "full_name": "Tampa Bay Buccaneers",
+      "division": "NFC South",
+      "conference": "NFC",
+      "items": [
+        {
+          "id": "camp_d2ebdd0703b55957",
+          "season": 2026,
+          "team": "TB",
+          "player": null,
+          "position": null,
+          "source": "Pro Football Talk",
+          "source_type": "rss",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/todd-bowles-theres-always-distractions-these-happen-to-be-two-of-our-biggest-players",
+          "published_at": "2026-07-29T20:59:20.000Z",
+          "captured_at": "2026-07-30T03:46:07.745Z",
+          "signal_type": "other",
+          "signal_strength": 0.18,
+          "confidence": 0.68,
+          "summary": "Todd Bowles: There's always distractions, these happen to be two of our biggest players",
+          "raw_excerpt": "The Buccaneers entered training camp with a pair of contract impasses taking center stage.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "other"
+          ],
+          "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/todd-bowles-theres-always-distractions-these-happen-to-be-two-of-our-biggest-players",
+          "source_file": null
+        },
+        {
+          "id": "camp_5c42d7ab4b132f9a",
+          "season": 2026,
+          "team": "TB",
+          "player": null,
+          "position": null,
+          "source": "ESPN NFL",
+          "source_type": "rss",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49471832/vita-vea-trade-request-fits-buccaneers-defensive-tackle-five-teams-patriots-49ers",
+          "published_at": "2026-07-29T14:26:17.000Z",
+          "captured_at": "2026-07-30T03:46:07.745Z",
+          "signal_type": "other",
+          "signal_strength": 0.34,
+          "confidence": 0.68,
+          "summary": "Five trade fits for Vita Vea: Which NFL teams could land the talented defensive tackle?",
+          "raw_excerpt": "The 31-year-old Vea has been a cornerstone of Tampa Bay's defense, but he requested a trade on Monday. Here are five teams that could be landing spots in a potential deal.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "other"
+          ],
+          "dedupe_key": "https://www.espn.com/nfl/story/_/id/49471832/vita-vea-trade-request-fits-buccaneers-defensive-tackle-five-teams-patriots-49ers",
+          "source_file": null
+        }
+      ]
+    },
+    "TEN": {
+      "nick": "Titans",
+      "team": "TEN",
+      "full_name": "Tennessee Titans",
+      "division": "AFC South",
+      "conference": "AFC",
+      "items": []
+    },
+    "WAS": {
+      "nick": "Commanders",
+      "team": "WAS",
+      "full_name": "Washington Commanders",
+      "division": "NFC East",
+      "conference": "NFC",
+      "items": [
+        {
+          "id": "camp_b4bc77e8d0ab2d4d",
+          "season": 2026,
+          "team": "WAS",
+          "player": null,
+          "position": null,
+          "source": "ESPN NFL",
+          "source_type": "rss",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49481418/bengals-shemar-stewart-carted-left-leg-injury",
+          "published_at": "2026-07-30T04:05:02.000Z",
+          "captured_at": "2026-07-30T03:46:07.745Z",
+          "signal_type": "injury",
+          "signal_strength": 0.82,
+          "confidence": 0.68,
+          "summary": "Bengals' Stewart carted off with left leg injury",
+          "raw_excerpt": "Bengals defensive end Shemar Stewart was carted off the field Wednesday with a left leg injury suffered during the first day of training camp.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins",
+            "make_playoffs",
+            "week_1_spread"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "injury"
+          ],
+          "dedupe_key": "https://www.espn.com/nfl/story/_/id/49481418/bengals-shemar-stewart-carted-left-leg-injury",
+          "source_file": null
+        }
+      ]
+    }
+  }
+}

@@ -17,7 +17,7 @@ This is a source-readiness checklist, not a betting recommendation and not appro
 - Current written counts: Current 2 / Review 16 / Stale 1 / Blocked 0 / Missing 0 / Context 7 / Inference 1
 - Current written JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-24-41-613Z.json`
 - Current written HTML: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-24-41-613Z.html`
-- Current stale source: the worktree copy of `data/training-camp/2026/latest.json` is an all-32 empty placeholder. Restore the verified 16-item snapshot or approve a fresh live RSS scout before model synthesis.
+- Current stale source: the worktree copy of `data/training-camp/2026/latest.json` is an all-32 empty placeholder. The verified 16-item snapshot is preserved at `data/training-camp/2026/recovered/training-camp-intel-2026-07-30-0346-verified.json`; restore it or approve a fresh live RSS scout before model synthesis.
 
 ## Scope Decision
 
@@ -46,7 +46,7 @@ The current focus is futures portfolio synthesis readiness. The following are ou
 | Generated podcast narratives and deep dives | Accepted with caveat | Regenerated after the expanded ad/legal filter. Expanded hard promo/legal scan is clean; sportsbook mentions that remain are price/context references rather than ad/legal copy. |
 | Research/article RSS ingest | Accepted with caveat | Fresh July 30 review lane with one feed issue. Use as research context, not direct pick authority. |
 | Article full-body intel review | Accepted with caveat | 39 articles reviewed, 0 actual pick candidates, 8 market/inference leads, 103 contextual notes. Use leads as context only. |
-| Training camp local snapshot | Needs reconciliation | Current worktree file is an all-32 empty placeholder. Last verified July 30 snapshot had 16 items across 12 teams; restore it or approve a fresh live RSS scout before model synthesis. |
+| Training camp local snapshot | Needs reconciliation | Current worktree file is an all-32 empty placeholder. The verified July 30 snapshot is preserved at `data/training-camp/2026/recovered/training-camp-intel-2026-07-30-0346-verified.json` with 16 items across 12 teams; restore it or approve a fresh live RSS scout before model synthesis. |
 | Training camp RSS scout | Accepted with caveat | 16 live-feed items across 12 teams with one feed issue. Review merged output before model synthesis. |
 | Latest season readiness smoke | Accepted with caveat | READY WITH WATCH ITEMS, PASS 11 / WARN 6 / FAIL 0. Watch items are waived for source freshness but still matter for product readiness. |
 
@@ -65,18 +65,19 @@ The current focus is futures portfolio synthesis readiness. The following are ou
 - `node scripts/build-betonline-0729-import.js --check-only` passed with 160 rows.
 - `node scripts/ingest-futures-json.js --file data/futures-imports/betonline-2026-07-29.json --dry-run` passed with 160 rows and no DB write.
 - `npm.cmd run intel:source-audit` returned `BLOCKED` only because the current training-camp latest snapshot is an empty placeholder.
+- `data/training-camp/2026/recovered/training-camp-intel-2026-07-30-0346-verified.json` parsed successfully and shows 16 items across 12 teams from `2026-07-30T03:46:07.745Z`.
 
 ## Required Caveats Before Frontier Synthesis
 
 - BetOnline July 29 listed markets are normalized, but exact Super Bowl matchup was not present in the BetOnline screenshot bundle.
-- The training-camp latest snapshot must be reconciled before model synthesis. Do not interpret the current empty placeholder as evidence that there is no camp intel.
+- The training-camp latest snapshot must be reconciled before model synthesis. Do not interpret the current empty placeholder as evidence that there is no camp intel; use the recovered verified snapshot path as the restore source if not running a fresh scout.
 - Generated podcast/deep-dive text is accepted only after the July 30 ad/legal-filter regeneration. If new podcast ingestion runs again, regenerate and re-scan before model synthesis.
 - The latest portfolio synthesis artifact is useful prior context, but it was generated before this source-acceptance pass. Rebuild the synthesis packet from accepted current sources.
 - Season readiness is `READY WITH WATCH ITEMS`, PASS 11 / WARN 6 / FAIL 0. The watch items are not source-freshness blockers, but should be explicitly waived or noted before model execution.
 
 ## Next Acceptance Steps
 
-1. Restore the verified 16-item training-camp snapshot or approve a fresh live RSS scout.
+1. Restore the recovered 16-item training-camp snapshot or approve a fresh live RSS scout.
 2. Rerun `npm.cmd run intel:source-audit` and require 0 stale / 0 blocked / 0 missing before model synthesis.
 3. Use `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md` as the frontier-model evidence packet.
 4. Ask for explicit approval before any paid model/API call or persisted recommendation output.
