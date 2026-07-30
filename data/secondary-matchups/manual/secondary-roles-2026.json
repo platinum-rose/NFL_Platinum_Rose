@@ -1,0 +1,67 @@
+[
+  {
+    "team": "PIT",
+    "player_name": "Jalen Ramsey",
+    "position": "CB",
+    "role": "outside_cb1",
+    "side": "boundary",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": ["alpha_x", "field_stretcher"],
+    "weakness_tags": ["outside_wr_boost", "alpha_wr_boost", "boundary_wr_boost"],
+    "source": "manual_poc",
+    "source_url": "",
+    "notes": "POC elite-tag seed; verify with paid/free charting before betting use."
+  },
+  {
+    "team": "PIT",
+    "player_name": "Joey Porter Jr.",
+    "position": "CB",
+    "role": "outside_cb2",
+    "side": "field",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": ["alpha_x", "z_receiver"],
+    "weakness_tags": ["outside_wr_boost", "boundary_wr_boost"],
+    "source": "manual_poc",
+    "source_url": "",
+    "notes": "POC plus-tag seed; verify before betting use."
+  },
+  {
+    "team": "DET",
+    "player_name": "Kerby Joseph",
+    "position": "S",
+    "role": "deep_safety",
+    "side": "middle",
+    "impact_tier": "elite",
+    "receiver_archetypes_impacted": ["field_stretcher", "te_middle"],
+    "weakness_tags": ["deep_pass_boost", "post_cross_boost"],
+    "source": "manual_poc",
+    "source_url": "",
+    "notes": "POC deep-safety seed; verify before betting use."
+  },
+  {
+    "team": "DET",
+    "player_name": "Brian Branch",
+    "position": "S",
+    "role": "hybrid_safety",
+    "side": "slot",
+    "impact_tier": "plus",
+    "receiver_archetypes_impacted": ["slot", "te_middle"],
+    "weakness_tags": ["slot_wr_boost", "te_middle_boost"],
+    "source": "manual_poc",
+    "source_url": "",
+    "notes": "POC hybrid safety seed; verify before betting use."
+  },
+  {
+    "team": "GB",
+    "player_name": "Keisean Nixon",
+    "position": "CB",
+    "role": "slot_cb",
+    "side": "slot",
+    "impact_tier": "starter",
+    "receiver_archetypes_impacted": ["slot"],
+    "weakness_tags": ["slot_wr_boost", "inside_seam_boost"],
+    "source": "manual_poc",
+    "source_url": "",
+    "notes": "POC slot-corner seed; verify before betting use."
+  }
+]

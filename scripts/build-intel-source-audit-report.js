@@ -22,6 +22,7 @@ const SOURCE_GROUPS = [
   'Web Article Intel',
   'Training Camp',
   'Player Availability',
+  'Secondary Matchups',
   'Team Data',
   'Operational Readiness',
 ];
@@ -866,6 +867,41 @@ async function collectPlayerAvailability(sources) {
   });
 }
 
+async function collectSecondaryMatchups(sources) {
+  const snapshotPath = 'data/secondary-matchups/latest.json';
+  const snapshotStat = await exists(snapshotPath);
+  if (!snapshotStat) {
+    addSource(sources, {
+      group: 'Secondary Matchups',
+      name: 'Secondary matchup vulnerability snapshot',
+      status: 'missing',
+      evidence: 'No local secondary matchup vulnerability snapshot found.',
+      action: 'Run `npm.cmd run secondary-matchups` after updating manual scheme/player-role files.',
+      path: snapshotPath,
+    });
+    return;
+  }
+
+  const snapshot = await readJson(snapshotPath, {});
+  const generated = snapshot.meta?.generated_at || snapshotStat.mtime.toISOString();
+  const hoursOld = ageHours(generated);
+  const stale = hoursOld !== null && hoursOld > 168;
+  const sourceIssues = (snapshot.meta?.source_health || []).filter((source) => source.status === 'error' || source.status === 'missing');
+  addSource(sources, {
+    group: 'Secondary Matchups',
+    name: 'Secondary matchup vulnerability snapshot',
+    status: sourceIssues.length || stale ? 'review' : 'context',
+    freshness: `${generated} (${hoursOld ?? '?'}h old)`,
+    evidence: `${snapshot.meta?.matchup_count || 0} offense-vs-defense matchups; ${snapshot.meta?.matchups_with_secondary_absences || 0} with secondary absences; ${snapshot.meta?.high_or_medium_vulnerabilities || 0} medium/high vulnerabilities; source issues=${sourceIssues.length}.`,
+    action: 'Manual/free proof of concept. Review scheme and role tags before any prop/parlay use; upgrade to charting data later if the workflow proves useful.',
+    details: (snapshot.meta?.source_health || []).map((source) => ({
+      label: source.source,
+      value: `${source.status}${source.evidence ? `; ${source.evidence}` : ''}${source.reason ? `; ${source.reason}` : ''}`,
+    })),
+    path: snapshotPath,
+  });
+}
+
 async function collectTeamData(sources) {
   const schedule = await readJson('public/schedule.json', []);
   const regular = Array.isArray(schedule)
@@ -1196,6 +1232,7 @@ async function main() {
   await collectResearchArticleIntel(sources);
   await collectTrainingCamp(sources);
   await collectPlayerAvailability(sources);
+  await collectSecondaryMatchups(sources);
   await collectTeamData(sources);
   await collectOperationalReadiness(sources);
 
