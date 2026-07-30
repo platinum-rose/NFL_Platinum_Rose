@@ -45,11 +45,11 @@ Current source audit:
 npm.cmd run intel:source-audit
 ```
 
-Current result: `BLOCKED`, Current 2 / Review 16 / Stale 1 / Blocked 0 / Missing 0 / Context 7. The only stale item is the app-facing training-camp latest snapshot, and the audit now names the recovered 16-item snapshot as the restore source.
+Current result: `PASSABLE`, Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7. The recovered verified 16-item training-camp snapshot has been restored to the app-facing July 30 files.
 
 - Last fully passing audit: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.json`
-- Current audit JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-49-41-721Z.json`
-- Current audit HTML: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-49-41-721Z.html`
+- Current audit JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-56-51-813Z.json`
+- Current audit HTML: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-56-51-813Z.html`
 - `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`
 - `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md`
 - `docs/FUTURES_SYNTHESIS_REQUIREMENT_AUDIT_2026-07-30.md`
@@ -65,7 +65,7 @@ BetOnline July 29 screenshots have now been manually normalized:
 
 Important caveats:
 - BetOnline exact Super Bowl matchup was not present in the July 29 screenshot bundle.
-- Current worktree copies of `data/training-camp/2026/latest.json` and `data/training-camp/2026/training-camp-intel-2026-07-30.json` are uncommitted all-32 empty placeholders. A verified recovery copy is preserved at `data/training-camp/2026/recovered/training-camp-intel-2026-07-30-0346-verified.json` with 16 items across 12 teams; restore it or approve a fresh live RSS scout before model synthesis.
+- Current worktree copies of `data/training-camp/2026/latest.json` and `data/training-camp/2026/training-camp-intel-2026-07-30.json` contain the restored verified recovery snapshot from `data/training-camp/2026/recovered/training-camp-intel-2026-07-30-0346-verified.json`: 16 items across 12 teams, 3 high-priority items, and 6 feed-health entries. Use it as review/highlight context before synthesis.
 - Review items are not blockers by themselves; they must be accepted, rejected, or caveated before a frontier-model run.
 - Podcast/deep-dive output was regenerated after expanding ad/legal filtering to catch sponsored-by copy. The hard promo/legal scan is clean; remaining sportsbook mentions are price/context references.
 
@@ -149,13 +149,12 @@ Review/stage narrowly by workstream. Do not use `git add -A`.
 
 **Crash recovery and safe workstream checkpoints are committed:** continue from `handoffs/2026-07-30-0655-workstream-triage-handoff.md`.
 
-**Current main focus:** clear the final source-gate issue, then run a deep-dive futures portfolio synthesis from a frontier model using the prepared evidence packet. Do not spend current-cycle attention on DK/FD bet-slip parsers or weekly live props.
+**Current main focus:** request explicit approval for a paid/frontier model call, then run a deep-dive futures portfolio synthesis using the prepared evidence packet. Do not spend current-cycle attention on DK/FD bet-slip parsers or weekly live props.
 
 Recommended next:
 - Use `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md` as the current model-ready evidence packet.
-- Restore the recovered verified 16-item training-camp snapshot or approve a fresh live RSS scout.
-- Rerun `npm.cmd run intel:source-audit` and require 0 stale / 0 blocked / 0 missing sources before model synthesis.
 - Ask explicit approval before any paid/frontier model call.
+- Keep no Supabase writes, recommendation persistence, official-pick approvals/proposals, or open-parlay changes without explicit approval.
 - Review `scripts/overnight.js`, `docs/NFL_DASHBOARD_USER_GUIDE.md`, and `infra/systemd/` separately before committing any ops automation.
 - Clean older retry artifacts only after deciding they are no longer useful crash-window evidence.
 
