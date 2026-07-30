@@ -5,8 +5,8 @@
 **Date:** 2026-07-30 UTC / 2026-07-29 Pacific
 **Branch:** main
 **HEAD observed before BetOnline normalization checkpoint:** `5b2db46`
-**Latest timestamped handoff:** `handoffs/2026-07-30-1101-camp-intel-ui-handoff.md`
-**Status:** Pipeline work and Training Camp Intel UI are committed and pushed through `29065e9`. Source audit remains recalibrated toward futures-portfolio synthesis readiness; player availability and secondary matchup proof of concept are locally snapshotted. Fantasy value board, overnight/ops automation, and old retry artifacts remain dirty workstreams for separate review.
+**Latest timestamped handoff:** `handoffs/2026-07-30-1256-antigravity-agents-handoff.md`
+**Status:** Cleaned 62 stale retry artifacts (d7fb7a0). Built and committed Antigravity IDE .agents/skills/ autodiscovery configs across all 18 dev projects (de5c9c0 for NFL_Dashboard). Working tree is clean.
 
 ---
 
@@ -107,6 +107,7 @@ Do not stage this as one sweep. Review and stage by workstream.
 - Podcast, YouTube, article, and training-camp intel are reviewed research context only until promoted by explicit human decision.
 - Keep generated fixtures and local smoke outputs distinct from production betting recommendations.
 - Stage narrowly; avoid `git add -A`.
+- On resume, scan project-local `.codex/rules/`, `.codex/hooks.json`, `skills/`, `agents/`, and hook folders before planning. Use relevant local `SKILL.md` guidance and project agents/workflows when they fit the task, while keeping guardrails and explicit-approval boundaries intact.
 
 ---
 
@@ -119,5 +120,5 @@ Use `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md` as the curr
 ## Resume Prompt
 
 ```text
-Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF.md, HANDOFF_PROMPT.md, WORKING-CONTEXT.md, TASK_BOARD.md, handoffs\2026-07-30-post-pipeline-push-task-plan.md, and handoffs\2026-07-30-1101-camp-intel-ui-handoff.md first. Current pushed HEAD is 29065e9 on main/origin/main. The injury/player-availability/OL-DL/secondary-matchup pipeline work and the Training Camp Intel UI tab are already committed and pushed; do not recommit them. Remaining dirty workstreams are fantasy value board, overnight/ops automation, and old retry artifacts. Stage narrowly; do not use git add -A. Guardrails: no paid/frontier model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval. Immediate next step: review the fantasy value board workstream first, then ops automation, then stale retry artifacts, then resume secondary-matchup seed completion and parser-quality tasks.
+Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF.md, HANDOFF_PROMPT.md, WORKING-CONTEXT.md, TASK_BOARD.md, handoffs\2026-07-30-post-pipeline-push-task-plan.md, and handoffs\2026-07-30-1101-camp-intel-ui-handoff.md first. Before planning, scan `.codex/rules/`, `.codex/hooks.json`, `skills/`, `agents/`, and hook folders for relevant project-local skills, agents, and hooks; read only task-relevant local SKILL.md files and use matching project workflows when appropriate. Current pushed HEAD is 29065e9 on main/origin/main. The injury/player-availability/OL-DL/secondary-matchup pipeline work and the Training Camp Intel UI tab are already committed and pushed; do not recommit them. Remaining dirty workstreams are fantasy value board, overnight/ops automation, and old retry artifacts. Stage narrowly; do not use git add -A. Guardrails: no paid/frontier model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval. Immediate next step: review the fantasy value board workstream first, then ops automation, then stale retry artifacts, then resume secondary-matchup seed completion and parser-quality tasks.
 ```
