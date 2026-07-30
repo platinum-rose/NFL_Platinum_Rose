@@ -2,13 +2,13 @@
   "meta": {
     "schema": "training_camp_intel_snapshot_v1",
     "season": 2026,
-    "generated_at": "2026-07-30T03:46:07.745Z",
+    "generated_at": "2026-07-30T15:21:34.180Z",
     "input_dir": "data\\training-camp\\2026\\manual",
     "team_count": 32,
-    "teams_with_intel": 12,
-    "teams_without_intel": 20,
-    "item_count": 16,
-    "high_priority_count": 3,
+    "teams_with_intel": 10,
+    "teams_without_intel": 22,
+    "item_count": 19,
+    "high_priority_count": 4,
     "local_only": true,
     "recommendation_status": "intel_only_not_picks",
     "guardrails": {
@@ -23,8 +23,8 @@
         "url": "https://www.espn.com/espn/rss/nfl/news",
         "status": "available",
         "reason": null,
-        "fetched_items": 27,
-        "kept_items": 9
+        "fetched_items": 20,
+        "kept_items": 5
       },
       {
         "source": "Pro Football Talk",
@@ -32,7 +32,7 @@
         "status": "available",
         "reason": null,
         "fetched_items": 30,
-        "kept_items": 4
+        "kept_items": 11
       },
       {
         "source": "PFF",
@@ -70,21 +70,50 @@
   },
   "items": [
     {
-      "id": "camp_bc714fcd0e1ebeb2",
+      "id": "camp_4f74bec5a85cba49",
       "season": 2026,
-      "team": "BAL",
+      "team": "ATL",
       "player": null,
       "position": null,
-      "source": "ESPN NFL",
+      "source": "Pro Football Talk",
       "source_type": "rss",
-      "source_url": "https://www.espn.com/nfl/story/_/id/49480322/ravens-madubuike-neck-practices-1st-10-months",
-      "published_at": "2026-07-29T20:33:49.000Z",
-      "captured_at": "2026-07-30T03:46:07.745Z",
-      "signal_type": "other",
+      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/tua-tagovailoa-takes-part-in-thursdays-practice",
+      "published_at": "2026-07-30T14:48:47.000Z",
+      "captured_at": "2026-07-30T15:21:34.180Z",
+      "signal_type": "coach_quote",
       "signal_strength": 0.56,
       "confidence": 0.68,
-      "summary": "Ravens' Madubuike (neck) returns to practice",
-      "raw_excerpt": "Pro Bowl defensive tackle Nnamdi Madubuike practiced for the first time in 10 months on Wednesday, which provided a celebratory start to the Ravens' first training camp under coach Jesse Minter.",
+      "summary": "Tua Tagovailoa takes part in Thursday's practice",
+      "raw_excerpt": "Falcons quarterback Tua Tagovailoa missed the first practice of training camp with back tightness, but head coach Kevin Stefanski said that he didn't expect it to be a lengthy absence and his prediction was proven correct on Thursday.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "coach_quote"
+      ],
+      "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/tua-tagovailoa-takes-part-in-thursdays-practice",
+      "source_file": null
+    },
+    {
+      "id": "camp_b4728a436d596d57",
+      "season": 2026,
+      "team": "ATL",
+      "player": null,
+      "position": null,
+      "source": "Pro Football Talk",
+      "source_type": "rss",
+      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/michael-penix-i-cant-afford-to-have-someone-trip-and-fall-on-me-right-now",
+      "published_at": "2026-07-29T15:21:08.000Z",
+      "captured_at": "2026-07-30T15:21:34.180Z",
+      "signal_type": "other",
+      "signal_strength": 0.18,
+      "confidence": 0.68,
+      "summary": "Michael Penix: I can't afford to have someone trip and fall on me right now",
+      "raw_excerpt": "The big news from the first day of Falcons training camp involved the team's quarterbacks.",
       "betting_relevance": "Needs human review for betting relevance.",
       "linked_markets": [
         "wins"
@@ -95,7 +124,36 @@
         "camp",
         "other"
       ],
-      "dedupe_key": "https://www.espn.com/nfl/story/_/id/49480322/ravens-madubuike-neck-practices-1st-10-months",
+      "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/michael-penix-i-cant-afford-to-have-someone-trip-and-fall-on-me-right-now",
+      "source_file": null
+    },
+    {
+      "id": "camp_0e06813514f7ec2c",
+      "season": 2026,
+      "team": "ATL",
+      "player": null,
+      "position": null,
+      "source": "Pro Football Talk",
+      "source_type": "rss",
+      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/bijan-robinson-not-participating-in-practice-awaiting-new-deal",
+      "published_at": "2026-07-29T14:30:14.000Z",
+      "captured_at": "2026-07-30T15:21:34.180Z",
+      "signal_type": "other",
+      "signal_strength": 0.18,
+      "confidence": 0.68,
+      "summary": "Bijan Robinson not participating in practice, awaiting new deal",
+      "raw_excerpt": "The Falcons are in a similar position to the Lions as the teams begin training camp this week.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "other"
+      ],
+      "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/bijan-robinson-not-participating-in-practice-awaiting-new-deal",
       "source_file": null
     },
     {
@@ -107,8 +165,8 @@
       "source": "ESPN NFL",
       "source_type": "rss",
       "source_url": "https://www.espn.com/nfl/story/_/id/49481418/bengals-shemar-stewart-carted-left-leg-injury",
-      "published_at": "2026-07-30T04:05:02.000Z",
-      "captured_at": "2026-07-30T03:46:07.745Z",
+      "published_at": "2026-07-30T14:22:22.000Z",
+      "captured_at": "2026-07-30T15:21:34.180Z",
       "signal_type": "injury",
       "signal_strength": 0.82,
       "confidence": 0.68,
@@ -139,7 +197,7 @@
       "source_type": "rss",
       "source_url": "https://www.pff.com/news/nfl-cincinnati-bengals-2026-preview/",
       "published_at": "2026-07-28T14:16:19.000Z",
-      "captured_at": "2026-07-30T03:46:07.745Z",
+      "captured_at": "2026-07-30T15:21:34.180Z",
       "signal_type": "other",
       "signal_strength": 0.18,
       "confidence": 0.68,
@@ -159,21 +217,21 @@
       "source_file": null
     },
     {
-      "id": "camp_4cc3e84c09924013",
+      "id": "camp_12cc97795ecdda20",
       "season": 2026,
       "team": "CLE",
       "player": null,
       "position": null,
-      "source": "ESPN NFL",
+      "source": "Pro Football Talk",
       "source_type": "rss",
-      "source_url": "https://www.espn.com/nfl/story/_/id/49481317/sources-browns-grant-delpit-agree-3-year-48m-extension",
-      "published_at": "2026-07-29T20:33:49.000Z",
-      "captured_at": "2026-07-30T03:46:07.745Z",
-      "signal_type": "other",
-      "signal_strength": 0.18,
+      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/shedeur-sanders-deshaun-watson-will-alternate-on-first-team-offense-to-start-camp",
+      "published_at": "2026-07-29T17:44:41.000Z",
+      "captured_at": "2026-07-30T15:21:34.180Z",
+      "signal_type": "depth_chart",
+      "signal_strength": 0.82,
       "confidence": 0.68,
-      "summary": "Sources: Browns, Delpit agree to $48M extension",
-      "raw_excerpt": "Browns safety Grant Delpit is signing a three-year, $48 million extension that also includes $35 million guaranteed, sources told ESPN's Adam Schefter and NFL Network's Ian Rapoport on Wednesday.",
+      "summary": "Shedeur Sanders, Deshaun Watson will alternate on first-team offense to start camp",
+      "raw_excerpt": "The start of training camp means the Browns' quarterback competition between Shedeur Sanders and Deshaun Watson is about to heat up.",
       "betting_relevance": "Needs human review for betting relevance.",
       "linked_markets": [
         "wins"
@@ -182,9 +240,9 @@
       "needs_human_review": true,
       "tags": [
         "camp",
-        "other"
+        "depth_chart"
       ],
-      "dedupe_key": "https://www.espn.com/nfl/story/_/id/49481317/sources-browns-grant-delpit-agree-3-year-48m-extension",
+      "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/shedeur-sanders-deshaun-watson-will-alternate-on-first-team-offense-to-start-camp",
       "source_file": null
     },
     {
@@ -197,7 +255,7 @@
       "source_type": "rss",
       "source_url": "https://www.pff.com/news/nfl-cleveland-browns-2026-preview/",
       "published_at": "2026-07-28T15:37:58.000Z",
-      "captured_at": "2026-07-30T03:46:07.745Z",
+      "captured_at": "2026-07-30T15:21:34.180Z",
       "signal_type": "other",
       "signal_strength": 0.56,
       "confidence": 0.68,
@@ -217,64 +275,6 @@
       "source_file": null
     },
     {
-      "id": "camp_dac08967bc1f2070",
-      "season": 2026,
-      "team": "DAL",
-      "player": null,
-      "position": null,
-      "source": "Rotowire NFL",
-      "source_type": "rss",
-      "source_url": "https://www.rotowire.com//football/player/ceedee-lamb-14411",
-      "published_at": "2026-07-29T22:38:00.000Z",
-      "captured_at": "2026-07-30T03:46:07.745Z",
-      "signal_type": "depth_chart",
-      "signal_strength": 0.82,
-      "confidence": 0.68,
-      "summary": "CeeDee Lamb: Playing usual role in training camp",
-      "raw_excerpt": "Lamb worked with the Cowboys' first-team offense in the first team drill of Wednesday's practice, Jon Machota of The Athletic reports. Visit RotoWire.com for more analysis on this update.",
-      "betting_relevance": "Needs human review for betting relevance.",
-      "linked_markets": [
-        "wins"
-      ],
-      "anchor_relevance": [],
-      "needs_human_review": true,
-      "tags": [
-        "camp",
-        "depth_chart"
-      ],
-      "dedupe_key": "https://www.rotowire.com//football/player/ceedee-lamb-14411",
-      "source_file": null
-    },
-    {
-      "id": "camp_20d6b6cca4c8c6ee",
-      "season": 2026,
-      "team": "DEN",
-      "player": null,
-      "position": null,
-      "source": "Pro Football Talk",
-      "source_type": "rss",
-      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/sean-payton-on-jonathon-cooper-were-staying-the-course-with-league-protocol",
-      "published_at": "2026-07-29T21:34:06.000Z",
-      "captured_at": "2026-07-30T03:46:07.745Z",
-      "signal_type": "other",
-      "signal_strength": 0.18,
-      "confidence": 0.68,
-      "summary": "Sean Payton on Jonathon Cooper: We're staying the course with league protocol",
-      "raw_excerpt": "Broncos linebacker Jonathon Cooper didn't take part in the team's minicamp after being arrested twice on domestic violence charges, but he is back with the team and participated in their first practice of training camp on Wednesday.",
-      "betting_relevance": "Needs human review for betting relevance.",
-      "linked_markets": [
-        "wins"
-      ],
-      "anchor_relevance": [],
-      "needs_human_review": true,
-      "tags": [
-        "camp",
-        "other"
-      ],
-      "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/sean-payton-on-jonathon-cooper-were-staying-the-course-with-league-protocol",
-      "source_file": null
-    },
-    {
       "id": "camp_5b879431ede8b7b2",
       "season": 2026,
       "team": "DET",
@@ -284,7 +284,7 @@
       "source_type": "rss",
       "source_url": "https://www.espn.com/nfl/story/_/id/49368181/training-camp-2026-latest-news-intel-updates-buzz-all-32-teams",
       "published_at": "2026-07-30T01:14:04.000Z",
-      "captured_at": "2026-07-30T03:46:07.745Z",
+      "captured_at": "2026-07-30T15:21:34.180Z",
       "signal_type": "injury",
       "signal_strength": 0.34,
       "confidence": 0.68,
@@ -304,21 +304,21 @@
       "source_file": null
     },
     {
-      "id": "camp_f139d8fc74fd9990",
+      "id": "camp_40d1cebbacd20a4f",
       "season": 2026,
       "team": "DET",
       "player": null,
       "position": null,
-      "source": "ESPN NFL",
+      "source": "Pro Football Talk",
       "source_type": "rss",
-      "source_url": "https://www.espn.com/nfl/story/_/id/49479468/lions-campbell-arnold-release-unfortunate-best",
-      "published_at": "2026-07-29T20:33:50.000Z",
-      "captured_at": "2026-07-30T03:46:07.745Z",
-      "signal_type": "other",
-      "signal_strength": 0.56,
+      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/dan-campbell-on-jahmyr-gibbs-this-is-both-sides-working-through-something",
+      "published_at": "2026-07-29T15:51:00.000Z",
+      "captured_at": "2026-07-30T15:21:34.180Z",
+      "signal_type": "injury",
+      "signal_strength": 0.45,
       "confidence": 0.68,
-      "summary": "Campbell: Arnold's release difficult but necessary",
-      "raw_excerpt": "As Lions veterans reported to training camp this week, head coach Dan Campbell addressed the team for the first time about the release of former CB Terrion Arnold on Tuesday night.",
+      "summary": "Dan Campbell on Jahmyr Gibbs: \"This is both sides working through something\"",
+      "raw_excerpt": "Lions running back Jahmyr Gibbs did not practice on Wednesday, as he stages an apparent hold-in while awaiting a new contract.",
       "betting_relevance": "Needs human review for betting relevance.",
       "linked_markets": [
         "wins"
@@ -327,56 +327,27 @@
       "needs_human_review": true,
       "tags": [
         "camp",
-        "other"
+        "injury"
       ],
-      "dedupe_key": "https://www.espn.com/nfl/story/_/id/49479468/lions-campbell-arnold-release-unfortunate-best",
+      "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/dan-campbell-on-jahmyr-gibbs-this-is-both-sides-working-through-something",
       "source_file": null
     },
     {
-      "id": "camp_2414cd80c36548b9",
+      "id": "camp_ab80813d29eae9ce",
       "season": 2026,
-      "team": "HOU",
-      "player": null,
-      "position": null,
-      "source": "ESPN NFL",
-      "source_type": "rss",
-      "source_url": "https://www.espn.com/nfl/story/_/id/49480267/texans-had-productive-contract-talks-stroud-says-gm",
-      "published_at": "2026-07-29T20:33:50.000Z",
-      "captured_at": "2026-07-30T03:46:07.745Z",
-      "signal_type": "other",
-      "signal_strength": 0.18,
-      "confidence": 0.68,
-      "summary": "GM: Texans, Stroud have had 'productive' talks",
-      "raw_excerpt": "Texans GM Nick Caserio says the team has had \"productive conversations\" with quarterback C.J. Stroud on a contract extension dating back to the spring.",
-      "betting_relevance": "Needs human review for betting relevance.",
-      "linked_markets": [
-        "wins"
-      ],
-      "anchor_relevance": [],
-      "needs_human_review": true,
-      "tags": [
-        "camp",
-        "other"
-      ],
-      "dedupe_key": "https://www.espn.com/nfl/story/_/id/49480267/texans-had-productive-contract-talks-stroud-says-gm",
-      "source_file": null
-    },
-    {
-      "id": "camp_6371c32ba7d52d55",
-      "season": 2026,
-      "team": "MIN",
+      "team": "DET",
       "player": null,
       "position": null,
       "source": "Pro Football Talk",
       "source_type": "rss",
-      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/jamal-adams-on-joining-the-vikings-the-skys-the-limit",
-      "published_at": "2026-07-30T03:22:21.000Z",
-      "captured_at": "2026-07-30T03:46:07.745Z",
+      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/bijan-robinson-not-participating-in-practice-awaiting-new-deal",
+      "published_at": "2026-07-29T14:30:14.000Z",
+      "captured_at": "2026-07-30T15:21:34.180Z",
       "signal_type": "other",
       "signal_strength": 0.18,
       "confidence": 0.68,
-      "summary": "Jamal Adams on joining the Vikings: \"The sky's the limit\"",
-      "raw_excerpt": "Veteran defender Jamal Adams joined the Vikings not long before the opening of training camp.",
+      "summary": "Bijan Robinson not participating in practice, awaiting new deal",
+      "raw_excerpt": "The Falcons are in a similar position to the Lions as the teams begin training camp this week.",
       "betting_relevance": "Needs human review for betting relevance.",
       "linked_markets": [
         "wins"
@@ -387,7 +358,65 @@
         "camp",
         "other"
       ],
-      "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/jamal-adams-on-joining-the-vikings-the-skys-the-limit",
+      "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/bijan-robinson-not-participating-in-practice-awaiting-new-deal",
+      "source_file": null
+    },
+    {
+      "id": "camp_8a1293e7a7b36a74",
+      "season": 2026,
+      "team": "LAR",
+      "player": null,
+      "position": null,
+      "source": "Rotowire NFL",
+      "source_type": "rss",
+      "source_url": "https://www.rotowire.com//football/player/puka-nacua-16790",
+      "published_at": "2026-07-30T14:05:00.000Z",
+      "captured_at": "2026-07-30T15:21:34.180Z",
+      "signal_type": "other",
+      "signal_strength": 0.18,
+      "confidence": 0.68,
+      "summary": "Puka Nacua: Extension unlikely this summer",
+      "raw_excerpt": "Nacua and the Rams may wait until next offseason for serious discussions on a long-term contract, Ian Rapoport of NFL Network reports. Visit RotoWire.com for more analysis on this update.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "other"
+      ],
+      "dedupe_key": "https://www.rotowire.com//football/player/puka-nacua-16790",
+      "source_file": null
+    },
+    {
+      "id": "camp_bf6ae4229f5b6e2c",
+      "season": 2026,
+      "team": "LAR",
+      "player": null,
+      "position": null,
+      "source": "Pro Football Talk",
+      "source_type": "rss",
+      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/puka-nacua-not-being-out-on-field-never-crossed-my-mind",
+      "published_at": "2026-07-30T12:50:28.000Z",
+      "captured_at": "2026-07-30T15:21:34.180Z",
+      "signal_type": "injury",
+      "signal_strength": 0.45,
+      "confidence": 0.68,
+      "summary": "Puka Nacua: Not being out on practice field never crossed my mind",
+      "raw_excerpt": "After catching 313 passes over his first three NFL seasons, it looked like Rams wide receiver Puka Nacua was on the fast track toward a contract extension but off-field issues slowed things down this offseason.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "injury"
+      ],
+      "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/puka-nacua-not-being-out-on-field-never-crossed-my-mind",
       "source_file": null
     },
     {
@@ -400,7 +429,7 @@
       "source_type": "rss",
       "source_url": "https://www.espn.com/nfl/story/_/id/49368181/training-camp-2026-latest-news-intel-updates-buzz-all-32-teams",
       "published_at": "2026-07-30T01:14:04.000Z",
-      "captured_at": "2026-07-30T03:46:07.745Z",
+      "captured_at": "2026-07-30T15:21:34.180Z",
       "signal_type": "injury",
       "signal_strength": 0.34,
       "confidence": 0.68,
@@ -420,61 +449,35 @@
       "source_file": null
     },
     {
-      "id": "camp_dfce72e39a967234",
+      "id": "camp_22a5027eacaf9c71",
       "season": 2026,
-      "team": "SEA",
+      "team": "PHI",
       "player": null,
       "position": null,
       "source": "Pro Football Talk",
       "source_type": "rss",
-      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/seahawks-sign-undrafted-rookie-wr-kyre-duplessis",
-      "published_at": "2026-07-29T23:01:29.000Z",
-      "captured_at": "2026-07-30T03:46:07.745Z",
-      "signal_type": "roster_move",
-      "signal_strength": 0.45,
+      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/vic-fangio-remains-to-be-seen-if-jonathan-greenard-practices-in-training-camp",
+      "published_at": "2026-07-30T13:56:50.000Z",
+      "captured_at": "2026-07-30T15:21:34.180Z",
+      "signal_type": "injury",
+      "signal_strength": 0.82,
       "confidence": 0.68,
-      "summary": "Seahawks sign undrafted rookie WR Kyre Duplessis",
-      "raw_excerpt": "The Seahawks signed wide receiver Kyre Duplessis on Wednesday, the team announced.",
+      "summary": "Vic Fangio: \"Remains to be seen\" if Jonathan Greenard practices in training camp",
+      "raw_excerpt": "Eagles General Manager Howie Roseman said at a Wednesday press conference that the pec strain that landed linebacker Jonathan Greenard on the physically unable to perform list \"is not a long-term injury,\" but it doesn't sound like it's going to be a matter of days before the veteran is back on the field.",
       "betting_relevance": "Needs human review for betting relevance.",
       "linked_markets": [
-        "wins"
+        "wins",
+        "make_playoffs",
+        "conference",
+        "week_1_spread"
       ],
       "anchor_relevance": [],
       "needs_human_review": true,
       "tags": [
         "camp",
-        "roster_move"
+        "injury"
       ],
-      "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/seahawks-sign-undrafted-rookie-wr-kyre-duplessis",
-      "source_file": null
-    },
-    {
-      "id": "camp_d2ebdd0703b55957",
-      "season": 2026,
-      "team": "TB",
-      "player": null,
-      "position": null,
-      "source": "Pro Football Talk",
-      "source_type": "rss",
-      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/todd-bowles-theres-always-distractions-these-happen-to-be-two-of-our-biggest-players",
-      "published_at": "2026-07-29T20:59:20.000Z",
-      "captured_at": "2026-07-30T03:46:07.745Z",
-      "signal_type": "other",
-      "signal_strength": 0.18,
-      "confidence": 0.68,
-      "summary": "Todd Bowles: There's always distractions, these happen to be two of our biggest players",
-      "raw_excerpt": "The Buccaneers entered training camp with a pair of contract impasses taking center stage.",
-      "betting_relevance": "Needs human review for betting relevance.",
-      "linked_markets": [
-        "wins"
-      ],
-      "anchor_relevance": [],
-      "needs_human_review": true,
-      "tags": [
-        "camp",
-        "other"
-      ],
-      "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/todd-bowles-theres-always-distractions-these-happen-to-be-two-of-our-biggest-players",
+      "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/vic-fangio-remains-to-be-seen-if-jonathan-greenard-practices-in-training-camp",
       "source_file": null
     },
     {
@@ -487,7 +490,7 @@
       "source_type": "rss",
       "source_url": "https://www.espn.com/nfl/story/_/id/49471832/vita-vea-trade-request-fits-buccaneers-defensive-tackle-five-teams-patriots-49ers",
       "published_at": "2026-07-29T14:26:17.000Z",
-      "captured_at": "2026-07-30T03:46:07.745Z",
+      "captured_at": "2026-07-30T15:21:34.180Z",
       "signal_type": "other",
       "signal_strength": 0.34,
       "confidence": 0.68,
@@ -507,6 +510,64 @@
       "source_file": null
     },
     {
+      "id": "camp_eddca8d26dd9ac94",
+      "season": 2026,
+      "team": "TEN",
+      "player": null,
+      "position": null,
+      "source": "Pro Football Talk",
+      "source_type": "rss",
+      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/titans-take-jc-latham-off-pup-list-sign-s-hudson-clark",
+      "published_at": "2026-07-30T15:04:33.000Z",
+      "captured_at": "2026-07-30T15:21:34.180Z",
+      "signal_type": "injury",
+      "signal_strength": 0.45,
+      "confidence": 0.68,
+      "summary": "Titans take JC Latham off PUP list, sign S Hudson Clark",
+      "raw_excerpt": "The Titans will be getting right tackle JC Latham going at training camp over the next few days.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "injury"
+      ],
+      "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/titans-take-jc-latham-off-pup-list-sign-s-hudson-clark",
+      "source_file": null
+    },
+    {
+      "id": "camp_332dd06aef994f69",
+      "season": 2026,
+      "team": "WAS",
+      "player": null,
+      "position": null,
+      "source": "Pro Football Talk",
+      "source_type": "rss",
+      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/tua-tagovailoa-takes-part-in-thursdays-practice",
+      "published_at": "2026-07-30T14:48:47.000Z",
+      "captured_at": "2026-07-30T15:21:34.180Z",
+      "signal_type": "coach_quote",
+      "signal_strength": 0.56,
+      "confidence": 0.68,
+      "summary": "Tua Tagovailoa takes part in Thursday's practice",
+      "raw_excerpt": "Falcons quarterback Tua Tagovailoa missed the first practice of training camp with back tightness, but head coach Kevin Stefanski said that he didn't expect it to be a lengthy absence and his prediction was proven correct on Thursday.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "coach_quote"
+      ],
+      "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/tua-tagovailoa-takes-part-in-thursdays-practice",
+      "source_file": null
+    },
+    {
       "id": "camp_b4bc77e8d0ab2d4d",
       "season": 2026,
       "team": "WAS",
@@ -515,8 +576,8 @@
       "source": "ESPN NFL",
       "source_type": "rss",
       "source_url": "https://www.espn.com/nfl/story/_/id/49481418/bengals-shemar-stewart-carted-left-leg-injury",
-      "published_at": "2026-07-30T04:05:02.000Z",
-      "captured_at": "2026-07-30T03:46:07.745Z",
+      "published_at": "2026-07-30T14:22:22.000Z",
+      "captured_at": "2026-07-30T15:21:34.180Z",
       "signal_type": "injury",
       "signal_strength": 0.82,
       "confidence": 0.68,
@@ -536,6 +597,35 @@
       ],
       "dedupe_key": "https://www.espn.com/nfl/story/_/id/49481418/bengals-shemar-stewart-carted-left-leg-injury",
       "source_file": null
+    },
+    {
+      "id": "camp_07caa8fda18ff4b1",
+      "season": 2026,
+      "team": "WAS",
+      "player": null,
+      "position": null,
+      "source": "Pro Football Talk",
+      "source_type": "rss",
+      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/puka-nacua-not-being-out-on-field-never-crossed-my-mind",
+      "published_at": "2026-07-30T12:50:28.000Z",
+      "captured_at": "2026-07-30T15:21:34.180Z",
+      "signal_type": "injury",
+      "signal_strength": 0.45,
+      "confidence": 0.68,
+      "summary": "Puka Nacua: Not being out on practice field never crossed my mind",
+      "raw_excerpt": "After catching 313 passes over his first three NFL seasons, it looked like Rams wide receiver Puka Nacua was on the fast track toward a contract extension but off-field issues slowed things down this offseason.",
+      "betting_relevance": "Needs human review for betting relevance.",
+      "linked_markets": [
+        "wins"
+      ],
+      "anchor_relevance": [],
+      "needs_human_review": true,
+      "tags": [
+        "camp",
+        "injury"
+      ],
+      "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/puka-nacua-not-being-out-on-field-never-crossed-my-mind",
+      "source_file": null
     }
   ],
   "teams": {
@@ -553,31 +643,52 @@
       "full_name": "Atlanta Falcons",
       "division": "NFC South",
       "conference": "NFC",
-      "items": []
-    },
-    "BAL": {
-      "nick": "Ravens",
-      "team": "BAL",
-      "full_name": "Baltimore Ravens",
-      "division": "AFC North",
-      "conference": "AFC",
       "items": [
         {
-          "id": "camp_bc714fcd0e1ebeb2",
+          "id": "camp_4f74bec5a85cba49",
           "season": 2026,
-          "team": "BAL",
+          "team": "ATL",
           "player": null,
           "position": null,
-          "source": "ESPN NFL",
+          "source": "Pro Football Talk",
           "source_type": "rss",
-          "source_url": "https://www.espn.com/nfl/story/_/id/49480322/ravens-madubuike-neck-practices-1st-10-months",
-          "published_at": "2026-07-29T20:33:49.000Z",
-          "captured_at": "2026-07-30T03:46:07.745Z",
-          "signal_type": "other",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/tua-tagovailoa-takes-part-in-thursdays-practice",
+          "published_at": "2026-07-30T14:48:47.000Z",
+          "captured_at": "2026-07-30T15:21:34.180Z",
+          "signal_type": "coach_quote",
           "signal_strength": 0.56,
           "confidence": 0.68,
-          "summary": "Ravens' Madubuike (neck) returns to practice",
-          "raw_excerpt": "Pro Bowl defensive tackle Nnamdi Madubuike practiced for the first time in 10 months on Wednesday, which provided a celebratory start to the Ravens' first training camp under coach Jesse Minter.",
+          "summary": "Tua Tagovailoa takes part in Thursday's practice",
+          "raw_excerpt": "Falcons quarterback Tua Tagovailoa missed the first practice of training camp with back tightness, but head coach Kevin Stefanski said that he didn't expect it to be a lengthy absence and his prediction was proven correct on Thursday.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "coach_quote"
+          ],
+          "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/tua-tagovailoa-takes-part-in-thursdays-practice",
+          "source_file": null
+        },
+        {
+          "id": "camp_b4728a436d596d57",
+          "season": 2026,
+          "team": "ATL",
+          "player": null,
+          "position": null,
+          "source": "Pro Football Talk",
+          "source_type": "rss",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/michael-penix-i-cant-afford-to-have-someone-trip-and-fall-on-me-right-now",
+          "published_at": "2026-07-29T15:21:08.000Z",
+          "captured_at": "2026-07-30T15:21:34.180Z",
+          "signal_type": "other",
+          "signal_strength": 0.18,
+          "confidence": 0.68,
+          "summary": "Michael Penix: I can't afford to have someone trip and fall on me right now",
+          "raw_excerpt": "The big news from the first day of Falcons training camp involved the team's quarterbacks.",
           "betting_relevance": "Needs human review for betting relevance.",
           "linked_markets": [
             "wins"
@@ -588,10 +699,47 @@
             "camp",
             "other"
           ],
-          "dedupe_key": "https://www.espn.com/nfl/story/_/id/49480322/ravens-madubuike-neck-practices-1st-10-months",
+          "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/michael-penix-i-cant-afford-to-have-someone-trip-and-fall-on-me-right-now",
+          "source_file": null
+        },
+        {
+          "id": "camp_0e06813514f7ec2c",
+          "season": 2026,
+          "team": "ATL",
+          "player": null,
+          "position": null,
+          "source": "Pro Football Talk",
+          "source_type": "rss",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/bijan-robinson-not-participating-in-practice-awaiting-new-deal",
+          "published_at": "2026-07-29T14:30:14.000Z",
+          "captured_at": "2026-07-30T15:21:34.180Z",
+          "signal_type": "other",
+          "signal_strength": 0.18,
+          "confidence": 0.68,
+          "summary": "Bijan Robinson not participating in practice, awaiting new deal",
+          "raw_excerpt": "The Falcons are in a similar position to the Lions as the teams begin training camp this week.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "other"
+          ],
+          "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/bijan-robinson-not-participating-in-practice-awaiting-new-deal",
           "source_file": null
         }
       ]
+    },
+    "BAL": {
+      "nick": "Ravens",
+      "team": "BAL",
+      "full_name": "Baltimore Ravens",
+      "division": "AFC North",
+      "conference": "AFC",
+      "items": []
     },
     "BUF": {
       "nick": "Bills",
@@ -633,8 +781,8 @@
           "source": "ESPN NFL",
           "source_type": "rss",
           "source_url": "https://www.espn.com/nfl/story/_/id/49481418/bengals-shemar-stewart-carted-left-leg-injury",
-          "published_at": "2026-07-30T04:05:02.000Z",
-          "captured_at": "2026-07-30T03:46:07.745Z",
+          "published_at": "2026-07-30T14:22:22.000Z",
+          "captured_at": "2026-07-30T15:21:34.180Z",
           "signal_type": "injury",
           "signal_strength": 0.82,
           "confidence": 0.68,
@@ -665,7 +813,7 @@
           "source_type": "rss",
           "source_url": "https://www.pff.com/news/nfl-cincinnati-bengals-2026-preview/",
           "published_at": "2026-07-28T14:16:19.000Z",
-          "captured_at": "2026-07-30T03:46:07.745Z",
+          "captured_at": "2026-07-30T15:21:34.180Z",
           "signal_type": "other",
           "signal_strength": 0.18,
           "confidence": 0.68,
@@ -694,21 +842,21 @@
       "conference": "AFC",
       "items": [
         {
-          "id": "camp_4cc3e84c09924013",
+          "id": "camp_12cc97795ecdda20",
           "season": 2026,
           "team": "CLE",
           "player": null,
           "position": null,
-          "source": "ESPN NFL",
+          "source": "Pro Football Talk",
           "source_type": "rss",
-          "source_url": "https://www.espn.com/nfl/story/_/id/49481317/sources-browns-grant-delpit-agree-3-year-48m-extension",
-          "published_at": "2026-07-29T20:33:49.000Z",
-          "captured_at": "2026-07-30T03:46:07.745Z",
-          "signal_type": "other",
-          "signal_strength": 0.18,
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/shedeur-sanders-deshaun-watson-will-alternate-on-first-team-offense-to-start-camp",
+          "published_at": "2026-07-29T17:44:41.000Z",
+          "captured_at": "2026-07-30T15:21:34.180Z",
+          "signal_type": "depth_chart",
+          "signal_strength": 0.82,
           "confidence": 0.68,
-          "summary": "Sources: Browns, Delpit agree to $48M extension",
-          "raw_excerpt": "Browns safety Grant Delpit is signing a three-year, $48 million extension that also includes $35 million guaranteed, sources told ESPN's Adam Schefter and NFL Network's Ian Rapoport on Wednesday.",
+          "summary": "Shedeur Sanders, Deshaun Watson will alternate on first-team offense to start camp",
+          "raw_excerpt": "The start of training camp means the Browns' quarterback competition between Shedeur Sanders and Deshaun Watson is about to heat up.",
           "betting_relevance": "Needs human review for betting relevance.",
           "linked_markets": [
             "wins"
@@ -717,9 +865,9 @@
           "needs_human_review": true,
           "tags": [
             "camp",
-            "other"
+            "depth_chart"
           ],
-          "dedupe_key": "https://www.espn.com/nfl/story/_/id/49481317/sources-browns-grant-delpit-agree-3-year-48m-extension",
+          "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/shedeur-sanders-deshaun-watson-will-alternate-on-first-team-offense-to-start-camp",
           "source_file": null
         },
         {
@@ -732,7 +880,7 @@
           "source_type": "rss",
           "source_url": "https://www.pff.com/news/nfl-cleveland-browns-2026-preview/",
           "published_at": "2026-07-28T15:37:58.000Z",
-          "captured_at": "2026-07-30T03:46:07.745Z",
+          "captured_at": "2026-07-30T15:21:34.180Z",
           "signal_type": "other",
           "signal_strength": 0.56,
           "confidence": 0.68,
@@ -759,37 +907,7 @@
       "full_name": "Dallas Cowboys",
       "division": "NFC East",
       "conference": "NFC",
-      "items": [
-        {
-          "id": "camp_dac08967bc1f2070",
-          "season": 2026,
-          "team": "DAL",
-          "player": null,
-          "position": null,
-          "source": "Rotowire NFL",
-          "source_type": "rss",
-          "source_url": "https://www.rotowire.com//football/player/ceedee-lamb-14411",
-          "published_at": "2026-07-29T22:38:00.000Z",
-          "captured_at": "2026-07-30T03:46:07.745Z",
-          "signal_type": "depth_chart",
-          "signal_strength": 0.82,
-          "confidence": 0.68,
-          "summary": "CeeDee Lamb: Playing usual role in training camp",
-          "raw_excerpt": "Lamb worked with the Cowboys' first-team offense in the first team drill of Wednesday's practice, Jon Machota of The Athletic reports. Visit RotoWire.com for more analysis on this update.",
-          "betting_relevance": "Needs human review for betting relevance.",
-          "linked_markets": [
-            "wins"
-          ],
-          "anchor_relevance": [],
-          "needs_human_review": true,
-          "tags": [
-            "camp",
-            "depth_chart"
-          ],
-          "dedupe_key": "https://www.rotowire.com//football/player/ceedee-lamb-14411",
-          "source_file": null
-        }
-      ]
+      "items": []
     },
     "DEN": {
       "nick": "Broncos",
@@ -797,37 +915,7 @@
       "full_name": "Denver Broncos",
       "division": "AFC West",
       "conference": "AFC",
-      "items": [
-        {
-          "id": "camp_20d6b6cca4c8c6ee",
-          "season": 2026,
-          "team": "DEN",
-          "player": null,
-          "position": null,
-          "source": "Pro Football Talk",
-          "source_type": "rss",
-          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/sean-payton-on-jonathon-cooper-were-staying-the-course-with-league-protocol",
-          "published_at": "2026-07-29T21:34:06.000Z",
-          "captured_at": "2026-07-30T03:46:07.745Z",
-          "signal_type": "other",
-          "signal_strength": 0.18,
-          "confidence": 0.68,
-          "summary": "Sean Payton on Jonathon Cooper: We're staying the course with league protocol",
-          "raw_excerpt": "Broncos linebacker Jonathon Cooper didn't take part in the team's minicamp after being arrested twice on domestic violence charges, but he is back with the team and participated in their first practice of training camp on Wednesday.",
-          "betting_relevance": "Needs human review for betting relevance.",
-          "linked_markets": [
-            "wins"
-          ],
-          "anchor_relevance": [],
-          "needs_human_review": true,
-          "tags": [
-            "camp",
-            "other"
-          ],
-          "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/sean-payton-on-jonathon-cooper-were-staying-the-course-with-league-protocol",
-          "source_file": null
-        }
-      ]
+      "items": []
     },
     "DET": {
       "nick": "Lions",
@@ -846,7 +934,7 @@
           "source_type": "rss",
           "source_url": "https://www.espn.com/nfl/story/_/id/49368181/training-camp-2026-latest-news-intel-updates-buzz-all-32-teams",
           "published_at": "2026-07-30T01:14:04.000Z",
-          "captured_at": "2026-07-30T03:46:07.745Z",
+          "captured_at": "2026-07-30T15:21:34.180Z",
           "signal_type": "injury",
           "signal_strength": 0.34,
           "confidence": 0.68,
@@ -866,21 +954,50 @@
           "source_file": null
         },
         {
-          "id": "camp_f139d8fc74fd9990",
+          "id": "camp_40d1cebbacd20a4f",
           "season": 2026,
           "team": "DET",
           "player": null,
           "position": null,
-          "source": "ESPN NFL",
+          "source": "Pro Football Talk",
           "source_type": "rss",
-          "source_url": "https://www.espn.com/nfl/story/_/id/49479468/lions-campbell-arnold-release-unfortunate-best",
-          "published_at": "2026-07-29T20:33:50.000Z",
-          "captured_at": "2026-07-30T03:46:07.745Z",
-          "signal_type": "other",
-          "signal_strength": 0.56,
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/dan-campbell-on-jahmyr-gibbs-this-is-both-sides-working-through-something",
+          "published_at": "2026-07-29T15:51:00.000Z",
+          "captured_at": "2026-07-30T15:21:34.180Z",
+          "signal_type": "injury",
+          "signal_strength": 0.45,
           "confidence": 0.68,
-          "summary": "Campbell: Arnold's release difficult but necessary",
-          "raw_excerpt": "As Lions veterans reported to training camp this week, head coach Dan Campbell addressed the team for the first time about the release of former CB Terrion Arnold on Tuesday night.",
+          "summary": "Dan Campbell on Jahmyr Gibbs: \"This is both sides working through something\"",
+          "raw_excerpt": "Lions running back Jahmyr Gibbs did not practice on Wednesday, as he stages an apparent hold-in while awaiting a new contract.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "injury"
+          ],
+          "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/dan-campbell-on-jahmyr-gibbs-this-is-both-sides-working-through-something",
+          "source_file": null
+        },
+        {
+          "id": "camp_ab80813d29eae9ce",
+          "season": 2026,
+          "team": "DET",
+          "player": null,
+          "position": null,
+          "source": "Pro Football Talk",
+          "source_type": "rss",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/bijan-robinson-not-participating-in-practice-awaiting-new-deal",
+          "published_at": "2026-07-29T14:30:14.000Z",
+          "captured_at": "2026-07-30T15:21:34.180Z",
+          "signal_type": "other",
+          "signal_strength": 0.18,
+          "confidence": 0.68,
+          "summary": "Bijan Robinson not participating in practice, awaiting new deal",
+          "raw_excerpt": "The Falcons are in a similar position to the Lions as the teams begin training camp this week.",
           "betting_relevance": "Needs human review for betting relevance.",
           "linked_markets": [
             "wins"
@@ -891,7 +1008,7 @@
             "camp",
             "other"
           ],
-          "dedupe_key": "https://www.espn.com/nfl/story/_/id/49479468/lions-campbell-arnold-release-unfortunate-best",
+          "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/bijan-robinson-not-participating-in-practice-awaiting-new-deal",
           "source_file": null
         }
       ]
@@ -910,37 +1027,7 @@
       "full_name": "Houston Texans",
       "division": "AFC South",
       "conference": "AFC",
-      "items": [
-        {
-          "id": "camp_2414cd80c36548b9",
-          "season": 2026,
-          "team": "HOU",
-          "player": null,
-          "position": null,
-          "source": "ESPN NFL",
-          "source_type": "rss",
-          "source_url": "https://www.espn.com/nfl/story/_/id/49480267/texans-had-productive-contract-talks-stroud-says-gm",
-          "published_at": "2026-07-29T20:33:50.000Z",
-          "captured_at": "2026-07-30T03:46:07.745Z",
-          "signal_type": "other",
-          "signal_strength": 0.18,
-          "confidence": 0.68,
-          "summary": "GM: Texans, Stroud have had 'productive' talks",
-          "raw_excerpt": "Texans GM Nick Caserio says the team has had \"productive conversations\" with quarterback C.J. Stroud on a contract extension dating back to the spring.",
-          "betting_relevance": "Needs human review for betting relevance.",
-          "linked_markets": [
-            "wins"
-          ],
-          "anchor_relevance": [],
-          "needs_human_review": true,
-          "tags": [
-            "camp",
-            "other"
-          ],
-          "dedupe_key": "https://www.espn.com/nfl/story/_/id/49480267/texans-had-productive-contract-talks-stroud-says-gm",
-          "source_file": null
-        }
-      ]
+      "items": []
     },
     "IND": {
       "nick": "Colts",
@@ -980,7 +1067,66 @@
       "full_name": "Los Angeles Rams",
       "division": "NFC West",
       "conference": "NFC",
-      "items": []
+      "items": [
+        {
+          "id": "camp_8a1293e7a7b36a74",
+          "season": 2026,
+          "team": "LAR",
+          "player": null,
+          "position": null,
+          "source": "Rotowire NFL",
+          "source_type": "rss",
+          "source_url": "https://www.rotowire.com//football/player/puka-nacua-16790",
+          "published_at": "2026-07-30T14:05:00.000Z",
+          "captured_at": "2026-07-30T15:21:34.180Z",
+          "signal_type": "other",
+          "signal_strength": 0.18,
+          "confidence": 0.68,
+          "summary": "Puka Nacua: Extension unlikely this summer",
+          "raw_excerpt": "Nacua and the Rams may wait until next offseason for serious discussions on a long-term contract, Ian Rapoport of NFL Network reports. Visit RotoWire.com for more analysis on this update.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "other"
+          ],
+          "dedupe_key": "https://www.rotowire.com//football/player/puka-nacua-16790",
+          "source_file": null
+        },
+        {
+          "id": "camp_bf6ae4229f5b6e2c",
+          "season": 2026,
+          "team": "LAR",
+          "player": null,
+          "position": null,
+          "source": "Pro Football Talk",
+          "source_type": "rss",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/puka-nacua-not-being-out-on-field-never-crossed-my-mind",
+          "published_at": "2026-07-30T12:50:28.000Z",
+          "captured_at": "2026-07-30T15:21:34.180Z",
+          "signal_type": "injury",
+          "signal_strength": 0.45,
+          "confidence": 0.68,
+          "summary": "Puka Nacua: Not being out on practice field never crossed my mind",
+          "raw_excerpt": "After catching 313 passes over his first three NFL seasons, it looked like Rams wide receiver Puka Nacua was on the fast track toward a contract extension but off-field issues slowed things down this offseason.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "injury"
+          ],
+          "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/puka-nacua-not-being-out-on-field-never-crossed-my-mind",
+          "source_file": null
+        }
+      ]
     },
     "LV": {
       "nick": "Raiders",
@@ -1004,37 +1150,7 @@
       "full_name": "Minnesota Vikings",
       "division": "NFC North",
       "conference": "NFC",
-      "items": [
-        {
-          "id": "camp_6371c32ba7d52d55",
-          "season": 2026,
-          "team": "MIN",
-          "player": null,
-          "position": null,
-          "source": "Pro Football Talk",
-          "source_type": "rss",
-          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/jamal-adams-on-joining-the-vikings-the-skys-the-limit",
-          "published_at": "2026-07-30T03:22:21.000Z",
-          "captured_at": "2026-07-30T03:46:07.745Z",
-          "signal_type": "other",
-          "signal_strength": 0.18,
-          "confidence": 0.68,
-          "summary": "Jamal Adams on joining the Vikings: \"The sky's the limit\"",
-          "raw_excerpt": "Veteran defender Jamal Adams joined the Vikings not long before the opening of training camp.",
-          "betting_relevance": "Needs human review for betting relevance.",
-          "linked_markets": [
-            "wins"
-          ],
-          "anchor_relevance": [],
-          "needs_human_review": true,
-          "tags": [
-            "camp",
-            "other"
-          ],
-          "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/jamal-adams-on-joining-the-vikings-the-skys-the-limit",
-          "source_file": null
-        }
-      ]
+      "items": []
     },
     "NE": {
       "nick": "Patriots",
@@ -1069,7 +1185,7 @@
           "source_type": "rss",
           "source_url": "https://www.espn.com/nfl/story/_/id/49368181/training-camp-2026-latest-news-intel-updates-buzz-all-32-teams",
           "published_at": "2026-07-30T01:14:04.000Z",
-          "captured_at": "2026-07-30T03:46:07.745Z",
+          "captured_at": "2026-07-30T15:21:34.180Z",
           "signal_type": "injury",
           "signal_strength": 0.34,
           "confidence": 0.68,
@@ -1104,7 +1220,40 @@
       "full_name": "Philadelphia Eagles",
       "division": "NFC East",
       "conference": "NFC",
-      "items": []
+      "items": [
+        {
+          "id": "camp_22a5027eacaf9c71",
+          "season": 2026,
+          "team": "PHI",
+          "player": null,
+          "position": null,
+          "source": "Pro Football Talk",
+          "source_type": "rss",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/vic-fangio-remains-to-be-seen-if-jonathan-greenard-practices-in-training-camp",
+          "published_at": "2026-07-30T13:56:50.000Z",
+          "captured_at": "2026-07-30T15:21:34.180Z",
+          "signal_type": "injury",
+          "signal_strength": 0.82,
+          "confidence": 0.68,
+          "summary": "Vic Fangio: \"Remains to be seen\" if Jonathan Greenard practices in training camp",
+          "raw_excerpt": "Eagles General Manager Howie Roseman said at a Wednesday press conference that the pec strain that landed linebacker Jonathan Greenard on the physically unable to perform list \"is not a long-term injury,\" but it doesn't sound like it's going to be a matter of days before the veteran is back on the field.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins",
+            "make_playoffs",
+            "conference",
+            "week_1_spread"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "injury"
+          ],
+          "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/vic-fangio-remains-to-be-seen-if-jonathan-greenard-practices-in-training-camp",
+          "source_file": null
+        }
+      ]
     },
     "PIT": {
       "nick": "Steelers",
@@ -1120,37 +1269,7 @@
       "full_name": "Seattle Seahawks",
       "division": "NFC West",
       "conference": "NFC",
-      "items": [
-        {
-          "id": "camp_dfce72e39a967234",
-          "season": 2026,
-          "team": "SEA",
-          "player": null,
-          "position": null,
-          "source": "Pro Football Talk",
-          "source_type": "rss",
-          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/seahawks-sign-undrafted-rookie-wr-kyre-duplessis",
-          "published_at": "2026-07-29T23:01:29.000Z",
-          "captured_at": "2026-07-30T03:46:07.745Z",
-          "signal_type": "roster_move",
-          "signal_strength": 0.45,
-          "confidence": 0.68,
-          "summary": "Seahawks sign undrafted rookie WR Kyre Duplessis",
-          "raw_excerpt": "The Seahawks signed wide receiver Kyre Duplessis on Wednesday, the team announced.",
-          "betting_relevance": "Needs human review for betting relevance.",
-          "linked_markets": [
-            "wins"
-          ],
-          "anchor_relevance": [],
-          "needs_human_review": true,
-          "tags": [
-            "camp",
-            "roster_move"
-          ],
-          "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/seahawks-sign-undrafted-rookie-wr-kyre-duplessis",
-          "source_file": null
-        }
-      ]
+      "items": []
     },
     "SF": {
       "nick": "49ers",
@@ -1168,35 +1287,6 @@
       "conference": "NFC",
       "items": [
         {
-          "id": "camp_d2ebdd0703b55957",
-          "season": 2026,
-          "team": "TB",
-          "player": null,
-          "position": null,
-          "source": "Pro Football Talk",
-          "source_type": "rss",
-          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/todd-bowles-theres-always-distractions-these-happen-to-be-two-of-our-biggest-players",
-          "published_at": "2026-07-29T20:59:20.000Z",
-          "captured_at": "2026-07-30T03:46:07.745Z",
-          "signal_type": "other",
-          "signal_strength": 0.18,
-          "confidence": 0.68,
-          "summary": "Todd Bowles: There's always distractions, these happen to be two of our biggest players",
-          "raw_excerpt": "The Buccaneers entered training camp with a pair of contract impasses taking center stage.",
-          "betting_relevance": "Needs human review for betting relevance.",
-          "linked_markets": [
-            "wins"
-          ],
-          "anchor_relevance": [],
-          "needs_human_review": true,
-          "tags": [
-            "camp",
-            "other"
-          ],
-          "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/todd-bowles-theres-always-distractions-these-happen-to-be-two-of-our-biggest-players",
-          "source_file": null
-        },
-        {
           "id": "camp_5c42d7ab4b132f9a",
           "season": 2026,
           "team": "TB",
@@ -1206,7 +1296,7 @@
           "source_type": "rss",
           "source_url": "https://www.espn.com/nfl/story/_/id/49471832/vita-vea-trade-request-fits-buccaneers-defensive-tackle-five-teams-patriots-49ers",
           "published_at": "2026-07-29T14:26:17.000Z",
-          "captured_at": "2026-07-30T03:46:07.745Z",
+          "captured_at": "2026-07-30T15:21:34.180Z",
           "signal_type": "other",
           "signal_strength": 0.34,
           "confidence": 0.68,
@@ -1233,7 +1323,37 @@
       "full_name": "Tennessee Titans",
       "division": "AFC South",
       "conference": "AFC",
-      "items": []
+      "items": [
+        {
+          "id": "camp_eddca8d26dd9ac94",
+          "season": 2026,
+          "team": "TEN",
+          "player": null,
+          "position": null,
+          "source": "Pro Football Talk",
+          "source_type": "rss",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/titans-take-jc-latham-off-pup-list-sign-s-hudson-clark",
+          "published_at": "2026-07-30T15:04:33.000Z",
+          "captured_at": "2026-07-30T15:21:34.180Z",
+          "signal_type": "injury",
+          "signal_strength": 0.45,
+          "confidence": 0.68,
+          "summary": "Titans take JC Latham off PUP list, sign S Hudson Clark",
+          "raw_excerpt": "The Titans will be getting right tackle JC Latham going at training camp over the next few days.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "injury"
+          ],
+          "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/titans-take-jc-latham-off-pup-list-sign-s-hudson-clark",
+          "source_file": null
+        }
+      ]
     },
     "WAS": {
       "nick": "Commanders",
@@ -1243,6 +1363,35 @@
       "conference": "NFC",
       "items": [
         {
+          "id": "camp_332dd06aef994f69",
+          "season": 2026,
+          "team": "WAS",
+          "player": null,
+          "position": null,
+          "source": "Pro Football Talk",
+          "source_type": "rss",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/tua-tagovailoa-takes-part-in-thursdays-practice",
+          "published_at": "2026-07-30T14:48:47.000Z",
+          "captured_at": "2026-07-30T15:21:34.180Z",
+          "signal_type": "coach_quote",
+          "signal_strength": 0.56,
+          "confidence": 0.68,
+          "summary": "Tua Tagovailoa takes part in Thursday's practice",
+          "raw_excerpt": "Falcons quarterback Tua Tagovailoa missed the first practice of training camp with back tightness, but head coach Kevin Stefanski said that he didn't expect it to be a lengthy absence and his prediction was proven correct on Thursday.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "coach_quote"
+          ],
+          "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/tua-tagovailoa-takes-part-in-thursdays-practice",
+          "source_file": null
+        },
+        {
           "id": "camp_b4bc77e8d0ab2d4d",
           "season": 2026,
           "team": "WAS",
@@ -1251,8 +1400,8 @@
           "source": "ESPN NFL",
           "source_type": "rss",
           "source_url": "https://www.espn.com/nfl/story/_/id/49481418/bengals-shemar-stewart-carted-left-leg-injury",
-          "published_at": "2026-07-30T04:05:02.000Z",
-          "captured_at": "2026-07-30T03:46:07.745Z",
+          "published_at": "2026-07-30T14:22:22.000Z",
+          "captured_at": "2026-07-30T15:21:34.180Z",
           "signal_type": "injury",
           "signal_strength": 0.82,
           "confidence": 0.68,
@@ -1271,6 +1420,35 @@
             "injury"
           ],
           "dedupe_key": "https://www.espn.com/nfl/story/_/id/49481418/bengals-shemar-stewart-carted-left-leg-injury",
+          "source_file": null
+        },
+        {
+          "id": "camp_07caa8fda18ff4b1",
+          "season": 2026,
+          "team": "WAS",
+          "player": null,
+          "position": null,
+          "source": "Pro Football Talk",
+          "source_type": "rss",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/puka-nacua-not-being-out-on-field-never-crossed-my-mind",
+          "published_at": "2026-07-30T12:50:28.000Z",
+          "captured_at": "2026-07-30T15:21:34.180Z",
+          "signal_type": "injury",
+          "signal_strength": 0.45,
+          "confidence": 0.68,
+          "summary": "Puka Nacua: Not being out on practice field never crossed my mind",
+          "raw_excerpt": "After catching 313 passes over his first three NFL seasons, it looked like Rams wide receiver Puka Nacua was on the fast track toward a contract extension but off-field issues slowed things down this offseason.",
+          "betting_relevance": "Needs human review for betting relevance.",
+          "linked_markets": [
+            "wins"
+          ],
+          "anchor_relevance": [],
+          "needs_human_review": true,
+          "tags": [
+            "camp",
+            "injury"
+          ],
+          "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/puka-nacua-not-being-out-on-field-never-crossed-my-mind",
           "source_file": null
         }
       ]

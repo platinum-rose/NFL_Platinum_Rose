@@ -26,8 +26,8 @@
   - Dashboard, schedule asset, YouTube intel asset, official-picks inbox, and M6 health all returned HTTP 200.
   - `npm.cmd run intel:source-audit` was recalibrated around futures-portfolio synthesis freshness, excluding DK/FD bet-slip parser and weekly live-props plumbing from the current gate.
   - Last fully passing audit was `PASSABLE`: Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7.
-  - Current source audit is `PASSABLE`: Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7. The recovered verified 16-item training-camp snapshot has been restored to the app-facing July 30 files.
-  - Current source-audit artifacts: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-56-51-813Z.json`, `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-56-51-813Z.html`, and `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`.
+  - Current source audit is `PASSABLE`: Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7. A fresh approved live RSS scout refreshed the app-facing July 30 training-camp files to 19 items across 10 teams.
+  - Current source-audit artifacts: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T15-21-51-624Z.json`, `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T15-21-51-624Z.html`, and `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`.
 - Live/paid model calls during recovery: none by Codex.
 - Supabase writes during recovery: none by Codex.
 - Official-pick approvals: none.
@@ -35,7 +35,7 @@
 
 ## Current Objective
 
-Continue from the crash-recovery triage checkpoint. The current objective is a maximum-effort frontier-model futures portfolio synthesis using the prepared local evidence packet. BetOnline July 29 screenshots are normalized, the verified 16-item training-camp recovery snapshot is restored, and the source audit is passable. DK/FD bet-slip parsers and weekly live props are out of scope for this focus.
+Continue from the crash-recovery triage checkpoint. The current objective is a maximum-effort frontier-model futures portfolio synthesis using the prepared local evidence packet. BetOnline July 29 screenshots are normalized, the fresh approved live training-camp RSS scout is written, and the source audit is passable. DK/FD bet-slip parsers and weekly live props are out of scope for this focus.
 
 ## Completed In Recovery
 
@@ -99,7 +99,7 @@ Continue from the crash-recovery triage checkpoint. The current objective is a m
 - Training-camp refresh:
   - `data/training-camp/2026/latest.json`
   - `data/training-camp/2026/training-camp-intel-2026-07-30.json`
-  - Latest receipt: 16 items, 32 teams, 12 teams with intel, Football Outsiders fetch failed.
+  - Latest receipt: 19 items, 32 teams, 10 teams with intel, Football Outsiders fetch failed.
   - Status: committed in `642349e`; recovery copy preserved under `data/training-camp/2026/recovered/`; `.nfl/training-camp/` reports and receipts remain untracked.
 - Futures import/parser work:
   - `data/futures-imports/betus-2026-07-29.json`
@@ -145,5 +145,5 @@ Continue from the crash-recovery triage checkpoint. The current objective is a m
 ## Resume Command
 
 ```text
-Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF_PROMPT.md, HANDOFF.md, WORKING-CONTEXT.md, TASK_BOARD.md, docs\FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md, docs\FUTURES_SYNTHESIS_REQUIREMENT_AUDIT_2026-07-30.md, docs\TRAINING_CAMP_SOURCE_RECONCILIATION_2026-07-30.md, docs\FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md, docs\FUTURES_ODDS_BETONLINE_2026-07-29_MANUAL_REVIEW.md, handoffs\2026-07-30-0635-crash-recovery-source-audit-handoff.md, and handoffs\2026-07-30-0655-workstream-triage-handoff.md first. Current focus is a maximum-effort frontier-model futures portfolio narrative and recommendation synthesis, not DK/FD bet-slip parsers or weekly live props. BetUS, Bookmaker/BKR, and BetOnline July 29 imports are current and dry-run ingestable; BetOnline was manually normalized into data\futures-imports\betonline-2026-07-29.json with 160 rows and a manual review doc preserving playoff No-side prices. Current source audit is PASSABLE after restoring the recovered verified July 30 training-camp snapshot to data\training-camp\2026\latest.json and data\training-camp\2026\training-camp-intel-2026-07-30.json: Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7. Next: ask explicit approval for any paid/frontier model synthesis call, then use docs\FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md as the evidence packet. Guardrails: no paid model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval.
+Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF_PROMPT.md, HANDOFF.md, WORKING-CONTEXT.md, TASK_BOARD.md, docs\FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md, docs\FUTURES_SYNTHESIS_REQUIREMENT_AUDIT_2026-07-30.md, docs\TRAINING_CAMP_SOURCE_RECONCILIATION_2026-07-30.md, docs\FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md, docs\FUTURES_ODDS_BETONLINE_2026-07-29_MANUAL_REVIEW.md, handoffs\2026-07-30-0635-crash-recovery-source-audit-handoff.md, and handoffs\2026-07-30-0655-workstream-triage-handoff.md first. Current focus is a maximum-effort frontier-model futures portfolio narrative and recommendation synthesis, not DK/FD bet-slip parsers or weekly live props. BetUS, Bookmaker/BKR, and BetOnline July 29 imports are current and dry-run ingestable; BetOnline was manually normalized into data\futures-imports\betonline-2026-07-29.json with 160 rows and a manual review doc preserving playoff No-side prices. Current source audit is PASSABLE after a fresh approved live RSS scout refreshed data\training-camp\2026\latest.json and data\training-camp\2026\training-camp-intel-2026-07-30.json to 19 items across 10 teams: Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7. Next: ask explicit approval for any paid/frontier model synthesis call, then use docs\FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md as the evidence packet. Guardrails: no paid model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval.
 ```

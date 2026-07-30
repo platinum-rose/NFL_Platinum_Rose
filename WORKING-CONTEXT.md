@@ -45,11 +45,11 @@ Current source audit:
 npm.cmd run intel:source-audit
 ```
 
-Current result: `PASSABLE`, Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7. The recovered verified 16-item training-camp snapshot has been restored to the app-facing July 30 files.
+Current result: `PASSABLE`, Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7. A fresh approved live RSS scout refreshed the app-facing July 30 training-camp files to 19 items across 10 teams.
 
 - Last fully passing audit: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.json`
-- Current audit JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-56-51-813Z.json`
-- Current audit HTML: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-56-51-813Z.html`
+- Current audit JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T15-21-51-624Z.json`
+- Current audit HTML: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T15-21-51-624Z.html`
 - `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`
 - `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md`
 - `docs/FUTURES_SYNTHESIS_REQUIREMENT_AUDIT_2026-07-30.md`
@@ -65,7 +65,7 @@ BetOnline July 29 screenshots have now been manually normalized:
 
 Important caveats:
 - BetOnline exact Super Bowl matchup was not present in the July 29 screenshot bundle.
-- Current worktree copies of `data/training-camp/2026/latest.json` and `data/training-camp/2026/training-camp-intel-2026-07-30.json` contain the restored verified recovery snapshot from `data/training-camp/2026/recovered/training-camp-intel-2026-07-30-0346-verified.json`: 16 items across 12 teams, 3 high-priority items, and 6 feed-health entries. Use it as review/highlight context before synthesis.
+- Current worktree copies of `data/training-camp/2026/latest.json` and `data/training-camp/2026/training-camp-intel-2026-07-30.json` contain the fresh approved live RSS scout snapshot generated `2026-07-30T15:21:34.180Z`: 19 items across 10 teams, 4 high-priority items, and 6 feed-health entries. Five feeds were available; Football Outsiders still returned `fetch failed`. Use it as review/highlight context before synthesis.
 - Review items are not blockers by themselves; they must be accepted, rejected, or caveated before a frontier-model run.
 - Podcast/deep-dive output was regenerated after expanding ad/legal filtering to catch sponsored-by copy. The hard promo/legal scan is clean; remaining sportsbook mentions are price/context references.
 
@@ -160,7 +160,7 @@ Recommended next:
 
 - Create one real official-picks proposal draft and exercise approve/reject through the inbox UI.
 - Confirm whether migration 044 has been applied live before relying on production official-picks flows.
-- Refresh/review training-camp intel closer to kickoff; latest RSS scout receipt covers 32 teams, 10 with intel, and one feed issue (`Football Outsiders: fetch failed`).
+- Refresh/review training-camp intel closer to kickoff; latest RSS scout receipt `.nfl/receipts/training-camp-rss-scout-2026-07-30T15-21-35-524Z.json` covers 32 teams, 10 with intel, and one feed issue (`Football Outsiders: fetch failed`).
 - Keep older open context in view: Yahoo Fantasy API approval still blocks F-26/F-26b, `NFL-ATLAS-3` weekly-cron wiring still needs a decision, and `NFL-ATLAS-2` is still blocked on digest redesign scoping answers.
 
 ## Previous Immediate Action (S317 Historical)

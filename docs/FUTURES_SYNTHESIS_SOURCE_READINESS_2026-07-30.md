@@ -15,9 +15,9 @@ This is a source-readiness checklist, not a betting recommendation and not appro
 - Post-restore written check: `npm.cmd run intel:source-audit`
 - Current written verdict: `PASSABLE`
 - Current written counts: Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7 / Inference 1
-- Current written JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-56-51-813Z.json`
-- Current written HTML: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-56-51-813Z.html`
-- Current source-gate state: the recovered 16-item training-camp snapshot has been restored into the app-facing files; there are 0 stale, 0 blocked, and 0 missing sources.
+- Current written JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T15-21-51-624Z.json`
+- Current written HTML: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T15-21-51-624Z.html`
+- Current source-gate state: the fresh approved live RSS training-camp scout has been written into the app-facing files; there are 0 stale, 0 blocked, and 0 missing sources.
 
 ## Scope Decision
 
@@ -46,8 +46,8 @@ The current focus is futures portfolio synthesis readiness. The following are ou
 | Generated podcast narratives and deep dives | Accepted with caveat | Regenerated after the expanded ad/legal filter at `2026-07-30T08:48:17.626Z`. Expanded hard promo/legal scan is clean; sportsbook mentions that remain are price/context references rather than ad/legal copy. |
 | Research/article RSS ingest | Accepted with caveat | Fresh July 30 review lane with one feed issue. Use as research context, not direct pick authority. |
 | Article full-body intel review | Accepted with caveat | 39 articles reviewed, 0 actual pick candidates, 8 market/inference leads, 103 contextual notes. Use leads as context only. |
-| Training camp local snapshot | Accepted with caveat | Restored verified July 30 snapshot now lives in `data/training-camp/2026/latest.json` and `data/training-camp/2026/training-camp-intel-2026-07-30.json` with 16 items across 12 teams. Review/highlight before model synthesis. |
-| Training camp RSS scout | Accepted with caveat | 16 live-feed items across 12 teams with one feed issue. Review merged output before model synthesis. |
+| Training camp local snapshot | Accepted with caveat | Fresh approved live RSS scout snapshot now lives in `data/training-camp/2026/latest.json` and `data/training-camp/2026/training-camp-intel-2026-07-30.json` with 19 items across 10 teams. Review/highlight before model synthesis. |
+| Training camp RSS scout | Accepted with caveat | 19 merged manual+RSS items across 10 teams with one feed issue. Review merged output before model synthesis. |
 | Latest season readiness smoke | Accepted with caveat | READY WITH WATCH ITEMS, PASS 11 / WARN 6 / FAIL 0. Watch items are waived for source freshness but still matter for product readiness. |
 
 ## Verification Receipts
@@ -67,14 +67,14 @@ The current focus is futures portfolio synthesis readiness. The following are ou
 - `npm.cmd run futures:betonline-0729` generated `data/futures-imports/betonline-2026-07-29.json` and `docs/FUTURES_ODDS_BETONLINE_2026-07-29_MANUAL_REVIEW.md`.
 - `node scripts/build-betonline-0729-import.js --check-only` passed with 160 rows.
 - `node scripts/ingest-futures-json.js --file data/futures-imports/betonline-2026-07-29.json --dry-run` passed with 160 rows and no DB write.
-- `npm.cmd run intel:source-audit` returned `PASSABLE` after restoring the recovered training-camp snapshot into the app-facing files.
-- `data/training-camp/2026/recovered/training-camp-intel-2026-07-30-0346-verified.json` parsed successfully and shows 16 items across 12 teams from `2026-07-30T03:46:07.745Z`.
+- `npm.cmd run intel:source-audit` returned `PASSABLE` after the fresh approved live RSS scout refreshed the app-facing files.
+- `.nfl/receipts/training-camp-rss-scout-2026-07-30T15-21-35-524Z.json` records 19 items across 10 teams from `2026-07-30T15:21:34.180Z`; five feeds were available and Football Outsiders returned `fetch failed`.
 - `node --check scripts\build-intel-source-audit-report.js` passed after adding the recovered-snapshot action to empty training-camp latest reports.
 
 ## Required Caveats Before Frontier Synthesis
 
 - BetOnline July 29 listed markets are normalized, but exact Super Bowl matchup was not present in the BetOnline screenshot bundle.
-- The training-camp latest snapshot is reconciled. Treat it as research context that still needs review/highlighting before model synthesis.
+- The training-camp latest snapshot is refreshed. Treat it as research context that still needs review/highlighting before model synthesis.
 - Generated podcast/deep-dive text is accepted only after the July 30 ad/legal-filter regeneration. If new podcast ingestion runs again, regenerate and re-scan before model synthesis.
 - The latest portfolio synthesis artifact is useful prior context, but it was generated before this source-acceptance pass. Rebuild the synthesis packet from accepted current sources.
 - Season readiness is `READY WITH WATCH ITEMS`, PASS 11 / WARN 6 / FAIL 0. The watch items are not source-freshness blockers, but should be explicitly waived or noted before model execution.
