@@ -31,6 +31,7 @@ Safe recovered work has been committed in narrow checkpoints:
 - `642349e` - Refresh July 30 training camp intel snapshot.
 - `96376e1` - Recalibrate futures synthesis source audit.
 - `0cd942a` - Add futures synthesis source readiness checklist.
+- `f6cee97` - Clean podcast deep-dive synthesis evidence.
 
 `npm.cmd run intel:source-audit` has been recalibrated around the active objective: verifying current intel sources for a maximum-effort frontier-model futures portfolio synthesis. DK/FD bet-slip parsers and weekly live props are execution/regular-season plumbing and are out of scope for this synthesis-readiness gate.
 
@@ -53,7 +54,6 @@ Important caveats:
 - Podcast/deep-dive output was regenerated after expanded ad/legal filtering. The expanded hard promo/legal scan is clean; remaining sportsbook mentions are price/context references.
 
 Remaining dirty work is intentional:
-- Podcast/deep-dive regeneration, including new July 21-23 episode files and a 57-episode index. Stage this only with the focused source-readiness package; do not sweep in unrelated crash artifacts.
 - Overnight/ops automation files: `scripts/overnight.js`, `docs/NFL_DASHBOARD_USER_GUIDE.md`, and `infra/systemd/`. Review separately because they change live-fetch automation assumptions and contain Linux/encoding/command assumptions.
 - Older retry artifacts under `.nfl/readiness/` and `.nfl/source-audit/`; latest successful reports are already committed.
 
