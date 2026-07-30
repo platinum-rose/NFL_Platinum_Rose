@@ -3,11 +3,11 @@
     "schema": "secondary_matchup_vulnerability_snapshot_v1",
     "season": 2026,
     "week": 1,
-    "generated_at": "2026-07-30T20:11:51.528Z",
+    "generated_at": "2026-07-30T20:39:17.234Z",
     "game_count": 16,
     "matchup_count": 32,
-    "matchups_with_secondary_absences": 25,
-    "high_or_medium_vulnerabilities": 7,
+    "matchups_with_secondary_absences": 23,
+    "high_or_medium_vulnerabilities": 8,
     "recommendation_status": "manual_matchup_intel_only_not_picks",
     "manual_seed_coverage": {
       "required_team_count": 32,
@@ -81,7 +81,7 @@
       {
         "source": "Player availability snapshot",
         "status": "available",
-        "evidence": "796 availability event(s) from data/player-availability/latest.json."
+        "evidence": "790 availability event(s) from data/player-availability/latest.json."
       },
       {
         "source": "Schedule spine",
@@ -495,23 +495,6 @@
       },
       "secondary_absences": [
         {
-          "player_name": "Malik Mustapha",
-          "team": "SF",
-          "position": "S",
-          "event_type": "setback",
-          "availability_trend": "worsening",
-          "summary": "Mustapha (hamstring) won't practice Wednesday, Matt Barrows of The Athletic reports.",
-          "source": "ESPN injuries API",
-          "published_at": "2026-07-29T21:13:00.000Z",
-          "role": null,
-          "side": null,
-          "impact_tier": "unrated",
-          "primary_receiver_archetypes_impacted": [],
-          "weakness_tags": [],
-          "severity_score": 0.85,
-          "needs_human_review": true
-        },
-        {
           "player_name": "Darrick Forrest",
           "team": "SF",
           "position": "S",
@@ -580,10 +563,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 2.2,
+      "severity_score": 1.35,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.76,
+      "confidence": 0.71,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -616,36 +599,11 @@
         "source_url": "https://www.ourlads.com/nfl-depth-charts/",
         "notes": "Anarumo disguises and post-snap rotation using single-high and match principles."
       },
-      "secondary_absences": [
-        {
-          "player_name": "DJ Turner II",
-          "team": "CIN",
-          "position": "CB",
-          "event_type": "setback",
-          "availability_trend": "worsening",
-          "summary": "Turner (calf) was active in Wednesday's training camp practice, mixing it up with Ja'Marr Chase during 7-on-7 and 11-on-11 drills, Geoff Hobson of the Bengals' official site reports.",
-          "source": "ESPN injuries API",
-          "published_at": "2026-07-30T00:07:00.000Z",
-          "role": "outside_cb2",
-          "side": "field",
-          "impact_tier": "starter",
-          "primary_receiver_archetypes_impacted": [
-            "z_receiver",
-            "field_stretcher"
-          ],
-          "weakness_tags": [
-            "outside_wr_boost",
-            "boundary_wr_boost"
-          ],
-          "severity_score": 1.27,
-          "needs_human_review": true
-        }
-      ],
+      "secondary_absences": [],
       "weakness_tags": [
         "boundary_wr_boost",
         "deep_pass_boost",
         "inside_seam_boost",
-        "outside_wr_boost",
         "post_cross_boost"
       ],
       "target_receivers": [
@@ -664,12 +622,11 @@
             "red_zone"
           ],
           "matched_weakness_tags": [
-            "outside_wr_boost",
             "boundary_wr_boost",
             "deep_pass_boost",
             "post_cross_boost"
           ],
-          "opportunity_score": 6,
+          "opportunity_score": 4.5,
           "notes": "TB 1,000-yard Streak HOF WR.",
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         },
@@ -684,11 +641,10 @@
             "boundary"
           ],
           "matched_weakness_tags": [
-            "outside_wr_boost",
             "deep_pass_boost",
             "post_cross_boost"
           ],
-          "opportunity_score": 2.4,
+          "opportunity_score": 1.6,
           "notes": "TB Rookie WR3.",
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         },
@@ -729,10 +685,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 1.27,
+      "severity_score": 0,
       "elite_absence_count": 0,
-      "vulnerability_tier": "watch",
-      "confidence": 0.74,
+      "vulnerability_tier": "low",
+      "confidence": 0.66,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -771,8 +727,8 @@
           "player_name": "Benjamin Morrison",
           "team": "TB",
           "position": "CB",
-          "event_type": "setback",
-          "availability_trend": "worsening",
+          "event_type": "limited",
+          "availability_trend": "stable",
           "summary": "Morrison remains limited in practice at training camp due to a hamstring injury, Scott Smith of the Buccaneers' official site reports.",
           "source": "ESPN injuries API",
           "published_at": "2026-07-29T18:45:00.000Z",
@@ -781,7 +737,7 @@
           "impact_tier": "unrated",
           "primary_receiver_archetypes_impacted": [],
           "weakness_tags": [],
-          "severity_score": 0.85,
+          "severity_score": 0.55,
           "needs_human_review": true
         },
         {
@@ -800,10 +756,34 @@
           "weakness_tags": [],
           "severity_score": 1.2,
           "needs_human_review": true
+        },
+        {
+          "player_name": "Zyon McCollum",
+          "team": "TB",
+          "position": "CB",
+          "event_type": "ir",
+          "availability_trend": "worsening",
+          "summary": "McCollum (hip) is participating in OTAs.",
+          "source": "ESPN injuries API",
+          "published_at": "2026-06-12T01:02:00.000Z",
+          "role": "outside_cb2",
+          "side": "field",
+          "impact_tier": "starter",
+          "primary_receiver_archetypes_impacted": [
+            "z_receiver"
+          ],
+          "weakness_tags": [
+            "outside_wr_boost",
+            "boundary_wr_boost"
+          ],
+          "severity_score": 2.03,
+          "needs_human_review": true
         }
       ],
       "weakness_tags": [
+        "boundary_wr_boost",
         "hot_read_boost",
+        "outside_wr_boost",
         "slot_wr_boost",
         "underneath_volume_boost"
       ],
@@ -823,10 +803,12 @@
             "slot"
           ],
           "matched_weakness_tags": [
+            "outside_wr_boost",
+            "boundary_wr_boost",
             "slot_wr_boost",
             "underneath_volume_boost"
           ],
-          "opportunity_score": 3,
+          "opportunity_score": 6,
           "notes": "CIN All-Pro Alpha WR.",
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         },
@@ -849,12 +831,32 @@
           "opportunity_score": 1.6,
           "notes": "CIN Big Slot TE.",
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Tee Higgins",
+          "team": "CIN",
+          "roles": [
+            "z_receiver",
+            "red_zone"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "boundary",
+            "deep",
+            "red_zone"
+          ],
+          "matched_weakness_tags": [
+            "outside_wr_boost"
+          ],
+          "opportunity_score": 1.2,
+          "notes": "CIN Premium WR2.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 2.05,
+      "severity_score": 3.78,
       "elite_absence_count": 0,
-      "vulnerability_tier": "watch",
-      "confidence": 0.73,
+      "vulnerability_tier": "medium",
+      "confidence": 0.88,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1174,6 +1176,23 @@
       },
       "secondary_absences": [
         {
+          "player_name": "Amani Hooker",
+          "team": "TEN",
+          "position": "S",
+          "event_type": "pup",
+          "availability_trend": "worsening",
+          "summary": "The Titans activated Hooker (undisclosed) from the active/PUP list Tuesday, Jim Wyatt of the team's official site reports.",
+          "source": "ESPN injuries API",
+          "published_at": "2026-07-28T19:02:00.000Z",
+          "role": null,
+          "side": null,
+          "impact_tier": "unrated",
+          "primary_receiver_archetypes_impacted": [],
+          "weakness_tags": [],
+          "severity_score": 1.05,
+          "needs_human_review": true
+        },
+        {
           "player_name": "Nazeeh Johnson",
           "team": "TEN",
           "position": "S",
@@ -1259,10 +1278,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 0.55,
+      "severity_score": 1.6,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.66,
+      "confidence": 0.72,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1413,23 +1432,6 @@
           "weakness_tags": [],
           "severity_score": 0.85,
           "needs_human_review": true
-        },
-        {
-          "player_name": "Hunter Wohler",
-          "team": "IND",
-          "position": "S",
-          "event_type": "setback",
-          "availability_trend": "worsening",
-          "summary": "Wohler (foot) said Wednesday he believes he will be healthy when Indianapolis starts training camp in July, James Boyd of The Athletic reports.",
-          "source": "ESPN injuries API",
-          "published_at": "2026-05-06T23:42:00.000Z",
-          "role": null,
-          "side": null,
-          "impact_tier": "unrated",
-          "primary_receiver_archetypes_impacted": [],
-          "weakness_tags": [],
-          "severity_score": 0.85,
-          "needs_human_review": true
         }
       ],
       "weakness_tags": [
@@ -1483,10 +1485,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 1.7,
+      "severity_score": 0.85,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.69,
+      "confidence": 0.64,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1956,10 +1958,36 @@
         "source_url": "https://www.ourlads.com/nfl-depth-charts/",
         "notes": "Ejiro Evero 3-4 base zone scheme funneling passing volume underneath."
       },
-      "secondary_absences": [],
+      "secondary_absences": [
+        {
+          "player_name": "Jaycee Horn",
+          "team": "CAR",
+          "position": "CB",
+          "event_type": "pup",
+          "availability_trend": "worsening",
+          "summary": "The Panthers activated Horn (foot) from the active/non-football injury list Tuesday, Darin Gantt of the team's official site reports.",
+          "source": "ESPN injuries API",
+          "published_at": "2026-07-28T20:35:00.000Z",
+          "role": "outside_cb1",
+          "side": "boundary",
+          "impact_tier": "elite",
+          "primary_receiver_archetypes_impacted": [
+            "alpha_x"
+          ],
+          "weakness_tags": [
+            "outside_wr_boost",
+            "alpha_wr_boost",
+            "boundary_wr_boost"
+          ],
+          "severity_score": 3.15,
+          "needs_human_review": true
+        }
+      ],
       "weakness_tags": [
+        "alpha_wr_boost",
         "boundary_wr_boost",
         "deep_pass_boost",
+        "outside_wr_boost",
         "post_cross_boost",
         "slot_wr_boost",
         "underneath_volume_boost"
@@ -1979,12 +2007,35 @@
             "deep"
           ],
           "matched_weakness_tags": [
+            "outside_wr_boost",
+            "alpha_wr_boost",
             "boundary_wr_boost",
             "deep_pass_boost",
             "post_cross_boost"
           ],
-          "opportunity_score": 4.5,
+          "opportunity_score": 7.5,
           "notes": "CHI WR1.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Rome Odunze",
+          "team": "CHI",
+          "roles": [
+            "z_receiver",
+            "field_stretcher"
+          ],
+          "target_share_tier": "high",
+          "route_area_tags": [
+            "deep",
+            "boundary"
+          ],
+          "matched_weakness_tags": [
+            "outside_wr_boost",
+            "deep_pass_boost",
+            "post_cross_boost"
+          ],
+          "opportunity_score": 3.6,
+          "notes": "CHI Rookie 1st Round WR.",
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         },
         {
@@ -2008,30 +2059,29 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         },
         {
-          "player_name": "Rome Odunze",
+          "player_name": "Cole Kmet",
           "team": "CHI",
           "roles": [
-            "z_receiver",
-            "field_stretcher"
+            "te_middle",
+            "red_zone"
           ],
-          "target_share_tier": "high",
+          "target_share_tier": "medium",
           "route_area_tags": [
-            "deep",
-            "boundary"
+            "middle",
+            "red_zone"
           ],
           "matched_weakness_tags": [
-            "deep_pass_boost",
-            "post_cross_boost"
+            "alpha_wr_boost"
           ],
-          "opportunity_score": 2.4,
-          "notes": "CHI Rookie 1st Round WR.",
+          "opportunity_score": 0.8,
+          "notes": "CHI TE.",
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 0,
-      "elite_absence_count": 0,
-      "vulnerability_tier": "low",
-      "confidence": 0.58,
+      "severity_score": 3.15,
+      "elite_absence_count": 1,
+      "vulnerability_tier": "medium",
+      "confidence": 0.81,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -2170,25 +2220,7 @@
         "source_url": "https://www.ourlads.com/nfl-depth-charts/",
         "notes": "Ryan Nielsen aggressive press-man scheme relying on Tyson Campbell."
       },
-      "secondary_absences": [
-        {
-          "player_name": "Jourdan Lewis",
-          "team": "JAX",
-          "position": "CB",
-          "event_type": "setback",
-          "availability_trend": "worsening",
-          "summary": "Lewis (foot) didn't participate in OTAs on Monday but instead worked on the side, Demetrius Harvey of The Florida Times-Union reports.",
-          "source": "ESPN injuries API",
-          "published_at": "2026-06-15T23:59:00.000Z",
-          "role": null,
-          "side": null,
-          "impact_tier": "unrated",
-          "primary_receiver_archetypes_impacted": [],
-          "weakness_tags": [],
-          "severity_score": 0.85,
-          "needs_human_review": true
-        }
-      ],
+      "secondary_absences": [],
       "weakness_tags": [
         "alpha_wr_boost",
         "boundary_wr_boost",
@@ -2262,10 +2294,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 0.85,
+      "severity_score": 0,
       "elite_absence_count": 0,
-      "vulnerability_tier": "watch",
-      "confidence": 0.67,
+      "vulnerability_tier": "low",
+      "confidence": 0.62,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -2321,23 +2353,6 @@
             "boundary_wr_boost"
           ],
           "severity_score": 1.65,
-          "needs_human_review": true
-        },
-        {
-          "player_name": "Damarri Mathis",
-          "team": "CLE",
-          "position": "CB",
-          "event_type": "setback",
-          "availability_trend": "worsening",
-          "summary": "Cleveland signed Mathis (knee) to a contract Tuesday.",
-          "source": "ESPN injuries API",
-          "published_at": "2026-07-21T20:28:00.000Z",
-          "role": null,
-          "side": null,
-          "impact_tier": "unrated",
-          "primary_receiver_archetypes_impacted": [],
-          "weakness_tags": [],
-          "severity_score": 0.85,
           "needs_human_review": true
         }
       ],
@@ -2434,10 +2449,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 2.5,
+      "severity_score": 1.65,
       "elite_absence_count": 1,
       "vulnerability_tier": "medium",
-      "confidence": 0.85,
+      "confidence": 0.8,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -2806,23 +2821,6 @@
       },
       "secondary_absences": [
         {
-          "player_name": "JuJu Brents",
-          "team": "MIA",
-          "position": "CB",
-          "event_type": "setback",
-          "availability_trend": "worsening",
-          "summary": "Brents is all set to participate in training camp, Marcel Louis-Jacques of ESPN.com reports.",
-          "source": "ESPN injuries API",
-          "published_at": "2026-07-28T21:06:00.000Z",
-          "role": null,
-          "side": null,
-          "impact_tier": "unrated",
-          "primary_receiver_archetypes_impacted": [],
-          "weakness_tags": [],
-          "severity_score": 0.85,
-          "needs_human_review": true
-        },
-        {
           "player_name": "Darrell Baker Jr.",
           "team": "MIA",
           "position": "CB",
@@ -2930,10 +2928,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 3.25,
+      "severity_score": 2.4,
       "elite_absence_count": 0,
-      "vulnerability_tier": "medium",
-      "confidence": 0.84,
+      "vulnerability_tier": "watch",
+      "confidence": 0.79,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -3073,28 +3071,6 @@
       },
       "secondary_absences": [
         {
-          "player_name": "Keisean Nixon",
-          "team": "GB",
-          "position": "CB",
-          "event_type": "setback",
-          "availability_trend": "worsening",
-          "summary": "Nixon (hamstring) did not participate at the Packers' training camp practice Wednesday, Matt Schneidman of The Athletic reports.",
-          "source": "ESPN injuries API",
-          "published_at": "2026-07-29T23:48:00.000Z",
-          "role": "slot_cb",
-          "side": "slot",
-          "impact_tier": "starter",
-          "primary_receiver_archetypes_impacted": [
-            "slot"
-          ],
-          "weakness_tags": [
-            "slot_wr_boost",
-            "inside_seam_boost"
-          ],
-          "severity_score": 1.27,
-          "needs_human_review": true
-        },
-        {
           "player_name": "Kamal Hadden",
           "team": "GB",
           "position": "CB",
@@ -3181,10 +3157,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 2.47,
+      "severity_score": 1.2,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.76,
+      "confidence": 0.69,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -3329,6 +3305,23 @@
       },
       "secondary_absences": [
         {
+          "player_name": "Fred Davis II",
+          "team": "WAS",
+          "position": "CB",
+          "event_type": "pup",
+          "availability_trend": "worsening",
+          "summary": "The Commanders activated Davis (undisclosed) off the active/non-football illness list Wednesday.",
+          "source": "ESPN injuries API",
+          "published_at": "2026-07-30T00:48:00.000Z",
+          "role": null,
+          "side": null,
+          "impact_tier": "unrated",
+          "primary_receiver_archetypes_impacted": [],
+          "weakness_tags": [],
+          "severity_score": 1.05,
+          "needs_human_review": true
+        },
+        {
           "player_name": "Trey Amos",
           "team": "WAS",
           "position": "CB",
@@ -3344,23 +3337,6 @@
           "weakness_tags": [],
           "severity_score": 1.2,
           "needs_human_review": true
-        },
-        {
-          "player_name": "Rasul Douglas",
-          "team": "WAS",
-          "position": "CB",
-          "event_type": "setback",
-          "availability_trend": "worsening",
-          "summary": "Douglas is set to sign with Washington on a one-year contract worth up to $3.8 million, Adam Schefter of ESPN reports.",
-          "source": "ESPN injuries API",
-          "published_at": "2026-07-06T16:01:00.000Z",
-          "role": null,
-          "side": null,
-          "impact_tier": "unrated",
-          "primary_receiver_archetypes_impacted": [],
-          "weakness_tags": [],
-          "severity_score": 0.85,
-          "needs_human_review": true
         }
       ],
       "weakness_tags": [
@@ -3368,10 +3344,10 @@
         "underneath_volume_boost"
       ],
       "target_receivers": [],
-      "severity_score": 2.05,
+      "severity_score": 2.25,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.59,
+      "confidence": 0.6,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -3533,23 +3509,6 @@
       },
       "secondary_absences": [
         {
-          "player_name": "Joey Blount",
-          "team": "ARI",
-          "position": "S",
-          "event_type": "limited",
-          "availability_trend": "stable",
-          "summary": "Blount (neck/concussion) was an active participant in Tuesday's training camp practice, per Ross D. Franklin of the Associated Press.",
-          "source": "ESPN injuries API",
-          "published_at": "2026-07-30T00:48:00.000Z",
-          "role": null,
-          "side": null,
-          "impact_tier": "unrated",
-          "primary_receiver_archetypes_impacted": [],
-          "weakness_tags": [],
-          "severity_score": 0.55,
-          "needs_human_review": true
-        },
-        {
           "player_name": "Garrett Williams",
           "team": "ARI",
           "position": "CB",
@@ -3638,10 +3597,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 2.35,
+      "severity_score": 1.8,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.74,
+      "confidence": 0.71,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -3801,23 +3760,6 @@
       },
       "secondary_absences": [
         {
-          "player_name": "P.J. Locke",
-          "team": "DAL",
-          "position": "S",
-          "event_type": "setback",
-          "availability_trend": "worsening",
-          "summary": "Locke suffered a noncontact knee injury during a training camp practice Wednesday, Calvin Watkins of The Dallas Morning News reports.",
-          "source": "ESPN injuries API",
-          "published_at": "2026-07-29T23:25:00.000Z",
-          "role": null,
-          "side": null,
-          "impact_tier": "unrated",
-          "primary_receiver_archetypes_impacted": [],
-          "weakness_tags": [],
-          "severity_score": 0.85,
-          "needs_human_review": true
-        },
-        {
           "player_name": "DaRon Bland",
           "team": "DAL",
           "position": "CB",
@@ -3918,10 +3860,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 3.4,
+      "severity_score": 2.55,
       "elite_absence_count": 1,
       "vulnerability_tier": "medium",
-      "confidence": 0.85,
+      "confidence": 0.8,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -3955,25 +3897,7 @@
         "source_url": "https://www.ourlads.com/nfl-depth-charts/",
         "notes": "Steve Spagnuolo intricate blitz packages and post-snap rotation around Trent McDuffie."
       },
-      "secondary_absences": [
-        {
-          "player_name": "Jadon Canady",
-          "team": "KC",
-          "position": "CB",
-          "event_type": "setback",
-          "availability_trend": "worsening",
-          "summary": "The Chiefs selected Canady in the fourth round of the 2026 NFL Draft, 109th overall.",
-          "source": "ESPN injuries API",
-          "published_at": "2026-04-25T16:42:00.000Z",
-          "role": null,
-          "side": null,
-          "impact_tier": "unrated",
-          "primary_receiver_archetypes_impacted": [],
-          "weakness_tags": [],
-          "severity_score": 0.85,
-          "needs_human_review": true
-        }
-      ],
+      "secondary_absences": [],
       "weakness_tags": [
         "hot_read_boost",
         "inside_seam_boost",
@@ -4023,10 +3947,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 0.85,
+      "severity_score": 0,
       "elite_absence_count": 0,
-      "vulnerability_tier": "watch",
-      "confidence": 0.68,
+      "vulnerability_tier": "low",
+      "confidence": 0.63,
       "use_cases": [
         "wr_props",
         "qb_props",

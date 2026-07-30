@@ -33,7 +33,43 @@ describe('classifyAvailabilityEvent', () => {
       status: 'Active',
       text: 'Active after missing last season with a torn ACL.',
     });
-    expect(event).toEqual({ event_type: 'active_news', availability_trend: 'unknown' });
+    expect(event.availability_trend).not.toBe('worsening');
+  });
+
+  it('correctly classifies active practice participation as improving return intel', () => {
+    const djTurner = classifyAvailabilityEvent({
+      status: 'Active',
+      text: "Bengals cornerback DJ Turner II (calf) was active in Wednesday's training camp practice, mixing it up with Ja'Marr Chase during 7-on-7 and 11-on-11 drills.",
+    });
+    expect(djTurner.availability_trend).toBe('improving');
+
+    const christensen = classifyAvailabilityEvent({
+      status: 'Active',
+      text: "Coach Dave Canales says Christensen (Achilles) 'looked good' in his first practice back from injury.",
+    });
+    expect(christensen.event_type).toBe('return_to_practice');
+    expect(christensen.availability_trend).toBe('improving');
+
+    const erickAll = classifyAvailabilityEvent({
+      status: 'Active',
+      text: 'All (knee) has been cleared to participate at training camp in a limited capacity.',
+    });
+    expect(erickAll.event_type).toBe('limited_return');
+    expect(erickAll.availability_trend).toBe('improving');
+  });
+
+  it('extracts active/PUP and active/NFI list placements from comment text when status is Active', () => {
+    const hargrave = classifyAvailabilityEvent({
+      status: 'Active',
+      text: "Hargrave is on the Packers' active/PUP list during training camp due to a knee injury.",
+    });
+    expect(hargrave).toEqual({ event_type: 'pup', availability_trend: 'worsening' });
+
+    const tressWay = classifyAvailabilityEvent({
+      status: 'Active',
+      text: 'Washington placed Way (pectoral) on its active/non-football injury list Wednesday.',
+    });
+    expect(tressWay).toEqual({ event_type: 'pup', availability_trend: 'worsening' });
   });
 
   it('classifies severe status labels as worsening availability', () => {

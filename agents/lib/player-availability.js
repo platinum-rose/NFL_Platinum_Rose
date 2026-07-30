@@ -3,7 +3,7 @@ import { getTeamAbbreviation, normalizeTeam } from '../../src/lib/teams.js';
 
 const STATUS_ALIASES = [
   ['IR', /\b(injured reserve|injury reserve|\bir\b)\b/i],
-  ['PUP', /\b(physically unable to perform|\bpup\b|active\/pup|reserve\/pup)\b/i],
+  ['PUP', /\b(physically unable to perform|\bpup\b|active\/pup|reserve\/pup|active\/non-football|active\/nfi|non-football injury|non-football illness)\b/i],
   ['SUSPENSION', /\b(suspension|suspended)\b/i],
   ['OUT', /\bout\b/i],
   ['DOUBTFUL', /\bdoubtful\b/i],
@@ -12,20 +12,40 @@ const STATUS_ALIASES = [
   ['ACTIVE_NEWS', /\bactive\b/i],
 ];
 
+const PUP_TEXT_PATTERNS = [
+  /\b(active\/pup|active\/physically unable|placed on (?:the )?active\/pup|placed on (?:the )?pup|reserve\/pup|physically unable to perform)\b/i,
+  /\b(active\/non-football|active\/nfi|non-football injury|non-football illness|placed on (?:the )?active\/non-football)\b/i,
+];
+
+const IR_TEXT_PATTERNS = [
+  /\b(placed on (?:the )?injured reserve|placed on (?:the )?ir\b|season-ending injured reserve)\b/i,
+];
+
 const RETURN_PATTERNS = [
-  /\b(return(?:ed|s|ing)? to practice|returns? to practice|back at practice|practices? for the first time)\b/i,
-  /\b(takes part|participat(?:ed|es|ing)|full participant|doing individual drills|full-team drills)\b/i,
-  /\b(cleared|activated|removed from (?:the )?pup|passed (?:his )?physical)\b/i,
+  /\b(return(?:ed|s|ing)? to practice|returns? to practice|back at practice|practices? for the first time|first practice back)\b/i,
+  /\b(takes part|participat(?:ed|es|ing)|full participant|doing individual drills|full-team drills|cleared to participate)\b/i,
+  /\b(cleared|activated|removed from (?:the )?pup|passed (?:his )?physical|looked good)\b/i,
+  /\b(active in (?:[a-z]+'?s? )?(?:training camp )?practice|7-on-7|11-on-11)\b/i,
+];
+
+const EXPLICIT_SETBACK_PATTERNS = [
+  /\b(suffered a setback|suffered a new|re-injured|reinjured|aggravated|carted off|left practice early|underwent surgery|out for the season|season-ending|expected to miss)\b/i,
+  /\b(will miss|not practicing|did not participate|unable to practice|ruled out|suffered an issue)\b/i,
 ];
 
 const SETBACK_PATTERNS = [
-  /\b(setback|flare[- ]up|carted off|suffered|torn|tear|will miss|expected to miss|not practicing|did not participate|placed on)\b/i,
-  /\b(out for the season|season-ending|surgery)\b/i,
+  /\b(setback|flare[- ]up|carted off|suffered a setback|re-injured|torn|tear|will miss|expected to miss|not practicing|did not participate|placed on)\b/i,
+  /\b(out for the season|season-ending|underwent surgery)\b/i,
 ];
 
 const LIMITED_PATTERNS = [
   /\b(limited|individual drills|not full|ramp(?:ing)? up|managed reps|eased back|pitch count)\b/i,
   /\b(snap count|limited snap|workload restriction)\b/i,
+];
+
+const HISTORICAL_CONTEXT_PATTERNS = [
+  /\b(last (?:season|year)|in 202[0-5]|past (?:season|year)|prior (?:season|year)|previous (?:season|year)|former injury|recovering from offseason|offseason (?:surgery|rehab))\b/i,
+  /\b(fully (?:recovered|cleared|healthy)|100 (?:percent|%|percent)|no restrictions|full contact|cleared for contact|cleared to play)\b/i,
 ];
 
 const MARKET_RULES = [
@@ -105,27 +125,46 @@ export function parseInjuryType(shortComment) {
 }
 
 export function classifyAvailabilityEvent({ status, text = '' } = {}) {
-  const normalized = normalizeInjuryStatus(status);
   const body = String(text || '');
+  let normalized = normalizeInjuryStatus(status);
+
+  // If status is generically "Active" or "Active_News", check if the body text explicitly states PUP, NFI, or IR placement:
+  if (normalized === 'ACTIVE_NEWS' || normalized === 'UNKNOWN') {
+    if (PUP_TEXT_PATTERNS.some((re) => re.test(body))) normalized = 'PUP';
+    else if (IR_TEXT_PATTERNS.some((re) => re.test(body))) normalized = 'IR';
+  }
 
   if (normalized === 'IR') return { event_type: 'ir', availability_trend: 'worsening' };
   if (normalized === 'PUP') return { event_type: 'pup', availability_trend: 'worsening' };
   if (normalized === 'SUSPENSION') return { event_type: 'suspension', availability_trend: 'worsening' };
   if (normalized === 'OUT') return { event_type: 'out', availability_trend: 'worsening' };
   if (normalized === 'DOUBTFUL') return { event_type: 'doubtful', availability_trend: 'worsening' };
-  if (normalized === 'QUESTIONABLE' && SETBACK_PATTERNS.some((re) => re.test(body))) {
+
+  const isReturn = RETURN_PATTERNS.some((re) => re.test(body));
+  const isLimited = LIMITED_PATTERNS.some((re) => re.test(body));
+  const isExplicitSetback = EXPLICIT_SETBACK_PATTERNS.some((re) => re.test(body));
+  const hasHistoricalContext = HISTORICAL_CONTEXT_PATTERNS.some((re) => re.test(body));
+
+  if (isReturn && (!isExplicitSetback || hasHistoricalContext)) {
+    return {
+      event_type: isLimited ? 'limited_return' : 'return_to_practice',
+      availability_trend: 'improving',
+    };
+  }
+
+  if (normalized === 'QUESTIONABLE' && isExplicitSetback && !hasHistoricalContext) {
     return { event_type: 'setback', availability_trend: 'worsening' };
   }
-  if (RETURN_PATTERNS.some((re) => re.test(body))) {
-    return { event_type: LIMITED_PATTERNS.some((re) => re.test(body)) ? 'limited_return' : 'return_to_practice', availability_trend: 'improving' };
-  }
-  if (LIMITED_PATTERNS.some((re) => re.test(body))) {
+
+  if (isLimited && !isExplicitSetback) {
     return { event_type: 'limited', availability_trend: 'stable' };
   }
-  if (normalized === 'ACTIVE_NEWS') return { event_type: 'active_news', availability_trend: 'unknown' };
-  if (SETBACK_PATTERNS.some((re) => re.test(body))) {
+
+  if (isExplicitSetback && !hasHistoricalContext) {
     return { event_type: 'setback', availability_trend: 'worsening' };
   }
+
+  if (normalized === 'ACTIVE_NEWS') return { event_type: 'active_news', availability_trend: 'unknown' };
   if (normalized === 'PROBABLE') return { event_type: 'probable', availability_trend: 'improving' };
   return { event_type: 'status_update', availability_trend: 'unknown' };
 }
