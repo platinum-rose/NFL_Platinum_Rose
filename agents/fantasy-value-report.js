@@ -35,7 +35,7 @@ const PROJ_GAMES = parseInt(getArg('--proj-games', '17'), 10);
 const ADP_CSV = getArg('--adp', null);
 const K = parseFloat(getArg('--k', '6'));            // regression constant (games)
 const MIN_GAMES_MEAN = 6;                            // min games to count toward positional mean
-const POSITIONS = ['QB', 'RB', 'WR', 'TE'];
+export const POSITIONS = ['QB', 'RB', 'WR', 'TE'];
 
 const SB_URL = process.env.SUPABASE_URL;
 const SB_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -50,7 +50,7 @@ function scoredPoints(row) {
   return ppr ?? std; // ppr default
 }
 // Name key for joining ADP (names) to stats: lowercase, strip punctuation + suffixes.
-function nameKey(s) {
+export function nameKey(s) {
   return (s || '').toLowerCase()
     .replace(/[.'`]/g, '')
     .replace(/\b(jr|sr|ii|iii|iv|v)\b/g, '')
@@ -121,7 +121,7 @@ async function loadAdpFromTable() {
 }
 
 // ── projection + value ────────────────────────────────────────────────────────
-function tierFor(gap) {
+export function tierFor(gap) {
   if (gap == null) return 'no_projection';
   if (gap >= 6) return 'strong_value';
   if (gap >= 3) return 'value';
@@ -129,7 +129,7 @@ function tierFor(gap) {
   return 'reach';
 }
 
-function buildBoard(statsRows, adpRows) {
+export function buildBoard(statsRows, adpRows) {
   // index stats by id + name key
   const byId = {}, byName = {};
   for (const r of statsRows) {
@@ -149,6 +149,7 @@ function buildBoard(statsRows, adpRows) {
   const board = [];
   for (const a of adpRows) {
     const pos = a.position || null;
+    if (!POSITIONS.includes(pos)) continue;
     const stat = (a.player_id && byId[a.player_id]) || byName[nameKey(a.player)] || null;
     let proj = null, projPpg = null;
     if (stat && stat._ppg != null && posMean[pos] != null) {
@@ -227,7 +228,7 @@ function toHtml(meta, board) {
 }
 
 // ── main ──────────────────────────────────────────────────────────────────────
-(async () => {
+async function main() {
   console.log(`🏈 Fantasy value-vs-ADP (Phase A) · scoring ${SCORING}`);
   const { season, rows: statsRows } = await fetchSeasonStats();
   const adpRows = ADP_CSV ? await loadAdpFromCsv(ADP_CSV) : await loadAdpFromTable();
@@ -253,4 +254,8 @@ function toHtml(meta, board) {
   console.log(`✅ ${base}.md / .html / .json`);
   console.log(`   Wrote public copy: ${OUT_PUBLIC}`);
   console.log(`   ${nValues} value plays · ${board.filter((b) => b.tier === 'reach').length} reaches · ${board.filter((b) => b.tier === 'no_projection').length} no-projection`);
-})().catch((e) => { console.error('✖', e.message); process.exitCode = 1; });
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((e) => { console.error('✖', e.message); process.exitCode = 1; });
+}
