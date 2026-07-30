@@ -4,6 +4,28 @@
 
 ---
 
+## Current Recovery State - 2026-07-30 UTC / 2026-07-29 Pacific
+
+**Crash recovery documented:** `handoffs/2026-07-30-0635-crash-recovery-source-audit-handoff.md`.
+
+The machine crashed during a dirty source-freshness/readiness workstream after the July 29 season-smoke and YouTube/Gemini futures reconciliation handoff. Local services have been restarted and verified:
+
+- Dashboard: `http://localhost:5174/platinum-rose-app/`
+- Official picks inbox: `http://127.0.0.1:8787/api/inbox`
+- M6 podcast service: `http://127.0.0.1:5060/health`
+
+Latest smoke verification:
+
+```powershell
+npm.cmd run smoke:season -- --require-services --dev-base http://localhost:5174/platinum-rose-app
+```
+
+Result: `READY WITH WATCH ITEMS`, PASS 11 / WARN 6 / FAIL 0 / INFO 1. Use `localhost:5174` for this recovered Vite session; `127.0.0.1:5174` failed in smoke even while the browser-visible localhost URL worked.
+
+Dirty work recovered but not yet committed includes source-audit tooling, article-intel review tooling, research feed hardening, July 30 training-camp refresh, BetUS/Bookmaker futures imports, BetUS alternate-wins parser guard, regenerated podcast/deep-dive artifacts, overnight pipeline additions, and ops docs. `npm.cmd run intel:source-audit` was regenerated after service recovery and is now blocked only by DraftKings/FanDuel parser implementation or verification. Review/stage narrowly by workstream. Do not use `git add -A`.
+
+---
+
 ## Active Milestone: YouTube / Gemini Local Intel & Shadow Harness
 
 - **S318 Completed (2026-07-29)**: Season readiness smoke + YouTube futures review repair.

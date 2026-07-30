@@ -1,0 +1,339 @@
+{
+  "generated_at": "2026-07-30T06:32:10.053Z",
+  "summary": {
+    "verdict": "READY WITH WATCH ITEMS",
+    "counts": {
+      "PASS": 11,
+      "WARN": 6,
+      "FAIL": 0,
+      "INFO": 1
+    }
+  },
+  "checks": [
+    {
+      "area": "Repo",
+      "name": "Working tree",
+      "status": "WARN",
+      "details": "There are local changes; stage narrowly and avoid sweeping unrelated work.",
+      "evidence": {
+        "files": [
+          "M agents/research-intel-ingest.js",
+          " M data/podcasts/m6-diarized-all/2026-02-24-even-money-ross-and-steve-s-2025-nfl-betting-recap.json",
+          " M data/podcasts/m6-diarized-all/2026-02-24-even-money-ross-and-steve-s-2025-nfl-betting-recap.md",
+          " M data/podcasts/m6-diarized-all/2026-03-03-even-money-first-look-at-2026-afc-season-win-totals.json",
+          " M data/podcasts/m6-diarized-all/2026-03-03-even-money-first-look-at-2026-afc-season-win-totals.md",
+          " M data/podcasts/m6-diarized-all/2026-03-03-sharp-or-square-early-2026-nfl-season-win-totals-part-1.json",
+          " M data/podcasts/m6-diarized-all/2026-03-03-sharp-or-square-early-2026-nfl-season-win-totals-part-1.md",
+          " M data/podcasts/m6-diarized-all/2026-03-10-even-money-nfl-free-agency-betting-takeaways-and-ncaa-conference-tournament-bets.json",
+          " M data/podcasts/m6-diarized-all/2026-03-10-even-money-nfl-free-agency-betting-takeaways-and-ncaa-conference-tournament-bets.md",
+          " M data/podcasts/m6-diarized-all/2026-03-10-sharp-or-square-nfl-free-agency-reactions-with-bill-barnwell.json",
+          " M data/podcasts/m6-diarized-all/2026-03-10-sharp-or-square-nfl-free-agency-reactions-with-bill-barnwell.md",
+          " M data/podcasts/m6-diarized-all/2026-03-19-sharp-or-square-nfl-season-win-totals-part-2.json",
+          " M data/podcasts/m6-diarized-all/2026-03-19-sharp-or-square-nfl-season-win-totals-part-2.md",
+          " M data/podcasts/m6-diarized-all/2026-03-31-sharp-or-square-2026-nfl-draft-gambling-kick-off.json",
+          " M data/podcasts/m6-diarized-all/2026-03-31-sharp-or-square-2026-nfl-draft-gambling-kick-off.md",
+          " M data/podcasts/m6-diarized-all/2026-04-07-even-money-first-look-at-2026-nfc-season-win-totals.json",
+          " M data/podcasts/m6-diarized-all/2026-04-07-even-money-first-look-at-2026-nfc-season-win-totals.md",
+          " M data/podcasts/m6-diarized-all/2026-04-07-sharp-or-square-nfl-draft-betting-update-more-prop-bets-picks-and-predictions.json",
+          " M data/podcasts/m6-diarized-all/2026-04-07-sharp-or-square-nfl-draft-betting-update-more-prop-bets-picks-and-predictions.md",
+          " M data/podcasts/m6-diarized-all/2026-04-09-sharp-or-square-nfl-quarterback-evaluation-with-seth-wickersham-of-espn.json",
+          " M data/podcasts/m6-diarized-all/2026-04-09-sharp-or-square-nfl-quarterback-evaluation-with-seth-wickersham-of-espn.md",
+          " M data/podcasts/m6-diarized-all/2026-04-14-even-money-how-to-bet-on-the-2026-nfl-draft.json",
+          " M data/podcasts/m6-diarized-all/2026-04-14-even-money-how-to-bet-on-the-2026-nfl-draft.md",
+          " M data/podcasts/m6-diarized-all/2026-04-16-sharp-or-square-nfl-draft-betting-update-rueben-bain-ty-simpson-odds-and-more.json",
+          " M data/podcasts/m6-diarized-all/2026-04-16-sharp-or-square-nfl-draft-betting-update-rueben-bain-ty-simpson-odds-and-more.md",
+          " M data/podcasts/m6-diarized-all/2026-04-21-even-money-2026-nfl-draft-prop-bets-with-john-daigle.json",
+          " M data/podcasts/m6-diarized-all/2026-04-21-even-money-2026-nfl-draft-prop-bets-with-john-daigle.md",
+          " M data/podcasts/m6-diarized-all/2026-04-21-sharp-or-square-2026-nfl-draft-betting-picks-and-predictions-ty-simpson-jeremiyah-love-and-more.json",
+          " M data/podcasts/m6-diarized-all/2026-04-21-sharp-or-square-2026-nfl-draft-betting-picks-and-predictions-ty-simpson-jeremiyah-love-and-more.md",
+          " M data/podcasts/m6-diarized-all/2026-04-23-sharp-or-square-final-nfl-draft-bets-player-props-picks-and-predictions.json",
+          " M data/podcasts/m6-diarized-all/2026-04-23-sharp-or-square-final-nfl-draft-bets-player-props-picks-and-predictions.md",
+          " M data/podcasts/m6-diarized-all/2026-04-24-action-network-sports-betting-nfl-draft-first-round-recap-and-reaction-2026.json",
+          " M data/podcasts/m6-diarized-all/2026-04-24-action-network-sports-betting-nfl-draft-first-round-recap-and-reaction-2026.md",
+          " M data/podcasts/m6-diarized-all/2026-04-28-even-money-how-to-bet-on-the-2026-kentucky-derby-and-nfl-draft-betting-takeaways.json",
+          " M data/podcasts/m6-diarized-all/2026-04-28-even-money-how-to-bet-on-the-2026-kentucky-derby-and-nfl-draft-betting-takeaways.md",
+          " M data/podcasts/m6-diarized-all/2026-04-28-sharp-or-square-nfl-draft-betting-recap-picks-and-predictions-results.json",
+          " M data/podcasts/m6-diarized-all/2026-04-28-sharp-or-square-nfl-draft-betting-recap-picks-and-predictions-results.md",
+          " M data/podcasts/m6-diarized-all/2026-05-04-even-money-nfl-schedule-release-betting-tips-and-nba-nhl-playoff-semifinal-bets.json",
+          " M data/podcasts/m6-diarized-all/2026-05-04-even-money-nfl-schedule-release-betting-tips-and-nba-nhl-playoff-semifinal-bets.md",
+          " M data/podcasts/m6-diarized-all/2026-05-05-sharp-or-square-nfl-draft-analysis-part-1-nfc-recap.json",
+          " M data/podcasts/m6-diarized-all/2026-05-05-sharp-or-square-nfl-draft-analysis-part-1-nfc-recap.md",
+          " M data/podcasts/m6-diarized-all/2026-05-12-even-money-how-to-bet-on-the-2026-nfl-schedule-release.json",
+          " M data/podcasts/m6-diarized-all/2026-05-12-even-money-how-to-bet-on-the-2026-nfl-schedule-release.md",
+          " M data/podcasts/m6-diarized-all/2026-05-12-sharp-or-square-covering-the-world-s-best-gamblers-with-writer-kit-chellel.json",
+          " M data/podcasts/m6-diarized-all/2026-05-12-sharp-or-square-covering-the-world-s-best-gamblers-with-writer-kit-chellel.md",
+          " M data/podcasts/m6-diarized-all/2026-05-14-sharp-or-square-nfl-mailbag-de-von-achane-contract-nfl-schedule-and-more.json",
+          " M data/podcasts/m6-diarized-all/2026-05-14-sharp-or-square-nfl-mailbag-de-von-achane-contract-nfl-schedule-and-more.md",
+          " M data/podcasts/m6-diarized-all/2026-05-19-even-money-warren-sharp-nfl-schedule-release-bets.json",
+          " M data/podcasts/m6-diarized-all/2026-05-19-even-money-warren-sharp-nfl-schedule-release-bets.md",
+          " M data/podcasts/m6-diarized-all/2026-05-21-sharp-or-square-nfl-schedule-release-part-1-with-warren-sharp.json",
+          " M data/podcasts/m6-diarized-all/2026-05-21-sharp-or-square-nfl-schedule-release-part-1-with-warren-sharp.md",
+          " M data/podcasts/m6-diarized-all/2026-05-26-even-money-the-5-best-sports-betting-contest-strategies.json",
+          " M data/podcasts/m6-diarized-all/2026-05-26-even-money-the-5-best-sports-betting-contest-strategies.md",
+          " M data/podcasts/m6-diarized-all/2026-05-26-sharp-or-square-nfl-schedule-release-part-2-with-warren-sharp.json",
+          " M data/podcasts/m6-diarized-all/2026-05-26-sharp-or-square-nfl-schedule-release-part-2-with-warren-sharp.md",
+          " M data/podcasts/m6-diarized-all/2026-05-28-sharp-or-square-nfl-week-1-betting-lines-2026-regular-season-openers.json",
+          " M data/podcasts/m6-diarized-all/2026-05-28-sharp-or-square-nfl-week-1-betting-lines-2026-regular-season-openers.md",
+          " M data/podcasts/m6-diarized-all/2026-06-02-even-money-betting-implications-of-the-myles-garrett-and-aj-brown-trades.json",
+          " M data/podcasts/m6-diarized-all/2026-06-02-even-money-betting-implications-of-the-myles-garrett-and-aj-brown-trades.md",
+          " M data/podcasts/m6-diarized-all/2026-06-02-sharp-or-square-stanley-cup-finals-betting-preview-and-nfl-trade-reaction-canes-vs-golden-knights-myles-garrett-trade.json",
+          " M data/podcasts/m6-diarized-all/2026-06-02-sharp-or-square-stanley-cup-finals-betting-preview-and-nfl-trade-reaction-canes-vs-golden-knights-myles-garrett-trade.md",
+          " M data/podcasts/m6-diarized-all/2026-06-09-even-money-brendan-sorsby-eligibility-fallout-and-nfl-season-long-player-props.json",
+          " M data/podcasts/m6-diarized-all/2026-06-09-even-money-brendan-sorsby-eligibility-fallout-and-nfl-season-long-player-props.md",
+          " M data/podcasts/m6-diarized-all/2026-06-18-sharp-or-square-the-future-of-betting-part-1-prediction-markets-scandals-and-legal-battles.json",
+          " M data/podcasts/m6-diarized-all/2026-06-18-sharp-or-square-the-future-of-betting-part-1-prediction-markets-scandals-and-legal-battles.md",
+          " M data/podcasts/m6-diarized-all/2026-06-23-even-money-betting-impact-of-the-giannis-antetokounmpo-trade-and-survivor-pool-tips.json",
+          " M data/podcasts/m6-diarized-all/2026-06-23-even-money-betting-impact-of-the-giannis-antetokounmpo-trade-and-survivor-pool-tips.md",
+          " M data/podcasts/m6-diarized-all/2026-06-23-sharp-or-square-the-future-of-betting-part-2-sports-betting-strategy-ai-and-tax-battles.json",
+          " M data/podcasts/m6-diarized-all/2026-06-23-sharp-or-square-the-future-of-betting-part-2-sports-betting-strategy-ai-and-tax-battles.md",
+          " M data/podcasts/m6-diarized-all/2026-06-30-even-money-2026-hall-of-fame-game-bets-and-email-questions.json",
+          " M data/podcasts/m6-diarized-all/2026-06-30-even-money-2026-hall-of-fame-game-bets-and-email-questions.md",
+          " M data/podcasts/m6-diarized-all/2026-06-30-sharp-or-square-gambling-stories-and-the-future-of-hollywood-with-screenwriter-allan-loeb.json",
+          " M data/podcasts/m6-diarized-all/2026-06-30-sharp-or-square-gambling-stories-and-the-future-of-hollywood-with-screenwriter-allan-loeb.md",
+          " M data/podcasts/m6-diarized-all/2026-06-30-the-favorites-fantasy-football-deep-dive-with-sean-koerner-part-1.json",
+          " M data/podcasts/m6-diarized-all/2026-06-30-the-favorites-fantasy-football-deep-dive-with-sean-koerner-part-1.md",
+          " M data/podcasts/m6-diarized-all/2026-07-01-bettingpros-podcast-2026-nfl-week-1-betting-predictions-sharp-picks-before-the-market-adjusts-ep-1013.json",
+          " M data/podcasts/m6-diarized-all/2026-07-01-bettingpros-podcast-2026-nfl-week-1-betting-predictions-sharp-picks-before-the-market-adjusts-ep-1013.md",
+          " M data/podcasts/m6-diarized-all/2026-07-02-sharp-or-square-underrated-gambling-movies-with-michael-lasker.json",
+          " M data/podcasts/m6-diarized-all/2026-07-02-sharp-or-square-underrated-gambling-movies-with-michael-lasker.md",
+          " M data/podcasts/m6-diarized-all/2026-07-02-the-favorites-fantasy-football-deep-dive-with-sean-koerner-part-2.json",
+          " M data/podcasts/m6-diarized-all/2026-07-02-the-favorites-fantasy-football-deep-dive-with-sean-koerner-part-2.md",
+          " M data/podcasts/m6-diarized-all/2026-07-07-action-network-sports-betting-genesis-scottish-open-betting-preview-2026.json",
+          " M data/podcasts/m6-diarized-all/2026-07-07-action-network-sports-betting-genesis-scottish-open-betting-preview-2026.md",
+          " M data/podcasts/m6-diarized-all/2026-07-07-even-money-steve-s-plan-to-fix-soccer-and-teaser-feedback.json",
+          " M data/podcasts/m6-diarized-all/2026-07-07-even-money-steve-s-plan-to-fix-soccer-and-teaser-feedback.md",
+          " M data/podcasts/m6-diarized-all/2026-07-07-sharp-or-square-nfl-playoff-betting-predictions.json",
+          " M data/podcasts/m6-diarized-all/2026-07-07-sharp-or-square-nfl-playoff-betting-predictions.md",
+          " M data/podcasts/m6-diarized-all/2026-07-07-the-favorites-gambling-america-s-true-national-pastime-with-author-david-bockino.json",
+          " M data/podcasts/m6-diarized-all/2026-07-07-the-favorites-gambling-america-s-true-national-pastime-with-author-david-bockino.md",
+          " M data/podcasts/m6-diarized-all/2026-07-08-bettingpros-podcast-nfl-futures-picks-2026-best-bets-for-passing-rushing-and-receiving-leaders-ep-1016.json",
+          " M data/podcasts/m6-diarized-all/2026-07-08-bettingpros-podcast-nfl-futures-picks-2026-best-bets-for-passing-rushing-and-receiving-leaders-ep-1016.md",
+          " M data/podcasts/m6-diarized-all/2026-07-14-action-network-sports-betting-the-open-championship-betting-preview-2026.json",
+          " M data/podcasts/m6-diarized-all/2026-07-14-action-network-sports-betting-the-open-championship-betting-preview-2026.md",
+          " M data/podcasts/m6-diarized-all/2026-07-14-the-favorites-venture-capitalists-girl-dads-and-the-british-open-with-kyle-murray.json",
+          " M data/podcasts/m6-diarized-all/2026-07-14-the-favorites-venture-capitalists-girl-dads-and-the-british-open-with-kyle-murray.md",
+          " M data/podcasts/m6-diarized-all/2026-07-15-bettingpros-podcast-nfl-futures-betting-our-favorite-long-shot-picks-for-the-2026-season-ep-1018.json",
+          " M data/podcasts/m6-diarized-all/2026-07-15-bettingpros-podcast-nfl-futures-betting-our-favorite-long-shot-picks-for-the-2026-season-ep-1018.md",
+          " M data/podcasts/m6-diarized-all/2026-07-16-bettingpros-podcast-the-5-nfl-betting-rules-professional-gamblers-never-break-how-to-win-in-2026-ep-1019.json",
+          " M data/podcasts/m6-diarized-all/2026-07-16-bettingpros-podcast-the-5-nfl-betting-rules-professional-gamblers-never-break-how-to-win-in-2026-ep-1019.md",
+          " M data/podcasts/m6-diarized-all/2026-07-16-the-favorites-all-things-nfl-injuries-with-pro-football-doc-david-chao.json",
+          " M data/podcasts/m6-diarized-all/2026-07-16-the-favorites-all-things-nfl-injuries-with-pro-football-doc-david-chao.md",
+          " M data/podcasts/m6-diarized-all/manifest.json",
+          " M data/training-camp/2026/latest.json",
+          " M docs/SEASON_READINESS_SMOKE_TEST_LATEST.md",
+          " M docs/podcast-transcript-deep-dives/index.html",
+          " M docs/podcast-transcript-deep-dives/index.json",
+          " M package.json",
+          " M scripts/overnight.js",
+          " M scripts/parse-futures-text.js",
+          "?? .nfl/readiness/season-readiness-2026-07-30T03-02-43-842Z.json",
+          "?? .nfl/readiness/season-readiness-2026-07-30T03-02-43-842Z.md",
+          "?? .nfl/readiness/season-readiness-2026-07-30T06-19-36-659Z.json",
+          "?? .nfl/readiness/season-readiness-2026-07-30T06-19-36-659Z.md",
+          "?? .nfl/readiness/season-readiness-2026-07-30T06-22-57-800Z.json",
+          "?? .nfl/readiness/season-readiness-2026-07-30T06-22-57-800Z.md",
+          "?? .nfl/readiness/season-readiness-2026-07-30T06-29-43-083Z.json",
+          "?? .nfl/readiness/season-readiness-2026-07-30T06-29-43-083Z.md",
+          "?? .nfl/source-audit/",
+          "?? data/futures-imports/betus-2026-07-29.json",
+          "?? data/futures-imports/bookmaker-2026-07-29.json",
+          "?? data/podcasts/m6-diarized-all/2026-07-21-even-money-training-camp-impact-on-bets-what-steve-s-up-to-with-sic-score-and-more.json",
+          "?? data/podcasts/m6-diarized-all/2026-07-21-even-money-training-camp-impact-on-bets-what-steve-s-up-to-with-sic-score-and-more.md",
+          "?? data/podcasts/m6-diarized-all/2026-07-21-sharp-or-square-nfl-training-camp-questions-with-ben-solak-of-espn.json",
+          "?? data/podcasts/m6-diarized-all/2026-07-21-sharp-or-square-nfl-training-camp-questions-with-ben-solak-of-espn.md",
+          "?? data/podcasts/m6-diarized-all/2026-07-21-the-favorites-2026-nfl-quarterback-rankings-part-1.json",
+          "?? data/podcasts/m6-diarized-all/2026-07-21-the-favorites-2026-nfl-quarterback-rankings-part-1.md",
+          "?? data/podcasts/m6-diarized-all/2026-07-22-bettingpros-podcast-10-college-football-storylines-every-bettor-needs-to-know-before-week-0-ep-1021.json",
+          "?? data/podcasts/m6-diarized-all/2026-07-22-bettingpros-podcast-10-college-football-storylines-every-bettor-needs-to-know-before-week-0-ep-1021.md",
+          "?? data/podcasts/m6-diarized-all/2026-07-22-the-favorites-2026-nfl-quarterback-rankings-part-2.json",
+          "?? data/podcasts/m6-diarized-all/2026-07-22-the-favorites-2026-nfl-quarterback-rankings-part-2.md",
+          "?? data/podcasts/m6-diarized-all/2026-07-23-bettingpros-podcast-drafting-the-ultimate-2026-nfl-futures-card-win-totals-division-winners-and-award-sleepers-ep-1022.json",
+          "?? data/podcasts/m6-diarized-all/2026-07-23-bettingpros-podcast-drafting-the-ultimate-2026-nfl-futures-card-win-totals-division-winners-and-award-sleepers-ep-1022.md",
+          "?? data/podcasts/m6-diarized-all/2026-07-23-the-favorites-mock-drafts-sleepers-and-busts-with-fantasylife-s-kendall-valenzuela.json",
+          "?? data/podcasts/m6-diarized-all/2026-07-23-the-favorites-mock-drafts-sleepers-and-busts-with-fantasylife-s-kendall-valenzuela.md",
+          "?? data/research-intel/",
+          "?? data/training-camp/2026/training-camp-intel-2026-07-30.json",
+          "?? docs/NFL_DASHBOARD_USER_GUIDE.md",
+          "?? docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html",
+          "?? docs/article-intel-review/",
+          "?? docs/podcast-transcript-deep-dives/2026-07-22-bettingpros-podcast-10-college-football-storylines-every-bettor-needs-to-know-before-week-0-ep-1021.html",
+          "?? docs/podcast-transcript-deep-dives/2026-07-22-bettingpros-podcast-10-college-football-storylines-every-bettor-needs-to-know-before-week-0-ep-1021.md",
+          "?? docs/podcast-transcript-deep-dives/2026-07-23-bettingpros-podcast-drafting-the-ultimate-2026-nfl-futures-card-win-totals-division-winners-and-award-sleepers-ep-1022.html",
+          "?? docs/podcast-transcript-deep-dives/2026-07-23-bettingpros-podcast-drafting-the-ultimate-2026-nfl-futures-card-win-totals-division-winners-and-award-sleepers-ep-1022.md",
+          "?? docs/podcast-transcript-deep-dives/2026-07-23-the-favorites-mock-drafts-sleepers-and-busts-with-fantasylife-s-kendall-valenzuela.html",
+          "?? docs/podcast-transcript-deep-dives/2026-07-23-the-favorites-mock-drafts-sleepers-and-busts-with-fantasylife-s-kendall-valenzuela.md",
+          "?? infra/systemd/nfl-overnight.service",
+          "?? infra/systemd/nfl-overnight.timer",
+          "?? scripts/build-article-intel-review.js",
+          "?? scripts/build-intel-source-audit-report.js"
+        ]
+      }
+    },
+    {
+      "area": "Scripts",
+      "name": "Season command surface",
+      "status": "PASS",
+      "details": "Expected build, test, data, official-picks, training-camp, and futures commands are present.",
+      "evidence": {}
+    },
+    {
+      "area": "Local Data",
+      "name": "2026 schedule",
+      "status": "PASS",
+      "details": "Public schedule has 272 regular-season games across 18 weeks with kickoff times.",
+      "evidence": {
+        "games": 272,
+        "weeks": 18
+      }
+    },
+    {
+      "area": "Local Data",
+      "name": "YouTube futures intel",
+      "status": "PASS",
+      "details": "Public reviewed intel summary is present and leak check is clean.",
+      "evidence": {
+        "exported_items": 45,
+        "generated_at": "2026-07-29T04:00:31.515Z"
+      }
+    },
+    {
+      "area": "Local Data",
+      "name": "Fantasy value board",
+      "status": "PASS",
+      "details": "Fantasy board is present with a draftable player pool.",
+      "evidence": {
+        "players": 200,
+        "no_projection": 45,
+        "generated_for": "2026-07-26"
+      }
+    },
+    {
+      "area": "Futures",
+      "name": "Latest portfolio report",
+      "status": "WARN",
+      "details": "Latest watchlist report exists, but validator flags remain; treat cards as review-only.",
+      "evidence": {
+        "file": ".nfl\\portfolio\\portfolio-2026-07-27-watchlist-v2.raw.json",
+        "watchlist_count": 6,
+        "candidates": 5,
+        "final_cards": 3,
+        "validator_flagged": 3,
+        "validator_killed": 2
+      }
+    },
+    {
+      "area": "Training Camp",
+      "name": "Local report",
+      "status": "PASS",
+      "details": "Training-camp report artifacts exist.",
+      "evidence": {
+        "files": [
+          ".nfl\\training-camp\\training-camp-intel-2026-07-30.html",
+          ".nfl\\training-camp\\training-camp-intel-2026-07-30.md",
+          ".nfl\\training-camp\\training-camp-intel-2026-07-24.html",
+          ".nfl\\training-camp\\training-camp-intel-2026-07-24.md"
+        ]
+      }
+    },
+    {
+      "area": "Training Camp",
+      "name": "RSS scout receipt",
+      "status": "PASS",
+      "details": "Latest scout receipt covers 32 teams, 12 with intel, 1 feed issue(s).",
+      "evidence": {
+        "file": ".nfl\\receipts\\training-camp-rss-scout-2026-07-30T03-46-10-171Z.json",
+        "live": true,
+        "written": true,
+        "item_count": 16,
+        "feed_issues": [
+          "Football Outsiders: fetch failed"
+        ]
+      }
+    },
+    {
+      "area": "Official Picks",
+      "name": "Active proposal draft",
+      "status": "WARN",
+      "details": "No active proposal drafts exist, so approve/reject cannot be end-to-end smoke-tested yet.",
+      "evidence": {}
+    },
+    {
+      "area": "Official Picks",
+      "name": "Migration 044",
+      "status": "WARN",
+      "details": "Official-picks migration exists locally; live application status still needs confirmation before production use.",
+      "evidence": {}
+    },
+    {
+      "area": "Known Gaps",
+      "name": "Bet-slip parsers",
+      "status": "WARN",
+      "details": "DraftKings/FanDuel slip parsing still needs a real implementation or verification.",
+      "evidence": {}
+    },
+    {
+      "area": "Known Gaps",
+      "name": "Props data source",
+      "status": "WARN",
+      "details": "Props tooling still appears to depend on stub/mock data, not a live prop source.",
+      "evidence": {}
+    },
+    {
+      "area": "Known Gaps",
+      "name": "Human approval guardrail",
+      "status": "INFO",
+      "details": "Smoke test does not approve picks, write Supabase, make paid model calls, or mutate open parlays.",
+      "evidence": {}
+    },
+    {
+      "area": "Local Services",
+      "name": "Dashboard dev server",
+      "status": "PASS",
+      "details": "http://localhost:5174/platinum-rose-app/ returned HTTP 200.",
+      "evidence": {
+        "url": "http://localhost:5174/platinum-rose-app/",
+        "http_status": 200
+      }
+    },
+    {
+      "area": "Local Services",
+      "name": "Dashboard public schedule asset",
+      "status": "PASS",
+      "details": "http://localhost:5174/platinum-rose-app/schedule.json returned HTTP 200.",
+      "evidence": {
+        "url": "http://localhost:5174/platinum-rose-app/schedule.json",
+        "http_status": 200
+      }
+    },
+    {
+      "area": "Local Services",
+      "name": "Dashboard YouTube intel asset",
+      "status": "PASS",
+      "details": "http://localhost:5174/platinum-rose-app/youtube-futures-agent-intel-summary.json returned HTTP 200.",
+      "evidence": {
+        "url": "http://localhost:5174/platinum-rose-app/youtube-futures-agent-intel-summary.json",
+        "http_status": 200
+      }
+    },
+    {
+      "area": "Local Services",
+      "name": "Official picks inbox",
+      "status": "PASS",
+      "details": "http://127.0.0.1:8787/api/inbox returned HTTP 200.",
+      "evidence": {
+        "url": "http://127.0.0.1:8787/api/inbox",
+        "http_status": 200
+      }
+    },
+    {
+      "area": "Local Services",
+      "name": "M6 podcast health",
+      "status": "PASS",
+      "details": "http://127.0.0.1:5060/health returned HTTP 200.",
+      "evidence": {
+        "url": "http://127.0.0.1:5060/health",
+        "http_status": 200
+      }
+    }
+  ]
+}

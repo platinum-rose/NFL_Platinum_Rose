@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NFL Intelligence Source Audit</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1f2933;
+      --muted: #64748b;
+      --line: #d8dee9;
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --current: #087f5b;
+      --review: #9a6700;
+      --stale: #b42318;
+      --blocked: #7f1d1d;
+      --context: #475569;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+    header {
+      padding: 28px 32px 20px;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+    main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 28px 48px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-size: 20px;
+    }
+    .sub {
+      color: var(--muted);
+      max-width: 980px;
+    }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin: 18px 0 20px;
+    }
+    .metric, section, .gate {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .metric {
+      padding: 14px;
+    }
+    .metric b {
+      display: block;
+      font-size: 24px;
+      margin-bottom: 2px;
+    }
+    .metric span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .gate {
+      padding: 16px 18px;
+      margin-bottom: 18px;
+    }
+    .gate h2 {
+      margin-bottom: 6px;
+    }
+    .gate ul {
+      margin: 10px 0 0;
+      padding-left: 22px;
+    }
+    section {
+      margin-top: 18px;
+      padding: 18px;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 980px;
+    }
+    th, td {
+      padding: 11px 10px;
+      border-top: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+    th {
+      color: #334155;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      border-top: 0;
+    }
+    td:nth-child(1) { width: 24%; }
+    td:nth-child(2) { width: 9%; }
+    td:nth-child(3) { width: 15%; }
+    td:nth-child(4) { width: 25%; }
+    td:nth-child(5) { width: 27%; }
+    .path {
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: 12px;
+      margin-top: 4px;
+      overflow-wrap: anywhere;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .badge.current { background: var(--current); }
+    .badge.review { background: var(--review); }
+    .badge.stale { background: var(--stale); }
+    .badge.blocked, .badge.missing { background: var(--blocked); }
+    .badge.context { background: var(--context); }
+    .badge.inference { background: #31572c; }
+    details {
+      margin-top: 8px;
+      color: var(--muted);
+    }
+    details summary {
+      cursor: pointer;
+      color: #334155;
+      font-size: 13px;
+    }
+    dl {
+      margin: 8px 0 0;
+      display: grid;
+      grid-template-columns: minmax(160px, 260px) 1fr;
+      gap: 4px 10px;
+    }
+    dt {
+      font-weight: 700;
+      color: #475569;
+    }
+    dd {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>NFL Intelligence Source Audit</h1>
+    <div class="sub">Generated 2026-07-30T06:37:17.726Z. This is a pre-synthesis freshness report. It reads local receipts and artifacts only; it does not call frontier models, fetch live odds, write Supabase, approve official picks, or mutate open portfolio tickets.</div>
+  </header>
+  <main>
+    <div class="summary">
+      <div class="metric"><b>2</b><span>Current</span></div><div class="metric"><b>16</b><span>Review</span></div><div class="metric"><b>1</b><span>Stale</span></div><div class="metric"><b>1</b><span>Blocked</span></div><div class="metric"><b>0</b><span>Missing</span></div><div class="metric"><b>7</b><span>Context</span></div><div class="metric"><b>2</b><span>Inference Only</span></div>
+    </div>
+    <div class="gate">
+      <h2>Frontier Synthesis Gate: Blocked Until Refresh Decisions</h2>
+      <p>Do not run a maximum frontier-model portfolio synthesis yet unless stale or blocked sources are refreshed, excluded from recommendation eligibility, or intentionally retained as inference-only context.</p>
+      <ul><li><strong>DraftKings/FanDuel bet-slip parsers</strong>: Do not rely on automated slip import for final portfolio execution.</li><li><strong>Manual book export: BetOnline</strong>: Refresh before actionable recommendations. This is a primary execution book, so stale rows should not be replaced by public/Vegas market data except as a separate proxy alert.</li></ul>
+    </div>
+    <section>
+      <h2>Execution Policy</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Source</th>
+            <th>Status</th>
+            <th>Freshness</th>
+            <th>Evidence</th>
+            <th>Action Before Synthesis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Primary bet-placement books</strong></td>
+            <td><span class="badge context">Context</span></td>
+            <td>2026-07-30T06:37:17.726Z</td>
+            <td>Primary books: Bookmaker/BKR, BetUS, BetOnline. Public/Vegas books are market data only unless a major price discrepancy deserves proxy attention.</td>
+            <td>Recommendations should be placeable at a primary book. Elevate non-primary prices as Vegas-proxy alerts only when the value is large enough to justify manual action.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+<section>
+      <h2>Futures Odds</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Source</th>
+            <th>Status</th>
+            <th>Freshness</th>
+            <th>Evidence</th>
+            <th>Action Before Synthesis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>TheOddsAPI futures ingest receipt</strong><div class="path">.nfl\receipts\futures-ingest-2026-07-30T03-17-50-478Z.json</div><details><summary>Details</summary><dl><dt>Super Bowl Winner: available</dt><dd>128 rows from 1 event(s)</dd><dt>Conference Winner: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Division Winner: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>MVP: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Offensive Player of the Year: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Defensive Player of the Year: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Offensive Rookie of the Year: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Defensive Rookie of the Year: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Comeback Player of the Year: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Coach of the Year: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Regular Season Win Total: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Make the Playoffs: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Exact Super Bowl Matchup: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Most Regular Season Wins: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Fewest Regular Season Wins: unavailable</dt><dd>HTTP 404; 0 rows</dd></dl></details></td>
+            <td><span class="badge review">Review</span></td>
+            <td>2026-07-30T03:00:00.000Z (3.6h old)</td>
+            <td>1 available / 14 unavailable markets; 128 rows; 15 API calls.</td>
+            <td>Use available rows as public market data. For betting recommendations, require a primary-book quote or an explicit Vegas-proxy alert.</td>
+          </tr><tr>
+            <td><strong>Public/API team futures market coverage</strong><div class="path">.nfl\receipts\futures-ingest-2026-07-30T03-17-50-478Z.json</div><details><summary>Details</summary><dl><dt>Super Bowl Winner: available</dt><dd>128 rows from 1 event(s)</dd><dt>Conference Winner: unavailable</dt><dd>HTTP 404; not an actionable blocker by itself</dd><dt>Division Winner: unavailable</dt><dd>HTTP 404; not an actionable blocker by itself</dd><dt>Regular Season Win Total: unavailable</dt><dd>HTTP 404; not an actionable blocker by itself</dd><dt>Make the Playoffs: unavailable</dt><dd>HTTP 404; not an actionable blocker by itself</dd><dt>Exact Super Bowl Matchup: unavailable</dt><dd>HTTP 404; not an actionable blocker by itself</dd><dt>Most Regular Season Wins: unavailable</dt><dd>HTTP 404; not an actionable blocker by itself</dd><dt>Fewest Regular Season Wins: unavailable</dt><dd>HTTP 404; not an actionable blocker by itself</dd></dl></details></td>
+            <td><span class="badge review">Review</span></td>
+            <td>2026-07-30T03:00:00.000Z</td>
+            <td>1 public/API team-futures market(s) refreshed; 7 unavailable. Fresh public rows are market data, not primary-book execution quotes.</td>
+            <td>Use this lane for consensus, broad market shape, and Vegas-proxy alerts only. Actionable recommendations still require BKR, BetUS, or BetOnline prices.</td>
+          </tr><tr>
+            <td><strong>Awards and season-long player futures</strong><div class="path">.nfl\receipts\futures-ingest-2026-07-30T03-17-50-478Z.json</div><details><summary>Details</summary><dl><dt>MVP: unavailable</dt><dd>HTTP 404; price not needed for this exercise</dd><dt>Offensive Player of the Year: unavailable</dt><dd>HTTP 404; price not needed for this exercise</dd><dt>Defensive Player of the Year: unavailable</dt><dd>HTTP 404; price not needed for this exercise</dd><dt>Offensive Rookie of the Year: unavailable</dt><dd>HTTP 404; price not needed for this exercise</dd><dt>Defensive Rookie of the Year: unavailable</dt><dd>HTTP 404; price not needed for this exercise</dd><dt>Comeback Player of the Year: unavailable</dt><dd>HTTP 404; price not needed for this exercise</dd><dt>Coach of the Year: unavailable</dt><dd>HTTP 404; price not needed for this exercise</dd></dl></details></td>
+            <td><span class="badge inference">Inference Only</span></td>
+            <td>price excluded from recommendation eligibility</td>
+            <td>7 award-market endpoint(s) tracked only as inference context. Expert mentions can inform player, coach, team, and narrative strength.</td>
+            <td>Exclude awards from betting recommendations. Use only as qualitative inference when expert/podcast sources call out the underlying player or coach thesis.</td>
+          </tr><tr>
+            <td><strong>Manual book export: BetUS</strong><div class="path">data\futures-imports\betus-2026-07-29.json</div></td>
+            <td><span class="badge review">Review</span></td>
+            <td>2026-07-29 file snapshot</td>
+            <td>416 rows in latest local file betus-2026-07-29.json.</td>
+            <td>Fresh local primary-book rows are normalized and date-tracked. Dry-run ingestion passed; write to futures_odds_snapshots only when ready to promote this snapshot into the database.</td>
+          </tr><tr>
+            <td><strong>Manual book export: Bookmaker</strong><div class="path">data\futures-imports\bookmaker-2026-07-29.json</div></td>
+            <td><span class="badge review">Review</span></td>
+            <td>2026-07-29 file snapshot</td>
+            <td>128 rows in latest local file bookmaker-2026-07-29.json.</td>
+            <td>Fresh local primary-book rows are normalized and date-tracked. Dry-run ingestion passed; write to futures_odds_snapshots only when ready to promote this snapshot into the database.</td>
+          </tr><tr>
+            <td><strong>Manual book export: BetOnline</strong><div class="path">data\futures-imports\betonline-2026-07-14.json</div></td>
+            <td><span class="badge stale">Stale</span></td>
+            <td>2026-07-14 file snapshot</td>
+            <td>128 rows in latest local file betonline-2026-07-14.json.</td>
+            <td>Refresh before actionable recommendations. This is a primary execution book, so stale rows should not be replaced by public/Vegas market data except as a separate proxy alert.</td>
+          </tr><tr>
+            <td><strong>Raw current sportsbook export: Bookmaker/BKR</strong><div class="path">docs\Futures_Odds\BKR_Odds_0729</div><details><summary>Details</summary><dl><dt>Core team futures</dt><dd>44 market marker(s)</dd><dt>Awards</dt><dd>7 market marker(s)</dd><dt>Season-long player totals</dt><dd>110 market marker(s)</dd><dt>League stat leaders</dt><dd>8 market marker(s)</dd><dt>Week 1/game lines</dt><dd>5 market marker(s)</dd></dl></details></td>
+            <td><span class="badge review">Review</span></td>
+            <td>2026-07-30T04:00:54.220Z raw text snapshot</td>
+            <td>BKR_Odds_0729: 3672 text lines; includes awards, player season totals, stat leaders, alternate win ladders, and game lines.</td>
+            <td>Use as current primary-book market memory. Team futures can be actionable after parsing; awards/player/stat markets are inference inputs for futures and fantasy agents unless explicitly promoted.</td>
+          </tr><tr>
+            <td><strong>Raw current sportsbook export: BetUS</strong><div class="path">docs\Futures_Odds\BetUS_ALL_0729</div><details><summary>Details</summary><dl><dt>Conference winners</dt><dd>2 market(s), 32 row(s)</dd><dt>Division winners</dt><dd>8 market(s), 32 row(s)</dd><dt>Super Bowl winner</dt><dd>1 market(s), 32 row(s)</dd><dt>Exact Super Bowl matchups</dt><dd>1 market(s), 256 row(s)</dd><dt>Main win totals</dt><dd>32 market(s), 64 row(s)</dd><dt>Make playoffs</dt><dd>32 market(s), 62 row(s)</dd><dt>Early team records</dt><dd>37 market(s), 208 row(s)</dd><dt>3-week player stat races</dt><dd>6 market(s), 266 row(s)</dd><dt>Week 1 player milestones</dt><dd>2 market(s), 74 row(s)</dd><dt>Alternate win ladders</dt><dd>64 market(s), 128 row(s)</dd><dt>Conference wild card</dt><dd>2 market(s), 32 row(s)</dd></dl></details></td>
+            <td><span class="badge review">Review</span></td>
+            <td>2026-07-30T04:16:11.483Z raw text snapshot</td>
+            <td>BetUS_ALL_0729: 1976 text lines; includes team futures, exact matchups, win ladders, early-season records, short-window player stat races, and Week 1 markets.</td>
+            <td>Use as current primary-book market memory. Strong fantasy inference source for early role/volume/ceiling priors; team futures are actionable only after structured parse and normal portfolio gates.</td>
+          </tr><tr>
+            <td><strong>Raw current sportsbook export: BetOnline</strong><div class="path">docs\Futures_Odds\BEO_MakePlayoffs3_0729.PNG</div><details><summary>Details</summary><dl><dt>Conference winners</dt><dd>1 screenshot(s)</dd><dt>Division winners</dt><dd>1 screenshot(s)</dd><dt>Super Bowl winner</dt><dd>1 screenshot(s)</dd><dt>Regular season win totals</dt><dd>3 screenshot(s)</dd><dt>Make playoffs</dt><dd>3 screenshot(s)</dd></dl></details></td>
+            <td><span class="badge review">Review</span></td>
+            <td>2026-07-29 screenshot snapshot</td>
+            <td>9 dated screenshot(s): BEO_MakePlayoffs3_0729.PNG, BEO_MakePlayoffs2_0729.PNG, BEO_MakePlayoffs1_0729.PNG, BEO_RegWins3_0729.PNG, BEO_RegWins2_0729.PNG, BEO_RegWins1_0729.PNG, BEO_SB_0729.PNG, BEO_Div_0729.PNG, BEO_Conf_0729.PNG.</td>
+            <td>Screenshots are captured and date-identifiable, but structured values are not yet parsed into futures_odds_snapshots. Normalize this bundle into betonline-2026-07-29 rows before line-movement comparison or actionable use.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+<section>
+      <h2>Futures Portfolio</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Source</th>
+            <th>Status</th>
+            <th>Freshness</th>
+            <th>Evidence</th>
+            <th>Action Before Synthesis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Human futures watchlist</strong><div class="path">data\futures-imports\futures-watchlist-2026.json</div></td>
+            <td><span class="badge context">Context</span></td>
+            <td>2026-07-23</td>
+            <td>6 watchlist targets, including Bills/Packers anchors and supplemental targets.</td>
+            <td>Every target must be recommend, watch with trigger, or pass with reason during synthesis.</td>
+          </tr><tr>
+            <td><strong>Portfolio ledger and open exposure</strong><div class="path">data\futures-imports\andy-portfolio-ledger-2026.json</div></td>
+            <td><span class="badge context">Context</span></td>
+            <td>2026-07-22</td>
+            <td>3 positions plus 0 open parlay records.</td>
+            <td>Use for exposure and hedge context only; do not mutate without explicit approval.</td>
+          </tr><tr>
+            <td><strong>Latest local portfolio report</strong><div class="path">.nfl\portfolio\portfolio-2026-07-27-watchlist-v2.raw.json</div></td>
+            <td><span class="badge review">Review</span></td>
+            <td>2026-07-27T18:16:26.065Z</td>
+            <td>5 candidates, 3 final cards, 2 passed, 0 killed, 0 invalidated.</td>
+            <td>Treat as review-only; do not promote until stale/unavailable markets are resolved.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+<section>
+      <h2>Expert and Podcast Intel</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Source</th>
+            <th>Status</th>
+            <th>Freshness</th>
+            <th>Evidence</th>
+            <th>Action Before Synthesis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>YouTube/Gemini reviewed futures intel</strong><div class="path">data/shadow-harness/review/youtube-futures-agent-intel-summary.json</div></td>
+            <td><span class="badge current">Current</span></td>
+            <td>2026-07-29T04:00:31.515Z (26.6h old)</td>
+            <td>45 promoted/exported items; 115 review records; leak checks {&quot;det_division_winner_plus_1500&quot;:0}.</td>
+            <td>Use as source-stamped research context, not betting authority. Refresh only if new YouTube candidates exist after last sweep.</td>
+          </tr><tr>
+            <td><strong>Primary M6 diarized store</strong><div class="path">data\podcasts\m6-diarized\manifest.json</div></td>
+            <td><span class="badge review">Review</span></td>
+            <td>2026-07-22T16:55:00+00:00</td>
+            <td>54 manifest episodes; latest: 2026 NFL Quarterback Rankings | Part 2.</td>
+            <td>Run podcast sweep/export if any target shows published after this latest episode date.</td>
+          </tr><tr>
+            <td><strong>All-export M6 diarized store</strong><div class="path">data\podcasts\m6-diarized-all\manifest.json</div></td>
+            <td><span class="badge review">Review</span></td>
+            <td>2026-07-23T21:25:07+00:00</td>
+            <td>57 manifest episodes; latest: Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners &amp;amp; Award Sleepers (Ep. 1022).</td>
+            <td>Run podcast sweep/export if any target shows published after this latest episode date.</td>
+          </tr><tr>
+            <td><strong>Generated podcast narratives and deep dives</strong><div class="path">docs/podcast-transcript-deep-dives/index.html</div></td>
+            <td><span class="badge review">Review</span></td>
+            <td>latest generated docs include July 21-22 episodes</td>
+            <td>37 narratives; 57 deep dives.</td>
+            <td>Good for review, but regenerate after any new podcast ingestion before final synthesis.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+<section>
+      <h2>Web Article Intel</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Source</th>
+            <th>Status</th>
+            <th>Freshness</th>
+            <th>Evidence</th>
+            <th>Action Before Synthesis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Research/article RSS ingest</strong><div class="path">.nfl\receipts\research-intel-ingest-2026-07-30T04-48-36-398Z.json</div><details><summary>Details</summary><dl><dt>Action Network: available</dt><dd>1 NFL items from 1 fetched; notes=1; signals=1</dd><dt>BettingPros: available</dt><dd>3 NFL items from 100 fetched; notes=3; signals=3</dd><dt>Walter Football: available</dt><dd>10 NFL items from 327 fetched; notes=10; signals=0</dd><dt>ESPN NFL: available</dt><dd>20 NFL items from 27 fetched; notes=20; signals=1</dd><dt>VSiN: available</dt><dd>8 NFL items from 25 fetched; notes=8; signals=0</dd><dt>Sharp Football: available</dt><dd>17 NFL items from 20 fetched; notes=17; signals=0</dd><dt>Pro Football Talk: available</dt><dd>7 NFL items from 30 fetched; notes=7; signals=0</dd><dt>PFF: available</dt><dd>11 NFL items from 25 fetched; notes=11; signals=0</dd><dt>Rotowire NFL: available</dt><dd>5 NFL items from 5 fetched; notes=5; signals=0</dd><dt>Football Outsiders: error</dt><dd>0 NFL items from 0 fetched; notes=0; signals=0; fetch failed</dd></dl></details></td>
+            <td><span class="badge review">Review</span></td>
+            <td>2026-07-30T04:48:36.397Z (1.8h old)</td>
+            <td>10 configured feeds; 82 NFL candidate article notes; 39 inserted notes; feed issues=1.</td>
+            <td>Review new notes/signals in Supabase/vault context before synthesis.</td>
+          </tr><tr>
+            <td><strong>Article full-body intel review</strong><div class="path">docs/article-intel-review/article-intel-review-latest.html</div><details><summary>Details</summary><dl><dt>Action Network</dt><dd>1 article(s); 0 actual pick candidate(s); 0 market/inference lead(s); 2 contextual note(s)</dd><dt>BettingPros</dt><dd>3 article(s); 0 actual pick candidate(s); 0 market/inference lead(s); 0 contextual note(s)</dd><dt>ESPN NFL</dt><dd>20 article(s); 0 actual pick candidate(s); 0 market/inference lead(s); 36 contextual note(s)</dd><dt>Pro Football Talk</dt><dd>2 article(s); 0 actual pick candidate(s); 1 market/inference lead(s); 7 contextual note(s)</dd><dt>Rotowire NFL</dt><dd>3 article(s); 0 actual pick candidate(s); 1 market/inference lead(s); 13 contextual note(s)</dd><dt>Walter Football</dt><dd>10 article(s); 0 actual pick candidate(s); 6 market/inference lead(s); 45 contextual note(s)</dd></dl></details></td>
+            <td><span class="badge review">Review</span></td>
+            <td>2026-07-30T05:14:49.488Z (1.4h old)</td>
+            <td>39 articles reviewed; 0 actual pick candidates; 8 market/inference leads; 103 contextual notes; 3 likely non-NFL false positives.</td>
+            <td>Use actual-pick candidates for human review; use market/inference leads as synthesis context only. Do not trust the raw research_pick_signals count as article QA.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+<section>
+      <h2>Training Camp</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Source</th>
+            <th>Status</th>
+            <th>Freshness</th>
+            <th>Evidence</th>
+            <th>Action Before Synthesis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Training camp local snapshot</strong><div class="path">data/training-camp/2026/latest.json</div></td>
+            <td><span class="badge review">Review</span></td>
+            <td>2026-07-30T03:46:07.745Z</td>
+            <td>32 teams; 12 teams with manual intel; 16 items.</td>
+            <td>Review/highlight before synthesis.</td>
+          </tr><tr>
+            <td><strong>Training camp RSS scout</strong><div class="path">.nfl\receipts\training-camp-rss-scout-2026-07-30T03-46-10-171Z.json</div><details><summary>Details</summary><dl><dt>ESPN NFL</dt><dd>available; fetched 27; kept 9</dd><dt>Pro Football Talk</dt><dd>available; fetched 30; kept 4</dd><dt>PFF</dt><dd>available; fetched 25; kept 2</dd><dt>Rotowire NFL</dt><dd>available; fetched 5; kept 1</dd><dt>Sharp Football</dt><dd>available; fetched 20; kept 0</dd><dt>Football Outsiders</dt><dd>error; fetched 0; kept 0; fetch failed</dd></dl></details></td>
+            <td><span class="badge review">Review</span></td>
+            <td>2026-07-30T03:46:07.745Z</td>
+            <td>16 live-feed items across 12 teams; written=true; feed issues=1.</td>
+            <td>Review merged output.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+<section>
+      <h2>Team Data</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Source</th>
+            <th>Status</th>
+            <th>Freshness</th>
+            <th>Evidence</th>
+            <th>Action Before Synthesis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>2026 schedule spine</strong><div class="path">public/schedule.json</div></td>
+            <td><span class="badge current">Current</span></td>
+            <td>public/schedule.json</td>
+            <td>272 regular-season games; 18 weeks.</td>
+            <td>Use as join spine for schedule, SoS, rest, and matchup context.</td>
+          </tr><tr>
+            <td><strong>Team profile: team-coaching-tendency-snapshots-2025-w18</strong><div class="path">data\generated\team-profiles\team-coaching-tendency-snapshots-2025-w18.json</div></td>
+            <td><span class="badge context">Context</span></td>
+            <td>2026-07-24T01:51:21.194Z</td>
+            <td>32 rows; source-stamped preseason/historical profile data.</td>
+            <td>Use as context; do not treat as live injury/camp news.</td>
+          </tr><tr>
+            <td><strong>Team profile: team-analytic-snapshots-2025-w18</strong><div class="path">data\generated\team-profiles\team-analytic-snapshots-2025-w18.json</div></td>
+            <td><span class="badge context">Context</span></td>
+            <td>2026-07-24T01:51:21.117Z</td>
+            <td>32 rows; source-stamped preseason/historical profile data.</td>
+            <td>Use as context; do not treat as live injury/camp news.</td>
+          </tr><tr>
+            <td><strong>Team profile: team-dvoa-snapshots-2025</strong><div class="path">data\generated\team-profiles\team-dvoa-snapshots-2025.json</div></td>
+            <td><span class="badge context">Context</span></td>
+            <td>2026-07-24T01:51:20.936Z</td>
+            <td>32 rows; source-stamped preseason/historical profile data.</td>
+            <td>Use as context; do not treat as live injury/camp news.</td>
+          </tr><tr>
+            <td><strong>Fantasy value vs ADP board</strong><div class="path">public/fantasy-value-board.json</div></td>
+            <td><span class="badge context">Context</span></td>
+            <td>2026-07-26</td>
+            <td>200 players; 45 no-projection rows.</td>
+            <td>Useful for player/usage priors, not a futures odds source.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+<section>
+      <h2>Operational Readiness</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Source</th>
+            <th>Status</th>
+            <th>Freshness</th>
+            <th>Evidence</th>
+            <th>Action Before Synthesis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Latest season readiness smoke</strong><div class="path">.nfl\readiness\season-readiness-2026-07-30T06-32-10-053Z.json</div></td>
+            <td><span class="badge review">Review</span></td>
+            <td>2026-07-30T06:32:10.053Z</td>
+            <td>READY WITH WATCH ITEMS; PASS 11 / WARN 6 / FAIL 0.</td>
+            <td>Watch items should be resolved or explicitly waived before synthesis.</td>
+          </tr><tr>
+            <td><strong>Weekly props live data source</strong></td>
+            <td><span class="badge inference">Inference Only</span></td>
+            <td>not expected until week before Week 1</td>
+            <td>Weekly prop markets are irrelevant for this preseason futures exercise; they normally post closer to Week 1.</td>
+            <td>Do not create weekly prop recommendations now. Retain expert season-long player-prop comments only as inference-only context for player usage, role, and team thesis.</td>
+          </tr><tr>
+            <td><strong>DraftKings/FanDuel bet-slip parsers</strong></td>
+            <td><span class="badge blocked">Blocked</span></td>
+            <td>known gap</td>
+            <td>Prior smoke indicates parsers still need real implementation or verification.</td>
+            <td>Do not rely on automated slip import for final portfolio execution.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
