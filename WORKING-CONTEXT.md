@@ -35,6 +35,7 @@ Safe recovered work has been committed in narrow checkpoints:
 - `817ec29` - Update futures synthesis handoff checkpoint.
 - `5b2db46` - Add frontier futures synthesis evidence packet.
 - `1c5cdee` - Document training camp source recovery.
+- `b0b57ed` - Point source audit at recovered camp snapshot.
 
 `npm.cmd run intel:source-audit` has been recalibrated around the active objective: verifying current intel sources for a maximum-effort frontier-model futures portfolio synthesis. DK/FD bet-slip parsers and weekly live props are execution/regular-season plumbing and are out of scope for this synthesis-readiness gate.
 
@@ -47,10 +48,11 @@ npm.cmd run intel:source-audit
 Current result: `BLOCKED`, Current 2 / Review 16 / Stale 1 / Blocked 0 / Missing 0 / Context 7. The only stale item is the app-facing training-camp latest snapshot, and the audit now names the recovered 16-item snapshot as the restore source.
 
 - Last fully passing audit: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.json`
-- Current audit JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-39-21-827Z.json`
-- Current audit HTML: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-39-21-827Z.html`
+- Current audit JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-49-41-721Z.json`
+- Current audit HTML: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-49-41-721Z.html`
 - `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`
 - `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md`
+- `docs/FUTURES_SYNTHESIS_REQUIREMENT_AUDIT_2026-07-30.md`
 - `docs/TRAINING_CAMP_SOURCE_RECONCILIATION_2026-07-30.md`
 - `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md`
 
@@ -65,7 +67,7 @@ Important caveats:
 - BetOnline exact Super Bowl matchup was not present in the July 29 screenshot bundle.
 - Current worktree copies of `data/training-camp/2026/latest.json` and `data/training-camp/2026/training-camp-intel-2026-07-30.json` are uncommitted all-32 empty placeholders. A verified recovery copy is preserved at `data/training-camp/2026/recovered/training-camp-intel-2026-07-30-0346-verified.json` with 16 items across 12 teams; restore it or approve a fresh live RSS scout before model synthesis.
 - Review items are not blockers by themselves; they must be accepted, rejected, or caveated before a frontier-model run.
-- Podcast/deep-dive output was regenerated after expanded ad/legal filtering. The expanded hard promo/legal scan is clean; remaining sportsbook mentions are price/context references.
+- Podcast/deep-dive output was regenerated after expanding ad/legal filtering to catch sponsored-by copy. The hard promo/legal scan is clean; remaining sportsbook mentions are price/context references.
 
 Remaining dirty work is intentional:
 - Overnight/ops automation files: `scripts/overnight.js`, `docs/NFL_DASHBOARD_USER_GUIDE.md`, and `infra/systemd/`. Review separately because they change live-fetch automation assumptions and contain Linux/encoding/command assumptions.

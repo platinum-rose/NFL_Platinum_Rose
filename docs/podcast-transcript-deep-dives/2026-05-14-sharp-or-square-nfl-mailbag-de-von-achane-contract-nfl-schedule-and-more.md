@@ -270,7 +270,6 @@ Summary: The beat is mainly about Dolphins, Bills, Coaching, Total. Rationale th
 
 Mindset / reasoning clues:
   - Simon Hunter (Speaker C): And again, I'm not the biggest Twitter guy, but if I'm seeing Hard Rock troll the Bills fans constantly on Twitter, Matt Mitchell must hate it.
-  - Simon Hunter (Speaker C): I'll start with saying I always love that we are sponsored by Hard Rock.
 
 Betting language / picks:
   - Guest (Speaker D): The Dolphins, as you are aware, are engaged in a much needed rebuild under new coach Jeff Halfley and GM John Eric Sullivan.

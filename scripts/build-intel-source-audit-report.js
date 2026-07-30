@@ -646,12 +646,15 @@ async function collectPodcastIntel(sources) {
 
   const narrative = await readJson('docs/podcast-narratives/index.json', []);
   const deepDive = await readJson('docs/podcast-transcript-deep-dives/index.json', []);
+  const narrativeCount = Array.isArray(narrative) ? narrative.length : narrative.episodes?.length || 0;
+  const deepDiveCount = Array.isArray(deepDive) ? deepDive.length : deepDive.episodes?.length || deepDive.count || 0;
+  const generated = deepDive.generated_at || narrative.generated_at || null;
   addSource(sources, {
     group: 'Expert and Podcast Intel',
     name: 'Generated podcast narratives and deep dives',
     status: 'review',
-    freshness: 'latest generated docs include July 21-22 episodes',
-    evidence: `${Array.isArray(narrative) ? narrative.length : narrative.episodes?.length || 0} narratives; ${Array.isArray(deepDive) ? deepDive.length : deepDive.episodes?.length || 0} deep dives.`,
+    freshness: generated ? `${generated} generated` : 'generated docs present',
+    evidence: `${narrativeCount} narratives; ${deepDiveCount} deep dives.`,
     action: 'Good for review, but regenerate after any new podcast ingestion before final synthesis.',
     path: 'docs/podcast-transcript-deep-dives/index.html',
   });

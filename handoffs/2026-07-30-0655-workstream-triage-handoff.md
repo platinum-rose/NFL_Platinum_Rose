@@ -22,6 +22,7 @@ The crash-recovered dirty work was split into narrow commits instead of staged a
 - `817ec29` - Update futures synthesis handoff checkpoint.
 - `5b2db46` - Add frontier futures synthesis evidence packet.
 - `1c5cdee` - Document training camp source recovery.
+- `b0b57ed` - Point source audit at recovered camp snapshot.
 
 No paid model calls, Supabase writes, official-pick approvals, production recommendation persistence, or open-parlay changes were made by Codex during this triage.
 
@@ -36,12 +37,12 @@ Service/readiness:
 Source audit:
 - `npm.cmd run intel:source-audit`
 - Last fully passing recalibrated result: `PASSABLE`; Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Context 7.
-- Current result after BetOnline normalization and recovery-action update: `BLOCKED`; Current 2 / Review 16 / Stale 1 / Blocked 0 / Missing 0 / Context 7.
+- Current result after BetOnline normalization, recovery-action update, and podcast ad-filter refresh: `BLOCKED`; Current 2 / Review 16 / Stale 1 / Blocked 0 / Missing 0 / Context 7.
 - Latest artifacts:
   - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.json`
   - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-41-18-119Z.html`
-  - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-39-21-827Z.json`
-  - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-39-21-827Z.html`
+  - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-49-41-721Z.json`
+  - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-49-41-721Z.html`
   - `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`
   - `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md`
   - `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md`
@@ -91,7 +92,7 @@ Verification passed:
 - `npm.cmd run podcast-deep-dives` regenerated 57 transcript deep dives.
 - Podcast JSON files parse.
 - `docs/podcast-transcript-deep-dives/index.json` reports 57 episodes.
-- Hard promo/legal scan over generated deep dives returned no matches.
+- Hard promo/legal scan over generated deep dives returned no matches after adding sponsored-by copy to the filter.
 - Expanded hard promo/legal scan also covers Hard Rock break/promo phrasing and returned no matches; remaining sportsbook mentions are price/context references.
 
 Commit guidance:
@@ -138,5 +139,5 @@ Paid model calls still require explicit approval.
 ## Resume Prompt
 
 ```text
-Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF.md, HANDOFF_PROMPT.md, WORKING-CONTEXT.md, TASK_BOARD.md, docs\FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md, docs\TRAINING_CAMP_SOURCE_RECONCILIATION_2026-07-30.md, docs\FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md, docs\FUTURES_ODDS_BETONLINE_2026-07-29_MANUAL_REVIEW.md, handoffs\2026-07-30-0635-crash-recovery-source-audit-handoff.md, and handoffs\2026-07-30-0655-workstream-triage-handoff.md first. Current focus is a maximum-effort frontier-model futures portfolio narrative and recommendation synthesis, not DK/FD bet-slip parsers or weekly live props. BetUS, Bookmaker/BKR, and BetOnline July 29 imports are current; BetOnline was manually normalized into data\futures-imports\betonline-2026-07-29.json with 160 rows and a manual review doc preserving playoff No-side prices. Current blocker: data\training-camp\2026\latest.json and data\training-camp\2026\training-camp-intel-2026-07-30.json are uncommitted all-32 empty placeholders, while the recovered verified July 30 snapshot at data\training-camp\2026\recovered\training-camp-intel-2026-07-30-0346-verified.json has 16 items across 12 teams. Next: restore the recovered training-camp snapshot or approve a fresh live RSS scout, rerun npm.cmd run intel:source-audit, then ask explicit approval for any paid/frontier model call. Guardrails: no paid model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval.
+Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF.md, HANDOFF_PROMPT.md, WORKING-CONTEXT.md, TASK_BOARD.md, docs\FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md, docs\FUTURES_SYNTHESIS_REQUIREMENT_AUDIT_2026-07-30.md, docs\TRAINING_CAMP_SOURCE_RECONCILIATION_2026-07-30.md, docs\FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md, docs\FUTURES_ODDS_BETONLINE_2026-07-29_MANUAL_REVIEW.md, handoffs\2026-07-30-0635-crash-recovery-source-audit-handoff.md, and handoffs\2026-07-30-0655-workstream-triage-handoff.md first. Current focus is a maximum-effort frontier-model futures portfolio narrative and recommendation synthesis, not DK/FD bet-slip parsers or weekly live props. BetUS, Bookmaker/BKR, and BetOnline July 29 imports are current and dry-run ingestable; BetOnline was manually normalized into data\futures-imports\betonline-2026-07-29.json with 160 rows and a manual review doc preserving playoff No-side prices. Current blocker: data\training-camp\2026\latest.json and data\training-camp\2026\training-camp-intel-2026-07-30.json are uncommitted all-32 empty placeholders, while the recovered verified July 30 snapshot at data\training-camp\2026\recovered\training-camp-intel-2026-07-30-0346-verified.json has 16 items across 12 teams. Next: restore the recovered training-camp snapshot or approve a fresh live RSS scout, rerun npm.cmd run intel:source-audit, then ask explicit approval for any paid/frontier model call. Guardrails: no paid model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval.
 ```

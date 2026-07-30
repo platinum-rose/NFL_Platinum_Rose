@@ -15,8 +15,8 @@ This is a source-readiness checklist, not a betting recommendation and not appro
 - Post-BetOnline written check: `npm.cmd run intel:source-audit`
 - Current written verdict: `BLOCKED`
 - Current written counts: Current 2 / Review 16 / Stale 1 / Blocked 0 / Missing 0 / Context 7 / Inference 1
-- Current written JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-39-21-827Z.json`
-- Current written HTML: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-39-21-827Z.html`
+- Current written JSON: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-49-41-721Z.json`
+- Current written HTML: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-49-41-721Z.html`
 - Current stale source: the worktree copy of `data/training-camp/2026/latest.json` is an all-32 empty placeholder. The audit action now points to the verified 16-item snapshot preserved at `data/training-camp/2026/recovered/training-camp-intel-2026-07-30-0346-verified.json`; restore it or approve a fresh live RSS scout before model synthesis.
 
 ## Scope Decision
@@ -43,7 +43,7 @@ The current focus is futures portfolio synthesis readiness. The following are ou
 | Latest local portfolio report | Accepted with caveat | Prior context only. It was generated before the current source-acceptance pass and must be rebuilt before any final recommendation packet. |
 | Primary M6 diarized store | Accepted with caveat | 54-episode store remains useful context, but the all-export store is the newer podcast source for synthesis. |
 | All-export M6 diarized store | Accepted | 57 manifest episodes through the July 23 futures-card episode. Use this as the current podcast transcript base. |
-| Generated podcast narratives and deep dives | Accepted with caveat | Regenerated after the expanded ad/legal filter. Expanded hard promo/legal scan is clean; sportsbook mentions that remain are price/context references rather than ad/legal copy. |
+| Generated podcast narratives and deep dives | Accepted with caveat | Regenerated after the expanded ad/legal filter at `2026-07-30T08:48:17.626Z`. Expanded hard promo/legal scan is clean; sportsbook mentions that remain are price/context references rather than ad/legal copy. |
 | Research/article RSS ingest | Accepted with caveat | Fresh July 30 review lane with one feed issue. Use as research context, not direct pick authority. |
 | Article full-body intel review | Accepted with caveat | 39 articles reviewed, 0 actual pick candidates, 8 market/inference leads, 103 contextual notes. Use leads as context only. |
 | Training camp local snapshot | Needs reconciliation | Current worktree file is an all-32 empty placeholder. The verified July 30 snapshot is preserved at `data/training-camp/2026/recovered/training-camp-intel-2026-07-30-0346-verified.json` with 16 items across 12 teams; restore it or approve a fresh live RSS scout before model synthesis. |
@@ -54,12 +54,15 @@ The current focus is futures portfolio synthesis readiness. The following are ou
 
 - `node --check scripts\build-podcast-transcript-deep-dives.js` passed.
 - `node --check agents\lib\speaker-attribution.js` passed.
-- `npm.cmd run podcast-deep-dives` regenerated 57 transcript deep dives.
-- Hard promo/legal scan over `docs\podcast-transcript-deep-dives` returned no matches for DraftKings promo/legal, Total Wireless, sponsorship copy, gamble-responsibly, or DKNG/legal disclaimers.
+- `npm.cmd run podcast-deep-dives` regenerated 57 transcript deep dives at `2026-07-30T08:48:17.626Z`.
+- Hard promo/legal scan over `docs\podcast-transcript-deep-dives` returned no matches for DraftKings promo/legal, Total Wireless, sponsorship copy, sponsored-by copy, gamble-responsibly, or DKNG/legal disclaimers.
 - Expanded hard promo/legal scan, including Hard Rock break/promo phrasing, returned no matches; remaining sportsbook mentions are retained only as price/context references.
-- `docs/podcast-transcript-deep-dives/index.json` parsed with Count 57 / Episodes 57 / GeneratedAt `2026-07-30T07:40:54.220Z`.
+- `docs/podcast-transcript-deep-dives/index.json` parsed with Count 57 / Episodes 57 / GeneratedAt `2026-07-30T08:48:17.626Z`; referenced Markdown/HTML files all exist.
 - All `docs/podcast-transcript-deep-dives/*.json` parsed successfully.
 - All `data/podcasts/m6-diarized-all/*.json` parsed successfully.
+- `node scripts/ingest-futures-json.js --file data/futures-imports/betus-2026-07-29.json --dry-run` passed with 416 rows and no DB write.
+- `node scripts/ingest-futures-json.js --file data/futures-imports/bookmaker-2026-07-29.json --dry-run` passed with 128 rows and no DB write.
+- `node scripts/ingest-futures-json.js --file data/futures-imports/betonline-2026-07-29.json --dry-run` passed with 160 rows and no DB write.
 - `npm.cmd run intel:source-audit` returned `PASSABLE` with 0 stale, 0 blocked, and 0 missing sources.
 - `npm.cmd run futures:betonline-0729` generated `data/futures-imports/betonline-2026-07-29.json` and `docs/FUTURES_ODDS_BETONLINE_2026-07-29_MANUAL_REVIEW.md`.
 - `node scripts/build-betonline-0729-import.js --check-only` passed with 160 rows.

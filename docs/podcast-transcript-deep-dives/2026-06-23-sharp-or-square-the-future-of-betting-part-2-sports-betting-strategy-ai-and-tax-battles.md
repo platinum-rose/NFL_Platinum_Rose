@@ -99,7 +99,7 @@ Representative lines:
   - Chad Millman (Speaker D): Their margin say it is 5 to 6%, which is pretty normal.
   - Chad Millman (Speaker D): So I know a lot of pros who have models with all that.
 
-### 3. Total (5:20-6:38)
+### 3. Total (5:24-6:38)
 
 Speakers: Chad Millman (Speaker D), Simon Hunter (Speaker H)
 
@@ -391,16 +391,16 @@ Mindset / reasoning clues:
   - Chad Millman (Speaker D): So that's why it's like, if you're watching sports, I don't know how you could complain so much about it.
   - Chad Millman (Speaker D): Half the people watching that sports channel, they're watching because they got money on it.
   - Chad Millman (Speaker D): I feel like it should just be expected because in Europe, no one complains about it.
-  - Chad Millman (Speaker D): I don't know how that's legal, but should a sports channel like, you know, ESPN or Fox Sports better run ads for a gamma company they're sponsored by?
   - Chad Millman (Speaker D): But I'm saying a year ago, I saw something like that where someone posted something on Twitter of this girl promoting something.
+  - Chad Millman (Speaker D): I knew nothing about this, what she was talking about, but it was an ad for a predictive market.
 
 Betting language / picks:
   - None pulled.
 
 Representative lines:
-  - Chad Millman (Speaker D): I knew nothing about this, what she was talking about, but it was an ad for a predictive market.
   - Chad Millman (Speaker D): I, I do think though, like you've talked a little about here, Chad, that you know, as we go forward here, I think there will be a pullback on some of the, some of the stuff we've seen where, you know, should it be legal that some, some girl on TikTok who's just turned 18 or 19 year olds promoting to younger kids on these predictive markets.
   - Chad Millman (Speaker D): There's a championship game.
+  - Chad Millman (Speaker D): So they're going to go to the whatever, come to AC or go to Vegas.
 
 ### 12. General discussion (24:29-30:02)
 

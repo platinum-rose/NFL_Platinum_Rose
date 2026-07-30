@@ -255,11 +255,11 @@ Representative lines:
   - Guest (Speaker C): It was a big reason why I liked him.
   - Guest (Speaker C): I do, I will say there's a couple of guys who I have popping in that sort of realm, but I also have a little bit of less confidence in actually projecting them.
 
-### 8. Injuries / Spread / Total (12:08-13:23)
+### 8. Injuries / Spread (12:08-13:23)
 
 Speakers: Guest (Speaker C), Guest (Speaker D)
 
-Topics: Injuries, Spread, Total
+Topics: Injuries, Spread
 
 Conclusion: Guest (Speaker D): He comes back at the DP World Tours, BMW International Open in Munich and plays great.
 
@@ -278,7 +278,6 @@ Mindset / reasoning clues:
   - Guest (Speaker D): He felt like he got about 90%
 
 Betting language / picks:
-  - Guest (Speaker D): Kyle, I'll stick with you first, and your segment should be sponsored by like Aetna, Cigna, Blue Cross Blue Shield, because this is all about medical issues as it relates to Marco Penge over brooks Koepka and minus 118.
   - Guest (Speaker D): He had original setbacks that dated back to a viral infection contracted last year that gave him vertigo, sinus issues.
   - Guest (Speaker D): Then after five weeks away from competitive golf, he comes back after receiving medical treatment.
   - Guest (Speaker D): He comes back at the DP World Tours, BMW International Open in Munich and plays great.

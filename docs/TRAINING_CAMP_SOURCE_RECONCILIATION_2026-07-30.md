@@ -11,7 +11,7 @@ This is source-control and handoff evidence only. It is not a betting recommenda
 - Current generated at: `2026-07-30T08:07:12.833Z`
 - Current evidence: 32 teams, 0 teams with intel, 0 items, no feed-health detail.
 - Current audit impact: `npm.cmd run intel:source-audit` remains `BLOCKED` because the app-facing latest snapshot is an all-32 empty placeholder.
-- Current audit artifact: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-39-21-827Z.json`
+- Current audit artifact: `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T08-49-41-721Z.json`
 - Current audit action: restore the recovered snapshot into the app-facing files or approve a fresh live RSS scout.
 
 Do not interpret the current empty files as evidence that there is no training-camp intel.

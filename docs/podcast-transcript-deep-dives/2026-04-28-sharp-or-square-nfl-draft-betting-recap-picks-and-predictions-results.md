@@ -210,8 +210,8 @@ Betting language / picks:
 
 Representative lines:
   - Chad Millman (Speaker B): We'll do NFC AFC with James Weaver from Sports Info Solutions.
-  - Chad Millman (Speaker B): We are sponsored by sports betting company.
   - Chad Millman (Speaker B): Today, news from David Purdon at ESPN that Tara Rozier new files being chartered by federal prosecutor being new files being new charges being filed by federal prosecutors saying that terror resear accepted, solicited and accepted bribes as part of his gambling scheme.
+  - Chad Millman (Speaker B): I have been covering this forever.
 
 ### 7. General discussion (10:07-11:54)
 
@@ -239,7 +239,7 @@ Mindset / reasoning clues:
   - Simon Hunter (Speaker C): Like when you're seeing supermodels on TikTok or whatever promoting sports betting, giving out their favorite bets.
 
 Betting language / picks:
-  - Simon Hunter (Speaker C): And you know, like you said, we're sponsored by different companies, so I know people are going to take this with a grain of salt, but we know the deal.
+  - None pulled.
 
 Representative lines:
   - Simon Hunter (Speaker C): It's like all these bad things need to happen and will always happen, right?
