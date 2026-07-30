@@ -43,6 +43,7 @@ Result: `PASSABLE`, Current 2 / Review 17 / Stale 0 / Blocked 0 / Missing 0 / Co
 - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-10-51-837Z.json`
 - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-10-51-837Z.html`
 - `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`
+- `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md`
 
 Important caveats:
 - BetOnline has current July 29 screenshots, but the structured BetOnline JSON import is stale. Do not use stale structured BetOnline rows as source of truth unless normalized or manually reviewed against the screenshots.
@@ -132,7 +133,7 @@ Review/stage narrowly by workstream. Do not use `git add -A`.
 **Current main focus:** verify and package current intel sources for a deep-dive futures portfolio synthesis from a frontier model. Do not spend current-cycle attention on DK/FD bet-slip parsers or weekly live props.
 
 Recommended next:
-- Review the 17 source-audit review items and decide which are accepted as current synthesis evidence.
+- Review `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md` and mark the 17 source-audit review items as accepted, accepted-with-caveat, or excluded.
 - Resolve or explicitly caveat the podcast/deep-dive sponsor/ad leakage before using generated narrative/deep-dive text in the synthesis packet.
 - Normalize or manually review the current July 29 BetOnline screenshots before treating BetOnline as a placeable-price source of truth.
 - Review `scripts/overnight.js`, `docs/NFL_DASHBOARD_USER_GUIDE.md`, and `infra/systemd/` separately before committing any ops automation.

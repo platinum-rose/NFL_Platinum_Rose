@@ -34,6 +34,7 @@ Source audit:
   - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-10-51-837Z.json`
   - `.nfl/source-audit/nfl-intel-source-audit-2026-07-30T07-10-51-837Z.html`
   - `docs/NFL_INTEL_SOURCE_AUDIT_LATEST.html`
+  - `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md`
 - Scope decision: DraftKings/FanDuel bet-slip parser implementation and weekly live-props source are not part of the current preseason futures synthesis freshness gate.
 - Caveat: BetOnline has current July 29 screenshots, but stale structured BetOnline rows must not be used as source of truth unless normalized or manually reviewed.
 
@@ -105,7 +106,7 @@ Reason not removed:
 
 Start with source acceptance for the frontier-model futures portfolio synthesis:
 
-1. Review the 17 source-audit review items and decide which are accepted as current synthesis evidence.
+1. Review `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md` and mark the 17 source-audit review items as accepted, accepted-with-caveat, or excluded.
 2. Resolve or explicitly caveat the podcast/deep-dive sponsor/ad leakage before using generated narrative/deep-dive text in the synthesis packet.
 3. Normalize or manually review the current July 29 BetOnline screenshots before treating BetOnline as a placeable-price source of truth.
 

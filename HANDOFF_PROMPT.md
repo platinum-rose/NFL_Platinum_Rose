@@ -58,6 +58,7 @@ Continue from the crash-recovery triage checkpoint. The current objective is to 
   - Execution-only DK/FD bet-slip parser and weekly live-props checks no longer block the futures-synthesis freshness gate.
   - Stale structured BetOnline rows no longer count as stale if current July 29 BetOnline screenshots are present; the report requires manual review/normalization before using BetOnline as source of truth.
   - Review items no longer fail the frontier gate by themselves; they must be accepted, rejected, or caveated before model synthesis.
+- Added `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md` as the current source-acceptance checklist.
 
 ## Recovered Workstream Status
 
@@ -101,7 +102,7 @@ Continue from the crash-recovery triage checkpoint. The current objective is to 
 
 ## Immediate Next Steps
 
-1. Review the 17 source-audit review items and decide which are accepted as current evidence for the frontier-model futures portfolio synthesis.
+1. Review `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md` and mark the 17 source-audit review items as accepted, accepted-with-caveat, or excluded.
 
 2. Resolve or explicitly caveat the podcast/deep-dive sponsor/ad leakage before using generated narrative/deep-dive text in the synthesis packet.
 

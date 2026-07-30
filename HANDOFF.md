@@ -65,6 +65,7 @@ Do not stage this as one sweep. Review and stage by workstream.
 - `handoffs/2026-07-30-0635-crash-recovery-source-audit-handoff.md` - detailed crash-recovery handoff.
 - `handoffs/2026-07-29-0405-season-readiness-youtube-futures-handoff.md` - prior completed checkpoint.
 - `docs/SEASON_READINESS_SMOKE_TEST_LATEST.md` - latest readiness report.
+- `docs/FUTURES_SYNTHESIS_SOURCE_READINESS_2026-07-30.md` - current source-acceptance checklist for the frontier synthesis packet.
 - `scripts/build-intel-source-audit-report.js` - new source-audit report.
 - `scripts/build-article-intel-review.js` - new article-intel review.
 - `agents/research-intel-ingest.js` - feed/source filtering changes.
