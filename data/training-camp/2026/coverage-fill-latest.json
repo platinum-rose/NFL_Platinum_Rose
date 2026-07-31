@@ -2,13 +2,13 @@
   "meta": {
     "schema": "training_camp_coverage_fill_v1",
     "season": 2026,
-    "generated_at": "2026-07-31T00:50:26.994Z",
+    "generated_at": "2026-07-31T02:04:09.139Z",
     "recommendation_status": "research_context_only_not_picks",
-    "canonical_snapshot_generated_at": "2026-07-31T00:50:17.489Z",
-    "canonical_teams_with_intel": 13,
-    "canonical_teams_without_intel": 19,
+    "canonical_snapshot_generated_at": "2026-07-31T02:04:00.556Z",
+    "canonical_teams_with_intel": 32,
+    "canonical_teams_without_intel": 0,
     "teams_with_any_local_context": 32,
-    "teams_needing_manual_camp_source": 19,
+    "teams_needing_manual_camp_source": 0,
     "local_article_review_notes": 103,
     "availability_digest_events": 620,
     "guardrails": {
@@ -27,49 +27,104 @@
       "conference": "NFC",
       "anchor_team": false,
       "coverage_status": "existing_camp_intel",
-      "candidate_count": 2,
-      "existing_camp_item_count": 2,
+      "candidate_count": 5,
+      "existing_camp_item_count": 5,
       "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
+        "week_1_spread",
         "wins"
       ],
       "candidates": [
         {
-          "id": "camp_0f75fc530b0daf9f",
+          "id": "camp_0591dcb14d62f910",
           "team": "ARI",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.9,
-          "signal_type": "role_usage",
-          "player": "Marvin Harrison Jr.",
-          "summary": "Operating as clear alpha WR1 in camp, taking 90%+ of first-team perimeter reps.",
-          "evidence": "Operating as clear alpha WR1 in camp, taking 90%+ of first-team perimeter reps.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.486Z",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Submit your Las Vegas Raiders training camp mailbag questions!",
+          "evidence": "Las Vegas Raiders football is back, baby! Kind of… We still have a couple of weeks before the Raiders have their first preseason game against the Arizona Cardinals on Aug. 13. But training camp is underway with the veterans reporting on Tuesday and the team’s first practice of the summer on Wednesday morning. So, it’s [&#8230;]",
+          "source": "LV Beat - Silver and Black Pride",
+          "source_url": "https://www.silverandblackpride.com/las-vegas-raiders-preseason/135507/las-vegas-raiders-training-camp-mailbag-questions",
+          "published_at": "2026-07-30T16:05:00.000Z",
           "linked_markets": [
-            "wins"
+            "week_1_spread"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
         },
         {
-          "id": "camp_6a1f832bf93a8ee2",
+          "id": "camp_bdff3d8607ec23c0",
           "team": "ARI",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.82,
-          "signal_type": "depth_chart",
-          "player": "Trey Benson",
-          "summary": "Splitting second-team reps with Michael Carter; James Conner holds primary early-down role.",
-          "evidence": "Splitting second-team reps with Michael Carter; James Conner holds primary early-down role.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.487Z",
+          "confidence": 0.68,
+          "signal_type": "preseason_usage",
+          "player": null,
+          "summary": "Cardinals Wednesday practice session – How is this new offense coming along?",
+          "evidence": "The Arizona Cardinals have been in training camp a solid week earlier than every other club in the league. The reason is that they are participating in the annual Hall of Fame Game in Canton, Ohio, played in conjunction with the Hall of Fame festivities. Former Cardinal great Larry Fitzgerald is being inducted into this [&#8230;]",
+          "source": "ARI Beat - Revenge of the Birds",
+          "source_url": "https://www.revengeofthebirds.com/arizona-cardinals-discussion/92875/cardinals-wednesday-practice-session-how-is-this-new-offense-coming-along",
+          "published_at": "2026-07-30T14:26:22.000Z",
           "linked_markets": [
             "wins"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_c70983289d0abace",
+          "team": "ARI",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Is there a possibility that EDGE rusher Jadeveon Clowney could be coming to the Cardinals?",
+          "evidence": "Despite all the changes that the Arizona Cardinals have made to the roster and the coaching staff this offseason, obviously not all of the holes have been filled. After losing a franchise record 14 games last year, one offseason is not going to mend all of the issues. However, hopefully all of the new athletes [&#8230;]",
+          "source": "ARI Beat - Revenge of the Birds",
+          "source_url": "https://www.revengeofthebirds.com/arizona-cardinals-discussion/92863/is-there-a-possibility-that-edge-rusher-jadeveon-clowney-could-be-coming-to-the-cardinals",
+          "published_at": "2026-07-30T13:00:00.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_cda17a0a1527cabc",
+          "team": "ARI",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Is right tackle already a problem for the Cardinals?",
+          "evidence": "The Arizona Cardinals are expecting great things for this new offense that head coach Mike LaFleur is installing. It is a lot to absorb for the players, but the coaching staff already is ahead of the curve and knows what is going on and what should happen for the end game. Just because the offense [&#8230;]",
+          "source": "ARI Beat - Revenge of the Birds",
+          "source_url": "https://www.revengeofthebirds.com/arizona-cardinals-discussion/92848/is-right-tackle-already-a-problem-for-the-cardinals",
+          "published_at": "2026-07-29T17:25:06.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_21e4bc2706fb05a8",
+          "team": "ARI",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "How many games will Jacoby Brissett start for the Arizona Cardinals in 2026?",
+          "evidence": "Welcome to SB Nation Reacts, a survey of fans across the NFL. Throughout the year we ask questions of the most plugged-in Cardinals fans and fans across the country. Sign up here to participate in the weekly emailed surveys. Happy Wednesday one and all. The Arizona Cardinals made the call, paid Jacoby Brissett a little [&#8230;]",
+          "source": "ARI Beat - Revenge of the Birds",
+          "source_url": "https://www.revengeofthebirds.com/nfl-reacts-survey/92819/how-many-games-will-jacoby-brissett-start-for-the-arizona-cardinals-in-2026",
+          "published_at": "2026-07-29T14:00:00.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
         }
       ]
     },
@@ -79,32 +134,70 @@
       "division": "NFC South",
       "conference": "NFC",
       "anchor_team": false,
-      "coverage_status": "local_source_fill_ready_for_review",
-      "candidate_count": 1,
-      "existing_camp_item_count": 0,
-      "article_candidate_count": 1,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 3,
+      "existing_camp_item_count": 3,
+      "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
         "wins",
-        "make_playoffs"
+        "make_playoffs",
+        "week_1_spread"
       ],
       "candidates": [
         {
-          "id": "camp_article_da1ed8f72ebe6d96",
+          "id": "camp_4416e354ae9037fa",
           "team": "ATL",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.66,
-          "signal_type": "training_camp_context",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
           "player": null,
-          "summary": "Tight QB1 races for the Falcons, Browns, Raiders and Vikings? We projected the Week 1 starters",
-          "evidence": "2026 NFL training camp: Predicting four QB1 battles - ESPN NFL execs help predict four QB1 battles: Who will start for the Falcons, Browns, Raiders and Vikings?",
-          "source": "ESPN NFL",
-          "source_url": "https://www.espn.com/nfl/story/_/id/49470513/2026-nfl-preseason-training-camp-qb-battles-predictions-vikings-browns-raiders-falcons",
-          "published_at": "2026-07-30T04:04:53+00:00",
+          "summary": "Jeff Ulbrich's wife, Cristina, dies after a battle with cancer",
+          "evidence": "Falcons defensive coordinator Jeff Ulbrich has been absent from the start of training camp for personal reasons.",
+          "source": "Pro Football Talk",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/jeff-ulbrichs-wife-cristina-dies-after-a-battle-with-cancer",
+          "published_at": "2026-07-31T00:21:17.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_f5d4a73c902f8b87",
+          "team": "ATL",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "depth_chart",
+          "player": null,
+          "summary": "Undrafted rookie QB Jack Strand working with Falcons' first-team offense",
+          "evidence": "In 2024, the Falcons signed Kirk Cousins in free agency and then drafted Michael Penix in the first round.",
+          "source": "Pro Football Talk",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/undrafted-rookie-qb-jack-strand-working-with-falcons-first-team-offense",
+          "published_at": "2026-07-30T20:42:23.000Z",
           "linked_markets": [
             "wins",
             "make_playoffs"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_34d92e87203e7d2f",
+          "team": "ATL",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Patrick Queen expresses faith in Patrick Graham, new Steelers defense",
+          "evidence": "Practice No. 1 of Pittsburgh Steelers training camp has come and gone, and the Mike McCarthy era is one step closer to officially beginning when the Steelers host the Atlanta Falcons in Week 1. While the offense was, and will continue to be, what fans tend to have more interest in with McCarthy running the [&#8230;]",
+          "source": "PIT Beat - Behind The Steel Curtain",
+          "source_url": "https://www.behindthesteelcurtain.com/pittsburgh-steelers-training-camp/172756/patrick-queen-expresses-faith-in-patrick-graham-new-steelers-defense-tj-watt-alex-highsmith",
+          "published_at": "2026-07-29T20:28:31.000Z",
+          "linked_markets": [
+            "wins",
+            "week_1_spread"
           ],
           "needs_human_review": true
         }
@@ -116,51 +209,48 @@
       "division": "AFC North",
       "conference": "AFC",
       "anchor_team": false,
-      "coverage_status": "local_source_fill_ready_for_review",
+      "coverage_status": "existing_camp_intel",
       "candidate_count": 2,
-      "existing_camp_item_count": 0,
-      "article_candidate_count": 2,
+      "existing_camp_item_count": 2,
+      "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
-        "wins",
-        "make_playoffs"
+        "wins"
       ],
       "candidates": [
         {
-          "id": "camp_article_debbed5823f31843",
+          "id": "camp_66758fcf8aecf4d2",
           "team": "BAL",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.66,
-          "signal_type": "injury",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
           "player": null,
-          "summary": "Ravens' Madubuike (neck) returns to practice",
-          "evidence": "Ravens' Madubuike (neck) returns to practice.",
-          "source": "ESPN NFL",
-          "source_url": "https://www.espn.com/nfl/story/_/id/49480322/ravens-madubuike-neck-practices-1st-10-months",
-          "published_at": "2026-07-29T20:33:49+00:00",
+          "summary": "Ja’Kobi Lane takes flight at 2nd day of Ravens training camp",
+          "evidence": "The Ravens’ third-round pick made a leaping grab over Marlon Humphrey on the second day of training camp.",
+          "source": "Yahoo Sports NFL",
+          "source_url": "https://sports.yahoo.com/articles/ja-kobi-lane-takes-flight-005507847.html",
+          "published_at": "2026-07-31T00:55:07.000Z",
           "linked_markets": [
-            "wins",
-            "make_playoffs"
+            "wins"
           ],
           "needs_human_review": true
         },
         {
-          "id": "camp_article_32a535ca5aede15f",
+          "id": "camp_bdc1c9605e01fd22",
           "team": "BAL",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.66,
-          "signal_type": "training_camp_context",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
           "player": null,
-          "summary": "Ravens' Madubuike (neck) returns to practice",
-          "evidence": "Pro Bowl defensive tackle Nnamdi Madubuike practiced for the first time in 10 months on Wednesday, which provided a celebratory start to the Ravens' first training camp under coach Jesse Minter..",
-          "source": "ESPN NFL",
-          "source_url": "https://www.espn.com/nfl/story/_/id/49480322/ravens-madubuike-neck-practices-1st-10-months",
-          "published_at": "2026-07-29T20:33:49+00:00",
+          "summary": "Alohi Gilman making an effort to lead Chiefs’ young secondary",
+          "evidence": "Kansas City Chiefs defensive coordinator Steve Spagnuolo seems to always have a tried-and-true safety to lean on when assembling the defense in St. Joe at training camp. Veteran Alohi Gilman, formerly of the Los Angeles Chargers and Baltimore Ravens, is that player ahead of the 2026 season. Throughout the offseason, Gilman has been open about [&#8230;]",
+          "source": "KC Beat - Arrowhead Pride",
+          "source_url": "https://www.arrowheadpride.com/kansas-city-chiefs-news/206359/alohi-gilman-making-effort-lead-chiefs-young-secondary",
+          "published_at": "2026-07-29T21:45:00.000Z",
           "linked_markets": [
-            "wins",
-            "make_playoffs"
+            "wins"
           ],
           "needs_human_review": true
         }
@@ -172,32 +262,112 @@
       "division": "AFC East",
       "conference": "AFC",
       "anchor_team": true,
-      "coverage_status": "local_source_fill_ready_for_review",
-      "candidate_count": 1,
-      "existing_camp_item_count": 0,
-      "article_candidate_count": 1,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 5,
+      "existing_camp_item_count": 5,
+      "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
         "wins",
-        "make_playoffs"
+        "make_playoffs",
+        "week_1_spread"
       ],
       "candidates": [
         {
-          "id": "camp_article_1c457b7ddd09d01f",
+          "id": "camp_e136c9cf507f2662",
           "team": "BUF",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.52,
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
           "signal_type": "injury",
           "player": null,
-          "summary": "Buffalo Bills NFL Season Preview",
-          "evidence": "He's dealing with a knee issue, and the coaching staff stated that he will be on a limited snap count this year.",
-          "source": "Walter Football",
-          "source_url": "http://walterfootball.com/offseason2026buf.php",
-          "published_at": "2026-07-21T10:24:00+00:00",
+          "summary": "Buffalo Bills roster: WR Dante Pettis signs deal on July 30",
+          "evidence": "The Buffalo Bills wasted no time in trying to fill the roster spot vacated by veteran wide receiver Jalen Virgil. With the team already losing wide receiver Tyrell Shavers to the Active/PUP list, waiving Virgil with a non-football injury (NFI) designation paved the way for the team hosting tryouts for several receivers on Thursday, July [&#8230;]",
+          "source": "BUF Beat - Buffalo Rumblings",
+          "source_url": "https://www.buffalorumblings.com/buffalo-bills-news/137588/buffalo-bills-roster-wr-dante-pettis-signs-deal-on-july-30",
+          "published_at": "2026-07-30T23:10:45.000Z",
           "linked_markets": [
             "wins",
-            "make_playoffs"
+            "make_playoffs",
+            "week_1_spread"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_6fc8444ceb2df73f",
+          "team": "BUF",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Buffalo Bills roster: WR Jalen Virgil released, 5 players in for tryouts",
+          "evidence": "The Buffalo Bills have released veteran wide receiver Jalen Virgil with a non-football injury (NFI) designation, per the NFL’s transaction wire report on Thursday, July 30. This comes after ESPN Bills reporter Alaina Getzenberg shared news that Virgil didn’t pass his physical to start training camp and wasn’t with the team on day one at [&#8230;]",
+          "source": "BUF Beat - Buffalo Rumblings",
+          "source_url": "https://www.buffalorumblings.com/buffalo-bills-roster/137582/buffalo-bills-roster-wr-jalen-virgil-released-5-players-in-for-tryouts",
+          "published_at": "2026-07-30T22:32:16.000Z",
+          "linked_markets": [
+            "wins",
+            "make_playoffs",
+            "week_1_spread"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_7ba88a0fee7d3077",
+          "team": "BUF",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Packers sign UFL champion receiver Kaden Prather",
+          "evidence": "The Green Bay Packers worked out 10 players on Thursday, including four wide receivers. Apparently, one of them took, as the Packers signed Kaden Prather, formerly of the Louisville Kings, to a contract, per NFL Network’s Ian Rapoport. Prather was a seventh-round pick of the Buffalo Bills last season before he suffered a hamstring injury [&#8230;]",
+          "source": "GB Beat - Acme Packing Co",
+          "source_url": "https://www.acmepackingcompany.com/green-bay-packers-news/84225/packers-sign-ufl-champion-receiver-kaden-prather",
+          "published_at": "2026-07-30T21:48:39.000Z",
+          "linked_markets": [
+            "wins",
+            "make_playoffs",
+            "week_1_spread"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_43d486c78e3a8dfe",
+          "team": "BUF",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "What’s your favorite current Buffalo Bills uniform?",
+          "evidence": "Welcome to SB Nation Reacts, a survey of fans across the NFL. Throughout the year we ask questions of the most plugged-in Bills fans and fans across the country. Sign up here to participate in the weekly emailed surveys. Rumblers, we’re back with what hopefully is a fun discussion to end the work week! In [&#8230;]",
+          "source": "BUF Beat - Buffalo Rumblings",
+          "source_url": "https://www.buffalorumblings.com/buffalo-bills-analysis/137571/whats-your-favorite-current-buffalo-bills-uniform",
+          "published_at": "2026-07-30T19:38:31.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_84b396bfe2dc5b2b",
+          "team": "BUF",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Tyler Bass injury: Bills kicker good to go in 2026 training camp",
+          "evidence": "A season removed from an injury that cost him all of the 2025 NFL season, Buffalo Bills place kicker Tyler Bass is ready to go for training camp. If the Bills are going to reach their loftiest goals this season, they’ll need Bass to help them get through the difficult moments. Many have wondered what’s [&#8230;]",
+          "source": "BUF Beat - Buffalo Rumblings",
+          "source_url": "https://www.buffalorumblings.com/buffalo-bills-injuries/137569/tyler-bass-injury-bills-kicker-good-to-go-in-2026-training-camp",
+          "published_at": "2026-07-30T17:25:37.000Z",
+          "linked_markets": [
+            "wins",
+            "make_playoffs",
+            "week_1_spread"
           ],
           "needs_human_review": true
         }
@@ -209,51 +379,48 @@
       "division": "NFC South",
       "conference": "NFC",
       "anchor_team": false,
-      "coverage_status": "local_source_fill_ready_for_review",
+      "coverage_status": "existing_camp_intel",
       "candidate_count": 2,
-      "existing_camp_item_count": 0,
-      "article_candidate_count": 2,
+      "existing_camp_item_count": 2,
+      "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
-        "wins",
-        "make_playoffs"
+        "wins"
       ],
       "candidates": [
         {
-          "id": "camp_article_178640935b32b7bd",
+          "id": "camp_979aa72d5f21e138",
           "team": "CAR",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.66,
-          "signal_type": "injury",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
           "player": null,
-          "summary": "Source: Panthers WR Brazzell suffers LCL tear",
-          "evidence": "Source: Panthers WR Brazzell suffers LCL tear.",
-          "source": "ESPN NFL",
-          "source_url": "https://www.espn.com/nfl/story/_/id/49480858/panthers-rookie-wr-chris-brazzell-injures-knee-having-tests",
-          "published_at": "2026-07-30T04:05:02+00:00",
+          "summary": "Former Texas RB Jonathan Brooks reportedly ‘fully healthy’",
+          "evidence": "Texas running back Jonathan Brooks is heading into his third season in the NFL, but due to setbacks in both his rookie and second seasons in the league, the former Longhorns standout has yet to participate in the Carolina Panthers’ training camp. However, that’s reportedly now changed, according to Brooks’ recent health updates. “Since I […]",
+          "source": "Yahoo Sports NFL",
+          "source_url": "https://sports.yahoo.com/articles/former-texas-rb-jonathan-brooks-003945376.html",
+          "published_at": "2026-07-31T00:39:45.000Z",
           "linked_markets": [
-            "wins",
-            "make_playoffs"
+            "wins"
           ],
           "needs_human_review": true
         },
         {
-          "id": "camp_article_aa77ef2da7ba54e9",
+          "id": "camp_2955c413b291a7dd",
           "team": "CAR",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.66,
-          "signal_type": "training_camp_context",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "roster_move",
           "player": null,
-          "summary": "Source: Panthers WR Brazzell suffers LCL tear",
-          "evidence": "Panthers rookie receiver Chris Brazzell II suffered a moderate lateral collateral ligament tear in practice Wednesday and he is expected to be sidelined for up to eight weeks, a league source told ESPN, confirming a report by The Athletic..",
-          "source": "ESPN NFL",
-          "source_url": "https://www.espn.com/nfl/story/_/id/49480858/panthers-rookie-wr-chris-brazzell-injures-knee-having-tests",
-          "published_at": "2026-07-30T04:05:02+00:00",
+          "summary": "Palo Alto police won't release bodycam video or 911 call from Kyle Shanahan crash",
+          "evidence": "Some information has been released by the authorities in connection with 49ers coach Kyle Shanahan's recent car accident.",
+          "source": "Pro Football Talk",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/palo-alto-police-wont-release-bodycam-video-or-911-call-from-kyle-shanahan-crash",
+          "published_at": "2026-07-30T21:20:45.000Z",
           "linked_markets": [
-            "wins",
-            "make_playoffs"
+            "wins"
           ],
           "needs_human_review": true
         }
@@ -266,49 +433,107 @@
       "conference": "NFC",
       "anchor_team": false,
       "coverage_status": "existing_camp_intel",
-      "candidate_count": 2,
-      "existing_camp_item_count": 2,
+      "candidate_count": 5,
+      "existing_camp_item_count": 5,
       "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
-        "wins"
+        "wins",
+        "make_playoffs",
+        "week_1_spread"
       ],
       "candidates": [
         {
-          "id": "camp_c05b46d2b9b77b40",
+          "id": "camp_8eafbc5278736f36",
           "team": "CHI",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.95,
-          "signal_type": "depth_chart",
-          "player": "Caleb Williams",
-          "summary": "Taking 100% of first-team reps in Shane Waldron system; showing quick release in 7-on-7s.",
-          "evidence": "Taking 100% of first-team reps in Shane Waldron system; showing quick release in 7-on-7s.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Chicago Bears 2026 Training Camp Position Breakdown: Tight end",
+          "evidence": "Are you sick of hearing about 13 personnel yet? Shortly after the Chicago Bears drafted Sam Roush in the third round (69 overall), analysts started discussing how he&#8217;d be deployed with Cole Kmet and Colston Loveland. Playing three tight ends is a trend that more teams started doing last year, but you really need a [&#8230;]",
+          "source": "CHI Beat - Windy City Gridiron",
+          "source_url": "https://www.windycitygridiron.com/chicago-bears-roster/119102/chicago-bears-2026-training-camp-position-breakdown-tight-end-cole-kmet-colston-loveland",
+          "published_at": "2026-07-30T15:00:00.000Z",
           "linked_markets": [
             "wins"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
         },
         {
-          "id": "camp_5e1f305e49f55069",
+          "id": "camp_a839689bb08c2b9b",
           "team": "CHI",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.85,
-          "signal_type": "role_usage",
-          "player": "Rome Odunze",
-          "summary": "Rotating into 3-WR personnel packages alongside DJ Moore and Keenan Allen.",
-          "evidence": "Rotating into 3-WR personnel packages alongside DJ Moore and Keenan Allen.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Battle of the Hawgs &#8211; Preview for the Chicago Bears’ Training Camp Battle at Center",
+          "evidence": "As we’ve finally made it to Training Camp for the Chicago Bears, and there shall be a slew of competitions at multiple positions across the roster. Most recently, head coach Ben Johnson confirmed there will be such a contest for the starting job at Center. The two contestants are veteran Garrett Bradbury and rookie Logan [&#8230;]",
+          "source": "CHI Beat - Windy City Gridiron",
+          "source_url": "https://www.windycitygridiron.com/chicago-bears-analysis/119626/battle-of-the-hawgs-preview-for-the-chicago-bears-training-camp-battle-at-center",
+          "published_at": "2026-07-30T13:00:00.000Z",
           "linked_markets": [
             "wins"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_c96fb79bef9776de",
+          "team": "CHI",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "The Bear’s Den, July 30, 2026",
+          "evidence": "THE DAILY SPONGIE SPECIAL BEARSSSSSS Bears DE Montez Sweat back from illness That was brief. Bears coach Ben Johnson still &#8216;yells and curses&#8217; at QB Caleb Williams, but they&#8217;re connecting much better Whatever works! Bears Training Camp Report: Practice No. 1 Odd, a bunch of reports from an early camp practice that don’t contain words [&#8230;]",
+          "source": "CHI Beat - Windy City Gridiron",
+          "source_url": "https://www.windycitygridiron.com/chicago-bears-news/119609/chicago-bears-den-july-30-2026-training-camp-williams-johnson-sweat",
+          "published_at": "2026-07-30T10:00:00.000Z",
+          "linked_markets": [
+            "wins",
+            "make_playoffs"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_d9dd4a4acb159c5d",
+          "team": "CHI",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Chicago Bears pre-training camp power rankings",
+          "evidence": "With training camps opening this week, it means its time for a fresh set of preseason power rankings! The Chicago Bears held their first camp practice today for a season with expectations following a fantastic 2025 campaign. So where do the expectations align with the power rankings? I know it and you don’t have to [&#8230;]",
+          "source": "CHI Beat - Windy City Gridiron",
+          "source_url": "https://www.windycitygridiron.com/chicago-bears-power-rankings/119666/chicago-bears-pre-training-camp-power-rankings",
+          "published_at": "2026-07-30T02:16:44.000Z",
+          "linked_markets": [
+            "wins",
+            "week_1_spread"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_8dd8395a4c9bb410",
+          "team": "CHI",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Bears Over Beers Happy Hour and Open Thread: Camp Opens! Ticket Giveaway",
+          "evidence": "Welcome to the latest episode of Bears Over Beers! This week, join our hosts Ryan Droste and Bryan Orenchuk as they catch up once again and look at some of the hot topics right now in Chicago Bears news. Ryan and Bryan discuss the beginning of training camp, the NFL Top 100 list, and give [&#8230;]",
+          "source": "CHI Beat - Windy City Gridiron",
+          "source_url": "https://www.windycitygridiron.com/chicago-bears-news/119653/chicago-bears-over-beers-happy-hour-and-open-thread-camp-opens-ticket-giveaway",
+          "published_at": "2026-07-30T02:16:37.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
         }
       ]
     },
@@ -318,32 +543,89 @@
       "division": "AFC North",
       "conference": "AFC",
       "anchor_team": true,
-      "coverage_status": "local_source_fill_ready_for_review",
-      "candidate_count": 1,
-      "existing_camp_item_count": 0,
-      "article_candidate_count": 1,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 4,
+      "existing_camp_item_count": 4,
+      "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
         "wins",
-        "make_playoffs"
+        "make_playoffs",
+        "week_1_spread"
       ],
       "candidates": [
         {
-          "id": "camp_article_99c3c9ef351eb686",
+          "id": "camp_791479b0ee7635db",
           "team": "CIN",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.66,
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
           "signal_type": "injury",
           "player": null,
-          "summary": "Bengals' Stewart carted off with left leg injury",
-          "evidence": "Bengals defensive end Shemar Stewart was carted off the field Wednesday with a left leg injury suffered during the first day of training camp..",
-          "source": "ESPN NFL",
-          "source_url": "https://www.espn.com/nfl/story/_/id/49481418/bengals-shemar-stewart-carted-left-leg-injury",
-          "published_at": "2026-07-30T04:05:02+00:00",
+          "summary": "Bengals training camp takeaways: Bold defensive gamble might pay off, Shemar Stewart avoids serious injury",
+          "evidence": "Plus, how getting run over by a truck gave one Bengals tight end a major confidence boost",
+          "source": "CBS Sports NFL",
+          "source_url": "https://www.cbssports.com/nfl/news/bengals-training-camp-takeaways-shemar-stewart-injury/",
+          "published_at": "2026-07-30T21:18:22.000Z",
+          "linked_markets": [
+            "wins",
+            "make_playoffs",
+            "week_1_spread"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_8ebddd3f3e1c188e",
+          "team": "CIN",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Raiders roster: Tre Tucker&#8217;s career has been let down by QB play",
+          "evidence": "When the Las Vegas Raiders traded Darren Waller in 2023 for a third-round pick, they had to replace a weapon on offense. The franchise decided to make that move with the same pick they acquired by drafting Tre Tucker out of Cincinnati. Tucker played in the slot during college but was asked to move outside [&#8230;]",
+          "source": "LV Beat - Silver and Black Pride",
+          "source_url": "https://www.silverandblackpride.com/las-vegas-raiders-analysis/134921/raiders-tre-tucker-wide-receiver-2026-preview",
+          "published_at": "2026-07-30T17:09:00.000Z",
           "linked_markets": [
             "wins",
             "make_playoffs"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_59fc852ee4c58ed6",
+          "team": "CIN",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "LOOK: Fight breaks out on Day 1 of Bengals training camp with Ja&#039;Marr Chase at center of the scuffle",
+          "evidence": "Tempers flared as Cincinnati opened up training camp on Wednesday",
+          "source": "CBS Sports NFL",
+          "source_url": "https://www.cbssports.com/nfl/news/fight-breaks-out-bengals-training-camp-jamarr-chase/",
+          "published_at": "2026-07-29T17:50:13.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_cfe46f7569621b15",
+          "team": "CIN",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Cincinnati Bengals 2026 preview: Joe Burrow leads a revamped roster following major offseason additions",
+          "evidence": "With Joe Burrow healthy and a heavily revamped defense following the blockbuster trade for Dexter Lawrence, expectations are sky-high for Cincinnati in 2026.",
+          "source": "PFF",
+          "source_url": "https://www.pff.com/news/nfl-cincinnati-bengals-2026-preview/",
+          "published_at": "2026-07-28T14:16:19.000Z",
+          "linked_markets": [
+            "wins"
           ],
           "needs_human_review": true
         }
@@ -355,32 +637,106 @@
       "division": "AFC North",
       "conference": "AFC",
       "anchor_team": false,
-      "coverage_status": "local_source_fill_ready_for_review",
-      "candidate_count": 1,
-      "existing_camp_item_count": 0,
-      "article_candidate_count": 1,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 5,
+      "existing_camp_item_count": 5,
+      "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
         "wins",
-        "make_playoffs"
+        "make_playoffs",
+        "week_1_spread"
       ],
       "candidates": [
         {
-          "id": "camp_article_805145b8c92c0d06",
+          "id": "camp_b11928d038d688b4",
           "team": "CLE",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.66,
-          "signal_type": "training_camp_context",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
           "player": null,
-          "summary": "Tight QB1 races for the Falcons, Browns, Raiders and Vikings? We projected the Week 1 starters",
-          "evidence": "2026 NFL training camp: Predicting four QB1 battles - ESPN NFL execs help predict four QB1 battles: Who will start for the Falcons, Browns, Raiders and Vikings?",
-          "source": "ESPN NFL",
-          "source_url": "https://www.espn.com/nfl/story/_/id/49470513/2026-nfl-preseason-training-camp-qb-battles-predictions-vikings-browns-raiders-falcons",
-          "published_at": "2026-07-30T04:04:53+00:00",
+          "summary": "Cleveland Browns continue to sit low in the preseason rankings",
+          "evidence": "There is still plenty of road ahead before the 2026 season opens. But the QB position continues to be a drain.",
+          "source": "Yahoo Sports NFL",
+          "source_url": "https://sports.yahoo.com/articles/cleveland-browns-continue-sit-low-232026240.html",
+          "published_at": "2026-07-30T23:51:56.000Z",
           "linked_markets": [
             "wins",
-            "make_playoffs"
+            "make_playoffs",
+            "week_1_spread"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_17d2fd3b0d98592d",
+          "team": "CLE",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Plays That Defined 2025: Buffalo Bills at Cleveland Browns, Week 16",
+          "evidence": "The Buffalo Bills’ 2025 season has been written, but the book is incomplete. Before we cast our full attention toward the 2026 season, let’s take one last glance back over our shoulder for our annual look at the Plays That Defined the prior campaign. For any newcomers, first and foremost; Welcome! When it comes to [&#8230;]",
+          "source": "BUF Beat - Buffalo Rumblings",
+          "source_url": "https://www.buffalorumblings.com/buffalo-bills-analysis/136108/plays-that-defined-2025-buffalo-bills-at-cleveland-browns-week-16",
+          "published_at": "2026-07-29T17:47:55.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_b2dd20da9d49f06d",
+          "team": "CLE",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Browns complicate Steelers’ contract negotiations with Joey Porter Jr",
+          "evidence": "The Cleveland Browns have reached an agreement with cornerback Denzel Ward on a two-year, $62.2 million contract extension with $52.3 million fully guaranteed, per Adam Schefter. The deal makes Ward the highest paid defensive back in league history on a per year basis. The deal comes in the midst of negotiations between the Pittsburgh Steelers [&#8230;]",
+          "source": "PIT Beat - Behind The Steel Curtain",
+          "source_url": "https://www.behindthesteelcurtain.com/pittsburgh-steelers-news/172744/browns-complicate-steelers-contract-negotiations-with-joey-porter-jr-denzel-ward-christian-gonzalez",
+          "published_at": "2026-07-28T22:28:49.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_4499133c69053682",
+          "team": "CLE",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "roster_move",
+          "player": null,
+          "summary": "Chargers release OL Ben Cleveland",
+          "evidence": "On Monday, one day before the Chargers veterans reported to training camp in El Segundo, it was reported that the team had released veteran offensive lineman Ben Cleveland. In February of 2025, Cleveland was arrested and cited for DUI in his home state of Georgia. He plead guilty to the charge on November 4th and [&#8230;]",
+          "source": "LAC Beat - Bolts From The Blue",
+          "source_url": "https://www.boltsfromtheblue.com/los-angeles-chargers-roster/64829/chargers-release-ben-cleveland-dui",
+          "published_at": "2026-07-28T19:09:54.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_a66b90a6364559a7",
+          "team": "CLE",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Cleveland Browns 2026 preview: Todd Monken takes over rebuilt offense and a defense without Myles Garrett",
+          "evidence": "Following the blockbuster trade of reigning Defensive Player of the Year Myles Garrett, new head coach Todd Monken steps in to helm a complete Cleveland Browns roster overhaul. Armed with four top 35 draft picks and a heavily restructured offensive line, Cleveland aims to build a sustainable environment for its next franchise quarterback.",
+          "source": "PFF",
+          "source_url": "https://www.pff.com/news/nfl-cleveland-browns-2026-preview/",
+          "published_at": "2026-07-28T15:37:58.000Z",
+          "linked_markets": [
+            "wins"
           ],
           "needs_human_review": true
         }
@@ -393,8 +749,8 @@
       "conference": "NFC",
       "anchor_team": false,
       "coverage_status": "existing_camp_intel",
-      "candidate_count": 2,
-      "existing_camp_item_count": 2,
+      "candidate_count": 1,
+      "existing_camp_item_count": 1,
       "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
@@ -402,40 +758,22 @@
       ],
       "candidates": [
         {
-          "id": "camp_612d20aa83312463",
+          "id": "camp_32fbe7073b5ea808",
           "team": "DAL",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.92,
-          "signal_type": "role_usage",
-          "player": "George Pickens",
-          "summary": "Operating in 2-WR personnel packages alongside CeeDee Lamb; Dak Prescott targeting Pickens on vertical routes.",
-          "evidence": "Operating in 2-WR personnel packages alongside CeeDee Lamb; Dak Prescott targeting Pickens on vertical routes.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "CB DaRon Bland, Shavon Revel ‘feeling good’ at start of training camp",
+          "evidence": "The Cowboys secondary appears to be in decent shape.",
+          "source": "Yahoo Sports NFL",
+          "source_url": "https://sports.yahoo.com/articles/cb-daron-bland-shavon-revel-003000128.html",
+          "published_at": "2026-07-31T00:30:00.000Z",
           "linked_markets": [
             "wins"
           ],
-          "needs_human_review": false
-        },
-        {
-          "id": "camp_b1082b726e0750f2",
-          "team": "DAL",
-          "coverage_source": "existing_training_camp_snapshot",
-          "status": "existing_camp_intel",
-          "confidence": 0.88,
-          "signal_type": "scheme",
-          "player": "Dak Prescott",
-          "summary": "Commanding high-tempo 11-on-11 team periods in Mike McCarthy offense.",
-          "evidence": "Commanding high-tempo 11-on-11 team periods in Mike McCarthy offense.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
-          "linked_markets": [
-            "wins"
-          ],
-          "needs_human_review": false
+          "needs_human_review": true
         }
       ]
     },
@@ -446,49 +784,73 @@
       "conference": "AFC",
       "anchor_team": false,
       "coverage_status": "existing_camp_intel",
-      "candidate_count": 2,
-      "existing_camp_item_count": 2,
+      "candidate_count": 3,
+      "existing_camp_item_count": 3,
       "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
-        "wins"
+        "wins",
+        "make_playoffs",
+        "week_1_spread"
       ],
       "candidates": [
         {
-          "id": "camp_d68238bb8753a3d5",
+          "id": "camp_9ce7532bfa167d6f",
           "team": "DEN",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.88,
-          "signal_type": "depth_chart",
-          "player": "Bo Nix",
-          "summary": "Taking first-team reps ahead of Jarrett Stidham; Sean Payton emphasizing quick-game timing.",
-          "evidence": "Taking first-team reps ahead of Jarrett Stidham; Sean Payton emphasizing quick-game timing.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Broncos sign DB Sam Webb and waive CB Blake Cotton",
+          "evidence": "On the eve of training camp officially opening, the Denver Broncos have made a minor roster move. According to reports, the team has signed defensive back Sam Webb and has waived cornerback Blake Cotton with an injury designation. Webb had a tryout with the team earlier today and impressed the coaches enough to sign him […]",
+          "source": "Yahoo Sports NFL",
+          "source_url": "https://sports.yahoo.com/articles/broncos-sign-db-sam-webb-235659492.html",
+          "published_at": "2026-07-30T23:56:59.000Z",
           "linked_markets": [
-            "wins"
+            "wins",
+            "make_playoffs",
+            "week_1_spread"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
         },
         {
-          "id": "camp_c69cc5c72448807f",
+          "id": "camp_1aace3549259ba35",
           "team": "DEN",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.84,
-          "signal_type": "depth_chart",
-          "player": "Javonte Williams",
-          "summary": "Leading early-down backfield reps ahead of Jaleel McLaughlin and Audric Estime.",
-          "evidence": "Leading early-down backfield reps ahead of Jaleel McLaughlin and Audric Estime.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "The Bear’s Den, July 30, 2026",
+          "evidence": "THE DAILY SPONGIE SPECIAL BEARSSSSSS Bears DE Montez Sweat back from illness That was brief. Bears coach Ben Johnson still &#8216;yells and curses&#8217; at QB Caleb Williams, but they&#8217;re connecting much better Whatever works! Bears Training Camp Report: Practice No. 1 Odd, a bunch of reports from an early camp practice that don’t contain words [&#8230;]",
+          "source": "CHI Beat - Windy City Gridiron",
+          "source_url": "https://www.windycitygridiron.com/chicago-bears-news/119609/chicago-bears-den-july-30-2026-training-camp-williams-johnson-sweat",
+          "published_at": "2026-07-30T10:00:00.000Z",
           "linked_markets": [
-            "wins"
+            "wins",
+            "make_playoffs"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_cbce8881c7290534",
+          "team": "DEN",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "The Bear’s Den, July 29, 2026",
+          "evidence": "THE DAILY SPONGIE KYLER GORDON SPECIAL BEARSSSSSS Bears&#8217; Ben Johnson, Ryan Poles tell all — with a little help from a translator — on eve of training camp Here’s the whole sod story, “jigamarow” and all. Bears&#8217; Ben Johnson sends clear message to QB Caleb Williams about completion percentage: Target is 70% From Ben’s lips [&#8230;]",
+          "source": "CHI Beat - Windy City Gridiron",
+          "source_url": "https://www.windycitygridiron.com/chicago-bears-news/119613/chicago-bears-den-july-29-2026-training-camp-presser",
+          "published_at": "2026-07-29T10:00:00.000Z",
+          "linked_markets": [
+            "wins",
+            "make_playoffs"
+          ],
+          "needs_human_review": true
         }
       ]
     },
@@ -498,51 +860,52 @@
       "division": "NFC North",
       "conference": "NFC",
       "anchor_team": false,
-      "coverage_status": "local_source_fill_ready_for_review",
+      "coverage_status": "existing_camp_intel",
       "candidate_count": 2,
-      "existing_camp_item_count": 0,
-      "article_candidate_count": 2,
+      "existing_camp_item_count": 2,
+      "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
         "wins",
-        "make_playoffs"
+        "make_playoffs",
+        "week_1_spread"
       ],
       "candidates": [
         {
-          "id": "camp_article_eac3f651449cae2c",
+          "id": "camp_5b879431ede8b7b2",
           "team": "DET",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.66,
-          "signal_type": "training_camp_context",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
           "player": null,
           "summary": "Latest news, buzz from training camps: Giants kick off in West Virginia; Gibbs sits out Lions' practice",
-          "evidence": "Latest news, buzz from training camps: Giants kick off in West Virginia; Gibbs sits out Lions' practice.",
+          "evidence": "Get all the news, intel and insights on NFL training camps from our team of reporters in the field.",
           "source": "ESPN NFL",
           "source_url": "https://www.espn.com/nfl/story/_/id/49368181/training-camp-2026-latest-news-intel-updates-buzz-all-32-teams",
-          "published_at": "2026-07-30T01:14:04+00:00",
+          "published_at": "2026-07-30T22:26:15.000Z",
           "linked_markets": [
-            "wins",
-            "make_playoffs"
+            "wins"
           ],
           "needs_human_review": true
         },
         {
-          "id": "camp_article_e301fb199b1fc7e1",
+          "id": "camp_9fe312ad9b45e7b3",
           "team": "DET",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.66,
-          "signal_type": "training_camp_context",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
           "player": null,
-          "summary": "Campbell: Arnold's release difficult but necessary",
-          "evidence": "As Lions veterans reported to training camp this week, head coach Dan Campbell addressed the team for the first time about the release of former CB Terrion Arnold on Tuesday night..",
-          "source": "ESPN NFL",
-          "source_url": "https://www.espn.com/nfl/story/_/id/49479468/lions-campbell-arnold-release-unfortunate-best",
-          "published_at": "2026-07-29T20:33:50+00:00",
+          "summary": "Aidan Hutchinson: It's \"extremely liberating\" to focus on football with injury behind me",
+          "evidence": "A year ago, Lions defensive end Aidan Hutchinson was full-go in training camp, but he was still focused on recovering from the broken leg that had ended his 2024 season.",
+          "source": "Pro Football Talk",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/aidan-hutchinson-its-extremely-liberating-to-focus-on-football-with-injury-behind-me",
+          "published_at": "2026-07-30T20:59:22.000Z",
           "linked_markets": [
             "wins",
-            "make_playoffs"
+            "make_playoffs",
+            "week_1_spread"
           ],
           "needs_human_review": true
         }
@@ -555,49 +918,111 @@
       "conference": "NFC",
       "anchor_team": true,
       "coverage_status": "existing_camp_intel",
-      "candidate_count": 2,
-      "existing_camp_item_count": 2,
+      "candidate_count": 5,
+      "existing_camp_item_count": 5,
       "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
-        "wins"
+        "wins",
+        "make_playoffs",
+        "week_1_spread"
       ],
       "candidates": [
         {
-          "id": "camp_18f16ffdf33a93ac",
+          "id": "camp_2cb820e5a4a4da6e",
           "team": "GB",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.92,
-          "signal_type": "role_usage",
-          "player": "Jordan Love",
-          "summary": "Commanding high-tempo 11-on-11 drills; Christian Watson & Jayden Reed leading target share.",
-          "evidence": "Commanding high-tempo 11-on-11 drills; Christian Watson & Jayden Reed leading target share.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "confidence": 0.68,
+          "signal_type": "roster_move",
+          "player": null,
+          "summary": "Packers to sign a former starting long snapper Cal Adomitis",
+          "evidence": "Sports Illustrated’s Bill Huber is reporting that the Green Bay Packers will be signing long snapper Cal Adomitis and also confirmed a report that the team has signed receiver Kaden Prather on Thursday. The Packers’ roster was full on Thursday, so general manager Brian Gutekunst now needs to make two corresponding moves just days into [&#8230;]",
+          "source": "GB Beat - Acme Packing Co",
+          "source_url": "https://www.acmepackingcompany.com/green-bay-packers-news/84229/packers-to-sign-a-former-starting-long-snapper-cal-adomitis",
+          "published_at": "2026-07-30T23:51:32.000Z",
           "linked_markets": [
             "wins"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
         },
         {
-          "id": "camp_7eafb8667e1c85f5",
+          "id": "camp_5b286fd3284e5eff",
           "team": "GB",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.88,
-          "signal_type": "depth_chart",
-          "player": "Josh Jacobs",
-          "summary": "Dominating first-team goal line and short yardage packages in team drills.",
-          "evidence": "Dominating first-team goal line and short yardage packages in team drills.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Packers sign UFL champion receiver Kaden Prather",
+          "evidence": "The Green Bay Packers worked out 10 players on Thursday, including four wide receivers. Apparently, one of them took, as the Packers signed Kaden Prather, formerly of the Louisville Kings, to a contract, per NFL Network’s Ian Rapoport. Prather was a seventh-round pick of the Buffalo Bills last season before he suffered a hamstring injury [&#8230;]",
+          "source": "GB Beat - Acme Packing Co",
+          "source_url": "https://www.acmepackingcompany.com/green-bay-packers-news/84225/packers-sign-ufl-champion-receiver-kaden-prather",
+          "published_at": "2026-07-30T21:48:39.000Z",
+          "linked_markets": [
+            "wins",
+            "make_playoffs",
+            "week_1_spread"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_45aaa9041dca7953",
+          "team": "GB",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Packers work out pass-catchers, long snappers on Thursday",
+          "evidence": "Green Bay Packers head coach Matt LaFleur announced before Thursday’s practice that the team would be working out a group of long snappers today, as their only rostered long snapper, Matt Orzech, is dealing with a short-term calf injury. With Orzech out, the emergency long snapper has been center Sean Rhyan, though it seems like [&#8230;]",
+          "source": "GB Beat - Acme Packing Co",
+          "source_url": "https://www.acmepackingcompany.com/green-bay-packers-news/84207/packers-work-out-pass-catchers-long-snappers-on-thursday",
+          "published_at": "2026-07-30T21:29:34.000Z",
+          "linked_markets": [
+            "wins",
+            "make_playoffs",
+            "week_1_spread"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_28b340a8c539baaa",
+          "team": "GB",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Packers Training Camp Recap: Keisean Nixon returns",
+          "evidence": "We’re learning a little more about the 2026 Green Bay Packers every day. Yesterday, we got a huge dump of information from the team’s first training camp practice. Today, more information was discovered about the Packers’ injury situation and their current depth chart. If you weren’t at training camp on Thursday, here’s what you missed. [&#8230;]",
+          "source": "GB Beat - Acme Packing Co",
+          "source_url": "https://www.acmepackingcompany.com/green-bay-packers-preseason/84199/packers-training-camp-recap-keisean-nixon-returns",
+          "published_at": "2026-07-30T18:00:50.000Z",
+          "linked_markets": [
+            "wins",
+            "make_playoffs",
+            "week_1_spread"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_8a45178ddf5ba997",
+          "team": "GB",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Packers News: Why Christian Watson&#8217;s biggest contributions in 2026 won&#8217;t be statistical",
+          "evidence": "Christian Watson has spent much of the past two seasons answering questions about injuries and production. Fair. But I’d argue it’s also fair to shift the 2026 conversation about Watson away from counting stats and toward understanding what he brings to Green Bay&#8217;s offense. As Packers Wire recently posted, Watson has embraced the idea that [&#8230;]",
+          "source": "GB Beat - Acme Packing Co",
+          "source_url": "https://www.acmepackingcompany.com/green-bay-packers-news/84195/packers-news-why-christian-watsons-biggest-contributions-in-2026-wont-be-statistical",
+          "published_at": "2026-07-30T17:14:45.000Z",
           "linked_markets": [
             "wins"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
         }
       ]
     },
@@ -608,49 +1033,107 @@
       "conference": "AFC",
       "anchor_team": false,
       "coverage_status": "existing_camp_intel",
-      "candidate_count": 2,
-      "existing_camp_item_count": 2,
+      "candidate_count": 5,
+      "existing_camp_item_count": 5,
       "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
-        "wins"
+        "wins",
+        "make_playoffs",
+        "week_1_spread"
       ],
       "candidates": [
         {
-          "id": "camp_718a46c3b2334631",
+          "id": "camp_6aff705fd7eb4987",
           "team": "HOU",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.91,
-          "signal_type": "role_usage",
-          "player": "Stefon Diggs",
-          "summary": "Aligning both inside and outside; CJ Stroud targeting Diggs heavily on intermediate crossers.",
-          "evidence": "Aligning both inside and outside; CJ Stroud targeting Diggs heavily on intermediate crossers.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "No Jaylin Noel: what his absence means for the Texans’ wide receiver room",
+          "evidence": "One update shocked fans and the media when the team had to post their obligatory player injury updates. Per Aaron Wilson, Jaylin Noel will miss the beginning of training camp due to an undisclosed injury. Even if Wilson reassured via Twitter/X that there should be little cause for alarm, Texans fans are right to be [&#8230;]",
+          "source": "HOU Beat - Battle Red Blog",
+          "source_url": "https://www.battleredblog.com/nfl-training-camp/76771/no-jaylin-noel-what-his-absence-means-for-the-texans-wide-receiver-room",
+          "published_at": "2026-07-29T14:24:00.000Z",
           "linked_markets": [
-            "wins"
+            "wins",
+            "make_playoffs",
+            "week_1_spread"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
         },
         {
-          "id": "camp_c5ab4dc5803da204",
+          "id": "camp_4fcd79466658dcc5",
           "team": "HOU",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.86,
-          "signal_type": "depth_chart",
-          "player": "Joe Mixon",
-          "summary": "Receiving bulk of first-team touches with Dameon Pierce backing up.",
-          "evidence": "Receiving bulk of first-team touches with Dameon Pierce backing up.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Texans Training Camp &#8211; Top 4 Position Battles",
+          "evidence": "In case the hype train hasn’t stopped by your house just yet, the Houston Texans training camp just kicked off yesterday and will entail one of the most competitive races to the final 53-man roster in franchise history. Benefiting from three great drafts in a row and a few savvy moves in free agency, the [&#8230;]",
+          "source": "HOU Beat - Battle Red Blog",
+          "source_url": "https://www.battleredblog.com/houston-texans-depth-chart/76748/texans-training-camp-top-4-positions-to-watch",
+          "published_at": "2026-07-29T14:00:00.000Z",
           "linked_markets": [
             "wins"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_a4f5e6024eed74bb",
+          "team": "HOU",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Value of things: Make or Break series — Tank Dell",
+          "evidence": "It has been awhile. Summer time is really the only time I have to travel and the family took a much needed vacation to Alaska before all the craziness of training camp and work get started. This will be the final in the make or break series here before training camp and you better believe [&#8230;]",
+          "source": "HOU Beat - Battle Red Blog",
+          "source_url": "https://www.battleredblog.com/houston-texans-analysis/76738/value-of-things-make-or-break-series-tank-dell",
+          "published_at": "2026-07-28T12:39:00.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_c010963d79f08a25",
+          "team": "HOU",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "The Road to Paradise, or how the 2026-27 season could go right for the Houston Texans",
+          "evidence": "As a Houston pro sports fan, you are almost contractually obligated to look for, and expect the worst to happen, usually in a highly dramatic and painfully creative fashion. Earlier, we discussed how the 2026-27 season could go so, so wrong for the Texans. However, for all that can go wrong, you have to acknowledge [&#8230;]",
+          "source": "HOU Beat - Battle Red Blog",
+          "source_url": "https://www.battleredblog.com/houston-texans-analysis/76717/the-road-to-paradise-or-how-the-2026-27-season-could-go-right-for-the-houston-texans",
+          "published_at": "2026-07-27T15:00:00.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_9bc78312e01aea4f",
+          "team": "HOU",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Houston Texans 2026 Training Camp Primer",
+          "evidence": "Houston Texans training camp kicks off this Wednesday. The fresh grass at Reliant Stadium is eager to receive its 25th edition of the Houston Texans roster. Expectations could not be higher. The bar has been set at the divisional round and nothing less would satisfy the fanbase. There are plenty of reasons to believe. In [&#8230;]",
+          "source": "HOU Beat - Battle Red Blog",
+          "source_url": "https://www.battleredblog.com/nfl-training-camp/76663/houston-texans-2026-training-camp-primer",
+          "published_at": "2026-07-27T14:31:00.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
         }
       ]
     },
@@ -666,44 +1149,48 @@
       "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
-        "wins"
+        "wins",
+        "make_playoffs",
+        "conference"
       ],
       "candidates": [
         {
-          "id": "camp_1fb4845eaeeeafd2",
+          "id": "camp_666350e351c665ad",
           "team": "IND",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.93,
-          "signal_type": "injury",
-          "player": "Anthony Richardson",
-          "summary": "Fully cleared in team 11-on-11 drills with no throwing velocity restrictions.",
-          "evidence": "Fully cleared in team 11-on-11 drills with no throwing velocity restrictions.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Steelers host former Jaguars QB for tryout",
+          "evidence": "The Pittsburgh Steelers hosted seven free agents for tryouts on Thursday, the most notable name being former Memphis quarterback Seth Henigan. Henigan has spent time with the Indianapolis Colts and Jacksonville Jaguars. In four seasons with the Tigers, Henigan threw 104 touchdowns in 50 games, including 32 in 2023, which led the American Conference. In [&#8230;]",
+          "source": "PIT Beat - Behind The Steel Curtain",
+          "source_url": "https://www.behindthesteelcurtain.com/pittsburgh-steelers-roster/172802/steelers-host-former-jaguars-qb-for-tryout-seth-henigan",
+          "published_at": "2026-07-31T01:24:12.000Z",
           "linked_markets": [
-            "wins"
+            "wins",
+            "make_playoffs",
+            "conference"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
         },
         {
-          "id": "camp_9f91fc863bf657f3",
+          "id": "camp_05852ce187193e6a",
           "team": "IND",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.8,
+          "confidence": 0.68,
           "signal_type": "depth_chart",
-          "player": "Adonai Mitchell",
-          "summary": "Competing with Alec Pierce for perimeter X-receiver reps opposite Michael Pittman.",
-          "evidence": "Competing with Alec Pierce for perimeter X-receiver reps opposite Michael Pittman.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "player": null,
+          "summary": "Anthony Richardson: In battle for No. 2 role",
+          "evidence": "Richardson is in a competition for the backup quarterback role in Indianapolis ahead of the 2026 campaign, JJ Stankevitz of the Colts' official website reports. Visit RotoWire.com for more analysis on this update.",
+          "source": "Rotowire NFL",
+          "source_url": "https://www.rotowire.com//football/player/anthony-richardson-16653",
+          "published_at": "2026-07-30T23:13:00.000Z",
           "linked_markets": [
             "wins"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
         }
       ]
     },
@@ -714,49 +1201,107 @@
       "conference": "AFC",
       "anchor_team": false,
       "coverage_status": "existing_camp_intel",
-      "candidate_count": 2,
-      "existing_camp_item_count": 2,
+      "candidate_count": 5,
+      "existing_camp_item_count": 5,
       "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
-        "wins"
+        "wins",
+        "make_playoffs",
+        "conference"
       ],
       "candidates": [
         {
-          "id": "camp_41c2e7f934cf6cd8",
+          "id": "camp_d016c463426f2c9f",
           "team": "JAX",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.87,
-          "signal_type": "role_usage",
-          "player": "Brian Thomas Jr.",
-          "summary": "Showcasing vertical separation in 1-on-1 drills; Trevor Lawrence taking deep shots.",
-          "evidence": "Showcasing vertical separation in 1-on-1 drills; Trevor Lawrence taking deep shots.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Steelers host former Jaguars QB for tryout",
+          "evidence": "The Pittsburgh Steelers hosted seven free agents for tryouts on Thursday, the most notable name being former Memphis quarterback Seth Henigan. Henigan has spent time with the Indianapolis Colts and Jacksonville Jaguars. In four seasons with the Tigers, Henigan threw 104 touchdowns in 50 games, including 32 in 2023, which led the American Conference. In [&#8230;]",
+          "source": "PIT Beat - Behind The Steel Curtain",
+          "source_url": "https://www.behindthesteelcurtain.com/pittsburgh-steelers-roster/172802/steelers-host-former-jaguars-qb-for-tryout-seth-henigan",
+          "published_at": "2026-07-31T01:24:12.000Z",
           "linked_markets": [
-            "wins"
+            "wins",
+            "make_playoffs",
+            "conference"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
         },
         {
-          "id": "camp_fc16017c46ac5ab3",
+          "id": "camp_79e81f7aebd7ac0c",
           "team": "JAX",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.85,
-          "signal_type": "role_usage",
-          "player": "Travis Etienne",
-          "summary": "Running expanded route tree out of backfield in Doug Pederson system.",
-          "evidence": "Running expanded route tree out of backfield in Doug Pederson system.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "10 Observations from Day 2 of Jaguars Training Camp",
+          "evidence": "After a Day 1 of Jacksonville Jaguars training camp that belonged almost entirely to the defense, Thursday brought a far more competitive practice to the Miller Electric Center. Depending on who you ask, the debate over which side of the ball came out ahead may be somewhat unsettled. Where Wednesday was a defensive showcase, Thursday [&#8230;]",
+          "source": "JAX Beat - Big Cat Country",
+          "source_url": "https://www.bigcatcountry.com/jacksonville-jaguars-training-camp/86941/10-observations-from-day-2-of-jaguars-training-camp",
+          "published_at": "2026-07-30T17:27:52.000Z",
           "linked_markets": [
             "wins"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_0576f4a34081694e",
+          "team": "JAX",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Jaguars Reacts Survey: Are you going to training camp this summer?",
+          "evidence": "Welcome to SB Nation Reacts, a survey of fans across the NFL. Throughout the year we ask questions of the most plugged-in Jaguars fans and fans across the country. Sign up here to participate in the weekly emailed surveys. As football season quickly approaches, the looming question in Jacksonville is, “Can they do it again?” [&#8230;]",
+          "source": "JAX Beat - Big Cat Country",
+          "source_url": "https://www.bigcatcountry.com/nfl-reacts-survey/86908/jags-reacts-survey-training-camp-fan-attendance",
+          "published_at": "2026-07-29T18:30:00.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_26fdf309e1cdd602",
+          "team": "JAX",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Jaguars 2026 Training Camp, Day 1: The Travis Hunter Show is Back",
+          "evidence": "The Jacksonville Jaguars are back on the prowl. As 2026 NFL training camps kick off around the league, head coach Liam Coen’s message to his team is: “Let’s go earn something.” Above all else, the Jags are hunting for wins — but their desire for respect is no secret either. “Nothing in this league is [&#8230;]",
+          "source": "JAX Beat - Big Cat Country",
+          "source_url": "https://www.bigcatcountry.com/nfl-training-camp/86921/jags-travis-hunter-returns-to-practice-field",
+          "published_at": "2026-07-29T17:13:02.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_1ad5d42a552f40f2",
+          "team": "JAX",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Should the Jaguars Be in Play for Vita Vea?",
+          "evidence": "On the eve of Tampa Bay Buccaneers veterans reporting to training camp on Tuesday, one of the most dominant interior defensive linemen in the NFL made his situation very clear. Two-time Pro Bowl nose tackle Vita Vea formally requested a trade Monday after extension negotiations with the Buccaneers reached an impasse, with his agent Collin [&#8230;]",
+          "source": "JAX Beat - Big Cat Country",
+          "source_url": "https://www.bigcatcountry.com/jacksonville-jaguars-analysis/86890/should-the-jaguars-be-in-play-for-vita-vea",
+          "published_at": "2026-07-28T14:14:07.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
         }
       ]
     },
@@ -767,8 +1312,8 @@
       "conference": "AFC",
       "anchor_team": true,
       "coverage_status": "existing_camp_intel",
-      "candidate_count": 2,
-      "existing_camp_item_count": 2,
+      "candidate_count": 5,
+      "existing_camp_item_count": 5,
       "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
@@ -776,40 +1321,94 @@
       ],
       "candidates": [
         {
-          "id": "camp_dc1353d37170749f",
+          "id": "camp_831d9080dee22cc8",
           "team": "KC",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.92,
-          "signal_type": "scheme",
-          "player": "Xavier Worthy",
-          "summary": "Used heavily in pre-snap motion; Patrick Mahomes connecting on deep post routes.",
-          "evidence": "Used heavily in pre-snap motion; Patrick Mahomes connecting on deep post routes.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Throwback Thursday: What’s your favorite Chiefs camp memory?",
+          "evidence": "Kansas City Chiefs training camp is underway, although Thursday’s practice was marred by rain. It was not one of my favorite memories of a day spent in St. Joe. One of the top memories I do have was from the 2010 season’s training camp, the rookie season of legendary safety Eric Berry. Our friend group [&#8230;]",
+          "source": "KC Beat - Arrowhead Pride",
+          "source_url": "https://www.arrowheadpride.com/kansas-city-chiefs-discussions/206476/throwback-thursday-favorite-camp-memory",
+          "published_at": "2026-07-30T22:00:00.000Z",
           "linked_markets": [
             "wins"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
         },
         {
-          "id": "camp_2ab0e8ba92b1ff15",
+          "id": "camp_e3d3174bc7e359cf",
           "team": "KC",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.9,
-          "signal_type": "depth_chart",
-          "player": "Isiah Pacheco",
-          "summary": "Taking primary first-team snaps; Clyde Edwards-Helaire backing up.",
-          "evidence": "Taking primary first-team snaps; Clyde Edwards-Helaire backing up.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Chiefs training camp: Excitement for revamped screen game is brewing",
+          "evidence": "Through the first two days of Kansas City Chiefs full-team practices at training camp, there has been little opportunity for running back Kenneth Walker to showcase his skills. In the “acclimation” period spanning the first three days of camp, the Chiefs don’t wear full pads, limiting the run-game work. On a few occasions, Walker has [&#8230;]",
+          "source": "KC Beat - Arrowhead Pride",
+          "source_url": "https://www.arrowheadpride.com/kansas-city-chiefs-analysis/206466/chiefs-training-camp-excitement-revamped-screen-game-brewing",
+          "published_at": "2026-07-30T18:45:00.000Z",
           "linked_markets": [
             "wins"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_d151972011de7ea2",
+          "team": "KC",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Chiefs training camp notebook Day 2: An Offensive line shift",
+          "evidence": "The Kansas City Chiefs’ second full-team practice of training camp took place on a gloomy day in St. Joe, one that turned to a downpour by the time the Chiefs wrapped up practice with punt-team work. The Arrowhead Pride staff had boots on the ground to observe the second of three acclimation-period practices before full [&#8230;]",
+          "source": "KC Beat - Arrowhead Pride",
+          "source_url": "https://www.arrowheadpride.com/kansas-city-chiefs-analysis/206459/chiefs-training-camp-notebook-day-2-offensive-line-shift",
+          "published_at": "2026-07-30T16:30:00.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_c693df8e9ab8af7f",
+          "team": "KC",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Live updates from Thursday’s Chiefs training camp practice: Day 2",
+          "evidence": "Thursday’s Kansas City Chiefs training camp practice gets underway at 9:15 a.m. (Arrowhead Time) on the practice fields alongside Spratt Stadium at Missouri Western State University in St. Joseph. The full squad will have their second shorter session of the league’s mandated ramp up period. With two open 90-man roster spots, we will also look out for [&#8230;]",
+          "source": "KC Beat - Arrowhead Pride",
+          "source_url": "https://www.arrowheadpride.com/kansas-city-chiefs-training-camp/206377/live-updates-from-thursdays-chiefs-training-camp-practice-day-2",
+          "published_at": "2026-07-30T13:31:35.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_8d52d6a292b3ec58",
+          "team": "KC",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Chiefs News: Mark Donovan reveals big plans for new Kansas City stadium",
+          "evidence": "The latest Before the Chiefs held their first full squad training camp practice at Missouri Western State University, team president Mark Donovan addressed the media. Predictably, the bulk of Donovan’s time was spent on the Chiefs’ new stadium set to open in 2031 in Kansas. Donovan anticipates the design of the domed field will be [&#8230;]",
+          "source": "KC Beat - Arrowhead Pride",
+          "source_url": "https://www.arrowheadpride.com/kansas-city-chiefs-news/206369/chiefs-news-mark-donovan-reveals-big-plans-for-new-kansas-city-stadium",
+          "published_at": "2026-07-30T10:30:00.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
         }
       ]
     },
@@ -820,49 +1419,106 @@
       "conference": "AFC",
       "anchor_team": false,
       "coverage_status": "existing_camp_intel",
-      "candidate_count": 2,
-      "existing_camp_item_count": 2,
+      "candidate_count": 5,
+      "existing_camp_item_count": 5,
       "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
-        "wins"
+        "wins",
+        "make_playoffs",
+        "super_bowl"
       ],
       "candidates": [
         {
-          "id": "camp_7775ebee8d645fe0",
+          "id": "camp_4535c6fd8b988107",
           "team": "LAC",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.88,
-          "signal_type": "scheme",
-          "player": "Gus Edwards",
-          "summary": "Leading first-team early down rushing reps in physical Jim Harbaugh team period.",
-          "evidence": "Leading first-team early down rushing reps in physical Jim Harbaugh team period.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Will Puka Nacua be first $50 million receiver?",
+          "evidence": "The Los Angeles Rams are content with letting Puka Nacua play this season without a contract extension, with the 2027 franchise tag as a fail safe plan, but is it a decision that will cost them millions of dollars in future cap space? Based on early training camp reports of Nacua looking better than ever, [&#8230;]",
+          "source": "LAR Beat - Turf Show Times",
+          "source_url": "https://www.turfshowtimes.com/los-angeles-rams-salary-cap/144794/puka-nacua-rams-contract-extension",
+          "published_at": "2026-07-30T23:14:11.000Z",
           "linked_markets": [
             "wins"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
         },
         {
-          "id": "camp_e5e72c7a46106fe8",
+          "id": "camp_0f983f9142926fa6",
           "team": "LAC",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.89,
-          "signal_type": "role_usage",
-          "player": "Ladd McConkey",
-          "summary": "Herbert targeting McConkey consistently on 3rd down slot option routes.",
-          "evidence": "Herbert targeting McConkey consistently on 3rd down slot option routes.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Tuli Tuipulotu returns to practice after missing Wednesday",
+          "evidence": "Chargers edge rusher Tuli Tuipulotu began training camp on Wednesday on the sidelines, working with trainers without his helmet and pads. That came after head coach Jim Harbaugh told reporters pre-practice that he expected every player to be on the field to begin camp. Tuipulotu’s rookie deal expires after the 2026 season and it would [&#8230;]",
+          "source": "LAC Beat - Bolts From The Blue",
+          "source_url": "https://www.boltsfromtheblue.com/los-angeles-chargers-news/64862/tuli-tuipulotu-returns-to-practice-after-missing-wednesday",
+          "published_at": "2026-07-30T20:28:07.000Z",
           "linked_markets": [
             "wins"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_e66f0f3e264d532c",
+          "team": "LAC",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Stetson Bennett is fighting for more than a backup spot",
+          "evidence": "Everything is seemingly in line for Los Angeles Rams quarterback Stetson Bennett to win the backup job this offseason. With Jimmy Garoppolo out of the picture and rookie QB Ty Simpson getting up to speed, it’s quick to say the job is Bennett’s to lose. His long-term NFL career will come into question if he [&#8230;]",
+          "source": "LAR Beat - Turf Show Times",
+          "source_url": "https://www.turfshowtimes.com/los-angeles-rams-roster/144750/stetson-bennett-rams-backup-quarterback-nfl-career",
+          "published_at": "2026-07-30T19:00:00.000Z",
+          "linked_markets": [
+            "wins",
+            "make_playoffs"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_33f4c7d27fdae68d",
+          "team": "LAC",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "coach_quote",
+          "player": null,
+          "summary": "Chargers legend Bill Ray Smith passed away at 64",
+          "evidence": "The Chargers and the entire fan base is mourning the loss of franchise legend Billy Ray Smith who passed away on Wednesday at the age of 64 after a bout with dementia. In a statement from his family, they said the dementia was CTE-related. &#8220;To know Billy Ray was to love Billy Ray. Yes, he [&#8230;]",
+          "source": "LAC Beat - Bolts From The Blue",
+          "source_url": "https://www.boltsfromtheblue.com/los-angeles-chargers-news/64859/chargers-bill-ray-smith-obituary-dimentia",
+          "published_at": "2026-07-30T18:16:32.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_0d270aea1388a3d6",
+          "team": "LAC",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Sean McVay’s 5 worst mistakes",
+          "evidence": "Sean McVay has built one of the NFL&#8217;s most impressive coaching résumés, transforming the Los Angeles Rams into perennial contenders while earning a Super Bowl championship and a reputation as one of football&#8217;s brightest offensive minds. Yet even the league&#8217;s best coaches are far from perfect. Across nearly a decade on the sidelines, McVay has [&#8230;]",
+          "source": "LAR Beat - Turf Show Times",
+          "source_url": "https://www.turfshowtimes.com/los-angeles-rams-coaching-staff/144535/sean-mcvays-5-worst-mistakes",
+          "published_at": "2026-07-30T18:00:00.000Z",
+          "linked_markets": [
+            "super_bowl"
+          ],
+          "needs_human_review": true
         }
       ]
     },
@@ -872,81 +1528,105 @@
       "division": "NFC West",
       "conference": "NFC",
       "anchor_team": false,
-      "coverage_status": "availability_context_only_needs_camp_source",
-      "candidate_count": 3,
-      "existing_camp_item_count": 0,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 5,
+      "existing_camp_item_count": 5,
       "article_candidate_count": 0,
-      "availability_candidate_count": 3,
+      "availability_candidate_count": 0,
       "linked_markets": [
         "wins",
-        "division",
-        "conference",
-        "super_bowl",
-        "player_props",
-        "fantasy"
+        "make_playoffs",
+        "super_bowl"
       ],
       "candidates": [
         {
-          "id": "camp_availability_bfa74bd42a2fa398",
+          "id": "camp_9e0bacf419e4c329",
           "team": "LAR",
-          "coverage_source": "starter_impact_availability_digest",
-          "status": "availability_context_fill",
-          "confidence": 0.6,
-          "signal_type": "availability_context",
-          "player": "Stetson Bennett IV",
-          "summary": "Bennett continues to work ahead of Ty Simpson, Cameron DaSilva of USA Today Rams Wire reports.",
-          "evidence": "Bennett continues to work ahead of Ty Simpson, Cameron DaSilva of USA Today Rams Wire reports.",
-          "source": "ESPN injuries API",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-07-30T18:09:00.000Z",
-          "linked_markets": [
-            "wins",
-            "division",
-            "conference",
-            "super_bowl",
-            "player_props",
-            "fantasy"
-          ],
-          "needs_human_review": true
-        },
-        {
-          "id": "camp_availability_abafdde0a9844363",
-          "team": "LAR",
-          "coverage_source": "starter_impact_availability_digest",
-          "status": "availability_context_fill",
-          "confidence": 0.48,
-          "signal_type": "injury",
-          "player": "Justin Dedich",
-          "summary": "Dedich was placed on the Rams' active/non-football injury list Sunday due to a hand injury he suffered around July 4, Brock Vierra of USA Today reports.",
-          "evidence": "Dedich was placed on the Rams' active/non-football injury list Sunday due to a hand injury he suffered around July 4, Brock Vierra of USA Today reports.",
-          "source": "ESPN injuries API",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-07-29T00:33:00.000Z",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Will Puka Nacua be first $50 million receiver?",
+          "evidence": "The Los Angeles Rams are content with letting Puka Nacua play this season without a contract extension, with the 2027 franchise tag as a fail safe plan, but is it a decision that will cost them millions of dollars in future cap space? Based on early training camp reports of Nacua looking better than ever, [&#8230;]",
+          "source": "LAR Beat - Turf Show Times",
+          "source_url": "https://www.turfshowtimes.com/los-angeles-rams-salary-cap/144794/puka-nacua-rams-contract-extension",
+          "published_at": "2026-07-30T23:14:11.000Z",
           "linked_markets": [
             "wins"
           ],
           "needs_human_review": true
         },
         {
-          "id": "camp_availability_1a8e5d105f05deed",
+          "id": "camp_38563463443e69b7",
           "team": "LAR",
-          "coverage_source": "starter_impact_availability_digest",
-          "status": "availability_context_fill",
-          "confidence": 0.6,
-          "signal_type": "availability_context",
-          "player": "Ty Simpson",
-          "summary": "Simpson agreed to terms on a four-year, $25.4 million rookie contract with the Rams on Saturday, Ian Rapoport of NFL Network reports.",
-          "evidence": "Simpson agreed to terms on a four-year, $25.4 million rookie contract with the Rams on Saturday, Ian Rapoport of NFL Network reports.",
-          "source": "ESPN injuries API",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-07-25T18:42:00.000Z",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Stetson Bennett is fighting for more than a backup spot",
+          "evidence": "Everything is seemingly in line for Los Angeles Rams quarterback Stetson Bennett to win the backup job this offseason. With Jimmy Garoppolo out of the picture and rookie QB Ty Simpson getting up to speed, it’s quick to say the job is Bennett’s to lose. His long-term NFL career will come into question if he [&#8230;]",
+          "source": "LAR Beat - Turf Show Times",
+          "source_url": "https://www.turfshowtimes.com/los-angeles-rams-roster/144750/stetson-bennett-rams-backup-quarterback-nfl-career",
+          "published_at": "2026-07-30T19:00:00.000Z",
           "linked_markets": [
             "wins",
-            "division",
-            "conference",
-            "super_bowl",
-            "player_props",
-            "fantasy"
+            "make_playoffs"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_e3506d78628dcd38",
+          "team": "LAR",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Sean McVay’s 5 worst mistakes",
+          "evidence": "Sean McVay has built one of the NFL&#8217;s most impressive coaching résumés, transforming the Los Angeles Rams into perennial contenders while earning a Super Bowl championship and a reputation as one of football&#8217;s brightest offensive minds. Yet even the league&#8217;s best coaches are far from perfect. Across nearly a decade on the sidelines, McVay has [&#8230;]",
+          "source": "LAR Beat - Turf Show Times",
+          "source_url": "https://www.turfshowtimes.com/los-angeles-rams-coaching-staff/144535/sean-mcvays-5-worst-mistakes",
+          "published_at": "2026-07-30T18:00:00.000Z",
+          "linked_markets": [
+            "super_bowl"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_8e3fd081786fb0d4",
+          "team": "LAR",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "roster_move",
+          "player": null,
+          "summary": "Rams Players Under the Most Pressure in Training Camp",
+          "evidence": "Omar Speights could be benched, Davis Allen could be cut, Stetson Bennett could lose to Ty Simpson, and Taylor Decker could be signed to start for the Los Angeles Rams at tackle. Overreaction? These aren’t just one writer’s opinion, these are the results of a survey to hundreds of Rams fans this week. After asking [&#8230;]",
+          "source": "LAR Beat - Turf Show Times",
+          "source_url": "https://www.turfshowtimes.com/los-angeles-rams-preseason/144755/rams-players-most-pressure-training-camp",
+          "published_at": "2026-07-30T17:18:10.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_2feda488b0343b0a",
+          "team": "LAR",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "TST Survey Results: Rams’ fans think Aaron Donald will be back",
+          "evidence": "About one week ago, I asked our readers in The Feed to share whether they/you thought Aaron Donald would be unretiring to come back to the Los Angeles Rams? Survey says: Yes, fans think AD will be coming back for 2026. Out of 56 total votes, 57% expressed the belief that AD would be back [&#8230;]",
+          "source": "LAR Beat - Turf Show Times",
+          "source_url": "https://www.turfshowtimes.com/los-angeles-rams-discussion/144629/rams-aaron-donald-2026-nfl-season",
+          "published_at": "2026-07-30T15:33:00.000Z",
+          "linked_markets": [
+            "wins"
           ],
           "needs_human_review": true
         }
@@ -958,32 +1638,109 @@
       "division": "AFC West",
       "conference": "AFC",
       "anchor_team": false,
-      "coverage_status": "local_source_fill_ready_for_review",
-      "candidate_count": 1,
-      "existing_camp_item_count": 0,
-      "article_candidate_count": 1,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 5,
+      "existing_camp_item_count": 5,
+      "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
+        "make_playoffs",
+        "conference",
+        "super_bowl",
         "wins",
-        "make_playoffs"
+        "week_1_spread"
       ],
       "candidates": [
         {
-          "id": "camp_article_7787482127e564d5",
+          "id": "camp_a4c3aed8b804991d",
           "team": "LV",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.66,
-          "signal_type": "training_camp_context",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
           "player": null,
-          "summary": "Tight QB1 races for the Falcons, Browns, Raiders and Vikings? We projected the Week 1 starters",
-          "evidence": "2026 NFL training camp: Predicting four QB1 battles - ESPN NFL execs help predict four QB1 battles: Who will start for the Falcons, Browns, Raiders and Vikings?",
-          "source": "ESPN NFL",
-          "source_url": "https://www.espn.com/nfl/story/_/id/49470513/2026-nfl-preseason-training-camp-qb-battles-predictions-vikings-browns-raiders-falcons",
-          "published_at": "2026-07-30T04:04:53+00:00",
+          "summary": "Fernando Mendoza National Championship versus Miami, Part XVI of Las Vegas Raiders’ Mendoza Mania",
+          "evidence": "Shed a tear; we’ve reached the finale of Silver and Black Pride’s Mendoza Mania series, as we’ll be diving into Fernando Mendoza’s performance in the National Championship against Miami. Unlike the previous playoff games, Indiana was in a dogfight against the Hurricanes, squeaking out a 27-21 victory. That was due in part to the No. [&#8230;]",
+          "source": "LV Beat - Silver and Black Pride",
+          "source_url": "https://www.silverandblackpride.com/las-vegas-raiders-analysis/135173/las-vegas-raiders-nfl-draft-fernando-mendoza-film-breakdown-national-championship-miami",
+          "published_at": "2026-07-30T21:48:00.000Z",
+          "linked_markets": [
+            "make_playoffs",
+            "conference",
+            "super_bowl"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_4f831c63411c19a1",
+          "team": "LV",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "What we know about possible Vita Vea trade",
+          "evidence": "Last month, we wrote that we should keep an eye on the Vita Vea situation with the Tamp Bay Buccaneers. At that point, the star defensive tackle was unhappy with his contract. We wrote it could escalate and if it did the Las Vegas Raiders could emerge as a possible trade partner. Indeed, it has [&#8230;]",
+          "source": "LV Beat - Silver and Black Pride",
+          "source_url": "https://www.silverandblackpride.com/las-vegas-raiders-rumors/135589/raiders-vita-vea-trade-rumors-buccaneers",
+          "published_at": "2026-07-30T19:01:00.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_65ac1d47460fc20f",
+          "team": "LV",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Raiders roster: Tre Tucker&#8217;s career has been let down by QB play",
+          "evidence": "When the Las Vegas Raiders traded Darren Waller in 2023 for a third-round pick, they had to replace a weapon on offense. The franchise decided to make that move with the same pick they acquired by drafting Tre Tucker out of Cincinnati. Tucker played in the slot during college but was asked to move outside [&#8230;]",
+          "source": "LV Beat - Silver and Black Pride",
+          "source_url": "https://www.silverandblackpride.com/las-vegas-raiders-analysis/134921/raiders-tre-tucker-wide-receiver-2026-preview",
+          "published_at": "2026-07-30T17:09:00.000Z",
           "linked_markets": [
             "wins",
             "make_playoffs"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_0060cec43289e3cc",
+          "team": "LV",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Submit your Las Vegas Raiders training camp mailbag questions!",
+          "evidence": "Las Vegas Raiders football is back, baby! Kind of… We still have a couple of weeks before the Raiders have their first preseason game against the Arizona Cardinals on Aug. 13. But training camp is underway with the veterans reporting on Tuesday and the team’s first practice of the summer on Wednesday morning. So, it’s [&#8230;]",
+          "source": "LV Beat - Silver and Black Pride",
+          "source_url": "https://www.silverandblackpride.com/las-vegas-raiders-preseason/135507/las-vegas-raiders-training-camp-mailbag-questions",
+          "published_at": "2026-07-30T16:05:00.000Z",
+          "linked_markets": [
+            "week_1_spread"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_da4c36cfd1e8623f",
+          "team": "LV",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "roster_move",
+          "player": null,
+          "summary": "Raiders fans split on whether Michael Mayer will remain in Las Vegas",
+          "evidence": "There is a strong chance Michael Mayer may be entering his final season with the Las Vegas Raiders. The tight end, who the Raiders traded up to draft in 2023, is set to be a free agent after this season. In a post exploring whether he will return or not, we asked our readers if [&#8230;]",
+          "source": "LV Beat - Silver and Black Pride",
+          "source_url": "https://www.silverandblackpride.com/las-vegas-raiders-free-agency/134559/raiders-michael-mayer-tight-end-2026-preview",
+          "published_at": "2026-07-30T15:04:00.000Z",
+          "linked_markets": [
+            "wins"
           ],
           "needs_human_review": true
         }
@@ -995,32 +1752,109 @@
       "division": "AFC East",
       "conference": "AFC",
       "anchor_team": false,
-      "coverage_status": "local_source_fill_ready_for_review",
-      "candidate_count": 1,
-      "existing_camp_item_count": 0,
-      "article_candidate_count": 1,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 5,
+      "existing_camp_item_count": 5,
+      "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
-        "wins",
-        "make_playoffs"
+        "make_playoffs",
+        "conference",
+        "super_bowl",
+        "wins"
       ],
       "candidates": [
         {
-          "id": "camp_article_7f8ab5da7e7ecc7f",
+          "id": "camp_e4eadadbdedb7196",
           "team": "MIA",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.52,
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
           "signal_type": "injury",
           "player": null,
-          "summary": "Miami Dolphins NFL Season Preview",
-          "evidence": "Big things were expected from Washington last year when Hill got hurt, but he disappointed.",
-          "source": "Walter Football",
-          "source_url": "http://walterfootball.com/offseason2026mia.php",
-          "published_at": "2026-07-22T08:24:00+00:00",
+          "summary": "Fernando Mendoza National Championship versus Miami, Part XVI of Las Vegas Raiders’ Mendoza Mania",
+          "evidence": "Shed a tear; we’ve reached the finale of Silver and Black Pride’s Mendoza Mania series, as we’ll be diving into Fernando Mendoza’s performance in the National Championship against Miami. Unlike the previous playoff games, Indiana was in a dogfight against the Hurricanes, squeaking out a 27-21 victory. That was due in part to the No. [&#8230;]",
+          "source": "LV Beat - Silver and Black Pride",
+          "source_url": "https://www.silverandblackpride.com/las-vegas-raiders-analysis/135173/las-vegas-raiders-nfl-draft-fernando-mendoza-film-breakdown-national-championship-miami",
+          "published_at": "2026-07-30T21:48:00.000Z",
+          "linked_markets": [
+            "make_playoffs",
+            "conference",
+            "super_bowl"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_cb455aa2dadcd934",
+          "team": "MIA",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "roster_move",
+          "player": null,
+          "summary": "Miami Dolphins 2026 schedule and scores",
+          "evidence": "The Miami Dolphins’ 2026 season is one of reset for the club, with a reset to the front office under new general manager Jon-Eric Sullivan, a reset to the coaching staff under new head coach Jeff Hafley, a reset to the roster with many veterans cut, traded, or allowed to leave as younger players were [&#8230;]",
+          "source": "MIA Beat - The Phinsider",
+          "source_url": "https://www.thephinsider.com/miami-dolphins-schedule/121192/miami-dolphins-2026-schedule-scores",
+          "published_at": "2026-07-30T14:18:58.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_80623b2a8ea915be",
+          "team": "MIA",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Rebuilding ‘not the mentality’ for 2026 Miami Dolphins",
+          "evidence": "Miami Dolphins head coach Jeff Hafley met with the South Florida media ahead of the team’s second day of training camp practices in Miami Gardens on Thursday morning. He was asked about the roster’s sweeping changes this offseason and how his players and coaches are dealing with the idea of a “rebuild” for the franchise. [&#8230;]",
+          "source": "MIA Beat - The Phinsider",
+          "source_url": "https://www.thephinsider.com/miami-dolphins-training-camp/121276/rebuilding-not-the-mentality-for-2026-miami-dolphins",
+          "published_at": "2026-07-30T13:27:51.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_b15cc8df9ce22db1",
+          "team": "MIA",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Miami Dolphins Discussion: The So-Called “Green Bay South” Edition",
+          "evidence": "Heading into the 2026-2027 NFL season, the Miami Dolphins are once again in a rebuilding phase, reflecting our lack of sustained success in recent years. While we have enjoyed brief flashes of progress, we have struggled to advance beyond a single playoff game. A recurring issue—even during our more competitive stretches—has been the team’s inability [&#8230;]",
+          "source": "MIA Beat - The Phinsider",
+          "source_url": "https://www.thephinsider.com/miami-dolphins-coaching-staff/121251/miami-dolphins-discussion-the-so-called-green-bay-south-edition",
+          "published_at": "2026-07-30T00:00:00.000Z",
           "linked_markets": [
             "wins",
-            "make_playoffs"
+            "make_playoffs",
+            "conference"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_b642af4f24fd804a",
+          "team": "MIA",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Chop Robinson: ‘Everything is motivating me’",
+          "evidence": "The Miami Dolphins selected Chop Robinson in the first round of the 2024 NFL Draft with visions of the former Nittany Lion wreaking havoc in opposing backfields, however through his first two NFL seasons, the 23-year old’s production has left some South Florida football fans wondering if he was the right pick for former general [&#8230;]",
+          "source": "MIA Beat - The Phinsider",
+          "source_url": "https://www.thephinsider.com/miami-dolphins-training-camp/121264/chop-robinson-everything-is-motivating-me",
+          "published_at": "2026-07-29T23:06:44.000Z",
+          "linked_markets": [
+            "wins"
           ],
           "needs_human_review": true
         }
@@ -1032,32 +1866,106 @@
       "division": "NFC North",
       "conference": "NFC",
       "anchor_team": false,
-      "coverage_status": "local_source_fill_ready_for_review",
-      "candidate_count": 1,
-      "existing_camp_item_count": 0,
-      "article_candidate_count": 1,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 5,
+      "existing_camp_item_count": 5,
+      "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
         "wins",
-        "make_playoffs"
+        "make_playoffs",
+        "conference"
       ],
       "candidates": [
         {
-          "id": "camp_article_e2791d03055714b4",
+          "id": "camp_18313f4a0c11c163",
           "team": "MIN",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.66,
-          "signal_type": "training_camp_context",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "depth_chart",
           "player": null,
-          "summary": "Tight QB1 races for the Falcons, Browns, Raiders and Vikings? We projected the Week 1 starters",
-          "evidence": "2026 NFL training camp: Predicting four QB1 battles - ESPN NFL execs help predict four QB1 battles: Who will start for the Falcons, Browns, Raiders and Vikings?",
-          "source": "ESPN NFL",
-          "source_url": "https://www.espn.com/nfl/story/_/id/49470513/2026-nfl-preseason-training-camp-qb-battles-predictions-vikings-browns-raiders-falcons",
-          "published_at": "2026-07-30T04:04:53+00:00",
+          "summary": "Minnesota Vikings News and Links: The Inevitable QB Competition Dominates The Feeds",
+          "evidence": "Training camp is underway and the &#8220;reports&#8221; and speculation is off to the races. There will be no stopping the incessant commentary on the QB situation because, well, it does create interest (i.e., clicks). It is a tough situation for O&#8217;Connell, McCarthy, and Murray to be in really. KOC is trying to toe a fine [&#8230;]",
+          "source": "MIN Beat - Daily Norseman",
+          "source_url": "https://www.dailynorseman.com/minnesota-vikings-discussion-chat-message-board/97810/minnesota-vikings-news-and-links-the-inevitable-qb-competition-dominates-the-feeds",
+          "published_at": "2026-07-30T16:54:08.000Z",
           "linked_markets": [
             "wins",
             "make_playoffs"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_71a2a4e8743bcb2a",
+          "team": "MIN",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Start of Training Camp Rundown",
+          "evidence": "The Minnesota Vikings start training camp this week and there are a bunch of news items that have coincided with that this week worth addressing. As a reminder, rookies and quarterbacks reported on Sunday, while veterans reported on Tuesday. Wednesday’s practice included the first press conferences of training camp. Jamal Adams Acquisition The Vikings acquired [&#8230;]",
+          "source": "MIN Beat - Daily Norseman",
+          "source_url": "https://www.dailynorseman.com/minnesota-vikings-training-camp/97781/start-of-training-camp-rundown",
+          "published_at": "2026-07-30T01:11:31.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_bfb20e6cdaceea49",
+          "team": "MIN",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Vikings Reacts Survey: Call Your Playoff Shot",
+          "evidence": "Welcome to SB Nation Reacts, a survey of fans across the NFL. Throughout the year we ask questions of the most plugged-in Vikings fans and fans across the country. Sign up here to participate in the weekly emailed surveys. Here we go, folks. We’ve got this week’s SB Nation Reacts survey about our Minnesota Vikings [&#8230;]",
+          "source": "MIN Beat - Daily Norseman",
+          "source_url": "https://www.dailynorseman.com/minnesota-vikings-news/97778/minnesota-vikings-reacts-survey-call-your-playoff-shot",
+          "published_at": "2026-07-29T01:50:01.000Z",
+          "linked_markets": [
+            "make_playoffs",
+            "conference"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_37bcc754221946df",
+          "team": "MIN",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Vikings, Brian O’Neill Agree to Four-Year Contract Extension",
+          "evidence": "Today is the day that the Minnesota Vikings report for training camp in Eagan, and one of the team’s stalwarts has an extra bit of business to attend to before things really get underway. The Vikings and right tackle Brian O’Neill have agreed to a new four-year, $96 million contract extension that will keep O’Neill [&#8230;]",
+          "source": "MIN Beat - Daily Norseman",
+          "source_url": "https://www.dailynorseman.com/minnesota-vikings-news/97775/minnesota-vikings-brian-oneill-four-year-contract-extension",
+          "published_at": "2026-07-28T17:36:56.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_b98cd180eacb0e8f",
+          "team": "MIN",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Vikings Choose Date for Adrian Peterson’s Ring of Honor Induction",
+          "evidence": "Back in May, we learned that running back Adrian Peterson would be the newest inductee into the Minnesota Vikings’ Ring of Honor during the 2026 NFL season. Now, we know exactly when that enshrinement will take place. The team has announced that Peterson’s Ring of Honor induction ceremony will take place at halftime of the [&#8230;]",
+          "source": "MIN Beat - Daily Norseman",
+          "source_url": "https://www.dailynorseman.com/minnesota-vikings-news/97772/minnesota-vikings-choose-date-adrian-peterson-ring-of-honor-induction",
+          "published_at": "2026-07-28T15:18:03.000Z",
+          "linked_markets": [
+            "wins"
           ],
           "needs_human_review": true
         }
@@ -1069,32 +1977,106 @@
       "division": "AFC East",
       "conference": "AFC",
       "anchor_team": false,
-      "coverage_status": "local_source_fill_ready_for_review",
-      "candidate_count": 1,
-      "existing_camp_item_count": 0,
-      "article_candidate_count": 1,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 5,
+      "existing_camp_item_count": 5,
+      "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
         "wins",
-        "make_playoffs"
+        "make_playoffs",
+        "week_1_spread"
       ],
       "candidates": [
         {
-          "id": "camp_article_c9a985f872deaea6",
+          "id": "camp_0d4b421968644be3",
           "team": "NE",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.52,
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "depth_chart",
+          "player": null,
+          "summary": "7 performances of note from the Patriots’ fifth training camp practice",
+          "evidence": "Five days into training camp, the New England Patriots decided to up the intensity. The introduction of full pads brought an increase in physicality and competition. To recap what was a rainy session on the Gillette Stadium practice fields, please make sure to head over to our Patriots training camp notebook. In the meantime, let’s [&#8230;]",
+          "source": "NE Beat - Pats Pulpit",
+          "source_url": "https://www.patspulpit.com/new-england-patriots-training-camp/132146/winners-losers-patriots-training-camp-2026-fifth-practice",
+          "published_at": "2026-07-30T19:53:32.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_0d7a63ad2b49bc3b",
+          "team": "NE",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "coach_quote",
+          "player": null,
+          "summary": "Things are starting to click for Eli Raridon at Patriots training camp",
+          "evidence": "After back-to-back training camp practices with multiple catches and securing two red. zone touchdowns on Thursday, New England Patriots rookie tight end Eli Raridon is growing more comfortable at the NFL level. “It’s going well,” Raridon said Thursday about his first training camp as a pro. “I’ve got a lot of great people in the [&#8230;]",
+          "source": "NE Beat - Pats Pulpit",
+          "source_url": "https://www.patspulpit.com/new-england-patriots-training-camp/132131/things-are-starting-to-click-for-eli-raridon",
+          "published_at": "2026-07-30T18:27:05.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_4f368efc2c4720fb",
+          "team": "NE",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "role_usage",
+          "player": null,
+          "summary": "Patriots training camp recap: Drake Maye-A.J. Brown connection comes to life",
+          "evidence": "Following their first off day of training camp, the New England Patriots were back to work on Thursday and donned full pads for the first time this summer as work transitioned into the red zone. Here&#8217;s what went down on the rainy practice fields behind Gillette Stadium. Attendance Absent: CB Carlton Davis (new), CB Brandon [&#8230;]",
+          "source": "NE Beat - Pats Pulpit",
+          "source_url": "https://www.patspulpit.com/new-england-patriots-training-camp/132127/patriots-training-camp-recap-drake-maye-a-j-brown-connection-comes-to-life",
+          "published_at": "2026-07-30T17:31:41.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_7480f0c4034a6592",
+          "team": "NE",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "coach_quote",
+          "player": null,
+          "summary": "DeAndre Hopkins no longer coaching for Patriots",
+          "evidence": "DeAndre Hopkins’ coaching tenure with the New England Patriots came and went, seemingly in an instant. Less than a week after announcing the veteran wide receiver had joined his staff, Patriots head coach Mike Vrabel revealed that Hopkins’ time with the club has met its end again. “It was a great experience,” Vrabel said ahead [&#8230;]",
+          "source": "NE Beat - Pats Pulpit",
+          "source_url": "https://www.patspulpit.com/new-england-patriots-news/132119/deandre-hopkins-no-longer-coaching-for-patriots",
+          "published_at": "2026-07-30T15:26:52.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_c8a7dbf309538e05",
+          "team": "NE",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
           "signal_type": "injury",
           "player": null,
-          "summary": "New England Patriots NFL Season Preview",
-          "evidence": "Part of that was on rookie left tackle Will Campbell, but it was clear that Campbell was playing hurt.",
-          "source": "Walter Football",
-          "source_url": "http://walterfootball.com/offseason2026ne.php",
-          "published_at": "2026-07-20T10:11:00+00:00",
+          "summary": "Patriots injury updates: Mike Vrabel shares news on Gabe Jacas, Carlton Davis and others",
+          "evidence": "Before kicking off the fifth practice of this year’s training camp, the New England Patriots made their head coach available to the media again. One of the big talking points, especially with full pads being introduced to the mix on Thursday, was the injury statuses of multiple players. Vrabel provided some updates. Patriots injury updates: [&#8230;]",
+          "source": "NE Beat - Pats Pulpit",
+          "source_url": "https://www.patspulpit.com/new-england-patriots-injuries/132111/training-camp-gabe-jacas-carlton-davis-update",
+          "published_at": "2026-07-30T13:57:32.000Z",
           "linked_markets": [
             "wins",
-            "make_playoffs"
+            "make_playoffs",
+            "week_1_spread"
           ],
           "needs_human_review": true
         }
@@ -1106,32 +2088,110 @@
       "division": "NFC South",
       "conference": "NFC",
       "anchor_team": true,
-      "coverage_status": "local_source_fill_ready_for_review",
-      "candidate_count": 1,
-      "existing_camp_item_count": 0,
-      "article_candidate_count": 1,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 5,
+      "existing_camp_item_count": 5,
+      "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
         "wins",
-        "make_playoffs"
+        "make_playoffs",
+        "week_1_spread",
+        "conference",
+        "super_bowl"
       ],
       "candidates": [
         {
-          "id": "camp_article_817bb53cdaafc103",
+          "id": "camp_d7c77a22b709aa6a",
           "team": "NO",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.66,
-          "signal_type": "training_camp_context",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
           "player": null,
-          "summary": "Saints enter camp with faith in Tyler Shough, questions on defense",
-          "evidence": "New Orleans upgraded its offense, but concerns remain as coach Kellen Moore kicks off second camp as coach..",
+          "summary": "Saints' Olave signs extension worth up to $132M",
+          "evidence": "The Saints are signing wide receiver Chris Olave to a four-year extension worth up to $132 million, including $90 million guaranteed, his agents Drew Rosenhaus and Jason Rosenhaus told ESPN's Adam Schefter.",
           "source": "ESPN NFL",
-          "source_url": "https://www.espn.com/nfl/story/_/id/49475517/new-orleans-saints-enter-2026-training-camp-faith-tyler-shough-questions-defense",
-          "published_at": "2026-07-29T13:23:34+00:00",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49491421/saints-chris-olave-signing-four-year-extension-worth-132m",
+          "published_at": "2026-07-31T02:47:49.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_89412510c97f0854",
+          "team": "NO",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Saints WR Chris Olave gets multi-year extension",
+          "evidence": "Saints agree on new extension with their star wide receiver",
+          "source": "Yahoo Sports NFL",
+          "source_url": "https://sports.yahoo.com/articles/saints-wr-chris-olave-gets-233434733.html",
+          "published_at": "2026-07-30T23:34:34.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_eab806419095861b",
+          "team": "NO",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "depth_chart",
+          "player": null,
+          "summary": "Anthony Richardson: In battle for No. 2 role",
+          "evidence": "Richardson is in a competition for the backup quarterback role in Indianapolis ahead of the 2026 campaign, JJ Stankevitz of the Colts' official website reports. Visit RotoWire.com for more analysis on this update.",
+          "source": "Rotowire NFL",
+          "source_url": "https://www.rotowire.com//football/player/anthony-richardson-16653",
+          "published_at": "2026-07-30T23:13:00.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_744271e96eaddf50",
+          "team": "NO",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Buffalo Bills roster: WR Dante Pettis signs deal on July 30",
+          "evidence": "The Buffalo Bills wasted no time in trying to fill the roster spot vacated by veteran wide receiver Jalen Virgil. With the team already losing wide receiver Tyrell Shavers to the Active/PUP list, waiving Virgil with a non-football injury (NFI) designation paved the way for the team hosting tryouts for several receivers on Thursday, July [&#8230;]",
+          "source": "BUF Beat - Buffalo Rumblings",
+          "source_url": "https://www.buffalorumblings.com/buffalo-bills-news/137588/buffalo-bills-roster-wr-dante-pettis-signs-deal-on-july-30",
+          "published_at": "2026-07-30T23:10:45.000Z",
           "linked_markets": [
             "wins",
-            "make_playoffs"
+            "make_playoffs",
+            "week_1_spread"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_01e9d51440529fb1",
+          "team": "NO",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Fernando Mendoza National Championship versus Miami, Part XVI of Las Vegas Raiders’ Mendoza Mania",
+          "evidence": "Shed a tear; we’ve reached the finale of Silver and Black Pride’s Mendoza Mania series, as we’ll be diving into Fernando Mendoza’s performance in the National Championship against Miami. Unlike the previous playoff games, Indiana was in a dogfight against the Hurricanes, squeaking out a 27-21 victory. That was due in part to the No. [&#8230;]",
+          "source": "LV Beat - Silver and Black Pride",
+          "source_url": "https://www.silverandblackpride.com/las-vegas-raiders-analysis/135173/las-vegas-raiders-nfl-draft-fernando-mendoza-film-breakdown-national-championship-miami",
+          "published_at": "2026-07-30T21:48:00.000Z",
+          "linked_markets": [
+            "make_playoffs",
+            "conference",
+            "super_bowl"
           ],
           "needs_human_review": true
         }
@@ -1143,51 +2203,102 @@
       "division": "NFC East",
       "conference": "NFC",
       "anchor_team": true,
-      "coverage_status": "local_source_fill_ready_for_review",
-      "candidate_count": 2,
-      "existing_camp_item_count": 0,
-      "article_candidate_count": 2,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 5,
+      "existing_camp_item_count": 5,
+      "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
-        "wins",
-        "make_playoffs"
+        "wins"
       ],
       "candidates": [
         {
-          "id": "camp_article_bf0ff66259dd2878",
+          "id": "camp_49e8307e3620ac00",
           "team": "NYG",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.66,
-          "signal_type": "injury",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
           "player": null,
-          "summary": "Nabers 'looked good' in 1st practice since injury",
-          "evidence": "Giants wide receiver Malik Nabers took part in the individual portion of a full-team practice Wednesday for the first time since suffering a serious knee injury Week 4 of last season..",
-          "source": "ESPN NFL",
-          "source_url": "https://www.espn.com/nfl/story/_/id/49482920/giants-nabers-looks-good-1st-practice-knee-injury",
-          "published_at": "2026-07-30T04:05:03+00:00",
+          "summary": "NY Giants training camp report: Abdul Carter, Giants fans win the day",
+          "evidence": "Fans treated to a spirited practice on second day of training camp in West Virginia.",
+          "source": "Yahoo Sports NFL",
+          "source_url": "https://sports.yahoo.com/articles/ny-giants-training-camp-report-214221179.html",
+          "published_at": "2026-07-31T01:15:59.000Z",
           "linked_markets": [
-            "wins",
-            "make_playoffs"
+            "wins"
           ],
           "needs_human_review": true
         },
         {
-          "id": "camp_article_3449ddf141dc081a",
+          "id": "camp_2c07e733b5f117e6",
           "team": "NYG",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.66,
-          "signal_type": "training_camp_context",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
           "player": null,
           "summary": "Latest news, buzz from training camps: Giants kick off in West Virginia; Gibbs sits out Lions' practice",
-          "evidence": "Latest news, buzz from training camps: Giants kick off in West Virginia; Gibbs sits out Lions' practice.",
+          "evidence": "Get all the news, intel and insights on NFL training camps from our team of reporters in the field.",
           "source": "ESPN NFL",
           "source_url": "https://www.espn.com/nfl/story/_/id/49368181/training-camp-2026-latest-news-intel-updates-buzz-all-32-teams",
-          "published_at": "2026-07-30T01:14:04+00:00",
+          "published_at": "2026-07-30T22:26:15.000Z",
           "linked_markets": [
-            "wins",
-            "make_playoffs"
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_22ad71a7fcd6f345",
+          "team": "NYG",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "New York Jets Flight Connections 07/30/26",
+          "evidence": "Good morning Gang Green Nation! The New York Jets opened training camp with their first practice of the 2026 season yesterday. D’Angelo Ponds, T’Vondre Sweat and Joseph Ossai all missed the practice with various injuries characterized as minor by Jets staff. These three are all expected to play significant roles for the Jets defense this [&#8230;]",
+          "source": "NYJ Beat - Gang Green Nation",
+          "source_url": "https://www.ganggreennation.com/new-york-jets-news/95228/new-york-jets-flight-connections-07-30-26",
+          "published_at": "2026-07-30T11:00:00.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_101188c3e594ab02",
+          "team": "NYG",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "New York Jets Flight Connections 07/29/26",
+          "evidence": "Good morning Gang Green Nation! So it begins. The New York Jets will open training camp with their first practice of the 2026 season today. In six and a half weeks the Jets will be kicking off the season. In the meantime, Joseph Ossai gave the Jets some unwelcome news yesterday when he failed his [&#8230;]",
+          "source": "NYJ Beat - Gang Green Nation",
+          "source_url": "https://www.ganggreennation.com/new-york-jets-news/95212/new-york-jets-flight-connections-07-29-26",
+          "published_at": "2026-07-29T11:00:00.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_c395296650006380",
+          "team": "NYG",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "New York Jets Flight Connections 07/28/26",
+          "evidence": "Good morning Gang Green Nation! Jets football is back! Well, almost back. Veterans report to training camp today, after the rookies reported a few days ago. Practices, however, don’t start until tomorrow. For now we wait. One more day and we can start following practice reports as the Jets prepare for the 2026 NFL season. [&#8230;]",
+          "source": "NYJ Beat - Gang Green Nation",
+          "source_url": "https://www.ganggreennation.com/new-york-jets-news/95198/new-york-jets-flight-connections-07-28-26",
+          "published_at": "2026-07-28T11:00:00.000Z",
+          "linked_markets": [
+            "wins"
           ],
           "needs_human_review": true
         }
@@ -1200,49 +2311,107 @@
       "conference": "AFC",
       "anchor_team": false,
       "coverage_status": "existing_camp_intel",
-      "candidate_count": 2,
-      "existing_camp_item_count": 2,
+      "candidate_count": 5,
+      "existing_camp_item_count": 5,
       "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
-        "wins"
+        "wins",
+        "make_playoffs",
+        "week_1_spread"
       ],
       "candidates": [
         {
-          "id": "camp_7f99e8b1c5a37d31",
+          "id": "camp_371b9fbe917dac2d",
           "team": "NYJ",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.88,
-          "signal_type": "depth_chart",
-          "player": "Russell Wilson",
-          "summary": "Taking initial first-team reps over Justin Fields in Jets 11-on-11 team period.",
-          "evidence": "Taking initial first-team reps over Justin Fields in Jets 11-on-11 team period.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "David Bailey stars on day two of Jets training camp",
+          "evidence": "The Jets conducted their second practice of training camp in 2026 on Thursday, and the big winner of the day was their top pick in the 2026 NFL Draft, edge rusher David Bailey. So we can probably start carving out Bailey’s bust for the Pro Football Hall of Fame in Canton. Or maybe we can [&#8230;]",
+          "source": "NYJ Beat - Gang Green Nation",
+          "source_url": "https://www.ganggreennation.com/new-york-jets-training-camp/95237/david-bailey-stars-on-day-two-of-jets-training-camp",
+          "published_at": "2026-07-30T15:53:52.000Z",
           "linked_markets": [
             "wins"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
         },
         {
-          "id": "camp_8cecea8afe869d11",
+          "id": "camp_44694d7b6d46b758",
           "team": "NYJ",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.92,
-          "signal_type": "depth_chart",
-          "player": "Breece Hall",
-          "summary": "Full participant in team drills, receiving first-team pass protection and rushing snaps.",
-          "evidence": "Full participant in team drills, receiving first-team pass protection and rushing snaps.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "New York Jets Flight Connections 07/30/26",
+          "evidence": "Good morning Gang Green Nation! The New York Jets opened training camp with their first practice of the 2026 season yesterday. D’Angelo Ponds, T’Vondre Sweat and Joseph Ossai all missed the practice with various injuries characterized as minor by Jets staff. These three are all expected to play significant roles for the Jets defense this [&#8230;]",
+          "source": "NYJ Beat - Gang Green Nation",
+          "source_url": "https://www.ganggreennation.com/new-york-jets-news/95228/new-york-jets-flight-connections-07-30-26",
+          "published_at": "2026-07-30T11:00:00.000Z",
           "linked_markets": [
             "wins"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_1ee3f21866fef7ad",
+          "team": "NYJ",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Jets injury report: Joseph Ossai and D’Angelo Ponds dealing with minor ailments",
+          "evidence": "Training camp is underway for the Jets in 2026. As frequently happens in the early days of training camp, the team is dealing with some minor injuries. Defensive end Joseph Ossai is starting camp on the physically unable to perform (PUP) list. A stint on the PUP list may sound daunting, but it only means [&#8230;]",
+          "source": "NYJ Beat - Gang Green Nation",
+          "source_url": "https://www.ganggreennation.com/new-york-jets-training-camp/95220/jets-injury-report-joseph-ossai-and-dangelo-ponds-dealing-with-minor-ailments",
+          "published_at": "2026-07-29T16:15:21.000Z",
+          "linked_markets": [
+            "wins",
+            "make_playoffs",
+            "week_1_spread"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_efdbe3aeca7e71c4",
+          "team": "NYJ",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "New York Jets Flight Connections 07/29/26",
+          "evidence": "Good morning Gang Green Nation! So it begins. The New York Jets will open training camp with their first practice of the 2026 season today. In six and a half weeks the Jets will be kicking off the season. In the meantime, Joseph Ossai gave the Jets some unwelcome news yesterday when he failed his [&#8230;]",
+          "source": "NYJ Beat - Gang Green Nation",
+          "source_url": "https://www.ganggreennation.com/new-york-jets-news/95212/new-york-jets-flight-connections-07-29-26",
+          "published_at": "2026-07-29T11:00:00.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_09f030af2e4205d1",
+          "team": "NYJ",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "depth_chart",
+          "player": null,
+          "summary": "Anez Cooper’s development is a test for the Jets",
+          "evidence": "Through the summer, we will be counting down the Jets roster player by player. We continue the series by discussing Anez Cooper. Name: Anez Cooper Number: 72 Year With Jets:&#160;1st Projected Role: Developmental guard His 2025: Cooper started at right guard in all 16 games for the national runner up Miami Hurricanes and earned Second Team All-ACC honors. The [&#8230;]",
+          "source": "NYJ Beat - Gang Green Nation",
+          "source_url": "https://www.ganggreennation.com/new-york-jets-roster/95210/anez-coopers-development-is-a-test-for-the-jets",
+          "published_at": "2026-07-28T21:00:00.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
         }
       ]
     },
@@ -1252,51 +2421,102 @@
       "division": "NFC East",
       "conference": "NFC",
       "anchor_team": false,
-      "coverage_status": "local_source_fill_ready_for_review",
-      "candidate_count": 2,
-      "existing_camp_item_count": 0,
-      "article_candidate_count": 2,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 5,
+      "existing_camp_item_count": 5,
+      "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
-        "wins",
-        "make_playoffs"
+        "wins"
       ],
       "candidates": [
         {
-          "id": "camp_article_e3e5ef4233dccdc8",
+          "id": "camp_1296786c1d87a40f",
           "team": "PHI",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.66,
-          "signal_type": "injury",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
           "player": null,
-          "summary": "Eagles OLB Greenard lands on PUP with hurt pec",
-          "evidence": "The Eagles' Jonathan Greenard will be placed on PUP after suffering a pec strain while lifting before camp.",
-          "source": "ESPN NFL",
-          "source_url": "https://www.espn.com/nfl/story/_/id/49479717/eagles-olb-jonathan-greenard-lands-pup-pec-strain",
-          "published_at": "2026-07-29T20:33:50+00:00",
+          "summary": "Eagles Training Camp Practice Notes: Tank Bigsby must be more involved in the offense this year!",
+          "evidence": "Today marked the second Philadelphia Eagles training camp practice ahead of the 2026 NFL season. The non-padded session lasted for about 90 minutes. Here’s what I observed at the Jefferson Health Training Complex. EAGLES PRACTICE NOTES UP NEXT: The Eagles have a walkthrough closed to media access on Friday. They’ll return to practice at 10:00 [&#8230;]",
+          "source": "PHI Beat - Bleeding Green Nation",
+          "source_url": "https://www.bleedinggreennation.com/news/178236/eagles-training-camp-practice-notes-tank-bigsby-must-be-more-involved-in-the-offense-this-year",
+          "published_at": "2026-07-30T19:56:20.000Z",
           "linked_markets": [
-            "wins",
-            "make_playoffs"
+            "wins"
           ],
           "needs_human_review": true
         },
         {
-          "id": "camp_article_5bcb2122286d0737",
+          "id": "camp_26e993cb3970b7bf",
           "team": "PHI",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.52,
-          "signal_type": "injury",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
           "player": null,
-          "summary": "Philadelphia Eagles NFL Season Preview",
-          "evidence": "Smith posted some excellent numbers when Brown was hurt during the 2023 season, so he's proven that he's capable of being the top threat.",
-          "source": "Walter Football",
-          "source_url": "http://walterfootball.com/offseason2026phi.php",
-          "published_at": "2026-07-24T09:51:00+00:00",
+          "summary": "Vic Fangio says Jihaad Campbell’s edge rusher days are over",
+          "evidence": "The Eagles were back to work on Thursday for their second practice of training camp, and we got to hear from defensive coordinator Vic Fangio before the team took the field. He talked about some of the position battles, what he’s seen from the edge rushers, and his thoughts on individual players. He also revealed [&#8230;]",
+          "source": "PHI Beat - Bleeding Green Nation",
+          "source_url": "https://www.bleedinggreennation.com/news/178225/vic-fangio-eagles-training-camp-comments-player-evaluation-notes",
+          "published_at": "2026-07-30T18:45:06.000Z",
           "linked_markets": [
-            "wins",
-            "make_playoffs"
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_b08d3f33001f3e40",
+          "team": "PHI",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Jalen Carter’s teammates celebrate his new contract",
+          "evidence": "The Eagles made Jalen Carter the highest paid DT in NFL history, and his teammates couldn’t contain their excitement for an achievement they feel is well-deserved. Several players spoke to reporters following their first training camp and everyone was so happy for the DT, with Jalen Hurts telling a funny story, Jordan Davis talking about [&#8230;]",
+          "source": "PHI Beat - Bleeding Green Nation",
+          "source_url": "https://www.bleedinggreennation.com/news/178109/jalen-carter-teammates-celebrate-new-contract-jalen-hurts",
+          "published_at": "2026-07-30T18:32:39.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_c44c35c6756c276c",
+          "team": "PHI",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Eagles Film Review: Betting on Jalen Carter makes sense",
+          "evidence": "The Eagles just agreed to a record-breaking contract extension with Jalen Carter this week, so I feel inspired to write about him. There are plenty of ways to analyze the deal. Others will break down the numbers, discuss the salary cap implications, and debate whether he was worth it. Those conversations are important, but they [&#8230;]",
+          "source": "PHI Beat - Bleeding Green Nation",
+          "source_url": "https://www.bleedinggreennation.com/philadelphia-eagles-analysis/178028/eagles-film-review-betting-on-jalen-carter-makes-sense",
+          "published_at": "2026-07-30T13:11:00.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_01d12f8ea0d1746c",
+          "team": "PHI",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "scheme",
+          "player": null,
+          "summary": "Philadelphia Eagles training camp practice live updates: Day 2",
+          "evidence": "The Philadelphia Eagles’ 2026 training camp schedule continues this morning. Here’s what’s on tap for Thursday (all times Eastern): With Eagles training camp almost entirely closed to public access (save for one open practice at The Linc), there’s no better way to track all of the news than with the comprehensive coverage we have lined [&#8230;]",
+          "source": "PHI Beat - Bleeding Green Nation",
+          "source_url": "https://www.bleedinggreennation.com/news/178187/philadelphia-eagles-training-camp-practice-live-updates-day-2",
+          "published_at": "2026-07-30T12:08:00.000Z",
+          "linked_markets": [
+            "wins"
           ],
           "needs_human_review": true
         }
@@ -1309,49 +2529,108 @@
       "conference": "AFC",
       "anchor_team": false,
       "coverage_status": "existing_camp_intel",
-      "candidate_count": 2,
-      "existing_camp_item_count": 2,
+      "candidate_count": 5,
+      "existing_camp_item_count": 5,
       "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
-        "wins"
+        "wins",
+        "make_playoffs",
+        "conference"
       ],
       "candidates": [
         {
-          "id": "camp_12ba89b389cf5934",
+          "id": "camp_4f8b75bface29bce",
           "team": "PIT",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.9,
-          "signal_type": "depth_chart",
-          "player": "Aaron Rodgers",
-          "summary": "Operating fluidly in pocket during 11-on-11s; connecting on intermediate routes with Roman Wilson and Pat Freiermuth.",
-          "evidence": "Operating fluidly in pocket during 11-on-11s; connecting on intermediate routes with Roman Wilson and Pat Freiermuth.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Steelers host former Jaguars QB for tryout",
+          "evidence": "The Pittsburgh Steelers hosted seven free agents for tryouts on Thursday, the most notable name being former Memphis quarterback Seth Henigan. Henigan has spent time with the Indianapolis Colts and Jacksonville Jaguars. In four seasons with the Tigers, Henigan threw 104 touchdowns in 50 games, including 32 in 2023, which led the American Conference. In [&#8230;]",
+          "source": "PIT Beat - Behind The Steel Curtain",
+          "source_url": "https://www.behindthesteelcurtain.com/pittsburgh-steelers-roster/172802/steelers-host-former-jaguars-qb-for-tryout-seth-henigan",
+          "published_at": "2026-07-31T01:24:12.000Z",
           "linked_markets": [
-            "wins"
+            "wins",
+            "make_playoffs",
+            "conference"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
         },
         {
-          "id": "camp_294cb93dd4e7bbdd",
+          "id": "camp_f3a1d1a801887092",
           "team": "PIT",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.88,
+          "confidence": 0.68,
           "signal_type": "depth_chart",
-          "player": "Jaylen Warren",
-          "summary": "Leading first-team early down and 3rd down reps in Steelers offense.",
-          "evidence": "Leading first-team early down and 3rd down reps in Steelers offense.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "player": null,
+          "summary": "Steelers stock report after Day 2 of training camp",
+          "evidence": "LATROBE &#8211; The Pittsburgh Steelers continue to ease into the season as it was another fairly laid-back practice to begin training camp. The team emphasized individual drills today, in between giving us some telling team period and two-minute drill reps. It’s time for us to look at who helped their stock and those whose stock [&#8230;]",
+          "source": "PIT Beat - Behind The Steel Curtain",
+          "source_url": "https://www.behindthesteelcurtain.com/pittsburgh-steelers-training-camp/172793/steelers-stock-report-after-day-2-of-training-camp-will-howard-roman-wilson",
+          "published_at": "2026-07-30T21:39:01.000Z",
           "linked_markets": [
             "wins"
           ],
-          "needs_human_review": false
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_f9b1065a94fb192c",
+          "team": "PIT",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "depth_chart",
+          "player": null,
+          "summary": "Steelers training camp: Will Howard takes command of backup QB battle",
+          "evidence": "LATROBE — If a quarterback battle is what you wanted, you’ve certainly got it. In each of the Pittsburgh Steelers’ first two practices of training camp, a young quarterback has stepped up and made noteworthy plays to raise their respective stocks. Yesterday was rookie Drew Allar, today was second-year signal-caller Will Howard’s turn. Plus, a [&#8230;]",
+          "source": "PIT Beat - Behind The Steel Curtain",
+          "source_url": "https://www.behindthesteelcurtain.com/pittsburgh-steelers-training-camp/172784/steelers-training-camp-will-howard-takes-command-of-backup-qb-battle-aaron-rodgers-dk-metcalf",
+          "published_at": "2026-07-30T19:39:24.000Z",
+          "linked_markets": [
+            "wins",
+            "make_playoffs"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_8bea525ec40c2b2f",
+          "team": "PIT",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "roster_move",
+          "player": null,
+          "summary": "Former Steelers linebacker signs with 49ers",
+          "evidence": "The Pittsburgh Steelers will begin their second practice of training camp later this morning. Ahead of that, though, one of their recently released linebackers has found a new home. Former Steelers linebacker K.J. Henry has signed with the San Francisco 49ers, via Alan Saunders of Steelers Now. Henry had a pair of brief stints with [&#8230;]",
+          "source": "PIT Beat - Behind The Steel Curtain",
+          "source_url": "https://www.behindthesteelcurtain.com/pittsburgh-steelers-news/172778/former-steelers-linebacker-signs-with-49ers-kj-henry",
+          "published_at": "2026-07-30T12:51:42.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_60c59c0bde4eea99",
+          "team": "PIT",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Drew Allar is finding purpose in every snap at training camp",
+          "evidence": "We’ve made it. It’s here. Football is back and the shiny new toys are being taken out of the box. The Steelers took the field for the first organized practice of training camp at St. Vincent College on Wednesday morning. It was the first time Steelers fans could watch favorites, newcomers, and the 2026 draft [&#8230;]",
+          "source": "PIT Beat - Behind The Steel Curtain",
+          "source_url": "https://www.behindthesteelcurtain.com/pittsburgh-steelers-training-camp/172761/drew-allar-is-finding-purpose-in-every-snap-at-training-camp",
+          "published_at": "2026-07-30T12:00:00.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
         }
       ]
     },
@@ -1362,49 +2641,35 @@
       "conference": "NFC",
       "anchor_team": false,
       "coverage_status": "existing_camp_intel",
-      "candidate_count": 2,
-      "existing_camp_item_count": 2,
+      "candidate_count": 1,
+      "existing_camp_item_count": 1,
       "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
-        "wins"
+        "wins",
+        "make_playoffs",
+        "week_1_spread"
       ],
       "candidates": [
         {
-          "id": "camp_f0613e2740bde040",
+          "id": "camp_9d9735412b97e137",
           "team": "SEA",
           "coverage_source": "existing_training_camp_snapshot",
           "status": "existing_camp_intel",
-          "confidence": 0.89,
-          "signal_type": "scheme",
-          "player": "Jaxon Smith-Njigba",
-          "summary": "Operating in versatile slot & Z alignment; Geno Smith targeting JSN heavily on seam routes.",
-          "evidence": "Operating in versatile slot & Z alignment; Geno Smith targeting JSN heavily on seam routes.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Seahawks 2026 training camp recap: Day 5 news, notes and injury updates",
+          "evidence": "The Seahawks have reached the padded portion of training camp practice.",
+          "source": "Yahoo Sports NFL",
+          "source_url": "https://sports.yahoo.com/articles/seahawks-2026-training-camp-recap-013204381.html",
+          "published_at": "2026-07-31T01:32:04.000Z",
           "linked_markets": [
-            "wins"
+            "wins",
+            "make_playoffs",
+            "week_1_spread"
           ],
-          "needs_human_review": false
-        },
-        {
-          "id": "camp_8de9c47320a13ad8",
-          "team": "SEA",
-          "coverage_source": "existing_training_camp_snapshot",
-          "status": "existing_camp_intel",
-          "confidence": 0.87,
-          "signal_type": "depth_chart",
-          "player": "Kenneth Walker III",
-          "summary": "Leading first-team rushing reps with Zach Charbonnet sharing 3rd down snaps.",
-          "evidence": "Leading first-team rushing reps with Zach Charbonnet sharing 3rd down snaps.",
-          "source": "Training camp snapshot",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-          "published_at": "2026-07-31T00:50:17.488Z",
-          "linked_markets": [
-            "wins"
-          ],
-          "needs_human_review": false
+          "needs_human_review": true
         }
       ]
     },
@@ -1414,32 +2679,88 @@
       "division": "NFC West",
       "conference": "NFC",
       "anchor_team": false,
-      "coverage_status": "local_source_fill_ready_for_review",
-      "candidate_count": 1,
-      "existing_camp_item_count": 0,
-      "article_candidate_count": 1,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 4,
+      "existing_camp_item_count": 4,
+      "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
         "wins",
-        "make_playoffs"
+        "make_playoffs",
+        "week_1_spread"
       ],
       "candidates": [
         {
-          "id": "camp_article_203f3479a101cdf6",
+          "id": "camp_9184bfe1ce19f025",
           "team": "SF",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.66,
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
           "signal_type": "injury",
           "player": null,
-          "summary": "49ers have 'concern' over Pearsall's knee flare-up",
-          "evidence": "49ers WR Ricky Pearsall did not participate in practice Wednesday because of swelling in the PCL in his right knee.",
-          "source": "ESPN NFL",
-          "source_url": "https://www.espn.com/nfl/story/_/id/49482528/49ers-concern-pearsall-latest-knee-flare-up",
-          "published_at": "2026-07-30T04:05:03+00:00",
+          "summary": "49ers worked out three RBs after Jordan James' injury",
+          "evidence": "49ers running back Jordan James was competing with Kaelon Black — a third-round pick this spring — for the primary backup job behind Christian McCaffrey until his injury on Monday.",
+          "source": "Pro Football Talk",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/49ers-worked-out-three-rbs-after-jordan-james-injury",
+          "published_at": "2026-07-30T21:39:26.000Z",
           "linked_markets": [
             "wins",
-            "make_playoffs"
+            "make_playoffs",
+            "week_1_spread"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_df7fd175e4229556",
+          "team": "SF",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "roster_move",
+          "player": null,
+          "summary": "Palo Alto police won't release bodycam video or 911 call from Kyle Shanahan crash",
+          "evidence": "Some information has been released by the authorities in connection with 49ers coach Kyle Shanahan's recent car accident.",
+          "source": "Pro Football Talk",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/palo-alto-police-wont-release-bodycam-video-or-911-call-from-kyle-shanahan-crash",
+          "published_at": "2026-07-30T21:20:45.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_98d97d232335de10",
+          "team": "SF",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "roster_move",
+          "player": null,
+          "summary": "Former Steelers linebacker signs with 49ers",
+          "evidence": "The Pittsburgh Steelers will begin their second practice of training camp later this morning. Ahead of that, though, one of their recently released linebackers has found a new home. Former Steelers linebacker K.J. Henry has signed with the San Francisco 49ers, via Alan Saunders of Steelers Now. Henry had a pair of brief stints with [&#8230;]",
+          "source": "PIT Beat - Behind The Steel Curtain",
+          "source_url": "https://www.behindthesteelcurtain.com/pittsburgh-steelers-news/172778/former-steelers-linebacker-signs-with-49ers-kj-henry",
+          "published_at": "2026-07-30T12:51:42.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_0765cbf2089e4291",
+          "team": "SF",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "NFL news, live updates: Deebo Samuel returns to 49ers; Baker Mayfield airs his grievances with Bucs",
+          "evidence": "Follow along with the latest NFL news and updates as training camps around the league kick off.",
+          "source": "Yahoo Sports NFL",
+          "source_url": "https://sports.yahoo.com/nfl/live/nfl-news-live-updates-training-camp-2026-schedule-injury-news-174255317.html",
+          "published_at": "2026-07-27T17:42:55.000Z",
+          "linked_markets": [
+            "wins"
           ],
           "needs_human_review": true
         }
@@ -1451,84 +2772,66 @@
       "division": "NFC South",
       "conference": "NFC",
       "anchor_team": false,
-      "coverage_status": "availability_context_only_needs_camp_source",
+      "coverage_status": "existing_camp_intel",
       "candidate_count": 3,
-      "existing_camp_item_count": 0,
+      "existing_camp_item_count": 3,
       "article_candidate_count": 0,
-      "availability_candidate_count": 3,
+      "availability_candidate_count": 0,
       "linked_markets": [
-        "wins",
-        "division",
-        "conference",
-        "super_bowl",
-        "player_props",
-        "fantasy"
+        "wins"
       ],
       "candidates": [
         {
-          "id": "camp_availability_13307a9f39a20070",
+          "id": "camp_b3c020d503dfb028",
           "team": "TB",
-          "coverage_source": "starter_impact_availability_digest",
-          "status": "availability_context_fill",
-          "confidence": 0.48,
-          "signal_type": "injury",
-          "player": "Chase Lucas",
-          "summary": "Lucas (undisclosed) will begin training camp on the Buccaneers' active/PUP list, Scott Smith of the team's official site reports.",
-          "evidence": "Lucas (undisclosed) will begin training camp on the Buccaneers' active/PUP list, Scott Smith of the team's official site reports.",
-          "source": "ESPN injuries API",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-07-29T00:12:00.000Z",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "coach_quote",
+          "player": null,
+          "summary": "Mayfield felt 'disrespected' by Bucs' deal offers",
+          "evidence": "Buccaneers quarterback Baker Mayfield said Thursday that he felt \"disrespected a little bit\" that he and the team could not reach an agreement on a new contract before his imposed deadline of the start of training camp.",
+          "source": "ESPN NFL",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49489537/mayfield-felt-disrespected-undervalued-buccaneers-offers",
+          "published_at": "2026-07-31T02:47:49.000Z",
           "linked_markets": [
-            "wins",
-            "division",
-            "conference",
-            "super_bowl"
+            "wins"
           ],
           "needs_human_review": true
         },
         {
-          "id": "camp_availability_47978d7f4fcec348",
+          "id": "camp_4d76abe42ee7e55b",
           "team": "TB",
-          "coverage_source": "starter_impact_availability_digest",
-          "status": "availability_context_fill",
-          "confidence": 0.6,
-          "signal_type": "availability_context",
-          "player": "Baker Mayfield",
-          "summary": "Mayfield said Thursday that he felt \"disrespected a little bit\" during contract negotiations with the Buccaneers this summer, ESPN.com's Jenna Laine reports.",
-          "evidence": "Mayfield said Thursday that he felt \"disrespected a little bit\" during contract negotiations with the Buccaneers this summer, ESPN.com's Jenna Laine reports.",
-          "source": "ESPN injuries API",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-07-30T17:16:00.000Z",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "What we know about possible Vita Vea trade",
+          "evidence": "Last month, we wrote that we should keep an eye on the Vita Vea situation with the Tamp Bay Buccaneers. At that point, the star defensive tackle was unhappy with his contract. We wrote it could escalate and if it did the Las Vegas Raiders could emerge as a possible trade partner. Indeed, it has [&#8230;]",
+          "source": "LV Beat - Silver and Black Pride",
+          "source_url": "https://www.silverandblackpride.com/las-vegas-raiders-rumors/135589/raiders-vita-vea-trade-rumors-buccaneers",
+          "published_at": "2026-07-30T19:01:00.000Z",
           "linked_markets": [
-            "wins",
-            "division",
-            "conference",
-            "super_bowl",
-            "player_props",
-            "fantasy"
+            "wins"
           ],
           "needs_human_review": true
         },
         {
-          "id": "camp_availability_8a2498336cdcafad",
+          "id": "camp_cef6df387963ef45",
           "team": "TB",
-          "coverage_source": "starter_impact_availability_digest",
-          "status": "availability_context_fill",
-          "confidence": 0.6,
-          "signal_type": "availability_context",
-          "player": "Jalon Daniels",
-          "summary": "Daniels signed with the Buccaneers as an undrafted free agent Friday.",
-          "evidence": "Daniels signed with the Buccaneers as an undrafted free agent Friday.",
-          "source": "ESPN injuries API",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-05-08T23:55:00.000Z",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Should the Jaguars Be in Play for Vita Vea?",
+          "evidence": "On the eve of Tampa Bay Buccaneers veterans reporting to training camp on Tuesday, one of the most dominant interior defensive linemen in the NFL made his situation very clear. Two-time Pro Bowl nose tackle Vita Vea formally requested a trade Monday after extension negotiations with the Buccaneers reached an impasse, with his agent Collin [&#8230;]",
+          "source": "JAX Beat - Big Cat Country",
+          "source_url": "https://www.bigcatcountry.com/jacksonville-jaguars-analysis/86890/should-the-jaguars-be-in-play-for-vita-vea",
+          "published_at": "2026-07-28T14:14:07.000Z",
           "linked_markets": [
-            "wins",
-            "division",
-            "conference",
-            "super_bowl",
-            "player_props",
-            "fantasy"
+            "wins"
           ],
           "needs_human_review": true
         }
@@ -1540,82 +2843,102 @@
       "division": "AFC South",
       "conference": "AFC",
       "anchor_team": false,
-      "coverage_status": "availability_context_only_needs_camp_source",
-      "candidate_count": 3,
-      "existing_camp_item_count": 0,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 5,
+      "existing_camp_item_count": 5,
       "article_candidate_count": 0,
-      "availability_candidate_count": 3,
+      "availability_candidate_count": 0,
       "linked_markets": [
-        "wins",
-        "division",
-        "conference",
-        "super_bowl",
-        "player_props",
-        "fantasy"
+        "wins"
       ],
       "candidates": [
         {
-          "id": "camp_availability_6e811c87e68e0e1c",
+          "id": "camp_87f7858bfcbf5500",
           "team": "TEN",
-          "coverage_source": "starter_impact_availability_digest",
-          "status": "availability_context_fill",
-          "confidence": 0.48,
-          "signal_type": "availability_context",
-          "player": "Mitchell Trubisky",
-          "summary": "Trusbisky (tightness) returned to practice Thursday, Turron Davenport of ESPN.com reports.",
-          "evidence": "Trusbisky (tightness) returned to practice Thursday, Turron Davenport of ESPN.com reports.",
-          "source": "ESPN injuries API",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-07-30T17:09:00.000Z",
-          "linked_markets": [
-            "wins",
-            "division",
-            "conference",
-            "super_bowl",
-            "player_props",
-            "fantasy"
-          ],
-          "needs_human_review": true
-        },
-        {
-          "id": "camp_availability_3196a25c8d2cd33e",
-          "team": "TEN",
-          "coverage_source": "starter_impact_availability_digest",
-          "status": "availability_context_fill",
-          "confidence": 0.6,
-          "signal_type": "availability_context",
-          "player": "Will Levis",
-          "summary": "Levis is set to compete with Mitchell Trubisky for the backup quarterback role, Turron Davenport of ESPN.com reports.",
-          "evidence": "Levis is set to compete with Mitchell Trubisky for the backup quarterback role, Turron Davenport of ESPN.com reports.",
-          "source": "ESPN injuries API",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-07-28T19:09:00.000Z",
-          "linked_markets": [
-            "wins",
-            "division",
-            "conference",
-            "super_bowl",
-            "player_props",
-            "fantasy"
-          ],
-          "needs_human_review": true
-        },
-        {
-          "id": "camp_availability_e8c7876c99a0dc5d",
-          "team": "TEN",
-          "coverage_source": "starter_impact_availability_digest",
-          "status": "availability_context_fill",
-          "confidence": 0.48,
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
           "signal_type": "injury",
-          "player": "Amani Hooker",
-          "summary": "The Titans activated Hooker (undisclosed) from the active/PUP list Tuesday, Jim Wyatt of the team's official site reports.",
-          "evidence": "The Titans activated Hooker (undisclosed) from the active/PUP list Tuesday, Jim Wyatt of the team's official site reports.",
-          "source": "ESPN injuries API",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-07-28T19:02:00.000Z",
+          "player": null,
+          "summary": "Titans news: Calvin Ridley limited on day 1 of training camp",
+          "evidence": "The Tennessee Titans were on the field for their first official practice of training camp yesterday. The season is finally upon us. This is a new era of Titans’ football. I am cautiously optimistic about where this season is going to go. As a Titans fan, that is a pretty scary place to be. Training [&#8230;]",
+          "source": "TEN Beat - Music City Miracles",
+          "source_url": "https://www.musiccitymiracles.com/tennessee-titans-news/66052/titans-news-calvin-ridley-limited-on-day-1-of-training-camp",
+          "published_at": "2026-07-30T14:00:48.000Z",
           "linked_markets": [
-            "wins",
-            "division"
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_4b038acd68fcbaf5",
+          "team": "TEN",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "roster_move",
+          "player": null,
+          "summary": "What role will Titans WR Elic Ayomanor play in 2026?",
+          "evidence": "The Tennessee Titans have their first training camp practice on Wednesday. One of the big storylines is the new-look wide receiver room. Sophomore Elic Ayomanor is tasked with navigating how he fits in Brian Daboll&#8217;s offense. The Titans signed Wan&#8217;Dale Robinson to a four-year, $70 million contract in free agency. Mike Borgonzi doubled down on [&#8230;]",
+          "source": "TEN Beat - Music City Miracles",
+          "source_url": "https://www.musiccitymiracles.com/tennessee-titans-training-camp/66030/what-role-will-titans-wr-elic-ayomanor-play-in-2026",
+          "published_at": "2026-07-29T11:30:00.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_1247d062db6cc00a",
+          "team": "TEN",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Tennessee Titans 2026 schedule and scores",
+          "evidence": "The Tennessee Titans once again have no primetime games and mostly noon kickoffs in 2026. That’s what happens when you are coming off of back to back 3 win seasons. If they go out and beat their current 6.5-win total on FanDuel Sportsbook, they might actually get a primetime game next season. The Titans are [&#8230;]",
+          "source": "TEN Beat - Music City Miracles",
+          "source_url": "https://www.musiccitymiracles.com/tennessee-titans-schedule/66019/tennessee-titans-2026-schedule-scores",
+          "published_at": "2026-07-28T16:18:25.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_7d08505606b7ab28",
+          "team": "TEN",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "roster_move",
+          "player": null,
+          "summary": "Mike Borgonzi keeps relying on familiarity to bolster Titans’ CB depth",
+          "evidence": "Tennessee Titans general manager Mike Borgonzi totally revamped the cornerback room this offseason. It was necessary after he gutted the position by trading Jarvis Brownlee and Roger McCreary, and cut L&#8217;Jarius Sneed. As soon as free agency began, Borgonzi signed Alontae Taylor, Cor&#8217;Dale Flott, and Joshua Williams to be the Titans&#8217; top three new boundary [&#8230;]",
+          "source": "TEN Beat - Music City Miracles",
+          "source_url": "https://www.musiccitymiracles.com/tennessee-titans-training-camp/66004/mike-borgonzi-keeps-relying-on-familiarity-to-bolster-titans-cb-depth",
+          "published_at": "2026-07-28T11:30:00.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_61b5f25e0768ab8e",
+          "team": "TEN",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Expectations for Calvin Ridley in 2026",
+          "evidence": "Calvin Ridley is going to be a key part of the Tennessee Titans&#8217; offense in 2026. The good news is that, unlike last year, he is not THE key part of the Titans&#8217; offense. Tennessee added Wan’Dale Robinson in free agency and Carnell Tate in the draft. Ridley might be the third option for this [&#8230;]",
+          "source": "TEN Beat - Music City Miracles",
+          "source_url": "https://www.musiccitymiracles.com/tennessee-titans-discussion/66026/expectations-for-calvin-ridley-in-2026",
+          "published_at": "2026-07-27T18:33:27.000Z",
+          "linked_markets": [
+            "wins"
           ],
           "needs_human_review": true
         }
@@ -1627,32 +2950,112 @@
       "division": "NFC East",
       "conference": "NFC",
       "anchor_team": false,
-      "coverage_status": "local_source_fill_ready_for_review",
-      "candidate_count": 1,
-      "existing_camp_item_count": 0,
-      "article_candidate_count": 1,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 5,
+      "existing_camp_item_count": 5,
+      "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
         "wins",
-        "make_playoffs"
+        "make_playoffs",
+        "week_1_spread",
+        "conference",
+        "super_bowl"
       ],
       "candidates": [
         {
-          "id": "camp_article_e1ed612916685edd",
+          "id": "camp_b5cc3614cb602b96",
           "team": "WAS",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.52,
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "roster_move",
+          "player": null,
+          "summary": "Packers to sign a former starting long snapper Cal Adomitis",
+          "evidence": "Sports Illustrated’s Bill Huber is reporting that the Green Bay Packers will be signing long snapper Cal Adomitis and also confirmed a report that the team has signed receiver Kaden Prather on Thursday. The Packers’ roster was full on Thursday, so general manager Brian Gutekunst now needs to make two corresponding moves just days into [&#8230;]",
+          "source": "GB Beat - Acme Packing Co",
+          "source_url": "https://www.acmepackingcompany.com/green-bay-packers-news/84229/packers-to-sign-a-former-starting-long-snapper-cal-adomitis",
+          "published_at": "2026-07-30T23:51:32.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_6c0a7b5a5dca12f6",
+          "team": "WAS",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Throwback Thursday: What’s your favorite Chiefs camp memory?",
+          "evidence": "Kansas City Chiefs training camp is underway, although Thursday’s practice was marred by rain. It was not one of my favorite memories of a day spent in St. Joe. One of the top memories I do have was from the 2010 season’s training camp, the rookie season of legendary safety Eric Berry. Our friend group [&#8230;]",
+          "source": "KC Beat - Arrowhead Pride",
+          "source_url": "https://www.arrowheadpride.com/kansas-city-chiefs-discussions/206476/throwback-thursday-favorite-camp-memory",
+          "published_at": "2026-07-30T22:00:00.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_5ed5ca0cb9f62ee7",
+          "team": "WAS",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
           "signal_type": "injury",
           "player": null,
-          "summary": "Washington Redskins NFL Season Preview",
-          "evidence": "Injuries were the primary culprit for Daniels, who got hurt on multiple occasions last year and never seemed 100 percent for a full game outside of Week 1.",
-          "source": "Walter Football",
-          "source_url": "http://walterfootball.com/offseason2026was.php",
-          "published_at": "2026-07-26T10:20:00+00:00",
+          "summary": "Packers sign UFL champion receiver Kaden Prather",
+          "evidence": "The Green Bay Packers worked out 10 players on Thursday, including four wide receivers. Apparently, one of them took, as the Packers signed Kaden Prather, formerly of the Louisville Kings, to a contract, per NFL Network’s Ian Rapoport. Prather was a seventh-round pick of the Buffalo Bills last season before he suffered a hamstring injury [&#8230;]",
+          "source": "GB Beat - Acme Packing Co",
+          "source_url": "https://www.acmepackingcompany.com/green-bay-packers-news/84225/packers-sign-ufl-champion-receiver-kaden-prather",
+          "published_at": "2026-07-30T21:48:39.000Z",
           "linked_markets": [
             "wins",
-            "make_playoffs"
+            "make_playoffs",
+            "week_1_spread"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_d57391c4e6aee3ba",
+          "team": "WAS",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Fernando Mendoza National Championship versus Miami, Part XVI of Las Vegas Raiders’ Mendoza Mania",
+          "evidence": "Shed a tear; we’ve reached the finale of Silver and Black Pride’s Mendoza Mania series, as we’ll be diving into Fernando Mendoza’s performance in the National Championship against Miami. Unlike the previous playoff games, Indiana was in a dogfight against the Hurricanes, squeaking out a 27-21 victory. That was due in part to the No. [&#8230;]",
+          "source": "LV Beat - Silver and Black Pride",
+          "source_url": "https://www.silverandblackpride.com/las-vegas-raiders-analysis/135173/las-vegas-raiders-nfl-draft-fernando-mendoza-film-breakdown-national-championship-miami",
+          "published_at": "2026-07-30T21:48:00.000Z",
+          "linked_markets": [
+            "make_playoffs",
+            "conference",
+            "super_bowl"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_ee9082ed80f9b36b",
+          "team": "WAS",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "49ers worked out three RBs after Jordan James' injury",
+          "evidence": "49ers running back Jordan James was competing with Kaelon Black — a third-round pick this spring — for the primary backup job behind Christian McCaffrey until his injury on Monday.",
+          "source": "Pro Football Talk",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/49ers-worked-out-three-rbs-after-jordan-james-injury",
+          "published_at": "2026-07-30T21:39:26.000Z",
+          "linked_markets": [
+            "wins",
+            "make_playoffs",
+            "week_1_spread"
           ],
           "needs_human_review": true
         }

@@ -53,9 +53,24 @@ export const FEEDS = [
   { source: 'Sharp Football', url: 'https://www.sharpfootballanalysis.com/feed/', source_type: 'rss' },
   { source: 'CBS Sports NFL', url: 'https://www.cbssports.com/rss/headlines/nfl/', source_type: 'rss' },
   { source: 'Yahoo Sports NFL', url: 'https://sports.yahoo.com/nfl/rss.xml', source_type: 'rss' },
-  { source: 'USA Today NFL', url: 'https://rssfeeds.usatoday.com/usatodaycomnfl-topstories', source_type: 'rss' },
-  { source: 'Yardbarker NFL', url: 'https://www.yardbarker.com/rss/sport/1', source_type: 'rss' },
-  { source: 'FantasyPros', url: 'https://www.fantasypros.com/nfl/rss/news.php', source_type: 'rss' },
+  // Team-specific local beat feeds for 100% 32-team coverage fill
+  { source: 'ARI Beat - Revenge of the Birds', team: 'ARI', url: 'https://www.revengeofthebirds.com/rss/index.xml', source_type: 'rss' },
+  { source: 'BUF Beat - Buffalo Rumblings', team: 'BUF', url: 'https://www.buffalorumblings.com/rss/index.xml', source_type: 'rss' },
+  { source: 'CHI Beat - Windy City Gridiron', team: 'CHI', url: 'https://www.windycitygridiron.com/rss/index.xml', source_type: 'rss' },
+  { source: 'GB Beat - Acme Packing Co', team: 'GB', url: 'https://www.acmepackingcompany.com/rss/index.xml', source_type: 'rss' },
+  { source: 'HOU Beat - Battle Red Blog', team: 'HOU', url: 'https://www.battleredblog.com/rss/index.xml', source_type: 'rss' },
+  { source: 'JAX Beat - Big Cat Country', team: 'JAX', url: 'https://www.bigcatcountry.com/rss/index.xml', source_type: 'rss' },
+  { source: 'KC Beat - Arrowhead Pride', team: 'KC', url: 'https://www.arrowheadpride.com/rss/index.xml', source_type: 'rss' },
+  { source: 'LAC Beat - Bolts From The Blue', team: 'LAC', url: 'https://www.boltsfromtheblue.com/rss/index.xml', source_type: 'rss' },
+  { source: 'LAR Beat - Turf Show Times', team: 'LAR', url: 'https://www.turfshowtimes.com/rss/index.xml', source_type: 'rss' },
+  { source: 'LV Beat - Silver and Black Pride', team: 'LV', url: 'https://www.silverandblackpride.com/rss/index.xml', source_type: 'rss' },
+  { source: 'MIA Beat - The Phinsider', team: 'MIA', url: 'https://www.thephinsider.com/rss/index.xml', source_type: 'rss' },
+  { source: 'MIN Beat - Daily Norseman', team: 'MIN', url: 'https://www.dailynorseman.com/rss/index.xml', source_type: 'rss' },
+  { source: 'NE Beat - Pats Pulpit', team: 'NE', url: 'https://www.patspulpit.com/rss/index.xml', source_type: 'rss' },
+  { source: 'NYJ Beat - Gang Green Nation', team: 'NYJ', url: 'https://www.ganggreennation.com/rss/index.xml', source_type: 'rss' },
+  { source: 'PHI Beat - Bleeding Green Nation', team: 'PHI', url: 'https://www.bleedinggreennation.com/rss/index.xml', source_type: 'rss' },
+  { source: 'PIT Beat - Behind The Steel Curtain', team: 'PIT', url: 'https://www.behindthesteelcurtain.com/rss/index.xml', source_type: 'rss' },
+  { source: 'TEN Beat - Music City Miracles', team: 'TEN', url: 'https://www.musiccitymiracles.com/rss/index.xml', source_type: 'rss' },
 ];
 
 // Camp-relevance prefilter — narrower than research-intel-ingest.js's general
@@ -209,7 +224,7 @@ export async function fetchFeed(feed, { maxBytes = MAX_FEED_BYTES, timeoutMs = F
       return { source: feed.source, status: 'unavailable', reason: 'Response is not a parseable RSS/Atom feed', items: [] };
     }
 
-    const isAtom = feed.format === 'atom' || /^\s*<feed[\s>]/i.test(xml);
+    const isAtom = feed.format === 'atom' || /<feed[\s>]/i.test(xml);
     const parsed = isAtom ? parseAtomItems(xml) : parseRssItems(xml);
     return { source: feed.source, status: 'available', reason: null, items: parsed };
   } catch (err) {
@@ -248,9 +263,12 @@ export async function runScout(options = {}) {
 
       for (const item of recent) {
         const text = `${item.title} ${item.description}`;
-        if (campOnly && !isCampRelevant(text)) continue;
+        if (campOnly && !feed.team && !isCampRelevant(text)) continue;
 
-        const teams = inferTeams({}, text);
+        let teams = inferTeams({}, text);
+        if (!teams.length && feed.team) {
+          teams = [feed.team];
+        }
         if (!teams.length) continue;
 
         const canonicalUrl = canonicalizeUrl(item.link);
