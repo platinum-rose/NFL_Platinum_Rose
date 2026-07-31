@@ -138,18 +138,19 @@ those remain open — consistent with this doc's headline ("most of this is plum
 | A · Regression / luck signals | `code` | ◐ PARTIAL (Lev 5) | `build-regression-signals.js` ✅ score core (Pythag exp 2.37 + one-score record, 32 teams `team-regression-snapshots-*.json`); pbp luck signals (turnover / RZ-TD% / 3rd-down-over-expected) still null pending non-`--no-pbp` seed |
 | B · Projection / power-rating ensemble | `code + flash` | ⬜ OPEN (Lev 5) | feeds dead `power_rating.model_rank` |
 | C · Authoritative roster depth | `code` | ◐ PARTIAL (Lev 5) | `fetch_nflverse_data.py` ✅ now pulls `snap_counts` (offense/defense/st %) + `depth_charts` (`pos_rank` depth order); returning-production derivation + `roster.qb_depth` mapping still open |
-| F · Cross-market coherence / arbitrage | `code` | ⬜ OPEN (Lev 4) | pure-math edge from prices already in hand |
+| F · Cross-market coherence / arbitrage | `code` | ✅ **DONE** (Lev 4) | `build-cross-market-coherence.js` — devigs the team-market map into implied win% per market, checks win-total ladder monotonicity + SB≤Conf≤Playoffs / Div≤Playoffs nesting; 32 teams, `edge_type: math` on violations, `cross-market-coherence-*.json` |
 | D/E/I/J/K/M/N | mostly `code` | ⬜ OPEN | pbp / NGS / win-total-history / travel / draft plumbing |
 
-**Net:** the `flash` tier is built (G ✅, O ✅, H/L flash halves ✅) and Expansion **A**'s
-score-based core now ships (`build-regression-signals.js` — Pythagorean + one-score
-record). The **highest-leverage depth work remaining is all `code`** — in priority order:
+**Net:** the `flash` tier is built (G ✅, O ✅, H/L flash halves ✅), Expansion **A**'s
+score-based core ships (`build-regression-signals.js` — Pythagorean + one-score
+record), and Expansion **F** now ships in full (`build-cross-market-coherence.js` —
+pure-math coherence/arbitrage on prices already in hand). The **highest-leverage depth
+work remaining is all `code`** — in priority order:
 **A** (pbp luck signals — turnover/RZ/3rd-down — pending non-`--no-pbp` seed),
 **C** (returning-production derivation + `roster.qb_depth` mapping — `snap_counts`/
-`depth_charts` now fetched), **B** (power-rating ensemble, Lev 5),
-**F** (cross-market coherence, Lev 4). All are free plumbing (run the
-pbp path CI skips + a handful of nflverse fetches), plus populating migration-044's
-null columns.
+`depth_charts` now fetched), **B** (power-rating ensemble, Lev 5). All are free plumbing
+(run the pbp path CI skips + a handful of nflverse fetches), plus populating
+migration-044's null columns.
 
 ---
 
@@ -252,7 +253,20 @@ if null, this is a plumbing fix, not new schema.
 YAC vs contested-catch WR, pressure-proof QB vs clean-pocket-only) — the difference
 between a shallow and a sophisticated per-team thesis.
 
-### F · Cross-market coherence / internal arbitrage (Lev 4, FREE-PLUMB)
+### F · Cross-market coherence / internal arbitrage (Lev 4, FREE-PLUMB) — ✅ DONE (`code`)
+
+> **Delivered 2026-07-31** by `scripts/build-cross-market-coherence.js` — consumes the
+> Kalshi/Polymarket team-market map (prices already in hand, zero new fetches), devigs
+> implied win% per market, and flags two classes of pure-math incoherence:
+> (1) **win-total ladder inversions** — P(win ≥ N) that rises as N rises — plus the
+> market-implied median win total via interpolation; and (2) **championship-nesting
+> violations** — SB ≤ Conf ≤ Playoffs and Div ≤ Playoffs. Rungs are re-classified from
+> contract *titles* (not the noisy upstream `market` label). Output
+> `data/prediction-markets/cross-market-coherence-latest.json` tags each violation
+> `edge_type: math` with `max_divergence_pct` + `softest_market`, mapping to the proposed
+> `market_snapshot.cross_market_coherence` field. First run: 32 teams, 15 incoherent
+> (20 ladder inversions, 1 nesting violation) — faithfully surfacing genuine upstream
+> price corruption in the low-N Kalshi rungs.
 
 A team's own markets should imply one consistent win probability. They often don't —
 and the model already has all four prices in hand.
