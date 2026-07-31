@@ -155,6 +155,18 @@ export const EXPERTS = [
     lastWeek: '0-0',
   },
   {
+    id: 12,
+    name: '32BeatWriters Podcast Network',
+    source: '32BeatWriters',
+    sourceType: 'podcast',
+    ingestStatus: 'active',
+    note: '32BeatWriters official podcast network & YouTube channel (@32beatwriters) — beat writer reports & fantasy/betting intel',
+    aliases: ['32beatwriters podcast network', '32beatwriters', '32 beat writers', '32bw'],
+    isShow: true,
+    record: '0-0',
+    lastWeek: '0-0',
+  },
+  {
     id: 11,
     name: 'Hitman',
     source: 'Hitman',
