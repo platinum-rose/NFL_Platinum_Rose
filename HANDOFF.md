@@ -13,6 +13,12 @@
 ## Pick Up Here
 
 > **⟂ Parallel task (Copilot, 2026-07-30):** Master futures synthesis prompt committed (`e273e4f`) at `agents/product/tier1/FUTURES_PORTFOLIO_MASTER.md`; Kalshi/Polymarket are now treated as **placeable venues** (net fee-adjusted cross-venue shopping). A deep **data-package gap analysis** is queued for a fresh session → see `handoffs/2026-07-30-futures-data-package-gap-analysis.md`. This is additive and does NOT touch the crash-recovery workstream described below.
+>
+> **(DONE) Futures data-package deep analysis (Copilot, 2026-07-30):** Two docs-only deliverables authored (no Supabase writes, no picks, no `git add -A`):
+>
+> - `docs/FUTURES_DATA_PACKAGE_ENHANCEMENT_BACKLOG_2026-07-30.md` — ranked leverage×effort backlog of the 10 catalogued gaps mapped to dossier v1.0. Top finding: the PM "5/132 mapping" gap is misdiagnosed — it's **feed acquisition** (`build-prediction-markets.js` never targets NFL series_tickers; raw feed = 137 contracts, ~0 core NFL futures, all 41 Polymarket = geopolitics/crypto), not a mapping bug.
+> - `docs/FUTURES_DATA_PACKAGE_DEPTH_EXPANSION_2026-07-30.md` — net-new domain expansion (15 domains, leverage×effort×acquisition). Headline: highest-leverage depth is **plumbing, not new collection**. Verified empirically that migration-044 `team_analytic_snapshots` / `team_coaching_tendency_snapshots` are **~50% null by design** (builders read only `team_stats.csv`, not pbp/charting; CI runs `--no-pbp`). Free wins: regression/luck signals (turnover/Pythag/one-score → feeds required `thesis.regression_direction`), snap_counts/depth_charts (reframes manual backlog #3), projection ensemble (fills dead `power_rating.model_rank`), cross-market coherence arbitrage.
+> - **Not yet committed** — both docs are lint-clean and awaiting individual commits (never `git add -A` while Codex tree is dirty).
 
 The computer crashed during a dirty source-freshness/readiness workstream that started after the July 29 season-smoke and YouTube/Gemini futures reconciliation handoff. The immediate recovery task is complete, and the safe recovered work has been split into narrow commits.
 
