@@ -6,6 +6,7 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import {
   TrendingUp, TrendingDown, Minus, RefreshCw, Target, Plus, X,
   Bell, ChevronDown, ChevronUp, Clock, AlertCircle, CalendarDays,
+  MessageCircle, ExternalLink,
 } from 'lucide-react';
 import {
   LineChart, Line, ResponsiveContainer, Tooltip as ReTooltip, YAxis, XAxis,
@@ -14,6 +15,8 @@ import {
 import { getWatchlistOddsHistory } from '../../lib/supabase';
 import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS } from '../../lib/storage';
 import { TEAM_LOGOS, NFL_TEAMS } from '../../lib/teams';
+import { getCitationsForTeam, getHostSentimentSummary, getMarketConsensus, getUniqueHostTakes } from '../../lib/hostCitationStore';
+import { getContractsForTeam } from '../../lib/predictionMarketStore';
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
@@ -357,6 +360,180 @@ function TimelineModal({ team, market, history, onClose }) {
   );
 }
 
+// ── Host Citation Chip ────────────────────────────────────────────────────────
+
+const SHOW_EMOJI = {
+  'Sharp or Square': '⚔️',
+  'Even Money': '💰',
+  'BettingPros Podcast': '🎯',
+  'The Favorites': '⭐',
+  'Action Network Sports Betting': '📡',
+};
+
+function HostCitationChip({ citation }) {
+  const [showTooltip, setShowTooltip] = useState(false);
+  const initials = citation.host.split(' ').map(w => w[0]).join('').slice(0, 2);
+  const isBullish = citation.sentiment === 'bullish';
+  const chipColor = isBullish
+    ? 'bg-emerald-500/15 border-emerald-500/40 text-emerald-400'
+    : 'bg-rose-500/15 border-rose-500/40 text-rose-400';
+  const dotColor = isBullish ? 'bg-emerald-400' : 'bg-rose-400';
+  const pubDate = new Date(citation.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+
+  return (
+    <div className="relative inline-block">
+      <button
+        className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded border text-[10px] font-medium transition-all hover:brightness-125 ${chipColor}`}
+        onMouseEnter={() => setShowTooltip(true)}
+        onMouseLeave={() => setShowTooltip(false)}
+        onClick={e => { e.stopPropagation(); setShowTooltip(t => !t); }}
+      >
+        <span className={`w-1.5 h-1.5 rounded-full ${dotColor}`} />
+        {initials}
+      </button>
+      {showTooltip && (
+        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 bg-slate-800 border border-slate-600 rounded-lg px-3 py-2.5 text-xs z-50 shadow-xl">
+          <div className="flex items-center gap-1.5 mb-1">
+            <span className={`w-2 h-2 rounded-full ${dotColor}`} />
+            <span className="font-semibold text-slate-100">{citation.host}</span>
+            <span className="text-slate-500">·</span>
+            <span className="text-slate-400">{SHOW_EMOJI[citation.show] || '🎙️'} {citation.show}</span>
+          </div>
+          <div className="text-slate-300 italic leading-relaxed mb-1.5">
+            "{citation.quote.length > 120 ? citation.quote.slice(0, 117) + '...' : citation.quote}"
+          </div>
+          <div className="flex items-center gap-2 text-slate-500">
+            <span>{pubDate}</span>
+            <span>·</span>
+            <span className={isBullish ? 'text-emerald-400' : 'text-rose-400'}>
+              {isBullish ? '👍 Bullish' : '👎 Bearish'}
+            </span>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── Citation Drawer ──────────────────────────────────────────────────────────
+
+function CitationDrawer({ team, filterMarket = null }) {
+  const citations = useMemo(() => {
+    const all = getCitationsForTeam(team);
+    return filterMarket ? all.filter(c => c.market === filterMarket) : all;
+  }, [team, filterMarket]);
+
+  if (citations.length === 0) return null;
+
+  // Group by market slot
+  const grouped = useMemo(() => {
+    const map = {};
+    for (const c of citations) {
+      if (!map[c.market]) map[c.market] = [];
+      map[c.market].push(c);
+    }
+    return map;
+  }, [citations]);
+
+  const MARKET_LABELS = {
+    superbowl: '🏆 Super Bowl', conference: '🏈 Conference', division: '🎯 Division',
+    wins: '📊 Win Total', playoffs: '🎟️ Playoffs', general: '💬 General',
+  };
+
+  return (
+    <div className="px-4 pb-4">
+      <div className="bg-slate-800/60 border border-slate-700/40 rounded-lg overflow-hidden">
+        {Object.entries(grouped).map(([market, cites]) => (
+          <div key={market} className="border-b border-slate-700/30 last:border-b-0">
+            <div className="px-3 py-1.5 bg-slate-800/80 text-xs font-medium text-slate-400">
+              {MARKET_LABELS[market] || market} ({cites.length})
+            </div>
+            <div className="divide-y divide-slate-800/60">
+              {cites.slice(0, 5).map(c => {
+                const isBullish = c.sentiment === 'bullish';
+                const pubDate = new Date(c.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                return (
+                  <div key={c.id} className="px-3 py-2 flex gap-2 items-start">
+                    <span className={`mt-0.5 w-2 h-2 rounded-full shrink-0 ${isBullish ? 'bg-emerald-400' : 'bg-rose-400'}`} />
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5 text-xs">
+                        <span className="font-medium text-slate-200">{c.host}</span>
+                        <span className="text-slate-600">·</span>
+                        <span className="text-slate-500">{SHOW_EMOJI[c.show] || '🎙️'} {c.show}</span>
+                        <span className="text-slate-600">·</span>
+                        <span className="text-slate-500">{pubDate}</span>
+                      </div>
+                      <div className="text-xs text-slate-400 mt-0.5 leading-relaxed">
+                        "{c.quote.length > 150 ? c.quote.slice(0, 147) + '...' : c.quote}"
+                      </div>
+                    </div>
+                    <span className={`shrink-0 text-[10px] px-1.5 py-0.5 rounded border ${isBullish ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30' : 'bg-rose-500/10 text-rose-400 border-rose-500/30'}`}>
+                      {isBullish ? '👍' : '👎'}
+                    </span>
+                  </div>
+                );
+              })}
+              {cites.length > 5 && (
+                <div className="px-3 py-1.5 text-[10px] text-slate-600">
+                  +{cites.length - 5} more citations
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ── Market Consensus Indicator ───────────────────────────────────────────────
+
+function MarketConsensusIndicator({ team, marketSlot }) {
+  const consensus = useMemo(() => getMarketConsensus(team, marketSlot), [team, marketSlot]);
+  if (consensus.bullishCount === 0 && consensus.bearishCount === 0) return null;
+
+  return (
+    <div className="flex items-center gap-1.5 text-[10px] text-slate-500">
+      {consensus.bullishCount > 0 && (
+        <span className="text-emerald-400" title={`Bullish: ${consensus.bullishHosts.join(', ')}`}>
+          👍 {consensus.bullishCount}
+        </span>
+      )}
+      {consensus.bearishCount > 0 && (
+        <span className="text-rose-400" title={`Bearish: ${consensus.bearishHosts.join(', ')}`}>
+          👎 {consensus.bearishCount}
+        </span>
+      )}
+    </div>
+  );
+}
+
+// ── Prediction Market Badge ──────────────────────────────────────────────────
+
+function PredictionMarketBadge({ team }) {
+  const contracts = useMemo(() => {
+    // Resolve abbreviation from full name
+    const key = FULL_NAME_TO_KEY[team];
+    const abbr = key ? NFL_TEAMS[key]?.abbreviation : null;
+    if (!abbr) return [];
+    return getContractsForTeam(abbr);
+  }, [team]);
+
+  if (contracts.length === 0) return null;
+
+  // Show best contract
+  const best = contracts[0];
+  const fmtNet = best.net_american_odds >= 0 ? `+${best.net_american_odds}` : `${best.net_american_odds}`;
+
+  return (
+    <div className="flex items-center gap-1 text-[10px]">
+      <span className="px-1.5 py-0.5 rounded border bg-violet-500/10 border-violet-500/30 text-violet-400 font-medium">
+        {best.exchange === 'kalshi' ? 'Kalshi' : 'Poly'} {fmtNet} ({best.price_cents}¢)
+      </span>
+    </div>
+  );
+}
+
 // ── Market card ───────────────────────────────────────────────────────────────
 
 function MarketCard({ team, market, history = [], target, onSetTarget }) {
@@ -445,6 +622,9 @@ function MarketCard({ team, market, history = [], target, onSetTarget }) {
         </div>
       ))}
 
+      {/* Expert consensus for this market */}
+      <MarketConsensusIndicator team={team} marketSlot={market.slot} />
+
       {/* Price target */}
       <div className="mt-auto pt-1 border-t border-slate-700/40">
         {editingTarget ? (
@@ -500,6 +680,7 @@ function MarketCard({ team, market, history = [], target, onSetTarget }) {
 
 function TeamSection({ team, historyByMarket, targets, onSetTarget, onRemove }) {
   const [collapsed, setCollapsed] = useState(false);
+  const [showCitations, setShowCitations] = useState(false);
   const logo = getTeamLogo(team);
 
   // Resolve actual Supabase market_type keys for this specific team
@@ -513,6 +694,11 @@ function TeamSection({ team, historyByMarket, targets, onSetTarget, onRemove }) 
     return signals.length > 0;
   });
 
+  // Host citation data
+  const sentimentSummary = useMemo(() => getHostSentimentSummary(team), [team]);
+  const uniqueHosts = useMemo(() => getUniqueHostTakes(team), [team]);
+  const hasCitations = sentimentSummary.total > 0;
+
   return (
     <div className="bg-slate-900/60 border border-slate-700/60 rounded-xl overflow-hidden">
       {/* Team header */}
@@ -522,6 +708,22 @@ function TeamSection({ team, historyByMarket, targets, onSetTarget, onRemove }) 
       >
         {logo && <img src={logo} alt={team} className="w-7 h-7 object-contain" />}
         <span className="font-semibold text-slate-100 flex-1">{team}</span>
+
+        {/* Prediction market badge */}
+        <PredictionMarketBadge team={team} />
+
+        {/* Citation count badge */}
+        {hasCitations && (
+          <button
+            onClick={e => { e.stopPropagation(); setShowCitations(c => !c); }}
+            className="flex items-center gap-1 text-xs px-2 py-0.5 rounded bg-indigo-500/15 text-indigo-400 border border-indigo-500/30 hover:bg-indigo-500/25 transition-colors mr-1"
+            title="Expert citations from podcast deep-dives"
+          >
+            <MessageCircle size={11} />
+            {sentimentSummary.total} take{sentimentSummary.total !== 1 ? 's' : ''}
+          </button>
+        )}
+
         {hasAnySignal && (
           <span className="text-xs px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 mr-2">
             signal
@@ -536,6 +738,24 @@ function TeamSection({ team, historyByMarket, targets, onSetTarget, onRemove }) 
         </button>
         {collapsed ? <ChevronDown size={14} className="text-slate-500" /> : <ChevronUp size={14} className="text-slate-500" />}
       </div>
+
+      {/* Host citation chips bar */}
+      {!collapsed && uniqueHosts.length > 0 && (
+        <div className="flex items-center gap-1.5 px-4 py-1.5 border-t border-slate-700/30 bg-slate-800/20 flex-wrap">
+          <span className="text-[10px] text-slate-600 mr-1">Expert takes:</span>
+          {uniqueHosts.slice(0, 8).map(h => (
+            <HostCitationChip key={h.host} citation={h} />
+          ))}
+          {uniqueHosts.length > 8 && (
+            <span className="text-[10px] text-slate-600">+{uniqueHosts.length - 8} more</span>
+          )}
+        </div>
+      )}
+
+      {/* Citation drawer */}
+      {!collapsed && showCitations && (
+        <CitationDrawer team={team} />
+      )}
 
       {/* Market grid */}
       {!collapsed && (
