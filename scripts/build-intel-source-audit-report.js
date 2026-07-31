@@ -17,6 +17,7 @@ const outJson = path.join(REPORT_DIR, `nfl-intel-source-audit-${stamp}.json`);
 const SOURCE_GROUPS = [
   'Execution Policy',
   'Futures Odds',
+  'Prediction Markets',
   'Futures Portfolio',
   'Expert and Podcast Intel',
   'Web Article Intel',
@@ -442,7 +443,7 @@ async function collectManualFuturesImports(sources) {
     const snapshotDate = dateFromFilename(file.name);
     const rows = rowCount(payload);
     const snapshotAge = dateAgeHours(snapshotDate);
-    const fresh = snapshotAge != null && snapshotAge <= 48;
+    const fresh = snapshotAge != null && snapshotAge <= 96;
     const currentRawCapture = book === 'betonline' && !fresh && rawBetOnlineFresh;
     addSource(sources, {
       group: 'Futures Odds',
@@ -488,6 +489,51 @@ async function collectManualFuturesImports(sources) {
       path: ledger.relativePath,
     });
   }
+}
+
+async function collectPredictionMarketMap(sources) {
+  const rawPath = 'data/prediction-markets/latest.json';
+  const mapPath = 'data/prediction-markets/team-market-map-latest.json';
+  const rawStat = await exists(rawPath);
+  if (rawStat) {
+    const raw = await readJson(rawPath, {});
+    addSource(sources, {
+      group: 'Prediction Markets',
+      name: 'Raw prediction-market snapshot',
+      status: 'context',
+      freshness: raw.meta?.generated_at || rawStat.mtime.toISOString(),
+      evidence: `${raw.meta?.contract_count || 0} contract(s); Kalshi=${raw.meta?.kalshi_count || 0}; Polymarket=${raw.meta?.polymarket_count || 0}.`,
+      action: 'Use only as consensus context after contract mapping. Do not treat as sportsbook execution pricing.',
+      path: rawPath,
+    });
+  }
+
+  const mapStat = await exists(mapPath);
+  if (!mapStat) {
+    addSource(sources, {
+      group: 'Prediction Markets',
+      name: 'Prediction-market team map',
+      status: 'missing',
+      evidence: 'No local prediction-market team/market mapping found.',
+      action: 'Run `npm.cmd run prediction-markets:map` before using Kalshi/Polymarket contracts in futures synthesis context.',
+      path: mapPath,
+    });
+    return;
+  }
+
+  const snapshot = await readJson(mapPath, {});
+  const generated = snapshot.meta?.generated_at || mapStat.mtime.toISOString();
+  const hoursOld = ageHours(generated);
+  const stale = hoursOld !== null && hoursOld > 72;
+  addSource(sources, {
+    group: 'Prediction Markets',
+    name: 'Prediction-market team map',
+    status: stale ? 'stale' : 'review',
+    freshness: `${generated} (${hoursOld ?? '?'}h old)`,
+    evidence: `${snapshot.meta?.mapped_count || 0} mapped / ${snapshot.meta?.unmapped_count || 0} unmapped contract(s); liquidity warnings=${snapshot.meta?.liquidity_warning_count || 0}.`,
+    action: 'Use mapped rows as consensus context only. Review unmapped and liquidity-warning rows before making any price-shopping inference.',
+    path: mapPath,
+  });
 }
 
 async function collectRawPrimaryBookOddsExports(sources) {
@@ -596,6 +642,7 @@ async function collectPortfolioArtifacts(sources) {
 async function collectYoutubeIntel(sources) {
   const summaryPath = 'data/shadow-harness/review/youtube-futures-agent-intel-summary.json';
   const statusPath = 'data/shadow-harness/review/youtube-futures-intel-review-status.json';
+  const freshnessPath = 'data/shadow-harness/review/podcast-youtube-freshness-latest.json';
   const summaryStat = await exists(summaryPath);
   if (!summaryStat) {
     addSource(sources, {
@@ -619,6 +666,80 @@ async function collectYoutubeIntel(sources) {
     evidence: `${summary.exported_items || 0} promoted/exported items; ${reviewRecords.length} review records; leak checks ${JSON.stringify(summary.rejected_leak_checks || {})}.`,
     action: 'Use as source-stamped research context, not betting authority. Refresh only if new YouTube candidates exist after last sweep.',
     path: summaryPath,
+  });
+
+  const freshnessStat = await exists(freshnessPath);
+  if (!freshnessStat) {
+    addSource(sources, {
+      group: 'Expert and Podcast Intel',
+      name: 'Podcast/YouTube July 24-30 freshness reconciliation',
+      status: 'missing',
+      evidence: 'No local podcast/YouTube freshness reconciliation report found.',
+      action: 'Run `npm.cmd run youtube:freshness-reconcile` before frontier synthesis so July 24-30 candidate coverage and accepted-vs-review-only separation are explicit.',
+      path: freshnessPath,
+    });
+  } else {
+    const freshness = await readJson(freshnessPath, {});
+    const generated = freshness.meta?.generated_at || freshnessStat.mtime.toISOString();
+    const hoursOld = ageHours(generated);
+    const candidates = freshness.youtube?.candidates || {};
+    const reviewStatus = freshness.youtube?.review_status || {};
+    addSource(sources, {
+      group: 'Expert and Podcast Intel',
+      name: 'Podcast/YouTube July 24-30 freshness reconciliation',
+      status: 'review',
+      freshness: `${generated} (${hoursOld ?? '?'}h old)`,
+      evidence: `${freshness.youtube?.accepted?.exported_items || 0} accepted YouTube local-intel pick(s); ${reviewStatus.review_only_count || 0} pending/needs-review row(s) remain excluded; ${candidates.window_candidate_count || 0} YouTube candidate(s) and ${freshness.podcast?.window_episode_count || 0} podcast deep dive(s) dated ${freshness.meta?.window_start || 'window start'}-${freshness.meta?.window_end || 'window end'}.`,
+      action: 'Use accepted rows as research context only. Do not promote pending/needs-review rows; evaluate any unobserved futures-eligible candidates before frontier synthesis if new July 24-30 coverage appears.',
+      path: freshnessPath,
+    });
+  }
+}
+
+async function collectExpertDossiers(sources) {
+  const indexPath = 'data/expert-dossiers/latest.json';
+  const indexStat = await exists(indexPath);
+  if (!indexStat) {
+    addSource(sources, {
+      group: 'Expert and Podcast Intel',
+      name: 'Expert dossiers',
+      status: 'missing',
+      evidence: 'No local expert-dossier index found.',
+      action: 'Run `npm.cmd run expert-dossiers:build` before synthesis if analyst-prior/bias context should be available to the LLM.',
+      path: indexPath,
+    });
+    return;
+  }
+
+  const index = await readJson(indexPath, {});
+  const dossiers = Array.isArray(index.dossiers) ? index.dossiers : [];
+  const recoverySignals = dossiers.reduce(
+    (sum, dossier) => sum + Number(dossier.source_coverage?.local_recovery_signal_count || 0),
+    0,
+  );
+  const contextOnlySignals = dossiers.reduce(
+    (sum, dossier) => sum + Number(dossier.source_coverage?.local_recovery_context_only_count || 0),
+    0,
+  );
+  const missingFiles = [];
+  for (const dossier of dossiers) {
+    if (dossier.path && !(await exists(dossier.path))) missingFiles.push(dossier);
+  }
+
+  addSource(sources, {
+    group: 'Expert and Podcast Intel',
+    name: 'Expert dossiers',
+    status: missingFiles.length ? 'review' : 'context',
+    freshness: `${index.generated_at || indexStat.mtime.toISOString()} (${ageHours(index.generated_at || indexStat.mtime.toISOString()) ?? '?'}h old)`,
+    evidence: `${index.dossier_count || dossiers.length} expert dossier(s); ${recoverySignals} local-recovery signal(s); ${contextOnlySignals} context-only signal(s); missing dossier files=${missingFiles.length}.`,
+    action: missingFiles.length
+      ? 'Rebuild expert dossiers before synthesis. Use available rows only as analyst-prior/bias context; never as price evidence or official-pick support.'
+      : 'Use only as compact analyst-prior/bias context for named experts. Do not treat local recovery signals as accepted picks or clean transcript evidence.',
+    details: dossiers.map((dossier) => ({
+      label: dossier.expert || dossier.slug || 'Unknown expert',
+      value: `${dossier.source_coverage?.host_citation_count || 0} host citation(s); ${dossier.source_coverage?.local_recovery_signal_count || 0} recovery signal(s); ${dossier.source_coverage?.local_recovery_context_only_count || 0} context-only signal(s)`,
+    })),
+    path: indexPath,
   });
 }
 
@@ -827,9 +948,62 @@ async function collectTrainingCamp(sources) {
       path: receipts[0].relativePath,
     });
   }
+
+  const coveragePath = 'data/training-camp/2026/coverage-fill-latest.json';
+  const coverageStat = await exists(coveragePath);
+  if (!coverageStat) {
+    addSource(sources, {
+      group: 'Training Camp',
+      name: 'Training camp all-32 coverage fill',
+      status: 'missing',
+      evidence: 'No local all-32 training-camp coverage-fill report found.',
+      action: 'Run `npm.cmd run training-camp:coverage-fill` before frontier futures synthesis so camp, article, and availability gaps are explicit.',
+      path: coveragePath,
+    });
+  } else {
+    const coverage = await readJson(coveragePath, {});
+    const generated = coverage.meta?.generated_at || coverageStat.mtime.toISOString();
+    const hoursOld = ageHours(generated);
+    addSource(sources, {
+      group: 'Training Camp',
+      name: 'Training camp all-32 coverage fill',
+      status: (coverage.meta?.teams_with_any_local_context || 0) === 32 ? 'review' : 'missing',
+      freshness: `${generated} (${hoursOld ?? '?'}h old)`,
+      evidence: `${coverage.meta?.teams_with_any_local_context || 0}/32 teams have local camp/article/availability context; canonical camp-source still needed for ${coverage.meta?.teams_needing_manual_camp_source ?? 'unknown'} team(s).`,
+      action: 'Use this as a review queue only. Availability-only rows still need source-stamped camp/manual confirmation before being promoted into canonical training-camp intel.',
+      path: coveragePath,
+    });
+  }
 }
 
 async function collectPlayerAvailability(sources) {
+  const startersPath = 'data/projected-starters/2026/latest.json';
+  const startersStat = await exists(startersPath);
+  if (!startersStat) {
+    addSource(sources, {
+      group: 'Player Availability',
+      name: 'Projected starters evidence layer',
+      status: 'missing',
+      evidence: 'No local projected/likely-starters snapshot found.',
+      action: 'Run `npm.cmd run projected-starters` before the frontier packet so availability can be tied to player importance. Estimated-only output is acceptable as research context, but manual depth-chart coverage should stay explicit.',
+      path: startersPath,
+    });
+  } else {
+    const starters = await readJson(startersPath, {});
+    const generated = starters.meta?.generated_at || startersStat.mtime.toISOString();
+    const hoursOld = ageHours(generated);
+    const stale = hoursOld !== null && hoursOld > 168;
+    addSource(sources, {
+      group: 'Player Availability',
+      name: 'Projected starters evidence layer',
+      status: stale ? 'stale' : 'review',
+      freshness: `${generated} (${hoursOld ?? '?'}h old)`,
+      evidence: `${starters.meta?.player_count || 0} player signal(s); ${starters.meta?.teams_with_signals || 0} teams with signals; manual rows=${starters.meta?.manual_row_count || 0}; estimated rows=${starters.meta?.estimated_row_count || 0}; teams needing manual depth chart=${starters.meta?.teams_needing_manual_depth_chart ?? 'unknown'}.`,
+      action: 'Use as player-importance research context only. Manual all-position depth charts remain the next coverage fill step; estimated starter language must not be treated as final source of truth.',
+      path: startersPath,
+    });
+  }
+
   const snapshotPath = 'data/player-availability/latest.json';
   const snapshotStat = await exists(snapshotPath);
   if (!snapshotStat) {
@@ -865,6 +1039,36 @@ async function collectPlayerAvailability(sources) {
     })),
     path: snapshotPath,
   });
+
+  const digestPath = 'data/player-availability/impact-digest-latest.json';
+  const digestStat = await exists(digestPath);
+  if (!digestStat) {
+    addSource(sources, {
+      group: 'Player Availability',
+      name: 'Starter impact availability digest',
+      status: 'missing',
+      evidence: 'No starter-impact digest found.',
+      action: 'Run `npm.cmd run availability:impact-digest` after projected starters and player availability are current.',
+      path: digestPath,
+    });
+  } else {
+    const digest = await readJson(digestPath, {});
+    const generated = digest.meta?.generated_at || digestStat.mtime.toISOString();
+    const hoursOld = ageHours(generated);
+    const stale = hoursOld !== null && hoursOld > 72;
+    const warnings = (digest.top_events || []).filter((event) => event.classification_warning).length;
+    addSource(sources, {
+      group: 'Player Availability',
+      name: 'Starter impact availability digest',
+      status: stale ? 'stale' : 'review',
+      freshness: `${generated} (${hoursOld ?? '?'}h old)`,
+      evidence: `${digest.meta?.digest_event_count || 0} ranked digest event(s) from ${digest.meta?.source_event_count || 0} source event(s); starter-matched=${digest.meta?.starter_matched_count || 0}; classification warnings=${warnings}.`,
+      action: warnings
+        ? 'Review classification-warning rows before synthesis; they indicate availability trend labels that conflict with the supporting text.'
+        : 'Review top events before synthesis and keep this as research context, not betting authority.',
+      path: digestPath,
+    });
+  }
 }
 
 async function collectSecondaryMatchups(sources) {
@@ -1225,9 +1429,11 @@ async function main() {
   const sources = [];
   await collectFuturesOdds(sources);
   await collectManualFuturesImports(sources);
+  await collectPredictionMarketMap(sources);
   await collectRawPrimaryBookOddsExports(sources);
   await collectPortfolioArtifacts(sources);
   await collectYoutubeIntel(sources);
+  await collectExpertDossiers(sources);
   await collectPodcastIntel(sources);
   await collectResearchArticleIntel(sources);
   await collectTrainingCamp(sources);

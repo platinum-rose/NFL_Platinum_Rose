@@ -1,0 +1,410 @@
+{
+  "meta": {
+    "schema": "podcast_youtube_freshness_reconciliation_v1",
+    "generated_at": "2026-07-31T00:43:53.659Z",
+    "window_start": "2026-07-24",
+    "window_end": "2026-07-30",
+    "recommendation_status": "research_context_only_not_picks",
+    "guardrails": {
+      "live_model_calls": false,
+      "network_fetches": false,
+      "supabase_writes": false,
+      "official_picks_generated": false,
+      "production_recommendation_persistence": false
+    }
+  },
+  "youtube": {
+    "accepted": {
+      "generated_at": "2026-07-29T04:00:31.515Z",
+      "exported_items": 45,
+      "exported_notes": 0,
+      "by_team": {
+        "ATL": 3,
+        "BAL": 2,
+        "CAR": 1,
+        "CHI": 1,
+        "CIN": 4,
+        "DAL": 3,
+        "DEN": 1,
+        "DET": 2,
+        "GB": 1,
+        "IND": 2,
+        "JAX": 4,
+        "LAC": 4,
+        "LAR": 1,
+        "LV": 3,
+        "NE": 4,
+        "NO": 2,
+        "NYG": 1,
+        "NYJ": 1,
+        "PHI": 1,
+        "PIT": 1,
+        "SF": 1,
+        "TEN": 2
+      },
+      "by_market": {
+        "make_playoffs": 5,
+        "no_1_overall_pick": 1,
+        "season_rushing_tds": 3,
+        "oroy": 2,
+        "season_receiving_yards": 1,
+        "win_total": 3,
+        "conference_no_1_seed": 2,
+        "division_winner": 8,
+        "mvp": 8,
+        "opoy": 3,
+        "conference_winner": 1,
+        "droy": 1,
+        "comeback_player_of_the_year": 1,
+        "super_bowl_winner": 1,
+        "dpoy": 1,
+        "season_passing_tds": 1,
+        "season_passing_yards": 1,
+        "interceptions_leader": 1,
+        "fewest_wins": 1
+      },
+      "rejected_leak_checks": {
+        "det_division_winner_plus_1500": 0
+      }
+    },
+    "review_status": {
+      "generated_at": "2026-07-29T04:00:17.820Z",
+      "total_items": 115,
+      "by_status": {
+        "promote_to_local_intel": 45,
+        "reject": 10,
+        "context_only": 11,
+        "pending_review": 46,
+        "needs_review": 3
+      },
+      "by_item_type_status": {
+        "pick:promote_to_local_intel": 45,
+        "pick:reject": 10,
+        "pick:context_only": 11,
+        "note:pending_review": 46,
+        "note:needs_review": 3
+      },
+      "review_only_count": 49
+    },
+    "review_report": {
+      "generated_at": "2026-07-29T04:00:17.828Z",
+      "observed_episodes": 11,
+      "missing_observations": 0,
+      "total_extracted_picks": 66,
+      "total_analysis_notes": 49
+    },
+    "candidates": {
+      "generated_at": "2026-07-31T00:42:14.158Z",
+      "total_candidates": 27,
+      "total_futures_eligible": 13,
+      "observed_candidate_count": 11,
+      "window_candidate_count": 4,
+      "window_futures_eligible_count": 2,
+      "window_observed_count": 0,
+      "window_candidates": [
+        {
+          "id": "youtube-SF49daFrn6U",
+          "show": "The Action Network: Sports Betting Picks & Tips",
+          "title": "Whose Draft Board is WRONG About These Players?! | Fantasy QB & RB Ranking Discrepancies | Part: 1",
+          "date": "2026-07-24",
+          "published_at": "2026-07-24T10:00:28Z",
+          "url": "https://www.youtube.com/watch?v=SF49daFrn6U",
+          "content_lane": "fantasy",
+          "futures_score": 0,
+          "gemini_futures_eligible": false,
+          "mapping_status": "unmapped",
+          "observed": false,
+          "status": "candidate_not_futures_eligible",
+          "notes": "Auto-discovered from subscribed YouTube channel; local candidate only."
+        },
+        {
+          "id": "youtube-0dvULUstIEk",
+          "show": "The Action Network: Sports Betting Picks & Tips",
+          "title": "2026 Fantasy Football Preview With Fantasy Analyst Kendall Valenzuela!",
+          "date": "2026-07-24",
+          "published_at": "2026-07-24T05:52:46Z",
+          "url": "https://www.youtube.com/watch?v=0dvULUstIEk",
+          "content_lane": "fantasy",
+          "futures_score": 0,
+          "gemini_futures_eligible": false,
+          "mapping_status": "unmapped",
+          "observed": false,
+          "status": "candidate_not_futures_eligible",
+          "notes": "Auto-discovered from subscribed YouTube channel; local candidate only."
+        },
+        {
+          "id": "youtube-qoCm4G2Jmng",
+          "show": "Sharp or Square",
+          "title": "TOP 10 QUARTERBACKS: NFL Betting Experts' Rankings & Analysis of Greatest QBs For 2026 NFL Season",
+          "date": "2026-07-28",
+          "published_at": "2026-07-28T17:04:44Z",
+          "url": "https://www.youtube.com/watch?v=qoCm4G2Jmng",
+          "content_lane": "futures_intel",
+          "futures_score": 3,
+          "gemini_futures_eligible": true,
+          "mapping_status": "unmapped",
+          "observed": false,
+          "status": "unobserved_futures_candidate",
+          "notes": "Explicitly queued from supplied YouTube URL; local candidate only."
+        },
+        {
+          "id": "youtube-OAxHvrVUPpw",
+          "show": "Sharp or Square",
+          "title": "NFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season",
+          "date": "2026-07-30",
+          "published_at": "2026-07-30T16:00:27Z",
+          "url": "https://www.youtube.com/watch?v=OAxHvrVUPpw",
+          "content_lane": "futures_intel",
+          "futures_score": 9,
+          "gemini_futures_eligible": true,
+          "mapping_status": "unmapped",
+          "observed": false,
+          "status": "unobserved_futures_candidate",
+          "notes": "Explicitly queued from supplied YouTube URL; local candidate only."
+        }
+      ],
+      "unobserved_futures_candidates": [
+        {
+          "id": "youtube-qoCm4G2Jmng",
+          "show": "Sharp or Square",
+          "title": "TOP 10 QUARTERBACKS: NFL Betting Experts' Rankings & Analysis of Greatest QBs For 2026 NFL Season",
+          "date": "2026-07-28",
+          "published_at": "2026-07-28T17:04:44Z",
+          "url": "https://www.youtube.com/watch?v=qoCm4G2Jmng",
+          "content_lane": "futures_intel",
+          "futures_score": 3,
+          "gemini_futures_eligible": true,
+          "mapping_status": "unmapped",
+          "observed": false,
+          "status": "unobserved_futures_candidate",
+          "notes": "Explicitly queued from supplied YouTube URL; local candidate only."
+        },
+        {
+          "id": "youtube-OAxHvrVUPpw",
+          "show": "Sharp or Square",
+          "title": "NFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season",
+          "date": "2026-07-30",
+          "published_at": "2026-07-30T16:00:27Z",
+          "url": "https://www.youtube.com/watch?v=OAxHvrVUPpw",
+          "content_lane": "futures_intel",
+          "futures_score": 9,
+          "gemini_futures_eligible": true,
+          "mapping_status": "unmapped",
+          "observed": false,
+          "status": "unobserved_futures_candidate",
+          "notes": "Explicitly queued from supplied YouTube URL; local candidate only."
+        }
+      ]
+    }
+  },
+  "podcast": {
+    "generated_at": "2026-07-30T08:48:17.626Z",
+    "source_dir": "E:\\dev\\projects\\NFL_Dashboard\\data\\podcasts\\m6-diarized-all",
+    "total_deep_dives": 57,
+    "latest_episode": {
+      "show": "BettingPros Podcast",
+      "title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers (Ep. 1022)",
+      "pub_date": "2026-07-23T21:25:07+00:00",
+      "slug": "2026-07-23-bettingpros-podcast-drafting-the-ultimate-2026-nfl-futures-card-win-totals-division-winners-and-award-sleepers-ep-1022",
+      "speaker_map": {
+        "D": "Chris Welsh",
+        "C": "Andrew Erickson",
+        "A": "Ad/Commercial",
+        "B": "Guest",
+        "E": "Ad/Commercial",
+        "F": "Ad/Commercial"
+      },
+      "beat_count": 48,
+      "timing_conjecture_count": 0,
+      "html": "file:///E:/dev/projects/NFL_Dashboard/docs/podcast-transcript-deep-dives/2026-07-23-bettingpros-podcast-drafting-the-ultimate-2026-nfl-futures-card-win-totals-division-winners-and-award-sleepers-ep-1022.html",
+      "markdown": "file:///E:/dev/projects/NFL_Dashboard/docs/podcast-transcript-deep-dives/2026-07-23-bettingpros-podcast-drafting-the-ultimate-2026-nfl-futures-card-win-totals-division-winners-and-award-sleepers-ep-1022.md"
+    },
+    "window_episode_count": 0,
+    "window_episodes": []
+  },
+  "anchors": [
+    {
+      "team": "BUF",
+      "accepted_pick_count": 0,
+      "accepted_note_count": 0,
+      "accepted_status_rows": 0,
+      "pending_or_needs_review_count": 1,
+      "accepted_markets": [],
+      "review_only_items": [
+        {
+          "item_id": "note__youtube-4OxpAX6UJlM__roster_or_depth_chart__bills_offensive_line_coaching_change__956",
+          "item_type": "note",
+          "status": "pending_review",
+          "lane": "roster_or_depth_chart",
+          "market": null,
+          "topic": "Bills offensive line coaching change",
+          "evidence": "The Bills don't have the same offensive line coach... that was a significant loss.",
+          "source": {
+            "episode_id": "youtube-4OxpAX6UJlM",
+            "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+            "show": "BettingPros YouTube",
+            "source_timestamp": 956,
+            "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=956s"
+          }
+        }
+      ]
+    },
+    {
+      "team": "GB",
+      "accepted_pick_count": 1,
+      "accepted_note_count": 0,
+      "accepted_status_rows": 1,
+      "pending_or_needs_review_count": 2,
+      "accepted_markets": [
+        "make_playoffs"
+      ],
+      "review_only_items": [
+        {
+          "item_id": "note__youtube-G5tbI-M8muY__coaching_or_scheme__jonathan_gannon_defensive_scheme__1691",
+          "item_type": "note",
+          "status": "pending_review",
+          "lane": "coaching_or_scheme",
+          "market": null,
+          "topic": "Jonathan Gannon Defensive Scheme",
+          "evidence": "I'm curious to see how Gannon deploys them. He did some really interesting things in Arizona where he basically lined up in like a lot of five-across looks.",
+          "source": {
+            "episode_id": "youtube-G5tbI-M8muY",
+            "episode_title": "Greg Cosell: 2026 NFC North Season PREVIEW",
+            "show": "Ross Tucker",
+            "source_timestamp": 1691,
+            "timestamp_url": "https://www.youtube.com/watch?v=G5tbI-M8muY&t=1691s"
+          }
+        },
+        {
+          "item_id": "note__youtube-xAwNym8Y7Xg__injury_or_health__micah_parsons_late_return_expectation__1790",
+          "item_type": "note",
+          "status": "pending_review",
+          "lane": "injury_or_health",
+          "market": null,
+          "topic": "Micah Parsons late return expectation",
+          "evidence": "We fully expect him to start on PUP, and we don't expect him to come off PUP as soon as he's eligible. I think it's mid-to-late season before he returns.",
+          "source": {
+            "episode_id": "youtube-xAwNym8Y7Xg",
+            "episode_title": "NFL Injury Expert Dr. David Chao On The Major NFL Injury Storylines",
+            "show": "The Action Network: Sports Betting Picks & Tips",
+            "source_timestamp": 1790,
+            "timestamp_url": "https://www.youtube.com/watch?v=xAwNym8Y7Xg&t=1790s"
+          }
+        }
+      ]
+    },
+    {
+      "team": "CIN",
+      "accepted_pick_count": 4,
+      "accepted_note_count": 0,
+      "accepted_status_rows": 4,
+      "pending_or_needs_review_count": 1,
+      "accepted_markets": [
+        "conference_no_1_seed",
+        "division_winner",
+        "mvp",
+        "opoy"
+      ],
+      "review_only_items": [
+        {
+          "item_id": "note__youtube-b9NL40Zogkw__player_evaluation__burrow_durability_and_passion__2239",
+          "item_type": "note",
+          "status": "pending_review",
+          "lane": "player_evaluation",
+          "market": null,
+          "topic": "Burrow durability and passion",
+          "evidence": "I do wonder if the physical toll of his career is starting to kill his passion.",
+          "source": {
+            "episode_id": "youtube-b9NL40Zogkw",
+            "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
+            "show": "The Action Network: Sports Betting Picks & Tips",
+            "source_timestamp": 2239,
+            "timestamp_url": "https://www.youtube.com/watch?v=b9NL40Zogkw&t=2239s"
+          }
+        }
+      ]
+    },
+    {
+      "team": "KC",
+      "accepted_pick_count": 0,
+      "accepted_note_count": 0,
+      "accepted_status_rows": 0,
+      "pending_or_needs_review_count": 1,
+      "accepted_markets": [],
+      "review_only_items": [
+        {
+          "item_id": "note__youtube-xAwNym8Y7Xg__injury_or_health__patrick_mahomes_acl/lcl_recovery_outlook__800",
+          "item_type": "note",
+          "status": "pending_review",
+          "lane": "injury_or_health",
+          "market": null,
+          "topic": "Patrick Mahomes ACL/LCL recovery outlook",
+          "evidence": "If week one were the Super Bowl, guarantee, book it, Patrick Mahomes would play and start that game. But it's not the Super Bowl... I see them being conservative.",
+          "source": {
+            "episode_id": "youtube-xAwNym8Y7Xg",
+            "episode_title": "NFL Injury Expert Dr. David Chao On The Major NFL Injury Storylines",
+            "show": "The Action Network: Sports Betting Picks & Tips",
+            "source_timestamp": 800,
+            "timestamp_url": "https://www.youtube.com/watch?v=xAwNym8Y7Xg&t=800s"
+          }
+        }
+      ]
+    },
+    {
+      "team": "NO",
+      "accepted_pick_count": 2,
+      "accepted_note_count": 0,
+      "accepted_status_rows": 2,
+      "pending_or_needs_review_count": 1,
+      "accepted_markets": [
+        "division_winner"
+      ],
+      "review_only_items": [
+        {
+          "item_id": "note__youtube-aOUy4-ZRzbE__schedule_context__saints_early_schedule_warning__450",
+          "item_type": "note",
+          "status": "pending_review",
+          "lane": "schedule_context",
+          "market": null,
+          "topic": "Saints Early Schedule Warning",
+          "evidence": "You may want to wait to buy in on the New Orleans Saints... first two matchups of the year: at Detroit, at Baltimore.",
+          "source": {
+            "episode_id": "youtube-aOUy4-ZRzbE",
+            "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
+            "show": "BettingPros YouTube",
+            "source_timestamp": 450,
+            "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=450s"
+          }
+        }
+      ]
+    },
+    {
+      "team": "NYG",
+      "accepted_pick_count": 1,
+      "accepted_note_count": 0,
+      "accepted_status_rows": 1,
+      "pending_or_needs_review_count": 1,
+      "accepted_markets": [
+        "season_rushing_tds"
+      ],
+      "review_only_items": [
+        {
+          "item_id": "note__youtube-zNZzcHDqhg4__injury_or_health__nabers_health_risk__2841",
+          "item_type": "note",
+          "status": "pending_review",
+          "lane": "injury_or_health",
+          "market": null,
+          "topic": "Nabers Health Risk",
+          "evidence": "He played only four games last year because of the injury.",
+          "source": {
+            "episode_id": "youtube-zNZzcHDqhg4",
+            "episode_title": "2026 NFL Receiving Rooms Tier List | Full Rankings",
+            "show": "Warren Sharp",
+            "source_timestamp": 2841,
+            "timestamp_url": "https://www.youtube.com/watch?v=zNZzcHDqhg4&t=2841s"
+          }
+        }
+      ]
+    }
+  ]
+}

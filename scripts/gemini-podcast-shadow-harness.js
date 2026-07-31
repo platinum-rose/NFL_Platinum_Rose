@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-irregular-whitespace, no-unreachable */
 /**
  * scripts/gemini-podcast-shadow-harness.js
  * Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
@@ -59,6 +60,9 @@ const YOUTUBE_URL_ARG = getArg('--youtube-url', null);
 // partway through a long episode. Look the number up from the YouTube player
 // (right side of the scrubber) when reprocessing a specific episode.
 const DURATION_SECONDS_ARG = getArg('--duration-seconds', null);
+const SEGMENT_SECONDS_ARG = getArg('--segment-seconds', null);
+const MAX_RETRIES_ARG = getArg('--max-retries', null);
+const RETRY_DELAY_SECONDS_ARG = getArg('--retry-delay-seconds', null);
 
 const QUEUE_DOC = path.join(ROOT, 'docs', 'antigravity', 'GEMINI_SHADOW_YOUTUBE_QUEUE.md');
 const METADATA_OVERRIDES = path.join(ROOT, 'data', 'podcasts', 'episode-metadata-overrides.json');
@@ -448,6 +452,9 @@ function runLiveGeminiYoutube(item) {
     // got analyzed through their first 10-15 minutes). Pass --duration-seconds
     // manually when reprocessing an episode you know the runtime of.
     if (item.durationSecs) cliArgs.push('--duration-seconds', String(Math.round(item.durationSecs)));
+    if (item.segmentSecs) cliArgs.push('--segment-seconds', String(Math.round(item.segmentSecs)));
+    if (item.maxRetries != null) cliArgs.push('--max-retries', String(Math.round(item.maxRetries)));
+    if (item.retryDelaySecs != null) cliArgs.push('--retry-delay-seconds', String(Math.round(item.retryDelaySecs)));
 
     const rawOutput = execFileSync('python', cliArgs, { encoding: 'utf8' });
     const jsonRes = JSON.parse(rawOutput);
@@ -490,6 +497,23 @@ function runLiveGeminiYoutube(item) {
     if (stderr) console.error(`   Live YouTube Gemini stderr: ${stderr}`);
     return null;
   }
+}
+
+function buildCoverageReprocessFlag(shadowRun) {
+  const coverage = shadowRun?.coverage_assessment;
+  if (!coverage || coverage.suspected_incomplete !== true) {
+    return {
+      reprocess_required: false,
+      reprocess_reason: null,
+      quality_flags: []
+    };
+  }
+
+  return {
+    reprocess_required: true,
+    reprocess_reason: coverage.reason || 'Gemini did not cover the full known video duration.',
+    quality_flags: ['incomplete_youtube_coverage']
+  };
 }
 
 /**
@@ -635,12 +659,24 @@ async function main() {
       youtubeTarget: YOUTUBE_URL_ARG,
       baselineRelPath: null,
       episodeSlug: EPISODE_ARG,
-      durationSecs: DURATION_SECONDS_ARG ? Number(DURATION_SECONDS_ARG) : null
+      durationSecs: DURATION_SECONDS_ARG ? Number(DURATION_SECONDS_ARG) : null,
+      segmentSecs: SEGMENT_SECONDS_ARG ? Number(SEGMENT_SECONDS_ARG) : null,
+      maxRetries: MAX_RETRIES_ARG ? Number(MAX_RETRIES_ARG) : null,
+      retryDelaySecs: RETRY_DELAY_SECONDS_ARG ? Number(RETRY_DELAY_SECONDS_ARG) : null
     }];
   } else if (DURATION_SECONDS_ARG && targetItems.length === 1) {
     // Also honor --duration-seconds when re-running a queue-matched episode
     // (not just the fully-manual --youtube-url path above).
     targetItems[0].durationSecs = Number(DURATION_SECONDS_ARG);
+  }
+  if (SEGMENT_SECONDS_ARG && targetItems.length === 1) {
+    targetItems[0].segmentSecs = Number(SEGMENT_SECONDS_ARG);
+  }
+  if (MAX_RETRIES_ARG && targetItems.length === 1) {
+    targetItems[0].maxRetries = Number(MAX_RETRIES_ARG);
+  }
+  if (RETRY_DELAY_SECONDS_ARG && targetItems.length === 1) {
+    targetItems[0].retryDelaySecs = Number(RETRY_DELAY_SECONDS_ARG);
   }
 
   if (targetItems.length === 0) {
@@ -656,6 +692,8 @@ async function main() {
   const results = [];
   let totalCostUsd = 0;
   let totalLatencyMs = 0;
+  let reprocessRequiredCount = 0;
+  let extractionFailureCount = 0;
 
   for (const item of targetItems) {
     console.log(`\nÃ¢â€“Â¶Ã¯Â¸Â [P${item.priority}] Processing: ${item.episodeSlug}`);
@@ -680,9 +718,14 @@ async function main() {
       shadowRun = runSimulatedShadow(item, baselineJson);
     }
 
-    if (!shadowRun) continue;
+    if (!shadowRun) {
+      extractionFailureCount += 1;
+      continue;
+    }
 
     const scoring = scoreShadowObservation(baselinePicks, shadowRun.extracted_picks);
+    const coverageFlag = buildCoverageReprocessFlag(shadowRun);
+    if (coverageFlag.reprocess_required) reprocessRequiredCount += 1;
 
     totalCostUsd += shadowRun.estimated_cost_usd;
     totalLatencyMs += shadowRun.latency_ms;
@@ -701,6 +744,9 @@ async function main() {
       model: MODEL_NAME,
       input_source: shadowRun.input_source,
       youtube_url: shadowRun.youtube_url || null,
+      coverage_assessment: shadowRun.coverage_assessment || null,
+      reprocess_required: coverageFlag.reprocess_required,
+      reprocess_reason: coverageFlag.reprocess_reason,
       raw_model_response: shadowRun.raw_model_response,
       quote_timestamps: shadowRun.quote_timestamps
     }, null, 2));
@@ -714,6 +760,9 @@ async function main() {
       mode: shadowRun.mode,
       model: MODEL_NAME,
       input_source: shadowRun.input_source,
+      reprocess_required: coverageFlag.reprocess_required,
+      reprocess_reason: coverageFlag.reprocess_reason,
+      quality_flags: coverageFlag.quality_flags,
       run: shadowRun,
       scoring
     };
@@ -727,10 +776,24 @@ async function main() {
     console.log(`   Score Status: ${scoreStatus}`);
     console.log(`   Ã°Å¸â€™Â¾ Raw Gemini Saved : ${path.basename(rawFile)}`);
     console.log(`   Ã°Å¸â€™Â¾ Observation Saved: ${path.basename(obsFile)}`);
+    if (coverageFlag.reprocess_required) {
+      console.error(`   REPROCESS REQUIRED: ${coverageFlag.reprocess_reason}`);
+      console.error('   Observation was saved for auditability but must not be treated as complete.');
+    }
     console.log(`   Real Match F1 Score: ${scoreStatus}`);
     console.log(`   Ã¢ÂÂ±Ã¯Â¸Â Latency: ${shadowRun.latency_ms} ms | Cost: $${shadowRun.estimated_cost_usd}`);
 
     results.push(obsRecord);
+  }
+
+  if (results.length === 0 && extractionFailureCount > 0) {
+    console.log(`\nQUEUE BENCHMARK SUMMARY REPORT [${MODEL_NAME}]`);
+    console.log(`  Execution Mode       : ${EXECUTION_MODE}`);
+    console.log('  Episodes Evaluated   : 0');
+    console.log(`  Extraction Failures  : ${extractionFailureCount}`);
+    console.error(`\nEXTRACTION FAILED for ${extractionFailureCount} YouTube extraction(s). No complete observation was saved.`);
+    process.exitCode = 1;
+    return;
   }
 
   if (results.length > 0) {
@@ -748,9 +811,18 @@ async function main() {
       model: MODEL_NAME,
       total_episodes_evaluated: results.length,
       total_episodes_scored: scoredResults.length,
+      reprocess_required_count: reprocessRequiredCount,
+      extraction_failure_count: extractionFailureCount,
       average_f1_score_pct: avgF1,
       total_cost_usd: Number(totalCostUsd.toFixed(6)),
       average_latency_ms: avgLatency,
+      reprocess_queue: results
+        .filter(r => r.reprocess_required)
+        .map(r => ({
+          episode_slug: r.episode_slug,
+          reason: r.reprocess_reason,
+          command: `npm.cmd run youtube:run-futures-candidates -- --only-id ${r.episode_slug} --max-per-run 1 --run-gemini`
+        })),
       queue_runs: results
     };
 
@@ -761,9 +833,18 @@ async function main() {
     console.log(`  Execution Mode       : ${EXECUTION_MODE}`);
     console.log(`  Episodes Evaluated   : ${results.length}`);
     console.log(`  Episodes Scored      : ${scoredResults.length}`);
+    console.log(`  Reprocess Required   : ${reprocessRequiredCount}`);
+    console.log(`  Extraction Failures  : ${extractionFailureCount}`);
     console.log(`  Real 7-Field F1 Score: ${summaryScore}`);
     console.log(`  Total Real Cost      : $${totalCostUsd.toFixed(5)} USD`);
     console.log(`  Real Average Latency : ${avgLatency} ms`);
+    if (reprocessRequiredCount > 0) {
+      console.error(`\nREPROCESS REQUIRED for ${reprocessRequiredCount} YouTube extraction(s). See reprocess_queue in ${reportFile}.`);
+      process.exitCode = 2;
+    } else if (extractionFailureCount > 0) {
+      console.error(`\nEXTRACTION FAILED for ${extractionFailureCount} YouTube extraction(s). No complete observation was saved for those episode(s).`);
+      process.exitCode = 1;
+    }
     return;
     console.log(`\nÃ°Å¸â€™Â¾ Saved Batch Benchmark Report: ${reportFile}`);
   }

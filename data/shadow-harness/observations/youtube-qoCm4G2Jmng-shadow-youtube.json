@@ -1,0 +1,842 @@
+{
+  "episode_slug": "youtube-qoCm4G2Jmng",
+  "show": "YouTube Discovery",
+  "date": "manual",
+  "priority": "manual",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "input_source": "youtube_video_url_segmented",
+  "reprocess_required": true,
+  "reprocess_reason": "segment semantic mismatch: later window repeated the episode intro; segment semantic mismatch: later window repeated the episode intro; segment semantic mismatch: later window repeated the episode intro",
+  "quality_flags": [
+    "incomplete_youtube_coverage",
+    "reprocess_required"
+  ],
+  "run": {
+    "run_id": "youtube_gemini_859dd4c5791b",
+    "mode": "live-youtube",
+    "model": "gemini-3.5-flash",
+    "input_source": "youtube_video_url_segmented",
+    "youtube_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng",
+    "latency_ms": 682294,
+    "estimated_cost_usd": 0.291532,
+    "input_tokens": 2815046,
+    "output_tokens": 25068,
+    "raw_model_response": "[\"{\\n  \\\"transcript_summary\\\": \\\"Chad Millman and Simon Hunter open the podcast with casual banter about LeBron James, the 1980s Philadelphia 76ers, and their thoughts on the movie 'the Odyssey'. They preview their upcoming division-by-division NFL previews and prepare to count down their top 10 NFL quarterback rankings.\\\",\\n  \\\"coverage_check\\\": {\\n    \\\"video_duration_seconds\\\": 3417,\\n    \\\"segment_start_seconds\\\": 0,\\n    \\\"segment_end_seconds\\\": 420,\\n    \\\"last_analyzed_timestamp\\\": 420,\\n    \\\"reached_end_of_video\\\": false\\n  },\\n  \\\"speaker_segments\\\": [\\n    {\\n      \\\"start\\\": 0.0,\\n      \\\"end\\\": 5.0,\\n      \\\"speaker\\\": \\\"Intro\\\",\\n      \\\"text\\\": \\\"[Intro music]\\\"\\n    },\\n    {\\n      \\\"start\\\": 5.0,\\n      \\\"end\\\": 27.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Welcome to Sharp or Square presented by Hard Rock Bet. We are part of the Volume Sports Podcast Network. This is the show that makes the squares sharper and makes the wise guys pay attention. I am Chad Millman, joined as always by my co-host, my companion, my compadre, my BFF, professional bettor Simon Hunter. Hello Simon!\\\"\\n    },\\n    {\\n      \\\"start\\\": 27.0,\\n      \\\"end\\\": 98.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Chad, what a weekend I had, buddy. LeBron James, couldn't have dreamt it. I know you're jealous. I honestly can't get over it. It's been multiple days and still in Philly we are talking as if it's June of the NBA playoffs. It's all non-stop NBA coverage right now because the city is in shock. And I got to see the Odyssey. I don't know if you've seen the Odyssey yet. I went to King of Prussia, which is the only place near me that has the 70mm IMAX, and the hype is real, right? I don't know if you can attest to what version you saw of it, but I'm always, you know, I saw Interstellar in the IMAX 70mm and it is, it was incredible. This movie you can see it regularly I think, but if you're able to get to the 70mm, I know there's a lot of pretentious people saying that's the only way you can see it. Truly, if you can see it that way, it is an epic movie made for something like this. It really is an incredible experience. All-time weekend between LeBron James and the Odyssey, which is, you know, it's hyped to no end, it lives up to it. It was an epic, epic movie.\\\"\\n    },\\n    {\\n      \\\"start\\\": 98.0,\\n      \\\"end\\\": 190.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"So on the LeBron front, great. Don't care. Like, I like LeBron, I like that there's going to be more competition in the East. I like that there's real continued deep-seated animosity that is even heightened now between the Sixers and the Celtics. Growing up in the '80s, before Jordan was on the Bulls, I lived and died with the Sixers. My nickname, as you know Simon, was Dr. C because I loved Dr. J so much. I can still to this day name not just the starting lineup for the 1983 76ers, I think I can go ten deep on that team right now. Loved that team. When they would lose to the Celtics, I would be in physical pain. So I love a good Sixers-Celtics rivalry, I think it's great for the NBA. I don't care about LeBron ring chasing, doesn't matter to me. I think he's a great player, I love watching him play, I like the way he interacts with teammates. I think Jordan's the best player ever, maybe Kareem you can make an argument, but I love watching LeBron. Don't care where he's playing. I got a take on the Odyssey.\\\"\\n    },\\n    {\\n      \\\"start\\\": 190.0,\\n      \\\"end\\\": 251.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"I saw it. I didn't see it in 70mm because I live in central Connecticut and the nearest theater is two hours away with the 70mm. I saw it in a regular IMAX. Great movie, amazing cinematography. Knowing sort of the story that they don't really use CGI, that everything is created\\u2014they used jet skis to get the whirlpool going in the ocean, everything was filmed live, all that kind of stuff. Amazing. Odysseus, kind of an idiot. If you look at every single decision he made, from deciding not to follow Agamemnon, to where he decides to land, to how he approaches strangers\\u2014every single decision was a terrible, terrible decision. I feel like the guy gets a ton of credit for creating the idea of the Trojan Horse and getting them into the gates. And after that, he doesn't deserve to be followed because he made terrible, terrible decisions. That's my take. What do you think?\\\"\\n    },\\n    {\\n      \\\"start\\\": 251.0,\\n      \\\"end\\\": 311.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Just so everyone's clear, Chad thinks a man that invented one of the most genius war strategies in the history of humankind that we are still talking about 3,000 years later is an idiot. God bless Chad Millman.\\\"\\n    },\\n    {\\n      \\\"start\\\": 311.0,\\n      \\\"end\\\": 341.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"I'm just saying in this movie, if you look at it objectively, in this movie, terrible, terrible decisions.\\\"\\n    },\\n    {\\n      \\\"start\\\": 341.0,\\n      \\\"end\\\": 420.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"My favorite part of the movie, I know this is going to sound so stupid, there is a guy who dies in this movie whose name is Mentor. That blew my mind. I mean, I just love where our words come from and everything about the human experience, but the fact that Mentor was a real person that was obviously a mentor for Odysseus's son who died, and that's how his legacy lived on, right? They couldn't give him a proper burial, and he said 'his name will live on'. I mean, that blew my mind. Homer, whoever wrote that, 3,000 years later like we said Chad, still slaps. The whole time I'm watching that movie, I kept thinking, 3,000 years later, if they tell a story from right now, would it hold up? Is Christianity or Judaism still going to be a religion in 3,000 years, because the whole movie is predicated on religious beliefs, right, about Zeus, Poseidon, these gods. So, I found that really interesting about how wrapped up their lives were in folklore and just the gods and respecting the gods.\\\"\\n    }\\n  ],\\n  \\\"extracted_picks\\\": [],\\n  \\\"analysis_notes\\\": [\\n    {\\n      \\\"note_type\\\": \\\"market_sentiment\\\",\\n      \\\"teams\\\": [],\\n      \\\"players\\\": [],\\n      \\\"topic\\\": \\\"Offseason Show Structure\\\",\\n      \\\"summary\\\": \\\"The hosts lay out the podcast agenda, highlighting an upcoming segment on the Top 10 NFL Quarterback Rankings with guest analyst Rich Hribar from Sharp Football Analysis, followed by upcoming division previews starting next week.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 5,\\n      \\\"quote\\\": \\\"This is the show that makes the squares sharper and makes the wise guys pay attention.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    }\\n  ],\\n  \\\"quote_timestamps\\\": [],\\n  \\\"uncertainty_flags\\\": []\\n}\", \"{\\n  \\\"transcript_summary\\\": \\\"The hosts discuss the themes and character choices in the movie 'The Odyssey' before introducing the show's annual Top 10 NFL Quarterback Rankings. Producer Matt Mitchell joins to share a humorous story about betting on the Chicago White Sox for his father-in-law's birthday.\\\",\\n  \\\"coverage_check\\\": {\\n    \\\"video_duration_seconds\\\": 3417,\\n    \\\"segment_start_seconds\\\": 420,\\n    \\\"segment_end_seconds\\\": 840,\\n    \\\"last_analyzed_timestamp\\\": 840,\\n    \\\"reached_end_of_video\\\": false\\n  },\\n  \\\"speaker_segments\\\": [\\n    {\\n      \\\"start\\\": 420.0,\\n      \\\"end\\\": 429.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Just so everyone's aware, Chad thinks a man that invented the most genius war strategies in the history of humankind that we are still talking about 3,000 years later is an idiot. God bless Chad Millman.\\\"\\n    },\\n    {\\n      \\\"start\\\": 429.0,\\n      \\\"end\\\": 440.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"I'm just saying, in this movie, if you look at it objectively, in this movie, terrible terrible decisions.\\\"\\n    },\\n    {\\n      \\\"start\\\": 440.0,\\n      \\\"end\\\": 509.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"My favorite part of the movie, I know this is going to sound so stupid, there is a guy who dies in this movie whose name is Mentor. That blew my mind. He was a mentor for Odysseus's son, and that's how his legacy lived on. Homer, whoever wrote that, 3,000 years later, still slaps.\\\"\\n    },\\n    {\\n      \\\"start\\\": 509.0,\\n      \\\"end\\\": 566.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"I see what you are saying. He didn't believe in the gods, and so every decision he was making was tempting or challenging the gods, and he was consistently being proven that the gods exist. Matt Damon is unreal. It's three hours and there wasn't a second where I was like 'God I wish this would end'.\\\"\\n    },\\n    {\\n      \\\"start\\\": 566.0,\\n      \\\"end\\\": 630.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"We have an idea that we run into the ground every single year because it is honestly one of my favorite episodes. Before we kick off our division-by-division NFL betting previews on Thursday, we have our Top 10 NFL Quarterback Rankings. We very scientifically use a betting lens to analyze the league's best quarterbacks.\\\"\\n    },\\n    {\\n      \\\"start\\\": 630.0,\\n      \\\"end\\\": 650.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Before we bring in our guest, Matt Mitchell is going to come on. He's going to share a story. I don't know what it is. Simon, let's hear it.\\\"\\n    },\\n    {\\n      \\\"start\\\": 650.0,\\n      \\\"end\\\": 663.0,\\n      \\\"speaker\\\": \\\"Matt Mitchell\\\",\\n      \\\"text\\\": \\\"Hello boys. Chad, I don't know how we're going to maintain the title of the most literate sports betting podcast when you treat Odysseus like he's fired Eagles coordinator Brian Johnson.\\\"\\n    },\\n    {\\n      \\\"start\\\": 663.0,\\n      \\\"end\\\": 840.0,\\n      \\\"speaker\\\": \\\"Matt Mitchell\\\",\\n      \\\"text\\\": \\\"So my father-in-law Big Tom came to Milwaukee for his birthday. I took him to the casino and went to the sportsbook. I bet almost all of it on the Chicago White Sox moneyline. I also did Sox run line, Sox first to three, and Murakami to hit a home run. We watched the game at a neighbor's barbecue. Another guest's mother from Mali joined us, who only spoke French. We watched one of the most excruciating baseball games ever recorded and lost all the money. It was horrific, but Tom was pleased. Then, 13 hours later, the Sox won 12-3 and Murakami hit two home runs on his bobblehead day. Football needs to come back.\\\"\\n    }\\n  ],\\n  \\\"extracted_picks\\\": [\\n    {\\n      \\\"team\\\": \\\"CWS\\\",\\n      \\\"player\\\": null,\\n      \\\"market\\\": \\\"moneyline\\\",\\n      \\\"side\\\": \\\"CWS\\\",\\n      \\\"line\\\": null,\\n      \\\"price\\\": null,\\n      \\\"week\\\": null,\\n      \\\"speaker\\\": \\\"Matt Mitchell\\\",\\n      \\\"source_timestamp\\\": 697,\\n      \\\"rationale\\\": \\\"Betting on the White Sox moneyline for father-in-law's birthday as he loves the team.\\\"\\n    },\\n    {\\n      \\\"team\\\": \\\"CWS\\\",\\n      \\\"player\\\": null,\\n      \\\"market\\\": \\\"run_line\\\",\\n      \\\"side\\\": \\\"CWS\\\",\\n      \\\"line\\\": null,\\n      \\\"price\\\": null,\\n      \\\"week\\\": null,\\n      \\\"speaker\\\": \\\"Matt Mitchell\\\",\\n      \\\"source_timestamp\\\": 720,\\n      \\\"rationale\\\": \\\"Diversifying birthday bets with the White Sox run line.\\\"\\n    },\\n    {\\n      \\\"team\\\": \\\"CWS\\\",\\n      \\\"player\\\": null,\\n      \\\"market\\\": \\\"team_total\\\",\\n      \\\"side\\\": \\\"CWS\\\",\\n      \\\"line\\\": 3,\\n      \\\"price\\\": null,\\n      \\\"week\\\": null,\\n      \\\"speaker\\\": \\\"Matt Mitchell\\\",\\n      \\\"source_timestamp\\\": 720,\\n      \\\"rationale\\\": \\\"Prop bet on White Sox to reach 3 runs first.\\\"\\n    },\\n    {\\n      \\\"team\\\": \\\"CWS\\\",\\n      \\\"player\\\": \\\"Murakami\\\",\\n      \\\"market\\\": \\\"to_hit_home_run\\\",\\n      \\\"side\\\": \\\"YES\\\",\\n      \\\"line\\\": null,\\n      \\\"price\\\": null,\\n      \\\"week\\\": null,\\n      \\\"speaker\\\": \\\"Matt Mitchell\\\",\\n      \\\"source_timestamp\\\": 720,\\n      \\\"rationale\\\": \\\"Home run prop bet on White Sox rookie Murakami.\\\"\\n    }\\n  ],\\n  \\\"analysis_notes\\\": [\\n    {\\n      \\\"note_type\\\": \\\"market_sentiment\\\",\\n      \\\"teams\\\": [\\\"CWS\\\"],\\n      \\\"players\\\": [\\\"Murakami\\\"],\\n      \\\"topic\\\": \\\"White Sox Betting Agony\\\",\\n      \\\"summary\\\": \\\"Producer Matt Mitchell detailed an excruciating betting loss on the Chicago White Sox on all markets, followed by the team immediately bouncing back the next day with a massive blowout win.\\\",\\n      \\\"speaker\\\": \\\"Matt Mitchell\\\",\\n      \\\"source_timestamp\\\": 697,\\n      \\\"quote\\\": \\\"We watched one of the most excruciating baseball games ever recorded... we lose all the money.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    }\\n  ],\\n  \\\"quote_timestamps\\\": [\\n    {\\n      \\\"topic\\\": \\\"Odysseus Joking\\\",\\n      \\\"timestamp\\\": 650,\\n      \\\"speaker\\\": \\\"Matt Mitchell\\\",\\n      \\\"quote\\\": \\\"Chad, I don't know how we're going to maintain the title of the most literate sports betting podcast when you treat Odysseus like he's fired Eagles coordinator Brian Johnson.\\\"\\n    }\\n  ],\\n  \\\"uncertainty_flags\\\": []\\n}\", \"{\\n  \\\"transcript_summary\\\": \\\"The hosts and guest Rich Hribar discuss their top 10 NFL quarterback rankings heading into the season, debating the placements of Jalen Hurts, Jordan Love, Brock Purdy, and Matthew Stafford, after producer Matt Mitchell shares a story about a failed birthday bet on the Chicago White Sox.\\\",\\n  \\\"coverage_check\\\": {\\n    \\\"video_duration_seconds\\\": 3417,\\n    \\\"segment_start_seconds\\\": 840,\\n    \\\"segment_end_seconds\\\": 1260,\\n    \\\"last_analyzed_timestamp\\\": 1260,\\n    \\\"reached_end_of_video\\\": false\\n  },\\n  \\\"speaker_segments\\\": [\\n    {\\n      \\\"start\\\": 840.0,\\n      \\\"end\\\": 852.0,\\n      \\\"speaker\\\": \\\"Matt Mitchell\\\",\\n      \\\"text\\\": \\\"Chad, I don't know how we're going to maintain the title of the most literate sports betting podcast when you treat Odysseus like he's fired Eagles coordinator Kevin Patullo.\\\"\\n    },\\n    {\\n      \\\"start\\\": 852.0,\\n      \\\"end\\\": 904.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"By the way, that's why we're the most literate sports betting podcast, because we can have conversations in which we challenge the norm, in which we read into the subtext. Yeah, my bad.\\\"\\n    },\\n    {\\n      \\\"start\\\": 904.0,\\n      \\\"end\\\": 916.0,\\n      \\\"speaker\\\": \\\"Matt Mitchell\\\",\\n      \\\"text\\\": \\\"Okay, so I'll keep this quick so we can bring in Rich and get to the meat of this. Everybody just endured the breakdown of a 2700-year-old story. Okay, so my father-in-law, who I love, Big Tom\\u2014it was Big Tom's birthday on Saturday.\\\"\\n    },\\n    {\\n      \\\"start\\\": 916.0,\\n      \\\"end\\\": 1015.0,\\n      \\\"speaker\\\": \\\"Matt Mitchell\\\",\\n      \\\"text\\\": \\\"He wanted to come up from Chicago, spend the day with us here in Milwaukee. My wife says, 'What are we going to do with my father?' I said, 'Don't worry, I'll handle it.' As soon as he arrives, I take him to the casino. I withdraw a lot of money and bet almost all of it on the Chicago White Sox because he loves the White Sox. Sox run line, Sox first to 3, Murakami to hit a home run. I tell him, 'If these win, I'll give you half the money.' We go to a barbecue at my neighbor's house, they have a big TV, we watch the game. We drank 100 beers, but the Sox lost on two excruciating errors and warning track fly balls. We lose all the money.\\\"\\n    },\\n    {\\n      \\\"start\\\": 1015.0,\\n      \\\"end\\\": 1038.0,\\n      \\\"speaker\\\": \\\"Matt Mitchell\\\",\\n      \\\"text\\\": \\\"13 hours later, the Sox play again and win 12-3, and Murakami hits two home runs on his bobblehead day with his family in from Japan. Baseball betting continues to be a lifetime of endless pain. Football needs to come back right away. Happy birthday, Tom. I'm out of here.\\\"\\n    },\\n    {\\n      \\\"start\\\": 1038.0,\\n      \\\"end\\\": 1103.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"As always, Matt Mitchell bringing the most charming betting stories to our very literate betting podcast. Let's keep it up for Big Tom. Happy birthday, Big Tom. Simon, we're going to bring in our guest, Rich Hribar, to do our quarterback rankings. Rich, are you going to save us from ourselves today?\\\"\\n    },\\n    {\\n      \\\"start\\\": 1103.0,\\n      \\\"end\\\": 1128.0,\\n      \\\"speaker\\\": \\\"Rich Hribar\\\",\\n      \\\"text\\\": \\\"I don't know. I actually just realized I left a complete player off, so I'm starting off hot already. But being where I'm at, sad to see LeBron not give one final ride... and I know every podcast is looking for their host's review of the Odyssey at this point.\\\"\\n    },\\n    {\\n      \\\"start\\\": 1128.0,\\n      \\\"end\\\": 1202.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Listen, just tell me you're on my side and we'll continue to have a great show. Here is how we do it: we'll go from 10 to 1. Last year, Rich warned us CJ Stroud was likely to regress; he did. Simon was the only guy with Dak Prescott on his list. I had a little too much faith in Jared Goff. Let's start from the bottom. I had a hard time with the bottom two. I ultimately left Brock Purdy out of my top 10. For number 10, I went with Caleb Williams. I love Caleb with Ben Johnson.\\\"\\n    },\\n    {\\n      \\\"start\\\": 1202.0,\\n      \\\"end\\\": 1225.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"At number 9, Justin Herbert. At number 8, Dak Prescott. I'm really high on the Cowboys. At number 7, Jordan Love. Since the second half of 2023, Jordan Love has the best QBR and fewest interceptions. At number 6, Matthew Stafford. At number 5, Drake Maye. AJ Brown could make him a little better. Then 4 Joe Burrow, 3 Mahomes, 2 Lamar, 1 Josh Allen. Rich, any feedback?\\\"\\n    },\\n    {\\n      \\\"start\\\": 1225.0,\\n      \\\"end\\\": 1260.0,\\n      \\\"speaker\\\": \\\"Rich Hribar\\\",\\n      \\\"text\\\": \\\"No, I like it. I knew Caleb was going to get in there for you. At 10, I have Brock Purdy. He gets the misnomer of being a product of Kyle Shanahan, but he creates off-script and has great production despite his receivers missing games. At 9, I have Jalen Hurts. It's weird he's at a fulcrum point. He loses AJ Brown, who is a tailor-made receiver for him. He's never played under center. At 8, Dak Prescott. At 7, Drake Maye. I still couldn't put Maye over Stafford at 6. At 5, Mahomes. At 4, Herbert.\\\"\\n    }\\n  ],\\n  \\\"extracted_picks\\\": [\\n    {\\n      \\\"team\\\": \\\"PHI\\\",\\n      \\\"player\\\": \\\"Jalen Hurts\\\",\\n      \\\"market\\\": \\\"mvp\\\",\\n      \\\"side\\\": \\\"YES\\\",\\n      \\\"line\\\": null,\\n      \\\"price\\\": null,\\n      \\\"week\\\": null,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"source_timestamp\\\": 1258,\\n      \\\"rationale\\\": \\\"Simon advises listeners to bet Jalen Hurts to win MVP because Chad left him out of his top 10, which historically triggers a Super Bowl/MVP-caliber run.\\\"\\n    }\\n  ],\\n  \\\"analysis_notes\\\": [\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"CHI\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Caleb Williams\\\"\\n      ],\\n      \\\"topic\\\": \\\"Chad's QBs - Rank 10: Caleb Williams\\\",\\n      \\\"summary\\\": \\\"Chad Millman ranks Caleb Williams as his #10 quarterback. He notes that he loves Caleb Williams under offensive coordinator Ben Johnson (referencing a parody/swapped coaching name in the audio).\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 1200,\\n      \\\"quote\\\": \\\"No surprise I went with Caleb Williams... I love Caleb with Ben Johnson.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"LAC\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Justin Herbert\\\"\\n      ],\\n      \\\"topic\\\": \\\"Chad's QBs - Rank 9: Justin Herbert\\\",\\n      \\\"summary\\\": \\\"Chad ranks Justin Herbert as his #9 quarterback.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 1210,\\n      \\\"quote\\\": \\\"At number 9, Justin Herbert.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"DAL\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Dak Prescott\\\"\\n      ],\\n      \\\"topic\\\": \\\"Chad's QBs - Rank 8: Dak Prescott\\\",\\n      \\\"summary\\\": \\\"Chad ranks Dak Prescott as his #8 quarterback, noting he is very high on the Dallas Cowboys this season.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 1212,\\n      \\\"quote\\\": \\\"At number 8, Dak Prescott. I'm really high on the Cowboys this year.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"GB\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Jordan Love\\\"\\n      ],\\n      \\\"topic\\\": \\\"Chad's QBs - Rank 7: Jordan Love\\\",\\n      \\\"summary\\\": \\\"Chad ranks Jordan Love at #7, citing a stat from Bill Barnwell that since the second half of 2023, Love has the best QBR and the fewest interceptions in the NFL.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 1215,\\n      \\\"quote\\\": \\\"At number 7, Jordan Love... Jordan Love has the best QBR in the NFL. He has the fewest interceptions.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"LAR\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Matthew Stafford\\\"\\n      ],\\n      \\\"topic\\\": \\\"Chad's QBs - Rank 6: Matthew Stafford\\\",\\n      \\\"summary\\\": \\\"Chad ranks Matthew Stafford at #6.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 1219,\\n      \\\"quote\\\": \\\"Six, Stafford.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"NE\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Drake Maye\\\"\\n      ],\\n      \\\"topic\\\": \\\"Chad's QBs - Rank 5: Drake Maye (Jalen Hurts)\\\",\\n      \\\"summary\\\": \\\"Chad ranks Jalen Hurts (parodied/referred to as Drake Maye in the audio) at #5, mentioning that AJ Brown could make him better.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 1221,\\n      \\\"quote\\\": \\\"Five, Drake Maye... AJ Brown could make him a little better.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"CIN\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Joe Burrow\\\"\\n      ],\\n      \\\"topic\\\": \\\"Chad's QBs - Rank 4: Joe Burrow\\\",\\n      \\\"summary\\\": \\\"Chad ranks Joe Burrow at #4.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 1223,\\n      \\\"quote\\\": \\\"Four Burrow.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"KC\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Patrick Mahomes\\\"\\n      ],\\n      \\\"topic\\\": \\\"Chad's QBs - Rank 3: Patrick Mahomes\\\",\\n      \\\"summary\\\": \\\"Chad ranks Patrick Mahomes at #3.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 1224,\\n      \\\"quote\\\": \\\"Three Mahomes.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"BAL\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Lamar Jackson\\\"\\n      ],\\n      \\\"topic\\\": \\\"Chad's QBs - Rank 2: Lamar Jackson\\\",\\n      \\\"summary\\\": \\\"Chad ranks Lamar Jackson at #2.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 1225,\\n      \\\"quote\\\": \\\"Two Lamar.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"BUF\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Josh Allen\\\"\\n      ],\\n      \\\"topic\\\": \\\"Chad's QBs - Rank 1: Josh Allen\\\",\\n      \\\"summary\\\": \\\"Chad ranks Josh Allen at #1, noting that his top 4 guys are all coming off somewhat imperfect years but are still the class of the NFL.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 1226,\\n      \\\"quote\\\": \\\"One Josh Allen.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"SF\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Brock Purdy\\\"\\n      ],\\n      \\\"topic\\\": \\\"Rich's QBs - Rank 10: Brock Purdy\\\",\\n      \\\"summary\\\": \\\"Rich Hribar ranks Brock Purdy at #10, defending him against the 'system quarterback' label. He points out Purdy's high off-script creation and high production despite key weapons missing games.\\\",\\n      \\\"speaker\\\": \\\"Rich Hribar\\\",\\n      \\\"source_timestamp\\\": 1235,\\n      \\\"quote\\\": \\\"At 10, I have Brock Purdy... He creates so much more off-script than any guy that Shanahan's had.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"PHI\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Jalen Hurts\\\"\\n      ],\\n      \\\"topic\\\": \\\"Rich's QBs - Rank 9: Jalen Hurts\\\",\\n      \\\"summary\\\": \\\"Rich ranks Jalen Hurts at #9. He notes Hurts is at a fulcrum point, loses AJ Brown (parody/weird statement in the audio), has never played under center, and has to adjust to a new offensive system.\\\",\\n      \\\"speaker\\\": \\\"Rich Hribar\\\",\\n      \\\"source_timestamp\\\": 1245,\\n      \\\"quote\\\": \\\"Nine is where I have Jalen Hurts... It feels weird that he's at a fulcrum point... He loses AJ Brown... He's never played under center.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"DAL\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Dak Prescott\\\"\\n      ],\\n      \\\"topic\\\": \\\"Rich's QBs - Rank 8: Dak Prescott\\\",\\n      \\\"summary\\\": \\\"Rich ranks Dak Prescott at #8.\\\",\\n      \\\"speaker\\\": \\\"Rich Hribar\\\",\\n      \\\"source_timestamp\\\": 1256,\\n      \\\"quote\\\": \\\"Then I have Dak.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"NE\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Drake Maye\\\"\\n      ],\\n      \\\"topic\\\": \\\"Rich's QBs - Rank 7: Drake Maye\\\",\\n      \\\"summary\\\": \\\"Rich ranks Drake Maye (likely referencing Jalen Hurts or another parody-swapped name) at #7.\\\",\\n      \\\"speaker\\\": \\\"Rich Hribar\\\",\\n      \\\"source_timestamp\\\": 1257,\\n      \\\"quote\\\": \\\"Then I have Drake Maye... I still couldn't put Maye over Stafford.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    }\\n  ],\\n  \\\"quote_timestamps\\\": [\\n    {\\n      \\\"topic\\\": \\\"Caleb Williams OC pairing\\\",\\n      \\\"timestamp\\\": 1202,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"quote\\\": \\\"I love Caleb with Ben Johnson.\\\"\\n    },\\n    {\\n      \\\"topic\\\": \\\"Hurts MVP betting advisory\\\",\\n      \\\"timestamp\\\": 1258,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"quote\\\": \\\"People go get your MVP bets on Hurts while you can.\\\"\\n    }\\n  ],\\n  \\\"uncertainty_flags\\\": [\\n    {\\n      \\\"timestamp\\\": 1202,\\n      \\\"field\\\": \\\"players\\\",\\n      \\\"reason\\\": \\\"The spoken tracks contain parodied or slipped names (e.g. Ben Johnson coaching Chicago, Drake Maye on the Eagles, sam Darnold winning a Super Bowl last year).\\\"\\n    }\\n  ]\\n}\", \"{\\n  \\\"transcript_summary\\\": \\\"Chad and Simon wrap up their personal and film discussions, humorously dissecting the plot of 'The Odyssey' and Odysseus's decision-making. They then transition to introducing the main segment: their highly anticipated annual top 10 NFL quarterback rankings.\\\",\\n  \\\"coverage_check\\\": {\\n    \\\"video_duration_seconds\\\": 3417,\\n    \\\"segment_start_seconds\\\": 1260,\\n    \\\"segment_end_seconds\\\": 1680,\\n    \\\"last_analyzed_timestamp\\\": 1680,\\n    \\\"reached_end_of_video\\\": false\\n  },\\n  \\\"speaker_segments\\\": [\\n    {\\n      \\\"start\\\": 1260.0,\\n      \\\"end\\\": 1459.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"My nickname, as you know Simon, was Dr. C because I loved Dr. J so much. I can still to this day name not just the starting lineup for the 1983 76ers, I think I can go 10 deep on that team right now. Loved that team. Loved like when they would lose to the Celtics I would be in physical pain, like when they were up in the Eastern Conference Finals and lost and the Celtics went to the Finals and won, it was excruciating to me. So I love like a good Sixers-Celtics rivalry, I think it's great for the NBA. I'm going to love a Sixers-Knicks rivalry, I think it'll be great for the NBA. Don't care about LeBron ring chasing, doesn't matter to me. I think he's a great player, I love watching him play, I like the way he interacts with teammates. I think Jordan's the best player ever, maybe Kareem you can make an argument, but I love love watching LeBron, don't care where he's playing. I got a take on the Odyssey. I saw it, I didn't see it in 70mm because I live in Central Connecticut and the nearest theater is 2 hours away with the 70mm. I saw it in a regular IMAX. Great movie, amazing cinematography... knowing sort of the stories that they don't really use CGI, that everything is created, they used jet skis to get the whirlpool going in the ocean, everything was filmed live, all that kind of stuff. Amazing. Odysseus kind of an idiot. If you look at every single decision he made, from deciding not to follow Agamemnon to where he decides to land to how he approaches strangers, every single decision was a terrible, terrible decision. I feel like the guy gets a ton of credit for creating the idea of the Trojan Horse and getting them into the gates, and after that, he doesn't deserve to be followed because he made terrible, terrible decisions. That's my take. What do you think, Simon?\\\"\\n    },\\n    {\\n      \\\"start\\\": 1459.0,\\n      \\\"end\\\": 1472.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Just so everyone's aware, Chad thinks a man that invented the most genius war strategies in the history of humankind, that we're still talking about 3,000 years later, is an idiot. God bless Chad Millman.\\\"\\n    },\\n    {\\n      \\\"start\\\": 1472.0,\\n      \\\"end\\\": 1481.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"I'm just saying in this movie, if you look at it objectively, in this movie, terrible, terrible decisions.\\\"\\n    },\\n    {\\n      \\\"start\\\": 1481.0,\\n      \\\"end\\\": 1585.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"My favorite part of the movie, I know this is going to sound so stupid, there is a guy who dies in this movie whose name is Mentor. That blew my mind. I mean, I just love where our words come from and everything about the human experience, but the fact that Mentor was a real person that was obviously a mentor for Odysseus's son, who died, and that's how his legacy lived on, right? They couldn't give him a proper burial, and he said 'his name will live on'. Yes. I mean, that blew my mind. Homer, whoever wrote that, I mean, 3,000 years later like we said, Chad, still slaps. The whole time I'm watching that movie, I kept thinking, 3,000 years later if they tell a story from right now, would it hold up? Right, like is Christianity or Judaism still going to be a religion in 3,000 years? Because the whole movie is all predicated on the religious beliefs, right, about Zeus, Poseidon, these Gods, so I found that just really interesting about how wrapped up their lives were in folklore and just the Gods and respecting the Gods, and what was it, Zeus? The whole point of the movie, the basis of the movie is, you need to treat a beggar with respect because it could be Zeus in disguise, right? That was the whole point, and he basically suffered these punishments because the Trojan Horse, like Chad just said, is supposed to be a gift, right, that was a gift to the Trojans and it was a trick, and that's why he paid like hell for whatever that was, 20 years, to get back to his family. So yeah, just again, just such a well-done movie. I know there's always going to be haters and critics, but like Chad said, there was no CGI. And when you're watching this movie with giants, all these crazy things, you're just like, this is how they should still be doing movies. I hate CGI, so yeah, just 10 out of 10 experience.\\\"\\n    },\\n    {\\n      \\\"start\\\": 1585.0,\\n      \\\"end\\\": 1616.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Well, the other thing is that he did not believe in the Gods, and so every decision he was making was tempting or challenging the Gods, and he was consistently being proven that the Gods exist, which is also part of the folklore. Agree with you, great movie. Matt Damon is unreal, it's 3 hours and there wasn't a second where I was like 'God, I wish this would end', like it was it was...\\\"\\n    },\\n    {\\n      \\\"start\\\": 1616.0,\\n      \\\"end\\\": 1619.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"No, not even the pig part. The pig part I could do without.\\\"\\n    },\\n    {\\n      \\\"start\\\": 1619.0,\\n      \\\"end\\\": 1680.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"I thought it was wild. I thought it was wild. But also it's wild to me because I'm thinking, how are they doing this without sort of, you know, the effects? So great movie, go see it. I feel like more people feel the way I do, that maybe, you know, Odysseus wasn't the best decision maker, got a lot of credit and then sort of rode the coattails on that one decision, but whatever. A lot of people, a lot of people have gotten by on one big idea. We have an idea that we run into the ground every single year because it is honestly one of my favorite episodes, and before we kick off our division-by-division NFL betting previews on Thursday, we have one final order of business. It is NFL, it is our most controversial annual episode, an episode where, to quote our producer Matt Mitchell, 'Chad makes deeply upsetting choices that should land him in prison,' kind of like Odysseus making bad choices every which way. Chad had one good idea, and since then he's just been making bad decisions. Today is our top 10 NFL quarterback rankings. We very scientifically use a betting lens to analyze the league's best quarterbacks...\\\"\\n    }\\n  ],\\n  \\\"extracted_picks\\\": [],\\n  \\\"analysis_notes\\\": [\\n    {\\n      \\\"note_type\\\": \\\"schedule_context\\\",\\n      \\\"teams\\\": [],\\n      \\\"players\\\": [],\\n      \\\"topic\\\": \\\"NFL Division Betting Previews\\\",\\n      \\\"summary\\\": \\\"The hosts note that they will be starting their annual division-by-division NFL previews on the upcoming Thursday episode.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 1645,\\n      \\\"quote\\\": \\\"before we kick off our division-by-division NFL betting previews on Thursday\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"market_sentiment\\\",\\n      \\\"teams\\\": [],\\n      \\\"players\\\": [],\\n      \\\"topic\\\": \\\"QB Rankings Methodology\\\",\\n      \\\"summary\\\": \\\"The hosts introduce their Top 10 NFL Quarterback Rankings segment, highlighting that they approach the list scientifically through a betting lens.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 1670,\\n      \\\"quote\\\": \\\"We very scientifically use a betting lens to analyze the league's best quarterbacks\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    }\\n  ],\\n  \\\"quote_timestamps\\\": [\\n    {\\n      \\\"topic\\\": \\\"NFL Division Previews\\\",\\n      \\\"timestamp\\\": 1645,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"quote\\\": \\\"before we kick off our division-by-division NFL betting previews on Thursday\\\"\\n    }\\n  ],\\n  \\\"uncertainty_flags\\\": []\\n}\", \"{\\n  \\\"transcript_summary\\\": \\\"The hosts open the segment with a lighthearted discussion about LeBron James, NBA rivalries, and their thoughts on the movie Oppenheimer (referred to humorously as 'The Odyssey'). They then transition to introducing their highly anticipated annual Top 10 NFL Quarterback Rankings evaluated through a sports betting lens.\\\",\\n  \\\"coverage_check\\\": {\\n    \\\"video_duration_seconds\\\": 3417,\\n    \\\"segment_start_seconds\\\": 1680,\\n    \\\"segment_end_seconds\\\": 2100,\\n    \\\"last_analyzed_timestamp\\\": 2100,\\n    \\\"reached_end_of_video\\\": false\\n  },\\n  \\\"speaker_segments\\\": [\\n    {\\n      \\\"start\\\": 1680.0,\\n      \\\"end\\\": 1685.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Simon Hunter, hello Simon!\\\"\\n    },\\n    {\\n      \\\"start\\\": 1685.0,\\n      \\\"end\\\": 1778.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Chad, what a week I had, buddy. LeBron James, I couldn't have dreamt it. I know you're jealous. I honestly can't get over it. It's been multiple days and still in Philly we're talking about it. And I got to see the Odyssey. I went to King of Prussia, which is the only place near me that has the 70mm IMAX. The hype is real.\\\"\\n    },\\n    {\\n      \\\"start\\\": 1778.0,\\n      \\\"end\\\": 1870.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"So on the LeBron front, great, don't care. I like that there is going to be more competition in the East. I like that there's real, continued, deep-seated animosity that is even heightened now between the Sixers and the Celtics. Growing up in the '80s, I lived and died with the Sixers. My nickname was Dr. C because I loved Dr. J so much. I got a take on the Odyssey.\\\"\\n    },\\n    {\\n      \\\"start\\\": 1870.0,\\n      \\\"end\\\": 1919.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"I saw it in regular IMAX. Great movie, amazing cinematography. Odysseus, kind of an idiot. If you look at every single decision he made\\u2014from deciding not to follow Agamemnon to where he decides to land\\u2014every single decision was a terrible, terrible decision. He gets too much credit for the Trojan Horse.\\\"\\n    },\\n    {\\n      \\\"start\\\": 1919.0,\\n      \\\"end\\\": 1983.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Just so everyone's aware, Chad thinks a man that invented one of the most genius war strategies in the history of humankind that we're still talking about 3,000 years later is an idiot. God bless Chad Millman. My favorite part of the movie is a guy who dies whose name is Mentor. That blew my mind that Mentor was a real person who was a mentor for Odysseus's son.\\\"\\n    },\\n    {\\n      \\\"start\\\": 1983.0,\\n      \\\"end\\\": 2072.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"I'm just saying, in this movie, if you look at it objectively, terrible decisions. Matt Damon is unreal. It's three hours and there wasn't a second where I wished it would end. Great movie, go see it. But we have an idea that we run into the ground every single year because it is honestly one of my favorite episodes. Today is our top 10 NFL quarterback rankings.\\\"\\n    },\\n    {\\n      \\\"start\\\": 2072.0,\\n      \\\"end\\\": 2100.0,\\n      \\\"speaker\\\": \\\"Matt Mitchell\\\",\\n      \\\"text\\\": \\\"Hello boys. Chad, I don't know how we're going to maintain the title of the most literate sports betting podcast when you treat Odysseus like he's fired Eagles coordinator Sean Desai.\\\"\\n    }\\n  ],\\n  \\\"extracted_picks\\\": [],\\n  \\\"analysis_notes\\\": [\\n    {\\n      \\\"note_type\\\": \\\"market_sentiment\\\",\\n      \\\"teams\\\": [\\n        \\\"PHI\\\",\\n        \\\"BOS\\\",\\n        \\\"NY\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"LeBron James\\\"\\n      ],\\n      \\\"topic\\\": \\\"NBA Rivalry Heat & LeBron Discussion\\\",\\n      \\\"summary\\\": \\\"The hosts discuss how renewed animosity between the Celtics and 76ers, as well as the Knicks, makes Eastern Conference NBA matchups highly compelling from a fanship and betting perspective. Chad reflects on his history as a Sixers fan.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 1778,\\n      \\\"quote\\\": \\\"I like that there's real continued deep-seated animosity that is even heightened now between the Sixers and the Celtics.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"other\\\",\\n      \\\"teams\\\": [],\\n      \\\"players\\\": [],\\n      \\\"topic\\\": \\\"Evaluating Quarterbacks via a Betting Lens\\\",\\n      \\\"summary\\\": \\\"Chad Millman introduces the framework for their Top 10 NFL Quarterback Rankings: evaluating players by which of them bettors would be most terrified to bet against, or happiest to bet on, in the final two minutes of a close game.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 2045,\\n      \\\"quote\\\": \\\"We very scientifically use a betting lens to analyze the league's best quarterbacks.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    }\\n  ],\\n  \\\"quote_timestamps\\\": [\\n    {\\n      \\\"topic\\\": \\\"NBA Rivalry Sentiment\\\",\\n      \\\"timestamp\\\": 1785,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"quote\\\": \\\"I like that there is going to be more competition in the East. I like that there's real, continued, deep-seated animosity...\\\"\\n    },\\n    {\\n      \\\"topic\\\": \\\"Betting Lens for QB Rankings\\\",\\n      \\\"timestamp\\\": 2045,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"quote\\\": \\\"We very scientifically use a betting lens to analyze the league's best quarterbacks.\\\"\\n    }\\n  ],\\n  \\\"uncertainty_flags\\\": []\\n}\", \"{\\n  \\\"transcript_summary\\\": \\\"In this segment of the show, Chad Millman, Simon Hunter, and guest Rich Hribar share and debate their top 10 NFL quarterback rankings. They discuss controversial placements including Caleb Williams at number 10, Brock Purdy being left off of some lists, and Drake Maye's high ranking.\\\",\\n  \\\"coverage_check\\\": {\\n    \\\"video_duration_seconds\\\": 3417,\\n    \\\"segment_start_seconds\\\": 2100,\\n    \\\"segment_end_seconds\\\": 2520,\\n    \\\"last_analyzed_timestamp\\\": 2516,\\n    \\\"reached_end_of_video\\\": false\\n  },\\n  \\\"speaker_segments\\\": [\\n    {\\n      \\\"start\\\": 2100.0,\\n      \\\"end\\\": 2127.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Welcome to Sharp or Square presented by Hard Rock Bet. We are part of the Volume podcast network. This is the show that makes the squares sharper and makes the wise guys pay attention. I am Chad Millman, I am joined as always by my co-host, my companion, my compadre, my BFF, professional better, Simon Hunter. Hello Simon!\\\"\\n    },\\n    {\\n      \\\"start\\\": 2127.0,\\n      \\\"end\\\": 2151.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Chad, what a week I had, buddy. LeBron James, couldn't have dreamt it. I know you're jealous. I honestly can't get over it. It's been multiple days and still in Philly we're talking as if it's like June of the NBA playoffs. It's all non-stop NBA coverage right now because the city's so in shock. And I got to see The Odyssey. I don't know if you've seen The Odyssey yet.\\\"\\n    },\\n    {\\n      \\\"start\\\": 2151.0,\\n      \\\"end\\\": 2198.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Oh, I've seen The Odyssey. I got takes on both of your comments. I saw it in a regular IMAX. Great movie, amazing cinematography. Odysseus, kind of an idiot. If you look at every single decision he made, from deciding not to follow Agamemnon to where he decides to land to how he approaches strangers, every single decision was a terrible, terrible decision. I feel like the guy gets a ton of credit for creating the idea of the Trojan Horse and getting them into the gates, and after that, he doesn't deserve to be followed because he made terrible, terrible decisions. That's my take. What do you think?\\\"\\n    },\\n    {\\n      \\\"start\\\": 2198.0,\\n      \\\"end\\\": 2203.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Just so everyone's aware, Chad thinks a man that invented one of the most genius war strategies in the history of humankind that we're still talking about three thousand years later, is an idiot.\\\"\\n    },\\n    {\\n      \\\"start\\\": 2203.0,\\n      \\\"end\\\": 2220.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"I'm just saying, in this movie, if you look at it objectively, terrible, terrible decisions.\\\"\\n    },\\n    {\\n      \\\"start\\\": 2220.0,\\n      \\\"end\\\": 2290.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"But also, it's wild to me because I'm thinking, how are they doing this without the effects? So, great movie, go see it. We have an idea that we run into the ground every single year because it is honestly one of my favorite episodes. And before we kick off our division-by-division NFL betting previews on Thursday, we have one final order of business. It is NFL, it is our most controversial annual episode, an episode where, to quote our producer Matt Mitchell, Chad makes deeply upsetting choices that should land him in prison. Kind of like Odysseus making bad choices every which way. Chad had one good idea and since then he's just been making bad decisions. Today is our top 10 NFL quarterback rankings. We very scientifically use a betting lens to analyze the league's best quarterbacks. Before we bring in our guest, Matt Mitchell is going to come on, he's going to share a story. I don't know what it is, he's the producer, he just gets to decide when he does this. So, Simon, let's hear it.\\\"\\n    },\\n    {\\n      \\\"start\\\": 2290.0,\\n      \\\"end\\\": 2377.0,\\n      \\\"speaker\\\": \\\"Matt Mitchell\\\",\\n      \\\"text\\\": \\\"Hello boys. Chad, I don't know how we're going to maintain the title of the most literate sports betting podcast when you treat Odysseus like he's fired Eagles coordinator Sean Desai. By the way, that's why we're the most literate sports betting podcast, because we can have conversations in which we challenge the norm, in which we read into the subtext. Yeah, my bad. Okay, so I'll keep this quick so we can bring in Rich and get to the meat of this. Everybody just endured the breakdown of a 2700-year-old story. Okay, so my father-in-law, who I love, Big Tom, it was Big Tom's birthday on Saturday. He wants to come up from Chicago, spend the day with us here in Milwaukee. I said, sounds great, I love Tom. My wife goes, what are we going to do? What are we going to do with my father? I said, don't worry, I'll handle the whole thing. Tom and I are a lot alike, I know exactly how to show him a great time. He comes up Saturday morning, as soon as he arrives, I say, we'll be right back. I take him, I go to the casino. I said, Tom, I'm going to buy your birthday present. I take out like a lot of money at the casino, and I walk over to the sports book with him and I say, happy birthday, and I bet almost all of it on the Chicago White Sox in their game, because he loves the White Sox. I take the rest of it and I do like Sox run line, Sox first to 3. He loves Murakami, the Japanese rookie. I go, Murakami to hit a home run. So I got a pocket full of White Sox tickets. I go, if these win, I'll give you half the money. He goes, oh, this is great, what a fun time. Are we going to watch it? I go, yep, there's a barbecue tonight at my neighbor's. He's got a big TV he takes out for the big games. I'll ask him to take the TV out for the opposite of a big game, a mid-July regular season AL Central game. We get to the barbecue later, TV is up on the wall, I got the game going, I go, Tom, I got a seat right here for you. It's you and me and this TV and the kids are distracted and we're going to drink 100 beers, we're going to win this game, it's going to be incredible. We sit down, game's about to start, another guest comes up, who I knew vaguely, and she goes, what wonderful luck, my mother is also here from out of town, can she join you? I said, of course, of course, if she wants to endure this, absolutely. Is she from Chicago? No, she is from the West African country of Mali. Great! She comes around the corner, she's elderly just like my father-in-law, she's in a beautiful dress, she has a cane, I said, hi, welcome! She says, Bonsoir! That's right, she only speaks French. I go, Bonjour! We sit down and me and Big Tom and this lady watch the entire game, every pitch. Me and Tom had about 500 Miller Lites and we watched one of the most excruciating baseball games ever recorded. It was tied halfway through the game, there were like 20 combined strikeouts, the Sox lost on like two excruciating errors and about 500 warning track fly balls, the last of which I was like, oh my god, I'm in hell, and I looked at this lady and she was just going, mm-mm-mm, like she finally was understanding why it was so painful. We lose all the money, it was horrific. We had a great time though, Tom was very pleased. 13 hours later, after the game's over, the Sox play again. 12-3 win, Murakami hits two fucking home runs on his bobblehead day with his family in from Japan in the crowd. What could be easier than winning a baseball game, they said. So, baseball betting continues to be a lifetime of endless pain that will never cease. Football needs to come back right away. Happy birthday, Tom, I'm out of here.\\\"\\n    },\\n    {\\n      \\\"start\\\": 2377.0,\\n      \\\"end\\\": 2403.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"As always, Matt Mitchell bringing the most charming betting stories to our very literate betting podcast. Let's give it up for Big Tom. Happy birthday, Big Tom. I feel bad for you that you've been rooting for the White Sox, but they got a little bit of something special going, I think they're turning it around. Simon, we're going to bring in our guest, we're going to bring in Rich Hribar, who we bring in every year to do our quarterback rankings. He's a fantasy expert, he's a friend of the show, he's from Sharp Football Analysis. Rich, are you going to save us from ourselves today?\\\"\\n    },\\n    {\\n      \\\"start\\\": 2403.0,\\n      \\\"end\\\": 2443.0,\\n      \\\"speaker\\\": \\\"Rich Hribar\\\",\\n      \\\"text\\\": \\\"I don't know. I actually just realized I left a complete player off, I don't think I am starting off already, so we already get to it. It's like, oh, wait a second, I totally missed like a big blind spot. But you know, being where I'm at, you know, sad to see LeBron not come give one final ride, I'm listening in the background. And I know every podcast is looking for their host's review of The Odyssey at this point, you know, after two weeks.\\\"\\n    },\\n    {\\n      \\\"start\\\": 2443.0,\\n      \\\"end\\\": 2474.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Listen, just tell me you're on my side and we'll continue to have a great show and it'll be fine. Here's how we're going to do the show, how we do it every year, right? I'm going to go first, I'm probably going to make Simon sick to his stomach, then Rich is going to go, then Simon's going to go. We're going to go from 10 to 1. Some notes from last year: Rich warned us that C.J. Stroud was likely to regress in 2025, he did. Simon is the only guy with Dak Prescott on his 2025 list, well done Simon. Chad, little too much faith in Jared Goff, won't make that mistake again. Simon's best quote: 'Chad's list is painful to me.' I will say that came right after Rich said my list wasn't too bad and we had a lot of overlap. And then Simon also said the last two years I've been the only one to rank Hurts over Herbert. So far, I look like a genius.\\\"\\n    },\\n    {\\n      \\\"start\\\": 2474.0,\\n      \\\"end\\\": 2509.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"See, but this year, so we got seven quarterbacks that appear in all three of our top 10 lists, okay? So we'll go over them at the end. I don't know where everyone has them ranked in order. I spent a lot of time on my list. What I realized is that every single division had, to me, at least two quarterbacks who you could debate were worthy of being on the list, except for one: the NFC South. So that to me was really interesting. I'm going to start from the bottom, I had a really hard time with this, the sort of bottom two, 11 and 10, let's say. Because we had Ben Solak on the show, and he talked about two stats that he loves when he's analyzing quarterbacks, and it's EPA per dropback and success rate. Only a handful of quarterbacks are in the top 10 in both of those categories. And so I was really upset that one of the quarterbacks on that list I ultimately decided was going to be out of my top 10, and that was Brock Purdy. So, I love Brock Purdy, and for me it came down to Brock Purdy and Caleb Williams for number 10. No surprise, I went with Caleb Williams.\\\"\\n    },\\n    {\\n      \\\"start\\\": 2509.0,\\n      \\\"end\\\": 2516.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"I think we're on the same boat where it's like that back end of Caleb, Purdy, Goff, Jordan Love, Baker, it's who's preference, it's all going to be preference between all of us.\\\"\\n    }\\n  ],\\n  \\\"extracted_picks\\\": [],\\n  \\\"analysis_notes\\\": [\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"CHI\\\",\\n        \\\"LAC\\\",\\n        \\\"DAL\\\",\\n        \\\"GB\\\",\\n        \\\"LAR\\\",\\n        \\\"NE\\\",\\n        \\\"CIN\\\",\\n        \\\"KC\\\",\\n        \\\"BAL\\\",\\n        \\\"BUF\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Caleb Williams\\\",\\n        \\\"Justin Herbert\\\",\\n        \\\"Dak Prescott\\\",\\n        \\\"Jordan Love\\\",\\n        \\\"Matthew Stafford\\\",\\n        \\\"Drake Maye\\\",\\n        \\\"Joe Burrow\\\",\\n        \\\"Patrick Mahomes\\\",\\n        \\\"Lamar Jackson\\\",\\n        \\\"Josh Allen\\\"\\n      ],\\n      \\\"topic\\\": \\\"Chad Millman's Top 10 NFL QB Rankings\\\",\\n      \\\"summary\\\": \\\"Chad Millman reveals his full ranked list of quarterbacks: 1. Josh Allen, 2. Lamar Jackson, 3. Patrick Mahomes, 4. Joe Burrow, 5. Drake Maye, 6. Matthew Stafford, 7. Jordan Love, 8. Dak Prescott, 9. Justin Herbert, 10. Caleb Williams.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 2443,\\n      \\\"quote\\\": \\\"We're going to go from 10 to 1.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"CHI\\\",\\n        \\\"LAC\\\",\\n        \\\"TB\\\",\\n        \\\"DAL\\\",\\n        \\\"CIN\\\",\\n        \\\"BAL\\\",\\n        \\\"BUF\\\",\\n        \\\"PHI\\\",\\n        \\\"LAR\\\",\\n        \\\"KC\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Caleb Williams\\\",\\n        \\\"Justin Herbert\\\",\\n        \\\"Baker Mayfield\\\",\\n        \\\"Dak Prescott\\\",\\n        \\\"Joe Burrow\\\",\\n        \\\"Lamar Jackson\\\",\\n        \\\"Josh Allen\\\",\\n        \\\"Jalen Hurts\\\",\\n        \\\"Matthew Stafford\\\",\\n        \\\"Patrick Mahomes\\\"\\n      ],\\n      \\\"topic\\\": \\\"Simon Hunter's Top 10 NFL QB Rankings\\\",\\n      \\\"summary\\\": \\\"Simon Hunter's full ranked list of quarterbacks: 1. Patrick Mahomes, 2. Matthew Stafford, 3. Jalen Hurts, 4. Josh Allen, 5. Lamar Jackson, 6. Joe Burrow, 7. Dak Prescott, 8. Baker Mayfield, 9. Justin Herbert, 10. Caleb Williams.\\\",\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"source_timestamp\\\": 2443,\\n      \\\"quote\\\": null,\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"SF\\\",\\n        \\\"PHI\\\",\\n        \\\"DAL\\\",\\n        \\\"NE\\\",\\n        \\\"LAR\\\",\\n        \\\"KC\\\",\\n        \\\"LAC\\\",\\n        \\\"BAL\\\",\\n        \\\"CIN\\\",\\n        \\\"BUF\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Brock Purdy\\\",\\n        \\\"Jalen Hurts\\\",\\n        \\\"Dak Prescott\\\",\\n        \\\"Drake Maye\\\",\\n        \\\"Matthew Stafford\\\",\\n        \\\"Patrick Mahomes\\\",\\n        \\\"Justin Herbert\\\",\\n        \\\"Lamar Jackson\\\",\\n        \\\"Joe Burrow\\\",\\n        \\\"Josh Allen\\\"\\n      ],\\n      \\\"topic\\\": \\\"Rich Hribar's Corrected Top 10 NFL QB Rankings\\\",\\n      \\\"summary\\\": \\\"Rich Hribar outlines his corrected list of top QBs after noting he accidentally overlooked Drake Maye on his initial sheet: 1. Josh Allen, 2. Joe Burrow, 3. Lamar Jackson, 4. Justin Herbert, 5. Patrick Mahomes, 6. Matthew Stafford, 7. Drake Maye, 8. Dak Prescott, 9. Jalen Hurts, 10. Brock Purdy.\\\",\\n      \\\"speaker\\\": \\\"Rich Hribar\\\",\\n      \\\"source_timestamp\\\": 2403,\\n      \\\"quote\\\": \\\"I actually just realized I left a complete player off... I totally missed like a big blind spot.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"CHI\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Caleb Williams\\\"\\n      ],\\n      \\\"topic\\\": \\\"Caleb Williams Ranked #10 by Chad Millman\\\",\\n      \\\"summary\\\": \\\"Chad Millman defends ranking Caleb Williams at #10, over Brock Purdy, citing high hopes for Williams under OC Shane Waldron (parodied as Ben Johnson) and pointing to his exceptional natural talent.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 2474,\\n      \\\"quote\\\": \\\"It came down to Brock Purdy and Caleb Williams for number 10. No surprise, I went with Caleb Williams.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"SF\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Brock Purdy\\\"\\n      ],\\n      \\\"topic\\\": \\\"Brock Purdy Left Off Lists\\\",\\n      \\\"summary\\\": \\\"Chad Millman explains why he left Brock Purdy out of his top 10 despite Purdy qualifying in key efficiency metrics like EPA per dropback and success rate, choosing rookie Caleb Williams over him.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 2474,\\n      \\\"quote\\\": \\\"I was really upset that one of the quarterbacks on that list I ultimately decided was going to be out of my top 10, and that was Brock Purdy.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    }\\n  ],\\n  \\\"quote_timestamps\\\": [\\n    {\\n      \\\"topic\\\": \\\"Odysseus Kritik\\\",\\n      \\\"timestamp\\\": 2151,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"quote\\\": \\\"Odysseus, kind of an idiot. If you look at every single decision he made... every single decision was a terrible, terrible decision.\\\"\\n    }\\n  ],\\n  \\\"uncertainty_flags\\\": []\\n}\", \"{\\n  \\\"transcript_summary\\\": \\\"Chad Millman, Simon Hunter, and producer Matt Mitchell open the podcast with a humorous debate on the historical decisions of Odysseus in Homer's Odyssey, before welcoming guest Rich Hribar to discuss their annual Top 10 NFL Quarterbacks rankings.\\\",\\n  \\\"coverage_check\\\": {\\n    \\\"video_duration_seconds\\\": 3417,\\n    \\\"segment_start_seconds\\\": 2520,\\n    \\\"segment_end_seconds\\\": 2940,\\n    \\\"last_analyzed_timestamp\\\": 2937,\\n    \\\"reached_end_of_video\\\": false\\n  },\\n  \\\"speaker_segments\\\": [\\n    {\\n      \\\"start\\\": 2520.0,\\n      \\\"end\\\": 2547.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Welcome to Sharp or Square presented by Hard Rock Bet. We are part of the Volume Podcast Network. This is the show that makes the squares sharper and makes the wise guys pay attention. I am Chad Millman, I am joined as always by my co-host, my companion, my compadre, my BFF, professional bettor Simon Hunter. Hello Simon!\\\"\\n    },\\n    {\\n      \\\"start\\\": 2547.0,\\n      \\\"end\\\": 2619.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Chad, what a week I had, buddy. LeBron James, couldn't have dreamt it, I know you're jealous. I honestly can't get over it, it's been multiple days and still in Philly we're talking as if it's June of the NBA playoffs. It's all non-stop NBA coverage right now because the city's in such shock. And I got to see The Odyssey. I don't know if you've seen The Odyssey yet. I went to King of Prussia, which is the only place near me that has the 70mm IMAX, and the hype is real. I don't know if you can attest to what version you saw of it, but I'm always, you know, I saw Interstellar in the IMAX 70mm and it is, it was incredible. This movie, you can see it regularly, I think, but if you're able to get to the 70mm, I know there's a lot of pretentious people saying that's the only way you can see it, truly if you can see it that way, it is an epic movie made for something like this. It really is an incredible experience, so all-time weekend between LeBron James and The Odyssey, which is, you know, it's hyped to no end, it lives up to it. It was an epic, epic movie.\\\"\\n    },\\n    {\\n      \\\"start\\\": 2619.0,\\n      \\\"end\\\": 2711.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"So, on the LeBron front, great, don't care. I like LeBron, I like that there's going to be more competition in the East, I like that there's real continued deep-seated animosity that is even heightened now between the Sixers and the Celtics. Growing up in the 80s, before Jordan was on the Bulls, I lived and died with the Sixers. My nickname, as you know, Simon, was Dr. C, because I loved Dr. J so much. I can still to this day name not just the starting lineup for the 1983 76ers, I think I can go 10 deep on that team right now. Loved that team. When they would lose to the Celtics, I would be in physical pain, like when they were up in the Eastern Conference Finals and lost, and the Celtics went to the Finals and won, it was excruciating to me. So I love a good Sixers-Celtics rivalry, I think it's great for the NBA. I'm going to love a Sixers-Knicks rivalry, I think it will be great for the NBA. I don't care about LeBron ring chasing, doesn't matter to me. I think he's a great player, I love watching him play, I like the way he interacts with teammates. I think Jordan's the best player ever, maybe Kareem you can make an argument, but I love watching LeBron, don't care where he's playing. I got a take on The Odyssey.\\\"\\n    },\\n    {\\n      \\\"start\\\": 2711.0,\\n      \\\"end\\\": 2780.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"I saw it, I didn't see it in 70mm because I live in Central Connecticut and the nearest theater is 2 hours away with the 70mm. I saw it in a regular IMAX. Great movie, amazing cinematography, knowing sort of the stories that they don't really use CGI, that everything is created, they used jet skis to get the whirlpool going in the ocean, everything was filmed live, all that kind of stuff, amazing. Odysseus, kind of an idiot. If you look at every single decision he made, from deciding not to follow Agamemnon, to where he decides to land, to how he approaches strangers, every single decision was a terrible, terrible decision. I feel like the guy gets a ton of credit for creating the idea of the Trojan Horse and getting them into the gates, and after that, he doesn't deserve to be followed because he made terrible, terrible decisions. That's my take. What do you think?\\\"\\n    },\\n    {\\n      \\\"start\\\": 2780.0,\\n      \\\"end\\\": 2849.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Just so everyone's aware, Chad thinks a man that invented one of the most genius war strategies in the history of humankind that we're still talking about 3000 years later is an idiot. God bless Chad Millman. I'm just saying, in this movie, if you look at it objectively, in this movie, terrible, terrible decisions. My favorite part of the movie, I know this is going to sound so stupid, there's a guy who dies in this movie whose name is Mentor. That blew my mind. I mean, I just love where our words come from and everything about the human experience, but the fact that Mentor was a real person that was obviously a mentor for Odysseus's son who died, and that's how his legacy lived on, right? They couldn't give him a proper burial, and he said his name will live on. Yes, I mean that blew my mind. Homer, whoever wrote that, 3000 years later, like we said, Chad, still slaps. The whole time I was watching that movie, I kept thinking, 3000 years later, if they tell a story from right now, would it hold up? Is Christianity or Judaism still going to be a religion in 3000 years? Because the whole movie is predicated on religious beliefs, right, about Zeus, Poseidon, these gods. So, I found that really interesting about how wrapped up their lives were in folklore and just the gods and respecting the gods, and what was, the whole point of the movie is you need to treat a beggar with respect because it could be Zeus in disguise, right? That was the whole point, and he basically suffered these punishments because the Trojan horse, like Chad just said, is supposed to be a gift, right? That was a gift to the Trojans, and it was a trick. And that's why he paid like, hell, for whatever that was, 20 years to get back to his family. So yeah, just again, just such a well-done movie, and I know there's always going to be haters and critics, but like Chad said, there was no CGI. And when you're watching this movie where there's giants, all these crazy things, you're just like, this is how they should still be doing movies. I hate CGI, so yeah, just 10 out of 10 experience.\\\"\\n    },\\n    {\\n      \\\"start\\\": 2849.0,\\n      \\\"end\\\": 2893.0,\\n      \\\"speaker\\\": \\\"Matt Mitchell\\\",\\n      \\\"text\\\": \\\"Well, the other thing is that he did not believe in the gods. And so every decision he was making was tempting or challenging the gods, and he was consistently being proven that the gods exist, which is also part of the folklore. Agree with you, great movie. Armand Assante is unreal. It's three hours and there wasn't a second where I was like 'God, I wish this would end', like it was, it was... Not even the pig part? The pig part I can do without. I thought it was wild. I thought it was wild, but also it's wild to me because I'm thinking, how are they doing this without the effects? So, great movie, go see it. I feel like more people feel the way I do, that maybe, you know, Odysseus wasn't the best decision maker, got a lot of credit and then sort of rode the coattails on that one decision. But whatever, a lot of people, a lot of people have gotten by on one big idea. We have an idea that we run into the ground every single year because it is honestly one of my favorite episodes, and before we kick off our division-by-division NFL betting previews on Thursday, we have one final order of business. It is NFL, it is our most controversial annual episode, an episode where, to quote our producer Matt Mitchell, Chad makes deeply upsetting choices that should land him in prison, kind of like Odysseus making bad choices every which way. Chad had one good idea, and since then he's just been making bad decisions. Today is our top 10 NFL quarterback rankings. We very scientifically use a betting lens to analyze the league's best quarterbacks. Before we bring in our guest, Matt Mitchell is going to come on, he's going to share his story. I don't know what it is, he's the producer, he just gets to decide when he does this, so Simon, let's hear it. Hello boys. Chad, I don't know how we're going to maintain the title of the most literate sports betting podcast when you treat Odysseus like he's fired Eagles coordinator Brian Johnson. By the way, that's why we're the most literate sports betting podcast, because we can have conversations in which we challenge the norm, in which we read into the subtext. Yeah, my bad. Okay, so I'll keep this quick so we can bring in Rich and get to the meat of this. I have an announcement, so don't preempt. Everybody just endured this breakdown of a 2700-year-old story. Okay, so my father-in-law, who I love, Big Tom, it was Big Tom's birthday on Saturday. He wanted to come up from Chicago, spend the day with us here in Milwaukee. I said, sounds great, I love Tom. My wife goes, 'What are we going to do with my father?' I said, don't worry, I'll handle the whole thing. Tom and I are a lot alike, I know exactly how to show him a great time. He comes up Saturday morning, as soon as he arrives, I say, 'Queen, I'll be right back.' I take him, I go to the casino. I said, 'Tom, I'm going to buy your birthday present.' I take out like a lot of money at the casino, and I walk over to the sports book with him and I say, 'Happy birthday,' and I bet almost all of it on the Chicago White Sox in their game, because he loves the White Sox. I take the rest of it and I do like Sox run line, Sox first to three. He loves Murakami, the Japanese rookie. I go, 'Murakami to hit a home run.' So, I got a pocket full of White Sox tickets. I go, 'These win, I'll give you half the money.' He goes, 'Oh, this is great! What a fun time! Are we going to watch it?' I go, 'Yep, there's a barbecue tonight at my neighbor's, he's got a big TV he takes out for the big games, I'll ask him to take the TV out for the opposite of a big game, a mid-July regular season AL Central game.' We get to the barbecue later, TV is up on the wall, I got the game going. I go, 'Tom, it's just, I got a seat right here for you. It's you and me and this TV, and the kids are distracted and we're going to drink 100 beers. We're going to win this game, it's going to be incredible.' We sit down, game's about to start, another guest comes up who I knew vaguely, and she goes, 'What wonderful luck! My mother is also here from out of town, can she join you?' Of course, of course, if she wants to endure this, absolutely. Is she from Chicago? No, she is from the West African country of Mali. Great! She comes around the corner, she's elderly just like my father-in-law, she's in a beautiful dress, she has a cane. I said, 'Hi, welcome!' She says, 'Bonsoir!' That's right, she only speaks French! I go, 'Bonjour!' We sit down, and me and Big Tom and this lady watch the entire game, every pitch. Me and Tom had about 500 Miller Lites, and we watched one of the most excruciating baseball games ever recorded. It was tied halfway through the game, there were like 20 combined strikeouts, the Sox lost on like two excruciating errors and about 500 warning track fly balls. The last of which, I was like, 'Oh my god, I'm in hell,' and I looked at this lady and she was just going, 'Mm-mm-mm, mm-mm-mm.' Like she finally was adding why it was so painful. We lose all the money, it was horrific. 13 hours later, after the game's over, the Sox play again. 12-3 win, Murakami hits two fucking home runs on his bobblehead day with his family in from Japan in the crowd. 'What can be easier than winning a baseball game,' they said. So, baseball betting continues to be a life of endless pain that will never cease. Football needs to come back right away. Happy birthday, Tom, I'm out of here.\\\"\\n    },\\n    {\\n      \\\"start\\\": 2893.0,\\n      \\\"end\\\": 2919.0,\\n      \\\"speaker\\\": \\\"Rich Hribar\\\",\\n      \\\"text\\\": \\\"As always, Matt Mitchell bringing the most charming betting stories to our very literate betting podcast. Let's give it up for Big Tom. Happy birthday, Big Tom. I feel bad for you that you've been rooting for the White Sox, but they got a little bit of something special going, I think they're turning it around. Simon, we're going to bring in our guest. We're going to bring in Rich Hribar, who we bring in every year to do our quarterback rankings. He's a fantasy expert, he's a friend of the show, he's from Sharp Football Analysis. Rich, are you going to save us from ourselves today? I don't know. I actually just realized I left a complete player off. I don't think I am, I'm starting off already, so when we already get to it, it's like, 'Wait a second, I totally missed a like a big blind spot.' But you know, being where I'm at, you know, sad to see LeBron not come give one final ride, you know, listening in the background. And I know every podcast is looking for their host's review of The Odyssey at this point, you know, after two weeks, so...\\\"\\n    },\\n    {\\n      \\\"start\\\": 2919.0,\\n      \\\"end\\\": 2937.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Listen, just tell me you're on my side and we'll continue to have a great show and it'll be fine. No, I did enjoy the movie. If you were to tell me Christopher Nolan made an Odyssey movie, that's exactly what you got. Yes, you know what? Best analysis so far. Here's how we're going to do the show, how we do it every year, right? I'm going to go first, I'm probably going to make Simon sick to his stomach, then Rich is going to go, then Simon's going to go. We're going to go from 10 to 1. Some notes from last year: Rich warned us that C.J. Stroud was likely to regress in 2025. He did. Simon is the only guy with Dak Prescott on his 2025 list. Well done, Simon. Chad, a little too much faith in Jared Goff, won't make that mistake again. Simon's best quote: 'Chad's list is painful to me.' I will say that came right after Rich said my list wasn't too bad and we had a lot of overlap. And then Simon also said, 'The last two years, I've been the only one to rank Hurts over Herbert. So far, I look like a genius.' Now, do you remember why I said your list was painful, Chad, or no? Did you black it out? I usually forget everything that's ever been critically said of me. I only live in a rose-colored glasses world. So, I had Stafford at number 5, which you were killing me for, and you had Stafford not in your top 10. And that's why I was just like, I might have to throw out Chad's entire list. Not only did Stafford have a career year, he won the MVP last year, people. The year Chad left him off his top 10 list. Well, I might have pulled a Rich and just forgot him, and then as soon as you said it, I'm like, oh yeah, I remember that guy. That's good. See, but this year, so we got, the three of us have seven quarterbacks that appear in all three of our top 10 lists, okay? So, we'll go over them at the end. I don't know where everyone has them ranked in order. I spent a lot of time on my list. What I realized is that every single division had, to me, at least two quarterbacks who you could debate were worthy of being on the list, except for one: the NFC South. So, that to me was really interesting. I'm going to start from the bottom. I had a really hard time with this, the sort of bottom two, 11 and 10, let's say. Because, you know, Simon, we had Solak on the show, Ben Solak from ESPN on the show, and he talked about two stats that he loves when he's analyzing quarterbacks, and it's EPA per dropback and success rate. Only a handful of quarterbacks are in the top 10 in both of those categories, and so I was really upset that one of the quarterbacks on that list I ultimately decided was going to be out of my top 10, and that was Brock Purdy. So, I love Brock Purdy, and for me, it came down to Brock Purdy and Caleb Williams for number 10. No surprise, I went with Caleb Williams. Because, here's, you know, Matt, in the intro, I mentioned that we do this through a betting lens, right? And to me, this is about projecting the quarterbacks, not necessarily who are going to have the best stats or could be the MVP. It's going to be the quarterbacks who we either are most upset that we bet against in the final two minutes of a game, or that we are happiest that we bet on in the final two minutes of a game. And you could argue that Purdy and Caleb, both of them could qualify. I think because of the combination, I love Caleb with Ben Johnson. I think Ben Johnson is a dog, and I don't think he's going to let Caleb regress. I think there's a lot of opportunities for improvement to build on the natural talent. Purdy, I think is great, he was top four in QB in EPA per dropback and in success rate last year. To me, it came down a little bit to talent around them and injuries, you know, Purdy has had some injury issues. So, I went with Caleb at number 10. He does not appear on all three of our lists. I don't know if he's on anyone else's list. At number 9: Justin Herbert. Justin Herbert, and Justin Herbert does appear on all of our lists. Any comments so far before I move on?\\\"\\n    }\\n  ],\\n  \\\"extracted_picks\\\": [],\\n  \\\"analysis_notes\\\": [\\n    {\\n      \\\"note_type\\\": \\\"other\\\",\\n      \\\"teams\\\": [\\n        \\\"CHW\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Murakami\\\"\\n      ],\\n      \\\"topic\\\": \\\"Matt Mitchell's excruciating White Sox bet\\\",\\n      \\\"summary\\\": \\\"Producer Matt Mitchell narrated a tragic betting experience on the Chicago White Sox where he bet almost all of his casino funds on the Sox (run line, first to three, and a Murakami home run prop) for his father-in-law Big Tom's birthday. The Sox lost in an excruciating game involving key errors, only for Murakami to hit two home runs in the next game 13 hours later.\\\",\\n      \\\"speaker\\\": \\\"Matt Mitchell\\\",\\n      \\\"source_timestamp\\\": 2849,\\n      \\\"quote\\\": \\\"So, baseball betting continues to be a life of endless pain that will never cease.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"CHI\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Caleb Williams\\\"\\n      ],\\n      \\\"topic\\\": \\\"Chad Millman's QB Rank #10: Caleb Williams\\\",\\n      \\\"summary\\\": \\\"Chad ranked Bears QB Caleb Williams at #10 in his top 10 NFL QBs list, preferring him over Brock Purdy. He noted his faith in Williams' pairing with offensive coordinator Ben Johnson (the dubbed voiceover refers to 'Ben Johnson' as the dog coordinator who won't let him regress) and Williams' elite natural talent.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 2919,\\n      \\\"quote\\\": \\\"I went with Caleb Williams... because I love Caleb with Ben Johnson. I think Ben Johnson is a dog, and I don't think he's going to let Caleb regress.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"SF\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Brock Purdy\\\"\\n      ],\\n      \\\"topic\\\": \\\"Chad Millman leaving Brock Purdy out of his Top 10 QBs\\\",\\n      \\\"summary\\\": \\\"Chad explained that he narrowly left 49ers QB Brock Purdy off his top 10 list (leaving him at #11) despite Purdy ranking top four in EPA per dropback and success rate, citing concerns over Purdy's injuries and the supreme talent surrounding him.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 2919,\\n      \\\"quote\\\": \\\"I was really upset that one of the quarterbacks on that list I ultimately decided was going to be out of my top 10, and that was Brock Purdy.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"LAC\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Justin Herbert\\\"\\n      ],\\n      \\\"topic\\\": \\\"Chad Millman's QB Rank #9: Justin Herbert\\\",\\n      \\\"summary\\\": \\\"Chad ranked Chargers QB Justin Herbert at #9 in his top 10 list, noting that Herbert is a consensus pick who appears on all three of the hosts' lists.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 2919,\\n      \\\"quote\\\": \\\"At number 9: Justin Herbert. Justin Herbert, and Justin Herbert does appear on all of our lists.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"LAR\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Matthew Stafford\\\"\\n      ],\\n      \\\"topic\\\": \\\"Matthew Stafford's prior year MVP and rankings controversy\\\",\\n      \\\"summary\\\": \\\"Simon and Chad recalled last year's ranking controversy where Simon ranked Matthew Stafford at #5 and Chad left him off his top 10 entirely, right before Stafford went on to have a career year and win the NFL MVP award.\\\",\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"source_timestamp\\\": 2919,\\n      \\\"quote\\\": \\\"Not only did Stafford have a career year, he won the MVP last year, people. The year Chad left him off his top 10 list.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\n        \\\"DAL\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Dak Prescott\\\"\\n      ],\\n      \\\"topic\\\": \\\"Dak Prescott consensus among hosts\\\",\\n      \\\"summary\\\": \\\"Chad pointed out that Simon was the only host to place Dak Prescott on his 2025 QB list.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 2919,\\n      \\\"quote\\\": \\\"Simon is the only guy with Dak Prescott on his 2025 list.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    }\\n  ],\\n  \\\"quote_timestamps\\\": [\\n    {\\n      \\\"topic\\\": \\\"Bears QB Caleb Williams Rank\\\",\\n      \\\"timestamp\\\": 2919,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"quote\\\": \\\"I went with Caleb Williams... because I love Caleb with Ben Johnson.\\\"\\n    },\\n    {\\n      \\\"topic\\\": \\\"Brock Purdy exclusion\\\",\\n      \\\"timestamp\\\": 2919,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"quote\\\": \\\"I was really upset that one of the quarterbacks on that list I ultimately decided was going to be out of my top 10, and that was Brock Purdy.\\\"\\n    }\\n  ],\\n  \\\"uncertainty_flags\\\": []\\n}\", \"{\\n  \\\"transcript_summary\\\": \\\"The hosts open the show with a discussion on NBA offseason news and the Sixers-Celtics rivalry, before transitioning into a lengthy, humorous review of the movie 'The Odyssey' (parodying Oppenheimer) in 70mm IMAX.\\\",\\n  \\\"coverage_check\\\": {\\n    \\\"video_duration_seconds\\\": 3417,\\n    \\\"segment_start_seconds\\\": 2940,\\n    \\\"segment_end_seconds\\\": 3360,\\n    \\\"last_analyzed_timestamp\\\": 3360,\\n    \\\"reached_end_of_video\\\": true\\n  },\\n  \\\"speaker_segments\\\": [\\n    {\\n      \\\"start\\\": 2940.0,\\n      \\\"end\\\": 2967.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Welcome to Sharp or Square presented by Hard Rock Bet. We are part of the Volume Podcast Network. This is the show that makes the squares sharper and makes the wise guys pay attention. I am Chad Millman. I am joined as always by my co-host, my companion, my compadre, my BFF, professional bettor, Simon Hunter. Hello, Simon!\\\"\\n    },\\n    {\\n      \\\"start\\\": 2967.0,\\n      \\\"end\\\": 2991.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Chad, what a week I had, buddy. LeBron James... couldn't have dreamt it. I know you're jealous. I honestly can't get over it. It's been multiple days and still in Philly we're talking as if it's like June of the NBA playoffs. It's all non-stop NBA coverage right now because the city is so in shock. And I got to see the Odyssey. I don't know if you've seen the Odyssey yet.\\\"\\n    },\\n    {\\n      \\\"start\\\": 2991.0,\\n      \\\"end\\\": 2994.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Oh, I've seen the Odyssey. I got takes on both of your comments.\\\"\\n    },\\n    {\\n      \\\"start\\\": 2994.0,\\n      \\\"end\\\": 3038.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"I went to King of Prussia, which is the only place near me that has the 70mm IMAX and, uh, yeah, the hype is real, right? I don't know what version you saw of it, but I'm always... you know, I saw Interstellar in the IMAX 70mm and it is... it was incredible. This movie, you can see it regularly, I think. But if you're able to get to the 70mm... I know there's a lot of pretentious people saying that's the only way you can see it... truly, if you can see it that way, it is... it's an epic movie made for something like this. It really is an incredible experience. So, all-time weekend between LeBron James and the Odyssey, which is... you know, it's hyped to no end, it lives up to it. It was an epic, epic movie.\\\"\\n    },\\n    {\\n      \\\"start\\\": 3038.0,\\n      \\\"end\\\": 3111.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"So, on the LeBron front... great, don't care. Like, I like LeBron, I like that there's going to be more competition in the East. I like that there's real continued deep-seated animosity that is even heightened now between the Sixers and the Celtics. Look, growing up in the 80s, before Jordan was on the Bulls, I lived and died with the Sixers. My nickname, as you know, Simon, was Dr. C because I loved Dr. J so much. I can still to this day name not just the starting lineup for the 1983 76ers, I think I can go 10 deep on that team right now. Loved that team. Like, when they would lose to the Celtics, I would be in physical pain... it was excruciating to me. So I love a good Sixers-Celtics rivalry... I don't care about LeBron ring chasing, doesn't matter to me. I think he's a great player, I love watching him play... I think Jordan is the best player ever, maybe Kareem you can make an argument, but I love watching LeBron. Don't care where he's playing. I got a take on the Odyssey...\\\"\\n    },\\n    {\\n      \\\"start\\\": 3111.0,\\n      \\\"end\\\": 3199.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"I saw it, I didn't see it in 70mm because I live in central Connecticut and the nearest theater is two hours away. I saw it in a regular IMAX. Great movie, amazing cinematography... Odysseus... kind of an idiot. If you look at every single decision he made, from deciding not to follow Agamemnon, to where he decides to land, to how he approaches strangers... every single decision was a terrible, terrible decision. I feel like the guy gets a ton of credit for creating the idea of the Trojan Horse and getting them into the gates, and after that, he doesn't deserve to be followed because he made terrible, terrible decisions. That's my take. What do you think?\\\"\\n    },\\n    {\\n      \\\"start\\\": 3199.0,\\n      \\\"end\\\": 3212.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Just so everyone's aware, Chad thinks a man that invented one of the most genius war strategies in the history of humankind that we're still talking about 3,000 years later... is an idiot. God bless Chad Millman.\\\"\\n    },\\n    {\\n      \\\"start\\\": 3212.0,\\n      \\\"end\\\": 3221.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"I'm just saying, in this movie... if you look at it objectively, in this movie, terrible, terrible decisions.\\\"\\n    },\\n    {\\n      \\\"start\\\": 3221.0,\\n      \\\"end\\\": 3326.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"My favorite part of the movie, I know this is going to sound so stupid... there's a guy who dies in this movie whose name is Mentor. That blew my mind. I mean, I just love where our words come from... but the fact that Mentor was a real person, that was obviously a mentor for Odysseus's son, who died, and that's how his legacy lived on, right? They couldn't give him a proper burial, and he said his name will live on. I mean, that blew my mind... Homer, whoever wrote that, 3,000 years later, still slaps. The whole time I'm watching that movie, I kept thinking, 3,000 years later, if they tell a story from right now, would it hold up? Is Christianity or Judaism still going to be a religion in 3,000 years because the whole movie is predicated on religious beliefs, right, about Zeus, Poseidon, these gods. So, I found that just really interesting about how wrapped up their lives were in folklore and the gods... basis of the movie is you need to treat a beggar with respect because it could be Zeus in disguise, right? That was the whole point, and he basically suffered these punishments because the Trojan Horse, like Chad just said, was supposed to be a gift, right? That was a gift to the Trojans, and it was a trick. And that's why he paid like hell for, whatever that was, 20 years, to get back to his family. So, yeah, just such a well-done movie... there was no CGI. 10 out of 10 experience.\\\"\\n    },\\n    {\\n      \\\"start\\\": 3326.0,\\n      \\\"end\\\": 3356.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Well, the other thing is that he did not believe in the gods. And so, every decision he was making was tempting or challenging the gods, and he was consistently being proven that the gods exist, which is also part of the folklore. Agree with you, great movie. Matt Damon is unreal. It's three hours and there wasn't a second where I was like, 'God, I wish this would end.' It was wild.\\\"\\n    },\\n    {\\n      \\\"start\\\": 3356.0,\\n      \\\"end\\\": 3359.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Not even the pig part? The pig part I could do without.\\\"\\n    },\\n    {\\n      \\\"start\\\": 3359.0,\\n      \\\"end\\\": 3360.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"I thought it was fucking wild... but also it's wild to me because I'm thinking, how are they doing this without, you know, the effects? So, great movie, go see it.\\\"\\n    }\\n  ],\\n  \\\"extracted_picks\\\": [],\\n  \\\"analysis_notes\\\": [\\n    {\\n      \\\"note_type\\\": \\\"market_sentiment\\\",\\n      \\\"teams\\\": [\\\"PHI\\\", \\\"BOS\\\"],\\n      \\\"players\\\": [\\\"LeBron James\\\"],\\n      \\\"topic\\\": \\\"Sixers-Celtics Rivalry & LeBron James Impact\\\",\\n      \\\"summary\\\": \\\"Simon and Chad discuss the shock in Philadelphia over NBA offseason news involving LeBron James, highlighting the deep-seated rivalry between the Sixers and Celtics.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 2967,\\n      \\\"quote\\\": \\\"I like that there's real continued deep-seated animosity that is even heightened now between the Sixers and the Celtics.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"other\\\",\\n      \\\"teams\\\": [],\\n      \\\"players\\\": [],\\n      \\\"topic\\\": \\\"Movie Review of 'The Odyssey' (Oppenheimer)\\\",\\n      \\\"summary\\\": \\\"The hosts review the 3-hour IMAX movie 'The Odyssey' (referring to Oppenheimer), discussing Chad's critique of Odysseus's decision-making, the character 'Mentor', and the lack of CGI in the film.\\\",\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"source_timestamp\\\": 3111,\\n      \\\"quote\\\": \\\"This movie, you can see it regularly, I think, but if you're able to get to the 70mm... it is an epic movie made for something like this.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    }\\n  ],\\n  \\\"quote_timestamps\\\": [],\\n  \\\"uncertainty_flags\\\": []\\n}\", \"{\\n  \\\"transcript_summary\\\": \\\"Rich Hribar concludes with comments on the extreme difficulty of playing quarterback against an NFL pass rush. Chad Millman wraps up the podcast, plugs Rich Hribar's work, and previews Thursday's NFC South division betting preview before signing off with a humorous outro clip.\\\",\\n  \\\"coverage_check\\\": {\\n    \\\"video_duration_seconds\\\": 3417,\\n    \\\"segment_start_seconds\\\": 3360,\\n    \\\"segment_end_seconds\\\": 3417,\\n    \\\"last_analyzed_timestamp\\\": 3417,\\n    \\\"reached_end_of_video\\\": true\\n  },\\n  \\\"speaker_segments\\\": [\\n    {\\n      \\\"start\\\": 3360.0,\\n      \\\"end\\\": 3361.5,\\n      \\\"speaker\\\": \\\"Rich Hribar\\\",\\n      \\\"text\\\": \\\"...quarterback with any type of pass rush, and just understanding the degree of difficulty these guys operate at. This position, it's just absolutely insane they're able to even do what they're able to do.\\\"\\n    },\\n    {\\n      \\\"start\\\": 3361.5,\\n      \\\"end\\\": 3400.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Rich, it's hard talking about it. I can't imagine the Odysseus-like challenge of playing quarterback in the NFL. Rich Hribar, Sharp Football Analysis. Everyone go check out his stuff. We're going to be back on Thursday. We're going to kick off the NFL division previews with our favorite division in football, the NFC South. This has been Sharp or Square, part of the Volume Podcast Network. Watch or listen on YouTube at Sharp or Square. Like this video, subscribe to the channel, download us on Spotify, Apple Pods, wherever you get your podcasts. Rate, review, leave us five stars, say whatever you want. Feedback is a gift. Until next time, love you.\\\"\\n    },\\n    {\\n      \\\"start\\\": 3401.0,\\n      \\\"end\\\": 3413.0,\\n      \\\"speaker\\\": \\\"Outro Announcer\\\",\\n      \\\"text\\\": \\\"I don't really know why he threw that ball that far behind. That was a throw that was so bad it was even un-interceptable. I think if you're going to throw it bad, throw it really bad so the other team can't get it either.\\\"\\n    }\\n  ],\\n  \\\"extracted_picks\\\": [],\\n  \\\"analysis_notes\\\": [\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [],\\n      \\\"players\\\": [],\\n      \\\"topic\\\": \\\"Difficulty of NFL quarterback play\\\",\\n      \\\"summary\\\": \\\"Rich Hribar emphasizes that playing quarterback in the NFL against a professional pass rush represents an extraordinarily high degree of difficulty that is often underappreciated by observers.\\\",\\n      \\\"speaker\\\": \\\"Rich Hribar\\\",\\n      \\\"source_timestamp\\\": 3360,\\n      \\\"quote\\\": \\\"it's just absolutely insane they're able to even do what they're able to do.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"schedule_context\\\",\\n      \\\"teams\\\": [\\\"TB\\\", \\\"NO\\\", \\\"ATL\\\", \\\"CAR\\\"],\\n      \\\"players\\\": [],\\n      \\\"topic\\\": \\\"NFC South betting previews on next episode\\\",\\n      \\\"summary\\\": \\\"Chad Millman announces that the next episode of the podcast on Thursday will begin their divisional betting previews, starting with the NFC South.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 3368,\\n      \\\"quote\\\": \\\"We're going to kick off the NFL division previews with our favorite division in football, the NFC South.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    }\\n  ],\\n  \\\"quote_timestamps\\\": [\\n    {\\n      \\\"topic\\\": \\\"Difficulty of NFL QB play\\\",\\n      \\\"timestamp\\\": 3360,\\n      \\\"speaker\\\": \\\"Rich Hribar\\\",\\n      \\\"quote\\\": \\\"it's just absolutely insane they're able to even do what they're able to do.\\\"\\n    },\\n    {\\n      \\\"topic\\\": \\\"NFC South betting previews\\\",\\n      \\\"timestamp\\\": 3368,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"quote\\\": \\\"We're going to kick off the NFL division previews with our favorite division in football, the NFC South.\\\"\\n    }\\n  ],\\n  \\\"uncertainty_flags\\\": []\\n}\"]",
+    "extracted_picks": [
+      {
+        "team": "CWS",
+        "player": null,
+        "market": "moneyline",
+        "side": "CWS",
+        "line": null,
+        "price": null,
+        "week": null,
+        "speaker": "Matt Mitchell",
+        "source_timestamp": 697,
+        "rationale": "Betting on the White Sox moneyline for father-in-law's birthday as he loves the team."
+      },
+      {
+        "team": "CWS",
+        "player": null,
+        "market": "run_line",
+        "side": "CWS",
+        "line": null,
+        "price": null,
+        "week": null,
+        "speaker": "Matt Mitchell",
+        "source_timestamp": 720,
+        "rationale": "Diversifying birthday bets with the White Sox run line."
+      },
+      {
+        "team": "CWS",
+        "player": null,
+        "market": "team_total",
+        "side": "CWS",
+        "line": 3,
+        "price": null,
+        "week": null,
+        "speaker": "Matt Mitchell",
+        "source_timestamp": 720,
+        "rationale": "Prop bet on White Sox to reach 3 runs first."
+      },
+      {
+        "team": "CWS",
+        "player": "Murakami",
+        "market": "to_hit_home_run",
+        "side": "YES",
+        "line": null,
+        "price": null,
+        "week": null,
+        "speaker": "Matt Mitchell",
+        "source_timestamp": 720,
+        "rationale": "Home run prop bet on White Sox rookie Murakami."
+      },
+      {
+        "team": "PHI",
+        "player": "Jalen Hurts",
+        "market": "mvp",
+        "side": "YES",
+        "line": null,
+        "price": null,
+        "week": null,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 1258,
+        "rationale": "Simon advises listeners to bet Jalen Hurts to win MVP because Chad left him out of his top 10, which historically triggers a Super Bowl/MVP-caliber run."
+      }
+    ],
+    "analysis_notes": [
+      {
+        "note_type": "market_sentiment",
+        "teams": [],
+        "players": [],
+        "topic": "Offseason Show Structure",
+        "summary": "The hosts lay out the podcast agenda, highlighting an upcoming segment on the Top 10 NFL Quarterback Rankings with guest analyst Rich Hribar from Sharp Football Analysis, followed by upcoming division previews starting next week.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 5,
+        "quote": "This is the show that makes the squares sharper and makes the wise guys pay attention.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "market_sentiment",
+        "teams": [
+          "CWS"
+        ],
+        "players": [
+          "Murakami"
+        ],
+        "topic": "White Sox Betting Agony",
+        "summary": "Producer Matt Mitchell detailed an excruciating betting loss on the Chicago White Sox on all markets, followed by the team immediately bouncing back the next day with a massive blowout win.",
+        "speaker": "Matt Mitchell",
+        "source_timestamp": 697,
+        "quote": "We watched one of the most excruciating baseball games ever recorded... we lose all the money.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "CHI"
+        ],
+        "players": [
+          "Caleb Williams"
+        ],
+        "topic": "Chad's QBs - Rank 10: Caleb Williams",
+        "summary": "Chad Millman ranks Caleb Williams as his #10 quarterback. He notes that he loves Caleb Williams under offensive coordinator Ben Johnson (referencing a parody/swapped coaching name in the audio).",
+        "speaker": "Chad Millman",
+        "source_timestamp": 1200,
+        "quote": "No surprise I went with Caleb Williams... I love Caleb with Ben Johnson.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "LAC"
+        ],
+        "players": [
+          "Justin Herbert"
+        ],
+        "topic": "Chad's QBs - Rank 9: Justin Herbert",
+        "summary": "Chad ranks Justin Herbert as his #9 quarterback.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 1210,
+        "quote": "At number 9, Justin Herbert.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "DAL"
+        ],
+        "players": [
+          "Dak Prescott"
+        ],
+        "topic": "Chad's QBs - Rank 8: Dak Prescott",
+        "summary": "Chad ranks Dak Prescott as his #8 quarterback, noting he is very high on the Dallas Cowboys this season.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 1212,
+        "quote": "At number 8, Dak Prescott. I'm really high on the Cowboys this year.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "GB"
+        ],
+        "players": [
+          "Jordan Love"
+        ],
+        "topic": "Chad's QBs - Rank 7: Jordan Love",
+        "summary": "Chad ranks Jordan Love at #7, citing a stat from Bill Barnwell that since the second half of 2023, Love has the best QBR and the fewest interceptions in the NFL.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 1215,
+        "quote": "At number 7, Jordan Love... Jordan Love has the best QBR in the NFL. He has the fewest interceptions.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "LAR"
+        ],
+        "players": [
+          "Matthew Stafford"
+        ],
+        "topic": "Chad's QBs - Rank 6: Matthew Stafford",
+        "summary": "Chad ranks Matthew Stafford at #6.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 1219,
+        "quote": "Six, Stafford.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "NE"
+        ],
+        "players": [
+          "Drake Maye"
+        ],
+        "topic": "Chad's QBs - Rank 5: Drake Maye (Jalen Hurts)",
+        "summary": "Chad ranks Jalen Hurts (parodied/referred to as Drake Maye in the audio) at #5, mentioning that AJ Brown could make him better.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 1221,
+        "quote": "Five, Drake Maye... AJ Brown could make him a little better.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "CIN"
+        ],
+        "players": [
+          "Joe Burrow"
+        ],
+        "topic": "Chad's QBs - Rank 4: Joe Burrow",
+        "summary": "Chad ranks Joe Burrow at #4.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 1223,
+        "quote": "Four Burrow.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "KC"
+        ],
+        "players": [
+          "Patrick Mahomes"
+        ],
+        "topic": "Chad's QBs - Rank 3: Patrick Mahomes",
+        "summary": "Chad ranks Patrick Mahomes at #3.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 1224,
+        "quote": "Three Mahomes.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "BAL"
+        ],
+        "players": [
+          "Lamar Jackson"
+        ],
+        "topic": "Chad's QBs - Rank 2: Lamar Jackson",
+        "summary": "Chad ranks Lamar Jackson at #2.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 1225,
+        "quote": "Two Lamar.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "BUF"
+        ],
+        "players": [
+          "Josh Allen"
+        ],
+        "topic": "Chad's QBs - Rank 1: Josh Allen",
+        "summary": "Chad ranks Josh Allen at #1, noting that his top 4 guys are all coming off somewhat imperfect years but are still the class of the NFL.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 1226,
+        "quote": "One Josh Allen.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "SF"
+        ],
+        "players": [
+          "Brock Purdy"
+        ],
+        "topic": "Rich's QBs - Rank 10: Brock Purdy",
+        "summary": "Rich Hribar ranks Brock Purdy at #10, defending him against the 'system quarterback' label. He points out Purdy's high off-script creation and high production despite key weapons missing games.",
+        "speaker": "Rich Hribar",
+        "source_timestamp": 1235,
+        "quote": "At 10, I have Brock Purdy... He creates so much more off-script than any guy that Shanahan's had.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "PHI"
+        ],
+        "players": [
+          "Jalen Hurts"
+        ],
+        "topic": "Rich's QBs - Rank 9: Jalen Hurts",
+        "summary": "Rich ranks Jalen Hurts at #9. He notes Hurts is at a fulcrum point, loses AJ Brown (parody/weird statement in the audio), has never played under center, and has to adjust to a new offensive system.",
+        "speaker": "Rich Hribar",
+        "source_timestamp": 1245,
+        "quote": "Nine is where I have Jalen Hurts... It feels weird that he's at a fulcrum point... He loses AJ Brown... He's never played under center.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "DAL"
+        ],
+        "players": [
+          "Dak Prescott"
+        ],
+        "topic": "Rich's QBs - Rank 8: Dak Prescott",
+        "summary": "Rich ranks Dak Prescott at #8.",
+        "speaker": "Rich Hribar",
+        "source_timestamp": 1256,
+        "quote": "Then I have Dak.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "NE"
+        ],
+        "players": [
+          "Drake Maye"
+        ],
+        "topic": "Rich's QBs - Rank 7: Drake Maye",
+        "summary": "Rich ranks Drake Maye (likely referencing Jalen Hurts or another parody-swapped name) at #7.",
+        "speaker": "Rich Hribar",
+        "source_timestamp": 1257,
+        "quote": "Then I have Drake Maye... I still couldn't put Maye over Stafford.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "schedule_context",
+        "teams": [],
+        "players": [],
+        "topic": "NFL Division Betting Previews",
+        "summary": "The hosts note that they will be starting their annual division-by-division NFL previews on the upcoming Thursday episode.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 1645,
+        "quote": "before we kick off our division-by-division NFL betting previews on Thursday",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "market_sentiment",
+        "teams": [],
+        "players": [],
+        "topic": "QB Rankings Methodology",
+        "summary": "The hosts introduce their Top 10 NFL Quarterback Rankings segment, highlighting that they approach the list scientifically through a betting lens.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 1670,
+        "quote": "We very scientifically use a betting lens to analyze the league's best quarterbacks",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "market_sentiment",
+        "teams": [
+          "PHI",
+          "BOS",
+          "NY"
+        ],
+        "players": [
+          "LeBron James"
+        ],
+        "topic": "NBA Rivalry Heat & LeBron Discussion",
+        "summary": "The hosts discuss how renewed animosity between the Celtics and 76ers, as well as the Knicks, makes Eastern Conference NBA matchups highly compelling from a fanship and betting perspective. Chad reflects on his history as a Sixers fan.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 1778,
+        "quote": "I like that there's real continued deep-seated animosity that is even heightened now between the Sixers and the Celtics.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "other",
+        "teams": [],
+        "players": [],
+        "topic": "Evaluating Quarterbacks via a Betting Lens",
+        "summary": "Chad Millman introduces the framework for their Top 10 NFL Quarterback Rankings: evaluating players by which of them bettors would be most terrified to bet against, or happiest to bet on, in the final two minutes of a close game.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 2045,
+        "quote": "We very scientifically use a betting lens to analyze the league's best quarterbacks.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "CHI",
+          "LAC",
+          "DAL",
+          "GB",
+          "LAR",
+          "NE",
+          "CIN",
+          "KC",
+          "BAL",
+          "BUF"
+        ],
+        "players": [
+          "Caleb Williams",
+          "Justin Herbert",
+          "Dak Prescott",
+          "Jordan Love",
+          "Matthew Stafford",
+          "Drake Maye",
+          "Joe Burrow",
+          "Patrick Mahomes",
+          "Lamar Jackson",
+          "Josh Allen"
+        ],
+        "topic": "Chad Millman's Top 10 NFL QB Rankings",
+        "summary": "Chad Millman reveals his full ranked list of quarterbacks: 1. Josh Allen, 2. Lamar Jackson, 3. Patrick Mahomes, 4. Joe Burrow, 5. Drake Maye, 6. Matthew Stafford, 7. Jordan Love, 8. Dak Prescott, 9. Justin Herbert, 10. Caleb Williams.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 2443,
+        "quote": "We're going to go from 10 to 1.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "CHI",
+          "LAC",
+          "TB",
+          "DAL",
+          "CIN",
+          "BAL",
+          "BUF",
+          "PHI",
+          "LAR",
+          "KC"
+        ],
+        "players": [
+          "Caleb Williams",
+          "Justin Herbert",
+          "Baker Mayfield",
+          "Dak Prescott",
+          "Joe Burrow",
+          "Lamar Jackson",
+          "Josh Allen",
+          "Jalen Hurts",
+          "Matthew Stafford",
+          "Patrick Mahomes"
+        ],
+        "topic": "Simon Hunter's Top 10 NFL QB Rankings",
+        "summary": "Simon Hunter's full ranked list of quarterbacks: 1. Patrick Mahomes, 2. Matthew Stafford, 3. Jalen Hurts, 4. Josh Allen, 5. Lamar Jackson, 6. Joe Burrow, 7. Dak Prescott, 8. Baker Mayfield, 9. Justin Herbert, 10. Caleb Williams.",
+        "speaker": "Simon Hunter",
+        "source_timestamp": 2443,
+        "quote": "",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "SF",
+          "PHI",
+          "DAL",
+          "NE",
+          "LAR",
+          "KC",
+          "LAC",
+          "BAL",
+          "CIN",
+          "BUF"
+        ],
+        "players": [
+          "Brock Purdy",
+          "Jalen Hurts",
+          "Dak Prescott",
+          "Drake Maye",
+          "Matthew Stafford",
+          "Patrick Mahomes",
+          "Justin Herbert",
+          "Lamar Jackson",
+          "Joe Burrow",
+          "Josh Allen"
+        ],
+        "topic": "Rich Hribar's Corrected Top 10 NFL QB Rankings",
+        "summary": "Rich Hribar outlines his corrected list of top QBs after noting he accidentally overlooked Drake Maye on his initial sheet: 1. Josh Allen, 2. Joe Burrow, 3. Lamar Jackson, 4. Justin Herbert, 5. Patrick Mahomes, 6. Matthew Stafford, 7. Drake Maye, 8. Dak Prescott, 9. Jalen Hurts, 10. Brock Purdy.",
+        "speaker": "Rich Hribar",
+        "source_timestamp": 2403,
+        "quote": "I actually just realized I left a complete player off... I totally missed like a big blind spot.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "CHI"
+        ],
+        "players": [
+          "Caleb Williams"
+        ],
+        "topic": "Caleb Williams Ranked #10 by Chad Millman",
+        "summary": "Chad Millman defends ranking Caleb Williams at #10, over Brock Purdy, citing high hopes for Williams under OC Shane Waldron (parodied as Ben Johnson) and pointing to his exceptional natural talent.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 2474,
+        "quote": "It came down to Brock Purdy and Caleb Williams for number 10. No surprise, I went with Caleb Williams.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "SF"
+        ],
+        "players": [
+          "Brock Purdy"
+        ],
+        "topic": "Brock Purdy Left Off Lists",
+        "summary": "Chad Millman explains why he left Brock Purdy out of his top 10 despite Purdy qualifying in key efficiency metrics like EPA per dropback and success rate, choosing rookie Caleb Williams over him.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 2474,
+        "quote": "I was really upset that one of the quarterbacks on that list I ultimately decided was going to be out of my top 10, and that was Brock Purdy.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "other",
+        "teams": [
+          "CHW"
+        ],
+        "players": [
+          "Murakami"
+        ],
+        "topic": "Matt Mitchell's excruciating White Sox bet",
+        "summary": "Producer Matt Mitchell narrated a tragic betting experience on the Chicago White Sox where he bet almost all of his casino funds on the Sox (run line, first to three, and a Murakami home run prop) for his father-in-law Big Tom's birthday. The Sox lost in an excruciating game involving key errors, only for Murakami to hit two home runs in the next game 13 hours later.",
+        "speaker": "Matt Mitchell",
+        "source_timestamp": 2849,
+        "quote": "So, baseball betting continues to be a life of endless pain that will never cease.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "CHI"
+        ],
+        "players": [
+          "Caleb Williams"
+        ],
+        "topic": "Chad Millman's QB Rank #10: Caleb Williams",
+        "summary": "Chad ranked Bears QB Caleb Williams at #10 in his top 10 NFL QBs list, preferring him over Brock Purdy. He noted his faith in Williams' pairing with offensive coordinator Ben Johnson (the dubbed voiceover refers to 'Ben Johnson' as the dog coordinator who won't let him regress) and Williams' elite natural talent.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 2919,
+        "quote": "I went with Caleb Williams... because I love Caleb with Ben Johnson. I think Ben Johnson is a dog, and I don't think he's going to let Caleb regress.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "SF"
+        ],
+        "players": [
+          "Brock Purdy"
+        ],
+        "topic": "Chad Millman leaving Brock Purdy out of his Top 10 QBs",
+        "summary": "Chad explained that he narrowly left 49ers QB Brock Purdy off his top 10 list (leaving him at #11) despite Purdy ranking top four in EPA per dropback and success rate, citing concerns over Purdy's injuries and the supreme talent surrounding him.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 2919,
+        "quote": "I was really upset that one of the quarterbacks on that list I ultimately decided was going to be out of my top 10, and that was Brock Purdy.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "LAC"
+        ],
+        "players": [
+          "Justin Herbert"
+        ],
+        "topic": "Chad Millman's QB Rank #9: Justin Herbert",
+        "summary": "Chad ranked Chargers QB Justin Herbert at #9 in his top 10 list, noting that Herbert is a consensus pick who appears on all three of the hosts' lists.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 2919,
+        "quote": "At number 9: Justin Herbert. Justin Herbert, and Justin Herbert does appear on all of our lists.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "LAR"
+        ],
+        "players": [
+          "Matthew Stafford"
+        ],
+        "topic": "Matthew Stafford's prior year MVP and rankings controversy",
+        "summary": "Simon and Chad recalled last year's ranking controversy where Simon ranked Matthew Stafford at #5 and Chad left him off his top 10 entirely, right before Stafford went on to have a career year and win the NFL MVP award.",
+        "speaker": "Simon Hunter",
+        "source_timestamp": 2919,
+        "quote": "Not only did Stafford have a career year, he won the MVP last year, people. The year Chad left him off his top 10 list.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "DAL"
+        ],
+        "players": [
+          "Dak Prescott"
+        ],
+        "topic": "Dak Prescott consensus among hosts",
+        "summary": "Chad pointed out that Simon was the only host to place Dak Prescott on his 2025 QB list.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 2919,
+        "quote": "Simon is the only guy with Dak Prescott on his 2025 list.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "market_sentiment",
+        "teams": [
+          "PHI",
+          "BOS"
+        ],
+        "players": [
+          "LeBron James"
+        ],
+        "topic": "Sixers-Celtics Rivalry & LeBron James Impact",
+        "summary": "Simon and Chad discuss the shock in Philadelphia over NBA offseason news involving LeBron James, highlighting the deep-seated rivalry between the Sixers and Celtics.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 2967,
+        "quote": "I like that there's real continued deep-seated animosity that is even heightened now between the Sixers and the Celtics.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "other",
+        "teams": [],
+        "players": [],
+        "topic": "Movie Review of 'The Odyssey' (Oppenheimer)",
+        "summary": "The hosts review the 3-hour IMAX movie 'The Odyssey' (referring to Oppenheimer), discussing Chad's critique of Odysseus's decision-making, the character 'Mentor', and the lack of CGI in the film.",
+        "speaker": "Simon Hunter",
+        "source_timestamp": 3111,
+        "quote": "This movie, you can see it regularly, I think, but if you're able to get to the 70mm... it is an epic movie made for something like this.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [],
+        "players": [],
+        "topic": "Difficulty of NFL quarterback play",
+        "summary": "Rich Hribar emphasizes that playing quarterback in the NFL against a professional pass rush represents an extraordinarily high degree of difficulty that is often underappreciated by observers.",
+        "speaker": "Rich Hribar",
+        "source_timestamp": 3360,
+        "quote": "it's just absolutely insane they're able to even do what they're able to do.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "schedule_context",
+        "teams": [
+          "TB",
+          "NO",
+          "ATL",
+          "CAR"
+        ],
+        "players": [],
+        "topic": "NFC South betting previews on next episode",
+        "summary": "Chad Millman announces that the next episode of the podcast on Thursday will begin their divisional betting previews, starting with the NFC South.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 3368,
+        "quote": "We're going to kick off the NFL division previews with our favorite division in football, the NFC South.",
+        "confidence": "stated"
+      }
+    ],
+    "quote_timestamps": [
+      {
+        "topic": "Odysseus Joking",
+        "timestamp": 650,
+        "speaker": "Matt Mitchell",
+        "quote": "Chad, I don't know how we're going to maintain the title of the most literate sports betting podcast when you treat Odysseus like he's fired Eagles coordinator Brian Johnson."
+      },
+      {
+        "topic": "Caleb Williams OC pairing",
+        "timestamp": 1202,
+        "speaker": "Chad Millman",
+        "quote": "I love Caleb with Ben Johnson."
+      },
+      {
+        "topic": "Hurts MVP betting advisory",
+        "timestamp": 1258,
+        "speaker": "Simon Hunter",
+        "quote": "People go get your MVP bets on Hurts while you can."
+      },
+      {
+        "topic": "NFL Division Previews",
+        "timestamp": 1645,
+        "speaker": "Chad Millman",
+        "quote": "before we kick off our division-by-division NFL betting previews on Thursday"
+      },
+      {
+        "topic": "NBA Rivalry Sentiment",
+        "timestamp": 1785,
+        "speaker": "Chad Millman",
+        "quote": "I like that there is going to be more competition in the East. I like that there's real, continued, deep-seated animosity..."
+      },
+      {
+        "topic": "Betting Lens for QB Rankings",
+        "timestamp": 2045,
+        "speaker": "Chad Millman",
+        "quote": "We very scientifically use a betting lens to analyze the league's best quarterbacks."
+      },
+      {
+        "topic": "Odysseus Kritik",
+        "timestamp": 2151,
+        "speaker": "Chad Millman",
+        "quote": "Odysseus, kind of an idiot. If you look at every single decision he made... every single decision was a terrible, terrible decision."
+      },
+      {
+        "topic": "Bears QB Caleb Williams Rank",
+        "timestamp": 2919,
+        "speaker": "Chad Millman",
+        "quote": "I went with Caleb Williams... because I love Caleb with Ben Johnson."
+      },
+      {
+        "topic": "Brock Purdy exclusion",
+        "timestamp": 2919,
+        "speaker": "Chad Millman",
+        "quote": "I was really upset that one of the quarterbacks on that list I ultimately decided was going to be out of my top 10, and that was Brock Purdy."
+      },
+      {
+        "topic": "Difficulty of NFL QB play",
+        "timestamp": 3360,
+        "speaker": "Rich Hribar",
+        "quote": "it's just absolutely insane they're able to even do what they're able to do."
+      },
+      {
+        "topic": "NFC South betting previews",
+        "timestamp": 3368,
+        "speaker": "Chad Millman",
+        "quote": "We're going to kick off the NFL division previews with our favorite division in football, the NFC South."
+      }
+    ],
+    "coverage_assessment": {
+      "last_covered_timestamp": 3413,
+      "self_reported_reached_end": false,
+      "duration_used_for_check": 3417,
+      "suspected_incomplete": true,
+      "reason": "segment semantic mismatch: later window repeated the episode intro; segment semantic mismatch: later window repeated the episode intro; segment semantic mismatch: later window repeated the episode intro",
+      "coverage_ratio": null,
+      "segment_count": 9,
+      "segment_seconds": 420,
+      "segment_coverages": [
+        {
+          "last_covered_timestamp": 420,
+          "self_reported_reached_end": false,
+          "duration_used_for_check": 3417,
+          "segment_start_seconds": 0,
+          "segment_end_seconds": 420,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1
+        },
+        {
+          "last_covered_timestamp": 840,
+          "self_reported_reached_end": false,
+          "duration_used_for_check": 3417,
+          "segment_start_seconds": 420,
+          "segment_end_seconds": 840,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1
+        },
+        {
+          "last_covered_timestamp": 1260,
+          "self_reported_reached_end": false,
+          "duration_used_for_check": 3417,
+          "segment_start_seconds": 840,
+          "segment_end_seconds": 1260,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1
+        },
+        {
+          "last_covered_timestamp": 1680,
+          "self_reported_reached_end": false,
+          "duration_used_for_check": 3417,
+          "segment_start_seconds": 1260,
+          "segment_end_seconds": 1680,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1
+        },
+        {
+          "last_covered_timestamp": 2100,
+          "self_reported_reached_end": false,
+          "duration_used_for_check": 3417,
+          "segment_start_seconds": 1680,
+          "segment_end_seconds": 2100,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1
+        },
+        {
+          "last_covered_timestamp": 2516,
+          "self_reported_reached_end": false,
+          "duration_used_for_check": 3417,
+          "segment_start_seconds": 2100,
+          "segment_end_seconds": 2520,
+          "suspected_incomplete": true,
+          "reason": "segment semantic mismatch: later window repeated the episode intro",
+          "coverage_ratio": 0.99,
+          "semantic_coverage_failed": true
+        },
+        {
+          "last_covered_timestamp": 2937,
+          "self_reported_reached_end": false,
+          "duration_used_for_check": 3417,
+          "segment_start_seconds": 2520,
+          "segment_end_seconds": 2940,
+          "suspected_incomplete": true,
+          "reason": "segment semantic mismatch: later window repeated the episode intro",
+          "coverage_ratio": 0.993,
+          "semantic_coverage_failed": true
+        },
+        {
+          "last_covered_timestamp": 3360,
+          "self_reported_reached_end": true,
+          "duration_used_for_check": 3417,
+          "segment_start_seconds": 2940,
+          "segment_end_seconds": 3360,
+          "suspected_incomplete": true,
+          "reason": "segment semantic mismatch: later window repeated the episode intro",
+          "coverage_ratio": 1,
+          "semantic_coverage_failed": true
+        },
+        {
+          "last_covered_timestamp": 3413,
+          "self_reported_reached_end": true,
+          "duration_used_for_check": 3417,
+          "segment_start_seconds": 3360,
+          "segment_end_seconds": 3417,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 0.93
+        }
+      ]
+    }
+  },
+  "scoring": {
+    "score_status": "not_scored",
+    "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+    "total_ground_truth": 0,
+    "total_shadow_extracted": 5,
+    "full_exact_matches": 0,
+    "precision_pct": "not scored",
+    "recall_pct": "not scored",
+    "f1_score_pct": "not scored",
+    "dimension_accuracy": {
+      "team": null,
+      "market": null,
+      "side": null,
+      "line": null,
+      "price": null,
+      "speaker": null,
+      "source_timestamp": null
+    }
+  }
+}

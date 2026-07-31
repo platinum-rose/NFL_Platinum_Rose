@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import { isNflRelevantEpisode } from '../agents/lib/nfl-relevance.js';
 import {
   DEFAULT_CLIENT_PATH,
@@ -24,6 +25,14 @@ function argValue(name, fallback = null) {
   return idx === -1 ? fallback : process.argv[idx + 1];
 }
 
+function argValues(name) {
+  const values = [];
+  for (let i = 0; i < process.argv.length; i += 1) {
+    if (process.argv[i] === name && i + 1 < process.argv.length) values.push(process.argv[i + 1]);
+  }
+  return values;
+}
+
 const args = new Set(process.argv.slice(2));
 const useAllCandidates = args.has('--all-candidates');
 const runGemini = args.has('--run-gemini');
@@ -32,21 +41,61 @@ const includeShorts = args.has('--include-shorts');
 const scoreOnly = args.has('--score-only');
 const runSavedFutures = args.has('--run-saved-futures');
 const skipExisting = args.has('--skip-existing');
+const noChannelSweep = args.has('--no-channel-sweep') || args.has('--urls-only');
 const maxPerRun = Number(argValue('--max-per-run', 5));
+const maxPerChannel = Number(argValue('--max-per-channel', 0));
 const lookbackDays = Number(argValue('--lookback-days', 14));
 const minDurationMinutes = Number(argValue('--min-duration-minutes', 10));
 const geminiScope = argValue('--gemini-scope', 'futures');
 const minFuturesScore = Number(argValue('--min-futures-score', 3));
 const clientPath = argValue('--client', DEFAULT_CLIENT_PATH);
 const tokenPath = argValue('--token', DEFAULT_TOKEN_PATH);
+const segmentSeconds = Number(argValue('--segment-seconds', 0));
+const maxRetries = Number(argValue('--max-retries', 0));
+const retryDelaySeconds = Number(argValue('--retry-delay-seconds', 20));
+const explicitUrls = [
+  ...argValues('--url'),
+  ...argValues('--urls').flatMap(value => String(value).split(/[\s,]+/)),
+].map(value => value.trim()).filter(Boolean);
+const explicitPlaylistIds = [
+  ...argValues('--playlist-id'),
+  ...argValues('--playlist-ids').flatMap(value => String(value).split(/[\s,]+/)),
+  ...argValues('--playlist-url').map(extractYouTubePlaylistId),
+  ...argValues('--playlist-urls').flatMap(value => String(value).split(/[\s,]+/)).map(extractYouTubePlaylistId),
+].filter(Boolean).map(value => value.trim());
+const onlyCandidateIds = new Set([
+  ...argValues('--only-id'),
+  ...argValues('--only-ids').flatMap(value => String(value).split(/[\s,]+/)),
+].map(value => value.trim()).filter(Boolean).map(value => (
+  value.startsWith('youtube-') ? value : `youtube-${value}`
+)));
 
 const FUTURES_SCORE_RULES = [
   { score: 6, label: 'explicit futures', patterns: ['futures', 'future bets', 'futures card'] },
   { score: 5, label: 'season markets', patterns: ['win total', 'win totals', 'division winner', 'division winners', 'make the playoffs', 'playoff predictions', 'super bowl'] },
   { score: 5, label: 'awards markets', patterns: [' mvp', 'rookie of the year', 'offensive player of the year', 'defensive player of the year', 'coach of the year', 'award sleepers'] },
-  { score: 4, label: 'betting slate', patterns: ['best bets', 'betting picks', 'betting predictions', 'longshot', 'long shot', 'sleeper bet'] },
-  { score: 3, label: 'season-long intel', patterns: ['training camp', 'injury storylines', 'season preview', 'schedule release', 'quarterback rankings', 'top 10 nfl starting quarterbacks', 'top 20 nfl quarterbacks', 'nfl receiving rooms', 'coaching changes', 'offseason moves'] },
+  { score: 4, label: 'betting slate', patterns: ['best bets', 'betting picks', 'betting predictions', 'betting preview', 'longshot', 'long shot', 'sleeper bet'] },
+  { score: 3, label: 'season-long intel', patterns: ['training camp', 'injury storylines', 'season preview', 'nfl season', 'schedule release', 'quarterback rankings', 'top 10 quarterbacks', 'top 10 nfl starting quarterbacks', 'top 20 nfl quarterbacks', 'greatest qbs', 'nfl receiving rooms', 'coaching changes', 'offseason moves'] },
   { score: 2, label: 'team/player context', patterns: ['nfc north', 'afc ', 'nfc ', 'chiefs', 'broncos', 'texans', 'giants', 'cardinals', 'starting quarterback'] }
+];
+
+const QB_LIST_SUBJECTS = [
+  ['Josh Allen', ['Josh Allen', 'Allen']],
+  ['Lamar Jackson', ['Lamar Jackson', 'Lamar']],
+  ['Joe Burrow', ['Joe Burrow', 'Burrow']],
+  ['Patrick Mahomes', ['Patrick Mahomes', 'Mahomes']],
+  ['Matthew Stafford', ['Matthew Stafford', 'Stafford']],
+  ['Drake Maye', ['Drake Maye', 'Maye']],
+  ['Dak Prescott', ['Dak Prescott', 'Dak']],
+  ['Jordan Love', ['Jordan Love']],
+  ['Justin Herbert', ['Justin Herbert', 'Herbert']],
+  ['Caleb Williams', ['Caleb Williams']],
+  ['Brock Purdy', ['Brock Purdy', 'Purdy']],
+  ['Jalen Hurts', ['Jalen Hurts', 'Hurts']],
+  ['Baker Mayfield', ['Baker Mayfield', 'Baker']],
+  ['Trevor Lawrence', ['Trevor Lawrence']],
+  ['Jared Goff', ['Jared Goff', 'Goff']],
+  ['Sam Darnold', ['Sam Darnold', 'Darnold']]
 ];
 
 const FANTASY_CONTEXT_PATTERNS = [
@@ -90,8 +139,90 @@ function slugifyVideo(videoId) {
   return `youtube-${videoId}`;
 }
 
+function extractYouTubeVideoId(raw) {
+  const value = String(raw || '').trim();
+  if (!value) return null;
+  if (/^[A-Za-z0-9_-]{11}$/.test(value)) return value;
+  try {
+    const url = new URL(value);
+    const host = url.hostname.replace(/^www\./, '');
+    if (host === 'youtu.be') return url.pathname.split('/').filter(Boolean)[0] || null;
+    if (host.endsWith('youtube.com')) {
+      if (url.pathname === '/watch') return url.searchParams.get('v');
+      const shorts = url.pathname.match(/^\/shorts\/([A-Za-z0-9_-]{11})/);
+      if (shorts) return shorts[1];
+      const embed = url.pathname.match(/^\/embed\/([A-Za-z0-9_-]{11})/);
+      if (embed) return embed[1];
+    }
+  } catch {
+    return null;
+  }
+  return null;
+}
+
+function extractYouTubePlaylistId(raw) {
+  const value = String(raw || '').trim();
+  if (!value) return null;
+  if (/^[A-Za-z0-9_-]{12,}$/.test(value) && !/^[A-Za-z0-9_-]{11}$/.test(value)) return value;
+  try {
+    const url = new URL(value);
+    return url.searchParams.get('list');
+  } catch {
+    return null;
+  }
+}
+
 function normalizeUrl(videoId) {
   return `https://www.youtube.com/watch?v=${videoId}`;
+}
+
+function parseRawModelResponse(observation) {
+  const raw = observation?.run?.raw_model_response || observation?.raw_model_response;
+  if (!raw) return null;
+  if (typeof raw === 'object') return raw;
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+function textHasAlias(text, alias) {
+  const escaped = alias.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+');
+  return new RegExp(`\\b${escaped}\\b`, 'i').test(text);
+}
+
+function rankedQbCompletenessIssue(candidate, observation) {
+  const title = String(candidate.title || '');
+  if (!/\btop\s*10\b/i.test(title) || !/\b(qbs?|quarterbacks?)\b/i.test(title)) return null;
+
+  const payload = parseRawModelResponse(observation);
+  const speakerSegments = payload?.speaker_segments || [];
+  const transcriptText = speakerSegments.map(segment => segment.text || '').join('\n');
+  if (!transcriptText.trim()) return null;
+
+  const structuredText = JSON.stringify({
+    extracted_picks: observation?.run?.extracted_picks || [],
+    analysis_notes: observation?.run?.analysis_notes || []
+  });
+
+  const discussedSubjects = QB_LIST_SUBJECTS
+    .filter(([, aliases]) => aliases.some(alias => textHasAlias(transcriptText, alias)))
+    .map(([name]) => name);
+  const structuredSubjects = QB_LIST_SUBJECTS
+    .filter(([, aliases]) => aliases.some(alias => textHasAlias(structuredText, alias)))
+    .map(([name]) => name);
+
+  if (discussedSubjects.length < 10) return null;
+  const requiredStructuredSubjects = Math.max(8, Math.ceil(discussedSubjects.length * 0.75));
+  if (structuredSubjects.length >= requiredStructuredSubjects) return null;
+
+  const missingSubjects = discussedSubjects.filter(name => !structuredSubjects.includes(name));
+  return [
+    `ranked QB list coverage incomplete: raw transcript references ${discussedSubjects.length} QB subjects`,
+    `but structured picks/notes cover ${structuredSubjects.length}`,
+    `missing ${missingSubjects.slice(0, 10).join(', ')}`
+  ].join('; ');
 }
 
 function parseIsoDurationSeconds(raw) {
@@ -264,6 +395,62 @@ async function listChannelUploads(channelId, accessToken) {
     channel_title: channel.snippet?.title || item.snippet?.channelTitle || ''
   })).filter(video => video.video_id);
 
+  return hydrateVideoDetails(mapped, accessToken);
+}
+
+async function listPlaylistVideos(playlistId, accessToken) {
+  const videos = [];
+  let pageToken = '';
+  for (let page = 0; page < 2; page += 1) {
+    const pageJson = await youtubeGet('playlistItems', {
+      part: 'snippet,contentDetails',
+      playlistId,
+      maxResults: 50,
+      pageToken
+    }, accessToken);
+    videos.push(...(pageJson.items || []));
+    pageToken = pageJson.nextPageToken || '';
+    if (!pageToken) break;
+  }
+
+  const mapped = videos.map(item => ({
+    video_id: item.contentDetails?.videoId || item.snippet?.resourceId?.videoId,
+    title: item.snippet?.title || '',
+    description: item.snippet?.description || '',
+    published_at: item.contentDetails?.videoPublishedAt || item.snippet?.publishedAt || null,
+    channel_id: item.snippet?.videoOwnerChannelId || item.snippet?.channelId || '',
+    channel_title: item.snippet?.videoOwnerChannelTitle || item.snippet?.channelTitle || '',
+    playlist_id: playlistId
+  })).filter(video => video.video_id);
+
+  return hydrateVideoDetails(mapped, accessToken);
+}
+
+async function listVideosById(videoIds, accessToken) {
+  const ids = [...new Set(videoIds.filter(Boolean))];
+  const videos = [];
+  for (let i = 0; i < ids.length; i += 50) {
+    const batch = ids.slice(i, i + 50);
+    const details = await youtubeGet('videos', {
+      part: 'snippet,contentDetails',
+      id: batch.join(',')
+    }, accessToken);
+    for (const item of details.items || []) {
+      videos.push({
+        video_id: item.id,
+        title: item.snippet?.title || '',
+        description: item.snippet?.description || '',
+        published_at: item.snippet?.publishedAt || null,
+        channel_id: item.snippet?.channelId || '',
+        channel_title: item.snippet?.channelTitle || '',
+        duration_seconds: parseIsoDurationSeconds(item.contentDetails?.duration)
+      });
+    }
+  }
+  return videos;
+}
+
+async function hydrateVideoDetails(mapped, accessToken) {
   const detailsById = new Map();
   for (let i = 0; i < mapped.length; i += 50) {
     const batch = mapped.slice(i, i + 50);
@@ -285,7 +472,7 @@ async function listChannelUploads(channelId, accessToken) {
   });
 }
 
-function toCandidate(video) {
+function toCandidate(video, { source = 'channel_upload' } = {}) {
   const id = slugifyVideo(video.video_id);
   return withFuturesScoring({
     id,
@@ -295,10 +482,15 @@ function toCandidate(video) {
     url: normalizeUrl(video.video_id),
     source_url: normalizeUrl(video.video_id),
     channel_id: video.channel_id,
+    playlist_id: video.playlist_id || null,
     published_at: video.published_at,
     duration_seconds: video.duration_seconds,
     mapping_status: 'unmapped',
-    notes: 'Auto-discovered from subscribed YouTube channel; local candidate only.'
+    notes: source === 'explicit_url'
+      ? 'Explicitly queued from supplied YouTube URL; local candidate only.'
+      : source === 'playlist'
+        ? 'Auto-discovered from configured/supplied YouTube playlist; local candidate only.'
+        : 'Auto-discovered from subscribed YouTube channel; local candidate only.'
   });
 }
 
@@ -325,17 +517,92 @@ function mergeCandidates(existing, additions) {
   };
 }
 
+function filterSweepVideos(videos, { seen, cutoffMs }) {
+  return videos.filter(video => {
+    const publishedMs = video.published_at ? Date.parse(video.published_at) : 0;
+    if (publishedMs && publishedMs < cutoffMs) return false;
+    if (!rescan && seen.has(video.video_id)) return false;
+    if (!includeShorts && video.duration_seconds !== null && video.duration_seconds < minDurationMinutes * 60) return false;
+    if (!isNflRelevantEpisode(video.title)) return false;
+    return true;
+  });
+}
+
+function roundRobinBuckets(buckets, limit) {
+  const selected = [];
+  const maxDepth = Math.max(0, ...buckets.map(bucket => bucket.length));
+  for (let idx = 0; idx < maxDepth; idx += 1) {
+    for (const bucket of buckets) {
+      if (bucket[idx]) selected.push(bucket[idx]);
+      if (limit > 0 && selected.length >= limit) return selected;
+    }
+  }
+  return selected;
+}
+
 function runGeminiForCandidate(candidate) {
-  const result = spawnSync(process.execPath, [
+  const startedAtMs = Date.now();
+  const args = [
     'scripts/gemini-podcast-shadow-harness.js',
     '--episode', candidate.id,
     '--live-youtube',
     '--youtube-url', candidate.url
-  ], {
+  ];
+  if (candidate.duration_seconds) {
+    args.push('--duration-seconds', String(Math.round(candidate.duration_seconds)));
+  }
+  if (segmentSeconds > 0) {
+    args.push('--segment-seconds', String(Math.round(segmentSeconds)));
+  }
+  if (maxRetries > 0) {
+    args.push('--max-retries', String(Math.round(maxRetries)));
+    args.push('--retry-delay-seconds', String(Math.round(retryDelaySeconds)));
+  }
+
+  const result = spawnSync(process.execPath, args, {
     cwd: ROOT,
     stdio: 'inherit'
   });
-  return result.status === 0;
+
+  const observation = loadFreshObservation(candidate, startedAtMs);
+  if (!observation) {
+    return {
+      candidate,
+      status: 'failed',
+      exit_status: result.status,
+      reason: `No fresh observation was saved for ${candidate.id}. Gemini may have failed before extraction completed.`
+    };
+  }
+
+  const reprocessReason = observationReprocessReason(candidate, observation);
+  if (reprocessReason) {
+    persistObservationReprocess(candidate, observation, reprocessReason);
+    return {
+      candidate,
+      observation,
+      status: 'reprocess_required',
+      exit_status: result.status,
+      reason: reprocessReason
+    };
+  }
+
+  if (result.status !== 0) {
+    return {
+      candidate,
+      observation,
+      status: 'failed',
+      exit_status: result.status,
+      reason: `Extractor exited with status ${result.status}.`
+    };
+  }
+
+  return {
+    candidate,
+    observation,
+    status: 'complete',
+    exit_status: result.status,
+    reason: null
+  };
 }
 
 function loadObservation(candidate) {
@@ -347,18 +614,74 @@ function loadObservation(candidate) {
   return observation;
 }
 
-function hasObservation(candidate) {
-  return fs.existsSync(path.join(SHADOW_OBS_DIR, `${candidate.id}-shadow-youtube.json`));
+function loadFreshObservation(candidate, startedAtMs) {
+  const obsPath = path.join(SHADOW_OBS_DIR, `${candidate.id}-shadow-youtube.json`);
+  if (!fs.existsSync(obsPath)) return null;
+  const stat = fs.statSync(obsPath);
+  if (stat.mtimeMs + 1000 < startedAtMs) return null;
+  return loadObservation(candidate);
 }
 
-function writeGeminiBatchReport(candidates, { label = 'saved-futures' } = {}) {
-  const queueRuns = candidates
-    .map(loadObservation)
+function persistObservationReprocess(candidate, observation, reason) {
+  observation.reprocess_required = true;
+  observation.reprocess_reason = reason;
+  observation.quality_flags = [...new Set([
+    ...(observation.quality_flags || []),
+    reason.includes('ranked QB list coverage incomplete') ? 'ranked_qb_list_coverage_incomplete' : 'reprocess_required'
+  ])];
+  const obsPath = path.join(SHADOW_OBS_DIR, `${candidate.id}-shadow-youtube.json`);
+  writeJson(obsPath, observation);
+}
+
+function observationReprocessReason(candidate, observation) {
+  if (observation?.reprocess_required === true) {
+    return observation.reprocess_reason || 'Observation requires reprocess.';
+  }
+  const knownDuration = Number(candidate.duration_seconds || 0);
+  const coverage = observation?.run?.coverage_assessment || observation?.coverage_assessment || {};
+  if (coverage.suspected_incomplete === true) return coverage.reason || 'Gemini coverage was incomplete.';
+
+  const rankedListIssue = rankedQbCompletenessIssue(candidate, observation);
+  if (rankedListIssue) return rankedListIssue;
+
+  if (!knownDuration) return null;
+
+  const durationUsed = Number(coverage.duration_used_for_check || 0);
+  if (durationUsed > 0 && durationUsed < knownDuration * 0.85) {
+    return `coverage check used ${durationUsed}s, but YouTube metadata says the video is ${knownDuration}s`;
+  }
+  const lastCovered = Number(coverage.last_covered_timestamp || 0);
+  if (lastCovered > 0 && lastCovered < knownDuration * 0.85) {
+    return `last covered timestamp ${lastCovered}s is short of known video duration ${knownDuration}s`;
+  }
+  return null;
+}
+
+function observationNeedsReprocess(candidate, observation) {
+  return Boolean(observationReprocessReason(candidate, observation));
+}
+
+function hasObservation(candidate) {
+  const obsPath = path.join(SHADOW_OBS_DIR, `${candidate.id}-shadow-youtube.json`);
+  if (!fs.existsSync(obsPath)) return false;
+  const observation = readJson(obsPath);
+  return !observationNeedsReprocess(candidate, observation);
+}
+
+function writeGeminiBatchReport(runResults, { label = 'saved-futures' } = {}) {
+  const queueRuns = runResults
+    .map(result => result.observation)
     .filter(Boolean);
+  const reprocessRows = runResults.filter(result => result.status === 'reprocess_required');
+  const failedRows = runResults.filter(result => result.status === 'failed');
+  const completeRows = runResults.filter(result => result.status === 'complete');
   const totalCostUsd = queueRuns.reduce((sum, row) => sum + Number(row.run?.estimated_cost_usd || 0), 0);
   const totalLatencyMs = queueRuns.reduce((sum, row) => sum + Number(row.run?.latency_ms || 0), 0);
-  const totalPicks = queueRuns.reduce((sum, row) => sum + (row.run?.extracted_picks || []).length, 0);
-  const scoredResults = queueRuns.filter(row => typeof row.scoring?.f1_score_pct === 'number');
+  const usableRuns = completeRows
+    .map(result => result.observation)
+    .filter(Boolean);
+  const totalPicks = usableRuns.reduce((sum, row) => sum + (row.run?.extracted_picks || []).length, 0);
+  const scoredResults = usableRuns.filter(row => typeof row.scoring?.f1_score_pct === 'number');
   const averageF1 = scoredResults.length
     ? Number((scoredResults.reduce((sum, row) => sum + row.scoring.f1_score_pct, 0) / scoredResults.length).toFixed(2))
     : null;
@@ -368,14 +691,27 @@ function writeGeminiBatchReport(candidates, { label = 'saved-futures' } = {}) {
     mode: 'live-youtube',
     model: 'gemini-3.5-flash',
     batch_label: label,
-    total_episodes_evaluated: queueRuns.length,
+    total_candidates_attempted: runResults.length,
+    total_episodes_evaluated: usableRuns.length,
     total_episodes_scored: scoredResults.length,
+    reprocess_required_count: reprocessRows.length,
+    extraction_failure_count: failedRows.length,
     average_f1_score_pct: averageF1,
     total_cost_usd: Number(totalCostUsd.toFixed(6)),
     average_cost_usd: queueRuns.length ? Number((totalCostUsd / queueRuns.length).toFixed(6)) : 0,
     total_latency_ms: totalLatencyMs,
     average_latency_ms: queueRuns.length ? Math.round(totalLatencyMs / queueRuns.length) : 0,
     total_extracted_picks: totalPicks,
+    reprocess_queue: reprocessRows.map(result => ({
+      episode_slug: result.candidate.id,
+      reason: result.reason,
+      command: `npm.cmd run youtube:run-futures-candidates -- --only-id ${result.candidate.id} --max-per-run 1 --run-gemini`
+    })),
+    failed_extractions: failedRows.map(result => ({
+      episode_slug: result.candidate.id,
+      reason: result.reason,
+      exit_status: result.exit_status
+    })),
     queue_runs: queueRuns
   };
 
@@ -395,6 +731,7 @@ function shouldRunGemini(candidate) {
   throw new Error(`Unsupported --gemini-scope value: ${geminiScope}. Use futures, all, or none.`);
 }
 
+async function main() {
 if (!fs.existsSync(SOURCE_CONFIG_PATH)) {
   throw new Error(`Missing source config. Run npm.cmd run youtube:discover-account first: ${SOURCE_CONFIG_PATH}`);
 }
@@ -412,14 +749,14 @@ if (scoreOnly) {
   console.log(`Rescored ${rescored.episodes.length} YouTube candidate(s).`);
   console.log(`Lane counts: ${JSON.stringify(counts)}`);
   console.log(`Saved candidates: ${CANDIDATES_PATH}`);
-  process.exit(0);
+  return;
 }
 
 if (runSavedFutures) {
   const candidates = mergeCandidates(loadExistingCandidates(), []);
-  writeJson(CANDIDATES_PATH, candidates);
   let runnable = candidates.episodes
     .filter(shouldRunGemini)
+    .filter(candidate => onlyCandidateIds.size === 0 || onlyCandidateIds.has(candidate.id))
     .sort((a, b) => (b.futures_score || 0) - (a.futures_score || 0));
   if (skipExisting) {
     const before = runnable.length;
@@ -435,23 +772,24 @@ if (runSavedFutures) {
 
   if (runGemini) {
     console.log('Running Gemini live-youtube extraction for saved candidates...');
-    const completed = [];
+    const runResults = [];
     for (const candidate of runnable) {
-      if (runGeminiForCandidate(candidate)) completed.push(candidate);
+      const runResult = runGeminiForCandidate(candidate);
+      runResults.push(runResult);
+      if (runResult.status === 'reprocess_required') {
+        console.error(`Reprocess required for ${candidate.id}: ${runResult.reason}`);
+      } else if (runResult.status === 'failed') {
+        console.error(`Extraction failed for ${candidate.id}: ${runResult.reason}`);
+      }
     }
-    const { latestPath, report } = writeGeminiBatchReport(completed, { label: 'saved-futures' });
+    const { latestPath, report } = writeGeminiBatchReport(runResults, { label: 'saved-futures' });
     console.log(`Saved aggregate Gemini batch report: ${latestPath}`);
-    console.log(`Aggregate: episodes=${report.total_episodes_evaluated} picks=${report.total_extracted_picks} cost=$${report.total_cost_usd} avg_latency=${report.average_latency_ms}ms`);
+    console.log(`Aggregate: attempted=${report.total_candidates_attempted} complete=${report.total_episodes_evaluated} reprocess=${report.reprocess_required_count} failed=${report.extraction_failure_count} picks=${report.total_extracted_picks} cost=$${report.total_cost_usd} avg_latency=${report.average_latency_ms}ms`);
+    if (report.reprocess_required_count > 0 || report.extraction_failure_count > 0) process.exitCode = 2;
   } else {
-    const existing = runnable.filter(candidate => loadObservation(candidate));
-    if (existing.length > 0) {
-      const { latestPath, report } = writeGeminiBatchReport(existing, { label: 'saved-futures' });
-      console.log(`Saved aggregate Gemini batch report from existing observations: ${latestPath}`);
-      console.log(`Aggregate: episodes=${report.total_episodes_evaluated} picks=${report.total_extracted_picks} cost=$${report.total_cost_usd} avg_latency=${report.average_latency_ms}ms`);
-    }
     console.log('Preview only. Add --run-gemini to execute live Gemini extraction calls.');
   }
-  process.exit(0);
+  return;
 }
 
 const state = loadState();
@@ -459,21 +797,43 @@ const seen = new Set(state.seen_video_ids || []);
 const cutoffMs = Date.now() - lookbackDays * 24 * 60 * 60 * 1000;
 const accessToken = await getAccessToken({ clientPath, tokenPath });
 
-const discovered = [];
-for (const channel of channels) {
-  const videos = await listChannelUploads(channel.channel_id, accessToken);
-  for (const video of videos) {
-    const publishedMs = video.published_at ? Date.parse(video.published_at) : 0;
-    if (publishedMs && publishedMs < cutoffMs) continue;
-    if (!rescan && seen.has(video.video_id)) continue;
-    if (!includeShorts && video.duration_seconds !== null && video.duration_seconds < minDurationMinutes * 60) continue;
-    if (!isNflRelevantEpisode(video.title)) continue;
-    discovered.push(toCandidate(video));
-    if (discovered.length >= maxPerRun) break;
-  }
-  if (discovered.length >= maxPerRun) break;
+const explicitVideoIds = explicitUrls.map(extractYouTubeVideoId).filter(Boolean);
+const invalidExplicitUrls = explicitUrls.filter(value => !extractYouTubeVideoId(value));
+if (invalidExplicitUrls.length > 0) {
+  console.warn(`Warning: ignored ${invalidExplicitUrls.length} URL(s) without a YouTube video id.`);
 }
 
+const explicitVideos = explicitVideoIds.length > 0
+  ? await listVideosById(explicitVideoIds, accessToken)
+  : [];
+const explicitCandidates = explicitVideos.map(video => toCandidate(video, { source: 'explicit_url' }));
+
+const playlistIds = [...new Set([
+  ...(sourceConfig.include_playlist_ids || []),
+  ...explicitPlaylistIds,
+])];
+const playlistCandidates = [];
+for (const playlistId of playlistIds) {
+  const playlistVideos = await listPlaylistVideos(playlistId, accessToken);
+  const eligible = filterSweepVideos(playlistVideos, { seen, cutoffMs })
+    .slice(0, maxPerChannel > 0 ? maxPerChannel : maxPerRun);
+  playlistCandidates.push(...eligible.map(video => toCandidate(video, { source: 'playlist' })));
+}
+
+const channelBuckets = [];
+if (!noChannelSweep) {
+  const fairPerChannelLimit = maxPerChannel > 0
+    ? maxPerChannel
+    : Math.max(1, Math.ceil(maxPerRun / Math.max(channels.length, 1)));
+  for (const channel of channels) {
+    const videos = await listChannelUploads(channel.channel_id, accessToken);
+    const eligible = filterSweepVideos(videos, { seen, cutoffMs }).slice(0, fairPerChannelLimit);
+    channelBuckets.push(eligible.map(video => toCandidate(video)));
+  }
+}
+
+const channelCandidates = noChannelSweep ? [] : roundRobinBuckets(channelBuckets, maxPerRun);
+const discovered = [...explicitCandidates, ...playlistCandidates, ...channelCandidates];
 const candidates = mergeCandidates(loadExistingCandidates(), discovered);
 writeJson(CANDIDATES_PATH, candidates);
 writeJson(STATE_PATH, {
@@ -484,21 +844,44 @@ writeJson(STATE_PATH, {
   ])]
 });
 
-console.log(`YouTube podcast sweep checked ${channels.length} channel(s).`);
+console.log(`YouTube podcast sweep checked ${noChannelSweep ? 0 : channels.length} channel(s) and ${playlistIds.length} playlist(s).`);
+console.log(`Explicit YouTube URL candidates queued: ${explicitCandidates.length}`);
 console.log(`New NFL-relevant candidate videos: ${discovered.length}`);
 console.log(`Saved candidates: ${CANDIDATES_PATH}`);
 
 if (runGemini) {
   const runnable = discovered.filter(shouldRunGemini);
   console.log(`Running Gemini live-youtube extraction for ${runnable.length} candidate(s) with scope=${geminiScope}...`);
-  const completed = [];
+  const runResults = [];
   for (const candidate of runnable) {
-    if (runGeminiForCandidate(candidate)) completed.push(candidate);
+    const runResult = runGeminiForCandidate(candidate);
+    runResults.push(runResult);
+    if (runResult.status === 'reprocess_required') {
+      console.error(`Reprocess required for ${candidate.id}: ${runResult.reason}`);
+    } else if (runResult.status === 'failed') {
+      console.error(`Extraction failed for ${candidate.id}: ${runResult.reason}`);
+    }
   }
-  const { latestPath, report } = writeGeminiBatchReport(completed, { label: 'youtube-sweep' });
+  const { latestPath, report } = writeGeminiBatchReport(runResults, { label: 'youtube-sweep' });
   console.log(`Saved aggregate Gemini batch report: ${latestPath}`);
-  console.log(`Aggregate: episodes=${report.total_episodes_evaluated} picks=${report.total_extracted_picks} cost=$${report.total_cost_usd} avg_latency=${report.average_latency_ms}ms`);
+  console.log(`Aggregate: attempted=${report.total_candidates_attempted} complete=${report.total_episodes_evaluated} reprocess=${report.reprocess_required_count} failed=${report.extraction_failure_count} picks=${report.total_extracted_picks} cost=$${report.total_cost_usd} avg_latency=${report.average_latency_ms}ms`);
+  if (report.reprocess_required_count > 0 || report.extraction_failure_count > 0) process.exitCode = 2;
 } else {
   console.log('Gemini not run. Add --run-gemini when you want live extraction calls.');
   console.log(`Futures-eligible among new candidates: ${discovered.filter(item => item.gemini_futures_eligible).length}`);
+}
+}
+
+export {
+  extractYouTubePlaylistId,
+  extractYouTubeVideoId,
+  roundRobinBuckets,
+  scoreFuturesIntel,
+};
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch(err => {
+    console.error(err.stack || err.message);
+    process.exit(1);
+  });
 }

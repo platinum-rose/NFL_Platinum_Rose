@@ -1,0 +1,755 @@
+{
+  "generated_at": "2026-07-31T18:07:23.077Z",
+  "status": "local_recovery_context_only",
+  "guardrail": "Local recovery uses saved Gemini artifacts only. It is not a clean transcript, not a usable Gemini extraction, not a production recommendation, and not an official pick source.",
+  "episode": {
+    "id": "youtube-qoCm4G2Jmng",
+    "title": "TOP 10 QUARTERBACKS: NFL Betting Experts' Rankings & Analysis of Greatest QBs For 2026 NFL Season",
+    "show": "Sharp or Square",
+    "url": "https://www.youtube.com/watch?v=qoCm4G2Jmng",
+    "date": "2026-07-28"
+  },
+  "source_observation": {
+    "reprocess_required": true,
+    "reprocess_reason": "segment semantic mismatch: later window repeated the episode intro; segment semantic mismatch: later window repeated the episode intro; segment semantic mismatch: later window repeated the episode intro",
+    "quality_flags": [
+      "incomplete_youtube_coverage",
+      "reprocess_required"
+    ],
+    "estimated_cost_usd": 0.291532
+  },
+  "recovery_summary": {
+    "segment_payloads_seen": 9,
+    "segment_payloads_with_semantic_issues": 3,
+    "raw_analysis_notes_seen": 35,
+    "deduped_analysis_notes": 35,
+    "qb_notes_recovered": 24,
+    "qb_subjects_covered": 12,
+    "expert_ranked_lists_recovered": 3,
+    "explicit_pick_like_items_seen": 5,
+    "usable_for_frontier_synthesis": false
+  },
+  "segment_audit": [
+    {
+      "index": 1,
+      "segment_start_seconds": 0,
+      "segment_end_seconds": 420,
+      "last_analyzed_timestamp": 420,
+      "reached_end_of_video": false,
+      "speaker_segment_count": 8,
+      "extracted_pick_count": 0,
+      "analysis_note_count": 1,
+      "semantic_issue": null,
+      "first_text_preview": "[Intro music]"
+    },
+    {
+      "index": 2,
+      "segment_start_seconds": 420,
+      "segment_end_seconds": 840,
+      "last_analyzed_timestamp": 840,
+      "reached_end_of_video": false,
+      "speaker_segment_count": 8,
+      "extracted_pick_count": 4,
+      "analysis_note_count": 1,
+      "semantic_issue": null,
+      "first_text_preview": "Just so everyone's aware, Chad thinks a man that invented the most genius war strategies in the history of humankind that we are still talking about 3,000 years"
+    },
+    {
+      "index": 3,
+      "segment_start_seconds": 840,
+      "segment_end_seconds": 1260,
+      "last_analyzed_timestamp": 1260,
+      "reached_end_of_video": false,
+      "speaker_segment_count": 10,
+      "extracted_pick_count": 1,
+      "analysis_note_count": 14,
+      "semantic_issue": null,
+      "first_text_preview": "Chad, I don't know how we're going to maintain the title of the most literate sports betting podcast when you treat Odysseus like he's fired Eagles coordinator "
+    },
+    {
+      "index": 4,
+      "segment_start_seconds": 1260,
+      "segment_end_seconds": 1680,
+      "last_analyzed_timestamp": 1680,
+      "reached_end_of_video": false,
+      "speaker_segment_count": 7,
+      "extracted_pick_count": 0,
+      "analysis_note_count": 2,
+      "semantic_issue": null,
+      "first_text_preview": "My nickname, as you know Simon, was Dr. C because I loved Dr. J so much. I can still to this day name not just the starting lineup for the 1983 76ers, I think I"
+    },
+    {
+      "index": 5,
+      "segment_start_seconds": 1680,
+      "segment_end_seconds": 2100,
+      "last_analyzed_timestamp": 2100,
+      "reached_end_of_video": false,
+      "speaker_segment_count": 7,
+      "extracted_pick_count": 0,
+      "analysis_note_count": 2,
+      "semantic_issue": null,
+      "first_text_preview": "Simon Hunter, hello Simon!"
+    },
+    {
+      "index": 6,
+      "segment_start_seconds": 2100,
+      "segment_end_seconds": 2520,
+      "last_analyzed_timestamp": 2516,
+      "reached_end_of_video": false,
+      "speaker_segment_count": 12,
+      "extracted_pick_count": 0,
+      "analysis_note_count": 5,
+      "semantic_issue": "possible_repeated_intro",
+      "first_text_preview": "Welcome to Sharp or Square presented by Hard Rock Bet. We are part of the Volume podcast network. This is the show that makes the squares sharper and makes the "
+    },
+    {
+      "index": 7,
+      "segment_start_seconds": 2520,
+      "segment_end_seconds": 2940,
+      "last_analyzed_timestamp": 2937,
+      "reached_end_of_video": false,
+      "speaker_segment_count": 8,
+      "extracted_pick_count": 0,
+      "analysis_note_count": 6,
+      "semantic_issue": "possible_repeated_intro",
+      "first_text_preview": "Welcome to Sharp or Square presented by Hard Rock Bet. We are part of the Volume Podcast Network. This is the show that makes the squares sharper and makes the "
+    },
+    {
+      "index": 8,
+      "segment_start_seconds": 2940,
+      "segment_end_seconds": 3360,
+      "last_analyzed_timestamp": 3360,
+      "reached_end_of_video": true,
+      "speaker_segment_count": 12,
+      "extracted_pick_count": 0,
+      "analysis_note_count": 2,
+      "semantic_issue": "possible_repeated_intro",
+      "first_text_preview": "Welcome to Sharp or Square presented by Hard Rock Bet. We are part of the Volume Podcast Network. This is the show that makes the squares sharper and makes the "
+    },
+    {
+      "index": 9,
+      "segment_start_seconds": 3360,
+      "segment_end_seconds": 3417,
+      "last_analyzed_timestamp": 3417,
+      "reached_end_of_video": true,
+      "speaker_segment_count": 3,
+      "extracted_pick_count": 0,
+      "analysis_note_count": 2,
+      "semantic_issue": null,
+      "first_text_preview": "...quarterback with any type of pass rush, and just understanding the degree of difficulty these guys operate at. This position, it's just absolutely insane the"
+    }
+  ],
+  "expert_ranked_lists": [
+    {
+      "speaker": "Chad Millman",
+      "topic": "Chad Millman's Top 10 NFL QB Rankings",
+      "source_timestamp": 2443,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2443s",
+      "recovery_source": "segment_6_2100_2520",
+      "summary": "Chad Millman reveals his full ranked list of quarterbacks: 1. Josh Allen, 2. Lamar Jackson, 3. Patrick Mahomes, 4. Joe Burrow, 5. Drake Maye, 6. Matthew Stafford, 7. Jordan Love, 8. Dak Prescott, 9. Justin Herbert, 10. Caleb Williams.",
+      "ranks": [
+        {
+          "rank": 1,
+          "player": "Josh Allen",
+          "team": "BUF"
+        },
+        {
+          "rank": 2,
+          "player": "Lamar Jackson",
+          "team": "BAL"
+        },
+        {
+          "rank": 3,
+          "player": "Patrick Mahomes",
+          "team": "KC"
+        },
+        {
+          "rank": 4,
+          "player": "Joe Burrow",
+          "team": "CIN"
+        },
+        {
+          "rank": 5,
+          "player": "Drake Maye",
+          "team": "NE"
+        },
+        {
+          "rank": 6,
+          "player": "Matthew Stafford",
+          "team": "LAR"
+        },
+        {
+          "rank": 7,
+          "player": "Jordan Love",
+          "team": "GB"
+        },
+        {
+          "rank": 8,
+          "player": "Dak Prescott",
+          "team": "DAL"
+        },
+        {
+          "rank": 9,
+          "player": "Justin Herbert",
+          "team": "LAC"
+        },
+        {
+          "rank": 10,
+          "player": "Caleb Williams",
+          "team": "CHI"
+        }
+      ]
+    },
+    {
+      "speaker": "Simon Hunter",
+      "topic": "Simon Hunter's Top 10 NFL QB Rankings",
+      "source_timestamp": 2443,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2443s",
+      "recovery_source": "segment_6_2100_2520",
+      "summary": "Simon Hunter's full ranked list of quarterbacks: 1. Patrick Mahomes, 2. Matthew Stafford, 3. Jalen Hurts, 4. Josh Allen, 5. Lamar Jackson, 6. Joe Burrow, 7. Dak Prescott, 8. Baker Mayfield, 9. Justin Herbert, 10. Caleb Williams.",
+      "ranks": [
+        {
+          "rank": 1,
+          "player": "Patrick Mahomes",
+          "team": "KC"
+        },
+        {
+          "rank": 2,
+          "player": "Matthew Stafford",
+          "team": "LAR"
+        },
+        {
+          "rank": 3,
+          "player": "Jalen Hurts",
+          "team": "PHI"
+        },
+        {
+          "rank": 4,
+          "player": "Josh Allen",
+          "team": "BUF"
+        },
+        {
+          "rank": 5,
+          "player": "Lamar Jackson",
+          "team": "BAL"
+        },
+        {
+          "rank": 6,
+          "player": "Joe Burrow",
+          "team": "CIN"
+        },
+        {
+          "rank": 7,
+          "player": "Dak Prescott",
+          "team": "DAL"
+        },
+        {
+          "rank": 8,
+          "player": "Baker Mayfield",
+          "team": "TB"
+        },
+        {
+          "rank": 9,
+          "player": "Justin Herbert",
+          "team": "LAC"
+        },
+        {
+          "rank": 10,
+          "player": "Caleb Williams",
+          "team": "CHI"
+        }
+      ]
+    },
+    {
+      "speaker": "Rich Hribar",
+      "topic": "Rich Hribar's Corrected Top 10 NFL QB Rankings",
+      "source_timestamp": 2403,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2403s",
+      "recovery_source": "segment_6_2100_2520",
+      "summary": "Rich Hribar outlines his corrected list of top QBs after noting he accidentally overlooked Drake Maye on his initial sheet: 1. Josh Allen, 2. Joe Burrow, 3. Lamar Jackson, 4. Justin Herbert, 5. Patrick Mahomes, 6. Matthew Stafford, 7. Drake Maye, 8. Dak Prescott, 9. Jalen Hurts, 10. Brock Purdy.",
+      "ranks": [
+        {
+          "rank": 1,
+          "player": "Josh Allen",
+          "team": "BUF"
+        },
+        {
+          "rank": 2,
+          "player": "Joe Burrow",
+          "team": "CIN"
+        },
+        {
+          "rank": 3,
+          "player": "Lamar Jackson",
+          "team": "BAL"
+        },
+        {
+          "rank": 4,
+          "player": "Justin Herbert",
+          "team": "LAC"
+        },
+        {
+          "rank": 5,
+          "player": "Patrick Mahomes",
+          "team": "KC"
+        },
+        {
+          "rank": 6,
+          "player": "Matthew Stafford",
+          "team": "LAR"
+        },
+        {
+          "rank": 7,
+          "player": "Drake Maye",
+          "team": "NE"
+        },
+        {
+          "rank": 8,
+          "player": "Dak Prescott",
+          "team": "DAL"
+        },
+        {
+          "rank": 9,
+          "player": "Jalen Hurts",
+          "team": "PHI"
+        },
+        {
+          "rank": 10,
+          "player": "Brock Purdy",
+          "team": "SF"
+        }
+      ]
+    }
+  ],
+  "qb_subjects_covered": [
+    {
+      "player": "Caleb Williams",
+      "team": "CHI"
+    },
+    {
+      "player": "Justin Herbert",
+      "team": "LAC"
+    },
+    {
+      "player": "Dak Prescott",
+      "team": "DAL"
+    },
+    {
+      "player": "Jordan Love",
+      "team": "GB"
+    },
+    {
+      "player": "Matthew Stafford",
+      "team": "LAR"
+    },
+    {
+      "player": "Drake Maye",
+      "team": "NE"
+    },
+    {
+      "player": "Joe Burrow",
+      "team": "CIN"
+    },
+    {
+      "player": "Patrick Mahomes",
+      "team": "KC"
+    },
+    {
+      "player": "Lamar Jackson",
+      "team": "BAL"
+    },
+    {
+      "player": "Josh Allen",
+      "team": "BUF"
+    },
+    {
+      "player": "Brock Purdy",
+      "team": "SF"
+    },
+    {
+      "player": "Jalen Hurts",
+      "team": "PHI"
+    }
+  ],
+  "recovered_qb_notes": [
+    {
+      "player": "Caleb Williams",
+      "team": "CHI",
+      "note_type": "player_evaluation",
+      "topic": "Chad's QBs - Rank 10: Caleb Williams",
+      "summary": "Chad Millman ranks Caleb Williams as his #10 quarterback. He notes that he loves Caleb Williams under offensive coordinator Ben Johnson (referencing a parody/swapped coaching name in the audio).",
+      "speaker": "Chad Millman",
+      "source_timestamp": 1200,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=1200s",
+      "quote": "No surprise I went with Caleb Williams... I love Caleb with Ben Johnson.",
+      "confidence": "stated",
+      "recovery_source": "segment_3_840_1260"
+    },
+    {
+      "player": "Justin Herbert",
+      "team": "LAC",
+      "note_type": "player_evaluation",
+      "topic": "Chad's QBs - Rank 9: Justin Herbert",
+      "summary": "Chad ranks Justin Herbert as his #9 quarterback.",
+      "speaker": "Chad Millman",
+      "source_timestamp": 1210,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=1210s",
+      "quote": "At number 9, Justin Herbert.",
+      "confidence": "stated",
+      "recovery_source": "segment_3_840_1260"
+    },
+    {
+      "player": "Dak Prescott",
+      "team": "DAL",
+      "note_type": "player_evaluation",
+      "topic": "Chad's QBs - Rank 8: Dak Prescott",
+      "summary": "Chad ranks Dak Prescott as his #8 quarterback, noting he is very high on the Dallas Cowboys this season.",
+      "speaker": "Chad Millman",
+      "source_timestamp": 1212,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=1212s",
+      "quote": "At number 8, Dak Prescott. I'm really high on the Cowboys this year.",
+      "confidence": "stated",
+      "recovery_source": "segment_3_840_1260"
+    },
+    {
+      "player": "Jordan Love",
+      "team": "GB",
+      "note_type": "player_evaluation",
+      "topic": "Chad's QBs - Rank 7: Jordan Love",
+      "summary": "Chad ranks Jordan Love at #7, citing a stat from Bill Barnwell that since the second half of 2023, Love has the best QBR and the fewest interceptions in the NFL.",
+      "speaker": "Chad Millman",
+      "source_timestamp": 1215,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=1215s",
+      "quote": "At number 7, Jordan Love... Jordan Love has the best QBR in the NFL. He has the fewest interceptions.",
+      "confidence": "stated",
+      "recovery_source": "segment_3_840_1260"
+    },
+    {
+      "player": "Matthew Stafford",
+      "team": "LAR",
+      "note_type": "player_evaluation",
+      "topic": "Chad's QBs - Rank 6: Matthew Stafford",
+      "summary": "Chad ranks Matthew Stafford at #6.",
+      "speaker": "Chad Millman",
+      "source_timestamp": 1219,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=1219s",
+      "quote": "Six, Stafford.",
+      "confidence": "stated",
+      "recovery_source": "segment_3_840_1260"
+    },
+    {
+      "player": "Drake Maye",
+      "team": "NE",
+      "note_type": "player_evaluation",
+      "topic": "Chad's QBs - Rank 5: Drake Maye (Jalen Hurts)",
+      "summary": "Chad ranks Jalen Hurts (parodied/referred to as Drake Maye in the audio) at #5, mentioning that AJ Brown could make him better.",
+      "speaker": "Chad Millman",
+      "source_timestamp": 1221,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=1221s",
+      "quote": "Five, Drake Maye... AJ Brown could make him a little better.",
+      "confidence": "stated",
+      "recovery_source": "segment_3_840_1260"
+    },
+    {
+      "player": "Joe Burrow",
+      "team": "CIN",
+      "note_type": "player_evaluation",
+      "topic": "Chad's QBs - Rank 4: Joe Burrow",
+      "summary": "Chad ranks Joe Burrow at #4.",
+      "speaker": "Chad Millman",
+      "source_timestamp": 1223,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=1223s",
+      "quote": "Four Burrow.",
+      "confidence": "stated",
+      "recovery_source": "segment_3_840_1260"
+    },
+    {
+      "player": "Patrick Mahomes",
+      "team": "KC",
+      "note_type": "player_evaluation",
+      "topic": "Chad's QBs - Rank 3: Patrick Mahomes",
+      "summary": "Chad ranks Patrick Mahomes at #3.",
+      "speaker": "Chad Millman",
+      "source_timestamp": 1224,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=1224s",
+      "quote": "Three Mahomes.",
+      "confidence": "stated",
+      "recovery_source": "segment_3_840_1260"
+    },
+    {
+      "player": "Lamar Jackson",
+      "team": "BAL",
+      "note_type": "player_evaluation",
+      "topic": "Chad's QBs - Rank 2: Lamar Jackson",
+      "summary": "Chad ranks Lamar Jackson at #2.",
+      "speaker": "Chad Millman",
+      "source_timestamp": 1225,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=1225s",
+      "quote": "Two Lamar.",
+      "confidence": "stated",
+      "recovery_source": "segment_3_840_1260"
+    },
+    {
+      "player": "Josh Allen",
+      "team": "BUF",
+      "note_type": "player_evaluation",
+      "topic": "Chad's QBs - Rank 1: Josh Allen",
+      "summary": "Chad ranks Josh Allen at #1, noting that his top 4 guys are all coming off somewhat imperfect years but are still the class of the NFL.",
+      "speaker": "Chad Millman",
+      "source_timestamp": 1226,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=1226s",
+      "quote": "One Josh Allen.",
+      "confidence": "stated",
+      "recovery_source": "segment_3_840_1260"
+    },
+    {
+      "player": "Brock Purdy",
+      "team": "SF",
+      "note_type": "player_evaluation",
+      "topic": "Rich's QBs - Rank 10: Brock Purdy",
+      "summary": "Rich Hribar ranks Brock Purdy at #10, defending him against the 'system quarterback' label. He points out Purdy's high off-script creation and high production despite key weapons missing games.",
+      "speaker": "Rich Hribar",
+      "source_timestamp": 1235,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=1235s",
+      "quote": "At 10, I have Brock Purdy... He creates so much more off-script than any guy that Shanahan's had.",
+      "confidence": "stated",
+      "recovery_source": "segment_3_840_1260"
+    },
+    {
+      "player": "Jalen Hurts",
+      "team": "PHI",
+      "note_type": "player_evaluation",
+      "topic": "Rich's QBs - Rank 9: Jalen Hurts",
+      "summary": "Rich ranks Jalen Hurts at #9. He notes Hurts is at a fulcrum point, loses AJ Brown (parody/weird statement in the audio), has never played under center, and has to adjust to a new offensive system.",
+      "speaker": "Rich Hribar",
+      "source_timestamp": 1245,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=1245s",
+      "quote": "Nine is where I have Jalen Hurts... It feels weird that he's at a fulcrum point... He loses AJ Brown... He's never played under center.",
+      "confidence": "stated",
+      "recovery_source": "segment_3_840_1260"
+    },
+    {
+      "player": "Dak Prescott",
+      "team": "DAL",
+      "note_type": "player_evaluation",
+      "topic": "Rich's QBs - Rank 8: Dak Prescott",
+      "summary": "Rich ranks Dak Prescott at #8.",
+      "speaker": "Rich Hribar",
+      "source_timestamp": 1256,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=1256s",
+      "quote": "Then I have Dak.",
+      "confidence": "stated",
+      "recovery_source": "segment_3_840_1260"
+    },
+    {
+      "player": "Drake Maye",
+      "team": "NE",
+      "note_type": "player_evaluation",
+      "topic": "Rich's QBs - Rank 7: Drake Maye",
+      "summary": "Rich ranks Drake Maye (likely referencing Jalen Hurts or another parody-swapped name) at #7.",
+      "speaker": "Rich Hribar",
+      "source_timestamp": 1257,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=1257s",
+      "quote": "Then I have Drake Maye... I still couldn't put Maye over Stafford.",
+      "confidence": "stated",
+      "recovery_source": "segment_3_840_1260"
+    },
+    {
+      "player": "Brock Purdy",
+      "team": "SF",
+      "note_type": "player_evaluation",
+      "topic": "Rich Hribar's Corrected Top 10 NFL QB Rankings",
+      "summary": "Rich Hribar outlines his corrected list of top QBs after noting he accidentally overlooked Drake Maye on his initial sheet: 1. Josh Allen, 2. Joe Burrow, 3. Lamar Jackson, 4. Justin Herbert, 5. Patrick Mahomes, 6. Matthew Stafford, 7. Drake Maye, 8. Dak Prescott, 9. Jalen Hurts, 10. Brock Purdy.",
+      "speaker": "Rich Hribar",
+      "source_timestamp": 2403,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2403s",
+      "quote": "I actually just realized I left a complete player off... I totally missed like a big blind spot.",
+      "confidence": "stated",
+      "recovery_source": "segment_6_2100_2520"
+    },
+    {
+      "player": "Caleb Williams",
+      "team": "CHI",
+      "note_type": "player_evaluation",
+      "topic": "Chad Millman's Top 10 NFL QB Rankings",
+      "summary": "Chad Millman reveals his full ranked list of quarterbacks: 1. Josh Allen, 2. Lamar Jackson, 3. Patrick Mahomes, 4. Joe Burrow, 5. Drake Maye, 6. Matthew Stafford, 7. Jordan Love, 8. Dak Prescott, 9. Justin Herbert, 10. Caleb Williams.",
+      "speaker": "Chad Millman",
+      "source_timestamp": 2443,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2443s",
+      "quote": "We're going to go from 10 to 1.",
+      "confidence": "stated",
+      "recovery_source": "segment_6_2100_2520"
+    },
+    {
+      "player": "Caleb Williams",
+      "team": "CHI",
+      "note_type": "player_evaluation",
+      "topic": "Simon Hunter's Top 10 NFL QB Rankings",
+      "summary": "Simon Hunter's full ranked list of quarterbacks: 1. Patrick Mahomes, 2. Matthew Stafford, 3. Jalen Hurts, 4. Josh Allen, 5. Lamar Jackson, 6. Joe Burrow, 7. Dak Prescott, 8. Baker Mayfield, 9. Justin Herbert, 10. Caleb Williams.",
+      "speaker": "Simon Hunter",
+      "source_timestamp": 2443,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2443s",
+      "quote": "",
+      "confidence": "stated",
+      "recovery_source": "segment_6_2100_2520"
+    },
+    {
+      "player": "Caleb Williams",
+      "team": "CHI",
+      "note_type": "player_evaluation",
+      "topic": "Caleb Williams Ranked #10 by Chad Millman",
+      "summary": "Chad Millman defends ranking Caleb Williams at #10, over Brock Purdy, citing high hopes for Williams under OC Shane Waldron (parodied as Ben Johnson) and pointing to his exceptional natural talent.",
+      "speaker": "Chad Millman",
+      "source_timestamp": 2474,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2474s",
+      "quote": "It came down to Brock Purdy and Caleb Williams for number 10. No surprise, I went with Caleb Williams.",
+      "confidence": "stated",
+      "recovery_source": "segment_6_2100_2520"
+    },
+    {
+      "player": "Brock Purdy",
+      "team": "SF",
+      "note_type": "player_evaluation",
+      "topic": "Brock Purdy Left Off Lists",
+      "summary": "Chad Millman explains why he left Brock Purdy out of his top 10 despite Purdy qualifying in key efficiency metrics like EPA per dropback and success rate, choosing rookie Caleb Williams over him.",
+      "speaker": "Chad Millman",
+      "source_timestamp": 2474,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2474s",
+      "quote": "I was really upset that one of the quarterbacks on that list I ultimately decided was going to be out of my top 10, and that was Brock Purdy.",
+      "confidence": "stated",
+      "recovery_source": "segment_6_2100_2520"
+    },
+    {
+      "player": "Caleb Williams",
+      "team": "CHI",
+      "note_type": "player_evaluation",
+      "topic": "Chad Millman's QB Rank #10: Caleb Williams",
+      "summary": "Chad ranked Bears QB Caleb Williams at #10 in his top 10 NFL QBs list, preferring him over Brock Purdy. He noted his faith in Williams' pairing with offensive coordinator Ben Johnson (the dubbed voiceover refers to 'Ben Johnson' as the dog coordinator who won't let him regress) and Williams' elite natural talent.",
+      "speaker": "Chad Millman",
+      "source_timestamp": 2919,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2919s",
+      "quote": "I went with Caleb Williams... because I love Caleb with Ben Johnson. I think Ben Johnson is a dog, and I don't think he's going to let Caleb regress.",
+      "confidence": "stated",
+      "recovery_source": "segment_7_2520_2940"
+    },
+    {
+      "player": "Brock Purdy",
+      "team": "SF",
+      "note_type": "player_evaluation",
+      "topic": "Chad Millman leaving Brock Purdy out of his Top 10 QBs",
+      "summary": "Chad explained that he narrowly left 49ers QB Brock Purdy off his top 10 list (leaving him at #11) despite Purdy ranking top four in EPA per dropback and success rate, citing concerns over Purdy's injuries and the supreme talent surrounding him.",
+      "speaker": "Chad Millman",
+      "source_timestamp": 2919,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2919s",
+      "quote": "I was really upset that one of the quarterbacks on that list I ultimately decided was going to be out of my top 10, and that was Brock Purdy.",
+      "confidence": "stated",
+      "recovery_source": "segment_7_2520_2940"
+    },
+    {
+      "player": "Justin Herbert",
+      "team": "LAC",
+      "note_type": "player_evaluation",
+      "topic": "Chad Millman's QB Rank #9: Justin Herbert",
+      "summary": "Chad ranked Chargers QB Justin Herbert at #9 in his top 10 list, noting that Herbert is a consensus pick who appears on all three of the hosts' lists.",
+      "speaker": "Chad Millman",
+      "source_timestamp": 2919,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2919s",
+      "quote": "At number 9: Justin Herbert. Justin Herbert, and Justin Herbert does appear on all of our lists.",
+      "confidence": "stated",
+      "recovery_source": "segment_7_2520_2940"
+    },
+    {
+      "player": "Matthew Stafford",
+      "team": "LAR",
+      "note_type": "player_evaluation",
+      "topic": "Matthew Stafford's prior year MVP and rankings controversy",
+      "summary": "Simon and Chad recalled last year's ranking controversy where Simon ranked Matthew Stafford at #5 and Chad left him off his top 10 entirely, right before Stafford went on to have a career year and win the NFL MVP award.",
+      "speaker": "Simon Hunter",
+      "source_timestamp": 2919,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2919s",
+      "quote": "Not only did Stafford have a career year, he won the MVP last year, people. The year Chad left him off his top 10 list.",
+      "confidence": "stated",
+      "recovery_source": "segment_7_2520_2940"
+    },
+    {
+      "player": "Dak Prescott",
+      "team": "DAL",
+      "note_type": "player_evaluation",
+      "topic": "Dak Prescott consensus among hosts",
+      "summary": "Chad pointed out that Simon was the only host to place Dak Prescott on his 2025 QB list.",
+      "speaker": "Chad Millman",
+      "source_timestamp": 2919,
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2919s",
+      "quote": "Simon is the only guy with Dak Prescott on his 2025 list.",
+      "confidence": "stated",
+      "recovery_source": "segment_7_2520_2940"
+    }
+  ],
+  "explicit_pick_like_items": [
+    {
+      "team": "CWS",
+      "player": null,
+      "market": "moneyline",
+      "side": "CWS",
+      "line": null,
+      "price": null,
+      "week": null,
+      "speaker": "Matt Mitchell",
+      "source_timestamp": 697,
+      "rationale": "Betting on the White Sox moneyline for father-in-law's birthday as he loves the team.",
+      "recovery_source": "segment_2_420_840"
+    },
+    {
+      "team": "CWS",
+      "player": null,
+      "market": "run_line",
+      "side": "CWS",
+      "line": null,
+      "price": null,
+      "week": null,
+      "speaker": "Matt Mitchell",
+      "source_timestamp": 720,
+      "rationale": "Diversifying birthday bets with the White Sox run line.",
+      "recovery_source": "segment_2_420_840"
+    },
+    {
+      "team": "CWS",
+      "player": null,
+      "market": "team_total",
+      "side": "CWS",
+      "line": 3,
+      "price": null,
+      "week": null,
+      "speaker": "Matt Mitchell",
+      "source_timestamp": 720,
+      "rationale": "Prop bet on White Sox to reach 3 runs first.",
+      "recovery_source": "segment_2_420_840"
+    },
+    {
+      "team": "CWS",
+      "player": "Murakami",
+      "market": "to_hit_home_run",
+      "side": "YES",
+      "line": null,
+      "price": null,
+      "week": null,
+      "speaker": "Matt Mitchell",
+      "source_timestamp": 720,
+      "rationale": "Home run prop bet on White Sox rookie Murakami.",
+      "recovery_source": "segment_2_420_840"
+    },
+    {
+      "team": "PHI",
+      "player": "Jalen Hurts",
+      "market": "mvp",
+      "side": "YES",
+      "line": null,
+      "price": null,
+      "week": null,
+      "speaker": "Simon Hunter",
+      "source_timestamp": 1258,
+      "rationale": "Simon advises listeners to bet Jalen Hurts to win MVP because Chad left him out of his top 10, which historically triggers a Super Bowl/MVP-caliber run.",
+      "recovery_source": "segment_3_840_1260"
+    }
+  ]
+}

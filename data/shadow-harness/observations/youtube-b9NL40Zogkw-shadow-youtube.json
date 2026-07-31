@@ -176,5 +176,10 @@
       "speaker": null,
       "source_timestamp": null
     }
-  }
+  },
+  "reprocess_required": true,
+  "reprocess_reason": "ranked QB list coverage incomplete: raw transcript references 13 QB subjects; but structured picks/notes cover 5; missing Josh Allen, Patrick Mahomes, Dak Prescott, Justin Herbert, Baker Mayfield, Trevor Lawrence, Jared Goff, Sam Darnold",
+  "quality_flags": [
+    "ranked_qb_list_coverage_incomplete"
+  ]
 }

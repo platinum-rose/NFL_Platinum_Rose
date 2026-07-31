@@ -47,14 +47,88 @@ const NOTE_TYPE_TAG_MAP = {
   market_sentiment: ['market_context'],
   other: ['market_context']
 };
+const QB_LIST_SUBJECTS = [
+  ['Josh Allen', ['Josh Allen', 'Allen']],
+  ['Lamar Jackson', ['Lamar Jackson', 'Lamar']],
+  ['Joe Burrow', ['Joe Burrow', 'Burrow']],
+  ['Patrick Mahomes', ['Patrick Mahomes', 'Mahomes']],
+  ['Matthew Stafford', ['Matthew Stafford', 'Stafford']],
+  ['Drake Maye', ['Drake Maye', 'Maye']],
+  ['Dak Prescott', ['Dak Prescott', 'Dak']],
+  ['Jordan Love', ['Jordan Love']],
+  ['Justin Herbert', ['Justin Herbert', 'Herbert']],
+  ['Caleb Williams', ['Caleb Williams']],
+  ['Brock Purdy', ['Brock Purdy', 'Purdy']],
+  ['Jalen Hurts', ['Jalen Hurts', 'Hurts']],
+  ['Baker Mayfield', ['Baker Mayfield', 'Baker']],
+  ['Trevor Lawrence', ['Trevor Lawrence']],
+  ['Jared Goff', ['Jared Goff', 'Goff']],
+  ['Sam Darnold', ['Sam Darnold', 'Darnold']]
+];
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
 }
 
+function parseRawModelResponse(observation) {
+  const raw = observation?.run?.raw_model_response || observation?.raw_model_response;
+  if (!raw) return null;
+  if (typeof raw === 'object') return raw;
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+function textHasAlias(text, alias) {
+  const escaped = alias.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+');
+  return new RegExp(`\\b${escaped}\\b`, 'i').test(text);
+}
+
+function rankedQbCompletenessIssue(candidate, observation) {
+  const title = String(candidate.title || '');
+  if (!/\btop\s*10\b/i.test(title) || !/\b(qbs?|quarterbacks?)\b/i.test(title)) return null;
+
+  const payload = parseRawModelResponse(observation);
+  const speakerSegments = payload?.speaker_segments || [];
+  const transcriptText = speakerSegments.map(segment => segment.text || '').join('\n');
+  if (!transcriptText.trim()) return null;
+
+  const structuredText = JSON.stringify({
+    extracted_picks: observation?.run?.extracted_picks || [],
+    analysis_notes: observation?.run?.analysis_notes || []
+  });
+
+  const discussedSubjects = QB_LIST_SUBJECTS
+    .filter(([, aliases]) => aliases.some(alias => textHasAlias(transcriptText, alias)))
+    .map(([name]) => name);
+  const structuredSubjects = QB_LIST_SUBJECTS
+    .filter(([, aliases]) => aliases.some(alias => textHasAlias(structuredText, alias)))
+    .map(([name]) => name);
+
+  if (discussedSubjects.length < 10) return null;
+  const requiredStructuredSubjects = Math.max(8, Math.ceil(discussedSubjects.length * 0.75));
+  if (structuredSubjects.length >= requiredStructuredSubjects) return null;
+
+  const missingSubjects = discussedSubjects.filter(name => !structuredSubjects.includes(name));
+  return [
+    `ranked QB list coverage incomplete: raw transcript references ${discussedSubjects.length} QB subjects`,
+    `but structured picks/notes cover ${structuredSubjects.length}`,
+    `missing ${missingSubjects.slice(0, 10).join(', ')}`
+  ].join('; ');
+}
+
 function writeJson(filePath, payload) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, JSON.stringify(payload, null, 2));
+  const tmpPath = `${filePath}.${process.pid}.tmp`;
+  fs.writeFileSync(tmpPath, JSON.stringify(payload, null, 2));
+  try {
+    fs.renameSync(tmpPath, filePath);
+  } catch (err) {
+    fs.rmSync(tmpPath, { force: true });
+    throw err;
+  }
 }
 
 function normalizeMarket(raw) {
@@ -321,15 +395,55 @@ function noteReviewFlags(note) {
   return flags;
 }
 
+function observationReprocessReason(candidate, observation) {
+  if (observation?.reprocess_required === true) {
+    return observation.reprocess_reason || 'Gemini coverage was incomplete.';
+  }
+
+  const knownDuration = Number(candidate.duration_seconds || 0);
+  const coverage = observation?.run?.coverage_assessment || observation?.coverage_assessment || {};
+  if (coverage.suspected_incomplete === true) {
+    return coverage.reason || 'Gemini coverage was incomplete.';
+  }
+  if (!knownDuration) return null;
+
+  const durationUsed = Number(coverage.duration_used_for_check || 0);
+  if (durationUsed > 0 && durationUsed < knownDuration * 0.85) {
+    return `coverage check used ${durationUsed}s, but YouTube metadata says the video is ${knownDuration}s`;
+  }
+  const lastCovered = Number(coverage.last_covered_timestamp || 0);
+  if (lastCovered > 0 && lastCovered < knownDuration * 0.85) {
+    return `last covered timestamp ${lastCovered}s is short of known video duration ${knownDuration}s`;
+  }
+  const rankedListIssue = rankedQbCompletenessIssue(candidate, observation);
+  if (rankedListIssue) return rankedListIssue;
+  return null;
+}
+
+function persistObservationReprocess(obsPath, observation, reason) {
+  if (!reason || observation?.reprocess_required === true) return;
+  observation.reprocess_required = true;
+  observation.reprocess_reason = reason;
+  observation.quality_flags = [...new Set([
+    ...(observation.quality_flags || []),
+    reason.includes('ranked QB list coverage incomplete') ? 'ranked_qb_list_coverage_incomplete' : 'reprocess_required'
+  ])];
+  writeJson(obsPath, observation);
+}
+
 function loadObservation(candidate) {
   const obsPath = path.join(OBS_DIR, `${candidate.id}-shadow-youtube.json`);
   if (!fs.existsSync(obsPath)) return null;
   const observation = readJson(obsPath);
+  const reprocessReason = observationReprocessReason(candidate, observation);
+  persistObservationReprocess(obsPath, observation, reprocessReason);
   const picks = (observation.run?.extracted_picks || []).map(normalizePick);
   const notes = (observation.run?.analysis_notes || []).map(normalizeNote);
   return {
     candidate,
     observation,
+    reprocessRequired: Boolean(reprocessReason),
+    reprocessReason,
     humanVerification: observation.human_verification || null,
     picks,
     notes,
@@ -431,9 +545,11 @@ const futuresCandidates = candidates
   .sort((a, b) => (b.futures_score || 0) - (a.futures_score || 0));
 const rows = futuresCandidates.map(loadObservation).filter(Boolean);
 const missing = futuresCandidates.filter(candidate => !fs.existsSync(path.join(OBS_DIR, `${candidate.id}-shadow-youtube.json`)));
+const reprocessRows = rows.filter(row => row.reprocessRequired);
+const usableRows = rows.filter(row => !row.reprocessRequired);
 
 const allPicks = [];
-for (const row of rows) {
+for (const row of usableRows) {
   const quoteAssignments = assignQuotesForRow(row);
   row.picks.forEach((pick, pickIndex) => {
     const supportingQuote = quoteAssignments[pickIndex];
@@ -471,7 +587,7 @@ for (const pick of allPicks) {
 }
 
 const allNotes = [];
-for (const row of rows) {
+for (const row of usableRows) {
   for (const note of row.notes) {
     const rowNote = {
       episode_id: row.candidate.id,
@@ -524,6 +640,8 @@ const summary = {
   guardrail: 'This local shadow-harness track requires human review before anything is treated as a real pick. For actual production promotion, see podcast_gemini_intel (migration 045) and agents/podcast-gemini-intel.js --promote (docs/PODCAST_HOLISTIC_INTEL_EXTRACTION_PLAN.md Phase 5) -- a separate, real review gate this local JSON file does not itself enforce.',
   futures_candidates: futuresCandidates.length,
   observed_episodes: rows.length,
+  usable_observed_episodes: usableRows.length,
+  reprocess_required_observations: reprocessRows.length,
   missing_observations: missing.length,
   total_extracted_picks: allPicks.length,
   flagged_picks: allPicks.filter(pick => pick.review_flags.length > 0).length,
@@ -541,7 +659,15 @@ const summary = {
 const report = {
   ...summary,
   missing,
-  episodes: rows.map(row => ({
+  reprocess_required: reprocessRows.map(row => ({
+    id: row.candidate.id,
+    show: row.candidate.show,
+    title: row.candidate.title,
+    url: row.candidate.url,
+    reason: row.reprocessReason || 'Gemini coverage was incomplete.',
+    coverage_assessment: row.observation.run?.coverage_assessment || null
+  })),
+  episodes: usableRows.map(row => ({
     id: row.candidate.id,
     show: row.candidate.show,
     title: row.candidate.title,
@@ -574,6 +700,8 @@ const lines = [
   '',
   `- Futures candidates: ${summary.futures_candidates}`,
   `- Observed episodes: ${summary.observed_episodes}`,
+  `- Usable observed episodes: ${summary.usable_observed_episodes}`,
+  `- Reprocess-required observations: ${summary.reprocess_required_observations}`,
   `- Missing observations: ${summary.missing_observations}`,
   `- Extracted picks/leads: ${summary.total_extracted_picks}`,
   `- Flagged picks/leads: ${summary.flagged_picks}`,
@@ -631,8 +759,18 @@ if (missing.length > 0) {
   for (const item of missing) lines.push(`- ${item.id}: ${item.title} (${item.url})`);
 }
 
+if (report.reprocess_required.length > 0) {
+  lines.push('', '## Reprocess Required', '');
+  lines.push('These observations were saved for auditability but are excluded from extracted picks/notes until reprocessed.');
+  lines.push('');
+  for (const item of report.reprocess_required) {
+    lines.push(`- ${item.id}: ${item.title} (${item.url})`);
+    lines.push(`  - Reason: ${item.reason}`);
+  }
+}
+
 fs.writeFileSync(mdOut, `${lines.join('\n')}\n`);
 console.log(`Wrote YouTube futures review JSON: ${jsonOut}`);
 console.log(`Wrote YouTube futures review Markdown: ${mdOut}`);
 console.log(`Wrote YouTube futures review status: ${REVIEW_STATUS_PATH}`);
-console.log(`Review summary: episodes=${summary.observed_episodes} picks=${summary.total_extracted_picks} flagged=${summary.flagged_picks} notes=${summary.total_analysis_notes} flagged_notes=${summary.flagged_notes} missing=${summary.missing_observations}`);
+console.log(`Review summary: episodes=${summary.observed_episodes} usable=${summary.usable_observed_episodes} reprocess=${summary.reprocess_required_observations} picks=${summary.total_extracted_picks} flagged=${summary.flagged_picks} notes=${summary.total_analysis_notes} flagged_notes=${summary.flagged_notes} missing=${summary.missing_observations}`);

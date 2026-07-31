@@ -30,6 +30,9 @@ MODEL_NAME = "gemini-3.5-flash"
 
 def build_prompt(meta):
     duration_seconds = meta.get("duration_seconds")
+    segment_start = meta.get("segment_start_seconds")
+    segment_end = meta.get("segment_end_seconds")
+    is_segment = segment_start is not None and segment_end is not None
     if duration_seconds:
         duration_minutes = round(duration_seconds / 60, 1)
         duration_line = (
@@ -70,10 +73,27 @@ def build_prompt(meta):
     { "video_duration_seconds": <your own best estimate of the video's total length in seconds>, "last_analyzed_timestamp": <int, the timestamp of the last thing you actually analyzed>, "reached_end_of_video": <true/false, be honest — false if you stopped before the video ended for any reason> }.
 """
 
+    if is_segment:
+        duration_line = (
+            f"Runtime: this video is {duration_seconds or 'unknown'} seconds long. "
+            f"Segment retry window: analyze only {segment_start}-{segment_end} seconds."
+        )
+        duration_enforcement = f"""
+11. SEGMENTED COVERAGE IS MANDATORY. This is a retry/fallback extraction for
+    the time window {segment_start}-{segment_end} seconds. Analyze ONLY this
+    segment, but cover this segment completely. Keep timestamps absolute from
+    the start of the full video. Do not summarize or invent content outside
+    this segment. Your "speaker_segments" MUST start near {segment_start} and
+    extend contiguously to roughly {segment_end}.
+12. Self-report your own coverage. Include a top-level "coverage_check" object:
+    {{ "video_duration_seconds": {duration_seconds if duration_seconds else "null"}, "segment_start_seconds": {segment_start}, "segment_end_seconds": {segment_end}, "last_analyzed_timestamp": <int, the timestamp of the last thing you actually analyzed>, "reached_end_of_video": <true/false, true only if you reached the requested segment end> }}.
+"""
+
     return f"""
 You are an expert NFL betting analyst and podcast video transcription/extraction engine.
 
 Analyze the public YouTube video directly. Do not assume any pre-existing transcript.
+{"This is a segmented retry. Analyze only the requested time window, with absolute timestamps." if is_segment else ""}
 
 Episode metadata:
 Title: {meta.get("title", "NFL Podcast")}
@@ -117,6 +137,14 @@ Task:
     had no "player" slot at all, so player-award picks could only be
     identified by team code, with the player's name sometimes surviving only
     inside free-text "rationale" and sometimes not captured anywhere.
+12. RANKING/LIST EPISODES MUST PRESERVE LIST COVERAGE. If the title or host
+    framing indicates a ranked list (for example top 10 quarterbacks, top 20
+    receivers, team rankings, tiers, or greatest players), extract the full
+    list structure into "analysis_notes" even when most entries are not bets.
+    Create one note per ranked subject whenever a player or team receives a
+    meaningful ranking discussion. Include the rank or tier in "topic" or
+    "summary", preserve the speaker/ranker when clear, and do not collapse a
+    top-10 discussion into only two or three strongest betting angles.
 {duration_enforcement}
 Return ONLY a JSON object with this exact structure:
 {{
@@ -197,7 +225,7 @@ Notes on "analysis_notes" field values:
 """
 
 
-def extract_youtube(url, meta):
+def extract_youtube(url, meta, max_retries=0, retry_delay_seconds=20):
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         raise ValueError("GEMINI_API_KEY is missing from environment.")
@@ -205,18 +233,36 @@ def extract_youtube(url, meta):
     client = genai.Client(api_key=api_key)
     prompt = build_prompt(meta)
 
-    t0 = time.perf_counter()
-    response = client.models.generate_content(
-        model=MODEL_NAME,
-        contents=types.Content(
-            parts=[
-                types.Part(file_data=types.FileData(file_uri=url)),
-                types.Part(text=prompt),
-            ]
-        ),
-        config=types.GenerateContentConfig(response_mime_type="application/json"),
-    )
-    t1 = time.perf_counter()
+    last_error = None
+    for attempt in range(max_retries + 1):
+        try:
+            t0 = time.perf_counter()
+            response = client.models.generate_content(
+                model=MODEL_NAME,
+                contents=types.Content(
+                    parts=[
+                        types.Part(file_data=types.FileData(file_uri=url)),
+                        types.Part(text=prompt),
+                    ]
+                ),
+                config=types.GenerateContentConfig(response_mime_type="application/json"),
+            )
+            t1 = time.perf_counter()
+            break
+        except Exception as exc:
+            last_error = exc
+            retryable = "503" in str(exc) or "UNAVAILABLE" in str(exc).upper()
+            if not retryable or attempt >= max_retries:
+                raise
+            delay = retry_delay_seconds * (attempt + 1)
+            print(
+                f"WARNING: Gemini retryable error on attempt {attempt + 1}/{max_retries + 1}: {exc}. "
+                f"Retrying in {delay}s.",
+                file=sys.stderr,
+            )
+            time.sleep(delay)
+    else:
+        raise last_error
 
     latency_ms = round((t1 - t0) * 1000)
     response_text = response.text or ""
@@ -227,7 +273,12 @@ def extract_youtube(url, meta):
     cost_usd = round(((input_tokens / 1_000_000) * 0.10) + ((output_tokens / 1_000_000) * 0.40), 6)
 
     parsed_json = parse_model_json(response_text)
-    coverage = assess_coverage(parsed_json, meta.get("duration_seconds"))
+    coverage = assess_coverage(
+        parsed_json,
+        meta.get("duration_seconds"),
+        meta.get("segment_start_seconds"),
+        meta.get("segment_end_seconds"),
+    )
 
     return {
         "model": MODEL_NAME,
@@ -243,7 +294,159 @@ def extract_youtube(url, meta):
     }
 
 
-def assess_coverage(parsed_json, duration_seconds_hint):
+def extract_youtube_segmented(url, meta, segment_seconds, max_retries=0, retry_delay_seconds=20):
+    duration_seconds = meta.get("duration_seconds")
+    if not duration_seconds:
+        raise ValueError("--segment-seconds requires --duration-seconds.")
+
+    segments = []
+    start = 0
+    while start < duration_seconds:
+        end = min(duration_seconds, start + segment_seconds)
+        segments.append((start, end))
+        start = end
+
+    segment_results = []
+    for index, (segment_start, segment_end) in enumerate(segments, start=1):
+        print(
+            f"Running segmented Gemini extraction {index}/{len(segments)}: "
+            f"{segment_start}-{segment_end}s",
+            file=sys.stderr,
+            flush=True,
+        )
+        segment_meta = {
+            **meta,
+            "segment_start_seconds": segment_start,
+            "segment_end_seconds": segment_end,
+        }
+        segment_result = extract_youtube(url, segment_meta, max_retries, retry_delay_seconds)
+        segment_results.append(segment_result)
+        coverage = segment_result.get("coverage_assessment") or {}
+        print(
+            f"Finished segmented Gemini extraction {index}/{len(segments)}: "
+            f"last_covered={coverage.get('last_covered_timestamp')} "
+            f"incomplete={coverage.get('suspected_incomplete')}",
+            file=sys.stderr,
+            flush=True,
+        )
+
+    parsed_segments = [row.get("parsed_json") or {} for row in segment_results]
+    merged_segments = []
+    merged_picks = []
+    merged_notes = []
+    merged_quotes = []
+    merged_uncertainty = []
+
+    for parsed in parsed_segments:
+        merged_segments.extend(parsed.get("speaker_segments") or [])
+        merged_picks.extend(parsed.get("extracted_picks") or [])
+        merged_notes.extend(parsed.get("analysis_notes") or [])
+        merged_quotes.extend(parsed.get("quote_timestamps") or [])
+        merged_uncertainty.extend(parsed.get("uncertainty_flags") or [])
+
+    incomplete = []
+    segment_coverages = []
+    segment_fingerprints = {}
+    for row in segment_results:
+        parsed = row.get("parsed_json") or {}
+        check = parsed.get("coverage_check") or {}
+        segment_start = check.get("segment_start_seconds")
+        segment_end = check.get("segment_end_seconds")
+        coverage = assess_coverage(parsed, duration_seconds, segment_start, segment_end)
+        semantic_reason = segmented_semantic_issue(parsed, segment_fingerprints)
+        if semantic_reason:
+            coverage["suspected_incomplete"] = True
+            coverage["reason"] = semantic_reason
+            coverage["semantic_coverage_failed"] = True
+        row["coverage_assessment"] = coverage
+        segment_coverages.append(coverage)
+        if coverage.get("suspected_incomplete"):
+            incomplete.append(coverage)
+    merged_json = {
+        "transcript_summary": "Segmented extraction merged from full-video time windows.",
+        "coverage_check": {
+            "video_duration_seconds": duration_seconds,
+            "last_analyzed_timestamp": duration_seconds if not incomplete else max(
+                [0] + [float((row.get("coverage_assessment") or {}).get("last_covered_timestamp") or 0) for row in segment_results]
+            ),
+            "reached_end_of_video": len(incomplete) == 0,
+        },
+        "speaker_segments": merged_segments,
+        "extracted_picks": merged_picks,
+        "analysis_notes": merged_notes,
+        "quote_timestamps": merged_quotes,
+        "uncertainty_flags": merged_uncertainty,
+    }
+
+    total_latency_ms = sum(int(row.get("latency_ms") or 0) for row in segment_results)
+    total_cost_usd = round(sum(float(row.get("estimated_cost_usd") or 0) for row in segment_results), 6)
+    total_input_tokens = sum(int(row.get("input_tokens") or 0) for row in segment_results)
+    total_output_tokens = sum(int(row.get("output_tokens") or 0) for row in segment_results)
+    coverage = {
+        "last_covered_timestamp": merged_json["coverage_check"]["last_analyzed_timestamp"],
+        "self_reported_reached_end": len(incomplete) == 0,
+        "duration_used_for_check": duration_seconds,
+        "suspected_incomplete": len(incomplete) > 0,
+        "reason": "; ".join(filter(None, [item.get("reason") for item in incomplete])) or None,
+        "coverage_ratio": 1 if len(incomplete) == 0 else None,
+        "segment_count": len(segment_results),
+        "segment_seconds": segment_seconds,
+        "segment_coverages": segment_coverages,
+    }
+
+    return {
+        "model": MODEL_NAME,
+        "mode": "youtube_video_url_segmented",
+        "youtube_url": url,
+        "latency_ms": total_latency_ms,
+        "estimated_cost_usd": total_cost_usd,
+        "input_tokens": total_input_tokens,
+        "output_tokens": total_output_tokens,
+        "raw_model_response": json.dumps([row.get("raw_model_response") for row in segment_results]),
+        "parsed_json": merged_json,
+        "coverage_assessment": coverage,
+        "segment_results": segment_results,
+}
+
+
+def segmented_semantic_issue(parsed_json, segment_fingerprints):
+    """Catch segmented YouTube failures where timestamps look complete but the
+    model repeats the intro or another prior window instead of honoring the
+    requested time window.
+    """
+    check = parsed_json.get("coverage_check") or {}
+    segment_start = check.get("segment_start_seconds")
+    try:
+        segment_start = float(segment_start)
+    except (TypeError, ValueError):
+        segment_start = None
+
+    text_parts = []
+    for row in parsed_json.get("speaker_segments") or []:
+        text_parts.append(str(row.get("text") or ""))
+    full_text = " ".join(text_parts).lower()
+
+    intro_markers = [
+        "welcome to sharp or square",
+        "this is the show that makes the square sharper",
+        "i am chad millman",
+        "hello simon",
+    ]
+    if segment_start is not None and segment_start >= 600:
+        if sum(1 for marker in intro_markers if marker in full_text) >= 2:
+            return "segment semantic mismatch: later window repeated the episode intro"
+
+    fingerprint = " ".join(full_text.split()[:80])
+    if fingerprint:
+        prior = segment_fingerprints.get(fingerprint)
+        if prior is not None:
+            return f"segment semantic mismatch: repeated content from segment starting at {prior}s"
+        segment_fingerprints[fingerprint] = segment_start
+
+    return None
+
+
+def assess_coverage(parsed_json, duration_seconds_hint, segment_start_seconds=None, segment_end_seconds=None):
     """Best-effort, code-side sanity check for the under-extraction failure mode
     found 2026-07-28 (model stops analyzing a long video well before its real
     end, without any indication in the returned JSON that anything is wrong).
@@ -281,28 +484,35 @@ def assess_coverage(parsed_json, duration_seconds_hint):
     self_reported_reached_end = coverage_check.get("reached_end_of_video")
 
     duration_estimate = duration_seconds_hint or self_reported_duration
+    coverage_target = segment_end_seconds or duration_estimate
     result = {
         "last_covered_timestamp": last_item_ts,
         "self_reported_reached_end": self_reported_reached_end,
         "duration_used_for_check": duration_estimate,
+        "segment_start_seconds": segment_start_seconds,
+        "segment_end_seconds": segment_end_seconds,
         "suspected_incomplete": None,
         "reason": None,
     }
 
-    if self_reported_reached_end is False:
-        result["suspected_incomplete"] = True
-        result["reason"] = "model explicitly self-reported reached_end_of_video=false"
-        return result
-
-    if duration_estimate:
-        coverage_ratio = last_item_ts / duration_estimate if duration_estimate else 0
+    if coverage_target:
+        if segment_start_seconds is not None and segment_end_seconds:
+            covered_span = max(0, last_item_ts - segment_start_seconds)
+            target_span = max(1, segment_end_seconds - segment_start_seconds)
+            coverage_ratio = covered_span / target_span
+        else:
+            if self_reported_reached_end is False:
+                result["suspected_incomplete"] = True
+                result["reason"] = "model explicitly self-reported reached_end_of_video=false"
+                return result
+            coverage_ratio = last_item_ts / duration_estimate if duration_estimate else 0
         result["coverage_ratio"] = round(coverage_ratio, 3)
         if coverage_ratio < 0.85:
             result["suspected_incomplete"] = True
             result["reason"] = (
                 f"last covered timestamp ({last_item_ts:.0f}s) is only "
                 f"{coverage_ratio:.0%} of the known/estimated duration "
-                f"({duration_estimate:.0f}s)"
+                f"({coverage_target:.0f}s)"
             )
             return result
         result["suspected_incomplete"] = False
@@ -352,6 +562,19 @@ def main():
             "analyzing a long episode a fraction of the way through."
         ),
     )
+    parser.add_argument(
+        "--segment-seconds",
+        type=int,
+        default=None,
+        help=(
+            "Optional fallback mode: split a known-duration YouTube video into "
+            "fixed-size windows and merge the structured extraction. This uses "
+            "multiple Gemini calls and should be used only for reprocessing "
+            "episodes that repeatedly fail full-duration coverage."
+        ),
+    )
+    parser.add_argument("--max-retries", type=int, default=0, help="Retry transient Gemini 503/UNAVAILABLE errors this many times.")
+    parser.add_argument("--retry-delay-seconds", type=int, default=20, help="Base delay between retry attempts.")
     args = parser.parse_args()
 
     meta = {
@@ -362,7 +585,16 @@ def main():
     }
 
     try:
-        result = extract_youtube(args.url, meta)
+        if args.segment_seconds:
+            result = extract_youtube_segmented(
+                args.url,
+                meta,
+                args.segment_seconds,
+                args.max_retries,
+                args.retry_delay_seconds,
+            )
+        else:
+            result = extract_youtube(args.url, meta, args.max_retries, args.retry_delay_seconds)
     except Exception as exc:
         print(json.dumps({"error": str(exc), "mode": "youtube_video_url", "model": MODEL_NAME}))
         sys.exit(1)
