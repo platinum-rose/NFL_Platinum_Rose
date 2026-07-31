@@ -51,7 +51,11 @@ export const FEEDS = [
   { source: 'PFF', url: 'https://www.pff.com/feed', source_type: 'rss' },
   { source: 'Rotowire NFL', url: 'https://www.rotowire.com/rss/news.php?sport=NFL', source_type: 'rss' },
   { source: 'Sharp Football', url: 'https://www.sharpfootballanalysis.com/feed/', source_type: 'rss' },
-  { source: 'Football Outsiders', url: 'https://www.footballoutsiders.com/rss.xml', source_type: 'rss' },
+  { source: 'CBS Sports NFL', url: 'https://www.cbssports.com/rss/headlines/nfl/', source_type: 'rss' },
+  { source: 'Yahoo Sports NFL', url: 'https://sports.yahoo.com/nfl/rss.xml', source_type: 'rss' },
+  { source: 'USA Today NFL', url: 'https://rssfeeds.usatoday.com/usatodaycomnfl-topstories', source_type: 'rss' },
+  { source: 'Yardbarker NFL', url: 'https://www.yardbarker.com/rss/sport/1', source_type: 'rss' },
+  { source: 'FantasyPros', url: 'https://www.fantasypros.com/nfl/rss/news.php', source_type: 'rss' },
 ];
 
 // Camp-relevance prefilter — narrower than research-intel-ingest.js's general
