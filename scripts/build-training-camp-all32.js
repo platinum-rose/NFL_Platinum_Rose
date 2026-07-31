@@ -94,7 +94,7 @@ const TEAM_CAMP_SEEDS = {
   ],
   PIT: [
     { player: 'Aaron Rodgers', topic: 'Veteran QB1 Reps', summary: 'Operating fluidly in pocket during 11-on-11s; connecting on intermediate routes with Roman Wilson and Pat Freiermuth.', signal_type: 'depth_chart', confidence: 0.90 },
-    { player: 'Jaylen Warren', topic: 'First-Team Backfield', summary: 'Splitting first-team early down and 3rd down reps with Najee Harris in Steelers offense.', signal_type: 'depth_chart', confidence: 0.88 }
+    { player: 'Jaylen Warren', topic: 'First-Team Backfield', summary: 'Leading first-team early down and 3rd down reps in Steelers offense.', signal_type: 'depth_chart', confidence: 0.88 }
   ],
   SEA: [
     { player: 'Jaxon Smith-Njigba', topic: 'Ryan Grubb Offense', summary: 'Operating in versatile slot & Z alignment; Geno Smith targeting JSN heavily on seam routes.', signal_type: 'scheme', confidence: 0.89 },
@@ -126,20 +126,12 @@ async function main() {
   // Populate or supplement missing 12 teams
   let totalNewNotes = 0;
   ALL_32_TEAMS.forEach(team => {
-    let teamData = campByTeam.get(team);
-    if (!teamData) {
-      teamData = {
-        team,
-        coverage_status: 'existing_camp_intel',
-        camp_note_count: 0,
-        items: []
-      };
-      campByTeam.set(team, teamData);
-    }
-
-    if (!Array.isArray(teamData.items)) {
-      teamData.items = [];
-    }
+    let teamData = {
+      team,
+      coverage_status: 'existing_camp_intel',
+      camp_note_count: 0,
+      items: []
+    };
 
     const seeds = TEAM_CAMP_SEEDS[team];
     if (seeds && seeds.length > 0) {
@@ -157,15 +149,13 @@ async function main() {
           captured_at: nowIso(),
         };
 
-        // Avoid duplicate ids
-        if (!teamData.items.some(i => i.id === itemObj.id)) {
-          teamData.items.push(itemObj);
-          totalNewNotes += 1;
-        }
+        teamData.items.push(itemObj);
+        totalNewNotes += 1;
       });
       teamData.camp_note_count = teamData.items.length;
       teamData.coverage_status = 'existing_camp_intel';
     }
+    campByTeam.set(team, teamData);
   });
 
   const teamsObj = {};
