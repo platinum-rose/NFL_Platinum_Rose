@@ -1,0 +1,1613 @@
+{
+  "meta": {
+    "schema": "training_camp_coverage_fill_v1",
+    "season": 2026,
+    "generated_at": "2026-07-31T00:28:50.795Z",
+    "recommendation_status": "research_context_only_not_picks",
+    "canonical_snapshot_generated_at": "2026-07-31T00:28:47.973Z",
+    "canonical_teams_with_intel": 22,
+    "canonical_teams_without_intel": 10,
+    "teams_with_any_local_context": 32,
+    "teams_needing_manual_camp_source": 10,
+    "local_article_review_notes": 103,
+    "availability_digest_events": 620,
+    "guardrails": {
+      "live_model_calls": false,
+      "network_fetches": false,
+      "supabase_writes": false,
+      "official_picks_generated": false,
+      "production_recommendation_persistence": false
+    }
+  },
+  "teams": [
+    {
+      "team": "ARI",
+      "full_name": "Arizona Cardinals",
+      "division": "NFC West",
+      "conference": "NFC",
+      "anchor_team": false,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 2,
+      "existing_camp_item_count": 2,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins"
+      ],
+      "candidates": [
+        {
+          "id": "camp_0f75fc530b0daf9f",
+          "team": "ARI",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.9,
+          "signal_type": "role_usage",
+          "player": "Marvin Harrison Jr.",
+          "summary": "Operating as clear alpha WR1 in camp, taking 90%+ of first-team perimeter reps.",
+          "evidence": "Operating as clear alpha WR1 in camp, taking 90%+ of first-team perimeter reps.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.970Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        },
+        {
+          "id": "camp_6a1f832bf93a8ee2",
+          "team": "ARI",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.82,
+          "signal_type": "depth_chart",
+          "player": "Trey Benson",
+          "summary": "Splitting second-team reps with Michael Carter; James Conner holds primary early-down role.",
+          "evidence": "Splitting second-team reps with Michael Carter; James Conner holds primary early-down role.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.972Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        }
+      ]
+    },
+    {
+      "team": "ATL",
+      "full_name": "Atlanta Falcons",
+      "division": "NFC South",
+      "conference": "NFC",
+      "anchor_team": false,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 3,
+      "existing_camp_item_count": 3,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins"
+      ],
+      "candidates": [
+        {
+          "id": "camp_4f74bec5a85cba49",
+          "team": "ATL",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "coach_quote",
+          "player": null,
+          "summary": "Tua Tagovailoa takes part in Thursday's practice",
+          "evidence": "Falcons quarterback Tua Tagovailoa missed the first practice of training camp with back tightness, but head coach Kevin Stefanski said that he didn't expect it to be a lengthy absence and his prediction was proven correct on Thursday.",
+          "source": "Pro Football Talk",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/tua-tagovailoa-takes-part-in-thursdays-practice",
+          "published_at": "2026-07-30T14:48:47.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_b4728a436d596d57",
+          "team": "ATL",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Michael Penix: I can't afford to have someone trip and fall on me right now",
+          "evidence": "The big news from the first day of Falcons training camp involved the team's quarterbacks.",
+          "source": "Pro Football Talk",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/michael-penix-i-cant-afford-to-have-someone-trip-and-fall-on-me-right-now",
+          "published_at": "2026-07-29T15:21:08.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_0e06813514f7ec2c",
+          "team": "ATL",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Bijan Robinson not participating in practice, awaiting new deal",
+          "evidence": "The Falcons are in a similar position to the Lions as the teams begin training camp this week.",
+          "source": "Pro Football Talk",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/bijan-robinson-not-participating-in-practice-awaiting-new-deal",
+          "published_at": "2026-07-29T14:30:14.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        }
+      ]
+    },
+    {
+      "team": "BAL",
+      "full_name": "Baltimore Ravens",
+      "division": "AFC North",
+      "conference": "AFC",
+      "anchor_team": false,
+      "coverage_status": "local_source_fill_ready_for_review",
+      "candidate_count": 2,
+      "existing_camp_item_count": 0,
+      "article_candidate_count": 2,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins",
+        "make_playoffs"
+      ],
+      "candidates": [
+        {
+          "id": "camp_article_debbed5823f31843",
+          "team": "BAL",
+          "coverage_source": "local_article_review",
+          "status": "coverage_fill_candidate",
+          "confidence": 0.66,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Ravens' Madubuike (neck) returns to practice",
+          "evidence": "Ravens' Madubuike (neck) returns to practice.",
+          "source": "ESPN NFL",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49480322/ravens-madubuike-neck-practices-1st-10-months",
+          "published_at": "2026-07-29T20:33:49+00:00",
+          "linked_markets": [
+            "wins",
+            "make_playoffs"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_article_32a535ca5aede15f",
+          "team": "BAL",
+          "coverage_source": "local_article_review",
+          "status": "coverage_fill_candidate",
+          "confidence": 0.66,
+          "signal_type": "training_camp_context",
+          "player": null,
+          "summary": "Ravens' Madubuike (neck) returns to practice",
+          "evidence": "Pro Bowl defensive tackle Nnamdi Madubuike practiced for the first time in 10 months on Wednesday, which provided a celebratory start to the Ravens' first training camp under coach Jesse Minter..",
+          "source": "ESPN NFL",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49480322/ravens-madubuike-neck-practices-1st-10-months",
+          "published_at": "2026-07-29T20:33:49+00:00",
+          "linked_markets": [
+            "wins",
+            "make_playoffs"
+          ],
+          "needs_human_review": true
+        }
+      ]
+    },
+    {
+      "team": "BUF",
+      "full_name": "Buffalo Bills",
+      "division": "AFC East",
+      "conference": "AFC",
+      "anchor_team": true,
+      "coverage_status": "local_source_fill_ready_for_review",
+      "candidate_count": 1,
+      "existing_camp_item_count": 0,
+      "article_candidate_count": 1,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins",
+        "make_playoffs"
+      ],
+      "candidates": [
+        {
+          "id": "camp_article_1c457b7ddd09d01f",
+          "team": "BUF",
+          "coverage_source": "local_article_review",
+          "status": "coverage_fill_candidate",
+          "confidence": 0.52,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Buffalo Bills NFL Season Preview",
+          "evidence": "He's dealing with a knee issue, and the coaching staff stated that he will be on a limited snap count this year.",
+          "source": "Walter Football",
+          "source_url": "http://walterfootball.com/offseason2026buf.php",
+          "published_at": "2026-07-21T10:24:00+00:00",
+          "linked_markets": [
+            "wins",
+            "make_playoffs"
+          ],
+          "needs_human_review": true
+        }
+      ]
+    },
+    {
+      "team": "CAR",
+      "full_name": "Carolina Panthers",
+      "division": "NFC South",
+      "conference": "NFC",
+      "anchor_team": false,
+      "coverage_status": "local_source_fill_ready_for_review",
+      "candidate_count": 2,
+      "existing_camp_item_count": 0,
+      "article_candidate_count": 2,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins",
+        "make_playoffs"
+      ],
+      "candidates": [
+        {
+          "id": "camp_article_178640935b32b7bd",
+          "team": "CAR",
+          "coverage_source": "local_article_review",
+          "status": "coverage_fill_candidate",
+          "confidence": 0.66,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Source: Panthers WR Brazzell suffers LCL tear",
+          "evidence": "Source: Panthers WR Brazzell suffers LCL tear.",
+          "source": "ESPN NFL",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49480858/panthers-rookie-wr-chris-brazzell-injures-knee-having-tests",
+          "published_at": "2026-07-30T04:05:02+00:00",
+          "linked_markets": [
+            "wins",
+            "make_playoffs"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_article_aa77ef2da7ba54e9",
+          "team": "CAR",
+          "coverage_source": "local_article_review",
+          "status": "coverage_fill_candidate",
+          "confidence": 0.66,
+          "signal_type": "training_camp_context",
+          "player": null,
+          "summary": "Source: Panthers WR Brazzell suffers LCL tear",
+          "evidence": "Panthers rookie receiver Chris Brazzell II suffered a moderate lateral collateral ligament tear in practice Wednesday and he is expected to be sidelined for up to eight weeks, a league source told ESPN, confirming a report by The Athletic..",
+          "source": "ESPN NFL",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49480858/panthers-rookie-wr-chris-brazzell-injures-knee-having-tests",
+          "published_at": "2026-07-30T04:05:02+00:00",
+          "linked_markets": [
+            "wins",
+            "make_playoffs"
+          ],
+          "needs_human_review": true
+        }
+      ]
+    },
+    {
+      "team": "CHI",
+      "full_name": "Chicago Bears",
+      "division": "NFC North",
+      "conference": "NFC",
+      "anchor_team": false,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 2,
+      "existing_camp_item_count": 2,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins"
+      ],
+      "candidates": [
+        {
+          "id": "camp_c05b46d2b9b77b40",
+          "team": "CHI",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.95,
+          "signal_type": "depth_chart",
+          "player": "Caleb Williams",
+          "summary": "Taking 100% of first-team reps in Shane Waldron system; showing quick release in 7-on-7s.",
+          "evidence": "Taking 100% of first-team reps in Shane Waldron system; showing quick release in 7-on-7s.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.972Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        },
+        {
+          "id": "camp_5e1f305e49f55069",
+          "team": "CHI",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.85,
+          "signal_type": "role_usage",
+          "player": "Rome Odunze",
+          "summary": "Rotating into 3-WR personnel packages alongside DJ Moore and Keenan Allen.",
+          "evidence": "Rotating into 3-WR personnel packages alongside DJ Moore and Keenan Allen.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.972Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        }
+      ]
+    },
+    {
+      "team": "CIN",
+      "full_name": "Cincinnati Bengals",
+      "division": "AFC North",
+      "conference": "AFC",
+      "anchor_team": true,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 2,
+      "existing_camp_item_count": 2,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins",
+        "make_playoffs",
+        "week_1_spread"
+      ],
+      "candidates": [
+        {
+          "id": "camp_5ca7873e649660cb",
+          "team": "CIN",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Bengals' Stewart carted off with left leg injury",
+          "evidence": "Bengals defensive end Shemar Stewart was carted off the field Wednesday with a left leg injury suffered during the first day of training camp.",
+          "source": "ESPN NFL",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49481418/bengals-shemar-stewart-carted-left-leg-injury",
+          "published_at": "2026-07-30T14:22:22.000Z",
+          "linked_markets": [
+            "wins",
+            "make_playoffs",
+            "week_1_spread"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_cfe46f7569621b15",
+          "team": "CIN",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Cincinnati Bengals 2026 preview: Joe Burrow leads a revamped roster following major offseason additions",
+          "evidence": "With Joe Burrow healthy and a heavily revamped defense following the blockbuster trade for Dexter Lawrence, expectations are sky-high for Cincinnati in 2026.",
+          "source": "PFF",
+          "source_url": "https://www.pff.com/news/nfl-cincinnati-bengals-2026-preview/",
+          "published_at": "2026-07-28T14:16:19.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        }
+      ]
+    },
+    {
+      "team": "CLE",
+      "full_name": "Cleveland Browns",
+      "division": "AFC North",
+      "conference": "AFC",
+      "anchor_team": false,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 2,
+      "existing_camp_item_count": 2,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins"
+      ],
+      "candidates": [
+        {
+          "id": "camp_12cc97795ecdda20",
+          "team": "CLE",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "depth_chart",
+          "player": null,
+          "summary": "Shedeur Sanders, Deshaun Watson will alternate on first-team offense to start camp",
+          "evidence": "The start of training camp means the Browns' quarterback competition between Shedeur Sanders and Deshaun Watson is about to heat up.",
+          "source": "Pro Football Talk",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/shedeur-sanders-deshaun-watson-will-alternate-on-first-team-offense-to-start-camp",
+          "published_at": "2026-07-29T17:44:41.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_a66b90a6364559a7",
+          "team": "CLE",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Cleveland Browns 2026 preview: Todd Monken takes over rebuilt offense and a defense without Myles Garrett",
+          "evidence": "Following the blockbuster trade of reigning Defensive Player of the Year Myles Garrett, new head coach Todd Monken steps in to helm a complete Cleveland Browns roster overhaul. Armed with four top 35 draft picks and a heavily restructured offensive line, Cleveland aims to build a sustainable environment for its next franchise quarterback.",
+          "source": "PFF",
+          "source_url": "https://www.pff.com/news/nfl-cleveland-browns-2026-preview/",
+          "published_at": "2026-07-28T15:37:58.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        }
+      ]
+    },
+    {
+      "team": "DAL",
+      "full_name": "Dallas Cowboys",
+      "division": "NFC East",
+      "conference": "NFC",
+      "anchor_team": false,
+      "coverage_status": "local_source_fill_ready_for_review",
+      "candidate_count": 2,
+      "existing_camp_item_count": 0,
+      "article_candidate_count": 2,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins",
+        "make_playoffs"
+      ],
+      "candidates": [
+        {
+          "id": "camp_article_07d2f4eb78fcb342",
+          "team": "DAL",
+          "coverage_source": "local_article_review",
+          "status": "coverage_fill_candidate",
+          "confidence": 0.52,
+          "signal_type": "training_camp_context",
+          "player": null,
+          "summary": "CeeDee Lamb: Playing usual role in training camp",
+          "evidence": "Lamb worked with the Cowboys' first-team offense in the first team drill of Wednesday's practice, Jon Machota of The Athletic reports.",
+          "source": "Rotowire NFL",
+          "source_url": "https://www.rotowire.com//football/player/ceedee-lamb-14411",
+          "published_at": "2026-07-29T22:38:00+00:00",
+          "linked_markets": [
+            "wins",
+            "make_playoffs"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_article_1886c9d32117b52f",
+          "team": "DAL",
+          "coverage_source": "local_article_review",
+          "status": "coverage_fill_candidate",
+          "confidence": 0.52,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Dallas Cowboys NFL Season Preview",
+          "evidence": "Javonte Williams looked like an electric back for the Broncos during his rookie year, but wasn't the same following his ACL tear.",
+          "source": "Walter Football",
+          "source_url": "http://walterfootball.com/offseason2026dal.php",
+          "published_at": "2026-07-25T10:20:00+00:00",
+          "linked_markets": [
+            "wins",
+            "make_playoffs"
+          ],
+          "needs_human_review": true
+        }
+      ]
+    },
+    {
+      "team": "DEN",
+      "full_name": "Denver Broncos",
+      "division": "AFC West",
+      "conference": "AFC",
+      "anchor_team": false,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 2,
+      "existing_camp_item_count": 2,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins"
+      ],
+      "candidates": [
+        {
+          "id": "camp_d68238bb8753a3d5",
+          "team": "DEN",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.88,
+          "signal_type": "depth_chart",
+          "player": "Bo Nix",
+          "summary": "Taking first-team reps ahead of Jarrett Stidham; Sean Payton emphasizing quick-game timing.",
+          "evidence": "Taking first-team reps ahead of Jarrett Stidham; Sean Payton emphasizing quick-game timing.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.972Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        },
+        {
+          "id": "camp_c69cc5c72448807f",
+          "team": "DEN",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.84,
+          "signal_type": "depth_chart",
+          "player": "Javonte Williams",
+          "summary": "Leading early-down backfield reps ahead of Jaleel McLaughlin and Audric Estime.",
+          "evidence": "Leading early-down backfield reps ahead of Jaleel McLaughlin and Audric Estime.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.972Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        }
+      ]
+    },
+    {
+      "team": "DET",
+      "full_name": "Detroit Lions",
+      "division": "NFC North",
+      "conference": "NFC",
+      "anchor_team": false,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 3,
+      "existing_camp_item_count": 3,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins"
+      ],
+      "candidates": [
+        {
+          "id": "camp_5b879431ede8b7b2",
+          "team": "DET",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Latest news, buzz from training camps: Giants kick off in West Virginia; Gibbs sits out Lions' practice",
+          "evidence": "Get all the news, intel and insights on NFL training camps from our team of reporters in the field.",
+          "source": "ESPN NFL",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49368181/training-camp-2026-latest-news-intel-updates-buzz-all-32-teams",
+          "published_at": "2026-07-30T01:14:04.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_40d1cebbacd20a4f",
+          "team": "DET",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Dan Campbell on Jahmyr Gibbs: \"This is both sides working through something\"",
+          "evidence": "Lions running back Jahmyr Gibbs did not practice on Wednesday, as he stages an apparent hold-in while awaiting a new contract.",
+          "source": "Pro Football Talk",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/dan-campbell-on-jahmyr-gibbs-this-is-both-sides-working-through-something",
+          "published_at": "2026-07-29T15:51:00.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_ab80813d29eae9ce",
+          "team": "DET",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Bijan Robinson not participating in practice, awaiting new deal",
+          "evidence": "The Falcons are in a similar position to the Lions as the teams begin training camp this week.",
+          "source": "Pro Football Talk",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/bijan-robinson-not-participating-in-practice-awaiting-new-deal",
+          "published_at": "2026-07-29T14:30:14.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        }
+      ]
+    },
+    {
+      "team": "GB",
+      "full_name": "Green Bay Packers",
+      "division": "NFC North",
+      "conference": "NFC",
+      "anchor_team": true,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 2,
+      "existing_camp_item_count": 2,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins"
+      ],
+      "candidates": [
+        {
+          "id": "camp_18f16ffdf33a93ac",
+          "team": "GB",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.92,
+          "signal_type": "role_usage",
+          "player": "Jordan Love",
+          "summary": "Commanding high-tempo 11-on-11 drills; Christian Watson & Jayden Reed leading target share.",
+          "evidence": "Commanding high-tempo 11-on-11 drills; Christian Watson & Jayden Reed leading target share.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.972Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        },
+        {
+          "id": "camp_7eafb8667e1c85f5",
+          "team": "GB",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.88,
+          "signal_type": "depth_chart",
+          "player": "Josh Jacobs",
+          "summary": "Dominating first-team goal line and short yardage packages in team drills.",
+          "evidence": "Dominating first-team goal line and short yardage packages in team drills.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.972Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        }
+      ]
+    },
+    {
+      "team": "HOU",
+      "full_name": "Houston Texans",
+      "division": "AFC South",
+      "conference": "AFC",
+      "anchor_team": false,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 2,
+      "existing_camp_item_count": 2,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins"
+      ],
+      "candidates": [
+        {
+          "id": "camp_718a46c3b2334631",
+          "team": "HOU",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.91,
+          "signal_type": "role_usage",
+          "player": "Stefon Diggs",
+          "summary": "Aligning both inside and outside; CJ Stroud targeting Diggs heavily on intermediate crossers.",
+          "evidence": "Aligning both inside and outside; CJ Stroud targeting Diggs heavily on intermediate crossers.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.972Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        },
+        {
+          "id": "camp_c5ab4dc5803da204",
+          "team": "HOU",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.86,
+          "signal_type": "depth_chart",
+          "player": "Joe Mixon",
+          "summary": "Receiving bulk of first-team touches with Dameon Pierce backing up.",
+          "evidence": "Receiving bulk of first-team touches with Dameon Pierce backing up.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.973Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        }
+      ]
+    },
+    {
+      "team": "IND",
+      "full_name": "Indianapolis Colts",
+      "division": "AFC South",
+      "conference": "AFC",
+      "anchor_team": false,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 2,
+      "existing_camp_item_count": 2,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins"
+      ],
+      "candidates": [
+        {
+          "id": "camp_1fb4845eaeeeafd2",
+          "team": "IND",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.93,
+          "signal_type": "injury",
+          "player": "Anthony Richardson",
+          "summary": "Fully cleared in team 11-on-11 drills with no throwing velocity restrictions.",
+          "evidence": "Fully cleared in team 11-on-11 drills with no throwing velocity restrictions.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.973Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        },
+        {
+          "id": "camp_9f91fc863bf657f3",
+          "team": "IND",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.8,
+          "signal_type": "depth_chart",
+          "player": "Adonai Mitchell",
+          "summary": "Competing with Alec Pierce for perimeter X-receiver reps opposite Michael Pittman.",
+          "evidence": "Competing with Alec Pierce for perimeter X-receiver reps opposite Michael Pittman.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.973Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        }
+      ]
+    },
+    {
+      "team": "JAX",
+      "full_name": "Jacksonville Jaguars",
+      "division": "AFC South",
+      "conference": "AFC",
+      "anchor_team": false,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 2,
+      "existing_camp_item_count": 2,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins"
+      ],
+      "candidates": [
+        {
+          "id": "camp_41c2e7f934cf6cd8",
+          "team": "JAX",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.87,
+          "signal_type": "role_usage",
+          "player": "Brian Thomas Jr.",
+          "summary": "Showcasing vertical separation in 1-on-1 drills; Trevor Lawrence taking deep shots.",
+          "evidence": "Showcasing vertical separation in 1-on-1 drills; Trevor Lawrence taking deep shots.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.973Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        },
+        {
+          "id": "camp_fc16017c46ac5ab3",
+          "team": "JAX",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.85,
+          "signal_type": "role_usage",
+          "player": "Travis Etienne",
+          "summary": "Running expanded route tree out of backfield in Doug Pederson system.",
+          "evidence": "Running expanded route tree out of backfield in Doug Pederson system.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.973Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        }
+      ]
+    },
+    {
+      "team": "KC",
+      "full_name": "Kansas City Chiefs",
+      "division": "AFC West",
+      "conference": "AFC",
+      "anchor_team": true,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 2,
+      "existing_camp_item_count": 2,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins"
+      ],
+      "candidates": [
+        {
+          "id": "camp_dc1353d37170749f",
+          "team": "KC",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.92,
+          "signal_type": "scheme",
+          "player": "Xavier Worthy",
+          "summary": "Used heavily in pre-snap motion; Patrick Mahomes connecting on deep post routes.",
+          "evidence": "Used heavily in pre-snap motion; Patrick Mahomes connecting on deep post routes.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.973Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        },
+        {
+          "id": "camp_2ab0e8ba92b1ff15",
+          "team": "KC",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.9,
+          "signal_type": "depth_chart",
+          "player": "Isiah Pacheco",
+          "summary": "Taking primary first-team snaps; Clyde Edwards-Helaire backing up.",
+          "evidence": "Taking primary first-team snaps; Clyde Edwards-Helaire backing up.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.973Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        }
+      ]
+    },
+    {
+      "team": "LAC",
+      "full_name": "Los Angeles Chargers",
+      "division": "AFC West",
+      "conference": "AFC",
+      "anchor_team": false,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 2,
+      "existing_camp_item_count": 2,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins"
+      ],
+      "candidates": [
+        {
+          "id": "camp_7775ebee8d645fe0",
+          "team": "LAC",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.88,
+          "signal_type": "scheme",
+          "player": "Gus Edwards",
+          "summary": "Leading first-team early down rushing reps in physical Jim Harbaugh team period.",
+          "evidence": "Leading first-team early down rushing reps in physical Jim Harbaugh team period.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.973Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        },
+        {
+          "id": "camp_e5e72c7a46106fe8",
+          "team": "LAC",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.89,
+          "signal_type": "role_usage",
+          "player": "Ladd McConkey",
+          "summary": "Herbert targeting McConkey consistently on 3rd down slot option routes.",
+          "evidence": "Herbert targeting McConkey consistently on 3rd down slot option routes.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.973Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        }
+      ]
+    },
+    {
+      "team": "LAR",
+      "full_name": "Los Angeles Rams",
+      "division": "NFC West",
+      "conference": "NFC",
+      "anchor_team": false,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 2,
+      "existing_camp_item_count": 2,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins"
+      ],
+      "candidates": [
+        {
+          "id": "camp_8a1293e7a7b36a74",
+          "team": "LAR",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Puka Nacua: Extension unlikely this summer",
+          "evidence": "Nacua and the Rams may wait until next offseason for serious discussions on a long-term contract, Ian Rapoport of NFL Network reports. Visit RotoWire.com for more analysis on this update.",
+          "source": "Rotowire NFL",
+          "source_url": "https://www.rotowire.com//football/player/puka-nacua-16790",
+          "published_at": "2026-07-30T14:05:00.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_bf6ae4229f5b6e2c",
+          "team": "LAR",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Puka Nacua: Not being out on practice field never crossed my mind",
+          "evidence": "After catching 313 passes over his first three NFL seasons, it looked like Rams wide receiver Puka Nacua was on the fast track toward a contract extension but off-field issues slowed things down this offseason.",
+          "source": "Pro Football Talk",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/puka-nacua-not-being-out-on-field-never-crossed-my-mind",
+          "published_at": "2026-07-30T12:50:28.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        }
+      ]
+    },
+    {
+      "team": "LV",
+      "full_name": "Las Vegas Raiders",
+      "division": "AFC West",
+      "conference": "AFC",
+      "anchor_team": false,
+      "coverage_status": "local_source_fill_ready_for_review",
+      "candidate_count": 1,
+      "existing_camp_item_count": 0,
+      "article_candidate_count": 1,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins",
+        "make_playoffs"
+      ],
+      "candidates": [
+        {
+          "id": "camp_article_7787482127e564d5",
+          "team": "LV",
+          "coverage_source": "local_article_review",
+          "status": "coverage_fill_candidate",
+          "confidence": 0.66,
+          "signal_type": "training_camp_context",
+          "player": null,
+          "summary": "Tight QB1 races for the Falcons, Browns, Raiders and Vikings? We projected the Week 1 starters",
+          "evidence": "2026 NFL training camp: Predicting four QB1 battles - ESPN NFL execs help predict four QB1 battles: Who will start for the Falcons, Browns, Raiders and Vikings?",
+          "source": "ESPN NFL",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49470513/2026-nfl-preseason-training-camp-qb-battles-predictions-vikings-browns-raiders-falcons",
+          "published_at": "2026-07-30T04:04:53+00:00",
+          "linked_markets": [
+            "wins",
+            "make_playoffs"
+          ],
+          "needs_human_review": true
+        }
+      ]
+    },
+    {
+      "team": "MIA",
+      "full_name": "Miami Dolphins",
+      "division": "AFC East",
+      "conference": "AFC",
+      "anchor_team": false,
+      "coverage_status": "local_source_fill_ready_for_review",
+      "candidate_count": 1,
+      "existing_camp_item_count": 0,
+      "article_candidate_count": 1,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins",
+        "make_playoffs"
+      ],
+      "candidates": [
+        {
+          "id": "camp_article_7f8ab5da7e7ecc7f",
+          "team": "MIA",
+          "coverage_source": "local_article_review",
+          "status": "coverage_fill_candidate",
+          "confidence": 0.52,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Miami Dolphins NFL Season Preview",
+          "evidence": "Big things were expected from Washington last year when Hill got hurt, but he disappointed.",
+          "source": "Walter Football",
+          "source_url": "http://walterfootball.com/offseason2026mia.php",
+          "published_at": "2026-07-22T08:24:00+00:00",
+          "linked_markets": [
+            "wins",
+            "make_playoffs"
+          ],
+          "needs_human_review": true
+        }
+      ]
+    },
+    {
+      "team": "MIN",
+      "full_name": "Minnesota Vikings",
+      "division": "NFC North",
+      "conference": "NFC",
+      "anchor_team": false,
+      "coverage_status": "local_source_fill_ready_for_review",
+      "candidate_count": 1,
+      "existing_camp_item_count": 0,
+      "article_candidate_count": 1,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins",
+        "make_playoffs"
+      ],
+      "candidates": [
+        {
+          "id": "camp_article_e2791d03055714b4",
+          "team": "MIN",
+          "coverage_source": "local_article_review",
+          "status": "coverage_fill_candidate",
+          "confidence": 0.66,
+          "signal_type": "training_camp_context",
+          "player": null,
+          "summary": "Tight QB1 races for the Falcons, Browns, Raiders and Vikings? We projected the Week 1 starters",
+          "evidence": "2026 NFL training camp: Predicting four QB1 battles - ESPN NFL execs help predict four QB1 battles: Who will start for the Falcons, Browns, Raiders and Vikings?",
+          "source": "ESPN NFL",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49470513/2026-nfl-preseason-training-camp-qb-battles-predictions-vikings-browns-raiders-falcons",
+          "published_at": "2026-07-30T04:04:53+00:00",
+          "linked_markets": [
+            "wins",
+            "make_playoffs"
+          ],
+          "needs_human_review": true
+        }
+      ]
+    },
+    {
+      "team": "NE",
+      "full_name": "New England Patriots",
+      "division": "AFC East",
+      "conference": "AFC",
+      "anchor_team": false,
+      "coverage_status": "local_source_fill_ready_for_review",
+      "candidate_count": 1,
+      "existing_camp_item_count": 0,
+      "article_candidate_count": 1,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins",
+        "make_playoffs"
+      ],
+      "candidates": [
+        {
+          "id": "camp_article_c9a985f872deaea6",
+          "team": "NE",
+          "coverage_source": "local_article_review",
+          "status": "coverage_fill_candidate",
+          "confidence": 0.52,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "New England Patriots NFL Season Preview",
+          "evidence": "Part of that was on rookie left tackle Will Campbell, but it was clear that Campbell was playing hurt.",
+          "source": "Walter Football",
+          "source_url": "http://walterfootball.com/offseason2026ne.php",
+          "published_at": "2026-07-20T10:11:00+00:00",
+          "linked_markets": [
+            "wins",
+            "make_playoffs"
+          ],
+          "needs_human_review": true
+        }
+      ]
+    },
+    {
+      "team": "NO",
+      "full_name": "New Orleans Saints",
+      "division": "NFC South",
+      "conference": "NFC",
+      "anchor_team": true,
+      "coverage_status": "local_source_fill_ready_for_review",
+      "candidate_count": 1,
+      "existing_camp_item_count": 0,
+      "article_candidate_count": 1,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins",
+        "make_playoffs"
+      ],
+      "candidates": [
+        {
+          "id": "camp_article_817bb53cdaafc103",
+          "team": "NO",
+          "coverage_source": "local_article_review",
+          "status": "coverage_fill_candidate",
+          "confidence": 0.66,
+          "signal_type": "training_camp_context",
+          "player": null,
+          "summary": "Saints enter camp with faith in Tyler Shough, questions on defense",
+          "evidence": "New Orleans upgraded its offense, but concerns remain as coach Kellen Moore kicks off second camp as coach..",
+          "source": "ESPN NFL",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49475517/new-orleans-saints-enter-2026-training-camp-faith-tyler-shough-questions-defense",
+          "published_at": "2026-07-29T13:23:34+00:00",
+          "linked_markets": [
+            "wins",
+            "make_playoffs"
+          ],
+          "needs_human_review": true
+        }
+      ]
+    },
+    {
+      "team": "NYG",
+      "full_name": "New York Giants",
+      "division": "NFC East",
+      "conference": "NFC",
+      "anchor_team": true,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 1,
+      "existing_camp_item_count": 1,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins"
+      ],
+      "candidates": [
+        {
+          "id": "camp_2c07e733b5f117e6",
+          "team": "NYG",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Latest news, buzz from training camps: Giants kick off in West Virginia; Gibbs sits out Lions' practice",
+          "evidence": "Get all the news, intel and insights on NFL training camps from our team of reporters in the field.",
+          "source": "ESPN NFL",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49368181/training-camp-2026-latest-news-intel-updates-buzz-all-32-teams",
+          "published_at": "2026-07-30T01:14:04.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        }
+      ]
+    },
+    {
+      "team": "NYJ",
+      "full_name": "New York Jets",
+      "division": "AFC East",
+      "conference": "AFC",
+      "anchor_team": false,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 2,
+      "existing_camp_item_count": 2,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins"
+      ],
+      "candidates": [
+        {
+          "id": "camp_139a9be1386a3ced",
+          "team": "NYJ",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.94,
+          "signal_type": "injury",
+          "player": "Aaron Rodgers",
+          "summary": "Moving fluidly in pocket during 11-on-11s; Garrett Wilson taking 35%+ target share.",
+          "evidence": "Moving fluidly in pocket during 11-on-11s; Garrett Wilson taking 35%+ target share.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.973Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        },
+        {
+          "id": "camp_8cecea8afe869d11",
+          "team": "NYJ",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.92,
+          "signal_type": "depth_chart",
+          "player": "Breece Hall",
+          "summary": "Full participant in team drills, receiving first-team pass protection and rushing snaps.",
+          "evidence": "Full participant in team drills, receiving first-team pass protection and rushing snaps.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.973Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        }
+      ]
+    },
+    {
+      "team": "PHI",
+      "full_name": "Philadelphia Eagles",
+      "division": "NFC East",
+      "conference": "NFC",
+      "anchor_team": false,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 1,
+      "existing_camp_item_count": 1,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins",
+        "make_playoffs",
+        "conference",
+        "week_1_spread"
+      ],
+      "candidates": [
+        {
+          "id": "camp_22a5027eacaf9c71",
+          "team": "PHI",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Vic Fangio: \"Remains to be seen\" if Jonathan Greenard practices in training camp",
+          "evidence": "Eagles General Manager Howie Roseman said at a Wednesday press conference that the pec strain that landed linebacker Jonathan Greenard on the physically unable to perform list \"is not a long-term injury,\" but it doesn't sound like it's going to be a matter of days before the veteran is back on the field.",
+          "source": "Pro Football Talk",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/vic-fangio-remains-to-be-seen-if-jonathan-greenard-practices-in-training-camp",
+          "published_at": "2026-07-30T13:56:50.000Z",
+          "linked_markets": [
+            "wins",
+            "make_playoffs",
+            "conference",
+            "week_1_spread"
+          ],
+          "needs_human_review": true
+        }
+      ]
+    },
+    {
+      "team": "PIT",
+      "full_name": "Pittsburgh Steelers",
+      "division": "AFC North",
+      "conference": "AFC",
+      "anchor_team": false,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 2,
+      "existing_camp_item_count": 2,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins"
+      ],
+      "candidates": [
+        {
+          "id": "camp_3cfaefeb38fd9a10",
+          "team": "PIT",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.86,
+          "signal_type": "depth_chart",
+          "player": "Russell Wilson",
+          "summary": "Taking initial first-team reps over Justin Fields in Arthur Smith offense.",
+          "evidence": "Taking initial first-team reps over Justin Fields in Arthur Smith offense.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.973Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        },
+        {
+          "id": "camp_38914683d5d52bd9",
+          "team": "PIT",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.9,
+          "signal_type": "role_usage",
+          "player": "George Pickens",
+          "summary": "Dominating 1-on-1 contested catch drills; primary target in red zone periods.",
+          "evidence": "Dominating 1-on-1 contested catch drills; primary target in red zone periods.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.973Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        }
+      ]
+    },
+    {
+      "team": "SEA",
+      "full_name": "Seattle Seahawks",
+      "division": "NFC West",
+      "conference": "NFC",
+      "anchor_team": false,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 2,
+      "existing_camp_item_count": 2,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins"
+      ],
+      "candidates": [
+        {
+          "id": "camp_f0613e2740bde040",
+          "team": "SEA",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.89,
+          "signal_type": "scheme",
+          "player": "Jaxon Smith-Njigba",
+          "summary": "Operating in versatile slot & Z alignment; Geno Smith targeting JSN heavily on seam routes.",
+          "evidence": "Operating in versatile slot & Z alignment; Geno Smith targeting JSN heavily on seam routes.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.973Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        },
+        {
+          "id": "camp_8de9c47320a13ad8",
+          "team": "SEA",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.87,
+          "signal_type": "depth_chart",
+          "player": "Kenneth Walker III",
+          "summary": "Leading first-team rushing reps with Zach Charbonnet sharing 3rd down snaps.",
+          "evidence": "Leading first-team rushing reps with Zach Charbonnet sharing 3rd down snaps.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:28:47.973Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        }
+      ]
+    },
+    {
+      "team": "SF",
+      "full_name": "San Francisco 49ers",
+      "division": "NFC West",
+      "conference": "NFC",
+      "anchor_team": false,
+      "coverage_status": "local_source_fill_ready_for_review",
+      "candidate_count": 1,
+      "existing_camp_item_count": 0,
+      "article_candidate_count": 1,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins",
+        "make_playoffs"
+      ],
+      "candidates": [
+        {
+          "id": "camp_article_203f3479a101cdf6",
+          "team": "SF",
+          "coverage_source": "local_article_review",
+          "status": "coverage_fill_candidate",
+          "confidence": 0.66,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "49ers have 'concern' over Pearsall's knee flare-up",
+          "evidence": "49ers WR Ricky Pearsall did not participate in practice Wednesday because of swelling in the PCL in his right knee.",
+          "source": "ESPN NFL",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49482528/49ers-concern-pearsall-latest-knee-flare-up",
+          "published_at": "2026-07-30T04:05:03+00:00",
+          "linked_markets": [
+            "wins",
+            "make_playoffs"
+          ],
+          "needs_human_review": true
+        }
+      ]
+    },
+    {
+      "team": "TB",
+      "full_name": "Tampa Bay Buccaneers",
+      "division": "NFC South",
+      "conference": "NFC",
+      "anchor_team": false,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 1,
+      "existing_camp_item_count": 1,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins"
+      ],
+      "candidates": [
+        {
+          "id": "camp_5c42d7ab4b132f9a",
+          "team": "TB",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "other",
+          "player": null,
+          "summary": "Five trade fits for Vita Vea: Which NFL teams could land the talented defensive tackle?",
+          "evidence": "The 31-year-old Vea has been a cornerstone of Tampa Bay's defense, but he requested a trade on Monday. Here are five teams that could be landing spots in a potential deal.",
+          "source": "ESPN NFL",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49471832/vita-vea-trade-request-fits-buccaneers-defensive-tackle-five-teams-patriots-49ers",
+          "published_at": "2026-07-29T14:26:17.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        }
+      ]
+    },
+    {
+      "team": "TEN",
+      "full_name": "Tennessee Titans",
+      "division": "AFC South",
+      "conference": "AFC",
+      "anchor_team": false,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 1,
+      "existing_camp_item_count": 1,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins"
+      ],
+      "candidates": [
+        {
+          "id": "camp_eddca8d26dd9ac94",
+          "team": "TEN",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Titans take JC Latham off PUP list, sign S Hudson Clark",
+          "evidence": "The Titans will be getting right tackle JC Latham going at training camp over the next few days.",
+          "source": "Pro Football Talk",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/titans-take-jc-latham-off-pup-list-sign-s-hudson-clark",
+          "published_at": "2026-07-30T15:04:33.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        }
+      ]
+    },
+    {
+      "team": "WAS",
+      "full_name": "Washington Commanders",
+      "division": "NFC East",
+      "conference": "NFC",
+      "anchor_team": false,
+      "coverage_status": "existing_camp_intel",
+      "candidate_count": 3,
+      "existing_camp_item_count": 3,
+      "article_candidate_count": 0,
+      "availability_candidate_count": 0,
+      "linked_markets": [
+        "wins",
+        "make_playoffs",
+        "week_1_spread"
+      ],
+      "candidates": [
+        {
+          "id": "camp_332dd06aef994f69",
+          "team": "WAS",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "coach_quote",
+          "player": null,
+          "summary": "Tua Tagovailoa takes part in Thursday's practice",
+          "evidence": "Falcons quarterback Tua Tagovailoa missed the first practice of training camp with back tightness, but head coach Kevin Stefanski said that he didn't expect it to be a lengthy absence and his prediction was proven correct on Thursday.",
+          "source": "Pro Football Talk",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/tua-tagovailoa-takes-part-in-thursdays-practice",
+          "published_at": "2026-07-30T14:48:47.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_b4bc77e8d0ab2d4d",
+          "team": "WAS",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Bengals' Stewart carted off with left leg injury",
+          "evidence": "Bengals defensive end Shemar Stewart was carted off the field Wednesday with a left leg injury suffered during the first day of training camp.",
+          "source": "ESPN NFL",
+          "source_url": "https://www.espn.com/nfl/story/_/id/49481418/bengals-shemar-stewart-carted-left-leg-injury",
+          "published_at": "2026-07-30T14:22:22.000Z",
+          "linked_markets": [
+            "wins",
+            "make_playoffs",
+            "week_1_spread"
+          ],
+          "needs_human_review": true
+        },
+        {
+          "id": "camp_07caa8fda18ff4b1",
+          "team": "WAS",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.68,
+          "signal_type": "injury",
+          "player": null,
+          "summary": "Puka Nacua: Not being out on practice field never crossed my mind",
+          "evidence": "After catching 313 passes over his first three NFL seasons, it looked like Rams wide receiver Puka Nacua was on the fast track toward a contract extension but off-field issues slowed things down this offseason.",
+          "source": "Pro Football Talk",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/puka-nacua-not-being-out-on-field-never-crossed-my-mind",
+          "published_at": "2026-07-30T12:50:28.000Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": true
+        }
+      ]
+    }
+  ]
+}
