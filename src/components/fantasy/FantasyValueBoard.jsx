@@ -12,11 +12,18 @@
 // F-26b) -- this only covers QB/RB/WR/TE, which is all the generator scores.
 
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
-import { Shirt, RefreshCw, Search, TrendingUp, TrendingDown, Minus, HelpCircle, Mic } from 'lucide-react';
+import { Shirt, RefreshCw, Search, TrendingUp, TrendingDown, Minus, HelpCircle, Mic, Star, AlertTriangle } from 'lucide-react';
 import { LOCAL_DATA } from '../../lib/apiConfig';
+import { getPlayerOverlay } from '../../lib/fantasyOverlayStore';
 
 const POSITION_FILTERS = ['ALL', 'QB', 'RB', 'WR', 'TE'];
 const TIER_FILTERS = ['ALL', 'strong_value', 'value', 'fair', 'reach', 'no_projection'];
+
+const SORT_OPTIONS = [
+  { value: 'adp', label: 'ADP Rank' },
+  { value: 'value_gap', label: 'Value Gap: High → Low' },
+  { value: 'proj_pts', label: 'Projected Pts: High → Low' },
+];
 
 const TIER_LABEL = {
   strong_value: 'Strong Value',
@@ -54,8 +61,10 @@ function fmtGap(v) {
 function PlayerCard({ row }) {
   const Icon = TIER_ICON[row.tier] || Minus;
   const hasProj = row.tier !== 'no_projection';
+  const overlay = getPlayerOverlay(row);
+
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center gap-4">
+    <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 flex items-center gap-4 hover:border-slate-700 transition">
       <div className={`shrink-0 w-11 h-11 rounded-lg flex items-center justify-center border ${TIER_STYLE[row.tier]}`}>
         <Icon size={18} />
       </div>
@@ -64,11 +73,28 @@ function PlayerCard({ row }) {
           <span className="font-bold text-white truncate">{row.player}</span>
           <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{row.position}</span>
           {row.team && <span className="text-[10px] text-slate-600">{row.team}</span>}
+
+          {/* ⭐ Projected Starter Overlay Badge */}
+          {overlay?.isProjectedStarter && (
+            <span className="inline-flex items-center gap-1 text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">
+              <Star size={9} className="fill-amber-400 text-amber-400" />
+              <span>Starter</span>
+            </span>
+          )}
+
+          {/* ⚠ Availability Digest Risk Badge */}
+          {overlay?.availabilityInfo && (
+            <span className="inline-flex items-center gap-1 text-[9px] font-bold px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/40">
+              <AlertTriangle size={9} />
+              <span>{overlay.availabilityInfo.event_type.toUpperCase()}</span>
+            </span>
+          )}
         </div>
+
         <div className="flex items-center gap-3 mt-1 text-xs text-slate-500 flex-wrap">
           <span>ADP {row.adp}{row.adp_pos_rank ? ` (${row.position}${row.adp_pos_rank})` : ''}</span>
           {hasProj && (
-            <span className="text-slate-400">
+            <span className="text-slate-400 font-medium">
               Proj {fmtPts(row.proj_points)} pts{row.proj_pos_rank ? ` (${row.position}${row.proj_pos_rank})` : ''}
             </span>
           )}
@@ -250,6 +276,8 @@ export default function FantasyValueBoard() {
   const [search, setSearch] = useState('');
   const [positionFilter, setPositionFilter] = useState('ALL');
   const [tierFilter, setTierFilter] = useState('ALL');
+  const [sortBy, setSortBy] = useState('adp');
+  const [startersOnly, setStartersOnly] = useState(false);
 
   const load = useCallback(async () => {
     setState('loading');
@@ -279,13 +307,27 @@ export default function FantasyValueBoard() {
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
-    return board.filter((b) => {
+    let list = board.filter((b) => {
       if (positionFilter !== 'ALL' && b.position !== positionFilter) return false;
       if (tierFilter !== 'ALL' && b.tier !== tierFilter) return false;
+      if (startersOnly) {
+        const ov = getPlayerOverlay(b);
+        if (!ov?.isProjectedStarter) return false;
+      }
       if (q && !b.player?.toLowerCase().includes(q)) return false;
       return true;
     });
-  }, [board, positionFilter, tierFilter, search]);
+
+    if (sortBy === 'value_gap') {
+      list = [...list].sort((a, b) => (b.value_gap ?? -999) - (a.value_gap ?? -999));
+    } else if (sortBy === 'proj_pts') {
+      list = [...list].sort((a, b) => (b.proj_points ?? -999) - (a.proj_points ?? -999));
+    } else {
+      list = [...list].sort((a, b) => (a.adp ?? 999) - (b.adp ?? 999));
+    }
+
+    return list;
+  }, [board, positionFilter, tierFilter, search, startersOnly, sortBy]);
 
   return (
     <div className="animate-in fade-in zoom-in duration-300 space-y-5 pb-8 max-w-5xl mx-auto">
@@ -363,16 +405,45 @@ export default function FantasyValueBoard() {
           </div>
 
           {/* Controls */}
-          <div className="flex flex-wrap items-center gap-2.5">
-            <div className="relative flex-1 min-w-[200px] max-w-xs">
-              <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-500" />
-              <input
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search player..."
-                className="w-full bg-slate-900 border border-slate-800 rounded-lg pl-8 pr-3 py-1.5 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-slate-600"
-              />
+          <div className="flex flex-wrap items-center justify-between gap-2.5">
+            <div className="flex items-center gap-2 flex-wrap flex-1">
+              <div className="relative min-w-[180px]">
+                <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-500" />
+                <input
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Search player..."
+                  className="w-full bg-slate-900 border border-slate-800 rounded-lg pl-8 pr-3 py-1.5 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-slate-600"
+                />
+              </div>
+
+              {/* Sort Selector */}
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-200 outline-none focus:border-slate-600"
+              >
+                {SORT_OPTIONS.map((s) => (
+                  <option key={s.value} value={s.value}>
+                    {s.label}
+                  </option>
+                ))}
+              </select>
+
+              {/* Starters Only Toggle */}
+              <button
+                onClick={() => setStartersOnly((v) => !v)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-bold transition-all ${
+                  startersOnly
+                    ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
+                    : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-white'
+                }`}
+              >
+                <Star size={12} className={startersOnly ? 'fill-amber-400 text-amber-400' : ''} />
+                <span>Starters Only</span>
+              </button>
             </div>
+
             <div className="flex items-center gap-1 bg-slate-900 border border-slate-800 rounded-lg p-1">
               {POSITION_FILTERS.map((p) => (
                 <button
@@ -386,6 +457,7 @@ export default function FantasyValueBoard() {
                 </button>
               ))}
             </div>
+
             <div className="flex items-center gap-1 bg-slate-900 border border-slate-800 rounded-lg p-1 flex-wrap">
               {TIER_FILTERS.map((t) => (
                 <button
