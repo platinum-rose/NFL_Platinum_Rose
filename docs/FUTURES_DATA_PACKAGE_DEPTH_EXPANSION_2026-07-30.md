@@ -123,6 +123,33 @@ Per `.claude/rules/model-tiering.md`. Tiers: `code` (deterministic, no LLM) ·
 
 ---
 
+## Implementation status — updated 2026-07-30 (Gemini/Codex Flash suite, commit `0030cf9`)
+
+The parallel Gemini/Codex agent shipped the `flash` extraction/classification layer.
+The high-leverage depth gains here are almost all `code` (pbp/nflverse plumbing) and
+those remain open — consistent with this doc's headline ("most of this is plumbing").
+
+| Domain | Tier | Status | Engine / note |
+| --- | --- | :---: | --- |
+| G · Derivative / tangential markets | `flash` | ✅ **DONE** (flash half) | `build-sportsbook-exports-normalizer.js` — derivatives normalized |
+| H · Coordinator + scheme-change flags | `flash + standard` | ◐ PARTIAL | `build-coaching-scheme-classifier.js` (32-team scheme transitions) ✅ flash; `standard` scheme-fit judgment still open |
+| L · Injury sophistication | `code + flash` | ◐ PARTIAL | `build-player-availability.js` ✅ flash extract; `code` durability/value-weighting still open |
+| O · Public sentiment breadth | `flash` | ✅ **DONE** | `build-public-sentiment-classifier.js` — 1,496 takes tagged |
+| A · Regression / luck signals | `code` | ⬜ **OPEN** (Lev 5) | pbp path — biggest hole; run seed without `--no-pbp` |
+| B · Projection / power-rating ensemble | `code + flash` | ⬜ OPEN (Lev 5) | feeds dead `power_rating.model_rank` |
+| C · Authoritative roster depth | `code` | ⬜ OPEN (Lev 5) | add nflverse `snap_counts`/`depth_charts` to fetcher |
+| F · Cross-market coherence / arbitrage | `code` | ⬜ OPEN (Lev 4) | pure-math edge from prices already in hand |
+| D/E/I/J/K/M/N | mostly `code` | ⬜ OPEN | pbp / NGS / win-total-history / travel / draft plumbing |
+
+**Net:** the `flash` tier is built (G ✅, O ✅, H/L flash halves ✅). The **highest-leverage
+depth work is all `code`** and untouched by the flash suite — in priority order:
+**A** (regression/luck, Lev 5), **C** (nflverse depth, Lev 5), **B** (power-rating
+ensemble, Lev 5), **F** (cross-market coherence, Lev 4). All are free plumbing (run the
+pbp path CI skips + a handful of nflverse fetches), plus populating migration-044's
+null columns.
+
+---
+
 ## Detail by domain
 
 ### A · Regression & luck signals — *the single biggest analytical hole* (Lev 5, FREE-PLUMB)
@@ -238,7 +265,10 @@ and the model already has all four prices in hand.
 max_divergence, softest_market }`. Code owns the math (aligns with the "code owns
 math/correlation" division of labor); the model explains the dislocation.
 
-### G · Derivative & tangential markets (Lev 4)
+### G · Derivative & tangential markets (Lev 4) — ✅ DONE (flash half, `flash`)
+
+> **Delivered 2026-07-30** by `scripts/build-sportsbook-exports-normalizer.js` (commit
+> `0030cf9`) — derivative markets normalized into structured rows.
 
 The package covers SB / conf / div / wins / playoffs / awards / matchup. Missing markets
 that carry real convex value and hedging utility:
@@ -256,7 +286,11 @@ that carry real convex value and hedging utility:
 backlog #4/#10) + `FREE-NEW` for prediction-market equivalents (domain #1 in the
 backlog). **Proposed field:** `market_snapshot.derivatives[]`.
 
-### H · Coordinator track record + scheme-change flags (Lev 4)
+### H · Coordinator track record + scheme-change flags (Lev 4) — ◐ PARTIAL (`flash + standard`)
+
+> **Flash half delivered 2026-07-30** by `scripts/build-coaching-scheme-classifier.js`
+> (commit `0030cf9`, 32-team scheme transitions). The `standard` scheme-personnel-fit
+> judgment pass remains open.
 
 `coaching.scheme_offense/defense` are free-text and `coordinator_changes` is an empty
 array. Scheme *change* is a leading indicator the package can't currently reason about.
@@ -317,7 +351,10 @@ The frontier model reasons better when anchored to historical base rates:
 **Proposed field:** `market_snapshot.microstructure { hold_by_book, sharpest_book,
 futures_split }`.
 
-### L · Injury sophistication (Lev 3)
+### L · Injury sophistication (Lev 3) — ◐ PARTIAL (`code + flash`)
+
+> **Flash extract delivered 2026-07-30** by `scripts/build-player-availability.js`
+> (commit `0030cf9`). The `code` durability / value-weighting math remains open.
 
 Beyond counts and cluster flags:
 
@@ -349,7 +386,10 @@ from pbp / PFR. Low leverage for futures but cheap.
 **Proposed field:** `roster.construction { draft_capital_index, avg_age_weighted,
 contention_window }`.
 
-### O · Broad public sentiment / contrarian breadth (Lev 2)
+### O · Broad public sentiment / contrarian breadth (Lev 2) — ✅ DONE (`flash`)
+
+> **Delivered 2026-07-30** by `scripts/build-public-sentiment-classifier.js` (commit
+> `0030cf9`) — 1,496 takes tagged for sentiment/contrarian breadth.
 
 `x_sharp_tweets` is curated-handle only. A broad social-volume / public-betting-percentage
 breadth signal (contrarian indicator) is absent (inventory-flagged). `PAID`/`FREE-NEW`.

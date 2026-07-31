@@ -106,11 +106,45 @@ Per `.claude/rules/model-tiering.md`. Tiers: `code` (deterministic, no LLM) ·
 
 ---
 
+## Implementation status — updated 2026-07-30 (Gemini/Codex Flash suite, commit `0030cf9`)
+
+The parallel Gemini/Codex agent shipped the **flash ingestion tier** — every task tagged
+`flash` (or the flash half of a compound task) is now built. The `code`-tier items,
+including the **P0 upstream feed fix**, remain open.
+
+| # | Gap | Tier | Status | Engine / note |
+| --- | --- | --- | :---: | --- |
+| 1 | PM feed acquisition | `code + flash` | ⬜ **P0 OPEN** (flash half ✅) | `build-prediction-market-map.js` classifies contracts ✅ — but the **upstream `code` fetch is still starved** (`build-prediction-markets.js:58` unchanged). See fix spec: `docs/PREDICTION_MARKET_FEED_FIX_SPEC_2026-07-30.md` |
+| 2 | 2026 projection baseline | `code` | ⬜ OPEN | Deterministic compose-from-local; not covered by a flash suite |
+| 3 | Projected starters — confirm | `code + flash` | ◐ PARTIAL | `build-projected-starters.js` (0 conflicts) ✅ flash confirm; **nflverse `import_depth_charts`/`import_snap_counts` `code` half still open** (see Expansion C) |
+| 4 | Raw book normalization | `flash` | ✅ **DONE** | `build-sportsbook-exports-normalizer.js` — 3,352 records (awards/exactas/derivatives) |
+| 5 | SB exact-matchup liquidity | `code` | ⬜ OPEN | Odds join / liquidity math |
+| 6 | Training-camp coverage | `flash` | ✅ **DONE** | `build-host-citations.js` + `training-camp-rss-scout.js` |
+| 7 | Podcast/YouTube freshness | `flash` | ✅ **DONE** | `build-host-citations.js` — 1,496 citations |
+| 8 | Futures odds-movement series | `code` | ⬜ OPEN | Cadence / snapshot-diff plumbing |
+| 9 | Availability denoising | `flash` | ✅ **DONE** | `build-player-availability.js` |
+| 10 | Awards-market breadth | `code + flash` | ✅ **DONE** (flash half) | classification via normalizer; `code` ingest folds into #4 |
+| — | Final synthesis | `frontier` | ⬜ downstream | 3-stage committee, consumes the above |
+
+**Net:** flash ingestion tier ✅ (#4/#6/#7/#9/#10 + PM classify + starter confirm). The
+single highest-leverage item — **#1 upstream feed acquisition (`code`)** — is **not**
+addressed by the flash suite and remains the top open work. Other open `code` items:
+backlog #2, #5, #8, plus the depth-expansion `code` domains (A regression, B
+power-rating, C nflverse depth, F cross-market coherence).
+
+---
+
 ## Detail (highest leverage first)
 
-### P0 · #1 — Prediction-market **feed acquisition**
+### P0 · #1 — Prediction-market **feed acquisition** — ⬜ OPEN (`code`; flash half ✅)
 
 *Reframes handoff Gap #1. The mapper is fine; the fetch is starved.*
+
+> **Status 2026-07-30:** the `flash` classification half is ✅ done
+> (`scripts/build-prediction-market-map.js`, commit `0030cf9`). The **`code` upstream
+> fetch fix remains OPEN** — `build-prediction-markets.js:58` still uses the generic
+> `events?limit=100` keyword filter and never targets NFL series tickers. Full
+> implementation spec: **`docs/PREDICTION_MARKET_FEED_FIX_SPEC_2026-07-30.md`**.
 
 - **Current state:** 5 mapped contracts (all Jets endstreak novelty), 0 core NFL
   markets, 0 Polymarket NFL. 48 liquidity warnings on a feed that is 96% non-NFL.
@@ -163,7 +197,12 @@ Per `.claude/rules/model-tiering.md`. Tiers: `code` (deterministic, no LLM) ·
 - **Codex flag:** **EXTENDS** — sprint sequenced it (order step 7) but deferred it; this
   is the next genuine build, not a duplicate.
 
-### P1 · #3 — Projected/likely starters, authoritative confirmation
+### P1 · #3 — Projected/likely starters, authoritative confirmation — ◐ PARTIAL (`code + flash`)
+
+> **Flash confirm delivered 2026-07-30** by `scripts/build-projected-starters.js`
+> (commit `0030cf9`, 0 starter conflicts). **Still open (`code`):** it consumes
+> `manual_depth_chart_rows`, not the free nflverse `import_depth_charts` /
+> `import_snap_counts` feeds — see Depth Expansion domain **C**.
 
 - **Current state:** 307 **estimated** signals across 32 teams, **0 manually confirmed**
   depth-chart rows (`data/projected-starters/2026/latest.json`). Research context only.
@@ -176,7 +215,10 @@ Per `.claude/rules/model-tiering.md`. Tiers: `code` (deterministic, no LLM) ·
 - **Codex flag:** **EXTENDS** — sprint built the estimator; manual confirmation is the
   deferred next layer.
 
-### P1 · #4 — Raw BKR/BetUS/BetOnline normalization expansion
+### P1 · #4 — Raw BKR/BetUS/BetOnline normalization expansion — ✅ DONE (`flash`)
+
+> **Delivered 2026-07-30** by `scripts/build-sportsbook-exports-normalizer.js` (commit
+> `0030cf9`) — 3,352 odds records normalized across awards/exactas/derivatives.
 
 - **Current state:** core markets normalized (BetUS 416 / Bookmaker 128 / BetOnline 160
   rows). Missing: BetOnline **playoff No-side** (lives only in the manual-review MD, not
@@ -201,7 +243,10 @@ Per `.claude/rules/model-tiering.md`. Tiers: `code` (deterministic, no LLM) ·
   matchup contract if one surfaces from #1); resolve against actual two-team rows.
 - **Codex flag:** **NEW.**
 
-### P2 · #6 — Training-camp true source coverage
+### P2 · #6 — Training-camp true source coverage — ✅ DONE (`flash`)
+
+> **Delivered 2026-07-30** by `scripts/build-host-citations.js` +
+> `agents/training-camp-rss-scout.js` (commit `0030cf9`).
 
 - **Current state:** 32/32 teams have *local context* after the sprint's coverage-fill,
   but only **10/32** carry source-stamped camp intel; 22/32 still need real
@@ -212,7 +257,10 @@ Per `.claude/rules/model-tiering.md`. Tiers: `code` (deterministic, no LLM) ·
 - **Codex flag:** **IN-SPRINT** — sprint owns coverage-fill; the residual 22-team
   source confirmation is its open remainder.
 
-### P2 · #7 — Podcast/YouTube freshness reconciliation
+### P2 · #7 — Podcast/YouTube freshness reconciliation — ✅ DONE (`flash`)
+
+> **Delivered 2026-07-30** by `scripts/build-host-citations.js` (commit `0030cf9`) —
+> 1,496 dated podcast citations classified.
 
 - **Current state:** Jul 24–30 sweep pending review; YouTube review lane shows 46
   pending + 3 needs-review (45 promoted, 10 rejected, 11 context) against anchor-team
@@ -233,7 +281,9 @@ Per `.claude/rules/model-tiering.md`. Tiers: `code` (deterministic, no LLM) ·
   snapshots so a real series accumulates. LOW effort, compounding value.
 - **Codex flag:** **NEW.**
 
-### P3 · #9 — Player-availability label denoising
+### P3 · #9 — Player-availability label denoising — ✅ DONE (`flash`)
+
+> **Delivered 2026-07-30** by `scripts/build-player-availability.js` (commit `0030cf9`).
 
 - **Current state:** 620 digest events from 790 raw (307 starter-matched); classification
   warnings explicit where labels conflict with text.
@@ -241,7 +291,10 @@ Per `.claude/rules/model-tiering.md`. Tiers: `code` (deterministic, no LLM) ·
   under-trusted (`roster.injuries`, `roster.player_availability`).
 - **Codex flag:** **EXTENDS** — digest built; label refinement is incremental.
 
-### P3 · #10 — Awards-market breadth
+### P3 · #10 — Awards-market breadth — ✅ DONE (flash half) (`code + flash`)
+
+> **Flash half delivered 2026-07-30** by `scripts/build-sportsbook-exports-normalizer.js`
+> (commit `0030cf9`); the `code` ingest folds into #4.
 
 - **Current state:** award schema fields exist (`market_snapshot.awards[]`,
   `intel.lean_by_market`), TheOddsAPI returned 14/15 futures markets unavailable, and
