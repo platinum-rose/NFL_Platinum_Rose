@@ -1,5 +1,6 @@
 - At >=80% context usage: warn user and save handoff to memory/YYYY-MM-DD-HHMM-context-handoff.md, do not continue in current session.
 - Handoff must include: objective, done, pending, exact resume command, blockers/decisions.
+- Resume protocol must include a project capability scan before planning: check `.codex/rules/`, `.codex/hooks.json`, `skills/`, `agents/`, and `hooks/` or `.codex/hooks/`; read only task-relevant local `SKILL.md` files and use matching project agents/workflows when appropriate.
 - Resume only in fresh session.
 
 Before compaction, write a structured summary to today's memory file
