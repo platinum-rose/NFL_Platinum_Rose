@@ -84,6 +84,28 @@ empty today and self-heal once Week 1 is played; do not spend effort forcing the
 
 ---
 
+## Model-tier routing
+
+Per `.claude/rules/model-tiering.md`. Tiers: `code` (deterministic, no LLM) ·
+`flash` (extract/classify/normalize) · `standard` (moderate judgment) ·
+`frontier` (synthesis/strategy). Compound = pipeline.
+
+| # | Gap | Model tier | Rationale |
+| --- | --- | --- | --- |
+| 1 | PM feed acquisition | `code + flash` | Code targets NFL series/tags; flash classifies contract → team + market_type |
+| 2 | 2026 projection baseline | `code` | Data ingest / seed; deterministic |
+| 3 | Projected starters — authoritative confirm | `code + flash` | nflverse depth_charts/snap_counts (code) + flash to confirm starter language from intel text |
+| 4 | Raw book normalization (awards/exactas/No-side) | `flash` | Parse messy odds exports → fixed JSON schema |
+| 5 | SB exact-matchup two-team liquidity | `code` | Odds join / liquidity math |
+| 6 | Training-camp source coverage | `flash` | Extract + `signal_type`-tag camp notes from articles/transcripts |
+| 7 | Podcast/YouTube freshness | `flash` | Date, dedup, relevance-classify transcripts |
+| 8 | Futures odds-movement time-series | `code` | Snapshot diff / time-series build |
+| 9 | Player-availability label denoising | `flash` | Classification cleanup over noisy labels |
+| 10 | Awards-market breadth | `code + flash` | Ingest (code) + contract mapping (flash) |
+| — | Final dossier synthesis (consumer) | `frontier` | 3-stage analyst committee in `portfolio-synthesize.js` |
+
+---
+
 ## Detail (highest leverage first)
 
 ### P0 · #1 — Prediction-market **feed acquisition**

@@ -95,6 +95,34 @@ already have a field, or is a new field proposed.
 
 ---
 
+## Model-tier routing
+
+Per `.claude/rules/model-tiering.md`. Tiers: `code` (deterministic, no LLM) ·
+`flash` (extract/classify/normalize) · `standard` (moderate judgment) ·
+`frontier` (synthesis/strategy). Compound = pipeline. Note how much of this is
+`code` — the depth gains are pipeline work, not LLM calls.
+
+| Domain | Model tier | Rationale |
+| --- | --- | --- |
+| A · Regression / luck signals | `code` | pbp math (turnover/Pythag/one-score/red-zone) |
+| B · Projection / power-rating ensemble | `code + flash` | Ingest lines (code); flash extracts ranks from unstructured pages |
+| C · Authoritative roster depth | `code` | nflverse snap_counts / depth_charts |
+| D · OL / trench quality | `code` | PFR advanced + continuity math (paid grades optional) |
+| E · Next Gen Stats | `code` | NGS parquet ingest |
+| F · Cross-market coherence / arbitrage | `code` | Devig + coherence math — pure code edge |
+| G · Derivative / tangential markets | `flash` | Normalize book exports → structured markets |
+| H · Coordinator track record + scheme-change flags | `flash + standard` | Flash extracts history/scheme text; standard judges scheme-personnel fit |
+| I · Base-rate / calibration priors | `code` | Historical win-total hit rates |
+| J · Schedule environment | `code` | Travel/body-clock/weather compute (weather feed = code) |
+| K · Futures market microstructure | `code` | Hold/vig math (splits feed = paid ingest) |
+| L · Injury sophistication | `code + flash` | Durability math (code) + practice/suspension extraction (flash) |
+| M · Special teams | `code` | pbp / PFR derivation |
+| N · Roster-construction context | `code` | Draft capital / age / cap ingest |
+| O · Public sentiment breadth | `flash` | Sentiment classification at scale |
+| — · Final dossier synthesis (consumer) | `frontier` | Thesis + market-vs-model edge + skeptic/risk passes |
+
+---
+
 ## Detail by domain
 
 ### A · Regression & luck signals — *the single biggest analytical hole* (Lev 5, FREE-PLUMB)
