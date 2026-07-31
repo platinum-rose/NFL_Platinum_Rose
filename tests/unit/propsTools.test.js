@@ -15,7 +15,11 @@ vi.mock('../../src/lib/supabase.js', () => ({
 vi.mock('../../src/lib/storage.js', () => ({
   loadFromStorage: vi.fn(() => null),
   saveToStorage: vi.fn(),
-  PR_STORAGE_KEYS: {},
+  PR_STORAGE_KEYS: {
+    PICKS: { key: 'pr_picks_v1', permanence: 'critical', description: 'AI Lab picks with grading' },
+    GAME_RESULTS: { key: 'pr_game_results_v1', permanence: 'persistent', description: 'Cached game results for auto-grading' },
+    PROPS_PICKS: { key: 'nfl_props_picks_v1', permanence: 'critical', description: 'Logged player prop picks and SGP legs' },
+  },
 }));
 
 vi.mock('../../src/lib/apiConfig.js', () => ({
@@ -61,8 +65,8 @@ describe('propsTools', () => {
   });
 
   describe('PROPS_TOOLS', () => {
-    it('exports exactly 7 tools', () => {
-      expect(PROPS_TOOLS).toHaveLength(7);
+    it('exports exactly 8 tools', () => {
+      expect(PROPS_TOOLS).toHaveLength(8);
     });
 
     it('each tool has name, description, and input_schema', () => {

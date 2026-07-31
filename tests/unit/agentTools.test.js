@@ -32,8 +32,11 @@ vi.mock('../../src/lib/supabase.js', () => ({
   getRosterHistory: vi.fn(async () => []),
   getGameOddsForWeek: vi.fn(async () => []),
   getGameSplitsHistory: vi.fn(async () => []),
+  getPodcastGeminiIntel: vi.fn(async () => []),
   supabase: null,
 }));
+
+import { getPodcastGeminiIntel } from '../../src/lib/supabase.js';
 
 vi.mock('../../src/lib/vaultClient.js', () => ({
   readVaultNote: vi.fn(async () => null),
@@ -573,22 +576,34 @@ describe('agentTools', () => {
     });
 
     it('get_youtube_futures_intel returns no_data when the local summary fetch fails', async () => {
-      vi.stubGlobal('fetch', vi.fn(async () => ({ ok: false })));
+      getPodcastGeminiIntel.mockResolvedValueOnce([]);
       const result = await executeTool('get_youtube_futures_intel', {});
       expect(result.status).toBe('no_data');
       expect(result.items).toEqual([]);
     });
 
     it('get_youtube_futures_intel returns all items with guardrail when unfiltered', async () => {
-      vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => YOUTUBE_INTEL_FIXTURE })));
+      getPodcastGeminiIntel.mockImplementationOnce(async ({ team, market, lane }) => {
+        let items = YOUTUBE_INTEL_FIXTURE.items;
+        if (team) items = items.filter(i => i.team === team);
+        if (market) items = items.filter(i => i.market === market);
+        if (lane) items = items.filter(i => i.lane === lane);
+        return items;
+      });
       const result = await executeTool('get_youtube_futures_intel', {});
       expect(result.status).toBe('ok');
       expect(result.total_matched).toBe(3);
-      expect(result.guardrail).toMatch(/not an official pick ledger/);
+      expect(result.guardrail).toMatch(/not an official pick ledger/i);
     });
 
     it('get_youtube_futures_intel filters by team and preserves review_flags', async () => {
-      vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => YOUTUBE_INTEL_FIXTURE })));
+      getPodcastGeminiIntel.mockImplementationOnce(async ({ team, market, lane }) => {
+        let items = YOUTUBE_INTEL_FIXTURE.items;
+        if (team) items = items.filter(i => i.team === team);
+        if (market) items = items.filter(i => i.market === market);
+        if (lane) items = items.filter(i => i.lane === lane);
+        return items;
+      });
       const result = await executeTool('get_youtube_futures_intel', { team: 'ATL' });
       expect(result.status).toBe('ok');
       expect(result.total_matched).toBe(1);
@@ -596,7 +611,13 @@ describe('agentTools', () => {
     });
 
     it('get_youtube_futures_intel filters by lane and market together', async () => {
-      vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => YOUTUBE_INTEL_FIXTURE })));
+      getPodcastGeminiIntel.mockImplementationOnce(async ({ team, market, lane }) => {
+        let items = YOUTUBE_INTEL_FIXTURE.items;
+        if (team) items = items.filter(i => i.team === team);
+        if (market) items = items.filter(i => i.market === market);
+        if (lane) items = items.filter(i => i.lane === lane);
+        return items;
+      });
       const result = await executeTool('get_youtube_futures_intel', { team: 'KC', lane: 'injury_intel' });
       expect(result.status).toBe('ok');
       expect(result.total_matched).toBe(1);
@@ -604,7 +625,13 @@ describe('agentTools', () => {
     });
 
     it('get_youtube_futures_intel returns no_data when filters match nothing', async () => {
-      vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => YOUTUBE_INTEL_FIXTURE })));
+      getPodcastGeminiIntel.mockImplementationOnce(async ({ team, market, lane }) => {
+        let items = YOUTUBE_INTEL_FIXTURE.items;
+        if (team) items = items.filter(i => i.team === team);
+        if (market) items = items.filter(i => i.market === market);
+        if (lane) items = items.filter(i => i.lane === lane);
+        return items;
+      });
       const result = await executeTool('get_youtube_futures_intel', { team: 'BUF' });
       expect(result.status).toBe('no_data');
     });

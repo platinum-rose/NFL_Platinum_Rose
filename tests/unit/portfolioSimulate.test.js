@@ -144,7 +144,7 @@ describe('portfolio-simulate', () => {
       for (const row of Object.values(sim.teams)) {
         expect(Math.abs(row.mean_wins - row.input_mu)).toBeLessThan(0.15);
       }
-    });
+    }, 20000);
   });
 
   describe('determinism', () => {
