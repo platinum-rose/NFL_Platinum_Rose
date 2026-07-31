@@ -1,6 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { Clock, Search, X, ChevronDown, SlidersHorizontal } from 'lucide-react';
 import MatchupCard from './MatchupCard';
+import { getSecondaryMatchupsForGame } from '../../lib/secondaryMatchupStore';
+import { getContractForGame } from '../../lib/predictionMarketStore';
 
 // Known dome team abbreviations (home-field only)
 const DOME_ABBRS = new Set(['ARI', 'ATL', 'DAL', 'DET', 'HOU', 'IND', 'LV', 'LAC', 'LAR', 'MIN', 'NO']);
@@ -11,10 +13,13 @@ const SORT_OPTIONS = [
   { value: 'spread_dog',  label: 'Biggest Underdog' },
   { value: 'total_high',  label: 'Total: High → Low' },
   { value: 'total_low',   label: 'Total: Low → High' },
+  { value: 'sec_severity', label: 'Secondary Mismatch: High → Low' },
 ];
 
 const FILTER_CHIPS = [
   { id: 'all',     label: 'All' },
+  { id: 'sec_mismatch', label: '🛡️ Secondary Mismatch' },
+  { id: 'pm_market', label: '📊 Has Prediction Market' },
   { id: 'experts', label: 'Has Expert Picks' },
   { id: 'big_spread', label: 'Big Spread (7+)' },
   { id: 'high_total', label: 'High Total (48+)' },
@@ -71,6 +76,15 @@ const Dashboard = ({
 
     // Chip filter
     switch (filter) {
+      case 'sec_mismatch':
+        list = list.filter(g => {
+          const sec = getSecondaryMatchupsForGame(g.visitor, g.home);
+          return sec.maxTier === 'high' || sec.maxTier === 'medium';
+        });
+        break;
+      case 'pm_market':
+        list = list.filter(g => !!getContractForGame(g.visitor, g.home));
+        break;
       case 'experts':
         list = list.filter(g => {
           const picks = g.consensus?.expertPicks;
@@ -105,6 +119,12 @@ const Dashboard = ({
       case 'spread_dog':  return list.sort((a, b) => (b.spread ?? -99) - (a.spread ?? -99));
       case 'total_high':  return list.sort((a, b) => (b.total ?? 0) - (a.total ?? 0));
       case 'total_low':   return list.sort((a, b) => (a.total ?? 99) - (b.total ?? 99));
+      case 'sec_severity':
+        return list.sort((a, b) => {
+          const secA = getSecondaryMatchupsForGame(a.visitor, a.home);
+          const secB = getSecondaryMatchupsForGame(b.visitor, b.home);
+          return secB.maxSeverity - secA.maxSeverity;
+        });
       default:            return list; // preserve schedule order
     }
   }, [filtered, sortBy]);
