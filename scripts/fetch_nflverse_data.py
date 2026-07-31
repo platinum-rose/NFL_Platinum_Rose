@@ -10,6 +10,8 @@ Datasets fetched:
   team_stats             → team_stats.csv  (team-week aggregates from nflverse stats_team release)
   ftn_charting           → ftn_charting.csv
   espn_data              → espn_data.csv   (ESPN QBR via import_qbr, weekly)
+  snap_counts            → snap_counts.csv (per-player snap % — offense/defense/st)
+  depth_charts           → depth_charts.csv (official weekly depth charts, all 32)
 
 Usage:
   python scripts/fetch_nflverse_data.py
@@ -163,6 +165,20 @@ def _fetch_ftn_charting(years: list[int], cache: _Cache) -> "pd.DataFrame":
     return nfl.import_ftn_data(years)
 
 
+def _fetch_snap_counts(years: list[int], cache: _Cache) -> "pd.DataFrame":
+    # Expansion C: prior-season snap % per player — the truest "who actually
+    # plays" signal; quantifies backup dropoff for roster-depth theses.
+    import nfl_data_py as nfl
+    return nfl.import_snap_counts(years)
+
+
+def _fetch_depth_charts(years: list[int], cache: _Cache) -> "pd.DataFrame":
+    # Expansion C: official weekly depth charts (all 32 teams) — authoritative
+    # depth order, replacing the sprint's manual confirmation for free.
+    import nfl_data_py as nfl
+    return nfl.import_depth_charts(years)
+
+
 def _fetch_espn_data(years: list[int], cache: _Cache) -> "pd.DataFrame":
     # nfl_data_py 0.3.x uses import_qbr (not import_espn_data).
     # frequency='weekly' gives one row per QB per game week.
@@ -233,6 +249,18 @@ DATASETS: list[dict] = [
         "file": "espn_data.csv",
         "fetch": _fetch_espn_data,
         "desc": "ESPN QBR (import_qbr, weekly) — qbr_total, pts_added, pressures",
+    },
+    {
+        "name": "snap_counts",
+        "file": "snap_counts.csv",
+        "fetch": _fetch_snap_counts,
+        "desc": "Per-player snap counts/% (offense/defense/st) — roster depth truth",
+    },
+    {
+        "name": "depth_charts",
+        "file": "depth_charts.csv",
+        "fetch": _fetch_depth_charts,
+        "desc": "Official weekly depth charts, all 32 teams (import_depth_charts)",
     },
     {
         "name": "rosters_weekly",
