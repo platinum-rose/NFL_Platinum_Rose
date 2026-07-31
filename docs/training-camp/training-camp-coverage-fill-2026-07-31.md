@@ -2,9 +2,9 @@
 
 > Local research coverage only. This does not promote picks, write Supabase, or mutate production recommendations.
 
-Canonical camp snapshot: 22/32 teams with camp intel, 10/32 still missing canonical camp notes.
+Canonical camp snapshot: 23/32 teams with camp intel, 9/32 still missing canonical camp notes.
 Coverage-fill context: 32/32 teams have at least one local camp/article/availability item.
-Manual camp-source still needed: 10/32 teams.
+Manual camp-source still needed: 9/32 teams.
 
 ## Coverage Summary
 
@@ -18,7 +18,7 @@ Manual camp-source still needed: 10/32 teams.
 | CHI | existing_camp_intel | 2 | 0 | 0 |  |
 | CIN | existing_camp_intel | 2 | 0 | 0 | yes |
 | CLE | existing_camp_intel | 2 | 0 | 0 |  |
-| DAL | local_source_fill_ready_for_review | 2 | 2 | 0 |  |
+| DAL | existing_camp_intel | 2 | 0 | 0 |  |
 | DEN | existing_camp_intel | 2 | 0 | 0 |  |
 | DET | existing_camp_intel | 3 | 0 | 0 |  |
 | GB | existing_camp_intel | 2 | 0 | 0 | yes |
@@ -36,7 +36,7 @@ Manual camp-source still needed: 10/32 teams.
 | NYG | existing_camp_intel | 1 | 0 | 0 | yes |
 | NYJ | existing_camp_intel | 3 | 0 | 0 |  |
 | PHI | existing_camp_intel | 1 | 0 | 0 |  |
-| PIT | existing_camp_intel | 3 | 0 | 0 |  |
+| PIT | existing_camp_intel | 4 | 0 | 0 |  |
 | SEA | existing_camp_intel | 2 | 0 | 0 |  |
 | SF | local_source_fill_ready_for_review | 1 | 1 | 0 |  |
 | TB | existing_camp_intel | 1 | 0 | 0 |  |
@@ -65,14 +65,6 @@ Manual camp-source still needed: 10/32 teams.
 - local_article_review: training_camp_context
   - Evidence: Panthers rookie receiver Chris Brazzell II suffered a moderate lateral collateral ligament tear in practice Wednesday and he is expected to be sidelined for up to eight weeks, a league source told ESPN, confirming a report by The Athletic..
   - Source: ESPN NFL, 2026-07-30T04:05:02+00:00 (https://www.espn.com/nfl/story/_/id/49480858/panthers-rookie-wr-chris-brazzell-injures-knee-having-tests)
-
-### DAL - Dallas Cowboys
-- local_article_review: training_camp_context
-  - Evidence: Lamb worked with the Cowboys' first-team offense in the first team drill of Wednesday's practice, Jon Machota of The Athletic reports.
-  - Source: Rotowire NFL, 2026-07-29T22:38:00+00:00 (https://www.rotowire.com//football/player/ceedee-lamb-14411)
-- local_article_review: injury
-  - Evidence: Javonte Williams looked like an electric back for the Broncos during his rookie year, but wasn't the same following his ACL tear.
-  - Source: Walter Football, 2026-07-25T10:20:00+00:00 (http://walterfootball.com/offseason2026dal.php)
 
 ### LV - Las Vegas Raiders
 - local_article_review: training_camp_context

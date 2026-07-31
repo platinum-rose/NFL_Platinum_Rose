@@ -56,6 +56,10 @@ const TEAM_CAMP_SEEDS = {
     { player: 'Caleb Williams', topic: 'Rookie QB1 Reps', summary: 'Taking 100% of first-team reps in Shane Waldron system; showing quick release in 7-on-7s.', signal_type: 'depth_chart', confidence: 0.95 },
     { player: 'Rome Odunze', topic: 'WR3 Rotation', summary: 'Rotating into 3-WR personnel packages alongside DJ Moore and Keenan Allen.', signal_type: 'role_usage', confidence: 0.85 }
   ],
+  DAL: [
+    { player: 'George Pickens', topic: 'WR Target Share', summary: 'Operating in 2-WR personnel packages alongside CeeDee Lamb; Dak Prescott targeting Pickens on vertical routes.', signal_type: 'role_usage', confidence: 0.92 },
+    { player: 'Dak Prescott', topic: 'Passing Volume', summary: 'Commanding high-tempo 11-on-11 team periods in Mike McCarthy offense.', signal_type: 'scheme', confidence: 0.88 }
+  ],
   DEN: [
     { player: 'Bo Nix', topic: 'QB1 Competition', summary: 'Taking first-team reps ahead of Jarrett Stidham; Sean Payton emphasizing quick-game timing.', signal_type: 'depth_chart', confidence: 0.88 },
     { player: 'Javonte Williams', topic: 'RB1 Workload', summary: 'Leading early-down backfield reps ahead of Jaleel McLaughlin and Audric Estime.', signal_type: 'depth_chart', confidence: 0.84 }
@@ -89,8 +93,8 @@ const TEAM_CAMP_SEEDS = {
     { player: 'Breece Hall', topic: 'All-Purpose RB1', summary: 'Full participant in team drills, receiving first-team pass protection and rushing snaps.', signal_type: 'depth_chart', confidence: 0.92 }
   ],
   PIT: [
-    { player: 'Aaron Rodgers', topic: 'Veteran QB1 Reps', summary: 'Operating fluidly in pocket during 11-on-11s; connecting on deep post routes with George Pickens.', signal_type: 'depth_chart', confidence: 0.90 },
-    { player: 'George Pickens', topic: 'Alpha WR1 Targets', summary: 'Dominating 1-on-1 contested catch drills; primary target in red zone periods.', signal_type: 'role_usage', confidence: 0.90 }
+    { player: 'Aaron Rodgers', topic: 'Veteran QB1 Reps', summary: 'Operating fluidly in pocket during 11-on-11s; connecting on intermediate routes with Roman Wilson and Pat Freiermuth.', signal_type: 'depth_chart', confidence: 0.90 },
+    { player: 'Jaylen Warren', topic: 'First-Team Backfield', summary: 'Splitting first-team early down and 3rd down reps with Najee Harris in Steelers offense.', signal_type: 'depth_chart', confidence: 0.88 }
   ],
   SEA: [
     { player: 'Jaxon Smith-Njigba', topic: 'Ryan Grubb Offense', summary: 'Operating in versatile slot & Z alignment; Geno Smith targeting JSN heavily on seam routes.', signal_type: 'scheme', confidence: 0.89 },

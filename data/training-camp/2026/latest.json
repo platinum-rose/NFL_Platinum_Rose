@@ -2,10 +2,10 @@
   "meta": {
     "schema": "all_32_training_camp_intel_snapshot_v1",
     "season": 2026,
-    "generated_at": "2026-07-31T00:32:14.877Z",
+    "generated_at": "2026-07-31T00:33:47.726Z",
     "total_teams": 32,
-    "total_camp_notes": 45,
-    "new_notes_added": 2,
+    "total_camp_notes": 48,
+    "new_notes_added": 3,
     "coverage": "32/32 COMPLETE"
   },
   "teams": {
@@ -341,7 +341,34 @@
       "full_name": "Dallas Cowboys",
       "division": "NFC East",
       "conference": "NFC",
-      "items": []
+      "items": [
+        {
+          "id": "camp_612d20aa83312463",
+          "team": "DAL",
+          "signal_type": "role_usage",
+          "player": "George Pickens",
+          "topic": "WR Target Share",
+          "summary": "Operating in 2-WR personnel packages alongside CeeDee Lamb; Dak Prescott targeting Pickens on vertical routes.",
+          "confidence": 0.92,
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:33:47.725Z",
+          "captured_at": "2026-07-31T00:33:47.725Z"
+        },
+        {
+          "id": "camp_b1082b726e0750f2",
+          "team": "DAL",
+          "signal_type": "scheme",
+          "player": "Dak Prescott",
+          "topic": "Passing Volume",
+          "summary": "Commanding high-tempo 11-on-11 team periods in Mike McCarthy offense.",
+          "confidence": 0.88,
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:33:47.725Z",
+          "captured_at": "2026-07-31T00:33:47.725Z"
+        }
+      ],
+      "camp_note_count": 2,
+      "coverage_status": "existing_camp_intel"
     },
     "DEN": {
       "team": "DEN",
@@ -959,9 +986,21 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/",
           "published_at": "2026-07-31T00:32:14.877Z",
           "captured_at": "2026-07-31T00:32:14.877Z"
+        },
+        {
+          "id": "camp_294cb93dd4e7bbdd",
+          "team": "PIT",
+          "signal_type": "depth_chart",
+          "player": "Jaylen Warren",
+          "topic": "First-Team Backfield",
+          "summary": "Splitting first-team early down and 3rd down reps with Najee Harris in Steelers offense.",
+          "confidence": 0.88,
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:33:47.726Z",
+          "captured_at": "2026-07-31T00:33:47.726Z"
         }
       ],
-      "camp_note_count": 3,
+      "camp_note_count": 4,
       "coverage_status": "existing_camp_intel"
     },
     "SEA": {

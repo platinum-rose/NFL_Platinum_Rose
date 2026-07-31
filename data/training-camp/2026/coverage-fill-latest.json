@@ -2,13 +2,13 @@
   "meta": {
     "schema": "training_camp_coverage_fill_v1",
     "season": 2026,
-    "generated_at": "2026-07-31T00:32:18.616Z",
+    "generated_at": "2026-07-31T00:33:51.481Z",
     "recommendation_status": "research_context_only_not_picks",
-    "canonical_snapshot_generated_at": "2026-07-31T00:32:14.877Z",
-    "canonical_teams_with_intel": 22,
-    "canonical_teams_without_intel": 10,
+    "canonical_snapshot_generated_at": "2026-07-31T00:33:47.726Z",
+    "canonical_teams_with_intel": 23,
+    "canonical_teams_without_intel": 9,
     "teams_with_any_local_context": 32,
-    "teams_needing_manual_camp_source": 10,
+    "teams_needing_manual_camp_source": 9,
     "local_article_review_notes": 103,
     "availability_digest_events": 620,
     "guardrails": {
@@ -462,53 +462,50 @@
       "division": "NFC East",
       "conference": "NFC",
       "anchor_team": false,
-      "coverage_status": "local_source_fill_ready_for_review",
+      "coverage_status": "existing_camp_intel",
       "candidate_count": 2,
-      "existing_camp_item_count": 0,
-      "article_candidate_count": 2,
+      "existing_camp_item_count": 2,
+      "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
-        "wins",
-        "make_playoffs"
+        "wins"
       ],
       "candidates": [
         {
-          "id": "camp_article_07d2f4eb78fcb342",
+          "id": "camp_612d20aa83312463",
           "team": "DAL",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.52,
-          "signal_type": "training_camp_context",
-          "player": null,
-          "summary": "CeeDee Lamb: Playing usual role in training camp",
-          "evidence": "Lamb worked with the Cowboys' first-team offense in the first team drill of Wednesday's practice, Jon Machota of The Athletic reports.",
-          "source": "Rotowire NFL",
-          "source_url": "https://www.rotowire.com//football/player/ceedee-lamb-14411",
-          "published_at": "2026-07-29T22:38:00+00:00",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.92,
+          "signal_type": "role_usage",
+          "player": "George Pickens",
+          "summary": "Operating in 2-WR personnel packages alongside CeeDee Lamb; Dak Prescott targeting Pickens on vertical routes.",
+          "evidence": "Operating in 2-WR personnel packages alongside CeeDee Lamb; Dak Prescott targeting Pickens on vertical routes.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:33:47.725Z",
           "linked_markets": [
-            "wins",
-            "make_playoffs"
+            "wins"
           ],
-          "needs_human_review": true
+          "needs_human_review": false
         },
         {
-          "id": "camp_article_1886c9d32117b52f",
+          "id": "camp_b1082b726e0750f2",
           "team": "DAL",
-          "coverage_source": "local_article_review",
-          "status": "coverage_fill_candidate",
-          "confidence": 0.52,
-          "signal_type": "injury",
-          "player": null,
-          "summary": "Dallas Cowboys NFL Season Preview",
-          "evidence": "Javonte Williams looked like an electric back for the Broncos during his rookie year, but wasn't the same following his ACL tear.",
-          "source": "Walter Football",
-          "source_url": "http://walterfootball.com/offseason2026dal.php",
-          "published_at": "2026-07-25T10:20:00+00:00",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.88,
+          "signal_type": "scheme",
+          "player": "Dak Prescott",
+          "summary": "Commanding high-tempo 11-on-11 team periods in Mike McCarthy offense.",
+          "evidence": "Commanding high-tempo 11-on-11 team periods in Mike McCarthy offense.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:33:47.725Z",
           "linked_markets": [
-            "wins",
-            "make_playoffs"
+            "wins"
           ],
-          "needs_human_review": true
+          "needs_human_review": false
         }
       ]
     },
@@ -1346,8 +1343,8 @@
       "conference": "AFC",
       "anchor_team": false,
       "coverage_status": "existing_camp_intel",
-      "candidate_count": 3,
-      "existing_camp_item_count": 3,
+      "candidate_count": 4,
+      "existing_camp_item_count": 4,
       "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
@@ -1403,6 +1400,24 @@
           "source": "Training camp snapshot",
           "source_url": "https://www.ourlads.com/nfl-depth-charts/",
           "published_at": "2026-07-31T00:32:14.877Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        },
+        {
+          "id": "camp_294cb93dd4e7bbdd",
+          "team": "PIT",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.88,
+          "signal_type": "depth_chart",
+          "player": "Jaylen Warren",
+          "summary": "Splitting first-team early down and 3rd down reps with Najee Harris in Steelers offense.",
+          "evidence": "Splitting first-team early down and 3rd down reps with Najee Harris in Steelers offense.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:33:47.726Z",
           "linked_markets": [
             "wins"
           ],
