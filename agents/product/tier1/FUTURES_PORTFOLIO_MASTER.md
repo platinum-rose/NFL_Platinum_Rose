@@ -139,6 +139,7 @@ source of prices and the primary source of team context. Its parts:
 | `roster_churn[team]` | `nfl_rosters` diff | Latest week-over-week adds/drops/status_changes |
 | `injuries` / `player_availability` | `player_injuries`, `data/player-availability/latest.json`, projected starters | Injury counts, QB status, key-position flags, OL/DFront cluster risks, key returns/absences, snap-count risks |
 | `intel` leans | `research_pick_signals`, `research_intel_notes`, `podcast_host_summaries`, `podcast_transcripts`, `normalized_signals`, `x_sharp_tweets`, `get_youtube_futures_intel` | Per-market back/fade (or over/under) counts, `avg_strength`, and `who` (named analyst/outlet); `experts` roster of who likes what |
+| `expert_dossiers` | `data/expert-dossiers/latest.json` + `data/expert-dossiers/*.json` | Compact analyst-prior/bias context: host citation profile, ranked-list priors, and recovery-derived tendency signals. Use only to interpret named analyst tendencies or possible blind spots; not price evidence, not official-pick support, and `local_recovery_context_only` rows require manual review. |
 | `training_camp` | `data/training-camp/2026/` | Camp/preseason notes affecting depth and health |
 | `adjacent_signals` | game/prop leans per team | Week-1 correlation + hedge fuel |
 | `contract` | `platinum-rose-ai-official-2026.json` | Bankrolls, unit sizes, stake tiers, market holds, cutoff |

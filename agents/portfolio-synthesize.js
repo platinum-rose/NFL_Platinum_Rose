@@ -87,6 +87,7 @@ const RISK_MODEL = getArg('--risk-model', MODELS[0]);
 const LEDGER_PATH = getArg('--ledger', path.join(ROOT, 'data', 'futures-imports', 'andy-portfolio-ledger-2026.json'));
 const WATCHLIST_PATH = getArg('--watchlist', path.join(ROOT, 'data', 'futures-imports', 'futures-watchlist-2026.json'));
 const OFFICIAL_CONFIG_PATH = getArg('--official-config', path.join(ROOT, 'data', 'futures-imports', 'platinum-rose-ai-official-2026.json'));
+const EXPERT_DOSSIER_INDEX_PATH = getArg('--expert-dossiers', path.join(ROOT, 'data', 'expert-dossiers', 'latest.json'));
 const PROPOSAL_OUT_DIR = getArg('--proposal-out-dir', null);
 // 2026-07-22 follow-up (Andy's own portfolio-construction strategy, not a Codex
 // finding): his "primary" positions -- teams/markets he already has core
@@ -256,7 +257,48 @@ async function loadOfficialConfig() {
   }
 }
 
-function buildUserPrompt(dossier, ledger = null, watchlist = null, officialConfig = null) {
+async function loadExpertDossiers() {
+  try {
+    const index = JSON.parse(await readFile(EXPERT_DOSSIER_INDEX_PATH, 'utf8'));
+    const dossiers = [];
+    for (const row of index.dossiers || []) {
+      if (!row.path) continue;
+      const full = JSON.parse(await readFile(path.join(ROOT, row.path), 'utf8'));
+      dossiers.push({
+        expert: full.expert,
+        source_coverage: full.source_coverage,
+        host_citation_profile: {
+          sentiment_counts: full.host_citation_profile?.sentiment_counts || {},
+          top_teams: full.host_citation_profile?.top_teams || [],
+          top_markets: full.host_citation_profile?.top_markets || []
+        },
+        tendency_signals: (full.tendency_signals || []).map(signal => ({
+          signal_type: signal.signal_type,
+          source_lane: signal.source_lane,
+          authority: signal.authority,
+          requires_manual_review: signal.requires_manual_review,
+          topic: signal.topic,
+          source_url: signal.source_url,
+          timestamp_url: signal.timestamp_url,
+          ranks: signal.ranks,
+          inference_use: signal.inference_use
+        }))
+      });
+    }
+    return {
+      schema_version: index.schema_version,
+      generated_at: index.generated_at,
+      guardrail: index.guardrail,
+      dossier_count: dossiers.length,
+      dossiers
+    };
+  } catch (e) {
+    console.warn(`   expert dossiers unavailable (${EXPERT_DOSSIER_INDEX_PATH}): ${e.message}`);
+    return null;
+  }
+}
+
+function buildUserPrompt(dossier, ledger = null, watchlist = null, officialConfig = null, expertDossiers = null) {
   const promptDossier = SHADOW_SLIM ? slimDossierForPrompt(dossier) : dossier;
   const m = dossier.meta;
   const sig = m.signal_coverage || {};
@@ -270,7 +312,10 @@ function buildUserPrompt(dossier, ledger = null, watchlist = null, officialConfi
   const watchlistLine = watchlist?.items?.length
     ? `HUMAN WATCHLIST TARGETS (explicitly evaluate these markets/teams against the dossier. Do not force a bet: for each target, either recommend it, put it in watch with a timing/price trigger, or pass and say why. Expand "ATB" / across_the_board into the listed markets only; exacta targets should become hedge_basket/coverage candidates only when a matching dossier price exists):\n${JSON.stringify(watchlist)}\n\n`
     : '';
-  return `${officialLine}${primaryLine}${ledgerLine}${watchlistLine}DOSSIER META: season ${m.season}, ${m.snapshot_count} snapshots, books=${(m.books || []).join(',')}, markets=${(m.market_types || []).join(',')}. Intel: ${JSON.stringify(m.intel_coverage)}.
+  const expertDossierLine = expertDossiers?.dossiers?.length
+    ? `EXPERT DOSSIER CONTEXT (compact analyst-prior/bias signals; use only to interpret named analyst tendencies and possible blind spots. These are NOT price evidence, NOT official-pick support, and local_recovery_context_only signals require manual review):\n${JSON.stringify(expertDossiers)}\n\n`
+    : '';
+  return `${officialLine}${primaryLine}${ledgerLine}${watchlistLine}${expertDossierLine}DOSSIER META: season ${m.season}, ${m.snapshot_count} snapshots, books=${(m.books || []).join(',')}, markets=${(m.market_types || []).join(',')}. Intel: ${JSON.stringify(m.intel_coverage)}.
 
 Offseason note: many markets (division, conference, awards, playoffs, matchup) may have limited or single-book coverage until preseason; weight coverage in your confidence. Super Bowl and win-total markets are the most liquid now — win totals especially are where bounce-back / longshot value tends to hide.
 
@@ -2593,13 +2638,18 @@ async function persistRecommendationRuns(meta, trail) {
   if (officialConfig?.expert_id) {
     console.log(`   official paper expert: ${officialConfig.display_name || officialConfig.expert_id} from ${OFFICIAL_CONFIG_PATH}`);
   }
+  const expertDossiers = await loadExpertDossiers();
+  if (expertDossiers?.dossiers?.length) {
+    const signalCount = expertDossiers.dossiers.reduce((sum, row) => sum + (row.tendency_signals?.length || 0), 0);
+    console.log(`   expert dossier context: ${expertDossiers.dossiers.length} expert(s), ${signalCount} tendency signal(s) from ${EXPERT_DOSSIER_INDEX_PATH}`);
+  }
   const podcastEvidence = await loadPodcastEvidenceIndex();
   if (podcastEvidence.rows.length) {
     console.log(`   podcast source context: ${podcastEvidence.rows.length} offline host-summary pick row(s) from ${podcastEvidence.summary_path}`);
   } else {
     console.log('   podcast source context: no local Futures_Picks_Summary file found; dossier signals will render without host-summary links');
   }
-  const userContent = buildUserPrompt(dossier, ledger, watchlist, officialConfig);
+  const userContent = buildUserPrompt(dossier, ledger, watchlist, officialConfig, expertDossiers);
   const models = ONLY ? MODELS.filter((m) => m.includes(ONLY)) : MODELS;
   console.log(`🧠 Stage 1 (Market+Football Analyst) with: ${models.join(' + ')}`);
 

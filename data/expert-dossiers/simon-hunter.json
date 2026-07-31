@@ -1,0 +1,469 @@
+{
+  "expert": "Simon Hunter",
+  "slug": "simon-hunter",
+  "schema_version": "expert_dossier_v1",
+  "generated_at": "2026-07-31T18:51:39.021Z",
+  "status": "local_context_profile",
+  "guardrail": "Expert dossiers are context for interpreting analyst priors and possible bias. They are not betting authority, not price evidence, and not official-pick support unless a signal is separately promoted through an approved review gate.",
+  "source_coverage": {
+    "host_citation_count": 539,
+    "local_recovery_signal_count": 1,
+    "local_recovery_context_only_count": 1
+  },
+  "host_citation_profile": {
+    "sentiment_counts": {
+      "bullish": 497,
+      "bearish": 42
+    },
+    "top_teams": [
+      {
+        "team": "LAR",
+        "count": 50
+      },
+      {
+        "team": "KC",
+        "count": 38
+      },
+      {
+        "team": "PHI",
+        "count": 29
+      },
+      {
+        "team": "SEA",
+        "count": 26
+      },
+      {
+        "team": "CHI",
+        "count": 25
+      },
+      {
+        "team": "DEN",
+        "count": 24
+      },
+      {
+        "team": "CAR",
+        "count": 23
+      },
+      {
+        "team": "ATL",
+        "count": 22
+      },
+      {
+        "team": "NE",
+        "count": 21
+      },
+      {
+        "team": "DET",
+        "count": 20
+      }
+    ],
+    "top_markets": [
+      {
+        "market": "general",
+        "count": 230
+      },
+      {
+        "market": "superbowl",
+        "count": 105
+      },
+      {
+        "market": "division",
+        "count": 103
+      },
+      {
+        "market": "playoffs",
+        "count": 47
+      },
+      {
+        "market": "conference",
+        "count": 34
+      },
+      {
+        "market": "wins",
+        "count": 20
+      }
+    ],
+    "latest_citations": [
+      {
+        "id": "cite_cf692995a902",
+        "host": "Simon Hunter",
+        "show": "Sharp or Square",
+        "team": "LAR",
+        "teamFullName": "Los Angeles Rams",
+        "market": "superbowl",
+        "sentiment": "bullish",
+        "quote": "And it's all about that safety, right, coming down and the safety either taking the tight end or going with the running back.",
+        "episodeSlug": "2026-07-21-sharp-or-square-nfl-training-camp-questions-with-ben-solak-of-espn",
+        "episodeTitle": "NFL TRAINING CAMP QUESTIONS with Ben Solak of ESPN",
+        "pubDate": "2026-07-21T16:10:20+00:00"
+      },
+      {
+        "id": "cite_8d4dd433a900",
+        "host": "Simon Hunter",
+        "show": "Sharp or Square",
+        "team": "SEA",
+        "teamFullName": "Seattle Seahawks",
+        "market": "superbowl",
+        "sentiment": "bullish",
+        "quote": "And it's all about that safety, right, coming down and the safety either taking the tight end or going with the running back.",
+        "episodeSlug": "2026-07-21-sharp-or-square-nfl-training-camp-questions-with-ben-solak-of-espn",
+        "episodeTitle": "NFL TRAINING CAMP QUESTIONS with Ben Solak of ESPN",
+        "pubDate": "2026-07-21T16:10:20+00:00"
+      },
+      {
+        "id": "cite_91adf2d5ffeb",
+        "host": "Simon Hunter",
+        "show": "Sharp or Square",
+        "team": "LAR",
+        "teamFullName": "Los Angeles Rams",
+        "market": "wins",
+        "sentiment": "bullish",
+        "quote": "I just, I still can't wrap my head around that he might actually be coming back.",
+        "episodeSlug": "2026-07-21-sharp-or-square-nfl-training-camp-questions-with-ben-solak-of-espn",
+        "episodeTitle": "NFL TRAINING CAMP QUESTIONS with Ben Solak of ESPN",
+        "pubDate": "2026-07-21T16:10:20+00:00"
+      },
+      {
+        "id": "cite_ea8d8a24bd30",
+        "host": "Simon Hunter",
+        "show": "Sharp or Square",
+        "team": "LAR",
+        "teamFullName": "Los Angeles Rams",
+        "market": "wins",
+        "sentiment": "bullish",
+        "quote": "It's not a foregone conclusion that he's coming back next week, but he.",
+        "episodeSlug": "2026-07-21-sharp-or-square-nfl-training-camp-questions-with-ben-solak-of-espn",
+        "episodeTitle": "NFL TRAINING CAMP QUESTIONS with Ben Solak of ESPN",
+        "pubDate": "2026-07-21T16:10:20+00:00"
+      },
+      {
+        "id": "cite_2c13c11a2adc",
+        "host": "Simon Hunter",
+        "show": "Sharp or Square",
+        "team": "LAR",
+        "teamFullName": "Los Angeles Rams",
+        "market": "wins",
+        "sentiment": "bullish",
+        "quote": "He'll be back this season.",
+        "episodeSlug": "2026-07-21-sharp-or-square-nfl-training-camp-questions-with-ben-solak-of-espn",
+        "episodeTitle": "NFL TRAINING CAMP QUESTIONS with Ben Solak of ESPN",
+        "pubDate": "2026-07-21T16:10:20+00:00"
+      },
+      {
+        "id": "cite_02188a2a0acd",
+        "host": "Simon Hunter",
+        "show": "Sharp or Square",
+        "team": "LAR",
+        "teamFullName": "Los Angeles Rams",
+        "market": "wins",
+        "sentiment": "bullish",
+        "quote": "The boogeyman is coming back the football.",
+        "episodeSlug": "2026-07-21-sharp-or-square-nfl-training-camp-questions-with-ben-solak-of-espn",
+        "episodeTitle": "NFL TRAINING CAMP QUESTIONS with Ben Solak of ESPN",
+        "pubDate": "2026-07-21T16:10:20+00:00"
+      },
+      {
+        "id": "cite_099ffccb9ac8",
+        "host": "Simon Hunter",
+        "show": "Sharp or Square",
+        "team": "DET",
+        "teamFullName": "Detroit Lions",
+        "market": "general",
+        "sentiment": "bullish",
+        "quote": "They get Green Bay, Detroit, I buy week.",
+        "episodeSlug": "2026-07-21-sharp-or-square-nfl-training-camp-questions-with-ben-solak-of-espn",
+        "episodeTitle": "NFL TRAINING CAMP QUESTIONS with Ben Solak of ESPN",
+        "pubDate": "2026-07-21T16:10:20+00:00"
+      },
+      {
+        "id": "cite_cef703e1df4a",
+        "host": "Simon Hunter",
+        "show": "Sharp or Square",
+        "team": "GB",
+        "teamFullName": "Green Bay Packers",
+        "market": "general",
+        "sentiment": "bullish",
+        "quote": "They get Green Bay, Detroit, I buy week.",
+        "episodeSlug": "2026-07-21-sharp-or-square-nfl-training-camp-questions-with-ben-solak-of-espn",
+        "episodeTitle": "NFL TRAINING CAMP QUESTIONS with Ben Solak of ESPN",
+        "pubDate": "2026-07-21T16:10:20+00:00"
+      },
+      {
+        "id": "cite_5fc9a0845bbb",
+        "host": "Simon Hunter",
+        "show": "Sharp or Square",
+        "team": "BUF",
+        "teamFullName": "Buffalo Bills",
+        "market": "superbowl",
+        "sentiment": "bullish",
+        "quote": "Then they come back to at Chargers, Buffalo and Minnesota, then at the Chiefs.",
+        "episodeSlug": "2026-07-21-sharp-or-square-nfl-training-camp-questions-with-ben-solak-of-espn",
+        "episodeTitle": "NFL TRAINING CAMP QUESTIONS with Ben Solak of ESPN",
+        "pubDate": "2026-07-21T16:10:20+00:00"
+      },
+      {
+        "id": "cite_dd9f6832b55a",
+        "host": "Simon Hunter",
+        "show": "Sharp or Square",
+        "team": "KC",
+        "teamFullName": "Kansas City Chiefs",
+        "market": "superbowl",
+        "sentiment": "bullish",
+        "quote": "Then they come back to at Chargers, Buffalo and Minnesota, then at the Chiefs.",
+        "episodeSlug": "2026-07-21-sharp-or-square-nfl-training-camp-questions-with-ben-solak-of-espn",
+        "episodeTitle": "NFL TRAINING CAMP QUESTIONS with Ben Solak of ESPN",
+        "pubDate": "2026-07-21T16:10:20+00:00"
+      },
+      {
+        "id": "cite_9c85c58b2d0d",
+        "host": "Simon Hunter",
+        "show": "Sharp or Square",
+        "team": "LAC",
+        "teamFullName": "Los Angeles Chargers",
+        "market": "superbowl",
+        "sentiment": "bullish",
+        "quote": "Then they come back to at Chargers, Buffalo and Minnesota, then at the Chiefs.",
+        "episodeSlug": "2026-07-21-sharp-or-square-nfl-training-camp-questions-with-ben-solak-of-espn",
+        "episodeTitle": "NFL TRAINING CAMP QUESTIONS with Ben Solak of ESPN",
+        "pubDate": "2026-07-21T16:10:20+00:00"
+      },
+      {
+        "id": "cite_05f066734695",
+        "host": "Simon Hunter",
+        "show": "Sharp or Square",
+        "team": "MIN",
+        "teamFullName": "Minnesota Vikings",
+        "market": "superbowl",
+        "sentiment": "bullish",
+        "quote": "Then they come back to at Chargers, Buffalo and Minnesota, then at the Chiefs.",
+        "episodeSlug": "2026-07-21-sharp-or-square-nfl-training-camp-questions-with-ben-solak-of-espn",
+        "episodeTitle": "NFL TRAINING CAMP QUESTIONS with Ben Solak of ESPN",
+        "pubDate": "2026-07-21T16:10:20+00:00"
+      }
+    ]
+  },
+  "tendency_signals": [
+    {
+      "signal_type": "ranked_list",
+      "source_lane": "local_recovery_context_only",
+      "authority": "context_only",
+      "usable_for_frontier_synthesis": false,
+      "requires_manual_review": true,
+      "expert": "Simon Hunter",
+      "show": "Sharp or Square",
+      "episode_id": "youtube-qoCm4G2Jmng",
+      "episode_title": "TOP 10 QUARTERBACKS: NFL Betting Experts' Rankings & Analysis of Greatest QBs For 2026 NFL Season",
+      "source_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng",
+      "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2443s",
+      "source_timestamp": 2443,
+      "recovery_source": "segment_6_2100_2520",
+      "topic": "Simon Hunter's Top 10 NFL QB Rankings",
+      "summary": "Simon Hunter's full ranked list of quarterbacks: 1. Patrick Mahomes, 2. Matthew Stafford, 3. Jalen Hurts, 4. Josh Allen, 5. Lamar Jackson, 6. Joe Burrow, 7. Dak Prescott, 8. Baker Mayfield, 9. Justin Herbert, 10. Caleb Williams.",
+      "ranks": [
+        {
+          "rank": 1,
+          "player": "Patrick Mahomes",
+          "team": "KC"
+        },
+        {
+          "rank": 2,
+          "player": "Matthew Stafford",
+          "team": "LAR"
+        },
+        {
+          "rank": 3,
+          "player": "Jalen Hurts",
+          "team": "PHI"
+        },
+        {
+          "rank": 4,
+          "player": "Josh Allen",
+          "team": "BUF"
+        },
+        {
+          "rank": 5,
+          "player": "Lamar Jackson",
+          "team": "BAL"
+        },
+        {
+          "rank": 6,
+          "player": "Joe Burrow",
+          "team": "CIN"
+        },
+        {
+          "rank": 7,
+          "player": "Dak Prescott",
+          "team": "DAL"
+        },
+        {
+          "rank": 8,
+          "player": "Baker Mayfield",
+          "team": "TB"
+        },
+        {
+          "rank": 9,
+          "player": "Justin Herbert",
+          "team": "LAC"
+        },
+        {
+          "rank": 10,
+          "player": "Caleb Williams",
+          "team": "CHI"
+        }
+      ],
+      "inference_use": "Use only to interpret analyst priors, tendencies, and possible blind spots. Do not use as pick support or price evidence."
+    }
+  ],
+  "observations": [
+    {
+      "kind": "player_rank",
+      "subject": "Patrick Mahomes",
+      "team": "KC",
+      "rank": 1,
+      "summary": "Simon Hunter ranked Patrick Mahomes #1 in Simon Hunter's Top 10 NFL QB Rankings.",
+      "source_lane": "local_recovery_context_only",
+      "authority": "context_only",
+      "evidence": {
+        "episode_id": "youtube-qoCm4G2Jmng",
+        "episode_title": "TOP 10 QUARTERBACKS: NFL Betting Experts' Rankings & Analysis of Greatest QBs For 2026 NFL Season",
+        "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2443s",
+        "recovery_source": "segment_6_2100_2520"
+      }
+    },
+    {
+      "kind": "player_rank",
+      "subject": "Matthew Stafford",
+      "team": "LAR",
+      "rank": 2,
+      "summary": "Simon Hunter ranked Matthew Stafford #2 in Simon Hunter's Top 10 NFL QB Rankings.",
+      "source_lane": "local_recovery_context_only",
+      "authority": "context_only",
+      "evidence": {
+        "episode_id": "youtube-qoCm4G2Jmng",
+        "episode_title": "TOP 10 QUARTERBACKS: NFL Betting Experts' Rankings & Analysis of Greatest QBs For 2026 NFL Season",
+        "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2443s",
+        "recovery_source": "segment_6_2100_2520"
+      }
+    },
+    {
+      "kind": "player_rank",
+      "subject": "Jalen Hurts",
+      "team": "PHI",
+      "rank": 3,
+      "summary": "Simon Hunter ranked Jalen Hurts #3 in Simon Hunter's Top 10 NFL QB Rankings.",
+      "source_lane": "local_recovery_context_only",
+      "authority": "context_only",
+      "evidence": {
+        "episode_id": "youtube-qoCm4G2Jmng",
+        "episode_title": "TOP 10 QUARTERBACKS: NFL Betting Experts' Rankings & Analysis of Greatest QBs For 2026 NFL Season",
+        "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2443s",
+        "recovery_source": "segment_6_2100_2520"
+      }
+    },
+    {
+      "kind": "player_rank",
+      "subject": "Josh Allen",
+      "team": "BUF",
+      "rank": 4,
+      "summary": "Simon Hunter ranked Josh Allen #4 in Simon Hunter's Top 10 NFL QB Rankings.",
+      "source_lane": "local_recovery_context_only",
+      "authority": "context_only",
+      "evidence": {
+        "episode_id": "youtube-qoCm4G2Jmng",
+        "episode_title": "TOP 10 QUARTERBACKS: NFL Betting Experts' Rankings & Analysis of Greatest QBs For 2026 NFL Season",
+        "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2443s",
+        "recovery_source": "segment_6_2100_2520"
+      }
+    },
+    {
+      "kind": "player_rank",
+      "subject": "Lamar Jackson",
+      "team": "BAL",
+      "rank": 5,
+      "summary": "Simon Hunter ranked Lamar Jackson #5 in Simon Hunter's Top 10 NFL QB Rankings.",
+      "source_lane": "local_recovery_context_only",
+      "authority": "context_only",
+      "evidence": {
+        "episode_id": "youtube-qoCm4G2Jmng",
+        "episode_title": "TOP 10 QUARTERBACKS: NFL Betting Experts' Rankings & Analysis of Greatest QBs For 2026 NFL Season",
+        "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2443s",
+        "recovery_source": "segment_6_2100_2520"
+      }
+    },
+    {
+      "kind": "player_rank",
+      "subject": "Joe Burrow",
+      "team": "CIN",
+      "rank": 6,
+      "summary": "Simon Hunter ranked Joe Burrow #6 in Simon Hunter's Top 10 NFL QB Rankings.",
+      "source_lane": "local_recovery_context_only",
+      "authority": "context_only",
+      "evidence": {
+        "episode_id": "youtube-qoCm4G2Jmng",
+        "episode_title": "TOP 10 QUARTERBACKS: NFL Betting Experts' Rankings & Analysis of Greatest QBs For 2026 NFL Season",
+        "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2443s",
+        "recovery_source": "segment_6_2100_2520"
+      }
+    },
+    {
+      "kind": "player_rank",
+      "subject": "Dak Prescott",
+      "team": "DAL",
+      "rank": 7,
+      "summary": "Simon Hunter ranked Dak Prescott #7 in Simon Hunter's Top 10 NFL QB Rankings.",
+      "source_lane": "local_recovery_context_only",
+      "authority": "context_only",
+      "evidence": {
+        "episode_id": "youtube-qoCm4G2Jmng",
+        "episode_title": "TOP 10 QUARTERBACKS: NFL Betting Experts' Rankings & Analysis of Greatest QBs For 2026 NFL Season",
+        "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2443s",
+        "recovery_source": "segment_6_2100_2520"
+      }
+    },
+    {
+      "kind": "player_rank",
+      "subject": "Baker Mayfield",
+      "team": "TB",
+      "rank": 8,
+      "summary": "Simon Hunter ranked Baker Mayfield #8 in Simon Hunter's Top 10 NFL QB Rankings.",
+      "source_lane": "local_recovery_context_only",
+      "authority": "context_only",
+      "evidence": {
+        "episode_id": "youtube-qoCm4G2Jmng",
+        "episode_title": "TOP 10 QUARTERBACKS: NFL Betting Experts' Rankings & Analysis of Greatest QBs For 2026 NFL Season",
+        "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2443s",
+        "recovery_source": "segment_6_2100_2520"
+      }
+    },
+    {
+      "kind": "player_rank",
+      "subject": "Justin Herbert",
+      "team": "LAC",
+      "rank": 9,
+      "summary": "Simon Hunter ranked Justin Herbert #9 in Simon Hunter's Top 10 NFL QB Rankings.",
+      "source_lane": "local_recovery_context_only",
+      "authority": "context_only",
+      "evidence": {
+        "episode_id": "youtube-qoCm4G2Jmng",
+        "episode_title": "TOP 10 QUARTERBACKS: NFL Betting Experts' Rankings & Analysis of Greatest QBs For 2026 NFL Season",
+        "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2443s",
+        "recovery_source": "segment_6_2100_2520"
+      }
+    },
+    {
+      "kind": "player_rank",
+      "subject": "Caleb Williams",
+      "team": "CHI",
+      "rank": 10,
+      "summary": "Simon Hunter ranked Caleb Williams #10 in Simon Hunter's Top 10 NFL QB Rankings.",
+      "source_lane": "local_recovery_context_only",
+      "authority": "context_only",
+      "evidence": {
+        "episode_id": "youtube-qoCm4G2Jmng",
+        "episode_title": "TOP 10 QUARTERBACKS: NFL Betting Experts' Rankings & Analysis of Greatest QBs For 2026 NFL Season",
+        "timestamp_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng&t=2443s",
+        "recovery_source": "segment_6_2100_2520"
+      }
+    }
+  ]
+}

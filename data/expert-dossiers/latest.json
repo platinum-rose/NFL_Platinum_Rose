@@ -1,0 +1,143 @@
+{
+  "schema_version": "expert_dossiers_index_v1",
+  "generated_at": "2026-07-31T18:51:39.021Z",
+  "status": "local_context_profiles",
+  "guardrail": "Expert dossiers are compact inference context only. They are not price evidence, official-pick authority, or production recommendation support.",
+  "source_files": {
+    "host_citations": "data\\generated\\host-citations-latest.json",
+    "recovery_dir": "data\\shadow-harness\\recovery"
+  },
+  "dossier_count": 13,
+  "dossiers": [
+    {
+      "expert": "Andrew Erickson",
+      "slug": "andrew-erickson",
+      "source_coverage": {
+        "host_citation_count": 130,
+        "local_recovery_signal_count": 0,
+        "local_recovery_context_only_count": 0
+      },
+      "path": "data/expert-dossiers/andrew-erickson.json"
+    },
+    {
+      "expert": "Ben Solak",
+      "slug": "ben-solak",
+      "source_coverage": {
+        "host_citation_count": 46,
+        "local_recovery_signal_count": 0,
+        "local_recovery_context_only_count": 0
+      },
+      "path": "data/expert-dossiers/ben-solak.json"
+    },
+    {
+      "expert": "Brandon Anderson",
+      "slug": "brandon-anderson",
+      "source_coverage": {
+        "host_citation_count": 23,
+        "local_recovery_signal_count": 0,
+        "local_recovery_context_only_count": 0
+      },
+      "path": "data/expert-dossiers/brandon-anderson.json"
+    },
+    {
+      "expert": "Brandon Kravitz",
+      "slug": "brandon-kravitz",
+      "source_coverage": {
+        "host_citation_count": 75,
+        "local_recovery_signal_count": 0,
+        "local_recovery_context_only_count": 0
+      },
+      "path": "data/expert-dossiers/brandon-kravitz.json"
+    },
+    {
+      "expert": "Chad Millman",
+      "slug": "chad-millman",
+      "source_coverage": {
+        "host_citation_count": 235,
+        "local_recovery_signal_count": 1,
+        "local_recovery_context_only_count": 1
+      },
+      "path": "data/expert-dossiers/chad-millman.json"
+    },
+    {
+      "expert": "Chris Welsh",
+      "slug": "chris-welsh",
+      "source_coverage": {
+        "host_citation_count": 51,
+        "local_recovery_signal_count": 0,
+        "local_recovery_context_only_count": 0
+      },
+      "path": "data/expert-dossiers/chris-welsh.json"
+    },
+    {
+      "expert": "Kendra Middleton",
+      "slug": "kendra-middleton",
+      "source_coverage": {
+        "host_citation_count": 59,
+        "local_recovery_signal_count": 0,
+        "local_recovery_context_only_count": 0
+      },
+      "path": "data/expert-dossiers/kendra-middleton.json"
+    },
+    {
+      "expert": "Rich Hribar",
+      "slug": "rich-hribar",
+      "source_coverage": {
+        "host_citation_count": 0,
+        "local_recovery_signal_count": 1,
+        "local_recovery_context_only_count": 1
+      },
+      "path": "data/expert-dossiers/rich-hribar.json"
+    },
+    {
+      "expert": "Ross Tucker",
+      "slug": "ross-tucker",
+      "source_coverage": {
+        "host_citation_count": 144,
+        "local_recovery_signal_count": 0,
+        "local_recovery_context_only_count": 0
+      },
+      "path": "data/expert-dossiers/ross-tucker.json"
+    },
+    {
+      "expert": "Scott Bogman",
+      "slug": "scott-bogman",
+      "source_coverage": {
+        "host_citation_count": 7,
+        "local_recovery_signal_count": 0,
+        "local_recovery_context_only_count": 0
+      },
+      "path": "data/expert-dossiers/scott-bogman.json"
+    },
+    {
+      "expert": "Seth Woolcock",
+      "slug": "seth-woolcock",
+      "source_coverage": {
+        "host_citation_count": 117,
+        "local_recovery_signal_count": 0,
+        "local_recovery_context_only_count": 0
+      },
+      "path": "data/expert-dossiers/seth-woolcock.json"
+    },
+    {
+      "expert": "Simon Hunter",
+      "slug": "simon-hunter",
+      "source_coverage": {
+        "host_citation_count": 539,
+        "local_recovery_signal_count": 1,
+        "local_recovery_context_only_count": 1
+      },
+      "path": "data/expert-dossiers/simon-hunter.json"
+    },
+    {
+      "expert": "Steve Fezzik",
+      "slug": "steve-fezzik",
+      "source_coverage": {
+        "host_citation_count": 70,
+        "local_recovery_signal_count": 0,
+        "local_recovery_context_only_count": 0
+      },
+      "path": "data/expert-dossiers/steve-fezzik.json"
+    }
+  ]
+}
