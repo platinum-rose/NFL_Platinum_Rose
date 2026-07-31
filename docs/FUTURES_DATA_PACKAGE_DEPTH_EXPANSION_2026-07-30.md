@@ -136,7 +136,7 @@ those remain open — consistent with this doc's headline ("most of this is plum
 | L · Injury sophistication | `code + flash` | ◐ PARTIAL | `build-player-availability.js` ✅ flash extract; `code` durability/value-weighting still open |
 | O · Public sentiment breadth | `flash` | ✅ **DONE** | `build-public-sentiment-classifier.js` — 1,496 takes tagged |
 | A · Regression / luck signals | `code` | ◐ PARTIAL (Lev 5) | `build-regression-signals.js` ✅ score core (Pythag exp 2.37 + one-score record, 32 teams `team-regression-snapshots-*.json`); pbp luck signals (turnover / RZ-TD% / 3rd-down-over-expected) still null pending non-`--no-pbp` seed |
-| B · Projection / power-rating ensemble | `code + flash` | ⬜ OPEN (Lev 5) | feeds dead `power_rating.model_rank` |
+| B · Projection / power-rating ensemble | `code + flash` | ◐ PARTIAL (Lev 5) | `build-power-ratings.js` ✅ fills dead `power_rating.model_rank` (32 teams) via market-independent SRS + net-PPG + Pythagorean z-ensemble from `games.csv`; `delta` (market-vs-model) computable for coherent-market teams via Expansion F medians (17/32). Scraped forward projections (FPI/nfelo/DVOA) + full win-totals feed still open |
 | C · Authoritative roster depth | `code` | ◐ PARTIAL (Lev 5) | `fetch_nflverse_data.py` ✅ now pulls `snap_counts` (offense/defense/st %) + `depth_charts` (`pos_rank` depth order); returning-production derivation + `roster.qb_depth` mapping still open |
 | F · Cross-market coherence / arbitrage | `code` | ✅ **DONE** (Lev 4) | `build-cross-market-coherence.js` — devigs the team-market map into implied win% per market, checks win-total ladder monotonicity + SB≤Conf≤Playoffs / Div≤Playoffs nesting; 32 teams, `edge_type: math` on violations, `cross-market-coherence-*.json` |
 | D/E/I/J/K/M/N | mostly `code` | ⬜ OPEN | pbp / NGS / win-total-history / travel / draft plumbing |
@@ -144,13 +144,15 @@ those remain open — consistent with this doc's headline ("most of this is plum
 **Net:** the `flash` tier is built (G ✅, O ✅, H/L flash halves ✅), Expansion **A**'s
 score-based core ships (`build-regression-signals.js` — Pythagorean + one-score
 record), and Expansion **F** now ships in full (`build-cross-market-coherence.js` —
-pure-math coherence/arbitrage on prices already in hand). The **highest-leverage depth
-work remaining is all `code`** — in priority order:
+pure-math coherence/arbitrage on prices already in hand), while Expansion **B**'s dead
+`power_rating.model_rank` is now fed (`build-power-ratings.js` — SRS + net-PPG +
+Pythagorean z-ensemble, 32 teams; market-vs-model `delta` live for coherent-market
+teams). The **highest-leverage depth work remaining is all `code`** — in priority order:
 **A** (pbp luck signals — turnover/RZ/3rd-down — pending non-`--no-pbp` seed),
 **C** (returning-production derivation + `roster.qb_depth` mapping — `snap_counts`/
-`depth_charts` now fetched), **B** (power-rating ensemble, Lev 5). All are free plumbing
-(run the pbp path CI skips + a handful of nflverse fetches), plus populating
-migration-044's null columns.
+`depth_charts` now fetched), **B**'s scraped forward projections (FPI/nfelo/DVOA) +
+full win-totals feed. All are free plumbing (run the pbp path CI skips + a handful of
+nflverse fetches), plus populating migration-044's null columns.
 
 ---
 
@@ -184,7 +186,18 @@ third_down_over_expected }`.
 **Acquisition:** run the existing pbp path (drop `--no-pbp` for a local seed) and add a
 `derive-regression-signals` script off `data/vault-seed/nflverse` play-by-play. Free.
 
-### B · Projection / power-rating ensemble — *fills a dead schema field* (Lev 5)
+### B · Projection / power-rating ensemble — *fills a dead schema field* (Lev 5) — ◐ PARTIAL (`code`)
+
+> **Delivered 2026-07-31** by `scripts/build-power-ratings.js` — fills the dead
+> `power_rating.model_rank` for all 32 teams with a market-INDEPENDENT ensemble: a
+> z-averaged median of three standard, data-derived power metrics from `games.csv` —
+> SRS (iterated margin + strength-of-schedule, ±24 margin cap), net points per game, and
+> Pythagorean win% (exp 2.37). The market-vs-model `delta` is now computable: it uses
+> Expansion F prediction-market win-total medians, standardized over the matched
+> coherent-market subset (17/32 teams whose win-total ladder is monotonic). Output
+> `data/generated/team-profiles/team-power-ratings-<season>.json`. Scraped forward
+> projections (FPI / nfelo / DVOA) and a full win-totals feed
+> (`agents/win-totals-ingest.js`) remain the intended upgrades.
 
 The schema already has `power_rating.market_implied_rank`, `power_rating.model_rank`,
 and `power_rating.delta` — but **no source feeds `model_rank`**. `delta`
