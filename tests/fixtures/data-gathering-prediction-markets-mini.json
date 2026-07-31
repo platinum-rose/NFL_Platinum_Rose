@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "schema": "prediction_markets_snapshot_v1",
+    "generated_at": "2026-07-30T12:00:00.000Z",
+    "contract_count": 2
+  },
+  "contracts": [
+    {
+      "id": "kalshi_KXNFLENDSTREAK-40NYJ-2627",
+      "title": "Which season will the New York J next make the playoffs?",
+      "ticker": "KXNFLENDSTREAK-40NYJ-2627",
+      "exchange": "kalshi",
+      "price_cents": 15,
+      "yes_bid_cents": 9,
+      "yes_ask_cents": 14,
+      "gross_american_odds": 567,
+      "net_american_odds": 529,
+      "implied_probability_pct": 15,
+      "volume_24h": 63,
+      "updated_at": "2026-07-30T12:00:00.000Z"
+    },
+    {
+      "id": "kalshi_cpi",
+      "title": "Will CPI-U in December 2036 be above 4.5%?",
+      "ticker": "KXUSCPIYEAR-37FEB01-T4.5",
+      "exchange": "kalshi",
+      "price_cents": 39,
+      "gross_american_odds": 156,
+      "net_american_odds": 146,
+      "implied_probability_pct": 39,
+      "volume_24h": 12,
+      "updated_at": "2026-07-30T12:00:00.000Z"
+    }
+  ]
+}

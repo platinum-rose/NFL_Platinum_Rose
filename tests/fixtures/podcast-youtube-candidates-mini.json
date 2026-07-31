@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-07-28T15:22:41.270Z",
+  "status": "candidate_only",
+  "episodes": [
+    {
+      "id": "youtube-window-futures",
+      "show": "Test YouTube",
+      "date": "2026-07-24",
+      "title": "Fresh Futures Candidate",
+      "url": "https://example.test/fresh",
+      "content_lane": "futures_intel",
+      "futures_score": 12,
+      "gemini_futures_eligible": true,
+      "mapping_status": "unmapped"
+    },
+    {
+      "id": "youtube-window-fantasy",
+      "show": "Test YouTube",
+      "published_at": "2026-07-25T12:00:00Z",
+      "title": "Fresh Fantasy Candidate",
+      "url": "https://example.test/fantasy",
+      "content_lane": "fantasy",
+      "futures_score": 0,
+      "gemini_futures_eligible": false,
+      "mapping_status": "unmapped"
+    }
+  ]
+}

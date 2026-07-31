@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "schema": "starter_impact_availability_digest_v1",
+    "generated_at": "2026-07-30T12:02:00.000Z"
+  },
+  "top_events": [
+    {
+      "id": "avail_test_gb",
+      "team": "GB",
+      "player_name": "Test Tackle",
+      "position": "OT",
+      "score": 88,
+      "signal": "negative_availability",
+      "summary": "Test Tackle missed practice with an injury.",
+      "evidence": "Test Tackle missed practice with an injury.",
+      "source": "ESPN injuries API",
+      "source_url": "https://example.test/injuries",
+      "published_at": "2026-07-30T09:00:00.000Z",
+      "linked_markets": ["wins", "division"],
+      "starter_match": {
+        "role": "likely_starter_or_primary",
+        "starter_confidence": 0.7
+      }
+    }
+  ]
+}

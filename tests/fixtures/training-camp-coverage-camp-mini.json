@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "schema": "training_camp_intel_snapshot_v1",
+    "season": 2026,
+    "generated_at": "2026-07-30T12:00:00.000Z",
+    "team_count": 32,
+    "teams_with_intel": 1,
+    "teams_without_intel": 31,
+    "item_count": 1
+  },
+  "teams": {
+    "KC": {
+      "team": "KC",
+      "items": [
+        {
+          "id": "camp_test_kc",
+          "team": "KC",
+          "source": "Manual camp note",
+          "source_type": "manual",
+          "published_at": "2026-07-30T11:00:00.000Z",
+          "signal_type": "depth_chart",
+          "confidence": 0.7,
+          "summary": "KC first-team offense note.",
+          "raw_excerpt": "KC first-team offense note from a source-stamped manual camp item.",
+          "linked_markets": ["wins"]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-07-29T04:00:31.515Z",
+  "status": "local_agent_intel_summary_only",
+  "exported_items": 1,
+  "exported_notes": 0,
+  "counts": {
+    "by_team": {
+      "BUF": 1
+    },
+    "by_market": {
+      "win_total": 1
+    }
+  },
+  "rejected_leak_checks": {
+    "det_division_winner_plus_1500": 0
+  },
+  "items": [
+    {
+      "item_id": "accepted_buf_pick",
+      "item_type": "pick",
+      "lane": "futures_pick",
+      "team": "BUF",
+      "market": "win_total",
+      "side": "OVER",
+      "line": 11.5,
+      "price": -110,
+      "source": {
+        "episode_id": "youtube-test",
+        "episode_title": "Accepted Bills Futures",
+        "show": "Test Show",
+        "source_timestamp": 120,
+        "timestamp_url": "https://example.test/watch?t=120s"
+      }
+    }
+  ],
+  "notes": []
+}

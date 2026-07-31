@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "schema": "player_availability_snapshot_v1",
+    "season": 2026,
+    "event_count": 3
+  },
+  "events": [
+    {
+      "id": "avail_test_qb",
+      "season": 2026,
+      "player_name": "Test Starter",
+      "team_abbr": "KC",
+      "team_nick": "Chiefs",
+      "position": "QB",
+      "source": "Fixture",
+      "source_type": "structured_injury",
+      "source_url": "https://example.test/qb",
+      "published_at": "2026-07-30T12:00:00.000Z",
+      "event_type": "active_news",
+      "availability_trend": "unknown",
+      "short_summary": "Coach confirmed Test Starter will open training camp as the starting quarterback.",
+      "supporting_quote": "Coach confirmed Test Starter will open training camp as the starting quarterback.",
+      "linked_markets": ["wins", "division", "conference", "super_bowl"],
+      "impact_bucket": "qb_major",
+      "availability_group": "quarterback",
+      "needs_human_review": true
+    },
+    {
+      "id": "avail_test_ot",
+      "season": 2026,
+      "player_name": "Test Tackle",
+      "team_abbr": "GB",
+      "team_nick": "Packers",
+      "position": "OT",
+      "source": "Fixture",
+      "source_type": "structured_injury",
+      "source_url": "https://example.test/ot",
+      "published_at": "2026-07-30T12:10:00.000Z",
+      "event_type": "pup",
+      "availability_trend": "worsening",
+      "short_summary": "The Packers activated Test Tackle off the active/PUP list Wednesday.",
+      "supporting_quote": "The Packers activated Test Tackle off the active/PUP list Wednesday.",
+      "linked_markets": ["wins", "division"],
+      "impact_bucket": "offensive_line_major",
+      "availability_group": "offensive_line",
+      "needs_human_review": true
+    },
+    {
+      "id": "avail_test_depth",
+      "season": 2026,
+      "player_name": "Depth Player",
+      "team_abbr": "NO",
+      "team_nick": "Saints",
+      "position": "WR",
+      "source": "Fixture",
+      "source_type": "structured_injury",
+      "source_url": "https://example.test/depth",
+      "published_at": "2026-07-30T12:20:00.000Z",
+      "event_type": "active_news",
+      "availability_trend": "unknown",
+      "short_summary": "Depth Player signed with the Saints.",
+      "supporting_quote": "Depth Player signed with the Saints.",
+      "linked_markets": ["wins"],
+      "impact_bucket": "skill_major",
+      "availability_group": "offensive_skill",
+      "needs_human_review": true
+    }
+  ]
+}

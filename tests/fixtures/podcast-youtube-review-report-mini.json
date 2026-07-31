@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-07-29T04:00:17.828Z",
+  "observed_episodes": 1,
+  "missing_observations": 0,
+  "total_extracted_picks": 1,
+  "total_analysis_notes": 1,
+  "episodes": [
+    {
+      "id": "youtube-test",
+      "title": "Accepted Bills Futures"
+    }
+  ],
+  "picks": [
+    {
+      "item_id": "accepted_buf_pick",
+      "episode_id": "youtube-test",
+      "episode_title": "Accepted Bills Futures",
+      "show": "Test Show",
+      "team": "BUF",
+      "market": "win_total",
+      "item_lane": "futures_pick"
+    }
+  ],
+  "notes": [
+    {
+      "item_id": "pending_kc_note",
+      "episode_id": "youtube-test",
+      "episode_title": "Pending Chiefs Context",
+      "show": "Test Show",
+      "note_type": "team_evaluation",
+      "teams": ["KC"],
+      "summary": "Chiefs context still needs human review.",
+      "quote": "Chiefs context still needs human review.",
+      "source_timestamp": 240
+    }
+  ]
+}
