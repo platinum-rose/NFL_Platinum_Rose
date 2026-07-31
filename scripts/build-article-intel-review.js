@@ -412,20 +412,50 @@ function extractAnalysisNotes(article, teams, fullText) {
 }
 
 async function loadArticles(since, limit) {
-  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
-    throw new Error('Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY');
+  const localDir = path.join(ROOT, 'data', 'research-intel', 'local');
+  let localRows = [];
+  if (fs.existsSync(localDir)) {
+    const files = fs.readdirSync(localDir).filter((f) => f.endsWith('.json'));
+    for (const f of files) {
+      try {
+        const content = JSON.parse(fs.readFileSync(path.join(localDir, f), 'utf8'));
+        if (content && content.id && content.source) {
+          localRows.push(content);
+        }
+      } catch (err) {
+        // ignore
+      }
+    }
   }
-  const sb = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, {
-    auth: { persistSession: false },
-  });
-  const { data, error } = await sb
-    .from('research_intel_notes')
-    .select('id,source,source_type,title,summary,body,url,published_at,captured_at,author,confidence')
-    .gte('captured_at', since)
-    .order('published_at', { ascending: false })
-    .limit(limit);
-  if (error) throw error;
-  return data || [];
+
+  let dbRows = [];
+  if (process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    try {
+      const sb = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, {
+        auth: { persistSession: false },
+      });
+      const { data, error } = await sb
+        .from('research_intel_notes')
+        .select('id,source,source_type,title,summary,body,url,published_at,captured_at,author,confidence')
+        .gte('captured_at', since)
+        .order('published_at', { ascending: false })
+        .limit(limit);
+      if (!error && data) dbRows = data;
+    } catch (err) {
+      // ignore
+    }
+  }
+
+  const combined = [...localRows, ...dbRows];
+  const seen = new Set();
+  const deduped = [];
+  for (const row of combined) {
+    if (!seen.has(row.id)) {
+      seen.add(row.id);
+      deduped.push(row);
+    }
+  }
+  return deduped;
 }
 
 function renderMarkdown(report) {

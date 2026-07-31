@@ -99,6 +99,13 @@ const FEEDS = [
     confidence: 0.68,
     source_type: 'analytical',
   },
+  {
+    // THE WINDOW: Matt Russell's sports betting newsletter (EMR, lookahead lines, win totals)
+    source: 'THE WINDOW (Matt Russell)',
+    url: 'https://mrussauthentic.substack.com/feed',
+    confidence: 0.75,
+    source_type: 'newsletter',
+  },
 ];
 
 const NFL_KEYWORDS = [
