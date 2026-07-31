@@ -34,9 +34,9 @@ Manual camp-source still needed: 10/32 teams.
 | NE | local_source_fill_ready_for_review | 1 | 1 | 0 |  |
 | NO | local_source_fill_ready_for_review | 1 | 1 | 0 | yes |
 | NYG | existing_camp_intel | 1 | 0 | 0 | yes |
-| NYJ | existing_camp_intel | 2 | 0 | 0 |  |
+| NYJ | existing_camp_intel | 3 | 0 | 0 |  |
 | PHI | existing_camp_intel | 1 | 0 | 0 |  |
-| PIT | existing_camp_intel | 2 | 0 | 0 |  |
+| PIT | existing_camp_intel | 3 | 0 | 0 |  |
 | SEA | existing_camp_intel | 2 | 0 | 0 |  |
 | SF | local_source_fill_ready_for_review | 1 | 1 | 0 |  |
 | TB | existing_camp_intel | 1 | 0 | 0 |  |

@@ -2,9 +2,9 @@
   "meta": {
     "schema": "training_camp_coverage_fill_v1",
     "season": 2026,
-    "generated_at": "2026-07-31T00:28:50.795Z",
+    "generated_at": "2026-07-31T00:32:18.616Z",
     "recommendation_status": "research_context_only_not_picks",
-    "canonical_snapshot_generated_at": "2026-07-31T00:28:47.973Z",
+    "canonical_snapshot_generated_at": "2026-07-31T00:32:14.877Z",
     "canonical_teams_with_intel": 22,
     "canonical_teams_without_intel": 10,
     "teams_with_any_local_context": 32,
@@ -1234,8 +1234,8 @@
       "conference": "AFC",
       "anchor_team": false,
       "coverage_status": "existing_camp_intel",
-      "candidate_count": 2,
-      "existing_camp_item_count": 2,
+      "candidate_count": 3,
+      "existing_camp_item_count": 3,
       "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
@@ -1273,6 +1273,24 @@
           "source": "Training camp snapshot",
           "source_url": "https://www.ourlads.com/nfl-depth-charts/",
           "published_at": "2026-07-31T00:28:47.973Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        },
+        {
+          "id": "camp_7f99e8b1c5a37d31",
+          "team": "NYJ",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.88,
+          "signal_type": "depth_chart",
+          "player": "Russell Wilson",
+          "summary": "Taking initial first-team reps over Justin Fields in Jets 11-on-11 team period.",
+          "evidence": "Taking initial first-team reps over Justin Fields in Jets 11-on-11 team period.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:32:14.877Z",
           "linked_markets": [
             "wins"
           ],
@@ -1328,8 +1346,8 @@
       "conference": "AFC",
       "anchor_team": false,
       "coverage_status": "existing_camp_intel",
-      "candidate_count": 2,
-      "existing_camp_item_count": 2,
+      "candidate_count": 3,
+      "existing_camp_item_count": 3,
       "article_candidate_count": 0,
       "availability_candidate_count": 0,
       "linked_markets": [
@@ -1367,6 +1385,24 @@
           "source": "Training camp snapshot",
           "source_url": "https://www.ourlads.com/nfl-depth-charts/",
           "published_at": "2026-07-31T00:28:47.973Z",
+          "linked_markets": [
+            "wins"
+          ],
+          "needs_human_review": false
+        },
+        {
+          "id": "camp_12ba89b389cf5934",
+          "team": "PIT",
+          "coverage_source": "existing_training_camp_snapshot",
+          "status": "existing_camp_intel",
+          "confidence": 0.9,
+          "signal_type": "depth_chart",
+          "player": "Aaron Rodgers",
+          "summary": "Operating fluidly in pocket during 11-on-11s; connecting on deep post routes with George Pickens.",
+          "evidence": "Operating fluidly in pocket during 11-on-11s; connecting on deep post routes with George Pickens.",
+          "source": "Training camp snapshot",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+          "published_at": "2026-07-31T00:32:14.877Z",
           "linked_markets": [
             "wins"
           ],

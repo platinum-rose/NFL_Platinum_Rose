@@ -85,11 +85,11 @@ const TEAM_CAMP_SEEDS = {
     { player: 'Ladd McConkey', topic: 'Slot WR Target Share', summary: 'Herbert targeting McConkey consistently on 3rd down slot option routes.', signal_type: 'role_usage', confidence: 0.89 }
   ],
   NYJ: [
-    { player: 'Aaron Rodgers', topic: 'Achilles Health', summary: 'Moving fluidly in pocket during 11-on-11s; Garrett Wilson taking 35%+ target share.', signal_type: 'injury', confidence: 0.94 },
+    { player: 'Russell Wilson', topic: 'QB1 Competition', summary: 'Taking initial first-team reps over Justin Fields in Jets 11-on-11 team period.', signal_type: 'depth_chart', confidence: 0.88 },
     { player: 'Breece Hall', topic: 'All-Purpose RB1', summary: 'Full participant in team drills, receiving first-team pass protection and rushing snaps.', signal_type: 'depth_chart', confidence: 0.92 }
   ],
   PIT: [
-    { player: 'Russell Wilson', topic: 'QB1 Competition', summary: 'Taking initial first-team reps over Justin Fields in Arthur Smith offense.', signal_type: 'depth_chart', confidence: 0.86 },
+    { player: 'Aaron Rodgers', topic: 'Veteran QB1 Reps', summary: 'Operating fluidly in pocket during 11-on-11s; connecting on deep post routes with George Pickens.', signal_type: 'depth_chart', confidence: 0.90 },
     { player: 'George Pickens', topic: 'Alpha WR1 Targets', summary: 'Dominating 1-on-1 contested catch drills; primary target in red zone periods.', signal_type: 'role_usage', confidence: 0.90 }
   ],
   SEA: [
