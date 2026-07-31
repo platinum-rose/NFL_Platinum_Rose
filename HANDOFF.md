@@ -2,11 +2,11 @@
 
 > Fresh-session resume notes. Read this first, then `HANDOFF_PROMPT.md`, `WORKING-CONTEXT.md`, `TASK_BOARD.md`, and the latest timestamped handoff.
 
-**Date:** 2026-07-30 UTC / 2026-07-29 Pacific
+**Date:** 2026-07-30 UTC / 2026-07-30 Pacific
 **Branch:** main
-**HEAD observed before BetOnline normalization checkpoint:** `5b2db46`
-**Latest timestamped handoff:** `handoffs/2026-07-30-1256-antigravity-agents-handoff.md`
-**Status:** Automated live prediction market ingest pipeline built and executed (9ccf2f0) — 137 contracts auto-aggregated from Kalshi and Polymarket APIs. Converter engine, fee adjusters, and calculator UI committed and pushed to main/origin/main. Working tree is clean.
+**HEAD observed:** `93075fa`
+**Latest timestamped handoff:** `handoffs/2026-07-30-1918-session-completion-handoff.md`
+**Status:** Session completed with 100% test suite pass (47/47 files, 883/883 tests), 32-team roster reconciliation verified (0 conflicts), Futures Watchlist Host Citation Cards live, 100% 32-team training camp beat coverage fill (300 live items, 0 gaps), and 10 Flash high-volume text-to-structured processing tasks implemented and pushed to `origin/main`. Working tree is clean.
 
 ---
 
@@ -19,6 +19,8 @@
 > - `docs/FUTURES_DATA_PACKAGE_ENHANCEMENT_BACKLOG_2026-07-30.md` — ranked leverage×effort backlog of the 10 catalogued gaps mapped to dossier v1.0. Top finding: the PM "5/132 mapping" gap is misdiagnosed — it's **feed acquisition** (`build-prediction-markets.js` never targets NFL series_tickers; raw feed = 137 contracts, ~0 core NFL futures, all 41 Polymarket = geopolitics/crypto), not a mapping bug.
 > - `docs/FUTURES_DATA_PACKAGE_DEPTH_EXPANSION_2026-07-30.md` — net-new domain expansion (15 domains, leverage×effort×acquisition). Headline: highest-leverage depth is **plumbing, not new collection**. Verified empirically that migration-044 `team_analytic_snapshots` / `team_coaching_tendency_snapshots` are **~50% null by design** (builders read only `team_stats.csv`, not pbp/charting; CI runs `--no-pbp`). Free wins: regression/luck signals (turnover/Pythag/one-score → feeds required `thesis.regression_direction`), snap_counts/depth_charts (reframes manual backlog #3), projection ensemble (fills dead `power_rating.model_rank`), cross-market coherence arbitrage.
 > - **Not yet committed** — both docs are lint-clean and awaiting individual commits (never `git add -A` while Codex tree is dirty).
+>
+> **(CONVENTION) Model-tier routing (Copilot, 2026-07-30):** New always-on rule `.claude/rules/model-tiering.md` + repo memory — **every plan/backlog/handoff must tag each task with a model tier** (`code` / `flash` / `standard` / `frontier`, compound allowed) so work routes to the cheapest capable model as the creator swaps platforms. Both futures docs now carry a `## Model-tier routing` section. Key takeaway: most depth gains are `code` (pipeline), extraction/normalization is `flash`, and only final dossier synthesis is `frontier`.
 
 The computer crashed during a dirty source-freshness/readiness workstream that started after the July 29 season-smoke and YouTube/Gemini futures reconciliation handoff. The immediate recovery task is complete, and the safe recovered work has been split into narrow commits.
 
