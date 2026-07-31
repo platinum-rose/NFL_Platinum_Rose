@@ -1,0 +1,88 @@
+{
+  "evaluated_at": "2026-07-31T00:57:33.799Z",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "batch_label": "saved-futures",
+  "total_episodes_evaluated": 1,
+  "total_episodes_scored": 0,
+  "average_f1_score_pct": null,
+  "total_cost_usd": 0.019478,
+  "average_cost_usd": 0.019478,
+  "total_latency_ms": 103838,
+  "average_latency_ms": 103838,
+  "total_extracted_picks": 0,
+  "queue_runs": [
+    {
+      "episode_slug": "youtube-OAxHvrVUPpw",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "run": {
+        "run_id": "youtube_gemini_0e0c70dda9cc",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=OAxHvrVUPpw",
+        "latency_ms": 103838,
+        "estimated_cost_usd": 0.019478,
+        "input_tokens": 188850,
+        "output_tokens": 1483,
+        "raw_model_response": "{\n  \"transcript_summary\": \"In this preview clip of Sharp or Square, hosts Chad Millman and Simon Hunter catch up on their offseason TV viewing habits, including Homeland and The Bear. They then introduce their upcoming alternate-reality/simulation league betting preview for the NFC South.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 256,\n    \"last_analyzed_timestamp\": 256,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 5.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Welcome to Sharp or Square, presented by Hard Rock Bet.\"\n    },\n    {\n      \"start\": 5.0,\n      \"end\": 21.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"We are part of the Volume Podcast Network. This is the show that makes the square sharper and makes the wise guys pay attention. I am Chad Millman, joined as always by my co-host, my BFF, my companion, my compadre, professional bettor Simon Hunter. Hello, Simon!\"\n    },\n    {\n      \"start\": 21.0,\n      \"end\": 30.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Chad, as we sit here right now, every team has officially reported to camp, my friend.\"\n    },\n    {\n      \"start\": 30.0,\n      \"end\": 60.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"I feel warm and fuzzy. I'm in like a weird spot where I'm warm and fuzzy, but I'm in a weird world right now where I'm all-in on football, but I'm still watching my crappy TV shows before I head into the season. So I'm on season four of Homeland. Have you ever watched Homeland?\"\n    },\n    {\n      \"start\": 60.0,\n      \"end\": 94.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Oh dude, I'm jealous that you're getting to watch it. I always feel so happy for people who, with Breaking Bad, Sopranos, Homeland, The Wire, these shows that are so good, and if you've never watched them before, getting a chance to watch it, it's amazing.\"\n    },\n    {\n      \"start\": 94.0,\n      \"style\": \"conversational\",\n      \"end\": 130.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"This is my tenth time through, I'm not going to lie. Every offseason I do the same thing, I watch shows. But I stopped Homeland... I forget what happened, basically season one was so good, it just every season after felt like a little bit of a letdown. But I am in a super paranoid state with what's going to go down. Like when I'm leaving my place now, I'm like, is this guy tailing me? Whatever happens from me watching too much CIA stuff and now I'm betting large amounts of money at sportsbooks again, I'm just always being like, is someone tracking me right now? Is this guy following me in the sportsbook? So for my mental health, I need to stop watching Homeland now that I'm back to handling large amounts of cash.\"\n    },\n    {\n      \"start\": 130.0,\n      \"end\": 170.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"I just watched on Saturday, my wife was out of town, my kid was doing his own thing, and I basically rewatched the entire season two of The Bear, which I love. And I think season two, episode six, it's an episode called 'Forks', features Richie, one of the main characters, and anyone who watches The Bear... it's such a Chicago show, like it's got these little Chicago easter eggs which makes me love it even more.\"\n    },\n    {\n      \"start\": 170.0,\n      \"end\": 215.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Do those personalities work for Chicago? Is that really what you think a lot of Chicago people are locally like?\"\n    },\n    {\n      \"start\": 215.0,\n      \"end\": 256.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"I think local, yeah, totally. Those personalities are accurate for I think any working-class, close-knit, family community. Obviously, everything's heightened for television, but the Chicago of it all... there's easter eggs in the show through season one and season two that if you know Chicago, you know. Today, we're going to talk about one of our favorite divisions in football: the NFC South. Will the Falcons make a run with new coach Kevin Stefanski and Tua under center? Can the Bucs rebound with a healthier Baker Mayfield, even though Vita Vea wants out? Were the Saints a fluke with Tyler Shough? Simon, are we still a Carolina Panthers podcast? Let's get to it.\"\n    }\n  ],\n  \"extracted_picks\": [],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\n        \"ATL\",\n        \"TB\",\n        \"NO\",\n        \"CAR\"\n      ],\n      \"players\": [\n        \"Tua Tagovailoa\",\n        \"Baker Mayfield\",\n        \"Tyler Shough\"\n      ],\n      \"topic\": \"Simulated/Alternate Franchise Narrative Preview\",\n      \"summary\": \"Chad sets the stage for their upcoming division preview by referencing the simulated league rosters and changes, including Kevin Stefanski coaching Tua Tagovailoa in Atlanta, Baker Mayfield's status in Tampa Bay, and Tyler Shough's late-season run with New Orleans.\",\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 235,\n      \"quote\": \"Will the Falcons make a run with new coach Kevin Stefanski and Tua under center? Can the Bucs rebound with a healthier Baker Mayfield, even though Vita Vea wants out? Were the Saints a fluke with Tyler Shough at the end of last year?\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [],\n  \"uncertainty_flags\": []\n}",
+        "extracted_picks": [],
+        "analysis_notes": [
+          {
+            "note_type": "coaching_or_scheme",
+            "teams": [
+              "ATL",
+              "TB",
+              "NO",
+              "CAR"
+            ],
+            "players": [
+              "Tua Tagovailoa",
+              "Baker Mayfield",
+              "Tyler Shough"
+            ],
+            "topic": "Simulated/Alternate Franchise Narrative Preview",
+            "summary": "Chad sets the stage for their upcoming division preview by referencing the simulated league rosters and changes, including Kevin Stefanski coaching Tua Tagovailoa in Atlanta, Baker Mayfield's status in Tampa Bay, and Tyler Shough's late-season run with New Orleans.",
+            "speaker": "Chad Millman",
+            "source_timestamp": 235,
+            "quote": "Will the Falcons make a run with new coach Kevin Stefanski and Tua under center? Can the Bucs rebound with a healthier Baker Mayfield, even though Vita Vea wants out? Were the Saints a fluke with Tyler Shough at the end of last year?",
+            "confidence": "stated"
+          }
+        ],
+        "quote_timestamps": [],
+        "coverage_assessment": {
+          "last_covered_timestamp": 256,
+          "self_reported_reached_end": true,
+          "duration_used_for_check": 256,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1
+        }
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 0,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    }
+  ]
+}

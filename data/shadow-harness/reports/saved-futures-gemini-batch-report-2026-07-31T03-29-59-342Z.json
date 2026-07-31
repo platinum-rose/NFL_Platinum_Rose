@@ -1,0 +1,132 @@
+{
+  "evaluated_at": "2026-07-31T03:29:59.342Z",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "batch_label": "saved-futures",
+  "total_candidates_attempted": 1,
+  "total_episodes_evaluated": 0,
+  "total_episodes_scored": 0,
+  "reprocess_required_count": 1,
+  "extraction_failure_count": 0,
+  "average_f1_score_pct": null,
+  "total_cost_usd": 0.019731,
+  "average_cost_usd": 0.019731,
+  "total_latency_ms": 66166,
+  "average_latency_ms": 66166,
+  "total_extracted_picks": 0,
+  "reprocess_queue": [
+    {
+      "episode_slug": "youtube-OAxHvrVUPpw",
+      "reason": "model explicitly self-reported reached_end_of_video=false",
+      "command": "npm.cmd run youtube:run-futures-candidates -- --only-id youtube-OAxHvrVUPpw --max-per-run 1 --run-gemini"
+    }
+  ],
+  "failed_extractions": [],
+  "queue_runs": [
+    {
+      "episode_slug": "youtube-OAxHvrVUPpw",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "reprocess_required": true,
+      "reprocess_reason": "model explicitly self-reported reached_end_of_video=false",
+      "quality_flags": [
+        "incomplete_youtube_coverage"
+      ],
+      "run": {
+        "run_id": "youtube_gemini_a3da6846b6b6",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=OAxHvrVUPpw",
+        "latency_ms": 66166,
+        "estimated_cost_usd": 0.019731,
+        "input_tokens": 188897,
+        "output_tokens": 2103,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Chad Millman and Simon Hunter introduce their NFC South betting preview, starting with a discussion of their offseason TV habits before diving into division win totals. They highlight the division's tight odds and focus on the Carolina Panthers' outlook under Dave Canales and Bryce Young.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 2056,\n    \"last_analyzed_timestamp\": 383,\n    \"reached_end_of_video\": false\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 5.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Welcome to Sharp or Square, presented by Hard Rock Bet. We are part of the Volume Podcast Network.\"\n    },\n    {\n      \"start\": 5.0,\n      \"end\": 21.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"This is the show that makes the square sharper and makes the wise guys pay attention. I am Chad Millman and I am joined as always by my co-host, my BFF, my companion, my podcast professional bettor, Simon Hunter! Hello Simon!\"\n    },\n    {\n      \"start\": 21.0,\n      \"end\": 61.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Chad, as we sit here right now, every team has officially reported to camp, my friend. I feel warm and fuzzy. I'm in a weird spot though, I'm warm and fuzzy but I'm in a weird world where I'm all in on football but I'm still watching my crappy TV shows before I head into the season. So I'm on season 4 of Homeland. Have you ever watched Homeland?\"\n    },\n    {\n      \"start\": 61.0,\n      \"end\": 95.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Oh dude, I'm jealous that you're getting to watch it. I always feel so happy for people who, with Breaking Bad, Sopranos, Homeland, The Wire, these shows that are so good and if you've never watched them before, getting a chance to watch it is amazing.\"\n    },\n    {\n      \"start\": 95.0,\n      \"end\": 130.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"This is my 10th time through, I'm not gonna lie. Every offseason I do the same thing, I watch shows. But I stopped Homeland, I forget what happened... but I'm in a super paranoid state from watching it. When I'm leaving my place now, I'm like 'is this guy tailing me?' Whatever happens from me watching too much CIA stuff and now betting large amounts of money at sportsbooks again, I'm just always being like 'is someone tracking me right now? Is this guy following me?' So for my mental health, I need to stop watching Homeland.\"\n    },\n    {\n      \"start\": 130.0,\n      \"end\": 210.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"I just watched on Saturday, my wife was out of town, my kid was doing his own thing, and I basically re-watched the entire Season 2 of The Bear, which I love. And I think Season 2, Episode 6, it's an episode called 'Forks', features Richie, one of the main characters. Anyone who watches The Bear... it's such a Chicago show, it's got these little Chicago Easter eggs which makes me love it even more.\"\n    },\n    {\n      \"start\": 210.0,\n      \"end\": 215.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Do those personalities work for Chicago? Is that really what you think a lot of Chicago people are like, locally?\"\n    },\n    {\n      \"start\": 215.0,\n      \"end\": 311.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"I think locally, yeah, totally. Oh yeah. Those personalities are accurate for I think any working-class, close-knit family community. Obviously everything is heightened for television, but the Chicago of it all... it's not even the characters so much, they don't have crazy Chicago accents, but the communities they talk about, the areas they shoot in, the way they make the city look. There's Easter eggs in the show through Season 1 and Season 2... if you know Chicago, you know. Like there's a picture of Simeon Rice when he played at Illinois on the wall of The Beef, right? And you'd only know that Simeon Rice matters to people in Chicago because he was a great Chicago high school football player who went to become a top five overall pick for the local Big Ten team at the time, Illinois. You're only going to get that if you know Chicago history. So to me, those things are interesting.\"\n    },\n    {\n      \"start\": 311.0,\n      \"end\": 319.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Almost as good as your Sid Luckman statue.\"\n    },\n    {\n      \"start\": 319.0,\n      \"end\": 383.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"You know what we're going to do today? We're going to talk about one of our favorite divisions in football, where there's plenty of statues to go around. It's our annual 8-part division-by-division NFL betting preview, starting with... it started out as our least favorite division in football, I think it's turned into our favorite division in football: the NFC South. Will the Falcons make a run with new coach Raheem Morris and Kirk Cousins under center? Can the Bucs rebound with a healthier Baker Mayfield? Were the Saints a fluke at the end of last year? Did they put themselves in a position to not be able to draft from a legendary potential quarterback draft class? Most importantly, Simon, are we still a Carolina Panthers podcast? Those are the questions we have today. Are you ready? Let's get to it. Betting markets show a very even division, one of the most even divisions top to bottom. Tampa Bay: 8.5 win totals, -135 under. New Orleans: 7.5 wins, -120 over. Atlanta: 7.5, -135 under. Carolina: 7.5, -135 under. That number has gone up though, because didn't I like Carolina at 6.5 when they first came out? I believe I did.\"\n    },\n    {\n      \"start\": 383.0,\n      \"end\": 2056.0,\n      \"speaker\": null,\n      \"text\": \"[Remainder of video not captured in clip]\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"CAR\",\n      \"player\": null,\n      \"market\": \"win_total\",\n      \"side\": \"OVER\",\n      \"line\": 6.5,\n      \"price\": null,\n      \"week\": null,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 311,\n      \"rationale\": \"Chad previously liked the Panthers over at 6.5 when lines first opened, though the market has since moved the line up to 7.5.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"market_sentiment\",\n      \"teams\": [\"CAR\"],\n      \"players\": [],\n      \"topic\": \"Panthers win total line movement\",\n      \"summary\": \"Chad notes that the Panthers' win total line has risen from 6.5 to 7.5 in the betting markets.\",\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 311,\n      \"quote\": \"That number has gone up though, because didn't I like Carolina at 6.5 when they first came out?\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"market_sentiment\",\n      \"teams\": [\"TB\", \"NO\", \"ATL\", \"CAR\"],\n      \"players\": [],\n      \"topic\": \"NFC South division parity\",\n      \"summary\": \"Chad describes the NFC South as one of the most even divisions top to bottom in the betting markets, listing current win totals for all four teams.\",\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 215,\n      \"quote\": \"Betting markets show a very even division, one of the most even divisions top to bottom.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Panthers win total line movement\",\n      \"timestamp\": 311,\n      \"speaker\": \"Chad Millman\",\n      \"quote\": \"didn't I like Carolina at 6.5 when they first came out?\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+        "extracted_picks": [
+          {
+            "team": "CAR",
+            "player": null,
+            "market": "win_total",
+            "side": "OVER",
+            "line": 6.5,
+            "price": null,
+            "week": null,
+            "speaker": "Chad Millman",
+            "source_timestamp": 311,
+            "rationale": "Chad previously liked the Panthers over at 6.5 when lines first opened, though the market has since moved the line up to 7.5."
+          }
+        ],
+        "analysis_notes": [
+          {
+            "note_type": "market_sentiment",
+            "teams": [
+              "CAR"
+            ],
+            "players": [],
+            "topic": "Panthers win total line movement",
+            "summary": "Chad notes that the Panthers' win total line has risen from 6.5 to 7.5 in the betting markets.",
+            "speaker": "Chad Millman",
+            "source_timestamp": 311,
+            "quote": "That number has gone up though, because didn't I like Carolina at 6.5 when they first came out?",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "market_sentiment",
+            "teams": [
+              "TB",
+              "NO",
+              "ATL",
+              "CAR"
+            ],
+            "players": [],
+            "topic": "NFC South division parity",
+            "summary": "Chad describes the NFC South as one of the most even divisions top to bottom in the betting markets, listing current win totals for all four teams.",
+            "speaker": "Chad Millman",
+            "source_timestamp": 215,
+            "quote": "Betting markets show a very even division, one of the most even divisions top to bottom.",
+            "confidence": "stated"
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Panthers win total line movement",
+            "timestamp": 311,
+            "speaker": "Chad Millman",
+            "quote": "didn't I like Carolina at 6.5 when they first came out?"
+          }
+        ],
+        "coverage_assessment": {
+          "last_covered_timestamp": 2056,
+          "self_reported_reached_end": false,
+          "duration_used_for_check": 2056,
+          "suspected_incomplete": true,
+          "reason": "model explicitly self-reported reached_end_of_video=false"
+        }
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 1,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    }
+  ]
+}

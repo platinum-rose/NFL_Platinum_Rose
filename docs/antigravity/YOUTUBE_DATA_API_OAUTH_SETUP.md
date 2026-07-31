@@ -78,18 +78,43 @@ Temporary sweep across all candidate subscribed channels:
 npm.cmd run youtube:sweep:all -- --lookback-days 30 --max-per-run 10
 ```
 
+Queue one or more known YouTube videos directly without scanning channels or running Gemini:
+
+```powershell
+npm.cmd run youtube:queue-url -- --url qoCm4G2Jmng --url OAxHvrVUPpw
+```
+
+The direct URL path accepts bare video IDs, `youtu.be` links, `/watch?v=...` links, Shorts links, and embed links. Use `--playlist-id` or `--playlist-url` when you intentionally want playlist discovery; watch URLs with a `list=` parameter only queue the watched video.
+
 The sweep filters for NFL-relevant titles and requires videos to be at least 10 minutes by default, which avoids most YouTube Shorts and small clips. Useful options:
 
 - `--min-duration-minutes 20`
 - `--rescan`
 - `--include-shorts`
+- `--no-channel-sweep`
+- `--max-per-channel 2`
 - `--score-only`
 - `--run-gemini`
 - `--skip-existing`
+- `--only-id youtube-qoCm4G2Jmng`
 - `--gemini-scope futures`
 - `--gemini-scope all`
 
 Only use `--run-gemini` when you explicitly want live Gemini extraction calls. By default, Gemini only runs on candidates with `content_lane: "futures_intel"` and `gemini_futures_eligible: true`.
+
+For YouTube video extraction, known candidate runtimes are passed into Gemini. If the model only covers the intro or otherwise stops well before the known duration, the observation is saved with `reprocess_required: true`, the batch report includes a `reprocess_queue`, and the command exits with a warning status. Re-run that episode without `--skip-existing` so the incomplete observation is replaced.
+
+If repeated full-video retries still fail coverage, use segmented fallback mode. This makes multiple Gemini calls across fixed time windows, then merges the structured output:
+
+```powershell
+npm.cmd run youtube:run-futures-candidates -- --only-id youtube-OAxHvrVUPpw --max-per-run 1 --run-gemini --segment-seconds 420
+```
+
+For transient Gemini `503 UNAVAILABLE` responses, add bounded retries:
+
+```powershell
+npm.cmd run youtube:run-futures-candidates -- --only-id youtube-OAxHvrVUPpw --max-per-run 1 --run-gemini --segment-seconds 420 --max-retries 2 --retry-delay-seconds 30
+```
 
 To re-score the saved candidate queue locally without touching YouTube or Gemini:
 
@@ -101,6 +126,12 @@ To preview the saved futures/intel queue in Gemini run order:
 
 ```powershell
 npm.cmd run youtube:run-futures-candidates -- --max-per-run 5
+```
+
+To preview exact queued videos before approving transcription:
+
+```powershell
+npm.cmd run youtube:run-futures-candidates -- --only-id youtube-qoCm4G2Jmng --only-id youtube-OAxHvrVUPpw --max-per-run 2 --skip-existing
 ```
 
 To preview the next capped saved-candidate batch while skipping completed observations:

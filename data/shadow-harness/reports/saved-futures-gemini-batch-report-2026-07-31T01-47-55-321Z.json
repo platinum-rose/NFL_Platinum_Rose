@@ -1,0 +1,181 @@
+{
+  "evaluated_at": "2026-07-31T01:47:55.320Z",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "batch_label": "saved-futures",
+  "total_episodes_evaluated": 1,
+  "total_episodes_scored": 0,
+  "average_f1_score_pct": null,
+  "total_cost_usd": 0.034651,
+  "average_cost_usd": 0.034651,
+  "total_latency_ms": 221244,
+  "average_latency_ms": 221244,
+  "total_extracted_picks": 2,
+  "queue_runs": [
+    {
+      "episode_slug": "youtube-qoCm4G2Jmng",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "run": {
+        "run_id": "youtube_gemini_c2f83e364c0a",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng",
+        "latency_ms": 221244,
+        "estimated_cost_usd": 0.034651,
+        "input_tokens": 312672,
+        "output_tokens": 8459,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Chad Millman, Simon Hunter, and guest Rich Hribar break down their highly anticipated annual Top 10 NFL Quarterback Rankings. They debate controversial placements, individual player projections, and how coaching changes or supporting casts will shape the upcoming season.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 3417,\n    \"last_analyzed_timestamp\": 3417,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 5.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Welcome to Sharp or Square presented by Hard Rock Bet...\"\n    },\n    {\n      \"start\": 5.0,\n      \"end\": 27.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"I am Chad Millman, I am joined as always by my co-host, my companion, my compadre, my BFF, professional bettor, Simon Hunter. Hello Simon!\"\n    },\n    {\n      \"start\": 27.0,\n      \"end\": 51.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Chad, what a week I had, buddy. LeBron James, couldn't have dreamt it, I know you're jealous... multiple days in Philly, NBA coverage... saw the Odyssey in 70mm IMAX...\"\n    },\n    {\n      \"start\": 51.0,\n      \"end\": 98.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Oh, I've seen the Odyssey. I got takes on both of your comments...\"\n    },\n    {\n      \"start\": 98.0,\n      \"end\": 181.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"So on the LeBron front... great. Don't care... I think Jordan's the best player ever... but I love watching LeBron... I got a take on the Odyssey.\"\n    },\n    {\n      \"start\": 181.0,\n      \"end\": 259.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"I saw it in regular IMAX... Odysseus kind of an idiot. If you look at every single decision he made... every single decision was a terrible decision... gets a ton of credit for creating the Trojan Horse...\"\n    },\n    {\n      \"start\": 259.0,\n      \"end\": 272.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Just so everyone's aware, Chad thinks a man that invented one of the most genius war strategies in the history of humankind... is an idiot. God bless Chad Millman.\"\n    },\n    {\n      \"start\": 272.0,\n      \"end\": 281.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"I'm just saying, in this movie, if you look at it objectively, in this movie, terrible, terrible decisions.\"\n    },\n    {\n      \"start\": 281.0,\n      \"end\": 386.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"My favorite part of the movie... there's a guy who dies in this movie, his name is Mentor...\"\n    },\n    {\n      \"start\": 386.0,\n      \"end\": 416.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Well, the other thing is that he did not believe in the gods... Matt Damon is unreal, it's 3 hours... Oppenheimer / Odysseus...\"\n    },\n    {\n      \"start\": 416.0,\n      \"end\": 419.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"No, not even the pig part...\"\n    },\n    {\n      \"start\": 419.0,\n      \"end\": 449.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"I thought it was wild...\"\n    },\n    {\n      \"start\": 449.0,\n      \"end\": 511.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"We have an idea that we run into the ground every single year... one final order of business... top 10 NFL quarterback rankings.\"\n    },\n    {\n      \"start\": 511.0,\n      \"end\": 520.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Before we bring in our guest, Matt Mitchell is going to come on...\"\n    },\n    {\n      \"start\": 520.0,\n      \"end\": 532.0,\n      \"speaker\": \"Matt Mitchell\",\n      \"text\": \"Hello boys... Chad, I don't know how we're going to maintain the title of the most literate sports betting podcast when you treat Odysseus like he's fired Eagles coordinator Sean Mannion...\"\n    },\n    {\n      \"start\": 532.0,\n      \"end\": 543.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"By the way, that's why we're the most literate...\"\n    },\n    {\n      \"start\": 543.0,\n      \"end\": 757.0,\n      \"speaker\": \"Matt Mitchell\",\n      \"text\": \"Yeah, my bad... Okay, so I'll keep this quick... Big Tom's birthday on Saturday... he wants to come up from Chicago... I took him to the casino... bet almost all of it on the Chicago White Sox... Murakami to hit a home run... we lose all the money... 13 hours later, the Sox play again, 12-3 win, Murakami hits two fucking home runs on his bobblehead day... baseball betting continues to be a lifetime of endless pain...\"\n    },\n    {\n      \"start\": 757.0,\n      \"end\": 783.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"As always, Matt Mitchell bringing the most charming betting stories... Let's keep it up for Big Tom... Now, Simon, we're going to bring in our guest, Rich Hribar...\"\n    },\n    {\n      \"start\": 783.0,\n      \"end\": 797.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Chad Millman introduces Rich Hribar...\"\n    },\n    {\n      \"start\": 797.0,\n      \"end\": 823.0,\n      \"speaker\": \"Rich Hribar\",\n      \"text\": \"I don't know... I actually just realized I left a complete player off... so starting off already... sad to see LeBron not come give one final ride... and I know every podcast is looking for their host's review of the Odyssey...\"\n    },\n    {\n      \"start\": 823.0,\n      \"end\": 828.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Listen, just tell me you're on my side...\"\n    },\n    {\n      \"start\": 828.0,\n      \"end\": 838.0,\n      \"speaker\": \"Rich Hribar\",\n      \"text\": \"No, I did enjoy the movie... Christopher Nolan made an Odyssey movie, that's exactly what you got.\"\n    },\n    {\n      \"start\": 838.0,\n      \"end\": 852.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Best analysis so far. Here's how we're going to do the show... 10 to 1... Rich, are you going to save us from ourselves today?\"\n    },\n    {\n      \"start\": 852.0,\n      \"end\": 893.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Some notes from last year... Rich warned us that CJ Stroud was likely to regress... Simon is the only guy with Dak Prescott on his list... Chad, a little too much faith in Jared Goff... Simon's best quote: Chad's list is painful to me... Simon also said the last two years I've been the only one to rank Hurts over Herbert... so far I look like a genius.\"\n    },\n    {\n      \"start\": 893.0,\n      \"end\": 898.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Do you remember why I said your list was painful, Chad?\"\n    },\n    {\n      \"start\": 898.0,\n      \"end\": 907.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"I usually forget everything... I only live in a rose-colored glasses world.\"\n    },\n    {\n      \"start\": 907.0,\n      \"end\": 921.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"So I had Stafford at number 5, and you had Stafford not in your top 10... and Stafford went on to have a career year, he won the MVP last year...\"\n    },\n    {\n      \"start\": 921.0,\n      \"end\": 963.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Well, I might have pulled a Rich and just forgot him... But this year, the three of us have seven quarterbacks that appear in all three of our top 10 lists... I realized that every single division had to me at least two quarterbacks who you could debate... except for the NFC South.\"\n    },\n    {\n      \"start\": 963.0,\n      \"end\": 1021.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"I'm going to start from the bottom... Brock Purdy... it came down to Brock Purdy and Caleb Williams for number 10. No surprise, I went with Caleb Williams.\"\n    },\n    {\n      \"start\": 1021.0,\n      \"end\": 1065.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Because, here's... to me, this is about projecting the quarterbacks... who we are most upset that we bet against in the final two minutes of a game... I love Caleb with Ben Johnson... I think Ben Johnson is a dog...\"\n    },\n    {\n      \"start\": 1065.0,\n      \"end\": 1090.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Purdy, I think is great... but it came down to talent around them and injuries... so I went with Caleb at number 10.\"\n    },\n    {\n      \"start\": 1090.0,\n      \"end\": 1104.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"At number 9, Justin Herbert. Justin Herbert does appear on all of our lists.\"\n    },\n    {\n      \"start\": 1104.0,\n      \"end\": 1107.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Any comments so far?\"\n    },\n    {\n      \"start\": 1107.0,\n      \"end\": 1168.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"I think we're on the same boat... Caleb, Purdy, Goff, Jordan Love, Baker... it's all going to be preference... I finally have Herbert back in my top 10... and with Purdy, I left him out... because that team is still a Christian McCaffrey team.\"\n    },\n    {\n      \"start\": 1168.0,\n      \"end\": 1188.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"All right. At 8, Dak Prescott... I think their defense is going to be improved, I like what they did in the draft... getting rid of Ebruflus and upgrading at defensive coordinator...\"\n    },\n    {\n      \"start\": 1188.0,\n      \"end\": 1232.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"7, Jordan Love. Jordan Love has the best QBR in the NFL since the second half of 2023... he has the fewest interceptions.\"\n    },\n    {\n      \"start\": 1232.0,\n      \"end\": 1245.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"6, Stafford... projecting a little regression... too many concerns in 2026 about what if he does get injured.\"\n    },\n    {\n      \"start\": 1245.0,\n      \"end\": 1321.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"5, Drake Maye... does not appear on all three of our lists... went back and forth... AJ Brown could make him a little better, he did a lot of stuff last year that was beyond the norm...\"\n    },\n    {\n      \"start\": 1321.0,\n      \"end\": 1327.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"4 Burrow, 3 Mahomes, 2 Lamar, 1 Josh Allen.\"\n    },\n    {\n      \"start\": 1327.0,\n      \"end\": 1344.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"It's interesting to me, my top four guys, all of them are coming off some kind of not perfect year... but to me they're still the class of the NFL.\"\n    },\n    {\n      \"start\": 1344.0,\n      \"end\": 1347.0,\n      \"speaker\": \"Rich Hribar\",\n      \"text\": \"Rich, any feedback for me?\"\n    },\n    {\n      \"start\": 1347.0,\n      \"end\": 1385.0,\n      \"speaker\": \"Rich Hribar\",\n      \"text\": \"No, I like it... I knew Caleb was going to get in there... And like you said, we don't have 32 good quarterbacks... I was between Jordan Love... I had Trevor Lawrence in there but I totally forgot... so I accidentally just totally overlooked Drake Maye... so I'm going to throw the producer for a curveball... because he should be [on my list]... I actually did get Purdy in mine, I stuck him at 10...\"\n    },\n    {\n      \"start\": 1385.0,\n      \"end\": 1399.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"By the way, Simon and I have debated Drake Maye multiple times this offseason...\"\n    },\n    {\n      \"start\": 1399.0,\n      \"end\": 1504.0,\n      \"speaker\": \"Rich Hribar\",\n      \"text\": \"Yeah, so I do mine a little bit differently... who do I think are going to be the best statistical quarterbacks in 2026... Drake Maye, a guy that had that year 2... the offensive line is going to improve, they have Jared Wilson to center, they have actual outs now... last year his number one wide receiver was on the field for 65% of the dropbacks, and they're going to have two full-time players now, AJ Brown and Romeo Doubs... so I think he's going to continue to propel forward... so I actually do have him in here... then I have Dak, then I have Drake Maye...\"\n    },\n    {\n      \"start\": 1504.0,\n      \"end\": 1508.0,\n      \"speaker\": \"Rich Hribar\",\n      \"text\": \"I still couldn't put Maye over Stafford... so Stafford at 6.\"\n    },\n    {\n      \"start\": 1508.0,\n      \"end\": 1515.0,\n      \"speaker\": \"Rich Hribar\",\n      \"text\": \"Then I have Purdy in mine, I stuck him at 10... then Jalen Hurts at 9...\"\n    },\n    {\n      \"start\": 1515.0,\n      \"end\": 1575.0,\n      \"speaker\": \"Rich Hribar\",\n      \"text\": \"Jalen Hurts is a guy... won a Super Bowl, been to two... was saddled with like this high school offense last year from Odysseus... but I look at the moves they've made this offseason, he loses AJ Brown, who is like a tailor-made receiver for him... Jalen Hurts wants to see the throw to rip the throw, he doesn't play with a lot of anticipation, he's never played under center... is he going to gel with this Sean Mannion system?... but they've got Saquon Barkley... so I have Hurts there. Then Dak, then Drake Maye, then Stafford... then Mahomes at 5... Mahomes is coming off of the ACL... the Chiefs decided to really just address defense this year... they've put all this onus on Patrick Mahomes... he's 17th in completion rate, 23rd in yards per pass attempt, 20th in touchdown rate, 20th in interception rate... but he's Patrick Mahomes.\"\n    },\n    {\n      \"start\": 1575.0,\n      \"end\": 1580.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"You sound like Matt Mitchell.\"\n    },\n    {\n      \"start\": 1580.0,\n      \"end\": 1583.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"So who's 4?\"\n    },\n    {\n      \"start\": 1583.0,\n      \"end\": 1643.0,\n      \"speaker\": \"Rich Hribar\",\n      \"text\": \"I have Herbert... anytime a Shanahan system play-caller has had a guy with any level of talent at the quarterback position, these guys absolutely wreck... Jimmy Garoppolo, Brian Griese, Matt Schaub, Derek Carr, Sam Darnold won a Super Bowl last year, Kirk Cousins, Tua... so I think this is going to be the best statistical season that Herbert has had... I think he's in contention for MVP this year... then I got Lamar, Joe Burrow, Josh Allen to round it out.\"\n    },\n    {\n      \"start\": 1643.0,\n      \"end\": 1677.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"All right... I love Herbert... Simon, I want to get your quick take on Jalen Hurts.\"\n    },\n    {\n      \"start\": 1677.0,\n      \"end\": 1715.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"People, go get your MVP bets on Hurts while you can. Chad did not live in on his top 10 list, and we know when Chad doesn't put you in his top 10 list, you win MVP... every year Chad has not had Hurts in his top 10 since Hurts has been a starter, we've made the Super Bowl... so Chad, I appreciate it, you are a creature of habit and you stuck to your pattern.\"\n    },\n    {\n      \"start\": 1715.0,\n      \"end\": 1726.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"I'm the focal point... I'm kind of Zeus in this scenario.\"\n    },\n    {\n      \"start\": 1726.0,\n      \"end\": 1729.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Rich, please continue. Mahomes at 5...\"\n    },\n    {\n      \"start\": 1729.0,\n      \"end\": 1742.0,\n      \"speaker\": \"Rich Hribar\",\n      \"text\": \"Yeah, at 5, and man, I almost think you can make an argument he should be lower this year...\"\n    },\n    {\n      \"start\": 1742.0,\n      \"end\": 1746.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Hold on, you say Mahomes at 5... who's at 6?\"\n    },\n    {\n      \"start\": 1746.0,\n      \"end\": 1749.0,\n      \"speaker\": \"Rich Hribar\",\n      \"text\": \"Stafford.\"\n    },\n    {\n      \"start\": 1749.0,\n      \"end\": 1860.0,\n      \"speaker\": \"Rich Hribar\",\n      \"text\": \"But Mahomes was the toughest guy for me to rank... three years running, are we going to keep chasing the cachet of Patrick Mahomes' past to peak Tyreek Hill and apex Travis Kelce?... Matt Nagy's gone, but what did Eric Bieniemy do that time he was gone... the Chiefs decided to really just address defense... they have players that can't get open and beat man coverage... and they've put all this onus on Patrick Mahomes... this year the only change they've made on offense wholesale is adding Kenneth Walker... they've decided to just throw all their equity in free agency and the draft in the defense... so that remains to be seen. So I actually do have him in here... but I ended up did getting Purdy in mine, stuck him at 10.\"\n    },\n    {\n      \"start\": 1860.0,\n      \"end\": 1873.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Don't hate it... Who's your 9?\"\n    },\n    {\n      \"start\": 1873.0,\n      \"end\": 1885.0,\n      \"speaker\": \"Rich Hribar\",\n      \"text\": \"9 is where I have Jalen Hurts... then Dak, then Drake Maye, Stafford, Mahomes, Herbert... then Lamar, Joe Burrow, Josh Allen.\"\n    },\n    {\n      \"start\": 1885.0,\n      \"end\": 1907.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"All right... I actually sometimes grade Herbert down just because I know Simon hates Herbert... Simon, let's get your list starting from number 10.\"\n    },\n    {\n      \"start\": 1907.0,\n      \"end\": 1948.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Well, first of all, in what world do I hate Herbert? I was the only person in all of media to give him out rookie of the year 20 to 1 when everyone else was all over Joe Burrow and Tua... I'm just someone that wants someone to have playoff success... You guys both had Josh Allen as your number one player, correct?\"\n    },\n    {\n      \"start\": 1948.0,\n      \"end\": 1950.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Yes.\"\n    },\n    {\n      \"start\": 1950.0,\n      \"end\": 2060.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Josh Allen, this will be his ninth season in the NFL... Tim Tebow has a playoff win, Tim Tebow found a way, something Herbert's not been able to do in his career... looks good in shorts throwing deep balls in practice, looks incredible on Sundays, looks terrible in January... so that's why I couldn't move Herbert up higher. Shocker, probably my biggest shocker on this list, Baker at number 8... I think back to me and you during the regular season, how much we were in love with Baker, giving him MVP love the first 4-5 weeks... and he was playing through multiple injuries... the Bucs are a little weary of giving him money... I just love Baker, he's a gamer... so I had him at 8.\"\n    },\n    {\n      \"start\": 2060.0,\n      \"end\": 2114.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Rich, Simon let me interrupt you... Baker was the guy I was thinking about in the NFC South... I couldn't put Baker on... but Rich, you didn't have him on, I'm curious why.\"\n    },\n    {\n      \"start\": 2114.0,\n      \"end\": 2223.0,\n      \"speaker\": \"Rich Hribar\",\n      \"text\": \"Yeah, I have him right in that same bucket of guys... Purdy, Lawrence, Jordan Love zone... good enough at playing the position, maybe needs some more help around him... I'm actually high on the Bucs this year... I think Baker's actually going to have a really strong year... they're set up a lot like a couple like the Lions from a few years ago... getting Zach Robinson... do a lot of things that Liam Coen was doing with Baker two years ago.\"\n    },\n    {\n      \"start\": 2223.0,\n      \"end\": 2226.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"All right, Simon... Baker at 8, who's 7?\"\n    },\n    {\n      \"start\": 2226.0,\n      \"end\": 2289.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Number 7, Dak. I didn't move him up or down... he just holds the spot... CD Lamb is great... Dak deserves to be in the top 10... Dak led the league in throwing into tight windows.\"\n    },\n    {\n      \"start\": 2289.0,\n      \"end\": 2295.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Simon, Dak led the league in throwing into tight windows.\"\n    },\n    {\n      \"start\": 2295.0,\n      \"end\": 2369.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Number 6, same as last year, Joe Burrow... Stafford is above him... same reasoning as last year, Stafford has done more in his career... Burrow has weird injuries consistently... he holds onto the ball too long... Joe Flacco has apparently been in his ear about being smarter with the ball... so Joe Burrow at number 6.\"\n    },\n    {\n      \"start\": 2369.0,\n      \"end\": 2511.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Number 5, Lamar... same argument with Josh Allen, what are the excuses, this is year 8 or 9, you've never been to a Super Bowl... Lamar in 2023 against the Chiefs in the playoffs laid a total egg... he has the fifth best DVOA team in the history of DVOA... Mahomes finds a way to win, Lamar can't for some reason... so Lamar at number 5.\"\n    },\n    {\n      \"start\": 2511.0,\n      \"end\": 2588.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"I like what I've heard of your list so far, Simon... we've defaulted a little bit to the names... but it's Patrick Mahomes... I didn't have the courage to say move Burrow down, move Lamar down... let's get your list from 10 to 1 here.\"\n    },\n    {\n      \"start\": 2588.0,\n      \"end\": 2691.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Yeah, I ended up having Caleb Williams at 10... 9 Herbert... 8 Baker... 7 Dak... 6 Burrow... 5 Lamar... 4 Josh Allen... 3 Jalen Hurts... 2 Stafford... 1 Patrick Mahomes.\"\n    },\n    {\n      \"start\": 2691.0,\n      \"end\": 2708.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"I like... what I like about your list, Simon, is... we've defaulted a little bit to the names... but it's Patrick Mahomes... and I think, who's your number one guy?\"\n    },\n    {\n      \"start\": 2708.0,\n      \"end\": 2726.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Patrick Mahomes. I'm just not going to budge yet, right?... in the playoffs when everyone's sphincter is super tight, that's when he wins... Mahomes just finds a way when it's ugly and cold out... still have Mahomes as my number 1 guy.\"\n    },\n    {\n      \"start\": 2726.0,\n      \"end\": 2736.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Sphincter says what?\"\n    },\n    {\n      \"start\": 2736.0,\n      \"end\": 2898.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Wayne's World reference... All right, here's who's on our list collectively: Herbert, Dak Prescott, Stafford, Joe Burrow, Patrick Mahomes, Lamar Jackson, Josh Allen... Simon had Baker Mayfield, Rich and I did not. Simon and I had Caleb Williams, Rich did not. Rich and I had Drake Maye, Simon did not... consensus top 13... Rich, final word.\"\n    },\n    {\n      \"start\": 2898.0,\n      \"end\": 3182.0,\n      \"speaker\": \"Rich Hribar\",\n      \"text\": \"Always fun coming on... I love how we all approach it differently... football is hard, you need a lot to go right around you... playing this position is so ludicrous... it's absolutely insane they're able to even do what they're able to do.\"\n    },\n    {\n      \"start\": 3182.0,\n      \"end\": 3417.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Rich, it's hard talking about it. I can't imagine the Odysseus-like challenge of playing quarterback in the NFL. Rich Hribar, Sharp Football Analysis... we're going to be back on Thursday... NFC South... this has been Sharp or Square... rate, review, leave us five stars... love you!\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"PHI\",\n      \"player\": \"Jalen Hurts\",\n      \"market\": \"mvp\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": null,\n      \"week\": null,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1677,\n      \"rationale\": \"Chad did not include him in his top 10 list, which historically means he will win MVP. Every year Chad leaves him off, the Eagles make the Super Bowl.\"\n    },\n    {\n      \"team\": \"LAC\",\n      \"player\": \"Justin Herbert\",\n      \"market\": \"mvp\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": null,\n      \"week\": null,\n      \"speaker\": \"Rich Hribar\",\n      \"source_timestamp\": 1583,\n      \"rationale\": \"The marriage of his elite talent with a Shanahan system coordinator historically leads to MVP-level production.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"SF\"],\n      \"players\": [\"Brock Purdy\"],\n      \"topic\": \"Purdy system product misnomer\",\n      \"summary\": \"Rich Hribar defends Brock Purdy at #10, stating his off-script playmaking is the best Kyle Shanahan has had since RG3, despite injuries and offensive roster turnover.\",\n      \"speaker\": \"Rich Hribar\",\n      \"source_timestamp\": 1359,\n      \"quote\": \"He creates so much more off-script than any guy Shanahan has had since RG3.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"NE\"],\n      \"players\": [\"Drake Maye\"],\n      \"topic\": \"High projections for Maye\",\n      \"summary\": \"Rich Hribar has Drake Maye at #7, expecting a major leap with improvements to the Patriots' offensive line and weapons (AJ Brown, Romeo Doubs, Jared Wilson).\",\n      \"speaker\": \"Rich Hribar\",\n      \"source_timestamp\": 1359,\n      \"quote\": \"Drake Maye, a guy that had that year 2... I think he's going to continue to propel forward.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"PHI\"],\n      \"players\": [\"Jalen Hurts\"],\n      \"topic\": \"Transition to Kellen Moore system\",\n      \"summary\": \"Rich Hribar notes Jalen Hurts faces scheme changes under Sean Mannion/Kellen Moore, lacking anticipation and under-center experience, but Saquon Barkley's presence will help.\",\n      \"speaker\": \"Rich Hribar\",\n      \"source_timestamp\": 1435,\n      \"quote\": \"Is he going to gel with this Sean Mannion system?... but they've got Saquon Barkley.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"KC\"],\n      \"players\": [\"Patrick Mahomes\"],\n      \"topic\": \"Lack of weapons and offensive stagnation\",\n      \"summary\": \"Rich Hribar has Mahomes at #5, questioning if we are just chasing his past cachet given a mediocre offensive supporting cast and a heavy defensive focus.\",\n      \"speaker\": \"Rich Hribar\",\n      \"source_timestamp\": 1729,\n      \"quote\": \"Are we going to keep chasing the cachet of Patrick Mahomes' past to peak Tyreek Hill and apex Travis Kelce?\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"TB\"],\n      \"players\": [\"Baker Mayfield\"],\n      \"topic\": \"Strong upcoming year in Tampa\",\n      \"summary\": \"Simon and Rich discuss Baker Mayfield at #8, pointing to his toughness playing through injuries last year and the beneficial hiring of OC Liam Coen/Zach Robinson.\",\n      \"speaker\": \"Rich Hribar\",\n      \"source_timestamp\": 2114,\n      \"quote\": \"I think Baker's actually going to have a really strong year.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Hurts MVP\",\n      \"timestamp\": 1677,\n      \"speaker\": \"Simon Hunter\",\n      \"quote\": \"People, go get your MVP bets on Hurts while you can. Chad did not live in on his top 10 list, and we know when Chad doesn't put you in his top 10 list, you win MVP.\"\n    },\n    {\n      \"topic\": \"Herbert MVP\",\n      \"timestamp\": 1583,\n      \"speaker\": \"Rich Hribar\",\n      \"quote\": \"I think he's in contention for MVP this year.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+        "extracted_picks": [
+          {
+            "team": "PHI",
+            "player": "Jalen Hurts",
+            "market": "mvp",
+            "side": "YES",
+            "line": null,
+            "price": null,
+            "week": null,
+            "speaker": "Simon Hunter",
+            "source_timestamp": 1677,
+            "rationale": "Chad did not include him in his top 10 list, which historically means he will win MVP. Every year Chad leaves him off, the Eagles make the Super Bowl."
+          },
+          {
+            "team": "LAC",
+            "player": "Justin Herbert",
+            "market": "mvp",
+            "side": "YES",
+            "line": null,
+            "price": null,
+            "week": null,
+            "speaker": "Rich Hribar",
+            "source_timestamp": 1583,
+            "rationale": "The marriage of his elite talent with a Shanahan system coordinator historically leads to MVP-level production."
+          }
+        ],
+        "analysis_notes": [
+          {
+            "note_type": "player_evaluation",
+            "teams": [
+              "SF"
+            ],
+            "players": [
+              "Brock Purdy"
+            ],
+            "topic": "Purdy system product misnomer",
+            "summary": "Rich Hribar defends Brock Purdy at #10, stating his off-script playmaking is the best Kyle Shanahan has had since RG3, despite injuries and offensive roster turnover.",
+            "speaker": "Rich Hribar",
+            "source_timestamp": 1359,
+            "quote": "He creates so much more off-script than any guy Shanahan has had since RG3.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "player_evaluation",
+            "teams": [
+              "NE"
+            ],
+            "players": [
+              "Drake Maye"
+            ],
+            "topic": "High projections for Maye",
+            "summary": "Rich Hribar has Drake Maye at #7, expecting a major leap with improvements to the Patriots' offensive line and weapons (AJ Brown, Romeo Doubs, Jared Wilson).",
+            "speaker": "Rich Hribar",
+            "source_timestamp": 1359,
+            "quote": "Drake Maye, a guy that had that year 2... I think he's going to continue to propel forward.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "coaching_or_scheme",
+            "teams": [
+              "PHI"
+            ],
+            "players": [
+              "Jalen Hurts"
+            ],
+            "topic": "Transition to Kellen Moore system",
+            "summary": "Rich Hribar notes Jalen Hurts faces scheme changes under Sean Mannion/Kellen Moore, lacking anticipation and under-center experience, but Saquon Barkley's presence will help.",
+            "speaker": "Rich Hribar",
+            "source_timestamp": 1435,
+            "quote": "Is he going to gel with this Sean Mannion system?... but they've got Saquon Barkley.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "KC"
+            ],
+            "players": [
+              "Patrick Mahomes"
+            ],
+            "topic": "Lack of weapons and offensive stagnation",
+            "summary": "Rich Hribar has Mahomes at #5, questioning if we are just chasing his past cachet given a mediocre offensive supporting cast and a heavy defensive focus.",
+            "speaker": "Rich Hribar",
+            "source_timestamp": 1729,
+            "quote": "Are we going to keep chasing the cachet of Patrick Mahomes' past to peak Tyreek Hill and apex Travis Kelce?",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "TB"
+            ],
+            "players": [
+              "Baker Mayfield"
+            ],
+            "topic": "Strong upcoming year in Tampa",
+            "summary": "Simon and Rich discuss Baker Mayfield at #8, pointing to his toughness playing through injuries last year and the beneficial hiring of OC Liam Coen/Zach Robinson.",
+            "speaker": "Rich Hribar",
+            "source_timestamp": 2114,
+            "quote": "I think Baker's actually going to have a really strong year.",
+            "confidence": "stated"
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Hurts MVP",
+            "timestamp": 1677,
+            "speaker": "Simon Hunter",
+            "quote": "People, go get your MVP bets on Hurts while you can. Chad did not live in on his top 10 list, and we know when Chad doesn't put you in his top 10 list, you win MVP."
+          },
+          {
+            "topic": "Herbert MVP",
+            "timestamp": 1583,
+            "speaker": "Rich Hribar",
+            "quote": "I think he's in contention for MVP this year."
+          }
+        ],
+        "coverage_assessment": {
+          "last_covered_timestamp": 3417,
+          "self_reported_reached_end": true,
+          "duration_used_for_check": 3417,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1
+        }
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 2,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    }
+  ]
+}

@@ -1,53 +1,253 @@
 {
-  "generated_at": "2026-07-29T04:00:17.828Z",
+  "generated_at": "2026-07-31T06:41:58.724Z",
   "status": "local_review_only",
   "guardrail": "This local shadow-harness track requires human review before anything is treated as a real pick. For actual production promotion, see podcast_gemini_intel (migration 045) and agents/podcast-gemini-intel.js --promote (docs/PODCAST_HOLISTIC_INTEL_EXTRACTION_PLAN.md Phase 5) -- a separate, real review gate this local JSON file does not itself enforce.",
-  "futures_candidates": 11,
-  "observed_episodes": 11,
+  "futures_candidates": 13,
+  "observed_episodes": 13,
+  "usable_observed_episodes": 10,
+  "reprocess_required_observations": 3,
   "missing_observations": 0,
-  "total_extracted_picks": 66,
-  "flagged_picks": 62,
+  "total_extracted_picks": 63,
+  "flagged_picks": 61,
   "item_lane_counts": {
-    "futures_pick": 51,
+    "futures_pick": 48,
     "non_futures_betting": 10,
     "injury_intel": 13,
     "training_camp_intel": 3,
     "matchup_analysis": 16,
     "roster_transaction_intel": 6,
     "market_context": 4,
-    "fantasy_intel": 16
+    "fantasy_intel": 12
   },
   "pick_lane_counts": {
-    "futures_pick": 51,
+    "futures_pick": 48,
     "non_futures_betting": 10,
     "injury_intel": 3,
     "training_camp_intel": 2
   },
   "review_flag_counts": {
     "price_not_in_quote": 50,
-    "missing_price": 10,
+    "missing_price": 9,
     "duplicate_candidate": 6,
     "unclear_side": 4,
-    "missing_win_total_line": 1,
     "non_futures_market": 15,
     "invalid_team": 4
   },
-  "total_analysis_notes": 49,
+  "total_analysis_notes": 45,
   "flagged_notes": 3,
   "note_relevance_tag_counts": {
     "matchup_analysis": 16,
     "roster_transaction_intel": 6,
     "market_context": 4,
     "injury_intel": 10,
-    "fantasy_intel": 16,
+    "fantasy_intel": 12,
     "training_camp_intel": 1
   },
   "note_review_flag_counts": {
     "no_team_or_player": 3
   },
-  "total_cost_usd": 0.27488,
-  "average_latency_ms": 98430,
+  "total_cost_usd": 0.664417,
+  "average_latency_ms": 163308,
   "missing": [],
+  "reprocess_required": [
+    {
+      "id": "youtube-OAxHvrVUPpw",
+      "show": "Sharp or Square",
+      "title": "NFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season",
+      "url": "https://www.youtube.com/watch?v=OAxHvrVUPpw",
+      "reason": "segmented extraction failed semantic coverage: later windows repeated intro/Carolina material and did not capture the expected Saints discussion",
+      "coverage_assessment": {
+        "last_covered_timestamp": 2080,
+        "self_reported_reached_end": true,
+        "duration_used_for_check": 2056,
+        "suspected_incomplete": true,
+        "reason": "segmented extraction failed semantic coverage: later windows repeated intro/Carolina material and did not capture the expected Saints discussion",
+        "coverage_ratio": 1,
+        "segment_count": 5,
+        "segment_seconds": 420,
+        "segment_coverages": [
+          {
+            "last_covered_timestamp": 420,
+            "self_reported_reached_end": false,
+            "duration_used_for_check": 2056,
+            "segment_start_seconds": 0,
+            "segment_end_seconds": 420,
+            "suspected_incomplete": false,
+            "reason": null,
+            "coverage_ratio": 1
+          },
+          {
+            "last_covered_timestamp": 840,
+            "self_reported_reached_end": false,
+            "duration_used_for_check": 2056,
+            "segment_start_seconds": 420,
+            "segment_end_seconds": 840,
+            "suspected_incomplete": false,
+            "reason": null,
+            "coverage_ratio": 1
+          },
+          {
+            "last_covered_timestamp": 1260,
+            "self_reported_reached_end": false,
+            "duration_used_for_check": 2056,
+            "segment_start_seconds": 840,
+            "segment_end_seconds": 1260,
+            "suspected_incomplete": false,
+            "reason": null,
+            "coverage_ratio": 1
+          },
+          {
+            "last_covered_timestamp": 1680,
+            "self_reported_reached_end": false,
+            "duration_used_for_check": 2056,
+            "segment_start_seconds": 1260,
+            "segment_end_seconds": 1680,
+            "suspected_incomplete": false,
+            "reason": null,
+            "coverage_ratio": 1
+          },
+          {
+            "last_covered_timestamp": 2080,
+            "self_reported_reached_end": true,
+            "duration_used_for_check": 2056,
+            "segment_start_seconds": 1680,
+            "segment_end_seconds": 2056,
+            "suspected_incomplete": false,
+            "reason": null,
+            "coverage_ratio": 1.064
+          }
+        ],
+        "semantic_coverage_failed": true
+      }
+    },
+    {
+      "id": "youtube-b9NL40Zogkw",
+      "show": "The Action Network: Sports Betting Picks & Tips",
+      "title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
+      "url": "https://www.youtube.com/watch?v=b9NL40Zogkw",
+      "reason": "ranked QB list coverage incomplete: raw transcript references 13 QB subjects; but structured picks/notes cover 5; missing Josh Allen, Patrick Mahomes, Dak Prescott, Justin Herbert, Baker Mayfield, Trevor Lawrence, Jared Goff, Sam Darnold",
+      "coverage_assessment": {
+        "last_covered_timestamp": 3356,
+        "self_reported_reached_end": true,
+        "duration_used_for_check": 3356,
+        "suspected_incomplete": false,
+        "reason": null,
+        "coverage_ratio": 1
+      }
+    },
+    {
+      "id": "youtube-qoCm4G2Jmng",
+      "show": "Sharp or Square",
+      "title": "TOP 10 QUARTERBACKS: NFL Betting Experts' Rankings & Analysis of Greatest QBs For 2026 NFL Season",
+      "url": "https://www.youtube.com/watch?v=qoCm4G2Jmng",
+      "reason": "segment semantic mismatch: later window repeated the episode intro; segment semantic mismatch: later window repeated the episode intro; segment semantic mismatch: later window repeated the episode intro",
+      "coverage_assessment": {
+        "last_covered_timestamp": 3413,
+        "self_reported_reached_end": false,
+        "duration_used_for_check": 3417,
+        "suspected_incomplete": true,
+        "reason": "segment semantic mismatch: later window repeated the episode intro; segment semantic mismatch: later window repeated the episode intro; segment semantic mismatch: later window repeated the episode intro",
+        "coverage_ratio": null,
+        "segment_count": 9,
+        "segment_seconds": 420,
+        "segment_coverages": [
+          {
+            "last_covered_timestamp": 420,
+            "self_reported_reached_end": false,
+            "duration_used_for_check": 3417,
+            "segment_start_seconds": 0,
+            "segment_end_seconds": 420,
+            "suspected_incomplete": false,
+            "reason": null,
+            "coverage_ratio": 1
+          },
+          {
+            "last_covered_timestamp": 840,
+            "self_reported_reached_end": false,
+            "duration_used_for_check": 3417,
+            "segment_start_seconds": 420,
+            "segment_end_seconds": 840,
+            "suspected_incomplete": false,
+            "reason": null,
+            "coverage_ratio": 1
+          },
+          {
+            "last_covered_timestamp": 1260,
+            "self_reported_reached_end": false,
+            "duration_used_for_check": 3417,
+            "segment_start_seconds": 840,
+            "segment_end_seconds": 1260,
+            "suspected_incomplete": false,
+            "reason": null,
+            "coverage_ratio": 1
+          },
+          {
+            "last_covered_timestamp": 1680,
+            "self_reported_reached_end": false,
+            "duration_used_for_check": 3417,
+            "segment_start_seconds": 1260,
+            "segment_end_seconds": 1680,
+            "suspected_incomplete": false,
+            "reason": null,
+            "coverage_ratio": 1
+          },
+          {
+            "last_covered_timestamp": 2100,
+            "self_reported_reached_end": false,
+            "duration_used_for_check": 3417,
+            "segment_start_seconds": 1680,
+            "segment_end_seconds": 2100,
+            "suspected_incomplete": false,
+            "reason": null,
+            "coverage_ratio": 1
+          },
+          {
+            "last_covered_timestamp": 2516,
+            "self_reported_reached_end": false,
+            "duration_used_for_check": 3417,
+            "segment_start_seconds": 2100,
+            "segment_end_seconds": 2520,
+            "suspected_incomplete": true,
+            "reason": "segment semantic mismatch: later window repeated the episode intro",
+            "coverage_ratio": 0.99,
+            "semantic_coverage_failed": true
+          },
+          {
+            "last_covered_timestamp": 2937,
+            "self_reported_reached_end": false,
+            "duration_used_for_check": 3417,
+            "segment_start_seconds": 2520,
+            "segment_end_seconds": 2940,
+            "suspected_incomplete": true,
+            "reason": "segment semantic mismatch: later window repeated the episode intro",
+            "coverage_ratio": 0.993,
+            "semantic_coverage_failed": true
+          },
+          {
+            "last_covered_timestamp": 3360,
+            "self_reported_reached_end": true,
+            "duration_used_for_check": 3417,
+            "segment_start_seconds": 2940,
+            "segment_end_seconds": 3360,
+            "suspected_incomplete": true,
+            "reason": "segment semantic mismatch: later window repeated the episode intro",
+            "coverage_ratio": 1,
+            "semantic_coverage_failed": true
+          },
+          {
+            "last_covered_timestamp": 3413,
+            "self_reported_reached_end": true,
+            "duration_used_for_check": 3417,
+            "segment_start_seconds": 3360,
+            "segment_end_seconds": 3417,
+            "suspected_incomplete": false,
+            "reason": null,
+            "coverage_ratio": 0.93
+          }
+        ]
+      }
+    }
+  ],
   "episodes": [
     {
       "id": "youtube-4OxpAX6UJlM",
@@ -94,18 +294,6 @@
       "cost_usd": 0.026425,
       "latency_ms": 78893,
       "extracted_pick_count": 14,
-      "extracted_note_count": 4,
-      "no_pick_context": null
-    },
-    {
-      "id": "youtube-b9NL40Zogkw",
-      "show": "The Action Network: Sports Betting Picks & Tips",
-      "title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
-      "url": "https://www.youtube.com/watch?v=b9NL40Zogkw",
-      "futures_score": 5,
-      "cost_usd": 0.032643,
-      "latency_ms": 87006,
-      "extracted_pick_count": 3,
       "extracted_note_count": 4,
       "no_pick_context": null
     },
@@ -1620,117 +1808,6 @@
       "item_lane": "futures_pick"
     },
     {
-      "episode_id": "youtube-b9NL40Zogkw",
-      "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
-      "show": "The Action Network: Sports Betting Picks & Tips",
-      "video_url": "https://www.youtube.com/watch?v=b9NL40Zogkw",
-      "human_verification": {
-        "verified": true,
-        "verified_by": "Andy",
-        "verified_date": "2026-07-28",
-        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
-        "result": "2 of 3 extracted picks confirmed accurate (NE season_rushing_tds Drake Maye, NE season_passing_yards Drake Maye). The 3rd (TEN win_total) is REJECTED as fabricated -- see that pick's own disputed field. All real content in this episode has now been verified one way or the other.",
-        "known_caveat": "One pick (TEN win_total, ts=1945) is REJECTED/fabricated, not real. Do not count it as episode content.",
-        "do_not_reverify": true
-      },
-      "timestamp_url": "https://www.youtube.com/watch?v=b9NL40Zogkw&t=1945s",
-      "team": "TEN",
-      "market": "win_total",
-      "side": "OVER",
-      "line": null,
-      "price": null,
-      "week": null,
-      "speaker": "Brandon",
-      "source_timestamp": 1945,
-      "rationale": "Brandon agrees with Kendra that the Titans are flying under the radar and represents a great value to exceed their season-long win total.",
-      "disputed": {
-        "flagged_by": "Andy",
-        "flagged_date": "2026-07-28",
-        "status": "REJECTED — CONFIRMED INACCURATE",
-        "reason": "Investigation found no support anywhere in the episode's transcript for a Tennessee win-total discussion (see prior investigation notes). Andy has now listened and confirmed this pick did not happen — rejected outright, not just unverified. Working theory (model fabrication rather than mistimestamp) treated as confirmed.",
-        "action": "Kept in the dataset with this REJECTED status for audit-trail purposes rather than deleted. Excluded from any active pick count/summary; do not treat as real content from this episode.",
-        "resolved": true
-      },
-      "supporting_quote": "",
-      "supporting_quote_topic": "",
-      "supporting_quote_timestamp": null,
-      "supporting_quote_delta_seconds": null,
-      "review_flags": [
-        "missing_win_total_line",
-        "missing_price"
-      ],
-      "item_id": "youtube-b9NL40Zogkw__TEN__win_total__OVER______1945",
-      "item_lane": "futures_pick"
-    },
-    {
-      "episode_id": "youtube-b9NL40Zogkw",
-      "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
-      "show": "The Action Network: Sports Betting Picks & Tips",
-      "video_url": "https://www.youtube.com/watch?v=b9NL40Zogkw",
-      "human_verification": {
-        "verified": true,
-        "verified_by": "Andy",
-        "verified_date": "2026-07-28",
-        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
-        "result": "2 of 3 extracted picks confirmed accurate (NE season_rushing_tds Drake Maye, NE season_passing_yards Drake Maye). The 3rd (TEN win_total) is REJECTED as fabricated -- see that pick's own disputed field. All real content in this episode has now been verified one way or the other.",
-        "known_caveat": "One pick (TEN win_total, ts=1945) is REJECTED/fabricated, not real. Do not count it as episode content.",
-        "do_not_reverify": true
-      },
-      "timestamp_url": "https://www.youtube.com/watch?v=b9NL40Zogkw&t=2963s",
-      "team": "NE",
-      "market": "season_rushing_tds",
-      "side": "OVER",
-      "line": 5.5,
-      "price": 180,
-      "week": null,
-      "speaker": "Kendra Middleton",
-      "source_timestamp": 2963,
-      "rationale": "Kendra loves Drake Maye's goal-line rushing potential and thinks the plus-money price offers superb value.",
-      "player": "Drake Maye",
-      "player_source": "named in rationale (\"Drake Maye's goal-line rushing potential\")",
-      "supporting_quote": "My absolute favorite bet of the season is Drake Maye over five and a half rushing touchdowns at plus 180.",
-      "supporting_quote_topic": "Drake Maye Rushing TDs",
-      "supporting_quote_timestamp": 2963,
-      "supporting_quote_delta_seconds": 0,
-      "review_flags": [],
-      "item_id": "youtube-b9NL40Zogkw__NE__season_rushing_tds__OVER__5.5__180__2963",
-      "item_lane": "futures_pick"
-    },
-    {
-      "episode_id": "youtube-b9NL40Zogkw",
-      "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
-      "show": "The Action Network: Sports Betting Picks & Tips",
-      "video_url": "https://www.youtube.com/watch?v=b9NL40Zogkw",
-      "human_verification": {
-        "verified": true,
-        "verified_by": "Andy",
-        "verified_date": "2026-07-28",
-        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
-        "result": "2 of 3 extracted picks confirmed accurate (NE season_rushing_tds Drake Maye, NE season_passing_yards Drake Maye). The 3rd (TEN win_total) is REJECTED as fabricated -- see that pick's own disputed field. All real content in this episode has now been verified one way or the other.",
-        "known_caveat": "One pick (TEN win_total, ts=1945) is REJECTED/fabricated, not real. Do not count it as episode content.",
-        "do_not_reverify": true
-      },
-      "timestamp_url": "https://www.youtube.com/watch?v=b9NL40Zogkw&t=3053s",
-      "team": "NE",
-      "market": "season_passing_yards",
-      "side": "OVER",
-      "line": 4000,
-      "price": 135,
-      "week": null,
-      "speaker": "Brandon",
-      "source_timestamp": 3053,
-      "rationale": "Brandon expects a huge statistical output from Drake Maye with the arrival of elite perimeter weapons in AJ Brown and Romeo Doubs.",
-      "player": "Drake Maye",
-      "player_source": "named in rationale (\"Drake Maye\")",
-      "supporting_quote": "I'm taking Drake Maye over 4,000 passing yards at plus 135.",
-      "supporting_quote_topic": "Drake Maye Passing Yards",
-      "supporting_quote_timestamp": 3053,
-      "supporting_quote_delta_seconds": 0,
-      "review_flags": [],
-      "item_id": "youtube-b9NL40Zogkw__NE__season_passing_yards__OVER__4000__135__3053",
-      "item_lane": "futures_pick"
-    },
-    {
       "episode_id": "youtube-uirj8AVs8so",
       "episode_title": "9 Early NFL Week 1 Best Bets To Make NOW | ATS, Totals & Moneyline Picks & Predictions (2026)",
       "show": "BettingPros YouTube",
@@ -2668,106 +2745,6 @@
       "item_id": "note__youtube-qGJ2f1fEXHc__roster_or_depth_chart__travis_hunter_two-way_role__1210",
       "relevance_tags": [
         "roster_transaction_intel"
-      ]
-    },
-    {
-      "episode_id": "youtube-b9NL40Zogkw",
-      "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
-      "show": "The Action Network: Sports Betting Picks & Tips",
-      "video_url": "https://www.youtube.com/watch?v=b9NL40Zogkw",
-      "timestamp_url": "https://www.youtube.com/watch?v=b9NL40Zogkw&t=1857s",
-      "note_type": "player_evaluation",
-      "teams": [
-        "BAL"
-      ],
-      "players": [
-        "Lamar Jackson"
-      ],
-      "topic": "Playoff and health concerns",
-      "summary": "Kendra expresses concern over Lamar Jackson's history of injuries and late-season illnesses at crucial moments, preventing her from placing him in her top four.",
-      "speaker": "Kendra Middleton",
-      "source_timestamp": 1857,
-      "quote": "The injuries and illnesses at the most pivotal times of the year are a major concern.",
-      "confidence": "stated",
-      "review_flags": [],
-      "item_id": "note__youtube-b9NL40Zogkw__player_evaluation__playoff_and_health_concerns__1857",
-      "relevance_tags": [
-        "fantasy_intel"
-      ]
-    },
-    {
-      "episode_id": "youtube-b9NL40Zogkw",
-      "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
-      "show": "The Action Network: Sports Betting Picks & Tips",
-      "video_url": "https://www.youtube.com/watch?v=b9NL40Zogkw",
-      "timestamp_url": "https://www.youtube.com/watch?v=b9NL40Zogkw&t=2157s",
-      "note_type": "player_evaluation",
-      "teams": [
-        "LAR"
-      ],
-      "players": [
-        "Matthew Stafford"
-      ],
-      "topic": " Stafford pocket awareness",
-      "summary": "Kendra highly praises Matthew Stafford's elite situational awareness and 'sixth sense' for pressure in the pocket, though his age and back issues remain a slight concern.",
-      "speaker": "Kendra Middleton",
-      "source_timestamp": 2157,
-      "quote": "His pocket awareness is unbelievable; he has a sixth sense for pressure.",
-      "confidence": "stated",
-      "review_flags": [],
-      "item_id": "note__youtube-b9NL40Zogkw__player_evaluation__stafford_pocket_awareness__2157",
-      "relevance_tags": [
-        "fantasy_intel"
-      ]
-    },
-    {
-      "episode_id": "youtube-b9NL40Zogkw",
-      "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
-      "show": "The Action Network: Sports Betting Picks & Tips",
-      "video_url": "https://www.youtube.com/watch?v=b9NL40Zogkw",
-      "timestamp_url": "https://www.youtube.com/watch?v=b9NL40Zogkw&t=2239s",
-      "note_type": "player_evaluation",
-      "teams": [
-        "CIN"
-      ],
-      "players": [
-        "Joe Burrow"
-      ],
-      "topic": "Burrow durability and passion",
-      "summary": "Kendra questions if the physical toll of playing behind a weak Bengals offensive line is affecting Joe Burrow's love for the game, while Brandon still classifies him as elite when active.",
-      "speaker": "Kendra Middleton",
-      "source_timestamp": 2239,
-      "quote": "I do wonder if the physical toll of his career is starting to kill his passion.",
-      "confidence": "stated",
-      "review_flags": [],
-      "item_id": "note__youtube-b9NL40Zogkw__player_evaluation__burrow_durability_and_passion__2239",
-      "relevance_tags": [
-        "fantasy_intel"
-      ]
-    },
-    {
-      "episode_id": "youtube-b9NL40Zogkw",
-      "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
-      "show": "The Action Network: Sports Betting Picks & Tips",
-      "video_url": "https://www.youtube.com/watch?v=b9NL40Zogkw",
-      "timestamp_url": "https://www.youtube.com/watch?v=b9NL40Zogkw&t=2730s",
-      "note_type": "player_evaluation",
-      "teams": [
-        "SF"
-      ],
-      "players": [
-        "Brock Purdy"
-      ],
-      "topic": "Purdy metric dominance",
-      "summary": "Evan Abrams points out that Brock Purdy leads almost all key advanced efficiency metrics over the last two seasons, making his omission from the hosts' top ten lists questionable.",
-      "speaker": "Evan Abrams",
-      "source_timestamp": 2730,
-      "quote": "Purdy ranks first in basically every advanced metric over the last two seasons, including EPA per play and success rate.",
-      "confidence": "stated",
-      "review_flags": [],
-      "item_id": "note__youtube-b9NL40Zogkw__player_evaluation__purdy_metric_dominance__2730",
-      "relevance_tags": [
-        "fantasy_intel"
       ]
     },
     {

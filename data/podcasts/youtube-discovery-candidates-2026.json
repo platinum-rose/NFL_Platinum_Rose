@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T15:22:41.270Z",
+  "generated_at": "2026-07-31T00:42:14.158Z",
   "status": "candidate_only",
   "guardrail": "Local YouTube discovery candidates only. Do not treat as ingested transcripts, official recommendations, or production betting intel until explicitly promoted.",
   "episodes": [
@@ -468,6 +468,48 @@
       "futures_score": 0,
       "futures_score_reasons": [],
       "gemini_futures_eligible": false
+    },
+    {
+      "id": "youtube-qoCm4G2Jmng",
+      "show": "Sharp or Square",
+      "date": "2026-07-28",
+      "title": "TOP 10 QUARTERBACKS: NFL Betting Experts' Rankings & Analysis of Greatest QBs For 2026 NFL Season",
+      "url": "https://www.youtube.com/watch?v=qoCm4G2Jmng",
+      "source_url": "https://www.youtube.com/watch?v=qoCm4G2Jmng",
+      "channel_id": "UCzWldAuZDg1ctieD_SJdDSw",
+      "playlist_id": null,
+      "published_at": "2026-07-28T17:04:44Z",
+      "duration_seconds": 3417,
+      "mapping_status": "unmapped",
+      "notes": "Explicitly queued from supplied YouTube URL; local candidate only.",
+      "content_lane": "futures_intel",
+      "futures_score": 3,
+      "futures_score_reasons": [
+        "season-long intel: nfl season, top 10 quarterbacks, greatest qbs"
+      ],
+      "gemini_futures_eligible": true
+    },
+    {
+      "id": "youtube-OAxHvrVUPpw",
+      "show": "Sharp or Square",
+      "date": "2026-07-30",
+      "title": "NFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season",
+      "url": "https://www.youtube.com/watch?v=OAxHvrVUPpw",
+      "source_url": "https://www.youtube.com/watch?v=OAxHvrVUPpw",
+      "channel_id": "UCzWldAuZDg1ctieD_SJdDSw",
+      "playlist_id": null,
+      "published_at": "2026-07-30T16:00:27Z",
+      "duration_seconds": 2056,
+      "mapping_status": "unmapped",
+      "notes": "Explicitly queued from supplied YouTube URL; local candidate only.",
+      "content_lane": "futures_intel",
+      "futures_score": 9,
+      "futures_score_reasons": [
+        "betting slate: betting preview",
+        "season-long intel: nfl season",
+        "team/player context: nfc "
+      ],
+      "gemini_futures_eligible": true
     }
   ]
 }

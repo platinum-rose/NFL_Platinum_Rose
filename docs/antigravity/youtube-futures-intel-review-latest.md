@@ -1,20 +1,22 @@
 # YouTube Futures Intel Review
 
-Generated: 2026-07-29T04:00:17.828Z
+Generated: 2026-07-31T06:41:58.724Z
 
 > Local review only. Do not promote Gemini-derived observations to official picks or production recommendations without human review.
 
 ## Summary
 
-- Futures candidates: 11
-- Observed episodes: 11
+- Futures candidates: 13
+- Observed episodes: 13
+- Usable observed episodes: 10
+- Reprocess-required observations: 3
 - Missing observations: 0
-- Extracted picks/leads: 66
-- Flagged picks/leads: 62
-- Analysis notes: 49
+- Extracted picks/leads: 63
+- Flagged picks/leads: 61
+- Analysis notes: 45
 - Flagged notes: 3
-- Total Gemini cost: $0.27488
-- Average latency: 98430 ms
+- Total Gemini cost: $0.664417
+- Average latency: 163308 ms
 - Review status file: data\shadow-harness\review\youtube-futures-intel-review-status.json
 
 ## Lane Counts
@@ -23,8 +25,8 @@ _Combined pick lanes + note relevance tags. See Note Tag Counts below for the no
 
 | Lane | Count |
 |---|---:|
-| fantasy_intel | 16 |
-| futures_pick | 51 |
+| fantasy_intel | 12 |
+| futures_pick | 48 |
 | injury_intel | 13 |
 | market_context | 4 |
 | matchup_analysis | 16 |
@@ -38,8 +40,7 @@ _Combined pick lanes + note relevance tags. See Note Tag Counts below for the no
 |---|---:|
 | duplicate_candidate | 6 |
 | invalid_team | 4 |
-| missing_price | 10 |
-| missing_win_total_line | 1 |
+| missing_price | 9 |
 | non_futures_market | 15 |
 | price_not_in_quote | 50 |
 | unclear_side | 4 |
@@ -48,7 +49,7 @@ _Combined pick lanes + note relevance tags. See Note Tag Counts below for the no
 
 | Tag | Count |
 |---|---:|
-| fantasy_intel | 16 |
+| fantasy_intel | 12 |
 | injury_intel | 10 |
 | market_context | 4 |
 | matchup_analysis | 16 |
@@ -63,7 +64,6 @@ _Combined pick lanes + note relevance tags. See Note Tag Counts below for the no
 | 15 | 12 | 3 | $0.03223 | Top 12 NFL Best Bets & Playoff Predictions \| Division Winners, No. 1 Seeds & Futures Picks (2026) | https://www.youtube.com/watch?v=aOUy4-ZRzbE |
 | 11 | 11 | 2 | $0.03070 | Top 10 NFL Futures Bets to Make Now \| MVP, Rookie of the Year & More! | https://www.youtube.com/watch?v=veVjJ_EUYdk |
 | 10 | 14 | 4 | $0.02643 | 14 LONGSHOT NFL Futures To Make Now \| SLEEPERS, Player Props Picks & Predictions | https://www.youtube.com/watch?v=qGJ2f1fEXHc |
-| 5 | 3 | 4 | $0.03264 | Top 10 NFL Starting Quarterbacks Heading Into 2026! \| The Favorites | https://www.youtube.com/watch?v=b9NL40Zogkw |
 | 5 | 0 | 7 | $0.01525 | Greg Cosell: 2026 NFC North Season PREVIEW | https://www.youtube.com/watch?v=G5tbI-M8muY |
 | 4 | 9 | 3 | $0.01952 | 9 Early NFL Week 1 Best Bets To Make NOW \| ATS, Totals & Moneyline Picks & Predictions (2026) | https://www.youtube.com/watch?v=uirj8AVs8so |
 | 3 | 2 | 5 | $0.02470 | Ranking the Top 20 NFL Quarterbacks for 2026! \| The Favorites | https://www.youtube.com/watch?v=WbuAvbsVF_w |
@@ -121,9 +121,6 @@ _Combined pick lanes + note relevance tags. See Note Tag Counts below for the no
 | futures_pick | 14 LONGSHOT NFL Futures To Make Now \| SLEEPERS, Player Props Picks & Predictions | LV | season_passing_tds | OVER | 25 | +1400 |  | Andrew Erickson | [2469s](https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=2469s) | price_not_in_quote |  | Mendoza will throw plenty of TDs in Raiders red zone system, taking over from Kirk Cousins. |
 | futures_pick | 14 LONGSHOT NFL Futures To Make Now \| SLEEPERS, Player Props Picks & Predictions | NYJ | interceptions_leader | UNKNOWN |  |  |  | Andrew Erickson | [2755s](https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=2755s) | unclear_side, missing_price |  | Aggressive CB in a Jets defense that will see positive regression in turnover luck. |
 | futures_pick | 14 LONGSHOT NFL Futures To Make Now \| SLEEPERS, Player Props Picks & Predictions | ATL | season_rushing_tds | UNKNOWN |  | +1800 |  | Seth Woolcock | [2912s](https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=2912s) | unclear_side, price_not_in_quote |  | Zac Robinson's offense will feed Bijan Robinson. Goal line issues for Tua means more rushing opportunities. |
-| futures_pick | Top 10 NFL Starting Quarterbacks Heading Into 2026! \| The Favorites | TEN | win_total | OVER |  |  |  | Brandon | [1945s](https://www.youtube.com/watch?v=b9NL40Zogkw&t=1945s) | missing_win_total_line, missing_price |  | Brandon agrees with Kendra that the Titans are flying under the radar and represents a great value to exceed their season-long win total. |
-| futures_pick | Top 10 NFL Starting Quarterbacks Heading Into 2026! \| The Favorites | NE | season_rushing_tds | OVER | 5.5 | +180 |  | Kendra Middleton | [2963s](https://www.youtube.com/watch?v=b9NL40Zogkw&t=2963s) |  | My absolute favorite bet of the season is Drake Maye over five and a half rushing touchdowns at plus 180. | Kendra loves Drake Maye's goal-line rushing potential and thinks the plus-money price offers superb value. |
-| futures_pick | Top 10 NFL Starting Quarterbacks Heading Into 2026! \| The Favorites | NE | season_passing_yards | OVER | 4000 | +135 |  | Brandon | [3053s](https://www.youtube.com/watch?v=b9NL40Zogkw&t=3053s) |  | I'm taking Drake Maye over 4,000 passing yards at plus 135. | Brandon expects a huge statistical output from Drake Maye with the arrival of elite perimeter weapons in AJ Brown and Romeo Doubs. |
 | non_futures_betting | 9 Early NFL Week 1 Best Bets To Make NOW \| ATS, Totals & Moneyline Picks & Predictions (2026) | DAL | spread | DAL | -1.5 |  | 1 | Andrew Erickson | [245s](https://www.youtube.com/watch?v=uirj8AVs8so&t=245s) | non_futures_market, missing_price | I am taking the Dallas Cowboys laying 1.5 points on the road against the New York Giants. | Dak Prescott dominates the Giants (14-3 straight up) and has a highly efficient track record in division road games. |
 | non_futures_betting | 9 Early NFL Week 1 Best Bets To Make NOW \| ATS, Totals & Moneyline Picks & Predictions (2026) | PIT | spread | PIT | -2.5 |  | 1 | Seth Woolcock | [407s](https://www.youtube.com/watch?v=uirj8AVs8so&t=407s) | non_futures_market, missing_price | Give me a little Pittsburgh Steelers minus 2.5 against the Falcons. | Steelers historically start very strong under Mike Tomlin in Week 1 (7-2-1 in the last decade) and boast a shutdown secondary that can neutralize Drake London. |
 | non_futures_betting | 9 Early NFL Week 1 Best Bets To Make NOW \| ATS, Totals & Moneyline Picks & Predictions (2026) | TEN | spread | TEN | -2.5 |  | 1 | Andrew Erickson | [652s](https://www.youtube.com/watch?v=uirj8AVs8so&t=652s) | non_futures_market, missing_price |  | titans are in a strong spot with a fresh coaching scheme, whereas the Jets have lingering offensive question marks. |
@@ -159,10 +156,6 @@ _Combined pick lanes + note relevance tags. See Note Tag Counts below for the no
 | roster_transaction_intel | 14 LONGSHOT NFL Futures To Make Now \| SLEEPERS, Player Props Picks & Predictions | roster_or_depth_chart | LV | Kirk Cousins, Fernando Mendoza | Andrew Erickson | [2511s](https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=2511s) | speculative |  | Kirk Cousins is starting for the Raiders, but there is speculation that rookie Fernando Mendoza could take over. | I think that after a couple weeks they are going to be like, 'let's get Mendoza in there, we've seen enough of Kirk Cousins.' |
 | matchup_analysis | 14 LONGSHOT NFL Futures To Make Now \| SLEEPERS, Player Props Picks & Predictions | coaching_or_scheme | PIT | Aaron Rodgers | Andrew Erickson | [1980s](https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=1980s) | speculative |  | Mike McCarthy is the head coach of the Steelers, and Aaron Rodgers is their aging starting quarterback, with Drew Allar and Will Howard as backups. | And Aaron Rodgers is terrible, what if they decide, hey, we're going to use Drew Allar, we're going to use Will Howard because Rodgers is cooked. |
 | roster_transaction_intel | 14 LONGSHOT NFL Futures To Make Now \| SLEEPERS, Player Props Picks & Predictions | roster_or_depth_chart | JAX | Travis Hunter | Andrew Erickson | [1210s](https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=1210s) | stated |  | Travis Hunter is expected to play both wide receiver and cornerback for the Jacksonville Jaguars. | He is doing something no other player has really done in such a long time, and that's like having success playing both ways. |
-| fantasy_intel | Top 10 NFL Starting Quarterbacks Heading Into 2026! \| The Favorites | player_evaluation | BAL | Lamar Jackson | Kendra Middleton | [1857s](https://www.youtube.com/watch?v=b9NL40Zogkw&t=1857s) | stated |  | Kendra expresses concern over Lamar Jackson's history of injuries and late-season illnesses at crucial moments, preventing her from placing him in her top four. | The injuries and illnesses at the most pivotal times of the year are a major concern. |
-| fantasy_intel | Top 10 NFL Starting Quarterbacks Heading Into 2026! \| The Favorites | player_evaluation | LAR | Matthew Stafford | Kendra Middleton | [2157s](https://www.youtube.com/watch?v=b9NL40Zogkw&t=2157s) | stated |  | Kendra highly praises Matthew Stafford's elite situational awareness and 'sixth sense' for pressure in the pocket, though his age and back issues remain a slight concern. | His pocket awareness is unbelievable; he has a sixth sense for pressure. |
-| fantasy_intel | Top 10 NFL Starting Quarterbacks Heading Into 2026! \| The Favorites | player_evaluation | CIN | Joe Burrow | Kendra Middleton | [2239s](https://www.youtube.com/watch?v=b9NL40Zogkw&t=2239s) | stated |  | Kendra questions if the physical toll of playing behind a weak Bengals offensive line is affecting Joe Burrow's love for the game, while Brandon still classifies him as elite when active. | I do wonder if the physical toll of his career is starting to kill his passion. |
-| fantasy_intel | Top 10 NFL Starting Quarterbacks Heading Into 2026! \| The Favorites | player_evaluation | SF | Brock Purdy | Evan Abrams | [2730s](https://www.youtube.com/watch?v=b9NL40Zogkw&t=2730s) | stated |  | Evan Abrams points out that Brock Purdy leads almost all key advanced efficiency metrics over the last two seasons, making his omission from the hosts' top ten lists questionable. | Purdy ranks first in basically every advanced metric over the last two seasons, including EPA per play and success rate. |
 | fantasy_intel | Greg Cosell: 2026 NFC North Season PREVIEW | player_evaluation | CHI | Caleb Williams | Greg Cosell | [607s](https://www.youtube.com/watch?v=G5tbI-M8muY&t=607s) | stated |  | Greg Cosell evaluates Caleb Williams' progression going into his third season as highly positive, praising his pure throwing talent but noting a need to play more strictly within the offense's structure when it works. | There are few guys that throw as beautiful a ball as Caleb Williams, so there's no concerns about the talent level... I would say he's right on track. |
 | matchup_analysis | Greg Cosell: 2026 NFC North Season PREVIEW | coaching_or_scheme | CHI | Sam Roush, Caleb Williams | Greg Cosell | [412s](https://www.youtube.com/watch?v=G5tbI-M8muY&t=412s) | implied |  | Cosell notes Chicago's draft choice of tight end Sam Roush suggests a shift towards heavier tight end packages (12 and 13 personnel) under Ben Johnson to ease the burden on Caleb Williams. | I'm fascinated to see if Ben Johnson decides to go a lot more with multiple tight end personnel packages, including 13 personnel with three tight ends. |
 | roster_transaction_intel | Greg Cosell: 2026 NFC North Season PREVIEW | roster_or_depth_chart | DET | Penei Sewell, Blake Miller, Cade Mays | Greg Cosell | [1125s](https://www.youtube.com/watch?v=G5tbI-M8muY&t=1125s) | stated |  | The Lions reshuffled their offensive line, moving Penei Sewell to left tackle, inserting draft pick Blake Miller at right tackle, and bringing in Cade Mays from Carolina to play center. | They moved Sewell to left tackle, which is what he played in college... Blake Miller, they drafted, is going to step in at right tackle. |
@@ -195,3 +188,14 @@ _Combined pick lanes + note relevance tags. See Note Tag Counts below for the no
 | matchup_analysis | 2026 NFL Receiving Rooms Tier List \| Full Rankings | team_evaluation | PHI | AJ Brown, DeVonta Smith | Warren Sharp | [3027s](https://www.youtube.com/watch?v=zNZzcHDqhg4&t=3027s) | stated |  | The Eagles are graded as a fringe A-tier unit; while they are still strong with DeVonta Smith and Dallas Goedert, losing AJ Brown caps their previous S-tier upside. | This is an A-tier even losing AJ Brown. |
 | injury_intel, training_camp_intel | Training Camp impact on bets, what Steve's up to with SIC Score, and more! | injury_or_health |  |  | Steve Fezik | [110s](https://www.youtube.com/watch?v=mg5iBe5I5tU&t=110s) | stated | no_team_or_player | Fezik highly praises the Dr. Chao group's SIC Score database for tracking team injuries (offensive line, defensive line, etc.), noting that their core injury model has hit 56.5% over the last seven years. | Love the concept that they have... they have their SIC score for all the teams, and yes it's obvious when it's the quarterback, but it's not obvious sometimes with cluster injuries on the O-line, etc. |
 | market_context | Training Camp impact on bets, what Steve's up to with SIC Score, and more! | market_sentiment |  |  | Steve Fezik | [180s](https://www.youtube.com/watch?v=mg5iBe5I5tU&t=180s) | stated | no_team_or_player | Fezik gives candid advice that bettors wagering under $100 per game should not buy subscription picks, as the cost of the picks will outweigh the potential profit. | If you're not betting over a hundred dollars a game... don't be buying picks because the cost of the picks is too onerous. |
+
+## Reprocess Required
+
+These observations were saved for auditability but are excluded from extracted picks/notes until reprocessed.
+
+- youtube-OAxHvrVUPpw: NFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season (https://www.youtube.com/watch?v=OAxHvrVUPpw)
+  - Reason: segmented extraction failed semantic coverage: later windows repeated intro/Carolina material and did not capture the expected Saints discussion
+- youtube-b9NL40Zogkw: Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites (https://www.youtube.com/watch?v=b9NL40Zogkw)
+  - Reason: ranked QB list coverage incomplete: raw transcript references 13 QB subjects; but structured picks/notes cover 5; missing Josh Allen, Patrick Mahomes, Dak Prescott, Justin Herbert, Baker Mayfield, Trevor Lawrence, Jared Goff, Sam Darnold
+- youtube-qoCm4G2Jmng: TOP 10 QUARTERBACKS: NFL Betting Experts' Rankings & Analysis of Greatest QBs For 2026 NFL Season (https://www.youtube.com/watch?v=qoCm4G2Jmng)
+  - Reason: segment semantic mismatch: later window repeated the episode intro; segment semantic mismatch: later window repeated the episode intro; segment semantic mismatch: later window repeated the episode intro
