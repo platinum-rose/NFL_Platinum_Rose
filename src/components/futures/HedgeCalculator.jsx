@@ -7,8 +7,7 @@ import {
 } from 'lucide-react';
 import { getPositions, addHedge, FUTURES_TYPE_LABELS, POSITION_STATUS } from '../../lib/futures';
 import {
-  lockHedgeStake, breakEvenHedgeStake, analyzeScenario,
-  noHedgeBaseline, computeAllModes, portfolioMatrix
+  analyzeScenario, computeAllModes, portfolioMatrix
 } from '../../lib/hedgeCalculator';
 import { TEAM_LOGOS } from '../../lib/teams';
 
@@ -23,7 +22,6 @@ const fmtUSD = (n) => {
 const fmtOdds = (o) => (Number(o) >= 0 ? `+${Number(o)}` : `${Number(o)}`);
 const fmtRoi  = (r) => `${r >= 0 ? '+' : ''}${fmt(r, 1)}%`;
 const pnlColor = (n) => (n > 0 ? 'text-emerald-400' : n < 0 ? 'text-rose-400' : 'text-slate-400');
-const pnlBg = (n) => (n > 0 ? 'bg-emerald-500/10 border-emerald-500/20' : n < 0 ? 'bg-rose-500/10 border-rose-500/20' : 'bg-slate-800/40 border-slate-700');
 
 const BOOKS = [
   'DraftKings', 'FanDuel', 'BetMGM', 'Caesars', 'BetOnline',

@@ -11,12 +11,9 @@ import {
 import {
     calculateAnalytics,
     getBankrollData,
-    updateBankrollSettings,
     BET_STATUS,
     BET_TYPES,
     exportBankrollData,
-    importBankrollData,
-    calculateKellyUnit,
     getRecommendedUnit
 } from '../../lib/bankroll';
 

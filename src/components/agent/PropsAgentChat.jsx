@@ -11,7 +11,6 @@
 //     as BETTING agent (so entering the key once unlocks both)
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import logger from '../../lib/logger';
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Send, Zap, User, Wrench, ChevronDown, ChevronRight, Trash2, AlertCircle, Key, CheckCircle2 } from 'lucide-react';
 import { runAgentTurn, runOpenAIAgentTurn } from '../../lib/anthropicClient.js';

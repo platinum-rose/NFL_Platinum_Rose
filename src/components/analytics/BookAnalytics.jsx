@@ -7,7 +7,7 @@ import {
   ReferenceLine, ResponsiveContainer, Cell, LabelList
 } from 'recharts';
 import { BookOpen, ArrowUpDown } from 'lucide-react';
-import { formatCurrency, formatPercent } from './analyticsFormatters';
+import { formatCurrency } from './analyticsFormatters';
 
 // ── Helpers ───────────────────────────────────────────────────
 

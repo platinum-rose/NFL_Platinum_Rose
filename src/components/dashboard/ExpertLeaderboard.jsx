@@ -60,7 +60,6 @@ function PickDetailRow({ pick }) {
 function ExpertRow({ stat, rank, picks }) {
   const [expanded, setExpanded] = useState(false);
 
-  const hasGraded  = stat.graded > 0;
   const hasPending = stat.pending > 0;
 
   return (

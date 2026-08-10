@@ -42,13 +42,6 @@ function buildFuturesSystemPrompt(futuresPortfolio, schedule, bankrollData = nul
       stake: p.stake,
     }));
   const parlays = (futuresPortfolio?.parlays || []).filter(p => p.status === PARLAY_STATUS.LIVE);
-  const fmtOdds = (odds) => odds == null ? '?' : (Number(odds) > 0 ? `+${Number(odds)}` : String(Number(odds)));
-  const positionLines = positions.length > 0
-    ? positions.slice(0, 12).map(p => {
-        const line = p.line != null ? ` ${p.selection || ''} ${p.line}` : (p.selection ? ` ${p.selection}` : '');
-        return `  - ${p.team || p.subject || '?'} ${p.type || '?'}${line} @ ${fmtOdds(p.odds)} - stake $${p.stake ?? '?'} - status ${p.status}`;
-      }).join('\n')
-    : '  None';
   const parlayLines = parlays.length > 0
     ? parlays.slice(0, 8).map(p => `  - ${p.name || p.id}: ${p.legs?.length || 0} legs, stake $${p.stake ?? '?'}, potential payout $${p.potentialPayout ?? '?'}, status ${p.status}`).join('\n')
     : '  None';

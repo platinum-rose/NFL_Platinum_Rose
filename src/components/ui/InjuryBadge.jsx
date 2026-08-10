@@ -50,7 +50,7 @@ export function InjuryBadge({ injury, size = 'small', onClick = null, className 
 }
 
 // Injury summary component for matchup cards
-export function InjurySummary({ injuries = [], teamAbbrev, maxDisplay = 2, onClick = null }) {
+export function InjurySummary({ injuries = [], teamAbbrev: _teamAbbrev, maxDisplay = 2, onClick = null }) {
     const topInjuries = injuries.slice(0, maxDisplay);
     const remainingCount = Math.max(0, injuries.length - maxDisplay);
     

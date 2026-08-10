@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import logger from '../../lib/logger';
 import { X, Plus, Save, Trash2, AlertTriangle, Edit } from 'lucide-react';
-import { getBankrollData, saveBankrollData, updateBet, BET_TYPES } from '../../lib/bankroll';
+import { getBankrollData, saveBankrollData, BET_TYPES } from '../../lib/bankroll';
 
 export default function EditBetModal({ 
   isOpen, 

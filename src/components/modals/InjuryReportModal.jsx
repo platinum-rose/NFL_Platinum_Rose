@@ -18,7 +18,7 @@ export default function InjuryReportModal({ isOpen, game, injuries, onClose }) {
     const homeIsMock = sourceState.mockTeams.includes(game.home);
     const visitorIsMock = sourceState.mockTeams.includes(game.visitor);
     
-    const renderTeamInjuries = (teamInjuries, teamName, teamAbbrev) => {
+    const renderTeamInjuries = (teamInjuries, _teamName, _teamAbbrev) => {
         if (teamInjuries.length === 0) {
             return (
                 <div className="text-center py-8">

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import logger from '../../lib/logger';
 import { X, Upload, FileText, CheckCircle, AlertTriangle, Copy, Download, Trash2 } from 'lucide-react';
-import { parseImportedBet, convertTobankrollBet, validateImportedBet, formatImportedBetDisplay } from '../../lib/betImport';
+import { parseImportedBet, convertTobankrollBet, validateImportedBet } from '../../lib/betImport';
 import { addBet, getBankrollData } from '../../lib/bankroll';
 
 export default function BetImportModal({ 

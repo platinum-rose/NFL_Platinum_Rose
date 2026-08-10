@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import {
-  americanToDecimal,
-  americanToProbability,
   calculateNetOdds,
   compareMarketOdds,
   evaluateOrderBook,

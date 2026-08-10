@@ -20,6 +20,15 @@ export default function LiveOddsDashboard() {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState('time');
   const [showBestOdds, setShowBestOdds] = useState(true);
+  // FLAGGED (lint cleanup, 2026-08-10, not fixed — needs Andy's call):
+  // userBets is genuinely populated (loadUserBets() below fetches real
+  // bankroll data via a 3-tier Supabase -> cache -> API fallback chain,
+  // called from all 3 branches of the mount effect) but the value is never
+  // rendered anywhere in this component's JSX. Looks like a "show my open
+  // bets on this odds board" feature that was wired up on the data side
+  // but never finished on the UI side. Left in place rather than deleting
+  // real fetched state.
+  // eslint-disable-next-line no-unused-vars
   const [userBets, setUserBets] = useState([]);
   const [quotaState, setQuotaState] = useState(() => getOddsQuotaState());
 
@@ -52,7 +61,7 @@ export default function LiveOddsDashboard() {
             return;
           }
         }
-      } catch (e) {
+      } catch (_e) {
         logger.warn('⚠️ Supabase unavailable, falling back to localStorage/API');
       }
 

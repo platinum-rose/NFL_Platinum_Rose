@@ -3,7 +3,14 @@ import { X, FileText, UploadCloud, Trash2, CheckCircle, AlertCircle, Clipboard }
 
 export default function BulkImportModal({ isOpen, onClose, onImport }) {
   const [textInput, setTextInput] = useState(""); // For pasting text
+  // setMode/fileInputRef are real scaffolding for the 'upload' mode this
+  // component was designed for, but the File Upload Logic branch below is
+  // explicitly a stub ("omitted for brevity") with no UI to ever call
+  // setMode('upload') -- left in place rather than deleting real
+  // in-progress scaffolding during a lint-only pass.
+  // eslint-disable-next-line no-unused-vars
   const [mode, setMode] = useState("paste"); // 'paste' or 'upload'
+  // eslint-disable-next-line no-unused-vars
   const fileInputRef = useRef(null);
 
   if (!isOpen) return null;

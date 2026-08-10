@@ -113,7 +113,6 @@ function TeamSlot({ team, seed, conf, exposure, onPick, editMode, isBye = false,
 
   const seedLabel = `#${seed}${isBye ? ' (BYE)' : ''}`;
   const confColor = conf === 'afc' ? 'text-blue-400' : 'text-red-400';
-  const confBg    = conf === 'afc' ? 'bg-blue-500/10 border-blue-500/20' : 'bg-red-500/10 border-red-500/20';
 
   const filteredTeams = useMemo(() => {
     const q = search.toLowerCase();
@@ -441,6 +440,16 @@ function Legend() {
 // ═════════════════════════════════════════════════════════════════════════════
 // SUPER BOWL CENTER PANEL
 // ═════════════════════════════════════════════════════════════════════════════
+// FLAGGED (lint cleanup, 2026-08-10, not fixed — needs Andy's call): every
+// other sibling panel in this file (TeamSlot, SeedTable, etc.) uses the
+// `exposure` map (exposure.get(team)) to show per-team position info, but
+// this one receives the same prop and ignores it, independently re-deriving
+// SB-specific positions via a raw getPositions() filter instead. May be
+// intentional (SB panel wants matchup-type positions specifically, not
+// general per-team exposure) or may be a leftover unused prop -- left the
+// param as-is (not renamed to `_exposure`) since it's real data threaded in
+// from the parent, not obviously dead.
+// eslint-disable-next-line no-unused-vars
 function SuperBowlPanel({ exposure }) {
   // SB matchup bets
   const sbPositions = getPositions().filter(p =>
@@ -574,6 +583,16 @@ function SeedTable({ seeds, exposure }) {
 export default function PlayoffBracket() {
   const { seeds, setSeed, resetBracket } = useBracket();
   const [editMode, setEditMode] = useState(false);
+  // FLAGGED (lint cleanup, 2026-08-10, not fixed — needs Andy's call):
+  // setRefreshKey is never called anywhere in this component -- there's no
+  // refresh/reload button wired to it, so `positions` below can only ever
+  // be computed once at mount despite the useMemo depending on refreshKey.
+  // If a position is added/edited/deleted elsewhere while this component
+  // stays mounted, this view will show stale data with no way to refresh
+  // short of a full remount. Left the state in place (it's real scaffolding
+  // for a refresh mechanism, just currently unreachable) rather than
+  // deleting it or guessing where a refresh trigger should go.
+  // eslint-disable-next-line no-unused-vars
   const [refreshKey, setRefreshKey] = useState(0);
 
   const positions = useMemo(() => getPositions(), [refreshKey]);

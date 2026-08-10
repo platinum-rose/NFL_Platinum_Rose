@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { User, Trash2, Eraser, Award, Calendar, AlertCircle, Pencil, Check, X, Shield, BookmarkPlus } from 'lucide-react';
 import { addExpertPick } from '../../lib/picksDatabase';
 
-export default function ExpertManagerModal({ isOpen, onClose, experts, expertConsensus, onUpdatePick, onDeletePick, onClearExpert }) {
+export default function ExpertManagerModal({ isOpen, onClose, experts: _experts, expertConsensus, onUpdatePick, onDeletePick, onClearExpert }) {
   const [selectedExpertName, setSelectedExpertName] = useState(null);
   
   // EDIT STATE

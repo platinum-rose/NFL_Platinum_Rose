@@ -87,7 +87,7 @@ const positiveClass = (n) => (n === null ? '' : n >= 0 ? 'text-emerald-400' : 't
 
 // ── Chart tooltip ─────────────────────────────────────────────
 
-const ChartTooltip = ({ active, payload, label }) => {
+const ChartTooltip = ({ active, payload, label: _label }) => {
   if (!active || !payload?.length) return null;
   const d = payload[0]?.payload || {};
   return (

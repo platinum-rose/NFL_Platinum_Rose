@@ -11,7 +11,6 @@
 //   - Chat history is persisted to localStorage nfl_betting_agent_chat_v1
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import logger from '../../lib/logger';
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Send, Bot, User, Wrench, ChevronDown, ChevronRight, Trash2, AlertCircle, Key, CheckCircle2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
@@ -22,9 +21,6 @@ import { loadFromStorage, saveToStorage } from '../../lib/storage.js';
 import { getBankrollData } from '../../lib/bankroll.js';
 import {
   loadPicks,
-  calculateStandings,
-  statsByConfidence,
-  statsByEdge,
   statsByPickType,
 } from '../../lib/picksDatabase.js';
 import { getNFLWeekInfo } from '../../lib/constants.js';
@@ -270,7 +266,6 @@ function buildOddsSummary(odds) {
     .map(g => {
       const parts = [`  ${g.away} @ ${g.home}`];
       if (g.spread != null) {
-        const favSign = g.spread <= 0 ? '' : '+';
         parts.push(
           `Spread: ${g.away} ${g.spread > 0 ? '+' : ''}${-g.spread} ` +
           `(${g.awayPrice > 0 ? '+' : ''}${g.awayPrice ?? '?'})`,

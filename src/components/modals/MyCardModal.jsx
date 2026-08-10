@@ -26,7 +26,7 @@ const getCombinations = (arr, k) => {
     return combs;
 };
 
-export default function MyCardView({ bets, onRemoveBet, onUpdateBet, onPlaceBet, onCreateParlay, onClearCard, onLockBets }) {
+export default function MyCardView({ bets, onRemoveBet, onUpdateBet: _onUpdateBet, onPlaceBet: _onPlaceBet, onCreateParlay, onClearCard, onLockBets }) {
   const [activeTab, setActiveTab] = useState('builder'); // 'builder' or 'locked'
   const [selectedIds, setSelectedIds] = useState([]);
   const [wager, setWager] = useState('');

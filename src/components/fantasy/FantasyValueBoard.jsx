@@ -189,7 +189,7 @@ function PodcastFantasyIntelPanel() {
         setNotes(fantasyNotes);
         setGeneratedAt(json.generated_at || null);
         setState('ready');
-      } catch (e) {
+      } catch (_e) {
         if (!cancelled) setState('error');
       }
     })();

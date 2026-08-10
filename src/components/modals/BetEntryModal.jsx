@@ -28,7 +28,14 @@ export default function BetEntryModal({
 
   // Grading state
   const [pendingBets, setPendingBets] = useState([]);
+  // FLAGGED (lint cleanup, 2026-08-10, not fixed — needs Andy's call):
+  // selectedBet/gradingResult are written (reset to null/'' below) but never
+  // read/rendered anywhere in this component -- looks like a grading UI
+  // that was either moved elsewhere or never finished. Left in place rather
+  // than deleting real state during a lint-only pass.
+  // eslint-disable-next-line no-unused-vars
   const [selectedBet, setSelectedBet] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [gradingResult, setGradingResult] = useState('');
 
   useEffect(() => {

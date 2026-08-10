@@ -16,7 +16,7 @@ import {
   getPositions, getPortfolioSummary, getExposureByTeam,
   deletePosition, updatePosition,
   FUTURES_TYPE_LABELS, POSITION_STATUS, FUTURES_TYPES,
-  americanToDecimal, calcProfit
+  calcProfit
 } from '../../lib/futures';
 import { TEAM_LOGOS } from '../../lib/teams';
 

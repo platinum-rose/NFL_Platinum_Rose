@@ -35,18 +35,12 @@ const fmtDate = (iso) => {
   } catch { return iso; }
 };
 
-const fmtDateTime = (iso) => {
-  if (!iso) return '—';
-  try {
-    return new Date(iso).toLocaleString('en-US', {
-      month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'
-    });
-  } catch { return iso; }
-};
-
 // ── sub-views ───────────────────────────────────────────────
 
 /** Overview / Standings tab */
+// `onRefresh` unused here (read-only tab, no mutating actions) -- kept for
+// signature parity with the sibling tabs below (AllPicksTab does call it).
+// eslint-disable-next-line no-unused-vars
 function OverviewTab({ onRefresh }) {
   const standings = calculateStandings();
   const confBuckets = statsByConfidence();
@@ -313,6 +307,10 @@ function AllPicksTab({ onRefresh }) {
 }
 
 /** Grade tab — enter scores for pending games */
+// `onRefresh` unused here -- refresh happens via the parent's key={refreshKey}
+// remount pattern (see the render call site below) after onAutoGrade/the
+// grade modal complete, not via a direct call from inside this tab.
+// eslint-disable-next-line no-unused-vars
 function GradeTab({ onRefresh, onOpenGradeModal, onAutoGrade, autoGrading }) {
   const stalePicks = findStalePicksPending();
   const pendingPicks = loadPicks({ result: 'PENDING' });
