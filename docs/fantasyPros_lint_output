@@ -1,0 +1,1691 @@
+PS E:\dev\projects\NFL_Dashboard> npm run lint
+
+> nfl-dashboard@0.0.0 lint
+> eslint .
+
+
+E:\dev\projects\NFL_Dashboard\agents\futures-intel-report-v2.js
+   604:10  error  'valueSpotSourceLinks' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+   650:35  error  'notes' is assigned a value but never used. Allowed unused args must match /^_/u             no-unused-vars
+  1115:9   error  'bestPref' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u     no-unused-vars
+  1570:17  error  'lineLabel' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u    no-unused-vars
+  1571:49  error  'worst' is defined but never used. Allowed unused args must match /^_/u                      no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\agents\portfolio-dossier.js
+  393:12  error  '_err' is defined but never used  no-unused-vars
+  483:12  error  '_err' is defined but never used  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\agents\portfolio-simulate.js
+  6:10  error  'probAtLeast' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\agents\portfolio-synthesize.js
+   597:30  error  Unnecessary escape character: \[                                                               no-useless-escape
+  1204:10  error  'validateRecommendation' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  1905:9   error  'byKey' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u          no-unused-vars
+  2368:9   error  'section' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u        no-unused-vars
+  2519:9   error  'section' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u        no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\agents\vault-rebuilder.js
+  382:25  error  'buildPickPerformanceMd' is not defined  no-undef
+
+E:\dev\projects\NFL_Dashboard\scripts\build-article-intel-review.js
+  425:16  error  'err' is defined but never used  no-unused-vars
+  444:14  error  'err' is defined but never used  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\scripts\build-beat-nuggets-importer.js
+  87:5   error  'campSnapshot' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  88:11  error  Empty block statement                                                                         no-empty
+
+E:\dev\projects\NFL_Dashboard\scripts\build-coaching-scheme-classifier.js
+  18:10  error  'readFile' is defined but never used. Allowed unused vars must match /^[A-Z_]/u      no-unused-vars
+  62:15  error  'key' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\scripts\build-podcast-narratives.js
+  288:10  error  'resolveFutureHostFromTranscript' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  314:10  error  'quotesFromJson' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                   no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\scripts\build-public-sentiment-classifier.js
+  37:11  error  Empty block statement                                                                no-empty
+  42:15  error  'key' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\scripts\official-pick-ledger.js
+  582:10  error  'pickTableRows' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\scripts\parse-adp.js
+  87:104  error  Unnecessary escape character: \-  no-useless-escape
+
+E:\dev\projects\NFL_Dashboard\scripts\resolve-youtube-episode-urls.js
+  85:10  error  'parseIsoDurationSeconds' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\scripts\tag-nfl-sensitivity.js
+  62:46  error  '_' is defined but never used  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\components\agent\AgentChat.jsx
+   14:8   warning  'logger' is defined but never used. Allowed unused vars must match /^[A-Z_]/u              no-unused-vars
+   25:3   warning  'calculateStandings' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+   26:3   warning  'statsByConfidence' is defined but never used. Allowed unused vars must match /^[A-Z_]/u   no-unused-vars
+   27:3   warning  'statsByEdge' is defined but never used. Allowed unused vars must match /^[A-Z_]/u         no-unused-vars
+  273:15  warning  'favSign' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u    no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\components\agent\FuturesAgentChat.jsx
+  46:9  warning  'positionLines' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\components\agent\PropsAgentChat.jsx
+  14:8  warning  'logger' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\components\analytics\AnalyticsDashboard.jsx
+  28:41  warning  React Hook useEffect has a missing dependency: 'loadAnalytics'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\dev\projects\NFL_Dashboard\src\components\analytics\BookAnalytics.jsx
+  10:26  warning  'formatPercent' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\components\analytics\OutcomesDashboard.jsx
+   90:42  warning  'label' is defined but never used. Allowed unused args must match /^_/u  no-unused-vars
+  114:27  warning  'Icon' is defined but never used. Allowed unused args must match /^_/u   no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\components\auth\AuthGate.jsx
+  30:7  warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  28 |     if (!isAvailable()) {
+  29 |       // Supabase not configured — pass through for local dev.
+> 30 |       setSession(null);
+     |       ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  31 |       return;
+  32 |     }
+  33 |  react-hooks/set-state-in-effect
+
+E:\dev\projects\NFL_Dashboard\src\components\bankroll\BankrollDashboard.jsx
+   14:5  warning  'updateBankrollSettings' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                no-unused-vars
+   18:5  warning  'importBankrollData' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                    no-unused-vars
+   19:5  warning  'calculateKellyUnit' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                    no-unused-vars
+  189:8  warning  React Hook useEffect has a missing dependency: 'loadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\dev\projects\NFL_Dashboard\src\components\dashboard\ExpertLeaderboard.jsx
+   63:9   warning  'hasGraded' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  172:43  warning  'Icon' is defined but never used. Allowed unused args must match /^_/u                     no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\components\dashboard\MatchupCard.jsx
+  44:760  warning  'e' is defined but never used                                                                                                                                    no-unused-vars
+  44:846  warning  React Hook useEffect has missing dependencies: 'stadium.lat', 'stadium.long', 'stadium.type', and 'weather'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\dev\projects\NFL_Dashboard\src\components\dev-lab\DevLab.jsx
+  56:9  warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  54 |         const tempos = stats.map(s => parseFloat(s.tempo)).filter(v => !isNaN(v) && v > 0);
+  55 |         const meanTempo = tempos.length ? tempos.reduce((a,b) => a + b, 0) / tempos.length : 30.0;
+> 56 |         setLeagueTempo(meanTempo);
+     |         ^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  57 |
+  58 |         stats.forEach(teamStat => {
+  59 |             if (teamStat.team) {  react-hooks/set-state-in-effect
+
+E:\dev\projects\NFL_Dashboard\src\components\fantasy\FantasyValueBoard.jsx
+  191:16  warning  'e' is defined but never used                                                                                                                                                               no-unused-vars
+  299:9   warning  The 'board' logical expression could make the dependencies of useMemo Hook (at line 306) change on every render. To fix this, wrap the initialization of 'board' in its own useMemo() Hook  react-hooks/exhaustive-deps
+  299:9   warning  The 'board' logical expression could make the dependencies of useMemo Hook (at line 330) change on every render. To fix this, wrap the initialization of 'board' in its own useMemo() Hook  react-hooks/exhaustive-deps
+
+E:\dev\projects\NFL_Dashboard\src\components\futures\FuturesOddsMonitor.jsx
+  91:5  warning  React Hook useMemo has an unnecessary dependency: 'refreshKey'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\dev\projects\NFL_Dashboard\src\components\futures\FuturesPortfolio.jsx
+   19:3   warning  'americanToDecimal' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        no-unused-vars
+   73:51  warning  React Hook useMemo has an unnecessary dependency: 'refreshKey'. Either exclude it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                react-hooks/exhaustive-deps
+   74:58  warning  React Hook useMemo has an unnecessary dependency: 'refreshKey'. Either exclude it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                react-hooks/exhaustive-deps
+   75:56  warning  React Hook useMemo has an unnecessary dependency: 'refreshKey'. Either exclude it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                react-hooks/exhaustive-deps
+  230:8   warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  228 |
+  229 |       {/* Summary */}
+> 230 |       <SummaryCards />
+      |        ^^^^^^^^^^^^ This component is created during render
+  231 |
+  232 |       {/* Parlay quick stats (when parlays exist) */}
+  233 |       {(summary.liveParlays > 0) && (
+
+   97 |
+   98 |   // ── Summary cards ──────────────────────────────────────────────────────────
+>  99 |   const SummaryCards = () => (
+      |                        ^^^^^^^
+> 100 |     <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 mb-6">
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 101 |       <SumCard label="Open Positions" value={summary.openPositions} icon={Layers} color="cyan" />
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 111 |     </div>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 112 |   );
+      | ^^^^ The component is created during render here
+  113 |
+  114 |   // ── Positions table ────────────────────────────────────────────────────────
+  115 |   const PositionsView = () => (  react-hooks/static-components
+  269:35  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  267 |
+  268 |       {/* Content */}
+> 269 |       {subTab === 'positions' && <PositionsView />}
+      |                                   ^^^^^^^^^^^^^ This component is created during render
+  270 |       {subTab === 'market'    && <FuturesMarketBrowser />}
+  271 |       {subTab === 'watchlist' && <FuturesWatchList />}
+  272 |       {subTab === 'exposure'  && <ExposureView />}
+
+  113 |
+  114 |   // ── Positions table ────────────────────────────────────────────────────────
+> 115 |   const PositionsView = () => (
+      |                         ^^^^^^^
+> 116 |     <div className="space-y-3">
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 117 |       {/* Filters */}
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 166 |     </div>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 167 |   );
+      | ^^^^ The component is created during render here
+  168 |
+  169 |   // ── Exposure view ──────────────────────────────────────────────────────────
+  170 |   const ExposureView = () => (                                                                               react-hooks/static-components
+  272:35  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  270 |       {subTab === 'market'    && <FuturesMarketBrowser />}
+  271 |       {subTab === 'watchlist' && <FuturesWatchList />}
+> 272 |       {subTab === 'exposure'  && <ExposureView />}
+      |                                   ^^^^^^^^^^^^ This component is created during render
+  273 |       {subTab === 'hedge'     && (
+  274 |         <HedgeCalculator
+  275 |           onRefresh={refresh}
+
+  168 |
+  169 |   // ── Exposure view ──────────────────────────────────────────────────────────
+> 170 |   const ExposureView = () => (
+      |                        ^^^^^^^
+> 171 |     <div className="space-y-2">
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 172 |       {exposure.length === 0 ? (
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 204 |     </div>
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 205 |   );
+      | ^^^^ The component is created during render here
+  206 |
+  207 |   // ═════════════════════════════════════════════════════════════════════════════
+  208 |   return (                                                                         react-hooks/static-components
+  292:40  warning  'Icon' is defined but never used. Allowed unused args must match /^_/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\components\futures\FuturesWatchList.jsx
+  429:19  error  React Hook "useMemo" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+E:\dev\projects\NFL_Dashboard\src\components\futures\HedgeCalculator.jsx
+  10:3   warning  'lockHedgeStake' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                             no-unused-vars
+  10:19  warning  'breakEvenHedgeStake' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                        no-unused-vars
+  11:3   warning  'noHedgeBaseline' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                            no-unused-vars
+  26:7   warning  'pnlBg' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                             no-unused-vars
+  52:98  warning  React Hook useMemo has an unnecessary dependency: 'refreshKey'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\dev\projects\NFL_Dashboard\src\components\futures\ParlayTracker.jsx
+   86:49  warning  React Hook useMemo has an unnecessary dependency: 'refreshKey'. Either exclude it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 react-hooks/exhaustive-deps
+   89:5   warning  React Hook useMemo has an unnecessary dependency: 'refreshKey'. Either exclude it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 react-hooks/exhaustive-deps
+   96:6   warning  React Hook useMemo has an unnecessary dependency: 'refreshKey'. Either exclude it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 react-hooks/exhaustive-deps
+  187:40  warning  Compilation Skipped: Existing memoization could not be preserved
+
+React Compiler has skipped optimizing this component because the existing manual memoization could not be preserved. This value was memoized in source but not in compilation output.
+
+  185 |   }, [linkPickerLegIdx]);
+  186 |
+> 187 |   const handleSaveParlay = useCallback(() => {
+      |                                        ^^^^^^^
+> 188 |     if (fValidLegs.length < 2) return;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 189 |     if (!fStake || parseFloat(fStake) <= 0) return;
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 198 |     refresh();
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 199 |   }, [fValidLegs, fName, fBook, fStake, fNotes, resetForm, refresh]);
+      | ^^^^ Could not preserve existing memoization
+  200 |
+  201 |   // ── Parlay actions ─────────────────────────────────────────────────────────
+  202 |   const handleLegResult = useCallback((parlayId, legId, currentResult) => {  react-hooks/preserve-manual-memoization
+  199:7   warning  Compilation Skipped: Existing memoization could not be preserved
+
+React Compiler has skipped optimizing this component because the existing manual memoization could not be preserved. This dependency may be mutated later, which could cause the value to change unexpectedly.
+
+  197 |     resetForm();
+  198 |     refresh();
+> 199 |   }, [fValidLegs, fName, fBook, fStake, fNotes, resetForm, refresh]);
+      |       ^^^^^^^^^^ This dependency may be modified later
+  200 |
+  201 |   // ── Parlay actions ─────────────────────────────────────────────────────────
+  202 |   const handleLegResult = useCallback((parlayId, legId, currentResult) => {                                                                                                                                                                                                                                                                                                                                                              react-hooks/preserve-manual-memoization
+
+E:\dev\projects\NFL_Dashboard\src\components\futures\PlayoffBracket.jsx
+  116:9   warning  'confBg' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                            no-unused-vars
+  444:27  warning  'exposure' is defined but never used. Allowed unused args must match /^_/u                                        no-unused-vars
+  577:22  warning  'setRefreshKey' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                     no-unused-vars
+  579:51  warning  React Hook useMemo has an unnecessary dependency: 'refreshKey'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps
+
+E:\dev\projects\NFL_Dashboard\src\components\layout\Header.jsx
+   24:38  warning  'Icon' is defined but never used. Allowed unused args must match /^_/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              no-unused-vars
+   43:40  warning  'Icon' is defined but never used. Allowed unused args must match /^_/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              no-unused-vars
+   53:40  warning  'Icon' is defined but never used. Allowed unused args must match /^_/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              no-unused-vars
+   96:18  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  94 |                 </button>
+  95 |                 <div className="h-6 w-px bg-slate-800 mx-1"></div>
+> 96 |                 <ToolButton onClick={onOpenTeasers} icon={Split} label="Teasers" colorClass="text-purple-400" />
+     |                  ^^^^^^^^^^ This component is created during render
+  97 |                 <ToolButton onClick={onOpenContest} icon={ListFilter} label="Contest" colorClass="text-orange-400" />
+  98 |                 <ToolButton onClick={onOpenSplits} icon={Activity} label="Pulse" colorClass="text-rose-400" />
+  99 |                 <ToolButton onClick={onOpenSplitsData} icon={BarChart3} label="Splits" colorClass="text-cyan-400" />
+
+  41 |   );
+  42 |
+> 43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+     |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 44 |       <button
+     | ^^^^^^^^^^^^^
+> 45 |         onClick={onClick}
+     | ^^^^^^^^^^^^^
+> 46 |         className={`group flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-800/50 hover:bg-slate-800 hover:border-slate-600 transition-all ${colorClass}`}
+     | ^^^^^^^^^^^^^
+> 47 |       >
+     | ^^^^^^^^^^^^^
+> 48 |           <Icon size={14} />
+     | ^^^^^^^^^^^^^
+> 49 |           <span className="text-xs font-bold">{label}</span>
+     | ^^^^^^^^^^^^^
+> 50 |       </button>
+     | ^^^^^^^^^^^^^
+> 51 |   );
+     | ^^^^ The component is created during render here
+  52 |
+  53 |   const IconButton = ({ onClick, icon: Icon, label, colorClass = "text-slate-400 hover:text-white" }) => (
+  54 |     <button                                                                                                                      react-hooks/static-components
+   97:18  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+   95 |                 <div className="h-6 w-px bg-slate-800 mx-1"></div>
+   96 |                 <ToolButton onClick={onOpenTeasers} icon={Split} label="Teasers" colorClass="text-purple-400" />
+>  97 |                 <ToolButton onClick={onOpenContest} icon={ListFilter} label="Contest" colorClass="text-orange-400" />
+      |                  ^^^^^^^^^^ This component is created during render
+   98 |                 <ToolButton onClick={onOpenSplits} icon={Activity} label="Pulse" colorClass="text-rose-400" />
+   99 |                 <ToolButton onClick={onOpenSplitsData} icon={BarChart3} label="Splits" colorClass="text-cyan-400" />
+  100 |                 <ToolButton onClick={onOpenPredictionConverter} icon={TrendingUp} label="Kalshi/Poly" colorClass="text-emerald-400" />
+
+  41 |   );
+  42 |
+> 43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+     |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 44 |       <button
+     | ^^^^^^^^^^^^^
+> 45 |         onClick={onClick}
+     | ^^^^^^^^^^^^^
+> 46 |         className={`group flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-800/50 hover:bg-slate-800 hover:border-slate-600 transition-all ${colorClass}`}
+     | ^^^^^^^^^^^^^
+> 47 |       >
+     | ^^^^^^^^^^^^^
+> 48 |           <Icon size={14} />
+     | ^^^^^^^^^^^^^
+> 49 |           <span className="text-xs font-bold">{label}</span>
+     | ^^^^^^^^^^^^^
+> 50 |       </button>
+     | ^^^^^^^^^^^^^
+> 51 |   );
+     | ^^^^ The component is created during render here
+  52 |
+  53 |   const IconButton = ({ onClick, icon: Icon, label, colorClass = "text-slate-400 hover:text-white" }) => (
+  54 |     <button  react-hooks/static-components
+   98:18  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+   96 |                 <ToolButton onClick={onOpenTeasers} icon={Split} label="Teasers" colorClass="text-purple-400" />
+   97 |                 <ToolButton onClick={onOpenContest} icon={ListFilter} label="Contest" colorClass="text-orange-400" />
+>  98 |                 <ToolButton onClick={onOpenSplits} icon={Activity} label="Pulse" colorClass="text-rose-400" />
+      |                  ^^^^^^^^^^ This component is created during render
+   99 |                 <ToolButton onClick={onOpenSplitsData} icon={BarChart3} label="Splits" colorClass="text-cyan-400" />
+  100 |                 <ToolButton onClick={onOpenPredictionConverter} icon={TrendingUp} label="Kalshi/Poly" colorClass="text-emerald-400" />
+  101 |             </div>
+
+  41 |   );
+  42 |
+> 43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+     |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 44 |       <button
+     | ^^^^^^^^^^^^^
+> 45 |         onClick={onClick}
+     | ^^^^^^^^^^^^^
+> 46 |         className={`group flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-800/50 hover:bg-slate-800 hover:border-slate-600 transition-all ${colorClass}`}
+     | ^^^^^^^^^^^^^
+> 47 |       >
+     | ^^^^^^^^^^^^^
+> 48 |           <Icon size={14} />
+     | ^^^^^^^^^^^^^
+> 49 |           <span className="text-xs font-bold">{label}</span>
+     | ^^^^^^^^^^^^^
+> 50 |       </button>
+     | ^^^^^^^^^^^^^
+> 51 |   );
+     | ^^^^ The component is created during render here
+  52 |
+  53 |   const IconButton = ({ onClick, icon: Icon, label, colorClass = "text-slate-400 hover:text-white" }) => (
+  54 |     <button                                                  react-hooks/static-components
+   99:18  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+   97 |                 <ToolButton onClick={onOpenContest} icon={ListFilter} label="Contest" colorClass="text-orange-400" />
+   98 |                 <ToolButton onClick={onOpenSplits} icon={Activity} label="Pulse" colorClass="text-rose-400" />
+>  99 |                 <ToolButton onClick={onOpenSplitsData} icon={BarChart3} label="Splits" colorClass="text-cyan-400" />
+      |                  ^^^^^^^^^^ This component is created during render
+  100 |                 <ToolButton onClick={onOpenPredictionConverter} icon={TrendingUp} label="Kalshi/Poly" colorClass="text-emerald-400" />
+  101 |             </div>
+  102 |
+
+  41 |   );
+  42 |
+> 43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+     |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 44 |       <button
+     | ^^^^^^^^^^^^^
+> 45 |         onClick={onClick}
+     | ^^^^^^^^^^^^^
+> 46 |         className={`group flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-800/50 hover:bg-slate-800 hover:border-slate-600 transition-all ${colorClass}`}
+     | ^^^^^^^^^^^^^
+> 47 |       >
+     | ^^^^^^^^^^^^^
+> 48 |           <Icon size={14} />
+     | ^^^^^^^^^^^^^
+> 49 |           <span className="text-xs font-bold">{label}</span>
+     | ^^^^^^^^^^^^^
+> 50 |       </button>
+     | ^^^^^^^^^^^^^
+> 51 |   );
+     | ^^^^ The component is created during render here
+  52 |
+  53 |   const IconButton = ({ onClick, icon: Icon, label, colorClass = "text-slate-400 hover:text-white" }) => (
+  54 |     <button                                                                                                                                                                   react-hooks/static-components
+  100:18  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+   98 |                 <ToolButton onClick={onOpenSplits} icon={Activity} label="Pulse" colorClass="text-rose-400" />
+   99 |                 <ToolButton onClick={onOpenSplitsData} icon={BarChart3} label="Splits" colorClass="text-cyan-400" />
+> 100 |                 <ToolButton onClick={onOpenPredictionConverter} icon={TrendingUp} label="Kalshi/Poly" colorClass="text-emerald-400" />
+      |                  ^^^^^^^^^^ This component is created during render
+  101 |             </div>
+  102 |
+  103 |             {/* RIGHT: DATA BUTTONS */}
+
+  41 |   );
+  42 |
+> 43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+     |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 44 |       <button
+     | ^^^^^^^^^^^^^
+> 45 |         onClick={onClick}
+     | ^^^^^^^^^^^^^
+> 46 |         className={`group flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-800/50 hover:bg-slate-800 hover:border-slate-600 transition-all ${colorClass}`}
+     | ^^^^^^^^^^^^^
+> 47 |       >
+     | ^^^^^^^^^^^^^
+> 48 |           <Icon size={14} />
+     | ^^^^^^^^^^^^^
+> 49 |           <span className="text-xs font-bold">{label}</span>
+     | ^^^^^^^^^^^^^
+> 50 |       </button>
+     | ^^^^^^^^^^^^^
+> 51 |   );
+     | ^^^^ The component is created during render here
+  52 |
+  53 |   const IconButton = ({ onClick, icon: Icon, label, colorClass = "text-slate-400 hover:text-white" }) => (
+  54 |     <button                                                                                                                                                                                                                                                 react-hooks/static-components
+  107:22  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  105 |                 <div className="hidden md:flex items-center gap-2">
+  106 |                     {/* 🔥 NEW SHIELD BUTTON */}
+> 107 |                     <IconButton onClick={onManage} icon={Shield} label="Expert Mgr" colorClass="text-amber-400 hover:text-amber-300 hover:border-amber-500/30" />
+      |                      ^^^^^^^^^^ This component is created during render
+  108 |
+  109 |                     <div className="h-6 w-px bg-slate-800 mx-1"></div>
+  110 |
+
+  51 |   );
+  52 |
+> 53 |   const IconButton = ({ onClick, icon: Icon, label, colorClass = "text-slate-400 hover:text-white" }) => (
+     |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 54 |     <button
+     | ^^^^^^^^^^^
+> 55 |       onClick={onClick}
+     …
+     | ^^^^^^^^^^^
+> 63 |     </button>
+     | ^^^^^^^^^^^
+> 64 |   );
+     | ^^^^ The component is created during render here
+  65 |
+  66 |   return (
+  67 |     <header className="sticky top-0 z-40 bg-slate-950 shadow-2xl">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       react-hooks/static-components
+  111:22  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  109 |                     <div className="h-6 w-px bg-slate-800 mx-1"></div>
+  110 |
+> 111 |                     <IconButton onClick={onAnalyze} icon={Mic} label="AI Transcript" colorClass="text-indigo-400 hover:text-indigo-300 hover:border-indigo-500/30" />
+      |                      ^^^^^^^^^^ This component is created during render
+  112 |                     <IconButton onClick={onImport} icon={UploadCloud} label="Bulk Import" colorClass="text-blue-400 hover:text-blue-300 hover:border-blue-500/30" />
+  113 |
+  114 |                     <div className="h-6 w-px bg-slate-800 mx-1"></div>
+
+  51 |   );
+  52 |
+> 53 |   const IconButton = ({ onClick, icon: Icon, label, colorClass = "text-slate-400 hover:text-white" }) => (
+     |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 54 |     <button
+     | ^^^^^^^^^^^
+> 55 |       onClick={onClick}
+     …
+     | ^^^^^^^^^^^
+> 63 |     </button>
+     | ^^^^^^^^^^^
+> 64 |   );
+     | ^^^^ The component is created during render here
+  65 |
+  66 |   return (
+  67 |     <header className="sticky top-0 z-40 bg-slate-950 shadow-2xl">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            react-hooks/static-components
+  112:22  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  110 |
+  111 |                     <IconButton onClick={onAnalyze} icon={Mic} label="AI Transcript" colorClass="text-indigo-400 hover:text-indigo-300 hover:border-indigo-500/30" />
+> 112 |                     <IconButton onClick={onImport} icon={UploadCloud} label="Bulk Import" colorClass="text-blue-400 hover:text-blue-300 hover:border-blue-500/30" />
+      |                      ^^^^^^^^^^ This component is created during render
+  113 |
+  114 |                     <div className="h-6 w-px bg-slate-800 mx-1"></div>
+  115 |
+
+  51 |   );
+  52 |
+> 53 |   const IconButton = ({ onClick, icon: Icon, label, colorClass = "text-slate-400 hover:text-white" }) => (
+     |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 54 |     <button
+     | ^^^^^^^^^^^
+> 55 |       onClick={onClick}
+     …
+     | ^^^^^^^^^^^
+> 63 |     </button>
+     | ^^^^^^^^^^^
+> 64 |   );
+     | ^^^^ The component is created during render here
+  65 |
+  66 |   return (
+  67 |     <header className="sticky top-0 z-40 bg-slate-950 shadow-2xl">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   react-hooks/static-components
+  116:22  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  114 |                     <div className="h-6 w-px bg-slate-800 mx-1"></div>
+  115 |
+> 116 |                     <IconButton onClick={onSave} icon={Save} label="Save Picks" colorClass="text-emerald-400 hover:text-emerald-300 hover:border-emerald-500/30" />
+      |                      ^^^^^^^^^^ This component is created during render
+  117 |                     <IconButton onClick={onReset} icon={RotateCcw} label="Reset Card" colorClass="text-rose-400 hover:text-rose-300 hover:border-rose-500/30" />
+  118 |                     <div className="h-6 w-px bg-slate-800 mx-1"></div>
+  119 |                     <IconButton onClick={onOpenStorage} icon={Database} label="Data Manager" colorClass="text-[#00d2be] hover:text-white hover:border-[#00d2be]/30" />
+
+  51 |   );
+  52 |
+> 53 |   const IconButton = ({ onClick, icon: Icon, label, colorClass = "text-slate-400 hover:text-white" }) => (
+     |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 54 |     <button
+     | ^^^^^^^^^^^
+> 55 |       onClick={onClick}
+     …
+     | ^^^^^^^^^^^
+> 63 |     </button>
+     | ^^^^^^^^^^^
+> 64 |   );
+     | ^^^^ The component is created during render here
+  65 |
+  66 |   return (
+  67 |     <header className="sticky top-0 z-40 bg-slate-950 shadow-2xl">                                                                                                                                                                                                                                                                                                                                                                                                           react-hooks/static-components
+  117:22  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  115 |
+  116 |                     <IconButton onClick={onSave} icon={Save} label="Save Picks" colorClass="text-emerald-400 hover:text-emerald-300 hover:border-emerald-500/30" />
+> 117 |                     <IconButton onClick={onReset} icon={RotateCcw} label="Reset Card" colorClass="text-rose-400 hover:text-rose-300 hover:border-rose-500/30" />
+      |                      ^^^^^^^^^^ This component is created during render
+  118 |                     <div className="h-6 w-px bg-slate-800 mx-1"></div>
+  119 |                     <IconButton onClick={onOpenStorage} icon={Database} label="Data Manager" colorClass="text-[#00d2be] hover:text-white hover:border-[#00d2be]/30" />
+  120 |                     <IconButton onClick={onOpenAgentStatus} icon={Bot} label="Agent Status" colorClass="text-purple-400 hover:text-purple-300 hover:border-purple-500/30" />
+
+  51 |   );
+  52 |
+> 53 |   const IconButton = ({ onClick, icon: Icon, label, colorClass = "text-slate-400 hover:text-white" }) => (
+     |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 54 |     <button
+     | ^^^^^^^^^^^
+> 55 |       onClick={onClick}
+     …
+     | ^^^^^^^^^^^
+> 63 |     </button>
+     | ^^^^^^^^^^^
+> 64 |   );
+     | ^^^^ The component is created during render here
+  65 |
+  66 |   return (
+  67 |     <header className="sticky top-0 z-40 bg-slate-950 shadow-2xl">                                                                                                                                                                                                                                                                                                     react-hooks/static-components
+  119:22  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  117 |                     <IconButton onClick={onReset} icon={RotateCcw} label="Reset Card" colorClass="text-rose-400 hover:text-rose-300 hover:border-rose-500/30" />
+  118 |                     <div className="h-6 w-px bg-slate-800 mx-1"></div>
+> 119 |                     <IconButton onClick={onOpenStorage} icon={Database} label="Data Manager" colorClass="text-[#00d2be] hover:text-white hover:border-[#00d2be]/30" />
+      |                      ^^^^^^^^^^ This component is created during render
+  120 |                     <IconButton onClick={onOpenAgentStatus} icon={Bot} label="Agent Status" colorClass="text-purple-400 hover:text-purple-300 hover:border-purple-500/30" />
+  121 |                 </div>
+  122 |             </div>
+
+  51 |   );
+  52 |
+> 53 |   const IconButton = ({ onClick, icon: Icon, label, colorClass = "text-slate-400 hover:text-white" }) => (
+     |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 54 |     <button
+     | ^^^^^^^^^^^
+> 55 |       onClick={onClick}
+     …
+     | ^^^^^^^^^^^
+> 63 |     </button>
+     | ^^^^^^^^^^^
+> 64 |   );
+     | ^^^^ The component is created during render here
+  65 |
+  66 |   return (
+  67 |     <header className="sticky top-0 z-40 bg-slate-950 shadow-2xl">                                                                                                                                                                                                                                                                                                                                                                                                                               react-hooks/static-components
+  120:22  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  118 |                     <div className="h-6 w-px bg-slate-800 mx-1"></div>
+  119 |                     <IconButton onClick={onOpenStorage} icon={Database} label="Data Manager" colorClass="text-[#00d2be] hover:text-white hover:border-[#00d2be]/30" />
+> 120 |                     <IconButton onClick={onOpenAgentStatus} icon={Bot} label="Agent Status" colorClass="text-purple-400 hover:text-purple-300 hover:border-purple-500/30" />
+      |                      ^^^^^^^^^^ This component is created during render
+  121 |                 </div>
+  122 |             </div>
+  123 |         </div>
+
+  51 |   );
+  52 |
+> 53 |   const IconButton = ({ onClick, icon: Icon, label, colorClass = "text-slate-400 hover:text-white" }) => (
+     |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 54 |     <button
+     | ^^^^^^^^^^^
+> 55 |       onClick={onClick}
+     …
+     | ^^^^^^^^^^^
+> 63 |     </button>
+     | ^^^^^^^^^^^
+> 64 |   );
+     | ^^^^ The component is created during render here
+  65 |
+  66 |   return (
+  67 |     <header className="sticky top-0 z-40 bg-slate-950 shadow-2xl">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 react-hooks/static-components
+  129:14  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  127 |       <div className="bg-slate-900/80 border-b border-slate-800 backdrop-blur-md">
+  128 |         <div className="max-w-7xl mx-auto px-2 h-11 flex items-center justify-between">
+> 129 |             <NavTab id="dashboard" label="The Board" icon={LayoutDashboard} />
+      |              ^^^^^^ This component is created during render
+  130 |             <NavTab id="mycard" label="My Card" icon={ShoppingBag} />
+  131 |             <NavTab id="bankroll" label="Bankroll" icon={Banknote} />
+  132 |             <NavTab id="analytics" label="Analytics" icon={BarChart3} />
+
+  22 | }) {
+  23 |
+> 24 |   const NavTab = ({ id, label, icon: Icon }) => (
+     |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |     <button
+     | ^^^^^^^^^^^
+> 26 |       onClick={() => setActiveTab(id)}
+     …
+     | ^^^^^^^^^^^
+> 40 |     </button>
+     | ^^^^^^^^^^^
+> 41 |   );
+     | ^^^^ The component is created during render here
+  42 |
+  43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+  44 |       <button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              react-hooks/static-components
+  130:14  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  128 |         <div className="max-w-7xl mx-auto px-2 h-11 flex items-center justify-between">
+  129 |             <NavTab id="dashboard" label="The Board" icon={LayoutDashboard} />
+> 130 |             <NavTab id="mycard" label="My Card" icon={ShoppingBag} />
+      |              ^^^^^^ This component is created during render
+  131 |             <NavTab id="bankroll" label="Bankroll" icon={Banknote} />
+  132 |             <NavTab id="analytics" label="Analytics" icon={BarChart3} />
+  133 |             <NavTab id="odds" label="Live Odds" icon={TrendingUp} />
+
+  22 | }) {
+  23 |
+> 24 |   const NavTab = ({ id, label, icon: Icon }) => (
+     |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |     <button
+     | ^^^^^^^^^^^
+> 26 |       onClick={() => setActiveTab(id)}
+     …
+     | ^^^^^^^^^^^
+> 40 |     </button>
+     | ^^^^^^^^^^^
+> 41 |   );
+     | ^^^^ The component is created during render here
+  42 |
+  43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+  44 |       <button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            react-hooks/static-components
+  131:14  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  129 |             <NavTab id="dashboard" label="The Board" icon={LayoutDashboard} />
+  130 |             <NavTab id="mycard" label="My Card" icon={ShoppingBag} />
+> 131 |             <NavTab id="bankroll" label="Bankroll" icon={Banknote} />
+      |              ^^^^^^ This component is created during render
+  132 |             <NavTab id="analytics" label="Analytics" icon={BarChart3} />
+  133 |             <NavTab id="odds" label="Live Odds" icon={TrendingUp} />
+  134 |             <NavTab id="standings" label="Standings" icon={Trophy} />
+
+  22 | }) {
+  23 |
+> 24 |   const NavTab = ({ id, label, icon: Icon }) => (
+     |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |     <button
+     | ^^^^^^^^^^^
+> 26 |       onClick={() => setActiveTab(id)}
+     …
+     | ^^^^^^^^^^^
+> 40 |     </button>
+     | ^^^^^^^^^^^
+> 41 |   );
+     | ^^^^ The component is created during render here
+  42 |
+  43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+  44 |       <button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              react-hooks/static-components
+  132:14  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  130 |             <NavTab id="mycard" label="My Card" icon={ShoppingBag} />
+  131 |             <NavTab id="bankroll" label="Bankroll" icon={Banknote} />
+> 132 |             <NavTab id="analytics" label="Analytics" icon={BarChart3} />
+      |              ^^^^^^ This component is created during render
+  133 |             <NavTab id="odds" label="Live Odds" icon={TrendingUp} />
+  134 |             <NavTab id="standings" label="Standings" icon={Trophy} />
+  135 |             <NavTab id="picks" label="Picks" icon={Target} />
+
+  22 | }) {
+  23 |
+> 24 |   const NavTab = ({ id, label, icon: Icon }) => (
+     |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |     <button
+     | ^^^^^^^^^^^
+> 26 |       onClick={() => setActiveTab(id)}
+     …
+     | ^^^^^^^^^^^
+> 40 |     </button>
+     | ^^^^^^^^^^^
+> 41 |   );
+     | ^^^^ The component is created during render here
+  42 |
+  43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+  44 |       <button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               react-hooks/static-components
+  133:14  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  131 |             <NavTab id="bankroll" label="Bankroll" icon={Banknote} />
+  132 |             <NavTab id="analytics" label="Analytics" icon={BarChart3} />
+> 133 |             <NavTab id="odds" label="Live Odds" icon={TrendingUp} />
+      |              ^^^^^^ This component is created during render
+  134 |             <NavTab id="standings" label="Standings" icon={Trophy} />
+  135 |             <NavTab id="picks" label="Picks" icon={Target} />
+  136 |             <NavTab id="futures" label="Futures" icon={Briefcase} />
+
+  22 | }) {
+  23 |
+> 24 |   const NavTab = ({ id, label, icon: Icon }) => (
+     |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |     <button
+     | ^^^^^^^^^^^
+> 26 |       onClick={() => setActiveTab(id)}
+     …
+     | ^^^^^^^^^^^
+> 40 |     </button>
+     | ^^^^^^^^^^^
+> 41 |   );
+     | ^^^^ The component is created during render here
+  42 |
+  43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+  44 |       <button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                react-hooks/static-components
+  134:14  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  132 |             <NavTab id="analytics" label="Analytics" icon={BarChart3} />
+  133 |             <NavTab id="odds" label="Live Odds" icon={TrendingUp} />
+> 134 |             <NavTab id="standings" label="Standings" icon={Trophy} />
+      |              ^^^^^^ This component is created during render
+  135 |             <NavTab id="picks" label="Picks" icon={Target} />
+  136 |             <NavTab id="futures" label="Futures" icon={Briefcase} />
+  137 |             <NavTab id="futures-agent" label="Futures AI" icon={Trophy} />
+
+  22 | }) {
+  23 |
+> 24 |   const NavTab = ({ id, label, icon: Icon }) => (
+     |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |     <button
+     | ^^^^^^^^^^^
+> 26 |       onClick={() => setActiveTab(id)}
+     …
+     | ^^^^^^^^^^^
+> 40 |     </button>
+     | ^^^^^^^^^^^
+> 41 |   );
+     | ^^^^ The component is created during render here
+  42 |
+  43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+  44 |       <button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           react-hooks/static-components
+  135:14  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  133 |             <NavTab id="odds" label="Live Odds" icon={TrendingUp} />
+  134 |             <NavTab id="standings" label="Standings" icon={Trophy} />
+> 135 |             <NavTab id="picks" label="Picks" icon={Target} />
+      |              ^^^^^^ This component is created during render
+  136 |             <NavTab id="futures" label="Futures" icon={Briefcase} />
+  137 |             <NavTab id="futures-agent" label="Futures AI" icon={Trophy} />
+  138 |             <NavTab id="futures-report" label="Futures Report" icon={FileText} />
+
+  22 | }) {
+  23 |
+> 24 |   const NavTab = ({ id, label, icon: Icon }) => (
+     |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |     <button
+     | ^^^^^^^^^^^
+> 26 |       onClick={() => setActiveTab(id)}
+     …
+     | ^^^^^^^^^^^
+> 40 |     </button>
+     | ^^^^^^^^^^^
+> 41 |   );
+     | ^^^^ The component is created during render here
+  42 |
+  43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+  44 |       <button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  react-hooks/static-components
+  136:14  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  134 |             <NavTab id="standings" label="Standings" icon={Trophy} />
+  135 |             <NavTab id="picks" label="Picks" icon={Target} />
+> 136 |             <NavTab id="futures" label="Futures" icon={Briefcase} />
+      |              ^^^^^^ This component is created during render
+  137 |             <NavTab id="futures-agent" label="Futures AI" icon={Trophy} />
+  138 |             <NavTab id="futures-report" label="Futures Report" icon={FileText} />
+  139 |             <NavTab id="devlab" label="Dev Lab" icon={Mic2} />
+
+  22 | }) {
+  23 |
+> 24 |   const NavTab = ({ id, label, icon: Icon }) => (
+     |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |     <button
+     | ^^^^^^^^^^^
+> 26 |       onClick={() => setActiveTab(id)}
+     …
+     | ^^^^^^^^^^^
+> 40 |     </button>
+     | ^^^^^^^^^^^
+> 41 |   );
+     | ^^^^ The component is created during render here
+  42 |
+  43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+  44 |       <button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        react-hooks/static-components
+  137:14  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  135 |             <NavTab id="picks" label="Picks" icon={Target} />
+  136 |             <NavTab id="futures" label="Futures" icon={Briefcase} />
+> 137 |             <NavTab id="futures-agent" label="Futures AI" icon={Trophy} />
+      |              ^^^^^^ This component is created during render
+  138 |             <NavTab id="futures-report" label="Futures Report" icon={FileText} />
+  139 |             <NavTab id="devlab" label="Dev Lab" icon={Mic2} />
+  140 |             <NavTab id="agent" label="Agent" icon={MessageSquare} />
+
+  22 | }) {
+  23 |
+> 24 |   const NavTab = ({ id, label, icon: Icon }) => (
+     |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |     <button
+     | ^^^^^^^^^^^
+> 26 |       onClick={() => setActiveTab(id)}
+     …
+     | ^^^^^^^^^^^
+> 40 |     </button>
+     | ^^^^^^^^^^^
+> 41 |   );
+     | ^^^^ The component is created during render here
+  42 |
+  43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+  44 |       <button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         react-hooks/static-components
+  138:14  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  136 |             <NavTab id="futures" label="Futures" icon={Briefcase} />
+  137 |             <NavTab id="futures-agent" label="Futures AI" icon={Trophy} />
+> 138 |             <NavTab id="futures-report" label="Futures Report" icon={FileText} />
+      |              ^^^^^^ This component is created during render
+  139 |             <NavTab id="devlab" label="Dev Lab" icon={Mic2} />
+  140 |             <NavTab id="agent" label="Agent" icon={MessageSquare} />
+  141 |             <NavTab id="props" label="Props" icon={Zap} />
+
+  22 | }) {
+  23 |
+> 24 |   const NavTab = ({ id, label, icon: Icon }) => (
+     |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |     <button
+     | ^^^^^^^^^^^
+> 26 |       onClick={() => setActiveTab(id)}
+     …
+     | ^^^^^^^^^^^
+> 40 |     </button>
+     | ^^^^^^^^^^^
+> 41 |   );
+     | ^^^^ The component is created during render here
+  42 |
+  43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+  44 |       <button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            react-hooks/static-components
+  139:14  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  137 |             <NavTab id="futures-agent" label="Futures AI" icon={Trophy} />
+  138 |             <NavTab id="futures-report" label="Futures Report" icon={FileText} />
+> 139 |             <NavTab id="devlab" label="Dev Lab" icon={Mic2} />
+      |              ^^^^^^ This component is created during render
+  140 |             <NavTab id="agent" label="Agent" icon={MessageSquare} />
+  141 |             <NavTab id="props" label="Props" icon={Zap} />
+  142 |             <NavTab id="dfs" label="DFS" icon={Layers} />
+
+  22 | }) {
+  23 |
+> 24 |   const NavTab = ({ id, label, icon: Icon }) => (
+     |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |     <button
+     | ^^^^^^^^^^^
+> 26 |       onClick={() => setActiveTab(id)}
+     …
+     | ^^^^^^^^^^^
+> 40 |     </button>
+     | ^^^^^^^^^^^
+> 41 |   );
+     | ^^^^ The component is created during render here
+  42 |
+  43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+  44 |       <button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       react-hooks/static-components
+  140:14  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  138 |             <NavTab id="futures-report" label="Futures Report" icon={FileText} />
+  139 |             <NavTab id="devlab" label="Dev Lab" icon={Mic2} />
+> 140 |             <NavTab id="agent" label="Agent" icon={MessageSquare} />
+      |              ^^^^^^ This component is created during render
+  141 |             <NavTab id="props" label="Props" icon={Zap} />
+  142 |             <NavTab id="dfs" label="DFS" icon={Layers} />
+  143 |             <NavTab id="podcasts" label="Podcasts" icon={Radio} />
+
+  22 | }) {
+  23 |
+> 24 |   const NavTab = ({ id, label, icon: Icon }) => (
+     |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |     <button
+     | ^^^^^^^^^^^
+> 26 |       onClick={() => setActiveTab(id)}
+     …
+     | ^^^^^^^^^^^
+> 40 |     </button>
+     | ^^^^^^^^^^^
+> 41 |   );
+     | ^^^^ The component is created during render here
+  42 |
+  43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+  44 |       <button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               react-hooks/static-components
+  141:14  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  139 |             <NavTab id="devlab" label="Dev Lab" icon={Mic2} />
+  140 |             <NavTab id="agent" label="Agent" icon={MessageSquare} />
+> 141 |             <NavTab id="props" label="Props" icon={Zap} />
+      |              ^^^^^^ This component is created during render
+  142 |             <NavTab id="dfs" label="DFS" icon={Layers} />
+  143 |             <NavTab id="podcasts" label="Podcasts" icon={Radio} />
+  144 |             <NavTab id="official-picks" label="Official Picks" icon={ShieldCheck} />
+
+  22 | }) {
+  23 |
+> 24 |   const NavTab = ({ id, label, icon: Icon }) => (
+     |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |     <button
+     | ^^^^^^^^^^^
+> 26 |       onClick={() => setActiveTab(id)}
+     …
+     | ^^^^^^^^^^^
+> 40 |     </button>
+     | ^^^^^^^^^^^
+> 41 |   );
+     | ^^^^ The component is created during render here
+  42 |
+  43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+  44 |       <button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            react-hooks/static-components
+  142:14  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  140 |             <NavTab id="agent" label="Agent" icon={MessageSquare} />
+  141 |             <NavTab id="props" label="Props" icon={Zap} />
+> 142 |             <NavTab id="dfs" label="DFS" icon={Layers} />
+      |              ^^^^^^ This component is created during render
+  143 |             <NavTab id="podcasts" label="Podcasts" icon={Radio} />
+  144 |             <NavTab id="official-picks" label="Official Picks" icon={ShieldCheck} />
+  145 |             <NavTab id="injuries" label="Injuries" icon={HeartPulse} />
+
+  22 | }) {
+  23 |
+> 24 |   const NavTab = ({ id, label, icon: Icon }) => (
+     |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |     <button
+     | ^^^^^^^^^^^
+> 26 |       onClick={() => setActiveTab(id)}
+     …
+     | ^^^^^^^^^^^
+> 40 |     </button>
+     | ^^^^^^^^^^^
+> 41 |   );
+     | ^^^^ The component is created during render here
+  42 |
+  43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+  44 |       <button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   react-hooks/static-components
+  143:14  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  141 |             <NavTab id="props" label="Props" icon={Zap} />
+  142 |             <NavTab id="dfs" label="DFS" icon={Layers} />
+> 143 |             <NavTab id="podcasts" label="Podcasts" icon={Radio} />
+      |              ^^^^^^ This component is created during render
+  144 |             <NavTab id="official-picks" label="Official Picks" icon={ShieldCheck} />
+  145 |             <NavTab id="injuries" label="Injuries" icon={HeartPulse} />
+  146 |             <NavTab id="fantasy" label="Fantasy" icon={Shirt} />
+
+  22 | }) {
+  23 |
+> 24 |   const NavTab = ({ id, label, icon: Icon }) => (
+     |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |     <button
+     | ^^^^^^^^^^^
+> 26 |       onClick={() => setActiveTab(id)}
+     …
+     | ^^^^^^^^^^^
+> 40 |     </button>
+     | ^^^^^^^^^^^
+> 41 |   );
+     | ^^^^ The component is created during render here
+  42 |
+  43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+  44 |       <button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       react-hooks/static-components
+  144:14  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  142 |             <NavTab id="dfs" label="DFS" icon={Layers} />
+  143 |             <NavTab id="podcasts" label="Podcasts" icon={Radio} />
+> 144 |             <NavTab id="official-picks" label="Official Picks" icon={ShieldCheck} />
+      |              ^^^^^^ This component is created during render
+  145 |             <NavTab id="injuries" label="Injuries" icon={HeartPulse} />
+  146 |             <NavTab id="fantasy" label="Fantasy" icon={Shirt} />
+  147 |             <NavTab id="training-camp" label="Camp Intel" icon={Activity} />
+
+  22 | }) {
+  23 |
+> 24 |   const NavTab = ({ id, label, icon: Icon }) => (
+     |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |     <button
+     | ^^^^^^^^^^^
+> 26 |       onClick={() => setActiveTab(id)}
+     …
+     | ^^^^^^^^^^^
+> 40 |     </button>
+     | ^^^^^^^^^^^
+> 41 |   );
+     | ^^^^ The component is created during render here
+  42 |
+  43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+  44 |       <button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     react-hooks/static-components
+  145:14  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  143 |             <NavTab id="podcasts" label="Podcasts" icon={Radio} />
+  144 |             <NavTab id="official-picks" label="Official Picks" icon={ShieldCheck} />
+> 145 |             <NavTab id="injuries" label="Injuries" icon={HeartPulse} />
+      |              ^^^^^^ This component is created during render
+  146 |             <NavTab id="fantasy" label="Fantasy" icon={Shirt} />
+  147 |             <NavTab id="training-camp" label="Camp Intel" icon={Activity} />
+  148 |         </div>
+
+  22 | }) {
+  23 |
+> 24 |   const NavTab = ({ id, label, icon: Icon }) => (
+     |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |     <button
+     | ^^^^^^^^^^^
+> 26 |       onClick={() => setActiveTab(id)}
+     …
+     | ^^^^^^^^^^^
+> 40 |     </button>
+     | ^^^^^^^^^^^
+> 41 |   );
+     | ^^^^ The component is created during render here
+  42 |
+  43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+  44 |       <button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                react-hooks/static-components
+  146:14  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  144 |             <NavTab id="official-picks" label="Official Picks" icon={ShieldCheck} />
+  145 |             <NavTab id="injuries" label="Injuries" icon={HeartPulse} />
+> 146 |             <NavTab id="fantasy" label="Fantasy" icon={Shirt} />
+      |              ^^^^^^ This component is created during render
+  147 |             <NavTab id="training-camp" label="Camp Intel" icon={Activity} />
+  148 |         </div>
+  149 |       </div>
+
+  22 | }) {
+  23 |
+> 24 |   const NavTab = ({ id, label, icon: Icon }) => (
+     |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |     <button
+     | ^^^^^^^^^^^
+> 26 |       onClick={() => setActiveTab(id)}
+     …
+     | ^^^^^^^^^^^
+> 40 |     </button>
+     | ^^^^^^^^^^^
+> 41 |   );
+     | ^^^^ The component is created during render here
+  42 |
+  43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+  44 |       <button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      react-hooks/static-components
+  147:14  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  145 |             <NavTab id="injuries" label="Injuries" icon={HeartPulse} />
+  146 |             <NavTab id="fantasy" label="Fantasy" icon={Shirt} />
+> 147 |             <NavTab id="training-camp" label="Camp Intel" icon={Activity} />
+      |              ^^^^^^ This component is created during render
+  148 |         </div>
+  149 |       </div>
+  150 |
+
+  22 | }) {
+  23 |
+> 24 |   const NavTab = ({ id, label, icon: Icon }) => (
+     |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 25 |     <button
+     | ^^^^^^^^^^^
+> 26 |       onClick={() => setActiveTab(id)}
+     …
+     | ^^^^^^^^^^^
+> 40 |     </button>
+     | ^^^^^^^^^^^
+> 41 |   );
+     | ^^^^ The component is created during render here
+  42 |
+  43 |   const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
+  44 |       <button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           react-hooks/static-components
+
+E:\dev\projects\NFL_Dashboard\src\components\modals\AgentStatusModal.jsx
+  32:40  warning  'IconComp' is defined but never used. Allowed unused args must match /^_/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\components\modals\BankrollSettingsModal.jsx
+  23:13  warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  21 |         if (isOpen) {
+  22 |             const data = getBankrollData();
+> 23 |             setSettings({ ...data.settings });
+     |             ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  24 |             setDirty(false);
+  25 |         }
+  26 |     }, [isOpen]);  react-hooks/set-state-in-effect
+
+E:\dev\projects\NFL_Dashboard\src\components\modals\BetEntryModal.jsx
+  31:10  warning  'selectedBet' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                no-unused-vars
+  32:10  warning  'gradingResult' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              no-unused-vars
+  36:7   warning  Error: Cannot access variable before it is declared
+
+`loadBankrollData` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  34 |   useEffect(() => {
+  35 |     if (isOpen) {
+> 36 |       loadBankrollData();
+     |       ^^^^^^^^^^^^^^^^ `loadBankrollData` accessed before it is declared
+  37 |
+  38 |       // If selectedGame is provided, pre-populate game selection
+  39 |       if (selectedGame) {
+
+  46 |   }, [isOpen, selectedGame]);
+  47 |
+> 48 |   const loadBankrollData = () => {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 49 |     const data = getBankrollData();
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 50 |     setBankrollData(data);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 51 |
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 52 |     // Load pending bets for grading
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 53 |     const pending = data.bets.filter(bet => bet.status === BET_STATUS.PENDING);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 54 |     setPendingBets(pending);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 55 |   };
+     | ^^^^^ `loadBankrollData` is declared here
+  56 |
+  57 |   // Auto-calculate unit size when confidence or probability changes
+  58 |   useEffect(() => {  react-hooks/immutability
+
+E:\dev\projects\NFL_Dashboard\src\components\modals\BetImportModal.jsx
+  4:71  warning  'formatImportedBetDisplay' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\components\modals\BulkImportModal.jsx
+  6:16  warning  'setMode' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u       no-unused-vars
+  7:9   warning  'fileInputRef' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\components\modals\ContestLinesModal.jsx
+  12:11  warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  10 |           const init = {};
+  11 |           games.forEach(g => init[g.id] = g.contestSpread || '');
+> 12 |           setLines(init);
+     |           ^^^^^^^^ Avoid calling setState() directly within an effect
+  13 |       }
+  14 |   }, [isOpen, games]);
+  15 |  react-hooks/set-state-in-effect
+
+E:\dev\projects\NFL_Dashboard\src\components\modals\EditBetModal.jsx
+   4:45  warning  'updateBet' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  no-unused-vars
+  27:58  warning  Error: Cannot access variable before it is declared
+
+`getGameOptions` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  25 |     logger.log('ðŸˆ EditBetModal - Schedule data:', schedule);
+  26 |     if (schedule && schedule.length > 0) {
+> 27 |       logger.log('ðŸˆ EditBetModal - Available games:', getGameOptions());
+     |                                                          ^^^^^^^^^^^^^^ `getGameOptions` accessed before it is declared
+  28 |     }
+  29 |
+  30 |     if (bet && isOpen) {
+
+  174 |   };
+  175 |
+> 176 |   const getGameOptions = () => {
+      |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 177 |     return schedule.map(game => ({
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 178 |       id: game.id || `${game.visitor}-${game.home}`,
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 179 |       label: `${game.visitorName || game.visitor} @ ${game.homeName || game.home}`,
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 180 |       teams: [game.visitor, game.home],
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 181 |       teamNames: [game.visitorName || game.visitor, game.homeName || game.home]
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 182 |     }));
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 183 |   };
+      | ^^^^^ `getGameOptions` is declared here
+  184 |
+  185 |   const isNewLegValid = () => {
+  186 |     if (!newLeg.team || !newLeg.game) return false;  react-hooks/immutability
+  36:6   warning  React Hook useEffect has a missing dependency: 'getGameOptions'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 react-hooks/exhaustive-deps
+
+E:\dev\projects\NFL_Dashboard\src\components\modals\ExpertManagerModal.jsx
+  5:63  warning  'experts' is defined but never used. Allowed unused args must match /^_/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\components\modals\InjuryReportModal.jsx
+  21:47  warning  'teamName' is defined but never used. Allowed unused args must match /^_/u    no-unused-vars
+  21:57  warning  'teamAbbrev' is defined but never used. Allowed unused args must match /^_/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\components\modals\MatchupWizardModal.jsx
+  205:26  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  203 |                     {/* 🔥 FIX: Passed game.total into the value prop for Totals */}
+  204 |                     <div className="grid grid-cols-3 gap-3">
+> 205 |                         <BetButton type="vis_spread" label={`${game.visitor} Spread`} value={game.spread * -1} edge={edgeSide === game.visitor} />
+      |                          ^^^^^^^^^ This component is created during render
+  206 |                         <BetButton type="total_over" label="Over" value={game.total} />
+  207 |                         <BetButton type="home_spread" label={`${game.home} Spread`} value={game.spread} edge={edgeSide === game.home} />
+  208 |                     </div>
+
+  121 |   const edgeSide = hasEdge ? (projSpread < game.spread ? game.home : game.visitor) : null;
+  122 |
+> 123 |   const BetButton = ({ type, label, value, edge }) => {
+      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 124 |       const isSelected = selectedBet === type;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 125 |       // 🔥 FIX: Toggle logic
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 150 |       );
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 151 |   };
+      | ^^^^ The component is created during render here
+  152 |
+  153 |   return (
+  154 |     <div className="fixed inset-0 bg-black/90 z-[70] flex items-center justify-center p-4 backdrop-blur-sm">  react-hooks/static-components
+  206:26  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  204 |                     <div className="grid grid-cols-3 gap-3">
+  205 |                         <BetButton type="vis_spread" label={`${game.visitor} Spread`} value={game.spread * -1} edge={edgeSide === game.visitor} />
+> 206 |                         <BetButton type="total_over" label="Over" value={game.total} />
+      |                          ^^^^^^^^^ This component is created during render
+  207 |                         <BetButton type="home_spread" label={`${game.home} Spread`} value={game.spread} edge={edgeSide === game.home} />
+  208 |                     </div>
+  209 |
+
+  121 |   const edgeSide = hasEdge ? (projSpread < game.spread ? game.home : game.visitor) : null;
+  122 |
+> 123 |   const BetButton = ({ type, label, value, edge }) => {
+      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 124 |       const isSelected = selectedBet === type;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 125 |       // 🔥 FIX: Toggle logic
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 150 |       );
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 151 |   };
+      | ^^^^ The component is created during render here
+  152 |
+  153 |   return (
+  154 |     <div className="fixed inset-0 bg-black/90 z-[70] flex items-center justify-center p-4 backdrop-blur-sm">                                                                  react-hooks/static-components
+  207:26  warning  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+  205 |                         <BetButton type="vis_spread" label={`${game.visitor} Spread`} value={game.spread * -1} edge={edgeSide === game.visitor} />
+  206 |                         <BetButton type="total_over" label="Over" value={game.total} />
+> 207 |                         <BetButton type="home_spread" label={`${game.home} Spread`} value={game.spread} edge={edgeSide === game.home} />
+      |                          ^^^^^^^^^ This component is created during render
+  208 |                     </div>
+  209 |
+  210 |                     {/* Action Button */}
+
+  121 |   const edgeSide = hasEdge ? (projSpread < game.spread ? game.home : game.visitor) : null;
+  122 |
+> 123 |   const BetButton = ({ type, label, value, edge }) => {
+      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 124 |       const isSelected = selectedBet === type;
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 125 |       // 🔥 FIX: Toggle logic
+      …
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 150 |       );
+      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 151 |   };
+      | ^^^^ The component is created during render here
+  152 |
+  153 |   return (
+  154 |     <div className="fixed inset-0 bg-black/90 z-[70] flex items-center justify-center p-4 backdrop-blur-sm">                                                                                     react-hooks/static-components
+
+E:\dev\projects\NFL_Dashboard\src\components\modals\MyCardModal.jsx
+  29:57  warning  'onUpdateBet' is defined but never used. Allowed unused args must match /^_/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            no-unused-vars
+  29:70  warning  'onPlaceBet' is defined but never used. Allowed unused args must match /^_/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             no-unused-vars
+  43:11  warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  41 |   useEffect(() => {
+  42 |       if (activeTab === 'builder') {
+> 43 |           setSelectedIds(openBets.map(b => b.id));
+     |           ^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  44 |       }
+  45 |   }, [openBets.length, activeTab]);
+  46 |  react-hooks/set-state-in-effect
+  45:6   warning  React Hook useEffect has a missing dependency: 'openBets'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              react-hooks/exhaustive-deps
+
+E:\dev\projects\NFL_Dashboard\src\components\modals\StorageBackupModal.jsx
+  29:33  warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  27 |   const refresh = useCallback(() => setRows(getStorageDiagnostics()), []);
+  28 |
+> 29 |   useEffect(() => { if (isOpen) refresh(); }, [isOpen, refresh]);
+     |                                 ^^^^^^^ Avoid calling setState() directly within an effect
+  30 |
+  31 |   // ── Export ────────────────────────────────────────────────
+  32 |   const handleExport = useCallback(() => {  react-hooks/set-state-in-effect
+
+E:\dev\projects\NFL_Dashboard\src\components\modals\UnitCalculatorModal.jsx
+  26:9  warning  Error: Cannot access variable before it is declared
+
+`calculateRecommendations` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  24 |
+  25 |     useEffect(() => {
+> 26 |         calculateRecommendations();
+     |         ^^^^^^^^^^^^^^^^^^^^^^^^ `calculateRecommendations` accessed before it is declared
+  27 |     }, [bankroll, winProbability, odds, confidence, riskProfile]);
+  28 |
+  29 |     const calculateRecommendations = () => {
+
+  27 |     }, [bankroll, winProbability, odds, confidence, riskProfile]);
+  28 |
+> 29 |     const calculateRecommendations = () => {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 30 |         if (winProbability <= 0 || winProbability >= 100 || bankroll <= 0) {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 31 |             setResults(null);
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 58 |         });
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 59 |     };
+     | ^^^^^^^ `calculateRecommendations` is declared here
+  60 |
+  61 |     const calculateBreakevenRate = (americanOdds) => {
+  62 |         if (americanOdds > 0) {  react-hooks/immutability
+  27:8  warning  React Hook useEffect has a missing dependency: 'calculateRecommendations'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 react-hooks/exhaustive-deps
+
+E:\dev\projects\NFL_Dashboard\src\components\odds\ArbitrageFinder.jsx
+  64:5   warning  Error: Cannot access variable before it is declared
+
+`loadOpportunities` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  62 |
+  63 |   useEffect(() => {
+> 64 |     loadOpportunities();
+     |     ^^^^^^^^^^^^^^^^^ `loadOpportunities` accessed before it is declared
+  65 |   }, []);
+  66 |
+  67 |   const loadOpportunities = () => {
+
+  65 |   }, []);
+  66 |
+> 67 |   const loadOpportunities = () => {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 68 |     // Try real cached odds first
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 69 |     const games = loadFromStorage(PR_STORAGE_KEYS.CACHED_ODDS.key, null);
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 87 |     setIsDemo(true);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 88 |   };
+     | ^^^^^ `loadOpportunities` is declared here
+  89 |
+  90 |   const bestProfit = opportunities.length > 0
+  91 |     ? Math.max(...opportunities.map(o => o.profit))  react-hooks/immutability
+  78:16  warning  '_' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\components\odds\LineMovementTracker.jsx
+  173:21  warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  171 |   }, [timeframe]);
+  172 |
+> 173 |   useEffect(() => { load(); }, [load]);
+      |                     ^^^^ Avoid calling setState() directly within an effect
+  174 |
+  175 |   const filteredMovements = movements.filter(m => {
+  176 |     if (filter === 'significant') return m.significance === 'HIGH';  react-hooks/set-state-in-effect
+
+E:\dev\projects\NFL_Dashboard\src\components\odds\LiveOddsDashboard.jsx
+  23:10  warning  'userBets' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  55:16  warning  'e' is defined but never used                                                             no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\components\odds\OddsCenter.jsx
+  32:18  warning  '_' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  no-unused-vars
+  41:5   warning  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  39 |     const computeSteamCount = () => getLineMovements(24).length;
+  40 |
+> 41 |     setArbBadge(computeArbCount());
+     |     ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  42 |     setSteamBadge(computeSteamCount());
+  43 |   }, []);
+  44 |  react-hooks/set-state-in-effect
+
+E:\dev\projects\NFL_Dashboard\src\components\odds\PredictionMarketConverter.jsx
+  3:3  warning  'americanToDecimal' is defined but never used. Allowed unused vars must match /^[A-Z_]/u      no-unused-vars
+  4:3  warning  'americanToProbability' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\components\odds\SteamMoveTracker.jsx
+  60:21  warning  Error: Cannot access variable before it is declared
+
+`load` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+  58 |   const [sigFilter, setSigFilter] = useState('all');
+  59 |
+> 60 |   useEffect(() => { load(); }, []);
+     |                     ^^^^ `load` accessed before it is declared
+  61 |
+  62 |   const load = async () => {
+  63 |     // Try Supabase first (populated by OddsIngestAgent), fall back to localStorage
+
+  60 |   useEffect(() => { load(); }, []);
+  61 |
+> 62 |   const load = async () => {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 63 |     // Try Supabase first (populated by OddsIngestAgent), fall back to localStorage
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 64 |     let real = await getLineMovementsDB(24).catch(() => []);
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 73 |     }
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 74 |   };
+     | ^^^^^ `load` is declared here
+  75 |
+  76 |   const filtered = moves.filter(m => {
+  77 |     if (typeFilter !== 'all' && m.type !== typeFilter) return false;  react-hooks/immutability
+
+E:\dev\projects\NFL_Dashboard\src\components\picks-tracker\PicksTracker.jsx
+   38:7   warning  'fmtDateTime' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                      no-unused-vars
+   50:24  warning  'onRefresh' is defined but never used. Allowed unused args must match /^_/u                                      no-unused-vars
+  187:6   warning  React Hook useMemo has an unnecessary dependency: 'onRefresh'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps
+  316:21  warning  'onRefresh' is defined but never used. Allowed unused args must match /^_/u                                      no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\components\ui\InjuryBadge.jsx
+  53:48  warning  'teamAbbrev' is defined but never used. Allowed unused args must match /^_/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\lib\actionParser.js
+  174:9  warning  'inPercentSection' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\lib\agentTools.js
+    43:57   warning  'todaySessionPath' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  1917:58   warning  '_' is defined but never used                                                            no-unused-vars
+  1931:12   warning  '_' is defined but never used                                                            no-unused-vars
+  2042:12   warning  '_' is defined but never used                                                            no-unused-vars
+  2123:75   warning  '_' is defined but never used                                                            no-unused-vars
+  2177:75   warning  '_' is defined but never used                                                            no-unused-vars
+  2208:102  warning  '_' is defined but never used                                                            no-unused-vars
+  2258:90   warning  '_' is defined but never used                                                            no-unused-vars
+  2326:89   warning  '_' is defined but never used                                                            no-unused-vars
+  2360:73   warning  '_' is defined but never used                                                            no-unused-vars
+  2413:88   warning  '_' is defined but never used                                                            no-unused-vars
+  2452:66   warning  '_' is defined but never used                                                            no-unused-vars
+  2489:88   warning  '_' is defined but never used                                                            no-unused-vars
+  2560:98   warning  '_' is defined but never used                                                            no-unused-vars
+  2573:65   warning  '_' is defined but never used                                                            no-unused-vars
+  2581:81   warning  '_' is defined but never used                                                            no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\lib\anthropicClient.js
+  206:3  warning  'apiKey' is defined but never used. Allowed unused args must match /^_/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\lib\betImport.js
+   85:7   warning  'parsingLeg' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  211:18  warning  'e' is defined but never used                                                               no-unused-vars
+  316:36  warning  'betText' is defined but never used. Allowed unused args must match /^_/u                   no-unused-vars
+  325:33  warning  'betText' is defined but never used. Allowed unused args must match /^_/u                   no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\lib\enhancedOddsApi.js
+  54:5  warning  'lastFetch' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\lib\experts.js
+  633:47  warning  'aliases' is defined but never used. Allowed unused args must match /^_/u       no-unused-vars
+  633:56  warning  'isShow' is defined but never used. Allowed unused args must match /^_/u        no-unused-vars
+  633:64  warning  'sourceType' is defined but never used. Allowed unused args must match /^_/u    no-unused-vars
+  633:76  warning  'ingestStatus' is defined but never used. Allowed unused args must match /^_/u  no-unused-vars
+  633:90  warning  'note' is defined but never used. Allowed unused args must match /^_/u          no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\lib\fantasyOverlayStore.js
+  10:8  warning  'predictionSnapshot' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\lib\injuries.js
+   5:10  warning  'normalizeTeam' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  90:18  warning  'error' is defined but never used                                                     no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\lib\logger.js
+  12:1  warning  Unused eslint-disable directive (no problems were reported from 'no-console')
+  14:1  warning  Unused eslint-disable directive (no problems were reported from 'no-console')
+  16:1  warning  Unused eslint-disable directive (no problems were reported from 'no-console')
+
+E:\dev\projects\NFL_Dashboard\src\lib\oddsApi.js
+  9:7  warning  'getWeather' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\lib\predictionMarketStore.js
+  9:28  warning  'compareMarketOdds' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\lib\propsTools.js
+  585:38  warning  'season' is defined but never used. Allowed unused args must match /^_/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\lib\simulation.js
+  166:32  warning  'pushes' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\lib\storage.js
+  260:15  warning  'name' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\src\lib\yahoo.js
+  22:43  error  'process' is not defined  no-undef
+  23:30  error  'process' is not defined  no-undef
+  24:30  error  'process' is not defined  no-undef
+  25:30  error  'process' is not defined  no-undef
+  28:21  error  'Buffer' is not defined   no-undef
+  44:7   error  'process' is not defined  no-undef
+  44:47  error  'process' is not defined  no-undef
+
+E:\dev\projects\NFL_Dashboard\tests\unit\auditTrail.test.js
+   21:10  warning  'makeChain' is defined but never used. Allowed unused vars must match /^[A-Z_]/u       no-unused-vars
+   41:5   warning  'mockChain' is defined but never used. Allowed unused vars must match /^[A-Z_]/u       no-unused-vars
+   63:9   warning  'queryAuditLog' is defined but never used. Allowed unused vars must match /^[A-Z_]/u   no-unused-vars
+   64:9   warning  'supabaseModule' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  203:14  warning  'e' is defined but never used                                                          no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\tests\unit\bankroll.test.js
+  28:3  warning  'exportBankrollData' is defined but never used. Allowed unused vars must match /^[A-Z_]/u      no-unused-vars
+  30:3  warning  'updateBankrollSettings' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  31:3  warning  'getBankrollData' is defined but never used. Allowed unused vars must match /^[A-Z_]/u         no-unused-vars
+  32:3  warning  'addBet' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\tests\unit\dailyBriefPodcastPicks.test.js
+  5:32  warning  'beforeEach' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\tests\unit\expertStats.test.js
+  10:36  warning  'beforeEach' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\tests\unit\scheduleIngest.test.js
+  118:22  warning  '_err' is defined but never used  no-unused-vars
+  139:22  warning  '_err' is defined but never used  no-unused-vars
+  155:22  warning  '_err' is defined but never used  no-unused-vars
+
+E:\dev\projects\NFL_Dashboard\tests\unit\vaultSeed.test.js
+  7:32  warning  'vi' is defined but never used. Allowed unused vars must match /^[A-Z_]/u          no-unused-vars
+  7:36  warning  'beforeEach' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+✖ 212 problems (36 errors, 176 warnings)
+  0 errors and 3 warnings potentially fixable with the `--fix` option.
+
