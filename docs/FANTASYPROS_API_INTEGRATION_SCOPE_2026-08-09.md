@@ -27,11 +27,18 @@ which the original mapper didn't account for. `fpid`/`name`/`position_id`/`team_
 flat and correct from the start. Also corrected `pass_ints` (not `pass_int`) and
 `fumbles` (not `fumbles_lost`) as the real field names. Fixed in
 `agents/lib/fantasypros-projections.js`, regression-tested against the real captured
-Josh Allen payload (`tests/unit/fantasyProsProjections.test.js`). **Both §3 and §4's
-field mappings are now live-confirmed against real data.** Still outstanding: an actual
-Supabase write test for either (both runs so far were `--dry-run`). · **Date:**
-2026-08-09, updated 2026-08-10 · **Verified 2026-08-09** via live test calls against
-Andy's real key + the real API docs (`api.fantasypros.com/public/v2/docs`)
+Josh Allen payload (`tests/unit/fantasyProsProjections.test.js`). **All four parts (§1-§4) are now fully live-verified end-to-end, mapping
+AND persistence.** §3's real (non-dry-run) write initially failed with "Could not find
+the table 'public.fantasy_projections'" — migration 047 had been written but never
+actually applied in Supabase (unlike 046, which Andy already ran for §2). Andy applied it
+via the Dashboard SQL Editor, re-ran the ingest: **531 rows upserted cleanly (84 QB / 132
+RB / 190 WR / 125 TE), 451/531 resolved a `player_id`, zero duplicate-key collisions this
+time** (unlike §2's rankings ingest, which hit exactly one). §4's real
+(non-`--dry-run`) run also confirmed: 189 events (122 FantasyPros + 67 training camp)
+written to `data/player-availability/latest.json` + docs copies. FantasyPros integration
+build is complete. · **Date:** 2026-08-09, updated 2026-08-10 · **Verified 2026-08-09**
+via live test calls against Andy's real key + the real API docs
+(`api.fantasypros.com/public/v2/docs`)
 **Trigger:** Andy has a FantasyPros API key, intended as the primary research engine for
 fantasy player data. This doc maps that key onto the four places it fills gaps already
 on record in this repo, before any of the four gets built.
@@ -238,7 +245,7 @@ standard as §1 — real data, real bug found and fixed, real write confirmed.
 
 ---
 
-## 3. Phase B value-board projections — unblocks a stalled feature ✅ BUILT 2026-08-10, LIVE-VERIFIED + BUG FIXED 2026-08-10
+## 3. Phase B value-board projections — unblocks a stalled feature ✅ DONE 2026-08-10 — built, bug fixed, mapping AND real write live-verified
 
 The value board's "sharp" version (market-derived `proj_ppr`, not history-regression) is
 Phase B in the spec, and it's been blocked since 2026-07-16 on sourcing real season-long
@@ -323,8 +330,14 @@ flat and correct. Also corrected two field names: `pass_ints` (not `pass_int`) a
 payload as a byte-faithful regression fixture specifically to catch a repeat of this.
 **No UI reads the `-fantasypros` file yet** — it exists for CLI/comparison use today (a
 source-toggle on the Value Board panel would be the natural next step if Andy wants to
-compare Phase A vs FantasyPros side by side). An actual Supabase write (non-dry-run) is
-still untested.
+compare Phase A vs FantasyPros side by side).
+
+**Real (non-dry-run) write confirmed 2026-08-10.** First attempt failed cleanly: `Could
+not find the table 'public.fantasy_projections'` — migration 047 existed but had never
+actually been applied in Supabase. Andy ran it via the Dashboard SQL Editor, re-ran the
+ingest: 531 rows upserted (84/132/190/125 across QB/RB/WR/TE), 451/531 resolved a
+`player_id` via name-join against `player_stats`, zero duplicate-key collisions. §3 is
+done to the same standard as §1/§2.
 
 ---
 
