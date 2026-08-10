@@ -2,15 +2,42 @@
 
 > Fresh-session resume notes. Read this first, then `HANDOFF_PROMPT.md`, `WORKING-CONTEXT.md`, `TASK_BOARD.md`, and the latest timestamped handoff.
 
-**Date:** 2026-07-30 UTC / 2026-07-30 Pacific
+**Date:** 2026-08-10 UTC / 2026-08-09 Pacific
 **Branch:** main
-**HEAD observed:** `93075fa`
-**Latest timestamped handoff:** `handoffs/2026-07-30-1918-session-completion-handoff.md`
-**Status:** Session completed with 100% test suite pass (47/47 files, 883/883 tests), 32-team roster reconciliation verified (0 conflicts), Futures Watchlist Host Citation Cards live, 100% 32-team training camp beat coverage fill (300 live items, 0 gaps), and 10 Flash high-volume text-to-structured processing tasks implemented and pushed to `origin/main`. Working tree is clean.
+**HEAD observed:** `7d02d92` (NOT pushed — no `credential.helper` configured for this repo's remote; push is Andy's own action)
+**Latest timestamped handoff:** none written this session — see Pick Up Here below.
+**Status:** FantasyPros API integration (F-26c) built and live-verified for parts 1-2 (ADP, weekly/draft rankings). Part 3 (projections) and part 4 (injuries/availability) scoped only, not built. Working tree clean except one pre-existing unrelated untracked file (`docs/antigravity/recovery/youtube-qoCm4G2Jmng-contested-datapoints-review.md`, not from this session, left alone deliberately).
 
 ---
 
-## Pick Up Here
+## Pick Up Here (2026-08-09/10, Cowork session)
+
+**FantasyPros API integration (F-26c) — parts 1-2 built and live-verified end-to-end:**
+
+- **§1 ADP**: `agents/fantasypros-adp-ingest.js` + `agents/lib/fantasypros-adp.js` pull `/nfl/players` (real market ADP via `rank_adp`/`rank_adp_ppr`, NOT the `type=ADP` consensus-rankings variant which is still just ECR from a small panel) into the existing source-agnostic `fantasy_adp` table (migration 034). Live run: 439/439 rows upserted, 367/439 resolved to `player_id`. `npm run report:fantasy` (`agents/fantasy-value-report.js`) confirmed consuming it correctly: 610 stat rows, 439 ADP rows, 251 value/72 reach/87 no-projection picks.
+- **§2 weekly/draft rankings**: `agents/fantasypros-rankings-ingest.js` + `agents/lib/fantasypros-rankings.js` pull `/nfl/{season}/consensus-rankings` (Expert Consensus Rank — a different signal from ADP, don't conflate) into new table `fantasy_rankings` (migration 046, applied by Andy). Live run: 661 rows fetched across QB/RB/WR/TE, 1 duplicate collision caught and collapsed by `dedupeRankings()` (a real FantasyPros API data-quality artifact — same player appeared twice in one position response), 660 rows upserted successfully.
+- No React UI built yet for either — both are backend/data-layer only. Full design detail, all API quirks found, and the open questions in `docs/FANTASYPROS_API_INTEGRATION_SCOPE_2026-08-09.md` (§1-§7).
+- `FANTASYPROS_API_KEY` is in `.env` (server-side only, never `VITE_`-prefixed) and documented in `.env.example`.
+
+**Incidental bug fixed (blocked verifying the above, not FantasyPros-related):** the ESM "am I the entrypoint" guard (`path.resolve(argv[1]) === fileURLToPath(import.meta.url)`) silently fails on Windows due to drive-letter casing (`E:\` vs `e:\`), causing scripts to exit clean with zero output. Fixed in all 11 affected files (found via repo-wide grep) by switching to `import.meta.url === pathToFileURL(process.argv[1]).href`. Re-verified live only for `agents/fantasy-value-report.js`; the other 10 share the identical fix and confidence level but weren't individually re-run this session.
+
+**Deferred, by Andy's explicit direction — do not start without new instruction:**
+- `LINT-1`: 212 pre-existing eslint problems, backlog written at `docs/LINT_CLEANUP_BACKLOG_2026-08-09.md` (severity-tiered, recommends fix order, explicitly warns against a blind `eslint --fix` on hook-deps and against one giant commit). Raw report at `docs/fantasyPros_lint_output`.
+- F-26c parts 3 (projections) and 4 (injuries/availability) — scoped in the doc, not built.
+- The React dashboard panel that would surface §2 weekly rankings in the UI.
+
+**Sandbox limits hit this session (for the next Cowork session, not a code problem):** `vitest run` and `npx eslint` both hang indefinitely in this bash sandbox — worked around with `node --check` (syntax) + a plain-Node harness using manual `assert()` (logic). This sandbox also cannot make live external network calls (matches documented `F-31`) — all live API verification and the two live ingest runs were done by Andy natively, pasted back into this session for interpretation.
+
+**3 commits made this session, not pushed:**
+- `4fd9438` — feat(fantasy): FantasyPros API integration — ADP + weekly/draft rankings (F-26c parts 1-2)
+- `91a4c8a` — fix(cli): Windows drive-letter-casing entrypoint guard bug (11 files)
+- `7d02d92` — docs(lint): backlog for the pre-existing 212-problem eslint report
+
+Push needs Andy's own action — no `credential.helper` is set up for `origin` (`https://github.com/platinum-rose/NFL_Platinum_Rose.git`).
+
+---
+
+## Prior Session (2026-07-30) — Pick Up Here
 
 > **⟂ Parallel task (Copilot, 2026-07-30):** Master futures synthesis prompt committed (`e273e4f`) at `agents/product/tier1/FUTURES_PORTFOLIO_MASTER.md`; Kalshi/Polymarket are now treated as **placeable venues** (net fee-adjusted cross-venue shopping). A deep **data-package gap analysis** is queued for a fresh session → see `handoffs/2026-07-30-futures-data-package-gap-analysis.md`. This is additive and does NOT touch the crash-recovery workstream described below.
 >
@@ -42,6 +69,9 @@ Use `localhost:5174` for the recovered dashboard session. Earlier probes against
 
 ## Completed Checkpoints
 
+- `7d02d92` - docs(lint): backlog for the pre-existing 212-problem eslint report.
+- `91a4c8a` - fix(cli): Windows drive-letter-casing entrypoint guard bug (11 files).
+- `4fd9438` - feat(fantasy): FantasyPros API integration — ADP + weekly/draft rankings (F-26c parts 1-2).
 - `87476f0` - Document crash recovery source audit state.
 - `0e64d66` - Add local source and article intel review tooling.
 - `9273269` - Import July 29 primary futures odds.
@@ -86,7 +116,9 @@ Latest source-readiness state:
 
 ## Remaining Dirty Work
 
-Current remaining dirty work includes:
+**From 2026-08-09/10 session:** none — tree is clean except one pre-existing, unrelated untracked file (`docs/antigravity/recovery/youtube-qoCm4G2Jmng-contested-datapoints-review.md`, not from this session, deliberately left alone). The 3 commits above are on `main` but **not pushed** — needs Andy's own `git push` (no credential helper configured for this remote).
+
+**From 2026-07-30 session (prior, unrelated workstream):**
 - Overnight pipeline additions and untracked ops docs/systemd files. This was not committed because it adds live training-camp RSS scouting to automation and the docs contain Linux/encoding/command assumptions.
 - `data/training-camp/2026/latest.json` and `data/training-camp/2026/training-camp-intel-2026-07-30.json` now contain the fresh approved live RSS scout snapshot: 19 items across 10 teams, with 4 high-priority items and 6 feed-health entries. Treat it as review/highlight context before synthesis, not as an official recommendation source.
 - Older untracked retry artifacts under `.nfl/readiness/` and `.nfl/source-audit/`.
@@ -97,6 +129,17 @@ Do not stage this as one sweep. Review and stage by workstream.
 
 ## Key Files
 
+**From 2026-08-09/10 session (FantasyPros F-26c):**
+- `docs/FANTASYPROS_API_INTEGRATION_SCOPE_2026-08-09.md` - master scoping doc, §1-§7, all API quirks and status.
+- `docs/LINT_CLEANUP_BACKLOG_2026-08-09.md` - deferred lint-debt backlog (LINT-1), severity-tiered.
+- `agents/lib/fantasypros-client.js` - shared fetch wrapper (auth, base URL, error shape).
+- `agents/lib/fantasypros-adp.js` + `agents/fantasypros-adp-ingest.js` - §1 ADP, tested + live-verified.
+- `agents/lib/fantasypros-rankings.js` + `agents/fantasypros-rankings-ingest.js` - §2 rankings, tested + live-verified, includes `dedupeRankings()`.
+- `supabase/migrations/046_fantasy_rankings.sql` - new table for §2, applied.
+- `tests/unit/fantasyProsAdp.test.js`, `tests/unit/fantasyProsRankings.test.js` - unit coverage (run via plain-Node harness in this sandbox, vitest hangs here).
+- `agents/fantasy-value-report.js` - Windows guard-bug fix, re-verified live.
+
+**From prior sessions:**
 - `handoffs/2026-07-30-1101-camp-intel-ui-handoff.md` - current Camp Intel UI and post-push handoff.
 - `handoffs/2026-07-30-post-pipeline-push-task-plan.md` - post-pipeline push task plan.
 - `handoffs/2026-07-30-0655-workstream-triage-handoff.md` - prior triage handoff.
@@ -130,11 +173,33 @@ Do not stage this as one sweep. Review and stage by workstream.
 
 ## Recommended Next Step
 
-Use `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md` as the current evidence packet. BetOnline is normalized, the fresh live training-camp scout is written, and player availability is available as injury/return context. The source gate is clear; the remaining decision is explicit approval before any paid/frontier model synthesis call.
+1. Andy: `git push` the 3 local commits (`4fd9438`, `91a4c8a`, `7d02d92`) to `origin/main` — needs a short-lived, repo-scoped `GITHUB_TOKEN` per this repo's established convention (see ATLAS `.claude/rules/lessons-learned.md` §Security/Credential Hygiene), not attempted automatically.
+2. Next FantasyPros work, in priority order: build the React UI panel for §2 weekly rankings (backend is ready and live-verified); or scope/build §3 projections (pre-computed points, straightforward — same client/pattern as §1-§2); or §4 injuries/availability (would extend the existing multi-source `agents/lib/player-availability.js` pipeline rather than being standalone).
+3. Separately, whenever a dedicated session is available: work `LINT-1` per `docs/LINT_CLEANUP_BACKLOG_2026-08-09.md`'s recommended order (HIGH items first — the two real bugs, not the volume items).
+
+(Prior 2026-07-30 recommendation, unrelated workstream, still open if picked back up: use `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md` as the evidence packet — BetOnline normalized, live training-camp scout written, player availability available as context; source gate clear; remaining decision is explicit approval before any paid/frontier model synthesis call.)
 
 ---
 
 ## Resume Prompt
+
+```text
+Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF.md (Pick Up Here,
+2026-08-09/10 session), TASK_BOARD.md (F-26c, LINT-1), and
+docs/FANTASYPROS_API_INTEGRATION_SCOPE_2026-08-09.md before planning. Current local HEAD is
+7d02d92 on main — 3 commits ahead of origin/main, not yet pushed (needs Andy's own
+GITHUB_TOKEN per repo convention). FantasyPros §1 (ADP) and §2 (weekly/draft rankings) are
+built and live-verified end-to-end; no UI built for either yet. §3 (projections) and §4
+(injuries) are scoped only. LINT-1 (212 pre-existing eslint problems) is written up and
+explicitly deferred — do not start it without direction. Stage narrowly; do not use git add
+-A. Guardrails: no paid/frontier model calls, no Supabase writes, no official-pick
+approvals/proposals, no production recommendation persistence, no open-parlay changes, and
+no git push, without explicit approval.
+```
+
+---
+
+## Prior Resume Prompt (2026-07-30, unrelated workstream)
 
 ```text
 Resume Platinum Rose NFL in E:\dev\projects\NFL_Dashboard. Read HANDOFF.md, HANDOFF_PROMPT.md, WORKING-CONTEXT.md, TASK_BOARD.md, handoffs\2026-07-30-1259-codex-protocol-access-handoff.md, and handoffs\2026-07-30-1256-antigravity-agents-handoff.md first. Before planning, scan `.codex/rules/`, `.codex/hooks.json`, `skills/`, `agents/`, `.agents/skills/`, and hook folders for relevant project-local skills, agents, and hooks; read only task-relevant local SKILL.md files and use matching project workflows when appropriate. Current pushed HEAD is 6d8acdc on main/origin/main. Fantasy value board, overnight/ops automation, stale retry artifact cleanup, secondary-matchup seed-gap exposure, Antigravity `.agents/skills/`, and the 12:56 handoff are already committed and pushed; do not recommit them. Preserve uncommitted Codex protocol edits unless intentionally reconciling them. Stage narrowly; do not use git add -A. Guardrails: no paid/frontier model calls, no Supabase writes, no official-pick approvals/proposals, no production recommendation persistence, and no open-parlay changes without explicit approval. Immediate next step: start a fresh Codex session rooted at E:\dev, verify write access to ATLAS/GitHub/projects, then apply the same Project Capability Scan resume rule to ATLAS.
