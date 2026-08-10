@@ -10,12 +10,21 @@ cannot make any outbound network call at all (confirmed live 2026-08-10 — `fet
 on every attempt, ESPN/Supabase/FantasyPros all equally unreachable from here, same root
 cause as TASK_BOARD F-31). §3's field mapping IS live-confirmed (reuses the same
 `points`/`points_ppr`/`points_half`/`rush_*`/`rec_*`/`fpid`/`name` fields §0 already
-verified 2026-08-09). **§4's exact raw field names for `/nfl/injuries` are NOT
-live-confirmed** — built defensively with fallback field-name chains instead of guessing
-one shape; see `agents/lib/fantasypros-injuries.js`'s file header. **Needs a native run on
-Andy's machine before §3/§4 are trusted the way §1/§2 already are.** · **Date:**
-2026-08-09, updated 2026-08-10 · **Verified 2026-08-09** via live test calls against
-Andy's real key + the real API docs (`api.fantasypros.com/public/v2/docs`)
+verified 2026-08-09). **§4 field mapping NOW LIVE-CONFIRMED 2026-08-10** — Andy ran
+`--live-fantasypros-injuries --dry-run` natively (187 events, 120 real FantasyPros rows
+parsed, no errors) and then a raw-vs-mapped diagnostic dump; every guessed field name
+resolved correctly (`name`, `status`, `comment`, `injury_type`, `team_id`, `position_id`,
+`probability_of_playing`, `practice_1/2/3` all matched real response keys) except one
+genuine remaining issue: `reported_at`'s source field (`injury_update_date`) is a naive,
+timezone-less datetime string, so the ISO conversion's absolute instant depends on the
+running machine's local timezone — flagged in code, not yet resolved (see
+`agents/lib/fantasypros-injuries.js`), low-impact since it's informational-only (not a
+join/dedupe key). §3's projections and the ingest-write path are still not live-verified
+— only §4's read/mapping path has a real confirmed run so far. **Needs a native
+non-dry-run of §3 (and ideally a real Supabase write test of §4) before those are trusted
+the way §1/§2 already are.** · **Date:** 2026-08-09, updated 2026-08-10 · **Verified
+2026-08-09** via live test calls against Andy's real key + the real API docs
+(`api.fantasypros.com/public/v2/docs`)
 **Trigger:** Andy has a FantasyPros API key, intended as the primary research engine for
 fantasy player data. This doc maps that key onto the four places it fills gaps already
 on record in this repo, before any of the four gets built.
@@ -300,7 +309,7 @@ the natural next step if Andy wants to compare Phase A vs FantasyPros side by si
 
 ---
 
-## 4. Player availability / injuries — upgrades an existing pipeline, not a new one ✅ BUILT 2026-08-10 (not live-verified — field names unconfirmed)
+## 4. Player availability / injuries — upgrades an existing pipeline, not a new one ✅ BUILT 2026-08-10, MAPPING LIVE-VERIFIED 2026-08-10
 
 Unlike §1-3, this isn't filling a gap — the dashboard already has a working availability
 pipeline. `scripts/build-player-availability.js` fetches ESPN's free public injuries API
@@ -386,6 +395,21 @@ fixed with `import 'dotenv/config'`. **Run this live on Andy's machine before tr
 it** — a one-off script dumping the raw `/nfl/injuries` response, or just
 `--live-fantasypros-injuries --dry-run` with a look at the parsed row count/shape, would
 confirm or correct the field-name guesses.
+
+**Live-confirmed 2026-08-10.** Andy ran `npm run availability:fantasypros:dry` natively
+(187 total events, 120 real FantasyPros rows, 0 errors) then a raw-vs-mapped diagnostic
+dump for 2 real players (Alec Pierce/WR/IND, George Kittle/TE/SF, both status PUP). Every
+guessed field name matched the real response: `name`→player_name, `status`→injury_status,
+`comment`/`injury_type`→short_comment/injury_type (both legitimately empty strings in
+these 2 samples, correctly mapped to `null`), `team_id`→team_abbr, `position_id`→position,
+`probability_of_playing`/`practice_1/2/3`→same (all `null` for these 2 PUP players, which
+is real — PUP players don't have practice-report data). **One real remaining issue found
+this pass**: `injury_update_date` ("2026-08-10 09:00:01") has no timezone marker, so `new
+Date(...)`'s absolute instant depends on the machine's local timezone rather than
+FantasyPros' actual source zone (unconfirmed — their docs don't state it). Flagged in code
+with a full explanation rather than guessing further; low-impact since `reported_at` isn't
+part of any join/dedupe/unique-constraint key, only display precision. §3 (projections)
+and an actual Supabase write test for §4 are still outstanding.
 
 ## 5. Shared plumbing (build once, use for all four)
 

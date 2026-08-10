@@ -54,6 +54,23 @@ export function mapFantasyProsInjury(raw, { capturedAt } = {}) {
     injury_type: firstDefined(raw, ['injury_type', 'body_part', 'injury']),
     short_comment: comment,
     long_comment: firstDefined(raw, ['long_comment', 'notes']),
+    // TIMEZONE CAVEAT (confirmed live 2026-08-10, not yet resolved): the real
+    // API returns injury_update_date as a naive "YYYY-MM-DD HH:MM:SS" string
+    // with no timezone marker (e.g. "2026-08-10 09:00:01") — unlike ESPN's
+    // reported_at, which is a proper ISO string with an explicit "Z". new
+    // Date(naiveString) parses it in the RUNNING MACHINE's local timezone, so
+    // this value's absolute instant shifts depending on where the ingest runs
+    // (Andy's machine vs. a future CI runner) — confirmed live: "09:00:01"
+    // came back as "16:00:01Z" when run from a Pacific-time machine in August
+    // (PDT, UTC-7), which is consistent with FantasyPros meaning Eastern time
+    // (09:00 ET on a summer/DST day = 13:00 UTC, NOT 16:00 UTC — so this may
+    // actually be off by several hours even under that guess; the *local*
+    // interpretation and an Eastern interpretation don't obviously agree
+    // either). Left as-is rather than guessing a specific offset — this field
+    // is informational only (not part of any unique constraint, join key, or
+    // dedupe key), so a several-hour skew doesn't corrupt data, only display
+    // precision. Fix properly once FantasyPros' actual source timezone is
+    // confirmed (their docs page doesn't state it).
     reported_at: updateDate ? new Date(updateDate).toISOString() : null,
     captured_at: capturedAt || new Date().toISOString(),
     source: 'FantasyPros injuries API',
