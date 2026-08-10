@@ -18,27 +18,6 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 // works without throwing.  The final resolved value is set per test via
 // `mockResolvedValue` on the innermost awaitable.
 
-function makeChain(resolvedWith = { data: [], error: null }) {
-    const terminal = { then: undefined, catch: undefined };
-    const promise = Promise.resolve(resolvedWith);
-    // Attach .then / .catch from the underlying promise
-    terminal.then = promise.then.bind(promise);
-    terminal.catch = promise.catch.bind(promise);
-
-    // Each chain method returns an object that IS awaitable (has .then)
-    // AND has all the chaining methods.
-    const chain = {
-        select:  vi.fn().mockReturnThis(),
-        order:   vi.fn().mockReturnThis(),
-        limit:   vi.fn().mockReturnThis(),
-        eq:      vi.fn().mockReturnThis(),
-        then:    promise.then.bind(promise),
-        catch:   promise.catch.bind(promise),
-    };
-    return chain;
-}
-
-let mockChain;
 let mockFrom;
 
 vi.mock('../../src/lib/supabase.js', async (importOriginal) => {
@@ -60,9 +39,6 @@ vi.mock('../../src/lib/supabase.js', async (importOriginal) => {
 // We stub `supabase` on the module itself so queryAuditLog uses our chain.
 
 describe('queryAuditLog', () => {
-    let queryAuditLog;
-    let supabaseModule;
-
     beforeEach(async () => {
         vi.resetModules();
 
@@ -200,7 +176,7 @@ async function runQueryAuditLog(client, { tableName, actor, limit = 50 } = {}) {
         const { data, error } = await q;
         if (error || !data) return [];
         return data;
-    } catch (e) {
+    } catch (_e) {
         return [];
     }
 }

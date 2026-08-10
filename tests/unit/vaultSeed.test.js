@@ -4,7 +4,7 @@
  *
  * Run: npx vitest run tests/unit/vaultSeed.test.js
  */
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect } from 'vitest';
 
 // ── Helpers replicated inline so we can test without importing the agent ──────
 // (The agent runs as a CLI script; we test the pure functions directly.)

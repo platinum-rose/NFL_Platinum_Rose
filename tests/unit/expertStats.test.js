@@ -7,7 +7,7 @@
  * Run: npx vitest run tests/unit/expertStats.test.js
  */
 
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 
 // gradeExpertPicksFromResults reads from localStorage via storage.js — mock it.
 vi.mock('../../src/lib/storage.js', () => ({

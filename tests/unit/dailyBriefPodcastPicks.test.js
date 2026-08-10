@@ -2,7 +2,7 @@
  * Unit tests for Phase 7c — fetchTopPodcastPicks + renderTopPodcastPicks
  * Run: npx vitest run tests/unit/dailyBriefPodcastPicks.test.js
  */
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, afterEach } from 'vitest';
 import { fetchTopPodcastPicks, renderTopPodcastPicks } from '../../agents/nfl-daily-brief.js';
 
 // ── Fake Supabase builder ─────────────────────────────────────────────────────

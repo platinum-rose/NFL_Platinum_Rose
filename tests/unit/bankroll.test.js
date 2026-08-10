@@ -25,11 +25,7 @@ import {
   BET_TYPES,
   calculateKellyUnit,
   getRecommendedUnit,
-  exportBankrollData,
   importBankrollData,
-  updateBankrollSettings,
-  getBankrollData,
-  addBet,
 } from '../../src/lib/bankroll.js';
 
 describe('bankroll', () => {
