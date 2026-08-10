@@ -239,6 +239,82 @@ export async function getActiveGameKeys(hours = 7 * 24) {
   }
 }
 
+// ─── Fantasy ──────────────────────────────────────────────────────────────────
+
+/**
+ * Get the latest FantasyPros expert-consensus rankings (F-26c §2). Table:
+ * fantasy_rankings (migration 046), public-read RLS — read directly here rather
+ * than through a generated JSON file (unlike FANTASY_VALUE_BOARD), since the
+ * table is already public-read and this keeps the panel showing the true latest
+ * ingest without a separate report-generation step.
+ *
+ * `week` follows migration 046's convention: 0 = season-long/draft ECR, else the
+ * NFL week number. Resolves the latest `as_of_date` for the requested
+ * (season, week, scoring) combo first, then fetches only that day's rows —
+ * same two-step pattern as agents/fantasy-value-report.js's loadAdpFromTable().
+ *
+ * @param {object} opts
+ * @param {number} [opts.season] — defaults to current year
+ * @param {number} [opts.week=0] — 0 = draft/season-long
+ * @param {string} [opts.scoring='ppr'] — 'ppr' | 'standard' | 'half'
+ * @param {string} [opts.position] — optional single-position filter (QB/RB/WR/TE)
+ */
+export async function getFantasyRankings({ season = new Date().getFullYear(), week = 0, scoring = 'ppr', position } = {}) {
+  if (!isAvailable()) return { rows: [], asOfDate: null };
+  try {
+    let latestQuery = supabase
+      .from('fantasy_rankings')
+      .select('as_of_date')
+      .eq('season', season)
+      .eq('week', week)
+      .eq('scoring', scoring)
+      .order('as_of_date', { ascending: false })
+      .limit(1);
+    const { data: latest, error: latestErr } = await withQueryTimeout(latestQuery);
+    if (latestErr || !latest?.length) return { rows: [], asOfDate: null };
+    const asOfDate = latest[0].as_of_date;
+
+    let query = supabase
+      .from('fantasy_rankings')
+      .select('player, player_id, position, team, season, week, scoring, rank_ecr, pos_rank, rank_min, rank_max, rank_std, tier, total_experts, opponent, owned_avg, as_of_date')
+      .eq('season', season)
+      .eq('week', week)
+      .eq('scoring', scoring)
+      .eq('as_of_date', asOfDate)
+      .order('rank_ecr', { ascending: true });
+    if (position) query = query.eq('position', position);
+    const { data, error } = await withQueryTimeout(query);
+    if (error || !data) return { rows: [], asOfDate: null };
+    return { rows: data, asOfDate };
+  } catch (e) {
+    logger.warn('[supabase] getFantasyRankings failed:', e.message);
+    return { rows: [], asOfDate: null };
+  }
+}
+
+/**
+ * Which (season, week, scoring) combinations actually have rows, so the panel's
+ * week selector only offers weeks that have real data instead of guessing.
+ * Cheap: fantasy_rankings stays small (a few hundred to ~1k rows per as_of_date).
+ */
+export async function getFantasyRankingsAvailableWeeks({ season = new Date().getFullYear(), scoring = 'ppr' } = {}) {
+  if (!isAvailable()) return [];
+  try {
+    const { data, error } = await withQueryTimeout(
+      supabase
+        .from('fantasy_rankings')
+        .select('week')
+        .eq('season', season)
+        .eq('scoring', scoring)
+    );
+    if (error || !data) return [];
+    return [...new Set(data.map((r) => r.week))].sort((a, b) => a - b);
+  } catch (e) {
+    logger.warn('[supabase] getFantasyRankingsAvailableWeeks failed:', e.message);
+    return [];
+  }
+}
+
 // ─── Futures Odds ─────────────────────────────────────────────────────────────
 
 /**

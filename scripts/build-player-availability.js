@@ -3,11 +3,18 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import 'dotenv/config'; // F-26c §4: needed for FANTASYPROS_API_KEY — this script
+// never needed env vars before (ESPN's injuries API takes no key), so dotenv
+// was never loaded here. Found live 2026-08-10: --live-fantasypros-injuries
+// failed with "Missing FANTASYPROS_API_KEY" even with a real key sitting in
+// .env, because nothing had loaded it into process.env yet.
 import {
   buildAvailabilitySnapshot,
   parseInjuryType,
 } from '../agents/lib/player-availability.js';
 import { parseArgs, todayPacificDate, nowIso } from './training-camp-intel.js';
+import { fantasyProsGet } from '../agents/lib/fantasypros-client.js';
+import { flattenFantasyProsInjuries } from '../agents/lib/fantasypros-injuries.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -72,6 +79,21 @@ async function fetchEspnInjuries() {
   if (!response.ok) throw new Error(`ESPN injuries API returned ${response.status}`);
   const payload = await response.json();
   return payload.injuries || [];
+}
+
+// F-26c §4 — real upgrade over ESPN's free-text-only feed: FantasyPros carries
+// a literal numeric probability_of_playing plus Wed/Thu/Fri practice-report
+// participation, neither of which ESPN's injuries endpoint exposes at all. See
+// agents/lib/fantasypros-injuries.js's header for the important caveat that its
+// field-name mapping is unconfirmed (built without a working live call from
+// this sandbox — see TASK_BOARD F-31) and needs a native-machine dry-run before
+// this is trusted the way the ESPN path already is.
+async function fetchFantasyProsInjuries({ year, week } = {}) {
+  const data = await fantasyProsGet('/nfl/injuries', {
+    params: { year, week, include_probabilities: true },
+  });
+  if (data?.message) throw new Error(`FantasyPros injuries error: ${data.message}`);
+  return data;
 }
 
 function trainingCampItems(snapshot) {
@@ -225,6 +247,29 @@ export async function buildPlayerAvailability(options = {}) {
     sourceHealth.push({ source: 'ESPN injuries API', status: 'skipped', reason: 'Pass --live-injuries to fetch.' });
   }
 
+  // F-26c §4 — additive, not a replacement: pushed onto the same injuryRecords
+  // array ESPN already populated above, both flowing into one
+  // buildAvailabilitySnapshot() call. No cross-source dedupe pass (Andy's call,
+  // scope doc §7 open question 7 — resolved 2026-08-09: keep both as
+  // independent corroborating entries; dedupeAvailabilityEvents()'s existing
+  // per-source-URL keying already keeps them as separate events).
+  if (options.liveFantasyProsInjuries) {
+    try {
+      const data = await fetchFantasyProsInjuries({ year: options.fantasyProsYear || season, week: options.fantasyProsWeek });
+      const fpRecords = flattenFantasyProsInjuries(data, { capturedAt: generatedAt });
+      injuryRecords = [...injuryRecords, ...fpRecords];
+      sourceHealth.push({
+        source: 'FantasyPros injuries API',
+        status: 'available',
+        evidence: `${fpRecords.length} parsed rows.`,
+      });
+    } catch (err) {
+      sourceHealth.push({ source: 'FantasyPros injuries API', status: 'error', reason: err.message });
+    }
+  } else {
+    sourceHealth.push({ source: 'FantasyPros injuries API', status: 'skipped', reason: 'Pass --live-fantasypros-injuries to fetch.' });
+  }
+
   const campPath = options.trainingCamp || path.join('data', 'training-camp', String(season), 'latest.json');
   const camp = await readJson(campPath, null);
   const campItems = trainingCampItems(camp);
@@ -272,6 +317,9 @@ async function main() {
     liveInjuries: args['live-injuries'] === true || String(args['live-injuries']).toLowerCase() === 'true',
     injuryJson: args['injury-json'] || null,
     trainingCamp: args['training-camp'] || null,
+    liveFantasyProsInjuries: args['live-fantasypros-injuries'] === true || String(args['live-fantasypros-injuries']).toLowerCase() === 'true',
+    fantasyProsYear: args['fp-year'] ? Number(args['fp-year']) : null,
+    fantasyProsWeek: args['fp-week'] ? Number(args['fp-week']) : null,
     dryRun: args['dry-run'] === true || args['no-persist'] === true,
   });
 

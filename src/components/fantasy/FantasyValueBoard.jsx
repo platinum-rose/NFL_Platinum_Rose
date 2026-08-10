@@ -12,9 +12,10 @@
 // F-26b) -- this only covers QB/RB/WR/TE, which is all the generator scores.
 
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
-import { Shirt, RefreshCw, Search, TrendingUp, TrendingDown, Minus, HelpCircle, Mic, Star, AlertTriangle } from 'lucide-react';
+import { Shirt, RefreshCw, Search, TrendingUp, TrendingDown, Minus, HelpCircle, Mic, Star, AlertTriangle, ListOrdered } from 'lucide-react';
 import { LOCAL_DATA } from '../../lib/apiConfig';
 import { getPlayerOverlay } from '../../lib/fantasyOverlayStore';
+import FantasyRankingsPanel from './FantasyRankingsPanel';
 
 const POSITION_FILTERS = ['ALL', 'QB', 'RB', 'WR', 'TE'];
 const TIER_FILTERS = ['ALL', 'strong_value', 'value', 'fair', 'reach', 'no_projection'];
@@ -270,6 +271,11 @@ function PodcastFantasyIntelPanel() {
 }
 
 export default function FantasyValueBoard() {
+  // F-26c §2: Value Board (Phase A ADP-vs-projection) and Weekly Rankings (ECR)
+  // are two different signals living in the same tab, toggled here rather than
+  // as separate top-level tabs — avoids App.jsx/Header nav changes for what's
+  // still one "Fantasy" concern. See FantasyRankingsPanel.jsx for the ECR panel.
+  const [view, setView] = useState('value'); // 'value' | 'rankings'
   const [state, setState] = useState('loading'); // loading | ready | missing | error
   const [data, setData] = useState(null);
   const [errorMsg, setErrorMsg] = useState('');
@@ -338,152 +344,184 @@ export default function FantasyValueBoard() {
             <Shirt size={20} className="text-amber-400" />
           </div>
           <div>
-            <h2 className="text-lg font-bold text-white">Fantasy Value Board</h2>
+            <h2 className="text-lg font-bold text-white">
+              {view === 'value' ? 'Fantasy Value Board' : 'Fantasy Weekly Rankings'}
+            </h2>
             <p className="text-xs text-slate-400">
-              {meta
-                ? `${meta.scoring.toUpperCase()} · prior season ${meta.stats_season} · proj ${meta.proj_games} games · generated ${meta.date}`
-                : 'Draft-value projections vs ADP'}
+              {view === 'value'
+                ? (meta
+                    ? `${meta.scoring.toUpperCase()} · prior season ${meta.stats_season} · proj ${meta.proj_games} games · generated ${meta.date}`
+                    : 'Draft-value projections vs ADP')
+                : 'Expert Consensus Rankings — draft and weekly start/sit'}
             </p>
           </div>
         </div>
-        <button
-          onClick={load}
-          className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-400 hover:text-white transition-all"
-          title="Reload"
-        >
-          <RefreshCw size={15} className={state === 'loading' ? 'animate-spin' : ''} />
-        </button>
-      </div>
-
-      {/* Guardrail strip */}
-      <div className="text-[11px] text-slate-500 bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5">
-        Phase A — history-based projection (prior-year points/game regressed toward the positional
-        mean). Decision support, not advice — pair with injury/situation news. Rookies show as
-        "No Projection" since they have no prior-year data. QB/RB/WR/TE only — kickers, IDP, and
-        team defense aren't modeled yet (TASK_BOARD F-26b).
-      </div>
-
-      <PodcastFantasyIntelPanel />
-
-      {state === 'loading' && (
-        <div className="flex items-center justify-center py-20 text-slate-500 gap-3">
-          <RefreshCw size={18} className="animate-spin" />
-          <span className="text-sm">Loading value board...</span>
-        </div>
-      )}
-
-      {state === 'missing' && (
-        <div className="text-center py-16 bg-slate-900 border border-slate-800 rounded-xl">
-          <Shirt size={40} className="mx-auto mb-4 text-slate-700" />
-          <p className="text-slate-300 font-bold">No value board generated yet</p>
-          <p className="text-slate-500 text-sm mt-2 max-w-md mx-auto">
-            Run the report generator, which also syncs the copy this tab reads:
-          </p>
-          <p className="mt-3 text-xs">
-            <code className="bg-slate-950 px-2 py-1 rounded text-slate-300">
-              node agents/fantasy-value-report.js --adp data/fantasy/adp-&lt;date&gt;.csv --scoring ppr
-            </code>
-          </p>
-        </div>
-      )}
-
-      {state === 'error' && (
-        <div className="text-rose-300 bg-rose-500/10 border border-rose-500/30 rounded-lg px-4 py-3 text-sm">
-          Failed to load value board: {errorMsg}
-        </div>
-      )}
-
-      {state === 'ready' && (
-        <div className="space-y-5">
-          {/* Stats bar */}
-          <div className="flex flex-wrap gap-2.5">
-            <StatChip label="Strong Value" value={tierCounts.strong_value} className="text-emerald-400" />
-            <StatChip label="Value" value={tierCounts.value} className="text-lime-400" />
-            <StatChip label="Fair" value={tierCounts.fair} />
-            <StatChip label="Reach" value={tierCounts.reach} className="text-rose-400" />
-            <StatChip label="No Projection" value={tierCounts.no_projection} className="text-slate-500" />
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 bg-slate-900 border border-slate-800 rounded-lg p-1">
+            <button
+              onClick={() => setView('value')}
+              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-bold transition-all ${
+                view === 'value' ? 'bg-amber-500/20 text-amber-300' : 'text-slate-500 hover:text-white'
+              }`}
+            >
+              <Shirt size={12} /> Value Board
+            </button>
+            <button
+              onClick={() => setView('rankings')}
+              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-bold transition-all ${
+                view === 'rankings' ? 'bg-amber-500/20 text-amber-300' : 'text-slate-500 hover:text-white'
+              }`}
+            >
+              <ListOrdered size={12} /> Weekly Rankings
+            </button>
           </div>
-
-          {/* Controls */}
-          <div className="flex flex-wrap items-center justify-between gap-2.5">
-            <div className="flex items-center gap-2 flex-wrap flex-1">
-              <div className="relative min-w-[180px]">
-                <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-500" />
-                <input
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Search player..."
-                  className="w-full bg-slate-900 border border-slate-800 rounded-lg pl-8 pr-3 py-1.5 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-slate-600"
-                />
-              </div>
-
-              {/* Sort Selector */}
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-200 outline-none focus:border-slate-600"
-              >
-                {SORT_OPTIONS.map((s) => (
-                  <option key={s.value} value={s.value}>
-                    {s.label}
-                  </option>
-                ))}
-              </select>
-
-              {/* Starters Only Toggle */}
-              <button
-                onClick={() => setStartersOnly((v) => !v)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-bold transition-all ${
-                  startersOnly
-                    ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
-                    : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-white'
-                }`}
-              >
-                <Star size={12} className={startersOnly ? 'fill-amber-400 text-amber-400' : ''} />
-                <span>Starters Only</span>
-              </button>
-            </div>
-
-            <div className="flex items-center gap-1 bg-slate-900 border border-slate-800 rounded-lg p-1">
-              {POSITION_FILTERS.map((p) => (
-                <button
-                  key={p}
-                  onClick={() => setPositionFilter(p)}
-                  className={`px-2.5 py-1 rounded-md text-[11px] font-bold transition-all ${
-                    positionFilter === p ? 'bg-amber-500/20 text-amber-300' : 'text-slate-500 hover:text-white'
-                  }`}
-                >
-                  {p}
-                </button>
-              ))}
-            </div>
-
-            <div className="flex items-center gap-1 bg-slate-900 border border-slate-800 rounded-lg p-1 flex-wrap">
-              {TIER_FILTERS.map((t) => (
-                <button
-                  key={t}
-                  onClick={() => setTierFilter(t)}
-                  className={`px-2.5 py-1 rounded-md text-[11px] font-bold transition-all ${
-                    tierFilter === t ? 'bg-amber-500/20 text-amber-300' : 'text-slate-500 hover:text-white'
-                  }`}
-                >
-                  {t === 'ALL' ? 'ALL' : TIER_LABEL[t]}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* List */}
-          {filtered.length === 0 ? (
-            <div className="text-center py-16 text-slate-500 text-sm">No players match the current filters.</div>
-          ) : (
-            <div className="space-y-2.5">
-              {filtered.map((row, i) => (
-                <PlayerCard key={`${row.player}-${i}`} row={row} />
-              ))}
-            </div>
+          {view === 'value' && (
+            <button
+              onClick={load}
+              className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-400 hover:text-white transition-all"
+              title="Reload"
+            >
+              <RefreshCw size={15} className={state === 'loading' ? 'animate-spin' : ''} />
+            </button>
           )}
         </div>
+      </div>
+
+      {view === 'rankings' && <FantasyRankingsPanel />}
+
+      {view === 'value' && (
+        <>
+          {/* Guardrail strip */}
+          <div className="text-[11px] text-slate-500 bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5">
+            Phase A — history-based projection (prior-year points/game regressed toward the positional
+            mean). Decision support, not advice — pair with injury/situation news. Rookies show as
+            "No Projection" since they have no prior-year data. QB/RB/WR/TE only — kickers, IDP, and
+            team defense aren't modeled yet (TASK_BOARD F-26b).
+          </div>
+
+          <PodcastFantasyIntelPanel />
+
+          {state === 'loading' && (
+            <div className="flex items-center justify-center py-20 text-slate-500 gap-3">
+              <RefreshCw size={18} className="animate-spin" />
+              <span className="text-sm">Loading value board...</span>
+            </div>
+          )}
+
+          {state === 'missing' && (
+            <div className="text-center py-16 bg-slate-900 border border-slate-800 rounded-xl">
+              <Shirt size={40} className="mx-auto mb-4 text-slate-700" />
+              <p className="text-slate-300 font-bold">No value board generated yet</p>
+              <p className="text-slate-500 text-sm mt-2 max-w-md mx-auto">
+                Run the report generator, which also syncs the copy this tab reads:
+              </p>
+              <p className="mt-3 text-xs">
+                <code className="bg-slate-950 px-2 py-1 rounded text-slate-300">
+                  node agents/fantasy-value-report.js --adp data/fantasy/adp-&lt;date&gt;.csv --scoring ppr
+                </code>
+              </p>
+            </div>
+          )}
+
+          {state === 'error' && (
+            <div className="text-rose-300 bg-rose-500/10 border border-rose-500/30 rounded-lg px-4 py-3 text-sm">
+              Failed to load value board: {errorMsg}
+            </div>
+          )}
+
+          {state === 'ready' && (
+            <div className="space-y-5">
+              {/* Stats bar */}
+              <div className="flex flex-wrap gap-2.5">
+                <StatChip label="Strong Value" value={tierCounts.strong_value} className="text-emerald-400" />
+                <StatChip label="Value" value={tierCounts.value} className="text-lime-400" />
+                <StatChip label="Fair" value={tierCounts.fair} />
+                <StatChip label="Reach" value={tierCounts.reach} className="text-rose-400" />
+                <StatChip label="No Projection" value={tierCounts.no_projection} className="text-slate-500" />
+              </div>
+
+              {/* Controls */}
+              <div className="flex flex-wrap items-center justify-between gap-2.5">
+                <div className="flex items-center gap-2 flex-wrap flex-1">
+                  <div className="relative min-w-[180px]">
+                    <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-500" />
+                    <input
+                      value={search}
+                      onChange={(e) => setSearch(e.target.value)}
+                      placeholder="Search player..."
+                      className="w-full bg-slate-900 border border-slate-800 rounded-lg pl-8 pr-3 py-1.5 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-slate-600"
+                    />
+                  </div>
+
+                  {/* Sort Selector */}
+                  <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value)}
+                    className="bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-200 outline-none focus:border-slate-600"
+                  >
+                    {SORT_OPTIONS.map((s) => (
+                      <option key={s.value} value={s.value}>
+                        {s.label}
+                      </option>
+                    ))}
+                  </select>
+
+                  {/* Starters Only Toggle */}
+                  <button
+                    onClick={() => setStartersOnly((v) => !v)}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-bold transition-all ${
+                      startersOnly
+                        ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
+                        : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-white'
+                    }`}
+                  >
+                    <Star size={12} className={startersOnly ? 'fill-amber-400 text-amber-400' : ''} />
+                    <span>Starters Only</span>
+                  </button>
+                </div>
+
+                <div className="flex items-center gap-1 bg-slate-900 border border-slate-800 rounded-lg p-1">
+                  {POSITION_FILTERS.map((p) => (
+                    <button
+                      key={p}
+                      onClick={() => setPositionFilter(p)}
+                      className={`px-2.5 py-1 rounded-md text-[11px] font-bold transition-all ${
+                        positionFilter === p ? 'bg-amber-500/20 text-amber-300' : 'text-slate-500 hover:text-white'
+                      }`}
+                    >
+                      {p}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="flex items-center gap-1 bg-slate-900 border border-slate-800 rounded-lg p-1 flex-wrap">
+                  {TIER_FILTERS.map((t) => (
+                    <button
+                      key={t}
+                      onClick={() => setTierFilter(t)}
+                      className={`px-2.5 py-1 rounded-md text-[11px] font-bold transition-all ${
+                        tierFilter === t ? 'bg-amber-500/20 text-amber-300' : 'text-slate-500 hover:text-white'
+                      }`}
+                    >
+                      {t === 'ALL' ? 'ALL' : TIER_LABEL[t]}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* List */}
+              {filtered.length === 0 ? (
+                <div className="text-center py-16 text-slate-500 text-sm">No players match the current filters.</div>
+              ) : (
+                <div className="space-y-2.5">
+                  {filtered.map((row, i) => (
+                    <PlayerCard key={`${row.player}-${i}`} row={row} />
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </>
       )}
     </div>
   );

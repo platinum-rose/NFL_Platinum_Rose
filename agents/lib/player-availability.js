@@ -250,6 +250,19 @@ export function availabilityEventFromInjuryRecord(record, options = {}) {
     impact_bucket: impactBucket(record.position, text),
     availability_group: availabilityGroup(record.position),
     dedupe_key: record.espn_injury_id || record.source_url || `${team}|${playerName}|${status}|${event_type}`,
+    // F-26c §4 — FantasyPros /nfl/injuries carries two fields ESPN's free feed
+    // doesn't have at all: a literal numeric play probability, and Wed/Thu/Fri
+    // practice-report participation. Only FantasyPros records populate these
+    // (undefined on every ESPN/training-camp record) — kept as optional
+    // passthrough fields on the shared event shape rather than a separate
+    // source-specific object, per the scope doc's "no new merge logic needed"
+    // design. Not yet consumed by build-availability-impact-digest.js's
+    // scoring (that's a phase-2 change, see scope doc §4) — carried through
+    // now so it's available when that lands.
+    probability_of_playing: record.probability_of_playing != null ? Number(record.probability_of_playing) : null,
+    practice_1: record.practice_1 ?? null,
+    practice_2: record.practice_2 ?? null,
+    practice_3: record.practice_3 ?? null,
   };
 }
 

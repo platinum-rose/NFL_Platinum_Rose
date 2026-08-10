@@ -1,10 +1,21 @@
 # FantasyPros API Integration — Scope (draft)
 
-**Status:** §1 (ADP) built and verified live end-to-end 2026-08-09 — 439 rows ingested,
-flowed through `fantasy-value-report.js` to a real value board (251 value plays, 72
-reaches, 87 no-projection). §2-§4 still scoping only, not built. · **Date:** 2026-08-09 ·
-**Verified 2026-08-09** via live test calls against Andy's real key + the real API docs
-(`api.fantasypros.com/public/v2/docs`)
+**Status (updated 2026-08-10):** §1 (ADP) built and verified live end-to-end 2026-08-09 —
+439 rows ingested, flowed through `fantasy-value-report.js` to a real value board (251
+value plays, 72 reaches, 87 no-projection). §2 backend built+live-verified 2026-08-09;
+**React UI shipped 2026-08-10** (`FantasyRankingsPanel.jsx`, a toggle inside the existing
+Fantasy tab). **§3 (projections) and §4 (injuries) built 2026-08-10** — code complete,
+unit-tested via the plain-node harness, but **not live-verified**: the Cowork sandbox
+cannot make any outbound network call at all (confirmed live 2026-08-10 — `fetch failed`
+on every attempt, ESPN/Supabase/FantasyPros all equally unreachable from here, same root
+cause as TASK_BOARD F-31). §3's field mapping IS live-confirmed (reuses the same
+`points`/`points_ppr`/`points_half`/`rush_*`/`rec_*`/`fpid`/`name` fields §0 already
+verified 2026-08-09). **§4's exact raw field names for `/nfl/injuries` are NOT
+live-confirmed** — built defensively with fallback field-name chains instead of guessing
+one shape; see `agents/lib/fantasypros-injuries.js`'s file header. **Needs a native run on
+Andy's machine before §3/§4 are trusted the way §1/§2 already are.** · **Date:**
+2026-08-09, updated 2026-08-10 · **Verified 2026-08-09** via live test calls against
+Andy's real key + the real API docs (`api.fantasypros.com/public/v2/docs`)
 **Trigger:** Andy has a FantasyPros API key, intended as the primary research engine for
 fantasy player data. This doc maps that key onto the four places it fills gaps already
 on record in this repo, before any of the four gets built.
@@ -179,8 +190,15 @@ pattern:
   explicit ~1.1s delay between calls to respect the plan's confirmed 1 request/second
   limit.
 
-**Still needed before this is "done" the way §1 is:** the dashboard panel — the backend
-is now fully live-verified (see below).
+**UI shipped 2026-08-10:** `src/components/fantasy/FantasyRankingsPanel.jsx` — a toggle
+inside the existing Fantasy tab (`FantasyValueBoard.jsx` now has a "Value Board" /
+"Weekly Rankings" segmented control at the top, no App.jsx/Header changes needed since
+both stayed inside the one existing `fantasy` tab). Reads `fantasy_rankings` **directly
+via Supabase's public-read RLS policy** rather than through a generated JSON file like
+the Value Board does — the table is small (a few hundred rows per `as_of_date`) and this
+skips a report-generation/sync step, so the panel always shows the true latest ingest.
+New `getFantasyRankings()` / `getFantasyRankingsAvailableWeeks()` helpers added to
+`src/lib/supabase.js`. §2 is now done to the same standard as §1.
 
 **Dry-run verified live 2026-08-09.** Against the real key: 661 rows across QB (98) /
 RB (173) / WR (239) / TE (151), total_experts 89-94 per position — healthy, plausible
@@ -204,7 +222,7 @@ standard as §1 — real data, real bug found and fixed, real write confirmed.
 
 ---
 
-## 3. Phase B value-board projections — unblocks a stalled feature
+## 3. Phase B value-board projections — unblocks a stalled feature ✅ BUILT 2026-08-10 (not live-verified)
 
 The value board's "sharp" version (market-derived `proj_ppr`, not history-regression) is
 Phase B in the spec, and it's been blocked since 2026-07-16 on sourcing real season-long
@@ -260,9 +278,29 @@ This is the biggest build of the three and the one with a real open design quest
 §5.4) — recommend building it last, after ADP and weekly rankings prove out the shared
 client code.
 
+**Built 2026-08-10.** Migration `supabase/migrations/047_fantasy_projections.sql`, pure
+mapping in `agents/lib/fantasypros-projections.js` (`mapProjections()` +
+`dedupeProjections()` — same defensive dedupe as §2's, applied preemptively rather than
+waiting to hit the same Postgres "cannot affect row a second time" error live), CLI in
+`agents/fantasypros-projections-ingest.js` (`npm run ingest-fantasypros-projections` /
+`:dry`), and a `--source fantasypros` flag on `agents/fantasy-value-report.js`
+(`npm run report:fantasy:fantasypros`) that resolves §6 open question 4: **alongside
+Phase A, not replacing it** — writes to its own `-fantasypros`-suffixed output files
+(`docs/fantasy/value-board-<date>-fantasypros.*`, `public/fantasy-value-board-fantasypros.json`),
+never touching Phase A's default filenames, so the existing Fantasy tab keeps working
+unchanged. New `buildBoardFromProjections()` mirrors `buildBoard()`'s ADP-join/rank/tier
+logic exactly, minus the regression math (a FantasyPros row's `proj_points` comes
+straight from the table, no `posMean`/`K` needed). Unit-tested (`tests/unit/
+fantasyProsProjections.test.js`, plain-node harness verified — `mapProjections()` against
+the §0-confirmed field shape, `buildBoardFromProjections()` against a hand-built ADP/proj
+fixture, both passing). **Not live-verified** — same sandbox network limitation as §4,
+see the status line at the top of this doc. No UI reads the `-fantasypros` file yet; it
+exists for CLI/comparison use today (a source-toggle on the Value Board panel would be
+the natural next step if Andy wants to compare Phase A vs FantasyPros side by side).
+
 ---
 
-## 4. Player availability / injuries — upgrades an existing pipeline, not a new one
+## 4. Player availability / injuries — upgrades an existing pipeline, not a new one ✅ BUILT 2026-08-10 (not live-verified — field names unconfirmed)
 
 Unlike §1-3, this isn't filling a gap — the dashboard already has a working availability
 pipeline. `scripts/build-player-availability.js` fetches ESPN's free public injuries API
@@ -317,6 +355,37 @@ Fetch `/nfl/injuries?year=&week=&include_probabilities=true`, map to the shared 
 shape, pass into the existing `buildAvailabilitySnapshot()` call. **No new Supabase
 table** — unlike §1-3, this pipeline is file-based (`data/player-availability/*.json`),
 not DB-backed.
+
+**Built 2026-08-10, additive not replacement.** New `--live-fantasypros-injuries` flag
+(`npm run availability:fantasypros:dry` for a quick check) alongside the existing
+`--live-injuries` (ESPN) — both flow into the same `injuryRecords` array and one
+`buildAvailabilitySnapshot()` call, exactly as scoped; no cross-source dedupe pass added
+(§6 open question 7, resolved 2026-08-09: keep both as independent corroborating
+entries). `availabilityEventFromInjuryRecord()` in `agents/lib/player-availability.js`
+now carries `probability_of_playing`/`practice_1`/`practice_2`/`practice_3` through as
+optional passthrough fields on the event object (undefined on every ESPN/training-camp
+record — only FantasyPros populates them), not yet consumed by
+`build-availability-impact-digest.js`'s scoring (still a phase-2 change).
+
+**Important caveat — read before trusting this live:** the mapping in
+`agents/lib/fantasypros-injuries.js` was built WITHOUT a successful live call. Unlike §1-
+§3 (all confirmed against real responses 2026-08-09), the Cowork sandbox cannot make any
+outbound `fetch()` call at all (confirmed live 2026-08-10, same root cause as TASK_BOARD
+F-31), and the scope doc text above only specifies mapping *arrows*
+(`injury_status ← status`, `short_comment ← comment`, `reported_at ← injury_update_date`)
+without giving this endpoint's exact raw field names for player/team/position — and every
+other FantasyPros endpoint in this repo uses *different* field names for the same
+concepts (`/nfl/players`: `player_name`/`position_id`/`team_id`; `/consensus-rankings`:
+`player_name`/`player_position_id`/`player_team_id`), so guessing one shape and hardcoding
+it would repeat a mistake this repo's own lessons-learned already warns against.
+`mapFantasyProsInjury()` checks several plausible field-name variants defensively
+instead. Also found and fixed along the way: `scripts/build-player-availability.js` never
+loaded `dotenv` (it never needed env vars before — ESPN's feed takes no key), so
+`FANTASYPROS_API_KEY` silently wasn't reaching it even with a real key in `.env`; now
+fixed with `import 'dotenv/config'`. **Run this live on Andy's machine before trusting
+it** — a one-off script dumping the raw `/nfl/injuries` response, or just
+`--live-fantasypros-injuries --dry-run` with a look at the parsed row count/shape, would
+confirm or correct the field-name guesses.
 
 ## 5. Shared plumbing (build once, use for all four)
 
