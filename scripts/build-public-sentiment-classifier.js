@@ -41,7 +41,7 @@ async function main() {
   const citations = citationsData.citations || [];
   const teamSentiment = {};
 
-  for (const [key, team] of Object.entries(NFL_TEAMS)) {
+  for (const [_key, team] of Object.entries(NFL_TEAMS)) {
     const abbr = team.abbreviation;
     const teamCites = citations.filter(c => c.team === abbr);
     const bullishCount = teamCites.filter(c => c.sentiment === 'bullish').length;

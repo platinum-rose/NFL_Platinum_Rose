@@ -579,27 +579,6 @@ function renderMarkdownReport(config, ledger, ledgerPath) {
   return lines.join('\n');
 }
 
-function pickTableRows(config, picks) {
-  if (!picks.length) return '<tr><td colspan="9" class="empty">No picks recorded.</td></tr>';
-  return picks.map((pick) => {
-    const report = validationReport(config, pick);
-    const badgeClass = report.lock_ready ? 'good' : report.proposal_ready ? 'warn' : 'bad';
-    const badge = report.lock_ready ? 'Lock-ready' : report.proposal_ready ? 'Proposal-ready' : 'Needs work';
-    return `
-      <tr>
-        <td><span class="badge ${badgeClass}">${badge}</span></td>
-        <td>${escapeHtml(pick.lifecycle)}</td>
-        <td>${escapeHtml(pick.pick_scope)}</td>
-        <td><strong>${escapeHtml(pick.selection)}</strong><div class="muted">${escapeHtml(pick.team || '')}${pick.opponent ? ` vs ${escapeHtml(pick.opponent)}` : ''}</div></td>
-        <td>${escapeHtml(pick.market_type || '')}</td>
-        <td>${escapeHtml(pick.book || '-')}${pick.price ? ` ${escapeHtml(pick.price)}` : ''}${pick.line === null || pick.line === undefined ? '' : `<div class="muted">Line ${escapeHtml(pick.line)}</div>`}</td>
-        <td>${escapeHtml(fmtUnits(pick.stake_units))}<div class="muted">${escapeHtml(fmtMoney(pick.stake_usd))}</div></td>
-        <td>${escapeHtml(pick.result_status || 'pending')}<div class="muted">${escapeHtml(fmtUnits(pick.net_units))}</div></td>
-        <td>${escapeHtml([...report.errors, ...report.warnings, ...report.info].join(' | ') || 'Clear')}</td>
-      </tr>`;
-  }).join('\n');
-}
-
 function portfolioRows(ledger) {
   const official = ledger.picks.filter((p) => ['official_paper', 'graded', 'void'].includes(p.lifecycle));
   const groups = [

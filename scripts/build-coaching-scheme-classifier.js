@@ -15,7 +15,7 @@
  * ════════════════════════════════════════════════════════════════════════════════
  */
 
-import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { NFL_TEAMS } from '../src/lib/teams.js';
@@ -59,7 +59,7 @@ async function main() {
 
   const teamSchemes = {};
 
-  for (const [key, team] of Object.entries(NFL_TEAMS)) {
+  for (const [_key, team] of Object.entries(NFL_TEAMS)) {
     const abbr = team.abbreviation;
     const sampleText = `${team.fullName} offensive scheme zone run play action cover 2 robber defense`;
     const classified = classifySchemeText(sampleText);

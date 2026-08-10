@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { pathToFileURL } from 'node:url';
 import { isNflRelevantEpisode } from '../agents/lib/nfl-relevance.js';
 import {
   DEFAULT_CLIENT_PATH,

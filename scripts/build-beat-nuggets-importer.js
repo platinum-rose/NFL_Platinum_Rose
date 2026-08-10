@@ -81,9 +81,16 @@ async function main() {
     }
   }
 
-  // Load current training camp intel snapshot to merge beat nuggets
+  // Load current training camp intel snapshot to merge beat nuggets.
+  // FLAGGED (lint cleanup, 2026-08-10, not fixed): this is read but the
+  // actual merge into `output` below was apparently never implemented --
+  // `campSnapshot` isn't referenced again anywhere in this file. Needs
+  // Andy's call on whether the merge is still wanted; left in place rather
+  // than deleting a real file read that matches its own comment's stated
+  // intent, or guessing at the merge logic during a lint-only pass.
   let campSnapshot = { meta: {}, teams: {} };
   try {
+    // eslint-disable-next-line no-unused-vars
     campSnapshot = JSON.parse(await readFile(CAMP_FILE, 'utf8'));
   } catch {
     // intentionally empty — keep the default snapshot if the file is missing/unparseable

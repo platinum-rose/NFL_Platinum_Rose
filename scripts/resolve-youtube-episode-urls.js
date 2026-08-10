@@ -82,13 +82,6 @@ function normalizeComparableTitle(title) {
     .trim();
 }
 
-function parseIsoDurationSeconds(raw) {
-  const match = String(raw || '').match(/^P(?:(\d+)D)?T?(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/);
-  if (!match) return null;
-  const [, days = 0, hours = 0, minutes = 0, seconds = 0] = match.map(v => Number(v || 0));
-  return days * 86400 + hours * 3600 + minutes * 60 + seconds;
-}
-
 // Duplicated from scripts/youtube-podcast-sweep.js::listChannelUploads (not
 // imported — that script runs its whole CLI flow at module scope). Same
 // existing-codebase pattern as the 3 hand-mirrored pick-normalization copies

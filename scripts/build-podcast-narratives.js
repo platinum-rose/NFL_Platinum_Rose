@@ -285,10 +285,6 @@ function turnForTimestamp(turns, timestamp, needles = []) {
   return candidates[0]?.turn ?? null;
 }
 
-function resolveFutureHostFromTranscript({ future, fallbackHost, turns }) {
-  return resolveFutureAttributionFromTranscript({ future, fallbackHost, turns }).host;
-}
-
 function resolveFutureAttributionFromTranscript({ future, fallbackHost, turns }) {
   const quote = normalizeForAttribution(future.quote);
   const prediction = normalizeForAttribution(future.prediction);
@@ -309,16 +305,6 @@ function resolveFutureAttributionFromTranscript({ future, fallbackHost, turns })
     return { host: match.speaker, timestamp: cleanText(future.source_timestamp) || formatTime(match.start) };
   }
   return { host: fallbackHost, timestamp: cleanText(future.source_timestamp) };
-}
-
-function quotesFromJson(futures) {
-  return (futures ?? [])
-    .filter((future) => cleanText(future.quote))
-    .map((future) => ({
-      subject: cleanText(future.subject),
-      timestamp: cleanText(future.source_timestamp) || null,
-      quote: cleanText(future.quote),
-    }));
 }
 
 async function loadJsonFallbackEpisodes(overrides) {

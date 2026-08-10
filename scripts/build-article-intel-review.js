@@ -422,7 +422,7 @@ async function loadArticles(since, limit) {
         if (content && content.id && content.source) {
           localRows.push(content);
         }
-      } catch (err) {
+      } catch (_err) {
         // ignore
       }
     }
@@ -441,7 +441,7 @@ async function loadArticles(since, limit) {
         .order('published_at', { ascending: false })
         .limit(limit);
       if (!error && data) dbRows = data;
-    } catch (err) {
+    } catch (_err) {
       // ignore
     }
   }
