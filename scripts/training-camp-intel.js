@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 import { existsSync } from 'node:fs';
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { getTeamAbbreviation, NFL_TEAMS } from '../src/lib/teams.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -627,7 +627,9 @@ async function main() {
   throw new Error(`Unknown command: ${command}. Use build or report.`);
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+// Windows drive-letter-casing fix (see agents/fantasy-value-report.js for full note) —
+// compare via pathToFileURL, not path.resolve() === fileURLToPath().
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((err) => {
     console.error(err.message);
     process.exit(1);

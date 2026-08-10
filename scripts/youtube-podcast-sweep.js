@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { isNflRelevantEpisode } from '../agents/lib/nfl-relevance.js';
 import {
   DEFAULT_CLIENT_PATH,
@@ -879,7 +879,9 @@ export {
   scoreFuturesIntel,
 };
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+// Windows drive-letter-casing fix (see agents/fantasy-value-report.js for full note) —
+// compare via pathToFileURL, not path.resolve() === fileURLToPath().
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch(err => {
     console.error(err.stack || err.message);
     process.exit(1);

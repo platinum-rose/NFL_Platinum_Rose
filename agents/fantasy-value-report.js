@@ -19,7 +19,7 @@
 
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createClient } from '@supabase/supabase-js';
 import 'dotenv/config';
 
@@ -256,6 +256,13 @@ async function main() {
   console.log(`   ${nValues} value plays · ${board.filter((b) => b.tier === 'reach').length} reaches · ${board.filter((b) => b.tier === 'no_projection').length} no-projection`);
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+// Compare via pathToFileURL(argv[1]).href against import.meta.url directly, rather than
+// path.resolve(argv[1]) === fileURLToPath(import.meta.url) — the two independent path
+// resolutions can come back with different drive-letter casing on Windows (E:\ vs e:\),
+// making a case-sensitive string `===` silently fail and skip main() with zero output/no
+// error (found live 2026-08-09 running `node agents/fantasy-value-report.js` natively on
+// Windows). Both sides now go through the same URL-construction codepath, which Node
+// normalizes consistently.
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((e) => { console.error('✖', e.message); process.exitCode = 1; });
 }
