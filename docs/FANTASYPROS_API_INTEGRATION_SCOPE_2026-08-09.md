@@ -10,7 +10,7 @@ cannot make any outbound network call at all (confirmed live 2026-08-10 — `fet
 on every attempt, ESPN/Supabase/FantasyPros all equally unreachable from here, same root
 cause as TASK_BOARD F-31). §3's field mapping IS live-confirmed (reuses the same
 `points`/`points_ppr`/`points_half`/`rush_*`/`rec_*`/`fpid`/`name` fields §0 already
-verified 2026-08-09). **§4 field mapping NOW LIVE-CONFIRMED 2026-08-10** — Andy ran
+verified 2026-08-09). **§4 field mapping LIVE-CONFIRMED 2026-08-10** — Andy ran
 `--live-fantasypros-injuries --dry-run` natively (187 events, 120 real FantasyPros rows
 parsed, no errors) and then a raw-vs-mapped diagnostic dump; every guessed field name
 resolved correctly (`name`, `status`, `comment`, `injury_type`, `team_id`, `position_id`,
@@ -19,12 +19,19 @@ genuine remaining issue: `reported_at`'s source field (`injury_update_date`) is 
 timezone-less datetime string, so the ISO conversion's absolute instant depends on the
 running machine's local timezone — flagged in code, not yet resolved (see
 `agents/lib/fantasypros-injuries.js`), low-impact since it's informational-only (not a
-join/dedupe key). §3's projections and the ingest-write path are still not live-verified
-— only §4's read/mapping path has a real confirmed run so far. **Needs a native
-non-dry-run of §3 (and ideally a real Supabase write test of §4) before those are trusted
-the way §1/§2 already are.** · **Date:** 2026-08-09, updated 2026-08-10 · **Verified
-2026-08-09** via live test calls against Andy's real key + the real API docs
-(`api.fantasypros.com/public/v2/docs`)
+join/dedupe key). **§3's field mapping had a REAL BUG, found and fixed 2026-08-10**: a
+live dry-run mapped 0/84 rows with no error — the same diagnostic-dump approach showed
+every stat/points field (`points`, `points_ppr`, `rush_att`, `pass_yds`, etc.) actually
+lives nested under a `stats` sub-object (`player.stats.points`, not `player.points`),
+which the original mapper didn't account for. `fpid`/`name`/`position_id`/`team_id` were
+flat and correct from the start. Also corrected `pass_ints` (not `pass_int`) and
+`fumbles` (not `fumbles_lost`) as the real field names. Fixed in
+`agents/lib/fantasypros-projections.js`, regression-tested against the real captured
+Josh Allen payload (`tests/unit/fantasyProsProjections.test.js`). **Both §3 and §4's
+field mappings are now live-confirmed against real data.** Still outstanding: an actual
+Supabase write test for either (both runs so far were `--dry-run`). · **Date:**
+2026-08-09, updated 2026-08-10 · **Verified 2026-08-09** via live test calls against
+Andy's real key + the real API docs (`api.fantasypros.com/public/v2/docs`)
 **Trigger:** Andy has a FantasyPros API key, intended as the primary research engine for
 fantasy player data. This doc maps that key onto the four places it fills gaps already
 on record in this repo, before any of the four gets built.
@@ -231,7 +238,7 @@ standard as §1 — real data, real bug found and fixed, real write confirmed.
 
 ---
 
-## 3. Phase B value-board projections — unblocks a stalled feature ✅ BUILT 2026-08-10 (not live-verified)
+## 3. Phase B value-board projections — unblocks a stalled feature ✅ BUILT 2026-08-10, LIVE-VERIFIED + BUG FIXED 2026-08-10
 
 The value board's "sharp" version (market-derived `proj_ppr`, not history-regression) is
 Phase B in the spec, and it's been blocked since 2026-07-16 on sourcing real season-long
@@ -300,12 +307,24 @@ never touching Phase A's default filenames, so the existing Fantasy tab keeps wo
 unchanged. New `buildBoardFromProjections()` mirrors `buildBoard()`'s ADP-join/rank/tier
 logic exactly, minus the regression math (a FantasyPros row's `proj_points` comes
 straight from the table, no `posMean`/`K` needed). Unit-tested (`tests/unit/
-fantasyProsProjections.test.js`, plain-node harness verified — `mapProjections()` against
-the §0-confirmed field shape, `buildBoardFromProjections()` against a hand-built ADP/proj
-fixture, both passing). **Not live-verified** — same sandbox network limitation as §4,
-see the status line at the top of this doc. No UI reads the `-fantasypros` file yet; it
-exists for CLI/comparison use today (a source-toggle on the Value Board panel would be
-the natural next step if Andy wants to compare Phase A vs FantasyPros side by side).
+fantasyProsProjections.test.js`, plain-node harness verified — `buildBoardFromProjections()`
+against a hand-built ADP/proj fixture, passing).
+
+**Live-verified 2026-08-10 — and a real bug found and fixed.** Andy ran
+`npm run ingest-fantasypros-projections:dry` natively: **0/84 rows mapped for every
+position, no error thrown.** A raw-vs-mapped diagnostic dump (same technique used to
+verify §4) showed why: the real response nests every stat/points field under a `stats`
+sub-object (`player.stats.points`, `player.stats.rush_att`, ...) rather than flat on the
+player object — `mapProjections()` had assumed the same flat shape as the confirmed §0/§1/
+§2 endpoints, which was wrong for this one. `fpid`/`name`/`position_id`/`team_id` were
+flat and correct. Also corrected two field names: `pass_ints` (not `pass_int`) and
+`fumbles` (not `fumbles_lost`). Fixed in `agents/lib/fantasypros-projections.js`;
+`tests/unit/fantasyProsProjections.test.js` now carries the real captured Josh Allen
+payload as a byte-faithful regression fixture specifically to catch a repeat of this.
+**No UI reads the `-fantasypros` file yet** — it exists for CLI/comparison use today (a
+source-toggle on the Value Board panel would be the natural next step if Andy wants to
+compare Phase A vs FantasyPros side by side). An actual Supabase write (non-dry-run) is
+still untested.
 
 ---
 
