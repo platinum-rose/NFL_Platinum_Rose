@@ -423,9 +423,9 @@ function CitationDrawer({ team, filterMarket = null }) {
     return filterMarket ? all.filter(c => c.market === filterMarket) : all;
   }, [team, filterMarket]);
 
-  if (citations.length === 0) return null;
-
-  // Group by market slot
+  // Group by market slot — must run unconditionally, before the early
+  // return below, so this hook's order never changes across renders
+  // (react-hooks/rules-of-hooks).
   const grouped = useMemo(() => {
     const map = {};
     for (const c of citations) {
@@ -434,6 +434,8 @@ function CitationDrawer({ team, filterMarket = null }) {
     }
     return map;
   }, [citations]);
+
+  if (citations.length === 0) return null;
 
   const MARKET_LABELS = {
     superbowl: '🏆 Super Bowl', conference: '🏈 Conference', division: '🎯 Division',

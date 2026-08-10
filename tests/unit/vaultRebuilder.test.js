@@ -8,6 +8,7 @@ import {
   renderWeeklyConsensus,
   renderFuturesMarket,
   renderPlayerProp,
+  renderPickPerformance,
   pickOneLiner,
 } from '../../agents/lib/vaultRebuilderRenderers.js';
 import {
@@ -155,6 +156,37 @@ describe('renderExpertLeaderboard', () => {
     expect(body).toContain('| Rank |');
     expect(body).toContain('[Warren Sharp](../Experts/warren-sharp.md)');
     expect(body).toContain('[Sharon Lee](../Experts/sharon-lee.md)');
+  });
+});
+
+describe('renderPickPerformance', () => {
+  it('handles the empty-picks case', () => {
+    const body = renderPickPerformance({ picks: [], now: NOW });
+    expect(body).toContain('_No graded picks yet._');
+  });
+
+  it('tallies overall + per-type records and renders a recent-picks table', () => {
+    const picks = [
+      { id: 1, pick_type: 'spread', selection: 'KC -3.5', line: -3.5, result: 'WIN', source: 'manual', game_date: '2026-09-10', created_at: '2026-09-10T00:00:00Z', home: 'KC', visitor: 'BUF' },
+      { id: 2, pick_type: 'spread', selection: 'BUF +3.5', line: 3.5, result: 'LOSS', source: 'manual', game_date: '2026-09-11', created_at: '2026-09-11T00:00:00Z', home: 'KC', visitor: 'BUF' },
+      { id: 3, pick_type: 'total', selection: 'OVER 47.5', line: 47.5, result: 'PUSH', source: 'podcast', game_date: '2026-09-12', created_at: '2026-09-12T00:00:00Z', home: 'DAL', visitor: 'PHI' },
+    ];
+    const body = renderPickPerformance({ picks, now: NOW });
+    expect(body).toContain('**Overall: 1-1-1** (50.0% win rate, 3 graded)');
+    expect(body).toContain('| spread | 1-1 | 50.0% |');
+    expect(body).toContain('| total | 0-0-1 | – |');
+    expect(body).toContain('| 2026-09-12 | PHI @ DAL | total | OVER 47.5 | +47.5 | PUSH | podcast |');
+    // Most-recent-first ordering.
+    expect(body.indexOf('2026-09-12')).toBeLessThan(body.indexOf('2026-09-11'));
+    expect(body.indexOf('2026-09-11')).toBeLessThan(body.indexOf('2026-09-10'));
+  });
+
+  it('falls back to "–" for missing matchup/line fields', () => {
+    const body = renderPickPerformance({
+      picks: [{ id: 1, pick_type: 'moneyline', selection: 'KC', result: 'WIN', created_at: '2026-09-10T00:00:00Z' }],
+      now: NOW,
+    });
+    expect(body).toContain('| 2026-09-10 | – | moneyline | KC | – | WIN | – |');
   });
 });
 

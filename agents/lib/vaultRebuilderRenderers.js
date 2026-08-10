@@ -185,6 +185,72 @@ export function renderExpertLedger({ expert, ledger, picks, now, maxRecent = 50 
   return lines.join('\n').trimEnd();
 }
 
+// ─── Pick Performance (user_picks ledger) ───────────────────────────────────
+
+/**
+ * Build the full Reference/PickPerformance.md body from graded `user_picks`
+ * rows. Kept intentionally compact (recent-picks table capped at
+ * RECENT_CAP) since loadReferenceNotes() concatenates every Reference/ note
+ * straight into the BETTING agent's system prompt.
+ *
+ * @param {object} args
+ * @param {Array<object>} args.picks  graded user_picks rows: {id, pick_type,
+ *   selection, line, result, is_home_team, source, game_date, created_at,
+ *   home, visitor}. Result is one of 'WIN'|'LOSS'|'PUSH' (PENDING rows
+ *   already filtered out by the caller's query).
+ * @param {string} args.now
+ */
+export function renderPickPerformance({ picks, now }) {
+  const RECENT_CAP = 50;
+  const lines = [`_Auto-updated: ${now}_`, ''];
+  if (!picks || picks.length === 0) {
+    lines.push('_No graded picks yet._');
+    return lines.join('\n').trimEnd();
+  }
+
+  const overall = { wins: 0, losses: 0, pushes: 0 };
+  const byType = {};
+  for (const p of picks) {
+    const key = p.pick_type || 'other';
+    const bucket = byType[key] || (byType[key] = { wins: 0, losses: 0, pushes: 0 });
+    if (p.result === 'WIN') { overall.wins++; bucket.wins++; }
+    else if (p.result === 'LOSS') { overall.losses++; bucket.losses++; }
+    else if (p.result === 'PUSH') { overall.pushes++; bucket.pushes++; }
+  }
+  const wlt = (r) => `${r.wins}-${r.losses}${r.pushes ? `-${r.pushes}` : ''}`;
+  const winRate = (r) => {
+    const decided = r.wins + r.losses;
+    return decided > 0 ? `${((r.wins / decided) * 100).toFixed(1)}%` : '–';
+  };
+
+  lines.push(`**Overall: ${wlt(overall)}** (${winRate(overall)} win rate, ${picks.length} graded)`);
+  lines.push('');
+  lines.push('| Type | Record | Win % |');
+  lines.push('|------|------|------|');
+  Object.entries(byType)
+    .sort((a, b) => (b[1].wins + b[1].losses) - (a[1].wins + a[1].losses))
+    .forEach(([type, r]) => {
+      lines.push(`| ${type} | ${wlt(r)} | ${winRate(r)} |`);
+    });
+
+  const sorted = [...picks].sort(
+    (a, b) => new Date(b.created_at || b.game_date || 0) - new Date(a.created_at || a.game_date || 0),
+  );
+  lines.push('');
+  lines.push(`**Most recent (up to ${RECENT_CAP}):**`);
+  lines.push('');
+  lines.push('| Date | Matchup | Type | Selection | Line | Result | Source |');
+  lines.push('|------|------|------|------|------|------|------|');
+  sorted.slice(0, RECENT_CAP).forEach((p) => {
+    const date = (p.game_date || p.created_at || '').slice(0, 10);
+    const matchup = (p.home || p.visitor) ? `${p.visitor || '?'} @ ${p.home || '?'}` : '–';
+    const line = p.line != null ? fmtLine(p.line) : '–';
+    lines.push(`| ${date} | ${matchup} | ${p.pick_type || '–'} | ${p.selection || '–'} | ${line} | ${p.result || '–'} | ${p.source || '–'} |`);
+  });
+
+  return lines.join('\n').trimEnd();
+}
+
 /**
  * Build the full Reference/ExpertLeaderboard.md auto body.
  *

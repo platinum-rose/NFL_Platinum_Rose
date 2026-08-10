@@ -63,6 +63,7 @@ import {
   renderWeeklyConsensus,
   renderFuturesMarket,
   renderPlayerProp,
+  renderPickPerformance,
   SECTION_VERSION,
 } from './lib/vaultRebuilderRenderers.js';
 import { ensureVaultFrontmatter } from './lib/vaultFrontmatter.js';
@@ -379,7 +380,7 @@ async function main() {
         .limit(500);
       if (upErr) throw new Error(`fetch user_picks: ${upErr.message}`);
 
-      const ppContent = buildPickPerformanceMd(userPickRows || [], now);
+      const ppContent = renderPickPerformance({ picks: userPickRows || [], now });
       const existing  = await readVaultNote(supabase, ppPath);
       if (ppContent !== existing) {
         if (!DRY_RUN) await writeVaultNote(supabase, ppPath, ppContent);
