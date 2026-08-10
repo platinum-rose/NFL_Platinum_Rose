@@ -16,7 +16,7 @@ import { createClient } from '@supabase/supabase-js';
 import { writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import 'dotenv/config';
-import { yget, deepCollect, collectionItems, findAll } from '../src/lib/yahoo.js';
+import { yget, deepCollect, collectionItems, findAll } from './lib/yahoo.js';
 
 const argv = process.argv.slice(2);
 const getArg = (f, d) => { const i = argv.indexOf(f); return i >= 0 ? argv[i + 1] : d; };

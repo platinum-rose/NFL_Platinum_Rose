@@ -11,7 +11,7 @@ Sports API (OAuth2). It pulls two things:
    value board runs in *your* league's format.
 
 No third-party service or connector is involved — it's a small native client in
-this repo (`src/lib/yahoo.js`).
+this repo (`agents/lib/yahoo.js`).
 
 ---
 

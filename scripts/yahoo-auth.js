@@ -8,7 +8,7 @@
 // ═══════════════════════════════════════════════════════════════════════════════
 import readline from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';
-import { authorizeUrl, exchangeCode, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, TOKENS_PATH } from '../src/lib/yahoo.js';
+import { authorizeUrl, exchangeCode, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, TOKENS_PATH } from '../agents/lib/yahoo.js';
 
 if (!CLIENT_ID || !CLIENT_SECRET) {
   console.error('✖ Set YAHOO_CLIENT_ID and YAHOO_CLIENT_SECRET in .env first.');
