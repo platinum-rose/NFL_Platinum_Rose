@@ -630,7 +630,7 @@ export function matchExpertId(rawName, expertList = EXPERTS) {
  * INITIAL_EXPERTS format (for components expecting the old format)
  * Strips internal fields for backward compatibility
  */
-export const INITIAL_EXPERTS = EXPERTS.map(({ aliases, isShow, sourceType, ingestStatus, note, ...rest }) => rest);
+export const INITIAL_EXPERTS = EXPERTS.map(({ aliases: _aliases, isShow: _isShow, sourceType: _sourceType, ingestStatus: _ingestStatus, note: _note, ...rest }) => rest);
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // EXPORTS SUMMARY

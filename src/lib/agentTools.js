@@ -40,7 +40,7 @@ import {
   getGameSplitsHistory,
   getPodcastGeminiIntel,
 } from './supabase.js';
-import { readVaultNote, writeVaultNote, listVaultNotes, todaySessionPath } from './vaultClient.js';
+import { readVaultNote, writeVaultNote, listVaultNotes } from './vaultClient.js';
 import {
   addPick,
   addParlay,

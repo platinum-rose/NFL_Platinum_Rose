@@ -2,7 +2,6 @@
 // NFL Injury tracking and data fetching
 
 import logger from './logger';
-import { normalizeTeam } from './teams.js';
 import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS } from './storage.js';
 
 // Try multiple ESPN API endpoints for injury data
@@ -87,7 +86,7 @@ const _fetchTeamInjuriesWithSource = async (teamAbbrev) => {
             logger.log(`✅ Live injuries for ${teamAbbrev}: ${injuries.length} players`);
             return { injuries, isMock: false };
 
-        } catch (error) {
+        } catch (_error) {
             if (i === 0) logger.log(`🏥 ESPN API error for ${teamAbbrev}, trying alternatives...`);
             continue; // Try next API
         }

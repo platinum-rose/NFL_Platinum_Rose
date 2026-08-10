@@ -51,7 +51,6 @@ const SPORTSBOOKS = {
 
 // Store for line movement tracking
 let lineHistory = new Map();
-let lastFetch = null;
 
 export const fetchMultiBookOdds = async () => {
   if (!ODDS_PROXY_URL) {
@@ -182,8 +181,6 @@ const trackLineMovements = (currentData) => {
       timestamp: now
     });
   });
-
-  lastFetch = now;
 };
 
 const detectLineMovement = (gameKey, bookKey, prevData, currentData, timestamp) => {

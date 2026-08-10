@@ -22,7 +22,6 @@ export const parseBookmakerBet = (betText) => {
   };
 
   let currentLeg = null;
-  let parsingLeg = false;
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
@@ -81,8 +80,6 @@ export const parseBookmakerBet = (betText) => {
           }
         }
       }
-
-      parsingLeg = true;
     }
 
     // Parse game matchup
@@ -208,7 +205,7 @@ export const parseBetOnlineBet = (betText) => {
       if (nextLine) {
         try {
           result.placedDate = new Date(nextLine).toISOString();
-        } catch (e) {
+        } catch (_e) {
           result.placedDate = new Date().toISOString();
         }
       }
@@ -313,7 +310,7 @@ export const parseBetOnlineBet = (betText) => {
 };
 
 // DraftKings format parser (placeholder for future implementation)
-export const parseDraftKingsBet = (betText) => {
+export const parseDraftKingsBet = (_betText) => {
   // TODO: Implement DraftKings parser
   return {
     source: 'DraftKings',
@@ -322,7 +319,7 @@ export const parseDraftKingsBet = (betText) => {
 };
 
 // FanDuel format parser (placeholder for future implementation)
-export const parseFanDuelBet = (betText) => {
+export const parseFanDuelBet = (_betText) => {
   // TODO: Implement FanDuel parser
   return {
     source: 'FanDuel',

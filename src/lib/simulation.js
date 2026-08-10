@@ -172,6 +172,12 @@ export const runSimulation = (game, ratings, iterations = 10000) => {
         trueLine: parseFloat(((visTotalScore / iterations) - (homeTotalScore / iterations)).toFixed(1)),
         trueTotal: parseFloat((totalPointsAccum / iterations).toFixed(1)),
         homeWinProb: ((homeWins / iterations) * 100).toFixed(1),
-        edge: null 
+        // FIX (lint cleanup, 2026-08-10): pushes was computed every iteration
+        // but silently dropped from this return value -- no caller could ever
+        // see push probability even though it's tracked identically to
+        // homeWinProb above. Added the missing field rather than just
+        // deleting the unused `pushes` variable.
+        pushProb: ((pushes / iterations) * 100).toFixed(1),
+        edge: null
     };
 };

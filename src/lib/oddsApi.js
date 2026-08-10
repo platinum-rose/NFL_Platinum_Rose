@@ -2,22 +2,8 @@
 // Uses unified team database from teams.js
 
 import logger from './logger';
-import { TEAM_MAPPING, normalizeTeam, getDomeTeams, getTeamAbbreviation } from './teams.js';
+import { TEAM_MAPPING, normalizeTeam, getTeamAbbreviation } from './teams.js';
 import { ODDS_API, ODDS_PROXY_URL, SUPABASE_ANON_KEY } from './apiConfig.js';
-
-// Mock Weather Generator - Uses unified dome list from teams.js
-const getWeather = (homeTeam) => {
-    const domes = getDomeTeams();
-    const normalized = normalizeTeam(homeTeam);
-    if (normalized && domes.includes(normalized)) return "DOME";
-
-    const conditions = ["Clear", "Cloudy", "Rain", "Snow", "Windy"];
-    const temps = [20, 32, 45, 50, 55, 60, 65, 70];
-    const randTemp = temps[Math.floor(Math.random() * temps.length)];
-    const randCond = conditions[Math.floor(Math.random() * conditions.length)];
-
-    return `${randTemp}° ${randCond}`;
-};
 
 export const fetchLiveOdds = async () => {
     if (!ODDS_PROXY_URL) {

@@ -7,6 +7,15 @@
 
 import starterSnapshot from '../../data/projected-starters/2026/latest.json';
 import availabilityDigest from '../../data/player-availability/impact-digest-latest.json';
+// FLAGGED (lint cleanup, 2026-08-10, not fixed — needs Andy's call): this
+// module's own header comment promises "Prediction Market signals" as a
+// third overlay source alongside starterMap/availabilityMap below, but no
+// predictionMap was ever built from this import and getPlayerOverlay()'s
+// return value has no market-signal fields at all. Looks like the same
+// kind of half-wired-feature gap as the FantasyPros F-26c work found
+// elsewhere this session — left in place rather than deleting a real data
+// import or guessing at what the market-signal fields should be.
+// eslint-disable-next-line no-unused-vars
 import predictionSnapshot from '../../data/prediction-markets/latest.json';
 
 const starterMap = new Map();

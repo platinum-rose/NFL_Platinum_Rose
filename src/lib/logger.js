@@ -9,11 +9,8 @@
  */
 const isDev = import.meta.env.DEV;
 
-// eslint-disable-next-line no-console
 const log   = isDev ? (...a) => console.log(...a)   : () => {};
-// eslint-disable-next-line no-console
 const warn  = (...a) => console.warn(...a);
-// eslint-disable-next-line no-console
 const error = (...a) => console.error(...a);
 
 const logger = { log, warn, error };

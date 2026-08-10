@@ -203,7 +203,7 @@ function fromOpenAIAssistant(msg) {
  * Same signature as runAgentTurn — provider-transparent to the caller.
  */
 export async function runOpenAIAgentTurn({
-  apiKey, systemPrompt, messages, tools, model,
+  apiKey: _apiKey, systemPrompt, messages, tools, model,
   executeToolFn, onStep, signal,
 }) {
   const allMessages = [...messages];

@@ -171,8 +171,7 @@ export const parseActionNetworkSplits = (text) => {
     
     // Filter out diff percentage (the one with +/- sign in the text)
     const betMoneyPercentages = [];
-    let inPercentSection = false;
-    
+
     for (let i = 0; i < lines.length; i++) {
         const line = lines[i];
         

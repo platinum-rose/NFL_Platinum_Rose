@@ -6,7 +6,7 @@
 
 import sampleContracts from '../../data/prediction-markets/sample-nfl-contracts.json';
 import latestSnapshot from '../../data/prediction-markets/latest.json';
-import { calculateNetOdds, compareMarketOdds } from './predictionMarkets.js';
+import { calculateNetOdds } from './predictionMarkets.js';
 
 // Alias map to handle team code variations (e.g. KC vs KAN, SF vs SFO, GB vs GNB)
 const TEAM_ALIASES = {

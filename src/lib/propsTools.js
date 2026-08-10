@@ -582,7 +582,16 @@ function currentNflSeason() {
 
 // Resolve an nflverse player_id from a display name via player_stats (most recent
 // row wins). Returns null if not found — the grader then skips until backfilled.
-async function resolvePlayerId(name, season) {
+// FLAGGED (lint cleanup, 2026-08-10, not fixed — needs Andy's call): `season`
+// is accepted and passed through by the one real caller (syncPropToBankroll
+// below) but never used in the query itself, which just takes the most
+// recent player_stats row by name regardless of season. player_id is
+// normally stable across a player's career, so this is very likely
+// harmless in practice, but it's worth confirming whether a `.eq('season',
+// season)` filter was intended (e.g. to disambiguate two different players
+// who share a display name in different seasons) rather than silently
+// dropping the parameter.
+async function resolvePlayerId(name, _season) {
   if (!name || !isAvailable()) return null;
   try {
     const { data } = await supabase

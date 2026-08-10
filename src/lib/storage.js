@@ -257,7 +257,7 @@ export const importAppData = (snapshot) => {
  */
 export const getStorageDiagnostics = () => {
   const rows = [];
-  for (const [name, entry] of Object.entries(PR_STORAGE_KEYS)) {
+  for (const [_name, entry] of Object.entries(PR_STORAGE_KEYS)) {
     const raw = localStorage.getItem(entry.key);
     const bytes = raw ? new Blob([raw]).size : 0;
     let count = '—';
