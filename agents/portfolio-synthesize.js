@@ -594,7 +594,7 @@ const edgePctFromFair = (fairProb, price) => (fairProb == null || price == null)
 function resolvePath(obj, pathStr) {
   if (obj == null || !pathStr) return undefined;
   const parts = String(pathStr).split('.').flatMap((seg) => {
-    const m = seg.match(/^([^\[]+)(\[(\d+)\])?$/);
+    const m = seg.match(/^([^[]+)(\[(\d+)\])?$/);
     if (!m) return [seg];
     return m[3] != null ? [m[1], Number(m[3])] : [m[1]];
   });
@@ -1201,79 +1201,12 @@ function quoteStatusFor(row, book) {
   };
 }
 
-function validateRecommendation(candidate, dossier) {
-  const notes = [];
-  const row = findDossierRow(dossier, candidate);
-  if (!row) {
-    return { status: 'invalid', candidate, reason: `No dossier row found for market="${candidate.market}" selection="${candidate.selection}" — cannot verify this pick against real data.` };
-  }
-
-  const isWinsRow = row.consensus_line != null;
-  const side = isWinsRow ? sideOfSelection(candidate.selection) : null;
-  let expectedBook = null, expectedPrice = null;
-  if (isWinsRow) {
-    if (side === 'under') { expectedBook = row.best_under_book; expectedPrice = row.best_under; }
-    else if (side === 'over') { expectedBook = row.best_over_book; expectedPrice = row.best_over; }
-    else notes.push('could not determine over/under side from selection text — book/price not checked against a specific side.');
-  } else {
-    expectedBook = row.best_book; expectedPrice = row.best_price;
-  }
-
-  // book check — hard-invalid on mismatch (only when there's an expected book to check)
-  if (expectedBook && candidate.book && candidate.book.toLowerCase() !== expectedBook.toLowerCase()) {
-    return { status: 'invalid', candidate, reason: `Cited book "${candidate.book}" does not match the dossier's placeable best-price book "${expectedBook}" for ${candidate.selection} (${candidate.market}).` };
-  }
-
-  // price check — hard-invalid if materially off (fabricated or stale price)
-  if (expectedPrice != null && candidate.price != null) {
-    const dp1 = decimalPayout(candidate.price), dp2 = decimalPayout(expectedPrice);
-    if (dp1 != null && dp2 != null && Math.abs(dp1 - dp2) / dp2 > PRICE_TOLERANCE) {
-      return { status: 'invalid', candidate, reason: `Cited price ${candidate.price} does not match the dossier's price ${expectedPrice} at ${expectedBook} for ${candidate.selection} (>${PRICE_TOLERANCE * 100}% off) — likely stale or fabricated.` };
-    }
-  }
-
-  // recompute edge_pct — code owns the math, never the model's self-reported figure
-  const next = { ...candidate };
-  next.display_team = row.team_nick || row.team || row.team_a || normalizeTeam(candidate.selection) || candidate.selection;
-  if (candidate.model_fair_prob != null && candidate.price != null) {
-    const recomputed = edgePctFromFair(candidate.model_fair_prob, candidate.price);
-    if (recomputed != null) {
-      if (candidate.edge_pct != null && Math.abs(recomputed - candidate.edge_pct) > 2) {
-        notes.push(`edge_pct recomputed from model_fair_prob/price: ${recomputed}% (model reported ${candidate.edge_pct}%) — using code-verified figure.`);
-      }
-      next.edge_pct = recomputed;
-    }
-  }
-
-  // evidence check — attach resolution for rendering regardless of outcome
-  // (merge the row's team profile in first — see evidenceRowFor's comment)
-  const evidenceResolved = resolveEvidenceIds(candidate.evidence_ids, evidenceRowFor(dossier, row));
-  next.evidence_resolved = evidenceResolved;
-  let needsReview = !!candidate.needs_human_review;
-  if (candidate.evidence_ids?.length && !evidenceResolved.some((e) => e.resolved)) {
-    notes.push('none of the cited evidence_ids resolved against the matched dossier row — citations may be fabricated or mis-keyed.');
-    needsReview = true;
-  }
-
-  // math edge_type support check — downgrade to thesis if the dossier's own
-  // edge fields don't back a pure math claim
-  if (candidate.edge_type === 'math') {
-    const support = isWinsRow
-      ? (side === 'under' ? Math.abs(row.best_under_edge_pct ?? 0)
-        : side === 'over' ? Math.abs(row.best_over_edge_pct ?? 0)
-        : Math.max(Math.abs(row.best_over_edge_pct ?? 0), Math.abs(row.best_under_edge_pct ?? 0)))
-      : Math.abs((row.value_gap ?? row.book_divergence ?? 0) * 100);
-    if (support < MATH_EDGE_MIN_PCT) {
-      notes.push(`edge_type downgraded math→thesis: dossier's own edge fields (${round(support, 2)}%) don't support a pure math edge — treat as thesis-driven if kept.`);
-      next.edge_type = 'thesis';
-      needsReview = true;
-    }
-  }
-
-  next.needs_human_review = needsReview;
-  if (notes.length) next.validation_notes = notes;
-  return { status: notes.length ? 'flagged' : 'ok', candidate: next };
-}
+// NOTE (lint cleanup, 2026-08-10): the original validateRecommendation(candidate, dossier)
+// implementation lived here. It was fully superseded by validateRecommendationStrict()
+// below (the only one actually called, at the `final.map((c) => validateRecommendationStrict(...))`
+// site) and had zero remaining callers or exports — removed as dead code rather than
+// prefixed, per docs/LINT_CLEANUP_BACKLOG_2026-08-09.md's UNUSED-VARS guidance. See git
+// history for the original body if it's ever needed for reference.
 
 // ── Hedge-basket / parlay-ladder math (2026-07-22, Andy's own portfolio-
 // construction strategy — not a Codex finding). Same "code owns math" rule as
@@ -1902,7 +1835,6 @@ function buildPortfolioStrategy({ primary, baskets, ladders, rawStrategies, scen
 // Applies each verdict onto its candidate by key; kills go to a separate list
 // (with the reason) instead of silently disappearing.
 function applySkepticVerdicts(candidates, verdicts) {
-  const byKey = new Map(candidates.map((c) => [c.key, c]));
   const vByKey = new Map((verdicts || []).map((v) => [v.key, v]));
   const survivors = [], killed = [];
   for (const c of candidates) {
@@ -2365,7 +2297,6 @@ function watchlistReviewHTML(review = []) {
 
 function renderHTML(ranked, passed, killed, byModel, meta, ladders = [], baskets = [], portfolioStrategy = null, watchlistReview = []) {
   const names = modelNames(byModel);
-  const section = (title, list, empty) => `<h2>${esc(title)} (${list.length})</h2>${list.length ? list.map(recCard).join('') : `<p>${esc(empty)}</p>`}`;
   const watch = names.flatMap((n) => (byModel[n].watch || []).map((w) => `<li><b>${esc(humanizeMarketRefs(w.selection))}</b> <span class="mk">${esc(labelMarket(w.market))}</span> — ${esc(humanizeMarketRefs(w.why))} <i>(${esc(n)})</i></li>`)).join('');
   const passList = [...killed, ...passed].map((p) => `<li><b>${esc(humanizeMarketRefs(p.selection))}</b> <span class="mk">${esc(labelMarket(p.market))}</span> — ${esc(humanizeMarketRefs(p.reason))} <i>(${esc(p.stage)})</i></li>`).join('');
   const notes = names.map((n) => `<p><b>${esc(n)}:</b> ${esc(byModel[n].portfolio_notes)}</p>`).join('');
@@ -2516,13 +2447,6 @@ function teamSectionsMD(recs = [], line) {
 function renderMD(ranked, passed, killed, byModel, meta, ladders = [], baskets = [], portfolioStrategy = null, watchlistReview = []) {
   const names = modelNames(byModel);
   const line = (r) => `- **${r.selection}** · ${labelMarket(r.market)} · ${labelType(r.type)} · ${labelEdgeType(r.edge_type)}${r.needs_human_review ? ' · Needs Review' : ''}${r.validation?.length ? ' · 🚫 BOARD VALIDATOR FLAG' : ''}\n  - Quote: ${r.price}@${r.book} · ${labelStakeTier(r.stake_tier)} · Confidence ${r.confidence}\n  - Fair probability: ${percent(r.model_fair_prob) || r.model_fair_prob} · Estimated edge: ${r.edge_pct}%${r.agreement ? ` · Models: ${r.agreement.count} of ${r.agreement.of}` : ''}${r.bet_threshold ? ` · Play only at: ${r.bet_threshold}` : ''}\n  - Source quality: ${sourceQuality(r).label}\n${r.market_view ? `  - Market: ${r.market_view}\n` : ''}${r.football_view ? `  - Football: ${r.football_view}\n` : ''}  - ${r.thesis}\n  - ⚠ ${r.disconfirming_factor}${r.validation?.length ? `\n  - 🚫 Board validator: ${r.validation.join(' · ')}` : ''}${r.skeptic_note ? `\n  - 🕵 Skeptic (${r.skeptic_verdict}): ${r.skeptic_note}` : ''}${r.risk_note ? `\n  - ⚖ Risk: ${r.risk_note}` : ''}${r.evidence_resolved?.length ? `\n  - 🔗 ${r.evidence_resolved.map((e) => `${e.id}${e.resolved ? `=${JSON.stringify(e.value)}` : ' (unresolved)'}`).join(', ')}` : (r.evidence_ids?.length ? `\n  - 🔗 ${r.evidence_ids.join(', ')} (unresolved — no dossier row match)` : '')}${r.sources?.length ? `\n  - 📣 sources: ${r.sources.join(', ')}` : ''}\n  - timing: **${r.timing?.action}**${r.timing?.trigger ? ` — ${r.timing.trigger}` : ''}${r.timing?.expected_move ? ` (${r.timing.expected_move})` : ''}`;
-  const section = (title, list) => {
-    const L = [`## ${title} (${list.length})`];
-    if (!list.length) L.push('None.');
-    for (const r of list) L.push(`${line(r)}${simulationBlockMD(r)}${signalBlockMD(r.dossier_signals)}`);
-    L.push('');
-    return L;
-  };
   const L = [`# NFL Futures Portfolio (Analyst Committee) — ${meta.date}`, '', `Models: ${names.join(' + ')} · season ${meta.season}`, '',
     '> Decision support only — proposals for review, not instructions to bet.', '',
     '## How to read a pick card',

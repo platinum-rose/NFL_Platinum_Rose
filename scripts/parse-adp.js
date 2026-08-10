@@ -84,7 +84,7 @@ function splitPos(raw) {
   return m ? { position: m[1], rank: m[2] ? parseInt(m[2], 10) : null } : { position: null, rank: null };
 }
 const nameKey = (s) => (s || '').toLowerCase().replace(/[.'`]/g, '').replace(/\b(jr|sr|ii|iii|iv|v)\b/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
-const num = (v) => { if (v == null || v === '') return null; const n = Number(String(v).replace(/[^0-9.\-]/g, '')); return Number.isFinite(n) ? n : null; };
+const num = (v) => { if (v == null || v === '') return null; const n = Number(String(v).replace(/[^0-9.-]/g, '')); return Number.isFinite(n) ? n : null; };
 
 async function resolveIds(records) {
   if (!sb) return records;

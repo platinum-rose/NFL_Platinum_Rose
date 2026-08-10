@@ -34,7 +34,9 @@ async function main() {
   let citationsData = { citations: [] };
   try {
     citationsData = JSON.parse(await readFile(CITATIONS_FILE, 'utf8'));
-  } catch {}
+  } catch {
+    // intentionally empty — keep the default (no citations) if the file is missing/unparseable
+  }
 
   const citations = citationsData.citations || [];
   const teamSentiment = {};

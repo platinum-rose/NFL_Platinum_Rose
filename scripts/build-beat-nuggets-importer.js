@@ -85,7 +85,9 @@ async function main() {
   let campSnapshot = { meta: {}, teams: {} };
   try {
     campSnapshot = JSON.parse(await readFile(CAMP_FILE, 'utf8'));
-  } catch {}
+  } catch {
+    // intentionally empty — keep the default snapshot if the file is missing/unparseable
+  }
 
   const output = {
     meta: {

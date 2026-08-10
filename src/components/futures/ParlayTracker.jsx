@@ -96,9 +96,13 @@ export default function ParlayTracker({ onSendToHedge }) {
   }, [refreshKey]);
 
   // ── Form derived ───────────────────────────────────────────────────────────
-  const fValidLegs = fLegs.filter(
+  // Memoized (not just filtered inline) so it has a stable reference across
+  // renders when fLegs hasn't changed — handleSaveParlay's useCallback below
+  // depends on it, and a fresh array every render would defeat that
+  // memoization entirely (react-hooks/preserve-manual-memoization).
+  const fValidLegs = useMemo(() => fLegs.filter(
     l => l.description.trim() && l.odds !== '' && !isNaN(Number(l.odds)) && Math.abs(Number(l.odds)) >= 100,
-  );
+  ), [fLegs]);
   const fTotalOdds = fValidLegs.length >= 2
     ? computeParlayOdds(fValidLegs.map(l => ({ ...l, odds: Number(l.odds), result: LEG_RESULT.PENDING })))
     : null;
