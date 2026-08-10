@@ -4,13 +4,28 @@
 
 **Date:** 2026-08-10 UTC / 2026-08-09 Pacific
 **Branch:** main
-**HEAD observed:** `7d02d92` (NOT pushed — no `credential.helper` configured for this repo's remote; push is Andy's own action)
+**HEAD observed:** `54ebfcf` (committed, NOT pushed — push is Andy's own action / explicit request)
 **Latest timestamped handoff:** none written this session — see Pick Up Here below.
-**Status:** FantasyPros API integration (F-26c) built and live-verified for parts 1-2 (ADP, weekly/draft rankings). Part 3 (projections) and part 4 (injuries/availability) scoped only, not built. Working tree clean except one pre-existing unrelated untracked file (`docs/antigravity/recovery/youtube-qoCm4G2Jmng-contested-datapoints-review.md`, not from this session, left alone deliberately).
+**Status:** FantasyPros API integration (F-26c) — all four parts now code-complete. Parts 1-2 (ADP, weekly/draft rankings) built AND live-verified. Part 2's React UI, Part 3 (projections), and Part 4 (injuries/availability) built 2026-08-10 but NOT live-verified — Cowork sandbox confirmed unable to make any outbound network call at all. Needs a native run on Andy's machine to close the loop. Working tree clean except one pre-existing unrelated untracked file (`docs/antigravity/recovery/youtube-qoCm4G2Jmng-contested-datapoints-review.md`, not from this session, left alone deliberately).
 
 ---
 
-## Pick Up Here (2026-08-09/10, Cowork session)
+## Pick Up Here (2026-08-10 continuation, Cowork session)
+
+**FantasyPros API integration (F-26c) — parts 2 (UI), 3 (projections), 4 (injuries) all built, none live-verified:**
+
+- **§2 UI**: `src/components/fantasy/FantasyRankingsPanel.jsx` — new "Weekly Rankings" view toggled inside the existing Fantasy tab (`FantasyValueBoard.jsx` now has a Value Board / Weekly Rankings segmented control; no `App.jsx`/`Header` changes needed). Reads `fantasy_rankings` **directly via Supabase's public-read RLS**, not a generated JSON file — new `getFantasyRankings()`/`getFantasyRankingsAvailableWeeks()` in `src/lib/supabase.js`.
+- **§3 projections**: migration `047_fantasy_projections.sql`, `agents/lib/fantasypros-projections.js` (`mapProjections`/`dedupeProjections`, unit-tested), `agents/fantasypros-projections-ingest.js` (`npm run ingest-fantasypros-projections` / `:dry`), and a `--source fantasypros` flag on `agents/fantasy-value-report.js` (`npm run report:fantasy:fantasypros`, new `buildBoardFromProjections()`) — writes to its own `-fantasypros`-suffixed files, alongside Phase A rather than replacing it. Field mapping reuses the §0-confirmed live shape (`points`/`points_ppr`/`points_half`/`rush_*`/`rec_*`/`fpid`/`name`).
+- **§4 injuries**: `fetchFantasyProsInjuries()` + `agents/lib/fantasypros-injuries.js` added to `scripts/build-player-availability.js` (`--live-fantasypros-injuries`, `npm run availability:fantasypros:dry`), feeding the same `buildAvailabilitySnapshot()` call ESPN already uses — no cross-source dedupe added (kept as independent corroboration, per the scope doc's resolved §6 Q7). `probability_of_playing`/`practice_1-3` now carry through as optional fields on the availability event shape (`agents/lib/player-availability.js`). **§4's exact `/nfl/injuries` field names are NOT live-confirmed** — the scope doc only gives mapping arrows, not the raw player/team/position field names, and every other FantasyPros endpoint in this repo uses different names for the same concepts. Built with defensive multi-name fallback chains instead of guessing one shape — see the file header in `agents/lib/fantasypros-injuries.js` before trusting this live.
+- **Bug found + fixed along the way**: `scripts/build-player-availability.js` never loaded `dotenv` (never needed it before — ESPN's feed takes no key), so `FANTASYPROS_API_KEY` silently never reached it even with a real key sitting in `.env`. Fixed with `import 'dotenv/config'`.
+- **Verification done this session**: `node --check`/`esbuild` syntax-clean on every touched/new file; plain-node harness assertions (manual `assert()`, mirrors the `describe`/`it` blocks in the real `vitest` test files) passing for `fantasyProsInjuries.test.js`, `fantasyProsProjections.test.js`, and `buildBoardFromProjections()` — `vitest run` itself still hangs in this sandbox.
+- **Verification NOT done, and can't be from here**: any live API/Supabase call. Confirmed live this session (`node -e "fetch(...)"` against the real FantasyPros endpoint) that this Cowork sandbox cannot make outbound network calls at all — same root cause already documented as `TASK_BOARD F-31`, now independently reconfirmed. **§3/§4 need a native run on Andy's machine** (`npm run ingest-fantasypros-projections:dry`, `npm run availability:fantasypros:dry`) before they're trusted the way §1/§2 already are — §4 especially, since its field-name guesses could be wrong.
+- Docs updated in place: `docs/FANTASYPROS_API_INTEGRATION_SCOPE_2026-08-09.md` (status header + §2/§3/§4 build summaries), `TASK_BOARD.md` (F-26c entry).
+- **Commit `54ebfcf`, NOT pushed this session** — sits on top of `4fd9438`/`91a4c8a`/`7d02d92`/`f9baff6`/`7f80409`/`090bc16`, which WERE pushed earlier this same session (`2d6ed63..090bc16` on `origin/main`) once a persistent `.github_push_token` credential was set up (see ATLAS's own handoff for the cross-repo S321-option-3 credential-policy change that unblocked that push). This newest commit is local-only until Andy asks for it to be pushed.
+
+---
+
+## Prior Session (2026-08-09/10, Cowork session)
 
 **FantasyPros API integration (F-26c) — parts 1-2 built and live-verified end-to-end:**
 

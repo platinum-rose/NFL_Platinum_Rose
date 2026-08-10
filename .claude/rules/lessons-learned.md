@@ -96,3 +96,47 @@ For shows with rotating casts, use `rapidfuzz` against `experts.js` aliases over
 
 ### M6 hardware confirmed 2026-06-29
 AMD Ryzen 5 7640HS, 12 cores, 24 GB RAM, CPU-only. Peak podcast pipeline memory ~12-14 GB — fits in 22 GB available. Radeon 760M is integrated; do not attempt ROCm. Stored in `.nfl/memory.json` under `infrastructure.m6`.
+
+---
+
+## S325 (2026-08-10 continuation) — FantasyPros §2 UI / §3 projections / §4 injuries
+
+### This Cowork sandbox cannot make ANY outbound network call — confirmed independently of F-31
+`node -e "fetch('https://api.fantasypros.com/...')"` returned a bare `fetch failed` with no
+further detail, for a plain `fetch()` call made directly (not through any agent/CLI wrapper).
+This matches TASK_BOARD F-31's finding ("Node's fetch/dns don't route through the sandbox's
+mandatory proxy that curl uses automatically") but was reconfirmed fresh, from a different
+angle, rather than assumed from that entry's text. **Rule: before claiming a script is
+"live-verified" in a Cowork session, actually run a live call and look at the result — don't
+infer "should work" from the code looking correct.** Everything built this session (§3
+projections, §4 injuries, plus the §2 React UI's fallback-to-empty-state paths) was verified
+via `node --check`/`esbuild` syntax checks and plain-node harness logic tests only; real
+live/Supabase verification is explicitly flagged as outstanding, not silently assumed done.
+
+### A script that "never needed env vars before" can silently break when a new code path does
+`scripts/build-player-availability.js` had no `import 'dotenv/config'` — harmless for years
+because its only live source (ESPN's injuries feed) takes no API key. Adding a second source
+(FantasyPros, which does need `FANTASYPROS_API_KEY`) silently failed with "Missing
+FANTASYPROS_API_KEY" even though the real key was sitting in `.env`, because nothing had ever
+loaded `.env` into `process.env` in that file. Caught by actually running the new flag
+(`--live-fantasypros-injuries --dry-run`) rather than trusting that "the ingest scripts already
+load dotenv, so it must be fine here too" — this file wasn't one of the ingest scripts.
+**Rule: when adding a new external-API code path to a script that previously had none, verify
+the script itself loads its env vars — don't assume a sibling script's `dotenv` import means
+env vars are available repo-wide.**
+
+### When a scope doc gives mapping arrows but not raw field names, don't guess one shape and hardcode it
+The FantasyPros API integration doc specifies §4's mapping *intent* (`injury_status ← status`,
+`short_comment ← comment`, `reported_at ← injury_update_date`) but not the endpoint's exact raw
+player/team/position field names — and this repo's own §1-§2 build already proved every
+FantasyPros endpoint uses *different* field names for the same concept (`/nfl/players`:
+`player_name`/`position_id`/`team_id`; `/consensus-rankings`: `player_name`/
+`player_position_id`/`player_team_id`). With no way to make a live call from this sandbox to
+check, `agents/lib/fantasypros-injuries.js` was written with a `firstDefined()` fallback-chain
+helper checking several plausible field names per value, instead of picking one guess and
+hardcoding it -- plus a prominent file-header comment flagging exactly what's unconfirmed and
+what command to run natively to confirm/correct it. **Rule: when a spec describes a mapping's
+*intent* but the exact source field names are unconfirmed and can't be verified live, write the
+mapper defensively (multiple plausible field names per value) and document the uncertainty
+loudly in the file itself -- don't silently pick one guess as if it were confirmed, and don't
+block the whole build waiting for a live check that isn't available in the current environment.**
