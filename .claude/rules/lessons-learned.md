@@ -140,3 +140,21 @@ what command to run natively to confirm/correct it. **Rule: when a spec describe
 mapper defensively (multiple plausible field names per value) and document the uncertainty
 loudly in the file itself -- don't silently pick one guess as if it were confirmed, and don't
 block the whole build waiting for a live check that isn't available in the current environment.**
+
+### S325 addendum, same day: a live "0 rows, no error" result is itself a diagnostic signal, not a dead end
+`§3`'s first live dry-run (`ingest-fantasypros-projections:dry`) mapped 0/84 rows across
+every position with zero errors thrown — easy to misread as "the API returned nothing" or
+"bad key/plan" (the script's own error message even suggested checking plan/tier). The
+real cause was structural, not data-availability: `/nfl/{season}/projections` nests every
+stat/points field under a `stats` sub-object (`player.stats.points`), while the mapper
+assumed the same flat shape already confirmed live for 3 *other* FantasyPros endpoints
+(`/nfl/players`, `/consensus-rankings`, and even `/nfl/injuries` earlier this same
+session). The exact same raw-vs-mapped diagnostic dump technique used to confirm §4 (fetch
+the real endpoint, `console.log` both the raw response and the mapper's output side by
+side) found this in one shot. **Rule: when a live run of a newly-built ingest returns zero
+rows with no thrown error, don't trust the error message's own guess at the cause (plan
+tier, missing data, etc.) — get a raw-vs-mapped diagnostic dump before assuming anything,
+the same way you would for a crash.** A silent empty result is exactly as diagnosable as a
+loud failure if you go look at the actual payload; the previously-confirmed shape of
+*sibling* endpoints on the same API is not evidence for this endpoint's shape, even from
+the same vendor, even same day.
