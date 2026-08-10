@@ -141,7 +141,7 @@ async function run() {
   // agents/lib/fantasypros-projections.js's dedupeProjections() for why.
   let dupeCount = 0;
   const deduped = dedupeProjections(allRecords, {
-    onDuplicate: (key, [a, b]) => {
+    onDuplicate: (key, [a, _b]) => {
       dupeCount += 1;
       console.warn(`   ⚠ duplicate key collapsed: ${a.player} (${a.position})`);
     },

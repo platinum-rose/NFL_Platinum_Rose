@@ -601,6 +601,20 @@ function buildMovers(grouped) {
   return movers.sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta)).slice(0, 25);
 }
 
+// FLAGGED (lint cleanup, 2026-08-10, not fixed — needs Andy's call, not a
+// mechanical lint fix): this function is fully built but has zero callers.
+// buildValueSpots() below reads `s.sourceLinks` when merging spread spots by
+// team (`sourceLinks: s.sourceLinks` in the spreadByTeam construction) but
+// nothing ever assigns `sourceLinks` onto a spot object — this looks like the
+// wiring that was meant to populate it (a call to valueSpotSourceLinks() per
+// spot) was never added. buildValueSpots's own `notes` parameter is real data
+// threaded all the way from the caller (`buildValueSpots(grouped, notes,
+// signals)`) but is otherwise unused inside the function, which is
+// consistent with the same gap. Left as-is rather than either deleting a
+// real, non-trivial feature or silently wiring it up inside a lint-cleanup
+// pass on this FUTURES_REPORT_SPEC-governed file — see docs/LINT_CLEANUP_
+// BACKLOG_2026-08-09.md.
+// eslint-disable-next-line no-unused-vars
 function valueSpotSourceLinks(market, team, notes = [], signals = []) {
   const links = [];
   const seen = new Set();
@@ -647,6 +661,8 @@ function expertSignalsForTeam(team, signals = []) {
     .slice(0, 4);
 }
 
+// `notes` is unused pending the valueSpotSourceLinks wiring gap flagged above the previous function.
+// eslint-disable-next-line no-unused-vars
 function buildValueSpots(grouped, notes = [], signals = []) {
   const divSpots = [], spreadSpots = [], winsOuCards = [];
   const PREF_ARR = ['betonline', 'bookmaker', 'betus'];
@@ -1111,17 +1127,6 @@ function renderHtml(model) {
   // Preferred books (CA-legal offshore); DK/FD retained for proxy reference only
   const PREF_BOOKS = ['betonline', 'bookmaker', 'betus'];
 
-  // Best odds from preferred books: highest American odds = best payout for bettor
-  const bestPref = (booksObj) => {
-    let best = null, bestBook = null;
-    for (const b of PREF_BOOKS) {
-      const v = booksObj?.[b];
-      if (v == null) continue;
-      if (best === null || v > best) { best = v; bestBook = b; }
-    }
-    return best != null ? { odds: best, book: bestBook } : null;
-  };
-
   // Per-book chips for mover cards (BOL / BKR / BTU only)
   const bookOddsChips = (booksObj) => PREF_BOOKS.map((b) => {
     const v = booksObj?.[b]; const lbl = BOOK_SHORT[b];
@@ -1567,8 +1572,7 @@ function renderHtml(model) {
 
         // ── wins_ou card ──────────────────────────────────────────────────────
         if (s.spotType === 'wins_ou') {
-          const lineLabel = s.lineNote ? s.lineNote : (s.line != null ? s.line : '—');
-          const mkPriceRow = (side, vals, best, worst) => {
+          const mkPriceRow = (side, vals, best, _worst) => {
             if (!vals || vals.length < 1) return '';
             const allCols = vals.map((x) => {
               const isBest = best && x.b === best.b;
