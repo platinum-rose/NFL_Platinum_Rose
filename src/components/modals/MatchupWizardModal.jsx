@@ -80,6 +80,37 @@ const RankBadge = ({ rank, type }) => {
     );
 };
 
+// --- 4. BET SELECTION BUTTON ---
+const BetButton = ({ type, label, value, edge, selectedBet, setSelectedBet }) => {
+    const isSelected = selectedBet === type;
+    // 🔥 FIX: Toggle logic
+    const handleClick = () => {
+        if (isSelected) setSelectedBet(null);
+        else setSelectedBet(type);
+    };
+
+    // 🔥 FIX: Format value correctly for Totals vs Spreads
+    let displayValue = value;
+    if (type.includes('total')) {
+        displayValue = value; // e.g. 48.5
+    } else {
+        displayValue = value > 0 ? `+${value}` : value;
+    }
+
+    return (
+        <button
+          onClick={handleClick}
+          className={`relative w-full p-3 rounded-xl border flex flex-col items-center justify-center transition-all ${
+              isSelected ? 'bg-emerald-900/40 border-emerald-400 shadow-[0_0_15px_rgba(52,211,153,0.3)]' : 'bg-slate-800 border-slate-700 hover:bg-slate-700'
+          }`}
+        >
+            <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-1">{label}</span>
+            <span className="text-lg font-black text-white">{displayValue}</span>
+            {edge && <div className="absolute -top-2 -right-2 bg-purple-600 text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold shadow-lg animate-pulse">AI EDGE</div>}
+        </button>
+    );
+};
+
 // --- MAIN COMPONENT ---
 export default function MatchupWizardModal({ isOpen, onClose, game, onBet, stats, currentWizardData }) {
   const [selectedBet, setSelectedBet] = useState(null);
@@ -119,36 +150,6 @@ export default function MatchupWizardModal({ isOpen, onClose, game, onBet, stats
   const projSpread = (projVis - projHome).toFixed(1);
   const hasEdge = Math.abs(projSpread - game.spread) > 2.0;
   const edgeSide = hasEdge ? (projSpread < game.spread ? game.home : game.visitor) : null;
-
-  const BetButton = ({ type, label, value, edge }) => {
-      const isSelected = selectedBet === type;
-      // 🔥 FIX: Toggle logic
-      const handleClick = () => {
-          if (isSelected) setSelectedBet(null);
-          else setSelectedBet(type);
-      };
-
-      // 🔥 FIX: Format value correctly for Totals vs Spreads
-      let displayValue = value;
-      if (type.includes('total')) {
-          displayValue = value; // e.g. 48.5
-      } else {
-          displayValue = value > 0 ? `+${value}` : value;
-      }
-
-      return (
-          <button 
-            onClick={handleClick}
-            className={`relative w-full p-3 rounded-xl border flex flex-col items-center justify-center transition-all ${
-                isSelected ? 'bg-emerald-900/40 border-emerald-400 shadow-[0_0_15px_rgba(52,211,153,0.3)]' : 'bg-slate-800 border-slate-700 hover:bg-slate-700'
-            }`}
-          >
-              <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-1">{label}</span>
-              <span className="text-lg font-black text-white">{displayValue}</span>
-              {edge && <div className="absolute -top-2 -right-2 bg-purple-600 text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold shadow-lg animate-pulse">AI EDGE</div>}
-          </button>
-      );
-  };
 
   return (
     <div className="fixed inset-0 bg-black/90 z-[70] flex items-center justify-center p-4 backdrop-blur-sm">
@@ -202,9 +203,9 @@ export default function MatchupWizardModal({ isOpen, onClose, game, onBet, stats
                     
                     {/* 🔥 FIX: Passed game.total into the value prop for Totals */}
                     <div className="grid grid-cols-3 gap-3">
-                        <BetButton type="vis_spread" label={`${game.visitor} Spread`} value={game.spread * -1} edge={edgeSide === game.visitor} />
-                        <BetButton type="total_over" label="Over" value={game.total} />
-                        <BetButton type="home_spread" label={`${game.home} Spread`} value={game.spread} edge={edgeSide === game.home} />
+                        <BetButton selectedBet={selectedBet} setSelectedBet={setSelectedBet} type="vis_spread" label={`${game.visitor} Spread`} value={game.spread * -1} edge={edgeSide === game.visitor} />
+                        <BetButton selectedBet={selectedBet} setSelectedBet={setSelectedBet} type="total_over" label="Over" value={game.total} />
+                        <BetButton selectedBet={selectedBet} setSelectedBet={setSelectedBet} type="home_spread" label={`${game.home} Spread`} value={game.spread} edge={edgeSide === game.home} />
                     </div>
                     
                     {/* Action Button */}

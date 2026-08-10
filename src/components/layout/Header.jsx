@@ -21,48 +21,6 @@ export default function Header({
   onOpenAgentStatus,
 }) {
 
-  const NavTab = ({ id, label, icon: Icon }) => (
-    <button
-      onClick={() => setActiveTab(id)}
-      className={`relative h-full px-3 flex items-center gap-1.5 font-bold text-[11px] whitespace-nowrap transition-all border-b-2 ${
-        activeTab === id
-        ? 'border-emerald-500 text-white'
-        : 'border-transparent text-slate-400 hover:text-white hover:bg-white/5'
-      }`}
-    >
-      <Icon size={14} className={activeTab === id ? "text-emerald-400" : ""} />
-      {label}
-      {id === 'mycard' && cartCount > 0 && (
-          <span className="bg-emerald-500 text-slate-950 text-[10px] font-black px-1.5 py-0.5 rounded-full ml-1 shadow-sm shadow-emerald-500/50">
-              {cartCount}
-          </span>
-      )}
-    </button>
-  );
-
-  const ToolButton = ({ onClick, icon: Icon, label, colorClass }) => (
-      <button
-        onClick={onClick}
-        className={`group flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-800/50 hover:bg-slate-800 hover:border-slate-600 transition-all ${colorClass}`}
-      >
-          <Icon size={14} />
-          <span className="text-xs font-bold">{label}</span>
-      </button>
-  );
-
-  const IconButton = ({ onClick, icon: Icon, label, colorClass = "text-slate-400 hover:text-white" }) => (
-    <button
-      onClick={onClick}
-      className={`p-2 rounded-lg border border-slate-700 bg-slate-800/50 hover:bg-slate-800 transition-all group relative ${colorClass}`}
-      title={label}
-    >
-        <Icon size={16} />
-        <span className="absolute -bottom-10 right-0 bg-black text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap pointer-events-none transition-opacity z-50 border border-slate-800">
-            {label}
-        </span>
-    </button>
-  );
-
   return (
     <header className="sticky top-0 z-40 bg-slate-950 shadow-2xl">
 
@@ -126,25 +84,25 @@ export default function Header({
       {/* --- BOTTOM LAYER: NAVIGATION --- */}
       <div className="bg-slate-900/80 border-b border-slate-800 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-2 h-11 flex items-center justify-between">
-            <NavTab id="dashboard" label="The Board" icon={LayoutDashboard} />
-            <NavTab id="mycard" label="My Card" icon={ShoppingBag} />
-            <NavTab id="bankroll" label="Bankroll" icon={Banknote} />
-            <NavTab id="analytics" label="Analytics" icon={BarChart3} />
-            <NavTab id="odds" label="Live Odds" icon={TrendingUp} />
-            <NavTab id="standings" label="Standings" icon={Trophy} />
-            <NavTab id="picks" label="Picks" icon={Target} />
-            <NavTab id="futures" label="Futures" icon={Briefcase} />
-            <NavTab id="futures-agent" label="Futures AI" icon={Trophy} />
-            <NavTab id="futures-report" label="Futures Report" icon={FileText} />
-            <NavTab id="devlab" label="Dev Lab" icon={Mic2} />
-            <NavTab id="agent" label="Agent" icon={MessageSquare} />
-            <NavTab id="props" label="Props" icon={Zap} />
-            <NavTab id="dfs" label="DFS" icon={Layers} />
-            <NavTab id="podcasts" label="Podcasts" icon={Radio} />
-            <NavTab id="official-picks" label="Official Picks" icon={ShieldCheck} />
-            <NavTab id="injuries" label="Injuries" icon={HeartPulse} />
-            <NavTab id="fantasy" label="Fantasy" icon={Shirt} />
-            <NavTab id="training-camp" label="Camp Intel" icon={Activity} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="dashboard" label="The Board" icon={LayoutDashboard} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="mycard" label="My Card" icon={ShoppingBag} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="bankroll" label="Bankroll" icon={Banknote} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="analytics" label="Analytics" icon={BarChart3} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="odds" label="Live Odds" icon={TrendingUp} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="standings" label="Standings" icon={Trophy} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="picks" label="Picks" icon={Target} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="futures" label="Futures" icon={Briefcase} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="futures-agent" label="Futures AI" icon={Trophy} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="futures-report" label="Futures Report" icon={FileText} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="devlab" label="Dev Lab" icon={Mic2} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="agent" label="Agent" icon={MessageSquare} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="props" label="Props" icon={Zap} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="dfs" label="DFS" icon={Layers} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="podcasts" label="Podcasts" icon={Radio} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="official-picks" label="Official Picks" icon={ShieldCheck} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="injuries" label="Injuries" icon={HeartPulse} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="fantasy" label="Fantasy" icon={Shirt} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="training-camp" label="Camp Intel" icon={Activity} />
         </div>
       </div>
 
@@ -165,5 +123,53 @@ export default function Header({
           <button onClick={onAnalyze} className="p-2 rounded-lg flex flex-col items-center gap-1 text-indigo-500"><Mic size={20}/><span className="text-[10px] font-bold">Record</span></button>
       </div>
     </header>
+  );
+}
+
+function NavTab({ activeTab, setActiveTab, cartCount, id, label, icon: Icon }) {
+  return (
+    <button
+      onClick={() => setActiveTab(id)}
+      className={`relative h-full px-3 flex items-center gap-1.5 font-bold text-[11px] whitespace-nowrap transition-all border-b-2 ${
+        activeTab === id
+        ? 'border-emerald-500 text-white'
+        : 'border-transparent text-slate-400 hover:text-white hover:bg-white/5'
+      }`}
+    >
+      <Icon size={14} className={activeTab === id ? "text-emerald-400" : ""} />
+      {label}
+      {id === 'mycard' && cartCount > 0 && (
+          <span className="bg-emerald-500 text-slate-950 text-[10px] font-black px-1.5 py-0.5 rounded-full ml-1 shadow-sm shadow-emerald-500/50">
+              {cartCount}
+          </span>
+      )}
+    </button>
+  );
+}
+
+function ToolButton({ onClick, icon: Icon, label, colorClass }) {
+  return (
+      <button
+        onClick={onClick}
+        className={`group flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-800/50 hover:bg-slate-800 hover:border-slate-600 transition-all ${colorClass}`}
+      >
+          <Icon size={14} />
+          <span className="text-xs font-bold">{label}</span>
+      </button>
+  );
+}
+
+function IconButton({ onClick, icon: Icon, label, colorClass = "text-slate-400 hover:text-white" }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`p-2 rounded-lg border border-slate-700 bg-slate-800/50 hover:bg-slate-800 transition-all group relative ${colorClass}`}
+      title={label}
+    >
+        <Icon size={16} />
+        <span className="absolute -bottom-10 right-0 bg-black text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap pointer-events-none transition-opacity z-50 border border-slate-800">
+            {label}
+        </span>
+    </button>
   );
 }

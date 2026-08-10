@@ -95,8 +95,108 @@ export default function FuturesPortfolio({ onAddPosition }) {
     return list;
   }, [positions, typeFilter, statusFilter]);
 
-  // ── Summary cards ──────────────────────────────────────────────────────────
-  const SummaryCards = () => (
+  // ═════════════════════════════════════════════════════════════════════════════
+  return (
+    <div className="space-y-4">
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <div className="bg-gradient-to-br from-purple-600 to-indigo-700 w-9 h-9 rounded-lg flex items-center justify-center shadow-lg shadow-purple-900/30">
+            <Briefcase size={18} className="text-white" />
+          </div>
+          <div>
+            <h2 className="text-white font-black text-lg tracking-tight leading-none">Futures Portfolio</h2>
+            <p className="text-slate-500 text-xs mt-0.5">Track positions · Monitor odds · Build hedge strategies</p>
+          </div>
+        </div>
+        <button
+          onClick={onAddPosition}
+          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-sm font-bold transition-all shadow-lg shadow-purple-900/30"
+        >
+          <Plus size={14} /> Add Position
+        </button>
+      </div>
+
+      {/* Summary */}
+      <SummaryCards summary={summary} />
+
+      {/* Parlay quick stats (when parlays exist) */}
+      {(summary.liveParlays > 0) && (
+        <div className="flex items-center gap-4 bg-purple-500/5 border border-purple-500/20 rounded-xl px-4 py-2.5">
+          <GitMerge size={14} className="text-purple-400 shrink-0" />
+          <span className="text-purple-300 font-bold text-sm">{summary.liveParlays} live parlay{summary.liveParlays > 1 ? 's' : ''}</span>
+          <span className="text-slate-500 text-xs">·</span>
+          <span className="text-slate-400 text-xs">{fmtUSD(summary.parlayExposure)} staked</span>
+          <span className="text-slate-500 text-xs">·</span>
+          <span className="text-emerald-400 text-xs font-mono">{fmtUSD(summary.parlayMaxPayout)} max payout</span>
+          <button
+            onClick={() => setSubTab('parlays')}
+            className="ml-auto text-xs text-purple-400 hover:text-purple-300 font-bold transition"
+          >
+            View Parlays →
+          </button>
+        </div>
+      )}
+
+      {/* Sub-tabs */}
+      <div className="flex items-center gap-1 border-b border-slate-800 pb-px">
+        {SUBTABS.map(tab => (
+          <button
+            key={tab.id}
+            onClick={() => setSubTab(tab.id)}
+            className={`flex items-center gap-1.5 px-4 py-2 text-xs font-bold border-b-2 transition-all
+              ${subTab === tab.id
+                ? 'border-purple-500 text-white'
+                : 'border-transparent text-slate-500 hover:text-slate-300'
+              }`}
+          >
+            <tab.icon size={13} />
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Content */}
+      {subTab === 'positions' && (
+        <PositionsView
+          typeFilter={typeFilter}
+          setTypeFilter={setTypeFilter}
+          statusFilter={statusFilter}
+          setStatusFilter={setStatusFilter}
+          filtered={filtered}
+          onAddPosition={onAddPosition}
+          expandedId={expandedId}
+          setExpandedId={setExpandedId}
+          confirmDelete={confirmDelete}
+          setConfirmDelete={setConfirmDelete}
+          handleDelete={handleDelete}
+          handleStatusChange={handleStatusChange}
+        />
+      )}
+      {subTab === 'market'    && <FuturesMarketBrowser />}
+      {subTab === 'watchlist' && <FuturesWatchList />}
+      {subTab === 'exposure'  && <ExposureView exposure={exposure} onAddPosition={onAddPosition} />}
+      {subTab === 'hedge'     && (
+        <HedgeCalculator
+          onRefresh={refresh}
+          prefill={hedgePrefill}
+        />
+      )}
+      {subTab === 'monitor'   && <FuturesOddsMonitor />}
+      {subTab === 'parlays'   && (
+        <ParlayTracker onSendToHedge={handleHedgeParlay} />
+      )}
+      {subTab === 'bracket'   && <PlayoffBracket />}
+    </div>
+  );
+}
+
+// ═════════════════════════════════════════════════════════════════════════════
+// SUB-COMPONENTS
+// ═════════════════════════════════════════════════════════════════════════════
+
+function SummaryCards({ summary }) {
+  return (
     <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 mb-6">
       <SumCard label="Open Positions" value={summary.openPositions} icon={Layers} color="cyan" />
       <SumCard label="Total Invested" value={fmtUSD(summary.totalInvested)} icon={DollarSign} color="blue" />
@@ -110,9 +210,14 @@ export default function FuturesPortfolio({ onAddPosition }) {
       />
     </div>
   );
+}
 
-  // ── Positions table ────────────────────────────────────────────────────────
-  const PositionsView = () => (
+function PositionsView({
+  typeFilter, setTypeFilter, statusFilter, setStatusFilter, filtered,
+  onAddPosition, expandedId, setExpandedId, confirmDelete, setConfirmDelete,
+  handleDelete, handleStatusChange,
+}) {
+  return (
     <div className="space-y-3">
       {/* Filters */}
       <div className="flex flex-wrap gap-2 items-center">
@@ -165,9 +270,10 @@ export default function FuturesPortfolio({ onAddPosition }) {
       )}
     </div>
   );
+}
 
-  // ── Exposure view ──────────────────────────────────────────────────────────
-  const ExposureView = () => (
+function ExposureView({ exposure, onAddPosition }) {
+  return (
     <div className="space-y-2">
       {exposure.length === 0 ? (
         <EmptyState onAdd={onAddPosition} />
@@ -203,91 +309,7 @@ export default function FuturesPortfolio({ onAddPosition }) {
       )}
     </div>
   );
-
-  // ═════════════════════════════════════════════════════════════════════════════
-  return (
-    <div className="space-y-4">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="bg-gradient-to-br from-purple-600 to-indigo-700 w-9 h-9 rounded-lg flex items-center justify-center shadow-lg shadow-purple-900/30">
-            <Briefcase size={18} className="text-white" />
-          </div>
-          <div>
-            <h2 className="text-white font-black text-lg tracking-tight leading-none">Futures Portfolio</h2>
-            <p className="text-slate-500 text-xs mt-0.5">Track positions · Monitor odds · Build hedge strategies</p>
-          </div>
-        </div>
-        <button
-          onClick={onAddPosition}
-          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-sm font-bold transition-all shadow-lg shadow-purple-900/30"
-        >
-          <Plus size={14} /> Add Position
-        </button>
-      </div>
-
-      {/* Summary */}
-      <SummaryCards />
-
-      {/* Parlay quick stats (when parlays exist) */}
-      {(summary.liveParlays > 0) && (
-        <div className="flex items-center gap-4 bg-purple-500/5 border border-purple-500/20 rounded-xl px-4 py-2.5">
-          <GitMerge size={14} className="text-purple-400 shrink-0" />
-          <span className="text-purple-300 font-bold text-sm">{summary.liveParlays} live parlay{summary.liveParlays > 1 ? 's' : ''}</span>
-          <span className="text-slate-500 text-xs">·</span>
-          <span className="text-slate-400 text-xs">{fmtUSD(summary.parlayExposure)} staked</span>
-          <span className="text-slate-500 text-xs">·</span>
-          <span className="text-emerald-400 text-xs font-mono">{fmtUSD(summary.parlayMaxPayout)} max payout</span>
-          <button
-            onClick={() => setSubTab('parlays')}
-            className="ml-auto text-xs text-purple-400 hover:text-purple-300 font-bold transition"
-          >
-            View Parlays →
-          </button>
-        </div>
-      )}
-
-      {/* Sub-tabs */}
-      <div className="flex items-center gap-1 border-b border-slate-800 pb-px">
-        {SUBTABS.map(tab => (
-          <button
-            key={tab.id}
-            onClick={() => setSubTab(tab.id)}
-            className={`flex items-center gap-1.5 px-4 py-2 text-xs font-bold border-b-2 transition-all
-              ${subTab === tab.id
-                ? 'border-purple-500 text-white'
-                : 'border-transparent text-slate-500 hover:text-slate-300'
-              }`}
-          >
-            <tab.icon size={13} />
-            {tab.label}
-          </button>
-        ))}
-      </div>
-
-      {/* Content */}
-      {subTab === 'positions' && <PositionsView />}
-      {subTab === 'market'    && <FuturesMarketBrowser />}
-      {subTab === 'watchlist' && <FuturesWatchList />}
-      {subTab === 'exposure'  && <ExposureView />}
-      {subTab === 'hedge'     && (
-        <HedgeCalculator
-          onRefresh={refresh}
-          prefill={hedgePrefill}
-        />
-      )}
-      {subTab === 'monitor'   && <FuturesOddsMonitor />}
-      {subTab === 'parlays'   && (
-        <ParlayTracker onSendToHedge={handleHedgeParlay} />
-      )}
-      {subTab === 'bracket'   && <PlayoffBracket />}
-    </div>
-  );
 }
-
-// ═════════════════════════════════════════════════════════════════════════════
-// SUB-COMPONENTS
-// ═════════════════════════════════════════════════════════════════════════════
 
 function SumCard({ label, value, icon: Icon, color }) {
   const ring   = { cyan: 'border-cyan-500/20', blue: 'border-blue-500/20', emerald: 'border-emerald-500/20', amber: 'border-amber-500/20', rose: 'border-rose-500/20' }[color] || 'border-slate-700';
