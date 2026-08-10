@@ -39,7 +39,7 @@ export default defineConfig([
     rules: {
       // Pre-existing issues downgraded to warn — fixes tracked in LINT-SCOPE
       // backlog; do not add new violations.
-      'no-unused-vars': ['warn', { varsIgnorePattern: '^[A-Z_]', argsIgnorePattern: '^_' }],
+      'no-unused-vars': ['warn', { varsIgnorePattern: '^[A-Z_]', argsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' }],
       // react-hooks pattern rules: performance hints, not correctness errors
       'react-hooks/static-components':          'warn',
       'react-hooks/set-state-in-effect':        'warn',
@@ -81,7 +81,7 @@ export default defineConfig([
       sourceType: 'module',
     },
     rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]', argsIgnorePattern: '^_' }],
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]', argsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' }],
     },
   },
 
@@ -96,7 +96,7 @@ export default defineConfig([
     },
     rules: {
       // Tests frequently define vars that are only referenced in assertions
-      'no-unused-vars': ['warn', { varsIgnorePattern: '^[A-Z_]', argsIgnorePattern: '^_' }],
+      'no-unused-vars': ['warn', { varsIgnorePattern: '^[A-Z_]', argsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' }],
     },
   },
 ])
