@@ -22,6 +22,11 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# GitHub push token (S321-option-3, adopted 2026-08-09) — persistent, gitignored,
+# chmod 600, fine-grained + repo-scoped + short-expiration PAT only. credential.helper
+# falls back to this file when GITHUB_TOKEN isn't set in the session env. Never commit.
+.github_push_token
 config/youtube-oauth-client.json
 config/youtube-podcast-sources.local.json
 data/secrets/
