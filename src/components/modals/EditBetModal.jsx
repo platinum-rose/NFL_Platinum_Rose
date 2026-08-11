@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import logger from '../../lib/logger';
 import { X, Plus, Save, Trash2, AlertTriangle, Edit } from 'lucide-react';
 import { getBankrollData, saveBankrollData, BET_TYPES } from '../../lib/bankroll';
@@ -21,6 +21,15 @@ export default function EditBetModal({
   });
   const [editingLegIndex, setEditingLegIndex] = useState(null); // For editing existing legs
 
+  const getGameOptions = useCallback(() => {
+    return schedule.map(game => ({
+      id: game.id || `${game.visitor}-${game.home}`,
+      label: `${game.visitorName || game.visitor} @ ${game.homeName || game.home}`,
+      teams: [game.visitor, game.home],
+      teamNames: [game.visitorName || game.visitor, game.homeName || game.home]
+    }));
+  }, [schedule]);
+
   useEffect(() => {
     logger.log('ðŸˆ EditBetModal - Schedule data:', schedule);
     if (schedule && schedule.length > 0) {
@@ -33,7 +42,7 @@ export default function EditBetModal({
         legs: [...bet.legs] // Deep copy of legs
       });
     }
-  }, [bet, isOpen, schedule]);
+  }, [bet, isOpen, schedule, getGameOptions]);
 
   const handleAddLeg = () => {
     if (!isNewLegValid()) {
@@ -171,15 +180,6 @@ export default function EditBetModal({
     } else {
       alert('Failed to update bet');
     }
-  };
-
-  const getGameOptions = () => {
-    return schedule.map(game => ({
-      id: game.id || `${game.visitor}-${game.home}`,
-      label: `${game.visitorName || game.visitor} @ ${game.homeName || game.home}`,
-      teams: [game.visitor, game.home],
-      teamNames: [game.visitorName || game.visitor, game.homeName || game.home]
-    }));
   };
 
   const isNewLegValid = () => {

@@ -69,10 +69,13 @@ export default function FuturesPortfolio({ onAddPosition }) {
     setSubTab('hedge');
   }, []);
 
-  // Force re-read from localStorage
+  // Force re-read from localStorage. refreshKey isn't read in any of these
+  // three bodies -- it exists purely to force recompute after refresh() fires.
+  /* eslint-disable react-hooks/exhaustive-deps */
   const positions = useMemo(() => getPositions(), [refreshKey]);
   const summary   = useMemo(() => getPortfolioSummary(), [refreshKey]);
   const exposure  = useMemo(() => getExposureByTeam(), [refreshKey]);
+  /* eslint-enable react-hooks/exhaustive-deps */
 
   const refresh = useCallback(() => setRefresh(k => k + 1), []);
 

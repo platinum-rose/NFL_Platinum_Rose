@@ -83,6 +83,9 @@ export default function ParlayTracker({ onSendToHedge }) {
   const refresh = useCallback(() => setRefresh(k => k + 1), []);
 
   // ── Data ───────────────────────────────────────────────────────────────────
+  // refreshKey isn't read in any of these three bodies -- it exists purely to
+  // force recompute (re-read from localStorage) after refresh() fires.
+  /* eslint-disable react-hooks/exhaustive-deps */
   const parlays   = useMemo(() => getParlays(), [refreshKey]);
   const positions = useMemo(
     () => getPositions().filter(p => p.status === POSITION_STATUS.OPEN),
@@ -94,6 +97,7 @@ export default function ParlayTracker({ onSendToHedge }) {
       b => b.status === 'pending' && !b.isParlay && b.type !== 'parlay',
     );
   }, [refreshKey]);
+  /* eslint-enable react-hooks/exhaustive-deps */
 
   // ── Form derived ───────────────────────────────────────────────────────────
   // Memoized (not just filtered inline) so it has a stable reference across

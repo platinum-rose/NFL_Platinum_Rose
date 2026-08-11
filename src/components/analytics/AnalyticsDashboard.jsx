@@ -2,7 +2,7 @@
 // Thin orchestrator — delegates logic to analyticsEngine + sub-components
 
 import logger from '../../lib/logger';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { RefreshCw, BarChart3, Target } from 'lucide-react';
 import OutcomesDashboard from './OutcomesDashboard';
 import { getBankrollData, calculateAnalytics as calcBasicAnalytics, BET_STATUS } from '../../lib/bankroll';
@@ -25,9 +25,9 @@ export default function AnalyticsDashboard() {
   const [loading, setLoading]           = useState(true);
   const [detailedStats, setDetailedStats] = useState(null);
 
-  useEffect(() => { loadAnalytics(); }, [timeframe, betTypeFilter]);
+  useEffect(() => { loadAnalytics(); }, [loadAnalytics]);
 
-  const loadAnalytics = () => {
+  const loadAnalytics = useCallback(() => {
     setLoading(true);
     try {
       const bankrollData = getBankrollData();
@@ -51,7 +51,7 @@ export default function AnalyticsDashboard() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [timeframe, betTypeFilter]);
 
   // ── Loading state ─────────────────────────────────────
   if (loading) {

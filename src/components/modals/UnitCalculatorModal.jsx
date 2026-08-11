@@ -1,7 +1,7 @@
 // src/components/modals/UnitCalculatorModal.jsx
 // Unit sizing calculator with Kelly Criterion and risk management
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { X, Calculator, TrendingUp, AlertTriangle, Target, Info } from 'lucide-react';
 import { calculateKellyUnit, getRecommendedUnit, getBankrollData } from '../../lib/bankroll';
 
@@ -22,11 +22,15 @@ export default function UnitCalculatorModal({ isOpen, onClose }) {
         }
     }, [isOpen]);
 
-    useEffect(() => {
-        calculateRecommendations();
-    }, [bankroll, winProbability, odds, confidence, riskProfile]);
+    const calculateBreakevenRate = (americanOdds) => {
+        if (americanOdds > 0) {
+            return (100 / (americanOdds + 100)) * 100;
+        } else {
+            return (Math.abs(americanOdds) / (Math.abs(americanOdds) + 100)) * 100;
+        }
+    };
 
-    const calculateRecommendations = () => {
+    const calculateRecommendations = useCallback(() => {
         if (winProbability <= 0 || winProbability >= 100 || bankroll <= 0) {
             setResults(null);
             return;
@@ -56,15 +60,11 @@ export default function UnitCalculatorModal({ isOpen, onClose }) {
             aggressive,
             breakeven: calculateBreakevenRate(odds)
         });
-    };
+    }, [bankroll, winProbability, odds, confidence, riskProfile]);
 
-    const calculateBreakevenRate = (americanOdds) => {
-        if (americanOdds > 0) {
-            return (100 / (americanOdds + 100)) * 100;
-        } else {
-            return (Math.abs(americanOdds) / (Math.abs(americanOdds) + 100)) * 100;
-        }
-    };
+    useEffect(() => {
+        calculateRecommendations();
+    }, [calculateRecommendations]);
 
     const formatCurrency = (amount) => {
         return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);

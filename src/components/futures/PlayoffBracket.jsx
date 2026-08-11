@@ -595,6 +595,9 @@ export default function PlayoffBracket() {
   // eslint-disable-next-line no-unused-vars
   const [refreshKey, setRefreshKey] = useState(0);
 
+  // refreshKey isn't read in the body -- see the FLAGGED comment above: it's
+  // real (if currently unreachable) scaffolding for a refresh mechanism.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const positions = useMemo(() => getPositions(), [refreshKey]);
   const exposure  = useMemo(() => buildExposureMap(positions), [positions]);
 

@@ -302,7 +302,9 @@ export default function FantasyValueBoard() {
 
   useEffect(() => { load(); }, [load]);
 
-  const board = data?.board || [];
+  // Memoized so the `|| []` fallback doesn't create a fresh array reference
+  // every render, which would otherwise defeat the tierCounts/filtered memos below.
+  const board = useMemo(() => data?.board || [], [data]);
   const meta = data?.meta;
 
   const tierCounts = useMemo(() => {

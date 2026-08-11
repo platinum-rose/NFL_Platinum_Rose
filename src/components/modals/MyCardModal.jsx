@@ -37,12 +37,17 @@ export default function MyCardView({ bets, onRemoveBet, onUpdateBet: _onUpdateBe
   const openBets = bets.filter(b => b.status === 'OPEN');
   const lockedBets = bets.filter(b => b.status === 'PLACED');
 
-  // Auto-select open bets when switching to builder or loading
+  // Auto-select open bets when switching to builder or loading.
+  // Intentionally depends on openBets.length rather than openBets itself:
+  // openBets is a fresh array (new reference) every render via .filter(),
+  // so depending on the array would refire this effect -> setSelectedIds
+  // with a new array -> re-render -> refire, forever. Depending on the
+  // length only re-triggers when the actual set of open bets changes.
   useEffect(() => {
       if (activeTab === 'builder') {
           setSelectedIds(openBets.map(b => b.id));
       }
-  }, [openBets.length, activeTab]);
+  }, [openBets.length, activeTab]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const toggleSelect = (id) => {
       setSelectedIds(prev => prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]);

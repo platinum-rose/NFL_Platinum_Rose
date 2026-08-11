@@ -178,7 +178,9 @@ function AllPicksTab({ onRefresh }) {
     if (dateFrom)               filters.dateFrom = dateFrom;
     if (dateTo)                 filters.dateTo   = dateTo;
     return loadPicks(filters).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-  }, [sourceFilter, resultFilter, typeFilter, dateFrom, dateTo, onRefresh]);
+    // onRefresh intentionally excluded: the parent remounts this whole tab via
+    // key={refreshKey} on refresh, so this memo is always recomputed fresh anyway.
+  }, [sourceFilter, resultFilter, typeFilter, dateFrom, dateTo]);
 
   const handleDelete = (id) => {
     if (!window.confirm('Delete this pick?')) return;

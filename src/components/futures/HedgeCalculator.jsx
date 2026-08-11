@@ -47,6 +47,9 @@ export default function HedgeCalculator({ onRefresh, prefill = null, prefillActi
   const [showMatrix, setShowMatrix]     = useState(false);
 
   // Reload positions
+  // refreshKey isn't read in the body -- it's bumped after a hedge is saved
+  // to force this memo to re-read from localStorage.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const positions = useMemo(() => getPositions().filter(p => p.status === POSITION_STATUS.OPEN), [refreshKey]);
   const selected  = useMemo(() => positions.find(p => String(p.id) === String(selectedId)) || null, [positions, selectedId]);
 

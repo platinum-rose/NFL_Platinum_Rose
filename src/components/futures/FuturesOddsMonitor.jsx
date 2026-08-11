@@ -86,9 +86,11 @@ export default function FuturesOddsMonitor() {
   const [expanded, setExpanded]         = useState(new Set());
   const [refreshKey, setRefreshKey]     = useState(0);
 
+  // refreshKey isn't read in the body -- it exists purely to force this memo
+  // to re-read from localStorage after the manual refresh button below fires.
   const positions = useMemo(
     () => getPositions().filter(p => p.status === POSITION_STATUS.OPEN),
-    [refreshKey]
+    [refreshKey] // eslint-disable-line react-hooks/exhaustive-deps
   );
 
   // ── Build current odds map: `${marketType}|${team}` → [rows] ─────────────

@@ -2,7 +2,7 @@
 // Main bankroll management dashboard
 
 import logger from '../../lib/logger';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
     DollarSign, TrendingUp, TrendingDown, Target, Calculator,
     Plus, Settings, Download, Upload, Calendar, BarChart3,
@@ -181,11 +181,7 @@ export default function BankrollDashboard({ onAddBet, onShowCalculator, onImport
     const [loading, setLoading] = useState(true);
     const [bankrollData, setBankrollData] = useState(null);
 
-    useEffect(() => {
-        loadData();
-    }, [timeframe]);
-
-    const loadData = () => {
+    const loadData = useCallback(() => {
         setLoading(true);
         try {
             const data = getBankrollData();
@@ -197,7 +193,11 @@ export default function BankrollDashboard({ onAddBet, onShowCalculator, onImport
         } finally {
             setLoading(false);
         }
-    };
+    }, [timeframe]);
+
+    useEffect(() => {
+        loadData();
+    }, [loadData]);
 
     const handleExport = () => {
         const data = exportBankrollData();
