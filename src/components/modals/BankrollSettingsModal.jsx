@@ -17,9 +17,13 @@ export default function BankrollSettingsModal({ isOpen, onClose, onSettingsUpdat
     const [settings, setSettings] = useState(null);
     const [dirty, setDirty] = useState(false);
 
+    // Resets the local editable draft from storage each time the modal opens.
+    // This is a real sync-with-external-system effect (reacts to the isOpen
+    // prop, not just mount) rather than derivable state -- left as-is.
     useEffect(() => {
         if (isOpen) {
             const data = getBankrollData();
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setSettings({ ...data.settings });
             setDirty(false);
         }

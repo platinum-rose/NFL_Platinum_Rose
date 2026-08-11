@@ -45,6 +45,9 @@ export default function MyCardView({ bets, onRemoveBet, onUpdateBet: _onUpdateBe
   // length only re-triggers when the actual set of open bets changes.
   useEffect(() => {
       if (activeTab === 'builder') {
+          // Real sync effect: reselects open bets whenever the active tab
+          // changes, not just on mount.
+          // eslint-disable-next-line react-hooks/set-state-in-effect
           setSelectedIds(openBets.map(b => b.id));
       }
   }, [openBets.length, activeTab]); // eslint-disable-line react-hooks/exhaustive-deps

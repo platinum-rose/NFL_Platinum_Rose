@@ -26,6 +26,9 @@ export default function StorageBackupModal({ isOpen, onClose }) {
 
   const refresh = useCallback(() => setRows(getStorageDiagnostics()), []);
 
+  // Re-reads storage diagnostics each time the modal opens -- a real sync
+  // effect (reacts to the isOpen prop), not derivable state.
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { if (isOpen) refresh(); }, [isOpen, refresh]);
 
   // ── Export ────────────────────────────────────────────────

@@ -1,7 +1,7 @@
 // src/components/modals/UnitCalculatorModal.jsx
 // Unit sizing calculator with Kelly Criterion and risk management
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { X, Calculator, TrendingUp, AlertTriangle, Target, Info } from 'lucide-react';
 import { calculateKellyUnit, getRecommendedUnit, getBankrollData } from '../../lib/bankroll';
 
@@ -11,12 +11,14 @@ export default function UnitCalculatorModal({ isOpen, onClose }) {
     const [odds, setOdds] = useState(-110);
     const [confidence, setConfidence] = useState(70);
     const [riskProfile, setRiskProfile] = useState('moderate');
-    const [results, setResults] = useState(null);
 
+    // Resets bankroll/riskProfile from storage each time the modal opens --
+    // a real sync effect (reacts to the isOpen prop), not derivable state.
     useEffect(() => {
         if (isOpen) {
             // Load current bankroll settings
             const data = getBankrollData();
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setBankroll(data.settings.totalBankroll);
             setRiskProfile(data.settings.riskTolerance || 'moderate');
         }
@@ -30,27 +32,30 @@ export default function UnitCalculatorModal({ isOpen, onClose }) {
         }
     };
 
-    const calculateRecommendations = useCallback(() => {
+    // Pure derivation of the calculator inputs -- computed during render via
+    // useMemo rather than useState+useEffect (avoids
+    // react-hooks/set-state-in-effect and the extra render that a
+    // setState-from-effect round-trip would cost).
+    const results = useMemo(() => {
         if (winProbability <= 0 || winProbability >= 100 || bankroll <= 0) {
-            setResults(null);
-            return;
+            return null;
         }
 
         // Kelly Criterion calculation
         const kellyAmount = calculateKellyUnit(winProbability, odds, bankroll);
-        
+
         // Conservative recommendation (capped Kelly)
         const cappedKelly = Math.min(kellyAmount, bankroll * 0.05); // Max 5% of bankroll
-        
+
         // Risk-based recommendation
         const recommended = getRecommendedUnit(confidence, bankroll, riskProfile);
-        
+
         // Fixed percentage recommendations
         const conservative = bankroll * 0.01; // 1%
         const moderate = bankroll * 0.025; // 2.5%
         const aggressive = bankroll * 0.05; // 5%
 
-        setResults({
+        return {
             kelly: kellyAmount,
             cappedKelly,
             recommended: recommended.amount,
@@ -59,12 +64,8 @@ export default function UnitCalculatorModal({ isOpen, onClose }) {
             moderate,
             aggressive,
             breakeven: calculateBreakevenRate(odds)
-        });
+        };
     }, [bankroll, winProbability, odds, confidence, riskProfile]);
-
-    useEffect(() => {
-        calculateRecommendations();
-    }, [calculateRecommendations]);
 
     const formatCurrency = (amount) => {
         return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);

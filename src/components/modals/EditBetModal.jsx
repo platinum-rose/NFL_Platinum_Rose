@@ -30,6 +30,9 @@ export default function EditBetModal({
     }));
   }, [schedule]);
 
+  // Resets the local editable draft from the bet prop each time it opens --
+  // a real sync effect (reacts to bet/isOpen/schedule props), not derivable
+  // state.
   useEffect(() => {
     logger.log('ðŸˆ EditBetModal - Schedule data:', schedule);
     if (schedule && schedule.length > 0) {
@@ -37,6 +40,7 @@ export default function EditBetModal({
     }
     
     if (bet && isOpen) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setEditedBet({
         ...bet,
         legs: [...bet.legs] // Deep copy of legs

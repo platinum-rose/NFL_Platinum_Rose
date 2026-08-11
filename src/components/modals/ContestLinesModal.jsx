@@ -4,11 +4,14 @@ import { ListFilter, X, Activity, Save } from 'lucide-react';
 export default function ContestLinesModal({ isOpen, onClose, games, onUpdateContestLines }) {
   const [lines, setLines] = useState({});
 
-  // Initialize with existing contest lines
+  // Initialize with existing contest lines. Resets local draft state each
+  // time the modal opens or the games prop changes -- a real sync effect,
+  // not derivable state.
   useEffect(() => {
       if(isOpen) {
           const init = {};
           games.forEach(g => init[g.id] = g.contestSpread || '');
+          // eslint-disable-next-line react-hooks/set-state-in-effect
           setLines(init);
       }
   }, [isOpen, games]);

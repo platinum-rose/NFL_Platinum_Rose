@@ -16,7 +16,11 @@ import { isAvailable, getSession, signIn, onAuthStateChange } from '../../lib/su
 // ─── Inner gate (has hooks) ───────────────────────────────────────────────────
 
 function AuthGateInner({ children }) {
-  const [session, setSession]   = useState(undefined); // undefined = loading
+  // Lazy initializer instead of a synchronous setSession(null) inside the
+  // effect below: when Supabase isn't configured there's nothing to check,
+  // so the "pass through" state can be derived up front rather than set
+  // from an effect (avoids an extra render + react-hooks/set-state-in-effect).
+  const [session, setSession]   = useState(() => (isAvailable() ? undefined : null)); // undefined = loading
   const [email, setEmail]       = useState('');
   const [password, setPassword] = useState('');
   const [error, setError]       = useState('');
@@ -25,11 +29,7 @@ function AuthGateInner({ children }) {
   // Check for an existing persisted session on mount, then subscribe to
   // auth state changes so sign-out / token-refresh is handled automatically.
   useEffect(() => {
-    if (!isAvailable()) {
-      // Supabase not configured — pass through for local dev.
-      setSession(null);
-      return;
-    }
+    if (!isAvailable()) return; // already handled by the lazy initial state above
 
     getSession().then(s => setSession(s));
     const unsub = onAuthStateChange(s => setSession(s));

@@ -113,6 +113,11 @@ export default function FantasyRankingsPanel() {
     }
   }, [season, week, scoring]);
 
+  // load() does a real async fetch (getFantasyRankings/getFantasyRankingsAvailableWeeks)
+  // -- the standard fetch-on-mount/dependency-change effect pattern. The rule
+  // flags the synchronous setState('loading') at the top of load(), but the
+  // actual data-setting calls happen after the awaited fetch resolves.
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { load(); }, [load]);
 
   const filtered = useMemo(() => {

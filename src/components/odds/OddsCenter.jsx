@@ -1,7 +1,7 @@
 // src/components/odds/OddsCenter.jsx
 // Main container for all live odds and line shopping features
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BarChart3, TrendingUp, Target, Activity, DollarSign, LineChart } from 'lucide-react';
 import LiveOddsDashboard from './LiveOddsDashboard';
 import LineMovementTracker from './LineMovementTracker';
@@ -16,31 +16,31 @@ import {
 } from '../../lib/enhancedOddsApi';
 import { loadFromStorage, PR_STORAGE_KEYS } from '../../lib/storage';
 
+// --- Arbitrage badge: mirrors ArbitrageFinder.loadOpportunities ---
+function computeArbCount() {
+  const games = loadFromStorage(PR_STORAGE_KEYS.CACHED_ODDS.key, null);
+  if (games !== null) {
+    try {
+      const arbs = findArbitrageOpportunities(games);
+      if (arbs.length > 0) return arbs.length;
+    } catch (_) { /* fall through */ }
+  }
+  // Fall back to mock multi-book data (same as child component)
+  return findArbitrageOpportunities(generateMockMultiBookData()).length;
+}
+
+// --- Steam badge: mirrors SteamMoveTracker.load ---
+function computeSteamCount() {
+  return getLineMovements(24).length;
+}
+
 export default function OddsCenter() {
   const [activeTab, setActiveTab] = useState('live-odds');
-  const [arbBadge, setArbBadge]     = useState(0);
-  const [steamBadge, setSteamBadge] = useState(0);
-
-  useEffect(() => {
-    // --- Arbitrage badge: mirrors ArbitrageFinder.loadOpportunities ---
-    const computeArbCount = () => {
-      const games = loadFromStorage(PR_STORAGE_KEYS.CACHED_ODDS.key, null);
-      if (games !== null) {
-        try {
-          const arbs = findArbitrageOpportunities(games);
-          if (arbs.length > 0) return arbs.length;
-        } catch (_) { /* fall through */ }
-      }
-      // Fall back to mock multi-book data (same as child component)
-      return findArbitrageOpportunities(generateMockMultiBookData()).length;
-    };
-
-    // --- Steam badge: mirrors SteamMoveTracker.load ---
-    const computeSteamCount = () => getLineMovements(24).length;
-
-    setArbBadge(computeArbCount());
-    setSteamBadge(computeSteamCount());
-  }, []);
+  // Lazy initializers instead of useState(0) + a mount-only effect: both
+  // badges are a one-time sync read from localStorage, so there's nothing
+  // to "effect" -- computed once, directly, as the initial state.
+  const [arbBadge] = useState(computeArbCount);
+  const [steamBadge] = useState(computeSteamCount);
 
   const tabs = [
     {

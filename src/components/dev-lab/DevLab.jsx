@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import logger from '../../lib/logger';
 import { Microscope, Play, RefreshCw, Activity, Star, Trophy, TrendingUp, TrendingDown, Info } from 'lucide-react';
 import { TEAM_LOGOS } from '../../lib/teams';
@@ -36,59 +36,61 @@ const RankBadge = ({ rank, type }) => {
 export default function DevLab({ games, stats, onSimComplete, savedResults }) {
   const [isRunning, setIsRunning] = useState(false);
   const [simResults, setSimResults] = useState(savedResults || {});
-  const [ratings, setRatings] = useState({});
-  const [ranks, setRanks] = useState({}); // ðŸ”¥ Store League Rankings
 
-  // New: tempo toggle + league mean
+  // New: tempo toggle
   const [useTempo, setUseTempo] = useState(false);
-  const [leagueTempo, setLeagueTempo] = useState(1.0);
 
   const { current: currentGames } = groupGamesByWeek(games);
 
-  // --- AUTOMATICALLY LOAD & RANK STATS ---
-  useEffect(() => {
-    if (stats && stats.length > 0) {
-        const processedRatings = {};
+  // --- RATINGS, LEAGUE TEMPO & RANKINGS ---
+  // Pure derivations of `stats` -- computed during render via useMemo rather
+  // than useState+useEffect (avoids react-hooks/set-state-in-effect and the
+  // extra render that a setState-from-effect round-trip would cost).
+  const { ratings, leagueTempo } = useMemo(() => {
+    if (!stats || stats.length === 0) return { ratings: {}, leagueTempo: 1.0 };
 
-        // compute league mean (tempo values are plays/game)
-        const tempos = stats.map(s => parseFloat(s.tempo)).filter(v => !isNaN(v) && v > 0);
-        const meanTempo = tempos.length ? tempos.reduce((a,b) => a + b, 0) / tempos.length : 30.0;
-        setLeagueTempo(meanTempo);
+    const processedRatings = {};
 
-        stats.forEach(teamStat => {
-            if (teamStat.team) {
-                const rawTempo = parseFloat(teamStat.tempo) || meanTempo;
-                // 1.0 = league average; clip to avoid extremes
-                const tempoMult = Math.max(0.85, Math.min(1.15, rawTempo / meanTempo));
+    // compute league mean (tempo values are plays/game)
+    const tempos = stats.map(s => parseFloat(s.tempo)).filter(v => !isNaN(v) && v > 0);
+    const meanTempo = tempos.length ? tempos.reduce((a,b) => a + b, 0) / tempos.length : 30.0;
 
-                processedRatings[teamStat.team] = {
-                    off: parseFloat(teamStat.off_epa || 0),
-                    def: parseFloat(teamStat.def_epa || 0),
-                    offPass: parseFloat(teamStat.off_pass_epa || teamStat.off_epa || 0),
-                    offRush: parseFloat(teamStat.off_rush_epa || teamStat.off_epa || 0),
-                    defPass: parseFloat(teamStat.def_pass_epa || teamStat.def_epa || 0),
-                    defRush: parseFloat(teamStat.def_rush_epa || teamStat.def_epa || 0),
-                    tempo: tempoMult
-                };
-            }
-        });
-        setRatings(processedRatings);
+    stats.forEach(teamStat => {
+        if (teamStat.team) {
+            const rawTempo = parseFloat(teamStat.tempo) || meanTempo;
+            // 1.0 = league average; clip to avoid extremes
+            const tempoMult = Math.max(0.85, Math.min(1.15, rawTempo / meanTempo));
 
-        // ðŸ”¥ CALCULATE RANKINGS
-        const teamKeys = Object.keys(processedRatings);
-        const offSorted = [...teamKeys].sort((a,b) => processedRatings[b].off - processedRatings[a].off); // Higher is better
-        const defSorted = [...teamKeys].sort((a,b) => processedRatings[a].def - processedRatings[b].def); // Lower is better (EPA)
-
-        const newRanks = {};
-        teamKeys.forEach(t => {
-            newRanks[t] = {
-                off: offSorted.indexOf(t) + 1,
-                def: defSorted.indexOf(t) + 1
+            processedRatings[teamStat.team] = {
+                off: parseFloat(teamStat.off_epa || 0),
+                def: parseFloat(teamStat.def_epa || 0),
+                offPass: parseFloat(teamStat.off_pass_epa || teamStat.off_epa || 0),
+                offRush: parseFloat(teamStat.off_rush_epa || teamStat.off_epa || 0),
+                defPass: parseFloat(teamStat.def_pass_epa || teamStat.def_epa || 0),
+                defRush: parseFloat(teamStat.def_rush_epa || teamStat.def_epa || 0),
+                tempo: tempoMult
             };
-        });
-        setRanks(newRanks);
-    }
+        }
+    });
+
+    return { ratings: processedRatings, leagueTempo: meanTempo };
   }, [stats]);
+
+  // ðŸ”¥ CALCULATE RANKINGS
+  const ranks = useMemo(() => {
+    const teamKeys = Object.keys(ratings);
+    const offSorted = [...teamKeys].sort((a,b) => ratings[b].off - ratings[a].off); // Higher is better
+    const defSorted = [...teamKeys].sort((a,b) => ratings[a].def - ratings[b].def); // Lower is better (EPA)
+
+    const newRanks = {};
+    teamKeys.forEach(t => {
+        newRanks[t] = {
+            off: offSorted.indexOf(t) + 1,
+            def: defSorted.indexOf(t) + 1
+        };
+    });
+    return newRanks;
+  }, [ratings]);
 
   // --- MONTE CARLO ENGINE (Web Worker â€” off main thread) ---
   const handleRunSims = () => {

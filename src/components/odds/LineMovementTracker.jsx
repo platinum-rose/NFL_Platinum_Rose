@@ -170,6 +170,10 @@ export default function LineMovementTracker() {
     }
   }, [timeframe]);
 
+  // load() does a real async fetch (getLineMovementsDB, falling back to
+  // getLineMovements) -- the standard fetch-on-mount/dependency-change
+  // effect pattern.
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { load(); }, [load]);
 
   const filteredMovements = movements.filter(m => {
