@@ -10,8 +10,23 @@ warnings)**, spread across dozens of files. None belong to the 4 new FantasyPros
 grep, zero occurrences of any of those filenames in the lint output. This is pre-existing
 debt, unrelated to that session's work, surfaced incidentally.
 
-**Progress:** 0 / 212 — not started. Scoped for a dedicated future session (Andy's
-explicit call, 2026-08-09) rather than folded into the FantasyPros build.
+**Progress:** 212 / 212 — **COMPLETE (2026-08-10, Cowork session, "your recommended
+order looks good, proceed").** All 8 buckets below fixed, committed to `main` across 9
+narrowly-scoped commits (`d00ee6f`, `58d27ec`, `96881b7`, `a1a896a`, `8d95231`,
+`fb6a15d`, `329e0a3`, `7d4a935`, `7481da1`, `4c7971b`), and re-verified via a fresh
+`npm run lint` per the Completion rule below — repo-wide `eslint .` now returns 0
+problems except 7 confirmed false-positive `no-unused-vars` warnings (a
+renamed-destructured-prop-used-as-a-JSX-tag pattern this repo's ESLint config
+mis-flags; investigated, confirmed genuinely used at every site, deliberately left
+untouched — see the `src/components/` batch commit message for full detail). `npm run
+build` and the full `tests/unit/` suite (52 files, 928 tests) both clean, no
+regressions. A handful of real, previously-unknown issues were also found and either
+fixed or explicitly flagged-not-fixed along the way (a genuine `pushProb` bug in
+`simulation.js`; ~8 half-wired features like `futures-intel-report-v2.js`'s
+`valueSpotSourceLinks` gap, `PlayoffBracket.jsx`'s unreachable refresh mechanism, and
+`LiveOddsDashboard.jsx`'s populated-but-unrendered `userBets` — all commented in place
+with "FLAGGED (lint cleanup, ..., not fixed — needs Andy's call)" rather than guessed
+at). Full narrative: ATLAS `.atlas/session_log/2026-08-10_session.json` (S326).
 
 > **Completion rule:** Mark `[ ]` → `[x]` only when the fix is committed to `main` AND
 > re-verified via a fresh `npm run lint` showing that item gone. This doc snapshots a
@@ -28,7 +43,7 @@ explicit call, 2026-08-09) rather than folded into the FantasyPros build.
 
 ## 🔴 HIGH — genuine runtime-correctness bugs, not style
 
-- [ ] **HOOK-COND** — `src/components/futures/FuturesWatchList.jsx:429` — `useMemo` called
+- [x] **HOOK-COND** — `src/components/futures/FuturesWatchList.jsx:429` — `useMemo` called
   conditionally (`react-hooks/rules-of-hooks`)
   - **Risk:** React requires hooks to run in the same order on every render. A
     conditionally-called hook can desync internal state or throw
@@ -41,7 +56,7 @@ explicit call, 2026-08-09) rather than folded into the FantasyPros build.
     (in dev, via Claude in Chrome or manually) and confirm no console warning/crash
     either way.
 
-- [ ] **UNDEF-VAULT** — `agents/vault-rebuilder.js:382` — `buildPickPerformanceMd` is not
+- [x] **UNDEF-VAULT** — `agents/vault-rebuilder.js:382` — `buildPickPerformanceMd` is not
   defined (`no-undef`)
   - **Risk:** A real `ReferenceError` waiting to happen if this code path executes.
     Possibly a leftover from the truncation incident already documented in
@@ -59,7 +74,7 @@ explicit call, 2026-08-09) rather than folded into the FantasyPros build.
 
 ## 🟠 MEDIUM — real anti-patterns, but likely benign here / needs case-by-case judgment
 
-- [ ] **HOOK-DEPS** — `react-hooks/exhaustive-deps`, 18 occurrences across
+- [x] **HOOK-DEPS** — `react-hooks/exhaustive-deps`, 18 occurrences across
   `AnalyticsDashboard.jsx`, `BankrollDashboard.jsx`, `MatchupCard.jsx`,
   `FuturesOddsMonitor.jsx`, `FuturesPortfolio.jsx` (×3), `HedgeCalculator.jsx`,
   `ParlayTracker.jsx` (×3), `PlayoffBracket.jsx`, and others — full current list via
@@ -76,7 +91,7 @@ explicit call, 2026-08-09) rather than folded into the FantasyPros build.
   - **Test:** Manually exercise the affected component after each fix (state updates
     correctly, no render-loop warnings in console).
 
-- [ ] **HOOK-STATIC** — `react-hooks/static-components`, 37 occurrences — heaviest single
+- [x] **HOOK-STATIC** — `react-hooks/static-components`, 37 occurrences — heaviest single
   concentration in `src/components/layout/Header.jsx` (`NavTab`, `ToolButton`,
   `IconButton` all defined inside the parent component body) and
   `src/components/futures/FuturesPortfolio.jsx` (`SummaryCards`, `PositionsView`,
@@ -95,7 +110,7 @@ explicit call, 2026-08-09) rather than folded into the FantasyPros build.
     doing in batches of one file at a time with a build+visual check between each,
     rather than all at once.
 
-- [ ] **CONFIG-YAHOO** — `src/lib/yahoo.js` — 7× `no-undef` on `process`/`Buffer`
+- [x] **CONFIG-YAHOO** — `src/lib/yahoo.js` — 7× `no-undef` on `process`/`Buffer`
   (lines 22-44)
   - **Risk:** None — investigated 2026-08-09, this is a false positive. `yahoo.js` is a
     Node-only module (`node:fs/promises`, `dotenv/config`, `process.cwd()`) and is never
@@ -114,7 +129,7 @@ explicit call, 2026-08-09) rather than folded into the FantasyPros build.
 
 ## 🟢 LOW — mechanical, low-risk, no design judgment needed
 
-- [ ] **UNUSED-VARS** — `no-unused-vars`, 126 occurrences (the largest single bucket, ~60%
+- [x] **UNUSED-VARS** — `no-unused-vars`, 126 occurrences (the largest single bucket, ~60%
   of all problems), spread across `agents/*.js`, `scripts/*.js`, `src/components/**/*.jsx`,
   and `tests/unit/*.test.js`. Full current list via `npm run lint`.
   - **Risk:** None functionally — genuinely dead code/imports/vars. Some in `agents/`
@@ -133,7 +148,7 @@ explicit call, 2026-08-09) rather than folded into the FantasyPros build.
     occasionally reveal it wasn't actually unused (e.g. referenced via a string/dynamic
     key eslint can't see statically).
 
-- [ ] **HOOK-SETSTATE** — `react-hooks/set-state-in-effect`, 8 occurrences (`AuthGate.jsx`,
+- [x] **HOOK-SETSTATE** — `react-hooks/set-state-in-effect`, 8 occurrences (`AuthGate.jsx`,
   `DevLab.jsx`, and others via `npm run lint`).
   - **Risk:** Low — newer React-guidance-era rule flagging `setState` called directly
     inside a `useEffect` body. Often fine (e.g. `AuthGate.jsx`'s case: passing through
@@ -143,7 +158,7 @@ explicit call, 2026-08-09) rather than folded into the FantasyPros build.
     an eslint-disable comment with a one-line reason, rather than a structural rewrite.
   - **Test:** N/A beyond existing component tests — low risk either way.
 
-- [ ] **MISC-SMALL** — `no-useless-escape` (2: `agents/portfolio-synthesize.js:597`,
+- [x] **MISC-SMALL** — `no-useless-escape` (2: `agents/portfolio-synthesize.js:597`,
   `scripts/parse-adp.js:87`), `no-empty` (2: `scripts/build-beat-nuggets-importer.js:88`,
   `scripts/build-public-sentiment-classifier.js:37`),
   `react-hooks/preserve-manual-memoization` (2, `ParlayTracker.jsx`)
