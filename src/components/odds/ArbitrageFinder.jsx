@@ -60,10 +60,6 @@ export default function ArbitrageFinder() {
   const [isDemo, setIsDemo] = useState(false);
   const [stake, setStake] = useState(1000);
 
-  useEffect(() => {
-    loadOpportunities();
-  }, []);
-
   const loadOpportunities = () => {
     // Try real cached odds first
     const games = loadFromStorage(PR_STORAGE_KEYS.CACHED_ODDS.key, null);
@@ -86,6 +82,14 @@ export default function ArbitrageFinder() {
     }
     setIsDemo(true);
   };
+
+  // loadOpportunities is also wired to a manual refresh button below, so it
+  // has to stay a real callable function rather than a lazy useState
+  // initializer -- kept as a mount effect.
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    loadOpportunities();
+  }, []);
 
   const bestProfit = opportunities.length > 0
     ? Math.max(...opportunities.map(o => o.profit))

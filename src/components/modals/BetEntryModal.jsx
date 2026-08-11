@@ -38,10 +38,23 @@ export default function BetEntryModal({
   // eslint-disable-next-line no-unused-vars
   const [gradingResult, setGradingResult] = useState('');
 
+  const loadBankrollData = () => {
+    const data = getBankrollData();
+    setBankrollData(data);
+
+    // Load pending bets for grading
+    const pending = data.bets.filter(bet => bet.status === BET_STATUS.PENDING);
+    setPendingBets(pending);
+  };
+
+  // Resets bankroll data / pre-populates the game field each time the modal
+  // opens -- a real sync effect (reacts to isOpen/selectedGame props), not
+  // derivable state.
   useEffect(() => {
     if (isOpen) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       loadBankrollData();
-      
+
       // If selectedGame is provided, pre-populate game selection
       if (selectedGame) {
         setBetData(prev => ({
@@ -52,16 +65,10 @@ export default function BetEntryModal({
     }
   }, [isOpen, selectedGame]);
 
-  const loadBankrollData = () => {
-    const data = getBankrollData();
-    setBankrollData(data);
-    
-    // Load pending bets for grading
-    const pending = data.bets.filter(bet => bet.status === BET_STATUS.PENDING);
-    setPendingBets(pending);
-  };
-
-  // Auto-calculate unit size when confidence or probability changes
+  // Auto-calculate unit size when confidence or probability changes.
+  // unitSize lives inside betData alongside customUnit (a user-editable
+  // override), so this can't be cleanly pulled out into a useMemo without
+  // restructuring the form's state shape -- left as a real sync effect.
   useEffect(() => {
     if (betData.confidence > 0 && betData.winProbability > 0 && bankrollData) {
       const kellyUnit = calculateKellyUnit(
@@ -69,13 +76,14 @@ export default function BetEntryModal({
         betData.odds,
         bankrollData.currentBankroll
       );
-      
+
       const recommended = getRecommendedUnit(
         betData.confidence,
         kellyUnit,
         'moderate' // Default risk profile
       );
-      
+
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setBetData(prev => ({ ...prev, unitSize: recommended.units }));
     }
   }, [betData.confidence, betData.winProbability, betData.odds, bankrollData]);

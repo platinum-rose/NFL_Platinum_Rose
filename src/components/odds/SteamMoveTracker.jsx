@@ -57,8 +57,6 @@ export default function SteamMoveTracker() {
   const [typeFilter, setTypeFilter] = useState('all');
   const [sigFilter, setSigFilter] = useState('all');
 
-  useEffect(() => { load(); }, []);
-
   const load = async () => {
     // Try Supabase first (populated by OddsIngestAgent), fall back to localStorage
     let real = await getLineMovementsDB(24).catch(() => []);
@@ -72,6 +70,11 @@ export default function SteamMoveTracker() {
       setIsDemo(true);
     }
   };
+
+  // load() is also wired to a manual refresh button below, so it has to stay
+  // a real callable function; it's also a real async fetch (getLineMovementsDB).
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => { load(); }, []);
 
   const filtered = moves.filter(m => {
     if (typeFilter !== 'all' && m.type !== typeFilter) return false;
