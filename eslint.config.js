@@ -8,11 +8,13 @@ export default defineConfig([
   // ── Ignore non-source directories ─────────────────────────────────────────
   globalIgnores([
     'dist/**',
+    'dist.old-*/**',
     'node_modules/**',
     'coverage/**',
     '.atlas-bridge/**',
     '.claude/**',
-    '.venv/**',
+    '**/.venv*/**',
+    '**/.pytest_cache/**',
     'test-results/**',
     'data/**',
     'supabase/**',

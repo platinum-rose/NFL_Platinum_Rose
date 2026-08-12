@@ -16,6 +16,8 @@ const LATEST_MD = path.join(DOC_DIR, 'article-intel-review-latest.md');
 const LATEST_HTML = path.join(DOC_DIR, 'article-intel-review-latest.html');
 
 const DEFAULT_SINCE = '2026-07-30T04:48:03.331Z';
+const DEFAULT_LIMIT = 0;
+const DB_PAGE_SIZE = 1000;
 const TEAM_ALIASES = {
   ARI: ['Arizona Cardinals', 'Cardinals'],
   ATL: ['Atlanta Falcons', 'Falcons'],
@@ -69,19 +71,36 @@ const NUMBER_LINE_PATTERN = /(?:^|[\s(])([+-]\d+(?:\.\d+)?)(?=$|[\s),.;])/;
 const TOTAL_PATTERN = /\b(Over|Under)\s+(\d+(?:\.\d+)?)(?:\s+(wins?|points?|pts|yards?|receiving yards?|rushing yards?|passing yards?|touchdowns?|TDs?))?\b/i;
 const PICK_ACTION_PATTERN = /\b(best bets?|pick:|prediction:|recommended bet|recommend(?:ed|s)?|I'm taking|I am taking|I(?:'|’)ll take|I like|we like|play:|bet:|wager|target|lean:|sprinkle|backing|fade)\b/i;
 const PAGE_CHROME_PATTERN = /\b(skip to main content|top stories|follow us|newsletter|advertisement|related articles|more news|sign up|log in|subscribe|privacy policy)\b/i;
+const PICK_ORIENTED_PATTERN = /\b(best bets?|picks?|predictions?|odds|props?|win totals?|wagers?|futures?)\b/i;
+const STRICT_TEAM_MARKETS = new Set([
+  'moneyline',
+  'spread',
+  'team_total',
+  'win_total',
+  'make_playoffs',
+  'super_bowl_winner',
+  'conference_winner',
+  'division_winner',
+]);
 
 function arg(name, fallback = null) {
   const i = process.argv.indexOf(name);
   return i >= 0 && process.argv[i + 1] ? process.argv[i + 1] : fallback;
 }
 
+function hasFlag(name) {
+  return process.argv.includes(name);
+}
+
 function usage() {
   console.log(`Article Intel Review
 
 Usage:
-  node scripts/build-article-intel-review.js [--since ISO] [--limit 100]
+  node scripts/build-article-intel-review.js [--since ISO] [--limit N] [--local-only]
 
 Builds local review-only article intel JSON/Markdown/HTML from research_intel_notes.
+The default limit is 0 (page the complete date window). A positive --limit is an
+explicit diagnostic cap. --local-only permits an intentionally partial local build.
 No Supabase writes; no official picks; no recommendation promotion.`);
 }
 
@@ -90,6 +109,7 @@ function clean(value = '') {
     .replace(/&#038;/g, '&')
     .replace(/&amp;/g, '&')
     .replace(/&nbsp;/g, ' ')
+    .replace(/(?:&#8211;|&ndash;|\u2013|\u2014|\u00e2\u20ac[\u201c\u201d])/g, ' - ')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -164,9 +184,57 @@ function reviewFlagsForPick(text, teams, details, extra = []) {
     ...(teams.length ? [] : ['no_team_detected']),
     ...(teams.length > 5 ? ['broad_or_page_chrome_team_match'] : []),
     ...(details.price ? [] : ['missing_price']),
+    ...(details.book ? [] : ['missing_book']),
     ...(details.line || ['moneyline', 'super_bowl_winner', 'division_winner', 'conference_winner', 'make_playoffs', 'award_or_player_future'].includes(details.market) ? [] : ['missing_line']),
     ...(details.selection ? [] : ['missing_selection']),
   ];
+}
+
+function bodyEvidenceStatus(row) {
+  const bodyChars = clean(row?.body).length;
+  if (bodyChars === 0) return 'metadata_only';
+  if (bodyChars < 500) return 'thin_body';
+  if (bodyChars >= 3990) return 'suspected_ingest_cap';
+  return 'body_available';
+}
+
+function isExecutionUsablePick(details) {
+  if (!details?.selection || !details?.market || !details?.price || !details?.book) return false;
+  if (['moneyline', 'super_bowl_winner', 'division_winner', 'conference_winner', 'make_playoffs', 'award_or_player_future'].includes(details.market)) {
+    return true;
+  }
+  return Boolean(details.line);
+}
+
+function executionEvidenceStatus(details) {
+  return isExecutionUsablePick(details)
+    ? 'execution_evidence_present'
+    : 'needs_price_or_venue_verification';
+}
+
+function extractStructuredAnalystSelections(text) {
+  const source = clean(text);
+  const pattern = /([A-Z][A-Za-z'.-]+(?:\s+(?:[A-Z][A-Za-z'.-]+|Jr\.|Sr\.|II|III)){1,3})\s+-\s+(Over|Under)\s+(\d+(?:\.\d+)?)\s+((?:(?:Passing|Rushing|Receiving)\s+)?(?:Yards?|Touchdowns?|TDs?|Receptions?|Completions?|Attempts?|Interceptions?|Carries|Sacks?))(?:\s*\(([+-]\d{3,5})\)|\s+([+-]\d{3,5}))?(?:\s+(?:at|via)\s+(BetMGM|DraftKings|FanDuel|Caesars|ESPN BET|Hard Rock|BetOnline|BetUS|BookMaker|BKR|Circa|Westgate|WynnBET|PointsBet|Fanatics))?/g;
+  const selections = [];
+  for (const match of source.matchAll(pattern)) {
+    const selection = clean(match[1])
+      .replace(/^(?:(?:Best|Top|NFL|Player|Prop|Props|Pick|Picks|Bet|Bets)[\s.:]+)+/i, '')
+      .trim();
+    if (selection.split(/\s+/).length < 2) continue;
+    const details = {
+      market: 'player_prop_or_stat_future',
+      selection,
+      side: match[2].toLowerCase(),
+      line: match[3],
+      price: match[5] || match[6] || null,
+      book: match[7] || null,
+    };
+    selections.push({
+      details,
+      quote: clean(match[0]),
+    });
+  }
+  return selections;
 }
 
 function parseMarketDetails(text, fallbackTeams = []) {
@@ -209,41 +277,50 @@ function parseMarketDetails(text, fallbackTeams = []) {
     if (line && !/^[+-]\d{3,5}$/.test(line)) detail.line = line;
   }
 
-  const explicitSelection = source.match(/\b(?:Best Bet|Pick|Prediction|Play|Bet|Wager|Lean|Target|Taking|Like):?\s+([^.;|]+?)(?:\s+at\s+|\s+with\s+|\s+for\s+|$)/i)?.[1]
-    || source.match(/\b(?:take|taking|like|play|bet|back|fade)\s+([^.;|]+?)(?:\s+at\s+|\s+with\s+|\s+for\s+|$)/i)?.[1]
+  const explicitSelection = source.match(/\b(?:Best Bet|Pick|Prediction|Play|Bet|Wager|Lean|Target|Taking|Like):?\s+(.+?)(?=\s+(?:at|with|for)\s+|[.;|]|$)/i)?.[1]
+    || source.match(/\b(?:take|taking|like|play|bet|back|fade)\s+(.+?)(?=\s+(?:at|with|for)\s+|[.;|]|$)/i)?.[1]
     || null;
-  detail.selection = explicitSelection ? clean(explicitSelection).slice(0, 120) : (fallbackTeams.length === 1 ? fallbackTeams[0] : null);
+  detail.selection = explicitSelection
+    ? clean(explicitSelection).replace(/\s*\(?[+-]\d{3,5}\)?$/, '').trim().slice(0, 120)
+    : (fallbackTeams.length === 1 && STRICT_TEAM_MARKETS.has(detail.market) ? fallbackTeams[0] : null);
 
   return detail;
 }
 
-function extractActualPicks(article, teams, fullText) {
+function extractAnalystSelections(article, teams, fullText) {
   if (article.flags.includes('likely_non_nfl_false_positive')) return [];
   const sourceText = `${article.title}. ${article.summary}. ${fullText}`;
-  const candidates = articleSentences(sourceText)
-    .filter((sentence) => PICK_ACTION_PATTERN.test(sentence))
+  const sentenceCandidates = articleSentences(sourceText)
+    .filter((sentence) => PICK_ACTION_PATTERN.test(sentence) || /\b(?:pick|play|bet|lean|target):/i.test(sentence))
     .filter((sentence) => hasMarketDetail(sentence))
     .filter((sentence) => !isPageChromeSentence(sentence))
-    .filter((sentence) => !/\b(draft pick|first-round pick|scouting report pick change|pick-six|picked off)\b/i.test(sentence));
+    .filter((sentence) => !/\b(draft pick|first-round pick|scouting report pick change|pick-six|picked off)\b/i.test(sentence))
+    .map((quote) => ({ quote, details: null }));
+  const candidates = [
+    ...extractStructuredAnalystSelections(sourceText).map((candidate) => ({ ...candidate, structured: true })),
+    ...sentenceCandidates,
+  ];
   const out = [];
   const seen = new Set();
-  for (const sentence of candidates) {
+  for (const candidate of candidates) {
+    const sentence = candidate.quote;
     const quoteTeams = mentionedTeams(sentence, article.title);
     const targetTeams = quoteTeams.length ? quoteTeams : teams;
-    const details = parseMarketDetails(sentence, targetTeams);
+    const details = candidate.details || parseMarketDetails(sentence, targetTeams);
     if (!details.selection) continue;
     if (/^(?:on\s+)?teams?\s+to\b/i.test(details.selection) || /\bgamblers wager on teams\b/i.test(sentence)) continue;
-    const key = clean(`${details.market}|${details.selection}|${details.side}|${details.line}|${details.price}|${sentence}`).toLowerCase().slice(0, 220);
+    const key = clean(`${details.market}|${details.selection}|${details.side}|${details.line}|${details.price}|${details.book}`).toLowerCase();
     if (seen.has(key)) continue;
     seen.add(key);
     const missingCore = !details.selection
-      || (!details.line && !details.price && !/winner|moneyline/.test(details.market))
+      || (!details.line && !details.price)
       || (details.market === 'make_playoffs' && !details.price && !/^(yes|no)$/i.test(details.side || ''));
     if (missingCore) continue;
+    const evidenceStatus = executionEvidenceStatus(details);
     out.push({
-      item_id: `article_actual_pick__${article.id}__${out.length + 1}`,
-      item_type: 'actual_pick',
-      lane: 'actual_pick',
+      item_id: `article_analyst_selection__${article.id}__${out.length + 1}`,
+      item_type: 'analyst_selection',
+      lane: evidenceStatus === 'execution_evidence_present' ? 'actual_pick' : 'analyst_selection_needs_execution',
       teams: targetTeams,
       market: details.market,
       selection: details.selection,
@@ -251,17 +328,19 @@ function extractActualPicks(article, teams, fullText) {
       line: details.line,
       price: details.price,
       book: details.book,
-      confidence: missingCore ? 'needs_review' : 'candidate',
+      evidence_status: evidenceStatus,
+      confidence: evidenceStatus === 'execution_evidence_present' ? 'candidate' : 'needs_execution_verification',
       quote: sentence,
       rationale: snippet(`${article.summary} ${fullText}`, new RegExp(sentence.slice(0, 30).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'), 360),
       review_flags: reviewFlagsForPick(sentence, targetTeams, details, [
         ...(missingCore ? ['low_confidence'] : []),
-        ...(details.market === 'award_or_player_future' || details.market === 'player_prop_or_stat_future' ? ['inference_only'] : []),
+        ...(candidate.structured ? ['structured_multi_pick_extract'] : []),
+        ...(evidenceStatus === 'execution_evidence_present' ? [] : ['not_execution_usable']),
       ]),
       source: article.source_meta,
     });
   }
-  return out.slice(0, 12);
+  return out.slice(0, 24);
 }
 
 function focusedBody(row) {
@@ -411,7 +490,12 @@ function extractAnalysisNotes(article, teams, fullText) {
   });
 }
 
-async function loadArticles(since, limit) {
+function normalizedLimit(value) {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) && parsed > 0 ? Math.floor(parsed) : null;
+}
+
+async function loadArticles(since, limit = DEFAULT_LIMIT, { localOnly = false, client = null } = {}) {
   const localDir = path.join(ROOT, 'data', 'research-intel', 'local');
   let localRows = [];
   if (fs.existsSync(localDir)) {
@@ -427,23 +511,55 @@ async function loadArticles(since, limit) {
       }
     }
   }
+  localRows = localRows.filter((row) => {
+    const timestamp = row.captured_at || row.published_at;
+    return !timestamp || String(timestamp) >= String(since);
+  });
 
   let dbRows = [];
-  if (process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY) {
-    try {
-      const sb = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, {
-        auth: { persistSession: false },
-      });
+  const requestedLimit = normalizedLimit(limit);
+  const collection = {
+    since,
+    requested_limit: requestedLimit,
+    local_only: localOnly,
+    local_files_scanned: localRows.length,
+    database_status: localOnly ? 'skipped_local_only' : 'not_started',
+    database_pages: 0,
+    database_rows: 0,
+    database_cap_reached: false,
+    complete_for_since_window: false,
+  };
+
+  if (!localOnly) {
+    if (!client && (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY)) {
+      throw new Error('Supabase credentials are not configured. Use --local-only only for an explicitly partial diagnostic build.');
+    }
+    const sb = client || createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, {
+      auth: { persistSession: false },
+    });
+    let offset = 0;
+    let reachedEnd = false;
+    while (!reachedEnd && (!requestedLimit || dbRows.length < requestedLimit)) {
+      const remaining = requestedLimit ? requestedLimit - dbRows.length : DB_PAGE_SIZE;
+      const pageSize = Math.min(DB_PAGE_SIZE, remaining);
       const { data, error } = await sb
         .from('research_intel_notes')
         .select('id,source,source_type,title,summary,body,url,published_at,captured_at,author,confidence')
         .gte('captured_at', since)
         .order('published_at', { ascending: false })
-        .limit(limit);
-      if (!error && data) dbRows = data;
-    } catch (_err) {
-      // ignore
+        .range(offset, offset + pageSize - 1);
+      if (error) throw new Error(`research_intel_notes query failed: ${error.message || error}`);
+      const page = Array.isArray(data) ? data : [];
+      dbRows.push(...page);
+      collection.database_pages += 1;
+      offset += page.length;
+      if (page.length < pageSize) reachedEnd = true;
+      if (page.length === 0) reachedEnd = true;
     }
+    collection.database_rows = dbRows.length;
+    collection.database_cap_reached = Boolean(requestedLimit && !reachedEnd && dbRows.length >= requestedLimit);
+    collection.database_status = collection.database_cap_reached ? 'explicit_cap_reached' : 'complete';
+    collection.complete_for_since_window = !collection.database_cap_reached;
   }
 
   const combined = [...localRows, ...dbRows];
@@ -455,7 +571,8 @@ async function loadArticles(since, limit) {
       deduped.push(row);
     }
   }
-  return deduped;
+  collection.deduped_records = deduped.length;
+  return { rows: deduped, collection };
 }
 
 function renderMarkdown(report) {
@@ -464,30 +581,47 @@ function renderMarkdown(report) {
     '',
     `Generated: ${report.generated_at}`,
     '',
-    '> Local review only. Article-derived notes and pick leads are research context until human-reviewed and explicitly promoted.',
+    '> Local evidence assessment only. Record count is not review coverage. Article-derived selections and notes remain research context until human-reviewed and explicitly promoted.',
     '',
     '## Summary',
     '',
-    `- Articles reviewed: ${report.summary.articles_reviewed}`,
+    `- Article records assessed: ${report.summary.article_records_assessed}`,
+    `- Complete requested date window: ${report.collection.complete_for_since_window === true ? 'yes' : 'no'}`,
+    `- Body evidence — available: ${report.summary.body_evidence.body_available}; suspected ingest cap: ${report.summary.body_evidence.suspected_ingest_cap}; metadata only: ${report.summary.body_evidence.metadata_only}; thin: ${report.summary.body_evidence.thin_body}`,
+    `- Pick-oriented records: ${report.summary.pick_oriented_records}`,
+    `- Unresolved pick-oriented records: ${report.summary.unresolved_pick_oriented_records}`,
     `- Likely non-NFL false positives: ${report.summary.likely_non_nfl_false_positives}`,
-    `- Actual pick candidates extracted: ${report.summary.actual_picks}`,
+    `- Explicit analyst selection mentions: ${report.summary.explicit_analyst_selection_mentions}`,
+    `- Unique explicit analyst selections: ${report.summary.unique_explicit_analyst_selections}`,
+    `- Selections needing price or venue verification: ${report.summary.selections_needing_execution_verification}`,
+    `- Execution-usable actual pick candidates: ${report.summary.actual_picks}`,
     `- Market/inference leads extracted: ${report.summary.market_leads}`,
     `- Analysis notes extracted: ${report.summary.analysis_notes}`,
     `- Articles with fetched bodies: ${report.summary.articles_with_body}`,
     '',
     '## Source Counts',
     '',
-    '| Source | Articles | Actual Picks | Market Leads | Notes |',
-    '|---|---:|---:|---:|---:|',
-    ...report.sources.map((row) => `| ${mdCell(row.source)} | ${row.articles} | ${row.actual_picks} | ${row.market_leads} | ${row.analysis_notes} |`),
+    '| Source | Records | Explicit Selections | Execution-Usable Picks | Market Leads | Notes |',
+    '|---|---:|---:|---:|---:|---:|',
+    ...report.sources.map((row) => `| ${mdCell(row.source)} | ${row.articles} | ${row.explicit_analyst_selections} | ${row.actual_picks} | ${row.market_leads} | ${row.analysis_notes} |`),
     '',
     '## Article Coverage',
     '',
-    '| Source | Article | Teams | Flags | Actual Picks | Market Leads | Notes |',
-    '|---|---|---|---|---:|---:|---:|',
-    ...report.articles.map((article) => `| ${mdCell(article.source)} | [${mdCell(article.title)}](${article.url}) | ${article.teams.join(', ')} | ${article.flags.join(', ')} | ${article.actual_pick_count} | ${article.market_lead_count} | ${article.analysis_note_count} |`),
+    '| Source | Article | Body Evidence | Pick Review | Teams | Flags | Explicit Selections | Actual Picks | Leads | Notes |',
+    '|---|---|---|---|---|---|---:|---:|---:|---:|',
+    ...report.articles.map((article) => `| ${mdCell(article.source)} | [${mdCell(article.title)}](${article.url}) | ${article.body_evidence_status} | ${article.pick_review_status} | ${article.teams.join(', ')} | ${article.flags.join(', ')} | ${article.explicit_analyst_selection_count} | ${article.actual_pick_count} | ${article.market_lead_count} | ${article.analysis_note_count} |`),
     '',
-    '## Actual Pick Candidates',
+    '## Explicit Analyst Selections',
+    '',
+    report.analyst_selections.length
+      ? '| Selection | Market | Side | Line | Price | Book | Evidence Status | Source | Flags | Quote |'
+      : '_No explicit analyst selections extracted._',
+    ...(report.analyst_selections.length ? [
+      '|---|---|---|---|---|---|---|---|---|---|',
+      ...report.analyst_selections.map((item) => `| ${mdCell(item.selection)} | ${item.market} | ${mdCell(item.side)} | ${mdCell(item.line)} | ${mdCell(item.price)} | ${mdCell(item.book)} | ${item.evidence_status} | [${mdCell(item.source.title)}](${item.source.url}) | ${item.review_flags.join(', ')} | ${mdCell(item.quote)} |`),
+    ] : []),
+    '',
+    '## Execution-Usable Actual Pick Candidates',
     '',
     report.actual_picks.length
       ? '| Teams | Market | Selection | Side | Line | Price | Book | Source | Flags | Quote |'
@@ -522,8 +656,9 @@ function renderMarkdown(report) {
 }
 
 function renderHtml(report, mdPath) {
-  const sourceRows = report.sources.map((row) => `<tr><td>${esc(row.source)}</td><td>${row.articles}</td><td>${row.actual_picks}</td><td>${row.market_leads}</td><td>${row.analysis_notes}</td></tr>`).join('');
-  const articleRows = report.articles.map((article) => `<tr><td>${esc(article.source)}</td><td><a href="${esc(article.url)}">${esc(article.title)}</a></td><td>${esc(article.teams.join(', '))}</td><td>${esc(article.flags.join(', '))}</td><td>${article.actual_pick_count}</td><td>${article.market_lead_count}</td><td>${article.analysis_note_count}</td></tr>`).join('');
+  const sourceRows = report.sources.map((row) => `<tr><td>${esc(row.source)}</td><td>${row.articles}</td><td>${row.explicit_analyst_selections}</td><td>${row.actual_picks}</td><td>${row.market_leads}</td><td>${row.analysis_notes}</td></tr>`).join('');
+  const articleRows = report.articles.map((article) => `<tr><td>${esc(article.source)}</td><td><a href="${esc(article.url)}">${esc(article.title)}</a></td><td>${esc(article.body_evidence_status)}</td><td>${esc(article.pick_review_status)}</td><td>${esc(article.teams.join(', '))}</td><td>${esc(article.flags.join(', '))}</td><td>${article.explicit_analyst_selection_count}</td><td>${article.actual_pick_count}</td><td>${article.market_lead_count}</td><td>${article.analysis_note_count}</td></tr>`).join('');
+  const analystSelectionRows = report.analyst_selections.map((item) => `<tr><td>${esc(item.selection)}</td><td>${esc(item.market)}</td><td>${esc(item.side)}</td><td>${esc(item.line)}</td><td>${esc(item.price)}</td><td>${esc(item.book)}</td><td>${esc(item.evidence_status)}</td><td><a href="${esc(item.source.url)}">${esc(item.source.title)}</a></td><td>${esc(item.review_flags.join(', '))}</td><td>${esc(item.quote)}</td></tr>`).join('');
   const actualPickRows = report.actual_picks.map((item) => `<tr><td>${esc(item.teams.join(', '))}</td><td>${esc(item.market)}</td><td>${esc(item.selection)}</td><td>${esc(item.side)}</td><td>${esc(item.line)}</td><td>${esc(item.price)}</td><td>${esc(item.book)}</td><td><a href="${esc(item.source.url)}">${esc(item.source.title)}</a></td><td>${esc(item.review_flags.join(', '))}</td><td>${esc(item.quote)}</td></tr>`).join('');
   const marketRows = report.market_leads.map((item) => `<tr><td>${esc(item.lane)}</td><td>${esc(item.teams.join(', '))}</td><td>${esc(item.market)}</td><td>${esc(item.lean)}</td><td><a href="${esc(item.source.url)}">${esc(item.source.title)}</a></td><td>${esc(item.review_flags.join(', '))}</td><td>${esc(item.quote)}</td><td>${esc(item.rationale)}</td></tr>`).join('');
   const noteRows = report.analysis_notes.map((item) => `<tr><td>${esc(item.relevance_tags.join(', '))}</td><td>${esc(item.teams.join(', '))}</td><td><a href="${esc(item.source.url)}">${esc(item.source.title)}</a></td><td>${esc(item.confidence)}</td><td>${esc(item.review_flags.join(', '))}</td><td>${esc(item.summary)}</td><td>${esc(item.quote)}</td></tr>`).join('');
@@ -539,18 +674,24 @@ a{color:#2455a6} table{width:100%;border-collapse:collapse;margin:14px 0 28px} t
 </head>
 <body>
 <h1>Article Intel Review</h1>
-<p class="muted">Generated ${esc(report.generated_at)}. Local review only; no official picks or recommendation promotion.</p>
+<p class="muted">Generated ${esc(report.generated_at)}. Local evidence assessment only; record count is not review coverage. No official picks or recommendation promotion.</p>
 <p><a href="${esc(path.relative(DOC_DIR, mdPath).replace(/\\/g, '/'))}">Markdown copy</a></p>
 <div class="cards">
-<div class="card"><b>${report.summary.articles_reviewed}</b>Articles</div>
-<div class="card"><b>${report.summary.actual_picks}</b>Actual pick candidates</div>
+<div class="card"><b>${report.summary.article_records_assessed}</b>Records assessed</div>
+<div class="card"><b>${report.summary.body_evidence.body_available}</b>Bodies available</div>
+<div class="card"><b>${report.summary.body_evidence.suspected_ingest_cap}</b>Suspected body cap</div>
+<div class="card"><b>${report.summary.unresolved_pick_oriented_records}</b>Unresolved pick-oriented</div>
+<div class="card"><b>${report.summary.explicit_analyst_selection_mentions}</b>Explicit selection mentions</div>
+<div class="card"><b>${report.summary.unique_explicit_analyst_selections}</b>Unique selections</div>
+<div class="card"><b>${report.summary.actual_picks}</b>Execution-usable picks</div>
 <div class="card"><b>${report.summary.market_leads}</b>Market/inference leads</div>
 <div class="card"><b>${report.summary.analysis_notes}</b>Analysis notes</div>
 <div class="card"><b>${report.summary.likely_non_nfl_false_positives}</b>Likely false positives</div>
 </div>
-<h2>Source Counts</h2><table><thead><tr><th>Source</th><th>Articles</th><th>Actual Picks</th><th>Market Leads</th><th>Notes</th></tr></thead><tbody>${sourceRows}</tbody></table>
-<h2>Article Coverage</h2><table><thead><tr><th>Source</th><th>Article</th><th>Teams</th><th>Flags</th><th>Actual Picks</th><th>Market Leads</th><th>Notes</th></tr></thead><tbody>${articleRows}</tbody></table>
-<h2>Actual Pick Candidates</h2><table><thead><tr><th>Teams</th><th>Market</th><th>Selection</th><th>Side</th><th>Line</th><th>Price</th><th>Book</th><th>Source</th><th>Flags</th><th>Quote</th></tr></thead><tbody>${actualPickRows || '<tr><td colspan="10">None extracted.</td></tr>'}</tbody></table>
+<h2>Source Counts</h2><table><thead><tr><th>Source</th><th>Records</th><th>Explicit Selections</th><th>Execution-Usable Picks</th><th>Market Leads</th><th>Notes</th></tr></thead><tbody>${sourceRows}</tbody></table>
+<h2>Article Coverage</h2><table><thead><tr><th>Source</th><th>Article</th><th>Body Evidence</th><th>Pick Review</th><th>Teams</th><th>Flags</th><th>Explicit Selections</th><th>Actual Picks</th><th>Leads</th><th>Notes</th></tr></thead><tbody>${articleRows}</tbody></table>
+<h2>Explicit Analyst Selections</h2><table><thead><tr><th>Selection</th><th>Market</th><th>Side</th><th>Line</th><th>Price</th><th>Book</th><th>Evidence Status</th><th>Source</th><th>Flags</th><th>Quote</th></tr></thead><tbody>${analystSelectionRows || '<tr><td colspan="10">None extracted.</td></tr>'}</tbody></table>
+<h2>Execution-Usable Actual Pick Candidates</h2><table><thead><tr><th>Teams</th><th>Market</th><th>Selection</th><th>Side</th><th>Line</th><th>Price</th><th>Book</th><th>Source</th><th>Flags</th><th>Quote</th></tr></thead><tbody>${actualPickRows || '<tr><td colspan="10">None extracted.</td></tr>'}</tbody></table>
 <h2>Market And Inference Leads</h2><table><thead><tr><th>Lane</th><th>Teams</th><th>Market</th><th>Lean</th><th>Source</th><th>Flags</th><th>Quote</th><th>Rationale</th></tr></thead><tbody>${marketRows || '<tr><td colspan="8">None extracted.</td></tr>'}</tbody></table>
 <h2>Analysis Notes</h2><table><thead><tr><th>Tags</th><th>Teams</th><th>Source</th><th>Confidence</th><th>Flags</th><th>Summary</th><th>Quote</th></tr></thead><tbody>${noteRows || '<tr><td colspan="7">None extracted.</td></tr>'}</tbody></table>
 </body>
@@ -558,8 +699,9 @@ a{color:#2455a6} table{width:100%;border-collapse:collapse;margin:14px 0 28px} t
 `;
 }
 
-function buildReport(rows, since) {
+function buildReport(rows, since, collection = {}) {
   const articles = [];
+  const analystSelections = [];
   const actualPicks = [];
   const marketLeads = [];
   const analysisNotes = [];
@@ -586,25 +728,41 @@ function buildReport(rows, since) {
       captured_at: row.captured_at,
       author: row.author,
       body_chars: clean(row.body).length,
+      body_evidence_status: bodyEvidenceStatus(row),
       focused_text_chars: fullText.length,
       summary: clean(row.summary),
       teams,
+      pick_oriented: PICK_ORIENTED_PATTERN.test(row.title || ''),
       source_meta: sourceMeta,
       flags: [],
     };
     article.flags = articleQualityFlags(row, teams, fullText);
-    const picks = extractActualPicks(article, teams, fullText);
+    const selections = extractAnalystSelections(article, teams, fullText);
+    const picks = selections
+      .filter((item) => item.evidence_status === 'execution_evidence_present')
+      .map((item, index) => ({
+        ...item,
+        item_id: `article_actual_pick__${article.id}__${index + 1}`,
+        item_type: 'actual_pick',
+        lane: 'actual_pick',
+      }));
     const leads = extractPickLeads(article, teams, fullText).map((lead) => ({
       ...lead,
       item_type: 'market_lead',
       review_flags: [...new Set([...(lead.review_flags || []), 'inference_only'])],
     }));
     const notes = extractAnalysisNotes(article, teams, fullText);
+    article.explicit_analyst_selection_count = selections.length;
     article.actual_pick_count = picks.length;
     article.market_lead_count = leads.length;
     article.pick_lead_count = leads.length;
     article.analysis_note_count = notes.length;
+    if (!article.pick_oriented) article.pick_review_status = 'not_pick_oriented';
+    else if (article.body_evidence_status !== 'body_available') article.pick_review_status = 'unresolved_body_evidence';
+    else if (selections.length === 0) article.pick_review_status = 'unresolved_no_selection_extracted';
+    else article.pick_review_status = 'explicit_selection_extracted';
     articles.push(article);
+    analystSelections.push(...selections);
     actualPicks.push(...picks);
     marketLeads.push(...leads);
     analysisNotes.push(...notes);
@@ -612,24 +770,55 @@ function buildReport(rows, since) {
 
   const sourceMap = new Map();
   for (const article of articles) {
-    if (!sourceMap.has(article.source)) sourceMap.set(article.source, { source: article.source, articles: 0, actual_picks: 0, market_leads: 0, pick_leads: 0, analysis_notes: 0 });
+    if (!sourceMap.has(article.source)) sourceMap.set(article.source, {
+      source: article.source,
+      articles: 0,
+      explicit_analyst_selections: 0,
+      actual_picks: 0,
+      market_leads: 0,
+      pick_leads: 0,
+      analysis_notes: 0,
+    });
     const row = sourceMap.get(article.source);
     row.articles += 1;
+    row.explicit_analyst_selections += article.explicit_analyst_selection_count;
     row.actual_picks += article.actual_pick_count;
     row.market_leads += article.market_lead_count;
     row.pick_leads += article.market_lead_count;
     row.analysis_notes += article.analysis_note_count;
   }
 
+  const uniqueSelectionKeys = new Set(analystSelections.map((item) => clean([
+    item.market,
+    item.selection,
+    item.side,
+    item.line,
+  ].join('|')).toLowerCase()));
+  const bodyEvidence = Object.fromEntries([
+    'metadata_only',
+    'thin_body',
+    'suspected_ingest_cap',
+    'body_available',
+  ].map((status) => [status, articles.filter((article) => article.body_evidence_status === status).length]));
+  const unresolvedPickOriented = articles.filter((article) => article.pick_review_status.startsWith('unresolved_'));
+
   return {
     generated_at: new Date().toISOString(),
-    status: 'local_article_intel_review_only',
+    schema_version: 2,
+    status: 'local_article_evidence_assessment_only',
     guardrail: 'Article-derived leads require human review before promotion. This artifact does not write Supabase signals or create betting recommendations.',
     since,
+    collection,
     summary: {
-      articles_reviewed: articles.length,
+      article_records_assessed: articles.length,
       articles_with_body: articles.filter((article) => article.body_chars > 0).length,
+      body_evidence: bodyEvidence,
+      pick_oriented_records: articles.filter((article) => article.pick_oriented).length,
+      unresolved_pick_oriented_records: unresolvedPickOriented.length,
       likely_non_nfl_false_positives: articles.filter((article) => article.flags.includes('likely_non_nfl_false_positive')).length,
+      explicit_analyst_selection_mentions: analystSelections.length,
+      unique_explicit_analyst_selections: uniqueSelectionKeys.size,
+      selections_needing_execution_verification: analystSelections.length - actualPicks.length,
       actual_picks: actualPicks.length,
       market_leads: marketLeads.length,
       pick_leads: marketLeads.length,
@@ -637,6 +826,7 @@ function buildReport(rows, since) {
     },
     sources: [...sourceMap.values()].sort((a, b) => a.source.localeCompare(b.source)),
     articles: articles.sort((a, b) => String(a.source).localeCompare(String(b.source)) || String(b.published_at).localeCompare(String(a.published_at))),
+    analyst_selections: analystSelections,
     actual_picks: actualPicks,
     market_leads: marketLeads,
     pick_leads: marketLeads,
@@ -650,9 +840,10 @@ async function main() {
     return;
   }
   const since = arg('--since', DEFAULT_SINCE);
-  const limit = Number(arg('--limit', '100'));
-  const rows = await loadArticles(since, limit);
-  const report = buildReport(rows, since);
+  const limit = Number(arg('--limit', String(DEFAULT_LIMIT)));
+  const localOnly = hasFlag('--local-only');
+  const loaded = await loadArticles(since, limit, { localOnly });
+  const report = buildReport(loaded.rows, since, loaded.collection);
 
   fs.mkdirSync(REVIEW_DIR, { recursive: true });
   fs.mkdirSync(DOC_DIR, { recursive: true });
@@ -663,10 +854,26 @@ async function main() {
   console.log(`Wrote article intel review JSON: ${path.relative(ROOT, LATEST_JSON)}`);
   console.log(`Wrote article intel review Markdown: ${path.relative(ROOT, LATEST_MD)}`);
   console.log(`Wrote article intel review HTML: ${path.relative(ROOT, LATEST_HTML)}`);
-  console.log(`Article review summary: articles=${report.summary.articles_reviewed} false_positives=${report.summary.likely_non_nfl_false_positives} actual_picks=${report.summary.actual_picks} market_leads=${report.summary.market_leads} notes=${report.summary.analysis_notes}`);
+  console.log(`Article evidence summary: records=${report.summary.article_records_assessed} explicit_selections=${report.summary.explicit_analyst_selection_mentions} unique_selections=${report.summary.unique_explicit_analyst_selections} actual_picks=${report.summary.actual_picks} unresolved_pick_oriented=${report.summary.unresolved_pick_oriented_records}`);
 }
 
-main().catch((err) => {
-  console.error(`Article intel review failed: ${err.message}`);
-  process.exit(1);
-});
+const isMain = process.argv[1] && path.resolve(process.argv[1]) === __filename;
+if (isMain) {
+  main().catch((err) => {
+    console.error(`Article intel review failed: ${err.message}`);
+    process.exit(1);
+  });
+}
+
+export {
+  bodyEvidenceStatus,
+  buildReport,
+  executionEvidenceStatus,
+  extractAnalystSelections,
+  extractStructuredAnalystSelections,
+  isExecutionUsablePick,
+  loadArticles,
+  normalizedLimit,
+  renderHtml,
+  renderMarkdown,
+};

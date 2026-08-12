@@ -22,6 +22,7 @@
     "ingest-research-intel": "node agents/research-intel-ingest.js",
     "ingest-research-intel:dry": "node agents/research-intel-ingest.js --dry-run",
     "article:intel-review": "node scripts/build-article-intel-review.js",
+    "test:article-intel-review": "vitest run tests/unit/articleIntelReview.test.js",
     "test:smoke": "playwright test",
     "test:portfolio-corpus": "node scripts/run-portfolio-corpus.js",
     "test:futures-dossier": "node scripts/futures-dossier-conformance.js",

@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+dist.old-*/
 *.local
 # Editor directories and files
 .vscode/*
@@ -63,4 +64,6 @@ docs/twitter/
 
 # Python bytecode caches (scripts/ has standalone .py utilities, no venv-level ignore existed)
 __pycache__/
+.pytest_cache/
+.venv*/
 *.pyc

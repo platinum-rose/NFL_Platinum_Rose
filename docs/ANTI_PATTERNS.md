@@ -26,6 +26,8 @@
 
 ## Storage & Data
 
+- **Artifact row count is not evidence coverage**: A dated artifact can still be incomplete when its query is capped, article bodies are missing, or stored text ends at an ingest ceiling. Never label article records as "reviewed" from row count alone. Report corpus completeness and body-evidence status separately, keep pick-oriented rows unresolved until their usable bodies are examined, and block frontier synthesis when those gates are unknown or failed.
+
 - **Public file fetches — Vite base path**: NEVER use hardcoded `/filename.json`. Vite base is `/platinum-rose-app/` so `public/` files must be fetched as `./filename.json` or `` `${import.meta.env.BASE_URL}filename.json` ``. Hardcoded `/` prefix 404s in production.
 
 - **localStorage direct access**: Never call `localStorage.getItem()` or `localStorage.setItem()` directly outside `src/lib/storage.js`. All reads/writes must go through `loadFromStorage`/`saveToStorage`/`clearStorage`. This ensures try/catch safety and the `PR_STORAGE_KEYS` catalog stays as the single source of truth.

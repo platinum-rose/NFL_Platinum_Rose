@@ -869,18 +869,31 @@ async function collectResearchArticleIntel(sources) {
   const articleReview = await readJson('data/research-intel/review/article-intel-review-latest.json', null);
   if (articleReview) {
     const generated = articleReview.generated_at || '';
+    const summary = articleReview.summary || {};
     const actualPicks = articleReview.summary?.actual_picks || 0;
     const marketLeads = articleReview.summary?.market_leads ?? articleReview.summary?.pick_leads ?? 0;
+    const hasEvidenceSchema = Number(articleReview.schema_version || 0) >= 2
+      && Number.isFinite(summary.article_records_assessed)
+      && summary.body_evidence;
+    const corpusComplete = articleReview.collection?.complete_for_since_window === true;
+    const unresolvedPickOriented = Number(summary.unresolved_pick_oriented_records || 0);
+    const integrityBlockers = [
+      ...(!hasEvidenceSchema ? ['legacy article artifact has no body/corpus integrity schema'] : []),
+      ...(!corpusComplete ? ['requested article date window is not confirmed complete'] : []),
+      ...(unresolvedPickOriented > 0 ? [`${unresolvedPickOriented} pick-oriented record(s) remain unresolved`] : []),
+    ];
     addSource(sources, {
       group: 'Web Article Intel',
-      name: 'Article full-body intel review',
-      status: 'review',
+      name: 'Article evidence integrity review',
+      status: integrityBlockers.length ? 'blocked' : 'review',
       freshness: generated ? `${generated} (${ageHours(generated) ?? '?'}h old)` : 'unknown',
-      evidence: `${articleReview.summary?.articles_reviewed || 0} articles reviewed; ${actualPicks} actual pick candidates; ${marketLeads} market/inference leads; ${articleReview.summary?.analysis_notes || 0} contextual notes; ${articleReview.summary?.likely_non_nfl_false_positives || 0} likely non-NFL false positives.`,
-      action: 'Use actual-pick candidates for human review; use market/inference leads as synthesis context only. Do not trust the raw research_pick_signals count as article QA.',
+      evidence: `${summary.article_records_assessed ?? summary.articles_reviewed ?? 0} article record(s) assessed; ${summary.explicit_analyst_selection_mentions ?? 'unknown'} explicit selection mention(s); ${actualPicks} execution-usable actual pick candidate(s); ${marketLeads} market/inference lead(s); integrity blockers=${integrityBlockers.length}${integrityBlockers.length ? ` (${integrityBlockers.join('; ')})` : ''}.`,
+      action: integrityBlockers.length
+        ? 'Do not run frontier synthesis. Rebuild the complete article corpus with schema v2, resolve every pick-oriented record, and rerun this audit.'
+        : 'Use execution-usable actual-pick candidates for human review; keep selections missing price/venue and all inference leads out of actionable evidence.',
       details: (articleReview.sources || []).map((source) => ({
         label: source.source,
-        value: `${source.articles} article(s); ${source.actual_picks || 0} actual pick candidate(s); ${source.market_leads ?? source.pick_leads ?? 0} market/inference lead(s); ${source.analysis_notes} contextual note(s)`,
+        value: `${source.articles} record(s); ${source.explicit_analyst_selections ?? 'unknown'} explicit selection(s); ${source.actual_picks || 0} execution-usable pick(s); ${source.market_leads ?? source.pick_leads ?? 0} market/inference lead(s); ${source.analysis_notes} contextual note(s)`,
       })),
       path: 'docs/article-intel-review/article-intel-review-latest.html',
     });
