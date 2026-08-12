@@ -128,7 +128,9 @@ describe('data gathering sprint contracts', () => {
     expect(snapshot.meta.unmapped_count).toBe(1);
     expect(snapshot.mapped[0].team).toBe('NYJ');
     expect(snapshot.mapped[0].market).toBe('make_playoffs');
-    expect(snapshot.unmapped[0].unmapped_reason).toBe('no_team_match');
+    expect(snapshot.unmapped[0].unmapped_reason).toBe(
+      'unsupported_taxonomy:unsupported_or_unknown',
+    );
   });
 
   it('keeps training-camp coverage fill separate from canonical camp coverage', async () => {
