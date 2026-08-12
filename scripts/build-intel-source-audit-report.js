@@ -112,6 +112,37 @@ async function listFiles(relativeDir, predicate = () => true) {
   }
 }
 
+async function listProcessedBetOnlineDirs() {
+  try {
+    const relativeDir = path.join('docs', 'Futures_Odds', '_processed');
+    const absoluteDir = path.join(ROOT, relativeDir);
+    const entries = await readdir(absoluteDir, { withFileTypes: true });
+    return entries
+      .filter((entry) => entry.isDirectory() && /^BetOnline_/i.test(entry.name))
+      .map((entry) => path.join(relativeDir, entry.name));
+  } catch (err) {
+    if (err.code === 'ENOENT') return [];
+    throw err;
+  }
+}
+
+async function collectOddsSourceFiles(predicate = () => true) {
+  const active = await listFiles(
+    'docs/Futures_Odds',
+    (name) => !name.startsWith('.') && predicate(name),
+  );
+  const sourceExports = await listFiles(
+    path.join('docs', 'Futures_Odds', '_processed', 'source_exports'),
+    predicate,
+  );
+  const betOnlineDirs = await listProcessedBetOnlineDirs();
+  const betOnlineFiles = [];
+  for (const dir of betOnlineDirs) {
+    betOnlineFiles.push(...await listFiles(dir, predicate));
+  }
+  return [...active, ...sourceExports, ...betOnlineFiles].sort((a, b) => b.mtimeMs - a.mtimeMs);
+}
+
 function ageHours(iso) {
   if (!iso) return null;
   const value = new Date(iso).getTime();
@@ -129,7 +160,7 @@ function dateFromFilename(name) {
 }
 
 function shortDateFromFilename(name) {
-  const match = String(name || '').match(/_(\d{4})(?:\.[^.]+)?$/);
+  const match = String(name || '').match(/_(\d{4})(?:[-_.][^.]+)?(?:\.[^.]+)?$/);
   if (!match) return null;
   const mm = match[1].slice(0, 2);
   const dd = match[1].slice(2);
@@ -422,8 +453,7 @@ async function collectFuturesOdds(sources) {
 async function collectManualFuturesImports(sources) {
   const files = await listFiles('data/futures-imports', (name) => name.endsWith('.json'));
   const bookFiles = files.filter((file) => /^(bookmaker|betus|betonline)-/.test(file.name));
-  const rawBetOnlineFiles = await listFiles(
-    'docs/Futures_Odds',
+  const rawBetOnlineFiles = await collectOddsSourceFiles(
     (name) => /^BetOnline|^BOL_|^BEO_/i.test(name),
   );
   const rawBetOnlineBundle = rawBetOnlineFiles.length
@@ -537,8 +567,7 @@ async function collectPredictionMarketMap(sources) {
 }
 
 async function collectRawPrimaryBookOddsExports(sources) {
-  const files = await listFiles(
-    'docs/Futures_Odds',
+  const files = await collectOddsSourceFiles(
     (name) => !name.startsWith('.') && !name.includes('_processed'),
   );
   const groups = [
@@ -570,6 +599,9 @@ async function collectRawPrimaryBookOddsExports(sources) {
       const normalizedPayload = normalizedPath ? await readJson(normalizedPath, null) : null;
       const normalizedRows = rowCount(normalizedPayload);
       const hasNormalizedBundle = normalizedRows != null && normalizedRows > 0;
+      const hasPlayoffScreenshots = bundle.details.some((detail) => (
+        detail.label === 'Make playoffs' && !String(detail.value).startsWith('0 ')
+      ));
       addSource(sources, {
         group: 'Futures Odds',
         name: 'Raw current sportsbook export: BetOnline',
@@ -579,7 +611,7 @@ async function collectRawPrimaryBookOddsExports(sources) {
           ? `${bundle.evidence} Matching normalized import ${path.basename(normalizedPath)} has ${normalizedRows} rows.`
           : bundle.evidence,
         action: hasNormalizedBundle
-          ? `Screenshots are captured, date-identifiable, and normalized into ${normalizedPath}. Use the normalized JSON for exact listed-market prices; use the manual review doc for playoff No-side values.`
+          ? `Screenshots are captured, date-identifiable, and normalized into ${normalizedPath}. Use the normalized JSON for exact listed-market prices.${hasPlayoffScreenshots ? ' Use the manual review doc for playoff No-side values.' : ' Make-playoffs rows were not present in the latest captured BetOnline screenshot bundle.'}`
           : 'Screenshots are captured and date-identifiable, but structured values are not yet parsed into futures_odds_snapshots. Normalize this bundle into betonline-2026-07-29 rows before line-movement comparison or actionable use.',
         details: bundle.details,
         path: hasNormalizedBundle ? normalizedPath : bundle.latestFiles[0]?.relativePath || file.relativePath,

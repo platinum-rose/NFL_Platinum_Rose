@@ -35,6 +35,10 @@
 //     [--skeptic-model <model>] [--risk-model <model>] [--skip-committee] [--no-persist]
 //     [--primary "Buffalo Bills,Green Bay Packers"] [--out-suffix scenario-v2]
 //     [--proposal-out-dir data/official-picks/proposals]
+//     [--run-instructions <handoff.md>] [--supplemental-context <local-context.json>]
+//     [--prompt-only] [--prompt-out <local-preview.json>]
+//     [--reasoning-effort max] [--reasoning-mode pro] [--max-output-tokens 32000]
+//     [--model-timeout-ms 900000]
 //   GPT-4o fallback (funded OpenAI key) — get a portfolio without Anthropic credits:
 //     node agents/portfolio-synthesize.js --models gpt-4o --dossier <path>
 //   Quick single-pass (no Skeptic/Risk calls, original S274 behavior):
@@ -61,6 +65,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { randomUUID } from 'node:crypto';
 import { NFL_TEAMS, normalizeTeam } from '../src/lib/teams.js';
 import { validateBoardBatch } from './lib/board-validate.js';
+import { extractResumePrompt } from './lib/portfolio-local-inputs.js';
 import 'dotenv/config';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -89,6 +94,14 @@ const WATCHLIST_PATH = getArg('--watchlist', path.join(ROOT, 'data', 'futures-im
 const OFFICIAL_CONFIG_PATH = getArg('--official-config', path.join(ROOT, 'data', 'futures-imports', 'platinum-rose-ai-official-2026.json'));
 const EXPERT_DOSSIER_INDEX_PATH = getArg('--expert-dossiers', path.join(ROOT, 'data', 'expert-dossiers', 'latest.json'));
 const PROPOSAL_OUT_DIR = getArg('--proposal-out-dir', null);
+const RUN_INSTRUCTIONS_PATH = getArg('--run-instructions', null);
+const SUPPLEMENTAL_CONTEXT_PATH = getArg('--supplemental-context', null);
+const PROMPT_ONLY = argv.includes('--prompt-only');
+const PROMPT_OUT_PATH = getArg('--prompt-out', path.join(OUT_DIR, 'prompt-preview.json'));
+const REASONING_EFFORT = getArg('--reasoning-effort', null);
+const REASONING_MODE = getArg('--reasoning-mode', null);
+const MAX_OUTPUT_TOKENS = parseInt(getArg('--max-output-tokens', '16000'), 10);
+const MODEL_TIMEOUT_MS = parseInt(getArg('--model-timeout-ms', '300000'), 10);
 // 2026-07-22 follow-up (Andy's own portfolio-construction strategy, not a Codex
 // finding): his "primary" positions -- teams/markets he already has core
 // conviction on (e.g. Bills, Packers) -- inform hedge-basket construction
@@ -101,6 +114,7 @@ const OPENAI_KEY = process.env.OPENAI_API_KEY;
 if (!DOSSIER) { console.error('✖ pass --dossier <path to dossier-*.json>'); process.exit(1); }
 if (!ANTHROPIC_KEY && !OPENAI_KEY) { console.error('✖ Need ANTHROPIC_API_KEY or OPENAI_API_KEY in .env'); process.exit(1); }
 const isOpenAI = (m) => /^(gpt|o[13])/i.test(m); // route gpt-4o / o1 / o3 to OpenAI, else Anthropic
+const usesResponsesApi = (m) => /^gpt-5\.6-sol$/i.test(m);
 
 const SYSTEM_PROMPT = `You are a sharp NFL futures + betting-market analyst producing a REVIEWABLE portfolio for a human bettor who makes all final decisions. You are decision support, not an instruction to bet. Be calibrated and skeptical, never promotional — but your job is to MINE the entire market for edge, not rubber-stamp favorites.
 
@@ -257,6 +271,17 @@ async function loadOfficialConfig() {
   }
 }
 
+async function loadRunInstructions() {
+  if (!RUN_INSTRUCTIONS_PATH) return '';
+  const markdown = await readFile(path.resolve(ROOT, RUN_INSTRUCTIONS_PATH), 'utf8');
+  return extractResumePrompt(markdown);
+}
+
+async function loadSupplementalContext() {
+  if (!SUPPLEMENTAL_CONTEXT_PATH) return null;
+  return JSON.parse(await readFile(path.resolve(ROOT, SUPPLEMENTAL_CONTEXT_PATH), 'utf8'));
+}
+
 async function loadExpertDossiers() {
   try {
     const index = JSON.parse(await readFile(EXPERT_DOSSIER_INDEX_PATH, 'utf8'));
@@ -298,7 +323,7 @@ async function loadExpertDossiers() {
   }
 }
 
-function buildUserPrompt(dossier, ledger = null, watchlist = null, officialConfig = null, expertDossiers = null) {
+function buildUserPrompt(dossier, ledger = null, watchlist = null, officialConfig = null, expertDossiers = null, runInstructions = '', supplementalContext = null) {
   const promptDossier = SHADOW_SLIM ? slimDossierForPrompt(dossier) : dossier;
   const m = dossier.meta;
   const sig = m.signal_coverage || {};
@@ -315,7 +340,13 @@ function buildUserPrompt(dossier, ledger = null, watchlist = null, officialConfi
   const expertDossierLine = expertDossiers?.dossiers?.length
     ? `EXPERT DOSSIER CONTEXT (compact analyst-prior/bias signals; use only to interpret named analyst tendencies and possible blind spots. These are NOT price evidence, NOT official-pick support, and local_recovery_context_only signals require manual review):\n${JSON.stringify(expertDossiers)}\n\n`
     : '';
-  return `${officialLine}${primaryLine}${ledgerLine}${watchlistLine}${expertDossierLine}DOSSIER META: season ${m.season}, ${m.snapshot_count} snapshots, books=${(m.books || []).join(',')}, markets=${(m.market_types || []).join(',')}. Intel: ${JSON.stringify(m.intel_coverage)}.
+  const runInstructionsLine = runInstructions
+    ? `CURRENT RUN INSTRUCTIONS (authoritative portfolio objective, bankroll, status taxonomy, timing requirements, and approval boundaries for this synthesis):\n${runInstructions}\n\n`
+    : '';
+  const supplementalContextLine = supplementalContext
+    ? `SUPPLEMENTAL LOCAL CONTEXT (review/status facts outside the dossier price schema; respect each lane's stated authority and caveats, and never promote context-only or review-only evidence into price authority):\n${JSON.stringify(supplementalContext)}\n\n`
+    : '';
+  return `${runInstructionsLine}${officialLine}${primaryLine}${ledgerLine}${watchlistLine}${expertDossierLine}${supplementalContextLine}DOSSIER META: season ${m.season}, ${m.snapshot_count} snapshots, books=${(m.books || []).join(',')}, markets=${(m.market_types || []).join(',')}. Intel: ${JSON.stringify(m.intel_coverage)}.
 
 Offseason note: many markets (division, conference, awards, playoffs, matchup) may have limited or single-book coverage until preseason; weight coverage in your confidence. Super Bowl and win-total markets are the most liquid now — win totals especially are where bounce-back / longshot value tends to hide.
 
@@ -532,13 +563,45 @@ async function callModel(model, systemPrompt, userContent) {
   if (openai && !OPENAI_KEY) throw new Error('OPENAI_API_KEY not set');
   if (!openai && !ANTHROPIC_KEY) throw new Error('ANTHROPIC_API_KEY not set');
 
-  const out = await withTimeout(300_000, async (signal) => {
+  const out = await withTimeout(MODEL_TIMEOUT_MS, async (signal) => {
     if (openai) {
+      if (usesResponsesApi(model)) {
+        const body = {
+          model,
+          input: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: userContent },
+          ],
+          max_output_tokens: MAX_OUTPUT_TOKENS,
+          text: { format: { type: 'json_object' } },
+          store: false,
+        };
+        if (REASONING_EFFORT || REASONING_MODE) {
+          body.reasoning = {
+            ...(REASONING_EFFORT ? { effort: REASONING_EFFORT } : {}),
+            ...(REASONING_MODE ? { mode: REASONING_MODE } : {}),
+          };
+        }
+        const res = await fetch('https://api.openai.com/v1/responses', {
+          method: 'POST',
+          headers: { Authorization: `Bearer ${OPENAI_KEY}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+          signal,
+        });
+        if (!res.ok) throw new Error(`${model} HTTP ${res.status}: ${(await res.text()).slice(0, 300)}`);
+        const data = await res.json();
+        const text = data.output_text || (data.output || [])
+          .flatMap((item) => item.content || [])
+          .filter((item) => item.type === 'output_text' || item.type === 'text')
+          .map((item) => item.text || '')
+          .join('');
+        return { text, usage: data.usage };
+      }
       const res = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: { Authorization: `Bearer ${OPENAI_KEY}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model, temperature: 0.4, max_tokens: 16000, response_format: { type: 'json_object' },
+          model, temperature: 0.4, max_tokens: MAX_OUTPUT_TOKENS, response_format: { type: 'json_object' },
           messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: userContent }],
         }),
         signal,
@@ -550,7 +613,7 @@ async function callModel(model, systemPrompt, userContent) {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: { 'x-api-key': ANTHROPIC_KEY, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
-      body: JSON.stringify({ model, max_tokens: 16000, temperature: 0.4, system: systemPrompt, messages: [{ role: 'user', content: userContent }] }),
+      body: JSON.stringify({ model, max_tokens: MAX_OUTPUT_TOKENS, temperature: 0.4, system: systemPrompt, messages: [{ role: 'user', content: userContent }] }),
       signal,
     });
     if (!res.ok) throw new Error(`${model} HTTP ${res.status}: ${(await res.text()).slice(0, 300)}`);
@@ -2556,11 +2619,19 @@ async function persistRecommendationRuns(meta, trail) {
   const ledger = await loadLedger();
   const watchlist = await loadWatchlist();
   const officialConfig = await loadOfficialConfig();
+  const runInstructions = await loadRunInstructions();
+  const supplementalContext = await loadSupplementalContext();
   if (watchlist?.items?.length) {
     console.log(`   human watchlist: ${watchlist.items.length} target(s) from ${WATCHLIST_PATH}`);
   }
   if (officialConfig?.expert_id) {
     console.log(`   official paper expert: ${officialConfig.display_name || officialConfig.expert_id} from ${OFFICIAL_CONFIG_PATH}`);
+  }
+  if (runInstructions) {
+    console.log(`   run instructions: ${RUN_INSTRUCTIONS_PATH}`);
+  }
+  if (supplementalContext) {
+    console.log(`   supplemental context: ${SUPPLEMENTAL_CONTEXT_PATH}`);
   }
   const expertDossiers = await loadExpertDossiers();
   if (expertDossiers?.dossiers?.length) {
@@ -2573,7 +2644,26 @@ async function persistRecommendationRuns(meta, trail) {
   } else {
     console.log('   podcast source context: no local Futures_Picks_Summary file found; dossier signals will render without host-summary links');
   }
-  const userContent = buildUserPrompt(dossier, ledger, watchlist, officialConfig, expertDossiers);
+  const userContent = buildUserPrompt(dossier, ledger, watchlist, officialConfig, expertDossiers, runInstructions, supplementalContext);
+  if (PROMPT_ONLY) {
+    const promptOut = path.resolve(ROOT, PROMPT_OUT_PATH);
+    const preview = {
+      generated_at: new Date().toISOString(),
+      model_calls: false,
+      system_prompt: SYSTEM_PROMPT,
+      user_prompt: userContent,
+      size: {
+        system_characters: SYSTEM_PROMPT.length,
+        user_characters: userContent.length,
+        approximate_tokens_at_four_characters_each: Math.ceil((SYSTEM_PROMPT.length + userContent.length) / 4),
+      },
+    };
+    await mkdir(path.dirname(promptOut), { recursive: true });
+    await writeFile(promptOut, `${JSON.stringify(preview, null, 2)}\n`);
+    console.log(`   prompt-only preview: ${promptOut}`);
+    console.log(`   approximate prompt tokens: ${preview.size.approximate_tokens_at_four_characters_each}`);
+    return;
+  }
   const models = ONLY ? MODELS.filter((m) => m.includes(ONLY)) : MODELS;
   console.log(`🧠 Stage 1 (Market+Football Analyst) with: ${models.join(' + ')}`);
 

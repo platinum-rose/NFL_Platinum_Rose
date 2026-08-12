@@ -12,7 +12,7 @@
 //         adjacent_signals, detail }  and a .md summary.
 //
 // Usage: node agents/portfolio-dossier.js [--season 2026] [--since <ISO>]
-//        [--model gpt-4o] [--signals <path>]
+//        [--model gpt-4o] [--signals <path>] [--local-imports <path1,path2,...>]
 // Env: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -21,6 +21,13 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createClient } from '@supabase/supabase-js';
 import { normalizeTeam } from '../src/lib/teams.js';
+import { clusterAvailabilitySummary } from './lib/player-availability.js';
+import {
+  isSourceTeamAligned,
+  loadLocalSnapshotFiles,
+  mergeSnapshotSources,
+  splitInputPaths,
+} from './lib/portfolio-local-inputs.js';
 import { classifyMove, devigPair, fitWinDist, probOverLine, tailTable } from './lib/win-dist.js';
 import 'dotenv/config';
 
@@ -34,6 +41,7 @@ const SEASON = parseInt(getArg('--season', '2026'), 10);
 const SINCE = getArg('--since', null);
 const MODEL = getArg('--model', 'gpt-4o');
 const SIGNALS_PATH = getArg('--signals', null);
+const LOCAL_IMPORT_PATHS = splitInputPaths(getArg('--local-imports', ''), ROOT);
 
 const SB_URL = process.env.SUPABASE_URL;
 const SB_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -193,7 +201,7 @@ function canonicalizeSnapshots(snaps) {
     out.push({ ...r, book });
   }
   out.push(...wins.values(), ...playoffs.values());
-  return out;
+  return out.sort((a, b) => String(a.snapshot_time || a.captured_at || '').localeCompare(String(b.snapshot_time || b.captured_at || '')));
 }
 
 // ── fetchers ───────────────────────────────────────────────────────────────
@@ -370,7 +378,8 @@ async function fetchTrainingCampIntel() {
       for (const [team, value] of Object.entries(parsed.teams)) {
         const norm = normalizeTeam(team);
         if (!norm) continue;
-        const items = Array.isArray(value) ? value : (value.items || []);
+        const items = (Array.isArray(value) ? value : (value.items || []))
+          .filter((item) => isSourceTeamAligned(team, item.source));
         const compactItems = items.slice(0, 5).map((it) => ({
           id: it.id,
           signal_type: it.signal_type,
@@ -403,7 +412,8 @@ async function fetchPlayerAvailabilityContext() {
     for (const [abbr, team] of Object.entries(parsed.teams || {})) {
       const nick = normalizeTeam(abbr);
       if (!nick) continue;
-      const events = team.events || [];
+      const events = (team.events || [])
+        .filter((event) => isSourceTeamAligned(abbr, event.source));
       const improving = events
         .filter((event) => event.availability_trend === 'improving')
         .slice(0, 6)
@@ -462,15 +472,16 @@ async function fetchPlayerAvailabilityContext() {
         .filter((event) => event.availability_group === 'defensive_front' && event.availability_trend === 'worsening')
         .slice(0, 8)
         .map(mapAvailabilityEvent);
+      const clusterRisks = clusterAvailabilitySummary(events);
       byTeam[nick] = {
         snapshot_at: parsed.meta?.generated_at || null,
-        event_count: team.event_count || events.length,
-        improving_count: team.improving_count || 0,
-        worsening_count: team.worsening_count || 0,
-        major_count: team.major_count || 0,
-        offensive_line_worsening_count: team.offensive_line_worsening_count || 0,
-        defensive_front_worsening_count: team.defensive_front_worsening_count || 0,
-        cluster_risks: team.cluster_risks || null,
+        event_count: events.length,
+        improving_count: events.filter((event) => event.availability_trend === 'improving').length,
+        worsening_count: events.filter((event) => event.availability_trend === 'worsening').length,
+        major_count: events.filter((event) => String(event.impact_bucket || '').includes('major')).length,
+        offensive_line_worsening_count: events.filter((event) => event.availability_group === 'offensive_line' && event.availability_trend === 'worsening').length,
+        defensive_front_worsening_count: events.filter((event) => event.availability_group === 'defensive_front' && event.availability_trend === 'worsening').length,
+        cluster_risks: clusterRisks,
         key_returns: improving,
         key_absences: worsening,
         snap_count_risks: snapCountRisks,
@@ -1402,12 +1413,16 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
 // ── main ─────────────────────────────────────────────────────────────────────
 (async () => {
   console.log(`📊 Portfolio dossier — season ${SEASON}${SINCE ? ` since ${SINCE}` : ''}`);
-  const [snaps, pickSignals, userPicks, podcastRows, priorByTeam, games, oddsOpenByGame, splitsLatestByGame, refereeByName, rosterChurnByTeam, injuriesByTeam, advancedAnalyticsByTeam, dvoaByTeam, coachingByTeam, trainingCampIntelByTeam, playerAvailabilityByTeam] = await Promise.all([
-    fetchSnapshots(), fetchPickSignals(), fetchUserPicks(), fetchPodcastIntel(), fetchTeamStats(), fetchSchedule(),
+  const [dbSnaps, localSnapshots, pickSignals, userPicks, podcastRows, priorByTeam, games, oddsOpenByGame, splitsLatestByGame, refereeByName, rosterChurnByTeam, injuriesByTeam, advancedAnalyticsByTeam, dvoaByTeam, coachingByTeam, trainingCampIntelByTeam, playerAvailabilityByTeam] = await Promise.all([
+    fetchSnapshots(), loadLocalSnapshotFiles(LOCAL_IMPORT_PATHS, { season: SEASON }), fetchPickSignals(), fetchUserPicks(), fetchPodcastIntel(), fetchTeamStats(), fetchSchedule(),
     fetchGameOddsOpen(), fetchGameSplitsLatest(), fetchRefereeTendencies(), fetchRosterChurn(), fetchInjuryContext(),
     fetchAdvancedAnalytics(), fetchDvoaSnapshots(), fetchCoachingProfiles(), fetchTrainingCampIntel(), fetchPlayerAvailabilityContext(),
   ]);
+  const snaps = mergeSnapshotSources(dbSnaps, localSnapshots.rows);
   const books = [...new Set(snaps.map((s) => s.book))].sort();
+  if (localSnapshots.rows.length) {
+    console.log(`   odds source detail: ${dbSnaps.length} database rows + ${localSnapshots.rows.length} local overlay rows before deduplication`);
+  }
   console.log(`   ${snaps.length} snapshots · ${pickSignals.length} article signals · ${userPicks.length} expert picks · ${podcastRows.length} podcast transcripts · ${Object.keys(priorByTeam).length} teams w/ prior stats · ${games.length} schedule games · ${Object.keys(trainingCampIntelByTeam).length} teams w/ camp intel`);
 
   const markets = buildOddsView(snaps);
@@ -1472,6 +1487,7 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
     snapshot_count: snaps.length, books, market_types: Object.keys(markets),
     signal_counts: { article: pickSignals.length, expert: userPicks.length, podcast_transcripts: podcastRows.length },
     intel_coverage, sos_coverage, signal_coverage,
+    local_futures_imports: localSnapshots.sources,
   };
   const schedule = games.map((g) => ({
     game_id: g.game_id,

@@ -1,14 +1,14 @@
 # YouTube Futures Local Intel Queue
 
-Generated: 2026-07-29T04:00:31.599Z
+Generated: 2026-08-11T21:12:39.193Z
 
 > Local reviewed intel only. This does not create official picks, production recommendations, Supabase writes, or parlay changes.
 
 ## Summary
 
-- Exported items: 45
+- Exported items: 43
 - Exported notes: 0
-- Skipped review items: 70
+- Skipped review items: 109
 - Missing report items: 0
 - Source status: data\shadow-harness\review\youtube-futures-intel-review-status.json
 - Source report: data\shadow-harness\reports\youtube-futures-intel-review-latest.json
@@ -58,8 +58,6 @@ Generated: 2026-07-29T04:00:31.599Z
 | futures_pick | LV | season_passing_tds | OVER | 25 | +1400 |  | 14 LONGSHOT NFL Futures To Make Now \| SLEEPERS, Player Props Picks & Predictions | [2469s](https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=2469s) |  |  | Mendoza will throw plenty of TDs in Raiders red zone system, taking over from Kirk Cousins. |
 | futures_pick | NYJ | interceptions_leader | UNKNOWN |  |  |  | 14 LONGSHOT NFL Futures To Make Now \| SLEEPERS, Player Props Picks & Predictions | [2755s](https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=2755s) |  |  | Aggressive CB in a Jets defense that will see positive regression in turnover luck. |
 | futures_pick | ATL | season_rushing_tds | UNKNOWN |  | +1800 |  | 14 LONGSHOT NFL Futures To Make Now \| SLEEPERS, Player Props Picks & Predictions | [2912s](https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=2912s) |  |  | Zac Robinson's offense will feed Bijan Robinson. Goal line issues for Tua means more rushing opportunities. |
-| futures_pick | NE | season_rushing_tds | OVER | 5.5 | +180 |  | Top 10 NFL Starting Quarterbacks Heading Into 2026! \| The Favorites | [2963s](https://www.youtube.com/watch?v=b9NL40Zogkw&t=2963s) |  | My absolute favorite bet of the season is Drake Maye over five and a half rushing touchdowns at plus 180. | Kendra loves Drake Maye's goal-line rushing potential and thinks the plus-money price offers superb value. |
-| futures_pick | NE | season_passing_yards | OVER | 4000 | +135 |  | Top 10 NFL Starting Quarterbacks Heading Into 2026! \| The Favorites | [3053s](https://www.youtube.com/watch?v=b9NL40Zogkw&t=3053s) |  | I'm taking Drake Maye over 4,000 passing yards at plus 135. | Brandon expects a huge statistical output from Drake Maye with the arrival of elite perimeter weapons in AJ Brown and Romeo Doubs. |
 | futures_pick | NYG | season_rushing_tds | OVER | 5.5 |  |  | Ranking the Top 20 NFL Quarterbacks for 2026! \| The Favorites | [2472s](https://www.youtube.com/watch?v=WbuAvbsVF_w&t=2472s) | Andy decision 2026-07-29T03:59:26.056Z: confirmed true and elevated to local futures intel. | I have a Jaxson Dart over 5.5 rushing touchdowns play to give you guys. | Even if Dart has durability concerns, Kendra believes the Giants' offensive design inside the 10 and 5-yard lines will make him a prime rushing threat to eclipse this mark. |
 | futures_pick | SF | mvp | YES |  | +2000 |  | Ranking the Top 20 NFL Quarterbacks for 2026! \| The Favorites | [2507s](https://www.youtube.com/watch?v=WbuAvbsVF_w&t=2507s) | Andy decision 2026-07-29T03:59:26.056Z: confirmed true and elevated to local futures intel. | I have Brock Purdy 20 to 1 to win MVP. | Brandon believes that if Purdy can win double-digit games and put up elite numbers with target additions like Mike Evans, he has massive value at 20-1 to win MVP. |
 

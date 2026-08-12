@@ -1,12 +1,12 @@
 # YouTube Futures Agent Intel Summary
 
-Generated: 2026-07-29T04:00:31.515Z
+Generated: 2026-08-12T02:14:10.864Z
 
 > Reviewed local podcast intel for agent context only. This does not create official picks, production recommendations, Supabase writes, or parlay changes.
 
 ## Summary
 
-- Exported local intel items: 45
+- Exported local intel items: 43
 - Exported local intel notes: 0
 - Source queue: data\shadow-harness\review\youtube-futures-local-intel-queue.json
 - Rejected DET division_winner +1500 leak check: 0
@@ -15,7 +15,7 @@ Generated: 2026-07-29T04:00:31.515Z
 
 | Lane | Count |
 |---|---:|
-| futures_pick | 45 |
+| futures_pick | 43 |
 
 ## Note Relevance Tag Counts
 
@@ -40,9 +40,8 @@ Generated: 2026-07-29T04:00:31.515Z
 | opoy | 3 | CIN, LV |
 | oroy | 2 | BAL, PHI |
 | season_passing_tds | 1 | LV |
-| season_passing_yards | 1 | NE |
 | season_receiving_yards | 1 | BAL |
-| season_rushing_tds | 3 | ATL, NE, NYG |
+| season_rushing_tds | 2 | ATL, NYG |
 | super_bowl_winner | 1 | LAC |
 | win_total | 3 | CAR, IND, LAC |
 
@@ -266,18 +265,6 @@ Generated: 2026-07-29T04:00:31.515Z
 | Lane | Side | Line | Price | Source | Flags | Quote | Rationale |
 |---|---|---:|---:|---|---|---|---|
 | futures_pick | YES |  | +1329 | [Drafting the ULTIMATE 2026 NFL Futures Card \| Win Totals, Division Winners & Award Sleepers](https://www.youtube.com/watch?v=4OxpAX6UJlM&t=620s) | price_not_in_quote | It was one of the easiest schedules in the last century for the Patriots. | Drake Maye has elite weapons like AJ Brown and Jahan Dotson in this simulation and is poised for a massive second-year breakout. |
-
-#### season_passing_yards
-
-| Lane | Side | Line | Price | Source | Flags | Quote | Rationale |
-|---|---|---:|---:|---|---|---|---|
-| futures_pick | OVER | 4000 | +135 | [Top 10 NFL Starting Quarterbacks Heading Into 2026! \| The Favorites](https://www.youtube.com/watch?v=b9NL40Zogkw&t=3053s) |  | I'm taking Drake Maye over 4,000 passing yards at plus 135. | Brandon expects a huge statistical output from Drake Maye with the arrival of elite perimeter weapons in AJ Brown and Romeo Doubs. |
-
-#### season_rushing_tds
-
-| Lane | Side | Line | Price | Source | Flags | Quote | Rationale |
-|---|---|---:|---:|---|---|---|---|
-| futures_pick | OVER | 5.5 | +180 | [Top 10 NFL Starting Quarterbacks Heading Into 2026! \| The Favorites](https://www.youtube.com/watch?v=b9NL40Zogkw&t=2963s) |  | My absolute favorite bet of the season is Drake Maye over five and a half rushing touchdowns at plus 180. | Kendra loves Drake Maye's goal-line rushing potential and thinks the plus-money price offers superb value. |
 
 ### NO
 

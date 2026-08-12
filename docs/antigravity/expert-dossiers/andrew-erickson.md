@@ -1,6 +1,6 @@
 # Expert Dossier: Andrew Erickson
 
-Generated: 2026-07-31T18:51:39.017Z
+Generated: 2026-08-11T08:44:09.346Z
 
 > Expert dossiers are context for interpreting analyst priors and possible bias. They are not betting authority, not price evidence, and not official-pick support unless a signal is separately promoted through an approved review gate.
 

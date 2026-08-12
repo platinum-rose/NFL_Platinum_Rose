@@ -1,0 +1,201 @@
+{
+  "evaluated_at": "2026-08-11T06:43:29.548Z",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "batch_label": "saved-futures",
+  "total_candidates_attempted": 1,
+  "total_episodes_evaluated": 1,
+  "total_episodes_scored": 0,
+  "reprocess_required_count": 0,
+  "extraction_failure_count": 0,
+  "average_f1_score_pct": null,
+  "total_cost_usd": 0.019901,
+  "average_cost_usd": 0.019901,
+  "total_latency_ms": 211277,
+  "average_latency_ms": 211277,
+  "total_extracted_picks": 4,
+  "reprocess_queue": [],
+  "failed_extractions": [],
+  "queue_runs": [
+    {
+      "episode_slug": "youtube-OAxHvrVUPpw",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "reprocess_required": false,
+      "reprocess_reason": null,
+      "quality_flags": [],
+      "run": {
+        "run_id": "youtube_gemini_0287be62414f",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=OAxHvrVUPpw",
+        "latency_ms": 211277,
+        "estimated_cost_usd": 0.019901,
+        "input_tokens": 188782,
+        "output_tokens": 2557,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Chad Millman and Simon Hunter preview the NFC South win totals and division winner betting markets. They discuss team rosters, coaching changes, and specific quarterback situations for the Buccaneers, Saints, Falcons, and Panthers.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 2056,\n    \"last_analyzed_timestamp\": 2056,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 20.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Welcome to Sharp or Square presented by Hard Rock Bet. We are part of the Volume podcast network. This is the show that makes the square sharper and makes the wise guys pay attention. I am Chad Millman and I am joined as always by my co-host, my BFF, my companion, my compadre, professional bettor Simon Hunter. Hello Simon!\"\n    },\n    {\n      \"start\": 20.0,\n      \"end\": 35.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Chad, we sit here right now, every team has officially reported to camp, my friend.\"\n    },\n    {\n      \"start\": 35.0,\n      \"end\": 44.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"I feel warm and fuzzy.\"\n    },\n    {\n      \"start\": 44.0,\n      \"end\": 100.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"I'm warm and fuzzy but I'm in a weird world right now where I'm all-in on football, but I'm still watching my crappy TV shows before I head into the season. I'm on season four of Homeland. Have you ever watched Homeland?\"\n    },\n    {\n      \"start\": 100.0,\n      \"end\": 133.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Oh dude, I'm jealous that you're getting to watch it. I feel so happy for people who are getting to watch Breaking Bad, Sopranos, Homeland, The Wire for the first time. On Saturday, my wife was out of town, my kid was doing his own thing, and I rewatched the entire season two of The Bear, which I love. Episode six, Forks, featuring Richie, is amazing.\"\n    },\n    {\n      \"start\": 133.0,\n      \"end\": 155.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Do those personalities work for Chicago? Is that really what local people are like?\"\n    },\n    {\n      \"start\": 155.0,\n      \"end\": 180.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Oh yeah, totally. Any working-class, close-knit community. It's got little Chicago Easter eggs, like a picture of Simeon Rice on the wall of Beef. Today we're going to talk about the NFC South, one of our favorite divisions, with our annual eight-part division-by-division preview.\"\n    },\n    {\n      \"start\": 180.0,\n      \"end\": 215.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Let's look at the numbers. Tampa Bay: 8.5 wins, under is -135. New Orleans: 7.5 wins, over is -120. Atlanta: 7.5, under -135. Carolina: 7.5, under -135. Let's start with Carolina.\"\n    },\n    {\n      \"start\": 215.0,\n      \"end\": 226.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"The Panthers win total has moved up to 7.5 now. But their schedule is tough. They have Bryce Young and Dave Canales, and added Jaylen Phillips and Devin Lloyd on defense, but there's no value in betting that under at -135.\"\n    },\n    {\n      \"start\": 226.0,\n      \"end\": 252.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Let's talk about Atlanta. Kirk Cousins is gone. Now they have Kevin Stefanski as coach and Tua Tagovailoa under center, with Michael Penix Jr. backing up. They got Jahan Dotson at wide receiver.\"\n    },\n    {\n      \"start\": 252.0,\n      \"end\": 2056.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"If Tua can stay healthy, Stefanski could get the most out of him. With weapons like Bijan Robinson, Kyle Pitts, and Drake London, they could win 9 or 10 games. Meanwhile, the Saints have Tyler Shough and Kellen Moore, and the Bucs have Baker Mayfield. In the end, New Orleans at +260 or +270 is my favorite bet to win this division, while Chad likes Tampa Bay to win it.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"NO\",\n      \"player\": null,\n      \"market\": \"division_winner\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 260,\n      \"week\": null,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 277,\n      \"rationale\": \"Saints have a top-tier offensive line, Alvin Kamara paired with Travis Etienne, and Kellen Moore coordinating Tyler Shough's offense. This is Simon's biggest division bet.\"\n    },\n    {\n      \"team\": \"TB\",\n      \"player\": null,\n      \"market\": \"division_winner\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 175,\n      \"week\": null,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 195,\n      \"rationale\": \"Chad believes the Bucs have the strongest overall roster and the best quarterback in the division with Baker Mayfield.\"\n    },\n    {\n      \"team\": \"CAR\",\n      \"player\": null,\n      \"market\": \"win_total\",\n      \"side\": \"UNDER\",\n      \"line\": 7.5,\n      \"price\": -135,\n      \"week\": null,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 165,\n      \"rationale\": \"Simon wants to fade the Panthers due to their exceptionally tough schedule, despite the win total being heavily juiced to the under.\"\n    },\n    {\n      \"team\": \"ATL\",\n      \"player\": null,\n      \"market\": \"win_total\",\n      \"side\": \"OVER\",\n      \"line\": 7.5,\n      \"price\": null,\n      \"week\": null,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 235,\n      \"rationale\": \"Chad likes the Over on Atlanta's win total at plus money, expressing confidence in Kevin Stefanski's offensive scheme working with Tua Tagovailoa.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"ATL\"],\n      \"players\": [\"Tua Tagovailoa\"],\n      \"topic\": \"Kevin Stefanski and Tua Tagovailoa partnership\",\n      \"summary\": \"The hosts discuss how two-time Coach of the Year Kevin Stefanski will utilize Tua Tagovailoa's timing-based passing skills, though Simon raises concerns about Tua's footwork and regression under pressure.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 255,\n      \"quote\": \"If Tua does get it right in this division with those weapons, this could easily be a 10-win team.\",\n      \"confidence\": \"implied\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"ATL\"],\n      \"players\": [\"Michael Penix Jr.\"],\n      \"topic\": \"Michael Penix Jr. health context\",\n      \"summary\": \"Chad Millman notes that Michael Penix Jr. is recovering from his third ACL tear, leaving Tua Tagovailoa as the clear bridge starter in Atlanta.\",\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 115,\n      \"quote\": \"Tua to basically backfill until Michael Penix can come back from what I think is his third ACL tear in his career.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"NO\"],\n      \"players\": [\"Tyler Shough\"],\n      \"topic\": \"Tyler Shough's clutch performance\",\n      \"summary\": \"The hosts recall how Tyler Shough won 4 of his last 5 games as a starter to close out last season, driving up optimism and money on the Saints' Over.\",\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 190,\n      \"quote\": \"The Saints are taking money on the over at seven and a half all because Tyler Shough made a glorious run.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"roster_or_depth_chart\",\n      \"teams\": [\"TB\"],\n      \"players\": [\"Kenneth Gainwell\", \"Alex Anzalone\"],\n      \"topic\": \"Buccaneers roster additions\",\n      \"summary\": \"Tampa Bay added linebacker Alex Anzalone and running back Kenneth Gainwell (who had 73 receptions last year) to bolster their depth behind Baker Mayfield.\",\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 165,\n      \"quote\": \"Added linebacker Alex Anzalone, added Kenneth Gainwell, Steelers offensive MVP last year with 73 receptions.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Saints Win Total Over\",\n      \"timestamp\": 190,\n      \"speaker\": \"Chad Millman\",\n      \"quote\": \"The Saints are taking money on the over at seven and a half all because Tyler Shough made a glorious run.\"\n    },\n    {\n      \"topic\": \"Simon's Division Best Bet\",\n      \"timestamp\": 277,\n      \"speaker\": \"Simon Hunter\",\n      \"quote\": \"This is my biggest bet by far in this division is on the New Orleans Saints at plus 270 or plus 260.\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 235,\n      \"field\": \"price\",\n      \"reason\": \"Chad mentioned getting Atlanta Over 7.5 at plus money but did not specify the exact price.\"\n    }\n  ]\n}",
+        "extracted_picks": [
+          {
+            "team": "NO",
+            "player": null,
+            "market": "division_winner",
+            "side": "YES",
+            "line": null,
+            "price": 260,
+            "week": null,
+            "speaker": "Simon Hunter",
+            "source_timestamp": 277,
+            "rationale": "Saints have a top-tier offensive line, Alvin Kamara paired with Travis Etienne, and Kellen Moore coordinating Tyler Shough's offense. This is Simon's biggest division bet."
+          },
+          {
+            "team": "TB",
+            "player": null,
+            "market": "division_winner",
+            "side": "YES",
+            "line": null,
+            "price": 175,
+            "week": null,
+            "speaker": "Chad Millman",
+            "source_timestamp": 195,
+            "rationale": "Chad believes the Bucs have the strongest overall roster and the best quarterback in the division with Baker Mayfield."
+          },
+          {
+            "team": "CAR",
+            "player": null,
+            "market": "win_total",
+            "side": "UNDER",
+            "line": 7.5,
+            "price": -135,
+            "week": null,
+            "speaker": "Simon Hunter",
+            "source_timestamp": 165,
+            "rationale": "Simon wants to fade the Panthers due to their exceptionally tough schedule, despite the win total being heavily juiced to the under."
+          },
+          {
+            "team": "ATL",
+            "player": null,
+            "market": "win_total",
+            "side": "OVER",
+            "line": 7.5,
+            "price": null,
+            "week": null,
+            "speaker": "Chad Millman",
+            "source_timestamp": 235,
+            "rationale": "Chad likes the Over on Atlanta's win total at plus money, expressing confidence in Kevin Stefanski's offensive scheme working with Tua Tagovailoa."
+          }
+        ],
+        "analysis_notes": [
+          {
+            "note_type": "coaching_or_scheme",
+            "teams": [
+              "ATL"
+            ],
+            "players": [
+              "Tua Tagovailoa"
+            ],
+            "topic": "Kevin Stefanski and Tua Tagovailoa partnership",
+            "summary": "The hosts discuss how two-time Coach of the Year Kevin Stefanski will utilize Tua Tagovailoa's timing-based passing skills, though Simon raises concerns about Tua's footwork and regression under pressure.",
+            "speaker": "Simon Hunter",
+            "source_timestamp": 255,
+            "quote": "If Tua does get it right in this division with those weapons, this could easily be a 10-win team.",
+            "confidence": "implied"
+          },
+          {
+            "note_type": "injury_or_health",
+            "teams": [
+              "ATL"
+            ],
+            "players": [
+              "Michael Penix Jr."
+            ],
+            "topic": "Michael Penix Jr. health context",
+            "summary": "Chad Millman notes that Michael Penix Jr. is recovering from his third ACL tear, leaving Tua Tagovailoa as the clear bridge starter in Atlanta.",
+            "speaker": "Chad Millman",
+            "source_timestamp": 115,
+            "quote": "Tua to basically backfill until Michael Penix can come back from what I think is his third ACL tear in his career.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "player_evaluation",
+            "teams": [
+              "NO"
+            ],
+            "players": [
+              "Tyler Shough"
+            ],
+            "topic": "Tyler Shough's clutch performance",
+            "summary": "The hosts recall how Tyler Shough won 4 of his last 5 games as a starter to close out last season, driving up optimism and money on the Saints' Over.",
+            "speaker": "Chad Millman",
+            "source_timestamp": 190,
+            "quote": "The Saints are taking money on the over at seven and a half all because Tyler Shough made a glorious run.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "roster_or_depth_chart",
+            "teams": [
+              "TB"
+            ],
+            "players": [
+              "Kenneth Gainwell",
+              "Alex Anzalone"
+            ],
+            "topic": "Buccaneers roster additions",
+            "summary": "Tampa Bay added linebacker Alex Anzalone and running back Kenneth Gainwell (who had 73 receptions last year) to bolster their depth behind Baker Mayfield.",
+            "speaker": "Chad Millman",
+            "source_timestamp": 165,
+            "quote": "Added linebacker Alex Anzalone, added Kenneth Gainwell, Steelers offensive MVP last year with 73 receptions.",
+            "confidence": "stated"
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Saints Win Total Over",
+            "timestamp": 190,
+            "speaker": "Chad Millman",
+            "quote": "The Saints are taking money on the over at seven and a half all because Tyler Shough made a glorious run."
+          },
+          {
+            "topic": "Simon's Division Best Bet",
+            "timestamp": 277,
+            "speaker": "Simon Hunter",
+            "quote": "This is my biggest bet by far in this division is on the New Orleans Saints at plus 270 or plus 260."
+          }
+        ],
+        "coverage_assessment": {
+          "last_covered_timestamp": 2056,
+          "self_reported_reached_end": true,
+          "duration_used_for_check": 2056,
+          "segment_start_seconds": null,
+          "segment_end_seconds": null,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1
+        }
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 4,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    }
+  ]
+}

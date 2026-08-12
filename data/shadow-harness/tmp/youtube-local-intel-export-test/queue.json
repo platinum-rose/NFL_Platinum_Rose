@@ -1,47 +1,55 @@
 {
-  "generated_at": "2026-07-25T02:16:39.075Z",
+  "generated_at": "2026-08-11T21:26:26.482Z",
   "status": "local_intel_queue_only",
   "guardrail": "Local reviewed intel queue only. This is not an official pick ledger, production recommendation, Supabase write, or parlay mutation.",
   "source_report": "data\\shadow-harness\\reports\\youtube-futures-intel-review-latest.json",
   "source_status_ledger": "data\\shadow-harness\\tmp\\youtube-local-intel-export-test\\status.json",
   "promoted_status": "promote_to_local_intel",
-  "total_status_items": 40,
+  "total_status_items": 152,
   "exported_items": 1,
-  "skipped_items": 39,
+  "exported_notes": 0,
+  "skipped_items": 151,
   "missing_report_items": [],
   "grouped_counts": {
     "by_lane": {
       "futures_pick": 1
     },
     "by_team": {
-      "CAR": 1
+      "TEN": 1
     },
     "by_market": {
-      "win_total": 1
+      "division_winner": 1
     }
+  },
+  "note_grouped_counts": {
+    "by_relevance_tag": {}
   },
   "items": [
     {
-      "item_id": "youtube-4OxpAX6UJlM__CAR__win_total__UNDER__6.5__140__328",
+      "item_id": "youtube-aOUy4-ZRzbE__TEN__division_winner__YES____850__205",
       "item_lane": "futures_pick",
-      "team": "CAR",
-      "market": "win_total",
-      "side": "UNDER",
-      "line": 6.5,
-      "price": 140,
-      "speaker": "Derek Brown",
-      "rationale": "Panthers have the third hardest schedule based on projected win totals. Six of their eight wins last season were decided by three or fewer points.",
-      "supporting_quote": "I'm taking the under six and a half wins for the Carolina Panthers this year because you can get it at plus 140",
+      "team": "TEN",
+      "market": "division_winner",
+      "side": "YES",
+      "line": null,
+      "price": 850,
+      "week": null,
+      "speaker": "Andrew Erickson",
+      "rationale": "Follows the worst-to-first trend with a second-year QB breakout (Cam Ward) and Brian Daboll running a system optimized for mobile quarterbacks.",
+      "supporting_quote": "I'm going to go with the Tennessee Titans to win the AFC South at +850.",
       "review_flags": [],
+      "human_verification": null,
+      "disputed": null,
       "reviewer_notes": "fixture promotion only",
       "source": {
-        "episode_id": "youtube-4OxpAX6UJlM",
-        "episode_title": "Drafting the ULTIMATE 2026 NFL Futures Card | Win Totals, Division Winners & Award Sleepers",
+        "episode_id": "youtube-aOUy4-ZRzbE",
+        "episode_title": "Top 12 NFL Best Bets & Playoff Predictions | Division Winners, No. 1 Seeds & Futures Picks (2026)",
         "show": "BettingPros YouTube",
-        "video_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM",
-        "source_timestamp": 328,
-        "timestamp_url": "https://www.youtube.com/watch?v=4OxpAX6UJlM&t=328s"
+        "video_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE",
+        "source_timestamp": 205,
+        "timestamp_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE&t=205s"
       }
     }
-  ]
+  ],
+  "notes": []
 }

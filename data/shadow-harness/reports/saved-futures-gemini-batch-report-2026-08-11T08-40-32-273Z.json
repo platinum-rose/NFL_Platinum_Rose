@@ -1,0 +1,250 @@
+{
+  "evaluated_at": "2026-08-11T08:40:32.272Z",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "batch_label": "saved-futures",
+  "total_candidates_attempted": 1,
+  "total_episodes_evaluated": 1,
+  "total_episodes_scored": 0,
+  "reprocess_required_count": 0,
+  "extraction_failure_count": 0,
+  "average_f1_score_pct": null,
+  "total_cost_usd": 0.017367,
+  "average_cost_usd": 0.017367,
+  "total_latency_ms": 187824,
+  "average_latency_ms": 187824,
+  "total_extracted_picks": 3,
+  "reprocess_queue": [],
+  "failed_extractions": [],
+  "queue_runs": [
+    {
+      "episode_slug": "youtube-vDfKulwJPfI",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "reprocess_required": false,
+      "reprocess_reason": null,
+      "quality_flags": [],
+      "run": {
+        "run_id": "youtube_gemini_3fa2072cebcb",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=vDfKulwJPfI",
+        "latency_ms": 187824,
+        "estimated_cost_usd": 0.017367,
+        "input_tokens": 148918,
+        "output_tokens": 6188,
+        "raw_model_response": "{\n  \"transcript_summary\": \"In this custom simulation-league discussion, Ross Tucker and guest Jason La Canfora analyze the Baltimore Ravens' major organizational shakeups, including moving on from John Harbaugh, hiring Jesse Minter as head coach, and appointing Declan Doyle as offensive coordinator. They also break down the Ravens' Super Bowl futures on DraftKings Sportsbook and close with NFL contract news, trades, and injury updates.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 1616,\n    \"last_analyzed_timestamp\": 1616,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 14.0,\n      \"speaker\": \"Jason La Canfora\",\n      \"text\": \"And when Mike McDonald's the one who got away, right? Like in hindsight would they have fired Harbaugh after the 2023 AFC championship game if you told him that's as good as it's going to get and kept Mike McDonald, they would have. Who's the closest proximity to Mike McDonald? Jesse Minter.\"\n    },\n    {\n      \"start\": 14.0,\n      \"end\": 26.0,\n      \"speaker\": \"Podcast Intro\",\n      \"text\": \"You're tuned into the Ross Tucker Football Podcast, guiding your gridiron journey, none other than your host, former NFL lineman Ross Tucker.\"\n    },\n    {\n      \"start\": 26.0,\n      \"end\": 105.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Oh yeah, it is, but it's not just any Ross Tucker Football Podcast. It is a Tuck Head's Tuesday. Tuesday is for you. By the way, definitely listen or watch the Even Money betting podcast today. Steve Fezzik will give you his NFL preseason betting 101 tips. My guy, Jason La Canfora, joins me today. We go way back, and there's some other news yesterday to get to. Let's start though with Jason, who's joining me for a bunch of reasons. I'll get into it. It's big showtime.\"\n    },\n    {\n      \"start\": 105.0,\n      \"end\": 295.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"All right, so I've got this guy on today, really for three different reasons. Number one, we go way back... before he was at CBS, before he was at NFL Network, when he was a beat writer for the Washington Redskins back in 2007. That was my last year. You can check him out on social media @JasonLaCanfora... He's all over the Baltimore Ravens, who are a super interesting team... And then last but certainly not least, I've got to call the Ravens-Eagles game Saturday night for Eagles preseason. So this is doing some research and prep for my game while recording with my guy Jace. Jason, thanks for coming on the show, man.\"\n    },\n    {\n      \"start\": 295.0,\n      \"end\": 325.0,\n      \"speaker\": \"Jason La Canfora\",\n      \"text\": \"Brother, my pleasure. Thank you for the introduction... And the key is, Ross, work smarter, not harder. And that's what you're doing... Double dipping, triple dipping, it's the way to be.\"\n    },\n    {\n      \"start\": 325.0,\n      \"end\": 355.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"I am trying, that's for sure... Let's start with this... I want to talk about the decision to fire John Harbaugh. What would you say the general reaction was in Baltimore?\"\n    },\n    {\n      \"start\": 355.0,\n      \"end\": 508.0,\n      \"speaker\": \"Jason La Canfora\",\n      \"text\": \"That it had run its course. And the question was would Steve Bisciotti, because of this close interpersonal relationship, do it... When Steve Bisciotti says 'I felt like I was firing one of my close friends,' I take him at his word there. And really, it was that sort of inelastic relationship... The same problems kept showing up through various iterations of this team, no matter who was running the offense or who was running the defense.\"\n    },\n    {\n      \"start\": 508.0,\n      \"end\": 649.0,\n      \"speaker\": \"Jason La Canfora\",\n      \"text\": \"They were one of the worst fourth-quarter defenses in the NFL through three different coordinators, one of whom was the mighty Mike Macdonald, who's infallible. So they couldn't hold fourth-quarter leads with Mike Macdonald. So what's going on there? The hiring of Zack Orr to replace Macdonald... that didn't work. Should that have been addressed sooner? And then just the mannerisms, the Harbs-isms, the message starts to wear thin. It really felt like the end of Andy Reid in Philadelphia.\"\n    },\n    {\n      \"start\": 649.0,\n      \"end\": 710.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Wow, that's a strong statement. So let me... let's get to that. You know, this is a team that's been knocking on the door... but they haven't been able to get it done. Walk me through the decision to hire a first-time head coach, Jesse Minter, who's never done it before.\"\n    },\n    {\n      \"start\": 710.0,\n      \"end\": 830.0,\n      \"speaker\": \"Jason La Canfora\",\n      \"text\": \"Well, look, they are very tied into the idea... Eric DeCosta and Sashi Brown now are going to assume control. A head coach who won Super Bowls is gone, so the power dynamic changed... Sashi and Eric are going to want to maintain control. They want to get somebody who is malleable, who already believes in the same overarching roster philosophies... Who already believes in those philosophies? Jesse Minter was in the building. He's of the Harbaugh family tree, but enough of a new reboot with a different energy.\"\n    },\n    {\n      \"start\": 830.0,\n      \"end\": 1028.0,\n      \"speaker\": \"Jason La Canfora\",\n      \"text\": \"Honestly, once it was clear Harbaugh was gone, I was saying in Thanksgiving on my old show, Jesse Minter is the next head coach of the Baltimore Ravens... It's the least surprising thing in the world for me... They made a major trade in the middle of the season, trading Oweh to the Chargers... Oweh gets to the Chargers, has two sacks in his first game... It's very easy to go to your boss and say, remember Oweh... go look what Minter did with him. So it was happening, bro.\"\n    },\n    {\n      \"start\": 1028.0,\n      \"end\": 1129.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Wow, that's a terrific point about Oweh. I want you to walk me through the Declan Doyle hire as OC because I'm just remembering... I can't recall if he declined to interview in Philly or if he interviewed and removed his name... but then ends up taking the Ravens job. Curious about that hire, your thoughts, not only a first-time head coach but a first-time offensive coordinator.\"\n    },\n    {\n      \"start\": 1129.0,\n      \"end\": 1243.0,\n      \"speaker\": \"Jason La Canfora\",\n      \"text\": \"Yeah, I think the Eagles kind of knew who their guy was... And look, the Ravens really liked Davis Webb, and so what does Sean Payton do? Sean Payton gets rid of Joe Lombardi—who once was Declan Doyle... Sean Payton fires Joe Lombardi to keep Davis Webb and gives Davis Webb play-calling responsibilities... So all this is happening in real-time. So I think Declan Doyle had a chance to work with Lamar Jackson, had a chance to have a blank slate, have a chance to come in with a first-time head coach.\"\n    },\n    {\n      \"start\": 1243.0,\n      \"end\": 1356.0,\n      \"speaker\": \"Jason La Canfora\",\n      \"text\": \"And he's got some issues on offense talent-wise, but Lamar Jackson, Zay Flowers, Derrick Henry... good luck beating those triplets. So I just think ultimately it made a lot of sense for them. But Declan Doyle just turned 30, never called a play before, never installed his own playbook. Ross, he doesn't know where he's calling plays from yet! He's going to go upstairs for one preseason game and try another on the sidelines... Knowing him, I think there's going to be a learning curve.\"\n    },\n    {\n      \"start\": 1356.0,\n      \"end\": 1449.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"One thing I think is super interesting: the Ravens are tied on DraftKings Sportsbook for the second-best odds to win the Super Bowl. The Rams are +550, and then both the Bills and the Ravens are +1000... I find that fascinating. Why are the expectations so high for the Ravens? We just talked about a first-time head coach, first-time play-caller, and oh by the way, they didn't make the playoffs last year. Am I missing something, Jason?\"\n    },\n    {\n      \"start\": 1449.0,\n      \"end\": 1549.0,\n      \"speaker\": \"Jason La Canfora\",\n      \"text\": \"It seems inflated to me, Ross, it has all along. The win total is like 11.5... And look, I'm not... I wouldn't put money on Buffalo futures unless I was fading them... They always do a great job of sort of winning the media, and when you win the media, I do think at some level those sportsbooks, it's obviously algorithms... but there's a human being who signs off on those numbers. Everybody loves Eric DeCosta's drafts... Everybody loves the roster.\"\n    },\n    {\n      \"start\": 1549.0,\n      \"end\": 1719.0,\n      \"speaker\": \"Jason La Canfora\",\n      \"text\": \"Last year, everyone told me it's the best roster in the league and I would say, well who's getting to the quarterback?... They believe their own hype... I think the Bengals are the best team in this division, and I think the Ravens will be really competitive, they'll win their 10 games, maybe 11, but boy I don't know about winning a Super Bowl. There are only twice in NFL history a first-year head coach has come in and immediately won a Super Bowl... I just don't know about talking Super Bowl here.\"\n    },\n    {\n      \"start\": 1719.0,\n      \"end\": 1755.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Let's talk Lamar Jackson. What would you say sort of his approval rating or Q rating is right now in Baltimore? Is everybody still all-in... or are there some people starting to wonder if, in the postseason in particular, it is on Lamar a little bit?\"\n    },\n    {\n      \"start\": 1755.0,\n      \"end\": 1849.0,\n      \"speaker\": \"Jason La Canfora\",\n      \"text\": \"Well, the first scenario you laid out, I've never lived in that land. He's been polarizing from the get-up... The goalpost always moves for him. He wins an MVP with two different coordinators and he's still only 26 years old, and 'oh well he's not Mahomes and he won't be able to run like this later.' It's never been uniformity like everybody's all-in on Lamar. 'Oh we don't like his diet' or 'why does Lamar always miss practice with some sickness in December?'\"\n    },\n    {\n      \"start\": 1849.0,\n      \"end\": 1949.0,\n      \"speaker\": \"Jason La Canfora\",\n      \"text\": \"The contract is the biggest deal in the NFL that people in the media aren't really talking about... Why did Patrick Mahomes get another $300 million like one night out of the blue... Josh Allen just gets paid every 24 months because that's what happens when you have a quarterback like that. And this has never been that... So that colors it as well. Did Joe Burrow or Josh Allen ever publicly demand a trade? Not that I recall. And that happened.\"\n    },\n    {\n      \"start\": 1949.0,\n      \"end\": 2049.0,\n      \"speaker\": \"Jason La Canfora\",\n      \"text\": \"Were they plaintiffs in a collusion suit? Because not only were they allowed to hit basically free agency as a non-exclusive free agent, but they had to put out a trade demand to get that, and then no one even wanted to have lunch with this guy? Stephen Ross is willing to meet Tom Brady on a boat somewhere... but Stephen Ross lives five minutes from Lamar Jackson and didn't want to meet him for a coffee. So it's just different, Ross. Now he's got basically one real year left on his contract, then an $85 million cap hit for 2027.\"\n    },\n    {\n      \"start\": 2049.0,\n      \"end\": 2120.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Last one. Biggest concerns for this team going into the season.\"\n    },\n    {\n      \"start\": 2120.0,\n      \"end\": 2239.0,\n      \"speaker\": \"Jason La Canfora\",\n      \"text\": \"Lamar Jackson's contract for one... The learning curve for Declan Doyle and the offense... It's brand new for everyone... And the defense has to be elite from Week 1. In order for it to be elite, Nnamdi Madubuike is really going to have to put a neck surgery that he had in April totally behind him... We're talking about a career-saving, career-extending neck surgery for a guy who is used to playing 760 snaps a year on the defensive line... If he's not able to hit, the degree of difficulty for Jesse Minter will ratchet up exponentially.\"\n    },\n    {\n      \"start\": 2239.0,\n      \"end\": 2279.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"This was awesome. I knew it would be. Check him out on social media @JasonLaCanfora... Thank you so much, Jace, really appreciate it.\"\n    },\n    {\n      \"start\": 2279.0,\n      \"end\": 2293.0,\n      \"speaker\": \"Jason La Canfora\",\n      \"text\": \"Anytime, brother. Thank you.\"\n    },\n    {\n      \"start\": 2293.0,\n      \"end\": 2315.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"More great stuff right after this.\"\n    },\n    {\n      \"start\": 2315.0,\n      \"end\": 2330.0,\n      \"speaker\": \"Producer Jack Connell\",\n      \"text\": \"Okay Ross, some news to get to around the league. We're going to start with some contracts. Cowboys, they signed defensive tackle Quinnen Williams to a 3-year, $106 million extension. Meanwhile, the Patriots, they signed tight end Hunter Henry to a 2-year extension.\"\n    },\n    {\n      \"start\": 2330.0,\n      \"end\": 2411.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"So what's interesting about that is that's not really the Cowboys' style... by giving a guy a massive 3-year extension, over 100 million guaranteed, when he still had two years left on his contract. So he's now under contract for five more years. So the Cowboys are changing how they do business a little bit. Plus, Hunter Henry, I think this is already like the third contract he's signed with the Patriots... obviously they really like Hunter Henry.\"\n    },\n    {\n      \"start\": 2411.0,\n      \"end\": 2420.0,\n      \"speaker\": \"Producer Jack Connell\",\n      \"text\": \"We got a trade! Patriots trade offensive tackle Kaden Wallace to the Miami Dolphins in a future 6th-round, 7th-round pick swap.\"\n    },\n    {\n      \"start\": 2420.0,\n      \"end\": 2433.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Yeah, I mean it used to be a conditional 7th, that used to be the lowest... I guess that still is the lowest, but now they do these pick swaps instead. Did not work out for Kaden with New England.\"\n    },\n    {\n      \"start\": 2433.0,\n      \"end\": 2440.0,\n      \"speaker\": \"Producer Jack Connell\",\n      \"text\": \"There's also some injury news, Jack. Lions center Kade Mays out indefinitely, broken bone in his wrist, 8 to 10 weeks. And then Luther Burden out until Week 1 with a groin injury.\"\n    },\n    {\n      \"start\": 2440.0,\n      \"end\": 2496.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"That does not sound good. The Lions are taking hits... Kade Mays... And then Luther Burden out until Week 1 with a groin injury. The Bears were raving about him. The question is, you know, is there a concern about re-injury and will he be full throttle for Week 1? I think we're done here.\"\n    },\n    {\n      \"start\": 2496.0,\n      \"end\": 2555.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Thanks for tuning into the Ross Tucker Football Podcast. Make sure to also check out the College Draft Podcast and the Even Money betting podcast, both on the DraftKings Network, YouTube, or subscribe to the podcast on your favorite platform.\"\n    },\n    {\n      \"start\": 2555.0,\n      \"end\": 2616.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Shoutout myfrontpagestory.com... humanheadnyc.com, Sporticulture, Pizza Boy Brewing. Labatt is brewed for the roast.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"CIN\",\n      \"player\": null,\n      \"market\": \"division_winner\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": null,\n      \"week\": null,\n      \"speaker\": \"Jason La Canfora\",\n      \"source_timestamp\": 1619,\n      \"rationale\": \"La Canfora outright states he believes the Cincinnati Bengals are currently the best-constructed team in the AFC North.\"\n    },\n    {\n      \"team\": \"BUF\",\n      \"player\": null,\n      \"market\": \"super_bowl_winner\",\n      \"side\": \"NO\",\n      \"line\": null,\n      \"price\": null,\n      \"week\": null,\n      \"speaker\": \"Jason La Canfora\",\n      \"source_timestamp\": 1497,\n      \"rationale\": \"La Canfora states he strongly favors fading Buffalo Bills futures across all markets, including Super Bowl and win totals.\"\n    },\n    {\n      \"team\": \"BAL\",\n      \"player\": null,\n      \"market\": \"super_bowl_winner\",\n      \"side\": \"NO\",\n      \"line\": null,\n      \"price\": null,\n      \"week\": null,\n      \"speaker\": \"Jason La Canfora\",\n      \"source_timestamp\": 1515,\n      \"rationale\": \"Though La Canfora expects the Ravens to win 10 or 11 games, he completely rejects backing their high-priced Super Bowl futures (+1000) under a rookie head coach and coordinator.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"BAL\"],\n      \"players\": [],\n      \"topic\": \"Harbaugh-to-Minter transition\",\n      \"summary\": \"La Canfora analyzes the firing of John Harbaugh and the swift promotion of Jesse Minter, noting that the team needed a fresh energy and voice but still wanted to protect their defensive blueprint.\",\n      \"speaker\": \"Jason La Canfora\",\n      \"source_timestamp\": 649,\n      \"quote\": \"It really felt like the end of Andy Reid, like in Philadelphia.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"BAL\"],\n      \"players\": [\"Lamar Jackson\"],\n      \"topic\": \"Hiring of 30-year-old OC Declan Doyle\",\n      \"summary\": \"Doyle is a highly debated hire due to his complete lack of play-calling experience. Doyle chose Baltimore over other options due to the leverage of working with Lamar Jackson and installing a collaborative playbook.\",\n      \"speaker\": \"Jason La Canfora\",\n      \"source_timestamp\": 1243,\n      \"quote\": \"So I just think Declan Doyle had a chance to work with Lamar Jackson... but I also think there's going to be a learning curve.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"market_sentiment\",\n      \"teams\": [\"BAL\"],\n      \"players\": [],\n      \"topic\": \"Ravens' overvalued futures\",\n      \"summary\": \"The public and media's consistent adoration for GM Eric DeCosta's drafts has inflated Baltimore's futures markets, making their +1000 Super Bowl odds an undesirable value proposition.\",\n      \"speaker\": \"Jason La Canfora\",\n      \"source_timestamp\": 1449,\n      \"quote\": \"It seems inflated to me, Ross, it has all along.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"BAL\"],\n      \"players\": [\"Lamar Jackson\"],\n      \"topic\": \"Jackson's polarizing market perception\",\n      \"summary\": \"Despite two MVP campaigns, Jackson remains highly scrutinized by both media and local fans. His contract, previous trade demands, and postseason shortcomings continue to cloud his long-term reliability.\",\n      \"speaker\": \"Jason La Canfora\",\n      \"source_timestamp\": 1755,\n      \"quote\": \"He's been polarizing from the get-up... the goalpost always moves for him.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"BAL\"],\n      \"players\": [\"Nnamdi Madubuike\"],\n      \"topic\": \"Madubuike recovery from neck surgery\",\n      \"summary\": \"Nnamdi Madubuike underwent major neck surgery in April. If he is limited or cannot handle his normal heavy snap share, the defensive unit's floor falls dramatically.\",\n      \"speaker\": \"Jason La Canfora\",\n      \"source_timestamp\": 2212,\n      \"quote\": \"We're talking about a career-saving, career-extending neck surgery for a guy who's used to playing 760 snaps a year.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"roster_or_depth_chart\",\n      \"teams\": [\"DAL\"],\n      \"players\": [\"Quinnen Williams\"],\n      \"topic\": \"Quinnen Williams contract extension with Cowboys\",\n      \"summary\": \"Ross highlights the unusual nature of Dallas extending Quinnen Williams for 3 years, $106M with over $100M guaranteed when he had substantial time remaining on his prior contract.\",\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 2330,\n      \"quote\": \"That's not really the Cowboys' style... giving a guy a massive 3-year extension.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"DET\"],\n      \"players\": [\"Kade Mays\"],\n      \"topic\": \"Kade Mays broken wrist\",\n      \"summary\": \"Lions center Kade Mays is sidelined indefinitely (estimated 8-10 weeks) after sustaining a broken bone in his wrist.\",\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 2440,\n      \"quote\": \"Lions center Kade Mays out indefinitely... broken bone in his wrist.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"CHI\"],\n      \"players\": [\"Luther Burden\"],\n      \"topic\": \"Luther Burden groin injury\",\n      \"summary\": \"Chicago wide receiver Luther Burden is currently managing a groin injury, casting doubt over his status and level of conditioning heading into Week 1.\",\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 2480,\n      \"quote\": \"Luther Burden out until week 1 with a groin injury.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Andy Reid comparison\",\n      \"timestamp\": 649,\n      \"speaker\": \"Jason La Canfora\",\n      \"quote\": \"It really felt like the end of Andy Reid, like in Philadelphia.\"\n    },\n    {\n      \"topic\": \"Buffalo Bills Fade\",\n      \"timestamp\": 1497,\n      \"speaker\": \"Jason La Canfora\",\n      \"quote\": \"I wouldn't put money on Buffalo futures unless I was fading them.\"\n    },\n    {\n      \"topic\": \"Cowboys changed philosophy\",\n      \"timestamp\": 2330,\n      \"speaker\": \"Ross Tucker\",\n      \"quote\": \"That's not really the Cowboys' style... by giving a guy a massive 3-year extension.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+        "extracted_picks": [
+          {
+            "team": "CIN",
+            "player": null,
+            "market": "division_winner",
+            "side": "YES",
+            "line": null,
+            "price": null,
+            "week": null,
+            "speaker": "Jason La Canfora",
+            "source_timestamp": 1619,
+            "rationale": "La Canfora outright states he believes the Cincinnati Bengals are currently the best-constructed team in the AFC North."
+          },
+          {
+            "team": "BUF",
+            "player": null,
+            "market": "super_bowl_winner",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": null,
+            "speaker": "Jason La Canfora",
+            "source_timestamp": 1497,
+            "rationale": "La Canfora states he strongly favors fading Buffalo Bills futures across all markets, including Super Bowl and win totals."
+          },
+          {
+            "team": "BAL",
+            "player": null,
+            "market": "super_bowl_winner",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": null,
+            "speaker": "Jason La Canfora",
+            "source_timestamp": 1515,
+            "rationale": "Though La Canfora expects the Ravens to win 10 or 11 games, he completely rejects backing their high-priced Super Bowl futures (+1000) under a rookie head coach and coordinator."
+          }
+        ],
+        "analysis_notes": [
+          {
+            "note_type": "coaching_or_scheme",
+            "teams": [
+              "BAL"
+            ],
+            "players": [],
+            "topic": "Harbaugh-to-Minter transition",
+            "summary": "La Canfora analyzes the firing of John Harbaugh and the swift promotion of Jesse Minter, noting that the team needed a fresh energy and voice but still wanted to protect their defensive blueprint.",
+            "speaker": "Jason La Canfora",
+            "source_timestamp": 649,
+            "quote": "It really felt like the end of Andy Reid, like in Philadelphia.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "coaching_or_scheme",
+            "teams": [
+              "BAL"
+            ],
+            "players": [
+              "Lamar Jackson"
+            ],
+            "topic": "Hiring of 30-year-old OC Declan Doyle",
+            "summary": "Doyle is a highly debated hire due to his complete lack of play-calling experience. Doyle chose Baltimore over other options due to the leverage of working with Lamar Jackson and installing a collaborative playbook.",
+            "speaker": "Jason La Canfora",
+            "source_timestamp": 1243,
+            "quote": "So I just think Declan Doyle had a chance to work with Lamar Jackson... but I also think there's going to be a learning curve.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "market_sentiment",
+            "teams": [
+              "BAL"
+            ],
+            "players": [],
+            "topic": "Ravens' overvalued futures",
+            "summary": "The public and media's consistent adoration for GM Eric DeCosta's drafts has inflated Baltimore's futures markets, making their +1000 Super Bowl odds an undesirable value proposition.",
+            "speaker": "Jason La Canfora",
+            "source_timestamp": 1449,
+            "quote": "It seems inflated to me, Ross, it has all along.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "player_evaluation",
+            "teams": [
+              "BAL"
+            ],
+            "players": [
+              "Lamar Jackson"
+            ],
+            "topic": "Jackson's polarizing market perception",
+            "summary": "Despite two MVP campaigns, Jackson remains highly scrutinized by both media and local fans. His contract, previous trade demands, and postseason shortcomings continue to cloud his long-term reliability.",
+            "speaker": "Jason La Canfora",
+            "source_timestamp": 1755,
+            "quote": "He's been polarizing from the get-up... the goalpost always moves for him.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "injury_or_health",
+            "teams": [
+              "BAL"
+            ],
+            "players": [
+              "Nnamdi Madubuike"
+            ],
+            "topic": "Madubuike recovery from neck surgery",
+            "summary": "Nnamdi Madubuike underwent major neck surgery in April. If he is limited or cannot handle his normal heavy snap share, the defensive unit's floor falls dramatically.",
+            "speaker": "Jason La Canfora",
+            "source_timestamp": 2212,
+            "quote": "We're talking about a career-saving, career-extending neck surgery for a guy who's used to playing 760 snaps a year.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "roster_or_depth_chart",
+            "teams": [
+              "DAL"
+            ],
+            "players": [
+              "Quinnen Williams"
+            ],
+            "topic": "Quinnen Williams contract extension with Cowboys",
+            "summary": "Ross highlights the unusual nature of Dallas extending Quinnen Williams for 3 years, $106M with over $100M guaranteed when he had substantial time remaining on his prior contract.",
+            "speaker": "Ross Tucker",
+            "source_timestamp": 2330,
+            "quote": "That's not really the Cowboys' style... giving a guy a massive 3-year extension.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "injury_or_health",
+            "teams": [
+              "DET"
+            ],
+            "players": [
+              "Kade Mays"
+            ],
+            "topic": "Kade Mays broken wrist",
+            "summary": "Lions center Kade Mays is sidelined indefinitely (estimated 8-10 weeks) after sustaining a broken bone in his wrist.",
+            "speaker": "Ross Tucker",
+            "source_timestamp": 2440,
+            "quote": "Lions center Kade Mays out indefinitely... broken bone in his wrist.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "injury_or_health",
+            "teams": [
+              "CHI"
+            ],
+            "players": [
+              "Luther Burden"
+            ],
+            "topic": "Luther Burden groin injury",
+            "summary": "Chicago wide receiver Luther Burden is currently managing a groin injury, casting doubt over his status and level of conditioning heading into Week 1.",
+            "speaker": "Ross Tucker",
+            "source_timestamp": 2480,
+            "quote": "Luther Burden out until week 1 with a groin injury.",
+            "confidence": "stated"
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Andy Reid comparison",
+            "timestamp": 649,
+            "speaker": "Jason La Canfora",
+            "quote": "It really felt like the end of Andy Reid, like in Philadelphia."
+          },
+          {
+            "topic": "Buffalo Bills Fade",
+            "timestamp": 1497,
+            "speaker": "Jason La Canfora",
+            "quote": "I wouldn't put money on Buffalo futures unless I was fading them."
+          },
+          {
+            "topic": "Cowboys changed philosophy",
+            "timestamp": 2330,
+            "speaker": "Ross Tucker",
+            "quote": "That's not really the Cowboys' style... by giving a guy a massive 3-year extension."
+          }
+        ],
+        "coverage_assessment": {
+          "last_covered_timestamp": 2616,
+          "self_reported_reached_end": true,
+          "duration_used_for_check": 1616,
+          "segment_start_seconds": null,
+          "segment_end_seconds": null,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1.619
+        }
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 3,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    }
+  ]
+}

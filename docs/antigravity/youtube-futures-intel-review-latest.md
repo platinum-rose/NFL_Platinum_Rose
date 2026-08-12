@@ -1,22 +1,22 @@
 # YouTube Futures Intel Review
 
-Generated: 2026-07-31T06:41:58.724Z
+Generated: 2026-08-11T21:26:26.068Z
 
 > Local review only. Do not promote Gemini-derived observations to official picks or production recommendations without human review.
 
 ## Summary
 
-- Futures candidates: 13
-- Observed episodes: 13
-- Usable observed episodes: 10
-- Reprocess-required observations: 3
+- Futures candidates: 16
+- Observed episodes: 16
+- Usable observed episodes: 14
+- Reprocess-required observations: 2
 - Missing observations: 0
-- Extracted picks/leads: 63
-- Flagged picks/leads: 61
-- Analysis notes: 45
-- Flagged notes: 3
-- Total Gemini cost: $0.664417
-- Average latency: 163308 ms
+- Extracted picks/leads: 87
+- Flagged picks/leads: 84
+- Analysis notes: 65
+- Flagged notes: 1
+- Total Gemini cost: $0.647991
+- Average latency: 165316 ms
 - Review status file: data\shadow-harness\review\youtube-futures-intel-review-status.json
 
 ## Lane Counts
@@ -25,36 +25,36 @@ _Combined pick lanes + note relevance tags. See Note Tag Counts below for the no
 
 | Lane | Count |
 |---|---:|
-| fantasy_intel | 12 |
-| futures_pick | 48 |
-| injury_intel | 13 |
-| market_context | 4 |
-| matchup_analysis | 16 |
-| non_futures_betting | 10 |
-| roster_transaction_intel | 6 |
-| training_camp_intel | 3 |
+| fantasy_intel | 16 |
+| futures_pick | 65 |
+| injury_intel | 19 |
+| market_context | 9 |
+| matchup_analysis | 22 |
+| non_futures_betting | 14 |
+| roster_transaction_intel | 12 |
+| training_camp_intel | 2 |
 
 ## Flag Counts
 
 | Flag | Count |
 |---|---:|
 | duplicate_candidate | 6 |
-| invalid_team | 4 |
-| missing_price | 9 |
-| non_futures_market | 15 |
-| price_not_in_quote | 50 |
+| invalid_team | 11 |
+| missing_price | 17 |
+| non_futures_market | 22 |
+| price_not_in_quote | 65 |
 | unclear_side | 4 |
 
 ## Note Tag Counts
 
 | Tag | Count |
 |---|---:|
-| fantasy_intel | 12 |
-| injury_intel | 10 |
+| fantasy_intel | 16 |
+| injury_intel | 16 |
 | market_context | 4 |
-| matchup_analysis | 16 |
-| roster_transaction_intel | 6 |
-| training_camp_intel | 1 |
+| matchup_analysis | 22 |
+| roster_transaction_intel | 12 |
+| training_camp_intel | 2 |
 
 ## Episode Coverage
 
@@ -64,12 +64,16 @@ _Combined pick lanes + note relevance tags. See Note Tag Counts below for the no
 | 15 | 12 | 3 | $0.03223 | Top 12 NFL Best Bets & Playoff Predictions \| Division Winners, No. 1 Seeds & Futures Picks (2026) | https://www.youtube.com/watch?v=aOUy4-ZRzbE |
 | 11 | 11 | 2 | $0.03070 | Top 10 NFL Futures Bets to Make Now \| MVP, Rookie of the Year & More! | https://www.youtube.com/watch?v=veVjJ_EUYdk |
 | 10 | 14 | 4 | $0.02643 | 14 LONGSHOT NFL Futures To Make Now \| SLEEPERS, Player Props Picks & Predictions | https://www.youtube.com/watch?v=qGJ2f1fEXHc |
+| 9 | 4 | 4 | $0.01990 | NFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | https://www.youtube.com/watch?v=OAxHvrVUPpw |
+| 9 | 5 | 4 | $0.02194 | NFC WEST BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | https://www.youtube.com/watch?v=qj0CkWJumRg |
+| 9 | 5 | 3 | $0.02457 | AFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | https://www.youtube.com/watch?v=sfjlb5Xt2OQ |
+| 6 | 9 | 3 | $0.01298 | NFL Hall of Fame Game Preseason Picks & Predictions: Panthers vs. Cardinals Best Bets & Player Props | https://www.youtube.com/watch?v=AC45NyyzhzQ |
 | 5 | 0 | 7 | $0.01525 | Greg Cosell: 2026 NFC North Season PREVIEW | https://www.youtube.com/watch?v=G5tbI-M8muY |
 | 4 | 9 | 3 | $0.01952 | 9 Early NFL Week 1 Best Bets To Make NOW \| ATS, Totals & Moneyline Picks & Predictions (2026) | https://www.youtube.com/watch?v=uirj8AVs8so |
 | 3 | 2 | 5 | $0.02470 | Ranking the Top 20 NFL Quarterbacks for 2026! \| The Favorites | https://www.youtube.com/watch?v=WbuAvbsVF_w |
 | 3 | 4 | 5 | $0.02681 | NFL Injury Expert Dr. David Chao On The Major NFL Injury Storylines | https://www.youtube.com/watch?v=xAwNym8Y7Xg |
 | 3 | 0 | 10 | $0.02404 | 2026 NFL Receiving Rooms Tier List \| Full Rankings | https://www.youtube.com/watch?v=zNZzcHDqhg4 |
-| 3 | 2 | 2 | $0.01518 | Training Camp impact on bets, what Steve's up to with SIC Score, and more! | https://www.youtube.com/watch?v=mg5iBe5I5tU |
+| 3 | 3 | 8 | $0.01737 | Jason La Canfora: Baltimore Ravens 2026 Season PREVIEW | https://www.youtube.com/watch?v=vDfKulwJPfI |
 
 ## Extracted Picks And Leans
 
@@ -121,6 +125,29 @@ _Combined pick lanes + note relevance tags. See Note Tag Counts below for the no
 | futures_pick | 14 LONGSHOT NFL Futures To Make Now \| SLEEPERS, Player Props Picks & Predictions | LV | season_passing_tds | OVER | 25 | +1400 |  | Andrew Erickson | [2469s](https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=2469s) | price_not_in_quote |  | Mendoza will throw plenty of TDs in Raiders red zone system, taking over from Kirk Cousins. |
 | futures_pick | 14 LONGSHOT NFL Futures To Make Now \| SLEEPERS, Player Props Picks & Predictions | NYJ | interceptions_leader | UNKNOWN |  |  |  | Andrew Erickson | [2755s](https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=2755s) | unclear_side, missing_price |  | Aggressive CB in a Jets defense that will see positive regression in turnover luck. |
 | futures_pick | 14 LONGSHOT NFL Futures To Make Now \| SLEEPERS, Player Props Picks & Predictions | ATL | season_rushing_tds | UNKNOWN |  | +1800 |  | Seth Woolcock | [2912s](https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=2912s) | unclear_side, price_not_in_quote |  | Zac Robinson's offense will feed Bijan Robinson. Goal line issues for Tua means more rushing opportunities. |
+| futures_pick | NFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | NO | division_winner | YES |  | +260 |  | Simon Hunter | [277s](https://www.youtube.com/watch?v=OAxHvrVUPpw&t=277s) |  | This is my biggest bet by far in this division is on the New Orleans Saints at plus 270 or plus 260. | Saints have a top-tier offensive line, Alvin Kamara paired with Travis Etienne, and Kellen Moore coordinating Tyler Shough's offense. This is Simon's biggest division bet. |
+| futures_pick | NFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | TB | division_winner | YES |  | +175 |  | Chad Millman | [195s](https://www.youtube.com/watch?v=OAxHvrVUPpw&t=195s) | price_not_in_quote | The Saints are taking money on the over at seven and a half all because Tyler Shough made a glorious run. | Chad believes the Bucs have the strongest overall roster and the best quarterback in the division with Baker Mayfield. |
+| futures_pick | NFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | CAR | win_total | UNDER | 7.5 | -135 |  | Simon Hunter | [165s](https://www.youtube.com/watch?v=OAxHvrVUPpw&t=165s) | price_not_in_quote |  | Simon wants to fade the Panthers due to their exceptionally tough schedule, despite the win total being heavily juiced to the under. |
+| futures_pick | NFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | ATL | win_total | OVER | 7.5 |  |  | Chad Millman | [235s](https://www.youtube.com/watch?v=OAxHvrVUPpw&t=235s) | missing_price |  | Chad likes the Over on Atlanta's win total at plus money, expressing confidence in Kevin Stefanski's offensive scheme working with Tua Tagovailoa. |
+| futures_pick | NFC WEST BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | SF | win_total | OVER | 9.5 | -145 |  | Simon Hunter | [1820s](https://www.youtube.com/watch?v=qj0CkWJumRg&t=1820s) | price_not_in_quote | Is this not the easiest bet in this division, taking their over win total? | Easiest bet in the division. Shanahan consistently wins 10+ games, and the roster remains incredibly deep. |
+| futures_pick | NFC WEST BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | SEA | win_total | OVER | 10.5 | -110 |  | Simon Hunter | [2110s](https://www.youtube.com/watch?v=qj0CkWJumRg&t=2110s) | price_not_in_quote |  | Much better price and value at -110 than betting on the Rams' inflated line. |
+| futures_pick | NFC WEST BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | LAR | make_playoffs | NO |  | +400 |  | Simon Hunter | [2240s](https://www.youtube.com/watch?v=qj0CkWJumRg&t=2240s) | price_not_in_quote |  | The Rams' market is heavily overvalued due to offseason hype, making +400 to miss the playoffs a highly profitable position. |
+| futures_pick | NFC WEST BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | SF | division_winner | YES |  | +300 |  | Simon Hunter | [2180s](https://www.youtube.com/watch?v=qj0CkWJumRg&t=2180s) | price_not_in_quote |  | Placed small value bets on the 49ers to win the division at +300. |
+| futures_pick | NFC WEST BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | SEA | division_winner | YES |  | +210 |  | Simon Hunter | [2185s](https://www.youtube.com/watch?v=qj0CkWJumRg&t=2185s) | price_not_in_quote |  | Seattle has division-winning upside at a friendly +210 price. |
+| futures_pick | AFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | HOU | win_total | OVER | 9.5 | -120 |  | Simon Hunter | [1420s](https://www.youtube.com/watch?v=sfjlb5Xt2OQ&t=1420s) | price_not_in_quote | I have them projected at 11 wins. | Simon projects the Texans to win 11 games and expects their defense to remain elite. |
+| futures_pick | AFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | HOU | division_winner | YES |  | +120 |  | Simon Hunter | [1435s](https://www.youtube.com/watch?v=sfjlb5Xt2OQ&t=1435s) | price_not_in_quote |  | Believes Houston is clearly the best team in the division. |
+| futures_pick | AFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | JAX | win_total | UNDER | 8.5 |  |  | Simon Hunter | [1910s](https://www.youtube.com/watch?v=sfjlb5Xt2OQ&t=1910s) | missing_price |  | Believes the Jaguars are primed for regression and doesn't trust their defense. |
+| futures_pick | AFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | IND | win_total | UNDER | 8.5 |  |  | Simon Hunter | [2360s](https://www.youtube.com/watch?v=sfjlb5Xt2OQ&t=2360s) | missing_price |  | Sees the Colts as a 6 or 7-win team and believes their offseason improvements were minimal. |
+| futures_pick | AFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | TEN | division_winner | YES |  | +800 |  | Simon Hunter | [2510s](https://www.youtube.com/watch?v=sfjlb5Xt2OQ&t=2510s) | price_not_in_quote |  | Took a small flyer on the Titans at long odds due to the positive coaching change. |
+| non_futures_betting | NFL Hall of Fame Game Preseason Picks & Predictions: Panthers vs. Cardinals Best Bets & Player Props | AZ | spread | AZ | 1.5 | -120 |  | Andrew Erickson | [234s](https://www.youtube.com/watch?v=AC45NyyzhzQ&t=234s) | invalid_team, non_futures_market, price_not_in_quote | Dave Canales traditionally has been a player and coach to fade in the preseason. | Likes short underdogs catching points in the preseason, noting that Carolina is resting all starters. |
+| non_futures_betting | NFL Hall of Fame Game Preseason Picks & Predictions: Panthers vs. Cardinals Best Bets & Player Props | AZ | moneyline | AZ |  | +100 |  | Andrew Erickson | [234s](https://www.youtube.com/watch?v=AC45NyyzhzQ&t=234s) | invalid_team, non_futures_market, price_not_in_quote |  | Carolina's Dave Canales is a coach to fade in the preseason with a historical 1-7 record. |
+| non_futures_betting | NFL Hall of Fame Game Preseason Picks & Predictions: Panthers vs. Cardinals Best Bets & Player Props | AZ | spread | AZ | 1.5 | +100 |  | Scott Bogman | [488s](https://www.youtube.com/watch?v=AC45NyyzhzQ&t=488s) | invalid_team, non_futures_market, price_not_in_quote | Give me whoever is catching points in a preseason game. | Prefers to back the underdog catching points in any preseason game environment. |
+| non_futures_betting | NFL Hall of Fame Game Preseason Picks & Predictions: Panthers vs. Cardinals Best Bets & Player Props | AZ | total | UNDER | 35.5 | -110 |  | Scott Bogman | [488s](https://www.youtube.com/watch?v=AC45NyyzhzQ&t=488s) | invalid_team, non_futures_market, price_not_in_quote |  | Expects a slow-moving, punt-heavy game with multiple rookie quarterbacks playing the vast majority of snaps. |
+| market_context | NFL Hall of Fame Game Preseason Picks & Predictions: Panthers vs. Cardinals Best Bets & Player Props | AZ | other | AZ |  | +250 |  | Scott Bogman | [488s](https://www.youtube.com/watch?v=AC45NyyzhzQ&t=488s) | invalid_team, non_futures_market, price_not_in_quote |  | Preseason games are typically close, and Cardinals to win by 1-6 points offers a strong +250 return. |
+| market_context | NFL Hall of Fame Game Preseason Picks & Predictions: Panthers vs. Cardinals Best Bets & Player Props | CAR | other | OVER | 24.5 |  |  | Andrew Erickson | [858s](https://www.youtube.com/watch?v=AC45NyyzhzQ&t=858s) | non_futures_market, missing_price |  | Dave Canales stated his intention to let the quarterback run to move the chains, and poor offensive line depth will force scrambles. |
+| market_context | NFL Hall of Fame Game Preseason Picks & Predictions: Panthers vs. Cardinals Best Bets & Player Props | CAR | other | OVER | 24.5 | -144 |  | Scott Bogman | [858s](https://www.youtube.com/watch?v=AC45NyyzhzQ&t=858s) | non_futures_market, price_not_in_quote |  | King runs with reckless abandon and has a strong college rushing baseline, averaging over 60 rushing yards per game. |
+| market_context | NFL Hall of Fame Game Preseason Picks & Predictions: Panthers vs. Cardinals Best Bets & Player Props | AZ | other | OVER | 0.5 | +563 |  | Scott Bogman | [858s](https://www.youtube.com/watch?v=AC45NyyzhzQ&t=858s) | invalid_team, non_futures_market, price_not_in_quote |  | Slovis is expected to play the entire second half, making a single touchdown pass highly likely at long +563 odds. |
+| market_context | NFL Hall of Fame Game Preseason Picks & Predictions: Panthers vs. Cardinals Best Bets & Player Props | AZ | other | OVER | 99.5 |  |  | Chris Welsh | [858s](https://www.youtube.com/watch?v=AC45NyyzhzQ&t=858s) | invalid_team, non_futures_market, missing_price |  | Expected to play the entire first half with minimal quarterback depth behind him, and historically starters clear 100 yards in this game. |
 | non_futures_betting | 9 Early NFL Week 1 Best Bets To Make NOW \| ATS, Totals & Moneyline Picks & Predictions (2026) | DAL | spread | DAL | -1.5 |  | 1 | Andrew Erickson | [245s](https://www.youtube.com/watch?v=uirj8AVs8so&t=245s) | non_futures_market, missing_price | I am taking the Dallas Cowboys laying 1.5 points on the road against the New York Giants. | Dak Prescott dominates the Giants (14-3 straight up) and has a highly efficient track record in division road games. |
 | non_futures_betting | 9 Early NFL Week 1 Best Bets To Make NOW \| ATS, Totals & Moneyline Picks & Predictions (2026) | PIT | spread | PIT | -2.5 |  | 1 | Seth Woolcock | [407s](https://www.youtube.com/watch?v=uirj8AVs8so&t=407s) | non_futures_market, missing_price | Give me a little Pittsburgh Steelers minus 2.5 against the Falcons. | Steelers historically start very strong under Mike Tomlin in Week 1 (7-2-1 in the last decade) and boast a shutdown secondary that can neutralize Drake London. |
 | non_futures_betting | 9 Early NFL Week 1 Best Bets To Make NOW \| ATS, Totals & Moneyline Picks & Predictions (2026) | TEN | spread | TEN | -2.5 |  | 1 | Andrew Erickson | [652s](https://www.youtube.com/watch?v=uirj8AVs8so&t=652s) | non_futures_market, missing_price |  | titans are in a strong spot with a fresh coaching scheme, whereas the Jets have lingering offensive question marks. |
@@ -136,8 +163,9 @@ _Combined pick lanes + note relevance tags. See Note Tag Counts below for the no
 | injury_intel | NFL Injury Expert Dr. David Chao On The Major NFL Injury Storylines | SPAIN/ARGENTINA | first_half_draw | DRAW |  | -105 |  | Brandon Kravitz | [2698s](https://www.youtube.com/watch?v=xAwNym8Y7Xg&t=2698s) | invalid_team, non_futures_market, price_not_in_quote |  | Expects a tight, low-scoring first half due to Spain's strong defensive shape in a final. |
 | injury_intel | NFL Injury Expert Dr. David Chao On The Major NFL Injury Storylines | SPAIN/ARGENTINA | first_half_total | UNDER |  | +138 |  | Brandon Kravitz | [2701s](https://www.youtube.com/watch?v=xAwNym8Y7Xg&t=2701s) | invalid_team, non_futures_market, price_not_in_quote |  | Believes there is a strong chance of a scoreless first half. |
 | injury_intel | NFL Injury Expert Dr. David Chao On The Major NFL Injury Storylines | SPAIN | to_lift_cup | SPAIN |  | -150 |  | Stuckey | [2737s](https://www.youtube.com/watch?v=xAwNym8Y7Xg&t=2737s) | invalid_team, non_futures_market | I'm going to go with Spain to lift the cup at -150. | Spain has been the best team all tournament and showed a masterclass in holding a lead, whereas Argentina has escaped multiple times. |
-| training_camp_intel | Training Camp impact on bets, what Steve's up to with SIC Score, and more! | JAX | teaser | MINUS | 0.5 | -150 | 1 | Steve Fezik | [268s](https://www.youtube.com/watch?v=mg5iBe5I5tU&t=268s) | non_futures_market, price_not_in_quote | I'm going to take the Jacksonville Jaguars down from minus seven and a half to minus a half... Vikings... up to plus eight and a half. | Part of a 7-point teaser. Jacksonville is teased down from -7.5 to -0.5, meaning they just need to win the game. |
-| training_camp_intel | Training Camp impact on bets, what Steve's up to with SIC Score, and more! | MIN | teaser | PLUS | 8.5 | -150 | 1 | Steve Fezik | [268s](https://www.youtube.com/watch?v=mg5iBe5I5tU&t=268s) | non_futures_market, price_not_in_quote |  | Part of a 7-point teaser. Vikings are teased up from +1.5 to +8.5, utilizing DraftKings' favorable line before it moves. |
+| futures_pick | Jason La Canfora: Baltimore Ravens 2026 Season PREVIEW | CIN | division_winner | YES |  |  |  | Jason La Canfora | [1619s](https://www.youtube.com/watch?v=vDfKulwJPfI&t=1619s) | missing_price |  | La Canfora outright states he believes the Cincinnati Bengals are currently the best-constructed team in the AFC North. |
+| futures_pick | Jason La Canfora: Baltimore Ravens 2026 Season PREVIEW | BUF | super_bowl_winner | NO |  |  |  | Jason La Canfora | [1497s](https://www.youtube.com/watch?v=vDfKulwJPfI&t=1497s) | missing_price | I wouldn't put money on Buffalo futures unless I was fading them. | La Canfora states he strongly favors fading Buffalo Bills futures across all markets, including Super Bowl and win totals. |
+| futures_pick | Jason La Canfora: Baltimore Ravens 2026 Season PREVIEW | BAL | super_bowl_winner | NO |  |  |  | Jason La Canfora | [1515s](https://www.youtube.com/watch?v=vDfKulwJPfI&t=1515s) | missing_price |  | Though La Canfora expects the Ravens to win 10 or 11 games, he completely rejects backing their high-priced Super Bowl futures (+1000) under a rookie head coach and coordinator. |
 
 ## Analysis & Context Notes
 
@@ -156,6 +184,20 @@ _Combined pick lanes + note relevance tags. See Note Tag Counts below for the no
 | roster_transaction_intel | 14 LONGSHOT NFL Futures To Make Now \| SLEEPERS, Player Props Picks & Predictions | roster_or_depth_chart | LV | Kirk Cousins, Fernando Mendoza | Andrew Erickson | [2511s](https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=2511s) | speculative |  | Kirk Cousins is starting for the Raiders, but there is speculation that rookie Fernando Mendoza could take over. | I think that after a couple weeks they are going to be like, 'let's get Mendoza in there, we've seen enough of Kirk Cousins.' |
 | matchup_analysis | 14 LONGSHOT NFL Futures To Make Now \| SLEEPERS, Player Props Picks & Predictions | coaching_or_scheme | PIT | Aaron Rodgers | Andrew Erickson | [1980s](https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=1980s) | speculative |  | Mike McCarthy is the head coach of the Steelers, and Aaron Rodgers is their aging starting quarterback, with Drew Allar and Will Howard as backups. | And Aaron Rodgers is terrible, what if they decide, hey, we're going to use Drew Allar, we're going to use Will Howard because Rodgers is cooked. |
 | roster_transaction_intel | 14 LONGSHOT NFL Futures To Make Now \| SLEEPERS, Player Props Picks & Predictions | roster_or_depth_chart | JAX | Travis Hunter | Andrew Erickson | [1210s](https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=1210s) | stated |  | Travis Hunter is expected to play both wide receiver and cornerback for the Jacksonville Jaguars. | He is doing something no other player has really done in such a long time, and that's like having success playing both ways. |
+| matchup_analysis | NFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | coaching_or_scheme | ATL | Tua Tagovailoa | Simon Hunter | [255s](https://www.youtube.com/watch?v=OAxHvrVUPpw&t=255s) | implied |  | The hosts discuss how two-time Coach of the Year Kevin Stefanski will utilize Tua Tagovailoa's timing-based passing skills, though Simon raises concerns about Tua's footwork and regression under pressure. | If Tua does get it right in this division with those weapons, this could easily be a 10-win team. |
+| injury_intel | NFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | injury_or_health | ATL | Michael Penix Jr. | Chad Millman | [115s](https://www.youtube.com/watch?v=OAxHvrVUPpw&t=115s) | stated |  | Chad Millman notes that Michael Penix Jr. is recovering from his third ACL tear, leaving Tua Tagovailoa as the clear bridge starter in Atlanta. | Tua to basically backfill until Michael Penix can come back from what I think is his third ACL tear in his career. |
+| fantasy_intel | NFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | player_evaluation | NO | Tyler Shough | Chad Millman | [190s](https://www.youtube.com/watch?v=OAxHvrVUPpw&t=190s) | stated |  | The hosts recall how Tyler Shough won 4 of his last 5 games as a starter to close out last season, driving up optimism and money on the Saints' Over. | The Saints are taking money on the over at seven and a half all because Tyler Shough made a glorious run. |
+| roster_transaction_intel | NFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | roster_or_depth_chart | TB | Kenneth Gainwell, Alex Anzalone | Chad Millman | [165s](https://www.youtube.com/watch?v=OAxHvrVUPpw&t=165s) | stated |  | Tampa Bay added linebacker Alex Anzalone and running back Kenneth Gainwell (who had 73 receptions last year) to bolster their depth behind Baker Mayfield. | Added linebacker Alex Anzalone, added Kenneth Gainwell, Steelers offensive MVP last year with 73 receptions. |
+| matchup_analysis | NFC WEST BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | coaching_or_scheme | LAR, PHI | Jalen Hurts, Matthew Stafford | Simon Hunter | [490s](https://www.youtube.com/watch?v=qj0CkWJumRg&t=490s) | stated |  | Simon simulated Hurts and Stafford in McVay's scheme on Madden, discovering only a 1-win difference, reinforcing that elite coaching systems elevate quarterback performance regardless of individual talent. | It's literally a one-win difference up or down every season we simulated. |
+| fantasy_intel, training_camp_intel | NFC WEST BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | player_evaluation | ARI | Marvin Harrison Jr., Jacoby Brissett | Simon Hunter | [1050s](https://www.youtube.com/watch?v=qj0CkWJumRg&t=1050s) | stated |  | Harrison is reportedly struggling with drops in camp. Brissett is locked in as a low-cost starter making $15.5 million. | Their videographers are killing them showing Marvin Harrison with horrible drops. |
+| injury_intel | NFC WEST BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | injury_or_health | SF | Brock Purdy | Simon Hunter | [1940s](https://www.youtube.com/watch?v=qj0CkWJumRg&t=1940s) | implied |  | Having Mac Jones back on a cheap deal provides elite injury protection for the 49ers given Purdy's past health history. | Mac Jones being our starter on a discount is a better future. |
+| roster_transaction_intel | NFC WEST BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | roster_or_depth_chart | LAR | Myles Garrett, Trent McDuffie | Simon Hunter | [2195s](https://www.youtube.com/watch?v=qj0CkWJumRg&t=2195s) | stated |  | The Rams completely rebuilt their secondary, replacing all five cornerbacks from last year and adding Myles Garrett upfront to create a powerhouse defense. | They got rid of every corner they had... then you bring in Myles Garrett. |
+| matchup_analysis | AFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | team_evaluation | HOU | C.J. Stroud | Simon Hunter | [1450s](https://www.youtube.com/watch?v=sfjlb5Xt2OQ&t=1450s) | stated |  | DeMeco Ryans returns all 11 defensive starters, which Simon believes provides the team with a very high baseline of stability. | They're returning all 11 defensive starters under a great defensive mind. |
+| fantasy_intel | AFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | player_evaluation | JAX | Trevor Lawrence | Chad Millman | [1925s](https://www.youtube.com/watch?v=sfjlb5Xt2OQ&t=1925s) | stated |  | The hosts noted that Trevor Lawrence still has too many lapses in decision-making to justify backing Jacksonville at current market prices. | Lawrence has the talent but the consistency isn't there yet. |
+| injury_intel | AFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season | injury_or_health | IND | Anthony Richardson | Simon Hunter | [2380s](https://www.youtube.com/watch?v=sfjlb5Xt2OQ&t=2380s) | stated |  | Simon expressed concern over Richardson's durability and ability to play a full season given his physical style of play. | He's coming off a major shoulder injury and plays with a lot of contact. |
+| matchup_analysis | NFL Hall of Fame Game Preseason Picks & Predictions: Panthers vs. Cardinals Best Bets & Player Props | coaching_or_scheme | CAR |  | Andrew Erickson | [234s](https://www.youtube.com/watch?v=AC45NyyzhzQ&t=234s) | stated |  | Dave Canales is historically a coach to fade in the preseason, carrying a poor 1-7 record and showing little interest in prioritizing preseason wins. | Dave Canales traditionally has been a player and coach to fade in the preseason. |
+| roster_transaction_intel | NFL Hall of Fame Game Preseason Picks & Predictions: Panthers vs. Cardinals Best Bets & Player Props | roster_or_depth_chart | CAR | Kenny Pickett | Andrew Erickson | [234s](https://www.youtube.com/watch?v=AC45NyyzhzQ&t=234s) | stated |  | Erickson notes that Kenny Pickett is starting but Dave Canales plans to sit all key starting players, leaving the bulk of the snaps to depth quarterbacks. | None of their starters are going to play in any capacity whatsoever. |
+| injury_intel, roster_transaction_intel | NFL Hall of Fame Game Preseason Picks & Predictions: Panthers vs. Cardinals Best Bets & Player Props | injury_or_health | CAR |  | Andrew Erickson | [234s](https://www.youtube.com/watch?v=AC45NyyzhzQ&t=234s) | stated |  | The Panthers are already dealing with several injuries, which means the coaching staff will err on the side of caution and hold out any nicked-up depth players. | The Panthers have also been dealing with a ton of injuries already. |
 | fantasy_intel | Greg Cosell: 2026 NFC North Season PREVIEW | player_evaluation | CHI | Caleb Williams | Greg Cosell | [607s](https://www.youtube.com/watch?v=G5tbI-M8muY&t=607s) | stated |  | Greg Cosell evaluates Caleb Williams' progression going into his third season as highly positive, praising his pure throwing talent but noting a need to play more strictly within the offense's structure when it works. | There are few guys that throw as beautiful a ball as Caleb Williams, so there's no concerns about the talent level... I would say he's right on track. |
 | matchup_analysis | Greg Cosell: 2026 NFC North Season PREVIEW | coaching_or_scheme | CHI | Sam Roush, Caleb Williams | Greg Cosell | [412s](https://www.youtube.com/watch?v=G5tbI-M8muY&t=412s) | implied |  | Cosell notes Chicago's draft choice of tight end Sam Roush suggests a shift towards heavier tight end packages (12 and 13 personnel) under Ben Johnson to ease the burden on Caleb Williams. | I'm fascinated to see if Ben Johnson decides to go a lot more with multiple tight end personnel packages, including 13 personnel with three tight ends. |
 | roster_transaction_intel | Greg Cosell: 2026 NFC North Season PREVIEW | roster_or_depth_chart | DET | Penei Sewell, Blake Miller, Cade Mays | Greg Cosell | [1125s](https://www.youtube.com/watch?v=G5tbI-M8muY&t=1125s) | stated |  | The Lions reshuffled their offensive line, moving Penei Sewell to left tackle, inserting draft pick Blake Miller at right tackle, and bringing in Cade Mays from Carolina to play center. | They moved Sewell to left tackle, which is what he played in college... Blake Miller, they drafted, is going to step in at right tackle. |
@@ -186,15 +228,19 @@ _Combined pick lanes + note relevance tags. See Note Tag Counts below for the no
 | matchup_analysis | 2026 NFL Receiving Rooms Tier List \| Full Rankings | coaching_or_scheme | NE | AJ Brown | Warren Sharp | [2723s](https://www.youtube.com/watch?v=zNZzcHDqhg4&t=2723s) | implied |  | Under Alex Van Pelt, the Patriots are expected to deploy a more pass-heavy scheme, which should maximize the newly acquired AJ Brown. | They're going to be throwing the ball more in New England. |
 | injury_intel | 2026 NFL Receiving Rooms Tier List \| Full Rankings | injury_or_health | NYG | Malik Nabers | Warren Sharp | [2841s](https://www.youtube.com/watch?v=zNZzcHDqhg4&t=2841s) | stated |  | Nabers' status remains a major wild card for the Giants' offense after he was limited to just four games last season due to injury. | He played only four games last year because of the injury. |
 | matchup_analysis | 2026 NFL Receiving Rooms Tier List \| Full Rankings | team_evaluation | PHI | AJ Brown, DeVonta Smith | Warren Sharp | [3027s](https://www.youtube.com/watch?v=zNZzcHDqhg4&t=3027s) | stated |  | The Eagles are graded as a fringe A-tier unit; while they are still strong with DeVonta Smith and Dallas Goedert, losing AJ Brown caps their previous S-tier upside. | This is an A-tier even losing AJ Brown. |
-| injury_intel, training_camp_intel | Training Camp impact on bets, what Steve's up to with SIC Score, and more! | injury_or_health |  |  | Steve Fezik | [110s](https://www.youtube.com/watch?v=mg5iBe5I5tU&t=110s) | stated | no_team_or_player | Fezik highly praises the Dr. Chao group's SIC Score database for tracking team injuries (offensive line, defensive line, etc.), noting that their core injury model has hit 56.5% over the last seven years. | Love the concept that they have... they have their SIC score for all the teams, and yes it's obvious when it's the quarterback, but it's not obvious sometimes with cluster injuries on the O-line, etc. |
-| market_context | Training Camp impact on bets, what Steve's up to with SIC Score, and more! | market_sentiment |  |  | Steve Fezik | [180s](https://www.youtube.com/watch?v=mg5iBe5I5tU&t=180s) | stated | no_team_or_player | Fezik gives candid advice that bettors wagering under $100 per game should not buy subscription picks, as the cost of the picks will outweigh the potential profit. | If you're not betting over a hundred dollars a game... don't be buying picks because the cost of the picks is too onerous. |
+| matchup_analysis | Jason La Canfora: Baltimore Ravens 2026 Season PREVIEW | coaching_or_scheme | BAL |  | Jason La Canfora | [649s](https://www.youtube.com/watch?v=vDfKulwJPfI&t=649s) | stated |  | La Canfora analyzes the firing of John Harbaugh and the swift promotion of Jesse Minter, noting that the team needed a fresh energy and voice but still wanted to protect their defensive blueprint. | It really felt like the end of Andy Reid, like in Philadelphia. |
+| matchup_analysis | Jason La Canfora: Baltimore Ravens 2026 Season PREVIEW | coaching_or_scheme | BAL | Lamar Jackson | Jason La Canfora | [1243s](https://www.youtube.com/watch?v=vDfKulwJPfI&t=1243s) | stated |  | Doyle is a highly debated hire due to his complete lack of play-calling experience. Doyle chose Baltimore over other options due to the leverage of working with Lamar Jackson and installing a collaborative playbook. | So I just think Declan Doyle had a chance to work with Lamar Jackson... but I also think there's going to be a learning curve. |
+| market_context | Jason La Canfora: Baltimore Ravens 2026 Season PREVIEW | market_sentiment | BAL |  | Jason La Canfora | [1449s](https://www.youtube.com/watch?v=vDfKulwJPfI&t=1449s) | stated |  | The public and media's consistent adoration for GM Eric DeCosta's drafts has inflated Baltimore's futures markets, making their +1000 Super Bowl odds an undesirable value proposition. | It seems inflated to me, Ross, it has all along. |
+| fantasy_intel, training_camp_intel, roster_transaction_intel | Jason La Canfora: Baltimore Ravens 2026 Season PREVIEW | player_evaluation | BAL | Lamar Jackson | Jason La Canfora | [1755s](https://www.youtube.com/watch?v=vDfKulwJPfI&t=1755s) | stated |  | Despite two MVP campaigns, Jackson remains highly scrutinized by both media and local fans. His contract, previous trade demands, and postseason shortcomings continue to cloud his long-term reliability. | He's been polarizing from the get-up... the goalpost always moves for him. |
+| injury_intel | Jason La Canfora: Baltimore Ravens 2026 Season PREVIEW | injury_or_health | BAL | Nnamdi Madubuike | Jason La Canfora | [2212s](https://www.youtube.com/watch?v=vDfKulwJPfI&t=2212s) | stated |  | Nnamdi Madubuike underwent major neck surgery in April. If he is limited or cannot handle his normal heavy snap share, the defensive unit's floor falls dramatically. | We're talking about a career-saving, career-extending neck surgery for a guy who's used to playing 760 snaps a year. |
+| roster_transaction_intel | Jason La Canfora: Baltimore Ravens 2026 Season PREVIEW | roster_or_depth_chart | DAL | Quinnen Williams | Ross Tucker | [2330s](https://www.youtube.com/watch?v=vDfKulwJPfI&t=2330s) | stated |  | Ross highlights the unusual nature of Dallas extending Quinnen Williams for 3 years, $106M with over $100M guaranteed when he had substantial time remaining on his prior contract. | That's not really the Cowboys' style... giving a guy a massive 3-year extension. |
+| injury_intel | Jason La Canfora: Baltimore Ravens 2026 Season PREVIEW | injury_or_health | DET | Kade Mays | Ross Tucker | [2440s](https://www.youtube.com/watch?v=vDfKulwJPfI&t=2440s) | stated |  | Lions center Kade Mays is sidelined indefinitely (estimated 8-10 weeks) after sustaining a broken bone in his wrist. | Lions center Kade Mays out indefinitely... broken bone in his wrist. |
+| injury_intel | Jason La Canfora: Baltimore Ravens 2026 Season PREVIEW | injury_or_health | CHI | Luther Burden | Ross Tucker | [2480s](https://www.youtube.com/watch?v=vDfKulwJPfI&t=2480s) | stated |  | Chicago wide receiver Luther Burden is currently managing a groin injury, casting doubt over his status and level of conditioning heading into Week 1. | Luther Burden out until week 1 with a groin injury. |
 
 ## Reprocess Required
 
 These observations were saved for auditability but are excluded from extracted picks/notes until reprocessed.
 
-- youtube-OAxHvrVUPpw: NFC SOUTH BETTING PREVIEW: Gambling Expert Picks, Predictions & Strategies for 2026 NFL Season (https://www.youtube.com/watch?v=OAxHvrVUPpw)
-  - Reason: segmented extraction failed semantic coverage: later windows repeated intro/Carolina material and did not capture the expected Saints discussion
 - youtube-b9NL40Zogkw: Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites (https://www.youtube.com/watch?v=b9NL40Zogkw)
   - Reason: ranked QB list coverage incomplete: raw transcript references 13 QB subjects; but structured picks/notes cover 5; missing Josh Allen, Patrick Mahomes, Dak Prescott, Justin Herbert, Baker Mayfield, Trevor Lawrence, Jared Goff, Sam Darnold
 - youtube-qoCm4G2Jmng: TOP 10 QUARTERBACKS: NFL Betting Experts' Rankings & Analysis of Greatest QBs For 2026 NFL Season (https://www.youtube.com/watch?v=qoCm4G2Jmng)

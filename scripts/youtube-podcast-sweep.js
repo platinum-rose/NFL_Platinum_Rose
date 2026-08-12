@@ -79,6 +79,76 @@ const FUTURES_SCORE_RULES = [
   { score: 2, label: 'team/player context', patterns: ['nfc north', 'afc ', 'nfc ', 'chiefs', 'broncos', 'texans', 'giants', 'cardinals', 'starting quarterback'] }
 ];
 
+const NFL_CONTEXT_PATTERNS = [
+  ' nfl ',
+  'national football league',
+  'super bowl',
+  'hall of fame game',
+  'afc ',
+  'nfc ',
+  'nfc north',
+  'nfc south',
+  'nfc east',
+  'nfc west',
+  'afc north',
+  'afc south',
+  'afc east',
+  'afc west',
+  'bills',
+  'dolphins',
+  'patriots',
+  'jets',
+  'ravens',
+  'bengals',
+  'browns',
+  'steelers',
+  'texans',
+  'colts',
+  'jaguars',
+  'titans',
+  'chiefs',
+  'chargers',
+  'broncos',
+  'raiders',
+  'cowboys',
+  'eagles',
+  'giants',
+  'commanders',
+  'bears',
+  'lions',
+  'packers',
+  'vikings',
+  'falcons',
+  'panthers',
+  'saints',
+  'buccaneers',
+  'cardinals',
+  'rams',
+  '49ers',
+  'niners',
+  'seahawks'
+];
+
+const NON_NFL_FOOTBALL_PATTERNS = [
+  'college football',
+  'cfb',
+  'week 0',
+  'mac football',
+  'mac ',
+  'sec ',
+  'big ten',
+  'big 10',
+  'big 12',
+  'acc ',
+  'mountain west',
+  'sun belt',
+  'conference usa',
+  'aac ',
+  'fcs',
+  'college football playoff',
+  'national championship'
+];
+
 const QB_LIST_SUBJECTS = [
   ['Josh Allen', ['Josh Allen', 'Allen']],
   ['Lamar Jackson', ['Lamar Jackson', 'Lamar']],
@@ -316,16 +386,24 @@ function scoreFuturesIntel(title) {
   }
 
   const fantasyMatches = FANTASY_CONTEXT_PATTERNS.filter(pattern => textIncludes(text, pattern));
+  const nflMatches = NFL_CONTEXT_PATTERNS.filter(pattern => textIncludes(text, pattern));
+  const nonNflFootballMatches = NON_NFL_FOOTBALL_PATTERNS.filter(pattern => textIncludes(text, pattern));
   const hasStrongFuturesSignal = score >= 5;
   if (fantasyMatches.length > 0 && !hasStrongFuturesSignal) {
     score -= 4;
     reasons.push(`fantasy lane penalty: ${fantasyMatches.join(', ')}`);
   }
+  if (nflMatches.length > 0) reasons.push(`NFL context: ${nflMatches.join(', ')}`);
+  if (nonNflFootballMatches.length > 0) reasons.push(`non-NFL football exclusion: ${nonNflFootballMatches.join(', ')}`);
 
   const normalizedScore = Math.max(0, score);
-  let lane = 'general_nfl';
+  const hasNflSignal = nflMatches.length > 0;
+  const hasNonNflFootballSignal = nonNflFootballMatches.length > 0;
+  let lane = hasNflSignal ? 'general_nfl' : 'general_sports';
   if (fantasyMatches.length > 0 && !hasStrongFuturesSignal) lane = 'fantasy';
-  if (normalizedScore >= minFuturesScore && lane !== 'fantasy') lane = 'futures_intel';
+  if (normalizedScore >= minFuturesScore && lane !== 'fantasy') {
+    lane = hasNflSignal && !hasNonNflFootballSignal ? 'futures_intel' : 'non_nfl_futures';
+  }
 
   return {
     score: normalizedScore,

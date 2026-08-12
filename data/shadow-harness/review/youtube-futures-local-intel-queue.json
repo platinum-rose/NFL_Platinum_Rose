@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-07-29T04:00:31.599Z",
+  "generated_at": "2026-08-11T21:12:39.193Z",
   "status": "local_intel_queue_only",
   "guardrail": "Local reviewed intel queue only. This is not an official pick ledger, production recommendation, Supabase write, or parlay mutation.",
   "source_report": "data\\shadow-harness\\reports\\youtube-futures-intel-review-latest.json",
   "source_status_ledger": "data\\shadow-harness\\review\\youtube-futures-intel-review-status.json",
   "promoted_status": "promote_to_local_intel",
-  "total_status_items": 115,
-  "exported_items": 45,
+  "total_status_items": 152,
+  "exported_items": 43,
   "exported_notes": 0,
-  "skipped_items": 70,
+  "skipped_items": 109,
   "missing_report_items": [],
   "grouped_counts": {
     "by_lane": {
-      "futures_pick": 45
+      "futures_pick": 43
     },
     "by_team": {
       "CAR": 1,
       "LAC": 4,
-      "NE": 4,
+      "NE": 2,
       "JAX": 4,
       "DEN": 1,
       "NO": 2,
@@ -56,8 +56,7 @@
       "season_receiving_yards": 1,
       "season_passing_tds": 1,
       "interceptions_leader": 1,
-      "season_rushing_tds": 3,
-      "season_passing_yards": 1
+      "season_rushing_tds": 2
     }
   },
   "note_grouped_counts": {
@@ -1361,72 +1360,6 @@
         "video_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc",
         "source_timestamp": 2912,
         "timestamp_url": "https://www.youtube.com/watch?v=qGJ2f1fEXHc&t=2912s"
-      }
-    },
-    {
-      "item_id": "youtube-b9NL40Zogkw__NE__season_rushing_tds__OVER__5.5__180__2963",
-      "item_lane": "futures_pick",
-      "team": "NE",
-      "market": "season_rushing_tds",
-      "side": "OVER",
-      "line": 5.5,
-      "price": 180,
-      "week": null,
-      "speaker": "Kendra Middleton",
-      "rationale": "Kendra loves Drake Maye's goal-line rushing potential and thinks the plus-money price offers superb value.",
-      "supporting_quote": "My absolute favorite bet of the season is Drake Maye over five and a half rushing touchdowns at plus 180.",
-      "review_flags": [],
-      "human_verification": {
-        "verified": true,
-        "verified_by": "Andy",
-        "verified_date": "2026-07-28",
-        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
-        "result": "2 of 3 extracted picks confirmed accurate (NE season_rushing_tds Drake Maye, NE season_passing_yards Drake Maye). The 3rd (TEN win_total) is REJECTED as fabricated -- see that pick's own disputed field. All real content in this episode has now been verified one way or the other.",
-        "known_caveat": "One pick (TEN win_total, ts=1945) is REJECTED/fabricated, not real. Do not count it as episode content.",
-        "do_not_reverify": true
-      },
-      "disputed": null,
-      "reviewer_notes": "",
-      "source": {
-        "episode_id": "youtube-b9NL40Zogkw",
-        "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
-        "show": "The Action Network: Sports Betting Picks & Tips",
-        "video_url": "https://www.youtube.com/watch?v=b9NL40Zogkw",
-        "source_timestamp": 2963,
-        "timestamp_url": "https://www.youtube.com/watch?v=b9NL40Zogkw&t=2963s"
-      }
-    },
-    {
-      "item_id": "youtube-b9NL40Zogkw__NE__season_passing_yards__OVER__4000__135__3053",
-      "item_lane": "futures_pick",
-      "team": "NE",
-      "market": "season_passing_yards",
-      "side": "OVER",
-      "line": 4000,
-      "price": 135,
-      "week": null,
-      "speaker": "Brandon",
-      "rationale": "Brandon expects a huge statistical output from Drake Maye with the arrival of elite perimeter weapons in AJ Brown and Romeo Doubs.",
-      "supporting_quote": "I'm taking Drake Maye over 4,000 passing yards at plus 135.",
-      "review_flags": [],
-      "human_verification": {
-        "verified": true,
-        "verified_by": "Andy",
-        "verified_date": "2026-07-28",
-        "method": "Manual listen against source audio via the Podcast_Intel_Verification_Report.docx picks list, cross-checked pick-by-pick.",
-        "result": "2 of 3 extracted picks confirmed accurate (NE season_rushing_tds Drake Maye, NE season_passing_yards Drake Maye). The 3rd (TEN win_total) is REJECTED as fabricated -- see that pick's own disputed field. All real content in this episode has now been verified one way or the other.",
-        "known_caveat": "One pick (TEN win_total, ts=1945) is REJECTED/fabricated, not real. Do not count it as episode content.",
-        "do_not_reverify": true
-      },
-      "disputed": null,
-      "reviewer_notes": "",
-      "source": {
-        "episode_id": "youtube-b9NL40Zogkw",
-        "episode_title": "Top 10 NFL Starting Quarterbacks Heading Into 2026! | The Favorites",
-        "show": "The Action Network: Sports Betting Picks & Tips",
-        "video_url": "https://www.youtube.com/watch?v=b9NL40Zogkw",
-        "source_timestamp": 3053,
-        "timestamp_url": "https://www.youtube.com/watch?v=b9NL40Zogkw&t=3053s"
       }
     },
     {

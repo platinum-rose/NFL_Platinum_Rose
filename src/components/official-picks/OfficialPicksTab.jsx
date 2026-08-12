@@ -40,6 +40,11 @@ function fmtPct(value) {
   return `${(Number(value) * 100).toFixed(1)}%`;
 }
 
+function fmtConfidence(value) {
+  if (value === null || value === undefined || !Number.isFinite(Number(value))) return '-';
+  return `${Number(value).toFixed(1).replace(/\.0$/, '')}%`;
+}
+
 function fmtMoney(value) {
   if (value === null || value === undefined || !Number.isFinite(Number(value))) return '-';
   return `$${Number(value).toFixed(2)}`;
@@ -111,7 +116,7 @@ function CandidateCard({ item, busy, onApprove, onReject }) {
               {p.market_type && <span>{p.market_type}{p.market ? ` / ${p.market}` : ''}</span>}
               {p.book && <span>{p.book}{p.price != null ? ` ${p.price}` : ''}{p.line != null ? ` / line ${p.line}` : ''}</span>}
               {p.stake_units != null && <span className="text-cyan-400 font-medium">{fmtUnits(p.stake_units)}{p.stake_usd != null ? ` (${fmtMoney(p.stake_usd)})` : ''}</span>}
-              {p.confidence != null && <span>{fmtPct(p.confidence)} conf</span>}
+              {p.confidence != null && <span>{fmtConfidence(p.confidence)} conf</span>}
             </div>
           </div>
         </button>

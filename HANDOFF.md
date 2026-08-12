@@ -1,5 +1,19 @@
 # NFL_Dashboard - Session Handoff
 
+## Current Pick Up Here (2026-08-11 futures synthesis checkpoint)
+
+- Current local HEAD: `85fee49`; `main...origin/main [ahead 14]`.
+- Latest timestamped handoff: `handoffs/2026-08-11-1355-futures-synthesis-prompt-handoff.md`.
+- Working tree is intentionally dirty after futures-data refresh; preserve unrelated dirty/untracked boundaries and stage narrowly.
+- Immediate next step: run a maximum-effort NFL futures synthesis using refreshed local data, with no official picks, Supabase writes, production recommendation persistence, portfolio/open-parlay changes, paid/frontier model/API calls, or git push unless Andy explicitly approves that action in the fresh session.
+- Readiness: source audit frontier-ready/passable; Aug 10 BKR/BetUS/BetOnline odds processed; YouTube/podcast missing observations now 0; articles, availability, starter-impact digest, projected-starters estimate, training camp, prediction-market map/coherence all refreshed.
+- Portfolio objective: Bills and Packers are the primary Super Bowl anchor spine; Bills-Packers exact matchup/exacta is the ultimate payout target if placeable/price-shoppable; supplemental futures should hedge, ladder, or create playoff optionality around that core.
+- Timing requirement: evaluate buy-now vs wait-for-better-entry for every candidate, including likely in-season market changes from schedule shape, rough early starts, injury uncertainty, public narrative, and line movement.
+- Carry forward July 30 packet constraints: `$500` futures bankroll, `$20` unit, 0.25u/0.5u/1u/2u sizes, Bills/Packers SB target caps, watchlist targets as evaluation targets only, exactas monitor-only until exact two-team rows plus secondary price shopping, and open parlays as open/unverified contingent assets only.
+- Carry forward the filled goal-context worksheet: `docs/FUTURES_PORTFOLIO_GOAL_CONTEXT_QUESTIONS_2026-08-11.md`.
+- Fresh-session option before synthesis: do a final review of the max-effort prompt itself against `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md`, `docs/spec-win-dist-and-coherence-sim.md`, and this handoff before running any synthesis.
+- Biggest caveats: BetOnline is missing Tampa Bay win total and make-playoffs screenshots; projected starters are estimated only with 0 manual depth-chart rows; prediction markets are context only; two old QB-list reprocess rows are stale/manual-recovery artifacts, not true missing blockers.
+
 > Fresh-session resume notes. Read this first, then `HANDOFF_PROMPT.md`, `WORKING-CONTEXT.md`, `TASK_BOARD.md`, and the latest timestamped handoff.
 
 **Date:** 2026-08-10 UTC / 2026-08-09 Pacific

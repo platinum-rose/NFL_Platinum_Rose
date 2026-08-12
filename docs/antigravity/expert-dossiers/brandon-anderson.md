@@ -1,6 +1,6 @@
 # Expert Dossier: Brandon Anderson
 
-Generated: 2026-07-31T18:51:39.020Z
+Generated: 2026-08-11T08:44:09.347Z
 
 > Expert dossiers are context for interpreting analyst priors and possible bias. They are not betting authority, not price evidence, and not official-pick support unless a signal is separately promoted through an approved review gate.
 

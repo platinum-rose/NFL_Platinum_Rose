@@ -90,7 +90,10 @@ function implied(odds) {
 
 function bkrMarket(line) {
   const h = line.toUpperCase();
+  if (h.includes('MOST WINS')) return 'most_wins';
+  if (h.includes('FEWEST WINS')) return 'least_wins';
   if (h.includes('SUPER BOWL')) return 'superbowl';
+  if (h.includes('AFC 1 SEED') || h.includes('NFC 1 SEED')) return 'conference_no_1_seed';
   for (const conf of ['AFC', 'NFC']) {
     for (const div of ['EAST', 'NORTH', 'SOUTH', 'WEST']) {
       if (h.includes(`WIN ${conf} ${div}`)) return `division_${conf.toLowerCase()}_${div.toLowerCase()}`;
@@ -99,6 +102,14 @@ function bkrMarket(line) {
   if (/\bWIN AFC\b/.test(h)) return 'conference_afc';
   if (/\bWIN NFC\b/.test(h)) return 'conference_nfc';
   return null;
+}
+
+function unsupportedBkrHeading(line) {
+  const h = line.toUpperCase();
+  return [
+    'LAST UNDEFEATED TEAM',
+    'STAGE OF ELIMINATION',
+  ].some((pattern) => h.includes(pattern));
 }
 
 function betusMarket(header) {
@@ -144,8 +155,10 @@ function parseBookmaker(lines, book, when, season) {
     if (!line) { i++; continue; }
     const market = bkrMarket(line);
     if (market) { section = market; i++; continue; }
+    if (unsupportedBkrHeading(line)) { section = null; i++; continue; }
     if (line.toUpperCase().startsWith('MAKE THE PLAYOFFS')) { section = 'playoffs'; i++; continue; }
     if (line.toUpperCase().startsWith('REGULAR SEASON WINS')) { section = 'wins'; i++; continue; }
+    if (line.toUpperCase().startsWith('NFL REGULAR SEASON WINS')) { section = 'wins'; }
     if (/^(AWAY|HOME|SPREAD|TOTAL|MONEY LINE|MORE|NFL 2026\/27)$/i.test(line)) { i++; continue; }
 
     if (section && section !== 'playoffs' && section !== 'wins') {
@@ -158,7 +171,8 @@ function parseBookmaker(lines, book, when, season) {
     }
 
     const playoff = line.match(/^(.+?) TO MAKE THE PLAYOFFS$/i);
-    if (section === 'playoffs' && playoff) {
+    if (playoff) {
+      section = 'playoffs';
       const team = canonTeam(playoff[1]);
       const prices = lines.slice(i + 1, i + 8).map(parsePrice).filter((p) => p != null);
       if (prices.length) rows.push(row(book, 'playoffs', team, prices[0], when, season));

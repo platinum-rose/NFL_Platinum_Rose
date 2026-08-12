@@ -1,0 +1,265 @@
+{
+  "evaluated_at": "2026-08-11T05:55:33.707Z",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "batch_label": "saved-futures",
+  "total_candidates_attempted": 1,
+  "total_episodes_evaluated": 0,
+  "total_episodes_scored": 0,
+  "reprocess_required_count": 1,
+  "extraction_failure_count": 0,
+  "average_f1_score_pct": null,
+  "total_cost_usd": 0.053256,
+  "average_cost_usd": 0.053256,
+  "total_latency_ms": 72856,
+  "average_latency_ms": 72856,
+  "total_extracted_picks": 0,
+  "reprocess_queue": [
+    {
+      "episode_slug": "youtube-tOfC9coZvIk",
+      "reason": "last covered timestamp (2480s) is only 44% of the known/estimated duration (5658s)",
+      "command": "npm.cmd run youtube:run-futures-candidates -- --only-id youtube-tOfC9coZvIk --max-per-run 1 --run-gemini"
+    }
+  ],
+  "failed_extractions": [],
+  "queue_runs": [
+    {
+      "episode_slug": "youtube-tOfC9coZvIk",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "reprocess_required": true,
+      "reprocess_reason": "last covered timestamp (2480s) is only 44% of the known/estimated duration (5658s)",
+      "quality_flags": [
+        "incomplete_youtube_coverage",
+        "reprocess_required"
+      ],
+      "run": {
+        "run_id": "youtube_gemini_85c8551edcc2",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=tOfC9coZvIk",
+        "latency_ms": 72856,
+        "estimated_cost_usd": 0.053256,
+        "input_tokens": 516827,
+        "output_tokens": 3934,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Stuckey, Mike Calabrese, and Josh 'Duck' Nunn preview the MAC conference for the 2026 college football season. They break down win totals and conference futures for the top contenders, including Toledo, Miami (Ohio), and Western Michigan, as well as sleepers like Eastern Michigan.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 2480,\n    \"last_analyzed_timestamp\": 2480,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 120.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"What's up, degenerate nation? Welcome to the Big Bets on Campus podcast. This is the MAC College Football betting preview. I'm Stuckey and joining me today are my fellow BBOC co-hosts, Mike Calabrese and the one and only Josh Nunn, aka Duck. Today we are covering the beautiful MAC.\"\n    },\n    {\n      \"start\": 120.0,\n      \"end\": 212.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"The MAC is different, it looks different, like so many other conferences. Northern Illinois is out... Sacramento State is in. Let's just dive right into the MAC, no sense in wasting any time.\"\n    },\n    {\n      \"start\": 212.0,\n      \"end\": 485.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Let's start with Toledo because I am curious on, especially Duck, I'm curious to get your thoughts on this team that has a very heavy Mercer FCS flavor... They are 130th in returning production. It's basically a brand new team. They lose their quarterback, Tucker Gleason. I project them for over 8 wins, but with all the variance, if you like Toledo, I would much rather bet them 4 to 1 to win the MAC.\"\n    },\n    {\n      \"start\": 485.0,\n      \"end\": 770.0,\n      \"speaker\": \"Josh \\\"Duck\\\" Nunn\",\n      \"text\": \"I've got mixed feelings on this. On one hand, you could argue that the coaching change is actually an upgrade for Toledo. But my betting deliverable for Toledo is I want to fade these guys early until we see that they get it figured out. I project 8.06, so I think the team will be very competitive in MAC play. I want to bet these guys later on in the season.\"\n    },\n    {\n      \"start\": 770.0,\n      \"end\": 810.0,\n      \"speaker\": \"Mike Calabrese\",\n      \"text\": \"I'm going to hold my powder here and wait for them to figure things out offensively... hoping it's a quarterback change because I do think it gives their overall ceiling a bump if they go with Robinson as opposed to Richter.\"\n    },\n    {\n      \"start\": 810.0,\n      \"end\": 1130.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Let's move on to Miami of Ohio... Win total is 7.5. Chuck Martin did a tremendous job with this team last year... The offensive line could be very good. If the quarterback drop-off isn't too big, this offense should be fine. This defense is always very good, but they did lose some multi-year starters.\"\n    },\n    {\n      \"start\": 1130.0,\n      \"end\": 1214.0,\n      \"speaker\": \"Mike Calabrese\",\n      \"text\": \"I respect this head coach more, and their defensive coordinator, Bill Brechin, has just been a monster defensively. It's difficult to envision what it's going to look like... I want to see how it looks in September first.\"\n    },\n    {\n      \"start\": 1214.0,\n      \"end\": 1255.0,\n      \"speaker\": \"Josh \\\"Duck\\\" Nunn\",\n      \"text\": \"I actually like the RedHawks this year to overperform against expectations... I think the defense is going to be one that continues to morph into a stout MAC defense. I would only look to the over here.\"\n    },\n    {\n      \"start\": 1255.0,\n      \"end\": 1510.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Speaking of Western Michigan, let's get to the defending champs. Win total is 7.5 juiced to the under... The good news is your quarterback is back, your star running back Buckley is back. The rest... there are screaming sell signals on Western Michigan to me. You lose your defensive coordinator to the NFL.\"\n    },\n    {\n      \"start\": 1510.0,\n      \"end\": 1740.0,\n      \"speaker\": \"Josh \\\"Duck\\\" Nunn\",\n      \"text\": \"Yeah, I think we've got a couple of things working against Western Michigan. First of all, the MAC has been a proven conference where it's very difficult to repeat as champion. Still a strong team, but I thought 7.5 was too high so I did play under the win total. Also, you do want to bet on Western Michigan when they host Monmouth in week 2.\"\n    },\n    {\n      \"start\": 1740.0,\n      \"end\": 1780.0,\n      \"speaker\": \"Mike Calabrese\",\n      \"text\": \"Yeah, I agree. Under 7.5 is my play as well. I do think that if he is forced to pass, he just doesn't have the kind of accuracy.\"\n    },\n    {\n      \"start\": 1780.0,\n      \"end\": 1975.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Let's move on to Ohio. Ohio is with an over/under win total of 6.5... They basically lose their entire offense. There's a quarterback battle here. Their offensive line last year had all five guys start all 13 games. Well, they now have zero FBS starts on the offensive line. I think this team takes a step back.\"\n    },\n    {\n      \"start\": 1975.0,\n      \"end\": 1995.0,\n      \"speaker\": \"Josh \\\"Duck\\\" Nunn\",\n      \"text\": \"I don't think they have the offensive personnel to outscore teams like they have in the past. I did play under the win total.\"\n    },\n    {\n      \"start\": 1995.0,\n      \"end\": 2040.0,\n      \"speaker\": \"Mike Calabrese\",\n      \"text\": \"I agree with all of the personnel issues with this team. I'm in a holding pattern because this offense has a lot of new pieces.\"\n    },\n    {\n      \"start\": 2040.0,\n      \"end\": 2160.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Let's move on to Central Michigan. Win total sitting at 6.5, juiced slightly to the under. I think they are a year away, but the offensive line could be very good.\"\n    },\n    {\n      \"start\": 2160.0,\n      \"end\": 2240.0,\n      \"speaker\": \"Mike Calabrese\",\n      \"text\": \"I'm taking a flyer. I think 8 to 1 is enough. I think this team has a chance to be really good. I think they can get to Detroit.\"\n    },\n    {\n      \"start\": 2240.0,\n      \"end\": 2340.0,\n      \"speaker\": \"Josh \\\"Duck\\\" Nunn\",\n      \"text\": \"I don't hate the look with Central Michigan. I think they can be feisty, but I think they are a year away. If this gets to 14 going to New Mexico, I'm not laying 14.5 with New Mexico.\"\n    },\n    {\n      \"start\": 2340.0,\n      \"end\": 2400.0,\n      \"speaker\": \"Stuckey\",\n      \"text\": \"Let's move on to Eastern Michigan. Win total sitting at 6.5 juiced to the under... Eastern Michigan is my flyer, my sleeper future bet. I've played some 14 to 1, it's come down a bit. Anything above 10 to 1 to win the MAC.\"\n    },\n    {\n      \"start\": 2400.0,\n      \"end\": 2440.0,\n      \"speaker\": \"Josh \\\"Duck\\\" Nunn\",\n      \"text\": \"Yeah, I like the look with EMU. I think they can make some noise. They have the schedule to do so. I would play over 6.5.\"\n    },\n    {\n      \"start\": 2440.0,\n      \"end\": 2480.0,\n      \"speaker\": \"Josh \\\"Duck\\\" Nunn\",\n      \"text\": \"For Ball State, the win total is 3.5. I did play under the win total because there is just so much unproven here, and they're not going to be competitive.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"Toledo Rockets\",\n      \"player\": null,\n      \"market\": \"division_winner\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 400,\n      \"week\": null,\n      \"speaker\": \"Stuckey\",\n      \"source_timestamp\": 317,\n      \"rationale\": \"Toledo is 130th in returning production, presenting high variance. Stuckey prefers the 4 to 1 future to win the MAC over betting their win total.\"\n    },\n    {\n      \"team\": \"Western Michigan Broncos\",\n      \"player\": null,\n      \"market\": \"win_total\",\n      \"side\": \"UNDER\",\n      \"line\": 7.5,\n      \"price\": null,\n      \"week\": null,\n      \"speaker\": \"Josh \\\"Duck\\\" Nunn\",\n      \"source_timestamp\": 1240,\n      \"rationale\": \"Western Michigan historically struggles to repeat as champion, and 7.5 is too high of a total.\"\n    },\n    {\n      \"team\": \"Western Michigan Broncos\",\n      \"player\": null,\n      \"market\": \"win_total\",\n      \"side\": \"UNDER\",\n      \"line\": 7.5,\n      \"price\": null,\n      \"week\": null,\n      \"speaker\": \"Mike Calabrese\",\n      \"source_timestamp\": 1255,\n      \"rationale\": \"Calabrese agrees that the win total is too high and expects offensive struggles.\"\n    },\n    {\n      \"team\": \"Miami Ohio RedHawks\",\n      \"player\": null,\n      \"market\": \"win_total\",\n      \"side\": \"OVER\",\n      \"line\": 7.5,\n      \"price\": null,\n      \"week\": null,\n      \"speaker\": \"Josh \\\"Duck\\\" Nunn\",\n      \"source_timestamp\": 1235,\n      \"rationale\": \"Expects Miami of Ohio's defense to remain stout and lead them over their win total.\"\n    },\n    {\n      \"team\": \"Ohio Bobcats\",\n      \"player\": null,\n      \"market\": \"win_total\",\n      \"side\": \"UNDER\",\n      \"line\": 6.5,\n      \"price\": null,\n      \"week\": null,\n      \"speaker\": \"Josh \\\"Duck\\\" Nunn\",\n      \"source_timestamp\": 1410,\n      \"rationale\": \"Ohio lost significant offensive personnel and is expected to regress.\"\n    },\n    {\n      \"team\": \"Central Michigan Chippewas\",\n      \"player\": null,\n      \"market\": \"division_winner\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 800,\n      \"week\": null,\n      \"speaker\": \"Mike Calabrese\",\n      \"source_timestamp\": 1630,\n      \"rationale\": \"Takes Central Michigan as a flyer to win the MAC at a good price of 8 to 1.\"\n    },\n    {\n      \"team\": \"Eastern Michigan Eagles\",\n      \"player\": null,\n      \"market\": \"division_winner\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 1000,\n      \"week\": null,\n      \"speaker\": \"Stuckey\",\n      \"source_timestamp\": 2340,\n      \"rationale\": \"Stuckey's sleeper MAC futures bet, finding value in anything above 10 to 1.\"\n    },\n    {\n      \"team\": \"Eastern Michigan Eagles\",\n      \"player\": null,\n      \"market\": \"win_total\",\n      \"side\": \"OVER\",\n      \"line\": 6.5,\n      \"price\": null,\n      \"week\": null,\n      \"speaker\": \"Josh \\\"Duck\\\" Nunn\",\n      \"source_timestamp\": 2370,\n      \"rationale\": \"Nunn likes Eastern Michigan's schedule and key returning pieces to get over the total.\"\n    },\n    {\n      \"team\": \"Ball State Cardinals\",\n      \"player\": null,\n      \"market\": \"win_total\",\n      \"side\": \"UNDER\",\n      \"line\": 3.5,\n      \"price\": null,\n      \"week\": null,\n      \"speaker\": \"Josh \\\"Duck\\\" Nunn\",\n      \"source_timestamp\": 2450,\n      \"rationale\": \"Believes there is too much unproven talent on the roster to reach 4 wins.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"Toledo Rockets\"],\n      \"players\": [],\n      \"topic\": \"Mercer coaching/player transition\",\n      \"summary\": \"Toledo is heavily integrating coaches and players from Mercer (FCS), creating massive roster turnover and variance.\",\n      \"speaker\": \"Stuckey\",\n      \"source_timestamp\": 220,\n      \"quote\": \"This team has a very heavy Mercer FCS flavor.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"Toledo Rockets\"],\n      \"players\": [\"John Alan Richter\", \"Robinson\"],\n      \"topic\": \"Quarterback ceiling\",\n      \"summary\": \"Mike Calabrese notes that a potential quarterback change from Richter to Robinson would elevate Toledo's offensive ceiling.\",\n      \"speaker\": \"Mike Calabrese\",\n      \"source_timestamp\": 790,\n      \"quote\": \"I do think it gives their overall ceiling a bump if they go with Robinson.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"Miami Ohio RedHawks\"],\n      \"players\": [],\n      \"topic\": \"Offensive line depth\",\n      \"summary\": \"Miami Ohio returns four starters on the offensive line and added transfer Evan Malcore, which should mitigate quarterback drop-off.\",\n      \"speaker\": \"Stuckey\",\n      \"source_timestamp\": 1100,\n      \"quote\": \"The offensive line which is usually really good... now they have four.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\"Western Michigan Broncos\", \"Monmouth Hawks\"],\n      \"players\": [],\n      \"topic\": \"Week 2 matchup value\",\n      \"summary\": \"Josh Nunn flags the Week 2 matchup against Monmouth as a prime spot to bet on Western Michigan, as they prepare heavily for FCS matchups.\",\n      \"speaker\": \"Josh \\\"Duck\\\" Nunn\",\n      \"source_timestamp\": 1720,\n      \"quote\": \"You do want to bet on Western Michigan when they host Monmouth... in week 2.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Toledo Future\",\n      \"timestamp\": 317,\n      \"speaker\": \"Stuckey\",\n      \"quote\": \"I would much rather bet them 4 to 1 to win the MAC.\"\n    },\n    {\n      \"topic\": \"Western Michigan Under\",\n      \"timestamp\": 1240,\n      \"speaker\": \"Josh \\\"Duck\\\" Nunn\",\n      \"quote\": \"I thought 7.5 was too high so I did play under the win total.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+        "extracted_picks": [
+          {
+            "team": "TOL",
+            "player": null,
+            "market": "division_winner",
+            "side": "YES",
+            "line": null,
+            "price": 400,
+            "week": null,
+            "speaker": "Stuckey",
+            "source_timestamp": 317,
+            "rationale": "Toledo is 130th in returning production, presenting high variance. Stuckey prefers the 4 to 1 future to win the MAC over betting their win total."
+          },
+          {
+            "team": "WES",
+            "player": null,
+            "market": "win_total",
+            "side": "UNDER",
+            "line": 7.5,
+            "price": null,
+            "week": null,
+            "speaker": "Josh \"Duck\" Nunn",
+            "source_timestamp": 1240,
+            "rationale": "Western Michigan historically struggles to repeat as champion, and 7.5 is too high of a total."
+          },
+          {
+            "team": "WES",
+            "player": null,
+            "market": "win_total",
+            "side": "UNDER",
+            "line": 7.5,
+            "price": null,
+            "week": null,
+            "speaker": "Mike Calabrese",
+            "source_timestamp": 1255,
+            "rationale": "Calabrese agrees that the win total is too high and expects offensive struggles."
+          },
+          {
+            "team": "MIA",
+            "player": null,
+            "market": "win_total",
+            "side": "OVER",
+            "line": 7.5,
+            "price": null,
+            "week": null,
+            "speaker": "Josh \"Duck\" Nunn",
+            "source_timestamp": 1235,
+            "rationale": "Expects Miami of Ohio's defense to remain stout and lead them over their win total."
+          },
+          {
+            "team": "OHI",
+            "player": null,
+            "market": "win_total",
+            "side": "UNDER",
+            "line": 6.5,
+            "price": null,
+            "week": null,
+            "speaker": "Josh \"Duck\" Nunn",
+            "source_timestamp": 1410,
+            "rationale": "Ohio lost significant offensive personnel and is expected to regress."
+          },
+          {
+            "team": "CEN",
+            "player": null,
+            "market": "division_winner",
+            "side": "YES",
+            "line": null,
+            "price": 800,
+            "week": null,
+            "speaker": "Mike Calabrese",
+            "source_timestamp": 1630,
+            "rationale": "Takes Central Michigan as a flyer to win the MAC at a good price of 8 to 1."
+          },
+          {
+            "team": "EAS",
+            "player": null,
+            "market": "division_winner",
+            "side": "YES",
+            "line": null,
+            "price": 1000,
+            "week": null,
+            "speaker": "Stuckey",
+            "source_timestamp": 2340,
+            "rationale": "Stuckey's sleeper MAC futures bet, finding value in anything above 10 to 1."
+          },
+          {
+            "team": "EAS",
+            "player": null,
+            "market": "win_total",
+            "side": "OVER",
+            "line": 6.5,
+            "price": null,
+            "week": null,
+            "speaker": "Josh \"Duck\" Nunn",
+            "source_timestamp": 2370,
+            "rationale": "Nunn likes Eastern Michigan's schedule and key returning pieces to get over the total."
+          },
+          {
+            "team": "BAL",
+            "player": null,
+            "market": "win_total",
+            "side": "UNDER",
+            "line": 3.5,
+            "price": null,
+            "week": null,
+            "speaker": "Josh \"Duck\" Nunn",
+            "source_timestamp": 2450,
+            "rationale": "Believes there is too much unproven talent on the roster to reach 4 wins."
+          }
+        ],
+        "analysis_notes": [
+          {
+            "note_type": "coaching_or_scheme",
+            "teams": [
+              "TOL"
+            ],
+            "players": [],
+            "topic": "Mercer coaching/player transition",
+            "summary": "Toledo is heavily integrating coaches and players from Mercer (FCS), creating massive roster turnover and variance.",
+            "speaker": "Stuckey",
+            "source_timestamp": 220,
+            "quote": "This team has a very heavy Mercer FCS flavor.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "player_evaluation",
+            "teams": [
+              "TOL"
+            ],
+            "players": [
+              "John Alan Richter",
+              "Robinson"
+            ],
+            "topic": "Quarterback ceiling",
+            "summary": "Mike Calabrese notes that a potential quarterback change from Richter to Robinson would elevate Toledo's offensive ceiling.",
+            "speaker": "Mike Calabrese",
+            "source_timestamp": 790,
+            "quote": "I do think it gives their overall ceiling a bump if they go with Robinson.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "MIA"
+            ],
+            "players": [],
+            "topic": "Offensive line depth",
+            "summary": "Miami Ohio returns four starters on the offensive line and added transfer Evan Malcore, which should mitigate quarterback drop-off.",
+            "speaker": "Stuckey",
+            "source_timestamp": 1100,
+            "quote": "The offensive line which is usually really good... now they have four.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "matchup_analysis",
+            "teams": [
+              "WES",
+              "MON"
+            ],
+            "players": [],
+            "topic": "Week 2 matchup value",
+            "summary": "Josh Nunn flags the Week 2 matchup against Monmouth as a prime spot to bet on Western Michigan, as they prepare heavily for FCS matchups.",
+            "speaker": "Josh \"Duck\" Nunn",
+            "source_timestamp": 1720,
+            "quote": "You do want to bet on Western Michigan when they host Monmouth... in week 2.",
+            "confidence": "stated"
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Toledo Future",
+            "timestamp": 317,
+            "speaker": "Stuckey",
+            "quote": "I would much rather bet them 4 to 1 to win the MAC."
+          },
+          {
+            "topic": "Western Michigan Under",
+            "timestamp": 1240,
+            "speaker": "Josh \"Duck\" Nunn",
+            "quote": "I thought 7.5 was too high so I did play under the win total."
+          }
+        ],
+        "coverage_assessment": {
+          "last_covered_timestamp": 2480,
+          "self_reported_reached_end": true,
+          "duration_used_for_check": 5658,
+          "segment_start_seconds": null,
+          "segment_end_seconds": null,
+          "suspected_incomplete": true,
+          "reason": "last covered timestamp (2480s) is only 44% of the known/estimated duration (5658s)",
+          "coverage_ratio": 0.438
+        }
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 9,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    }
+  ]
+}

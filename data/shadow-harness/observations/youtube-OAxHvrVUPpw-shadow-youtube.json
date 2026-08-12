@@ -5,36 +5,45 @@
   "priority": "manual",
   "mode": "live-youtube",
   "model": "gemini-3.5-flash",
-  "input_source": "youtube_video_url_segmented",
-  "reprocess_required": true,
-  "reprocess_reason": "segmented extraction failed semantic coverage: later windows repeated intro/Carolina material and did not capture the expected Saints discussion",
-  "quality_flags": [
-    "incomplete_youtube_coverage",
-    "segmented_semantic_miss"
-  ],
+  "input_source": "youtube_video_url",
+  "reprocess_required": false,
+  "reprocess_reason": null,
+  "quality_flags": [],
   "run": {
-    "run_id": "youtube_gemini_28cf50554e12",
+    "run_id": "youtube_gemini_0287be62414f",
     "mode": "live-youtube",
     "model": "gemini-3.5-flash",
-    "input_source": "youtube_video_url_segmented",
+    "input_source": "youtube_video_url",
     "youtube_url": "https://www.youtube.com/watch?v=OAxHvrVUPpw",
-    "latency_ms": 357983,
-    "estimated_cost_usd": 0.098005,
-    "input_tokens": 944292,
-    "output_tokens": 8938,
-    "raw_model_response": "[\"{\\n  \\\"transcript_summary\\\": \\\"Chad Millman and Simon Hunter introduce their NFC South betting preview, starting with a discussion of their offseason TV-watching habits and a general look at the division's win totals. They touch on the early market movement for the Carolina Panthers before diving deeper into each team.\\\",\\n  \\\"coverage_check\\\": {\\n    \\\"video_duration_seconds\\\": 2056,\\n    \\\"segment_start_seconds\\\": 0,\\n    \\\"segment_end_seconds\\\": 420,\\n    \\\"last_analyzed_timestamp\\\": 420,\\n    \\\"reached_end_of_video\\\": false\\n  },\\n  \\\"speaker_segments\\\": [\\n    {\\n      \\\"start\\\": 0.0,\\n      \\\"end\\\": 5.0,\\n      \\\"speaker\\\": \\\"Intro\\\",\\n      \\\"text\\\": \\\"[Intro music]\\\"\\n    },\\n    {\\n      \\\"start\\\": 5.0,\\n      \\\"end\\\": 21.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Welcome to Sharp or Square, presented by Hard Rock Bet. We are part of the Volume Podcast Network. This is the show that makes the square sharper and makes the wise guys pay attention. I am Chad Millman, joined as always by my co-host, my BFF, my companion, my podcast partner, professional bettor, Simon Hunter. Hello Simon!\\\"\\n    },\\n    {\\n      \\\"start\\\": 21.0,\\n      \\\"end\\\": 42.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Chad, as we sit here right now, every team has officially reported to camp, my friend. I feel warm and fuzzy. I'm in like a weird spot right now where I'm warm and fuzzy, but I'm in a weird world right now where I'm all-in on football, but I'm still watching my crappy TV shows before I head into the season. So I'm on season 4 of Homeland. Have you ever watched Homeland?\\\"\\n    },\\n    {\\n      \\\"start\\\": 42.0,\\n      \\\"end\\\": 100.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Oh dude, I'm jealous that you're getting to watch it. I always feel so happy for people who have never watched Breaking Bad, Sopranos, Homeland, The Wire, like these shows that are so good, and if you've never watched them before, getting a chance to watch it, it's amazing.\\\"\\n    },\\n    {\\n      \\\"start\\\": 100.0,\\n      \\\"end\\\": 134.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"This is my 10th time through, I'm not going to lie. Every offseason I do the same thing, I watch shows. But I stopped Homeland... I forget what happened, basically one, I don't know if you remember, season 1 was so good, it just every season after felt like a little bit of a letdown. But I am in a super paranoid state. Like when I'm leaving my place now, I'm like 'is this guy tailing me?' Whatever happens from me watching too much CIA stuff and now I'm betting large amounts of money at sportsbooks again, I'm just always being like 'is someone tracking me right now? Is this guy following me in the sportsbook?' So for my mental health, I need to stop watching Homeland now that I'm back to handling large amounts of cash.\\\"\\n    },\\n    {\\n      \\\"start\\\": 134.0,\\n      \\\"end\\\": 209.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"I just watched on Saturday... my wife was out of town, my kid was doing his own thing, and I basically rewatched the entire Season 2 of The Bear, which I love. And I think Season 2, Episode 6, it's an episode called 'Forks', features Richie, one of the main characters, and anyone who watches The Bear... like it's such a Chicago show, like it's got these little Chicago Easter eggs which makes me love it even more. I find him to be...\\\"\\n    },\\n    {\\n      \\\"start\\\": 209.0,\\n      \\\"end\\\": 215.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Those personalities work for Chicago? Is that really what you think a lot of Chicago people are like locally?\\\"\\n    },\\n    {\\n      \\\"start\\\": 215.0,\\n      \\\"end\\\": 329.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"I think local, yeah, totally. Oh yeah. Those personalities are accurate for, I think, any like working-class, close-knit, like family, community. Obviously, everything is heightened for television, but the Chicago of it all... like it's not even the characters so much, they don't have crazy Chicago accents. But the communities they talk about, the areas that they shoot in, the way they make the city look. There's Easter eggs in the show through Season 1 and Season 2, more in Season 1 than Season 2, that it's one of those things, if you know Chicago, you know. Like there's a picture of Simeon Rice when he played at Illinois on the wall of The Beef, right? And like you'd only know that Simeon Rice matters to people from Chicago because he was a great Chicago high school football player who went to become a top five overall pick for the local Big Ten team at the time, Illinois, if you discount Northwestern. Like you're only going to get that if you know Chicago history. So to me, those things are interesting. Love it.\\\"\\n    },\\n    {\\n      \\\"start\\\": 329.0,\\n      \\\"end\\\": 334.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Almost as good as your Sid Luckman statue.\\\"\\n    },\\n    {\\n      \\\"start\\\": 334.0,\\n      \\\"end\\\": 400.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"You know what we're going to do today? We're going to talk about one of our favorite divisions in football, where there's plenty of statues to go around. It's our annual eight-part, division-by-division NFL betting preview, starting with... it started out as our least favorite division in football, I think it's turned into our favorite division in football. We're talking about the NFC South. Will the Falcons make a run with new coach Kevin Stefanski and Tua under center? Can the Bucs rebound with a healthier Baker Mayfield, even though Vita Vea wants out? Were the Saints a fluke with Tyler Shuck at the end of last year? Did they put themselves in a position to not be able to draft from a legendary potential quarterback draft class because they'll be too good?\\\"\\n    },\\n    {\\n      \\\"start\\\": 400.0,\\n      \\\"end\\\": 420.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Most importantly, Simon, are we still a Carolina Panthers podcast? Those are the questions we have today. Are you ready? Let's get to it. Betting markets show a very even division, one of the most even divisions top to bottom: Tampa Bay, 8.5 win totals, -135 under; New Orleans, 7.5 wins, -120 over.\\\"\\n    }\\n  ],\\n  \\\"extracted_picks\\\": [],\\n  \\\"analysis_notes\\\": [\\n    {\\n      \\\"note_type\\\": \\\"market_sentiment\\\",\\n      \\\"teams\\\": [\\\"TB\\\", \\\"NO\\\", \\\"ATL\\\", \\\"CAR\\\"],\\n      \\\"players\\\": [],\\n      \\\"topic\\\": \\\"NFC South Win Totals Market Overview\\\",\\n      \\\"summary\\\": \\\"Chad Millman outlines the opening/current win totals for the NFC South, highlighting how flat and tightly packed the market is for this division.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 405,\\n      \\\"quote\\\": \\\"Betting markets show a very even division, one of the most even divisions top to bottom.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"market_sentiment\\\",\\n      \\\"teams\\\": [\\\"TB\\\"],\\n      \\\"players\\\": [],\\n      \\\"topic\\\": \\\"Tampa Bay Buccaneers Win Total\\\",\\n      \\\"summary\\\": \\\"Tampa Bay's win total is set at 8.5 with heavily juiced under odds of -135.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 412,\\n      \\\"quote\\\": \\\"Tampa Bay, 8.5 win totals, -135 under.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"market_sentiment\\\",\\n      \\\"teams\\\": [\\\"NO\\\"],\\n      \\\"players\\\": [],\\n      \\\"topic\\\": \\\"New Orleans Saints Win Total\\\",\\n      \\\"summary\\\": \\\"New Orleans has a win total of 7.5, with the over juiced to -120.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 417,\\n      \\\"quote\\\": \\\"New Orleans, 7.5 wins, -120 over.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    }\\n  ],\\n  \\\"quote_timestamps\\\": [\\n    {\\n      \\\"topic\\\": \\\"NFC South Win Totals\\\",\\n      \\\"timestamp\\\": 405,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"quote\\\": \\\"Betting markets show a very even division, one of the most even divisions top to bottom.\\\"\\n    }\\n  ],\\n  \\\"uncertainty_flags\\\": []\\n}\", \"{\\n  \\\"transcript_summary\\\": \\\"Chad Millman and Simon Hunter preview the NFC South win totals and division odds in their simulated league. They focus on the Carolina Panthers, analyzing their tough first-place schedule, key roster changes, and whether to take their under 7.5 wins.\\\",\\n  \\\"coverage_check\\\": {\\n    \\\"video_duration_seconds\\\": 2056,\\n    \\\"segment_start_seconds\\\": 420,\\n    \\\"segment_end_seconds\\\": 840,\\n    \\\"last_analyzed_timestamp\\\": 840,\\n    \\\"reached_end_of_video\\\": false\\n  },\\n  \\\"speaker_segments\\\": [\\n    {\\n      \\\"start\\\": 420.0,\\n      \\\"end\\\": 438.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"...draft from a legendary potential quarterback draft class because they'll be too good? Most importantly, Simon, are we still a Carolina Panthers podcast? Those are the questions we have today. Are you ready?\\\"\\n    },\\n    {\\n      \\\"start\\\": 438.0,\\n      \\\"end\\\": 440.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Let's get to it.\\\"\\n    },\\n    {\\n      \\\"start\\\": 440.0,\\n      \\\"end\\\": 562.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Betting markets show a very even division, one of the most even divisions top to bottom. Tampa Bay: 8.5 win totals, -135 under. New Orleans: 7.5 wins, -120 over\\u2014not surprising with the enthusiasm for the Saints. Atlanta: 7.5, -135 under. Carolina: 7.5, -135 under. That number has gone up though, because didn't I like Carolina at 6.5 when they first came out? I believe I did. Okay, so let's talk about Carolina. They are always our favorite team to bet. We go all in on the Panthers no matter what the year, no matter what the circumstances. We feel like we got a beat on this team. The Panthers, up by four in the wild card versus the Rams under 40 seconds left before a beautiful pass from MVP Matthew Stafford ended the Carolina season. They are +350 to win their division, 40 to 1 to win the conference, 75 to 1 to win the Super Bowl. Did you see how charming Bryce Young was in his opening press conference?\\\"\\n    },\\n    {\\n      \\\"start\\\": 562.0,\\n      \\\"end\\\": 569.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Yeah, he's a great man. We all know that. That's how he got the first overall pick, Chad. He charmed them in the meeting room.\\\"\\n    },\\n    {\\n      \\\"start\\\": 569.0,\\n      \\\"end\\\": 592.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"He was so freaking charming! He was like, 'Any big news, any big milestones?' One guy said he got married, one guy's like, 'I'm an empty nester,' and Bryce Young was like, 'Congratulations... is that good?' The guy's back! The guy is freaking ready! Dave Canales, Bryce Young\\u2014they are champions!\\\"\\n    },\\n    {\\n      \\\"start\\\": 592.0,\\n      \\\"end\\\": 718.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"It also just shows how crazy football can be, right? The fact that they were, like you said, winning by four points over the Rams. When their offense is clicking, it is pretty impressive, they just were so inconsistent last year. We've never seen anything like it. Me and Chad would bet on them one week, we'd fade them the next. It worked; it was the most bizarre pattern, it worked every week. So, this Panthers team, like Chad said, the number has moved, right? That was a good read by you, it's up to 7.5 now, so the pros were on it. I'm going to keep holding my point of view on this: it's going to be a tough schedule. That first-place schedule is really tough. And the Bucs, who won three straight in this division, even after their whole collapse they still almost won the division at 8-9. So it wasn't like the Panthers were some type of juggernaut, they were a team that limped in. I have to fade them this year. The fact that the under now is -135 at 7.5, not a ton of value there, Chad. I feel like we can be patient there if we want to bet that in-season.\\\"\\n    },\\n    {\\n      \\\"start\\\": 718.0,\\n      \\\"end\\\": 800.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Yeah, and their defense needed help on the edge last year. They could not get a pass rush going, so what they did is went out and signed Jaelan Phillips, who when he can play can really be outstanding. The challenge has been injuries for him. They might have improved at linebacker adding Devin Lloyd, but it's hard to say exactly. That's kind of where they spent their money in free agency. We love McMillan, great rookie of the year, lived up to it. They got rid of Rico Dowdle because they felt like they had opportunities with Chuba Hubbard now. I like where the Panthers are offensively, but I do think they won that division because the Bucs lost it.\\\"\\n    },\\n    {\\n      \\\"start\\\": 800.0,\\n      \\\"end\\\": 840.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Yeah, the value wasn't there like last year where they were left for dead. This year they have believers, they really do. A lot of people are like, 'Okay, this is a team that is slept on.' But obviously there is one team in this division that everyone is talking about, I think me and Chad are on the same page. So we should keep it moving.\\\"\\n    }\\n  ],\\n  \\\"extracted_picks\\\": [\\n    {\\n      \\\"team\\\": \\\"CAR\\\",\\n      \\\"player\\\": null,\\n      \\\"market\\\": \\\"win_total\\\",\\n      \\\"side\\\": \\\"UNDER\\\",\\n      \\\"line\\\": 7.5,\\n      \\\"price\\\": -135,\\n      \\\"week\\\": null,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"source_timestamp\\\": 620,\\n      \\\"rationale\\\": \\\"Fading the Panthers because of an extremely difficult first-place schedule and regression concerns, though the under is currently heavily juiced.\\\"\\n    }\\n  ],\\n  \\\"analysis_notes\\\": [\\n    {\\n      \\\"note_type\\\": \\\"schedule_context\\\",\\n      \\\"teams\\\": [\\\"CAR\\\"],\\n      \\\"players\\\": [],\\n      \\\"topic\\\": \\\"Panthers first-place schedule\\\",\\n      \\\"summary\\\": \\\"Simon emphasizes that Carolina faces a very difficult schedule due to their first-place division finish last year, which will make repeating their success challenging.\\\",\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"source_timestamp\\\": 620,\\n      \\\"quote\\\": \\\"That first-place schedule is really tough.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"market_sentiment\\\",\\n      \\\"teams\\\": [\\\"CAR\\\"],\\n      \\\"players\\\": [],\\n      \\\"topic\\\": \\\"Panthers win total line movement\\\",\\n      \\\"summary\\\": \\\"Chad points out that Carolina's win total opened at 6.5 but has been steamed up by sharp action to 7.5, indicating professional market support.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 510,\\n      \\\"quote\\\": \\\"That number has gone up though because didn't I like Carolina at 6.5 when they first came out?\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"coaching_or_scheme\\\",\\n      \\\"teams\\\": [\\\"CAR\\\"],\\n      \\\"players\\\": [\\\"Jaelan Phillips\\\", \\\"Devin Lloyd\\\", \\\"Rico Dowdle\\\", \\\"Chuba Hubbard\\\"],\\n      \\\"topic\\\": \\\"Panthers defensive and offensive adjustments\\\",\\n      \\\"summary\\\": \\\"The Panthers focused on boosting their pass rush by signing edge Jaelan Phillips and added Devin Lloyd at linebacker. On offense, they parted ways with Rico Dowdle to lean more heavily on Chuba Hubbard.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 720,\\n      \\\"quote\\\": \\\"They needed help on the edge last year... so what they did is went out and signed Jaelan Phillips.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    }\\n  ],\\n  \\\"quote_timestamps\\\": [\\n    {\\n      \\\"topic\\\": \\\"Fading Panthers\\\",\\n      \\\"timestamp\\\": 620,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"quote\\\": \\\"I have to fade them this year.\\\"\\n    },\\n    {\\n      \\\"topic\\\": \\\"Panthers Line movement\\\",\\n      \\\"timestamp\\\": 510,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"quote\\\": \\\"Didn't I like Carolina at 6.5 when they first came out?\\\"\\n    }\\n  ],\\n  \\\"uncertainty_flags\\\": []\\n}\", \"{\\n  \\\"transcript_summary\\\": \\\"Chad Millman and Simon Hunter preview the simulated NFC South, analyzing the rosters and betting outlooks of the Carolina Panthers and the Atlanta Falcons. Simon expresses plans to fade the Panthers, while both analyze the intriguing fit of Kevin Stefanski and Tua Tagovailoa in Atlanta.\\\",\\n  \\\"coverage_check\\\": {\\n    \\\"video_duration_seconds\\\": 2056,\\n    \\\"segment_start_seconds\\\": 840,\\n    \\\"segment_end_seconds\\\": 1260,\\n    \\\"last_analyzed_timestamp\\\": 1260,\\n    \\\"reached_end_of_video\\\": false\\n  },\\n  \\\"speaker_segments\\\": [\\n    {\\n      \\\"start\\\": 840.0,\\n      \\\"end\\\": 960.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Yeah, and they also... their defense, they needed help on the edge last year. They could not get a pass rush going. So what they did, they went out and signed Jaelan Phillips, who when he can play, can really be outstanding. The challenge has been injury for him, so are you going to be getting a guy who is on the upswing? They spent a lot of money on the guy. They might have improved at linebacker, adding Devin Lloyd. We love Terrell McMillan, great rookie of the year, lived up to it... they got rid of Rico Dowdle... I like where the Panthers are offensively, but I do think they won that division because the Bucs lost it.\\\"\\n    },\\n    {\\n      \\\"start\\\": 960.0,\\n      \\\"end\\\": 984.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Yeah, and just the value wasn't there like last year. This year they have believers, they really do. But obviously there is one team in this division that everyone's talking about. I think me and Chad are on the same page. The under now is -135 at 7.5, not a ton of value there... I just have to fade them this year.\\\"\\n    },\\n    {\\n      \\\"start\\\": 984.0,\\n      \\\"end\\\": 1201.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"I don't think this is the team: the Atlanta Falcons. 8 and 9, humiliating three-way division tie... got rid of Raheem Morris, Terry Fontenot... now they're getting Kevin Stefanski, who has been a two-time NFL coach of the year. Now they got Tua... to basically backfill until Michael Penix can come back from his third ACL tear. Kirk Cousins is gone... they spent money on Jahan Dotson at wide receiver... I think Kevin Stefanski with Tua could be a really good combination if Tua can stay healthy.\\\"\\n    },\\n    {\\n      \\\"start\\\": 1201.0,\\n      \\\"end\\\": 1260.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Yeah, what's better than having one left-handed quarterback, Chad? Having two. I look at this team... I would never ever waste time scouting a left-handed quarterback. I don't know if the football smarts are there anymore, Chad. That's my fear with him, he's regressed in so many ways. Can he get the most out of Tua, Penix? If Tua does get it right in this division with those weapons, this could easily be a 10-win team, 9-win team.\\\"\\n    }\\n  ],\\n  \\\"extracted_picks\\\": [\\n    {\\n      \\\"team\\\": \\\"CAR\\\",\\n      \\\"player\\\": null,\\n      \\\"market\\\": \\\"win_total\\\",\\n      \\\"side\\\": \\\"UNDER\\\",\\n      \\\"line\\\": 7.5,\\n      \\\"price\\\": -135,\\n      \\\"week\\\": null,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"source_timestamp\\\": 960,\\n      \\\"rationale\\\": \\\"Simon notes the line has moved to 7.5 with heavily juiced under odds, but still feels compelled to fade the Panthers due to regression concerns.\\\"\\n    }\\n  ],\\n  \\\"analysis_notes\\\": [\\n    {\\n      \\\"note_type\\\": \\\"team_evaluation\\\",\\n      \\\"teams\\\": [\\\"CAR\\\"],\\n      \\\"players\\\": [\\\"Jaelan Phillips\\\", \\\"Devin Lloyd\\\", \\\"Terrell McMillan\\\"],\\n      \\\"topic\\\": \\\"Panthers simulated roster evaluation\\\",\\n      \\\"summary\\\": \\\"Chad evaluates the Panthers' simulated roster, highlighting defensive investments like Jaelan Phillips and Devin Lloyd, but ultimately notes that their previous division success was largely due to Tampa Bay collapsing.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 840,\\n      \\\"quote\\\": \\\"I like where the Panthers are offensively, but I do think they won that division because the Bucs lost it.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"player_evaluation\\\",\\n      \\\"teams\\\": [\\\"ATL\\\"],\\n      \\\"players\\\": [\\\"Tua Tagovailoa\\\"],\\n      \\\"topic\\\": \\\"Tua Tagovailoa regression concerns\\\",\\n      \\\"summary\\\": \\\"Simon expresses serious hesitation about Tua Tagovailoa's long-term capability and physical/mental state after taking heavy hits throughout his career, though he acknowledges the upside of Atlanta's offense if things click.\\\",\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"source_timestamp\\\": 1201,\\n      \\\"quote\\\": \\\"I don't know if the football smarts are there anymore, Chad. That's my fear with him.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    }\\n  ],\\n  \\\"quote_timestamps\\\": [\\n    {\\n      \\\"topic\\\": \\\"Panthers Fade\\\",\\n      \\\"timestamp\\\": 960,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"quote\\\": \\\"I just have to fade them this year.\\\"\\n    }\\n  ],\\n  \\\"uncertainty_flags\\\": []\\n}\", \"{\\n  \\\"transcript_summary\\\": \\\"Chad Millman and Simon Hunter preview the simulated NFC South division, beginning with the win totals and an in-depth look at the Carolina Panthers. They also discuss the Atlanta Falcons' simulated roster changes, including Kevin Stefanski taking over as head coach with Tua Tagovailoa under center.\\\",\\n  \\\"coverage_check\\\": {\\n    \\\"video_duration_seconds\\\": 2056,\\n    \\\"segment_start_seconds\\\": 1260,\\n    \\\"segment_end_seconds\\\": 1680,\\n    \\\"last_analyzed_timestamp\\\": 1680,\\n    \\\"reached_end_of_video\\\": false\\n  },\\n  \\\"speaker_segments\\\": [\\n    {\\n      \\\"start\\\": 1260.0,\\n      \\\"end\\\": 1335.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Those personalities are accurate for any working class, close-knit family community. Obviously everything is heightened for television, but the Chicago of it all\\u2014it's not even the characters so much, they don't have crazy Chicago accents, but the communities they talk about, the areas they shoot in, the way they make the city look. There are Easter eggs in the show that, if you know Chicago, you know.\\\"\\n    },\\n    {\\n      \\\"start\\\": 1335.0,\\n      \\\"end\\\": 1440.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Today we're going to talk about one of our favorite divisions in football, where there are plenty of statues to go around. It's our annual eight-part division-by-division NFL betting preview, starting with the NFC South. The betting markets show a very even division. Tampa Bay: 8.5 win totals, -135 under. New Orleans: 7.5 wins, -120 over. Atlanta: 7.5, -135 under. Carolina: 7.5, -135 under. Let's talk about Carolina first.\\\"\\n    },\\n    {\\n      \\\"start\\\": 1440.0,\\n      \\\"end\\\": 1540.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"This Panthers team, the number has moved, right? That was a good read by you, it's up to 7.5 now, so the pros were on it. But I'm going to keep holding my point of view on this: it's going to be a tough schedule. That first-place schedule is really tough, and the Bucs, even after their collapse, still almost won the division at 8-9. I just have to fade the Panthers this year.\\\"\\n    },\\n    {\\n      \\\"start\\\": 1540.0,\\n      \\\"end\\\": 1630.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Their defense needed help on the edge last year. They could not get a pass rush going, so they went out and signed Jaelan Phillips, who, when he can play, can be outstanding. The challenge has been injuries. They also spent money on Devin Lloyd at linebacker, and offensively they kept Chuba Hubbard as the lead back. Now let's talk about the Atlanta Falcons.\\\"\\n    },\\n    {\\n      \\\"start\\\": 1630.0,\\n      \\\"end\\\": 1680.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"The Falcons are +350 to win the division. They got Kevin Stefanski, a two-time NFL Coach of the Year, and they have Tua Tagovailoa under center. Kirk Cousins is gone. I think Kevin Stefanski with Tua could be a really good combination if Tua can stay healthy.\\\"\\n    }\\n  ],\\n  \\\"extracted_picks\\\": [\\n    {\\n      \\\"team\\\": \\\"CAR\\\",\\n      \\\"player\\\": null,\\n      \\\"market\\\": \\\"win_total\\\",\\n      \\\"side\\\": \\\"UNDER\\\",\\n      \\\"line\\\": 7.5,\\n      \\\"price\\\": -135,\\n      \\\"week\\\": null,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"source_timestamp\\\": 1500,\\n      \\\"rationale\\\": \\\"Simon believes the Panthers face a very difficult first-place schedule and wants to fade them, though he notes the line is heavily juiced at -135.\\\"\\n    }\\n  ],\\n  \\\"analysis_notes\\\": [\\n    {\\n      \\\"note_type\\\": \\\"coaching_or_scheme\\\",\\n      \\\"teams\\\": [\\\"ATL\\\"],\\n      \\\"players\\\": [\\\"Tua Tagovailoa\\\"],\\n      \\\"topic\\\": \\\"Stefanski and Tua pairing\\\",\\n      \\\"summary\\\": \\\"Chad Millman is optimistic about the simulated pairing of head coach Kevin Stefanski and quarterback Tua Tagovailoa in Atlanta, citing Stefanski's success with quarterbacks and the potential of the offense if Tua remains healthy.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 1671,\\n      \\\"quote\\\": \\\"I think Kevin Stefanski with Tua could be a really good combination if Tua can stay healthy.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"team_evaluation\\\",\\n      \\\"teams\\\": [\\\"CAR\\\"],\\n      \\\"players\\\": [\\\"Jaelan Phillips\\\", \\\"Devin Lloyd\\\"],\\n      \\\"topic\\\": \\\"Panthers defensive acquisitions\\\",\\n      \\\"summary\\\": \\\"Chad Millman highlights the Panthers' offseason defensive signings, focusing on Jaelan Phillips to resolve edge-rushing struggles and Devin Lloyd at linebacker, though noting Phillips' injury history remains a concern.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 1541,\\n      \\\"quote\\\": \\\"Their defense needed help on the edge last year... so they went out and signed Jaelan Phillips.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    }\\n  ],\\n  \\\"quote_timestamps\\\": [\\n    {\\n      \\\"topic\\\": \\\"Fading the Panthers\\\",\\n      \\\"timestamp\\\": 1500,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"quote\\\": \\\"I just have to fade the Panthers this year.\\\"\\n    }\\n  ],\\n  \\\"uncertainty_flags\\\": []\\n}\", \"{\\n  \\\"transcript_summary\\\": \\\"Chad Millman and Simon Hunter catch up on their offseason TV watching before diving into their NFC South betting preview. They highlight win totals for the division and preview key storylines, including custom simulation roster moves.\\\",\\n  \\\"coverage_check\\\": {\\n    \\\"video_duration_seconds\\\": 2056,\\n    \\\"segment_start_seconds\\\": 1680,\\n    \\\"segment_end_seconds\\\": 2056,\\n    \\\"last_analyzed_timestamp\\\": 2080,\\n    \\\"reached_end_of_video\\\": true\\n  },\\n  \\\"speaker_segments\\\": [\\n    {\\n      \\\"start\\\": 1680.0,\\n      \\\"end\\\": 1701.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Welcome to Sharp or Square presented by Hard Rock Bet. We are part of the Volume Podcast Network. This is the show that makes the square sharper and makes the wise guys pay attention. I am Chad Millman, I am joined as always by my co-host, my BFF, my companion, my compadre, professional bettor, Simon Hunter. Hello, Simon!\\\"\\n    },\\n    {\\n      \\\"start\\\": 1701.0,\\n      \\\"end\\\": 1723.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Chad, as we sit here right now, every team has officially reported to camp, my friend. I'm in like a weird spot where I'm warm and fuzzy, but I'm in a weird world right now where I'm all in on football, but I'm still watching my crappy TV shows before I head into the season. So I'm on season 4 of Homeland. Have you ever watched Homeland?\\\"\\n    },\\n    {\\n      \\\"start\\\": 1723.0,\\n      \\\"end\\\": 1740.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"Oh dude, I'm jealous that you're getting to watch it. I always like, I feel so happy for people who, Breaking Bad, Sopranos, Homeland, The Wire, these shows that are so good, and if you've never watched them before, getting a chance to watch it, it's amazing.\\\"\\n    },\\n    {\\n      \\\"start\\\": 1740.0,\\n      \\\"end\\\": 1814.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"This is my tenth time through, I'm not going to lie. Every season, off-season, I do the same thing. I watch shows, but I stopped Homeland... Season 1 was so good, it just every season after felt like a little bit of a letdown. But I am super paranoid state that was going to get at. Like when I'm leaving my place now, I'm like, is this guy tailing me? Whatever happens from me watching too much CIA stuff, and now I'm betting large amounts of money at sportsbooks again, I'm just always being like, is someone tracking me right now? Is this guy following me in the sportsbooks? So for my mental health, I need to stop watching Homeland now that I'm back to handling large amounts of cash.\\\"\\n    },\\n    {\\n      \\\"start\\\": 1814.0,\\n      \\\"end\\\": 1850.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"I just watched on Saturday, my wife was out of town, my kid was doing his own thing, and I basically rewatched the entire Season 2 of The Bear, which I love. And I think Season 2, Episode 6, it's an episode called Forks, features Richie, one of the main characters, and anyone who watches The Bear, like it's such a Chicago show, like it's got these little Chicago Easter eggs which makes me love it even more. I find him to be...\\\"\\n    },\\n    {\\n      \\\"start\\\": 1850.0,\\n      \\\"end\\\": 1855.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Those personalities work for Chicago? Is that really what you think a lot of Chicago people are like, locally like?\\\"\\n    },\\n    {\\n      \\\"start\\\": 1855.0,\\n      \\\"end\\\": 2010.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"I think local, yeah, totally. Oh yeah. Those personalities are accurate for I think any like working class, close-knit, like family community. Obviously everything is heightened for television, but the Chicago of it all, like it's not even the characters so much, they don't have crazy Chicago accents, but the communities they talk about, the areas they shoot in, the way they make the city look. There's Easter eggs in the show through Season 1 and Season 2, more in Season 1 than Season 2, that it's one of those things, if you know Chicago, you know. Like there's a picture of Simeon Rice when he played at Illinois on the wall of The Beef, right? And like you'd only know that Simeon Rice matters to people from Chicago because he was a great Chicago high school football player who went to become a top five overall pick for the local Big Ten team at the time, Illinois. You'd discount Northwestern. Like you're only going to get that if you know Chicago history. So to me, those things are interesting. Love it.\\\"\\n    },\\n    {\\n      \\\"start\\\": 2010.0,\\n      \\\"end\\\": 2014.0,\\n      \\\"speaker\\\": \\\"Simon Hunter\\\",\\n      \\\"text\\\": \\\"Almost as good as your Sid Luckman statue.\\\"\\n    },\\n    {\\n      \\\"start\\\": 2014.0,\\n      \\\"end\\\": 2080.0,\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"text\\\": \\\"You know what we're going to do today? We're going to talk about one of our favorite divisions in football, where there's plenty of statues to go around. It's our annual eight-part division by division NFL betting preview, starting with, it started out as our least favorite division in football, I think it's turned into our favorite division in football. We're talking about the NFC South. Will the Falcons make a run with new coach Kevin Stefanski and Tua under center? Can the Bucs rebound with a healthier Baker Mayfield, even though Vita Vea wants out? Were the Saints a fluke with Tyler Shuck at the end of last year? Did they put themselves in a position to not be able to draft from a legendary potential quarterback draft class because they'll be too good? Most importantly, Simon, are we still a Carolina Panthers podcast? Those are the questions we have today. Are you ready?\\\"\\n    }\\n  ],\\n  \\\"extracted_picks\\\": [],\\n  \\\"analysis_notes\\\": [\\n    {\\n      \\\"note_type\\\": \\\"coaching_or_scheme\\\",\\n      \\\"teams\\\": [\\n        \\\"ATL\\\"\\n      ],\\n      \\\"players\\\": [\\n        \\\"Tua Tagovailoa\\\"\\n      ],\\n      \\\"topic\\\": \\\"Stefanski and Tua in Atlanta\\\",\\n      \\\"summary\\\": \\\"The hosts discuss a custom franchise simulation league context where Kevin Stefanski is coaching the Falcons with Tua Tagovailoa under center.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 2014,\\n      \\\"quote\\\": \\\"Will the Falcons make a run with new coach Kevin Stefanski and Tua under center?\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    },\\n    {\\n      \\\"note_type\\\": \\\"market_sentiment\\\",\\n      \\\"teams\\\": [\\n        \\\"TB\\\",\\n        \\\"NO\\\",\\n        \\\"ATL\\\",\\n        \\\"CAR\\\"\\n      ],\\n      \\\"players\\\": [],\\n      \\\"topic\\\": \\\"NFC South Division Outlook\\\",\\n      \\\"summary\\\": \\\"Chad notes that the betting markets indicate a highly competitive and evenly matched division from top to bottom.\\\",\\n      \\\"speaker\\\": \\\"Chad Millman\\\",\\n      \\\"source_timestamp\\\": 2014,\\n      \\\"quote\\\": \\\"Betting markets show a very even division, one of the most even divisions top to bottom.\\\",\\n      \\\"confidence\\\": \\\"stated\\\"\\n    }\\n  ],\\n  \\\"quote_timestamps\\\": [],\\n  \\\"uncertainty_flags\\\": []\\n}\"]",
+    "latency_ms": 211277,
+    "estimated_cost_usd": 0.019901,
+    "input_tokens": 188782,
+    "output_tokens": 2557,
+    "raw_model_response": "{\n  \"transcript_summary\": \"Chad Millman and Simon Hunter preview the NFC South win totals and division winner betting markets. They discuss team rosters, coaching changes, and specific quarterback situations for the Buccaneers, Saints, Falcons, and Panthers.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 2056,\n    \"last_analyzed_timestamp\": 2056,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 20.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Welcome to Sharp or Square presented by Hard Rock Bet. We are part of the Volume podcast network. This is the show that makes the square sharper and makes the wise guys pay attention. I am Chad Millman and I am joined as always by my co-host, my BFF, my companion, my compadre, professional bettor Simon Hunter. Hello Simon!\"\n    },\n    {\n      \"start\": 20.0,\n      \"end\": 35.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Chad, we sit here right now, every team has officially reported to camp, my friend.\"\n    },\n    {\n      \"start\": 35.0,\n      \"end\": 44.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"I feel warm and fuzzy.\"\n    },\n    {\n      \"start\": 44.0,\n      \"end\": 100.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"I'm warm and fuzzy but I'm in a weird world right now where I'm all-in on football, but I'm still watching my crappy TV shows before I head into the season. I'm on season four of Homeland. Have you ever watched Homeland?\"\n    },\n    {\n      \"start\": 100.0,\n      \"end\": 133.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Oh dude, I'm jealous that you're getting to watch it. I feel so happy for people who are getting to watch Breaking Bad, Sopranos, Homeland, The Wire for the first time. On Saturday, my wife was out of town, my kid was doing his own thing, and I rewatched the entire season two of The Bear, which I love. Episode six, Forks, featuring Richie, is amazing.\"\n    },\n    {\n      \"start\": 133.0,\n      \"end\": 155.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Do those personalities work for Chicago? Is that really what local people are like?\"\n    },\n    {\n      \"start\": 155.0,\n      \"end\": 180.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Oh yeah, totally. Any working-class, close-knit community. It's got little Chicago Easter eggs, like a picture of Simeon Rice on the wall of Beef. Today we're going to talk about the NFC South, one of our favorite divisions, with our annual eight-part division-by-division preview.\"\n    },\n    {\n      \"start\": 180.0,\n      \"end\": 215.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Let's look at the numbers. Tampa Bay: 8.5 wins, under is -135. New Orleans: 7.5 wins, over is -120. Atlanta: 7.5, under -135. Carolina: 7.5, under -135. Let's start with Carolina.\"\n    },\n    {\n      \"start\": 215.0,\n      \"end\": 226.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"The Panthers win total has moved up to 7.5 now. But their schedule is tough. They have Bryce Young and Dave Canales, and added Jaylen Phillips and Devin Lloyd on defense, but there's no value in betting that under at -135.\"\n    },\n    {\n      \"start\": 226.0,\n      \"end\": 252.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Let's talk about Atlanta. Kirk Cousins is gone. Now they have Kevin Stefanski as coach and Tua Tagovailoa under center, with Michael Penix Jr. backing up. They got Jahan Dotson at wide receiver.\"\n    },\n    {\n      \"start\": 252.0,\n      \"end\": 2056.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"If Tua can stay healthy, Stefanski could get the most out of him. With weapons like Bijan Robinson, Kyle Pitts, and Drake London, they could win 9 or 10 games. Meanwhile, the Saints have Tyler Shough and Kellen Moore, and the Bucs have Baker Mayfield. In the end, New Orleans at +260 or +270 is my favorite bet to win this division, while Chad likes Tampa Bay to win it.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"NO\",\n      \"player\": null,\n      \"market\": \"division_winner\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 260,\n      \"week\": null,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 277,\n      \"rationale\": \"Saints have a top-tier offensive line, Alvin Kamara paired with Travis Etienne, and Kellen Moore coordinating Tyler Shough's offense. This is Simon's biggest division bet.\"\n    },\n    {\n      \"team\": \"TB\",\n      \"player\": null,\n      \"market\": \"division_winner\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 175,\n      \"week\": null,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 195,\n      \"rationale\": \"Chad believes the Bucs have the strongest overall roster and the best quarterback in the division with Baker Mayfield.\"\n    },\n    {\n      \"team\": \"CAR\",\n      \"player\": null,\n      \"market\": \"win_total\",\n      \"side\": \"UNDER\",\n      \"line\": 7.5,\n      \"price\": -135,\n      \"week\": null,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 165,\n      \"rationale\": \"Simon wants to fade the Panthers due to their exceptionally tough schedule, despite the win total being heavily juiced to the under.\"\n    },\n    {\n      \"team\": \"ATL\",\n      \"player\": null,\n      \"market\": \"win_total\",\n      \"side\": \"OVER\",\n      \"line\": 7.5,\n      \"price\": null,\n      \"week\": null,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 235,\n      \"rationale\": \"Chad likes the Over on Atlanta's win total at plus money, expressing confidence in Kevin Stefanski's offensive scheme working with Tua Tagovailoa.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"ATL\"],\n      \"players\": [\"Tua Tagovailoa\"],\n      \"topic\": \"Kevin Stefanski and Tua Tagovailoa partnership\",\n      \"summary\": \"The hosts discuss how two-time Coach of the Year Kevin Stefanski will utilize Tua Tagovailoa's timing-based passing skills, though Simon raises concerns about Tua's footwork and regression under pressure.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 255,\n      \"quote\": \"If Tua does get it right in this division with those weapons, this could easily be a 10-win team.\",\n      \"confidence\": \"implied\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"ATL\"],\n      \"players\": [\"Michael Penix Jr.\"],\n      \"topic\": \"Michael Penix Jr. health context\",\n      \"summary\": \"Chad Millman notes that Michael Penix Jr. is recovering from his third ACL tear, leaving Tua Tagovailoa as the clear bridge starter in Atlanta.\",\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 115,\n      \"quote\": \"Tua to basically backfill until Michael Penix can come back from what I think is his third ACL tear in his career.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"NO\"],\n      \"players\": [\"Tyler Shough\"],\n      \"topic\": \"Tyler Shough's clutch performance\",\n      \"summary\": \"The hosts recall how Tyler Shough won 4 of his last 5 games as a starter to close out last season, driving up optimism and money on the Saints' Over.\",\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 190,\n      \"quote\": \"The Saints are taking money on the over at seven and a half all because Tyler Shough made a glorious run.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"roster_or_depth_chart\",\n      \"teams\": [\"TB\"],\n      \"players\": [\"Kenneth Gainwell\", \"Alex Anzalone\"],\n      \"topic\": \"Buccaneers roster additions\",\n      \"summary\": \"Tampa Bay added linebacker Alex Anzalone and running back Kenneth Gainwell (who had 73 receptions last year) to bolster their depth behind Baker Mayfield.\",\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 165,\n      \"quote\": \"Added linebacker Alex Anzalone, added Kenneth Gainwell, Steelers offensive MVP last year with 73 receptions.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Saints Win Total Over\",\n      \"timestamp\": 190,\n      \"speaker\": \"Chad Millman\",\n      \"quote\": \"The Saints are taking money on the over at seven and a half all because Tyler Shough made a glorious run.\"\n    },\n    {\n      \"topic\": \"Simon's Division Best Bet\",\n      \"timestamp\": 277,\n      \"speaker\": \"Simon Hunter\",\n      \"quote\": \"This is my biggest bet by far in this division is on the New Orleans Saints at plus 270 or plus 260.\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 235,\n      \"field\": \"price\",\n      \"reason\": \"Chad mentioned getting Atlanta Over 7.5 at plus money but did not specify the exact price.\"\n    }\n  ]\n}",
     "extracted_picks": [
       {
-        "team": "CAR",
+        "team": "NO",
         "player": null,
-        "market": "win_total",
-        "side": "UNDER",
-        "line": 7.5,
-        "price": -135,
+        "market": "division_winner",
+        "side": "YES",
+        "line": null,
+        "price": 260,
         "week": null,
         "speaker": "Simon Hunter",
-        "source_timestamp": 620,
-        "rationale": "Fading the Panthers because of an extremely difficult first-place schedule and regression concerns, though the under is currently heavily juiced."
+        "source_timestamp": 277,
+        "rationale": "Saints have a top-tier offensive line, Alvin Kamara paired with Travis Etienne, and Kellen Moore coordinating Tyler Shough's offense. This is Simon's biggest division bet."
+      },
+      {
+        "team": "TB",
+        "player": null,
+        "market": "division_winner",
+        "side": "YES",
+        "line": null,
+        "price": 175,
+        "week": null,
+        "speaker": "Chad Millman",
+        "source_timestamp": 195,
+        "rationale": "Chad believes the Bucs have the strongest overall roster and the best quarterback in the division with Baker Mayfield."
       },
       {
         "team": "CAR",
@@ -45,305 +54,115 @@
         "price": -135,
         "week": null,
         "speaker": "Simon Hunter",
-        "source_timestamp": 960,
-        "rationale": "Simon notes the line has moved to 7.5 with heavily juiced under odds, but still feels compelled to fade the Panthers due to regression concerns."
+        "source_timestamp": 165,
+        "rationale": "Simon wants to fade the Panthers due to their exceptionally tough schedule, despite the win total being heavily juiced to the under."
       },
       {
-        "team": "CAR",
+        "team": "ATL",
         "player": null,
         "market": "win_total",
-        "side": "UNDER",
+        "side": "OVER",
         "line": 7.5,
-        "price": -135,
+        "price": null,
         "week": null,
-        "speaker": "Simon Hunter",
-        "source_timestamp": 1500,
-        "rationale": "Simon believes the Panthers face a very difficult first-place schedule and wants to fade them, though he notes the line is heavily juiced at -135."
+        "speaker": "Chad Millman",
+        "source_timestamp": 235,
+        "rationale": "Chad likes the Over on Atlanta's win total at plus money, expressing confidence in Kevin Stefanski's offensive scheme working with Tua Tagovailoa."
       }
     ],
     "analysis_notes": [
       {
-        "note_type": "market_sentiment",
-        "teams": [
-          "TB",
-          "NO",
-          "ATL",
-          "CAR"
-        ],
-        "players": [],
-        "topic": "NFC South Win Totals Market Overview",
-        "summary": "Chad Millman outlines the opening/current win totals for the NFC South, highlighting how flat and tightly packed the market is for this division.",
-        "speaker": "Chad Millman",
-        "source_timestamp": 405,
-        "quote": "Betting markets show a very even division, one of the most even divisions top to bottom.",
-        "confidence": "stated"
-      },
-      {
-        "note_type": "market_sentiment",
-        "teams": [
-          "TB"
-        ],
-        "players": [],
-        "topic": "Tampa Bay Buccaneers Win Total",
-        "summary": "Tampa Bay's win total is set at 8.5 with heavily juiced under odds of -135.",
-        "speaker": "Chad Millman",
-        "source_timestamp": 412,
-        "quote": "Tampa Bay, 8.5 win totals, -135 under.",
-        "confidence": "stated"
-      },
-      {
-        "note_type": "market_sentiment",
-        "teams": [
-          "NO"
-        ],
-        "players": [],
-        "topic": "New Orleans Saints Win Total",
-        "summary": "New Orleans has a win total of 7.5, with the over juiced to -120.",
-        "speaker": "Chad Millman",
-        "source_timestamp": 417,
-        "quote": "New Orleans, 7.5 wins, -120 over.",
-        "confidence": "stated"
-      },
-      {
-        "note_type": "schedule_context",
-        "teams": [
-          "CAR"
-        ],
-        "players": [],
-        "topic": "Panthers first-place schedule",
-        "summary": "Simon emphasizes that Carolina faces a very difficult schedule due to their first-place division finish last year, which will make repeating their success challenging.",
-        "speaker": "Simon Hunter",
-        "source_timestamp": 620,
-        "quote": "That first-place schedule is really tough.",
-        "confidence": "stated"
-      },
-      {
-        "note_type": "market_sentiment",
-        "teams": [
-          "CAR"
-        ],
-        "players": [],
-        "topic": "Panthers win total line movement",
-        "summary": "Chad points out that Carolina's win total opened at 6.5 but has been steamed up by sharp action to 7.5, indicating professional market support.",
-        "speaker": "Chad Millman",
-        "source_timestamp": 510,
-        "quote": "That number has gone up though because didn't I like Carolina at 6.5 when they first came out?",
-        "confidence": "stated"
-      },
-      {
         "note_type": "coaching_or_scheme",
         "teams": [
-          "CAR"
+          "ATL"
         ],
         "players": [
-          "Jaelan Phillips",
-          "Devin Lloyd",
-          "Rico Dowdle",
-          "Chuba Hubbard"
+          "Tua Tagovailoa"
         ],
-        "topic": "Panthers defensive and offensive adjustments",
-        "summary": "The Panthers focused on boosting their pass rush by signing edge Jaelan Phillips and added Devin Lloyd at linebacker. On offense, they parted ways with Rico Dowdle to lean more heavily on Chuba Hubbard.",
-        "speaker": "Chad Millman",
-        "source_timestamp": 720,
-        "quote": "They needed help on the edge last year... so what they did is went out and signed Jaelan Phillips.",
-        "confidence": "stated"
+        "topic": "Kevin Stefanski and Tua Tagovailoa partnership",
+        "summary": "The hosts discuss how two-time Coach of the Year Kevin Stefanski will utilize Tua Tagovailoa's timing-based passing skills, though Simon raises concerns about Tua's footwork and regression under pressure.",
+        "speaker": "Simon Hunter",
+        "source_timestamp": 255,
+        "quote": "If Tua does get it right in this division with those weapons, this could easily be a 10-win team.",
+        "confidence": "implied"
       },
       {
-        "note_type": "team_evaluation",
+        "note_type": "injury_or_health",
         "teams": [
-          "CAR"
+          "ATL"
         ],
         "players": [
-          "Jaelan Phillips",
-          "Devin Lloyd",
-          "Terrell McMillan"
+          "Michael Penix Jr."
         ],
-        "topic": "Panthers simulated roster evaluation",
-        "summary": "Chad evaluates the Panthers' simulated roster, highlighting defensive investments like Jaelan Phillips and Devin Lloyd, but ultimately notes that their previous division success was largely due to Tampa Bay collapsing.",
+        "topic": "Michael Penix Jr. health context",
+        "summary": "Chad Millman notes that Michael Penix Jr. is recovering from his third ACL tear, leaving Tua Tagovailoa as the clear bridge starter in Atlanta.",
         "speaker": "Chad Millman",
-        "source_timestamp": 840,
-        "quote": "I like where the Panthers are offensively, but I do think they won that division because the Bucs lost it.",
+        "source_timestamp": 115,
+        "quote": "Tua to basically backfill until Michael Penix can come back from what I think is his third ACL tear in his career.",
         "confidence": "stated"
       },
       {
         "note_type": "player_evaluation",
         "teams": [
-          "ATL"
+          "NO"
         ],
         "players": [
-          "Tua Tagovailoa"
+          "Tyler Shough"
         ],
-        "topic": "Tua Tagovailoa regression concerns",
-        "summary": "Simon expresses serious hesitation about Tua Tagovailoa's long-term capability and physical/mental state after taking heavy hits throughout his career, though he acknowledges the upside of Atlanta's offense if things click.",
-        "speaker": "Simon Hunter",
-        "source_timestamp": 1201,
-        "quote": "I don't know if the football smarts are there anymore, Chad. That's my fear with him.",
+        "topic": "Tyler Shough's clutch performance",
+        "summary": "The hosts recall how Tyler Shough won 4 of his last 5 games as a starter to close out last season, driving up optimism and money on the Saints' Over.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 190,
+        "quote": "The Saints are taking money on the over at seven and a half all because Tyler Shough made a glorious run.",
         "confidence": "stated"
       },
       {
-        "note_type": "coaching_or_scheme",
+        "note_type": "roster_or_depth_chart",
         "teams": [
-          "ATL"
+          "TB"
         ],
         "players": [
-          "Tua Tagovailoa"
+          "Kenneth Gainwell",
+          "Alex Anzalone"
         ],
-        "topic": "Stefanski and Tua pairing",
-        "summary": "Chad Millman is optimistic about the simulated pairing of head coach Kevin Stefanski and quarterback Tua Tagovailoa in Atlanta, citing Stefanski's success with quarterbacks and the potential of the offense if Tua remains healthy.",
+        "topic": "Buccaneers roster additions",
+        "summary": "Tampa Bay added linebacker Alex Anzalone and running back Kenneth Gainwell (who had 73 receptions last year) to bolster their depth behind Baker Mayfield.",
         "speaker": "Chad Millman",
-        "source_timestamp": 1671,
-        "quote": "I think Kevin Stefanski with Tua could be a really good combination if Tua can stay healthy.",
-        "confidence": "stated"
-      },
-      {
-        "note_type": "team_evaluation",
-        "teams": [
-          "CAR"
-        ],
-        "players": [
-          "Jaelan Phillips",
-          "Devin Lloyd"
-        ],
-        "topic": "Panthers defensive acquisitions",
-        "summary": "Chad Millman highlights the Panthers' offseason defensive signings, focusing on Jaelan Phillips to resolve edge-rushing struggles and Devin Lloyd at linebacker, though noting Phillips' injury history remains a concern.",
-        "speaker": "Chad Millman",
-        "source_timestamp": 1541,
-        "quote": "Their defense needed help on the edge last year... so they went out and signed Jaelan Phillips.",
-        "confidence": "stated"
-      },
-      {
-        "note_type": "coaching_or_scheme",
-        "teams": [
-          "ATL"
-        ],
-        "players": [
-          "Tua Tagovailoa"
-        ],
-        "topic": "Stefanski and Tua in Atlanta",
-        "summary": "The hosts discuss a custom franchise simulation league context where Kevin Stefanski is coaching the Falcons with Tua Tagovailoa under center.",
-        "speaker": "Chad Millman",
-        "source_timestamp": 2014,
-        "quote": "Will the Falcons make a run with new coach Kevin Stefanski and Tua under center?",
-        "confidence": "stated"
-      },
-      {
-        "note_type": "market_sentiment",
-        "teams": [
-          "TB",
-          "NO",
-          "ATL",
-          "CAR"
-        ],
-        "players": [],
-        "topic": "NFC South Division Outlook",
-        "summary": "Chad notes that the betting markets indicate a highly competitive and evenly matched division from top to bottom.",
-        "speaker": "Chad Millman",
-        "source_timestamp": 2014,
-        "quote": "Betting markets show a very even division, one of the most even divisions top to bottom.",
+        "source_timestamp": 165,
+        "quote": "Added linebacker Alex Anzalone, added Kenneth Gainwell, Steelers offensive MVP last year with 73 receptions.",
         "confidence": "stated"
       }
     ],
     "quote_timestamps": [
       {
-        "topic": "NFC South Win Totals",
-        "timestamp": 405,
+        "topic": "Saints Win Total Over",
+        "timestamp": 190,
         "speaker": "Chad Millman",
-        "quote": "Betting markets show a very even division, one of the most even divisions top to bottom."
+        "quote": "The Saints are taking money on the over at seven and a half all because Tyler Shough made a glorious run."
       },
       {
-        "topic": "Fading Panthers",
-        "timestamp": 620,
+        "topic": "Simon's Division Best Bet",
+        "timestamp": 277,
         "speaker": "Simon Hunter",
-        "quote": "I have to fade them this year."
-      },
-      {
-        "topic": "Panthers Line movement",
-        "timestamp": 510,
-        "speaker": "Chad Millman",
-        "quote": "Didn't I like Carolina at 6.5 when they first came out?"
-      },
-      {
-        "topic": "Panthers Fade",
-        "timestamp": 960,
-        "speaker": "Simon Hunter",
-        "quote": "I just have to fade them this year."
-      },
-      {
-        "topic": "Fading the Panthers",
-        "timestamp": 1500,
-        "speaker": "Simon Hunter",
-        "quote": "I just have to fade the Panthers this year."
+        "quote": "This is my biggest bet by far in this division is on the New Orleans Saints at plus 270 or plus 260."
       }
     ],
     "coverage_assessment": {
-      "last_covered_timestamp": 2080,
+      "last_covered_timestamp": 2056,
       "self_reported_reached_end": true,
       "duration_used_for_check": 2056,
-      "suspected_incomplete": true,
-      "reason": "segmented extraction failed semantic coverage: later windows repeated intro/Carolina material and did not capture the expected Saints discussion",
-      "coverage_ratio": 1,
-      "segment_count": 5,
-      "segment_seconds": 420,
-      "segment_coverages": [
-        {
-          "last_covered_timestamp": 420,
-          "self_reported_reached_end": false,
-          "duration_used_for_check": 2056,
-          "segment_start_seconds": 0,
-          "segment_end_seconds": 420,
-          "suspected_incomplete": false,
-          "reason": null,
-          "coverage_ratio": 1
-        },
-        {
-          "last_covered_timestamp": 840,
-          "self_reported_reached_end": false,
-          "duration_used_for_check": 2056,
-          "segment_start_seconds": 420,
-          "segment_end_seconds": 840,
-          "suspected_incomplete": false,
-          "reason": null,
-          "coverage_ratio": 1
-        },
-        {
-          "last_covered_timestamp": 1260,
-          "self_reported_reached_end": false,
-          "duration_used_for_check": 2056,
-          "segment_start_seconds": 840,
-          "segment_end_seconds": 1260,
-          "suspected_incomplete": false,
-          "reason": null,
-          "coverage_ratio": 1
-        },
-        {
-          "last_covered_timestamp": 1680,
-          "self_reported_reached_end": false,
-          "duration_used_for_check": 2056,
-          "segment_start_seconds": 1260,
-          "segment_end_seconds": 1680,
-          "suspected_incomplete": false,
-          "reason": null,
-          "coverage_ratio": 1
-        },
-        {
-          "last_covered_timestamp": 2080,
-          "self_reported_reached_end": true,
-          "duration_used_for_check": 2056,
-          "segment_start_seconds": 1680,
-          "segment_end_seconds": 2056,
-          "suspected_incomplete": false,
-          "reason": null,
-          "coverage_ratio": 1.064
-        }
-      ],
-      "semantic_coverage_failed": true
+      "segment_start_seconds": null,
+      "segment_end_seconds": null,
+      "suspected_incomplete": false,
+      "reason": null,
+      "coverage_ratio": 1
     }
   },
   "scoring": {
     "score_status": "not_scored",
     "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
     "total_ground_truth": 0,
-    "total_shadow_extracted": 3,
+    "total_shadow_extracted": 4,
     "full_exact_matches": 0,
     "precision_pct": "not scored",
     "recall_pct": "not scored",

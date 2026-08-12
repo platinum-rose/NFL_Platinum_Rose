@@ -1,0 +1,26 @@
+{
+  "evaluated_at": "2026-08-11T06:44:17.905Z",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "batch_label": "saved-futures",
+  "total_candidates_attempted": 1,
+  "total_episodes_evaluated": 0,
+  "total_episodes_scored": 0,
+  "reprocess_required_count": 0,
+  "extraction_failure_count": 1,
+  "average_f1_score_pct": null,
+  "total_cost_usd": 0,
+  "average_cost_usd": 0,
+  "total_latency_ms": 0,
+  "average_latency_ms": 0,
+  "total_extracted_picks": 0,
+  "reprocess_queue": [],
+  "failed_extractions": [
+    {
+      "episode_slug": "youtube-qj0CkWJumRg",
+      "reason": "No fresh observation was saved for youtube-qj0CkWJumRg. Gemini may have failed before extraction completed.",
+      "exit_status": 1
+    }
+  ],
+  "queue_runs": []
+}
