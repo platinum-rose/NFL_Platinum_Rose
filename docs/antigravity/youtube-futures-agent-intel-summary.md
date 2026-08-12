@@ -1,6 +1,6 @@
 # YouTube Futures Agent Intel Summary
 
-Generated: 2026-08-12T02:14:10.864Z
+Generated: 2026-08-12T05:34:50.444Z
 
 > Reviewed local podcast intel for agent context only. This does not create official picks, production recommendations, Supabase writes, or parlay changes.
 
@@ -8,6 +8,7 @@ Generated: 2026-08-12T02:14:10.864Z
 
 - Exported local intel items: 43
 - Exported local intel notes: 0
+- Cohort fingerprint: 2b416c20772bcc2d6be95ecaed72aac0437cdf957ac6cd3921ae22fa673bdfdc
 - Source queue: data\shadow-harness\review\youtube-futures-local-intel-queue.json
 - Rejected DET division_winner +1500 leak check: 0
 

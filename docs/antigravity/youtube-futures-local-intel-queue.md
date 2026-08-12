@@ -1,6 +1,6 @@
 # YouTube Futures Local Intel Queue
 
-Generated: 2026-08-11T21:12:39.193Z
+Generated: 2026-08-12T05:34:50.343Z
 
 > Local reviewed intel only. This does not create official picks, production recommendations, Supabase writes, or parlay changes.
 
@@ -8,6 +8,7 @@ Generated: 2026-08-11T21:12:39.193Z
 
 - Exported items: 43
 - Exported notes: 0
+- Cohort fingerprint: 2b416c20772bcc2d6be95ecaed72aac0437cdf957ac6cd3921ae22fa673bdfdc
 - Skipped review items: 109
 - Missing report items: 0
 - Source status: data\shadow-harness\review\youtube-futures-intel-review-status.json

@@ -1,6 +1,6 @@
 # YouTube Futures Intel Review
 
-Generated: 2026-08-11T21:26:26.068Z
+Generated: 2026-08-12T05:34:50.236Z
 
 > Local review only. Do not promote Gemini-derived observations to official picks or production recommendations without human review.
 
@@ -15,6 +15,7 @@ Generated: 2026-08-11T21:26:26.068Z
 - Flagged picks/leads: 84
 - Analysis notes: 65
 - Flagged notes: 1
+- Accepted cohort fingerprint: 2b416c20772bcc2d6be95ecaed72aac0437cdf957ac6cd3921ae22fa673bdfdc
 - Total Gemini cost: $0.647991
 - Average latency: 165316 ms
 - Review status file: data\shadow-harness\review\youtube-futures-intel-review-status.json

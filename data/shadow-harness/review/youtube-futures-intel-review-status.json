@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-11T21:26:26.054Z",
+  "generated_at": "2026-08-12T05:34:50.232Z",
   "status": "local_review_status_only",
   "guardrail": "Human-editable local status file. This does not promote official picks or write production recommendations.",
   "allowed_statuses": [
@@ -9,6 +9,21 @@
     "promote_to_local_intel",
     "reject"
   ],
+  "accepted_cohort": {
+    "schema": "youtube_reviewed_local_intel_cohort_v1",
+    "status": "reviewed_local_intel_context_only",
+    "promoted_status": "promote_to_local_intel",
+    "item_count": 43,
+    "pick_count": 43,
+    "note_count": 0,
+    "fingerprint_sha256": "2b416c20772bcc2d6be95ecaed72aac0437cdf957ac6cd3921ae22fa673bdfdc",
+    "forbidden_episode_evidence_count": 0,
+    "forbidden_episode_evidence_absent": true,
+    "forbidden_episode_ids": [
+      "youtube-b9NL40Zogkw",
+      "youtube-qoCm4G2Jmng"
+    ]
+  },
   "items": [
     {
       "item_id": "youtube-4OxpAX6UJlM__CAR__win_total__UNDER__6.5__140__328",

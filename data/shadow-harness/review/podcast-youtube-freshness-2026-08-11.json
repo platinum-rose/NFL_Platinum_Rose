@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": "podcast_youtube_freshness_reconciliation_v1",
-    "generated_at": "2026-08-11T08:44:13.709Z",
+    "generated_at": "2026-08-11T12:00:00.000Z",
     "window_start": "2026-07-24",
     "window_end": "2026-07-30",
     "recommendation_status": "research_context_only_not_picks",
@@ -15,8 +15,23 @@
   },
   "youtube": {
     "accepted": {
-      "generated_at": "2026-08-11T08:43:53.254Z",
-      "exported_items": 45,
+      "generated_at": "2026-08-12T05:34:50.444Z",
+      "cohort": {
+        "schema": "youtube_reviewed_local_intel_cohort_v1",
+        "status": "reviewed_local_intel_context_only",
+        "promoted_status": "promote_to_local_intel",
+        "item_count": 43,
+        "pick_count": 43,
+        "note_count": 0,
+        "fingerprint_sha256": "2b416c20772bcc2d6be95ecaed72aac0437cdf957ac6cd3921ae22fa673bdfdc",
+        "forbidden_episode_evidence_count": 0,
+        "forbidden_episode_evidence_absent": true,
+        "forbidden_episode_ids": [
+          "youtube-b9NL40Zogkw",
+          "youtube-qoCm4G2Jmng"
+        ]
+      },
+      "exported_items": 43,
       "exported_notes": 0,
       "by_team": {
         "ATL": 3,
@@ -33,7 +48,7 @@
         "LAC": 4,
         "LAR": 1,
         "LV": 3,
-        "NE": 4,
+        "NE": 2,
         "NO": 2,
         "NYG": 1,
         "NYJ": 1,
@@ -45,7 +60,7 @@
       "by_market": {
         "make_playoffs": 5,
         "no_1_overall_pick": 1,
-        "season_rushing_tds": 3,
+        "season_rushing_tds": 2,
         "oroy": 2,
         "season_receiving_yards": 1,
         "win_total": 3,
@@ -59,7 +74,6 @@
         "super_bowl_winner": 1,
         "dpoy": 1,
         "season_passing_tds": 1,
-        "season_passing_yards": 1,
         "interceptions_leader": 1,
         "fewest_wins": 1
       },
@@ -68,7 +82,7 @@
       }
     },
     "review_status": {
-      "generated_at": "2026-08-11T08:43:56.936Z",
+      "generated_at": "2026-08-12T05:34:50.232Z",
       "total_items": 152,
       "by_status": {
         "promote_to_local_intel": 43,
@@ -89,7 +103,7 @@
       "review_only_count": 82
     },
     "review_report": {
-      "generated_at": "2026-08-11T08:43:56.942Z",
+      "generated_at": "2026-08-12T05:34:50.236Z",
       "observed_episodes": 16,
       "missing_observations": 0,
       "total_extracted_picks": 87,

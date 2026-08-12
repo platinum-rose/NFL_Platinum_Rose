@@ -57,6 +57,7 @@ for (const needle of expected.must_include) {
 assert(status.items.length === report.picks.length + report.notes.length, 'review status item count must match report pick and note count');
 assert(status.allowed_statuses.includes('promote_to_local_intel'), 'status ledger must support local intel promotion');
 assert(status.allowed_statuses.includes('reject'), 'status ledger must support rejection');
+assert(status.accepted_cohort?.schema === 'youtube_reviewed_local_intel_cohort_v1', 'status ledger must report accepted YouTube cohort');
 
 const lionsDivision = report.picks.find(item => (
   item.episode_id === 'youtube-4OxpAX6UJlM'
@@ -72,21 +73,14 @@ assert(
   'human-verified Lions futures pick should promote to local intel despite quote-quality flags'
 );
 
-const fabricatedTitansWinTotal = report.picks.find(item => (
-  item.episode_id === 'youtube-b9NL40Zogkw'
-  && item.team === 'TEN'
-  && item.market === 'win_total'
-  && item.side === 'OVER'
-));
-assert(fabricatedTitansWinTotal, 'expected fabricated TEN win-total extraction to remain visible for audit');
-const fabricatedStatus = status.items.find(item => item.item_id === fabricatedTitansWinTotal.item_id);
-assert(
-  fabricatedStatus?.status === 'reject',
-  'fabricated TEN win-total extraction should be rejected'
-);
-assert(
-  fabricatedStatus?.disputed?.resolved === true,
-  'fabricated TEN win-total rejection should preserve the disputed audit trail'
-);
+for (const episodeId of ['youtube-b9NL40Zogkw', 'youtube-qoCm4G2Jmng']) {
+  assert(!report.picks.some(item => item.episode_id === episodeId), `${episodeId} picks must be excluded from extracted review picks`);
+  assert(!report.notes.some(item => item.episode_id === episodeId), `${episodeId} notes must be excluded from extracted review notes`);
+  assert(!status.items.some(item => item.episode_id === episodeId), `${episodeId} items must be absent from the review status ledger`);
+  assert(
+    report.reprocess_required.some(item => item.id === episodeId),
+    `${episodeId} should remain visible only as a reprocess-required audit row`
+  );
+}
 
 console.log('YouTube futures intel review fixture passed.');

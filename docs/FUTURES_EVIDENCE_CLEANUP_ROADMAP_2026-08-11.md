@@ -39,8 +39,8 @@ The repaired contract must report three different things:
 | V02 | P0 | Depth charts | Confirm Bills McGovern and Packers Micah Parsons/team-status items; replace estimated-only starter claims where manual evidence exists. | Named confirmations recorded; estimated starters remain explicitly estimated elsewhere. | human review | WITHHELD — required cases recorded; confirmation not established |
 | P01 | P0 | Prediction markets | Fix NYG/NYJ and LAC/LAR mapping, enforce 2026 season scope, and classify contract taxonomy before team mapping. | Zero known city/team collisions and zero wrong-season contracts in fixtures. | code | COMPLETE — fixtures and rebuilt map pass |
 | P02 | P0 | Coherence | Exclude liquidity-warned/ineligible contracts from actionable coherence math and preserve fee/liquidity/settlement caveats. | Coherence reports eligible-context counts separately; July 31, 77%-warned map cannot pass as an execution source. | code | COMPLETE — eligibility and execution-source gates pass |
-| Y01 | P0 | YouTube | Put review, freshness, queue, and agent summary on one cohort fingerprint. | All artifacts report the same 43-item cohort and fingerprint. | code | PARTIAL — count fixed |
-| Y02 | P0 | YouTube exclusions | Hard-exclude both stale Drake Maye rows from `youtube-b9NL40Zogkw` and all evidence from `youtube-qoCm4G2Jmng`. | Forbidden episode IDs are absent from synthesis inputs and tested. | code | PARTIAL — summary guard exists |
+| Y01 | P0 | YouTube | Put review, freshness, queue, and agent summary on one cohort fingerprint. | All artifacts report the same 43-item cohort and fingerprint. | code | COMPLETE — cohort fingerprint passes |
+| Y02 | P0 | YouTube exclusions | Hard-exclude both stale Drake Maye rows from `youtube-b9NL40Zogkw` and all evidence from `youtube-qoCm4G2Jmng`. | Forbidden episode IDs are absent from synthesis inputs and tested. | code | COMPLETE — accepted and synthesis inputs gated |
 | O01 | P0 | Odds execution | Revalidate BKR, BetUS, and BetOnline prices at synthesis time and preserve exact venue/timestamp provenance. | Every actionable row has a current placeable venue; unavailable books are context-only. | local data + human check | NOT STARTED |
 | O02 | P0 | Exacta | Require exact two-team rows and multiple-book confirmation; keep simulation-price-only rows out of execution claims. | Bills–Packers exacta remains monitor-only until every explicit guardrail passes. | code + human check | NOT STARTED |
 | G01 | P0 | Audit gate | Make source audit block on incomplete article corpus, unresolved identity contamination, stale/mismatched YouTube cohorts, or invalid prediction mapping. | A legacy/contaminated artifact produces `blocked`, not `passable`. | code | PARTIAL — article, team-identity, availability, and named-status blockers implemented |
@@ -94,6 +94,16 @@ The prediction-market mapping/coherence tranche was completed offline on August 
 - `prediction_market_cross_market_coherence_v2` consumes only rows explicitly marked actionable for coherence math. It reports eligible-context, actionable, context-only, excluded, warned, fee-missing, team, and execution-eligible counts separately; legacy maps without the explicit v2 eligibility contract produce no actionable math.
 - The rebuilt actionable-coherence output covers all 32 teams and currently reports zero ladder inversions and zero nesting violations. This means the prior 20 inversions and one nesting violation do not survive the season/taxonomy/liquidity gates; it is not a claim that warned context prices are coherent or executable.
 - Fee-adjusted net odds remain in the map, while coherence uses gross yes-price probabilities and preserves explicit fee, liquidity, and settlement caveats. Both artifacts are labeled consensus context only and blocked as execution sources.
+
+## Y01-Y02 Completion Evidence
+
+The YouTube cohort/exclusion tranche was completed offline on August 11 without network fetches, model/API calls, Supabase writes, recommendation persistence, official-pick actions, or portfolio changes.
+
+- `youtube_reviewed_local_intel_cohort_v1` now gives the review status ledger, local intel queue, agent summary, freshness reconciliation, and local synthesis-context supplement a shared accepted-cohort contract. The accepted cohort is 43 items with fingerprint `2b416c20772bcc2d6be95ecaed72aac0437cdf957ac6cd3921ae22fa673bdfdc`.
+- Accepted YouTube local intel is filtered through a single forbidden-episode gate before export and before agent-summary construction. A stale status row cannot promote evidence from `youtube-b9NL40Zogkw` or `youtube-qoCm4G2Jmng` into accepted local intel.
+- The review report still records `youtube-b9NL40Zogkw` and `youtube-qoCm4G2Jmng` as reprocess-required audit rows, but extracted review picks/notes, the status ledger, accepted queue, agent summary, and local synthesis-context supplement do not carry their evidence forward.
+- The local synthesis-context builder verifies that the queue, summary, and freshness fingerprints match before writing. Its regenerated 2026-08-11 context contains the 43-item accepted cohort and no forbidden episode IDs.
+- Focused fixtures now cover the stale Drake Maye/forbidden-episode exclusion path, cohort fingerprint propagation, and synthesis-context leak check.
 
 ## Hard Frontier Re-entry Gates
 

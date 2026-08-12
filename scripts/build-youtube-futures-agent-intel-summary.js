@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
+import {
+  assertYoutubeCohortClean,
+  buildYoutubeCohort,
+  isForbiddenYoutubeEpisode,
+} from './lib/youtube-futures-cohort.js';
 
 const ROOT = process.cwd();
 const QUEUE_PATH = path.join(ROOT, 'data', 'shadow-harness', 'review', 'youtube-futures-local-intel-queue.json');
@@ -121,11 +126,13 @@ if (!fs.existsSync(QUEUE_PATH)) {
 }
 
 const queue = readJson(QUEUE_PATH);
-const items = sortItems(queue.items || []);
-const notes = [...(queue.notes || [])].sort((a, b) => (
+const items = sortItems((queue.items || []).filter((item) => !isForbiddenYoutubeEpisode(item)));
+const notes = [...(queue.notes || []).filter((note) => !isForbiddenYoutubeEpisode(note))].sort((a, b) => (
   String(a.source?.episode_title || '').localeCompare(String(b.source?.episode_title || ''))
   || Number(a.source?.source_timestamp || 0) - Number(b.source?.source_timestamp || 0)
 ));
+assertYoutubeCohortClean(items, notes, 'YouTube agent intel summary');
+const cohort = buildYoutubeCohort({ items, notes, includeForbiddenEpisodeIds: false });
 const badLions = items.filter(item => (
   item.team === 'DET'
   && item.market === 'division_winner'
@@ -163,6 +170,7 @@ const summary = {
   status: 'local_agent_intel_summary_only',
   guardrail: 'Reviewed local podcast intel for agent context only. This is not an official pick ledger, production recommendation, Supabase write, or parlay mutation.',
   source_queue: path.relative(ROOT, QUEUE_PATH),
+  cohort,
   exported_items: items.length,
   exported_notes: notes.length,
   counts: {
@@ -194,6 +202,7 @@ const lines = [
   '',
   `- Exported local intel items: ${summary.exported_items}`,
   `- Exported local intel notes: ${summary.exported_notes}`,
+  `- Cohort fingerprint: ${summary.cohort.fingerprint_sha256}`,
   `- Source queue: ${summary.source_queue}`,
   `- Rejected DET division_winner +1500 leak check: ${summary.rejected_leak_checks.det_division_winner_plus_1500}`,
   '',

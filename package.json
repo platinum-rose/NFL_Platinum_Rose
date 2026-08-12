@@ -102,6 +102,7 @@
     "test:youtube-review-ui": "node scripts/youtube-futures-review-ui.js --self-test",
     "test:youtube-local-intel-export": "node scripts/test-youtube-local-intel-export.js",
     "test:youtube-agent-intel-summary": "node scripts/test-youtube-agent-intel-summary.js",
+    "test:youtube-cohort-cleanup": "node scripts/test-youtube-cohort-cleanup.js",
     "smoke:season": "node scripts/season-readiness-smoke.js",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",

@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
+import {
+  buildYoutubeCohort,
+  isForbiddenYoutubeEpisode,
+  PROMOTED_LOCAL_INTEL_STATUS,
+} from './lib/youtube-futures-cohort.js';
 
 const ROOT = process.cwd();
 const CANDIDATES_PATH = path.join(ROOT, 'data', 'podcasts', 'youtube-discovery-candidates-2026.json');
@@ -348,7 +353,7 @@ function classifyNote(note) {
 function defaultReviewStatus(pick) {
   if (isRejectedDispute(pick.disputed)) return 'reject';
   if (pick.human_verification?.verified) {
-    return pick.item_lane === 'futures_pick' ? 'promote_to_local_intel' : 'context_only';
+    return pick.item_lane === 'futures_pick' ? PROMOTED_LOCAL_INTEL_STATUS : 'context_only';
   }
   if (pick.review_flags.includes('non_futures_market')) return 'context_only';
   if (pick.review_flags.length > 0) return 'needs_review';
@@ -526,13 +531,19 @@ function writeReviewStatus(existing, picks, notes) {
     };
   });
 
-  writeJson(REVIEW_STATUS_PATH, {
+  const acceptedPickItems = pickItems.filter((item) => item.status === PROMOTED_LOCAL_INTEL_STATUS && !isForbiddenYoutubeEpisode(item));
+  const acceptedNoteItems = noteItems.filter((item) => item.status === PROMOTED_LOCAL_INTEL_STATUS && !isForbiddenYoutubeEpisode(item));
+  const acceptedCohort = buildYoutubeCohort({ items: acceptedPickItems, notes: acceptedNoteItems });
+  const payload = {
     generated_at: new Date().toISOString(),
     status: 'local_review_status_only',
     guardrail: 'Human-editable local status file. This does not promote official picks or write production recommendations.',
-    allowed_statuses: ['pending_review', 'needs_review', 'context_only', 'promote_to_local_intel', 'reject'],
+    allowed_statuses: ['pending_review', 'needs_review', 'context_only', PROMOTED_LOCAL_INTEL_STATUS, 'reject'],
+    accepted_cohort: acceptedCohort,
     items: [...pickItems, ...noteItems]
-  });
+  };
+  writeJson(REVIEW_STATUS_PATH, payload);
+  return payload;
 }
 
 if (!fs.existsSync(CANDIDATES_PATH)) {
@@ -608,7 +619,7 @@ for (const note of allNotes) {
 }
 
 const existingReviewStatus = loadReviewStatus();
-writeReviewStatus(existingReviewStatus, allPicks, allNotes);
+const reviewStatus = writeReviewStatus(existingReviewStatus, allPicks, allNotes);
 
 const pickLaneCounts = allPicks.reduce((acc, pick) => {
   acc[pick.item_lane] = (acc[pick.item_lane] || 0) + 1;
@@ -652,6 +663,7 @@ const summary = {
   flagged_notes: allNotes.filter(note => note.review_flags.length > 0).length,
   note_relevance_tag_counts: noteTagCounts,
   note_review_flag_counts: noteFlagCounts,
+  accepted_cohort: reviewStatus.accepted_cohort,
   total_cost_usd: Number(rows.reduce((sum, row) => sum + Number(row.observation.run?.estimated_cost_usd || 0), 0).toFixed(6)),
   average_latency_ms: rows.length ? Math.round(rows.reduce((sum, row) => sum + Number(row.observation.run?.latency_ms || 0), 0) / rows.length) : 0
 };
@@ -707,6 +719,7 @@ const lines = [
   `- Flagged picks/leads: ${summary.flagged_picks}`,
   `- Analysis notes: ${summary.total_analysis_notes}`,
   `- Flagged notes: ${summary.flagged_notes}`,
+  `- Accepted cohort fingerprint: ${summary.accepted_cohort.fingerprint_sha256}`,
   `- Total Gemini cost: $${summary.total_cost_usd}`,
   `- Average latency: ${summary.average_latency_ms} ms`,
   `- Review status file: ${path.relative(ROOT, REVIEW_STATUS_PATH)}`,

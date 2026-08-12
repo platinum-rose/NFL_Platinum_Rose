@@ -169,6 +169,9 @@ describe('data gathering sprint contracts', () => {
     const chiefs = snapshot.anchors.find((team) => team.team === 'KC');
 
     expect(snapshot.meta.schema).toBe('podcast_youtube_freshness_reconciliation_v1');
+    expect(snapshot.youtube.accepted.cohort.schema).toBe('youtube_reviewed_local_intel_cohort_v1');
+    expect(snapshot.youtube.accepted.cohort.item_count).toBe(1);
+    expect(snapshot.youtube.accepted.cohort.forbidden_episode_evidence_absent).toBe(true);
     expect(snapshot.youtube.accepted.exported_items).toBe(1);
     expect(snapshot.youtube.review_status.review_only_count).toBe(1);
     expect(snapshot.youtube.candidates.window_candidate_count).toBe(2);

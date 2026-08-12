@@ -3,8 +3,9 @@
 > Local research freshness and review-status reconciliation only. This does not promote picks, write Supabase, call a model, or mutate production recommendations.
 
 Window: 2026-07-24 through 2026-07-30
-Accepted YouTube local-intel picks: 45
+Accepted YouTube local-intel picks: 43
 Accepted YouTube local-intel notes: 0
+Accepted cohort fingerprint: 2b416c20772bcc2d6be95ecaed72aac0437cdf957ac6cd3921ae22fa673bdfdc
 Review-status rows: 152
 Podcast deep dives in window: 0
 YouTube candidates in window: 4

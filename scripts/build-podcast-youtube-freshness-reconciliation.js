@@ -3,6 +3,10 @@
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import {
+  assertYoutubeCohortClean,
+  buildYoutubeCohort,
+} from './lib/youtube-futures-cohort.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -180,6 +184,7 @@ function renderMarkdown(snapshot) {
     `Window: ${snapshot.meta.window_start} through ${snapshot.meta.window_end}`,
     `Accepted YouTube local-intel picks: ${snapshot.youtube.accepted.exported_items}`,
     `Accepted YouTube local-intel notes: ${snapshot.youtube.accepted.exported_notes}`,
+    `Accepted cohort fingerprint: ${snapshot.youtube.accepted.cohort.fingerprint_sha256}`,
     `Review-status rows: ${snapshot.youtube.review_status.total_items}`,
     `Podcast deep dives in window: ${snapshot.podcast.window_episode_count}`,
     `YouTube candidates in window: ${snapshot.youtube.candidates.window_candidate_count}`,
@@ -266,6 +271,11 @@ export async function buildPodcastYoutubeFreshnessReconciliation(options = {}) {
   const reviewStatusItems = status.items || [];
   const acceptedItems = summary.items || [];
   const acceptedNotes = summary.notes || [];
+  assertYoutubeCohortClean(acceptedItems, acceptedNotes, 'Podcast/YouTube freshness accepted cohort');
+  const acceptedCohort = buildYoutubeCohort({ items: acceptedItems, notes: acceptedNotes });
+  if (summary.cohort?.fingerprint_sha256 && summary.cohort.fingerprint_sha256 !== acceptedCohort.fingerprint_sha256) {
+    throw new Error(`YouTube cohort fingerprint mismatch: summary=${summary.cohort.fingerprint_sha256} freshness=${acceptedCohort.fingerprint_sha256}`);
+  }
   const rejectedLeakChecks = summary.rejected_leak_checks || {};
 
   const snapshot = {
@@ -286,6 +296,7 @@ export async function buildPodcastYoutubeFreshnessReconciliation(options = {}) {
     youtube: {
       accepted: {
         generated_at: summary.generated_at || null,
+        cohort: acceptedCohort,
         exported_items: acceptedItems.length,
         exported_notes: acceptedNotes.length,
         by_team: summary.counts?.by_team || countBy(acceptedItems, (item) => item.team),
@@ -350,6 +361,7 @@ export async function buildPodcastYoutubeFreshnessReconciliation(options = {}) {
 
 async function main() {
   const { snapshot, outputs } = await buildPodcastYoutubeFreshnessReconciliation({
+    generatedAt: argValue('--generated-at', new Date().toISOString()),
     windowStart: argValue('--window-start', DEFAULT_WINDOW_START),
     windowEnd: argValue('--window-end', DEFAULT_WINDOW_END),
     dryRun: process.argv.includes('--dry-run'),

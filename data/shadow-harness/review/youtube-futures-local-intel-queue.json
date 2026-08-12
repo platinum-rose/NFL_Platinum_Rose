@@ -1,10 +1,21 @@
 {
-  "generated_at": "2026-08-11T21:12:39.193Z",
+  "generated_at": "2026-08-12T05:34:50.343Z",
   "status": "local_intel_queue_only",
   "guardrail": "Local reviewed intel queue only. This is not an official pick ledger, production recommendation, Supabase write, or parlay mutation.",
   "source_report": "data\\shadow-harness\\reports\\youtube-futures-intel-review-latest.json",
   "source_status_ledger": "data\\shadow-harness\\review\\youtube-futures-intel-review-status.json",
   "promoted_status": "promote_to_local_intel",
+  "cohort": {
+    "schema": "youtube_reviewed_local_intel_cohort_v1",
+    "status": "reviewed_local_intel_context_only",
+    "promoted_status": "promote_to_local_intel",
+    "item_count": 43,
+    "pick_count": 43,
+    "note_count": 0,
+    "fingerprint_sha256": "2b416c20772bcc2d6be95ecaed72aac0437cdf957ac6cd3921ae22fa673bdfdc",
+    "forbidden_episode_evidence_count": 0,
+    "forbidden_episode_evidence_absent": true
+  },
   "total_status_items": 152,
   "exported_items": 43,
   "exported_notes": 0,

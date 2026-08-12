@@ -5,6 +5,11 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isSourceTeamAligned } from '../agents/lib/portfolio-local-inputs.js';
+import {
+  assertYoutubeCohortClean,
+  buildYoutubeCohort,
+  isForbiddenYoutubeEpisode,
+} from './lib/youtube-futures-cohort.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -149,6 +154,20 @@ const cleanArticleLeads = (article.market_leads || []).filter((item) => {
 });
 const statusCounts = counts(youtubeStatus.items || [], 'status');
 const billsPackersExact = findExactMatchup(betus, 'Buffalo Bills', 'Green Bay Packers');
+const acceptedYoutubeItems = (youtubeSummary.items || []).filter((item) => !isForbiddenYoutubeEpisode(item));
+const acceptedYoutubeNotes = (youtubeSummary.notes || []).filter((note) => !isForbiddenYoutubeEpisode(note));
+assertYoutubeCohortClean(acceptedYoutubeItems, acceptedYoutubeNotes, 'Frontier synthesis YouTube accepted cohort');
+const youtubeCohort = buildYoutubeCohort({
+  items: acceptedYoutubeItems,
+  notes: acceptedYoutubeNotes,
+  includeForbiddenEpisodeIds: false,
+});
+if (youtubeSummary.cohort?.fingerprint_sha256 && youtubeSummary.cohort.fingerprint_sha256 !== youtubeCohort.fingerprint_sha256) {
+  throw new Error(`YouTube cohort fingerprint mismatch: summary=${youtubeSummary.cohort.fingerprint_sha256} synthesis=${youtubeCohort.fingerprint_sha256}`);
+}
+if (freshness.youtube?.accepted?.cohort?.fingerprint_sha256 && freshness.youtube.accepted.cohort.fingerprint_sha256 !== youtubeCohort.fingerprint_sha256) {
+  throw new Error(`YouTube cohort fingerprint mismatch: freshness=${freshness.youtube.accepted.cohort.fingerprint_sha256} synthesis=${youtubeCohort.fingerprint_sha256}`);
+}
 
 const output = {
   meta: {
@@ -202,14 +221,15 @@ const output = {
     status_ledger: { generated_at: youtubeStatus.generated_at, total: youtubeStatus.items?.length || 0, counts: statusCounts },
     accepted_summary: {
       generated_at: youtubeSummary.generated_at,
-      exported_items: youtubeSummary.exported_items,
+      cohort: youtubeCohort,
+      exported_items: acceptedYoutubeItems.length,
       counts: youtubeSummary.counts,
-      items: youtubeSummary.items,
+      items: acceptedYoutubeItems,
     },
     anchor_review_context: freshness.anchors,
     caveats: [
       'Only accepted/promoted summary rows are reviewed context; pending, needs_review, and context_only rows are weak context.',
-      'youtube-b9NL40Zogkw and youtube-qoCm4G2Jmng require reprocessing and are excluded from accepted authority.',
+      'Known reprocess-required QB-list episode groups are excluded from synthesis inputs and accepted authority.',
       'Podcast deep dives are historical context: regenerated locally, but underlying episode coverage ends 2026-07-23.',
     ],
   },

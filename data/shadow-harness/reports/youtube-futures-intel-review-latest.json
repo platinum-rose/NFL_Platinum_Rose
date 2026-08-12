@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-11T21:26:26.068Z",
+  "generated_at": "2026-08-12T05:34:50.236Z",
   "status": "local_review_only",
   "guardrail": "This local shadow-harness track requires human review before anything is treated as a real pick. For actual production promotion, see podcast_gemini_intel (migration 045) and agents/podcast-gemini-intel.js --promote (docs/PODCAST_HOLISTIC_INTEL_EXTRACTION_PLAN.md Phase 5) -- a separate, real review gate this local JSON file does not itself enforce.",
   "futures_candidates": 16,
@@ -45,6 +45,21 @@
   },
   "note_review_flag_counts": {
     "no_team_or_player": 1
+  },
+  "accepted_cohort": {
+    "schema": "youtube_reviewed_local_intel_cohort_v1",
+    "status": "reviewed_local_intel_context_only",
+    "promoted_status": "promote_to_local_intel",
+    "item_count": 43,
+    "pick_count": 43,
+    "note_count": 0,
+    "fingerprint_sha256": "2b416c20772bcc2d6be95ecaed72aac0437cdf957ac6cd3921ae22fa673bdfdc",
+    "forbidden_episode_evidence_count": 0,
+    "forbidden_episode_evidence_absent": true,
+    "forbidden_episode_ids": [
+      "youtube-b9NL40Zogkw",
+      "youtube-qoCm4G2Jmng"
+    ]
   },
   "total_cost_usd": 0.647991,
   "average_latency_ms": 165316,

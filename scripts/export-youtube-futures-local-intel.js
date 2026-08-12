@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
+import {
+  assertYoutubeCohortClean,
+  buildYoutubeCohort,
+  isForbiddenYoutubeEpisode,
+  PROMOTED_LOCAL_INTEL_STATUS,
+} from './lib/youtube-futures-cohort.js';
 
 const ROOT = process.cwd();
 const DEFAULT_REPORT_PATH = path.join(ROOT, 'data', 'shadow-harness', 'reports', 'youtube-futures-intel-review-latest.json');
@@ -52,7 +58,7 @@ const report = readJson(reportPath);
 const statusLedger = readJson(statusPath);
 const picksById = new Map((report.picks || []).map(item => [item.item_id, item]));
 const notesById = new Map((report.notes || []).map(item => [item.item_id, item]));
-const promotedStatuses = (statusLedger.items || []).filter(item => item.status === 'promote_to_local_intel');
+const promotedStatuses = (statusLedger.items || []).filter(item => item.status === PROMOTED_LOCAL_INTEL_STATUS);
 const promotedPickStatuses = promotedStatuses.filter(item => (item.item_type || 'pick') === 'pick');
 const promotedNoteStatuses = promotedStatuses.filter(item => item.item_type === 'note');
 
@@ -128,8 +134,10 @@ const exportedNotes = promotedNoteStatuses.map(status => {
 });
 
 const missingReportItems = [...exportedItems, ...exportedNotes].filter(item => item.export_error);
-const cleanItems = exportedItems.filter(item => !item.export_error);
-const cleanNotes = exportedNotes.filter(item => !item.export_error);
+const cleanItems = exportedItems.filter(item => !item.export_error && !isForbiddenYoutubeEpisode(item));
+const cleanNotes = exportedNotes.filter(item => !item.export_error && !isForbiddenYoutubeEpisode(item));
+assertYoutubeCohortClean(cleanItems, cleanNotes, 'YouTube local intel queue');
+const cohort = buildYoutubeCohort({ items: cleanItems, notes: cleanNotes, includeForbiddenEpisodeIds: false });
 
 function groupCountMulti(items, key) {
   return items.reduce((acc, item) => {
@@ -144,7 +152,8 @@ const payload = {
   guardrail: 'Local reviewed intel queue only. This is not an official pick ledger, production recommendation, Supabase write, or parlay mutation.',
   source_report: path.relative(ROOT, reportPath),
   source_status_ledger: path.relative(ROOT, statusPath),
-  promoted_status: 'promote_to_local_intel',
+  promoted_status: PROMOTED_LOCAL_INTEL_STATUS,
+  cohort,
   total_status_items: (statusLedger.items || []).length,
   exported_items: cleanItems.length,
   exported_notes: cleanNotes.length,
@@ -175,6 +184,7 @@ const lines = [
   '',
   `- Exported items: ${payload.exported_items}`,
   `- Exported notes: ${payload.exported_notes}`,
+  `- Cohort fingerprint: ${payload.cohort.fingerprint_sha256}`,
   `- Skipped review items: ${payload.skipped_items}`,
   `- Missing report items: ${payload.missing_report_items.length}`,
   `- Source status: ${path.relative(ROOT, statusPath)}`,

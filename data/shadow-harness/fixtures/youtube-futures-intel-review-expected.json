@@ -1,25 +1,24 @@
 {
-  "futures_candidates": 11,
-  "observed_episodes": 11,
+  "futures_candidates": 16,
+  "observed_episodes": 16,
   "missing_observations": 0,
-  "total_extracted_picks": 66,
+  "total_extracted_picks": 87,
   "item_lane_counts": {
     "fantasy_intel": 16,
-    "futures_pick": 51,
-    "injury_intel": 13,
-    "market_context": 4,
-    "matchup_analysis": 16,
-    "non_futures_betting": 10,
-    "roster_transaction_intel": 6,
-    "training_camp_intel": 3
+    "futures_pick": 65,
+    "injury_intel": 19,
+    "market_context": 9,
+    "matchup_analysis": 22,
+    "non_futures_betting": 14,
+    "roster_transaction_intel": 12,
+    "training_camp_intel": 2
   },
   "review_flag_counts": {
     "duplicate_candidate": 6,
-    "invalid_team": 4,
-    "missing_price": 10,
-    "missing_win_total_line": 1,
-    "non_futures_market": 15,
-    "price_not_in_quote": 50,
+    "invalid_team": 11,
+    "missing_price": 17,
+    "non_futures_market": 22,
+    "price_not_in_quote": 65,
     "unclear_side": 4
   },
   "must_include": [
@@ -42,13 +41,6 @@
       "team": "DET",
       "market": "division_winner",
       "price": 160,
-      "item_lane": "futures_pick"
-    },
-    {
-      "episode_id": "youtube-b9NL40Zogkw",
-      "team": "TEN",
-      "market": "win_total",
-      "side": "OVER",
       "item_lane": "futures_pick"
     }
   ]
