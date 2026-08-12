@@ -8,6 +8,7 @@ import {
   resolveEvidenceTeamOwnership,
   sourcePrimaryTeam,
 } from './team-identity.js';
+import { indexNamedStatusReviews, validateNamedStatusReview } from './named-status-review.js';
 
 const STATUS_ALIASES = [
   ['IR', /\b(injured reserve|injury reserve|\bir\b)\b/i],
@@ -29,6 +30,49 @@ const IR_TEXT_PATTERNS = [
   /\b(placed on (?:the )?injured reserve|placed on (?:the )?ir\b|season-ending injured reserve)\b/i,
 ];
 
+const STATUS_TEXT_SIGNAL_RULES = [
+  {
+    signal: 'activated_or_cleared',
+    patterns: [
+      /\bactivated\b[^\r\n]{0,100}?\b(?:off|from) (?:the )?(?:active[/-])?(?:pup|nfi|non-football injury|non-football illness|injured reserve|ir)(?: list)?\b/i,
+      /\bremoved\b[^\r\n]{0,100}?\bfrom (?:the )?(?:active[/-])?(?:pup|nfi|non-football injury|non-football illness)(?: list)?\b/i,
+      /\bpassed (?:his|her|the) physical\b/i,
+      /\bcleared to (?:practice|participate|play|return)\b/i,
+      /\bcleared for (?:the )?(?:start of )?(?:training camp|practice)\b/i,
+      /\bfull participant\b/i,
+      /\breturned to practice\b/i,
+      /\b(?:seen|is|was) participating\b/i,
+      /\bparticipated in\b/i,
+      /\bon the field participating\b/i,
+      /\ball set to participate\b/i,
+      /\bat full speed\b/i,
+    ],
+  },
+  {
+    signal: 'placed_on_pup_or_nfi',
+    patterns: [
+      /\bplaced\s+(?:[a-z.'-]+\s+){0,5}(?:on|onto) (?:the )?(?:active[/-])?(?:pup|physically unable to perform|nfi|non-football injury|non-football illness)(?: list)?\b/i,
+      /\b(?:on|onto) (?:the )?(?:active[/-])?(?:pup|physically unable to perform|nfi|non-football injury|non-football illness)(?: list)?\b/i,
+    ],
+  },
+  {
+    signal: 'placed_on_ir',
+    patterns: [
+      /\bplaced\s+(?:[a-z.'-]+\s+){0,5}(?:on|onto) (?:the )?(?:injured reserve|ir)\b/i,
+      /\bplaced on (?:the )?(?:injured reserve|ir)\b/i,
+    ],
+  },
+  {
+    signal: 'season_ending_absence',
+    patterns: [
+      /\b(?:out for the season|season-ending injury|will miss the (?:entire )?season)\b/i,
+    ],
+  },
+];
+
+const RESTRICTIVE_STRUCTURED_STATUSES = new Set(['IR', 'PUP', 'SUSPENSION', 'OUT', 'DOUBTFUL']);
+const OPEN_STRUCTURED_STATUSES = new Set(['ACTIVE_NEWS', 'UNKNOWN', 'PROBABLE', 'QUESTIONABLE']);
+
 const RETURN_PATTERNS = [
   /\b(return(?:ed|s|ing)? to practice|returns? to practice|back at practice|practices? for the first time|first practice back)\b/i,
   /\b(takes part|participat(?:ed|es|ing)|full participant|doing individual drills|full-team drills|cleared to participate)\b/i,
@@ -37,7 +81,7 @@ const RETURN_PATTERNS = [
 ];
 
 const EXPLICIT_SETBACK_PATTERNS = [
-  /\b(suffered a setback|suffered a new|re-injured|reinjured|aggravated|carted off|left practice early|underwent surgery|out for the season|season-ending|expected to miss)\b/i,
+  /\b(suffered a setback|suffered a new|re-injured|reinjured|aggravated|carted off|(?:left|leave) practice early|underwent surgery|out for the season|season-ending|expected to miss)\b/i,
   /\b(will miss|not practicing|did not participate|unable to practice|ruled out|suffered an issue)\b/i,
 ];
 
@@ -117,6 +161,53 @@ function sha(value) {
   return createHash('sha256').update(String(value)).digest('hex');
 }
 
+function playerTextAnchor(playerName) {
+  const suffixes = new Set(['jr', 'sr', 'ii', 'iii', 'iv', 'v']);
+  const tokens = String(playerName || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9' -]/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean)
+    .filter((token) => !suffixes.has(token.replace(/\./g, '')));
+  return tokens.at(-1) || null;
+}
+
+function anchoredPatternMatch(text, playerName, pattern) {
+  const body = String(text || '');
+  const match = body.match(pattern);
+  if (!match) return null;
+  const anchor = playerTextAnchor(playerName);
+  if (!anchor) return match;
+
+  const lower = body.toLowerCase();
+  const matchStart = match.index ?? lower.indexOf(String(match[0]).toLowerCase());
+  const matchEnd = matchStart + String(match[0]).length;
+  let anchorIndex = lower.indexOf(anchor);
+  while (anchorIndex >= 0) {
+    // The named player must be the status subject: inside the matched phrase or
+    // shortly before it. A player first mentioned after the phrase is often the
+    // replacement for somebody else and must not inherit that person's status.
+    if (anchorIndex <= matchEnd && matchStart - anchorIndex <= 120) return match;
+    anchorIndex = lower.indexOf(anchor, anchorIndex + anchor.length);
+  }
+  return null;
+}
+
+function firstAnchoredStatusSignal({ text, playerName, signals = null } = {}) {
+  for (const rule of STATUS_TEXT_SIGNAL_RULES) {
+    if (signals && !signals.has(rule.signal)) continue;
+    for (const pattern of rule.patterns) {
+      const match = anchoredPatternMatch(text, playerName, pattern);
+      if (match) return { signal: rule.signal, matched_text: String(match[0]) };
+    }
+  }
+  return null;
+}
+
+function eventEvidenceText(event) {
+  return [event?.short_summary, event?.supporting_quote].filter(Boolean).join(' ');
+}
+
 export function normalizeInjuryStatus(value) {
   const raw = String(value || '').trim();
   if (!raw) return 'UNKNOWN';
@@ -132,14 +223,21 @@ export function parseInjuryType(shortComment) {
   return match ? match[1].toLowerCase() : null;
 }
 
-export function classifyAvailabilityEvent({ status, text = '' } = {}) {
+export function classifyAvailabilityEvent({ status, text = '', playerName = null } = {}) {
   const body = String(text || '');
   let normalized = normalizeInjuryStatus(status);
+  const strongReturnSignal = firstAnchoredStatusSignal({
+    text: body,
+    playerName,
+    signals: new Set(['activated_or_cleared']),
+  });
 
   // If status is generically "Active" or "Active_News", check if the body text explicitly states PUP, NFI, or IR placement:
-  if (normalized === 'ACTIVE_NEWS' || normalized === 'UNKNOWN') {
-    if (PUP_TEXT_PATTERNS.some((re) => re.test(body))) normalized = 'PUP';
-    else if (IR_TEXT_PATTERNS.some((re) => re.test(body))) normalized = 'IR';
+  // Do not reinterpret an explicit removal/activation sentence as a placement
+  // merely because the old list name also appears in the same sentence.
+  if ((normalized === 'ACTIVE_NEWS' || normalized === 'UNKNOWN') && !strongReturnSignal) {
+    if (PUP_TEXT_PATTERNS.some((re) => anchoredPatternMatch(body, playerName, re))) normalized = 'PUP';
+    else if (IR_TEXT_PATTERNS.some((re) => anchoredPatternMatch(body, playerName, re))) normalized = 'IR';
   }
 
   if (normalized === 'IR') return { event_type: 'ir', availability_trend: 'worsening' };
@@ -148,7 +246,7 @@ export function classifyAvailabilityEvent({ status, text = '' } = {}) {
   if (normalized === 'OUT') return { event_type: 'out', availability_trend: 'worsening' };
   if (normalized === 'DOUBTFUL') return { event_type: 'doubtful', availability_trend: 'worsening' };
 
-  const isReturn = RETURN_PATTERNS.some((re) => re.test(body));
+  const isReturn = Boolean(strongReturnSignal) || RETURN_PATTERNS.some((re) => re.test(body));
   const isLimited = LIMITED_PATTERNS.some((re) => re.test(body));
   const isExplicitSetback = EXPLICIT_SETBACK_PATTERNS.some((re) => re.test(body));
   const hasHistoricalContext = HISTORICAL_CONTEXT_PATTERNS.some((re) => re.test(body));
@@ -175,6 +273,132 @@ export function classifyAvailabilityEvent({ status, text = '' } = {}) {
   if (normalized === 'ACTIVE_NEWS') return { event_type: 'active_news', availability_trend: 'unknown' };
   if (normalized === 'PROBABLE') return { event_type: 'probable', availability_trend: 'improving' };
   return { event_type: 'status_update', availability_trend: 'unknown' };
+}
+
+export function detectAvailabilityStatusConflict(event = {}) {
+  const hasStructuredStatus = Boolean(event.normalized_status || event.status_raw);
+  const structuredStatus = normalizeInjuryStatus(event.normalized_status || event.status_raw);
+  const text = eventEvidenceText(event);
+  const returnSignal = firstAnchoredStatusSignal({
+    text,
+    playerName: event.player_name,
+    signals: new Set(['activated_or_cleared']),
+  });
+  const restrictiveSignal = firstAnchoredStatusSignal({
+    text,
+    playerName: event.player_name,
+    signals: new Set(['placed_on_pup_or_nfi', 'placed_on_ir', 'season_ending_absence']),
+  });
+
+  if (hasStructuredStatus && RESTRICTIVE_STRUCTURED_STATUSES.has(structuredStatus) && returnSignal) {
+    return {
+      code: 'restrictive_status_vs_return_text',
+      structured_status: structuredStatus,
+      text_signal: returnSignal.signal,
+      matched_text: compactSummary(returnSignal.matched_text, 140),
+      rationale: 'Structured status is restrictive while player-anchored source text reports activation, clearance, or a practice return.',
+    };
+  }
+
+  if (hasStructuredStatus && OPEN_STRUCTURED_STATUSES.has(structuredStatus) && restrictiveSignal) {
+    return {
+      code: 'open_status_vs_restrictive_text',
+      structured_status: structuredStatus,
+      text_signal: restrictiveSignal.signal,
+      matched_text: compactSummary(restrictiveSignal.matched_text, 140),
+      rationale: 'Structured status is open/active while player-anchored source text reports a restrictive roster placement or season-ending absence.',
+    };
+  }
+
+  if (event.availability_trend === 'worsening' && returnSignal) {
+    return {
+      code: 'worsening_label_vs_return_text',
+      structured_status: structuredStatus,
+      text_signal: returnSignal.signal,
+      matched_text: compactSummary(returnSignal.matched_text, 140),
+      rationale: 'Availability trend is worsening while player-anchored source text reports activation, clearance, or a practice return.',
+    };
+  }
+
+  if (event.availability_trend === 'improving' && restrictiveSignal) {
+    return {
+      code: 'improving_label_vs_restrictive_text',
+      structured_status: structuredStatus,
+      text_signal: restrictiveSignal.signal,
+      matched_text: compactSummary(restrictiveSignal.matched_text, 140),
+      rationale: 'Availability trend is improving while player-anchored source text reports a restrictive roster placement or season-ending absence.',
+    };
+  }
+
+  return null;
+}
+
+export function applyAvailabilityEvidenceReview(event = {}) {
+  const conflict = detectAvailabilityStatusConflict(event);
+  return {
+    ...event,
+    evidence_status: conflict ? 'conflicted_intel' : 'unverified_no_conflict_detected',
+    status_conflict: conflict,
+    synthesis_eligible: !conflict,
+    needs_human_review: conflict ? true : (event.needs_human_review ?? true),
+  };
+}
+
+export function validateAvailabilityEvidence(events = []) {
+  let detectedConflictCount = 0;
+  let unflaggedContradictionCount = 0;
+  let conflictsMissingSourceCount = 0;
+  let conflictsMissingReviewFlagCount = 0;
+  let conflictsStillEligibleCount = 0;
+
+  for (const event of events || []) {
+    const detected = detectAvailabilityStatusConflict(event);
+    if (!detected) continue;
+    detectedConflictCount += 1;
+    if (event.evidence_status !== 'conflicted_intel' || !event.status_conflict) unflaggedContradictionCount += 1;
+    if (!event.source || (!event.source_url && !event.evidence_id)) conflictsMissingSourceCount += 1;
+    if (event.needs_human_review !== true) conflictsMissingReviewFlagCount += 1;
+    if (event.synthesis_eligible !== false) conflictsStillEligibleCount += 1;
+  }
+
+  const blockers = {
+    unflagged_contradiction_count: unflaggedContradictionCount,
+    conflicts_missing_source_count: conflictsMissingSourceCount,
+    conflicts_missing_review_flag_count: conflictsMissingReviewFlagCount,
+    conflicts_still_eligible_count: conflictsStillEligibleCount,
+  };
+  const blocked = Object.values(blockers).some((count) => count > 0);
+  return {
+    schema: 'availability_evidence_validation_v1',
+    status: blocked ? 'blocked' : 'pass',
+    event_count: events.length,
+    detected_conflict_count: detectedConflictCount,
+    ...blockers,
+  };
+}
+
+function applyNamedStatusReview(event, namedReviewIndex) {
+  const review = namedReviewIndex.get(String(event.player_name || '').trim().toLowerCase());
+  if (!review) return event;
+  const namedConflict = review.review_status === 'conflicted_team_assignment';
+  const namedWithheld = review.eligible_for_synthesis !== true;
+  return {
+    ...event,
+    evidence_status: event.status_conflict || namedConflict
+      ? 'conflicted_intel'
+      : (namedWithheld ? 'withheld_pending_confirmation' : event.evidence_status),
+    synthesis_eligible: event.synthesis_eligible !== false && !namedWithheld,
+    needs_human_review: namedWithheld ? true : event.needs_human_review,
+    named_status_review: {
+      expected_team: review.expected_team,
+      observed_team_assignments: review.observed_team_assignments || [],
+      review_status: review.review_status,
+      human_verified: review.human_verified === true,
+      eligible_for_synthesis: review.eligible_for_synthesis === true,
+      missing: review.missing || [],
+      disposition: review.disposition || null,
+    },
+  };
 }
 
 export function linkedMarketsForAvailability(text = '') {
@@ -204,6 +428,7 @@ export function clusterAvailabilitySummary(events = []) {
   };
 
   for (const event of events || []) {
+    if (event.synthesis_eligible === false) continue;
     const group = event.availability_group || availabilityGroup(event.position);
     if (!summary[group]) continue;
     summary[group].total += 1;
@@ -226,7 +451,7 @@ export function availabilityEventFromInjuryRecord(record, options = {}) {
   const text = [record.position, record.short_comment, record.long_comment, record.status_raw, record.injury_status].filter(Boolean).join(' ');
   const team = getTeamAbbreviation(record.team_abbr) || record.team_abbr || '';
   const status = normalizeInjuryStatus(record.injury_status || record.status_raw);
-  const { event_type, availability_trend } = classifyAvailabilityEvent({ status, text });
+  const { event_type, availability_trend } = classifyAvailabilityEvent({ status, text, playerName: record.player_name });
   const injuryType = record.injury_type || parseInjuryType(record.short_comment);
   const playerName = record.player_name || 'Unknown';
   const capturedAt = record.captured_at || options.generatedAt || new Date().toISOString();
@@ -246,7 +471,7 @@ export function availabilityEventFromInjuryRecord(record, options = {}) {
     text,
   });
 
-  return {
+  return applyAvailabilityEvidenceReview({
     id,
     evidence_id: evidenceId,
     season: Number(options.season || 2026),
@@ -288,13 +513,13 @@ export function availabilityEventFromInjuryRecord(record, options = {}) {
     practice_1: record.practice_1 ?? null,
     practice_2: record.practice_2 ?? null,
     practice_3: record.practice_3 ?? null,
-  };
+  });
 }
 
 export function availabilityEventFromTrainingCampItem(item, options = {}) {
   const text = [item.summary, item.raw_excerpt, item.betting_relevance, item.signal_type].filter(Boolean).join(' ');
   const statusHint = item.signal_type === 'injury' ? text : item.status_raw;
-  const { event_type, availability_trend } = classifyAvailabilityEvent({ status: statusHint, text });
+  const { event_type, availability_trend } = classifyAvailabilityEvent({ status: statusHint, text, playerName: item.player });
   if (!['return_to_practice', 'limited_return', 'limited', 'setback', 'pup', 'ir', 'out', 'doubtful', 'probable', 'active_news'].includes(event_type)) {
     return null;
   }
@@ -317,7 +542,7 @@ export function availabilityEventFromTrainingCampItem(item, options = {}) {
   ].join('|')).slice(0, 20)}`;
   const id = `avail_${sha([options.season || item.season || 2026, evidenceId].join('|')).slice(0, 16)}`;
 
-  return {
+  return applyAvailabilityEvidenceReview({
     id,
     evidence_id: evidenceId,
     season: Number(options.season || item.season || 2026),
@@ -351,7 +576,7 @@ export function availabilityEventFromTrainingCampItem(item, options = {}) {
     impact_bucket: impactBucket(item.position, text),
     availability_group: availabilityGroup(item.position),
     dedupe_key: dedupeKey,
-  };
+  });
 }
 
 export function dedupeAvailabilityEvents(events = []) {
@@ -372,7 +597,7 @@ export function dedupeAvailabilityEvents(events = []) {
       String(rawEvent.player_name || rawEvent.short_summary || '').toLowerCase(),
       rawEvent.event_type,
     ].join('|')).slice(0, 20)}`;
-    const event = {
+    const event = applyAvailabilityEvidenceReview({
       ...rawEvent,
       evidence_id: evidenceId,
       team_abbr: primaryTeam,
@@ -387,7 +612,7 @@ export function dedupeAvailabilityEvents(events = []) {
         contract_origin: rawEvent.team_identity?.contract_origin || (rawEvent.team_identity ? 'resolved_v1' : 'legacy_normalized'),
       },
       team_nick: normalizeTeam(primaryTeam) || rawEvent.team_nick || null,
-    };
+    });
     event.team_identity.primary_team = event.primary_team;
     event.team_identity.related_teams = event.related_teams;
 
@@ -413,7 +638,7 @@ export function dedupeAvailabilityEvents(events = []) {
       existing.team_abbr,
       event.team_abbr,
     );
-    byKey.set(key, {
+    byKey.set(key, applyAvailabilityEvidenceReview({
       ...winner,
       team_abbr: primary,
       primary_team: primary,
@@ -432,7 +657,7 @@ export function dedupeAvailabilityEvents(events = []) {
           ...(event.team_identity?.flags || []),
         ])],
       },
-    });
+    }));
   }
   return [...byKey.values()].sort((a, b) =>
     String(b.published_at || b.captured_at).localeCompare(String(a.published_at || a.captured_at)) ||
@@ -440,7 +665,7 @@ export function dedupeAvailabilityEvents(events = []) {
   );
 }
 
-export function buildAvailabilitySnapshot({ season = 2026, generatedAt = new Date().toISOString(), injuryRecords = [], trainingCampItems = [], sourceHealth = [] } = {}) {
+export function buildAvailabilitySnapshot({ season = 2026, generatedAt = new Date().toISOString(), injuryRecords = [], trainingCampItems = [], sourceHealth = [], namedStatusReview = null } = {}) {
   const injuryEvents = injuryRecords.map((record) => availabilityEventFromInjuryRecord(record, { season, generatedAt }));
   const campEvents = trainingCampItems.map((item) => availabilityEventFromTrainingCampItem(item, { season, generatedAt })).filter(Boolean);
   return buildAvailabilitySnapshotFromEvents({
@@ -448,6 +673,7 @@ export function buildAvailabilitySnapshot({ season = 2026, generatedAt = new Dat
     generatedAt,
     events: [...injuryEvents, ...campEvents],
     sourceHealth,
+    namedStatusReview,
   });
 }
 
@@ -457,9 +683,13 @@ export function buildAvailabilitySnapshotFromEvents({
   events: rawEvents = [],
   sourceHealth = [],
   normalization = null,
+  namedStatusReview = null,
 } = {}) {
-  const events = dedupeAvailabilityEvents(rawEvents);
+  const namedReviewIndex = indexNamedStatusReviews(namedStatusReview || {});
+  const events = dedupeAvailabilityEvents(rawEvents).map((event) => applyNamedStatusReview(event, namedReviewIndex));
   const teamIdentityValidation = auditTeamIdentity(events, { teamField: 'team_abbr' });
+  const evidenceValidation = validateAvailabilityEvidence(events);
+  const namedStatusReviewValidation = namedStatusReview ? validateNamedStatusReview(namedStatusReview) : null;
   const teams = {};
   for (const event of events) {
     const key = event.team_abbr || 'UNK';
@@ -467,6 +697,8 @@ export function buildAvailabilitySnapshotFromEvents({
       team_abbr: key,
       team_nick: event.team_nick,
       event_count: 0,
+      synthesis_eligible_count: 0,
+      conflicted_intel_count: 0,
       improving_count: 0,
       worsening_count: 0,
       major_count: 0,
@@ -478,16 +710,18 @@ export function buildAvailabilitySnapshotFromEvents({
       events: [],
     };
     team.event_count += 1;
-    if (event.availability_trend === 'improving') team.improving_count += 1;
-    if (event.availability_trend === 'worsening') team.worsening_count += 1;
-    if (event.impact_bucket !== 'depth_only') team.major_count += 1;
+    if (event.synthesis_eligible === false) team.conflicted_intel_count += 1;
+    else team.synthesis_eligible_count += 1;
+    if (event.synthesis_eligible !== false && event.availability_trend === 'improving') team.improving_count += 1;
+    if (event.synthesis_eligible !== false && event.availability_trend === 'worsening') team.worsening_count += 1;
+    if (event.synthesis_eligible !== false && event.impact_bucket !== 'depth_only') team.major_count += 1;
     if (event.availability_group === 'offensive_line') {
       team.offensive_line_count += 1;
-      if (event.availability_trend === 'worsening') team.offensive_line_worsening_count += 1;
+      if (event.synthesis_eligible !== false && event.availability_trend === 'worsening') team.offensive_line_worsening_count += 1;
     }
     if (event.availability_group === 'defensive_front') {
       team.defensive_front_count += 1;
-      if (event.availability_trend === 'worsening') team.defensive_front_worsening_count += 1;
+      if (event.synthesis_eligible !== false && event.availability_trend === 'worsening') team.defensive_front_worsening_count += 1;
     }
     if (team.events.length < 12) team.events.push(event);
   }
@@ -502,13 +736,16 @@ export function buildAvailabilitySnapshotFromEvents({
       season,
       generated_at: generatedAt,
       event_count: events.length,
+      synthesis_eligible_count: events.filter((event) => event.synthesis_eligible !== false).length,
+      conflicted_intel_count: events.filter((event) => event.evidence_status === 'conflicted_intel').length,
+      needs_confirmation_count: events.filter((event) => event.evidence_status === 'withheld_pending_confirmation').length,
       unique_evidence_count: teamIdentityValidation.unique_evidence_count,
       teams_with_events: Object.keys(teams).length,
-      improving_count: events.filter((e) => e.availability_trend === 'improving').length,
-      worsening_count: events.filter((e) => e.availability_trend === 'worsening').length,
-      major_count: events.filter((e) => e.impact_bucket !== 'depth_only').length,
-      offensive_line_worsening_count: events.filter((e) => e.availability_group === 'offensive_line' && e.availability_trend === 'worsening').length,
-      defensive_front_worsening_count: events.filter((e) => e.availability_group === 'defensive_front' && e.availability_trend === 'worsening').length,
+      improving_count: events.filter((e) => e.synthesis_eligible !== false && e.availability_trend === 'improving').length,
+      worsening_count: events.filter((e) => e.synthesis_eligible !== false && e.availability_trend === 'worsening').length,
+      major_count: events.filter((e) => e.synthesis_eligible !== false && e.impact_bucket !== 'depth_only').length,
+      offensive_line_worsening_count: events.filter((e) => e.synthesis_eligible !== false && e.availability_group === 'offensive_line' && e.availability_trend === 'worsening').length,
+      defensive_front_worsening_count: events.filter((e) => e.synthesis_eligible !== false && e.availability_group === 'defensive_front' && e.availability_trend === 'worsening').length,
       teams_with_ol_cluster_risk: Object.values(teams).filter((team) => team.cluster_risks?.offensive_line?.cluster_risk).length,
       teams_with_defensive_front_cluster_risk: Object.values(teams).filter((team) => team.cluster_risks?.defensive_front?.cluster_risk).length,
       recommendation_status: 'availability_intel_only_not_picks',
@@ -519,6 +756,8 @@ export function buildAvailabilitySnapshotFromEvents({
       },
       source_health: sourceHealth,
       team_identity_validation: teamIdentityValidation,
+      availability_evidence_validation: evidenceValidation,
+      ...(namedStatusReviewValidation ? { named_status_review_validation: namedStatusReviewValidation } : {}),
       ...(normalization ? { normalization } : {}),
     },
     events,

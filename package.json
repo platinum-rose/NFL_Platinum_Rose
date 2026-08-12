@@ -42,6 +42,7 @@
     "player-availability:live": "node scripts/build-player-availability.js --live-injuries",
     "evidence:normalize-team-identity": "node scripts/normalize-team-evidence-artifacts.js",
     "projected-starters": "node scripts/build-projected-starters.js",
+    "availability:reconcile-evidence": "node scripts/reconcile-availability-evidence.js",
     "availability:impact-digest": "node scripts/build-availability-impact-digest.js",
     "secondary-matchups": "node scripts/build-secondary-matchup-vulnerability.js",
     "beat-reports:import": "node scripts/build-beat-nuggets-importer.js",

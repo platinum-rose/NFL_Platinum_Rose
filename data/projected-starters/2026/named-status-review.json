@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "schema": "named_status_review_v1",
+    "season": 2026,
+    "reviewed_at": "2026-08-12T03:38:40.822Z",
+    "review_scope": "Bills Connor McGovern injury/starter status and Packers Micah Parsons team/injury status",
+    "source_policy": "local_artifacts_only_no_fresh_network_confirmation",
+    "recommendation_status": "withheld_research_context_not_picks",
+    "guardrails": {
+      "live_model_calls": false,
+      "network_fetches": false,
+      "supabase_writes": false,
+      "official_picks_generated": false
+    }
+  },
+  "cases": [
+    {
+      "id": "named-status-buf-connor-mcgovern-2026-08-11",
+      "player_name": "Connor McGovern",
+      "expected_team": "BUF",
+      "observed_team_assignments": [
+        "BUF"
+      ],
+      "position": "C",
+      "review_status": "withheld_pending_confirmation",
+      "human_verified": false,
+      "human_review_required": true,
+      "eligible_for_synthesis": false,
+      "known": [
+        "The current local ESPN-derived availability row belongs to Buffalo and reports that McGovern left the August 8 practice early with an apparent right-leg issue.",
+        "The current projected-starters artifact contains no Connor McGovern row, so the local packet does not establish a current starting role."
+      ],
+      "missing": [
+        "current official or directly reviewed practice/health update after the reported early exit",
+        "current human-verified Bills depth-chart or first-team role confirmation"
+      ],
+      "evidence": [
+        {
+          "artifact_path": "data/player-availability/latest.json",
+          "evidence_id": "availability_evidence_9ec68e38b32469e22e38",
+          "published_at": "2026-08-09T01:05:00.000Z",
+          "source": "ESPN injuries API",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries"
+        }
+      ],
+      "disposition": "Keep the injury item in needs-confirmation context. Do not treat it as a confirmed absence, recovery, or starter-impact input."
+    },
+    {
+      "id": "named-status-gb-micah-parsons-2026-08-11",
+      "player_name": "Micah Parsons",
+      "expected_team": "GB",
+      "observed_team_assignments": [
+        "DAL",
+        "GB"
+      ],
+      "position": "DE",
+      "review_status": "conflicted_team_assignment",
+      "human_verified": false,
+      "human_review_required": true,
+      "eligible_for_synthesis": false,
+      "known": [
+        "The current ESPN-derived availability evidence was originally tagged DAL while its text describes a Week 6 game against Dallas and carries GB as related context.",
+        "A current Green Bay beat artifact owns a Micah Parsons Week 6 return-target item under GB, but it remains human-review context rather than an official team/depth-chart confirmation.",
+        "The current projected-starters artifact contains no Micah Parsons row."
+      ],
+      "missing": [
+        "current human-verified official roster/team confirmation",
+        "current human-verified PUP, injury, and return-timeline status",
+        "source-reconciled starter/role confirmation"
+      ],
+      "evidence": [
+        {
+          "artifact_path": "data/player-availability/latest.json",
+          "evidence_id": "availability_evidence_d0467a76b82aada690c5",
+          "published_at": "2026-08-04T19:29:00.000Z",
+          "source": "ESPN injuries API",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries"
+        },
+        {
+          "artifact_path": "data/training-camp/2026/latest.json",
+          "evidence_id": "camp_evidence_82b39fc9d9f87f59ad73",
+          "published_at": "2026-08-10T19:10:00.000Z",
+          "source": "GB Beat - Acme Packing Co",
+          "source_url": "https://www.acmepackingcompany.com/green-bay-packers-injuries/84590/micah-parsons-says-his-most-optimistic-return-target-is-week-6-vs-cowboys"
+        }
+      ],
+      "disposition": "Treat the team assignment and injury signal as conflicted intel. Withhold from team aggregates and starter-impact synthesis until human confirmation resolves both ownership and status."
+    }
+  ]
+}

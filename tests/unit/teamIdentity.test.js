@@ -35,6 +35,19 @@ describe('team identity contract', () => {
     expect(ownership.flags).toEqual([]);
   });
 
+  it('keeps the explicit primary team ahead of already-normalized related teams', () => {
+    const ownership = resolveEvidenceTeamOwnership({
+      declaredTeam: 'DAL',
+      declaredTeams: ['GB'],
+      source: 'ESPN injuries API',
+      text: 'The player is targeting a return against the Cowboys.',
+    });
+
+    expect(ownership.primary_team).toBe('DAL');
+    expect(ownership.related_teams).toContain('GB');
+    expect(ownership.flags).toContain('multiple_declared_teams');
+  });
+
   it('blocks duplicate evidence rows or source-prefix mismatches', () => {
     const audit = auditTeamIdentity([
       { evidence_id: 'same', team: 'GB', source: 'BUF Beat - Buffalo Rumblings' },

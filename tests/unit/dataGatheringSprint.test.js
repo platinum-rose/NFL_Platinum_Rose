@@ -4,11 +4,13 @@ import { buildAvailabilityImpactDigest } from '../../scripts/build-availability-
 import { buildPredictionMarketMap } from '../../scripts/build-prediction-market-map.js';
 import { buildTrainingCampCoverageFill } from '../../scripts/build-training-camp-coverage-fill.js';
 import { buildPodcastYoutubeFreshnessReconciliation } from '../../scripts/build-podcast-youtube-freshness-reconciliation.js';
+import { validateNamedStatusReview } from '../../agents/lib/named-status-review.js';
 
 describe('data gathering sprint contracts', () => {
   it('builds a projected-starters snapshot with honest manual coverage status', async () => {
     const { snapshot } = await buildProjectedStarters({
       availability: 'tests/fixtures/data-gathering-availability-mini.json',
+      namedStatusReview: 'tests/fixtures/data-gathering-named-status-review-mini.json',
       generatedAt: '2026-07-30T12:30:00.000Z',
       dryRun: true,
     });
@@ -19,23 +21,100 @@ describe('data gathering sprint contracts', () => {
     expect(snapshot.teams.KC.coverage_status).toBe('estimated_from_local_starter_language');
     expect(snapshot.teams.KC.missing).toContain('manual all-position depth chart');
     expect(snapshot.meta.teams_needing_manual_depth_chart).toBe(32);
+    expect(snapshot.meta.named_status_review_validation.status).toBe('pass');
+    expect(snapshot.meta.inputs.availability.path).toBe('tests/fixtures/data-gathering-availability-mini.json');
+    expect(snapshot.meta.inputs.named_status_review.validation_status).toBe('pass');
+    expect(snapshot.named_status_reviews).toHaveLength(2);
   });
 
   it('builds an impact digest with starter matching and classification warnings', async () => {
     const { digest } = await buildAvailabilityImpactDigest({
       availability: 'tests/fixtures/data-gathering-availability-mini.json',
       projectedStarters: 'tests/fixtures/data-gathering-projected-starters-mini.json',
+      namedStatusReview: 'tests/fixtures/data-gathering-named-status-review-mini.json',
       generatedAt: '2026-07-30T12:30:00.000Z',
       dryRun: true,
     });
 
     const starterEvent = digest.top_events.find((event) => event.player_name === 'Test Starter');
     const warningEvent = digest.top_events.find((event) => event.player_name === 'Test Tackle');
+    const mcGovern = digest.top_events.find((event) => event.player_name === 'Connor McGovern');
+    const parsons = digest.top_events.find((event) => event.player_name === 'Micah Parsons');
 
     expect(digest.meta.schema).toBe('starter_impact_availability_digest_v1');
     expect(starterEvent.starter_match.role).toBe('manual_projection');
     expect(warningEvent.signal).toBe('classification_review');
     expect(warningEvent.classification_warning).toBe('worsening_label_conflicts_with_improving_text');
+    expect(mcGovern.signal).toBe('needs_confirmation');
+    expect(mcGovern.synthesis_eligible).toBe(false);
+    expect(parsons.signal).toBe('conflicted_intel');
+    expect(parsons.synthesis_eligible).toBe(false);
+    expect(digest.meta.named_status_review_validation.status).toBe('pass');
+    expect(digest.meta.inputs.projected_starters.path).toBe('tests/fixtures/data-gathering-projected-starters-mini.json');
+    expect(digest.meta.inputs.named_status_review.validation_status).toBe('pass');
+  });
+
+  it('blocks a named case that claims confirmation without human and source proof', () => {
+    const validation = validateNamedStatusReview({
+      cases: [
+        {
+          player_name: 'Connor McGovern',
+          expected_team: 'BUF',
+          review_status: 'confirmed_current',
+          human_verified: false,
+          eligible_for_synthesis: true,
+          evidence: [{ artifact_path: 'fixture.json', evidence_id: 'mcgovern' }],
+        },
+        {
+          player_name: 'Micah Parsons',
+          expected_team: 'GB',
+          review_status: 'conflicted_team_assignment',
+          human_verified: false,
+          human_review_required: true,
+          eligible_for_synthesis: false,
+          missing: ['team confirmation'],
+          evidence: [{ artifact_path: 'fixture.json', evidence_id: 'parsons' }],
+        },
+      ],
+    });
+
+    expect(validation.status).toBe('blocked');
+    expect(validation.invalid_cases).toContainEqual({
+      player_name: 'Connor McGovern',
+      reason: 'confirmation_missing_human_and_source_guardrails',
+    });
+  });
+
+  it('blocks duplicate required named-case rows', () => {
+    const withheld = {
+      player_name: 'Connor McGovern',
+      expected_team: 'BUF',
+      review_status: 'withheld_pending_confirmation',
+      human_verified: false,
+      human_review_required: true,
+      eligible_for_synthesis: false,
+      missing: ['confirmation'],
+      evidence: [{ artifact_path: 'fixture.json', evidence_id: 'mcgovern' }],
+    };
+    const validation = validateNamedStatusReview({
+      cases: [
+        withheld,
+        { ...withheld },
+        {
+          player_name: 'Micah Parsons',
+          expected_team: 'GB',
+          review_status: 'conflicted_team_assignment',
+          human_verified: false,
+          human_review_required: true,
+          eligible_for_synthesis: false,
+          missing: ['confirmation'],
+          evidence: [{ artifact_path: 'fixture.json', evidence_id: 'parsons' }],
+        },
+      ],
+    });
+
+    expect(validation.status).toBe('blocked');
+    expect(validation.duplicate_case_count).toBe(1);
   });
 
   it('maps prediction-market team abbreviations from tickers before fuzzy title matching', async () => {

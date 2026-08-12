@@ -35,16 +35,16 @@ The repaired contract must report three different things:
 | T01 | P0 | Team identity | Make source/feed team the primary team on team-specific feeds; store other mentioned teams as related entities only. | Zero primary-team/source-prefix mismatches in regenerated camp and availability artifacts. | code | COMPLETE — regenerated artifacts pass |
 | T02 | P0 | Alias safety | Prevent short aliases such as `NO` and `WAS` from matching ordinary prose; add NYG/NYJ and LAC/LAR disambiguation fixtures. | Team-normalization fixture suite passes with zero known collision cases. | code | COMPLETE — fixtures pass |
 | T03 | P1 | Aggregation | Deduplicate repeated article/feed records before team-level counts and strength summaries. | Aggregate counts equal unique evidence IDs, not duplicated cross-team rows. | code | COMPLETE — regenerated artifacts pass |
-| V01 | P0 | Availability | Reconcile structured status against source text and label contradictions as conflicted intel. | Zero unflagged `Active`/IR/PUP contradictions; every conflict has a source and human-review flag. | code + human review | NOT STARTED |
-| V02 | P0 | Depth charts | Confirm Bills McGovern and Packers Micah Parsons/team-status items; replace estimated-only starter claims where manual evidence exists. | Named confirmations recorded; estimated starters remain explicitly estimated elsewhere. | human review | NOT STARTED |
+| V01 | P0 | Availability | Reconcile structured status against source text and label contradictions as conflicted intel. | Zero unflagged `Active`/IR/PUP contradictions; every conflict has a source and human-review flag. | code + human review | COMPLETE — validator and rebuilt artifacts pass |
+| V02 | P0 | Depth charts | Confirm Bills McGovern and Packers Micah Parsons/team-status items; replace estimated-only starter claims where manual evidence exists. | Named confirmations recorded; estimated starters remain explicitly estimated elsewhere. | human review | WITHHELD — required cases recorded; confirmation not established |
 | P01 | P0 | Prediction markets | Fix NYG/NYJ and LAC/LAR mapping, enforce 2026 season scope, and classify contract taxonomy before team mapping. | Zero known city/team collisions and zero wrong-season contracts in fixtures. | code | NOT STARTED |
 | P02 | P0 | Coherence | Exclude liquidity-warned/ineligible contracts from actionable coherence math and preserve fee/liquidity/settlement caveats. | Coherence reports eligible-context counts separately; July 31, 77%-warned map cannot pass as an execution source. | code | NOT STARTED |
 | Y01 | P0 | YouTube | Put review, freshness, queue, and agent summary on one cohort fingerprint. | All artifacts report the same 43-item cohort and fingerprint. | code | PARTIAL — count fixed |
 | Y02 | P0 | YouTube exclusions | Hard-exclude both stale Drake Maye rows from `youtube-b9NL40Zogkw` and all evidence from `youtube-qoCm4G2Jmng`. | Forbidden episode IDs are absent from synthesis inputs and tested. | code | PARTIAL — summary guard exists |
 | O01 | P0 | Odds execution | Revalidate BKR, BetUS, and BetOnline prices at synthesis time and preserve exact venue/timestamp provenance. | Every actionable row has a current placeable venue; unavailable books are context-only. | local data + human check | NOT STARTED |
 | O02 | P0 | Exacta | Require exact two-team rows and multiple-book confirmation; keep simulation-price-only rows out of execution claims. | Bills–Packers exacta remains monitor-only until every explicit guardrail passes. | code + human check | NOT STARTED |
-| G01 | P0 | Audit gate | Make source audit block on incomplete article corpus, unresolved identity contamination, stale/mismatched YouTube cohorts, or invalid prediction mapping. | A legacy/contaminated artifact produces `blocked`, not `passable`. | code | PARTIAL — article and team-identity blockers implemented |
-| G02 | P1 | Rebuild | Rebuild all dependent artifacts deterministically after upstream fixes, in dependency order. | Each artifact names its inputs, generated time, schema version, and validation results. | code | PARTIAL — camp/availability identity rebuild complete |
+| G01 | P0 | Audit gate | Make source audit block on incomplete article corpus, unresolved identity contamination, stale/mismatched YouTube cohorts, or invalid prediction mapping. | A legacy/contaminated artifact produces `blocked`, not `passable`. | code | PARTIAL — article, team-identity, availability, and named-status blockers implemented |
+| G02 | P1 | Rebuild | Rebuild all dependent artifacts deterministically after upstream fixes, in dependency order. | Each artifact names its inputs, generated time, schema version, and validation results. | code | PARTIAL — camp, availability, projected-starters, and impact-digest rebuild complete |
 | G03 | P0 | Final verification | Run focused fixtures, full tests, lint, build, source audit, and synthesis-context validation without model or DB writes. | All commands pass; GitHub, local, and M6 resolve to the same verified commit. | code | NOT STARTED |
 
 ## Dependency Order
@@ -68,7 +68,20 @@ The team-identity tranche was completed offline on August 11 without network fet
 - `data/training-camp/2026/latest.json` normalized from 322 rows to 198 unique evidence IDs. It now reports zero duplicate evidence rows, zero primary/source-prefix mismatches, 87 corrected legacy source assignments, and 129 related-team references.
 - `data/player-availability/latest.json` normalized from 850 rows to 822 unique evidence IDs. It now reports zero duplicate evidence rows, zero primary/source-prefix mismatches, 23 corrected legacy source assignments, and 89 related-team references.
 - Honest camp coverage fell from 31 teams to 25 after false cross-team assignments were removed. This is a coverage gap, not a regression to conceal; the missing teams need real team-specific or manually reviewed evidence in a later collection pass.
-- The local source audit now accepts both identity validations, but the overall frontier gate remains blocked by the unreconstructed article corpus. The availability contradiction work (`V01`), named depth-chart confirmations (`V02`), and downstream impact-digest rebuild are still pending.
+- The local source audit accepts both identity validations. The overall frontier gate remains blocked by the unreconstructed article corpus; the availability contradiction gate now passes, while the two named cases remain explicitly withheld rather than confirmed.
+
+## V01-V02 Completion Evidence
+
+The availability/depth-chart tranche was completed offline on August 11 without network fetches, model calls, Supabase writes, recommendation persistence, or portfolio changes.
+
+- `availability_evidence_validation_v1` now compares structured status with player-anchored source text, blocks any unflagged contradiction, and requires every detected conflict to carry source evidence, a human-review flag, and `synthesis_eligible: false`.
+- The parser no longer mistakes “removed from PUP” for “placed on PUP,” handles “activated [player] off PUP/NFI” as return language, and prevents a replacement player from inheriting another named player's IR/PUP phrase. The rebuilt 822-event availability snapshot has 784 synthesis-eligible rows, 37 conflicted-intel rows, one needs-confirmation row, and zero unflagged status contradictions.
+- Thirty-six player-anchored status/classification conflicts remain visible for review but are excluded from team trend, unit-cluster, projected-starter, and impact-digest aggregates: 28 worsening labels against return/participation text, seven restrictive structured statuses against return text, and one open status against explicit IR-placement text. The 37th conflicted row is the separately gated Micah Parsons team-assignment case.
+- `data/projected-starters/2026/named-status-review.json` records both required named dispositions. Connor McGovern is withheld pending a current health update and human-verified Bills role/depth-chart source. Micah Parsons is conflicted intel because local evidence carried DAL and GB team ownership signals; current team, PUP/injury, return-timeline, and role confirmation are still missing.
+- Neither named case is represented as confirmed. Both have `human_verified: false` and `eligible_for_synthesis: false`; the named-review validator passes because the hard gate permits an explicit withheld disposition rather than a manufactured confirmation.
+- The projected-starters rebuild contains 223 estimated rows, zero manual rows, and all 32 teams needing manual depth-chart coverage. The impact digest contains 632 review rows: 594 synthesis-eligible, 37 conflicted, one needs confirmation, and zero residual classification-review rows.
+- The rebuild also fixed an idempotency bug in the prior team-identity contract: an explicit primary team now stays ahead of already-normalized related teams on subsequent passes. Compared with the committed 822-row baseline, the final availability rebuild has zero player-event classification changes and zero primary-team changes; only review/eligibility metadata and aggregate results changed.
+- `V02` therefore closes the contamination path but not the real-world information gap. A later human/source review can promote a named case only with current source evidence; until then both remain withheld.
 
 ## Hard Frontier Re-entry Gates
 
@@ -89,7 +102,7 @@ The next frontier synthesis is allowed only when all of these are true:
 
 1. article review;
 2. training-camp identity-normalized artifact;
-3. projected starters, availability, and impact digest;
+3. availability, projected starters, and impact digest;
 4. prediction-market map and coherence;
 5. YouTube queue/review/freshness/agent summary;
 6. source audit;

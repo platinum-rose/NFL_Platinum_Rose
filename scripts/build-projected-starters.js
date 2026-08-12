@@ -5,6 +5,7 @@ import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { NFL_TEAMS, getTeamAbbreviation, normalizeTeam } from '../src/lib/teams.js';
+import { indexNamedStatusReviews, validateNamedStatusReview } from '../agents/lib/named-status-review.js';
 import { parseArgs, nowIso } from './training-camp-intel.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -206,7 +207,7 @@ function mergeStarterRows(rows) {
   return [...byPlayer.values()];
 }
 
-function buildTeams(rows) {
+function buildTeams(rows, namedReviews = []) {
   const teams = {};
   for (const team of Object.values(NFL_TEAMS)) {
     teams[team.abbreviation] = {
@@ -217,6 +218,7 @@ function buildTeams(rows) {
       estimated: [],
       missing: ['verified all-position depth chart', 'manual source count reconciliation'],
       players: [],
+      named_status_reviews: [],
     };
   }
 
@@ -239,6 +241,23 @@ function buildTeams(rows) {
       team.missing = team.known.length
         ? ['independent second-source depth-chart reconciliation']
         : ['manual all-position depth chart', 'independent source confirmation'];
+    }
+  }
+
+  for (const review of namedReviews) {
+    const team = teams[review.expected_team];
+    if (!team) continue;
+    team.named_status_reviews.push({
+      player_name: review.player_name,
+      review_status: review.review_status,
+      eligible_for_synthesis: review.eligible_for_synthesis === true,
+      missing: review.missing || [],
+    });
+    if (review.eligible_for_synthesis !== true) {
+      team.missing = [...new Set([
+        ...team.missing,
+        `${review.player_name}: ${review.review_status.replace(/_/g, ' ')}`,
+      ])];
     }
   }
   return teams;
@@ -264,6 +283,13 @@ function renderMarkdown(snapshot) {
     lines.push(`| ${team.team} | ${team.coverage_status} | ${team.players.length} | ${team.missing.join('; ')} |`);
   }
 
+  lines.push('', '## Named Status Review Gate', '');
+  for (const review of snapshot.named_status_reviews || []) {
+    lines.push(`- ${review.expected_team} ${review.player_name}: ${review.review_status}; synthesis eligible ${review.eligible_for_synthesis ? 'yes' : 'no'}`);
+    lines.push(`  - Missing: ${(review.missing || []).join('; ') || 'none'}`);
+    lines.push(`  - Disposition: ${review.disposition}`);
+  }
+
   lines.push('', '## Player Signals', '');
   for (const team of Object.values(snapshot.teams).filter((t) => t.players.length).sort((a, b) => a.team.localeCompare(b.team))) {
     lines.push(`### ${team.team}`, '');
@@ -281,12 +307,25 @@ function renderMarkdown(snapshot) {
 export async function buildProjectedStarters(options = {}) {
   const season = Number(options.season || DEFAULT_SEASON);
   const generatedAt = options.generatedAt || nowIso();
-  const availability = await readJson(options.availability || path.join('data', 'player-availability', 'latest.json'), { events: [] });
+  const availabilityInput = options.availability || path.join('data', 'player-availability', 'latest.json');
+  const namedStatusReviewInput = options.namedStatusReview || path.join('data', 'projected-starters', String(season), 'named-status-review.json');
+  const availability = await readJson(availabilityInput, { events: [] });
+  const namedStatusReview = await readJson(
+    namedStatusReviewInput,
+    { cases: [] },
+  );
+  const namedReviewValidation = validateNamedStatusReview(namedStatusReview);
+  const namedReviewIndex = indexNamedStatusReviews(namedStatusReview);
   const manualDir = path.join(ROOT, options.manualDir || path.join('data', 'projected-starters', String(season), 'manual'));
   const manualRows = await readManualStarterRows(manualDir);
-  const estimatedRows = (availability.events || []).map(starterSignalFromEvent).filter(Boolean);
-  const players = mergeStarterRows([...manualRows, ...estimatedRows]);
-  const teams = buildTeams(players);
+  const estimatedRows = (availability.events || [])
+    .filter((event) => event.synthesis_eligible !== false)
+    .filter((event) => namedReviewIndex.get(String(event.player_name || '').toLowerCase())?.eligible_for_synthesis !== false)
+    .map(starterSignalFromEvent)
+    .filter(Boolean);
+  const eligibleManualRows = manualRows.filter((row) => namedReviewIndex.get(String(row.player_name || '').toLowerCase())?.eligible_for_synthesis !== false);
+  const players = mergeStarterRows([...eligibleManualRows, ...estimatedRows]);
+  const teams = buildTeams(players, namedStatusReview.cases || []);
   const snapshot = {
     meta: {
       schema: 'projected_starters_snapshot_v1',
@@ -295,9 +334,25 @@ export async function buildProjectedStarters(options = {}) {
       source_policy: 'manual_depth_chart_rows_plus_local_availability_starter_language',
       player_count: players.length,
       manual_row_count: manualRows.length,
+      eligible_manual_row_count: eligibleManualRows.length,
       estimated_row_count: estimatedRows.length,
+      withheld_named_manual_row_count: manualRows.length - eligibleManualRows.length,
       teams_with_signals: Object.values(teams).filter((team) => team.players.length).length,
       teams_needing_manual_depth_chart: Object.values(teams).filter((team) => !team.known.length).length,
+      named_status_review_validation: namedReviewValidation,
+      inputs: {
+        availability: {
+          path: availabilityInput,
+          generated_at: availability.meta?.generated_at || null,
+          evidence_validation_status: availability.meta?.availability_evidence_validation?.status || null,
+        },
+        named_status_review: {
+          path: namedStatusReviewInput,
+          reviewed_at: namedStatusReview.meta?.reviewed_at || null,
+          validation_status: namedReviewValidation.status,
+        },
+        manual_directory: path.relative(ROOT, manualDir),
+      },
       recommendation_status: 'research_context_only_not_picks',
       guardrails: {
         live_model_calls: false,
@@ -306,11 +361,15 @@ export async function buildProjectedStarters(options = {}) {
         official_picks_generated: false,
       },
     },
+    named_status_reviews: namedStatusReview.cases || [],
     teams,
     players,
   };
 
   if (options.dryRun) return { snapshot, outputs: null };
+  if (namedReviewValidation.status !== 'pass') {
+    throw new Error('Refusing to write projected starters: named status review validation is blocked.');
+  }
 
   const outDir = path.join(ROOT, 'data', 'projected-starters', String(season));
   await mkdir(outDir, { recursive: true });
@@ -334,6 +393,7 @@ async function main() {
     season: Number(args.season || DEFAULT_SEASON),
     availability: args.availability || null,
     manualDir: args['manual-dir'] || null,
+    namedStatusReview: args['named-status-review'] || null,
     date: args.date || null,
     dryRun: args['dry-run'] === true || args['no-persist'] === true,
   });

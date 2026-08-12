@@ -2,7 +2,7 @@
   "meta": {
     "schema": "player_availability_snapshot_v1",
     "season": 2026,
-    "event_count": 3
+    "event_count": 5
   },
   "events": [
     {
@@ -63,6 +63,48 @@
       "linked_markets": ["wins"],
       "impact_bucket": "skill_major",
       "availability_group": "offensive_skill",
+      "needs_human_review": true
+    },
+    {
+      "id": "avail_test_mcgovern",
+      "evidence_id": "avail_test_mcgovern",
+      "season": 2026,
+      "player_name": "Connor McGovern",
+      "team_abbr": "BUF",
+      "position": "C",
+      "source": "Fixture",
+      "source_type": "structured_injury",
+      "source_url": "https://example.test/mcgovern",
+      "published_at": "2026-07-30T12:30:00.000Z",
+      "event_type": "setback",
+      "availability_trend": "worsening",
+      "short_summary": "McGovern left practice early with a leg issue.",
+      "supporting_quote": "McGovern left practice early with a leg issue.",
+      "linked_markets": ["wins"],
+      "impact_bucket": "offensive_line_major",
+      "availability_group": "offensive_line",
+      "synthesis_eligible": true,
+      "needs_human_review": true
+    },
+    {
+      "id": "avail_test_parsons",
+      "evidence_id": "avail_test_parsons",
+      "season": 2026,
+      "player_name": "Micah Parsons",
+      "team_abbr": "DAL",
+      "position": "DE",
+      "source": "Fixture",
+      "source_type": "structured_injury",
+      "source_url": "https://example.test/parsons",
+      "published_at": "2026-07-30T12:40:00.000Z",
+      "event_type": "out",
+      "availability_trend": "worsening",
+      "short_summary": "Parsons is targeting a Week 6 return against Dallas.",
+      "supporting_quote": "Parsons is targeting a Week 6 return against Dallas.",
+      "linked_markets": ["wins", "division"],
+      "impact_bucket": "defensive_front_major",
+      "availability_group": "defensive_front",
+      "synthesis_eligible": true,
       "needs_human_review": true
     }
   ]

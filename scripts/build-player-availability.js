@@ -122,7 +122,7 @@ export function renderAvailabilityMarkdown(snapshot) {
     '',
     `Season: ${snapshot.meta.season}`,
     `Generated: ${snapshot.meta.generated_at}`,
-    `Events: ${snapshot.meta.event_count} | Teams: ${snapshot.meta.teams_with_events} | Improving: ${snapshot.meta.improving_count} | Worsening: ${snapshot.meta.worsening_count} | Major: ${snapshot.meta.major_count}`,
+    `Events: ${snapshot.meta.event_count} | Synthesis eligible: ${snapshot.meta.synthesis_eligible_count ?? snapshot.meta.event_count} | Conflicted intel: ${snapshot.meta.conflicted_intel_count || 0} | Teams: ${snapshot.meta.teams_with_events} | Improving: ${snapshot.meta.improving_count} | Worsening: ${snapshot.meta.worsening_count} | Major: ${snapshot.meta.major_count}`,
     `OL worsening: ${snapshot.meta.offensive_line_worsening_count || 0} | Defensive-front worsening: ${snapshot.meta.defensive_front_worsening_count || 0} | OL cluster teams: ${snapshot.meta.teams_with_ol_cluster_risk || 0} | Defensive-front cluster teams: ${snapshot.meta.teams_with_defensive_front_cluster_risk || 0}`,
     '',
     '## Source Health',
@@ -138,13 +138,14 @@ export function renderAvailabilityMarkdown(snapshot) {
   lines.push('', '## Team Events', '');
   for (const team of Object.values(snapshot.teams).sort((a, b) => b.major_count - a.major_count || b.event_count - a.event_count || a.team_abbr.localeCompare(b.team_abbr))) {
     lines.push(`### ${team.team_abbr}`, '');
-    lines.push(`Events: ${team.event_count} | Improving: ${team.improving_count} | Worsening: ${team.worsening_count} | Major: ${team.major_count}`, '');
+    lines.push(`Events: ${team.event_count} | Synthesis eligible: ${team.synthesis_eligible_count ?? team.event_count} | Conflicted intel: ${team.conflicted_intel_count || 0} | Improving: ${team.improving_count} | Worsening: ${team.worsening_count} | Major: ${team.major_count}`, '');
     lines.push(`OL: ${team.offensive_line_count || 0} total / ${team.offensive_line_worsening_count || 0} worsening${team.cluster_risks?.offensive_line?.cluster_risk ? ' / cluster risk' : ''} | Defensive front: ${team.defensive_front_count || 0} total / ${team.defensive_front_worsening_count || 0} worsening${team.cluster_risks?.defensive_front?.cluster_risk ? ' / cluster risk' : ''}${team.cluster_risks?.defensive_front?.opponent_offense_boost_risk ? ' / opponent offense boost risk' : ''}`, '');
     for (const event of team.events) {
       const player = event.player_name ? `${event.player_name}${event.position ? ` (${event.position})` : ''}` : 'Team item';
       lines.push(`- **${event.availability_trend}/${event.event_type}** ${player}: ${event.short_summary}`);
       lines.push(`  - Source: ${event.source}${event.published_at ? ` | ${event.published_at}` : ''}`);
       lines.push(`  - Markets: ${event.linked_markets.join(', ')} | Impact: ${event.impact_bucket} | Group: ${event.availability_group || 'other'}${event.needs_human_review ? ' | human review' : ''}`);
+      if (event.status_conflict) lines.push(`  - Conflicted intel: ${event.status_conflict.code}; excluded from synthesis aggregates`);
       if (event.supporting_quote) lines.push(`  - Evidence: ${event.supporting_quote}`);
     }
     lines.push('');
@@ -157,7 +158,7 @@ export function renderAvailabilityHtml(snapshot) {
     .sort((a, b) => b.major_count - a.major_count || b.event_count - a.event_count || a.team_abbr.localeCompare(b.team_abbr))
     .map((team) => `<section class="team">
       <h2>${escapeHtml(team.team_abbr)} <span>${team.event_count} events</span></h2>
-      <p class="muted">Improving ${team.improving_count} | Worsening ${team.worsening_count} | Major ${team.major_count}</p>
+      <p class="muted">Eligible ${team.synthesis_eligible_count ?? team.event_count} | Conflicted ${team.conflicted_intel_count || 0} | Improving ${team.improving_count} | Worsening ${team.worsening_count} | Major ${team.major_count}</p>
       <p class="muted">OL ${team.offensive_line_count || 0}/${team.offensive_line_worsening_count || 0} worsening${team.cluster_risks?.offensive_line?.cluster_risk ? ' | OL cluster risk' : ''} | Defensive front ${team.defensive_front_count || 0}/${team.defensive_front_worsening_count || 0} worsening${team.cluster_risks?.defensive_front?.cluster_risk ? ' | defensive-front cluster risk' : ''}${team.cluster_risks?.defensive_front?.opponent_offense_boost_risk ? ' | opponent offense boost risk' : ''}</p>
       <ul>
         ${team.events.map((event) => `<li>
@@ -166,7 +167,7 @@ export function renderAvailabilityHtml(snapshot) {
           <p>${escapeHtml(event.short_summary)}</p>
           <p class="muted">${escapeHtml(event.source)}${event.published_at ? ` | ${escapeHtml(event.published_at)}` : ''}</p>
           <p class="muted">Markets: ${escapeHtml(event.linked_markets.join(', '))} | Impact: ${escapeHtml(event.impact_bucket)} | Group: ${escapeHtml(event.availability_group || 'other')}${event.needs_human_review ? ' | human review' : ''}</p>
-        </li>`).join('\n')}
+${event.status_conflict ? `          <p class="muted">Conflicted intel: ${escapeHtml(event.status_conflict.code)} | excluded from synthesis aggregates</p>\n` : ''}        </li>`).join('\n')}
       </ul>
     </section>`)
     .join('\n');
@@ -200,6 +201,8 @@ export function renderAvailabilityHtml(snapshot) {
     <div class="notice">Local availability intel only. Review/highlight before using in futures synthesis.</div>
     <section class="metrics">
       <div class="metric"><span>Events</span><strong>${snapshot.meta.event_count}</strong></div>
+      <div class="metric"><span>Synthesis Eligible</span><strong>${snapshot.meta.synthesis_eligible_count ?? snapshot.meta.event_count}</strong></div>
+      <div class="metric"><span>Conflicted Intel</span><strong>${snapshot.meta.conflicted_intel_count || 0}</strong></div>
       <div class="metric"><span>Teams</span><strong>${snapshot.meta.teams_with_events}</strong></div>
       <div class="metric"><span>Improving</span><strong>${snapshot.meta.improving_count}</strong></div>
       <div class="metric"><span>Worsening</span><strong>${snapshot.meta.worsening_count}</strong></div>
@@ -294,6 +297,10 @@ export async function buildPlayerAvailability(options = {}) {
 
   const campPath = options.trainingCamp || path.join('data', 'training-camp', String(season), 'latest.json');
   const camp = await readJson(campPath, null);
+  const namedStatusReview = await readJson(
+    options.namedStatusReview || path.join('data', 'projected-starters', String(season), 'named-status-review.json'),
+    { cases: [] },
+  );
   const campItems = trainingCampItems(camp);
   sourceHealth.push({
     source: 'Training camp snapshot',
@@ -307,6 +314,7 @@ export async function buildPlayerAvailability(options = {}) {
     injuryRecords,
     trainingCampItems: campItems,
     sourceHealth,
+    namedStatusReview,
   });
 
   if (options.dryRun) return { snapshot, outputs: null };
@@ -323,6 +331,7 @@ async function main() {
     liveInjuries: args['live-injuries'] === true || String(args['live-injuries']).toLowerCase() === 'true',
     injuryJson: args['injury-json'] || null,
     trainingCamp: args['training-camp'] || null,
+    namedStatusReview: args['named-status-review'] || null,
     liveFantasyProsInjuries: args['live-fantasypros-injuries'] === true || String(args['live-fantasypros-injuries']).toLowerCase() === 'true',
     fantasyProsYear: args['fp-year'] ? Number(args['fp-year']) : null,
     fantasyProsWeek: args['fp-week'] ? Number(args['fp-week']) : null,

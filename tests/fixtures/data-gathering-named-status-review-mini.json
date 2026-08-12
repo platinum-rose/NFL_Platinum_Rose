@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "schema": "named_status_review_v1",
+    "season": 2026
+  },
+  "cases": [
+    {
+      "player_name": "Connor McGovern",
+      "expected_team": "BUF",
+      "observed_team_assignments": ["BUF"],
+      "review_status": "withheld_pending_confirmation",
+      "human_verified": false,
+      "human_review_required": true,
+      "eligible_for_synthesis": false,
+      "missing": ["current injury confirmation"],
+      "evidence": [{
+        "artifact_path": "tests/fixtures/data-gathering-availability-mini.json",
+        "evidence_id": "avail_test_mcgovern"
+      }],
+      "disposition": "Withhold pending confirmation."
+    },
+    {
+      "player_name": "Micah Parsons",
+      "expected_team": "GB",
+      "observed_team_assignments": ["DAL", "GB"],
+      "review_status": "conflicted_team_assignment",
+      "human_verified": false,
+      "human_review_required": true,
+      "eligible_for_synthesis": false,
+      "missing": ["current team confirmation"],
+      "evidence": [{
+        "artifact_path": "tests/fixtures/data-gathering-availability-mini.json",
+        "evidence_id": "avail_test_parsons"
+      }],
+      "disposition": "Withhold as conflicted team intel."
+    }
+  ]
+}

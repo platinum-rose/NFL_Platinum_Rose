@@ -3,11 +3,14 @@ import {
   availabilityEventFromInjuryRecord,
   availabilityEventFromTrainingCampItem,
   availabilityGroup,
+  applyAvailabilityEvidenceReview,
   buildAvailabilitySnapshot,
   classifyAvailabilityEvent,
   clusterAvailabilitySummary,
   dedupeAvailabilityEvents,
+  detectAvailabilityStatusConflict,
   normalizeInjuryStatus,
+  validateAvailabilityEvidence,
 } from '../../agents/lib/player-availability.js';
 
 describe('normalizeInjuryStatus', () => {
@@ -82,6 +85,120 @@ describe('classifyAvailabilityEvent', () => {
       event_type: 'out',
       availability_trend: 'worsening',
     });
+  });
+
+  it('does not mistake removal from PUP for placement on PUP', () => {
+    expect(classifyAvailabilityEvent({
+      status: 'Active',
+      playerName: 'Bilhal Kone',
+      text: 'The Ravens removed Kone from the active/PUP list after he passed his physical.',
+    })).toEqual({ event_type: 'return_to_practice', availability_trend: 'improving' });
+
+    expect(classifyAvailabilityEvent({
+      status: 'Active',
+      playerName: 'Adisa Isaac',
+      text: 'The Ravens removed Isaac from the active/PUP list Friday.',
+    })).toEqual({ event_type: 'return_to_practice', availability_trend: 'improving' });
+  });
+
+  it('does not assign another player\'s IR placement to the replacement', () => {
+    expect(classifyAvailabilityEvent({
+      status: 'Active',
+      playerName: 'Riley Patterson',
+      text: 'With Zane Gonzalez placed on IR, Patterson will take over kicking duties.',
+    })).toEqual({ event_type: 'active_news', availability_trend: 'unknown' });
+  });
+});
+
+describe('availability evidence conflict gate', () => {
+  it('flags structured restrictive statuses that conflict with player-anchored return text', () => {
+    const event = applyAvailabilityEvidenceReview({
+      player_name: 'Jordan Turner',
+      normalized_status: 'OUT',
+      availability_trend: 'worsening',
+      short_summary: 'Turner passed his physical and was removed from the NFI list.',
+      source: 'Fixture',
+      source_url: 'https://example.test/turner',
+      evidence_id: 'turner-evidence',
+      needs_human_review: true,
+    });
+
+    expect(detectAvailabilityStatusConflict(event)?.code).toBe('restrictive_status_vs_return_text');
+    expect(event.evidence_status).toBe('conflicted_intel');
+    expect(event.synthesis_eligible).toBe(false);
+    expect(validateAvailabilityEvidence([event]).status).toBe('pass');
+
+    const activated = applyAvailabilityEvidenceReview({
+      player_name: 'Javon Hargrave',
+      normalized_status: 'OUT',
+      availability_trend: 'worsening',
+      short_summary: 'The Packers activated Hargrave off the active/PUP list Sunday.',
+      source: 'Fixture',
+      evidence_id: 'hargrave-evidence',
+      needs_human_review: true,
+    });
+    expect(activated.status_conflict.code).toBe('restrictive_status_vs_return_text');
+    expect(activated.synthesis_eligible).toBe(false);
+
+    const participation = applyAvailabilityEvidenceReview({
+      player_name: 'Sam Cosmi',
+      normalized_status: 'IR',
+      availability_trend: 'worsening',
+      short_summary: 'Cosmi was seen participating at Commanders OTAs on Friday.',
+      source: 'Fixture',
+      evidence_id: 'cosmi-evidence',
+      needs_human_review: true,
+    });
+    expect(participation.status_conflict.code).toBe('restrictive_status_vs_return_text');
+    expect(participation.synthesis_eligible).toBe(false);
+  });
+
+  it('flags active structured status against an explicit player-anchored IR placement', () => {
+    const event = applyAvailabilityEvidenceReview({
+      player_name: 'Zane Gonzalez',
+      normalized_status: 'ACTIVE_NEWS',
+      availability_trend: 'worsening',
+      short_summary: 'Gonzalez has been placed on IR by the Dolphins.',
+      source: 'Fixture',
+      evidence_id: 'gonzalez-evidence',
+      needs_human_review: true,
+    });
+
+    expect(event.status_conflict.code).toBe('open_status_vs_restrictive_text');
+    expect(event.synthesis_eligible).toBe(false);
+  });
+
+  it('does not call an active player missing practice a roster-status contradiction', () => {
+    const event = applyAvailabilityEvidenceReview({
+      player_name: 'Practice Player',
+      normalized_status: 'ACTIVE_NEWS',
+      availability_trend: 'worsening',
+      short_summary: 'Practice Player did not participate Wednesday due to soreness.',
+      source: 'Fixture',
+      evidence_id: 'practice-evidence',
+      needs_human_review: true,
+    });
+
+    expect(event.status_conflict).toBeNull();
+    expect(event.synthesis_eligible).toBe(true);
+  });
+
+  it('blocks an otherwise detected contradiction when its review flags are removed', () => {
+    const event = {
+      player_name: 'Jordan Turner',
+      normalized_status: 'OUT',
+      availability_trend: 'worsening',
+      short_summary: 'Turner passed his physical and was removed from the NFI list.',
+      source: 'Fixture',
+      evidence_id: 'turner-evidence',
+      needs_human_review: false,
+      synthesis_eligible: true,
+    };
+    const validation = validateAvailabilityEvidence([event]);
+    expect(validation.status).toBe('blocked');
+    expect(validation.unflagged_contradiction_count).toBe(1);
+    expect(validation.conflicts_missing_review_flag_count).toBe(1);
+    expect(validation.conflicts_still_eligible_count).toBe(1);
   });
 });
 
@@ -240,5 +357,35 @@ describe('buildAvailabilitySnapshot', () => {
     expect(events).toHaveLength(1);
     expect(events[0].team_abbr).toBe('BUF');
     expect(events[0].related_teams).toContain('GB');
+  });
+
+  it('keeps conflicted events visible but out of team trend aggregates', () => {
+    const snapshot = buildAvailabilitySnapshot({
+      injuryRecords: [
+        {
+          espn_injury_id: 'conflict',
+          player_name: 'Return Player',
+          team_abbr: 'DEN',
+          position: 'OT',
+          injury_status: 'Out',
+          short_comment: 'Return Player passed his physical and was removed from the NFI list.',
+        },
+        {
+          espn_injury_id: 'consistent',
+          player_name: 'Unavailable Player',
+          team_abbr: 'DEN',
+          position: 'OT',
+          injury_status: 'Injured Reserve',
+          short_comment: 'Unavailable Player is expected to miss the season.',
+        },
+      ],
+    });
+
+    expect(snapshot.meta.conflicted_intel_count).toBe(1);
+    expect(snapshot.meta.synthesis_eligible_count).toBe(1);
+    expect(snapshot.meta.worsening_count).toBe(1);
+    expect(snapshot.teams.DEN.event_count).toBe(2);
+    expect(snapshot.teams.DEN.worsening_count).toBe(1);
+    expect(snapshot.meta.availability_evidence_validation.status).toBe('pass');
   });
 });

@@ -2,13 +2,42 @@
   "meta": {
     "schema": "projected_starters_snapshot_v1",
     "season": 2026,
-    "generated_at": "2026-08-11T08:02:29.984Z",
+    "generated_at": "2026-08-12T04:15:24.241Z",
     "source_policy": "manual_depth_chart_rows_plus_local_availability_starter_language",
-    "player_count": 224,
+    "player_count": 223,
     "manual_row_count": 0,
-    "estimated_row_count": 224,
+    "eligible_manual_row_count": 0,
+    "estimated_row_count": 223,
+    "withheld_named_manual_row_count": 0,
     "teams_with_signals": 32,
     "teams_needing_manual_depth_chart": 32,
+    "named_status_review_validation": {
+      "schema": "named_status_review_validation_v1",
+      "status": "pass",
+      "required_case_count": 2,
+      "recorded_case_count": 2,
+      "confirmed_count": 0,
+      "withheld_count": 2,
+      "synthesis_eligible_count": 0,
+      "missing_required_case_count": 0,
+      "missing_required_cases": [],
+      "invalid_case_count": 0,
+      "invalid_cases": [],
+      "duplicate_case_count": 0
+    },
+    "inputs": {
+      "availability": {
+        "path": "data\\player-availability\\latest.json",
+        "generated_at": "2026-08-12T04:15:21.975Z",
+        "evidence_validation_status": "pass"
+      },
+      "named_status_review": {
+        "path": "data\\projected-starters\\2026\\named-status-review.json",
+        "reviewed_at": "2026-08-12T03:38:40.822Z",
+        "validation_status": "pass"
+      },
+      "manual_directory": "data\\projected-starters\\2026\\manual"
+    },
     "recommendation_status": "research_context_only_not_picks",
     "guardrails": {
       "live_model_calls": false,
@@ -17,6 +46,80 @@
       "official_picks_generated": false
     }
   },
+  "named_status_reviews": [
+    {
+      "id": "named-status-buf-connor-mcgovern-2026-08-11",
+      "player_name": "Connor McGovern",
+      "expected_team": "BUF",
+      "observed_team_assignments": [
+        "BUF"
+      ],
+      "position": "C",
+      "review_status": "withheld_pending_confirmation",
+      "human_verified": false,
+      "human_review_required": true,
+      "eligible_for_synthesis": false,
+      "known": [
+        "The current local ESPN-derived availability row belongs to Buffalo and reports that McGovern left the August 8 practice early with an apparent right-leg issue.",
+        "The current projected-starters artifact contains no Connor McGovern row, so the local packet does not establish a current starting role."
+      ],
+      "missing": [
+        "current official or directly reviewed practice/health update after the reported early exit",
+        "current human-verified Bills depth-chart or first-team role confirmation"
+      ],
+      "evidence": [
+        {
+          "artifact_path": "data/player-availability/latest.json",
+          "evidence_id": "availability_evidence_9ec68e38b32469e22e38",
+          "published_at": "2026-08-09T01:05:00.000Z",
+          "source": "ESPN injuries API",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries"
+        }
+      ],
+      "disposition": "Keep the injury item in needs-confirmation context. Do not treat it as a confirmed absence, recovery, or starter-impact input."
+    },
+    {
+      "id": "named-status-gb-micah-parsons-2026-08-11",
+      "player_name": "Micah Parsons",
+      "expected_team": "GB",
+      "observed_team_assignments": [
+        "DAL",
+        "GB"
+      ],
+      "position": "DE",
+      "review_status": "conflicted_team_assignment",
+      "human_verified": false,
+      "human_review_required": true,
+      "eligible_for_synthesis": false,
+      "known": [
+        "The current ESPN-derived availability evidence was originally tagged DAL while its text describes a Week 6 game against Dallas and carries GB as related context.",
+        "A current Green Bay beat artifact owns a Micah Parsons Week 6 return-target item under GB, but it remains human-review context rather than an official team/depth-chart confirmation.",
+        "The current projected-starters artifact contains no Micah Parsons row."
+      ],
+      "missing": [
+        "current human-verified official roster/team confirmation",
+        "current human-verified PUP, injury, and return-timeline status",
+        "source-reconciled starter/role confirmation"
+      ],
+      "evidence": [
+        {
+          "artifact_path": "data/player-availability/latest.json",
+          "evidence_id": "availability_evidence_d0467a76b82aada690c5",
+          "published_at": "2026-08-04T19:29:00.000Z",
+          "source": "ESPN injuries API",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries"
+        },
+        {
+          "artifact_path": "data/training-camp/2026/latest.json",
+          "evidence_id": "camp_evidence_82b39fc9d9f87f59ad73",
+          "published_at": "2026-08-10T19:10:00.000Z",
+          "source": "GB Beat - Acme Packing Co",
+          "source_url": "https://www.acmepackingcompany.com/green-bay-packers-injuries/84590/micah-parsons-says-his-most-optimistic-return-target-is-week-6-vs-cowboys"
+        }
+      ],
+      "disposition": "Treat the team assignment and injury signal as conflicted intel. Withhold from team aggregates and starter-impact synthesis until human confirmation resolves both ownership and status."
+    }
+  ],
   "teams": {
     "ARI": {
       "team": "ARI",
@@ -25,6 +128,7 @@
       "known": [],
       "estimated": [
         "Shawn Bowman TE",
+        "Tejhaun Palmer WR",
         "Evan Hull RB",
         "Brodric Martin-Rhodes DT"
       ],
@@ -113,8 +217,36 @@
           "impact_bucket": "skill_major",
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_589a195570c94384",
+          "team": "ARI",
+          "team_nick": "Cardinals",
+          "player_name": "Tejhaun Palmer",
+          "position": "WR",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-08-04T22:09:00.000Z",
+              "evidence": "The Patriots claimed Palmer off waivers from the Cardinals on Tuesday."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "ATL": {
       "team": "ATL",
@@ -124,7 +256,6 @@
       "estimated": [
         "Trey Sermon RB",
         "Cameron Sample DE",
-        "Tua Tagovailoa QB",
         "Kristian Wilkerson WR",
         "Bijan Robinson RB",
         "Matthew Bergeron G",
@@ -140,33 +271,6 @@
         "independent source confirmation"
       ],
       "players": [
-        {
-          "id": "starter_cecdd867b7989eda",
-          "team": "ATL",
-          "team_nick": "Falcons",
-          "player_name": "Tua Tagovailoa",
-          "position": "QB",
-          "unit": "offense",
-          "role": "likely_starter_or_primary",
-          "starter_confidence": 0.7,
-          "roster_confidence": 0.66,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-08-10T17:35:00.000Z",
-              "evidence": "Coach Kevin Stefanski said Monday that the Falcons don't have a timeline to name a starting quarterback for the team's Week 1 game at Pittsburgh, Josh Kendall of The Athletic reports."
-            }
-          ],
-          "evidence_tags": [
-            "starter"
-          ],
-          "impact_bucket": "qb_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
-        },
         {
           "id": "starter_5bf591877666d605",
           "team": "ATL",
@@ -464,7 +568,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "BAL": {
       "team": "BAL",
@@ -618,7 +723,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "BUF": {
       "team": "BUF",
@@ -636,7 +742,8 @@
       ],
       "missing": [
         "manual all-position depth chart",
-        "independent source confirmation"
+        "independent source confirmation",
+        "Connor McGovern: withheld pending confirmation"
       ],
       "players": [
         {
@@ -828,6 +935,17 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
+      ],
+      "named_status_reviews": [
+        {
+          "player_name": "Connor McGovern",
+          "review_status": "withheld_pending_confirmation",
+          "eligible_for_synthesis": false,
+          "missing": [
+            "current official or directly reviewed practice/health update after the reported early exit",
+            "current human-verified Bills depth-chart or first-team role confirmation"
+          ]
+        }
       ]
     },
     "CAR": {
@@ -954,7 +1072,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "CHI": {
       "team": "CHI",
@@ -963,6 +1082,8 @@
       "known": [],
       "estimated": [
         "Ray-Ray McCloud III WR",
+        "Deshaun Watson QB",
+        "Shedeur Sanders QB",
         "Beanie Bishop Jr. CB",
         "Xavier Woods S",
         "Darnell Wright OT",
@@ -973,6 +1094,60 @@
         "independent source confirmation"
       ],
       "players": [
+        {
+          "id": "starter_2ee20f8d10d08641",
+          "team": "CHI",
+          "team_nick": "Bears",
+          "player_name": "Deshaun Watson",
+          "position": "QB",
+          "unit": "offense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.66,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-08-10T17:28:00.000Z",
+              "evidence": "Coach Todd Monken noted Monday that he hasn't decided whether Watson or Shedeur Sanders will start Saturday's preseason opener against the Bears, Daniel Oyefusi of ESPN.com reports."
+            }
+          ],
+          "evidence_tags": [
+            "starter"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_cf4cfa16a6f68d1d",
+          "team": "CHI",
+          "team_nick": "Bears",
+          "player_name": "Shedeur Sanders",
+          "position": "QB",
+          "unit": "offense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.66,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-08-10T17:01:00.000Z",
+              "evidence": "Coach Todd Monken noted Monday that he hasn't decided whether Sanders or Deshaun Watson will start Saturday's preseason opener against the Bears, Mary Kay Cabot of The Cleveland Plain Dealer reports."
+            }
+          ],
+          "evidence_tags": [
+            "starter"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
         {
           "id": "starter_dd95de95754256e2",
           "team": "CHI",
@@ -1108,7 +1283,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "CIN": {
       "team": "CIN",
@@ -1347,7 +1523,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "CLE": {
       "team": "CLE",
@@ -1355,9 +1532,7 @@
       "coverage_status": "estimated_from_local_starter_language",
       "known": [],
       "estimated": [
-        "Deshaun Watson QB",
         "Denzel Boston WR",
-        "Shedeur Sanders QB",
         "Jamari Thrash WR",
         "Aaron Anderson WR",
         "Dillon Gabriel QB",
@@ -1398,33 +1573,6 @@
           "confidence_basis": "local_availability_starter_language"
         },
         {
-          "id": "starter_ac9a2407d3a81a5d",
-          "team": "CLE",
-          "team_nick": "Browns",
-          "player_name": "Deshaun Watson",
-          "position": "QB",
-          "unit": "offense",
-          "role": "likely_starter_or_primary",
-          "starter_confidence": 0.7,
-          "roster_confidence": 0.66,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-08-10T17:28:00.000Z",
-              "evidence": "Coach Todd Monken noted Monday that he hasn't decided whether Watson or Shedeur Sanders will start Saturday's preseason opener against the Bears, Daniel Oyefusi of ESPN.com reports."
-            }
-          ],
-          "evidence_tags": [
-            "starter"
-          ],
-          "impact_bucket": "qb_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
-        },
-        {
           "id": "starter_14a27ef2fd77c02d",
           "team": "CLE",
           "team_nick": "Browns",
@@ -1442,33 +1590,6 @@
               "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
               "published_at": "2026-08-04T14:24:00.000Z",
               "evidence": "Browns head coach Todd Monken said Monday that Gabriel is on track to receive more reps in future practices after the second-year quarterback has had a strong start to training camp, Mary Kay Cabot of The Cleveland Plain Dealer reports. \"It's up to the player to take advantage and maximize those..."
-            }
-          ],
-          "evidence_tags": [
-            "starter"
-          ],
-          "impact_bucket": "qb_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
-        },
-        {
-          "id": "starter_c6668209d8734710",
-          "team": "CLE",
-          "team_nick": "Browns",
-          "player_name": "Shedeur Sanders",
-          "position": "QB",
-          "unit": "offense",
-          "role": "likely_starter_or_primary",
-          "starter_confidence": 0.7,
-          "roster_confidence": 0.66,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-08-10T17:01:00.000Z",
-              "evidence": "Coach Todd Monken noted Monday that he hasn't decided whether Sanders or Deshaun Watson will start Saturday's preseason opener against the Bears, Mary Kay Cabot of The Cleveland Plain Dealer reports."
             }
           ],
           "evidence_tags": [
@@ -1613,7 +1734,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "DAL": {
       "team": "DAL",
@@ -1825,7 +1947,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "DEN": {
       "team": "DEN",
@@ -1923,7 +2046,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "DET": {
       "team": "DET",
@@ -2133,7 +2257,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "GB": {
       "team": "GB",
@@ -2141,7 +2266,6 @@
       "coverage_status": "estimated_from_local_starter_language",
       "known": [],
       "estimated": [
-        "Chris Hilton Jr. WR",
         "Kisean Johnson WR",
         "RJ Maryland TE",
         "Luke Lachey TE",
@@ -2149,36 +2273,10 @@
       ],
       "missing": [
         "manual all-position depth chart",
-        "independent source confirmation"
+        "independent source confirmation",
+        "Micah Parsons: conflicted team assignment"
       ],
       "players": [
-        {
-          "id": "starter_c9dbc700acea523a",
-          "team": "GB",
-          "team_nick": "Packers",
-          "player_name": "Chris Hilton Jr.",
-          "position": "WR",
-          "unit": "offense",
-          "role": "roster_depth_signal",
-          "starter_confidence": 0.42,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-08-09T23:46:00.000Z",
-              "evidence": "The Packers claimed Hilton off waivers Sunday, Aaron Wilson of KPRC 2 Houston reports."
-            }
-          ],
-          "evidence_tags": [
-            "roster_signal"
-          ],
-          "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
-        },
         {
           "id": "starter_456ddef4869d2077",
           "team": "GB",
@@ -2287,6 +2385,18 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
+      ],
+      "named_status_reviews": [
+        {
+          "player_name": "Micah Parsons",
+          "review_status": "conflicted_team_assignment",
+          "eligible_for_synthesis": false,
+          "missing": [
+            "current human-verified official roster/team confirmation",
+            "current human-verified PUP, injury, and return-timeline status",
+            "source-reconciled starter/role confirmation"
+          ]
+        }
       ]
     },
     "HOU": {
@@ -2295,13 +2405,19 @@
       "coverage_status": "estimated_from_local_starter_language",
       "known": [],
       "estimated": [
+        "Andre Carter II LB",
         "Juwann Winfree WR",
+        "JT Woods S",
+        "Zech McPhearson CB",
+        "Chris Hilton Jr. WR",
         "Owen Wright RB",
+        "Eric Watts DE",
         "Henry To'oTo'o LB",
-        "Montrell Washington WR",
         "Jadeveon Clowney DE",
         "Mario Edwards Jr. DT",
-        "Davis Mills QB"
+        "Kobe Prentice WR",
+        "Davis Mills QB",
+        "Mason Pline TE"
       ],
       "missing": [
         "manual all-position depth chart",
@@ -2332,6 +2448,60 @@
             "competition"
           ],
           "impact_bucket": "qb_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_ea9a25742901ac70",
+          "team": "HOU",
+          "team_nick": "Texans",
+          "player_name": "Andre Carter II",
+          "position": "LB",
+          "unit": "defense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-08-11T01:32:00.000Z",
+              "evidence": "The Chargers signed Carter on Monday, Aaron Wilson of KPRC 2 Houston reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "defensive_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_3748624620e43851",
+          "team": "HOU",
+          "team_nick": "Texans",
+          "player_name": "Eric Watts",
+          "position": "DE",
+          "unit": "defense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-08-06T23:44:00.000Z",
+              "evidence": "Watts (undisclosed) reverted from waivers to the Jets' injured reserve list Thursday, Aaron Wilson of KPRC 2 Houston reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "defensive_front_major",
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         },
@@ -2390,6 +2560,33 @@
           "confidence_basis": "local_availability_starter_language"
         },
         {
+          "id": "starter_cfc683048c0ca81b",
+          "team": "HOU",
+          "team_nick": "Texans",
+          "player_name": "JT Woods",
+          "position": "S",
+          "unit": "defense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-08-09T23:54:00.000Z",
+              "evidence": "The Giants signed Woods to a contract Sunday, Aaron Wilson of KPRC 2 Houston reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "defensive_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
           "id": "starter_75b0ba3f5a11b942",
           "team": "HOU",
           "team_nick": "Texans",
@@ -2413,6 +2610,60 @@
             "roster_signal"
           ],
           "impact_bucket": "defensive_front_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_2524d6a4d4521d63",
+          "team": "HOU",
+          "team_nick": "Texans",
+          "player_name": "Zech McPhearson",
+          "position": "CB",
+          "unit": "defense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-08-09T23:50:00.000Z",
+              "evidence": "The Rams signed McPhearson to a contract Sunday, Aaron Wilson of KPRC 2 Houston reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "defensive_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_4abde3dde4b4c587",
+          "team": "HOU",
+          "team_nick": "Texans",
+          "player_name": "Chris Hilton Jr.",
+          "position": "WR",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-08-09T23:46:00.000Z",
+              "evidence": "The Packers claimed Hilton off waivers Sunday, Aaron Wilson of KPRC 2 Houston reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         },
@@ -2444,10 +2695,10 @@
           "confidence_basis": "local_availability_starter_language"
         },
         {
-          "id": "starter_74285e0f2feaec53",
+          "id": "starter_e956d1886d3152a2",
           "team": "HOU",
           "team_nick": "Texans",
-          "player_name": "Montrell Washington",
+          "player_name": "Kobe Prentice",
           "position": "WR",
           "unit": "offense",
           "role": "roster_depth_signal",
@@ -2459,8 +2710,35 @@
               "source": "ESPN injuries API",
               "source_type": "structured_injury",
               "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-08-04T17:44:00.000Z",
-              "evidence": "The Texans signed Washington on Tuesday, Aaron Wilson of KPRC 2 Houston reports."
+              "published_at": "2026-07-25T22:00:00.000Z",
+              "evidence": "The Patriots claimed Prentice off waivers Saturday, Aaron Wilson of KPRC 2 Houston reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_f77ce3d5d8e7e8ba",
+          "team": "HOU",
+          "team_nick": "Texans",
+          "player_name": "Mason Pline",
+          "position": "TE",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-06-17T21:54:00.000Z",
+              "evidence": "Pline (upper body) signed with the Chiefs on Wednesday, Aaron Wilson of KPRC 2 Houston reports."
             }
           ],
           "evidence_tags": [
@@ -2497,7 +2775,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "IND": {
       "team": "IND",
@@ -2707,7 +2986,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "JAX": {
       "team": "JAX",
@@ -2716,7 +2996,6 @@
       "known": [],
       "estimated": [
         "Jahlani Tavai LB",
-        "Parker Washington WR",
         "Brian Thomas Jr. WR",
         "Danny Striggow DE",
         "Corey Ballentine CB",
@@ -2751,33 +3030,6 @@
               "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
               "published_at": "2026-08-03T22:13:00.000Z",
               "evidence": "Thomas has followed up his impressive spring with a good start to training camp, according to Michael DiRocco of ESPN.com."
-            }
-          ],
-          "evidence_tags": [
-            "starter"
-          ],
-          "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
-        },
-        {
-          "id": "starter_ec9bbaf8d5cbf2bc",
-          "team": "JAX",
-          "team_nick": "Jaguars",
-          "player_name": "Parker Washington",
-          "position": "WR",
-          "unit": "offense",
-          "role": "likely_starter_or_primary",
-          "starter_confidence": 0.7,
-          "roster_confidence": 0.66,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-08-03T22:43:00.000Z",
-              "evidence": "Washington is off to a good start in training camp, according to John Shipley of SI.com."
             }
           ],
           "evidence_tags": [
@@ -3057,7 +3309,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "KC": {
       "team": "KC",
@@ -3066,8 +3319,7 @@
       "known": [],
       "estimated": [
         "Emmett Johnson RB",
-        "Noah Gray TE",
-        "Mason Pline TE"
+        "Noah Gray TE"
       ],
       "missing": [
         "manual all-position depth chart",
@@ -3127,35 +3379,9 @@
           "impact_bucket": "skill_major",
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
-        },
-        {
-          "id": "starter_71c5fbb58a94cc6a",
-          "team": "KC",
-          "team_nick": "Chiefs",
-          "player_name": "Mason Pline",
-          "position": "TE",
-          "unit": "offense",
-          "role": "roster_depth_signal",
-          "starter_confidence": 0.42,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-06-17T21:54:00.000Z",
-              "evidence": "Pline (upper body) signed with the Chiefs on Wednesday, Aaron Wilson of KPRC 2 Houston reports."
-            }
-          ],
-          "evidence_tags": [
-            "roster_signal"
-          ],
-          "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "LV": {
       "team": "LV",
@@ -3422,7 +3648,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "LAC": {
       "team": "LAC",
@@ -3430,7 +3657,6 @@
       "coverage_status": "estimated_from_local_starter_language",
       "known": [],
       "estimated": [
-        "Andre Carter II LB",
         "Kimani Vidal RB",
         "Ladd McConkey WR",
         "Cameron Dicker PK",
@@ -3580,33 +3806,6 @@
             "competition"
           ],
           "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
-        },
-        {
-          "id": "starter_8a21c44eb9cca435",
-          "team": "LAC",
-          "team_nick": "Chargers",
-          "player_name": "Andre Carter II",
-          "position": "LB",
-          "unit": "defense",
-          "role": "roster_depth_signal",
-          "starter_confidence": 0.42,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-08-11T01:32:00.000Z",
-              "evidence": "The Chargers signed Carter on Monday, Aaron Wilson of KPRC 2 Houston reports."
-            }
-          ],
-          "evidence_tags": [
-            "roster_signal"
-          ],
-          "impact_bucket": "defensive_major",
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         },
@@ -3772,7 +3971,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "LAR": {
       "team": "LAR",
@@ -3780,7 +3980,6 @@
       "coverage_status": "estimated_from_local_starter_language",
       "known": [],
       "estimated": [
-        "Zech McPhearson CB",
         "Jordan Whittington WR",
         "Blake Hance G",
         "Colby Parkinson TE",
@@ -3933,33 +4132,6 @@
           "confidence_basis": "local_availability_starter_language"
         },
         {
-          "id": "starter_c3c81fa3cd218966",
-          "team": "LAR",
-          "team_nick": "Rams",
-          "player_name": "Zech McPhearson",
-          "position": "CB",
-          "unit": "defense",
-          "role": "roster_depth_signal",
-          "starter_confidence": 0.42,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-08-09T23:50:00.000Z",
-              "evidence": "The Rams signed McPhearson to a contract Sunday, Aaron Wilson of KPRC 2 Houston reports."
-            }
-          ],
-          "evidence_tags": [
-            "roster_signal"
-          ],
-          "impact_bucket": "defensive_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
-        },
-        {
           "id": "starter_84a1d794ee84ccda",
           "team": "LAR",
           "team_nick": "Rams",
@@ -4067,7 +4239,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "MIA": {
       "team": "MIA",
@@ -4079,7 +4252,6 @@
         "Riley Patterson PK",
         "Jeremiah Franklin TE",
         "Jalen Ramsey CB",
-        "De'Von Achane RB",
         "Jordyn Brooks LB",
         "Ollie Gordon II RB"
       ],
@@ -4112,33 +4284,6 @@
             "starter"
           ],
           "impact_bucket": "defensive_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
-        },
-        {
-          "id": "starter_e0a7e8753769b140",
-          "team": "MIA",
-          "team_nick": "Dolphins",
-          "player_name": "De'Von Achane",
-          "position": "RB",
-          "unit": "offense",
-          "role": "likely_starter_or_primary",
-          "starter_confidence": 0.7,
-          "roster_confidence": 0.66,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-07-28T15:13:00.000Z",
-              "evidence": "New Dolphins head coach Jeff Hafley said Achane (shoulder) has been cleared for the start of training camp, Alain Poupart of SI.com reports."
-            }
-          ],
-          "evidence_tags": [
-            "starter"
-          ],
-          "impact_bucket": "skill_major",
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         },
@@ -4277,7 +4422,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "MIN": {
       "team": "MIN",
@@ -4655,7 +4801,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "NE": {
       "team": "NE",
@@ -4665,9 +4812,7 @@
       "estimated": [
         "Hunter Henry TE",
         "Terrell Jennings RB",
-        "Tejhaun Palmer WR",
         "DeMario Douglas WR",
-        "Kobe Prentice WR",
         "Mitch Van Vooren TE",
         "Isaiah Iton DT"
       ],
@@ -4785,33 +4930,6 @@
           "confidence_basis": "local_availability_starter_language"
         },
         {
-          "id": "starter_949d1d07c56c8b8e",
-          "team": "NE",
-          "team_nick": "Patriots",
-          "player_name": "Kobe Prentice",
-          "position": "WR",
-          "unit": "offense",
-          "role": "roster_depth_signal",
-          "starter_confidence": 0.42,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-07-25T22:00:00.000Z",
-              "evidence": "The Patriots claimed Prentice off waivers Saturday, Aaron Wilson of KPRC 2 Houston reports."
-            }
-          ],
-          "evidence_tags": [
-            "roster_signal"
-          ],
-          "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
-        },
-        {
           "id": "starter_b4e18691093853bc",
           "team": "NE",
           "team_nick": "Patriots",
@@ -4837,35 +4955,9 @@
           "impact_bucket": "skill_major",
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
-        },
-        {
-          "id": "starter_73a4f7332a9a0fbb",
-          "team": "NE",
-          "team_nick": "Patriots",
-          "player_name": "Tejhaun Palmer",
-          "position": "WR",
-          "unit": "offense",
-          "role": "roster_depth_signal",
-          "starter_confidence": 0.42,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-08-04T22:09:00.000Z",
-              "evidence": "The Patriots claimed Palmer off waivers from the Cardinals on Tuesday."
-            }
-          ],
-          "evidence_tags": [
-            "roster_signal"
-          ],
-          "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "NO": {
       "team": "NO",
@@ -4935,7 +5027,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "NYG": {
       "team": "NYG",
@@ -4943,7 +5036,6 @@
       "coverage_status": "estimated_from_local_starter_language",
       "known": [],
       "estimated": [
-        "JT Woods S",
         "Brenden Jaimes G",
         "Grant Finley FB",
         "Anfernee Orji LB",
@@ -5009,33 +5101,6 @@
           "confidence_basis": "local_availability_starter_language"
         },
         {
-          "id": "starter_e91131ad86e74fca",
-          "team": "NYG",
-          "team_nick": "Giants",
-          "player_name": "JT Woods",
-          "position": "S",
-          "unit": "defense",
-          "role": "roster_depth_signal",
-          "starter_confidence": 0.42,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-08-09T23:54:00.000Z",
-              "evidence": "The Giants signed Woods to a contract Sunday, Aaron Wilson of KPRC 2 Houston reports."
-            }
-          ],
-          "evidence_tags": [
-            "roster_signal"
-          ],
-          "impact_bucket": "defensive_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
-        },
-        {
           "id": "starter_d717fc8c44bbaaf2",
           "team": "NYG",
           "team_nick": "Giants",
@@ -5089,7 +5154,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "NYJ": {
       "team": "NYJ",
@@ -5100,7 +5166,6 @@
         "Breece Hall RB",
         "Kenyon Sadiq TE",
         "Omar Cooper Jr. WR",
-        "Eric Watts DE",
         "Cam Camper WR",
         "Quincy Skinner Jr. WR",
         "Jason Sanders PK",
@@ -5248,33 +5313,6 @@
           "confidence_basis": "local_availability_starter_language"
         },
         {
-          "id": "starter_385a64001344e3aa",
-          "team": "NYJ",
-          "team_nick": "Jets",
-          "player_name": "Eric Watts",
-          "position": "DE",
-          "unit": "defense",
-          "role": "roster_depth_signal",
-          "starter_confidence": 0.42,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-08-06T23:44:00.000Z",
-              "evidence": "Watts (undisclosed) reverted from waivers to the Jets' injured reserve list Thursday, Aaron Wilson of KPRC 2 Houston reports."
-            }
-          ],
-          "evidence_tags": [
-            "roster_signal"
-          ],
-          "impact_bucket": "defensive_front_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
-        },
-        {
           "id": "starter_4404b07298a6c5ef",
           "team": "NYJ",
           "team_nick": "Jets",
@@ -5328,7 +5366,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "PHI": {
       "team": "PHI",
@@ -5511,7 +5550,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "PIT": {
       "team": "PIT",
@@ -5520,6 +5560,7 @@
       "known": [],
       "estimated": [
         "Cornell Powell WR",
+        "Tua Tagovailoa QB",
         "Isaiah Winstead WR",
         "Lance Mason TE",
         "Cole Burgess WR",
@@ -5585,6 +5626,33 @@
             "starter"
           ],
           "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_01e9f0ad916ed9cc",
+          "team": "PIT",
+          "team_nick": "Steelers",
+          "player_name": "Tua Tagovailoa",
+          "position": "QB",
+          "unit": "offense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.66,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-08-10T17:35:00.000Z",
+              "evidence": "Coach Kevin Stefanski said Monday that the Falcons don't have a timeline to name a starting quarterback for the team's Week 1 game at Pittsburgh, Josh Kendall of The Athletic reports."
+            }
+          ],
+          "evidence_tags": [
+            "starter"
+          ],
+          "impact_bucket": "qb_major",
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         },
@@ -5777,7 +5845,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "SF": {
       "team": "SF",
@@ -5959,7 +6028,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "SEA": {
       "team": "SEA",
@@ -6171,7 +6241,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "TB": {
       "team": "TB",
@@ -6381,7 +6452,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "TEN": {
       "team": "TEN",
@@ -6507,7 +6579,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     },
     "WAS": {
       "team": "WAS",
@@ -6518,7 +6591,9 @@
         "Max Scharping G",
         "Terry McLaurin WR",
         "Stefon Diggs WR",
+        "Montrell Washington WR",
         "Antonio Williams WR",
+        "Parker Washington WR",
         "Jahan Dotson WR",
         "River Cracraft WR",
         "Tim Settle DT",
@@ -6611,6 +6686,33 @@
           "confidence_basis": "local_availability_starter_language"
         },
         {
+          "id": "starter_d91b82d46aa1dcc0",
+          "team": "WAS",
+          "team_nick": "Commanders",
+          "player_name": "Parker Washington",
+          "position": "WR",
+          "unit": "offense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.66,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-08-03T22:43:00.000Z",
+              "evidence": "Washington is off to a good start in training camp, according to John Shipley of SI.com."
+            }
+          ],
+          "evidence_tags": [
+            "starter"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
           "id": "starter_aeecb98f60a5bcd8",
           "team": "WAS",
           "team_nick": "Commanders",
@@ -6628,6 +6730,33 @@
               "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
               "published_at": "2026-07-10T19:17:00.000Z",
               "evidence": "Ahead of training camp, Zach Selby of the Commanders' official site relays that Okonkwo (who signed a three-year deal with the team in March) and QB Jayden Daniels have already developed a strong connection through their work during OTAs and minicamp."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_9e4df8637cafabe3",
+          "team": "WAS",
+          "team_nick": "Commanders",
+          "player_name": "Montrell Washington",
+          "position": "WR",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-08-04T17:44:00.000Z",
+              "evidence": "The Texans signed Washington on Tuesday, Aaron Wilson of KPRC 2 Houston reports."
             }
           ],
           "evidence_tags": [
@@ -6745,7 +6874,8 @@
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
-      ]
+      ],
+      "named_status_reviews": []
     }
   },
   "players": [
@@ -6831,9 +6961,9 @@
       "confidence_basis": "local_availability_starter_language"
     },
     {
-      "id": "starter_8a21c44eb9cca435",
-      "team": "LAC",
-      "team_nick": "Chargers",
+      "id": "starter_ea9a25742901ac70",
+      "team": "HOU",
+      "team_nick": "Texans",
       "player_name": "Andre Carter II",
       "position": "LB",
       "unit": "defense",
@@ -7210,9 +7340,9 @@
       "confidence_basis": "local_availability_starter_language"
     },
     {
-      "id": "starter_cecdd867b7989eda",
-      "team": "ATL",
-      "team_nick": "Falcons",
+      "id": "starter_01e9f0ad916ed9cc",
+      "team": "PIT",
+      "team_nick": "Steelers",
       "player_name": "Tua Tagovailoa",
       "position": "QB",
       "unit": "offense",
@@ -7237,9 +7367,9 @@
       "confidence_basis": "local_availability_starter_language"
     },
     {
-      "id": "starter_ac9a2407d3a81a5d",
-      "team": "CLE",
-      "team_nick": "Browns",
+      "id": "starter_2ee20f8d10d08641",
+      "team": "CHI",
+      "team_nick": "Bears",
       "player_name": "Deshaun Watson",
       "position": "QB",
       "unit": "offense",
@@ -7291,9 +7421,9 @@
       "confidence_basis": "local_availability_starter_language"
     },
     {
-      "id": "starter_c6668209d8734710",
-      "team": "CLE",
-      "team_nick": "Browns",
+      "id": "starter_cf4cfa16a6f68d1d",
+      "team": "CHI",
+      "team_nick": "Bears",
       "player_name": "Shedeur Sanders",
       "position": "QB",
       "unit": "offense",
@@ -7454,9 +7584,9 @@
       "confidence_basis": "local_availability_starter_language"
     },
     {
-      "id": "starter_e91131ad86e74fca",
-      "team": "NYG",
-      "team_nick": "Giants",
+      "id": "starter_cfc683048c0ca81b",
+      "team": "HOU",
+      "team_nick": "Texans",
       "player_name": "JT Woods",
       "position": "S",
       "unit": "defense",
@@ -7481,9 +7611,9 @@
       "confidence_basis": "local_availability_starter_language"
     },
     {
-      "id": "starter_c3c81fa3cd218966",
-      "team": "LAR",
-      "team_nick": "Rams",
+      "id": "starter_2524d6a4d4521d63",
+      "team": "HOU",
+      "team_nick": "Texans",
       "player_name": "Zech McPhearson",
       "position": "CB",
       "unit": "defense",
@@ -7508,9 +7638,9 @@
       "confidence_basis": "local_availability_starter_language"
     },
     {
-      "id": "starter_c9dbc700acea523a",
-      "team": "GB",
-      "team_nick": "Packers",
+      "id": "starter_4abde3dde4b4c587",
+      "team": "HOU",
+      "team_nick": "Texans",
       "player_name": "Chris Hilton Jr.",
       "position": "WR",
       "unit": "offense",
@@ -8291,9 +8421,9 @@
       "confidence_basis": "local_availability_starter_language"
     },
     {
-      "id": "starter_385a64001344e3aa",
-      "team": "NYJ",
-      "team_nick": "Jets",
+      "id": "starter_3748624620e43851",
+      "team": "HOU",
+      "team_nick": "Texans",
       "player_name": "Eric Watts",
       "position": "DE",
       "unit": "defense",
@@ -8913,9 +9043,9 @@
       "confidence_basis": "local_availability_starter_language"
     },
     {
-      "id": "starter_73a4f7332a9a0fbb",
-      "team": "NE",
-      "team_nick": "Patriots",
+      "id": "starter_589a195570c94384",
+      "team": "ARI",
+      "team_nick": "Cardinals",
       "player_name": "Tejhaun Palmer",
       "position": "WR",
       "unit": "offense",
@@ -9102,9 +9232,9 @@
       "confidence_basis": "local_availability_starter_language"
     },
     {
-      "id": "starter_74285e0f2feaec53",
-      "team": "HOU",
-      "team_nick": "Texans",
+      "id": "starter_9e4df8637cafabe3",
+      "team": "WAS",
+      "team_nick": "Commanders",
       "player_name": "Montrell Washington",
       "position": "WR",
       "unit": "offense",
@@ -9291,9 +9421,9 @@
       "confidence_basis": "local_availability_starter_language"
     },
     {
-      "id": "starter_ec9bbaf8d5cbf2bc",
-      "team": "JAX",
-      "team_nick": "Jaguars",
+      "id": "starter_d91b82d46aa1dcc0",
+      "team": "WAS",
+      "team_nick": "Commanders",
       "player_name": "Parker Washington",
       "position": "WR",
       "unit": "offense",
@@ -10398,33 +10528,6 @@
       "confidence_basis": "local_availability_starter_language"
     },
     {
-      "id": "starter_e0a7e8753769b140",
-      "team": "MIA",
-      "team_nick": "Dolphins",
-      "player_name": "De'Von Achane",
-      "position": "RB",
-      "unit": "offense",
-      "role": "likely_starter_or_primary",
-      "starter_confidence": 0.7,
-      "roster_confidence": 0.66,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-07-28T15:13:00.000Z",
-          "evidence": "New Dolphins head coach Jeff Hafley said Achane (shoulder) has been cleared for the start of training camp, Alain Poupart of SI.com reports."
-        }
-      ],
-      "evidence_tags": [
-        "starter"
-      ],
-      "impact_bucket": "skill_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
-    },
-    {
       "id": "starter_b86a26d3f23ecc4e",
       "team": "LV",
       "team_nick": "Raiders",
@@ -10588,9 +10691,9 @@
       "confidence_basis": "local_availability_starter_language"
     },
     {
-      "id": "starter_949d1d07c56c8b8e",
-      "team": "NE",
-      "team_nick": "Patriots",
+      "id": "starter_e956d1886d3152a2",
+      "team": "HOU",
+      "team_nick": "Texans",
       "player_name": "Kobe Prentice",
       "position": "WR",
       "unit": "offense",
@@ -11970,9 +12073,9 @@
       "confidence_basis": "local_availability_starter_language"
     },
     {
-      "id": "starter_71c5fbb58a94cc6a",
-      "team": "KC",
-      "team_nick": "Chiefs",
+      "id": "starter_f77ce3d5d8e7e8ba",
+      "team": "HOU",
+      "team_nick": "Texans",
       "player_name": "Mason Pline",
       "position": "TE",
       "unit": "offense",

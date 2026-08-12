@@ -107,8 +107,8 @@ export function resolveEvidenceTeamOwnership({
   const prefixTeam = sourcePrimaryTeam(source);
   const authoritativeTeam = feedTeam || prefixTeam;
   const declared = canonicalTeamList([
-    ...(Array.isArray(declaredTeams) ? declaredTeams : [declaredTeams]),
     ...(Array.isArray(declaredTeam) ? declaredTeam : [declaredTeam]),
+    ...(Array.isArray(declaredTeams) ? declaredTeams : [declaredTeams]),
   ]);
   const mentioned = inferTeamMentions(text);
   const primaryTeam = authoritativeTeam || declared[0] || mentioned[0] || null;

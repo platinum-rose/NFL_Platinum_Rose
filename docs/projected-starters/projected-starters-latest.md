@@ -1,47 +1,56 @@
-# Projected Starters Snapshot - 2026-08-11
+# Projected Starters Snapshot - 2026-08-12
 
 > Local projected/likely-starter evidence only. This is research context, not a depth-chart source of truth and not a betting recommendation.
 
 Season: 2026
-Generated: 2026-08-11T08:02:29.984Z
-Players: 224 | Teams with signals: 32 | Manual rows: 0 | Estimated rows: 224
+Generated: 2026-08-12T04:15:24.241Z
+Players: 223 | Teams with signals: 32 | Manual rows: 0 | Estimated rows: 223
 
 ## Coverage
 
 | Team | Status | Players | Missing |
 |---|---:|---:|---|
-| ARI | estimated_from_local_starter_language | 3 | manual all-position depth chart; independent source confirmation |
-| ATL | estimated_from_local_starter_language | 12 | manual all-position depth chart; independent source confirmation |
+| ARI | estimated_from_local_starter_language | 4 | manual all-position depth chart; independent source confirmation |
+| ATL | estimated_from_local_starter_language | 11 | manual all-position depth chart; independent source confirmation |
 | BAL | estimated_from_local_starter_language | 5 | manual all-position depth chart; independent source confirmation |
-| BUF | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation |
+| BUF | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation; Connor McGovern: withheld pending confirmation |
 | CAR | estimated_from_local_starter_language | 4 | manual all-position depth chart; independent source confirmation |
-| CHI | estimated_from_local_starter_language | 5 | manual all-position depth chart; independent source confirmation |
+| CHI | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation |
 | CIN | estimated_from_local_starter_language | 8 | manual all-position depth chart; independent source confirmation |
-| CLE | estimated_from_local_starter_language | 9 | manual all-position depth chart; independent source confirmation |
+| CLE | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation |
 | DAL | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation |
 | DEN | estimated_from_local_starter_language | 3 | manual all-position depth chart; independent source confirmation |
 | DET | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation |
-| GB | estimated_from_local_starter_language | 5 | manual all-position depth chart; independent source confirmation |
-| HOU | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation |
+| GB | estimated_from_local_starter_language | 4 | manual all-position depth chart; independent source confirmation; Micah Parsons: conflicted team assignment |
+| HOU | estimated_from_local_starter_language | 13 | manual all-position depth chart; independent source confirmation |
 | IND | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation |
-| JAX | estimated_from_local_starter_language | 12 | manual all-position depth chart; independent source confirmation |
-| KC | estimated_from_local_starter_language | 3 | manual all-position depth chart; independent source confirmation |
-| LAC | estimated_from_local_starter_language | 12 | manual all-position depth chart; independent source confirmation |
-| LAR | estimated_from_local_starter_language | 10 | manual all-position depth chart; independent source confirmation |
+| JAX | estimated_from_local_starter_language | 11 | manual all-position depth chart; independent source confirmation |
+| KC | estimated_from_local_starter_language | 2 | manual all-position depth chart; independent source confirmation |
+| LAC | estimated_from_local_starter_language | 11 | manual all-position depth chart; independent source confirmation |
+| LAR | estimated_from_local_starter_language | 9 | manual all-position depth chart; independent source confirmation |
 | LV | estimated_from_local_starter_language | 9 | manual all-position depth chart; independent source confirmation |
-| MIA | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation |
+| MIA | estimated_from_local_starter_language | 6 | manual all-position depth chart; independent source confirmation |
 | MIN | estimated_from_local_starter_language | 13 | manual all-position depth chart; independent source confirmation |
-| NE | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation |
+| NE | estimated_from_local_starter_language | 5 | manual all-position depth chart; independent source confirmation |
 | NO | estimated_from_local_starter_language | 2 | manual all-position depth chart; independent source confirmation |
-| NYG | estimated_from_local_starter_language | 5 | manual all-position depth chart; independent source confirmation |
-| NYJ | estimated_from_local_starter_language | 8 | manual all-position depth chart; independent source confirmation |
+| NYG | estimated_from_local_starter_language | 4 | manual all-position depth chart; independent source confirmation |
+| NYJ | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation |
 | PHI | estimated_from_local_starter_language | 6 | manual all-position depth chart; independent source confirmation |
-| PIT | estimated_from_local_starter_language | 9 | manual all-position depth chart; independent source confirmation |
+| PIT | estimated_from_local_starter_language | 10 | manual all-position depth chart; independent source confirmation |
 | SEA | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation |
 | SF | estimated_from_local_starter_language | 6 | manual all-position depth chart; independent source confirmation |
 | TB | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation |
 | TEN | estimated_from_local_starter_language | 4 | manual all-position depth chart; independent source confirmation |
-| WAS | estimated_from_local_starter_language | 8 | manual all-position depth chart; independent source confirmation |
+| WAS | estimated_from_local_starter_language | 10 | manual all-position depth chart; independent source confirmation |
+
+## Named Status Review Gate
+
+- BUF Connor McGovern: withheld_pending_confirmation; synthesis eligible no
+  - Missing: current official or directly reviewed practice/health update after the reported early exit; current human-verified Bills depth-chart or first-team role confirmation
+  - Disposition: Keep the injury item in needs-confirmation context. Do not treat it as a confirmed absence, recovery, or starter-impact input.
+- GB Micah Parsons: conflicted_team_assignment; synthesis eligible no
+  - Missing: current human-verified official roster/team confirmation; current human-verified PUP, injury, and return-timeline status; source-reconciled starter/role confirmation
+  - Disposition: Treat the team assignment and injury signal as conflicted intel. Withhold from team aggregates and starter-impact synthesis until human confirmation resolves both ownership and status.
 
 ## Player Signals
 
@@ -56,12 +65,12 @@ Players: 224 | Teams with signals: 32 | Manual rows: 0 | Estimated rows: 224
 - Shawn Bowman (TE): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
   - Evidence: The Cardinals signed Bowman to a contract Sunday, Zach Gershman of the team's official site reports.
+- Tejhaun Palmer (WR): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: The Patriots claimed Palmer off waivers from the Cardinals on Tuesday.
 
 ### ATL
 
-- Tua Tagovailoa (QB): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: qb_major | Review: yes
-  - Evidence: Coach Kevin Stefanski said Monday that the Falcons don't have a timeline to name a starting quarterback for the team's Week 1 game at Pittsburgh, Josh Kendall of The Athletic reports.
 - Darnell Mooney (WR): likely_starter_or_primary, starter 0.62, roster 0.6
   - Tags: primary_role | Impact: skill_major | Review: yes
   - Evidence: Mooney is expected to work as the Giants' primary option in the slot, Alex Smith of SNY.tv reports.
@@ -155,6 +164,12 @@ Players: 224 | Teams with signals: 32 | Manual rows: 0 | Estimated rows: 224
 
 ### CHI
 
+- Deshaun Watson (QB): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: qb_major | Review: yes
+  - Evidence: Coach Todd Monken noted Monday that he hasn't decided whether Watson or Shedeur Sanders will start Saturday's preseason opener against the Bears, Daniel Oyefusi of ESPN.com reports.
+- Shedeur Sanders (QB): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: qb_major | Review: yes
+  - Evidence: Coach Todd Monken noted Monday that he hasn't decided whether Sanders or Deshaun Watson will start Saturday's preseason opener against the Bears, Mary Kay Cabot of The Cleveland Plain Dealer reports.
 - Jedrick Wills Jr. (OT): likely_starter_or_primary, starter 0.7, roster 0.66
   - Tags: starter | Impact: offensive_line_major | Review: yes
   - Evidence: Wills (knee) will compete for Chicago's starting left tackle role, Mike Moraitis of Sports Illustrated reports.
@@ -203,15 +218,9 @@ Players: 224 | Teams with signals: 32 | Manual rows: 0 | Estimated rows: 224
 - Denzel Boston (WR): likely_starter_or_primary, starter 0.7, roster 0.66
   - Tags: starter | Impact: skill_major | Review: yes
   - Evidence: Coach Todd Monken said Monday that Boston will start working with the first-team offense in practice this week, Daniel Oyefusi of ESPN.com reports.
-- Deshaun Watson (QB): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: qb_major | Review: yes
-  - Evidence: Coach Todd Monken noted Monday that he hasn't decided whether Watson or Shedeur Sanders will start Saturday's preseason opener against the Bears, Daniel Oyefusi of ESPN.com reports.
 - Dillon Gabriel (QB): likely_starter_or_primary, starter 0.7, roster 0.66
   - Tags: starter | Impact: qb_major | Review: yes
   - Evidence: Browns head coach Todd Monken said Monday that Gabriel is on track to receive more reps in future practices after the second-year quarterback has had a strong start to training camp, Mary Kay Cabot of The Cleveland Plain Dealer reports. "It's up to the player to take advantage and maximize those...
-- Shedeur Sanders (QB): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: qb_major | Review: yes
-  - Evidence: Coach Todd Monken noted Monday that he hasn't decided whether Sanders or Deshaun Watson will start Saturday's preseason opener against the Bears, Mary Kay Cabot of The Cleveland Plain Dealer reports.
 - Dawand Jones (OT): likely_starter_or_primary, starter 0.7, roster 0.66
   - Tags: starter | Impact: offensive_line_major | Review: yes
   - Evidence: Jones (knee) got reps as the starting left tackle during Cleveland's training camp Wednesday, Daniel Oyefusi of ESPN reports.
@@ -290,9 +299,6 @@ Players: 224 | Teams with signals: 32 | Manual rows: 0 | Estimated rows: 224
 
 ### GB
 
-- Chris Hilton Jr. (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Packers claimed Hilton off waivers Sunday, Aaron Wilson of KPRC 2 Houston reports.
 - Kisean Johnson (WR): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
   - Evidence: The Packers signed Johnson to a contract Sunday.
@@ -311,21 +317,39 @@ Players: 224 | Teams with signals: 32 | Manual rows: 0 | Estimated rows: 224
 - Davis Mills (QB): competition_or_rotation, starter 0.5, roster 0.6
   - Tags: competition | Impact: qb_major | Review: yes
   - Evidence: Mills is expected to reprise his role as the Texans' backup quarterback behind C.J. Stroud and ahead of Graham Mertz for the 2026 season, Jared Koch of SI.com reports.
+- Andre Carter II (LB): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: defensive_major | Review: yes
+  - Evidence: The Chargers signed Carter on Monday, Aaron Wilson of KPRC 2 Houston reports.
+- Eric Watts (DE): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: defensive_front_major | Review: yes
+  - Evidence: Watts (undisclosed) reverted from waivers to the Jets' injured reserve list Thursday, Aaron Wilson of KPRC 2 Houston reports.
 - Henry To'oTo'o (LB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: defensive_major | Review: yes
   - Evidence: To'oTo'o signed a two-year, $16 million extension with Houston on Thursday, Mike Garafolo of NFL Network reports.
 - Jadeveon Clowney (DE): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: defensive_front_major | Review: yes
   - Evidence: The Texans signed Clowney to a one-year deal Sunday, Aaron Wilson of KPRC 2 Houston reports.
+- JT Woods (S): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: defensive_major | Review: yes
+  - Evidence: The Giants signed Woods to a contract Sunday, Aaron Wilson of KPRC 2 Houston reports.
 - Mario Edwards Jr. (DT): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: defensive_front_major | Review: yes
   - Evidence: The Texans re-signed Edwards on Sunday, Aaron Wilson of KPRC 2 Houston reports.
+- Zech McPhearson (CB): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: defensive_major | Review: yes
+  - Evidence: The Rams signed McPhearson to a contract Sunday, Aaron Wilson of KPRC 2 Houston reports.
+- Chris Hilton Jr. (WR): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: The Packers claimed Hilton off waivers Sunday, Aaron Wilson of KPRC 2 Houston reports.
 - Juwann Winfree (WR): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
   - Evidence: The Texans signed Winfree to a contract Monday.
-- Montrell Washington (WR): roster_depth_signal, starter 0.42, roster 0.6
+- Kobe Prentice (WR): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Texans signed Washington on Tuesday, Aaron Wilson of KPRC 2 Houston reports.
+  - Evidence: The Patriots claimed Prentice off waivers Saturday, Aaron Wilson of KPRC 2 Houston reports.
+- Mason Pline (TE): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: Pline (upper body) signed with the Chiefs on Wednesday, Aaron Wilson of KPRC 2 Houston reports.
 - Owen Wright (RB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
   - Evidence: The Texans signed Wright to a contract Saturday.
@@ -359,9 +383,6 @@ Players: 224 | Teams with signals: 32 | Manual rows: 0 | Estimated rows: 224
 - Brian Thomas Jr. (WR): likely_starter_or_primary, starter 0.7, roster 0.66
   - Tags: starter | Impact: skill_major | Review: yes
   - Evidence: Thomas has followed up his impressive spring with a good start to training camp, according to Michael DiRocco of ESPN.com.
-- Parker Washington (WR): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: skill_major | Review: yes
-  - Evidence: Washington is off to a good start in training camp, according to John Shipley of SI.com.
 - Cam Little (PK): likely_starter_or_primary, starter 0.62, roster 0.6
   - Tags: primary_role | Impact: depth_only | Review: yes
   - Evidence: Little is set to reprise his role as Jacksonville's primary kicker during the upcoming season and will look to further cement his place as one of the NFL's top players at his position, Casandra Chesser of Jaguars Wire reports.
@@ -401,9 +422,6 @@ Players: 224 | Teams with signals: 32 | Manual rows: 0 | Estimated rows: 224
 - Noah Gray (TE): competition_or_rotation, starter 0.5, roster 0.6
   - Tags: competition | Impact: skill_major | Review: yes
   - Evidence: Gray is expected to reprise his complementary No. 2 tight end role behind Travis Kelce during the 2026 season, Matt McMullen of the Chiefs' official site reports.
-- Mason Pline (TE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Pline (upper body) signed with the Chiefs on Wednesday, Aaron Wilson of KPRC 2 Houston reports.
 
 ### LAC
 
@@ -422,9 +440,6 @@ Players: 224 | Teams with signals: 32 | Manual rows: 0 | Estimated rows: 224
 - Oronde Gadsden (TE): competition_or_rotation, starter 0.5, roster 0.6
   - Tags: competition | Impact: skill_major | Review: yes
   - Evidence: Gadsden faces increased competition for snaps and targets in 2026 after free agent David Njoku agreed to a one-year deal with the Chargers on Monday, Ian Rapoport of NFL Network reports.
-- Andre Carter II (LB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: The Chargers signed Carter on Monday, Aaron Wilson of KPRC 2 Houston reports.
 - Derwin James Jr. (S): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: defensive_major | Review: yes
   - Evidence: James agreed to terms Tuesday on a three-year, $75.6 million contract extension with the Chargers, Adam Schefter of ESPN reports.
@@ -461,9 +476,6 @@ Players: 224 | Teams with signals: 32 | Manual rows: 0 | Estimated rows: 224
 - Tomon Fox (LB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: defensive_major | Review: yes
   - Evidence: The Rams signed Fox on Tuesday.
-- Zech McPhearson (CB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: The Rams signed McPhearson to a contract Sunday, Aaron Wilson of KPRC 2 Houston reports.
 - Dean Connors (RB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
   - Evidence: The Rams signed Connors as an undrafted free agent Tuesday.
@@ -512,9 +524,6 @@ Players: 224 | Teams with signals: 32 | Manual rows: 0 | Estimated rows: 224
 - Jalen Ramsey (CB): likely_starter_or_primary, starter 0.7, roster 0.66
   - Tags: starter | Impact: defensive_major | Review: yes
   - Evidence: The Steelers have placed Ramsey (knee) on the active/physically unable to perform list to start training camp, Teresa Varley of the team's official site reports.
-- De'Von Achane (RB): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: skill_major | Review: yes
-  - Evidence: New Dolphins head coach Jeff Hafley said Achane (shoulder) has been cleared for the start of training camp, Alain Poupart of SI.com reports.
 - Ollie Gordon II (RB): competition_or_rotation, starter 0.5, roster 0.6
   - Tags: competition | Impact: skill_major | Review: yes
   - Evidence: Gordon and Jaylen Wright are in line to compete for backup slotting behind De'Von Achane in training camp, Mike Masala of USA Today reports.
@@ -587,15 +596,9 @@ Players: 224 | Teams with signals: 32 | Manual rows: 0 | Estimated rows: 224
 - Hunter Henry (TE): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
   - Evidence: Henry agreed to a two-year, $16 million contract extension with the Patriots on Monday, Adam Schefter of ESPN reports.
-- Kobe Prentice (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Patriots claimed Prentice off waivers Saturday, Aaron Wilson of KPRC 2 Houston reports.
 - Mitch Van Vooren (TE): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
   - Evidence: New England signed Van Vooren on Wednesday.
-- Tejhaun Palmer (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Patriots claimed Palmer off waivers from the Cardinals on Tuesday.
 
 ### NO
 
@@ -614,9 +617,6 @@ Players: 224 | Teams with signals: 32 | Manual rows: 0 | Estimated rows: 224
 - Anfernee Orji (LB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: defensive_major | Review: yes
   - Evidence: The Giants signed Orji (knee) Thursday, Dan Salomone of the Giants' official site reports.
-- JT Woods (S): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: The Giants signed Woods to a contract Sunday, Aaron Wilson of KPRC 2 Houston reports.
 - Grant Finley (FB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
   - Evidence: The Giants signed Finley to a contract Thursday, Dan Salomone of the Giants' official site reports.
@@ -641,9 +641,6 @@ Players: 224 | Teams with signals: 32 | Manual rows: 0 | Estimated rows: 224
 - Jason Sanders (PK): competition_or_rotation, starter 0.5, roster 0.6
   - Tags: competition | Impact: depth_only | Review: yes
   - Evidence: Sanders is set to battle Cade York (groin) for the Jets' kicker job in training camp, Jack Bell of the Jets' official site reports.
-- Eric Watts (DE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_front_major | Review: yes
-  - Evidence: Watts (undisclosed) reverted from waivers to the Jets' injured reserve list Thursday, Aaron Wilson of KPRC 2 Houston reports.
 - Cam Camper (WR): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
   - Evidence: The Jets signed Camper on Friday.
@@ -680,6 +677,9 @@ Players: 224 | Teams with signals: 32 | Manual rows: 0 | Estimated rows: 224
 - Germie Bernard (WR): likely_starter_or_primary, starter 0.7, roster 0.66
   - Tags: starter | Impact: skill_major | Review: yes
   - Evidence: Bernard got most of his reps in the slot with the first-team offense at Friday's practice, Alan Saunders of Steelers Now reports.
+- Tua Tagovailoa (QB): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: qb_major | Review: yes
+  - Evidence: Coach Kevin Stefanski said Monday that the Falcons don't have a timeline to name a starting quarterback for the team's Week 1 game at Pittsburgh, Josh Kendall of The Athletic reports.
 - Pat Freiermuth (TE): competition_or_rotation, starter 0.5, roster 0.6
   - Tags: competition | Impact: skill_major | Review: yes
   - Evidence: Freiermuth is a candidate to take on a larger role in Pittsburgh's passing game during the 2026 campaign, Ray Fittipaldo of the Pittsburgh Post-Gazette reports.
@@ -797,9 +797,15 @@ Players: 224 | Teams with signals: 32 | Manual rows: 0 | Estimated rows: 224
 - Jahan Dotson (WR): likely_starter_or_primary, starter 0.7, roster 0.66
   - Tags: starter | Impact: skill_major | Review: yes
   - Evidence: Dotson is playing with Atlanta's first-team offense at training camp, Will McFadden of the Falcons' official site reports.
+- Parker Washington (WR): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: skill_major | Review: yes
+  - Evidence: Washington is off to a good start in training camp, according to John Shipley of SI.com.
 - Chig Okonkwo (TE): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
   - Evidence: Ahead of training camp, Zach Selby of the Commanders' official site relays that Okonkwo (who signed a three-year deal with the team in March) and QB Jayden Daniels have already developed a strong connection through their work during OTAs and minicamp.
+- Montrell Washington (WR): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: The Texans signed Washington on Tuesday, Aaron Wilson of KPRC 2 Houston reports.
 - River Cracraft (WR): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
   - Evidence: The Commanders signed Cracraft to a contract Wednesday, Alain Poupart of SI.com reports.

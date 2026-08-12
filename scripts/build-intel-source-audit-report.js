@@ -4,6 +4,7 @@ import { mkdir, readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { teamIdentityValidationBlockers } from '../agents/lib/team-identity.js';
+import { validateNamedStatusReview } from '../agents/lib/named-status-review.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1050,14 +1051,51 @@ async function collectPlayerAvailability(sources) {
     const generated = starters.meta?.generated_at || startersStat.mtime.toISOString();
     const hoursOld = ageHours(generated);
     const stale = hoursOld !== null && hoursOld > 168;
+    const namedValidation = starters.meta?.named_status_review_validation;
+    const namedBlocked = namedValidation?.status !== 'pass';
     addSource(sources, {
       group: 'Player Availability',
       name: 'Projected starters evidence layer',
-      status: stale ? 'stale' : 'review',
+      status: namedBlocked ? 'blocked' : (stale ? 'stale' : 'review'),
       freshness: `${generated} (${hoursOld ?? '?'}h old)`,
-      evidence: `${starters.meta?.player_count || 0} player signal(s); ${starters.meta?.teams_with_signals || 0} teams with signals; manual rows=${starters.meta?.manual_row_count || 0}; estimated rows=${starters.meta?.estimated_row_count || 0}; teams needing manual depth chart=${starters.meta?.teams_needing_manual_depth_chart ?? 'unknown'}.`,
-      action: 'Use as player-importance research context only. Manual all-position depth charts remain the next coverage fill step; estimated starter language must not be treated as final source of truth.',
+      evidence: `${starters.meta?.player_count || 0} player signal(s); ${starters.meta?.teams_with_signals || 0} teams with signals; manual rows=${starters.meta?.manual_row_count || 0}; estimated rows=${starters.meta?.estimated_row_count || 0}; teams needing manual depth chart=${starters.meta?.teams_needing_manual_depth_chart ?? 'unknown'}; named-review validation=${namedValidation?.status || 'missing'}.`,
+      action: namedBlocked
+        ? 'Do not use the projected-starters layer until the required named-case review contract passes.'
+        : 'Use as player-importance research context only. Manual all-position depth charts remain the next coverage fill step; estimated starter language must not be treated as final source of truth.',
       path: startersPath,
+    });
+  }
+
+  const namedReviewPath = 'data/projected-starters/2026/named-status-review.json';
+  const namedReviewStat = await exists(namedReviewPath);
+  if (!namedReviewStat) {
+    addSource(sources, {
+      group: 'Player Availability',
+      name: 'Bills/Packers named status review gate',
+      status: 'blocked',
+      evidence: 'The required Connor McGovern and Micah Parsons review ledger is missing.',
+      action: 'Record each named case as confirmed with a human-verified source or explicitly withheld before synthesis.',
+      path: namedReviewPath,
+    });
+  } else {
+    const namedReview = await readJson(namedReviewPath, {});
+    const namedValidation = validateNamedStatusReview(namedReview);
+    const cases = namedReview.cases || [];
+    const unresolved = cases.filter((item) => item.eligible_for_synthesis !== true);
+    addSource(sources, {
+      group: 'Player Availability',
+      name: 'Bills/Packers named status review gate',
+      status: namedValidation?.status === 'pass' ? 'review' : 'blocked',
+      freshness: namedReview.meta?.reviewed_at || namedReviewStat.mtime.toISOString(),
+      evidence: `${cases.length} required named case(s) recorded; confirmed=${cases.filter((item) => item.review_status === 'confirmed_current').length}; withheld/conflicted=${unresolved.length}; validation=${namedValidation?.status || 'missing'}.`,
+      action: unresolved.length
+        ? 'Keep Connor McGovern and Micah Parsons out of confirmed starter/availability synthesis until the missing human source checks are completed.'
+        : 'Use only the confirmed, source-stamped dispositions recorded in the ledger.',
+      details: cases.map((item) => ({
+        label: `${item.expected_team} ${item.player_name}`,
+        value: `${item.review_status}; synthesis eligible=${item.eligible_for_synthesis === true ? 'yes' : 'no'}; missing=${(item.missing || []).join('; ') || 'none'}`,
+      })),
+      path: namedReviewPath,
     });
   }
 
@@ -1083,14 +1121,16 @@ async function collectPlayerAvailability(sources) {
   const eventCount = snapshot.meta?.event_count || 0;
   const identity = snapshot.meta?.team_identity_validation;
   const identityBlockers = teamIdentityValidationBlockers(identity);
+  const evidenceValidation = snapshot.meta?.availability_evidence_validation;
+  const evidenceBlocked = evidenceValidation?.status !== 'pass';
   addSource(sources, {
     group: 'Player Availability',
     name: 'Player availability snapshot',
-    status: identityBlockers.length ? 'blocked' : (eventCount <= 0 || stale ? 'stale' : 'review'),
+    status: identityBlockers.length || evidenceBlocked ? 'blocked' : (eventCount <= 0 || stale ? 'stale' : 'review'),
     freshness: `${generated} (${hoursOld ?? '?'}h old)`,
-    evidence: `${eventCount} availability events across ${snapshot.meta?.teams_with_events || 0} teams; unique evidence=${snapshot.meta?.unique_evidence_count ?? 'unknown'}; corrected legacy source assignments=${identity?.corrected_source_assignment_count ?? 'unknown'}; improving=${snapshot.meta?.improving_count || 0}; worsening=${snapshot.meta?.worsening_count || 0}; major=${snapshot.meta?.major_count || 0}; OL worsening=${snapshot.meta?.offensive_line_worsening_count || 0}; defensive-front worsening=${snapshot.meta?.defensive_front_worsening_count || 0}; OL cluster teams=${snapshot.meta?.teams_with_ol_cluster_risk || 0}; defensive-front cluster teams=${snapshot.meta?.teams_with_defensive_front_cluster_risk || 0}; source issues=${sourceIssues.length}; identity blockers=${identityBlockers.length}${identityBlockers.length ? ` (${identityBlockers.join('; ')})` : ''}.`,
-    action: identityBlockers.length
-      ? 'Do not use team availability aggregates in frontier synthesis. Normalize ownership/deduplication, regenerate the artifact, and rerun this audit.'
+    evidence: `${eventCount} availability events across ${snapshot.meta?.teams_with_events || 0} teams; synthesis eligible=${snapshot.meta?.synthesis_eligible_count ?? 'unknown'}; conflicted intel=${snapshot.meta?.conflicted_intel_count ?? 'unknown'}; unflagged contradictions=${evidenceValidation?.unflagged_contradiction_count ?? 'unknown'}; unique evidence=${snapshot.meta?.unique_evidence_count ?? 'unknown'}; corrected legacy source assignments=${identity?.corrected_source_assignment_count ?? 'unknown'}; improving=${snapshot.meta?.improving_count || 0}; worsening=${snapshot.meta?.worsening_count || 0}; major=${snapshot.meta?.major_count || 0}; OL worsening=${snapshot.meta?.offensive_line_worsening_count || 0}; defensive-front worsening=${snapshot.meta?.defensive_front_worsening_count || 0}; OL cluster teams=${snapshot.meta?.teams_with_ol_cluster_risk || 0}; defensive-front cluster teams=${snapshot.meta?.teams_with_defensive_front_cluster_risk || 0}; source issues=${sourceIssues.length}; identity blockers=${identityBlockers.length}${identityBlockers.length ? ` (${identityBlockers.join('; ')})` : ''}; evidence validation=${evidenceValidation?.status || 'missing'}.`,
+    action: identityBlockers.length || evidenceBlocked
+      ? 'Do not use team availability aggregates in frontier synthesis. Resolve identity/evidence validation blockers, regenerate the artifact, and rerun this audit.'
       : eventCount > 0
         ? 'Review/highlight key returns, setbacks, PUP/IR timing, and snap-count risks before synthesis.'
       : 'Refresh the availability snapshot before synthesis.',
@@ -1118,14 +1158,18 @@ async function collectPlayerAvailability(sources) {
     const hoursOld = ageHours(generated);
     const stale = hoursOld !== null && hoursOld > 72;
     const warnings = (digest.top_events || []).filter((event) => event.classification_warning).length;
+    const namedValidation = digest.meta?.named_status_review_validation;
+    const digestBlocked = namedValidation?.status !== 'pass';
     addSource(sources, {
       group: 'Player Availability',
       name: 'Starter impact availability digest',
-      status: stale ? 'stale' : 'review',
+      status: digestBlocked ? 'blocked' : (stale ? 'stale' : 'review'),
       freshness: `${generated} (${hoursOld ?? '?'}h old)`,
-      evidence: `${digest.meta?.digest_event_count || 0} ranked digest event(s) from ${digest.meta?.source_event_count || 0} source event(s); starter-matched=${digest.meta?.starter_matched_count || 0}; classification warnings=${warnings}.`,
-      action: warnings
-        ? 'Review classification-warning rows before synthesis; they indicate availability trend labels that conflict with the supporting text.'
+      evidence: `${digest.meta?.digest_event_count || 0} ranked digest event(s) from ${digest.meta?.source_event_count || 0} source event(s); synthesis eligible=${digest.meta?.synthesis_eligible_count ?? 'unknown'}; starter-matched=${digest.meta?.starter_matched_count || 0}; conflicted intel=${digest.meta?.conflicted_intel_count ?? 'unknown'}; needs confirmation=${digest.meta?.needs_confirmation_count ?? 'unknown'}; classification review=${digest.meta?.classification_review_count ?? warnings}; named-review validation=${namedValidation?.status || 'missing'}.`,
+      action: digestBlocked
+        ? 'Do not use this digest until the named-review contract passes.'
+        : warnings
+        ? 'Keep classification-warning and conflicted rows out of synthesis aggregates; review them separately before any later promotion.'
         : 'Review top events before synthesis and keep this as research context, not betting authority.',
       path: digestPath,
     });
