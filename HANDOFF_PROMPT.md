@@ -6,10 +6,10 @@
 - Branch: `main`.
 - Current local HEAD: `f54712351b663b45c95db643c792241fbebe5019`.
 - Parity verified: local `HEAD`, cached `origin/main`, and M6 checkout all resolve to `f54712351b663b45c95db643c792241fbebe5019`.
-- Working tree: G01-G03 futures evidence cleanup checkpoint is staged; unrelated dirty boundaries remain unstaged.
-- Latest timestamped handoff: `handoffs/2026-08-12-0026-futures-evidence-cleanup-g03-handoff.md`.
-- Current objective: finish checkpoint handling for the completed futures evidence cleanup G01-G03 tranche.
-- Staged checkpoint: 70 files. Suggested commit message: `fix: gate and verify futures evidence rebuild`.
+- Working tree: G01-G03 futures evidence cleanup checkpoint is committed locally; unrelated dirty boundaries remain unstaged.
+- Latest timestamped handoff: `handoffs/2026-08-12-0054-futures-evidence-cleanup-postcommit-handoff.md`.
+- Current objective: continue after the completed futures evidence cleanup G01-G03 tranche.
+- Local checkpoint commit: `961b6e9` (`fix: gate and verify futures evidence rebuild`). No git push has been performed.
 - Completed roadmap items: A01/A02/A05 and G01/G02/G03 in `docs/FUTURES_EVIDENCE_CLEANUP_ROADMAP_2026-08-11.md`.
 - Latest article review: 292 records, complete requested DB window, zero unresolved pick-oriented rows, zero `actual_picks`, and 10 explicit selections held out for price/venue verification.
 - Latest strict source audit: `PASSABLE`, Current 2 / Review 25 / Stale 0 / Blocked 0 / Missing 0 / Context 12.
@@ -18,7 +18,7 @@
 - Unstaged dirty boundaries to preserve unless explicitly approved: `TASK_BOARD.md`, `WORKING-CONTEXT.md`, `Complete_with_Docusign_Personal_Use_-_Andrew_NFL_Dashboard_Yahoo_API_agreement.pdf`, and `docs/antigravity/recovery/youtube-qoCm4G2Jmng-contested-datapoints-review.md`.
 - Guardrails: no paid/frontier model/API calls, Supabase writes, official-pick actions, production recommendation persistence, portfolio/open-parlay mutations, git push, or broad staging without explicit approval.
 
-> Rolling session handoff. Read this first in a fresh session, then read `HANDOFF.md`, `WORKING-CONTEXT.md`, `TASK_BOARD.md`, and `handoffs/2026-08-12-0026-futures-evidence-cleanup-g03-handoff.md`.
+> Rolling session handoff. Read this first in a fresh session, then read `HANDOFF.md`, `WORKING-CONTEXT.md`, `TASK_BOARD.md`, and `handoffs/2026-08-12-0054-futures-evidence-cleanup-postcommit-handoff.md`.
 
 ## Persistent Backlogs
 

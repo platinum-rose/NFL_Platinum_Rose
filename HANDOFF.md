@@ -1,17 +1,16 @@
 # NFL_Dashboard - Session Handoff
 
-## Current Pick Up Here (2026-08-12 futures evidence cleanup G03 checkpoint)
+## Current Pick Up Here (2026-08-12 futures evidence cleanup post-commit)
 
-- Latest timestamped handoff: `handoffs/2026-08-12-0026-futures-evidence-cleanup-g03-handoff.md`.
+- Latest timestamped handoff: `handoffs/2026-08-12-0054-futures-evidence-cleanup-postcommit-handoff.md`.
 - Branch: `main`.
-- Verified parity: local `HEAD`, cached `origin/main`, and M6 checkout all resolve to `f54712351b663b45c95db643c792241fbebe5019`.
-- Current staged checkpoint: 70 files staged for the G01-G03 futures evidence cleanup tranche.
-- Suggested commit message: `fix: gate and verify futures evidence rebuild`.
+- G01-G03 futures evidence cleanup checkpoint committed locally as `961b6e9` (`fix: gate and verify futures evidence rebuild`).
+- Branch state after this docs-only closeout is committed: `main...origin/main [ahead 2]`; no git push has been performed.
 - Completed: A01/A02/A05 and G01/G02/G03 in `docs/FUTURES_EVIDENCE_CLEANUP_ROADMAP_2026-08-11.md`.
 - Latest local verification receipt: `.nfl/verification/futures-evidence-verification-2026-08-12T05-40-00-000Z.json` with PASS.
 - Latest deterministic rebuild manifest: `.nfl/rebuild/futures-evidence-rebuild-2026-08-12T05-30-00-000Z.json`.
 - Unstaged dirty boundaries to preserve unless explicitly approved: `TASK_BOARD.md`, `WORKING-CONTEXT.md`, `Complete_with_Docusign_Personal_Use_-_Andrew_NFL_Dashboard_Yahoo_API_agreement.pdf`, and `docs/antigravity/recovery/youtube-qoCm4G2Jmng-contested-datapoints-review.md`.
-- Immediate next step: review `git diff --cached --name-status`, then commit the staged checkpoint locally if approved/appropriate. Do not use `git add -A`.
+- Immediate next step: push only if Andy explicitly approves pushing. Otherwise the next project decision is whether to approve a separately scoped frontier futures synthesis run.
 - Guardrails: no paid/frontier model/API calls, Supabase writes, official-pick actions, production recommendation persistence, portfolio/open-parlay mutations, or git push without explicit approval.
 
 ## Resume Prompt
@@ -19,13 +18,13 @@
 ```text
 Resume in E:\dev\projects\NFL_Dashboard.
 
-First read HANDOFF.md, HANDOFF_PROMPT.md, handoffs/2026-08-12-0026-futures-evidence-cleanup-g03-handoff.md, and docs/FUTURES_EVIDENCE_CLEANUP_ROADMAP_2026-08-11.md.
+First read HANDOFF.md, HANDOFF_PROMPT.md, handoffs/2026-08-12-0054-futures-evidence-cleanup-postcommit-handoff.md, and docs/FUTURES_EVIDENCE_CLEANUP_ROADMAP_2026-08-11.md.
 
-Objective: finish checkpoint handling for the completed futures evidence cleanup G01-G03 tranche.
+Objective: continue after the completed futures evidence cleanup G01-G03 checkpoint.
 
-Verified state: local HEAD, cached origin/main, and M6 all resolve to f54712351b663b45c95db643c792241fbebe5019. A01/A02/A05 and G01/G02/G03 are complete. Article rebuild has 292 records, complete requested DB window, zero unresolved pick-oriented rows, zero actual_picks, and 10 explicit selections held out for price/venue verification. Strict source audit is PASSABLE: Current 2 / Review 25 / Stale 0 / Blocked 0 / Missing 0 / Context 12. Deterministic rebuild passed at 2026-08-12T05:30:00.000Z. Final verification passed at 2026-08-12T05:40:00.000Z. Latest receipt is .nfl/verification/futures-evidence-verification-2026-08-12T05-40-00-000Z.json. Latest rebuild manifest is .nfl/rebuild/futures-evidence-rebuild-2026-08-12T05-30-00-000Z.json. 70 files are staged for commit. Suggested commit message: fix: gate and verify futures evidence rebuild.
+Verified state: G01-G03 was committed locally as 961b6e9 with message fix: gate and verify futures evidence rebuild. Before that commit, local HEAD, cached origin/main, and M6 all resolved to f54712351b663b45c95db643c792241fbebe5019. A01/A02/A05 and G01/G02/G03 are complete. Article rebuild has 292 records, complete requested DB window, zero unresolved pick-oriented rows, zero actual_picks, and 10 explicit selections held out for price/venue verification. Strict source audit is PASSABLE: Current 2 / Review 25 / Stale 0 / Blocked 0 / Missing 0 / Context 12. Deterministic rebuild passed at 2026-08-12T05:30:00.000Z. Final verification passed at 2026-08-12T05:40:00.000Z. Latest receipt is .nfl/verification/futures-evidence-verification-2026-08-12T05-40-00-000Z.json. Latest rebuild manifest is .nfl/rebuild/futures-evidence-rebuild-2026-08-12T05-30-00-000Z.json. After this closeout handoff is committed, main is ahead of origin/main by two local commits; no push was performed.
 
-Immediate next step: run git status --short --branch and git diff --cached --name-status. Confirm the staged set is still only the G-tranche checkpoint, then commit locally if approved/appropriate.
+Immediate next step: run git status --short --branch. Push only if Andy explicitly approves pushing. Otherwise, the next project decision is whether to approve a separately scoped frontier futures synthesis run.
 
 Dirty boundaries to preserve: TASK_BOARD.md, WORKING-CONTEXT.md, Complete_with_Docusign_Personal_Use_-_Andrew_NFL_Dashboard_Yahoo_API_agreement.pdf, and docs/antigravity/recovery/youtube-qoCm4G2Jmng-contested-datapoints-review.md.
 
