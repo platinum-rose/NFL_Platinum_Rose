@@ -1,5 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { sourcePrimaryTeam } from './team-identity.js';
 
 function normalizedPart(value) {
   return String(value ?? '').trim().toLowerCase();
@@ -60,8 +61,7 @@ export async function loadLocalSnapshotFiles(paths, { season = null } = {}) {
 }
 
 export function beatSourceTeam(source) {
-  const match = String(source || '').trim().match(/^([A-Z]{2,3})\s+Beat\s+-/i);
-  return match ? match[1].toUpperCase() : null;
+  return sourcePrimaryTeam(source);
 }
 
 export function isSourceTeamAligned(team, source) {

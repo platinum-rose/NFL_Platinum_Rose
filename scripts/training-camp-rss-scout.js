@@ -24,13 +24,13 @@ import {
   parseArgs,
   nowIso,
   todayPacificDate,
-  inferTeams,
   toIntelRecord,
   dedupeItems,
   buildSnapshot,
   writeSnapshotAndReports,
   parseManualDirectory,
 } from './training-camp-intel.js';
+import { resolveEvidenceTeamOwnership } from '../agents/lib/team-identity.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -265,11 +265,12 @@ export async function runScout(options = {}) {
         const text = `${item.title} ${item.description}`;
         if (campOnly && !feed.team && !isCampRelevant(text)) continue;
 
-        let teams = inferTeams({}, text);
-        if (!teams.length && feed.team) {
-          teams = [feed.team];
-        }
-        if (!teams.length) continue;
+        const ownership = resolveEvidenceTeamOwnership({
+          source: feed.source,
+          sourceTeam: feed.team,
+          text,
+        });
+        if (!ownership.primary_team) continue;
 
         const canonicalUrl = canonicalizeUrl(item.link);
         const raw = {
@@ -281,13 +282,20 @@ export async function runScout(options = {}) {
           body: item.description,
           summary: item.title,
           dedupe_key: canonicalUrl,
+          source_team: feed.team || null,
+          related_teams: ownership.related_teams,
           needs_human_review: true,
         };
 
-        for (const team of teams) {
-          rssItems.push(toIntelRecord({ raw, team, sourceFile: null, season, capturedFallback }));
-          keptCount += 1;
-        }
+        rssItems.push(toIntelRecord({
+          raw,
+          team: ownership.primary_team,
+          teamIdentity: ownership,
+          sourceFile: null,
+          season,
+          capturedFallback,
+        }));
+        keptCount += 1;
       }
 
       feedHealth.push({

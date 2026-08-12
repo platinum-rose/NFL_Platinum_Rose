@@ -3,6 +3,7 @@
 import { mkdir, readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { teamIdentityValidationBlockers } from '../agents/lib/team-identity.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -934,6 +935,7 @@ async function collectTrainingCamp(sources) {
   const recoveryStat = await exists(recoveryPath);
   const recoverySnapshot = recoveryStat ? await readJson(recoveryPath, {}) : null;
   const hasRecoveredSnapshot = (recoverySnapshot?.meta?.item_count || 0) > 0;
+  let currentSnapshot = null;
   const recoveredAction = hasRecoveredSnapshot
     ? `Restore ${recoveryPath} into latest.json and the July 30 timestamped snapshot, or approve a fresh live RSS scout.`
     : 'Collect/manual-paste or persist RSS scout results first.';
@@ -956,14 +958,19 @@ async function collectTrainingCamp(sources) {
     });
   } else {
     const snapshot = await readJson(snapshotPath, {});
+    currentSnapshot = snapshot;
+    const identity = snapshot.meta?.team_identity_validation;
+    const identityBlockers = teamIdentityValidationBlockers(identity);
     addSource(sources, {
       group: 'Training Camp',
       name: 'Training camp local snapshot',
-      status: snapshot.meta?.item_count > 0 ? 'review' : 'stale',
+      status: identityBlockers.length ? 'blocked' : (snapshot.meta?.item_count > 0 ? 'review' : 'stale'),
       freshness: snapshot.meta?.generated_at || snapshotStat.mtime.toISOString(),
-      evidence: `${snapshot.meta?.team_count || 0} teams; ${snapshot.meta?.teams_with_intel || 0} teams with manual intel; ${snapshot.meta?.item_count || 0} items.`,
-      action: snapshot.meta?.item_count > 0
-        ? 'Review/highlight before synthesis.'
+      evidence: `${snapshot.meta?.team_count || 0} teams; ${snapshot.meta?.teams_with_intel || 0} teams with manual intel; ${snapshot.meta?.item_count || 0} items; unique evidence=${snapshot.meta?.unique_evidence_count ?? 'unknown'}; corrected legacy source assignments=${identity?.corrected_source_assignment_count ?? 'unknown'}; identity blockers=${identityBlockers.length}${identityBlockers.length ? ` (${identityBlockers.join('; ')})` : ''}.`,
+      action: identityBlockers.length
+        ? 'Do not use team aggregates in frontier synthesis. Normalize ownership/deduplication, regenerate the artifact, and rerun this audit.'
+        : snapshot.meta?.item_count > 0
+          ? 'Review/highlight before synthesis.'
         : `This is an all-32 empty placeholder. ${recoveredAction}`,
       details: snapshot.meta?.item_count > 0 ? [] : recoveredDetails,
       path: snapshotPath,
@@ -977,14 +984,19 @@ async function collectTrainingCamp(sources) {
   if (receipts[0]) {
     const receipt = await readJson(receipts[0].relativePath, {});
     const issues = (receipt.feed_health || []).filter((feed) => feed.status !== 'available');
+    const identityNormalized = currentSnapshot?.meta?.team_identity_validation?.status === 'pass';
     addSource(sources, {
       group: 'Training Camp',
       name: 'Training camp RSS scout',
-      status: receipt.written ? 'review' : 'stale',
+      status: identityNormalized ? 'context' : (receipt.written ? 'review' : 'stale'),
       freshness: receipt.generated_at || receipts[0].mtime,
-      evidence: `${receipt.item_count || 0} live-feed items across ${receipt.teams_with_intel || 0} teams; written=${receipt.written}; feed issues=${issues.length}.`,
-      action: receipt.written
-        ? 'Review merged output.'
+      evidence: identityNormalized
+        ? `Historical pre-normalization receipt: ${receipt.item_count || 0} rows across ${receipt.teams_with_intel || 0} assigned teams; current normalized snapshot has ${currentSnapshot.meta.item_count} unique evidence items across ${currentSnapshot.meta.teams_with_intel} primary teams; feed issues=${issues.length}.`
+        : `${receipt.item_count || 0} live-feed items across ${receipt.teams_with_intel || 0} teams; written=${receipt.written}; feed issues=${issues.length}.`,
+      action: identityNormalized
+        ? 'Use this receipt for collection/feed-health provenance only. Use the normalized snapshot, never the historical kept-row counts, for evidence aggregates.'
+        : receipt.written
+          ? 'Review merged output.'
         : 'Last run was a dry-run receipt. Persist or manually review before synthesis.',
       details: (receipt.feed_health || []).map((feed) => ({
         label: feed.source,
@@ -1069,14 +1081,18 @@ async function collectPlayerAvailability(sources) {
   const stale = hoursOld !== null && hoursOld > 72;
   const sourceIssues = (snapshot.meta?.source_health || []).filter((source) => source.status === 'error' || source.status === 'missing');
   const eventCount = snapshot.meta?.event_count || 0;
+  const identity = snapshot.meta?.team_identity_validation;
+  const identityBlockers = teamIdentityValidationBlockers(identity);
   addSource(sources, {
     group: 'Player Availability',
     name: 'Player availability snapshot',
-    status: eventCount <= 0 || stale ? 'stale' : 'review',
+    status: identityBlockers.length ? 'blocked' : (eventCount <= 0 || stale ? 'stale' : 'review'),
     freshness: `${generated} (${hoursOld ?? '?'}h old)`,
-    evidence: `${eventCount} availability events across ${snapshot.meta?.teams_with_events || 0} teams; improving=${snapshot.meta?.improving_count || 0}; worsening=${snapshot.meta?.worsening_count || 0}; major=${snapshot.meta?.major_count || 0}; OL worsening=${snapshot.meta?.offensive_line_worsening_count || 0}; defensive-front worsening=${snapshot.meta?.defensive_front_worsening_count || 0}; OL cluster teams=${snapshot.meta?.teams_with_ol_cluster_risk || 0}; defensive-front cluster teams=${snapshot.meta?.teams_with_defensive_front_cluster_risk || 0}; source issues=${sourceIssues.length}.`,
-    action: eventCount > 0
-      ? 'Review/highlight key returns, setbacks, PUP/IR timing, and snap-count risks before synthesis.'
+    evidence: `${eventCount} availability events across ${snapshot.meta?.teams_with_events || 0} teams; unique evidence=${snapshot.meta?.unique_evidence_count ?? 'unknown'}; corrected legacy source assignments=${identity?.corrected_source_assignment_count ?? 'unknown'}; improving=${snapshot.meta?.improving_count || 0}; worsening=${snapshot.meta?.worsening_count || 0}; major=${snapshot.meta?.major_count || 0}; OL worsening=${snapshot.meta?.offensive_line_worsening_count || 0}; defensive-front worsening=${snapshot.meta?.defensive_front_worsening_count || 0}; OL cluster teams=${snapshot.meta?.teams_with_ol_cluster_risk || 0}; defensive-front cluster teams=${snapshot.meta?.teams_with_defensive_front_cluster_risk || 0}; source issues=${sourceIssues.length}; identity blockers=${identityBlockers.length}${identityBlockers.length ? ` (${identityBlockers.join('; ')})` : ''}.`,
+    action: identityBlockers.length
+      ? 'Do not use team availability aggregates in frontier synthesis. Normalize ownership/deduplication, regenerate the artifact, and rerun this audit.'
+      : eventCount > 0
+        ? 'Review/highlight key returns, setbacks, PUP/IR timing, and snap-count risks before synthesis.'
       : 'Refresh the availability snapshot before synthesis.',
     details: (snapshot.meta?.source_health || []).map((source) => ({
       label: source.source,

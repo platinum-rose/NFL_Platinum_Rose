@@ -1,5 +1,13 @@
 import { createHash } from 'node:crypto';
 import { getTeamAbbreviation, normalizeTeam } from '../../src/lib/teams.js';
+import {
+  auditTeamIdentity,
+  canonicalTeamList,
+  inferTeamMentions,
+  mergeRelatedTeams,
+  resolveEvidenceTeamOwnership,
+  sourcePrimaryTeam,
+} from './team-identity.js';
 
 const STATUS_ALIASES = [
   ['IR', /\b(injured reserve|injury reserve|\bir\b)\b/i],
@@ -223,14 +231,31 @@ export function availabilityEventFromInjuryRecord(record, options = {}) {
   const playerName = record.player_name || 'Unknown';
   const capturedAt = record.captured_at || options.generatedAt || new Date().toISOString();
   const sourceUrl = record.source_url || 'https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries';
-  const id = `avail_${sha([options.season || 2026, team, playerName, status, event_type, sourceUrl].join('|')).slice(0, 16)}`;
+  const dedupeKey = record.espn_injury_id || record.dedupe_key || record.source_url || `${team}|${playerName}|${status}|${event_type}`;
+  const evidenceId = record.evidence_id || `availability_evidence_${sha([
+    record.source_type || 'structured_injury',
+    record.source || 'ESPN injuries API',
+    dedupeKey,
+    playerName.toLowerCase(),
+    event_type,
+  ].join('|')).slice(0, 20)}`;
+  const id = `avail_${sha([options.season || 2026, evidenceId].join('|')).slice(0, 16)}`;
+  const teamIdentity = resolveEvidenceTeamOwnership({
+    declaredTeam: team,
+    source: record.source || 'ESPN injuries API',
+    text,
+  });
 
   return {
     id,
+    evidence_id: evidenceId,
     season: Number(options.season || 2026),
     player_name: playerName,
-    team_abbr: team,
-    team_nick: normalizeTeam(team) || null,
+    team_abbr: teamIdentity.primary_team,
+    primary_team: teamIdentity.primary_team,
+    related_teams: teamIdentity.related_teams,
+    team_identity: { ...teamIdentity, contract_origin: 'resolved_v1' },
+    team_nick: normalizeTeam(teamIdentity.primary_team) || null,
     position: record.position || null,
     source: record.source || 'ESPN injuries API',
     source_type: record.source_type || 'structured_injury',
@@ -249,7 +274,7 @@ export function availabilityEventFromInjuryRecord(record, options = {}) {
     linked_markets: linkedMarketsForAvailability(text),
     impact_bucket: impactBucket(record.position, text),
     availability_group: availabilityGroup(record.position),
-    dedupe_key: record.espn_injury_id || record.source_url || `${team}|${playerName}|${status}|${event_type}`,
+    dedupe_key: dedupeKey,
     // F-26c §4 — FantasyPros /nfl/injuries carries two fields ESPN's free feed
     // doesn't have at all: a literal numeric play probability, and Wed/Thu/Fri
     // practice-report participation. Only FantasyPros records populate these
@@ -273,15 +298,39 @@ export function availabilityEventFromTrainingCampItem(item, options = {}) {
   if (!['return_to_practice', 'limited_return', 'limited', 'setback', 'pup', 'ir', 'out', 'doubtful', 'probable', 'active_news'].includes(event_type)) {
     return null;
   }
-  const team = getTeamAbbreviation(item.team) || item.team || '';
+  const teamIdentity = resolveEvidenceTeamOwnership({
+    declaredTeam: item.primary_team || item.team,
+    declaredTeams: item.related_teams || [],
+    source: item.source,
+    sourceTeam: item.team_identity?.source_team,
+    text,
+  });
+  const team = teamIdentity.primary_team || getTeamAbbreviation(item.team) || item.team || '';
   const sourceUrl = item.source_url || null;
-  const id = `avail_${sha([options.season || item.season || 2026, team, item.player || item.summary, event_type, sourceUrl || item.id].join('|')).slice(0, 16)}`;
+  const dedupeKey = item.dedupe_key || sourceUrl || item.id;
+  const evidenceId = `availability_evidence_${sha([
+    item.source_type || 'training_camp',
+    item.source || 'Training camp snapshot',
+    item.evidence_id || dedupeKey,
+    String(item.player || item.summary || '').toLowerCase(),
+    event_type,
+  ].join('|')).slice(0, 20)}`;
+  const id = `avail_${sha([options.season || item.season || 2026, evidenceId].join('|')).slice(0, 16)}`;
 
   return {
     id,
+    evidence_id: evidenceId,
     season: Number(options.season || item.season || 2026),
     player_name: item.player || null,
     team_abbr: team,
+    primary_team: team,
+    related_teams: mergeRelatedTeams(team, item.related_teams, teamIdentity.related_teams, item.team),
+    team_identity: {
+      ...teamIdentity,
+      primary_team: team,
+      related_teams: mergeRelatedTeams(team, item.related_teams, teamIdentity.related_teams, item.team),
+      contract_origin: 'resolved_v1',
+    },
     team_nick: normalizeTeam(team) || null,
     position: item.position || null,
     source: item.source || 'Training camp snapshot',
@@ -301,23 +350,89 @@ export function availabilityEventFromTrainingCampItem(item, options = {}) {
     linked_markets: item.linked_markets?.length ? item.linked_markets : linkedMarketsForAvailability(text),
     impact_bucket: impactBucket(item.position, text),
     availability_group: availabilityGroup(item.position),
-    dedupe_key: item.dedupe_key || sourceUrl || item.id,
+    dedupe_key: dedupeKey,
   };
 }
 
 export function dedupeAvailabilityEvents(events = []) {
   const byKey = new Map();
-  for (const event of events.filter(Boolean)) {
-    const key = [
-      event.team_abbr,
-      event.player_name || event.short_summary,
-      event.event_type,
-      event.dedupe_key || event.source_url,
-    ].join('|');
+  for (const rawEvent of events.filter(Boolean)) {
+    const resolved = resolveEvidenceTeamOwnership({
+      declaredTeam: rawEvent.primary_team || rawEvent.team_abbr,
+      declaredTeams: rawEvent.related_teams || [],
+      source: rawEvent.source,
+      sourceTeam: rawEvent.team_identity?.source_team,
+      text: `${rawEvent.short_summary || ''} ${rawEvent.supporting_quote || ''}`,
+    });
+    const primaryTeam = resolved.primary_team || rawEvent.team_abbr;
+    if (!primaryTeam) continue;
+    const evidenceId = rawEvent.evidence_id || `availability_evidence_${sha([
+      rawEvent.source_type || rawEvent.source,
+      rawEvent.dedupe_key || rawEvent.source_url || rawEvent.id,
+      String(rawEvent.player_name || rawEvent.short_summary || '').toLowerCase(),
+      rawEvent.event_type,
+    ].join('|')).slice(0, 20)}`;
+    const event = {
+      ...rawEvent,
+      evidence_id: evidenceId,
+      team_abbr: primaryTeam,
+      primary_team: primaryTeam,
+      related_teams: mergeRelatedTeams(primaryTeam, rawEvent.related_teams, resolved.related_teams, rawEvent.team_abbr),
+      team_identity: {
+        ...resolved,
+        ownership_source: sourcePrimaryTeam(rawEvent.source)
+          ? 'source_prefix'
+          : (rawEvent.team_identity?.ownership_source || resolved.ownership_source),
+        flags: [...new Set([...(rawEvent.team_identity?.flags || []), ...resolved.flags])],
+        contract_origin: rawEvent.team_identity?.contract_origin || (rawEvent.team_identity ? 'resolved_v1' : 'legacy_normalized'),
+      },
+      team_nick: normalizeTeam(primaryTeam) || rawEvent.team_nick || null,
+    };
+    event.team_identity.primary_team = event.primary_team;
+    event.team_identity.related_teams = event.related_teams;
+
+    const key = evidenceId;
     const existing = byKey.get(key);
-    if (!existing || String(event.captured_at || event.published_at).localeCompare(String(existing.captured_at || existing.published_at)) > 0) {
+    if (!existing) {
       byKey.set(key, event);
+      continue;
     }
+
+    const winner = String(event.captured_at || event.published_at).localeCompare(String(existing.captured_at || existing.published_at)) > 0
+      ? event
+      : existing;
+    const legacyGroup = [existing, event].some((candidate) => candidate.team_identity?.contract_origin === 'legacy_normalized');
+    const inferredPrimary = legacyGroup
+      ? inferTeamMentions(`${winner.short_summary || ''} ${winner.supporting_quote || ''}`)[0]
+      : null;
+    const primary = sourcePrimaryTeam(winner.source) || inferredPrimary || winner.primary_team || winner.team_abbr;
+    const related = mergeRelatedTeams(
+      primary,
+      existing.related_teams,
+      event.related_teams,
+      existing.team_abbr,
+      event.team_abbr,
+    );
+    byKey.set(key, {
+      ...winner,
+      team_abbr: primary,
+      primary_team: primary,
+      related_teams: related,
+      team_nick: normalizeTeam(primary) || winner.team_nick || null,
+      team_identity: {
+        ...(winner.team_identity || {}),
+        primary_team: primary,
+        related_teams: related,
+        mentioned_teams: canonicalTeamList([
+          ...(existing.team_identity?.mentioned_teams || []),
+          ...(event.team_identity?.mentioned_teams || []),
+        ]),
+        flags: [...new Set([
+          ...(existing.team_identity?.flags || []),
+          ...(event.team_identity?.flags || []),
+        ])],
+      },
+    });
   }
   return [...byKey.values()].sort((a, b) =>
     String(b.published_at || b.captured_at).localeCompare(String(a.published_at || a.captured_at)) ||
@@ -328,7 +443,23 @@ export function dedupeAvailabilityEvents(events = []) {
 export function buildAvailabilitySnapshot({ season = 2026, generatedAt = new Date().toISOString(), injuryRecords = [], trainingCampItems = [], sourceHealth = [] } = {}) {
   const injuryEvents = injuryRecords.map((record) => availabilityEventFromInjuryRecord(record, { season, generatedAt }));
   const campEvents = trainingCampItems.map((item) => availabilityEventFromTrainingCampItem(item, { season, generatedAt })).filter(Boolean);
-  const events = dedupeAvailabilityEvents([...injuryEvents, ...campEvents]);
+  return buildAvailabilitySnapshotFromEvents({
+    season,
+    generatedAt,
+    events: [...injuryEvents, ...campEvents],
+    sourceHealth,
+  });
+}
+
+export function buildAvailabilitySnapshotFromEvents({
+  season = 2026,
+  generatedAt = new Date().toISOString(),
+  events: rawEvents = [],
+  sourceHealth = [],
+  normalization = null,
+} = {}) {
+  const events = dedupeAvailabilityEvents(rawEvents);
+  const teamIdentityValidation = auditTeamIdentity(events, { teamField: 'team_abbr' });
   const teams = {};
   for (const event of events) {
     const key = event.team_abbr || 'UNK';
@@ -371,6 +502,7 @@ export function buildAvailabilitySnapshot({ season = 2026, generatedAt = new Dat
       season,
       generated_at: generatedAt,
       event_count: events.length,
+      unique_evidence_count: teamIdentityValidation.unique_evidence_count,
       teams_with_events: Object.keys(teams).length,
       improving_count: events.filter((e) => e.availability_trend === 'improving').length,
       worsening_count: events.filter((e) => e.availability_trend === 'worsening').length,
@@ -386,6 +518,8 @@ export function buildAvailabilitySnapshot({ season = 2026, generatedAt = new Dat
         official_picks_generated: false,
       },
       source_health: sourceHealth,
+      team_identity_validation: teamIdentityValidation,
+      ...(normalization ? { normalization } : {}),
     },
     events,
     teams,

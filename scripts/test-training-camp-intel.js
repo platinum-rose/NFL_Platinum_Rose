@@ -35,7 +35,10 @@ try {
     if (!snapshot.teams[team]) fail(failures, 'team_presence', `missing ${team}`);
   }
   if ((snapshot.teams.BUF?.items || []).length < 1) fail(failures, 'buf_items', 'expected Bills manual item');
-  if ((snapshot.teams.GB?.items || []).length < 1) fail(failures, 'gb_items', 'expected Packers manual item');
+  const billsPackersItem = snapshot.items.find((item) => item.source_url === 'https://example.com/bills-packers-camp');
+  if (billsPackersItem?.team !== 'BUF' || !billsPackersItem?.related_teams?.includes('GB')) {
+    fail(failures, 'shared_item_ownership', 'expected one Bills-primary item with Packers retained as related');
+  }
   if ((snapshot.teams.CIN?.items || []).length < 1) fail(failures, 'cin_items', 'expected Bengals manual item');
   if ((snapshot.teams.DET?.items || []).length < 1) fail(failures, 'det_items', 'expected Lions structured JSON item');
   if ((snapshot.teams.ARI?.items || []).length !== 0) fail(failures, 'empty_team', 'expected Cardinals to appear with zero items');
@@ -46,6 +49,8 @@ try {
   if (!snapshot.items.some((item) => item.signal_type === 'scheme')) fail(failures, 'classification', 'expected a scheme signal');
   if (!snapshot.items.some((item) => item.anchor_relevance.includes('Bills'))) fail(failures, 'anchor', 'expected Bills anchor relevance');
   if (!snapshot.items.some((item) => item.anchor_relevance.includes('Packers'))) fail(failures, 'anchor', 'expected Packers anchor relevance');
+  if (snapshot.meta.team_identity_validation?.status !== 'pass') fail(failures, 'team_identity', 'expected passing team-identity validation');
+  if (snapshot.meta.item_count !== snapshot.meta.unique_evidence_count) fail(failures, 'dedupe', 'expected aggregate item count to equal unique evidence count');
   for (const output of Object.values(outputs || {})) {
     if (!output) fail(failures, 'outputs', 'missing output path');
   }

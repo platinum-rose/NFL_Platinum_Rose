@@ -5,7 +5,16 @@ import { existsSync } from 'node:fs';
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { getTeamAbbreviation, NFL_TEAMS } from '../src/lib/teams.js';
+import { NFL_TEAMS } from '../src/lib/teams.js';
+import {
+  auditTeamIdentity,
+  canonicalTeamAbbreviation,
+  canonicalTeamList,
+  inferTeamMentions,
+  mergeRelatedTeams,
+  resolveEvidenceTeamOwnership,
+  sourcePrimaryTeam,
+} from '../agents/lib/team-identity.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -73,11 +82,6 @@ export function nowIso() {
 
 export function sha(value) {
   return createHash('sha256').update(String(value)).digest('hex');
-}
-
-function canonicalTeamAbbr(value) {
-  const abbr = getTeamAbbreviation(value);
-  return abbr || null;
 }
 
 export function allTeams() {
@@ -209,24 +213,16 @@ function anchorRelevance(team, text) {
 
 export function inferTeams(meta, body) {
   const rawTeams = splitList(meta.teams || meta.team);
-  const fromMeta = rawTeams.map(canonicalTeamAbbr).filter(Boolean);
+  const fromMeta = canonicalTeamList(rawTeams);
   if (fromMeta.length) return [...new Set(fromMeta)];
-
-  const found = [];
-  for (const team of Object.values(NFL_TEAMS)) {
-    const aliases = [team.abbreviation, team.fullName, team.name, team.city, ...(team.altAbbreviations || [])];
-    if (aliases.some((alias) => new RegExp(`\\b${alias.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i').test(body))) {
-      found.push(team.abbreviation);
-    }
-  }
-  return [...new Set(found)];
+  return inferTeamMentions(body);
 }
 
 function normalizeTags(value, signalType) {
   return [...new Set(['camp', signalType, ...splitList(value)])].filter(Boolean);
 }
 
-export function toIntelRecord({ raw, team, sourceFile, season, capturedFallback }) {
+export function toIntelRecord({ raw, team, teamIdentity = null, sourceFile, season, capturedFallback }) {
   const body = raw.body ?? raw.raw_excerpt ?? raw.summary ?? '';
   const summary = summarize(body, raw.summary);
   const sourceType = raw.source_type || 'manual';
@@ -234,15 +230,37 @@ export function toIntelRecord({ raw, team, sourceFile, season, capturedFallback 
   const publishedAt = raw.published_at || null;
   const capturedAt = raw.captured_at || capturedFallback;
   const sourceUrl = raw.source_url || raw.url || null;
-  const dedupeKey = raw.dedupe_key || sourceUrl || sha(`${sourceFile}|${team}|${summary}|${body}`);
-  const id = raw.id || `camp_${sha([season, team, raw.source || 'Manual', dedupeKey, summary].join('|')).slice(0, 16)}`;
+  const ownership = teamIdentity || resolveEvidenceTeamOwnership({
+    declaredTeam: team,
+    declaredTeams: [
+      ...splitList(raw.teams || raw.team),
+      ...splitList(raw.related_teams),
+    ],
+    source: raw.source,
+    sourceTeam: raw.source_team,
+    text: `${summary} ${body}`,
+  });
+  const primaryTeam = ownership.primary_team || canonicalTeamAbbreviation(team);
+  const relatedTeams = mergeRelatedTeams(primaryTeam, ownership.related_teams, raw.related_teams);
+  const dedupeKey = raw.dedupe_key || sourceUrl || sha(`${sourceFile}|${raw.source || 'Manual'}|${summary}|${body}`);
+  const evidenceId = raw.evidence_id || `camp_evidence_${sha(dedupeKey).slice(0, 20)}`;
+  const id = raw.id || `camp_${sha([season, raw.source || 'Manual', dedupeKey, summary].join('|')).slice(0, 16)}`;
   const relevance = raw.betting_relevance || extractBettingRelevance(body, 'Needs human review for betting relevance.');
   const textForRules = `${summary} ${body} ${relevance}`;
 
   return {
     id,
+    evidence_id: evidenceId,
     season,
-    team,
+    team: primaryTeam,
+    primary_team: primaryTeam,
+    related_teams: relatedTeams,
+    team_identity: {
+      ...ownership,
+      primary_team: primaryTeam,
+      related_teams: relatedTeams,
+      contract_origin: 'resolved_v1',
+    },
     player: raw.player ?? null,
     position: raw.position ?? null,
     source: raw.source || 'Manual note',
@@ -257,7 +275,7 @@ export function toIntelRecord({ raw, team, sourceFile, season, capturedFallback 
     raw_excerpt: normalizeExcerpt(raw.raw_excerpt || stripLabeledSections(body), 700),
     betting_relevance: relevance,
     linked_markets: raw.linked_markets || linkedMarkets(textForRules),
-    anchor_relevance: raw.anchor_relevance || anchorRelevance(team, textForRules),
+    anchor_relevance: raw.anchor_relevance || anchorRelevance(primaryTeam, textForRules),
     needs_human_review: raw.needs_human_review ?? true,
     tags: normalizeTags(raw.tags, signalType),
     dedupe_key: dedupeKey,
@@ -283,8 +301,15 @@ async function parseManualFile(filePath, season, capturedFallback) {
     const rows = Array.isArray(parsed) ? parsed : (Array.isArray(parsed.items) ? parsed.items : [parsed]);
     return rows.flatMap((row) => {
       const body = row.body ?? row.raw_excerpt ?? row.summary ?? '';
-      const teams = inferTeams(row, body);
-      return teams.map((team) => toIntelRecord({ raw: row, team, sourceFile: filePath, season, capturedFallback }));
+      const ownership = resolveEvidenceTeamOwnership({
+        declaredTeams: splitList(row.teams || row.team),
+        source: row.source,
+        sourceTeam: row.source_team,
+        text: `${row.summary || ''} ${body}`,
+      });
+      return ownership.primary_team
+        ? [toIntelRecord({ raw: row, team: ownership.primary_team, teamIdentity: ownership, sourceFile: filePath, season, capturedFallback })]
+        : [];
     });
   }
 
@@ -292,18 +317,89 @@ async function parseManualFile(filePath, season, capturedFallback) {
     ? parseFrontmatter(text)
     : parseTextHeaders(text);
   const raw = { ...parsed.meta, body: parsed.body };
-  const teams = inferTeams(raw, parsed.body);
-  return teams.map((team) => toIntelRecord({ raw, team, sourceFile: filePath, season, capturedFallback }));
+  const ownership = resolveEvidenceTeamOwnership({
+    declaredTeams: splitList(raw.teams || raw.team),
+    source: raw.source,
+    sourceTeam: raw.source_team,
+    text: parsed.body,
+  });
+  return ownership.primary_team
+    ? [toIntelRecord({ raw, team: ownership.primary_team, teamIdentity: ownership, sourceFile: filePath, season, capturedFallback })]
+    : [];
 }
 
 export function dedupeItems(items) {
   const byKey = new Map();
-  for (const item of items) {
-    const key = `${item.team}|${item.dedupe_key}`;
+  for (const rawItem of items.filter(Boolean)) {
+    const resolved = resolveEvidenceTeamOwnership({
+      declaredTeam: rawItem.primary_team || rawItem.team,
+      declaredTeams: rawItem.related_teams || [],
+      source: rawItem.source,
+      sourceTeam: rawItem.team_identity?.source_team,
+      text: `${rawItem.summary || ''} ${rawItem.raw_excerpt || ''}`,
+    });
+    const primaryTeam = resolved.primary_team || canonicalTeamAbbreviation(rawItem.team);
+    if (!primaryTeam) continue;
+    const evidenceId = rawItem.evidence_id || `camp_evidence_${sha(rawItem.dedupe_key || rawItem.source_url || rawItem.id).slice(0, 20)}`;
+    const item = {
+      ...rawItem,
+      evidence_id: evidenceId,
+      team: primaryTeam,
+      primary_team: primaryTeam,
+      related_teams: mergeRelatedTeams(primaryTeam, rawItem.related_teams, resolved.related_teams, rawItem.team),
+      team_identity: {
+        ...resolved,
+        ownership_source: sourcePrimaryTeam(rawItem.source)
+          ? 'source_prefix'
+          : (rawItem.team_identity?.ownership_source || resolved.ownership_source),
+        flags: [...new Set([...(rawItem.team_identity?.flags || []), ...resolved.flags])],
+        contract_origin: rawItem.team_identity?.contract_origin || (rawItem.team_identity ? 'resolved_v1' : 'legacy_normalized'),
+      },
+    };
+    item.team_identity.primary_team = item.primary_team;
+    item.team_identity.related_teams = item.related_teams;
+
+    const key = evidenceId;
     const existing = byKey.get(key);
-    if (!existing || String(item.captured_at).localeCompare(String(existing.captured_at)) > 0) {
+    if (!existing) {
       byKey.set(key, item);
+      continue;
     }
+
+    const winner = String(item.captured_at || item.published_at).localeCompare(String(existing.captured_at || existing.published_at)) > 0
+      ? item
+      : existing;
+    const legacyGroup = [existing, item].some((candidate) => candidate.team_identity?.contract_origin === 'legacy_normalized');
+    const inferredPrimary = legacyGroup
+      ? inferTeamMentions(`${winner.summary || ''} ${winner.raw_excerpt || ''}`)[0]
+      : null;
+    const primary = sourcePrimaryTeam(winner.source) || inferredPrimary || winner.primary_team || winner.team;
+    const related = mergeRelatedTeams(
+      primary,
+      existing.related_teams,
+      item.related_teams,
+      existing.team,
+      item.team,
+    );
+    byKey.set(key, {
+      ...winner,
+      team: primary,
+      primary_team: primary,
+      related_teams: related,
+      team_identity: {
+        ...(winner.team_identity || {}),
+        primary_team: primary,
+        related_teams: related,
+        mentioned_teams: canonicalTeamList([
+          ...(existing.team_identity?.mentioned_teams || []),
+          ...(item.team_identity?.mentioned_teams || []),
+        ]),
+        flags: [...new Set([
+          ...(existing.team_identity?.flags || []),
+          ...(item.team_identity?.flags || []),
+        ])],
+      },
+    });
   }
   return [...byKey.values()].sort((a, b) =>
     a.team.localeCompare(b.team) ||
@@ -313,16 +409,18 @@ export function dedupeItems(items) {
 }
 
 export function buildSnapshot({ season, generatedAt, items, inputDir, feedHealth = null }) {
+  const canonicalItems = dedupeItems(items);
   const teamRows = {};
   for (const team of allTeams()) {
     teamRows[team.team] = { ...team, items: [] };
   }
-  for (const item of items) {
+  for (const item of canonicalItems) {
     if (teamRows[item.team]) teamRows[item.team].items.push(item);
   }
 
   const teamsWithIntel = Object.values(teamRows).filter((team) => team.items.length > 0).length;
-  const highPriority = items.filter((item) => item.signal_strength >= 0.7).length;
+  const highPriority = canonicalItems.filter((item) => item.signal_strength >= 0.7).length;
+  const teamIdentityValidation = auditTeamIdentity(canonicalItems);
   return {
     meta: {
       schema: 'training_camp_intel_snapshot_v1',
@@ -332,7 +430,8 @@ export function buildSnapshot({ season, generatedAt, items, inputDir, feedHealth
       team_count: Object.keys(teamRows).length,
       teams_with_intel: teamsWithIntel,
       teams_without_intel: Object.keys(teamRows).length - teamsWithIntel,
-      item_count: items.length,
+      item_count: canonicalItems.length,
+      unique_evidence_count: teamIdentityValidation.unique_evidence_count,
       high_priority_count: highPriority,
       local_only: true,
       recommendation_status: 'intel_only_not_picks',
@@ -348,8 +447,9 @@ export function buildSnapshot({ season, generatedAt, items, inputDir, feedHealth
       // report so a failed/rate-limited feed is visible, not silent. Null
       // for manual-only (Phase 1) builds.
       feed_health: feedHealth,
+      team_identity_validation: teamIdentityValidation,
     },
-    items,
+    items: canonicalItems,
     teams: teamRows,
   };
 }

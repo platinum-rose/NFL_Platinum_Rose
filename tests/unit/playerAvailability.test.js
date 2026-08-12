@@ -6,6 +6,7 @@ import {
   buildAvailabilitySnapshot,
   classifyAvailabilityEvent,
   clusterAvailabilitySummary,
+  dedupeAvailabilityEvents,
   normalizeInjuryStatus,
 } from '../../agents/lib/player-availability.js';
 
@@ -213,5 +214,31 @@ describe('buildAvailabilitySnapshot', () => {
     expect(snapshot.teams.BUF.defensive_front_worsening_count).toBe(1);
     expect(snapshot.teams.BUF.cluster_risks.defensive_front.opponent_offense_boost_risk).toBe(true);
     expect(snapshot.meta.source_health).toHaveLength(1);
+    expect(snapshot.meta.team_identity_validation.status).toBe('pass');
+  });
+
+  it('deduplicates cross-team copies by evidence and honors the beat source owner', () => {
+    const common = {
+      season: 2026,
+      player_name: null,
+      source: 'BUF Beat - Buffalo Rumblings',
+      source_type: 'rss',
+      source_url: 'https://example.com/bills-return',
+      dedupe_key: 'https://example.com/bills-return',
+      event_type: 'return_to_practice',
+      availability_trend: 'improving',
+      short_summary: 'Bills starter returned to practice while a Packers player watched.',
+      supporting_quote: 'Buffalo and the Packers were both mentioned.',
+      captured_at: '2026-08-11T12:00:00.000Z',
+    };
+
+    const events = dedupeAvailabilityEvents([
+      { ...common, team_abbr: 'BUF' },
+      { ...common, team_abbr: 'GB' },
+    ]);
+
+    expect(events).toHaveLength(1);
+    expect(events[0].team_abbr).toBe('BUF');
+    expect(events[0].related_teams).toContain('GB');
   });
 });

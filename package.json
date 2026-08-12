@@ -40,6 +40,7 @@
     "training-camp:scout:live": "node scripts/training-camp-rss-scout.js --live",
     "player-availability": "node scripts/build-player-availability.js",
     "player-availability:live": "node scripts/build-player-availability.js --live-injuries",
+    "evidence:normalize-team-identity": "node scripts/normalize-team-evidence-artifacts.js",
     "projected-starters": "node scripts/build-projected-starters.js",
     "availability:impact-digest": "node scripts/build-availability-impact-digest.js",
     "secondary-matchups": "node scripts/build-secondary-matchup-vulnerability.js",

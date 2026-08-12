@@ -156,7 +156,11 @@ describe('runScout', () => {
     });
 
     expect(outputs).toBeNull();
-    expect(snapshot.meta.item_count).toBeGreaterThanOrEqual(4); // same fixture as Phase 1 test
+    expect(snapshot.meta.item_count).toBeGreaterThanOrEqual(3); // multi-team evidence has one primary row plus related teams
+    const sharedManualItem = snapshot.items.find((item) => item.source_url === 'https://example.com/bills-packers-camp');
+    expect(sharedManualItem.team).toBe('BUF');
+    expect(sharedManualItem.related_teams).toContain('GB');
+    expect(snapshot.meta.team_identity_validation.status).toBe('pass');
     expect(feedHealth.every((f) => f.status === 'skipped')).toBe(true);
     expect(feedHealth.every((f) => f.kept_items === 0)).toBe(true);
   });
@@ -213,9 +217,44 @@ describe('runScout', () => {
     expect(bufItem.needs_human_review).toBe(true);
     expect(bufItem.source_url).toBe('https://example.com/bills-lt-2026?utm_source=x'.replace('?utm_source=x', ''));
 
-    // Manual fixture items are still present alongside the RSS item.
-    expect(snapshot.teams.GB.items.length).toBeGreaterThanOrEqual(1);
+    // Manual fixture evidence remains, with its second team retained as a
+    // related entity instead of a duplicate aggregate row.
+    const anchorItem = snapshot.items.find((item) => item.source_url === 'https://example.com/bills-packers-camp');
+    expect(anchorItem.team).toBe('BUF');
+    expect(anchorItem.related_teams).toContain('GB');
     expect(snapshot.teams.CIN.items.length).toBeGreaterThanOrEqual(1);
+  });
+
+  it('keeps a team-feed article with opponent mentions under one primary owner', async () => {
+    const fakeFetcher = async (feed) => ({
+      source: feed.source,
+      status: 'available',
+      reason: null,
+      items: [{
+        title: 'Bills evaluate a Packers trade target during training camp',
+        link: 'https://example.com/bills-packers-trade-target',
+        description: 'Buffalo discussed the Green Bay Packers player after practice.',
+        published_at: '2026-08-10T12:00:00.000Z',
+      }],
+    });
+
+    const { snapshot, feedHealth } = await runScout({
+      season: 2026,
+      inputDir: FIXTURE_DIR,
+      live: true,
+      source: 'Buffalo Rumblings',
+      generatedAt: '2026-08-11T12:00:00.000Z',
+      dryRun: true,
+      fetchFeedImpl: fakeFetcher,
+    });
+
+    const rows = snapshot.items.filter((item) => item.source === 'BUF Beat - Buffalo Rumblings');
+    expect(feedHealth[0].kept_items).toBe(1);
+    expect(rows).toHaveLength(1);
+    expect(rows[0].team).toBe('BUF');
+    expect(rows[0].related_teams).toContain('GB');
+    expect(snapshot.teams.GB.items.some((item) => item.source === rows[0].source)).toBe(false);
+    expect(snapshot.meta.item_count).toBe(snapshot.meta.unique_evidence_count);
   });
 
   it('widens beyond camp keywords when campOnly is false', async () => {

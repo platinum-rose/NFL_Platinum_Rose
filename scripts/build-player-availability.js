@@ -114,7 +114,7 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
-function renderMarkdown(snapshot) {
+export function renderAvailabilityMarkdown(snapshot) {
   const lines = [
     `# Player Availability Snapshot - ${snapshot.meta.generated_at.slice(0, 10)}`,
     '',
@@ -152,7 +152,7 @@ function renderMarkdown(snapshot) {
   return `${lines.join('\n')}\n`;
 }
 
-function renderHtml(snapshot) {
+export function renderAvailabilityHtml(snapshot) {
   const rows = Object.values(snapshot.teams)
     .sort((a, b) => b.major_count - a.major_count || b.event_count - a.event_count || a.team_abbr.localeCompare(b.team_abbr))
     .map((team) => `<section class="team">
@@ -213,6 +213,28 @@ function renderHtml(snapshot) {
   <main>${rows || '<p>No availability events found.</p>'}</main>
 </body>
 </html>`;
+}
+
+export async function writeAvailabilitySnapshotAndReports(snapshot, { date, outDir = OUT_DIR, docsDir = DOCS_DIR } = {}) {
+  const artifactDate = date || snapshot.meta.generated_at.slice(0, 10) || todayPacificDate();
+  await mkdir(outDir, { recursive: true });
+  await mkdir(docsDir, { recursive: true });
+  const jsonPath = path.join(outDir, `player-availability-${artifactDate}.json`);
+  const latestPath = path.join(outDir, 'latest.json');
+  const mdPath = path.join(docsDir, `player-availability-${artifactDate}.md`);
+  const htmlPath = path.join(docsDir, `player-availability-${artifactDate}.html`);
+  const latestMdPath = path.join(docsDir, 'player-availability-latest.md');
+  const latestHtmlPath = path.join(docsDir, 'player-availability-latest.html');
+
+  await writeFile(jsonPath, `${JSON.stringify(snapshot, null, 2)}\n`, 'utf8');
+  await writeFile(latestPath, `${JSON.stringify(snapshot, null, 2)}\n`, 'utf8');
+  const markdown = renderAvailabilityMarkdown(snapshot);
+  const html = renderAvailabilityHtml(snapshot);
+  await writeFile(mdPath, markdown, 'utf8');
+  await writeFile(latestMdPath, markdown, 'utf8');
+  await writeFile(htmlPath, html, 'utf8');
+  await writeFile(latestHtmlPath, html, 'utf8');
+  return { jsonPath, latestPath, mdPath, latestMdPath, htmlPath, latestHtmlPath };
 }
 
 export async function buildPlayerAvailability(options = {}) {
@@ -289,24 +311,8 @@ export async function buildPlayerAvailability(options = {}) {
 
   if (options.dryRun) return { snapshot, outputs: null };
 
-  await mkdir(OUT_DIR, { recursive: true });
-  await mkdir(DOCS_DIR, { recursive: true });
-  const jsonPath = path.join(OUT_DIR, `player-availability-${date}.json`);
-  const latestPath = path.join(OUT_DIR, 'latest.json');
-  const mdPath = path.join(DOCS_DIR, `player-availability-${date}.md`);
-  const htmlPath = path.join(DOCS_DIR, `player-availability-${date}.html`);
-  const latestMdPath = path.join(DOCS_DIR, 'player-availability-latest.md');
-  const latestHtmlPath = path.join(DOCS_DIR, 'player-availability-latest.html');
-
-  await writeFile(jsonPath, `${JSON.stringify(snapshot, null, 2)}\n`, 'utf8');
-  await writeFile(latestPath, `${JSON.stringify(snapshot, null, 2)}\n`, 'utf8');
-  const markdown = renderMarkdown(snapshot);
-  const html = renderHtml(snapshot);
-  await writeFile(mdPath, markdown, 'utf8');
-  await writeFile(latestMdPath, markdown, 'utf8');
-  await writeFile(htmlPath, html, 'utf8');
-  await writeFile(latestHtmlPath, html, 'utf8');
-  return { snapshot, outputs: { jsonPath, latestPath, mdPath, latestMdPath, htmlPath, latestHtmlPath } };
+  const outputs = await writeAvailabilitySnapshotAndReports(snapshot, { date });
+  return { snapshot, outputs };
 }
 
 async function main() {

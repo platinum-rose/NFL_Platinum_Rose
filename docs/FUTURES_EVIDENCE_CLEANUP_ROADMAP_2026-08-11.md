@@ -32,9 +32,9 @@ The repaired contract must report three different things:
 | A03 | P0 | Pick extraction | Parse multiple structured analyst selections from one article and prohibit team abbreviations from standing in for player names. | The two known Sharp Football examples yield four selection mentions and three unique selections; no selection is `NO`, `BUF`, or another team code. | code | COMPLETE — fixture passes |
 | A04 | P0 | Pick semantics | Separate explicit analyst selections from execution-usable actual picks. | A selection lacking a book or price remains visible but cannot enter `actual_picks`; strict actual picks have selection, market, price, and venue. | code | COMPLETE — fixture passes |
 | A05 | P1 | Article source QA | Manually re-review every pick-oriented record that is metadata-only, truncated, or extraction-empty; exclude page chrome and non-NFL material. | Zero unresolved pick-oriented records, with source URL and review disposition retained. | human review | NOT STARTED |
-| T01 | P0 | Team identity | Make source/feed team the primary team on team-specific feeds; store other mentioned teams as related entities only. | Zero primary-team/source-prefix mismatches in regenerated camp and availability artifacts. | code | NOT STARTED |
-| T02 | P0 | Alias safety | Prevent short aliases such as `NO` and `WAS` from matching ordinary prose; add NYG/NYJ and LAC/LAR disambiguation fixtures. | Team-normalization fixture suite passes with zero known collision cases. | code | NOT STARTED |
-| T03 | P1 | Aggregation | Deduplicate repeated article/feed records before team-level counts and strength summaries. | Aggregate counts equal unique evidence IDs, not duplicated cross-team rows. | code | NOT STARTED |
+| T01 | P0 | Team identity | Make source/feed team the primary team on team-specific feeds; store other mentioned teams as related entities only. | Zero primary-team/source-prefix mismatches in regenerated camp and availability artifacts. | code | COMPLETE — regenerated artifacts pass |
+| T02 | P0 | Alias safety | Prevent short aliases such as `NO` and `WAS` from matching ordinary prose; add NYG/NYJ and LAC/LAR disambiguation fixtures. | Team-normalization fixture suite passes with zero known collision cases. | code | COMPLETE — fixtures pass |
+| T03 | P1 | Aggregation | Deduplicate repeated article/feed records before team-level counts and strength summaries. | Aggregate counts equal unique evidence IDs, not duplicated cross-team rows. | code | COMPLETE — regenerated artifacts pass |
 | V01 | P0 | Availability | Reconcile structured status against source text and label contradictions as conflicted intel. | Zero unflagged `Active`/IR/PUP contradictions; every conflict has a source and human-review flag. | code + human review | NOT STARTED |
 | V02 | P0 | Depth charts | Confirm Bills McGovern and Packers Micah Parsons/team-status items; replace estimated-only starter claims where manual evidence exists. | Named confirmations recorded; estimated starters remain explicitly estimated elsewhere. | human review | NOT STARTED |
 | P01 | P0 | Prediction markets | Fix NYG/NYJ and LAC/LAR mapping, enforce 2026 season scope, and classify contract taxonomy before team mapping. | Zero known city/team collisions and zero wrong-season contracts in fixtures. | code | NOT STARTED |
@@ -43,8 +43,8 @@ The repaired contract must report three different things:
 | Y02 | P0 | YouTube exclusions | Hard-exclude both stale Drake Maye rows from `youtube-b9NL40Zogkw` and all evidence from `youtube-qoCm4G2Jmng`. | Forbidden episode IDs are absent from synthesis inputs and tested. | code | PARTIAL — summary guard exists |
 | O01 | P0 | Odds execution | Revalidate BKR, BetUS, and BetOnline prices at synthesis time and preserve exact venue/timestamp provenance. | Every actionable row has a current placeable venue; unavailable books are context-only. | local data + human check | NOT STARTED |
 | O02 | P0 | Exacta | Require exact two-team rows and multiple-book confirmation; keep simulation-price-only rows out of execution claims. | Bills–Packers exacta remains monitor-only until every explicit guardrail passes. | code + human check | NOT STARTED |
-| G01 | P0 | Audit gate | Make source audit block on incomplete article corpus, unresolved identity contamination, stale/mismatched YouTube cohorts, or invalid prediction mapping. | A legacy/contaminated artifact produces `blocked`, not `passable`. | code | PARTIAL — legacy article artifact now blocks |
-| G02 | P1 | Rebuild | Rebuild all dependent artifacts deterministically after upstream fixes, in dependency order. | Each artifact names its inputs, generated time, schema version, and validation results. | code | NOT STARTED |
+| G01 | P0 | Audit gate | Make source audit block on incomplete article corpus, unresolved identity contamination, stale/mismatched YouTube cohorts, or invalid prediction mapping. | A legacy/contaminated artifact produces `blocked`, not `passable`. | code | PARTIAL — article and team-identity blockers implemented |
+| G02 | P1 | Rebuild | Rebuild all dependent artifacts deterministically after upstream fixes, in dependency order. | Each artifact names its inputs, generated time, schema version, and validation results. | code | PARTIAL — camp/availability identity rebuild complete |
 | G03 | P0 | Final verification | Run focused fixtures, full tests, lint, build, source audit, and synthesis-context validation without model or DB writes. | All commands pass; GitHub, local, and M6 resolve to the same verified commit. | code | NOT STARTED |
 
 ## Dependency Order
@@ -58,6 +58,17 @@ The repaired contract must report three different things:
 7. Blocking audit, deterministic rebuild, and final verification (`G01`–`G03`).
 
 Downstream artifacts must be rebuilt after, not before, their upstream lane passes.
+
+## T01-T03 Completion Evidence
+
+The team-identity tranche was completed offline on August 11 without network fetches, model calls, Supabase writes, recommendation persistence, or portfolio changes.
+
+- The shared `team_identity_validation_v1` contract makes a team-specific feed/source prefix authoritative. Opponents and other mentioned teams are retained in `related_teams`; they no longer receive duplicate primary aggregate rows.
+- Short abbreviations are inferred from prose only when their original uppercase form is present. Ordinary `no` and `was` text no longer maps to the Saints or Commanders. City-only `New York` and `Los Angeles` text maps to neither team; explicit NYG/NYJ and LAC/LAR names/codes are disambiguated in fixtures.
+- `data/training-camp/2026/latest.json` normalized from 322 rows to 198 unique evidence IDs. It now reports zero duplicate evidence rows, zero primary/source-prefix mismatches, 87 corrected legacy source assignments, and 129 related-team references.
+- `data/player-availability/latest.json` normalized from 850 rows to 822 unique evidence IDs. It now reports zero duplicate evidence rows, zero primary/source-prefix mismatches, 23 corrected legacy source assignments, and 89 related-team references.
+- Honest camp coverage fell from 31 teams to 25 after false cross-team assignments were removed. This is a coverage gap, not a regression to conceal; the missing teams need real team-specific or manually reviewed evidence in a later collection pass.
+- The local source audit now accepts both identity validations, but the overall frontier gate remains blocked by the unreconstructed article corpus. The availability contradiction work (`V01`), named depth-chart confirmations (`V02`), and downstream impact-digest rebuild are still pending.
 
 ## Hard Frontier Re-entry Gates
 

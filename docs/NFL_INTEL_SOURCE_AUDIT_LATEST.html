@@ -162,15 +162,16 @@
 <body>
   <header>
     <h1>NFL Intelligence Source Audit</h1>
-    <div class="sub">Generated 2026-08-11T08:12:47.917Z. This is a pre-synthesis freshness report. It reads local receipts and artifacts only; it does not call frontier models, fetch live odds, write Supabase, approve official picks, or mutate open portfolio tickets.</div>
+    <div class="sub">Generated 2026-08-12T03:21:38.727Z. This is a pre-synthesis freshness report. It reads local receipts and artifacts only; it does not call frontier models, fetch live odds, write Supabase, approve official picks, or mutate open portfolio tickets.</div>
   </header>
   <main>
     <div class="summary">
-      <div class="metric"><b>2</b><span>Current</span></div><div class="metric"><b>24</b><span>Review</span></div><div class="metric"><b>0</b><span>Stale</span></div><div class="metric"><b>0</b><span>Blocked</span></div><div class="metric"><b>0</b><span>Missing</span></div><div class="metric"><b>11</b><span>Context</span></div><div class="metric"><b>1</b><span>Inference Only</span></div>
+      <div class="metric"><b>2</b><span>Current</span></div><div class="metric"><b>22</b><span>Review</span></div><div class="metric"><b>0</b><span>Stale</span></div><div class="metric"><b>1</b><span>Blocked</span></div><div class="metric"><b>0</b><span>Missing</span></div><div class="metric"><b>12</b><span>Context</span></div><div class="metric"><b>1</b><span>Inference Only</span></div>
     </div>
     <div class="gate">
-      <h2>Frontier Synthesis Gate: Passable with Notes</h2>
-      <p>Enough current/local evidence exists to proceed if review items are intentionally accepted.</p>
+      <h2>Frontier Synthesis Gate: Blocked Until Refresh Decisions</h2>
+      <p>Do not run a maximum frontier-model portfolio synthesis yet unless stale or blocked sources are refreshed, excluded from recommendation eligibility, or intentionally retained as inference-only context.</p>
+      <ul><li><strong>Article evidence integrity review</strong>: Do not run frontier synthesis. Rebuild the complete article corpus with schema v2, resolve every pick-oriented record, and rerun this audit.</li></ul>
     </div>
     <section>
       <h2>Execution Policy</h2>
@@ -188,7 +189,7 @@
           <tr>
             <td><strong>Primary bet-placement books</strong></td>
             <td><span class="badge context">Context</span></td>
-            <td>2026-08-11T08:12:47.917Z</td>
+            <td>2026-08-12T03:21:38.727Z</td>
             <td>Primary books: Bookmaker/BKR, BetUS, BetOnline. Public/Vegas books are market data only unless a major price discrepancy deserves proxy attention.</td>
             <td>Recommendations should be placeable at a primary book. Elevate non-primary prices as Vegas-proxy alerts only when the value is large enough to justify manual action.</td>
           </tr>
@@ -211,7 +212,7 @@
           <tr>
             <td><strong>TheOddsAPI futures ingest receipt</strong><div class="path">.nfl\receipts\futures-ingest-2026-07-30T21-21-41-817Z.json</div><details><summary>Details</summary><dl><dt>Super Bowl Winner: available</dt><dd>128 rows from 1 event(s)</dd><dt>Conference Winner: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Division Winner: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>MVP: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Offensive Player of the Year: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Defensive Player of the Year: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Offensive Rookie of the Year: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Defensive Rookie of the Year: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Comeback Player of the Year: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Coach of the Year: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Regular Season Win Total: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Make the Playoffs: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Exact Super Bowl Matchup: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Most Regular Season Wins: unavailable</dt><dd>HTTP 404; 0 rows</dd><dt>Fewest Regular Season Wins: unavailable</dt><dd>HTTP 404; 0 rows</dd></dl></details></td>
             <td><span class="badge review">Review</span></td>
-            <td>2026-07-30T21:00:00.000Z (275.2h old)</td>
+            <td>2026-07-30T21:00:00.000Z (294.4h old)</td>
             <td>1 available / 14 unavailable markets; 128 rows; 15 API calls.</td>
             <td>Use available rows as public market data. For betting recommendations, require a primary-book quote or an explicit Vegas-proxy alert.</td>
           </tr><tr>
@@ -288,7 +289,7 @@
           </tr><tr>
             <td><strong>Prediction-market team map</strong><div class="path">data/prediction-markets/team-market-map-latest.json</div></td>
             <td><span class="badge review">Review</span></td>
-            <td>2026-08-11T07:31:29.665Z (0.7h old)</td>
+            <td>2026-08-11T07:31:29.665Z (19.8h old)</td>
             <td>745 mapped / 1248 unmapped contract(s); liquidity warnings=1542.</td>
             <td>Use mapped rows as consensus context only. Review unmapped and liquidity-warning rows before making any price-shopping inference.</td>
           </tr>
@@ -346,19 +347,19 @@
           <tr>
             <td><strong>YouTube/Gemini reviewed futures intel</strong><div class="path">data/shadow-harness/review/youtube-futures-agent-intel-summary.json</div></td>
             <td><span class="badge current">Current</span></td>
-            <td>2026-08-11T07:01:43.150Z (1.2h old)</td>
-            <td>45 promoted/exported items; 129 review records; leak checks {&quot;det_division_winner_plus_1500&quot;:0}.</td>
+            <td>2026-08-12T02:14:10.864Z (1.1h old)</td>
+            <td>43 promoted/exported items; 152 review records; leak checks {&quot;det_division_winner_plus_1500&quot;:0}.</td>
             <td>Use as source-stamped research context, not betting authority. Refresh only if new YouTube candidates exist after last sweep.</td>
           </tr><tr>
             <td><strong>Podcast/YouTube July 24-30 freshness reconciliation</strong><div class="path">data/shadow-harness/review/podcast-youtube-freshness-latest.json</div></td>
             <td><span class="badge review">Review</span></td>
-            <td>2026-08-11T07:01:44.095Z (1.2h old)</td>
-            <td>45 accepted YouTube local-intel pick(s); 68 pending/needs-review row(s) remain excluded; 4 YouTube candidate(s) and 0 podcast deep dive(s) dated 2026-07-24-2026-07-30.</td>
+            <td>2026-08-11T08:44:13.709Z (18.6h old)</td>
+            <td>45 accepted YouTube local-intel pick(s); 82 pending/needs-review row(s) remain excluded; 4 YouTube candidate(s) and 0 podcast deep dive(s) dated 2026-07-24-2026-07-30.</td>
             <td>Use accepted rows as research context only. Do not promote pending/needs-review rows; evaluate any unobserved futures-eligible candidates before frontier synthesis if new July 24-30 coverage appears.</td>
           </tr><tr>
             <td><strong>Expert dossiers</strong><div class="path">data/expert-dossiers/latest.json</div><details><summary>Details</summary><dl><dt>Andrew Erickson</dt><dd>130 host citation(s); 0 recovery signal(s); 0 context-only signal(s)</dd><dt>Ben Solak</dt><dd>46 host citation(s); 0 recovery signal(s); 0 context-only signal(s)</dd><dt>Brandon Anderson</dt><dd>23 host citation(s); 0 recovery signal(s); 0 context-only signal(s)</dd><dt>Brandon Kravitz</dt><dd>75 host citation(s); 0 recovery signal(s); 0 context-only signal(s)</dd><dt>Chad Millman</dt><dd>235 host citation(s); 1 recovery signal(s); 1 context-only signal(s)</dd><dt>Chris Welsh</dt><dd>51 host citation(s); 0 recovery signal(s); 0 context-only signal(s)</dd><dt>Kendra Middleton</dt><dd>59 host citation(s); 0 recovery signal(s); 0 context-only signal(s)</dd><dt>Rich Hribar</dt><dd>0 host citation(s); 1 recovery signal(s); 1 context-only signal(s)</dd><dt>Ross Tucker</dt><dd>144 host citation(s); 0 recovery signal(s); 0 context-only signal(s)</dd><dt>Scott Bogman</dt><dd>7 host citation(s); 0 recovery signal(s); 0 context-only signal(s)</dd><dt>Seth Woolcock</dt><dd>117 host citation(s); 0 recovery signal(s); 0 context-only signal(s)</dd><dt>Simon Hunter</dt><dd>539 host citation(s); 1 recovery signal(s); 1 context-only signal(s)</dd><dt>Steve Fezzik</dt><dd>70 host citation(s); 0 recovery signal(s); 0 context-only signal(s)</dd></dl></details></td>
             <td><span class="badge context">Context</span></td>
-            <td>2026-08-11T07:05:15.954Z (1.1h old)</td>
+            <td>2026-08-11T08:44:09.348Z (18.6h old)</td>
             <td>13 expert dossier(s); 3 local-recovery signal(s); 3 context-only signal(s); missing dossier files=0.</td>
             <td>Use only as compact analyst-prior/bias context for named experts. Do not treat local recovery signals as accepted picks or clean transcript evidence.</td>
           </tr><tr>
@@ -399,15 +400,15 @@
           <tr>
             <td><strong>Research/article RSS ingest</strong><div class="path">.nfl\receipts\research-intel-ingest-2026-08-11T08-06-46-678Z.json</div><details><summary>Details</summary><dl><dt>Action Network: available</dt><dd>4 NFL items from 5 fetched; notes=4; signals=4</dd><dt>BettingPros: available</dt><dd>0 NFL items from 100 fetched; notes=0; signals=0</dd><dt>Walter Football: available</dt><dd>1 NFL items from 327 fetched; notes=1; signals=0</dd><dt>ESPN NFL: available</dt><dd>17 NFL items from 17 fetched; notes=17; signals=3</dd><dt>VSiN: available</dt><dd>5 NFL items from 25 fetched; notes=5; signals=0</dd><dt>Sharp Football: available</dt><dd>16 NFL items from 20 fetched; notes=16; signals=0</dd><dt>Pro Football Talk: available</dt><dd>11 NFL items from 30 fetched; notes=11; signals=0</dd><dt>PFF: available</dt><dd>3 NFL items from 25 fetched; notes=3; signals=0</dd><dt>Rotowire NFL: available</dt><dd>5 NFL items from 5 fetched; notes=5; signals=0</dd><dt>Football Outsiders: error</dt><dd>0 NFL items from 0 fetched; notes=0; signals=0; fetch failed</dd><dt>THE WINDOW (Matt Russell): available</dt><dd>1 NFL items from 20 fetched; notes=1; signals=0</dd></dl></details></td>
             <td><span class="badge review">Review</span></td>
-            <td>2026-08-11T08:06:46.678Z (0.1h old)</td>
+            <td>2026-08-11T08:06:46.678Z (19.2h old)</td>
             <td>11 configured feeds; 63 NFL candidate article notes; 0 inserted notes; feed issues=1.</td>
             <td>Review new notes/signals in Supabase/vault context before synthesis.</td>
           </tr><tr>
-            <td><strong>Article full-body intel review</strong><div class="path">docs/article-intel-review/article-intel-review-latest.html</div><details><summary>Details</summary><dl><dt>Action Network</dt><dd>4 article(s); 0 actual pick candidate(s); 6 market/inference lead(s); 4 contextual note(s)</dd><dt>ESPN NFL</dt><dd>16 article(s); 0 actual pick candidate(s); 1 market/inference lead(s); 18 contextual note(s)</dd><dt>PFF</dt><dd>7 article(s); 0 actual pick candidate(s); 4 market/inference lead(s); 26 contextual note(s)</dd><dt>Pro Football Talk</dt><dd>43 article(s); 0 actual pick candidate(s); 25 market/inference lead(s); 124 contextual note(s)</dd><dt>Rotowire NFL</dt><dd>18 article(s); 0 actual pick candidate(s); 4 market/inference lead(s); 84 contextual note(s)</dd><dt>Sharp Football</dt><dd>3 article(s); 1 actual pick candidate(s); 8 market/inference lead(s); 12 contextual note(s)</dd><dt>THE WINDOW (Matt Russell)</dt><dd>2 article(s); 0 actual pick candidate(s); 3 market/inference lead(s); 6 contextual note(s)</dd><dt>VSiN</dt><dd>7 article(s); 0 actual pick candidate(s); 8 market/inference lead(s); 21 contextual note(s)</dd><dt>Walter Football</dt><dd>1 article(s); 0 actual pick candidate(s); 0 market/inference lead(s); 4 contextual note(s)</dd></dl></details></td>
-            <td><span class="badge review">Review</span></td>
-            <td>2026-08-11T08:10:10.328Z (0h old)</td>
-            <td>101 articles reviewed; 1 actual pick candidates; 59 market/inference leads; 299 contextual notes; 0 likely non-NFL false positives.</td>
-            <td>Use actual-pick candidates for human review; use market/inference leads as synthesis context only. Do not trust the raw research_pick_signals count as article QA.</td>
+            <td><strong>Article evidence integrity review</strong><div class="path">docs/article-intel-review/article-intel-review-latest.html</div><details><summary>Details</summary><dl><dt>Action Network</dt><dd>4 record(s); unknown explicit selection(s); 0 execution-usable pick(s); 6 market/inference lead(s); 4 contextual note(s)</dd><dt>ESPN NFL</dt><dd>16 record(s); unknown explicit selection(s); 0 execution-usable pick(s); 1 market/inference lead(s); 18 contextual note(s)</dd><dt>PFF</dt><dd>7 record(s); unknown explicit selection(s); 0 execution-usable pick(s); 4 market/inference lead(s); 26 contextual note(s)</dd><dt>Pro Football Talk</dt><dd>43 record(s); unknown explicit selection(s); 0 execution-usable pick(s); 25 market/inference lead(s); 124 contextual note(s)</dd><dt>Rotowire NFL</dt><dd>18 record(s); unknown explicit selection(s); 0 execution-usable pick(s); 4 market/inference lead(s); 84 contextual note(s)</dd><dt>Sharp Football</dt><dd>3 record(s); unknown explicit selection(s); 1 execution-usable pick(s); 8 market/inference lead(s); 12 contextual note(s)</dd><dt>THE WINDOW (Matt Russell)</dt><dd>2 record(s); unknown explicit selection(s); 0 execution-usable pick(s); 3 market/inference lead(s); 6 contextual note(s)</dd><dt>VSiN</dt><dd>7 record(s); unknown explicit selection(s); 0 execution-usable pick(s); 8 market/inference lead(s); 21 contextual note(s)</dd><dt>Walter Football</dt><dd>1 record(s); unknown explicit selection(s); 0 execution-usable pick(s); 0 market/inference lead(s); 4 contextual note(s)</dd></dl></details></td>
+            <td><span class="badge blocked">Blocked</span></td>
+            <td>2026-08-11T08:10:10.328Z (19.2h old)</td>
+            <td>101 article record(s) assessed; unknown explicit selection mention(s); 1 execution-usable actual pick candidate(s); 59 market/inference lead(s); integrity blockers=2 (legacy article artifact has no body/corpus integrity schema; requested article date window is not confirmed complete).</td>
+            <td>Do not run frontier synthesis. Rebuild the complete article corpus with schema v2, resolve every pick-oriented record, and rerun this audit.</td>
           </tr>
         </tbody>
       </table>
@@ -428,19 +429,19 @@
           <tr>
             <td><strong>Training camp local snapshot</strong><div class="path">data/training-camp/2026/latest.json</div></td>
             <td><span class="badge review">Review</span></td>
-            <td>2026-08-11T08:05:53.956Z</td>
-            <td>32 teams; 31 teams with manual intel; 322 items.</td>
+            <td>2026-08-12T03:21:35.199Z</td>
+            <td>32 teams; 25 teams with manual intel; 198 items; unique evidence=198; corrected legacy source assignments=87; identity blockers=0.</td>
             <td>Review/highlight before synthesis.</td>
           </tr><tr>
             <td><strong>Training camp RSS scout</strong><div class="path">.nfl\receipts\training-camp-rss-scout-2026-08-11T08-06-00-387Z.json</div><details><summary>Details</summary><dl><dt>ESPN NFL</dt><dd>available; fetched 17; kept 5</dd><dt>Pro Football Talk</dt><dd>available; fetched 30; kept 14</dd><dt>PFF</dt><dd>available; fetched 25; kept 4</dd><dt>Rotowire NFL</dt><dd>available; fetched 5; kept 2</dd><dt>Sharp Football</dt><dd>available; fetched 20; kept 1</dd><dt>CBS Sports NFL</dt><dd>available; fetched 36; kept 1</dd><dt>Yahoo Sports NFL</dt><dd>available; fetched 50; kept 13</dd><dt>ARI Beat - Revenge of the Birds</dt><dd>available; fetched 10; kept 16</dd><dt>BUF Beat - Buffalo Rumblings</dt><dd>available; fetched 10; kept 12</dd><dt>CHI Beat - Windy City Gridiron</dt><dd>available; fetched 10; kept 16</dd><dt>GB Beat - Acme Packing Co</dt><dd>available; fetched 10; kept 16</dd><dt>HOU Beat - Battle Red Blog</dt><dd>available; fetched 10; kept 11</dd><dt>JAX Beat - Big Cat Country</dt><dd>available; fetched 10; kept 16</dd><dt>KC Beat - Arrowhead Pride</dt><dd>available; fetched 10; kept 21</dd><dt>LAC Beat - Bolts From The Blue</dt><dd>available; fetched 10; kept 25</dd><dt>LAR Beat - Turf Show Times</dt><dd>available; fetched 10; kept 22</dd><dt>LV Beat - Silver and Black Pride</dt><dd>available; fetched 10; kept 17</dd><dt>MIA Beat - The Phinsider</dt><dd>available; fetched 10; kept 15</dd><dt>MIN Beat - Daily Norseman</dt><dd>available; fetched 10; kept 15</dd><dt>NE Beat - Pats Pulpit</dt><dd>available; fetched 10; kept 17</dd><dt>NYJ Beat - Gang Green Nation</dt><dd>available; fetched 10; kept 16</dd><dt>PHI Beat - Bleeding Green Nation</dt><dd>available; fetched 10; kept 15</dd><dt>PIT Beat - Behind The Steel Curtain</dt><dd>available; fetched 10; kept 19</dd><dt>TEN Beat - Music City Miracles</dt><dd>available; fetched 10; kept 13</dd></dl></details></td>
-            <td><span class="badge review">Review</span></td>
+            <td><span class="badge context">Context</span></td>
             <td>2026-08-11T08:05:53.956Z</td>
-            <td>322 live-feed items across 31 teams; written=true; feed issues=0.</td>
-            <td>Review merged output.</td>
+            <td>Historical pre-normalization receipt: 322 rows across 31 assigned teams; current normalized snapshot has 198 unique evidence items across 25 primary teams; feed issues=0.</td>
+            <td>Use this receipt for collection/feed-health provenance only. Use the normalized snapshot, never the historical kept-row counts, for evidence aggregates.</td>
           </tr><tr>
             <td><strong>Training camp all-32 coverage fill</strong><div class="path">data/training-camp/2026/coverage-fill-latest.json</div></td>
             <td><span class="badge review">Review</span></td>
-            <td>2026-07-31T02:04:09.139Z (270.1h old)</td>
+            <td>2026-07-31T02:04:09.139Z (289.3h old)</td>
             <td>32/32 teams have local camp/article/availability context; canonical camp-source still needed for 0 team(s).</td>
             <td>Use this as a review queue only. Availability-only rows still need source-stamped camp/manual confirmation before being promoted into canonical training-camp intel.</td>
           </tr>
@@ -463,19 +464,19 @@
           <tr>
             <td><strong>Projected starters evidence layer</strong><div class="path">data/projected-starters/2026/latest.json</div></td>
             <td><span class="badge review">Review</span></td>
-            <td>2026-08-11T08:02:29.984Z (0.2h old)</td>
+            <td>2026-08-11T08:02:29.984Z (19.3h old)</td>
             <td>224 player signal(s); 32 teams with signals; manual rows=0; estimated rows=224; teams needing manual depth chart=32.</td>
             <td>Use as player-importance research context only. Manual all-position depth charts remain the next coverage fill step; estimated starter language must not be treated as final source of truth.</td>
           </tr><tr>
-            <td><strong>Player availability snapshot</strong><div class="path">data/player-availability/latest.json</div><details><summary>Details</summary><dl><dt>ESPN injuries API</dt><dd>available; 32 team groups; 783 parsed rows.</dd><dt>FantasyPros injuries API</dt><dd>skipped; Pass --live-fantasypros-injuries to fetch.</dd><dt>Training camp snapshot</dt><dd>available; 153 availability-like item(s) from 300 camp item(s).</dd></dl></details></td>
+            <td><strong>Player availability snapshot</strong><div class="path">data/player-availability/latest.json</div><details><summary>Details</summary><dl><dt>ESPN injuries API</dt><dd>available; 32 team groups; 783 parsed rows.</dd><dt>FantasyPros injuries API</dt><dd>skipped; Pass --live-fantasypros-injuries to fetch.</dd><dt>Training camp snapshot</dt><dd>review; 39 normalized camp-derived availability event(s) retained; upstream camp now has 198 unique evidence item(s).; Team identity/deduplication is complete; V01 availability contradiction review and full re-extraction remain pending.</dd></dl></details></td>
             <td><span class="badge review">Review</span></td>
-            <td>2026-08-11T07:57:50.779Z (0.2h old)</td>
-            <td>850 availability events across 32 teams; improving=140; worsening=223; major=773; OL worsening=20; defensive-front worsening=33; OL cluster teams=4; defensive-front cluster teams=9; source issues=0.</td>
+            <td>2026-08-12T03:21:35.199Z (0h old)</td>
+            <td>822 availability events across 32 teams; unique evidence=822; corrected legacy source assignments=23; improving=137; worsening=199; major=770; OL worsening=20; defensive-front worsening=33; OL cluster teams=4; defensive-front cluster teams=8; source issues=0; identity blockers=0.</td>
             <td>Review/highlight key returns, setbacks, PUP/IR timing, and snap-count risks before synthesis.</td>
           </tr><tr>
             <td><strong>Starter impact availability digest</strong><div class="path">data/player-availability/impact-digest-latest.json</div></td>
             <td><span class="badge review">Review</span></td>
-            <td>2026-08-11T08:05:16.313Z (0.1h old)</td>
+            <td>2026-08-11T08:05:16.313Z (19.3h old)</td>
             <td>659 ranked digest event(s) from 850 source event(s); starter-matched=216; classification warnings=23.</td>
             <td>Review classification-warning rows before synthesis; they indicate availability trend labels that conflict with the supporting text.</td>
           </tr>
@@ -498,7 +499,7 @@
           <tr>
             <td><strong>Secondary matchup vulnerability snapshot</strong><div class="path">data/secondary-matchups/latest.json</div><details><summary>Details</summary><dl><dt>Manual coverage schemes</dt><dd>available; 32 row(s) from data/secondary-matchups/manual/coverage-schemes-2026.json.</dd><dt>Manual secondary player roles</dt><dd>available; 98 row(s) from data/secondary-matchups/manual/secondary-roles-2026.json.</dd><dt>Manual receiver roles</dt><dd>available; 107 row(s) from data/secondary-matchups/manual/receiver-roles-2026.json.</dd><dt>Player availability snapshot</dt><dd>available; 790 availability event(s) from data/player-availability/latest.json.</dd><dt>Schedule spine</dt><dd>available; 272 row(s) from public/schedule.json.</dd></dl></details></td>
             <td><span class="badge review">Review</span></td>
-            <td>2026-07-30T23:49:25.502Z (272.4h old)</td>
+            <td>2026-07-30T23:49:25.502Z (291.5h old)</td>
             <td>32 offense-vs-defense matchups; 23 with secondary absences; 8 medium/high vulnerabilities; source issues=0.</td>
             <td>Manual/free proof of concept. Review scheme and role tags before any prop/parlay use; upgrade to charting data later if the workflow proves useful.</td>
           </tr>
