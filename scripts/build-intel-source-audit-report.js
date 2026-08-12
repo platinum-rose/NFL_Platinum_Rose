@@ -5,16 +5,18 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { teamIdentityValidationBlockers } from '../agents/lib/team-identity.js';
 import { validateNamedStatusReview } from '../agents/lib/named-status-review.js';
+import {
+  FUTURES_EVIDENCE_SCHEMAS,
+  validateArticleEvidence,
+  validateOddsExecutionArtifact,
+  validatePredictionArtifacts,
+  validateYoutubeArtifacts,
+} from './lib/futures-evidence-gates.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const REPORT_DIR = path.join(ROOT, '.nfl', 'source-audit');
 const DOCS_LATEST = path.join(ROOT, 'docs', 'NFL_INTEL_SOURCE_AUDIT_LATEST.html');
-
-const generatedAt = new Date();
-const stamp = generatedAt.toISOString().replace(/[:.]/g, '-');
-const outHtml = path.join(REPORT_DIR, `nfl-intel-source-audit-${stamp}.html`);
-const outJson = path.join(REPORT_DIR, `nfl-intel-source-audit-${stamp}.json`);
 
 const SOURCE_GROUPS = [
   'Execution Policy',
@@ -43,18 +45,27 @@ const INFERENCE_ONLY_MARKETS = new Set([
 const PRIMARY_EXECUTION_BOOKS = ['Bookmaker/BKR', 'BetUS', 'BetOnline'];
 
 function parseArgs(argv) {
-  const args = { noWrite: false };
-  for (const arg of argv) {
+  const args = { noWrite: false, strict: false, generatedAt: null };
+  for (let index = 0; index < argv.length; index += 1) {
+    const arg = argv[index];
     if (arg === '--no-write') args.noWrite = true;
+    if (arg === '--strict') args.strict = true;
+    if (arg === '--generated-at' && argv[index + 1]) {
+      args.generatedAt = argv[index + 1];
+      index += 1;
+    }
     if (arg === '--help' || arg === '-h') {
       console.log(`NFL intelligence source audit
 
 Usage:
   npm.cmd run intel:source-audit
   node scripts/build-intel-source-audit-report.js --no-write
+  node scripts/build-intel-source-audit-report.js --no-write --strict
 
 This reads local artifacts only. It does not fetch live odds, call models,
-write Supabase, approve picks, or mutate portfolio tickets.`);
+write Supabase, approve picks, or mutate portfolio tickets.
+
+--strict exits nonzero when the frontier evidence gate is blocked.`);
       process.exit(0);
     }
   }
@@ -62,6 +73,11 @@ write Supabase, approve picks, or mutate portfolio tickets.`);
 }
 
 const args = parseArgs(process.argv.slice(2));
+const generatedAt = args.generatedAt ? new Date(args.generatedAt) : new Date();
+if (!Number.isFinite(generatedAt.getTime())) throw new Error(`Invalid --generated-at value: ${args.generatedAt}`);
+const stamp = generatedAt.toISOString().replace(/[:.]/g, '-');
+const outHtml = path.join(REPORT_DIR, `nfl-intel-source-audit-${stamp}.html`);
+const outJson = path.join(REPORT_DIR, `nfl-intel-source-audit-${stamp}.json`);
 
 async function exists(relativePath) {
   try {
@@ -521,11 +537,39 @@ async function collectManualFuturesImports(sources) {
       path: ledger.relativePath,
     });
   }
+
+  const executionValidationPath = 'data/futures-imports/odds-execution-validation-latest.json';
+  const executionValidationStat = await exists(executionValidationPath);
+  if (!executionValidationStat) {
+    addSource(sources, {
+      group: 'Futures Odds',
+      name: 'Local odds execution integrity gate',
+      status: 'missing',
+      evidence: 'No local odds execution-validation artifact exists.',
+      action: 'Run `npm.cmd run futures:odds-execution-validation` before synthesis-context validation.',
+      path: executionValidationPath,
+    });
+  } else {
+    const executionValidation = await readJson(executionValidationPath, {});
+    const validation = validateOddsExecutionArtifact(executionValidation);
+    addSource(sources, {
+      group: 'Futures Odds',
+      name: 'Local odds execution integrity gate',
+      status: validation.status === 'blocked' ? 'blocked' : 'review',
+      freshness: executionValidation.meta?.generated_at || executionValidationStat.mtime.toISOString(),
+      evidence: `${executionValidation.meta?.rows_total || 0} row(s) checked; execution-reference eligible=${executionValidation.meta?.execution_reference_eligible_rows || 0}; exacta execution claims allowed=${executionValidation.meta?.exacta_execution_claim_allowed_pairs || 0}; blockers=${validation.blockers.length}${validation.blockers.length ? ` (${validation.blockers.join('; ')})` : ''}.`,
+      action: validation.status === 'blocked'
+        ? 'Do not use local odds as execution-reference context until placeability, timestamp, price, and exacta gates pass.'
+        : 'Use eligible local rows as execution-reference context only; exacta rows remain monitor-only until their separate multi-book gate passes.',
+      path: executionValidationPath,
+    });
+  }
 }
 
 async function collectPredictionMarketMap(sources) {
   const rawPath = 'data/prediction-markets/latest.json';
   const mapPath = 'data/prediction-markets/team-market-map-latest.json';
+  const coherencePath = 'data/prediction-markets/cross-market-coherence-latest.json';
   const rawStat = await exists(rawPath);
   if (rawStat) {
     const raw = await readJson(rawPath, {});
@@ -541,29 +585,42 @@ async function collectPredictionMarketMap(sources) {
   }
 
   const mapStat = await exists(mapPath);
-  if (!mapStat) {
+  const coherenceStat = await exists(coherencePath);
+  if (!mapStat || !coherenceStat) {
+    const missing = [
+      ...(!mapStat ? [mapPath] : []),
+      ...(!coherenceStat ? [coherencePath] : []),
+    ];
     addSource(sources, {
       group: 'Prediction Markets',
-      name: 'Prediction-market team map',
+      name: 'Prediction-market mapping/coherence integrity gate',
       status: 'missing',
-      evidence: 'No local prediction-market team/market mapping found.',
-      action: 'Run `npm.cmd run prediction-markets:map` before using Kalshi/Polymarket contracts in futures synthesis context.',
-      path: mapPath,
+      evidence: `Missing required prediction artifact(s): ${missing.join(', ')}.`,
+      action: 'Rebuild the v2 prediction-market map and coherence artifacts before using prediction context.',
+      path: missing[0],
     });
     return;
   }
 
-  const snapshot = await readJson(mapPath, {});
-  const generated = snapshot.meta?.generated_at || mapStat.mtime.toISOString();
+  const predictionMap = await readJson(mapPath, {});
+  const coherence = await readJson(coherencePath, {});
+  const validation = validatePredictionArtifacts({ predictionMap, coherence }, { season: 2026 });
+  const generated = coherence.meta?.generated_at || coherenceStat.mtime.toISOString();
   const hoursOld = ageHours(generated);
   const stale = hoursOld !== null && hoursOld > 72;
   addSource(sources, {
     group: 'Prediction Markets',
-    name: 'Prediction-market team map',
-    status: stale ? 'stale' : 'review',
+    name: 'Prediction-market mapping/coherence integrity gate',
+    status: validation.status === 'blocked' ? 'blocked' : (stale ? 'stale' : 'review'),
     freshness: `${generated} (${hoursOld ?? '?'}h old)`,
-    evidence: `${snapshot.meta?.mapped_count || 0} mapped / ${snapshot.meta?.unmapped_count || 0} unmapped contract(s); liquidity warnings=${snapshot.meta?.liquidity_warning_count || 0}.`,
-    action: 'Use mapped rows as consensus context only. Review unmapped and liquidity-warning rows before making any price-shopping inference.',
+    evidence: `${predictionMap.meta?.mapped_count || 0} mapped / ${predictionMap.meta?.unmapped_count || 0} excluded contract(s); actionable coherence=${coherence.meta?.actionable_contract_count ?? 'unknown'}; context-only=${coherence.meta?.context_only_contract_count ?? 'unknown'}; liquidity warnings=${predictionMap.meta?.liquidity_warning_count || 0}; blockers=${validation.blockers.length}${validation.blockers.length ? ` (${validation.blockers.join('; ')})` : ''}.`,
+    action: validation.status === 'blocked'
+      ? 'Do not use prediction-market context. Rebuild the v2 map/coherence pair and resolve every mapping, season, identity, eligibility, or lineage blocker.'
+      : 'Use only as consensus/coherence context. Liquidity-warned rows remain outside actionable math and settlement terms remain unverified.',
+    details: [
+      { label: 'Map validation', value: `${validation.validations ? 'composite' : validation.status}; schema=${predictionMap.meta?.schema || 'missing'}; generated=${predictionMap.meta?.generated_at || 'missing'}` },
+      { label: 'Coherence lineage', value: `source schema=${coherence.meta?.source_schema || 'missing'}; source generated=${coherence.meta?.source_generated_at || 'missing'}; current map generated=${predictionMap.meta?.generated_at || 'missing'}` },
+    ],
     path: mapPath,
   });
 }
@@ -674,60 +731,56 @@ async function collectPortfolioArtifacts(sources) {
 }
 
 async function collectYoutubeIntel(sources) {
+  const reviewPath = 'data/shadow-harness/reports/youtube-futures-intel-review-latest.json';
   const summaryPath = 'data/shadow-harness/review/youtube-futures-agent-intel-summary.json';
   const statusPath = 'data/shadow-harness/review/youtube-futures-intel-review-status.json';
+  const queuePath = 'data/shadow-harness/review/youtube-futures-local-intel-queue.json';
   const freshnessPath = 'data/shadow-harness/review/podcast-youtube-freshness-latest.json';
-  const summaryStat = await exists(summaryPath);
-  if (!summaryStat) {
+  const required = [reviewPath, statusPath, queuePath, summaryPath, freshnessPath];
+  const stats = await Promise.all(required.map((file) => exists(file)));
+  const missing = required.filter((file, index) => !stats[index]);
+  if (missing.length > 0) {
     addSource(sources, {
       group: 'Expert and Podcast Intel',
-      name: 'YouTube/Gemini reviewed futures intel',
+      name: 'YouTube reviewed-cohort integrity gate',
       status: 'missing',
-      evidence: 'Agent summary not found.',
-      action: 'Rebuild review/export summary before synthesis.',
+      evidence: `Missing required YouTube artifact(s): ${missing.join(', ')}.`,
+      action: 'Rebuild review status, queue, summary, and freshness artifacts before synthesis.',
+      path: missing[0],
     });
     return;
   }
-  const summary = await readJson(summaryPath, {});
-  const status = await readJson(statusPath, {});
+  const [reviewReport, status, queue, summary, freshness] = await Promise.all(
+    required.map((file) => readJson(file, {})),
+  );
+  const validation = validateYoutubeArtifacts({ reviewReport, status, queue, summary, freshness });
   const reviewRecords = Object.values(status.items || status.decisions || status || {})
     .filter((record) => record && typeof record === 'object');
   addSource(sources, {
     group: 'Expert and Podcast Intel',
-    name: 'YouTube/Gemini reviewed futures intel',
-    status: summary.exported_items >= 40 ? 'current' : 'review',
-    freshness: `${summary.generated_at || summaryStat.mtime.toISOString()} (${ageHours(summary.generated_at || summaryStat.mtime.toISOString())}h old)`,
-    evidence: `${summary.exported_items || 0} promoted/exported items; ${reviewRecords.length} review records; leak checks ${JSON.stringify(summary.rejected_leak_checks || {})}.`,
-    action: 'Use as source-stamped research context, not betting authority. Refresh only if new YouTube candidates exist after last sweep.',
+    name: 'YouTube reviewed-cohort integrity gate',
+    status: validation.status === 'blocked' ? 'blocked' : 'current',
+    freshness: `${summary.generated_at || stats[3].mtime.toISOString()} (${ageHours(summary.generated_at || stats[3].mtime.toISOString())}h old)`,
+    evidence: `${summary.exported_items || 0} promoted/exported items; ${reviewRecords.length} review records; shared fingerprints=${validation.metrics.fingerprint_count}; forbidden accepted evidence=${validation.metrics.forbidden_accepted_evidence_count}; blockers=${validation.blockers.length}${validation.blockers.length ? ` (${validation.blockers.join('; ')})` : ''}.`,
+    action: validation.status === 'blocked'
+      ? 'Do not use accepted YouTube evidence. Rebuild every downstream artifact on one clean cohort fingerprint and remove forbidden episode evidence.'
+      : 'Use the accepted 43-item cohort as source-stamped research context only, not betting authority.',
     path: summaryPath,
   });
 
-  const freshnessStat = await exists(freshnessPath);
-  if (!freshnessStat) {
-    addSource(sources, {
-      group: 'Expert and Podcast Intel',
-      name: 'Podcast/YouTube July 24-30 freshness reconciliation',
-      status: 'missing',
-      evidence: 'No local podcast/YouTube freshness reconciliation report found.',
-      action: 'Run `npm.cmd run youtube:freshness-reconcile` before frontier synthesis so July 24-30 candidate coverage and accepted-vs-review-only separation are explicit.',
-      path: freshnessPath,
-    });
-  } else {
-    const freshness = await readJson(freshnessPath, {});
-    const generated = freshness.meta?.generated_at || freshnessStat.mtime.toISOString();
-    const hoursOld = ageHours(generated);
-    const candidates = freshness.youtube?.candidates || {};
-    const reviewStatus = freshness.youtube?.review_status || {};
-    addSource(sources, {
-      group: 'Expert and Podcast Intel',
-      name: 'Podcast/YouTube July 24-30 freshness reconciliation',
-      status: 'review',
-      freshness: `${generated} (${hoursOld ?? '?'}h old)`,
-      evidence: `${freshness.youtube?.accepted?.exported_items || 0} accepted YouTube local-intel pick(s); ${reviewStatus.review_only_count || 0} pending/needs-review row(s) remain excluded; ${candidates.window_candidate_count || 0} YouTube candidate(s) and ${freshness.podcast?.window_episode_count || 0} podcast deep dive(s) dated ${freshness.meta?.window_start || 'window start'}-${freshness.meta?.window_end || 'window end'}.`,
-      action: 'Use accepted rows as research context only. Do not promote pending/needs-review rows; evaluate any unobserved futures-eligible candidates before frontier synthesis if new July 24-30 coverage appears.',
-      path: freshnessPath,
-    });
-  }
+  const generated = freshness.meta?.generated_at || stats[4].mtime.toISOString();
+  const hoursOld = ageHours(generated);
+  const candidates = freshness.youtube?.candidates || {};
+  const reviewStatus = freshness.youtube?.review_status || {};
+  addSource(sources, {
+    group: 'Expert and Podcast Intel',
+    name: 'Podcast/YouTube July 24-30 freshness reconciliation',
+    status: 'review',
+    freshness: `${generated} (${hoursOld ?? '?'}h old)`,
+    evidence: `${freshness.youtube?.accepted?.exported_items || 0} accepted YouTube local-intel pick(s); ${reviewStatus.review_only_count || 0} pending/needs-review row(s) remain excluded; ${candidates.window_candidate_count || 0} YouTube candidate(s) and ${freshness.podcast?.window_episode_count || 0} podcast deep dive(s) dated ${freshness.meta?.window_start || 'window start'}-${freshness.meta?.window_end || 'window end'}.`,
+    action: 'Use accepted rows as research context only. Do not promote pending/needs-review rows.',
+    path: freshnessPath,
+  });
 }
 
 async function collectExpertDossiers(sources) {
@@ -868,29 +921,31 @@ async function collectResearchArticleIntel(sources) {
     path: receiptFile.relativePath,
   });
 
-  const articleReview = await readJson('data/research-intel/review/article-intel-review-latest.json', null);
-  if (articleReview) {
+  const articleReviewPath = 'data/research-intel/review/article-intel-review-latest.json';
+  const articleReview = await readJson(articleReviewPath, null);
+  if (!articleReview) {
+    addSource(sources, {
+      group: 'Web Article Intel',
+      name: 'Article evidence integrity review',
+      status: 'missing',
+      freshness: 'missing',
+      evidence: 'The article evidence review artifact is missing.',
+      action: 'Build the complete article corpus and resolve every pick-oriented record before frontier synthesis.',
+      path: articleReviewPath,
+    });
+  } else {
     const generated = articleReview.generated_at || '';
     const summary = articleReview.summary || {};
     const actualPicks = articleReview.summary?.actual_picks || 0;
     const marketLeads = articleReview.summary?.market_leads ?? articleReview.summary?.pick_leads ?? 0;
-    const hasEvidenceSchema = Number(articleReview.schema_version || 0) >= 2
-      && Number.isFinite(summary.article_records_assessed)
-      && summary.body_evidence;
-    const corpusComplete = articleReview.collection?.complete_for_since_window === true;
-    const unresolvedPickOriented = Number(summary.unresolved_pick_oriented_records || 0);
-    const integrityBlockers = [
-      ...(!hasEvidenceSchema ? ['legacy article artifact has no body/corpus integrity schema'] : []),
-      ...(!corpusComplete ? ['requested article date window is not confirmed complete'] : []),
-      ...(unresolvedPickOriented > 0 ? [`${unresolvedPickOriented} pick-oriented record(s) remain unresolved`] : []),
-    ];
+    const validation = validateArticleEvidence(articleReview);
     addSource(sources, {
       group: 'Web Article Intel',
       name: 'Article evidence integrity review',
-      status: integrityBlockers.length ? 'blocked' : 'review',
+      status: validation.status === 'blocked' ? 'blocked' : 'review',
       freshness: generated ? `${generated} (${ageHours(generated) ?? '?'}h old)` : 'unknown',
-      evidence: `${summary.article_records_assessed ?? summary.articles_reviewed ?? 0} article record(s) assessed; ${summary.explicit_analyst_selection_mentions ?? 'unknown'} explicit selection mention(s); ${actualPicks} execution-usable actual pick candidate(s); ${marketLeads} market/inference lead(s); integrity blockers=${integrityBlockers.length}${integrityBlockers.length ? ` (${integrityBlockers.join('; ')})` : ''}.`,
-      action: integrityBlockers.length
+      evidence: `${summary.article_records_assessed ?? summary.articles_reviewed ?? 0} article record(s) assessed; ${summary.explicit_analyst_selection_mentions ?? 'unknown'} explicit selection mention(s); ${actualPicks} execution-usable actual pick candidate(s); ${marketLeads} market/inference lead(s); integrity blockers=${validation.blockers.length}${validation.blockers.length ? ` (${validation.blockers.join('; ')})` : ''}.`,
+      action: validation.status === 'blocked'
         ? 'Do not run frontier synthesis. Rebuild the complete article corpus with schema v2, resolve every pick-oriented record, and rerun this audit.'
         : 'Use execution-usable actual-pick candidates for human review; keep selections missing price/venue and all inference leads out of actionable evidence.',
       details: (articleReview.sources || []).map((source) => ({
@@ -1549,7 +1604,12 @@ async function main() {
 
   const summary = readinessSummary(sources);
   const payload = {
+    schema: FUTURES_EVIDENCE_SCHEMAS.audit,
     generated_at: generatedAt.toISOString(),
+    inputs: {
+      mode: 'local_artifacts_only',
+      source_count: sources.length,
+    },
     guardrails: {
       live_fetches: false,
       model_calls: false,
@@ -1576,6 +1636,7 @@ async function main() {
     console.log(`JSON: ${path.relative(ROOT, outJson)}`);
     console.log(`Latest: ${path.relative(ROOT, DOCS_LATEST)}`);
   }
+  if (args.strict && !summary.frontierReady) process.exitCode = 2;
 }
 
 main().catch((err) => {

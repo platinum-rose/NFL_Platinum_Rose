@@ -149,4 +149,31 @@ describe('article evidence integrity', () => {
     expect(report.summary).not.toHaveProperty('articles_reviewed');
     expect(renderMarkdown(report)).not.toMatch(/Articles reviewed/i);
   });
+
+  it('uses manual source dispositions to clear reviewed pick-oriented records without promoting picks', () => {
+    const row = article({
+      id: 'manual-1',
+      title: 'NFL Hall of Fame Game Picks & Predictions',
+      body: '',
+      url: 'https://example.test/manual-review',
+    });
+    const report = buildReport([row], SINCE, collection(), {
+      manualDispositions: [{
+        id: 'manual-1',
+        url: row.url,
+        disposition: 'reviewed_no_actionable_actual_pick',
+        reviewed_at: '2026-08-12T05:20:00.000Z',
+        reviewer: 'A05',
+        evidence_basis: ['source_url_retained', 'no_execution_usable_pick_allowed'],
+        notes: 'Manual review keeps the article out of actual_picks.',
+      }],
+      manualDispositionsPath: 'data/research-intel/review/article-intel-manual-dispositions.json',
+    });
+
+    expect(report.summary.unresolved_pick_oriented_records).toBe(0);
+    expect(report.summary.manually_dispositioned_pick_oriented_records).toBe(1);
+    expect(report.summary.actual_picks).toBe(0);
+    expect(report.articles[0].pick_review_status).toBe('manual_reviewed_no_actionable_actual_pick');
+    expect(report.articles[0].manual_review.source_url).toBe(row.url);
+  });
 });

@@ -1,5 +1,37 @@
 # NFL_Dashboard - Session Handoff
 
+## Current Pick Up Here (2026-08-12 futures evidence cleanup G03 checkpoint)
+
+- Latest timestamped handoff: `handoffs/2026-08-12-0026-futures-evidence-cleanup-g03-handoff.md`.
+- Branch: `main`.
+- Verified parity: local `HEAD`, cached `origin/main`, and M6 checkout all resolve to `f54712351b663b45c95db643c792241fbebe5019`.
+- Current staged checkpoint: 70 files staged for the G01-G03 futures evidence cleanup tranche.
+- Suggested commit message: `fix: gate and verify futures evidence rebuild`.
+- Completed: A01/A02/A05 and G01/G02/G03 in `docs/FUTURES_EVIDENCE_CLEANUP_ROADMAP_2026-08-11.md`.
+- Latest local verification receipt: `.nfl/verification/futures-evidence-verification-2026-08-12T05-40-00-000Z.json` with PASS.
+- Latest deterministic rebuild manifest: `.nfl/rebuild/futures-evidence-rebuild-2026-08-12T05-30-00-000Z.json`.
+- Unstaged dirty boundaries to preserve unless explicitly approved: `TASK_BOARD.md`, `WORKING-CONTEXT.md`, `Complete_with_Docusign_Personal_Use_-_Andrew_NFL_Dashboard_Yahoo_API_agreement.pdf`, and `docs/antigravity/recovery/youtube-qoCm4G2Jmng-contested-datapoints-review.md`.
+- Immediate next step: review `git diff --cached --name-status`, then commit the staged checkpoint locally if approved/appropriate. Do not use `git add -A`.
+- Guardrails: no paid/frontier model/API calls, Supabase writes, official-pick actions, production recommendation persistence, portfolio/open-parlay mutations, or git push without explicit approval.
+
+## Resume Prompt
+
+```text
+Resume in E:\dev\projects\NFL_Dashboard.
+
+First read HANDOFF.md, HANDOFF_PROMPT.md, handoffs/2026-08-12-0026-futures-evidence-cleanup-g03-handoff.md, and docs/FUTURES_EVIDENCE_CLEANUP_ROADMAP_2026-08-11.md.
+
+Objective: finish checkpoint handling for the completed futures evidence cleanup G01-G03 tranche.
+
+Verified state: local HEAD, cached origin/main, and M6 all resolve to f54712351b663b45c95db643c792241fbebe5019. A01/A02/A05 and G01/G02/G03 are complete. Article rebuild has 292 records, complete requested DB window, zero unresolved pick-oriented rows, zero actual_picks, and 10 explicit selections held out for price/venue verification. Strict source audit is PASSABLE: Current 2 / Review 25 / Stale 0 / Blocked 0 / Missing 0 / Context 12. Deterministic rebuild passed at 2026-08-12T05:30:00.000Z. Final verification passed at 2026-08-12T05:40:00.000Z. Latest receipt is .nfl/verification/futures-evidence-verification-2026-08-12T05-40-00-000Z.json. Latest rebuild manifest is .nfl/rebuild/futures-evidence-rebuild-2026-08-12T05-30-00-000Z.json. 70 files are staged for commit. Suggested commit message: fix: gate and verify futures evidence rebuild.
+
+Immediate next step: run git status --short --branch and git diff --cached --name-status. Confirm the staged set is still only the G-tranche checkpoint, then commit locally if approved/appropriate.
+
+Dirty boundaries to preserve: TASK_BOARD.md, WORKING-CONTEXT.md, Complete_with_Docusign_Personal_Use_-_Andrew_NFL_Dashboard_Yahoo_API_agreement.pdf, and docs/antigravity/recovery/youtube-qoCm4G2Jmng-contested-datapoints-review.md.
+
+Guardrails: do not run paid/frontier model/API calls, write Supabase, approve official picks, persist recommendations, mutate portfolio/open parlays, fill/close parlays, push git, or use git add -A without explicit approval. The G03 pass proves evidence readiness only; it does not authorize betting action or model synthesis.
+```
+
 ## Current Pick Up Here (2026-08-11 futures synthesis checkpoint)
 
 - Current local HEAD: `85fee49`; `main...origin/main [ahead 14]`.

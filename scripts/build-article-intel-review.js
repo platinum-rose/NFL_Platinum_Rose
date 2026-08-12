@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 
 import { createClient } from '@supabase/supabase-js';
 import 'dotenv/config';
+import { validateArticleEvidence } from './lib/futures-evidence-gates.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,6 +15,7 @@ const DOC_DIR = path.join(ROOT, 'docs', 'article-intel-review');
 const LATEST_JSON = path.join(REVIEW_DIR, 'article-intel-review-latest.json');
 const LATEST_MD = path.join(DOC_DIR, 'article-intel-review-latest.md');
 const LATEST_HTML = path.join(DOC_DIR, 'article-intel-review-latest.html');
+const MANUAL_DISPOSITIONS = path.join(REVIEW_DIR, 'article-intel-manual-dispositions.json');
 
 const DEFAULT_SINCE = '2026-07-30T04:48:03.331Z';
 const DEFAULT_LIMIT = 0;
@@ -96,11 +98,12 @@ function usage() {
   console.log(`Article Intel Review
 
 Usage:
-  node scripts/build-article-intel-review.js [--since ISO] [--limit N] [--local-only]
+  node scripts/build-article-intel-review.js [--since ISO] [--limit N] [--local-only] [--generated-at ISO] [--manual-dispositions PATH]
 
 Builds local review-only article intel JSON/Markdown/HTML from research_intel_notes.
 The default limit is 0 (page the complete date window). A positive --limit is an
 explicit diagnostic cap. --local-only permits an intentionally partial local build.
+Manual dispositions default to data/research-intel/review/article-intel-manual-dispositions.json.
 No Supabase writes; no official picks; no recommendation promotion.`);
 }
 
@@ -495,6 +498,54 @@ function normalizedLimit(value) {
   return Number.isFinite(parsed) && parsed > 0 ? Math.floor(parsed) : null;
 }
 
+function loadManualDispositions(filePath = MANUAL_DISPOSITIONS) {
+  if (!fs.existsSync(filePath)) return [];
+  const payload = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  const rows = Array.isArray(payload) ? payload : payload.dispositions;
+  if (!Array.isArray(rows)) {
+    throw new Error(`Manual article disposition file must contain an array or { dispositions: [] }: ${filePath}`);
+  }
+  return rows;
+}
+
+function buildDispositionIndex(dispositions = []) {
+  const byId = new Map();
+  const byUrl = new Map();
+  for (const disposition of dispositions) {
+    if (disposition.id !== undefined && disposition.id !== null) byId.set(String(disposition.id), disposition);
+    if (disposition.url) byUrl.set(String(disposition.url).trim(), disposition);
+  }
+  return { byId, byUrl };
+}
+
+function manualDispositionFor(row, index) {
+  return index.byId.get(String(row.id)) || index.byUrl.get(String(row.url || '').trim()) || null;
+}
+
+function applyManualDisposition(article, disposition) {
+  if (!disposition) return;
+  article.manual_review = {
+    schema: 'article_pick_source_manual_disposition_v1',
+    disposition: disposition.disposition,
+    reviewed_at: disposition.reviewed_at,
+    reviewer: disposition.reviewer || 'human_review',
+    source_url: disposition.url || article.url,
+    source_title: disposition.title || article.title,
+    evidence_basis: disposition.evidence_basis || [],
+    notes: disposition.notes || '',
+  };
+  article.flags = [...new Set([
+    ...article.flags,
+    'manual_pick_source_disposition',
+    ...(disposition.flags || []),
+  ])];
+  if (disposition.teams) article.teams = disposition.teams;
+  if (disposition.pick_oriented === false || disposition.disposition === 'excluded_non_nfl') {
+    article.pick_oriented = false;
+  }
+  article.pick_review_status = `manual_${disposition.disposition}`;
+}
+
 async function loadArticles(since, limit = DEFAULT_LIMIT, { localOnly = false, client = null } = {}) {
   const localDir = path.join(ROOT, 'data', 'research-intel', 'local');
   let localRows = [];
@@ -699,12 +750,13 @@ a{color:#2455a6} table{width:100%;border-collapse:collapse;margin:14px 0 28px} t
 `;
 }
 
-function buildReport(rows, since, collection = {}) {
+function buildReport(rows, since, collection = {}, options = {}) {
   const articles = [];
   const analystSelections = [];
   const actualPicks = [];
   const marketLeads = [];
   const analysisNotes = [];
+  const dispositionIndex = buildDispositionIndex(options.manualDispositions || []);
   for (const row of rows) {
     const fullText = focusedBody(row);
     const teams = mentionedTeams(fullText, row.title);
@@ -761,6 +813,7 @@ function buildReport(rows, since, collection = {}) {
     else if (article.body_evidence_status !== 'body_available') article.pick_review_status = 'unresolved_body_evidence';
     else if (selections.length === 0) article.pick_review_status = 'unresolved_no_selection_extracted';
     else article.pick_review_status = 'explicit_selection_extracted';
+    applyManualDisposition(article, manualDispositionFor(row, dispositionIndex));
     articles.push(article);
     analystSelections.push(...selections);
     actualPicks.push(...picks);
@@ -802,8 +855,9 @@ function buildReport(rows, since, collection = {}) {
   ].map((status) => [status, articles.filter((article) => article.body_evidence_status === status).length]));
   const unresolvedPickOriented = articles.filter((article) => article.pick_review_status.startsWith('unresolved_'));
 
-  return {
-    generated_at: new Date().toISOString(),
+  const report = {
+    schema: 'article_intel_review_v2',
+    generated_at: options.generatedAt || new Date().toISOString(),
     schema_version: 2,
     status: 'local_article_evidence_assessment_only',
     guardrail: 'Article-derived leads require human review before promotion. This artifact does not write Supabase signals or create betting recommendations.',
@@ -815,6 +869,7 @@ function buildReport(rows, since, collection = {}) {
       body_evidence: bodyEvidence,
       pick_oriented_records: articles.filter((article) => article.pick_oriented).length,
       unresolved_pick_oriented_records: unresolvedPickOriented.length,
+      manually_dispositioned_pick_oriented_records: articles.filter((article) => article.manual_review).length,
       likely_non_nfl_false_positives: articles.filter((article) => article.flags.includes('likely_non_nfl_false_positive')).length,
       explicit_analyst_selection_mentions: analystSelections.length,
       unique_explicit_analyst_selections: uniqueSelectionKeys.size,
@@ -832,6 +887,15 @@ function buildReport(rows, since, collection = {}) {
     pick_leads: marketLeads,
     analysis_notes: analysisNotes,
   };
+  report.inputs = {
+    since,
+    collection: report.collection,
+    manual_dispositions: options.manualDispositionsPath || null,
+  };
+  report.validation_results = {
+    article_evidence: validateArticleEvidence(report),
+  };
+  return report;
 }
 
 async function main() {
@@ -842,8 +906,15 @@ async function main() {
   const since = arg('--since', DEFAULT_SINCE);
   const limit = Number(arg('--limit', String(DEFAULT_LIMIT)));
   const localOnly = hasFlag('--local-only');
+  const generatedAt = arg('--generated-at', new Date().toISOString());
+  const manualDispositionsPath = arg('--manual-dispositions', MANUAL_DISPOSITIONS);
+  const manualDispositions = loadManualDispositions(manualDispositionsPath);
   const loaded = await loadArticles(since, limit, { localOnly });
-  const report = buildReport(loaded.rows, since, loaded.collection);
+  const report = buildReport(loaded.rows, since, loaded.collection, {
+    generatedAt,
+    manualDispositions,
+    manualDispositionsPath: path.relative(ROOT, manualDispositionsPath).replace(/\\/g, '/'),
+  });
 
   fs.mkdirSync(REVIEW_DIR, { recursive: true });
   fs.mkdirSync(DOC_DIR, { recursive: true });
@@ -873,6 +944,7 @@ export {
   extractStructuredAnalystSelections,
   isExecutionUsablePick,
   loadArticles,
+  loadManualDispositions,
   normalizedLimit,
   renderHtml,
   renderMarkdown,

@@ -285,6 +285,18 @@ export async function buildPodcastYoutubeFreshnessReconciliation(options = {}) {
       window_start: windowStart,
       window_end: windowEnd,
       recommendation_status: 'research_context_only_not_picks',
+      inputs: {
+        agent_summary: options.summaryPath || 'data/shadow-harness/review/youtube-futures-agent-intel-summary.json',
+        status_ledger: options.statusPath || 'data/shadow-harness/review/youtube-futures-intel-review-status.json',
+        review_report: options.reviewReport || 'data/shadow-harness/reports/youtube-futures-intel-review-latest.json',
+        candidates: options.candidatesPath || 'data/podcasts/youtube-discovery-candidates-2026.json',
+        deep_dive_index: options.deepDivePath || 'docs/podcast-transcript-deep-dives/index.json',
+      },
+      validation_results: {
+        cohort_status: acceptedCohort.forbidden_episode_evidence_absent === true ? 'pass' : 'blocked',
+        cohort_fingerprint_sha256: acceptedCohort.fingerprint_sha256,
+        cohort_item_count: acceptedCohort.item_count,
+      },
       guardrails: {
         live_model_calls: false,
         network_fetches: false,

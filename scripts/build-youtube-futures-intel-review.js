@@ -15,6 +15,13 @@ const REVIEW_DIR = path.join(ROOT, 'data', 'shadow-harness', 'review');
 const REVIEW_STATUS_PATH = path.join(REVIEW_DIR, 'youtube-futures-intel-review-status.json');
 const DOC_DIR = path.join(ROOT, 'docs', 'antigravity');
 
+function argValue(name, fallback) {
+  const index = process.argv.indexOf(name);
+  return index >= 0 && index + 1 < process.argv.length ? process.argv[index + 1] : fallback;
+}
+
+const GENERATED_AT = argValue('--generated-at', new Date().toISOString());
+
 const TEAM_FIXUPS = { JAC: 'JAX', LOS: 'LAC' };
 const VALID_TEAMS = new Set([
   'ARI', 'ATL', 'BAL', 'BUF', 'CAR', 'CHI', 'CIN', 'CLE', 'DAL', 'DEN', 'DET', 'GB',
@@ -459,7 +466,8 @@ function loadObservation(candidate) {
 function loadReviewStatus() {
   if (!fs.existsSync(REVIEW_STATUS_PATH)) {
     return {
-      generated_at: new Date().toISOString(),
+      schema: 'youtube_futures_intel_review_status_v1',
+      generated_at: GENERATED_AT,
       status: 'local_review_status_only',
       guardrail: 'Human-editable local status file for the research/bench-scoring shadow-harness track. This file itself does not promote official picks or write production recommendations. A separate PRODUCTION review gate now exists (podcast_gemini_intel, migration 045, promoted via agents/podcast-gemini-intel.js --promote) — see docs/PODCAST_HOLISTIC_INTEL_EXTRACTION_PLAN.md Phase 5. The two pipelines run in parallel and are not reconciled against each other.',
       items: []
@@ -535,11 +543,20 @@ function writeReviewStatus(existing, picks, notes) {
   const acceptedNoteItems = noteItems.filter((item) => item.status === PROMOTED_LOCAL_INTEL_STATUS && !isForbiddenYoutubeEpisode(item));
   const acceptedCohort = buildYoutubeCohort({ items: acceptedPickItems, notes: acceptedNoteItems });
   const payload = {
-    generated_at: new Date().toISOString(),
+    schema: 'youtube_futures_intel_review_status_v1',
+    generated_at: GENERATED_AT,
     status: 'local_review_status_only',
     guardrail: 'Human-editable local status file. This does not promote official picks or write production recommendations.',
     allowed_statuses: ['pending_review', 'needs_review', 'context_only', PROMOTED_LOCAL_INTEL_STATUS, 'reject'],
     accepted_cohort: acceptedCohort,
+    inputs: {
+      review_report_source: path.relative(ROOT, REPORT_DIR),
+      observation_directory: path.relative(ROOT, OBS_DIR),
+    },
+    validation_results: {
+      cohort_status: acceptedCohort.forbidden_episode_evidence_absent === true ? 'pass' : 'blocked',
+      forbidden_episode_evidence_count: acceptedCohort.forbidden_episode_evidence_count,
+    },
     items: [...pickItems, ...noteItems]
   };
   writeJson(REVIEW_STATUS_PATH, payload);
@@ -646,7 +663,8 @@ for (const [tag, count] of Object.entries(noteTagCounts)) {
 }
 
 const summary = {
-  generated_at: new Date().toISOString(),
+  schema: 'youtube_futures_intel_review_v1',
+  generated_at: GENERATED_AT,
   status: 'local_review_only',
   guardrail: 'This local shadow-harness track requires human review before anything is treated as a real pick. For actual production promotion, see podcast_gemini_intel (migration 045) and agents/podcast-gemini-intel.js --promote (docs/PODCAST_HOLISTIC_INTEL_EXTRACTION_PLAN.md Phase 5) -- a separate, real review gate this local JSON file does not itself enforce.',
   futures_candidates: futuresCandidates.length,
@@ -664,6 +682,12 @@ const summary = {
   note_relevance_tag_counts: noteTagCounts,
   note_review_flag_counts: noteFlagCounts,
   accepted_cohort: reviewStatus.accepted_cohort,
+  inputs: {
+    candidates: path.relative(ROOT, CANDIDATES_PATH),
+    observations: path.relative(ROOT, OBS_DIR),
+    review_status: path.relative(ROOT, REVIEW_STATUS_PATH),
+  },
+  validation_results: reviewStatus.validation_results,
   total_cost_usd: Number(rows.reduce((sum, row) => sum + Number(row.observation.run?.estimated_cost_usd || 0), 0).toFixed(6)),
   average_latency_ms: rows.length ? Math.round(rows.reduce((sum, row) => sum + Number(row.observation.run?.latency_ms || 0), 0) / rows.length) : 0
 };

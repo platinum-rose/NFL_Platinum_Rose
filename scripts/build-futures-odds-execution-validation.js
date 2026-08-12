@@ -3,6 +3,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { buildFuturesOddsExecutionValidation } from './lib/futures-odds-execution.js';
+import { validateOddsExecutionArtifact } from './lib/futures-evidence-gates.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -104,6 +105,13 @@ export async function buildFuturesOddsExecutionValidationArtifact(options = {}) 
     season: options.season || 2026,
     currentSnapshotDate: options.currentSnapshotDate || '2026-08-10',
   });
+  snapshot.meta.inputs = Object.fromEntries(Object.entries(files).map(([sourcePath, book]) => [sourcePath, {
+    book,
+    row_count: Array.isArray(sources[sourcePath]) ? sources[sourcePath].length : 0,
+  }]));
+  snapshot.meta.validation_results = {
+    odds_execution: validateOddsExecutionArtifact(snapshot),
+  };
 
   if (options.dryRun) return { snapshot, outputs: null };
 

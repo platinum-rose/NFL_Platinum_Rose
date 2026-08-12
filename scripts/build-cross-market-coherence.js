@@ -10,6 +10,7 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { probabilityToAmerican } from '../src/lib/predictionMarkets.js';
 import { parseArgs, nowIso } from './training-camp-intel.js';
+import { validatePredictionCoherence } from './lib/futures-evidence-gates.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -348,6 +349,14 @@ export async function buildCrossMarketCoherence(options = {}) {
     },
     teams,
   };
+  snapshot.meta.inputs = {
+    source_path: options.source || path.join('data', 'prediction-markets', 'team-market-map-latest.json'),
+    source_generated_at: source.meta?.generated_at || null,
+    source_schema: source.meta?.schema || null,
+  };
+  snapshot.meta.validation_results = {
+    prediction_market_coherence: validatePredictionCoherence(source, snapshot),
+  };
 
   if (options.dryRun) return { snapshot, outputs: null };
 
@@ -371,6 +380,7 @@ async function main() {
     season: Number(args.season || DEFAULT_SEASON),
     source: args.source || null,
     date: args.date || null,
+    generatedAt: args['generated-at'] || null,
     dryRun: args['dry-run'] === true || args['no-persist'] === true,
   });
   console.log(

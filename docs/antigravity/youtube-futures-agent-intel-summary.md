@@ -1,6 +1,6 @@
 # YouTube Futures Agent Intel Summary
 
-Generated: 2026-08-12T05:34:50.444Z
+Generated: 2026-08-12T05:30:00.000Z
 
 > Reviewed local podcast intel for agent context only. This does not create official picks, production recommendations, Supabase writes, or parlay changes.
 

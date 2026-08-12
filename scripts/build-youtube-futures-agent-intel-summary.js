@@ -17,6 +17,13 @@ const OUT_MD = path.join(ROOT, 'docs', 'antigravity', 'youtube-futures-agent-int
 // Supabase and never treated as a production recommendation.
 const OUT_PUBLIC = path.join(ROOT, 'public', 'youtube-futures-agent-intel-summary.json');
 
+function argValue(name, fallback) {
+  const index = process.argv.indexOf(name);
+  return index >= 0 && index + 1 < process.argv.length ? process.argv[index + 1] : fallback;
+}
+
+const generatedAt = argValue('--generated-at', new Date().toISOString());
+
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
 }
@@ -166,11 +173,20 @@ const byMarket = [...groupBy(items, item => item.market).entries()]
   }));
 
 const summary = {
-  generated_at: new Date().toISOString(),
+  schema: 'youtube_futures_agent_intel_summary_v1',
+  generated_at: generatedAt,
   status: 'local_agent_intel_summary_only',
   guardrail: 'Reviewed local podcast intel for agent context only. This is not an official pick ledger, production recommendation, Supabase write, or parlay mutation.',
   source_queue: path.relative(ROOT, QUEUE_PATH),
   cohort,
+  inputs: {
+    queue: path.relative(ROOT, QUEUE_PATH),
+    queue_generated_at: queue.generated_at || null,
+  },
+  validation_results: {
+    cohort_status: cohort.forbidden_episode_evidence_absent === true ? 'pass' : 'blocked',
+    rejected_det_leak_count: badLions.length,
+  },
   exported_items: items.length,
   exported_notes: notes.length,
   counts: {

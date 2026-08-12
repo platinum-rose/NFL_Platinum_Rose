@@ -5,6 +5,7 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { NFL_TEAMS, getTeamAbbreviation, normalizeTeam } from '../src/lib/teams.js';
 import { parseArgs, nowIso } from './training-camp-intel.js';
+import { validatePredictionMarketMap } from './lib/futures-evidence-gates.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -449,6 +450,14 @@ export async function buildPredictionMarketMap(options = {}) {
     unmapped,
     contracts: rows,
   };
+  snapshot.meta.inputs = {
+    source_path: options.source || path.join('data', 'prediction-markets', 'latest.json'),
+    source_generated_at: source.meta?.generated_at || null,
+    source_contract_count: (source.contracts || []).length,
+  };
+  snapshot.meta.validation_results = {
+    prediction_market_map: validatePredictionMarketMap(snapshot, season),
+  };
 
   if (options.dryRun) return { snapshot, outputs: null };
 
@@ -472,6 +481,7 @@ async function main() {
     season: Number(args.season || DEFAULT_SEASON),
     source: args.source || null,
     date: args.date || null,
+    generatedAt: args['generated-at'] || null,
     dryRun: args['dry-run'] === true || args['no-persist'] === true,
   });
   console.log(`Prediction market map complete: ${snapshot.meta.mapped_count} mapped, ${snapshot.meta.unmapped_count} unmapped.`);

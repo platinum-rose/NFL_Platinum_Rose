@@ -10,6 +10,7 @@ import {
   buildYoutubeCohort,
   isForbiddenYoutubeEpisode,
 } from './lib/youtube-futures-cohort.js';
+import { validateFuturesEvidenceBundle } from './lib/futures-evidence-gates.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -20,6 +21,12 @@ const getArg = (flag, fallback) => {
 };
 const date = getArg('--date', '2026-08-11');
 const outPath = path.resolve(ROOT, getArg('--out', `.nfl/portfolio/frontier-synthesis-context-${date}.json`));
+const generatedAt = getArg('--generated-at', new Date().toISOString());
+const sourceAuditPath = getArg('--source-audit', null);
+const validateOnly = argv.includes('--validate-only');
+if (!sourceAuditPath) {
+  throw new Error('An explicit --source-audit <path> is required; stale audit discovery is not permitted.');
+}
 
 const files = {
   bookmaker: 'data/futures-imports/bookmaker-2026-08-10.json',
@@ -30,6 +37,7 @@ const files = {
   coherence: 'data/prediction-markets/cross-market-coherence-latest.json',
   youtubeReview: 'data/shadow-harness/reports/youtube-futures-intel-review-latest.json',
   youtubeStatus: 'data/shadow-harness/review/youtube-futures-intel-review-status.json',
+  youtubeQueue: 'data/shadow-harness/review/youtube-futures-local-intel-queue.json',
   youtubeSummary: 'data/shadow-harness/review/youtube-futures-agent-intel-summary.json',
   freshness: 'data/shadow-harness/review/podcast-youtube-freshness-latest.json',
   article: 'data/research-intel/review/article-intel-review-latest.json',
@@ -37,11 +45,11 @@ const files = {
   impact: 'data/player-availability/impact-digest-latest.json',
   starters: 'data/projected-starters/2026/latest.json',
   camp: 'data/training-camp/2026/latest.json',
-  sourceAudit: '.nfl/source-audit/nfl-intel-source-audit-2026-08-11T08-12-47-917Z.json',
+  sourceAudit: sourceAuditPath,
 };
 
 async function json(relativePath) {
-  return JSON.parse(await readFile(path.join(ROOT, relativePath), 'utf8'));
+  return JSON.parse(await readFile(path.resolve(ROOT, relativePath), 'utf8'));
 }
 
 function counts(values, key) {
@@ -124,11 +132,31 @@ function compactArticleLead(item) {
   };
 }
 
-const [bookmaker, betus, betonline, oddsExecution, predictionMap, coherence, youtubeReview, youtubeStatus, youtubeSummary, freshness, article, availability, impact, starters, camp, sourceAudit] = await Promise.all([
+const [bookmaker, betus, betonline, oddsExecution, predictionMap, coherence, youtubeReview, youtubeStatus, youtubeQueue, youtubeSummary, freshness, article, availability, impact, starters, camp, sourceAudit] = await Promise.all([
   json(files.bookmaker), json(files.betus), json(files.betonline), json(files.oddsExecution), json(files.predictionMap), json(files.coherence),
-  json(files.youtubeReview), json(files.youtubeStatus), json(files.youtubeSummary), json(files.freshness), json(files.article),
+  json(files.youtubeReview), json(files.youtubeStatus), json(files.youtubeQueue), json(files.youtubeSummary), json(files.freshness), json(files.article),
   json(files.availability), json(files.impact), json(files.starters), json(files.camp), json(files.sourceAudit),
 ]);
+
+const evidenceValidation = validateFuturesEvidenceBundle({
+  article,
+  camp,
+  availability,
+  impact,
+  starters,
+  predictionMap,
+  coherence,
+  youtubeReview,
+  youtubeStatus,
+  youtubeQueue,
+  youtubeSummary,
+  freshness,
+  oddsExecution,
+  sourceAudit,
+});
+if (evidenceValidation.status !== 'pass') {
+  throw new Error(`Refusing to build frontier synthesis context: ${evidenceValidation.blockers.join('; ')}`);
+}
 
 const watchTeams = ['BUF', 'GB', 'NYG', 'CIN', 'NO', 'KC', 'LAC', 'DET', 'DAL'];
 const availabilityByTeam = Object.fromEntries(watchTeams.map((team) => {
@@ -172,10 +200,12 @@ if (freshness.youtube?.accepted?.cohort?.fingerprint_sha256 && freshness.youtube
 
 const output = {
   meta: {
-    schema: 'frontier_futures_synthesis_context_v1',
-    generated_at: new Date().toISOString(),
+    schema: 'frontier_futures_synthesis_context_v2',
+    generated_at: generatedAt,
     local_only: true,
     recommendation_status: 'research_and_decision_support_only',
+    inputs: Object.fromEntries(Object.entries(files).map(([name, inputPath]) => [name, inputPath])),
+    validation_results: evidenceValidation,
     guardrails: {
       model_calls: false,
       network_fetches: false,
@@ -246,7 +276,7 @@ const output = {
     clean_market_lead_count: cleanArticleLeads.length,
     sample_clean_market_leads: cleanArticleLeads.slice(0, 8).map(compactArticleLead),
     caveats: [
-      'The lone actual-pick candidate is inference_only, has no book, and has a malformed team/selection extraction; require human and price verification.',
+      'Only execution-usable actual_picks from the complete, human-resolved article corpus are included.',
       'Market leads are inference_only and cannot make a card actionable.',
       'Page-chrome and no-team contaminated rows are excluded from this supplement.',
     ],
@@ -262,9 +292,9 @@ const output = {
     selected_team_availability: availabilityByTeam,
     selected_team_camp: campByTeam,
     caveats: [
-      'Projected starters contain 224 estimated rows, zero manual rows, and all teams need manual depth-chart confirmation.',
-      'Only 47 of 216 impact-digest starter matches are likely_starter_or_primary; other automated classifications are weaker.',
-      'Team-beat RSS source-prefix mismatches are filtered from selected team rows here; unfiltered aggregate counts remain review-only.',
+      `Projected starters contain ${starters.meta?.estimated_row_count ?? 'unknown'} estimated rows and ${starters.meta?.manual_row_count ?? 'unknown'} manual rows; estimated rows need depth-chart confirmation.`,
+      `The impact digest contains ${impact.meta?.starter_matched_count ?? 'unknown'} starter-matched rows; automated classifications remain weaker than manual depth charts.`,
+      'Team identity and availability validations pass; aggregate counts still remain research context.',
       'All selected availability/camp rows still need human review; conflicting status text must be labeled conflicted intel.',
     ],
   },
@@ -272,10 +302,15 @@ const output = {
     generated_at: sourceAudit.generated_at,
     frontier_ready_inventory_gate: sourceAudit.summary?.frontierReady,
     counts: sourceAudit.summary?.counts,
-    caveat: 'The audit predates the final YouTube rebuild; use the newer media ledger counts above. frontierReady is an inventory gate, not proof that fresh local odds are in Supabase.',
+    path: files.sourceAudit,
+    caveat: 'This exact passing audit was supplied explicitly. frontierReady is an evidence-integrity gate, not betting authorization.',
   },
 };
 
-await mkdir(path.dirname(outPath), { recursive: true });
-await writeFile(outPath, `${JSON.stringify(output, null, 2)}\n`);
-console.log(`wrote ${outPath}`);
+if (validateOnly) {
+  console.log(`Frontier synthesis context validation passed for explicit audit ${files.sourceAudit}.`);
+} else {
+  await mkdir(path.dirname(outPath), { recursive: true });
+  await writeFile(outPath, `${JSON.stringify(output, null, 2)}\n`);
+  console.log(`wrote ${outPath}`);
+}

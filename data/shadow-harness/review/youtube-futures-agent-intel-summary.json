@@ -1,5 +1,6 @@
 {
-  "generated_at": "2026-08-12T05:34:50.444Z",
+  "schema": "youtube_futures_agent_intel_summary_v1",
+  "generated_at": "2026-08-12T05:30:00.000Z",
   "status": "local_agent_intel_summary_only",
   "guardrail": "Reviewed local podcast intel for agent context only. This is not an official pick ledger, production recommendation, Supabase write, or parlay mutation.",
   "source_queue": "data\\shadow-harness\\review\\youtube-futures-local-intel-queue.json",
@@ -13,6 +14,14 @@
     "fingerprint_sha256": "2b416c20772bcc2d6be95ecaed72aac0437cdf957ac6cd3921ae22fa673bdfdc",
     "forbidden_episode_evidence_count": 0,
     "forbidden_episode_evidence_absent": true
+  },
+  "inputs": {
+    "queue": "data\\shadow-harness\\review\\youtube-futures-local-intel-queue.json",
+    "queue_generated_at": "2026-08-12T05:30:00.000Z"
+  },
+  "validation_results": {
+    "cohort_status": "pass",
+    "rejected_det_leak_count": 0
   },
   "exported_items": 43,
   "exported_notes": 0,

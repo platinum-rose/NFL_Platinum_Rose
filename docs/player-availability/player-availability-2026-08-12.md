@@ -1791,4 +1791,3 @@ OL: 3 total / 0 worsening | Defensive front: 3 total / 2 worsening / cluster ris
   - Markets: wins, division, player_props | Impact: defensive_front_major | Group: defensive_front | human review
   - Conflicted intel: worsening_label_vs_return_text; excluded from synthesis aggregates
   - Evidence: Madubuike (neck) passed his physical and been removed from the active/PUP list.
-

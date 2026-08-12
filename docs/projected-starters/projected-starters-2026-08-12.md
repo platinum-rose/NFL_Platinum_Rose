@@ -818,4 +818,3 @@ Players: 223 | Teams with signals: 32 | Manual rows: 0 | Estimated rows: 223
 - Max Scharping (G): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: offensive_line_major | Review: yes
   - Evidence: Scharping (knee) agreed to a contract with the Commanders on Saturday.
-

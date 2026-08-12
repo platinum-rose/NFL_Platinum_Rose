@@ -1,5 +1,6 @@
 {
-  "generated_at": "2026-08-12T05:34:50.236Z",
+  "schema": "youtube_futures_intel_review_v1",
+  "generated_at": "2026-08-12T05:30:00.000Z",
   "status": "local_review_only",
   "guardrail": "This local shadow-harness track requires human review before anything is treated as a real pick. For actual production promotion, see podcast_gemini_intel (migration 045) and agents/podcast-gemini-intel.js --promote (docs/PODCAST_HOLISTIC_INTEL_EXTRACTION_PLAN.md Phase 5) -- a separate, real review gate this local JSON file does not itself enforce.",
   "futures_candidates": 16,
@@ -60,6 +61,15 @@
       "youtube-b9NL40Zogkw",
       "youtube-qoCm4G2Jmng"
     ]
+  },
+  "inputs": {
+    "candidates": "data\\podcasts\\youtube-discovery-candidates-2026.json",
+    "observations": "data\\shadow-harness\\observations",
+    "review_status": "data\\shadow-harness\\review\\youtube-futures-intel-review-status.json"
+  },
+  "validation_results": {
+    "cohort_status": "pass",
+    "forbidden_episode_evidence_count": 0
   },
   "total_cost_usd": 0.647991,
   "average_latency_ms": 165316,

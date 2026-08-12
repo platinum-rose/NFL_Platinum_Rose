@@ -2,20 +2,23 @@
 
 ## Current Session Summary
 
-- Date: 2026-08-11 UTC / 2026-08-11 Pacific.
+- Date: 2026-08-12 UTC / 2026-08-12 Pacific.
 - Branch: `main`.
-- Current local HEAD: `85fee49`; `main...origin/main [ahead 14]`.
-- Working tree: dirty by design after futures-data refresh; stage narrowly.
-- Latest timestamped handoff: `handoffs/2026-08-11-0209-futures-synthesis-readiness-handoff.md`.
-- Current objective: run a maximum-effort NFL futures synthesis using refreshed local data. No official picks, Supabase writes, production recommendation persistence, portfolio/open-parlay changes, paid/frontier model/API calls, or git push without explicit approval.
-- Readiness: source audit frontier-ready/passable; Aug 10 BKR/BetUS/BetOnline odds processed; YouTube/podcast missing observations now 0; articles, availability, starter-impact digest, projected-starters estimate, training camp, prediction-market map/coherence all refreshed.
-- Portfolio objective: Bills and Packers are the primary Super Bowl anchor spine; Bills-Packers exact matchup/exacta is the ultimate payout target if placeable/price-shoppable; supplemental futures should hedge, ladder, or create playoff optionality around that core.
-- Timing requirement: evaluate buy-now vs wait-for-better-entry for every candidate, including likely in-season market changes from schedule shape, rough early starts, injury uncertainty, public narrative, and line movement.
-- Carry forward July 30 packet constraints: `$500` futures bankroll, `$20` unit, 0.25u/0.5u/1u/2u sizes, Bills/Packers SB target caps, watchlist targets as evaluation targets only, exactas monitor-only until exact two-team rows plus secondary price shopping, and open parlays as open/unverified contingent assets only.
-- Goal-context worksheet: `docs/FUTURES_PORTFOLIO_GOAL_CONTEXT_QUESTIONS_2026-08-11.md` is filled out and should be treated as current personalization input for the final synthesis prompt.
-- Fresh-session option before synthesis: do a final review of the max-effort prompt itself against `docs/FUTURES_PORTFOLIO_FRONTIER_SYNTHESIS_PACKET_2026-07-30.md`, `docs/spec-win-dist-and-coherence-sim.md`, and this handoff before running any synthesis.
+- Current local HEAD: `f54712351b663b45c95db643c792241fbebe5019`.
+- Parity verified: local `HEAD`, cached `origin/main`, and M6 checkout all resolve to `f54712351b663b45c95db643c792241fbebe5019`.
+- Working tree: G01-G03 futures evidence cleanup checkpoint is staged; unrelated dirty boundaries remain unstaged.
+- Latest timestamped handoff: `handoffs/2026-08-12-0026-futures-evidence-cleanup-g03-handoff.md`.
+- Current objective: finish checkpoint handling for the completed futures evidence cleanup G01-G03 tranche.
+- Staged checkpoint: 70 files. Suggested commit message: `fix: gate and verify futures evidence rebuild`.
+- Completed roadmap items: A01/A02/A05 and G01/G02/G03 in `docs/FUTURES_EVIDENCE_CLEANUP_ROADMAP_2026-08-11.md`.
+- Latest article review: 292 records, complete requested DB window, zero unresolved pick-oriented rows, zero `actual_picks`, and 10 explicit selections held out for price/venue verification.
+- Latest strict source audit: `PASSABLE`, Current 2 / Review 25 / Stale 0 / Blocked 0 / Missing 0 / Context 12.
+- Latest deterministic rebuild manifest: `.nfl/rebuild/futures-evidence-rebuild-2026-08-12T05-30-00-000Z.json`.
+- Latest final verification receipt: `.nfl/verification/futures-evidence-verification-2026-08-12T05-40-00-000Z.json`, PASS.
+- Unstaged dirty boundaries to preserve unless explicitly approved: `TASK_BOARD.md`, `WORKING-CONTEXT.md`, `Complete_with_Docusign_Personal_Use_-_Andrew_NFL_Dashboard_Yahoo_API_agreement.pdf`, and `docs/antigravity/recovery/youtube-qoCm4G2Jmng-contested-datapoints-review.md`.
+- Guardrails: no paid/frontier model/API calls, Supabase writes, official-pick actions, production recommendation persistence, portfolio/open-parlay mutations, git push, or broad staging without explicit approval.
 
-> Rolling session handoff. Read this first in a fresh session, then read `HANDOFF.md`, `WORKING-CONTEXT.md`, `TASK_BOARD.md`, and the latest timestamped handoff.
+> Rolling session handoff. Read this first in a fresh session, then read `HANDOFF.md`, `WORKING-CONTEXT.md`, `TASK_BOARD.md`, and `handoffs/2026-08-12-0026-futures-evidence-cleanup-g03-handoff.md`.
 
 ## Persistent Backlogs
 

@@ -23,6 +23,7 @@ const reportPath = path.resolve(ROOT, argValue('--report-file', DEFAULT_REPORT_P
 const statusPath = path.resolve(ROOT, argValue('--status-file', DEFAULT_STATUS_PATH));
 const outPath = path.resolve(ROOT, argValue('--out', DEFAULT_QUEUE_PATH));
 const mdPath = path.resolve(ROOT, argValue('--markdown-out', DEFAULT_MD_PATH));
+const generatedAt = argValue('--generated-at', new Date().toISOString());
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -147,13 +148,24 @@ function groupCountMulti(items, key) {
 }
 
 const payload = {
-  generated_at: new Date().toISOString(),
+  schema: 'youtube_futures_local_intel_queue_v1',
+  generated_at: generatedAt,
   status: 'local_intel_queue_only',
   guardrail: 'Local reviewed intel queue only. This is not an official pick ledger, production recommendation, Supabase write, or parlay mutation.',
   source_report: path.relative(ROOT, reportPath),
   source_status_ledger: path.relative(ROOT, statusPath),
   promoted_status: PROMOTED_LOCAL_INTEL_STATUS,
   cohort,
+  inputs: {
+    review_report: path.relative(ROOT, reportPath),
+    review_report_generated_at: report.generated_at || null,
+    status_ledger: path.relative(ROOT, statusPath),
+    status_ledger_generated_at: statusLedger.generated_at || null,
+  },
+  validation_results: {
+    cohort_status: cohort.forbidden_episode_evidence_absent === true ? 'pass' : 'blocked',
+    missing_report_item_count: missingReportItems.length,
+  },
   total_status_items: (statusLedger.items || []).length,
   exported_items: cleanItems.length,
   exported_notes: cleanNotes.length,

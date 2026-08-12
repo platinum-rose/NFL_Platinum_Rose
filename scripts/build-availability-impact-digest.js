@@ -345,6 +345,7 @@ async function main() {
     projectedStarters: args['projected-starters'] || null,
     namedStatusReview: args['named-status-review'] || null,
     date: args.date || null,
+    generatedAt: args['generated-at'] || null,
     dryRun: args['dry-run'] === true || args['no-persist'] === true,
   });
 

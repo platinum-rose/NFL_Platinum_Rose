@@ -1,5 +1,6 @@
 {
-  "generated_at": "2026-08-12T05:34:50.232Z",
+  "schema": "youtube_futures_intel_review_status_v1",
+  "generated_at": "2026-08-12T05:30:00.000Z",
   "status": "local_review_status_only",
   "guardrail": "Human-editable local status file. This does not promote official picks or write production recommendations.",
   "allowed_statuses": [
@@ -23,6 +24,14 @@
       "youtube-b9NL40Zogkw",
       "youtube-qoCm4G2Jmng"
     ]
+  },
+  "inputs": {
+    "review_report_source": "data\\shadow-harness\\reports",
+    "observation_directory": "data\\shadow-harness\\observations"
+  },
+  "validation_results": {
+    "cohort_status": "pass",
+    "forbidden_episode_evidence_count": 0
   },
   "items": [
     {
