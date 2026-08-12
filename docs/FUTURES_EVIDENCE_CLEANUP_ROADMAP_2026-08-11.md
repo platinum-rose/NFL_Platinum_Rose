@@ -41,8 +41,8 @@ The repaired contract must report three different things:
 | P02 | P0 | Coherence | Exclude liquidity-warned/ineligible contracts from actionable coherence math and preserve fee/liquidity/settlement caveats. | Coherence reports eligible-context counts separately; July 31, 77%-warned map cannot pass as an execution source. | code | COMPLETE — eligibility and execution-source gates pass |
 | Y01 | P0 | YouTube | Put review, freshness, queue, and agent summary on one cohort fingerprint. | All artifacts report the same 43-item cohort and fingerprint. | code | COMPLETE — cohort fingerprint passes |
 | Y02 | P0 | YouTube exclusions | Hard-exclude both stale Drake Maye rows from `youtube-b9NL40Zogkw` and all evidence from `youtube-qoCm4G2Jmng`. | Forbidden episode IDs are absent from synthesis inputs and tested. | code | COMPLETE — accepted and synthesis inputs gated |
-| O01 | P0 | Odds execution | Revalidate BKR, BetUS, and BetOnline prices at synthesis time and preserve exact venue/timestamp provenance. | Every actionable row has a current placeable venue; unavailable books are context-only. | local data + human check | NOT STARTED |
-| O02 | P0 | Exacta | Require exact two-team rows and multiple-book confirmation; keep simulation-price-only rows out of execution claims. | Bills–Packers exacta remains monitor-only until every explicit guardrail passes. | code + human check | NOT STARTED |
+| O01 | P0 | Odds execution | Revalidate BKR, BetUS, and BetOnline prices at synthesis time and preserve exact venue/timestamp provenance. | Every actionable row has a current placeable venue; unavailable books are context-only. | local data + human check | COMPLETE — local execution-reference gate passes |
+| O02 | P0 | Exacta | Require exact two-team rows and multiple-book confirmation; keep simulation-price-only rows out of execution claims. | Bills–Packers exacta remains monitor-only until every explicit guardrail passes. | code + human check | COMPLETE — one-book exacta held monitor-only |
 | G01 | P0 | Audit gate | Make source audit block on incomplete article corpus, unresolved identity contamination, stale/mismatched YouTube cohorts, or invalid prediction mapping. | A legacy/contaminated artifact produces `blocked`, not `passable`. | code | PARTIAL — article, team-identity, availability, and named-status blockers implemented |
 | G02 | P1 | Rebuild | Rebuild all dependent artifacts deterministically after upstream fixes, in dependency order. | Each artifact names its inputs, generated time, schema version, and validation results. | code | PARTIAL — camp, availability, projected-starters, and impact-digest rebuild complete |
 | G03 | P0 | Final verification | Run focused fixtures, full tests, lint, build, source audit, and synthesis-context validation without model or DB writes. | All commands pass; GitHub, local, and M6 resolve to the same verified commit. | code | NOT STARTED |
@@ -104,6 +104,17 @@ The YouTube cohort/exclusion tranche was completed offline on August 11 without 
 - The review report still records `youtube-b9NL40Zogkw` and `youtube-qoCm4G2Jmng` as reprocess-required audit rows, but extracted review picks/notes, the status ledger, accepted queue, agent summary, and local synthesis-context supplement do not carry their evidence forward.
 - The local synthesis-context builder verifies that the queue, summary, and freshness fingerprints match before writing. Its regenerated 2026-08-11 context contains the 43-item accepted cohort and no forbidden episode IDs.
 - Focused fixtures now cover the stale Drake Maye/forbidden-episode exclusion path, cohort fingerprint propagation, and synthesis-context leak check.
+
+## O01-O02 Completion Evidence
+
+The odds execution/exacta tranche was completed offline on August 11 without network fetches, model/API calls, Supabase writes, recommendation persistence, official-pick actions, or portfolio changes.
+
+- `futures_odds_execution_validation_v1` validates the local August 10 BKR, BetUS, and BetOnline imports before they can be used as execution-reference context. Rows must be 2026 season, carry the current local snapshot date, come from a placeable local book, and include a numeric price field.
+- The validation artifact checks 799 local sportsbook rows: 543 execution-reference eligible rows and 256 monitor-only exacta rows. No unavailable/non-placeable book rows are present in the August 10 local import set; if introduced later, they are classified context-only.
+- Source provenance is explicit: Bookmaker/BKR has 256 August 10 execution-reference rows, BetUS has 160 August 10 execution-reference rows plus 256 monitor-only exacta rows, and BetOnline has 127 August 10 execution-reference rows.
+- Super Bowl exacta rows must parse as exact two-team `Team A vs Team B` selections and require at least two placeable books before any execution claim is allowed. Simulation-only exacta prices remain blocked as execution claims.
+- The Bills-Packers exacta has one exact two-team BetUS row at +6500 from `2026-08-10T00:00:00Z`. It fails the multiple-book gate, so the regenerated local synthesis context records `execution_claim_allowed: false` and keeps it monitor-only.
+- Focused fixtures cover current placeable rows, non-placeable/stale/wrong-season/missing-price exclusions, exact two-team parsing, reversed exacta order, one-book exacta hold, and two-book exacta confirmation.
 
 ## Hard Frontier Re-entry Gates
 

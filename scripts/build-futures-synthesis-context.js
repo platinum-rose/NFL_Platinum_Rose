@@ -25,6 +25,7 @@ const files = {
   bookmaker: 'data/futures-imports/bookmaker-2026-08-10.json',
   betus: 'data/futures-imports/betus-2026-08-10.json',
   betonline: 'data/futures-imports/betonline-2026-08-10.json',
+  oddsExecution: 'data/futures-imports/odds-execution-validation-latest.json',
   predictionMap: 'data/prediction-markets/team-market-map-latest.json',
   coherence: 'data/prediction-markets/cross-market-coherence-latest.json',
   youtubeReview: 'data/shadow-harness/reports/youtube-futures-intel-review-latest.json',
@@ -123,8 +124,8 @@ function compactArticleLead(item) {
   };
 }
 
-const [bookmaker, betus, betonline, predictionMap, coherence, youtubeReview, youtubeStatus, youtubeSummary, freshness, article, availability, impact, starters, camp, sourceAudit] = await Promise.all([
-  json(files.bookmaker), json(files.betus), json(files.betonline), json(files.predictionMap), json(files.coherence),
+const [bookmaker, betus, betonline, oddsExecution, predictionMap, coherence, youtubeReview, youtubeStatus, youtubeSummary, freshness, article, availability, impact, starters, camp, sourceAudit] = await Promise.all([
+  json(files.bookmaker), json(files.betus), json(files.betonline), json(files.oddsExecution), json(files.predictionMap), json(files.coherence),
   json(files.youtubeReview), json(files.youtubeStatus), json(files.youtubeSummary), json(files.freshness), json(files.article),
   json(files.availability), json(files.impact), json(files.starters), json(files.camp), json(files.sourceAudit),
 ]);
@@ -185,8 +186,9 @@ const output = {
     },
   },
   execution_policy: {
-    potentially_placeable: ['Bookmaker/BKR', 'BetUS', 'BetOnline', 'Kalshi', 'Polymarket', 'major Vegas sportsbooks through proxy'],
+    potentially_placeable: ['Bookmaker/BKR', 'BetUS', 'BetOnline'],
     context_only: ['DraftKings', 'FanDuel', 'other unavailable online books'],
+    prediction_markets_context_only: ['Kalshi', 'Polymarket'],
     prediction_market_adjustment: 'Require placeability, fees, liquidity, and settlement-risk adjustment; current local map is consensus context, not an execution quote.',
   },
   local_sportsbook_imports: {
@@ -195,11 +197,15 @@ const output = {
       { path: files.betus, rows: betus.length, book: 'betus' },
       { path: files.betonline, rows: betonline.length, book: 'betonline' },
     ],
+    execution_validation_meta: oddsExecution.meta,
+    execution_validation_sources: oddsExecution.sources,
     bills_packers_exact_matchup: billsPackersExact,
+    bills_packers_exacta_gate: oddsExecution.bills_packers_exacta,
     exacta_gate: {
       minimum_price: 4500,
-      current_local_confirmation: billsPackersExact.length === 1 ? 'one_book_only_monitor' : 'not_confirmed',
-      required: 'Exact two-team row plus multiple-book confirmation; remain monitor-only until satisfied.',
+      current_local_confirmation: oddsExecution.bills_packers_exacta?.status || 'not_confirmed',
+      execution_claim_allowed: Boolean(oddsExecution.bills_packers_exacta?.execution_claim_allowed),
+      required: 'Exact two-team row plus at least two placeable books; remain monitor-only until satisfied.',
     },
   },
   prediction_markets: {

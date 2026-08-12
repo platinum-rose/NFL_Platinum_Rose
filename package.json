@@ -32,6 +32,7 @@
     "futures:update-clv": "node scripts/update-futures-clv-from-snapshots.js",
     "futures:betonline-0729": "node scripts/build-betonline-0729-import.js",
     "futures:betonline-0810": "node scripts/build-betonline-0810-import.js",
+    "futures:odds-execution-validation": "node scripts/build-futures-odds-execution-validation.js",
     "prediction-markets:map": "node scripts/build-prediction-market-map.js",
     "prediction-markets:coherence": "node scripts/build-cross-market-coherence.js",
     "training-camp:build": "node scripts/training-camp-intel.js build",
