@@ -258,6 +258,25 @@ const server = http.createServer(async (req, res) => {
     res.end(JSON.stringify(await inboxData(), null, 2));
     return;
   }
+  if (req.method === 'GET' && url.pathname === '/api/gmail-summaries') {
+    const summariesDir = path.join(ROOT, '.nfl', 'gmail-summaries');
+    let items = [];
+    try {
+      const entries = await readdir(summariesDir, { withFileTypes: true });
+      const jsonFiles = entries.filter((e) => e.isFile() && e.name.endsWith('.json'));
+      for (const f of jsonFiles) {
+        const raw = await readFile(path.join(summariesDir, f.name), 'utf8');
+        items.push(JSON.parse(raw));
+      }
+      items.sort((a, b) => new Date(b.date) - new Date(a.date));
+    } catch (err) {
+      items = [];
+    }
+    res.writeHead(200, { 'content-type': 'application/json' });
+    res.end(JSON.stringify({ account: 'platinumrose75@gmail.com', count: items.length, items }, null, 2));
+    return;
+  }
+
   if (req.method === 'GET' && url.pathname === '/ledger') {
     await runLedger(['report']);
     res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' });

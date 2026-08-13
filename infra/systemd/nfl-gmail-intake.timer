@@ -1,0 +1,10 @@
+[Unit]
+Description=Run NFL Gmail Intake Agent every 15 minutes on M6
+
+[Timer]
+OnCalendar=*:00,15,30,45:00
+RandomizedDelaySec=30
+Persistent=true
+
+[Install]
+WantedBy=timers.target

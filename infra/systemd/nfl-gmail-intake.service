@@ -1,0 +1,13 @@
+[Unit]
+Description=NFL Gmail Intake Agent — Ingests and summarizes platinumrose75@gmail.com intel
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=andrewlrose
+WorkingDirectory=/home/andrewlrose/projects/NFL_Dashboard
+ExecStart=/usr/bin/node agents/gmail-intake-agent.js
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=nfl-gmail-intake
