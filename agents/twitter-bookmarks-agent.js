@@ -72,52 +72,92 @@ const SAMPLE_BOOKMARKS = [
 
 // ── Fetch Bookmarks from Personal Twitter API / Session ────────────────────────
 
-export async function fetchPersonalBookmarks() {
+export async function fetchPersonalBookmarks(queryKeywords = ['NFL', 'CBB', 'football', 'basketball', 'betting', 'spread', 'props']) {
   if (!TWITTER_AUTH_TOKEN) {
     console.log(`[info] PERSONAL_TWITTER_AUTH_TOKEN not configured in .env.`);
     return null;
   }
 
-  try {
-    // Standard Twitter Web API endpoint for GraphQL Bookmarks
-    const resp = await fetch('https://x.com/i/api/graphql/mK76_3d2-3-066G3-911-A/Bookmarks?variables=%7B%22count%22%3A20%7D', {
-      headers: {
-        'authorization': 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-        'cookie': `auth_token=${TWITTER_AUTH_TOKEN}; ct0=${TWITTER_CT0 || ''};`,
-        'x-csrf-token': TWITTER_CT0 || '',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-      }
-    });
+  const qid = 'ioP4Xb7LV__rVXS2f88ayg';
+  const op = 'BookmarkSearchTimeline';
 
-    if (resp.ok) {
-      const data = await resp.json();
-      const instructions = data?.data?.bookmark_timeline_v2?.timeline?.instructions || [];
-      const tweets = [];
-      for (const inst of instructions) {
-        if (inst.type === 'TimelineAddEntries') {
-          for (const entry of (inst.entries || [])) {
-            const result = entry?.content?.itemContent?.tweet_results?.result?.legacy;
-            const user = entry?.content?.itemContent?.tweet_results?.result?.core?.user_results?.result?.legacy;
-            if (result) {
-              tweets.push({
-                id: entry.entryId,
-                author: user?.screen_name || 'unknown',
-                author_name: user?.name || 'Unknown',
-                text: result.full_text || result.text || '',
-                created_at: result.created_at,
-                url: `https://x.com/${user?.screen_name || 'i'}/status/${result.id_str}`
-              });
+  const features = {
+    rweb_tipjar_consumption_enabled: true,
+    responsive_web_graphql_exclude_directive_enabled: true,
+    verified_phone_label_enabled: false,
+    creator_subscriptions_tweet_preview_api_enabled: true,
+    responsive_web_graphql_timeline_navigation_enabled: true,
+    responsive_web_graphql_skip_user_profile_image_extensions_enabled: false,
+    communities_web_enable_tweet_community_results_fetch: true,
+    c9s_tweet_anatomy_moderator_badge_enabled: true,
+    articles_preview_enabled: true,
+    tweet_awards_web_tipping_enabled: false,
+    responsive_web_edit_tweet_api_enabled: true,
+    graphql_is_translatable_rweb_tweet_is_translatable_enabled: true,
+    view_counts_everywhere_api_enabled: true,
+    longform_notetweets_consumption_enabled: true,
+    responsive_web_twitter_article_tweet_consumption_enabled: true,
+    tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled: true,
+    rweb_video_timestamps_enabled: true,
+    longform_notetweets_rich_text_read_enabled: true,
+    longform_notetweets_inline_media_enabled: true,
+    responsive_web_enhance_cards_enabled: false
+  };
+
+  const allTweets = [];
+  const seenIds = new Set();
+
+  for (const q of queryKeywords) {
+    try {
+      const variables = { rawQuery: q, count: 20 };
+      const url = `https://x.com/i/api/graphql/${qid}/${op}?variables=${encodeURIComponent(JSON.stringify(variables))}&features=${encodeURIComponent(JSON.stringify(features))}`;
+
+      const resp = await fetch(url, {
+        headers: {
+          'authorization': 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+          'cookie': `auth_token=${TWITTER_AUTH_TOKEN}; ct0=${TWITTER_CT0 || ''};`,
+          'x-csrf-token': TWITTER_CT0 || '',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        }
+      });
+
+      if (resp.ok) {
+        const data = await resp.json();
+        const instructions = data?.data?.search_by_raw_query?.bookmarks_search_timeline?.timeline?.instructions || [];
+        for (const inst of instructions) {
+          if (inst.type === 'TimelineAddEntries') {
+            for (const entry of (inst.entries || [])) {
+              const tweetResult = entry?.content?.itemContent?.tweet_results?.result;
+              const legacy = tweetResult?.legacy || tweetResult?.tweet?.legacy;
+              
+              if (legacy && legacy.id_str && !seenIds.has(legacy.id_str)) {
+                seenIds.add(legacy.id_str);
+                const userRes = tweetResult?.core?.user_results?.result || tweetResult?.tweet?.core?.user_results?.result;
+                const userLegacy = userRes?.legacy || userRes;
+                const authorHandle = userLegacy?.screen_name || 'twitter_user';
+                const authorName = userLegacy?.name || authorHandle;
+
+                allTweets.push({
+                  id: legacy.id_str,
+                  author: authorHandle,
+                  author_name: authorName,
+                  text: legacy.full_text || legacy.text || '',
+                  created_at: legacy.created_at,
+                  url: `https://x.com/${authorHandle}/status/${legacy.id_str}`
+                });
+              }
             }
           }
         }
       }
-      return tweets;
+    } catch (err) {
+      console.warn(`  [warn] Bookmark search error for "${q}": ${err.message}`);
     }
-  } catch (err) {
-    console.warn(`[warn] Personal Twitter API fetch error: ${err.message}`);
   }
-  return null;
+
+  return allTweets;
 }
+
 
 // ── Process Single Bookmarked Tweet ───────────────────────────────────────────
 
