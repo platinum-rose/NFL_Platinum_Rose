@@ -82,7 +82,10 @@
     "gmail:intake": "node agents/gmail-intake-agent.js",
     "gmail:intake:sample": "node agents/gmail-intake-agent.js --sample",
     "gmail:intake:dry": "node agents/gmail-intake-agent.js --dry-run",
+    "screenshot:watch": "node agents/screenshot-watcher.js --watch",
+    "screenshot:scan": "node agents/screenshot-watcher.js",
     "official:proposals:export-test": "node scripts/run-portfolio-corpus.js --scenario supplemental-outperformers --proposal-out-dir data/generated/official-proposals/active",
+
 
     "resume": "node scripts/gen_resume.js",
     "podcast:shadow": "node scripts/gemini-podcast-shadow-harness.js",
