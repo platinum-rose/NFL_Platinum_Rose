@@ -84,7 +84,10 @@
     "gmail:intake:dry": "node agents/gmail-intake-agent.js --dry-run",
     "screenshot:watch": "node agents/screenshot-watcher.js --watch",
     "screenshot:scan": "node agents/screenshot-watcher.js",
+    "twitter:bookmarks": "node agents/twitter-bookmarks-agent.js",
+    "twitter:bookmarks:sample": "node agents/twitter-bookmarks-agent.js --sample",
     "official:proposals:export-test": "node scripts/run-portfolio-corpus.js --scenario supplemental-outperformers --proposal-out-dir data/generated/official-proposals/active",
+
 
 
     "resume": "node scripts/gen_resume.js",
