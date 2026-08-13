@@ -16,10 +16,15 @@
 import { mkdir, writeFile, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 import { createClient } from '@supabase/supabase-js';
 import nodemailer from 'nodemailer';
 import 'dotenv/config';
 import { ensureVaultFrontmatter } from './lib/vaultFrontmatter.js';
+
+const execFileAsync = promisify(execFile);
+
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -384,6 +389,24 @@ export async function sendUrgentIntelAlert(msg, analysis) {
 }
 
 
+const FETCHER_SCRIPT = path.join(ROOT, 'agents', 'lib', 'gmail_fetcher.py');
+
+async function fetchLiveEmails() {
+  try {
+    const pythonExe = process.platform === 'win32' ? 'python' : 'python3';
+    const { stdout } = await execFileAsync(pythonExe, [FETCHER_SCRIPT, GMAIL_ADDR, GMAIL_PASS]);
+    const parsed = JSON.parse(stdout.trim() || '[]');
+    if (parsed && parsed.error) {
+      console.warn(`  [warn] Live IMAP fetch error for ${GMAIL_ADDR}: ${parsed.error}`);
+      return null;
+    }
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (err) {
+    console.warn(`  [warn] Failed to execute gmail_fetcher.py: ${err.message}`);
+    return null;
+  }
+}
+
 // ── Main Execution ────────────────────────────────────────────────────────────
 
 export async function runIngestion() {
@@ -400,13 +423,12 @@ export async function runIngestion() {
     messages = SAMPLE_EMAILS;
   } else {
     console.log(`[live] Fetching unread emails for ${GMAIL_ADDR}...`);
-    // Fallback to sample or dry-run if IMAP credentials not fully specified
-    if (!GMAIL_PASS || GMAIL_PASS === 'dzugfdwyuqugtfil') {
-      console.log(`[info] Live IMAP app password for ${GMAIL_ADDR} not set in environment.`);
-      console.log(`[info] Running test ingestion on sample fixtures...`);
-      messages = SAMPLE_EMAILS;
+    const liveItems = await fetchLiveEmails();
+    if (liveItems !== null) {
+      messages = liveItems;
+      console.log(`[live] Retrived ${messages.length} unread email(s) from IMAP.`);
     } else {
-      // In live environment, fetch using IMAP or Gmail API
+      console.log(`[info] Live IMAP connection not available or credentials invalid. Running test ingestion on sample fixtures...`);
       messages = SAMPLE_EMAILS;
     }
   }
@@ -422,6 +444,7 @@ export async function runIngestion() {
   console.log(`=======================================================`);
   return results;
 }
+
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   runIngestion().catch(err => {
