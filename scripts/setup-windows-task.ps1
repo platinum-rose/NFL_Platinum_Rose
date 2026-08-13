@@ -12,7 +12,8 @@ if (-not $NodePath) {
 }
 
 $Action = New-ScheduledTaskAction -Execute $NodePath -Argument "agents\screenshot-watcher.js" -WorkingDirectory $WorkingDir
-$Trigger = New-ScheduledTaskTrigger -Daily -At 8:00AM -RepetitionInterval (New-TimeSpan -Hours 2)
+$Trigger = New-ScheduledTaskTrigger -Once -At (Get-Date) -RepetitionInterval (New-TimeSpan -Hours 2)
+
 $Settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -StartWhenAvailable
 
 Register-ScheduledTask -TaskName $TaskName -Action $Action -Trigger $Trigger -Settings $Settings -Description "Automated background OCR scanner for dropped Twitter screenshots" -Force
