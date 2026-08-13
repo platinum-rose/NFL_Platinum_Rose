@@ -159,6 +159,29 @@ export async function fetchPersonalBookmarks(queryKeywords = ['NFL', 'CBB', 'foo
 }
 
 
+export async function generateLocalOllamaSummary(text, sport) {
+  const ollamaUrl = process.env.OLLAMA_URL || 'http://localhost:11434/api/generate';
+  const model = process.env.OLLAMA_MODEL || 'llama3';
+  try {
+    const resp = await fetch(ollamaUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model,
+        prompt: `Analyze this ${sport} sports betting tweet. Output a 2-bullet point executive summary:\n"${text}"`,
+        stream: false
+      })
+    });
+    if (resp.ok) {
+      const data = await resp.json();
+      return data.response ? data.response.trim() : null;
+    }
+  } catch (err) {
+    // Silent fallback if Ollama is not running locally
+  }
+  return null;
+}
+
 // ── Process Single Bookmarked Tweet ───────────────────────────────────────────
 
 export async function processBookmarkedTweet(bm) {
@@ -172,11 +195,21 @@ export async function processBookmarkedTweet(bm) {
 
   console.log(`\n[bookmark] Ingesting ${gate.sport} intel from @${bm.author}: "${bm.subject || bm.text.substring(0, 45)}..."`);
 
+  // Optional local LLM summary via Ollama if enabled
+  let localSummary = null;
+  if (process.env.USE_LOCAL_LLM === 'true') {
+    localSummary = await generateLocalOllamaSummary(bm.text, gate.sport);
+    if (localSummary) {
+      console.log(`  [ollama] Generated local LLM summary via ${process.env.OLLAMA_MODEL || 'llama3'}`);
+    }
+  }
+
   const dateStr = new Date(bm.created_at || Date.now()).toISOString().split('T')[0];
   const slug = bm.id.replace(/[^a-zA-Z0-9]/g, '-');
   const folder = gate.sport === 'NCAA_CBB' ? 'NCAA' : 'NFL';
   const vaultPath = `${folder}/Bookmarks/${dateStr}-${bm.author}-${slug}.md`;
   const filename = `${dateStr}-${bm.author}-${slug}.md`;
+
 
   const markdownBody = `# Twitter Bookmark: @${bm.author}
 

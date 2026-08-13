@@ -1,0 +1,13 @@
+[Unit]
+Description=NFL Personal Twitter Bookmarks Agent — Ingests football & CBB betting intel
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=andrewlrose
+WorkingDirectory=/home/andrewlrose/projects/NFL_Dashboard
+ExecStart=/usr/bin/node agents/twitter-bookmarks-agent.js
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=nfl-twitter-bookmarks
