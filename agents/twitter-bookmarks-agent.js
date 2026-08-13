@@ -137,13 +137,17 @@ export async function fetchPersonalBookmarks(queryKeywords = ['NFL', 'CBB', 'foo
                 const authorHandle = userLegacy?.screen_name || 'twitter_user';
                 const authorName = userLegacy?.name || authorHandle;
 
+                const mediaItems = legacy.extended_entities?.media || legacy.entities?.media || [];
+                const mediaUrls = mediaItems.map(m => m.media_url_https).filter(Boolean);
+
                 allTweets.push({
                   id: legacy.id_str,
                   author: authorHandle,
                   author_name: authorName,
                   text: legacy.full_text || legacy.text || '',
                   created_at: legacy.created_at,
-                  url: `https://x.com/${authorHandle}/status/${legacy.id_str}`
+                  url: `https://x.com/${authorHandle}/status/${legacy.id_str}`,
+                  media_urls: mediaUrls
                 });
               }
             }
@@ -158,6 +162,65 @@ export async function fetchPersonalBookmarks(queryKeywords = ['NFL', 'CBB', 'foo
   return allTweets;
 }
 
+export async function analyzeTweetImageWithGeminiVision(imageUrl) {
+  if (!GEMINI_API_KEY) return null;
+
+  try {
+    const imgResp = await fetch(imageUrl);
+    if (!imgResp.ok) return null;
+    const arrayBuffer = await imgResp.arrayBuffer();
+    const base64Data = Buffer.from(arrayBuffer).toString('base64');
+    const mimeType = imageUrl.endsWith('.png') ? 'image/png' : 'image/jpeg';
+
+    const prompt = `Analyze this NFL / College Sports betting graphic, player prop cheat sheet, or ticket screenshot. Extract all player prop stacks, betting lines, and recommendations. Output JSON:
+{
+  "has_prop_stacks": true,
+  "player_props": [
+    {
+      "player_name": "Full Player Name",
+      "team": "Team Abbreviation e.g. KC, NE, DEN",
+      "prop_type": "passing_yards | rushing_yards | receiving_yards | receptions | touchdowns | points",
+      "line": 39.5,
+      "side": "OVER | UNDER",
+      "odds": "-115",
+      "rationale": "Brief rationale from graphic"
+    }
+  ],
+  "game_picks": [
+    {
+      "team": "Team Name",
+      "line": "-3.0 or O45.5",
+      "confidence": 80
+    }
+  ]
+}`;
+
+    const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{
+          parts: [
+            { text: prompt },
+            { inlineData: { mimeType, data: base64Data } }
+          ]
+        }],
+        generationConfig: { responseMimeType: 'application/json' }
+      })
+    });
+
+    if (resp.ok) {
+      const data = await resp.json();
+      const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (rawText) {
+        return JSON.parse(rawText);
+      }
+    }
+  } catch (err) {
+    console.warn(`  [warn] Gemini Vision tweet media OCR error: ${err.message}`);
+  }
+  return null;
+}
 
 export async function generateLocalOllamaSummary(text, sport) {
   const ollamaUrl = process.env.OLLAMA_URL || 'http://localhost:11434/api/generate';
@@ -204,12 +267,35 @@ export async function processBookmarkedTweet(bm) {
     }
   }
 
+  // Vision OCR analysis for attached tweet images / prop stack graphics
+  let visionAnalysis = null;
+  if (bm.media_urls && bm.media_urls.length > 0) {
+    console.log(`  [vision] Found ${bm.media_urls.length} media attachment(s). Running Gemini Vision OCR...`);
+    for (const imgUrl of bm.media_urls) {
+      const vRes = await analyzeTweetImageWithGeminiVision(imgUrl);
+      if (vRes) {
+        visionAnalysis = vRes;
+        console.log(`  [vision] Extracted ${vRes.player_props?.length || 0} player prop(s) from graphic.`);
+        break;
+      }
+    }
+  }
+
   const dateStr = new Date(bm.created_at || Date.now()).toISOString().split('T')[0];
   const slug = bm.id.replace(/[^a-zA-Z0-9]/g, '-');
   const folder = gate.sport === 'NCAA_CBB' ? 'NCAA' : 'NFL';
   const vaultPath = `${folder}/Bookmarks/${dateStr}-${bm.author}-${slug}.md`;
   const filename = `${dateStr}-${bm.author}-${slug}.md`;
 
+  let propSection = '';
+  if (visionAnalysis && visionAnalysis.player_props && visionAnalysis.player_props.length > 0) {
+    propSection = `\n## Extracted Player Prop Stacks (Vision OCR)\n`;
+    propSection += `| Player | Team | Prop Type | Line | Side | Odds | Rationale |\n`;
+    propSection += `| --- | --- | --- | --- | --- | --- | --- |\n`;
+    for (const p of visionAnalysis.player_props) {
+      propSection += `| ${p.player_name || 'N/A'} | ${p.team || 'N/A'} | ${p.prop_type || 'N/A'} | ${p.line || 'N/A'} | ${p.side || 'N/A'} | ${p.odds || 'N/A'} | ${p.rationale || 'N/A'} |\n`;
+    }
+  }
 
   const markdownBody = `# Twitter Bookmark: @${bm.author}
 
@@ -223,7 +309,7 @@ export async function processBookmarkedTweet(bm) {
 \`\`\`text
 ${bm.text.trim()}
 \`\`\`
-`;
+${propSection}`;
 
   const fullContent = ensureVaultFrontmatter(markdownBody, {
     title: `Bookmark: @${bm.author}`,
