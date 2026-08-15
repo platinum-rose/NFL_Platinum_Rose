@@ -19,7 +19,15 @@ const LIMIT_PER_FEED = Number(process.env.INTEL_LIMIT_PER_FEED || 20);
 const MAX_FEED_BYTES = Number(process.env.INTEL_MAX_FEED_BYTES || 2_000_000);
 // F-11 Ph.2: fetch full article body after insert (disabled by default offseason)
 const FETCH_BODY = process.env.INTEL_FETCH_BODY === 'true';
-const BODY_MAX_CHARS = 4_000;
+// 2026-08-13: was 4_000 — this is the confirmed root cause of the
+// "suspected_ingest_cap" truncation pattern flagged in
+// data/research-intel/review/article-intel-review-latest.json (181 of 292
+// records clustered in a 3,900-4,573-char band, which is this constant, not
+// natural article-length variance). research_intel_notes.body is a plain
+// Postgres `text` column (migration 011_research_intel_fts.sql) with no
+// length limit, so raising this needs no schema change. See
+// docs/FUTURES_ARTICLE_REACQUISITION_AND_GATES_DESIGN_2026-08-13.md §4.
+const BODY_MAX_CHARS = 20_000;
 
 const FEEDS = [
   // ── Betting / sharp-money sources ─────────────────────────────────────────
@@ -208,6 +216,9 @@ async function fetchArticleBody(url) {
       .replace(/&[a-z]+;/g, ' ')
       .replace(/\s+/g, ' ')
       .trim();
+    if (stripped.length > BODY_MAX_CHARS) {
+      console.warn(`   [warn] article body still exceeds BODY_MAX_CHARS (${BODY_MAX_CHARS}) after the 2026-08-13 raise — truncating ${stripped.length} -> ${BODY_MAX_CHARS} chars for ${url}`);
+    }
     return stripped.slice(0, BODY_MAX_CHARS) || null;
   } catch {
     return null;

@@ -365,10 +365,12 @@ export async function getLatestFuturesOdds() {
   }
 }
 
-// Books the Creator can actually place a bet at (mirrors agents/portfolio-dossier.js's
-// BETTABLE_BOOKS default) — FanDuel/DraftKings are excluded from "best price" reads
-// even though they still appear in raw history for market-context purposes.
-export const PLACEABLE_BOOKS = new Set(['bookmaker', 'betonline', 'betus', 'betmgm', 'caesars', 'williamhill_us', 'williamhill', 'circa', 'mgm']);
+// Books the Creator can actually place a bet at. Sourced from the canonical
+// execution-venue registry (2026-08-13) instead of a second hand-copied list —
+// see src/lib/executionVenues.js for why that mattered. FanDuel/DraftKings are
+// excluded from "best price" reads even though they still appear in raw
+// history for market-context purposes.
+export { PLACEABLE_SPORTSBOOK_KEYS as PLACEABLE_BOOKS } from './executionVenues.js';
 
 /**
  * Get historical futures odds for a specific team+market (for trend chart).

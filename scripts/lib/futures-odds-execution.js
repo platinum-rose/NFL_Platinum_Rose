@@ -1,10 +1,25 @@
+import {
+  PLACEABLE_SPORTSBOOK_LABELS,
+  canonicalSportsbookKey,
+  isPlaceableSportsbook,
+  sportsbookAccessType,
+} from '../../src/lib/executionVenues.js';
+
 export const FUTURES_ODDS_EXECUTION_SCHEMA = 'futures_odds_execution_validation_v1';
 
-export const PLACEABLE_BOOKS = new Map([
-  ['bookmaker', 'Bookmaker/BKR'],
-  ['betus', 'BetUS'],
-  ['betonline', 'BetOnline'],
-]);
+// 2026-08-13: previously hardcoded to only 3 of the 6 venues Andy actually
+// bets at (bookmaker/betus/betonline direct-access only), which silently made
+// the exacta "needs a 2nd placeable book" gate stricter than his own stated
+// venue list — see docs/FUTURES_ARTICLE_REACQUISITION_AND_GATES_DESIGN_2026-08-13.md §1.
+// Now derived from the single canonical registry so this can't drift again.
+export const PLACEABLE_BOOKS = PLACEABLE_SPORTSBOOK_LABELS;
+
+// 2026-08-13 Codex review fix: PLACEABLE_BOOKS is canonical-key-only, so a raw
+// alias like `mgm` or `williamhill_us` was failing `PLACEABLE_BOOKS.has(book)`
+// even though the registry recognizes it as placeable. Every placeability
+// check must go through canonicalSportsbookKey()/isPlaceableSportsbook() —
+// never a raw `.has(book)` lookup against a canonical-key map — or alias rows
+// silently fall back to non_placeable_book again.
 
 export const REQUIRED_EXACTA_BOOK_COUNT = 2;
 export const DEFAULT_EXACTA_MIN_PRICE = 4500;
@@ -44,11 +59,17 @@ export function exactMatchupKey(rowOrTeams) {
 export function classifyFuturesOddsRow(row, options = {}) {
   const expectedSeason = Number(options.season ?? 2026);
   const currentSnapshotDate = options.currentSnapshotDate || '2026-08-10';
-  const book = norm(row?.book);
+  const bookRaw = norm(row?.book);
+  const placeable = isPlaceableSportsbook(bookRaw);
+  const canonicalBook = canonicalSportsbookKey(bookRaw);
+  // Keep `book` = canonical key when recognized (so downstream counting/
+  // grouping can't be fooled by aliases), else fall back to the raw value so
+  // non-placeable/unknown books are still visible in the audit output.
+  const book = canonicalBook || bookRaw;
   const snapshotDate = dateKey(row?.snapshot_time || row?.captured_at);
   const reasons = [];
 
-  if (!PLACEABLE_BOOKS.has(book)) reasons.push('non_placeable_book');
+  if (!placeable) reasons.push('non_placeable_book');
   if (Number(row?.season) !== expectedSeason) reasons.push('wrong_season');
   if (!snapshotDate) reasons.push('missing_snapshot_timestamp');
   if (snapshotDate && snapshotDate !== currentSnapshotDate) reasons.push('not_current_local_snapshot');
@@ -59,7 +80,9 @@ export function classifyFuturesOddsRow(row, options = {}) {
 
   const base = {
     book,
-    book_label: PLACEABLE_BOOKS.get(book) || row?.book || 'unknown',
+    book_raw: bookRaw,
+    book_label: PLACEABLE_BOOKS.get(canonicalBook) || row?.book || 'unknown',
+    book_access: sportsbookAccessType(bookRaw),
     market_type: row?.market_type || 'unknown',
     snapshot_date: snapshotDate,
     exact_matchup_key: exactTeams ? exactMatchupKey(exactTeams) : null,
@@ -111,17 +134,26 @@ export function buildFuturesOddsExecutionValidation(input = {}, options = {}) {
   }
 
   const exactaPairs = [...exactaByPair.entries()].map(([key, items]) => {
-    const books = [...new Set(items.map((item) => item.validation.book).filter(Boolean))].sort();
-    const prices = items.map((item) => Number(item.row.price ?? item.row.odds)).filter(Number.isFinite);
-    const bestPrice = prices.length ? Math.max(...prices) : null;
+    // 2026-08-13 Codex review fix (finding #1): `books`/`best_price` must be
+    // computed ONLY from rows that are otherwise fully valid and placeable —
+    // i.e. whose single remaining exclusion reason is the expected
+    // "needs a second placeable book" one. Previously these were computed from
+    // ALL rows in the pair, so a non-placeable row (e.g. DraftKings) still
+    // contributed its book name and price toward `execution_claim_allowed`,
+    // letting a BetUS+DraftKings exacta falsely pass. Non-placeable/invalid
+    // rows stay visible in `rows` for audit, they just don't count.
     const validRows = items.filter((item) => item.validation.exclusion_reasons.length === 1
       && item.validation.exclusion_reasons[0] === 'exacta_requires_multiple_placeable_books');
+    const books = [...new Set(validRows.map((item) => item.validation.book).filter(Boolean))].sort();
+    const prices = validRows.map((item) => Number(item.row.price ?? item.row.odds)).filter(Number.isFinite);
+    const bestPrice = prices.length ? Math.max(...prices) : null;
     const multipleBookConfirmed = books.length >= REQUIRED_EXACTA_BOOK_COUNT;
     const priceGatePass = bestPrice != null && bestPrice >= exactaMinPrice;
     return {
       key,
       teams: items[0]?.validation.exact_matchup_teams || null,
       row_count: items.length,
+      eligible_row_count: validRows.length,
       placeable_book_count: books.length,
       books,
       best_price: bestPrice,
@@ -134,10 +166,14 @@ export function buildFuturesOddsExecutionValidation(input = {}, options = {}) {
       rows: items.map((item) => ({
         source_path: item.source_path,
         book: item.validation.book,
+        book_raw: item.validation.book_raw,
+        book_label: item.validation.book_label,
         selection: item.row.selection,
         price: item.row.price ?? item.row.odds,
         snapshot_time: item.row.snapshot_time || item.row.captured_at || null,
         exclusion_reasons: item.validation.exclusion_reasons,
+        counts_toward_execution_claim: item.validation.exclusion_reasons.length === 1
+          && item.validation.exclusion_reasons[0] === 'exacta_requires_multiple_placeable_books',
       })),
     };
   }).sort((a, b) => String(a.key).localeCompare(String(b.key)));

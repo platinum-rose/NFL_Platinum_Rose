@@ -64,8 +64,10 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { randomUUID } from 'node:crypto';
 import { NFL_TEAMS, normalizeTeam } from '../src/lib/teams.js';
+import { placeableVenuesPromptSentence } from '../src/lib/executionVenues.js';
 import { validateBoardBatch } from './lib/board-validate.js';
 import { extractResumePrompt } from './lib/portfolio-local-inputs.js';
+import { checkDossierFreshness, collectEvidenceLaneStats, synthesisPreflightDecision } from '../scripts/lib/dossier-freshness-gate.js';
 import 'dotenv/config';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -86,6 +88,18 @@ const OUT_SUFFIX = getArg('--out-suffix', '').trim();
 // default to the first stage-1 model so a single-model run needs no new flags.
 const SKIP_COMMITTEE = argv.includes('--skip-committee');
 const NO_PERSIST = argv.includes('--no-persist');
+// 2026-08-13: preflight gate against scripts/lib/dossier-freshness-gate.js —
+// refuses to run a synthesis against a dossier whose evidence has moved on
+// since it was built (exactly the dossier-2026-08-11.json failure mode). Set
+// --allow-stale-dossier only with a documented reason; this should not
+// become a routine override.
+const ALLOW_STALE_DOSSIER = argv.includes('--allow-stale-dossier');
+// 2026-08-13 Codex review fix (finding #3): missing evidence lanes and an
+// unknown freshness state used to only warn, never block. Each failure class
+// now needs its own explicit override — a single broad override was flagged
+// in review as too permissive for three genuinely different risk classes.
+const ALLOW_MISSING_EVIDENCE_LANES = argv.includes('--allow-missing-evidence-lanes');
+const ALLOW_UNKNOWN_DOSSIER_FRESHNESS = argv.includes('--allow-unknown-dossier-freshness');
 const SHADOW_SLIM = argv.includes('--shadow-slim');
 const SKEPTIC_MODEL = getArg('--skeptic-model', MODELS[0]);
 const RISK_MODEL = getArg('--risk-model', MODELS[0]);
@@ -133,7 +147,7 @@ Separately, the top-level dossier.roster_churn map (not per-market — one entry
 
 WIN-TOTAL MATH (2026-07-22 fix — previously wins rows had NO code-owned fair probability or edge at all; use these now instead of eyeballing the raw price): each wins row carries 'over_fair_prob'/'under_fair_prob' — a vig-stripped fair probability computed ONLY from books that share the SAME line as the best price (never mixed across lines — an Over 8.5 -105 and an Over 9.5 +120 are NOT the same bet and are never blended) — plus 'best_over_edge_pct'/'best_under_edge_pct' computed directly from that fair prob against the best placeable price, and 'line_consensus_confidence' (over_n_books/under_n_books — how many books actually agree at that specific line; treat a 1-book confidence figure as much weaker than a 4-book one). 'line_value_signal' flags when books disagree on the line itself (>0.5 spread) — treat consensus_line/edge loosely when that fires. Use best_over_edge_pct/best_under_edge_pct as your primary win-total edge signal, not vibes off the raw price.
 
-INJURIES AND PLAYER AVAILABILITY: each team profile carries 'injuries' when available — injury_count, key_position_flags, qb_status, and freshness. It can also carry 'player_availability' from the local availability snapshot: key_returns, key_absences, snap_count_risks, offensive_line_risks, defensive_front_risks, cluster_risks, improving/worsening counts, and review flags. Offensive-line cluster injuries can impair that team's offense, scoring, QB efficiency, and win-total overs. Defensive-front cluster injuries have a reciprocal effect: they may improve the opponent's offensive environment, scoring, rushing/passing efficiency, QB props, and game-total paths. Any thesis that leans on roster health, players returning from injury, snap-count restrictions, PUP/IR timing, setbacks, OL attrition, or defensive-front attrition MUST cite injuries/player_availability or set needs_human_review=true. Do not assume health status from memory when these fields are present and contradict it.
+INJURIES AND PLAYER AVAILABILITY: each team profile carries 'injuries' when available — injury_count, key_position_flags, qb_status, and freshness. It can also carry 'player_availability' from the local availability snapshot: key_returns, key_absences, snap_count_risks, offensive_line_risks, defensive_front_risks, cluster_risks, improving/worsening counts, and review flags. Offensive-line cluster injuries can impair that team's offense, scoring, QB efficiency, and win-total overs. Defensive-front cluster injuries have a reciprocal effect: they may improve the opponent's offensive environment, scoring, rushing/passing efficiency, QB props, and game-total paths. Any thesis that leans on roster health, players returning from injury, snap-count restrictions, PUP/IR timing, setbacks, OL attrition, or defensive-front attrition MUST cite injuries/player_availability or set needs_human_review=true. Do not assume health status from memory when these fields are present and contradict it. NAMED-PLAYER SIZING GATE (2026-08-13): if a team profile carries a non-null named_player_sizing_gate (e.g. an unresolved injury/role status or a disputed team assignment for a specific named player — check its players/reasons fields), that team has at least one fact still under active human review. You may still propose a play on that team, but stake_tier MUST be small or speculative, never core or standard, until the gate clears — this is enforced mechanically after your output (a core/standard stake on a gated team will be flagged), so treat it as a hard cap, not a suggestion.
 
 WHAT TO HUNT (do NOT just list chalk):
 - ASYMMETRIC VALUE / LONGSHOTS: teams the market is likely UNDERPRICING because the price is anchored to a misleading prior-year record — e.g. a team that finished poorly on injuries or variance (not lack of talent), now with starters returning, a soft schedule, or a QB/roster/coaching upgrade. A long playoff / division / win-total / conference price on such a team is convex: small stake, large payoff, and true probability may sit well above the implied. NAME why the market is anchored wrong and what you think fair should be.
@@ -148,7 +162,7 @@ USING KNOWLEDGE: prices, teams, and markets come ONLY from the dossier — never
 
 DISCIPLINE:
 - OFFICIAL PAPER TRACKING: if a Platinum Rose AI official tracking contract is supplied, use its bankrolls, unit sizes, cutoff, stake tiers, and market holds when proposing sizes. Do not mark a play official yourself; every output is a proposal until the human verifies the price/source and approves official paper tracking.
-- PLACEABLE BOOKS ONLY: the user bets at Bookmaker, BetOnline, BetUS, and (via a proxy) the Vegas books — Circa, BetMGM, Caesars/WilliamHill. best_price/best_book (outrights) and best_over/best_under + their books (win totals) are ALREADY filtered to these placeable books. NEVER recommend a FanDuel or DraftKings price — those appear only as market context for fair value; the user cannot bet them. Every "book" in your output must be a placeable book (use the dossier's best_* fields).
+- ${placeableVenuesPromptSentence()}
 - A real edge needs a REASON the market is wrong (anchoring to last year, injury misread, soft schedule, stale line, EPA/record divergence, roster churn, sharp CLV move), not just a positive value_gap (which can be juice or a book error). Cross-reference divergence, movement, and lean.
 - SMALL-SAMPLE SIGNALS: 'officiating_context' and 'clv_signal' are built from very few games early in a season — never let either one carry a thesis alone (check games_with_ref / n_tracked and the officiating confidence field first); they should corroborate a thesis already grounded in analytics/sos/lean, not originate one on their own until sample sizes grow.
 - Every recommendation MUST include its single strongest DISCONFIRMING factor — the best reason NOT to bet it. A play with no honest counter-case is not ready.
@@ -2616,6 +2630,44 @@ async function persistRecommendationRuns(meta, trail) {
 // ── main ─────────────────────────────────────────────────────────────────────
 (async () => {
   const dossier = JSON.parse(await readFile(DOSSIER, 'utf8'));
+
+  // 2026-08-13 freshness preflight — see scripts/lib/dossier-freshness-gate.js.
+  // 2026-08-13 Codex review fix (finding #3): previously only `status ===
+  // 'stale'` blocked; missing lanes and unknown freshness only warned and let
+  // synthesis proceed. synthesisPreflightDecision() now blocks on all three
+  // failure classes unless the matching flag explicitly overrides that one class.
+  const freshnessCheck = checkDossierFreshness(dossier.meta, await collectEvidenceLaneStats(ROOT));
+  const preflight = synthesisPreflightDecision(freshnessCheck, {
+    allowStale: ALLOW_STALE_DOSSIER,
+    allowMissing: ALLOW_MISSING_EVIDENCE_LANES,
+    allowUnknown: ALLOW_UNKNOWN_DOSSIER_FRESHNESS,
+  });
+  if (!preflight.allowed) {
+    console.error(`✖ dossier freshness preflight FAILED (mode: ${freshnessCheck.mode}, status: ${freshnessCheck.status}) — blocking reasons: ${preflight.blocking_reasons.join(', ')}`);
+    if (freshnessCheck.stale_lane_count) {
+      console.error(`  ${freshnessCheck.stale_lane_count} STALE evidence lane(s):`);
+      for (const lane of freshnessCheck.stale_lanes) console.error(`    - ${lane.key}: ${lane.reason}`);
+    }
+    if (freshnessCheck.missing_lane_count) {
+      console.error(`  ${freshnessCheck.missing_lane_count} MISSING evidence lane(s): ${freshnessCheck.missing_lanes.join(', ')}`);
+    }
+    if (freshnessCheck.mode === 'unknown') {
+      console.error('  Dossier has neither an evidence_lane_versions stamp nor a generated_at timestamp.');
+    }
+    console.error('  Rebuild the dossier (agents/portfolio-dossier.js) first. To override a specific class with a documented reason, pass'
+      + ' --allow-stale-dossier / --allow-missing-evidence-lanes / --allow-unknown-dossier-freshness — each covers only its own failure class.');
+    process.exit(1);
+  }
+  if (freshnessCheck.stale_lane_count && ALLOW_STALE_DOSSIER) {
+    console.warn(`⚠ dossier freshness check found ${freshnessCheck.stale_lane_count} stale lane(s) but --allow-stale-dossier was set — proceeding anyway.`);
+  }
+  if (freshnessCheck.missing_lane_count && ALLOW_MISSING_EVIDENCE_LANES) {
+    console.warn(`⚠ dossier freshness check found ${freshnessCheck.missing_lane_count} missing lane(s) but --allow-missing-evidence-lanes was set — proceeding anyway.`);
+  }
+  if (freshnessCheck.mode === 'unknown' && ALLOW_UNKNOWN_DOSSIER_FRESHNESS) {
+    console.warn('⚠ dossier freshness could not be determined but --allow-unknown-dossier-freshness was set — proceeding without a freshness guarantee.');
+  }
+
   const ledger = await loadLedger();
   const watchlist = await loadWatchlist();
   const officialConfig = await loadOfficialConfig();

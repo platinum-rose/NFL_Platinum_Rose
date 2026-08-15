@@ -88,4 +88,91 @@ describe('futures odds execution validation', () => {
     expect(twoBook.bills_packers_exacta.placeable_book_count).toBe(2);
     expect(twoBook.meta.exacta_execution_claim_allowed_pairs).toBe(1);
   });
+
+  // 2026-08-13 Codex review findings #1 and #2.
+  describe('Codex review regressions: non-placeable rows must not count toward exacta execution claims', () => {
+    const betusExacta = {
+      ...currentRow,
+      market_type: 'superbowl_matchup',
+      selection: 'Buffalo Bills vs Green Bay Packers',
+      team: 'Buffalo Bills vs Green Bay Packers',
+      price: 6500,
+    };
+
+    function pairedWith(book, price) {
+      return buildFuturesOddsExecutionValidation({
+        sources: {
+          'fixture-betus.json': [betusExacta],
+          'fixture-other.json': [{
+            ...betusExacta,
+            book,
+            selection: 'Green Bay Packers vs Buffalo Bills',
+            team: 'Green Bay Packers vs Buffalo Bills',
+            price,
+          }],
+        },
+      }, { generatedAt: '2026-08-11T12:00:00.000Z' });
+    }
+
+    it('BetUS + DraftKings exacta remains monitor-only (finding #1 reproduction)', () => {
+      const result = pairedWith('draftkings', 6600);
+      const pair = result.bills_packers_exacta;
+      expect(pair.placeable_book_count).toBe(1);
+      expect(pair.books).toEqual(['betus']);
+      expect(pair.execution_claim_allowed).toBe(false);
+      expect(pair.status).toBe('monitor_only_exacta');
+      const dkRow = pair.rows.find((r) => r.book_raw === 'draftkings');
+      expect(dkRow.exclusion_reasons).toContain('non_placeable_book');
+      expect(dkRow.counts_toward_execution_claim).toBe(false);
+    });
+
+    it('BetUS + FanDuel exacta remains monitor-only', () => {
+      const result = pairedWith('fanduel', 6600);
+      expect(result.bills_packers_exacta.execution_claim_allowed).toBe(false);
+      expect(result.bills_packers_exacta.books).toEqual(['betus']);
+    });
+
+    it('BetUS + BetOnline exacta can pass when the price gate passes', () => {
+      const result = pairedWith('betonline', 7000);
+      expect(result.bills_packers_exacta.execution_claim_allowed).toBe(true);
+      expect(result.bills_packers_exacta.books).toEqual(['betonline', 'betus']);
+    });
+
+    it('BetUS + mgm alias counts only after canonicalization (finding #2)', () => {
+      const result = pairedWith('mgm', 7000);
+      expect(result.bills_packers_exacta.execution_claim_allowed).toBe(true);
+      expect(result.bills_packers_exacta.books).toEqual(['betmgm', 'betus']);
+    });
+
+    it('BetUS + williamhill_us alias counts only after canonicalization (finding #2)', () => {
+      const result = pairedWith('williamhill_us', 7000);
+      expect(result.bills_packers_exacta.execution_claim_allowed).toBe(true);
+      expect(result.bills_packers_exacta.books).toEqual(['betus', 'caesars']);
+    });
+  });
+
+  describe('Codex review finding #2: alias canonicalization in classifyFuturesOddsRow', () => {
+    it('classifies a raw "mgm" row as placeable and canonicalizes to betmgm', () => {
+      const validation = classifyFuturesOddsRow({ ...currentRow, book: 'mgm' });
+      expect(validation.exclusion_reasons).not.toContain('non_placeable_book');
+      expect(validation.book).toBe('betmgm');
+      expect(validation.book_raw).toBe('mgm');
+      expect(validation.book_label).toBe('BetMGM');
+      expect(validation.book_access).toBe('proxy');
+    });
+
+    it('classifies a raw "williamhill_us" row as placeable and canonicalizes to caesars', () => {
+      const validation = classifyFuturesOddsRow({ ...currentRow, book: 'williamhill_us' });
+      expect(validation.exclusion_reasons).not.toContain('non_placeable_book');
+      expect(validation.book).toBe('caesars');
+      expect(validation.book_label).toBe('Caesars/William Hill');
+    });
+
+    it('keeps DraftKings/FanDuel aliases non-placeable', () => {
+      const dk = classifyFuturesOddsRow({ ...currentRow, book: 'dk' });
+      const fd = classifyFuturesOddsRow({ ...currentRow, book: 'fd' });
+      expect(dk.exclusion_reasons).toContain('non_placeable_book');
+      expect(fd.exclusion_reasons).toContain('non_placeable_book');
+    });
+  });
 });

@@ -64,3 +64,71 @@ export function validateNamedStatusReview(payload = {}) {
     duplicate_case_count: duplicateCaseCount,
   };
 }
+
+// 2026-08-13: this validation gate has existed at the evidence-lane level
+// (projected starters, availability, impact digest all already exclude
+// unresolved named cases and set needs_human_review). What was missing is
+// any propagation into the portfolio dossier or synthesis output — neither
+// agents/portfolio-dossier.js nor agents/portfolio-synthesize.js referenced
+// named_status_review or eligible_for_synthesis at all before this change.
+// See docs/FUTURES_ARTICLE_REACQUISITION_AND_GATES_DESIGN_2026-08-13.md §2.
+//
+// Stake-tier vocabulary matches agents/portfolio-synthesize.js's
+// stake_tier enum (core|standard|small|speculative, see line ~194) and the
+// incident brief's own stake vocabulary — "conviction exception" there maps
+// to this repo's small/speculative tiers, never core/standard, while a named
+// case remains unresolved.
+export const NAMED_PLAYER_SIZING_CAP_TIERS = Object.freeze(['small', 'speculative']);
+
+function sizingCaseKey(item) {
+  return caseKey(item.expected_team || item.team, item.player_name);
+}
+
+/**
+ * Groups every currently-unresolved named-status case (eligible_for_synthesis
+ * !== true) by every team it touches — both the case's expected_team AND
+ * every team in observed_team_assignments, since a case like Micah Parsons'
+ * is precisely a dispute about WHICH team he belongs to; capping only the
+ * "expected" team would let a thesis on the other disputed team through
+ * uncapped. Confirmed/resolved cases (eligible_for_synthesis === true) never
+ * produce a gate entry.
+ *
+ * Pure function, no I/O — same convention as the rest of this file and
+ * agents/lib/board-validate.js/win-dist.js.
+ */
+export function computeTeamSizingGates(payload = {}) {
+  const cases = Array.isArray(payload.cases) ? payload.cases : [];
+  const byTeam = {};
+  for (const item of cases) {
+    if (item.eligible_for_synthesis === true) continue;
+    const teams = new Set([
+      ...(item.expected_team ? [String(item.expected_team).trim().toUpperCase()] : []),
+      ...(Array.isArray(item.observed_team_assignments)
+        ? item.observed_team_assignments.map((team) => String(team).trim().toUpperCase())
+        : []),
+    ]);
+    for (const team of teams) {
+      if (!team) continue;
+      if (!byTeam[team]) {
+        byTeam[team] = {
+          blocked_full_sleeve: true,
+          max_stake_tier_allowed: NAMED_PLAYER_SIZING_CAP_TIERS,
+          case_ids: [],
+          players: [],
+          reasons: [],
+        };
+      }
+      const entry = byTeam[team];
+      entry.case_ids.push(item.id || sizingCaseKey(item));
+      if (item.player_name && !entry.players.includes(item.player_name)) entry.players.push(item.player_name);
+      entry.reasons.push(`${item.player_name || 'unnamed player'}: ${item.review_status || 'unresolved'}${item.disposition ? ` — ${item.disposition}` : ''}`);
+    }
+  }
+  return {
+    schema: 'named_player_sizing_gates_v1',
+    generated_at: new Date().toISOString(),
+    source_case_count: cases.length,
+    gated_team_count: Object.keys(byTeam).length,
+    teams: byTeam,
+  };
+}

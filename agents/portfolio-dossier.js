@@ -21,7 +21,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createClient } from '@supabase/supabase-js';
 import { normalizeTeam } from '../src/lib/teams.js';
+import { PLACEABLE_SPORTSBOOK_KEYS } from '../src/lib/executionVenues.js';
 import { clusterAvailabilitySummary } from './lib/player-availability.js';
+import { computeTeamSizingGates, validateNamedStatusReview } from './lib/named-status-review.js';
+import { stampEvidenceLaneVersions } from '../scripts/lib/dossier-freshness-gate.js';
 import {
   isSourceTeamAligned,
   loadLocalSnapshotFiles,
@@ -85,10 +88,21 @@ const MAX_QUOTE_AGE_HOURS = Number(process.env.FUTURES_MAX_QUOTE_AGE_HOURS || 72
 // Books the user can actually place at (BKR/BEO/BetUS directly; Vegas books via a
 // proxy). FanDuel/DraftKings are EXCLUDED from best-price selection — they still
 // inform fair value/divergence, but are never offered as the price to bet.
-// Override with BETTABLE_BOOKS env (comma-separated book keys).
-const BETTABLE_BOOKS = new Set((process.env.BETTABLE_BOOKS
-  || 'bookmaker,betonline,betus,betmgm,caesars,williamhill_us,williamhill,circa,mgm')
-  .split(',').map((s) => s.trim().toLowerCase()));
+// Default now comes from the canonical execution-venue registry
+// (src/lib/executionVenues.js, 2026-08-13) instead of a second hand-copied
+// list — see docs/FUTURES_ARTICLE_REACQUISITION_AND_GATES_DESIGN_2026-08-13.md §1.
+// Override with BETTABLE_BOOKS env (comma-separated book keys) still supported.
+const BETTABLE_BOOKS = process.env.BETTABLE_BOOKS
+  ? new Set(process.env.BETTABLE_BOOKS.split(',').map((s) => s.trim().toLowerCase()))
+  : PLACEABLE_SPORTSBOOK_KEYS;
+
+// 2026-08-13 Codex review fix (finding #4): fetchNamedPlayerSizingGates() used
+// to catch ANY error (missing file, malformed JSON) and fail open to "no
+// gate at all" — dangerous specifically here because McGovern/Parsons are
+// named, known, load-bearing unresolved cases, not optional color. Default is
+// now fail-hard; this flag is a narrow, explicit escape hatch (same pattern
+// as portfolio-synthesize.js's --allow-stale-dossier).
+const ALLOW_MISSING_NAMED_STATUS_REVIEW = argv.includes('--allow-missing-named-status-review');
 
 function normalizeBook(book) {
   return String(book || '?').trim().toLowerCase();
@@ -494,6 +508,57 @@ async function fetchPlayerAvailabilityContext() {
   } catch (_err) {
     return {};
   }
+}
+
+// 2026-08-13: local-file-only, no Supabase/network — same pattern as
+// fetchPlayerAvailabilityContext() above. Loads the human-reviewed named
+// player status cases (e.g. Connor McGovern's withheld Bills role, Micah
+// Parsons' conflicted Dallas/Green Bay assignment) and turns them into a
+// per-team sizing gate so an anchor thesis on a team with an unresolved
+// named case can't reach the synthesis prompt or the final board with no
+// signal at all that it's still contested. See
+// agents/lib/named-status-review.js's computeTeamSizingGates() and
+// docs/FUTURES_ARTICLE_REACQUISITION_AND_GATES_DESIGN_2026-08-13.md §2.
+function namedPlayerSizingByTeamFrom(parsed) {
+  const gates = computeTeamSizingGates(parsed);
+  const byTeam = {};
+  for (const [teamCode, gate] of Object.entries(gates.teams || {})) {
+    const nick = normalizeTeam(teamCode);
+    if (nick) byTeam[nick] = gate;
+  }
+  return { gates, byTeam };
+}
+
+async function fetchNamedPlayerSizingGates() {
+  const reviewPath = path.join(ROOT, 'data', 'projected-starters', String(SEASON), 'named-status-review.json');
+
+  let parsed;
+  try {
+    parsed = JSON.parse(await readFile(reviewPath, 'utf8'));
+  } catch (err) {
+    const message = `named-status-review.json missing or unreadable at ${reviewPath} (${err.message}). `
+      + 'McGovern/Parsons-class named-player cases cannot be verified, so this dossier cannot safely feed a synthesis run.';
+    if (!ALLOW_MISSING_NAMED_STATUS_REVIEW) throw new Error(message);
+    console.warn(`⚠ ${message} --allow-missing-named-status-review was set — proceeding with an explicit blocking marker instead of a hard failure (unsafe: no sizing gate coverage).`);
+    return { meta: { schema: 'named_player_sizing_gates_v1', status: 'blocked_missing_source', error: message }, byTeam: {} };
+  }
+
+  // 2026-08-13 Codex review fix (finding #4): a file that parses but is
+  // missing required cases (McGovern/Parsons) or has malformed entries is
+  // just as dangerous as a missing file — validate it, don't assume shape.
+  const validation = validateNamedStatusReview(parsed);
+  if (validation.status === 'blocked') {
+    const message = `named-status-review.json failed validation (${reviewPath}): `
+      + `${validation.missing_required_case_count} missing required case(s), `
+      + `${validation.invalid_case_count} invalid case(s), ${validation.duplicate_case_count} duplicate case(s).`;
+    if (!ALLOW_MISSING_NAMED_STATUS_REVIEW) throw new Error(message);
+    console.warn(`⚠ ${message} --allow-missing-named-status-review was set — proceeding with an explicit blocking marker instead of a hard failure.`);
+    const { gates, byTeam } = namedPlayerSizingByTeamFrom(parsed);
+    return { meta: { ...gates, validation, status: 'blocked_invalid_source', error: message }, byTeam };
+  }
+
+  const { gates, byTeam } = namedPlayerSizingByTeamFrom(parsed);
+  return { meta: { ...gates, validation }, byTeam };
 }
 
 async function fetchAdvancedAnalytics() {
@@ -1238,7 +1303,7 @@ function splitMatchupTeams(tm) {
 // now only carry market-specific fields + a team-name reference, and
 // portfolio-synthesize.js's prompt builder + evidence resolver look context up
 // from this map by team name.
-function buildTeamProfiles(teamNicks, priorByTeam, findSos, teamSignals, injuriesByTeam, advancedAnalyticsByTeam = {}, dvoaByTeam = {}, coachingByTeam = {}, trainingCampIntelByTeam = {}, playerAvailabilityByTeam = {}) {
+function buildTeamProfiles(teamNicks, priorByTeam, findSos, teamSignals, injuriesByTeam, advancedAnalyticsByTeam = {}, dvoaByTeam = {}, coachingByTeam = {}, trainingCampIntelByTeam = {}, playerAvailabilityByTeam = {}, namedPlayerSizingByTeam = {}) {
   const { scheduleOut, officiatingOut, clvOut } = teamSignals || {};
   const out = {};
   for (const nick of teamNicks) {
@@ -1254,6 +1319,12 @@ function buildTeamProfiles(teamNicks, priorByTeam, findSos, teamSignals, injurie
       injuries: injuriesByTeam?.[nick] || null,
       training_camp_intel: trainingCampIntelByTeam?.[nick] || null,
       player_availability: playerAvailabilityByTeam?.[nick] || null,
+      // 2026-08-13: null unless an unresolved named-player case (e.g. team
+      // ownership conflict or a withheld-pending-confirmation injury/role)
+      // touches this team. See agents/lib/named-status-review.js's
+      // computeTeamSizingGates() and
+      // docs/FUTURES_ARTICLE_REACQUISITION_AND_GATES_DESIGN_2026-08-13.md §2.
+      named_player_sizing_gate: namedPlayerSizingByTeam?.[nick] || null,
     };
   }
   return out;
@@ -1413,10 +1484,11 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
 // ── main ─────────────────────────────────────────────────────────────────────
 (async () => {
   console.log(`📊 Portfolio dossier — season ${SEASON}${SINCE ? ` since ${SINCE}` : ''}`);
-  const [dbSnaps, localSnapshots, pickSignals, userPicks, podcastRows, priorByTeam, games, oddsOpenByGame, splitsLatestByGame, refereeByName, rosterChurnByTeam, injuriesByTeam, advancedAnalyticsByTeam, dvoaByTeam, coachingByTeam, trainingCampIntelByTeam, playerAvailabilityByTeam] = await Promise.all([
+  const [dbSnaps, localSnapshots, pickSignals, userPicks, podcastRows, priorByTeam, games, oddsOpenByGame, splitsLatestByGame, refereeByName, rosterChurnByTeam, injuriesByTeam, advancedAnalyticsByTeam, dvoaByTeam, coachingByTeam, trainingCampIntelByTeam, playerAvailabilityByTeam, namedPlayerSizing, evidenceLaneVersions] = await Promise.all([
     fetchSnapshots(), loadLocalSnapshotFiles(LOCAL_IMPORT_PATHS, { season: SEASON }), fetchPickSignals(), fetchUserPicks(), fetchPodcastIntel(), fetchTeamStats(), fetchSchedule(),
     fetchGameOddsOpen(), fetchGameSplitsLatest(), fetchRefereeTendencies(), fetchRosterChurn(), fetchInjuryContext(),
-    fetchAdvancedAnalytics(), fetchDvoaSnapshots(), fetchCoachingProfiles(), fetchTrainingCampIntel(), fetchPlayerAvailabilityContext(),
+    fetchAdvancedAnalytics(), fetchDvoaSnapshots(), fetchCoachingProfiles(), fetchTrainingCampIntel(), fetchPlayerAvailabilityContext(), fetchNamedPlayerSizingGates(),
+    stampEvidenceLaneVersions(ROOT),
   ]);
   const snaps = mergeSnapshotSources(dbSnaps, localSnapshots.rows);
   const books = [...new Set(snaps.map((s) => s.book))].sort();
@@ -1468,7 +1540,7 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
       else { const n = normalizeTeam(tm); if (n) teamNickSet.add(n); }
     }
   }
-  const team_profiles = buildTeamProfiles([...teamNickSet], priorByTeam, sos.findSos, teamSignals, injuriesByTeam, advancedAnalyticsByTeam, dvoaByTeam, coachingByTeam, trainingCampIntelByTeam, playerAvailabilityByTeam);
+  const team_profiles = buildTeamProfiles([...teamNickSet], priorByTeam, sos.findSos, teamSignals, injuriesByTeam, advancedAnalyticsByTeam, dvoaByTeam, coachingByTeam, trainingCampIntelByTeam, playerAvailabilityByTeam, namedPlayerSizing.byTeam);
 
   const synthesis_input = buildSynthesisInput(markets, findLean);
   const signal_coverage = {
@@ -1488,6 +1560,18 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
     signal_counts: { article: pickSignals.length, expert: userPicks.length, podcast_transcripts: podcastRows.length },
     intel_coverage, sos_coverage, signal_coverage,
     local_futures_imports: localSnapshots.sources,
+    // 2026-08-13: see agents/lib/named-status-review.js's computeTeamSizingGates().
+    // null when data/projected-starters/<season>/named-status-review.json is
+    // missing/unreadable (fails open to "no gate", same as every other
+    // optional local-file signal in this dossier).
+    named_player_sizing_gates: namedPlayerSizing.meta,
+    // 2026-08-13: hash+mtime stamp of every local evidence-lane file this
+    // dossier reflects at build time — see
+    // scripts/lib/dossier-freshness-gate.js and
+    // scripts/check-dossier-freshness.js. This is what makes a stale
+    // pre-cleanup dossier (like the original dossier-2026-08-11.json)
+    // detectable instead of silently reusable.
+    evidence_lane_versions: evidenceLaneVersions,
   };
   const schedule = games.map((g) => ({
     game_id: g.game_id,

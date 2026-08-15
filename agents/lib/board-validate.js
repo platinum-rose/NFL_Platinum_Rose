@@ -18,8 +18,13 @@
 // specific mechanical checks the spec calls out that strict validation does
 // not: book-is-bettable, the thin-market/n_books>=3 kill switch (which is
 // what mechanically kills most_wins/least_wins cards per the spec), the
-// superbowl_matchup sim-price-only policy (locked decision #4), and an
-// independent recomputed-edge cross-check against the dossier.
+// superbowl_matchup sim-price-only policy (locked decision #4), an
+// independent recomputed-edge cross-check against the dossier, and (added
+// 2026-08-13) a named-player sizing-gate check — see
+// docs/FUTURES_ARTICLE_REACQUISITION_AND_GATES_DESIGN_2026-08-13.md §2.
+
+import { NAMED_PLAYER_SIZING_CAP_TIERS } from './named-status-review.js';
+import { normalizeTeam } from '../../src/lib/teams.js';
 
 const DEFAULT_BETTABLE_BOOKS = 'bookmaker,betonline,betus,betmgm,caesars,williamhill_us,williamhill,circa,mgm';
 
@@ -187,6 +192,67 @@ export function validateBoard(candidate, dossier) {
     }
   }
 
+  violations.push(...namedPlayerSizingViolations(dossier, row, candidate));
+
+  return violations;
+}
+
+/**
+ * 2026-08-13: deterministic enforcement for
+ * agents/lib/named-status-review.js's computeTeamSizingGates(). A team with
+ * an unresolved named-player case (e.g. Connor McGovern's withheld Bills
+ * role, Micah Parsons' conflicted Dallas/Green Bay ownership) is stamped
+ * team_profiles[team].named_player_sizing_gate by portfolio-dossier.js. This
+ * is the piece that makes the gate real rather than a prompt request the
+ * model can ignore: any candidate touching a gated team at stake_tier
+ * core/standard is flagged here regardless of what the model claimed.
+ *
+ * teamsForRow() covers both the plain per-team rows (row.team/team_nick) and
+ * superbowl_matchup's two-team exact rows (row.team_a/team_b) — a gate on
+ * EITHER side of an exacta must still flag it, since a two-leg bet is only
+ * as sound as its shakiest leg.
+ */
+function teamsForRow(row) {
+  const teams = [row?.team, row?.team_nick, row?.team_a, row?.team_b]
+    .filter(Boolean)
+    .map((t) => String(t));
+  return [...new Set(teams)];
+}
+
+// 2026-08-13 Codex review fix (finding #5): dossier.team_profiles is keyed
+// by normalizeTeam()'s canonical nickname (e.g. "Bills") — see
+// portfolio-dossier.js's fetchNamedPlayerSizingGates(), which builds byTeam
+// the same way. Row team fields can be a raw nickname already (common case,
+// cheap exact match), a full name ("Buffalo Bills"), or an abbreviation
+// ("BUF"). Try the raw value first, then fall back to the normalized
+// nickname, so a row using a full name or abbreviation still triggers the
+// gate instead of silently missing it because the raw string never equals
+// the profiles key.
+function resolveTeamProfile(profiles, rawTeam) {
+  if (!rawTeam) return null;
+  if (profiles[rawTeam]) return { key: rawTeam, profile: profiles[rawTeam] };
+  const nick = normalizeTeam(rawTeam);
+  if (nick && profiles[nick]) return { key: nick, profile: profiles[nick] };
+  return null;
+}
+
+export function namedPlayerSizingViolations(dossier, row, candidate) {
+  const violations = [];
+  const profiles = dossier?.team_profiles || {};
+  const seenKeys = new Set();
+  for (const rawTeam of teamsForRow(row)) {
+    const resolved = resolveTeamProfile(profiles, rawTeam);
+    if (!resolved || seenKeys.has(resolved.key)) continue;
+    seenKeys.add(resolved.key);
+    const gate = resolved.profile?.named_player_sizing_gate;
+    if (!gate?.blocked_full_sleeve) continue;
+    const allowedTiers = gate.max_stake_tier_allowed || NAMED_PLAYER_SIZING_CAP_TIERS;
+    const tier = String(candidate?.stake_tier || '').toLowerCase();
+    if (tier && !allowedTiers.includes(tier)) {
+      const players = (gate.players || []).join(', ') || 'an unresolved named-player case';
+      violations.push(`named_player_sizing_gate: "${resolved.key}" has an unresolved named-player case (${players}) — stake_tier "${tier}" exceeds the allowed cap (${allowedTiers.join('|')}) until it's resolved.`);
+    }
+  }
   return violations;
 }
 
