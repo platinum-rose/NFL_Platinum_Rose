@@ -17,15 +17,16 @@ const SORT_OPTIONS = [
 ];
 
 const FILTER_CHIPS = [
-  { id: 'all',     label: 'All' },
-  { id: 'sec_mismatch', label: '🛡️ Secondary Mismatch' },
-  { id: 'pm_market', label: '📊 Has Prediction Market' },
-  { id: 'experts', label: 'Has Expert Picks' },
-  { id: 'big_spread', label: 'Big Spread (7+)' },
-  { id: 'high_total', label: 'High Total (48+)' },
-  { id: 'low_total',  label: 'Low Total (41−)' },
-  { id: 'dome',    label: 'Dome Game' },
+  { id: 'all',          label: 'All',                   tooltip: 'Show all scheduled games for the selected week.' },
+  { id: 'sec_mismatch', label: '🛡️ Secondary Mismatch', tooltip: 'Highlights games where a high-volume passing offense faces an injured or weak pass defense secondary.' },
+  { id: 'pm_market',    label: '📊 Has Prediction Market', tooltip: 'Highlights games with active Kalshi or Polymarket prediction market probability lines.' },
+  { id: 'experts',       label: 'Has Expert Picks',       tooltip: 'Filters for games with active pick recommendations from tracked sharp handicappers.' },
+  { id: 'big_spread',   label: 'Big Spread (7+)',       tooltip: 'Filters for games with heavy favorites (-7.0 points or larger).' },
+  { id: 'high_total',   label: 'High Total (48+)',      tooltip: 'Filters for high-scoring shootout projections (48.0+ total points).' },
+  { id: 'low_total',    label: 'Low Total (41−)',       tooltip: 'Filters for low-scoring defensive grind projections (41.0- total points).' },
+  { id: 'dome',         label: 'Dome Game',             tooltip: 'Filters for games played inside weather-controlled indoor stadiums.' },
 ];
+
 
 const Dashboard = ({ 
   schedule, 
@@ -189,22 +190,30 @@ const Dashboard = ({
         )}
       </div>
 
-      {/* ── Filter chips ── */}
+      {/* ── Filter chips with mouse-over tooltips ── */}
       <div className="flex flex-wrap gap-2">
         {FILTER_CHIPS.map(chip => (
-          <button
-            key={chip.id}
-            onClick={() => setFilter(chip.id)}
-            className={`px-3 py-1 rounded-full text-xs font-medium border transition-all
-              ${filter === chip.id
-                ? 'bg-[#00d2be]/20 border-[#00d2be] text-[#00d2be] shadow-[0_0_8px_rgba(0,210,190,0.3)]'
-                : 'bg-slate-800/60 border-slate-700 text-slate-400 hover:border-slate-500 hover:text-slate-300'
-              }`}
-          >
-            {chip.label}
-          </button>
+          <div key={chip.id} className="relative group">
+            <button
+              onClick={() => setFilter(chip.id)}
+              className={`px-3 py-1 rounded-full text-xs font-medium border transition-all
+                ${filter === chip.id
+                  ? 'bg-[#00d2be]/20 border-[#00d2be] text-[#00d2be] shadow-[0_0_8px_rgba(0,210,190,0.3)]'
+                  : 'bg-slate-800/60 border-slate-700 text-slate-400 hover:border-slate-500 hover:text-slate-300'
+                }`}
+            >
+              {chip.label}
+            </button>
+
+            {/* MOUSE-OVER TOOLTIP POPUP */}
+            <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 hidden group-hover:block w-56 p-2 bg-[#0c1019] text-slate-200 text-[11px] leading-snug rounded-lg border border-slate-700 shadow-xl z-50 pointer-events-none text-center animate-in fade-in zoom-in-95 duration-150">
+              {chip.tooltip}
+              <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-[#0c1019]"></div>
+            </div>
+          </div>
         ))}
       </div>
+
 
       {/* ── Card grid ── */}
       {/* Click outside handler for sort dropdown */}

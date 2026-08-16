@@ -3,8 +3,9 @@ import React, { useState, useRef, useEffect, useMemo } from 'react';
 import {
   TrendingUp, Activity, Trophy, ExternalLink, List, Calculator, Cloud,
   Sun, Umbrella, Snowflake, Wind, ChevronRight, X, Thermometer, Split,
-  User, CheckCircle, AlertTriangle, DollarSign
+  User, CheckCircle, AlertTriangle, DollarSign, Shield
 } from 'lucide-react';
+
 import { InjurySummary, InjuryImpactIcon } from '../ui/InjuryBadge';
 import { getTopInjuries, getInjuryDataSourceState } from '../../lib/injuries';
 import { TEAM_LOGOS } from '../../lib/teams';
@@ -320,10 +321,36 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
     <div className="relative p-4 rounded-xl border transition-all duration-300 group bg-slate-900/50 border-slate-800 hover:border-slate-700">
       
       {/* HEADER */}
-      <div className="flex justify-between items-start mb-6 opacity-60 text-[11px] font-bold tracking-widest uppercase">
-          <div className="flex items-center gap-1 text-slate-400"><span>{formatGameTime(game.commence_time)} PT</span></div>
+      <div className="flex justify-between items-start mb-4 text-[11px] font-bold tracking-widest uppercase">
+          <div className="flex items-center gap-1.5 text-slate-400">
+            <span>{formatGameTime(game.commence_time)} PT</span>
+            {secMatchups && secMatchups.maxSeverity >= 2 && (
+              <div className="relative group/sec font-sans normal-case tracking-normal">
+                <div className="flex items-center gap-1 bg-amber-500/10 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded text-[10px] font-bold cursor-help">
+                  <Shield size={11} className="text-amber-400 shrink-0" /> SEC MISMATCH
+                </div>
+                
+                {/* MOUSE-OVER TOOLTIP POPUP */}
+                <div className="absolute top-full mt-1.5 left-0 hidden group-hover/sec:block w-64 p-2.5 bg-[#0c1019] text-slate-200 text-[11px] leading-normal rounded-xl border border-amber-500/40 shadow-2xl z-50 pointer-events-none text-left animate-in fade-in zoom-in-95 duration-150">
+                  <div className="font-bold text-amber-400 flex items-center gap-1 mb-1">
+                    <Shield size={12} /> Secondary Vulnerability Target
+                  </div>
+                  <div>
+                    {secMatchups.visOffVsHomeDef?.vulnerability_tier === 'high' ? (
+                      <p>• <strong>{game.visitor} Passing Attack</strong> has strong OVER & WR receiving prop signals against {game.home}'s secondary.</p>
+                    ) : secMatchups.homeOffVsVisDef?.vulnerability_tier === 'high' ? (
+                      <p>• <strong>{game.home} Passing Attack</strong> has strong OVER & WR receiving prop signals against {game.visitor}'s secondary.</p>
+                    ) : (
+                      <p>• Pass-defense mismatch detected for {game.visitor} vs {game.home}. High OVER & WR receiving prop signals.</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
           <WeatherDisplay />
       </div>
+
 
       {/* MATCHUP ROW */}
       <div className="flex items-start justify-between mb-6">

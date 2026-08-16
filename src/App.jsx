@@ -44,27 +44,28 @@ const OddsCenter = lazy(() => import('./components/odds/OddsCenter'));
 const PicksTracker = lazy(() => import('./components/picks-tracker/PicksTracker'));
 import ManualGradeModal from './components/modals/ManualGradeModal';
 import BankrollSettingsModal from './components/modals/BankrollSettingsModal';
-const FuturesPortfolio = lazy(() => import('./components/futures/FuturesPortfolio'));
-const AgentChat = lazy(() => import('./components/agent/AgentChat'));
-const PropsAgentChat = lazy(() => import('./components/agent/PropsAgentChat'));
-const FuturesAgentChat = lazy(() => import('./components/agent/FuturesAgentChat'));
-const FuturesIntelReport = lazy(() => import('./components/futures/FuturesIntelReport'));
-const DFSOptimizer = lazy(() => import('./components/dfs/DFSOptimizer'));
-const PodcastDigestTab = lazy(() => import('./components/podcasts/PodcastDigestTab'));
-const OfficialPicksTab = lazy(() => import('./components/official-picks/OfficialPicksTab'));
-const InjuryCenter = lazy(() => import('./components/injuries/InjuryCenter'));
-const FantasyValueBoard = lazy(() => import('./components/fantasy/FantasyValueBoard'));
-const TrainingCampIntel = lazy(() => import('./components/intel/TrainingCampIntel'));
 import FuturesEntryModal from './components/modals/FuturesEntryModal';
 import StorageBackupModal from './components/modals/StorageBackupModal';
 import PodcastIngestModal from './components/modals/PodcastIngestModal';
 import AgentStatusModal from './components/modals/AgentStatusModal';
 import PredictionMarketConverter from './components/odds/PredictionMarketConverter';
+import ProfileSettingsModal from './components/modals/ProfileSettingsModal';
+import DashboardLayout from './components/layout/DashboardLayout';
+
+const FuturesHub = lazy(() => import('./components/futures/FuturesHub'));
+
+const UnifiedIntelHub = lazy(() => import('./components/intel/UnifiedIntelHub'));
+const FantasyHub = lazy(() => import('./components/fantasy/FantasyHub'));
+const OfficialPicksTab = lazy(() => import('./components/official-picks/OfficialPicksTab'));
+const InjuryCenter = lazy(() => import('./components/injuries/InjuryCenter'));
+
+
 
 const VALID_TABS = new Set([
-  'dashboard','standings','mycard','devlab','bankroll',
-  'analytics','odds','picks','futures','futures-agent','futures-report','agent','props','dfs','podcasts','official-picks','injuries','fantasy','training-camp',
+  'dashboard', 'official-picks', 'intel', 'fantasy', 'injuries', 'futures',
+  'standings', 'mycard', 'devlab', 'bankroll', 'analytics', 'odds', 'picks', 'props', 'dfs', 'podcasts', 'training-camp'
 ]);
+
 
 function App() {
   // --- UI State (local to App) ---
@@ -78,6 +79,7 @@ function App() {
   const [podcastModalOpen, setPodcastModalOpen] = useState(false);
   const [agentStatusOpen, setAgentStatusOpen] = useState(false);
   const [predictionConverterOpen, setPredictionConverterOpen] = useState(false);
+  const [profileModalOpen, setProfileModalOpen] = useState(false);
 
   // --- Custom Hooks ---
   // Sync active tab to URL so briefing deeplinks work
@@ -194,30 +196,20 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#0f0f0f] text-gray-200 font-sans pb-20 selection:bg-[#00d2be] selection:text-black">
-      <Header activeTab={activeTab} setActiveTab={setActiveTab} cartCount={myBets.length} onSyncOdds={handleSync} onOpenSplits={() => openModal('pulse')} onOpenSplitsData={() => openModal('splits')} onOpenTeasers={() => openModal('teasers')} onOpenContest={() => openModal('contest')} onOpenPredictionConverter={() => setPredictionConverterOpen(true)} onImport={() => openModal('import')} onAnalyze={() => openModal('audio')} onManage={() => openModal('expertMgr')} onSave={handleSave} onReset={() => { if(window.confirm("Reset all picks?")) clearBets(); }} onOpenStorage={() => openModal('storage')} onOpenAgentStatus={() => setAgentStatusOpen(true)} />
-      <main className="max-w-7xl mx-auto px-4 py-8">
-        <Suspense fallback={<div className="flex items-center justify-center py-24 text-[#00d2be] font-mono text-sm">Loading...</div>}>
-          {activeTab === 'dashboard' && <div className="animate-in fade-in zoom-in duration-300"><Dashboard schedule={gamesWithSplits} stats={stats} simResults={simResults} onGameClick={setSelectedGame} onShowInjuries={(game) => { setSelectedGame(game); openModal('injuryReport'); }} onAddBankrollBet={(game) => { setBetEntryGame(game); openModal('betEntry'); }} /></div>}
-          {activeTab === 'standings' && <div className="max-w-5xl mx-auto animate-in fade-in zoom-in duration-300"><ExpertLeaderboard expertConsensus={expertConsensus} refreshKey={picksRefreshKey + autoGraded} /></div>}
-          {activeTab === 'mycard' && <div className="max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-300"><MyCardModal bets={myBets} onRemoveBet={removeBet} onLockBets={handleLockBets} onClearCard={clearBets} /></div>}
-          {activeTab === 'devlab' && <DevLab games={schedule} stats={stats} savedResults={simResults} onSimComplete={setSimResults} />}
-          {activeTab === 'bankroll' && <div className="animate-in fade-in zoom-in duration-300"><BankrollDashboard onAddBet={() => openModal('betEntry')} onShowCalculator={() => openModal('unitCalculator')} onImportBets={() => openModal('betImport')} onShowPending={() => openModal('pendingBets')} onShowSettings={() => openModal('bankrollSettings')} /></div>}
-          {activeTab === 'analytics' && <div className="animate-in fade-in zoom-in duration-300"><AnalyticsDashboard /></div>}
-          {activeTab === 'odds' && <div className="animate-in fade-in zoom-in duration-300"><OddsCenter /></div>}
-          {activeTab === 'picks' && <div className="animate-in fade-in zoom-in duration-300"><PicksTracker onOpenGradeModal={(gameData) => { setGradeGameData(gameData); openModal('gradeModal'); }} onAutoGrade={runGradingCheck} autoGrading={checking} onOpenPodcastModal={() => setPodcastModalOpen(true)} key={`picks-${picksRefreshKey}-${autoGraded}`} /></div>}
-          {activeTab === 'futures' && <div className="animate-in fade-in zoom-in duration-300"><FuturesPortfolio onAddPosition={() => openModal('futuresEntry')} /></div>}
-          {activeTab === 'futures-agent' && <div className="animate-in fade-in zoom-in duration-300"><FuturesAgentChat /></div>}
-          {activeTab === 'futures-report' && <div className="animate-in fade-in zoom-in duration-300"><FuturesIntelReport /></div>}
-          {activeTab === 'agent' && <div className="animate-in fade-in zoom-in duration-300"><AgentChat /></div>}
-          {activeTab === 'props' && <div className="animate-in fade-in zoom-in duration-300"><PropsAgentChat /></div>}
-          {activeTab === 'dfs' && <div className="animate-in fade-in zoom-in duration-300"><DFSOptimizer /></div>}
-          {activeTab === 'podcasts' && <div className="animate-in fade-in zoom-in duration-300"><PodcastDigestTab /></div>}
-          {activeTab === 'official-picks' && <div className="animate-in fade-in zoom-in duration-300"><OfficialPicksTab /></div>}
-          {activeTab === 'injuries' && <div className="animate-in fade-in zoom-in duration-300"><InjuryCenter injuries={injuries} /></div>}
-          {activeTab === 'fantasy' && <div className="animate-in fade-in zoom-in duration-300"><FantasyValueBoard /></div>}
-          {activeTab === 'training-camp' && <div className="animate-in fade-in zoom-in duration-300"><TrainingCampIntel /></div>}
-        </Suspense>
-      </main>
+      <Header activeTab={activeTab} setActiveTab={setActiveTab} cartCount={myBets.length} onSyncOdds={handleSync} onOpenSplits={() => openModal('pulse')} onOpenSplitsData={() => openModal('splits')} onOpenTeasers={() => openModal('teasers')} onOpenContest={() => openModal('contest')} onOpenPredictionConverter={() => setPredictionConverterOpen(true)} onImport={() => openModal('import')} onAnalyze={() => openModal('audio')} onManage={() => openModal('expertMgr')} onSave={handleSave} onReset={() => { if(window.confirm("Reset all picks?")) clearBets(); }} onOpenStorage={() => openModal('storage')} onOpenAgentStatus={() => setAgentStatusOpen(true)} onOpenProfile={() => setProfileModalOpen(true)} />
+      <DashboardLayout>
+        <main>
+          <Suspense fallback={<div className="flex items-center justify-center py-24 text-[#00d2be] font-mono text-sm">Loading...</div>}>
+            {activeTab === 'dashboard' && <div className="animate-in fade-in zoom-in duration-300"><Dashboard schedule={gamesWithSplits} stats={stats} simResults={simResults} onGameClick={setSelectedGame} onShowInjuries={(game) => { setSelectedGame(game); openModal('injuryReport'); }} onAddBankrollBet={(game) => { setBetEntryGame(game); openModal('betEntry'); }} /></div>}
+            {activeTab === 'official-picks' && <div className="animate-in fade-in zoom-in duration-300"><OfficialPicksTab /></div>}
+            {activeTab === 'intel' && <div className="animate-in fade-in zoom-in duration-300"><UnifiedIntelHub /></div>}
+            {activeTab === 'fantasy' && <div className="animate-in fade-in zoom-in duration-300"><FantasyHub /></div>}
+            {activeTab === 'injuries' && <div className="animate-in fade-in zoom-in duration-300"><InjuryCenter injuries={injuries} /></div>}
+            {activeTab === 'futures' && <div className="animate-in fade-in zoom-in duration-300"><FuturesHub /></div>}
+          </Suspense>
+        </main>
+      </DashboardLayout>
+
 
       {/* --- LAZY-MOUNTED MODALS --- */}
       {selectedGame && <MatchupWizardModal isOpen game={selectedGame} stats={stats} currentWizardData={expertConsensus[selectedGame.id] || null} onClose={() => setSelectedGame(null)} onBet={(id, type, sel, line) => { handleBet(id, type, sel, line); setSelectedGame(null); }} />}
@@ -244,6 +236,8 @@ function App() {
       <PodcastIngestModal isOpen={podcastModalOpen} onClose={() => setPodcastModalOpen(false)} onPicksImported={() => setPicksRefreshKey(k => k + 1)} />
       <AgentStatusModal isOpen={agentStatusOpen} onClose={() => setAgentStatusOpen(false)} />
       <PredictionMarketConverter isOpen={predictionConverterOpen} onClose={() => setPredictionConverterOpen(false)} />
+      <ProfileSettingsModal isOpen={profileModalOpen} onClose={() => setProfileModalOpen(false)} />
+
     </div>
   );
 }

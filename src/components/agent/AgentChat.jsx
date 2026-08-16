@@ -589,9 +589,45 @@ function AgentStatusBar({ openPicksCount, bankrollBalance, weekLabel, phase, isL
   );
 }
 
+const MODE_CONFIGS = {
+  general: {
+    label: 'Sides & Totals',
+    storageKey: 'nfl_betting_agent_chat_v1',
+    welcome: 'I am your Sides & Totals Agent. Ask me about spreads, game totals, key numbers (3, 7), weather, or sharp line movement.',
+    roleDescription: 'Specialized in ATS spreads, game totals, key numbers (3, 7), weather, and sharp line steam.'
+  },
+  fantasy: {
+    label: 'Fantasy Rosters',
+    storageKey: 'nfl_fantasy_agent_chat_v1',
+    welcome: 'I am your Fantasy Rosters Agent. Ask me about Expert Consensus Rankings (ECR), ADP draft value sleepers, starting lineup decisions, and waiver wire recommendations.',
+    roleDescription: 'Specialized in Expert Consensus Rankings (ECR), ADP values, starting lineup decisions, and waiver wire additions.'
+  },
+  survivor: {
+    label: 'Survivor Pool',
+    storageKey: 'nfl_survivor_agent_chat_v1',
+    welcome: 'I am your Survivor Pool Agent. Ask me for optimal weekly survivor picks based on Expected Value (EV), win probabilities, and future schedule availability.',
+    roleDescription: 'Specialized in Expected Value (EV), win probabilities, and future schedule availability to optimize weekly survival paths while preserving premium teams.'
+  },
+  supercontest: {
+    label: 'SuperContest',
+    storageKey: 'nfl_supercontest_agent_chat_v1',
+    welcome: 'I am your SuperContest Agent. Ask me for 5-pick Against-The-Spread (ATS) recommendations evaluating static contest lines for maximum Closing Line Value (CLV).',
+    roleDescription: 'Specialized in 5-pick Against-The-Spread (ATS) contest cards, evaluating static contest lines for maximum Closing Line Value (CLV).'
+  },
+  confidence: {
+    label: 'Confidence Pool',
+    storageKey: 'nfl_confidence_agent_chat_v1',
+    welcome: 'I am your Confidence Pool Agent. Ask me for confidence rank point assignments (1–16) per matchup based on win probability and pool leverage.',
+    roleDescription: 'Specialized in assigning optimal confidence rank points (1–16) per matchup based on win probability, moneyline odds, and pool size leverage strategies.'
+  }
+};
+
 // ─── Main Component ───────────────────────────────────────────────────────────
 
-export default function AgentChat() {
+export default function AgentChat({ agentMode = 'general' }) {
+  const modeConfig = MODE_CONFIGS[agentMode] || MODE_CONFIGS.general;
+  const storageKey = modeConfig.storageKey;
+
   // API calls are now routed through the Supabase Edge Function proxy.
   // Keys live in Supabase secrets — the client never needs them.
   // Stored user key is still supported as an optional personal-override path.
@@ -617,8 +653,13 @@ export default function AgentChat() {
 
   // Conversation state (Anthropic messages format — includes tool_result messages)
   const [messages, setMessages] = useState(() => {
-    return loadFromStorage(CHAT_HISTORY_KEY, []);
+    return loadFromStorage(storageKey, []);
   });
+
+  useEffect(() => {
+    setMessages(loadFromStorage(storageKey, []));
+  }, [storageKey]);
+
 
   // UI state
   const [input, setInput] = useState('');
@@ -872,6 +913,17 @@ export default function AgentChat() {
     sundayBriefMode,
   ]);
 
+  // Save messages to storage when updated
+  // NOTE: moved above the early-return below (was previously declared after it,
+  // which conditionally skipped this hook on the "no API key" render path —
+  // a Rules-of-Hooks violation caught by `react-hooks/rules-of-hooks` during the
+  // 2026-08-16 sync pass. All hooks must run unconditionally on every render.
+  useEffect(() => {
+    if (messages.length > 0) {
+      saveToStorage(storageKey, messages);
+    }
+  }, [messages, storageKey]);
+
   // If no API key and no proxy configured, show setup screen
   if (!apiKey && !AI_PROXY_URL) {
     return (
@@ -903,10 +955,11 @@ export default function AgentChat() {
             <Bot size={16} className="text-emerald-400" />
           </div>
           <div>
-            <h2 className="text-white font-black text-sm tracking-tight">BETTING Agent</h2>
-            <p className="text-slate-500 text-[10px]">NFL Sharp Analyst · Platinum Rose</p>
+            <h2 className="text-white font-black text-sm tracking-tight">{modeConfig.label} Agent</h2>
+            <p className="text-slate-500 text-[10px]">{modeConfig.roleDescription}</p>
           </div>
         </div>
+
         <div className="flex items-center gap-2">
           <button
             onClick={sendBestPlaysCommand}

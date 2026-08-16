@@ -1,5 +1,6 @@
 import React from 'react';
-import { LayoutDashboard, Trophy, Mic2, Radio, RefreshCw, Activity, ListFilter, Split, ShoppingBag, Save, UploadCloud, RotateCcw, Mic, Shield, Banknote, BarChart3, TrendingUp, Target, Briefcase, Database, Bot, MessageSquare, Layers, Zap, FileText, ShieldCheck, HeartPulse, Shirt } from 'lucide-react';
+import { LayoutDashboard, Trophy, Mic2, Radio, RefreshCw, Activity, ListFilter, Split, ShoppingBag, Save, UploadCloud, RotateCcw, Mic, Shield, Banknote, BarChart3, TrendingUp, Target, Briefcase, Database, Bot, MessageSquare, Layers, Zap, FileText, ShieldCheck, HeartPulse, Shirt, User } from 'lucide-react';
+
 import { getNFLWeekInfo } from '../../lib/constants';
 
 export default function Header({
@@ -19,6 +20,7 @@ export default function Header({
   onReset,
   onOpenStorage,
   onOpenAgentStatus,
+  onOpenProfile,
 }) {
 
   return (
@@ -61,16 +63,13 @@ export default function Header({
             {/* RIGHT: DATA BUTTONS */}
             <div className="flex items-center justify-end gap-2 w-auto">
                 <div className="hidden md:flex items-center gap-2">
-                    {/* 🔥 NEW SHIELD BUTTON */}
-                    <IconButton onClick={onManage} icon={Shield} label="Expert Mgr" colorClass="text-amber-400 hover:text-amber-300 hover:border-amber-500/30" />
-
+                    <IconButton onClick={onOpenProfile} icon={User} label="Profile Settings" colorClass="text-purple-400 hover:text-purple-300 hover:border-purple-500/30" />
                     <div className="h-6 w-px bg-slate-800 mx-1"></div>
 
+                    <IconButton onClick={onManage} icon={Shield} label="Expert Mgr" colorClass="text-amber-400 hover:text-amber-300 hover:border-amber-500/30" />
                     <IconButton onClick={onAnalyze} icon={Mic} label="AI Transcript" colorClass="text-indigo-400 hover:text-indigo-300 hover:border-indigo-500/30" />
                     <IconButton onClick={onImport} icon={UploadCloud} label="Bulk Import" colorClass="text-blue-400 hover:text-blue-300 hover:border-blue-500/30" />
-
                     <div className="h-6 w-px bg-slate-800 mx-1"></div>
-
                     <IconButton onClick={onSave} icon={Save} label="Save Picks" colorClass="text-emerald-400 hover:text-emerald-300 hover:border-emerald-500/30" />
                     <IconButton onClick={onReset} icon={RotateCcw} label="Reset Card" colorClass="text-rose-400 hover:text-rose-300 hover:border-rose-500/30" />
                     <div className="h-6 w-px bg-slate-800 mx-1"></div>
@@ -81,29 +80,18 @@ export default function Header({
         </div>
       </div>
 
+
       {/* --- BOTTOM LAYER: NAVIGATION --- */}
       <div className="bg-slate-900/80 border-b border-slate-800 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-2 h-11 flex items-center justify-between">
-            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="dashboard" label="The Board" icon={LayoutDashboard} />
-            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="mycard" label="My Card" icon={ShoppingBag} />
-            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="bankroll" label="Bankroll" icon={Banknote} />
-            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="analytics" label="Analytics" icon={BarChart3} />
-            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="odds" label="Live Odds" icon={TrendingUp} />
-            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="standings" label="Standings" icon={Trophy} />
-            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="picks" label="Picks" icon={Target} />
-            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="futures" label="Futures" icon={Briefcase} />
-            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="futures-agent" label="Futures AI" icon={Trophy} />
-            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="futures-report" label="Futures Report" icon={FileText} />
-            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="devlab" label="Dev Lab" icon={Mic2} />
-            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="agent" label="Agent" icon={MessageSquare} />
-            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="props" label="Props" icon={Zap} />
-            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="dfs" label="DFS" icon={Layers} />
-            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="podcasts" label="Podcasts" icon={Radio} />
-            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="official-picks" label="Official Picks" icon={ShieldCheck} />
-            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="injuries" label="Injuries" icon={HeartPulse} />
-            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="fantasy" label="Fantasy" icon={Shirt} />
-            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="training-camp" label="Camp Intel" icon={Activity} />
+        <div className="max-w-7xl mx-auto px-2 h-11 flex items-center justify-around gap-1 overflow-x-auto">
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="dashboard" label="Dashboard & Games" icon={LayoutDashboard} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="official-picks" label="Picks & Inbox" icon={ShieldCheck} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="intel" label="AI Intel & Command" icon={Bot} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="fantasy" label="Fantasy & Props" icon={Shirt} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="injuries" label="Injuries & Availability" icon={HeartPulse} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="futures" label="Bankroll & Futures" icon={Briefcase} />
         </div>
+
       </div>
 
       {/* --- DISCLAIMER STRIP --- */}
