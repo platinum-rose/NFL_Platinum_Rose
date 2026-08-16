@@ -12,6 +12,7 @@ import {
   normalizeInjuryStatus,
   validateAvailabilityEvidence,
 } from '../../agents/lib/player-availability.js';
+import { shouldFetchFantasyProsInjuries } from '../../scripts/build-player-availability.js';
 
 describe('normalizeInjuryStatus', () => {
   it('normalizes ESPN long-form status labels used by the injury feed', () => {
@@ -20,6 +21,15 @@ describe('normalizeInjuryStatus', () => {
     expect(normalizeInjuryStatus('Physically Unable to Perform')).toBe('PUP');
     expect(normalizeInjuryStatus('Suspension')).toBe('SUSPENSION');
     expect(normalizeInjuryStatus('Questionable')).toBe('QUESTIONABLE');
+  });
+});
+
+describe('FantasyPros injuries default', () => {
+  it('includes FantasyPros injuries by default and allows an explicit offline opt-out', () => {
+    expect(shouldFetchFantasyProsInjuries({})).toBe(true);
+    expect(shouldFetchFantasyProsInjuries({ liveFantasyProsInjuries: true })).toBe(true);
+    expect(shouldFetchFantasyProsInjuries({ liveFantasyProsInjuries: false })).toBe(false);
+    expect(shouldFetchFantasyProsInjuries({ noLiveFantasyProsInjuries: true })).toBe(false);
   });
 });
 

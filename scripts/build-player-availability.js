@@ -5,7 +5,7 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import 'dotenv/config'; // F-26c §4: needed for FANTASYPROS_API_KEY — this script
 // never needed env vars before (ESPN's injuries API takes no key), so dotenv
-// was never loaded here. Found live 2026-08-10: --live-fantasypros-injuries
+// was never loaded here. Found live 2026-08-10: FantasyPros injuries fetches
 // failed with "Missing FANTASYPROS_API_KEY" even with a real key sitting in
 // .env, because nothing had loaded it into process.env yet.
 import {
@@ -69,6 +69,12 @@ export function flattenEspnInjuryGroups(teamGroups = [], { capturedAt = nowIso()
     }
   }
   return records;
+}
+
+export function shouldFetchFantasyProsInjuries(options = {}) {
+  if (options.liveFantasyProsInjuries === false) return false;
+  if (options.noLiveFantasyProsInjuries === true) return false;
+  return true;
 }
 
 async function fetchEspnInjuries() {
@@ -278,7 +284,7 @@ export async function buildPlayerAvailability(options = {}) {
   // scope doc §7 open question 7 — resolved 2026-08-09: keep both as
   // independent corroborating entries; dedupeAvailabilityEvents()'s existing
   // per-source-URL keying already keeps them as separate events).
-  if (options.liveFantasyProsInjuries) {
+  if (shouldFetchFantasyProsInjuries(options)) {
     try {
       const data = await fetchFantasyProsInjuries({ year: options.fantasyProsYear || season, week: options.fantasyProsWeek });
       const fpRecords = flattenFantasyProsInjuries(data, { capturedAt: generatedAt });
@@ -292,7 +298,7 @@ export async function buildPlayerAvailability(options = {}) {
       sourceHealth.push({ source: 'FantasyPros injuries API', status: 'error', reason: err.message });
     }
   } else {
-    sourceHealth.push({ source: 'FantasyPros injuries API', status: 'skipped', reason: 'Pass --live-fantasypros-injuries to fetch.' });
+    sourceHealth.push({ source: 'FantasyPros injuries API', status: 'skipped', reason: 'Disabled with --no-live-fantasypros-injuries.' });
   }
 
   const campPath = options.trainingCamp || path.join('data', 'training-camp', String(season), 'latest.json');
@@ -332,7 +338,10 @@ async function main() {
     injuryJson: args['injury-json'] || null,
     trainingCamp: args['training-camp'] || null,
     namedStatusReview: args['named-status-review'] || null,
-    liveFantasyProsInjuries: args['live-fantasypros-injuries'] === true || String(args['live-fantasypros-injuries']).toLowerCase() === 'true',
+    liveFantasyProsInjuries: args['no-live-fantasypros-injuries'] === true
+      ? false
+      : !(args['live-fantasypros-injuries'] === false || String(args['live-fantasypros-injuries']).toLowerCase() === 'false'),
+    noLiveFantasyProsInjuries: args['no-live-fantasypros-injuries'] === true,
     fantasyProsYear: args['fp-year'] ? Number(args['fp-year']) : null,
     fantasyProsWeek: args['fp-week'] ? Number(args['fp-week']) : null,
     dryRun: args['dry-run'] === true || args['no-persist'] === true,

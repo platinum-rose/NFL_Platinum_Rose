@@ -11,7 +11,7 @@ on every attempt, ESPN/Supabase/FantasyPros all equally unreachable from here, s
 cause as TASK_BOARD F-31). §3's field mapping IS live-confirmed (reuses the same
 `points`/`points_ppr`/`points_half`/`rush_*`/`rec_*`/`fpid`/`name` fields §0 already
 verified 2026-08-09). **§4 field mapping LIVE-CONFIRMED 2026-08-10** — Andy ran
-`--live-fantasypros-injuries --dry-run` natively (187 events, 120 real FantasyPros rows
+FantasyPros injuries dry run natively (187 events, 120 real FantasyPros rows
 parsed, no errors) and then a raw-vs-mapped diagnostic dump; every guessed field name
 resolved correctly (`name`, `status`, `comment`, `injury_type`, `team_id`, `position_id`,
 `probability_of_playing`, `practice_1/2/3` all matched real response keys) except one
@@ -397,9 +397,11 @@ shape, pass into the existing `buildAvailabilitySnapshot()` call. **No new Supab
 table** — unlike §1-3, this pipeline is file-based (`data/player-availability/*.json`),
 not DB-backed.
 
-**Built 2026-08-10, additive not replacement.** New `--live-fantasypros-injuries` flag
-(`npm run availability:fantasypros:dry` for a quick check) alongside the existing
-`--live-injuries` (ESPN) — both flow into the same `injuryRecords` array and one
+**Built 2026-08-10, additive not replacement.** FantasyPros injuries are now included
+by default in `scripts/build-player-availability.js` (`npm run availability:fantasypros:dry`
+for a quick check); pass `--no-live-fantasypros-injuries` only for intentionally offline
+or deterministic snapshots. This sits alongside the existing `--live-injuries` flag
+for ESPN — both flow into the same `injuryRecords` array and one
 `buildAvailabilitySnapshot()` call, exactly as scoped; no cross-source dedupe pass added
 (§6 open question 7, resolved 2026-08-09: keep both as independent corroborating
 entries). `availabilityEventFromInjuryRecord()` in `agents/lib/player-availability.js`
@@ -425,7 +427,7 @@ loaded `dotenv` (it never needed env vars before — ESPN's feed takes no key), 
 `FANTASYPROS_API_KEY` silently wasn't reaching it even with a real key in `.env`; now
 fixed with `import 'dotenv/config'`. **Run this live on Andy's machine before trusting
 it** — a one-off script dumping the raw `/nfl/injuries` response, or just
-`--live-fantasypros-injuries --dry-run` with a look at the parsed row count/shape, would
+the default FantasyPros dry run with a look at the parsed row count/shape would
 confirm or correct the field-name guesses.
 
 **Live-confirmed 2026-08-10.** Andy ran `npm run availability:fantasypros:dry` natively

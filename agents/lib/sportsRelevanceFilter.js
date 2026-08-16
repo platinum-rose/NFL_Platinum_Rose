@@ -24,18 +24,22 @@ const EXCLUDED_KEYWORDS = [
   'recipe', 'movie', 'actor', 'hollywood', 'gaming', 'ps5', 'xbox', 'nba finals', 'mlb baseball'
 ];
 
+function hasKeyword(content, kw) {
+  return new RegExp(`\\b${kw.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')}\\b`, 'i').test(content);
+}
+
 export function isFootballOrCbbBettingIntel(text = '') {
   const content = String(text).toLowerCase();
 
   // 1. Exclude non-target topics
-  if (EXCLUDED_KEYWORDS.some(kw => content.includes(kw))) {
+  if (EXCLUDED_KEYWORDS.some(kw => hasKeyword(content, kw))) {
     return { isRelevant: false, sport: null, reason: 'Matched non-target exclusion keyword' };
   }
 
   // 2. Check NFL / CFB match
-  const nflMatch = NFL_CFB_KEYWORDS.filter(kw => content.includes(kw));
+  const nflMatch = NFL_CFB_KEYWORDS.filter(kw => hasKeyword(content, kw));
   // 3. Check CBB match
-  const cbbMatch = CBB_KEYWORDS.filter(kw => content.includes(kw));
+  const cbbMatch = CBB_KEYWORDS.filter(kw => hasKeyword(content, kw));
 
   if (nflMatch.length >= 1) {
     return {
@@ -59,3 +63,4 @@ export function isFootballOrCbbBettingIntel(text = '') {
     reason: 'Did not match NFL/CFB or CBB betting keywords'
   };
 }
+
