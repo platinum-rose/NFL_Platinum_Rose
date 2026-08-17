@@ -69,3 +69,13 @@ __pycache__/
 .pytest_cache/
 .venv*/
 *.pyc
+
+# Ad hoc local build-verification output (npm run build snapshots used for manual
+# diffing before a real deploy) — not source, not meant to be committed.
+dist-verify-*/
+
+# Placeholder/scratch fixtures from the 2026-08-13 article-reacquisition work.
+# These specific files also could not be deleted from disk (persistent file-lock
+# quirk on the Windows-bridged sandbox filesystem, 2026-08-16) — ignored here so
+# they stop showing as noise in `git status` until that's resolved natively.
+data/research-intel/reacquisition/_TEST_*
