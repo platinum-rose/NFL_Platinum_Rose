@@ -1,5 +1,99 @@
 # NFL_Dashboard - Session Handoff
 
+## Current Pick Up Here (2026-08-16/17 full sync pass, Cowork/Claude)
+
+- Andy asked for a full sync pass: get everything committed and pushed so any other session or team member coming online has a clean, current picture, and clean up the working tree.
+- Starting point: `main` was already in sync with `origin/main` at `6a0097d` (the Aug 15 execution-venue/reacquisition-gates push, see the S328-era entries below), but the working tree had 3+ days of accumulated uncommitted work from concurrent Codex/Antigravity/Cowork sessions sitting on disk.
+- Committed and pushed 5 new commits on `main`; `origin/main` now at `655e713`:
+  1. `70049b8` - the in-progress UI/UX Command Hub sweep (`App.jsx` + `Header.jsx`/`Dashboard.jsx`/`MatchupCard.jsx`/`MatchupWizardModal.jsx`/`AgentChat.jsx` modified; `FantasyHub.jsx`/`FuturesHub.jsx`/`UnifiedIntelHub.jsx`/`DashboardLayout.jsx`/`PersistentAgentSidebar.jsx`/`ProfileSettingsModal.jsx` new; `docs/DASHBOARD_MATCHUP_CARD_LEGEND.md` new). **This is still WIP, not a finished feature** - not all 19 tabs are consolidated into the planned 6 hubs yet. Found and fixed a real `react-hooks/rules-of-hooks` bug in `AgentChat.jsx` along the way: a `useEffect` (message persistence) was declared after an early conditional return (the "no API key" setup screen), so the hook was skipped on some renders and not others - would have thrown a "rendered fewer hooks" error the first time a user completed API key setup, or silently broken message persistence. Moved it above the early return; verified clean via `npx eslint`. **Left flagged, not fixed**: `ProfileSettingsModal.jsx` mixes a non-component export with its component export (`react-refresh/only-export-components`) and has a `setState`-in-effect pattern that needs a design call (pure derivation vs. real sync effect) - both need someone who knows the intended structure, not a guess.
+  2. `eb23751` - backend: FantasyPros injuries now default-on in `scripts/build-player-availability.js` (was opt-in via `--live-fantasypros-injuries`, now opt-out via `--no-live-fantasypros-injuries`); fixed a real `no-useless-escape` eslint error in `agents/lib/sportsRelevanceFilter.js` (an unnecessary `\/` inside a regex character class); added `scripts/calculate-win-total-probabilities.js`.
+  3. `086d2ee` - data: refreshed `player-availability`/`training-camp` `latest.json` snapshots + dated point-in-time copies, regenerated the HTML/MD reports, committed 3 Gmail auto-summarized betting-relevant alerts (`.nfl/gmail-summaries/`, not personal correspondence) and 3 staged (**not** approved/placed) official-picks candidate proposals.
+  4. `d76d309` - docs: committed the full 2026-08-13 futures-incident-review paper trail that had been sitting untracked per the concurrent-session preservation notice (Codex's incident brief, Claude's independent forensic response, Codex's comparison - no material factual disagreement found between them - and the 4 timestamped handoffs: `0054`, `0135`, `0140`, `0155`), plus the Yahoo Fantasy API personal-use agreement PDF and the still-open `docs/antigravity/recovery/youtube-qoCm4G2Jmng-contested-datapoints-review.md` (status unchanged, flagged not resolved).
+  5. `655e713` - chore: gitignored `dist-verify-*/` (ad hoc build-verification snapshots) and the undeletable `data/research-intel/reacquisition/_TEST_*` placeholder fixtures so they stop showing as permanent noise in `git status`.
+- Verification performed, given this session could not get a full `npm run build` to complete within its tool time limits (`vite build` consistently exceeded what a single call allows here - a bridge/sandbox constraint, same class of issue as prior sessions' "sandbox has zero outbound network access" notes, not a new problem and not evidence of broken code): `npx eslint` clean (0 errors, 0 warnings) on every touched/new file after the two fixes above; `npx vitest run` targeted at every test tied to changed code (`playerAvailability.test.js` 21/21, `sportsRelevanceFilter.test.js` + `nflRelevance.test.js` 5/5) - all passing, no regressions; `esbuild` syntax check (no bundling) on every new/modified `.jsx` file - all clean. **Recommend Andy run `npm run build` natively once before relying on the frontend sweep in production** - it was never verified end-to-end this session.
+- **Left deliberately untouched, still dirty on disk as of this entry**: a live concurrent session (Codex or Antigravity - not identified, not this session) was actively editing `agents/portfolio-dossier.js`, `scripts/build-prediction-market-map.js`, `scripts/lib/futures-evidence-gates.js`, `tests/fixtures/prediction-market-evidence-cleanup-mini.json`, `tests/unit/futuresEvidenceGates.test.js`, `tests/unit/predictionMarketEvidenceCleanup.test.js`, and a new `scripts/bottom-12-analysis.js` while this sync pass was running - confirmed by file mtimes ~1-2 minutes old at the time of checking, and by a live `.git/index.lock` contention hit mid-session. None of that was staged, committed, or reviewed here. **Whoever picks this up next: check `git status` fresh before assuming this list is still accurate or still incomplete** - that other session may have committed its own work, or may still be going.
+- **Sandbox/bridge note for future sessions**: this Windows-bridged filesystem has a recurring quirk where `git` (and plain `rm`) cannot *unlink* certain files it just created - lock files (`.git/HEAD.lock`, `.git/index.lock`) and some data files (the `_TEST_*` fixtures above, the `dist-verify-*/` build output) all fail with `Operation not permitted` on delete, even though `mv`/rename on the exact same file works fine. Every commit this session left a stale `.git/HEAD.lock` behind that had to be `mv`'d out of the way (never `rm`'d) before the next git command would work. If a future session hits `fatal: cannot lock ref 'HEAD'` or `index.lock: File exists`: check the lock file's mtime and `ps aux` for a real git process first - if it's stale and nothing is running, `mv` it aside rather than assuming real concurrent contention (though real contention is also genuinely possible in this repo - see above).
+- No official picks approved, no bets placed, no Supabase writes, no betting/portfolio/parlay mutations this session.
+
+## Current Pick Up Here (2026-08-13 UI/UX Modernization & Refactoring Pivot)
+
+- **Pivot Objective**: Full UI/UX Modernization Sweep of the NFL Dashboard React frontend (`src/`).
+- **Implementation Plan**: Available at `C:\Users\andre\.gemini\antigravity\brain\de2b709b-4dc1-4117-a528-9d9d5f048a2b\implementation_plan.md`.
+- **Scope**: Streamline 19 fragmented tabs into 6 high-level Command Hubs (Dashboard & Games, Picks & Inbox, AI Intel & Command, Fantasy & Props, Injury & Availability, Bankroll & Futures). Remove dead code/modals, merge duplicate chat agents (`AgentChat`, `PropsAgentChat`, `FuturesAgentChat`), and elevate the UI with a premium dark glassmorphism design system.
+- **Backend & Data Status**: All 4 pre-season intel & data workstreams completed & verified (195 training camp items, 925 availability events, 622 ECR rows, 526 projections, 38 research notes). 24/7 background timers active on M6 (`nfl-gmail-intake.timer` & `nfl-twitter-bookmarks.timer`). 6/6 unit tests passing.
+- **Protected Artifacts**: All incident review artifacts (`docs/NFL_FUTURES_SYNTHESIS_INCIDENT_REVIEW_CLAUDE_BRIEF_2026-08-13.md`, `docs/NFL_FUTURES_SYNTHESIS_INCIDENT_REVIEW_CLAUDE_RESPONSE_2026-08-13.md`, `handoffs/2026-08-13-0054-futures-claude-incident-review-handoff.md`, `handoffs/2026-08-13-0135-concurrent-session-preservation-handoff.md`) are preserved intact.
+
+## Current Pick Up Here (2026-08-13 Gmail & Twitter Intel Ingestion + Pre-Season Data Refresh)
+
+
+- Latest timestamped handoff: `handoffs/2026-08-13-0140-gmail-and-twitter-intel-ingestion-handoff.md`.
+- Concurrent session handoffs preserved: `handoffs/2026-08-13-0135-concurrent-session-preservation-handoff.md` and `handoffs/2026-08-13-0054-futures-claude-incident-review-handoff.md`.
+- Protected artifacts preserved: `docs/NFL_FUTURES_SYNTHESIS_INCIDENT_REVIEW_CLAUDE_BRIEF_2026-08-13.md` and `docs/NFL_FUTURES_SYNTHESIS_INCIDENT_REVIEW_CLAUDE_RESPONSE_2026-08-13.md`.
+- Status: 
+  1. Live Gmail Auto-Summarization (`platinumrose75@gmail.com`) active 24/7 on M6 via `nfl-gmail-intake.timer` (15-min interval).
+  2. Live Personal Twitter Bookmarks Agent active 24/7 on M6 via `nfl-twitter-bookmarks.timer` (2-hour interval). Verified with 80 live bookmarks fetched, 60 sports betting bookmarks ingested to `vault_notes`, 20 non-sports bookmarks filtered.
+  3. Gemini 2.0 Vision OCR integrated for tweet graphics, extracting player prop stacks and staging proposals into `data/official-picks/proposals/active/`.
+  4. Screenshot OCR watcher registered in Windows Task Scheduler (`NFL_Dashboard_Screenshot_Watcher`).
+  5. Full pre-season intel & data stack refreshed: 195 training camp items across 32 teams; 925 player availability events across 32 teams; 622 ECR rows & 526 projection rows in Supabase; 38 research notes & 12 sharp signals inserted.
+  6. Unit tests: 6/6 passing. All commits through HEAD (`82385b3`) pushed to `origin/main`.
+
+## Current Pick Up Here (2026-08-13 concurrent-session preservation)
+
+
+
+- Latest timestamped handoff: `handoffs/2026-08-13-0135-concurrent-session-preservation-handoff.md`.
+- Protected artifacts: the Codex incident brief, the Claude response, the 00:54 incident-review handoff, and the 01:35 preservation handoff. All are currently untracked and must not be cleaned, reverted, overwritten, or absorbed into another workstream.
+- Claude response discovered at `docs/NFL_FUTURES_SYNTHESIS_INCIDENT_REVIEW_CLAUDE_RESPONSE_2026-08-13.md`; it has not been reviewed by this Codex session.
+- Claude and Antigravity sessions are concurrent. Before any closeout, re-run Git status/log, re-read rolling handoffs, write a unique timestamped handoff, and merge pointers rather than replacing them from stale context.
+- Observed NFL state: `main...origin/main` at `694be71`. Observed ATLAS state: `main...origin/main [ahead 3]` at `83cc7f0`. Recheck both because concurrent sessions can advance them.
+- Immediate objective after concurrent sessions finish: reconcile their final file sets and handoffs, then compare the Claude response against the Codex brief in a fresh session.
+- Do not begin the intel-reacquisition build until the comparison is complete and Andy approves proceeding.
+- Cross-session notification text is embedded in the timestamped preservation handoff under `## Cross-Session Notification Prompt`.
+- Guardrails: no clean/reset/revert, broad staging, commit, push, betting, official picks, portfolio/parlay mutation, Supabase writes, paid model/API calls, synthesis, or reacquisition build without explicit approval.
+
+## Resume Prompt
+
+```text
+Resume in E:\dev\projects\NFL_Dashboard after the concurrent Claude and Antigravity sessions finish. First run git status --short --branch and git log -n 5 --oneline; do not edit until current state is reconciled. Read handoffs/2026-08-13-0135-concurrent-session-preservation-handoff.md, docs/NFL_FUTURES_SYNTHESIS_INCIDENT_REVIEW_CLAUDE_BRIEF_2026-08-13.md, docs/NFL_FUTURES_SYNTHESIS_INCIDENT_REVIEW_CLAUDE_RESPONSE_2026-08-13.md, handoffs/2026-08-13-0054-futures-claude-incident-review-handoff.md, HANDOFF.md, HANDOFF_PROMPT.md, and any newer Claude/Antigravity timestamped handoffs.
+
+Objective: reconcile all concurrent-session work, then perform a claim-by-claim Codex-Claude comparison. Preserve every dirty/untracked file and every unique timestamped handoff. If rolling handoffs conflict, reconstruct them from Git/current artifacts rather than discarding either session. Stop for Andy's approval before designing or building the intel-reacquisition workflow.
+
+Verified boundary: the incident brief, Claude response, and both timestamped handoffs exist as untracked protected artifacts. The Claude response has not yet been reviewed by this Codex session. No futures are placed; the exacta remains a proposed dream ticket; expired parlays have zero guaranteed value; target liability is $500.
+
+Guardrails: no git clean, destructive reset/checkout, blind revert, git add -A, broad stage, commit, push, betting, official picks, portfolio/parlay changes, Supabase writes, recommendation persistence, paid model/API calls, synthesis, or reacquisition implementation without explicit approval.
+```
+
+## Current Pick Up Here (2026-08-13 Claude incident-review brief)
+
+- Latest timestamped handoff: `handoffs/2026-08-13-0054-futures-claude-incident-review-handoff.md`.
+- Claude-team brief: `docs/NFL_FUTURES_SYNTHESIS_INCIDENT_REVIEW_CLAUDE_BRIEF_2026-08-13.md`.
+- Branch: `main`; current observed HEAD is `e3b2689`. No commit or push was performed in this handoff session.
+- Immediate objective: give the Claude team the incident-review brief, obtain its independent forensic analysis, and compare it against the Codex findings before designing or building the intel-reacquisition workflow.
+- Authoritative portfolio state: no futures are placed; the proposed $100 Bills-Packers exacta at +6500 is a dream-ticket candidate, not an existing position; the six expired Bookmaker parlays count as zero guaranteed value and zero deployable bankroll.
+- Target liability: $500. Separate Bills and Packers anchor positions should normally survive in the portfolio, while the exacta is a special joint-upside position. Small conviction stakes may be proposed, but weak prices default to reserve/watch rather than forced full stakes.
+- Proposed analysis scale for independent review: 1u = $20, 25u = $500, and the dream exacta represented as a special 5u/$100 proposal subject to independent challenge.
+- Final authorized output after the system is strengthened: price-verified proposals awaiting Andy's approval.
+- Subscription route: blind independent Codex and Claude tasks only; no paid model APIs at this stage.
+- Critical evidence boundary: `.nfl/portfolio/dossier-2026-08-11.json` is still the newest dossier and predates cleanup. Do not synthesize from it. Do not reuse `.nfl/portfolio/normalized-signals-gpt-4o.json`.
+- Existing dirty NFL and ATLAS work was inspected and preserved. See the timestamped handoff for the exact NFL dirty boundaries.
+- Guardrails: no betting, official picks, portfolio/open-parlay mutation, Supabase writes, recommendation persistence, paid model/API calls, fresh synthesis, broad web collection, commit, push, or broad staging without explicit approval.
+
+## Resume Prompt
+
+```text
+Resume in E:\dev\projects\NFL_Dashboard.
+
+First inspect git status and preserve all dirty/untracked work. Read docs/NFL_FUTURES_SYNTHESIS_INCIDENT_REVIEW_CLAUDE_BRIEF_2026-08-13.md, handoffs/2026-08-13-0054-futures-claude-incident-review-handoff.md, HANDOFF.md, HANDOFF_PROMPT.md, docs/FUTURES_EVIDENCE_CLEANUP_ROADMAP_2026-08-11.md, .nfl/portfolio/frontier-synthesis-context-2026-08-12.json, and .nfl/verification/futures-evidence-verification-2026-08-12T05-40-00-000Z.json.
+
+Objective: obtain or review the Claude team's independent forensic analysis, compare it with the Codex incident report, and stop for Andy's approval before designing or building the intel-reacquisition workflow.
+
+Verified state: no futures are placed. The $100 Bills-Packers exacta at +6500 is a proposed dream ticket. The six expired Bookmaker parlays have zero guaranteed value and zero deployable bankroll. The target liability is $500. A surviving portfolio should normally include separate Bills and Packers anchors; small conviction stakes are allowed, but reserve/watch is preferred to forcing weak-price anchor positions. The final future output is price-verified proposals awaiting approval. Codex and Claude subscription tasks will run blind first; no paid model APIs are authorized.
+
+Immediate next step: point the Claude team to the saved brief and request the 20 independent deliverables listed in it. Preserve Claude's response separately for comparison. Do not build or run a new synthesis yet.
+
+Guardrails: no betting, official picks, portfolio/parlay mutation, Supabase writes, recommendation persistence, paid model/API calls, fresh synthesis, broad source reacquisition, commit, push, or git add -A without explicit approval. Do not synthesize from .nfl/portfolio/dossier-2026-08-11.json or reuse .nfl/portfolio/normalized-signals-gpt-4o.json.
+```
+
 ## Current Pick Up Here (2026-08-12 futures evidence cleanup post-commit)
 
 - Latest timestamped handoff: `handoffs/2026-08-12-0054-futures-evidence-cleanup-postcommit-handoff.md`.

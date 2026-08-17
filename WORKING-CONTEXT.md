@@ -37,6 +37,7 @@ Safe recovered work has been committed in narrow checkpoints:
 - `5b2db46` - Add frontier futures synthesis evidence packet.
 - `1c5cdee` - Document training camp source recovery.
 - `b0b57ed` - Point source audit at recovered camp snapshot.
+- `99fd0c5` - Register THE WINDOW Substack feed and ingest cited EMR research note.
 
 `npm.cmd run intel:source-audit` has been recalibrated around the active objective: verifying current intel sources for a maximum-effort frontier-model futures portfolio synthesis. DK/FD bet-slip parsers and weekly live props are execution/regular-season plumbing and are out of scope for this synthesis-readiness gate.
 
