@@ -4,6 +4,28 @@
 
 ---
 
+## Current Sync State - 2026-08-18 PT
+
+**Latest handoff:** `handoffs/2026-08-18-1555-yahoo-and-handoff-sync.md`.
+
+**Verified Git state:** local `main` is `2b17c75`; `origin/main` is `d76d309`; local branch is ahead by 2 commits (`655e713`, `2b17c75`). The older rolling handoff claim that `origin/main` was at `655e713` is stale.
+
+**Preserve current dirty/untracked boundaries:**
+- `agents/portfolio-dossier.js`
+- `scripts/build-prediction-market-map.js`
+- `scripts/lib/futures-evidence-gates.js`
+- `tests/fixtures/prediction-market-evidence-cleanup-mini.json`
+- `tests/unit/futuresEvidenceGates.test.js`
+- `tests/unit/predictionMarketEvidenceCleanup.test.js`
+- `scripts/bottom-12-analysis.js`
+- `scripts/colts-bucs-comparison.js`
+
+**Current open lanes:**
+- Yahoo Fantasy API is paused until Yahoo provides Fantasy Sports API access/provisioning. Local OAuth completed and tokens updated, but API calls still return Yahoo 401 `oauth_problem="additional_authorization_required"`; screenshot review showed no Fantasy Sports Read permission option visible. Rotate the exposed secret before continuing Yahoo work.
+- Kalshi/Polymarket normalization is uncommitted Codex work in the six modified futures files. It adds normalized prediction-market contract fields and gates missing normalized data. Re-run focused deterministic checks before staging/committing.
+- UI modernization is WIP from pushed `70049b8`; full native build still needs verification.
+- No push/commit/Supabase write/betting/official-pick action/portfolio mutation/paid model call/fresh synthesis without Andy's explicit approval.
+
 ## Current Recovery State - 2026-07-30 UTC / 2026-07-29 Pacific
 
 **Latest triage handoff:** `handoffs/2026-07-30-1101-camp-intel-ui-handoff.md`.

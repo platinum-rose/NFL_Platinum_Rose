@@ -1,5 +1,60 @@
 # NFL_Dashboard - Session Handoff
 
+## Current Pick Up Here (2026-08-18 Yahoo/API pause + handoff sync, Codex)
+
+- Latest timestamped handoff: `handoffs/2026-08-18-1555-yahoo-and-handoff-sync.md`.
+- Verified live Git state during this sync: local `main` is at `2b17c75`, while `origin/main` is still `d76d309`; branch state is `main...origin/main [ahead 2]`.
+- Correction to the prior rolling handoff: `70049b8`, `eb23751`, `086d2ee`, and `d76d309` were pushed by Andy, but `655e713` and `2b17c75` are local-only as of this handoff. Do not push them without Andy's explicit approval.
+- Current dirty/untracked boundaries to preserve:
+  - `agents/portfolio-dossier.js`
+  - `scripts/build-prediction-market-map.js`
+  - `scripts/lib/futures-evidence-gates.js`
+  - `tests/fixtures/prediction-market-evidence-cleanup-mini.json`
+  - `tests/unit/futuresEvidenceGates.test.js`
+  - `tests/unit/predictionMarketEvidenceCleanup.test.js`
+  - `scripts/bottom-12-analysis.js`
+  - `scripts/colts-bucs-comparison.js`
+- Codex session work merged into context: Kalshi/Polymarket normalization exists as uncommitted local work in the six modified futures files. It adds normalized price/liquidity/timing/settlement/fee/sportsbook-equivalence fields to the prediction-market map and gates missing normalized fields in futures evidence validation. Focused deterministic checks had passed previously, but re-run them before any commit.
+- Yahoo Fantasy API status: paused pending Yahoo's access/provisioning update. Andy completed the local OAuth redirect flow and `.nfl/yahoo/tokens.json` updated, but `yahoo-league-settings.js` and `yahoo-adp-ingest.js --dry-run` still returned Yahoo 401 `oauth_problem="additional_authorization_required"`. Screenshot review showed no visible Fantasy Sports Read permission option in the Yahoo Developer app page. Rotate the exposed client secret before continuing Yahoo work.
+- UI modernization status remains WIP from pushed commit `70049b8`; a native `npm run build` still needs to be run before relying on the frontend sweep.
+- Guardrails remain active: no `git clean`, destructive reset/checkout, blind revert, broad staging, `git add -A`, commit, push, Supabase writes, betting, official picks, portfolio/parlay mutation, recommendation persistence, paid model/API calls, fresh synthesis, or external service runs without Andy's explicit approval. Evidence gate PASS means evidence readiness only.
+
+## Resume Prompt
+
+```text
+Resume in E:\dev\projects\NFL_Dashboard.
+
+First run:
+- git status --short --branch
+- git log -n 10 --oneline --decorate
+- git branch -vv
+
+Read first:
+- handoffs/2026-08-18-1555-yahoo-and-handoff-sync.md
+- HANDOFF.md
+- HANDOFF_PROMPT.md
+- TASK_BOARD.md
+- WORKING-CONTEXT.md
+
+Current verified checkpoint as of the 2026-08-18 Codex handoff sync: local HEAD is 2b17c75, origin/main is d76d309, and main is ahead of origin/main by 2 local commits: 655e713 and 2b17c75. The older rolling handoff text that says origin/main is at 655e713 is stale; verify Git before relying on prose.
+
+Preserve dirty/untracked work:
+- agents/portfolio-dossier.js
+- scripts/build-prediction-market-map.js
+- scripts/lib/futures-evidence-gates.js
+- tests/fixtures/prediction-market-evidence-cleanup-mini.json
+- tests/unit/futuresEvidenceGates.test.js
+- tests/unit/predictionMarketEvidenceCleanup.test.js
+- scripts/bottom-12-analysis.js
+- scripts/colts-bucs-comparison.js
+
+Yahoo Fantasy is blocked on Yahoo-side access/provisioning. Rotate the exposed secret before continuing, refresh tokens from the repo root, then test league settings and ADP dry-run. Do not write fantasy/Supabase data without approval.
+
+Kalshi/Polymarket normalization is uncommitted Codex work in the six modified futures files. Re-run focused deterministic checks before staging or committing.
+
+No commit, push, Supabase write, betting, official-pick action, portfolio/parlay mutation, paid model/API call, fresh synthesis, destructive cleanup, or broad staging without Andy's explicit approval.
+```
+
 ## Current Pick Up Here (2026-08-16/17 full sync pass, Cowork/Claude)
 
 - Andy asked for a full sync pass: get everything committed and pushed so any other session or team member coming online has a clean, current picture, and clean up the working tree.

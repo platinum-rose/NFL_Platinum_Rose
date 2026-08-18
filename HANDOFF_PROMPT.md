@@ -1,14 +1,39 @@
 Resume in E:\dev\projects\NFL_Dashboard.
 
-First run `git status --short --branch` and `git log -n 5 --oneline`. This repo runs multiple concurrent sessions (Codex, Antigravity, Cowork/Claude) sharing one working directory on Andy's machine, coordinating via HANDOFF.md and the ATLAS broadcast file rather than separate branches - do not assume exclusive access, and do not `git clean`, blind-reset, or `git add -A` over anything you didn't create. Read HANDOFF.md's top "Pick Up Here" entry (2026-08-16/17 full sync pass) for the fullest current picture before doing anything else.
+First run:
+- `git status --short --branch`
+- `git log -n 10 --oneline --decorate`
+- `git branch -vv`
 
-Current state: `main` is in sync with `origin/main` at `655e713` (5 commits pushed in the last sync pass: frontend UI/UX sweep WIP + a real hooks-rule bug fix, a FantasyPros/regex backend fix, a data-snapshot refresh, the 2026-08-13 futures-incident-review docs, and a .gitignore cleanup - full breakdown in HANDOFF.md, do not re-derive it from scratch).
+Read first:
+- `handoffs/2026-08-18-1555-yahoo-and-handoff-sync.md`
+- `HANDOFF.md`
+- `TASK_BOARD.md`
+- `WORKING-CONTEXT.md`
 
-Two threads are still genuinely open, not finished:
+Current verified checkpoint as of the 2026-08-18 Codex handoff sync:
+- Local `main` HEAD is `2b17c75`.
+- `origin/main` is `d76d309`.
+- Local `main` is ahead of `origin/main` by 2 commits: `655e713` and `2b17c75`.
+- Correction: the older rolling handoff text that said `origin/main` was at `655e713` was stale. Andy pushed through `d76d309`; the `.gitignore` cleanup and rolling-doc consolidation commits were not observed on remote.
 
-1. **UI/UX Modernization sweep** (`src/App.jsx` + Command Hub components under `src/components/`). Original objective: consolidate 19 fragmented tabs into 6 streamlined Command Hubs (Dashboard & Games, Picks & Inbox, AI Intel & Command, Fantasy & Props, Injury & Availability, Bankroll & Futures) with a dark glassmorphism design system - only 3 of the 6 hubs exist so far (`FantasyHub.jsx`, `FuturesHub.jsx`, `UnifiedIntelHub.jsx`), the rest of the consolidation is still ahead. Known open lint issues in `ProfileSettingsModal.jsx` are flagged but not fixed (see HANDOFF.md) - resolve those before calling this sweep done. `npm run build` was never verified end-to-end in the last session (hit this sandbox's tool time limits); run it natively before trusting this in production.
-2. **Futures/portfolio code** (`agents/portfolio-dossier.js`, `scripts/build-prediction-market-map.js`, `scripts/lib/futures-evidence-gates.js`, `scripts/bottom-12-analysis.js`, plus 2 related test files). Was being actively edited by a concurrent session as of 2026-08-17 ~02:40 UTC and was deliberately left uncommitted/untouched by the last sync pass. Check `git status` fresh - if these are still dirty, that's someone else's in-flight work; preserve it, don't discard or fold it into an unrelated commit without figuring out whose it is first.
+Current dirty/untracked boundaries to preserve:
+- `agents/portfolio-dossier.js`
+- `scripts/build-prediction-market-map.js`
+- `scripts/lib/futures-evidence-gates.js`
+- `tests/fixtures/prediction-market-evidence-cleanup-mini.json`
+- `tests/unit/futuresEvidenceGates.test.js`
+- `tests/unit/predictionMarketEvidenceCleanup.test.js`
+- `scripts/bottom-12-analysis.js`
+- `scripts/colts-bucs-comparison.js`
 
-Guardrails (standing, from prior handoffs, still in force): no `git clean`, destructive reset/checkout, blind revert, `git add -A`, broad staging, betting, official picks, portfolio/parlay mutation, Supabase writes, or paid model/API calls without Andy's explicit approval per action.
+Known open lanes:
+1. Yahoo Fantasy API is paused pending Yahoo-side access/provisioning. The repo OAuth flow updated `.nfl/yahoo/tokens.json`, but `agents/yahoo-league-settings.js` and `agents/yahoo-adp-ingest.js --dry-run` still returned Yahoo 401 `oauth_problem="additional_authorization_required"`. Screenshot review showed no visible Fantasy Sports Read permission checkbox in the Yahoo Developer app. Rotate the exposed Yahoo client secret before continuing.
+2. Kalshi/Polymarket normalization exists as uncommitted Codex work in the six modified futures files. It adds normalized price/liquidity/timing/settlement/fees/sportsbook-equivalence fields and gates missing normalized prediction-market data. Re-run focused deterministic checks before staging or committing.
+3. UI modernization remains WIP from pushed commit `70049b8`; run a native `npm run build` before relying on the frontend sweep.
+4. `655e713` and `2b17c75` are local-only; ask Andy before pushing.
 
-Sandbox/bridge note: this Windows-bridged filesystem cannot `rm`/unlink certain files git creates (lock files, some data files) - `mv`/rename on the same file works fine. If a git operation fails with a stale `HEAD.lock`/`index.lock` and `ps aux` shows no git process actually running, `mv` the lock file aside rather than treating it as contention.
+Guardrails:
+- No `git clean`, destructive reset/checkout, blind revert, broad staging, `git add -A`, commit, push, Supabase writes, betting, official picks, portfolio/parlay mutation, recommendation persistence, paid model/API calls, fresh synthesis, or external service runs without Andy's explicit approval.
+- Treat evidence gate PASS as evidence readiness only, never betting readiness.
+- Preserve all dirty/untracked work until ownership is clear.
