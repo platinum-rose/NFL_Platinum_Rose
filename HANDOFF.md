@@ -1,6 +1,23 @@
 # NFL_Dashboard - Session Handoff
 
+## Current Pick Up Here (2026-08-18 22:02 PT Handoff Sync, Antigravity)
+
+- Latest timestamped handoff: `handoffs/2026-08-18-2202-antigravity-nfl-dashboard-handoff.md`.
+- Verified live Git state: local `main` is at `4e751c5` (`feat(futures): normalize prediction-market contract fields`), `origin/main` is `ccecef6`; branch state is `main...origin/main [ahead 1]`.
+- Verified full alignment with prior Codex/Claude handoffs (`handoffs/2026-08-18-1746-risk-sizing-and-kalshi-normalization-handoff.md`).
+- Completed NFL Win Total Analysis:
+  - 🏆 **Highest NFL Win Total**: **Los Angeles Rams (LAR)** at **11.5 / 12.0 Wins** (*12.1 Proj, EMR 74*).
+  - 📊 **Bottom 12 Deep Dive** (`scripts/bottom-12-analysis.js` & `scripts/colts-bucs-comparison.js`):
+    - Top bottom-12 teams: **ATL** & **CAR** at **7.1 Proj Wins** (61.1% 7+ wins prob).
+    - Best OVER value candidates: **NYG** (*55.2% over 6.5*) & **CLE** (*55.0% over 5.5*).
+    - Compared **IND** (*17th, 8.5 line, 8.0 proj, 76.6% 7+ floor*) & **TB** (*20th, 7.5 line, 7.3 proj, 64.8% 7+ floor*).
+- Preserved uncommitted Quantitative Risk-Sizing files:
+  - `agents/manifests/betting.manifest.json`, `agents/manifests/futures.manifest.json`, `src/App.jsx`, `src/components/agent/AgentChat.jsx`, `src/components/agent/FuturesAgentChat.jsx`, `src/components/layout/Header.jsx`, `src/components/modals/UnitCalculatorModal.jsx`, `src/lib/agentTools.js`, `src/lib/bankroll.js`, `tests/unit/agentTools.test.js`, `docs/QUANT_RISK_SIZING_PLAYBOOK.md`, `src/lib/riskSizing.js`, `tests/unit/riskSizing.test.js`.
+- Verified `andrewlrose.com` portfolio files (`E:\dev\tmp-andrewlrose-com-workshop-edit\andrewlrose-com\index.html`, `E:\dev\deploy-andrewlrose-com.ps1`, backup zips).
+- Guardrails active: no `git clean`, destructive reset, blind revert, `git add -A`, commit, push, Supabase writes, betting, official picks, portfolio mutation, or paid API calls without Andy's explicit approval.
+
 ## Current Pick Up Here (2026-08-18 Yahoo/API pause + handoff sync, Codex)
+
 
 - Latest timestamped handoff: `handoffs/2026-08-18-1555-yahoo-and-handoff-sync.md`.
 - Verified live Git state during this sync: local `main` is at `2b17c75`, while `origin/main` is still `d76d309`; branch state is `main...origin/main [ahead 2]`.
