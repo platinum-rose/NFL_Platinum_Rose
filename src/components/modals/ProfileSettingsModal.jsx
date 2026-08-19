@@ -5,13 +5,13 @@
 // default agent modes, and layout simplicity, with instant toggle to activate all.
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { X, User, Check, Sparkles, Shield, Trophy, Shirt, LayoutDashboard, Briefcase, HeartPulse, Bot } from 'lucide-react';
 import { loadFromStorage, saveToStorage } from '../../lib/storage';
 
 const PROFILE_KEY = 'nfl_user_profile_v1';
 
-export const PRESET_PROFILES = [
+const PRESET_PROFILES = [
   {
     id: 'master',
     name: 'Master View (Full Dashboard)',
@@ -36,16 +36,10 @@ export const PRESET_PROFILES = [
 ];
 
 export default function ProfileSettingsModal({ isOpen, onClose, onProfileUpdated }) {
-  const [selectedProfileId, setSelectedProfileId] = useState('master');
   const [activeProfile, setActiveProfile] = useState(() => {
     return loadFromStorage(PROFILE_KEY, PRESET_PROFILES[0]);
   });
-
-  useEffect(() => {
-    if (activeProfile?.id) {
-      setSelectedProfileId(activeProfile.id);
-    }
-  }, [activeProfile]);
+  const [selectedProfileId, setSelectedProfileId] = useState(() => activeProfile?.id || 'master');
 
   if (!isOpen) return null;
 

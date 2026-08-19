@@ -4,7 +4,7 @@
 // Permanently docked on the right side of the screen with instant mode switching
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState, Suspense } from 'react';
 import { Bot, Target, Briefcase, Zap, Shirt, Shield, ListFilter, TrendingUp, Trophy, ChevronRight, ChevronLeft, Sparkles, RefreshCw } from 'lucide-react';
 
 import AgentChat from './AgentChat';
