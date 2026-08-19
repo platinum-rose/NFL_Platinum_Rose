@@ -15,6 +15,7 @@ describe('prediction-market evidence cleanup P01-P02', () => {
     });
 
     expect(snapshot.meta.schema).toBe('prediction_market_team_map_v2');
+    expect(snapshot.meta.prediction_market_normalization_schema).toBe('prediction_market_contract_normalization_v1');
     expect(snapshot.meta.mapped_count).toBe(9);
     expect(snapshot.meta.unmapped_count).toBe(4);
     expect(snapshot.meta.wrong_season_mapped_count).toBe(0);
@@ -27,6 +28,68 @@ describe('prediction-market evidence cleanup P01-P02', () => {
       market: 'super_bowl',
       season: 2026,
       season_source: 'title_postseason_event_year',
+      normalized_contract: {
+        schema: 'prediction_market_contract_normalization_v1',
+        timing: {
+          expiration_at: '2027-02-08T15:00:00.000Z',
+          expiration_status: 'present',
+        },
+        sportsbook_equivalent: {
+          status: 'mapped_to_sportsbook_market_key',
+          market_type: 'super_bowl',
+          team: 'NYG',
+          side: 'yes',
+          line: null,
+          key: '2026|NYG|super_bowl|yes|na',
+        },
+      },
+    });
+    expect(snapshot.contracts.find((row) => row.id === 'nyg_playoffs')).toMatchObject({
+      team: 'NYG',
+      market: 'make_playoffs',
+      settlement_terms_status: 'present',
+      normalized_contract: {
+        venue: 'kalshi',
+        contract_id: 'nyg_playoffs',
+        price: {
+          yes_bid_cents: 28,
+          yes_ask_cents: 30,
+          last_or_mark_cents: 30,
+          midpoint_cents: 29,
+          bid_ask_status: 'bid_ask_available',
+        },
+        liquidity: {
+          fillable_yes_size: 42,
+          fillable_size_status: 'present',
+          volume_24h: 100,
+          open_interest: 250,
+        },
+        timing: {
+          expiration_at: '2027-01-12T15:00:00.000Z',
+          expiration_status: 'present',
+        },
+        settlement: {
+          settlement_terms_status: 'present',
+        },
+        sportsbook_equivalent: {
+          status: 'mapped_to_sportsbook_market_key',
+          market_type: 'playoffs',
+          team: 'NYG',
+          side: 'yes',
+          line: null,
+          key: '2026|NYG|playoffs|yes|na',
+        },
+      },
+    });
+    expect(snapshot.contracts.find((row) => row.id === 'nyg_wins_8')).toMatchObject({
+      normalized_contract: {
+        sportsbook_equivalent: {
+          market_type: 'wins',
+          side: 'over',
+          line: 7.5,
+          key: '2026|NYG|wins|over|7.5',
+        },
+      },
     });
     expect(snapshot.contracts.find((row) => row.id === 'nyj_super_bowl')).toMatchObject({
       team: 'NYJ',
@@ -63,6 +126,12 @@ describe('prediction-market evidence cleanup P01-P02', () => {
       mapped: false,
       mapping_method: 'taxonomy_gate',
       contract_taxonomy: 'player_or_transaction',
+      normalized_contract: {
+        sportsbook_equivalent: {
+          status: 'not_mapped',
+          key: null,
+        },
+      },
     });
   });
 

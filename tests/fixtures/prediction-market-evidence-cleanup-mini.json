@@ -15,10 +15,14 @@
       "price_cents": 30,
       "yes_bid_cents": 28,
       "yes_ask_cents": 30,
+      "yes_ask_size": 42,
       "gross_american_odds": 233,
       "net_american_odds": 220,
       "implied_probability_pct": 30,
-      "volume_24h": 100
+      "volume_24h": 100,
+      "open_interest": 250,
+      "expiration_time": "2027-01-12T15:00:00Z",
+      "settlement_terms": "Resolves Yes if the New York Giants qualify for the listed season postseason."
     },
     {
       "id": "nyg_super_bowl",
@@ -33,7 +37,8 @@
       "gross_american_odds": 900,
       "net_american_odds": 860,
       "implied_probability_pct": 10,
-      "volume_24h": 50
+      "volume_24h": 50,
+      "expiration_time": "2027-02-08T15:00:00Z"
     },
     {
       "id": "nyg_division_liquidity_warned",

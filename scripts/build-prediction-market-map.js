@@ -76,6 +76,145 @@ function compact(value, maxChars = 220) {
   return clean.length > maxChars ? `${clean.slice(0, maxChars - 3).trim()}...` : clean;
 }
 
+function firstPresent(source, keys) {
+  for (const key of keys) {
+    const value = source?.[key];
+    if (value !== null && value !== undefined && value !== '') return value;
+  }
+  return null;
+}
+
+function finiteNumber(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
+function timestampOrNull(value) {
+  if (!value) return null;
+  const time = new Date(value).getTime();
+  return Number.isFinite(time) ? new Date(time).toISOString() : null;
+}
+
+function normalizedMarketPrice(contract) {
+  const bid = finiteNumber(firstPresent(contract, ['yes_bid_cents', 'best_bid_cents', 'bid_cents']));
+  const ask = finiteNumber(firstPresent(contract, ['yes_ask_cents', 'best_ask_cents', 'ask_cents']));
+  const price = finiteNumber(firstPresent(contract, ['price_cents', 'last_price_cents', 'last_price']));
+  const midpoint = bid !== null && ask !== null ? Number(((bid + ask) / 2).toFixed(2)) : null;
+  return {
+    yes_bid_cents: bid,
+    yes_ask_cents: ask,
+    last_or_mark_cents: price,
+    midpoint_cents: midpoint,
+    bid_ask_status: bid !== null && ask !== null
+      ? 'bid_ask_available'
+      : bid !== null || ask !== null
+        ? 'partial_bid_ask'
+        : 'bid_ask_missing',
+  };
+}
+
+function normalizedLiquidity(contract) {
+  const yesAskSize = finiteNumber(firstPresent(contract, [
+    'yes_ask_size',
+    'yes_ask_quantity',
+    'ask_size',
+    'ask_quantity',
+    'fillable_yes_size',
+  ]));
+  const volume24h = finiteNumber(firstPresent(contract, ['volume_24h', 'volume24hr']));
+  const openInterest = finiteNumber(firstPresent(contract, ['open_interest', 'openInterest']));
+  return {
+    fillable_yes_size: yesAskSize,
+    fillable_size_status: yesAskSize !== null ? 'present' : 'not_present_in_local_snapshot',
+    volume_24h: volume24h,
+    open_interest: openInterest,
+  };
+}
+
+function normalizedTiming(contract) {
+  const expiration = timestampOrNull(firstPresent(contract, [
+    'expiration_time',
+    'expirationTime',
+    'expiration',
+    'close_time',
+    'closeTime',
+    'end_date',
+    'endDate',
+  ]));
+  const updated = timestampOrNull(contract?.updated_at);
+  return {
+    expiration_at: expiration,
+    expiration_status: expiration ? 'present' : 'not_present_in_local_snapshot',
+    observed_at: updated,
+  };
+}
+
+function normalizedSettlementTerms(contract) {
+  const terms = compact(firstPresent(contract, [
+    'settlement_terms',
+    'settlementTerms',
+    'rules_primary',
+    'rulesPrimary',
+    'resolution_source',
+  ]), 280);
+  return {
+    settlement_terms_status: terms ? 'present' : 'not_present_in_local_snapshot',
+    settlement_terms_excerpt: terms || null,
+  };
+}
+
+function sportsbookEquivalent(row) {
+  if (!row.mapped || !row.team || !COHERENCE_MARKETS.has(row.market)) {
+    return {
+      status: 'not_mapped',
+      reason: row.unmapped_reason || `unsupported_market:${row.market}`,
+      key: null,
+    };
+  }
+
+  let marketType = row.market;
+  let side = 'yes';
+  let line = null;
+  if (row.market === 'wins') {
+    marketType = 'wins';
+    const threshold = String(row.title || '').match(/(?:win )?at least (\d+)\s*(?:games|wins)|(\d+)\+\s*(?:wins|games)/i);
+    const winThreshold = threshold ? Number(threshold[1] || threshold[2]) : null;
+    side = 'over';
+    line = Number.isFinite(winThreshold) ? winThreshold - 0.5 : null;
+  } else if (row.market === 'make_playoffs') {
+    marketType = 'playoffs';
+  }
+
+  return {
+    status: 'mapped_to_sportsbook_market_key',
+    market_type: marketType,
+    team: row.team,
+    side,
+    line,
+    key: [row.season, row.team, marketType, side, line ?? 'na'].join('|'),
+  };
+}
+
+function normalizedPredictionContract(contract, row) {
+  return {
+    schema: 'prediction_market_contract_normalization_v1',
+    venue: contract.exchange || null,
+    contract_id: contract.id || contract.ticker || null,
+    ticker: contract.ticker || null,
+    series_ticker: contract.series_ticker || null,
+    price: normalizedMarketPrice(contract),
+    liquidity: normalizedLiquidity(contract),
+    fees: {
+      fee_adjustment_status: row.fee_adjustment_status,
+      gross_american_odds: row.gross_american_odds,
+      net_american_odds: row.net_american_odds,
+    },
+    timing: normalizedTiming(contract),
+    settlement: normalizedSettlementTerms(contract),
+    sportsbook_equivalent: sportsbookEquivalent(row),
+  };
+}
+
 function escapeRegex(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -310,7 +449,7 @@ export function mapContract(contract, requestedSeason) {
   if (contextEligible && liquidityWarning) actionableExclusionReasons.push(...liquidityWarningReasons);
   if (contextEligible && !feeAdjustedOddsAvailable) actionableExclusionReasons.push('fee_adjusted_odds_missing');
 
-  return {
+  const row = {
     id: contract.id,
     exchange: contract.exchange,
     ticker: contract.ticker || null,
@@ -335,7 +474,7 @@ export function mapContract(contract, requestedSeason) {
     bid_ask_spread_cents: spread,
     liquidity_warning: liquidityWarning,
     liquidity_warning_reasons: liquidityWarningReasons,
-    settlement_terms_status: 'not_present_in_local_snapshot',
+    settlement_terms_status: normalizedSettlementTerms(contract).settlement_terms_status,
     mapping_confidence: Number((mapped ? Math.min(team.confidence, 0.9) : team.confidence).toFixed(2)),
     mapping_method: team.method,
     mapped,
@@ -347,6 +486,8 @@ export function mapContract(contract, requestedSeason) {
     actionable_exclusion_reasons: actionableExclusionReasons,
     updated_at: contract.updated_at || null,
   };
+  row.normalized_contract = normalizedPredictionContract(contract, row);
+  return row;
 }
 
 function renderMarkdown(snapshot) {
@@ -431,12 +572,14 @@ export async function buildPredictionMarketMap(options = {}) {
       taxonomy_counts: taxonomyCounts,
       recommendation_status: 'consensus_context_only_not_execution_source',
       execution_source_status: 'blocked_settlement_terms_unverified',
+      prediction_market_normalization_schema: 'prediction_market_contract_normalization_v1',
       coherence_eligibility_definition:
         'Mapped supported 2026 team future with a usable probability, no liquidity warning, and fee-adjusted net odds present.',
       caveats: [
         'Fee-adjusted net odds are retained separately from gross yes-price probabilities.',
+        'Contract normalization preserves bid/ask, fillable-size, timing, settlement, fee, and sportsbook-equivalence fields when present in the local snapshot.',
         'Liquidity-warned rows are context-only and excluded from actionable coherence math.',
-        'Settlement terms are absent from the local snapshot; execution eligibility is always false.',
+        'Rows without locally present settlement terms remain blocked as execution sources; execution eligibility is always false.',
       ],
       guardrails: {
         live_model_calls: false,

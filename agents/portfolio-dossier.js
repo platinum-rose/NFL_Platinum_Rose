@@ -1561,9 +1561,10 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
     intel_coverage, sos_coverage, signal_coverage,
     local_futures_imports: localSnapshots.sources,
     // 2026-08-13: see agents/lib/named-status-review.js's computeTeamSizingGates().
-    // null when data/projected-starters/<season>/named-status-review.json is
-    // missing/unreadable (fails open to "no gate", same as every other
-    // optional local-file signal in this dossier).
+    // Default behavior is fail-hard if data/projected-starters/<season>/
+    // named-status-review.json is missing or invalid. The explicit
+    // --allow-missing-named-status-review escape hatch stamps a blocking marker
+    // here instead of silently treating missing named cases as "no gate."
     named_player_sizing_gates: namedPlayerSizing.meta,
     // 2026-08-13: hash+mtime stamp of every local evidence-lane file this
     // dossier reflects at build time — see

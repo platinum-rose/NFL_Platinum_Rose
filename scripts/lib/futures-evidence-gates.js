@@ -175,6 +175,18 @@ export function validatePredictionMarketMap(predictionMap, season = 2026) {
   if (collisions.length > 0) blockers.push(`${collisions.length} known NY/LA team-identity collision(s) remain mapped`);
   const warnedActionable = rows.filter((row) => row?.liquidity_warning === true && row?.actionable_coherence_eligible === true);
   if (warnedActionable.length > 0) blockers.push(`${warnedActionable.length} liquidity-warned contract(s) remain actionable for coherence`);
+  const missingNormalizedContract = rows.filter((row) => (
+    row?.normalized_contract?.schema !== 'prediction_market_contract_normalization_v1'
+    || !row?.normalized_contract?.price
+    || !row?.normalized_contract?.liquidity
+    || !row?.normalized_contract?.fees
+    || !row?.normalized_contract?.timing
+    || !row?.normalized_contract?.settlement
+    || !row?.normalized_contract?.sportsbook_equivalent
+  ));
+  if (missingNormalizedContract.length > 0) {
+    blockers.push(`${missingNormalizedContract.length} prediction contract row(s) lack normalized price/liquidity/fee/timing/settlement/sportsbook-equivalence fields`);
+  }
   if (Number(predictionMap?.meta?.mapped_count ?? mapped.length) !== mapped.length) {
     blockers.push('prediction-market mapped count does not match contract rows');
   }
@@ -184,6 +196,7 @@ export function validatePredictionMarketMap(predictionMap, season = 2026) {
     wrong_season_mapped_count: wrongSeasonMapped.length,
     identity_collision_count: collisions.length,
     liquidity_warned_actionable_count: warnedActionable.length,
+    missing_normalized_contract_count: missingNormalizedContract.length,
   });
 }
 

@@ -62,6 +62,22 @@ function passingPrediction() {
       context_eligible: true,
       actionable_coherence_eligible: true,
       liquidity_warning: false,
+      normalized_contract: {
+        schema: 'prediction_market_contract_normalization_v1',
+        price: { yes_bid_cents: 48, yes_ask_cents: 50, last_or_mark_cents: 50 },
+        liquidity: { fillable_yes_size: 10, volume_24h: 100 },
+        fees: { fee_adjustment_status: 'net_odds_available', gross_american_odds: 100, net_american_odds: -106 },
+        timing: { expiration_at: '2027-01-12T15:00:00.000Z', expiration_status: 'present' },
+        settlement: { settlement_terms_status: 'present' },
+        sportsbook_equivalent: {
+          status: 'mapped_to_sportsbook_market_key',
+          market_type: 'wins',
+          team: 'NYJ',
+          side: 'over',
+          line: 8.5,
+          key: '2026|NYJ|wins|over|8.5',
+        },
+      },
     }],
   };
   const coherence = {
