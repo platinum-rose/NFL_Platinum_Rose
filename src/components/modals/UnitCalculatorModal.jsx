@@ -3,7 +3,8 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import { X, Calculator, TrendingUp, AlertTriangle, Target, Info } from 'lucide-react';
-import { calculateKellyUnit, getRecommendedUnit, getBankrollData } from '../../lib/bankroll';
+import { getRecommendedUnit, getBankrollData } from '../../lib/bankroll';
+import { calculateRiskSizing } from '../../lib/riskSizing';
 
 export default function UnitCalculatorModal({ isOpen, onClose }) {
     const [bankroll, setBankroll] = useState(1000);
@@ -24,14 +25,6 @@ export default function UnitCalculatorModal({ isOpen, onClose }) {
         }
     }, [isOpen]);
 
-    const calculateBreakevenRate = (americanOdds) => {
-        if (americanOdds > 0) {
-            return (100 / (americanOdds + 100)) * 100;
-        } else {
-            return (Math.abs(americanOdds) / (Math.abs(americanOdds) + 100)) * 100;
-        }
-    };
-
     // Pure derivation of the calculator inputs -- computed during render via
     // useMemo rather than useState+useEffect (avoids
     // react-hooks/set-state-in-effect and the extra render that a
@@ -41,11 +34,16 @@ export default function UnitCalculatorModal({ isOpen, onClose }) {
             return null;
         }
 
-        // Kelly Criterion calculation
-        const kellyAmount = calculateKellyUnit(winProbability, odds, bankroll);
+        const risk = calculateRiskSizing({
+            model_probability: winProbability,
+            odds,
+            bankroll,
+            unit_size: bankroll * 0.01,
+            fractional_kelly: 0.25,
+            max_stake_fraction: 0.05,
+        });
 
-        // Conservative recommendation (capped Kelly)
-        const cappedKelly = Math.min(kellyAmount, bankroll * 0.05); // Max 5% of bankroll
+        if (risk.status === 'error') return null;
 
         // Risk-based recommendation
         const recommended = getRecommendedUnit(confidence, bankroll, riskProfile);
@@ -56,14 +54,20 @@ export default function UnitCalculatorModal({ isOpen, onClose }) {
         const aggressive = bankroll * 0.05; // 5%
 
         return {
-            kelly: kellyAmount,
-            cappedKelly,
+            risk,
+            kelly: risk.full_kelly_stake,
+            cappedKelly: risk.recommended_stake,
             recommended: recommended.amount,
             recommendedUnits: recommended.units,
             conservative,
             moderate,
             aggressive,
-            breakeven: calculateBreakevenRate(odds)
+            breakeven: risk.market_implied_probability * 100,
+            evPerDollar: risk.expected_value_per_dollar,
+            edgePoints: risk.edge_probability_points * 100,
+            volatility: risk.return_volatility,
+            signalToNoise: risk.signal_to_noise,
+            growthAtRecommended: risk.geometric_growth_at_recommended,
         };
     }, [bankroll, winProbability, odds, confidence, riskProfile]);
 
@@ -240,15 +244,57 @@ export default function UnitCalculatorModal({ isOpen, onClose }) {
                                     {/* Capped Kelly */}
                                     <div className="bg-slate-800 rounded-lg p-4 border border-slate-700">
                                         <div className="flex items-center justify-between mb-2">
-                                            <span className="text-slate-300 font-medium">Capped Kelly (Max 5%)</span>
+                                            <span className="text-slate-300 font-medium">Quarter Kelly / Capped</span>
                                             <Target className="w-4 h-4 text-emerald-400" />
                                         </div>
                                         <p className="text-xl font-bold text-emerald-400">
                                             {formatCurrency(results.cappedKelly)}
                                         </p>
                                         <p className="text-xs text-slate-400">
-                                            {((results.cappedKelly / bankroll) * 100).toFixed(2)}% of bankroll
+                                            {((results.cappedKelly / bankroll) * 100).toFixed(2)}% of bankroll after 25% Kelly and 5% cap
                                         </p>
+                                    </div>
+
+                                    {/* Risk Lens */}
+                                    <div className="bg-slate-800 rounded-lg p-4 border border-slate-700">
+                                        <div className="flex items-center justify-between mb-3">
+                                            <span className="text-slate-300 font-medium">Risk Lens</span>
+                                            <Info className="w-4 h-4 text-blue-400" />
+                                        </div>
+                                        <div className="grid grid-cols-2 gap-3 text-xs">
+                                            <div>
+                                                <p className="text-slate-500">Market breakeven</p>
+                                                <p className="text-white font-semibold">{results.breakeven.toFixed(2)}%</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-slate-500">Model edge</p>
+                                                <p className={results.edgePoints > 0 ? 'text-emerald-400 font-semibold' : 'text-red-400 font-semibold'}>
+                                                    {results.edgePoints > 0 ? '+' : ''}{results.edgePoints.toFixed(2)} pts
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p className="text-slate-500">EV per $1</p>
+                                                <p className={results.evPerDollar > 0 ? 'text-emerald-400 font-semibold' : 'text-red-400 font-semibold'}>
+                                                    {results.evPerDollar >= 0 ? '+' : ''}{results.evPerDollar.toFixed(3)}
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p className="text-slate-500">Signal / noise</p>
+                                                <p className="text-white font-semibold">
+                                                    {results.signalToNoise == null ? 'N/A' : results.signalToNoise.toFixed(3)}
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p className="text-slate-500">Return volatility</p>
+                                                <p className="text-white font-semibold">{results.volatility.toFixed(3)}</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-slate-500">Log growth</p>
+                                                <p className={results.growthAtRecommended > 0 ? 'text-emerald-400 font-semibold' : 'text-red-400 font-semibold'}>
+                                                    {(results.growthAtRecommended * 100).toFixed(3)}%
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     {/* Recommended */}
@@ -314,11 +360,11 @@ export default function UnitCalculatorModal({ isOpen, onClose }) {
                     <div className="mt-8 pt-6 border-t border-slate-700">
                         <h4 className="text-sm font-medium text-white mb-3">Kelly Criterion Formula</h4>
                         <div className="bg-slate-800 rounded-lg p-4 font-mono text-sm text-slate-300">
-                            f = (bp - q) / b
+                            EV = p*b - q  |  f = (bp - q) / b  |  g(f) = p ln(1 + fb) + q ln(1 - f)
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-3 text-xs text-slate-400">
                             <div><strong>f</strong> = fraction to bet</div>
-                            <div><strong>b</strong> = decimal odds</div>
+                            <div><strong>b</strong> = net odds</div>
                             <div><strong>p</strong> = win probability</div>
                             <div><strong>q</strong> = loss probability (1-p)</div>
                         </div>

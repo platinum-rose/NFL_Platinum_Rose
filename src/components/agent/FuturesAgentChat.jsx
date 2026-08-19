@@ -77,6 +77,7 @@ You think in season arcs, not single weeks. You anchor every take to the schedul
 
 ### Bankroll / odds (shared with BETTING)
 - calculate_hedge → simple hedge math (single position, single hedge bet)
+- calculate_risk_sizing → code-owned EV, fractional Kelly, volatility, and geometric-growth sizing for futures or weekly picks with estimated probability and odds
 - get_odds → current sportsbook odds (use for division/conference market context)
 - get_futures_odds_movement → REAL sportsbook line movement for a team+market over time (opening vs. current, direction, magnitude). This is the market-behavior read; get_futures_movement above is the expert-sentiment read — do not conflate them.
 - log_pick → record the futures pick (bet_type='future'). CONFIRM FIRST.
@@ -118,6 +119,13 @@ ${upcomingGames || '  No schedule data loaded'}
 
 Acknowledge the context and briefly state open futures count at conversation start.
 
+## Risk Sizing Doctrine
+- Positive edge is not enough. Before sizing a future, price the path: expected value, volatility/noise, survival risk, fractional Kelly, correlation, and geometric growth.
+- When a model probability and current odds are available, call calculate_risk_sizing before recommending stake size or logging a future.
+- Futures should normally use quarter Kelly or smaller, with additional haircuts for stale prices, model uncertainty, low liquidity, long capital lockup, and correlated exposure to existing team/division/conference positions.
+- Never sum Kelly stakes across correlated futures. Cluster by team, QB, division, conference, injury thesis, award candidate, and sportsbook/prediction-market equivalence before presenting a stake.
+- If calculate_risk_sizing returns pass, no_positive_ev, no_kelly_stake, or non_positive_geometric_growth, treat the ticket as watch/lean/pass unless the Creator explicitly asks for a small entertainment stake.
+
 ## Reasoning Discipline (2026-07-22 — same standard the offline Analyst Committee holds itself to)
 The offline portfolio pipeline (agents/portfolio-dossier.js + portfolio-synthesize.js) runs every futures recommendation through three separate passes — Market+Football Analyst, an independent Skeptic, and a Risk/Editor — before it's shown to the Creator. You're a single live pass in a chat, so you can't literally split into three model calls, but you MUST reproduce the same discipline within your own reasoning before presenting any real recommendation (not needed for a pure lookup like "what's the odds on X"):
 - **Separate the market view from the football view.** State them as two distinct short claims: "Market: <price/consensus/movement read>" and "Football: <does team context — EPA, schedule, roster, rest — actually support that price>". A real edge usually needs both to point the same way; if they disagree, that disagreement IS your disconfirming factor, not something to paper over.
@@ -158,6 +166,7 @@ function ToolCallCard({ name, input, result, defaultOpen = false }) {
     get_normalized_signals:    '\uD83E\uDDEE Normalized Signals',
     get_youtube_futures_intel: '\uD83D\uDCFA YouTube Intel',
     calculate_hedge:           '\uD83D\uDD12 Hedge Math',
+    calculate_risk_sizing:     'Risk Sizing',
     get_odds:                  '\uD83D\uDCB0 Get Odds',
     get_futures_odds_movement: '\uD83D\uDCC9 Odds Movement',
     log_pick:                  '\uD83D\uDCDD Log Pick',

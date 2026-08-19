@@ -54,6 +54,7 @@ import {
 import { PR_STORAGE_KEYS } from './storage.js';
 import { LOCAL_DATA, ESPN_API } from './apiConfig.js';
 import { normalizeTeam, getTeamAbbreviation, getTeam } from './teams.js';
+import { calculateRiskSizing } from './riskSizing.js';
 
 // ─── ESPN Team ID Mapping ─────────────────────────────────────────────────────
 // Used by get_injury_report tool
@@ -309,6 +310,48 @@ export const BETTING_TOOLS = [
         },
       },
       required: ['legs'],
+    },
+  },
+  {
+    name: 'calculate_risk_sizing',
+    description: 'Code-owned EV, Kelly, fractional-Kelly, volatility, and geometric-growth sizing report for a weekly pick or future. Use before recommending stake size or before log_pick when model probability and market odds are known. Returns pass/sizable_edge, EV per dollar, full Kelly, recommended capped/fractional stake, units, and risk flags.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        model_probability: {
+          type: 'number',
+          description: 'Estimated true win probability. Accepts decimal (0.55) or percent (55).',
+        },
+        odds: {
+          type: 'number',
+          description: 'American odds for the bet (e.g. -110, +150, +250).',
+        },
+        bankroll: {
+          type: 'number',
+          description: 'Current bankroll in dollars. Use bankroll context if available.',
+        },
+        unit_size: {
+          type: 'number',
+          description: 'Dollar value of one unit, if known. Enables recommended_units.',
+        },
+        fractional_kelly: {
+          type: 'number',
+          description: 'Fraction of full Kelly to use. Default 0.25 for weekly picks.',
+        },
+        max_stake_fraction: {
+          type: 'number',
+          description: 'Hard bankroll cap for this single bet. Default 0.05.',
+        },
+        uncertainty_haircut: {
+          type: 'number',
+          description: '0-1 multiplier for model uncertainty. Use below 1 when probability is estimated or stale.',
+        },
+        correlation_haircut: {
+          type: 'number',
+          description: '0-1 multiplier for correlated exposure. Use below 1 when it overlaps existing positions or same-thesis bets.',
+        },
+      },
+      required: ['model_probability', 'odds'],
     },
   },
   {
@@ -820,6 +863,7 @@ export async function executeTool(name, input) {
     case 'get_injury_report': return toolGetInjuryReport(input);
     case 'calculate_hedge': return toolCalculateHedge(input);
     case 'calculate_teaser': return toolCalculateTeaser(input);
+    case 'calculate_risk_sizing': return toolCalculateRiskSizing(input);
     case 'log_pick':        return toolLogPick(input);
     case 'get_performance_stats': return toolGetPerformanceStats(input);
     case 'search_intel':        return toolSearchIntel(input);
@@ -1166,6 +1210,31 @@ function toolCalculateTeaser({ legs, teaser_odds = -120 }) {
     recommendation: wongQualified
       ? `✅ WONG-QUALIFIED: ${wongQualifyingLegs.map(l => l.team).join(' + ')} both cross key numbers. EV: ${ev.toFixed(3)} (above 0 = +EV).`
       : `⚠️ NOT WONG: Only ${wongQualifyingLegs.length} of ${legs.length} legs cross key numbers. EV: ${ev.toFixed(3)}. Teasers without key number crossings are typically -EV.`,
+  };
+}
+
+function toolCalculateRiskSizing(input = {}) {
+  const result = calculateRiskSizing(input);
+  if (result.status === 'error') return result;
+
+  return {
+    ...result,
+    summary: {
+      market_implied_probability_pct: +(result.market_implied_probability * 100).toFixed(2),
+      model_probability_pct: +(result.inputs.model_probability * 100).toFixed(2),
+      edge_probability_points: +(result.edge_probability_points * 100).toFixed(2),
+      expected_value_per_dollar: +result.expected_value_per_dollar.toFixed(4),
+      full_kelly_pct: +(result.full_kelly_fraction * 100).toFixed(2),
+      recommended_stake_pct: +(result.recommended_stake_fraction * 100).toFixed(2),
+      recommended_stake: +result.recommended_stake.toFixed(2),
+      recommended_units: result.recommended_units == null ? null : +result.recommended_units.toFixed(2),
+      geometric_growth_pct: result.geometric_growth_at_recommended == null
+        ? null
+        : +(result.geometric_growth_at_recommended * 100).toFixed(4),
+      decision: result.status === 'sizable_edge'
+        ? 'candidate stake only; still requires football, price freshness, correlation, and human approval gates'
+        : 'pass or no stake from sizing math',
+    },
   };
 }
 

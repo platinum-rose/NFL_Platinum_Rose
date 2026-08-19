@@ -256,6 +256,47 @@
       "returns": "{ legs_analysis[], crosses_key_numbers, wong_qualified, ev_estimate, recommendation }"
     },
     {
+      "name": "calculate_risk_sizing",
+      "description": "Code-owned EV, Kelly, fractional-Kelly, volatility, and geometric-growth sizing report for a weekly pick or future. Use before recommending units or logging a pick when model probability and odds are known.",
+      "parameters": {
+        "model_probability": {
+          "type": "number",
+          "required": true,
+          "description": "Estimated true win probability as decimal or percent"
+        },
+        "odds": {
+          "type": "number",
+          "required": true,
+          "description": "American odds"
+        },
+        "bankroll": {
+          "type": "number",
+          "description": "Current bankroll in dollars"
+        },
+        "unit_size": {
+          "type": "number",
+          "description": "Dollar value of one unit"
+        },
+        "fractional_kelly": {
+          "type": "number",
+          "description": "Fraction of full Kelly; default 0.25"
+        },
+        "max_stake_fraction": {
+          "type": "number",
+          "description": "Hard cap as fraction of bankroll; default 0.05"
+        },
+        "uncertainty_haircut": {
+          "type": "number",
+          "description": "0-1 haircut for model uncertainty"
+        },
+        "correlation_haircut": {
+          "type": "number",
+          "description": "0-1 haircut for correlated exposure"
+        }
+      },
+      "returns": "{ status, market_implied_probability, expected_value_per_dollar, full_kelly_fraction, recommended_stake_fraction, recommended_stake, recommended_units, geometric_growth_at_recommended, flags[] }"
+    },
+    {
       "name": "search_podcast_picks",
       "description": "Search recent expert picks from tracked podcasts. Use for team-, expert-, week-, and category-filtered podcast-derived betting intel. Excludes picks flagged needs_review.",
       "parameters": {

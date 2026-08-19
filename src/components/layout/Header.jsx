@@ -1,5 +1,5 @@
 import React from 'react';
-import { LayoutDashboard, Trophy, Mic2, Radio, RefreshCw, Activity, ListFilter, Split, ShoppingBag, Save, UploadCloud, RotateCcw, Mic, Shield, Banknote, BarChart3, TrendingUp, Target, Briefcase, Database, Bot, MessageSquare, Layers, Zap, FileText, ShieldCheck, HeartPulse, Shirt, User } from 'lucide-react';
+import { LayoutDashboard, Trophy, Mic2, Radio, RefreshCw, Activity, ListFilter, Split, ShoppingBag, Save, UploadCloud, RotateCcw, Mic, Shield, Banknote, BarChart3, TrendingUp, Target, Briefcase, Database, Bot, MessageSquare, Layers, Zap, FileText, ShieldCheck, HeartPulse, Shirt, User, Calculator } from 'lucide-react';
 
 import { getNFLWeekInfo } from '../../lib/constants';
 
@@ -13,6 +13,7 @@ export default function Header({
   onOpenTeasers,
   onOpenContest,
   onOpenPredictionConverter,
+  onOpenUnitCalculator,
   onImport,
   onAnalyze,
   onManage,
@@ -58,6 +59,7 @@ export default function Header({
                 <ToolButton onClick={onOpenSplits} icon={Activity} label="Pulse" colorClass="text-rose-400" />
                 <ToolButton onClick={onOpenSplitsData} icon={BarChart3} label="Splits" colorClass="text-cyan-400" />
                 <ToolButton onClick={onOpenPredictionConverter} icon={TrendingUp} label="Kalshi/Poly" colorClass="text-emerald-400" />
+                <ToolButton onClick={onOpenUnitCalculator} icon={Calculator} label="Sizing" colorClass="text-blue-400" />
             </div>
 
             {/* RIGHT: DATA BUTTONS */}

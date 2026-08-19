@@ -331,6 +331,7 @@ Your job is not to push picks. Your job is to surface information that lets the 
 - get_injury_report → ESPN injury designations for a team
 - calculate_hedge → hedge math for active positions
 - calculate_teaser → key number analysis + Wong teaser check
+- calculate_risk_sizing → code-owned EV, fractional Kelly, volatility, and geometric-growth sizing for any pick with estimated probability and odds
 - log_pick → write to Picks Tracker (CONFIRM FIRST, always)
 - get_performance_stats → historical ROI by confidence tier, edge size, and team
 - search_intel → keyword search across recent research articles + pick signals by source/team
@@ -338,6 +339,13 @@ Your job is not to push picks. Your job is to surface information that lets the 
 - read_vault_note → load a note from the NFL betting vault (reference data, past session angles, team notes)
 - write_vault_note → save post-session notes or update reference data in the vault (confirm first)
 ${phaseNote}
+
+## Risk Sizing Doctrine
+- Positive edge is only the entrance ticket. Before sizing a weekly pick, price the path: expected value, volatility, ruin/survival risk, fractional Kelly, and geometric growth.
+- When model probability and odds are known, call calculate_risk_sizing before recommending units or calling log_pick.
+- Default to quarter Kelly or smaller, cap weekly single-pick exposure, and haircut for model uncertainty, stale data, correlated card exposure, futures overlap, or same-thesis parlays.
+- Never sum Kelly stakes across correlated bets. Cluster team, QB, injury, weather, division, and market-thesis exposure before presenting a stake.
+- If calculate_risk_sizing returns pass, no_positive_ev, no_kelly_stake, or non_positive_geometric_growth, present it as a lean/pass unless the Creator explicitly asks for a non-model entertainment stake.
 
 ## Context (loaded at session start)
 Today: ${today}
@@ -394,6 +402,7 @@ function ToolCallCard({ name, input, result, defaultOpen = false }) {
     get_injury_report:   '\u{1F3E5} Injury Report',
     calculate_hedge:     '\u{1F6E1} Hedge Calc',
     calculate_teaser:    '\u{1F3AF} Teaser Eval',
+    calculate_risk_sizing: 'Risk Sizing',
     log_pick:            '\u{1F4DD} Log Pick',
     get_performance_stats: '\u{1F4C8} Performance Stats',
     search_intel:          '\u{1F50D} Search Intel',

@@ -101,8 +101,8 @@ import {
 
 describe('agentTools', () => {
   describe('BETTING_TOOLS', () => {
-    it('exports exactly 21 tools (13 base + 8 podcast intel)', () => {
-      expect(BETTING_TOOLS).toHaveLength(21);
+    it('exports exactly 22 tools (14 base + 8 podcast intel)', () => {
+      expect(BETTING_TOOLS).toHaveLength(22);
     });
 
     it('each tool has name, description, and input_schema', () => {
@@ -119,6 +119,7 @@ describe('agentTools', () => {
       expect(names).toEqual([
         'analyze_matchup',
         'calculate_hedge',
+        'calculate_risk_sizing',
         'calculate_teaser',
         'get_betting_splits',
         'get_expert_history',
@@ -231,6 +232,21 @@ describe('agentTools', () => {
     it('calculate_teaser requires at least 2 legs', async () => {
       const result = await executeTool('calculate_teaser', { legs: [] });
       expect(result).toHaveProperty('error');
+    });
+
+    it('calculate_risk_sizing returns a code-owned stake report', async () => {
+      const result = await executeTool('calculate_risk_sizing', {
+        model_probability: 0.35,
+        odds: 250,
+        bankroll: 1000,
+        unit_size: 25,
+      });
+
+      expect(result.status).toBe('sizable_edge');
+      expect(result.summary.expected_value_per_dollar).toBeCloseTo(0.225, 3);
+      expect(result.summary.full_kelly_pct).toBeCloseTo(9, 1);
+      expect(result.summary.recommended_units).toBeCloseTo(0.9, 1);
+      expect(result.summary.decision).toMatch(/approval/i);
     });
 
     it('get_performance_stats returns standings, confidence, edge, and team breakdowns', async () => {

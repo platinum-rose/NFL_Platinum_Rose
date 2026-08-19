@@ -131,6 +131,11 @@
       "description": "Hedge math for locking profit on an outright futures position with current spread/ML odds."
     },
     {
+      "name": "calculate_risk_sizing",
+      "source": "BETTING_TOOLS",
+      "description": "Code-owned EV, fractional-Kelly, volatility, and geometric-growth sizing report. FUTURES should use quarter Kelly or smaller, then haircut for stale price, liquidity, capital lockup, and correlated exposure."
+    },
+    {
       "name": "get_odds",
       "source": "BETTING_TOOLS",
       "description": "Pull current sportsbook odds; FUTURES uses this for current-line context on division/conference markets."

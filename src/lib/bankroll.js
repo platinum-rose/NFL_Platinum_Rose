@@ -5,6 +5,7 @@ import logger from './logger';
 import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS } from './storage';
 import { syncBet } from './supabase';
 import { enqueueDirty, dequeueSuccess } from './syncQueue';
+import { cappedKellyFraction } from './riskSizing';
 
 // Sync helper — writes locally first, queues for retry on cloud failure
 const fireSync = (bet) =>
@@ -191,16 +192,7 @@ const calculateProfit = (wagerAmount, americanOdds) => {
  * Calculate optimal unit size using Kelly Criterion
  */
 export const calculateKellyUnit = (winProbability, odds, bankroll) => {
-    const b = Math.abs(odds) > 100 ? (odds > 0 ? odds / 100 : 100 / Math.abs(odds)) : 1;
-    const p = winProbability / 100; // Convert percentage to decimal
-    const q = 1 - p;
-
-    // Kelly formula: f = (bp - q) / b
-    const kellyFraction = (b * p - q) / b;
-
-    // Cap at 25% max bet size for safety
-    const cappedFraction = Math.min(Math.max(kellyFraction, 0), 0.25);
-
+    const cappedFraction = cappedKellyFraction(winProbability, odds, 0.25) || 0;
     return bankroll * cappedFraction;
 };
 
