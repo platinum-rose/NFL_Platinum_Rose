@@ -182,11 +182,33 @@ it.
 - `scripts/backfill-futures-imports.js` — new, futures ingestion backfill (see #1)
 - `src/components/futures/FuturesIntelReport.jsx` — unchanged this round (already committed last round)
 
+### 5. Cross-platform handoff header bug in this file — found and fixed
+
+Andy asked to hand off to a fresh session; while sorting out the ATLAS
+session-close protocol (see `.atlas-bridge/memory.json` and the real ATLAS
+repo's `.atlas/memory.json` / `core/session_logger.py`), found that this
+file had **three** simultaneous `## Current Pick Up Here` headers, not one:
+this session's (correct, top of file), plus two orphaned ones further down
+that whoever came after them never demoted to `## Previous Pick Up Here`:
+`(2026-08-22, LINT-1 Fixed, Claude/Cowork)` and
+`- 2026-08-22 11:55 PT - Codex`. Confirmed real-world impact: Andy asked
+Antigravity what the last handoff in this file was, and it reported the
+already-superseded `(2026-08-22, Quant Probability Strategy & IDP Ingest
+Complete, Antigravity)` block — stale, because Antigravity answered from its
+own memory of when it last touched the file rather than re-reading it.
+Renamed both orphaned headers to `## Previous Pick Up Here` (label only, no
+content changed/lost). **Convention for every tool/session going forward**:
+before adding a new `## Current Pick Up Here` block, grep this file for
+`^## Current Pick Up Here` first — if any match besides the one you're about
+to add, rename it to `## Previous Pick Up Here` in the same edit. Don't
+assume there's only one just because you added the last one.
+
 ### Guardrails followed this session
 
 Same standing guardrails as before: dirty worktree preserved (no `git add
 -A`, only the specific files above), no commit without Andy's approval (he
-gave it — see conversation; still pending, blocked on the stale locks above),
+gave it — see conversation; the futures/Expert-Signals/tab-scroll fixes and
+this file's prior content landed in commit `23f662c`, pushed to origin/main),
 no Supabase write without approval (he gave it explicitly for the backfill;
 he ran the actual write himself since the bridge has no network path to
 Supabase — see #1), no fabricated data (every normalization in the backfill
@@ -537,7 +559,7 @@ Bug 3 is the one real open item.
   this session's edits (the LINT-1 fixes above and the one stale-pointer
   fix in `build-youtube-futures-intel-review.js`).
 
-## Current Pick Up Here (2026-08-22, LINT-1 Fixed, Claude/Cowork)
+## Previous Pick Up Here (2026-08-22, LINT-1 Fixed, Claude/Cowork)
 
 - Andy asked to handle TASK_BOARD.md's LINT-1 backlog item ("212 pre-existing
   lint problems"). That description was stale: `docs/archive/
@@ -608,7 +630,7 @@ Bug 3 is the one real open item.
 - Nothing committed, staged, or pushed. Worktree preserved dirty as found,
   plus these 4 edits.
 
-## Current Pick Up Here - 2026-08-22 11:55 PT - Codex
+## Previous Pick Up Here - 2026-08-22 11:55 PT - Codex
 
 Codex reviewed Claude/Cowork Checkpoints 3, 4, and 5 in sequence. Checkpoints
 1-4 are Codex-approved. Checkpoint 5 item 14 had an initial blocker, then a

@@ -1,21 +1,21 @@
 {
   "project_name": "NFL_Dashboard",
   "bridge_version": "1.0",
-  "last_updated": "2026-07-26",
+  "last_updated": "2026-08-23",
   "last_atlas_sync": "2026-07-26",
   "session_count": 8,
   "health": {
     "status": "active",
     "days_since_push": 0,
     "open_pr_count": 0,
-    "last_commit_msg": "S308: TASK_BOARD/WORKING-CONTEXT refresh for Fantasy tab",
+    "last_commit_msg": "fix(futures): patch tab-scroll nav + Value Spot display, backfill manual futures-odds imports, extract picks from full article body",
     "last_commit_author": "andrewlrose"
   },
-  "status_summary": "NFL betting analytics dashboard, now in preseason (season starts 2026-09-08). This run (S302-S308) shipped 4 new tabs (Official Picks, Injury Center, Fantasy Value Board) and 1 fix (Dashboard game-time bug), plus a full 17-tab UI QC audit. Root-caused and fixed a longstanding bug where the fantasy value board had never produced a real projection since it was built. Yahoo Fantasy API access is pending Yahoo's own approval process (1-2 week SLA) -- not blocked on us.",
+  "status_summary": "NFL betting analytics dashboard, now in preseason (season starts 2026-09-08). This run (2026-08-23, session number not visible from this repo -- see note on session_log entry below) fixed the Futures Intel Report page end to end: (1) restored report interactivity (missing iframe sandbox flag -- prior fix, already synced), (2) found and backfilled a major data gap -- futures_odds_snapshots held only an automated superbowl-only feed; ~3 months of manually-gathered BetOnline/Bookmaker/BetUS futures data (19 batch files, 4,333 rows) had never been loaded, which is why Line Movement and Value Spots were thin -- backfill ran live, verified 8,685 rows across all 8 report categories, (3) fixed a display bug where a Value Spot card showed only the point gap between two books' prices (e.g. \"+227\") instead of the worse book's actual price, which read as corrupted/truncated data, (4) found and fixed why Expert Signals wasn't surfacing picks stated in article bodies -- pick extraction only ever read the short RSS teaser, never the full article text a separate step was already fetching, (5) fixed the report's tab-nav so clicking a category actually scrolls the page. Yahoo Fantasy API access status not re-checked this session -- alert below left as-is.",
   "alerts": [
     {
       "id": "yahoo_api_pending_approval",
-      "message": "Yahoo Fantasy Sports API access application submitted 2026-07-26 (sports.yahoo.com/developer/access/) -- awaiting Yahoo review. Blocks F-26's Yahoo ADP/league-settings pull and F-26b (IDP/team-DEF scoring).",
+      "message": "Yahoo Fantasy Sports API access application submitted 2026-07-26 (sports.yahoo.com/developer/access/) -- awaiting Yahoo review. Blocks F-26's Yahoo ADP/league-settings pull and F-26b (IDP/team-DEF scoring). Status not re-checked in the 2026-08-23 session.",
       "severity": "info",
       "timestamp": "2026-07-26T00:00:00",
       "resolved": false
@@ -46,6 +46,20 @@
       "priority": 2,
       "created_at": "2026-07-26T00:00:00",
       "owner": "ATLAS"
+    },
+    {
+      "id": "futures_report_regen_verify",
+      "description": "Regenerate the Futures Intel Report and verify Line Movement / Value Spots now populate now that ~3 months of manual BOL/BKR/BTU futures data has been backfilled (2026-08-23)",
+      "priority": 1,
+      "created_at": "2026-08-23T00:00:00",
+      "owner": "Andy"
+    },
+    {
+      "id": "expert_signals_retro_backfill",
+      "description": "Optional follow-up: the 2026-08-23 fix that extracts pick signals from full article bodies is forward-only -- it does not retroactively re-scan research_intel_notes.body for already-ingested articles. Not built (wasn't requested); small script if wanted.",
+      "priority": 3,
+      "created_at": "2026-08-23T00:00:00",
+      "owner": "Andy"
     }
   ],
   "session_log": [
@@ -54,6 +68,12 @@
       "date": "2026-07-26",
       "summary": "F-29 Official Picks tab, F-25 Injury Center, F-27 UI QC pass + F-27b fix (Dashboard game-time bug), F-26 Fantasy Value Board + root-caused/fixed a 0-match join bug (Supabase 1000-row cap) that had silently broken it since it was first built.",
       "head": "d5a3e0a"
+    },
+    {
+      "sessions": "S-unknown (global session counter not visible from this repo -- .atlas/memory.json doesn't exist here, only .atlas-bridge/; needs reconciliation against the real ATLAS counter)",
+      "date": "2026-08-23",
+      "summary": "Futures Intel Report: backfilled ~3mo of manually-gathered BOL/BKR/BTU futures data (19 files, 4,333 rows -- futures_odds_snapshots previously held only an automated superbowl-only feed, bookmaker/betus had zero rows ever); fixed Value Spot card showing a misleading point-gap number instead of the actual worse-book price; fixed Expert Signals never extracting picks stated in full article bodies (only ever read the RSS teaser); fixed report tab-nav scroll. Builds on the prior 2026-08-23 session (iframe sandbox/interactivity fix, same day, not yet reflected in this bridge file before now).",
+      "head": "23f662c"
     }
   ]
 }
