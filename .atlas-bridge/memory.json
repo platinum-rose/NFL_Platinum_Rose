@@ -26,7 +26,12 @@
     "agent_count": 24,
     "skills_count": 0,
     "hooks_count": 7,
-    "governance_docs": ["CLAUDE.md", "SOUL.md", "RULES.md", "AGENTS.md"],
+    "governance_docs": [
+      "CLAUDE.md",
+      "SOUL.md",
+      "RULES.md",
+      "AGENTS.md"
+    ],
     "maturity_tier": 1,
     "primary_season": "NFL (Sep-Jan)",
     "off_season": true,
@@ -70,9 +75,9 @@
       "head": "d5a3e0a"
     },
     {
-      "sessions": "S-unknown (global session counter not visible from this repo -- .atlas/memory.json doesn't exist here, only .atlas-bridge/; needs reconciliation against the real ATLAS counter)",
+      "sessions": "S339",
       "date": "2026-08-23",
-      "summary": "Futures Intel Report: backfilled ~3mo of manually-gathered BOL/BKR/BTU futures data (19 files, 4,333 rows -- futures_odds_snapshots previously held only an automated superbowl-only feed, bookmaker/betus had zero rows ever); fixed Value Spot card showing a misleading point-gap number instead of the actual worse-book price; fixed Expert Signals never extracting picks stated in full article bodies (only ever read the RSS teaser); fixed report tab-nav scroll. Builds on the prior 2026-08-23 session (iframe sandbox/interactivity fix, same day, not yet reflected in this bridge file before now).",
+      "summary": "Futures Intel Report: backfilled ~3mo of manually-gathered BOL/BKR/BTU futures data (19 files, 4,333 rows -- futures_odds_snapshots previously held only an automated superbowl-only feed, bookmaker/betus had zero rows ever); fixed Value Spot card showing a misleading point-gap number instead of the actual worse-book price; fixed Expert Signals never extracting picks stated in full article bodies (only ever read the RSS teaser); fixed report tab-nav scroll. Builds on the prior 2026-08-23 session (iframe sandbox/interactivity fix, same day, not yet reflected in this bridge file before now). Reconciled against the real ATLAS counter 2026-08-23: logged as S339 (not S334 -- session_log/INDEX.md showed S331-S338 already used). This S339 entry also consolidates 5 other 2026-08-22/23 pieces of NFL_Dashboard work (Antigravity BetOnline OCR/quant framework, IDP schemes guide, DraftSharks IDP rankings, OCR re-verify; Cowork archive-reorg audit + LINT-1 closeout; Codex Checkpoint 5 kickoff; Cowork Futures Report interactivity fix + NFL-ATLAS-1 pin/watchlist) that had never been logged to ATLAS -- see E:/dev/ATLAS/.atlas/session_log/2026-08-23_session.md for the full record.",
       "head": "23f662c"
     }
   ]
