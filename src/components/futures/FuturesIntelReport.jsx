@@ -91,7 +91,24 @@ export default function FuturesIntelReport() {
       setRegen({ active: true, msg: 'Build queued — waiting for the report…', error: null });
       startPolling(prior);
     } catch (e) {
-      setRegen({ active: false, msg: '', error: `Could not start a build: ${e.message || e}. Check the dispatch-futures-report function and its GitHub token.` });
+      // supabase-js's FunctionsHttpError only exposes a generic "non-2xx status
+      // code" message on e.message — the edge function's own {error, detail}
+      // JSON body (see supabase/functions/dispatch-futures-report/index.ts,
+      // which reports e.g. a bad GitHub token vs. a 404'd workflow file
+      // differently) lives on e.context, the raw Response object, and has to
+      // be parsed separately or it's silently lost. Previously this just
+      // showed the generic wrapper text with a hardcoded "check the GitHub
+      // token" guess tacked on regardless of what actually failed.
+      let detail = '';
+      try {
+        if (e?.context?.json) {
+          const body = await e.context.json();
+          detail = body?.detail || body?.error || '';
+        }
+      } catch { /* context body already consumed or not JSON — fall back below */ }
+
+      const summary = detail || e.message || String(e);
+      setRegen({ active: false, msg: '', error: `Could not start a build: ${summary}` });
     }
   }, [report, startPolling]);
 
@@ -159,7 +176,18 @@ export default function FuturesIntelReport() {
             onLoad={sizeIframe}
             className="w-full"
             style={{ height: '1400px', border: 'none', background: '#0f1217' }}
-            sandbox="allow-same-origin allow-popups"
+            // NFL-DASHBOARD-BUG-3 (2026-08-23): sandbox was missing allow-scripts,
+            // which silently killed ALL interactivity in the report — sortable
+            // columns, section collapse toggles, show-more buttons, matchup/mover
+            // filters, and the in-report tab nav (whose native '#id' link clicks,
+            // without JS to intercept them, were navigating the whole iframe away
+            // to this app's own shell — see the matching fix in
+            // agents/futures-intel-report-v2.js's embedded <script>). allow-same-
+            // origin is already present (needed for sizeIframe's contentDocument
+            // access) and report.html is entirely self-generated server-side, not
+            // third-party content, so allow-scripts here isn't adding exposure to
+            // untrusted script.
+            sandbox="allow-same-origin allow-popups allow-scripts"
           />
         </div>
       )}

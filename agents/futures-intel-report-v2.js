@@ -1837,7 +1837,7 @@ a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
 .verdict-p{margin:4px 0;color:var(--tx2);font-size:13px}
 .verdict-body{font-size:13.5px;color:var(--tx);line-height:1.7}
 /* ── Tables ─────────────────────────────────────────────────────────────────── */
-.tbl-wrap{overflow-x:hidden;border-radius:10px;border:1px solid var(--bd)}
+.tbl-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--bd)}
 table{width:100%;border-collapse:collapse;font-size:13.5px}
 thead tr{background:var(--s2)}
 th{text-align:left;font-size:11px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.05em;padding:9px 12px;border-bottom:1px solid var(--bd);white-space:nowrap}
@@ -2143,6 +2143,20 @@ ${model.categories.map(catSection).join('')}
 <script>
 // ── Event delegation (covers sec-toggle, show-more-btn, mf-chip) ──────────────
 document.addEventListener('click', function(e) {
+  // In-report anchor nav (toc links + any other '#id' links). This report is
+  // rendered into a srcDoc iframe, and per the HTML spec a srcdoc document's
+  // base URL is inherited from the PARENT page, not "about:srcdoc" — so a
+  // native '#id' navigation resolves against the parent app's URL and the
+  // browser loads that (parent-app) URL INTO the iframe, wiping out the whole
+  // report instead of scrolling to the section. Intercept and scroll manually.
+  var navLink = e.target.closest('a[href^="#"]');
+  if (navLink) {
+    e.preventDefault();
+    var targetId = navLink.getAttribute('href').slice(1);
+    var target = targetId ? document.getElementById(targetId) : null;
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return;
+  }
   // Collapsible section toggle
   var btn = e.target.closest('.sec-toggle');
   if (btn) {
