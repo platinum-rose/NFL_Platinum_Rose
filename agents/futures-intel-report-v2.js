@@ -1665,7 +1665,14 @@ function renderHtml(model) {
             return '<div class="spread-mkt-row">' +
               '<span class="spread-mkt-name">' + esc(m.market) + '</span>' +
               '<span class="spread-mkt-action">' + bLbl + ' <b>' + fmtOdds(m.bestOdds) + '</b></span>' +
-              '<span class="spread-mkt-ctx">(+' + m.spread + ' vs ' + wLbl + ')</span>' +
+              // NFL-DASHBOARD-BUG-6 (2026-08-23): this used to render as
+              // "(+227 vs BOL)" — showing only the point GAP between books,
+              // not BOL's actual price. Andy read "+227" as BOL's own odds
+              // and (reasonably) flagged it as corrupted/truncated data —
+              // the real BOL price was +2000, the gap to BKR's +2227 is
+              // 227 pts. Not a data bug, a display-clarity bug: now shows
+              // the worst book's actual price plus the gap, unambiguously.
+              '<span class="spread-mkt-ctx">(vs ' + wLbl + ' <b>' + fmtOdds(m.worstOdds) + '</b>, +' + m.spread + ' pts)</span>' +
             '</div>';
           }).join('');
           return '<div class="spot-card spread" data-cats="' + catsAttr + '">' +
@@ -2154,7 +2161,30 @@ document.addEventListener('click', function(e) {
     e.preventDefault();
     var targetId = navLink.getAttribute('href').slice(1);
     var target = targetId ? document.getElementById(targetId) : null;
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (target) {
+      // NFL-DASHBOARD-BUG-4 (2026-08-23): scrollIntoView() on 'target' here
+      // is a no-op in practice. FuturesIntelReport.jsx's sizeIframe() sets
+      // the iframe's height to its full contentDocument.scrollHeight, so
+      // THIS document (inside the iframe) never has its own overflow/scroll
+      // — every element is already fully visible within the iframe's own
+      // viewport. The thing that actually needs to scroll is the PARENT
+      // app page, which this document has no direct DOM relationship to.
+      // window.frameElement is reachable (sandbox includes allow-same-
+      // origin), so translate the target's position inside this iframe
+      // into an absolute Y offset on the parent page and scroll that.
+      try {
+        var fr = window.frameElement;
+        if (fr && window.parent && window.parent !== window) {
+          var frameTop = fr.getBoundingClientRect().top + window.parent.scrollY;
+          var targetTop = target.getBoundingClientRect().top;
+          window.parent.scrollTo({ top: Math.max(0, frameTop + targetTop - 16), behavior: 'smooth' });
+        } else {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      } catch (navErr) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
     return;
   }
   // Collapsible section toggle

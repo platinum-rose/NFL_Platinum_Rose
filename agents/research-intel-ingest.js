@@ -375,37 +375,55 @@ function looksNflRelevant(item, source = '') {
   return !titleHasNonNfl;
 }
 
-function extractSignals(item, source, baseConfidence) {
-  const text = `${item.title} ${item.description}`.trim();
-  const lower = text.toLowerCase();
+// NFL-DASHBOARD-BUG-5 (2026-08-23): factored out of extractSignals() so the
+// same explicit-pick regex can run against either the short RSS title+
+// description (what extractSignals() below has always used) OR the full
+// article body fetched by fetchArticleBody() (see the F-11 Ph.2 backfill
+// loop in main() — that step was fetching and storing the full body but
+// NEVER re-running pick extraction against it, so an explicit pick stated
+// only in an article's body text, and not repeated in its RSS teaser, was
+// silently never captured as a research_pick_signals row).
+function extractSignalsFromText(text, { source, baseConfidence, eventRef, fallbackLabel, fallbackRationale, maxExplicit = 3 }) {
+  const clean = String(text || '').trim();
+  const lower = clean.toLowerCase();
   const signals = [];
 
-  const spreadOrTotalMatches = text.match(/\b[A-Z][A-Za-z .&'-]{2,30}\s(?:\+|-)\d+(?:\.\d+)?\b|\b(?:Over|Under)\s\d+(?:\.\d+)?\b/g) || [];
-  for (const m of spreadOrTotalMatches.slice(0, 3)) {
+  const spreadOrTotalMatches = clean.match(/\b[A-Z][A-Za-z .&'-]{2,30}\s(?:\+|-)\d+(?:\.\d+)?\b|\b(?:Over|Under)\s\d+(?:\.\d+)?\b/g) || [];
+  for (const m of spreadOrTotalMatches.slice(0, maxExplicit)) {
     signals.push({
       source,
       team_or_market: m,
       bet_type: classifyBetType(m),
       lean: m,
-      rationale: item.title,
-      event_ref: item.link,
+      rationale: fallbackLabel,
+      event_ref: eventRef,
       confidence: Number((baseConfidence - 0.08).toFixed(3)),
     });
   }
 
-  if (signals.length === 0 && /pick|best bet|lean|prediction|odds/i.test(lower)) {
+  if (signals.length === 0 && fallbackLabel && /pick|best bet|lean|prediction|odds/i.test(lower)) {
     signals.push({
       source,
-      team_or_market: item.title,
-      bet_type: classifyBetType(text),
-      lean: item.title,
-      rationale: item.description.slice(0, 220),
-      event_ref: item.link,
+      team_or_market: fallbackLabel,
+      bet_type: classifyBetType(clean),
+      lean: fallbackLabel,
+      rationale: fallbackRationale,
+      event_ref: eventRef,
       confidence: Number((baseConfidence - 0.12).toFixed(3)),
     });
   }
 
   return signals;
+}
+
+function extractSignals(item, source, baseConfidence) {
+  return extractSignalsFromText(`${item.title} ${item.description}`, {
+    source,
+    baseConfidence,
+    eventRef: item.link,
+    fallbackLabel: item.title,
+    fallbackRationale: item.description.slice(0, 220),
+  });
 }
 
 async function fetchFeed(feed) {
@@ -660,9 +678,20 @@ async function main() {
   }
 
   // F-11 Ph.2: Back-fill article bodies for newly inserted notes
+  // NFL-DASHBOARD-BUG-5 (2026-08-23): this loop used to only backfill the
+  // display `body` column. It now ALSO re-runs pick extraction against that
+  // full body text (extractSignalsFromText, factored out above) — a pick
+  // stated deep in an article ("Eagles vs Patriots pick: Patriots +2.5
+  // (-118)") is very often absent from the RSS title/description that
+  // extractSignals() saw earlier in this run, so it was never captured
+  // before. Results are pushed into candidateSignals so they flow through
+  // the SAME note_id-resolution + insert path as teaser-derived signals
+  // below — no other code needed to change.
+  const noteMetaByHash = new Map(newNotes.map(n => [n.url_hash, n]));
   if (FETCH_BODY && insertedNotes.length > 0) {
     console.log(`  Fetching article bodies for ${insertedNotes.length} new notes…`);
     let bodiesFetched = 0;
+    let bodySignalsAdded = 0;
     for (const note of insertedNotes) {
       const body = await fetchArticleBody(note.url);
       if (!body) continue;
@@ -676,10 +705,42 @@ async function main() {
       } else {
         bodiesFetched++;
       }
+
+      const meta = noteMetaByHash.get(note.url_hash);
+      // Analytical sources are excluded from signal extraction above too
+      // ("contextual articles, not explicit pick signals") — keep that rule
+      // consistent for body-derived signals.
+      if (meta && meta.source_type !== 'analytical') {
+        const bodySignals = extractSignalsFromText(body, {
+          source: meta.source,
+          baseConfidence: meta.confidence,
+          eventRef: note.url,
+          fallbackLabel: meta.title,
+          fallbackRationale: body.slice(0, 220),
+          maxExplicit: 8, // a full article can reasonably cover several games' picks
+        });
+        // Dedup against whatever the teaser pass already found for this
+        // same note (matched by event_ref, since candidateSignals hasn't
+        // been resolved to note_id yet at this point in main()).
+        const seenKeys = new Set(
+          candidateSignals
+            .filter((s) => s.event_ref === note.url)
+            .map((s) => `${String(s.team_or_market).toLowerCase().trim()}|${s.bet_type}`)
+        );
+        for (const bs of bodySignals) {
+          const key = `${String(bs.team_or_market).toLowerCase().trim()}|${bs.bet_type}`;
+          if (seenKeys.has(key)) continue;
+          seenKeys.add(key);
+          candidateSignals.push(bs);
+          bodySignalsAdded++;
+        }
+      }
+
       // Polite delay between article fetches
       await new Promise(r => setTimeout(r, 300));
     }
     console.log(`  Bodies fetched: ${bodiesFetched}/${insertedNotes.length}`);
+    console.log(`  Additional pick signals found in article bodies: ${bodySignalsAdded}`);
   }
 
   const noteIdByHash = new Map(insertedNotes.map(n => [n.url_hash, n.id]));

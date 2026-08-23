@@ -1,6 +1,200 @@
 # NFL_Dashboard - Session Handoff
 
-## Current Pick Up Here (2026-08-23, Futures Intel Report interactivity fixed — root cause was a missing iframe sandbox flag, Claude/Cowork)
+## Current Pick Up Here (2026-08-23, futures ingestion gap + Expert Signals extraction fixed, tab-scroll patched, blocked on a stale git lock, Claude/Cowork)
+
+Continuation of the entry directly below (the interactivity-fix session).
+Andy came back with three explicit new items after regenerating the report
+and finding it "very light": (1) find out where all the manually-gathered
+futures data went, (2) patch the tab-click-doesn't-scroll nuance, (3) look
+into why Expert Signals doesn't surface explicit picks from article text.
+All three are now code-fixed. **One is blocked on something only Andy can
+clear** — see "Blocked: stale git locks" below before anything else.
+
+### 1. Futures ingestion gap — much bigger than "the 08-22 batch"
+
+Queried `futures_odds_snapshots` directly: for season 2026 it held exactly
+4,352 rows, ALL `market_type=superbowl`, split evenly across exactly 4 books
+(betmgm/betonline/draftkings/fanduel, 1088 rows each) — clearly the
+automated daily feed (`agents/futures-odds-ingest.js`), running since
+~2026-07-24. `bookmaker` and `betus` had **zero rows ever**, and **no
+market_type other than superbowl existed for any book** — meaning all 19
+manually-gathered batch files in `data/futures-imports/` (5 betonline, 5
+betus, 9 bookmaker; 2026-05-17 through 2026-08-22; 4,333 rows total) had
+never been loaded. This — not the 08-22 batch specifically — is why
+Line Movement and Value Spots are thin: those need ≥2 snapshot dates and,
+for Value Spots, sharp/public divergence, and almost all of the sharp-book
+(BOL/BKR/BTU) history simply wasn't in the table.
+
+Built `scripts/backfill-futures-imports.js` to load all 19 files. Two
+wrinkles handled: (a) `betonline-2026-08-22.json` uses a wrapped
+`{records:[...]}` shape instead of a flat array (the other 18 are flat
+arrays), and (b) that same file uses generic `market_type` values
+(`conference`, `division`) instead of the split names the report generator
+expects (`conference_afc`/`conference_nfc`, `division_afc_east` etc.) — its
+rows carry the split info in separate `conference`/`division` fields, which
+the script now uses to derive the correct market_type. Also normalized that
+file's `playoffs` rows (`yes_price` → `odds`, matching every other file) and
+its `exacta` rows (`selection` → `team`, since there's no single team on a
+seeding-exacta pick). `exacta` (BOL) and `conference_no_1_seed` (one BKR
+batch) aren't modeled by any of the 8 report categories today — loaded as
+real data under those market_type values anyway rather than dropped or
+force-mapped into a wrong category; they'll just sit inert until a category
+exists for them.
+
+Dry-run (`node scripts/backfill-futures-imports.js --dry-run`) is clean:
+4,333 rows, **zero anomalies**, matches the local-file grand total exactly.
+Full per-book/market breakdown is in the script's own dry-run output.
+
+**DONE — written to Supabase (2026-08-23, run by Andy).** The device
+bridge's shell has no network egress to `*.supabase.co` (confirmed: `curl`
+to the Supabase host returns `403` from the bridge's own egress proxy;
+`github.com` is allowlisted, Supabase isn't), so Andy ran it himself from a
+normal terminal. First attempt hit a real bug the dry-run didn't catch:
+`betonline-2026-08-22.json`'s `wins` rows carry only `line`/`over_price`/
+`under_price`, no `odds`/`price` at all (every other file's `wins` rows
+mirror `odds` from `over_price`) — `futures_odds_snapshots.odds` is
+`NOT NULL`, so that hit a real `23502` constraint violation on chunk
+500–1000 (`"New England Patriots" betonline wins`, odds=null). Fixed in
+`scripts/backfill-futures-imports.js`: `wins` rows now backfill `odds` from
+`over_price` when missing, and (safety net for future format surprises)
+any row that still has no usable `odds` after normalization is dropped and
+reported as an anomaly instead of failing the whole chunk. Re-ran — all
+4,333 rows upserted cleanly.
+
+Verified live via a Supabase query from the running app (anon key, browser
+console): `futures_odds_snapshots` for season 2026 is now **8,685 rows**
+(4,352 automated-feed + 4,333 backfilled — exact match, nothing lost or
+duplicated). Per-book: betmgm 1088, draftkings 1088, fanduel 1088
+(unchanged, automated feed only), **betonline 1843** (was 1088),
+**bookmaker 1370** (was 0), **betus 2208** (was 0). All 8 report categories
+now have real rows (superbowl 4928, conference_afc/nfc 304 each,
+division_afc_east 72 [representative — all divisions populated], wins 528,
+playoffs 465, superbowl_matchup 1280, most_wins/least_wins 96 each), plus
+`exacta` (48) and `conference_no_1_seed` (32) sitting inert as discussed.
+
+**Next**: Regenerate the Intel Report and re-check Line Movement / Value
+Spots and the previously-thin category tabs — not yet done this session.
+
+### 2. Tab-scroll fix
+
+Last session's anchor-nav click interceptor (in
+`agents/futures-intel-report-v2.js`'s embedded `<script>`) called
+`target.scrollIntoView()` on an element inside the report's own iframe
+document. That's a no-op: `FuturesIntelReport.jsx`'s `sizeIframe()` sets the
+iframe's height to its full `contentDocument.scrollHeight`, so the iframe
+never has its own scroll container — everything's already "visible" inside
+it at all times. The thing that actually needs to scroll is the **parent
+app page**. Fixed to compute the target's absolute position on
+`window.parent` (via `window.frameElement`, reachable because the sandbox
+already has `allow-same-origin`) and call `window.parent.scrollTo(...)`
+instead, falling back to the old `scrollIntoView()` if `window.parent` is
+ever unreachable for some reason.
+
+(While in that file: my first pass at this fix accidentally put literal
+backticks inside a JS comment — `` `target` `` — inside what turned out to
+be one giant backtick-delimited template literal spanning the whole
+generated HTML document (lines ~1795–2323). That silently broke `node
+--check` (caught before shipping, not caught by an earlier check I ran
+against a stale copy — worth remembering that any edit inside this
+particular file's HTML-template region can never contain a literal
+backtick, even in a comment).
+
+### 3. Expert Signals — root cause found and fixed
+
+`expertSignalsForTeam()` (in the report generator) is fine — it does a
+simple team-nickname match. The actual bug is upstream, in
+`agents/research-intel-ingest.js`: `extractSignals()`, which populates
+`research_pick_signals`, only ever reads `item.title` + `item.description`
+— the short RSS teaser. There's a separate step ("F-11 Ph.2",
+`INTEL_FETCH_BODY=true` in `.github/workflows/research-intel-ingest.yml`)
+that fetches each article's **full body** (up to 20k chars) — but it only
+ever backfills a display column on `research_intel_notes`; it never re-runs
+pick extraction against that body text. So a pick stated only in an
+article's body — e.g. "Eagles vs Patriots pick: Patriots +2.5 (-118)" — and
+not repeated in the RSS teaser, was silently never captured as a signal.
+This is very likely systemic, not specific to that one article — worth
+checking after the next ingest run whether Expert Signals entries stop
+being generically `[other]`-tagged as often.
+
+Fixed: factored the regex-based extraction out into
+`extractSignalsFromText()` and now also run it against each fetched body
+(inside the same F-11 Ph.2 backfill loop, right after the body is fetched
+and before it's discarded), deduped per-note against whatever the teaser
+pass already found so the same pick isn't double-inserted when it appears
+in both. This only takes effect on the **next scheduled/manual run** of
+`research-intel-ingest.js` — it doesn't retroactively backfill signals for
+already-ingested notes that already have a `body` stored. If Andy wants
+past notes covered too, that'd be a small follow-up script (re-run
+extraction against `research_intel_notes.body` for existing rows) — not
+built this session, wasn't asked for.
+
+### 4. Value Spot card display bug (found by Andy after the backfill landed)
+
+Andy spotted "Super Bowl Winner BKR +2227(+227 vs BOL)" on the regenerated
+report and (reasonably) read "+227" as BOL's own odds — flagged it as
+corrupted/truncated data (a Super Bowl longshot price should be 4 digits,
+not 3). Checked the actual data directly: BetOnline's Packers Super Bowl
+price is consistently **+2000** (every snapshot, all season), Bookmaker's
+latest is **+2227**. Nothing corrupted — `agents/futures-intel-report-v2.js`'s
+"spread" Value Spot card (the inter-sharp-book price-spread type) was only
+ever rendering the point **gap** between the best and worst book
+(`m.spread`, here `2227 − 2000 = 227`), never the worst book's actual
+price — so "(+227 vs BOL)" was genuinely ambiguous and easy to misread as
+BOL's raw price. Fixed: now renders `(vs BOL +2000, +227 pts)`, unambiguous.
+Checked the other spot-card types (divergence, playoffs_spread, wins_line,
+wins_ou) for the same pattern — all of those already show both sides'
+actual values explicitly, only the "spread" card had this gap.
+
+### Blocked: stale git locks — needs Andy to delete 3 files
+
+All three code fixes above are on disk in the repo (confirmed correct via
+`node --check` + `eslint`, zero errors) but **not yet committed**. Two
+pre-existing stale lock files from earlier this session (`.git/index.lock`,
+dated Aug 22 — pre-existing crash debris; `.git/HEAD.lock`, left behind
+after the previous commit succeeded but couldn't clean up its own lock
+file) blocked `git add`/`git commit` the normal way. Same low-level
+workaround as before (`GIT_INDEX_FILE=/tmp/... git write-tree` +
+`git commit-tree`) got as far as creating the commit object
+(`0b662c9a1d150d8a37acbdd87d449aad82e478c6` — content-correct, just not
+pointed to by any branch yet), but `git update-ref refs/heads/main` also
+needs to touch `HEAD`'s reflog and hit the same stuck `HEAD.lock`. That
+attempt left a THIRD stale lock behind: `.git/refs/heads/main.lock`. The
+device bridge's shell cannot delete or rename any of these (`rm`/`mv` both
+fail "Operation not permitted" — by design, this session has no delete
+permission on the connected folder).
+
+**To unblock**: delete these three files (they're all empty 0-byte lock
+files, safe to remove — they're not real git state):
+```
+E:\dev\projects\NFL_Dashboard\.git\index.lock
+E:\dev\projects\NFL_Dashboard\.git\HEAD.lock
+E:\dev\projects\NFL_Dashboard\.git\refs\heads\main.lock
+```
+Once those are gone, next session (or later this session) can commit +
+push cleanly in one shot. The orphan commit object above can just be
+ignored/left for git gc — I'll create a fresh commit rather than depend on
+it.
+
+### Files touched this round (uncommitted, pending the lock cleanup above)
+
+- `agents/futures-intel-report-v2.js` — tab-scroll fix (see #2) + Value Spot spread-card display fix (see #4)
+- `agents/research-intel-ingest.js` — Expert Signals body extraction (see #3)
+- `scripts/backfill-futures-imports.js` — new, futures ingestion backfill (see #1)
+- `src/components/futures/FuturesIntelReport.jsx` — unchanged this round (already committed last round)
+
+### Guardrails followed this session
+
+Same standing guardrails as before: dirty worktree preserved (no `git add
+-A`, only the specific files above), no commit without Andy's approval (he
+gave it — see conversation; still pending, blocked on the stale locks above),
+no Supabase write without approval (he gave it explicitly for the backfill;
+he ran the actual write himself since the bridge has no network path to
+Supabase — see #1), no fabricated data (every normalization in the backfill
+script maps real fields from the source JSON files, nothing invented;
+unmodeled market types loaded as-is rather than force-fit into a wrong
+category).
+
+## Previous Pick Up Here (2026-08-23, Futures Intel Report interactivity fixed — root cause was a missing iframe sandbox flag, Claude/Cowork)
 
 Continuation of the entry directly below. Andy asked to fix Bug 3 (non-live
 category tabs rendering blank) and then do the "full pass on all
