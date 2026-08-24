@@ -64,7 +64,7 @@ export class GameIdParseError extends Error {
 
 const GAMES_TABLE_RE =
   /^nfl_(\d{4})_(\d+)_w(\d{2})_(?:([A-Za-z]+)_at_([A-Za-z]+)|espn_(.+))$/;
-const SIMPLE_RE = /^(\d{4})_(\d{2})_([A-Za-z]+)_([A-Za-z]+)$/;
+const SIMPLE_RE = /^(\d{4})_(\d{2,3})_([A-Za-z]+)_([A-Za-z]+)$/;
 
 function standardizeAbbr(raw) {
   if (!raw) return null;

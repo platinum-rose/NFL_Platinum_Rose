@@ -3,8 +3,66 @@ import logger from '../lib/logger';
 import { TEAM_ALIASES } from '../lib/teams';
 import { fetchAllInjuries } from '../lib/injuries';
 import { parseActionNetworkAuto } from '../lib/actionParser';
-import { GITHUB_RAW, LOCAL_DATA } from '../lib/apiConfig';
+import { LOCAL_DATA } from '../lib/apiConfig';
 import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS } from '../lib/storage';
+import { getGameSplitsForWeek } from '../lib/supabase';
+import { getNFLWeekInfo } from '../lib/constants';
+
+// Shapes Supabase game_splits rows into the same lookup structure the app's
+// gamesWithSplits merge (App.jsx) and MatchupCard.jsx already expect --
+// keyed multiple ways so the existing fallback lookup chain
+// (splits[game.id] || splits[game.game_id] || splits[`${visitor}_${home}`] ||
+// splits[`${visitor}_at_${home}`] || a visitor/home linear scan) still works
+// unchanged. Unlike the old GitHub-raw JSON cache, this includes .ml --
+// Supabase's game_splits table has ml_home_bettors/ml_home_money columns
+// that the local-file writer never surfaced.
+function shapeSupabaseSplits(rows) {
+  const map = {};
+  for (const r of rows || []) {
+    const home = r.home_team;
+    const visitor = r.away_team;
+    if (!home || !visitor) continue;
+
+    const homeTicket = r.spread_home_bettors ?? 50;
+    const homeMoney = r.spread_home_money ?? 50;
+    const overTicket = r.total_over_bettors ?? 50;
+    const overMoney = r.total_over_money ?? 50;
+    const mlHomeTicket = r.ml_home_bettors;
+    const mlHomeMoney = r.ml_home_money;
+
+    const entry = {
+      visitor,
+      home,
+      splits: {
+        ats: {
+          visitorTicket: 100 - homeTicket,
+          visitorMoney: 100 - homeMoney,
+          homeTicket,
+          homeMoney,
+        },
+        total: {
+          overTicket,
+          overMoney,
+          underTicket: 100 - overTicket,
+          underMoney: 100 - overMoney,
+        },
+        ...(mlHomeTicket != null && mlHomeMoney != null ? {
+          ml: {
+            visitorTicket: 100 - mlHomeTicket,
+            visitorMoney: 100 - mlHomeMoney,
+            homeTicket: mlHomeTicket,
+            homeMoney: mlHomeMoney,
+          },
+        } : {}),
+      },
+    };
+
+    if (r.game_id) map[r.game_id] = entry;
+    map[`${visitor}_${home}`] = entry;
+    map[`${visitor}_at_${home}`] = entry;
+  }
+  return map;
+}
 
 /**
  * useSchedule — boot sequence, data fetching, splits import, team matcher
@@ -56,18 +114,17 @@ export function useSchedule() {
           return [];
         }),
 
-      // 4. Splits (GitHub raw)
-      fetch(GITHUB_RAW.SPLITS_URL)
-        .then(r => {
-          if (r.status === 404) {
-            // Expected absence, not a failure: splits haven't been published
-            // for this slate yet. The UI's own empty state already handles
-            // this correctly, so this doesn't deserve a console warning.
-            logger.log("ℹ️ Splits not yet published for this slate (404) — using empty splits.");
+      // 4. Splits (Supabase game_splits, written by
+      // agents/betting-splits-ingest.js's scheduled GitHub Actions run --
+      // replaces the old GitHub-raw JSON fetch, which 404'd forever since
+      // that file is gitignored and the workflow never committed it)
+      getGameSplitsForWeek(getNFLWeekInfo().week, getNFLWeekInfo().season)
+        .then(rows => {
+          if (!rows || rows.length === 0) {
+            logger.log("ℹ️ No splits rows in Supabase yet for this slate — using empty splits.");
             return {};
           }
-          if (!r.ok) throw new Error(`Splits fetch failed: ${r.status}`);
-          return r.json();
+          return shapeSupabaseSplits(rows);
         })
         .catch(err => {
           logger.warn("⚠️ Splits load failed:", err);

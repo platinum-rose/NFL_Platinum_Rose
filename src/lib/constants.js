@@ -9,6 +9,20 @@ export const SEASON_START_DATES = {
     2026: '2026-09-08T00:00:00',
 };
 
+// Preseason week windows ([start, end] of each week's game slate, local
+// time) -- keep in sync with PRESEASON_WEEK_STARTS in
+// packages/shared/src/week-utils.js. Preseason weeks are encoded as
+// 100 + week (101/102/103) everywhere a shared `week` int column is used
+// (game_splits, game_odds_snapshots), so they can never collide with a real
+// regular-season week number.
+export const PRESEASON_WEEK_STARTS = {
+    2026: [
+        ['2026-08-13T00:00:00', '2026-08-16T00:00:00'],
+        ['2026-08-20T00:00:00', '2026-08-24T00:00:00'],
+        ['2026-08-27T00:00:00', '2026-08-30T00:00:00'],
+    ],
+};
+
 /**
  * Normalize a Date to local midnight using its UTC date components.
  * ISO date strings ("YYYY-MM-DD") are parsed as UTC midnight; extracting
@@ -75,9 +89,19 @@ export const getNFLWeekInfo = (now = new Date()) => {
     const season = getCurrentSeasonYear(d);
     const seasonStart = getSeasonStartDate(season);
 
-    // Before season
+    // Before season. "Current" week here means the active-or-next preseason
+    // slate: once a week's games are all in the past, roll forward to the
+    // next one (rather than sticking on the just-finished week) so the
+    // header and splits query never go stale during the gap between
+    // preseason weeks.
     if (d < seasonStart) {
-        return { week: 0, phase: 'preseason', label: 'PRESEASON', season };
+        const preWindows = PRESEASON_WEEK_STARTS[season];
+        let preseasonWeek = 1;
+        if (preWindows) {
+            const upcoming = preWindows.findIndex(([, end]) => d < new Date(end));
+            preseasonWeek = upcoming === -1 ? preWindows.length : upcoming + 1;
+        }
+        return { week: 100 + preseasonWeek, phase: 'preseason', label: `PRESEASON WEEK ${preseasonWeek}`, season };
     }
 
     const diffDays = Math.floor((d - seasonStart) / (1000 * 60 * 60 * 24));
