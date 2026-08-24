@@ -507,6 +507,89 @@ export async function getWatchlistOddsHistory(teams, _marketTypes, days = 60) {
   }
 }
 
+// ─── NFL-ATLAS-1: pinned futures (migration 048_futures_pins.sql) ────────────
+// Distinct from the team-only nfl_futures_watchlist_v1 localStorage blob —
+// futures_pins supports any specific future (including player/award pins with
+// no odds source), and is the shared source of truth the browser and
+// agents/futures-pin-vault-sync.js both read. Design doc:
+// docs/NFL_ATLAS_1_FUTURES_WATCHLIST_DESIGN.md. Until Andy runs migration 048
+// natively, these calls just fail quietly into their empty/false fallback —
+// same "not migrated yet" degrade path getWatchlistOddsHistory already relies on.
+
+/**
+ * All active pinned futures, newest-pinned-first.
+ * @returns {Promise<Array<{id, market, selection, team, label, pinned_at, active}>>}
+ */
+export async function getFuturesPins() {
+  if (!isAvailable()) return [];
+  try {
+    const { data, error } = await supabase
+      .from('futures_pins')
+      .select('id, market, selection, team, label, pinned_at, active')
+      .eq('active', true)
+      .order('pinned_at', { ascending: false });
+    if (error || !data) return [];
+    return data;
+  } catch (e) {
+    logger.warn('[supabase] getFuturesPins failed:', e.message);
+    return [];
+  }
+}
+
+/**
+ * Pin a new future. Returns the inserted row, or null on failure (e.g.
+ * migration 048 hasn't been run yet — caller should treat null as "pin not
+ * saved" and surface that, not silently pretend it worked).
+ * @param {{market: string, selection: string, team?: string, label?: string}} pin
+ */
+export async function addFuturesPin(pin) {
+  if (!isAvailable() || !pin?.market || !pin?.selection) return null;
+  try {
+    const { data, error } = await supabase
+      .from('futures_pins')
+      .insert({
+        market: pin.market,
+        selection: pin.selection,
+        team: pin.team || null,
+        label: pin.label || null,
+      })
+      .select('id, market, selection, team, label, pinned_at, active')
+      .single();
+    if (error) {
+      logger.warn('[supabase] addFuturesPin failed:', error.message);
+      return null;
+    }
+    return data;
+  } catch (e) {
+    logger.warn('[supabase] addFuturesPin failed:', e.message);
+    return null;
+  }
+}
+
+/**
+ * Unpin a future. Soft-delete (active=false) so vault-note history stays
+ * coherent rather than disappearing — matches migration 048's design comment.
+ * @param {number} id
+ * @returns {Promise<boolean>} true if the update succeeded
+ */
+export async function removeFuturesPin(id) {
+  if (!isAvailable() || id == null) return false;
+  try {
+    const { error } = await supabase
+      .from('futures_pins')
+      .update({ active: false })
+      .eq('id', id);
+    if (error) {
+      logger.warn('[supabase] removeFuturesPin failed:', error.message);
+      return false;
+    }
+    return true;
+  } catch (e) {
+    logger.warn('[supabase] removeFuturesPin failed:', e.message);
+    return false;
+  }
+}
+
 // ═══════════════════════════════════════════════════════════════════════════════
 // S296 — Futures/Betting agent data-wiring pass. Everything below composes
 // tables that already existed but weren't reachable by the live chat agent

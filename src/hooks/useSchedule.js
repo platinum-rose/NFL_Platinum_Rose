@@ -59,7 +59,14 @@ export function useSchedule() {
       // 4. Splits (GitHub raw)
       fetch(GITHUB_RAW.SPLITS_URL)
         .then(r => {
-          if (!r.ok) throw new Error("Splits not found");
+          if (r.status === 404) {
+            // Expected absence, not a failure: splits haven't been published
+            // for this slate yet. The UI's own empty state already handles
+            // this correctly, so this doesn't deserve a console warning.
+            logger.log("ℹ️ Splits not yet published for this slate (404) — using empty splits.");
+            return {};
+          }
+          if (!r.ok) throw new Error(`Splits fetch failed: ${r.status}`);
           return r.json();
         })
         .catch(err => {
@@ -69,6 +76,14 @@ export function useSchedule() {
     ]).then(([scheduleData, liveOddsData, statsData, splitsData]) => {
       logger.log(`✅ Schedule Loaded: ${scheduleData.length} games`);
       logger.log(`✅ Live Odds Loaded: ${liveOddsData.length} games from TheOddsAPI`);
+
+      // Live odds are intentionally disabled on startup (see step 2 above),
+      // so liveOddsData is normally empty by design — that's not a per-game
+      // problem worth a console warning for every scheduled game. Only warn
+      // per game when live odds WERE fetched but a specific game still
+      // didn't match (a real, unexpected mismatch).
+      const liveOddsExpected = liveOddsData.length > 0;
+      let unmatchedFallbackCount = 0;
 
       // Merge live odds into schedule
       const mergedSchedule = scheduleData.map(game => {
@@ -98,28 +113,28 @@ export function useSchedule() {
             oddsSource: 'TheOddsAPI'
           };
         }
-        logger.warn(`⚠️ No live odds found for ${game.visitor} @ ${game.home}, using ESPN fallback`);
+
+        if (liveOddsExpected) {
+          logger.warn(`⚠️ No live odds found for ${game.visitor} @ ${game.home}, using ESPN fallback`);
+        } else {
+          unmatchedFallbackCount += 1;
+        }
         return { ...game, oddsSource: 'ESPN' };
       });
+
+      if (!liveOddsExpected && unmatchedFallbackCount > 0) {
+        logger.log(`ℹ️ Live odds disabled at startup — ${unmatchedFallbackCount} games using ESPN/static fallback.`);
+      }
 
       setSchedule(mergedSchedule);
       setStats(statsData);
 
       // ── Splits boot fix ──────────────────────────────────────────────────────
-      // ONLY use fetched splits when localStorage is empty.
-      // The user's locally-imported Action Network splits must not be overwritten
-      // on every hard refresh by whatever is currently in the GitHub raw file.
+      // Merge fetched splits from public/betting_splits.json with local user imports
       const localSplits = loadFromStorage(PR_STORAGE_KEYS.SPLITS.key, null);
-      const localHasData = localSplits && Object.keys(localSplits).length > 0;
-      if (!localHasData && splitsData && Object.keys(splitsData).length > 0) {
-        setSplits(splitsData);
-        logger.log('📥 Initialized splits from GitHub raw (localStorage was empty)');
-      } else if (!localHasData) {
-        // Both empty — leave state as initialized (empty object)
-        logger.log('ℹ️ No splits data available (localStorage empty, GitHub fetch empty/failed)');
-      } else {
-        logger.log(`✅ Retained ${Object.keys(localSplits).length} game splits from localStorage`);
-      }
+      const mergedSplits = { ...(splitsData || {}), ...(localSplits || {}) };
+      setSplits(mergedSplits);
+      logger.log(`📥 Loaded ${Object.keys(mergedSplits).length} game splits`);
 
       // Injuries (separate async call)
       fetchAllInjuries(mergedSchedule)

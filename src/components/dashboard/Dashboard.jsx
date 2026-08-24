@@ -3,6 +3,7 @@ import { Clock, Search, X, ChevronDown, SlidersHorizontal } from 'lucide-react';
 import MatchupCard from './MatchupCard';
 import { getSecondaryMatchupsForGame } from '../../lib/secondaryMatchupStore';
 import { getContractForGame } from '../../lib/predictionMarketStore';
+import { getCurrentSlate } from '../../lib/currentSlate';
 
 // Known dome team abbreviations (home-field only)
 const DOME_ABBRS = new Set(['ARI', 'ATL', 'DAL', 'DET', 'HOU', 'IND', 'LV', 'LAC', 'LAR', 'MIN', 'NO']);
@@ -18,6 +19,9 @@ const SORT_OPTIONS = [
 
 const FILTER_CHIPS = [
   { id: 'all',          label: 'All',                   tooltip: 'Show all scheduled games for the selected week.' },
+  { id: 'preseason',    label: '🏈 Preseason',          tooltip: 'Filters for Preseason games (Season Type 1).' },
+  { id: 'regular',      label: '🏆 Regular Season',      tooltip: 'Filters for Regular Season games (Season Type 2).' },
+  { id: 'completed',    label: '✅ Final / Live Scores', tooltip: 'Filters for finished or in-progress games with live/final scores.' },
   { id: 'sec_mismatch', label: '🛡️ Secondary Mismatch', tooltip: 'Highlights games where a high-volume passing offense faces an injured or weak pass defense secondary.' },
   { id: 'pm_market',    label: '📊 Has Prediction Market', tooltip: 'Highlights games with active Kalshi or Polymarket prediction market probability lines.' },
   { id: 'experts',       label: 'Has Expert Picks',       tooltip: 'Filters for games with active pick recommendations from tracked sharp handicappers.' },
@@ -27,20 +31,24 @@ const FILTER_CHIPS = [
   { id: 'dome',         label: 'Dome Game',             tooltip: 'Filters for games played inside weather-controlled indoor stadiums.' },
 ];
 
-
-const Dashboard = ({ 
-  schedule, 
-  stats, 
+const Dashboard = ({
+  schedule,
+  stats,
   simResults = {},
-  onGameClick, 
+  onGameClick,
   onShowHistory,
   onShowInjuries,
-  onAddBankrollBet
+  onAddBankrollBet,
+  onShowPmContract
 }) => {
   const [search, setSearch]     = useState('');
   const [sortBy, setSortBy]     = useState('default');
   const [filter, setFilter]     = useState('all');
   const [sortOpen, setSortOpen] = useState(false);
+  // Checkpoint 2 item 5: default to the current/next-unplayed slate instead of
+  // rendering all 321 games at once. `false` = current slate only (default),
+  // `true` = the user explicitly opted into seeing every game.
+  const [showAllGames, setShowAllGames] = useState(false);
 
   // Build stat lookup map once (O(1) per team)
   const statsMap = useMemo(() => {
@@ -60,9 +68,26 @@ const Dashboard = ({
     visStats:  statsMap.get(game.visitor) || {},
   })), [schedule, statsMap]);
 
+  // --- CURRENT SLATE ---
+  // Group games by (season_type, week) and pick the earliest slate that still
+  // has at least one unplayed game — that's "current/next unplayed slate."
+  // Falls back to the last slate if the whole schedule is already final.
+  const slateInfo = useMemo(() => getCurrentSlate(enriched), [enriched]);
+
   // --- FILTER ---
   const filtered = useMemo(() => {
     let list = enriched;
+
+    // Current-slate default: restrict to the active slate unless the user
+    // explicitly asked to see every game.
+    if (!showAllGames && slateInfo) {
+      list = list.filter(g => slateInfo.ids.has(g.id));
+    }
+
+    // Deprecate/hide past completed games by default unless explicitly reviewing completed games
+    if (filter !== 'completed') {
+      list = list.filter(g => g.status !== 'post' && g.status !== 'STATUS_FINAL');
+    }
 
     // Text search: match any of home/visitor abbr or full name
     if (search.trim()) {
@@ -77,6 +102,15 @@ const Dashboard = ({
 
     // Chip filter
     switch (filter) {
+      case 'preseason':
+        list = list.filter(g => Number(g.season_type) === 1);
+        break;
+      case 'regular':
+        list = list.filter(g => Number(g.season_type) === 2);
+        break;
+      case 'completed':
+        list = list.filter(g => g.status === 'post' || g.status === 'in' || g.status === 'STATUS_FINAL' || (g.homeScore != null && g.visitorScore != null && (g.homeScore > 0 || g.visitorScore > 0)));
+        break;
       case 'sec_mismatch':
         list = list.filter(g => {
           const sec = getSecondaryMatchupsForGame(g.visitor, g.home);
@@ -84,7 +118,7 @@ const Dashboard = ({
         });
         break;
       case 'pm_market':
-        list = list.filter(g => !!getContractForGame(g.visitor, g.home));
+        list = list.filter(g => !!getContractForGame(g.visitor, g.home, g.commence_time));
         break;
       case 'experts':
         list = list.filter(g => {
@@ -110,7 +144,7 @@ const Dashboard = ({
     }
 
     return list;
-  }, [enriched, search, filter]);
+  }, [enriched, search, filter, showAllGames, slateInfo]);
 
   // --- SORT ---
   const sorted = useMemo(() => {
@@ -135,6 +169,30 @@ const Dashboard = ({
 
   return (
     <div className="space-y-4">
+      {/* ── Slate toggle: current/next-unplayed slate vs. every scheduled game ── */}
+      <div className="flex flex-wrap items-center gap-2">
+        <button
+          onClick={() => setShowAllGames(false)}
+          className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition-all
+            ${!showAllGames
+              ? 'bg-[#00d2be]/20 border-[#00d2be] text-[#00d2be] shadow-[0_0_8px_rgba(0,210,190,0.3)]'
+              : 'bg-slate-800/60 border-slate-700 text-slate-400 hover:border-slate-500 hover:text-slate-300'
+            }`}
+        >
+          {slateInfo ? slateInfo.label : 'Current Slate'}
+        </button>
+        <button
+          onClick={() => setShowAllGames(true)}
+          className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition-all
+            ${showAllGames
+              ? 'bg-[#00d2be]/20 border-[#00d2be] text-[#00d2be] shadow-[0_0_8px_rgba(0,210,190,0.3)]'
+              : 'bg-slate-800/60 border-slate-700 text-slate-400 hover:border-slate-500 hover:text-slate-300'
+            }`}
+        >
+          All Games ({enriched.length})
+        </button>
+      </div>
+
       {/* ── Controls bar ── */}
       <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
         {/* Search */}
@@ -183,7 +241,7 @@ const Dashboard = ({
         </div>
 
         {/* Game count badge */}
-        {isFiltered && (
+        {(isFiltered || !showAllGames) && (
           <span className="shrink-0 text-xs text-slate-400 px-2.5 py-1 rounded-full bg-slate-800 border border-slate-700 whitespace-nowrap">
             {sorted.length} / {enriched.length} games
           </span>
@@ -236,6 +294,14 @@ const Dashboard = ({
             >
               Clear filters
             </button>
+            {!showAllGames && (
+              <button
+                onClick={() => setShowAllGames(true)}
+                className="mt-3 ml-3 text-sm text-[#00d2be] hover:underline"
+              >
+                Show All Games
+              </button>
+            )}
           </div>
         ) : (
           sorted.map(game => {
@@ -247,9 +313,10 @@ const Dashboard = ({
                 simData={gameSim || {}}
                 onPlaceBet={() => onGameClick(game)}
                 onAnalyze={() => onGameClick(game)}
-                onShowHistory={onShowHistory}
+                onShowHistory={() => onShowHistory && onShowHistory(game)}
                 onShowInjuries={() => onShowInjuries(game)}
                 onAddBankrollBet={onAddBankrollBet ? () => onAddBankrollBet(game) : undefined}
+                onShowPmContract={onShowPmContract}
                 experts={[]}
                 myBets={[]}
               />

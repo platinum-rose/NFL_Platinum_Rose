@@ -23,12 +23,24 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import {
   ShieldCheck, RefreshCw, ExternalLink, ChevronDown, ChevronRight,
   CheckCircle2, XCircle, AlertTriangle, WifiOff, Inbox, ScrollText,
-  Loader2,
+  Loader2, Pin, PinOff,
 } from 'lucide-react';
 import { OFFICIAL_PICKS } from '../../lib/apiConfig';
+import { FAILSAFE_TIMEOUT_MS, fetchJson } from '../../lib/officialPicksApi';
+import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS } from '../../lib/storage';
+
+// Pin (Phase 1, 2026-08-24): the inbox itself is a thin client over the
+// local loopback server (see file header) -- there's no server-side field
+// to persist a "pin" into, and Approve/Reject already cover "delete" (Reject
+// archives a draft with a reason, same end state as removing it). Pin is
+// therefore a purely client-side, local-only overlay: a set of draft
+// filenames kept in localStorage so a reviewer can flag drafts to come back
+// to. It never calls the inbox server and never touches Supabase.
+const PINNED_KEY = PR_STORAGE_KEYS.OFFICIAL_PICKS_PINNED.key;
+const loadPinned = () => new Set(loadFromStorage(PINNED_KEY, []));
+const savePinned = (set) => saveToStorage(PINNED_KEY, Array.from(set));
 
 const BASE = OFFICIAL_PICKS.BASE;
-const PROBE_TIMEOUT_MS = 3000;
 
 function fmtUnits(value) {
   if (value === null || value === undefined || !Number.isFinite(Number(value))) return '-';
@@ -50,20 +62,6 @@ function fmtMoney(value) {
   return `$${Number(value).toFixed(2)}`;
 }
 
-async function fetchJson(url, options) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), PROBE_TIMEOUT_MS);
-  try {
-    const res = await fetch(url, { ...options, signal: controller.signal });
-    const text = await res.text();
-    const data = text ? JSON.parse(text) : {};
-    if (!res.ok) throw new Error(data.error || `Request failed (${res.status})`);
-    return data;
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
 function StatChip({ label, value, accent = '' }) {
   return (
     <div className="bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 min-w-[110px]">
@@ -80,7 +78,7 @@ function readinessStatus(readiness) {
   return { label: 'Needs work', className: 'bg-rose-500/20 text-rose-400 border-rose-500/30' };
 }
 
-function CandidateCard({ item, busy, onApprove, onReject }) {
+function CandidateCard({ item, busy, pinned, onTogglePin, onApprove, onReject }) {
   const [expanded, setExpanded] = useState(false);
   const p = item.proposal || {};
   const r = item.readiness || {};
@@ -93,7 +91,7 @@ function CandidateCard({ item, busy, onApprove, onReject }) {
   ];
 
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+    <div className={`bg-slate-900 border rounded-xl overflow-hidden ${pinned ? 'border-amber-500/40' : 'border-slate-800'}`}>
       <div className="flex items-start gap-0">
         <button
           className="flex-1 text-left p-4 flex items-start gap-3 min-w-0"
@@ -122,6 +120,13 @@ function CandidateCard({ item, busy, onApprove, onReject }) {
         </button>
 
         <div className="flex items-center gap-1.5 p-3 shrink-0">
+          <button
+            onClick={() => onTogglePin(item.file)}
+            title={pinned ? 'Unpin' : 'Pin to top'}
+            className={`p-1.5 rounded-lg transition-all ${pinned ? 'text-amber-400 hover:text-amber-300' : 'text-slate-500 hover:text-white'}`}
+          >
+            {pinned ? <Pin size={14} className="fill-current" /> : <PinOff size={14} />}
+          </button>
           <button
             onClick={() => onApprove(item.file)}
             disabled={!canApprove}
@@ -177,12 +182,47 @@ export default function OfficialPicksTab() {
   const [busyFile, setBusyFile] = useState(null);
   const [toast, setToast] = useState('');
   const [ledgerNonce, setLedgerNonce] = useState(0);
+  const [pinned, setPinned] = useState(() => loadPinned());
   const mountedRef = useRef(true);
 
-  useEffect(() => () => { mountedRef.current = false; }, []);
+  const handleTogglePin = (file) => {
+    setPinned((prev) => {
+      const next = new Set(prev);
+      if (next.has(file)) next.delete(file); else next.add(file);
+      savePinned(next);
+      return next;
+    });
+  };
+
+  // NOTE: this must SET true on mount, not just clear on unmount. React 18
+  // <StrictMode> (see src/main.jsx) intentionally double-invokes effects in
+  // dev: mount -> run effect -> run cleanup -> run effect again. With a
+  // mount-effect that only returns a cleanup (no body), the first
+  // simulated-unmount cleanup flips `mountedRef.current` to false and
+  // nothing ever flips it back to true, so every `if (!mountedRef.current)
+  // return;` guard below (in `probe()`) becomes permanently dead code and
+  // `serverStatus` can never leave "checking" -- this was confirmed via
+  // live browser check (2026-08-21, Codex review) staying stuck on
+  // "Checking local inbox server..." past 15s even with the offline
+  // failsafe timer in place, because the failsafe's own state update was
+  // also being silently dropped by this same guard.
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => { mountedRef.current = false; };
+  }, []);
 
   const probe = useCallback(async () => {
     setServerStatus((s) => (s === 'online' ? 'online' : 'checking'));
+
+    // Failsafe: force the offline state if we're still "checking" once this
+    // fires. Cleared in `finally` below as soon as the real probe settles
+    // (success or failure) -- this only fires if that never happened.
+    const failsafeTimer = setTimeout(() => {
+      if (!mountedRef.current) return;
+      setServerStatus((s) => (s === 'checking' ? 'offline' : s));
+      setData((d) => (d === null ? d : null));
+    }, FAILSAFE_TIMEOUT_MS);
+
     try {
       const json = await fetchJson(`${BASE}/api/inbox`);
       if (!mountedRef.current) return;
@@ -192,6 +232,8 @@ export default function OfficialPicksTab() {
       if (!mountedRef.current) return;
       setServerStatus('offline');
       setData(null);
+    } finally {
+      clearTimeout(failsafeTimer);
     }
   }, []);
 
@@ -243,7 +285,13 @@ export default function OfficialPicksTab() {
   };
 
   const ledger = data?.ledger_summary;
-  const items = data?.items || [];
+  // Pinned drafts sort first, so a reviewer's flagged items don't scroll off
+  // as new drafts land in the inbox.
+  const items = [...(data?.items || [])].sort((a, b) => {
+    const aPinned = pinned.has(a.file);
+    const bPinned = pinned.has(b.file);
+    return aPinned === bPinned ? 0 : aPinned ? -1 : 1;
+  });
 
   return (
     <div className="animate-in fade-in zoom-in duration-300 space-y-5 pb-8">
@@ -356,6 +404,8 @@ export default function OfficialPicksTab() {
                   key={item.file}
                   item={item}
                   busy={busyFile === item.file}
+                  pinned={pinned.has(item.file)}
+                  onTogglePin={handleTogglePin}
                   onApprove={handleApprove}
                   onReject={handleReject}
                 />

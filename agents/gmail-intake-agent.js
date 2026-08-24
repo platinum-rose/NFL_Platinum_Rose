@@ -13,15 +13,15 @@
 //   node agents/gmail-intake-agent.js --sample         # Run with sample test fixtures
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import { mkdir, writeFile, readFile, readdir } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { createClient } from '@supabase/supabase-js';
 import nodemailer from 'nodemailer';
-import 'dotenv/config';
 import { ensureVaultFrontmatter } from './lib/vaultFrontmatter.js';
+import { isFootballOrCbbBettingIntel } from './lib/sportsRelevanceFilter.js';
 
 const execFileAsync = promisify(execFile);
 
@@ -215,6 +215,22 @@ Extract and format in JSON:
 // ── Note Generation & Vault Sync ─────────────────────────────────────────────
 
 export async function processEmailItem(msg) {
+  // 1. Recency Gate (max 30 days)
+  const emailDate = new Date(msg.date || Date.now());
+  const ageDays = (Date.now() - emailDate.getTime()) / (1000 * 60 * 60 * 24);
+  if (ageDays > 30) {
+    console.log(`  [skipped-stale] Email "${msg.subject}": Dated ${emailDate.toISOString().split('T')[0]} exceeds 30-day limit.`);
+    return { skipped: true, reason: 'Exceeds 30-day recency limit' };
+  }
+
+  // 2. NFL Relevance Gate
+  const fullText = `${msg.subject}\n${msg.body}`;
+  const gate = isFootballOrCbbBettingIntel(fullText);
+  if (!gate.isRelevant) {
+    console.log(`  [skipped-non-nfl] Email "${msg.subject}": ${gate.reason}`);
+    return { skipped: true, reason: gate.reason };
+  }
+
   console.log(`\n[ingest] Processing: "${msg.subject}" from ${msg.from}...`);
 
   const analysis = await summarizeWithAI(msg);

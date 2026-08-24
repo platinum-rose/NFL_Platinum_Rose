@@ -6,215 +6,292 @@
   "mode": "live-youtube",
   "model": "gemini-3.5-flash",
   "input_source": "youtube_video_url",
+  "reprocess_required": false,
+  "reprocess_reason": null,
+  "quality_flags": [],
   "run": {
-    "run_id": "youtube_gemini_67e5e306dda7",
+    "run_id": "youtube_gemini_051e23911597",
     "mode": "live-youtube",
     "model": "gemini-3.5-flash",
     "input_source": "youtube_video_url",
     "youtube_url": "https://www.youtube.com/watch?v=veVjJ_EUYdk",
-    "latency_ms": 56697,
-    "estimated_cost_usd": 0.030696,
-    "input_tokens": 296382,
-    "output_tokens": 2644,
-    "raw_model_response": "{\n  \"transcript_summary\": \"Seth Woolcock and Andrew Erickson discuss the best futures betting values for the upcoming 2026 NFL Season player awards. They highlight top picks and longshots across MVP, Offensive and Defensive Player of the Year, and Rookie of the Year markets.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 120.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"All right, and welcome into the BettingPros podcast. It's time to place your bets for the NFL future award markets...\"\n    },\n    {\n      \"start\": 120.0,\n      \"end\": 312.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"So the ones that I like the most from the favorites are Joe Burrow and Justin Herbert. Those are kind of the two guys that stand out to me as some decent values...\"\n    },\n    {\n      \"start\": 312.0,\n      \"end\": 423.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"That's totally understandable, and it feels like if not now, when for Joe Burrow to put himself in this conversation. My only issue is they typically start slow...\"\n    },\n    {\n      \"start\": 423.0,\n      \"end\": 639.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"I do think it's a good point though, considering they play the Texans, which is a really tough defense... But for me, it's Trevor Lawrence at 24:1 to win the MVP award...\"\n    },\n    {\n      \"start\": 639.0,\n      \"end\": 805.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Not bad odds at all there, especially like you talk about the receiving corps. I also just love what the Chargers have been doing...\"\n    },\n    {\n      \"start\": 805.0,\n      \"end\": 1081.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"For me, it's going to be Ja'Marr Chase. I feel like Chase is too talented of a player and he's in his prime with Joe Burrow... I also like Brock Bowers at 80:1 to win this award.\"\n    },\n    {\n      \"start\": 1081.0,\n      \"end\": 1211.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Yeah, I'm here for it. Brock Bowers at 80:1, I certainly think that's a fine number. Let's get into the Defensive Player of the Year odds...\"\n    },\n    {\n      \"start\": 1211.0,\n      \"end\": 1404.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \" लॉक in Miles Garrett. I think the number's good now at +450. And my favorite longshot at 60:1 is Josh Hines-Allen, the pass rusher for the Jacksonville Jaguars.\"\n    },\n    {\n      \"start\": 1404.0,\n      \"end\": 1510.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Not bad odds at all there. Let's go to the Offensive Rookie of the Year category...\"\n    },\n    {\n      \"start\": 1510.0,\n      \"end\": 1807.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"I think that my favorite bet, my favorite value is just Fernando Mendoza at +400. I'm not buying this Kirk Cousins starter situation long-term...\"\n    },\n    {\n      \"start\": 1807.0,\n      \"end\": 1848.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Super interesting there because you are predicting he will be the starter. Let's move to the Defensive Rookie of the Year...\"\n    },\n    {\n      \"start\": 1848.0,\n      \"end\": 2115.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"I like Sonny Styles the most here at +850. He is a do-it-all linebacker who fits perfectly in Dan Quinn's defense. For value, Jacob Rodriguez at 22:1.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"LAC\",\n      \"market\": \"mvp\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1100,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 184,\n      \"rationale\": \"High value at 11:1 under a new offensive system with improved offensive line health and depth.\"\n    },\n    {\n      \"team\": \"CIN\",\n      \"market\": \"mvp\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1000,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 174,\n      \"rationale\": \"Return to health and Cincinnati's favorable schedule make Burrow a top contender if the team reaches double-digit wins.\"\n    },\n    {\n      \"team\": \"JAX\",\n      \"market\": \"mvp\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 2400,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 639,\n      \"rationale\": \"Lawrence is in his second year in Coen's system and generated elite red zone/rushing metrics late last year.\"\n    },\n    {\n      \"team\": \"CIN\",\n      \"market\": \"opoy\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1200,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 896,\n      \"rationale\": \"Chase is a top-tier receiver in his prime with Joe Burrow and is highly likely to lead the league in receiving yards.\"\n    },\n    {\n      \"team\": \"LV\",\n      \"market\": \"opoy\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 8000,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1081,\n      \"rationale\": \"Extremely high value on a versatile pass catcher whose target share should skyrocket in Kubiak's system.\"\n    },\n    {\n      \"team\": \"LAR\",\n      \"market\": \"dpoy\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 450,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1211,\n      \"rationale\": \"Upgraded situation with the Rams will put Garrett in positive game scripts to rack up high sack totals.\"\n    },\n    {\n      \"team\": \"JAX\",\n      \"market\": \"dpoy\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 6000,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1395,\n      \"rationale\": \"Has massive sack-production upside on a defense expected to improve.\"\n    },\n    {\n      \"team\": \"LV\",\n      \"market\": \"oroy\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 450,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1510,\n      \"rationale\": \"Highly likely to take over as starting quarterback soon and succeed in Clint Kubiak's offense.\"\n    },\n    {\n      \"team\": \"CLE\",\n      \"market\": \"oroy\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 3000,\n      \"week\": null,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 1539,\n      \"rationale\": \"Seth believes he can beat out Watson early and has proven high-level production transitions.\"\n    },\n    {\n      \"team\": \"WAS\",\n      \"market\": \"droy\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 850,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1848,\n      \"rationale\": \"A highly versatile do-it-all defender who fits Quinn's scheme perfectly.\"\n    },\n    {\n      \"team\": \"MIA\",\n      \"market\": \"droy\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 2200,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1943,\n      \"rationale\": \"Second-round linebacker with the perfect physical profile to rack up tackles in Miami's scheme.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"LAC\"],\n      \"players\": [\"Justin Herbert\"],\n      \"topic\": \"Offensive system upgrade\",\n      \"summary\": \"Erickson highlights that the Chargers' new system under Mike McDaniel's tree and improved tackle depth will unlock MVP-level play from Justin Herbert.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 443,\n      \"quote\": \"When those offensive tackles were healthy, he looked like an MVP player.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"roster_or_depth_chart\",\n      \"teams\": [\"LV\"],\n      \"players\": [\"Fernando Mendoza\", \"Kirk Cousins\"],\n      \"topic\": \"Quarterback succession\",\n      \"summary\": \"Erickson projects that Kirk Cousins' arm is shot coming off injury, opening the door for rookie Mendoza to take over early.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1520,\n      \"quote\": \"I don't think he has any more velocity on his throws, and I think Mendoza takes over.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Trevor Lawrence MVP\",\n      \"timestamp\": 639,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"For me, it's Trevor Lawrence at 24:1 to win the MVP award.\"\n    },\n    {\n      \"topic\": \"Fernando Mendoza OROY\",\n      \"timestamp\": 1510,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"I think that my favorite bet, my favorite value, is just Fernando Mendoza at +400.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+    "latency_ms": 160084,
+    "estimated_cost_usd": 0.031228,
+    "input_tokens": 297199,
+    "output_tokens": 3769,
+    "raw_model_response": "{\n  \"transcript_summary\": \"Seth Woolcock and Andrew Erickson of BettingPros breakdown their favorite future award bets for the 2026 NFL season. They cover MVP, OPOY, DPOY, OROY, and DROY markets, detailing high-value selections and longshots.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 1920,\n    \"last_analyzed_timestamp\": 1884,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 121.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"All right, and welcome into the BettingPros Podcast. It's time to place your bets for the NFL Future Award markets...\"\n    },\n    {\n      \"start\": 121.0,\n      \"end\": 201.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Seth, happy to see you, happy to see you for the first time since you've gotten married. Shout out to you and your wife Katie...\"\n    },\n    {\n      \"start\": 201.0,\n      \"end\": 293.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"And Andrew, let's start in the MVP market where last year Matthew Stafford won NFL MVP after opening up at 35 to 1...\"\n    },\n    {\n      \"start\": 293.0,\n      \"end\": 511.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"So the ones that I like the most from the favorites are Joe Burrow and Justin Herbert. Those are the two guys that stand out...\"\n    },\n    {\n      \"start\": 511.0,\n      \"end\": 550.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"That's totally understandable and it feels like if not now, when for Joe Burrow... but my concern is the slow start...\"\n    },\n    {\n      \"start\": 550.0,\n      \"end\": 703.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Well if you recall last year, they didn't have a slow start, they were 2-0 before Joe Burrow got hurt. Zack Taylor said they will play starters in preseason...\"\n    },\n    {\n      \"start\": 703.0,\n      \"end\": 898.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Justin Herbert is probably my favorite of the two favorites... he got an MVP vote last year despite playing with a broken hand...\"\n    },\n    {\n      \"start\": 898.0,\n      \"end\": 1012.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"I completely agree, Herbert is someone that has a great setup. O'Mauryan Hampton OPOY is also interesting...\"\n    },\n    {\n      \"start\": 1012.0,\n      \"end\": 1113.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"For me, the long shot is Trevor Lawrence at 24 to 1 to win the MVP award. After week 5 last year, no quarterback scored more fantasy points...\"\n    },\n    {\n      \"start\": 1113.0,\n      \"end\": 1204.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Lawrence is only 27 years old, which is typically the prime age when quarterbacks hit their peak years statistically...\"\n    },\n    {\n      \"start\": 1204.0,\n      \"end\": 1313.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Not bad odds at all, especially with the weapons they've added. Let's move over to the Offensive Player of the Year market...\"\n    },\n    {\n      \"start\": 1313.0,\n      \"end\": 1495.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"For me, it's going to be Ja'Marr Chase at 12 to 1. He's just too talented of a player to never win this award. Also, AJ Brown at 50 to 1 on the Patriots...\"\n    },\n    {\n      \"start\": 1495.0,\n      \"end\": 1604.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Yeah, AJ Brown going to New England with Drake Maye is going to be electric. And Chase is just so consistent...\"\n    },\n    {\n      \"start\": 1604.0,\n      \"end\": 1719.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"My favorite long shot is Brock Bowers at 80 to 1. I think everyone should do a sprinkle on Bowers in this Klint Kubiak offense...\"\n    },\n    {\n      \"start\": 1719.0,\n      \"end\": 1804.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"I like the Bowers call. Trey McBride is also at 90 to 1, but he has much more competition for targets with Marvin Harrison Jr...\"\n    },\n    {\n      \"start\": 1804.0,\n      \"end\": 1920.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Let's move over to Defensive Player of the Year where Myles Garrett is looking to repeat his crown...\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"LAC\",\n      \"player\": \"Justin Herbert\",\n      \"market\": \"mvp\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1100,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 703,\n      \"rationale\": \"Got an MVP vote last year even with a broken hand and poor offensive line. Now has Mike McDaniel as offensive coordinator.\"\n    },\n    {\n      \"team\": \"CIN\",\n      \"player\": \"Joe Burrow\",\n      \"market\": \"mvp\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1000,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 304,\n      \"rationale\": \"Cincinnati has the third easiest schedule and standard peak year trajectory if he remains fully healthy.\"\n    },\n    {\n      \"team\": \"JAX\",\n      \"player\": \"Trevor Lawrence\",\n      \"market\": \"mvp\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 2400,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1012,\n      \"rationale\": \"High fantasy point volume after week 5 last year. Flourishing in Liam Coen's passing offense.\"\n    },\n    {\n      \"team\": \"CIN\",\n      \"player\": \"Ja'Marr Chase\",\n      \"market\": \"opoy\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1200,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1313,\n      \"rationale\": \"Burrow's number one target in what should be a very high-powered, high-volume Bengals passing attack.\"\n    },\n    {\n      \"team\": \"NE\",\n      \"player\": \"AJ Brown\",\n      \"market\": \"opoy\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 5000,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1644,\n      \"rationale\": \"Landed with New England. Perfect fit with Drake Maye under offensive coordinator Josh McDaniels who peppers alpha receivers.\"\n    },\n    {\n      \"team\": \"NO\",\n      \"player\": \"Brock Bowers\",\n      \"market\": \"opoy\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 8000,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1604,\n      \"rationale\": \"Incredible value at 80 to 1. Expected to play hybrid wide receiver/tight end role in Klint Kubiak's offense.\"\n    },\n    {\n      \"team\": \"LAR\",\n      \"player\": \"Myles Garrett\",\n      \"market\": \"dpoy\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 450,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1804,\n      \"rationale\": \"Upgraded game-script situation playing with the Rams. Media voters are already highly enamored with him.\"\n    },\n    {\n      \"team\": \"DET\",\n      \"player\": \"Aidan Hutchinson\",\n      \"market\": \"dpoy\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1200,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1808,\n      \"rationale\": \"Entering his age-25 season fully healthy, poised for a dominant breakout sack campaign.\"\n    },\n    {\n      \"team\": \"JAX\",\n      \"player\": \"Josh Hines-Allen\",\n      \"market\": \"dpoy\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 6000,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1921,\n      \"rationale\": \"High total pressures metric last year. Worth a longshot sprinkle at 60 to 1 odds.\"\n    },\n    {\n      \"team\": \"LV\",\n      \"player\": \"Fernando Mendoza\",\n      \"market\": \"oroy\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 450,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 2011,\n      \"rationale\": \"Should take over from Kirk Cousins sooner than later due to Cousins' diminishing arm velocity.\"\n    },\n    {\n      \"team\": \"CLE\",\n      \"player\": \"KC Concepcion\",\n      \"market\": \"oroy\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 3000,\n      \"week\": null,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 1421,\n      \"rationale\": \"High offensive versatility. Fits perfectly as a dynamic weapon under Todd Monken with Cleveland.\"\n    },\n    {\n      \"team\": \"BAL\",\n      \"player\": \"Elijah Sarratt\",\n      \"market\": \"oroy\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 9200,\n      \"week\": null,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 1608,\n      \"rationale\": \"Strong prediction market value target. High collegiate profile matching Ravens system traits.\"\n    },\n    {\n      \"team\": \"PHI\",\n      \"player\": \"Eli Stowers\",\n      \"market\": \"oroy\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 9200,\n      \"week\": null,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 1656,\n      \"rationale\": \"High athletic metrics. Eagles heavily utilize multiple-TE sets under OC Sean Mennon.\"\n    },\n    {\n      \"team\": \"WAS\",\n      \"player\": \"Sony Styles\",\n      \"market\": \"droy\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 800,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1451,\n      \"rationale\": \"Extremely versatile off-ball linebacker in Dan Quinn's new Commanders system.\"\n    },\n    {\n      \"team\": \"DAL\",\n      \"player\": \"Malachi Lawrence\",\n      \"market\": \"droy\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 2500,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1741,\n      \"rationale\": \"Dallas pass rush rotation specialist. Expected to generate highly visible play volumes.\"\n    },\n    {\n      \"team\": \"MIA\",\n      \"player\": \"Jacob Rodriguez\",\n      \"market\": \"droy\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 2200,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1843,\n      \"rationale\": \"Former QB converted to linebacker, high tackle count upside in Miami's scheme.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"schedule_context\",\n      \"teams\": [\"CIN\"],\n      \"players\": [\"Joe Burrow\"],\n      \"topic\": \"Bengals Early Schedule Concern\",\n      \"summary\": \"Seth notes that Burrow and the Bengals historically start slow. Facing Tampa Bay, Houston, and Pittsburgh early on the road could provide better buying opportunities in late September.\",\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 511,\n      \"quote\": \"My only issue there is like maybe this is one I want to place after week one or two because Joe Burrow, the Bengals, typically slow starters.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"LAC\"],\n      \"players\": [\"Justin Herbert\"],\n      \"topic\": \"Herbert Peak Age Target\",\n      \"summary\": \"Andrew highlights analytics showing average MVP quarterbacks peak around age 27 to 28, indicating Herbert is prime for a career-best campaign.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 907,\n      \"quote\": \"Average age of the MVP quarterback is usually around 27, 28 years old. Justin Herbert is 28 years old.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\"LV\"],\n      \"players\": [\"Kirk Cousins\", \"Fernando Mendoza\"],\n      \"topic\": \"Raiders QB Succession\",\n      \"summary\": \"Andrew explains Kirk Cousins' declining velocity coming off his Achilles injury makes rookie Fernando Mendoza a lock to take over the Raiders starting job.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1400,\n      \"quote\": \"I am not buying this Kirk Cousins... coming off the Achilles injury... I think Mendoza is going to play.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Bengals Win Total\",\n      \"timestamp\": 438,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"Bengals win total going over... it's at 9 and a half wins.\"\n    },\n    {\n      \"topic\": \"Trevor Lawrence MVP\",\n      \"timestamp\": 1039,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"For me, it's Trevor Lawrence at 24 to 1 to win the MVP award.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
     "extracted_picks": [
       {
         "team": "LAC",
+        "player": "Justin Herbert",
         "market": "mvp",
         "side": "YES",
         "line": null,
         "price": 1100,
         "week": null,
         "speaker": "Andrew Erickson",
-        "source_timestamp": 184,
-        "rationale": "High value at 11:1 under a new offensive system with improved offensive line health and depth.",
-        "player": "Justin Herbert",
-        "player_source": "Andy confirmed by listen 2026-07-28. Also cross-referenced from this episode's own analysis_notes (\"Chargers' new system... will unlock MVP-level play from Justin Herbert\") and speaker_segments -- missed in the first patch pass, corrected 2026-07-28 during a re-scan of speaker_segments prompted by a similar miss on youtube-qGJ2f1fEXHc."
+        "source_timestamp": 703,
+        "rationale": "Got an MVP vote last year even with a broken hand and poor offensive line. Now has Mike McDaniel as offensive coordinator."
       },
       {
         "team": "CIN",
+        "player": "Joe Burrow",
         "market": "mvp",
         "side": "YES",
         "line": null,
         "price": 1000,
         "week": null,
         "speaker": "Andrew Erickson",
-        "source_timestamp": 174,
-        "rationale": "Return to health and Cincinnati's favorable schedule make Burrow a top contender if the team reaches double-digit wins.",
-        "player": "Joe Burrow",
-        "player_source": "named in rationale (\"Burrow\") -- missed in the first pass, corrected 2026-07-28"
+        "source_timestamp": 304,
+        "rationale": "Cincinnati has the third easiest schedule and standard peak year trajectory if he remains fully healthy."
       },
       {
         "team": "JAX",
+        "player": "Trevor Lawrence",
         "market": "mvp",
         "side": "YES",
         "line": null,
         "price": 2400,
         "week": null,
         "speaker": "Andrew Erickson",
-        "source_timestamp": 639,
-        "rationale": "Lawrence is in his second year in Coen's system and generated elite red zone/rushing metrics late last year.",
-        "player": "Trevor Lawrence",
-        "player_source": "named in rationale (\"Lawrence\")"
+        "source_timestamp": 1012,
+        "rationale": "High fantasy point volume after week 5 last year. Flourishing in Liam Coen's passing offense."
       },
       {
         "team": "CIN",
+        "player": "Ja'Marr Chase",
         "market": "opoy",
         "side": "YES",
         "line": null,
         "price": 1200,
         "week": null,
         "speaker": "Andrew Erickson",
-        "source_timestamp": 896,
-        "rationale": "Chase is a top-tier receiver in his prime with Joe Burrow and is highly likely to lead the league in receiving yards.",
-        "player": "Ja'Marr Chase",
-        "player_source": "named in rationale (\"Chase\")"
+        "source_timestamp": 1313,
+        "rationale": "Burrow's number one target in what should be a very high-powered, high-volume Bengals passing attack."
       },
       {
-        "team": "LV",
+        "team": "NE",
+        "player": "AJ Brown",
+        "market": "opoy",
+        "side": "YES",
+        "line": null,
+        "price": 5000,
+        "week": null,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 1644,
+        "rationale": "Landed with New England. Perfect fit with Drake Maye under offensive coordinator Josh McDaniels who peppers alpha receivers."
+      },
+      {
+        "team": "NO",
+        "player": "Brock Bowers",
         "market": "opoy",
         "side": "YES",
         "line": null,
         "price": 8000,
         "week": null,
         "speaker": "Andrew Erickson",
-        "source_timestamp": 1081,
-        "rationale": "Extremely high value on a versatile pass catcher whose target share should skyrocket in Kubiak's system.",
-        "player": "Brock Bowers",
-        "player_source": "cross-referenced from this episode's own speaker_segments (\"Brock Bowers at 80:1... to win this award\" -- matches this pick's 8000/80:1 price exactly) -- missed in the first patch pass, corrected 2026-07-28."
+        "source_timestamp": 1604,
+        "rationale": "Incredible value at 80 to 1. Expected to play hybrid wide receiver/tight end role in Klint Kubiak's offense."
       },
       {
         "team": "LAR",
+        "player": "Myles Garrett",
         "market": "dpoy",
         "side": "YES",
         "line": null,
         "price": 450,
         "week": null,
         "speaker": "Andrew Erickson",
-        "source_timestamp": 1211,
-        "rationale": "Upgraded situation with the Rams will put Garrett in positive game scripts to rack up high sack totals.",
-        "player": "Myles Garrett",
-        "player_source": "named in rationale (\"Garrett\")"
+        "source_timestamp": 1804,
+        "rationale": "Upgraded game-script situation playing with the Rams. Media voters are already highly enamored with him."
+      },
+      {
+        "team": "DET",
+        "player": "Aidan Hutchinson",
+        "market": "dpoy",
+        "side": "YES",
+        "line": null,
+        "price": 1200,
+        "week": null,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 1808,
+        "rationale": "Entering his age-25 season fully healthy, poised for a dominant breakout sack campaign."
       },
       {
         "team": "JAX",
+        "player": "Josh Hines-Allen",
         "market": "dpoy",
         "side": "YES",
         "line": null,
         "price": 6000,
         "week": null,
         "speaker": "Andrew Erickson",
-        "source_timestamp": 1395,
-        "rationale": "Has massive sack-production upside on a defense expected to improve.",
-        "player": "Josh Hines-Allen",
-        "player_source": "cross-referenced from this episode's own speaker_segments (\"my favorite longshot at 60:1 is Josh Hines-Allen, the pass rusher for the Jacksonville Jaguars\" -- matches this pick's 6000/60:1 price exactly) -- missed in the first patch pass, corrected 2026-07-28."
+        "source_timestamp": 1921,
+        "rationale": "High total pressures metric last year. Worth a longshot sprinkle at 60 to 1 odds."
       },
       {
         "team": "LV",
+        "player": "Fernando Mendoza",
         "market": "oroy",
         "side": "YES",
         "line": null,
         "price": 450,
         "week": null,
         "speaker": "Andrew Erickson",
-        "source_timestamp": 1510,
-        "rationale": "Highly likely to take over as starting quarterback soon and succeed in Clint Kubiak's offense.",
-        "player": "Fernando Mendoza",
-        "player_source": "cross-referenced from this episode's own analysis_notes (\"Quarterback succession... rookie Mendoza\")"
+        "source_timestamp": 2011,
+        "rationale": "Should take over from Kirk Cousins sooner than later due to Cousins' diminishing arm velocity."
       },
       {
         "team": "CLE",
+        "player": "KC Concepcion",
         "market": "oroy",
         "side": "YES",
         "line": null,
         "price": 3000,
         "week": null,
         "speaker": "Seth Woolcock",
-        "source_timestamp": 1539,
-        "rationale": "Seth believes he can beat out Watson early and has proven high-level production transitions.",
-        "player": null,
-        "player_source": "NOT CAPTURED — re-checked 2026-07-28 including speaker_segments (not just rationale/notes) and still no name present; this Seth Woolcock statement about the CLE OROY pick falls in a gap the transcript doesn't capture (segments jump from the OROY category intro straight to Andrew's Mendoza pick). \"Watson\" in the rationale is the incumbent Cleveland starter this rookie is projected to beat out, not the pick itself. Team code only; identify via audio."
+        "source_timestamp": 1421,
+        "rationale": "High offensive versatility. Fits perfectly as a dynamic weapon under Todd Monken with Cleveland."
+      },
+      {
+        "team": "BAL",
+        "player": "Elijah Sarratt",
+        "market": "oroy",
+        "side": "YES",
+        "line": null,
+        "price": 9200,
+        "week": null,
+        "speaker": "Seth Woolcock",
+        "source_timestamp": 1608,
+        "rationale": "Strong prediction market value target. High collegiate profile matching Ravens system traits."
+      },
+      {
+        "team": "PHI",
+        "player": "Eli Stowers",
+        "market": "oroy",
+        "side": "YES",
+        "line": null,
+        "price": 9200,
+        "week": null,
+        "speaker": "Seth Woolcock",
+        "source_timestamp": 1656,
+        "rationale": "High athletic metrics. Eagles heavily utilize multiple-TE sets under OC Sean Mennon."
       },
       {
         "team": "WAS",
+        "player": "Sony Styles",
         "market": "droy",
         "side": "YES",
         "line": null,
-        "price": 850,
+        "price": 800,
         "week": null,
         "speaker": "Andrew Erickson",
-        "source_timestamp": 1848,
-        "rationale": "A highly versatile do-it-all defender who fits Quinn's scheme perfectly.",
-        "player": "Sonny Styles",
-        "player_source": "cross-referenced from this episode's own speaker_segments (\"I like Sonny Styles the most here at +850. He is a do-it-all linebacker who fits perfectly in Dan Quinn's defense\" -- near-verbatim match to this pick's rationale and price) -- missed in the first patch pass, corrected 2026-07-28."
+        "source_timestamp": 1451,
+        "rationale": "Extremely versatile off-ball linebacker in Dan Quinn's new Commanders system."
+      },
+      {
+        "team": "DAL",
+        "player": "Malachi Lawrence",
+        "market": "droy",
+        "side": "YES",
+        "line": null,
+        "price": 2500,
+        "week": null,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 1741,
+        "rationale": "Dallas pass rush rotation specialist. Expected to generate highly visible play volumes."
       },
       {
         "team": "MIA",
+        "player": "Jacob Rodriguez",
         "market": "droy",
         "side": "YES",
         "line": null,
         "price": 2200,
         "week": null,
         "speaker": "Andrew Erickson",
-        "source_timestamp": 1943,
-        "rationale": "Second-round linebacker with the perfect physical profile to rack up tackles in Miami's scheme.",
-        "player": "Jacob Rodriguez",
-        "player_source": "cross-referenced from this episode's own speaker_segments (\"For value, Jacob Rodriguez at 22:1\" -- matches this pick's 2200/22:1 price exactly) -- missed in the first patch pass, corrected 2026-07-28."
+        "source_timestamp": 1843,
+        "rationale": "Former QB converted to linebacker, high tackle count upside in Miami's scheme."
       }
     ],
     "analysis_notes": [
       {
-        "note_type": "coaching_or_scheme",
+        "note_type": "schedule_context",
+        "teams": [
+          "CIN"
+        ],
+        "players": [
+          "Joe Burrow"
+        ],
+        "topic": "Bengals Early Schedule Concern",
+        "summary": "Seth notes that Burrow and the Bengals historically start slow. Facing Tampa Bay, Houston, and Pittsburgh early on the road could provide better buying opportunities in late September.",
+        "speaker": "Seth Woolcock",
+        "source_timestamp": 511,
+        "quote": "My only issue there is like maybe this is one I want to place after week one or two because Joe Burrow, the Bengals, typically slow starters.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
         "teams": [
           "LAC"
         ],
         "players": [
           "Justin Herbert"
         ],
-        "topic": "Offensive system upgrade",
-        "summary": "Erickson highlights that the Chargers' new system under Mike McDaniel's tree and improved tackle depth will unlock MVP-level play from Justin Herbert.",
+        "topic": "Herbert Peak Age Target",
+        "summary": "Andrew highlights analytics showing average MVP quarterbacks peak around age 27 to 28, indicating Herbert is prime for a career-best campaign.",
         "speaker": "Andrew Erickson",
-        "source_timestamp": 443,
-        "quote": "When those offensive tackles were healthy, he looked like an MVP player.",
+        "source_timestamp": 907,
+        "quote": "Average age of the MVP quarterback is usually around 27, 28 years old. Justin Herbert is 28 years old.",
         "confidence": "stated"
       },
       {
-        "note_type": "roster_or_depth_chart",
+        "note_type": "matchup_analysis",
         "teams": [
           "LV"
         ],
         "players": [
-          "Fernando Mendoza",
-          "Kirk Cousins"
+          "Kirk Cousins",
+          "Fernando Mendoza"
         ],
-        "topic": "Quarterback succession",
-        "summary": "Erickson projects that Kirk Cousins' arm is shot coming off injury, opening the door for rookie Mendoza to take over early.",
+        "topic": "Raiders QB Succession",
+        "summary": "Andrew explains Kirk Cousins' declining velocity coming off his Achilles injury makes rookie Fernando Mendoza a lock to take over the Raiders starting job.",
         "speaker": "Andrew Erickson",
-        "source_timestamp": 1520,
-        "quote": "I don't think he has any more velocity on his throws, and I think Mendoza takes over.",
+        "source_timestamp": 1400,
+        "quote": "I am not buying this Kirk Cousins... coming off the Achilles injury... I think Mendoza is going to play.",
         "confidence": "stated"
       }
     ],
     "quote_timestamps": [
       {
-        "topic": "Trevor Lawrence MVP",
-        "timestamp": 639,
+        "topic": "Bengals Win Total",
+        "timestamp": 438,
         "speaker": "Andrew Erickson",
-        "quote": "For me, it's Trevor Lawrence at 24:1 to win the MVP award."
+        "quote": "Bengals win total going over... it's at 9 and a half wins."
       },
       {
-        "topic": "Fernando Mendoza OROY",
-        "timestamp": 1510,
+        "topic": "Trevor Lawrence MVP",
+        "timestamp": 1039,
         "speaker": "Andrew Erickson",
-        "quote": "I think that my favorite bet, my favorite value, is just Fernando Mendoza at +400."
+        "quote": "For me, it's Trevor Lawrence at 24 to 1 to win the MVP award."
       }
-    ]
+    ],
+    "coverage_assessment": {
+      "last_covered_timestamp": 2011,
+      "self_reported_reached_end": true,
+      "duration_used_for_check": 1920,
+      "segment_start_seconds": null,
+      "segment_end_seconds": null,
+      "suspected_incomplete": false,
+      "reason": null,
+      "coverage_ratio": 1.047
+    }
   },
   "scoring": {
     "score_status": "not_scored",
     "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
     "total_ground_truth": 0,
-    "total_shadow_extracted": 11,
+    "total_shadow_extracted": 16,
     "full_exact_matches": 0,
     "precision_pct": "not scored",
     "recall_pct": "not scored",

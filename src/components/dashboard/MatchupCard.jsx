@@ -9,7 +9,7 @@ import {
 import { InjurySummary, InjuryImpactIcon } from '../ui/InjuryBadge';
 import { getTopInjuries, getInjuryDataSourceState } from '../../lib/injuries';
 import { TEAM_LOGOS } from '../../lib/teams';
-import { getContractForGame, getContractsForTeam } from '../../lib/predictionMarketStore';
+import { getContractForGame } from '../../lib/predictionMarketStore';
 import { getSecondaryMatchupsForGame } from '../../lib/secondaryMatchupStore';
 
 const clean = (val) => parseFloat(String(val).replace(/[^0-9.]/g, '')) || 0;
@@ -19,7 +19,42 @@ const getAbbr = (name) => {
 };
 const STADIUM_DATA = { "Cardinals": { type: "Dome", lat: 33.5276, long: -112.2626 }, "Arizona": { type: "Dome", lat: 33.5276, long: -112.2626 }, "Falcons": { type: "Dome", lat: 33.7554, long: -84.4010 }, "Atlanta": { type: "Dome", lat: 33.7554, long: -84.4010 }, "Ravens": { type: "Open", lat: 39.2780, long: -76.6227 }, "Baltimore": { type: "Open", lat: 39.2780, long: -76.6227 }, "Bills": { type: "Open", lat: 42.7738, long: -78.7870 }, "Buffalo": { type: "Open", lat: 42.7738, long: -78.7870 }, "Panthers": { type: "Open", lat: 35.2258, long: -80.8528 }, "Carolina": { type: "Open", lat: 35.2258, long: -80.8528 }, "Bears": { type: "Open", lat: 41.8623, long: -87.6167 }, "Chicago": { type: "Open", lat: 41.8623, long: -87.6167 }, "Bengals": { type: "Open", lat: 39.0955, long: -84.5161 }, "Cincinnati": { type: "Open", lat: 39.0955, long: -84.5161 }, "Browns": { type: "Open", lat: 41.5061, long: -81.6995 }, "Cleveland": { type: "Open", lat: 41.5061, long: -81.6995 }, "Cowboys": { type: "Dome", lat: 32.7473, long: -97.0945 }, "Dallas": { type: "Dome", lat: 32.7473, long: -97.0945 }, "Broncos": { type: "Open", lat: 39.7439, long: -105.0201 }, "Denver": { type: "Open", lat: 39.7439, long: -105.0201 }, "Lions": { type: "Dome", lat: 42.3400, long: -83.0456 }, "Detroit": { type: "Dome", lat: 42.3400, long: -83.0456 }, "Packers": { type: "Open", lat: 44.5013, long: -88.0622 }, "Green Bay": { type: "Open", lat: 44.5013, long: -88.0622 }, "Texans": { type: "Dome", lat: 29.6847, long: -95.4107 }, "Houston": { type: "Dome", lat: 29.6847, long: -95.4107 }, "Colts": { type: "Dome", lat: 39.7601, long: -86.1639 }, "Indianapolis": { type: "Dome", lat: 39.7601, long: -86.1639 }, "Jaguars": { type: "Open", lat: 30.3240, long: -81.6373 }, "Jacksonville": { type: "Open", lat: 30.3240, long: -81.6373 }, "Chiefs": { type: "Open", lat: 39.0489, long: -94.4839 }, "Kansas City": { type: "Open", lat: 39.0489, long: -94.4839 }, "Raiders": { type: "Dome", lat: 36.0909, long: -115.1833 }, "Las Vegas": { type: "Dome", lat: 36.0909, long: -115.1833 }, "Chargers": { type: "Dome", lat: 33.9534, long: -118.3390 }, "Los Angeles": { type: "Dome", lat: 33.9534, long: -118.3390 }, "Rams": { type: "Dome", lat: 33.9534, long: -118.3390 }, "Dolphins": { type: "Open", lat: 25.9580, long: -80.2389 }, "Miami": { type: "Open", lat: 25.9580, long: -80.2389 }, "Vikings": { type: "Dome", lat: 44.9735, long: -93.2575 }, "Minnesota": { type: "Dome", lat: 44.9735, long: -93.2575 }, "Patriots": { type: "Open", lat: 42.0909, long: -71.2643 }, "New England": { type: "Open", lat: 42.0909, long: -71.2643 }, "Saints": { type: "Dome", lat: 29.9511, long: -90.0812 }, "New Orleans": { type: "Dome", lat: 29.9511, long: -90.0812 }, "Giants": { type: "Open", lat: 40.8135, long: -74.0745 }, "New York": { type: "Open", lat: 40.8135, long: -74.0745 }, "Jets": { type: "Open", lat: 40.8135, long: -74.0745 }, "Eagles": { type: "Open", lat: 39.9008, long: -75.1675 }, "Philadelphia": { type: "Open", lat: 39.9008, long: -75.1675 }, "Steelers": { type: "Open", lat: 40.4468, long: -80.0158 }, "Pittsburgh": { type: "Open", lat: 40.4468, long: -80.0158 }, "49ers": { type: "Open", lat: 37.4014, long: -121.9695 }, "San Francisco": { type: "Open", lat: 37.4014, long: -121.9695 }, "Seahawks": { type: "Open", lat: 47.5952, long: -122.3316 }, "Seattle": { type: "Open", lat: 47.5952, long: -122.3316 }, "Buccaneers": { type: "Open", lat: 27.9759, long: -82.5033 }, "Tampa Bay": { type: "Open", lat: 27.9759, long: -82.5033 }, "Titans": { type: "Open", lat: 36.1665, long: -86.7713 }, "Tennessee": { type: "Open", lat: 36.1665, long: -86.7713 }, "Commanders": { type: "Open", lat: 38.9076, long: -76.8645 }, "Washington": { type: "Open", lat: 38.9076, long: -76.8645 } };
 
-const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjuries, onAddBankrollBet, experts, myBets = [], simData }) => {
+// Checkpoint 2 item 8: module-level cache shared by every MatchupCard/
+// WeatherDisplay instance, keyed by stadium coordinates + today's calendar
+// date. open-meteo's `current_weather` returns live conditions ("now"), not
+// a per-kickoff forecast, so caching by day (not by game) is correct: every
+// card for the same stadium on the same day reuses one in-flight fetch
+// instead of firing its own request.
+const weatherCache = new Map();
+const todayKey = () => new Date().toISOString().slice(0, 10);
+
+const fetchStadiumWeather = (lat, long) => {
+  const cacheKey = `${lat},${long},${todayKey()}`;
+  if (weatherCache.has(cacheKey)) return weatherCache.get(cacheKey);
+
+  const promise = (async () => {
+    try {
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current_weather=true&temperature_unit=fahrenheit&windspeed_unit=mph`;
+      const res = await fetch(url);
+      const data = await res.json();
+      if (data.current_weather) {
+        const { temperature, windspeed, weathercode } = data.current_weather;
+        let cond = "Clear";
+        if (weathercode > 50) cond = "Rain/Snow";
+        else if (weathercode > 3) cond = "Cloudy";
+        return `${Math.round(temperature)}°F ${cond}, ${Math.round(windspeed)}mph Wind`;
+      }
+      return "Open Field";
+    } catch (_e) {
+      return "Open Field";
+    }
+  })();
+
+  weatherCache.set(cacheKey, promise);
+  return promise;
+};
+
+const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjuries, onAddBankrollBet, onShowPmContract, experts, myBets = [], simData }) => {
   const [showPicks, setShowPicks] = useState(false);
   const [showMoneyline, setShowMoneyline] = useState(false);
   const [showSecondary, setShowSecondary] = useState(false);
@@ -36,20 +71,129 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
   const visitorInjuryIsMock = injurySourceState.mockTeams.includes(game.visitor);
   const homeInjuryIsMock = injurySourceState.mockTeams.includes(game.home);
 
+  // --- CONSENSUS & SPLITS LOGIC ---
+  const spreadPicks = game.consensus?.expertPicks?.spread || [];
+  const totalPicks = game.consensus?.expertPicks?.total || [];
+  const allPicks = [...spreadPicks, ...totalPicks];
+
+  const atsSplits = game.splits?.ats || {};
+  const totSplits = game.splits?.total || {};
+
+  // Spread Percentages (Tickets / Money)
+  let vPct = 50;
+  let hPct = 50;
+  let spreadLabel = "Spread Consensus";
+  let spreadMoneyDetail = null;
+
+  if (atsSplits.visitorTicket || atsSplits.homeTicket) {
+    vPct = clean(atsSplits.visitorTicket);
+    hPct = clean(atsSplits.homeTicket);
+    spreadLabel = `Public Splits (${vPct}% ${game.visitor} / ${hPct}% ${game.home})`;
+    if (atsSplits.visitorMoney != null && atsSplits.homeMoney != null) {
+      spreadMoneyDetail = `Money: ${clean(atsSplits.visitorMoney)}% ${game.visitor} / ${clean(atsSplits.homeMoney)}% ${game.home}`;
+    }
+  } else if (spreadPicks.length > 0) {
+    const homePicks = spreadPicks.filter(p => p.pick.includes(game.home)).length;
+    const visPicks = spreadPicks.filter(p => p.pick.includes(game.visitor)).length;
+    const totalSpread = homePicks + visPicks;
+    if (totalSpread > 0) {
+      hPct = Math.round((homePicks / totalSpread) * 100);
+      vPct = Math.round((visPicks / totalSpread) * 100);
+    }
+    spreadLabel = "Spread Consensus (Experts)";
+  }
+
+  // Total Percentages (Over / Under)
+  let oPct = 50;
+  let uPct = 50;
+  let totalLabel = `Total Consensus (${game.total || '38.5'} Pts)`;
+  let totalMoneyDetail = null;
+
+  if (totSplits.overTicket || totSplits.underTicket) {
+    oPct = clean(totSplits.overTicket);
+    uPct = clean(totSplits.underTicket);
+    totalLabel = `Total Splits (${oPct}% Over / ${uPct}% Under)`;
+    if (totSplits.overMoney != null && totSplits.underMoney != null) {
+      totalMoneyDetail = `Money: ${clean(totSplits.overMoney)}% Over / ${clean(totSplits.underMoney)}% Under`;
+    }
+  } else if (totalPicks.length > 0) {
+    const overPicks = totalPicks.filter(p => p.pick.toLowerCase().includes('over')).length;
+    const underPicks = totalPicks.filter(p => p.pick.toLowerCase().includes('under')).length;
+    const totalTotal = overPicks + underPicks;
+    if (totalTotal > 0) {
+      oPct = Math.round((overPicks / totalTotal) * 100);
+      uPct = Math.round((underPicks / totalTotal) * 100);
+    }
+    totalLabel = `Total Consensus (${game.total} Pts)`;
+  }
+
+  // Moneyline Percentages (Tickets / Money) -- Phase 1 (2026-08-24): this
+  // used to fake a "Show Implied Probability" toggle that just re-rendered
+  // the SPREAD vPct/hPct under a moneyline-shaped label -- real ML split
+  // data (game.splits.ml) was already loaded and already rendered in the
+  // standalone Splits modal, just never read here. Ambient bar now reads
+  // the real field (same {visitorTicket, homeTicket, visitorMoney,
+  // homeMoney} shape SplitsModal.jsx uses), and the toggle only renders
+  // when that data actually exists for this game.
+  const mlSplits = game.splits?.ml || {};
+  const hasMlSplits = mlSplits.visitorTicket != null || mlSplits.homeTicket != null;
+  let mlVPct = 50;
+  let mlHPct = 50;
+  let mlMoneyDetail = null;
+  if (hasMlSplits) {
+    mlVPct = clean(mlSplits.visitorTicket);
+    mlHPct = clean(mlSplits.homeTicket);
+    if (mlSplits.visitorMoney != null && mlSplits.homeMoney != null) {
+      mlMoneyDetail = `Money: ${clean(mlSplits.visitorMoney)}% ${game.visitor} / ${clean(mlSplits.homeMoney)}% ${game.home}`;
+    }
+  }
+
   const WeatherDisplay = () => {
       const [weather, setWeather] = useState(game.weather && game.weather !== 'Open Field' ? game.weather : null);
       const [loading, setLoading] = useState(false);
+      const containerRef = useRef(null);
       const homeName = (game.home || '').toLowerCase();
       const teamKey = Object.keys(STADIUM_DATA).find(k => homeName.includes(k.toLowerCase()) || k.toLowerCase().includes(homeName));
       const stadium = teamKey ? STADIUM_DATA[teamKey] : { type: "Open", lat: 0, long: 0 };
-      // Intentional mount-once fetch: stadium/weather are read from the closure
-      // captured at mount, using the [] dep array on purpose so this only fires
-      // once per WeatherDisplay instance. Adding stadium.*/weather as deps
-      // would refire this on every weather state update it causes itself.
+      // Checkpoint 2 item 8: only fetch once this card is actually near the
+      // viewport (IntersectionObserver), and share one cached fetch per
+      // stadium+day across every card instance (fetchStadiumWeather above)
+      // instead of every rendered card firing its own request. Intentional
+      // mount-once effect (stadium/weather read from the closure captured at
+      // mount) -- adding them as deps would refire this on every weather
+      // state update the effect itself causes.
+      useEffect(() => {
+        if (stadium.type === "Dome" || stadium.type === "Retractable Roof") { setWeather(stadium.type); return; }
+        if (weather || !stadium.lat) return;
+
+        let cancelled = false;
+        const runFetch = () => {
+          setLoading(true);
+          fetchStadiumWeather(stadium.lat, stadium.long)
+            .then(w => { if (!cancelled) setWeather(w); })
+            .finally(() => { if (!cancelled) setLoading(false); });
+        };
+
+        const el = containerRef.current;
+        if (!el || typeof IntersectionObserver === 'undefined') {
+          // No observer support (or no DOM node yet) -- fetch immediately as a fallback.
+          runFetch();
+          return () => { cancelled = true; };
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+          if (entries.some(e => e.isIntersecting)) {
+            runFetch();
+            observer.disconnect();
+          }
+        }, { rootMargin: '200px' });
+        observer.observe(el);
+
+        return () => { cancelled = true; observer.disconnect(); };
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      useEffect(() => { if (stadium.type === "Dome" || stadium.type === "Retractable Roof") { setWeather(stadium.type); return; } if (weather || !stadium.lat) return; const fetchWeather = async () => { setLoading(true); try { const url = `https://api.open-meteo.com/v1/forecast?latitude=${stadium.lat}&longitude=${stadium.long}&current_weather=true&temperature_unit=fahrenheit&windspeed_unit=mph`; const res = await fetch(url); const data = await res.json(); if (data.current_weather) { const { temperature, windspeed, weathercode } = data.current_weather; let cond = "Clear"; if (weathercode > 50) cond = "Rain/Snow"; else if (weathercode > 3) cond = "Cloudy"; setWeather(`${Math.round(temperature)}°F ${cond}, ${Math.round(windspeed)}mph Wind`); } } catch (_e) { setWeather("Open Field"); } finally { setLoading(false); } }; fetchWeather(); }, []);
+      }, []);
       const getWeatherIcon = (txt) => { if (!txt) return <Cloud size={12} />; const lower = txt.toLowerCase(); if (lower.includes('snow') || lower.includes('tundra')) return <Snowflake size={12} className="text-cyan-300" />; if (lower.includes('rain') || lower.includes('shower')) return <Cloud size={12} className="text-slate-400" />; if (lower.includes('dome') || lower.includes('roof')) return <Umbrella size={12} className="text-indigo-400" />; if (lower.includes('clear') || lower.includes('sunny')) return <Sun size={12} className="text-amber-400" />; return <Wind size={12} className="text-slate-500" />; };
-      return (<div className="flex items-center gap-1.5 text-slate-400 text-[10px] font-bold uppercase tracking-wider">{loading ? <Activity size={12} className="animate-spin text-slate-500" /> : getWeatherIcon(weather)}<span>{loading ? "Loading..." : (weather || "Open Field")}</span></div>);
+      return (<div ref={containerRef} className="flex items-center gap-1.5 text-slate-400 text-[10px] font-bold uppercase tracking-wider">{loading ? <Activity size={12} className="animate-spin text-slate-500" /> : getWeatherIcon(weather)}<span>{loading ? "Loading..." : (weather || "Open Field")}</span></div>);
   };
 
   const BetSelector = ({ type, side, baseLine }) => {
@@ -228,20 +372,7 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
       );
   };
 
-  // --- CONSENSUS/BADGES LOGIC (Rest of existing code) ---
-  const spreadPicks = game.consensus?.expertPicks?.spread || [];
-  const totalPicks = game.consensus?.expertPicks?.total || [];
-  const allPicks = [...spreadPicks, ...totalPicks];
-  const homePicks = spreadPicks.filter(p => p.pick.includes(game.home)).length;
-  const visPicks = spreadPicks.filter(p => p.pick.includes(game.visitor)).length;
-  const totalSpread = homePicks + visPicks;
-  const hPct = totalSpread ? Math.round((homePicks / totalSpread) * 100) : 50;
-  const vPct = totalSpread ? Math.round((visPicks / totalSpread) * 100) : 50;
-  const overPicks = totalPicks.filter(p => p.pick.toLowerCase().includes('over')).length;
-  const underPicks = totalPicks.filter(p => p.pick.toLowerCase().includes('under')).length;
-  const totalTotal = overPicks + underPicks;
-  const oPct = totalTotal ? Math.round((overPicks / totalTotal) * 100) : 50;
-  const uPct = totalTotal ? Math.round((underPicks / totalTotal) * 100) : 50;
+
 
   const getBadges = () => {
       const badges = [];
@@ -322,8 +453,22 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
       
       {/* HEADER */}
       <div className="flex justify-between items-start mb-4 text-[11px] font-bold tracking-widest uppercase">
-          <div className="flex items-center gap-1.5 text-slate-400">
+          <div className="flex items-center gap-1.5 text-slate-400 flex-wrap">
             <span>{formatGameTime(game.commence_time)} PT</span>
+            {game.season_type === 1 && (
+              <span className="bg-purple-950/60 border border-purple-500/40 text-purple-300 px-1.5 py-0.5 rounded text-[9px] font-bold">
+                PRESEASON W{game.week}
+              </span>
+            )}
+            {(game.status === 'post' || game.status === 'STATUS_FINAL' || (game.homeScore != null && game.visitorScore != null && (game.homeScore > 0 || game.visitorScore > 0))) ? (
+              <span className="bg-emerald-950/80 border border-emerald-500/50 text-emerald-300 px-1.5 py-0.5 rounded text-[9px] font-black">
+                FINAL: {game.visitor} {game.visitorScore ?? 0} - {game.homeScore ?? 0} {game.home}
+              </span>
+            ) : game.status === 'in' ? (
+              <span className="bg-rose-950/80 border border-rose-500/50 text-rose-300 px-1.5 py-0.5 rounded text-[9px] font-black animate-pulse">
+                LIVE: {game.visitor} {game.visitorScore ?? 0} - {game.homeScore ?? 0} {game.home}
+              </span>
+            ) : null}
             {secMatchups && secMatchups.maxSeverity >= 2 && (
               <div className="relative group/sec font-sans normal-case tracking-normal">
                 <div className="flex items-center gap-1 bg-amber-500/10 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded text-[10px] font-bold cursor-help">
@@ -363,7 +508,11 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
             </div>
             <div>
                 <div className="font-black text-lg text-white leading-none tracking-tight">{game.visitor}</div>
-                <div className="text-[10px] text-slate-500 font-mono mt-1">{game.visitorRecord || '(0-0)'}</div>
+                {game.visitorScore != null && (game.status === 'post' || game.status === 'in') ? (
+                  <div className="text-base font-black text-emerald-400 font-mono mt-0.5">{game.visitorScore}</div>
+                ) : (
+                  <div className="text-[10px] text-slate-500 font-mono mt-1">{game.visitorRecord || '(0-0)'}</div>
+                )}
                 {/* Injury Summary */}
                 <div className="mt-1 flex items-center justify-center gap-1">
                     <InjurySummary
@@ -404,19 +553,25 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
             <PropSelector />
             {/* 📊 PREDICTION MARKET BADGE */}
             {(() => {
-              const contract = getContractForGame(game.visitor, game.home) || getContractsForTeam(game.home)[0];
+              const contract = getContractForGame(game.visitor, game.home, game.commence_time);
               if (!contract) return null;
               const netOddsStr = contract.net_american_odds > 0 ? `+${contract.net_american_odds}` : `${contract.net_american_odds}`;
               return (
-                <div className="mt-2 text-center bg-emerald-950/40 border border-emerald-500/30 rounded-lg p-1.5 flex items-center justify-between text-[10px] shadow-sm">
-                  <div className="flex items-center gap-1">
-                    <span className="text-emerald-400 font-bold uppercase">[{contract.exchange}]</span>
-                    <span className="text-slate-300 truncate max-w-[110px]" title={contract.title}>{contract.title}</span>
+                <button
+                  onClick={() => onShowPmContract && onShowPmContract(contract)}
+                  className="mt-2 w-full text-left bg-emerald-950/60 hover:bg-emerald-900/60 border border-emerald-500/40 rounded-lg p-2 flex items-center justify-between text-[11px] shadow-sm transition-all group cursor-pointer"
+                >
+                  <div className="flex items-center gap-1.5 min-w-0 pr-2">
+                    <span className="text-emerald-400 font-bold uppercase shrink-0">[{contract.exchange || 'KALSHI'}]</span>
+                    <span className="text-slate-200 font-medium text-xs leading-tight line-clamp-1 group-hover:text-white" title={contract.title}>
+                      {contract.title}
+                    </span>
                   </div>
-                  <div className="font-mono text-emerald-300 font-bold">
-                    {contract.price_cents}¢ ({netOddsStr})
+                  <div className="font-mono text-emerald-300 font-bold shrink-0 text-xs flex items-center gap-1">
+                    <span>{contract.price_cents}¢ ({netOddsStr})</span>
+                    <ExternalLink size={10} className="opacity-70 group-hover:opacity-100" />
                   </div>
-                </div>
+                </button>
               );
             })()}
         </div>
@@ -429,7 +584,11 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
             </div>
             <div>
                 <div className="font-black text-lg text-white leading-none tracking-tight">{game.home}</div>
-                <div className="text-[10px] text-slate-500 font-mono mt-1">{game.homeRecord || '(0-0)'}</div>
+                {game.homeScore != null && (game.status === 'post' || game.status === 'in') ? (
+                  <div className="text-base font-black text-emerald-400 font-mono mt-0.5">{game.homeScore}</div>
+                ) : (
+                  <div className="text-[10px] text-slate-500 font-mono mt-1">{game.homeRecord || '(0-0)'}</div>
+                )}
                 {/* Injury Summary */}
                 <div className="mt-1 flex items-center justify-center gap-1">
                     <InjurySummary
@@ -453,11 +612,14 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
         </div>
       </div>
 
-      {/* --- CONSENSUS BARS & BADGES & FOOTER (Keep Existing) --- */}
+      {/* --- CONSENSUS BARS & BADGES & FOOTER --- */}
       <div className="space-y-3 mb-4">
         {/* SPREAD */}
         <div>
-            <div className="flex justify-between text-[9px] text-slate-500 mb-1 font-bold uppercase tracking-wider"><span>Spread Consensus (Experts)</span></div>
+            <div className="flex justify-between text-[9px] text-slate-400 mb-1 font-bold uppercase tracking-wider">
+              <span>{spreadLabel}</span>
+              {spreadMoneyDetail && <span className="text-emerald-400 font-mono font-normal">{spreadMoneyDetail}</span>}
+            </div>
             <div className="relative h-1.5 bg-slate-800 rounded-full overflow-hidden flex">
                 <div className="h-full bg-indigo-500 transition-all duration-500" style={{ width: `${vPct}%` }}></div>
                 <div className="h-full bg-rose-500 transition-all duration-500" style={{ width: `${hPct}%` }}></div>
@@ -466,26 +628,35 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
         </div>
         {/* TOTAL */}
         <div>
-             <div className="flex justify-between text-[9px] text-slate-500 mb-1 font-bold uppercase tracking-wider"><span>Total Consensus ({game.total} Pts)</span></div>
+             <div className="flex justify-between text-[9px] text-slate-400 mb-1 font-bold uppercase tracking-wider">
+               <span>{totalLabel}</span>
+               {totalMoneyDetail && <span className="text-emerald-400 font-mono font-normal">{totalMoneyDetail}</span>}
+             </div>
             <div className="relative h-1.5 bg-slate-800 rounded-full overflow-hidden flex">
-                 <div className="h-full bg-amber-500 transition-all duration-500" style={{ width: `${oPct}%` }}></div>
-                 <div className="h-full bg-blue-500 transition-all duration-500" style={{ width: `${uPct}%` }}></div>
+                <div className="h-full bg-amber-500 transition-all duration-500" style={{ width: `${oPct}%` }}></div>
+                <div className="h-full bg-blue-500 transition-all duration-500" style={{ width: `${uPct}%` }}></div>
             </div>
-             <div className="flex justify-between text-[9px] text-slate-400 mt-0.5 font-medium"><span>{oPct}% Over</span><span>{uPct}% Under</span></div>
+            <div className="flex justify-between text-[9px] text-slate-400 mt-0.5 font-medium"><span>{oPct}% Over</span><span>{uPct}% Under</span></div>
         </div>
         {/* MONEYLINE */}
-        <div>
-             <button onClick={() => setShowMoneyline(!showMoneyline)} className="flex items-center gap-1 text-[9px] text-slate-500 font-bold uppercase tracking-wider hover:text-white mb-1 transition-colors"><Calculator size={10} /> {showMoneyline ? "Hide Implied Probability" : "Show Implied Probability"}</button>
-             {showMoneyline && (
-                <div className="animate-in fade-in slide-in-from-top-1 duration-200">
-                    <div className="relative h-1.5 bg-slate-800 rounded-full overflow-hidden flex opacity-80">
-                        <div className="h-full bg-violet-600 transition-all duration-500" style={{ width: `${vPct}%` }}></div>
-                        <div className="h-full bg-lime-400 transition-all duration-500" style={{ width: `${hPct}%` }}></div>
-                    </div>
-                    <div className="flex justify-between text-[9px] text-slate-400 mt-0.5 font-medium"><span className="text-violet-400">{vPct}% {game.visitor}</span><span className="text-lime-400">{hPct}% {game.home}</span></div>
-                </div>
-             )}
-        </div>
+        {hasMlSplits && (
+          <div>
+               <button onClick={() => setShowMoneyline(!showMoneyline)} className="flex items-center gap-1 text-[9px] text-slate-500 font-bold uppercase tracking-wider hover:text-white mb-1 transition-colors"><Calculator size={10} /> {showMoneyline ? "Hide Moneyline Splits" : "Show Moneyline Splits"}</button>
+               {showMoneyline && (
+                  <div className="animate-in fade-in slide-in-from-top-1 duration-200">
+                      <div className="flex justify-between text-[9px] text-slate-400 mb-1 font-bold uppercase tracking-wider">
+                        <span>Moneyline Splits ({mlVPct}% {game.visitor} / {mlHPct}% {game.home})</span>
+                        {mlMoneyDetail && <span className="text-emerald-400 font-mono font-normal">{mlMoneyDetail}</span>}
+                      </div>
+                      <div className="relative h-1.5 bg-slate-800 rounded-full overflow-hidden flex opacity-80">
+                          <div className="h-full bg-violet-600 transition-all duration-500" style={{ width: `${mlVPct}%` }}></div>
+                          <div className="h-full bg-lime-400 transition-all duration-500" style={{ width: `${mlHPct}%` }}></div>
+                      </div>
+                      <div className="flex justify-between text-[9px] text-slate-400 mt-0.5 font-medium"><span className="text-violet-400">{mlVPct}% {game.visitor}</span><span className="text-lime-400">{mlHPct}% {game.home}</span></div>
+                  </div>
+               )}
+          </div>
+        )}
       </div>
 
       {(activeBadges.length > 0 || game.teaser) && (

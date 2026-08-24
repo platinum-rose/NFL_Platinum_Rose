@@ -12,7 +12,16 @@ const FuturesAgentChat = lazy(() => import('../agent/FuturesAgentChat'));
 const FuturesIntelReport = lazy(() => import('./FuturesIntelReport'));
 const BankrollDashboard = lazy(() => import('../bankroll/BankrollDashboard'));
 
-export default function FuturesHub() {
+// onShowCalculator (2026-08-24 fix): this hub's own "Bankroll" sub-tab
+// renders BankrollDashboard.jsx, which has a "Calculator" button wired to an
+// onShowCalculator prop -- wiring that prop was done at App.jsx's separate,
+// mobile-only `activeTab === 'bankroll'` route first (Task #12, Sizing
+// header-button removal) without realizing THIS is the actual reachable
+// path from the desktop "Bankroll & Futures" nav tab, which renders
+// FuturesHub -> its own BankrollDashboard instance, never that other route.
+// Caught live-testing: the button rendered but did nothing here. Now both
+// entry points open the same UnitCalculatorModal via the same App.jsx state.
+export default function FuturesHub({ onShowCalculator }) {
   const [activeSubTab, setActiveSubTab] = useState('portfolio');
 
   return (
@@ -89,7 +98,7 @@ export default function FuturesHub() {
         {activeSubTab === 'portfolio' && <FuturesPortfolio />}
         {activeSubTab === 'futures-ai' && <FuturesAgentChat />}
         {activeSubTab === 'report' && <FuturesIntelReport />}
-        {activeSubTab === 'bankroll' && <BankrollDashboard />}
+        {activeSubTab === 'bankroll' && <BankrollDashboard onShowCalculator={onShowCalculator} />}
       </Suspense>
     </div>
   );

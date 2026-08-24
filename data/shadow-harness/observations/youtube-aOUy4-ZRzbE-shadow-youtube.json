@@ -6,20 +6,24 @@
   "mode": "live-youtube",
   "model": "gemini-3.5-flash",
   "input_source": "youtube_video_url",
+  "reprocess_required": false,
+  "reprocess_reason": null,
+  "quality_flags": [],
   "run": {
-    "run_id": "youtube_gemini_f67ee132fb82",
+    "run_id": "youtube_gemini_c9911924c5fe",
     "mode": "live-youtube",
     "model": "gemini-3.5-flash",
     "input_source": "youtube_video_url",
     "youtube_url": "https://www.youtube.com/watch?v=aOUy4-ZRzbE",
-    "latency_ms": 124587,
-    "estimated_cost_usd": 0.032234,
-    "input_tokens": 310753,
-    "output_tokens": 2897,
-    "raw_model_response": "{\n  \"transcript_summary\": \"Hosts Seth Woolcock and Andrew Erickson share their best team futures bets for the simulated 2026 NFL season. They discuss division winners, playoff make/miss odds, and longshots for the number one seed in each conference.\",\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 180.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"All right and welcome into the BettingPros NFL Podcast. The slow down portion of the off season rolls on which makes now the perfect time to continue to get invested with the futures market.\"\n    },\n    {\n      \"start\": 180.0,\n      \"end\": 420.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"For me, a trend that I like so taking advantage of the turnover of these divisions... I'm going to go with the Tennessee Titans to win the AFC South at +850.\"\n    },\n    {\n      \"start\": 420.0,\n      \"end\": 697.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"New Orleans Saints... same type of process... Saints to win the NFC South at +280 on Hard Rock Bet.\"\n    },\n    {\n      \"start\": 697.0,\n      \"end\": 938.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Bengals and Chargers... Bengals to win AFC North (+190), Chargers to win AFC West (+180)...\"\n    },\n    {\n      \"start\": 938.0,\n      \"end\": 1107.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Dallas Cowboys to make the playoffs at even money (+100)... I also like a longshot 14 to 1 to be the number one seed in the NFC.\"\n    },\n    {\n      \"start\": 1107.0,\n      \"end\": 1204.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Indianapolis Colts to miss the playoffs. This one is juicy at -185 on Hard Rock Bet.\"\n    },\n    {\n      \"start\": 1204.0,\n      \"end\": 1485.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"I'm going to go with the Atlanta Falcons to miss the playoffs at -213. I just think this season has disaster written all over it.\"\n    },\n    {\n      \"start\": 1485.0,\n      \"end\": 1650.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"The Chicago Bears to miss the playoffs, yes, is -125. Classic case of fading the most hyped team.\"\n    },\n    {\n      \"start\": 1650.0,\n      \"end\": 1821.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Green Bay Packers to make the playoffs, I'm on the yes side of this at -116.\"\n    },\n    {\n      \"start\": 1821.0,\n      \"end\": 1925.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"The Detroit Lions to be the number one seed in the NFC at +650 on Hard Rock Bet.\"\n    },\n    {\n      \"start\": 1925.0,\n      \"end\": 2040.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Cincinnati Bengals, number one seed in the AFC at +800.\"\n    },\n    {\n      \"start\": 2040.0,\n      \"end\": 2100.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"I'm going to go with the Atlanta Falcons to get the number one overall pick at +1351.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"TEN\",\n      \"market\": \"division_winner\",\n      \"side\": \"TEN\",\n      \"line\": null,\n      \"price\": 850,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 205,\n      \"rationale\": \"Follows the worst-to-first trend with a second-year QB breakout (Cam Ward) and Brian Daboll running a system optimized for mobile quarterbacks.\"\n    },\n    {\n      \"team\": \"NO\",\n      \"market\": \"division_winner\",\n      \"side\": \"NO\",\n      \"line\": null,\n      \"price\": 280,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 421,\n      \"rationale\": \"Worst-to-first candidate. Tyler Shough had great intermediate passing metrics as a rookie, and they have the second-easiest overall schedule.\"\n    },\n    {\n      \"team\": \"CIN\",\n      \"market\": \"division_winner\",\n      \"side\": \"CIN\",\n      \"line\": null,\n      \"price\": 190,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 727,\n      \"rationale\": \"Bengals have the 3rd-easiest schedule in the NFL, a healthy Joe Burrow, and a defense poised to take a second-year jump under Al Golden.\"\n    },\n    {\n      \"team\": \"LAC\",\n      \"market\": \"division_winner\",\n      \"side\": \"LAC\",\n      \"line\": null,\n      \"price\": 180,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1024,\n      \"rationale\": \"Strong positive injury regression candidate after being the second most injured team in the AFC. Easy opening schedule (Cardinals, Raiders).\"\n    },\n    {\n      \"team\": \"DAL\",\n      \"market\": \"make_playoffs\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 100,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1062,\n      \"rationale\": \"Clay's projections have them as the 6th seed. If Dak Prescott is healthy, the offense will produce, and the defense has been heavily upgraded.\"\n    },\n    {\n      \"team\": \"IND\",\n      \"market\": \"make_playoffs\",\n      \"side\": \"NO\",\n      \"line\": null,\n      \"price\": -185,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1108,\n      \"rationale\": \"The Colts have never made the playoffs under Shane Steichen, and Daniel Jones is coming off a torn Achilles.\"\n    },\n    {\n      \"team\": \"ATL\",\n      \"market\": \"make_playoffs\",\n      \"side\": \"NO\",\n      \"line\": null,\n      \"price\": -213,\n      \"week\": null,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 1380,\n      \"rationale\": \"The team has two quarterbacks (Tua and Michael Penix Jr.), indicating likely instability. The defense has lost James Pierce Jr., and they face a brutal out-of-division schedule.\"\n    },\n    {\n      \"team\": \"CHI\",\n      \"market\": \"make_playoffs\",\n      \"side\": \"NO\",\n      \"line\": null,\n      \"price\": -125,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1491,\n      \"rationale\": \"Fading the most hyped team in the NFL. Despite Caleb Williams' potential, their defense remains a weakness, and they face the 3rd-biggest increase in schedule difficulty.\"\n    },\n    {\n      \"team\": \"GB\",\n      \"market\": \"make_playoffs\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": -116,\n      \"week\": null,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 1675,\n      \"rationale\": \"Jordan Love has consistently made the playoffs. Key offensive weapons are fully healthy, and defensive additions like Javon Hargrave will shore up their run defense.\"\n    },\n    {\n      \"team\": \"DET\",\n      \"market\": \"number_one_seed\",\n      \"side\": \"DET\",\n      \"line\": null,\n      \"price\": 650,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1834,\n      \"rationale\": \"The Lions have the easiest schedule in the NFL and only play outdoors twice between weeks 5 and 16.\"\n    },\n    {\n      \"team\": \"CIN\",\n      \"market\": \"number_one_seed\",\n      \"side\": \"CIN\",\n      \"line\": null,\n      \"price\": 800,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1936,\n      \"rationale\": \"Correlates with their division winner value and highly favorable schedule strength.\"\n    },\n    {\n      \"team\": \"ATL\",\n      \"market\": \"number_one_overall_pick\",\n      \"side\": \"ATL\",\n      \"line\": null,\n      \"price\": 1351,\n      \"week\": null,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 2044,\n      \"rationale\": \"Part of a full fade of the Falcons, expecting a highly unstable quarterback room and defensive regression to bottom out their season.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"TEN\"],\n      \"players\": [\"Cam Ward\"],\n      \"topic\": \"Brian Daboll System Fit\",\n      \"summary\": \"Andrew Erickson highlighted that offensive coordinator Brian Daboll has historically found immense success maximizing young, mobile quarterbacks.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 247,\n      \"quote\": \"Brian Daboll... has had success with guys like Josh Allen, Daniel Jones, Jackson Dart. Young, mobile quarterbacks that took off in his system.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"schedule_context\",\n      \"teams\": [\"NO\"],\n      \"players\": [\"Tyler Shough\"],\n      \"topic\": \"Saints Early Schedule Warning\",\n      \"summary\": \"Erickson advises waiting until Week 3 to buy futures on the Saints due to a brutal opening road stretch.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 450,\n      \"quote\": \"You may want to wait to buy in on the New Orleans Saints... first two matchups of the year: at Detroit, at Baltimore.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"LAC\"],\n      \"players\": [\"Justin Herbert\"],\n      \"topic\": \"Positive Injury Regression\",\n      \"summary\": \"The Chargers are expected to bounce back significantly due to health regression after playing through fractured bones and tackle injuries.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1052,\n      \"quote\": \"Justin Herbert playing through a fractured left hand... everything is going to be so improved.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Titans Worst to First\",\n      \"timestamp\": 205,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"I'm going to go with the Tennessee Titans to win the AFC South at +850.\"\n    },\n    {\n      \"topic\": \"Saints Schedule Warning\",\n      \"timestamp\": 450,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"You may want to wait to buy in on the New Orleans Saints.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+    "latency_ms": 220988,
+    "estimated_cost_usd": 0.032642,
+    "input_tokens": 311571,
+    "output_tokens": 3712,
+    "raw_model_response": "{\n  \"transcript_summary\": \"Seth Woolcock and Andrew Erickson preview the division winners, playoff arrivals/misses, and conference number-one seeds for the upcoming NFL season. Using historical trends like 'worst-to-first' and schedule difficulty projections, they find value on teams like the Titans, Saints, Chargers, Cowboys, and Lions.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 431,\n    \"last_analyzed_timestamp\": 431,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 50.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"All right and welcome into the BettingPros NFL Podcast. The slow-down portion of the offseason rolls on, which makes now the perfect time to continue to get invested with the futures market. Last episode we previewed the award odds, and this time we're heading to the team side of things, giving you our best bets for the division winners, to make and to miss the playoffs, and the number-one seed odds.\"\n    },\n    {\n      \"start\": 50.0,\n      \"end\": 77.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Doesn't feel great, Seth. The fact that it's your 10-year high school reunion—my 10-year college reunion was this season. So again, four years apart, you and me. Your back's going to hurt a lot more when you're my age.\"\n    },\n    {\n      \"start\": 77.0,\n      \"end\": 88.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"I definitely will. I'll tell you what, I love getting eight hours of sleep, but when I do, my back hurts already if I get eight hours or more. So I feel it creeping up.\"\n    },\n    {\n      \"start\": 88.0,\n      \"end\": 133.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"On today's show, we're going to break down our favorite plays for some of these more fun team markets today. And before we do, I wanted to first shout out all the beautiful men and women who are joining us on the BettingPros YouTube channel and the audio feed. Give this video a thumbs up. That's how you can support us. Let's go ahead and dive into a market that is always tough to predict: division titles.\"\n    },\n    {\n      \"start\": 133.0,\n      \"end\": 202.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"For me, a trend that I like is taking advantage of the turnover of these divisions every single year. What I always like to look at is the worst-to-first type of trend. Since 2002, only three times has at least one last-place team not finished first in the division the following year. This happened with two teams last season: Chicago Bears and New England Patriots.\"\n    },\n    {\n      \"start\": 202.0,\n      \"end\": 259.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"So for me, the first bet is the long shot. I'm going to go with the Tennessee Titans to win the AFC South at +850. This is following the trend of a second-year quarterback, a team going worst-to-first. Robert Saleh is coming over as the head coach, and I think he's going to get so much more out of this defense. They also upgraded with Cam Ward, Brian Daboll, and have actual receivers to throw to.\"\n    },\n    {\n      \"start\": 260.0,\n      \"end\": 320.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Next up, New Orleans Saints to win the NFC South at +280 on Hard Rock Bet. Same type of process: worst-to-first. First two matchups of the year are at Detroit, at Baltimore on the road, which is not ideal. So you may want to wait until Week 3 to buy the dip when their schedule gets much more palatable. Tyler Shough showed out a lot as a rookie quarterback and intermediate completion percentage was number one in the NFL.\"\n    },\n    {\n      \"start\": 321.0,\n      \"end\": 341.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"And at even money, I'm okay with this bet, especially because you mentioned it. We bring in Jaylen Thompson, a guy who has been just really a stalwart player down there in Arizona for years. I like that, and I also do like as a long shot, 14-to-1 to be the number-one seed in the NFC.\"\n    },\n    {\n      \"start\": 342.0,\n      \"end\": 371.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Dallas Cowboys to make the playoffs at even money (+100). Mike Clay's projections have Dallas as the number-six seed in the NFC. If the offense is healthy with Dak Prescott, they're going to cook. The defense is being slept on as a potential top-10 unit after trading Micah Parsons and getting Quinnen Williams, Rashan Gary, and Caleb Downs.\"\n    },\n    {\n      \"start\": 372.0,\n      \"end\": 410.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Indianapolis Colts to miss the playoffs at -185. Shane Steichen has never made the playoffs, and the starting QB is coming off a torn Achilles. Their number-one wide receiver Alec Pierce is also rehabbing an injury. I'm okay laying the juice here because I'm just not excited about this team.\"\n    },\n    {\n      \"start\": 411.0,\n      \"end\": 431.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"And the Atlanta Falcons to miss the playoffs at -213. I just think this season has disaster written all over it. If you have two quarterbacks, you don't really have any. You have Tua and Michael Penix Jr., and they lost James Pearce Jr. to off-field issues. Also, the Chicago Bears to miss the playoffs at -125 is a great spot to fade the most hyped team in the league. Green Bay Packers to make the playoffs at -116 is another play I love with Jordan Love.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"TEN\",\n      \"player\": null,\n      \"market\": \"division_winner\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 850,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 205,\n      \"rationale\": \"Worst-to-first trend with a second-year quarterback, Robert Saleh revamping the defense, and Brian Daboll's offensive system with Cam Ward.\"\n    },\n    {\n      \"team\": \"NO\",\n      \"player\": null,\n      \"market\": \"division_winner\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 280,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 260,\n      \"rationale\": \"Follows the worst-to-first process. Buy the dip on their futures after their brutal opening schedule (at DET, at BAL).\"\n    },\n    {\n      \"team\": \"CIN\",\n      \"player\": null,\n      \"market\": \"division_winner\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 190,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 260,\n      \"rationale\": \"Third easiest schedule in the NFL. Under the assumption Joe Burrow is healthy, they will comfortably reach double-digit wins.\"\n    },\n    {\n      \"team\": \"LAC\",\n      \"player\": null,\n      \"market\": \"division_winner\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 180,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 260,\n      \"rationale\": \"Strong belief in Jim Harbaugh, Mike McDaniel's offensive scheme, a healthy offensive line, and Justin Herbert.\"\n    },\n    {\n      \"team\": \"DAL\",\n      \"player\": null,\n      \"market\": \"make_playoffs\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 100,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 342,\n      \"rationale\": \"Mike Clay's projections have them as the #6 seed. Under-the-radar defense that can easily be a top-10 unit.\"\n    },\n    {\n      \"team\": \"IND\",\n      \"player\": null,\n      \"market\": \"make_playoffs\",\n      \"side\": \"NO\",\n      \"line\": null,\n      \"price\": -185,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 372,\n      \"rationale\": \"Steichen has never made the postseason. The starting QB is coming off a torn Achilles and Alec Pierce is injured.\"\n    },\n    {\n      \"team\": \"ATL\",\n      \"player\": null,\n      \"market\": \"make_playoffs\",\n      \"side\": \"NO\",\n      \"line\": null,\n      \"price\": -213,\n      \"week\": null,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 372,\n      \"rationale\": \"Disaster written all over it due to quarterback instability (Tua and Penix) and James Pearce Jr.'s off-field departure.\"\n    },\n    {\n      \"team\": \"CHI\",\n      \"player\": null,\n      \"market\": \"make_playoffs\",\n      \"side\": \"NO\",\n      \"line\": null,\n      \"price\": -125,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 411,\n      \"rationale\": \"A classic opportunity to fade the most overhyped team in the league. Significant weaknesses on defense.\"\n    },\n    {\n      \"team\": \"GB\",\n      \"player\": null,\n      \"market\": \"make_playoffs\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": -116,\n      \"week\": null,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 411,\n      \"rationale\": \"Jordan Love consistently delivers postseason appearances. Crucial playmakers are returning fully healthy.\"\n    },\n    {\n      \"team\": \"DET\",\n      \"player\": null,\n      \"market\": \"other\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 650,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 411,\n      \"rationale\": \"Easiest schedule in the NFL. Worst-to-first candidate because they finished last in division last year despite scoring the most points.\"\n    },\n    {\n      \"team\": \"CIN\",\n      \"player\": null,\n      \"market\": \"other\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 800,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 411,\n      \"rationale\": \"Bengals No. 1 Seed projection based on their easy schedule and Burrow's health.\"\n    },\n    {\n      \"team\": \"ATL\",\n      \"player\": null,\n      \"market\": \"other\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1351,\n      \"week\": null,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 411,\n      \"rationale\": \"Long-shot bet on the Falcons having the number-one overall pick, either by finishing worst or trading up for Arch Manning.\"\n    },\n    {\n      \"team\": \"DAL\",\n      \"player\": null,\n      \"market\": \"other\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1400,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 365,\n      \"rationale\": \"Andrew's long-shot play on the Cowboys to claim the No. 1 seed in the NFC.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"schedule_context\",\n      \"teams\": [\n        \"NO\"\n      ],\n      \"players\": [],\n      \"topic\": \"Brutal Saints opening schedule\",\n      \"summary\": \"The Saints start the season on the road at Detroit and Baltimore, creating a perfect opportunity to buy their division futures at a lower price after Week 2.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 260,\n      \"quote\": \"First two matchups of the year... at Detroit, at Baltimore... so I'm going to wait until Week 3 to buy the dip.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\n        \"CIN\",\n        \"LAC\"\n      ],\n      \"players\": [\n        \"Joe Burrow\",\n        \"Justin Herbert\"\n      ],\n      \"topic\": \"Quarterback health returning\",\n      \"summary\": \"Both Burrow and Herbert are fully recovered from respective hand and wrist injuries that derailed their previous campaigns, boosting division upside.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 285,\n      \"quote\": \"This is under the assumption that Joe Burrow is healthy... and Justin Herbert playing through a fractured left hand last year.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\n        \"CHI\"\n      ],\n      \"players\": [\n        \"Caleb Williams\"\n      ],\n      \"topic\": \"Bears defensive regression and hype train\",\n      \"summary\": \"The Bears are the most hyped team in the league, but their defense remains a weakness. They relied heavily on unsustainable turnover luck last year and face a much harder schedule this season.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 411,\n      \"quote\": \"The Bears are tied for the most primetime games... but their defense is still a major weakness.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Titans divisional future\",\n      \"timestamp\": 205,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"I'm going to go with the Tennessee Titans to win the AFC South at +850.\"\n    },\n    {\n      \"topic\": \"Saints divisional buy point\",\n      \"timestamp\": 260,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"You may want to wait until Week 3 to buy the dip on New Orleans.\"\n    },\n    {\n      \"topic\": \"Bears fade rationale\",\n      \"timestamp\": 411,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"This is the classic case where we just fade the most hyped team.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
     "extracted_picks": [
       {
         "team": "TEN",
+        "player": null,
         "market": "division_winner",
         "side": "YES",
         "line": null,
@@ -27,197 +31,236 @@
         "week": null,
         "speaker": "Andrew Erickson",
         "source_timestamp": 205,
-        "rationale": "Follows the worst-to-first trend with a second-year QB breakout (Cam Ward) and Brian Daboll running a system optimized for mobile quarterbacks."
+        "rationale": "Worst-to-first trend with a second-year quarterback, Robert Saleh revamping the defense, and Brian Daboll's offensive system with Cam Ward."
       },
       {
         "team": "NO",
+        "player": null,
         "market": "division_winner",
         "side": "YES",
         "line": null,
         "price": 280,
         "week": null,
         "speaker": "Andrew Erickson",
-        "source_timestamp": 421,
-        "rationale": "Worst-to-first candidate. Tyler Shough had great intermediate passing metrics as a rookie, and they have the second-easiest overall schedule."
+        "source_timestamp": 260,
+        "rationale": "Follows the worst-to-first process. Buy the dip on their futures after their brutal opening schedule (at DET, at BAL)."
       },
       {
         "team": "CIN",
+        "player": null,
         "market": "division_winner",
         "side": "YES",
         "line": null,
         "price": 190,
         "week": null,
         "speaker": "Andrew Erickson",
-        "source_timestamp": 727,
-        "rationale": "Bengals have the 3rd-easiest schedule in the NFL, a healthy Joe Burrow, and a defense poised to take a second-year jump under Al Golden."
+        "source_timestamp": 260,
+        "rationale": "Third easiest schedule in the NFL. Under the assumption Joe Burrow is healthy, they will comfortably reach double-digit wins."
       },
       {
         "team": "LAC",
+        "player": null,
         "market": "division_winner",
         "side": "YES",
         "line": null,
         "price": 180,
         "week": null,
         "speaker": "Andrew Erickson",
-        "source_timestamp": 1024,
-        "rationale": "Strong positive injury regression candidate after being the second most injured team in the AFC. Easy opening schedule (Cardinals, Raiders)."
+        "source_timestamp": 260,
+        "rationale": "Strong belief in Jim Harbaugh, Mike McDaniel's offensive scheme, a healthy offensive line, and Justin Herbert."
       },
       {
         "team": "DAL",
+        "player": null,
         "market": "make_playoffs",
         "side": "YES",
         "line": null,
         "price": 100,
         "week": null,
         "speaker": "Andrew Erickson",
-        "source_timestamp": 1062,
-        "rationale": "Clay's projections have them as the 6th seed. If Dak Prescott is healthy, the offense will produce, and the defense has been heavily upgraded."
+        "source_timestamp": 342,
+        "rationale": "Mike Clay's projections have them as the #6 seed. Under-the-radar defense that can easily be a top-10 unit."
       },
       {
         "team": "IND",
+        "player": null,
         "market": "make_playoffs",
         "side": "NO",
         "line": null,
         "price": -185,
         "week": null,
         "speaker": "Andrew Erickson",
-        "source_timestamp": 1108,
-        "rationale": "The Colts have never made the playoffs under Shane Steichen, and Daniel Jones is coming off a torn Achilles."
+        "source_timestamp": 372,
+        "rationale": "Steichen has never made the postseason. The starting QB is coming off a torn Achilles and Alec Pierce is injured."
       },
       {
         "team": "ATL",
+        "player": null,
         "market": "make_playoffs",
         "side": "NO",
         "line": null,
         "price": -213,
         "week": null,
         "speaker": "Seth Woolcock",
-        "source_timestamp": 1380,
-        "rationale": "The team has two quarterbacks (Tua and Michael Penix Jr.), indicating likely instability. The defense has lost James Pierce Jr., and they face a brutal out-of-division schedule."
+        "source_timestamp": 372,
+        "rationale": "Disaster written all over it due to quarterback instability (Tua and Penix) and James Pearce Jr.'s off-field departure."
       },
       {
         "team": "CHI",
+        "player": null,
         "market": "make_playoffs",
         "side": "NO",
         "line": null,
         "price": -125,
         "week": null,
         "speaker": "Andrew Erickson",
-        "source_timestamp": 1491,
-        "rationale": "Fading the most hyped team in the NFL. Despite Caleb Williams' potential, their defense remains a weakness, and they face the 3rd-biggest increase in schedule difficulty."
+        "source_timestamp": 411,
+        "rationale": "A classic opportunity to fade the most overhyped team in the league. Significant weaknesses on defense."
       },
       {
         "team": "GB",
+        "player": null,
         "market": "make_playoffs",
         "side": "YES",
         "line": null,
         "price": -116,
         "week": null,
         "speaker": "Seth Woolcock",
-        "source_timestamp": 1675,
-        "rationale": "Jordan Love has consistently made the playoffs. Key offensive weapons are fully healthy, and defensive additions like Javon Hargrave will shore up their run defense."
+        "source_timestamp": 411,
+        "rationale": "Jordan Love consistently delivers postseason appearances. Crucial playmakers are returning fully healthy."
       },
       {
         "team": "DET",
-        "market": "conference_no_1_seed",
-        "side": "YES",
+        "player": null,
+        "market": "other",
+        "side": "NO",
         "line": null,
         "price": 650,
         "week": null,
         "speaker": "Andrew Erickson",
-        "source_timestamp": 1834,
-        "rationale": "The Lions have the easiest schedule in the NFL and only play outdoors twice between weeks 5 and 16."
+        "source_timestamp": 411,
+        "rationale": "Easiest schedule in the NFL. Worst-to-first candidate because they finished last in division last year despite scoring the most points."
       },
       {
         "team": "CIN",
-        "market": "conference_no_1_seed",
-        "side": "YES",
+        "player": null,
+        "market": "other",
+        "side": "NO",
         "line": null,
         "price": 800,
         "week": null,
         "speaker": "Andrew Erickson",
-        "source_timestamp": 1936,
-        "rationale": "Correlates with their division winner value and highly favorable schedule strength."
+        "source_timestamp": 411,
+        "rationale": "Bengals No. 1 Seed projection based on their easy schedule and Burrow's health."
       },
       {
         "team": "ATL",
-        "market": "no_1_overall_pick",
-        "side": "YES",
+        "player": null,
+        "market": "other",
+        "side": "NO",
         "line": null,
         "price": 1351,
         "week": null,
         "speaker": "Seth Woolcock",
-        "source_timestamp": 2044,
-        "rationale": "Part of a full fade of the Falcons, expecting a highly unstable quarterback room and defensive regression to bottom out their season."
+        "source_timestamp": 411,
+        "rationale": "Long-shot bet on the Falcons having the number-one overall pick, either by finishing worst or trading up for Arch Manning."
+      },
+      {
+        "team": "DAL",
+        "player": null,
+        "market": "other",
+        "side": "NO",
+        "line": null,
+        "price": 1400,
+        "week": null,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 365,
+        "rationale": "Andrew's long-shot play on the Cowboys to claim the No. 1 seed in the NFC."
       }
     ],
     "analysis_notes": [
-      {
-        "note_type": "coaching_or_scheme",
-        "teams": [
-          "TEN"
-        ],
-        "players": [
-          "Cam Ward"
-        ],
-        "topic": "Brian Daboll System Fit",
-        "summary": "Andrew Erickson highlighted that offensive coordinator Brian Daboll has historically found immense success maximizing young, mobile quarterbacks.",
-        "speaker": "Andrew Erickson",
-        "source_timestamp": 247,
-        "quote": "Brian Daboll... has had success with guys like Josh Allen, Daniel Jones, Jackson Dart. Young, mobile quarterbacks that took off in his system.",
-        "confidence": "stated"
-      },
       {
         "note_type": "schedule_context",
         "teams": [
           "NO"
         ],
-        "players": [
-          "Tyler Shough"
-        ],
-        "topic": "Saints Early Schedule Warning",
-        "summary": "Erickson advises waiting until Week 3 to buy futures on the Saints due to a brutal opening road stretch.",
+        "players": [],
+        "topic": "Brutal Saints opening schedule",
+        "summary": "The Saints start the season on the road at Detroit and Baltimore, creating a perfect opportunity to buy their division futures at a lower price after Week 2.",
         "speaker": "Andrew Erickson",
-        "source_timestamp": 450,
-        "quote": "You may want to wait to buy in on the New Orleans Saints... first two matchups of the year: at Detroit, at Baltimore.",
+        "source_timestamp": 260,
+        "quote": "First two matchups of the year... at Detroit, at Baltimore... so I'm going to wait until Week 3 to buy the dip.",
         "confidence": "stated"
       },
       {
         "note_type": "injury_or_health",
         "teams": [
+          "CIN",
           "LAC"
         ],
         "players": [
+          "Joe Burrow",
           "Justin Herbert"
         ],
-        "topic": "Positive Injury Regression",
-        "summary": "The Chargers are expected to bounce back significantly due to health regression after playing through fractured bones and tackle injuries.",
+        "topic": "Quarterback health returning",
+        "summary": "Both Burrow and Herbert are fully recovered from respective hand and wrist injuries that derailed their previous campaigns, boosting division upside.",
         "speaker": "Andrew Erickson",
-        "source_timestamp": 1052,
-        "quote": "Justin Herbert playing through a fractured left hand... everything is going to be so improved.",
+        "source_timestamp": 285,
+        "quote": "This is under the assumption that Joe Burrow is healthy... and Justin Herbert playing through a fractured left hand last year.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "team_evaluation",
+        "teams": [
+          "CHI"
+        ],
+        "players": [
+          "Caleb Williams"
+        ],
+        "topic": "Bears defensive regression and hype train",
+        "summary": "The Bears are the most hyped team in the league, but their defense remains a weakness. They relied heavily on unsustainable turnover luck last year and face a much harder schedule this season.",
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 411,
+        "quote": "The Bears are tied for the most primetime games... but their defense is still a major weakness.",
         "confidence": "stated"
       }
     ],
     "quote_timestamps": [
       {
-        "topic": "Titans Worst to First",
+        "topic": "Titans divisional future",
         "timestamp": 205,
         "speaker": "Andrew Erickson",
         "quote": "I'm going to go with the Tennessee Titans to win the AFC South at +850."
       },
       {
-        "topic": "Saints Schedule Warning",
-        "timestamp": 450,
+        "topic": "Saints divisional buy point",
+        "timestamp": 260,
         "speaker": "Andrew Erickson",
-        "quote": "You may want to wait to buy in on the New Orleans Saints."
+        "quote": "You may want to wait until Week 3 to buy the dip on New Orleans."
+      },
+      {
+        "topic": "Bears fade rationale",
+        "timestamp": 411,
+        "speaker": "Andrew Erickson",
+        "quote": "This is the classic case where we just fade the most hyped team."
       }
-    ]
+    ],
+    "coverage_assessment": {
+      "last_covered_timestamp": 431,
+      "self_reported_reached_end": true,
+      "duration_used_for_check": 431,
+      "segment_start_seconds": null,
+      "segment_end_seconds": null,
+      "suspected_incomplete": false,
+      "reason": null,
+      "coverage_ratio": 1
+    }
   },
   "scoring": {
     "score_status": "not_scored",
     "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
     "total_ground_truth": 0,
-    "total_shadow_extracted": 12,
+    "total_shadow_extracted": 13,
     "full_exact_matches": 0,
     "precision_pct": "not scored",
     "recall_pct": "not scored",

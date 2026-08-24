@@ -2,10 +2,10 @@ import React, { useState, useMemo, useCallback } from 'react';
 import {
   Trophy, TrendingUp, TrendingDown, List, CheckCircle2,
   Trash2, AlertTriangle, ChevronDown, Filter, BarChart3, Target,
-  Clock, Award, Zap, RefreshCw, Mic
+  Clock, Award, Zap, RefreshCw, Mic, Pin, PinOff
 } from 'lucide-react';
 import {
-  loadPicks, clearAllPicks, deletePick,
+  loadPicks, clearAllPicks, deletePick, togglePickPin,
   calculateStandings, statsByConfidence, statsByEdge,
   findStalePicksPending, healthCheck
 } from '../../lib/picksDatabase';
@@ -177,7 +177,12 @@ function AllPicksTab({ onRefresh }) {
     if (typeFilter   !== 'all') filters.pickType = typeFilter;
     if (dateFrom)               filters.dateFrom = dateFrom;
     if (dateTo)                 filters.dateTo   = dateTo;
-    return loadPicks(filters).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    // Pinned picks sort first (Phase 1, 2026-08-24), most-recent-first within
+    // each group -- a pin is a "keep this one visible" signal, not a filter.
+    return loadPicks(filters).sort((a, b) => {
+      if (!!b.pinned !== !!a.pinned) return b.pinned ? 1 : -1;
+      return new Date(b.createdAt) - new Date(a.createdAt);
+    });
     // onRefresh intentionally excluded: the parent remounts this whole tab via
     // key={refreshKey} on refresh, so this memo is always recomputed fresh anyway.
   }, [sourceFilter, resultFilter, typeFilter, dateFrom, dateTo]);
@@ -185,6 +190,11 @@ function AllPicksTab({ onRefresh }) {
   const handleDelete = (id) => {
     if (!window.confirm('Delete this pick?')) return;
     deletePick(id);
+    onRefresh();
+  };
+
+  const handleTogglePin = (id) => {
+    togglePickPin(id);
     onRefresh();
   };
 
@@ -244,7 +254,7 @@ function AllPicksTab({ onRefresh }) {
       ) : (
         <div className="space-y-2">
           {picks.map(p => (
-            <div key={p.id} className="bg-slate-900 border border-slate-800 rounded-lg p-3 flex items-center gap-3 group hover:border-slate-700 transition-all">
+            <div key={p.id} className={`bg-slate-900 border rounded-lg p-3 flex items-center gap-3 group hover:border-slate-700 transition-all ${p.pinned ? 'border-amber-500/40' : 'border-slate-800'}`}>
               {/* Result badge */}
               <span className={`text-[10px] font-bold px-2 py-0.5 rounded border shrink-0 ${badge(p.result)}`}>
                 {p.result}
@@ -291,6 +301,15 @@ function AllPicksTab({ onRefresh }) {
               <div className="text-xs text-slate-600 shrink-0 hidden md:block w-20 text-right">
                 {fmtDate(p.gameDate)}
               </div>
+
+              {/* Pin */}
+              <button
+                onClick={() => handleTogglePin(p.id)}
+                className={`transition-all shrink-0 ${p.pinned ? 'text-amber-400 hover:text-amber-300' : 'opacity-0 group-hover:opacity-100 text-slate-500 hover:text-white'}`}
+                title={p.pinned ? 'Unpin' : 'Pin to top'}
+              >
+                {p.pinned ? <Pin size={14} className="fill-current" /> : <PinOff size={14} />}
+              </button>
 
               {/* Delete */}
               <button

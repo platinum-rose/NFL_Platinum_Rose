@@ -6,13 +6,14 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import {
   TrendingUp, TrendingDown, Minus, RefreshCw, Target, Plus, X,
   Bell, ChevronDown, ChevronUp, Clock, AlertCircle, CalendarDays,
-  MessageCircle, ExternalLink,
+  MessageCircle, ExternalLink, Pin, Loader2,
 } from 'lucide-react';
 import {
   LineChart, Line, ResponsiveContainer, Tooltip as ReTooltip, YAxis, XAxis,
   CartesianGrid, ReferenceLine,
 } from 'recharts';
-import { getWatchlistOddsHistory } from '../../lib/supabase';
+import { getWatchlistOddsHistory, getFuturesPins, addFuturesPin, removeFuturesPin } from '../../lib/supabase';
+import { getExpertSignalsForPin } from '../../lib/expertSignals';
 import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS } from '../../lib/storage';
 import { TEAM_LOGOS, NFL_TEAMS } from '../../lib/teams';
 import { getCitationsForTeam, getHostSentimentSummary, getMarketConsensus, getUniqueHostTakes } from '../../lib/hostCitationStore';
@@ -48,6 +49,25 @@ const DIVISION_TO_MARKET = {
   'NFC West':  'division_nfc_west',
 };
 const CONF_TO_MARKET = { AFC: 'conference_afc', NFC: 'conference_nfc' };
+
+// ── NFL-ATLAS-1: pinned futures (any market, not just the 5 team slots above) ──
+// See docs/NFL_ATLAS_1_FUTURES_WATCHLIST_DESIGN.md. Award/player markets have
+// no odds source anywhere in this repo (same real blocker as PROPS-1) — pins
+// on these markets show expert signals only, no price chart.
+const PIN_MARKETS = [
+  { market: 'superbowl',      label: 'Super Bowl',       emoji: '🏆' },
+  { market: 'conference',     label: 'Conf. Winner',     emoji: '🏈' },
+  { market: 'division',       label: 'Div. Winner',      emoji: '🎯' },
+  { market: 'wins',           label: 'Win Total (Over)', emoji: '📊' },
+  { market: 'playoffs',       label: 'Make Playoffs',    emoji: '🎟️' },
+  { market: 'mvp',            label: 'MVP',              emoji: '🏅' },
+  { market: 'opoy',           label: 'Off. Player of Year', emoji: '🏅' },
+  { market: 'dpoy',           label: 'Def. Player of Year', emoji: '🛡️' },
+  { market: 'oroy',           label: 'Off. Rookie of Year', emoji: '🌟' },
+  { market: 'droy',           label: 'Def. Rookie of Year', emoji: '🌟' },
+  { market: 'coach_of_year',  label: 'Coach of the Year', emoji: '📋' },
+];
+const PIN_MARKET_LABEL = Object.fromEntries(PIN_MARKETS.map(m => [m.market, m]));
 
 /**
  * Given a team full name, return the 5 concrete market_type keys to show.
@@ -781,6 +801,205 @@ function TeamSection({ team, historyByMarket, targets, onSetTarget, onRemove }) 
   );
 }
 
+// ── NFL-ATLAS-1: Expert Signal panel (piece B) ─────────────────────────────────
+// Distinct data source from the podcast CitationDrawer above — real expert
+// rationale/stats from research_pick_signals, not podcast sentiment. Neutral
+// framing per Andy's 2026-08-23 call: "signals mentioning this pick," not
+// agree/disagree — see src/lib/expertSignals.js header for why.
+
+function ExpertSignalPanel({ pin }) {
+  const { market, selection, team } = pin;
+  const pinKey = `${market}|${selection}|${team || ''}`;
+  // `key` tracks which pin the current `result` was fetched for, so `loading`
+  // can be derived instead of set synchronously in the effect body (avoids
+  // the cascading-render lint warning — setState only ever happens inside the
+  // .then callback below, never directly in the effect).
+  const [result, setResult] = useState({ key: null, signals: [], sourceLinks: [] });
+
+  useEffect(() => {
+    let cancelled = false;
+    getExpertSignalsForPin({ market, selection, team }).then(({ signals, sourceLinks }) => {
+      if (!cancelled) setResult({ key: pinKey, signals, sourceLinks });
+    });
+    return () => { cancelled = true; };
+  }, [market, selection, team, pinKey]);
+
+  const loading = result.key !== pinKey;
+
+  if (loading) {
+    return (
+      <div className="flex items-center gap-2 px-4 py-3 text-xs text-slate-600">
+        <Loader2 size={12} className="animate-spin" /> Checking expert signals…
+      </div>
+    );
+  }
+
+  if (result.signals.length === 0) {
+    return (
+      <div className="px-4 py-3 text-xs text-slate-600">
+        No tracked expert signals mention this pick yet.
+      </div>
+    );
+  }
+
+  return (
+    <div className="px-4 pb-3">
+      <div className="text-[10px] uppercase tracking-wide text-slate-600 mb-1.5 px-0.5">
+        📊 Signals mentioning this pick — not an agree/disagree verdict, just what's been said
+      </div>
+      <div className="bg-slate-800/60 border border-slate-700/40 rounded-lg divide-y divide-slate-800/60 overflow-hidden">
+        {result.signals.map((s, i) => (
+          <div key={i} className="px-3 py-2">
+            <div className="flex items-center gap-1.5 text-xs mb-0.5">
+              <span className="font-medium text-slate-200">{s.author}</span>
+              {s.source && <span className="text-slate-600">· {s.source}</span>}
+              {s.betType && (
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-slate-700/60 text-slate-400">{s.betType}</span>
+              )}
+              {s.confidence != null && (
+                <span className="text-[10px] text-slate-600 ml-auto">conf {Math.round(s.confidence * 100)}%</span>
+              )}
+            </div>
+            {s.rationale && (
+              <div className="text-xs text-slate-400 leading-relaxed">{s.rationale}</div>
+            )}
+          </div>
+        ))}
+      </div>
+      {result.sourceLinks.length > 0 && (
+        <div className="flex flex-wrap gap-2 mt-1.5 px-0.5">
+          {result.sourceLinks.map(l => (
+            <a
+              key={l.url}
+              href={l.url}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1 text-[10px] text-indigo-400 hover:text-indigo-300"
+            >
+              <ExternalLink size={9} /> {l.title.length > 40 ? l.title.slice(0, 37) + '...' : l.title}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── NFL-ATLAS-1: Pinned Future card ─────────────────────────────────────────────
+// Separate from TeamSection above — pins here can be any market (including
+// player/award pins with no team and no price history), not just the 5 fixed
+// team-level slots.
+
+function PinnedFutureCard({ pin, onRemove }) {
+  const [expanded, setExpanded] = useState(true);
+  const meta = PIN_MARKET_LABEL[pin.market] || { label: pin.market, emoji: '📌' };
+  const logo = pin.team ? getTeamLogo(pin.team) : null;
+
+  return (
+    <div className="bg-slate-900/60 border border-slate-700/60 rounded-xl overflow-hidden">
+      <div
+        className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-slate-800/40 transition-colors"
+        onClick={() => setExpanded(e => !e)}
+      >
+        {logo && <img src={logo} alt={pin.team} className="w-6 h-6 object-contain" />}
+        <span className="text-base">{meta.emoji}</span>
+        <div className="flex-1 min-w-0">
+          <span className="font-semibold text-slate-100">{pin.label || pin.selection}</span>
+          <span className="text-xs text-slate-500 ml-2">{meta.label}</span>
+        </div>
+        <button
+          onClick={e => { e.stopPropagation(); onRemove(pin.id); }}
+          className="text-slate-600 hover:text-rose-400 transition-colors mr-2"
+          title="Unpin"
+        >
+          <X size={14} />
+        </button>
+        {expanded ? <ChevronUp size={14} className="text-slate-500" /> : <ChevronDown size={14} className="text-slate-500" />}
+      </div>
+      {expanded && <ExpertSignalPanel pin={pin} />}
+    </div>
+  );
+}
+
+// ── NFL-ATLAS-1: Add Pin modal ──────────────────────────────────────────────────
+
+function AddPinModal({ onAdd, onClose }) {
+  const [market, setMarket] = useState(PIN_MARKETS[0].market);
+  const [selection, setSelection] = useState('');
+  const [team, setTeam] = useState('');
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState('');
+
+  const handleSave = async () => {
+    if (!selection.trim()) return;
+    setSaving(true);
+    setSaveError('');
+    const ok = await onAdd({ market, selection: selection.trim(), team: team || null });
+    setSaving(false);
+    if (ok) onClose();
+    else setSaveError('Could not save the pin — has migration 048_futures_pins.sql been run yet?');
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4" onClick={onClose}>
+      <div
+        className="bg-slate-900 border border-slate-700 rounded-xl p-4 w-full max-w-sm"
+        onClick={e => e.stopPropagation()}
+      >
+        <div className="flex items-center justify-between mb-3">
+          <h3 className="text-sm font-semibold text-slate-100">Pin a Future</h3>
+          <button onClick={onClose} className="text-slate-500 hover:text-slate-300"><X size={16} /></button>
+        </div>
+
+        <label className="block text-xs text-slate-400 mb-1">Market</label>
+        <select
+          value={market}
+          onChange={e => setMarket(e.target.value)}
+          className="w-full mb-3 px-2.5 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-sm text-slate-200"
+        >
+          {PIN_MARKETS.map(m => (
+            <option key={m.market} value={m.market}>{m.emoji} {m.label}</option>
+          ))}
+        </select>
+
+        <label className="block text-xs text-slate-400 mb-1">Selection</label>
+        <input
+          type="text"
+          value={selection}
+          onChange={e => setSelection(e.target.value)}
+          placeholder="e.g. Josh Allen, Buffalo Bills"
+          className="w-full mb-3 px-2.5 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-sm text-slate-200 placeholder:text-slate-600"
+        />
+
+        <label className="block text-xs text-slate-400 mb-1">Team (optional)</label>
+        <select
+          value={team}
+          onChange={e => setTeam(e.target.value)}
+          className="w-full mb-4 px-2.5 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-sm text-slate-200"
+        >
+          <option value="">— none —</option>
+          {ALL_TEAM_FULL_NAMES.map(n => <option key={n} value={n}>{n}</option>)}
+        </select>
+
+        {saveError && (
+          <div className="mb-3 px-2.5 py-1.5 rounded-lg bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs">
+            {saveError}
+          </div>
+        )}
+
+        <button
+          onClick={handleSave}
+          disabled={!selection.trim() || saving}
+          className="w-full flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-[#00d2be]/10 border border-[#00d2be]/30 text-sm text-[#00d2be] hover:bg-[#00d2be]/20 transition-colors disabled:opacity-40"
+        >
+          {saving ? <Loader2 size={13} className="animate-spin" /> : <Pin size={13} />}
+          {saving ? 'Saving…' : 'Pin It'}
+        </button>
+      </div>
+    </div>
+  );
+}
+
 // ── Add Team modal ────────────────────────────────────────────────────────────
 
 function AddTeamModal({ currentTeams, onAdd, onClose }) {
@@ -840,6 +1059,38 @@ export default function FuturesWatchList() {
   const [lastFetched, setLastFetched] = useState(null);
   const [error, setError]             = useState('');
   const [showAddModal, setShowAddModal] = useState(false);
+
+  // ── NFL-ATLAS-1: pinned futures (any market, backed by Supabase futures_pins
+  // rather than localStorage — see docs/NFL_ATLAS_1_FUTURES_WATCHLIST_DESIGN.md) ──
+  const [pins, setPins]               = useState([]);
+  const [pinsLoading, setPinsLoading] = useState(true);
+  const [showAddPinModal, setShowAddPinModal] = useState(false);
+
+  const fetchPins = useCallback(async () => {
+    setPinsLoading(true);
+    const rows = await getFuturesPins();
+    setPins(rows);
+    setPinsLoading(false);
+  }, []);
+
+  useEffect(() => { fetchPins(); }, [fetchPins]);
+
+  const addPin = useCallback(async (pin) => {
+    const saved = await addFuturesPin(pin);
+    if (saved) {
+      setPins(p => [saved, ...p]);
+      return true;
+    }
+    return false;
+  }, []);
+
+  const removePin = useCallback(async (id) => {
+    // Optimistic remove — futures_pins is a soft-delete (active=false) so a
+    // failed request just leaves a stale row Andy can retry unpinning later,
+    // not data loss.
+    setPins(p => p.filter(pin => pin.id !== id));
+    await removeFuturesPin(id);
+  }, []);
 
   // Persist on every change
   useEffect(() => {
@@ -936,6 +1187,12 @@ export default function FuturesWatchList() {
             {loading ? 'Loading…' : 'Refresh'}
           </button>
           <button
+            onClick={() => setShowAddPinModal(true)}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-500/10 border border-indigo-500/30 text-xs text-indigo-400 hover:bg-indigo-500/20 transition-colors"
+          >
+            <Pin size={12} /> Pin a Future
+          </button>
+          <button
             onClick={() => setShowAddModal(true)}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#00d2be]/10 border border-[#00d2be]/30 text-xs text-[#00d2be] hover:bg-[#00d2be]/20 transition-colors"
           >
@@ -957,6 +1214,22 @@ export default function FuturesWatchList() {
         <span className="px-2 py-0.5 rounded border border-amber-500/30 text-amber-400 bg-amber-500/10">⚡ Shortening — sharp steam</span>
         <span className="px-2 py-0.5 rounded border border-emerald-500/30 text-emerald-400 bg-emerald-500/10">🎯 Target hit</span>
       </div>
+
+      {/* Pinned Futures (NFL-ATLAS-1) — any market, not just the 5 team slots */}
+      {pinsLoading ? (
+        <div className="flex items-center gap-2 px-1 text-xs text-slate-600">
+          <Loader2 size={12} className="animate-spin" /> Loading pinned futures…
+        </div>
+      ) : pins.length > 0 ? (
+        <div className="flex flex-col gap-3">
+          <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wide px-0.5">
+            📌 Pinned Futures
+          </h3>
+          {pins.map(pin => (
+            <PinnedFutureCard key={pin.id} pin={pin} onRemove={removePin} />
+          ))}
+        </div>
+      ) : null}
 
       {/* Empty state */}
       {watchlist.teams.length === 0 && (
@@ -990,6 +1263,14 @@ export default function FuturesWatchList() {
           currentTeams={watchlist.teams}
           onAdd={addTeam}
           onClose={() => setShowAddModal(false)}
+        />
+      )}
+
+      {/* Pin a Future modal (NFL-ATLAS-1) */}
+      {showAddPinModal && (
+        <AddPinModal
+          onAdd={addPin}
+          onClose={() => setShowAddPinModal(false)}
         />
       )}
     </div>

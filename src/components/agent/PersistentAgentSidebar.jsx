@@ -4,12 +4,18 @@
 // Permanently docked on the right side of the screen with instant mode switching
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import React, { useState, Suspense } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import { Bot, Target, Briefcase, Zap, Shirt, Shield, ListFilter, TrendingUp, Trophy, ChevronRight, ChevronLeft, Sparkles, RefreshCw } from 'lucide-react';
 
-import AgentChat from './AgentChat';
-import FuturesAgentChat from './FuturesAgentChat';
-import PropsAgentChat from './PropsAgentChat';
+// Checkpoint 3 (item 10): sidebar shell (this file) stays persistent/eager;
+// the heavy mode bodies below are now separate chunks that only load the
+// first time their mode is actually selected (the Suspense boundary further
+// down already existed but had nothing lazy inside it to catch -- these were
+// previously static imports, so all three (and everything they pull in) shipped
+// in the initial dashboard bundle even though only one mode renders at a time).
+const AgentChat = lazy(() => import('./AgentChat'));
+const FuturesAgentChat = lazy(() => import('./FuturesAgentChat'));
+const PropsAgentChat = lazy(() => import('./PropsAgentChat'));
 
 
 const AGENT_MODES = [

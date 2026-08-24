@@ -1,7 +1,7 @@
 // src/components/dfs/DFSOptimizer.jsx
 // ═══════════════════════════════════════════════════════════════════════════════
 // F-7: DFS Lineup Optimizer
-// DraftKings / FanDuel lineup builder with a mock player pool.
+// DraftKings / FanDuel / Yahoo lineup builder with a mock player pool.
 // Greedy optimizer: value = proj_pts / salary * 1000
 // Lineups persisted to localStorage nfl_dfs_lineups_v1
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -41,6 +41,27 @@ const PLATFORMS = {
       { id: 'TE',    positions: ['TE'],              label: 'TE' },
       { id: 'FLEX',  positions: ['WR','RB','TE'],    label: 'FLEX' },
       { id: 'K',     positions: ['K'],               label: 'K' },
+      { id: 'DST',   positions: ['DST'],             label: 'DST' },
+    ],
+  },
+  // Phase 0 (2026-08-24): Yahoo added by extending the existing DK/FD
+  // platform-switcher pattern -- a $200 salary-style cap (vs. DK/FD's $50k/
+  // $60k), same 9-man roster shape as DK (no K slot; Yahoo's classic
+  // contest excludes kickers, same as DraftKings). yhSal is derived from
+  // each player's dkSal below rather than hand-authored, consistent with
+  // this whole pool already being illustrative mock data.
+  yh: {
+    label: 'Yahoo',
+    cap: 200,
+    slots: [
+      { id: 'QB',    positions: ['QB'],              label: 'QB' },
+      { id: 'RB1',   positions: ['RB'],              label: 'RB' },
+      { id: 'RB2',   positions: ['RB'],              label: 'RB' },
+      { id: 'WR1',   positions: ['WR'],              label: 'WR' },
+      { id: 'WR2',   positions: ['WR'],              label: 'WR' },
+      { id: 'WR3',   positions: ['WR'],              label: 'WR' },
+      { id: 'TE',    positions: ['TE'],              label: 'TE' },
+      { id: 'FLEX',  positions: ['RB','WR','TE'],    label: 'FLEX' },
       { id: 'DST',   positions: ['DST'],             label: 'DST' },
     ],
   },
@@ -121,12 +142,20 @@ const MOCK_PLAYERS = [
   { id: 'p57', name: 'Cleveland Browns',    pos: 'DST', team: 'CLE', dkSal: 2800, fdSal: 3600, proj: 8.0  },
 ];
 
+// Yahoo (Phase 0, 2026-08-24): derive yhSal from dkSal, scaled to a $200
+// cap the same way DK's $50,000 cap scales down (dkSal / 250, i.e. the same
+// ratio as 50000 / 200), rounded to a whole dollar to match how Yahoo
+// actually prices players. K stays $0/excluded, same as dkSal.
+for (const p of MOCK_PLAYERS) {
+  p.yhSal = p.dkSal > 0 ? Math.max(4, Math.round(p.dkSal / 250)) : 0;
+}
+
 const STORAGE_KEY = 'nfl_dfs_lineups_v1';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 function getSalary(player, platform) {
-  return platform === 'dk' ? player.dkSal : player.fdSal;
+  return player[`${platform}Sal`] ?? 0;
 }
 
 function getValue(player, platform) {

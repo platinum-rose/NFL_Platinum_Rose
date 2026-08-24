@@ -74,7 +74,7 @@ export const PR_STORAGE_KEYS = {
   CONTEST_LINES: {
     key: 'nfl_contest_lines',
     permanence: 'persistent',
-    description: 'Contest line overrides',
+    description: 'SuperContest locked lines, keyed by game id: { value, lockedAt } (older bare-number entries are still read for back-compat -- see App.jsx gamesWithSplits)',
   },
   SIM_RESULTS: {
     key: 'nfl_sim_results',
@@ -121,11 +121,29 @@ export const PR_STORAGE_KEYS = {
     permanence: 'ephemeral',
     description: 'Live/mock-fallback state from the last injury fetch (per-team)',
   },
+  // Fantasy Roster & Keepers —————————————————————————————————————————————
+  FANTASY_ROSTER: {
+    key: 'nfl_fantasy_rosters_v1',
+    permanence: 'critical',
+    description: 'Manually imported fantasy football rosters and keeper settings',
+  },
   // Sync dirty queue —————————————————————————————————————————————————————
   SYNC_QUEUE: {
     key: 'nfl_sync_dirty_queue_v1',
     permanence: 'persistent',
     description: 'Dirty sync queue for failed Supabase writes',
+  },
+  // Fantasy Hub season phase (2026-08-24) ———————————————————————————————
+  FANTASY_PHASE: {
+    key: 'pr_fantasy_phase_v1',
+    permanence: 'persistent',
+    description: 'Fantasy Hub preseason/in-season toggle -- changes which Value Board view (draft projections vs. weekly rankings) opens by default',
+  },
+  // Official Picks Inbox pins (Phase 1, 2026-08-24) ————————————————————————
+  OFFICIAL_PICKS_PINNED: {
+    key: 'pr_official_picks_pinned_v1',
+    permanence: 'persistent',
+    description: 'Locally-pinned draft proposal filenames in the Official Picks inbox (client-only -- the inbox itself is server-backed, this never touches the local inbox server or Supabase)',
   },
 };
 

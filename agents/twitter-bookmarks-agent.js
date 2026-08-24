@@ -12,6 +12,7 @@
 //   node agents/twitter-bookmarks-agent.js --dry-run        # Test fetch without writing to DB
 // ═══════════════════════════════════════════════════════════════════════════════
 
+import { existsSync } from 'node:fs';
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -29,6 +30,8 @@ const ACTIVE_PROPOSALS_DIR = path.join(ROOT, 'data', 'official-picks', 'proposal
 const argv = process.argv.slice(2);
 const DRY_RUN = argv.includes('--dry-run') || process.env.DRY_RUN === 'true';
 const SAMPLE_MODE = argv.includes('--sample');
+const maxDaysArg = argv.find(a => a.startsWith('--max-days='));
+const MAX_DAYS = maxDaysArg ? parseInt(maxDaysArg.split('=')[1], 10) : 30;
 
 const TWITTER_AUTH_TOKEN = process.env.PERSONAL_TWITTER_AUTH_TOKEN;
 const TWITTER_CT0 = process.env.PERSONAL_TWITTER_CT0;
@@ -239,7 +242,7 @@ export async function generateLocalOllamaSummary(text, sport) {
       const data = await resp.json();
       return data.response ? data.response.trim() : null;
     }
-  } catch (err) {
+  } catch (_err) {
     // Silent fallback if Ollama is not running locally
   }
   return null;
@@ -248,7 +251,27 @@ export async function generateLocalOllamaSummary(text, sport) {
 // ── Process Single Bookmarked Tweet ───────────────────────────────────────────
 
 export async function processBookmarkedTweet(bm) {
-  // Run Sports Relevance Gate
+  // 1. Recency Gate (skip tweets older than MAX_DAYS)
+  const tweetDate = new Date(bm.created_at || Date.now());
+  const ageDays = (Date.now() - tweetDate.getTime()) / (1000 * 60 * 60 * 24);
+  const dateStr = tweetDate.toISOString().split('T')[0];
+
+  if (ageDays > MAX_DAYS) {
+    console.log(`  [skipped-stale] Bookmark (@${bm.author}): Created ${dateStr} exceeds ${MAX_DAYS}-day recency limit.`);
+    return { skipped: true, reason: `Exceeds ${MAX_DAYS}-day recency limit` };
+  }
+
+  // 2. Deduplication Gate (skip if local report already exists)
+  const slug = bm.id.replace(/[^a-zA-Z0-9]/g, '-');
+  const filename = `${dateStr}-${bm.author}-${slug}.md`;
+  const localReportPath = path.join(REPORTS_DIR, filename);
+
+  if (existsSync(localReportPath)) {
+    console.log(`  [already-processed] Skipping @${bm.author}: "${bm.text.substring(0, 40)}..." (already in local vault)`);
+    return { skipped: true, reason: 'Already in local vault' };
+  }
+
+  // 3. Run Sports Relevance Gate
   const gate = isFootballOrCbbBettingIntel(bm.text);
 
   if (!gate.isRelevant) {
@@ -281,11 +304,9 @@ export async function processBookmarkedTweet(bm) {
     }
   }
 
-  const dateStr = new Date(bm.created_at || Date.now()).toISOString().split('T')[0];
-  const slug = bm.id.replace(/[^a-zA-Z0-9]/g, '-');
+  // dateStr, slug, filename, and localReportPath are already defined above
   const folder = gate.sport === 'NCAA_CBB' ? 'NCAA' : 'NFL';
   const vaultPath = `${folder}/Bookmarks/${dateStr}-${bm.author}-${slug}.md`;
-  const filename = `${dateStr}-${bm.author}-${slug}.md`;
 
   let propSection = '';
   if (visionAnalysis && visionAnalysis.player_props && visionAnalysis.player_props.length > 0) {
@@ -325,7 +346,6 @@ ${propSection}`;
 
   // Write local report artifact
   await mkdir(REPORTS_DIR, { recursive: true });
-  const localReportPath = path.join(REPORTS_DIR, filename);
   await writeFile(localReportPath, fullContent, 'utf8');
   console.log(`  [saved] Local vault report: ${localReportPath}`);
 

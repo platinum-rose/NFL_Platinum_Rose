@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": "futures_odds_execution_validation_v1",
-    "generated_at": "2026-08-12T05:30:00.000Z",
+    "generated_at": "2026-08-11T12:00:00.000Z",
     "season": 2026,
     "current_snapshot_date": "2026-08-10",
     "local_only": true,
@@ -16,7 +16,10 @@
     "placeable_books": {
       "bookmaker": "Bookmaker/BKR",
       "betus": "BetUS",
-      "betonline": "BetOnline"
+      "betonline": "BetOnline",
+      "betmgm": "BetMGM",
+      "caesars": "Caesars/William Hill",
+      "circa": "Circa"
     },
     "rows_total": 799,
     "execution_reference_eligible_rows": 543,
@@ -92,6 +95,7 @@
       "Green Bay Packers"
     ],
     "row_count": 1,
+    "eligible_row_count": 1,
     "placeable_book_count": 1,
     "books": [
       "betus"
@@ -105,12 +109,15 @@
       {
         "source_path": "data/futures-imports/betus-2026-08-10.json",
         "book": "betus",
+        "book_raw": "betus",
+        "book_label": "BetUS",
         "selection": "Buffalo Bills vs Green Bay Packers",
         "price": 6500,
         "snapshot_time": "2026-08-10T00:00:00Z",
         "exclusion_reasons": [
           "exacta_requires_multiple_placeable_books"
-        ]
+        ],
+        "counts_toward_execution_claim": true
       }
     ]
   },
@@ -122,6 +129,7 @@
         "Arizona Cardinals"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -135,12 +143,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Baltimore Ravens vs Arizona Cardinals",
           "price": 100000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -151,6 +162,7 @@
         "Arizona Cardinals"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -164,12 +176,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Buffalo Bills vs Arizona Cardinals",
           "price": 100000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -180,6 +195,7 @@
         "Arizona Cardinals"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -193,12 +209,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cincinnati Bengals vs Arizona Cardinals",
           "price": 200000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -209,6 +228,7 @@
         "Arizona Cardinals"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -222,12 +242,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cleveland Browns vs Arizona Cardinals",
           "price": 500000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -238,6 +261,7 @@
         "Arizona Cardinals"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -251,12 +275,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Denver Broncos vs Arizona Cardinals",
           "price": 200000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -267,6 +294,7 @@
         "Arizona Cardinals"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -280,12 +308,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Houston Texans vs Arizona Cardinals",
           "price": 200000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -296,6 +327,7 @@
         "Arizona Cardinals"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -309,12 +341,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Indianapolis Colts vs Arizona Cardinals",
           "price": 500000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -325,6 +360,7 @@
         "Arizona Cardinals"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -338,12 +374,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Jacksonville Jaguars vs Arizona Cardinals",
           "price": 300000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -354,6 +393,7 @@
         "Arizona Cardinals"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -367,12 +407,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Kansas City Chiefs vs Arizona Cardinals",
           "price": 150000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -383,6 +426,7 @@
         "Arizona Cardinals"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -396,12 +440,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Las Vegas Raiders vs Arizona Cardinals",
           "price": 500000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -412,6 +459,7 @@
         "Arizona Cardinals"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -425,12 +473,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Los Angeles Chargers vs Arizona Cardinals",
           "price": 175000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -441,6 +492,7 @@
         "Arizona Cardinals"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -454,12 +506,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Miami Dolphins vs Arizona Cardinals",
           "price": 500000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -470,6 +525,7 @@
         "Arizona Cardinals"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -483,12 +539,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New England Patriots vs Arizona Cardinals",
           "price": 175000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -499,6 +558,7 @@
         "Arizona Cardinals"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -512,12 +572,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New York Jets vs Arizona Cardinals",
           "price": 500000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -528,6 +591,7 @@
         "Arizona Cardinals"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -541,12 +605,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Pittsburgh Steelers vs Arizona Cardinals",
           "price": 500000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -557,6 +624,7 @@
         "Arizona Cardinals"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -570,12 +638,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Tennessee Titans vs Arizona Cardinals",
           "price": 500000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -586,6 +657,7 @@
         "Atlanta Falcons"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -599,12 +671,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Baltimore Ravens vs Atlanta Falcons",
           "price": 27500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -615,6 +690,7 @@
         "Atlanta Falcons"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -628,12 +704,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Buffalo Bills vs Atlanta Falcons",
           "price": 27500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -644,6 +723,7 @@
         "Atlanta Falcons"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -657,12 +737,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cincinnati Bengals vs Atlanta Falcons",
           "price": 50000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -673,6 +756,7 @@
         "Atlanta Falcons"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -686,12 +770,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cleveland Browns vs Atlanta Falcons",
           "price": 350000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -702,6 +789,7 @@
         "Atlanta Falcons"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -715,12 +803,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Denver Broncos vs Atlanta Falcons",
           "price": 50000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -731,6 +822,7 @@
         "Atlanta Falcons"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -744,12 +836,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Houston Texans vs Atlanta Falcons",
           "price": 45000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -760,6 +855,7 @@
         "Atlanta Falcons"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -773,12 +869,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Indianapolis Colts vs Atlanta Falcons",
           "price": 100000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -789,6 +888,7 @@
         "Atlanta Falcons"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -802,12 +902,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Jacksonville Jaguars vs Atlanta Falcons",
           "price": 65000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -818,6 +921,7 @@
         "Atlanta Falcons"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -831,12 +935,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Kansas City Chiefs vs Atlanta Falcons",
           "price": 37500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -847,6 +954,7 @@
         "Atlanta Falcons"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -860,12 +968,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Las Vegas Raiders vs Atlanta Falcons",
           "price": 300000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -876,6 +987,7 @@
         "Atlanta Falcons"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -889,12 +1001,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Los Angeles Chargers vs Atlanta Falcons",
           "price": 40000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -905,6 +1020,7 @@
         "Atlanta Falcons"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -918,12 +1034,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Miami Dolphins vs Atlanta Falcons",
           "price": 500000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -934,6 +1053,7 @@
         "Atlanta Falcons"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -947,12 +1067,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New England Patriots vs Atlanta Falcons",
           "price": 40000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -963,6 +1086,7 @@
         "Atlanta Falcons"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -976,12 +1100,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New York Jets vs Atlanta Falcons",
           "price": 400000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -992,6 +1119,7 @@
         "Atlanta Falcons"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1005,12 +1133,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Pittsburgh Steelers vs Atlanta Falcons",
           "price": 125000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1021,6 +1152,7 @@
         "Atlanta Falcons"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1034,12 +1166,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Tennessee Titans vs Atlanta Falcons",
           "price": 250000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1050,6 +1185,7 @@
         "Carolina Panthers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1063,12 +1199,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Baltimore Ravens vs Carolina Panthers",
           "price": 27500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1079,6 +1218,7 @@
         "Chicago Bears"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1092,12 +1232,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Baltimore Ravens vs Chicago Bears",
           "price": 7500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1108,6 +1251,7 @@
         "Dallas Cowboys"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1121,12 +1265,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Baltimore Ravens vs Dallas Cowboys",
           "price": 7500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1137,6 +1284,7 @@
         "Detroit Lions"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1150,12 +1298,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Baltimore Ravens vs Detroit Lions",
           "price": 5500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1166,6 +1317,7 @@
         "Green Bay Packers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1179,12 +1331,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Baltimore Ravens vs Green Bay Packers",
           "price": 6500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1195,6 +1350,7 @@
         "Los Angeles Rams"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1208,12 +1364,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Baltimore Ravens vs Los Angeles Rams",
           "price": 2200,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1224,6 +1383,7 @@
         "Minnesota Vikings"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1237,12 +1397,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Baltimore Ravens vs Minnesota Vikings",
           "price": 13500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1253,6 +1416,7 @@
         "New Orleans Saints"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1266,12 +1430,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Baltimore Ravens vs New Orleans Saints",
           "price": 22500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1282,6 +1449,7 @@
         "New York Giants"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1295,12 +1463,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Baltimore Ravens vs New York Giants",
           "price": 20000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1311,6 +1482,7 @@
         "Philadelphia Eagles"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1324,12 +1496,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Baltimore Ravens vs Philadelphia Eagles",
           "price": 5500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1340,6 +1515,7 @@
         "San Francisco 49ers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1353,12 +1529,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Baltimore Ravens vs San Francisco 49ers",
           "price": 5500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1369,6 +1548,7 @@
         "Seattle Seahawks"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1382,12 +1562,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Baltimore Ravens vs Seattle Seahawks",
           "price": 3500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1398,6 +1581,7 @@
         "Tampa Bay Buccaneers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1411,12 +1595,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Baltimore Ravens vs Tampa Bay Buccaneers",
           "price": 15000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1427,6 +1614,7 @@
         "Washington Commanders"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1440,12 +1628,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Baltimore Ravens vs Washington Commanders",
           "price": 18000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1456,6 +1647,7 @@
         "Carolina Panthers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1469,12 +1661,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Buffalo Bills vs Carolina Panthers",
           "price": 27500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1485,6 +1680,7 @@
         "Chicago Bears"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1498,12 +1694,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Buffalo Bills vs Chicago Bears",
           "price": 7500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1514,6 +1713,7 @@
         "Dallas Cowboys"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1527,12 +1727,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Buffalo Bills vs Dallas Cowboys",
           "price": 7500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1543,6 +1746,7 @@
         "Detroit Lions"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1556,12 +1760,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Buffalo Bills vs Detroit Lions",
           "price": 5500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1572,6 +1779,7 @@
         "Green Bay Packers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1585,12 +1793,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Buffalo Bills vs Green Bay Packers",
           "price": 6500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1601,6 +1812,7 @@
         "Los Angeles Rams"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1614,12 +1826,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Buffalo Bills vs Los Angeles Rams",
           "price": 2200,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1630,6 +1845,7 @@
         "Minnesota Vikings"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1643,12 +1859,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Buffalo Bills vs Minnesota Vikings",
           "price": 13500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1659,6 +1878,7 @@
         "New Orleans Saints"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1672,12 +1892,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Buffalo Bills vs New Orleans Saints",
           "price": 22500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1688,6 +1911,7 @@
         "New York Giants"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1701,12 +1925,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Buffalo Bills vs New York Giants",
           "price": 20000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1717,6 +1944,7 @@
         "Philadelphia Eagles"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1730,12 +1958,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Buffalo Bills vs Philadelphia Eagles",
           "price": 5500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1746,6 +1977,7 @@
         "San Francisco 49ers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1759,12 +1991,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Buffalo Bills vs San Francisco 49ers",
           "price": 5500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1775,6 +2010,7 @@
         "Seattle Seahawks"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1788,12 +2024,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Buffalo Bills vs Seattle Seahawks",
           "price": 3500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1804,6 +2043,7 @@
         "Tampa Bay Buccaneers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1817,12 +2057,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Buffalo Bills vs Tampa Bay Buccaneers",
           "price": 15000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1833,6 +2076,7 @@
         "Washington Commanders"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1846,12 +2090,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Buffalo Bills vs Washington Commanders",
           "price": 18000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1862,6 +2109,7 @@
         "Carolina Panthers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1875,12 +2123,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cincinnati Bengals vs Carolina Panthers",
           "price": 50000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1891,6 +2142,7 @@
         "Carolina Panthers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1904,12 +2156,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cleveland Browns vs Carolina Panthers",
           "price": 350000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1920,6 +2175,7 @@
         "Carolina Panthers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1933,12 +2189,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Denver Broncos vs Carolina Panthers",
           "price": 50000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1949,6 +2208,7 @@
         "Carolina Panthers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1962,12 +2222,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Houston Texans vs Carolina Panthers",
           "price": 45000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -1978,6 +2241,7 @@
         "Carolina Panthers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -1991,12 +2255,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Indianapolis Colts vs Carolina Panthers",
           "price": 100000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2007,6 +2274,7 @@
         "Carolina Panthers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2020,12 +2288,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Jacksonville Jaguars vs Carolina Panthers",
           "price": 65000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2036,6 +2307,7 @@
         "Carolina Panthers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2049,12 +2321,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Kansas City Chiefs vs Carolina Panthers",
           "price": 37500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2065,6 +2340,7 @@
         "Carolina Panthers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2078,12 +2354,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Las Vegas Raiders vs Carolina Panthers",
           "price": 300000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2094,6 +2373,7 @@
         "Carolina Panthers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2107,12 +2387,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Los Angeles Chargers vs Carolina Panthers",
           "price": 40000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2123,6 +2406,7 @@
         "Carolina Panthers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2136,12 +2420,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Miami Dolphins vs Carolina Panthers",
           "price": 500000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2152,6 +2439,7 @@
         "Carolina Panthers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2165,12 +2453,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New England Patriots vs Carolina Panthers",
           "price": 40000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2181,6 +2472,7 @@
         "Carolina Panthers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2194,12 +2486,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New York Jets vs Carolina Panthers",
           "price": 400000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2210,6 +2505,7 @@
         "Carolina Panthers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2223,12 +2519,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Pittsburgh Steelers vs Carolina Panthers",
           "price": 125000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2239,6 +2538,7 @@
         "Carolina Panthers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2252,12 +2552,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Tennessee Titans vs Carolina Panthers",
           "price": 250000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2268,6 +2571,7 @@
         "Chicago Bears"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2281,12 +2585,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cincinnati Bengals vs Chicago Bears",
           "price": 14000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2297,6 +2604,7 @@
         "Chicago Bears"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2310,12 +2618,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cleveland Browns vs Chicago Bears",
           "price": 100000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2326,6 +2637,7 @@
         "Chicago Bears"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2339,12 +2651,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Denver Broncos vs Chicago Bears",
           "price": 14000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2355,6 +2670,7 @@
         "Chicago Bears"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2368,12 +2684,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Houston Texans vs Chicago Bears",
           "price": 12500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2384,6 +2703,7 @@
         "Chicago Bears"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2397,12 +2717,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Indianapolis Colts vs Chicago Bears",
           "price": 32500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2413,6 +2736,7 @@
         "Chicago Bears"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2426,12 +2750,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Jacksonville Jaguars vs Chicago Bears",
           "price": 19000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2442,6 +2769,7 @@
         "Chicago Bears"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2455,12 +2783,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Kansas City Chiefs vs Chicago Bears",
           "price": 10000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2471,6 +2802,7 @@
         "Chicago Bears"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2484,12 +2816,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Las Vegas Raiders vs Chicago Bears",
           "price": 90000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2500,6 +2835,7 @@
         "Chicago Bears"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2513,12 +2849,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Los Angeles Chargers vs Chicago Bears",
           "price": 11500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2529,6 +2868,7 @@
         "Chicago Bears"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2542,12 +2882,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Miami Dolphins vs Chicago Bears",
           "price": 175000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2558,6 +2901,7 @@
         "Chicago Bears"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2571,12 +2915,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New England Patriots vs Chicago Bears",
           "price": 11500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2587,6 +2934,7 @@
         "Chicago Bears"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2600,12 +2948,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New York Jets vs Chicago Bears",
           "price": 125000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2616,6 +2967,7 @@
         "Chicago Bears"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2629,12 +2981,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Pittsburgh Steelers vs Chicago Bears",
           "price": 40000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2645,6 +3000,7 @@
         "Chicago Bears"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2658,12 +3014,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Tennessee Titans vs Chicago Bears",
           "price": 75000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2674,6 +3033,7 @@
         "Dallas Cowboys"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2687,12 +3047,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cincinnati Bengals vs Dallas Cowboys",
           "price": 14000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2703,6 +3066,7 @@
         "Detroit Lions"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2716,12 +3080,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cincinnati Bengals vs Detroit Lions",
           "price": 10000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2732,6 +3099,7 @@
         "Green Bay Packers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2745,12 +3113,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cincinnati Bengals vs Green Bay Packers",
           "price": 12000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2761,6 +3132,7 @@
         "Los Angeles Rams"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2774,12 +3146,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cincinnati Bengals vs Los Angeles Rams",
           "price": 4000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2790,6 +3165,7 @@
         "Minnesota Vikings"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2803,12 +3179,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cincinnati Bengals vs Minnesota Vikings",
           "price": 25000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2819,6 +3198,7 @@
         "New Orleans Saints"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2832,12 +3212,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cincinnati Bengals vs New Orleans Saints",
           "price": 45000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2848,6 +3231,7 @@
         "New York Giants"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2861,12 +3245,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cincinnati Bengals vs New York Giants",
           "price": 35000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2877,6 +3264,7 @@
         "Philadelphia Eagles"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2890,12 +3278,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cincinnati Bengals vs Philadelphia Eagles",
           "price": 10000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2906,6 +3297,7 @@
         "San Francisco 49ers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2919,12 +3311,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cincinnati Bengals vs San Francisco 49ers",
           "price": 10000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2935,6 +3330,7 @@
         "Seattle Seahawks"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2948,12 +3344,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cincinnati Bengals vs Seattle Seahawks",
           "price": 7000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2964,6 +3363,7 @@
         "Tampa Bay Buccaneers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -2977,12 +3377,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cincinnati Bengals vs Tampa Bay Buccaneers",
           "price": 27500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -2993,6 +3396,7 @@
         "Washington Commanders"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3006,12 +3410,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cincinnati Bengals vs Washington Commanders",
           "price": 32500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3022,6 +3429,7 @@
         "Dallas Cowboys"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3035,12 +3443,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cleveland Browns vs Dallas Cowboys",
           "price": 100000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3051,6 +3462,7 @@
         "Detroit Lions"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3064,12 +3476,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cleveland Browns vs Detroit Lions",
           "price": 80000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3080,6 +3495,7 @@
         "Green Bay Packers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3093,12 +3509,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cleveland Browns vs Green Bay Packers",
           "price": 85000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3109,6 +3528,7 @@
         "Los Angeles Rams"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3122,12 +3542,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cleveland Browns vs Los Angeles Rams",
           "price": 30000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3138,6 +3561,7 @@
         "Minnesota Vikings"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3151,12 +3575,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cleveland Browns vs Minnesota Vikings",
           "price": 175000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3167,6 +3594,7 @@
         "New Orleans Saints"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3180,12 +3608,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cleveland Browns vs New Orleans Saints",
           "price": 300000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3196,6 +3627,7 @@
         "New York Giants"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3209,12 +3641,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cleveland Browns vs New York Giants",
           "price": 250000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3225,6 +3660,7 @@
         "Philadelphia Eagles"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3238,12 +3674,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cleveland Browns vs Philadelphia Eagles",
           "price": 80000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3254,6 +3693,7 @@
         "San Francisco 49ers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3267,12 +3707,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cleveland Browns vs San Francisco 49ers",
           "price": 80000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3283,6 +3726,7 @@
         "Seattle Seahawks"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3296,12 +3740,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cleveland Browns vs Seattle Seahawks",
           "price": 50000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3312,6 +3759,7 @@
         "Tampa Bay Buccaneers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3325,12 +3773,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cleveland Browns vs Tampa Bay Buccaneers",
           "price": 200000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3341,6 +3792,7 @@
         "Washington Commanders"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3354,12 +3806,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Cleveland Browns vs Washington Commanders",
           "price": 250000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3370,6 +3825,7 @@
         "Dallas Cowboys"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3383,12 +3839,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Denver Broncos vs Dallas Cowboys",
           "price": 14000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3399,6 +3858,7 @@
         "Dallas Cowboys"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3412,12 +3872,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Houston Texans vs Dallas Cowboys",
           "price": 12500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3428,6 +3891,7 @@
         "Dallas Cowboys"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3441,12 +3905,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Indianapolis Colts vs Dallas Cowboys",
           "price": 32500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3457,6 +3924,7 @@
         "Dallas Cowboys"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3470,12 +3938,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Jacksonville Jaguars vs Dallas Cowboys",
           "price": 19000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3486,6 +3957,7 @@
         "Dallas Cowboys"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3499,12 +3971,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Kansas City Chiefs vs Dallas Cowboys",
           "price": 10000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3515,6 +3990,7 @@
         "Dallas Cowboys"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3528,12 +4004,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Las Vegas Raiders vs Dallas Cowboys",
           "price": 90000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3544,6 +4023,7 @@
         "Dallas Cowboys"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3557,12 +4037,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Los Angeles Chargers vs Dallas Cowboys",
           "price": 11500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3573,6 +4056,7 @@
         "Dallas Cowboys"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3586,12 +4070,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Miami Dolphins vs Dallas Cowboys",
           "price": 175000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3602,6 +4089,7 @@
         "Dallas Cowboys"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3615,12 +4103,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New England Patriots vs Dallas Cowboys",
           "price": 11500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3631,6 +4122,7 @@
         "Dallas Cowboys"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3644,12 +4136,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New York Jets vs Dallas Cowboys",
           "price": 125000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3660,6 +4155,7 @@
         "Dallas Cowboys"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3673,12 +4169,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Pittsburgh Steelers vs Dallas Cowboys",
           "price": 40000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3689,6 +4188,7 @@
         "Dallas Cowboys"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3702,12 +4202,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Tennessee Titans vs Dallas Cowboys",
           "price": 75000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3718,6 +4221,7 @@
         "Detroit Lions"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3731,12 +4235,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Denver Broncos vs Detroit Lions",
           "price": 10000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3747,6 +4254,7 @@
         "Green Bay Packers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3760,12 +4268,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Denver Broncos vs Green Bay Packers",
           "price": 12000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3776,6 +4287,7 @@
         "Los Angeles Rams"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3789,12 +4301,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Denver Broncos vs Los Angeles Rams",
           "price": 4000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3805,6 +4320,7 @@
         "Minnesota Vikings"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3818,12 +4334,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Denver Broncos vs Minnesota Vikings",
           "price": 25000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3834,6 +4353,7 @@
         "New Orleans Saints"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3847,12 +4367,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Denver Broncos vs New Orleans Saints",
           "price": 45000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3863,6 +4386,7 @@
         "New York Giants"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3876,12 +4400,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Denver Broncos vs New York Giants",
           "price": 35000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3892,6 +4419,7 @@
         "Philadelphia Eagles"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3905,12 +4433,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Denver Broncos vs Philadelphia Eagles",
           "price": 10000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3921,6 +4452,7 @@
         "San Francisco 49ers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3934,12 +4466,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Denver Broncos vs San Francisco 49ers",
           "price": 10000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3950,6 +4485,7 @@
         "Seattle Seahawks"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3963,12 +4499,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Denver Broncos vs Seattle Seahawks",
           "price": 7000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -3979,6 +4518,7 @@
         "Tampa Bay Buccaneers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -3992,12 +4532,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Denver Broncos vs Tampa Bay Buccaneers",
           "price": 27500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4008,6 +4551,7 @@
         "Washington Commanders"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4021,12 +4565,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Denver Broncos vs Washington Commanders",
           "price": 32500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4037,6 +4584,7 @@
         "Detroit Lions"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4050,12 +4598,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Houston Texans vs Detroit Lions",
           "price": 9000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4066,6 +4617,7 @@
         "Detroit Lions"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4079,12 +4631,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Indianapolis Colts vs Detroit Lions",
           "price": 25000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4095,6 +4650,7 @@
         "Detroit Lions"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4108,12 +4664,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Jacksonville Jaguars vs Detroit Lions",
           "price": 14500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4124,6 +4683,7 @@
         "Detroit Lions"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4137,12 +4697,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Kansas City Chiefs vs Detroit Lions",
           "price": 8000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4153,6 +4716,7 @@
         "Detroit Lions"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4166,12 +4730,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Las Vegas Raiders vs Detroit Lions",
           "price": 70000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4182,6 +4749,7 @@
         "Detroit Lions"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4195,12 +4763,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Los Angeles Chargers vs Detroit Lions",
           "price": 8500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4211,6 +4782,7 @@
         "Detroit Lions"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4224,12 +4796,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Miami Dolphins vs Detroit Lions",
           "price": 150000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4240,6 +4815,7 @@
         "Detroit Lions"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4253,12 +4829,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New England Patriots vs Detroit Lions",
           "price": 8500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4269,6 +4848,7 @@
         "Detroit Lions"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4282,12 +4862,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New York Jets vs Detroit Lions",
           "price": 100000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4298,6 +4881,7 @@
         "Detroit Lions"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4311,12 +4895,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Pittsburgh Steelers vs Detroit Lions",
           "price": 30000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4327,6 +4914,7 @@
         "Detroit Lions"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4340,12 +4928,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Tennessee Titans vs Detroit Lions",
           "price": 60000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4356,6 +4947,7 @@
         "Green Bay Packers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4369,12 +4961,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Houston Texans vs Green Bay Packers",
           "price": 10000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4385,6 +4980,7 @@
         "Green Bay Packers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4398,12 +4994,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Indianapolis Colts vs Green Bay Packers",
           "price": 27500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4414,6 +5013,7 @@
         "Green Bay Packers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4427,12 +5027,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Jacksonville Jaguars vs Green Bay Packers",
           "price": 16000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4443,6 +5046,7 @@
         "Green Bay Packers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4456,12 +5060,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Kansas City Chiefs vs Green Bay Packers",
           "price": 9000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4472,6 +5079,7 @@
         "Green Bay Packers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4485,12 +5093,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Las Vegas Raiders vs Green Bay Packers",
           "price": 75000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4501,6 +5112,7 @@
         "Green Bay Packers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4514,12 +5126,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Los Angeles Chargers vs Green Bay Packers",
           "price": 9500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4530,6 +5145,7 @@
         "Green Bay Packers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4543,12 +5159,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Miami Dolphins vs Green Bay Packers",
           "price": 150000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4559,6 +5178,7 @@
         "Green Bay Packers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4572,12 +5192,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New England Patriots vs Green Bay Packers",
           "price": 9500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4588,6 +5211,7 @@
         "Green Bay Packers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4601,12 +5225,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New York Jets vs Green Bay Packers",
           "price": 100000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4617,6 +5244,7 @@
         "Green Bay Packers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4630,12 +5258,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Pittsburgh Steelers vs Green Bay Packers",
           "price": 32500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4646,6 +5277,7 @@
         "Green Bay Packers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4659,12 +5291,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Tennessee Titans vs Green Bay Packers",
           "price": 65000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4675,6 +5310,7 @@
         "Los Angeles Rams"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4688,12 +5324,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Houston Texans vs Los Angeles Rams",
           "price": 3500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4704,6 +5343,7 @@
         "Minnesota Vikings"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4717,12 +5357,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Houston Texans vs Minnesota Vikings",
           "price": 22500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4733,6 +5376,7 @@
         "New Orleans Saints"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4746,12 +5390,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Houston Texans vs New Orleans Saints",
           "price": 40000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4762,6 +5409,7 @@
         "New York Giants"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4775,12 +5423,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Houston Texans vs New York Giants",
           "price": 35000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4791,6 +5442,7 @@
         "Philadelphia Eagles"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4804,12 +5456,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Houston Texans vs Philadelphia Eagles",
           "price": 9000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4820,6 +5475,7 @@
         "San Francisco 49ers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4833,12 +5489,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Houston Texans vs San Francisco 49ers",
           "price": 9000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4849,6 +5508,7 @@
         "Seattle Seahawks"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4862,12 +5522,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Houston Texans vs Seattle Seahawks",
           "price": 6000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4878,6 +5541,7 @@
         "Tampa Bay Buccaneers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4891,12 +5555,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Houston Texans vs Tampa Bay Buccaneers",
           "price": 25000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4907,6 +5574,7 @@
         "Washington Commanders"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4920,12 +5588,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Houston Texans vs Washington Commanders",
           "price": 30000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4936,6 +5607,7 @@
         "Los Angeles Rams"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4949,12 +5621,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Indianapolis Colts vs Los Angeles Rams",
           "price": 10000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4965,6 +5640,7 @@
         "Minnesota Vikings"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -4978,12 +5654,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Indianapolis Colts vs Minnesota Vikings",
           "price": 55000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -4994,6 +5673,7 @@
         "New Orleans Saints"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5007,12 +5687,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Indianapolis Colts vs New Orleans Saints",
           "price": 100000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5023,6 +5706,7 @@
         "New York Giants"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5036,12 +5720,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Indianapolis Colts vs New York Giants",
           "price": 90000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5052,6 +5739,7 @@
         "Philadelphia Eagles"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5065,12 +5753,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Indianapolis Colts vs Philadelphia Eagles",
           "price": 25000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5081,6 +5772,7 @@
         "San Francisco 49ers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5094,12 +5786,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Indianapolis Colts vs San Francisco 49ers",
           "price": 25000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5110,6 +5805,7 @@
         "Seattle Seahawks"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5123,12 +5819,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Indianapolis Colts vs Seattle Seahawks",
           "price": 16500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5139,6 +5838,7 @@
         "Tampa Bay Buccaneers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5152,12 +5852,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Indianapolis Colts vs Tampa Bay Buccaneers",
           "price": 65000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5168,6 +5871,7 @@
         "Washington Commanders"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5181,12 +5885,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Indianapolis Colts vs Washington Commanders",
           "price": 80000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5197,6 +5904,7 @@
         "Los Angeles Rams"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5210,12 +5918,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Jacksonville Jaguars vs Los Angeles Rams",
           "price": 5500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5226,6 +5937,7 @@
         "Minnesota Vikings"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5239,12 +5951,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Jacksonville Jaguars vs Minnesota Vikings",
           "price": 32500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5255,6 +5970,7 @@
         "New Orleans Saints"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5268,12 +5984,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Jacksonville Jaguars vs New Orleans Saints",
           "price": 60000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5284,6 +6003,7 @@
         "New York Giants"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5297,12 +6017,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Jacksonville Jaguars vs New York Giants",
           "price": 50000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5313,6 +6036,7 @@
         "Philadelphia Eagles"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5326,12 +6050,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Jacksonville Jaguars vs Philadelphia Eagles",
           "price": 14500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5342,6 +6069,7 @@
         "San Francisco 49ers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5355,12 +6083,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Jacksonville Jaguars vs San Francisco 49ers",
           "price": 14500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5371,6 +6102,7 @@
         "Seattle Seahawks"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5384,12 +6116,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Jacksonville Jaguars vs Seattle Seahawks",
           "price": 9000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5400,6 +6135,7 @@
         "Tampa Bay Buccaneers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5413,12 +6149,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Jacksonville Jaguars vs Tampa Bay Buccaneers",
           "price": 37500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5429,6 +6168,7 @@
         "Washington Commanders"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5442,12 +6182,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Jacksonville Jaguars vs Washington Commanders",
           "price": 45000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5458,6 +6201,7 @@
         "Los Angeles Rams"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5471,12 +6215,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Kansas City Chiefs vs Los Angeles Rams",
           "price": 3000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5487,6 +6234,7 @@
         "Minnesota Vikings"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5500,12 +6248,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Kansas City Chiefs vs Minnesota Vikings",
           "price": 19000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5516,6 +6267,7 @@
         "New Orleans Saints"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5529,12 +6281,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Kansas City Chiefs vs New Orleans Saints",
           "price": 32500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5545,6 +6300,7 @@
         "New York Giants"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5558,12 +6314,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Kansas City Chiefs vs New York Giants",
           "price": 30000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5574,6 +6333,7 @@
         "Philadelphia Eagles"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5587,12 +6347,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Kansas City Chiefs vs Philadelphia Eagles",
           "price": 8000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5603,6 +6366,7 @@
         "San Francisco 49ers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5616,12 +6380,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Kansas City Chiefs vs San Francisco 49ers",
           "price": 8000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5632,6 +6399,7 @@
         "Seattle Seahawks"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5645,12 +6413,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Kansas City Chiefs vs Seattle Seahawks",
           "price": 5000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5661,6 +6432,7 @@
         "Tampa Bay Buccaneers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5674,12 +6446,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Kansas City Chiefs vs Tampa Bay Buccaneers",
           "price": 20000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5690,6 +6465,7 @@
         "Washington Commanders"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5703,12 +6479,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Kansas City Chiefs vs Washington Commanders",
           "price": 25000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5719,6 +6498,7 @@
         "Los Angeles Rams"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5732,12 +6512,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Las Vegas Raiders vs Los Angeles Rams",
           "price": 27500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5748,6 +6531,7 @@
         "Minnesota Vikings"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5761,12 +6545,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Las Vegas Raiders vs Minnesota Vikings",
           "price": 150000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5777,6 +6564,7 @@
         "New Orleans Saints"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5790,12 +6578,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Las Vegas Raiders vs New Orleans Saints",
           "price": 250000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5806,6 +6597,7 @@
         "New York Giants"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5819,12 +6611,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Las Vegas Raiders vs New York Giants",
           "price": 250000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5835,6 +6630,7 @@
         "Philadelphia Eagles"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5848,12 +6644,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Las Vegas Raiders vs Philadelphia Eagles",
           "price": 70000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5864,6 +6663,7 @@
         "San Francisco 49ers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5877,12 +6677,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Las Vegas Raiders vs San Francisco 49ers",
           "price": 70000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5893,6 +6696,7 @@
         "Seattle Seahawks"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5906,12 +6710,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Las Vegas Raiders vs Seattle Seahawks",
           "price": 45000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5922,6 +6729,7 @@
         "Tampa Bay Buccaneers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5935,12 +6743,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Las Vegas Raiders vs Tampa Bay Buccaneers",
           "price": 175000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5951,6 +6762,7 @@
         "Washington Commanders"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5964,12 +6776,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Las Vegas Raiders vs Washington Commanders",
           "price": 200000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -5980,6 +6795,7 @@
         "Los Angeles Rams"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -5993,12 +6809,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Los Angeles Chargers vs Los Angeles Rams",
           "price": 3000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6009,6 +6828,7 @@
         "Minnesota Vikings"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6022,12 +6842,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Los Angeles Chargers vs Minnesota Vikings",
           "price": 20000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6038,6 +6861,7 @@
         "New Orleans Saints"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6051,12 +6875,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Los Angeles Chargers vs New Orleans Saints",
           "price": 35000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6067,6 +6894,7 @@
         "New York Giants"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6080,12 +6908,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Los Angeles Chargers vs New York Giants",
           "price": 30000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6096,6 +6927,7 @@
         "Philadelphia Eagles"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6109,12 +6941,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Los Angeles Chargers vs Philadelphia Eagles",
           "price": 8500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6125,6 +6960,7 @@
         "San Francisco 49ers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6138,12 +6974,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Los Angeles Chargers vs San Francisco 49ers",
           "price": 8500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6154,6 +6993,7 @@
         "Seattle Seahawks"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6167,12 +7007,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Los Angeles Chargers vs Seattle Seahawks",
           "price": 5500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6183,6 +7026,7 @@
         "Tampa Bay Buccaneers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6196,12 +7040,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Los Angeles Chargers vs Tampa Bay Buccaneers",
           "price": 22500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6212,6 +7059,7 @@
         "Washington Commanders"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6225,12 +7073,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Los Angeles Chargers vs Washington Commanders",
           "price": 27500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6241,6 +7092,7 @@
         "Los Angeles Rams"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6254,12 +7106,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Miami Dolphins vs Los Angeles Rams",
           "price": 60000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6270,6 +7125,7 @@
         "Los Angeles Rams"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6283,12 +7139,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New England Patriots vs Los Angeles Rams",
           "price": 3500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6299,6 +7158,7 @@
         "Los Angeles Rams"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6312,12 +7172,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New York Jets vs Los Angeles Rams",
           "price": 40000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6328,6 +7191,7 @@
         "Los Angeles Rams"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6341,12 +7205,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Pittsburgh Steelers vs Los Angeles Rams",
           "price": 12000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6357,6 +7224,7 @@
         "Los Angeles Rams"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6370,12 +7238,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Tennessee Titans vs Los Angeles Rams",
           "price": 22500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6386,6 +7257,7 @@
         "Minnesota Vikings"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6399,12 +7271,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Miami Dolphins vs Minnesota Vikings",
           "price": 300000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6415,6 +7290,7 @@
         "New Orleans Saints"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6428,12 +7304,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Miami Dolphins vs New Orleans Saints",
           "price": 500000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6444,6 +7323,7 @@
         "New York Giants"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6457,12 +7337,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Miami Dolphins vs New York Giants",
           "price": 500000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6473,6 +7356,7 @@
         "Philadelphia Eagles"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6486,12 +7370,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Miami Dolphins vs Philadelphia Eagles",
           "price": 150000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6502,6 +7389,7 @@
         "San Francisco 49ers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6515,12 +7403,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Miami Dolphins vs San Francisco 49ers",
           "price": 150000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6531,6 +7422,7 @@
         "Seattle Seahawks"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6544,12 +7436,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Miami Dolphins vs Seattle Seahawks",
           "price": 95000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6560,6 +7455,7 @@
         "Tampa Bay Buccaneers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6573,12 +7469,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Miami Dolphins vs Tampa Bay Buccaneers",
           "price": 350000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6589,6 +7488,7 @@
         "Washington Commanders"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6602,12 +7502,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Miami Dolphins vs Washington Commanders",
           "price": 400000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6618,6 +7521,7 @@
         "Minnesota Vikings"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6631,12 +7535,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New England Patriots vs Minnesota Vikings",
           "price": 20000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6647,6 +7554,7 @@
         "Minnesota Vikings"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6660,12 +7568,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New York Jets vs Minnesota Vikings",
           "price": 250000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6676,6 +7587,7 @@
         "Minnesota Vikings"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6689,12 +7601,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Pittsburgh Steelers vs Minnesota Vikings",
           "price": 70000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6705,6 +7620,7 @@
         "Minnesota Vikings"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6718,12 +7634,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Tennessee Titans vs Minnesota Vikings",
           "price": 125000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6734,6 +7653,7 @@
         "New Orleans Saints"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6747,12 +7667,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New England Patriots vs New Orleans Saints",
           "price": 35000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6763,6 +7686,7 @@
         "New York Giants"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6776,12 +7700,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New England Patriots vs New York Giants",
           "price": 30000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6792,6 +7719,7 @@
         "Philadelphia Eagles"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6805,12 +7733,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New England Patriots vs Philadelphia Eagles",
           "price": 8500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6821,6 +7752,7 @@
         "San Francisco 49ers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6834,12 +7766,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New England Patriots vs San Francisco 49ers",
           "price": 8500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6850,6 +7785,7 @@
         "Seattle Seahawks"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6863,12 +7799,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New England Patriots vs Seattle Seahawks",
           "price": 5500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6879,6 +7818,7 @@
         "Tampa Bay Buccaneers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6892,12 +7832,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New England Patriots vs Tampa Bay Buccaneers",
           "price": 22500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6908,6 +7851,7 @@
         "Washington Commanders"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6921,12 +7865,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New England Patriots vs Washington Commanders",
           "price": 27500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6937,6 +7884,7 @@
         "New Orleans Saints"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6950,12 +7898,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New York Jets vs New Orleans Saints",
           "price": 400000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6966,6 +7917,7 @@
         "New Orleans Saints"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -6979,12 +7931,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Pittsburgh Steelers vs New Orleans Saints",
           "price": 125000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -6995,6 +7950,7 @@
         "New Orleans Saints"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -7008,12 +7964,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Tennessee Titans vs New Orleans Saints",
           "price": 250000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -7024,6 +7983,7 @@
         "New York Giants"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -7037,12 +7997,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New York Jets vs New York Giants",
           "price": 350000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -7053,6 +8016,7 @@
         "New York Giants"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -7066,12 +8030,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Pittsburgh Steelers vs New York Giants",
           "price": 100000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -7082,6 +8049,7 @@
         "New York Giants"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -7095,12 +8063,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Tennessee Titans vs New York Giants",
           "price": 200000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -7111,6 +8082,7 @@
         "Philadelphia Eagles"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -7124,12 +8096,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New York Jets vs Philadelphia Eagles",
           "price": 100000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -7140,6 +8115,7 @@
         "San Francisco 49ers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -7153,12 +8129,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New York Jets vs San Francisco 49ers",
           "price": 100000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -7169,6 +8148,7 @@
         "Seattle Seahawks"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -7182,12 +8162,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New York Jets vs Seattle Seahawks",
           "price": 65000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -7198,6 +8181,7 @@
         "Tampa Bay Buccaneers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -7211,12 +8195,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New York Jets vs Tampa Bay Buccaneers",
           "price": 250000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -7227,6 +8214,7 @@
         "Washington Commanders"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -7240,12 +8228,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "New York Jets vs Washington Commanders",
           "price": 300000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -7256,6 +8247,7 @@
         "Philadelphia Eagles"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -7269,12 +8261,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Pittsburgh Steelers vs Philadelphia Eagles",
           "price": 30000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -7285,6 +8280,7 @@
         "Philadelphia Eagles"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -7298,12 +8294,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Tennessee Titans vs Philadelphia Eagles",
           "price": 60000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -7314,6 +8313,7 @@
         "San Francisco 49ers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -7327,12 +8327,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Pittsburgh Steelers vs San Francisco 49ers",
           "price": 30000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -7343,6 +8346,7 @@
         "Seattle Seahawks"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -7356,12 +8360,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Pittsburgh Steelers vs Seattle Seahawks",
           "price": 20000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -7372,6 +8379,7 @@
         "Tampa Bay Buccaneers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -7385,12 +8393,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Pittsburgh Steelers vs Tampa Bay Buccaneers",
           "price": 80000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -7401,6 +8412,7 @@
         "Washington Commanders"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -7414,12 +8426,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Pittsburgh Steelers vs Washington Commanders",
           "price": 95000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -7430,6 +8445,7 @@
         "San Francisco 49ers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -7443,12 +8459,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Tennessee Titans vs San Francisco 49ers",
           "price": 60000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -7459,6 +8478,7 @@
         "Seattle Seahawks"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -7472,12 +8492,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Tennessee Titans vs Seattle Seahawks",
           "price": 37500,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -7488,6 +8511,7 @@
         "Tampa Bay Buccaneers"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -7501,12 +8525,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Tennessee Titans vs Tampa Bay Buccaneers",
           "price": 150000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     },
@@ -7517,6 +8544,7 @@
         "Washington Commanders"
       ],
       "row_count": 1,
+      "eligible_row_count": 1,
       "placeable_book_count": 1,
       "books": [
         "betus"
@@ -7530,12 +8558,15 @@
         {
           "source_path": "data/futures-imports/betus-2026-08-10.json",
           "book": "betus",
+          "book_raw": "betus",
+          "book_label": "BetUS",
           "selection": "Tennessee Titans vs Washington Commanders",
           "price": 175000,
           "snapshot_time": "2026-08-10T00:00:00Z",
           "exclusion_reasons": [
             "exacta_requires_multiple_placeable_books"
-          ]
+          ],
+          "counts_toward_execution_claim": true
         }
       ]
     }

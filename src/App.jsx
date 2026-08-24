@@ -15,42 +15,69 @@ import { getBankrollData, saveBankrollData } from './lib/bankroll';
 import { loadUserPicks, loadUserBets, syncBet, syncPick, deleteSyncedPick } from './lib/supabase';
 import { flushDirtyQueue } from './lib/syncQueue';
 import { mergeByUpdatedAt } from './lib/syncMerge';
+import { PROFILE_KEY, PRESET_PROFILES } from './lib/profiles';
 
 // --- Components ---
+// Core shell: always needed for first paint, stays eager/static.
 import AuthGate from './components/auth/AuthGate';
 import Header from './components/layout/Header';
 import Dashboard from './components/dashboard/Dashboard';
+import DashboardLayout from './components/layout/DashboardLayout';
+
 const ExpertLeaderboard = lazy(() => import('./components/dashboard/ExpertLeaderboard'));
-import MatchupWizardModal from './components/modals/MatchupWizardModal';
-import MyCardModal from './components/modals/MyCardModal';
 const DevLab = lazy(() => import('./components/dev-lab/DevLab'));
-import SplitsModal from './components/modals/SplitsModal';
-import WongTeaserModal from './components/modals/WongTeaserModal';
-import PulseModal from './components/modals/PulseModal';
-import ContestLinesModal from './components/modals/ContestLinesModal';
-import AudioUploadModal from './components/modals/AudioUploadModal';
-import ReviewPicksModal from './components/modals/ReviewPicksModal';
-import BulkImportModal from './components/modals/BulkImportModal';
-import ExpertManagerModal from './components/modals/ExpertManagerModal';
-import InjuryReportModal from './components/modals/InjuryReportModal';
-import UnitCalculatorModal from './components/modals/UnitCalculatorModal';
-import BetEntryModal from './components/modals/BetEntryModal';
-import BetImportModal from './components/modals/BetImportModal';
-import PendingBetsModal from './components/modals/PendingBetsModal';
-import EditBetModal from './components/modals/EditBetModal';
 const BankrollDashboard = lazy(() => import('./components/bankroll/BankrollDashboard'));
 const AnalyticsDashboard = lazy(() => import('./components/analytics/AnalyticsDashboard'));
 const OddsCenter = lazy(() => import('./components/odds/OddsCenter'));
 const PicksTracker = lazy(() => import('./components/picks-tracker/PicksTracker'));
-import ManualGradeModal from './components/modals/ManualGradeModal';
-import BankrollSettingsModal from './components/modals/BankrollSettingsModal';
-import FuturesEntryModal from './components/modals/FuturesEntryModal';
-import StorageBackupModal from './components/modals/StorageBackupModal';
-import PodcastIngestModal from './components/modals/PodcastIngestModal';
-import AgentStatusModal from './components/modals/AgentStatusModal';
-import PredictionMarketConverter from './components/odds/PredictionMarketConverter';
-import ProfileSettingsModal from './components/modals/ProfileSettingsModal';
-import DashboardLayout from './components/layout/DashboardLayout';
+
+// Checkpoint 3 (item 9): every modal/tool surface below is only ever rendered
+// while closed/hidden === not mounted (conditional `{flag && <X />}` render, or
+// gated on selectedGame/selectedPmContract) except the four "always mounted,
+// isOpen prop controls visibility" ones noted below -- those are now also mounted
+// on-demand (see the JSX below) so none of these ship in the initial dashboard
+// chunk. Behavior is unchanged: same props, same open/close semantics.
+const MatchupWizardModal = lazy(() => import('./components/modals/MatchupWizardModal'));
+const MyCardModal = lazy(() => import('./components/modals/MyCardModal'));
+const SplitsModal = lazy(() => import('./components/modals/SplitsModal'));
+const PulseModal = lazy(() => import('./components/modals/PulseModal'));
+// Phase 0 (2026-08-24): promoted out of the flat header Tools row into its
+// own dedicated, persistent view -- see the file for why ContestLinesModal's
+// content moved here rather than being extended in place.
+const SuperContestView = lazy(() => import('./components/supercontest/SuperContestView'));
+const AudioUploadModal = lazy(() => import('./components/modals/AudioUploadModal'));
+const ReviewPicksModal = lazy(() => import('./components/modals/ReviewPicksModal'));
+const BulkImportModal = lazy(() => import('./components/modals/BulkImportModal'));
+const ExpertManagerModal = lazy(() => import('./components/modals/ExpertManagerModal'));
+const InjuryReportModal = lazy(() => import('./components/modals/InjuryReportModal'));
+const UnitCalculatorModal = lazy(() => import('./components/modals/UnitCalculatorModal'));
+const BetEntryModal = lazy(() => import('./components/modals/BetEntryModal'));
+const BetImportModal = lazy(() => import('./components/modals/BetImportModal'));
+const PendingBetsModal = lazy(() => import('./components/modals/PendingBetsModal'));
+const EditBetModal = lazy(() => import('./components/modals/EditBetModal'));
+const ManualGradeModal = lazy(() => import('./components/modals/ManualGradeModal'));
+const BankrollSettingsModal = lazy(() => import('./components/modals/BankrollSettingsModal'));
+const FuturesEntryModal = lazy(() => import('./components/modals/FuturesEntryModal'));
+const StorageBackupModal = lazy(() => import('./components/modals/StorageBackupModal'));
+// These four used to be statically imported AND unconditionally mounted (isOpen
+// prop just gated their own internal `if (!isOpen) return null`) -- that meant
+// their code loaded eagerly even when closed. They're now also conditionally
+// mounted (see JSX below), matching the pattern every other modal already uses.
+const PodcastIngestModal = lazy(() => import('./components/modals/PodcastIngestModal'));
+const AgentStatusModal = lazy(() => import('./components/modals/AgentStatusModal'));
+const ProfileSettingsModal = lazy(() => import('./components/modals/ProfileSettingsModal'));
+const LineHistoryModal = lazy(() => import('./components/modals/LineHistoryModal'));
+const PredictionMarketModal = lazy(() => import('./components/modals/PredictionMarketModal'));
+
+// Newly-wired tabs (Checkpoint 1, 2026-08-21): these components already existed
+// and were already reachable as sub-tabs elsewhere (podcasts/training-camp inside
+// UnifiedIntelHub, props/dfs inside FantasyHub, bankroll inside FuturesHub) but had
+// no top-level route, so real deeplinks like ?tab=podcasts (see agents/nfl-daily-brief.js)
+// and the mobile nav footer (Bankroll/Odds/Analytics/Card buttons) landed on blank content.
+const PodcastDigestTab = lazy(() => import('./components/podcasts/PodcastDigestTab'));
+const TrainingCampIntel = lazy(() => import('./components/intel/TrainingCampIntel'));
+const PropsAgentChat = lazy(() => import('./components/agent/PropsAgentChat'));
+const DFSOptimizer = lazy(() => import('./components/dfs/DFSOptimizer'));
 
 const FuturesHub = lazy(() => import('./components/futures/FuturesHub'));
 
@@ -78,8 +105,40 @@ function App() {
   const [betEntryGame, setBetEntryGame] = useState(null);
   const [podcastModalOpen, setPodcastModalOpen] = useState(false);
   const [agentStatusOpen, setAgentStatusOpen] = useState(false);
-  const [predictionConverterOpen, setPredictionConverterOpen] = useState(false);
   const [profileModalOpen, setProfileModalOpen] = useState(false);
+  const [selectedPmContract, setSelectedPmContract] = useState(null);
+
+  // Picks & Inbox sub-view (fix, 2026-08-24): found live-testing the Task #8
+  // pin feature -- PicksTracker.jsx (AI Lab/Expert picks, with delete and
+  // now pin) had NO way to reach it from the UI at all. `activeTab ===
+  // 'picks'` has a real render target (line ~309 below, pre-dating this
+  // session per the "Checkpoint 1 stale-tab repair" comment there) but
+  // nothing anywhere calls setActiveTab('picks') -- confirmed via repo-wide
+  // grep. Rather than leave the pin feature real but unreachable, or invent
+  // a whole new top-level nav slot, "Picks & Inbox" becomes a real toggle
+  // between the two picks-related surfaces it's already named for.
+  const [picksSubView, setPicksSubView] = useState('inbox'); // 'inbox' | 'tracker'
+
+  // Real Profile personalization (Phase 0, 2026-08-24): which Command Hubs
+  // the active profile cares about. Previously ProfileSettingsModal saved a
+  // preset to localStorage but nothing else in the app ever read it back
+  // (confirmed via grep -- zero other call sites) -- this is the wiring that
+  // makes it actually do something. Initialized from whatever was last saved
+  // so a returning user's profile choice survives a refresh.
+  const [visibleHubs, setVisibleHubs] = useState(() => {
+    const profile = loadFromStorage(PROFILE_KEY, PRESET_PROFILES[0]);
+    return profile?.hubs || PRESET_PROFILES[0].hubs;
+  });
+
+  const handleProfileUpdated = useCallback((profile) => {
+    const hubs = profile?.hubs || PRESET_PROFILES[0].hubs;
+    setVisibleHubs(hubs);
+    // If the tab we're currently on isn't visible under the new profile,
+    // jump to the first hub that is -- otherwise switching to Amanda's
+    // profile while on Bankroll & Futures would leave a dimmed-and-disabled
+    // tab as the active one, with no visible way back via the nav row.
+    setActiveTab(current => (hubs.includes(current) ? current : (hubs[0] || 'dashboard')));
+  }, []);
 
   // --- Custom Hooks ---
   // Sync active tab to URL so briefing deeplinks work
@@ -178,16 +237,62 @@ function App() {
 
   // --- Derived Data (cross-cutting: merges schedule + experts + splits) ---
   const gamesWithSplits = useMemo(() => schedule.map(game => {
-    const gameData = splits[game.id] || splits[String(game.id)];
-    const expertData = expertConsensus[game.id] || { expertPicks: { spread: [], total: [] } };
+    const gameData = splits[game.id] ||
+                     splits[game.game_id] ||
+                     splits[`${game.visitor}_${game.home}`] ||
+                     splits[`${game.visitor}_at_${game.home}`] ||
+                     Object.values(splits).find(s => (s.visitor === game.visitor && s.home === game.home) || (s.visitor === game.home && s.home === game.visitor));
+
+    const expertData = expertConsensus[game.id] ||
+                       expertConsensus[game.game_id] ||
+                       expertConsensus[`${game.visitor}_${game.home}`] ||
+                       expertConsensus[`${game.visitor}_at_${game.home}`] ||
+                       { expertPicks: { spread: [], total: [] } };
+
     const homeInjuries = injuries[game.home] || [];
     const visitorInjuries = injuries[game.visitor] || [];
+
+    // --- Wong Teaser detection (Phase 1, 2026-08-24) -----------------------
+    // Ported verbatim from the old header-modal WongTeaserModal.jsx (Cross
+    // 3 & 7: favorites -7.5..-8.5, dogs +1.5..+2.5). Header modal is gone;
+    // this now populates the passive `teaser`/`teaserSide` fields that
+    // MatchupCard.jsx already renders as an inline badge (previously dead
+    // code -- the JSX existed, nothing ever set these fields). Strict mode
+    // (Total <= 49) is applied by default since there's no more UI toggle
+    // to turn it off from; that matches the modal's original default.
+    let teaser = null;
+    let teaserSide = null;
+    if (typeof game.total !== 'number' || game.total <= 49) {
+      const spread = game.spread;
+      const vSpread = -spread;
+      if (spread <= -7.5 && spread >= -8.5) { teaser = 'Favorite'; teaserSide = game.home; }
+      else if (spread >= 1.5 && spread <= 2.5) { teaser = 'Underdog'; teaserSide = game.home; }
+      else if (vSpread <= -7.5 && vSpread >= -8.5) { teaser = 'Favorite'; teaserSide = game.visitor; }
+      else if (vSpread >= 1.5 && vSpread <= 2.5) { teaser = 'Underdog'; teaserSide = game.visitor; }
+    }
+
+    // SuperContest Phase 2 (2026-08-24): contestLines entries used to be a
+    // bare number; they're now { value, lockedAt } so the drift table can
+    // show when each line locked (see SuperContestView.jsx file header for
+    // the full rationale). Both shapes are read here so lines saved before
+    // this change still work.
+    const rawContestLine = contestLines[game.id];
+    const contestSpread = rawContestLine == null
+      ? null
+      : (typeof rawContestLine === 'object' ? rawContestLine.value : rawContestLine);
+    const contestLineLockedAt = rawContestLine && typeof rawContestLine === 'object'
+      ? rawContestLine.lockedAt
+      : null;
+
     return {
       ...game,
-      splits: gameData?.splits || null,
-      contestSpread: contestLines[game.id] || null,
+      splits: gameData?.splits || gameData || null,
+      contestSpread,
+      contestLineLockedAt,
       consensus: expertData,
-      injuries: { home: homeInjuries, visitor: visitorInjuries }
+      injuries: { home: homeInjuries, visitor: visitorInjuries },
+      teaser,
+      teaserSide
     };
   }), [schedule, splits, expertConsensus, contestLines, injuries]);
 
@@ -196,47 +301,91 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#0f0f0f] text-gray-200 font-sans pb-20 selection:bg-[#00d2be] selection:text-black">
-      <Header activeTab={activeTab} setActiveTab={setActiveTab} cartCount={myBets.length} onSyncOdds={handleSync} onOpenSplits={() => openModal('pulse')} onOpenSplitsData={() => openModal('splits')} onOpenTeasers={() => openModal('teasers')} onOpenContest={() => openModal('contest')} onOpenPredictionConverter={() => setPredictionConverterOpen(true)} onOpenUnitCalculator={() => openModal('unitCalculator')} onImport={() => openModal('import')} onAnalyze={() => openModal('audio')} onManage={() => openModal('expertMgr')} onSave={handleSave} onReset={() => { if(window.confirm("Reset all picks?")) clearBets(); }} onOpenStorage={() => openModal('storage')} onOpenAgentStatus={() => setAgentStatusOpen(true)} onOpenProfile={() => setProfileModalOpen(true)} />
+      <Header activeTab={activeTab} setActiveTab={setActiveTab} cartCount={myBets.length} onSyncOdds={handleSync} onOpenSplits={() => openModal('pulse')} onOpenSplitsData={() => openModal('splits')} onOpenSuperContest={() => openModal('contest')} onImport={() => openModal('import')} onAnalyze={() => openModal('audio')} onManage={() => openModal('expertMgr')} onSave={handleSave} onReset={() => { if(window.confirm("Reset all picks?")) clearBets(); }} onOpenStorage={() => openModal('storage')} onOpenAgentStatus={() => setAgentStatusOpen(true)} onOpenProfile={() => setProfileModalOpen(true)} visibleHubs={visibleHubs} />
       <DashboardLayout>
         <main>
           <Suspense fallback={<div className="flex items-center justify-center py-24 text-[#00d2be] font-mono text-sm">Loading...</div>}>
-            {activeTab === 'dashboard' && <div className="animate-in fade-in zoom-in duration-300"><Dashboard schedule={gamesWithSplits} stats={stats} simResults={simResults} onGameClick={setSelectedGame} onShowInjuries={(game) => { setSelectedGame(game); openModal('injuryReport'); }} onAddBankrollBet={(game) => { setBetEntryGame(game); openModal('betEntry'); }} /></div>}
-            {activeTab === 'official-picks' && <div className="animate-in fade-in zoom-in duration-300"><OfficialPicksTab /></div>}
+            {activeTab === 'dashboard' && <div className="animate-in fade-in zoom-in duration-300"><Dashboard schedule={gamesWithSplits} stats={stats} simResults={simResults} onGameClick={setSelectedGame} onShowHistory={(game) => { setSelectedGame(game); openModal('lineHistory'); }} onShowInjuries={(game) => { setSelectedGame(game); openModal('injuryReport'); }} onAddBankrollBet={(game) => { setBetEntryGame(game); openModal('betEntry'); }} onShowPmContract={(contract) => setSelectedPmContract(contract)} /></div>}
+            {activeTab === 'official-picks' && (
+              <div className="animate-in fade-in zoom-in duration-300 space-y-4">
+                <div className="flex items-center gap-1 bg-slate-900 border border-slate-800 rounded-lg p-1 w-fit">
+                  <button
+                    onClick={() => setPicksSubView('inbox')}
+                    className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all ${picksSubView === 'inbox' ? 'bg-purple-500/20 text-purple-300' : 'text-slate-500 hover:text-white'}`}
+                  >
+                    AI Official Picks Inbox
+                  </button>
+                  <button
+                    onClick={() => setPicksSubView('tracker')}
+                    className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all ${picksSubView === 'tracker' ? 'bg-purple-500/20 text-purple-300' : 'text-slate-500 hover:text-white'}`}
+                  >
+                    My Picks (AI Lab / Expert)
+                  </button>
+                </div>
+                {picksSubView === 'inbox' && <OfficialPicksTab key={picksRefreshKey} />}
+                {picksSubView === 'tracker' && <PicksTracker key={autoGraded} onOpenGradeModal={(g) => { setGradeGameData(g); openModal('gradeModal'); }} onAutoGrade={runGradingCheck} autoGrading={checking} onOpenPodcastModal={() => setPodcastModalOpen(true)} />}
+              </div>
+            )}
             {activeTab === 'intel' && <div className="animate-in fade-in zoom-in duration-300"><UnifiedIntelHub /></div>}
             {activeTab === 'fantasy' && <div className="animate-in fade-in zoom-in duration-300"><FantasyHub /></div>}
             {activeTab === 'injuries' && <div className="animate-in fade-in zoom-in duration-300"><InjuryCenter injuries={injuries} /></div>}
-            {activeTab === 'futures' && <div className="animate-in fade-in zoom-in duration-300"><FuturesHub /></div>}
+            {activeTab === 'futures' && <div className="animate-in fade-in zoom-in duration-300"><FuturesHub onShowCalculator={() => openModal('unitCalculator')} /></div>}
+            {/* --- Checkpoint 1 stale-tab repair: real render targets for the remaining VALID_TABS ids --- */}
+            {activeTab === 'bankroll' && <div className="animate-in fade-in zoom-in duration-300"><BankrollDashboard onShowCalculator={() => openModal('unitCalculator')} /></div>}
+            {activeTab === 'odds' && <div className="animate-in fade-in zoom-in duration-300"><OddsCenter /></div>}
+            {activeTab === 'analytics' && <div className="animate-in fade-in zoom-in duration-300"><AnalyticsDashboard /></div>}
+            {activeTab === 'mycard' && <div className="animate-in fade-in zoom-in duration-300"><MyCardModal bets={myBets} onRemoveBet={removeBet} onLockBets={handleLockBets} onClearCard={() => { if (window.confirm('Clear all bets from the card?')) clearBets(); }} onCreateParlay={() => alert('Parlay / teaser / round-robin creation is not wired up yet -- this view was previously unreachable (imported but never rendered), so this button has never worked. Flagging for a follow-up, not fixing here.')} /></div>}
+            {activeTab === 'devlab' && <div className="animate-in fade-in zoom-in duration-300"><DevLab games={gamesWithSplits} stats={stats} savedResults={simResults} onSimComplete={setSimResults} /></div>}
+            {activeTab === 'picks' && <div className="animate-in fade-in zoom-in duration-300"><PicksTracker key={autoGraded} onOpenGradeModal={(g) => { setGradeGameData(g); openModal('gradeModal'); }} onAutoGrade={runGradingCheck} autoGrading={checking} onOpenPodcastModal={() => setPodcastModalOpen(true)} /></div>}
+            {activeTab === 'standings' && <div className="animate-in fade-in zoom-in duration-300"><ExpertLeaderboard expertConsensus={expertConsensus} /></div>}
+            {activeTab === 'podcasts' && <div className="animate-in fade-in zoom-in duration-300"><PodcastDigestTab /></div>}
+            {activeTab === 'training-camp' && <div className="animate-in fade-in zoom-in duration-300"><TrainingCampIntel /></div>}
+            {activeTab === 'props' && <div className="animate-in fade-in zoom-in duration-300"><PropsAgentChat /></div>}
+            {activeTab === 'dfs' && <div className="animate-in fade-in zoom-in duration-300"><DFSOptimizer /></div>}
           </Suspense>
         </main>
       </DashboardLayout>
 
 
-      {/* --- LAZY-MOUNTED MODALS --- */}
-      {selectedGame && <MatchupWizardModal isOpen game={selectedGame} stats={stats} currentWizardData={expertConsensus[selectedGame.id] || null} onClose={() => setSelectedGame(null)} onBet={(id, type, sel, line) => { handleBet(id, type, sel, line); setSelectedGame(null); }} />}
-      {modals.pulse && <PulseModal isOpen onClose={() => closeModal('pulse')} games={gamesWithSplits} />}
-      {modals.contest && <ContestLinesModal isOpen onClose={() => closeModal('contest')} games={gamesWithSplits} onUpdateContestLines={setContestLines} />}
-      {modals.teasers && <WongTeaserModal isOpen onClose={() => closeModal('teasers')} games={gamesWithSplits} />}
-      {modals.splits && <SplitsModal isOpen onClose={() => closeModal('splits')} games={gamesWithSplits} />}
-      {modals.audio && <AudioUploadModal isOpen onClose={() => closeModal('audio')} onAnalyze={handleAIAnalyze} />}
-      {modals.review && <ReviewPicksModal isOpen onClose={() => closeModal('review')} stagedPicks={stagedPicks} onConfirm={handleConfirmPicks} onDiscard={(idx) => setStagedPicks(prev => prev.filter((_, i) => i !== idx))} />}
-      {modals.import && <BulkImportModal isOpen onClose={() => closeModal('import')} onImport={handleBulkImport} />}
-      {modals.expertMgr && <ExpertManagerModal isOpen onClose={() => closeModal('expertMgr')} experts={INITIAL_EXPERTS} expertConsensus={expertConsensus} onUpdatePick={handleUpdatePick} onDeletePick={handleDeletePick} onClearExpert={handleClearExpert} />}
-      {modals.injuryReport && <InjuryReportModal isOpen onClose={() => closeModal('injuryReport')} game={selectedGame} injuries={injuries} />}
-      {modals.unitCalculator && <UnitCalculatorModal isOpen onClose={() => closeModal('unitCalculator')} />}
-      {modals.betEntry && <BetEntryModal isOpen onClose={() => { closeModal('betEntry'); setBetEntryGame(null); }} selectedGame={betEntryGame} schedule={schedule} refreshBankroll={() => {}} />}
-      {modals.betImport && <BetImportModal isOpen onClose={() => closeModal('betImport')} onImportComplete={(betId, bet) => { logger.log('Bet imported:', betId, bet); alert('Bet imported successfully!'); }} />}
-      {modals.pendingBets && <PendingBetsModal isOpen onClose={() => closeModal('pendingBets')} onEditBet={(bet) => { setSelectedBetForEdit(bet); openModal('editBet'); }} />}
-      {modals.editBet && <EditBetModal isOpen onClose={() => { closeModal('editBet'); setSelectedBetForEdit(null); }} bet={selectedBetForEdit} schedule={schedule} onBetUpdated={() => { closeModal('pendingBets'); setTimeout(() => openModal('pendingBets'), 100); }} />}
-      {modals.gradeModal && <ManualGradeModal isOpen onClose={() => { closeModal('gradeModal'); setGradeGameData(null); setPicksRefreshKey(k => k + 1); }} gameData={gradeGameData} onGraded={() => setPicksRefreshKey(k => k + 1)} />}
-      {modals.bankrollSettings && <BankrollSettingsModal isOpen onClose={() => closeModal('bankrollSettings')} onSettingsUpdated={() => {}} />}
-      {modals.futuresEntry && <FuturesEntryModal isOpen onClose={() => closeModal('futuresEntry')} onAdded={() => {}} />
-      }
-      {modals.storage && <StorageBackupModal isOpen onClose={() => closeModal('storage')} />
-      }
-      <PodcastIngestModal isOpen={podcastModalOpen} onClose={() => setPodcastModalOpen(false)} onPicksImported={() => setPicksRefreshKey(k => k + 1)} />
-      <AgentStatusModal isOpen={agentStatusOpen} onClose={() => setAgentStatusOpen(false)} />
-      <PredictionMarketConverter isOpen={predictionConverterOpen} onClose={() => setPredictionConverterOpen(false)} />
-      <ProfileSettingsModal isOpen={profileModalOpen} onClose={() => setProfileModalOpen(false)} />
+      {/* --- LAZY-MOUNTED MODALS ---
+          Checkpoint 3 (item 9): each of these is now a React.lazy() import (see
+          top of file), so its code is a separate chunk that only downloads the
+          first time it actually mounts -- i.e. the first time its modal opens.
+          A single Suspense boundary with a lightweight overlay fallback covers
+          the whole block; only ever visible on a cold first-open of a given
+          modal (subsequent opens reuse the already-loaded chunk). */}
+      <Suspense fallback={
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 backdrop-blur-sm">
+          <div className="text-[#00d2be] font-mono text-sm">Loading...</div>
+        </div>
+      }>
+        {selectedGame && <MatchupWizardModal isOpen game={selectedGame} stats={stats} currentWizardData={expertConsensus[selectedGame.id] || null} onClose={() => setSelectedGame(null)} onBet={(id, type, sel, line) => { handleBet(id, type, sel, line); setSelectedGame(null); }} />}
+        {modals.pulse && <PulseModal isOpen onClose={() => closeModal('pulse')} games={gamesWithSplits} />}
+        {modals.contest && <SuperContestView isOpen onClose={() => closeModal('contest')} games={gamesWithSplits} onUpdateContestLines={setContestLines} />}
+        {modals.splits && <SplitsModal isOpen onClose={() => closeModal('splits')} games={gamesWithSplits} />}
+        {modals.audio && <AudioUploadModal isOpen onClose={() => closeModal('audio')} onAnalyze={handleAIAnalyze} />}
+        {modals.review && <ReviewPicksModal isOpen onClose={() => closeModal('review')} stagedPicks={stagedPicks} onConfirm={handleConfirmPicks} onDiscard={(idx) => setStagedPicks(prev => prev.filter((_, i) => i !== idx))} />}
+        {modals.import && <BulkImportModal isOpen onClose={() => closeModal('import')} onImport={handleBulkImport} />}
+        {modals.expertMgr && <ExpertManagerModal isOpen onClose={() => closeModal('expertMgr')} experts={INITIAL_EXPERTS} expertConsensus={expertConsensus} onUpdatePick={handleUpdatePick} onDeletePick={handleDeletePick} onClearExpert={handleClearExpert} />}
+        {modals.injuryReport && <InjuryReportModal isOpen onClose={() => closeModal('injuryReport')} game={selectedGame} injuries={injuries} />}
+        {modals.unitCalculator && <UnitCalculatorModal isOpen onClose={() => closeModal('unitCalculator')} />}
+        {modals.betEntry && <BetEntryModal isOpen onClose={() => { closeModal('betEntry'); setBetEntryGame(null); }} selectedGame={betEntryGame} schedule={schedule} refreshBankroll={() => {}} />}
+        {modals.betImport && <BetImportModal isOpen onClose={() => closeModal('betImport')} onImportComplete={(betId, bet) => { logger.log('Bet imported:', betId, bet); alert('Bet imported successfully!'); }} />}
+        {modals.pendingBets && <PendingBetsModal isOpen onClose={() => closeModal('pendingBets')} onEditBet={(bet) => { setSelectedBetForEdit(bet); openModal('editBet'); }} />}
+        {modals.editBet && <EditBetModal isOpen onClose={() => { closeModal('editBet'); setSelectedBetForEdit(null); }} bet={selectedBetForEdit} schedule={schedule} onBetUpdated={() => { closeModal('pendingBets'); setTimeout(() => openModal('pendingBets'), 100); }} />}
+        {modals.gradeModal && <ManualGradeModal isOpen onClose={() => { closeModal('gradeModal'); setGradeGameData(null); setPicksRefreshKey(k => k + 1); }} gameData={gradeGameData} onGraded={() => setPicksRefreshKey(k => k + 1)} />}
+        {modals.bankrollSettings && <BankrollSettingsModal isOpen onClose={() => closeModal('bankrollSettings')} onSettingsUpdated={() => {}} />}
+        {modals.futuresEntry && <FuturesEntryModal isOpen onClose={() => closeModal('futuresEntry')} onAdded={() => {}} />}
+        {modals.storage && <StorageBackupModal isOpen onClose={() => closeModal('storage')} />}
+        {modals.lineHistory && <LineHistoryModal isOpen onClose={() => closeModal('lineHistory')} game={selectedGame} />}
+        {selectedPmContract && <PredictionMarketModal isOpen contract={selectedPmContract} onClose={() => setSelectedPmContract(null)} />}
+        {/* Checkpoint 3: these four used to always be mounted (isOpen just gated
+            their own internal render); now mounted on-demand like every modal
+            above -- same isOpen=true-while-mounted semantics, same onClose. */}
+        {podcastModalOpen && <PodcastIngestModal isOpen onClose={() => setPodcastModalOpen(false)} onPicksImported={() => setPicksRefreshKey(k => k + 1)} />}
+        {agentStatusOpen && <AgentStatusModal isOpen onClose={() => setAgentStatusOpen(false)} />}
+        {profileModalOpen && <ProfileSettingsModal isOpen onClose={() => setProfileModalOpen(false)} onProfileUpdated={handleProfileUpdated} />}
+      </Suspense>
 
     </div>
   );

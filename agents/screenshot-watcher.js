@@ -13,7 +13,7 @@
 //   node agents/screenshot-watcher.js --dry-run        # Dry run OCR extraction without writing to DB
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import { mkdir, writeFile, readFile, readdir, rename, stat } from 'node:fs/promises';
+import { mkdir, writeFile, readFile, readdir, rename } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createClient } from '@supabase/supabase-js';

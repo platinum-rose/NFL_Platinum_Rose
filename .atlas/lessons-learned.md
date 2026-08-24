@@ -137,6 +137,40 @@
   needs per-league configurable weights (ideally sourced from Yahoo's league-settings API once
   access is approved), not a hardcoded default.
 
+## Checkpoint 3 — 2026-08-22: Bundle lazy-loading (Codex-independent audit, UNIFIED_REPAIR_PLAN_FOR_CLAUDE.md items 9-11)
+
+### `device_bash` has a hard ~45s per-call ceiling and cannot background a process across calls
+- A full `npx vite build` (or anything else that legitimately takes longer than the call timeout)
+  cannot be run inside the Cowork device-bridge sandbox — it gets killed mid-build with zero output
+  files produced, not just slow.
+- Tested and confirmed this is a real teardown, not a flaky timeout: `nohup bash -c 'sleep 8; touch
+  /tmp/marker' & disown` in one call, then checking for the marker file in a second call — the
+  marker was never created. The sandbox tears down the entire process tree (including
+  nohup/disowned children) the moment its `bash -c` invocation returns; there is no way to persist
+  a background job between two `device_bash` calls.
+- **Pattern:** for any command that risks running long (production builds, full test suites,
+  anything network-bound), ask the user to run it natively in their own terminal and paste the
+  output back, rather than retrying inside the sandbox or reporting an estimate as if it were a
+  real measurement. A fast read-only post-hoc check (e.g. `readdirSync`/`statSync` over an
+  already-built `dist/`) is fine inside the 45s window — it's launching the build itself that
+  doesn't fit.
+
+### Vite/Rollup chunk-size reporting is decimal kB (÷1000), not binary KiB (÷1024)
+- Wrote a new `scripts/check-bundle-budget.js` whose `fmtKb()` divided bytes by 1024 and labeled
+  the result "kB" — looks reasonable in isolation, but Vite's own build-output printer uses decimal
+  kB (÷1000) for the same unit label. Same file, same byte count, two different-looking numbers
+  (1,262.5 kB from the script vs. 1,292.84 kB from Vite's own output for the same
+  `index-CctTDsx3.js`), which is exactly the kind of silent discrepancy a reviewer (Codex) is right
+  to flag rather than assume is a rounding difference.
+- **Fix:** always divide by 1000 (not 1024) when matching or comparing against Vite/Rollup's
+  printed chunk sizes; call it out explicitly in a code comment so a future edit doesn't "fix" it
+  back to the more familiar-looking ÷1024. Verified post-fix against real `dist/` output: script
+  and Vite agreed exactly (1292.8 vs 1,292.84 kB; 836.9 vs 836.91 kB; 653.1 vs 653.06 kB).
+- **General pattern:** when writing any new size-reporting tool that will be eyeballed next to an
+  existing tool's output (build logs, bundler warnings, etc.), match that tool's unit convention
+  deliberately rather than defaulting to the "obvious" binary one — and re-verify numerically
+  against a real run before trusting the new tool's output in a written summary.
+
 ## S314 — 2026-07-28: Podcast intel verification pass (Gemini extraction pipeline)
 
 ### Two more distinct bugs found in `scripts/gemini-podcast-shadow-harness.js`'s `normalizeSide`, on top of the S304-era bare-`'N'`-token fix

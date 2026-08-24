@@ -469,7 +469,7 @@ function loadReviewStatus() {
       schema: 'youtube_futures_intel_review_status_v1',
       generated_at: GENERATED_AT,
       status: 'local_review_status_only',
-      guardrail: 'Human-editable local status file for the research/bench-scoring shadow-harness track. This file itself does not promote official picks or write production recommendations. A separate PRODUCTION review gate now exists (podcast_gemini_intel, migration 045, promoted via agents/podcast-gemini-intel.js --promote) — see docs/PODCAST_HOLISTIC_INTEL_EXTRACTION_PLAN.md Phase 5. The two pipelines run in parallel and are not reconciled against each other.',
+      guardrail: 'Human-editable local status file for the research/bench-scoring shadow-harness track. This file itself does not promote official picks or write production recommendations. A separate PRODUCTION review gate now exists (podcast_gemini_intel, migration 045, promoted via agents/podcast-gemini-intel.js --promote) — see docs/archive/PODCAST_HOLISTIC_INTEL_EXTRACTION_PLAN.md Phase 5. The two pipelines run in parallel and are not reconciled against each other.',
       items: []
     };
   }
@@ -666,7 +666,7 @@ const summary = {
   schema: 'youtube_futures_intel_review_v1',
   generated_at: GENERATED_AT,
   status: 'local_review_only',
-  guardrail: 'This local shadow-harness track requires human review before anything is treated as a real pick. For actual production promotion, see podcast_gemini_intel (migration 045) and agents/podcast-gemini-intel.js --promote (docs/PODCAST_HOLISTIC_INTEL_EXTRACTION_PLAN.md Phase 5) -- a separate, real review gate this local JSON file does not itself enforce.',
+  guardrail: 'This local shadow-harness track requires human review before anything is treated as a real pick. For actual production promotion, see podcast_gemini_intel (migration 045) and agents/podcast-gemini-intel.js --promote (docs/archive/PODCAST_HOLISTIC_INTEL_EXTRACTION_PLAN.md Phase 5) -- a separate, real review gate this local JSON file does not itself enforce.',
   futures_candidates: futuresCandidates.length,
   observed_episodes: rows.length,
   usable_observed_episodes: usableRows.length,
@@ -784,7 +784,7 @@ const lines = [
   '',
   allNotes.length > 0
     ? '| Tags | Episode | Note Type | Teams | Players | Speaker | Time | Confidence | Flags | Summary | Quote |'
-    : '_No analysis notes extracted yet — re-run episodes against the Phase 1 schema (see docs/PODCAST_HOLISTIC_INTEL_EXTRACTION_PLAN.md Phase 4) to populate this section._',
+    : '_No analysis notes extracted yet — re-run episodes against the Phase 1 schema (see docs/archive/PODCAST_HOLISTIC_INTEL_EXTRACTION_PLAN.md Phase 4) to populate this section._',
   ...(allNotes.length > 0 ? [
     '|---|---|---|---|---|---|---|---|---|---|---|',
     ...allNotes.map(note => `| ${note.relevance_tags.join(', ')} | ${mdCell(note.episode_title)} | ${note.note_type} | ${mdCell((note.teams || []).join(', '))} | ${mdCell((note.players || []).join(', '))} | ${mdCell(note.speaker)} | [${note.source_timestamp}s](${note.timestamp_url}) | ${note.confidence} | ${note.review_flags.join(', ')} | ${mdCell(note.summary)} | ${mdCell(note.quote)} |`)

@@ -25,8 +25,6 @@ export default function AnalyticsDashboard() {
   const [loading, setLoading]           = useState(true);
   const [detailedStats, setDetailedStats] = useState(null);
 
-  useEffect(() => { loadAnalytics(); }, [loadAnalytics]);
-
   const loadAnalytics = useCallback(() => {
     setLoading(true);
     try {
@@ -52,6 +50,17 @@ export default function AnalyticsDashboard() {
       setLoading(false);
     }
   }, [timeframe, betTypeFilter]);
+
+  // NOTE: this effect must be declared after `loadAnalytics` above -- it was
+  // previously declared before the `useCallback`, which threw "Cannot
+  // access 'loadAnalytics' before initialization" (TDZ error, since
+  // `const` bindings aren't initialized until their declaration runs) the
+  // instant this tab rendered. Confirmed via live browser check
+  // (2026-08-21, Codex review): the `analytics` tab crashed to the error
+  // boundary immediately on `?tab=analytics`. This was previously hidden
+  // because `analytics` was a stale, unwired tab id (see Checkpoint 1
+  // stale-tab-id repair) that never actually rendered this component.
+  useEffect(() => { loadAnalytics(); }, [loadAnalytics]);
 
   // ── Loading state ─────────────────────────────────────
   if (loading) {

@@ -38,6 +38,7 @@ function parseArgs(argv) {
     endWeek: DEFAULT_END_WEEK,
     dryRun: false,
     includePlayoffs: false,
+    includePreseason: false,
   };
 
   for (let i = 0; i < argv.length; i += 1) {
@@ -48,6 +49,7 @@ function parseArgs(argv) {
     else if (arg === '--end-week') out.endWeek = Number(argv[++i]);
     else if (arg === '--dry-run') out.dryRun = true;
     else if (arg === '--include-playoffs') out.includePlayoffs = true;
+    else if (arg === '--include-preseason') out.includePreseason = true;
   }
 
   if (Number.isNaN(out.year) || Number.isNaN(out.startWeek) || Number.isNaN(out.endWeek)) {
@@ -181,6 +183,11 @@ export async function fetchWeek(year, seasonType, week) {
     const status = event?.status?.type?.state || event?.status?.type?.name || 'scheduled';
     const odds = comp?.odds?.[0];
 
+    const homeComp = comps.find((c) => c.homeAway === 'home');
+    const awayComp = comps.find((c) => c.homeAway === 'away');
+    const homeScore = homeComp?.score != null ? Number(homeComp.score) : null;
+    const visitorScore = awayComp?.score != null ? Number(awayComp.score) : null;
+
     const gameId = makeGameId({
       season: year,
       seasonType,
@@ -202,6 +209,8 @@ export async function fetchWeek(year, seasonType, week) {
       home_abbrev: home.abbreviation,
       away_abbrev: away.abbreviation,
       status,
+      home_score: homeScore,
+      visitor_score: visitorScore,
       updated_at: new Date().toISOString(),
 
       // Frontend cache compatibility fields
@@ -210,6 +219,8 @@ export async function fetchWeek(year, seasonType, week) {
       home: home.abbreviation,
       visitorName: away.displayName,
       homeName: home.displayName,
+      homeScore,
+      visitorScore,
       time: new Date(kickoffUtc).toLocaleString('en-US', {
         weekday: 'short',
         hour: 'numeric',
@@ -312,6 +323,8 @@ function writeScheduleCache(rows) {
       home: r.home,
       visitorName: r.visitorName,
       homeName: r.homeName,
+      homeScore: r.homeScore ?? null,
+      visitorScore: r.visitorScore ?? null,
       time: r.time,
       spread: r.spread,
       total: r.total,
@@ -319,17 +332,37 @@ function writeScheduleCache(rows) {
     .sort((a, b) => new Date(a.kickoff_utc) - new Date(b.kickoff_utc));
 
   fs.writeFileSync(CACHE_PATH, JSON.stringify(cacheRows, null, 2));
+
+  const distPath = path.join(ROOT, 'dist', 'schedule.json');
+  if (fs.existsSync(path.join(ROOT, 'dist'))) {
+    fs.writeFileSync(distPath, JSON.stringify(cacheRows, null, 2));
+  }
 }
 
 async function run() {
   const cfg = parseArgs(process.argv.slice(2));
   console.log(`\n[${new Date().toISOString()}] ScheduleIngestAgent start`);
   console.log(
-    `  year=${cfg.year} seasonType=${cfg.seasonType} weeks=${cfg.startWeek}-${cfg.endWeek} includePlayoffs=${cfg.includePlayoffs} dryRun=${cfg.dryRun}`
+    `  year=${cfg.year} seasonType=${cfg.seasonType} weeks=${cfg.startWeek}-${cfg.endWeek} includePreseason=${cfg.includePreseason} includePlayoffs=${cfg.includePlayoffs} dryRun=${cfg.dryRun}`
   );
 
   const allRows = [];
   const failedWeeks = [];
+
+  if (cfg.includePreseason) {
+    console.log('  Fetching Preseason games (seasonType=1, weeks 1-4)...');
+    for (let week = 1; week <= 4; week += 1) {
+      try {
+        const rows = await fetchWeek(cfg.year, 1, week);
+        console.log(`  Preseason Week ${week}: ${rows.length} game(s)`);
+        allRows.push(...rows);
+      } catch (err) {
+        console.warn(`  Preseason Week ${week}: fetch failed \u2014 ${err.message}`);
+        failedWeeks.push(`preseason-w${week}`);
+      }
+    }
+  }
+
   for (let week = cfg.startWeek; week <= cfg.endWeek; week += 1) {
     try {
       const rows = await fetchWeek(cfg.year, cfg.seasonType, week);

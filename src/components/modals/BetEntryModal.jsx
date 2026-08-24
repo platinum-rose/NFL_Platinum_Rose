@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Calculator, Plus, DollarSign, Target, TrendingUp, Clock, CheckCircle, XCircle, AlertCircle } from 'lucide-react';
-import { addBet, updateBetResult, getBankrollData, BET_TYPES, BET_STATUS, calculateKellyUnit, getRecommendedUnit } from '../../lib/bankroll';
+import { addBet, updateBetResult, getBankrollData, calculateAnalytics, BET_TYPES, BET_STATUS, getRecommendedUnit } from '../../lib/bankroll';
+import { getGameOptions } from '../../lib/betEntryGameOptions';
 
 export default function BetEntryModal({ 
   isOpen, 
@@ -11,6 +12,11 @@ export default function BetEntryModal({
 }) {
   const [mode, setMode] = useState('entry'); // 'entry' | 'grading'
   const [bankrollData, setBankrollData] = useState(null);
+  // Derived from calculateAnalytics(), not read off bankrollData directly --
+  // getBankrollData() returns { settings, bets, weeklyStats }; there is no
+  // top-level bankrollData.currentBankroll / bankrollData.unitSize (that was
+  // the root cause of the $NaN Kelly-sizing bug -- see loadBankrollData below).
+  const [currentBankroll, setCurrentBankroll] = useState(0);
 
   // Entry form state
   const [betData, setBetData] = useState({
@@ -42,6 +48,12 @@ export default function BetEntryModal({
     const data = getBankrollData();
     setBankrollData(data);
 
+    // currentBankroll (starting bankroll + all-time profit) is a computed
+    // value, not a stored field -- calculateAnalytics() is the same helper
+    // BankrollDashboard.jsx uses for this.
+    const analytics = calculateAnalytics('all');
+    setCurrentBankroll(analytics?.currentBankroll ?? data.settings.totalBankroll ?? 0);
+
     // Load pending bets for grading
     const pending = data.bets.filter(bet => bet.status === BET_STATUS.PENDING);
     setPendingBets(pending);
@@ -59,7 +71,7 @@ export default function BetEntryModal({
       if (selectedGame) {
         setBetData(prev => ({
           ...prev,
-          game: selectedGame.id || `${selectedGame.away_team} @ ${selectedGame.home_team}`
+          game: selectedGame.id || `${selectedGame.visitor || selectedGame.away_team}-${selectedGame.home || selectedGame.home_team}`
         }));
       }
     }
@@ -71,22 +83,16 @@ export default function BetEntryModal({
   // restructuring the form's state shape -- left as a real sync effect.
   useEffect(() => {
     if (betData.confidence > 0 && betData.winProbability > 0 && bankrollData) {
-      const kellyUnit = calculateKellyUnit(
-        betData.winProbability / 100,
-        betData.odds,
-        bankrollData.currentBankroll
-      );
-
       const recommended = getRecommendedUnit(
         betData.confidence,
-        kellyUnit,
+        currentBankroll,
         'moderate' // Default risk profile
       );
 
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setBetData(prev => ({ ...prev, unitSize: recommended.units }));
     }
-  }, [betData.confidence, betData.winProbability, betData.odds, bankrollData]);
+  }, [betData.confidence, betData.winProbability, betData.odds, bankrollData, currentBankroll]);
 
   const handleInputChange = (field, value) => {
     setBetData(prev => ({ ...prev, [field]: value }));
@@ -99,7 +105,7 @@ export default function BetEntryModal({
     }
 
     const unitAmount = betData.customUnit ? parseFloat(betData.customUnit) : betData.unitSize;
-    const betAmount = unitAmount * bankrollData.unitSize;
+    const betAmount = unitAmount * (bankrollData.settings?.unitSize ?? 0);
 
     const newBet = {
       game: betData.game,
@@ -119,7 +125,7 @@ export default function BetEntryModal({
     
     // Reset form
     setBetData({
-      game: selectedGame ? (selectedGame.id || `${selectedGame.away_team} @ ${selectedGame.home_team}`) : '',
+      game: selectedGame ? (selectedGame.id || `${selectedGame.visitor || selectedGame.away_team}-${selectedGame.home || selectedGame.home_team}`) : '',
       team: '',
       type: 'spread',
       line: '',
@@ -144,15 +150,7 @@ export default function BetEntryModal({
     alert(`Bet graded as ${result}!`);
   };
 
-  const getGameOptions = () => {
-    return schedule.map(game => ({
-      id: game.id || `${game.away_team}-${game.home_team}`,
-      label: `${game.away_team} @ ${game.home_team}`,
-      teams: [game.away_team, game.home_team]
-    }));
-  };
-
-  const selectedGameData = getGameOptions().find(g => g.id === betData.game);
+  const selectedGameData = getGameOptions(schedule).find(g => g.id === betData.game);
 
   if (!isOpen) return null;
 
@@ -216,7 +214,7 @@ export default function BetEntryModal({
                   className="w-full bg-slate-800 border border-slate-600 rounded-lg px-3 py-2 text-white"
                 >
                   <option value="">Select Game</option>
-                  {getGameOptions().map(game => (
+                  {getGameOptions(schedule).map(game => (
                     <option key={game.id} value={game.id}>{game.label}</option>
                   ))}
                 </select>
@@ -350,7 +348,7 @@ export default function BetEntryModal({
                 <div className="mt-3 p-3 bg-slate-700 rounded-lg">
                   <div className="text-sm text-slate-300">
                     Bet Amount: <span className="text-emerald-400 font-medium">
-                      ${((betData.customUnit ? parseFloat(betData.customUnit) : betData.unitSize) * bankrollData.unitSize).toFixed(2)}
+                      ${((betData.customUnit ? parseFloat(betData.customUnit) : betData.unitSize) * (bankrollData.settings?.unitSize ?? 0)).toFixed(2)}
                     </span>
                   </div>
                 </div>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio & Creative Work Summary — Cuddle Pirates, Bear Suit Man, VOLTA & Writers Room</title>
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-card: #1e293b;
+      --border-color: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-cyan: #38bdf8;
+      --accent-purple: #c084fc;
+      --badge-emerald: #059669;
+      --badge-emerald-text: #6ee7b7;
+      --badge-blue: #2563eb;
+      --badge-blue-text: #93c5fd;
+      --badge-purple: #9333ea;
+      --badge-purple-text: #f0abfc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      margin: 0;
+      padding: 32px 16px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 960px;
+      width: 100%;
+    }
+
+    .header {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+
+    .header h1 {
+      margin: 0 0 10px 0;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      letter-spacing: -0.5px;
+    }
+
+    .header p {
+      margin: 0;
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: var(--accent-cyan);
+      transform: translateY(-2px);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .card-header h2 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-locked {
+      background-color: rgba(5, 150, 105, 0.2);
+      color: var(--badge-emerald-text);
+      border: 1px solid rgba(5, 150, 105, 0.4);
+    }
+
+    .badge-career {
+      background-color: rgba(37, 99, 235, 0.2);
+      color: var(--badge-blue-text);
+      border: 1px solid rgba(37, 99, 235, 0.4);
+    }
+
+    .badge-shared {
+      background-color: rgba(147, 51, 234, 0.2);
+      color: var(--badge-purple-text);
+      border: 1px solid rgba(147, 51, 234, 0.4);
+    }
+
+    .card-body ul {
+      margin: 0;
+      padding-left: 20px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #cbd5e1;
+    }
+
+    .card-body li {
+      margin-bottom: 8px;
+    }
+
+    .card-body li:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlight {
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>Creative & Portfolio Project Summary</h1>
+    <p>Compiled overview of narrative IP canon, career positioning artifacts, and shared infrastructure capabilities within the ATLAS ecosystem.</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- CUDDLE PIRATES -->
+    <div class="card">
+      <div class="card-header">
+        <h2>🏴‍☠️ Cuddle Pirates</h2>
+        <span class="badge badge-locked">Locked Canon</span>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li><span class="highlight">Format & Audience:</span> Children's animated IP targeting young school-age audiences.</li>
+          <li><span class="highlight">Core Premise:</span> A merry band of plushie pirates commandeer bedtime to put on bedtime story shows.</li>
+          <li><span class="highlight">The Plunder:</span> When everyone falls asleep, they steal the comfiest pillows and softest blankies to take their fluffy loot back to <span class="highlight">Puff-tooga</span> (Cuddle Pirate Island).</li>
+          <li><span class="highlight">The Vessel:</span> <em>The Fluffy Dutchman</em> — a sailing ship that doubles as a giant pillowcase (with pirate legs running underneath).</li>
+          <li><span class="highlight">Governance:</span> IP ownership protected under Section G-5 gate protocols.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BEAR SUIT MAN -->
+    <div class="card">
+      <div class="card-header">
+        <h2>🐻 Bear Suit Man</h2>
+        <span class="badge badge-locked">Locked Canon</span>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li><span class="highlight">Format & Tone:</span> Deadpan comedy short series in the style of institutional impassivity.</li>
+          <li><span class="highlight">Core Premise:</span> A man does the math on bears and concludes they are an inescapable threat. He is not wrong.</li>
+          <li><span class="highlight">Armor Engineering:</span> Obsessively engineered bear-proof suit built from chain mail, red flannel, a diving helmet, rubber tires, and tassels.</li>
+          <li><span class="highlight">Episode 1:</span> <em>The Cereal Aisle</em> — A locked-wide-frame supermarket bear attack during a cereal trip.</li>
+          <li><span class="highlight">Series Motif:</span> The bears always win. He always survives. He keeps going.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- VOLTA -->
+    <div class="card">
+      <div class="card-header">
+        <h2>⚡ VOLTA</h2>
+        <span class="badge badge-career">Career Track</span>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li><span class="highlight">Mission Control:</span> Executive positioning dashboard and operational control artifact for VP/AI R&D leadership.</li>
+          <li><span class="highlight">Executive Alignment:</span> Magnopus / Susan O'Neal outreach and strategic portfolio evidence packet.</li>
+          <li><span class="highlight">Unreal Engine Pipeline:</span> Mocap cleanup workflow and pipeline integration for Harmony Korine / Andrew Thompson projects.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- THE WRITERS ROOM -->
+    <div class="card">
+      <div class="card-header">
+        <h2>✍️ The Writers Room</h2>
+        <span class="badge badge-shared">Shared Capability</span>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li><span class="highlight">Architecture (ADR-0009):</span> Shared creative capability registered across the ATLAS portfolio.</li>
+          <li><span class="highlight">Human-in-the-Loop Canon:</span> Decouples story development from autonomous coding workers, ensuring narrative treatments require human approval before locking canon.</li>
+          <li><span class="highlight">Workflow Features:</span> Corpus ingestion, narrative structure treatments, selective context packets, and independent editorial review.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    Compiled for ATLAS Portfolio & Executive Review • Last updated: August 2026
+  </div>
+</div>
+
+</body>
+</html>

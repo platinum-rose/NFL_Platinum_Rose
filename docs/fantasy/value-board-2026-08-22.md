@@ -1,0 +1,284 @@
+# Fantasy Value-vs-ADP Board — 2026-08-22
+
+Prior season 2025 · scoring ppr · proj 17 games · 440 players
+
+> Phase A (history-based projection). Decision support — pair with injury/situation news; rookies have no prior-year projection.
+
+## Values (market under-drafts the projection) — 247
+- **Kendrick Bourne** WR · +89 · WR74 proj vs WR163 ADP · proj 110.5 pts (prior 92.1 in 14g) · ADP 579
+- **Xavier Hutchinson** WR · +81 · WR79 proj vs WR160 ADP · proj 105.1 pts (prior 98 in 16g) · ADP 574
+- **Jawhar Jordan** RB · +79 · RB49 proj vs RB128 ADP · proj 125.6 pts (prior 29.7 in 4g) · ADP 491
+- **Tez Johnson** WR · +79 · WR78 proj vs WR157 ADP · proj 105.5 pts (prior 92.4 in 15g) · ADP 568
+- **Raheim Sanders** RB · +77 · RB58 proj vs RB135 ADP · proj 109.7 pts (prior 20.3 in 4g) · ADP 565
+- **Antonio Gibson** RB · +75 · RB66 proj vs RB141 ADP · proj 104.2 pts (prior 23.2 in 5g) · ADP 619
+- **Kareem Hunt** RB · +74 · RB38 proj vs RB112 ADP · proj 140.1 pts (prior 145.4 in 17g) · ADP 318
+- **Ulysses Bentley IV** RB · +72 · RB61 proj vs RB133 ADP · proj 107.4 pts (prior 0 in 1g) · ADP 532
+- **Trey Benson** RB · +70 · RB43 proj vs RB113 ADP · proj 135.3 pts (prior 35.4 in 4g) · ADP 319
+- **Olamide Zaccheaus** WR · +70 · WR80 proj vs WR150 ADP · proj 104.3 pts (prior 84.8 in 14g) · ADP 519
+- **Greg Dortch** WR · +69 · WR76 proj vs WR145 ADP · proj 106.8 pts (prior 75.1 in 12g) · ADP 493
+- **Van Jefferson** WR · +69 · WR98 proj vs WR167 ADP · proj 91.8 pts (prior 70 in 14g) · ADP 600
+- **Cedric Tillman** WR · +69 · WR96 proj vs WR165 ADP · proj 92.5 pts (prior 60 in 12g) · ADP 586
+- **Dyami Brown** WR · +66 · WR103 proj vs WR169 ADP · proj 87.6 pts (prior 49.7 in 11g) · ADP 631
+- **Jalen Royals** WR · +66 · WR105 proj vs WR171 ADP · proj 85.7 pts (prior 2.4 in 2g) · ADP 637
+- **Troy Franklin** WR · +65 · WR40 proj vs WR105 ADP · proj 158.9 pts (prior 177.1 in 17g) · ADP 280
+- **Calvin Austin III** WR · +65 · WR77 proj vs WR142 ADP · proj 105.5 pts (prior 86.2 in 14g) · ADP 485
+- **Mack Hollins** WR · +64 · WR58 proj vs WR122 ADP · proj 128.6 pts (prior 113.4 in 14g) · ADP 338
+- **Darius Slayton** WR · +64 · WR69 proj vs WR133 ADP · proj 116.2 pts (prior 98.8 in 14g) · ADP 413
+- **Kimani Vidal** RB · +63 · RB35 proj vs RB98 ADP · proj 145 pts (prior 117.9 in 13g) · ADP 248
+- **Jaleel McLaughlin** RB · +62 · RB76 proj vs RB138 ADP · proj 91.8 pts (prior 31.4 in 8g) · ADP 607
+- **Devin Neal** RB · +61 · RB54 proj vs RB115 ADP · proj 118.1 pts (prior 60 in 9g) · ADP 327
+- **DeMario Douglas** WR · +59 · WR82 proj vs WR141 ADP · proj 103.4 pts (prior 95.8 in 16g) · ADP 474
+- **Tyquan Thornton** WR · +58 · WR72 proj vs WR130 ADP · proj 112.2 pts (prior 80.8 in 12g) · ADP 398
+- **James Conner** RB · +56 · RB33 proj vs RB89 ADP · proj 146.4 pts (prior 33.3 in 3g) · ADP 211
+- **Isaiah Williams** WR · +56 · WR114 proj vs WR170 ADP · proj 79.9 pts (prior 60.7 in 15g) · ADP 632
+- **Chimere Dike** WR · +53 · WR63 proj vs WR116 ADP · proj 122.7 pts (prior 128.1 in 17g) · ADP 320
+- **Demarcus Robinson** WR · +51 · WR111 proj vs WR162 ADP · proj 81.7 pts (prior 58.2 in 14g) · ADP 577
+- **Xavier Legette** WR · +51 · WR83 proj vs WR134 ADP · proj 103 pts (prior 89.3 in 15g) · ADP 418
+- **Devin Singletary** RB · +50 · RB57 proj vs RB107 ADP · proj 113.1 pts (prior 108.8 in 17g) · ADP 298
+- **Tory Horton** WR · +50 · WR61 proj vs WR111 ADP · proj 125.1 pts (prior 65.1 in 8g) · ADP 296
+- **John Metchie III** WR · +49 · WR89 proj vs WR138 ADP · proj 98.3 pts (prior 71.9 in 13g) · ADP 435
+- **Kendre Miller** RB · +48 · RB68 proj vs RB116 ADP · proj 101.4 pts (prior 33.3 in 7g) · ADP 340
+- **Elic Ayomanor** WR · +48 · WR65 proj vs WR113 ADP · proj 119.3 pts (prior 116.5 in 16g) · ADP 306
+- **Andrei Iosivas** WR · +47 · WR81 proj vs WR128 ADP · proj 103.5 pts (prior 89.9 in 15g) · ADP 391
+- **Ty Johnson** RB · +46 · RB62 proj vs RB108 ADP · proj 106.8 pts (prior 100.3 in 17g) · ADP 301
+- **Tyrone Tracy Jr.** RB · +46 · RB30 proj vs RB76 ADP · proj 166 pts (prior 160.8 in 15g) · ADP 142
+- **Zach Charbonnet** RB · +46 · RB27 proj vs RB73 ADP · proj 174.3 pts (prior 181.4 in 16g) · ADP 136
+- **Isaiah Davis** RB · +46 · RB79 proj vs RB125 ADP · proj 89.2 pts (prior 71.2 in 16g) · ADP 453
+- **Cedrick Wilson Jr.** WR · +46 · WR126 proj vs WR172 ADP · proj 67.1 pts (prior 9.4 in 6g) · ADP 662
+- **Malik Davis** RB · +45 · RB78 proj vs RB123 ADP · proj 90.1 pts (prior 40.6 in 10g) · ADP 403
+- **Jauan Jennings** WR · +45 · WR34 proj vs WR79 ADP · proj 171 pts (prior 173.3 in 15g) · ADP 201
+- **Treylon Burks** WR · +44 · WR112 proj vs WR156 ADP · proj 81.3 pts (prior 29 in 8g) · ADP 563
+- **Keon Coleman** WR · +43 · WR57 proj vs WR100 ADP · proj 132.6 pts (prior 102.4 in 12g) · ADP 265
+- **Emari Demercado** RB · +42 · RB75 proj vs RB117 ADP · proj 96.8 pts (prior 58.3 in 12g) · ADP 358
+- **Alvin Kamara** RB · +41 · RB36 proj vs RB77 ADP · proj 144.9 pts (prior 100.7 in 11g) · ADP 145
+- **Darren Waller** TE · +41 · TE20 proj vs TE61 ADP · proj 137.1 pts (prior 88.7 in 9g) · ADP 419
+- **Aaron Jones Sr.** RB · +40 · RB32 proj vs RB72 ADP · proj 153.9 pts (prior 118.7 in 12g) · ADP 119
+- **Rico Dowdle** RB · +40 · RB21 proj vs RB61 ADP · proj 192.5 pts (prior 216.3 in 17g) · ADP 81
+- **Jaylen Warren** RB · +40 · RB18 proj vs RB58 ADP · proj 201.9 pts (prior 217.1 in 16g) · ADP 71
+- **Woody Marks** RB · +40 · RB34 proj vs RB74 ADP · proj 146.3 pts (prior 145.1 in 16g) · ADP 140
+- **Tyreek Hill** WR · +40 · WR44 proj vs WR84 ADP · proj 155.5 pts (prior 53.5 in 4g) · ADP 219
+- **Josh Jacobs** RB · +39 · RB9 proj vs RB48 ADP · proj 227.7 pts (prior 237.1 in 15g) · ADP 33
+- **Tyjae Spears** RB · +39 · RB39 proj vs RB78 ADP · proj 139.5 pts (prior 111.7 in 13g) · ADP 146
+- **RJ Harvey** RB · +39 · RB23 proj vs RB62 ADP · proj 185.4 pts (prior 206.6 in 17g) · ADP 82
+- **Kayshon Boutte** WR · +39 · WR51 proj vs WR90 ADP · proj 137.7 pts (prior 124.1 in 14g) · ADP 240
+- **D'Andre Swift** RB · +38 · RB15 proj vs RB53 ADP · proj 210.8 pts (prior 228.6 in 16g) · ADP 47
+- **Travis Etienne Jr.** RB · +38 · RB12 proj vs RB50 ADP · proj 220.3 pts (prior 253.9 in 17g) · ADP 39
+- **J.K. Dobbins** RB · +37 · RB28 proj vs RB65 ADP · proj 170.1 pts (prior 115.9 in 10g) · ADP 88
+- **Rhamondre Stevenson** RB · +37 · RB22 proj vs RB59 ADP · proj 189.6 pts (prior 178.8 in 14g) · ADP 77
+- **Keenan Allen** WR · +37 · WR37 proj vs WR74 ADP · proj 163.1 pts (prior 182.7 in 17g) · ADP 181
+- **Quentin Johnston** WR · +37 · WR19 proj vs WR56 ADP · proj 187.1 pts (prior 171.2 in 13g) · ADP 106
+- **Emanuel Wilson** RB · +36 · RB67 proj vs RB103 ADP · proj 102.5 pts (prior 94.5 in 17g) · ADP 266
+- **Jaylen Wright** RB · +36 · RB65 proj vs RB101 ADP · proj 104.7 pts (prior 48.2 in 9g) · ADP 262
+- **KaVontae Turpin** WR · +36 · WR88 proj vs WR124 ADP · proj 99.1 pts (prior 84.5 in 15g) · ADP 355
+- **Wan'Dale Robinson** WR · +36 · WR15 proj vs WR51 ADP · proj 197.7 pts (prior 217.9 in 16g) · ADP 95
+- **Devaughn Vele** WR · +36 · WR67 proj vs WR103 ADP · proj 118.1 pts (prior 66.3 in 9g) · ADP 273
+- **Najee Harris** RB · +35 · RB64 proj vs RB99 ADP · proj 105.4 pts (prior 11.6 in 3g) · ADP 250
+- **Javonte Williams** RB · +35 · RB11 proj vs RB46 ADP · proj 221.8 pts (prior 242.8 in 16g) · ADP 31
+- **Kyren Williams** RB · +35 · RB10 proj vs RB45 ADP · proj 227.3 pts (prior 263.3 in 17g) · ADP 30
+- **Roschon Johnson** RB · +35 · RB96 proj vs RB131 ADP · proj 65 pts (prior 1.7 in 6g) · ADP 522
+- **DeAndre Hopkins** WR · +35 · WR118 proj vs WR153 ADP · proj 77.6 pts (prior 67 in 17g) · ADP 546
+- **Tim Patrick** WR · +35 · WR113 proj vs WR148 ADP · proj 80.2 pts (prior 51.7 in 13g) · ADP 515
+- **Deebo Samuel Sr.** WR · +35 · WR30 proj vs WR65 ADP · proj 174.8 pts (prior 188.2 in 16g) · ADP 130
+- **Marvin Mims Jr.** WR · +35 · WR75 proj vs WR110 ADP · proj 107.6 pts (prior 95 in 15g) · ADP 293
+- **Justice Hill** RB · +34 · RB56 proj vs RB90 ADP · proj 116.2 pts (prior 65.2 in 10g) · ADP 230
+- **Travis Homer** RB · +34 · RB103 proj vs RB137 ADP · proj 53.4 pts (prior -0.2 in 8g) · ADP 595
+- **Luke McCaffrey** WR · +34 · WR86 proj vs WR120 ADP · proj 101.1 pts (prior 51.3 in 9g) · ADP 332
+- **Jimmy Horn Jr.** WR · +34 · WR124 proj vs WR158 ADP · proj 70.8 pts (prior 28.7 in 10g) · ADP 569
+- **Derrick Henry** RB · +33 · RB8 proj vs RB41 ADP · proj 239.3 pts (prior 279.5 in 17g) · ADP 17
+- **Christian McCaffrey** RB · +33 · RB1 proj vs RB34 ADP · proj 340.6 pts (prior 416.6 in 17g) · ADP 5
+- **De'Von Achane** RB · +33 · RB5 proj vs RB38 ADP · proj 283.6 pts (prior 322.8 in 16g) · ADP 11
+- **Chase Brown** RB · +33 · RB7 proj vs RB40 ADP · proj 241.6 pts (prior 282.6 in 17g) · ADP 15
+- **Cam Skattebo** RB · +33 · RB16 proj vs RB49 ADP · proj 208.7 pts (prior 127.7 in 8g) · ADP 36
+- **Marquez Valdes-Scantling** WR · +33 · WR116 proj vs WR149 ADP · proj 79.3 pts (prior 32 in 9g) · ADP 517
+- **Tutu Atwell** WR · +33 · WR107 proj vs WR140 ADP · proj 84 pts (prior 31.2 in 8g) · ADP 455
+- **Ryan Flournoy** WR · +33 · WR62 proj vs WR95 ADP · proj 123 pts (prior 114 in 15g) · ADP 247
+- **Samaje Perine** RB · +32 · RB74 proj vs RB106 ADP · proj 98.8 pts (prior 77.9 in 15g) · ADP 281
+- **Hunter Luepke** RB · +32 · RB95 proj vs RB127 ADP · proj 69 pts (prior 37 in 14g) · ADP 483
+- **Stefon Diggs** WR · +32 · WR21 proj vs WR53 ADP · proj 183.5 pts (prior 210.3 in 17g) · ADP 103
+- **Michael Wilson** WR · +32 · WR16 proj vs WR48 ADP · proj 191.1 pts (prior 220.6 in 17g) · ADP 84
+- **Tony Pollard** RB · +31 · RB29 proj vs RB60 ADP · proj 170 pts (prior 185.8 in 17g) · ADP 80
+- **Jonathan Taylor** RB · +31 · RB4 proj vs RB35 ADP · proj 300.5 pts (prior 362.3 in 17g) · ADP 7
+- **TreVeyon Henderson** RB · +31 · RB24 proj vs RB55 ADP · proj 185.1 pts (prior 206.2 in 17g) · ADP 57
+- **Bijan Robinson** RB · +31 · RB2 proj vs RB33 ADP · proj 306.7 pts (prior 370.8 in 17g) · ADP 2
+- **Rachaad White** RB · +31 · RB40 proj vs RB71 ADP · proj 138.4 pts (prior 143 in 17g) · ADP 115
+- **Bucky Irving** RB · +31 · RB20 proj vs RB51 ADP · proj 194.1 pts (prior 138.5 in 10g) · ADP 44
+- **James Cook III** RB · +30 · RB6 proj vs RB36 ADP · proj 256 pts (prior 302.2 in 17g) · ADP 9
+- **Austin Hooper** TE · +30 · TE47 proj vs TE77 ADP · proj 81.9 pts (prior 59.3 in 13g) · ADP 628
+- **Dont'e Thornton Jr.** WR · +30 · WR129 proj vs WR159 ADP · proj 61.4 pts (prior 23.5 in 11g) · ADP 573
+- **Jaylin Lane** WR · +30 · WR122 proj vs WR152 ADP · proj 72.2 pts (prior 51.2 in 15g) · ADP 540
+- **Jahdae Walker** WR · +30 · WR101 proj vs WR131 ADP · proj 91.6 pts (prior 26.7 in 6g) · ADP 399
+- **Jahmyr Gibbs** RB · +29 · RB3 proj vs RB32 ADP · proj 303.9 pts (prior 366.9 in 17g) · ADP 1
+- **Tyler Allgeier** RB · +29 · RB50 proj vs RB79 ADP · proj 123.6 pts (prior 123 in 17g) · ADP 148
+- **Kyle Monangai** RB · +29 · RB37 proj vs RB66 ADP · proj 141.1 pts (prior 146.7 in 17g) · ADP 97
+- **Kalif Raymond** WR · +29 · WR106 proj vs WR135 ADP · proj 84.8 pts (prior 66.8 in 15g) · ADP 423
+- **Will Shipley** RB · +28 · RB102 proj vs RB130 ADP · proj 54.1 pts (prior 19.5 in 14g) · ADP 514
+- **Breece Hall** RB · +28 · RB19 proj vs RB47 ADP · proj 194.6 pts (prior 207.7 in 16g) · ADP 32
+- **Chris Rodriguez Jr.** RB · +28 · RB47 proj vs RB75 ADP · proj 128.6 pts (prior 92 in 12g) · ADP 141
+- **DJ Giddens** RB · +28 · RB83 proj vs RB111 ADP · proj 83.2 pts (prior 9.6 in 5g) · ADP 308
+- **Jacory Croskey-Merritt** RB · +28 · RB42 proj vs RB70 ADP · proj 136.4 pts (prior 140.3 in 17g) · ADP 112
+- **Lil'Jordan Humphrey** WR · +28 · WR95 proj vs WR123 ADP · proj 94.9 pts (prior 34.6 in 7g) · ADP 343
+- **Sean Tucker** RB · +27 · RB70 proj vs RB97 ADP · proj 100.2 pts (prior 91.4 in 17g) · ADP 246
+- **Quinshon Judkins** RB · +27 · RB25 proj vs RB52 ADP · proj 181.9 pts (prior 169.8 in 14g) · ADP 46
+- **Trevor Etienne** RB · +27 · RB107 proj vs RB134 ADP · proj 42.8 pts (prior 13.7 in 17g) · ADP 548
+- **Courtland Sutton** WR · +27 · WR18 proj vs WR45 ADP · proj 190.4 pts (prior 219.7 in 17g) · ADP 76
+- **Tre Tucker** WR · +27 · WR48 proj vs WR75 ADP · proj 147.6 pts (prior 161.7 in 17g) · ADP 182
+- **Travis Hunter** WR · +27 · WR56 proj vs WR83 ADP · proj 133.1 pts (prior 63.8 in 7g) · ADP 218
+- **Noah Fant** TE · +26 · TE37 proj vs TE63 ADP · proj 95.8 pts (prior 74.8 in 13g) · ADP 426
+- **Daniel Bellinger** TE · +26 · TE46 proj vs TE72 ADP · proj 82.2 pts (prior 59.6 in 13g) · ADP 560
+- **Khalil Shakir** WR · +26 · WR41 proj vs WR67 ADP · proj 157.9 pts (prior 166.4 in 16g) · ADP 137
+- **Saquon Barkley** RB · +25 · RB14 proj vs RB39 ADP · proj 213.7 pts (prior 232.3 in 16g) · ADP 14
+- **Isiah Pacheco** RB · +25 · RB55 proj vs RB80 ADP · proj 117.7 pts (prior 87.3 in 13g) · ADP 152
+- **Omarion Hampton** RB · +25 · RB17 proj vs RB42 ADP · proj 203.9 pts (prior 135.7 in 9g) · ADP 18
+- **Brashard Smith** RB · +25 · RB85 proj vs RB110 ADP · proj 79.5 pts (prior 63.3 in 17g) · ADP 304
+- **Colby Parkinson** TE · +25 · TE19 proj vs TE44 ADP · proj 137.8 pts (prior 129.8 in 14g) · ADP 297
+- **Davante Adams** WR · +25 · WR9 proj vs WR34 ADP · proj 221.7 pts (prior 222.9 in 14g) · ADP 49
+- **DK Metcalf** WR · +25 · WR22 proj vs WR47 ADP · proj 182.3 pts (prior 187.2 in 15g) · ADP 79
+- **Roman Wilson** WR · +25 · WR104 proj vs WR129 ADP · proj 86.8 pts (prior 38.6 in 9g) · ADP 392
+- **Jordan Mason** RB · +24 · RB45 proj vs RB69 ADP · proj 133.8 pts (prior 128.9 in 16g) · ADP 107
+- **Chris Brooks** RB · +24 · RB98 proj vs RB122 ADP · proj 56.8 pts (prior 32.7 in 17g) · ADP 390
+- **Ashton Jeanty** RB · +24 · RB13 proj vs RB37 ADP · proj 213.8 pts (prior 245.1 in 17g) · ADP 10
+- **Dylan Sampson** RB · +24 · RB63 proj vs RB87 ADP · proj 106.7 pts (prior 87.6 in 15g) · ADP 192
+- **Romeo Doubs** WR · +24 · WR42 proj vs WR66 ADP · proj 157.1 pts (prior 165.4 in 16g) · ADP 132
+- **David Montgomery** RB · +23 · RB31 proj vs RB54 ADP · proj 156 pts (prior 166.9 in 17g) · ADP 51
+- **Tyler Conklin** TE · +23 · TE52 proj vs TE75 ADP · proj 70.2 pts (prior 17.3 in 6g) · ADP 578
+- **Michael Pittman Jr.** WR · +23 · WR27 proj vs WR50 ADP · proj 177.6 pts (prior 202.4 in 17g) · ADP 93
+- **Alec Pierce** WR · +23 · WR26 proj vs WR49 ADP · proj 179.1 pts (prior 183.3 in 15g) · ADP 90
+- **Chuba Hubbard** RB · +22 · RB41 proj vs RB63 ADP · proj 137.3 pts (prior 125.4 in 15g) · ADP 86
+- **Jaydon Blue** RB · +22 · RB72 proj vs RB94 ADP · proj 99.8 pts (prior 20.4 in 5g) · ADP 237
+- **Michael Mayer** TE · +21 · TE39 proj vs TE60 ADP · proj 94.9 pts (prior 73.8 in 13g) · ADP 410
+- **Theo Johnson** TE · +21 · TE24 proj vs TE45 ADP · proj 129.6 pts (prior 127.8 in 15g) · ADP 310
+- **Jakobi Meyers** WR · +21 · WR36 proj vs WR57 ADP · proj 165.2 pts (prior 175.8 in 16g) · ADP 109
+- **Nick Westbrook-Ikhine** WR · +21 · WR133 proj vs WR154 ADP · proj 51.8 pts (prior 19.9 in 13g) · ADP 552
+- **Jameson Williams** WR · +21 · WR17 proj vs WR38 ADP · proj 190.6 pts (prior 219.9 in 17g) · ADP 58
+- **Devontez Walker** WR · +21 · WR100 proj vs WR121 ADP · proj 91.7 pts (prior 37.6 in 8g) · ADP 333
+- **Tahj Brooks** RB · +20 · RB106 proj vs RB126 ADP · proj 47.8 pts (prior 6.4 in 12g) · ADP 479
+- **Braelon Allen** RB · +19 · RB69 proj vs RB88 ADP · proj 101.2 pts (prior 15.3 in 4g) · ADP 200
+- **Rashid Shaheed** WR · +19 · WR50 proj vs WR69 ADP · proj 137.8 pts (prior 156.6 in 18g) · ADP 144
+- **Tyler Higbee** TE · +18 · TE31 proj vs TE49 ADP · proj 109.8 pts (prior 71.1 in 10g) · ADP 331
+- **Jake Tonges** TE · +18 · TE21 proj vs TE39 ADP · proj 133.4 pts (prior 93.3 in 10g) · ADP 269
+- **Chris Olave** WR · +18 · WR6 proj vs WR24 ADP · proj 236.4 pts (prior 268 in 16g) · ADP 28
+- **Christian Watson** WR · +18 · WR23 proj vs WR41 ADP · proj 181 pts (prior 132.4 in 10g) · ADP 66
+- **Blake Corum** RB · +17 · RB51 proj vs RB68 ADP · proj 123 pts (prior 122.2 in 17g) · ADP 102
+- **Kenneth Walker III** RB · +17 · RB26 proj vs RB43 ADP · proj 174.5 pts (prior 191.9 in 17g) · ADP 19
+- **Ollie Gordon II** RB · +17 · RB92 proj vs RB109 ADP · proj 72.7 pts (prior 54.1 in 17g) · ADP 302
+- **LeQuint Allen Jr.** RB · +17 · RB104 proj vs RB121 ADP · proj 53.3 pts (prior 24.8 in 16g) · ADP 383
+- **Tee Higgins** WR · +17 · WR14 proj vs WR31 ADP · proj 202 pts (prior 211.6 in 15g) · ADP 41
+- **Justin Fields** QB · +16 · QB21 proj vs QB37 ADP · proj 259.5 pts (prior 142.7 in 9g) · ADP 311
+- **Dalton Schultz** TE · +16 · TE14 proj vs TE30 ADP · proj 155.2 pts (prior 177.7 in 17g) · ADP 183
+- **Foster Moreau** TE · +16 · TE62 proj vs TE78 ADP · proj 59.1 pts (prior 12.9 in 7g) · ADP 635
+- **George Pickens** WR · +16 · WR5 proj vs WR21 ADP · proj 243.8 pts (prior 291.9 in 17g) · ADP 24
+- **Jahan Dotson** WR · +16 · WR123 proj vs WR139 ADP · proj 71.4 pts (prior 50.2 in 15g) · ADP 439
+- **Rashee Rice** WR · +16 · WR7 proj vs WR23 ADP · proj 228.3 pts (prior 150.1 in 8g) · ADP 26
+- **Dontayvion Wicks** WR · +16 · WR85 proj vs WR101 ADP · proj 101.8 pts (prior 75.8 in 13g) · ADP 268
+- **Malik Washington** WR · +16 · WR71 proj vs WR87 ADP · proj 114.3 pts (prior 116.7 in 17g) · ADP 224
+- **Dallas Goedert** TE · +15 · TE6 proj vs TE21 ADP · proj 176 pts (prior 185.1 in 15g) · ADP 118
+- **Mike Gesicki** TE · +15 · TE36 proj vs TE51 ADP · proj 97.2 pts (prior 70.7 in 12g) · ADP 342
+- **Jackson Hawes** TE · +15 · TE50 proj vs TE65 ADP · proj 76 pts (prior 52.7 in 13g) · ADP 429
+- **Xavier Smith** WR · +15 · WR128 proj vs WR143 ADP · proj 66.6 pts (prior 48.3 in 16g) · ADP 488
+- **Marcus Mariota** QB · +14 · QB31 proj vs QB45 ADP · proj 225.1 pts (prior 125.5 in 10g) · ADP 470
+- **Jameis Winston** QB · +14 · QB24 proj vs QB38 ADP · proj 244.8 pts (prior 43.3 in 3g) · ADP 316
+- **George Kittle** TE · +14 · TE3 proj vs TE17 ADP · proj 193.8 pts (prior 161.5 in 11g) · ADP 92
+- **Zay Flowers** WR · +14 · WR13 proj vs WR27 ADP · proj 207.9 pts (prior 243.3 in 17g) · ADP 35
+- **Evan Engram** TE · +13 · TE35 proj vs TE48 ADP · proj 104.4 pts (prior 102.8 in 16g) · ADP 328
+- **Dawson Knox** TE · +13 · TE34 proj vs TE47 ADP · proj 105.1 pts (prior 103.7 in 16g) · ADP 317
+- **Tommy Tremble** TE · +13 · TE49 proj vs TE62 ADP · proj 77.8 pts (prior 63.9 in 15g) · ADP 422
+- **Jaxon Smith-Njigba** WR · +13 · WR2 proj vs WR15 ADP · proj 294.1 pts (prior 359.9 in 17g) · ADP 6
+- **Puka Nacua** WR · +13 · WR1 proj vs WR14 ADP · proj 319.1 pts (prior 375 in 16g) · ADP 4
+- **Tai Felton** WR · +13 · WR134 proj vs WR147 ADP · proj 41 pts (prior 5.5 in 12g) · ADP 498
+- **Jacoby Brissett** QB · +12 · QB17 proj vs QB29 ADP · proj 266.7 pts (prior 227.4 in 14g) · ADP 251
+- **George Holani** RB · +12 · RB93 proj vs RB105 ADP · proj 69.1 pts (prior 20.8 in 10g) · ADP 274
+- **Ray Davis** RB · +12 · RB84 proj vs RB96 ADP · proj 80.1 pts (prior 64.1 in 17g) · ADP 239
+- **Hunter Henry** TE · +12 · TE13 proj vs TE25 ADP · proj 156 pts (prior 178.8 in 17g) · ADP 155
+- **Juwan Johnson** TE · +12 · TE12 proj vs TE24 ADP · proj 156.8 pts (prior 179.9 in 17g) · ADP 154
+- **Cade Otton** TE · +12 · TE25 proj vs TE37 ADP · proj 125 pts (prior 122.2 in 15g) · ADP 225
+- **Tucker Kraft** TE · +12 · TE4 proj vs TE16 ADP · proj 181.5 pts (prior 117.2 in 8g) · ADP 70
+- **Amon-Ra St. Brown** WR · +12 · WR4 proj vs WR16 ADP · proj 267.5 pts (prior 324 in 17g) · ADP 8
+- **Nico Collins** WR · +12 · WR10 proj vs WR22 ADP · proj 213.8 pts (prior 226.2 in 15g) · ADP 25
+- **Isaiah Bond** WR · +12 · WR120 proj vs WR132 ADP · proj 75 pts (prior 54.7 in 15g) · ADP 405
+- **Taysom Hill** TE · +11 · TE57 proj vs TE68 ADP · proj 66.2 pts (prior 41.8 in 13g) · ADP 533
+- **Josh Oliver** TE · +11 · TE45 proj vs TE56 ADP · proj 82.4 pts (prior 55 in 12g) · ADP 373
+- **Adam Trautman** TE · +11 · TE53 proj vs TE64 ADP · proj 69.6 pts (prior 45.5 in 13g) · ADP 427
+- **Cooper Kupp** WR · +11 · WR66 proj vs WR77 ADP · proj 119.2 pts (prior 116.3 in 16g) · ADP 194
+- **Parker Washington** WR · +11 · WR33 proj vs WR44 ADP · proj 172 pts (prior 184.7 in 16g) · ADP 73
+- **Drake London** WR · +11 · WR8 proj vs WR19 ADP · proj 226.5 pts (prior 201.9 in 12g) · ADP 16
+- **Pat Bryant** WR · +11 · WR87 proj vs WR98 ADP · proj 100.9 pts (prior 74.8 in 13g) · ADP 258
+- **Travis Kelce** TE · +10 · TE8 proj vs TE18 ADP · proj 166.6 pts (prior 193.2 in 17g) · ADP 94
+- **Jake Ferguson** TE · +10 · TE10 proj vs TE20 ADP · proj 162.9 pts (prior 188.1 in 17g) · ADP 113
+- **Ja'Marr Chase** WR · +10 · WR3 proj vs WR13 ADP · proj 271.7 pts (prior 313.6 in 16g) · ADP 3
+- **Jalen McMillan** WR · +10 · WR70 proj vs WR80 ADP · proj 115.3 pts (prior 29.9 in 4g) · ADP 204
+- **Matthew Stafford** QB · +9 · QB3 proj vs QB12 ADP · proj 322.8 pts (prior 350.4 in 17g) · ADP 91
+- **Patrick Mahomes II** QB · +9 · QB4 proj vs QB13 ADP · proj 316.2 pts (prior 285.7 in 14g) · ADP 101
+- **Daniel Jones** QB · +9 · QB13 proj vs QB22 ADP · proj 279.8 pts (prior 226.4 in 13g) · ADP 175
+- **Kyle Pitts Sr.** TE · +9 · TE5 proj vs TE14 ADP · proj 179.7 pts (prior 210.8 in 17g) · ADP 67
+- **Oronde Gadsden II** TE · +9 · TE23 proj vs TE32 ADP · proj 132.5 pts (prior 131.4 in 15g) · ADP 196
+- **Mason Taylor** TE · +9 · TE32 proj vs TE41 ADP · proj 108.4 pts (prior 88.9 in 13g) · ADP 286
+- **AJ Barner** TE · +9 · TE22 proj vs TE31 ADP · proj 132.7 pts (prior 147.3 in 17g) · ADP 188
+- **Darnell Mooney** WR · +9 · WR90 proj vs WR99 ADP · proj 97.3 pts (prior 82.3 in 15g) · ADP 259
+- **Jalen Coker** WR · +9 · WR59 proj vs WR68 ADP · proj 128.3 pts (prior 90.4 in 11g) · ADP 143
+- **Quinn Ewers** QB · +8 · QB38 proj vs QB46 ADP · proj 203.1 pts (prior 33.2 in 4g) · ADP 507
+- **Anthony Richardson Sr.** QB · +8 · QB41 proj vs QB49 ADP · proj 188 pts (prior 2.2 in 2g) · ADP 629
+- **Pat Freiermuth** TE · +8 · TE28 proj vs TE36 ADP · proj 118.1 pts (prior 113.6 in 15g) · ADP 222
+- **Trey McBride** TE · +8 · TE1 proj vs TE9 ADP · proj 257.3 pts (prior 315.9 in 17g) · ADP 21
+- **Brock Bowers** TE · +8 · TE2 proj vs TE10 ADP · proj 196.9 pts (prior 176.2 in 12g) · ADP 22
+- **Brenton Strange** TE · +8 · TE18 proj vs TE26 ADP · proj 141.9 pts (prior 118 in 12g) · ADP 157
+- **A.J. Brown** WR · +8 · WR12 proj vs WR20 ADP · proj 209.1 pts (prior 220.3 in 15g) · ADP 20
+- **Jaylen Waddle** WR · +8 · WR25 proj vs WR33 ADP · proj 179.3 pts (prior 194.1 in 16g) · ADP 48
+- **Rome Odunze** WR · +8 · WR31 proj vs WR39 ADP · proj 173.8 pts (prior 146.1 in 12g) · ADP 60
+- **Tetairoa McMillan** WR · +8 · WR20 proj vs WR28 ADP · proj 185.8 pts (prior 213.4 in 17g) · ADP 37
+- **Geno Smith** QB · +7 · QB34 proj vs QB41 ADP · proj 210.7 pts (prior 173.9 in 15g) · ADP 368
+- **Mac Jones** QB · +7 · QB33 proj vs QB40 ADP · proj 216.4 pts (prior 130 in 11g) · ADP 329
+- **David Njoku** TE · +7 · TE27 proj vs TE34 ADP · proj 118.6 pts (prior 86.3 in 11g) · ADP 212
+- **Charlie Kolar** TE · +7 · TE60 proj vs TE67 ADP · proj 61.3 pts (prior 36.2 in 13g) · ADP 523
+- **Brock Purdy** QB · +6 · QB8 proj vs QB14 ADP · proj 298.9 pts (prior 177.4 in 9g) · ADP 108
+- **Dalton Kincaid** TE · +6 · TE16 proj vs TE22 ADP · proj 149.6 pts (prior 126.1 in 12g) · ADP 122
+- **Harold Fannin Jr.** TE · +6 · TE7 proj vs TE13 ADP · proj 169 pts (prior 186.4 in 16g) · ADP 65
+- **CeeDee Lamb** WR · +6 · WR11 proj vs WR17 ADP · proj 213.7 pts (prior 200.9 in 13g) · ADP 12
+- **Garrett Wilson** WR · +6 · WR24 proj vs WR30 ADP · proj 179.7 pts (prior 99.5 in 7g) · ADP 40
+- **Jordan Addison** WR · +6 · WR49 proj vs WR55 ADP · proj 147.1 pts (prior 135.1 in 14g) · ADP 105
+- **Bo Nix** QB · +5 · QB10 proj vs QB15 ADP · proj 289.1 pts (prior 304.8 in 17g) · ADP 111
+- **Riley Leonard** QB · +5 · QB42 proj vs QB47 ADP · proj 181.3 pts (prior 31 in 5g) · ADP 526
+- **Kaleb Johnson** RB · +5 · RB99 proj vs RB104 ADP · proj 56.3 pts (prior 8.8 in 10g) · ADP 267
+- **Jayden Reed** WR · +5 · WR55 proj vs WR60 ADP · proj 133.6 pts (prior 48.5 in 5g) · ADP 121
+- **Jared Goff** QB · +4 · QB12 proj vs QB16 ADP · proj 283.4 pts (prior 297.1 in 17g) · ADP 124
+- **Gardner Minshew II** QB · +4 · QB44 proj vs QB48 ADP · proj 146.2 pts (prior -0.3 in 4g) · ADP 588
+- **Trevor Lawrence** QB · +4 · QB5 proj vs QB9 ADP · proj 313.8 pts (prior 338.2 in 17g) · ADP 83
+- **Sam LaPorta** TE · +4 · TE11 proj vs TE15 ADP · proj 157.7 pts (prior 106.9 in 9g) · ADP 68
+- **Ja'Tavion Sanders** TE · +4 · TE48 proj vs TE52 ADP · proj 81.5 pts (prior 54 in 12g) · ADP 349
+- **Christian Kirk** WR · +4 · WR93 proj vs WR97 ADP · proj 95.8 pts (prior 57.9 in 11g) · ADP 255
+- **Jerry Jeudy** WR · +4 · WR68 proj vs WR72 ADP · proj 117.3 pts (prior 120.7 in 17g) · ADP 173
+- **Xavier Worthy** WR · +4 · WR60 proj vs WR64 ADP · proj 125.7 pts (prior 109.9 in 14g) · ADP 129
+- **Joe Flacco** QB · +3 · QB36 proj vs QB39 ADP · proj 208.5 pts (prior 146.7 in 13g) · ADP 321
+- **Michael Penix Jr.** QB · +3 · QB29 proj vs QB32 ADP · proj 234.1 pts (prior 120.3 in 9g) · ADP 287
+- **Luke Musgrave** TE · +3 · TE51 proj vs TE54 ADP · proj 72.9 pts (prior 49.2 in 13g) · ADP 353
+- **Tyler Warren** TE · +3 · TE9 proj vs TE12 ADP · proj 163.2 pts (prior 188.5 in 17g) · ADP 50
+- **Calvin Ridley** WR · +3 · WR73 proj vs WR76 ADP · proj 111.5 pts (prior 47.3 in 7g) · ADP 190
+
+## Reaches (market over-drafts the projection) — 71
+- **Sam Darnold** QB · -3 · QB27 proj vs QB24 ADP · proj 237.8 pts · ADP 184
+- **Jaxson Dart** QB · -3 · QB14 proj vs QB11 ADP · proj 278.7 pts · ADP 89
+- **Tank Bigsby** RB · -3 · RB86 proj vs RB83 ADP · proj 79.3 pts · ADP 168
+- **Bhayshul Tuten** RB · -3 · RB59 proj vs RB56 ADP · proj 107.5 pts · ADP 59
+- **Mark Andrews** TE · -3 · TE26 proj vs TE23 ADP · proj 120.7 pts · ADP 125
+- **Emeka Egbuka** WR · -3 · WR32 proj vs WR29 ADP · proj 172.7 pts · ADP 38
+- **Jalen Tolbert** WR · -3 · WR115 proj vs WR112 ADP · proj 79.6 pts · ADP 299
+- **Ladd McConkey** WR · -3 · WR35 proj vs WR32 ADP · proj 169.1 pts · ADP 45
+- **Kirk Cousins** QB · -4 · QB40 proj vs QB36 ADP · proj 201.7 pts · ADP 305
+- **Kyler Murray** QB · -4 · QB22 proj vs QB18 ADP · proj 253.6 pts · ADP 138
+- **Colston Loveland** TE · -4 · TE15 proj vs TE11 ADP · proj 152.5 pts · ADP 43
+- **Tyler Shough** QB · -5 · QB25 proj vs QB20 ADP · proj 244.3 pts · ADP 150
+- **Brian Robinson Jr.** RB · -5 · RB87 proj vs RB82 ADP · proj 78.9 pts · ADP 163
+- **Jordan Whittington** WR · -5 · WR130 proj vs WR125 ADP · proj 60.1 pts · ADP 366
+- **Jalen Nailor** WR · -6 · WR84 proj vs WR78 ADP · proj 102.5 pts · ADP 198
+- **Shedeur Sanders** QB · -7 · QB37 proj vs QB30 ADP · proj 207.9 pts · ADP 254
+- **Mike Evans** WR · -7 · WR47 proj vs WR40 ADP · proj 149.1 pts · ADP 64
+- **Noah Gray** TE · -8 · TE61 proj vs TE53 ADP · proj 60.4 pts · ADP 350
+- **Luke Schoonmaker** TE · -8 · TE63 proj vs TE55 ADP · proj 50.5 pts · ADP 362
+- **Malik Willis** QB · -9 · QB30 proj vs QB21 ADP · proj 233.7 pts · ADP 166
+- **Jaylin Noel** WR · -9 · WR117 proj vs WR108 ADP · proj 78.6 pts · ADP 284
+- **DJ Moore** WR · -10 · WR45 proj vs WR35 ADP · proj 155.3 pts · ADP 52
+- **Terrance Ferguson** TE · -11 · TE44 proj vs TE33 ADP · proj 84.4 pts · ADP 207
+- **Justin Jefferson** WR · -11 · WR29 proj vs WR18 ADP · proj 177 pts · ADP 13
+- **Joe Burrow** QB · -12 · QB16 proj vs QB4 ADP · proj 268.1 pts · ADP 56
+
+## No projection (rookies / no prior-year data) — 91
+Deshaun Watson, Carson Beck, Cade Klubnik, Ty Simpson, Fernando Mendoza, Kyle Juszczyk, Joe Mixon, Reggie Gilliam, Donovan Edwards, Audric Estime, Seth McGowan, MarShawn Lloyd, Kenny Gainwell, Jarquez Hunter, Nicholas Singleton, Kaytron Allen, Adam Randall, Kenny McIntosh, Roman Hemby, Jaydn Ott, Jeremiyah Love, Damien Martinez, Frank Gore Jr., Jonathon Brooks, Jordan James, Jonah Coleman, Jam Miller, Jadarian Price, Demond Claiborne, Emmett Johnson

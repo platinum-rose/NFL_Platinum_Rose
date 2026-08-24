@@ -269,7 +269,7 @@ const server = http.createServer(async (req, res) => {
         items.push(JSON.parse(raw));
       }
       items.sort((a, b) => new Date(b.date) - new Date(a.date));
-    } catch (err) {
+    } catch (_err) {
       items = [];
     }
     res.writeHead(200, { 'content-type': 'application/json' });

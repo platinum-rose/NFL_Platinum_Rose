@@ -8,32 +8,10 @@
 import React, { useState } from 'react';
 import { X, User, Check, Sparkles, Shield, Trophy, Shirt, LayoutDashboard, Briefcase, HeartPulse, Bot } from 'lucide-react';
 import { loadFromStorage, saveToStorage } from '../../lib/storage';
-
-const PROFILE_KEY = 'nfl_user_profile_v1';
-
-const PRESET_PROFILES = [
-  {
-    id: 'master',
-    name: 'Master View (Full Dashboard)',
-    description: 'All 6 Command Hubs and all 7 specialized AI Agents active.',
-    hubs: ['dashboard', 'official-picks', 'intel', 'fantasy', 'injuries', 'futures'],
-    agents: ['general', 'futures', 'props', 'fantasy', 'survivor', 'supercontest', 'confidence']
-  },
-  {
-    id: 'amanda',
-    name: 'Amanda’s Focus Profile',
-    description: 'Simplified view focused on SuperContest, Survivor Pool, and Fantasy Rosters.',
-    hubs: ['official-picks', 'fantasy', 'injuries'],
-    agents: ['supercontest', 'survivor', 'fantasy']
-  },
-  {
-    id: 'andy',
-    name: 'Andy’s Analytics Profile',
-    description: 'Focused on Futures Portfolio, Matchup Odds, Sides & Totals, and Player Props.',
-    hubs: ['dashboard', 'official-picks', 'intel', 'futures'],
-    agents: ['general', 'futures', 'props']
-  }
-];
+// PROFILE_KEY + PRESET_PROFILES moved to lib/profiles.js (Phase 0, 2026-08-24)
+// so App.jsx can read the active profile's hub list without eagerly importing
+// this (lazy-loaded) modal. Single source of truth for both.
+import { PROFILE_KEY, PRESET_PROFILES } from '../../lib/profiles';
 
 export default function ProfileSettingsModal({ isOpen, onClose, onProfileUpdated }) {
   const [activeProfile, setActiveProfile] = useState(() => {

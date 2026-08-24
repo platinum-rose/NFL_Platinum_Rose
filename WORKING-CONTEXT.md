@@ -4,9 +4,36 @@
 
 ---
 
-## Current Sync State - 2026-08-18 PT
+## Current Sync State - 2026-08-22 11:55 PT
 
-**Latest handoff:** `handoffs/2026-08-18-1555-yahoo-and-handoff-sync.md`.
+**Latest handoff:** `handoffs/2026-08-22-1155-codex-checkpoint5-archive-cleanup-handoff.md`.
+
+**Verified Git state:** `main...origin/main`; latest visible HEAD from prior
+checks is `7840966`. The worktree is intentionally very dirty. Do not stage,
+commit, push, clean, reset, or broad-add without Andy's explicit approval.
+
+**Current priority:** review the broad Antigravity non-code archive cleanup
+before any next checkpoint. Checkpoints 1-4 are Codex-approved. Checkpoint 5
+item 14 correction pass was approved for the earlier state, but the repo then
+moved again: many tracked `docs/*` and `handoffs/*` files now show as deleted
+from their original paths and present under `docs/archive/` and
+`handoffs/archive/`. That archive pass is not Codex-approved yet.
+
+**Preserve and review:**
+- `docs/archive/` additions versus root `docs/` deletions.
+- `handoffs/archive/` additions versus root `handoffs/` deletions.
+- Tracked ebook/license files now archived again:
+  `docs/The Genius of Desperation.epub` and
+  `docs/TheGeniusofDesperati_9781641250825_3892848.acsm`.
+- Root cleanup/relocation files including `.project-delegation.md`,
+  `CONTEXT_HANDOFF_PROTOCOL.md`, `RESUME_PROMPT.md`, `template_trace.txt`, and
+  the Yahoo Docusign PDF.
+- `_to_delete_checkpoint5_item14/` remains a disk cleanup residual but is now
+  protected by `.gitignore` via `_to_delete*/`.
+
+## Older Sync State - 2026-08-20 PT
+
+**Latest handoff:** `handoffs/2026-08-20-1800-matchup-cards-splits-modal-handoff.md`.
 
 **Verified Git state:** local `main` is `2b17c75`; `origin/main` is `d76d309`; local branch is ahead by 2 commits (`655e713`, `2b17c75`). The older rolling handoff claim that `origin/main` was at `655e713` is stale.
 

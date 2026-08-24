@@ -12,7 +12,7 @@
 // F-26b) -- this only covers QB/RB/WR/TE, which is all the generator scores.
 
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
-import { Shirt, RefreshCw, Search, TrendingUp, TrendingDown, Minus, HelpCircle, Mic, Star, AlertTriangle, ListOrdered } from 'lucide-react';
+import { Shirt, RefreshCw, Search, TrendingUp, TrendingDown, Minus, HelpCircle, Mic, Star, AlertTriangle, ListOrdered, ClipboardList } from 'lucide-react';
 import { LOCAL_DATA } from '../../lib/apiConfig';
 import { getPlayerOverlay } from '../../lib/fantasyOverlayStore';
 import FantasyRankingsPanel from './FantasyRankingsPanel';
@@ -270,12 +270,22 @@ function PodcastFantasyIntelPanel() {
   );
 }
 
-export default function FantasyValueBoard() {
+export default function FantasyValueBoard({ defaultView }) {
   // F-26c §2: Value Board (Phase A ADP-vs-projection) and Weekly Rankings (ECR)
   // are two different signals living in the same tab, toggled here rather than
   // as separate top-level tabs — avoids App.jsx/Header nav changes for what's
   // still one "Fantasy" concern. See FantasyRankingsPanel.jsx for the ECR panel.
-  const [view, setView] = useState('value'); // 'value' | 'rankings'
+  //
+  // 'projections' (2026-08-24): a third view -- Season Projections, a clean
+  // ranked draft cheat-sheet by proj_points alone (no ADP/value-gap framing).
+  // Genuinely new UI, but zero new data: it reads the exact same `board`
+  // array this tab already fetches for the Value Board (same
+  // fantasy-value-board.json, same proj_points/proj_pos_rank fields the
+  // PlayerCard "Proj X pts" line already displays) -- just re-sorted and
+  // re-presented as its own view instead of buried in a sort dropdown.
+  // defaultView lets FantasyHub's preseason/season phase toggle open this
+  // tab on the most relevant view for the phase (see FantasyHub.jsx).
+  const [view, setView] = useState(defaultView || 'value'); // 'value' | 'rankings' | 'projections'
   const [state, setState] = useState('loading'); // loading | ready | missing | error
   const [data, setData] = useState(null);
   const [errorMsg, setErrorMsg] = useState('');
@@ -337,6 +347,19 @@ export default function FantasyValueBoard() {
     return list;
   }, [board, positionFilter, tierFilter, search, startersOnly, sortBy]);
 
+  // Season Projections: same `board`, filtered by position/search, ranked
+  // purely by proj_points (players with no projection -- mostly rookies with
+  // no prior-year data, per the tier system above -- are excluded rather
+  // than shown as a fake rank 999+).
+  const projectionsList = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    return board
+      .filter((b) => b.proj_points != null)
+      .filter((b) => positionFilter === 'ALL' || b.position === positionFilter)
+      .filter((b) => !q || b.player?.toLowerCase().includes(q))
+      .sort((a, b) => b.proj_points - a.proj_points);
+  }, [board, positionFilter, search]);
+
   return (
     <div className="animate-in fade-in zoom-in duration-300 space-y-5 pb-8 max-w-5xl mx-auto">
       {/* Top bar */}
@@ -347,13 +370,15 @@ export default function FantasyValueBoard() {
           </div>
           <div>
             <h2 className="text-lg font-bold text-white">
-              {view === 'value' ? 'Fantasy Value Board' : 'Fantasy Weekly Rankings'}
+              {view === 'value' ? 'Fantasy Value Board' : view === 'projections' ? 'Season Projections' : 'Fantasy Weekly Rankings'}
             </h2>
             <p className="text-xs text-slate-400">
               {view === 'value'
                 ? (meta
                     ? `${meta.scoring.toUpperCase()} · prior season ${meta.stats_season} · proj ${meta.proj_games} games · generated ${meta.date}`
                     : 'Draft-value projections vs ADP')
+                : view === 'projections'
+                ? 'Ranked draft cheat-sheet by projected season points — no ADP comparison, just the projection'
                 : 'Expert Consensus Rankings — draft and weekly start/sit'}
             </p>
           </div>
@@ -369,6 +394,14 @@ export default function FantasyValueBoard() {
               <Shirt size={12} /> Value Board
             </button>
             <button
+              onClick={() => setView('projections')}
+              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-bold transition-all ${
+                view === 'projections' ? 'bg-amber-500/20 text-amber-300' : 'text-slate-500 hover:text-white'
+              }`}
+            >
+              <ClipboardList size={12} /> Season Projections
+            </button>
+            <button
               onClick={() => setView('rankings')}
               className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-bold transition-all ${
                 view === 'rankings' ? 'bg-amber-500/20 text-amber-300' : 'text-slate-500 hover:text-white'
@@ -377,7 +410,7 @@ export default function FantasyValueBoard() {
               <ListOrdered size={12} /> Weekly Rankings
             </button>
           </div>
-          {view === 'value' && (
+          {(view === 'value' || view === 'projections') && (
             <button
               onClick={load}
               className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-400 hover:text-white transition-all"
@@ -390,6 +423,83 @@ export default function FantasyValueBoard() {
       </div>
 
       {view === 'rankings' && <FantasyRankingsPanel />}
+
+      {view === 'projections' && (
+        <div className="space-y-5">
+          <div className="text-[11px] text-slate-500 bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5">
+            Same Phase A history-based projection as the Value Board, just ranked on its own with no ADP
+            comparison. Players with no prior-year data (mostly rookies) aren't shown here — see the Value
+            Board's "No Projection" tier for those.
+          </div>
+
+          {state === 'loading' && (
+            <div className="flex items-center justify-center py-20 text-slate-500 gap-3">
+              <RefreshCw size={18} className="animate-spin" />
+              <span className="text-sm">Loading projections...</span>
+            </div>
+          )}
+          {state === 'missing' && (
+            <div className="text-center py-16 bg-slate-900 border border-slate-800 rounded-xl">
+              <ClipboardList size={40} className="mx-auto mb-4 text-slate-700" />
+              <p className="text-slate-300 font-bold">No projections generated yet</p>
+              <p className="text-slate-500 text-sm mt-2 max-w-md mx-auto">Same generator as the Value Board — see its empty state for the command.</p>
+            </div>
+          )}
+          {state === 'error' && (
+            <div className="text-rose-300 bg-rose-500/10 border border-rose-500/30 rounded-lg px-4 py-3 text-sm">
+              Failed to load projections: {errorMsg}
+            </div>
+          )}
+
+          {state === 'ready' && (
+            <>
+              <div className="flex flex-wrap items-center gap-2.5">
+                <div className="relative min-w-[180px]">
+                  <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-500" />
+                  <input
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    placeholder="Search player..."
+                    className="w-full bg-slate-900 border border-slate-800 rounded-lg pl-8 pr-3 py-1.5 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-slate-600"
+                  />
+                </div>
+                <div className="flex items-center gap-1 bg-slate-900 border border-slate-800 rounded-lg p-1">
+                  {POSITION_FILTERS.map((p) => (
+                    <button
+                      key={p}
+                      onClick={() => setPositionFilter(p)}
+                      className={`px-2.5 py-1 rounded-md text-[11px] font-bold transition-all ${
+                        positionFilter === p ? 'bg-amber-500/20 text-amber-300' : 'text-slate-500 hover:text-white'
+                      }`}
+                    >
+                      {p}
+                    </button>
+                  ))}
+                </div>
+                <span className="text-xs text-slate-500 ml-auto">{projectionsList.length} ranked</span>
+              </div>
+
+              {projectionsList.length === 0 ? (
+                <div className="text-center py-16 text-slate-500 text-sm">No players match the current filters.</div>
+              ) : (
+                <div className="space-y-1.5">
+                  {projectionsList.map((row, i) => (
+                    <div key={`${row.player}-${i}`} className="bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5 flex items-center gap-3 hover:border-slate-700 transition">
+                      <span className="w-8 shrink-0 text-center text-sm font-black text-slate-600">{i + 1}</span>
+                      <div className="flex-1 min-w-0 flex items-center gap-2 flex-wrap">
+                        <span className="font-bold text-white truncate">{row.player}</span>
+                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{row.position}{row.proj_pos_rank ? row.proj_pos_rank : ''}</span>
+                        {row.team && <span className="text-[10px] text-slate-600">{row.team}</span>}
+                      </div>
+                      <span className="shrink-0 font-mono font-bold text-amber-300">{fmtPts(row.proj_points)} pts</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      )}
 
       {view === 'value' && (
         <>

@@ -146,6 +146,7 @@ export const addPick = (pickData) => {
     homeScore:      null,
     visitorScore:   null,
     gradedAt:       null,
+    pinned:         pickData.pinned ?? false,
   };
 
   const check = validatePick(pick);
@@ -188,6 +189,22 @@ export const deletePick = (pickId) => {
   const picks = readPicks().filter(p => p.id !== pickId);
   writePicks(picks);
   fireDelete(pickId);  // cloud sync — non-blocking
+};
+
+/**
+ * Toggle a pick's pinned state (Phase 1, 2026-08-24). Local-only -- unlike
+ * addPick/deletePick this does NOT call fireSync/fireDelete, so it never
+ * touches Supabase; pinning is a purely client-side sort/priority hint, not
+ * pick data that needs to round-trip through the cloud sync queue.
+ * @returns {boolean|null} the pick's new pinned state, or null if not found
+ */
+export const togglePickPin = (pickId) => {
+  const picks = readPicks();
+  const idx = picks.findIndex(p => p.id === pickId);
+  if (idx === -1) return null;
+  picks[idx] = { ...picks[idx], pinned: !picks[idx].pinned };
+  writePicks(picks);
+  return picks[idx].pinned;
 };
 
 /** Delete ALL picks (full reset). */

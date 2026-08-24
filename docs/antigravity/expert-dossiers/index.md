@@ -1,6 +1,6 @@
 # Expert Dossiers Index
 
-Generated: 2026-08-11T08:44:09.351Z
+Generated: 2026-08-21T00:11:37.518Z
 
 > Local expert dossiers are compact inference context. They do not promote picks or provide price evidence.
 

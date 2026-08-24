@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-11T08:43:40.695Z",
+  "evaluated_at": "2026-08-20T23:38:25.082Z",
   "mode": "live-youtube",
   "model": "gemini-3.5-flash",
   "total_episodes_evaluated": 1,
@@ -7,12 +7,12 @@
   "reprocess_required_count": 0,
   "extraction_failure_count": 0,
   "average_f1_score_pct": null,
-  "total_cost_usd": 0.01298,
-  "average_latency_ms": 170177,
+  "total_cost_usd": 0.019673,
+  "average_latency_ms": 217818,
   "reprocess_queue": [],
   "queue_runs": [
     {
-      "episode_slug": "youtube-AC45NyyzhzQ",
+      "episode_slug": "youtube-OAxHvrVUPpw",
       "show": "YouTube Discovery",
       "date": "manual",
       "priority": "manual",
@@ -23,124 +23,64 @@
       "reprocess_reason": null,
       "quality_flags": [],
       "run": {
-        "run_id": "youtube_gemini_20323ff4c175",
+        "run_id": "youtube_gemini_f66ecd848375",
         "mode": "live-youtube",
         "model": "gemini-3.5-flash",
         "input_source": "youtube_video_url",
-        "youtube_url": "https://www.youtube.com/watch?v=AC45NyyzhzQ",
-        "latency_ms": 170177,
-        "estimated_cost_usd": 0.01298,
-        "input_tokens": 119455,
-        "output_tokens": 2586,
-        "raw_model_response": "{\n  \"transcript_summary\": \"Chris Welsh, Andrew Erickson, and Scott Bogman preview the Hall of Fame Game matchup between the Carolina Panthers and the Arizona Cardinals. The hosts breakdown the spread, game totals, and moneylines, and share their favorite player props for the preseason matchup.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 1292,\n    \"last_analyzed_timestamp\": 1292,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 175.0,\n      \"speaker\": \"Chris Welsh\",\n      \"text\": \"The NFL is back, real football is about to happen, and we're going to break it down. Welcome in to BettingPros, I'm Chris Welsh, I've got Andrew Erickson and Scott Bogman with me. The Hall of Fame Game, like it or not, is real action football. We've got lines to look at, spreads, totals, and moneylines, so let's jump right into the numbers.\"\n    },\n    {\n      \"start\": 175.0,\n      \"end\": 234.0,\n      \"speaker\": \"Chris Welsh\",\n      \"text\": \"Looking at the spread on this game, we've got the Carolina Panthers at minus one and a half. That gets you plus money on the spread. The Cardinals are plus one and a half, with a little more juice at minus one-twenty. The total line is at 35.5. Erickson, what's your lean on these sides?\"\n    },\n    {\n      \"start\": 234.0,\n      \"end\": 488.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"I like Arizona, catching one and a half points. Short underdogs are usually the best bets in the preseason. There is some overconfidence in the market making Carolina the favorite because of familiarity with Kenny Pickett starting, but Dave Canales has already said none of their starters will play. On the Arizona side, Carson Beck is in a theoretical battle and has incentive to play well. Dave Canales has traditionally been a coach to fade in the preseason, with a 1-7 preseason record. So I like the Cardinals plus the points and on the moneyline.\"\n    },\n    {\n      \"start\": 488.0,\n      \"end\": 858.0,\n      \"speaker\": \"Scott Bogman\",\n      \"text\": \"Give me whoever is catching points in a preseason game, so I'll take the Cardinals plus one and a half. I also like the Cardinals to win by one to six points at plus two-fifty since these games are typically close. For the total, I am playing the Under 35.5. You have two rookies playing most of the game, with Haynes King taking most snaps for the Panthers and Carson Beck taking snaps for the Cardinals. It is going to be slow-moving and punt-heavy.\"\n    },\n    {\n      \"start\": 858.0,\n      \"end\": 1100.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"For player props, I really like Haynes King Over 24.5 rushing yards. Dave Canales specifically mentioned using the quarterback's legs to move the chains, and their lack of offensive line depth means he'll be scrambling a lot. Bogman, I know you're on this one too.\"\n    },\n    {\n      \"start\": 1100.0,\n      \"end\": 1292.0,\n      \"speaker\": \"Chris Welsh\",\n      \"text\": \"Yes, I also agree on Haynes King, and Bogman has Kedon Slovis over a half touchdown pass at plus five-sixty-three. For me, I am going with Carson Beck Over 99.5 passing yards. With only two active quarterbacks on the roster for Arizona, Beck should play the entire first half and easily hit that mark. Good luck on your bets, everyone, and go check out Hard Rock Bet today.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"AZ\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"AZ\",\n      \"line\": 1.5,\n      \"price\": -120,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 234,\n      \"rationale\": \"Likes short underdogs catching points in the preseason, noting that Carolina is resting all starters.\"\n    },\n    {\n      \"team\": \"AZ\",\n      \"player\": null,\n      \"market\": \"moneyline\",\n      \"side\": \"AZ\",\n      \"line\": null,\n      \"price\": 100,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 234,\n      \"rationale\": \"Carolina's Dave Canales is a coach to fade in the preseason with a historical 1-7 record.\"\n    },\n    {\n      \"team\": \"AZ\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"AZ\",\n      \"line\": 1.5,\n      \"price\": 100,\n      \"week\": null,\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 488,\n      \"rationale\": \"Prefers to back the underdog catching points in any preseason game environment.\"\n    },\n    {\n      \"team\": \"AZ\",\n      \"player\": null,\n      \"market\": \"total\",\n      \"side\": \"UNDER\",\n      \"line\": 35.5,\n      \"price\": -110,\n      \"week\": null,\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 488,\n      \"rationale\": \"Expects a slow-moving, punt-heavy game with multiple rookie quarterbacks playing the vast majority of snaps.\"\n    },\n    {\n      \"team\": \"AZ\",\n      \"player\": null,\n      \"market\": \"other\",\n      \"side\": \"AZ\",\n      \"line\": null,\n      \"price\": 250,\n      \"week\": null,\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 488,\n      \"rationale\": \"Preseason games are typically close, and Cardinals to win by 1-6 points offers a strong +250 return.\"\n    },\n    {\n      \"team\": \"CAR\",\n      \"player\": \"Haynes King\",\n      \"market\": \"other\",\n      \"side\": \"OVER\",\n      \"line\": 24.5,\n      \"price\": null,\n      \"week\": null,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 858,\n      \"rationale\": \"Dave Canales stated his intention to let the quarterback run to move the chains, and poor offensive line depth will force scrambles.\"\n    },\n    {\n      \"team\": \"CAR\",\n      \"player\": \"Haynes King\",\n      \"market\": \"other\",\n      \"side\": \"OVER\",\n      \"line\": 24.5,\n      \"price\": -144,\n      \"week\": null,\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 858,\n      \"rationale\": \"King runs with reckless abandon and has a strong college rushing baseline, averaging over 60 rushing yards per game.\"\n    },\n    {\n      \"team\": \"AZ\",\n      \"player\": \"Kedon Slovis\",\n      \"market\": \"other\",\n      \"side\": \"OVER\",\n      \"line\": 0.5,\n      \"price\": 563,\n      \"week\": null,\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 858,\n      \"rationale\": \"Slovis is expected to play the entire second half, making a single touchdown pass highly likely at long +563 odds.\"\n    },\n    {\n      \"team\": \"AZ\",\n      \"player\": \"Carson Beck\",\n      \"market\": \"other\",\n      \"side\": \"OVER\",\n      \"line\": 99.5,\n      \"price\": null,\n      \"week\": null,\n      \"speaker\": \"Chris Welsh\",\n      \"source_timestamp\": 858,\n      \"rationale\": \"Expected to play the entire first half with minimal quarterback depth behind him, and historically starters clear 100 yards in this game.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"CAR\"],\n      \"players\": [],\n      \"topic\": \"Dave Canales preseason history\",\n      \"summary\": \"Dave Canales is historically a coach to fade in the preseason, carrying a poor 1-7 record and showing little interest in prioritizing preseason wins.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 234,\n      \"quote\": \"Dave Canales traditionally has been a player and coach to fade in the preseason.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"roster_or_depth_chart\",\n      \"teams\": [\"CAR\"],\n      \"players\": [\"Kenny Pickett\"],\n      \"topic\": \"Panthers preseason personnel plan\",\n      \"summary\": \"Erickson notes that Kenny Pickett is starting but Dave Canales plans to sit all key starting players, leaving the bulk of the snaps to depth quarterbacks.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 234,\n      \"quote\": \"None of their starters are going to play in any capacity whatsoever.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"CAR\"],\n      \"players\": [],\n      \"topic\": \"Panthers roster health issues\",\n      \"summary\": \"The Panthers are already dealing with several injuries, which means the coaching staff will err on the side of caution and hold out any nicked-up depth players.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 234,\n      \"quote\": \"The Panthers have also been dealing with a ton of injuries already.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Underdog value\",\n      \"timestamp\": 488,\n      \"speaker\": \"Scott Bogman\",\n      \"quote\": \"Give me whoever is catching points in a preseason game.\"\n    },\n    {\n      \"topic\": \"Dave Canales fade\",\n      \"timestamp\": 234,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"Dave Canales traditionally has been a player and coach to fade in the preseason.\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 858,\n      \"field\": \"price\",\n      \"reason\": \"The price for Andrew Erickson's Haynes King prop was not explicitly mentioned or displayed on screen.\"\n    }\n  ]\n}",
+        "youtube_url": "https://www.youtube.com/watch?v=OAxHvrVUPpw",
+        "latency_ms": 217818,
+        "estimated_cost_usd": 0.019673,
+        "input_tokens": 189047,
+        "output_tokens": 1921,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Chad Millman and Simon Hunter preview the NFC South for their annual NFL division betting preview show. They discuss the win totals, roster changes, and futures value for the Buccaneers, Saints, Falcons, and Panthers in their custom simulation league.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 2056,\n    \"last_analyzed_timestamp\": 2056,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 215.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Welcomes viewers to the Sharp or Square NFC South betting preview. Bans with Simon about television shows including Homeland and The Bear.\"\n    },\n    {\n      \"start\": 215.0,\n      \"end\": 280.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Introduces the win totals and betting market numbers for all four NFC South teams.\"\n    },\n    {\n      \"start\": 280.0,\n      \"end\": 630.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Discusses the Carolina Panthers offseason moves, including the signing of Jaelan Phillips and Devin Lloyd, and analyzes their 7.5 win total.\"\n    },\n    {\n      \"start\": 630.0,\n      \"end\": 983.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Breaks down the Atlanta Falcons under new head coach Kevin Stefanski with Tua Tagovailoa under center, and the outlook for backup Michael Penix Jr.\"\n    },\n    {\n      \"start\": 983.0,\n      \"end\": 1052.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Presents a promotional ad read for Hard Rock Bet Sportsbook.\"\n    },\n    {\n      \"start\": 1052.0,\n      \"end\": 1230.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Analyzes the Tampa Bay Buccaneers, their offensive line talent, and concerns over Baker Mayfield's durability.\"\n    },\n    {\n      \"start\": 1230.0,\n      \"end\": 1500.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Previews the New Orleans Saints, highlights Tyler Shough's rookie of the year campaign, and locks in a division winner bet.\"\n    },\n    {\n      \"start\": 1500.0,\n      \"end\": 2056.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Summarizes their thoughts on the division, picks the Bucs to win it all, and signs off with a classic Baker Mayfield video clip.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"NO\",\n      \"player\": null,\n      \"market\": \"division_winner\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 260,\n      \"week\": null,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1230,\n      \"rationale\": \"Saints have a stellar offensive line, an excellent running back duo with Kamara and Etienne, and the easiest schedule in the division after finishing fourth last season.\"\n    },\n    {\n      \"team\": \"TB\",\n      \"player\": null,\n      \"market\": \"division_winner\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 175,\n      \"week\": null,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 1335,\n      \"rationale\": \"Tampa Bay features the overall best roster, the most stable quarterback situation in Baker Mayfield, and the best offensive weapon depth.\"\n    },\n    {\n      \"team\": \"CAR\",\n      \"player\": null,\n      \"market\": \"win_total\",\n      \"side\": \"UNDER\",\n      \"line\": 7.5,\n      \"price\": -135,\n      \"week\": null,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 487,\n      \"rationale\": \"The Panthers face an incredibly tough schedule after making the playoffs as a wildcard last year, and the win total line is over-inflated.\"\n    },\n    {\n      \"team\": \"ATL\",\n      \"player\": null,\n      \"market\": \"win_total\",\n      \"side\": \"OVER\",\n      \"line\": 7.5,\n      \"price\": 115,\n      \"week\": null,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 800,\n      \"rationale\": \"Getting plus money on the over for a team with Kevin Stefanski and the offensive weapons of Bijan Robinson, Drake London, and Kyle Pitts.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"CAR\"],\n      \"players\": [\"Bryce Young\"],\n      \"topic\": \"Canales and Young Partnership\",\n      \"summary\": \"Chad millman notes that Bryce Young was extremely charming in his press conferences and believes the combination of Dave Canales' offense and Bryce's talent has a bright future.\",\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 359,\n      \"quote\": \"Dave Canales, Bryce Young... they are champions.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"ATL\"],\n      \"players\": [\"Tua Tagovailoa\", \"Michael Penix Jr.\"],\n      \"topic\": \"Left-handed QB biases\",\n      \"summary\": \"Simon Hunter details an old-school scouting bias against left-handed quarterbacks and expresses confusion about Atlanta's roster-building with both Tua and Penix on the roster.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 727,\n      \"quote\": \"If I'm a scout in the NFL, I am old school. I would never, ever waste time scouting a left-handed quarterback.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"TB\"],\n      \"players\": [\"Baker Mayfield\", \"Chris Godwin\"],\n      \"topic\": \"Offensive Juggernaut Potential\",\n      \"summary\": \"Simon highlights that while he remains skeptical of Baker Mayfield's long-term health, the Buccaneers' elite offensive line and weapon group makes their offense a potential juggernaut.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1160,\n      \"quote\": \"My god, this offense could be an absolute juggernaut.\",\n      \"confidence\": \"implied\"\n    },\n    {\n      \"note_type\": \"schedule_context\",\n      \"teams\": [\"NO\"],\n      \"players\": [\"Tyler Shough\"],\n      \"topic\": \"Easiest Schedule Advantage\",\n      \"summary\": \"Simon notes the Saints' fourth-place finish from the previous season gives them a massive schedule advantage over their divisional rivals.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1304,\n      \"quote\": \"They still came in fourth in this division. So they have the easiest schedule of anyone in this division.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Saints Division Winner\",\n      \"timestamp\": 1230,\n      \"speaker\": \"Simon Hunter\",\n      \"quote\": \"This is my biggest bet by far in this division is on the New Orleans Saints to win the division.\"\n    },\n    {\n      \"topic\": \"Bucs Division Winner\",\n      \"timestamp\": 1335,\n      \"speaker\": \"Chad Millman\",\n      \"quote\": \"I think in the end it's the Bucs. The Bucs just have the best team and the best quarterback.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
         "extracted_picks": [
           {
-            "team": "AZ",
+            "team": "NO",
             "player": null,
-            "market": "spread",
-            "side": "AZ",
-            "line": 1.5,
-            "price": -120,
-            "week": null,
-            "speaker": "Andrew Erickson",
-            "source_timestamp": 234,
-            "rationale": "Likes short underdogs catching points in the preseason, noting that Carolina is resting all starters."
-          },
-          {
-            "team": "AZ",
-            "player": null,
-            "market": "moneyline",
-            "side": "AZ",
+            "market": "division_winner",
+            "side": "YES",
             "line": null,
-            "price": 100,
+            "price": 260,
             "week": null,
-            "speaker": "Andrew Erickson",
-            "source_timestamp": 234,
-            "rationale": "Carolina's Dave Canales is a coach to fade in the preseason with a historical 1-7 record."
+            "speaker": "Simon Hunter",
+            "source_timestamp": 1230,
+            "rationale": "Saints have a stellar offensive line, an excellent running back duo with Kamara and Etienne, and the easiest schedule in the division after finishing fourth last season."
           },
           {
-            "team": "AZ",
+            "team": "TB",
             "player": null,
-            "market": "spread",
-            "side": "AZ",
-            "line": 1.5,
-            "price": 100,
+            "market": "division_winner",
+            "side": "YES",
+            "line": null,
+            "price": 175,
             "week": null,
-            "speaker": "Scott Bogman",
-            "source_timestamp": 488,
-            "rationale": "Prefers to back the underdog catching points in any preseason game environment."
+            "speaker": "Chad Millman",
+            "source_timestamp": 1335,
+            "rationale": "Tampa Bay features the overall best roster, the most stable quarterback situation in Baker Mayfield, and the best offensive weapon depth."
           },
           {
-            "team": "AZ",
+            "team": "CAR",
             "player": null,
-            "market": "total",
+            "market": "win_total",
             "side": "UNDER",
-            "line": 35.5,
-            "price": -110,
+            "line": 7.5,
+            "price": -135,
             "week": null,
-            "speaker": "Scott Bogman",
-            "source_timestamp": 488,
-            "rationale": "Expects a slow-moving, punt-heavy game with multiple rookie quarterbacks playing the vast majority of snaps."
+            "speaker": "Simon Hunter",
+            "source_timestamp": 487,
+            "rationale": "The Panthers face an incredibly tough schedule after making the playoffs as a wildcard last year, and the win total line is over-inflated."
           },
           {
-            "team": "AZ",
+            "team": "ATL",
             "player": null,
-            "market": "other",
-            "side": "AZ",
-            "line": null,
-            "price": 250,
-            "week": null,
-            "speaker": "Scott Bogman",
-            "source_timestamp": 488,
-            "rationale": "Preseason games are typically close, and Cardinals to win by 1-6 points offers a strong +250 return."
-          },
-          {
-            "team": "CAR",
-            "player": "Haynes King",
-            "market": "other",
+            "market": "win_total",
             "side": "OVER",
-            "line": 24.5,
-            "price": null,
+            "line": 7.5,
+            "price": 115,
             "week": null,
-            "speaker": "Andrew Erickson",
-            "source_timestamp": 858,
-            "rationale": "Dave Canales stated his intention to let the quarterback run to move the chains, and poor offensive line depth will force scrambles."
-          },
-          {
-            "team": "CAR",
-            "player": "Haynes King",
-            "market": "other",
-            "side": "OVER",
-            "line": 24.5,
-            "price": -144,
-            "week": null,
-            "speaker": "Scott Bogman",
-            "source_timestamp": 858,
-            "rationale": "King runs with reckless abandon and has a strong college rushing baseline, averaging over 60 rushing yards per game."
-          },
-          {
-            "team": "AZ",
-            "player": "Kedon Slovis",
-            "market": "other",
-            "side": "OVER",
-            "line": 0.5,
-            "price": 563,
-            "week": null,
-            "speaker": "Scott Bogman",
-            "source_timestamp": 858,
-            "rationale": "Slovis is expected to play the entire second half, making a single touchdown pass highly likely at long +563 odds."
-          },
-          {
-            "team": "AZ",
-            "player": "Carson Beck",
-            "market": "other",
-            "side": "OVER",
-            "line": 99.5,
-            "price": null,
-            "week": null,
-            "speaker": "Chris Welsh",
-            "source_timestamp": 858,
-            "rationale": "Expected to play the entire first half with minimal quarterback depth behind him, and historically starters clear 100 yards in this game."
+            "speaker": "Chad Millman",
+            "source_timestamp": 800,
+            "rationale": "Getting plus money on the over for a team with Kevin Stefanski and the offensive weapons of Bijan Robinson, Drake London, and Kyle Pitts."
           }
         ],
         "analysis_notes": [
@@ -149,61 +89,82 @@
             "teams": [
               "CAR"
             ],
-            "players": [],
-            "topic": "Dave Canales preseason history",
-            "summary": "Dave Canales is historically a coach to fade in the preseason, carrying a poor 1-7 record and showing little interest in prioritizing preseason wins.",
-            "speaker": "Andrew Erickson",
-            "source_timestamp": 234,
-            "quote": "Dave Canales traditionally has been a player and coach to fade in the preseason.",
+            "players": [
+              "Bryce Young"
+            ],
+            "topic": "Canales and Young Partnership",
+            "summary": "Chad millman notes that Bryce Young was extremely charming in his press conferences and believes the combination of Dave Canales' offense and Bryce's talent has a bright future.",
+            "speaker": "Chad Millman",
+            "source_timestamp": 359,
+            "quote": "Dave Canales, Bryce Young... they are champions.",
             "confidence": "stated"
           },
           {
-            "note_type": "roster_or_depth_chart",
+            "note_type": "player_evaluation",
             "teams": [
-              "CAR"
+              "ATL"
             ],
             "players": [
-              "Kenny Pickett"
+              "Tua Tagovailoa",
+              "Michael Penix Jr."
             ],
-            "topic": "Panthers preseason personnel plan",
-            "summary": "Erickson notes that Kenny Pickett is starting but Dave Canales plans to sit all key starting players, leaving the bulk of the snaps to depth quarterbacks.",
-            "speaker": "Andrew Erickson",
-            "source_timestamp": 234,
-            "quote": "None of their starters are going to play in any capacity whatsoever.",
+            "topic": "Left-handed QB biases",
+            "summary": "Simon Hunter details an old-school scouting bias against left-handed quarterbacks and expresses confusion about Atlanta's roster-building with both Tua and Penix on the roster.",
+            "speaker": "Simon Hunter",
+            "source_timestamp": 727,
+            "quote": "If I'm a scout in the NFL, I am old school. I would never, ever waste time scouting a left-handed quarterback.",
             "confidence": "stated"
           },
           {
-            "note_type": "injury_or_health",
+            "note_type": "team_evaluation",
             "teams": [
-              "CAR"
+              "TB"
             ],
-            "players": [],
-            "topic": "Panthers roster health issues",
-            "summary": "The Panthers are already dealing with several injuries, which means the coaching staff will err on the side of caution and hold out any nicked-up depth players.",
-            "speaker": "Andrew Erickson",
-            "source_timestamp": 234,
-            "quote": "The Panthers have also been dealing with a ton of injuries already.",
+            "players": [
+              "Baker Mayfield",
+              "Chris Godwin"
+            ],
+            "topic": "Offensive Juggernaut Potential",
+            "summary": "Simon highlights that while he remains skeptical of Baker Mayfield's long-term health, the Buccaneers' elite offensive line and weapon group makes their offense a potential juggernaut.",
+            "speaker": "Simon Hunter",
+            "source_timestamp": 1160,
+            "quote": "My god, this offense could be an absolute juggernaut.",
+            "confidence": "implied"
+          },
+          {
+            "note_type": "schedule_context",
+            "teams": [
+              "NO"
+            ],
+            "players": [
+              "Tyler Shough"
+            ],
+            "topic": "Easiest Schedule Advantage",
+            "summary": "Simon notes the Saints' fourth-place finish from the previous season gives them a massive schedule advantage over their divisional rivals.",
+            "speaker": "Simon Hunter",
+            "source_timestamp": 1304,
+            "quote": "They still came in fourth in this division. So they have the easiest schedule of anyone in this division.",
             "confidence": "stated"
           }
         ],
         "quote_timestamps": [
           {
-            "topic": "Underdog value",
-            "timestamp": 488,
-            "speaker": "Scott Bogman",
-            "quote": "Give me whoever is catching points in a preseason game."
+            "topic": "Saints Division Winner",
+            "timestamp": 1230,
+            "speaker": "Simon Hunter",
+            "quote": "This is my biggest bet by far in this division is on the New Orleans Saints to win the division."
           },
           {
-            "topic": "Dave Canales fade",
-            "timestamp": 234,
-            "speaker": "Andrew Erickson",
-            "quote": "Dave Canales traditionally has been a player and coach to fade in the preseason."
+            "topic": "Bucs Division Winner",
+            "timestamp": 1335,
+            "speaker": "Chad Millman",
+            "quote": "I think in the end it's the Bucs. The Bucs just have the best team and the best quarterback."
           }
         ],
         "coverage_assessment": {
-          "last_covered_timestamp": 1292,
+          "last_covered_timestamp": 2056,
           "self_reported_reached_end": true,
-          "duration_used_for_check": 1292,
+          "duration_used_for_check": 2056,
           "segment_start_seconds": null,
           "segment_end_seconds": null,
           "suspected_incomplete": false,
@@ -215,7 +176,7 @@
         "score_status": "not_scored",
         "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
         "total_ground_truth": 0,
-        "total_shadow_extracted": 9,
+        "total_shadow_extracted": 4,
         "full_exact_matches": 0,
         "precision_pct": "not scored",
         "recall_pct": "not scored",

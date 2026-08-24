@@ -64,15 +64,17 @@ const TABS = [
 // Each entry: how to open the modal + a heading text to assert it rendered.
 
 const HEADER_MODALS = [
+  // 'Teasers' header modal removed 2026-08-24 (full-redesign pass): Wong
+  // Teaser detection is now a passive MatchupCard badge (game.teaser /
+  // game.teaserSide, computed in App.jsx's gamesWithSplits) -- no header
+  // button or modal left to smoke-test.
   {
-    name:    'Teasers',
-    open:    (page) => page.getByRole('button', { name: 'Teasers' }).click(),
-    heading: 'Wong Teaser Finder',
-  },
-  {
-    name:    'Contest',
+    name:    'SuperContest',
+    // Header button label changed 'Contest' -> 'SuperContest' (Phase 0,
+    // 2026-08-24); 'Contest' still matches since getByRole name is a
+    // substring match by default.
     open:    (page) => page.getByRole('button', { name: 'Contest' }).click(),
-    heading: 'SuperContest Lines',  // ContestLinesModal
+    heading: 'SuperContest',  // SuperContestView (promoted out of ContestLinesModal)
   },
   {
     name:    'Pulse',
