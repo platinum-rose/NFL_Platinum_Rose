@@ -65,6 +65,15 @@ data/vault-seed/
 docs/fantasy_football/
 docs/twitter/
 
+# Ad hoc fantasy draft exports for Yahoo pre-rank prep. Regenerate/download again
+# when Yahoo API access or league-specific ranking support is available.
+docs/fantasy/FantasyPros_2026_Draft_ALL_Rankings.csv
+docs/fantasy/FantasyPros_2026_Draft_IDP_Rankings.xls
+docs/fantasy/2026_Half_PPR_Draft_Rankings_Yahoo.csv
+docs/fantasy/yahoo_2026_half_ppr_*.csv
+docs/fantasy/yahoo_2026_half_ppr_*.json
+scripts/build-yahoo-fantasy-prerankings.js
+
 # Python bytecode caches (scripts/ has standalone .py utilities, no venv-level ignore existed)
 __pycache__/
 .pytest_cache/
