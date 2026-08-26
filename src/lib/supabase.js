@@ -147,6 +147,39 @@ export async function getLatestOddsSnapshot() {
 // ─── Line Movements ──────────────────────────────────────────────────────────
 
 /**
+ * Get dashboard schedule rows from the canonical Supabase games table.
+ * Read-only browser hydration; local schedule.json remains the offline fallback.
+ */
+export async function getGamesForSeason(season = 2026) {
+  if (!isAvailable()) return [];
+  try {
+    const { data, error } = await withQueryTimeout(
+      supabase
+        .from('games')
+        .select([
+          'game_id', 'espn_event_id', 'season', 'season_type', 'week',
+          'kickoff_utc', 'home_team', 'away_team', 'home_abbrev', 'away_abbrev',
+          'status', 'away_rest', 'home_rest', 'div_game', 'roof', 'surface',
+          'referee', 'temp', 'wind',
+          'closing_spread_line', 'closing_total_line',
+          'closing_home_moneyline', 'closing_away_moneyline',
+          'updated_at', 'context_updated_at',
+        ].join(', '))
+        .eq('season', season)
+        .order('season_type', { ascending: true })
+        .order('week', { ascending: true })
+        .order('kickoff_utc', { ascending: true })
+        .limit(500)
+    );
+    if (error) throw error;
+    return data || [];
+  } catch (e) {
+    logger.warn('[supabase] getGamesForSeason failed:', e.message);
+    return [];
+  }
+}
+
+/**
  * Get line movements from Supabase (last N hours).
  * Normalises to the format used by SteamMoveTracker / LineMovementTracker:
  * { game, type, from, to, movement, book, timestamp }
@@ -1919,6 +1952,39 @@ export async function getGameSplitsForWeek(week, season = 2026) {
   }
 }
 
+/**
+ * Fallback for stale/mis-weeked split rows.
+ * game_splits is unique on game_id and documented as "always the freshest
+ * snapshot", so if a strict current-week query returns empty we can still
+ * hydrate matchup cards by team pair from the latest rows available for the
+ * season. This is read-only and does not fabricate splits for matchups that
+ * Action Network has not published.
+ */
+export async function getLatestGameSplitsForSeason(season = 2026) {
+  if (!isAvailable()) return [];
+  try {
+    const { data, error } = await withQueryTimeout(
+      supabase
+        .from('game_splits')
+        .select([
+          'game_id', 'home_team', 'away_team', 'week',
+          'spread_home_bettors', 'spread_home_money',
+          'total_over_bettors',  'total_over_money',
+          'ml_home_bettors',     'ml_home_money',
+          'captured_at',
+        ].join(', '))
+        .eq('season', season)
+        .order('captured_at', { ascending: false })
+        .limit(500)
+    );
+    if (error) throw error;
+    return data || [];
+  } catch (e) {
+    logger.warn('[supabase] getLatestGameSplitsForSeason failed:', e.message);
+    return [];
+  }
+}
+
 // ─── Auth helpers ─────────────────────────────────────────────────────────────
 
 /**
@@ -1995,5 +2061,3 @@ export async function queryAuditLog({ tableName, actor, limit = 50 } = {}) {
     return [];
   }
 }
-
-

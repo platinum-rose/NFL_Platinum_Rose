@@ -79,8 +79,18 @@ const sourceColor = (expert) => {
 
 // ---- EpisodeCard ----
 
-function EpisodeCard({ episode, onImport }) {
-  const [expanded,  setExpanded]  = useState(false);
+function EpisodeCard({ episode, isTargeted, onImport }) {
+  const [expanded,  setExpanded]  = useState(Boolean(isTargeted));
+  const cardRef = React.useRef(null);
+
+  useEffect(() => {
+    if (isTargeted) {
+      setExpanded(true);
+      setTimeout(() => {
+        cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
+    }
+  }, [isTargeted]);
   const [imported,  setImported]  = useState(false);
   const [importing, setImporting] = useState(false);
   const [copied,    setCopied]    = useState(false);
@@ -149,7 +159,7 @@ function EpisodeCard({ episode, onImport }) {
   };
 
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden transition-all hover:border-slate-700">
+    <div ref={cardRef} className={`bg-slate-900 border ${isTargeted ? 'border-[#00d2be] ring-2 ring-[#00d2be]/30' : 'border-slate-800'} rounded-xl overflow-hidden transition-all hover:border-slate-700`}>
       {/* Header row */}
       <div className="flex items-start gap-0">
         {/* Expand toggle */}
@@ -310,6 +320,9 @@ export default function PodcastDigestTab() {
   const [error,    setError]    = useState(null);
   const [importMsg, setImportMsg] = useState('');
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const targetEpId = urlParams.get('episode') || urlParams.get('ep') || urlParams.get('episodeId');
+
   const weekInfo = getNFLWeekInfo();
   const canOpen  = Boolean(M6.BASE);
 
@@ -447,7 +460,7 @@ export default function PodcastDigestTab() {
             </div>
             <div className="space-y-3">
               {eps.map(ep => (
-                <EpisodeCard key={ep.id} episode={ep} onImport={handleImport} />
+                <EpisodeCard key={ep.id} episode={ep} isTargeted={targetEpId === ep.id} onImport={handleImport} />
               ))}
             </div>
           </div>

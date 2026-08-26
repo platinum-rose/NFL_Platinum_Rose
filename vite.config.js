@@ -8,6 +8,11 @@ export default defineConfig({
 
   base: '/platinum-rose-app/',
 
+  server: {
+    host: '0.0.0.0',
+    port: 5180,
+  },
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

@@ -169,6 +169,9 @@ Rules:
 - NFL only. If this chunk has no NFL futures content, return { "futures": [] } -- do not force non-NFL content (other leagues, contest/pool predictions, single-game picks) into this shape just to have something to return.
 - "subject" must be a real NFL team or player actually named in this chunk. Never substitute a non-NFL team/player name onto an NFL-sounding subject_market.
 - Only include futures clearly stated as the host's own prediction/lean, not just mentioning a market exists.
+- DO NOT OMIT WOULD BET POSITIONS OR PARLAYS. Extract both WOULD BET positions (including division winner parlays, multi-leg division tickets, futures, player props) and WOULD NOT BET / PASS positions. If an expert passes on a win total or standalone line, explicitly extract any recommended alternative WOULD BET positions (such as parlaying division winners, exact finishing order, or player props).
+- ALWAYS CAPTURE EXACT ODDS, LINES, AND SPECIFIC PROPS (e.g., '17 to 1 Super Bowl', '9 to 1 NFC Conference', '+125 Division'). Never abbreviate a position to a vague statement like 'betting on long shots' without detailing the exact market, line, and odds mentioned.
+- Preserve all decimal numbers (e.g. '10.5 wins', '9.5 wins') and odds numbers completely. Ensure footnote citations or markers do not truncate or distort numbers in the text.
 - Include timing conjectures when the speaker gives a conditional path that could affect futures entry timing or price, even if they are not recommending an immediate wager. For these, use lean "neutral" unless they clearly say the condition supports a future buy/fade.
 - Do NOT convert timing conjectures into immediate bets. Preserve the condition and timing in trigger_condition, betting_implication, and action_timing.
 - subject_market should use the taxonomy style already seen above (division codes like 'AFC_North', or 'MVP'/'Super_Bowl'/'Offensive_ROY' etc.) -- your best consistent guess if the exact code isn't obvious.
