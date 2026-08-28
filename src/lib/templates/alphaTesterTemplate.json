@@ -1,0 +1,174 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AlphaTesterProfile",
+  "description": "Standardized schema for onboarding new NFL Dashboard Alpha testers",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "realName",
+    "nickname",
+    "profileMode",
+    "role",
+    "alphaRole",
+    "usagePriority",
+    "defaultHub",
+    "fantasyLeagues",
+    "fantasyTeamBindings",
+    "allowedFeatures",
+    "blockedFeatures"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^alpha_[a-z0-9_]+$",
+      "description": "Unique identifier starting with alpha_"
+    },
+    "name": {
+      "type": "string",
+      "description": "Full display name with team/persona context (e.g., 'Brian (Dolphin Boobiez)')"
+    },
+    "displayLabel": {
+      "type": "string",
+      "description": "Short label for dropdown selector (e.g., 'Brian (Waiver & Injuries)')"
+    },
+    "realName": {
+      "type": "string",
+      "description": "Tester's real first and last name"
+    },
+    "nickname": {
+      "type": "string",
+      "description": "Primary fantasy team name or handle"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Tester's contact email for alpha communications"
+    },
+    "description": {
+      "type": "string",
+      "description": "Tester's primary play style, strategy, and dashboard expectations"
+    },
+    "role": {
+      "type": "string",
+      "enum": ["tester"]
+    },
+    "alphaRole": {
+      "type": "string",
+      "enum": ["tester", "power_tester"]
+    },
+    "profileMode": {
+      "type": "string",
+      "enum": ["alpha"]
+    },
+    "usagePriority": {
+      "type": "string",
+      "enum": [
+        "waiver_and_injuries",
+        "dynasty_and_draft",
+        "props_and_odds",
+        "start_sit_optimizer",
+        "multi_league_matrix",
+        "general_scouting"
+      ],
+      "description": "Determines dashboard focus, widget prioritization, and alert filtering"
+    },
+    "defaultHub": {
+      "type": "string",
+      "enum": ["dashboard", "official-picks", "intel", "futures", "fantasy", "injuries", "odds", "analytics"],
+      "description": "Landing hub when tester logs in"
+    },
+    "fantasyLeagues": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["the_league", "honey_badgers", "rfi_invitational", "rose_bowl"]
+      },
+      "minItems": 1
+    },
+    "fantasyTeamBindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["leagueId", "teamId", "teamName"],
+        "properties": {
+          "leagueId": { "type": "string" },
+          "teamId": { "type": "string" },
+          "teamName": { "type": "string" }
+        }
+      }
+    },
+    "favoriteTeams": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[A-Z]{2,3}$" }
+    },
+    "draftSlots": {
+      "type": "object",
+      "additionalProperties": { "type": ["integer", "null"] }
+    },
+    "keeperLocks": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": { "type": "string" }
+      }
+    },
+    "hubs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "agents": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "allowedFeatures": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "blockedFeatures": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "canUseAI": {
+      "type": "boolean",
+      "default": false
+    },
+    "canStoreApiKeys": {
+      "type": "boolean",
+      "default": false
+    },
+    "ownerPortfolioAccess": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "example": {
+    "id": "alpha_brian",
+    "name": "Brian (Dolphin Boobiez)",
+    "displayLabel": "Brian (Waiver & Injuries)",
+    "realName": "Brian",
+    "nickname": "Dolphin Boobiez",
+    "email": "brian@example.test",
+    "description": "High-stakes waiver grinder focused on real-time injury recovery, SIC scores, and depth chart trends.",
+    "role": "tester",
+    "alphaRole": "tester",
+    "profileMode": "alpha",
+    "usagePriority": "waiver_and_injuries",
+    "defaultHub": "injuries",
+    "fantasyLeagues": ["honey_badgers"],
+    "fantasyTeamBindings": [
+      { "leagueId": "honey_badgers", "teamId": "3", "teamName": "Dolphin Boobiez" }
+    ],
+    "favoriteTeams": ["MIA", "BUF"],
+    "draftSlots": { "honey_badgers": 3 },
+    "keeperLocks": { "honey_badgers": ["CeeDee Lamb", "Kyren Williams"] },
+    "hubs": ["dashboard", "official-picks", "intel", "futures", "fantasy", "injuries", "odds", "analytics", "bankroll", "mycard", "picks"],
+    "agents": [],
+    "allowedFeatures": ["dashboard", "official-picks", "intel-hub", "futures-report", "fantasy-packet", "schedule", "injuries", "market-context", "alpha-local-tracking"],
+    "blockedFeatures": ["master", "andy", "owner-futures-portfolio", "ai-agent-chat", "api-key-storage"],
+    "canUseAI": false,
+    "canStoreApiKeys": false,
+    "ownerPortfolioAccess": false
+  }
+}

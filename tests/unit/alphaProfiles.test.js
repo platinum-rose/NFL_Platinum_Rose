@@ -7,12 +7,14 @@ import {
   PRESET_PROFILES,
   PROFILE_KEY,
   PROFILE_MODES,
+  USAGE_PRIORITIES,
   canProfileAccessOwnerPortfolio,
   canProfileStoreApiKeys,
   canProfileUseAI,
   coerceProfileForMode,
   getDefaultProfileForMode,
   getPresetProfilesForMode,
+  getUsagePriorityConfig,
   isAlphaTesterProfile,
 } from '../../src/lib/profiles.js';
 
@@ -25,15 +27,29 @@ describe('Alpha profile catalog', () => {
     const ids = PRESET_PROFILES.map((profile) => profile.id);
 
     expect(ids).toEqual(expect.arrayContaining(OWNER_PROFILE_IDS));
-    expect(ids).toEqual(expect.arrayContaining(['master', 'andy']));
+    expect(ids).toEqual(expect.arrayContaining(['master', 'amanda', 'andy']));
   });
 
   it('adds Alpha tester profiles without replacing owner/admin profiles', () => {
     const ids = PRESET_PROFILES.map((profile) => profile.id);
 
-    expect(ALPHA_PROFILE_IDS.length).toBeGreaterThanOrEqual(4);
+    expect(ALPHA_PROFILE_IDS.length).toBeGreaterThanOrEqual(9);
     expect(ids).toEqual(expect.arrayContaining(ALPHA_PROFILE_IDS));
     expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  it('includes all curated tester personas in the Alpha profile catalog', () => {
+    const curatedIds = [
+      'alpha_brian',
+      'alpha_dave',
+      'alpha_marcus',
+      'alpha_sarah',
+      'alpha_alex',
+    ];
+
+    for (const id of curatedIds) {
+      expect(ALPHA_PROFILE_IDS).toContain(id);
+    }
   });
 
   it('filters Alpha tester mode to tester profiles only', () => {
@@ -69,7 +85,7 @@ describe('Alpha profile catalog', () => {
     expect(isAlphaTesterProfile(coerced)).toBe(false);
   });
 
-  it('binds Alpha testers only to supported fantasy league ids', () => {
+  it('binds Alpha testers only to supported fantasy league ids and valid teams', () => {
     const alphaProfiles = getPresetProfilesForMode(PROFILE_MODES.ALPHA);
 
     for (const profile of alphaProfiles) {
@@ -77,6 +93,28 @@ describe('Alpha profile catalog', () => {
       for (const leagueId of profile.fantasyLeagues) {
         expect(ALPHA_FANTASY_LEAGUE_IDS).toContain(leagueId);
       }
+      expect(Array.isArray(profile.fantasyTeamBindings)).toBe(true);
+      for (const binding of profile.fantasyTeamBindings) {
+        expect(ALPHA_FANTASY_LEAGUE_IDS).toContain(binding.leagueId);
+        expect(typeof binding.teamId).toBe('string');
+        expect(typeof binding.teamName).toBe('string');
+      }
+    }
+  });
+
+  it('assigns valid usage priorities and default hubs to all Alpha testers', () => {
+    const alphaProfiles = getPresetProfilesForMode(PROFILE_MODES.ALPHA);
+    const validPriorityIds = Object.values(USAGE_PRIORITIES).map((p) => p.id);
+
+    for (const profile of alphaProfiles) {
+      expect(validPriorityIds).toContain(profile.usagePriority);
+      expect(profile.defaultHub).toBeDefined();
+      expect(typeof profile.defaultHub).toBe('string');
+
+      const config = getUsagePriorityConfig(profile.usagePriority);
+      expect(config).toBeDefined();
+      expect(Array.isArray(config.priorityWidgets)).toBe(true);
+      expect(config.priorityWidgets.length).toBeGreaterThan(0);
     }
   });
 
@@ -98,6 +136,7 @@ describe('Alpha profile catalog', () => {
       expect(profile.blockedFeatures).toEqual(
         expect.arrayContaining(['owner-futures-portfolio', 'ai-agent-chat', 'api-key-storage'])
       );
+      expect(profile.agents).toEqual([]);
     }
   });
 });
