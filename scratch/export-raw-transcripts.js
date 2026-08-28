@@ -27,6 +27,16 @@ const EPISODES = [
     id: '463708c5-9dfb-44ba-a49b-cacf21eb506d',
     title: 'Sharp_or_Square_NFC_East_Betting_Preview',
     speakerMap: { 'F': 'Chad Millman', 'G': 'Simon Hunter' }
+  },
+  {
+    id: 'c05aa62e-a5d8-455a-9c80-ff7c4b10e1b7',
+    title: 'Sharp_or_Square_NFC_North_Betting_Preview',
+    speakerMap: { 'A': 'Chad Millman', 'B': 'Simon Hunter' }
+  },
+  {
+    id: '3670cdb7-f352-4a90-aa76-e00fdb3f1de1',
+    title: 'Sharp_or_Square_AFC_North_Betting_Preview',
+    speakerMap: { 'D': 'Chad Millman', 'E': 'Simon Hunter' }
   }
 ];
 
