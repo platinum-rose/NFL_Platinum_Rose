@@ -1,17 +1,18 @@
 {
   "project_name": "NFL_Dashboard",
   "bridge_version": "1.0",
-  "last_updated": "2026-08-23",
+  "last_updated": "2026-08-26",
   "last_atlas_sync": "2026-07-26",
-  "session_count": 8,
+  "session_count": 10,
+  "last_session_platform": "antigravity",
   "health": {
     "status": "active",
     "days_since_push": 0,
     "open_pr_count": 0,
-    "last_commit_msg": "fix(futures): patch tab-scroll nav + Value Spot display, backfill manual futures-odds imports, extract picks from full article body",
+    "last_commit_msg": "chore(skills): add handoff-start/close/resume skills implementing the Unified Session Context Protocol for Antigravity/Codex",
     "last_commit_author": "andrewlrose"
   },
-  "status_summary": "NFL betting analytics dashboard, now in preseason (season starts 2026-09-08). This run (2026-08-23, session number not visible from this repo -- see note on session_log entry below) fixed the Futures Intel Report page end to end: (1) restored report interactivity (missing iframe sandbox flag -- prior fix, already synced), (2) found and backfilled a major data gap -- futures_odds_snapshots held only an automated superbowl-only feed; ~3 months of manually-gathered BetOnline/Bookmaker/BetUS futures data (19 batch files, 4,333 rows) had never been loaded, which is why Line Movement and Value Spots were thin -- backfill ran live, verified 8,685 rows across all 8 report categories, (3) fixed a display bug where a Value Spot card showed only the point gap between two books' prices (e.g. \"+227\") instead of the worse book's actual price, which read as corrupted/truncated data, (4) found and fixed why Expert Signals wasn't surfacing picks stated in article bodies -- pick extraction only ever read the short RSS teaser, never the full article text a separate step was already fetching, (5) fixed the report's tab-nav so clicking a category actually scrolls the page. Yahoo Fantasy API access status not re-checked this session -- alert below left as-is.",
+  "status_summary": "NFL betting analytics dashboard in preseason + Fantasy Football Keeper Suite. Antigravity executed session S243 completing 100% uncapped extractions across 56 Master Reports, generating Master Actionable Betting Intelligence Suite (209 picks in data/podcasts/actionable_betting_recommendations_2026.json and docs/fantasy/MASTER_BETTING_INTELLIGENCE_PACKET_2026.md), building Vegas sharp odds scraper (Circa/Station), integrating Injury Center with Dr. David Chao / PFF medical intel, and drafting formal Alpha Testing Specification in docs/specs/ALPHA_TESTING_SPEC.md.",
   "alerts": [
     {
       "id": "yahoo_api_pending_approval",
@@ -39,8 +40,36 @@
   },
   "open_tasks": [
     {
+      "id": "afc_north_second_pass_extraction",
+      "description": "Run 2nd-pass extraction on raw diarized transcript JSON for AFC North division preview (following NFC North S241 verification), then complete remaining division previews prior to production email dispatch.",
+      "priority": 1,
+      "created_at": "2026-08-26T00:00:00",
+      "owner": "Andy"
+    },
+    {
+      "id": "rfi_draft_order_simulation",
+      "description": "Once RFI Invitational 2026 draft order drops: plug slot position into docs/fantasy/LEAGUE_DRAFT_ORDERS_2026.json and model Round 1 & 2 draft board availability",
+      "priority": 1,
+      "created_at": "2026-08-26T00:00:00",
+      "owner": "Andy"
+    },
+    {
+      "id": "fantasy_opponent_keeper_tracker",
+      "description": "Log incoming declared opponent keepers in Honey Badgers, The League, and RFI to refine remaining draft board availability",
+      "priority": 2,
+      "created_at": "2026-08-26T00:00:00",
+      "owner": "Andy"
+    },
+    {
+      "id": "futures_report_regen_verify",
+      "description": "Regenerate the Futures Intel Report and verify Line Movement / Value Spots now populate now that ~3 months of manual BOL/BKR/BTU futures data has been backfilled (2026-08-23)",
+      "priority": 2,
+      "created_at": "2026-08-23T00:00:00",
+      "owner": "Andy"
+    },
+    {
       "id": "nfl_skills_gap",
-      "description": "NFL Dashboard has 0 SKILL.md files — port from NCAA or create net-new for off-season",
+      "description": "NFL Dashboard has 0 SKILL.md files \u2014 port from NCAA or create net-new for off-season",
       "priority": 3,
       "created_at": "2026-04-17T00:00:00",
       "owner": "Andy"
@@ -51,20 +80,6 @@
       "priority": 2,
       "created_at": "2026-07-26T00:00:00",
       "owner": "ATLAS"
-    },
-    {
-      "id": "futures_report_regen_verify",
-      "description": "Regenerate the Futures Intel Report and verify Line Movement / Value Spots now populate now that ~3 months of manual BOL/BKR/BTU futures data has been backfilled (2026-08-23)",
-      "priority": 1,
-      "created_at": "2026-08-23T00:00:00",
-      "owner": "Andy"
-    },
-    {
-      "id": "expert_signals_retro_backfill",
-      "description": "Optional follow-up: the 2026-08-23 fix that extracts pick signals from full article bodies is forward-only -- it does not retroactively re-scan research_intel_notes.body for already-ingested articles. Not built (wasn't requested); small script if wanted.",
-      "priority": 3,
-      "created_at": "2026-08-23T00:00:00",
-      "owner": "Andy"
     }
   ],
   "session_log": [
@@ -77,8 +92,26 @@
     {
       "sessions": "S339",
       "date": "2026-08-23",
-      "summary": "Futures Intel Report: backfilled ~3mo of manually-gathered BOL/BKR/BTU futures data (19 files, 4,333 rows -- futures_odds_snapshots previously held only an automated superbowl-only feed, bookmaker/betus had zero rows ever); fixed Value Spot card showing a misleading point-gap number instead of the actual worse-book price; fixed Expert Signals never extracting picks stated in full article bodies (only ever read the RSS teaser); fixed report tab-nav scroll. Builds on the prior 2026-08-23 session (iframe sandbox/interactivity fix, same day, not yet reflected in this bridge file before now). Reconciled against the real ATLAS counter 2026-08-23: logged as S339 (not S334 -- session_log/INDEX.md showed S331-S338 already used). This S339 entry also consolidates 5 other 2026-08-22/23 pieces of NFL_Dashboard work (Antigravity BetOnline OCR/quant framework, IDP schemes guide, DraftSharks IDP rankings, OCR re-verify; Cowork archive-reorg audit + LINT-1 closeout; Codex Checkpoint 5 kickoff; Cowork Futures Report interactivity fix + NFL-ATLAS-1 pin/watchlist) that had never been logged to ATLAS -- see E:/dev/ATLAS/.atlas/session_log/2026-08-23_session.md for the full record.",
+      "summary": "Futures Intel Report: backfilled ~3mo of manually-gathered BOL/BKR/BTU futures data.",
       "head": "23f662c"
+    },
+    {
+      "sessions": "S241",
+      "date": "2026-08-26",
+      "summary": "Codex independently reviewed Antigravity S240 handoff against live git/HANDOFF/session-log state.",
+      "head": "d27ab84"
+    },
+    {
+      "sessions": "S242",
+      "date": "2026-08-26",
+      "summary": "Antigravity completed 4-League Master Fantasy Football Keeper Analysis & Strategy Pipeline. Processed 785 rostered players across 48 teams. Parsed 2025 draft boards for The League, Honey Badgers, and RFI. Created docs/fantasy/MASTER_FANTASY_LEAGUE_RULES.md, saved official 2026 draft orders to docs/fantasy/LEAGUE_DRAFT_ORDERS_2026.json, and built 12-team surplus matrices. Keepers locked for FLA: The League (Burrow Rd 10, JSN Rd 4), Honey Badgers (Bowers Rd 14, Caleb Williams Rd 13), and RFI (Burrow Rd 10). Modeled Turn Picks #12/#13 in The League (Saquon/A.J. Brown target board) and Pick #5 in Honey Badgers (Amon-Ra/Jonathan Taylor target board).",
+      "head": "d27ab84"
+    },
+    {
+      "sessions": "S243",
+      "date": "2026-08-26",
+      "summary": "Completed 100% uncapped extractions across 56 Master Reports, generating Master Actionable Betting Intelligence Suite (209 picks in data/podcasts/actionable_betting_recommendations_2026.json and docs/fantasy/MASTER_BETTING_INTELLIGENCE_PACKET_2026.md), building Vegas sharp odds scraper (Circa/Station), integrating Injury Center with Dr. David Chao / PFF medical intel, and drafting formal in-repo Alpha Testing Specification at docs/specs/ALPHA_TESTING_SPEC.md.",
+      "head": "9fe8249"
     }
   ]
 }

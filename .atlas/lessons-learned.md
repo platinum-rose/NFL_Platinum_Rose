@@ -315,3 +315,78 @@
   Sonny Styles, Jacob Rodriguez). Of 28 total player-level-market picks across the dataset, 27 now have
   a name; the sole remaining gap (`youtube-veVjJ_EUYdk`, CLE oroy) has genuinely no name anywhere in the
   extracted data (rationale, notes, or transcript) and needs an actual audio listen.
+
+## S341 — 2026-08-25: HANDOFF.md was stacking "Previous Pick Up Here" blocks instead of archiving them
+
+**Root cause:** Every session that closed added a new `## Previous Pick Up Here (...)` block
+on top of HANDOFF.md's existing ones rather than moving the superseded content out to a
+standalone file under `handoffs/` (the convention this repo already uses for ~30 other
+historical handoffs, most correctly filed under `handoffs/archive/`). By 2026-08-25,
+HANDOFF.md had grown to 847 lines / 53.7KB: one live "Current Pick Up Here" block plus 11
+stacked "Previous" blocks spanning 2026-08-22 to 2026-08-23, all of which were long since
+superseded by the 2026-08-23 S339 closeout and the 2026-08-25 Command Hub Phase 0 work.
+`hooks/scripts/build-handoff.js` (the session-end hook) only generates a minimal skeleton
+(Date/Branch/Uncommitted/In Progress/Last Session Summary) — it does not write or manage
+"Pick Up Here" blocks at all, so nothing was ever pruning them automatically.
+
+**How to apply:** When closing a session, if HANDOFF.md already has a `## Current Pick Up
+Here` block from a prior session, don't just add a new one on top — move the old block's
+full content to a new dated file under `handoffs/` (or `handoffs/archive/` if it's already
+clearly superseded, not just the prior session), rename its heading to `## Previous Pick Up
+Here`, and replace its body with a short pointer + 1-line summary. Two already-existing
+resume-prompt-style documents make good models for the condensed pointer style:
+`handoffs/archive/2026-08-23-1550-cowork-s339-resume-handoff.md` (a proper "read this first"
+summary of 11 pieces of work) and the newest `handoffs/2026-08-25-1424-...md`. On 2026-08-25
+the entire 11-block stack was condensed this way: full verbatim detail archived to
+`handoffs/archive/2026-08-2223-handoff-previous-pickup-here-blocks-consolidated.md`, and
+HANDOFF.md now carries only a short "Previous Sessions (condensed)" section pointing at it
+(847 lines -> 146 lines). `HANDOFF_PROMPT.md` and `WORKING-CONTEXT.md` both had a stale
+reference to the moved `2026-08-22-1155-codex-checkpoint5-...` path — fixed to point at
+`handoffs/archive/`. Watch for this same reference-breakage anywhere else a handoff file
+gets moved to `archive/`.
+
+*(Added 2026-08-25, Claude/Cowork)*
+
+## S341 (cont.) — 2026-08-25: WORKING-CONTEXT.md is mandatory reading every session — keep it actually brief
+
+**Root cause:** Same stacking pattern as the HANDOFF.md issue logged above, but higher-stakes:
+CLAUDE.md's "Session Start" section says "read `WORKING-CONTEXT.md` before touching any file" —
+unconditional, every session, not a targeted/conditional read like HANDOFF.md's. By 2026-08-25 it
+had grown to 39KB across 5 stacked, never-replaced state sections (2026-07-29 through 2026-08-22),
+almost entirely stale (git HEADs, local dev ports, commit lists from 3+ weeks prior). Also found: a
+newer "Unified Session Context Protocol" section elsewhere in the same CLAUDE.md gives a different,
+leaner targeted-read procedure that doesn't mention WORKING-CONTEXT.md at all — the file had two
+disagreeing session-start instructions at once.
+
+**How to apply:** WORKING-CONTEXT.md's own header already says "Keep this brief and accurate" —
+take that literally. When current state changes, replace the "Current State" section in place;
+archive the old content to `docs/archive/` first if it's worth keeping (see
+`docs/archive/WORKING-CONTEXT_archive_2026-08-25.md` for the pattern), never stack a new dated
+section on top of an old one the way this file had been. The rebuilt version always defers to
+HANDOFF.md's `## Current Pick Up Here` as the source of truth rather than duplicating it, so the
+two can't drift out of sync the way they had. Added a note in CLAUDE.md's older "Session Start"
+section pointing at the "Unified Session Context Protocol" as canonical, rather than deleting either
+section outright (CLAUDE.md is shared across Claude/Codex/Antigravity/Copilot — a note is lower-risk
+than restructuring instructions another tool might be relying on verbatim).
+
+*(Added 2026-08-25, Claude/Cowork)*
+
+## S243 — 2026-08-26: Test Reporting Integrity, Spec In-Repo Locality & Clean Handoff Governance
+
+### 1. Never report scoped sub-suite test results as global repository health
+- **Root cause:** Running a selective test file list (`vitest run tests/unit/fileA.js tests/unit/fileB.js` -> 29/29 passed) and claiming in handoff documents that "29/29 tests passed" when `npx vitest run` globally fails across the wider repository creates false confidence and unsafe baselines for future sessions.
+- **Rule:** Handoff documents must report the exact global `npx vitest run` numbers (e.g. 77 files, 1,122 passed, 8 pre-existing failures). Never use scoped sub-suite counts to make sweeping pass claims.
+
+### 2. When reverting unapproved code, companion test assertions must be reverted simultaneously
+- **Root cause:** Reverting a UI route in `src/App.jsx` while leaving behind its modified assertion in `tests/unit/appTabRouting.test.js` created broken test residue that failed subsequent verification.
+- **Rule:** Feature reversions must cleanly include their companion test assertions so no artificial test failures remain.
+
+### 3. Specifications and design docs must live in-repo, never solely in private assistant artifacts
+- **Root cause:** Pointing handoff references to an external assistant brain path orphaned the document for human teammates and peer review agents.
+- **Rule:** All specifications must be written directly to `docs/specs/<NAME>.md` in the repository tree before requesting review.
+
+### 4. Worktree precision in handoff documentation
+- **Root cause:** Claiming a "clean repository baseline" when intentional uncommitted source/scratch files exist in the worktree caused confusion during Codex audits.
+- **Rule:** Explicitly state: "Alpha UI residue reverted; uncommitted S243 market/injury files preserved."
+
+*(Added 2026-08-26, Antigravity/Codex Audit)*

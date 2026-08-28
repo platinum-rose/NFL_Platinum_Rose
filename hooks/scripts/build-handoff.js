@@ -67,6 +67,38 @@ function getLastSessionLog() {
   try { return JSON.parse(lines[lines.length - 1]); } catch { return null; }
 }
 
+// Sections this hook itself regenerates every run. Anything else that was
+// already in HANDOFF.md (Current Pick Up Here, Persistent Backlogs, Previous
+// Sessions, etc.) is hand-maintained by the session and must survive a
+// Stop-hook rewrite.
+const MECHANICAL_HEADERS = ['Uncommitted Changes', 'In Progress', 'Review', 'Last Session Summary'];
+
+function extractPreservedSections(existingContent) {
+  if (!existingContent) return [];
+  const lines = existingContent.split('\n');
+  const chunks = [];
+  let current = null;
+  for (const line of lines) {
+    if (/^## /.test(line)) {
+      if (current) chunks.push(current);
+      current = { header: line, body: [] };
+    } else if (current) {
+      current.body.push(line);
+    }
+  }
+  if (current) chunks.push(current);
+
+  const preserved = [];
+  for (const c of chunks) {
+    const headerText = c.header.replace(/^## /, '').trim();
+    const isMechanical = MECHANICAL_HEADERS.some(h => headerText.toLowerCase().startsWith(h.toLowerCase()));
+    if (isMechanical) continue;
+    let body = c.body.join('\n').replace(/\n---\n_Resume by reading[^\n]*_\s*$/, '');
+    preserved.push(`\n${c.header}\n${body}`.replace(/\n{3,}$/, '\n'));
+  }
+  return preserved;
+}
+
 function main() {
   if (!existsSync(MEM_DIR)) mkdirSync(MEM_DIR, { recursive: true });
 
@@ -77,12 +109,15 @@ function main() {
   const inProgress = getTaskBoardSection('In Progress');
   const review = getTaskBoardSection('Review');
   const lastLog = getLastSessionLog();
+  const existing = existsSync(HANDOFF_FILE) ? readFileSync(HANDOFF_FILE, 'utf8') : '';
+  const preserved = extractPreservedSections(existing);
 
   const sections = [
     `# NFL_Dashboard — Session Handoff`,
     `> Auto-generated at session end. Read this to resume.`,
     `\n**Date:** ${now}`,
     `**Branch:** ${branch}`,
+    ...preserved,
   ];
 
   if (modified.length > 0 || staged.length > 0) {
