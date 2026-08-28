@@ -8,6 +8,8 @@ Welcome to the **Antigravity AI** directory for the Platinum Rose NFL Dashboard.
 
 | Document | Description | Path |
 |---|---|---|
+| **Canonical Extraction Pipeline** | Cross-team source contract for Antigravity exhaustive extraction outputs used by Codex, Claude, Antigravity, and Copilot during betting-recommendation synthesis. | [`CANONICAL_EXTRACTION_PIPELINE.md`](file:///e:/dev/projects/NFL_Dashboard/docs/antigravity/CANONICAL_EXTRACTION_PIPELINE.md) |
+| **Source Inventory & Freshness Report** | Current canonical Antigravity inventory, processed/skipped source disposition, and lifecycle gap report. | [`source-inventory-and-freshness-latest.md`](file:///e:/dev/projects/NFL_Dashboard/docs/antigravity/source-inventory-and-freshness-latest.md) |
 | **Gemini Audio Migration Spec** | Technical specification to migrate `podcast-ingest.js` to 1-step Gemini 2.0 Flash Multimodal Audio transcription & pick extraction. | [`GEMINI_AUDIO_MIGRATION_SPEC.md`](file:///e:/dev/projects/NFL_Dashboard/docs/antigravity/GEMINI_AUDIO_MIGRATION_SPEC.md) |
 | **Full Test Transcription & Parity Report** | Head-to-head data parity verification report comparing current Groq/AssemblyAI outputs vs. Gemini 2.0 Multimodal Audio outputs. | [`FULL_TEST_TRANSCRIPTION_COMPARISON.md`](file:///e:/dev/projects/NFL_Dashboard/docs/antigravity/FULL_TEST_TRANSCRIPTION_COMPARISON.md) |
 | **System Architecture & Monte Carlo Data Flow** | Comprehensive map detailing React 19 component hierarchy, Tailwind CSS v3 styling interaction, and the end-to-end 10,000-iteration Monte Carlo simulation Web Worker engine. | [`architecture_map.md`](file:///e:/dev/projects/NFL_Dashboard/docs/antigravity/architecture_map.md) |

@@ -1,0 +1,244 @@
+{
+  "schema": "local_bettingpros_latest_nfl_ingest_v1",
+  "generated_at": "2026-08-28T22:19:04.697Z",
+  "run_date": "2026-08-28",
+  "status": "research_intel_only_no_promotion",
+  "guardrails": {
+    "no_official_pick_mutation": true,
+    "no_bankroll_or_portfolio_mutation": true,
+    "no_odds_cache_mutation": true,
+    "no_supabase_writes": true,
+    "no_paid_api_calls": true,
+    "no_ai_model_calls": true
+  },
+  "source": "BettingPros",
+  "feed_url": "https://www.bettingpros.com/wp-json/wp/v2/posts?per_page=50&_embed=1",
+  "articles_processed": 5,
+  "explicit_pick_articles": 5,
+  "explicit_picks_found": 10,
+  "records": [
+    {
+      "schema": "local_bettingpros_latest_nfl_article_v1",
+      "source": "BettingPros",
+      "status": "processed",
+      "post_id": 334290,
+      "title": "NFL Preseason Picks: Commanders vs. Ravens (Friday)",
+      "author": "BettingPros Staff",
+      "url": "https://www.bettingpros.com/articles/nfl-preseason-picks-commanders-vs-ravens-friday/",
+      "slug": "bettingpros_nfl_preseason_picks_commanders_vs_ravens_friday",
+      "teams": [
+        "Commanders",
+        "Ravens"
+      ],
+      "matchup": "Commanders vs Ravens",
+      "fetched_at": "2026-08-28T22:19:04.679Z",
+      "published_at": "2026-08-28T11:31:29Z",
+      "picks": [
+        "Ravens -3.5 (-105)"
+      ],
+      "market_types": [
+        "spread"
+      ],
+      "context": [
+        "Get comfy on the couch because Week 3 of the NFL preseason nears its close with 10 games on Friday night.",
+        "As unpredictable as preseason action can be, there's still betting value to be found.",
+        "Here's a look at my favorite NFL preseason Week 3 picks for Friday's game Commanders vs.",
+        "Friday's Best NFL Preseason Picks: Commanders vs.",
+        "(Odds courtesy of Caesars Sportsbook ) .",
+        "The Commanders fell to the Lions 17-13 in Week 2 of the NFL preseason."
+      ],
+      "evidence_snippets": [
+        "Get comfy on the couch because Week 3 of the NFL preseason nears its close with 10 games on Friday night.",
+        "As unpredictable as preseason action can be, there's still betting value to be found.",
+        "Here's a look at my favorite NFL preseason Week 3 picks for Friday's game Commanders vs.",
+        "Friday's Best NFL Preseason Picks: Commanders vs.",
+        "The Commanders fell to the Lions 17-13 in Week 2 of the NFL preseason.",
+        "It was the 21st loss in 29 career preseason contests for head coach Dan Quinn..",
+        "Fans can anticipate a heavy dose of running back Kaytron Allen, who has rushed for 115 yards and one touchdown on 33 carries.",
+        "The Ravens were a strong preseason team under John Harbaugh, and that has continued under Jesse Minter.",
+        "Quarterback Joe Fagnano has been serviceable, completing 37-of-48 passes for 347 yards, two touchdowns and one interception.",
+        "Trust Baltimore's defense to stay hot and give the home crowd something to cheer about in a comfortable win.."
+      ],
+      "output_master_report": "scratch\\bettingpros_nfl_preseason_picks_commanders_vs_ravens_friday_master_100percent_exhaustive.md"
+    },
+    {
+      "schema": "local_bettingpros_latest_nfl_article_v1",
+      "source": "BettingPros",
+      "status": "processed",
+      "post_id": 334291,
+      "title": "NFL Preseason Picks: Falcons vs. Dolphins (Friday)",
+      "author": "BettingPros Staff",
+      "url": "https://www.bettingpros.com/articles/nfl-preseason-picks-falcons-vs-dolphins-friday/",
+      "slug": "bettingpros_nfl_preseason_picks_falcons_vs_dolphins_friday",
+      "teams": [
+        "Falcons",
+        "Dolphins"
+      ],
+      "matchup": "Falcons vs Dolphins",
+      "fetched_at": "2026-08-28T22:19:04.681Z",
+      "published_at": "2026-08-28T11:30:52Z",
+      "picks": [
+        "Under 36.5 Points (-110)"
+      ],
+      "market_types": [
+        "total_or_prop_total"
+      ],
+      "context": [
+        "Get comfy on the couch because Week 3 of the NFL preseason nears its close with 10 games on Friday night.",
+        "As unpredictable as preseason action can be, there's still betting value to be found.",
+        "Here's a look at my favorite NFL preseason Week 3 picks for Friday's game Falcons vs.",
+        "Friday's Best NFL Preseason Picks: Falcons vs.",
+        "(Odds courtesy of Caesars Sportsbook ) .",
+        "It has not been an inspiring preseason for the Dolphins' offense."
+      ],
+      "evidence_snippets": [
+        "Get comfy on the couch because Week 3 of the NFL preseason nears its close with 10 games on Friday night.",
+        "As unpredictable as preseason action can be, there's still betting value to be found.",
+        "Here's a look at my favorite NFL preseason Week 3 picks for Friday's game Falcons vs.",
+        "Friday's Best NFL Preseason Picks: Falcons vs.",
+        "It has not been an inspiring preseason for the Dolphins' offense.",
+        "Quarterback Malik Willis has seen limited action, while his backups have failed to find a groove..",
+        "On the other side, the Falcons will be without quarterback Michael Penix Jr.",
+        "Veteran signal-caller Tua Tagovailoa should take some snaps before Jack Strand and Cooper Rush take over..",
+        "The backup duo excelled in a 34-6 win over the Colts in Week 2 of the preseason.",
+        "Atlanta could have another offensive outburst on Friday, and it would still be tough to creep over the total in this game."
+      ],
+      "output_master_report": "scratch\\bettingpros_nfl_preseason_picks_falcons_vs_dolphins_friday_master_100percent_exhaustive.md"
+    },
+    {
+      "schema": "local_bettingpros_latest_nfl_article_v1",
+      "source": "BettingPros",
+      "status": "processed",
+      "post_id": 334283,
+      "title": "NFL Preseason Picks: Saints vs. Cowboys (Friday)",
+      "author": "BettingPros Staff",
+      "url": "https://www.bettingpros.com/articles/nfl-preseason-picks-saints-vs-cowboys-friday/",
+      "slug": "bettingpros_nfl_preseason_picks_saints_vs_cowboys_friday",
+      "teams": [
+        "Saints",
+        "Cowboys"
+      ],
+      "matchup": "Saints vs Cowboys",
+      "fetched_at": "2026-08-28T22:19:04.683Z",
+      "published_at": "2026-08-28T11:29:08Z",
+      "picks": [
+        "Cowboys Over 1.5 Field Goals (-105)"
+      ],
+      "market_types": [
+        "total_or_prop_total"
+      ],
+      "context": [
+        "Get comfy on the couch because Week 3 of the NFL preseason nears its close with 10 games on Friday night.",
+        "As unpredictable as preseason action can be, there's still betting value to be found.",
+        "Here's a look at my favorite NFL preseason Week 3 picks for Friday's game Saints vs.",
+        "Friday's Best NFL Preseason Picks: Saints vs.",
+        "(Odds courtesy of Caesars Sportsbook ) .",
+        "Intrigue grows in preseason matchups when there is something on the line."
+      ],
+      "evidence_snippets": [
+        "Get comfy on the couch because Week 3 of the NFL preseason nears its close with 10 games on Friday night.",
+        "As unpredictable as preseason action can be, there's still betting value to be found.",
+        "Here's a look at my favorite NFL preseason Week 3 picks for Friday's game Saints vs.",
+        "Friday's Best NFL Preseason Picks: Saints vs.",
+        "Intrigue grows in preseason matchups when there is something on the line.",
+        "Dallas' Joe Milton and Sam Howell remain in contention for the backup quarterback job..",
+        "Howell does have regular-season starts under his belt, though, and could use Friday as an opportunity to regain some ground.",
+        "To say New Orleans' defense has struggled this preseason would be putting it lightly.",
+        "The Saints have allowed 58 points over the past two weeks, the highest mark among NFC squads.",
+        "Pick: Cowboys Over 1.5 Field Goals ( -105 ) ."
+      ],
+      "output_master_report": "scratch\\bettingpros_nfl_preseason_picks_saints_vs_cowboys_friday_master_100percent_exhaustive.md"
+    },
+    {
+      "schema": "local_bettingpros_latest_nfl_article_v1",
+      "source": "BettingPros",
+      "status": "processed",
+      "post_id": 334201,
+      "title": "NFL Preseason Picks & Predictions: Week 3 (Saturday)",
+      "author": "Mike Fanelli",
+      "url": "https://www.bettingpros.com/articles/nfl-preseason-picks-predictions-week-3-saturday/",
+      "slug": "bettingpros_nfl_preseason_picks_predictions_week_3_saturday",
+      "teams": [],
+      "matchup": "",
+      "fetched_at": "2026-08-28T22:19:04.686Z",
+      "published_at": "2026-08-28T07:16:04Z",
+      "picks": [
+        "Anthony Richardson Over 12.5 Rushing Yards (-115 via Underdog)",
+        "Detroit Lions MoneyLine (+172 via ProphetX)",
+        "Tennessee Titans -2.5 (-104 via Kalshi)",
+        "Tennessee Titans Team Total Over 19.5 Points (-125 via Caesars Sportsbook)"
+      ],
+      "market_types": [
+        "total_or_prop_total",
+        "moneyline",
+        "spread",
+        "team_total"
+      ],
+      "context": [
+        "The NFL preseason wraps up on Saturday with the final two games before the start of the regular season.",
+        "Then, the Chicago Bears head to Tennessee to face the Titans to conclude the 2026 NFL preseason.",
+        "Therefore, let's make some money on the last meaningless football games of the year and look at my four favorite bets for Saturday's two-game preseason slate..",
+        "Saturday's Best NFL Preseason Picks .",
+        "Most teams will sit their starters for the final preseason contest.",
+        "He had 53 rushing yards on only six attempts in the Week 1 preseason contest."
+      ],
+      "evidence_snippets": [
+        "The NFL preseason wraps up on Saturday with the final two games before the start of the regular season.",
+        "Then, the Chicago Bears head to Tennessee to face the Titans to conclude the 2026 NFL preseason.",
+        "Therefore, let's make some money on the last meaningless football games of the year and look at my four favorite bets for Saturday's two-game preseason slate..",
+        "Saturday's Best NFL Preseason Picks .",
+        "Anthony Richardson Over 12.5 Rushing Yards (-115 via Underdog) .",
+        "Most teams will sit their starters for the final preseason contest.",
+        "Yet the former Florida star will likely play with the second-string offense as well, as Richardson is competing with Riley Leonard for the No.",
+        "Yet, Richardson should have no trouble hitting the over on this prop bet.",
+        "He had 53 rushing yards on only six attempts in the Week 1 preseason contest.",
+        "More importantly, Richardson has averaged 37.3 rushing yards per contest in his career, totaling 24 or more in all but one game as the starter.."
+      ],
+      "output_master_report": "scratch\\bettingpros_nfl_preseason_picks_predictions_week_3_saturday_master_100percent_exhaustive.md"
+    },
+    {
+      "schema": "local_bettingpros_latest_nfl_article_v1",
+      "source": "BettingPros",
+      "status": "processed",
+      "post_id": 334132,
+      "title": "NFL Preseason Picks & Predictions: Week 3 (Friday)",
+      "author": "Lawrence Rupp",
+      "url": "https://www.bettingpros.com/articles/nfl-preseason-picks-predictions-week-3-friday/",
+      "slug": "bettingpros_nfl_preseason_picks_predictions_week_3_friday",
+      "teams": [],
+      "matchup": "",
+      "fetched_at": "2026-08-28T22:19:04.687Z",
+      "published_at": "2026-08-27T10:29:08Z",
+      "picks": [
+        "Ravens -3.5 (-105)",
+        "Under 36.5 Points (-110)",
+        "Cowboys Over 1.5 Field Goals (-105)"
+      ],
+      "market_types": [
+        "spread",
+        "total_or_prop_total"
+      ],
+      "context": [
+        "Get comfy on the couch because Week 3 of the NFL preseason nears its close with 10 games on Friday night.",
+        "As unpredictable as preseason action can be, there's still betting value to be found.",
+        "Here's a look at three of my favorite NFL preseason picks for Friday's slate.",
+        "Friday's Best NFL Preseason Picks .",
+        "(Odds courtesy of Caesars Sportsbook ) .",
+        "The Commanders fell to the Lions 17-13 in Week 2 of the NFL preseason."
+      ],
+      "evidence_snippets": [
+        "Get comfy on the couch because Week 3 of the NFL preseason nears its close with 10 games on Friday night.",
+        "As unpredictable as preseason action can be, there's still betting value to be found.",
+        "Here's a look at three of my favorite NFL preseason picks for Friday's slate.",
+        "Friday's Best NFL Preseason Picks .",
+        "The Commanders fell to the Lions 17-13 in Week 2 of the NFL preseason.",
+        "It was the 21st loss in 29 career preseason contests for head coach Dan Quinn..",
+        "Fans can anticipate a heavy dose of running back Kaytron Allen, who has rushed for 115 yards and one touchdown on 33 carries.",
+        "The Ravens were a strong preseason team under John Harbaugh, and that has continued under Jesse Minter.",
+        "Quarterback Joe Fagnano has been serviceable, completing 37-of-48 passes for 347 yards, two touchdowns and one interception.",
+        "Trust Baltimore's defense to stay hot and give the home crowd something to cheer about in a comfortable win.."
+      ],
+      "output_master_report": "scratch\\bettingpros_nfl_preseason_picks_predictions_week_3_friday_master_100percent_exhaustive.md"
+    }
+  ]
+}

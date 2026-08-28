@@ -1,0 +1,419 @@
+{
+  "schema": "local_action_network_preseason_week3_ingest_v1",
+  "generated_at": "2026-08-28T22:00:13.176Z",
+  "run_date": "2026-08-28",
+  "status": "research_intel_only_no_promotion",
+  "guardrails": {
+    "no_official_pick_mutation": true,
+    "no_bankroll_or_portfolio_mutation": true,
+    "no_odds_cache_mutation": true,
+    "no_supabase_writes": true,
+    "no_paid_api_calls": true,
+    "no_ai_model_calls": true
+  },
+  "source": "Action Network",
+  "articles_requested": 10,
+  "articles_processed": 10,
+  "explicit_picks_found": 10,
+  "records": [
+    {
+      "schema": "local_action_network_preseason_week3_article_v1",
+      "source": "Action Network",
+      "status": "processed",
+      "http_status": 200,
+      "title": "Commanders vs Ravens Predictions, Picks, Odds Tonight",
+      "author": "Frank Ammirante",
+      "url": "https://www.actionnetwork.com/nfl/washington-commanders-vs-baltimore-ravens-prediction-pick-odds-for-nfl-preseason-week-3-august-28",
+      "slug": "action_network_commanders_ravens_preseason_week3_aug28",
+      "teams": [
+        "Washington Commanders",
+        "Baltimore Ravens"
+      ],
+      "matchup": "Washington Commanders vs Baltimore Ravens",
+      "fetched_at": "2026-08-28T22:00:12.282Z",
+      "published_at": "2026-08-28T20:41:15.000Z",
+      "updated_at": "2026-08-28T20:41:47.000Z",
+      "pick": "Under 34.5 (-110)",
+      "market_type": "total",
+      "kickoff": "Kickoff is set for 6:00 p.m. ET from M&T Bank Stadium in Baltimore, Md.",
+      "odds_context": [
+        "The Ravens are 3.5-point favorites on the spread, with the over/under set at 33.5 (-112o / -108u).",
+        "Baltimore is a -154 favorite on the moneyline, while Washington is a +130 underdog..",
+        "My Commanders vs Ravens best bet is on the under total points, with the best price currently available at FanDuel."
+      ],
+      "evidence_snippets": [
+        "The Washington Commanders and Baltimore Ravens meet in NFL preseason action tonight.",
+        "The Ravens are 3.5-point favorites on the spread, with the over/under set at 33.5 (-112o / -108u).",
+        "Let's get into my Commanders vs Ravens prediction for tonight's preseason game..",
+        "Commanders vs Ravens pick: Under 34.5 (-110) .",
+        "My Commanders vs Ravens best bet is on the under total points, with the best price currently available at FanDuel.",
+        "The Commanders are coming off a 17-13 loss to the Lions in their last preseason game.",
+        "That was a game where Athan Kaliakmanis and Sam Hartman dominated reps at quarterback, which is expected to be the case once again for...",
+        "Reports out of camp indicate that the Commanders' offensive line has struggled mightily in joint practice, as Daniels has consistently been under duress..",
+        "The Ravens have allowed a combined 10 points in their two preseason wins so far.",
+        "They're coming off a 13-3 victory over the Vikings .."
+      ],
+      "output_master_report": "scratch\\action_network_commanders_ravens_preseason_week3_aug28_master_100percent_exhaustive.md"
+    },
+    {
+      "schema": "local_action_network_preseason_week3_article_v1",
+      "source": "Action Network",
+      "status": "processed",
+      "http_status": 200,
+      "title": "Falcons vs Dolphins Prediction, Picks, Odds - NFL Preseason Preview",
+      "author": "Michael Crosson",
+      "url": "https://www.actionnetwork.com/nfl/atlanta-falcons-vs-miami-dolphins-prediction-pick-odds-nfl-preseason-week-3-august-28",
+      "slug": "action_network_falcons_dolphins_preseason_week3_aug28",
+      "teams": [
+        "Atlanta Falcons",
+        "Miami Dolphins"
+      ],
+      "matchup": "Atlanta Falcons vs Miami Dolphins",
+      "fetched_at": "2026-08-28T22:00:12.337Z",
+      "published_at": "2026-08-28T20:08:26.000Z",
+      "updated_at": "2026-08-28T20:09:39.000Z",
+      "pick": "Dolphins Moneyline (+162)",
+      "market_type": "moneyline_or_prediction_market",
+      "kickoff": "Kickoff is set for in 7:00 p.m. ET from Hard Rock Stadium in Miami Gardens, Florida.",
+      "odds_context": [
+        "Matchup - 8/28 11:00pm UTC Spread Total Moneyline .",
+        "The Falcons are 3.5-point favorites over the Dolphins on the spread, with the over/under set at 36.5 total points.",
+        "Atlanta is listed as a -194 moneyline favorite to win outright, while Miami is a +162 underdog to pull off the upset..",
+        "Falcons vs Dolphins pick: Dolphins Moneyline (+162) ."
+      ],
+      "evidence_snippets": [
+        "Falcons vs Dolphins Prediction, Picks, Odds - NFL Preseason Preview .",
+        "SOCCER Soccer Home Odds Picks Projections World Cup Player Props World Cup Futures Public Betting Game Projections Prop Projections Systems .",
+        "Sweepstakes Casinos Acebet BankRolla BigPirate Chanced Coinsback Crown Coins Funrize Go Go Gold Hello Millions Jackpota McLuck Mega Bonanza MrGoodwin NoLimitCoins PlayBracco Playtana Pulsz...",
+        "Falcons vs Dolphins Prediction, Picks, Odds - NFL Preseason Preview.",
+        "The Atlanta Falcons and Miami Dolphins will clash in Week 3 of the NFL preseason tonight.",
+        "The Falcons are 3.5-point favorites over the Dolphins on the spread, with the over/under set at 36.5 total points.",
+        "Atlanta is listed as a -194 moneyline favorite to win outright, while Miami is a +162 underdog to pull off the upset..",
+        "Falcons vs Dolphins NFL Preseason Preview.",
+        "The Atlanta Falcons caught the eyes of many bettors after an impressive 34-6 victory over the Colts in their second preseason contest last week..",
+        "That dominant result caused the point spread for this game to jump from an opening line of Falcons -2.5 up to -3.5, with our..."
+      ],
+      "output_master_report": "scratch\\action_network_falcons_dolphins_preseason_week3_aug28_master_100percent_exhaustive.md"
+    },
+    {
+      "schema": "local_action_network_preseason_week3_article_v1",
+      "source": "Action Network",
+      "status": "processed",
+      "http_status": 200,
+      "title": "Texans vs Panthers Prediction, Picks, Odds - NFL Preseason Preview",
+      "author": "Michael Crosson",
+      "url": "https://www.actionnetwork.com/nfl/houston-texans-vs-carolina-panthers-prediction-pick-odds-nfl-preseason-week-3-august-28",
+      "slug": "action_network_texans_panthers_preseason_week3_aug28",
+      "teams": [
+        "Houston Texans",
+        "Carolina Panthers"
+      ],
+      "matchup": "Houston Texans vs Carolina Panthers",
+      "fetched_at": "2026-08-28T22:00:12.396Z",
+      "published_at": "2026-08-28T18:44:32.000Z",
+      "updated_at": "2026-08-28T18:44:33.000Z",
+      "pick": "Panthers +1.5",
+      "market_type": "spread",
+      "kickoff": "Kickoff is set for in 7:00 p.m. ET from Bank of America Stadium in Charlotte, North Carolina.",
+      "odds_context": [
+        "The Texans are 1.5-point favorites over the Panthers on the spread (Texans -1.5), with the over/under set at 35.5.",
+        "Houston is a 51 cents favorite to win outright, while Carolina is priced at 50 cents to pull off the upset..",
+        "Panthers prediction is Carolina to cover the spread (+1.5).",
+        "With the total set at 36.5 and Carolina catching 1.5 points, the system identifies a prime opportunity where points are scarce and the value sits squarely with the underdog.."
+      ],
+      "evidence_snippets": [
+        "The Houston Texans and Carolina Panthers will face off in Week 3 of the NFL preseason tonight.",
+        "The Texans are 1.5-point favorites over the Panthers on the spread (Texans -1.5), with the over/under set at 35.5.",
+        "Houston is a 51 cents favorite to win outright, while Carolina is priced at 50 cents to pull off the upset..",
+        "Panthers prediction is Carolina to cover the spread (+1.5).",
+        "Texans vs Panthers NFL Preseason Preview.",
+        "Texans Preview: Starter Reps Mask Potential Second-Half Drop-Off.",
+        "The Houston Texans enter their preseason finale searching for their first exhibition win after dropping decisions to the Chargers (27-7) and Raiders (22-20)..",
+        "Texans head coach DeMeco Ryans has yet to formally announce his rotation, but expectations point to C.J.",
+        "Stroud getting a brief tune-up under center before making way for the reserves, similar to the amount of action he saw last week..",
+        "Once Stroud steps aside, Davis Mills gives Houston competence at the primary backup spot."
+      ],
+      "output_master_report": "scratch\\action_network_texans_panthers_preseason_week3_aug28_master_100percent_exhaustive.md"
+    },
+    {
+      "schema": "local_action_network_preseason_week3_article_v1",
+      "source": "Action Network",
+      "status": "processed",
+      "http_status": 200,
+      "title": "Giants vs Jets Predictions, Odds, Expert System Pick",
+      "author": "Michael Crosson",
+      "url": "https://www.actionnetwork.com/nfl/new-york-giants-vs-new-york-jets-prediction-pick-odds-nfl-preseason-week-3-august-28",
+      "slug": "action_network_giants_jets_preseason_week3_aug28",
+      "teams": [
+        "New York Giants",
+        "New York Jets"
+      ],
+      "matchup": "New York Giants vs New York Jets",
+      "fetched_at": "2026-08-28T22:00:12.441Z",
+      "published_at": "2026-08-28T20:33:13.000Z",
+      "updated_at": "2026-08-28T20:33:41.000Z",
+      "pick": "Jets +3.5 (-105); bet to +3",
+      "market_type": "spread",
+      "kickoff": "Kickoff is set for 7:30 p.m. ET from MetLife Stadium in East Rutherford, N.",
+      "odds_context": [
+        "The Giants are 3.5-point favorites on the spread (Giants -3.5), with the over/under set at 36.5 (-115o / -105u).",
+        "The Giants are -173 favorites on the moneyline, while the Jets are +144 underdogs..",
+        "Jets best bet is on the Jets to cover the spread, with the best price currently available at FanDuel .",
+        "With Allen expected to take the lion's share of the snaps, the Giants seem overpriced as home favorites.."
+      ],
+      "evidence_snippets": [
+        "The New York Giants and New York Jets square off in Week 3 of the NFL preseason tonight.",
+        "The Giants are 3.5-point favorites on the spread (Giants -3.5), with the over/under set at 36.5 (-115o / -105u).",
+        "Jets best bet is on the Jets to cover the spread, with the best price currently available at FanDuel .",
+        "The New York Giants split their first two preseason contests, suffering a 13-10 loss to the Vikings before bouncing back with a 26-3 victory...",
+        "Giants head coach John Harbaugh remains undecided on whether starting quarterback Jaxson Dart will see the field for Friday's finale.",
+        "Following a rookie season in which Dart struggled to protect himself and frequently visited the blue medical tent, the backup quarterback position carries massive...",
+        "He has been efficient, completing 23-of-30 passes for 239 yards while avoiding any turnovers in the preseason..",
+        "In his two preseason appearances, Allen has completed 18-of-26 passes for 146 yards, throwing zero touchdown s and a pair of interceptions .",
+        "The New York Jets also enter the preseason finale with a 1-1 record, having dropped a 24-16 decision to the Buccaneers before shutting out...",
+        "Quarterback Geno Smith and most of the starting lineup are expected to make a brief appearance in this game."
+      ],
+      "output_master_report": "scratch\\action_network_giants_jets_preseason_week3_aug28_master_100percent_exhaustive.md"
+    },
+    {
+      "schema": "local_action_network_preseason_week3_article_v1",
+      "source": "Action Network",
+      "status": "processed",
+      "http_status": 200,
+      "title": "Buccaneers vs Jaguars Prediction, Picks, Odds - NFL Preseason Preview",
+      "author": "Ryan Minion",
+      "url": "https://www.actionnetwork.com/nfl/tampa-bay-buccaneers-vs-jacksonville-jaguars-prediction-pick-odds-nfl-preseason-week-3-august-28",
+      "slug": "action_network_buccaneers_jaguars_preseason_week3_aug28",
+      "teams": [
+        "Tampa Bay Buccaneers",
+        "Jacksonville Jaguars"
+      ],
+      "matchup": "Tampa Bay Buccaneers vs Jacksonville Jaguars",
+      "fetched_at": "2026-08-28T22:00:12.736Z",
+      "published_at": "2026-08-28T19:30:54.000Z",
+      "updated_at": "2026-08-28T19:31:42.000Z",
+      "pick": "Jaguars to Win (42 Cents)",
+      "market_type": "moneyline_or_prediction_market",
+      "kickoff": "Kickoff is set for 7:30 p.m. ET from EverBank Stadium in Jacksonville, Florida.",
+      "odds_context": [
+        "The Buccaneers are 2.5-point favorites over the Jaguars on the spread (Buccaneers -2.5), with the over/under set at 34.5 total points.",
+        "Tampa Bay is a 59 cents favorite to win outright, while Jacksonville is priced at 42 cents to pull off the upset..",
+        "Buccaneers vs Jaguars pick: Jaguars to Win (42 Cents) .",
+        "Jacksonville is a slight 46% underdog on Kalshi to defeat the Buccaneers in both teams' Friday night 2026 NFL Preseason finale.."
+      ],
+      "evidence_snippets": [
+        "The Tampa Bay Buccaneers and Jacksonville Jaguars will meet in Week 3 of the NFL preseason tonight.",
+        "The Buccaneers are 2.5-point favorites over the Jaguars on the spread (Buccaneers -2.5), with the over/under set at 34.5 total points.",
+        "Tampa Bay is a 59 cents favorite to win outright, while Jacksonville is priced at 42 cents to pull off the upset..",
+        "Buccaneers vs Jaguars pick: Jaguars to Win (42 Cents) .",
+        "Buccaneers prediction is Jacksonville to win the game.",
+        "Buccaneers vs Jaguars NFL Preseason Preview.",
+        "Buccaneers Preview: Restructured Defense & New Offensive System.",
+        "The Buccaneers have looked very impressive in each of their preseason matchups, having prevailed in two nail-biters over the Jets and Chiefs , respectively..",
+        "The Bucs completely overhauled their entire roster and coaching staff this past offseason, hiring former Oklahoma State QB Zac Robinson to take over as...",
+        "Robinson was just one of several maneuvers made within the Buccaneers coaching staff, also bringing in Danny Smith to take over as special teams..."
+      ],
+      "output_master_report": "scratch\\action_network_buccaneers_jaguars_preseason_week3_aug28_master_100percent_exhaustive.md"
+    },
+    {
+      "schema": "local_action_network_preseason_week3_article_v1",
+      "source": "Action Network",
+      "status": "processed",
+      "http_status": 200,
+      "title": "Cardinals vs Packers Prediction, Picks, Odds - NFL Preseason Preview",
+      "author": "Michael Crosson",
+      "url": "https://www.actionnetwork.com/nfl/arizona-cardinals-vs-green-bay-packers-prediction-pick-odds-nfl-preseason-week-3-august-28",
+      "slug": "action_network_cardinals_packers_preseason_week3_aug28",
+      "teams": [
+        "Arizona Cardinals",
+        "Green Bay Packers"
+      ],
+      "matchup": "Arizona Cardinals vs Green Bay Packers",
+      "fetched_at": "2026-08-28T22:00:12.788Z",
+      "published_at": "2026-08-28T20:21:39.000Z",
+      "updated_at": "2026-08-28T20:22:50.000Z",
+      "pick": "Cardinals to Win (49 cents)",
+      "market_type": "moneyline_or_prediction_market",
+      "kickoff": "Kickoff is set for in 8:00 p.m. ET from Lambeau Field in Green Bay, Wisconsin.",
+      "odds_context": [
+        "The Packers are 1.5-point favorites over the Cardinals on the spread, with the over/under set at 36.5 total points.",
+        "Green Bay is a 51-cent favorite to win outright, while Arizona is priced at 49 cents to pull off the upset..",
+        "Cardinals vs Packers pick: Cardinals to Win (49 cents) .",
+        "This matchup aligns with our Bet Labs system titled \"NFL Preseason: Small Unpopular 'Dogs ATS, Bet ML.\" This strategy targets small underdogs catching between 0 and 5.5 points that hold under 41%..."
+      ],
+      "evidence_snippets": [
+        "The Green Bay Packers will host the Arizona Cardinals in Week 3 of the NFL preseason tonight.",
+        "The Packers are 1.5-point favorites over the Cardinals on the spread, with the over/under set at 36.5 total points.",
+        "Green Bay is a 51-cent favorite to win outright, while Arizona is priced at 49 cents to pull off the upset..",
+        "Cardinals vs Packers pick: Cardinals to Win (49 cents) .",
+        "Cardinals prediction is Arizona to win the game.",
+        "Cardinals vs Packers NFL Preseason Preview.",
+        "The Arizona Cardinals enter their preseason finale with an offense that has been humming at a high level.",
+        "With starting quarterback Jacoby Brissett resting and rookie Carson Beck dealing with a rib injury suffered in the Hall of Fame Game, the bulk...",
+        "Minshew represents one of the most reliable and experienced backup options in the entire league.",
+        "Once Minshew exits, Slovis has proven capable of keeping the offense on schedule, completing 18-of-26 passes for 211 yards and a touchdown without turning..."
+      ],
+      "output_master_report": "scratch\\action_network_cardinals_packers_preseason_week3_aug28_master_100percent_exhaustive.md"
+    },
+    {
+      "schema": "local_action_network_preseason_week3_article_v1",
+      "source": "Action Network",
+      "status": "processed",
+      "http_status": 200,
+      "title": "Saints vs Cowboys Predictions, Pick, Odds for Tonight's Preseason Game",
+      "author": "Ryan Minion",
+      "url": "https://www.actionnetwork.com/nfl/new-orleans-saints-vs-dallas-cowboys-prediction-pick-odds-nfl-preseason-week-3-august-28",
+      "slug": "action_network_saints_cowboys_preseason_week3_aug28",
+      "teams": [
+        "New Orleans Saints",
+        "Dallas Cowboys"
+      ],
+      "matchup": "New Orleans Saints vs Dallas Cowboys",
+      "fetched_at": "2026-08-28T22:00:13.027Z",
+      "published_at": "2026-08-28T21:45:09.000Z",
+      "updated_at": "2026-08-28T21:46:07.000Z",
+      "pick": "Cowboys 55%",
+      "market_type": "moneyline_or_prediction_market",
+      "kickoff": "Kickoff is set for in 8:00 p.m. ET from AT&T Stadium in Arlington, Texas.",
+      "odds_context": [
+        "The Cowboys are 63% favorites to win outright and the Saints are 38% underdogs on Kalshi.",
+        "The Cowboys are favored by -2.5 on the spread with the over/under set at 38.5..",
+        "The Saints head into their final preseason contest as a 45% underdog to prevail on Kalshi..",
+        "In what will be the Cowboys' first preseason game at AT&T Stadium, I'm inclined to lay the juice on Dallas' moneyline , given the home-field advantage and run of form.."
+      ],
+      "evidence_snippets": [
+        "The New Orleans Saints and Dallas Cowboys will face off in Week 3 of the NFL preseason tonight.",
+        "The Cowboys are 63% favorites to win outright and the Saints are 38% underdogs on Kalshi.",
+        "The Cowboys are favored by -2.5 on the spread with the over/under set at 38.5..",
+        "My Saints vs Cowboys pick is on Dallas to win.",
+        "Though New Orleans was very busy this past offseason, it certainly has not played out that way throughout the preseason thus far following consecutive...",
+        "After posting a 6-11 record in head coach Kellen Moore's first season in New Orleans, the Saints' offseason strategy largely focused on acquiring some...",
+        "New Orleans also secured WR Chris Olave on a massive contract extension worth up to $124 million over four years, whilst also selecting WR...",
+        "Former Broncos TE Noah Fant , who was brought in on a two-year $6.2 million deal, should be quite effective in this Saints offense...",
+        "Fant was one of several moves aimed at protecting New Orleans' young QB, with the Saints' front office also bringing in former Bills Guard...",
+        "The Saints also brought in four-year veteran QB Zach Wilson to back up Shough, with the 2021 No."
+      ],
+      "output_master_report": "scratch\\action_network_saints_cowboys_preseason_week3_aug28_master_100percent_exhaustive.md"
+    },
+    {
+      "schema": "local_action_network_preseason_week3_article_v1",
+      "source": "Action Network",
+      "status": "processed",
+      "http_status": 200,
+      "title": "Seahawks vs Chiefs Prediction, Pick, Odds for NFL Preseason Week 3",
+      "author": "Ryan Minion",
+      "url": "https://www.actionnetwork.com/nfl/seattle-seahawks-vs-kansas-city-chiefs-prediction-pick-odds-nfl-preseason-week-3-august-28",
+      "slug": "action_network_seahawks_chiefs_preseason_week3_aug28",
+      "teams": [
+        "Seattle Seahawks",
+        "Kansas City Chiefs"
+      ],
+      "matchup": "Seattle Seahawks vs Kansas City Chiefs",
+      "fetched_at": "2026-08-28T22:00:13.068Z",
+      "published_at": "2026-08-28T14:50:43.000Z",
+      "updated_at": "2026-08-28T14:56:01.000Z",
+      "pick": "Chiefs Moneyline (+134)",
+      "market_type": "moneyline_or_prediction_market",
+      "kickoff": "Kickoff is set for 8:00 p.m. EDT from GEHA Field at Arrowhead Stadium in Kansas City, Mo.",
+      "odds_context": [
+        "The Seahawks are 2.5-point favorites on the spread over the Chiefs, with the over/under set at 36.5 total points.",
+        "Seattle is a -134 favorite on the moneyline and Kansas City is a +134 underdog..",
+        "Seahawks vs Chiefs pick: Chiefs Moneyline (+134) .",
+        "My Seahawks vs Chiefs best bet is the Chiefs moneyline."
+      ],
+      "evidence_snippets": [
+        "The Seattle Seahawks and Kansas City Chiefs will face off in Week 3 of the NFL preseason tonight.",
+        "The Seahawks are 2.5-point favorites on the spread over the Chiefs, with the over/under set at 36.5 total points.",
+        "Seahawks vs Chiefs NFL Preseason Preview.",
+        "The reigning Super Bowl champion Seahawks largely emphasized surrounding QB Sam Darnold with some additional playmakers on the offensive side of the football, starting...",
+        "Seattle was able to retain the majority of its 2025 Super Bowl defense, though it lost key defensive backs Coby Bryant and Riq Woolen..",
+        "Seahawks backup QBs Drew Lock and Jalen Milroe saw considerable reps in both of their first two contests.",
+        "In what was an off-year for the Chiefs following Patrick Mahomes ' knee injury that led to Kansas City finishing the season with a...",
+        "The Chiefs will likely see what they have in their backup running backs - fifth-rounder Emmett Johnson and Brashard Smith..",
+        "In the second round, Kansas City picked DE R Mason Thomas, who I also expect to make an immediate impact for a now relatively...",
+        "To backup Mahomes, the Chiefs acquired Justin Fields via trade, and also selected Garrett Nussmeier in the Draft.."
+      ],
+      "output_master_report": "scratch\\action_network_seahawks_chiefs_preseason_week3_aug28_master_100percent_exhaustive.md"
+    },
+    {
+      "schema": "local_action_network_preseason_week3_article_v1",
+      "source": "Action Network",
+      "status": "processed",
+      "http_status": 200,
+      "title": "Bengals vs Eagles Predictions, Odds, Spread Pick",
+      "author": "Michael Crosson",
+      "url": "https://www.actionnetwork.com/nfl/cincinnati-bengals-vs-philadelphia-eagles-prediction-pick-odds-nfl-preseason-week-3-august-28",
+      "slug": "action_network_bengals_eagles_preseason_week3_aug28",
+      "teams": [
+        "Cincinnati Bengals",
+        "Philadelphia Eagles"
+      ],
+      "matchup": "Cincinnati Bengals vs Philadelphia Eagles",
+      "fetched_at": "2026-08-28T22:00:13.115Z",
+      "published_at": "2026-08-28T21:27:53.000Z",
+      "updated_at": "2026-08-28T21:27:44.000Z",
+      "pick": "Bengals +2.5 (-102)",
+      "market_type": "spread",
+      "kickoff": "Kickoff is set for 8 p.m. ET from Lincoln Financial Field in Philadelphia, Pa.",
+      "odds_context": [
+        "Bengals vs Eagles Predictions, Odds, Spread Pick .",
+        "Bengals vs Eagles Predictions, Odds, Spread Pick.",
+        "The Eagles are 2.5-point favorites on the spread (Eagles -2.5), with the over/under set at 36.5 (-112o / -108u).",
+        "Philadelphia is listed as a -141 moneyline favorite, while Cincinnati is priced at +119 to pull off the upset.."
+      ],
+      "evidence_snippets": [
+        "SOCCER Soccer Home Odds Picks Projections World Cup Player Props World Cup Futures Public Betting Game Projections Prop Projections Systems .",
+        "Sweepstakes Casinos Acebet BankRolla BigPirate Chanced Coinsback Crown Coins Funrize Go Go Gold Hello Millions Jackpota McLuck Mega Bonanza MrGoodwin NoLimitCoins PlayBracco Playtana Pulsz...",
+        "The Eagles are 2.5-point favorites on the spread (Eagles -2.5), with the over/under set at 36.5 (-112o / -108u).",
+        "Eagles best bet is on Cincinnati to cover the spread (+2.5).",
+        "Bengals vs Eagles NFL Preseason Preview.",
+        "Cincinnati head coach Zac Taylor has already confirmed that Joe Burrow and the rest of the starting unit will sit out this Friday night...",
+        "For the most part, veteran backup Joe Flacco has received the starter treatment as well.",
+        "Flacco has only appeared in one preseason game, completing 5-of-8 passes for 51 yards and a touchdown , so it is safe to assume...",
+        "However, the quarterback depth behind Burrow and Flacco has been surprisingly effective, leading Cincinnati to a 2-0 preseason record following a 16-14 win over...",
+        "Josh Johnson and Sean Clifford have taken the vast majority of the snaps, and both have proven to be competent preseason signal-callers.."
+      ],
+      "output_master_report": "scratch\\action_network_bengals_eagles_preseason_week3_aug28_master_100percent_exhaustive.md"
+    },
+    {
+      "schema": "local_action_network_preseason_week3_article_v1",
+      "source": "Action Network",
+      "status": "processed",
+      "http_status": 200,
+      "title": "Vikings vs Broncos Prediction, Pick, Odds for NFL Preseason Week 3",
+      "author": "John Lanfranca",
+      "url": "https://www.actionnetwork.com/nfl/minnesota-vikings-vs-denver-broncos-prediction-pick-odds-nfl-preseason-week-3-august-28",
+      "slug": "action_network_vikings_broncos_preseason_week3_aug28",
+      "teams": [
+        "Minnesota Vikings",
+        "Denver Broncos"
+      ],
+      "matchup": "Minnesota Vikings vs Denver Broncos",
+      "fetched_at": "2026-08-28T22:00:13.159Z",
+      "published_at": "2026-08-28T15:14:52.000Z",
+      "updated_at": "2026-08-28T15:16:01.000Z",
+      "pick": "Over 38.5 - NO 52%",
+      "market_type": "moneyline_or_prediction_market",
+      "kickoff": "Kickoff is set for 9:00 p.m. ET from Empower Field at Mile High in Denver, Colo.",
+      "odds_context": [
+        "The Broncos are favored at 64% and -3.5 on the spread at 50%, with the over/under set at 39.5 total points..",
+        "Minnesota has surrendered just 23 total points through two games against the Giants and Ravens .",
+        "Minnesota has yet to crack 5 yards per play on offense in either of its two preseason games and has put up 16 total points.",
+        "The under is priced reasonably at 52% considering the struggles each offense has been enduring heading into each team's final preseason game."
+      ],
+      "evidence_snippets": [
+        "The Minnesota Vikings and Denver Broncos meet in Week 3 of the NFL preseason tonight.",
+        "The Broncos are favored at 64% and -3.5 on the spread at 50%, with the over/under set at 39.5 total points..",
+        "Vikings vs Broncos pick: Over 38.5 - NO 52% .",
+        "My Vikings vs Broncos best bet is on No to Over 38.5 points.",
+        "Vikings vs Broncos NFL Preseason Preview.",
+        "After most of the starters exited the lineup, the Denver offense struggled.",
+        "Of the 225 total yards the offense was able to muster for the game's entirety, just 130 were gained when Jarrett Stidham and Sam...",
+        "Broncos head coach Sean Payton has remained steadfast that the No.",
+        "2 QB spot is still up for grabs as he continues to evaluate both players in their last preseason game.",
+        "Payton's offense gained only 3.2 yards per rush on 22 attempts."
+      ],
+      "output_master_report": "scratch\\action_network_vikings_broncos_preseason_week3_aug28_master_100percent_exhaustive.md"
+    }
+  ]
+}

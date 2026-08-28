@@ -6,6 +6,13 @@
 
 ---
 
+
+> ⚠ **Also read `CLAUDE.md`.** This file is the agent-routing registry only. Project rules -- Key Commands, environment variables, Tab Routing, localStorage keys, the CRITICAL TheOddsAPI rate-limit constraints, Session Protocols, Workflow & Process, Anti-Patterns to Avoid, and Style Constants -- live in `CLAUDE.md`, not here. Any platform (Codex, Antigravity, VS Code Copilot) working on this project should read both files, not just this one.
+
+> **Canonical Antigravity intel:** Before any team synthesizes betting recommendations or reports podcast/article coverage, read `docs/antigravity/CANONICAL_EXTRACTION_PIPELINE.md`. The Antigravity exhaustive extraction corpus in `scratch/*_master_100percent_exhaustive.md`, plus its derived structured outputs, is a first-class source input for Codex, Claude, Antigravity, and Copilot.
+
+---
+
 ## How to Use This File
 
 1. **Finding the right agent:** Scan the "Trigger words" column. If your request matches 2+ words, that's your agent.

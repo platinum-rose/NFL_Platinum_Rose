@@ -29,7 +29,6 @@ npm run update-schedule  # Refresh schedule.json from external source
 > Before touching dates, team names, or storage keys: **see `docs/ANTI_PATTERNS.md`** first.
 
 ## File Structure Conventions
-- Components: `src/components/{category}/{ComponentName}.jsx`
 - Utils/libs: `src/lib/{utilName}.js`
 - Data files: `public/*.json`
 - Modals: `src/components/modals/{ModalName}Modal.jsx`
@@ -149,9 +148,19 @@ DraftKings, FanDuel, BetMGM, Caesars, BetOnline, Bookmaker, PointsBet, Unibet
 ## Session Protocols
 
 ### Session Start
+> **Note (2026-08-25):** this section predates the "Unified Session Context Protocol" near
+> the end of this file, which is the current canonical targeted-read procedure (kept in sync
+> across ATLAS/APS/NFL_Dashboard/Rosie). The two used to disagree — this section said to
+> unconditionally read all of `WORKING-CONTEXT.md` before touching any file, while the unified
+> protocol does a targeted read of just HANDOFF.md + Persistent Backlogs + machine state and
+> never mentions WORKING-CONTEXT.md. `WORKING-CONTEXT.md` was also 39KB of mostly-stale stacked
+> history at the time (see `docs/archive/WORKING-CONTEXT_archive_2026-08-25.md`), so "read it
+> every session" was a real, avoidable cost. It's now trimmed to a short current-state pointer
+> (~1.6KB) that always defers to HANDOFF.md, so reading it is cheap again — but treat the
+> Unified Session Context Protocol below as the authoritative order of operations, not this list.
 - **Tight turnaround (< 4 hrs since last session):** Use the resume command → HANDOFF_PROMPT.md only.
 - **Overnight gap or unsure if tree is clean:** Paste `agents/dev/SESSION_STARTER_PROMPT.md` activation block first — it runs live git/vitest/server checks.
-- Either way: read `WORKING-CONTEXT.md` before touching any file.
+- Either way: read `WORKING-CONTEXT.md` before touching any file (now brief — see note above).
 - **Persistent Backlogs:** Check `HANDOFF.md`'s `## Persistent Backlogs` table — if it has open rows, read each referenced file and surface open items before proceeding.
 
 ### Resume Command Format (Gen-4 canonical)
@@ -325,6 +334,7 @@ If a previous session's fix is incomplete, **amend the original bug entry** — 
 ## Reference Docs (load on demand)
 - `docs/ARCHITECTURE.md` — Component/hook/lib internals; load when editing any `src/` file
 - `docs/PIPELINE_AGENTS.md` — GHA pipeline agent system, workflows, Supabase tables; load when working in `agents/` or `.github/`
+- `docs/antigravity/CANONICAL_EXTRACTION_PIPELINE.md` — canonical Antigravity exhaustive extraction source contract; load before synthesizing betting recommendations or reporting podcast/article coverage gaps
 - `docs/TESTING.md` — Verification checklists; load after changes to App.jsx, storage, or parsers
 - `docs/ROADMAP.md` — Feature tracking & completed phases; load for planning tasks
 - `docs/HANDOFF.md` — `/handoff` command output format; load on `/handoff`
