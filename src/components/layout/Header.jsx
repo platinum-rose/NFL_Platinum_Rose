@@ -11,6 +11,7 @@ export default function Header({
   onOpenSplits,
   onOpenSplitsData,
   onOpenSuperContest,
+  onOpenCard,
   onImport,
   onAnalyze,
   onManage,
@@ -19,6 +20,9 @@ export default function Header({
   onOpenStorage,
   onOpenAgentStatus,
   onOpenProfile,
+  profileCanUseAI = true,
+  profileCanAccessOwnerPortfolio = true,
+  profileCanUseLocalTracking = true,
   // Real Profile personalization (Phase 0): array of hub ids the active
   // profile cares about. undefined/null means "no personalization active"
   // -- every nav tab stays fully visible (matches pre-wiring behavior).
@@ -79,8 +83,9 @@ export default function Header({
                     see nfl_dashboard_header_ux_redesign.md. Splits stays here
                     for now (standalone deep-dive view is still useful
                     alongside the new ambient splits bars on the cards). */}
-                <PromotedToolButton onClick={onOpenSuperContest} icon={Trophy} label="SuperContest" colorClass="text-orange-400" glowClass="shadow-orange-900/20" />
+                {profileCanAccessOwnerPortfolio && <PromotedToolButton onClick={onOpenSuperContest} icon={Trophy} label="SuperContest" colorClass="text-orange-400" glowClass="shadow-orange-900/20" />}
                 <PromotedToolButton onClick={onOpenSplits} icon={Activity} label="Pulse" colorClass="text-rose-400" glowClass="shadow-rose-900/20" />
+                {profileCanUseLocalTracking && <PromotedToolButton onClick={onOpenCard} icon={ShoppingBag} label={cartCount > 0 ? `Card (${cartCount})` : 'Card'} colorClass="text-emerald-400" glowClass="shadow-emerald-900/20" />}
                 <div className="h-6 w-px bg-slate-800 mx-1"></div>
 
                 <ToolButton onClick={onOpenSplitsData} icon={BarChart3} label="Splits" colorClass="text-cyan-400" />
@@ -105,15 +110,18 @@ export default function Header({
             <div className="flex items-center justify-end gap-2 w-auto flex-shrink-0">
                 <div className="hidden md:flex items-center gap-2">
                     <IconButton onClick={onOpenProfile} icon={User} label="Profile Settings" colorClass="text-purple-400 hover:text-purple-300 hover:border-purple-500/30" />
-                    <AdminMenu
-                      onManage={onManage}
-                      onAnalyze={onAnalyze}
-                      onImport={onImport}
-                      onSave={onSave}
-                      onReset={onReset}
-                      onOpenStorage={onOpenStorage}
-                      onOpenAgentStatus={onOpenAgentStatus}
-                    />
+                    {profileCanAccessOwnerPortfolio && (
+                      <AdminMenu
+                        onManage={onManage}
+                        onAnalyze={onAnalyze}
+                        onImport={onImport}
+                        onSave={onSave}
+                        onReset={onReset}
+                        onOpenStorage={onOpenStorage}
+                        onOpenAgentStatus={onOpenAgentStatus}
+                        profileCanUseAI={profileCanUseAI}
+                      />
+                    )}
                 </div>
             </div>
         </div>
@@ -139,7 +147,7 @@ export default function Header({
                 available regardless of which profile's active -- while
                 still showing up in Profile Settings' hub picker for
                 whichever "default landing" purposes that's used for. */}
-            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="futures" label="Bankroll & Futures" icon={Briefcase} dimmed={false} />
+            <NavTab activeTab={activeTab} setActiveTab={setActiveTab} cartCount={cartCount} id="futures" label="Bankroll & Futures" icon={Briefcase} dimmed={visibleHubs && !visibleHubs.includes('futures')} />
         </div>
 
       </div>
@@ -154,11 +162,11 @@ export default function Header({
       {/* MOBILE NAV */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 bg-slate-950 border-t border-slate-800 p-2 z-50 flex justify-around pb-safe">
           <button onClick={() => setActiveTab('dashboard')} className={`p-2 rounded-lg flex flex-col items-center gap-1 ${activeTab === 'dashboard' ? 'text-emerald-400' : 'text-slate-500'}`}><LayoutDashboard size={20}/><span className="text-[10px] font-bold">Board</span></button>
-          <button onClick={() => setActiveTab('mycard')} className={`p-2 rounded-lg flex flex-col items-center gap-1 relative ${activeTab === 'mycard' ? 'text-emerald-400' : 'text-slate-500'}`}><ShoppingBag size={20}/>{cartCount > 0 && <span className="absolute top-1 right-2 w-2 h-2 bg-emerald-500 rounded-full"></span>}<span className="text-[10px] font-bold">Card</span></button>
-          <button onClick={() => setActiveTab('bankroll')} className={`p-2 rounded-lg flex flex-col items-center gap-1 ${activeTab === 'bankroll' ? 'text-emerald-400' : 'text-slate-500'}`}><Banknote size={20}/><span className="text-[10px] font-bold">Bankroll</span></button>
+          {profileCanUseLocalTracking && <button onClick={() => setActiveTab('mycard')} className={`p-2 rounded-lg flex flex-col items-center gap-1 relative ${activeTab === 'mycard' ? 'text-emerald-400' : 'text-slate-500'}`}><ShoppingBag size={20}/>{cartCount > 0 && <span className="absolute top-1 right-2 w-2 h-2 bg-emerald-500 rounded-full"></span>}<span className="text-[10px] font-bold">Card</span></button>}
+          {profileCanUseLocalTracking && <button onClick={() => setActiveTab('bankroll')} className={`p-2 rounded-lg flex flex-col items-center gap-1 ${activeTab === 'bankroll' ? 'text-emerald-400' : 'text-slate-500'}`}><Banknote size={20}/><span className="text-[10px] font-bold">Bankroll</span></button>}
           <button onClick={() => setActiveTab('odds')} className={`p-2 rounded-lg flex flex-col items-center gap-1 ${activeTab === 'odds' ? 'text-emerald-400' : 'text-slate-500'}`}><TrendingUp size={20}/><span className="text-[10px] font-bold">Odds</span></button>
           <button onClick={() => setActiveTab('analytics')} className={`p-2 rounded-lg flex flex-col items-center gap-1 ${activeTab === 'analytics' ? 'text-emerald-400' : 'text-slate-500'}`}><BarChart3 size={20}/><span className="text-[10px] font-bold">Analytics</span></button>
-          <button onClick={onAnalyze} className="p-2 rounded-lg flex flex-col items-center gap-1 text-indigo-500"><Mic size={20}/><span className="text-[10px] font-bold">Record</span></button>
+          {profileCanUseAI && <button onClick={onAnalyze} className="p-2 rounded-lg flex flex-col items-center gap-1 text-indigo-500"><Mic size={20}/><span className="text-[10px] font-bold">Record</span></button>}
       </div>
     </header>
   );
@@ -273,7 +281,9 @@ function AdminMenu(handlers) {
           {ADMIN_GROUPS.map((group, gi) => (
             <div key={group.label} className={gi > 0 ? 'border-t border-slate-800' : ''}>
               <div className="px-3 pt-2.5 pb-1 text-[9px] font-bold text-slate-600 uppercase tracking-wider">{group.label}</div>
-              {group.items.map((item) => (
+              {group.items
+                .filter((item) => handlers.profileCanUseAI || item.key !== 'onAnalyze')
+                .map((item) => (
                 <button
                   key={item.key}
                   onClick={() => { setOpen(false); handlers[item.key]?.(); }}

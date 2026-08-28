@@ -1,11 +1,11 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import logger from '../lib/logger';
-import { TEAM_ALIASES } from '../lib/teams';
+import { TEAM_ALIASES, getTeam, getTeamAbbreviation } from '../lib/teams';
 import { fetchAllInjuries } from '../lib/injuries';
 import { parseActionNetworkAuto } from '../lib/actionParser';
 import { LOCAL_DATA } from '../lib/apiConfig';
 import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS } from '../lib/storage';
-import { getGameSplitsForWeek } from '../lib/supabase';
+import { getGameSplitsForWeek, getGamesForSeason, getLatestGameSplitsForSeason, getLatestOddsSnapshot } from '../lib/supabase';
 import { getNFLWeekInfo } from '../lib/constants';
 
 // Shapes Supabase game_splits rows into the same lookup structure the app's
@@ -64,6 +64,83 @@ function shapeSupabaseSplits(rows) {
   return map;
 }
 
+function teamAbbrFromOddsName(value) {
+  if (!value) return '';
+  return getTeamAbbreviation(value) || String(value).toUpperCase();
+}
+
+function findOddsGameForScheduleGame(game, oddsGames) {
+  const homeAbbrev = (game.home || '').toUpperCase();
+  const visitorAbbrev = (game.visitor || '').toUpperCase();
+
+  return oddsGames.find(lg => {
+    const oddsHome = (lg.home_abbrev || teamAbbrFromOddsName(lg.home_team || lg.home)).toUpperCase();
+    const oddsAway = (lg.visitor_abbrev || lg.away_abbrev || teamAbbrFromOddsName(lg.away_team || lg.visitor)).toUpperCase();
+    return oddsHome === homeAbbrev && oddsAway === visitorAbbrev;
+  });
+}
+
+function getPrimaryOddsMarkets(oddsGame) {
+  const books = Object.values(oddsGame?.bookmakers || {});
+  const withSpread = books.find(book => book.markets?.spread);
+  const withAny = books.find(book => book.markets?.spread || book.markets?.total || book.markets?.moneyline);
+  return (withSpread || withAny)?.markets || {};
+}
+
+function formatScheduleTime(kickoffUtc) {
+  if (!kickoffUtc) return '';
+  return new Date(kickoffUtc).toLocaleString('en-US', {
+    weekday: 'short',
+    hour: 'numeric',
+    minute: '2-digit',
+    timeZone: 'America/New_York',
+  });
+}
+
+function shapeSupabaseGame(row) {
+  const home = getTeamAbbreviation(row.home_abbrev || row.home_team);
+  const visitor = getTeamAbbreviation(row.away_abbrev || row.away_team);
+  const homeMeta = getTeam(home || row.home_team);
+  const visitorMeta = getTeam(visitor || row.away_team);
+
+  return {
+    id: row.espn_event_id || row.game_id,
+    game_id: row.game_id,
+    week: Number(row.week),
+    season: Number(row.season),
+    season_type: Number(row.season_type),
+    kickoff_utc: row.kickoff_utc,
+    status: row.status || 'pre',
+    visitor,
+    home,
+    visitorName: visitorMeta?.fullName || row.away_team || visitor,
+    homeName: homeMeta?.fullName || row.home_team || home,
+    homeScore: 0,
+    visitorScore: 0,
+    time: formatScheduleTime(row.kickoff_utc),
+    spread: row.closing_spread_line,
+    total: row.closing_total_line,
+    home_ml: row.closing_home_moneyline,
+    visitor_ml: row.closing_away_moneyline,
+    away_rest: row.away_rest,
+    home_rest: row.home_rest,
+    div_game: row.div_game,
+    roof: row.roof,
+    surface: row.surface,
+    referee: row.referee,
+    temp: row.temp,
+    wind: row.wind,
+    scheduleSource: 'Supabase',
+    scheduleUpdatedAt: row.context_updated_at || row.updated_at || null,
+  };
+}
+
+function shapeScheduleRows(rows) {
+  return rows
+    .map(shapeSupabaseGame)
+    .filter(game => game.id && game.home && game.visitor && game.week && game.season_type);
+}
+
 /**
  * useSchedule — boot sequence, data fetching, splits import, team matcher
  *
@@ -77,6 +154,7 @@ export function useSchedule() {
   const [loading, setLoading] = useState(true);
   const [contestLines, setContestLines] = useState(() => loadFromStorage('nfl_contest_lines', {}));
   const [simResults, setSimResults] = useState(() => loadFromStorage('nfl_sim_results', {}));
+  const bootedRef = useRef(false);
 
   // --- AUTO-SAVE EFFECTS ---
   // Note: guards removed — saving empty state is intentional (clears persist through refresh)
@@ -92,87 +170,120 @@ export function useSchedule() {
     saveToStorage(PR_STORAGE_KEYS.CONTEST_LINES.key, contestLines);
   }, [contestLines]);
 
-  // --- BOOT SEQUENCE ---
-  useEffect(() => {
-    logger.log("🚀 Booting Up: Fetching Live Schedule & Odds...");
+  const refreshDashboardData = useCallback(async () => {
+    logger.log("🚀 Fetching dashboard schedule, cached odds, splits, and injuries...");
+    setLoading(true);
 
-    Promise.all([
-      // 1. Schedule (Local)
-      fetch(LOCAL_DATA.SCHEDULE).then(r => r.ok ? r.json() : []).catch(() => []),
+    try {
+      const weekInfo = getNFLWeekInfo();
+      const [
+        scheduleData,
+        oddsSnapshot,
+        statsData,
+        splitsData,
+      ] = await Promise.all([
+        // 1. Schedule (Supabase games table, local JSON fallback)
+        getGamesForSeason(weekInfo.season)
+          .then(rows => {
+            const shaped = shapeScheduleRows(rows || []);
+            if (shaped.length > 0) {
+              return shaped;
+            }
+            return fetch(LOCAL_DATA.SCHEDULE).then(r => r.ok ? r.json() : []).catch(() => []);
+          }),
 
-      // 2. Live Odds — DISABLED on startup to save API requests
-      Promise.resolve([]),
-
-      // 3. Stats
-      fetch(LOCAL_DATA.WEEKLY_STATS)
-        .then(r => {
-          if (!r.ok) throw new Error("Stats not found");
-          return r.json();
-        })
-        .catch(err => {
-          logger.warn("⚠️ Stats load failed (using empty defaults):", err);
-          return [];
+        // 2. Cached odds snapshot (Supabase, written by game-odds-ingest).
+        // This does not spend TheOddsAPI quota from the browser.
+        getLatestOddsSnapshot().catch(err => {
+          logger.warn("⚠️ Cached odds snapshot load failed:", err);
+          return null;
         }),
 
-      // 4. Splits (Supabase game_splits, written by
-      // agents/betting-splits-ingest.js's scheduled GitHub Actions run --
-      // replaces the old GitHub-raw JSON fetch, which 404'd forever since
-      // that file is gitignored and the workflow never committed it)
-      getGameSplitsForWeek(getNFLWeekInfo().week, getNFLWeekInfo().season)
-        .then(rows => {
-          if (!rows || rows.length === 0) {
-            logger.log("ℹ️ No splits rows in Supabase yet for this slate — using empty splits.");
-            return {};
-          }
-          return shapeSupabaseSplits(rows);
-        })
-        .catch(err => {
-          logger.warn("⚠️ Splits load failed:", err);
-          return {};
-        })
-    ]).then(([scheduleData, liveOddsData, statsData, splitsData]) => {
-      logger.log(`✅ Schedule Loaded: ${scheduleData.length} games`);
-      logger.log(`✅ Live Odds Loaded: ${liveOddsData.length} games from TheOddsAPI`);
+        // 3. Stats
+        fetch(LOCAL_DATA.WEEKLY_STATS)
+          .then(r => {
+            if (!r.ok) throw new Error("Stats not found");
+            return r.json();
+          })
+          .catch(err => {
+            logger.warn("⚠️ Stats load failed (using empty defaults):", err);
+            return [];
+          }),
 
-      // Live odds are intentionally disabled on startup (see step 2 above),
-      // so liveOddsData is normally empty by design — that's not a per-game
-      // problem worth a console warning for every scheduled game. Only warn
-      // per game when live odds WERE fetched but a specific game still
-      // didn't match (a real, unexpected mismatch).
+        // 4. Splits (Supabase game_splits, written by
+        // agents/betting-splits-ingest.js's scheduled GitHub Actions run --
+        // replaces the old GitHub-raw JSON fetch, which 404'd forever since
+        // that file is gitignored and the workflow never committed it)
+        getGameSplitsForWeek(weekInfo.week, weekInfo.season)
+          .then(rows => {
+            if (rows?.length > 0) {
+              logger.log(`☁️ Loaded ${rows.length} Supabase split rows for ${weekInfo.label}.`);
+              return shapeSupabaseSplits(rows);
+            }
+
+            return getLatestGameSplitsForSeason(weekInfo.season).then(fallbackRows => {
+              if (!fallbackRows || fallbackRows.length === 0) {
+                logger.log(`ℹ️ No splits rows in Supabase yet for ${weekInfo.label} or season ${weekInfo.season} — using empty splits.`);
+                return {};
+              }
+
+              const latestCapturedAt = fallbackRows
+                .map(row => row.captured_at)
+                .filter(Boolean)
+                .sort()
+                .at(-1);
+              logger.log(
+                `ℹ️ No splits rows for ${weekInfo.label}; using ${fallbackRows.length} latest season split rows` +
+                `${latestCapturedAt ? ` from ${new Date(latestCapturedAt).toLocaleString()}` : ''}.`
+              );
+              return shapeSupabaseSplits(fallbackRows);
+            });
+          })
+          .catch(err => {
+            logger.warn("⚠️ Splits load failed:", err);
+            return {};
+          })
+      ]);
+
+      const liveOddsData = oddsSnapshot?.games || [];
+      const scheduleSource = scheduleData.some(game => game.scheduleSource === 'Supabase')
+        ? 'Supabase games'
+        : 'local schedule';
+      const preseasonCount = scheduleData.filter(game => Number(game.season_type) === 1).length;
+      const regularCount = scheduleData.filter(game => Number(game.season_type) === 2).length;
+      logger.log(`✅ Schedule Loaded: ${scheduleData.length} games from ${scheduleSource} (${preseasonCount} preseason, ${regularCount} regular)`);
+      if (liveOddsData.length > 0) {
+        const ageMin = Math.round((Date.now() - new Date(oddsSnapshot.fetchedAt).getTime()) / 60000);
+        logger.log(`☁️ Dashboard odds loaded from Supabase snapshot: ${liveOddsData.length} games (${ageMin}m old).`);
+        saveToStorage(PR_STORAGE_KEYS.CACHED_ODDS.key, liveOddsData);
+        saveToStorage(PR_STORAGE_KEYS.CACHED_ODDS_TIME.key, new Date(oddsSnapshot.fetchedAt).getTime());
+      } else {
+        logger.log('ℹ️ No cached Supabase odds snapshot available for dashboard merge.');
+      }
+
       const liveOddsExpected = liveOddsData.length > 0;
       let unmatchedFallbackCount = 0;
 
       // Merge live odds into schedule
       const mergedSchedule = scheduleData.map(game => {
-        const homeAbbrev = (game.home || '').toUpperCase();
-        const visitorAbbrev = (game.visitor || '').toUpperCase();
-
-        const liveGame = liveOddsData.find(lg => {
-          if (lg.home_abbrev && lg.visitor_abbrev) {
-            return lg.home_abbrev === homeAbbrev && lg.visitor_abbrev === visitorAbbrev;
-          }
-          const lgHome = (lg.home || '').toLowerCase();
-          const lgVisitor = (lg.visitor || '').toLowerCase();
-          const homeClean = homeAbbrev.toLowerCase();
-          const visitorClean = visitorAbbrev.toLowerCase();
-          return (lgHome.includes(homeClean) || homeClean.includes(lgHome)) &&
-                 (lgVisitor.includes(visitorClean) || visitorClean.includes(lgVisitor));
-        });
+        const liveGame = findOddsGameForScheduleGame(game, liveOddsData);
 
         if (liveGame) {
-          logger.log(`🔄 Live odds merged: ${game.visitor} @ ${game.home} → Spread: ${liveGame.spread}, Total: ${liveGame.total}, ML: ${liveGame.visitor_ml}/${liveGame.home_ml}`);
+          const markets = getPrimaryOddsMarkets(liveGame);
           return {
             ...game,
-            spread: liveGame.spread ?? game.spread,
-            total: liveGame.total ?? game.total,
-            home_ml: liveGame.home_ml || null,
-            visitor_ml: liveGame.visitor_ml || null,
-            oddsSource: 'TheOddsAPI'
+            spread: markets.spread?.home_line ?? liveGame.spread ?? game.spread,
+            total: markets.total?.line ?? liveGame.total ?? game.total,
+            home_ml: markets.moneyline?.home ?? liveGame.home_ml ?? null,
+            visitor_ml: markets.moneyline?.away ?? liveGame.visitor_ml ?? null,
+            oddsSource: 'Supabase Snapshot',
+            oddsUpdatedAt: oddsSnapshot?.fetchedAt || null,
+            sportsbookCount: Object.keys(liveGame.bookmakers || {}).length,
           };
         }
 
         if (liveOddsExpected) {
-          logger.warn(`⚠️ No live odds found for ${game.visitor} @ ${game.home}, using ESPN fallback`);
+          logger.warn(`⚠️ No cached odds found for ${game.visitor} @ ${game.home}, using ESPN/static fallback`);
         } else {
           unmatchedFallbackCount += 1;
         }
@@ -180,7 +291,7 @@ export function useSchedule() {
       });
 
       if (!liveOddsExpected && unmatchedFallbackCount > 0) {
-        logger.log(`ℹ️ Live odds disabled at startup — ${unmatchedFallbackCount} games using ESPN/static fallback.`);
+        logger.log(`ℹ️ ${unmatchedFallbackCount} games using ESPN/static fallback because no cached odds snapshot was available.`);
       }
 
       setSchedule(mergedSchedule);
@@ -202,11 +313,20 @@ export function useSchedule() {
         .catch(err => logger.warn("⚠️ Injury fetch failed:", err))
         .finally(() => setLoading(false));
 
-    }).catch(err => {
+    } catch (err) {
       logger.error("CRITICAL Error loading data:", err);
       setLoading(false);
-    });
+    }
   }, []);
+
+  // --- BOOT SEQUENCE ---
+  useEffect(() => {
+    // React StrictMode runs mount effects twice in dev. Keep the data loader
+    // idempotent so injuries/odds/splits don't all double-fetch locally.
+    if (bootedRef.current) return;
+    bootedRef.current = true;
+    refreshDashboardData();
+  }, [refreshDashboardData]);
 
   // --- ROBUST TEAM MATCHER (3-tier: alias → abbreviation → substring) ---
   const findGameForTeam = useCallback((rawInput) => {
@@ -343,6 +463,7 @@ export function useSchedule() {
     setContestLines,
     simResults,
     setSimResults,
+    refreshDashboardData,
     findGameForTeam,
     handleBulkImport,
   };

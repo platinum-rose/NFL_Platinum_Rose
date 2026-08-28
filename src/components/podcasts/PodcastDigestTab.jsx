@@ -11,7 +11,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import {
   Mic, RefreshCw, ChevronDown, ChevronRight, CheckCircle2,
   Radio, AlertTriangle, Download, Zap, BookOpen, Clock,
-  ExternalLink, Link2, Copy
+  ExternalLink, Link2, Copy, SlidersHorizontal
 } from 'lucide-react';
 import { getPodcastEpisodes } from '../../lib/supabase';
 import { addPick } from '../../lib/picksDatabase';
@@ -56,6 +56,46 @@ const fmtDuration = (secs) => {
   return h > 0 ? `${h}h ${m}m` : `${m}m`;
 };
 
+const getPickTeams = (pick = {}) => {
+  const values = [
+    pick.team,
+    pick.team1,
+    pick.team2,
+    pick.home,
+    pick.visitor,
+    pick.away,
+    pick.selection,
+  ];
+  return values
+    .flatMap((value) => String(value || '').toUpperCase().match(/\b[A-Z]{2,3}\b/g) || [])
+    .filter((value) => value.length >= 2);
+};
+
+const pickTeamLabel = (pick = {}) => {
+  const teams = [pick.team, pick.team2, pick.team1]
+    .filter(Boolean)
+    .map((value) => String(value).toUpperCase());
+  return teams.join(' / ') || getPickTeams(pick)[0] || '';
+};
+
+const getEpisodePicks = (episode) => episode.podcast_transcripts?.picks ?? [];
+const getEpisodeIntel = (episode) => episode.podcast_transcripts?.intel ?? [];
+const episodeDateMs = (episode) => Date.parse(episode.pub_date || '') || 0;
+
+const sortEpisodes = (episodes, sortBy) => {
+  const list = [...episodes];
+  switch (sortBy) {
+    case 'date_asc':
+      return list.sort((a, b) => episodeDateMs(a) - episodeDateMs(b));
+    case 'picks_desc':
+      return list.sort((a, b) => getEpisodePicks(b).length - getEpisodePicks(a).length || episodeDateMs(b) - episodeDateMs(a));
+    case 'feed':
+      return list.sort((a, b) => String(a.podcast_feeds?.name || '').localeCompare(String(b.podcast_feeds?.name || '')));
+    default:
+      return list.sort((a, b) => episodeDateMs(b) - episodeDateMs(a));
+  }
+};
+
 const categoryChip = (cat) => {
   const map = {
     spread:    'bg-indigo-500/20 text-indigo-400 border-indigo-500/30',
@@ -79,7 +119,7 @@ const sourceColor = (expert) => {
 
 // ---- EpisodeCard ----
 
-function EpisodeCard({ episode, isTargeted, onImport }) {
+function EpisodeCard({ episode, isTargeted, onImport, teamFilter }) {
   const [expanded,  setExpanded]  = useState(Boolean(isTargeted));
   const cardRef = React.useRef(null);
 
@@ -95,8 +135,15 @@ function EpisodeCard({ episode, isTargeted, onImport }) {
   const [importing, setImporting] = useState(false);
   const [copied,    setCopied]    = useState(false);
 
-  const picks   = episode.podcast_transcripts?.picks ?? [];
-  const intel   = episode.podcast_transcripts?.intel ?? [];
+  const picks   = [...getEpisodePicks(episode)].sort((a, b) => {
+    const aTeam = pickTeamLabel(a);
+    const bTeam = pickTeamLabel(b);
+    return aTeam.localeCompare(bTeam) || String(a.selection || '').localeCompare(String(b.selection || ''));
+  });
+  const visiblePicks = teamFilter === 'all'
+    ? picks
+    : picks.filter((pick) => getPickTeams(pick).includes(teamFilter));
+  const intel   = getEpisodeIntel(episode);
   const expert  = episode.podcast_feeds?.expert ?? 'Podcast';
   const feedName = episode.podcast_feeds?.name  ?? 'Podcast';
 
@@ -120,11 +167,11 @@ function EpisodeCard({ episode, isTargeted, onImport }) {
 
   const handleImport = async (e) => {
     e.stopPropagation();
-    if (importing || imported || picks.length === 0) return;
+    if (importing || imported || visiblePicks.length === 0) return;
     setImporting(true);
     try {
       let count = 0;
-      for (const pick of picks) {
+      for (const pick of visiblePicks) {
         const cat = (pick.category ?? 'spread').toLowerCase();
         const pickType = cat.includes('total') ? 'total'
           : cat.includes('money') ? 'moneyline'
@@ -186,6 +233,7 @@ function EpisodeCard({ episode, isTargeted, onImport }) {
                 <span className="flex items-center gap-1"><Clock size={10} />{fmtDuration(episode.duration_secs)}</span>
               )}
               <span className="text-emerald-400 font-medium">{picks.length} pick{picks.length !== 1 ? 's' : ''}</span>
+              {teamFilter !== 'all' && <span className="text-cyan-400">{visiblePicks.length} for {teamFilter}</span>}
               {intel.length > 0 && <span className="text-slate-400">{intel.length} intel</span>}
             </div>
           </div>
@@ -224,7 +272,7 @@ function EpisodeCard({ episode, isTargeted, onImport }) {
           </button>
 
           {/* Import picks */}
-          {picks.length > 0 && (
+          {visiblePicks.length > 0 && (
             <button
               onClick={handleImport}
               disabled={importing || imported}
@@ -238,7 +286,7 @@ function EpisodeCard({ episode, isTargeted, onImport }) {
                 ? <><CheckCircle2 size={12} /> Done</>
                 : importing
                 ? <><RefreshCw size={12} className="animate-spin" /> …</>
-                : <><Download size={12} /> {picks.length}</>
+                : <><Download size={12} /> {visiblePicks.length}</>
               }
             </button>
           )}
@@ -248,13 +296,13 @@ function EpisodeCard({ episode, isTargeted, onImport }) {
       {/* Expanded body */}
       {expanded && (
         <div className="border-t border-slate-800 p-4 space-y-4">
-          {picks.length > 0 && (
+          {visiblePicks.length > 0 && (
             <div>
               <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                 <Zap size={11} className="text-emerald-400" /> Picks
               </h4>
               <div className="space-y-2">
-                {picks.map((pick, i) => {
+                {visiblePicks.map((pick, i) => {
                   const cat = (pick.category ?? 'pick').toLowerCase();
                   const confPct = pick.quality_score != null
                     ? Math.round(pick.quality_score * 100)
@@ -275,6 +323,7 @@ function EpisodeCard({ episode, isTargeted, onImport }) {
                         )}
                         <div className="flex items-center gap-3 mt-1 text-[10px] text-slate-500 flex-wrap">
                           {pick.team1 && pick.team2 && <span>{pick.team2} @ {pick.team1}</span>}
+                          {pickTeamLabel(pick) && <span>{pickTeamLabel(pick)}</span>}
                           {confPct != null && <span>{confPct}% conf</span>}
                           {pick.units != null && <span>{pick.units}u</span>}
                           {pick.week && pick.season && <span>W{pick.week} {pick.season}</span>}
@@ -303,7 +352,7 @@ function EpisodeCard({ episode, isTargeted, onImport }) {
             </div>
           )}
 
-          {picks.length === 0 && intel.length === 0 && (
+          {visiblePicks.length === 0 && intel.length === 0 && (
             <p className="text-xs text-slate-600 italic">No picks or intel extracted from this episode.</p>
           )}
         </div>
@@ -319,6 +368,9 @@ export default function PodcastDigestTab() {
   const [loading,  setLoading]  = useState(false);
   const [error,    setError]    = useState(null);
   const [importMsg, setImportMsg] = useState('');
+  const [sortBy, setSortBy] = useState('date_desc');
+  const [teamFilter, setTeamFilter] = useState('all');
+  const [collapsedFeeds, setCollapsedFeeds] = useState({});
 
   const urlParams = new URLSearchParams(window.location.search);
   const targetEpId = urlParams.get('episode') || urlParams.get('ep') || urlParams.get('episodeId');
@@ -346,13 +398,26 @@ export default function PodcastDigestTab() {
     setTimeout(() => setImportMsg(''), 4000);
   };
 
+  const teamOptions = [...new Set(
+    episodes.flatMap((episode) => getEpisodePicks(episode).flatMap(getPickTeams))
+  )].sort((a, b) => a.localeCompare(b));
+
+  const filteredEpisodes = teamFilter === 'all'
+    ? episodes
+    : episodes.filter((episode) => getEpisodePicks(episode).some((pick) => getPickTeams(pick).includes(teamFilter)));
+
   // Group by feed name (same as modal)
-  const grouped = episodes.reduce((acc, ep) => {
+  const grouped = sortEpisodes(filteredEpisodes, sortBy).reduce((acc, ep) => {
     const key = ep.podcast_feeds?.name ?? 'Unknown';
     if (!acc[key]) acc[key] = [];
     acc[key].push(ep);
     return acc;
   }, {});
+  const visibleEpisodeCount = Object.values(grouped).reduce((sum, eps) => sum + eps.length, 0);
+  const visiblePickCount = filteredEpisodes.reduce((sum, episode) => {
+    const picks = getEpisodePicks(episode);
+    return sum + (teamFilter === 'all' ? picks.length : picks.filter((pick) => getPickTeams(pick).includes(teamFilter)).length);
+  }, 0);
 
   return (
     <div className="animate-in fade-in zoom-in duration-300 space-y-6 pb-8">
@@ -407,6 +472,36 @@ export default function PodcastDigestTab() {
         </div>
       )}
 
+      {!loading && !error && episodes.length > 0 && (
+        <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center bg-slate-900 border border-slate-800 rounded-xl p-3">
+          <div className="flex items-center gap-2 text-xs text-slate-400 font-bold uppercase tracking-wider">
+            <SlidersHorizontal size={14} className="text-[#00d2be]" />
+            <span>Podcast Sort</span>
+          </div>
+          <select
+            value={teamFilter}
+            onChange={(e) => setTeamFilter(e.target.value)}
+            className="bg-slate-950 border border-slate-700 text-slate-200 text-xs rounded-lg px-3 py-2 outline-none"
+          >
+            <option value="all">All teams</option>
+            {teamOptions.map((team) => <option key={team} value={team}>{team}</option>)}
+          </select>
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+            className="bg-slate-950 border border-slate-700 text-slate-200 text-xs rounded-lg px-3 py-2 outline-none"
+          >
+            <option value="date_desc">Newest episodes</option>
+            <option value="date_asc">Oldest episodes</option>
+            <option value="picks_desc">Most picks</option>
+            <option value="feed">Feed name</option>
+          </select>
+          <span className="text-xs text-slate-500">
+            {visibleEpisodeCount} episode{visibleEpisodeCount !== 1 ? 's' : ''} / {visiblePickCount} pick{visiblePickCount !== 1 ? 's' : ''}
+          </span>
+        </div>
+      )}
+
       {/* Loading */}
       {loading && (
         <div className="flex items-center justify-center py-20 text-slate-500 gap-3">
@@ -436,14 +531,23 @@ export default function PodcastDigestTab() {
       {/* Episode groups */}
       {!loading && !error && Object.entries(grouped).map(([feedName, eps]) => {
         const expertId = eps[0]?.podcast_feeds?.expert;
+        const collapsed = collapsedFeeds[feedName] === true;
+        const pickCount = eps.reduce((sum, ep) => sum + getEpisodePicks(ep).length, 0);
+        const intelCount = eps.reduce((sum, ep) => sum + getEpisodeIntel(ep).length, 0);
         return (
           <div key={feedName}>
             {/* Group header */}
             <div className={`flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-3 ${sourceColor(expertId)}`}>
-              <Radio size={11} />
-              <span>{feedName}</span>
+              <button
+                onClick={() => setCollapsedFeeds((prev) => ({ ...prev, [feedName]: !collapsed }))}
+                className="flex items-center gap-2 hover:text-white transition-colors"
+              >
+                {collapsed ? <ChevronRight size={12} /> : <ChevronDown size={12} />}
+                <Radio size={11} />
+                <span>{feedName}</span>
+              </button>
               <span className="text-slate-600 normal-case font-normal tracking-normal">
-                {eps.length} episode{eps.length !== 1 ? 's' : ''}
+                {eps.length} episode{eps.length !== 1 ? 's' : ''} / {pickCount} picks / {intelCount} intel
               </span>
               {/* Link to expert digest page */}
               {canOpen && expertId && (
@@ -458,11 +562,11 @@ export default function PodcastDigestTab() {
                 </a>
               )}
             </div>
-            <div className="space-y-3">
+            {!collapsed && <div className="space-y-3">
               {eps.map(ep => (
-                <EpisodeCard key={ep.id} episode={ep} isTargeted={targetEpId === ep.id} onImport={handleImport} />
+                <EpisodeCard key={ep.id} episode={ep} isTargeted={targetEpId === ep.id} onImport={handleImport} teamFilter={teamFilter} />
               ))}
-            </div>
+            </div>}
           </div>
         );
       })}

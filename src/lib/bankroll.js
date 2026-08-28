@@ -2,16 +2,35 @@
 // Bankroll management, bet tracking, and analytics
 
 import logger from './logger';
-import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS } from './storage';
+import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS, ALPHA_STATE_DOMAINS, getAlphaStorageKey } from './storage';
 import { syncBet } from './supabase';
 import { enqueueDirty, dequeueSuccess } from './syncQueue';
 import { cappedKellyFraction } from './riskSizing';
 
+let storageScope = null;
+
+export const configureBankrollStorageScope = (scope = null) => {
+    storageScope = scope;
+};
+
+const getStorageKey = () => storageScope?.profileId
+    ? getAlphaStorageKey({
+        profileId: storageScope.profileId,
+        stateDomain: ALPHA_STATE_DOMAINS.BANKROLL,
+        season: storageScope.season,
+        week: storageScope.week,
+    })
+    : STORAGE_KEY;
+
 // Sync helper — writes locally first, queues for retry on cloud failure
-const fireSync = (bet) =>
+const fireSync = (bet) => {
+    if (storageScope?.disableCloudSync) return Promise.resolve();
+    return (
     syncBet(bet)
         .then(() => dequeueSuccess('bet', bet.id))
-        .catch(() => enqueueDirty('bet', bet.id, bet));
+        .catch(() => enqueueDirty('bet', bet.id, bet))
+    );
+};
 
 const STORAGE_KEY = PR_STORAGE_KEYS.BANKROLL.key;
 
@@ -56,7 +75,7 @@ const RISK_PROFILES = {
  */
 export const getBankrollData = () => {
     try {
-        const stored = loadFromStorage(STORAGE_KEY, null);
+        const stored = loadFromStorage(getStorageKey(), null);
         if (!stored) {
             const defaultData = {
                 settings: DEFAULT_SETTINGS,
@@ -85,7 +104,7 @@ export const getBankrollData = () => {
 export const saveBankrollData = (data) => {
     try {
         data.lastUpdated = new Date().toISOString();
-        saveToStorage(STORAGE_KEY, data);
+        saveToStorage(getStorageKey(), data);
         return true;
     } catch (error) {
         logger.error('Error saving bankroll data:', error);

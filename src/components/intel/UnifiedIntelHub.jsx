@@ -12,8 +12,8 @@ const AgentChat = lazy(() => import('../agent/AgentChat'));
 const PodcastDigestTab = lazy(() => import('../podcasts/PodcastDigestTab'));
 const TrainingCampIntel = lazy(() => import('../intel/TrainingCampIntel'));
 
-export default function UnifiedIntelHub() {
-  const [activeSubTab, setActiveSubTab] = useState('agent-chat');
+export default function UnifiedIntelHub({ profileCanUseAI = true }) {
+  const [activeSubTab, setActiveSubTab] = useState(profileCanUseAI ? 'agent-chat' : 'podcasts');
 
   return (
     <div className="min-h-screen bg-[#0a0d14] text-slate-100 p-4 md:p-6 space-y-6">
@@ -33,16 +33,18 @@ export default function UnifiedIntelHub() {
 
         {/* SUB-TABS NAVIGATION */}
         <div className="flex items-center gap-1.5 bg-[#0a0d14] p-1.5 rounded-xl border border-slate-800/80 overflow-x-auto">
-          <button
-            onClick={() => setActiveSubTab('agent-chat')}
-            className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all ${
-              activeSubTab === 'agent-chat'
-                ? 'bg-purple-600 text-white shadow-lg shadow-purple-900/30'
-                : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
-            }`}
-          >
-            <Bot size={14} /> AI Assistant
-          </button>
+          {profileCanUseAI && (
+            <button
+              onClick={() => setActiveSubTab('agent-chat')}
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all ${
+                activeSubTab === 'agent-chat'
+                  ? 'bg-purple-600 text-white shadow-lg shadow-purple-900/30'
+                  : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
+              }`}
+            >
+              <Bot size={14} /> AI Assistant
+            </button>
+          )}
 
           <button
             onClick={() => setActiveSubTab('podcasts')}
@@ -75,7 +77,7 @@ export default function UnifiedIntelHub() {
           <span className="text-xs font-medium tracking-wide">Loading AI Intelligence Engine...</span>
         </div>
       }>
-        {activeSubTab === 'agent-chat' && <AgentChat />}
+        {profileCanUseAI && activeSubTab === 'agent-chat' && <AgentChat />}
         {activeSubTab === 'podcasts' && <PodcastDigestTab />}
         {activeSubTab === 'training-camp' && <TrainingCampIntel />}
       </Suspense>

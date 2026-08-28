@@ -12,6 +12,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { RefreshCw, FileText, AlertTriangle, Clock, ExternalLink } from 'lucide-react';
 import { supabase, isAvailable } from '../../lib/supabase.js';
+import { useAlphaDataPacket } from '../../lib/useAlphaDataPacket.js';
 
 const SEASON = Number(import.meta.env.VITE_NFL_SEASON || new Date().getUTCFullYear());
 const POLL_MS = 15000;
@@ -24,6 +25,14 @@ function fmtWhen(iso) {
 }
 
 export default function FuturesIntelReport() {
+  const alphaData = useAlphaDataPacket();
+  if (alphaData.enabled) {
+    return <AlphaPacketFuturesReport alphaData={alphaData} />;
+  }
+  return <SupabaseFuturesIntelReport />;
+}
+
+function SupabaseFuturesIntelReport() {
   const [report, setReport] = useState(null);     // { html, generated_at, trigger, report_date }
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -195,6 +204,89 @@ export default function FuturesIntelReport() {
       <p className="text-[10px] text-slate-600 mt-3 flex items-center gap-1">
         <ExternalLink size={10} /> Report rendered from Supabase · sources audited in the report header · not betting advice.
       </p>
+    </div>
+  );
+}
+
+function AlphaPacketFuturesReport({ alphaData }) {
+  const { packet, loading, error } = alphaData;
+  const marketContext = packet?.market_context;
+  const recommendations = marketContext?.synthesized_recommendations || [];
+  const teamRows = packet?.nfl_team_dashboards || [];
+
+  if (loading) {
+    return (
+      <div className="max-w-5xl mx-auto px-2">
+        <div className="text-slate-500 text-sm py-12 text-center">Loading local Alpha futures packet...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="max-w-5xl mx-auto px-2">
+        <div className="text-rose-300 bg-rose-500/10 border border-rose-500/30 rounded-lg px-4 py-3 text-sm flex items-center gap-2">
+          <AlertTriangle size={16} /> {error}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="max-w-5xl mx-auto px-2 space-y-4">
+      <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
+        <div className="flex items-center gap-2">
+          <FileText className="text-emerald-400" size={20} />
+          <h2 className="text-lg font-bold text-white">Futures Intel Report</h2>
+          <span className="text-[10px] uppercase tracking-wider bg-slate-800 text-slate-400 rounded-full px-2 py-0.5">
+            Alpha local packet
+          </span>
+        </div>
+        {packet?.generated_at && (
+          <span className="text-xs text-slate-500 flex items-center gap-1">
+            <Clock size={12} /> {fmtWhen(packet.generated_at)}
+          </span>
+        )}
+      </div>
+
+      <div className="grid sm:grid-cols-3 gap-3">
+        <PacketStat label="Teams" value={teamRows.length} />
+        <PacketStat label="Research Rows" value={recommendations.length} />
+        <PacketStat label="Sources" value={packet?.source_provenance?.files?.length || 0} />
+      </div>
+
+      <div className="text-xs text-emerald-200 bg-emerald-500/10 border border-emerald-500/20 rounded-lg px-3 py-2">
+        Alpha mode is reading the local packet only. Regenerate, AI chat, paid APIs, Supabase writes, and owner portfolio mutations are unavailable here.
+      </div>
+
+      <div className="grid lg:grid-cols-2 gap-3">
+        {recommendations.slice(0, 24).map((item) => (
+          <div key={item.id} className="rounded-lg border border-slate-800 bg-slate-950/50 p-3 text-xs">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <p className="font-black text-white">{item.team || 'NFL'}</p>
+                <p className="text-slate-500 mt-0.5">{item.market || item.bet_type || 'Market Context'}</p>
+              </div>
+              <span className="text-[10px] text-emerald-300 border border-emerald-500/20 bg-emerald-950/20 rounded px-2 py-1">
+                Research
+              </span>
+            </div>
+            <p className="text-slate-200 mt-2">{item.selection || item.line_or_odds || item.source_document}</p>
+            {Array.isArray(item.rationale_summary) && (
+              <p className="text-slate-500 mt-2">{item.rationale_summary.slice(0, 2).join(' ')}</p>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function PacketStat({ label, value }) {
+  return (
+    <div className="rounded-lg border border-slate-800 bg-slate-950/50 p-3">
+      <div className="text-[10px] uppercase tracking-wider font-black text-slate-500">{label}</div>
+      <div className="text-2xl font-black text-white mt-1">{value}</div>
     </div>
   );
 }

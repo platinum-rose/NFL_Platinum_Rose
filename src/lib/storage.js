@@ -145,6 +145,37 @@ export const PR_STORAGE_KEYS = {
     permanence: 'persistent',
     description: 'Locally-pinned draft proposal filenames in the Official Picks inbox (client-only -- the inbox itself is server-backed, this never touches the local inbox server or Supabase)',
   },
+  // Alpha tester profile-scoped state (Phase 1, 2026-08-28) ———————————————
+  ALPHA_SUPERCONTEST: {
+    key: 'nfl_alpha:{profileId}:supercontest:{season}:{week}:v1',
+    permanence: 'critical',
+    description: 'Profile-scoped Alpha SuperContest weekly card key template',
+  },
+  ALPHA_SURVIVOR: {
+    key: 'nfl_alpha:{profileId}:survivor:{season}:{week}:v1',
+    permanence: 'critical',
+    description: 'Profile-scoped Alpha Survivor weekly state key template',
+  },
+  ALPHA_SANDBOX_PORTFOLIO: {
+    key: 'nfl_alpha:{profileId}:sandbox_portfolio:v1',
+    permanence: 'critical',
+    description: 'Profile-scoped Alpha sandbox portfolio state key template',
+  },
+  ALPHA_FEEDBACK_DRAFTS: {
+    key: 'nfl_alpha:{profileId}:feedback_drafts:v1',
+    permanence: 'persistent',
+    description: 'Profile-scoped Alpha feedback draft key template',
+  },
+  ALPHA_SETTINGS: {
+    key: 'nfl_alpha:{profileId}:alpha_settings:v1',
+    permanence: 'persistent',
+    description: 'Profile-scoped Alpha settings and local filters key template',
+  },
+  ALPHA_EVIDENCE_METADATA: {
+    key: 'nfl_alpha:{profileId}:evidence_session_metadata:v1',
+    permanence: 'persistent',
+    description: 'Profile-scoped Alpha evidence/session metadata key template',
+  },
 };
 
 // Convenience set of all critical keys (never wipe these)
@@ -167,6 +198,73 @@ export const loadFromStorage = (key, defaultValue) => {
     logger.warn(`[storage] Failed to load "${key}":`, e);
     return defaultValue;
   }
+};
+
+const ALPHA_STATE_DOMAIN_KEYS = {
+  supercontest: 'supercontest',
+  survivor: 'survivor',
+  sandboxPortfolio: 'sandbox_portfolio',
+  bettingCard: 'betting_card',
+  bankroll: 'bankroll',
+  picksTracker: 'picks_tracker',
+  futuresPortfolio: 'futures_portfolio',
+  feedbackDrafts: 'feedback_drafts',
+  alphaSettings: 'alpha_settings',
+  evidenceSessionMetadata: 'evidence_session_metadata',
+};
+
+export const ALPHA_STATE_DOMAINS = Object.freeze({
+  SUPERCONTEST: ALPHA_STATE_DOMAIN_KEYS.supercontest,
+  SURVIVOR: ALPHA_STATE_DOMAIN_KEYS.survivor,
+  SANDBOX_PORTFOLIO: ALPHA_STATE_DOMAIN_KEYS.sandboxPortfolio,
+  BETTING_CARD: ALPHA_STATE_DOMAIN_KEYS.bettingCard,
+  BANKROLL: ALPHA_STATE_DOMAIN_KEYS.bankroll,
+  PICKS_TRACKER: ALPHA_STATE_DOMAIN_KEYS.picksTracker,
+  FUTURES_PORTFOLIO: ALPHA_STATE_DOMAIN_KEYS.futuresPortfolio,
+  FEEDBACK_DRAFTS: ALPHA_STATE_DOMAIN_KEYS.feedbackDrafts,
+  ALPHA_SETTINGS: ALPHA_STATE_DOMAIN_KEYS.alphaSettings,
+  EVIDENCE_SESSION_METADATA: ALPHA_STATE_DOMAIN_KEYS.evidenceSessionMetadata,
+});
+
+const ALPHA_DOMAIN_SET = new Set(Object.values(ALPHA_STATE_DOMAINS));
+
+const assertSafeAlphaKeyPart = (label, value) => {
+  if (typeof value !== 'string' && typeof value !== 'number') {
+    throw new Error(`Alpha storage ${label} is required`);
+  }
+  const normalized = String(value).trim();
+  if (!/^[A-Za-z0-9_-]+$/.test(normalized)) {
+    throw new Error(`Alpha storage ${label} contains unsupported characters`);
+  }
+  return normalized;
+};
+
+export const getAlphaStorageKey = ({ profileId, stateDomain, season, week }) => {
+  const safeProfileId = assertSafeAlphaKeyPart('profileId', profileId);
+  const safeDomain = assertSafeAlphaKeyPart('stateDomain', stateDomain);
+  if (!ALPHA_DOMAIN_SET.has(safeDomain)) {
+    throw new Error(`Unknown Alpha storage state domain: ${safeDomain}`);
+  }
+
+  if (season !== undefined || week !== undefined) {
+    const safeSeason = assertSafeAlphaKeyPart('season', season);
+    const safeWeek = assertSafeAlphaKeyPart('week', week);
+    return `nfl_alpha:${safeProfileId}:${safeDomain}:${safeSeason}:${safeWeek}:v1`;
+  }
+
+  return `nfl_alpha:${safeProfileId}:${safeDomain}:v1`;
+};
+
+export const loadAlphaState = (profileId, stateDomain, defaultValue, scope = {}) => {
+  return loadFromStorage(getAlphaStorageKey({ profileId, stateDomain, ...scope }), defaultValue);
+};
+
+export const saveAlphaState = (profileId, stateDomain, value, scope = {}) => {
+  saveToStorage(getAlphaStorageKey({ profileId, stateDomain, ...scope }), value);
+};
+
+export const clearAlphaState = (profileId, stateDomain, emptyValue = null, scope = {}) => {
+  clearStorage(getAlphaStorageKey({ profileId, stateDomain, ...scope }), emptyValue);
 };
 
 /** Write a value to localStorage. Logs a warning on failure (quota exceeded, etc.). */

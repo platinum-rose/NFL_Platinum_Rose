@@ -11,11 +11,17 @@ import { loadFromStorage, saveToStorage } from '../../lib/storage';
 // PROFILE_KEY + PRESET_PROFILES moved to lib/profiles.js (Phase 0, 2026-08-24)
 // so App.jsx can read the active profile's hub list without eagerly importing
 // this (lazy-loaded) modal. Single source of truth for both.
-import { PROFILE_KEY, PRESET_PROFILES } from '../../lib/profiles';
+import { PROFILE_KEY, PROFILE_MODES, coerceProfileForMode, getPresetProfilesForMode } from '../../lib/profiles';
 
-export default function ProfileSettingsModal({ isOpen, onClose, onProfileUpdated }) {
+export default function ProfileSettingsModal({
+  isOpen,
+  onClose,
+  onProfileUpdated,
+  profileMode = PROFILE_MODES.OWNER,
+}) {
+  const profileCatalog = getPresetProfilesForMode(profileMode);
   const [activeProfile, setActiveProfile] = useState(() => {
-    return loadFromStorage(PROFILE_KEY, PRESET_PROFILES[0]);
+    return coerceProfileForMode(loadFromStorage(PROFILE_KEY, profileCatalog[0]), profileMode);
   });
   const [selectedProfileId, setSelectedProfileId] = useState(() => activeProfile?.id || 'master');
 
@@ -56,7 +62,7 @@ export default function ProfileSettingsModal({ isOpen, onClose, onProfileUpdated
           <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">Select Preset Profile</div>
 
           <div className="space-y-3">
-            {PRESET_PROFILES.map((preset) => {
+            {profileCatalog.map((preset) => {
               const isSelected = selectedProfileId === preset.id;
               return (
                 <div

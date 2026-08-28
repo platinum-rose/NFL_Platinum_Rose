@@ -146,7 +146,8 @@
     "podcast:publish-reconciled": "node scripts/publish-reconciled-podcast-notes.js",
     "find:podcast-transcripts": "node scripts/find-podcast-transcripts.js",
     "podcast:diarization-forensics": "node scripts/podcast-diarization-forensics.js",
-    "podcast:export-diarized": "node scripts/export-podcast-diarized-transcripts.js"
+    "podcast:export-diarized": "node scripts/export-podcast-diarized-transcripts.js",
+    "alpha:packet": "node scripts/build-alpha-data-packet.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.98.0",

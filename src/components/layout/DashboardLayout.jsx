@@ -7,7 +7,7 @@
 import React, { useState } from 'react';
 import PersistentAgentSidebar from '../agent/PersistentAgentSidebar';
 
-export default function DashboardLayout({ children }) {
+export default function DashboardLayout({ children, showAgentSidebar = true }) {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   return (
@@ -18,10 +18,12 @@ export default function DashboardLayout({ children }) {
       </div>
 
       {/* RIGHT COLUMN: PERSISTENT MULTI-MODE AI SIDEBAR */}
-      <PersistentAgentSidebar
-        isCollapsed={sidebarCollapsed}
-        onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
-      />
+      {showAgentSidebar && (
+        <PersistentAgentSidebar
+          isCollapsed={sidebarCollapsed}
+          onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
+        />
+      )}
     </div>
   );
 }

@@ -32,7 +32,7 @@ function TeamInjuryCard({ team, injuries, isMock }) {
     const impactPriority = { critical: 1, high: 2, medium: 3, low: 4 };
     const diff = (impactPriority[a.impact] || 4) - (impactPriority[b.impact] || 4);
     if (diff !== 0) return diff;
-    const statusPriority = { OUT: 1, DOUBTFUL: 2, QUESTIONABLE: 3, PROBABLE: 4 };
+    const statusPriority = { OUT: 1, PUP: 1.5, DOUBTFUL: 2, QUESTIONABLE: 3, PROBABLE: 4 };
     return (statusPriority[a.status] || 5) - (statusPriority[b.status] || 5);
   });
 
@@ -46,7 +46,7 @@ function TeamInjuryCard({ team, injuries, isMock }) {
             )}
             <span className="font-bold text-white truncate">{team.fullName || team.name}</span>
             {isMock && (
-              <span title="Simulated data — ESPN's live feed was unavailable for this team" className="shrink-0 text-amber-400">
+              <span title="Simulated / Expert Intelligence data source" className="shrink-0 text-amber-400">
                 <AlertTriangle size={12} />
               </span>
             )}
@@ -64,15 +64,41 @@ function TeamInjuryCard({ team, injuries, isMock }) {
           No reported injuries
         </div>
       ) : (
-        <div className="space-y-1.5">
+        <div className="space-y-2">
           {sorted.map((injury, i) => (
-            <div key={`${injury.name}-${i}`} className="flex items-center justify-between gap-2 bg-slate-950/60 rounded-lg px-2.5 py-1.5">
-              <div className="flex items-center gap-2 min-w-0">
-                <InjuryImpactIcon impact={injury.impact} />
-                <span className="text-sm text-white font-medium truncate">{injury.name}</span>
-                <span className="text-[11px] text-slate-500 shrink-0">{injury.position}</span>
+            <div key={`${injury.name}-${i}`} className="flex flex-col gap-1.5 bg-slate-950/60 rounded-lg p-2.5 border border-slate-800/80">
+              <div className="flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2 min-w-0">
+                  <InjuryImpactIcon impact={injury.impact} />
+                  <span className="text-sm text-white font-bold truncate">{injury.name}</span>
+                  <span className="text-[11px] font-mono text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded shrink-0">{injury.position}</span>
+                </div>
+                <InjuryBadge injury={injury} size="small" />
               </div>
-              <InjuryBadge injury={injury} size="small" />
+
+              {injury.source && (
+                <div className="flex items-center gap-1.5 mt-0.5">
+                  <span className="bg-sky-950 text-sky-300 border border-sky-800 text-[10px] font-bold px-1.5 py-0.5 rounded tracking-wide">
+                    {injury.source}
+                  </span>
+                  {injury.citation && (
+                    <span className="text-[10px] font-mono text-slate-500">{injury.citation}</span>
+                  )}
+                </div>
+              )}
+
+              {injury.prognosis && (
+                <div className="text-[12px] text-slate-300 leading-snug bg-slate-900/80 p-2 rounded border border-slate-800">
+                  <strong>Medical Prognosis:</strong> {injury.prognosis}
+                </div>
+              )}
+
+              {injury.bettingWarning && (
+                <div className="text-[11px] text-amber-300 bg-amber-950/40 border border-amber-800/50 p-1.5 rounded flex items-start gap-1.5">
+                  <AlertTriangle size={12} className="shrink-0 mt-0.5 text-amber-400" />
+                  <span><strong>Betting Angle:</strong> {injury.bettingWarning}</span>
+                </div>
+              )}
             </div>
           ))}
         </div>

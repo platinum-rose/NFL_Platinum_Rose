@@ -31,15 +31,25 @@ const FILTER_CHIPS = [
   { id: 'dome',         label: 'Dome Game',             tooltip: 'Filters for games played inside weather-controlled indoor stadiums.' },
 ];
 
+const isFinalStatus = (game) => game.status === 'post' || game.status === 'STATUS_FINAL';
+const isStalePastPreseasonGame = (game) => {
+  if (Number(game.season_type) !== 1 || !game.kickoff_utc) return false;
+  const kickoffMs = Date.parse(game.kickoff_utc);
+  if (!Number.isFinite(kickoffMs)) return false;
+  return kickoffMs < Date.now() - (4 * 60 * 60 * 1000);
+};
+
 const Dashboard = ({
   schedule,
   stats,
   simResults = {},
   onGameClick,
+  onPlaceBet,
   onShowHistory,
   onShowInjuries,
-  onAddBankrollBet,
-  onShowPmContract
+  onOpenCard,
+  onShowPmContract,
+  myBets = [],
 }) => {
   const [search, setSearch]     = useState('');
   const [sortBy, setSortBy]     = useState('default');
@@ -72,21 +82,21 @@ const Dashboard = ({
   // Group games by (season_type, week) and pick the earliest slate that still
   // has at least one unplayed game — that's "current/next unplayed slate."
   // Falls back to the last slate if the whole schedule is already final.
-  const slateInfo = useMemo(() => getCurrentSlate(enriched), [enriched]);
+  const visibleUniverse = useMemo(() => (
+    filter === 'completed'
+      ? enriched
+      : enriched.filter(g => !isFinalStatus(g) && !isStalePastPreseasonGame(g))
+  ), [enriched, filter]);
+  const slateInfo = useMemo(() => getCurrentSlate(visibleUniverse), [visibleUniverse]);
 
   // --- FILTER ---
   const filtered = useMemo(() => {
-    let list = enriched;
+    let list = visibleUniverse;
 
     // Current-slate default: restrict to the active slate unless the user
     // explicitly asked to see every game.
     if (!showAllGames && slateInfo) {
       list = list.filter(g => slateInfo.ids.has(g.id));
-    }
-
-    // Deprecate/hide past completed games by default unless explicitly reviewing completed games
-    if (filter !== 'completed') {
-      list = list.filter(g => g.status !== 'post' && g.status !== 'STATUS_FINAL');
     }
 
     // Text search: match any of home/visitor abbr or full name
@@ -109,7 +119,7 @@ const Dashboard = ({
         list = list.filter(g => Number(g.season_type) === 2);
         break;
       case 'completed':
-        list = list.filter(g => g.status === 'post' || g.status === 'in' || g.status === 'STATUS_FINAL' || (g.homeScore != null && g.visitorScore != null && (g.homeScore > 0 || g.visitorScore > 0)));
+        list = list.filter(g => isFinalStatus(g) || g.status === 'in' || (g.homeScore != null && g.visitorScore != null && (g.homeScore > 0 || g.visitorScore > 0)));
         break;
       case 'sec_mismatch':
         list = list.filter(g => {
@@ -144,7 +154,7 @@ const Dashboard = ({
     }
 
     return list;
-  }, [enriched, search, filter, showAllGames, slateInfo]);
+  }, [visibleUniverse, search, filter, showAllGames, slateInfo]);
 
   // --- SORT ---
   const sorted = useMemo(() => {
@@ -166,6 +176,7 @@ const Dashboard = ({
 
   const currentSortLabel = SORT_OPTIONS.find(o => o.value === sortBy)?.label ?? 'Sort';
   const isFiltered = search.trim() || filter !== 'all';
+  const displayedTotal = visibleUniverse.length;
 
   return (
     <div className="space-y-4">
@@ -189,7 +200,7 @@ const Dashboard = ({
               : 'bg-slate-800/60 border-slate-700 text-slate-400 hover:border-slate-500 hover:text-slate-300'
             }`}
         >
-          All Games ({enriched.length})
+          All Games ({displayedTotal})
         </button>
       </div>
 
@@ -243,7 +254,7 @@ const Dashboard = ({
         {/* Game count badge */}
         {(isFiltered || !showAllGames) && (
           <span className="shrink-0 text-xs text-slate-400 px-2.5 py-1 rounded-full bg-slate-800 border border-slate-700 whitespace-nowrap">
-            {sorted.length} / {enriched.length} games
+            {sorted.length} / {displayedTotal} games
           </span>
         )}
       </div>
@@ -311,14 +322,14 @@ const Dashboard = ({
                 key={game.id}
                 game={game}
                 simData={gameSim || {}}
-                onPlaceBet={() => onGameClick(game)}
+                onPlaceBet={onPlaceBet}
                 onAnalyze={() => onGameClick(game)}
                 onShowHistory={() => onShowHistory && onShowHistory(game)}
                 onShowInjuries={() => onShowInjuries(game)}
-                onAddBankrollBet={onAddBankrollBet ? () => onAddBankrollBet(game) : undefined}
+                onOpenCard={onOpenCard}
                 onShowPmContract={onShowPmContract}
                 experts={[]}
-                myBets={[]}
+                myBets={myBets}
               />
             );
           })

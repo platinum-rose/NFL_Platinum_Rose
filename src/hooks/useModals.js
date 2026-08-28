@@ -19,6 +19,7 @@ const initialState = {
   editBet: false,
   gradeModal: false,
   bankrollSettings: false,
+  myCard: false,
 };
 
 function modalReducer(state, action) {

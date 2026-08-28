@@ -54,14 +54,15 @@ const fetchStadiumWeather = (lat, long) => {
   return promise;
 };
 
-const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjuries, onAddBankrollBet, onShowPmContract, experts, myBets = [], simData }) => {
+const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjuries, onOpenCard, onShowPmContract, experts, myBets = [], simData }) => {
   const [showPicks, setShowPicks] = useState(false);
   const [showMoneyline, setShowMoneyline] = useState(false);
   const [showSecondary, setShowSecondary] = useState(false);
 
   const secMatchups = useMemo(() => getSecondaryMatchupsForGame(game.visitor, game.home), [game.visitor, game.home]);
 
-  const formatLine = (val) => { if(!val && val !== 0) return '-'; return val > 0 ? `+${val}` : val; };
+  const isValidLine = (value) => value !== null && value !== undefined && value !== '' && Number.isFinite(Number(value));
+  const formatLine = (val) => { if(!isValidLine(val)) return 'TBD'; return Number(val) > 0 ? `+${val}` : val; };
   const formatGameTime = (dateStr) => { if (!dateStr) return 'TBD'; const date = new Date(dateStr); if (isNaN(date.getTime())) return 'TBD'; return new Intl.DateTimeFormat('en-US', { timeZone: 'America/Los_Angeles', weekday: 'long', hour: 'numeric', minute: '2-digit', }).format(date); };
   const isSelected = (type, side) => { const betId = `${game.id}-${type}-${side}-std`; return myBets.some(b => b.uniqueKey === betId); };
 
@@ -106,7 +107,7 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
   // Total Percentages (Over / Under)
   let oPct = 50;
   let uPct = 50;
-  let totalLabel = `Total Consensus (${game.total || '38.5'} Pts)`;
+  let totalLabel = `Total Consensus (${isValidLine(game.total) ? game.total : 'TBD'} Pts)`;
   let totalMoneyDetail = null;
 
   if (totSplits.overTicket || totSplits.underTicket) {
@@ -124,7 +125,7 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
       oPct = Math.round((overPicks / totalTotal) * 100);
       uPct = Math.round((underPicks / totalTotal) * 100);
     }
-    totalLabel = `Total Consensus (${game.total} Pts)`;
+    totalLabel = `Total Consensus (${isValidLine(game.total) ? game.total : 'TBD'} Pts)`;
   }
 
   // Moneyline Percentages (Tickets / Money) -- Phase 1 (2026-08-24): this
@@ -201,14 +202,17 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
       const [style, setStyle] = useState({});
       const dropdownRef = useRef(null);
       useEffect(() => { const handleClickOutside = (event) => { if (dropdownRef.current && !dropdownRef.current.contains(event.target)) { setIsOpen(false); } }; const updatePos = () => { if (isOpen && dropdownRef.current) { const rect = dropdownRef.current.getBoundingClientRect(); const ladderHeight = 280; const headerHeight = 100; let top = rect.top + (rect.height / 2); if (top - (ladderHeight / 2) < headerHeight) { top = headerHeight + (ladderHeight / 2); } setStyle({ top: `${top}px`, left: `${rect.left + (rect.width / 2)}px`, transform: `translate(-50%, -50%)`, zIndex: 9999 }); } }; if (isOpen) { updatePos(); window.addEventListener('scroll', updatePos); window.addEventListener('resize', updatePos); } document.addEventListener('mousedown', handleClickOutside); return () => { document.removeEventListener('mousedown', handleClickOutside); window.removeEventListener('scroll', updatePos); window.removeEventListener('resize', updatePos); }; }, [isOpen]);
-      const handleSelect = (finalLine, isMain) => { onPlaceBet(game.id, type, side, finalLine, -110, false, isMain); setIsOpen(false); };
+      const hasLine = isValidLine(baseLine) && typeof onPlaceBet === 'function';
+      const handleSelect = (finalLine, isMain) => { if (!hasLine) return; onPlaceBet(game.id, type, side, finalLine, -110, false, isMain); setIsOpen(false); };
       const isBetActive = isSelected(type, side);
-      const styleClass = isBetActive ? 'bg-emerald-900/20 text-emerald-300 shadow-[0_0_15px_rgba(52,211,153,0.4)] border-emerald-400 scale-[1.02] ring-1 ring-emerald-400' : 'bg-slate-800 hover:bg-slate-700 border-slate-700/50 text-slate-500';
+      const styleClass = !hasLine
+        ? 'bg-slate-900 border-slate-800 text-slate-600 cursor-not-allowed'
+        : isBetActive ? 'bg-emerald-900/20 text-emerald-300 shadow-[0_0_15px_rgba(52,211,153,0.4)] border-emerald-400 scale-[1.02] ring-1 ring-emerald-400' : 'bg-slate-800 hover:bg-slate-700 border-slate-700/50 text-slate-500';
       const highSteps = [2.5, 2.0, 1.5, 1.0, 0.5]; const lowSteps = [-0.5, -1.0, -1.5, -2.0, -2.5];
-      const formatSelectorLine = (val) => { if (type === 'total') return val; return formatLine(val); };
+      const formatSelectorLine = (val) => { if (!isValidLine(val)) return 'TBD'; if (type === 'total') return val; return formatLine(val); };
       return (
           <div ref={dropdownRef} className="relative w-full">
-              <button onClick={() => setIsOpen(!isOpen)} className={`w-full relative flex flex-col items-center justify-center py-2 rounded border transition-all ${styleClass}`}>
+              <button disabled={!hasLine} onClick={() => setIsOpen(!isOpen)} className={`w-full relative flex flex-col items-center justify-center py-2 rounded border transition-all ${styleClass}`}>
                   <div className="text-[9px] uppercase font-bold leading-none mb-0.5">{type === 'spread' ? 'Spread' : 'Total'}</div>
                   <div className="font-bold text-sm text-white flex items-center gap-1">{formatSelectorLine(baseLine)}<ChevronRight size={10} className={`opacity-50 transition-transform ${isOpen ? 'rotate-90' : ''}`} /></div>
               </button>
@@ -225,9 +229,11 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
       const [isOpen, setIsOpen] = useState(false);
       const [style, setStyle] = useState({});
       const btnRef = useRef(null);
+      const hasTeaserLines = isValidLine(game.spread) && isValidLine(game.total);
       const teaserLines = { home: game.spread + 6, visitor: (game.spread * -1) + 6, over: game.total - 6, under: game.total + 6 };
       useEffect(() => { const handleClickOutside = (event) => { if (btnRef.current && !btnRef.current.contains(event.target)) setIsOpen(false); }; const updatePos = () => { if (isOpen && btnRef.current) { const rect = btnRef.current.getBoundingClientRect(); setStyle({ top: `${rect.bottom + 5}px`, left: `${rect.left + (rect.width/2)}px`, transform: 'translateX(-50%)', zIndex: 9999 }); } }; if(isOpen) { updatePos(); window.addEventListener('scroll', updatePos); window.addEventListener('resize', updatePos); } document.addEventListener('mousedown', handleClickOutside); return () => { document.removeEventListener('mousedown', handleClickOutside); window.removeEventListener('scroll', updatePos); window.removeEventListener('resize', updatePos); }; }, [isOpen]);
       const placeTeaser = (type, side, line) => { onPlaceBet(game.id, type, side, line, -120, true, true); setIsOpen(false); };
+      if (!hasTeaserLines) return null;
       return (
           <div ref={btnRef} className="relative w-full mt-2">
               <button onClick={() => setIsOpen(!isOpen)} className="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-purple-600 hover:bg-purple-500 border border-purple-400 text-white text-[10px] font-bold transition-all shadow-lg shadow-purple-900/50"><Split size={12} /> TEASER OPTIONS</button>
@@ -498,10 +504,10 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
 
 
       {/* MATCHUP ROW */}
-      <div className="flex items-start justify-between mb-6">
+      <div className="flex flex-wrap sm:flex-nowrap items-start justify-between gap-y-4 mb-6">
         
         {/* VISITOR */}
-        <div className="flex-1 flex flex-col items-center text-center gap-2 relative">
+        <div className="w-1/2 sm:flex-1 flex flex-col items-center text-center gap-2 relative">
             {renderEdgeBadge('visitor')}
             <div className="w-14 h-14 bg-white/5 rounded-full p-2 flex items-center justify-center shadow-lg border border-white/5">
                 {TEAM_LOGOS[game.visitor] ? <img src={TEAM_LOGOS[game.visitor]} alt={game.visitor} className="w-full h-full object-contain" /> : <span className="text-xl font-bold text-slate-500">{game.visitor.substring(0,2)}</span>}
@@ -530,17 +536,17 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
                     )}
                 </div>
             </div>
-            <button onClick={() => onPlaceBet(game.id, 'moneyline', 'visitor', game.visitor_ml)} className={`mt-1 px-3 py-1 rounded-full text-[10px] transition-all font-bold border ${isSelected('moneyline', 'visitor') ? 'bg-emerald-900/20 text-emerald-300 border-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.5)]' : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:text-white'}`}>
+            <button disabled={!isValidLine(game.visitor_ml) || typeof onPlaceBet !== 'function'} onClick={() => onPlaceBet(game.id, 'moneyline', 'visitor', game.visitor_ml)} className={`mt-1 px-3 py-1 rounded-full text-[10px] transition-all font-bold border ${!isValidLine(game.visitor_ml) || typeof onPlaceBet !== 'function' ? 'bg-slate-900/80 border-slate-800 text-slate-600 cursor-not-allowed' : isSelected('moneyline', 'visitor') ? 'bg-emerald-900/20 text-emerald-300 border-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.5)]' : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:text-white'}`}>
                 ML {formatLine(game.visitor_ml)}
             </button>
         </div>
 
         {/* CENTER ODDS */}
-        <div className="flex-[1.2] flex flex-col justify-center gap-2 px-2 mt-2">
+        <div className="w-full sm:w-auto sm:flex-[1.2] flex flex-col justify-center gap-2 px-0 sm:px-2 mt-2 order-3 sm:order-none">
             {/* SPREAD ROW */}
             <div className="grid grid-cols-2 gap-2 relative z-20">
-                <BetSelector type="spread" side="visitor" baseLine={game.spread * -1} />
-                <BetSelector type="spread" side="home" baseLine={game.spread} />
+                <BetSelector type="spread" side="visitor" baseLine={isValidLine(game.spread) ? game.spread * -1 : null} />
+                <BetSelector type="spread" side="home" baseLine={isValidLine(game.spread) ? game.spread : null} />
             </div>
             {/* TOTAL ROW */}
             <div className="grid grid-cols-2 gap-2 relative z-10">
@@ -577,7 +583,7 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
         </div>
 
         {/* HOME */}
-        <div className="flex-1 flex flex-col items-center text-center gap-2 relative">
+        <div className="w-1/2 sm:flex-1 flex flex-col items-center text-center gap-2 relative order-2 sm:order-none">
              {renderEdgeBadge('home')}
             <div className="w-14 h-14 bg-white/5 rounded-full p-2 flex items-center justify-center shadow-lg border border-white/5">
                 {TEAM_LOGOS[game.home] ? <img src={TEAM_LOGOS[game.home]} alt={game.home} className="w-full h-full object-contain" /> : <span className="text-xl font-bold text-slate-500">{game.home.substring(0,2)}</span>}
@@ -606,7 +612,7 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
                     )}
                 </div>
             </div>
-            <button onClick={() => onPlaceBet(game.id, 'moneyline', 'home', game.home_ml)} className={`mt-1 px-3 py-1 rounded-full text-[10px] transition-all font-bold border ${isSelected('moneyline', 'home') ? 'bg-emerald-900/20 text-emerald-300 border-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.5)]' : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:text-white'}`}>
+            <button disabled={!isValidLine(game.home_ml) || typeof onPlaceBet !== 'function'} onClick={() => onPlaceBet(game.id, 'moneyline', 'home', game.home_ml)} className={`mt-1 px-3 py-1 rounded-full text-[10px] transition-all font-bold border ${!isValidLine(game.home_ml) || typeof onPlaceBet !== 'function' ? 'bg-slate-900/80 border-slate-800 text-slate-600 cursor-not-allowed' : isSelected('moneyline', 'home') ? 'bg-emerald-900/20 text-emerald-300 border-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.5)]' : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:text-white'}`}>
                 ML {formatLine(game.home_ml)}
             </button>
         </div>
@@ -746,20 +752,20 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
         </div>
       )}
 
-      <div className="flex items-center justify-between pt-4 border-t border-slate-800/50 mt-auto">
+      <div className="flex flex-col sm:flex-row gap-3 sm:items-center justify-between pt-4 border-t border-slate-800/50 mt-auto">
             {game.contestLine ? (
                 <div className="flex items-center gap-2 text-xs font-bold text-slate-400"><Trophy size={14} className="text-amber-500" /> Contest: <span className="text-white ml-1">{getAbbr(game.contestTeam)} {game.contestLine > 0 ? `+${game.contestLine}` : game.contestLine}</span></div>
             ) : (
                 <button onClick={() => onShowHistory(game)} className="flex items-center gap-1 text-slate-500 hover:text-white transition-colors text-xs"><Activity size={14} /> <span className="font-medium">Line History</span></button>
             )}
-            <div className="flex gap-2">
-                {onAddBankrollBet && (
+            <div className="flex flex-wrap gap-2">
+                {onOpenCard && (
                     <button 
-                        onClick={() => onAddBankrollBet(game)} 
+                        onClick={onOpenCard}
                         className="flex items-center gap-2 px-3 py-1.5 rounded bg-emerald-800 hover:bg-emerald-700 text-white transition-all text-xs font-bold border border-emerald-600"
                     >
                         <DollarSign size={12} /> 
-                        Bankroll
+                        Card
                     </button>
                 )}
                 <button onClick={() => onAnalyze(game)} className="flex items-center gap-2 px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white transition-all text-xs font-bold border border-slate-700"><Trophy size={12} className="text-amber-500" /> Analyze Matchup</button>

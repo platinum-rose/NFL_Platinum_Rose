@@ -4,7 +4,7 @@
 // Consolidates Futures Portfolio, Futures AI Reasoning, Futures Report & Bankroll
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useMemo, useState, lazy, Suspense } from 'react';
 import { Briefcase, Trophy, FileText, Banknote, Sparkles, RefreshCw } from 'lucide-react';
 
 const FuturesPortfolio = lazy(() => import('./FuturesPortfolio'));
@@ -21,8 +21,27 @@ const BankrollDashboard = lazy(() => import('../bankroll/BankrollDashboard'));
 // FuturesHub -> its own BankrollDashboard instance, never that other route.
 // Caught live-testing: the button rendered but did nothing here. Now both
 // entry points open the same UnitCalculatorModal via the same App.jsx state.
-export default function FuturesHub({ onShowCalculator }) {
-  const [activeSubTab, setActiveSubTab] = useState('portfolio');
+export default function FuturesHub({
+  onShowCalculator,
+  onAddPosition,
+  onAddBet,
+  onImportBets,
+  onShowPending,
+  onShowSettings,
+  profileCanUseAI = true,
+  profileCanAccessOwnerPortfolio = true,
+}) {
+  const visibleSubTabs = useMemo(() => [
+    profileCanAccessOwnerPortfolio && { id: 'portfolio', label: 'Portfolio', icon: Briefcase },
+    profileCanUseAI && { id: 'futures-ai', label: 'Futures AI', icon: Trophy },
+    { id: 'report', label: 'Intel Report', icon: FileText },
+    profileCanAccessOwnerPortfolio && { id: 'bankroll', label: 'Bankroll', icon: Banknote },
+  ].filter(Boolean), [profileCanAccessOwnerPortfolio, profileCanUseAI]);
+
+  const [activeSubTab, setActiveSubTab] = useState(() => visibleSubTabs[0]?.id || 'report');
+  const selectedSubTab = visibleSubTabs.some((tab) => tab.id === activeSubTab)
+    ? activeSubTab
+    : visibleSubTabs[0]?.id || 'report';
 
   return (
     <div className="min-h-screen bg-[#0a0d14] text-slate-100 p-4 md:p-6 space-y-6">
@@ -36,55 +55,28 @@ export default function FuturesHub({ onShowCalculator }) {
             <h2 className="text-xl font-bold text-white tracking-tight">Bankroll & Futures Command Hub</h2>
           </div>
           <p className="text-xs text-slate-400 mt-1">
-            Super Bowl, Conference, Division, Win Totals portfolio synthesis, AI market reasoning, and bankroll tracking.
+            Super Bowl, Conference, Division, Win Totals portfolio synthesis, market context, and bankroll tracking.
           </p>
         </div>
 
         {/* SUB-TABS NAVIGATION */}
         <div className="flex items-center gap-1.5 bg-[#0a0d14] p-1.5 rounded-xl border border-slate-800/80 overflow-x-auto">
-          <button
-            onClick={() => setActiveSubTab('portfolio')}
-            className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all ${
-              activeSubTab === 'portfolio'
-                ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-900/30'
-                : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
-            }`}
-          >
-            <Briefcase size={14} /> Portfolio
-          </button>
-
-          <button
-            onClick={() => setActiveSubTab('futures-ai')}
-            className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all ${
-              activeSubTab === 'futures-ai'
-                ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-900/30'
-                : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
-            }`}
-          >
-            <Trophy size={14} /> Futures AI
-          </button>
-
-          <button
-            onClick={() => setActiveSubTab('report')}
-            className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all ${
-              activeSubTab === 'report'
-                ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-900/30'
-                : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
-            }`}
-          >
-            <FileText size={14} /> Intel Report
-          </button>
-
-          <button
-            onClick={() => setActiveSubTab('bankroll')}
-            className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all ${
-              activeSubTab === 'bankroll'
-                ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-900/30'
-                : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
-            }`}
-          >
-            <Banknote size={14} /> Bankroll
-          </button>
+          {visibleSubTabs.map((tab) => {
+            const Icon = tab.icon;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveSubTab(tab.id)}
+                className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all ${
+                  selectedSubTab === tab.id
+                    ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-900/30'
+                    : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
+                }`}
+              >
+                <Icon size={14} /> {tab.label}
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -95,10 +87,18 @@ export default function FuturesHub({ onShowCalculator }) {
           <span className="text-xs font-medium tracking-wide">Loading Futures & Bankroll Hub...</span>
         </div>
       }>
-        {activeSubTab === 'portfolio' && <FuturesPortfolio />}
-        {activeSubTab === 'futures-ai' && <FuturesAgentChat />}
-        {activeSubTab === 'report' && <FuturesIntelReport />}
-        {activeSubTab === 'bankroll' && <BankrollDashboard onShowCalculator={onShowCalculator} />}
+        {profileCanAccessOwnerPortfolio && selectedSubTab === 'portfolio' && <FuturesPortfolio onAddPosition={onAddPosition} />}
+        {profileCanUseAI && selectedSubTab === 'futures-ai' && <FuturesAgentChat />}
+        {selectedSubTab === 'report' && <FuturesIntelReport />}
+        {profileCanAccessOwnerPortfolio && selectedSubTab === 'bankroll' && (
+          <BankrollDashboard
+            onShowCalculator={onShowCalculator}
+            onAddBet={onAddBet}
+            onImportBets={onImportBets}
+            onShowPending={onShowPending}
+            onShowSettings={onShowSettings}
+          />
+        )}
       </Suspense>
     </div>
   );

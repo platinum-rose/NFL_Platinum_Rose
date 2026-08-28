@@ -11,19 +11,51 @@
 import logger from './logger';
 // ─────────────────────────────────────────────────────────────
 
-import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS } from './storage';
+import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS, ALPHA_STATE_DOMAINS, getAlphaStorageKey } from './storage';
 import { syncPick, deleteSyncedPick } from './supabase';
 import { enqueueDirty, dequeueSuccess } from './syncQueue';
 
+let storageScope = null;
+
+export const configurePicksStorageScope = (scope = null) => {
+    storageScope = scope;
+};
+
+const getPicksStorageKey = () => storageScope?.profileId
+    ? getAlphaStorageKey({
+        profileId: storageScope.profileId,
+        stateDomain: ALPHA_STATE_DOMAINS.PICKS_TRACKER,
+        season: storageScope.season,
+        week: storageScope.week,
+    })
+    : STORAGE_KEY;
+
+const getResultsStorageKey = () => storageScope?.profileId
+    ? getAlphaStorageKey({
+        profileId: storageScope.profileId,
+        stateDomain: ALPHA_STATE_DOMAINS.PICKS_TRACKER,
+        season: storageScope.season,
+        week: storageScope.week,
+    }) + ':results'
+    : RESULTS_KEY;
+
 // Sync helper — fire and forget, never throws
-const fireSync   = (pick)   =>
+const fireSync   = (pick)   => {
+    if (storageScope?.disableCloudSync) return Promise.resolve();
+    return (
     syncPick(pick)
         .then(() => dequeueSuccess('pick', pick.id))
-        .catch(() => enqueueDirty('pick', pick.id, pick));
-const fireDelete  = (pickId) =>
+        .catch(() => enqueueDirty('pick', pick.id, pick))
+    );
+};
+const fireDelete  = (pickId) => {
+    if (storageScope?.disableCloudSync) return Promise.resolve();
+    return (
     deleteSyncedPick(pickId)
         .then(() => dequeueSuccess('deletePick', pickId))
-        .catch(() => enqueueDirty('deletePick', pickId, null));
+        .catch(() => enqueueDirty('deletePick', pickId, null))
+    );
+};
 
 // ── Storage Keys (canonical refs) ───────────────────────────
 const STORAGE_KEY = PR_STORAGE_KEYS.PICKS.key;
@@ -50,16 +82,16 @@ export const EDGE_BUCKETS = {
 // ── Helpers ─────────────────────────────────────────────────
 
 /** Read picks array from localStorage */
-const readPicks  = () => loadFromStorage(STORAGE_KEY, []);
+const readPicks  = () => loadFromStorage(getPicksStorageKey(), []);
 
 /** Write picks array to localStorage */
-const writePicks = (picks) => saveToStorage(STORAGE_KEY, picks);
+const writePicks = (picks) => saveToStorage(getPicksStorageKey(), picks);
 
 /** Read cached game results */
-const readResults  = () => loadFromStorage(RESULTS_KEY, {});
+const readResults  = () => loadFromStorage(getResultsStorageKey(), {});
 
 /** Write cached game results */
-const writeResults = (results) => saveToStorage(RESULTS_KEY, results);
+const writeResults = (results) => saveToStorage(getResultsStorageKey(), results);
 
 /**
  * Generate a stable pick ID from the natural key.

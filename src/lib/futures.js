@@ -1,9 +1,23 @@
 // src/lib/futures.js
 // Futures portfolio management — positions, parlays, P&L calculations
 
-import { loadFromStorage, saveToStorage } from './storage';
+import { loadFromStorage, saveToStorage, ALPHA_STATE_DOMAINS, getAlphaStorageKey } from './storage';
 
 export const STORAGE_KEY = 'nfl_futures_portfolio_v1';
+
+let storageScope = null;
+
+export function configureFuturesStorageScope(scope = null) {
+  storageScope = scope;
+}
+
+function getStorageKey() {
+  if (!storageScope?.profileId) return STORAGE_KEY;
+  return getAlphaStorageKey({
+    profileId: storageScope.profileId,
+    stateDomain: ALPHA_STATE_DOMAINS.FUTURES_PORTFOLIO,
+  });
+}
 
 // ── Bet type enum ────────────────────────────────────────────────────────────
 export const FUTURES_TYPES = {
@@ -143,11 +157,11 @@ function deriveParlayStatus(legs) {
 // ── CRUD ─────────────────────────────────────────────────────────────────────
 
 function loadData() {
-  return loadFromStorage(STORAGE_KEY, { positions: [], parlays: [] });
+  return loadFromStorage(getStorageKey(), { positions: [], parlays: [] });
 }
 
 function saveData(data) {
-  saveToStorage(STORAGE_KEY, data);
+  saveToStorage(getStorageKey(), data);
 }
 
 /** List all positions */

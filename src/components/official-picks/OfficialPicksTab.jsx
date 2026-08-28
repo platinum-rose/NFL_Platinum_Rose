@@ -28,6 +28,7 @@ import {
 import { OFFICIAL_PICKS } from '../../lib/apiConfig';
 import { FAILSAFE_TIMEOUT_MS, fetchJson } from '../../lib/officialPicksApi';
 import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS } from '../../lib/storage';
+import { useAlphaDataPacket } from '../../lib/useAlphaDataPacket';
 
 // Pin (Phase 1, 2026-08-24): the inbox itself is a thin client over the
 // local loopback server (see file header) -- there's no server-side field
@@ -175,7 +176,161 @@ function CandidateCard({ item, busy, pinned, onTogglePin, onApprove, onReject })
   );
 }
 
-export default function OfficialPicksTab() {
+function OfficialLedgerCard({ pick }) {
+  const result = String(pick.result_status || 'pending').toUpperCase();
+  const resultClass = result === 'WON' || result === 'WIN'
+    ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'
+    : result === 'LOST' || result === 'LOSS'
+    ? 'bg-rose-500/20 text-rose-400 border-rose-500/30'
+    : result === 'PUSH'
+    ? 'bg-amber-500/20 text-amber-400 border-amber-500/30'
+    : 'bg-slate-700/40 text-slate-400 border-slate-600/30';
+
+  return (
+    <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-2">
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0">
+          <div className="flex items-center gap-2 flex-wrap mb-1">
+            <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded border ${resultClass}`}>
+              {result}
+            </span>
+            {pick.pick_scope && (
+              <span className="text-[10px] text-slate-500 uppercase tracking-wider">{pick.pick_scope}</span>
+            )}
+            {pick.week != null && <span className="text-[10px] text-slate-500">Week {pick.week}</span>}
+          </div>
+          <div className="text-sm font-bold text-white">{pick.selection || '(no selection)'}</div>
+          <div className="flex items-center gap-3 mt-1 text-xs text-slate-500 flex-wrap">
+            {pick.market_type && <span>{pick.market_type}{pick.market ? ` / ${pick.market}` : ''}</span>}
+            {pick.book && <span>{pick.book}{pick.price != null ? ` ${pick.price}` : ''}{pick.line != null ? ` / line ${pick.line}` : ''}</span>}
+            {pick.stake_units != null && <span className="text-cyan-400 font-medium">{fmtUnits(pick.stake_units)}{pick.stake_usd != null ? ` (${fmtMoney(pick.stake_usd)})` : ''}</span>}
+            {pick.confidence != null && <span>{fmtConfidence(pick.confidence)} conf</span>}
+          </div>
+        </div>
+      </div>
+      {pick.thesis && <p className="text-xs text-slate-300"><span className="text-slate-500 font-bold">Thesis: </span>{pick.thesis}</p>}
+      {pick.market_view && <p className="text-xs text-slate-400"><span className="text-slate-500 font-bold">Market: </span>{pick.market_view}</p>}
+      {pick.football_view && <p className="text-xs text-slate-400"><span className="text-slate-500 font-bold">Football: </span>{pick.football_view}</p>}
+    </div>
+  );
+}
+
+function AlphaProposalCard({ item }) {
+  const proposal = item.proposal || {};
+  const confidence = proposal.confidence != null ? Number(proposal.confidence) : null;
+  const units = proposal.recommended_units ?? proposal.stake_units;
+
+  return (
+    <div className="bg-slate-900 border border-amber-500/30 rounded-xl p-4 space-y-2">
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0">
+          <div className="flex items-center gap-2 flex-wrap mb-1">
+            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded border bg-amber-500/20 text-amber-400 border-amber-500/30">
+              ACTIVE DRAFT
+            </span>
+            {proposal.market && (
+              <span className="text-[10px] text-slate-500 uppercase tracking-wider">{proposal.market}</span>
+            )}
+            {proposal.source && <span className="text-[10px] text-slate-500">{proposal.source}</span>}
+          </div>
+          <div className="text-sm font-bold text-white">{proposal.pick || proposal.selection || '(no pick text)'}</div>
+          <div className="flex items-center gap-3 mt-1 text-xs text-slate-500 flex-wrap">
+            {proposal.game_id && <span>{proposal.game_id}</span>}
+            {proposal.odds != null && <span>{proposal.odds > 0 ? `+${proposal.odds}` : proposal.odds}</span>}
+            {proposal.contest_line != null && <span>contest {proposal.contest_line}</span>}
+            {proposal.closing_line != null && <span>market {proposal.closing_line}</span>}
+            {units != null && <span className="text-cyan-400 font-medium">{fmtUnits(units)}</span>}
+            {confidence != null && <span>{confidence > 1 ? confidence : Math.round(confidence * 100)}% conf</span>}
+          </div>
+        </div>
+      </div>
+      {proposal.subject && <p className="text-xs text-slate-400"><span className="text-slate-500 font-bold">Subject: </span>{proposal.subject}</p>}
+      {proposal.rationale && <p className="text-xs text-slate-300"><span className="text-slate-500 font-bold">Rationale: </span>{proposal.rationale}</p>}
+      <div className="text-[10px] text-slate-600 font-mono">{item.file}</div>
+    </div>
+  );
+}
+
+function AlphaOfficialPicksView() {
+  const { packet, loading, error } = useAlphaDataPacket();
+  const ledger = packet?.market_context?.official_paper_ledger;
+  const picks = ledger?.picks || [];
+  const activeProposals = ledger?.active_proposals || [];
+  const pending = picks.filter((pick) => String(pick.result_status || '').toLowerCase() === 'pending').length
+    + activeProposals.filter((item) => String(item.proposal?.status || '').toLowerCase().includes('pending')).length;
+  const netUnits = picks.reduce((sum, pick) => sum + (Number(pick.net_units) || 0), 0);
+
+  return (
+    <div className="animate-in fade-in zoom-in duration-300 space-y-5 pb-8">
+      <div className="flex items-center justify-between flex-wrap gap-3">
+        <div className="flex items-center gap-3">
+          <div className="p-2 bg-purple-500/10 rounded-lg">
+            <ShieldCheck size={20} className="text-purple-400" />
+          </div>
+          <div>
+            <h2 className="text-lg font-bold text-white">Platinum Rose AI — Official Picks</h2>
+            <p className="text-xs text-slate-400">Read-only paper ledger and active draft proposals from the Alpha data packet.</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="text-[11px] text-slate-500 bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5">
+        Alpha tester view is read-only for official paper picks. Test picks and bankroll entries save separately to the active tester profile.
+      </div>
+
+      {loading && (
+        <div className="flex items-center justify-center py-20 text-slate-500 gap-3">
+          <Loader2 size={18} className="animate-spin" />
+          <span className="text-sm">Loading official picks from the Alpha packet...</span>
+        </div>
+      )}
+
+      {!loading && error && (
+        <div className="text-rose-300 bg-rose-500/10 border border-rose-500/30 rounded-lg px-4 py-3 text-sm flex items-center gap-2">
+          <AlertTriangle size={16} /> {error}
+        </div>
+      )}
+
+      {!loading && !error && (
+        <div className="space-y-5">
+          <div className="flex flex-wrap gap-2.5">
+            <StatChip label="Official paper" value={picks.length} accent="text-emerald-400" />
+            <StatChip label="Active drafts" value={activeProposals.length} accent="text-amber-400" />
+            <StatChip label="Pending" value={pending} accent="text-amber-400" />
+            <StatChip label="Net units" value={fmtUnits(netUnits)} accent={netUnits >= 0 ? 'text-emerald-400' : 'text-rose-400'} />
+            <StatChip label="Updated" value={ledger?.meta?.updated_at ? new Date(ledger.meta.updated_at).toLocaleDateString() : '-'} />
+          </div>
+
+          {activeProposals.length > 0 && (
+            <div className="space-y-3">
+              <div className="text-xs font-bold text-amber-400 uppercase tracking-wider">Active Draft Proposals</div>
+              {activeProposals.map((item) => <AlphaProposalCard key={item.file} item={item} />)}
+            </div>
+          )}
+
+          {picks.length === 0 && activeProposals.length === 0 ? (
+            <div className="text-center py-20">
+              <Inbox size={48} className="mx-auto mb-4 text-slate-700" />
+              <p className="text-slate-500 font-bold">No Official Picks in Packet</p>
+            </div>
+          ) : (
+            <div className="space-y-3">
+              <div className="text-xs font-bold text-emerald-400 uppercase tracking-wider">Official Paper Ledger</div>
+              {picks.map((pick) => <OfficialLedgerCard key={pick.pick_id || pick.selection} pick={pick} />)}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function OfficialPicksTab({ alphaMode = false }) {
+  if (alphaMode) return <AlphaOfficialPicksView />;
+  return <OwnerOfficialPicksTab />;
+}
+
+function OwnerOfficialPicksTab() {
   const [serverStatus, setServerStatus] = useState('checking'); // checking | online | offline
   const [data, setData] = useState(null);
   const [view, setView] = useState('inbox'); // inbox | ledger

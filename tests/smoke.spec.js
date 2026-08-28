@@ -68,14 +68,9 @@ const HEADER_MODALS = [
   // Teaser detection is now a passive MatchupCard badge (game.teaser /
   // game.teaserSide, computed in App.jsx's gamesWithSplits) -- no header
   // button or modal left to smoke-test.
-  {
-    name:    'SuperContest',
-    // Header button label changed 'Contest' -> 'SuperContest' (Phase 0,
-    // 2026-08-24); 'Contest' still matches since getByRole name is a
-    // substring match by default.
-    open:    (page) => page.getByRole('button', { name: 'Contest' }).click(),
-    heading: 'SuperContest',  // SuperContestView (promoted out of ContestLinesModal)
-  },
+  // 'SuperContest' header modal/tool removed 2026-08-25: it is now a real
+  // nav route beside Command Hub (`?tab=supercontest`), not a duplicated
+  // elevated top-row tool.
   {
     name:    'Pulse',
     open:    (page) => page.getByRole('button', { name: 'Pulse' }).click(),

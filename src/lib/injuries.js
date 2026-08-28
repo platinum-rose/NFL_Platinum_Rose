@@ -23,6 +23,8 @@ const ESPN_TEAM_IDS = {
 // Injury status mapping
 const INJURY_STATUS = {
     'OUT': { label: 'OUT', color: '#ef4444', priority: 1 },
+    'PUP': { label: 'PUP', color: '#dc2626', priority: 1.5 },
+    'IR': { label: 'IR', color: '#b91c1c', priority: 1.5 },
     'DOUBTFUL': { label: 'D', color: '#f97316', priority: 2 },
     'QUESTIONABLE': { label: 'Q', color: '#eab308', priority: 3 },
     'PROBABLE': { label: 'P', color: '#22c55e', priority: 4 },
@@ -56,16 +58,21 @@ const MOCK_INJURIES = {
     ]
 };
 
+import { getExpertInjuriesForTeam } from './expertInjuries.js';
+
 /**
  * Fetch injury data for a specific team, plus whether it came from the
  * live ESPN feed or the mock fallback (F-27c). Internal — callers that
  * only need the array should use the public `fetchTeamInjuries` below.
  */
 const _fetchTeamInjuriesWithSource = async (teamAbbrev) => {
+    const expertIntel = getExpertInjuriesForTeam(teamAbbrev);
     const teamId = ESPN_TEAM_IDS[teamAbbrev?.toUpperCase()];
+
     if (!teamId) {
         logger.warn(`⚠️ No ESPN team ID for: ${teamAbbrev}`);
-        return { injuries: MOCK_INJURIES[teamAbbrev] || [], isMock: true };
+        const fallback = [...expertIntel, ...(MOCK_INJURIES[teamAbbrev] || [])];
+        return { injuries: fallback, isMock: true };
     }
 
     // Try multiple API endpoints until one works
@@ -73,7 +80,6 @@ const _fetchTeamInjuriesWithSource = async (teamAbbrev) => {
         const apiUrl = ESPN_INJURY_APIS[i];
         try {
             const url = apiUrl.replace('{TEAM_ID}', teamId);
-
             const response = await fetch(url);
 
             if (!response.ok) {
@@ -82,9 +88,17 @@ const _fetchTeamInjuriesWithSource = async (teamAbbrev) => {
             }
 
             const data = await response.json();
-            const injuries = normalizeInjuries(data.items || data.injuries || []);
-            logger.log(`✅ Live injuries for ${teamAbbrev}: ${injuries.length} players`);
-            return { injuries, isMock: false };
+            const liveInjuries = normalizeInjuries(data.items || data.injuries || []);
+
+            // Merge Live ESPN injuries with Expert Medical & Podcast Intelligence
+            const mergedInjuries = [...expertIntel];
+            liveInjuries.forEach(live => {
+                const exists = mergedInjuries.some(exp => exp.name.toLowerCase() === live.name.toLowerCase());
+                if (!exists) mergedInjuries.push(live);
+            });
+
+            logger.log(`✅ Live & Expert injuries for ${teamAbbrev}: ${mergedInjuries.length} players (${expertIntel.length} expert intel)`);
+            return { injuries: mergedInjuries, isMock: false };
 
         } catch (_error) {
             if (i === 0) logger.log(`🏥 ESPN API error for ${teamAbbrev}, trying alternatives...`);
@@ -92,9 +106,10 @@ const _fetchTeamInjuriesWithSource = async (teamAbbrev) => {
         }
     }
 
-    // All APIs failed, use mock data
-    logger.log(`🏥 Using mock injuries for ${teamAbbrev}: ${(MOCK_INJURIES[teamAbbrev] || []).length} players`);
-    return { injuries: MOCK_INJURIES[teamAbbrev] || [], isMock: true };
+    // All APIs failed, merge expert intel with mock data
+    const fallback = [...expertIntel, ...(MOCK_INJURIES[teamAbbrev] || [])];
+    logger.log(`🏥 Using expert & mock injuries for ${teamAbbrev}: ${fallback.length} players`);
+    return { injuries: fallback, isMock: true };
 };
 
 /**
@@ -170,7 +185,7 @@ const normalizeInjuries = (espnInjuries) => {
     return espnInjuries.map(injury => {
         const athlete = injury.athlete || {};
         const status = mapInjuryStatus(injury.status);
-        
+
         return {
             name: athlete.displayName || 'Unknown',
             position: athlete.position?.abbreviation || 'N/A',
@@ -189,7 +204,7 @@ const mapInjuryStatus = (espnStatus) => {
     const statusMap = {
         'Active': 'HEALTHY',
         'Out': 'OUT',
-        'Doubtful': 'DOUBTFUL', 
+        'Doubtful': 'DOUBTFUL',
         'Questionable': 'QUESTIONABLE',
         'Probable': 'PROBABLE'
     };
@@ -225,9 +240,9 @@ export const getTopInjuries = (teamInjuries = [], limit = 3) => {
             const impactPriority = { 'critical': 1, 'high': 2, 'medium': 3, 'low': 4 };
             const aImpact = impactPriority[a.impact] || 4;
             const bImpact = impactPriority[b.impact] || 4;
-            
+
             if (aImpact !== bImpact) return aImpact - bImpact;
-            
+
             const aStatus = INJURY_STATUS[a.status]?.priority || 5;
             const bStatus = INJURY_STATUS[b.status]?.priority || 5;
             return aStatus - bStatus;

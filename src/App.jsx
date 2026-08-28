@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect, useCallback, lazy, Suspense } from 'react';
+import { X } from 'lucide-react';
 import logger from './lib/logger';
 
 // --- Hooks ---
@@ -10,12 +11,24 @@ import { useAutoGrade } from './hooks/useAutoGrade';
 
 // --- Lib ---
 import { INITIAL_EXPERTS } from './lib/experts';
-import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS } from './lib/storage';
-import { getBankrollData, saveBankrollData } from './lib/bankroll';
+import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS, ALPHA_STATE_DOMAINS, getAlphaStorageKey } from './lib/storage';
+import { getBankrollData, saveBankrollData, configureBankrollStorageScope } from './lib/bankroll';
+import { configureFuturesStorageScope } from './lib/futures';
+import { configurePicksStorageScope } from './lib/picksDatabase';
+import { getNFLWeekInfo } from './lib/constants';
 import { loadUserPicks, loadUserBets, syncBet, syncPick, deleteSyncedPick } from './lib/supabase';
 import { flushDirtyQueue } from './lib/syncQueue';
 import { mergeByUpdatedAt } from './lib/syncMerge';
-import { PROFILE_KEY, PRESET_PROFILES } from './lib/profiles';
+import { AlphaDataPacketProvider } from './lib/alphaDataPacketContext';
+import {
+  PROFILE_KEY,
+  PROFILE_MODES,
+  canProfileAccessOwnerPortfolio,
+  canProfileUseAI,
+  coerceProfileForMode,
+  getDefaultProfileForMode,
+  isAlphaTesterProfile,
+} from './lib/profiles';
 
 // --- Components ---
 // Core shell: always needed for first paint, stays eager/static.
@@ -93,13 +106,62 @@ const VALID_TABS = new Set([
   'standings', 'mycard', 'devlab', 'bankroll', 'analytics', 'odds', 'picks', 'props', 'dfs', 'podcasts', 'training-camp'
 ]);
 
+const AI_ONLY_TABS = new Set(['props']);
+const OWNER_ONLY_TABS = new Set(['dfs']);
+
+const detectProfileMode = () => {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('alpha') === '1' || import.meta.env.VITE_ALPHA_TESTER_MODE === 'true'
+    ? PROFILE_MODES.ALPHA
+    : PROFILE_MODES.OWNER;
+};
 
 function App() {
   // --- UI State (local to App) ---
+  const [profileMode] = useState(detectProfileMode);
+  const [activeProfile, setActiveProfile] = useState(() => {
+    return coerceProfileForMode(
+      loadFromStorage(PROFILE_KEY, getDefaultProfileForMode(profileMode)),
+      profileMode
+    );
+  });
+  const profileCanUseAI = canProfileUseAI(activeProfile);
+  const profileCanAccessOwnerPortfolio = canProfileAccessOwnerPortfolio(activeProfile);
+  const profileIsAlphaTester = isAlphaTesterProfile(activeProfile);
+  const profileCanUseLocalTracking = profileCanAccessOwnerPortfolio || profileIsAlphaTester;
+  const weekInfo = useMemo(() => getNFLWeekInfo(), []);
+  const alphaStorageScope = useMemo(() => (
+    profileIsAlphaTester
+      ? {
+          profileId: activeProfile.id,
+          season: weekInfo.season,
+          week: weekInfo.week,
+          disableCloudSync: true,
+        }
+      : null
+  ), [activeProfile.id, profileIsAlphaTester, weekInfo.season, weekInfo.week]);
+  const bettingCardStorageKey = alphaStorageScope
+    ? getAlphaStorageKey({
+        profileId: alphaStorageScope.profileId,
+        stateDomain: ALPHA_STATE_DOMAINS.BETTING_CARD,
+        season: alphaStorageScope.season,
+        week: alphaStorageScope.week,
+      })
+    : PR_STORAGE_KEYS.MY_BETS.key;
+
+  useEffect(() => {
+    configureBankrollStorageScope(alphaStorageScope);
+    configureFuturesStorageScope(alphaStorageScope);
+    configurePicksStorageScope(alphaStorageScope);
+  }, [alphaStorageScope]);
+
   const [activeTab, setActiveTab] = useState(() => {
     const params = new URLSearchParams(window.location.search);
     const tab = params.get('tab');
-    return VALID_TABS.has(tab) ? tab : 'dashboard';
+    if (!VALID_TABS.has(tab)) return 'dashboard';
+    if (profileMode === PROFILE_MODES.ALPHA && !activeProfile?.hubs?.includes(tab)) return 'dashboard';
+    if (profileMode === PROFILE_MODES.ALPHA && (OWNER_ONLY_TABS.has(tab) || AI_ONLY_TABS.has(tab))) return 'dashboard';
+    return tab;
   });
   const [selectedGame, setSelectedGame] = useState(null);
   const [betEntryGame, setBetEntryGame] = useState(null);
@@ -126,19 +188,20 @@ function App() {
   // makes it actually do something. Initialized from whatever was last saved
   // so a returning user's profile choice survives a refresh.
   const [visibleHubs, setVisibleHubs] = useState(() => {
-    const profile = loadFromStorage(PROFILE_KEY, PRESET_PROFILES[0]);
-    return profile?.hubs || PRESET_PROFILES[0].hubs;
+    return activeProfile?.hubs || getDefaultProfileForMode(profileMode).hubs;
   });
 
   const handleProfileUpdated = useCallback((profile) => {
-    const hubs = profile?.hubs || PRESET_PROFILES[0].hubs;
+    const coercedProfile = coerceProfileForMode(profile, profileMode);
+    setActiveProfile(coercedProfile);
+    const hubs = coercedProfile?.hubs || getDefaultProfileForMode(profileMode).hubs;
     setVisibleHubs(hubs);
     // If the tab we're currently on isn't visible under the new profile,
     // jump to the first hub that is -- otherwise switching to Amanda's
     // profile while on Bankroll & Futures would leave a dimmed-and-disabled
     // tab as the active one, with no visible way back via the nav row.
     setActiveTab(current => (hubs.includes(current) ? current : (hubs[0] || 'dashboard')));
-  }, []);
+  }, [profileMode]);
 
   // --- Custom Hooks ---
   // Sync active tab to URL so briefing deeplinks work
@@ -174,14 +237,18 @@ function App() {
   } = useExperts({ schedule, findGameForTeam, openModal, closeModal });
 
   const {
-    myBets, handleBet, removeBet, handleLockBets, clearBets,
-  } = useBettingCard(schedule);
+    myBets, handleBet, removeBet, handleLockBets, handleCreateParlay, clearBets,
+  } = useBettingCard(schedule, bettingCardStorageKey);
 
   // --- Auto-grade pending picks from Supabase game_results ---
   const { autoGraded, runGradingCheck, checking } = useAutoGrade();
 
   // --- Sync handlers (also called by Header buttons) ---
   const handleSync = useCallback(async () => {
+    if (profileIsAlphaTester) {
+      logger.log('[sync] Alpha tester mode: Supabase sync/dirty-queue flush skipped');
+      return;
+    }
     try {
       const [cloudPicks, cloudBets] = await Promise.all([loadUserPicks(), loadUserBets()]);
       let hydrated = false;
@@ -217,7 +284,7 @@ function App() {
     } catch (e) {
       logger.warn('[sync] Sync failed (non-fatal):', e.message);
     }
-  }, [setPicksRefreshKey]);
+  }, [profileIsAlphaTester, setPicksRefreshKey]);
 
   const handleSave = useCallback(async () => {
     try {
@@ -301,11 +368,12 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#0f0f0f] text-gray-200 font-sans pb-20 selection:bg-[#00d2be] selection:text-black">
-      <Header activeTab={activeTab} setActiveTab={setActiveTab} cartCount={myBets.length} onSyncOdds={handleSync} onOpenSplits={() => openModal('pulse')} onOpenSplitsData={() => openModal('splits')} onOpenSuperContest={() => openModal('contest')} onImport={() => openModal('import')} onAnalyze={() => openModal('audio')} onManage={() => openModal('expertMgr')} onSave={handleSave} onReset={() => { if(window.confirm("Reset all picks?")) clearBets(); }} onOpenStorage={() => openModal('storage')} onOpenAgentStatus={() => setAgentStatusOpen(true)} onOpenProfile={() => setProfileModalOpen(true)} visibleHubs={visibleHubs} />
-      <DashboardLayout>
-        <main>
-          <Suspense fallback={<div className="flex items-center justify-center py-24 text-[#00d2be] font-mono text-sm">Loading...</div>}>
-            {activeTab === 'dashboard' && <div className="animate-in fade-in zoom-in duration-300"><Dashboard schedule={gamesWithSplits} stats={stats} simResults={simResults} onGameClick={setSelectedGame} onShowHistory={(game) => { setSelectedGame(game); openModal('lineHistory'); }} onShowInjuries={(game) => { setSelectedGame(game); openModal('injuryReport'); }} onAddBankrollBet={(game) => { setBetEntryGame(game); openModal('betEntry'); }} onShowPmContract={(contract) => setSelectedPmContract(contract)} /></div>}
+      <Header activeTab={activeTab} setActiveTab={setActiveTab} cartCount={profileCanUseLocalTracking ? myBets.length : 0} onSyncOdds={handleSync} onOpenSplits={() => openModal('pulse')} onOpenSplitsData={() => openModal('splits')} onOpenSuperContest={() => { if (profileCanAccessOwnerPortfolio) openModal('contest'); }} onOpenCard={() => { if (profileCanUseLocalTracking) openModal('myCard'); }} onImport={() => { if (profileCanAccessOwnerPortfolio) openModal('import'); }} onAnalyze={() => { if (profileCanUseAI) openModal('audio'); }} onManage={() => { if (profileCanAccessOwnerPortfolio) openModal('expertMgr'); }} onSave={profileCanAccessOwnerPortfolio ? handleSave : () => {}} onReset={() => { if(profileCanUseLocalTracking && window.confirm("Reset all picks?")) clearBets(); }} onOpenStorage={() => { if (profileCanAccessOwnerPortfolio) openModal('storage'); }} onOpenAgentStatus={() => { if (profileCanUseAI) setAgentStatusOpen(true); }} onOpenProfile={() => setProfileModalOpen(true)} visibleHubs={visibleHubs} profileCanUseAI={profileCanUseAI} profileCanAccessOwnerPortfolio={profileCanAccessOwnerPortfolio} profileCanUseLocalTracking={profileCanUseLocalTracking} />
+      <AlphaDataPacketProvider enabled={profileMode === PROFILE_MODES.ALPHA}>
+        <DashboardLayout showAgentSidebar={profileCanUseAI}>
+          <main>
+            <Suspense fallback={<div className="flex items-center justify-center py-24 text-[#00d2be] font-mono text-sm">Loading...</div>}>
+            {activeTab === 'dashboard' && <div className="animate-in fade-in zoom-in duration-300"><Dashboard schedule={gamesWithSplits} stats={stats} simResults={simResults} onGameClick={setSelectedGame} onPlaceBet={profileCanUseLocalTracking ? handleBet : undefined} myBets={profileCanUseLocalTracking ? myBets : []} onShowHistory={(game) => { setSelectedGame(game); openModal('lineHistory'); }} onShowInjuries={(game) => { setSelectedGame(game); openModal('injuryReport'); }} onOpenCard={profileCanUseLocalTracking ? () => openModal('myCard') : undefined} onShowPmContract={(contract) => setSelectedPmContract(contract)} /></div>}
             {activeTab === 'official-picks' && (
               <div className="animate-in fade-in zoom-in duration-300 space-y-4">
                 <div className="flex items-center gap-1 bg-slate-900 border border-slate-800 rounded-lg p-1 w-fit">
@@ -322,29 +390,30 @@ function App() {
                     My Picks (AI Lab / Expert)
                   </button>
                 </div>
-                {picksSubView === 'inbox' && <OfficialPicksTab key={picksRefreshKey} />}
-                {picksSubView === 'tracker' && <PicksTracker key={autoGraded} onOpenGradeModal={(g) => { setGradeGameData(g); openModal('gradeModal'); }} onAutoGrade={runGradingCheck} autoGrading={checking} onOpenPodcastModal={() => setPodcastModalOpen(true)} />}
+                {picksSubView === 'inbox' && <OfficialPicksTab key={picksRefreshKey} alphaMode={profileIsAlphaTester} />}
+                {picksSubView === 'tracker' && <PicksTracker key={autoGraded} onOpenGradeModal={(g) => { setGradeGameData(g); openModal('gradeModal'); }} onAutoGrade={profileCanAccessOwnerPortfolio ? runGradingCheck : null} autoGrading={checking} onOpenPodcastModal={profileCanAccessOwnerPortfolio ? () => setPodcastModalOpen(true) : null} />}
               </div>
             )}
-            {activeTab === 'intel' && <div className="animate-in fade-in zoom-in duration-300"><UnifiedIntelHub /></div>}
+            {activeTab === 'intel' && <div className="animate-in fade-in zoom-in duration-300"><UnifiedIntelHub profileCanUseAI={profileCanUseAI} /></div>}
             {activeTab === 'fantasy' && <div className="animate-in fade-in zoom-in duration-300"><FantasyHub /></div>}
             {activeTab === 'injuries' && <div className="animate-in fade-in zoom-in duration-300"><InjuryCenter injuries={injuries} /></div>}
-            {activeTab === 'futures' && <div className="animate-in fade-in zoom-in duration-300"><FuturesHub onShowCalculator={() => openModal('unitCalculator')} /></div>}
+            {activeTab === 'futures' && <div className="animate-in fade-in zoom-in duration-300"><FuturesHub onShowCalculator={() => openModal('unitCalculator')} onAddPosition={() => { if (profileCanUseLocalTracking) openModal('futuresEntry'); }} onAddBet={() => { if (profileCanUseLocalTracking) openModal('betEntry'); }} onImportBets={profileCanAccessOwnerPortfolio ? () => openModal('betImport') : undefined} onShowPending={() => { if (profileCanUseLocalTracking) openModal('pendingBets'); }} onShowSettings={profileCanAccessOwnerPortfolio ? () => openModal('bankrollSettings') : undefined} profileCanUseAI={profileCanUseAI} profileCanAccessOwnerPortfolio={profileCanUseLocalTracking} /></div>}
             {/* --- Checkpoint 1 stale-tab repair: real render targets for the remaining VALID_TABS ids --- */}
-            {activeTab === 'bankroll' && <div className="animate-in fade-in zoom-in duration-300"><BankrollDashboard onShowCalculator={() => openModal('unitCalculator')} /></div>}
+            {activeTab === 'bankroll' && profileCanUseLocalTracking && <div className="animate-in fade-in zoom-in duration-300"><BankrollDashboard onShowCalculator={() => openModal('unitCalculator')} onAddBet={() => openModal('betEntry')} onImportBets={profileCanAccessOwnerPortfolio ? () => openModal('betImport') : undefined} onShowPending={() => openModal('pendingBets')} onShowSettings={profileCanAccessOwnerPortfolio ? () => openModal('bankrollSettings') : undefined} /></div>}
             {activeTab === 'odds' && <div className="animate-in fade-in zoom-in duration-300"><OddsCenter /></div>}
             {activeTab === 'analytics' && <div className="animate-in fade-in zoom-in duration-300"><AnalyticsDashboard /></div>}
-            {activeTab === 'mycard' && <div className="animate-in fade-in zoom-in duration-300"><MyCardModal bets={myBets} onRemoveBet={removeBet} onLockBets={handleLockBets} onClearCard={() => { if (window.confirm('Clear all bets from the card?')) clearBets(); }} onCreateParlay={() => alert('Parlay / teaser / round-robin creation is not wired up yet -- this view was previously unreachable (imported but never rendered), so this button has never worked. Flagging for a follow-up, not fixing here.')} /></div>}
+            {activeTab === 'mycard' && profileCanUseLocalTracking && <div className="animate-in fade-in zoom-in duration-300"><MyCardModal bets={myBets} onRemoveBet={removeBet} onLockBets={handleLockBets} onClearCard={() => { if (window.confirm('Clear all bets from the card?')) clearBets(); }} onCreateParlay={handleCreateParlay} /></div>}
             {activeTab === 'devlab' && <div className="animate-in fade-in zoom-in duration-300"><DevLab games={gamesWithSplits} stats={stats} savedResults={simResults} onSimComplete={setSimResults} /></div>}
-            {activeTab === 'picks' && <div className="animate-in fade-in zoom-in duration-300"><PicksTracker key={autoGraded} onOpenGradeModal={(g) => { setGradeGameData(g); openModal('gradeModal'); }} onAutoGrade={runGradingCheck} autoGrading={checking} onOpenPodcastModal={() => setPodcastModalOpen(true)} /></div>}
+            {activeTab === 'picks' && profileCanUseLocalTracking && <div className="animate-in fade-in zoom-in duration-300"><PicksTracker key={autoGraded} onOpenGradeModal={(g) => { setGradeGameData(g); openModal('gradeModal'); }} onAutoGrade={profileCanAccessOwnerPortfolio ? runGradingCheck : null} autoGrading={checking} onOpenPodcastModal={profileCanAccessOwnerPortfolio ? () => setPodcastModalOpen(true) : null} /></div>}
             {activeTab === 'standings' && <div className="animate-in fade-in zoom-in duration-300"><ExpertLeaderboard expertConsensus={expertConsensus} /></div>}
             {activeTab === 'podcasts' && <div className="animate-in fade-in zoom-in duration-300"><PodcastDigestTab /></div>}
             {activeTab === 'training-camp' && <div className="animate-in fade-in zoom-in duration-300"><TrainingCampIntel /></div>}
-            {activeTab === 'props' && <div className="animate-in fade-in zoom-in duration-300"><PropsAgentChat /></div>}
-            {activeTab === 'dfs' && <div className="animate-in fade-in zoom-in duration-300"><DFSOptimizer /></div>}
-          </Suspense>
-        </main>
-      </DashboardLayout>
+            {activeTab === 'props' && profileCanUseAI && <div className="animate-in fade-in zoom-in duration-300"><PropsAgentChat /></div>}
+            {activeTab === 'dfs' && profileCanAccessOwnerPortfolio && <div className="animate-in fade-in zoom-in duration-300"><DFSOptimizer /></div>}
+            </Suspense>
+          </main>
+        </DashboardLayout>
+      </AlphaDataPacketProvider>
 
 
       {/* --- LAZY-MOUNTED MODALS ---
@@ -361,30 +430,44 @@ function App() {
       }>
         {selectedGame && <MatchupWizardModal isOpen game={selectedGame} stats={stats} currentWizardData={expertConsensus[selectedGame.id] || null} onClose={() => setSelectedGame(null)} onBet={(id, type, sel, line) => { handleBet(id, type, sel, line); setSelectedGame(null); }} />}
         {modals.pulse && <PulseModal isOpen onClose={() => closeModal('pulse')} games={gamesWithSplits} />}
-        {modals.contest && <SuperContestView isOpen onClose={() => closeModal('contest')} games={gamesWithSplits} onUpdateContestLines={setContestLines} />}
+        {profileCanAccessOwnerPortfolio && modals.contest && <SuperContestView isOpen onClose={() => closeModal('contest')} games={gamesWithSplits} onUpdateContestLines={setContestLines} />}
         {modals.splits && <SplitsModal isOpen onClose={() => closeModal('splits')} games={gamesWithSplits} />}
-        {modals.audio && <AudioUploadModal isOpen onClose={() => closeModal('audio')} onAnalyze={handleAIAnalyze} />}
+        {profileCanUseAI && modals.audio && <AudioUploadModal isOpen onClose={() => closeModal('audio')} onAnalyze={handleAIAnalyze} />}
         {modals.review && <ReviewPicksModal isOpen onClose={() => closeModal('review')} stagedPicks={stagedPicks} onConfirm={handleConfirmPicks} onDiscard={(idx) => setStagedPicks(prev => prev.filter((_, i) => i !== idx))} />}
-        {modals.import && <BulkImportModal isOpen onClose={() => closeModal('import')} onImport={handleBulkImport} />}
-        {modals.expertMgr && <ExpertManagerModal isOpen onClose={() => closeModal('expertMgr')} experts={INITIAL_EXPERTS} expertConsensus={expertConsensus} onUpdatePick={handleUpdatePick} onDeletePick={handleDeletePick} onClearExpert={handleClearExpert} />}
+        {profileCanAccessOwnerPortfolio && modals.import && <BulkImportModal isOpen onClose={() => closeModal('import')} onImport={handleBulkImport} />}
+        {profileCanAccessOwnerPortfolio && modals.expertMgr && <ExpertManagerModal isOpen onClose={() => closeModal('expertMgr')} experts={INITIAL_EXPERTS} expertConsensus={expertConsensus} onUpdatePick={handleUpdatePick} onDeletePick={handleDeletePick} onClearExpert={handleClearExpert} />}
         {modals.injuryReport && <InjuryReportModal isOpen onClose={() => closeModal('injuryReport')} game={selectedGame} injuries={injuries} />}
         {modals.unitCalculator && <UnitCalculatorModal isOpen onClose={() => closeModal('unitCalculator')} />}
-        {modals.betEntry && <BetEntryModal isOpen onClose={() => { closeModal('betEntry'); setBetEntryGame(null); }} selectedGame={betEntryGame} schedule={schedule} refreshBankroll={() => {}} />}
-        {modals.betImport && <BetImportModal isOpen onClose={() => closeModal('betImport')} onImportComplete={(betId, bet) => { logger.log('Bet imported:', betId, bet); alert('Bet imported successfully!'); }} />}
-        {modals.pendingBets && <PendingBetsModal isOpen onClose={() => closeModal('pendingBets')} onEditBet={(bet) => { setSelectedBetForEdit(bet); openModal('editBet'); }} />}
-        {modals.editBet && <EditBetModal isOpen onClose={() => { closeModal('editBet'); setSelectedBetForEdit(null); }} bet={selectedBetForEdit} schedule={schedule} onBetUpdated={() => { closeModal('pendingBets'); setTimeout(() => openModal('pendingBets'), 100); }} />}
+        {profileCanUseLocalTracking && modals.betEntry && <BetEntryModal isOpen onClose={() => { closeModal('betEntry'); setBetEntryGame(null); }} selectedGame={betEntryGame} schedule={schedule} refreshBankroll={() => {}} />}
+        {profileCanAccessOwnerPortfolio && modals.betImport && <BetImportModal isOpen onClose={() => closeModal('betImport')} onImportComplete={(betId, bet) => { logger.log('Bet imported:', betId, bet); alert('Bet imported successfully!'); }} />}
+        {profileCanUseLocalTracking && modals.pendingBets && <PendingBetsModal isOpen onClose={() => closeModal('pendingBets')} onEditBet={(bet) => { setSelectedBetForEdit(bet); openModal('editBet'); }} />}
+        {profileCanUseLocalTracking && modals.editBet && <EditBetModal isOpen onClose={() => { closeModal('editBet'); setSelectedBetForEdit(null); }} bet={selectedBetForEdit} schedule={schedule} onBetUpdated={() => { closeModal('pendingBets'); setTimeout(() => openModal('pendingBets'), 100); }} />}
+        {profileCanUseLocalTracking && modals.myCard && (
+          <div className="fixed inset-0 z-[100] flex items-start justify-center bg-black/70 backdrop-blur-sm p-4 pt-20 overflow-y-auto">
+            <div className="w-full max-w-6xl bg-[#0f0f0f] border border-slate-700 rounded-xl shadow-2xl p-4 md:p-6 relative">
+              <button
+                onClick={() => closeModal('myCard')}
+                className="absolute right-4 top-4 p-2 rounded-lg bg-slate-900 border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition-all z-10"
+                title="Close card"
+              >
+                <X size={16} />
+              </button>
+              <MyCardModal bets={myBets} onRemoveBet={removeBet} onLockBets={handleLockBets} onClearCard={() => { if (window.confirm('Clear all bets from the card?')) clearBets(); }} onCreateParlay={handleCreateParlay} />
+            </div>
+          </div>
+        )}
         {modals.gradeModal && <ManualGradeModal isOpen onClose={() => { closeModal('gradeModal'); setGradeGameData(null); setPicksRefreshKey(k => k + 1); }} gameData={gradeGameData} onGraded={() => setPicksRefreshKey(k => k + 1)} />}
         {modals.bankrollSettings && <BankrollSettingsModal isOpen onClose={() => closeModal('bankrollSettings')} onSettingsUpdated={() => {}} />}
-        {modals.futuresEntry && <FuturesEntryModal isOpen onClose={() => closeModal('futuresEntry')} onAdded={() => {}} />}
-        {modals.storage && <StorageBackupModal isOpen onClose={() => closeModal('storage')} />}
+        {profileCanUseLocalTracking && modals.futuresEntry && <FuturesEntryModal isOpen onClose={() => closeModal('futuresEntry')} onAdded={() => {}} />}
+        {profileCanAccessOwnerPortfolio && modals.storage && <StorageBackupModal isOpen onClose={() => closeModal('storage')} />}
         {modals.lineHistory && <LineHistoryModal isOpen onClose={() => closeModal('lineHistory')} game={selectedGame} />}
         {selectedPmContract && <PredictionMarketModal isOpen contract={selectedPmContract} onClose={() => setSelectedPmContract(null)} />}
         {/* Checkpoint 3: these four used to always be mounted (isOpen just gated
             their own internal render); now mounted on-demand like every modal
             above -- same isOpen=true-while-mounted semantics, same onClose. */}
         {podcastModalOpen && <PodcastIngestModal isOpen onClose={() => setPodcastModalOpen(false)} onPicksImported={() => setPicksRefreshKey(k => k + 1)} />}
-        {agentStatusOpen && <AgentStatusModal isOpen onClose={() => setAgentStatusOpen(false)} />}
-        {profileModalOpen && <ProfileSettingsModal isOpen onClose={() => setProfileModalOpen(false)} onProfileUpdated={handleProfileUpdated} />}
+        {profileCanUseAI && agentStatusOpen && <AgentStatusModal isOpen onClose={() => setAgentStatusOpen(false)} />}
+        {profileModalOpen && <ProfileSettingsModal isOpen onClose={() => setProfileModalOpen(false)} onProfileUpdated={handleProfileUpdated} profileMode={profileMode} />}
       </Suspense>
 
     </div>
