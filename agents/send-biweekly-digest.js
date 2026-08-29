@@ -26,7 +26,7 @@ function escapeHtml(str) {
 
 // Helper to convert MM:SS or HH:MM:SS string to total seconds for audio link #t=
 function timestampToSeconds(tsStr) {
-  const clean = tsStr.replace(/[\[\]]/g, '').split('-')[0].trim();
+  const clean = tsStr.replace(/[[\]]/g, '').split('-')[0].trim();
   const parts = clean.split(':').map(Number);
   if (parts.length === 3) {
     return parts[0] * 3600 + parts[1] * 60 + parts[2];
@@ -57,8 +57,42 @@ function splitIntoParagraphs(text) {
     .join('');
 }
 
-export function generateDigestHtml({ title, epName, audioUrl, dashboardUrl, teamReports }) {
+export function generateDigestHtml({ title: _title, epName, audioUrl, dashboardUrl, teamReports, articleIntelList = [] }) {
   let teamCardsHtml = '';
+
+  // Format Article & Sharp Market Intel Briefing card section
+  let articleIntelHtml = '';
+  if (articleIntelList && articleIntelList.length > 0) {
+    const itemsHtml = articleIntelList.map(item => {
+      const badgeColor = item.type === 'tweet' ? '#0284c7' : '#059669';
+      const badgeText = item.type === 'tweet' ? 'SHARP TWEET' : 'ARTICLE INTEL';
+      const pubDate = item.published_at ? new Date(item.published_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+      const linkUrl = item.url || dashboardUrl;
+
+      return `
+        <div style="background-color: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid ${badgeColor}; border-radius: 6px; padding: 12px 16px; margin-bottom: 12px; font-size: 0.9em;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <div>
+              <span style="background-color: ${badgeColor}; color: #ffffff; font-weight: bold; padding: 2px 6px; border-radius: 3px; font-size: 0.72em; text-transform: uppercase;">${badgeText}</span>
+              <strong style="color: #0f172a; margin-left: 8px; font-size: 0.95em;">${escapeHtml(item.title || item.author || 'Market Intelligence')}</strong>
+            </div>
+            ${pubDate ? `<span style="color: #64748b; font-size: 0.78em;">${pubDate}</span>` : ''}
+          </div>
+          <div style="color: #334155; line-height: 1.55; margin-bottom: 8px;">
+            ${escapeHtml((item.content || '').slice(0, 320))}${(item.content || '').length > 320 ? '...' : ''}
+          </div>
+          ${linkUrl ? `<div style="text-align: right;"><a href="${escapeHtml(linkUrl)}" target="_blank" style="color: #0284c7; text-decoration: none; font-size: 0.8em; font-weight: bold;">Read Source Article / Tweet &rarr;</a></div>` : ''}
+        </div>
+      `;
+    }).join('');
+
+    articleIntelHtml = `
+      <div style="background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; margin-bottom: 24px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+        <h2 style="color: #0f172a; margin-top: 0; border-bottom: 2px solid #059669; padding-bottom: 8px; font-size: 1.2rem; letter-spacing: -0.3px;">📰 Article & Sharp Market Intel Briefing</h2>
+        ${itemsHtml}
+      </div>
+    `;
+  }
 
   for (const tr of teamReports) {
     // Format synopsis into clean bite-sized paragraphs
@@ -132,7 +166,7 @@ export function generateDigestHtml({ title, epName, audioUrl, dashboardUrl, team
     teamCardsHtml += `
       <div style="background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; margin-bottom: 24px; padding: 22px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
         <h2 style="color: #0f172a; margin-top: 0; border-bottom: 2px solid #0284c7; padding-bottom: 8px; font-size: 1.3rem; letter-spacing: -0.3px;">${escapeHtml(tr.teamName)}</h2>
-        
+
         ${futuresOddsHtml ? `
         <div style="background-color: #f8fafc; border: 1px solid #cbd5e1; border-left: 4px solid #0284c7; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px;">
           <h3 style="color: #0369a1; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.6px; margin: 0 0 8px 0; font-weight: bold;">Futures & Betting Lines Summary</h3>
@@ -192,6 +226,8 @@ export function generateDigestHtml({ title, epName, audioUrl, dashboardUrl, team
           </div>
         </div>
 
+        ${articleIntelHtml}
+
         ${teamCardsHtml}
 
         <div style="text-align: center; color: #64748b; font-size: 0.78em; line-height: 1.5; margin-top: 30px; border-top: 1px solid #cbd5e1; padding-top: 16px;">
@@ -204,14 +240,17 @@ export function generateDigestHtml({ title, epName, audioUrl, dashboardUrl, team
   `;
 }
 
-export async function dispatchBiweeklyDigest({ reportMdPath, epId, episodeName, recipients, dryRun = false, previewFile = 'scratch/digest_preview.html' } = {}) {
-  const mdPath = reportMdPath || path.join(process.cwd(), 'scratch/afc_east_master_100percent_exhaustive.md');
-  if (!fs.existsSync(mdPath)) {
-    throw new Error(`Report file not found at: ${mdPath}`);
-  }
+export async function dispatchBiweeklyDigest({ reportMdPath, reportMdPaths, epId, episodeName, recipients, dryRun = false, previewFile = 'scratch/digest_preview.html' } = {}) {
+  const defaultPaths = [
+    path.join(process.cwd(), 'scratch/afc_east_master_100percent_exhaustive.md'),
+    path.join(process.cwd(), 'scratch/nfc_east_master_100percent_exhaustive.md'),
+  ].filter(p => fs.existsSync(p));
 
-  const rawMd = fs.readFileSync(mdPath, 'utf-8');
-  console.log(`Loaded report from ${mdPath} (${rawMd.length} bytes)...`);
+  const targetMdPaths = reportMdPaths
+    ? (Array.isArray(reportMdPaths) ? reportMdPaths : [reportMdPaths])
+    : (reportMdPath ? [reportMdPath] : (defaultPaths.length > 0 ? defaultPaths : [path.join(process.cwd(), 'scratch/afc_east_master_100percent_exhaustive.md')]));
+
+  console.log(`Loading ${targetMdPaths.length} Markdown report file(s):`, targetMdPaths);
 
   // Fetch episode metadata from Supabase for live source URLs & verify status guard
   const EP_ID = epId || '770aa638-b82b-4fb3-8e2f-8316b02e6635';
@@ -226,64 +265,114 @@ export async function dispatchBiweeklyDigest({ reportMdPath, epId, episodeName, 
     }
   }
 
-  const epTitle = episodeName || ep?.title || 'Sharp or Square — AFC EAST BETTING PREVIEW';
+  // Fetch article intel and sharp market tweets from Supabase if available
+  const articleIntelList = [];
+  if (sb) {
+    try {
+      const { data: intelData } = await sb
+        .from('research_intel_notes')
+        .select('title, author, body, summary, published_at, captured_at, url')
+        .order('captured_at', { ascending: false })
+        .limit(3);
+
+      if (intelData) {
+        for (const row of intelData) {
+          articleIntelList.push({
+            type: 'article',
+            title: row.title || 'Market Intel Note',
+            author: row.author || row.source || 'Research Analyst',
+            content: row.summary || row.body || '',
+            published_at: row.published_at || row.captured_at,
+            url: row.url || null,
+          });
+        }
+      }
+
+      const { data: tweetData } = await sb
+        .from('x_sharp_tweets')
+        .select('author_handle, text, published_at, captured_at, tweet_url')
+        .order('captured_at', { ascending: false })
+        .limit(3);
+
+      if (tweetData) {
+        for (const row of tweetData) {
+          articleIntelList.push({
+            type: 'tweet',
+            title: `@${row.author_handle || 'SharpFootball'}`,
+            author: row.author_handle || 'Sharp Analyst',
+            content: row.text || '',
+            published_at: row.published_at || row.captured_at,
+            url: row.tweet_url || null,
+          });
+        }
+      }
+    } catch (err) {
+      console.warn('Could not fetch article intel notes / tweets from Supabase:', err.message);
+    }
+  }
+
+  const epTitle = episodeName || ep?.title || 'Sharp or Square — AFC EAST & NFC EAST BETTING PREVIEW';
   const audioUrl = ep?.audio_url || 'https://www.omnycontent.com';
   const baseUrl = process.env.DASHBOARD_BASE_URL || 'http://192.168.1.44:5180/platinum-rose-app/';
   const dashboardUrl = `${baseUrl.replace(/\/$/, '')}/?tab=podcasts&episode=${EP_ID}`;
 
-  // Parse Markdown sections per team
-  const teamBlocks = rawMd.split(/## 🏆 /).slice(1);
   const teamReports = [];
 
-  for (const block of teamBlocks) {
-    const lines = block.split('\n');
-    const teamName = lines[0].trim();
-    
-    // Extract futures odds list and apply market context helpers
-    const oddsMatch = block.match(/Win Total Line \/ Juicing \/ Division Odds \/ Futures Odds Mentioned\*\*\s*\n+([\s\S]*?)\n+- \*\*Comprehensive Narrative Synopsis/i);
-    const rawOddsList = oddsMatch
-      ? oddsMatch[1].split('\n').map(l => l.replace(/^\s*-\s*/, '').trim()).filter(l => l.length > 0)
-      : [];
-    
-    const futuresOddsList = await applyMarketContextOdds({ teamName, rawOddsList });
+  for (const mdPath of targetMdPaths) {
+    if (!fs.existsSync(mdPath)) continue;
+    const rawMd = fs.readFileSync(mdPath, 'utf-8');
+    const teamBlocks = rawMd.split(/## 🏆 /).slice(1);
 
-    // Extract narrative synopsis
-    const synopsisMatch = block.match(/Comprehensive Narrative Synopsis\*\*\s*\n+([\s\S]*?)\n+- \*\*EXPERT-BY-EXPERT/i);
-    const synopsis = synopsisMatch ? synopsisMatch[1].trim() : 'Comprehensive expert breakdown and roster analysis.';
+    for (const block of teamBlocks) {
+      const lines = block.split('\n');
+      const teamName = lines[0].trim();
 
-    // Extract expert blocks
-    const expertBlocks = [];
-    const chadMatch = block.match(/\*\s*\*\*Chad Millman:\*\*[\s\S]*?- \*\*Exact Bet & Position:\*\*\s*(.*?)\n[\s\S]*?- \*\*Exhaustive Analytical Rationale & Evidence:\*\*\s*\n([\s\S]*?)(?=\* \*\*Simon Hunter|\- \*\*Endnotes)/i);
-    if (chadMatch) {
-      const bet = chadMatch[1].trim();
-      const rationale = chadMatch[2].split('\n').map(l => l.replace(/^\s*-\s*/, '').trim()).filter(l => l.length > 0);
-      expertBlocks.push({ name: 'Chad Millman (Host)', bet, rationale, color: '#0284c7' });
+      // Extract futures odds list and apply market context helpers
+      const oddsMatch = block.match(/Win Total Line \/ Juicing \/ Division Odds \/ Futures Odds Mentioned\*\*\s*\n+([\s\S]*?)\n+- \*\*Comprehensive Narrative Synopsis/i);
+      const rawOddsList = oddsMatch
+        ? oddsMatch[1].split('\n').map(l => l.replace(/^\s*-\s*/, '').trim()).filter(l => l.length > 0)
+        : [];
+
+      const futuresOddsList = await applyMarketContextOdds({ teamName, rawOddsList });
+
+      // Extract narrative synopsis
+      const synopsisMatch = block.match(/Comprehensive Narrative Synopsis\*\*\s*\n+([\s\S]*?)\n+- \*\*EXPERT-BY-EXPERT/i);
+      const synopsis = synopsisMatch ? synopsisMatch[1].trim() : 'Comprehensive expert breakdown and roster analysis.';
+
+      // Extract expert blocks
+      const expertBlocks = [];
+      const chadMatch = block.match(/\*\s*\*\*Chad Millman:\*\*[\s\S]*?- \*\*Exact Bet & Position:\*\*\s*(.*?)\n[\s\S]*?- \*\*Exhaustive Analytical Rationale & Evidence:\*\*\s*\n([\s\S]*?)(?=\* \*\*Simon Hunter|- \*\*Endnotes)/i);
+      if (chadMatch) {
+        const bet = chadMatch[1].trim();
+        const rationale = chadMatch[2].split('\n').map(l => l.replace(/^\s*-\s*/, '').trim()).filter(l => l.length > 0);
+        expertBlocks.push({ name: 'Chad Millman (Host)', bet, rationale, color: '#0284c7' });
+      }
+
+      const simonMatch = block.match(/\*\s*\*\*Simon Hunter:\*\*[\s\S]*?- \*\*Exact Bet & Position:\*\*\s*(.*?)\n[\s\S]*?- \*\*Exhaustive Analytical Rationale & Evidence:\*\*\s*\n([\s\S]*?)(?=- \*\*Endnotes|---)/i);
+      if (simonMatch) {
+        const bet = simonMatch[1].trim();
+        const rationale = simonMatch[2].split('\n').map(l => l.replace(/^\s*-\s*/, '').trim()).filter(l => l.length > 0);
+        expertBlocks.push({ name: 'Simon Hunter (Handicapper)', bet, rationale, color: '#059669' });
+      }
+
+      // Extract endnotes list
+      const endnotesMatch = block.match(/Endnotes & Verbatim Timecodes:\*\*([\s\S]*?)(?:---|$$)/i);
+      const rawEndnotes = endnotesMatch ? endnotesMatch[1].trim() : '';
+      const endnotesList = [];
+
+      const endnoteRegex = /\[\^([A-Za-z]+)-(\d+)\]:\s*(\[\d+:\d+(?::\d+)?\s*-\s*\d+:\d+(?::\d+)?\]|\[\d+:\d+\])\s*([A-Za-z\s]+):\s*"(.*?)"/gi;
+      let match;
+      while ((match = endnoteRegex.exec(rawEndnotes)) !== null) {
+        endnotesList.push({
+          tag: `${match[1]}-${match[2]}`,
+          timecode: match[3],
+          speaker: match[4].trim(),
+          quote: match[5].trim(),
+        });
+      }
+
+      teamReports.push({ teamName, futuresOddsList, synopsis, expertBlocks, endnotesList });
     }
-
-    const simonMatch = block.match(/\*\s*\*\*Simon Hunter:\*\*[\s\S]*?- \*\*Exact Bet & Position:\*\*\s*(.*?)\n[\s\S]*?- \*\*Exhaustive Analytical Rationale & Evidence:\*\*\s*\n([\s\S]*?)(?=\- \*\*Endnotes|---)/i);
-    if (simonMatch) {
-      const bet = simonMatch[1].trim();
-      const rationale = simonMatch[2].split('\n').map(l => l.replace(/^\s*-\s*/, '').trim()).filter(l => l.length > 0);
-      expertBlocks.push({ name: 'Simon Hunter (Handicapper)', bet, rationale, color: '#059669' });
-    }
-
-    // Extract endnotes list
-    const endnotesMatch = block.match(/Endnotes & Verbatim Timecodes:\*\*([\s\S]*?)(?:---|$$)/i);
-    const rawEndnotes = endnotesMatch ? endnotesMatch[1].trim() : '';
-    const endnotesList = [];
-
-    const endnoteRegex = /\[\^([A-Za-z]+)-(\d+)\]:\s*(\[\d+:\d+(?::\d+)?\s*-\s*\d+:\d+(?::\d+)?\]|\[\d+:\d+\])\s*([A-Za-z\s]+):\s*"(.*?)"/gi;
-    let match;
-    while ((match = endnoteRegex.exec(rawEndnotes)) !== null) {
-      endnotesList.push({
-        tag: `${match[1]}-${match[2]}`,
-        timecode: match[3],
-        speaker: match[4].trim(),
-        quote: match[5].trim(),
-      });
-    }
-
-    teamReports.push({ teamName, futuresOddsList, synopsis, expertBlocks, endnotesList });
   }
 
   const html = generateDigestHtml({
@@ -292,6 +381,7 @@ export async function dispatchBiweeklyDigest({ reportMdPath, epId, episodeName, 
     audioUrl,
     dashboardUrl,
     teamReports,
+    articleIntelList,
   });
 
   // HARMLESS PREVIEW / DRY-RUN MODE GUARD: If dryRun is set, write HTML file & DO NOT SEND EMAIL!
