@@ -4,15 +4,28 @@
  * Run: npx vitest run
  * Coverage: npx vitest run --coverage
  */
-import { describe, it, expect, vi } from 'vitest';
+import { beforeEach, describe, it, expect, vi } from 'vitest';
 
 // Mock storage and supabase to avoid localStorage/network in Node.
 vi.mock('../../src/lib/storage.js', () => ({
-  loadFromStorage: vi.fn(() => null),
-  saveToStorage: vi.fn(),
+  loadFromStorage: vi.fn((key, fallback = null) => {
+    const raw = globalThis.__bankrollTestStorage?.get(key);
+    return raw === undefined ? fallback : raw;
+  }),
+  saveToStorage: vi.fn((key, value) => {
+    globalThis.__bankrollTestStorage?.set(key, value);
+    return true;
+  }),
   PR_STORAGE_KEYS: {
     BANKROLL: { key: 'nfl_bankroll_v1' },
   },
+  ALPHA_STATE_DOMAINS: {
+    BANKROLL: 'sandbox portfolio',
+  },
+  getAlphaStorageKey: vi.fn(({ profileId, stateDomain, season, week }) => {
+    const base = `nfl_alpha:${profileId}:${stateDomain}`;
+    return season && week ? `${base}:${season}:${week}:v1` : `${base}:v1`;
+  }),
 }));
 
 vi.mock('../../src/lib/supabase.js', () => ({
@@ -24,11 +37,17 @@ import {
   BET_STATUS,
   BET_TYPES,
   calculateKellyUnit,
+  calculateAnalytics,
   getRecommendedUnit,
   importBankrollData,
+  saveBankrollData,
 } from '../../src/lib/bankroll.js';
 
 describe('bankroll', () => {
+  beforeEach(() => {
+    globalThis.__bankrollTestStorage = new Map();
+  });
+
   describe('BET_STATUS', () => {
     it('exports all five status values', () => {
       expect(BET_STATUS.PENDING).toBeDefined();
@@ -148,5 +167,54 @@ describe('bankroll', () => {
       expect(importBankrollData(valid)).toBe(true);
     });
   });
-});
 
+  describe('calculateAnalytics bankroll math safeguards', () => {
+    it('falls back to a valid starting bankroll and unit size when settings are missing', () => {
+      saveBankrollData({
+        settings: {},
+        bets: [{
+          id: 'won_1',
+          status: BET_STATUS.WON,
+          type: BET_TYPES.SPREAD,
+          amount: 50,
+          odds: -110,
+          profit: 100,
+          timestamp: '2026-09-10T12:00:00.000Z',
+          settledAt: '2026-09-10T16:00:00.000Z',
+        }],
+        weeklyStats: {},
+      });
+
+      const analytics = calculateAnalytics('all');
+
+      expect(analytics.currentBankroll).toBe(1100);
+      expect(analytics.unitsWon).toBe(2);
+    });
+
+    it('does not produce Infinity when unit size is zero', () => {
+      saveBankrollData({
+        settings: {
+          totalBankroll: 500,
+          unitSize: 0,
+        },
+        bets: [{
+          id: 'lost_1',
+          status: BET_STATUS.LOST,
+          type: BET_TYPES.TOTAL,
+          amount: 25,
+          odds: -110,
+          profit: -25,
+          timestamp: '2026-09-10T12:00:00.000Z',
+          settledAt: '2026-09-10T16:00:00.000Z',
+        }],
+        weeklyStats: {},
+      });
+
+      const analytics = calculateAnalytics('all');
+
+      expect(analytics.currentBankroll).toBe(475);
+      expect(analytics.unitsWon).toBe(-0.5);
+      expect(Number.isFinite(analytics.unitsWon)).toBe(true);
+    });
+  });
+});
