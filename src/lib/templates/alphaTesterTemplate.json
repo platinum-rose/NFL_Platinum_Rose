@@ -21,16 +21,16 @@
   "properties": {
     "id": {
       "type": "string",
-      "pattern": "^alpha_[a-z0-9_]+$",
-      "description": "Unique identifier starting with alpha_"
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Unique identifier (e.g. 'amanda_rose', 'patrick_fagan')"
     },
     "name": {
       "type": "string",
-      "description": "Full display name with team/persona context (e.g., 'Brian (Dolphin Boobiez)')"
+      "description": "Full display name with team/persona context"
     },
     "displayLabel": {
       "type": "string",
-      "description": "Short label for dropdown selector (e.g., 'Brian (Waiver & Injuries)')"
+      "description": "Short label for dropdown selector (e.g., 'Amanda Rose (Olivators / Wailin Raylans)')"
     },
     "realName": {
       "type": "string",
@@ -47,7 +47,7 @@
     },
     "description": {
       "type": "string",
-      "description": "Tester's primary play style, strategy, and dashboard expectations"
+      "description": "Tester's primary workflow, betting interests, and dashboard expectations"
     },
     "role": {
       "type": "string",
@@ -78,6 +78,16 @@
       "enum": ["dashboard", "official-picks", "intel", "futures", "fantasy", "injuries", "odds", "analytics"],
       "description": "Landing hub when tester logs in"
     },
+    "priorityWidgets": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Top dashboard widgets customized for this tester"
+    },
+    "bettingInterests": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Betting/Contest interests (e.g. ['supercontest', 'player_props', 'survivor', 'game_spreads'])"
+    },
     "fantasyLeagues": {
       "type": "array",
       "items": {
@@ -105,6 +115,10 @@
     "draftSlots": {
       "type": "object",
       "additionalProperties": { "type": ["integer", "null"] }
+    },
+    "keeperIntentions": {
+      "type": "string",
+      "enum": ["undeclared", "declared", "locked"]
     },
     "keeperLocks": {
       "type": "object",
@@ -144,25 +158,34 @@
     }
   },
   "example": {
-    "id": "alpha_brian",
-    "name": "Brian (Dolphin Boobiez)",
-    "displayLabel": "Brian (Waiver & Injuries)",
-    "realName": "Brian",
-    "nickname": "Dolphin Boobiez",
-    "email": "brian@example.test",
-    "description": "High-stakes waiver grinder focused on real-time injury recovery, SIC scores, and depth chart trends.",
+    "id": "amanda_rose",
+    "name": "Amanda Rose",
+    "displayLabel": "Amanda Rose (Olivators / Wailin Raylans)",
+    "realName": "Amanda Rose",
+    "nickname": "Olivators",
+    "email": "amanda@example.test",
+    "description": "Sunday morning lineup setter and waiver wire specialist monitoring injury recovery and competing in SuperContest.",
     "role": "tester",
     "alphaRole": "tester",
     "profileMode": "alpha",
-    "usagePriority": "waiver_and_injuries",
-    "defaultHub": "injuries",
-    "fantasyLeagues": ["honey_badgers"],
+    "usagePriority": "start_sit_optimizer",
+    "defaultHub": "dashboard",
+    "priorityWidgets": ["start-sit-comparator", "injury-wire", "waiver-targets", "supercontest-card"],
+    "bettingInterests": ["supercontest", "player_props"],
+    "fantasyLeagues": ["honey_badgers", "the_league", "rose_bowl"],
     "fantasyTeamBindings": [
-      { "leagueId": "honey_badgers", "teamId": "3", "teamName": "Dolphin Boobiez" }
+      { "leagueId": "honey_badgers", "teamId": "1", "teamName": "Olivators" },
+      { "leagueId": "the_league", "teamId": "wailin_raylans", "teamName": "Wailin Raylans" },
+      { "leagueId": "rose_bowl", "teamId": "7", "teamName": "Jukin Junies" }
     ],
-    "favoriteTeams": ["MIA", "BUF"],
-    "draftSlots": { "honey_badgers": 3 },
-    "keeperLocks": { "honey_badgers": ["CeeDee Lamb", "Kyren Williams"] },
+    "favoriteTeams": ["BUF"],
+    "draftSlots": { "the_league": 6, "honey_badgers": 7, "rose_bowl": 8 },
+    "keeperIntentions": "undeclared",
+    "keeperLocks": {
+      "honey_badgers": [],
+      "the_league": [],
+      "rose_bowl": []
+    },
     "hubs": ["dashboard", "official-picks", "intel", "futures", "fantasy", "injuries", "odds", "analytics", "bankroll", "mycard", "picks"],
     "agents": [],
     "allowedFeatures": ["dashboard", "official-picks", "intel-hub", "futures-report", "fantasy-packet", "schedule", "injuries", "market-context", "alpha-local-tracking"],

@@ -38,18 +38,96 @@ describe('Alpha profile catalog', () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 
-  it('includes all curated tester personas in the Alpha profile catalog', () => {
-    const curatedIds = [
-      'alpha_brian',
-      'alpha_dave',
-      'alpha_marcus',
-      'alpha_sarah',
-      'alpha_alex',
+  it('includes all official Alpha testers (amanda_rose, patrick_fagan, matt_post, matt_policare, alejandro)', () => {
+    const officialTesterIds = [
+      'amanda_rose',
+      'patrick_fagan',
+      'matt_post',
+      'matt_policare',
+      'alejandro',
     ];
 
-    for (const id of curatedIds) {
+    for (const id of officialTesterIds) {
       expect(ALPHA_PROFILE_IDS).toContain(id);
     }
+  });
+
+  it('binds Amanda Rose to Olivators, Wailin Raylans, Jukin Junies, and Buffalo Bills', () => {
+    const profile = PRESET_PROFILES.find((p) => p.id === 'amanda_rose');
+    expect(profile).toBeDefined();
+    expect(profile.realName).toBe('Amanda Rose');
+    expect(profile.favoriteTeams).toContain('BUF');
+    expect(profile.bettingInterests).toEqual(expect.arrayContaining(['supercontest', 'player_props']));
+    expect(profile.fantasyLeagues).toEqual(
+      expect.arrayContaining(['honey_badgers', 'the_league', 'rose_bowl'])
+    );
+    const teamNames = profile.fantasyTeamBindings.map((b) => b.teamName);
+    expect(teamNames).toEqual(
+      expect.arrayContaining(['Olivators', 'Wailin Raylans', 'Jukin Junies'])
+    );
+  });
+
+  it('binds Patrick Fagan to LV Rosekillers and props/sides betting focus', () => {
+    const profile = PRESET_PROFILES.find((p) => p.id === 'patrick_fagan');
+    expect(profile).toBeDefined();
+    expect(profile.realName).toBe('Patrick Fagan');
+    expect(profile.usagePriority).toBe('props_and_odds');
+    expect(profile.fantasyLeagues).toContain('rose_bowl');
+    expect(profile.bettingInterests).toEqual(
+      expect.arrayContaining(['game_spreads', 'game_totals', 'player_props', 'survivor', 'supercontest'])
+    );
+    const teamNames = profile.fantasyTeamBindings.map((b) => b.teamName);
+    expect(teamNames).toContain('L.V. Rosekillers');
+  });
+
+  it('binds Matt Post to Postino\'s Banditos, Concussion Protocol, and LV Raiders', () => {
+    const profile = PRESET_PROFILES.find((p) => p.id === 'matt_post');
+    expect(profile).toBeDefined();
+    expect(profile.realName).toBe('Matt Post');
+    expect(profile.favoriteTeams).toContain('LV');
+    expect(profile.usagePriority).toBe('dynasty_and_draft');
+    expect(profile.fantasyLeagues).toEqual(
+      expect.arrayContaining(['the_league', 'rose_bowl'])
+    );
+    const teamNames = profile.fantasyTeamBindings.map((b) => b.teamName);
+    expect(teamNames).toEqual(
+      expect.arrayContaining(['Postino\'s Banditos', 'Concussion Protocol'])
+    );
+  });
+
+  it('binds Matt Policare to JRZ, Rafi Bomb Returns!, and waiver/injury focus', () => {
+    const profile = PRESET_PROFILES.find((p) => p.id === 'matt_policare');
+    expect(profile).toBeDefined();
+    expect(profile.realName).toBe('Matt Policare');
+    expect(profile.usagePriority).toBe('waiver_and_injuries');
+    expect(profile.bettingInterests).toEqual(
+      expect.arrayContaining(['game_spreads', 'game_totals', 'pickem', 'survivor', 'supercontest'])
+    );
+    expect(profile.fantasyLeagues).toEqual(
+      expect.arrayContaining(['honey_badgers', 'the_league'])
+    );
+    const teamNames = profile.fantasyTeamBindings.map((b) => b.teamName);
+    expect(teamNames).toEqual(
+      expect.arrayContaining(['JRZ', 'Rafi Bomb Returns!'])
+    );
+  });
+
+  it('binds Alejandro to Jesus Take the Wheel, Panda XL, TB Bucs, and LA Rams', () => {
+    const profile = PRESET_PROFILES.find((p) => p.id === 'alejandro');
+    expect(profile).toBeDefined();
+    expect(profile.realName).toBe('Alejandro');
+    expect(profile.usagePriority).toBe('props_and_odds');
+    expect(profile.favoriteTeams).toEqual(expect.arrayContaining(['TB', 'LAR']));
+    expect(profile.bettingInterests).toEqual(
+      expect.arrayContaining(['passing_props', 'rushing_overs', 'receiving_overs', 'anytime_td', 'parlay_stacks'])
+    );
+    expect(profile.fantasyLeagues).toEqual(
+      expect.arrayContaining(['honey_badgers', 'rose_bowl'])
+    );
+    const teamNames = profile.fantasyTeamBindings.map((b) => b.teamName);
+    expect(teamNames).toEqual(
+      expect.arrayContaining(['Jesus Take the Wheel', 'Panda XL'])
+    );
   });
 
   it('filters Alpha tester mode to tester profiles only', () => {
