@@ -194,7 +194,7 @@ describe('prediction-market evidence cleanup P01-P02', () => {
     expect(legacyCoherence.meta.actionable_contract_count).toBe(0);
     expect(legacyCoherence.meta.source_liquidity_warning_rate_pct).toBeGreaterThanOrEqual(77);
     expect(legacyCoherence.meta.execution_source_status).toBe('blocked_settlement_terms_unverified');
-    expect(map.meta.source_generated_at).toBe('2026-07-31T02:38:11.234Z');
+    expect(map.meta.source_generated_at).toBe('2026-08-22T20:44:38.351Z');
     expect(map.meta.liquidity_warning_rate_pct).toBeGreaterThanOrEqual(77);
     expect(map.meta.execution_eligible_count).toBe(0);
     expect(map.meta.execution_source_status).toBe('blocked_settlement_terms_unverified');

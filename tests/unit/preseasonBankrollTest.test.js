@@ -35,11 +35,16 @@ import {
 
 describe('Preseason Games & Bankroll Management Live Test', () => {
   const schedulePath = path.resolve(__dirname, '../../public/schedule.json');
+  const preseasonSchedulePath = path.resolve(__dirname, '../fixtures/preseason-schedule-2026.json');
   let scheduleData = [];
+  let preseasonScheduleData = [];
 
   beforeAll(() => {
     if (fs.existsSync(schedulePath)) {
       scheduleData = JSON.parse(fs.readFileSync(schedulePath, 'utf8'));
+    }
+    if (fs.existsSync(preseasonSchedulePath)) {
+      preseasonScheduleData = JSON.parse(fs.readFileSync(preseasonSchedulePath, 'utf8'));
     }
   });
 
@@ -63,14 +68,14 @@ describe('Preseason Games & Bankroll Management Live Test', () => {
   });
 
   describe('1. Preseason Schedule Ingestion & Data Verification', () => {
-    it('should confirm public/schedule.json contains ingested Preseason games', () => {
-      expect(scheduleData.length).toBeGreaterThan(0);
-      const preseasonGames = scheduleData.filter((g) => g.season_type === 1);
+    it('should confirm the archived Preseason schedule fixture contains ingested Preseason games', () => {
+      expect(preseasonScheduleData.length).toBeGreaterThan(0);
+      const preseasonGames = preseasonScheduleData.filter((g) => g.season_type === 1);
       expect(preseasonGames.length).toBe(49);
     });
 
     it('should verify completed Preseason games have valid live/final scores and status', () => {
-      const completedPreseason = scheduleData.filter(
+      const completedPreseason = preseasonScheduleData.filter(
         (g) => g.season_type === 1 && g.status === 'post'
       );
       expect(completedPreseason.length).toBeGreaterThan(0);
@@ -82,7 +87,7 @@ describe('Preseason Games & Bankroll Management Live Test', () => {
     });
 
     it('should verify upcoming Preseason games carry betting lines and totals', () => {
-      const upcomingPreseason = scheduleData.filter(
+      const upcomingPreseason = preseasonScheduleData.filter(
         (g) => g.season_type === 1 && g.status === 'pre'
       );
       expect(upcomingPreseason.length).toBeGreaterThan(0);

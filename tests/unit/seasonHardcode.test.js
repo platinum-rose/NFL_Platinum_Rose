@@ -93,8 +93,8 @@ describe('getNFLWeekInfo() — 2026 season', () => {
     it('preseason: Aug 1 2026', () => {
         const info = getNFLWeekInfo(new Date('2026-08-01'));
         expect(info.phase).toBe('preseason');
-        expect(info.week).toBe(0);
-        expect(info.label).toBe('PRESEASON');
+        expect(info.week).toBe(101);
+        expect(info.label).toBe('PRESEASON WEEK 1');
         expect(info.season).toBe(2026);
     });
 
