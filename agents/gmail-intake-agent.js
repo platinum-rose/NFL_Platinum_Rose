@@ -21,7 +21,7 @@ import { promisify } from 'node:util';
 import { createClient } from '@supabase/supabase-js';
 import nodemailer from 'nodemailer';
 import { ensureVaultFrontmatter } from './lib/vaultFrontmatter.js';
-import { isFootballOrCbbBettingIntel } from './lib/sportsRelevanceFilter.js';
+import { isNflBettingIntel } from './lib/sportsRelevanceFilter.js';
 
 const execFileAsync = promisify(execFile);
 
@@ -225,7 +225,7 @@ export async function processEmailItem(msg) {
 
   // 2. NFL Relevance Gate
   const fullText = `${msg.subject}\n${msg.body}`;
-  const gate = isFootballOrCbbBettingIntel(fullText);
+  const gate = isNflBettingIntel(fullText);
   if (!gate.isRelevant) {
     console.log(`  [skipped-non-nfl] Email "${msg.subject}": ${gate.reason}`);
     return { skipped: true, reason: gate.reason };

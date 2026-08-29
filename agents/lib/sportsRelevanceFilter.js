@@ -33,7 +33,7 @@ function hasKeyword(content, kw) {
   return new RegExp(`\\b${kw.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')}\\b`, 'i').test(content);
 }
 
-export function isFootballOrCbbBettingIntel(text = '') {
+export function isNflBettingIntel(text = '') {
   const content = String(text).toLowerCase();
 
   // 1. Exclude non-target topics (including CFB and CBB)

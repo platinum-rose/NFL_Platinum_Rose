@@ -4,7 +4,10 @@
 //
 // Automatically fetches recent bookmarks from your personal Twitter account,
 // filters out non-target topics using the Sports Relevance Gate, and ingests
-// ONLY Football (NFL/CFB) and College Basketball (CBB) betting intel.
+// ONLY NFL betting intel. CFB and CBB are explicitly out of scope
+// (confirmed 2026-08-28 after the 2026-08-24 cleanup commit silently
+// narrowed the filter to NFL-only while leaving CBB fetch/routing code
+// live elsewhere -- this pass reconciles the rest of the pipeline to match).
 //
 // Usage:
 //   node agents/twitter-bookmarks-agent.js                  # Ingest live personal bookmarks
@@ -18,7 +21,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createClient } from '@supabase/supabase-js';
 import 'dotenv/config';
-import { isFootballOrCbbBettingIntel } from './lib/sportsRelevanceFilter.js';
+import { isNflBettingIntel } from './lib/sportsRelevanceFilter.js';
 import { ensureVaultFrontmatter } from './lib/vaultFrontmatter.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -56,14 +59,6 @@ const SAMPLE_BOOKMARKS = [
     url: 'https://x.com/WarrenSharp/status/101'
   },
   {
-    id: 'tweet-bm-102',
-    author: 'CbbAnalytics',
-    author_name: 'College Hoops Intel',
-    text: 'March Madness CBB Alert: UConn vs Duke neutral court total opened 142.5. Kenpom pace projection suggests 148+ total points.',
-    created_at: new Date().toISOString(),
-    url: 'https://x.com/CbbAnalytics/status/102'
-  },
-  {
     id: 'tweet-bm-103',
     author: 'TechInsider',
     author_name: 'Tech & Silicon Valley',
@@ -75,7 +70,7 @@ const SAMPLE_BOOKMARKS = [
 
 // ── Fetch Bookmarks from Personal Twitter API / Session ────────────────────────
 
-export async function fetchPersonalBookmarks(queryKeywords = ['NFL', 'CBB', 'football', 'basketball', 'betting', 'spread', 'props']) {
+export async function fetchPersonalBookmarks(queryKeywords = ['NFL', 'football', 'betting', 'spread', 'props']) {
   if (!TWITTER_AUTH_TOKEN) {
     console.log(`[info] PERSONAL_TWITTER_AUTH_TOKEN not configured in .env.`);
     return null;
@@ -272,7 +267,7 @@ export async function processBookmarkedTweet(bm) {
   }
 
   // 3. Run Sports Relevance Gate
-  const gate = isFootballOrCbbBettingIntel(bm.text);
+  const gate = isNflBettingIntel(bm.text);
 
   if (!gate.isRelevant) {
     console.log(`  [skipped] Non-target bookmark (${bm.author}): "${bm.text.substring(0, 50)}..." (${gate.reason})`);
@@ -304,9 +299,10 @@ export async function processBookmarkedTweet(bm) {
     }
   }
 
-  // dateStr, slug, filename, and localReportPath are already defined above
-  const folder = gate.sport === 'NCAA_CBB' ? 'NCAA' : 'NFL';
-  const vaultPath = `${folder}/Bookmarks/${dateStr}-${bm.author}-${slug}.md`;
+  // dateStr, slug, filename, and localReportPath are already defined above.
+  // NFL-only scope confirmed 2026-08-28 -- gate.sport is always 'NFL' here,
+  // so there is no more NCAA/Bookmarks branch to route into.
+  const vaultPath = `NFL/Bookmarks/${dateStr}-${bm.author}-${slug}.md`;
 
   let propSection = '';
   if (visionAnalysis && visionAnalysis.player_props && visionAnalysis.player_props.length > 0) {
@@ -380,7 +376,7 @@ ${propSection}`;
 export async function runBookmarkIngestion() {
   console.log(`=======================================================`);
   console.log(`  Personal Twitter Bookmarks Ingestion Agent`);
-  console.log(`  Relevance Gate: Football (NFL/CFB) & CBB Betting Only`);
+  console.log(`  Relevance Gate: NFL Betting Only`);
   console.log(`  Mode: ${SAMPLE_MODE ? 'SAMPLE FIXTURES' : DRY_RUN ? 'DRY-RUN' : 'LIVE'}`);
   console.log(`=======================================================\n`);
 
