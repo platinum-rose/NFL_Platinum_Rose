@@ -1,0 +1,796 @@
+Received: from LV8P220MB2020.NAMP220.PROD.OUTLOOK.COM (2603:10b6:408:224::20)
+ by SJ0P220MB0333.NAMP220.PROD.OUTLOOK.COM with HTTPS; Fri, 28 Aug 2026
+ 06:21:37 +0000
+Received: from BN9PR03CA0802.namprd03.prod.outlook.com (2603:10b6:408:13f::27)
+ by LV8P220MB2020.NAMP220.PROD.OUTLOOK.COM (2603:10b6:408:224::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.10; Fri, 28 Aug
+ 2026 06:21:36 +0000
+Received: from BN3PEPF00022BC9.namprd05.prod.outlook.com
+ (2603:10b6:408:13f:cafe::16) by BN9PR03CA0802.outlook.office365.com
+ (2603:10b6:408:13f::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.10 via Frontend Transport; Fri,
+ 28 Aug 2026 06:21:36 +0000
+Authentication-Results: spf=pass (sender IP is 204.220.170.221)
+ smtp.mailfrom=comms.assemblyai.com; dkim=pass (signature was verified)
+ header.d=comms.assemblyai.com;dmarc=pass action=none
+ header.from=comms.assemblyai.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of comms.assemblyai.com
+ designates 204.220.170.221 as permitted sender)
+ receiver=protection.outlook.com; client-ip=204.220.170.221;
+ helo=h221.h22bf2b1.use4.send.mailgun.net; pr=C
+Received: from h221.h22bf2b1.use4.send.mailgun.net (204.220.170.221) by
+ BN3PEPF00022BC9.mail.protection.outlook.com (10.167.248.218) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.382.8 via Frontend Transport; Fri, 28 Aug 2026 06:21:36 +0000
+X-IncomingTopHeaderMarker: OriginalChecksum:B258A8C55451C615AAFF318664678D4F4C8DDAA33FC4DDDCF59B8246594E08CA;UpperCasedChecksum:0E68DFEE39E1F6FC0AF3DB4559FFDADDAE1F705E63001A5A1762BC706D3B7906;SizeAsReceived:2196;Count:23
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=comms.assemblyai.com; q=dns/txt; s=krs; t=1787898095; x=1787905295;
+ h=Message-Id: List-Unsubscribe-Post: X-Feedback-Id: List-Unsubscribe: Reply-To: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: Date: Sender: Sender;
+ bh=vhiXtVJPObMgA0jY3kPZy466LzJ4e1FEF/Ck1x84k9U=;
+ b=YB8xdL6JekPDozGImmQhw5TcKwwBncl98ZSfN+hv/DaqPqWDiGfo8a4fbDVYzx0FKMXZzykMm4/KKYXOqo/dYSy+MBEKhQ3GII0vY9ObHrugZj9Q49E7StB/rW8t0FlWI6c1WIoZMOAmAbaou4lsEPaTd3sABsJCBwc3tLUfvsg=
+X-Mailgun-Sid: WyJiNzE2ZSIsImFuZHJld2xyb3NlQGhvdG1haWwuY29tIiwiNzJlZGU5NCJd
+Received: by a7f073bd27a26827b3711d74351407c6092ccab8b106bf2bbe98a4adb361b508 with HTTP
+ id 6a9128ef2ab1765799f42502; Fri, 28 Aug 2026 06:21:35 GMT
+X-Mailgun-Sending-Ip-Pool-Name: AssemblyAI_mktg
+X-Mailgun-Sending-Ip-Pool: 68a3719b21ff8a522b44a433
+X-Mailgun-Sending-Ip: 204.220.170.221
+Sender: team@comms.assemblyai.com
+Date: Fri, 28 Aug 2026 06:21:35 +0000
+Content-Type: multipart/alternative;
+ boundary="0c384c2cdb57f5914afd3eae45baff004262bbdc49362266c7feb188f989"
+Subject: =?UTF-8?q?=F0=9F=86=95_Qwen3.5_4B,_now_on_LLM_Gateway?=
+From: AssemblyAI Team <team@comms.assemblyai.com>
+To: andrewlrose@hotmail.com
+Reply-To: support@assemblyai.com
+X-Campaign-Id: 19566384
+List-Unsubscribe: <https://links.iterable.com/s/uh/-HM9r0Lk4Ey5AUFozz8yLiikeGbNlvL2KgjborTFKTGXey_hLFLIl_JL765rqul3N9cNnKJ65qgHzxzDSamErThDAuuPk29LIjfJeI2404rKeKLbfKKi5UKjmkcztqfG_NgvGj0XnjXW9kBoAoS6wSpYrsR4zAyyowjNSC7HlFInSVOIk8NEZZ_zw9cnfkpZG6flAb-nUl9bhyLR/N35oOC-EKYpE77IfaergccRUXTKtPFdS/24>,<mailto:unsubscribe+19566384+25613822@unsubscribe.iterable.com>
+X-Feedback-Id: 25613822:19566384:128941:iterable
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Return-Path: bounce+a1e7fa.72ede94-andrewlrose=hotmail.com@comms.assemblyai.com
+X-Message-Id: 9605fdc1e36b468da63f720d5202adb5
+Feedback-Id: 25613822:19566384:128941:iterable
+X-Mailgun-Variables: {"metadata":
+ "{\"messageId\":\"9605fdc1e36b468da63f720d5202adb5\",\"templateId\":25613822,\"projectId\":28928,\"campaignId\":19566384,\"recipientUserKey\":\"65c03afa-7642-4f05-9fbc-5d559cc1b861\"}"}
+Message-Id: <20260828062135.451c26ab72a6ca20@comms.assemblyai.com>
+X-IncomingHeaderCount: 23
+X-MS-Exchange-Organization-ExpirationStartTime: 28 Aug 2026 06:21:36.3080
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: f60b61ad-44b2-420e-987b-08df04cc9cf5
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF00022BC9:EE_|LV8P220MB2020:EE_|SJ0P220MB0333:EE_
+X-MS-Exchange-Organization-AuthSource: BN3PEPF00022BC9.namprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 8/28/2026 6:01:47 AM
+X-MS-Office365-Filtering-Correlation-Id: f60b61ad-44b2-420e-987b-08df04cc9cf5
+X-Sender-IP: 204.220.170.221
+X-MS-Exchange-EOPDirect: true
+X-SID-PRA: TEAM@COMMS.ASSEMBLYAI.COM
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:1444111002|5099299006|5139299004|20103052903057|10300799038|970799063|20103052901057|34130799006|5149299006|9400799043|29080799009|47200799027|58200799025|5301999021|260826003000599003|9000799056|1680799066|12001999021|260804220100599006|20103052914048|20103052904057|2607281247196008|18301999012|18025499012|1602099012|30041999003|1122599022|18021999003|56899033|1360799030|1380799030|1370799030|4302099013|3412199025|440099028|2406899039;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2026 06:21:36.0761
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f60b61ad-44b2-420e-987b-08df04cc9cf5
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF00022BC9.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8P220MB2020
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.7660383
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0360.006
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:1;auth:1;dest:J;OFR:ExclusiveSettings;ENG:(5062000311)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(2008001181)(2008121020)(4810010)(4910033)(9575002)(10195002)(9320005)(9254116)(120001)(1110175);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0xO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?b2wvS2gwM3dnNkV0ZllRMXdaTkUxZEVKQWVHdHFZTk92eUgvaHFNZy9NN0tC?=
+ =?utf-8?B?QzlxYm1xTUJFWGhMNFNUVGxSTmtGQ0tQcTZjYndyK3NkbWJwRlNYZ2dveXRV?=
+ =?utf-8?B?SjJ5OXZtb25tWHF6bUd0RG5IQ20wWkhYZjVRZmxSSHYraTRiQVdDa0Z3K1JX?=
+ =?utf-8?B?K3hLb1p3RzlpVlNCMHZReWxXVEs5dmJWNlNRRXphVGx1czA5Wmk2N1NGYVkw?=
+ =?utf-8?B?eXRNZmt2NzQzUU95WnV0L1hXVFdDS0ZlV01KWW94czc1WVRkaEluU0plK2E0?=
+ =?utf-8?B?MWY0d1lhdTRnZ242YmdPdDhLaldQZVdNdzdHM2RJRnJkNVEwcnFtZC9YQzU2?=
+ =?utf-8?B?QmU2QTgxMFFpdUczZ0NKSTgxZEpka2N1VG10SGRsM3VWN1I3QW12a1lrazFu?=
+ =?utf-8?B?YkFEQUpYb09FQ3VMOEpKd2FvZUFIRTNMTjhEN3ZrV3lVVnRqSVFjcnorZUx5?=
+ =?utf-8?B?ZS9NQjZhY1Q2ZllKbTFWSncyQ240WVFldVhNVWVPbFpqdlFkMmE5NW16aWMr?=
+ =?utf-8?B?NGVRSEJ0YTR1emQzeFFlMHdJTzBFb2NZdHprMzFldWV3dWVuanVlcmYyRytm?=
+ =?utf-8?B?UE1uM0hZYjJNUVB2d1l1K3BLeXZ3QkNXY1pRdWMvMFNBS1pRNUttbXQvVEZP?=
+ =?utf-8?B?YUxxYnlZaDE1MEFsQ2duOUMzVzZtdUxvRXlJUTBmSVhmUzhDd3kxZlNuUGF0?=
+ =?utf-8?B?c1BMZzdnb1F6VmlYbytHVW9hTWdCekV5dEdGT0VLYW0xcWkvMFM3UTFVcU9O?=
+ =?utf-8?B?UHVkL2ZhaHNkdUppVmZSWXRzMXdzRStVcllRblhnTkdvQ29DYnV3bEY0OWxl?=
+ =?utf-8?B?MmVzRDVodWRrVkh2L0RYVTE4V2FzUGd6a2R6TXlHcSsvZDR3NlIxN09WZEZs?=
+ =?utf-8?B?TWs2Y3NzNVR1UkVzQVhQZ0VqK1VoN1p6UGVnWnR1TDVRTll6S1BUcHZiTHRy?=
+ =?utf-8?B?KzVaZ3AzWklKc3FuKzU3UUpDMThLMzJvdEJxaStrSEpNNERuOVhiOTFVSlY3?=
+ =?utf-8?B?R0dUOUhJc3hnNjZXb3RWbUVXRUFoZVBsK0ZhVHJmOFh4K1ZuVk4vR21BeVJS?=
+ =?utf-8?B?cXJLdkI3NjVyWUtQeDFoV0ZZUjdtVXBwVHlhNjVIY1RjNzBlekxBem9oQ1ZO?=
+ =?utf-8?B?TWsxNzg0Um1xQkdSVHhnaWVnQzhmQzU5MXhMblh2OXhXbnhWWHpxZlZRS2FO?=
+ =?utf-8?B?b2RXT3pJaUI0ZFBidnpGR0VPU0pKNFF3M29vaWY3WENaZWFlREpwdDREMFZZ?=
+ =?utf-8?B?ajZ1WkgwVDBKSGRXbExERFk5cDFzWE9jZStSMVJkNG1JQ212azhWb29iM3FU?=
+ =?utf-8?B?ekZRMTk1ank4TURNZ1dCdEVtSEE1Z01RM09vbURYU2VZRmk1dmpGclU4Mk5C?=
+ =?utf-8?B?d2t3MGdxL0lVY3lybE1reitZU01EeUcyUEIzYUxkSjRTa0NBMHZEVXhlRHpO?=
+ =?utf-8?B?UlF4OXRSSm5tS3VSL3dMUkEwZXU4Rk5sWWVnbGxnelJRZVJTcVYwR2hoNEFn?=
+ =?utf-8?B?TFBJQ3lZREcyL0JTTFk2NTFXOStGZ1I0S1NkZ1EvRnBzOFVjcjZEV0x6Mzd1?=
+ =?utf-8?B?V015T3JweG1laUlneis1NUphbFd2Z3lPWHJUS242bnlEOW9pL2ZEVkFnc0ZL?=
+ =?utf-8?B?ak81RTM1bkliOVQ2SkQ0Y3U0NmxNK1pmZG40K3I1YXkzTjBwelpuaVpPZFJk?=
+ =?utf-8?B?NFppZ1NtK0doVU4wd01JMlczdXYxRnMyNmJNais2SUFLUHVVU0t6RnRDT0Nh?=
+ =?utf-8?B?ck9TeXFpTHVLZjloRU1EMmhxQkpQWitNcXNjVkwzVm5BQjZsZHh4VEhhc3ZE?=
+ =?utf-8?B?eDlabnMyYWFoU1MzOENpOVJhbjFUK3VDT0dxSWM4U29XTGdQZzRucGp0dTlw?=
+ =?utf-8?B?STJ6aTFFVVhWY1Q1WmF2enA0QU5aOTM1d3F1bFNQaHVCcDRWUFhVN0g0eTZx?=
+ =?utf-8?B?cG0vN0tvcWtPVE9Kb1pHZENTR1BGZlM1UnNmNG5EcVFQTUd1dUpVV28xcEpu?=
+ =?utf-8?B?QUNXcmZGREhuYlZndkpCMGpuek5pakRKRElOWWZlMEFOcXVWdHFlTnRHRUMw?=
+ =?utf-8?B?VElMTzlsRDdyNEEvZndRSjQ5M2JMTTRId1dUc3c2Y0ZianltOUwwL0hUd1pN?=
+ =?utf-8?B?ME16Z0FNTFdLdG5UN1lZZWFJNWNTQlpEQmx3ZkdPNGNJUjV6TkpFVWd5em0r?=
+ =?utf-8?B?b1R0VW5HN25qQzJuUWtxODFWZHRSRXdvQ28rTUFjcWJ2NlFVRjJpNGtTZ0dX?=
+ =?utf-8?B?Q3dMVFR4SEFVbDg5YnZ5UDlOT3NKNEtFY1RhMDIwd01TcElwclR0MUMvUTUy?=
+ =?utf-8?B?ZzYvZWhWeGphMTdXMGxCYzlDZi9tUHdYNmFDdFFiK1p3dzhSQ1BTR0pmbHo5?=
+ =?utf-8?B?L2RtdkFwdmZKU3hsOUIySmV5L083d0czV1RkRkdweUsrSUcvQjFFbHRZODk0?=
+ =?utf-8?B?Y3crQ0dEY21RbjQ0SG92RGJKWHRHK3loVmVZNUh0OWhsNE1jdzFDdFNMQTA4?=
+ =?utf-8?B?emlRVHYxelVPWXM4N3pYMjJGYzNTc2hJWENQcUdwOWs1MitGUmJjd1lHbHBv?=
+ =?utf-8?B?U1dWZGNlbUlUcEtqRHYwZm00U0p0OXBBWWR0K2xRVkFSZGFkVkl5VkpFd1Zl?=
+ =?utf-8?B?YUxuVFdYRmF6UXRCSlBnNnEzNVplRHhpN3diVDVQWlJzT1JUbzVKaW82WkR4?=
+ =?utf-8?B?OGpHUmZTM0o4amk2d25jTHl4d3hRN0YyeDNzRXdqeVU1bkdNZ2NIb3dKZito?=
+ =?utf-8?B?THlRODl5Z2pzRTVqU0hJckttMzVrRmpodDcrU293bUQwNndwZU5yb2JwaGdP?=
+ =?utf-8?B?bmhtazl0ajJNMENFRHdmWmZzUWxrSlphNEtKckFOWWtrQTVRWS94TFYzTFhD?=
+ =?utf-8?B?aGR2SWt6RE1EdGlKK0dtOVAzMEhwdXIxalRjdWExOW11dkpvQzFrWmtTYnZB?=
+ =?utf-8?B?OGRzeVQrcmlGTnN4ZldLS25xejAxd2pCUDZIQmdIdmZzaUpVZXFyV0tiMEdW?=
+ =?utf-8?B?bU85WklidGFhcS9MVC9QUHo1b25iOXpoSWxhanhPbTJnbnR0MldjUTNQTCtk?=
+ =?utf-8?Q?fW2ZCuxZtXyCZgrTlE6v8WXpIhnCmoPIg=3D?=
+MIME-Version: 1.0
+
+--0c384c2cdb57f5914afd3eae45baff004262bbdc49362266c7feb188f989
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+
+Qwen3.5 4B on LLM Gateway Optimized for the fast rewrite tasks at the cente=
+r of=20
+voice products, like dictation cleanup and transcript rewrites.  Dictation=
+=20
+cleanup and transcript rewrites in about 600ms, at $0.10/$0.50 per million=
+=20
+tokens.=20
+
+
+=20
+<https://www.assemblyai.com/?utm_source=3Demail&utm_medium=3Downed&utm_camp=
+aign=3Dqwen-4b-launch>
+Log in=20
+<https://www.assemblyai.com/dashboard/signup?utm_source=3Demail&utm_medium=
+=3Downed&utm_campaign=3Dqwen-4b-launch>
+
+
+ Introducing Qwen3.5 4B on LLM Gateway=E2=80=94optimized by AssemblyAI for =
+the fast=20
+rewrite tasks at the center of voice products. Dictation cleanup and transc=
+ript=20
+rewrites in ~600ms at $0.10/$0.50 per million tokens.
+
+Read the announcement=20
+<https://assemblyai.com/blog/qwen-4b-llm-gateway?utm_source=3Demail&utm_med=
+ium=3Downed&utm_campaign=3Dqwen-4b-launch>
+
+Optimized for fast rewrites to power your voice features
+
+Dictation cleanup, transcript rewrite, live formatting, turn summarization.=
+=20
+That rewrite step drives the latency users actually feel=E2=80=94so it need=
+s speed and=20
+low cost, not reasoning depth.
+
+
+
+Prompt
+
+Clean up dictated speech. Reply with ONLY the cleaned text of the last mess=
+age=20
+=E2=80=94 no preamble, no commentary, no notes about your edits. Nothing bu=
+t the=20
+transcript=E2=80=A6
+
+
+Raw speech-to-text output
+
+Um, quick recap on where we landed, uh, with the Q3 vendor review. So, uh, =
+we=20
+got through6 of the 8=E2=80=94 oh no, 5 of the 8 assessments, um, and the l=
+ast 3=20
+they=E2=80=99re waiting on security sign-off.Um, the big thing is that pric=
+ing came=20
+back higherthan, than we modeled, something like, uh, between 12=E2=80=94 n=
+o, 15% over.=20
+After Qwen3.5 4B
+
+Quick recap on where we landed with the Q3 vendor review. We got through 5 =
+of=20
+the 8 assessments, and the last 3 they=E2=80=99re waiting on security sign-=
+off. The big=20
+thing is that pricing came back higher than we modeled, something like15% o=
+ver.=20
+622 ms =C2=B7 cost $0.000114
+
+
+Built & measured on voice rewrite tasks
+
+You don=E2=80=99t need the smartest model for voice rewrite. You need one t=
+hat=E2=80=99s=20
+lightning-fast and cheap enough to scale. Qwen3.5 4B does that one job, and=
+ we=20
+tuned the deployment around it.
+
+ Benchmarks on voice rewrite tasks=20
+
+Model Avg latency Avg $/hr=20
+qwen3.5-4b-32k-fast 612 ms $0.0092=20
+qwen3-32B 918 ms $0.0122=20
+gemini-2.5-flash-lite 951 ms $0.0081=20
+gemini-3.5-flash-lite 1,116 ms $0.0362=20
+gpt-4.1 1,138 ms $0.1546=20
+All five models are available on LLM Gateway. Full methodology and the task=
+=20
+set are in the post.
+
+
+ Ready to test Qwen3.5 4B?=20
+
+ Point any OpenAI-compatible client at llm-gateway.assemblyai.com/v1, set t=
+he=20
+model toqwen3.5-4b-32k-fast, and use the same API key as your speech-to-tex=
+t=20
+calls. If your transcripts already live with us, passtranscript_id and drop=
+ =20
+into the prompt=E2=80=94LLM Gateway will fetch the text and run the rewrite=
+s in one=20
+call.
+
+
+
+Live workshop =C2=B7 Register
+
+Building and optimizing dictation features with Sync API and Qwen3.5 4B
+
+Register today to secure your seat at this September 9 workshop with our=20
+Forward Deployed Engineers.
+ <https://assemblyai.zoom.us/webinar/register/WN_MlXBcM2qQU2RAnIjWBXUWQ>=20
+=20
+<https://www.assemblyai.com/?utm_source=3Demail&utm_medium=3Downed&utm_camp=
+aign=3Dqwen-4b-launch>
+ Our speech-to-text models lead the industry in accuracy and deliver the mo=
+st=20
+reliable audio outputs for standout user experiences.
+
+
+
+ 169 Madison Ave
+Suite 38365
+New York, NY 10016 Unsubscribe=20
+<https://links.iterable.com/s/u/boaq2RVLSopZUbb5xsnzNQV8KD7PyMDv1ERSyCggIf5=
+mgVD7mEB_usgGSiJ-WTDyS5M1DDkgavprwvZ-E2IK8mnIdAgRon-wzDZE7IytUaZjmEVnupX9Yc=
+Je7omTtsJ3M7-V2aMJLuEd4-Fa5Vo8cVRHXevzqlPFz3uWbZnqSnEhxXrckltN6V3_3yWqfS6rg=
+EO88vw5umol3Nkh/c01fYyhZSmKBKJ3tK9LL1FMDrFh3PD8S/24>
+--0c384c2cdb57f5914afd3eae45baff004262bbdc49362266c7feb188f989
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html lang=3D"en" xmlns=3D"http://www.w3.org/1999/xhtml" xml=
+ns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com=
+:office:office"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><m=
+eta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.0"=
+> <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge"> <meta name=3D=
+"x-apple-disable-message-reformatting"> <meta name=3D"color-scheme" content=
+=3D"light only"> <meta name=3D"supported-color-schemes" content=3D"light on=
+ly"> <title>Qwen3.5 4B on LLM Gateway</title> <!--[if mso]><noscript><xml><=
+o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDoc=
+umentSettings></xml></noscript><![endif]--> <style type=3D"text/css">body,t=
+able,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}table,td{=
+mso-table-lspace:0;mso-table-rspace:0}img{-ms-interpolation-mode:bicubic;bo=
+rder:0;height:auto;line-height:100%;outline:0;text-decoration:none}table{bo=
+rder-collapse:collapse!important}body{margin:0!important;padding:0!importan=
+t;width:100%!important}a{text-decoration:none}.param{font-family:'Modern Go=
+thic Mono','Courier New',Courier,monospace;font-size:.88em;background-color=
+:#eae6e1;color:#1d1b16;padding:2px 6px;border-radius:6px}@media only screen=
+ and (max-width:620px){.email-card{width:100%!important;border-radius:0!imp=
+ortant;border-left:0!important;border-right:0!important}.px{padding-left:24=
+px!important;padding-right:24px!important}.demo-col{display:block!important=
+;width:100%!important;padding:0 0 20px 0!important}.cta-text{display:block!=
+important;width:100%!important}.cta-btn{display:block!important;width:100%!=
+important;padding:16px 0 0 0!important;text-align:left!important}.vid-poste=
+r{display:block!important;width:100%!important;box-sizing:border-box!import=
+ant;padding:0!important}.vid-img{width:100%!important}.vid-text{display:blo=
+ck!important;width:100%!important;box-sizing:border-box!important}.footer-m=
+eta td{display:block!important;width:100%!important;text-align:left!importa=
+nt}.footer-unsub{padding-top:16px!important}}</style> </head> <body style=
+=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; background-=
+color: #ecebe5; margin: 0 !important; padding: 0 !important; width: 100% !i=
+mportant;"><span style=3D"color:transparent;visibility:hidden;display:none;=
+opacity:0;height:0;width:0;font-size:0;">Optimized for the fast rewrite tas=
+ks at the center of voice products, like dictation cleanup and transcript r=
+ewrites.</span><img src=3D"https://links.iterable.com/s/eo/JZrqvT1YjYBphdGd=
+p6z2TAHHyIV3SeqGlJ69hEyedHSSfYPtJPWqrUp60TOVWbLfmIZ4oTYSddaucGWWujiutGofJPa=
+3RonhbdDEjQt00ze2_9RfWtiq0wRjfpmlhtfTSIk8Em8J2obNRFNd5oox_H9FwCrPP9lyfLiZwF=
+Au8DlE9krjduVDNNup3cN4_D-H1GBwrMVMhqWFJ5KbzfagNCOAdd7ohbW8oHrU/vf_wPkxFBUjW=
+8CTVZzgob66iOhuPZY90/24" style=3D"border:0;width:1px;height:1px;border-widt=
+h:0px!important;display:none!important;line-height:0!important;" width=3D"1=
+" height=3D"1"> <!-- Preheader --> <div style=3D"display:none; max-height:0=
+; overflow:hidden; mso-hide:all; font-size:1px; line-height:1px; color:#ece=
+be5; opacity:0;"> Dictation cleanup and transcript rewrites in about 600ms,=
+ at $0.10/$0.50 per million tokens. =E2=80=8B=E2=80=8B=E2=80=8B=E2=80=8B=E2=
+=80=8B=E2=80=8B=E2=80=8B=E2=80=8B=E2=80=8B=E2=80=8B=E2=80=8B=E2=80=8B=E2=80=
+=8B=E2=80=8B=E2=80=8B=E2=80=8B=E2=80=8B=E2=80=8B=E2=80=8B=E2=80=8B </div> <=
+!-- Outer wrapper --> <table role=3D"presentation" width=3D"100%" cellpaddi=
+ng=3D"0" cellspacing=3D"0" border=3D"0" style=3D"-webkit-text-size-adjust: =
+100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: =
+0pt; background-color: #ecebe5; border-collapse: collapse !important;" bgco=
+lor=3D"#ecebe5"> <tr> <td align=3D"center" style=3D"-webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt; padding: 24px 12px;"> <!--[if mso]><table role=3D"presentation" wid=
+th=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" border=3D"0=
+"><tr><td><![endif]--> <table role=3D"presentation" class=3D"email-card" wi=
+dth=3D"600" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"-webk=
+it-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0p=
+t; mso-table-rspace: 0pt; width: 600px; max-width: 600px; background-color:=
+ #ffffff; border: 1px solid #c7c3b2; border-radius: 4px; overflow: hidden; =
+border-collapse: collapse !important;" bgcolor=3D"#ffffff"> <!-- =3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D HEADER=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D --> =
+<tr> <td class=3D"px" style=3D"-webkit-text-size-adjust: 100%; -ms-text-siz=
+e-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-co=
+lor: #fdfcf8; border-bottom: 1px solid #c7c3b2; padding: 24px 40px;" bgcolo=
+r=3D"#fdfcf8"> <table role=3D"presentation" width=3D"100%" cellpadding=3D"0=
+" cellspacing=3D"0" border=3D"0" style=3D"-webkit-text-size-adjust: 100%; -=
+ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; bo=
+rder-collapse: collapse !important;"> <tr> <td align=3D"left" valign=3D"mid=
+dle" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt;"> <a href=3D"https://na01.safe=
+links.protection.outlook.com/?url=3Dhttps%3A%2F%2Flinks.iterable.com%2Fs%2F=
+c%2FqdeUz46XxQ8P4CocO6m81cDSDI50zRdDw4mAPsvoS1LkQ5t3Qvx7d6vPaD-GLmVdzrSOBft=
+jgey58WE_GqFfx1niAWGeDwQyC2SuLG3FbO7lpJy_G_bs3cjmTF_KDMLdO-_0Dq4uk0ssAkgESM=
+39wd2tQWZft16p5hxJ8iEm5Kjmyz3r53HD3aKnUhr9spTyHS52Q0b5HJ03_wC1zfkU55PJa0BRL=
+IzE6LeaBKovplrP602RceKm6oZ0Ewez8zbu8F5y_4QXj7ZSbT-mSko-HmIJmn0TK43ASkbUHu0Q=
+JpzWNxmGCo1Z8i2YzkNqlCThTKsThwoTJrU-TgJgTNCrV3uYJF5uzuNDgEqnCRVVyq23Iqh9UUI=
+gOlPAWu-1Cr5-8pUqLc2UfKAkCF2TX3o3kuou_y3w8DKcr1SznIdQTipJLZtSVU3HimM9LsJhAS=
+C2nonfwUq9OjQcgUQfrwvvPSozWqoJVjIQ_GNZYc5sQo8Uk67Wzt918IukFec-cyQ5hDA_bn7Y_=
+1tPpiH-iJwGoQ4g5EG2bLcsueB_cm4MkxK2%2FA-XlkdI4yVk3zzyTNEV98Mk1YYtdJWVr%2F24=
+&amp;data=3D05%7C02%7C%7Cf60b61ad44b2420e987b08df04cc9cf5%7C84df9e7fe9f640a=
+fb435aaaaaaaaaaaa%7C1%7C0%7C639234948994565041%7CUnknown%7CTWFpbGZsb3d8eyJF=
+bXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIld=
+UIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3DhlbBSoOqwmbAGc8jfudvWWCxbXX4GKeEsa4W=
+IYPf%2FY8%3D&amp;reserved=3D0" originalsrc=3D"https://links.iterable.com/s/=
+c/qdeUz46XxQ8P4CocO6m81cDSDI50zRdDw4mAPsvoS1LkQ5t3Qvx7d6vPaD-GLmVdzrSOBftjg=
+ey58WE_GqFfx1niAWGeDwQyC2SuLG3FbO7lpJy_G_bs3cjmTF_KDMLdO-_0Dq4uk0ssAkgESM39=
+wd2tQWZft16p5hxJ8iEm5Kjmyz3r53HD3aKnUhr9spTyHS52Q0b5HJ03_wC1zfkU55PJa0BRLIz=
+E6LeaBKovplrP602RceKm6oZ0Ewez8zbu8F5y_4QXj7ZSbT-mSko-HmIJmn0TK43ASkbUHu0QJp=
+zWNxmGCo1Z8i2YzkNqlCThTKsThwoTJrU-TgJgTNCrV3uYJF5uzuNDgEqnCRVVyq23Iqh9UUIgO=
+lPAWu-1Cr5-8pUqLc2UfKAkCF2TX3o3kuou_y3w8DKcr1SznIdQTipJLZtSVU3HimM9LsJhASC2=
+nonfwUq9OjQcgUQfrwvvPSozWqoJVjIQ_GNZYc5sQo8Uk67Wzt918IukFec-cyQ5hDA_bn7Y_1t=
+PpiH-iJwGoQ4g5EG2bLcsueB_cm4MkxK2/A-XlkdI4yVk3zzyTNEV98Mk1YYtdJWVr/24" targ=
+et=3D"_blank" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust=
+: 100%; text-decoration: none;"> <img src=3D"https://library.iterable.com/3=
+643/28928/87957048202c47fca7182bb2403dcc43-assemblyai-logo.png" width=3D"15=
+2" height=3D"26" alt=3D"AssemblyAI" style=3D"-ms-interpolation-mode: bicubi=
+c; border: 0; line-height: 100%; outline: none; text-decoration: none; disp=
+lay: block; width: 152px; height: 26px;"> </a> </td> <td align=3D"right" va=
+lign=3D"middle" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adju=
+st: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;"> <a href=3D"https:=
+//na01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Flinks.iterable=
+.com%2Fs%2Fc%2FxMjbW3ni3eUazH2UEo2eoMHUZW6kJofGeywVX_zcydhnti3G4NIjphYfIK4w=
+YA_TxjAyh4JY2uMYCygpkS0aRiV0HVzQdHJfpPLT_JEzK3KiB1qV_IGSWAcVk521VS6KlzawdpR=
+mzwt57noebKfPe_qtL87KtYti5HA8MX_zDQuwdxQokWAYlAJeH6YOkSbcGTO1pAaoPzmvUFMt75=
+-8l6bhhmF2Wo2dss9bxdhUnpZXNp6bYTxBxVoziKwjQB9g8QNZCB9XGNQlLnLiEXYPxjymSGiuM=
+NH5RM7XQD_26ZqZ12mmiJ_DgQQNgLj1iHJYcfLPpGQmVJ2-W1Mvi5323JY2Of0yIncN_NAgwugO=
+C3DDGYohsg13r6ufvd7Qx8U-fuaxppmONJGHvFvEOR1ttmpNPJE7hxP3135gQGbAWR79Ij_ewzE=
+T3igzgaJEH9WO9SH9Hq6rhV2HFZFH-aAIx0_6pzFx2W_AP8oY7DTgADwmeP_qIh4BNG2Y6iTouT=
+8T4D6tsVNm-LEELIsnqaJ-iYydyFugbATaKXFRRNxzM_noWr8N6MXWmhom-mAfZPi2rPC0RPsN3=
+gODXJLd3AHMHW8%2FU4kgkh_j7Aj8ocTMLFjlSgfPU12IcRZQ%2F24&amp;data=3D05%7C02%7=
+C%7Cf60b61ad44b2420e987b08df04cc9cf5%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1=
+%7C0%7C639234948994600999%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsI=
+lYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%=
+7C%7C&amp;sdata=3Dehc4uIdahxPaWt5Z3qyMu1vzngHw91FNEyC4606XMMc%3D&amp;reserv=
+ed=3D0" originalsrc=3D"https://links.iterable.com/s/c/xMjbW3ni3eUazH2UEo2eo=
+MHUZW6kJofGeywVX_zcydhnti3G4NIjphYfIK4wYA_TxjAyh4JY2uMYCygpkS0aRiV0HVzQdHJf=
+pPLT_JEzK3KiB1qV_IGSWAcVk521VS6KlzawdpRmzwt57noebKfPe_qtL87KtYti5HA8MX_zDQu=
+wdxQokWAYlAJeH6YOkSbcGTO1pAaoPzmvUFMt75-8l6bhhmF2Wo2dss9bxdhUnpZXNp6bYTxBxV=
+oziKwjQB9g8QNZCB9XGNQlLnLiEXYPxjymSGiuMNH5RM7XQD_26ZqZ12mmiJ_DgQQNgLj1iHJYc=
+fLPpGQmVJ2-W1Mvi5323JY2Of0yIncN_NAgwugOC3DDGYohsg13r6ufvd7Qx8U-fuaxppmONJGH=
+vFvEOR1ttmpNPJE7hxP3135gQGbAWR79Ij_ewzET3igzgaJEH9WO9SH9Hq6rhV2HFZFH-aAIx0_=
+6pzFx2W_AP8oY7DTgADwmeP_qIh4BNG2Y6iTouT8T4D6tsVNm-LEELIsnqaJ-iYydyFugbATaKX=
+FRRNxzM_noWr8N6MXWmhom-mAfZPi2rPC0RPsN3gODXJLd3AHMHW8/U4kgkh_j7Aj8ocTMLFjlS=
+gfPU12IcRZQ/24" target=3D"_blank" style=3D"-webkit-text-size-adjust: 100%; =
+-ms-text-size-adjust: 100%; text-decoration: none; display: inline-block; b=
+order: 1px solid #3923c7; border-radius: 2px; color: #3923c7; font-family: =
+'Modern Gothic Mono','Courier New',Courier,monospace; font-size: 11px; lett=
+er-spacing: 1.2px; text-transform: uppercase; padding: 8px 12px; line-heigh=
+t: 1;">Log in</a> </td> </tr> </table> </td> </tr> <!-- =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D HERO=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D --> <tr> <td bg=
+color=3D"#1d1b16" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-ad=
+just: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color:=
+ #1d1b16; padding: 0; font-size: 0; line-height: 0;"> <img src=3D"https://l=
+ibrary.iterable.com/3643/28928/593297183c4e4d4797cb8aba935fdc34-qwen-launch=
+_blog-image.png" width=3D"600" alt=3D"New on LLM Gateway: qwen3.5-4b-32k-fa=
+st" style=3D"-ms-interpolation-mode: bicubic; line-height: 100%; outline: n=
+one; text-decoration: none; display: block; width: 100%; max-width: 600px; =
+height: auto; border: 0; color: #f4f2ea;"> </td> </tr> <!-- =3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D INTRO LINE=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D --> <t=
+r> <td class=3D"px" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-=
+adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-colo=
+r: #fdfcf8; padding: 56px 40px 0 40px;" bgcolor=3D"#fdfcf8"> <p style=3D"ma=
+rgin:0; font-family:'UN-11 ST','Oceanic Text',Georgia,'Times New Roman',ser=
+if; font-size:18px; line-height:1.45; color:#1d1b16;"> Introducing Qwen3.5 =
+4B on LLM Gateway=E2=80=94optimized by AssemblyAI for the fast rewrite task=
+s at the center of voice products. Dictation cleanup and transcript rewrite=
+s in ~600ms at $0.10/$0.50 per million tokens. </p> <table role=3D"presenta=
+tion" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" align=3D"center" sty=
+le=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table=
+-lspace: 0pt; mso-table-rspace: 0pt; margin: 32px auto 0 auto; border-colla=
+pse: collapse !important;"> <tr> <td align=3D"center" bgcolor=3D"#3923c7" s=
+tyle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-tab=
+le-lspace: 0pt; mso-table-rspace: 0pt; border-radius: 4px;"> <a href=3D"htt=
+ps://na01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Flinks.itera=
+ble.com%2Fs%2Fc%2FPaT4NPEOOQ2Kjp69upCtq_DnOHENe14J_EpVB6AH8IdyfHMMDPQ6CL518=
+KMRzuXylum-wpozNhkAlZFuTOu7VNiH4zlgt9t1dkyMnPbe6QqIWD6LNOLUGXhHtiNZ2Hph1B6H=
+mSpm_y9OO-vZzBxbIqJDOdZHxXQ6hUlUN1YZNj4wAc9qJ-mp_6XoW878AlZ6zGAdwDvckiztggs=
+xaEFFt2ZFGsOSixYjnvAbOxnxojFIOWRY75yMQkA__ulT1_A98fiEexANKhfk9NQ1D5wTeewRze=
+SFNBS6DEiLUBZk38zwROd3-e4wFO1z0gNX9O3c72Kf_QCGP9g9VqPTv7LLP84yg9a6GUn7hrwOm=
+1xbjkPrl5ujK7jq_82mb5cenev0TLF978NECVz_r9-qmBUbokVIWvLoClMmf_l-gZWtoundCrvH=
+Azs3mEH49kKhbyhOl60u_C8gUKW34pAHMtAuElA5n9w42QZ4_IlnAyrvo6sGR0MEnhsUTd1dlxg=
+grR-_IBppIoE6LUyIghMafvNBh4rZiKCk0htA8QouyDWhsc6-_xzVpwstVeC8qv_UoydUadMDnd=
+rfK00LzXaVBUX8gOyayE5LFFZjIg%2Feg76QGCt9tD9Bq_SS0tbalZLzWUzRVzu%2F24&amp;da=
+ta=3D05%7C02%7C%7Cf60b61ad44b2420e987b08df04cc9cf5%7C84df9e7fe9f640afb435aa=
+aaaaaaaaaa%7C1%7C0%7C639234948994631326%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1=
+hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ=
+%3D%3D%7C0%7C%7C%7C&amp;sdata=3DW8S0j8fqpmQrtCYdoY6XqpF8z5g1LVax%2BqLsiU3ne=
+e8%3D&amp;reserved=3D0" originalsrc=3D"https://links.iterable.com/s/c/PaT4N=
+PEOOQ2Kjp69upCtq_DnOHENe14J_EpVB6AH8IdyfHMMDPQ6CL518KMRzuXylum-wpozNhkAlZFu=
+TOu7VNiH4zlgt9t1dkyMnPbe6QqIWD6LNOLUGXhHtiNZ2Hph1B6HmSpm_y9OO-vZzBxbIqJDOdZ=
+HxXQ6hUlUN1YZNj4wAc9qJ-mp_6XoW878AlZ6zGAdwDvckiztggsxaEFFt2ZFGsOSixYjnvAbOx=
+nxojFIOWRY75yMQkA__ulT1_A98fiEexANKhfk9NQ1D5wTeewRzeSFNBS6DEiLUBZk38zwROd3-=
+e4wFO1z0gNX9O3c72Kf_QCGP9g9VqPTv7LLP84yg9a6GUn7hrwOm1xbjkPrl5ujK7jq_82mb5ce=
+nev0TLF978NECVz_r9-qmBUbokVIWvLoClMmf_l-gZWtoundCrvHAzs3mEH49kKhbyhOl60u_C8=
+gUKW34pAHMtAuElA5n9w42QZ4_IlnAyrvo6sGR0MEnhsUTd1dlxggrR-_IBppIoE6LUyIghMafv=
+NBh4rZiKCk0htA8QouyDWhsc6-_xzVpwstVeC8qv_UoydUadMDndrfK00LzXaVBUX8gOyayE5LF=
+FZjIg/eg76QGCt9tD9Bq_SS0tbalZLzWUzRVzu/24" target=3D"_blank" style=3D"-webk=
+it-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decoration: non=
+e; display: inline-block; background-color: #3923c7; color: #ffffff; font-f=
+amily: 'Modern Gothic Mono','Courier New',Courier,monospace; font-size: 13p=
+x; letter-spacing: 1.4px; text-transform: uppercase; padding: 13px 24px; bo=
+rder-radius: 4px; line-height: 1;">Read the announcement</a> </td> </tr> </=
+table> </td> </tr> <!-- =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D LEAD-IN: VOICE=
+ REWRITE=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D --> <tr> <td class=3D"px" styl=
+e=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-=
+lspace: 0pt; mso-table-rspace: 0pt; background-color: #fdfcf8; padding: 44p=
+x 40px 20px 40px;" bgcolor=3D"#fdfcf8"> <p style=3D"margin:0 0 14px 0; font=
+-family:'UN-11 ST','Oceanic Text',Georgia,'Times New Roman',serif; font-siz=
+e:26px; line-height:1.25; color:#1d1b16;">Optimized for fast rewrites to po=
+wer your voice features</p> <p style=3D"margin:0 0 24px 0; font-family:'UN-=
+11 ST','Oceanic Text',Georgia,'Times New Roman',serif; font-size:17px; line=
+-height:1.5; color:#4a4945;">Dictation cleanup, transcript rewrite, live fo=
+rmatting, turn summarization. That rewrite step drives the latency users ac=
+tually feel=E2=80=94so it needs speed and low cost, not reasoning depth.</p=
+> <!-- Before / after demo card --> <table role=3D"presentation" width=3D"1=
+00%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"-webkit-text=
+-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-=
+table-rspace: 0pt; background-color: #f1ede3; border: 1px solid #d8d3c4; bo=
+rder-radius: 8px; overflow: hidden; border-collapse: collapse !important;" =
+bgcolor=3D"#f1ede3"> <tr> <td style=3D"-webkit-text-size-adjust: 100%; -ms-=
+text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; paddi=
+ng: 32px;"> <!-- prompt box --> <table role=3D"presentation" width=3D"100%"=
+ cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"-webkit-text-siz=
+e-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-tabl=
+e-rspace: 0pt; background-color: #ffffff; border-radius: 8px; margin-bottom=
+: 24px; border-collapse: collapse !important;" bgcolor=3D"#ffffff"> <tr> <t=
+d style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-=
+table-lspace: 0pt; mso-table-rspace: 0pt; padding: 20px 24px;"> <p style=3D=
+"margin:0 0 10px 0; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI'=
+,Arial,sans-serif; font-size:14px; color:#777673;">Prompt</p> <p style=3D"m=
+argin:0; font-family:'UN-11 ST','Oceanic Text',Georgia,'Times New Roman',se=
+rif; font-size:14px; line-height:1.4; color:#1d1b16;">Clean up dictated spe=
+ech. Reply with ONLY the cleaned text of the last message =E2=80=94 no prea=
+mble, no commentary, no notes about your edits. Nothing but the transcript=
+=E2=80=A6</p> </td> </tr> </table> <!-- comparison --> <table role=3D"prese=
+ntation" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" st=
+yle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-tabl=
+e-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse !important;=
+"> <tr> <td class=3D"demo-col" width=3D"50%" valign=3D"top" style=3D"-webki=
+t-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt=
+; mso-table-rspace: 0pt; padding: 0 14px 0 0;"> <p style=3D"margin:0 0 12px=
+ 0; font-family:'UN-11 ST','Oceanic Text',Georgia,'Times New Roman',serif; =
+font-size:15px; color:#777673;">Raw speech-to-text output</p> <table role=
+=3D"presentation" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;=
+ mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff; b=
+order-radius: 3px; border-collapse: collapse !important;" bgcolor=3D"#fffff=
+f"> <tr> <td height=3D"250" valign=3D"top" style=3D"-webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt; height: 250px; padding: 12px; font-family: 'UN-11 ST','Oceanic Text=
+',Georgia,'Times New Roman',serif; font-size: 14px; line-height: 1.45; colo=
+r: #1d1b16;"><span style=3D"background-color:#f2ecab;">Um,</span> quick rec=
+ap on where we landed, <span style=3D"background-color:#f2ecab;">uh,</span>=
+ with the Q3 vendor review. So, <span style=3D"background-color:#f2ecab;">u=
+h,</span> we got through <span style=3D"background-color:#f2ecab;">6 of the=
+ 8=E2=80=94 oh no,</span> 5 of the 8 assessments, <span style=3D"background=
+-color:#f2ecab;">um,</span> and the last 3 they=E2=80=99re waiting on secur=
+ity sign-off. <span style=3D"background-color:#f2ecab;">Um,</span> the big =
+thing is that pricing came back higher <span style=3D"background-color:#f2e=
+cab;">than, than</span> we modeled, something like, <span style=3D"backgrou=
+nd-color:#f2ecab;">uh,</span> between <span style=3D"background-color:#f2ec=
+ab;">12=E2=80=94 no,</span> 15% over.</td> </tr> </table> </td> <td class=
+=3D"demo-col" width=3D"50%" valign=3D"top" style=3D"-webkit-text-size-adjus=
+t: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspac=
+e: 0pt; padding: 0 0 0 14px;"> <p style=3D"margin:0 0 12px 0; font-family:'=
+UN-11 ST','Oceanic Text',Georgia,'Times New Roman',serif; font-size:15px; c=
+olor:#3923c7;">After Qwen3.5 4B</p> <table role=3D"presentation" width=3D"1=
+00%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"-webkit-text=
+-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-=
+table-rspace: 0pt; background-color: #ffffff; border-radius: 3px; border-co=
+llapse: collapse !important;" bgcolor=3D"#ffffff"> <tr> <td height=3D"250" =
+valign=3D"top" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjus=
+t: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; height: 250px; paddi=
+ng: 12px; font-family: 'UN-11 ST','Oceanic Text',Georgia,'Times New Roman',=
+serif; font-size: 14px; line-height: 1.45; color: #1d1b16;">Quick recap on =
+where we landed with the Q3 vendor review. We got through <span style=3D"ba=
+ckground-color:#cfe5d2;">5 of the 8</span> assessments, and the last 3 they=
+=E2=80=99re waiting on security sign-off. The big thing is that pricing cam=
+e back higher than we modeled, something like <span style=3D"background-col=
+or:#cfe5d2;">15% over</span>.</td> </tr> </table> </td> </tr> </table> <p s=
+tyle=3D"margin:20px 0 0 0; text-align:right; font-family:'Modern Gothic Mon=
+o','Courier New',Courier,monospace; font-size:12px; line-height:1.5; color:=
+#777673;">622&nbsp;ms =C2=B7 cost $0.000114</p> </td> </tr> </table> </td> =
+</tr> <!-- =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D BENCHMARKS=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D --> <tr> <td class=3D"px" style=3D"-webkit-text-size-=
+adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-=
+rspace: 0pt; background-color: #fdfcf8; padding: 52px 40px 20px 40px;" bgco=
+lor=3D"#fdfcf8"> <p style=3D"margin:0 0 14px 0; font-family:'UN-11 ST','Oce=
+anic Text',Georgia,'Times New Roman',serif; font-size:26px; line-height:1.2=
+5; color:#1d1b16;">Built &amp; measured on voice rewrite tasks</p> <p style=
+=3D"margin:0 0 24px 0; font-family:'UN-11 ST','Oceanic Text',Georgia,'Times=
+ New Roman',serif; font-size:16px; line-height:1.5; color:#777673;">You don=
+=E2=80=99t need the smartest model for voice rewrite. You need one that=E2=
+=80=99s lightning-fast and cheap enough to scale. Qwen3.5 4B does that one =
+job, and we tuned the deployment around it.</p> <!-- Benchmark table --> <t=
+able role=3D"presentation" width=3D"100%" cellpadding=3D"0" cellspacing=3D"=
+0" border=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adju=
+st: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #=
+f9f6ee; border: 1px solid #d8d3c4; border-radius: 8px; overflow: hidden; bo=
+rder-collapse: collapse !important;" bgcolor=3D"#f9f6ee"> <tr> <td style=3D=
+"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspa=
+ce: 0pt; mso-table-rspace: 0pt; background-color: #f1ede3; border-bottom: 1=
+px solid #d8d3c4; padding: 16px 24px; font-family: 'UN-11 ST','Oceanic Text=
+',Georgia,'Times New Roman',serif; font-size: 16px; line-height: 1.3; color=
+: #1d1b16;" bgcolor=3D"#f1ede3"> Benchmarks on voice rewrite tasks </td> </=
+tr> <tr> <td style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust:=
+ 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0;"> <table r=
+ole=3D"presentation" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" bor=
+der=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 10=
+0%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-family: -apple-syste=
+m,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif; border-collapse: collapse=
+ !important;"> <!-- header --> <tr> <td align=3D"left" style=3D"-webkit-tex=
+t-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso=
+-table-rspace: 0pt; padding: 14px 8px 14px 24px; font-size: 12px; color: #7=
+77673;">Model</td> <td align=3D"left" width=3D"110" style=3D"-webkit-text-s=
+ize-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-ta=
+ble-rspace: 0pt; width: 110px; padding: 14px 12px; font-size: 12px; color: =
+#777673; line-height: 1.3; white-space: nowrap;">Avg latency</td> <td align=
+=3D"left" width=3D"110" style=3D"-webkit-text-size-adjust: 100%; -ms-text-s=
+ize-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 110p=
+x; padding: 14px 24px 14px 12px; font-size: 12px; color: #777673; line-heig=
+ht: 1.3; white-space: nowrap;">Avg $/hr</td> </tr> <tr> <td align=3D"left" =
+style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-ta=
+ble-lspace: 0pt; mso-table-rspace: 0pt; border-top: 1px solid #d8d3c4; padd=
+ing: 14px 8px 14px 24px; font-size: 15px; color: #3923c7;">qwen3.5-4b-32k-f=
+ast</td> <td align=3D"left" width=3D"110" style=3D"-webkit-text-size-adjust=
+: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace=
+: 0pt; width: 110px; border-top: 1px solid #d8d3c4; padding: 14px 12px; fon=
+t-size: 15px; color: #3923c7;">612&nbsp;ms</td> <td align=3D"left" width=3D=
+"110" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; =
+mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 110px; border-top: 1px=
+ solid #d8d3c4; padding: 14px 24px 14px 12px; font-size: 15px; color: #7776=
+73;">$0.0092</td> </tr> <tr> <td align=3D"left" style=3D"-webkit-text-size-=
+adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-=
+rspace: 0pt; border-top: 1px solid #e6e3da; padding: 14px 8px 14px 24px; fo=
+nt-size: 15px; color: #1d1b16;">qwen3-32B</td> <td align=3D"left" width=3D"=
+110" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; m=
+so-table-lspace: 0pt; mso-table-rspace: 0pt; width: 110px; border-top: 1px =
+solid #e6e3da; padding: 14px 12px; font-size: 15px; color: #777673;">918&nb=
+sp;ms</td> <td align=3D"left" width=3D"110" style=3D"-webkit-text-size-adju=
+st: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspa=
+ce: 0pt; width: 110px; border-top: 1px solid #e6e3da; padding: 14px 24px 14=
+px 12px; font-size: 15px; color: #777673;">$0.0122</td> </tr> <tr> <td alig=
+n=3D"left" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 1=
+00%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-top: 1px solid #e=
+6e3da; padding: 14px 8px 14px 24px; font-size: 15px; color: #1d1b16;">gemin=
+i-2.5-flash-lite</td> <td align=3D"left" width=3D"110" style=3D"-webkit-tex=
+t-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso=
+-table-rspace: 0pt; width: 110px; border-top: 1px solid #e6e3da; padding: 1=
+4px 12px; font-size: 15px; color: #777673;">951&nbsp;ms</td> <td align=3D"l=
+eft" width=3D"110" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-a=
+djust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 110px; bo=
+rder-top: 1px solid #e6e3da; padding: 14px 24px 14px 12px; font-size: 15px;=
+ color: #3923c7;">$0.0081</td> </tr> <tr> <td align=3D"left" style=3D"-webk=
+it-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0p=
+t; mso-table-rspace: 0pt; border-top: 1px solid #e6e3da; padding: 14px 8px =
+14px 24px; font-size: 15px; color: #1d1b16;">gemini-3.5-flash-lite</td> <td=
+ align=3D"left" width=3D"110" style=3D"-webkit-text-size-adjust: 100%; -ms-=
+text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width=
+: 110px; border-top: 1px solid #e6e3da; padding: 14px 12px; font-size: 15px=
+; color: #777673;">1,116&nbsp;ms</td> <td align=3D"left" width=3D"110" styl=
+e=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-=
+lspace: 0pt; mso-table-rspace: 0pt; width: 110px; border-top: 1px solid #e6=
+e3da; padding: 14px 24px 14px 12px; font-size: 15px; color: #777673;">$0.03=
+62</td> </tr> <tr> <td align=3D"left" style=3D"-webkit-text-size-adjust: 10=
+0%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0p=
+t; border-top: 1px solid #e6e3da; padding: 14px 8px 14px 24px; font-size: 1=
+5px; color: #1d1b16;">gpt-4.1</td> <td align=3D"left" width=3D"110" style=
+=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-l=
+space: 0pt; mso-table-rspace: 0pt; width: 110px; border-top: 1px solid #e6e=
+3da; padding: 14px 12px; font-size: 15px; color: #777673;">1,138&nbsp;ms</t=
+d> <td align=3D"left" width=3D"110" style=3D"-webkit-text-size-adjust: 100%=
+; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt;=
+ width: 110px; border-top: 1px solid #e6e3da; padding: 14px 24px 14px 12px;=
+ font-size: 15px; color: #777673;">$0.1546</td> </tr> </table> </td> </tr> =
+</table> <p style=3D"margin:14px 0 0 0; font-family:-apple-system,BlinkMacS=
+ystemFont,'Segoe UI',Arial,sans-serif; font-size:13px; line-height:1.45; co=
+lor:#777673;">All five models are available on LLM Gateway. Full methodolog=
+y and the task set are in the post.</p> </td> </tr> <!-- =3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D READY TO TEST=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D --> <t=
+r> <td class=3D"px" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-=
+adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-colo=
+r: #fdfcf8; padding: 48px 40px 32px 40px;" bgcolor=3D"#fdfcf8"> <p style=3D=
+"margin:0 0 16px 0; font-family:'UN-11 ST','Oceanic Text',Georgia,'Times Ne=
+w Roman',serif; font-size:24px; line-height:1.25; color:#1d1b16;"> Ready to=
+ test Qwen3.5 4B? </p> <p style=3D"margin:0; font-family:'UN-11 ST','Oceani=
+c Text',Georgia,'Times New Roman',serif; font-size:16px; line-height:1.5; c=
+olor:#777673;"> Point any OpenAI-compatible client at <span class=3D"param"=
+ style=3D"font-family: 'Modern Gothic Mono','Courier New',Courier,monospace=
+; font-size: 0.88em; background-color: #eae6e1; color: #1d1b16; padding: 2p=
+x 6px; border-radius: 6px;">llm-gateway.assemblyai.com/v1</span>, set the m=
+odel to <span class=3D"param" style=3D"font-family: 'Modern Gothic Mono','C=
+ourier New',Courier,monospace; font-size: 0.88em; background-color: #eae6e1=
+; color: #1d1b16; padding: 2px 6px; border-radius: 6px;">qwen3.5-4b-32k-fas=
+t</span>, and use the same API key as your speech-to-text calls. If your tr=
+anscripts already live with us, pass <span class=3D"param" style=3D"font-fa=
+mily: 'Modern Gothic Mono','Courier New',Courier,monospace; font-size: 0.88=
+em; background-color: #eae6e1; color: #1d1b16; padding: 2px 6px; border-rad=
+ius: 6px;">transcript_id</span> and drop <span class=3D"param" style=3D"fon=
+t-family: 'Modern Gothic Mono','Courier New',Courier,monospace; font-size: =
+0.88em; background-color: #eae6e1; color: #1d1b16; padding: 2px 6px; border=
+-radius: 6px;"></span> into the prompt=E2=80=94LLM Gateway will fetch the t=
+ext and run the rewrites in one call. </p> </td> </tr> <!-- =3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D BOTTOM CTA: WORKSHOP REGISTRATION=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D --> <tr> <td class=3D"px" style=3D"-webkit-text-size-adj=
+ust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rsp=
+ace: 0pt; background-color: #fdfcf8; padding: 0 40px 80px 40px;" bgcolor=3D=
+"#fdfcf8"> <a href=3D"https://na01.safelinks.protection.outlook.com/?url=3D=
+https%3A%2F%2Flinks.iterable.com%2Fs%2Fc%2FESYD_cF6gj8EUmTZlNbh-sj01rWoUO4V=
+TjFH0bcytHumm51_DEM0FcuVxKTMwuxOAQt_eYP51caeeJ-GNXS1xcfpDFehiQ2ri8NvcZZsmNd=
+rgQW9nQyaMTqp-leht9ALpBDttlu6bvs-6mJ8hIohFx14RNbtG63paj5yzacUvaWw1sfec_rgB9=
+lnVYBTBPeLC1N0sAtWK3h2o41IJvo2-pu40EqlUgWoHwwNayvX3BvEUss_yC72yEADXhOUa6RaG=
+ZPVJsu_zHNSBdXjvS8LYnRkN3o86tBnEbMdoOBOs1-4IABFLQptzCXIDSM7hPPMyYhJl8YkebFe=
+JZo0vkYuNQ2ioxYuM3StWBut3g4zlux3KEYkbm3e5DflC-N8Hz1QbAgYWAfv0gFuXD_1JJcDees=
+XxA2kjUE56RUT1mFg9wzKkY77LOdIplzhByYBCPTpAKe1kiSZydwajE4kaL6rC84MTwJVte3OK4=
+xm8L1Ir8kXaENxbUARJnU%2FlOMxzHnKI_HxzZngt1fF1I9DZfDzzyS7%2F24&amp;data=3D05=
+%7C02%7C%7Cf60b61ad44b2420e987b08df04cc9cf5%7C84df9e7fe9f640afb435aaaaaaaaa=
+aaa%7C1%7C0%7C639234948994658529%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOn=
+RydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%=
+7C0%7C%7C%7C&amp;sdata=3D7uLIKjObDTsNLzi3jQetZxguFIFgPxCnRu6Y5S2UU0I%3D&amp=
+;reserved=3D0" originalsrc=3D"https://links.iterable.com/s/c/ESYD_cF6gj8EUm=
+TZlNbh-sj01rWoUO4VTjFH0bcytHumm51_DEM0FcuVxKTMwuxOAQt_eYP51caeeJ-GNXS1xcfpD=
+FehiQ2ri8NvcZZsmNdrgQW9nQyaMTqp-leht9ALpBDttlu6bvs-6mJ8hIohFx14RNbtG63paj5y=
+zacUvaWw1sfec_rgB9lnVYBTBPeLC1N0sAtWK3h2o41IJvo2-pu40EqlUgWoHwwNayvX3BvEUss=
+_yC72yEADXhOUa6RaGZPVJsu_zHNSBdXjvS8LYnRkN3o86tBnEbMdoOBOs1-4IABFLQptzCXIDS=
+M7hPPMyYhJl8YkebFeJZo0vkYuNQ2ioxYuM3StWBut3g4zlux3KEYkbm3e5DflC-N8Hz1QbAgYW=
+Afv0gFuXD_1JJcDeesXxA2kjUE56RUT1mFg9wzKkY77LOdIplzhByYBCPTpAKe1kiSZydwajE4k=
+aL6rC84MTwJVte3OK4xm8L1Ir8kXaENxbUARJnU/lOMxzHnKI_HxzZngt1fF1I9DZfDzzyS7/24=
+" target=3D"_blank" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-=
+adjust: 100%; display: block; text-decoration: none; color: #1d1b16;"> <tab=
+le role=3D"presentation" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust=
+: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border: 1px solid #c7=
+c3b2; border-radius: 8px; border-collapse: collapse !important;"> <tr> <!--=
+ Poster, flush to the card border (no padding); sized so its height matches=
+ the text block. --> <td class=3D"vid-poster" width=3D"240" valign=3D"top" =
+style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-ta=
+ble-lspace: 0pt; mso-table-rspace: 0pt; width: 240px; padding: 0; font-size=
+: 0; line-height: 0;"> <img class=3D"vid-img" src=3D"https://library.iterab=
+le.com/3643/28928/f271ffce225d48c783dfcdabcfd315d2-qwen-email.png" width=3D=
+"240" alt=3D"Building and optimizing dictation features =E2=80=94 workshop,=
+ Sept 9, 10am PT" style=3D"-ms-interpolation-mode: bicubic; line-height: 10=
+0%; outline: none; text-decoration: none; display: block; width: 240px; max=
+-width: 100%; height: auto; border: 0;"> </td> <td class=3D"vid-text" valig=
+n=3D"middle" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust:=
+ 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 20px 24px 20p=
+x 20px; font-family: 'UN-11 ST','Oceanic Text',Georgia,'Times New Roman',se=
+rif;"> <p style=3D"margin:0 0 10px 0; font-family:'Modern Gothic Mono','Cou=
+rier New',Courier,monospace; font-size:11px; letter-spacing:1.2px; text-tra=
+nsform:uppercase; color:#3923c7;">Live workshop =C2=B7 Register</p> <p styl=
+e=3D"margin:0 0 10px 0; font-size:17px; line-height:1.3; color:#1d1b16;">Bu=
+ilding and optimizing dictation features with Sync API and Qwen3.5 4B</p> <=
+p style=3D"margin:0; font-size:14px; line-height:1.35; color:#777673;">Regi=
+ster today to secure your seat at this September 9 workshop with our Forwar=
+d Deployed Engineers.</p> </td> </tr> </table> </a> </td> </tr> <!-- =3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D FOOTER=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D -=
+-> <tr> <td class=3D"px" style=3D"-webkit-text-size-adjust: 100%; -ms-text-=
+size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background=
+-color: #1d1b16; border-top: 1px solid #4a4945; padding: 64px 40px 24px 40p=
+x;" bgcolor=3D"#1d1b16"> <a href=3D"https://na01.safelinks.protection.outlo=
+ok.com/?url=3Dhttps%3A%2F%2Flinks.iterable.com%2Fs%2Fc%2FiFWURZ8RxwnLoiAq4L=
+1tEqIngGLrKcIZmynxrh9qWGOLLRMG8l53ATAf7j_XmIlnQHQeHz9IdmO_D5zBDDj39iOfYOIsf=
+zXj6ktzWLjxyvXIqvdDgrTDzNOVRJDeUDIXv_-163hkdyBsnvgGWO5YSZRVSMIqCALqD2nuMqvF=
+pNScZVDQehHvJu_LizZy34lWeQd3xxUnxELblEuLk2AL6iyUXIWfZ2VskGU1fD1esPZy5v1LN3h=
+NPHzlG_w-0V5IU2p6A5CIsBDY1TTcBE9rZ9SzUcBeq_zf_EEdtfkA9rSBk3xHSM4SFdHk9YziK3=
+6o7hJcEGa4C2sIsORVvQu5TBPE3doIWFXPmQpdZlWIQFLPAU_1tQ3UCK2KOyt5dhxJ_TkW3Dbde=
+zuRyWwW8jQtTC8XrGtjqVj0McQlqbHe5iPPtjwfYQTOFR8w8ln9Gm1Bx3ortYFc1mM-aeyuiuFr=
+b4xuKI2jPSHU05ZCDSV6H7Ow426qvbRQlJy3Jf5rooj2vCLrqPDpfxaVZ6XxdD1yCEQR27UhXg5=
+uzXAKkMFlDbGE%2FRhicS-p2yDoZSZMIjoccq66eyO23ducs%2F24&amp;data=3D05%7C02%7C=
+%7Cf60b61ad44b2420e987b08df04cc9cf5%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%=
+7C0%7C639234948994683367%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIl=
+YiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7=
+C%7C&amp;sdata=3DypM12eZWIksu6jN%2F6FADTv6QWQmUNFd%2FdkyZ7vLHLH4%3D&amp;res=
+erved=3D0" originalsrc=3D"https://links.iterable.com/s/c/iFWURZ8RxwnLoiAq4L=
+1tEqIngGLrKcIZmynxrh9qWGOLLRMG8l53ATAf7j_XmIlnQHQeHz9IdmO_D5zBDDj39iOfYOIsf=
+zXj6ktzWLjxyvXIqvdDgrTDzNOVRJDeUDIXv_-163hkdyBsnvgGWO5YSZRVSMIqCALqD2nuMqvF=
+pNScZVDQehHvJu_LizZy34lWeQd3xxUnxELblEuLk2AL6iyUXIWfZ2VskGU1fD1esPZy5v1LN3h=
+NPHzlG_w-0V5IU2p6A5CIsBDY1TTcBE9rZ9SzUcBeq_zf_EEdtfkA9rSBk3xHSM4SFdHk9YziK3=
+6o7hJcEGa4C2sIsORVvQu5TBPE3doIWFXPmQpdZlWIQFLPAU_1tQ3UCK2KOyt5dhxJ_TkW3Dbde=
+zuRyWwW8jQtTC8XrGtjqVj0McQlqbHe5iPPtjwfYQTOFR8w8ln9Gm1Bx3ortYFc1mM-aeyuiuFr=
+b4xuKI2jPSHU05ZCDSV6H7Ow426qvbRQlJy3Jf5rooj2vCLrqPDpfxaVZ6XxdD1yCEQR27UhXg5=
+uzXAKkMFlDbGE/RhicS-p2yDoZSZMIjoccq66eyO23ducs/24" target=3D"_blank" style=
+=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-decora=
+tion: none;"> <img src=3D"https://library.iterable.com/3643/28928/311af3bd5=
+ca64d1a8e273560d81636ed-logo-secondary.png" width=3D"150" height=3D"26" alt=
+=3D"AssemblyAI" style=3D"-ms-interpolation-mode: bicubic; border: 0; line-h=
+eight: 100%; outline: none; text-decoration: none; display: block; width: 1=
+50px; height: 26px; margin-bottom: 24px;"> </a> <p style=3D"margin:0 0 56px=
+ 0; font-family:'UN-11 ST','Oceanic Text',Georgia,'Times New Roman',serif; =
+font-size:15px; line-height:1.4; color:#f5f3eb; max-width:440px;"> Our spee=
+ch-to-text models lead the industry in accuracy and deliver the most reliab=
+le audio outputs for standout user experiences. </p> <table role=3D"present=
+ation" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" styl=
+e=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-=
+lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse !important;">=
+ <tr><td style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100=
+%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-top: 1px solid #777=
+673; font-size: 0; line-height: 0;">&nbsp;</td></tr> <tr><td height=3D"10" =
+style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-ta=
+ble-lspace: 0pt; mso-table-rspace: 0pt; height: 10px; line-height: 10px; fo=
+nt-size: 0;">&nbsp;</td></tr> </table> <table role=3D"presentation" class=
+=3D"footer-meta" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;=
+ mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse !i=
+mportant;"> <tr> <td valign=3D"top" align=3D"left" style=3D"-webkit-text-si=
+ze-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-tab=
+le-rspace: 0pt; font-family: 'UN-11 ST','Oceanic Text',Georgia,'Times New R=
+oman',serif; font-size: 14px; line-height: 1.4; color: #f5f3eb; opacity: 0.=
+6;"> 169 Madison Ave<br>Suite 38365<br>New York, NY 10016 </td> <td valign=
+=3D"top" align=3D"right" class=3D"footer-unsub" style=3D"-webkit-text-size-=
+adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-=
+rspace: 0pt; font-family: 'UN-11 ST','Oceanic Text',Georgia,'Times New Roma=
+n',serif; font-size: 14px; line-height: 1.4;"> <a href=3D"https://na01.safe=
+links.protection.outlook.com/?url=3Dhttps%3A%2F%2Flinks.iterable.com%2Fs%2F=
+u%2Fboaq2RVLSopZUbb5xsnzNQV8KD7PyMDv1ERSyCggIf5mgVD7mEB_usgGSiJ-WTDyS5M1DDk=
+gavprwvZ-E2IK8mnIdAgRon-wzDZE7IytUaZjmEVnupX9YcJe7omTtsJ3M7-V2aMJLuEd4-Fa5V=
+o8cVRHXevzqlPFz3uWbZnqSnEhxXrckltN6V3_3yWqfS6rgEO88vw5umol3Nkh%2Fc01fYyhZSm=
+KBKJ3tK9LL1FMDrFh3PD8S%2F24&amp;data=3D05%7C02%7C%7Cf60b61ad44b2420e987b08d=
+f04cc9cf5%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C639234948994705786%7=
+CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJX=
+aW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3D%2Fkc%2Bf=
+FFvN4WwNnK5Gdta6p611dE4G%2FyVyXexgxDjqek%3D&amp;reserved=3D0" originalsrc=
+=3D"https://links.iterable.com/s/u/boaq2RVLSopZUbb5xsnzNQV8KD7PyMDv1ERSyCgg=
+If5mgVD7mEB_usgGSiJ-WTDyS5M1DDkgavprwvZ-E2IK8mnIdAgRon-wzDZE7IytUaZjmEVnupX=
+9YcJe7omTtsJ3M7-V2aMJLuEd4-Fa5Vo8cVRHXevzqlPFz3uWbZnqSnEhxXrckltN6V3_3yWqfS=
+6rgEO88vw5umol3Nkh/c01fYyhZSmKBKJ3tK9LL1FMDrFh3PD8S/24" target=3D"_blank" s=
+tyle=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; color: =
+#f5f3eb; opacity: 0.6; text-decoration: underline;">Unsubscribe</a> </td> <=
+/tr> </table> </td> </tr> </table> <!--[if mso]></td></tr></table><![endif]=
+--> </td> </tr> </table> <img width=3D"1" height=3D"1" alt=3D"" src=3D"http=
+://email.comms.assemblyai.com/o/eJw8zz1u8zAMgOHTyJsDiRIpavDw_SxF5x6AkujEhRU=
+bttEity_SIJmflyBZhwhaNYVOBxc5cmKbsLsMbEGAQ82QK7AntILMWBEseXaxmwawQJaBLYHzeA=
+roCpDkCEJFwJpgy9LafpJ915bnm0ynsrSu6SFVDhlM_GsAmu67nPWtGgDj_xiARBbHWpx6yoG4C=
+vkxgr2vBqkZ7yH8MwCHtnWW4zULSM7zU9dt-dRyvJAT8EOKtFWm8_VJLiGR5_DQTcu0Tno9Pnbd=
+3vX2uouwWC-j9JEC9GG02Kcxlx4rYirFZSZ3j-P_bhvkWjf9nrdlVxPsZTmaTPPv_18D_AQAAP_=
+_Uj9oEg"></body> </html>=
+
+--0c384c2cdb57f5914afd3eae45baff004262bbdc49362266c7feb188f989--

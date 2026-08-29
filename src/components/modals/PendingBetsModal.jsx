@@ -143,7 +143,9 @@ export default function PendingBetsModal({
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
                           <h3 className="text-lg font-bold text-white">
-                            {bet.description || bet.game || 'Imported Bet'}
+                            {bet.game && bet.description && !bet.description.includes(bet.game) 
+                              ? `${bet.game} — ${bet.description}` 
+                              : (bet.description || bet.game || bet.selection || 'Imported Bet')}
                           </h3>
                           <span className={`px-2 py-1 rounded text-xs font-bold ${getBetTypeColor(bet.type)} bg-slate-700`}>
                             {bet.type?.toUpperCase() || 'BET'}
@@ -245,7 +247,7 @@ export default function PendingBetsModal({
                           Bet Legs ({bet.legs.length})
                           {bet.openSlots > 0 && (
                             <span className="text-orange-400 ml-2">
-                              â€¢ {bet.openSlots} open slot{bet.openSlots !== 1 ? 's' : ''}
+                              • {bet.openSlots} open slot{bet.openSlots !== 1 ? 's' : ''}
                             </span>
                           )}
                         </h4>
@@ -280,12 +282,12 @@ export default function PendingBetsModal({
                                     </span>
                                   ) : (
                                     <span className="text-white font-medium">
-                                      {leg.team} {leg.line && `${leg.line}`}
+                                      {leg.selection || (leg.team ? `${leg.team} ${leg.line ?? ''}` : leg.detail || 'Pick')}
                                     </span>
                                   )}
                                 </div>
                                 <div className="text-xs text-slate-400 mt-1">
-                                  {leg.betType === 'open' ? 'To Be Determined' : leg.game}
+                                  {leg.betType === 'open' ? 'To Be Determined' : (leg.game || leg.matchup || '')}
                                 </div>
                                 {leg.gameTime && leg.gameTime !== 'TBD' && (
                                   <div className="text-xs text-slate-500">
@@ -295,10 +297,10 @@ export default function PendingBetsModal({
                               </div>
                               <div className="text-right">
                                 <div className="text-sm font-medium text-white">
-                                  {leg.betType === 'open' ? 'TBD' : `${leg.odds > 0 ? '+' : ''}${leg.odds}`}
+                                  {leg.betType === 'open' ? 'TBD' : leg.odds != null ? `${leg.odds > 0 ? '+' : ''}${leg.odds}` : ''}
                                 </div>
                                 <div className="text-xs text-slate-400 capitalize">
-                                  {leg.betType}
+                                  {leg.betType || leg.type || ''}
                                 </div>
                               </div>
                             </div>
