@@ -36,8 +36,8 @@ export default function BankrollSettingsModal({ isOpen, onClose, onSettingsUpdat
             const next = { ...prev, [key]: value };
             // Recalculate unit size when bankroll or percentage changes
             if (key === 'totalBankroll' || key === 'unitPercentage') {
-                const bankroll = key === 'totalBankroll' ? value : prev.totalBankroll;
-                const pct = key === 'unitPercentage' ? value : prev.unitPercentage;
+                const bankroll = Number(key === 'totalBankroll' ? value : prev.totalBankroll) || 0;
+                const pct = Number(key === 'unitPercentage' ? value : prev.unitPercentage) || 0;
                 next.unitSize = (bankroll * pct) / 100;
             }
             return next;
@@ -124,7 +124,7 @@ export default function BankrollSettingsModal({ isOpen, onClose, onSettingsUpdat
                         />
                         <div className="flex justify-between text-xs text-slate-500 mt-1">
                             <span>1%</span>
-                            <span className="text-emerald-400 font-bold">1 unit = ${settings.unitSize.toFixed(2)}</span>
+                            <span className="text-emerald-400 font-bold">1 unit = ${(Number(settings.unitSize) || 0).toFixed(2)}</span>
                             <span>15%</span>
                         </div>
                     </div>

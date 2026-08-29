@@ -76,13 +76,15 @@ export default function UnitCalculatorModal({ isOpen, onClose }) {
     };
 
     const getOddsColor = (value) => {
+        if (bankroll <= 0) return 'text-slate-400';
         if (value <= bankroll * 0.02) return 'text-emerald-400';
         if (value <= bankroll * 0.05) return 'text-yellow-400';
         return 'text-red-400';
     };
 
     const getRiskLevel = (amount) => {
-        const percentage = (amount / bankroll) * 100;
+        const safeBankroll = Number(bankroll) > 0 ? Number(bankroll) : 1;
+        const percentage = (Number(amount) / safeBankroll) * 100;
         if (percentage <= 2) return { level: 'Conservative', color: 'text-emerald-400' };
         if (percentage <= 5) return { level: 'Moderate', color: 'text-yellow-400' };
         return { level: 'Aggressive', color: 'text-red-400' };

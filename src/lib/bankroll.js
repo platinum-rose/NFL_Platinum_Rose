@@ -282,8 +282,10 @@ export const calculateAnalytics = (timeframe = 'all') => {
     const avgLossOdds = losses.length > 0 ? losses.reduce((sum, bet) => sum + bet.odds, 0) / losses.length : 0;
 
     // Units tracking
-    const currentBankroll = data.settings.totalBankroll + totalProfit;
-    const unitsWon = totalProfit / data.settings.unitSize;
+    const startingBankroll = Number(data.settings?.totalBankroll) || 1000;
+    const unitSize = Number(data.settings?.unitSize) > 0 ? Number(data.settings.unitSize) : 50;
+    const currentBankroll = startingBankroll + totalProfit;
+    const unitsWon = totalProfit / unitSize;
 
     // Streak calculations
     const currentStreak = calculateCurrentStreak(settledBets);

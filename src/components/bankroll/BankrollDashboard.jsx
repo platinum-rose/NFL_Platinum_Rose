@@ -39,11 +39,19 @@ function KellyCalculator({ bankroll = 1000, unitSize = 50 }) {
     const hasEdge      = kellyFraction > 0;
     const breakEvenWin = 1 / (1 + decimalB) * 100;
 
-    const fmt = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(n);
-    const pct = (n) => `${(n * 100).toFixed(2)}%`;
+    const fmt = (n) => {
+        const num = Number(n);
+        if (!Number.isFinite(num)) return '$0.00';
+        return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(num);
+    };
+    const pct = (n) => {
+        const num = Number(n);
+        if (!Number.isFinite(num)) return '0.00%';
+        return `${(num * 100).toFixed(2)}%`;
+    };
 
     const tierColor = (amount) => {
-        const pctOfBankroll = amount / bankroll;
+        const pctOfBankroll = bankroll > 0 ? amount / bankroll : 0;
         if (pctOfBankroll > 0.1) return 'text-rose-400';
         if (pctOfBankroll > 0.05) return 'text-amber-400';
         return 'text-emerald-400';
@@ -150,7 +158,7 @@ function KellyCalculator({ bankroll = 1000, unitSize = 50 }) {
                             <div className="flex items-center gap-4 flex-wrap">
                                 <div className="flex items-center gap-2">
                                     <div className="w-3 h-3 rounded-full bg-slate-500" />
-                                    <span className="text-sm text-slate-300">Current unit: <strong className="text-white">{fmt(unitSize)}</strong> ({pct(unitSize / bankroll)})</span>
+                                    <span className="text-sm text-slate-300">Current unit: <strong className="text-white">{fmt(unitSize)}</strong> ({pct(bankroll > 0 ? unitSize / bankroll : 0)})</span>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <div className="w-3 h-3 rounded-full bg-indigo-400" />
@@ -217,11 +225,15 @@ export default function BankrollDashboard({
     };
 
     const formatCurrency = (amount) => {
-        return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
+        const num = Number(amount);
+        if (!Number.isFinite(num)) return '$0.00';
+        return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(num);
     };
 
     const formatPercent = (value) => {
-        return `${value >= 0 ? '+' : ''}${value.toFixed(2)}%`;
+        const num = Number(value);
+        if (!Number.isFinite(num)) return '0.00%';
+        return `${num >= 0 ? '+' : ''}${num.toFixed(2)}%`;
     };
 
     if (loading || !analytics) {

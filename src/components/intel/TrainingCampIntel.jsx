@@ -97,7 +97,7 @@ export default function TrainingCampIntel() {
         const inSummary = (item.summary || '').toLowerCase().includes(query);
         const inExcerpt = (item.raw_excerpt || '').toLowerCase().includes(query);
         const inSource = (item.source || '').toLowerCase().includes(query);
-        const inTeam = t.team.toLowerCase().includes(query) || t.full_name.toLowerCase().includes(query);
+        const inTeam = (t.team || '').toLowerCase().includes(query) || (t.full_name || '').toLowerCase().includes(query);
 
         return inPlayer || inSummary || inExcerpt || inSource || inTeam;
       });
@@ -105,7 +105,7 @@ export default function TrainingCampIntel() {
       if (!query && selectedSignal === 'all' && !highPriorityOnly) return true;
 
       // If querying or filtering, include team if team name matches OR has matching items
-      const teamMatches = t.team.toLowerCase().includes(query) || t.full_name.toLowerCase().includes(query);
+      const teamMatches = (t.team || '').toLowerCase().includes(query) || (t.full_name || '').toLowerCase().includes(query);
       return teamMatches || matchingItems.length > 0;
     });
   }, [teamList, searchQuery, selectedSignal, highPriorityOnly, anchorOnly]);
