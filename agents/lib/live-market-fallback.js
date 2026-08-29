@@ -100,6 +100,23 @@ const TEAM_CODE_MAP = {
   'Seattle Seahawks': 'SEA',
 };
 
+function normalizeTeamInput(team) {
+  return String(team || '').trim().toLowerCase();
+}
+
+function resolveTeamCode(team) {
+  const normalized = normalizeTeamInput(team);
+  if (!normalized) return null;
+
+  const upper = String(team).trim().toUpperCase();
+  if (Object.values(TEAM_CODE_MAP).includes(upper)) return upper;
+
+  const exactName = Object.entries(TEAM_CODE_MAP).find(([name]) => normalizeTeamInput(name) === normalized);
+  if (exactName) return exactName[1];
+
+  return Object.entries(TEAM_CODE_MAP).find(([name]) => normalizeTeamInput(name).includes(normalized))?.[1] || null;
+}
+
 function formatSportsbookName(book) {
   if (!book) return 'DraftKings';
   const b = String(book).toLowerCase();
@@ -167,7 +184,7 @@ export async function getLiveMarketContextOdds({ team, market }) {
     }
 
     // B. Check game_odds_snapshots using team abbreviation code
-    const code = TEAM_CODE_MAP[team] || Object.entries(TEAM_CODE_MAP).find(([k]) => k.toLowerCase().includes(team.toLowerCase()))?.[1];
+    const code = resolveTeamCode(team);
 
     if (code) {
       const { data: gameData, error: gameErr } = await sb

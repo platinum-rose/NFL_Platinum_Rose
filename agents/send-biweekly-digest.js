@@ -57,6 +57,10 @@ function splitIntoParagraphs(text) {
     .join('');
 }
 
+function splitTeamReportBlocks(rawMd) {
+  return String(rawMd || '').split(/## (?:🏆|ðŸ†) /u).slice(1);
+}
+
 export function generateDigestHtml({ title: _title, epName, audioUrl, dashboardUrl, teamReports, articleIntelList = [] }) {
   let teamCardsHtml = '';
 
@@ -321,7 +325,7 @@ export async function dispatchBiweeklyDigest({ reportMdPath, reportMdPaths, epId
   for (const mdPath of targetMdPaths) {
     if (!fs.existsSync(mdPath)) continue;
     const rawMd = fs.readFileSync(mdPath, 'utf-8');
-    const teamBlocks = rawMd.split(/## 🏆 /).slice(1);
+    const teamBlocks = splitTeamReportBlocks(rawMd);
 
     for (const block of teamBlocks) {
       const lines = block.split('\n');
