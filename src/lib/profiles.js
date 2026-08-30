@@ -10,6 +10,7 @@
 //      - matt_post (Postino'\''s Banditos, Concussion Protocol)
 //      - matt_policare (JRZ, Rafi Bomb Returns!)
 //      - alejandro (Jesus Take the Wheel, Panda XL)
+//      - tyler_bradford (no fantasy league affiliation, full-spectrum bettor)
 //      + Fallback league presets (the_league, honey_badgers, rfi_invitational, rose_bowl)
 //   3. Fantasy roster & league bindings
 //   4. Usage priority configurations (dashboard focus & priority widgets)
@@ -343,6 +344,46 @@ const ALPHA_PRESET_PROFILES = [
       honey_badgers: [],
       rose_bowl: [],
     },
+    hubs: ALPHA_VISIBLE_HUBS,
+    agents: [],
+    allowedFeatures: [
+      'dashboard', 'official-picks', 'intel-hub', 'futures-report',
+      'fantasy-packet', 'schedule', 'injuries', 'market-context', 'alpha-local-tracking',
+    ],
+    blockedFeatures: ['master', 'andy', 'owner-futures-portfolio', 'ai-agent-chat', 'api-key-storage'],
+    canUseAI: false,
+    canStoreApiKeys: false,
+    ownerPortfolioAccess: false,
+  },
+
+  // --- Alpha Tester 6: Tyler Bradford -------------------------------------
+  // No fantasy league affiliation. Full-spectrum bettor across every contest/bet type.
+  // Workflow: broad -- start/sit, waiver, injury tracking, dynasty scouting, props, spreads/totals
+  //   all selected on intake despite no active fantasy roster; assigned the props/odds archetype
+  //   (closest real-world fit, same shape as patrick_fagan) since every workflow area he flagged
+  //   that ISN'T fantasy-dependent is betting/market-focused.
+  // Favorite Team: undeclared
+  {
+    id: 'tyler_bradford',
+    name: 'Tyler Bradford',
+    displayLabel: 'Tyler Bradford',
+    realName: 'Tyler Bradford',
+    nickname: 'Tyler Bradford',
+    email: 'Tyler@convoy-cap.com',
+    description: "Full-spectrum sports bettor with no fantasy league affiliation -- tracks game spreads/totals, player props, SuperContest, Survivor, Pick'em, and season futures across the board.",
+    role: 'tester',
+    alphaRole: 'tester',
+    profileMode: PROFILE_MODES.ALPHA,
+    usagePriority: 'props_and_odds',
+    defaultHub: 'odds',
+    priorityWidgets: ['market-odds-board', 'prop-edge-finder', 'supercontest-card', 'survivor-matrix', 'futures-board'],
+    bettingInterests: ['game_spreads', 'game_totals', 'player_props', 'survivor', 'supercontest', 'pickem', 'futures'],
+    fantasyLeagues: [],
+    fantasyTeamBindings: [],
+    favoriteTeams: [],
+    draftSlots: {},
+    keeperIntentions: 'undeclared',
+    keeperLocks: {},
     hubs: ALPHA_VISIBLE_HUBS,
     agents: [],
     allowedFeatures: [

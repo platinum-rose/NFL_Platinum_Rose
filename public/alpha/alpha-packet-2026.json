@@ -1,6 +1,6 @@
 {
   "schema_version": "alpha_packet_v1",
-  "generated_at": "2026-08-29T00:07:34.210Z",
+  "generated_at": "2026-08-30T04:39:55.466Z",
   "season": 2026,
   "alpha_window": {
     "label": "Alpha v1 local dashboard testing",
@@ -429,6 +429,77 @@
         "honey_badgers": [],
         "rose_bowl": []
       },
+      "hubs": [
+        "dashboard",
+        "official-picks",
+        "intel",
+        "futures",
+        "fantasy",
+        "injuries",
+        "odds",
+        "analytics",
+        "bankroll",
+        "mycard",
+        "picks"
+      ],
+      "agents": [],
+      "allowedFeatures": [
+        "dashboard",
+        "official-picks",
+        "intel-hub",
+        "futures-report",
+        "fantasy-packet",
+        "schedule",
+        "injuries",
+        "market-context",
+        "alpha-local-tracking"
+      ],
+      "blockedFeatures": [
+        "master",
+        "andy",
+        "owner-futures-portfolio",
+        "ai-agent-chat",
+        "api-key-storage"
+      ],
+      "canUseAI": false,
+      "canStoreApiKeys": false,
+      "ownerPortfolioAccess": false
+    },
+    {
+      "id": "tyler_bradford",
+      "name": "Tyler Bradford",
+      "displayLabel": "Tyler Bradford",
+      "realName": "Tyler Bradford",
+      "nickname": "Tyler Bradford",
+      "email": "Tyler@convoy-cap.com",
+      "description": "Full-spectrum sports bettor with no fantasy league affiliation -- tracks game spreads/totals, player props, SuperContest, Survivor, Pick'em, and season futures across the board.",
+      "role": "tester",
+      "alphaRole": "tester",
+      "profileMode": "alpha",
+      "usagePriority": "props_and_odds",
+      "defaultHub": "odds",
+      "priorityWidgets": [
+        "market-odds-board",
+        "prop-edge-finder",
+        "supercontest-card",
+        "survivor-matrix",
+        "futures-board"
+      ],
+      "bettingInterests": [
+        "game_spreads",
+        "game_totals",
+        "player_props",
+        "survivor",
+        "supercontest",
+        "pickem",
+        "futures"
+      ],
+      "fantasyLeagues": [],
+      "fantasyTeamBindings": [],
+      "favoriteTeams": [],
+      "draftSlots": {},
+      "keeperIntentions": "undeclared",
+      "keeperLocks": {},
       "hubs": [
         "dashboard",
         "official-picks",
@@ -60676,6 +60747,16 @@
       ],
       "active_proposals": [
         {
+          "file": "candidate-inbox-2026-08-29-cb2cd120.json",
+          "proposal": {
+            "generated_at": "2026-08-29T16:01:26.424Z",
+            "run_id": "cb2cd120-21ae-4d0e-a097-9ac9fbbf17d5",
+            "source": "agents/portfolio-synthesize.js",
+            "proposal_out_dir": "data\\official-picks\\proposals\\active",
+            "proposals": []
+          }
+        },
+        {
           "file": "candidate-inbox-gmail-week-1-sharp-props---line-steam--kc-mahomes-o.json",
           "proposal": {
             "id": "gmail-pick-1786602617803",
@@ -60686,44 +60767,6 @@
             "rationale": "Welcome to the ETR Week 1 Market Intel update. Key Sharp Moves: - Kansas City Chiefs (KC) vs Baltimore Ravens (BAL): Sharp money pushed KC spread from -2.5 to -3.0.",
             "status": "pending_review",
             "created_at": "2026-08-13T06:30:17.803Z"
-          }
-        },
-        {
-          "file": "candidate-prop-stack-twitter-bm-kc-rice.json",
-          "proposal": {
-            "id": "twitter-bm-prop-stack-101",
-            "source": "twitter_bookmark_ocr",
-            "author": "@SharpPropAnalytics",
-            "subject": "Player Prop Stack: Patrick Mahomes Over 285.5 Pass Yds + Rashee Rice Over 68.5 Rec Yds",
-            "pick": "Mahomes Over 285.5 Pass Yds & Rashee Rice Over 68.5 Rec Yds",
-            "market": "player_props",
-            "game_id": "2026_01_KC_BAL",
-            "odds": 150,
-            "confidence": 85,
-            "recommended_units": 1.5,
-            "rationale": "Gemini 2.0 Vision OCR extracted player prop stack from bookmarked graphics. High Secondary Mismatch against opponent secondary.",
-            "status": "pending_review",
-            "created_at": "2026-08-13T07:10:00.000Z"
-          }
-        },
-        {
-          "file": "candidate-supercontest-week1-bills.json",
-          "proposal": {
-            "id": "supercontest-ats-201",
-            "source": "supercontest_ai_agent",
-            "author": "SuperContest Edge Engine",
-            "subject": "SuperContest Pick #1: Buffalo Bills -2.5 (vs Arizona Cardinals)",
-            "pick": "Buffalo Bills -2.5",
-            "market": "supercontest_ats",
-            "game_id": "2026_01_BUF_ARI",
-            "contest_line": -2.5,
-            "closing_line": -3.5,
-            "clv_edge": 1,
-            "confidence": 88,
-            "recommended_units": 2,
-            "rationale": "Static contest line locks Buffalo at -2.5 while live market moved to -3.5 (-115). Captures +1.0 CLV key number advantage.",
-            "status": "pending_review",
-            "created_at": "2026-08-13T07:15:00.000Z"
           }
         }
       ],
@@ -90849,14 +90892,14 @@
         "path": "public/schedule.json",
         "sha256": "97f28cb0a92ebd1dca66c3030aad313f063cecb3360bbde9140071b259987b5c",
         "bytes": 115266,
-        "mtime": "2026-08-26T08:07:05.024Z"
+        "mtime": "2026-08-29T15:00:35.770Z"
       },
       {
         "label": "fantasy_draft_orders",
         "path": "docs/fantasy/LEAGUE_DRAFT_ORDERS_2026.json",
         "sha256": "feabbb81fdf6dfb17c53e3935e153d85793720fb9323dce3f7326adeaaefd457",
         "bytes": 2348,
-        "mtime": "2026-08-26T20:26:57.320Z"
+        "mtime": "2026-08-29T02:38:34.320Z"
       },
       {
         "label": "fantasy_value_board",
@@ -90868,9 +90911,9 @@
       {
         "label": "fantasy_league_rules",
         "path": "docs/fantasy/MASTER_FANTASY_LEAGUE_RULES.md",
-        "sha256": "98f55bcb4580eed9fa508948c6bed3120fda53e567c46121d74ef06df9fbd7d8",
-        "bytes": 2239,
-        "mtime": "2026-08-26T20:14:51.321Z"
+        "sha256": "8bf7b8f012708d0237a87923d88c949b5389fdd252e8055f9ac5d4796a973b92",
+        "bytes": 2261,
+        "mtime": "2026-08-29T02:38:34.344Z"
       },
       {
         "label": "fantasy_roster_the_league",
@@ -90891,35 +90934,35 @@
         "path": "data/fantasy/honey_badgers_final_rosters_2025.csv",
         "sha256": "b1a75098a669b6b5f80309bb4016755018779116e354727821ceb13899c0f1cc",
         "bytes": 11937,
-        "mtime": "2026-08-26T19:59:56.910Z"
+        "mtime": "2026-08-29T02:38:34.193Z"
       },
       {
         "label": "fantasy_draft_board_honey_badgers",
         "path": "data/fantasy/honey_badgers_draft_board_2025.csv",
         "sha256": "d6d109052e68cff4db212fac1c7365cc6a1f3a0196b076b768c7d0007a58a95a",
         "bytes": 13590,
-        "mtime": "2026-08-26T20:36:35.788Z"
+        "mtime": "2026-08-29T02:38:34.168Z"
       },
       {
         "label": "fantasy_roster_rfi_invitational",
         "path": "data/fantasy/rfi_invitational_final_rosters_2025.csv",
         "sha256": "c3d17e015bc8eaf7693e854864c409dc7379e9789b3a4539a68afcd15e6f4c38",
         "bytes": 10211,
-        "mtime": "2026-08-26T20:06:15.760Z"
+        "mtime": "2026-08-29T02:38:34.247Z"
       },
       {
         "label": "fantasy_draft_board_rfi_invitational",
         "path": "data/fantasy/rfi_invitational_draft_board_2025.csv",
         "sha256": "dcf055ae1dc6550b46c514293a5b6e7de7d146d0dd69d49019bffb541140be5c",
         "bytes": 11025,
-        "mtime": "2026-08-26T20:49:34.770Z"
+        "mtime": "2026-08-29T02:38:34.220Z"
       },
       {
         "label": "fantasy_roster_rose_bowl",
         "path": "data/fantasy/rose_bowl_final_rosters_2025.csv",
         "sha256": "20b1b06f8704699398d4d5c1ff3e60201dd48029ed2df32f141b9c88e1dcb260",
         "bytes": 11149,
-        "mtime": "2026-08-26T20:04:31.003Z"
+        "mtime": "2026-08-29T02:38:34.272Z"
       },
       {
         "label": "team_analytics",
@@ -90982,7 +91025,14 @@
         "path": "data/official-picks/platinum-rose-ai-2026.json",
         "sha256": "1f370c98dbfd479eac8792640aa58cf8569c992d70a2d9af3bb31bba6ef6defc",
         "bytes": 36708,
-        "mtime": "2026-08-29T00:07:29.040Z"
+        "mtime": "2026-08-29T02:38:44.349Z"
+      },
+      {
+        "label": "official_pick_active_proposal_read_only:candidate-inbox-2026-08-29-cb2cd120.json",
+        "path": "data/official-picks/proposals/active/candidate-inbox-2026-08-29-cb2cd120.json",
+        "sha256": "11b21c045a2153a429c9ea98277d97c4b2f2fdead5e7c69588294dbba7aa7072",
+        "bytes": 231,
+        "mtime": "2026-08-29T16:01:26.435Z"
       },
       {
         "label": "official_pick_active_proposal_read_only:candidate-inbox-gmail-week-1-sharp-props---line-steam--kc-mahomes-o.json",
@@ -90990,20 +91040,6 @@
         "sha256": "550685c51f1383716a660302de940ee39af191d15ebf7f7793e0673c95fbf7c0",
         "bytes": 522,
         "mtime": "2026-08-13T06:30:17.812Z"
-      },
-      {
-        "label": "official_pick_active_proposal_read_only:candidate-prop-stack-twitter-bm-kc-rice.json",
-        "path": "data/official-picks/proposals/active/candidate-prop-stack-twitter-bm-kc-rice.json",
-        "sha256": "43935d490359638aa403d5a0263e3e57771cf6d11ec7d7ef3848cb80e5d0506c",
-        "bytes": 629,
-        "mtime": "2026-08-13T10:33:51.585Z"
-      },
-      {
-        "label": "official_pick_active_proposal_read_only:candidate-supercontest-week1-bills.json",
-        "path": "data/official-picks/proposals/active/candidate-supercontest-week1-bills.json",
-        "sha256": "8a5cb6f11fa88680c8ebdd25a9808bf3e549c329f13a955be93f4e60fc4da9d7",
-        "bytes": 617,
-        "mtime": "2026-08-13T10:33:55.931Z"
       },
       {
         "label": "article_intel_review",

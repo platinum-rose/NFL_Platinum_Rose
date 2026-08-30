@@ -38,13 +38,14 @@ describe('Alpha profile catalog', () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 
-  it('includes all official Alpha testers (amanda_rose, patrick_fagan, matt_post, matt_policare, alejandro)', () => {
+  it('includes all official Alpha testers (amanda_rose, patrick_fagan, matt_post, matt_policare, alejandro, tyler_bradford)', () => {
     const officialTesterIds = [
       'amanda_rose',
       'patrick_fagan',
       'matt_post',
       'matt_policare',
       'alejandro',
+      'tyler_bradford',
     ];
 
     for (const id of officialTesterIds) {
@@ -130,6 +131,22 @@ describe('Alpha profile catalog', () => {
     );
   });
 
+  it('binds Tyler Bradford as a full-spectrum bettor with no fantasy league affiliation', () => {
+    const profile = PRESET_PROFILES.find((p) => p.id === 'tyler_bradford');
+    expect(profile).toBeDefined();
+    expect(profile.realName).toBe('Tyler Bradford');
+    expect(profile.email).toBe('Tyler@convoy-cap.com');
+    expect(profile.usagePriority).toBe('props_and_odds');
+    expect(profile.defaultHub).toBe('odds');
+    expect(profile.fantasyLeagues).toEqual([]);
+    expect(profile.fantasyTeamBindings).toEqual([]);
+    expect(profile.favoriteTeams).toEqual([]);
+    expect(profile.bettingInterests).toEqual(
+      expect.arrayContaining(['game_spreads', 'game_totals', 'player_props', 'survivor', 'supercontest', 'pickem', 'futures'])
+    );
+    expect(isAlphaTesterProfile(profile)).toBe(true);
+  });
+
   it('filters Alpha tester mode to tester profiles only', () => {
     const alphaProfiles = getPresetProfilesForMode(PROFILE_MODES.ALPHA);
     const alphaIds = alphaProfiles.map((profile) => profile.id);
@@ -165,19 +182,35 @@ describe('Alpha profile catalog', () => {
 
   it('binds Alpha testers only to supported fantasy league ids and valid teams', () => {
     const alphaProfiles = getPresetProfilesForMode(PROFILE_MODES.ALPHA);
-
+    // Most testers are bound to at least one real fantasy league, but that is not a hard
+    // requirement of being an Alpha tester (tyler_bradford has no fantasy affiliation at all,
+    // by design -- a pure sports bettor). Assert league-id/team-shape validity when leagues
+    // exist, and assert the no-leagues case stays internally consistent (no orphaned bindings).
     for (const profile of alphaProfiles) {
-      expect(profile.fantasyLeagues.length).toBeGreaterThan(0);
+      expect(Array.isArray(profile.fantasyLeagues)).toBe(true);
+      expect(Array.isArray(profile.fantasyTeamBindings)).toBe(true);
+
       for (const leagueId of profile.fantasyLeagues) {
         expect(ALPHA_FANTASY_LEAGUE_IDS).toContain(leagueId);
       }
-      expect(Array.isArray(profile.fantasyTeamBindings)).toBe(true);
       for (const binding of profile.fantasyTeamBindings) {
         expect(ALPHA_FANTASY_LEAGUE_IDS).toContain(binding.leagueId);
         expect(typeof binding.teamId).toBe('string');
         expect(typeof binding.teamName).toBe('string');
       }
+
+      if (profile.fantasyLeagues.length === 0) {
+        expect(profile.fantasyTeamBindings.length).toBe(0);
+      }
     }
+  });
+
+  it('has at least one fantasy-league-bound tester among the official Alpha cohort', () => {
+    // Guards against the exception above swallowing the original intent: at least the
+    // existing fantasy-league testers must still carry real league bindings.
+    const alphaProfiles = getPresetProfilesForMode(PROFILE_MODES.ALPHA);
+    const leagueBoundCount = alphaProfiles.filter((p) => p.fantasyLeagues.length > 0).length;
+    expect(leagueBoundCount).toBeGreaterThan(0);
   });
 
   it('assigns valid usage priorities and default hubs to all Alpha testers', () => {
