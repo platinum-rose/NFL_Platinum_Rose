@@ -2,7 +2,7 @@
 
 **Canonical in-repo path (once approved):** `docs/specs/ALPHA_PHASE3_SUPERCONTEST_SURVIVOR_HANDOFF.md`
 
-**Status:** DRAFT — awaiting Andy's review and explicit approval. No code has been written against this document. This is not a replacement for `docs/specs/ALPHA_TESTING_SPEC.md` v4.1 — it is the repo-grounded implementation authorization for that spec's §12 (SuperContest), §13 (Survivor), and §19 Phase 3, produced the same way the v4.1 master spec review caught real gaps in v2–v4 before Phase 1/2 were authorized.
+**Status:** APPROVED 2026-08-30 (Andy, via Claude/Cowork). All three open decisions in §8 resolved — see §9. Codex/Antigravity may begin implementation. No code had been written against this document prior to approval. This is not a replacement for `docs/specs/ALPHA_TESTING_SPEC.md` v4.1 — it is the repo-grounded implementation authorization for that spec's §12 (SuperContest), §13 (Survivor), and §19 Phase 3, produced the same way the v4.1 master spec review caught real gaps in v2–v4 before Phase 1/2 were authorized.
 
 Per master spec §2 and §19: no team may proceed from spec to code without explicit admin approval. This document exists to get that approval on record with the real gaps surfaced first, not discovered mid-build.
 
@@ -108,3 +108,14 @@ Following master spec §15's hybrid approach and the existing `tests/unit/alpha*
 3. Who actually populates `supercontest_demo_lines.lines[]` for the initial preseason Week 3 demo — admin manual entry through the existing `SuperContestView.jsx` sync-live-odds flow, or a one-time script pulling from `packet.schedule`'s existing `spread` field? Either is spec-compliant (§12.1 allows live public lines for the Week 3 demo only); just needs a decision so Codex isn't guessing.
 
 No implementation should begin until Andy responds to these three points and gives explicit go-ahead per master spec §2/§19/§20.
+
+## 9. Sign-Off — Decisions Resolved (2026-08-30)
+
+Andy reviewed and approved all three §8 open decisions as recommended, no changes:
+
+1. **§2a split confirmed:** `SuperContestView.jsx` stays exactly as-is, the owner's admin line-entry tool, untouched by Phase 3. `SuperContestAlphaCard.jsx` is new, separate, tester-facing, and never writes to `nfl_contest_lines`.
+2. **§2b scope confirmed:** Phase 3 ships SuperContest + Survivor as standalone card UIs with local (profile-scoped) persistence only. The shared `buildAlphaSubmissionEmail()` helper and email wiring (§9/§12.9) are deferred to Phase 4 alongside leaderboard/feedback.
+3. **§8.3 line population confirmed:** `supercontest_demo_lines.lines[]` for the initial preseason Week 3 demo is populated via admin manual entry — Andy uses the existing `SuperContestView.jsx` sync-live-odds flow, same as his own real contest, rather than a one-time script pulling from `packet.schedule.spread`.
+
+Implementation may proceed per §3 (Phase 3a) and §4 (Phase 3b) as written, with the shared deadline helper in §5 and the test plan in §6. Acceptance criteria in §7 stand unchanged.
+
