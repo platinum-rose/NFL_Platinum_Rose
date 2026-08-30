@@ -39,8 +39,8 @@ const argv = process.argv.slice(2);
 const WRITE = argv.includes('--write');
 const getArg = (f, d) => { const i = argv.indexOf(f); return i >= 0 && argv[i + 1] ? argv[i + 1] : d; };
 const LIMIT = parseInt(getArg('--limit', '2000'), 10);
-const STALE_DAYS = parseInt(getArg('--stale-days', '45'), 10);
-const RECENCY_WINDOW_DAYS = parseInt(getArg('--recency-window-days', '21'), 10);
+export const STALE_DAYS = parseInt(getArg('--stale-days', '45'), 10);
+export const RECENCY_WINDOW_DAYS = parseInt(getArg('--recency-window-days', '21'), 10);
 
 const SB_URL = process.env.SUPABASE_URL;
 const SB_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -69,7 +69,7 @@ const NFL_KEYWORDS = [
   'wide receiver', 'running back', 'cornerback', 'linebacker', 'tight end',
 ];
 
-function checkRelevance(text) {
+export function checkRelevance(text) {
   const t = (text || '').toLowerCase();
   const hasNonNfl = NON_NFL_KEYWORDS.some((k) => t.includes(k));
   const hasNflSignal = NFL_KEYWORDS.some((k) => t.includes(k)) || !!extractTeam(text);
@@ -79,14 +79,14 @@ function checkRelevance(text) {
 }
 
 // ─── Check 2: freshness ────────────────────────────────────────────────────
-function ageDays(iso) {
+export function ageDays(iso) {
   if (!iso) return null;
   const ms = Date.now() - Date.parse(iso);
   return Number.isFinite(ms) ? ms / 86400000 : null;
 }
 
 // ─── team extraction (best-effort, used for corroboration grouping only) ──
-function extractTeam(text) {
+export function extractTeam(text) {
   if (!text) return null;
   const words = String(text).toLowerCase().split(/[^a-z0-9]+/);
   for (let n = 3; n >= 1; n--) {
@@ -115,7 +115,7 @@ const MARKET_PATTERNS = [
   [/\bmoneyline\b|\bml\b/i, 'moneyline'],
 ];
 
-function extractMarket(text, explicitMarket) {
+export function extractMarket(text, explicitMarket) {
   if (explicitMarket) return String(explicitMarket).toLowerCase().replace(/[^a-z]+/g, '_');
   const t = String(text || '');
   for (const [pattern, label] of MARKET_PATTERNS) {
@@ -124,7 +124,7 @@ function extractMarket(text, explicitMarket) {
   return 'general';
 }
 
-async function fetchResearchSignals(limit) {
+export async function fetchResearchSignals(limit) {
   const { data, error } = await sb
     .from('research_pick_signals')
     .select('id, team_or_market, source, lean, rationale, confidence, captured_at, author')
@@ -143,7 +143,7 @@ async function fetchResearchSignals(limit) {
   }));
 }
 
-async function fetchPodcastSignals(limit) {
+export async function fetchPodcastSignals(limit) {
   const { data, error } = await sb
     .from('podcast_host_summaries')
     .select('id, host, futures, created_at, vault_path')
@@ -176,7 +176,7 @@ async function fetchPodcastSignals(limit) {
 
 const OPPOSING_DIRECTIONS = [['favor', 'fade'], ['over', 'under'], ['back', 'fade']];
 
-function summarizeCorroboration(allSignals, recencyWindowDays) {
+export function summarizeCorroboration(allSignals, recencyWindowDays) {
   // Group by (team, market) — not team alone. A "favor" on the Super Bowl and
   // a "fade" on the win total for the same team are two different bets, not
   // a contradiction. Within each group, only compare DIRECTION among signals
@@ -330,4 +330,7 @@ async function main() {
   console.log('✅ Done.');
 }
 
-main().catch((e) => { console.error('✖', e.message); process.exit(1); });
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch((e) => { console.error('✖', e.message); process.exit(1); });
+}
+
