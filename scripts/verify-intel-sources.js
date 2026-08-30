@@ -198,10 +198,18 @@ export async function fetchPodcastSignals(limit) {
   const rows = [];
   for (const r of data || []) {
     const futures = Array.isArray(r.futures) ? r.futures : [];
-    for (const f of futures) {
+    futures.forEach((f, idx) => {
       rows.push({
         source_table: 'podcast_host_summaries',
-        source_id: String(r.id),
+        // NOT String(r.id) alone — an episode summary carries many future
+        // mentions (one row, many array entries) and every mention shared
+        // the parent's id, which collided on the (source_table, source_id)
+        // unique constraint the first time --write ran against migration
+        // 049 ("ON CONFLICT DO UPDATE command cannot affect row a second
+        // time"). Suffix with the array index to give each mention its own
+        // identity — stable across re-runs since `futures` order comes
+        // straight from the stored jsonb column.
+        source_id: `${r.id}:${idx}`,
         text: [f.subject, f.subject_market, f.quote].filter(Boolean).join(' — '),
         source_name: f.host || r.host || 'unknown',
         lean_direction: (f.lean || '').toLowerCase() || null,
@@ -215,7 +223,7 @@ export async function fetchPodcastSignals(limit) {
           confidence_well_formed: typeof f.confidence === 'number' && f.confidence >= 0 && f.confidence <= 100,
         },
       });
-    }
+    });
   }
   return rows;
 }
