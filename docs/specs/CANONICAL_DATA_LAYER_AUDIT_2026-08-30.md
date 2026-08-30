@@ -94,3 +94,34 @@ No implementation should begin on Sections 3-4 until Andy responds to these five
 
 Per decision 5, `docs/specs/ALPHA_PHASE3_SUPERCONTEST_SURVIVOR_HANDOFF.md` and `TASK_BOARD.md`'s `ALPHA-P3` row have been updated to reflect the hold.
 
+## 7. The Four-Layer Intelligence Architecture (formalized 2026-08-30)
+
+Andy's direction, stated plainly: stop optimizing the Dashboard's presentation and build the thing underneath it -- "a continuously-curated brain, several honest specialists, and a memory that actually learns." Everything downstream of that (Alpha Phase 3, weekly-market synthesis, the Dashboard UI) is "just marketing" until the brain itself is trustworthy. This section formalizes the architecture that follows from that, and from the specific gap this audit found: the codebase validates LLM *output* (`portfolio-synthesize.js`'s validator, built 2026-07-22) but never validates LLM *input* -- raw intel flows straight from ingestion into synthesis with no integrity check in between.
+
+### Layer 1 — Raw Ingestion (messy on purpose)
+
+Every source this audit inventoried: RSS/newsletter feeds (`research-intel-ingest.js`), podcast transcripts (`data/podcasts/m6-diarized/` and `m6-diarized-all/`), Antigravity's exhaustive master-report extraction (`scratch/*_master_100percent_exhaustive.md`), Twitter/X curated-account bookmarks (`twitter-bookmarks-agent.js`), the hand-authored team reference library (`skills/nfl-team-notes/`, `data/vault-seed/manual/`), and every structured feed (odds, injuries, EPA/DVOA, referee tendencies, roster churn). Nothing here is trusted by construction. Duplication, staleness, and extraction errors are expected and acceptable at this layer -- that's what Layer 2 exists to catch.
+
+### Layer 2 — Verification & Reconciliation (the brain's immune system)
+
+The layer that doesn't exist yet and is the actual point of this whole audit. Four checks, all code-owned (not model-owned), run over every Layer 1 fact before it's allowed into the canonical store:
+
+1. **Extraction fidelity** -- does the extracted claim trace back to an actual quote/value in the real source (transcript, article, odds feed)? The metabet decimal-odds bug (84% of a live feed silently corrupted for weeks) is the standing example of what happens when this check doesn't exist.
+2. **Freshness** -- the existing 9-lane gate (`dossier-freshness-gate.js`), expanded to cover every source in this audit's Section 2 table, including the podcast-narrative bridge that's currently 5+ weeks stale with zero coverage.
+3. **De-duplication / re-pointing** -- the Corpus A/B finding, generalized: when two pipelines process the same underlying source (confirmed for podcasts via identical transcript filenames), the richer extraction upgrades the same canonical row rather than existing as a second, competing one.
+4. **Corroboration / conflict detection** -- when independent, genuinely distinct sources agree, that's a real corroboration signal worth surfacing. When they disagree, that disagreement is itself a signal and must be flagged, never silently averaged away.
+
+**Operating mode, decided 2026-08-30 (Andy): flow-through, not a hard gate.** Given time pressure and the value of seeing full pipeline throughput before tightening anything, Layer 2 does not block a fact from reaching synthesis just because it fails a check. Instead, every fact gets a `verification_status` stamp (`verified` / `stale` / `unverified` / `conflicting`) as it's written to the canonical store. This is an explicit, temporary operating mode -- not a permanent decision to skip verification -- and should be revisited once a real end-to-end run shows what the actual throughput and failure-rate look like. Nothing in this mode removes the freshness-gate warning behavior already decided (Section 6.2): warnings still fire, they just don't block.
+
+### Layer 3 — Synthesis (the committee, reading only the canonical store)
+
+`portfolio-dossier.js` + `portfolio-synthesize.js`'s existing 3-stage committee (Analyst -> Skeptic -> Risk/Editor), unchanged in mechanism, but re-pointed to read exclusively from Layer 2's canonical output -- never raw Layer 1 sources directly. Because flow-through mode means unverified/conflicting facts still reach this layer, the system prompt needs one new explicit rule, mirroring the existing small-sample-signal discipline (`officiating_context`/`clv_signal` "must corroborate, never originate, a thesis"): **a signal tagged `unverified` or `conflicting` may support or corroborate a thesis, but may never be the sole basis for one, and must be named as such in the candidate's disconfirming-factor field.** This keeps flow-through mode honest -- the model can use unverified intel, but has to say so.
+
+### Layer 4 — Output Validation (already substantially built)
+
+`validateRecommendation()`/`validateRecommendationStrict()` in `portfolio-synthesize.js` -- confirms every final candidate's market/selection/book/price actually exists in the dossier, recomputes edge from first principles rather than trusting the model's self-report, and forces `needs_human_review` when evidence doesn't resolve. Extend this layer to also surface each candidate's underlying `verification_status` mix (e.g. "this pick rests on 2 verified sources and 1 unverified one") so the transparency Andy wants for the Dashboard -- and for explaining a pick to his betting partner -- is a direct, honest readout of Layer 2's work, not a separate presentation-layer invention.
+
+### Why this ordering, restated plainly
+
+A dashboard showing a confident, well-formatted recommendation built on unverified or duplicated intel is worse than a rough one that admits what it doesn't know -- it fails silently instead of visibly. Layers 1-2 are the actual "brain" Andy described; Layer 3 is the specialist reasoning over it; Layer 4 is the last honesty check before anything reaches a human. The Dashboard, Alpha Phase 3, and weekly-market synthesis all sit downstream of this and stay on hold (Section 6.5) until Layer 2 exists in real, running form -- even in flow-through mode, since flow-through still requires the verification_status tagging machinery to exist before anything can be usefully observed.
+
