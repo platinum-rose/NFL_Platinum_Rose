@@ -2,7 +2,7 @@
 
 **Canonical in-repo path (once approved):** `docs/specs/ALPHA_PHASE3_SUPERCONTEST_SURVIVOR_HANDOFF.md`
 
-**Status:** APPROVED 2026-08-30 (Andy, via Claude/Cowork). All three open decisions in §8 resolved — see §9. Codex/Antigravity may begin implementation. No code had been written against this document prior to approval. This is not a replacement for `docs/specs/ALPHA_TESTING_SPEC.md` v4.1 — it is the repo-grounded implementation authorization for that spec's §12 (SuperContest), §13 (Survivor), and §19 Phase 3, produced the same way the v4.1 master spec review caught real gaps in v2–v4 before Phase 1/2 were authorized.
+**Status:** APPROVED, then HELD 2026-08-30 (Andy, via Claude/Cowork). All three open decisions in §8 resolved — see §9 — but implementation is now blocked pending a separate, higher-priority effort: see `docs/specs/CANONICAL_DATA_LAYER_AUDIT_2026-08-30.md`. Andy's explicit sequencing call (that document's §6.5) is full data-layer lock-down before ANY other NFL_Dashboard work, including this one, even though this build doesn't touch futures/betting data at all. Codex/Antigravity should NOT begin Phase 3 implementation until that hold is lifted. No code had been written against this document prior to approval. This is not a replacement for `docs/specs/ALPHA_TESTING_SPEC.md` v4.1 — it is the repo-grounded implementation authorization for that spec's §12 (SuperContest), §13 (Survivor), and §19 Phase 3, produced the same way the v4.1 master spec review caught real gaps in v2–v4 before Phase 1/2 were authorized.
 
 Per master spec §2 and §19: no team may proceed from spec to code without explicit admin approval. This document exists to get that approval on record with the real gaps surfaced first, not discovered mid-build.
 
