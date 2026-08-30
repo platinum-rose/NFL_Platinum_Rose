@@ -40,6 +40,7 @@ const WRITE = argv.includes('--write');
 const getArg = (f, d) => { const i = argv.indexOf(f); return i >= 0 && argv[i + 1] ? argv[i + 1] : d; };
 const LIMIT = parseInt(getArg('--limit', '2000'), 10);
 const STALE_DAYS = parseInt(getArg('--stale-days', '45'), 10);
+const RECENCY_WINDOW_DAYS = parseInt(getArg('--recency-window-days', '21'), 10);
 
 const SB_URL = process.env.SUPABASE_URL;
 const SB_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -99,6 +100,30 @@ function extractTeam(text) {
   return null;
 }
 
+// ─── market extraction (used to scope corroboration/conflict comparisons —
+// a "favor" on the Super Bowl and a "fade" on the win total are not a
+// conflict, they're two different bets on the same team) ─────────────────
+const MARKET_PATTERNS = [
+  [/super\s*bowl/i, 'superbowl'],
+  [/\b(afc|nfc)\s*(championship|conference)?\b|\bconference\b/i, 'conference'],
+  [/\bdivision(al)?\b/i, 'division'],
+  [/\bplayoffs?\b|\bmake.the.playoffs?\b/i, 'playoffs'],
+  [/\bwin.total|\bregular.season.wins|\bover\/under.*wins|\bwins\b/i, 'wins'],
+  [/\bmvp\b|\bopoy\b|\bdpoy\b|\brookie.of.the.year\b|\bcoach.of.the.year\b|\boroy\b|\bdroy\b/i, 'award'],
+  [/\bspread\b|\bpoint.spread\b|\bats\b|[+-]\d+(\.\d+)?\b/, 'spread'],
+  [/\btotal\b|\bover\/under\b|\bo\/u\b/i, 'total'],
+  [/\bmoneyline\b|\bml\b/i, 'moneyline'],
+];
+
+function extractMarket(text, explicitMarket) {
+  if (explicitMarket) return String(explicitMarket).toLowerCase().replace(/[^a-z]+/g, '_');
+  const t = String(text || '');
+  for (const [pattern, label] of MARKET_PATTERNS) {
+    if (pattern.test(t)) return label;
+  }
+  return 'general';
+}
+
 async function fetchResearchSignals(limit) {
   const { data, error } = await sb
     .from('research_pick_signals')
@@ -114,6 +139,7 @@ async function fetchResearchSignals(limit) {
     confidence: r.confidence,
     timestamp: r.captured_at,
     team: extractTeam(r.team_or_market) || extractTeam(r.rationale),
+    market: extractMarket([r.team_or_market, r.rationale].filter(Boolean).join(' ')),
   }));
 }
 
@@ -136,6 +162,7 @@ async function fetchPodcastSignals(limit) {
         confidence: f.confidence,
         timestamp: r.created_at,
         team: extractTeam(f.subject) || extractTeam(f.subject_market),
+        market: extractMarket(f.subject_market, f.subject_market),
         fidelity: {
           has_quote: !!(f.quote && f.quote.length >= 20),
           has_subject: !!f.subject,
@@ -147,31 +174,62 @@ async function fetchPodcastSignals(limit) {
   return rows;
 }
 
-function summarizeCorroboration(allSignals) {
-  // Group by team, regardless of source table, to see how many independent
-  // named sources are actually talking about the same team.
-  const byTeam = new Map();
+const OPPOSING_DIRECTIONS = [['favor', 'fade'], ['over', 'under'], ['back', 'fade']];
+
+function summarizeCorroboration(allSignals, recencyWindowDays) {
+  // Group by (team, market) — not team alone. A "favor" on the Super Bowl and
+  // a "fade" on the win total for the same team are two different bets, not
+  // a contradiction. Within each group, only compare DIRECTION among signals
+  // that fall inside a recency window of the group's most recent signal —
+  // a host taking the Browns "over" in February and another taking them
+  // "under" in August aren't disagreeing, the roster changed. The February
+  // take gets marked superseded, not conflicting.
+  const byGroup = new Map();
   for (const s of allSignals) {
     if (!s.team) continue;
-    if (!byTeam.has(s.team)) byTeam.set(s.team, []);
-    byTeam.get(s.team).push(s);
+    const key = `${s.team}|${s.market || 'general'}`;
+    if (!byGroup.has(key)) byGroup.set(key, []);
+    byGroup.get(key).push(s);
   }
+
   const results = new Map(); // source_table:source_id -> {status, reason, corroborating_sources}
-  for (const [team, signals] of byTeam) {
-    const distinctSources = new Set(signals.map((s) => `${s.source_table}:${s.source_name}`));
-    const directions = signals.map((s) => s.lean_direction).filter(Boolean);
-    const distinctDirections = new Set(directions);
-    // Conflict: two+ podcast-style clean-enum leans disagree (favor vs fade, over vs under)
-    const OPPOSING = [['favor', 'fade'], ['over', 'under'], ['back', 'fade']];
-    const hasConflict = OPPOSING.some(([a, b]) => distinctDirections.has(a) && distinctDirections.has(b));
-    for (const s of signals) {
+  for (const [groupKey, signals] of byGroup) {
+    const [team, market] = groupKey.split('|');
+    const timestamps = signals.map((s) => Date.parse(s.timestamp)).filter(Number.isFinite);
+    const mostRecent = timestamps.length ? Math.max(...timestamps) : null;
+    const windowMs = recencyWindowDays * 86400000;
+
+    const recent = signals.filter((s) => {
+      const t = Date.parse(s.timestamp);
+      return mostRecent != null && Number.isFinite(t) && (mostRecent - t) <= windowMs;
+    });
+    const older = signals.filter((s) => !recent.includes(s));
+
+    const recentDistinctSources = new Set(recent.map((s) => `${s.source_table}:${s.source_name}`));
+    const recentDirections = new Set(recent.map((s) => s.lean_direction).filter(Boolean));
+    const hasConflict = OPPOSING_DIRECTIONS.some(([a, b]) => recentDirections.has(a) && recentDirections.has(b));
+
+    for (const s of recent) {
       const key = `${s.source_table}:${s.source_id}`;
       if (hasConflict) {
-        results.set(key, { status: 'conflicting', reason: `sources disagree on ${team}`, corroborating_sources: distinctSources.size });
-      } else if (distinctSources.size >= 2) {
-        results.set(key, { status: 'verified', reason: `${distinctSources.size} independent sources agree on ${team}`, corroborating_sources: distinctSources.size });
+        results.set(key, { status: 'conflicting', reason: `sources disagree on ${team} (${market}) within the last ${recencyWindowDays}d`, corroborating_sources: recentDistinctSources.size });
+      } else if (recentDistinctSources.size >= 2) {
+        results.set(key, { status: 'verified', reason: `${recentDistinctSources.size} independent sources agree on ${team} (${market})`, corroborating_sources: recentDistinctSources.size });
+      } else {
+        results.set(key, { status: 'unverified', reason: `only 1 recent source on ${team} (${market}), not yet corroborated`, corroborating_sources: 1 });
+      }
+    }
+    // Older signals in the same (team, market) group whose direction no longer
+    // matches the recent consensus are superseded, not "conflicting" — they
+    // were a real take at the time, just outdated by newer analysis.
+    for (const s of older) {
+      const key = `${s.source_table}:${s.source_id}`;
+      const disagreesWithRecent = s.lean_direction && recentDirections.size &&
+        OPPOSING_DIRECTIONS.some(([a, b]) => (recentDirections.has(a) && s.lean_direction === b) || (recentDirections.has(b) && s.lean_direction === a));
+      if (disagreesWithRecent) {
+        results.set(key, { status: 'stale', reason: `earlier take on ${team} (${market}) superseded by newer analysis`, corroborating_sources: 0 });
       } else if (!results.has(key)) {
-        results.set(key, { status: 'unverified', reason: `only 1 source (${team}), not yet corroborated`, corroborating_sources: 1 });
+        results.set(key, { status: 'unverified', reason: `older signal on ${team} (${market}), outside the ${recencyWindowDays}d recency window`, corroborating_sources: 0 });
       }
     }
   }
@@ -179,7 +237,7 @@ function summarizeCorroboration(allSignals) {
 }
 
 async function main() {
-  console.log(`Layer 2 verification run — ${WRITE ? 'WRITE mode' : 'DRY RUN (no writes)'}, limit=${LIMIT}, stale-days=${STALE_DAYS}\n`);
+  console.log(`Layer 2 verification run — ${WRITE ? 'WRITE mode' : 'DRY RUN (no writes)'}, limit=${LIMIT}, stale-days=${STALE_DAYS}, recency-window-days=${RECENCY_WINDOW_DAYS}\n`);
 
   const [researchSignals, podcastSignals] = await Promise.all([
     fetchResearchSignals(LIMIT),
@@ -188,7 +246,7 @@ async function main() {
   const allSignals = [...researchSignals, ...podcastSignals];
   console.log(`Fetched ${researchSignals.length} research_pick_signals rows, ${podcastSignals.length} podcast_host_summaries future-mentions.\n`);
 
-  const corroboration = summarizeCorroboration(allSignals);
+  const corroboration = summarizeCorroboration(allSignals, RECENCY_WINDOW_DAYS);
 
   const finalResults = [];
   const tally = { verified: 0, stale: 0, unverified: 0, conflicting: 0, rejected: 0 };
