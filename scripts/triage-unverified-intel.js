@@ -70,7 +70,7 @@ async function main() {
   const buckets = { single_source: [], no_team_extracted: [], stale_uncorroborated: [] };
 
   for (const s of allSignals) {
-    const relevance = checkRelevance(s.text);
+    const relevance = checkRelevance(s.text, s.source_table);
     if (!relevance.relevant) continue; // rejected, not unverified — out of scope here
     const age = ageDays(s.timestamp);
     if (age != null && age > STALE_DAYS) continue; // stale takes priority in the real script

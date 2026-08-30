@@ -58,24 +58,70 @@ const sb = createClient(SB_URL, SB_KEY, { auth: { persistSession: false } });
 // defense, not a substitute for the deeper extraction-fidelity work still
 // needed (comparing an extracted claim back to its actual source text).
 const NON_NFL_KEYWORDS = [
+  // pro leagues
   'nba', 'nhl', 'mlb', 'ncaa basketball', 'college basketball', 'march madness',
   'cavaliers', 'pistons', 'celtics', 'warriors', 'lakers', 'yankees', 'dodgers',
   'red sox', 'nuggets', 'timberwolves', 'thunder', 'mavericks', 'clippers',
   'nba playoffs', 'nhl playoffs', 'stanley cup', 'world series', 'nba finals',
+  'padres', 'mariners', 'sparks', // WNBA/MLB names seen live in the feed
+  // college football (shares Saturday-fall betting-content feeds with NFL,
+  // but is a different sport entirely) — found live 2026-08-30: "Wake Forest
+  // TOLEDO +10", "VSiN College Football Betting Guide", etc.
+  'college football', 'ncaaf', 'cfb', 'bowl game', 'heisman',
+  // golf, soccer/World Cup, tennis, motorsport, combat sports — all seen
+  // live in the same aggregator feeds
+  'british open', 'pga', 'masters tournament', 'ryder cup', 'dechambeau',
+  'world cup', 'premier league', 'champions league', 'uefa', 'fifa', 'la liga',
+  'wimbledon', 'us open tennis', 'nascar', 'formula 1', 'grand prix',
+  'ufc', 'boxing match',
 ];
 const NFL_KEYWORDS = [
   'nfl', 'super bowl', 'quarterback', 'touchdown', 'field goal', 'preseason',
   'training camp', 'gm', 'head coach', 'offensive line', 'defensive line',
   'wide receiver', 'running back', 'cornerback', 'linebacker', 'tight end',
+  // NFL-specific conference/award shorthand — unambiguous (college
+  // conferences are SEC/ACC/Big Ten/etc, never "AFC"/"NFC"), and these
+  // headlines routinely name a division/award with no other NFL keyword
+  // present at all. Caught live 2026-08-30: "Who Will be the NFC West
+  // Champion According to Polymarket?" was falsely rejected without these.
+  'afc', 'nfc', 'mvp', 'oroy', 'droy', 'opoy', 'dpoy',
+  'rookie of the year', 'coach of the year', 'offensive rookie', 'defensive rookie',
 ];
 
-export function checkRelevance(text) {
+// A signal only counts as relevant when it carries POSITIVE evidence of NFL
+// content (an NFL keyword, or a matched NFL team). The absence of both an
+// NFL signal and a known non-NFL keyword used to default to "relevant" —
+// that was the bug: this repo's own feed comments admit at least one feed
+// ("Action Network") mixes sports, and the NON_NFL_KEYWORDS list can never
+// be exhaustive. Live sample caught by triage-unverified-intel.js on
+// 2026-08-30: college football lines, a British Open recap, and a World Cup
+// final preview were all sitting in `unverified` because neither list
+// matched — they should have been `rejected`. Requiring a positive NFL
+// signal, rather than requiring a matched non-NFL keyword to reject, closes
+// that gap without needing NON_NFL_KEYWORDS to cover every other sport.
+export function checkRelevance(text, sourceTable) {
+  // podcast_host_summaries is NOT a mixed-sport feed — it's produced by
+  // agents/podcast-host-summary.js from named NFL podcasts/episodes only
+  // (see that file's header). Its rows are short structured fragments
+  // (player name + enum market label, e.g. "Josh Allen — MVP — ...") that
+  // legitimately have no "nfl"/"quarterback"-type keyword and no team name
+  // in them at all (an MVP or receiving-yards-leader lean names a player,
+  // not a team). Applying the keyword filter there produced real false
+  // rejects (Josh Allen MVP, AJ Brown receiving yards, a draft prospect's
+  // ROY lean) during testing on 2026-08-30. Trust the source instead —
+  // fidelity is already checked separately via the `fidelity` fields
+  // fetchPodcastSignals() attaches (has_quote / has_subject / confidence
+  // well-formed).
+  if (sourceTable === 'podcast_host_summaries') {
+    return { relevant: true, reason: 'podcast_source_trusted_nfl_only' };
+  }
   const t = (text || '').toLowerCase();
   const hasNonNfl = NON_NFL_KEYWORDS.some((k) => t.includes(k));
   const hasNflSignal = NFL_KEYWORDS.some((k) => t.includes(k)) || !!extractTeam(text);
-  if (hasNonNfl && !hasNflSignal) return { relevant: false, reason: 'non_nfl_content' };
-  if (hasNonNfl && hasNflSignal) return { relevant: true, reason: 'mixed_content_flagged', flagged: true };
-  return { relevant: true, reason: hasNflSignal ? 'nfl_keywords_matched' : 'no_strong_signal_either_way' };
+  if (hasNflSignal && hasNonNfl) return { relevant: true, reason: 'mixed_content_flagged', flagged: true };
+  if (hasNflSignal) return { relevant: true, reason: 'nfl_keywords_matched' };
+  if (hasNonNfl) return { relevant: false, reason: 'non_nfl_content' };
+  return { relevant: false, reason: 'no_nfl_signal_found' };
 }
 
 // ─── Check 2: freshness ────────────────────────────────────────────────────
@@ -254,7 +300,7 @@ async function main() {
   const conflictSamples = [];
 
   for (const s of allSignals) {
-    const relevance = checkRelevance(s.text);
+    const relevance = checkRelevance(s.text, s.source_table);
     const age = ageDays(s.timestamp);
     const corrob = corroboration.get(`${s.source_table}:${s.source_id}`) || { status: 'unverified', reason: 'no team extracted', corroborating_sources: 0 };
 
