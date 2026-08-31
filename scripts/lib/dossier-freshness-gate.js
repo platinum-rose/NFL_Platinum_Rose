@@ -36,6 +36,18 @@ export const EVIDENCE_LANE_FILES = Object.freeze([
   { key: 'prediction_market_coherence', path: 'data/prediction-markets/cross-market-coherence-latest.json' },
   { key: 'odds_execution_validation', path: 'data/futures-imports/odds-execution-validation-latest.json' },
   { key: 'youtube_freshness', path: 'data/shadow-harness/review/podcast-youtube-freshness-latest.json' },
+  // Added 2026-08-31 (DATA-LAYER-LOCKDOWN sequencing item 2 -- freshness-gate
+  // lane expansion). Confirmed read directly by agents/portfolio-synthesize.js
+  // (readFile(...'docs/podcast-narratives/index.json'...)) -- this IS committee
+  // evidence, not an unused artifact. Confirmed stale at the time of adding:
+  // index.json last built 2026-07-23 (37 unique episodes) vs. 47 unique
+  // episode_ids live in podcast_host_summaries today -- a real 10-episode gap,
+  // plus whatever content the 2026-08-31 guest-attribution fix improved for
+  // episodes already indexed. Rebuilding it (scripts/build-podcast-narratives.js)
+  // requires read access to the Obsidian vault at E:\\data\\Obsidian\\NFL\\Podcasts,
+  // outside this repo -- out of scope for this change, which only makes the
+  // staleness VISIBLE to a dossier build rather than silently invisible.
+  { key: 'podcast_narratives', path: 'docs/podcast-narratives/index.json' },
 ]);
 
 function sha256(buffer) {
