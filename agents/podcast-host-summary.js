@@ -59,7 +59,7 @@ import https from 'node:https';
 import { pathToFileURL } from 'node:url';
 import { createClient } from '@supabase/supabase-js';
 import { chunkTranscript } from './lib/chunk-text.js';
-import { buildSpeakerMap, applySpeakerMap, buildLabeledTranscript, loadShowConfig } from './lib/speaker-attribution.js';
+import { buildSpeakerMap, applySpeakerMap, buildLabeledTranscript, loadShowConfig, extractExpectedGuestFromTitle } from './lib/speaker-attribution.js';
 import { ensureObsidianReachable } from './lib/obsidian-launch.js';
 
 // ─── Config / args ────────────────────────────────────────────────────────────
@@ -218,7 +218,7 @@ export function parseExtractionResponse(raw) {
  * @returns {{mode: 'single_host'|'multi_host'|'skip', host?: string, text?: string,
  *            hostNames?: string[], attributionMethodFor?: (host:string)=>string, reason?: string}}
  */
-export function planEpisodeProcessing({ feed, transcript }) {
+export function planEpisodeProcessing({ feed, transcript, episodeTitle }) {
   if (!feed?.needs_diarization) {
     return {
       mode: 'single_host',
@@ -240,7 +240,10 @@ export function planEpisodeProcessing({ feed, transcript }) {
     return { mode: 'skip', reason: `${feed.name} not found in speaker-attribution SHOW_CONFIG` };
   }
 
-  const speakerMap = buildSpeakerMap(utterances, feed.name);
+  const titleGuest = extractExpectedGuestFromTitle(episodeTitle);
+  const speakerMap = buildSpeakerMap(utterances, feed.name, undefined, {
+    expectedParticipants: titleGuest ? [titleGuest] : [],
+  });
   const labeled = applySpeakerMap(utterances, speakerMap);
   const text = buildLabeledTranscript(labeled);
   const hostNames = [...new Set(Object.values(speakerMap))];
@@ -489,7 +492,7 @@ async function main() {
   for (const { t, ep, feed } of work) {
     console.log(`\n  🎙 "${String(ep.title || '').slice(0, 66)}" [${feed.name}]`);
 
-    const plan = planEpisodeProcessing({ feed, transcript: t });
+    const plan = planEpisodeProcessing({ feed, transcript: t, episodeTitle: ep.title });
     if (plan.mode === 'skip') {
       console.log(`     ⏭ skipped — ${plan.reason}`);
       skipped++;

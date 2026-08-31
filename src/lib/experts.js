@@ -360,7 +360,7 @@ export const EXPERTS = [
     sourceType: 'podcast',
     ingestStatus: 'active',
     note: 'Co-host Even Money (VSiN) — professional sharp bettor',
-    aliases: ['steve fezzik', 'fezzik', 'fezzick', 'fezik', 'fezick', 'bezic', 'bessic'],
+    aliases: ['steve fezzik', 'fezzik', 'fezzick', 'fezik', 'fezick', 'bezic', 'bessic', 'pezik', 'fesik'],
     isShow: false,
     record: '0-0',
     lastWeek: '0-0',

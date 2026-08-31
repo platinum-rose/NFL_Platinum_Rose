@@ -64,6 +64,33 @@ export function extractIntroducedGuestName(text) {
   return null;
 }
 
+function looksLikeName(name) {
+  const words = name.split(/\s+/);
+  return words.length >= 2 && words.every((w) => /^[A-Z][a-z'.-]+$/.test(w));
+}
+
+/**
+ * Pull a one-off guest's name out of an episode title, e.g. "Warren Sharp: NFL
+ * Schedule Release Bets" or "...with Author David Bockino". Deliberately
+ * narrow (two-plus proper-cased words, no all-caps abbreviations) so it
+ * rarely fires on ordinary titles -- a miss just means no fallback candidate,
+ * never a wrong one.
+ */
+export function extractExpectedGuestFromTitle(title) {
+  const raw = String(title ?? '').trim();
+  const patterns = [
+    /^([A-Z][A-Za-z.'-]+(?:\s+[A-Z][A-Za-z.'-]+){1,3}):\s/,
+    /\bwith (?:special guests? |guest |author )?([A-Z][A-Za-z.'-]+(?:\s+[A-Z][A-Za-z.'-]+){1,3})\b/i,
+  ];
+  for (const pattern of patterns) {
+    const match = raw.match(pattern);
+    if (!match) continue;
+    const name = cleanIntroducedName(match[1]);
+    if (name && looksLikeName(name) && !/\b(show|podcast|episode|today|thanks|welcome)\b/i.test(name)) return name;
+  }
+  return null;
+}
+
 function inferIntroducedGuests(utterances, mapping, introWindowSec) {
   const ordered = utterances
     .filter(u => u.speaker && Number(u.start ?? 0) <= introWindowSec + GUEST_REPLY_GAP_SEC)
@@ -207,6 +234,66 @@ function inferKnownShowIntros(utterances, showName, mapping) {
       && text.includes('my cohort kendra middleton')
     ) {
       out[speaker] = 'Brandon Kravitz';
+    }
+  }
+  return out;
+}
+
+/**
+ * Unbounded fallback: an already-resolved host addresses a still-unmapped
+ * ("Guest") speaker directly by first name (e.g. "Warren, with this rest
+ * disparity..." or "...part of it, Steve.") and that Guest speaker's turn is
+ * immediately adjacent (within GUEST_REPLY_GAP_SEC, either direction) to the
+ * utterance containing the address. Strictly gated by expectedParticipants --
+ * this never matches an arbitrary capitalized word, only a name we were
+ * already told to expect (a show's own small fixed roster, or a one-off
+ * guest name pulled from the episode title). Not window-bounded, because the
+ * cross-reference proving identity can land anywhere in the episode -- the
+ * safety comes from the explicit name gate + tight adjacency, not from a
+ * time cutoff.
+ */
+function inferVocativeAddress(utterances, mapping, expectedParticipants = []) {
+  const expected = expectedParticipants.map((n) => String(n ?? '').trim()).filter(Boolean);
+  if (!expected.length) return mapping;
+
+  const out = { ...mapping };
+  const usedNames = new Set(Object.values(out).filter((n) => n && n !== 'Guest' && n !== AD_SPEAKER_LABEL));
+  const ordered = utterances
+    .filter((u) => u.speaker)
+    .slice()
+    .sort((a, b) => Number(a.start ?? 0) - Number(b.start ?? 0));
+
+  // Ad-copy transitions routinely have a resolved host say a co-host's name
+  // right before handing off to an ad read ("back with Simon after this") --
+  // that produced/ad-adjacent turn must never absorb the name even though it
+  // is technically the nearest still-"Guest" neighbor. Compute full-episode
+  // ad stats up front and refuse to assign into an ad-heavy speaker.
+  const stats = speakerStats(utterances);
+
+  for (const full of expected) {
+    if (usedNames.has(full)) continue;
+    const firstName = full.split(/\s+/)[0];
+    if (!firstName) continue;
+    const escaped = firstName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const addressRe = new RegExp(`\\b${escaped}\\b[,.]`, 'i');
+
+    for (let i = 0; i < ordered.length; i += 1) {
+      const u = ordered[i];
+      if (!out[u.speaker] || out[u.speaker] === 'Guest' || out[u.speaker] === AD_SPEAKER_LABEL) continue;
+      if (!addressRe.test(String(u.text ?? ''))) continue;
+
+      const neighbors = [ordered[i - 1], ordered[i + 1]].filter(Boolean);
+      for (const cand of neighbors) {
+        if (out[cand.speaker] !== 'Guest') continue;
+        if (isAdOnlySpeaker(stats.get(cand.speaker))) continue;
+        const gapAfter = Number(cand.start ?? 0) - Number(u.end ?? u.start ?? 0);
+        const gapBefore = Number(u.start ?? 0) - Number(cand.end ?? cand.start ?? 0);
+        if (Math.min(Math.abs(gapAfter), Math.abs(gapBefore)) > GUEST_REPLY_GAP_SEC) continue;
+        out[cand.speaker] = full;
+        usedNames.add(full);
+        break;
+      }
+      if (usedNames.has(full)) break;
     }
   }
   return out;
@@ -384,9 +471,41 @@ export function buildSpeakerMap(utterances, showName, experts = EXPERTS, options
   }
 
   const withIntroducedGuests = inferIntroducedGuests(utterances, mapping, introWindowSec);
-  const withMetadataGuests = inferExpectedParticipants(utterances, withIntroducedGuests, options.expectedParticipants);
-  const withNamedReplies = inferNamedReplyParticipants(utterances, withMetadataGuests, options.expectedParticipants);
-  return markAdOnlySpeakers(utterances, withNamedReplies);
+
+  // Pass 1: resolve any caller-supplied one-off guest name (e.g. pulled from
+  // the episode title) against the transcript. Unconditional -- this is a
+  // specific name we already have real evidence for, not a guess.
+  const callerExpected = (options.expectedParticipants ?? []).map((n) => String(n ?? '').trim()).filter(Boolean);
+  let working = inferExpectedParticipants(utterances, withIntroducedGuests, callerExpected);
+  working = inferNamedReplyParticipants(utterances, working, callerExpected);
+  working = inferVocativeAddress(utterances, working, callerExpected);
+
+  // Pass 2: small fixed 2-host shows (Sharp or Square, Even Money, The
+  // Favorites) get a second chance for their OWN roster co-host -- but only
+  // when, after pass 1, there is exactly one still-unresolved speaker with
+  // real substance left (>= 60s of talk time). Multi-guest episodes (a co-
+  // host AND a separate outside guest both still unresolved) leave that
+  // ambiguous -- confirmed by testing: without this gate, the heuristic
+  // occasionally grabbed the wrong speaker (an ad-transition voice, or the
+  // actual outside guest) when more than one real candidate remained.
+  // Left off larger rotating rosters (BettingPros, Action Network) where
+  // "one name left over" is a much weaker signal to begin with.
+  if (showExperts.length <= 2) {
+    const claimedSoFar = new Set(Object.values(working).filter((n) => n && n !== 'Guest' && n !== AD_SPEAKER_LABEL));
+    const rosterFallback = showExperts.map((e) => e.name).filter((n) => !claimedSoFar.has(n));
+    const stats = speakerStats(utterances);
+    const substantialGuestSpeakers = Object.entries(working)
+      .filter(([, name]) => name === 'Guest')
+      .filter(([speakerId]) => (stats.get(speakerId)?.duration ?? 0) >= 60 && !isAdOnlySpeaker(stats.get(speakerId)));
+
+    if (rosterFallback.length === 1 && substantialGuestSpeakers.length === 1) {
+      working = inferExpectedParticipants(utterances, working, rosterFallback);
+      working = inferNamedReplyParticipants(utterances, working, rosterFallback);
+      working = inferVocativeAddress(utterances, working, rosterFallback);
+    }
+  }
+
+  return markAdOnlySpeakers(utterances, working);
 }
 
 /** Replace each utterance's speaker id with its resolved name. Unmapped ids are left as-is. */
