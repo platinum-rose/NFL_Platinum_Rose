@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 // import is hoisted before this assignment would run, so the import is
 // deferred to a dynamic import after DRY_RUN is set.
 process.env.DRY_RUN = 'true';
-const { processBookmarkedTweet, buildPropSignalRows } = await import('../../agents/twitter-bookmarks-agent.js');
+const { processBookmarkedTweet, buildPropSignalRows, shouldSkipAsAlreadyProcessed } = await import('../../agents/twitter-bookmarks-agent.js');
 
 // This test's 'NFL bookmark' case exercises the real processBookmarkedTweet
 // path, which writes a local report file to .nfl/reports/twitter-bookmarks/
@@ -123,5 +123,27 @@ describe('buildPropSignalRows (Vision-OCR player-prop -> research_pick_signals m
   it('returns an empty array for no props', () => {
     expect(buildPropSignalRows([], { noteId: 1, eventRef: 'x' })).toEqual([]);
     expect(buildPropSignalRows(undefined, { noteId: 1, eventRef: 'x' })).toEqual([]);
+  });
+});
+
+// 2026-09-01: regression test for the DRY_RUN-only-dedup bug -- a concurrent
+// edit ANDed `&& DRY_RUN` into this check, which meant it only ever fired
+// during --dry-run and never in a real unattended run. This pins the
+// predicate down independent of any DRY_RUN state.
+describe('shouldSkipAsAlreadyProcessed', () => {
+  it('skips when the local file exists and --force was not passed', () => {
+    expect(shouldSkipAsAlreadyProcessed(false, true)).toBe(true);
+  });
+
+  it('does NOT skip when the local file does not exist', () => {
+    expect(shouldSkipAsAlreadyProcessed(false, false)).toBe(false);
+  });
+
+  it('does NOT skip when --force was passed, even if the file exists', () => {
+    expect(shouldSkipAsAlreadyProcessed(true, true)).toBe(false);
+  });
+
+  it('does NOT skip when neither the file exists nor --force was passed', () => {
+    expect(shouldSkipAsAlreadyProcessed(false, false)).toBe(false);
   });
 });

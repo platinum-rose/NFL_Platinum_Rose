@@ -42,7 +42,7 @@ import { fileURLToPath } from 'node:url';
 import crypto from 'node:crypto';
 import { createClient } from '@supabase/supabase-js';
 import 'dotenv/config';
-import { isNflBettingIntel } from './lib/sportsRelevanceFilter.js';
+import { isNflBettingIntel, isFantasyDraftMechanics } from './lib/sportsRelevanceFilter.js';
 import { ensureVaultFrontmatter } from './lib/vaultFrontmatter.js';
 
 // Copied verbatim from agents/research-intel-ingest.js (same convention as
@@ -68,6 +68,18 @@ function canonicalizeUrl(rawUrl) {
   } catch {
     return rawUrl;
   }
+}
+
+// Whether to skip a bookmark as already processed. Deliberately NOT
+// DRY_RUN-dependent: a 2026-09-01 concurrent edit (from Antigravity, landed
+// alongside this session's own changes in commit a37f7bd) ANDed in
+// `&& DRY_RUN`, which meant this only ever fired during --dry-run and NEVER
+// in a real run -- every live run would re-fetch, re-OCR, and re-write
+// every bookmark in the recency window from scratch, forever. Kept as its
+// own function (rather than inlined) specifically so a unit test can pin
+// this down independent of whatever DRY_RUN happens to be at import time.
+export function shouldSkipAsAlreadyProcessed(force, localFileExists) {
+  return !force && localFileExists;
 }
 
 // Pure mapping, split out from processBookmarkedTweet() so it's unit-testable
@@ -320,13 +332,16 @@ export async function processBookmarkedTweet(bm) {
     return { skipped: true, reason: `Exceeds ${MAX_DAYS}-day recency limit` };
   }
 
-  // 2. Deduplication Gate
+  // 2. Deduplication Gate. Pulled out as a standalone predicate (not DRY_RUN-
+  // dependent -- see shouldSkipAsAlreadyProcessed()'s own comment for why
+  // that matters) so a future edit can't quietly reintroduce the
+  // DRY_RUN-only-dedup regression this fixed on 2026-09-01.
   const FORCE = argv.includes('--force');
   const slug = bm.id.replace(/[^a-zA-Z0-9]/g, '-');
   const filename = `${dateStr}-${bm.author}-${slug}.md`;
   const localReportPath = path.join(REPORTS_DIR, filename);
 
-  if (!FORCE && existsSync(localReportPath) && DRY_RUN) {
+  if (shouldSkipAsAlreadyProcessed(FORCE, existsSync(localReportPath))) {
     console.log(`  [already-processed] Skipping @${bm.author}: "${bm.text.substring(0, 40)}..." (already in local vault)`);
     return { skipped: true, reason: 'Already in local vault' };
   }
@@ -445,7 +460,7 @@ ${propSection}`;
   // Gemini Vision's OCR'd player-prop graphics produce a signal, since
   // those already carry clean structured fields (player_name, prop_type,
   // line, side, odds) rather than needing to be inferred from prose.
-  if (supabase && !DRY_RUN) {
+  if (supabase && !DRY_RUN && !isFantasyDraftMechanics(bm.text)) {
     try {
       const canonical = canonicalizeUrl(bm.url);
       const url_hash = sha256(canonical);
@@ -494,6 +509,8 @@ ${propSection}`;
     } catch (e) {
       console.warn(`  [warn] research pipeline persistence error: ${e.message}`);
     }
+  } else if (supabase && !DRY_RUN && isFantasyDraftMechanics(bm.text)) {
+    console.log(`  [scope] Fantasy draft-mechanics content -- kept in vault_notes only, not bridged to research_intel_notes.`);
   }
 
   return { skipped: false, sport: gate.sport, author: bm.author, vaultPath };
