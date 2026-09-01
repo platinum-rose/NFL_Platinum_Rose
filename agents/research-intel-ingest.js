@@ -7,6 +7,7 @@ import { promisify } from 'node:util';
 import os from 'node:os';
 
 import { createClient } from '@supabase/supabase-js';
+import nodemailer from 'nodemailer';
 import 'dotenv/config';
 
 const execFileAsync = promisify(execFile);
@@ -66,6 +67,15 @@ const DRY_RUN = process.argv.includes('--dry-run') || process.env.DRY_RUN === 't
 const HOURS = Number(process.env.INTEL_LOOKBACK_HOURS || 72);
 const LIMIT_PER_FEED = Number(process.env.INTEL_LIMIT_PER_FEED || 20);
 const MAX_FEED_BYTES = Number(process.env.INTEL_MAX_FEED_BYTES || 2_000_000);
+// 2026-09-01: feed-outage alerting (B-actionnetwork-feed-403's general fix)
+// — see checkFeedHealthAndAlert() below. Alerts after this many consecutive
+// failed checks for a given feed (job runs twice daily by default, so 2 ==
+// roughly a day down) rather than on the first blip, to avoid noise from a
+// single transient network hiccup while still catching a real outage fast.
+const FEED_HEALTH_ALERT_THRESHOLD = Number(process.env.FEED_HEALTH_ALERT_THRESHOLD || 2);
+const GMAIL_ADDR = process.env.GMAIL_ADDRESS;
+const GMAIL_PASS = process.env.GMAIL_APP_PASSWORD;
+const ALERT_TO_EMAIL = process.env.TO_EMAIL || 'andrewlrose@hotmail.com';
 // F-11 Ph.2: fetch full article body after insert (disabled by default offseason)
 const FETCH_BODY = process.env.INTEL_FETCH_BODY === 'true';
 // 2026-08-13: was 4_000 — this is the confirmed root cause of the
@@ -637,6 +647,144 @@ async function ensureResearchTables(supabase) {
   }
 }
 
+// ── Feed-outage alerting (general fix for B-actionnetwork-feed-403) ──────────
+// A dead/blocked feed used to just quietly return `status: 'unavailable'` or
+// `'error'` from fetchFeed() with nothing downstream ever looking at it --
+// exactly how Action Network's feed sat broken for 6+ days unnoticed. This
+// tracks per-feed consecutive-failure streaks in Supabase (migration
+// 051_feed_health.sql) across runs and emails once when a feed crosses
+// FEED_HEALTH_ALERT_THRESHOLD consecutive failed checks, and once more when
+// it recovers -- not on every run, so a multi-day outage doesn't spam the
+// inbox twice a day.
+async function sendFeedHealthEmail(subject, text, html) {
+  if (!GMAIL_ADDR || !GMAIL_PASS) {
+    console.warn('  [feed-health] GMAIL_ADDRESS/GMAIL_APP_PASSWORD not set — skipping alert email');
+    return null;
+  }
+  const transport = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
+    requireTLS: true,
+    auth: { user: GMAIL_ADDR, pass: GMAIL_PASS },
+  });
+  const info = await transport.sendMail({
+    from: `"NFL Dashboard" <${GMAIL_ADDR}>`,
+    to: ALERT_TO_EMAIL,
+    subject,
+    text,
+    html,
+  });
+  return info.messageId;
+}
+
+async function checkFeedHealthAndAlert(supabase, feedResults) {
+  const nowIso = new Date().toISOString();
+  const newlyDown = [];
+  const recovered = [];
+  let anyStillDown = false;
+
+  for (const fr of feedResults) {
+    const { data: existing, error: readErr } = await supabase
+      .from('feed_health')
+      .select('*')
+      .eq('source', fr.source)
+      .maybeSingle();
+    if (readErr) {
+      console.warn(`  [feed-health] read failed for ${fr.source}: ${readErr.message}`);
+      continue;
+    }
+
+    const wasAlerting = !!existing?.alert_sent_at;
+    const prevFailures = existing?.consecutive_failures ?? 0;
+    const isFailure = fr.status !== 'available';
+
+    let consecutiveFailures = isFailure ? prevFailures + 1 : 0;
+    let alertSentAt = existing?.alert_sent_at ?? null;
+    let lastSuccessAt = existing?.last_success_at ?? null;
+
+    if (isFailure) {
+      if (consecutiveFailures >= FEED_HEALTH_ALERT_THRESHOLD) {
+        anyStillDown = true;
+        if (!wasAlerting) {
+          newlyDown.push({
+            source: fr.source,
+            reason: fr.reason,
+            consecutive_failures: consecutiveFailures,
+            last_success_at: lastSuccessAt,
+          });
+          alertSentAt = nowIso;
+        }
+      }
+    } else {
+      lastSuccessAt = nowIso;
+      if (wasAlerting) {
+        recovered.push({ source: fr.source, down_since: existing.last_success_at });
+      }
+      alertSentAt = null;
+    }
+
+    const { error: upsertErr } = await supabase.from('feed_health').upsert({
+      source: fr.source,
+      last_status: fr.status,
+      last_reason: fr.reason,
+      consecutive_failures: consecutiveFailures,
+      last_success_at: lastSuccessAt,
+      last_checked_at: nowIso,
+      alert_sent_at: alertSentAt,
+      updated_at: nowIso,
+    });
+    if (upsertErr) {
+      console.warn(`  [feed-health] upsert failed for ${fr.source}: ${upsertErr.message}`);
+    }
+  }
+
+  if (newlyDown.length || recovered.length) {
+    const sections = [];
+    if (newlyDown.length) {
+      sections.push(
+        `DOWN (${newlyDown.length}):\n` +
+        newlyDown.map((d) =>
+          `  - ${d.source}: ${d.reason}` +
+          ` (${d.consecutive_failures} consecutive failed checks` +
+          `${d.last_success_at ? `, last succeeded ${d.last_success_at}` : ', no prior success on record'})`
+        ).join('\n')
+      );
+    }
+    if (recovered.length) {
+      sections.push(
+        `RECOVERED (${recovered.length}):\n` +
+        recovered.map((r) => `  - ${r.source}`).join('\n')
+      );
+    }
+
+    const subject = newlyDown.length
+      ? `⚠️ NFL Dashboard: ${newlyDown.length} research-intel feed(s) down — ${newlyDown.map((d) => d.source).join(', ')}`
+      : `✅ NFL Dashboard: research-intel feed(s) recovered — ${recovered.map((r) => r.source).join(', ')}`;
+
+    const text =
+      `research-intel-ingest.js feed health check (${nowIso})\n\n` +
+      sections.join('\n\n') +
+      `\n\nAlerts fire after ${FEED_HEALTH_ALERT_THRESHOLD}+ consecutive failed checks ` +
+      `(this job runs twice daily), and again once a feed recovers -- not every run. ` +
+      `See TASK_BOARD.md's B-actionnetwork-feed-403 entry for background.`;
+    const html = `<pre style="font-family:monospace;white-space:pre-wrap">${text.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</pre>`;
+
+    if (DRY_RUN) {
+      console.log(`  [feed-health] dry run — would send: ${subject}`);
+    } else {
+      try {
+        const msgId = await sendFeedHealthEmail(subject, text, html);
+        if (msgId) console.log(`  [feed-health] alert sent: ${subject} (msgId=${msgId})`);
+      } catch (err) {
+        console.warn(`  [feed-health] alert email failed (non-fatal): ${err.message}`);
+      }
+    }
+  }
+
+  return { anyStillDown, newlyDown, recovered };
+}
+
 async function main() {
   const startedAt = new Date().toISOString();
   const cutoff = new Date(Date.now() - HOURS * 60 * 60 * 1000).toISOString();
@@ -719,6 +867,13 @@ async function main() {
 
   const supabase = getSupabase();
   await ensureResearchTables(supabase);
+
+  let feedHealth = { anyStillDown: false };
+  try {
+    feedHealth = await checkFeedHealthAndAlert(supabase, feedResults);
+  } catch (err) {
+    console.warn(`  [feed-health] check failed (non-fatal): ${err.message}`);
+  }
 
   const uniqueNotes = Array.from(
     new Map(candidateNotes.map(n => [n.url_hash, n])).values()
@@ -861,6 +1016,14 @@ async function main() {
   console.log(`  Inserted notes: ${insertedNotes.length}`);
   console.log(`  Inserted signals: ${signalsToInsert.length}`);
   console.log(`  Receipt: ${receiptPath}`);
+
+  // Keep the GitHub Actions run visibly red for as long as a feed stays
+  // down (not just on the run that first crosses the alert threshold) --
+  // matches the "warn loudly, don't silently pass" principle applied
+  // elsewhere in this pipeline (dossier-freshness-gate.js).
+  if (feedHealth.anyStillDown) {
+    process.exitCode = 1;
+  }
 }
 
 main().catch(err => {
