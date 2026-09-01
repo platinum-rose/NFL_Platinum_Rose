@@ -9,6 +9,21 @@ Targets:
   public.nfl_team_season_stats   — season record + EPA + ATS (from odds join)
   public.nfl_player_season_stats — QB/RB/WR/TE season aggregates
 
+  ⚠ nfl_player_season_stats is DEPRECATED / UNUSED as of 2026-09-01 --
+  confirmed by full-codebase grep that nothing reads it (agents/,
+  scripts/, src/ all clean). agents/fantasy-value-report.js reads
+  public.player_season_stats instead (written by
+  agents/player-stats-ingest.js from the same nflverse source, not this
+  script). The two tables diverge for real: 53% of overlapping
+  (player_id, season) rows have mismatched values, and this script's
+  output has at least one confirmed data-quality bug (a 2022 Tom Brady
+  row with games=18, which is impossible). See
+  supabase/migrations/050_deprecate_nfl_player_season_stats.sql and
+  docs/NFL_AUDIT_BACKLOG.md's PLAYERSTATS-DUP entry before running this
+  script's player-stats path again or building anything new against its
+  output -- nfl_team_season_stats (this script's OTHER table) is unaffected
+  and still live/read by the real committee pipeline.
+
 Usage:
   python scripts/seed-historical-stats.py [--seasons 2020-2024] [--dry-run]
   python scripts/seed-historical-stats.py --seasons 2024 --positions QB

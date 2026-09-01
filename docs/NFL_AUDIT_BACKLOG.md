@@ -8,7 +8,7 @@
 Fable tri-project audit (FABLE-01, FABLE-03). FABLE-03 closed 2026-07-08 (S269, committed).
 FABLE-01 closed 2026-07-16: live (non-dry-run) sync ran clean — 255/255 fetched, 0 skipped by
 sensitivity tier, 255 upserted, 0 errors (receipt in `.nfl/receipts/`). Original 30/30 Meridian+CODEX set remains fully closed.
-1 follow-up filed 2026-07-21 (S296, GAMEID-FORMAT) — resolved 2026-07-27 (option b, shared canonical-key helper); see "Follow-ups filed from later sessions" below; not part of the original audits.
+2 follow-ups filed 2026-07-21 (S296, GAMEID-FORMAT + PLAYERSTATS-DUP) — GAMEID-FORMAT resolved 2026-07-27 (option b, shared canonical-key helper), PLAYERSTATS-DUP resolved 2026-09-01 (investigated + documented, option-b-equivalent); see "Follow-ups filed from later sessions" below; not part of the original audits.
 
 > **Completion rule:** Mark `[ ]` â†’ `[x]` only when the fix is committed to `main`
 > AND verified by test, live query, or CI pass. Dev-only changes do not count.
@@ -430,3 +430,47 @@ sensitivity tier, 255 upserted, 0 errors (receipt in `.nfl/receipts/`). Original
     4 live tables are untouched -- this is a new tool for future joins to use, not a
     migration of what's already running. Option (c) (full standardize + backfill)
     remains open if ever wanted; Andy explicitly deferred it as higher-risk/multi-session.
+
+- [x] **PLAYERSTATS-DUP** -- Two season-level player-stats tables with an unconfirmed relationship
+  - **Filed 2026-07-21 (S296)** alongside GAMEID-FORMAT, same audit -- "worth confirming
+    [`nfl_player_season_stats` and `player_season_stats`] aren't diverging sources of
+    truth," never actually checked. Carried forward as the second latent-risk item in
+    `docs/specs/CANONICAL_DATA_LAYER_AUDIT_2026-08-30.md`'s DATA-LAYER-LOCKDOWN sequence
+    (item 4, the last item in that sequence).
+  - **RESOLVED (investigated + documented), 2026-09-01:** live-verified against production
+    Supabase with read-only queries (row counts, season coverage, per-row value diff on
+    every overlapping `(player_id, season)` pair):
+    - `public.nfl_player_season_stats` (migration 014) -- 3,016 rows, seasons 2020-2024,
+      `source='nfl-data-py'`, last written 2026-06-26. Written only by
+      `scripts/seed-historical-stats.py` (an annual/manual backfill).
+    - `public.player_season_stats` (migration 032) -- 7,963 rows, seasons 2022-2025,
+      `source='nflverse'`, last written 2026-07-16. Written by
+      `agents/player-stats-ingest.js`.
+    - They really do diverge: 1,773 `(player_id, season)` pairs exist in both (the
+      2022-2024 season overlap), and **946 of those (53%) have mismatched stat values**
+      -- not rounding drift. Concrete example: `nfl_player_season_stats` has Tom Brady's
+      2022 season at `games=18` (impossible -- an NFL regular season is 17 games) and
+      `pass_yards=5045`; `player_season_stats` has `games=17`, `pass_yards=4694`, which
+      matches Brady's real 2022 total. The nfl-data-py pipeline behind
+      `nfl_player_season_stats` has a real, uninvestigated data-quality bug.
+    - **But it's a dead-table risk, not a live conflict:** full-codebase grep (`agents/`,
+      `scripts/`, `src/`) confirms **zero live readers** of `nfl_player_season_stats`
+      anywhere -- only its own writer. `player_season_stats` is the one actually
+      consumed, by `agents/fantasy-value-report.js` (Fantasy Value vs ADP). Sibling table
+      `nfl_team_season_stats` from the same migration 014 is unaffected and still live
+      (read by `agents/portfolio-dossier.js` and others) -- this is specific to the
+      player-stats half of that migration.
+    - **Fix applied, matching the GAMEID-FORMAT precedent (option b: document + guard,
+      not a live-table rewrite):** `supabase/migrations/050_deprecate_nfl_player_season_stats.sql`
+      adds a `comment on table` marking `nfl_player_season_stats` deprecated/unused with
+      the full finding inline (so anyone inspecting the schema directly sees it, not just
+      this doc); `scripts/seed-historical-stats.py`'s header now carries the same warning
+      for anyone about to re-run it. No rows dropped, renamed, or rewritten.
+  - **Open decision for Andy (not resolved by this pass):** whether to fully retire
+    `nfl_player_season_stats` -- either drop it outright, or repoint
+    `seed-historical-stats.py` to write `player_season_stats` instead (and backfill the
+    2020-2021 seasons `player_season_stats` doesn't have) so there's exactly one
+    season-stats table instead of one live + one dead. Both are real, irreversible-ish
+    schema/data decisions in the same risk class as GAMEID-FORMAT's deferred option (c);
+    left open rather than acted on unilaterally. The 050 migration still needs to be run
+    (Supabase Dashboard -> SQL Editor) for the comment to take effect.
