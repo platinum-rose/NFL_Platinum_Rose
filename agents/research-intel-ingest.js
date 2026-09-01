@@ -1,10 +1,59 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile, unlink } from 'node:fs/promises';
 import path from 'node:path';
-import { createHash } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
+import os from 'node:os';
 
 import { createClient } from '@supabase/supabase-js';
 import 'dotenv/config';
+
+const execFileAsync = promisify(execFile);
+// 2026-09-01: Action Network's feed sits behind CloudFront and started
+// silently 403'ing Node's native fetch()/undici specifically -- confirmed
+// live that curl (same network, same day) gets a clean 200 with real XML
+// while node fetch() gets a 202 + empty text/html body for the identical
+// URL/UA. This is a TLS/HTTP client fingerprint block, not a UA-string
+// check (changing the UA string alone did not help). Shelling out to the
+// system curl binary (present on ubuntu-latest GitHub Actions runners by
+// default) sidesteps it. See docs/NFL_AUDIT_BACKLOG.md B-actionnetwork-feed-403.
+async function fetchViaCurl(feed) {
+  const maxBytes = feed.maxBytes ?? MAX_FEED_BYTES;
+  const ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+    + '(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36';
+  const tmpFile = path.join(os.tmpdir(), `feed-${randomUUID()}.body`);
+  try {
+    const { stdout } = await execFileAsync('curl', [
+      '-sS',
+      '-o', tmpFile,
+      '-w', '%{http_code} %{content_type}',
+      '-A', ua,
+      '--max-time', '30',
+      '--max-filesize', String(maxBytes),
+      feed.url,
+    ], { timeout: 35000 });
+
+    const [statusStr, ...ctypeParts] = stdout.trim().split(' ');
+    const httpStatus = Number(statusStr) || 0;
+    const contentType = ctypeParts.join(' ').trim();
+
+    let body = '';
+    try {
+      body = await (await import('node:fs/promises')).readFile(tmpFile, 'utf8');
+    } catch { /* no body written (e.g. non-2xx with empty response) */ }
+
+    return { httpStatus, contentType, body, error: null };
+  } catch (err) {
+    // curl exit 63 = --max-filesize exceeded
+    if (err.code === 63) {
+      return { httpStatus: null, contentType: '', body: '', error: `curl: payload exceeds ${maxBytes} bytes` };
+    }
+    return { httpStatus: null, contentType: '', body: '', error: err.message };
+  } finally {
+    await unlink(tmpFile).catch(() => {});
+  }
+}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -34,10 +83,16 @@ const FEEDS = [
   {
     // NFL-specific feed — all articles are already NFL content, so the
     // looksNflRelevant filter passes everything through cleanly.
+    // 2026-09-01: fetchMethod:'curl' — see fetchViaCurl() above. CloudFront
+    // blocks Node's native fetch() for this URL specifically (confirmed via
+    // side-by-side curl-vs-fetch test, same day, same network); curl is not
+    // blocked. Remove this flag if Action Network's CloudFront config ever
+    // stops discriminating against Node's client fingerprint.
     source: 'Action Network',
     url: 'https://www.actionnetwork.com/nfl/feed',
     confidence: 0.74,
     source_type: 'betting',
+    fetchMethod: 'curl',
   },
   {
     // BettingPros: /nfl/news/feed/ returns HTML; /feed/ is valid RSS but
@@ -428,21 +483,77 @@ function extractSignals(item, source, baseConfidence) {
 
 async function fetchFeed(feed) {
   try {
-    const res = await fetch(feed.url, {
-      headers: { 'User-Agent': 'NFL-Platinum-Rose-ResearchIntel/1.0' },
-      signal: AbortSignal.timeout(30000),
-    });
+    let httpStatus, contentType, xml;
 
-    if (!res.ok) {
-      return {
-        source: feed.source,
-        status: 'unavailable',
-        reason: `HTTP ${res.status}`,
-        items: [],
-      };
+    if (feed.fetchMethod === 'curl') {
+      const curlResult = await fetchViaCurl(feed);
+      if (curlResult.error) {
+        return { source: feed.source, status: 'error', reason: curlResult.error, items: [] };
+      }
+      httpStatus = curlResult.httpStatus;
+      contentType = String(curlResult.contentType || '').toLowerCase();
+      xml = curlResult.body;
+      if (!(httpStatus >= 200 && httpStatus < 300)) {
+        return { source: feed.source, status: 'unavailable', reason: `HTTP ${httpStatus}`, items: [] };
+      }
+    } else {
+      const res = await fetch(feed.url, {
+        headers: { 'User-Agent': 'NFL-Platinum-Rose-ResearchIntel/1.0' },
+        signal: AbortSignal.timeout(30000),
+      });
+
+      if (!res.ok) {
+        return {
+          source: feed.source,
+          status: 'unavailable',
+          reason: `HTTP ${res.status}`,
+          items: [],
+        };
+      }
+
+      contentType = String(res.headers.get('content-type') || '').toLowerCase();
+
+      const reader = res.body?.getReader();
+      if (!reader) {
+        return {
+          source: feed.source,
+          status: 'error',
+          reason: 'Response stream unavailable',
+          items: [],
+        };
+      }
+
+      const chunks = [];
+      let totalBytes = 0;
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        totalBytes += value.byteLength;
+        if (totalBytes > (feed.maxBytes ?? MAX_FEED_BYTES)) {
+          await reader.cancel('Feed exceeds configured size limit');
+          return {
+            source: feed.source,
+            status: 'error',
+            reason: `Feed payload too large (> ${feed.maxBytes ?? MAX_FEED_BYTES} bytes)`,
+            items: [],
+          };
+        }
+        chunks.push(value);
+      }
+
+      xml = new TextDecoder().decode(
+        chunks.length === 1 ? chunks[0] : (() => {
+          const merged = new Uint8Array(totalBytes);
+          let offset = 0;
+          for (const chunk of chunks) {
+            merged.set(chunk, offset);
+            offset += chunk.byteLength;
+          }
+          return merged;
+        })()
+      );
     }
 
-    const contentType = String(res.headers.get('content-type') || '').toLowerCase();
     const looksLikeFeed =
       contentType.includes('xml') ||
       contentType.includes('rss') ||
@@ -456,46 +567,6 @@ async function fetchFeed(feed) {
         items: [],
       };
     }
-
-    const reader = res.body?.getReader();
-    if (!reader) {
-      return {
-        source: feed.source,
-        status: 'error',
-        reason: 'Response stream unavailable',
-        items: [],
-      };
-    }
-
-    const chunks = [];
-    let totalBytes = 0;
-    while (true) {
-      const { value, done } = await reader.read();
-      if (done) break;
-      totalBytes += value.byteLength;
-      if (totalBytes > (feed.maxBytes ?? MAX_FEED_BYTES)) {
-        await reader.cancel('Feed exceeds configured size limit');
-        return {
-          source: feed.source,
-          status: 'error',
-          reason: `Feed payload too large (> ${feed.maxBytes ?? MAX_FEED_BYTES} bytes)`,
-          items: [],
-        };
-      }
-      chunks.push(value);
-    }
-
-    const xml = new TextDecoder().decode(
-      chunks.length === 1 ? chunks[0] : (() => {
-        const merged = new Uint8Array(totalBytes);
-        let offset = 0;
-        for (const chunk of chunks) {
-          merged.set(chunk, offset);
-          offset += chunk.byteLength;
-        }
-        return merged;
-      })()
-    );
 
     if (!/<rss|<feed|<rdf:RDF/i.test(xml)) {
       return {
