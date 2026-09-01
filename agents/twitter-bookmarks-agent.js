@@ -85,12 +85,12 @@ export function shouldSkipAsAlreadyProcessed(force, localFileExists) {
 // Pure mapping, split out from processBookmarkedTweet() so it's unit-testable
 // without mocking Supabase/Gemini Vision. Only Vision-OCR'd player props ever
 // reach this -- see the header comment on why freeform tweet text doesn't.
-export function buildPropSignalRows(props, { noteId, eventRef }) {
+export function buildPropSignalRows(props, { noteId, eventRef, sourceLabel }) {
   return (props || [])
     .filter((p) => p.player_name && p.prop_type)
     .map((p) => ({
       note_id: noteId,
-      source: 'Twitter/X Bookmarks (Personal)',
+      source: sourceLabel || 'Twitter/X Bookmarks (Personal)',
       team_or_market: `${p.player_name} - ${p.prop_type}`,
       bet_type: 'player_prop',
       lean: [p.side, p.line].filter(Boolean).join(' ') || 'unspecified',
@@ -109,8 +109,15 @@ const ACTIVE_PROPOSALS_DIR = path.join(ROOT, 'data', 'official-picks', 'proposal
 const argv = process.argv.slice(2);
 const DRY_RUN = argv.includes('--dry-run') || process.env.DRY_RUN === 'true';
 const SAMPLE_MODE = argv.includes('--sample');
+const TRACKED_ACCOUNTS_MODE = argv.includes('--tracked-accounts');
 const maxDaysArg = argv.find(a => a.startsWith('--max-days='));
 const MAX_DAYS = maxDaysArg ? parseInt(maxDaysArg.split('=')[1], 10) : 30;
+const TRACKED_ACCOUNTS_CONFIG_PATH = path.join(ROOT, 'config', 'twitter-tracked-accounts.json');
+// Caches handle->rest_id lookups (UserByScreenName) across runs so a normal
+// run only spends GraphQL calls on UserTweets, not re-resolving 20 handles
+// every time -- see resolveTrackedAccountIds()'s comment for why that
+// matters for rate-limit budget.
+const TRACKED_ACCOUNTS_ID_CACHE_PATH = path.join(ROOT, '.nfl', 'cache', 'twitter-tracked-account-ids.json');
 
 const TWITTER_AUTH_TOKEN = process.env.PLATINUM_ROSE_TWITTER_AUTH_TOKEN || process.env.PERSONAL_TWITTER_AUTH_TOKEN;
 const TWITTER_CT0 = process.env.PLATINUM_ROSE_TWITTER_CT0 || process.env.PERSONAL_TWITTER_CT0;
@@ -145,9 +152,21 @@ const SAMPLE_BOOKMARKS = [
   }
 ];
 
-// ── Fetch Bookmarks from Personal Twitter API / Session ────────────────────────
-
-export async function fetchPersonalBookmarks(queryKeywords = ['NFL', 'football', 'betting', 'spread', 'props']) {
+export async function fetchPersonalBookmarks(queryKeywords = [
+  'NFL',
+  'football',
+  'betting',
+  'spread',
+  'props',
+  'fantasy',
+  'injury',
+  'survivor',
+  'totals',
+  'pick',
+  'CFB',
+  'cutdown',
+  'draft',
+]) {
   if (!TWITTER_AUTH_TOKEN) {
     console.log(`[info] PERSONAL_TWITTER_AUTH_TOKEN not configured in .env.`);
     return null;
@@ -236,6 +255,206 @@ export async function fetchPersonalBookmarks(queryKeywords = ['NFL', 'football',
   return allTweets;
 }
 
+// ── Tracked Accounts (curated sharp handles, NOT bookmarks) ────────────────────
+// 2026-09-01: config/twitter-tracked-accounts.json (20 curated sharp NFL
+// betting/fantasy accounts) existed but nothing in the codebase read it --
+// fetchPersonalBookmarks() only ever searches WITHIN Andy's own bookmarks
+// (BookmarkSearchTimeline), which can't surface another account's tweets
+// unless Andy happened to bookmark them himself. This closes that gap by
+// actually pulling each tracked account's own recent timeline.
+//
+// Reverse-engineered against X's current web client (main bundle as of
+// 2026-09-01) since neither operation existed in this codebase before:
+// UserByScreenName resolves handle -> numeric rest_id (X's GraphQL user
+// timeline endpoint takes only the numeric id, not the handle), then
+// UserTweets pulls that account's own timeline. Both empirically verified
+// live against real accounts before being wired in here -- an earlier
+// attempt at SearchTimeline with "from:<handle>" 404'd outright (that
+// queryId in the current bundle appears to not be live/reachable this way),
+// so UserByScreenName+UserTweets is the verified path, not SearchTimeline.
+//
+// Same auth/cookie replay as fetchPersonalBookmarks() -- same ToS caveat
+// applies, see the file-header note. This adds 20 more accounts' worth of
+// automated request volume on top of the existing bookmarks fetch, which is
+// a real incremental increase to that same account-risk; flagged, Andy's
+// call same as the original bookmarks decision.
+
+async function loadTrackedAccountIdCache() {
+  try {
+    const raw = await (await import('node:fs/promises')).readFile(TRACKED_ACCOUNTS_ID_CACHE_PATH, 'utf8');
+    return JSON.parse(raw);
+  } catch {
+    return {};
+  }
+}
+
+async function saveTrackedAccountIdCache(cache) {
+  try {
+    await mkdir(path.dirname(TRACKED_ACCOUNTS_ID_CACHE_PATH), { recursive: true });
+    await writeFile(TRACKED_ACCOUNTS_ID_CACHE_PATH, JSON.stringify(cache, null, 2), 'utf8');
+  } catch (e) {
+    console.warn(`  [warn] Could not persist tracked-account id cache: ${e.message}`);
+  }
+}
+
+const XCLIENT_HEADERS = () => ({
+  'authorization': 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+  'cookie': `auth_token=${TWITTER_AUTH_TOKEN}; ct0=${TWITTER_CT0 || ''};`,
+  'x-csrf-token': TWITTER_CT0 || '',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+});
+
+export async function resolveUserIdByScreenName(handle) {
+  const qid = 'Gb-d6r0vxPOADdG62OEBpQ';
+  const op = 'UserByScreenName';
+  const variables = { screen_name: handle };
+  const features = {
+    hidden_profile_subscriptions_enabled: true,
+    rweb_tipjar_consumption_enabled: true,
+    responsive_web_graphql_exclude_directive_enabled: true,
+    verified_phone_label_enabled: false,
+    subscriptions_verification_info_is_identity_verified_enabled: true,
+    subscriptions_verification_info_verified_since_enabled: true,
+    highlights_tweets_tab_ui_enabled: true,
+    responsive_web_twitter_article_notes_tab_enabled: true,
+    subscriptions_feature_can_gift_premium: true,
+    creator_subscriptions_tweet_preview_api_enabled: true,
+    responsive_web_graphql_skip_user_profile_image_extensions_enabled: false,
+    responsive_web_graphql_timeline_navigation_enabled: true
+  };
+  const fieldToggles = { withAuxiliaryUserLabels: true };
+  const url = `https://x.com/i/api/graphql/${qid}/${op}?variables=${encodeURIComponent(JSON.stringify(variables))}&features=${encodeURIComponent(JSON.stringify(features))}&fieldToggles=${encodeURIComponent(JSON.stringify(fieldToggles))}`;
+
+  const resp = await fetch(url, { headers: XCLIENT_HEADERS() });
+  if (!resp.ok) return null;
+  const data = await resp.json();
+  return data?.data?.user?.result?.rest_id || null;
+}
+
+export async function fetchUserTweets(userId, count = 15) {
+  const qid = 'SXVCYB8XHSS25nzIljNtZA';
+  const op = 'UserTweets';
+  const variables = { userId, count, includePromotedContent: false, withQuickPromoteEligibilityTweetFields: false, withVoice: true };
+  const features = {
+    rweb_video_screen_enabled: false,
+    profile_label_improvements_pcf_label_in_post_enabled: true,
+    rweb_tipjar_consumption_enabled: true,
+    responsive_web_graphql_exclude_directive_enabled: true,
+    verified_phone_label_enabled: false,
+    creator_subscriptions_tweet_preview_api_enabled: true,
+    responsive_web_graphql_timeline_navigation_enabled: true,
+    responsive_web_graphql_skip_user_profile_image_extensions_enabled: false,
+    premium_content_api_read_enabled: true,
+    communities_web_enable_tweet_community_results_fetch: true,
+    c9s_tweet_anatomy_moderator_badge_enabled: true,
+    responsive_web_grok_analyze_button_fetch_trends_enabled: false,
+    responsive_web_grok_analyze_post_followups_enabled: false,
+    responsive_web_jetfuel_frame: false,
+    responsive_web_grok_share_attachment_enabled: true,
+    articles_preview_enabled: true,
+    responsive_web_edit_tweet_api_enabled: true,
+    graphql_is_translatable_rweb_tweet_is_translatable_enabled: true,
+    view_counts_everywhere_api_enabled: true,
+    longform_notetweets_consumption_enabled: true,
+    responsive_web_twitter_article_tweet_consumption_enabled: true,
+    tweet_awards_web_tipping_enabled: false,
+    responsive_web_grok_show_grok_translated_post: false,
+    responsive_web_grok_analysis_button_from_backend: false,
+    creator_subscriptions_quote_tweet_preview_enabled: false,
+    freedom_of_speech_not_reach_fetch_enabled: true,
+    standardized_nudges_misinfo: true,
+    tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled: true,
+    longform_notetweets_rich_text_read_enabled: true,
+    longform_notetweets_inline_media_enabled: true,
+    responsive_web_grok_image_annotation_enabled: false,
+    responsive_web_enhance_cards_enabled: false
+  };
+  const fieldToggles = { withArticlePlainText: false };
+  const url = `https://x.com/i/api/graphql/${qid}/${op}?variables=${encodeURIComponent(JSON.stringify(variables))}&features=${encodeURIComponent(JSON.stringify(features))}&fieldToggles=${encodeURIComponent(JSON.stringify(fieldToggles))}`;
+
+  const resp = await fetch(url, { headers: XCLIENT_HEADERS() });
+  if (!resp.ok) return [];
+  const data = await resp.json();
+  const instructions = data?.data?.user?.result?.timeline?.timeline?.instructions || [];
+  const tweets = [];
+  for (const inst of instructions) {
+    const entries = inst.entries || (inst.entry ? [inst.entry] : []);
+    for (const entry of entries) {
+      const tr = entry?.content?.itemContent?.tweet_results?.result;
+      const legacy = tr?.legacy || tr?.tweet?.legacy;
+      if (!legacy?.id_str || !legacy.full_text) continue;
+      // Skip pure retweets -- the RT'd account's own tweet is (or will be)
+      // picked up when we track that account directly, and an RT here
+      // carries no first-party analysis from the tracked account itself.
+      if (legacy.retweeted_status_result) continue;
+      tweets.push(legacy);
+    }
+  }
+  return tweets;
+}
+
+export async function fetchTrackedAccountTweets(maxPerAccount = 15) {
+  if (!TWITTER_AUTH_TOKEN) {
+    console.log(`[info] PERSONAL_TWITTER_AUTH_TOKEN not configured in .env.`);
+    return null;
+  }
+
+  let config;
+  try {
+    const raw = await (await import('node:fs/promises')).readFile(TRACKED_ACCOUNTS_CONFIG_PATH, 'utf8');
+    config = JSON.parse(raw);
+  } catch (e) {
+    console.warn(`  [warn] Could not read ${TRACKED_ACCOUNTS_CONFIG_PATH}: ${e.message}`);
+    return [];
+  }
+
+  const accounts = config.accounts || [];
+  const idCache = await loadTrackedAccountIdCache();
+  let cacheDirty = false;
+  const allTweets = [];
+
+  for (const acct of accounts) {
+    const handle = acct.handle;
+    try {
+      let userId = idCache[handle];
+      if (!userId) {
+        userId = await resolveUserIdByScreenName(handle);
+        if (userId) {
+          idCache[handle] = userId;
+          cacheDirty = true;
+        }
+      }
+      if (!userId) {
+        console.warn(`  [warn] Could not resolve @${handle} to a user id -- skipping.`);
+        continue;
+      }
+
+      const legacyTweets = await fetchUserTweets(userId, maxPerAccount);
+      for (const legacy of legacyTweets) {
+        const mediaItems = legacy.extended_entities?.media || legacy.entities?.media || [];
+        const mediaUrls = mediaItems.map(m => m.media_url_https).filter(Boolean);
+        allTweets.push({
+          id: legacy.id_str,
+          author: handle,
+          author_name: acct.name || handle,
+          text: legacy.full_text || legacy.text || '',
+          created_at: legacy.created_at,
+          url: `https://x.com/${handle}/status/${legacy.id_str}`,
+          media_urls: mediaUrls,
+          trackedAccountMeta: { outlet: acct.outlet, category: acct.category, tier: acct.tier }
+        });
+      }
+      console.log(`  [tracked] @${handle}: ${legacyTweets.length} tweet(s) fetched.`);
+    } catch (err) {
+      console.warn(`  [warn] Tracked-account fetch error for @${handle}: ${err.message}`);
+    }
+  }
+
+  if (cacheDirty) await saveTrackedAccountIdCache(idCache);
+
+  return allTweets;
+}
+
 export async function analyzeTweetImageWithGeminiVision(imageUrl) {
   if (!GEMINI_API_KEY) return null;
 
@@ -269,7 +488,7 @@ export async function analyzeTweetImageWithGeminiVision(imageUrl) {
   ]
 }`;
 
-    const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`, {
+    const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -321,7 +540,16 @@ export async function generateLocalOllamaSummary(text, sport) {
 
 // ── Process Single Bookmarked Tweet ───────────────────────────────────────────
 
-export async function processBookmarkedTweet(bm) {
+export async function processBookmarkedTweet(bm, opts = {}) {
+  // opts lets tracked-account ingestion reuse this exact pipeline (recency
+  // gate, dedup, relevance gate, Vision OCR, vault + research bridge write)
+  // with a distinct source label/vault location instead of duplicating all
+  // of that logic. Defaults preserve the original personal-bookmarks
+  // behavior exactly.
+  const sourceLabel = opts.sourceLabel || 'Twitter/X Bookmarks (Personal)';
+  const vaultCategory = opts.vaultCategory || 'Bookmarks';
+  const tagPrefix = opts.tagPrefix || 'twitter/bookmark';
+
   // 1. Recency Gate (skip tweets older than MAX_DAYS)
   const tweetDate = new Date(bm.created_at || Date.now());
   const ageDays = (Date.now() - tweetDate.getTime()) / (1000 * 60 * 60 * 24);
@@ -382,7 +610,7 @@ export async function processBookmarkedTweet(bm) {
   // dateStr, slug, filename, and localReportPath are already defined above.
   // NFL-only scope confirmed 2026-08-28 -- gate.sport is always 'NFL' here,
   // so there is no more NCAA/Bookmarks branch to route into.
-  const vaultPath = `NFL/Bookmarks/${dateStr}-${bm.author}-${slug}.md`;
+  const vaultPath = `NFL/${vaultCategory}/${dateStr}-${bm.author}-${slug}.md`;
 
   let propSection = '';
   if (visionAnalysis && visionAnalysis.player_props && visionAnalysis.player_props.length > 0) {
@@ -410,11 +638,11 @@ ${propSection}`;
 
   const fullContent = ensureVaultFrontmatter(markdownBody, {
     title: `Bookmark: @${bm.author}`,
-    sourceSystem: 'personal-twitter-bookmarks',
-    sourceType: 'tweet_bookmark',
+    sourceSystem: opts.sourceSystem || 'personal-twitter-bookmarks',
+    sourceType: opts.sourceTypeTag || 'tweet_bookmark',
     sensitivity: 'green',
     tags: [
-      'twitter/bookmark',
+      tagPrefix,
       `sport/${gate.sport.toLowerCase()}`,
       `author/${bm.author}`
     ]
@@ -433,7 +661,7 @@ ${propSection}`;
         .upsert({
           path: vaultPath,
           content: fullContent,
-          tags: ['twitter/bookmark', `sport/${gate.sport.toLowerCase()}`],
+          tags: [tagPrefix, `sport/${gate.sport.toLowerCase()}`],
           source: 'agent',
           updated_at: new Date().toISOString()
         }, { onConflict: 'path' });
@@ -473,7 +701,7 @@ ${propSection}`;
       if (!noteId) {
         const titleLine = bm.text.trim().split('\n')[0].slice(0, 100);
         const note = {
-          source: 'Twitter/X Bookmarks (Personal)',
+          source: sourceLabel,
           source_type: 'social',
           url: bm.url,
           canonical_url: canonical,
@@ -499,7 +727,7 @@ ${propSection}`;
 
       const props = visionAnalysis?.player_props || [];
       if (props.length && noteId) {
-        const signalRows = buildPropSignalRows(props, { noteId, eventRef: bm.url });
+        const signalRows = buildPropSignalRows(props, { noteId, eventRef: bm.url, sourceLabel });
         if (signalRows.length) {
           const { error: sigErr } = await supabase.from('research_pick_signals').insert(signalRows);
           if (sigErr) throw new Error(`research_pick_signals insert: ${sigErr.message}`);
@@ -514,6 +742,44 @@ ${propSection}`;
   }
 
   return { skipped: false, sport: gate.sport, author: bm.author, vaultPath };
+}
+
+export async function runTrackedAccountsIngestion() {
+  console.log(`=======================================================`);
+  console.log(`  Twitter Tracked-Accounts Ingestion Agent`);
+  console.log(`  Relevance Gate: NFL Betting Only`);
+  console.log(`  Mode: ${DRY_RUN ? 'DRY-RUN' : 'LIVE'}`);
+  console.log(`=======================================================\n`);
+
+  const tweets = await fetchTrackedAccountTweets();
+  if (!tweets) {
+    console.log(`[info] Personal Twitter session cookies not configured -- skipping tracked-accounts run.`);
+    return [];
+  }
+  console.log(`[live] Fetched ${tweets.length} tweet(s) from tracked accounts.`);
+
+  const opts = {
+    sourceLabel: 'Twitter/X Tracked Accounts',
+    signalSourceLabel: 'Twitter/X Tracked Accounts',
+    vaultCategory: 'TrackedAccounts',
+    tagPrefix: 'twitter/tracked-account',
+    sourceSystem: 'twitter-tracked-accounts',
+    sourceTypeTag: 'tweet_tracked_account'
+  };
+
+  const results = [];
+  for (const tw of tweets) {
+    const res = await processBookmarkedTweet(tw, opts);
+    results.push(res);
+  }
+
+  const ingestedCount = results.filter(r => !r.skipped).length;
+  const skippedCount = results.filter(r => r.skipped).length;
+
+  console.log(`\n=======================================================`);
+  console.log(`  Tracked-Accounts Ingestion Complete! Ingested: ${ingestedCount} | Skipped (Non-Target): ${skippedCount}`);
+  console.log(`=======================================================`);
+  return results;
 }
 
 // ── Main Execution ────────────────────────────────────────────────────────────
@@ -558,7 +824,8 @@ export async function runBookmarkIngestion() {
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
-  runBookmarkIngestion().catch(err => {
+  const run = TRACKED_ACCOUNTS_MODE ? runTrackedAccountsIngestion : runBookmarkIngestion;
+  run().catch(err => {
     console.error(`Fatal error in twitter-bookmarks-agent:`, err);
     process.exit(1);
   });
