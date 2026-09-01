@@ -31,6 +31,13 @@
 //
 // Usage:
 //   node agents/fantasy-rose-bowl-build.js [--lbs 40] [--total 280] [--dry-run]
+//     [--qb-cap N] [--rb-cap N] [--wr-cap N] [--te-cap N]  (per-position cap, applied
+//       after ordering — e.g. --qb-cap 16 keeps only the top 16 QBs by rank)
+//     [--exclude "Name One,Name Two"]  (ad hoc removals by exact player name, e.g.
+//       league-specific cuts Andy made by hand reviewing the list — NOT for injuries,
+//       which are handled automatically from live player_injuries data above)
+// Free agents (team='FA' — unsigned/released players) are excluded automatically;
+// this is a standing data-quality rule, not a per-run option.
 // Env: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
 
 import fs from 'node:fs';
@@ -49,6 +56,15 @@ const has = (f) => argv.includes(f);
 const LB_COUNT = parseInt(getArg('--lbs', '40'), 10);
 const TOTAL = parseInt(getArg('--total', '280'), 10);
 const DRY = has('--dry-run');
+const POS_CAPS = {
+  QB: getArg('--qb-cap', null) ? parseInt(getArg('--qb-cap'), 10) : null,
+  RB: getArg('--rb-cap', null) ? parseInt(getArg('--rb-cap'), 10) : null,
+  WR: getArg('--wr-cap', null) ? parseInt(getArg('--wr-cap'), 10) : null,
+  TE: getArg('--te-cap', null) ? parseInt(getArg('--te-cap'), 10) : null,
+};
+const EXCLUDE_NAMES = new Set(
+  (getArg('--exclude', '') || '').split(',').map((s) => s.trim()).filter(Boolean).map((s) => s.toLowerCase())
+);
 
 const SB_URL = process.env.SUPABASE_URL;
 const SB_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -169,6 +185,8 @@ async function main() {
     if (!name) return;
     const pos = (row.position || '').replace(/\d+$/, '').toUpperCase();
     if (pos === 'K' || pos === 'DST' || pos === 'DEF') return; // belt-and-suspenders
+    if ((row.team || '').toUpperCase() === 'FA') return; // unsigned/released — standing rule, not draftable
+    if (EXCLUDE_NAMES.has(name.toLowerCase())) return; // ad hoc --exclude removal
     const k = `${nameKey(name)}|${pos}`;
     const bareK = nameKey(name);
     if (doNotDraft.has(bareK)) return; // live injury scrub
@@ -195,6 +213,22 @@ async function main() {
     collisions.forEach((c) => console.log(`    - "${c.name}" collided with already-added "${c.existing}" (${c.pos})`));
   }
 
+  // 4b. Per-position caps (e.g. --qb-cap 16 keeps only the top 16 QBs by rank).
+  //     Applied here, on the already-ordered/deduped/scrubbed offense pool, so a cap
+  //     always keeps the BEST N at that position, not an arbitrary N.
+  const posCapCounts = { QB: 0, RB: 0, WR: 0, TE: 0 };
+  const cappedOffenseList = offenseList.filter((p) => {
+    const cap = POS_CAPS[p.position];
+    if (cap == null) return true;
+    posCapCounts[p.position] = (posCapCounts[p.position] || 0) + 1;
+    return posCapCounts[p.position] <= cap;
+  });
+  const anyCapsSet = Object.values(POS_CAPS).some((c) => c != null);
+  if (anyCapsSet) {
+    console.log(`Position caps applied: ${JSON.stringify(POS_CAPS)} -> offense pool ${offenseList.length} -> ${cappedOffenseList.length}`);
+  }
+  const finalOffenseList = cappedOffenseList;
+
   // 5. Build LB pool the same way, capped at LB_COUNT, injury-scrubbed.
   const lbSeen = new Set();
   const lbList = [];
@@ -202,6 +236,8 @@ async function main() {
     if (lbList.length >= LB_COUNT) return;
     const name = (row.player || '').trim();
     if (!name) return;
+    if ((row.team || '').toUpperCase() === 'FA') return;
+    if (EXCLUDE_NAMES.has(name.toLowerCase())) return;
     const bareK = nameKey(name);
     const k = `${bareK}|LB`;
     if (doNotDraft.has(bareK) || lbSeen.has(k) || seen.has(k)) return;
@@ -219,7 +255,7 @@ async function main() {
   //    Ranks past that: remaining offense only.
   const finalList = [];
   let offIdx = 0;
-  while (finalList.length < 84 && offIdx < offenseList.length) finalList.push(offenseList[offIdx++]);
+  while (finalList.length < 84 && offIdx < finalOffenseList.length) finalList.push(finalOffenseList[offIdx++]);
 
   const idpWindowStart = 85;
   const idpWindowEnd = 235;
@@ -231,11 +267,11 @@ async function main() {
   }
   let lbIdx = 0;
   let rank = 85;
-  while (finalList.length < TOTAL && (offIdx < offenseList.length || lbIdx < lbList.length)) {
+  while (finalList.length < TOTAL && (offIdx < finalOffenseList.length || lbIdx < lbList.length)) {
     if (lbTargetRanks.has(rank) && lbIdx < lbList.length) {
       finalList.push(lbList[lbIdx++]);
-    } else if (offIdx < offenseList.length) {
-      finalList.push(offenseList[offIdx++]);
+    } else if (offIdx < finalOffenseList.length) {
+      finalList.push(finalOffenseList[offIdx++]);
     } else if (lbIdx < lbList.length) {
       finalList.push(lbList[lbIdx++]);
     }
