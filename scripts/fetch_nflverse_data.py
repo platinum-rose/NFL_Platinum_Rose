@@ -165,6 +165,25 @@ def _fetch_ftn_charting(years: list[int], cache: _Cache) -> "pd.DataFrame":
     return nfl.import_ftn_data(years)
 
 
+def _fetch_pbp_team_join(years: list[int], cache: _Cache) -> "pd.DataFrame":
+    # 2026-09-01: ftn_charting.csv is deliberately play-level with no team
+    # column (see its own DATASETS desc) -- FTN charts a play by
+    # nflverse_game_id/nflverse_play_id only. To aggregate its motion/play-
+    # action/no-huddle/blitz fields per team (the point of pulling this at
+    # all -- team_analytic_snapshots.{motion_rate,play_action_rate,
+    # no_huddle_rate} exist in the schema, migration 044, but have sat null
+    # since that table was created; see build-team-analytics-snapshots.js's
+    # own comment on why), something needs to answer "which team was on
+    # offense/defense for this game_id+play_id". The full nflverse PBP
+    # dataset (import_pbp_data) has that, but it's ~400 columns and would
+    # bloat this folder for no reason -- this fetcher pulls only the 6
+    # join-relevant columns and discards the rest before saving.
+    import nfl_data_py as nfl
+    df = nfl.import_pbp_data(years, downcast=True, cache=False)
+    keep = ["game_id", "play_id", "posteam", "defteam", "season", "week"]
+    return df[keep].dropna(subset=["game_id", "play_id"])
+
+
 def _fetch_snap_counts(years: list[int], cache: _Cache) -> "pd.DataFrame":
     # Expansion C: prior-season snap % per player — the truest "who actually
     # plays" signal; quantifies backup dropoff for roster-depth theses.
@@ -243,6 +262,12 @@ DATASETS: list[dict] = [
         "file": "ftn_charting.csv",
         "fetch": _fetch_ftn_charting,
         "desc": "FTN charting: snap counts, targets, pass rush, blocking grades",
+    },
+    {
+        "name": "pbp_team_join",
+        "file": "pbp_team_join.csv",
+        "fetch": _fetch_pbp_team_join,
+        "desc": "game_id/play_id -> posteam/defteam only -- join key for aggregating ftn_charting.csv by team",
     },
     {
         "name": "espn_data",

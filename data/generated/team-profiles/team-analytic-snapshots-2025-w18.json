@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-07-24T01:51:21.117Z",
+    "generated_at": "2026-09-01T19:00:16.059Z",
     "season": 2025,
     "week": 18,
     "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -17,7 +17,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": 0.0818,
       "def_epa_per_play": 0.0713,
@@ -38,10 +38,10 @@
       "neutral_pass_rate": 0.5555,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0333,
+      "play_action_rate": 0.1095,
+      "motion_rate": 0.5599,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -49,7 +49,24 @@
         "offensive_dropbacks": 601,
         "offensive_plays": 1082,
         "defensive_dropbacks": 604,
-        "defensive_plays": 1028
+        "defensive_plays": 1028,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1352,
+          "ftn_charted_plays_defense": 1335,
+          "screen_rate": 0.0296,
+          "rpo_rate": 0.0052,
+          "trick_play_rate": 0.003,
+          "qb_out_of_pocket_rate": 0.0799,
+          "interception_worthy_rate": 0.017,
+          "throw_away_rate": 0.017,
+          "drop_rate_of_catchable_targets": 0.0536,
+          "contested_catch_rate_of_catchable_targets": 0.1451,
+          "created_reception_rate_of_catchable_targets": 0.0357,
+          "blitz_rate_faced": 0.1065,
+          "blitz_rate_generated": 0.1169,
+          "avg_pass_rushers_generated": 2.1296,
+          "avg_defenders_in_box_faced": 4.7955
+        }
       }
     },
     {
@@ -59,7 +76,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": 0.0733,
       "def_epa_per_play": 0.0177,
@@ -80,10 +97,10 @@
       "neutral_pass_rate": 0.5422,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0429,
+      "play_action_rate": 0.1498,
+      "motion_rate": 0.462,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -91,7 +108,24 @@
         "offensive_dropbacks": 598,
         "offensive_plays": 1103,
         "defensive_dropbacks": 568,
-        "defensive_plays": 1025
+        "defensive_plays": 1025,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1422,
+          "ftn_charted_plays_defense": 1321,
+          "screen_rate": 0.0436,
+          "rpo_rate": 0.0373,
+          "trick_play_rate": 0.0091,
+          "qb_out_of_pocket_rate": 0.1463,
+          "interception_worthy_rate": 0.0141,
+          "throw_away_rate": 0.0309,
+          "drop_rate_of_catchable_targets": 0.0789,
+          "contested_catch_rate_of_catchable_targets": 0.1043,
+          "created_reception_rate_of_catchable_targets": 0.0483,
+          "blitz_rate_faced": 0.1568,
+          "blitz_rate_generated": 0.1423,
+          "avg_pass_rushers_generated": 2.0833,
+          "avg_defenders_in_box_faced": 4.9985
+        }
       }
     },
     {
@@ -101,7 +135,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": 0.0193,
       "def_epa_per_play": 0.1342,
@@ -122,10 +156,10 @@
       "neutral_pass_rate": 0.6395,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0245,
+      "play_action_rate": 0.0852,
+      "motion_rate": 0.4209,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -133,7 +167,24 @@
         "offensive_dropbacks": 676,
         "offensive_plays": 1057,
         "defensive_dropbacks": 569,
-        "defensive_plays": 1048
+        "defensive_plays": 1048,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1385,
+          "ftn_charted_plays_defense": 1336,
+          "screen_rate": 0.0332,
+          "rpo_rate": 0.0729,
+          "trick_play_rate": 0.0014,
+          "qb_out_of_pocket_rate": 0.0744,
+          "interception_worthy_rate": 0.0144,
+          "throw_away_rate": 0.0209,
+          "drop_rate_of_catchable_targets": 0.0459,
+          "contested_catch_rate_of_catchable_targets": 0.1754,
+          "created_reception_rate_of_catchable_targets": 0.0501,
+          "blitz_rate_faced": 0.1285,
+          "blitz_rate_generated": 0.1003,
+          "avg_pass_rushers_generated": 1.9955,
+          "avg_defenders_in_box_faced": 4.9491
+        }
       }
     },
     {
@@ -143,7 +194,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": 0.1279,
       "def_epa_per_play": -0.0111,
@@ -164,10 +215,10 @@
       "neutral_pass_rate": 0.4945,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0508,
+      "play_action_rate": 0.1141,
+      "motion_rate": 0.4919,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -175,7 +226,24 @@
         "offensive_dropbacks": 535,
         "offensive_plays": 1082,
         "defensive_dropbacks": 500,
-        "defensive_plays": 950
+        "defensive_plays": 950,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1358,
+          "ftn_charted_plays_defense": 1231,
+          "screen_rate": 0.0427,
+          "rpo_rate": 0.0574,
+          "trick_play_rate": 0.0029,
+          "qb_out_of_pocket_rate": 0.123,
+          "interception_worthy_rate": 0.0162,
+          "throw_away_rate": 0.0118,
+          "drop_rate_of_catchable_targets": 0.0614,
+          "contested_catch_rate_of_catchable_targets": 0.1125,
+          "created_reception_rate_of_catchable_targets": 0.0281,
+          "blitz_rate_faced": 0.137,
+          "blitz_rate_generated": 0.1413,
+          "avg_pass_rushers_generated": 1.9366,
+          "avg_defenders_in_box_faced": 4.9293
+        }
       }
     },
     {
@@ -185,7 +253,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": 0.0454,
       "def_epa_per_play": -0.0886,
@@ -206,10 +274,10 @@
       "neutral_pass_rate": 0.5824,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.1098,
+      "play_action_rate": 0.1235,
+      "motion_rate": 0.374,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -217,7 +285,24 @@
         "offensive_dropbacks": 636,
         "offensive_plays": 1092,
         "defensive_dropbacks": 661,
-        "defensive_plays": 1061
+        "defensive_plays": 1061,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1393,
+          "ftn_charted_plays_defense": 1409,
+          "screen_rate": 0.056,
+          "rpo_rate": 0.0696,
+          "trick_play_rate": 0.0029,
+          "qb_out_of_pocket_rate": 0.1357,
+          "interception_worthy_rate": 0.0158,
+          "throw_away_rate": 0.0187,
+          "drop_rate_of_catchable_targets": 0.0597,
+          "contested_catch_rate_of_catchable_targets": 0.0885,
+          "created_reception_rate_of_catchable_targets": 0.0221,
+          "blitz_rate_faced": 0.122,
+          "blitz_rate_generated": 0.1604,
+          "avg_pass_rushers_generated": 2.3151,
+          "avg_defenders_in_box_faced": 4.8524
+        }
       }
     },
     {
@@ -227,7 +312,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": -0.1809,
       "def_epa_per_play": -0.093,
@@ -248,10 +333,10 @@
       "neutral_pass_rate": 0.5913,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0747,
+      "play_action_rate": 0.1117,
+      "motion_rate": 0.3935,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -259,7 +344,24 @@
         "offensive_dropbacks": 609,
         "offensive_plays": 1030,
         "defensive_dropbacks": 540,
-        "defensive_plays": 1015
+        "defensive_plays": 1015,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1352,
+          "ftn_charted_plays_defense": 1326,
+          "screen_rate": 0.0422,
+          "rpo_rate": 0.0296,
+          "trick_play_rate": 0.0067,
+          "qb_out_of_pocket_rate": 0.1021,
+          "interception_worthy_rate": 0.0185,
+          "throw_away_rate": 0.0222,
+          "drop_rate_of_catchable_targets": 0.0585,
+          "contested_catch_rate_of_catchable_targets": 0.1463,
+          "created_reception_rate_of_catchable_targets": 0.0319,
+          "blitz_rate_faced": 0.1442,
+          "blitz_rate_generated": 0.1282,
+          "avg_pass_rushers_generated": 1.9623,
+          "avg_defenders_in_box_faced": 4.997
+        }
       }
     },
     {
@@ -269,7 +371,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": -0.0103,
       "def_epa_per_play": 0.0188,
@@ -290,10 +392,10 @@
       "neutral_pass_rate": 0.5581,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0554,
+      "play_action_rate": 0.0835,
+      "motion_rate": 0.5018,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -301,7 +403,24 @@
         "offensive_dropbacks": 596,
         "offensive_plays": 1068,
         "defensive_dropbacks": 605,
-        "defensive_plays": 1001
+        "defensive_plays": 1001,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1389,
+          "ftn_charted_plays_defense": 1297,
+          "screen_rate": 0.0511,
+          "rpo_rate": 0.0641,
+          "trick_play_rate": 0.0043,
+          "qb_out_of_pocket_rate": 0.1087,
+          "interception_worthy_rate": 0.0108,
+          "throw_away_rate": 0.0108,
+          "drop_rate_of_catchable_targets": 0.0457,
+          "contested_catch_rate_of_catchable_targets": 0.1058,
+          "created_reception_rate_of_catchable_targets": 0.0288,
+          "blitz_rate_faced": 0.1656,
+          "blitz_rate_generated": 0.1951,
+          "avg_pass_rushers_generated": 2.2976,
+          "avg_defenders_in_box_faced": 5.0455
+        }
       }
     },
     {
@@ -311,7 +430,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": -0.0156,
       "def_epa_per_play": 0.0816,
@@ -332,10 +451,10 @@
       "neutral_pass_rate": 0.6592,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0989,
+      "play_action_rate": 0.1384,
+      "motion_rate": 0.3541,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -343,7 +462,24 @@
         "offensive_dropbacks": 708,
         "offensive_plays": 1074,
         "defensive_dropbacks": 602,
-        "defensive_plays": 1091
+        "defensive_plays": 1091,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1395,
+          "ftn_charted_plays_defense": 1390,
+          "screen_rate": 0.0466,
+          "rpo_rate": 0.0201,
+          "trick_play_rate": 0.0029,
+          "qb_out_of_pocket_rate": 0.0939,
+          "interception_worthy_rate": 0.01,
+          "throw_away_rate": 0.0208,
+          "drop_rate_of_catchable_targets": 0.0358,
+          "contested_catch_rate_of_catchable_targets": 0.1368,
+          "created_reception_rate_of_catchable_targets": 0.0484,
+          "blitz_rate_faced": 0.1305,
+          "blitz_rate_generated": 0.1122,
+          "avg_pass_rushers_generated": 2.0432,
+          "avg_defenders_in_box_faced": 4.8683
+        }
       }
     },
     {
@@ -353,7 +489,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": -0.0271,
       "def_epa_per_play": -0.086,
@@ -374,10 +510,10 @@
       "neutral_pass_rate": 0.5744,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0336,
+      "play_action_rate": 0.1151,
+      "motion_rate": 0.4217,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -385,7 +521,24 @@
         "offensive_dropbacks": 629,
         "offensive_plays": 1095,
         "defensive_dropbacks": 550,
-        "defensive_plays": 966
+        "defensive_plays": 966,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1399,
+          "ftn_charted_plays_defense": 1255,
+          "screen_rate": 0.0286,
+          "rpo_rate": 0.0207,
+          "trick_play_rate": 0.0021,
+          "qb_out_of_pocket_rate": 0.1294,
+          "interception_worthy_rate": 0.0164,
+          "throw_away_rate": 0.0129,
+          "drop_rate_of_catchable_targets": 0.0433,
+          "contested_catch_rate_of_catchable_targets": 0.1106,
+          "created_reception_rate_of_catchable_targets": 0.0168,
+          "blitz_rate_faced": 0.1608,
+          "blitz_rate_generated": 0.1235,
+          "avg_pass_rushers_generated": 1.9649,
+          "avg_defenders_in_box_faced": 4.6223
+        }
       }
     },
     {
@@ -395,7 +548,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": 0.0314,
       "def_epa_per_play": -0.0281,
@@ -416,10 +569,10 @@
       "neutral_pass_rate": 0.5947,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0237,
+      "play_action_rate": 0.0808,
+      "motion_rate": 0.3988,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -427,7 +580,24 @@
         "offensive_dropbacks": 631,
         "offensive_plays": 1061,
         "defensive_dropbacks": 544,
-        "defensive_plays": 992
+        "defensive_plays": 992,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1349,
+          "ftn_charted_plays_defense": 1284,
+          "screen_rate": 0.0474,
+          "rpo_rate": 0.1149,
+          "trick_play_rate": 0.0007,
+          "qb_out_of_pocket_rate": 0.1446,
+          "interception_worthy_rate": 0.0148,
+          "throw_away_rate": 0.0245,
+          "drop_rate_of_catchable_targets": 0.0612,
+          "contested_catch_rate_of_catchable_targets": 0.0518,
+          "created_reception_rate_of_catchable_targets": 0.0259,
+          "blitz_rate_faced": 0.1342,
+          "blitz_rate_generated": 0.1854,
+          "avg_pass_rushers_generated": 2.1324,
+          "avg_defenders_in_box_faced": 4.9766
+        }
       }
     },
     {
@@ -437,7 +607,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": 0.0802,
       "def_epa_per_play": 0.0073,
@@ -458,10 +628,10 @@
       "neutral_pass_rate": 0.5658,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0471,
+      "play_action_rate": 0.136,
+      "motion_rate": 0.4255,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -469,7 +639,24 @@
         "offensive_dropbacks": 576,
         "offensive_plays": 1018,
         "defensive_dropbacks": 666,
-        "defensive_plays": 1114
+        "defensive_plays": 1114,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1316,
+          "ftn_charted_plays_defense": 1414,
+          "screen_rate": 0.0266,
+          "rpo_rate": 0.0722,
+          "trick_play_rate": 0.0015,
+          "qb_out_of_pocket_rate": 0.0638,
+          "interception_worthy_rate": 0.0175,
+          "throw_away_rate": 0.0114,
+          "drop_rate_of_catchable_targets": 0.0439,
+          "contested_catch_rate_of_catchable_targets": 0.1244,
+          "created_reception_rate_of_catchable_targets": 0.0561,
+          "blitz_rate_faced": 0.1543,
+          "blitz_rate_generated": 0.1605,
+          "avg_pass_rushers_generated": 2.2426,
+          "avg_defenders_in_box_faced": 5.017
+        }
       }
     },
     {
@@ -479,7 +666,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": -0.0017,
       "def_epa_per_play": 0.1362,
@@ -500,10 +687,10 @@
       "neutral_pass_rate": 0.5111,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.5019,
+      "play_action_rate": 0.1192,
+      "motion_rate": 0.4232,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -511,7 +698,24 @@
         "offensive_dropbacks": 506,
         "offensive_plays": 990,
         "defensive_dropbacks": 582,
-        "defensive_plays": 1086
+        "defensive_plays": 1086,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1309,
+          "ftn_charted_plays_defense": 1373,
+          "screen_rate": 0.0374,
+          "rpo_rate": 0.0626,
+          "trick_play_rate": 0.0031,
+          "qb_out_of_pocket_rate": 0.1176,
+          "interception_worthy_rate": 0.0115,
+          "throw_away_rate": 0.0191,
+          "drop_rate_of_catchable_targets": 0.0651,
+          "contested_catch_rate_of_catchable_targets": 0.1213,
+          "created_reception_rate_of_catchable_targets": 0.0296,
+          "blitz_rate_faced": 0.1719,
+          "blitz_rate_generated": 0.1326,
+          "avg_pass_rushers_generated": 2.0619,
+          "avg_defenders_in_box_faced": 5.0619
+        }
       }
     },
     {
@@ -521,7 +725,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": 0.0934,
       "def_epa_per_play": 0.166,
@@ -542,10 +746,10 @@
       "neutral_pass_rate": 0.5848,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0783,
+      "play_action_rate": 0.1298,
+      "motion_rate": 0.4712,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -553,7 +757,24 @@
         "offensive_dropbacks": 655,
         "offensive_plays": 1120,
         "defensive_dropbacks": 591,
-        "defensive_plays": 1043
+        "defensive_plays": 1043,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1456,
+          "ftn_charted_plays_defense": 1390,
+          "screen_rate": 0.0268,
+          "rpo_rate": 0.0412,
+          "trick_play_rate": 0.0007,
+          "qb_out_of_pocket_rate": 0.0968,
+          "interception_worthy_rate": 0.0124,
+          "throw_away_rate": 0.011,
+          "drop_rate_of_catchable_targets": 0.0556,
+          "contested_catch_rate_of_catchable_targets": 0.1132,
+          "created_reception_rate_of_catchable_targets": 0.0391,
+          "blitz_rate_faced": 0.1655,
+          "blitz_rate_generated": 0.1324,
+          "avg_pass_rushers_generated": 2.1129,
+          "avg_defenders_in_box_faced": 4.8885
+        }
       }
     },
     {
@@ -563,7 +784,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": -0.0079,
       "def_epa_per_play": 0.0852,
@@ -584,10 +805,10 @@
       "neutral_pass_rate": 0.5448,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0309,
+      "play_action_rate": 0.1287,
+      "motion_rate": 0.5594,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -595,7 +816,24 @@
         "offensive_dropbacks": 517,
         "offensive_plays": 949,
         "defensive_dropbacks": 554,
-        "defensive_plays": 1023
+        "defensive_plays": 1023,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1228,
+          "ftn_charted_plays_defense": 1328,
+          "screen_rate": 0.0521,
+          "rpo_rate": 0.044,
+          "trick_play_rate": 0.0065,
+          "qb_out_of_pocket_rate": 0.0871,
+          "interception_worthy_rate": 0.0212,
+          "throw_away_rate": 0.0114,
+          "drop_rate_of_catchable_targets": 0.0468,
+          "contested_catch_rate_of_catchable_targets": 0.0937,
+          "created_reception_rate_of_catchable_targets": 0.0523,
+          "blitz_rate_faced": 0.1254,
+          "blitz_rate_generated": 0.1755,
+          "avg_pass_rushers_generated": 2.0527,
+          "avg_defenders_in_box_faced": 4.9887
+        }
       }
     },
     {
@@ -605,7 +843,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": 0.0209,
       "def_epa_per_play": -0.0834,
@@ -626,10 +864,10 @@
       "neutral_pass_rate": 0.5267,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.1578,
+      "play_action_rate": 0.1021,
+      "motion_rate": 0.3735,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -637,7 +875,24 @@
         "offensive_dropbacks": 532,
         "offensive_plays": 1010,
         "defensive_dropbacks": 586,
-        "defensive_plays": 1080
+        "defensive_plays": 1080,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1312,
+          "ftn_charted_plays_defense": 1368,
+          "screen_rate": 0.0198,
+          "rpo_rate": 0.0503,
+          "trick_play_rate": 0.0008,
+          "qb_out_of_pocket_rate": 0.1265,
+          "interception_worthy_rate": 0.0091,
+          "throw_away_rate": 0.0229,
+          "drop_rate_of_catchable_targets": 0.05,
+          "contested_catch_rate_of_catchable_targets": 0.1167,
+          "created_reception_rate_of_catchable_targets": 0.05,
+          "blitz_rate_faced": 0.1669,
+          "blitz_rate_generated": 0.1308,
+          "avg_pass_rushers_generated": 2.0512,
+          "avg_defenders_in_box_faced": 4.9247
+        }
       }
     },
     {
@@ -647,7 +902,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": -0.0143,
       "def_epa_per_play": -0.0022,
@@ -668,10 +923,10 @@
       "neutral_pass_rate": 0.5448,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0946,
+      "play_action_rate": 0.0932,
+      "motion_rate": 0.5304,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -679,7 +934,24 @@
         "offensive_dropbacks": 571,
         "offensive_plays": 1048,
         "defensive_dropbacks": 586,
-        "defensive_plays": 1052
+        "defensive_plays": 1052,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1363,
+          "ftn_charted_plays_defense": 1346,
+          "screen_rate": 0.0382,
+          "rpo_rate": 0.0374,
+          "trick_play_rate": 0.0007,
+          "qb_out_of_pocket_rate": 0.0506,
+          "interception_worthy_rate": 0.0125,
+          "throw_away_rate": 0.0183,
+          "drop_rate_of_catchable_targets": 0.0497,
+          "contested_catch_rate_of_catchable_targets": 0.1361,
+          "created_reception_rate_of_catchable_targets": 0.034,
+          "blitz_rate_faced": 0.1372,
+          "blitz_rate_generated": 0.1761,
+          "avg_pass_rushers_generated": 2.1627,
+          "avg_defenders_in_box_faced": 5.0936
+        }
       }
     },
     {
@@ -689,7 +961,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": 0.0196,
       "def_epa_per_play": 0.0776,
@@ -710,10 +982,10 @@
       "neutral_pass_rate": 0.529,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.1742,
+      "play_action_rate": 0.1084,
+      "motion_rate": 0.3081,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -721,7 +993,24 @@
         "offensive_dropbacks": 574,
         "offensive_plays": 1085,
         "defensive_dropbacks": 589,
-        "defensive_plays": 1054
+        "defensive_plays": 1054,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1412,
+          "ftn_charted_plays_defense": 1370,
+          "screen_rate": 0.0312,
+          "rpo_rate": 0.0935,
+          "trick_play_rate": 0.0035,
+          "qb_out_of_pocket_rate": 0.1133,
+          "interception_worthy_rate": 0.0135,
+          "throw_away_rate": 0.0191,
+          "drop_rate_of_catchable_targets": 0.0597,
+          "contested_catch_rate_of_catchable_targets": 0.1169,
+          "created_reception_rate_of_catchable_targets": 0.0338,
+          "blitz_rate_faced": 0.1487,
+          "blitz_rate_generated": 0.1642,
+          "avg_pass_rushers_generated": 2.1212,
+          "avg_defenders_in_box_faced": 4.9044
+        }
       }
     },
     {
@@ -731,7 +1020,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": 0.0302,
       "def_epa_per_play": -0.0968,
@@ -752,10 +1041,10 @@
       "neutral_pass_rate": 0.5526,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0588,
+      "play_action_rate": 0.1028,
+      "motion_rate": 0.4755,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -763,7 +1052,24 @@
         "offensive_dropbacks": 604,
         "offensive_plays": 1093,
         "defensive_dropbacks": 667,
-        "defensive_plays": 1036
+        "defensive_plays": 1036,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1411,
+          "ftn_charted_plays_defense": 1341,
+          "screen_rate": 0.0383,
+          "rpo_rate": 0.0376,
+          "trick_play_rate": 0.005,
+          "qb_out_of_pocket_rate": 0.095,
+          "interception_worthy_rate": 0.0149,
+          "throw_away_rate": 0.0092,
+          "drop_rate_of_catchable_targets": 0.0955,
+          "contested_catch_rate_of_catchable_targets": 0.1217,
+          "created_reception_rate_of_catchable_targets": 0.0334,
+          "blitz_rate_faced": 0.1311,
+          "blitz_rate_generated": 0.1767,
+          "avg_pass_rushers_generated": 2.4034,
+          "avg_defenders_in_box_faced": 5
+        }
       }
     },
     {
@@ -773,7 +1079,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": -0.1305,
       "def_epa_per_play": 0.1346,
@@ -794,10 +1100,10 @@
       "neutral_pass_rate": 0.5485,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0806,
+      "play_action_rate": 0.0859,
+      "motion_rate": 0.4981,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -805,7 +1111,24 @@
         "offensive_dropbacks": 554,
         "offensive_plays": 1010,
         "defensive_dropbacks": 541,
-        "defensive_plays": 1080
+        "defensive_plays": 1080,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1315,
+          "ftn_charted_plays_defense": 1388,
+          "screen_rate": 0.0342,
+          "rpo_rate": 0.0715,
+          "trick_play_rate": 0.0061,
+          "qb_out_of_pocket_rate": 0.1125,
+          "interception_worthy_rate": 0.0122,
+          "throw_away_rate": 0.0144,
+          "drop_rate_of_catchable_targets": 0.0822,
+          "contested_catch_rate_of_catchable_targets": 0.1416,
+          "created_reception_rate_of_catchable_targets": 0.0482,
+          "blitz_rate_faced": 0.1529,
+          "blitz_rate_generated": 0.1318,
+          "avg_pass_rushers_generated": 1.9323,
+          "avg_defenders_in_box_faced": 5.072
+        }
       }
     },
     {
@@ -815,7 +1138,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": 0.0741,
       "def_epa_per_play": -0.0052,
@@ -836,10 +1159,10 @@
       "neutral_pass_rate": 0.5842,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0499,
+      "play_action_rate": 0.1195,
+      "motion_rate": 0.4729,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -847,7 +1170,24 @@
         "offensive_dropbacks": 621,
         "offensive_plays": 1063,
         "defensive_dropbacks": 604,
-        "defensive_plays": 1050
+        "defensive_plays": 1050,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1364,
+          "ftn_charted_plays_defense": 1367,
+          "screen_rate": 0.0491,
+          "rpo_rate": 0.0308,
+          "trick_play_rate": 0.0073,
+          "qb_out_of_pocket_rate": 0.0528,
+          "interception_worthy_rate": 0.0066,
+          "throw_away_rate": 0.022,
+          "drop_rate_of_catchable_targets": 0.0532,
+          "contested_catch_rate_of_catchable_targets": 0.0694,
+          "created_reception_rate_of_catchable_targets": 0.0185,
+          "blitz_rate_faced": 0.1466,
+          "blitz_rate_generated": 0.1646,
+          "avg_pass_rushers_generated": 2.177,
+          "avg_defenders_in_box_faced": 5.1595
+        }
       }
     },
     {
@@ -857,7 +1197,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": 0.1025,
       "def_epa_per_play": 0.0341,
@@ -878,10 +1218,10 @@
       "neutral_pass_rate": 0.5129,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0754,
+      "play_action_rate": 0.119,
+      "motion_rate": 0.4432,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -889,7 +1229,24 @@
         "offensive_dropbacks": 518,
         "offensive_plays": 1010,
         "defensive_dropbacks": 585,
-        "defensive_plays": 1061
+        "defensive_plays": 1061,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1286,
+          "ftn_charted_plays_defense": 1357,
+          "screen_rate": 0.0319,
+          "rpo_rate": 0.0762,
+          "trick_play_rate": 0.0039,
+          "qb_out_of_pocket_rate": 0.0933,
+          "interception_worthy_rate": 0.0101,
+          "throw_away_rate": 0.0226,
+          "drop_rate_of_catchable_targets": 0.0561,
+          "contested_catch_rate_of_catchable_targets": 0.1283,
+          "created_reception_rate_of_catchable_targets": 0.0374,
+          "blitz_rate_faced": 0.1462,
+          "blitz_rate_generated": 0.1186,
+          "avg_pass_rushers_generated": 2.0442,
+          "avg_defenders_in_box_faced": 5.1209
+        }
       }
     },
     {
@@ -899,7 +1256,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": -0.0465,
       "def_epa_per_play": 0.0547,
@@ -920,10 +1277,10 @@
       "neutral_pass_rate": 0.544,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0485,
+      "play_action_rate": 0.1032,
+      "motion_rate": 0.3382,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -931,7 +1288,24 @@
         "offensive_dropbacks": 550,
         "offensive_plays": 1011,
         "defensive_dropbacks": 537,
-        "defensive_plays": 1016
+        "defensive_plays": 1016,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1298,
+          "ftn_charted_plays_defense": 1287,
+          "screen_rate": 0.03,
+          "rpo_rate": 0.0778,
+          "trick_play_rate": 0.0031,
+          "qb_out_of_pocket_rate": 0.1171,
+          "interception_worthy_rate": 0.0108,
+          "throw_away_rate": 0.0216,
+          "drop_rate_of_catchable_targets": 0.0584,
+          "contested_catch_rate_of_catchable_targets": 0.1114,
+          "created_reception_rate_of_catchable_targets": 0.0318,
+          "blitz_rate_faced": 0.1402,
+          "blitz_rate_generated": 0.1298,
+          "avg_pass_rushers_generated": 1.965,
+          "avg_defenders_in_box_faced": 4.9573
+        }
       }
     },
     {
@@ -941,7 +1315,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": 0.1419,
       "def_epa_per_play": -0.0367,
@@ -962,10 +1336,10 @@
       "neutral_pass_rate": 0.5268,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0195,
+      "play_action_rate": 0.116,
+      "motion_rate": 0.4177,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -973,7 +1347,24 @@
         "offensive_dropbacks": 550,
         "offensive_plays": 1044,
         "defensive_dropbacks": 562,
-        "defensive_plays": 973
+        "defensive_plays": 973,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1336,
+          "ftn_charted_plays_defense": 1273,
+          "screen_rate": 0.021,
+          "rpo_rate": 0.0127,
+          "trick_play_rate": 0.006,
+          "qb_out_of_pocket_rate": 0.1228,
+          "interception_worthy_rate": 0.0105,
+          "throw_away_rate": 0.015,
+          "drop_rate_of_catchable_targets": 0.0325,
+          "contested_catch_rate_of_catchable_targets": 0.115,
+          "created_reception_rate_of_catchable_targets": 0.07,
+          "blitz_rate_faced": 0.1549,
+          "blitz_rate_generated": 0.1383,
+          "avg_pass_rushers_generated": 2.1328,
+          "avg_defenders_in_box_faced": 4.9136
+        }
       }
     },
     {
@@ -983,7 +1374,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": -0.2156,
       "def_epa_per_play": 0.0097,
@@ -1004,10 +1395,10 @@
       "neutral_pass_rate": 0.6108,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0744,
+      "play_action_rate": 0.1238,
+      "motion_rate": 0.4142,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -1015,7 +1406,24 @@
         "offensive_dropbacks": 579,
         "offensive_plays": 948,
         "defensive_dropbacks": 561,
-        "defensive_plays": 1072
+        "defensive_plays": 1072,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1236,
+          "ftn_charted_plays_defense": 1364,
+          "screen_rate": 0.0413,
+          "rpo_rate": 0.0316,
+          "trick_play_rate": 0.004,
+          "qb_out_of_pocket_rate": 0.0825,
+          "interception_worthy_rate": 0.0146,
+          "throw_away_rate": 0.0097,
+          "drop_rate_of_catchable_targets": 0.0472,
+          "contested_catch_rate_of_catchable_targets": 0.0892,
+          "created_reception_rate_of_catchable_targets": 0.0394,
+          "blitz_rate_faced": 0.157,
+          "blitz_rate_generated": 0.1056,
+          "avg_pass_rushers_generated": 1.9773,
+          "avg_defenders_in_box_faced": 5.0814
+        }
       }
     },
     {
@@ -1025,7 +1433,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": 0.1348,
       "def_epa_per_play": -0.0335,
@@ -1046,10 +1454,10 @@
       "neutral_pass_rate": 0.5718,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0594,
+      "play_action_rate": 0.1659,
+      "motion_rate": 0.5159,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -1057,7 +1465,24 @@
         "offensive_dropbacks": 621,
         "offensive_plays": 1086,
         "defensive_dropbacks": 636,
-        "defensive_plays": 1072
+        "defensive_plays": 1072,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1380,
+          "ftn_charted_plays_defense": 1382,
+          "screen_rate": 0.0333,
+          "rpo_rate": 0.0036,
+          "trick_play_rate": 0.0007,
+          "qb_out_of_pocket_rate": 0.0775,
+          "interception_worthy_rate": 0.0109,
+          "throw_away_rate": 0.013,
+          "drop_rate_of_catchable_targets": 0.051,
+          "contested_catch_rate_of_catchable_targets": 0.1397,
+          "created_reception_rate_of_catchable_targets": 0.0599,
+          "blitz_rate_faced": 0.1391,
+          "blitz_rate_generated": 0.1245,
+          "avg_pass_rushers_generated": 2.0955,
+          "avg_defenders_in_box_faced": 4.919
+        }
       }
     },
     {
@@ -1067,7 +1492,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": 0.048,
       "def_epa_per_play": 0.0169,
@@ -1088,10 +1513,10 @@
       "neutral_pass_rate": 0.4795,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0274,
+      "play_action_rate": 0.0893,
+      "motion_rate": 0.4177,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -1099,7 +1524,24 @@
         "offensive_dropbacks": 467,
         "offensive_plays": 974,
         "defensive_dropbacks": 655,
-        "defensive_plays": 1089
+        "defensive_plays": 1089,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1276,
+          "ftn_charted_plays_defense": 1393,
+          "screen_rate": 0.0282,
+          "rpo_rate": 0.0439,
+          "trick_play_rate": 0.0047,
+          "qb_out_of_pocket_rate": 0.1034,
+          "interception_worthy_rate": 0.0078,
+          "throw_away_rate": 0.0125,
+          "drop_rate_of_catchable_targets": 0.0708,
+          "contested_catch_rate_of_catchable_targets": 0.1231,
+          "created_reception_rate_of_catchable_targets": 0.0554,
+          "blitz_rate_faced": 0.1646,
+          "blitz_rate_generated": 0.1515,
+          "avg_pass_rushers_generated": 2.2053,
+          "avg_defenders_in_box_faced": 4.9921
+        }
       }
     },
     {
@@ -1109,7 +1551,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": -0.0691,
       "def_epa_per_play": -0.0662,
@@ -1130,10 +1572,10 @@
       "neutral_pass_rate": 0.5953,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.1871,
+      "play_action_rate": 0.0964,
+      "motion_rate": 0.4967,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -1141,7 +1583,24 @@
         "offensive_dropbacks": 640,
         "offensive_plays": 1075,
         "defensive_dropbacks": 536,
-        "defensive_plays": 1053
+        "defensive_plays": 1053,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1379,
+          "ftn_charted_plays_defense": 1346,
+          "screen_rate": 0.0268,
+          "rpo_rate": 0.0471,
+          "trick_play_rate": 0.0036,
+          "qb_out_of_pocket_rate": 0.1109,
+          "interception_worthy_rate": 0.0167,
+          "throw_away_rate": 0.0145,
+          "drop_rate_of_catchable_targets": 0.0513,
+          "contested_catch_rate_of_catchable_targets": 0.1317,
+          "created_reception_rate_of_catchable_targets": 0.0513,
+          "blitz_rate_faced": 0.1392,
+          "blitz_rate_generated": 0.1389,
+          "avg_pass_rushers_generated": 1.8878,
+          "avg_defenders_in_box_faced": 4.9658
+        }
       }
     },
     {
@@ -1151,7 +1610,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": 0.031,
       "def_epa_per_play": -0.1135,
@@ -1172,10 +1631,10 @@
       "neutral_pass_rate": 0.5005,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0618,
+      "play_action_rate": 0.1061,
+      "motion_rate": 0.4527,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -1183,7 +1642,24 @@
         "offensive_dropbacks": 508,
         "offensive_plays": 1015,
         "defensive_dropbacks": 647,
-        "defensive_plays": 1065
+        "defensive_plays": 1065,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1310,
+          "ftn_charted_plays_defense": 1380,
+          "screen_rate": 0.0252,
+          "rpo_rate": 0.0206,
+          "trick_play_rate": 0.0046,
+          "qb_out_of_pocket_rate": 0.0832,
+          "interception_worthy_rate": 0.0145,
+          "throw_away_rate": 0.0176,
+          "drop_rate_of_catchable_targets": 0.0369,
+          "contested_catch_rate_of_catchable_targets": 0.0767,
+          "created_reception_rate_of_catchable_targets": 0.0426,
+          "blitz_rate_faced": 0.1359,
+          "blitz_rate_generated": 0.1319,
+          "avg_pass_rushers_generated": 2.2543,
+          "avg_defenders_in_box_faced": 4.8746
+        }
       }
     },
     {
@@ -1193,7 +1669,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": 0.0333,
       "def_epa_per_play": 0.0194,
@@ -1214,10 +1690,10 @@
       "neutral_pass_rate": 0.5881,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0945,
+      "play_action_rate": 0.093,
+      "motion_rate": 0.4336,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -1225,7 +1701,24 @@
         "offensive_dropbacks": 581,
         "offensive_plays": 988,
         "defensive_dropbacks": 661,
-        "defensive_plays": 1112
+        "defensive_plays": 1112,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1280,
+          "ftn_charted_plays_defense": 1411,
+          "screen_rate": 0.0648,
+          "rpo_rate": 0.0695,
+          "trick_play_rate": 0.0016,
+          "qb_out_of_pocket_rate": 0.0852,
+          "interception_worthy_rate": 0.0109,
+          "throw_away_rate": 0.0187,
+          "drop_rate_of_catchable_targets": 0.0345,
+          "contested_catch_rate_of_catchable_targets": 0.0788,
+          "created_reception_rate_of_catchable_targets": 0.0394,
+          "blitz_rate_faced": 0.107,
+          "blitz_rate_generated": 0.1899,
+          "avg_pass_rushers_generated": 2.2842,
+          "avg_defenders_in_box_faced": 5.1283
+        }
       }
     },
     {
@@ -1235,7 +1728,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": -0.0129,
       "def_epa_per_play": -0.1121,
@@ -1256,10 +1749,10 @@
       "neutral_pass_rate": 0.5634,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.037,
+      "play_action_rate": 0.1132,
+      "motion_rate": 0.4356,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -1267,7 +1760,24 @@
         "offensive_dropbacks": 613,
         "offensive_plays": 1088,
         "defensive_dropbacks": 585,
-        "defensive_plays": 985
+        "defensive_plays": 985,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1405,
+          "ftn_charted_plays_defense": 1308,
+          "screen_rate": 0.0235,
+          "rpo_rate": 0.0135,
+          "trick_play_rate": 0.0021,
+          "qb_out_of_pocket_rate": 0.1096,
+          "interception_worthy_rate": 0.0142,
+          "throw_away_rate": 0.0221,
+          "drop_rate_of_catchable_targets": 0.0412,
+          "contested_catch_rate_of_catchable_targets": 0.1186,
+          "created_reception_rate_of_catchable_targets": 0.0339,
+          "blitz_rate_faced": 0.1644,
+          "blitz_rate_generated": 0.1124,
+          "avg_pass_rushers_generated": 2.172,
+          "avg_defenders_in_box_faced": 4.9824
+        }
       }
     },
     {
@@ -1277,7 +1787,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": -0.1576,
       "def_epa_per_play": 0.0928,
@@ -1298,10 +1808,10 @@
       "neutral_pass_rate": 0.6235,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0815,
+      "play_action_rate": 0.0989,
+      "motion_rate": 0.3547,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -1309,7 +1819,24 @@
         "offensive_dropbacks": 626,
         "offensive_plays": 1004,
         "defensive_dropbacks": 556,
-        "defensive_plays": 1009
+        "defensive_plays": 1009,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1325,
+          "ftn_charted_plays_defense": 1334,
+          "screen_rate": 0.0574,
+          "rpo_rate": 0.086,
+          "trick_play_rate": 0.0045,
+          "qb_out_of_pocket_rate": 0.1072,
+          "interception_worthy_rate": 0.0136,
+          "throw_away_rate": 0.0257,
+          "drop_rate_of_catchable_targets": 0.0657,
+          "contested_catch_rate_of_catchable_targets": 0.1035,
+          "created_reception_rate_of_catchable_targets": 0.0354,
+          "blitz_rate_faced": 0.1562,
+          "blitz_rate_generated": 0.1199,
+          "avg_pass_rushers_generated": 2.0202,
+          "avg_defenders_in_box_faced": 4.8996
+        }
       }
     },
     {
@@ -1319,7 +1846,7 @@
       "source_key": "nflverse_team_stats",
       "source_name": "nflverse team_stats.csv",
       "source_url": "https://github.com/nflverse/nflverse-data",
-      "snapshot_at": "2026-07-24T01:51:21.117Z",
+      "snapshot_at": "2026-09-01T19:00:16.059Z",
       "games_played": 17,
       "off_epa_per_play": -0.1196,
       "def_epa_per_play": -0.0871,
@@ -1340,10 +1867,10 @@
       "neutral_pass_rate": 0.5702,
       "early_down_pass_rate": null,
       "shotgun_rate": null,
-      "no_huddle_rate": null,
-      "play_action_rate": null,
-      "motion_rate": null,
-      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. Success, explosive, pressure, early-down, shotgun, no-huddle, play-action, and motion fields require play-level or charting data and are intentionally left null in this v1 builder.",
+      "no_huddle_rate": 0.0608,
+      "play_action_rate": 0.1248,
+      "motion_rate": 0.4128,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
       "raw": {
         "source_file": "data/vault-seed/nflverse/team_stats.csv",
         "source_file_mtime": "2026-06-06T01:26:03.837Z",
@@ -1351,7 +1878,24 @@
         "offensive_dropbacks": 544,
         "offensive_plays": 954,
         "defensive_dropbacks": 496,
-        "defensive_plays": 1025
+        "defensive_plays": 1025,
+        "ftn_charting": {
+          "ftn_charted_plays_offense": 1250,
+          "ftn_charted_plays_defense": 1337,
+          "screen_rate": 0.0424,
+          "rpo_rate": 0.0368,
+          "trick_play_rate": 0.0024,
+          "qb_out_of_pocket_rate": 0.0928,
+          "interception_worthy_rate": 0.0208,
+          "throw_away_rate": 0.012,
+          "drop_rate_of_catchable_targets": 0.0702,
+          "contested_catch_rate_of_catchable_targets": 0.1348,
+          "created_reception_rate_of_catchable_targets": 0.0562,
+          "blitz_rate_faced": 0.1312,
+          "blitz_rate_generated": 0.2124,
+          "avg_pass_rushers_generated": 1.9058,
+          "avg_defenders_in_box_faced": 5
+        }
       }
     }
   ]
