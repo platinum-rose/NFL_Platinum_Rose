@@ -1040,7 +1040,13 @@ async function loadPodcastEvidenceIndex() {
 // that intel-to-vault-sync.js writes into NFL/Teams/<ABBR>.md -- these ARE
 // sourced from research_intel_notes, but portfolio-dossier.js only ever pulls
 // research_pick_signals (the structured lean/pick rows), never the narrative
-// article text itself, so this is real, non-duplicate context too.
+// article text itself, so this is real, non-duplicate context too. As of
+// 2026-09-01 this reads BOTH of intel-to-vault-sync.js's per-team subsections
+// -- "Analytical Deep-Reads" (source_type:'analytical') and "Betting & News"
+// (everything else, incl. source_type:'social' -- i.e. every Twitter/X
+// Bookmarks note) -- merged by recency. Reading only the first one silently
+// dropped all Twitter/X-bookmark intel from the committee prompt even after
+// it successfully reached vault_notes; see the loop below for detail.
 //
 // Deliberately EXCLUDED: the same note's "Injuries" subsection (already in
 // dossier.injuries via player_injuries, migration 016 -- bridging it would be
@@ -1094,19 +1100,41 @@ async function loadVaultReferenceEvidence() {
 
     const teamDeepReads = {};
     const itemRe = /-\s*\*\*\[(.+?)\]\((.+?)\)\*\*\s*\u2014\s*(.+?)\s*\((\d{4}-\d{2}-\d{2})\)\n\s*-\s*(.+)/g;
+    // 2026-09-01: was 'Analytical Deep-Reads' only, which silently missed
+    // everything intel-to-vault-sync.js classifies as source_type !== 'analytical'
+    // (its own 'Betting & News' subsection) -- including every Twitter/X
+    // Bookmarks note (source_type:'social'), since that's the ONLY vault path
+    // Twitter intel has today (research_pick_signals from Twitter is
+    // Vision-OCR-only per twitter-bookmarks-agent.js and is near-empty until
+    // more betslip screenshots get bookmarked). Verified live: a real
+    // Twitter-sourced deep-read landed in NFL/Teams/DEN.md's 'Betting & News'
+    // section after a real intel-to-vault-sync.js run, but never reached the
+    // synthesis prompt because this regex's section boundary stopped before
+    // it. Both subsections share the exact same bullet-item format, so this
+    // just reads both and merges by recency instead of one.
+    const SECTION_HEADINGS = ['Analytical Deep-Reads', 'Betting & News'];
     for (const row of (teamRows || [])) {
       const m = row.path.match(/^NFL\/Teams\/([A-Z]{2,3})\.md$/);
       if (!m) continue;
       const abbr = m[1];
-      const section = row.content.match(/###\s*Analytical Deep-Reads\n([\s\S]*?)(?=\n#{1,6}\s|\n<!--|$)/);
-      if (!section) continue;
       const reads = [];
-      itemRe.lastIndex = 0;
-      let mm;
-      while ((mm = itemRe.exec(section[1])) !== null && reads.length < 8) {
-        reads.push({ title: mm[1], url: mm[2], source: mm[3], date: mm[4], summary: mm[5] });
+      for (const heading of SECTION_HEADINGS) {
+        const sectionRe = new RegExp(`###\\s*${heading}\\n([\\s\\S]*?)(?=\\n#{1,6}\\s|\\n<!--|$)`);
+        const section = row.content.match(sectionRe);
+        if (!section) continue;
+        itemRe.lastIndex = 0;
+        let mm;
+        while ((mm = itemRe.exec(section[1])) !== null) {
+          reads.push({ title: mm[1], url: mm[2], source: mm[3], date: mm[4], summary: mm[5] });
+        }
       }
-      if (reads.length) teamDeepReads[abbr] = reads;
+      if (reads.length) {
+        // Merged from two subsections -- re-sort by date so the most recent
+        // items from EITHER section win the cap, rather than exhausting the
+        // cap on whichever heading happened to be read first.
+        reads.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
+        teamDeepReads[abbr] = reads.slice(0, 8);
+      }
     }
 
     return { referenceDocs, teamDeepReads };
