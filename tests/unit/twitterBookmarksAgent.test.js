@@ -2,7 +2,19 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { existsSync, mkdirSync, renameSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { processBookmarkedTweet } from '../../agents/twitter-bookmarks-agent.js';
+
+// 2026-09-01: force DRY_RUN before the agent module loads. Without this, the
+// module's top-level `const DRY_RUN = argv.includes('--dry-run') ||
+// process.env.DRY_RUN === 'true'` evaluates false under `npm test` (no argv
+// flag, no env var set here), which meant every test run instantiated a real
+// Supabase client from .env and processBookmarkedTweet() upserted this
+// fixture straight into the LIVE production `vault_notes` table -- confirmed
+// by 6 real `NFL/Bookmarks/*-TestSharp-test-nfl-bm-1.md` rows sitting in
+// Supabase, one per day this suite happened to run. A static top-of-file
+// import is hoisted before this assignment would run, so the import is
+// deferred to a dynamic import after DRY_RUN is set.
+process.env.DRY_RUN = 'true';
+const { processBookmarkedTweet } = await import('../../agents/twitter-bookmarks-agent.js');
 
 // This test's 'NFL bookmark' case exercises the real processBookmarkedTweet
 // path, which writes a local report file to .nfl/reports/twitter-bookmarks/
