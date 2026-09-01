@@ -9,6 +9,26 @@
 // narrowed the filter to NFL-only while leaving CBB fetch/routing code
 // live elsewhere -- this pass reconciles the rest of the pipeline to match).
 //
+// AUTHENTICATION NOTE: fetchPersonalBookmarks() replays your personal X
+// session cookies (PERSONAL_TWITTER_AUTH_TOKEN/PERSONAL_TWITTER_CT0) against
+// X's internal web-client GraphQL endpoints rather than the official paid
+// API. This is free and only ever touches your own bookmarks, but it's
+// automated access outside what X's Terms of Service permit for those
+// endpoints, which carries some account-risk (rate-limiting/suspension) a
+// paid API wouldn't. Andy's call, not a technical constraint -- flagged
+// here so it stays visible to whoever next touches this file.
+//
+// RESEARCH PIPELINE BRIDGE (2026-09-01): in addition to vault_notes, every
+// qualifying bookmark also gets one research_intel_notes row (so the
+// portfolio-synthesize.js committee -- which reads research_pick_signals,
+// never vault_notes -- can actually see it). research_pick_signals rows
+// are ONLY created from Gemini Vision's OCR'd player-prop graphics
+// (already structured: player_name/prop_type/line/side/odds) -- freeform
+// tweet text is deliberately NOT parsed for a pick, matching this
+// project's labeled-fields-only extraction discipline elsewhere (there's
+// no labeled-field structure in tweet prose to anchor on the way the
+// master reports have).
+//
 // Usage:
 //   node agents/twitter-bookmarks-agent.js                  # Ingest live personal bookmarks
 //   node agents/twitter-bookmarks-agent.js --sample         # Test run on sample bookmark fixtures
@@ -19,10 +39,54 @@ import { existsSync } from 'node:fs';
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import crypto from 'node:crypto';
 import { createClient } from '@supabase/supabase-js';
 import 'dotenv/config';
 import { isNflBettingIntel } from './lib/sportsRelevanceFilter.js';
 import { ensureVaultFrontmatter } from './lib/vaultFrontmatter.js';
+
+// Copied verbatim from agents/research-intel-ingest.js (same convention as
+// scripts/repoint-corpus-b-articles.js / backfill-action-network-week3-gap.js
+// -- these helpers aren't exported from research-intel-ingest.js, so every
+// script that needs them keeps its own copy).
+function sha256(value) {
+  return crypto.createHash('sha256').update(value).digest('hex');
+}
+
+function canonicalizeUrl(rawUrl) {
+  try {
+    const u = new URL(rawUrl);
+    u.hash = '';
+    const allowed = new URLSearchParams();
+    for (const [k, v] of u.searchParams.entries()) {
+      const key = k.toLowerCase();
+      if (key.startsWith('utm_') || key === 'fbclid' || key === 'gclid') continue;
+      allowed.append(k, v);
+    }
+    u.search = allowed.toString();
+    return u.toString();
+  } catch {
+    return rawUrl;
+  }
+}
+
+// Pure mapping, split out from processBookmarkedTweet() so it's unit-testable
+// without mocking Supabase/Gemini Vision. Only Vision-OCR'd player props ever
+// reach this -- see the header comment on why freeform tweet text doesn't.
+export function buildPropSignalRows(props, { noteId, eventRef }) {
+  return (props || [])
+    .filter((p) => p.player_name && p.prop_type)
+    .map((p) => ({
+      note_id: noteId,
+      source: 'Twitter/X Bookmarks (Personal)',
+      team_or_market: `${p.player_name} - ${p.prop_type}`,
+      bet_type: 'player_prop',
+      lean: [p.side, p.line].filter(Boolean).join(' ') || 'unspecified',
+      rationale: p.rationale || null,
+      event_ref: eventRef,
+      confidence: 0.5, // OCR-derived, discounted vs. the 0.65 note-level confidence
+    }));
+}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
@@ -36,14 +100,15 @@ const SAMPLE_MODE = argv.includes('--sample');
 const maxDaysArg = argv.find(a => a.startsWith('--max-days='));
 const MAX_DAYS = maxDaysArg ? parseInt(maxDaysArg.split('=')[1], 10) : 30;
 
-const TWITTER_AUTH_TOKEN = process.env.PERSONAL_TWITTER_AUTH_TOKEN;
-const TWITTER_CT0 = process.env.PERSONAL_TWITTER_CT0;
+const TWITTER_AUTH_TOKEN = process.env.PLATINUM_ROSE_TWITTER_AUTH_TOKEN || process.env.PERSONAL_TWITTER_AUTH_TOKEN;
+const TWITTER_CT0 = process.env.PLATINUM_ROSE_TWITTER_CT0 || process.env.PERSONAL_TWITTER_CT0;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const IS_TEST_ENV = process.env.NODE_ENV === 'test' || Boolean(process.env.VITEST);
 
 let supabase = null;
-if (SUPABASE_URL && SUPABASE_KEY && !DRY_RUN) {
+if (SUPABASE_URL && SUPABASE_KEY && !DRY_RUN && !IS_TEST_ENV) {
   supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 }
 
@@ -131,9 +196,8 @@ export async function fetchPersonalBookmarks(queryKeywords = ['NFL', 'football',
               if (legacy && legacy.id_str && !seenIds.has(legacy.id_str)) {
                 seenIds.add(legacy.id_str);
                 const userRes = tweetResult?.core?.user_results?.result || tweetResult?.tweet?.core?.user_results?.result;
-                const userLegacy = userRes?.legacy || userRes;
-                const authorHandle = userLegacy?.screen_name || 'twitter_user';
-                const authorName = userLegacy?.name || authorHandle;
+                const authorHandle = userRes?.core?.screen_name || userRes?.legacy?.screen_name || userRes?.screen_name || 'twitter_user';
+                const authorName = userRes?.core?.name || userRes?.legacy?.name || userRes?.name || authorHandle;
 
                 const mediaItems = legacy.extended_entities?.media || legacy.entities?.media || [];
                 const mediaUrls = mediaItems.map(m => m.media_url_https).filter(Boolean);
@@ -256,12 +320,13 @@ export async function processBookmarkedTweet(bm) {
     return { skipped: true, reason: `Exceeds ${MAX_DAYS}-day recency limit` };
   }
 
-  // 2. Deduplication Gate (skip if local report already exists)
+  // 2. Deduplication Gate
+  const FORCE = argv.includes('--force');
   const slug = bm.id.replace(/[^a-zA-Z0-9]/g, '-');
   const filename = `${dateStr}-${bm.author}-${slug}.md`;
   const localReportPath = path.join(REPORTS_DIR, filename);
 
-  if (existsSync(localReportPath)) {
+  if (!FORCE && existsSync(localReportPath) && DRY_RUN) {
     console.log(`  [already-processed] Skipping @${bm.author}: "${bm.text.substring(0, 40)}..." (already in local vault)`);
     return { skipped: true, reason: 'Already in local vault' };
   }
@@ -365,6 +430,69 @@ ${propSection}`;
       }
     } catch (e) {
       console.warn(`  [warn] Supabase error: ${e.message}`);
+    }
+  }
+
+  // Research pipeline bridge (2026-09-01, DATA-LAYER-LOCKDOWN item 3
+  // follow-up): this agent previously only wrote to vault_notes, which
+  // nothing in the committee pipeline reads (see agents/portfolio-
+  // synthesize.js's loadVaultReferenceEvidence()). Insert one
+  // research_intel_notes row per qualifying bookmark so the committee can
+  // actually see it. Deliberately conservative on research_pick_signals,
+  // matching this session's labeled-fields-only extraction discipline
+  // elsewhere: freeform tweet prose is NOT parsed for a pick (no labeled-
+  // field structure to anchor on, unlike the master reports) -- only
+  // Gemini Vision's OCR'd player-prop graphics produce a signal, since
+  // those already carry clean structured fields (player_name, prop_type,
+  // line, side, odds) rather than needing to be inferred from prose.
+  if (supabase && !DRY_RUN) {
+    try {
+      const canonical = canonicalizeUrl(bm.url);
+      const url_hash = sha256(canonical);
+      const { data: existingNote } = await supabase
+        .from('research_intel_notes')
+        .select('id')
+        .eq('url_hash', url_hash)
+        .maybeSingle();
+      let noteId = existingNote?.id;
+      if (!noteId) {
+        const titleLine = bm.text.trim().split('\n')[0].slice(0, 100);
+        const note = {
+          source: 'Twitter/X Bookmarks (Personal)',
+          source_type: 'social',
+          url: bm.url,
+          canonical_url: canonical,
+          url_hash,
+          content_hash: sha256(bm.text),
+          title: titleLine,
+          summary: bm.text.trim(),
+          published_at: bm.created_at,
+          confidence: 0.65,
+          author: bm.author_name || bm.author,
+        };
+        const { data: inserted, error: noteErr } = await supabase
+          .from('research_intel_notes')
+          .insert(note)
+          .select('id')
+          .single();
+        if (noteErr) throw new Error(`research_intel_notes insert: ${noteErr.message}`);
+        noteId = inserted.id;
+        console.log(`  [supabase] Inserted research_intel_notes row ${noteId} for this bookmark.`);
+      } else {
+        console.log(`  [supabase] research_intel_notes row ${noteId} already exists for this URL -- skipping duplicate insert.`);
+      }
+
+      const props = visionAnalysis?.player_props || [];
+      if (props.length && noteId) {
+        const signalRows = buildPropSignalRows(props, { noteId, eventRef: bm.url });
+        if (signalRows.length) {
+          const { error: sigErr } = await supabase.from('research_pick_signals').insert(signalRows);
+          if (sigErr) throw new Error(`research_pick_signals insert: ${sigErr.message}`);
+          console.log(`  [supabase] Inserted ${signalRows.length} research_pick_signals row(s) from Vision OCR player props.`);
+        }
+      }
+    } catch (e) {
+      console.warn(`  [warn] research pipeline persistence error: ${e.message}`);
     }
   }
 

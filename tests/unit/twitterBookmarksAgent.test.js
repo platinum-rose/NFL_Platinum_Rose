@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 // import is hoisted before this assignment would run, so the import is
 // deferred to a dynamic import after DRY_RUN is set.
 process.env.DRY_RUN = 'true';
-const { processBookmarkedTweet } = await import('../../agents/twitter-bookmarks-agent.js');
+const { processBookmarkedTweet, buildPropSignalRows } = await import('../../agents/twitter-bookmarks-agent.js');
 
 // This test's 'NFL bookmark' case exercises the real processBookmarkedTweet
 // path, which writes a local report file to .nfl/reports/twitter-bookmarks/
@@ -83,5 +83,45 @@ describe('twitter-bookmarks-agent', () => {
     };
     const res = await processBookmarkedTweet(bm);
     expect(res.skipped).toBe(true);
+  });
+});
+
+describe('buildPropSignalRows (Vision-OCR player-prop -> research_pick_signals mapping)', () => {
+  it('maps a well-formed player prop into a signal row', () => {
+    const rows = buildPropSignalRows(
+      [{ player_name: 'Justin Jefferson', prop_type: 'Receiving Yards', side: 'OVER', line: '84.5', rationale: 'Circa ticket screenshot' }],
+      { noteId: 42, eventRef: 'https://x.com/Sharp/status/999' }
+    );
+    expect(rows).toEqual([{
+      note_id: 42,
+      source: 'Twitter/X Bookmarks (Personal)',
+      team_or_market: 'Justin Jefferson - Receiving Yards',
+      bet_type: 'player_prop',
+      lean: 'OVER 84.5',
+      rationale: 'Circa ticket screenshot',
+      event_ref: 'https://x.com/Sharp/status/999',
+      confidence: 0.5,
+    }]);
+  });
+
+  it('drops props missing player_name or prop_type rather than guessing', () => {
+    const rows = buildPropSignalRows(
+      [{ prop_type: 'Rushing Yards', side: 'UNDER', line: '60.5' }, { player_name: 'Someone' }],
+      { noteId: 1, eventRef: 'https://x.com/x/status/1' }
+    );
+    expect(rows).toEqual([]);
+  });
+
+  it('falls back to "unspecified" lean when neither side nor line is present', () => {
+    const rows = buildPropSignalRows(
+      [{ player_name: 'Travis Kelce', prop_type: 'Receptions' }],
+      { noteId: 7, eventRef: 'https://x.com/x/status/7' }
+    );
+    expect(rows[0].lean).toBe('unspecified');
+  });
+
+  it('returns an empty array for no props', () => {
+    expect(buildPropSignalRows([], { noteId: 1, eventRef: 'x' })).toEqual([]);
+    expect(buildPropSignalRows(undefined, { noteId: 1, eventRef: 'x' })).toEqual([]);
   });
 });
