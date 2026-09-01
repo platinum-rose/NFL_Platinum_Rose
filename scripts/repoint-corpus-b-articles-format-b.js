@@ -111,6 +111,11 @@ const FORMAT_B_FILES = [
   'article_nfl_preseason_week_2_recap_washington_co_master_100percent_exhaustive.md',
   'article_nfl_preseason_week_2_team_of_the_week_03_master_100percent_exhaustive.md',
   'article_super_bowl_61_betting_odds_tracker_live__master_100percent_exhaustive.md',
+  // Added 2026-09-01: Antigravity re-extracted these 3 files (previously LLM-refusal
+  // placeholders) with real content and a validation guard against recurrence.
+  'article_nfl_preseason_week_2_results_seahawks_ti_master_100percent_exhaustive.md',
+  'article_nfl_preseason_week_3_best_bets_master_100percent_exhaustive.md',
+  'article_nfl_preseason_week_3_starting_quarterbac_master_100percent_exhaustive.md',
 ];
 
 function sha256(s) {
