@@ -21,6 +21,16 @@
 //
 // This is DECISION SUPPORT. It proposes; you decide. Nothing here places a bet.
 //
+// VAULT REFERENCE BRIDGE (2026-09-01, DATA-LAYER-LOCKDOWN item 3): also pulls
+// two things from Supabase vault_notes that never otherwise reach the
+// committee -- hand-curated static reference guides (coaching tendencies,
+// DVOA/EPA glossary, key numbers, ATS framework) as top-level prompt context,
+// and per-team "Analytical Deep-Reads" (narrative article summaries) attached
+// to each team's profile. Both are best-effort: skipped silently if
+// SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY aren't set. See
+// loadVaultReferenceEvidence() for what's deliberately excluded and why
+// (raw stat-import files, duplicate injury data, stale season archives).
+//
 // Output:
 //   • .nfl/portfolio/portfolio-<date>.html   (reviewable, open in browser)
 //   • .nfl/portfolio/portfolio-<date>.md
@@ -337,7 +347,7 @@ async function loadExpertDossiers() {
   }
 }
 
-function buildUserPrompt(dossier, ledger = null, watchlist = null, officialConfig = null, expertDossiers = null, runInstructions = '', supplementalContext = null) {
+function buildUserPrompt(dossier, ledger = null, watchlist = null, officialConfig = null, expertDossiers = null, runInstructions = '', supplementalContext = null, vaultReferenceDocs = null) {
   const promptDossier = SHADOW_SLIM ? slimDossierForPrompt(dossier) : dossier;
   const m = dossier.meta;
   const sig = m.signal_coverage || {};
@@ -360,7 +370,10 @@ function buildUserPrompt(dossier, ledger = null, watchlist = null, officialConfi
   const supplementalContextLine = supplementalContext
     ? `SUPPLEMENTAL LOCAL CONTEXT (review/status facts outside the dossier price schema; respect each lane's stated authority and caveats, and never promote context-only or review-only evidence into price authority):\n${JSON.stringify(supplementalContext)}\n\n`
     : '';
-  return `${runInstructionsLine}${officialLine}${primaryLine}${ledgerLine}${watchlistLine}${expertDossierLine}${supplementalContextLine}DOSSIER META: season ${m.season}, ${m.snapshot_count} snapshots, books=${(m.books || []).join(',')}, markets=${(m.market_types || []).join(',')}. Intel: ${JSON.stringify(m.intel_coverage)}.
+  const vaultReferenceLine = vaultReferenceDocs
+    ? `HAND-CURATED BETTING REFERENCE GUIDES (static skill-style reference material from the team vault -- coaching tendencies, DVOA/EPA/CPOE glossary + current-season snapshot, key-number distribution, ATS trend framework and current-season records; NOT price evidence and NOT team-specific signal, use only to interpret other evidence):\n${JSON.stringify(vaultReferenceDocs)}\n\n`
+    : '';
+  return `${runInstructionsLine}${officialLine}${primaryLine}${ledgerLine}${watchlistLine}${expertDossierLine}${supplementalContextLine}${vaultReferenceLine}DOSSIER META: season ${m.season}, ${m.snapshot_count} snapshots, books=${(m.books || []).join(',')}, markets=${(m.market_types || []).join(',')}. Intel: ${JSON.stringify(m.intel_coverage)}.
 
 Offseason note: many markets (division, conference, awards, playoffs, matchup) may have limited or single-book coverage until preseason; weight coverage in your confidence. Super Bowl and win-total markets are the most liquid now — win totals especially are where bounce-back / longshot value tends to hide.
 
@@ -428,7 +441,7 @@ function slimMarketRow(row) {
 }
 
 function slimTeamProfile(profile) {
-  return keepKeys(profile, ['team', 'prior', 'sos', 'analytics', 'dvoa', 'coaching_profile', 'schedule_context', 'clv_signal', 'injuries', 'player_availability']);
+  return keepKeys(profile, ['team', 'prior', 'sos', 'analytics', 'dvoa', 'coaching_profile', 'schedule_context', 'clv_signal', 'injuries', 'player_availability', 'vault_analytical_reads']);
 }
 
 function slimDossierForPrompt(dossier) {
@@ -627,7 +640,7 @@ async function callModel(model, systemPrompt, userContent) {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: { 'x-api-key': ANTHROPIC_KEY, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
-      body: JSON.stringify({ model, max_tokens: MAX_OUTPUT_TOKENS, temperature: 0.4, system: systemPrompt, messages: [{ role: 'user', content: userContent }] }),
+      body: JSON.stringify({ model, max_tokens: MAX_OUTPUT_TOKENS, system: systemPrompt, messages: [{ role: 'user', content: userContent }] }), // temperature omitted: deprecated/rejected by newer Anthropic models (claude-opus-4-8, claude-fable-5)
       signal,
     });
     if (!res.ok) throw new Error(`${model} HTTP ${res.status}: ${(await res.text()).slice(0, 300)}`);
@@ -1016,6 +1029,91 @@ async function loadPodcastEvidenceIndex() {
   }
 
   return { rows: [...narrativeRows, ...rows], summary_url: summaryUrl, summary_path: summaryPath };
+}
+
+// Reference-library bridge (2026-09-01, DATA-LAYER-LOCKDOWN item 3). vault_notes
+// holds two genuinely distinct things that never otherwise reach the committee:
+// (a) hand-curated/static reference guides (coaching tendencies, DVOA/EPA
+// glossary, key numbers, ATS framework) -- NOT sourced from research_intel_notes
+// or research_pick_signals, so not a duplicate of anything the dossier already
+// carries; (b) per-team "Analytical Deep-Reads" (narrative article summaries)
+// that intel-to-vault-sync.js writes into NFL/Teams/<ABBR>.md -- these ARE
+// sourced from research_intel_notes, but portfolio-dossier.js only ever pulls
+// research_pick_signals (the structured lean/pick rows), never the narrative
+// article text itself, so this is real, non-duplicate context too.
+//
+// Deliberately EXCLUDED: the same note's "Injuries" subsection (already in
+// dossier.injuries via player_injuries, migration 016 -- bridging it would be
+// a pure duplicate); the ABBR-ATS/-PlayerStats/-Schedule/-TeamStats/-QBR
+// variant files (raw stat imports, not narrative context, likely already
+// reflected in the dossier's own analytics/dvoa fields computed from
+// nflverse); WeeklySignals.md (same intel-to-vault-sync source as the
+// per-team Analytical Deep-Reads pulled here, just re-aggregated cross-team --
+// bridging both would double-count the same articles); the 2026-IDP guide
+// (fantasy/IDP-specific, out of scope for this game/futures-market dossier);
+// and the *-2022/2023/2024 season-archive dumps (stale bulk imports, not
+// living reference material -- see NFL_Reference/{ESPN,Schedules,GameResults,
+// PlayerStats*,TeamStats}-202[234].md, ~300KB combined, none hand-curated).
+const REFERENCE_DOC_FILES = {
+  coach_tendencies: 'CoachTendencies.md',
+  analytical_models_glossary: 'DVOA.md',
+  dvoa_current_season: 'DVOA-2025.md',
+  key_numbers: 'KeyNumbers.md',
+  ats_trends_framework: 'ATS_Trends.md',
+  ats_current_season: 'ATS-2025.md',
+};
+
+async function loadVaultReferenceEvidence() {
+  const SB_URL = process.env.SUPABASE_URL;
+  const SB_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!SB_URL || !SB_KEY) {
+    return { referenceDocs: null, teamDeepReads: {} };
+  }
+  try {
+    const { createClient } = await import('@supabase/supabase-js');
+    const sb = createClient(SB_URL, SB_KEY, { auth: { persistSession: false } });
+
+    const docPaths = Object.values(REFERENCE_DOC_FILES).map((f) => `NFL/Reference/${f}`);
+    const { data: docRows, error: docErr } = await sb
+      .from('vault_notes')
+      .select('path, content')
+      .in('path', docPaths);
+    if (docErr) throw new Error(`reference docs fetch: ${docErr.message}`);
+    const referenceDocs = {};
+    for (const [key, file] of Object.entries(REFERENCE_DOC_FILES)) {
+      const row = docRows?.find((r) => r.path === `NFL/Reference/${file}`);
+      if (row?.content) referenceDocs[key] = row.content;
+    }
+
+    const { data: teamRows, error: teamErr } = await sb
+      .from('vault_notes')
+      .select('path, content')
+      .like('path', 'NFL/Teams/%')
+      .not('path', 'like', 'NFL/Teams/%-%'); // excludes ABBR-Suffix.md stat-import variants
+    if (teamErr) throw new Error(`team notes fetch: ${teamErr.message}`);
+
+    const teamDeepReads = {};
+    const itemRe = /-\s*\*\*\[(.+?)\]\((.+?)\)\*\*\s*\u2014\s*(.+?)\s*\((\d{4}-\d{2}-\d{2})\)\n\s*-\s*(.+)/g;
+    for (const row of (teamRows || [])) {
+      const m = row.path.match(/^NFL\/Teams\/([A-Z]{2,3})\.md$/);
+      if (!m) continue;
+      const abbr = m[1];
+      const section = row.content.match(/###\s*Analytical Deep-Reads\n([\s\S]*?)(?=\n#{1,6}\s|\n<!--|$)/);
+      if (!section) continue;
+      const reads = [];
+      itemRe.lastIndex = 0;
+      let mm;
+      while ((mm = itemRe.exec(section[1])) !== null && reads.length < 8) {
+        reads.push({ title: mm[1], url: mm[2], source: mm[3], date: mm[4], summary: mm[5] });
+      }
+      if (reads.length) teamDeepReads[abbr] = reads;
+    }
+
+    return { referenceDocs, teamDeepReads };
+  } catch (err) {
+    console.warn(`  [WARN] vault reference evidence: ${err.message}`);
+    return { referenceDocs: null, teamDeepReads: {} };
+  }
 }
 
 async function loadPodcastNarrativeEvidenceRows() {
@@ -2696,7 +2794,22 @@ async function persistRecommendationRuns(meta, trail) {
   } else {
     console.log('   podcast source context: no local Futures_Picks_Summary file found; dossier signals will render without host-summary links');
   }
-  const userContent = buildUserPrompt(dossier, ledger, watchlist, officialConfig, expertDossiers, runInstructions, supplementalContext);
+  const { referenceDocs: vaultReferenceDocs, teamDeepReads } = await loadVaultReferenceEvidence();
+  if (vaultReferenceDocs) {
+    const abbrToNick = Object.fromEntries(Object.entries(NFL_TEAMS).map(([nick, data]) => [data.abbreviation, nick]));
+    let teamsWithReads = 0;
+    for (const [abbr, reads] of Object.entries(teamDeepReads)) {
+      const nick = abbrToNick[abbr];
+      if (nick && dossier.team_profiles?.[nick]) {
+        dossier.team_profiles[nick].vault_analytical_reads = reads;
+        teamsWithReads += 1;
+      }
+    }
+    console.log(`   vault reference bridge: ${Object.keys(vaultReferenceDocs).length} reference guide(s), ${teamsWithReads} team(s) with vault analytical-read context`);
+  } else {
+    console.log('   vault reference bridge: SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY not set, or fetch failed -- proceeding without it');
+  }
+  const userContent = buildUserPrompt(dossier, ledger, watchlist, officialConfig, expertDossiers, runInstructions, supplementalContext, vaultReferenceDocs);
   if (PROMPT_ONLY) {
     const promptOut = path.resolve(ROOT, PROMPT_OUT_PATH);
     const preview = {
