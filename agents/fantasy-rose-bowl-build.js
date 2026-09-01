@@ -6,8 +6,15 @@
 // the pipeline audit spec's own architecture diagram claiming they did). This version
 // reads ONLY from the live Supabase tables the ingest agents actually populate:
 //
+//   - fantasy_adp (scoring='ppr', source='fantasypros')
+//       -> real cross-position market ADP. PRIMARY sort key for offense — see the
+//          big comment in main() for why rank_ecr (below) can't be used for this.
+//          Migration 034.
 //   - fantasy_rankings (scoring='ppr', season=2026, week=0, source='fantasypros')
-//       -> offense (QB/RB/WR/TE) expert consensus rank. Migration 046.
+//       -> offense (QB/RB/WR/TE) expert consensus rank — POSITIONAL only (QB1, QB2,
+//          ... restarting at 1 per position, since FantasyPros' API takes one
+//          position per call). Used only for the per-player Tier tag and as a
+//          fallback fill for deep players missing live ADP. Migration 046.
 //   - fantasy_rankings (scoring='idp', source='draftsharks')
 //       -> LB expert consensus rank + 3-down/snap signal, replacing the old hand-typed
 //          "Green Dot" markdown list. Same table, different source/scoring lane.
@@ -84,14 +91,36 @@ async function latestAsOfDate(table, filters = (q) => q) {
 async function main() {
   console.log('=== ROSE BOWL BOARD BUILD (live Supabase) ===');
 
-  // 1. Offense ECR — latest full-PPR draft (season-long) consensus rankings.
+  // 1a. Offense ADP — real market average draft position, ACROSS all positions.
+  //     This is the primary sort key for the board. IMPORTANT: fantasy_rankings.rank_ecr
+  //     is NOT a cross-position rank — FantasyPros' consensus-rankings endpoint only
+  //     accepts one position per call, so rank_ecr is each player's rank WITHIN their
+  //     own position (QB1, QB2, ... starting back at 1 for RB, WR, TE separately).
+  //     Sorting all four positions together by raw rank_ecr silently interleaves
+  //     "QB1, RB1, WR1, TE1, QB2, RB2, ..." — every elite RB/WR gets pushed down by
+  //     mediocre QBs/TEs riding a low positional number. fantasy_adp.adp has no such
+  //     problem: it's real snake-draft market data spanning every position at once.
+  const adpAsOf = await latestAsOfDate('fantasy_adp', (q) => q.eq('scoring', 'ppr'));
+  if (!adpAsOf) throw new Error('No fantasy_adp rows for scoring=ppr — run fantasypros-adp-ingest.js --scoring ppr first.');
+  const adpRows = await fetchAll('fantasy_adp', 'player,position,team,adp', (q) =>
+    q.eq('scoring', 'ppr').eq('as_of_date', adpAsOf).gt('adp', 0)); // adp=0 is FantasyPros' "undrafted" placeholder
+  adpRows.sort((a, b) => a.adp - b.adp);
+  console.log(`Offense ADP (overall, cross-position): ${adpRows.length} rows as_of ${adpAsOf}`);
+
+  // 1b. Offense ECR — same-day consensus rankings, kept ONLY as a per-player Tier tag
+  //     and as a fallback source for anyone missing live ADP (very deep sleepers).
   const offAsOf = await latestAsOfDate('fantasy_rankings', (q) =>
     q.eq('scoring', 'ppr').eq('season', 2026).eq('week', 0).eq('source', 'fantasypros'));
   if (!offAsOf) throw new Error('No fantasy_rankings rows for scoring=ppr season=2026 week=0 source=fantasypros — run fantasypros-rankings-ingest.js --scoring ppr first.');
-  const offenseRows = await fetchAll('fantasy_rankings', 'player,position,team,rank_ecr,tier,pos_rank', (q) =>
+  const offenseEcrRows = await fetchAll('fantasy_rankings', 'player,position,team,rank_ecr,tier,pos_rank', (q) =>
     q.eq('scoring', 'ppr').eq('season', 2026).eq('week', 0).eq('source', 'fantasypros').eq('as_of_date', offAsOf));
-  offenseRows.sort((a, b) => a.rank_ecr - b.rank_ecr);
-  console.log(`Offense ECR: ${offenseRows.length} rows as_of ${offAsOf}`);
+  offenseEcrRows.sort((a, b) => a.rank_ecr - b.rank_ecr); // positional order — fine, only used for tier lookup / fallback fill
+  console.log(`Offense ECR (tier lookup + fallback): ${offenseEcrRows.length} rows as_of ${offAsOf}`);
+  const tierByKey = new Map();
+  offenseEcrRows.forEach((r) => {
+    const pos = (r.position || '').replace(/\d+$/, '').toUpperCase();
+    tierByKey.set(`${nameKey(r.player)}|${pos}`, r.tier);
+  });
 
   // 2. IDP (LB) ECR — DraftSharks source, same table, scoring='idp'.
   const idpAsOf = await latestAsOfDate('fantasy_rankings', (q) => q.eq('scoring', 'idp'));
@@ -125,35 +154,45 @@ async function main() {
   });
   console.log(`Injuries: ${injuryRows.length} reports -> ${doNotDraft.size} DO-NOT-DRAFT (live IR/PUP/Suspension), ${watchTags.size} watch-tagged (Out/Doubtful)`);
 
-  // 4. Build offense pool: dedup on (nameKey, position) — NOT nameKey alone, so two
-  //    different-position players who happen to share a stripped base name don't
-  //    collide. Every collision is logged, not silently dropped.
-  const seen = new Set();
+  // 4. Build offense pool: ADP-ordered primary list, dedup on (nameKey, position) —
+  //    NOT nameKey alone, so two different-position players who happen to share a
+  //    stripped base name don't collide. Every collision is logged, not silently
+  //    dropped. Players with a live ADP go first, in ADP order; any offense player
+  //    who appears in ECR but has no live ADP (very deep sleepers/rookies) is
+  //    appended afterward in ECR positional order, purely as bench-depth filler.
+  const seen = new Map(); // key -> player name that occupies it (to tell real collisions from "already added by ADP pass")
   const collisions = [];
   const offenseList = [];
-  offenseRows.forEach((row) => {
+
+  function addOffensePlayer(row, sourceTag) {
     const name = (row.player || '').trim();
     if (!name) return;
     const pos = (row.position || '').replace(/\d+$/, '').toUpperCase();
-    if (pos === 'K' || pos === 'DST' || pos === 'DEF') return; // belt-and-suspenders; ECR source is QB/RB/WR/TE only
+    if (pos === 'K' || pos === 'DST' || pos === 'DEF') return; // belt-and-suspenders
     const k = `${nameKey(name)}|${pos}`;
     const bareK = nameKey(name);
     if (doNotDraft.has(bareK)) return; // live injury scrub
     if (seen.has(k)) {
-      collisions.push({ name, pos, key: k });
-      return;
+      if (seen.get(k) !== name) collisions.push({ name, existing: seen.get(k), pos, key: k });
+      return; // either the same player already added (expected overlap between ADP + ECR fallback) or a real collision — either way, don't add a second row
     }
-    seen.add(k);
+    seen.set(k, name);
+    const tier = tierByKey.get(k);
     const tag = [
-      row.tier ? `Tier ${row.tier}` : '',
+      tier ? `Tier ${tier}` : '',
+      sourceTag || '',
       watchTags.has(bareK) ? watchTags.get(bareK) : '',
     ].filter(Boolean).join(' / ');
     offenseList.push({ player: name, position: pos, team: row.team || '', tag });
-  });
-  console.log(`Offense pool after injury scrub + dedup: ${offenseList.length} (${collisions.length} name collisions logged)`);
+  }
+
+  adpRows.forEach((row) => addOffensePlayer(row, ''));
+  const adpFillCount = offenseList.length;
+  offenseEcrRows.forEach((row) => addOffensePlayer(row, 'no live ADP')); // fallback fill only; addOffensePlayer's dedup skips anyone already added
+  console.log(`Offense pool after injury scrub + dedup: ${offenseList.length} (${adpFillCount} from live ADP, ${offenseList.length - adpFillCount} ECR-only fallback fill, ${collisions.length} name collisions logged)`);
   if (collisions.length) {
     console.log('  Collisions (second occurrence dropped — verify manually):');
-    collisions.forEach((c) => console.log(`    - ${c.name} (${c.pos})`));
+    collisions.forEach((c) => console.log(`    - "${c.name}" collided with already-added "${c.existing}" (${c.pos})`));
   }
 
   // 5. Build LB pool the same way, capped at LB_COUNT, injury-scrubbed.
@@ -214,7 +253,7 @@ async function main() {
   const plainOut = plainRows.join('\n') + '\n';
 
   console.log(`\nBoard: ${finalList.length} players (${finalList.filter((p) => p.position === 'LB').length} LB, ${finalList.length - finalList.filter((p) => p.position === 'LB').length} offense)`);
-  console.log(`Data sources: offense ECR as_of ${offAsOf} | LB ECR as_of ${idpAsOf} | injuries as_of ${new Date().toISOString().slice(0, 10)}`);
+  console.log(`Data sources: offense ADP as_of ${adpAsOf} | offense ECR (tier tag) as_of ${offAsOf} | LB ECR as_of ${idpAsOf} | injuries as_of ${new Date().toISOString().slice(0, 10)}`);
 
   console.log('\nTop 20:');
   finalList.slice(0, 20).forEach((p, i) => console.log(`  ${String(i + 1).padStart(3, ' ')}. ${p.player.padEnd(25, ' ')} ${p.position.padEnd(4, ' ')} ${p.team.padEnd(4, ' ')} ${p.tag}`));
