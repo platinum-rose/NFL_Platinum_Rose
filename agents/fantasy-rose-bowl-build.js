@@ -1,5 +1,6 @@
 // agents/fantasy-rose-bowl-build.js
-// Rose Bowl (redraft, no keepers, Full PPR, real LB/IDP slots) custom draft board.
+// Rose Bowl (redraft, no keepers, Full PPR, real LB/IDP slots, ONE IR bench slot)
+// custom draft board.
 //
 // Rebuilt 2026-09-01 to replace the ungoverned scratch/build-*-rose-bowl*.mjs family
 // (6 near-duplicate one-off scripts, none committed, none reading from Supabase despite
@@ -19,15 +20,32 @@
 //       -> LB expert consensus rank + 3-down/snap signal, replacing the old hand-typed
 //          "Green Dot" markdown list. Same table, different source/scoring lane.
 //   - player_injuries (source: ESPN, agents/injury-ingest.js)
-//       -> DO-NOT-DRAFT scrub. Excludes injury_status IN ('Injured Reserve','PUP',
-//          'Suspension') using each player's MOST RECENT report (captured_at desc).
-//          'Out'/'Questionable'/'Doubtful' are NOT auto-excluded (week-to-week status
-//          isn't a season-ending signal) but are tagged in the output for visibility.
+//       -> injury-status classification. 'Injured Reserve'/'PUP' are excluded from the
+//          MAIN board but, since Rose Bowl carries exactly one IR bench slot, are kept
+//          as IR STASH candidates (see step 3b) rather than dropped outright.
+//          'Suspension' is excluded with NO stash — suspended players aren't IR-slot
+//          eligible in a standard league. 'Out'/'Questionable'/'Doubtful' are NOT
+//          excluded (week-to-week status isn't season-ending) but are tagged.
+//   - nfl_rosters_latest (source: nflverse weekly rosters, scripts/seed-nfl-rosters.py)
+//       -> IR STASH cross-check (added 2026-09-02, Trey Benson audit). A player whose
+//          most recent INJURY report still shows a team's IR can, by the time we
+//          build the board, have already been released outright — a true free agent
+//          has no team's IR to sit on and isn't stash-eligible. This table is the
+//          closest thing this repo has to a team-affiliation source, so every IR/PUP
+//          candidate is cross-checked against it; anyone nfl_rosters_latest shows as
+//          'UFA' is dropped from the stash instead of offered as a draft target.
+//          CAVEAT: nfl_rosters is itself a periodic snapshot (nflverse weekly roster
+//          release), not a real-time transactions feed — a release from today's news
+//          cycle may not show up here for days. This cross-check catches the general
+//          "our injury report is stale but the roster feed is fresher" case; it is
+//          NOT a substitute for verifying a specific name that looks off. See
+//          MANUAL_FREE_AGENT_OVERRIDES below for known cases the roster feed hasn't
+//          caught up on yet.
 //
 // Every run refreshes itself against whatever is latest in the DB as of run time —
-// no hardcoded player lists, no static local CSV snapshots. Re-run the 3 ingest
-// agents first (fantasypros-rankings-ingest.js --scoring ppr, fantasypros-adp-ingest.js,
-// draftsharks-idp-ingest.js, injury-ingest.js) to refresh before drafting.
+// no hardcoded player lists, no static local CSV snapshots (MANUAL_FREE_AGENT_OVERRIDES
+// is the one deliberate exception: a short, dated, commented list of specific names
+// confirmed by hand to be ahead of what nfl_rosters currently reflects).
 //
 // Usage:
 //   node agents/fantasy-rose-bowl-build.js [--lbs 40] [--total 280] [--dry-run]
@@ -36,6 +54,7 @@
 //     [--exclude "Name One,Name Two"]  (ad hoc removals by exact player name, e.g.
 //       league-specific cuts Andy made by hand reviewing the list — NOT for injuries,
 //       which are handled automatically from live player_injuries data above)
+//     [--no-ir-stash]  (drop the IR STASH section entirely; default on)
 // Free agents (team='FA' — unsigned/released players) are excluded automatically;
 // this is a standing data-quality rule, not a per-run option.
 // Env: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
@@ -56,6 +75,7 @@ const has = (f) => argv.includes(f);
 const LB_COUNT = parseInt(getArg('--lbs', '40'), 10);
 const TOTAL = parseInt(getArg('--total', '280'), 10);
 const DRY = has('--dry-run');
+const NO_IR_STASH = has('--no-ir-stash');
 const POS_CAPS = {
   QB: getArg('--qb-cap', null) ? parseInt(getArg('--qb-cap'), 10) : null,
   RB: getArg('--rb-cap', null) ? parseInt(getArg('--rb-cap'), 10) : null,
@@ -64,6 +84,20 @@ const POS_CAPS = {
 };
 const EXCLUDE_NAMES = new Set(
   (getArg('--exclude', '') || '').split(',').map((s) => s.trim()).filter(Boolean).map((s) => s.toLowerCase())
+);
+
+// Confirmed-by-hand cases where reality has moved past nfl_rosters (see the
+// header comment's CAVEAT above). Each entry needs a date + source so this
+// doesn't silently rot into an unreviewed permanent exclusion list — remove
+// the entry once nfl_rosters/player_injuries catch up on their own.
+//   - Trey Benson (RB): waived by ARI 8/24, cleared waivers, and was fully
+//     released via injury settlement per subsequent reporting (confirmed
+//     2026-09-02). player_injuries' latest report (8/26) still reads
+//     "reverted to Cardinals' IR" and nfl_rosters' freshest row (8/8) still
+//     reads ARI/ACT — both pre-date the settlement, so the automatic
+//     cross-check in step 3b can't catch this one yet.
+const MANUAL_FREE_AGENT_OVERRIDES = new Set(
+  ['Trey Benson'].map((n) => nameKey(n)) // nameKey() is a hoisted function declaration, safe to call here
 );
 
 const SB_URL = process.env.SUPABASE_URL;
@@ -137,6 +171,16 @@ async function main() {
     const pos = (r.position || '').replace(/\d+$/, '').toUpperCase();
     tierByKey.set(`${nameKey(r.player)}|${pos}`, r.tier);
   });
+  const adpByKey = new Map(); // reused in step 3b to rank IR STASH candidates
+  adpRows.forEach((r) => {
+    const pos = (r.position || '').replace(/\d+$/, '').toUpperCase();
+    adpByKey.set(`${nameKey(r.player)}|${pos}`, r.adp);
+  });
+  const ecrByKey = new Map(); // reused in step 3b as a fallback rank for players with no live ADP
+  offenseEcrRows.forEach((r) => {
+    const pos = (r.position || '').replace(/\d+$/, '').toUpperCase();
+    ecrByKey.set(`${nameKey(r.player)}|${pos}`, r.rank_ecr);
+  });
 
   // 2. IDP (LB) ECR — DraftSharks source, same table, scoring='idp'.
   const idpAsOf = await latestAsOfDate('fantasy_rankings', (q) => q.eq('scoring', 'idp'));
@@ -148,27 +192,96 @@ async function main() {
     lbRows.sort((a, b) => a.rank_ecr - b.rank_ecr);
   }
   console.log(`IDP (LB) ECR: ${lbRows.length} LB rows as_of ${idpAsOf || 'N/A'} (source=draftsharks)`);
+  const lbEcrByKey = new Map();
+  lbRows.forEach((r) => lbEcrByKey.set(`${nameKey(r.player)}|LB`, r.rank_ecr));
 
-  // 3. Injuries — latest report per player, DO-NOT-DRAFT set from structured status.
-  const injuryRows = await fetchAll('player_injuries', 'player_name,team_abbr,injury_status,injury_type,captured_at,short_comment');
+  // 3. Injuries — latest report per player.
+  const injuryRows = await fetchAll('player_injuries', 'player_name,team_abbr,position,injury_status,injury_type,captured_at,short_comment');
   const latestByPlayer = new Map();
   injuryRows.forEach((r) => {
     const k = nameKey(r.player_name);
     const prev = latestByPlayer.get(k);
     if (!prev || new Date(r.captured_at) > new Date(prev.captured_at)) latestByPlayer.set(k, r);
   });
-  const SEASON_ENDING_STATUSES = new Set(['injured reserve', 'pup', 'suspension']);
-  const doNotDraft = new Map(); // nameKey -> reason
+
+  // 3a. Roster cross-check (added 2026-09-02) — see header comment for the full
+  //     rationale and caveat. nfl_rosters_latest gives each player's most
+  //     recently ingested team + nflverse roster status ('ACT','RES','UFA', ...).
+  const rosterRows = await fetchAll('nfl_rosters_latest', 'full_name,team,status,season,week');
+  const rosterByKey = new Map();
+  rosterRows.forEach((r) => rosterByKey.set(nameKey(r.full_name), r));
+  const rosterSeasons = new Set(rosterRows.map((r) => r.season));
+  console.log(`Roster cross-check: ${rosterRows.length} players in nfl_rosters_latest (season(s): ${[...rosterSeasons].join(', ') || 'none'})`);
+  if (rosterRows.length && (![...rosterSeasons].every((s) => s === 2026))) {
+    console.warn(`  ⚠ nfl_rosters_latest contains non-2026 seasons (${[...rosterSeasons].join(', ')}) — this is the stale-season bug seen before; re-seed with scripts/seed-nfl-rosters.py --seasons 2026 before trusting the IR STASH cross-check.`);
+  }
+
+  const STASH_ELIGIBLE_POSITIONS = new Set(['QB', 'RB', 'WR', 'TE', 'LB']); // the positions Rose Bowl actually rosters
+const IR_ELIGIBLE_STATUSES = new Set(['injured reserve', 'pup']); // eligible for Rose Bowl's one IR bench slot
+  const SUSPENSION_STATUSES = new Set(['suspension']); // not IR-slot eligible in a standard league — excluded, no stash
+  const doNotDraft = new Map(); // nameKey -> reason (excluded from the MAIN board)
+  const irStashCandidates = new Map(); // nameKey -> {reason, team, position, rosterVerified}
   const watchTags = new Map(); // nameKey -> tag (Out/Questionable/Doubtful, informational only)
+  let droppedAsFreeAgent = 0;
+  let droppedNonRosterablePosition = 0;
   latestByPlayer.forEach((r, k) => {
     const status = (r.injury_status || '').toLowerCase();
-    if (SEASON_ENDING_STATUSES.has(status)) {
-      doNotDraft.set(k, `${r.injury_status}${r.injury_type ? ` (${r.injury_type})` : ''}`);
+    const reason = `${r.injury_status}${r.injury_type ? ` (${r.injury_type})` : ''}`;
+    if (SUSPENSION_STATUSES.has(status)) {
+      doNotDraft.set(k, reason);
+    } else if (IR_ELIGIBLE_STATUSES.has(status)) {
+      doNotDraft.set(k, reason); // still off the main board either way
+      if (MANUAL_FREE_AGENT_OVERRIDES.has(k)) {
+        droppedAsFreeAgent++;
+        return; // confirmed-by-hand free agent — no team's IR to stash on
+      }
+      const roster = rosterByKey.get(k);
+      if (roster && (roster.status || '').toUpperCase() === 'UFA') {
+        droppedAsFreeAgent++; // roster feed itself shows them off every roster
+        return;
+      }
+      const pos = (r.position || '').toUpperCase();
+      if (!STASH_ELIGIBLE_POSITIONS.has(pos)) { droppedNonRosterablePosition++; return; } // ESPN's injury feed covers every roster spot (OL/DL/DB/etc.) — Rose Bowl only rosters QB/RB/WR/TE/LB, so anything else has no draftable slot to stash into
+      irStashCandidates.set(k, {
+        reason,
+        team: roster?.team || r.team_abbr || '',
+        position: (r.position || '').toUpperCase(),
+        rosterVerified: !!roster,
+      });
     } else if (status === 'out' || status === 'doubtful') {
       watchTags.set(k, r.injury_status);
     }
   });
-  console.log(`Injuries: ${injuryRows.length} reports -> ${doNotDraft.size} DO-NOT-DRAFT (live IR/PUP/Suspension), ${watchTags.size} watch-tagged (Out/Doubtful)`);
+  console.log(`Injuries: ${injuryRows.length} reports -> ${doNotDraft.size} excluded from main board (IR/PUP/Suspension), ${irStashCandidates.size} IR STASH candidates (QB/RB/WR/TE/LB only), ${droppedNonRosterablePosition} dropped as non-rosterable positions, ${droppedAsFreeAgent} dropped as confirmed free agents (not stash-eligible), ${watchTags.size} watch-tagged (Out/Doubtful)`);
+
+  // 3b. Rank IR STASH candidates by the same ADP/ECR quality signal as the main
+  //     board, so the stash list is itself in "best to worst" order — Andy is
+  //     picking ONE, so order matters. ADP first (real market signal), ECR
+  //     fallback for anyone with no live ADP, unranked names last.
+  const irStashList = [];
+  let droppedUnranked = 0;
+  irStashCandidates.forEach((info, k) => {
+    const posKey = `${k}|${info.position}`;
+    const adp = adpByKey.get(posKey);
+    const ecr = info.position === 'LB' ? lbEcrByKey.get(posKey) : ecrByKey.get(posKey);
+    // Being on IR at a rosterable position isn't enough on its own — most IR
+    // names at QB/RB/WR/TE/LB are practice-squad-caliber players nobody has
+    // ever ranked (no ADP, no ECR, no DraftSharks IDP rank). Those aren't
+    // realistic IR-slot targets; only surface names the market/experts
+    // actually rank at all.
+    if (adp == null && ecr == null) { droppedUnranked++; return; }
+    const sortValue = adp != null ? adp : 1000 + ecr;
+    const displayName = latestByPlayer.get(k)?.player_name || k;
+    irStashList.push({
+      player: displayName,
+      position: info.position,
+      team: info.team,
+      tag: `IR STASH / ${info.reason}${info.rosterVerified ? '' : ' / unverified vs. roster feed — spot-check before drafting'}`,
+      sortValue,
+    });
+  });
+  irStashList.sort((a, b) => a.sortValue - b.sortValue);
+  console.log(`IR STASH after ranked-only filter: ${irStashList.length} (${droppedUnranked} IR/PUP players at rosterable positions dropped for having no ADP/ECR at all — not realistic stash targets)`);
 
   // 4. Build offense pool: ADP-ordered primary list, dedup on (nameKey, position) —
   //    NOT nameKey alone, so two different-position players who happen to share a
@@ -189,7 +302,7 @@ async function main() {
     if (EXCLUDE_NAMES.has(name.toLowerCase())) return; // ad hoc --exclude removal
     const k = `${nameKey(name)}|${pos}`;
     const bareK = nameKey(name);
-    if (doNotDraft.has(bareK)) return; // live injury scrub
+    if (doNotDraft.has(bareK)) return; // live injury scrub (IR/PUP go to the stash list instead, handled separately)
     if (seen.has(k)) {
       if (seen.get(k) !== name) collisions.push({ name, existing: seen.get(k), pos, key: k });
       return; // either the same player already added (expected overlap between ADP + ECR fallback) or a real collision — either way, don't add a second row
@@ -278,25 +391,42 @@ async function main() {
     rank++;
   }
 
+  // 6b. Append the IR STASH section after the main board, in its own
+  //     best-to-worst order — these are the "spend your one IR slot here"
+  //     candidates, ranked lower than they'd be if healthy but still visible
+  //     (rather than silently vanishing off the board entirely).
+  const stashSection = NO_IR_STASH ? [] : irStashList;
+  const combinedList = finalList.concat(stashSection);
+
   // 7. Output.
   const csvRows = ['Rank,Player,Position,Team,Tag'];
   const plainRows = [];
-  finalList.forEach((p, idx) => {
+  combinedList.forEach((p, idx) => {
     csvRows.push(`${idx + 1},"${p.player}",${p.position},"${p.team}","${p.tag}"`);
     plainRows.push(p.player);
   });
   const csvOut = csvRows.join('\n') + '\n';
   const plainOut = plainRows.join('\n') + '\n';
 
-  console.log(`\nBoard: ${finalList.length} players (${finalList.filter((p) => p.position === 'LB').length} LB, ${finalList.length - finalList.filter((p) => p.position === 'LB').length} offense)`);
-  console.log(`Data sources: offense ADP as_of ${adpAsOf} | offense ECR (tier tag) as_of ${offAsOf} | LB ECR as_of ${idpAsOf} | injuries as_of ${new Date().toISOString().slice(0, 10)}`);
+  const lbFinalCount = finalList.filter((p) => p.position === 'LB').length;
+  console.log(`\nBoard: ${finalList.length} main-board players (${lbFinalCount} LB, ${finalList.length - lbFinalCount} offense) + ${stashSection.length} IR STASH = ${combinedList.length} total`);
+  console.log(`Data sources: offense ADP as_of ${adpAsOf} | offense ECR (tier tag) as_of ${offAsOf} | LB ECR as_of ${idpAsOf} | injuries as_of ${new Date().toISOString().slice(0, 10)} | rosters as_of ${new Date().toISOString().slice(0, 10)}`);
 
   console.log('\nTop 20:');
   finalList.slice(0, 20).forEach((p, i) => console.log(`  ${String(i + 1).padStart(3, ' ')}. ${p.player.padEnd(25, ' ')} ${p.position.padEnd(4, ' ')} ${p.team.padEnd(4, ' ')} ${p.tag}`));
 
   if (doNotDraft.size) {
-    console.log('\nDO-NOT-DRAFT (live IR/PUP/Suspension, excluded from board):');
+    console.log('\nExcluded from main board (live IR/PUP/Suspension):');
     [...doNotDraft.entries()].forEach(([k, reason]) => console.log(`  - ${k}: ${reason}`));
+  }
+
+  if (stashSection.length) {
+    console.log(`\nIR STASH (${stashSection.length}, appended after rank ${finalList.length} — Rose Bowl carries exactly one IR bench slot):`);
+    stashSection.forEach((p, i) => console.log(`  ${finalList.length + i + 1}. ${p.player.padEnd(25, ' ')} ${p.position.padEnd(4, ' ')} ${p.team.padEnd(4, ' ')} ${p.tag}`));
+  }
+
+  if (droppedAsFreeAgent || MANUAL_FREE_AGENT_OVERRIDES.size) {
+    console.log(`\nDropped entirely (confirmed off all rosters, not IR-stash eligible): ${droppedAsFreeAgent} via roster cross-check/manual override`);
   }
 
   if (DRY) {
