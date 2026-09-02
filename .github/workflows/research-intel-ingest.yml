@@ -47,4 +47,11 @@ jobs:
           INTEL_LOOKBACK_HOURS:      ${{ inputs.lookback_hours || '72' }}
           INTEL_LIMIT_PER_FEED:      ${{ inputs.limit_per_feed || '20' }}
           INTEL_FETCH_BODY:          'true'
+          # 2026-09-01: feed-outage alerting (B-actionnetwork-feed-403's
+          # general fix) -- emails when any feed goes down for 2+ consecutive
+          # checks (~1 day) and again on recovery. Same Gmail secrets
+          # nfl-daily-brief.yml already uses. See checkFeedHealthAndAlert()
+          # in agents/research-intel-ingest.js.
+          GMAIL_ADDRESS:              ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD:         ${{ secrets.GMAIL_APP_PASSWORD }}
         run: node agents/research-intel-ingest.js
