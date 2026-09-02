@@ -21,15 +21,23 @@ const execFileAsync = promisify(execFile);
 // default) sidesteps it. See docs/NFL_AUDIT_BACKLOG.md B-actionnetwork-feed-403.
 async function fetchViaCurl(feed) {
   const maxBytes = feed.maxBytes ?? MAX_FEED_BYTES;
-  const ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
-    + '(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36';
+  // 2026-09-02: feed.curlUA lets a feed override (or, with `null`, omit
+  // entirely) the browser UA below. Added for ESPN NFL's site.api.espn.com
+  // endpoint, whose Akamai WAF is fingerprinting the OPPOSITE way from
+  // Action Network/THE WINDOW's CloudFront block: a browser-looking UA gets
+  // a reliable 403 there, while curl's own bare default UA gets a reliable
+  // 200. See the ESPN NFL feed entry below for the confirmed test results.
+  const ua = feed.curlUA === null
+    ? null
+    : (feed.curlUA ?? ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+      + '(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36'));
   const tmpFile = path.join(os.tmpdir(), `feed-${randomUUID()}.body`);
   try {
     const { stdout } = await execFileAsync('curl', [
       '-sS',
       '-o', tmpFile,
       '-w', '%{http_code} %{content_type}',
-      '-A', ua,
+      ...(ua ? ['-A', ua] : []),
       '--max-time', '30',
       '--max-filesize', String(maxBytes),
       feed.url,
@@ -121,11 +129,21 @@ const FEEDS = [
     source_type: 'analytical',
   },
   {
-    // BettingPros /nfl/news/feed/ returns HTML — using ESPN NFL RSS instead
+    // ESPN NFL: migrated 2026-09-02 from the www.espn.com RSS feed (blocked
+    // by an AWS WAF JS challenge -- x-amzn-waf-action:challenge, confirmed
+    // NOT curl-shellout-fixable, 0/5 success across two test batches) to
+    // ESPN's own public site API, which returns JSON. That endpoint has the
+    // OPPOSITE fingerprint block from Action Network/THE WINDOW: a
+    // browser-looking UA gets a reliable 403 from its Akamai WAF, while
+    // curl's own bare default UA gets a reliable 200 (8/8 in testing).
+    // curlUA:null tells fetchViaCurl() to omit -A entirely.
     source: 'ESPN NFL',
-    url: 'https://www.espn.com/espn/rss/nfl/news',
+    url: 'https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?limit=25',
     confidence: 0.67,
     source_type: 'news',
+    fetchMethod: 'curl',
+    curlUA: null,
+    format: 'json',
   },
   {
     source: 'VSiN',
@@ -174,10 +192,17 @@ const FEEDS = [
   },
   {
     // THE WINDOW: Matt Russell's sports betting newsletter (EMR, lookahead lines, win totals)
+    // 2026-09-02: fetchMethod:'curl' — feed_health showed 3 consecutive
+    // HTTP 403 fails via Node's native fetch()/undici. Confirmed live via
+    // side-by-side curl-vs-fetch test, same day, same network: curl gets a
+    // clean 200 + real application/xml body (3/3 tries), Node fetch() gets
+    // blocked. Same CloudFront/Node-client-fingerprint pattern as Action
+    // Network (see fetchViaCurl() above, B-actionnetwork-feed-403).
     source: 'THE WINDOW (Matt Russell)',
     url: 'https://mrussauthentic.substack.com/feed',
     confidence: 0.75,
     source_type: 'newsletter',
+    fetchMethod: 'curl',
   },
 ];
 
@@ -378,6 +403,34 @@ function parseAtomItems(xml) {
     .filter(item => !!item.link);
 }
 
+// 2026-09-02: ESPN NFL migrated from RSS (www.espn.com/espn/rss/nfl/news,
+// blocked by an AWS WAF JS challenge -- see docs/NFL_AUDIT_BACKLOG.md
+// B-espn-waf-challenge) to ESPN's own public site API, which returns JSON,
+// not XML/Atom. Maps the same shape parseRssItems()/parseAtomItems() return
+// so nothing downstream (extractSignals, dedupe, insert) needs to change.
+function parseEspnApiItems(jsonText) {
+  let parsed;
+  try {
+    parsed = JSON.parse(jsonText);
+  } catch {
+    return [];
+  }
+  const articles = Array.isArray(parsed?.articles) ? parsed.articles : [];
+  return articles
+    .map(a => {
+      const link = a?.links?.web?.href || a?.links?.mobile?.href || null;
+      const publishedAt = a?.published ? new Date(a.published).toISOString() : null;
+      return {
+        title: a?.headline || '(untitled)',
+        link,
+        description: a?.description || '',
+        published_at: publishedAt,
+        author: a?.byline || null,
+      };
+    })
+    .filter(item => !!item.link);
+}
+
 function canonicalizeUrl(rawUrl) {
   try {
     const u = new URL(rawUrl);
@@ -562,6 +615,27 @@ async function fetchFeed(feed) {
           return merged;
         })()
       );
+    }
+
+    // 2026-09-02: JSON feeds (currently just ESPN NFL's site API -- see
+    // parseEspnApiItems() above) skip the XML/content-type checks below
+    // entirely; the format:'json' flag on the feed config is authoritative.
+    if (feed.format === 'json') {
+      const parsedJson = parseEspnApiItems(xml);
+      if (!parsedJson.length) {
+        return {
+          source: feed.source,
+          status: 'unavailable',
+          reason: 'Response is not a parseable JSON article list',
+          items: [],
+        };
+      }
+      return {
+        source: feed.source,
+        status: 'available',
+        reason: null,
+        items: parsedJson,
+      };
     }
 
     const looksLikeFeed =
