@@ -1,4 +1,4 @@
-﻿# 🛡️ 2026 Master IDP 40-Player Dossier Suite
+# 🛡️ 2026 Master IDP 40-Player Dossier Suite
 
 **Target Audience:** Draft War Room, Live In-Draft Intel  
 **League Context:** Rose Bowl (12-team redraft, Pick #3, zero-kicker strategy, 3 IDP starter slots, 1 IR bench slot)  
@@ -97,7 +97,7 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 ### 9. Edgerrin Cooper — GB (LB) | Draft Rank #116 *(CSV-verified)*
 **Snap Volume:** ~94% *(editorial estimate)*  
 **Projected Tackles:** 126–138 *(editorial estimate)*  
-**Scheme:** Jeff Hafley 74% zone / LB blitz front.  
+**Scheme:** Jeff Hafley 74% zone / LB blitz front *(editorial — scheme-usage estimate)*.  
 **Draft Room Intel:** Led all 2024 rookie LBs in per-snap tackle efficiency *(editorial — IDP Show preseason report; not pipeline-computed)*. Hafley uses him on disguised blitzes that produce TFL and sack upside beyond what a typical off-ball LB generates.
 
 ---
@@ -224,7 +224,7 @@ Plays behind Watt, Highsmith, and Heyward — consistently clean pursuit angles.
 
 ## Tier 4 — Solid Starters & High-Floor Anchors  
 *Ranks 208–235 / Rounds 17–18*  
-*These are the 3-down veterans and proven starters filling out the bottom of the 40. They are not sleepers or handcuffs — they are genuine NFL starting linebackers with real snap share.*
+*Most of this tier are 3-down veteran starters filling out the bottom of the 40. Three entries below (Drue Tranquill, Payton Wilson, Christian Elliss) are rotational/backup roles rather than every-down starters — DraftSharks' IDP consensus still ranks them in this range, but their weekly floor depends on snaps ahead of them, not a locked starting role. They're flagged individually below.*
 
 ---
 
@@ -234,9 +234,9 @@ Plays behind Watt, Highsmith, and Heyward — consistently clean pursuit angles.
 |:---:|---|:---:|---|---|
 | **#208** | Jihaad Campbell | PHI | ~85% | Zack Baun's 3-down partner in Fangio's 2-LB Nickel. Elite closing speed; immediate full-time role if Baun is unavailable. |
 | **#212** | Azeez Al-Shaair | HOU | ~95% | Handpicked by DeMeco Ryans to direct Houston's front seven. Green Dot caller with low weekly variance. |
-| **#216** | Drue Tranquill | KC | ~82% | Spagnuolo's delayed-blitz specialist. High sack ceiling from the second level in favorable matchups. |
+| **#216** | Drue Tranquill | KC | ~82% | ⚠️ **Rotational, not a starter.** Spagnuolo's delayed-blitz specialist playing behind Nick Bolton. High sack ceiling from the second level in favorable matchups, but snap floor depends on game script. |
 | **#220** | Divine Deablo | ATL | ~92% | Green Dot caller in Morris/Lake defense. Former college safety adds coverage versatility. |
 | **#223** | Quincy Williams | CLE | ~86% | Violent run stopper playing alongside Schwesinger. High-energy enforcer with TFL upside. |
-| **#227** | Payton Wilson | PIT | ~80% | Rotational partner behind Patrick Queen. 17.2% per-snap tackle efficiency *(editorial — IDP Show)*. Instant top-10 add if Queen is injured. |
+| **#227** | Payton Wilson | PIT | ~80% | ⚠️ **Backup, not a starter.** Rotational partner behind Patrick Queen. 17.2% per-snap tackle efficiency *(editorial — IDP Show)*. Instant top-10 add if Queen is injured, but the floor as drafted is a part-time role. |
 | **#231** | Zaire Franklin | GB | ~84% | High-floor veteran anchor alongside Edgerrin Cooper in Hafley's physical front. |
-| **#235** | Christian Elliss | NE | ~75% | Robert Spillane's backup in Mayo's gap-control scheme. Solid late-round depth stash. |
+| **#235** | Christian Elliss | NE | ~75% | ⚠️ **Backup, not a starter.** Robert Spillane's backup in Mayo's gap-control scheme. A late-round depth stash on the strength of injury upside, not current-role volume. |
