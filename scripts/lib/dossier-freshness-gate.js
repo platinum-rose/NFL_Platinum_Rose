@@ -48,6 +48,13 @@ export const EVIDENCE_LANE_FILES = Object.freeze([
   // outside this repo -- out of scope for this change, which only makes the
   // staleness VISIBLE to a dossier build rather than silently invisible.
   { key: 'podcast_narratives', path: 'docs/podcast-narratives/index.json' },
+  // Added 2026-09-02 (BettorDay pipeline wiring). agents/bettorday-newsletter-ingest.js
+  // writes this file locally on every run (dry-run or live) before any Supabase
+  // sync -- confirmed it's the same file agents/portfolio-synthesize.js's new
+  // loadBettorDayTrenchEvidence() reads for local-only fallback context, so a
+  // stale/missing file here is real committee-evidence staleness, not an unused
+  // artifact (same standard applied to podcast_narratives above).
+  { key: 'bettorday_trench', path: 'data/intel/bettorday_trench_ratings_2026.json' },
 ]);
 
 function sha256(buffer) {

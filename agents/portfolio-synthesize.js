@@ -441,7 +441,7 @@ function slimMarketRow(row) {
 }
 
 function slimTeamProfile(profile) {
-  return keepKeys(profile, ['team', 'prior', 'sos', 'analytics', 'dvoa', 'coaching_profile', 'schedule_context', 'clv_signal', 'injuries', 'player_availability', 'vault_analytical_reads']);
+  return keepKeys(profile, ['team', 'prior', 'sos', 'analytics', 'dvoa', 'coaching_profile', 'schedule_context', 'clv_signal', 'injuries', 'player_availability', 'vault_analytical_reads', 'bettorday_trench']);
 }
 
 function slimDossierForPrompt(dossier) {
@@ -1142,6 +1142,94 @@ async function loadVaultReferenceEvidence() {
     console.warn(`  [WARN] vault reference evidence: ${err.message}`);
     return { referenceDocs: null, teamDeepReads: {} };
   }
+}
+
+// Bridges agents/bettorday-newsletter-ingest.js's trench composite/SOS data
+// into the committee prompt. Added 2026-09-02, same pattern as
+// loadVaultReferenceEvidence() above: best-effort, silent no-op if
+// unavailable, never blocks synthesis. Two data-availability layers,
+// checked in order:
+//   1. Supabase nfl_trench_ratings (migration 053) -- the live, current
+//      source once the ingest agent has actually run non-dry-run.
+//   2. Local data/intel/bettorday_trench_ratings_2026.json -- whatever the
+//      ingest agent last wrote locally (dry-run included). Falls back here
+//      when Supabase creds are absent or the table doesn't exist yet, so
+//      this bridge is exercisable/testable before migration 053 is run.
+// Per the audit response (docs/specs/BETTORDAY_INTEL_PIPELINE_AUDIT_RESPONSE_2026-09-02.md
+// §2) and the e95137d fix, rows are partitioned by metric_type --
+// 'team_composite' (a team's own O-line/D-line quality) and 'schedule_sos'
+// (the difficulty of the fronts that team's units will face this season).
+// These are kept as two separate objects per team, never merged/averaged,
+// since they measure different things on different scales.
+async function loadBettorDayTrenchEvidence() {
+  const empty = { byTeam: {}, sourceMode: 'none' };
+  let rows = null;
+  let sourceMode = 'none';
+
+  const SB_URL = process.env.SUPABASE_URL;
+  const SB_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (SB_URL && SB_KEY) {
+    try {
+      const { createClient } = await import('@supabase/supabase-js');
+      const sb = createClient(SB_URL, SB_KEY, { auth: { persistSession: false } });
+      const { data, error } = await sb
+        .from('nfl_trench_ratings')
+        .select('team, metric_type, rank_overall, score_overall, run_block_z, pass_block_z, run_defense_z, pass_rush_z, as_of_date')
+        .order('as_of_date', { ascending: false });
+      if (error) throw new Error(error.message);
+      if (data?.length) {
+        rows = data;
+        sourceMode = 'supabase';
+      }
+    } catch (err) {
+      console.warn(`  [WARN] bettorday trench evidence (supabase): ${err.message}`);
+    }
+  }
+
+  if (!rows) {
+    try {
+      const localPath = path.join(ROOT, 'data', 'intel', 'bettorday_trench_ratings_2026.json');
+      const raw = await readFile(localPath, 'utf8');
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length) {
+        rows = parsed;
+        sourceMode = 'local_file';
+      }
+    } catch {
+      // No local file either -- genuinely nothing available yet, not an error.
+    }
+  }
+
+  if (!rows) return empty;
+
+  // Keep only the most-recent as_of_date per (team, metric_type) -- both
+  // sources can carry more than one date's rows.
+  const latest = new Map();
+  for (const r of rows) {
+    const key = `${r.team}|${r.metric_type}`;
+    const existing = latest.get(key);
+    if (!existing || r.as_of_date > existing.as_of_date) latest.set(key, r);
+  }
+
+  const byTeam = {};
+  for (const r of latest.values()) {
+    byTeam[r.team] ||= {};
+    const slot = r.metric_type === 'team_composite' ? 'team_composite'
+      : r.metric_type === 'schedule_sos' ? 'schedule_sos'
+      : null;
+    if (!slot) continue; // unknown metric_type -- skip rather than guess
+    byTeam[r.team][slot] = {
+      rank_overall: r.rank_overall,
+      score_overall: r.score_overall,
+      run_block_z: r.run_block_z,
+      pass_block_z: r.pass_block_z,
+      run_defense_z: r.run_defense_z,
+      pass_rush_z: r.pass_rush_z,
+      as_of_date: r.as_of_date,
+    };
+  }
+
+  return { byTeam, sourceMode };
 }
 
 async function loadPodcastNarrativeEvidenceRows() {
@@ -2822,9 +2910,9 @@ async function persistRecommendationRuns(meta, trail) {
   } else {
     console.log('   podcast source context: no local Futures_Picks_Summary file found; dossier signals will render without host-summary links');
   }
+  const abbrToNick = Object.fromEntries(Object.entries(NFL_TEAMS).map(([nick, data]) => [data.abbreviation, nick]));
   const { referenceDocs: vaultReferenceDocs, teamDeepReads } = await loadVaultReferenceEvidence();
   if (vaultReferenceDocs) {
-    const abbrToNick = Object.fromEntries(Object.entries(NFL_TEAMS).map(([nick, data]) => [data.abbreviation, nick]));
     let teamsWithReads = 0;
     for (const [abbr, reads] of Object.entries(teamDeepReads)) {
       const nick = abbrToNick[abbr];
@@ -2836,6 +2924,20 @@ async function persistRecommendationRuns(meta, trail) {
     console.log(`   vault reference bridge: ${Object.keys(vaultReferenceDocs).length} reference guide(s), ${teamsWithReads} team(s) with vault analytical-read context`);
   } else {
     console.log('   vault reference bridge: SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY not set, or fetch failed -- proceeding without it');
+  }
+  const bettordayTrench = await loadBettorDayTrenchEvidence();
+  if (Object.keys(bettordayTrench.byTeam).length) {
+    let teamsWithTrench = 0;
+    for (const [abbr, metrics] of Object.entries(bettordayTrench.byTeam)) {
+      const nick = abbrToNick[abbr];
+      if (nick && dossier.team_profiles?.[nick]) {
+        dossier.team_profiles[nick].bettorday_trench = metrics;
+        teamsWithTrench += 1;
+      }
+    }
+    console.log(`   bettorday trench bridge (${bettordayTrench.sourceMode}): ${Object.keys(bettordayTrench.byTeam).length} team(s) with trench data, ${teamsWithTrench} matched into team_profiles`);
+  } else {
+    console.log('   bettorday trench bridge: no data available (Supabase table empty/missing and no local data/intel/bettorday_trench_ratings_2026.json) -- proceeding without it');
   }
   const userContent = buildUserPrompt(dossier, ledger, watchlist, officialConfig, expertDossiers, runInstructions, supplementalContext, vaultReferenceDocs);
   if (PROMPT_ONLY) {
