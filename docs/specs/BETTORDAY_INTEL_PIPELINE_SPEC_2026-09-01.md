@@ -31,7 +31,6 @@ While traditionally betting-focused, BettorDay provides distinct, high-value sig
      - **Denver Broncos (`thursday-august-6th-2026`):** 14-win regression candidate — market pricing them for step back after overperforming underlying metrics.
 3. **Personnel, Scheme & Injury Severity Signals:**
    - **Ashton Jeanty / LV (`monday-august-24th-2026`, `tuesday-august-25th-2026`):** Genuine injury alarm regarding an ankle sprain with potential high-ankle severity; source flagged missed time risk and elevated Mike Washington Jr. as backup.
-   - **DJ Moore / BUF (`friday-august-28th-2026`):** Preseason lower-leg injury tracking following trade from Chicago.
    - **Green Bay Receiving Corps (`thursday-august-20th-2026`):** "No 1,000-yard receiver since 2021" confirms heavily rotational target distribution.
 
 ---
