@@ -1,4 +1,4 @@
-﻿# 🎯 2026 In-Season IDP Breakout & Handcuff Watchlist
+# 🎯 2026 In-Season IDP Breakout & Handcuff Watchlist
 
 **Target Audience:** In-Season Roster Management, Waiver Wire Execution  
 **League Context:** Rose Bowl (12-team redraft, 3 IDP starter slots, 1 IR bench slot)  
@@ -30,13 +30,13 @@ Players who inherit an immediate every-down role and Green Dot snap share if the
 
 | Player | Team | Starter Ahead | Draft Board Rank of Starter | Intel |
 |---|:---:|---|:---:|---|
-| **Payton Wilson** | PIT | Patrick Queen | #187 | Plays a genuine rotational share behind Queen now. Per-snap tackle efficiency cited at ~17% in preseason IDP editorial *(editorial estimate — IDP Show preseason content)*. If Queen misses time, Wilson is a probable top-10 immediate add. |
+| **Payton Wilson** | PIT | Patrick Queen | #204 *(CSV-verified)* | Plays a genuine rotational share behind Queen now. Per-snap tackle efficiency cited at ~17% in preseason IDP editorial *(editorial estimate — IDP Show preseason content)*. If Queen misses time, Wilson is a probable top-10 immediate add. |
 | **Ventrell Miller** | JAX | Foyesade Oluokun | #127 | Nielsen's defense funnels mass inside tackles; the LB2 role is valuable. Miller secured the weakside starting spot in camp per preseason reporting. |
-| **Josiah Trotter** | TB | Alex Anzalone | #204 | 2026 2nd-round pick. Bowles' heavy blitz front; add immediately if Anzalone is injured. |
+| **Josiah Trotter** | TB | Alex Anzalone | *Not on board* — Anzalone falls outside the top-40 LB cutoff and is not rostered in Rose Bowl. This row is real-NFL depth-chart context: Trotter is Anzalone's direct NFL backup and would inherit full snaps if Anzalone is injured. Only relevant if you have a league-mate who rostered Anzalone, or as a reminder that Trotter's snap count to watch is the Tampa Bay inside LB snap report, not a specific Rose Bowl board rank. |
 | **Jihaad Campbell** | PHI | Zack Baun | #93 | Elite closing speed. Early-down rotation role now; inherits full Fangio 3-down workload if Baun is unavailable. |
 | **Christian Elliss** | NE | Robert Spillane | #131 | Direct backup in Mayo's gap-control scheme. Clean role inheritance if Spillane goes down. |
-| **Omar Speights / Shaun Dolac** | LAR | Nathan Landman | #157 | The Rams' single-LB Dime schema means whoever replaces Landman becomes the exclusive inside tackle earner. |
-| **Dee Winters / Jaishawn Barham** | DAL | DeMarvion Overshown | #171 | Christian Parker's quarters scheme; fast-flow run fits. Monitor camp and Week 1 reports for which is LB2. |
+| **Omar Speights / Shaun Dolac** | LAR | Nathan Landman | #166 *(CSV-verified)* | The Rams' single-LB Dime schema means whoever replaces Landman becomes the exclusive inside tackle earner. |
+| **Dee Winters / Jaishawn Barham** | DAL | DeMarvion Overshown | #181 *(CSV-verified)* | Christian Parker's quarters scheme; fast-flow run fits. Monitor camp and Week 1 reports for which is LB2. |
 | **Anthony Hill** | TEN | Cedric Gray | #89 | Explosive rookie; preseason snap counts suggest early-down rotation already. If Gray is hurt, Hill projects to immediate full-time usage. |
 
 ---
