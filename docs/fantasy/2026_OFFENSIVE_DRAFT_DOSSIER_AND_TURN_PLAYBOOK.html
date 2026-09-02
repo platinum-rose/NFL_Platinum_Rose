@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 Offensive Draft Dossier & Turn Playbook — Pick 3 (1.03) War Room</title>
+  <style>
+    :root {
+      --bg-main: #0d1117;
+      --bg-card: #161b22;
+      --bg-card-hover: #21262d;
+      --border-color: #30363d;
+      --text-main: #c9d1d9;
+      --text-muted: #8b949e;
+      --text-bright: #f0f6fc;
+      --accent-gold: #e3b341;
+      --accent-blue: #58a6ff;
+      --accent-green: #3fb950;
+      --accent-red: #f85149;
+      --accent-purple: #bc8cff;
+      --accent-cyan: #39c5cf;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+    body { background-color: var(--bg-main); color: var(--text-main); padding: 24px; line-height: 1.6; }
+    .header { border-bottom: 2px solid var(--border-color); padding-bottom: 20px; margin-bottom: 24px; }
+    .header h1 { color: var(--accent-gold); font-size: 28px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+    .header .subtitle { color: var(--text-muted); font-size: 14px; }
+    .badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+    .badge { padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+    .badge-gold { background: rgba(227, 179, 65, 0.15); color: var(--accent-gold); border: 1px solid var(--accent-gold); }
+    .badge-blue { background: rgba(88, 166, 255, 0.15); color: var(--accent-blue); border: 1px solid var(--accent-blue); }
+    .badge-green { background: rgba(63, 185, 80, 0.15); color: var(--accent-green); border: 1px solid var(--accent-green); }
+    .badge-red { background: rgba(248, 81, 73, 0.15); color: var(--accent-red); border: 1px solid var(--accent-red); }
+
+    .controls { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+    .search-input { flex: 1; min-width: 260px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-bright); padding: 10px 14px; border-radius: 8px; font-size: 14px; }
+    .search-input:focus { outline: none; border-color: var(--accent-blue); }
+    .filter-btn { background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.2s; }
+    .filter-btn.active, .filter-btn:hover { background: var(--accent-blue); color: #fff; border-color: var(--accent-blue); }
+
+    .blueprint-section { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 20px; margin-bottom: 24px; }
+    .blueprint-section h2 { color: var(--accent-blue); font-size: 20px; margin-bottom: 14px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+    .table-container { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; text-align: left; }
+    th { background: var(--bg-card-hover); color: var(--text-bright); padding: 10px 12px; border: 1px solid var(--border-color); }
+    td { padding: 10px 12px; border: 1px solid var(--border-color); color: var(--text-main); }
+    tr:hover { background: var(--bg-card-hover); }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 16px; }
+    .card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 18px; transition: transform 0.15s, border-color 0.15s; position: relative; }
+    .card:hover { transform: translateY(-2px); border-color: var(--accent-blue); }
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+    .player-name { font-size: 18px; font-weight: 700; color: var(--text-bright); }
+    .player-meta { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+    .rank-pill { font-size: 16px; font-weight: 800; color: var(--accent-gold); background: rgba(227, 179, 65, 0.1); border: 1px solid var(--accent-gold); padding: 4px 10px; border-radius: 6px; }
+    
+    .card-body { font-size: 13px; display: flex; flex-direction: column; gap: 8px; }
+    .stat-row { display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border-color); padding-bottom: 4px; }
+    .stat-label { color: var(--text-muted); font-weight: 600; }
+    .stat-val { color: var(--text-bright); text-align: right; }
+    .trench-badge { background: rgba(88, 166, 255, 0.1); border: 1px solid rgba(88, 166, 255, 0.3); border-radius: 6px; padding: 6px 10px; font-size: 12px; color: var(--accent-cyan); margin: 4px 0; }
+    .intel-box { background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--accent-green); padding: 8px 10px; border-radius: 4px; color: var(--text-main); }
+    .risk-box { background: rgba(248, 81, 73, 0.05); border-left: 3px solid var(--accent-red); padding: 8px 10px; border-radius: 4px; color: #ff7b72; }
+
+    @media print {
+      body { background: #fff; color: #000; padding: 10px; }
+      .card { border: 1px solid #ccc; background: #fff; color: #000; break-inside: avoid; }
+      .controls, .badges { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>⚡ 2026 Master Offensive Draft Dossier & Pick 3 (1.03) War Room</h1>
+    <div class="subtitle">Rose Bowl 12-Team Full PPR | Pick 3 (1.03) Focus | Interleaved 3-IDP Roster Blueprint</div>
+    <div class="badges">
+      <span class="badge badge-gold">Pick 3 Turn Cadence</span>
+      <span class="badge badge-blue">CSV-Verified (Rankings Commit b6d8471)</span>
+      <span class="badge badge-green">BettorDay Trench Ratings Integrated</span>
+      <span class="badge badge-red">3 IDP Starters Required</span>
+    </div>
+  </div>
+
+  <div class="blueprint-section">
+    <h2>🎯 Pick 3 (1.03) Turn Cadence & Interleaving Blueprint</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Turn</th>
+            <th>Round & Pick</th>
+            <th>Overall</th>
+            <th>Strategic Objective & Target Window</th>
+            <th>Primary Target</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Turn 1</strong></td>
+            <td><strong>1.03</strong></td>
+            <td><strong>#3</strong></td>
+            <td><strong>Tier 1 Alpha Anchor</strong> (Gibbs / Bijan / Chase / Nacua / CMC)</td>
+            <td><strong style="color:var(--accent-gold);">RB1 or WR1</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Turn 2</strong></td>
+            <td><strong>2.10</strong></td>
+            <td><strong>#22</strong></td>
+            <td><strong>Hero RB / Elite WR2 / Bowers Advantage</strong> (Bowers #22, Josh Allen #21, London #20, Brown #19)</td>
+            <td><strong style="color:var(--accent-blue);">WR / RB / TE</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Turn 3</strong></td>
+            <td><strong>3.03</strong></td>
+            <td><strong>#27</strong></td>
+            <td><strong>Rapid Turn Strike (5-pick gap)</strong> (Trey McBride #25, Collins #24, Nabers #27, Kyren Williams #29)</td>
+            <td><strong style="color:var(--accent-blue);">WR / RB / TE</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Turn 4</strong></td>
+            <td><strong>4.10</strong></td>
+            <td><strong>#46</strong></td>
+            <td><strong>Trench-Boosted Backfield / Target Hog</strong> (Lamar #37, McConkey #43, Waddle #46, Irving #47)</td>
+            <td><strong style="color:var(--accent-green);">WR / RB</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Turn 5</strong></td>
+            <td><strong>5.03</strong></td>
+            <td><strong>#51</strong></td>
+            <td><strong>Rapid Turn Strike (5-pick gap)</strong> (Tyler Warren #51, Drake Maye #52, Davante Adams #50)</td>
+            <td><strong style="color:var(--accent-green);">WR / TE / QB</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Turn 6</strong></td>
+            <td><strong>6.10</strong></td>
+            <td><strong>#70</strong></td>
+            <td><strong>High-Volume WR3 / QB Value Run</strong> (Jayden Daniels #62, Jalen Hurts #63, Odunze #60)</td>
+            <td><strong style="color:var(--accent-purple);">WR / QB</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Turn 7</strong></td>
+            <td><strong>7.03</strong></td>
+            <td><strong>#75</strong></td>
+            <td><strong>Anchor Flex / TE Value</strong> (Tucker Kraft #70, Kyle Pitts #71, Sam LaPorta #73, Dak Prescott #75)</td>
+            <td><strong style="color:var(--accent-purple);">TE / WR / QB</strong></td>
+          </tr>
+          <tr style="background: rgba(227, 179, 65, 0.1);">
+            <td><strong style="color:var(--accent-gold);">Turn 8</strong></td>
+            <td><strong>8.10</strong></td>
+            <td><strong>#94</strong></td>
+            <td>🚨 <strong>IDP TRIGGER WINDOW (LB1 Lock)</strong> (Schwesinger #85, Gray #89, Baun #93, Brooks #97)</td>
+            <td><strong style="color:var(--accent-gold);">IDP LB1 Starter</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Turn 9</strong></td>
+            <td><strong>9.03</strong></td>
+            <td><strong>#99</strong></td>
+            <td><strong>Rapid Turn Strike (5-pick gap)</strong> (IDP LB2 Jack Campbell #100 or Pittman #99 / Corum #103)</td>
+            <td><strong style="color:var(--accent-gold);">IDP LB2 / WR / RB</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Turn 10/11</strong></td>
+            <td><strong>10.10 / 11.03</strong></td>
+            <td><strong>#118 / #123</strong></td>
+            <td><strong>IDP LB2/LB3 Lock-in + Upside Stash</strong> (Sherwood #104, Henley #108, Edwards #112)</td>
+            <td><strong style="color:var(--accent-gold);">IDP LB2/3 + Bench</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="controls">
+    <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search by player, team, position, or tier...">
+    <button class="filter-btn active" onclick="filterPos('ALL')">All Targets</button>
+    <button class="filter-btn" onclick="filterPos('RB')">Running Backs</button>
+    <button class="filter-btn" onclick="filterPos('WR')">Wide Receivers</button>
+    <button class="filter-btn" onclick="filterPos('TE')">Tight Ends</button>
+    <button class="filter-btn" onclick="filterPos('QB')">Quarterbacks</button>
+  </div>
+
+  <div class="grid" id="cardsGrid">
+
+    <div class="card" data-pos="RB" data-search="jahmyr gibbs det rb tier 1">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Jahmyr Gibbs</div>
+          <div class="player-meta">DET — RB | Tier 1</div>
+        </div>
+        <div class="rank-pill">#1</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Elite Dual-Threat RB1</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">280 touches (75+ receptions)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: +0.71z Run | -0.90z Pass (#19 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Ben Johnson / Dan Campbell power-spread with heavy screen design.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> 1.01 contender. Unmatched weekly ceiling with dynamic receiving role and red-zone goal-line touches.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Minor touch share split with David Montgomery, though Gibbs dominates high-value touches.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="RB" data-search="bijan robinson atl rb tier 1">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Bijan Robinson</div>
+          <div class="player-meta">ATL — RB | Tier 1</div>
+        </div>
+        <div class="rank-pill">#2</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Every-Down Bellcow Alpha</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">310 touches (80+ targets)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: +0.43z Run | -0.03z Pass (#14 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Zac Robinson outside-zone McVay-tree rushing attack with heavy split-out WR routes.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> The safest floor-ceiling combo on the board. Unquestioned 85%+ snap volume in high-tempo offense.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Low. Elite bellcow profile.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="WR" data-search="ja'marr chase cin wr tier 1">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Ja'Marr Chase</div>
+          <div class="player-meta">CIN — WR | Tier 1</div>
+        </div>
+        <div class="rank-pill">#3</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Consensus WR1 Target Alpha</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">175 targets (110+ receptions, 1,500+ yds)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: -1.50z Run | -0.65z Pass (#32 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Zac Taylor / Dan Pitcher 11-personnel spread with Burrow operating at peak efficiency.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Dominant vertical and intermediate target share. Unlocks 30+ point weekly ceiling.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Low when Burrow is healthy.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="WR" data-search="puka nacua lar wr tier 1">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Puka Nacua</div>
+          <div class="player-meta">LAR — WR | Tier 1</div>
+        </div>
+        <div class="rank-pill">#4</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Primary McVay X/Z Receiver</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">160 targets (105+ receptions)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: +2.71z Run | -1.04z Pass (#1 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Sean McVay motion-heavy 11-personnel. Nacua used on jet sweeps, dig routes, and slot fades.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Historic rookie/sophomore volume earner. Dominates target-per-route-run metrics across all downs.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Physical play style requires monitoring mid-week maintenance.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="RB" data-search="christian mccaffrey sf rb tier 1">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Christian McCaffrey</div>
+          <div class="player-meta">SF — RB | Tier 1</div>
+        </div>
+        <div class="rank-pill">#5</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Elite Dual-Threat Bellcow Anchor</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">270 touches (70+ catches)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: +1.99z Run | -0.06z Pass (#17 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Kyle Shanahan outside zone / gap hybrid with McCaffrey aligned everywhere.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> PPR point-per-game machine when active. Undisputed goal-line and third-down monopolizer.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Soft tissue injury management and age curve.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="WR" data-search="jaxon smith-njigba sea wr tier 1">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Jaxon Smith-Njigba</div>
+          <div class="player-meta">SEA — WR | Tier 1</div>
+        </div>
+        <div class="rank-pill">#6</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Ascending Slot/Perimeter Target Hog</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">145 targets (95+ receptions)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: +0.09z Run | -1.02z Pass (#11 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Ryan Grubb downfield spread passing attack.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Major third-year alpha leap profile with elite separation grades.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Target distribution across multiple perimeter weapons.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="RB" data-search="jonathan taylor ind rb tier 2">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Jonathan Taylor</div>
+          <div class="player-meta">IND — RB | Tier 2</div>
+        </div>
+        <div class="rank-pill">#7</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Bellcow Volume Rusher</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">290 carries, 35 targets</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: +1.51z Run | +0.58z Pass (#6 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Shane Steichen inside-zone / RPO attack.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Massive touchdown equity in Steichen's red-zone rushing packages.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Target ceiling capped if Anthony Richardson runs near goal line.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="WR" data-search="amon-ra st. brown det wr tier 1">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Amon-Ra St. Brown</div>
+          <div class="player-meta">DET — WR | Tier 1</div>
+        </div>
+        <div class="rank-pill">#8</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">PPR Slot Target Magnet</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">165 targets (115+ catches)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: +0.71z Run | -0.90z Pass (#19 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Ben Johnson inside-out passing attack with heavy play-action crossers.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> 100-catch PPR lock with immense weekly floor.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Lower average depth of target (aDOT) than perimeter deep threats.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="RB" data-search="james cook iii buf rb tier 2">
+      <div class="card-header">
+        <div>
+          <div class="player-name">James Cook III</div>
+          <div class="player-meta">BUF — RB | Tier 2</div>
+        </div>
+        <div class="rank-pill">#9</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">High-Efficiency Dual Threat</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">250 touches (55+ receptions)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: +0.54z Run | -1.02z Pass (#27 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Joe Brady run-first power scheme with Allen play-action.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Ascended into clear primary back status in late 2025/2026; dominant explosive run rate.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Josh Allen vulturing short-yardage rushing touchdowns.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="RB" data-search="de'von achane mia rb tier 2">
+      <div class="card-header">
+        <div>
+          <div class="player-name">De'Von Achane</div>
+          <div class="player-meta">MIA — RB | Tier 2</div>
+        </div>
+        <div class="rank-pill">#10</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Hyper-Efficient Explosive Weapon</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">220 touches (65+ receptions)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: -0.94z Run | -1.33z Pass (#29 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Mike McDaniel motion-heavy speed spacing.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Highest fantasy points-per-touch in NFL history; huge receiving ceiling in PPR.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Touch volume capped at 15-18 touches to preserve durability.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="WR" data-search="ceedee lamb dal wr tier 2">
+      <div class="card-header">
+        <div>
+          <div class="player-name">CeeDee Lamb</div>
+          <div class="player-meta">DAL — WR | Tier 2</div>
+        </div>
+        <div class="rank-pill">#11</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Alpha WR1 Vacuum</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">170 targets (110+ catches)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: +0.78z Run | -2.33z Pass (#24 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Mike McCarthy / Brian Schottenheimer spread with Lamb moving across all 3 receiver spots.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Historic 2025 volume earner. The definitive anchor WR if slipping past Top 10.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> High draft cost; defenses rolling bracket coverage.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="WR" data-search="justin jefferson min wr tier 2">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Justin Jefferson</div>
+          <div class="player-meta">MIN — WR | Tier 2</div>
+        </div>
+        <div class="rank-pill">#12</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">All-Pro Route Technician</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">160 targets (100+ catches)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: -0.08z Run | +0.37z Pass (#13 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Kevin O'Connell Shanahan-tree passing offense.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Best route runner in football. Produces WR1 numbers regardless of quarterback situation.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> QB transition volatility.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="RB" data-search="chase brown cin rb tier 2">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Chase Brown</div>
+          <div class="player-meta">CIN — RB | Tier 2</div>
+        </div>
+        <div class="rank-pill">#13</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Full-Time Bengals Lead Back</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">260 touches (50+ receptions)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: -1.50z Run | -0.65z Pass (#32 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Zac Taylor shotgun zone-read and pass-catching backfield design.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Took over backfield workhorse duties with explosive 4.4 speed and 3-down receiving ability.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Second-year workhorse durability.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="RB" data-search="saquon barkley phi rb tier 2">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Saquon Barkley</div>
+          <div class="player-meta">PHI — RB | Tier 2</div>
+        </div>
+        <div class="rank-pill">#14</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Elite Workhorse Behind Top Line</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">280 carries, 45 targets</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: +0.73z Run | +2.12z Pass (#2 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Kellen Moore / Nick Sirianni RPO and inside zone.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Runs behind one of the best offensive lines in football with massive TD ceiling.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Jalen Hurts 'Tush Push' goal-line vulture.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="RB" data-search="omarion hampton lac rb tier 2">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Omarion Hampton</div>
+          <div class="player-meta">LAC — RB | Tier 2</div>
+        </div>
+        <div class="rank-pill">#15</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Rookie Bellcow Sensation</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">270 touches (40+ receptions)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: -0.30z Run | -0.28z Pass (#25 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Jim Harbaugh / Greg Roman physical ground-and-pound power attack.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Harbaugh’s hand-picked backfield centerpiece; projected for 18+ touches per game immediately.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Rookie learning curve in pass protection.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="RB" data-search="derrick henry bal rb tier 3">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Derrick Henry</div>
+          <div class="player-meta">BAL — RB | Tier 3</div>
+        </div>
+        <div class="rank-pill">#16</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Red Zone & Power Rushing King</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">270 carries, 15+ rushing TDs</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: -0.30z Run | +0.38z Pass (#9 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Todd Monken / Lamar Jackson pistol option and gap power.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Touchdown equity is astronomical in Baltimore's scoring offense.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Virtually zero receiving volume in PPR format.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="RB" data-search="ashton jeanty lv rb tier 3">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Ashton Jeanty</div>
+          <div class="player-meta">LV — RB | Tier 3</div>
+        </div>
+        <div class="rank-pill">#17</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">First-Round Rookie Workhorse</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">250 touches (45+ receptions)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: +0.24z Run | -0.34z Pass (#31 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Luke Getsy wide zone rushing scheme.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Generational tackle-breaker with elite vision and receiving pedigree.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> ⚠️ High-Ankle Sprain alert flagged in BettorDay preseason intel; potential limited early snaps.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="RB" data-search="kenneth walker iii kc rb tier 2">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Kenneth Walker III</div>
+          <div class="player-meta">KC — RB | Tier 2</div>
+        </div>
+        <div class="rank-pill">#18</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Lead Power Rusher in KC Offense</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">250 touches (40+ receptions)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: -0.35z Run | +0.89z Pass (#4 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Andy Reid versatile zone-run and screen system.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Traded to KC into the most explosive scoring environment of his career.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Reid backfield rotations in 2-minute drill.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="WR" data-search="a.j. brown ne wr tier 2">
+      <div class="card-header">
+        <div>
+          <div class="player-name">A.J. Brown</div>
+          <div class="player-meta">NE — WR | Tier 2</div>
+        </div>
+        <div class="rank-pill">#19</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Alpha WR1 Vertical Threat</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">140 targets (85+ receptions, 1,300 yds)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: -0.21z Run | +0.25z Pass (#20 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Alex Van Pelt / Drake Maye vertical play-action scheme.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Elite target earner and yards-after-catch monster.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> New offensive system integration in New England.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="WR" data-search="drake london atl wr tier 2">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Drake London</div>
+          <div class="player-meta">ATL — WR | Tier 2</div>
+        </div>
+        <div class="rank-pill">#20</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Target Vacuum in Pass-Friendly Dome</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">150 targets (95+ receptions)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: +0.43z Run | -0.03z Pass (#14 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Zac Robinson McVay-style passing tree.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Dominates red-zone contested catches and intermediate middle-of-field targets.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> High-target distribution with Bijan and Kyle Pitts.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="QB" data-search="josh allen buf qb tier 1">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Josh Allen</div>
+          <div class="player-meta">BUF — QB | Tier 1</div>
+        </div>
+        <div class="rank-pill">#21</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">QB1 Overall / Konami Code Alpha</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">4,300 passing yds, 650 rushing yds, 40+ total TDs</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: +0.54z Run | -1.02z Pass (#27 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Joe Brady dual-threat designed QB draw and deep play-action.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> The #1 cheat-code quarterback in fantasy football. Guarantees 22+ PPG.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Draft capital cost (Round 2/3 turn).
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="TE" data-search="brock bowers lv te tier 1">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Brock Bowers</div>
+          <div class="player-meta">LV — TE | Tier 1</div>
+        </div>
+        <div class="rank-pill">#22</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Generational Move TE / WR1 Alignment</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">135 targets (90+ receptions, 1,050 yds)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: +0.24z Run | -0.34z Pass (#31 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Spread alignment (slot, out wide, motion backfield).</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Broke rookie TE records; unquestioned target alpha in Las Vegas.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Quarterback consistency in LV.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="WR" data-search="george pickens dal wr tier 3">
+      <div class="card-header">
+        <div>
+          <div class="player-name">George Pickens</div>
+          <div class="player-meta">DAL — WR | Tier 3</div>
+        </div>
+        <div class="rank-pill">#23</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Cowboys New Perimeter Alpha</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">130 targets (80+ receptions, 1,200 yds)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: +0.78z Run | -2.33z Pass (#24 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Dallas high-volume spread alongside CeeDee Lamb.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Massive vertical upside operating against single coverage across from Lamb.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Concentration of volume around Lamb.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="WR" data-search="nico collins hou wr tier 3">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Nico Collins</div>
+          <div class="player-meta">HOU — WR | Tier 3</div>
+        </div>
+        <div class="rank-pill">#24</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Texans #1 Vertical Alpha</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">140 targets (85+ receptions, 1,300 yds)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: -0.37z Run | -1.00z Pass (#5 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Bobby Slowik Shanahan-style downfield passing offense with CJ Stroud.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Among the highest yards-per-route-run (YPRR) in football.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Hamstring soft-tissue history.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="TE" data-search="trey mcbride ari te tier 1">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Trey McBride</div>
+          <div class="player-meta">ARI — TE | Tier 1</div>
+        </div>
+        <div class="rank-pill">#25</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Dominant Slot/Intermediate TE</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">130 targets (90+ receptions)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: -0.17z Run | +0.69z Pass (#28 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Drew Petzing heavy 12/13 personnel targeting the middle of the field.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Consistent 8-10 target weekly volume; elite PPR floor.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Touchdown variance in run-heavy red zone offense.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="WR" data-search="chris olave no wr tier 3">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Chris Olave</div>
+          <div class="player-meta">NO — WR | Tier 3</div>
+        </div>
+        <div class="rank-pill">#26</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Saints Alpha Vertical Receiver</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">140 targets (85+ receptions)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: -0.96z Run | +0.74z Pass (#23 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Klint Kubiak Shanahan-tree motion and play-action deep crossers.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Elite separator with 25%+ target share projection.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Quarterback accuracy and health.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="WR" data-search="malik nabers nyg wr tier 3">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Malik Nabers</div>
+          <div class="player-meta">NYG — WR | Tier 3</div>
+        </div>
+        <div class="rank-pill">#27</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Target-Dominant Rookie/Sophomore Alpha</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">150 targets (90+ receptions)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: -0.58z Run | +0.82z Pass (#16 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Brian Daboll spread concepts with heavy first-read designs.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Electric run-after-catch ability; unquestioned focal point of NYG offense.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Offensive scoring ceiling.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="WR" data-search="rashee rice kc wr tier 3">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Rashee Rice</div>
+          <div class="player-meta">KC — WR | Tier 3</div>
+        </div>
+        <div class="rank-pill">#28</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Mahomes Primary In-Breaking Target</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">130 targets (90+ receptions)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: -0.35z Run | +0.89z Pass (#4 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Andy Reid heavy spacing, motion, and crossing routes.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Dominant YAC creator in football's premier passing scheme.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Off-field situation monitoring.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="RB" data-search="kyren williams lar rb tier 3">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Kyren Williams</div>
+          <div class="player-meta">LAR — RB | Tier 3</div>
+        </div>
+        <div class="rank-pill">#29</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Workhorse Volume Rusher</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">250 touches (35+ receptions)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: +2.71z Run | -1.04z Pass (#1 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Sean McVay duo and outside zone.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Runs behind the #1 ranked run-blocking line in the NFL; immense red-zone touch share.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Blake Corum spelling on change-of-pace drives.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="RB" data-search="jeremiyah love ari rb tier 3">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Jeremiyah Love</div>
+          <div class="player-meta">ARI — RB | Tier 3</div>
+        </div>
+        <div class="rank-pill">#30</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Explosive Rookie Starter</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">230 touches (45+ receptions)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: -0.17z Run | +0.69z Pass (#28 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Drew Petzing perimeter zone-stretch.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Dynamic 3-down skill set with home-run rushing speed.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Committee backfield share early in season.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="RB" data-search="javonte williams dal rb tier 3">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Javonte Williams</div>
+          <div class="player-meta">DAL — RB | Tier 3</div>
+        </div>
+        <div class="rank-pill">#31</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Dallas Lead Early-Down & Goal-Line Rusher</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">240 touches (30+ receptions)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: +0.78z Run | -2.33z Pass (#24 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Mike McCarthy inside power and zone.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Clear leader for goal-line work in high-scoring Dallas offense.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Efficiency volatility coming off major injuries.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="WR" data-search="devonta smith phi wr tier 3">
+      <div class="card-header">
+        <div>
+          <div class="player-name">DeVonta Smith</div>
+          <div class="player-meta">PHI — WR | Tier 3</div>
+        </div>
+        <div class="rank-pill">#32</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Elite Co-WR1 in High-Powered Eagles Offense</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">125 targets (85+ catches, 1,100 yds)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: +0.73z Run | +2.12z Pass (#2 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Kellen Moore spread-RPO with high-efficiency perimeter routes.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Flawless route runner with massive ceiling games whenever defenses shade to A.J. Brown.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Target distribution in run-heavy game scripts.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="RB" data-search="breece hall nyj rb tier 3">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Breece Hall</div>
+          <div class="player-meta">NYJ — RB | Tier 3</div>
+        </div>
+        <div class="rank-pill">#33</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Dual-Threat Comeback Weapon</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">250 touches (50+ catches)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: -0.87z Run | -0.95z Pass (#21 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Nathaniel Hackett / NYJ spread system.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Generational pass-catching and open-field elusiveness when fully healthy.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Workload management and offense efficiency.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="RB" data-search="travis etienne jr. no rb tier 4">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Travis Etienne Jr.</div>
+          <div class="player-meta">NO — RB | Tier 4</div>
+        </div>
+        <div class="rank-pill">#34</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Lead Rusher in New Orleans</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">240 touches (45+ catches)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: -0.96z Run | +0.74z Pass (#23 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Klint Kubiak outside-zone system tailored to speed backs.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> High-end receiving back with explosive acceleration.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Offensive line consistency.
+        </div>
+      </div>
+    </div>
+  
+    <div class="card" data-pos="WR" data-search="zay flowers bal wr tier 3">
+      <div class="card-header">
+        <div>
+          <div class="player-name">Zay Flowers</div>
+          <div class="player-meta">BAL — WR | Tier 3</div>
+        </div>
+        <div class="rank-pill">#35</div>
+      </div>
+      <div class="card-body">
+        <div class="stat-row">
+          <span class="stat-label">Projected Role:</span>
+          <span class="stat-val">Lamar Jackson Primary WR Alpha</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Touch / Target Vol:</span>
+          <span class="stat-val">125 targets (80+ receptions)</span>
+        </div>
+        <div class="trench-badge">
+          🛡️ O-Line: -0.30z Run | +0.38z Pass (#9 Composite)
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Scheme Context:</span>
+          <span class="stat-val" style="font-size:12px; text-align:left;">Todd Monken spread spacing with Flowers in slot and motion.</span>
+        </div>
+        <div class="intel-box">
+          💡 <strong>Intel:</strong> Electric open-field playmaker and Lamar's primary first-read receiver.
+        </div>
+        <div class="risk-box">
+          ⚠️ <strong>Risk:</strong> Ravens heavy rush rate in positive game scripts.
+        </div>
+      </div>
+    </div>
+  
+  </div>
+
+  <script>
+    let currentPos = 'ALL';
+    function filterPos(pos) {
+      currentPos = pos;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.innerText.includes(pos) || (pos === 'ALL' && btn.innerText.includes('All')));
+      });
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      document.querySelectorAll('.card').forEach(card => {
+        const matchesPos = currentPos === 'ALL' || card.dataset.pos === currentPos;
+        const matchesSearch = !q || card.dataset.search.includes(q);
+        card.style.display = matchesPos && matchesSearch ? 'block' : 'none';
+      });
+    }
+
+    document.getElementById('searchInput').addEventListener('input', applyFilters);
+  </script>
+</body>
+</html>
