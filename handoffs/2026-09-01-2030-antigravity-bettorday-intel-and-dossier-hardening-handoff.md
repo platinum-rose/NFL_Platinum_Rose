@@ -62,3 +62,25 @@ A new automated intelligence source has been specified, built, audited, and reso
 1.  **Weekly Matchup & Start/Sit Engine:** Integrate `nfl_trench_ratings` into in-season weekly matchup projections (matching offensive line pass protection vs. opponent pass rush z-scores).
 2.  **Automated Daily Ingest Cron:** Wire `agents/bettorday-newsletter-ingest.js` into regular season morning scheduling.
 3.  **Cross-League In-Season Roster Monitoring:** Build weekly waiver wire scanners cross-referencing injury reports against `docs/fantasy/2026_IN_SEASON_IDP_WATCHLIST.md`.
+
+---
+
+## 📋 5. Resume Prompt
+
+Copy and paste the following prompt to resume the next session:
+
+```markdown
+Resume NFL Dashboard development from handoff: `handoffs/2026-09-01-2030-antigravity-bettorday-intel-and-dossier-hardening-handoff.md`.
+
+Context snapshot:
+- IDP Dossier Suite (docs/fantasy/2026_MASTER_IDP_40_PLAYER_DOSSIER_SUITE.md / .html / .docx) is 100% verified against the live board CSV (commit 1d6ba2c).
+- In-Season IDP Watchlist (docs/fantasy/2026_IN_SEASON_IDP_WATCHLIST.md) is CSV-verified (commit b6d8471).
+- BettorDay Ingestion Agent (agents/bettorday-newsletter-ingest.js) & Spec (docs/specs/BETTORDAY_INTEL_PIPELINE_SPEC_2026-09-01.md) audited and committed (commit e95137d), partitioning team composites from schedule SOS.
+- Claude team is integrating the pipeline into the live production runner.
+
+Standing constraints:
+- Pipeline Ownership Rule: `agents/fantasy-rose-bowl-build.js` is the sole owner of `docs/fantasy/2026_Rose_Bowl_*` and `public/2026_Rose_Bowl_*`.
+- No scratch scripts writing to live production draft files.
+
+Please inspect current repository state and ask for the next operational objective or proceed with in-season matchup / dashboard tooling.
+```
