@@ -68,17 +68,22 @@ export async function fetchTrenchReport() {
   if (!res.ok) throw new Error(`Failed to fetch Trench report: HTTP ${res.status}`);
   const html = await res.text();
 
-  const rows = html.match(/<tr[\s\S]*?<\/tr>/gi) || [];
+  const tables = html.match(/<table[\s\S]*?<\/table>/gi) || [];
+  if (tables.length < 3) {
+    throw new Error(`Expected at least 3 tables in Trench report, found ${tables.length}`);
+  }
+
   const trenchRatings = [];
 
-  for (const r of rows) {
+  // Table 1 (Index 0): The Landscape (Raw Team Trench Composites - 32 teams)
+  const t1Rows = tables[0].match(/<tr[\s\S]*?<\/tr>/gi) || [];
+  for (const r of t1Rows) {
     const cells = (r.match(/<t[dh][\s\S]*?<\/t[dh]>/gi) || []).map(c =>
       c.replace(/<[^>]+>/g, '').replace(/&minus;/g, '-').replace(/&nbsp;/g, ' ').replace(/&#8211;/g, '-').replace(/−/g, '-').trim()
     );
     if (cells.length >= 7 && cells[0] !== '#' && !isNaN(parseInt(cells[0], 10))) {
       const rank = parseInt(cells[0], 10);
-      const rawTeam = cells[1];
-      const team = normalizeTeamCode(rawTeam);
+      const team = normalizeTeamCode(cells[1]);
       const scoreOverall = parseFloat(cells[2]);
       const runBlock = parseFloat(cells[3]);
       const passBlock = parseFloat(cells[4]);
@@ -90,6 +95,7 @@ export async function fetchTrenchReport() {
           team,
           season: SEASON,
           week: WEEK,
+          metric_type: 'team_composite',
           rank_overall: rank,
           score_overall: scoreOverall,
           run_block_z: runBlock,
@@ -103,7 +109,48 @@ export async function fetchTrenchReport() {
     }
   }
 
-  console.log(`✓ Parsed ${trenchRatings.length} NFL team trench composite records.`);
+  // Table 3 (Index 2): The Schedule (Schedule SOS, All 32 - 32 teams)
+  const t3Rows = tables[2].match(/<tr[\s\S]*?<\/tr>/gi) || [];
+  for (const r of t3Rows) {
+    const cells = (r.match(/<t[dh][\s\S]*?<\/t[dh]>/gi) || []).map(c =>
+      c.replace(/<[^>]+>/g, '').replace(/&minus;/g, '-').replace(/&nbsp;/g, ' ').replace(/&#8211;/g, '-').replace(/−/g, '-').trim()
+    );
+    if (cells.length >= 7 && cells[0] !== '#' && !isNaN(parseInt(cells[0], 10))) {
+      const rank = parseInt(cells[0], 10);
+      const team = normalizeTeamCode(cells[1]);
+      const scoreOverall = parseFloat(cells[2]);
+      const vsRunDef = parseFloat(cells[3]);
+      const vsPassRush = parseFloat(cells[4]);
+      const vsRunBlk = parseFloat(cells[5]);
+      const vsPassBlk = parseFloat(cells[6]);
+
+      if (team && !isNaN(scoreOverall)) {
+        trenchRatings.push({
+          team,
+          season: SEASON,
+          week: WEEK,
+          metric_type: 'schedule_sos',
+          rank_overall: rank,
+          score_overall: scoreOverall,
+          run_block_z: vsRunBlk,       // Facing opponent run blocking
+          pass_block_z: vsPassBlk,     // Facing opponent pass blocking
+          run_defense_z: vsRunDef,     // Facing opponent run defense
+          pass_rush_z: vsPassRush,     // Facing opponent pass rush
+          as_of_date: AS_OF,
+          source: 'bettorday'
+        });
+      }
+    }
+  }
+
+  const composites = trenchRatings.filter(r => r.metric_type === 'team_composite');
+  const schedules = trenchRatings.filter(r => r.metric_type === 'schedule_sos');
+  console.log(`✓ Parsed ${composites.length} team composite records and ${schedules.length} schedule SOS records (total: ${trenchRatings.length}).`);
+  
+  if (composites.length !== 32 || schedules.length !== 32) {
+    console.warn(`⚠ Warning: Expected 32 records per table. Found ${composites.length} composites and ${schedules.length} schedule SOS.`);
+  }
+
   return trenchRatings;
 }
 
@@ -214,7 +261,7 @@ export async function main() {
   console.log(`\n→ Syncing ${trenchRatings.length} trench records to Supabase (nfl_trench_ratings)...`);
   const { error: trenchErr } = await supabase
     .from('nfl_trench_ratings')
-    .upsert(trenchRatings, { onConflict: 'team,season,week,as_of_date' });
+    .upsert(trenchRatings, { onConflict: 'team,season,week,metric_type,as_of_date' });
   if (trenchErr) console.error(`⚠ Trench Supabase upsert error:`, trenchErr.message);
   else console.log(`✓ Trench ratings synced to Supabase.`);
 
