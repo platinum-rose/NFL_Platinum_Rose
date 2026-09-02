@@ -6,7 +6,7 @@
 
 > **Data Sourcing Transparency**
 >
-> The player **identities and draft rankings** in this document come from the live pipeline: DraftSharks IDP consensus rankings ingested by `agents/draftsharks-idp-ingest.js` → Supabase `fantasy_rankings (scoring='idp')` → filtered to `position='LB'` by `agents/fantasy-rose-bowl-build.js`.
+> The player **identities, draft ranks, and team affiliations** in this document are CSV-verified against `docs/fantasy/2026_Rose_Bowl_Custom_Rankings.csv` at commit `b6d8471`. All 40 player headings were checked by querying the CSV directly — no rank was entered from memory.
 >
 > All other figures — snap-share estimates, projected tackle totals, scheme classifications, coordinator notes, per-snap efficiency references — are **editorial estimates** drawn from publicly available preseason analysis (Every-Down IDP, IDP Guru, The IDP Show, PFF IDP editorial content) and are **not computed or verified by this pipeline**. They should be read as informed context for draft-room decisions, not as pipeline-sourced data.
 
@@ -30,7 +30,7 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 
 ---
 
-### 1. Carson Schwesinger — CLE (LB) | Draft Rank #85
+### 1. Carson Schwesinger — CLE (LB) | Draft Rank #85 *(CSV-verified)*
 **Snap Volume:** ~98% *(editorial estimate — based on preseason depth chart reporting)*  
 **Projected Tackles:** 135–150 *(editorial estimate)*  
 **Scheme:** Jim Schwartz / Mike Rutenberg zone-match front.  
@@ -38,7 +38,7 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 
 ---
 
-### 2. Cedric Gray — TEN (LB) | Draft Rank #89
+### 2. Cedric Gray — TEN (LB) | Draft Rank #89 *(CSV-verified)*
 **Snap Volume:** ~96% *(editorial estimate)*  
 **Projected Tackles:** 130–145 *(editorial estimate)*  
 **Scheme:** Robert Saleh / Dennard Wilson downhill 4-2-5 Nickel.  
@@ -46,7 +46,7 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 
 ---
 
-### 3. Zack Baun — PHI (LB) | Draft Rank #93
+### 3. Zack Baun — PHI (LB) | Draft Rank #93 *(CSV-verified)*
 **Snap Volume:** ~97% *(editorial estimate)*  
 **Projected Tackles:** 130–140 *(editorial estimate)*  
 **Scheme:** Vic Fangio 2-high zone shell.  
@@ -54,7 +54,7 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 
 ---
 
-### 4. Jordyn Brooks — MIA (LB) | Draft Rank #97
+### 4. Jordyn Brooks — MIA (LB) | Draft Rank #97 *(CSV-verified)*
 **Snap Volume:** ~99% *(editorial estimate)*  
 **Projected Tackles:** 140–155 *(editorial estimate)*  
 **Scheme:** Anthony Weaver 2-LB Nickel front.  
@@ -62,7 +62,7 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 
 ---
 
-### 5. Jack Campbell — DET (LB) | Draft Rank #100
+### 5. Jack Campbell — DET (LB) | Draft Rank #100 *(CSV-verified)*
 **Snap Volume:** ~98% *(editorial estimate)*  
 **Projected Tackles:** 135–150 *(editorial estimate)*  
 **Scheme:** Aaron Glenn / Kelvin Sheppard physical 4-2-5.  
@@ -70,7 +70,7 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 
 ---
 
-### 6. Jamien Sherwood — NYJ (LB) | Draft Rank #104
+### 6. Jamien Sherwood — NYJ (LB) | Draft Rank #104 *(CSV-verified)*
 **Snap Volume:** ~95% *(editorial estimate)*  
 **Projected Tackles:** 125–135 *(editorial estimate)*  
 **Scheme:** Jeff Ulbrich 4-2-5, high zone pass defense.  
@@ -78,7 +78,7 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 
 ---
 
-### 7. Quay Walker — LV (LB) | Draft Rank #108
+### 7. Quay Walker — LV (LB) | Draft Rank #108 *(CSV-verified)*
 **Snap Volume:** ~96% *(editorial estimate)*  
 **Projected Tackles:** 128–140 *(editorial estimate)*  
 **Scheme:** Patrick Graham match-quarters / 2-LB Nickel.  
@@ -86,7 +86,7 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 
 ---
 
-### 8. Fred Warner — SF (LB) | Draft Rank #112
+### 8. Fred Warner — SF (LB) | Draft Rank #112 *(CSV-verified)*
 **Snap Volume:** ~100% *(editorial estimate — he has historically never been subpackaged out)*  
 **Projected Tackles:** 133–148 *(editorial estimate)*  
 **Scheme:** Raheem Morris 4-3 Over/Under, high Nickel rate.  
@@ -94,7 +94,7 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 
 ---
 
-### 9. Edgerrin Cooper — GB (LB) | Draft Rank #116
+### 9. Edgerrin Cooper — GB (LB) | Draft Rank #116 *(CSV-verified)*
 **Snap Volume:** ~94% *(editorial estimate)*  
 **Projected Tackles:** 126–138 *(editorial estimate)*  
 **Scheme:** Jeff Hafley 74% zone / LB blitz front.  
@@ -102,7 +102,7 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 
 ---
 
-### 10. Blake Cashman — MIN (LB) | Draft Rank #120
+### 10. Blake Cashman — MIN (LB) | Draft Rank #120 *(CSV-verified)*
 **Snap Volume:** ~98% *(editorial estimate)*  
 **Projected Tackles:** 130–143 *(editorial estimate)*  
 **Scheme:** Brian Flores chaos blitz / Cover-0.  
@@ -110,7 +110,7 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 
 ---
 
-### 11. Roquan Smith — BAL (LB) | Draft Rank #123
+### 11. Roquan Smith — BAL (LB) | Draft Rank #123 *(CSV-verified)*
 **Snap Volume:** ~100% *(editorial estimate)*  
 **Projected Tackles:** 145–160 *(editorial estimate)*  
 **Scheme:** Jesse Minter / Zach Orr physical front.  
@@ -118,7 +118,7 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 
 ---
 
-### 12. Foyesade Oluokun — JAC (LB) | Draft Rank #127
+### 12. Foyesade Oluokun — JAC (LB) | Draft Rank #127 *(CSV-verified)*
 **Snap Volume:** ~99% *(editorial estimate)*  
 **Projected Tackles:** 150–165 *(editorial estimate)*  
 **Scheme:** Ryan Nielsen 89% Nickel front *(editorial — scheme-usage estimate from IDP Guru preseason content)*.  
@@ -132,42 +132,52 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 
 ---
 
-### 13. Robert Spillane — NE (LB) | Draft Rank #131
+### 13. Robert Spillane — NE (LB) | Draft Rank #131 *(CSV-verified)*
 **Snap Volume:** ~97% *(editorial estimate)*  
 **Projected Tackles:** 126–136 *(editorial estimate)*  
 **Draft Room Intel:** Lone 3-down signal-caller in New England's gap-control scheme. Classic downhill run stopper with a historically high tackle-per-snap rate *(editorial, IDP Show preseason content)*.
 
-### 14. Devin Lloyd — CAR (LB) | Draft Rank #135
+### 14. Devin Lloyd — CAR (LB) | Draft Rank #135 *(CSV-verified)*
 **Snap Volume:** ~96% *(editorial estimate)*  
 **Projected Tackles:** 122–132 *(editorial estimate)*  
 **Draft Room Intel:** Green Dot lead LB in Evero's 3-4 / 2-4-5 front. Elite length (noted in Footballguys editorial) enables clean wrap-up tackling and above-average PBU upside.
 
-### 15. T.J. Edwards — CHI (LB) | Draft Rank #139
+### 15. T.J. Edwards — CHI (LB) | Draft Rank #139 *(CSV-verified)*
 **Snap Volume:** ~96% *(editorial estimate)*  
 **Projected Tackles:** 128–138 *(editorial estimate)*  
 **Draft Room Intel:** Healthy entering 2026. One of the most consistent 8–10 tackle-per-game floors in the league over the last three seasons *(editorial, published career stats)*.
 
-### 16. Ernest Jones IV — SEA (LB) | Draft Rank #143
+### 16. Ernest Jones IV — SEA (LB) | Draft Rank #143 *(CSV-verified)*
 **Snap Volume:** ~98% *(editorial estimate)*  
 **Projected Tackles:** 130–142 *(editorial estimate)*  
 **Draft Room Intel:** Mike Macdonald's scheme in Baltimore produced top-5 IDP seasons from Roquan Smith and Patrick Queen. Jones is the direct inheritor of that role in Seattle.
 
-### 17. Nakobe Dean — LV (LB) | Draft Rank #147
+### 17. Nakobe Dean — LV (LB) | Draft Rank #147 *(CSV-verified)*
 **Snap Volume:** ~95% *(editorial estimate)*  
 **Projected Tackles:** 118–130 *(editorial estimate)*  
 **Draft Room Intel:** Patrick Graham's A-gap attack scheme creates inside running lanes that Dean closes with elite burst. Uncontested Green Dot starter.
 
-### 18. Daiyan Henley — LAC (LB) | Draft Rank #151
+### 18. Jacob Rodriguez — MIA (LB) | Draft Rank #150 *(CSV-verified)*
+**Snap Volume:** ~88% *(editorial estimate)*  
+**Projected Tackles:** 112–122 *(editorial estimate)*  
+**Draft Room Intel:** Camp standout who secured the LB2 role opposite Jordyn Brooks in Anthony Weaver's 2-LB front. Plays every down alongside Brooks. Rookie sleeper with genuine starter snaps locked in.
+
+### 19. Devin Bush — CHI (LB) | Draft Rank #154 *(CSV-verified)*
+**Snap Volume:** ~91% *(editorial estimate)*  
+**Projected Tackles:** 118–128 *(editorial estimate)*  
+**Draft Room Intel:** Full-time starting weakside linebacker alongside T.J. Edwards in Dennis Allen's 4-2-5. Career resurgence in Chicago; 4.43 speed allows him to track down perimeter zone runs.
+
+### 20. Daiyan Henley — LAC (LB) | Draft Rank #158 *(CSV-verified)*
 **Snap Volume:** ~96% *(editorial estimate)*  
 **Projected Tackles:** 122–132 *(editorial estimate)*  
 **Draft Room Intel:** Fully healthy. Jesse Minter's 81% zone-coverage rate *(editorial — scheme estimate)* creates consistent underneath tackle volume for the signal-calling LB.
 
-### 19. Nick Bolton — KC (LB) | Draft Rank #154
+### 21. Nick Bolton — KC (LB) | Draft Rank #162 *(CSV-verified)*
 **Snap Volume:** ~95% *(editorial estimate)*  
 **Projected Tackles:** 127–138 *(editorial estimate)*  
 **Draft Room Intel:** Proven top-12 IDP LB in Spagnuolo's system. Stays on the field in high-leverage passing situations.
 
-### 20. Nathan Landman — LAR (LB) | Draft Rank #157
+### 22. Nathan Landman — LAR (LB) | Draft Rank #166 *(CSV-verified)*
 **Snap Volume:** ~96% *(editorial estimate)*  
 **Projected Tackles:** 124–134 *(editorial estimate)*  
 **Draft Room Intel:** The Rams run single-LB Dime packages at one of the highest rates in the league *(editorial — scheme estimate from IDP Guru)*. As the sole linebacker on the field in those packages, Landman captures the entire inside tackle opportunity.
@@ -175,60 +185,58 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 ---
 
 ## Tier 3 — Explosive Playmakers & Scheme Fits  
-*Ranks 161–204 / Rounds 14–17*  
+*Ranks 170–204 / Rounds 14–17*  
 *Full-time 3-down starters with additional big-play upside (sacks, INTs, TFLs) that can produce spike weeks.*
 
 ---
 
-### 21. Tremaine Edmunds — NYG | #161 | ~96% snaps *(editorial)* | 120–130 proj. tackles *(editorial)*
+### 23. Tremaine Edmunds — NYG | #170 *(CSV-verified)* | ~96% snaps *(editorial)* | 120–130 proj. tackles *(editorial)*
 6'5" frame in Dennard Wilson's Cover-3 produces PBU and INT upside on top of a volume tackle floor.
 
-### 22. Alex Singleton — DEN | #164 | ~97% snaps *(editorial)* | 134–148 proj. tackles *(editorial)*
+### 24. Alex Singleton — DEN | #173 *(CSV-verified)* | ~97% snaps *(editorial)* | 134–148 proj. tackles *(editorial)*
 Historically elite tackle-per-snap rate *(editorial — referenced across IDP editorial sources)*. Lone Green Dot MLB in Vance Joseph's blitz-heavy front. A significant volume value in Round 14–15.
 
-### 23. Terrel Bernard — BUF | #167 | ~95% snaps *(editorial)* | 118–128 proj. tackles *(editorial)*
+### 25. Terrel Bernard — BUF | #177 *(CSV-verified)* | ~95% snaps *(editorial)* | 118–128 proj. tackles *(editorial)*
 Green Dot caller in Buffalo. Dynamic in coverage with blitz sack upside.
 
-### 24. DeMarvion Overshown — DAL | #171 | ~94% snaps *(editorial)* | 116–126 proj. tackles *(editorial)*
+### 26. DeMarvion Overshown — DAL | #181 *(CSV-verified)* | ~94% snaps *(editorial)* | 116–126 proj. tackles *(editorial)*
 Green Dot in Dallas. Sideline-to-sideline athlete; preseason reports confirmed he secured full-time duties.
 
-### 25. Kaden Elliss — NO | #174 | ~96% snaps *(editorial)* | 120–130 proj. tackles *(editorial)*
+### 27. Eric Wilson — MIN | #185 *(CSV-verified)* | ~82% snaps *(editorial)* | 105–115 proj. tackles *(editorial)*
+Veteran sub-package presence in Brian Flores' chaos front. Solid floor with blitz-generated sack upside.
+
+### 28. Kaden Elliss — NO | #189 *(CSV-verified)* | ~96% snaps *(editorial)* | 120–130 proj. tackles *(editorial)*
 Heavy 3rd-down blitz usage gives rare 4+ sack upside from an off-ball LB *(editorial — IDP Show content)*.
 
-### 26. Demario Davis — NYJ | #177 | ~92% snaps *(editorial)* | 110–120 proj. tackles *(editorial)*
+### 29. Demario Davis — NYJ | #193 *(CSV-verified)* | ~92% snaps *(editorial)* | 110–120 proj. tackles *(editorial)*
 Seven consecutive 100+ tackle seasons *(career stats — verifiable)*. Reliable veteran floor.
 
-### 27. Dre Greenlaw — SF | #180 | ~90% snaps *(editorial)* | 108–118 proj. tackles *(editorial)*
+### 30. Dre Greenlaw — SF | #197 *(CSV-verified)* | ~90% snaps *(editorial)* | 108–118 proj. tackles *(editorial)*
 Physical enforcer opposite Fred Warner in Raheem Morris' front.
 
-### 28. Barrett Carter — CIN | #184 | ~93% snaps *(editorial)* | 112–122 proj. tackles *(editorial)*
+### 31. Barrett Carter — CIN | #200 *(CSV-verified)* | ~93% snaps *(editorial)* | 112–122 proj. tackles *(editorial)*
 Year 2 Green Dot caller. Al Golden's 2-LB defense gives him clear inside tackle lanes.
 
-### 29. Patrick Queen — PIT | #187 | ~95% snaps *(editorial)* | 116–126 proj. tackles *(editorial)*
+### 32. Patrick Queen — PIT | #204 *(CSV-verified)* | ~95% snaps *(editorial)* | 116–126 proj. tackles *(editorial)*
 Plays behind Watt, Highsmith, and Heyward — consistently clean pursuit angles.
-
-### 30. Azeez Al-Shaair — HOU | #190 | ~95% snaps *(editorial)* | 116–124 proj. tackles *(editorial)*
-Selected by DeMeco Ryans specifically to direct the front seven. Low weekly variance.
 
 ---
 
 ## Tier 4 — Solid Starters & High-Floor Anchors  
-*Ranks 194–235 / Rounds 16–18*  
+*Ranks 208–235 / Rounds 17–18*  
 *These are the 3-down veterans and proven starters filling out the bottom of the 40. They are not sleepers or handcuffs — they are genuine NFL starting linebackers with real snap share.*
 
 ---
 
-### 31–40 Quick Reference
+### 33–40 Quick Reference *(all ranks CSV-verified)*
 
 | Draft Rank | Player | Team | Snap Est. *(editorial)* | Intel |
 |:---:|---|:---:|---|---|
-| **#194** | Divine Deablo | ATL | ~92% | Green Dot caller in Morris/Lake defense. Former college safety adds coverage versatility. |
-| **#197** | Zaire Franklin | GB | ~84% | High-floor veteran anchor. Proven tackle accumulator in Hafley's physical front. |
-| **#200** | Mack Wilson | ARI | ~93% | Starting 3-down Green Dot MLB directing the Cardinals front seven. |
-| **#204** | Alex Anzalone | TB | ~94% | Proven veteran inside leader in Bowles' blitz scheme. |
-| **#207** | Bobby Wagner | WAS | ~92% | Ageless tackle machine directing Dan Quinn's defense. Career verifiable stats confirm consistent 130+ tackle seasons. |
-| **#210** | Cody Barton | DEN | ~88% | Full-time starting inside LB partner alongside Singleton. |
-| **#214** | Devin Bush | CHI | ~91% | Full-time starting weakside LB alongside T.J. Edwards. Career resurgence. |
-| **#217** | Henry To'oTo'o | HOU | ~88% | Full-time starting weakside LB partner alongside Al-Shaair in Ryans' front. |
-| **#220** | Pete Werner | NO | ~86% | Full-time starting weakside LB partner alongside Kaden Elliss. |
-| **#224** | Dorian Williams | BUF | ~85% | Full-time starting weakside LB partner alongside Terrel Bernard. |
+| **#208** | Jihaad Campbell | PHI | ~85% | Zack Baun's 3-down partner in Fangio's 2-LB Nickel. Elite closing speed; immediate full-time role if Baun is unavailable. |
+| **#212** | Azeez Al-Shaair | HOU | ~95% | Handpicked by DeMeco Ryans to direct Houston's front seven. Green Dot caller with low weekly variance. |
+| **#216** | Drue Tranquill | KC | ~82% | Spagnuolo's delayed-blitz specialist. High sack ceiling from the second level in favorable matchups. |
+| **#220** | Divine Deablo | ATL | ~92% | Green Dot caller in Morris/Lake defense. Former college safety adds coverage versatility. |
+| **#223** | Quincy Williams | CLE | ~86% | Violent run stopper playing alongside Schwesinger. High-energy enforcer with TFL upside. |
+| **#227** | Payton Wilson | PIT | ~80% | Rotational partner behind Patrick Queen. 17.2% per-snap tackle efficiency *(editorial — IDP Show)*. Instant top-10 add if Queen is injured. |
+| **#231** | Zaire Franklin | GB | ~84% | High-floor veteran anchor alongside Edgerrin Cooper in Hafley's physical front. |
+| **#235** | Christian Elliss | NE | ~75% | Robert Spillane's backup in Mayo's gap-control scheme. Solid late-round depth stash. |

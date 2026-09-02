@@ -133,7 +133,7 @@
 <strong>League Context:</strong> Rose Bowl (12-team redraft, Pick #3, zero-kicker strategy, 3 IDP starter slots, 1 IR bench slot)  
 <strong>Roster Directive:</strong> Draft exactly 3 of these linebackers as active starters. Zero bench IDPs. All handcuffs and sleepers live in the In-Season Watchlist.
 
-<div class="sourcing-note"><strong>⚠ Data Sourcing Transparency</strong><p>The player <strong>identities and draft rankings</strong> in this document come from the live pipeline: DraftSharks IDP consensus rankings ingested by <code>agents/draftsharks-idp-ingest.js</code> → Supabase <code>fantasy_rankings (scoring='idp')</code> → filtered to <code>position='LB'</code> by <code>agents/fantasy-rose-bowl-build.js</code>. All other figures — snap-share estimates, projected tackle totals, scheme classifications, coordinator notes, per-snap efficiency references — are <strong>editorial estimates</strong> drawn from publicly available preseason analysis (Every-Down IDP, IDP Guru, The IDP Show, PFF IDP editorial content) and are <strong>not computed or verified by this pipeline</strong>. They should be read as informed context for draft-room decisions, not as pipeline-sourced data.</p></div>
+<div class="sourcing-note"><strong>⚠ Data Sourcing Transparency</strong><p>The player <strong>identities, draft ranks, and team affiliations</strong> in this document are CSV-verified against <code>docs/fantasy/2026_Rose_Bowl_Custom_Rankings.csv</code> at commit <code>b6d8471</code>. All 40 player headings were checked by querying the CSV directly — no rank was entered from memory. All other figures — snap-share estimates, projected tackle totals, scheme classifications, coordinator notes, per-snap efficiency references — are <strong>editorial estimates</strong> drawn from publicly available preseason analysis (Every-Down IDP, IDP Guru, The IDP Show, PFF IDP editorial content) and are <strong>not computed or verified by this pipeline</strong>. They should be read as informed context for draft-room decisions, not as pipeline-sourced data.</p></div>
 
 
 <h2>The IDP Evaluation Framework</h2>
@@ -398,36 +398,60 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">118–130 <em>(editorial estimate)</em>  </span></div>
 <div class="field intel"><span class="field-label">💡 Intel</span><span class="field-value">Patrick Graham's A-gap attack scheme creates inside running lanes that Dean closes with elite burst. Uncontested Green Dot starter.</span></div>
 
-<div class="player-card" id="p151">
+<div class="player-card" id="p150">
   <div class="player-header">
     <span class="player-num">18</span>
+    <span class="player-name">Jacob Rodriguez</span>
+    <span class="player-team">MIA</span>
+    <span class="player-rank" style="background:#0074d9">#150</span>
+    <span class="player-tier-badge" style="border-color:#0074d9;color:#0074d9">Tier 2</span>
+  </div>
+<div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~88% <em>(editorial estimate)</em>  </span></div>
+<div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">112–122 <em>(editorial estimate)</em>  </span></div>
+<div class="field intel"><span class="field-label">💡 Intel</span><span class="field-value">Camp standout who secured the LB2 role opposite Jordyn Brooks in Anthony Weaver's 2-LB front. Plays every down alongside Brooks. Rookie sleeper with genuine starter snaps locked in.</span></div>
+
+<div class="player-card" id="p154">
+  <div class="player-header">
+    <span class="player-num">19</span>
+    <span class="player-name">Devin Bush</span>
+    <span class="player-team">CHI</span>
+    <span class="player-rank" style="background:#0074d9">#154</span>
+    <span class="player-tier-badge" style="border-color:#0074d9;color:#0074d9">Tier 2</span>
+  </div>
+<div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~91% <em>(editorial estimate)</em>  </span></div>
+<div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">118–128 <em>(editorial estimate)</em>  </span></div>
+<div class="field intel"><span class="field-label">💡 Intel</span><span class="field-value">Full-time starting weakside linebacker alongside T.J. Edwards in Dennis Allen's 4-2-5. Career resurgence in Chicago; 4.43 speed allows him to track down perimeter zone runs.</span></div>
+
+<div class="player-card" id="p158">
+  <div class="player-header">
+    <span class="player-num">20</span>
     <span class="player-name">Daiyan Henley</span>
     <span class="player-team">LAC</span>
-    <span class="player-rank" style="background:#0074d9">#151</span>
+    <span class="player-rank" style="background:#0074d9">#158</span>
     <span class="player-tier-badge" style="border-color:#0074d9;color:#0074d9">Tier 2</span>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~96% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">122–132 <em>(editorial estimate)</em>  </span></div>
 <div class="field intel"><span class="field-label">💡 Intel</span><span class="field-value">Fully healthy. Jesse Minter's 81% zone-coverage rate <em>(editorial — scheme estimate)</em> creates consistent underneath tackle volume for the signal-calling LB.</span></div>
 
-<div class="player-card" id="p154">
+<div class="player-card" id="p162">
   <div class="player-header">
-    <span class="player-num">19</span>
+    <span class="player-num">21</span>
     <span class="player-name">Nick Bolton</span>
     <span class="player-team">KC</span>
-    <span class="player-rank" style="background:#0074d9">#154</span>
+    <span class="player-rank" style="background:#0074d9">#162</span>
     <span class="player-tier-badge" style="border-color:#0074d9;color:#0074d9">Tier 2</span>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~95% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">127–138 <em>(editorial estimate)</em>  </span></div>
 <div class="field intel"><span class="field-label">💡 Intel</span><span class="field-value">Proven top-12 IDP LB in Spagnuolo's system. Stays on the field in high-leverage passing situations.</span></div>
 
-<div class="player-card" id="p157">
+<div class="player-card" id="p166">
   <div class="player-header">
-    <span class="player-num">20</span>
+    <span class="player-num">22</span>
     <span class="player-name">Nathan Landman</span>
     <span class="player-team">LAR</span>
-    <span class="player-rank" style="background:#0074d9">#157</span>
+    <span class="player-rank" style="background:#0074d9">#166</span>
     <span class="player-tier-badge" style="border-color:#0074d9;color:#0074d9">Tier 2</span>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~96% <em>(editorial estimate)</em>  </span></div>
@@ -437,142 +461,60 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 </div>
 
 </div><div class="tier-header" style="border-color:#ff851b;background:#2a1f10"><h2 style="color:#ff851b">Tier 3 — Explosive Playmakers & Scheme Fits</h2>
-<em>Ranks 161–204 / Rounds 14–17</em>  
+<em>Ranks 170–204 / Rounds 14–17</em>  
 <em>Full-time 3-down starters with additional big-play upside (sacks, INTs, TFLs) that can produce spike weeks.</em>
 
 </div>
 
-<div class="player-card compact" id="p161">
-  <div class="player-header">
-    <span class="player-num">21</span>
-    <span class="player-name">Tremaine Edmunds</span>
-    <span class="player-team">NYG</span>
-    <span class="player-rank" style="background:#ff851b">#161</span>
-    <span class="player-tier-badge" style="border-color:#ff851b;color:#ff851b">Tier 3</span>
-  </div>
-  <div class="player-meta"><span class="est-tag">📊 ~96% snaps *(editorial)*</span><span class="est-tag">🏈 120–130 proj. tackles *(editorial)*</span></div>
+### 23. Tremaine Edmunds — NYG | #170 <em>(CSV-verified)</em> | ~96% snaps <em>(editorial)</em> | 120–130 proj. tackles <em>(editorial)</em>
 6'5" frame in Dennard Wilson's Cover-3 produces PBU and INT upside on top of a volume tackle floor.
 
-<div class="player-card compact" id="p164">
-  <div class="player-header">
-    <span class="player-num">22</span>
-    <span class="player-name">Alex Singleton</span>
-    <span class="player-team">DEN</span>
-    <span class="player-rank" style="background:#ff851b">#164</span>
-    <span class="player-tier-badge" style="border-color:#ff851b;color:#ff851b">Tier 3</span>
-  </div>
-  <div class="player-meta"><span class="est-tag">📊 ~97% snaps *(editorial)*</span><span class="est-tag">🏈 134–148 proj. tackles *(editorial)*</span></div>
+### 24. Alex Singleton — DEN | #173 <em>(CSV-verified)</em> | ~97% snaps <em>(editorial)</em> | 134–148 proj. tackles <em>(editorial)</em>
 Historically elite tackle-per-snap rate <em>(editorial — referenced across IDP editorial sources)</em>. Lone Green Dot MLB in Vance Joseph's blitz-heavy front. A significant volume value in Round 14–15.
 
-<div class="player-card compact" id="p167">
-  <div class="player-header">
-    <span class="player-num">23</span>
-    <span class="player-name">Terrel Bernard</span>
-    <span class="player-team">BUF</span>
-    <span class="player-rank" style="background:#ff851b">#167</span>
-    <span class="player-tier-badge" style="border-color:#ff851b;color:#ff851b">Tier 3</span>
-  </div>
-  <div class="player-meta"><span class="est-tag">📊 ~95% snaps *(editorial)*</span><span class="est-tag">🏈 118–128 proj. tackles *(editorial)*</span></div>
+### 25. Terrel Bernard — BUF | #177 <em>(CSV-verified)</em> | ~95% snaps <em>(editorial)</em> | 118–128 proj. tackles <em>(editorial)</em>
 Green Dot caller in Buffalo. Dynamic in coverage with blitz sack upside.
 
-<div class="player-card compact" id="p171">
-  <div class="player-header">
-    <span class="player-num">24</span>
-    <span class="player-name">DeMarvion Overshown</span>
-    <span class="player-team">DAL</span>
-    <span class="player-rank" style="background:#ff851b">#171</span>
-    <span class="player-tier-badge" style="border-color:#ff851b;color:#ff851b">Tier 3</span>
-  </div>
-  <div class="player-meta"><span class="est-tag">📊 ~94% snaps *(editorial)*</span><span class="est-tag">🏈 116–126 proj. tackles *(editorial)*</span></div>
+### 26. DeMarvion Overshown — DAL | #181 <em>(CSV-verified)</em> | ~94% snaps <em>(editorial)</em> | 116–126 proj. tackles <em>(editorial)</em>
 Green Dot in Dallas. Sideline-to-sideline athlete; preseason reports confirmed he secured full-time duties.
 
-<div class="player-card compact" id="p174">
-  <div class="player-header">
-    <span class="player-num">25</span>
-    <span class="player-name">Kaden Elliss</span>
-    <span class="player-team">NO</span>
-    <span class="player-rank" style="background:#ff851b">#174</span>
-    <span class="player-tier-badge" style="border-color:#ff851b;color:#ff851b">Tier 3</span>
-  </div>
-  <div class="player-meta"><span class="est-tag">📊 ~96% snaps *(editorial)*</span><span class="est-tag">🏈 120–130 proj. tackles *(editorial)*</span></div>
+### 27. Eric Wilson — MIN | #185 <em>(CSV-verified)</em> | ~82% snaps <em>(editorial)</em> | 105–115 proj. tackles <em>(editorial)</em>
+Veteran sub-package presence in Brian Flores' chaos front. Solid floor with blitz-generated sack upside.
+
+### 28. Kaden Elliss — NO | #189 <em>(CSV-verified)</em> | ~96% snaps <em>(editorial)</em> | 120–130 proj. tackles <em>(editorial)</em>
 Heavy 3rd-down blitz usage gives rare 4+ sack upside from an off-ball LB <em>(editorial — IDP Show content)</em>.
 
-<div class="player-card compact" id="p177">
-  <div class="player-header">
-    <span class="player-num">26</span>
-    <span class="player-name">Demario Davis</span>
-    <span class="player-team">NYJ</span>
-    <span class="player-rank" style="background:#ff851b">#177</span>
-    <span class="player-tier-badge" style="border-color:#ff851b;color:#ff851b">Tier 3</span>
-  </div>
-  <div class="player-meta"><span class="est-tag">📊 ~92% snaps *(editorial)*</span><span class="est-tag">🏈 110–120 proj. tackles *(editorial)*</span></div>
+### 29. Demario Davis — NYJ | #193 <em>(CSV-verified)</em> | ~92% snaps <em>(editorial)</em> | 110–120 proj. tackles <em>(editorial)</em>
 Seven consecutive 100+ tackle seasons <em>(career stats — verifiable)</em>. Reliable veteran floor.
 
-<div class="player-card compact" id="p180">
-  <div class="player-header">
-    <span class="player-num">27</span>
-    <span class="player-name">Dre Greenlaw</span>
-    <span class="player-team">SF</span>
-    <span class="player-rank" style="background:#ff851b">#180</span>
-    <span class="player-tier-badge" style="border-color:#ff851b;color:#ff851b">Tier 3</span>
-  </div>
-  <div class="player-meta"><span class="est-tag">📊 ~90% snaps *(editorial)*</span><span class="est-tag">🏈 108–118 proj. tackles *(editorial)*</span></div>
+### 30. Dre Greenlaw — SF | #197 <em>(CSV-verified)</em> | ~90% snaps <em>(editorial)</em> | 108–118 proj. tackles <em>(editorial)</em>
 Physical enforcer opposite Fred Warner in Raheem Morris' front.
 
-<div class="player-card compact" id="p184">
-  <div class="player-header">
-    <span class="player-num">28</span>
-    <span class="player-name">Barrett Carter</span>
-    <span class="player-team">CIN</span>
-    <span class="player-rank" style="background:#ff851b">#184</span>
-    <span class="player-tier-badge" style="border-color:#ff851b;color:#ff851b">Tier 3</span>
-  </div>
-  <div class="player-meta"><span class="est-tag">📊 ~93% snaps *(editorial)*</span><span class="est-tag">🏈 112–122 proj. tackles *(editorial)*</span></div>
+### 31. Barrett Carter — CIN | #200 <em>(CSV-verified)</em> | ~93% snaps <em>(editorial)</em> | 112–122 proj. tackles <em>(editorial)</em>
 Year 2 Green Dot caller. Al Golden's 2-LB defense gives him clear inside tackle lanes.
 
-<div class="player-card compact" id="p187">
-  <div class="player-header">
-    <span class="player-num">29</span>
-    <span class="player-name">Patrick Queen</span>
-    <span class="player-team">PIT</span>
-    <span class="player-rank" style="background:#ff851b">#187</span>
-    <span class="player-tier-badge" style="border-color:#ff851b;color:#ff851b">Tier 3</span>
-  </div>
-  <div class="player-meta"><span class="est-tag">📊 ~95% snaps *(editorial)*</span><span class="est-tag">🏈 116–126 proj. tackles *(editorial)*</span></div>
+### 32. Patrick Queen — PIT | #204 <em>(CSV-verified)</em> | ~95% snaps <em>(editorial)</em> | 116–126 proj. tackles <em>(editorial)</em>
 Plays behind Watt, Highsmith, and Heyward — consistently clean pursuit angles.
-
-<div class="player-card compact" id="p190">
-  <div class="player-header">
-    <span class="player-num">30</span>
-    <span class="player-name">Azeez Al-Shaair</span>
-    <span class="player-team">HOU</span>
-    <span class="player-rank" style="background:#ff851b">#190</span>
-    <span class="player-tier-badge" style="border-color:#ff851b;color:#ff851b">Tier 3</span>
-  </div>
-  <div class="player-meta"><span class="est-tag">📊 ~95% snaps *(editorial)*</span><span class="est-tag">🏈 116–124 proj. tackles *(editorial)*</span></div>
-Selected by DeMeco Ryans specifically to direct the front seven. Low weekly variance.
 
 </div>
 
 </div><div class="tier-header" style="border-color:#aaaaaa;background:#1e1e1e"><h2 style="color:#aaaaaa">Tier 4 — Solid Starters & High-Floor Anchors</h2>
-<em>Ranks 194–235 / Rounds 16–18</em>  
+<em>Ranks 208–235 / Rounds 17–18</em>  
 <em>These are the 3-down veterans and proven starters filling out the bottom of the 40. They are not sleepers or handcuffs — they are genuine NFL starting linebackers with real snap share.</em>
 
 </div>
 
-</div>### 31–40 Quick Reference
+### 33–40 Quick Reference <em>(all ranks CSV-verified)</em>
 
 <table class="idp-table"><thead><tr><th>Draft Rank</th><th>Player</th><th>Team</th><th>Snap Est. <em>(editorial)</em></th><th>Intel</th></tr></thead><tbody><tr><td>:---:</td><td>---</td><td>:---:</td><td>---</td><td>---</td></tr>
-<tr><td><strong>#194</strong></td><td>Divine Deablo</td><td>ATL</td><td>~92%</td><td>Green Dot caller in Morris/Lake defense. Former college safety adds coverage versatility.</td></tr>
-<tr><td><strong>#197</strong></td><td>Zaire Franklin</td><td>GB</td><td>~84%</td><td>High-floor veteran anchor. Proven tackle accumulator in Hafley's physical front.</td></tr>
-<tr><td><strong>#200</strong></td><td>Mack Wilson</td><td>ARI</td><td>~93%</td><td>Starting 3-down Green Dot MLB directing the Cardinals front seven.</td></tr>
-<tr><td><strong>#204</strong></td><td>Alex Anzalone</td><td>TB</td><td>~94%</td><td>Proven veteran inside leader in Bowles' blitz scheme.</td></tr>
-<tr><td><strong>#207</strong></td><td>Bobby Wagner</td><td>WAS</td><td>~92%</td><td>Ageless tackle machine directing Dan Quinn's defense. Career verifiable stats confirm consistent 130+ tackle seasons.</td></tr>
-<tr><td><strong>#210</strong></td><td>Cody Barton</td><td>DEN</td><td>~88%</td><td>Full-time starting inside LB partner alongside Singleton.</td></tr>
-<tr><td><strong>#214</strong></td><td>Devin Bush</td><td>CHI</td><td>~91%</td><td>Full-time starting weakside LB alongside T.J. Edwards. Career resurgence.</td></tr>
-<tr><td><strong>#217</strong></td><td>Henry To'oTo'o</td><td>HOU</td><td>~88%</td><td>Full-time starting weakside LB partner alongside Al-Shaair in Ryans' front.</td></tr>
-<tr><td><strong>#220</strong></td><td>Pete Werner</td><td>NO</td><td>~86%</td><td>Full-time starting weakside LB partner alongside Kaden Elliss.</td></tr></tbody></table>| <strong>#224</strong> | Dorian Williams | BUF | ~85% | Full-time starting weakside LB partner alongside Terrel Bernard. |
-
+<tr><td><strong>#208</strong></td><td>Jihaad Campbell</td><td>PHI</td><td>~85%</td><td>Zack Baun's 3-down partner in Fangio's 2-LB Nickel. Elite closing speed; immediate full-time role if Baun is unavailable.</td></tr>
+<tr><td><strong>#212</strong></td><td>Azeez Al-Shaair</td><td>HOU</td><td>~95%</td><td>Handpicked by DeMeco Ryans to direct Houston's front seven. Green Dot caller with low weekly variance.</td></tr>
+<tr><td><strong>#216</strong></td><td>Drue Tranquill</td><td>KC</td><td>~82%</td><td>Spagnuolo's delayed-blitz specialist. High sack ceiling from the second level in favorable matchups.</td></tr>
+<tr><td><strong>#220</strong></td><td>Divine Deablo</td><td>ATL</td><td>~92%</td><td>Green Dot caller in Morris/Lake defense. Former college safety adds coverage versatility.</td></tr>
+<tr><td><strong>#223</strong></td><td>Quincy Williams</td><td>CLE</td><td>~86%</td><td>Violent run stopper playing alongside Schwesinger. High-energy enforcer with TFL upside.</td></tr>
+<tr><td><strong>#227</strong></td><td>Payton Wilson</td><td>PIT</td><td>~80%</td><td>Rotational partner behind Patrick Queen. 17.2% per-snap tackle efficiency <em>(editorial — IDP Show)</em>. Instant top-10 add if Queen is injured.</td></tr>
+<tr><td><strong>#231</strong></td><td>Zaire Franklin</td><td>GB</td><td>~84%</td><td>High-floor veteran anchor alongside Edgerrin Cooper in Hafley's physical front.</td></tr></tbody></table>| <strong>#235</strong> | Christian Elliss | NE | ~75% | Robert Spillane's backup in Mayo's gap-control scheme. Solid late-round depth stash. |
+</div>
 </div>
 
 <div class="footer">
