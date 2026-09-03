@@ -101,6 +101,22 @@ const MANUAL_FREE_AGENT_OVERRIDES = new Set(
   ['Trey Benson'].map((n) => nameKey(n)) // nameKey() is a hoisted function declaration, safe to call here
 );
 
+// Explicit manual rank/ADP overrides (e.g. aligning breakout RB sleepers to FP ECR consensus)
+const MANUAL_ADP_OVERRIDES = new Map([
+  [nameKey('MarShawn Lloyd'), 104],
+  [nameKey('Dylan Sampson'), 143],
+  [nameKey('Jonah Coleman'), 144],
+  [nameKey('Keaton Mitchell'), 145],
+  [nameKey('Zach Charbonnet'), 149],
+  [nameKey('Alvin Kamara'), 157],
+  [nameKey('Tank Bigsby'), 160],
+  [nameKey('Braelon Allen'), 164],
+  [nameKey('Emmett Johnson'), 172],
+  [nameKey('Isiah Pacheco'), 181],
+  [nameKey('Sean Tucker'), 203],
+  [nameKey('Kaytron Allen'), 232],
+]);
+
 const SB_URL = process.env.SUPABASE_URL;
 const SB_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 if (!SB_URL || !SB_KEY) {
@@ -155,8 +171,14 @@ async function main() {
   if (!adpAsOf) throw new Error('No fantasy_adp rows for scoring=ppr — run fantasypros-adp-ingest.js --scoring ppr first.');
   const adpRows = await fetchAll('fantasy_adp', 'player,position,team,adp', (q) =>
     q.eq('scoring', 'ppr').eq('as_of_date', adpAsOf).gt('adp', 0)); // adp=0 is FantasyPros' "undrafted" placeholder
+  adpRows.forEach((r) => {
+    const k = nameKey(r.player);
+    if (MANUAL_ADP_OVERRIDES.has(k)) {
+      r.adp = MANUAL_ADP_OVERRIDES.get(k);
+    }
+  });
   adpRows.sort((a, b) => a.adp - b.adp);
-  console.log(`Offense ADP (overall, cross-position): ${adpRows.length} rows as_of ${adpAsOf}`);
+  console.log(`Offense ADP (overall, cross-position): ${adpRows.length} rows as_of ${adpAsOf} (${MANUAL_ADP_OVERRIDES.size} manual overrides applied)`);
 
   // 1b. Offense ECR — same-day consensus rankings, kept ONLY as a per-player Tier tag
   //     and as a fallback source for anyone missing live ADP (very deep sleepers).
