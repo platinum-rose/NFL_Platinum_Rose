@@ -107,37 +107,10 @@ const FEEDS = [
     // blocked. Remove this flag if Action Network's CloudFront config ever
     // stops discriminating against Node's client fingerprint.
     source: 'Action Network',
-    // 2026-09-02: switched to routing through the r.jina.ai reader proxy
-    // (prefix + original URL). The direct-curl fix above stopped working
-    // from GitHub Actions specifically -- confirmed via two consecutive
-    // live workflow_dispatch runs, both still getting the CloudFront
-    // challenge page (text/html) even with fetchMethod:'curl' -- while the
-    // exact same curl command succeeds reliably from other networks. That
-    // points to an IP-reputation block on GitHub-hosted runner ranges,
-    // not the Node-vs-curl client fingerprint the original fix targeted.
-    // r.jina.ai fetches server-side from its own (non-CI) IPs and returns
-    // the page as text -- for this RSS URL specifically, the actual
-    // <rss>/<item>/<title>/<link> XML survives intact inside that text
-    // response (verified live), so the existing regex-based
-    // parseRssItems() still parses it unchanged. Response content-type is
-    // always text/plain from the proxy, never xml/rss/atom -- see
-    // bodyOnlyFeedCheck below, which skips the content-type gate for this
-    // feed and relies solely on the <rss|<feed|<rdf:RDF> body-content
-    // check that already guards every feed.
-    url: 'https://r.jina.ai/https://www.actionnetwork.com/nfl/feed',
+    url: 'https://www.actionnetwork.com/nfl/feed',
     confidence: 0.74,
     source_type: 'betting',
     fetchMethod: 'curl',
-    // r.jina.ai has its OWN Cloudflare bot-mitigation in front of it,
-    // separate from Action Network's. A curl request that sends a
-    // browser-like User-Agent (the fetchViaCurl default) trips r.jina.ai's
-    // own challenge and gets back a 403 "cf-mitigated: challenge" HTML
-    // page -- confirmed by direct side-by-side test, 2026-09-02: identical
-    // request with -A <browser UA> => 403, identical request with no -A
-    // flag at all => clean 200 with the real RSS body intact (12 items).
-    // curlUA: null tells fetchViaCurl to omit the -A flag entirely.
-    curlUA: null,
-    bodyOnlyFeedCheck: true,
   },
   {
     // BettingPros: /nfl/news/feed/ returns HTML; /feed/ is valid RSS but
@@ -665,14 +638,7 @@ async function fetchFeed(feed) {
       };
     }
 
-    // 2026-09-02: bodyOnlyFeedCheck (currently just Action Network, routed
-    // through the r.jina.ai reader proxy -- see the FEEDS entry above)
-    // skips the content-type gate entirely, since that proxy always
-    // reports text/plain regardless of the source content type. The
-    // <rss|<feed|<rdf:RDF body-content check right below still applies
-    // and is what actually guards against a non-feed response.
     const looksLikeFeed =
-      feed.bodyOnlyFeedCheck === true ||
       contentType.includes('xml') ||
       contentType.includes('rss') ||
       contentType.includes('atom');

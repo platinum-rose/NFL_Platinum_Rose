@@ -82,9 +82,10 @@ const POS_CAPS = {
   WR: getArg('--wr-cap', null) ? parseInt(getArg('--wr-cap'), 10) : null,
   TE: getArg('--te-cap', null) ? parseInt(getArg('--te-cap'), 10) : null,
 };
-const EXCLUDE_NAMES = new Set(
-  (getArg('--exclude', '') || '').split(',').map((s) => s.trim()).filter(Boolean).map((s) => s.toLowerCase())
-);
+const EXCLUDE_NAMES = new Set([
+  'josh jacobs',
+  ...(getArg('--exclude', '') || '').split(',').map((s) => s.trim()).filter(Boolean).map((s) => s.toLowerCase()),
+]);
 
 // Confirmed-by-hand cases where reality has moved past nfl_rosters (see the
 // header comment's CAVEAT above). Each entry needs a date + source so this
@@ -439,6 +440,10 @@ const IR_ELIGIBLE_STATUSES = new Set(['injured reserve', 'pup']); // eligible fo
     ['docs/fantasy/2026_Rose_Bowl_Plain_Names.txt', plainOut],
     ['public/2026_Rose_Bowl_Custom_Rankings.csv', csvOut],
     ['public/2026_Rose_Bowl_Plain_Names.txt', plainOut],
+    ['docs/fantasy/2026_Rose_Bowl_Draft_Rankings_Pick3_NoKickers.csv', csvOut],
+    ['docs/fantasy/2026_Rose_Bowl_Plain_Names_Pick3.txt', plainOut],
+    ['public/2026_Rose_Bowl_Draft_Rankings_Pick3_NoKickers.csv', csvOut],
+    ['public/2026_Rose_Bowl_Plain_Names_Pick3.txt', plainOut],
   ];
   outputs.forEach(([rel, content]) => {
     fs.writeFileSync(path.join(ROOT, rel), content, 'utf8');
