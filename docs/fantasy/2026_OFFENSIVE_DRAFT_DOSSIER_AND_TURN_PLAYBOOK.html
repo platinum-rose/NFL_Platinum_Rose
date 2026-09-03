@@ -2,61 +2,82 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>2026 Master Offensive Draft Dossier & Pick 3 War Room</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2026 Offensive Draft Dossier & Turn Playbook — Pick 3 (1.03) War Room</title>
   <style>
     :root {
-      --bg-main: #0d1117;
+      --bg-dark: #0d1117;
       --bg-card: #161b22;
-      --bg-card-hover: #21262d;
-      --border-color: #30363d;
-      --text-main: #c9d1d9;
-      --text-muted: #8b949e;
-      --text-bright: #f0f6fc;
+      --border: #30363d;
       --accent-gold: #e3b341;
       --accent-blue: #58a6ff;
       --accent-green: #3fb950;
-      --accent-red: #f85149;
       --accent-purple: #bc8cff;
+      --accent-red: #f85149;
       --accent-cyan: #39c5cf;
+      --text-main: #c9d1d9;
+      --text-bright: #ffffff;
+      --text-muted: #8b949e;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
-    body { background-color: var(--bg-main); color: var(--text-main); padding: 24px; line-height: 1.6; }
-    .header { border-bottom: 2px solid var(--border-color); padding-bottom: 20px; margin-bottom: 24px; }
-    .header h1 { color: var(--accent-gold); font-size: 28px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: var(--bg-dark); color: var(--text-main); padding: 20px; line-height: 1.5; }
+    
+    .header { text-align: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+    .header h1 { color: var(--accent-gold); font-size: 26px; margin-bottom: 6px; letter-spacing: 0.5px; }
     .header .subtitle { color: var(--text-muted); font-size: 14px; }
-    .badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
-    .badge { padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+    .badges { display: flex; justify-content: center; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+    .badge { padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
     .badge-gold { background: rgba(227, 179, 65, 0.15); color: var(--accent-gold); border: 1px solid var(--accent-gold); }
     .badge-blue { background: rgba(88, 166, 255, 0.15); color: var(--accent-blue); border: 1px solid var(--accent-blue); }
     .badge-green { background: rgba(63, 185, 80, 0.15); color: var(--accent-green); border: 1px solid var(--accent-green); }
     .badge-red { background: rgba(248, 81, 73, 0.15); color: var(--accent-red); border: 1px solid var(--accent-red); }
 
-    .controls { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
-    .search-input { flex: 1; min-width: 260px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-bright); padding: 10px 14px; border-radius: 8px; font-size: 14px; }
-    .search-input:focus { outline: none; border-color: var(--accent-blue); }
-    .filter-btn { background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.2s; }
-    .filter-btn.active, .filter-btn:hover { background: var(--accent-blue); color: #fff; border-color: var(--accent-blue); }
-
-    .blueprint-section { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 20px; margin-bottom: 24px; }
-    .blueprint-section h2 { color: var(--accent-blue); font-size: 20px; margin-bottom: 14px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+    .blueprint-section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 18px; margin-bottom: 24px; }
+    .blueprint-section h2 { color: var(--accent-cyan); font-size: 18px; margin-bottom: 12px; }
     .table-container { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; font-size: 13px; text-align: left; }
-    th { background: var(--bg-card-hover); color: var(--text-bright); padding: 10px 12px; border: 1px solid var(--border-color); }
-    td { padding: 10px 12px; border: 1px solid var(--border-color); color: var(--text-main); }
-    tr:hover { background: var(--bg-card-hover); }
+    th { background: rgba(255, 255, 255, 0.05); color: var(--text-bright); padding: 8px 10px; border-bottom: 2px solid var(--border); }
+    td { padding: 8px 10px; border-bottom: 1px solid var(--border); }
+    tr:hover { background: rgba(255, 255, 255, 0.02); }
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 16px; }
-    .card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 18px; transition: transform 0.15s, border-color 0.15s; position: relative; }
-    .card:hover { transform: translateY(-2px); border-color: var(--accent-blue); }
-    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
-    .player-name { font-size: 18px; font-weight: 700; color: var(--text-bright); }
-    .player-meta { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
-    .rank-pill { font-size: 16px; font-weight: 800; color: var(--accent-gold); background: rgba(227, 179, 65, 0.1); border: 1px solid var(--accent-gold); padding: 4px 10px; border-radius: 6px; }
+    .controls { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; background: var(--bg-card); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border); }
+    .search-input { flex: 1; min-width: 200px; background: #0d1117; border: 1px solid var(--border); color: #fff; padding: 8px 14px; border-radius: 6px; font-size: 14px; }
+    .filter-btn { background: #21262d; border: 1px solid var(--border); color: var(--text-main); padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 13px; transition: all 0.2s; font-weight: 500; }
+    .filter-btn:hover { background: #30363d; }
+    .filter-btn.active { background: var(--accent-blue); color: #fff; border-color: var(--accent-blue); }
     
-    .card-body { font-size: 13px; display: flex; flex-direction: column; gap: 8px; }
-    .stat-row { display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border-color); padding-bottom: 4px; }
-    .stat-label { color: var(--text-muted); font-weight: 600; }
+    .draft-toggle-label { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--accent-gold); cursor: pointer; user-select: none; margin-left: auto; }
+    .draft-toggle-label input { cursor: pointer; accent-color: var(--accent-gold); width: 16px; height: 16px; }
+    .reset-btn { background: rgba(248, 81, 73, 0.15); border: 1px solid var(--accent-red); color: var(--accent-red); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; }
+    .reset-btn:hover { background: rgba(248, 81, 73, 0.3); }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px; }
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; transition: all 0.2s ease; display: flex; flex-direction: column; }
+    .card:hover { border-color: #8b949e; }
+    
+    .card-header { padding: 12px 14px; background: rgba(255, 255, 255, 0.02); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+    .card-header:hover { background: rgba(255, 255, 255, 0.05); }
+    .header-left { display: flex; flex-direction: column; flex: 1; }
+    .header-right { display: flex; align-items: center; gap: 8px; }
+    
+    .player-name { font-size: 16px; font-weight: 700; color: var(--text-bright); display: flex; align-items: center; gap: 6px; }
+    .player-meta { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+    .rank-pill { background: var(--accent-gold); color: #000; font-weight: 800; font-size: 12px; padding: 2px 8px; border-radius: 12px; }
+    
+    .draft-btn { background: #21262d; border: 1px solid #30363d; color: var(--text-muted); font-size: 11px; padding: 3px 8px; border-radius: 4px; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+    .draft-btn:hover { background: rgba(63, 185, 80, 0.2); color: var(--accent-green); border-color: var(--accent-green); }
+
+    /* Collapsed / Drafted State */
+    .card.is-drafted { opacity: 0.45; border-color: #21262d; background: #111418; }
+    .card.is-drafted .player-name { text-decoration: line-through; color: #777; }
+    .card.is-drafted .rank-pill { background: #333; color: #888; }
+    .card.is-drafted .card-body { display: none; }
+    .card.is-drafted .draft-btn { background: rgba(63, 185, 80, 0.2); color: var(--accent-green); border-color: var(--accent-green); }
+    .card.is-collapsed .card-body { display: none; }
+
+    .card-body { padding: 14px; font-size: 13px; display: flex; flex-direction: column; gap: 8px; }
+    .stat-row { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 4px; }
+    .stat-label { color: var(--text-muted); font-size: 12px; }
     .stat-val { color: var(--text-bright); text-align: right; }
     .trench-badge { background: rgba(88, 166, 255, 0.1); border: 1px solid rgba(88, 166, 255, 0.3); border-radius: 6px; padding: 6px 10px; font-size: 12px; color: var(--accent-cyan); margin: 4px 0; }
     .intel-box { background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--accent-green); padding: 8px 10px; border-radius: 4px; color: var(--text-main); }
@@ -65,7 +86,7 @@
     @media print {
       body { background: #fff; color: #000; padding: 10px; }
       .card { border: 1px solid #ccc; background: #fff; color: #000; break-inside: avoid; }
-      .controls, .badges { display: none; }
+      .controls, .badges, .draft-btn, .draft-toggle-label, .reset-btn { display: none; }
     }
   </style>
 </head>
@@ -76,9 +97,9 @@
     <div class="subtitle">Rose Bowl 12-Team Full PPR | Pick 3 (1.03) Focus | Interleaved 3-IDP Roster Blueprint</div>
     <div class="badges">
       <span class="badge badge-gold">Pick 3 Turn Cadence</span>
-      <span class="badge badge-blue">CSV-Verified (Rankings Commit b6d8471)</span>
+      <span class="badge badge-blue">CSV-Verified Custom Board</span>
       <span class="badge badge-green">BettorDay Trench Ratings Integrated</span>
-      <span class="badge badge-red">3 IDP Starters Required</span>
+      <span class="badge badge-red">Interactive Draft Tracker</span>
     </div>
   </div>
 
@@ -178,17 +199,26 @@
     <button class="filter-btn" onclick="filterPos('WR')">Wide Receivers</button>
     <button class="filter-btn" onclick="filterPos('TE')">Tight Ends</button>
     <button class="filter-btn" onclick="filterPos('QB')">Quarterbacks</button>
+    
+    <label class="draft-toggle-label">
+      <input type="checkbox" id="hideDraftedToggle" onchange="toggleHideDrafted()">
+      👁️ Hide Drafted (<span id="draftedCount">0</span>)
+    </label>
+    <button class="reset-btn" onclick="resetDrafted()">Reset Drafted</button>
   </div>
 
   <div class="grid" id="cardsGrid">
 
-    <div class="card" data-pos="WR" data-search="ja'marr chase cin wr tier 1">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Ja'Marr Chase</div>
+    <div class="card" id="p-1" data-player="Ja'Marr Chase" data-pos="WR" data-search="ja'marr chase cin wr tier 1">
+      <div class="card-header" onclick="toggleCard('p-1')">
+        <div class="header-left">
+          <div class="player-name">Ja'Marr Chase <span class="collapse-icon">▾</span></div>
           <div class="player-meta">CIN — WR | Tier 1</div>
         </div>
-        <div class="rank-pill">#1</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-1', 'Ja'Marr Chase')">✓ Drafted</button>
+          <div class="rank-pill">#1</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -215,13 +245,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="RB" data-search="jahmyr gibbs det rb tier 1">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Jahmyr Gibbs</div>
+    <div class="card" id="p-2" data-player="Jahmyr Gibbs" data-pos="RB" data-search="jahmyr gibbs det rb tier 1">
+      <div class="card-header" onclick="toggleCard('p-2')">
+        <div class="header-left">
+          <div class="player-name">Jahmyr Gibbs <span class="collapse-icon">▾</span></div>
           <div class="player-meta">DET — RB | Tier 1</div>
         </div>
-        <div class="rank-pill">#2</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-2', 'Jahmyr Gibbs')">✓ Drafted</button>
+          <div class="rank-pill">#2</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -248,13 +281,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="WR" data-search="puka nacua lar wr tier 1">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Puka Nacua</div>
+    <div class="card" id="p-3" data-player="Puka Nacua" data-pos="WR" data-search="puka nacua lar wr tier 1">
+      <div class="card-header" onclick="toggleCard('p-3')">
+        <div class="header-left">
+          <div class="player-name">Puka Nacua <span class="collapse-icon">▾</span></div>
           <div class="player-meta">LAR — WR | Tier 1</div>
         </div>
-        <div class="rank-pill">#3</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-3', 'Puka Nacua')">✓ Drafted</button>
+          <div class="rank-pill">#3</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -281,13 +317,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="RB" data-search="bijan robinson atl rb tier 1">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Bijan Robinson</div>
+    <div class="card" id="p-4" data-player="Bijan Robinson" data-pos="RB" data-search="bijan robinson atl rb tier 1">
+      <div class="card-header" onclick="toggleCard('p-4')">
+        <div class="header-left">
+          <div class="player-name">Bijan Robinson <span class="collapse-icon">▾</span></div>
           <div class="player-meta">ATL — RB | Tier 1</div>
         </div>
-        <div class="rank-pill">#4</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-4', 'Bijan Robinson')">✓ Drafted</button>
+          <div class="rank-pill">#4</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -314,13 +353,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="WR" data-search="jaxon smith-njigba sea wr tier 1">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Jaxon Smith-Njigba</div>
+    <div class="card" id="p-5" data-player="Jaxon Smith-Njigba" data-pos="WR" data-search="jaxon smith-njigba sea wr tier 1">
+      <div class="card-header" onclick="toggleCard('p-5')">
+        <div class="header-left">
+          <div class="player-name">Jaxon Smith-Njigba <span class="collapse-icon">▾</span></div>
           <div class="player-meta">SEA — WR | Tier 1</div>
         </div>
-        <div class="rank-pill">#5</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-5', 'Jaxon Smith-Njigba')">✓ Drafted</button>
+          <div class="rank-pill">#5</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -347,13 +389,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="WR" data-search="amon-ra st. brown det wr tier 1">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Amon-Ra St. Brown</div>
+    <div class="card" id="p-6" data-player="Amon-Ra St. Brown" data-pos="WR" data-search="amon-ra st. brown det wr tier 1">
+      <div class="card-header" onclick="toggleCard('p-6')">
+        <div class="header-left">
+          <div class="player-name">Amon-Ra St. Brown <span class="collapse-icon">▾</span></div>
           <div class="player-meta">DET — WR | Tier 1</div>
         </div>
-        <div class="rank-pill">#6</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-6', 'Amon-Ra St. Brown')">✓ Drafted</button>
+          <div class="rank-pill">#6</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -380,13 +425,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="WR" data-search="ceedee lamb dal wr tier 2">
-      <div class="card-header">
-        <div>
-          <div class="player-name">CeeDee Lamb</div>
+    <div class="card" id="p-7" data-player="CeeDee Lamb" data-pos="WR" data-search="ceedee lamb dal wr tier 2">
+      <div class="card-header" onclick="toggleCard('p-7')">
+        <div class="header-left">
+          <div class="player-name">CeeDee Lamb <span class="collapse-icon">▾</span></div>
           <div class="player-meta">DAL — WR | Tier 2</div>
         </div>
-        <div class="rank-pill">#7</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-7', 'CeeDee Lamb')">✓ Drafted</button>
+          <div class="rank-pill">#7</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -413,13 +461,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="WR" data-search="justin jefferson min wr tier 2">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Justin Jefferson</div>
+    <div class="card" id="p-8" data-player="Justin Jefferson" data-pos="WR" data-search="justin jefferson min wr tier 2">
+      <div class="card-header" onclick="toggleCard('p-8')">
+        <div class="header-left">
+          <div class="player-name">Justin Jefferson <span class="collapse-icon">▾</span></div>
           <div class="player-meta">MIN — WR | Tier 2</div>
         </div>
-        <div class="rank-pill">#8</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-8', 'Justin Jefferson')">✓ Drafted</button>
+          <div class="rank-pill">#8</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -446,13 +497,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="RB" data-search="christian mccaffrey sf rb tier 1">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Christian McCaffrey</div>
+    <div class="card" id="p-9" data-player="Christian McCaffrey" data-pos="RB" data-search="christian mccaffrey sf rb tier 1">
+      <div class="card-header" onclick="toggleCard('p-9')">
+        <div class="header-left">
+          <div class="player-name">Christian McCaffrey <span class="collapse-icon">▾</span></div>
           <div class="player-meta">SF — RB | Tier 1</div>
         </div>
-        <div class="rank-pill">#9</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-9', 'Christian McCaffrey')">✓ Drafted</button>
+          <div class="rank-pill">#9</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -479,13 +533,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="RB" data-search="jonathan taylor ind rb tier 2">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Jonathan Taylor</div>
+    <div class="card" id="p-10" data-player="Jonathan Taylor" data-pos="RB" data-search="jonathan taylor ind rb tier 2">
+      <div class="card-header" onclick="toggleCard('p-10')">
+        <div class="header-left">
+          <div class="player-name">Jonathan Taylor <span class="collapse-icon">▾</span></div>
           <div class="player-meta">IND — RB | Tier 2</div>
         </div>
-        <div class="rank-pill">#10</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-10', 'Jonathan Taylor')">✓ Drafted</button>
+          <div class="rank-pill">#10</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -512,13 +569,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="WR" data-search="drake london atl wr tier 2">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Drake London</div>
+    <div class="card" id="p-11" data-player="Drake London" data-pos="WR" data-search="drake london atl wr tier 2">
+      <div class="card-header" onclick="toggleCard('p-11')">
+        <div class="header-left">
+          <div class="player-name">Drake London <span class="collapse-icon">▾</span></div>
           <div class="player-meta">ATL — WR | Tier 2</div>
         </div>
-        <div class="rank-pill">#11</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-11', 'Drake London')">✓ Drafted</button>
+          <div class="rank-pill">#11</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -545,13 +605,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="WR" data-search="a.j. brown ne wr tier 2">
-      <div class="card-header">
-        <div>
-          <div class="player-name">A.J. Brown</div>
+    <div class="card" id="p-12" data-player="A.J. Brown" data-pos="WR" data-search="a.j. brown ne wr tier 2">
+      <div class="card-header" onclick="toggleCard('p-12')">
+        <div class="header-left">
+          <div class="player-name">A.J. Brown <span class="collapse-icon">▾</span></div>
           <div class="player-meta">NE — WR | Tier 2</div>
         </div>
-        <div class="rank-pill">#12</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-12', 'A.J. Brown')">✓ Drafted</button>
+          <div class="rank-pill">#12</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -578,13 +641,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="RB" data-search="james cook iii buf rb tier 2">
-      <div class="card-header">
-        <div>
-          <div class="player-name">James Cook III</div>
+    <div class="card" id="p-13" data-player="James Cook III" data-pos="RB" data-search="james cook iii buf rb tier 2">
+      <div class="card-header" onclick="toggleCard('p-13')">
+        <div class="header-left">
+          <div class="player-name">James Cook III <span class="collapse-icon">▾</span></div>
           <div class="player-meta">BUF — RB | Tier 2</div>
         </div>
-        <div class="rank-pill">#13</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-13', 'James Cook III')">✓ Drafted</button>
+          <div class="rank-pill">#13</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -611,13 +677,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="WR" data-search="nico collins hou wr tier 3">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Nico Collins</div>
+    <div class="card" id="p-14" data-player="Nico Collins" data-pos="WR" data-search="nico collins hou wr tier 3">
+      <div class="card-header" onclick="toggleCard('p-14')">
+        <div class="header-left">
+          <div class="player-name">Nico Collins <span class="collapse-icon">▾</span></div>
           <div class="player-meta">HOU — WR | Tier 3</div>
         </div>
-        <div class="rank-pill">#14</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-14', 'Nico Collins')">✓ Drafted</button>
+          <div class="rank-pill">#14</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -644,13 +713,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="RB" data-search="chase brown cin rb tier 2">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Chase Brown</div>
+    <div class="card" id="p-15" data-player="Chase Brown" data-pos="RB" data-search="chase brown cin rb tier 2">
+      <div class="card-header" onclick="toggleCard('p-15')">
+        <div class="header-left">
+          <div class="player-name">Chase Brown <span class="collapse-icon">▾</span></div>
           <div class="player-meta">CIN — RB | Tier 2</div>
         </div>
-        <div class="rank-pill">#15</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-15', 'Chase Brown')">✓ Drafted</button>
+          <div class="rank-pill">#15</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -677,13 +749,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="WR" data-search="chris olave no wr tier 3">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Chris Olave</div>
+    <div class="card" id="p-16" data-player="Chris Olave" data-pos="WR" data-search="chris olave no wr tier 3">
+      <div class="card-header" onclick="toggleCard('p-16')">
+        <div class="header-left">
+          <div class="player-name">Chris Olave <span class="collapse-icon">▾</span></div>
           <div class="player-meta">NO — WR | Tier 3</div>
         </div>
-        <div class="rank-pill">#16</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-16', 'Chris Olave')">✓ Drafted</button>
+          <div class="rank-pill">#16</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -710,13 +785,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="TE" data-search="trey mcbride ari te tier 1">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Trey McBride</div>
+    <div class="card" id="p-17" data-player="Trey McBride" data-pos="TE" data-search="trey mcbride ari te tier 1">
+      <div class="card-header" onclick="toggleCard('p-17')">
+        <div class="header-left">
+          <div class="player-name">Trey McBride <span class="collapse-icon">▾</span></div>
           <div class="player-meta">ARI — TE | Tier 1</div>
         </div>
-        <div class="rank-pill">#17</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-17', 'Trey McBride')">✓ Drafted</button>
+          <div class="rank-pill">#17</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -743,13 +821,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="WR" data-search="george pickens dal wr tier 3">
-      <div class="card-header">
-        <div>
-          <div class="player-name">George Pickens</div>
+    <div class="card" id="p-18" data-player="George Pickens" data-pos="WR" data-search="george pickens dal wr tier 3">
+      <div class="card-header" onclick="toggleCard('p-18')">
+        <div class="header-left">
+          <div class="player-name">George Pickens <span class="collapse-icon">▾</span></div>
           <div class="player-meta">DAL — WR | Tier 3</div>
         </div>
-        <div class="rank-pill">#18</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-18', 'George Pickens')">✓ Drafted</button>
+          <div class="rank-pill">#18</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -776,13 +857,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="TE" data-search="brock bowers lv te tier 1">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Brock Bowers</div>
+    <div class="card" id="p-19" data-player="Brock Bowers" data-pos="TE" data-search="brock bowers lv te tier 1">
+      <div class="card-header" onclick="toggleCard('p-19')">
+        <div class="header-left">
+          <div class="player-name">Brock Bowers <span class="collapse-icon">▾</span></div>
           <div class="player-meta">LV — TE | Tier 1</div>
         </div>
-        <div class="rank-pill">#19</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-19', 'Brock Bowers')">✓ Drafted</button>
+          <div class="rank-pill">#19</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -809,13 +893,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="RB" data-search="de'von achane mia rb tier 2">
-      <div class="card-header">
-        <div>
-          <div class="player-name">De'Von Achane</div>
+    <div class="card" id="p-20" data-player="De'Von Achane" data-pos="RB" data-search="de'von achane mia rb tier 2">
+      <div class="card-header" onclick="toggleCard('p-20')">
+        <div class="header-left">
+          <div class="player-name">De'Von Achane <span class="collapse-icon">▾</span></div>
           <div class="player-meta">MIA — RB | Tier 2</div>
         </div>
-        <div class="rank-pill">#20</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-20', 'De'Von Achane')">✓ Drafted</button>
+          <div class="rank-pill">#20</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -842,13 +929,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="WR" data-search="devonta smith phi wr tier 3">
-      <div class="card-header">
-        <div>
-          <div class="player-name">DeVonta Smith</div>
+    <div class="card" id="p-21" data-player="DeVonta Smith" data-pos="WR" data-search="devonta smith phi wr tier 3">
+      <div class="card-header" onclick="toggleCard('p-21')">
+        <div class="header-left">
+          <div class="player-name">DeVonta Smith <span class="collapse-icon">▾</span></div>
           <div class="player-meta">PHI — WR | Tier 3</div>
         </div>
-        <div class="rank-pill">#21</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-21', 'DeVonta Smith')">✓ Drafted</button>
+          <div class="rank-pill">#21</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -875,13 +965,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="RB" data-search="saquon barkley phi rb tier 2">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Saquon Barkley</div>
+    <div class="card" id="p-22" data-player="Saquon Barkley" data-pos="RB" data-search="saquon barkley phi rb tier 2">
+      <div class="card-header" onclick="toggleCard('p-22')">
+        <div class="header-left">
+          <div class="player-name">Saquon Barkley <span class="collapse-icon">▾</span></div>
           <div class="player-meta">PHI — RB | Tier 2</div>
         </div>
-        <div class="rank-pill">#22</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-22', 'Saquon Barkley')">✓ Drafted</button>
+          <div class="rank-pill">#22</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -908,13 +1001,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="WR" data-search="malik nabers nyg wr tier 3">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Malik Nabers</div>
+    <div class="card" id="p-23" data-player="Malik Nabers" data-pos="WR" data-search="malik nabers nyg wr tier 3">
+      <div class="card-header" onclick="toggleCard('p-23')">
+        <div class="header-left">
+          <div class="player-name">Malik Nabers <span class="collapse-icon">▾</span></div>
           <div class="player-meta">NYG — WR | Tier 3</div>
         </div>
-        <div class="rank-pill">#23</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-23', 'Malik Nabers')">✓ Drafted</button>
+          <div class="rank-pill">#23</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -941,13 +1037,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="RB" data-search="kenneth walker iii kc rb tier 2">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Kenneth Walker III</div>
+    <div class="card" id="p-24" data-player="Kenneth Walker III" data-pos="RB" data-search="kenneth walker iii kc rb tier 2">
+      <div class="card-header" onclick="toggleCard('p-24')">
+        <div class="header-left">
+          <div class="player-name">Kenneth Walker III <span class="collapse-icon">▾</span></div>
           <div class="player-meta">KC — RB | Tier 2</div>
         </div>
-        <div class="rank-pill">#24</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-24', 'Kenneth Walker III')">✓ Drafted</button>
+          <div class="rank-pill">#24</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -974,13 +1073,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="RB" data-search="omarion hampton lac rb tier 2">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Omarion Hampton</div>
+    <div class="card" id="p-25" data-player="Omarion Hampton" data-pos="RB" data-search="omarion hampton lac rb tier 2">
+      <div class="card-header" onclick="toggleCard('p-25')">
+        <div class="header-left">
+          <div class="player-name">Omarion Hampton <span class="collapse-icon">▾</span></div>
           <div class="player-meta">LAC — RB | Tier 2</div>
         </div>
-        <div class="rank-pill">#25</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-25', 'Omarion Hampton')">✓ Drafted</button>
+          <div class="rank-pill">#25</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -1007,13 +1109,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="QB" data-search="josh allen buf qb tier 1">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Josh Allen</div>
+    <div class="card" id="p-26" data-player="Josh Allen" data-pos="QB" data-search="josh allen buf qb tier 1">
+      <div class="card-header" onclick="toggleCard('p-26')">
+        <div class="header-left">
+          <div class="player-name">Josh Allen <span class="collapse-icon">▾</span></div>
           <div class="player-meta">BUF — QB | Tier 1</div>
         </div>
-        <div class="rank-pill">#26</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-26', 'Josh Allen')">✓ Drafted</button>
+          <div class="rank-pill">#26</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -1040,13 +1145,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="WR" data-search="rashee rice kc wr tier 3">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Rashee Rice</div>
+    <div class="card" id="p-27" data-player="Rashee Rice" data-pos="WR" data-search="rashee rice kc wr tier 3">
+      <div class="card-header" onclick="toggleCard('p-27')">
+        <div class="header-left">
+          <div class="player-name">Rashee Rice <span class="collapse-icon">▾</span></div>
           <div class="player-meta">KC — WR | Tier 3</div>
         </div>
-        <div class="rank-pill">#27</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-27', 'Rashee Rice')">✓ Drafted</button>
+          <div class="rank-pill">#27</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -1073,13 +1181,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="RB" data-search="ashton jeanty lv rb tier 3">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Ashton Jeanty</div>
+    <div class="card" id="p-28" data-player="Ashton Jeanty" data-pos="RB" data-search="ashton jeanty lv rb tier 3">
+      <div class="card-header" onclick="toggleCard('p-28')">
+        <div class="header-left">
+          <div class="player-name">Ashton Jeanty <span class="collapse-icon">▾</span></div>
           <div class="player-meta">LV — RB | Tier 3</div>
         </div>
-        <div class="rank-pill">#28</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-28', 'Ashton Jeanty')">✓ Drafted</button>
+          <div class="rank-pill">#28</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -1106,13 +1217,16 @@
       </div>
     </div>
   
-    <div class="card" data-pos="WR" data-search="garrett wilson nyj wr tier 3">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Garrett Wilson</div>
+    <div class="card" id="p-29" data-player="Garrett Wilson" data-pos="WR" data-search="garrett wilson nyj wr tier 3">
+      <div class="card-header" onclick="toggleCard('p-29')">
+        <div class="header-left">
+          <div class="player-name">Garrett Wilson <span class="collapse-icon">▾</span></div>
           <div class="player-meta">NYJ — WR | Tier 3</div>
         </div>
-        <div class="rank-pill">#29</div>
+        <div class="header-right">
+          <button class="draft-btn" onclick="toggleDrafted(event, 'p-29', 'Garrett Wilson')">✓ Drafted</button>
+          <div class="rank-pill">#29</div>
+        </div>
       </div>
       <div class="card-body">
         <div class="stat-row">
@@ -1139,208 +1253,64 @@
       </div>
     </div>
   
-    <div class="card" data-pos="WR" data-search="zay flowers bal wr tier 3">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Zay Flowers</div>
-          <div class="player-meta">BAL — WR | Tier 3</div>
-        </div>
-        <div class="rank-pill">#30</div>
-      </div>
-      <div class="card-body">
-        <div class="stat-row">
-          <span class="stat-label">Projected Role:</span>
-          <span class="stat-val">Explosive Rookie Starter</span>
-        </div>
-        <div class="stat-row">
-          <span class="stat-label">Touch / Target Vol:</span>
-          <span class="stat-val">230 touches (45+ receptions)</span>
-        </div>
-        <div class="trench-badge">
-          🛡️ O-Line: -0.30z Run | +0.38z Pass (#9 Composite)
-        </div>
-        <div class="stat-row">
-          <span class="stat-label">Scheme Context:</span>
-          <span class="stat-val" style="font-size:12px; text-align:left;">Drew Petzing perimeter zone-stretch.</span>
-        </div>
-        <div class="intel-box">
-          💡 <strong>Intel:</strong> Dynamic 3-down skill set with home-run rushing speed.
-        </div>
-        <div class="risk-box">
-          ⚠️ <strong>Risk:</strong> Committee backfield share early in season.
-        </div>
-      </div>
-    </div>
-  
-    <div class="card" data-pos="QB" data-search="lamar jackson bal qb tier 1">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Lamar Jackson</div>
-          <div class="player-meta">BAL — QB | Tier 1</div>
-        </div>
-        <div class="rank-pill">#31</div>
-      </div>
-      <div class="card-body">
-        <div class="stat-row">
-          <span class="stat-label">Projected Role:</span>
-          <span class="stat-val">Dallas Lead Early-Down & Goal-Line Rusher</span>
-        </div>
-        <div class="stat-row">
-          <span class="stat-label">Touch / Target Vol:</span>
-          <span class="stat-val">240 touches (30+ receptions)</span>
-        </div>
-        <div class="trench-badge">
-          🛡️ O-Line: -0.30z Run | +0.38z Pass (#9 Composite)
-        </div>
-        <div class="stat-row">
-          <span class="stat-label">Scheme Context:</span>
-          <span class="stat-val" style="font-size:12px; text-align:left;">Mike McCarthy inside power and zone.</span>
-        </div>
-        <div class="intel-box">
-          💡 <strong>Intel:</strong> Clear leader for goal-line work in high-scoring Dallas offense.
-        </div>
-        <div class="risk-box">
-          ⚠️ <strong>Risk:</strong> Efficiency volatility coming off major injuries.
-        </div>
-      </div>
-    </div>
-  
-    <div class="card" data-pos="WR" data-search="ladd mcconkey lac wr tier 3">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Ladd McConkey</div>
-          <div class="player-meta">LAC — WR | Tier 3</div>
-        </div>
-        <div class="rank-pill">#32</div>
-      </div>
-      <div class="card-body">
-        <div class="stat-row">
-          <span class="stat-label">Projected Role:</span>
-          <span class="stat-val">Elite Co-WR1 in High-Powered Eagles Offense</span>
-        </div>
-        <div class="stat-row">
-          <span class="stat-label">Touch / Target Vol:</span>
-          <span class="stat-val">125 targets (85+ catches, 1,100 yds)</span>
-        </div>
-        <div class="trench-badge">
-          🛡️ O-Line: -0.30z Run | -0.28z Pass (#25 Composite)
-        </div>
-        <div class="stat-row">
-          <span class="stat-label">Scheme Context:</span>
-          <span class="stat-val" style="font-size:12px; text-align:left;">Kellen Moore spread-RPO with high-efficiency perimeter routes.</span>
-        </div>
-        <div class="intel-box">
-          💡 <strong>Intel:</strong> Flawless route runner with massive ceiling games whenever defenses shade to A.J. Brown.
-        </div>
-        <div class="risk-box">
-          ⚠️ <strong>Risk:</strong> Target distribution in run-heavy game scripts.
-        </div>
-      </div>
-    </div>
-  
-    <div class="card" data-pos="WR" data-search="jaylen waddle den wr tier 4">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Jaylen Waddle</div>
-          <div class="player-meta">DEN — WR | Tier 4</div>
-        </div>
-        <div class="rank-pill">#33</div>
-      </div>
-      <div class="card-body">
-        <div class="stat-row">
-          <span class="stat-label">Projected Role:</span>
-          <span class="stat-val">Dual-Threat Comeback Weapon</span>
-        </div>
-        <div class="stat-row">
-          <span class="stat-label">Touch / Target Vol:</span>
-          <span class="stat-val">250 touches (50+ catches)</span>
-        </div>
-        <div class="trench-badge">
-          🛡️ O-Line: +1.86z Run | +0.86z Pass (#3 Composite)
-        </div>
-        <div class="stat-row">
-          <span class="stat-label">Scheme Context:</span>
-          <span class="stat-val" style="font-size:12px; text-align:left;">Nathaniel Hackett / NYJ spread system.</span>
-        </div>
-        <div class="intel-box">
-          💡 <strong>Intel:</strong> Generational pass-catching and open-field elusiveness when fully healthy.
-        </div>
-        <div class="risk-box">
-          ⚠️ <strong>Risk:</strong> Workload management and offense efficiency.
-        </div>
-      </div>
-    </div>
-  
-    <div class="card" data-pos="WR" data-search="tetairoa mcmillan car wr tier 4">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Tetairoa McMillan</div>
-          <div class="player-meta">CAR — WR | Tier 4</div>
-        </div>
-        <div class="rank-pill">#34</div>
-      </div>
-      <div class="card-body">
-        <div class="stat-row">
-          <span class="stat-label">Projected Role:</span>
-          <span class="stat-val">Lead Rusher in New Orleans</span>
-        </div>
-        <div class="stat-row">
-          <span class="stat-label">Touch / Target Vol:</span>
-          <span class="stat-val">240 touches (45+ catches)</span>
-        </div>
-        <div class="trench-badge">
-          🛡️ O-Line: +0.53z Run | +0.72z Pass (#15 Composite)
-        </div>
-        <div class="stat-row">
-          <span class="stat-label">Scheme Context:</span>
-          <span class="stat-val" style="font-size:12px; text-align:left;">Klint Kubiak outside-zone system tailored to speed backs.</span>
-        </div>
-        <div class="intel-box">
-          💡 <strong>Intel:</strong> High-end receiving back with explosive acceleration.
-        </div>
-        <div class="risk-box">
-          ⚠️ <strong>Risk:</strong> Offensive line consistency.
-        </div>
-      </div>
-    </div>
-  
-    <div class="card" data-pos="TE" data-search="colston loveland chi te tier 1">
-      <div class="card-header">
-        <div>
-          <div class="player-name">Colston Loveland</div>
-          <div class="player-meta">CHI — TE | Tier 1</div>
-        </div>
-        <div class="rank-pill">#35</div>
-      </div>
-      <div class="card-body">
-        <div class="stat-row">
-          <span class="stat-label">Projected Role:</span>
-          <span class="stat-val">Lamar Jackson Primary WR Alpha</span>
-        </div>
-        <div class="stat-row">
-          <span class="stat-label">Touch / Target Vol:</span>
-          <span class="stat-val">125 targets (80+ receptions)</span>
-        </div>
-        <div class="trench-badge">
-          🛡️ O-Line: -0.10z Run | +0.87z Pass (#22 Composite)
-        </div>
-        <div class="stat-row">
-          <span class="stat-label">Scheme Context:</span>
-          <span class="stat-val" style="font-size:12px; text-align:left;">Todd Monken spread spacing with Flowers in slot and motion.</span>
-        </div>
-        <div class="intel-box">
-          💡 <strong>Intel:</strong> Electric open-field playmaker and Lamar's primary first-read receiver.
-        </div>
-        <div class="risk-box">
-          ⚠️ <strong>Risk:</strong> Ravens heavy rush rate in positive game scripts.
-        </div>
-      </div>
-    </div>
-  
   </div>
 
   <script>
+    const STORAGE_KEY = 'rose_bowl_offensive_drafted_2026';
+    let draftedSet = new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'));
     let currentPos = 'ALL';
+    let hideDrafted = false;
+
+    function saveDrafted() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify([...draftedSet]));
+      document.getElementById('draftedCount').innerText = draftedSet.size;
+    }
+
+    function toggleCard(pid) {
+      const card = document.getElementById(pid);
+      if (card) {
+        card.classList.toggle('is-collapsed');
+        const icon = card.querySelector('.collapse-icon');
+        if (icon) icon.innerText = card.classList.contains('is-collapsed') ? '▸' : '▾';
+      }
+    }
+
+    function toggleDrafted(e, pid, name) {
+      e.stopPropagation();
+      const card = document.getElementById(pid);
+      if (!card) return;
+
+      if (draftedSet.has(name)) {
+        draftedSet.delete(name);
+        card.classList.remove('is-drafted');
+        card.querySelector('.draft-btn').innerText = '✓ Drafted';
+      } else {
+        draftedSet.add(name);
+        card.classList.add('is-drafted');
+        card.querySelector('.draft-btn').innerText = '✕ Taken';
+      }
+      saveDrafted();
+      applyFilters();
+    }
+
+    function resetDrafted() {
+      if (confirm('Clear all drafted players and restore full board view?')) {
+        draftedSet.clear();
+        saveDrafted();
+        document.querySelectorAll('.card').forEach(c => {
+          c.classList.remove('is-drafted');
+          const btn = c.querySelector('.draft-btn');
+          if (btn) btn.innerText = '✓ Drafted';
+        });
+        applyFilters();
+      }
+    }
+
+    function toggleHideDrafted() {
+      hideDrafted = document.getElementById('hideDraftedToggle').checked;
+      applyFilters();
+    }
+
     function filterPos(pos) {
       currentPos = pos;
       document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -1352,13 +1322,28 @@
     function applyFilters() {
       const q = document.getElementById('searchInput').value.toLowerCase();
       document.querySelectorAll('.card').forEach(card => {
+        const playerName = card.dataset.player;
+        const isDrafted = draftedSet.has(playerName);
+        
+        if (isDrafted) {
+          card.classList.add('is-drafted');
+          const btn = card.querySelector('.draft-btn');
+          if (btn) btn.innerText = '✕ Taken';
+        }
+
         const matchesPos = currentPos === 'ALL' || card.dataset.pos === currentPos;
         const matchesSearch = !q || card.dataset.search.includes(q);
-        card.style.display = matchesPos && matchesSearch ? 'block' : 'none';
+        const matchesDrafted = !hideDrafted || !isDrafted;
+
+        card.style.display = matchesPos && matchesSearch && matchesDrafted ? 'flex' : 'none';
       });
     }
 
     document.getElementById('searchInput').addEventListener('input', applyFilters);
+
+    // Initial load state
+    document.getElementById('draftedCount').innerText = draftedSet.size;
+    applyFilters();
   </script>
 </body>
 </html>

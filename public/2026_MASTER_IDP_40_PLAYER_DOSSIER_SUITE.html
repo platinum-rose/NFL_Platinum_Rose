@@ -102,6 +102,29 @@
     .cover { background: none; border-bottom: 2px solid black; }
     .cover h1 { color: black; text-shadow: none; }
   }
+
+  /* Interactive Drafted & Collapsible Styles */
+  .player-header { cursor: pointer; user-select: none; }
+  .player-header:hover { background: #252525; }
+  .draft-btn { background: #222; border: 1px solid #444; color: #888; font-size: 0.75rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; cursor: pointer; transition: all 0.2s; }
+  .draft-btn:hover { background: rgba(46, 204, 64, 0.2); color: var(--t1); border-color: var(--t1); }
+  
+  .player-card.is-drafted { opacity: 0.4; border-color: #222; background: #0b0b0b; }
+  .player-card.is-drafted .player-name { text-decoration: line-through; color: #666; }
+  .player-card.is-drafted .player-rank { background: #333 !important; color: #777 !important; }
+  .player-card.is-drafted .field, .player-card.is-drafted .player-meta { display: none !important; }
+  .player-card.is-drafted .draft-btn { background: rgba(46, 204, 64, 0.2); color: var(--t1); border-color: var(--t1); }
+
+  .player-card.is-collapsed .field, .player-card.is-collapsed .player-meta { display: none !important; }
+  .collapse-icon { font-size: 0.8rem; color: #666; margin-left: 6px; }
+
+  .idp-toolbar { background: #141414; border: 1px solid #2a2a2a; border-radius: 8px; padding: 12px 16px; margin: 20px 0; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .idp-search { flex: 1; min-width: 180px; background: #0d0d0d; border: 1px solid #333; color: #fff; padding: 7px 12px; border-radius: 6px; font-size: 0.88rem; }
+  .idp-toggle-label { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--gold); cursor: pointer; user-select: none; }
+  .idp-toggle-label input { cursor: pointer; accent-color: var(--gold); width: 16px; height: 16px; }
+  .idp-reset-btn { background: rgba(255, 65, 54, 0.15); border: 1px solid var(--danger); color: var(--danger); padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.78rem; font-weight: 700; }
+  .idp-reset-btn:hover { background: rgba(255, 65, 54, 0.3); }
+
 </style>
 </head>
 <body>
@@ -127,6 +150,16 @@
 </nav>
 
 <div class="container">
+
+  <div class="idp-toolbar">
+    <input type="text" id="idpSearch" class="idp-search" placeholder="🔍 Search IDPs by name, team, tier, scheme, or coordinator...">
+    <label class="idp-toggle-label">
+      <input type="checkbox" id="hideDraftedToggle" onchange="toggleHideDrafted()">
+      👁️ Hide Drafted (<span id="draftedCount">0</span>)
+    </label>
+    <button class="idp-reset-btn" onclick="resetDrafted()">Reset Drafted</button>
+  </div>
+
 ﻿# 🛡️ 2026 Master IDP 40-Player Dossier Suite
 
 <strong>Target Audience:</strong> Draft War Room, Live In-Draft Intel  
@@ -153,12 +186,15 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 
 
 <div class="player-card" id="p85">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">1</span>
-    <span class="player-name">Carson Schwesinger</span>
+    <span class="player-name">Carson Schwesinger <span class="collapse-icon">▾</span></span>
     <span class="player-team">CLE</span>
     <span class="player-rank" style="background:#2ecc40">#85</span>
     <span class="player-tier-badge" style="border-color:#2ecc40;color:#2ecc40">Tier 1</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'Carson Schwesinger')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~98% <em>(editorial estimate — based on preseason depth chart reporting)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">135–150 <em>(editorial estimate)</em>  </span></div>
@@ -168,12 +204,15 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 </div>
 
 <div class="player-card" id="p89">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">2</span>
-    <span class="player-name">Cedric Gray</span>
+    <span class="player-name">Cedric Gray <span class="collapse-icon">▾</span></span>
     <span class="player-team">TEN</span>
     <span class="player-rank" style="background:#2ecc40">#89</span>
     <span class="player-tier-badge" style="border-color:#2ecc40;color:#2ecc40">Tier 1</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'Cedric Gray')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~96% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">130–145 <em>(editorial estimate)</em>  </span></div>
@@ -183,12 +222,15 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 </div>
 
 <div class="player-card" id="p93">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">3</span>
-    <span class="player-name">Zack Baun</span>
+    <span class="player-name">Zack Baun <span class="collapse-icon">▾</span></span>
     <span class="player-team">PHI</span>
     <span class="player-rank" style="background:#2ecc40">#93</span>
     <span class="player-tier-badge" style="border-color:#2ecc40;color:#2ecc40">Tier 1</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'Zack Baun')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~97% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">130–140 <em>(editorial estimate)</em>  </span></div>
@@ -198,12 +240,15 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 </div>
 
 <div class="player-card" id="p97">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">4</span>
-    <span class="player-name">Jordyn Brooks</span>
+    <span class="player-name">Jordyn Brooks <span class="collapse-icon">▾</span></span>
     <span class="player-team">MIA</span>
     <span class="player-rank" style="background:#2ecc40">#97</span>
     <span class="player-tier-badge" style="border-color:#2ecc40;color:#2ecc40">Tier 1</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'Jordyn Brooks')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~99% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">140–155 <em>(editorial estimate)</em>  </span></div>
@@ -213,12 +258,15 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 </div>
 
 <div class="player-card" id="p100">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">5</span>
-    <span class="player-name">Jack Campbell</span>
+    <span class="player-name">Jack Campbell <span class="collapse-icon">▾</span></span>
     <span class="player-team">DET</span>
     <span class="player-rank" style="background:#2ecc40">#100</span>
     <span class="player-tier-badge" style="border-color:#2ecc40;color:#2ecc40">Tier 1</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'Jack Campbell')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~98% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">135–150 <em>(editorial estimate)</em>  </span></div>
@@ -228,12 +276,15 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 </div>
 
 <div class="player-card" id="p104">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">6</span>
-    <span class="player-name">Jamien Sherwood</span>
+    <span class="player-name">Jamien Sherwood <span class="collapse-icon">▾</span></span>
     <span class="player-team">NYJ</span>
     <span class="player-rank" style="background:#2ecc40">#104</span>
     <span class="player-tier-badge" style="border-color:#2ecc40;color:#2ecc40">Tier 1</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'Jamien Sherwood')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~95% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">125–135 <em>(editorial estimate)</em>  </span></div>
@@ -243,12 +294,15 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 </div>
 
 <div class="player-card" id="p108">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">7</span>
-    <span class="player-name">Quay Walker</span>
+    <span class="player-name">Quay Walker <span class="collapse-icon">▾</span></span>
     <span class="player-team">LV</span>
     <span class="player-rank" style="background:#2ecc40">#108</span>
     <span class="player-tier-badge" style="border-color:#2ecc40;color:#2ecc40">Tier 1</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'Quay Walker')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~96% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">128–140 <em>(editorial estimate)</em>  </span></div>
@@ -258,12 +312,15 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 </div>
 
 <div class="player-card" id="p112">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">8</span>
-    <span class="player-name">Fred Warner</span>
+    <span class="player-name">Fred Warner <span class="collapse-icon">▾</span></span>
     <span class="player-team">SF</span>
     <span class="player-rank" style="background:#2ecc40">#112</span>
     <span class="player-tier-badge" style="border-color:#2ecc40;color:#2ecc40">Tier 1</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'Fred Warner')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~100% <em>(editorial estimate — he has historically never been subpackaged out)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">133–148 <em>(editorial estimate)</em>  </span></div>
@@ -273,12 +330,15 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 </div>
 
 <div class="player-card" id="p116">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">9</span>
-    <span class="player-name">Edgerrin Cooper</span>
+    <span class="player-name">Edgerrin Cooper <span class="collapse-icon">▾</span></span>
     <span class="player-team">GB</span>
     <span class="player-rank" style="background:#2ecc40">#116</span>
     <span class="player-tier-badge" style="border-color:#2ecc40;color:#2ecc40">Tier 1</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'Edgerrin Cooper')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~94% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">126–138 <em>(editorial estimate)</em>  </span></div>
@@ -288,12 +348,15 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 </div>
 
 <div class="player-card" id="p120">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">10</span>
-    <span class="player-name">Blake Cashman</span>
+    <span class="player-name">Blake Cashman <span class="collapse-icon">▾</span></span>
     <span class="player-team">MIN</span>
     <span class="player-rank" style="background:#2ecc40">#120</span>
     <span class="player-tier-badge" style="border-color:#2ecc40;color:#2ecc40">Tier 1</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'Blake Cashman')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~98% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">130–143 <em>(editorial estimate)</em>  </span></div>
@@ -303,12 +366,15 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 </div>
 
 <div class="player-card" id="p123">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">11</span>
-    <span class="player-name">Roquan Smith</span>
+    <span class="player-name">Roquan Smith <span class="collapse-icon">▾</span></span>
     <span class="player-team">BAL</span>
     <span class="player-rank" style="background:#2ecc40">#123</span>
     <span class="player-tier-badge" style="border-color:#2ecc40;color:#2ecc40">Tier 1</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'Roquan Smith')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~100% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">145–160 <em>(editorial estimate)</em>  </span></div>
@@ -318,12 +384,15 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 </div>
 
 <div class="player-card" id="p127">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">12</span>
-    <span class="player-name">Foyesade Oluokun</span>
+    <span class="player-name">Foyesade Oluokun <span class="collapse-icon">▾</span></span>
     <span class="player-team">JAC</span>
     <span class="player-rank" style="background:#2ecc40">#127</span>
     <span class="player-tier-badge" style="border-color:#2ecc40;color:#2ecc40">Tier 1</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'Foyesade Oluokun')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~99% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">150–165 <em>(editorial estimate)</em>  </span></div>
@@ -339,120 +408,150 @@ These three signals underlie the expert consensus that produced the DraftSharks 
 </div>
 
 <div class="player-card" id="p131">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">13</span>
-    <span class="player-name">Robert Spillane</span>
+    <span class="player-name">Robert Spillane <span class="collapse-icon">▾</span></span>
     <span class="player-team">NE</span>
     <span class="player-rank" style="background:#0074d9">#131</span>
     <span class="player-tier-badge" style="border-color:#0074d9;color:#0074d9">Tier 2</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'Robert Spillane')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~97% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">126–136 <em>(editorial estimate)</em>  </span></div>
 <div class="field intel"><span class="field-label">💡 Intel</span><span class="field-value">Lone 3-down signal-caller in New England's gap-control scheme. Classic downhill run stopper with a historically high tackle-per-snap rate <em>(editorial, IDP Show preseason content)</em>.</span></div>
 
 <div class="player-card" id="p135">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">14</span>
-    <span class="player-name">Devin Lloyd</span>
+    <span class="player-name">Devin Lloyd <span class="collapse-icon">▾</span></span>
     <span class="player-team">CAR</span>
     <span class="player-rank" style="background:#0074d9">#135</span>
     <span class="player-tier-badge" style="border-color:#0074d9;color:#0074d9">Tier 2</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'Devin Lloyd')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~96% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">122–132 <em>(editorial estimate)</em>  </span></div>
 <div class="field intel"><span class="field-label">💡 Intel</span><span class="field-value">Green Dot lead LB in Evero's 3-4 / 2-4-5 front. Elite length (noted in Footballguys editorial) enables clean wrap-up tackling and above-average PBU upside.</span></div>
 
 <div class="player-card" id="p139">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">15</span>
-    <span class="player-name">T.J. Edwards</span>
+    <span class="player-name">T.J. Edwards <span class="collapse-icon">▾</span></span>
     <span class="player-team">CHI</span>
     <span class="player-rank" style="background:#0074d9">#139</span>
     <span class="player-tier-badge" style="border-color:#0074d9;color:#0074d9">Tier 2</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'T.J. Edwards')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~96% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">128–138 <em>(editorial estimate)</em>  </span></div>
 <div class="field intel"><span class="field-label">💡 Intel</span><span class="field-value">Healthy entering 2026. One of the most consistent 8–10 tackle-per-game floors in the league over the last three seasons <em>(editorial, published career stats)</em>.</span></div>
 
 <div class="player-card" id="p143">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">16</span>
-    <span class="player-name">Ernest Jones IV</span>
+    <span class="player-name">Ernest Jones IV <span class="collapse-icon">▾</span></span>
     <span class="player-team">SEA</span>
     <span class="player-rank" style="background:#0074d9">#143</span>
     <span class="player-tier-badge" style="border-color:#0074d9;color:#0074d9">Tier 2</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'Ernest Jones IV')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~98% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">130–142 <em>(editorial estimate)</em>  </span></div>
 <div class="field intel"><span class="field-label">💡 Intel</span><span class="field-value">Mike Macdonald's scheme in Baltimore produced top-5 IDP seasons from Roquan Smith and Patrick Queen. Jones is the direct inheritor of that role in Seattle.</span></div>
 
 <div class="player-card" id="p147">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">17</span>
-    <span class="player-name">Nakobe Dean</span>
+    <span class="player-name">Nakobe Dean <span class="collapse-icon">▾</span></span>
     <span class="player-team">LV</span>
     <span class="player-rank" style="background:#0074d9">#147</span>
     <span class="player-tier-badge" style="border-color:#0074d9;color:#0074d9">Tier 2</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'Nakobe Dean')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~95% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">118–130 <em>(editorial estimate)</em>  </span></div>
 <div class="field intel"><span class="field-label">💡 Intel</span><span class="field-value">Patrick Graham's A-gap attack scheme creates inside running lanes that Dean closes with elite burst. Uncontested Green Dot starter.</span></div>
 
 <div class="player-card" id="p150">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">18</span>
-    <span class="player-name">Jacob Rodriguez</span>
+    <span class="player-name">Jacob Rodriguez <span class="collapse-icon">▾</span></span>
     <span class="player-team">MIA</span>
     <span class="player-rank" style="background:#0074d9">#150</span>
     <span class="player-tier-badge" style="border-color:#0074d9;color:#0074d9">Tier 2</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'Jacob Rodriguez')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~88% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">112–122 <em>(editorial estimate)</em>  </span></div>
 <div class="field intel"><span class="field-label">💡 Intel</span><span class="field-value">Camp standout who secured the LB2 role opposite Jordyn Brooks in Anthony Weaver's 2-LB front. Plays every down alongside Brooks. Rookie sleeper with genuine starter snaps locked in.</span></div>
 
 <div class="player-card" id="p154">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">19</span>
-    <span class="player-name">Devin Bush</span>
+    <span class="player-name">Devin Bush <span class="collapse-icon">▾</span></span>
     <span class="player-team">CHI</span>
     <span class="player-rank" style="background:#0074d9">#154</span>
     <span class="player-tier-badge" style="border-color:#0074d9;color:#0074d9">Tier 2</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'Devin Bush')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~91% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">118–128 <em>(editorial estimate)</em>  </span></div>
 <div class="field intel"><span class="field-label">💡 Intel</span><span class="field-value">Full-time starting weakside linebacker alongside T.J. Edwards in Dennis Allen's 4-2-5. Career resurgence in Chicago; 4.43 speed allows him to track down perimeter zone runs.</span></div>
 
 <div class="player-card" id="p158">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">20</span>
-    <span class="player-name">Daiyan Henley</span>
+    <span class="player-name">Daiyan Henley <span class="collapse-icon">▾</span></span>
     <span class="player-team">LAC</span>
     <span class="player-rank" style="background:#0074d9">#158</span>
     <span class="player-tier-badge" style="border-color:#0074d9;color:#0074d9">Tier 2</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'Daiyan Henley')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~96% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">122–132 <em>(editorial estimate)</em>  </span></div>
 <div class="field intel"><span class="field-label">💡 Intel</span><span class="field-value">Fully healthy. Jesse Minter's 81% zone-coverage rate <em>(editorial — scheme estimate)</em> creates consistent underneath tackle volume for the signal-calling LB.</span></div>
 
 <div class="player-card" id="p162">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">21</span>
-    <span class="player-name">Nick Bolton</span>
+    <span class="player-name">Nick Bolton <span class="collapse-icon">▾</span></span>
     <span class="player-team">KC</span>
     <span class="player-rank" style="background:#0074d9">#162</span>
     <span class="player-tier-badge" style="border-color:#0074d9;color:#0074d9">Tier 2</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'Nick Bolton')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~95% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">127–138 <em>(editorial estimate)</em>  </span></div>
 <div class="field intel"><span class="field-label">💡 Intel</span><span class="field-value">Proven top-12 IDP LB in Spagnuolo's system. Stays on the field in high-leverage passing situations.</span></div>
 
 <div class="player-card" id="p166">
-  <div class="player-header">
+  <div class="player-header" onclick="toggleCard(this)">
+    
     <span class="player-num">22</span>
-    <span class="player-name">Nathan Landman</span>
+    <span class="player-name">Nathan Landman <span class="collapse-icon">▾</span></span>
     <span class="player-team">LAR</span>
     <span class="player-rank" style="background:#0074d9">#166</span>
     <span class="player-tier-badge" style="border-color:#0074d9;color:#0074d9">Tier 2</span>
+  
+    <button class="draft-btn" onclick="toggleDrafted(event, this, 'Nathan Landman')">✓ Drafted</button>
   </div>
 <div class="field"><span class="field-label">📊 Snap Volume</span><span class="field-value">~96% <em>(editorial estimate)</em>  </span></div>
 <div class="field"><span class="field-label">🏈 Proj. Tackles</span><span class="field-value">124–134 <em>(editorial estimate)</em>  </span></div>
@@ -521,6 +620,90 @@ Plays behind Watt, Highsmith, and Heyward — consistently clean pursuit angles.
   Generated from <code>docs/fantasy/2026_MASTER_IDP_40_PLAYER_DOSSIER_SUITE.md</code> · NFL Dashboard · 2026<br>
   Player rankings: DraftSharks IDP consensus (pipeline-sourced). All other figures: editorial estimates — see sourcing note.
 </div>
+
+
+<script>
+  const STORAGE_KEY = 'rose_bowl_idp_drafted_2026';
+  let draftedSet = new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'));
+  let hideDrafted = false;
+
+  function saveDrafted() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify([...draftedSet]));
+    document.getElementById('draftedCount').innerText = draftedSet.size;
+  }
+
+  function toggleCard(headerEl) {
+    const card = headerEl.closest('.player-card');
+    if (card) {
+      card.classList.toggle('is-collapsed');
+      const icon = card.querySelector('.collapse-icon');
+      if (icon) icon.innerText = card.classList.contains('is-collapsed') ? '▸' : '▾';
+    }
+  }
+
+  function toggleDrafted(e, btnEl, name) {
+    e.stopPropagation();
+    const card = btnEl.closest('.player-card');
+    if (!card) return;
+
+    if (draftedSet.has(name)) {
+      draftedSet.delete(name);
+      card.classList.remove('is-drafted');
+      btnEl.innerText = '✓ Drafted';
+    } else {
+      draftedSet.add(name);
+      card.classList.add('is-drafted');
+      btnEl.innerText = '✕ Taken';
+    }
+    saveDrafted();
+    applyFilters();
+  }
+
+  function resetDrafted() {
+    if (confirm('Clear all drafted IDPs and restore full IDP board view?')) {
+      draftedSet.clear();
+      saveDrafted();
+      document.querySelectorAll('.player-card').forEach(c => {
+        c.classList.remove('is-drafted');
+        const btn = c.querySelector('.draft-btn');
+        if (btn) btn.innerText = '✓ Drafted';
+      });
+      applyFilters();
+    }
+  }
+
+  function toggleHideDrafted() {
+    hideDrafted = document.getElementById('hideDraftedToggle').checked;
+    applyFilters();
+  }
+
+  function applyFilters() {
+    const q = (document.getElementById('idpSearch').value || '').toLowerCase();
+    document.querySelectorAll('.player-card').forEach(card => {
+      const nameEl = card.querySelector('.player-name');
+      const name = nameEl ? nameEl.innerText.replace(/[▾▸]/g, '').trim() : '';
+      const text = card.innerText.toLowerCase();
+      const isDrafted = draftedSet.has(name);
+
+      if (isDrafted) {
+        card.classList.add('is-drafted');
+        const btn = card.querySelector('.draft-btn');
+        if (btn) btn.innerText = '✕ Taken';
+      }
+
+      const matchesSearch = !q || text.includes(q);
+      const matchesDrafted = !hideDrafted || !isDrafted;
+
+      card.style.display = matchesSearch && matchesDrafted ? 'block' : 'none';
+    });
+  }
+
+  document.getElementById('idpSearch').addEventListener('input', applyFilters);
+
+  // Initial load state
+  document.getElementById('draftedCount').innerText = draftedSet.size;
+  applyFilters();
+</script>
 
 </body>
 </html>
