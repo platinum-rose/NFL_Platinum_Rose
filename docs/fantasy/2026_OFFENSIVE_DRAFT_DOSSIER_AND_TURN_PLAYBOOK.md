@@ -92,315 +92,315 @@ In a 12-team snake draft from **Slot 3**, you experience rapid **5-pick turnarou
 
 ## 🔬 Master Offensive Player Dossiers
 
-### 1. Jahmyr Gibbs — DET (RB) | Draft Rank #1 *(CSV-verified)*
+### 1. Ja'Marr Chase — CIN (WR) | Draft Rank #1 *(CSV-verified)*
 - **Role & Target Projection:** Elite Dual-Threat RB1 — 280 touches (75+ receptions) *(editorial estimate)*
-- **Trench Context:** Rank #19 (Run Block: +0.71z, Pass Block: -0.90z)
+- **Trench Context:** Rank #32 (Run Block: -1.50z, Pass Block: -0.65z)
 - **Offensive Scheme:** Ben Johnson / Dan Campbell power-spread with heavy screen design.
 - **Draft Room Intel:** 1.01 contender. Unmatched weekly ceiling with dynamic receiving role and red-zone goal-line touches.
 - **Risk / Volatility Profile:** Minor touch share split with David Montgomery, though Gibbs dominates high-value touches.
 
 ---
 
-### 2. Bijan Robinson — ATL (RB) | Draft Rank #2 *(CSV-verified)*
+### 2. Jahmyr Gibbs — DET (RB) | Draft Rank #2 *(CSV-verified)*
 - **Role & Target Projection:** Every-Down Bellcow Alpha — 310 touches (80+ targets) *(editorial estimate)*
-- **Trench Context:** Rank #14 (Run Block: +0.43z, Pass Block: -0.03z)
+- **Trench Context:** Rank #19 (Run Block: +0.71z, Pass Block: -0.90z)
 - **Offensive Scheme:** Zac Robinson outside-zone McVay-tree rushing attack with heavy split-out WR routes.
 - **Draft Room Intel:** The safest floor-ceiling combo on the board. Unquestioned 85%+ snap volume in high-tempo offense.
 - **Risk / Volatility Profile:** Low. Elite bellcow profile.
 
 ---
 
-### 3. Ja'Marr Chase — CIN (WR) | Draft Rank #3 *(CSV-verified)*
+### 3. Puka Nacua — LAR (WR) | Draft Rank #3 *(CSV-verified)*
 - **Role & Target Projection:** Consensus WR1 Target Alpha — 175 targets (110+ receptions, 1,500+ yds) *(editorial estimate)*
-- **Trench Context:** Rank #32 (Run Block: -1.50z, Pass Block: -0.65z)
+- **Trench Context:** Rank #1 (Run Block: +2.71z, Pass Block: -1.04z)
 - **Offensive Scheme:** Zac Taylor / Dan Pitcher 11-personnel spread with Burrow operating at peak efficiency.
 - **Draft Room Intel:** Dominant vertical and intermediate target share. Unlocks 30+ point weekly ceiling.
 - **Risk / Volatility Profile:** Low when Burrow is healthy.
 
 ---
 
-### 4. Puka Nacua — LAR (WR) | Draft Rank #4 *(CSV-verified)*
+### 4. Bijan Robinson — ATL (RB) | Draft Rank #4 *(CSV-verified)*
 - **Role & Target Projection:** Primary McVay X/Z Receiver — 160 targets (105+ receptions) *(editorial estimate)*
-- **Trench Context:** Rank #1 (Run Block: +2.71z, Pass Block: -1.04z)
+- **Trench Context:** Rank #14 (Run Block: +0.43z, Pass Block: -0.03z)
 - **Offensive Scheme:** Sean McVay motion-heavy 11-personnel. Nacua used on jet sweeps, dig routes, and slot fades.
 - **Draft Room Intel:** Historic rookie/sophomore volume earner. Dominates target-per-route-run metrics across all downs.
 - **Risk / Volatility Profile:** Physical play style requires monitoring mid-week maintenance.
 
 ---
 
-### 5. Christian McCaffrey — SF (RB) | Draft Rank #5 *(CSV-verified)*
+### 5. Jaxon Smith-Njigba — SEA (WR) | Draft Rank #5 *(CSV-verified)*
 - **Role & Target Projection:** Elite Dual-Threat Bellcow Anchor — 270 touches (70+ catches) *(editorial estimate)*
-- **Trench Context:** Rank #17 (Run Block: +1.99z, Pass Block: -0.06z)
+- **Trench Context:** Rank #11 (Run Block: +0.09z, Pass Block: -1.02z)
 - **Offensive Scheme:** Kyle Shanahan outside zone / gap hybrid with McCaffrey aligned everywhere.
 - **Draft Room Intel:** PPR point-per-game machine when active. Undisputed goal-line and third-down monopolizer.
 - **Risk / Volatility Profile:** Soft tissue injury management and age curve.
 
 ---
 
-### 6. Jaxon Smith-Njigba — SEA (WR) | Draft Rank #6 *(CSV-verified)*
+### 6. Amon-Ra St. Brown — DET (WR) | Draft Rank #6 *(CSV-verified)*
 - **Role & Target Projection:** Ascending Slot/Perimeter Target Hog — 145 targets (95+ receptions) *(editorial estimate)*
-- **Trench Context:** Rank #11 (Run Block: +0.09z, Pass Block: -1.02z)
+- **Trench Context:** Rank #19 (Run Block: +0.71z, Pass Block: -0.90z)
 - **Offensive Scheme:** Ryan Grubb downfield spread passing attack.
 - **Draft Room Intel:** Major third-year alpha leap profile with elite separation grades.
 - **Risk / Volatility Profile:** Target distribution across multiple perimeter weapons.
 
 ---
 
-### 7. Jonathan Taylor — IND (RB) | Draft Rank #7 *(CSV-verified)*
+### 7. CeeDee Lamb — DAL (WR) | Draft Rank #7 *(CSV-verified)*
 - **Role & Target Projection:** Bellcow Volume Rusher — 290 carries, 35 targets *(editorial estimate)*
-- **Trench Context:** Rank #6 (Run Block: +1.51z, Pass Block: +0.58z)
+- **Trench Context:** Rank #24 (Run Block: +0.78z, Pass Block: -2.33z)
 - **Offensive Scheme:** Shane Steichen inside-zone / RPO attack.
 - **Draft Room Intel:** Massive touchdown equity in Steichen's red-zone rushing packages.
 - **Risk / Volatility Profile:** Target ceiling capped if Anthony Richardson runs near goal line.
 
 ---
 
-### 8. Amon-Ra St. Brown — DET (WR) | Draft Rank #8 *(CSV-verified)*
+### 8. Justin Jefferson — MIN (WR) | Draft Rank #8 *(CSV-verified)*
 - **Role & Target Projection:** PPR Slot Target Magnet — 165 targets (115+ catches) *(editorial estimate)*
-- **Trench Context:** Rank #19 (Run Block: +0.71z, Pass Block: -0.90z)
+- **Trench Context:** Rank #13 (Run Block: -0.08z, Pass Block: +0.37z)
 - **Offensive Scheme:** Ben Johnson inside-out passing attack with heavy play-action crossers.
 - **Draft Room Intel:** 100-catch PPR lock with immense weekly floor.
 - **Risk / Volatility Profile:** Lower average depth of target (aDOT) than perimeter deep threats.
 
 ---
 
-### 9. James Cook III — BUF (RB) | Draft Rank #9 *(CSV-verified)*
+### 9. Christian McCaffrey — SF (RB) | Draft Rank #9 *(CSV-verified)*
 - **Role & Target Projection:** High-Efficiency Dual Threat — 250 touches (55+ receptions) *(editorial estimate)*
-- **Trench Context:** Rank #27 (Run Block: +0.54z, Pass Block: -1.02z)
+- **Trench Context:** Rank #17 (Run Block: +1.99z, Pass Block: -0.06z)
 - **Offensive Scheme:** Joe Brady run-first power scheme with Allen play-action.
 - **Draft Room Intel:** Ascended into clear primary back status in late 2025/2026; dominant explosive run rate.
 - **Risk / Volatility Profile:** Josh Allen vulturing short-yardage rushing touchdowns.
 
 ---
 
-### 10. De'Von Achane — MIA (RB) | Draft Rank #10 *(CSV-verified)*
+### 10. Jonathan Taylor — IND (RB) | Draft Rank #10 *(CSV-verified)*
 - **Role & Target Projection:** Hyper-Efficient Explosive Weapon — 220 touches (65+ receptions) *(editorial estimate)*
-- **Trench Context:** Rank #29 (Run Block: -0.94z, Pass Block: -1.33z)
+- **Trench Context:** Rank #6 (Run Block: +1.51z, Pass Block: +0.58z)
 - **Offensive Scheme:** Mike McDaniel motion-heavy speed spacing.
 - **Draft Room Intel:** Highest fantasy points-per-touch in NFL history; huge receiving ceiling in PPR.
 - **Risk / Volatility Profile:** Touch volume capped at 15-18 touches to preserve durability.
 
 ---
 
-### 11. CeeDee Lamb — DAL (WR) | Draft Rank #11 *(CSV-verified)*
+### 11. Drake London — ATL (WR) | Draft Rank #11 *(CSV-verified)*
 - **Role & Target Projection:** Alpha WR1 Vacuum — 170 targets (110+ catches) *(editorial estimate)*
-- **Trench Context:** Rank #24 (Run Block: +0.78z, Pass Block: -2.33z)
+- **Trench Context:** Rank #14 (Run Block: +0.43z, Pass Block: -0.03z)
 - **Offensive Scheme:** Mike McCarthy / Brian Schottenheimer spread with Lamb moving across all 3 receiver spots.
 - **Draft Room Intel:** Historic 2025 volume earner. The definitive anchor WR if slipping past Top 10.
 - **Risk / Volatility Profile:** High draft cost; defenses rolling bracket coverage.
 
 ---
 
-### 12. Justin Jefferson — MIN (WR) | Draft Rank #12 *(CSV-verified)*
+### 12. A.J. Brown — NE (WR) | Draft Rank #12 *(CSV-verified)*
 - **Role & Target Projection:** All-Pro Route Technician — 160 targets (100+ catches) *(editorial estimate)*
-- **Trench Context:** Rank #13 (Run Block: -0.08z, Pass Block: +0.37z)
+- **Trench Context:** Rank #20 (Run Block: -0.21z, Pass Block: +0.25z)
 - **Offensive Scheme:** Kevin O'Connell Shanahan-tree passing offense.
 - **Draft Room Intel:** Best route runner in football. Produces WR1 numbers regardless of quarterback situation.
 - **Risk / Volatility Profile:** QB transition volatility.
 
 ---
 
-### 13. Chase Brown — CIN (RB) | Draft Rank #13 *(CSV-verified)*
+### 13. James Cook III — BUF (RB) | Draft Rank #13 *(CSV-verified)*
 - **Role & Target Projection:** Full-Time Bengals Lead Back — 260 touches (50+ receptions) *(editorial estimate)*
-- **Trench Context:** Rank #32 (Run Block: -1.50z, Pass Block: -0.65z)
+- **Trench Context:** Rank #27 (Run Block: +0.54z, Pass Block: -1.02z)
 - **Offensive Scheme:** Zac Taylor shotgun zone-read and pass-catching backfield design.
 - **Draft Room Intel:** Took over backfield workhorse duties with explosive 4.4 speed and 3-down receiving ability.
 - **Risk / Volatility Profile:** Second-year workhorse durability.
 
 ---
 
-### 14. Saquon Barkley — PHI (RB) | Draft Rank #14 *(CSV-verified)*
+### 14. Nico Collins — HOU (WR) | Draft Rank #14 *(CSV-verified)*
 - **Role & Target Projection:** Elite Workhorse Behind Top Line — 280 carries, 45 targets *(editorial estimate)*
-- **Trench Context:** Rank #2 (Run Block: +0.73z, Pass Block: +2.12z)
+- **Trench Context:** Rank #5 (Run Block: -0.37z, Pass Block: -1.00z)
 - **Offensive Scheme:** Kellen Moore / Nick Sirianni RPO and inside zone.
 - **Draft Room Intel:** Runs behind one of the best offensive lines in football with massive TD ceiling.
 - **Risk / Volatility Profile:** Jalen Hurts 'Tush Push' goal-line vulture.
 
 ---
 
-### 15. Omarion Hampton — LAC (RB) | Draft Rank #15 *(CSV-verified)*
+### 15. Chase Brown — CIN (RB) | Draft Rank #15 *(CSV-verified)*
 - **Role & Target Projection:** Rookie Bellcow Sensation — 270 touches (40+ receptions) *(editorial estimate)*
-- **Trench Context:** Rank #25 (Run Block: -0.30z, Pass Block: -0.28z)
+- **Trench Context:** Rank #32 (Run Block: -1.50z, Pass Block: -0.65z)
 - **Offensive Scheme:** Jim Harbaugh / Greg Roman physical ground-and-pound power attack.
 - **Draft Room Intel:** Harbaugh’s hand-picked backfield centerpiece; projected for 18+ touches per game immediately.
 - **Risk / Volatility Profile:** Rookie learning curve in pass protection.
 
 ---
 
-### 16. Derrick Henry — BAL (RB) | Draft Rank #16 *(CSV-verified)*
+### 16. Chris Olave — NO (WR) | Draft Rank #16 *(CSV-verified)*
 - **Role & Target Projection:** Red Zone & Power Rushing King — 270 carries, 15+ rushing TDs *(editorial estimate)*
-- **Trench Context:** Rank #9 (Run Block: -0.30z, Pass Block: +0.38z)
+- **Trench Context:** Rank #23 (Run Block: -0.96z, Pass Block: +0.74z)
 - **Offensive Scheme:** Todd Monken / Lamar Jackson pistol option and gap power.
 - **Draft Room Intel:** Touchdown equity is astronomical in Baltimore's scoring offense.
 - **Risk / Volatility Profile:** Virtually zero receiving volume in PPR format.
 
 ---
 
-### 17. Ashton Jeanty — LV (RB) | Draft Rank #17 *(CSV-verified)*
+### 17. Trey McBride — ARI (TE) | Draft Rank #17 *(CSV-verified)*
 - **Role & Target Projection:** First-Round Rookie Workhorse — 250 touches (45+ receptions) *(editorial estimate)*
-- **Trench Context:** Rank #31 (Run Block: +0.24z, Pass Block: -0.34z)
+- **Trench Context:** Rank #28 (Run Block: -0.17z, Pass Block: +0.69z)
 - **Offensive Scheme:** Luke Getsy wide zone rushing scheme.
 - **Draft Room Intel:** Generational tackle-breaker with elite vision and receiving pedigree.
 - **Risk / Volatility Profile:** ⚠️ High-Ankle Sprain alert flagged in BettorDay preseason intel; potential limited early snaps.
 
 ---
 
-### 18. Kenneth Walker III — KC (RB) | Draft Rank #18 *(CSV-verified)*
+### 18. George Pickens — DAL (WR) | Draft Rank #18 *(CSV-verified)*
 - **Role & Target Projection:** Lead Power Rusher in KC Offense — 250 touches (40+ receptions) *(editorial estimate)*
-- **Trench Context:** Rank #4 (Run Block: -0.35z, Pass Block: +0.89z)
+- **Trench Context:** Rank #24 (Run Block: +0.78z, Pass Block: -2.33z)
 - **Offensive Scheme:** Andy Reid versatile zone-run and screen system.
 - **Draft Room Intel:** Traded to KC into the most explosive scoring environment of his career.
 - **Risk / Volatility Profile:** Reid backfield rotations in 2-minute drill.
 
 ---
 
-### 19. A.J. Brown — NE (WR) | Draft Rank #19 *(CSV-verified)*
+### 19. Brock Bowers — LV (TE) | Draft Rank #19 *(CSV-verified)*
 - **Role & Target Projection:** Alpha WR1 Vertical Threat — 140 targets (85+ receptions, 1,300 yds) *(editorial estimate)*
-- **Trench Context:** Rank #20 (Run Block: -0.21z, Pass Block: +0.25z)
+- **Trench Context:** Rank #31 (Run Block: +0.24z, Pass Block: -0.34z)
 - **Offensive Scheme:** Alex Van Pelt / Drake Maye vertical play-action scheme.
 - **Draft Room Intel:** Elite target earner and yards-after-catch monster.
 - **Risk / Volatility Profile:** New offensive system integration in New England.
 
 ---
 
-### 20. Drake London — ATL (WR) | Draft Rank #20 *(CSV-verified)*
+### 20. De'Von Achane — MIA (RB) | Draft Rank #20 *(CSV-verified)*
 - **Role & Target Projection:** Target Vacuum in Pass-Friendly Dome — 150 targets (95+ receptions) *(editorial estimate)*
-- **Trench Context:** Rank #14 (Run Block: +0.43z, Pass Block: -0.03z)
+- **Trench Context:** Rank #29 (Run Block: -0.94z, Pass Block: -1.33z)
 - **Offensive Scheme:** Zac Robinson McVay-style passing tree.
 - **Draft Room Intel:** Dominates red-zone contested catches and intermediate middle-of-field targets.
 - **Risk / Volatility Profile:** High-target distribution with Bijan and Kyle Pitts.
 
 ---
 
-### 21. Josh Allen — BUF (QB) | Draft Rank #21 *(CSV-verified)*
+### 21. DeVonta Smith — PHI (WR) | Draft Rank #21 *(CSV-verified)*
 - **Role & Target Projection:** QB1 Overall / Konami Code Alpha — 4,300 passing yds, 650 rushing yds, 40+ total TDs *(editorial estimate)*
-- **Trench Context:** Rank #27 (Run Block: +0.54z, Pass Block: -1.02z)
+- **Trench Context:** Rank #2 (Run Block: +0.73z, Pass Block: +2.12z)
 - **Offensive Scheme:** Joe Brady dual-threat designed QB draw and deep play-action.
 - **Draft Room Intel:** The #1 cheat-code quarterback in fantasy football. Guarantees 22+ PPG.
 - **Risk / Volatility Profile:** Draft capital cost (Round 2/3 turn).
 
 ---
 
-### 22. Brock Bowers — LV (TE) | Draft Rank #22 *(CSV-verified)*
+### 22. Saquon Barkley — PHI (RB) | Draft Rank #22 *(CSV-verified)*
 - **Role & Target Projection:** Generational Move TE / WR1 Alignment — 135 targets (90+ receptions, 1,050 yds) *(editorial estimate)*
-- **Trench Context:** Rank #31 (Run Block: +0.24z, Pass Block: -0.34z)
+- **Trench Context:** Rank #2 (Run Block: +0.73z, Pass Block: +2.12z)
 - **Offensive Scheme:** Spread alignment (slot, out wide, motion backfield).
 - **Draft Room Intel:** Broke rookie TE records; unquestioned target alpha in Las Vegas.
 - **Risk / Volatility Profile:** Quarterback consistency in LV.
 
 ---
 
-### 23. George Pickens — DAL (WR) | Draft Rank #23 *(CSV-verified)*
+### 23. Malik Nabers — NYG (WR) | Draft Rank #23 *(CSV-verified)*
 - **Role & Target Projection:** Cowboys New Perimeter Alpha — 130 targets (80+ receptions, 1,200 yds) *(editorial estimate)*
-- **Trench Context:** Rank #24 (Run Block: +0.78z, Pass Block: -2.33z)
+- **Trench Context:** Rank #16 (Run Block: -0.58z, Pass Block: +0.82z)
 - **Offensive Scheme:** Dallas high-volume spread alongside CeeDee Lamb.
 - **Draft Room Intel:** Massive vertical upside operating against single coverage across from Lamb.
 - **Risk / Volatility Profile:** Concentration of volume around Lamb.
 
 ---
 
-### 24. Nico Collins — HOU (WR) | Draft Rank #24 *(CSV-verified)*
+### 24. Kenneth Walker III — KC (RB) | Draft Rank #24 *(CSV-verified)*
 - **Role & Target Projection:** Texans #1 Vertical Alpha — 140 targets (85+ receptions, 1,300 yds) *(editorial estimate)*
-- **Trench Context:** Rank #5 (Run Block: -0.37z, Pass Block: -1.00z)
+- **Trench Context:** Rank #4 (Run Block: -0.35z, Pass Block: +0.89z)
 - **Offensive Scheme:** Bobby Slowik Shanahan-style downfield passing offense with CJ Stroud.
 - **Draft Room Intel:** Among the highest yards-per-route-run (YPRR) in football.
 - **Risk / Volatility Profile:** Hamstring soft-tissue history.
 
 ---
 
-### 25. Trey McBride — ARI (TE) | Draft Rank #25 *(CSV-verified)*
+### 25. Omarion Hampton — LAC (RB) | Draft Rank #25 *(CSV-verified)*
 - **Role & Target Projection:** Dominant Slot/Intermediate TE — 130 targets (90+ receptions) *(editorial estimate)*
-- **Trench Context:** Rank #28 (Run Block: -0.17z, Pass Block: +0.69z)
+- **Trench Context:** Rank #25 (Run Block: -0.30z, Pass Block: -0.28z)
 - **Offensive Scheme:** Drew Petzing heavy 12/13 personnel targeting the middle of the field.
 - **Draft Room Intel:** Consistent 8-10 target weekly volume; elite PPR floor.
 - **Risk / Volatility Profile:** Touchdown variance in run-heavy red zone offense.
 
 ---
 
-### 26. Chris Olave — NO (WR) | Draft Rank #26 *(CSV-verified)*
+### 26. Josh Allen — BUF (QB) | Draft Rank #26 *(CSV-verified)*
 - **Role & Target Projection:** Saints Alpha Vertical Receiver — 140 targets (85+ receptions) *(editorial estimate)*
-- **Trench Context:** Rank #23 (Run Block: -0.96z, Pass Block: +0.74z)
+- **Trench Context:** Rank #27 (Run Block: +0.54z, Pass Block: -1.02z)
 - **Offensive Scheme:** Klint Kubiak Shanahan-tree motion and play-action deep crossers.
 - **Draft Room Intel:** Elite separator with 25%+ target share projection.
 - **Risk / Volatility Profile:** Quarterback accuracy and health.
 
 ---
 
-### 27. Malik Nabers — NYG (WR) | Draft Rank #27 *(CSV-verified)*
+### 27. Rashee Rice — KC (WR) | Draft Rank #27 *(CSV-verified)*
 - **Role & Target Projection:** Target-Dominant Rookie/Sophomore Alpha — 150 targets (90+ receptions) *(editorial estimate)*
-- **Trench Context:** Rank #16 (Run Block: -0.58z, Pass Block: +0.82z)
+- **Trench Context:** Rank #4 (Run Block: -0.35z, Pass Block: +0.89z)
 - **Offensive Scheme:** Brian Daboll spread concepts with heavy first-read designs.
 - **Draft Room Intel:** Electric run-after-catch ability; unquestioned focal point of NYG offense.
 - **Risk / Volatility Profile:** Offensive scoring ceiling.
 
 ---
 
-### 28. Rashee Rice — KC (WR) | Draft Rank #28 *(CSV-verified)*
+### 28. Ashton Jeanty — LV (RB) | Draft Rank #28 *(CSV-verified)*
 - **Role & Target Projection:** Mahomes Primary In-Breaking Target — 130 targets (90+ receptions) *(editorial estimate)*
-- **Trench Context:** Rank #4 (Run Block: -0.35z, Pass Block: +0.89z)
+- **Trench Context:** Rank #31 (Run Block: +0.24z, Pass Block: -0.34z)
 - **Offensive Scheme:** Andy Reid heavy spacing, motion, and crossing routes.
 - **Draft Room Intel:** Dominant YAC creator in football's premier passing scheme.
 - **Risk / Volatility Profile:** Off-field situation monitoring.
 
 ---
 
-### 29. Kyren Williams — LAR (RB) | Draft Rank #29 *(CSV-verified)*
+### 29. Garrett Wilson — NYJ (WR) | Draft Rank #29 *(CSV-verified)*
 - **Role & Target Projection:** Workhorse Volume Rusher — 250 touches (35+ receptions) *(editorial estimate)*
-- **Trench Context:** Rank #1 (Run Block: +2.71z, Pass Block: -1.04z)
+- **Trench Context:** Rank #21 (Run Block: -0.87z, Pass Block: -0.95z)
 - **Offensive Scheme:** Sean McVay duo and outside zone.
 - **Draft Room Intel:** Runs behind the #1 ranked run-blocking line in the NFL; immense red-zone touch share.
 - **Risk / Volatility Profile:** Blake Corum spelling on change-of-pace drives.
 
 ---
 
-### 30. Jeremiyah Love — ARI (RB) | Draft Rank #30 *(CSV-verified)*
+### 30. Zay Flowers — BAL (WR) | Draft Rank #30 *(CSV-verified)*
 - **Role & Target Projection:** Explosive Rookie Starter — 230 touches (45+ receptions) *(editorial estimate)*
-- **Trench Context:** Rank #28 (Run Block: -0.17z, Pass Block: +0.69z)
+- **Trench Context:** Rank #9 (Run Block: -0.30z, Pass Block: +0.38z)
 - **Offensive Scheme:** Drew Petzing perimeter zone-stretch.
 - **Draft Room Intel:** Dynamic 3-down skill set with home-run rushing speed.
 - **Risk / Volatility Profile:** Committee backfield share early in season.
 
 ---
 
-### 31. Javonte Williams — DAL (RB) | Draft Rank #31 *(CSV-verified)*
+### 31. Lamar Jackson — BAL (QB) | Draft Rank #31 *(CSV-verified)*
 - **Role & Target Projection:** Dallas Lead Early-Down & Goal-Line Rusher — 240 touches (30+ receptions) *(editorial estimate)*
-- **Trench Context:** Rank #24 (Run Block: +0.78z, Pass Block: -2.33z)
+- **Trench Context:** Rank #9 (Run Block: -0.30z, Pass Block: +0.38z)
 - **Offensive Scheme:** Mike McCarthy inside power and zone.
 - **Draft Room Intel:** Clear leader for goal-line work in high-scoring Dallas offense.
 - **Risk / Volatility Profile:** Efficiency volatility coming off major injuries.
 
 ---
 
-### 32. DeVonta Smith — PHI (WR) | Draft Rank #32 *(CSV-verified)*
+### 32. Ladd McConkey — LAC (WR) | Draft Rank #32 *(CSV-verified)*
 - **Role & Target Projection:** Elite Co-WR1 in High-Powered Eagles Offense — 125 targets (85+ catches, 1,100 yds) *(editorial estimate)*
-- **Trench Context:** Rank #2 (Run Block: +0.73z, Pass Block: +2.12z)
+- **Trench Context:** Rank #25 (Run Block: -0.30z, Pass Block: -0.28z)
 - **Offensive Scheme:** Kellen Moore spread-RPO with high-efficiency perimeter routes.
 - **Draft Room Intel:** Flawless route runner with massive ceiling games whenever defenses shade to A.J. Brown.
 - **Risk / Volatility Profile:** Target distribution in run-heavy game scripts.
 
 ---
 
-### 33. Breece Hall — NYJ (RB) | Draft Rank #33 *(CSV-verified)*
+### 33. Jaylen Waddle — DEN (WR) | Draft Rank #33 *(CSV-verified)*
 - **Role & Target Projection:** Dual-Threat Comeback Weapon — 250 touches (50+ catches) *(editorial estimate)*
-- **Trench Context:** Rank #21 (Run Block: -0.87z, Pass Block: -0.95z)
+- **Trench Context:** Rank #3 (Run Block: +1.86z, Pass Block: +0.86z)
 - **Offensive Scheme:** Nathaniel Hackett / NYJ spread system.
 - **Draft Room Intel:** Generational pass-catching and open-field elusiveness when fully healthy.
 - **Risk / Volatility Profile:** Workload management and offense efficiency.
 
 ---
 
-### 34. Travis Etienne Jr. — NO (RB) | Draft Rank #34 *(CSV-verified)*
+### 34. Tetairoa McMillan — CAR (WR) | Draft Rank #34 *(CSV-verified)*
 - **Role & Target Projection:** Lead Rusher in New Orleans — 240 touches (45+ catches) *(editorial estimate)*
-- **Trench Context:** Rank #23 (Run Block: -0.96z, Pass Block: +0.74z)
+- **Trench Context:** Rank #15 (Run Block: +0.53z, Pass Block: +0.72z)
 - **Offensive Scheme:** Klint Kubiak outside-zone system tailored to speed backs.
 - **Draft Room Intel:** High-end receiving back with explosive acceleration.
 - **Risk / Volatility Profile:** Offensive line consistency.
 
 ---
 
-### 35. Zay Flowers — BAL (WR) | Draft Rank #35 *(CSV-verified)*
+### 35. Colston Loveland — CHI (TE) | Draft Rank #35 *(CSV-verified)*
 - **Role & Target Projection:** Lamar Jackson Primary WR Alpha — 125 targets (80+ receptions) *(editorial estimate)*
-- **Trench Context:** Rank #9 (Run Block: -0.30z, Pass Block: +0.38z)
+- **Trench Context:** Rank #22 (Run Block: -0.10z, Pass Block: +0.87z)
 - **Offensive Scheme:** Todd Monken spread spacing with Flowers in slot and motion.
 - **Draft Room Intel:** Electric open-field playmaker and Lamar's primary first-read receiver.
 - **Risk / Volatility Profile:** Ravens heavy rush rate in positive game scripts.
