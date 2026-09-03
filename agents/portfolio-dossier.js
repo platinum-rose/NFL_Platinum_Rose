@@ -134,16 +134,37 @@ function freshnessRank(meta) {
   if (meta.availability_status === 'missing_observed_at') return 0;
   return 1;
 }
+// 2026-09-03 fix (Andy, post-committee-run review): freshness must gate
+// BEFORE price. The old ordering compared raw price first and only fell
+// back to freshness as an exact-price tiebreaker, so a stale outlier from a
+// book with a capture outage (e.g. BetUS silently dark since 2026-08-15)
+// could out-rank a fresh, worse-numbered quote from an actively-updating
+// book purely on numeric magnitude - with zero staleness penalty applied.
+// Confirmed live against futures_odds_snapshots (BetUS stale -120, 24 days
+// old, beating BetMGM's fresh -130, 4 days old, for Packers Win Total Over
+// 9.5). Per Andy's standing instruction: when a book genuinely isn't being
+// re-captured, its last real number is still the current truth for that
+// book - so a stale quote is never discarded, it's just never allowed to
+// beat a fresher one on price alone. Rank freshness first; only break ties
+// on price within the same freshness tier.
 function isBetterOffer(price, meta, bestPrice, bestMeta) {
   if (price == null) return false;
   if (bestPrice == null) return true;
-  if (price !== bestPrice) return price > bestPrice;
   const rank = freshnessRank(meta);
   const bestRank = freshnessRank(bestMeta);
   if (rank !== bestRank) return rank > bestRank;
+  // Same freshness tier (both "current", both "stale", or both
+  // "missing_observed_at"): recency still beats raw price. A 24-day-old
+  // quote and a 4-day-old quote are both "stale" under the binary
+  // MAX_QUOTE_AGE_HOURS cutoff, but the 4-day-old number is still the
+  // better read of the real market (per Andy: the mechanism should never
+  // let an older number outrank a newer one just because its price looks
+  // better). Only when both ages agree (or neither is known) does price
+  // get to decide.
   const age = meta?.quote_age_hours;
   const bestAge = bestMeta?.quote_age_hours;
   if (age != null && bestAge != null && age !== bestAge) return age < bestAge;
+  if (price !== bestPrice) return price > bestPrice;
   return false;
 }
 function parseWinSideLabel(label) {

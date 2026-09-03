@@ -20,6 +20,16 @@ const MANUAL_DISPOSITIONS = path.join(REVIEW_DIR, 'article-intel-manual-disposit
 const DEFAULT_SINCE = '2026-07-30T04:48:03.331Z';
 const DEFAULT_LIMIT = 0;
 const DB_PAGE_SIZE = 1000;
+// Must stay synced with agents/research-intel-ingest.js's BODY_MAX_CHARS (20_000
+// as of 2026-08-13). That constant is the live ingest cap; this is the
+// detection threshold used to flag a body as suspected-truncated-at-ingest.
+// A stale mismatch here is exactly the false-positive bug fixed on 2026-09-03:
+// with this held at the old 4,000-char cap's threshold (3,990) after the
+// ingest cap was raised to 20,000, every normal 4k-20k-char article body
+// (the large majority of real articles) got misclassified as truncated,
+// which inflated unresolved_pick_oriented_records well past the true count.
+const INGEST_BODY_MAX_CHARS = 20_000;
+const SUSPECTED_INGEST_CAP_THRESHOLD = INGEST_BODY_MAX_CHARS - 10;
 const TEAM_ALIASES = {
   ARI: ['Arizona Cardinals', 'Cardinals'],
   ATL: ['Atlanta Falcons', 'Falcons'],
@@ -197,7 +207,7 @@ function bodyEvidenceStatus(row) {
   const bodyChars = clean(row?.body).length;
   if (bodyChars === 0) return 'metadata_only';
   if (bodyChars < 500) return 'thin_body';
-  if (bodyChars >= 3990) return 'suspected_ingest_cap';
+  if (bodyChars >= SUSPECTED_INGEST_CAP_THRESHOLD) return 'suspected_ingest_cap';
   return 'body_available';
 }
 
@@ -399,7 +409,7 @@ function articleQualityFlags(article, teams, fullText) {
   if (NON_NFL_TERMS.test(title) && !/\bNFL\b/i.test(title)) flags.push('likely_non_nfl_false_positive');
   if (!article.body || clean(article.body).length < 500) flags.push('thin_body');
   if (teams.length === 0) flags.push('no_team_detected');
-  if (clean(article.body).length >= 3990) flags.push('body_truncated_4000_chars');
+  if (clean(article.body).length >= SUSPECTED_INGEST_CAP_THRESHOLD) flags.push('body_truncated_at_ingest_cap');
   if (teams.length > 8) flags.push('multi_team_page_chrome_risk');
   return flags;
 }

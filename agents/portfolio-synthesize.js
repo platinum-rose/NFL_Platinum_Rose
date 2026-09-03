@@ -73,6 +73,7 @@ import { mkdir, writeFile, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { randomUUID } from 'node:crypto';
+import { spawnSync } from 'node:child_process';
 import { NFL_TEAMS, normalizeTeam } from '../src/lib/teams.js';
 import { placeableVenuesPromptSentence } from '../src/lib/executionVenues.js';
 import { validateBoardBatch } from './lib/board-validate.js';
@@ -110,6 +111,21 @@ const ALLOW_STALE_DOSSIER = argv.includes('--allow-stale-dossier');
 // in review as too permissive for three genuinely different risk classes.
 const ALLOW_MISSING_EVIDENCE_LANES = argv.includes('--allow-missing-evidence-lanes');
 const ALLOW_UNKNOWN_DOSSIER_FRESHNESS = argv.includes('--allow-unknown-dossier-freshness');
+// 2026-09-03 fix (Andy, trust audit): scripts/build-intel-source-audit-report.js
+// already sweeps every intel source (odds books, prediction markets, article
+// evidence, training camp, player availability, ...) and knows how to mark a
+// source BLOCKED or STALE - but nothing ever consulted it before a committee
+// run. The 2026-09-02 run went out with two hard-BLOCKED sources (prediction-
+// market integrity, article evidence integrity) and 7 STALE sources (including
+// the exact BetOnline/Bookmaker/BetUS staleness this whole investigation
+// started from) and had no way to know any of it, because this check simply
+// didn't exist. This has no narrow per-class override like the dossier-
+// freshness flags above - full intel integrity is a precondition for every
+// run, not a per-lane judgment call. --allow-blocked-intel exists only as a
+// documented, loud, last-resort escape hatch (e.g. the audit tool itself is
+// down) - it is not a routine flag.
+const ALLOW_BLOCKED_INTEL = argv.includes('--allow-blocked-intel');
+const SKIP_INTEL_AUDIT = argv.includes('--skip-intel-audit'); // --prompt-only/offline dev iteration only
 const SHADOW_SLIM = argv.includes('--shadow-slim');
 const SKEPTIC_MODEL = getArg('--skeptic-model', MODELS[0]);
 const RISK_MODEL = getArg('--risk-model', MODELS[0]);
@@ -124,7 +140,14 @@ const PROMPT_ONLY = argv.includes('--prompt-only');
 const PROMPT_OUT_PATH = getArg('--prompt-out', path.join(OUT_DIR, 'prompt-preview.json'));
 const REASONING_EFFORT = getArg('--reasoning-effort', null);
 const REASONING_MODE = getArg('--reasoning-mode', null);
-const MAX_OUTPUT_TOKENS = parseInt(getArg('--max-output-tokens', '16000'), 10);
+// 2026-09-03 fix (Andy, post-committee-run review): claude-fable-5 truncated
+// mid-JSON-array on the 2026-09-02 run - hit exactly 16000 out-tokens (the old
+// default cap) and got cut off at position 12750/line 163, producing an
+// unparseable partial array. claude-opus-4-8 finished the SAME task in 10041
+// tokens on that run, so this wasn't a task-shape problem, just insufficient
+// headroom for Fable's more verbose completions. Raised default with real
+// margin above what's actually been needed so far.
+const MAX_OUTPUT_TOKENS = parseInt(getArg('--max-output-tokens', '24000'), 10);
 const MODEL_TIMEOUT_MS = parseInt(getArg('--model-timeout-ms', '300000'), 10);
 // 2026-07-22 follow-up (Andy's own portfolio-construction strategy, not a Codex
 // finding): his "primary" positions -- teams/markets he already has core
@@ -617,6 +640,9 @@ async function callModel(model, systemPrompt, userContent) {
         });
         if (!res.ok) throw new Error(`${model} HTTP ${res.status}: ${(await res.text()).slice(0, 300)}`);
         const data = await res.json();
+        if (data.status === 'incomplete' && data.incomplete_details?.reason === 'max_output_tokens') {
+          throw new Error(`${model} response truncated at MAX_OUTPUT_TOKENS=${MAX_OUTPUT_TOKENS} (incomplete_details.reason=max_output_tokens, ${data.usage?.output_tokens ?? '?'} out-tokens) - raise --max-output-tokens and retry.`);
+        }
         const text = data.output_text || (data.output || [])
           .flatMap((item) => item.content || [])
           .filter((item) => item.type === 'output_text' || item.type === 'text')
@@ -635,6 +661,9 @@ async function callModel(model, systemPrompt, userContent) {
       });
       if (!res.ok) throw new Error(`${model} HTTP ${res.status}: ${(await res.text()).slice(0, 300)}`);
       const data = await res.json();
+      if (data.choices?.[0]?.finish_reason === 'length') {
+        throw new Error(`${model} response truncated at MAX_OUTPUT_TOKENS=${MAX_OUTPUT_TOKENS} (finish_reason=length, ${data.usage?.completion_tokens ?? '?'} out-tokens) - raise --max-output-tokens and retry.`);
+      }
       return { text: data.choices?.[0]?.message?.content ?? '', usage: data.usage };
     }
     const res = await fetch('https://api.anthropic.com/v1/messages', {
@@ -645,7 +674,18 @@ async function callModel(model, systemPrompt, userContent) {
     });
     if (!res.ok) throw new Error(`${model} HTTP ${res.status}: ${(await res.text()).slice(0, 300)}`);
     const data = await res.json();
-    return { text: data.content?.map((c) => c.text).join('') ?? '', usage: data.usage };
+    // 2026-09-03 fix (Andy): surface truncation explicitly instead of letting
+    // a cut-off response fall through to a cryptic downstream JSON.parse
+    // error (that's what happened with claude-fable-5 on 2026-09-02 - it hit
+    // the token cap and the only symptom was "Expected ',' or ']'... at
+    // position 12750", with no indication *why*). stop_reason === 'max_tokens'
+    // means the API truncated mid-generation - fail loud and specific so a
+    // future occurrence is self-diagnosing (raise --max-output-tokens) rather
+    // than looking like a malformed-response bug.
+    if (data.stop_reason === 'max_tokens') {
+      throw new Error(`${model} response truncated at MAX_OUTPUT_TOKENS=${MAX_OUTPUT_TOKENS} (stop_reason=max_tokens, ${data.usage?.output_tokens ?? '?'} out-tokens) - raise --max-output-tokens and retry.`);
+    }
+    return { text: data.content?.map((c) => c.text).join('') ?? '', usage: data.usage, stop_reason: data.stop_reason };
   });
   console.log(`   ✓ ${model} in ${((Date.now() - t0) / 1000).toFixed(1)}s (${out.usage?.output_tokens ?? out.usage?.completion_tokens ?? '?'} out-tokens)`);
   return out;
@@ -1542,8 +1582,23 @@ function validateRecommendationStrict(candidate, dossier, podcastEvidence) {
   }
 
   const q = quoteStatusFor(row, expectedBook);
+  // 2026-09-03 fix (Andy, post-committee-run review): a stale quote is not
+  // fabricated or unusable data - it's the last real number this book gave
+  // us. Hard-invalidating on staleness killed real, reviewable picks (Bills
+  // Win Division, Packers Win Total) purely because capture had lagged on
+  // one or two books, even while the underlying price was still live in the
+  // market. Per Andy's standing instruction: "if lines are not being
+  // automatically captured at run-time, the EXISTING numbers should be
+  // treated as the current truth." So a stale best-quote no longer kills the
+  // recommendation - it flags it for human review before entry instead. This
+  // pairs with the isBetterOffer() freshness-first fix in
+  // agents/portfolio-dossier.js, which already prefers a fresher quote when
+  // one exists; this branch only fires when the best available quote really
+  // is the stalest thing on record for that selection.
+  let needsReview = !!candidate.needs_human_review;
   if (q?.availability_status === 'stale' || (q?.quote_age_hours != null && q.quote_age_hours > MAX_QUOTE_AGE_HOURS)) {
-    return { status: 'invalid', candidate, reason: `Best quote at ${expectedBook} is stale (${q.quote_age_hours}h old, observed_at=${q.observed_at || 'missing'}).` };
+    notes.push(`Best quote at ${expectedBook} is stale (${q.quote_age_hours}h old, observed_at=${q.observed_at || 'missing'}) - treated as current truth per no-fresh-capture fallback policy; verify live price before entry.`);
+    needsReview = true;
   }
 
   const next = { ...candidate };
@@ -1557,7 +1612,6 @@ function validateRecommendationStrict(candidate, dossier, podcastEvidence) {
     }
   }
 
-  let needsReview = !!candidate.needs_human_review;
   const codeFair = deterministicFairFor(row, side);
   if (codeFair != null && expectedPrice != null) {
     const codeEdge = edgePctFromFair(codeFair, expectedPrice);
@@ -2844,6 +2898,48 @@ async function persistRecommendationRuns(meta, trail) {
 // ── main ─────────────────────────────────────────────────────────────────────
 (async () => {
   const dossier = JSON.parse(await readFile(DOSSIER, 'utf8'));
+
+  // 2026-09-03 intel-source-integrity preflight (Andy, trust audit) — runs
+  // scripts/build-intel-source-audit-report.js --strict and refuses to start
+  // Stage 1 if it reports anything BLOCKED or STALE. This is deliberately a
+  // full subprocess call (not a re-implementation of its checks in here) so
+  // this gate and the standalone audit report can never silently drift apart
+  // the way the dossier-freshness check and this pipeline briefly did.
+  if (!SKIP_INTEL_AUDIT) {
+    console.log('🔎 Running intel-source integrity audit (scripts/build-intel-source-audit-report.js --strict)...');
+    const audit = spawnSync('node', ['scripts/build-intel-source-audit-report.js', '--strict'], {
+      cwd: ROOT, encoding: 'utf8',
+    });
+    const auditOut = `${audit.stdout || ''}${audit.stderr || ''}`.trim();
+    if (auditOut) console.log(auditOut.split('\n').map((l) => `   ${l}`).join('\n'));
+    if (audit.error) {
+      console.error(`✖ intel-source audit could not run: ${audit.error.message}`);
+      if (!ALLOW_BLOCKED_INTEL) {
+        console.error('  Fix the audit script or pass --allow-blocked-intel (last resort) to proceed without this check.');
+        process.exit(1);
+      }
+      console.warn('⚠ intel-source audit failed to run but --allow-blocked-intel was set — proceeding without this check.');
+    } else if (audit.status === 2) {
+      console.error('✖ intel-source integrity preflight FAILED — the audit above reports BLOCKED and/or STALE sources.');
+      console.error(`  See ${path.join('docs', 'NFL_INTEL_SOURCE_AUDIT_LATEST.html')} for the full breakdown.`);
+      if (!ALLOW_BLOCKED_INTEL) {
+        console.error('  Resolve every blocked/stale source (or pass --allow-blocked-intel, documented, last resort) before running the committee.');
+        process.exit(1);
+      }
+      console.warn('⚠ intel-source audit found blocked/stale sources but --allow-blocked-intel was set — proceeding anyway. This should not be routine.');
+    } else if (audit.status !== 0) {
+      console.error(`✖ intel-source audit exited unexpectedly (code ${audit.status}).`);
+      if (!ALLOW_BLOCKED_INTEL) {
+        console.error('  Investigate scripts/build-intel-source-audit-report.js, or pass --allow-blocked-intel (last resort) to proceed without this check.');
+        process.exit(1);
+      }
+      console.warn('⚠ intel-source audit exited unexpectedly but --allow-blocked-intel was set — proceeding without this check.');
+    } else {
+      console.log('   intel-source integrity: PASSABLE — no blocked or stale sources.');
+    }
+  } else {
+    console.warn('⚠ --skip-intel-audit set — intel-source integrity was NOT checked. Dev/offline use only.');
+  }
 
   // 2026-08-13 freshness preflight — see scripts/lib/dossier-freshness-gate.js.
   // 2026-08-13 Codex review fix (finding #3): previously only `status ===

@@ -101,6 +101,14 @@ const PREFIX_MARKET_MAP = [
   { prefix: 'BEO_Conf_', market: 'conference', label: 'Conference Winner' },
   { prefix: 'BEO_Div_', market: 'division', label: 'Division Winner' },
   { prefix: 'BEO_RegWins', market: 'wins', label: 'Regular Season Win Totals' },
+  // 2026-09-03 fix (Andy, production-readiness pass): the 2026-08-29 batch
+  // used 'BEO_WinTotals1/2/3_0829.PNG' instead of the 'BEO_RegWins*' prefix
+  // every prior batch used - this script's prefix list was never updated, so
+  // it silently skipped exactly the win-totals screenshots that this whole
+  // investigation started from (Packers Win Total Over 9.5). A skip just
+  // logs a one-line warning, not an error, so this would have gone unnoticed
+  // again. Accept both spellings going forward.
+  { prefix: 'BEO_WinTotals', market: 'wins', label: 'Regular Season Win Totals' },
   { prefix: 'BEO_MakePlayoffs', market: 'playoffs', label: 'Make/Miss Playoffs' },
   { prefix: 'BEO_Seeding_Exacta', market: 'exacta', label: 'Seeding / Exacta' },
   { prefix: 'BEO_Exacta', market: 'exacta', label: 'Seeding / Exacta' },

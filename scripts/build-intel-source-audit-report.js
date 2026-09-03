@@ -88,12 +88,22 @@ async function exists(relativePath) {
   }
 }
 
-async function readJson(relativePath, fallback = null) {
+// 2026-09-03 fix (Andy, trust audit): `fallback !== null` meant a caller
+// asking for the most natural default - readJson(path, null) - never got it;
+// ENOENT fell through to `throw` instead. Every call site expecting a
+// missing-file default of null (e.g. collectRawPrimaryBookOddsExports'
+// normalized-BetOnline-JSON lookup) crashed the whole audit run instead of
+// reporting "not yet normalized" - which means this audit has been unable to
+// complete, and its findings have been unseen, any time a raw BetOnline
+// screenshot batch was captured but not yet ingested. Use a real sentinel so
+// `undefined`/`null`/anything else all work as an explicit fallback.
+const READ_JSON_NO_FALLBACK = Symbol('no-fallback');
+async function readJson(relativePath, fallback = READ_JSON_NO_FALLBACK) {
   try {
     const raw = await readFile(path.join(ROOT, relativePath), 'utf8');
     return JSON.parse(raw);
   } catch (err) {
-    if (fallback !== null && err.code === 'ENOENT') return fallback;
+    if (fallback !== READ_JSON_NO_FALLBACK && err.code === 'ENOENT') return fallback;
     throw err;
   }
 }

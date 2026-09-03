@@ -328,12 +328,37 @@ async function parseManualFile(filePath, season, capturedFallback) {
     : [];
 }
 
+// 2026-09-03 fix (Andy, production-readiness pass): ownership_source values
+// that mean "we actually had authority for this" (a feed's own team tag, a
+// "XXX Beat -" source prefix, or a genuinely externally-declared team) vs.
+// 'inferred_first_mention', which means primary_team/related_teams were
+// ONLY ever a guess. Only the former should ever be fed back in as
+// "declared" on reprocessing - see dedupeItems() below for why.
+const INFERRED_ONLY_OWNERSHIP = new Set(['inferred_first_mention', 'missing']);
+
 export function dedupeItems(items) {
   const byKey = new Map();
   for (const rawItem of items.filter(Boolean)) {
+    // Bug this closes: every rebuild fed the ALREADY-COMPUTED primary_team/
+    // related_teams back in as declaredTeam/declaredTeams below. For a truly
+    // externally-declared item that's correct (re-affirms real data). But for
+    // an item whose team was only ever an inferred_first_mention GUESS, this
+    // fed the guess back in as if it were now "declared" - which permanently
+    // launders a one-time uncertain inference into apparent certainty on
+    // every subsequent build, silently defeating the ambiguous_inferred_
+    // primary check for any item that had ever been processed once before.
+    // Discovered rebuilding the training-camp snapshot after the accumulation
+    // fix above: 3 genuinely ambiguous multi-team roundup articles (3-6 teams
+    // mentioned, e.g. a 6-team "Preseason Week 1 Recap") should have kept
+    // flagging as ambiguous on every rebuild and instead silently stopped
+    // after the first one. Fix: only trust rawItem's own prior primary_team/
+    // related_teams as "declared" if its own ownership_source says that
+    // trust was ever actually earned.
+    const priorOwnership = rawItem.team_identity?.ownership_source;
+    const priorWasInferredOnly = priorOwnership && INFERRED_ONLY_OWNERSHIP.has(priorOwnership);
     const resolved = resolveEvidenceTeamOwnership({
-      declaredTeam: rawItem.primary_team || rawItem.team,
-      declaredTeams: rawItem.related_teams || [],
+      declaredTeam: priorWasInferredOnly ? null : (rawItem.primary_team || rawItem.team),
+      declaredTeams: priorWasInferredOnly ? [] : (rawItem.related_teams || []),
       source: rawItem.source,
       sourceTeam: rawItem.team_identity?.source_team,
       text: `${rawItem.summary || ''} ${rawItem.raw_excerpt || ''}`,
@@ -352,7 +377,12 @@ export function dedupeItems(items) {
         ownership_source: sourcePrimaryTeam(rawItem.source)
           ? 'source_prefix'
           : (rawItem.team_identity?.ownership_source || resolved.ownership_source),
-        flags: [...new Set([...(rawItem.team_identity?.flags || []), ...resolved.flags])],
+        // 2026-09-03 fix (Andy, production-readiness pass): ambiguous_inferred_primary
+        // is a pure function of (mentioned-team count, has-authoritative-source) at
+        // CURRENT logic - it must never be preserved from a stale/prior computation
+        // (e.g. one made under an older, buggier threshold), only ever re-derived.
+        // Every other flag is still historically unioned below.
+        flags: [...new Set([...(rawItem.team_identity?.flags || []).filter((f) => f !== 'ambiguous_inferred_primary'), ...resolved.flags])],
         contract_origin: rawItem.team_identity?.contract_origin || (rawItem.team_identity ? 'resolved_v1' : 'legacy_normalized'),
       },
     };
@@ -381,6 +411,16 @@ export function dedupeItems(items) {
       existing.team,
       item.team,
     );
+    const mergedMentioned = canonicalTeamList([
+      ...(existing.team_identity?.mentioned_teams || []),
+      ...(item.team_identity?.mentioned_teams || []),
+    ]);
+    // Same re-derivation as above, applied to the MERGED mention set: an
+    // authoritative source on the winning record means no ambiguity, however
+    // many teams the combined mentions cover; otherwise re-check the current
+    // >2-mentioned-teams threshold against the merged list, never carry
+    // forward a stale flag from either side.
+    const mergedIsAmbiguous = !sourcePrimaryTeam(winner.source) && mergedMentioned.length > 2;
     byKey.set(key, {
       ...winner,
       team: primary,
@@ -390,13 +430,11 @@ export function dedupeItems(items) {
         ...(winner.team_identity || {}),
         primary_team: primary,
         related_teams: related,
-        mentioned_teams: canonicalTeamList([
-          ...(existing.team_identity?.mentioned_teams || []),
-          ...(item.team_identity?.mentioned_teams || []),
-        ]),
+        mentioned_teams: mergedMentioned,
         flags: [...new Set([
-          ...(existing.team_identity?.flags || []),
-          ...(item.team_identity?.flags || []),
+          ...(existing.team_identity?.flags || []).filter((f) => f !== 'ambiguous_inferred_primary'),
+          ...(item.team_identity?.flags || []).filter((f) => f !== 'ambiguous_inferred_primary'),
+          ...(mergedIsAmbiguous ? ['ambiguous_inferred_primary'] : []),
         ])],
       },
     });
@@ -659,9 +697,48 @@ export async function buildTrainingCampIntel(options = {}) {
   const reportDir = path.resolve(ROOT, options.reportDir || DEFAULT_REPORT_DIR);
   const capturedFallback = options.capturedAt || generatedAt;
 
+  // 2026-09-03 fix (Andy, production-readiness pass): this used to parse ONLY
+  // the current contents of inputDir and unconditionally overwrite latest.json
+  // with just that - a run on a day with nothing new in manual/ (a normal,
+  // expected occurrence) silently wiped out every previously accumulated item.
+  // That's exactly how the 2026-08-16 snapshot (225 items, 27/32 teams) became
+  // an empty 0-item placeholder by 2026-08-22, with no error or warning anywhere.
+  // Fix: always merge freshly-parsed items INTO the existing latest.json first
+  // (dedupeItems() is already keyed by evidence_id and merges safely - it just
+  // was never being handed the prior snapshot's items). This makes the store
+  // cumulative, the way every other evidence lane in this repo behaves, instead
+  // of a full-replace keyed to whatever happens to be sitting in one folder
+  // on run day.
+  const existingPath = path.join(outDir, 'latest.json');
+  let existingItems = [];
+  if (existsSync(existingPath)) {
+    try {
+      const existingSnapshot = JSON.parse(await readFile(existingPath, 'utf8'));
+      existingItems = Array.isArray(existingSnapshot.items) ? existingSnapshot.items : [];
+    } catch (err) {
+      throw new Error(`buildTrainingCampIntel: existing ${existingPath} could not be read/parsed (${err.message}) - refusing to proceed, since merging over a snapshot we can't verify risks silently losing it. Fix or remove that file first.`);
+    }
+  }
+
   const { files, items: parsed } = await parseManualDirectory(inputDir, season, capturedFallback);
-  const items = dedupeItems(parsed);
+  const items = dedupeItems([...existingItems, ...parsed]);
   const snapshot = buildSnapshot({ season, generatedAt, items, inputDir });
+
+  // Defense in depth: even with the merge above, refuse to ever write a
+  // snapshot that covers FEWER teams than what's already on disk, unless
+  // explicitly forced. A merge bug, a bad dedupe key collision, or a future
+  // change to this function should fail loud here, not silently regress
+  // coverage the way the unmerged version did.
+  if (existsSync(existingPath) && !options.force) {
+    let existingTeamsWithIntel = null;
+    try {
+      const existingSnapshot = JSON.parse(await readFile(existingPath, 'utf8'));
+      existingTeamsWithIntel = existingSnapshot.meta?.teams_with_intel ?? null;
+    } catch { /* already surfaced above if unreadable */ }
+    if (existingTeamsWithIntel != null && snapshot.meta.teams_with_intel < existingTeamsWithIntel) {
+      throw new Error(`buildTrainingCampIntel: refusing to write a snapshot with FEWER teams-with-intel (${snapshot.meta.teams_with_intel}) than the existing latest.json (${existingTeamsWithIntel}). This should be impossible given the merge above - investigate before overriding with { force: true } / --force.`);
+    }
+  }
 
   if (options.dryRun) {
     return { snapshot, files, outputs: null };
@@ -699,6 +776,7 @@ async function main() {
       reportDir,
       date,
       dryRun: args['dry-run'] === true,
+      force: args.force === true,
     });
     console.log(`Training camp intel build complete: ${snapshot.meta.item_count} items from ${files.length} manual file(s).`);
     console.log(`Coverage: ${snapshot.meta.team_count} teams, ${snapshot.meta.teams_with_intel} with intel, ${snapshot.meta.teams_without_intel} not collected yet.`);
