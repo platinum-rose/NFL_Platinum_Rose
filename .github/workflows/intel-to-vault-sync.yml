@@ -2,10 +2,16 @@ name: intel-to-vault-sync
 
 on:
   schedule:
-    # Mondays 10:00 UTC — after Sunday games + overnight research-intel run (9pm UTC)
-    - cron: '0 10 * * 1'
-    # Thursdays 10:00 UTC — mid-week intel sweep (Sharp Thursday pod, Wed analysis)
-    - cron: '0 10 * * 4'
+    # Daily 10:00 UTC — after the overnight research-intel run (9pm UTC the
+    # prior day) and Twitter bookmarks/tracked-accounts ingestion, so
+    # vault_notes (and the committee's synthesis prompt via
+    # loadVaultReferenceEvidence()) refreshes daily instead of twice weekly.
+    # Was Mon/Thu-only (2026-08-3x) -- changed 2026-09-01 at Andy's request,
+    # with the season starting; twice-weekly meant up to ~3-4 days of lag
+    # on newly-ingested intel (including Twitter) reaching the committee.
+    # INTEL_LOOKBACK_DAYS defaults to 7, so a daily cadence just re-scans a
+    # bigger recent window each time -- no gap risk from the tighter cadence.
+    - cron: '0 10 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
