@@ -8,6 +8,15 @@
 //                         dossier currently drops; ~466 of them)
 //   • podcast picks      (podcast_transcripts.picks[])
 //   • expert picks       (user_picks, source=EXPERT)
+//   • podcast host summaries (podcast_host_summaries.futures[] — ALREADY structured
+//                         {subject, subject_market, quote, lean, confidence} per
+//                         agents/podcast-host-summary.js, full-transcript fidelity,
+//                         no 12k-truncation. Bypasses the LLM classification step
+//                         below entirely — it's pre-classified, so running it
+//                         through the LLM again would just be paying to re-derive
+//                         what's already in the row. 2026-09-04 Tier-4 wiring: this
+//                         table had 105 rows / 527 items sitting completely unread
+//                         by the dossier before this.)
 //
 // An LLM decides, per item: is this an actionable NFL betting lean (not just a
 // mention / news)? If so it emits {team, market, direction, strength}. Teams are
@@ -20,12 +29,12 @@
 // Usage:
 //   node agents/signal-normalize.js --dry-run            # extract + print, no DB write
 //   node agents/signal-normalize.js                      # live upsert to normalized_signals
-//   flags: --model gpt-4o | claude-fable-5   --limit N   --source article|podcast_intel|podcast_pick|expert
+//   flags: --model gpt-4o | claude-fable-5   --limit N   --source article|podcast_intel|podcast_pick|expert|podcast_host_summary
 //
 // Env: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, and OPENAI_API_KEY and/or ANTHROPIC_API_KEY
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createClient } from '@supabase/supabase-js';
@@ -93,6 +102,74 @@ function parseJSON(text) {
   const s = t.indexOf('{'), e = t.lastIndexOf('}');
   if (s >= 0 && e > s) t = t.slice(s, e + 1);
   return JSON.parse(t);
+}
+
+// ── podcast host summaries: ALREADY-STRUCTURED signals, no LLM needed ─────────
+// podcast_host_summaries.futures[] items carry {subject, subject_market, quote,
+// lean, confidence} straight from agents/podcast-host-summary.js's own
+// extraction — a host/guest naming a team (or occasionally a player) with a
+// directional lean and a confidence score. Classifying market/direction here
+// in code, instead of re-running it through normalizeBatch()'s LLM call,
+// keeps this source free and matches scripts/verify-intel-sources.js's own
+// established handling of this exact table (extractTeam/extractMarket there;
+// this uses the same team-resolution approach via normalizeTeam, and a market
+// taxonomy aligned to SYSTEM_PROMPT's {superbowl, conference, division, wins,
+// playoffs, game, award, prop, other} so downstream consumers — ODDS_SIGNAL_MARKETS
+// in portfolio-dossier.js, the adjacent_signals split — treat these identically
+// to LLM-derived rows.
+const HOST_SUMMARY_LEAN = { favor: 'back', against: 'fade', over: 'over', under: 'under', neutral: 'na' };
+
+function classifyHostSummaryMarket(subjectMarket) {
+  const t = String(subjectMarket || '').toLowerCase();
+  if (/win_total|^wins?$/.test(t)) return 'wins';
+  if (/playoffs?/.test(t)) return 'playoffs';
+  if (/super_bowl_matchup/.test(t)) return 'game';
+  if (/super_bowl/.test(t)) return 'superbowl';
+  if (/^(afc|nfc)_(east|west|north|south)/.test(t)) return 'division';
+  if (/^(afc|nfc)$|conference/.test(t)) return 'conference';
+  if (/\broy\b|rookie_of_the_year|\bmvp\b|coach_of_the_year|gm_of_the_year|comeback_player/.test(t)) return 'award';
+  if (/yards_leader|touchdowns_leader|player_prop|rushing|receiving|passing/.test(t)) return 'prop';
+  if (/week_\d+/.test(t)) return 'game';
+  return 'other';
+}
+
+async function gatherHostSummaryRows() {
+  const rows = [];
+  let itemCount = 0, droppedNoTeam = 0;
+  for (let from = 0; ; from += 1000) {
+    const { data: page, error } = await sb.from('podcast_host_summaries')
+      .select('id, host, futures, created_at')
+      .order('id', { ascending: true })
+      .range(from, from + 999);
+    if (error) { console.warn(`   ⚠ podcast_host_summaries: ${error.message} — host-summary lane truncated at ${rows.length} row(s)`); break; }
+    if (!page?.length) break;
+    for (const r of page) {
+      const futures = Array.isArray(r.futures) ? r.futures : [];
+      futures.forEach((f, idx) => {
+        itemCount++;
+        // subject usually names the team ("Steelers", "Los Angeles Chargers");
+        // subject_market occasionally does too ("NFC_East") but never resolves
+        // where subject doesn't, so it's a same-tier fallback, not a downgrade.
+        const canon = normalizeTeam(f.subject) || normalizeTeam(f.subject_market);
+        if (!canon) { droppedNoTeam++; return; } // player-only prop/award lean with no team context — same drop rule normalizeBatch() applies to unresolved teams
+        const direction = HOST_SUMMARY_LEAN[String(f.lean || '').toLowerCase()] || 'na';
+        rows.push({
+          model: MODEL, source_type: 'podcast_host_summary', source_ref: `hostsum:${r.id}:${idx}`,
+          author: f.host || r.host || null,
+          raw_text: [f.subject, f.subject_market, f.quote].filter(Boolean).join(' — ').slice(0, 600),
+          team: canon,
+          market: classifyHostSummaryMarket(f.subject_market),
+          direction,
+          strength: typeof f.confidence === 'number' ? Math.max(0, Math.min(1, f.confidence / 100)) : null,
+          is_nfl: true,
+          rationale: (f.quote || f.prediction || '').slice(0, 200),
+        });
+      });
+    }
+    if (page.length < 1000) break;
+  }
+  console.log(`   podcast host summaries: ${itemCount} item(s), ${rows.length} team-resolved (${droppedNoTeam} dropped — no team context, e.g. a player-only prop/award lean)`);
+  return rows;
 }
 
 // ── gather raw items → [{ source_type, source_ref, raw_text }] ────────────────
@@ -186,10 +263,16 @@ async function normalizeBatch(batch) {
   console.log(`🧭 signal-normalize — model ${MODEL}${DRY ? ' (DRY RUN)' : ''}${ONLY_SOURCE ? ` source=${ONLY_SOURCE}` : ''}`);
   const items = await gatherItems();
   const bySrc = items.reduce((a, it) => ((a[it.source_type] = (a[it.source_type] || 0) + 1), a), {});
-  console.log(`   ${items.length} raw items: ${JSON.stringify(bySrc)}`);
-  if (!items.length) { console.log('   nothing to do'); return; }
+  console.log(`   ${items.length} raw items (LLM-classified): ${JSON.stringify(bySrc)}`);
 
-  const allRows = []; let totalDropped = 0, failed = 0;
+  // Pre-classified source — no LLM call, always gathered regardless of --limit
+  // (which only bounds the LLM-classified items above; this source is free).
+  const wantHostSummaries = !ONLY_SOURCE || ONLY_SOURCE === 'podcast_host_summary';
+  const hostSummaryRows = wantHostSummaries ? await gatherHostSummaryRows() : [];
+
+  if (!items.length && !hostSummaryRows.length) { console.log('   nothing to do'); return; }
+
+  const allRows = [...hostSummaryRows]; let totalDropped = 0, failed = 0;
   for (let i = 0; i < items.length; i += BATCH) {
     const batch = items.slice(i, i + BATCH);
     try {
@@ -198,7 +281,7 @@ async function normalizeBatch(batch) {
       process.stdout.write(`\r   batch ${Math.floor(i / BATCH) + 1}/${Math.ceil(items.length / BATCH)} → ${allRows.length} signals`);
     } catch (e) { failed++; console.warn(`\n   ⚠ batch ${i}-${i + BATCH} failed: ${e.message}`); }
   }
-  console.log(`\n   extracted ${allRows.length} NFL signals (dropped ${totalDropped} unresolved/vague; ${failed} batch failures)`);
+  console.log(`\n   extracted ${allRows.length} NFL signals total (${hostSummaryRows.length} pre-classified host-summary + ${allRows.length - hostSummaryRows.length} LLM-classified; dropped ${totalDropped} unresolved/vague; ${failed} batch failures)`);
   // by market/direction summary
   const byMkt = allRows.reduce((a, r) => ((a[`${r.market}/${r.direction}`] = (a[`${r.market}/${r.direction}`] || 0) + 1), a), {});
   console.log(`   ${JSON.stringify(byMkt)}`);
@@ -208,10 +291,26 @@ async function normalizeBatch(batch) {
 
   // Always persist to a local JSON sidecar so an expensive extraction is never lost,
   // and so the dossier can read signals without depending on Supabase's schema cache.
+  //
+  // 2026-09-04 Tier-4 fix: this used to be a flat overwrite, so ANY --source-
+  // filtered run (including podcast_host_summary's own free bypass above)
+  // silently discarded every OTHER source's already-paid-for LLM signals the
+  // moment it wrote the file — a --source expert run, say, would wipe out the
+  // article/podcast corpus from the sidecar entirely. Now: only rows whose
+  // source_type was actually gathered in THIS run are replaced; every other
+  // source_type's existing rows carry over untouched.
   await mkdir(OUT_DIR, { recursive: true });
   const sidecar = path.join(OUT_DIR, `normalized-signals-${MODEL}.json`);
-  await writeFile(sidecar, JSON.stringify({ model: MODEL, generated_at: new Date().toISOString(), count: allRows.length, signals: allRows }, null, 2));
-  console.log(`✅ wrote ${allRows.length} signals → ${sidecar}`);
+  const sourceTypesThisRun = new Set(allRows.map((r) => r.source_type));
+  let existingRows = [];
+  try {
+    const prior = JSON.parse(await readFile(sidecar, 'utf8'));
+    existingRows = Array.isArray(prior?.signals) ? prior.signals : [];
+  } catch { /* no prior sidecar for this model yet, or it's unreadable — start fresh */ }
+  const carriedOver = existingRows.filter((r) => !sourceTypesThisRun.has(r.source_type));
+  const mergedRows = [...carriedOver, ...allRows];
+  await writeFile(sidecar, JSON.stringify({ model: MODEL, generated_at: new Date().toISOString(), count: mergedRows.length, signals: mergedRows }, null, 2));
+  console.log(`✅ wrote ${mergedRows.length} signals (${allRows.length} from this run + ${carriedOver.length} carried over untouched from other source types) → ${sidecar}`);
 
   // Best-effort Supabase upsert (durability + cross-model A/B). A missing table is
   // NON-FATAL — the JSON sidecar is authoritative for the portfolio dossier.

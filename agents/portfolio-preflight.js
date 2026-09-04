@@ -302,10 +302,20 @@ async function stageA() {
 
   await check('A:database', 'podcast_host_summaries', async () => {
     const total = await rowCount('podcast_host_summaries');
-    if (total > 0) add('A:database', 'podcast_host_summaries', WARN,
+    if (total === 0) { add('A:database', 'podcast_host_summaries', PASS, 'empty'); return; }
+    // 2026-09-04 Tier-4 fix: wired into agents/signal-normalize.js's
+    // gatherHostSummaryRows() (pre-classified, no LLM cost) -> normalized_signals
+    // sidecar -> portfolio-dossier.js's makeNormalizedFindLean(). Check the actual
+    // source for that wiring rather than assuming the old "never read" state --
+    // same self-referential-gate lesson as the injury-status/market-row-retention
+    // checks: verify against real code, don't freeze an old finding as permanent.
+    const src = await readFile(path.join(ROOT, 'agents', 'signal-normalize.js'), 'utf8');
+    const wired = /gatherHostSummaryRows|from\('podcast_host_summaries'\)/.test(src);
+    if (wired) add('A:database', 'podcast_host_summaries', PASS,
+      `${total} rows of FULL-transcript-fidelity host extraction are wired into signal-normalize.js -> normalized_signals -> the dossier.`);
+    else add('A:database', 'podcast_host_summaries', WARN,
       `${total} rows of FULL-transcript-fidelity host extraction exist and are NOT read by portfolio-dossier.js or portfolio-synthesize.js. The one intel source without the 12k truncation bug never reaches the report.`,
       'Wire podcast_host_summaries into the dossier, or generate the docs/Futures_Picks_Summary_<date>.md that loadPodcastEvidenceIndex() looks for (nothing in the repo produces it).');
-    else add('A:database', 'podcast_host_summaries', PASS, 'empty');
   });
 
   // --- Silent 1000-row cap: judge every real call site against its table size
