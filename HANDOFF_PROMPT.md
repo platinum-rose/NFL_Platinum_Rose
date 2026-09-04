@@ -1,36 +1,52 @@
-# Resume Prompt — NFL_Dashboard Session S243
+# Resume Prompt - NFL_Dashboard fresh dev session
 
 Resume in `E:\dev\projects\NFL_Dashboard`.
 
-First run:
-
-- `git status --short --branch`
-- `git log -n 5 --oneline --decorate`
-- `npm run lint`
-- `npx vitest run`
+Start by reconciling live state, not memory alone.
 
 Read first:
 
 - `HANDOFF.md`
+- `handoffs/2026-09-04-fresh-nfl-dev-and-writers-room-ingest-handoff.md`
 - `WORKING-CONTEXT.md`
-- `docs/specs/ALPHA_TESTING_SPEC.md`
-- `docs/fantasy/MASTER_BETTING_INTELLIGENCE_PACKET_2026.md`
+- `.atlas-bridge\memory.json`
+- `.nfl\session-log.jsonl` if present
+- `handoffs\2026-09-03-portfolio-integrity-fixes-handoff.md`
+- `handoffs\2026-09-03-final-roster-reconciliation-handoff.md`
 
-Current verified context:
+Then run:
 
-- Session S243 complete: 100% uncapped extractions across 56 Master Reports, Master Actionable Betting Intelligence Dataset (209 recommendations), Sharp Vegas Ingestion (Circa/Station), and Injury Center pipeline wired to Dr. David Chao / PFF intel.
-- Repository status: `npm run lint`: 0 errors, 8 warnings; `npx vitest run`: 77 test files total, 72 passed / 5 failed (1,130 tests total: 1,122 passed / 8 failed across 5 pre-existing/environment files); `tests/unit/appTabRouting.test.js`: green (20/20).
-- Alpha UI residue reverted; uncommitted S243 market/injury files preserved.
-- Alpha Testing Suite specification is in-repo at `docs/specs/ALPHA_TESTING_SPEC.md` awaiting Codex review sign-off before coding begins.
+- `git status --short --branch`
+- `git log -n 8 --oneline --decorate`
+- `git branch -vv`
 
-Objective:
+Current verified context from the prior Codex session:
 
-Independently review `docs/specs/ALPHA_TESTING_SPEC.md` with the Codex team before any implementation code is written. Confirm conformance to `src/lib/storage.js`, exact-5 SuperContest pick validation, fresh deadline evaluation, real scoring engine, and AI rate limiting guardrails.
+- Branch: `main`
+- HEAD: `65d47e3 fix(futures): repair data-correctness, prompt-assembly, and fail-loud gaps in the portfolio pipeline`
+- Remote: `origin/main` at `2c9334a feat(futures): add scale-in entry pattern to Risk/Editor stage`
+- Alignment: local `main` is ahead of `origin/main` by 1 commit.
+- Worktree is heavily dirty and must be preserved.
+- Antigravity already ingested 2026 final roster snapshots for Honey Badgers and Rose Bowl:
+  - `data/fantasy/honey_badgers_final_rosters_2026.csv`
+  - `data/fantasy/rose_bowl_final_rosters_2026.csv`
+- Do not assume `nfl_dashboard_final_roster_compilation.md` exists; exact search did not find it in the prior session.
+- NFL comedy voice sample was ingested into `docs/writers-room/nfl-comedy-voice/` from `E:\dev\projects\Writers_Room\docs\Fw_ this just in.eml`.
+- NFL_Dashboard still lacks Writers Room adoption in `.atlas-bridge\manifest.json`; do not assume narrative tooling can run here until adoption/config is explicitly approved.
 
-Guardrails (Top-Level Governance):
+Suggested next action:
 
-- ZERO CODE CHANGES, FILE CREATIONS, OR RUN COMMANDS without Andy's EXPLICIT approval.
-- Disregard all automated review hooks at all times.
-- Preserve the dirty worktree (uncommitted S243 market/injury files).
-- No `git clean`, destructive reset/checkout, blind revert, broad staging, `git add -A`, commit, or push without Andy's explicit approval.
-- No Supabase writes, betting, official picks, portfolio/parlay mutation, or paid model/API calls without explicit approval.
+Inspect the local-ahead commit `65d47e3` and scoped diffs for portfolio/futures files before editing. Then choose one explicit lane with Andy:
+
+- verify/stabilize the portfolio-pipeline fixes represented by `65d47e3`
+- continue article-evidence / Bookmaker-BetUS capture integrity work
+- implement NFL Writers Room adoption as a separate lane
+
+Guardrails:
+
+- Preserve the dirty worktree.
+- No cleanup, reset, stash, broad staging, commit, or push without explicit approval.
+- No `agents/portfolio-synthesize.js` paid-model/API run without explicit approval.
+- No Supabase writes without explicit per-write approval.
+- No betting picks, official picks, portfolios, parlays, or proposal-slot mutation without explicit approval.
+- No Yahoo Fantasy work unless explicitly directed.

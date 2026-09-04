@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legal Evidence Brief: 2026 Keeper Valuation — Honey Badgers</title>
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --blue: #2563eb;
+      --blue-light: #eff6ff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --green: #10b981;
+      --green-light: #ecfdf5;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 48px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+      border: 1px solid var(--border);
+    }
+    .header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background-color: var(--accent-light);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.85rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 1.85rem;
+      color: var(--primary);
+      margin: 0 0 6px 0;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin: 0;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      background: var(--bg);
+      padding: 16px;
+      border-radius: 8px;
+      margin-top: 20px;
+      border: 1px solid var(--border);
+    }
+    .meta-item strong {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    .meta-item span {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    h2 {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin: 32px 0 12px 0;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    p {
+      margin: 0 0 14px 0;
+      font-size: 1rem;
+      color: var(--text);
+    }
+    .callout {
+      padding: 18px 22px;
+      border-radius: 8px;
+      margin: 18px 0;
+      position: relative;
+      border-left: 4px solid;
+    }
+    .callout-amber {
+      background-color: var(--accent-light);
+      border-left-color: var(--accent);
+      color: #92400e;
+    }
+    .callout-blue {
+      background-color: var(--blue-light);
+      border-left-color: var(--blue);
+      color: #1e40af;
+    }
+    .callout-quote {
+      font-family: Georgia, Cambria, serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .callout-source {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    th {
+      background-color: var(--primary);
+      color: #ffffff;
+      text-align: left;
+      padding: 10px 14px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.03em;
+    }
+    th:first-child { border-top-left-radius: 6px; }
+    th:last-child { border-top-right-radius: 6px; }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      background-color: #ffffff;
+    }
+    tr:nth-child(even) td {
+      background-color: var(--bg);
+    }
+    .surplus-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      background-color: var(--green-light);
+      color: var(--green);
+      font-weight: 700;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+    .conclusion-box {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      padding: 24px;
+      border-radius: 8px;
+      margin-top: 30px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+    }
+    .conclusion-box h3 {
+      margin: 0 0 12px 0;
+      color: #f59e0b;
+      font-size: 1.15rem;
+    }
+    .conclusion-box ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .conclusion-box li {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+    .conclusion-box li strong {
+      color: #38bdf8;
+    }
+    @media print {
+      body { background-color: #ffffff; padding: 0; }
+      .container { box-shadow: none; border: none; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="badge">Official League Filing</div>
+      <h1>LEGAL EVIDENCE BRIEF: 2026 KEEPER VALUATION</h1>
+      <div class="subtitle">HONEY BADGERS FANTASY FOOTBALL LEAGUE</div>
+
+      <div class="meta-grid">
+        <div class="meta-item">
+          <strong>League</strong>
+          <span>Honey Badgers (12-Team IDP)</span>
+        </div>
+        <div class="meta-item">
+          <strong>Manager Filing</strong>
+          <span>Andy Rose (Fat Lazy Americans)</span>
+        </div>
+        <div class="meta-item">
+          <strong>Presiding Commissioner</strong>
+          <span>Amanda Rose (Olivators)</span>
+        </div>
+        <div class="meta-item">
+          <strong>Filing Date</strong>
+          <span>August 30, 2026</span>
+        </div>
+      </div>
+    </div>
+
+    <h2>I. Applicable Constitutional Provisions (The Pinned Rules)</h2>
+    <p>The following provisions from the official pinned league constitution govern keeper eligibility and round placement:</p>
+
+    <div class="callout callout-amber">
+      <div class="callout-quote">
+        "2. To keep, surrender a draft pick 2 rounds higher than keeper was drafted (e.g. keeping a player drafted in 2025, 3rd round will forfeit 1st round pick)."<br><br>
+        "6. Late round (14+ round) draft picks kept the following year count as 14th round picks."<br><br>
+        "9. If two players have the same value (both 7th round), owner must select one of the two to have a higher value (one 6th and one 7th)."
+      </div>
+      <div class="callout-source">— Official Pinned League Constitution (Re-affirmed Aug 21, 2026)</div>
+    </div>
+
+    <h2>II. Commissioner Written Precedent & Binding Ruling</h2>
+    <p>In the 2025 pre-draft cycle, Manager Andy Rose initially submitted a proposed 12th-round keeper cost for Brock Bowers. Commissioner Amanda issued an official written ruling on the mandatory application of <strong>Rule 6</strong>:</p>
+
+    <div class="callout callout-blue">
+      <div class="callout-quote">
+        <strong>Andy Rose:</strong> "if my calculations are correct, I'll be keeping Brock Bowers in the 12th and Bucky Irving in the 10th"<br><br>
+        <strong>Commissioner Amanda:</strong> "While I hate to do this, your calculations are NOT correct. Rule 6 states 'Late round (14+ round) draft picks kept the following year count as 14th round picks.' That means, <strong>anyone drafted 14 or later qualifies at pick 14.</strong>"
+      </div>
+      <div class="callout-source">— Honey Badgers Official Message Thread Archive (August 2025)</div>
+    </div>
+
+    <p>Under this established precedent, any player drafted in Round 14 or later enters Year 1 of keeper tenure at a fixed baseline cost of <strong>Round 14</strong>.</p>
+
+    <h2>III. The 2025 Official Draft Record (Primary Evidence)</h2>
+    <p>According to the official 2025 draft board, Fat Lazy Americans executed the following transactions:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Player</th>
+          <th>2025 Round</th>
+          <th>2025 Pick #</th>
+          <th>Acquisition</th>
+          <th>2025 Classification</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Brock Bowers (LV - TE)</strong></td>
+          <td>Round 14</td>
+          <td>Pick #164</td>
+          <td>Drafted / Kept</td>
+          <td>Round 14 Keeper (Year 1 under Rule 6)</td>
+        </tr>
+        <tr>
+          <td><strong>Caleb Williams (CHI - QB)</strong></td>
+          <td>Round 15</td>
+          <td>Pick #173</td>
+          <td>Drafted (2025)</td>
+          <td>Drafted Rd 15 (Eligible Year 1 Keeper)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>IV. Application to 2026 Draft Slots & Absence of Collision</h2>
+    <p>Applying the rules and precedent to the 2026 draft yields the following resolution:</p>
+    <ul>
+      <li><strong>Brock Bowers (Year 2 Kept):</strong> Kept in Round 14 in 2025. Applying Rule 2 for Year 2 moves his cost up 2 rounds from Round 14 to <strong>Round 12 (Pick 12.08 / #140 Overall)</strong>.</li>
+      <li><strong>Caleb Williams (Year 1 Kept):</strong> Drafted in Round 15 in 2025. Under the direct authority of Rule 6 and the 2025 Commissioner Precedent, his Year 1 keeper cost is <strong>Round 14 (Pick 14.08 / #164 Overall)</strong>.</li>
+      <li><strong>No Collision:</strong> Because Brock occupies Round 12 and Caleb occupies Round 14, each player occupies a distinct, non-overlapping draft round. <strong>Rule 9 (Collision Resolution) is not triggered.</strong></li>
+    </ul>
+
+    <div class="conclusion-box">
+      <h3>🏆 V. Confirmed 2026 Keeper Submission</h3>
+      <ul>
+        <li><strong>Keeper 1: Brock Bowers (TE - LV)</strong> ──▶ <strong>Round 12 (Pick #140 Overall)</strong> <span class="surplus-tag">+10.0 Rds Surplus</span></li>
+        <li><strong>Keeper 2: Caleb Williams (QB - CHI)</strong> ──▶ <strong>Round 14 (Pick #164 Overall)</strong> <span class="surplus-tag">+8.0 Rds Surplus</span></li>
+      </ul>
+      <p style="margin-top: 14px; margin-bottom: 0; font-size: 0.95rem; color: #cbd5e1;">
+        <strong>Total Capital Saved:</strong> +18.0 Draft Rounds. Both picks are non-overlapping and fully compliant with league bylaws.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

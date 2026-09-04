@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "ingest_date": "2026-09-04",
+  "source": {
+    "path": "E:\\dev\\projects\\Writers_Room\\docs\\Fw_ this just in.eml",
+    "source_hash_sha256": "8481a12af955528163eab9735d22a56a417d2039a2471fea47f5068269089a60",
+    "source_status_at_ingest": "untracked in Writers_Room",
+    "forwarded_subject": "Fw: this just in",
+    "forwarded_timestamp_utc": "2026-09-04T06:54:47Z",
+    "original_timestamp_local": "2008-07-10T12:14:00",
+    "author_context": "Andy-authored sample, per user context",
+    "privacy": "local private source; contact headers excluded from derived artifacts"
+  },
+  "sample": {
+    "id": "nfl-comedy-voice-2008-fat-lazy-americans-this-just-in",
+    "title": "this just in",
+    "article_hash_sha256": "98a04c2f447f368b9ab7407794e8481e0600f477fa288716af7c53eb7142836f",
+    "type": "fantasy football fake wire-service parody",
+    "voice_family": "NFL comedy report",
+    "separate_from": [
+      "Abracadickface Records revival voice"
+    ],
+    "target_use": "Writers Room seed for future NFL_Dashboard comedy reports",
+    "text": "updated 2:34 p.m. PT, Thurs., Jul. 10, 2008\n\n(CULVER CITY, Calif.) - The Fat Lazy Americans' offseason program officially ended on Sunday, with the final Bloody Mary mixing drills mini-camp, and Head Coach Dr. Acropolis Furious couldn't be happier with how his administration is growing and developing, in preparation for the 2008 season.\n\n\"Clearly I think it's the best offseason that we've had to date. With the individual time that the coaching staff spent practicing waiver-wire drills on their Blackberrys[tm], the commitment to multiple statistic streams in both living rooms, and the liquor strength and liver conditioning all the way through the ATA's [ed. alcoholic team activities], I just really like the way our offseason came to a conclusion here with the mini-camp at the end,\" Furious said during his press conference, surrounded as usual, by his harem of adoring supermodels and starlets, which now boasts the newly single Megan Fox among its adorants.\n\nFurious re-iterated on Sunday that he feels the team's roster will be the deepest and strongest it's been since the League was established in 2003. That's not only due to the immense wealth, power, and fame that the organization has amassed since winning the 2007 Championship, but also to the vast improvement his War Room's draft researchers have shown, going through the team's full offseason program for the second or third time.\n\n\"We felt like we had the opportunity to improve some of our drafting strategies, so that, for example, we won't wind up having to distract the timekeeper with flashing lights and smokebombs again.\"\n\nAs the 2008 season kickoff looms a mere 8 weeks away, the League has yet to announce a Commissioner.  Furious dismissed rumors that he would accept the mantle, saying, \"Look, Megan keeps me naked and chained to the bed for far too long to even consider the job.  I mean, look at her.  She's a walking, talking Viagra pill, for chrissakes. Now she's got me on electrolyte IV solutions 3 times a day, and quite frankly, that does not suck.\"\n\nHe added, \"She's not ugly.\"\n\nWith the addition of Fox to the harem, and the retirement of Brett Favre<[redacted-url] the Fat Lazy Americans seemed almost certain to be the most neglected team in the League in 2008. But Furious sees that as mere media hype, and not a limitation on what he can accomplish.\n\n\"On the contrary, it's an exciting time for the organization.\" said Furious. \"The biggest thing is we've got the Championship, with a year of experience in undisputed Fantasty Football domination, and I think that this is where the media has to come in and try to tear down the best, so that the precious little snowflakes can sleep at night. People say what is a year of experience? Well, those people are what we like to call 'Losers'.\"\n\nWhen asked for comments about becoming the first team in League history to win the Championship with a losing record, having prevailed over the 11-2 No Talent Ass Clowns to finish the season with a 6-7 record, Furious responded by immediately halting the press conference, and leaving with his strong pimp hand gripped tightly on a blushing Megan Fox's ass.\n\n--AP stringer Andrew Rose contributed to this report\n\nCopyright 2008 The Associated Press. All rights reserved. This material may not be published, broadcast, rewritten or redistributed.",
+    "metrics": {
+      "word_count": 557,
+      "paragraph_count": 12,
+      "direct_quote_count": 6,
+      "bracketed_editorial_aside_count": 3
+    }
+  },
+  "extracted_voice_profile": {
+    "stance": [
+      "mock-serious sports desk reporting applied to ridiculous fantasy-football stakes",
+      "arrogant franchise mythology delivered through deadpan wire-service structure",
+      "adult, abrasive, old-league trash-talk edge"
+    ],
+    "devices": [
+      "fake AP/NBC dateline and update scaffolding",
+      "coach and commissioner quote structure",
+      "press-conference style attribution",
+      "editorial bracket asides",
+      "league-history callbacks and rival-team continuity",
+      "mundane offseason-process language escalated into absurd claims",
+      "fake legal/trademark/newsroom boilerplate"
+    ],
+    "recurring_material": [
+      "Fat Lazy Americans",
+      "Dr. Acropolis Furious",
+      "No Talent Ass Clowns",
+      "losing-record championship season",
+      "Brett Favre retirement uncertainty",
+      "mock commissioner-rumor ecosystem"
+    ],
+    "boundaries": [
+      "comedy layer only; do not mutate picks, portfolios, parlays, rosters, or official recommendations",
+      "keep separate from Abracadickface persona/band voice",
+      "use real NFL/fantasy facts only when separately sourced in NFL_Dashboard",
+      "do not preserve email addresses, phone numbers, or recipient metadata in downstream voice artifacts"
+    ],
+    "open_needs": [
+      "ingest at least one modern NFL comedy-report example before locking the production voice",
+      "define target franchises/leagues and real-data fields available to the report generator",
+      "decide how abrasive/adult the published surface should be per destination"
+    ]
+  }
+}

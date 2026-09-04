@@ -1,0 +1,297 @@
+{
+  "meta": {
+    "schema": "training_camp_intel_snapshot_v1",
+    "season": 2026,
+    "generated_at": "2026-08-22T20:43:50.932Z",
+    "input_dir": "data\\training-camp\\2026\\manual",
+    "team_count": 32,
+    "teams_with_intel": 0,
+    "teams_without_intel": 32,
+    "item_count": 0,
+    "unique_evidence_count": 0,
+    "high_priority_count": 0,
+    "local_only": true,
+    "recommendation_status": "intel_only_not_picks",
+    "guardrails": {
+      "live_model_calls": false,
+      "network_fetches": false,
+      "supabase_writes": false,
+      "official_picks_generated": false
+    },
+    "feed_health": null,
+    "team_identity_validation": {
+      "schema": "team_identity_validation_v1",
+      "status": "pass",
+      "row_count": 0,
+      "unique_evidence_count": 0,
+      "duplicate_evidence_rows": 0,
+      "source_prefix_rows": 0,
+      "authoritative_source_rows": 0,
+      "primary_source_mismatch_count": 0,
+      "missing_primary_team_count": 0,
+      "missing_evidence_id_count": 0,
+      "related_team_reference_count": 0,
+      "ambiguous_inferred_primary_count": 0,
+      "corrected_source_assignment_count": 0
+    }
+  },
+  "items": [],
+  "teams": {
+    "ARI": {
+      "nick": "Cardinals",
+      "team": "ARI",
+      "full_name": "Arizona Cardinals",
+      "division": "NFC West",
+      "conference": "NFC",
+      "items": []
+    },
+    "ATL": {
+      "nick": "Falcons",
+      "team": "ATL",
+      "full_name": "Atlanta Falcons",
+      "division": "NFC South",
+      "conference": "NFC",
+      "items": []
+    },
+    "BAL": {
+      "nick": "Ravens",
+      "team": "BAL",
+      "full_name": "Baltimore Ravens",
+      "division": "AFC North",
+      "conference": "AFC",
+      "items": []
+    },
+    "BUF": {
+      "nick": "Bills",
+      "team": "BUF",
+      "full_name": "Buffalo Bills",
+      "division": "AFC East",
+      "conference": "AFC",
+      "items": []
+    },
+    "CAR": {
+      "nick": "Panthers",
+      "team": "CAR",
+      "full_name": "Carolina Panthers",
+      "division": "NFC South",
+      "conference": "NFC",
+      "items": []
+    },
+    "CHI": {
+      "nick": "Bears",
+      "team": "CHI",
+      "full_name": "Chicago Bears",
+      "division": "NFC North",
+      "conference": "NFC",
+      "items": []
+    },
+    "CIN": {
+      "nick": "Bengals",
+      "team": "CIN",
+      "full_name": "Cincinnati Bengals",
+      "division": "AFC North",
+      "conference": "AFC",
+      "items": []
+    },
+    "CLE": {
+      "nick": "Browns",
+      "team": "CLE",
+      "full_name": "Cleveland Browns",
+      "division": "AFC North",
+      "conference": "AFC",
+      "items": []
+    },
+    "DAL": {
+      "nick": "Cowboys",
+      "team": "DAL",
+      "full_name": "Dallas Cowboys",
+      "division": "NFC East",
+      "conference": "NFC",
+      "items": []
+    },
+    "DEN": {
+      "nick": "Broncos",
+      "team": "DEN",
+      "full_name": "Denver Broncos",
+      "division": "AFC West",
+      "conference": "AFC",
+      "items": []
+    },
+    "DET": {
+      "nick": "Lions",
+      "team": "DET",
+      "full_name": "Detroit Lions",
+      "division": "NFC North",
+      "conference": "NFC",
+      "items": []
+    },
+    "GB": {
+      "nick": "Packers",
+      "team": "GB",
+      "full_name": "Green Bay Packers",
+      "division": "NFC North",
+      "conference": "NFC",
+      "items": []
+    },
+    "HOU": {
+      "nick": "Texans",
+      "team": "HOU",
+      "full_name": "Houston Texans",
+      "division": "AFC South",
+      "conference": "AFC",
+      "items": []
+    },
+    "IND": {
+      "nick": "Colts",
+      "team": "IND",
+      "full_name": "Indianapolis Colts",
+      "division": "AFC South",
+      "conference": "AFC",
+      "items": []
+    },
+    "JAX": {
+      "nick": "Jaguars",
+      "team": "JAX",
+      "full_name": "Jacksonville Jaguars",
+      "division": "AFC South",
+      "conference": "AFC",
+      "items": []
+    },
+    "KC": {
+      "nick": "Chiefs",
+      "team": "KC",
+      "full_name": "Kansas City Chiefs",
+      "division": "AFC West",
+      "conference": "AFC",
+      "items": []
+    },
+    "LAC": {
+      "nick": "Chargers",
+      "team": "LAC",
+      "full_name": "Los Angeles Chargers",
+      "division": "AFC West",
+      "conference": "AFC",
+      "items": []
+    },
+    "LAR": {
+      "nick": "Rams",
+      "team": "LAR",
+      "full_name": "Los Angeles Rams",
+      "division": "NFC West",
+      "conference": "NFC",
+      "items": []
+    },
+    "LV": {
+      "nick": "Raiders",
+      "team": "LV",
+      "full_name": "Las Vegas Raiders",
+      "division": "AFC West",
+      "conference": "AFC",
+      "items": []
+    },
+    "MIA": {
+      "nick": "Dolphins",
+      "team": "MIA",
+      "full_name": "Miami Dolphins",
+      "division": "AFC East",
+      "conference": "AFC",
+      "items": []
+    },
+    "MIN": {
+      "nick": "Vikings",
+      "team": "MIN",
+      "full_name": "Minnesota Vikings",
+      "division": "NFC North",
+      "conference": "NFC",
+      "items": []
+    },
+    "NE": {
+      "nick": "Patriots",
+      "team": "NE",
+      "full_name": "New England Patriots",
+      "division": "AFC East",
+      "conference": "AFC",
+      "items": []
+    },
+    "NO": {
+      "nick": "Saints",
+      "team": "NO",
+      "full_name": "New Orleans Saints",
+      "division": "NFC South",
+      "conference": "NFC",
+      "items": []
+    },
+    "NYG": {
+      "nick": "Giants",
+      "team": "NYG",
+      "full_name": "New York Giants",
+      "division": "NFC East",
+      "conference": "NFC",
+      "items": []
+    },
+    "NYJ": {
+      "nick": "Jets",
+      "team": "NYJ",
+      "full_name": "New York Jets",
+      "division": "AFC East",
+      "conference": "AFC",
+      "items": []
+    },
+    "PHI": {
+      "nick": "Eagles",
+      "team": "PHI",
+      "full_name": "Philadelphia Eagles",
+      "division": "NFC East",
+      "conference": "NFC",
+      "items": []
+    },
+    "PIT": {
+      "nick": "Steelers",
+      "team": "PIT",
+      "full_name": "Pittsburgh Steelers",
+      "division": "AFC North",
+      "conference": "AFC",
+      "items": []
+    },
+    "SEA": {
+      "nick": "Seahawks",
+      "team": "SEA",
+      "full_name": "Seattle Seahawks",
+      "division": "NFC West",
+      "conference": "NFC",
+      "items": []
+    },
+    "SF": {
+      "nick": "49ers",
+      "team": "SF",
+      "full_name": "San Francisco 49ers",
+      "division": "NFC West",
+      "conference": "NFC",
+      "items": []
+    },
+    "TB": {
+      "nick": "Buccaneers",
+      "team": "TB",
+      "full_name": "Tampa Bay Buccaneers",
+      "division": "NFC South",
+      "conference": "NFC",
+      "items": []
+    },
+    "TEN": {
+      "nick": "Titans",
+      "team": "TEN",
+      "full_name": "Tennessee Titans",
+      "division": "AFC South",
+      "conference": "AFC",
+      "items": []
+    },
+    "WAS": {
+      "nick": "Commanders",
+      "team": "WAS",
+      "full_name": "Washington Commanders",
+      "division": "NFC East",
+      "conference": "NFC",
+      "items": []
+    }
+  }
+}

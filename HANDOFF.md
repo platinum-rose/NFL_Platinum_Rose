@@ -1,10 +1,50 @@
 # NFL_Dashboard — Session Handoff
 > Auto-generated at session end. Read this to resume.
 
-**Date:** 2026-08-26T20:52:00.000Z
-**Branch:** main (HEAD 9fe8249)
+**Date:** 2026-09-04T11:23:32-07:00
+**Branch:** main
 
-## Current Pick Up Here (Awaiting Codex Sign-Off: Alpha Testing Suite & Preseason Week 3 Sandbox Spec)
+## Current Pick Up Here (fresh NFL dev session - local main ahead by 1)
+
+Resume in `E:\dev\projects\NFL_Dashboard`. Start with timestamped handoff
+`handoffs/2026-09-04-fresh-nfl-dev-and-writers-room-ingest-handoff.md`.
+
+Live state verified by Codex:
+
+- `main` is ahead of `origin/main` by 1 commit.
+- Local HEAD is `65d47e3 fix(futures): repair data-correctness, prompt-assembly, and fail-loud gaps in the portfolio pipeline`.
+- `origin/main` is `2c9334a feat(futures): add scale-in entry pattern to Risk/Editor stage`.
+- Antigravity has already ingested final roster snapshots for Honey Badgers and
+  Rose Bowl:
+  - `data/fantasy/honey_badgers_final_rosters_2026.csv` - 204 rows, 12 teams,
+    17 players/team.
+  - `data/fantasy/rose_bowl_final_rosters_2026.csv` - 204 rows, 12 teams,
+    17 players/team.
+- The referenced project-memory file `nfl_dashboard_final_roster_compilation.md`
+  was not found by exact filename/text search in the repo, hidden/ignored repo
+  paths, or local Codex memory folder.
+- No separate 2026 round-by-round draft-results artifact was found. The current
+  Honey Badgers/Rose Bowl CSVs are roster snapshots only; they do not include
+  round, pick number, keeper cost, or drafted-at metadata.
+- NFL comedy voice sample was ingested as private source prep under
+  `docs/writers-room/nfl-comedy-voice/`; this is separate from Abracadickface and
+  does not mean NFL_Dashboard has completed Writers Room adoption.
+
+Immediate next action: start with live Git reconciliation and inspect scoped
+diffs before editing. Highest-signal dev lane is to review/verify the local
+portfolio-pipeline commit `65d47e3` and related dirty files, then decide whether
+to continue portfolio integrity, article-evidence/Bookmaker-BetUS capture, or
+NFL Writers Room adoption as an explicitly approved lane.
+
+Preserve the dirty worktree. Do not clean, reset, stash, broad-stage, commit,
+push, run paid committee models, write Supabase, or mutate picks/portfolios
+without explicit approval.
+
+## Historical S243 Context (stale, retained for provenance)
+
+Awaiting Codex Sign-Off: Alpha Testing Suite & Preseason Week 3 Sandbox Spec.
+This section is superseded by the final-roster reconciliation pickup above
+unless a future session explicitly resumes Alpha work.
 
 Resume in `E:\dev\projects\NFL_Dashboard`.
 
@@ -31,6 +71,8 @@ data/podcasts/actionable_betting_recommendations_2026.json
 ```
 
 ---
+
+
 
 ## 1. Accomplishments & Verification Summary (Session S243)
 
@@ -67,31 +109,16 @@ data/podcasts/actionable_betting_recommendations_2026.json
 
 
 
-
-
 ## Uncommitted Changes
 
 ### Modified
-- .atlas-bridge/memory.json
-- .atlas/lessons-learned.md
-- AGENTS.md
-- CLAUDE.md
 - HANDOFF.md
-- HANDOFF_PROMPT.md
-- WORKING-CONTEXT.md
-- agents/lib/live-market-fallback.js
-- agents/send-biweekly-digest.js
-- handoffs/2026-08-22-1155-codex-checkpoint5-archive-cleanup-handoff.md
-- handoffs/2026-08-23-1550-cowork-s339-resume-handoff.md
-- hooks/scripts/build-handoff.js
-- scratch/audit-speaker-attributions.js
-- scratch/export-raw-transcripts.js
-- src/App.jsx
-- src/components/layout/Header.jsx
-- src/hooks/useSchedule.js
-- src/lib/profiles.js
-- tests/smoke.spec.js
-- tests/unit/appTabRouting.test.js
+- agents/portfolio-synthesize.js
+- data/official-picks/proposals/active/candidate-prop-stack-twitter-bm-kc-rice.json
+- data/official-picks/proposals/active/candidate-supercontest-week1-bills.json
+- scripts/triage-unverified-intel.js
+- scripts/verify-intel-sources.js
+- vite.config.js
 
 ## In Progress
 _No In Progress tasks._

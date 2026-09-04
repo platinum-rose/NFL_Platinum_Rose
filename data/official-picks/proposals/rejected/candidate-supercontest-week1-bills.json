@@ -8,10 +8,16 @@
   "game_id": "2026_01_BUF_ARI",
   "contest_line": -2.5,
   "closing_line": -3.5,
-  "clv_edge": 1.0,
+  "clv_edge": 1,
   "confidence": 88,
-  "recommended_units": 2.0,
+  "recommended_units": 2,
   "rationale": "Static contest line locks Buffalo at -2.5 while live market moved to -3.5 (-115). Captures +1.0 CLV key number advantage.",
   "status": "pending_review",
-  "created_at": "2026-08-13T07:15:00.000Z"
+  "created_at": "2026-08-13T07:15:00.000Z",
+  "inbox_state": {
+    "state": "rejected",
+    "rejected_at": "2026-08-29T15:48:36.641Z",
+    "reason": "Stale test-era placeholder data from initial pipeline setup (2026-08-13), not a real candidate. Archived during intel-pipeline review.",
+    "updated_at": "2026-08-29T15:48:36.661Z"
+  }
 }
