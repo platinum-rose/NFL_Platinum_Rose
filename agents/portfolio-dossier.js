@@ -487,7 +487,19 @@ async function fetchTrainingCampIntel() {
         if (!norm) continue;
         const items = (Array.isArray(value) ? value : (value.items || []))
           .filter((item) => isSourceTeamAligned(team, item.source));
-        const compactItems = items.slice(0, 5).map((it) => ({
+        // 2026-09-04 Tier-4 fix: this used to be items.slice(0, 5) straight off
+        // the file's own order (effectively arbitrary/ingestion order, not
+        // priority) — high_priority_count below was always computed correctly
+        // off the full `items` array, but the actual nuggets shown in the
+        // prompt were whatever 5 happened to sort first in the file, dropping
+        // 44% of real high-priority (signal_strength >= 0.7) items league-wide
+        // even though the count claimed to reflect them. Sort by signal_strength
+        // desc (recency as tiebreak) before slicing so the sample matches what
+        // the count says.
+        const prioritized = [...items].sort((a, b) =>
+          (b.signal_strength || 0) - (a.signal_strength || 0) ||
+          String(b.published_at || '').localeCompare(String(a.published_at || '')));
+        const compactItems = prioritized.slice(0, 5).map((it) => ({
           id: it.id,
           signal_type: it.signal_type,
           summary: it.summary,
@@ -580,14 +592,28 @@ async function fetchPlayerAvailabilityContext() {
         .slice(0, 8)
         .map(mapAvailabilityEvent);
       const clusterRisks = clusterAvailabilitySummary(events);
+      // 2026-09-04 Tier-4 fix: agents/lib/player-availability.js caps team.events
+      // at 12 per team AT WRITE TIME (buildAvailabilitySnapshotFromEvents) but
+      // computes team.event_count / improving_count / worsening_count / major_count
+      // / offensive_line_worsening_count / defensive_front_worsening_count on the
+      // FULL pre-cap event set — those are the file's true per-team totals. This
+      // reader was discarding them and recomputing from `events`, which is not
+      // just the 12-cap but a FURTHER isSourceTeamAligned-filtered slice of it —
+      // silently reporting e.g. "12 events" for a team that actually had 33
+      // (league-wide: 384 of 925 real events were reaching the dossier's counts).
+      // Use the file's true totals for the roll-up numbers; `events` (capped +
+      // aligned) remains exactly right for the *sample* lists below, which were
+      // always meant to be a preview, not the full set.
+      const trueCounts = team || {};
       byTeam[nick] = {
         snapshot_at: parsed.meta?.generated_at || null,
-        event_count: events.length,
-        improving_count: events.filter((event) => event.availability_trend === 'improving').length,
-        worsening_count: events.filter((event) => event.availability_trend === 'worsening').length,
-        major_count: events.filter((event) => String(event.impact_bucket || '').includes('major')).length,
-        offensive_line_worsening_count: events.filter((event) => event.availability_group === 'offensive_line' && event.availability_trend === 'worsening').length,
-        defensive_front_worsening_count: events.filter((event) => event.availability_group === 'defensive_front' && event.availability_trend === 'worsening').length,
+        event_count: typeof trueCounts.event_count === 'number' ? trueCounts.event_count : events.length,
+        improving_count: typeof trueCounts.improving_count === 'number' ? trueCounts.improving_count : events.filter((event) => event.availability_trend === 'improving').length,
+        worsening_count: typeof trueCounts.worsening_count === 'number' ? trueCounts.worsening_count : events.filter((event) => event.availability_trend === 'worsening').length,
+        major_count: typeof trueCounts.major_count === 'number' ? trueCounts.major_count : events.filter((event) => String(event.impact_bucket || '').includes('major')).length,
+        offensive_line_worsening_count: typeof trueCounts.offensive_line_worsening_count === 'number' ? trueCounts.offensive_line_worsening_count : events.filter((event) => event.availability_group === 'offensive_line' && event.availability_trend === 'worsening').length,
+        defensive_front_worsening_count: typeof trueCounts.defensive_front_worsening_count === 'number' ? trueCounts.defensive_front_worsening_count : events.filter((event) => event.availability_group === 'defensive_front' && event.availability_trend === 'worsening').length,
+        sample_event_count: events.length,
         cluster_risks: clusterRisks,
         key_returns: improving,
         key_absences: worsening,
@@ -597,6 +623,103 @@ async function fetchPlayerAvailabilityContext() {
         needs_human_review: events.some((event) => event.needs_human_review),
       };
     }
+    return byTeam;
+  } catch (_err) {
+    return {};
+  }
+}
+
+// 2026-09-04 Tier-4 wiring: data/prediction-markets/latest.json (Kalshi +
+// Polymarket contracts, scripts/build-prediction-markets.js) had NO reader
+// anywhere in the dossier/synthesis pipeline — agents/portfolio-preflight.js's
+// own check literally labelled it "NOT WIRED to the report". The file is
+// mostly single-player prop/award contracts (market_type='general', ~2000 of
+// ~2800 rows) that aren't team-attributable at all, plus a large
+// series_ticker=undefined Polymarket bucket with no reliable ticker structure
+// to parse a team from (the exact "don't trust a vendor's free-text label,
+// parse the structured field" lesson from the 2026-09-01 Kalshi/BetUS exacta
+// work — here there IS no structured field for that bucket, so it's excluded
+// rather than guessed at). Scoped to the Kalshi series with a clean,
+// consistently-shaped ticker (<PREFIX>-<season>-<TEAM>, team always the last
+// dash segment) that map onto real futures markets already in the dossier:
+// win totals, playoff odds, division-winner odds, conference-champion odds.
+const PREDICTION_MARKET_SERIES = {
+  KXNFLPLAYOFF: 'playoffs',
+  KXNFLNFCCHAMP: 'conference', KXNFLAFCCHAMP: 'conference',
+  KXNFLNFCEAST: 'division', KXNFLNFCNORTH: 'division', KXNFLNFCSOUTH: 'division', KXNFLNFCWEST: 'division',
+  KXNFLAFCEAST: 'division', KXNFLAFCNORTH: 'division', KXNFLAFCSOUTH: 'division', KXNFLAFCWEST: 'division',
+};
+
+function predictionMarketTeamFromTicker(ticker) {
+  const last = String(ticker || '').split('-').pop();
+  return normalizeTeam(last);
+}
+
+async function fetchPredictionMarkets() {
+  const latestPath = path.join(ROOT, 'data', 'prediction-markets', 'latest.json');
+  try {
+    const parsed = JSON.parse(await readFile(latestPath, 'utf8'));
+    const contracts = Array.isArray(parsed.contracts) ? parsed.contracts : [];
+    const byTeam = {};
+    const ensure = (nick) => (byTeam[nick] ??= {
+      snapshot_at: parsed.meta?.generated_at || null,
+      playoff_prob: null, division_win_prob: null, conference_champ_prob: null,
+      win_totals_ladder: [], market_implied_win_total: null,
+    });
+
+    // Win totals: KXNFLWINS proper only (excludes KXNFLWINS-ANY / KXNFLWINSTREAK
+    // / KXNFL2HSPREAD etc — different, non-comparable contract shapes that just
+    // happen to share market_type='win_totals').
+    const winsByTeam = {};
+    for (const c of contracts) {
+      if (c.series_ticker !== 'KXNFLWINS') continue;
+      // KXNFLWINS tickers shape team differently from every other series here:
+      // KXNFLWINS-27IND-9 packs <season><TEAM> into one segment (no separator),
+      // vs KXNFLPLAYOFF-27-WAS's separate season/team segments — a real,
+      // easy-to-miss vendor inconsistency (caught live: predictionMarketTeamFromTicker()
+      // alone returns null for every KXNFLWINS row, since its last segment is the
+      // win threshold, not a team).
+      const parts = String(c.ticker).split('-');
+      const seasonTeam = parts[1] || '';
+      const teamPart = seasonTeam.replace(/^\d+/, '');
+      const nick = normalizeTeam(teamPart);
+      if (!nick) continue;
+      const n = Number(parts[2]);
+      if (!Number.isFinite(n) || typeof c.implied_probability_pct !== 'number') continue;
+      (winsByTeam[nick] ??= []).push({ n, prob: c.implied_probability_pct / 100 });
+    }
+    for (const [nick, ladder] of Object.entries(winsByTeam)) {
+      ladder.sort((a, b) => a.n - b.n);
+      const t = ensure(nick);
+      t.win_totals_ladder = ladder;
+      // Market-implied win total via linear interpolation across the 50%
+      // crossing (robust to a sparse/incomplete threshold ladder — summing
+      // P(wins>=n) across all n is the textbook unbiased estimator but
+      // requires the FULL 1..17 ladder, which this data does not reliably
+      // have; interpolating near the middle degrades gracefully instead).
+      for (let i = 0; i < ladder.length - 1; i++) {
+        const lo = ladder[i], hi = ladder[i + 1];
+        if (lo.prob >= 0.5 && hi.prob < 0.5) {
+          const frac = (lo.prob - 0.5) / (lo.prob - hi.prob);
+          t.market_implied_win_total = Number((lo.n + frac * (hi.n - lo.n)).toFixed(2));
+          break;
+        }
+      }
+    }
+
+    // Playoffs / division / conference: one contract = one team's probability.
+    for (const c of contracts) {
+      const kind = PREDICTION_MARKET_SERIES[c.series_ticker];
+      if (!kind || typeof c.implied_probability_pct !== 'number') continue;
+      const nick = predictionMarketTeamFromTicker(c.ticker);
+      if (!nick) continue;
+      const t = ensure(nick);
+      const prob = c.implied_probability_pct / 100;
+      if (kind === 'playoffs') t.playoff_prob = prob;
+      else if (kind === 'division') t.division_win_prob = prob;
+      else if (kind === 'conference') t.conference_champ_prob = prob;
+    }
+
     return byTeam;
   } catch (_err) {
     return {};
@@ -1444,7 +1567,7 @@ function splitMatchupTeams(tm) {
 // now only carry market-specific fields + a team-name reference, and
 // portfolio-synthesize.js's prompt builder + evidence resolver look context up
 // from this map by team name.
-function buildTeamProfiles(teamNicks, priorByTeam, findSos, teamSignals, injuriesByTeam, advancedAnalyticsByTeam = {}, dvoaByTeam = {}, coachingByTeam = {}, trainingCampIntelByTeam = {}, playerAvailabilityByTeam = {}, namedPlayerSizingByTeam = {}) {
+function buildTeamProfiles(teamNicks, priorByTeam, findSos, teamSignals, injuriesByTeam, advancedAnalyticsByTeam = {}, dvoaByTeam = {}, coachingByTeam = {}, trainingCampIntelByTeam = {}, playerAvailabilityByTeam = {}, namedPlayerSizingByTeam = {}, predictionMarketsByTeam = {}) {
   const { scheduleOut, officiatingOut, clvOut } = teamSignals || {};
   const out = {};
   for (const nick of teamNicks) {
@@ -1460,6 +1583,7 @@ function buildTeamProfiles(teamNicks, priorByTeam, findSos, teamSignals, injurie
       injuries: injuriesByTeam?.[nick] || null,
       training_camp_intel: trainingCampIntelByTeam?.[nick] || null,
       player_availability: playerAvailabilityByTeam?.[nick] || null,
+      prediction_markets: predictionMarketsByTeam?.[nick] || null,
       // 2026-08-13: null unless an unresolved named-player case (e.g. team
       // ownership conflict or a withheld-pending-confirmation injury/role)
       // touches this team. See agents/lib/named-status-review.js's
@@ -1625,10 +1749,10 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
 // ── main ─────────────────────────────────────────────────────────────────────
 (async () => {
   console.log(`📊 Portfolio dossier — season ${SEASON}${SINCE ? ` since ${SINCE}` : ''}`);
-  const [dbSnaps, localSnapshots, pickSignals, userPicks, podcastRows, priorByTeam, games, oddsOpenByGame, splitsLatestByGame, refereeByName, rosterChurnByTeam, injuriesByTeam, advancedAnalyticsByTeam, dvoaByTeam, coachingByTeam, trainingCampIntelByTeam, playerAvailabilityByTeam, namedPlayerSizing, evidenceLaneVersions] = await Promise.all([
+  const [dbSnaps, localSnapshots, pickSignals, userPicks, podcastRows, priorByTeam, games, oddsOpenByGame, splitsLatestByGame, refereeByName, rosterChurnByTeam, injuriesByTeam, advancedAnalyticsByTeam, dvoaByTeam, coachingByTeam, trainingCampIntelByTeam, playerAvailabilityByTeam, namedPlayerSizing, predictionMarketsByTeam, evidenceLaneVersions] = await Promise.all([
     fetchSnapshots(), loadLocalSnapshotFiles(LOCAL_IMPORT_PATHS, { season: SEASON }), fetchPickSignals(), fetchUserPicks(), fetchPodcastIntel(), fetchTeamStats(), fetchSchedule(),
     fetchGameOddsOpen(), fetchGameSplitsLatest(), fetchRefereeTendencies(), fetchRosterChurn(), fetchInjuryContext(),
-    fetchAdvancedAnalytics(), fetchDvoaSnapshots(), fetchCoachingProfiles(), fetchTrainingCampIntel(), fetchPlayerAvailabilityContext(), fetchNamedPlayerSizingGates(),
+    fetchAdvancedAnalytics(), fetchDvoaSnapshots(), fetchCoachingProfiles(), fetchTrainingCampIntel(), fetchPlayerAvailabilityContext(), fetchNamedPlayerSizingGates(), fetchPredictionMarkets(),
     stampEvidenceLaneVersions(ROOT),
   ]);
   const snaps = mergeSnapshotSources(dbSnaps, localSnapshots.rows);
@@ -1681,7 +1805,7 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
       else { const n = normalizeTeam(tm); if (n) teamNickSet.add(n); }
     }
   }
-  const team_profiles = buildTeamProfiles([...teamNickSet], priorByTeam, sos.findSos, teamSignals, injuriesByTeam, advancedAnalyticsByTeam, dvoaByTeam, coachingByTeam, trainingCampIntelByTeam, playerAvailabilityByTeam, namedPlayerSizing.byTeam);
+  const team_profiles = buildTeamProfiles([...teamNickSet], priorByTeam, sos.findSos, teamSignals, injuriesByTeam, advancedAnalyticsByTeam, dvoaByTeam, coachingByTeam, trainingCampIntelByTeam, playerAvailabilityByTeam, namedPlayerSizing.byTeam, predictionMarketsByTeam);
 
   const synthesis_input = buildSynthesisInput(markets, findLean);
   const signal_coverage = {
@@ -1694,6 +1818,7 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
     teams_with_roster_churn: Object.keys(rosterChurnByTeam).length,
     teams_with_injuries: Object.keys(injuriesByTeam).length,
     teams_with_player_availability: Object.keys(playerAvailabilityByTeam).length,
+    teams_with_prediction_markets: Object.keys(predictionMarketsByTeam).length,
   };
   const meta = {
     generated_at: new Date().toISOString(), season: SEASON, since: SINCE,

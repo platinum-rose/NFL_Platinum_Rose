@@ -357,7 +357,7 @@ const FILE_LANES = [
   { rel: 'data/player-availability/latest.json', maxAgeDays: 7,  required: true,  feeds: 'player_availability (32/32 teams)' },
   { rel: `data/training-camp/${SEASON}/latest.json`, maxAgeDays: 14, required: false, feeds: 'training_camp_intel' },
   { rel: 'data/expert-dossiers/latest.json',    maxAgeDays: 14, required: false, feeds: 'expertDossierLine in the prompt' },
-  { rel: 'data/prediction-markets/latest.json', maxAgeDays: 7,  required: false, feeds: 'prediction_markets (NOT WIRED to the report)' },
+  { rel: 'data/prediction-markets/latest.json', maxAgeDays: 7,  required: false, feeds: 'prediction_markets (team_profiles.prediction_markets, 2026-09-04)' },
 ];
 
 async function stageB() {
