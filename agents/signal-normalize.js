@@ -101,8 +101,24 @@ async function gatherItems() {
   const want = (s) => !ONLY_SOURCE || ONLY_SOURCE === s;
 
   if (want('article')) {
-    const { data } = await sb.from('research_intel_notes')
-      .select('id, title, summary, source, author').order('captured_at', { ascending: false }).limit(1000);
+    // research_intel_notes holds 2,761 rows; .limit(1000) meant 64% of the article
+    // corpus was never even offered to the normalizer — silently, since PostgREST
+    // caps unpaginated reads at 1000 anyway and returns no error. Page through it.
+    // captured_at is not unique, so id is the tiebreaker that keeps .range()
+    // paging deterministic. (2026-09-04, Tier 1 pipeline remediation.)
+    const data = [];
+    for (let from = 0; ; from += 1000) {
+      const { data: page, error } = await sb.from('research_intel_notes')
+        .select('id, title, summary, source, author')
+        .order('captured_at', { ascending: false })
+        .order('id', { ascending: false })
+        .range(from, from + 999);
+      if (error) { console.warn(`   ⚠ research_intel_notes: ${error.message} — article lane truncated at ${data.length}`); break; }
+      if (!page?.length) break;
+      data.push(...page);
+      if (page.length < 1000) break;
+    }
+    console.log(`   articles: ${data.length} note(s) loaded`);
     for (const n of data || []) {
       const text = [n.title, n.summary].filter(Boolean).join(' — ');
       if (text.trim()) items.push({ source_type: 'article', source_ref: `note:${n.id}`, raw_text: text, author: n.author || n.source || null });

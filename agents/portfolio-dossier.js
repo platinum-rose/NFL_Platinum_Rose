@@ -33,6 +33,7 @@ import {
 } from './lib/portfolio-local-inputs.js';
 import { classifyMove, devigPair, fitWinDist, probOverLine, tailTable } from './lib/win-dist.js';
 import 'dotenv/config';
+import { normalizeInjuryStatus, INJURY_RELEVANT_STATUS, INJURY_SEVERITY } from './lib/injury-status.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -233,6 +234,27 @@ function canonicalizeSnapshots(snaps) {
       out.push({ ...r, team, selection: normalizeTeam(r.selection) || r.selection || team, book });
       continue;
     }
+    // Every OTHER team market used to fall through un-normalized and was then
+    // grouped on the raw book-supplied string in buildOddsView — so "Bills" and
+    // "Buffalo Bills" became two separate rows for the same bet. That split was
+    // not random: it partitioned the retail book pool from the three placeable
+    // offshore books, so each row devigged against half the market, the offshore
+    // row was self-referential (same 3 books setting both its fair price and its
+    // best price, so it could never show value), and the model saw two
+    // contradictory best prices per bet.
+    //
+    // EXCLUSIONS, both load-bearing:
+    //   superbowl_matchup — the label is "Buffalo Bills vs Seattle Seahawks", and
+    //     normalizeTeam() happily returns "Bills" for it, which would collapse all
+    //     8 Bills matchups into one row. Never normalize a two-sided label here.
+    //   award_* — these are player names; normalizeTeam() returns null and the
+    //     `|| r.team` fallback preserves them, but they are skipped explicitly so
+    //     nobody has to re-derive that reasoning later.
+    if (!isPlayerOrMultiSideMarket(mk)) {
+      const team = normalizeTeam(r.team) || r.team;
+      out.push({ ...r, team, selection: normalizeTeam(r.selection) || r.selection || team, book });
+      continue;
+    }
     out.push({ ...r, book });
   }
   out.push(...wins.values(), ...playoffs.values());
@@ -240,6 +262,26 @@ function canonicalizeSnapshots(snaps) {
 }
 
 // ── fetchers ───────────────────────────────────────────────────────────────
+
+// PostgREST silently caps ANY unpaginated .select() at 1000 rows — no error, no
+// warning, just a truncated slice. That is how CLV ended up running on 0.6% of
+// game_odds_snapshots (1,000 of 179,336) and how injuries read 20% of the table
+// while carrying an inert .limit(2000). Every large-table read goes through this.
+// buildQuery(from, to) MUST apply identical filters AND ordering on every page,
+// and the ordering must be total (add a tiebreaker column) or rows can repeat or
+// vanish across page boundaries. (2026-09-04, Tier 1 pipeline remediation.)
+const PG_PAGE = 1000;
+async function fetchAllPaged(label, buildQuery) {
+  const all = [];
+  for (let from = 0; ; from += PG_PAGE) {
+    const { data, error } = await buildQuery(from, from + PG_PAGE - 1);
+    if (error) throw new Error(`${label}: ${error.message}`);
+    all.push(...(data || []));
+    if (!data || data.length < PG_PAGE) break;
+  }
+  return all;
+}
+
 async function fetchSnapshots() {
   const PAGE = 1000; let from = 0; const all = [];
   for (;;) {
@@ -282,13 +324,19 @@ const INJURY_POSITION_GROUPS = {
   CB: 'CB', DB: 'CB',
   WR: 'skill', RB: 'skill', TE: 'skill', FB: 'skill',
 };
-const INJURY_RELEVANT_STATUS = new Set(['out', 'doubtful', 'ir', 'pup', 'questionable']);
+// Injury status interpretation lives in agents/lib/injury-status.js so that
+// agents/portfolio-preflight.js validates THIS logic rather than a stale copy.
 async function fetchInjuryContext() {
-  const { data, error } = await sb.from('player_injuries')
-    .select('espn_player_id, player_name, team_abbr, position, injury_status, injury_type, reported_at, captured_at')
-    .order('captured_at', { ascending: false })
-    .limit(2000);
-  if (error) { console.warn(`   ⚠ player_injuries: ${error.message} — injury context disabled`); return {}; }
+  let data;
+  try {
+    // captured_at alone is not a total order (many rows share a timestamp), which
+    // makes .range() paging non-deterministic — espn_player_id is the tiebreaker.
+    data = await fetchAllPaged('player_injuries', (from, to) => sb.from('player_injuries')
+      .select('espn_player_id, player_name, team_abbr, position, injury_status, injury_type, reported_at, captured_at')
+      .order('captured_at', { ascending: false })
+      .order('espn_player_id', { ascending: false })
+      .range(from, to));
+  } catch (e) { console.warn(`   ⚠ player_injuries: ${e.message} — injury context disabled`); return {}; }
 
   // de-dup to the latest report per player (rows already newest-first)
   const seen = new Set();
@@ -300,9 +348,11 @@ async function fetchInjuryContext() {
   }
 
   const byTeam = {};
+  let droppedUnknownStatus = 0;
   for (const r of latest) {
-    const status = (r.injury_status || '').toLowerCase();
-    if (!INJURY_RELEVANT_STATUS.has(status)) continue;
+    const status = normalizeInjuryStatus(r.injury_status);
+    if (status === 'active' || status === null) continue;
+    if (!INJURY_RELEVANT_STATUS.has(status)) { droppedUnknownStatus++; continue; }
     const nick = normalizeTeam(r.team_abbr); if (!nick) continue;
     const group = INJURY_POSITION_GROUPS[(r.position || '').toUpperCase()] || 'other';
     const t = (byTeam[nick] ??= { injury_count: 0, key_position_flags: new Set(), qb_status: null, most_recent: null, players: [] });
@@ -311,16 +361,27 @@ async function fetchInjuryContext() {
     if (group === 'QB') t.qb_status = r.injury_status; // most recent QB report wins (rows are newest-first)
     const ts = r.reported_at || r.captured_at;
     if (ts && (!t.most_recent || new Date(ts) > new Date(t.most_recent))) t.most_recent = ts;
-    if (t.players.length < 8) t.players.push({ name: r.player_name, position: r.position, status: r.injury_status, type: r.injury_type });
+    // Collect every relevant player, then rank by severity before truncating —
+    // previously this kept the first 8 in arbitrary order, so a team could show
+    // 8 questionable tags while its IR list went unmentioned.
+    t.players.push({ name: r.player_name, position: r.position, status: r.injury_status, status_normalized: status, type: r.injury_type });
+  }
+  if (droppedUnknownStatus > 0) {
+    console.warn(`   ⚠ player_injuries: ${droppedUnknownStatus} row(s) had a status this build does not recognize — extend normalizeInjuryStatus()`);
   }
   const out = {};
   for (const [team, t] of Object.entries(byTeam)) {
+    const ranked = t.players.sort((a, b) =>
+      (INJURY_SEVERITY[a.status_normalized] ?? 99) - (INJURY_SEVERITY[b.status_normalized] ?? 99));
     out[team] = {
       injury_count: t.injury_count,
       key_position_flags: [...t.key_position_flags],
       qb_status: t.qb_status,
       freshness: t.most_recent,
-      players: t.players,
+      players: ranked.slice(0, 8),
+      players_listed: Math.min(ranked.length, 8),
+      players_total: ranked.length,
+      severity_counts: ranked.reduce((acc, pl) => { acc[pl.status_normalized] = (acc[pl.status_normalized] || 0) + 1; return acc; }, {}),
     };
   }
   return out;
@@ -361,8 +422,19 @@ function currentAnalytics(seasons) {
   if (!seasons || !seasons.length) return null;
   const r = seasons[0]; // already sorted season-desc by fetchTeamStats
   if (r.off_epa_per_play == null && r.def_epa_per_play == null) return null;
+  // nfl_team_season_stats had ZERO rows for 2026, so seasons[0] was the 2025 row
+  // and it was handed to the model under a system prompt that says to prefer
+  // `analytics` over its own recall as "this season's actual play". The numbers
+  // are real and still useful as a prior — presenting them as CURRENT was the
+  // defect. Stamp the provenance so both the model and preflight can see it.
+  const behind = Number(SEASON) - Number(r.season);
   return {
     season: r.season,
+    is_current_season: behind === 0,
+    seasons_behind: behind,
+    staleness_note: behind > 0
+      ? `PRIOR-SEASON DATA: these are ${r.season} figures, not ${SEASON}. Treat as a preseason prior, NOT as current-season form.`
+      : null,
     off_epa_per_play: r.off_epa_per_play ?? null,
     def_epa_per_play: r.def_epa_per_play ?? null,
     off_epa_rank: r.off_epa_rank ?? null,
@@ -597,6 +669,13 @@ async function fetchAdvancedAnalytics() {
   if (!(data || []).length) {
     const localRows = await loadGeneratedProfileRows('team-analytic-snapshots-');
     if (localRows.length) console.warn(`   using ${localRows.length} local generated analytics row(s)`);
+    else {
+      // Previously silent: the season filter returns nothing, the local fallback
+      // filters filenames on includes(SEASON) and also matches nothing, and the
+      // function returns {} — leaving success_rate, cpoe, explosive_*, pressure_*
+      // and sack_* null for all 32 teams with no indication anything was missing.
+      console.warn(`   ⚠ team_analytic_snapshots: NO rows for season ${SEASON} and no local fallback file — advanced analytics (success_rate, cpoe, explosive_*, pressure_*, sack_*) will be null for ALL teams`);
+    }
     return latestByTeam(localRows, (r) => r);
   }
   return latestByTeam(data, (r) => ({
@@ -739,11 +818,19 @@ async function fetchSchedule() {
 // against games.closing_spread_line (migration 039's nflverse consensus close).
 // Table: game_odds_snapshots — separate from futures_odds_snapshots (fetchSnapshots).
 async function fetchGameOddsOpen() {
-  const { data, error } = await sb.from('game_odds_snapshots')
-    .select('game_id, season, week, home_team, away_team, market, spread, captured_at')
-    .eq('season', SEASON).eq('market', 'spread')
-    .order('captured_at', { ascending: true });
-  if (error) { console.warn(`   ⚠ game_odds_snapshots: ${error.message} — CLV disabled`); return []; }
+  let data;
+  try {
+    // 179k+ rows this season. Unpaginated this returned the first 1,000 (0.6%),
+    // so "earliest spread per game" was really "earliest within an arbitrary
+    // 0.6% slice" and CLV was silently meaningless. game_id is the tiebreaker
+    // that makes captured_at ordering total across pages.
+    data = await fetchAllPaged('game_odds_snapshots', (from, to) => sb.from('game_odds_snapshots')
+      .select('game_id, season, week, home_team, away_team, market, spread, captured_at')
+      .eq('season', SEASON).eq('market', 'spread')
+      .order('captured_at', { ascending: true })
+      .order('game_id', { ascending: true })
+      .range(from, to));
+  } catch (e) { console.warn(`   ⚠ game_odds_snapshots: ${e.message} — CLV disabled`); return []; }
   const earliest = {}; // game key -> first row seen (rows already ordered oldest-first)
   for (const r of data || []) {
     const key = `${r.season}-${r.week}-${normalizeTeam(r.home_team)}-${normalizeTeam(r.away_team)}`;
@@ -781,25 +868,50 @@ async function fetchRefereeTendencies() {
 // weekly nflverse refresh) — enough to diff week-over-week churn per team without
 // a per-team round-trip. Same diff logic as agentTools.js's get_roster_churn tool.
 async function fetchRosterChurn() {
-  const { data: weeksData, error: weeksErr } = await sb.from('nfl_rosters')
-    .select('season, week').eq('season', SEASON)
-    .order('season', { ascending: false }).order('week', { ascending: false }).limit(2000);
-  if (weeksErr || !weeksData?.length) return {};
+  // Week discovery was badly broken by the 1000-row cap: a full week is ~3,575
+  // rows, so the capped read could only ever see ONE distinct week and this
+  // function returned {} forever, even once multiple weeks existed. Page until
+  // two distinct weeks are found rather than trusting a single slice.
   const seen = new Set(); const targetWeeks = [];
-  for (const { season, week } of weeksData) {
-    const k = `${season}-${week}`;
-    if (seen.has(k)) continue;
-    seen.add(k); targetWeeks.push({ season, week });
-    if (targetWeeks.length >= 2) break;
+  try {
+    for (let from = 0; targetWeeks.length < 2; from += PG_PAGE) {
+      const { data, error } = await sb.from('nfl_rosters')
+        .select('season, week').eq('season', SEASON)
+        .order('season', { ascending: false }).order('week', { ascending: false })
+        .range(from, from + PG_PAGE - 1);
+      if (error) throw new Error(error.message);
+      if (!data?.length) break;
+      for (const { season, week } of data) {
+        const k = `${season}-${week}`;
+        if (seen.has(k)) continue;
+        seen.add(k); targetWeeks.push({ season, week });
+        if (targetWeeks.length >= 2) break;
+      }
+      if (data.length < PG_PAGE) break;
+    }
+  } catch (e) { console.warn(`   ⚠ nfl_rosters week discovery: ${e.message} — roster churn disabled`); return {}; }
+  if (targetWeeks.length < 2) {
+    console.warn(`   ⚠ nfl_rosters: only ${targetWeeks.length} distinct week(s) for ${SEASON} — roster churn unavailable (needs 2 to diff)`);
+    return {};
   }
-  if (targetWeeks.length < 2) return {}; // not enough history yet (early offseason/preseason)
 
+  // Each week is ~3,575 rows. Unpaginated, this read 1,000 of them per week and
+  // diffed two arbitrary 28% slices — which does not return empty, it returns
+  // hundreds of FABRICATED adds/drops per team that read as a real instability
+  // signal. This is the single most dangerous silent failure that was latent here.
   const rows = [];
   for (const { season, week } of targetWeeks) {
-    const { data, error } = await sb.from('nfl_rosters')
-      .select('season, week, team, gsis_id, full_name, status')
-      .eq('season', season).eq('week', week);
-    if (!error) rows.push(...(data || []));
+    try {
+      const weekRows = await fetchAllPaged(`nfl_rosters ${season}w${week}`, (from, to) => sb.from('nfl_rosters')
+        .select('season, week, team, gsis_id, full_name, status')
+        .eq('season', season).eq('week', week)
+        .order('gsis_id', { ascending: true })
+        .range(from, to));
+      rows.push(...weekRows);
+    } catch (e) {
+      console.warn(`   ⚠ nfl_rosters ${season}w${week}: ${e.message} — roster churn disabled (a partial diff would fabricate churn)`);
+      return {};
+    }
   }
   const byTeamWeek = {}; // team -> season-week key -> Map(playerKey -> row)
   for (const r of rows) {
@@ -824,6 +936,14 @@ async function fetchRosterChurn() {
     churnByTeam[team] = { current: { season: curSeason, week: curWeek }, prior: { season: priorSeason, week: priorWeek }, adds, drops, status_changes: statusChanges };
   }
   return churnByTeam;
+}
+
+// Markets whose team/selection label must NOT be run through normalizeTeam():
+// award_* carry player names, and superbowl_matchup carries a two-sided
+// "A vs B" label that normalizeTeam() would silently reduce to just A.
+function isPlayerOrMultiSideMarket(mk) {
+  const m = String(mk || '').toLowerCase();
+  return m.startsWith('award_') || m === 'superbowl_matchup' || m === 'exacta' || m === 'division_exact_position';
 }
 
 // ── odds view ────────────────────────────────────────────────────────────────

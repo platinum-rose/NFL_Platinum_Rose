@@ -55,7 +55,38 @@ export const EVIDENCE_LANE_FILES = Object.freeze([
   // stale/missing file here is real committee-evidence staleness, not an unused
   // artifact (same standard applied to podcast_narratives above).
   { key: 'bettorday_trench', path: 'data/intel/bettorday_trench_ratings_2026.json' },
+  // Added 2026-09-04 (Tier-3 pipeline audit). The normalized-intel sidecar
+  // (agents/signal-normalize.js's output, consumed by portfolio-dossier.js's
+  // makeNormalizedFindLean()) is real committee evidence -- it IS the source
+  // of adjacent_signals, experts, and per-market leans -- but was not a
+  // tracked lane at all, so a dossier built against a stale/regenerated
+  // sidecar had no freshness signal here (portfolio-preflight.js's
+  // C:runorder / signals-vs-dossier check catches run-order violations
+  // independently, but this gate is what a synthesis run itself consults
+  // before spending money). Default model is 'gpt-4o' per
+  // agents/signal-normalize.js's --model default -- override SIGNALS_PATH
+  // env var there and this path together if that ever changes.
+  { key: 'normalized_signals', path: '.nfl/portfolio/normalized-signals-gpt-4o.json' },
 ]);
+
+// Tier-3 fix: the gate was drift-only (hash-diff, or "newer than the
+// dossier") with no absolute-age concept at all, so a lane that was already
+// stale WHEN the dossier was built -- frozen since well before that build and
+// never touched again -- passes forever: it never drifts relative to the
+// dossier's own stamp, because both are equally old. checkDossierFreshness()
+// now accepts an opt-in `maxAgeDays` (see below) to close that gap without
+// changing behavior for any caller that doesn't ask for it (existing tests
+// and the standalone scripts/check-dossier-freshness.js CLI report keep
+// their current pass/stale/missing-only semantics).
+export const DEFAULT_LANE_MAX_AGE_DAYS = 14;
+
+// Per-lane overrides for the default above -- lanes that go stale faster or
+// slower than the 14-day default. Keys not listed here use the default.
+export const LANE_MAX_AGE_DAYS = Object.freeze({
+  training_camp: 5, // in-season camp intel ages out fast
+  bettorday_trench: 10,
+  normalized_signals: 7, // the core intel feed -- should be rebuilt weekly at minimum
+});
 
 function sha256(buffer) {
   return createHash('sha256').update(buffer).digest('hex');
@@ -128,17 +159,29 @@ export async function stampEvidenceLaneVersions(rootDir, files = EVIDENCE_LANE_F
  * `stale_lane_count`/`missing_lane_count`/`mode` directly (see
  * synthesisPreflightDecision() below) rather than branching on `status` alone.
  */
-export function checkDossierFreshness(dossierMeta, currentStats) {
+export function checkDossierFreshness(dossierMeta, currentStats, opts = {}) {
   const generatedAt = dossierMeta?.generated_at ? new Date(dossierMeta.generated_at) : null;
   const stampedLanes = dossierMeta?.evidence_lane_versions?.lanes || null;
   const staleLanes = [];
   const missingLanes = [];
+  const expiredLanes = [];
   const mode = stampedLanes ? 'hash' : (generatedAt ? 'legacy_mtime' : 'unknown');
+  // Opt-in absolute-age check (see DEFAULT_LANE_MAX_AGE_DAYS above). Disabled
+  // unless a caller explicitly passes maxAgeDays -- every existing caller
+  // that doesn't ask for this keeps identical behavior.
+  const { maxAgeDays = null, now = new Date(), laneMaxAgeDays = LANE_MAX_AGE_DAYS } = opts;
 
   for (const current of currentStats) {
     if (current.missing) {
       missingLanes.push(current.key);
       continue;
+    }
+    if (maxAgeDays != null && current.mtime) {
+      const limit = laneMaxAgeDays[current.key] ?? maxAgeDays;
+      const ageDays = (now - new Date(current.mtime)) / 86400000;
+      if (ageDays > limit) {
+        expiredLanes.push({ key: current.key, age_days: Math.round(ageDays * 10) / 10, max_age_days: limit });
+      }
     }
     if (mode === 'hash') {
       const stamped = stampedLanes[current.key];
@@ -160,12 +203,18 @@ export function checkDossierFreshness(dossierMeta, currentStats) {
     mode,
     // 2026-08-13 Codex review fix (finding #3): missing lanes now produce
     // their own 'missing' status instead of silently rolling up to 'pass'.
-    // Priority when multiple conditions apply: unknown > stale > missing > pass.
+    // Tier-3 fix: expired (absolute-age) lanes slot in above missing when
+    // present -- a lane frozen past its max age is a worse sign than a lane
+    // that's merely absent from this build. Priority: unknown > stale >
+    // expired > missing > pass. `expired_lane_count` is always 0 unless the
+    // caller opted in via `maxAgeDays`.
     status: mode === 'unknown'
       ? 'unknown'
-      : (staleLanes.length ? 'stale' : (missingLanes.length ? 'missing' : 'pass')),
+      : (staleLanes.length ? 'stale' : (expiredLanes.length ? 'expired' : (missingLanes.length ? 'missing' : 'pass'))),
     stale_lane_count: staleLanes.length,
     stale_lanes: staleLanes,
+    expired_lane_count: expiredLanes.length,
+    expired_lanes: expiredLanes,
     missing_lane_count: missingLanes.length,
     missing_lanes: missingLanes,
   };
@@ -186,7 +235,7 @@ export function checkDossierFreshness(dossierMeta, currentStats) {
  * @returns {allowed, status, blocking_reasons: string[]}
  */
 export function synthesisPreflightDecision(freshnessResult, overrides = {}) {
-  const { allowStale = false, allowMissing = false, allowUnknown = false } = overrides;
+  const { allowStale = false, allowMissing = false, allowUnknown = false, allowExpired = false } = overrides;
   const blockingReasons = [];
 
   if (freshnessResult.mode === 'unknown' && !allowUnknown) {
@@ -194,6 +243,12 @@ export function synthesisPreflightDecision(freshnessResult, overrides = {}) {
   }
   if (freshnessResult.stale_lane_count > 0 && !allowStale) {
     blockingReasons.push('stale_lanes');
+  }
+  // Tier-3 addition: expired_lane_count is 0 unless the caller opted into
+  // the absolute-age check in checkDossierFreshness(), so this is a no-op
+  // for any caller that hasn't adopted it.
+  if (freshnessResult.expired_lane_count > 0 && !allowExpired) {
+    blockingReasons.push('expired_lanes');
   }
   if (freshnessResult.missing_lane_count > 0 && !allowMissing) {
     blockingReasons.push('missing_lanes');

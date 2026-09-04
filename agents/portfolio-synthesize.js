@@ -78,7 +78,7 @@ import { NFL_TEAMS, normalizeTeam } from '../src/lib/teams.js';
 import { placeableVenuesPromptSentence } from '../src/lib/executionVenues.js';
 import { validateBoardBatch } from './lib/board-validate.js';
 import { extractResumePrompt } from './lib/portfolio-local-inputs.js';
-import { checkDossierFreshness, collectEvidenceLaneStats, synthesisPreflightDecision } from '../scripts/lib/dossier-freshness-gate.js';
+import { DEFAULT_LANE_MAX_AGE_DAYS, checkDossierFreshness, collectEvidenceLaneStats, synthesisPreflightDecision } from '../scripts/lib/dossier-freshness-gate.js';
 import 'dotenv/config';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -111,6 +111,12 @@ const ALLOW_STALE_DOSSIER = argv.includes('--allow-stale-dossier');
 // in review as too permissive for three genuinely different risk classes.
 const ALLOW_MISSING_EVIDENCE_LANES = argv.includes('--allow-missing-evidence-lanes');
 const ALLOW_UNKNOWN_DOSSIER_FRESHNESS = argv.includes('--allow-unknown-dossier-freshness');
+// 2026-09-04 Tier-3 fix: the freshness gate was drift-only, so a lane stale
+// since before the dossier was even built never surfaces (see
+// scripts/lib/dossier-freshness-gate.js's DEFAULT_LANE_MAX_AGE_DAYS). Opt-in
+// per-lane absolute-age check; --allow-expired-evidence-lanes overrides it
+// the same way the other three classes are overridden.
+const ALLOW_EXPIRED_EVIDENCE_LANES = argv.includes('--allow-expired-evidence-lanes');
 // 2026-09-03 fix (Andy, trust audit): scripts/build-intel-source-audit-report.js
 // already sweeps every intel source (odds books, prediction markets, article
 // evidence, training camp, player availability, ...) and knows how to mark a
@@ -411,6 +417,9 @@ ${JSON.stringify(promptDossier.synthesis_input)}
 ADJACENT SIGNALS (game-level + prop leans per team — use for Week-1 correlation and hedges):
 ${JSON.stringify(promptDossier.adjacent_signals || {})}
 
+EXPERTS (named analyst -> their picks, from the normalized intel signals; this is the map SYSTEM_PROMPT tells you to cite sources from):
+${JSON.stringify(promptDossier.experts || dossier.experts || {})}
+
 ROSTER CHURN (latest week-over-week nflverse roster diff per team — adds/drops/status_changes; a personnel-instability signal, not itself injury-specific):
 ${JSON.stringify(promptDossier.roster_churn || {})}
 
@@ -437,10 +446,35 @@ function edgeMagnitude(row) {
   return Math.abs(row.value_gap ?? row.book_divergence ?? 0);
 }
 
+// Signed edge (positive = value FOR the bettor), where the row schema supports one.
+// null means "no signed-edge concept for this row" (e.g. book_divergence-only rows).
+function edgeValue(row) {
+  if (row.consensus_line != null) {
+    const over = row.best_over_edge_pct;
+    const under = row.best_under_edge_pct;
+    if (over == null && under == null) return null;
+    return Math.max(over ?? -Infinity, under ?? -Infinity);
+  }
+  if (row.value_gap != null) return row.value_gap;
+  if (row.sim?.gap != null) return row.sim.gap;
+  return null;
+}
+
+// Tier-2 fix: the old version ranked purely by |edge|, so a strong NEGATIVE edge
+// (chalk priced short) could bump every genuine positive-edge row out of the slim
+// prompt. Positive-edge rows are now always prioritized into the budget first;
+// only the leftover slots go to the highest-magnitude remaining rows (chalk, or
+// rows with no signed-edge concept at all).
 function takeRows(rows, n) {
-  return [...(rows || [])]
-    .sort((a, b) => Number(hasPrimary(b)) - Number(hasPrimary(a)) || edgeMagnitude(b) - edgeMagnitude(a))
-    .slice(0, n);
+  const all = [...(rows || [])];
+  const positive = all.filter((r) => { const v = edgeValue(r); return v != null && v > 0; });
+  const positiveSet = new Set(positive);
+  const rest = all.filter((r) => !positiveSet.has(r));
+  positive.sort((a, b) => Number(hasPrimary(b)) - Number(hasPrimary(a)) || (edgeValue(b) ?? -Infinity) - (edgeValue(a) ?? -Infinity));
+  rest.sort((a, b) => Number(hasPrimary(b)) - Number(hasPrimary(a)) || edgeMagnitude(b) - edgeMagnitude(a));
+  const kept = positive.slice(0, n);
+  if (kept.length < n) kept.push(...rest.slice(0, n - kept.length));
+  return kept;
 }
 
 function slimBookMap(books, sideFields = false) {
@@ -464,7 +498,7 @@ function slimMarketRow(row) {
 }
 
 function slimTeamProfile(profile) {
-  return keepKeys(profile, ['team', 'prior', 'sos', 'analytics', 'dvoa', 'coaching_profile', 'schedule_context', 'clv_signal', 'injuries', 'player_availability', 'vault_analytical_reads', 'bettorday_trench']);
+  return keepKeys(profile, ['team', 'prior', 'sos', 'analytics', 'dvoa', 'coaching_profile', 'schedule_context', 'officiating_context', 'clv_signal', 'injuries', 'player_availability', 'vault_analytical_reads', 'bettorday_trench', 'training_camp_intel', 'named_player_sizing_gate']);
 }
 
 function slimDossierForPrompt(dossier) {
@@ -474,10 +508,19 @@ function slimDossierForPrompt(dossier) {
     superbowl: 32,
     conference_afc: 16,
     conference_nfc: 16,
+    conference_no_1_seed: 32,
     superbowl_matchup: 80,
-    most_wins: 16,
-    least_wins: 16,
+    most_wins: 32,
+    least_wins: 32,
     division_exact_position: 48,
+    exacta: 48,
+    award_mvp: 24,
+    award_super_bowl_mvp: 24,
+    award_offensive_player_of_year: 24,
+    award_defensive_player_of_year: 24,
+    award_offensive_rookie_of_year: 24,
+    award_defensive_rookie_of_year: 24,
+    award_comeback_player_of_year: 24,
   };
   const input = {};
   for (const [market, rows] of Object.entries(dossier.synthesis_input || {})) {
@@ -487,12 +530,18 @@ function slimDossierForPrompt(dossier) {
   return {
     team_profiles: Object.fromEntries(Object.entries(dossier.team_profiles || {}).map(([team, profile]) => [team, slimTeamProfile(profile)])),
     synthesis_input: input,
-    adjacent_signals: Object.fromEntries(Object.entries(dossier.adjacent_signals || {}).map(([team, row]) => [team, {
-      game_lean_count: row.game_lean_count ?? row.games?.length ?? null,
-      prop_lean_count: row.prop_lean_count ?? row.props?.length ?? null,
-      strongest: row.strongest || null,
-    }])),
+    // Tier-2 fix: the producer (makeNormalizedFindLean in portfolio-dossier.js) emits
+    // adjacent_signals[team] as an ARRAY of {market, direction, strength, who, why} leans,
+    // not an object with game_lean_count/games/props/strongest — those fields never
+    // existed on either shape, so every team was silently zeroed out under --shadow-slim.
+    // The whole structure is small (~25KB across all 32 teams), so pass it through as-is
+    // rather than build another lossy summary shape.
+    adjacent_signals: dossier.adjacent_signals || {},
     roster_churn: dossier.roster_churn || {},
+    // Tier-2 fix: dossier.experts (the named-analyst roster SYSTEM_PROMPT tells the model
+    // to cite from) was assembled but never serialized into the prompt at all. Also small
+    // (~25KB for 86 analysts).
+    experts: dossier.experts || {},
   };
 }
 
@@ -755,6 +804,23 @@ function findDossierRowFor(dossier, market, selection) {
     if (!wanted) return null;
     return rows.find((r) => matchupKeyFromRow(r) === wanted) || null;
   }
+  // Tier-3 fix: try the canonical team key first — the same normalizeTeam()
+  // canonicalization (with its longest-alias-first, word-boundary-aware
+  // matching) already used everywhere else in this file via rowTeamMatches().
+  // The old fallback below scored raw substring/word overlap against the
+  // row's own team text, which can tie-break onto the WRONG team when two
+  // teams share a city or a short alias — and since PRICE_TOLERANCE=0, a
+  // wrong-team match gets reported back as "cited price does not match the
+  // dossier — likely fabricated" against a team the model never meant,
+  // instead of a clean "no dossier row found" lookup miss.
+  const wantedTeam = normalizeTeam(selection);
+  if (wantedTeam) {
+    const exact = rows.find((r) => rowTeamMatches(r, wantedTeam));
+    if (exact) return exact;
+  }
+  // Fallback for selection text normalizeTeam can't resolve to a team at all
+  // (player-name markets like award_*/exacta, which aren't team-keyed) —
+  // unchanged scoring so those markets keep their existing behavior.
   let best = null, bestScore = 0;
   for (const r of rows) {
     const team = (r.team || '').toLowerCase();
@@ -1407,24 +1473,43 @@ function signalAlignment(recMarket, recSide, sigMarket, sigDirection) {
   const positive = dir === 'back' || dir === 'over';
   const negative = dir === 'fade' || dir === 'under';
 
+  // 2026-09-04 fix (NFL_Dashboard intel-pipeline audit): a signal only counts
+  // as support/opposition for a futures-market pick when it comes from a
+  // futures-compatible family itself. A single-game "game"/prop-market signal
+  // is never real evidence for or against a season-long futures claim -- e.g.
+  // a Week N spread fade on the Packers says nothing about their NFC
+  // Championship odds. Previously, any positive/negative-direction signal
+  // fell through to the bottom of this function and was labeled 'aligned' or
+  // 'opposing' regardless of market family, which is exactly how a game-level
+  // "fade the Packers" signal got cross-attached as opposing/aligned evidence
+  // on an unrelated NFC Championship futures candidate. Cross-family signals
+  // now always route to 'related' (shown as "mentions the same team but not a
+  // clean match for this market") instead.
+  const futuresFamilies = ['playoffs', 'conference', 'division', 'superbowl', 'wins'];
+  const sigIsFuturesCompatible = futuresFamilies.includes(sigFamily);
+
   if (recFamily === 'wins') {
-    if (recSide === 'over') {
-      if (dir === 'over' || (positive && sigFamily !== 'wins')) return 'aligned';
-      if (dir === 'under' || dir === 'fade') return 'opposing';
+    if (sigIsFuturesCompatible) {
+      if (recSide === 'over') {
+        if (dir === 'over' || positive) return 'aligned';
+        if (dir === 'under' || dir === 'fade') return 'opposing';
+      }
+      if (recSide === 'under') {
+        if (dir === 'under' || dir === 'fade') return 'aligned';
+        if (dir === 'over' || dir === 'back') return 'opposing';
+      }
     }
-    if (recSide === 'under') {
-      if (dir === 'under' || dir === 'fade') return 'aligned';
-      if (dir === 'over' || dir === 'back') return 'opposing';
-    }
+    return 'related';
   }
 
   if (['playoffs', 'conference', 'division', 'superbowl'].includes(recFamily)) {
-    if (positive && ['playoffs', 'conference', 'division', 'superbowl', 'wins'].includes(sigFamily)) return 'aligned';
-    if (negative && ['playoffs', 'conference', 'division', 'superbowl', 'wins'].includes(sigFamily)) return 'opposing';
+    if (sigIsFuturesCompatible) {
+      if (positive) return 'aligned';
+      if (negative) return 'opposing';
+    }
+    return 'related';
   }
 
-  if (positive) return 'related';
-  if (negative) return 'opposing';
   return 'related';
 }
 
@@ -2649,6 +2734,35 @@ function watchlistReviewHTML(review = []) {
   }).join('');
 }
 
+// Tier-3 fix: surfaces the three "silently degraded" failure modes (a
+// Stage-1 model error, a committee crash, an empty final book) directly in
+// the report itself, not just the run log — the whole point being a human
+// reviewing the HTML/MD output should not be able to mistake a degraded run
+// for a clean one.
+function degradationProblems(meta) {
+  const problems = [];
+  if (meta.stage1_errors?.length) {
+    problems.push(`${meta.stage1_errors.length} Stage-1 model call(s) failed and were excluded from this run: ${meta.stage1_errors.map((e) => `${e.model} (${e.error})`).join('; ')}. This report used fewer analysts than configured.`);
+  }
+  if (meta.committee_ran === false) {
+    problems.push(`The Skeptic/Risk committee crashed${meta.committee_error ? ` (${meta.committee_error})` : ''} — this report falls back to unreviewed Stage-1 candidates. No Skeptic verdict, no Risk/Editor pass, no scenario review.`);
+  }
+  if (meta.final_empty) {
+    problems.push('The final book is EMPTY — zero recommendations survived to this report. Treat this run as failed, not as "the model looked and found nothing."');
+  }
+  return problems;
+}
+function degradationBannerHTML(meta) {
+  const problems = degradationProblems(meta);
+  if (!problems.length) return '';
+  return `<div class="banner-critical"><b>⚠ DEGRADED RUN — review before trusting this report.</b><ul>${problems.map((p) => `<li>${esc(p)}</li>`).join('')}</ul></div>`;
+}
+function degradationBannerMD(meta) {
+  const problems = degradationProblems(meta);
+  if (!problems.length) return [];
+  return ['> ⚠ **DEGRADED RUN — review before trusting this report.**', ...problems.map((p) => `> - ${p}`), ''];
+}
+
 function renderHTML(ranked, passed, killed, byModel, meta, ladders = [], baskets = [], portfolioStrategy = null, watchlistReview = []) {
   const names = modelNames(byModel);
   const watch = names.flatMap((n) => (byModel[n].watch || []).map((w) => `<li><b>${esc(humanizeMarketRefs(w.selection))}</b> <span class="mk">${esc(labelMarket(w.market))}</span> — ${esc(humanizeMarketRefs(w.why))} <i>(${esc(n)})</i></li>`)).join('');
@@ -2660,6 +2774,8 @@ function renderHTML(ranked, passed, killed, byModel, meta, ladders = [], baskets
  h1{margin:0 0 4px} .sub{color:#666;margin-bottom:20px}
  h2{margin:26px 0 10px;padding-bottom:6px;border-bottom:2px solid #eee}
  .banner{background:#fff7ed;border:1px solid #fdba74;border-radius:8px;padding:10px 14px;margin:14px 0;font-size:13px}
+ .banner-critical{background:#fef2f2;border:2px solid #dc2626;border-radius:8px;padding:10px 14px;margin:14px 0;font-size:13px;color:#7f1d1d}
+ .banner-critical b{color:#991b1b}.banner-critical ul{margin:6px 0 0 18px;padding:0}
  .toc{background:#f8fafc;border:1px solid #dbe4ef;border-radius:8px;padding:10px 12px;margin:14px 0 18px;font-size:12px}
  .toc b{display:block;color:#334155;margin-bottom:6px}.toc div{display:flex;gap:6px;flex-wrap:wrap;margin:5px 0}
  .toc a{display:inline-flex;gap:5px;align-items:center;text-decoration:none;color:#334155;border:1px solid #dbe4ef;background:#fff;border-radius:999px;padding:3px 8px}
@@ -2709,6 +2825,7 @@ function renderHTML(ranked, passed, killed, byModel, meta, ladders = [], baskets
 </style>
 <h1>NFL Futures Portfolio — Analyst Committee</h1>
 <div class="sub">${meta.date} · models: ${esc(names.join(' + '))} · season ${esc(meta.season)}${meta.committee_ran === false ? ' · <b>committee skipped (stage 1 only)</b>' : ''}</div>
+${degradationBannerHTML(meta)}
 <div class="banner"><b>Decision support only.</b> These are model proposals for your review — not instructions to bet. Sizing and whether to play at all are your call. Every play lists its strongest disconfirming factor and (once through the committee) a Skeptic verdict; read both first.</div>
 ${badgeKeyHTML()}
 ${reportTOCHTML(ranked, { ladders, baskets, passed, killed, watchCount: names.reduce((sum, n) => sum + (byModel[n].watch || []).length, 0) })}
@@ -2802,6 +2919,7 @@ function renderMD(ranked, passed, killed, byModel, meta, ladders = [], baskets =
   const names = modelNames(byModel);
   const line = (r) => `- **${r.selection}** · ${labelMarket(r.market)} · ${labelType(r.type)} · ${labelEdgeType(r.edge_type)}${r.needs_human_review ? ' · Needs Review' : ''}${r.validation?.length ? ' · 🚫 BOARD VALIDATOR FLAG' : ''}\n  - Quote: ${r.price}@${r.book} · ${labelStakeTier(r.stake_tier)} · Confidence ${r.confidence}\n  - Fair probability: ${percent(r.model_fair_prob) || r.model_fair_prob} · Estimated edge: ${r.edge_pct}%${r.agreement ? ` · Models: ${r.agreement.count} of ${r.agreement.of}` : ''}${r.bet_threshold ? ` · Play only at: ${r.bet_threshold}` : ''}\n  - Source quality: ${sourceQuality(r).label}\n${r.market_view ? `  - Market: ${r.market_view}\n` : ''}${r.football_view ? `  - Football: ${r.football_view}\n` : ''}  - ${r.thesis}\n  - ⚠ ${r.disconfirming_factor}${r.validation?.length ? `\n  - 🚫 Board validator: ${r.validation.join(' · ')}` : ''}${r.skeptic_note ? `\n  - 🕵 Skeptic (${r.skeptic_verdict}): ${r.skeptic_note}` : ''}${r.risk_note ? `\n  - ⚖ Risk: ${r.risk_note}` : ''}${r.entry_plan?.pattern === 'scale_in' ? `\n  - 📐 Scale-in: smaller entry now, add at ${r.entry_plan.add_trigger}${r.entry_plan.note ? ` — ${r.entry_plan.note}` : ''}` : ''}${r.evidence_resolved?.length ? `\n  - 🔗 ${r.evidence_resolved.map((e) => `${e.id}${e.resolved ? `=${JSON.stringify(e.value)}` : ' (unresolved)'}`).join(', ')}` : (r.evidence_ids?.length ? `\n  - 🔗 ${r.evidence_ids.join(', ')} (unresolved — no dossier row match)` : '')}${r.sources?.length ? `\n  - 📣 sources: ${r.sources.join(', ')}` : ''}\n  - timing: **${r.timing?.action}**${r.timing?.trigger ? ` — ${r.timing.trigger}` : ''}${r.timing?.expected_move ? ` (${r.timing.expected_move})` : ''}`;
   const L = [`# NFL Futures Portfolio (Analyst Committee) — ${meta.date}`, '', `Models: ${names.join(' + ')} · season ${meta.season}`, '',
+    ...degradationBannerMD(meta),
     '> Decision support only — proposals for review, not instructions to bet.', '',
     '## How to read a pick card',
     'Market names the bet, Pick Type describes the price profile, and Edge Type explains why the pick surfaced. Fair probability is the model estimate; Estimated edge compares that fair probability to the current price. Play only at is the worst price the report would normally accept. Needs Review means the pick has conflict, correlation, expensive pricing, or another reason for human judgment before action.',
@@ -2955,17 +3073,22 @@ async function persistRecommendationRuns(meta, trail) {
   // 'stale'` blocked; missing lanes and unknown freshness only warned and let
   // synthesis proceed. synthesisPreflightDecision() now blocks on all three
   // failure classes unless the matching flag explicitly overrides that one class.
-  const freshnessCheck = checkDossierFreshness(dossier.meta, await collectEvidenceLaneStats(ROOT));
+  const freshnessCheck = checkDossierFreshness(dossier.meta, await collectEvidenceLaneStats(ROOT), { maxAgeDays: DEFAULT_LANE_MAX_AGE_DAYS });
   const preflight = synthesisPreflightDecision(freshnessCheck, {
     allowStale: ALLOW_STALE_DOSSIER,
     allowMissing: ALLOW_MISSING_EVIDENCE_LANES,
     allowUnknown: ALLOW_UNKNOWN_DOSSIER_FRESHNESS,
+    allowExpired: ALLOW_EXPIRED_EVIDENCE_LANES,
   });
   if (!preflight.allowed) {
     console.error(`✖ dossier freshness preflight FAILED (mode: ${freshnessCheck.mode}, status: ${freshnessCheck.status}) — blocking reasons: ${preflight.blocking_reasons.join(', ')}`);
     if (freshnessCheck.stale_lane_count) {
       console.error(`  ${freshnessCheck.stale_lane_count} STALE evidence lane(s):`);
       for (const lane of freshnessCheck.stale_lanes) console.error(`    - ${lane.key}: ${lane.reason}`);
+    }
+    if (freshnessCheck.expired_lane_count) {
+      console.error(`  ${freshnessCheck.expired_lane_count} EXPIRED evidence lane(s) (older than their max age, regardless of drift):`);
+      for (const lane of freshnessCheck.expired_lanes) console.error(`    - ${lane.key}: ${lane.age_days}d old (limit ${lane.max_age_days}d)`);
     }
     if (freshnessCheck.missing_lane_count) {
       console.error(`  ${freshnessCheck.missing_lane_count} MISSING evidence lane(s): ${freshnessCheck.missing_lanes.join(', ')}`);
@@ -2974,7 +3097,7 @@ async function persistRecommendationRuns(meta, trail) {
       console.error('  Dossier has neither an evidence_lane_versions stamp nor a generated_at timestamp.');
     }
     console.error('  Rebuild the dossier (agents/portfolio-dossier.js) first. To override a specific class with a documented reason, pass'
-      + ' --allow-stale-dossier / --allow-missing-evidence-lanes / --allow-unknown-dossier-freshness — each covers only its own failure class.');
+      + ' --allow-stale-dossier / --allow-missing-evidence-lanes / --allow-unknown-dossier-freshness / --allow-expired-evidence-lanes — each covers only its own failure class.');
     process.exit(1);
   }
   if (freshnessCheck.stale_lane_count && ALLOW_STALE_DOSSIER) {
@@ -2982,6 +3105,9 @@ async function persistRecommendationRuns(meta, trail) {
   }
   if (freshnessCheck.missing_lane_count && ALLOW_MISSING_EVIDENCE_LANES) {
     console.warn(`⚠ dossier freshness check found ${freshnessCheck.missing_lane_count} missing lane(s) but --allow-missing-evidence-lanes was set — proceeding anyway.`);
+  }
+  if (freshnessCheck.expired_lane_count && ALLOW_EXPIRED_EVIDENCE_LANES) {
+    console.warn(`⚠ dossier freshness check found ${freshnessCheck.expired_lane_count} expired lane(s) but --allow-expired-evidence-lanes was set — proceeding anyway.`);
   }
   if (freshnessCheck.mode === 'unknown' && ALLOW_UNKNOWN_DOSSIER_FRESHNESS) {
     console.warn('⚠ dossier freshness could not be determined but --allow-unknown-dossier-freshness was set — proceeding without a freshness guarantee.');
@@ -3068,6 +3194,14 @@ async function persistRecommendationRuns(meta, trail) {
   console.log(`🧠 Stage 1 (Market+Football Analyst) with: ${models.join(' + ')}`);
 
   const byModel = {}; const raw = {};
+  // Tier-3 fix: a per-model Stage-1 failure used to only print to the
+  // console — the run continued single-model with `committee_ran` still
+  // true and no trace of the failure in the report itself (the actual
+  // 2026-09-02 incident: claude-fable-5 died mid-JSON, run silently
+  // continued single-model, report rendered clean and exited 0). Collected
+  // here so the report can carry a hard banner and the process can signal
+  // non-zero on exit even though the run still completes.
+  const stage1Errors = [];
   for (const model of models) {
     try {
       const { text, usage } = await callModel(model, SYSTEM_PROMPT, userContent);
@@ -3077,10 +3211,12 @@ async function persistRecommendationRuns(meta, trail) {
     } catch (e) {
       console.error(`   ✖ ${model}: ${e.message}`);
       raw[model] = { error: e.message };
+      stage1Errors.push({ model, error: e.message });
     }
   }
   const ok = Object.keys(byModel);
   if (!ok.length) { console.error('✖ no model returned a valid portfolio'); process.exitCode = 1; return; }
+  if (stage1Errors.length) console.error(`   ⚠ ${stage1Errors.length}/${models.length} Stage-1 model(s) failed — continuing with ${ok.length} model(s), but this run and its report are DEGRADED.`);
 
   const { candidates } = mergeStage1(byModel);
   console.log(`   merged: ${candidates.length} unique candidates across ${ok.length} model(s)`);
@@ -3096,7 +3232,7 @@ async function persistRecommendationRuns(meta, trail) {
     return (Array.isArray(s) ? s : [s]).map((strategy) => ({ ...strategy, proposed_by: m }));
   });
 
-  const meta = { date: new Date().toISOString().slice(0, 10), season: dossier.meta.season, committee_ran: !SKIP_COMMITTEE, run_id: randomUUID(), watchlist_path: watchlist?.items?.length ? WATCHLIST_PATH : null, watchlist_count: watchlist?.items?.length || 0 };
+  const meta = { date: new Date().toISOString().slice(0, 10), season: dossier.meta.season, committee_ran: !SKIP_COMMITTEE, run_id: randomUUID(), watchlist_path: watchlist?.items?.length ? WATCHLIST_PATH : null, watchlist_count: watchlist?.items?.length || 0, stage1_errors: stage1Errors.length ? stage1Errors : null };
   let final = candidates, passed = [], killed = [];
   const raw2 = {};
   let scenarioReview = null;
@@ -3112,6 +3248,13 @@ async function persistRecommendationRuns(meta, trail) {
       const applied = applySkepticVerdicts(candidates, verdicts);
       console.log(`   skeptic: ${applied.survivors.length} survive, ${applied.killed.length} killed`);
       killed = applied.killed;
+      // Tier-3 fix: narrow `final` to the skeptic-filtered survivors NOW, so
+      // that if the Stage-3 call below throws, the catch block's fallback is
+      // "final stays what the Skeptic already approved" rather than "final
+      // reverts to the untouched, pre-Skeptic candidate list" — which would
+      // silently resurrect every candidate `killed` above just listed as
+      // rejected.
+      final = applied.survivors;
 
       console.log(`⚖ Stage 3 (Risk/Portfolio + Editor) with: ${RISK_MODEL}`);
       const { text: riskText, usage: riskUsage } = await callModel(RISK_MODEL, RISK_EDITOR_SYSTEM_PROMPT, buildRiskEditorUserPrompt(applied.survivors, {
@@ -3131,6 +3274,7 @@ async function persistRecommendationRuns(meta, trail) {
     } catch (e) {
       console.error(`   ✖ committee pass failed, falling back to stage-1 candidates as-is: ${e.message}`);
       meta.committee_ran = false;
+      meta.committee_error = e.message;
     }
   }
 
@@ -3158,6 +3302,11 @@ async function persistRecommendationRuns(meta, trail) {
   final = validateBoardBatch(final, dossier);
   const boardFlagged = final.filter((c) => c.validation?.length).length;
   if (boardFlagged) console.log(`   board validator: ${boardFlagged} candidate(s) flagged (kept, annotated) — see 'validation' on each rec`);
+  // Tier-3 fix: an empty final book used to render a complete, clean-looking
+  // report and exit 0 — visually indistinguishable from "the model looked
+  // and found nothing worth playing" (the actual 2026-09-01/09-02 incidents).
+  meta.final_empty = final.length === 0;
+  if (meta.final_empty) console.error('   ⚠ final book is EMPTY — zero recommendations survived to this report. This run is DEGRADED, not merely quiet.');
 
   // Hedge-basket / parlay-ladder validation (code-owned, same pattern as
   // validateRecommendation above) — resolves every leg against the real
@@ -3201,4 +3350,18 @@ async function persistRecommendationRuns(meta, trail) {
   console.log(`✅ ${base}.md`);
   console.log(`   final book: ${final.length} · passed/killed: ${passed.length + killed.length}`);
   console.log(`   open: Start-Process "${base}.html"`);
+
+  // Tier-3 fix: fail loud. The report is still written above — a degraded
+  // run is more useful to review than none at all — but the process now
+  // signals non-zero so a caller (a scheduled run, a wrapper script) can
+  // detect "this needs a human look" without parsing the HTML.
+  const degradedReasons = [
+    meta.stage1_errors ? `${meta.stage1_errors.length} Stage-1 model error(s)` : null,
+    meta.committee_ran === false ? `committee crashed (${meta.committee_error || 'no error message captured'})` : null,
+    meta.final_empty ? 'final book is empty' : null,
+  ].filter(Boolean);
+  if (degradedReasons.length) {
+    console.error(`\n⚠ DEGRADED RUN — ${degradedReasons.join('; ')}. The report above was still written; review it before trusting it.`);
+    process.exitCode = 1;
+  }
 })().catch((e) => { console.error('✖', e.message); process.exitCode = 1; });
