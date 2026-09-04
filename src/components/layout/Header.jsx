@@ -11,6 +11,7 @@ export default function Header({
   onOpenSplits,
   onOpenSplitsData,
   onOpenSuperContest,
+  onOpenSurvivor,
   onOpenCard,
   onImport,
   onAnalyze,
@@ -84,6 +85,7 @@ export default function Header({
                     for now (standalone deep-dive view is still useful
                     alongside the new ambient splits bars on the cards). */}
                 {profileCanAccessOwnerPortfolio && <PromotedToolButton onClick={onOpenSuperContest} icon={Trophy} label="SuperContest" colorClass="text-orange-400" glowClass="shadow-orange-900/20" />}
+                {profileCanUseLocalTracking && <PromotedToolButton onClick={onOpenSurvivor} icon={Shield} label="Survivor" colorClass="text-amber-400" glowClass="shadow-amber-900/20" />}
                 <PromotedToolButton onClick={onOpenSplits} icon={Activity} label="Pulse" colorClass="text-rose-400" glowClass="shadow-rose-900/20" />
                 {profileCanUseLocalTracking && <PromotedToolButton onClick={onOpenCard} icon={ShoppingBag} label={cartCount > 0 ? `Card (${cartCount})` : 'Card'} colorClass="text-emerald-400" glowClass="shadow-emerald-900/20" />}
                 <div className="h-6 w-px bg-slate-800 mx-1"></div>

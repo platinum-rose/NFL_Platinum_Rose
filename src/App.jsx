@@ -58,6 +58,7 @@ const PulseModal = lazy(() => import('./components/modals/PulseModal'));
 // own dedicated, persistent view -- see the file for why ContestLinesModal's
 // content moved here rather than being extended in place.
 const SuperContestView = lazy(() => import('./components/supercontest/SuperContestView'));
+const SurvivorAlphaView = lazy(() => import('./components/survivor/SurvivorAlphaView'));
 const AudioUploadModal = lazy(() => import('./components/modals/AudioUploadModal'));
 const ReviewPicksModal = lazy(() => import('./components/modals/ReviewPicksModal'));
 const BulkImportModal = lazy(() => import('./components/modals/BulkImportModal'));
@@ -102,7 +103,7 @@ const InjuryCenter = lazy(() => import('./components/injuries/InjuryCenter'));
 
 
 const VALID_TABS = new Set([
-  'dashboard', 'official-picks', 'intel', 'fantasy', 'injuries', 'futures',
+  'dashboard', 'official-picks', 'intel', 'fantasy', 'injuries', 'futures', 'survivor',
   'standings', 'mycard', 'devlab', 'bankroll', 'analytics', 'odds', 'picks', 'props', 'dfs', 'podcasts', 'training-camp'
 ]);
 
@@ -368,7 +369,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#0f0f0f] text-gray-200 font-sans pb-20 selection:bg-[#00d2be] selection:text-black">
-      <Header activeTab={activeTab} setActiveTab={setActiveTab} cartCount={profileCanUseLocalTracking ? myBets.length : 0} onSyncOdds={handleSync} onOpenSplits={() => openModal('pulse')} onOpenSplitsData={() => openModal('splits')} onOpenSuperContest={() => { if (profileCanAccessOwnerPortfolio) openModal('contest'); }} onOpenCard={() => { if (profileCanUseLocalTracking) openModal('myCard'); }} onImport={() => { if (profileCanAccessOwnerPortfolio) openModal('import'); }} onAnalyze={() => { if (profileCanUseAI) openModal('audio'); }} onManage={() => { if (profileCanAccessOwnerPortfolio) openModal('expertMgr'); }} onSave={profileCanAccessOwnerPortfolio ? handleSave : () => {}} onReset={() => { if(profileCanUseLocalTracking && window.confirm("Reset all picks?")) clearBets(); }} onOpenStorage={() => { if (profileCanAccessOwnerPortfolio) openModal('storage'); }} onOpenAgentStatus={() => { if (profileCanUseAI) setAgentStatusOpen(true); }} onOpenProfile={() => setProfileModalOpen(true)} visibleHubs={visibleHubs} profileCanUseAI={profileCanUseAI} profileCanAccessOwnerPortfolio={profileCanAccessOwnerPortfolio} profileCanUseLocalTracking={profileCanUseLocalTracking} />
+      <Header activeTab={activeTab} setActiveTab={setActiveTab} cartCount={profileCanUseLocalTracking ? myBets.length : 0} onSyncOdds={handleSync} onOpenSplits={() => openModal('pulse')} onOpenSplitsData={() => openModal('splits')} onOpenSuperContest={() => { if (profileCanAccessOwnerPortfolio) openModal('contest'); }} onOpenSurvivor={() => { if (profileCanUseLocalTracking) openModal('survivor'); }} onOpenCard={() => { if (profileCanUseLocalTracking) openModal('myCard'); }} onImport={() => { if (profileCanAccessOwnerPortfolio) openModal('import'); }} onAnalyze={() => { if (profileCanUseAI) openModal('audio'); }} onManage={() => { if (profileCanAccessOwnerPortfolio) openModal('expertMgr'); }} onSave={profileCanAccessOwnerPortfolio ? handleSave : () => {}} onReset={() => { if(profileCanUseLocalTracking && window.confirm("Reset all picks?")) clearBets(); }} onOpenStorage={() => { if (profileCanAccessOwnerPortfolio) openModal('storage'); }} onOpenAgentStatus={() => { if (profileCanUseAI) setAgentStatusOpen(true); }} onOpenProfile={() => setProfileModalOpen(true)} visibleHubs={visibleHubs} profileCanUseAI={profileCanUseAI} profileCanAccessOwnerPortfolio={profileCanAccessOwnerPortfolio} profileCanUseLocalTracking={profileCanUseLocalTracking} />
       <AlphaDataPacketProvider enabled={profileMode === PROFILE_MODES.ALPHA}>
         <DashboardLayout showAgentSidebar={profileCanUseAI}>
           <main>
@@ -398,6 +399,7 @@ function App() {
             {activeTab === 'fantasy' && <div className="animate-in fade-in zoom-in duration-300"><FantasyHub /></div>}
             {activeTab === 'injuries' && <div className="animate-in fade-in zoom-in duration-300"><InjuryCenter injuries={injuries} /></div>}
             {activeTab === 'futures' && <div className="animate-in fade-in zoom-in duration-300"><FuturesHub onShowCalculator={() => openModal('unitCalculator')} onAddPosition={() => { if (profileCanUseLocalTracking) openModal('futuresEntry'); }} onAddBet={() => { if (profileCanUseLocalTracking) openModal('betEntry'); }} onImportBets={profileCanAccessOwnerPortfolio ? () => openModal('betImport') : undefined} onShowPending={() => { if (profileCanUseLocalTracking) openModal('pendingBets'); }} onShowSettings={profileCanAccessOwnerPortfolio ? () => openModal('bankrollSettings') : undefined} profileCanUseAI={profileCanUseAI} profileCanAccessOwnerPortfolio={profileCanUseLocalTracking} /></div>}
+            {activeTab === 'survivor' && profileCanUseLocalTracking && <div className="animate-in fade-in zoom-in duration-300"><SurvivorAlphaView schedule={schedule} results={loadFromStorage(PR_STORAGE_KEYS.GAME_RESULTS.key, {})} activeProfile={activeProfile} season={weekInfo.season} /></div>}
             {/* --- Checkpoint 1 stale-tab repair: real render targets for the remaining VALID_TABS ids --- */}
             {activeTab === 'bankroll' && profileCanUseLocalTracking && <div className="animate-in fade-in zoom-in duration-300"><BankrollDashboard onShowCalculator={() => openModal('unitCalculator')} onAddBet={() => openModal('betEntry')} onImportBets={profileCanAccessOwnerPortfolio ? () => openModal('betImport') : undefined} onShowPending={() => openModal('pendingBets')} onShowSettings={profileCanAccessOwnerPortfolio ? () => openModal('bankrollSettings') : undefined} /></div>}
             {activeTab === 'odds' && <div className="animate-in fade-in zoom-in duration-300"><OddsCenter /></div>}
@@ -431,6 +433,27 @@ function App() {
         {selectedGame && <MatchupWizardModal isOpen game={selectedGame} stats={stats} currentWizardData={expertConsensus[selectedGame.id] || null} onClose={() => setSelectedGame(null)} onBet={(id, type, sel, line) => { handleBet(id, type, sel, line); setSelectedGame(null); }} />}
         {modals.pulse && <PulseModal isOpen onClose={() => closeModal('pulse')} games={gamesWithSplits} />}
         {profileCanAccessOwnerPortfolio && modals.contest && <SuperContestView isOpen onClose={() => closeModal('contest')} games={gamesWithSplits} onUpdateContestLines={setContestLines} />}
+        {profileCanUseLocalTracking && modals.survivor && (
+          <div className="fixed inset-0 z-[100] flex items-start justify-center bg-black/80 backdrop-blur-md p-2 md:p-4 pt-14 overflow-y-auto">
+            <div className="w-full max-w-[99vw] 2xl:max-w-[1800px] bg-[#0f0f0f] border border-slate-700 rounded-2xl shadow-2xl p-3 md:p-5 relative">
+              <button
+                onClick={() => closeModal('survivor')}
+                className="absolute right-4 top-4 p-2 rounded-lg bg-slate-900 border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition-all z-20"
+                title="Close Survivor View"
+              >
+                <X size={16} />
+              </button>
+              <SurvivorAlphaView
+                isOpen
+                onClose={() => closeModal('survivor')}
+                schedule={schedule}
+                results={loadFromStorage(PR_STORAGE_KEYS.GAME_RESULTS.key, {})}
+                activeProfile={activeProfile}
+                season={weekInfo.season}
+              />
+            </div>
+          </div>
+        )}
         {modals.splits && <SplitsModal isOpen onClose={() => closeModal('splits')} games={gamesWithSplits} />}
         {profileCanUseAI && modals.audio && <AudioUploadModal isOpen onClose={() => closeModal('audio')} onAnalyze={handleAIAnalyze} />}
         {modals.review && <ReviewPicksModal isOpen onClose={() => closeModal('review')} stagedPicks={stagedPicks} onConfirm={handleConfirmPicks} onDiscard={(idx) => setStagedPicks(prev => prev.filter((_, i) => i !== idx))} />}

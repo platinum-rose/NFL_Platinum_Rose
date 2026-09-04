@@ -96,6 +96,8 @@ const ALPHA_VISIBLE_HUBS = [
   'bankroll',
   'mycard',
   'picks',
+  'survivor',
+  'supercontest',
 ];
 
 const OWNER_PRESET_PROFILES = [
