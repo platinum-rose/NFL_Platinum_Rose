@@ -1,13 +1,18 @@
 [Unit]
-Description=NFL Personal Twitter Bookmarks Agent — Ingests football & CBB betting intel
+Description=NFL Personal Twitter Bookmarks Continuous Harvester Daemon
 After=network-online.target
 Wants=network-online.target
 
 [Service]
-Type=oneshot
+Type=simple
 User=andrewlrose
 WorkingDirectory=/home/andrewlrose/projects/NFL_Dashboard
-ExecStart=/usr/bin/node agents/twitter-bookmarks-agent.js
+ExecStart=/usr/bin/node scripts/twitter-bookmarks-cron.js --daemon
+Restart=always
+RestartSec=30
 StandardOutput=journal
 StandardError=journal
 SyslogIdentifier=nfl-twitter-bookmarks
+
+[Install]
+WantedBy=multi-user.target

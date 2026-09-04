@@ -81,6 +81,7 @@ async function main() {
     { name: 'monitor', script: 'agents/monitor.js', args: [] },
     { name: 'odds-ingest', script: 'agents/odds-ingest.js', args: week ? ['--week', week] : [] },
     { name: 'research-intel', script: 'agents/research-intel-ingest.js', args: liveResearchIntel ? [] : ['--dry-run'] },
+    { name: 'twitter-bookmarks', script: 'agents/twitter-bookmarks-agent.js', args: liveResearchIntel ? [] : ['--dry-run'] },
     { name: 'training-camp-scout', script: 'scripts/training-camp-rss-scout.js', args: liveCampScout ? ['--live'] : [] },
     { name: 'auto-grade', script: 'agents/nfl-auto-grade.js', args: [] },
     { name: 'props-auto-grade', script: 'agents/props-auto-grade.js', args: [] },

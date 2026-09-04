@@ -89,6 +89,9 @@
     "screenshot:scan": "node agents/screenshot-watcher.js",
     "twitter:bookmarks": "node agents/twitter-bookmarks-agent.js",
     "twitter:bookmarks:sample": "node agents/twitter-bookmarks-agent.js --sample",
+    "twitter:bookmarks:dry": "node agents/twitter-bookmarks-agent.js --dry-run",
+    "twitter:bookmarks:cron": "node scripts/twitter-bookmarks-cron.js",
+    "twitter:bookmarks:daemon": "node scripts/twitter-bookmarks-cron.js --daemon",
     "official:proposals:export-test": "node scripts/run-portfolio-corpus.js --scenario supplemental-outperformers --proposal-out-dir data/generated/official-proposals/active",
 
 
