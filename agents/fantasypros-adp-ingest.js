@@ -119,13 +119,22 @@ async function run() {
   const players = await fetchFantasyProsPlayers();
   console.log(`   fetched ${players.length} total players from /nfl/players`);
 
-  const records = mapFantasyProsPlayers(players, { scoring: SCORING, asOf: AS_OF, teams: TEAMS });
+  let records = mapFantasyProsPlayers(players, { scoring: SCORING, asOf: AS_OF, teams: TEAMS });
   console.log(`   filtered to ${records.length} QB/RB/WR/TE rows with a valid ADP`);
   if (!records.length) {
     console.error('✖ no valid rows parsed — check FANTASYPROS_API_KEY plan/tier access');
     process.exitCode = 1;
     return;
   }
+
+  // Deduplicate before writing to prevent "ON CONFLICT DO UPDATE command cannot affect row a second time"
+  const seenKey = new Set();
+  records = records.filter((r) => {
+    const k = `${(r.player || '').toLowerCase()}|${r.source}|${r.scoring}|${r.as_of_date}`;
+    if (seenKey.has(k)) return false;
+    seenKey.add(k);
+    return true;
+  });
 
   for (const s of records.slice(0, 3)) {
     console.log(`   e.g. ${s.player} ${s.position}${s.adp_pos_rank ?? ''} adp ${s.adp} (rd ${s.adp_round})`);

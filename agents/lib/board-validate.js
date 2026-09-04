@@ -104,14 +104,35 @@ export function findRow(dossier, candidate) {
 /**
  * The book+line+price combo actually quoted in the dossier row for this
  * candidate's book+price. Returns null if no such combo exists.
+ *
+ * 2026-09-03 fix (Andy, dry-run finding): single-price markets (superbowl,
+ * conference_*, division_*, playoffs, superbowl_matchup, ...) never carry a
+ * per-book `books` map from portfolio-dossier.js -- only wins-total rows do
+ * (`books: v.per_book`, the only `books:` assignment in
+ * buildSynthesisInput()'s wins branch; the else/non-wins branch only ever
+ * sets `moves`, a move_prob map, never book-level price entries). Before
+ * this fix, `!row?.books` short-circuited to null for every non-wins
+ * candidate regardless of whether its book/price was real, so
+ * `validateBoard()` flagged "no_matching_quote" on essentially every
+ * superbowl/conference/division/playoffs pick -- even ones citing the
+ * dossier's own real best_book/best_price -- while
+ * validateRecommendationStrict() in portfolio-synthesize.js (which checks
+ * best_book/best_price directly) correctly did not. Confirmed via a mocked
+ * dry run using a real dossier row (Packers to win NFC Championship,
+ * 1200@caesars -- the dossier's own current best price) that still tripped
+ * this false positive. Added a non-wins branch that checks best_book/
+ * best_price directly, same exact-match discipline (PRICE_TOLERANCE = 0 in
+ * portfolio-synthesize.js) as the wins branch below and as
+ * validateRecommendationStrict()'s own check.
  */
 export function quotedComboFor(row, candidate) {
   const bookKey = normBook(candidate?.book);
-  if (!bookKey || !row?.books) return null;
-  const entry = row.books[bookKey] ?? row.books[candidate.book];
-  if (!entry) return null;
+  if (!bookKey) return null;
 
   if (isWinsRow(row)) {
+    if (!row?.books) return null;
+    const entry = row.books[bookKey] ?? row.books[candidate.book];
+    if (!entry) return null;
     if (entry.over != null && Number(entry.over) === Number(candidate.price)) {
       return { line: entry.line, price: entry.over, side: 'over', edge_pct: null };
     }
@@ -121,8 +142,18 @@ export function quotedComboFor(row, candidate) {
     return null;
   }
 
-  if (entry.price != null && Number(entry.price) === Number(candidate.price)) {
-    return { line: null, price: entry.price, side: null, edge_pct: null };
+  // Non-wins (single-price) row: prefer a per-book `books` map if one is
+  // ever present (kept for forward-compatibility, e.g. a future dossier
+  // change), otherwise fall back to the row's top-level best_book/
+  // best_price -- the only price data these rows actually carry today.
+  if (row?.books) {
+    const entry = row.books[bookKey] ?? row.books[candidate.book];
+    if (entry?.price != null && Number(entry.price) === Number(candidate.price)) {
+      return { line: null, price: entry.price, side: null, edge_pct: null };
+    }
+  }
+  if (row?.best_book && normBook(row.best_book) === bookKey && row.best_price != null && Number(row.best_price) === Number(candidate.price)) {
+    return { line: null, price: row.best_price, side: null, edge_pct: null };
   }
   return null;
 }
