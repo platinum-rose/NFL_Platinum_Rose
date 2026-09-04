@@ -17,6 +17,22 @@
 //                         what's already in the row. 2026-09-04 Tier-4 wiring: this
 //                         table had 105 rows / 527 items sitting completely unread
 //                         by the dossier before this.)
+//   • research pick signals (research_pick_signals — ALSO already structured
+//                         {team_or_market, bet_type, lean, rationale, confidence}
+//                         via agents/research-intel-ingest.js's regex extraction.
+//                         2026-09-04 Tier-4 wiring: portfolio-dossier.js only ever
+//                         reads this table through buildLeanView(), an INLINE
+//                         FALLBACK that never runs once a normalized-signals
+//                         sidecar exists (which it always does now) — so all 650+
+//                         rows here were reaching nothing, a dead `else` branch.
+//                         Free/code-only like host summaries, but this table is
+//                         52% verbatim article-headline echoes and >60% CFB/other
+//                         sports (this is a raw regex-extraction dump, not a
+//                         curated pick feed) — gatherPickSignalRows() below drops
+//                         both classes before resolving a team, plus a targeted
+//                         guard for state-qualifier college-name collisions
+//                         (normalizeTeam's bare "carolina" alias matching "North
+//                         Carolina +9.5" and resolving it to the Panthers.)
 //
 // An LLM decides, per item: is this an actionable NFL betting lean (not just a
 // mention / news)? If so it emits {team, market, direction, strength}. Teams are
@@ -29,7 +45,7 @@
 // Usage:
 //   node agents/signal-normalize.js --dry-run            # extract + print, no DB write
 //   node agents/signal-normalize.js                      # live upsert to normalized_signals
-//   flags: --model gpt-4o | claude-fable-5   --limit N   --source article|podcast_intel|podcast_pick|expert|podcast_host_summary
+//   flags: --model gpt-4o | claude-fable-5   --limit N   --source article|podcast_intel|podcast_pick|expert|podcast_host_summary|pick_signal
 //
 // Env: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, and OPENAI_API_KEY and/or ANTHROPIC_API_KEY
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -39,6 +55,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createClient } from '@supabase/supabase-js';
 import { normalizeTeam } from '../src/lib/teams.js';
+import { isNflBettingIntel } from './lib/sportsRelevanceFilter.js';
 import 'dotenv/config';
 
 const OUT_DIR = path.join(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'), '.nfl', 'portfolio');
@@ -172,6 +189,98 @@ async function gatherHostSummaryRows() {
   return rows;
 }
 
+// ── research pick signals: ALREADY-STRUCTURED, but a raw regex-extraction dump
+// with heavy noise — no LLM needed, but three drop filters guard the noise before
+// resolving a team (see header comment for the full rationale):
+//   1. isNflBettingIntel() — excludes CFB/CBB/other-sport rows (the 45%+ CFB share).
+//   2. headline-echo — team_or_market === lean and looks like an article title
+//      (raw extraction fell back to the whole headline, not a real pick).
+//   3. state-qualifier collision guard — normalizeTeam() matches bare city/state
+//      aliases word-by-word anywhere in the string ("carolina" in "North Carolina
+//      +9.5" → Panthers). No NFL team name carries a directional qualifier, so
+//      any "North/South/East/West/Central/Western/Eastern <word>" shape is CFB,
+//      never a real NFL line — drop before resolution, don't guess.
+const PICK_SIGNAL_ECHO_MIN_LEN = 40;
+const PICK_SIGNAL_STATE_QUALIFIER_RE = /\b(north|south|east|west|central|western|eastern)\s+[a-z]/i;
+
+function isPickSignalHeadlineEcho(row) {
+  return row.team_or_market === row.lean && String(row.team_or_market || '').length > PICK_SIGNAL_ECHO_MIN_LEN;
+}
+
+function classifyPickSignalMarket(betType, text) {
+  const t = String(text || '').toLowerCase();
+  if (betType === 'spread' || betType === 'moneyline' || betType === 'total') return 'game';
+  if (betType === 'futures') {
+    if (/\bdivision\b/.test(t)) return 'division';
+    if (/\bconference\b|\bafc\b|\bnfc\b/.test(t)) return 'conference';
+    if (/\bplayoffs?\b/.test(t)) return 'playoffs';
+    if (/mvp|coach of the year|rookie|comeback player|gm of the year/.test(t)) return 'award';
+    if (/win total|\bwins?\b/.test(t)) return 'wins';
+    if (/super bowl/.test(t)) return 'superbowl';
+    return 'superbowl'; // futures with no more specific cue — SB odds are the dominant futures shape in this table
+  }
+  return 'other';
+}
+
+// Same back/fade/over/under heuristic buildLeanView() already applies to this
+// table's inline-fallback path — kept identical so a team's lean count doesn't
+// shift just because it's now reached through the normalized-signals path.
+function pickSignalDirection(lean) {
+  const d = String(lean || '').toLowerCase();
+  if (/\bunder\b/.test(d)) return 'under';
+  if (/\bover\b/.test(d)) return 'over';
+  if (/\b(fade|against|avoid|no|short)\b/.test(d)) return 'fade';
+  return 'back';
+}
+
+async function gatherPickSignalRows() {
+  const rows = [];
+  let total = 0, droppedNonNfl = 0, droppedEcho = 0, droppedCollision = 0, droppedAmbiguous = 0, droppedNoTeam = 0;
+  for (let from = 0; ; from += 1000) {
+    const { data: page, error } = await sb.from('research_pick_signals')
+      .select('id, source, author, team_or_market, bet_type, lean, rationale, confidence, captured_at')
+      .order('id', { ascending: true })
+      .range(from, from + 999);
+    if (error) { console.warn(`   ⚠ research_pick_signals: ${error.message} — pick-signal lane truncated at ${rows.length} row(s)`); break; }
+    if (!page?.length) break;
+    for (const r of page) {
+      total++;
+      const relevanceText = `${r.team_or_market || ''} ${r.rationale || ''}`;
+      if (!isNflBettingIntel(relevanceText).isRelevant) { droppedNonNfl++; continue; }
+      if (isPickSignalHeadlineEcho(r)) { droppedEcho++; continue; }
+      if (PICK_SIGNAL_STATE_QUALIFIER_RE.test(r.team_or_market || '')) { droppedCollision++; continue; }
+      // Some rows carry two concatenated team fragments (upstream extraction
+      // corruption — e.g. "Browns New England Patriots -2.5", genuinely a
+      // Patriots line, mislabeled with a stray "Browns" prefix). Resolving
+      // word-by-word and requiring a SINGLE distinct canonical team catches
+      // this rather than silently taking whichever team's alias word happens
+      // to appear first, which is what a bare normalizeTeam() call would do.
+      const distinctTeams = new Set(
+        String(r.team_or_market || '').split(/\s+/)
+          .map((w) => normalizeTeam(w))
+          .filter(Boolean)
+      );
+      if (distinctTeams.size > 1) { droppedAmbiguous++; continue; }
+      const canon = distinctTeams.size === 1 ? [...distinctTeams][0] : normalizeTeam(r.team_or_market);
+      if (!canon) { droppedNoTeam++; continue; }
+      rows.push({
+        model: MODEL, source_type: 'pick_signal', source_ref: `pick:${r.id}`,
+        author: r.author || r.source || null,
+        raw_text: [r.team_or_market, r.rationale].filter(Boolean).join(' — ').slice(0, 600),
+        team: canon,
+        market: classifyPickSignalMarket(r.bet_type, `${r.team_or_market} ${r.rationale}`),
+        direction: pickSignalDirection(r.lean),
+        strength: typeof r.confidence === 'number' ? Math.max(0, Math.min(1, r.confidence)) : null,
+        is_nfl: true,
+        rationale: (r.rationale || '').slice(0, 200),
+      });
+    }
+    if (page.length < 1000) break;
+  }
+  console.log(`   research pick signals: ${total} row(s), ${rows.length} team-resolved (dropped ${droppedNonNfl} non-NFL/CFB, ${droppedEcho} headline-echo, ${droppedCollision} state-qualifier collision, ${droppedAmbiguous} ambiguous multi-team, ${droppedNoTeam} no team match)`);
+  return rows;
+}
+
 // ── gather raw items → [{ source_type, source_ref, raw_text }] ────────────────
 async function gatherItems() {
   const items = [];
@@ -269,10 +378,12 @@ async function normalizeBatch(batch) {
   // (which only bounds the LLM-classified items above; this source is free).
   const wantHostSummaries = !ONLY_SOURCE || ONLY_SOURCE === 'podcast_host_summary';
   const hostSummaryRows = wantHostSummaries ? await gatherHostSummaryRows() : [];
+  const wantPickSignals = !ONLY_SOURCE || ONLY_SOURCE === 'pick_signal';
+  const pickSignalRows = wantPickSignals ? await gatherPickSignalRows() : [];
 
-  if (!items.length && !hostSummaryRows.length) { console.log('   nothing to do'); return; }
+  if (!items.length && !hostSummaryRows.length && !pickSignalRows.length) { console.log('   nothing to do'); return; }
 
-  const allRows = [...hostSummaryRows]; let totalDropped = 0, failed = 0;
+  const allRows = [...hostSummaryRows, ...pickSignalRows]; let totalDropped = 0, failed = 0;
   for (let i = 0; i < items.length; i += BATCH) {
     const batch = items.slice(i, i + BATCH);
     try {
@@ -281,7 +392,7 @@ async function normalizeBatch(batch) {
       process.stdout.write(`\r   batch ${Math.floor(i / BATCH) + 1}/${Math.ceil(items.length / BATCH)} → ${allRows.length} signals`);
     } catch (e) { failed++; console.warn(`\n   ⚠ batch ${i}-${i + BATCH} failed: ${e.message}`); }
   }
-  console.log(`\n   extracted ${allRows.length} NFL signals total (${hostSummaryRows.length} pre-classified host-summary + ${allRows.length - hostSummaryRows.length} LLM-classified; dropped ${totalDropped} unresolved/vague; ${failed} batch failures)`);
+  console.log(`\n   extracted ${allRows.length} NFL signals total (${hostSummaryRows.length} pre-classified host-summary + ${pickSignalRows.length} pre-classified pick-signal + ${allRows.length - hostSummaryRows.length - pickSignalRows.length} LLM-classified; dropped ${totalDropped} unresolved/vague; ${failed} batch failures)`);
   // by market/direction summary
   const byMkt = allRows.reduce((a, r) => ((a[`${r.market}/${r.direction}`] = (a[`${r.market}/${r.direction}`] || 0) + 1), a), {});
   console.log(`   ${JSON.stringify(byMkt)}`);
