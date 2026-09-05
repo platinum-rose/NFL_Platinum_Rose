@@ -1,18 +1,18 @@
 {
   "project_name": "NFL_Dashboard",
   "bridge_version": "1.0",
-  "last_updated": "2026-08-26",
+  "last_updated": "2026-09-05",
   "last_atlas_sync": "2026-07-26",
-  "session_count": 10,
-  "last_session_platform": "antigravity",
+  "session_count": 11,
+  "last_session_platform": "codex",
   "health": {
     "status": "active",
     "days_since_push": 0,
     "open_pr_count": 0,
-    "last_commit_msg": "chore(skills): add handoff-start/close/resume skills implementing the Unified Session Context Protocol for Antigravity/Codex",
+    "last_commit_msg": "chore(handoff): record commit push and m6 sync closeout",
     "last_commit_author": "andrewlrose"
   },
-  "status_summary": "NFL betting analytics dashboard in preseason + Fantasy Football Keeper Suite. Antigravity executed session S243 completing 100% uncapped extractions across 56 Master Reports, generating Master Actionable Betting Intelligence Suite (209 picks in data/podcasts/actionable_betting_recommendations_2026.json and docs/fantasy/MASTER_BETTING_INTELLIGENCE_PACKET_2026.md), building Vegas sharp odds scraper (Circa/Station), integrating Injury Center with Dr. David Chao / PFF medical intel, and drafting formal Alpha Testing Specification in docs/specs/ALPHA_TESTING_SPEC.md.",
+  "status_summary": "NFL betting analytics dashboard in preseason + Fantasy Football Keeper Suite. Codex completed the 2026-09-04/05 git untangle closeout: committed the reviewed Tier 4 futures fixes, Antigravity roster/Survivor work, master report guard, Survivor shell wiring, intel hardening, The League rankings bundle, Twitter harvester/vault sync lane, public schedule odds snapshot, and remaining approved dashboard artifacts through work-stack commit 53c3967, then added a state-only handoff closeout commit. Local dirty exclusions remain intentionally preserved: Vite dev-server change, .nfl gmail test summaries, sensitive Yahoo files, and scratch/tmp piles.",
   "alerts": [
     {
       "id": "yahoo_api_pending_approval",
@@ -25,7 +25,7 @@
   "metrics": {
     "test_count": 94,
     "agent_count": 24,
-    "skills_count": 0,
+    "skills_count": 3,
     "hooks_count": 7,
     "governance_docs": [
       "CLAUDE.md",
@@ -112,6 +112,12 @@
       "date": "2026-08-26",
       "summary": "Completed 100% uncapped extractions across 56 Master Reports, generating Master Actionable Betting Intelligence Suite (209 picks in data/podcasts/actionable_betting_recommendations_2026.json and docs/fantasy/MASTER_BETTING_INTELLIGENCE_PACKET_2026.md), building Vegas sharp odds scraper (Circa/Station), integrating Injury Center with Dr. David Chao / PFF medical intel, and drafting formal in-repo Alpha Testing Specification at docs/specs/ALPHA_TESTING_SPEC.md.",
       "head": "9fe8249"
+    },
+    {
+      "sessions": "codex-2026-09-05-commit-push-m6-sync",
+      "date": "2026-09-05",
+      "summary": "Committed reviewed Tier 4 futures fixes and approved dashboard artifacts in scoped commits, pushed main to origin, and fast-forwarded M6 from ee0931b to 53c3967 while preserving M6 local Gmail-summary artifacts and one modified official-picks active proposal.",
+      "head": "53c3967"
     }
   ]
 }

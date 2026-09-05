@@ -1,44 +1,43 @@
 # NFL_Dashboard — Session Handoff
 > Auto-generated at session end. Read this to resume.
 
-**Date:** 2026-09-04T11:23:32-07:00
+**Date:** 2026-09-05T19:58:12.997Z
 **Branch:** main
 
-## Current Pick Up Here (fresh NFL dev session - local main ahead by 1)
+## Current Pick Up Here (DONE - commit/push/M6 sync closeout)
 
 Resume in `E:\dev\projects\NFL_Dashboard`. Start with timestamped handoff
-`handoffs/2026-09-04-fresh-nfl-dev-and-writers-room-ingest-handoff.md`.
+`handoffs/2026-09-05-1255-codex-commit-push-m6-sync-handoff.md`.
 
-Live state verified by Codex:
+Live state verified by Codex on 2026-09-05:
 
-- `main` is ahead of `origin/main` by 1 commit.
-- Local HEAD is `65d47e3 fix(futures): repair data-correctness, prompt-assembly, and fail-loud gaps in the portfolio pipeline`.
-- `origin/main` is `2c9334a feat(futures): add scale-in entry pattern to Risk/Editor stage`.
-- Antigravity has already ingested final roster snapshots for Honey Badgers and
-  Rose Bowl:
-  - `data/fantasy/honey_badgers_final_rosters_2026.csv` - 204 rows, 12 teams,
-    17 players/team.
-  - `data/fantasy/rose_bowl_final_rosters_2026.csv` - 204 rows, 12 teams,
-    17 players/team.
-- The referenced project-memory file `nfl_dashboard_final_roster_compilation.md`
-  was not found by exact filename/text search in the repo, hidden/ignored repo
-  paths, or local Codex memory folder.
-- No separate 2026 round-by-round draft-results artifact was found. The current
-  Honey Badgers/Rose Bowl CSVs are roster snapshots only; they do not include
-  round, pick number, keeper cost, or drafted-at metadata.
-- NFL comedy voice sample was ingested as private source prep under
-  `docs/writers-room/nfl-comedy-voice/`; this is separate from Abracadickface and
-  does not mean NFL_Dashboard has completed Writers Room adoption.
+- Local `main`, `origin/main`, and M6 `~/projects/NFL_Dashboard` were synced
+  through work-stack commit
+  `53c3967 chore: commit remaining approved dashboard artifacts`; this handoff
+  closeout is a state-only commit on top.
+- The 2026-09-04/05 commit stack is pushed: Tier 4 futures fixes, Antigravity
+  final roster + Survivor Alpha work, master report guard, Survivor app wiring,
+  intel hardening, The League custom rankings, Twitter harvester/vault sync
+  agents, public schedule odds snapshot, and the remaining approved artifacts.
+- M6 was fast-forwarded from `ee0931b` to `53c3967` after a fetch/overlap check.
+  Its existing local dirty files were preserved: one modified active official
+  pick proposal and untracked non-test Gmail summaries.
+- Local Windows worktree intentionally remains dirty only for excluded items:
+  `vite.config.js`, `.nfl/gmail-summaries/*test*`, sensitive Yahoo files, and
+  scratch/tmp/probe piles.
+- Handoff closeout updated `.atlas-bridge/memory.json`, `.nfl/session-log.jsonl`,
+  this `HANDOFF.md`, and the timestamped handoff file.
 
-Immediate next action: start with live Git reconciliation and inspect scoped
-diffs before editing. Highest-signal dev lane is to review/verify the local
-portfolio-pipeline commit `65d47e3` and related dirty files, then decide whether
-to continue portfolio integrity, article-evidence/Bookmaker-BetUS capture, or
-NFL Writers Room adoption as an explicitly approved lane.
+Immediate next action: begin from live Git/status, then choose a single next
+lane with Andy. Sensible candidates are portfolio-pipeline stabilization,
+article-evidence/Bookmaker-BetUS capture integrity, or NFL Writers Room
+adoption/config.
 
-Preserve the dirty worktree. Do not clean, reset, stash, broad-stage, commit,
-push, run paid committee models, write Supabase, or mutate picks/portfolios
-without explicit approval.
+Standing constraints: preserve dirty worktrees; no cleanup/reset/stash/broad
+stage; no paid committee synthesis; no live `agents/signal-normalize.js --source
+pick_signal`; no Supabase writes; no betting picks, official-pick promotions, or
+portfolio mutations; no Yahoo Fantasy work without explicit approval.
+
 
 ## Historical S243 Context (stale, retained for provenance)
 
@@ -71,7 +70,6 @@ data/podcasts/actionable_betting_recommendations_2026.json
 ```
 
 ---
-
 
 
 ## 1. Accomplishments & Verification Summary (Session S243)
@@ -108,17 +106,23 @@ data/podcasts/actionable_betting_recommendations_2026.json
    - Run final dry-run verification of `agents/send-biweekly-digest.js` before any production email dispatch.
 
 
-
 ## Uncommitted Changes
 
+These are intentionally preserved and excluded from the closeout commit.
+
 ### Modified
-- HANDOFF.md
-- agents/portfolio-synthesize.js
-- data/official-picks/proposals/active/candidate-prop-stack-twitter-bm-kc-rice.json
-- data/official-picks/proposals/active/candidate-supercontest-week1-bills.json
-- scripts/triage-unverified-intel.js
-- scripts/verify-intel-sources.js
+- scratch/article_nfl_preseason_week_2_results_seahawks_ti_master_100percent_exhaustive.md
+- scratch/article_nfl_preseason_week_3_best_bets_master_100percent_exhaustive.md
+- scratch/article_nfl_preseason_week_3_starting_quarterbac_master_100percent_exhaustive.md
 - vite.config.js
+
+### Untracked
+- .nfl/gmail-summaries/*test*
+- docs/Yahoo_API_keys
+- docs/Fantasy Sports API access is now live.eml
+- root scratch/probe files (`_audit_*`, `_pf_*`, `_t1_*`, `audit*_tmp.mjs`, etc.)
+- scratch/ large research/tmp pile
+- scripts/_tmp* and scripts_tmp_check_transcript.mjs
 
 ## In Progress
 _No In Progress tasks._
