@@ -1,0 +1,2147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 The League — Draft Dossier &amp; Turn Playbook</title>
+<style>
+  :root {
+    --bg: #0f1319;
+    --panel: #171d26;
+    --panel-2: #1d2530;
+    --border: #2a3340;
+    --text: #e8ecf1;
+    --text-dim: #9aa7b8;
+    --accent: #4fd1c5;
+    --accent-2: #f2b84b;
+    --danger: #e6675a;
+    --me: #234a3d;
+    --me-border: #3fae6a;
+    --wildcard: #4a2a2a;
+    --wildcard-border: #e6675a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.hero {
+    padding: 28px 28px 24px;
+    background: linear-gradient(135deg, #16321f 0%, #122631 60%, #171d26 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 28px;
+  }
+  header.hero h1 {
+    margin: 0 0 6px;
+    font-size: 1.7rem;
+    letter-spacing: -0.01em;
+  }
+  header.hero .subtitle { color: var(--text-dim); font-size: 0.98rem; margin: 0 0 18px; }
+  .stat-row { display: flex; flex-wrap: wrap; gap: 12px; }
+  .stat {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    min-width: 130px;
+  }
+  .stat .k { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-dim); }
+  .stat .v { font-size: 1.05rem; font-weight: 600; margin-top: 2px; }
+
+  h2.section-title {
+    font-size: 1.15rem;
+    margin: 40px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+  p.lede { color: var(--text-dim); margin: 0 0 18px; }
+
+  table.rules {
+    width: 100%; border-collapse: collapse; font-size: 0.92rem;
+    background: var(--panel); border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+  }
+  table.rules td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  table.rules tr:last-child td { border-bottom: none; }
+  table.rules td.n { color: var(--accent); font-weight: 700; width: 28px; }
+
+  table.keepers { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-top: 8px; }
+  table.keepers th {
+    text-align: left; padding: 8px 12px; font-size: 0.72rem; text-transform: uppercase;
+    letter-spacing: 0.03em; color: var(--text-dim); border-bottom: 1px solid var(--border);
+  }
+  table.keepers td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  table.keepers tr.me { background: var(--me); }
+  table.keepers tr.me td:first-child { border-left: 3px solid var(--me-border); }
+  table.keepers tr.wildcard { background: var(--wildcard); }
+  table.keepers tr.wildcard td:first-child { border-left: 3px solid var(--wildcard-border); }
+  table.keepers .mgr { color: var(--text-dim); }
+  table.keepers .mini-pos { color: var(--text-dim); font-size: 0.8em; }
+  table.keepers .num { color: var(--text-dim); font-variant-numeric: tabular-nums; }
+
+  .wildcard-box {
+    background: var(--wildcard);
+    border: 1px solid var(--wildcard-border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-top: 16px;
+  }
+  .wildcard-box h4 { margin: 0 0 8px; color: #ffb3a8; }
+  .wildcard-box p { margin: 6px 0; color: #f0d9d5; font-size: 0.93rem; }
+
+  section.turn {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 20px 14px;
+    margin-bottom: 18px;
+  }
+  section.turn.skip {
+    background: var(--panel-2);
+    border-style: dashed;
+  }
+  .turn-head { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 8px; }
+  .turn-badge {
+    flex: none;
+    width: 52px; height: 52px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent), #2c9c8f);
+    color: #06231f;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 1.0rem;
+  }
+  .turn-badge.skip { background: linear-gradient(135deg, #555, #333); color: #ccc; }
+  .turn-title h3 { margin: 0; font-size: 1.05rem; }
+  .turn-title .rp { color: var(--accent); font-variant-numeric: tabular-nums; }
+  .turn-sub { margin: 2px 0 0; color: var(--text-dim); font-size: 0.85rem; }
+  .turn-note { color: #cfd8e3; font-size: 0.92rem; margin: 8px 0 12px; }
+  .skip-note { color: #b9c2cc; font-size: 0.92rem; margin: 6px 0 2px; }
+
+  table.board { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  table.board th {
+    text-align: left; padding: 6px 8px; font-size: 0.7rem; text-transform: uppercase;
+    letter-spacing: 0.03em; color: var(--text-dim); border-bottom: 1px solid var(--border);
+  }
+  table.board td { padding: 6px 8px; border-bottom: 1px solid #212a35; }
+  table.board .num { color: var(--text-dim); font-variant-numeric: tabular-nums; text-align: right; }
+  table.board .pl { font-weight: 600; }
+  table.board .team { color: var(--text-dim); }
+  table.board .vorp { font-weight: 600; }
+  tr.wrow.anchor { background: rgba(79, 209, 197, 0.08); }
+  tr.wrow.anchor .pl::after { content: " ◆"; color: var(--accent); }
+
+  .pill {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 1px 7px;
+    border-radius: 999px;
+    color: #fff;
+    background: var(--pc, #666);
+  }
+
+  .anchor-legend { font-size: 0.76rem; color: var(--text-dim); margin: 8px 0 0; }
+
+  .callout {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent-2);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .callout strong { color: var(--accent-2); }
+
+  footer {
+    margin-top: 48px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 0.8rem;
+  }
+
+  @media print {
+    body { background: #fff; color: #000; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>2026 The League — Draft Dossier &amp; Turn-by-Turn Playbook</h1>
+    <p class="subtitle">Fat Lazy Americans (Andy) &middot; Draft slot 12 &middot; 12-team Half-PPR keeper dynasty &middot; Official 9-Rule keeper system</p>
+    <div class="stat-row">
+      <div class="stat"><div class="k">Draft slot</div><div class="v">12 of 12</div></div>
+      <div class="stat"><div class="k">Opening double-turn</div><div class="v">1.12 &rarr; 2.01</div></div>
+      <div class="stat"><div class="k">Locked keepers</div><div class="v">JSN (Rd 4) &middot; Burrow (Rd 10)</div></div>
+      <div class="stat"><div class="k">Live picks for you</div><div class="v">15 of 17 rounds</div></div>
+      <div class="stat"><div class="k">League-wide keepers off board</div><div class="v">17 players</div></div>
+      <div class="stat"><div class="k">Total live picks, full draft</div><div class="v">187</div></div>
+    </div>
+  </header>
+
+  <h2 class="section-title">How to read this</h2>
+  <p class="lede">
+    Your roster is <strong>QB&middot;WR&middot;WR&middot;RB&middot;RB&middot;TE&middot;W/R&middot;K&middot;D&middot;D&middot;D&middot;BN&times;6</strong> &mdash;
+    17 total spots. Two are already filled by your keepers (Jaxon Smith-Njigba at your WR slot, Joe Burrow at QB), which is why your
+    Round&nbsp;4 and Round&nbsp;10 turns show as <strong>skipped</strong> below &mdash; the keeper occupies that draft-cost round, so the
+    clock passes your slot entirely and rolls to the next team. Everywhere else, the highlighted (◆) row in each turn's table is
+    the player who lines up with your pick if every other manager drafts in perfect rank order &mdash; real drafts run hot and cold
+    around that marker, so treat the full 12-13 player window as your realistic shopping list for that turn, not a prediction of
+    exactly who's there.
+  </p>
+
+  <h2 class="section-title">The Official 9-Rule keeper system</h2>
+  <table class="rules">
+    <tr><td class="n">1</td><td><strong>Round 1 &amp; 2 Lockout</strong> — players drafted in the 1st or 2nd round cannot be kept (unless FA-reset before Week 11).</td></tr>
+    <tr><td class="n">2</td><td><strong>-2 Round Discount</strong> — keeping a player costs a pick 2 rounds earlier than where they were drafted.</td></tr>
+    <tr><td class="n">3</td><td><strong>3-Year Tenure Limit</strong> — a player can't be kept more than 3 consecutive years.</td></tr>
+    <tr><td class="n">4</td><td><strong>Active Lineup Requirement</strong> — must have started at least 1 week to be keeper-eligible.</td></tr>
+    <tr><td class="n">5</td><td><strong>Round 10 FA Reset</strong> — in-season free-agent pickups (or players claimed after being dropped, before Week 11) reset to a Round 10 keeper cost.</td></tr>
+    <tr><td class="n">6</td><td><strong>Round 14 Late-Round Floor</strong> — Round 14+ picks can only be kept at a Round 14 cost.</td></tr>
+    <tr><td class="n">7</td><td><strong>Week 11 Roster Cutoff</strong> — waiver pickups after Week 11 aren't keeper-eligible.</td></tr>
+    <tr><td class="n">8</td><td><strong>Trade Transfer</strong> — keeper cost and value travel with the player in a trade.</td></tr>
+    <tr><td class="n">9</td><td><strong>Same-Round Collision</strong> — two keepers landing in the same round forces one to bump one round earlier.</td></tr>
+  </table>
+
+  <h2 class="section-title">Keeper landscape — every team, all 12 slots</h2>
+  <p class="lede">11 of 12 teams have declared. This matters for your plan because every locked keeper below is <em>already off the board</em> in the round shown — they never appear in your live-pick windows.</p>
+  <table class="keepers">
+    <thead><tr><th>Slot</th><th>Team</th><th>Manager</th><th>Keepers (round cost)</th></tr></thead>
+    <tbody>
+      <tr>
+          <td class="num">1</td>
+          <td>Oroszlanok</td>
+          <td class="mgr">Thomas</td>
+          <td>Kyren Williams <span class="mini-pos">RB</span> &mdash; Rd 6<br>Quinshon Judkins <span class="mini-pos">RB</span> &mdash; Rd 9</td>
+        </tr>
+<tr>
+          <td class="num">2</td>
+          <td>Rafi Bomb Returns!</td>
+          <td class="mgr">Matthew</td>
+          <td><em>None declared</em></td>
+        </tr>
+<tr>
+          <td class="num">3</td>
+          <td>MombaMentality</td>
+          <td class="mgr">Wendy</td>
+          <td>Chase Brown <span class="mini-pos">RB</span> &mdash; Rd 4</td>
+        </tr>
+<tr class="wildcard">
+          <td class="num">4</td>
+          <td>No Talent Ass Clowns</td>
+          <td class="mgr">Unknown</td>
+          <td><em>UNDECLARED &mdash; wildcard, see below</em></td>
+        </tr>
+<tr>
+          <td class="num">5</td>
+          <td>I LIKE BIG TDS</td>
+          <td class="mgr">Wesley</td>
+          <td>Puka Nacua <span class="mini-pos">WR</span> &mdash; Rd 6</td>
+        </tr>
+<tr>
+          <td class="num">6</td>
+          <td>Wailin Raylans</td>
+          <td class="mgr">Amanda</td>
+          <td>Colston Loveland <span class="mini-pos">TE</span> &mdash; Rd 10</td>
+        </tr>
+<tr>
+          <td class="num">7</td>
+          <td>Billy Goat Tavern</td>
+          <td class="mgr">Amzie</td>
+          <td>Ladd McConkey <span class="mini-pos">WR</span> &mdash; Rd 4<br>Matthew Stafford <span class="mini-pos">QB</span> &mdash; Rd 10</td>
+        </tr>
+<tr>
+          <td class="num">8</td>
+          <td>Berserker</td>
+          <td class="mgr">Peter</td>
+          <td>Javonte Williams <span class="mini-pos">RB</span> &mdash; Rd 7<br>Rashee Rice <span class="mini-pos">WR</span> &mdash; Rd 9</td>
+        </tr>
+<tr>
+          <td class="num">9</td>
+          <td>Dumpster Fire</td>
+          <td class="mgr">e b</td>
+          <td>De&#x27;Von Achane <span class="mini-pos">RB</span> &mdash; Rd 6<br>Cam Skattebo <span class="mini-pos">RB</span> &mdash; Rd 8</td>
+        </tr>
+<tr>
+          <td class="num">10</td>
+          <td>Kona&#x27;s Kickers</td>
+          <td class="mgr">Leslie</td>
+          <td>Zay Flowers <span class="mini-pos">WR</span> &mdash; Rd 4<br>Travis Etienne Jr. <span class="mini-pos">RB</span> &mdash; Rd 5</td>
+        </tr>
+<tr>
+          <td class="num">11</td>
+          <td>Postino&#x27;s Banditos</td>
+          <td class="mgr">Matt</td>
+          <td>DeVonta Smith <span class="mini-pos">WR</span> &mdash; Rd 3<br>Brock Bowers <span class="mini-pos">TE</span> &mdash; Rd 4</td>
+        </tr>
+<tr class="me">
+          <td class="num">12</td>
+          <td>Fat Lazy Americans</td>
+          <td class="mgr">Andy (you)</td>
+          <td>Jaxon Smith-Njigba <span class="mini-pos">WR</span> &mdash; Rd 4<br>Joe Burrow <span class="mini-pos">QB</span> &mdash; Rd 10</td>
+        </tr>
+    </tbody>
+  </table>
+
+  <div class="wildcard-box">
+    <h4>⚠ The wildcard: No Talent Ass Clowns (slot 4, undeclared)</h4>
+    <p><strong>Nothing filed and nothing implied in league chat.</strong> Every turn-by-turn window below assumes this team keeps
+    zero players (the most favorable case for you — the fullest possible board). If they declare 1-2 keepers before the deadline,
+    the practical effect on your plan is small but real: it removes 1-2 more players from whatever round(s) they cost, which very
+    slightly speeds up how fast the board in front of you thins in that range. It does <em>not</em> change your own pick numbers or
+    change whether your Round 4 / Round 10 turns are live (those are fixed by your own keepers only).</p>
+    <p><strong>What to actually do about it:</strong> nothing differently before the draft. Just don't be surprised if a round you
+    expected to have slightly more depth (most likely somewhere in Rounds 4-10, based on how every other team in this league has
+    costed their keepers) runs one or two names thinner than the windows below show. If it changes anything, it's a reason to
+    lean slightly toward taking the safer/more proven name over the upside swing when two options in a window look close.</p>
+  </div>
+
+  <div class="callout">
+    <strong>TE market note:</strong> Two of the four clear top-tier tight ends are already gone to keepers before you ever pick —
+    Brock Bowers (Postino's Banditos, Rd 4) and Colston Loveland (Wailin Raylans, Rd 10). Trey McBride is the best remaining
+    TE1 and, per the pick math below, has a real chance to still be sitting at your very first turn (1.12) — that's a notably
+    better TE outcome than the raw ADP would suggest, precisely because two mid-round keeper locks quietly thinned the position
+    above you.
+  </div>
+
+  <h2 class="section-title">Your turn-by-turn playbook (15 live picks)</h2>
+  
+    <section class="turn">
+      <div class="turn-head">
+        <div class="turn-badge">R1</div>
+        <div class="turn-title">
+          <h3>Round 1 &middot; <span class="rp">1.12</span></h3>
+          <p class="turn-sub">Live pick #12 of 187 &middot; overall slot label 12</p>
+        </div>
+      </div>
+      <p class="turn-note">Your two double-turn picks (1.12 into 2.01) are really one mega-pick — you'll own back-to-back selections with almost no one else touching the board in between. Take the single best player alive; RB is where the depth is thinnest early (Henry, Cook, Barkley, Walker all plausible fallers to 12) and you don't have a locked RB, unlike your locked WR1 (JSN) and QB (Burrow).</p>
+      <table class="board">
+        <thead><tr><th>Avail&nbsp;#</th><th>Player</th><th>Pos</th><th>Team</th><th>Proj</th><th>VORP</th></tr></thead>
+        <tbody><tr class="wrow">
+      <td class="num">5</td>
+      <td class="pl">Ja&#x27;Marr Chase</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">CIN</td>
+      <td class="num">275.2</td>
+      <td class="num vorp">+112.1</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">6</td>
+      <td class="pl">Derrick Henry</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">BAL</td>
+      <td class="num">265.8</td>
+      <td class="num vorp">+100.7</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">7</td>
+      <td class="pl">Amon-Ra St. Brown</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">DET</td>
+      <td class="num">261.2</td>
+      <td class="num vorp">+98.1</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">8</td>
+      <td class="pl">James Cook III</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">BUF</td>
+      <td class="num">254.1</td>
+      <td class="num vorp">+89.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">9</td>
+      <td class="pl">Saquon Barkley</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">PHI</td>
+      <td class="num">243.8</td>
+      <td class="num vorp">+78.7</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">10</td>
+      <td class="pl">Josh Allen</td>
+      <td><span class="pill" style="--pc:#7c6fd1">QB</span></td>
+      <td class="team">BUF</td>
+      <td class="num">414.3</td>
+      <td class="num vorp">+71.3</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">11</td>
+      <td class="pl">Kenneth Walker III</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">KC</td>
+      <td class="num">236.4</td>
+      <td class="num vorp">+71.3</td>
+    </tr>
+<tr class="wrow anchor">
+      <td class="num">12</td>
+      <td class="pl">Trey McBride</td>
+      <td><span class="pill" style="--pc:#d98c2b">TE</span></td>
+      <td class="team">ARI</td>
+      <td class="num">201.5</td>
+      <td class="num vorp">+70.1</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">13</td>
+      <td class="pl">Ashton Jeanty</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">LV</td>
+      <td class="num">231.8</td>
+      <td class="num vorp">+66.7</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">14</td>
+      <td class="pl">Drake London</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">ATL</td>
+      <td class="num">227.1</td>
+      <td class="num vorp">+64.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">15</td>
+      <td class="pl">Omarion Hampton</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">LAC</td>
+      <td class="num">228.9</td>
+      <td class="num vorp">+63.8</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">16</td>
+      <td class="pl">CeeDee Lamb</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">DAL</td>
+      <td class="num">224.0</td>
+      <td class="num vorp">+60.9</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">17</td>
+      <td class="pl">Jordyn Brooks</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">MIA</td>
+      <td class="num">193.5</td>
+      <td class="num vorp">+60.6</td>
+    </tr></tbody>
+      </table>
+      <p class="anchor-legend">Highlighted row = the realistic &ldquo;board runs true&rdquo; marker for this pick &mdash; real drafts run hot/cold around it, so treat the whole window as your shopping list, not a prediction.</p>
+    </section>
+
+    <section class="turn">
+      <div class="turn-head">
+        <div class="turn-badge">R2</div>
+        <div class="turn-title">
+          <h3>Round 2 &middot; <span class="rp">2.01</span></h3>
+          <p class="turn-sub">Live pick #13 of 187 &middot; overall slot label 13</p>
+        </div>
+      </div>
+      <p class="turn-note">Second half of your double-turn. Whatever position you didn't take at 1.12, take the best of it here — a true 1-2 RB punch, or your RB1 plus a true WR2 to pair with JSN. McBride (TE) may realistically survive to here if two RB-needy teams jump ahead of him — a locked-in TE1 this early is a real luxury since Bowers and Loveland are already off the board to other teams.</p>
+      <table class="board">
+        <thead><tr><th>Avail&nbsp;#</th><th>Player</th><th>Pos</th><th>Team</th><th>Proj</th><th>VORP</th></tr></thead>
+        <tbody><tr class="wrow">
+      <td class="num">6</td>
+      <td class="pl">Derrick Henry</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">BAL</td>
+      <td class="num">265.8</td>
+      <td class="num vorp">+100.7</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">7</td>
+      <td class="pl">Amon-Ra St. Brown</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">DET</td>
+      <td class="num">261.2</td>
+      <td class="num vorp">+98.1</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">8</td>
+      <td class="pl">James Cook III</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">BUF</td>
+      <td class="num">254.1</td>
+      <td class="num vorp">+89.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">9</td>
+      <td class="pl">Saquon Barkley</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">PHI</td>
+      <td class="num">243.8</td>
+      <td class="num vorp">+78.7</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">10</td>
+      <td class="pl">Josh Allen</td>
+      <td><span class="pill" style="--pc:#7c6fd1">QB</span></td>
+      <td class="team">BUF</td>
+      <td class="num">414.3</td>
+      <td class="num vorp">+71.3</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">11</td>
+      <td class="pl">Kenneth Walker III</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">KC</td>
+      <td class="num">236.4</td>
+      <td class="num vorp">+71.3</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">12</td>
+      <td class="pl">Trey McBride</td>
+      <td><span class="pill" style="--pc:#d98c2b">TE</span></td>
+      <td class="team">ARI</td>
+      <td class="num">201.5</td>
+      <td class="num vorp">+70.1</td>
+    </tr>
+<tr class="wrow anchor">
+      <td class="num">13</td>
+      <td class="pl">Ashton Jeanty</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">LV</td>
+      <td class="num">231.8</td>
+      <td class="num vorp">+66.7</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">14</td>
+      <td class="pl">Drake London</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">ATL</td>
+      <td class="num">227.1</td>
+      <td class="num vorp">+64.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">15</td>
+      <td class="pl">Omarion Hampton</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">LAC</td>
+      <td class="num">228.9</td>
+      <td class="num vorp">+63.8</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">16</td>
+      <td class="pl">CeeDee Lamb</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">DAL</td>
+      <td class="num">224.0</td>
+      <td class="num vorp">+60.9</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">17</td>
+      <td class="pl">Jordyn Brooks</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">MIA</td>
+      <td class="num">193.5</td>
+      <td class="num vorp">+60.6</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">18</td>
+      <td class="pl">Jeremiyah Love</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">ARI</td>
+      <td class="num">224.4</td>
+      <td class="num vorp">+59.3</td>
+    </tr></tbody>
+      </table>
+      <p class="anchor-legend">Highlighted row = the realistic &ldquo;board runs true&rdquo; marker for this pick &mdash; real drafts run hot/cold around it, so treat the whole window as your shopping list, not a prediction.</p>
+    </section>
+
+    <section class="turn">
+      <div class="turn-head">
+        <div class="turn-badge">R3</div>
+        <div class="turn-title">
+          <h3>Round 3 &middot; <span class="rp">3.12</span></h3>
+          <p class="turn-sub">Live pick #35 of 187 &middot; overall slot label 36</p>
+        </div>
+      </div>
+      <p class="turn-note">The gap before this pick is only ~10-11 live selections (Postino's skips their own turn here on a keeper), so the board moves less than a full round. Good spot for a WR2/3 or a value RB — Swift, Nabers, Irving, Garrett Wilson are the type of names that land in this window.</p>
+      <table class="board">
+        <thead><tr><th>Avail&nbsp;#</th><th>Player</th><th>Pos</th><th>Team</th><th>Proj</th><th>VORP</th></tr></thead>
+        <tbody><tr class="wrow">
+      <td class="num">28</td>
+      <td class="pl">D&#x27;Andre Swift</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">CHI</td>
+      <td class="num">205.5</td>
+      <td class="num vorp">+40.4</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">29</td>
+      <td class="pl">Nick Bolton</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">KC</td>
+      <td class="num">172.0</td>
+      <td class="num vorp">+39.1</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">30</td>
+      <td class="pl">Malik Nabers</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">NYG</td>
+      <td class="num">199.8</td>
+      <td class="num vorp">+36.7</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">31</td>
+      <td class="pl">Carson Schwesinger</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">CLE</td>
+      <td class="num">169.6</td>
+      <td class="num vorp">+36.7</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">32</td>
+      <td class="pl">Fred Warner</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">SF</td>
+      <td class="num">168.9</td>
+      <td class="num vorp">+36.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">33</td>
+      <td class="pl">Bucky Irving</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">TB</td>
+      <td class="num">199.7</td>
+      <td class="num vorp">+34.6</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">34</td>
+      <td class="pl">Mack Wilson Sr.</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">ARI</td>
+      <td class="num">166.8</td>
+      <td class="num vorp">+33.9</td>
+    </tr>
+<tr class="wrow anchor">
+      <td class="num">35</td>
+      <td class="pl">Garrett Wilson</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">NYJ</td>
+      <td class="num">194.8</td>
+      <td class="num vorp">+31.7</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">36</td>
+      <td class="pl">Foyesade Oluokun</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">JAC</td>
+      <td class="num">163.8</td>
+      <td class="num vorp">+30.9</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">37</td>
+      <td class="pl">Tetairoa McMillan</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">CAR</td>
+      <td class="num">193.1</td>
+      <td class="num vorp">+30.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">38</td>
+      <td class="pl">Bhayshul Tuten</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">JAC</td>
+      <td class="num">194.9</td>
+      <td class="num vorp">+29.8</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">39</td>
+      <td class="pl">Cedric Gray</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">TEN</td>
+      <td class="num">162.4</td>
+      <td class="num vorp">+29.5</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">40</td>
+      <td class="pl">Lamar Jackson</td>
+      <td><span class="pill" style="--pc:#7c6fd1">QB</span></td>
+      <td class="team">BAL</td>
+      <td class="num">371.9</td>
+      <td class="num vorp">+28.9</td>
+    </tr></tbody>
+      </table>
+      <p class="anchor-legend">Highlighted row = the realistic &ldquo;board runs true&rdquo; marker for this pick &mdash; real drafts run hot/cold around it, so treat the whole window as your shopping list, not a prediction.</p>
+    </section>
+
+    <section class="turn skip">
+      <div class="turn-head">
+        <div class="turn-badge skip">R4</div>
+        <div class="turn-title">
+          <h3>Round 4 &middot; <span class="rp">4.01</span></h3>
+          <p class="turn-sub">No live pick &mdash; keeper slot</p>
+        </div>
+      </div>
+      <p class="skip-note">This round is already spent: <strong>Jaxon Smith-Njigba</strong> (WR) occupies your Round 4 keeper cost.
+      The draft clock skips your slot entirely here &mdash; treat your next live turn as coming right after a full round of other teams drafting.</p>
+    </section>
+
+    <section class="turn">
+      <div class="turn-head">
+        <div class="turn-badge">R5</div>
+        <div class="turn-title">
+          <h3>Round 5 &middot; <span class="rp">5.12</span></h3>
+          <p class="turn-sub">Live pick #53 of 187 &middot; overall slot label 60</p>
+        </div>
+      </div>
+      <p class="turn-note">Your R4 pick is spent already (JSN keeper occupies it) — you'll go from your R3 selection straight through an entire round of other teams' picks before you're on the clock again, roughly 18 live picks pass. Treat this as a big value swing: WR depth (Adams, Higgins, Jameson Williams) or the QB2 tier (Maye, Hurts) if you want Burrow insurance, though QB depth isn't a real need with Burrow locked.</p>
+      <table class="board">
+        <thead><tr><th>Avail&nbsp;#</th><th>Player</th><th>Pos</th><th>Team</th><th>Proj</th><th>VORP</th></tr></thead>
+        <tbody><tr class="wrow">
+      <td class="num">46</td>
+      <td class="pl">Davante Adams</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">LAR</td>
+      <td class="num">187.8</td>
+      <td class="num vorp">+24.7</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">47</td>
+      <td class="pl">Alex Singleton</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">DEN</td>
+      <td class="num">156.1</td>
+      <td class="num vorp">+23.2</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">48</td>
+      <td class="pl">Tee Higgins</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">CIN</td>
+      <td class="num">186.2</td>
+      <td class="num vorp">+23.1</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">49</td>
+      <td class="pl">Jamien Sherwood</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">NYJ</td>
+      <td class="num">156.0</td>
+      <td class="num vorp">+23.1</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">50</td>
+      <td class="pl">Roquan Smith</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">BAL</td>
+      <td class="num">156.0</td>
+      <td class="num vorp">+23.1</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">51</td>
+      <td class="pl">Drake Maye</td>
+      <td><span class="pill" style="--pc:#7c6fd1">QB</span></td>
+      <td class="team">NE</td>
+      <td class="num">365.7</td>
+      <td class="num vorp">+22.7</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">52</td>
+      <td class="pl">Jameson Williams</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">DET</td>
+      <td class="num">185.2</td>
+      <td class="num vorp">+22.1</td>
+    </tr>
+<tr class="wrow anchor">
+      <td class="num">53</td>
+      <td class="pl">Tremaine Edmunds</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">NYG</td>
+      <td class="num">154.1</td>
+      <td class="num vorp">+21.2</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">54</td>
+      <td class="pl">George Kittle</td>
+      <td><span class="pill" style="--pc:#d98c2b">TE</span></td>
+      <td class="team">SF</td>
+      <td class="num">151.7</td>
+      <td class="num vorp">+20.3</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">55</td>
+      <td class="pl">Nakobe Dean</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">LV</td>
+      <td class="num">152.4</td>
+      <td class="num vorp">+19.5</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">56</td>
+      <td class="pl">Nate Landman</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">LAR</td>
+      <td class="num">151.8</td>
+      <td class="num vorp">+18.9</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">57</td>
+      <td class="pl">Jalen Hurts</td>
+      <td><span class="pill" style="--pc:#7c6fd1">QB</span></td>
+      <td class="team">PHI</td>
+      <td class="num">361.2</td>
+      <td class="num vorp">+18.2</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">58</td>
+      <td class="pl">David Montgomery</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">HOU</td>
+      <td class="num">183.0</td>
+      <td class="num vorp">+17.9</td>
+    </tr></tbody>
+      </table>
+      <p class="anchor-legend">Highlighted row = the realistic &ldquo;board runs true&rdquo; marker for this pick &mdash; real drafts run hot/cold around it, so treat the whole window as your shopping list, not a prediction.</p>
+    </section>
+
+    <section class="turn">
+      <div class="turn-head">
+        <div class="turn-badge">R6</div>
+        <div class="turn-title">
+          <h3>Round 6 &middot; <span class="rp">6.01</span></h3>
+          <p class="turn-sub">Live pick #54 of 187 &middot; overall slot label 61</p>
+        </div>
+      </div>
+      <p class="turn-note">Immediately follows your R5 pick (the even/odd flip gives you a mini double-turn again). Good spot to lock a starting TE if you didn't already (Kittle projects as the top name reliably in this range) or keep stacking RB/WR depth.</p>
+      <table class="board">
+        <thead><tr><th>Avail&nbsp;#</th><th>Player</th><th>Pos</th><th>Team</th><th>Proj</th><th>VORP</th></tr></thead>
+        <tbody><tr class="wrow">
+      <td class="num">47</td>
+      <td class="pl">Alex Singleton</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">DEN</td>
+      <td class="num">156.1</td>
+      <td class="num vorp">+23.2</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">48</td>
+      <td class="pl">Tee Higgins</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">CIN</td>
+      <td class="num">186.2</td>
+      <td class="num vorp">+23.1</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">49</td>
+      <td class="pl">Jamien Sherwood</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">NYJ</td>
+      <td class="num">156.0</td>
+      <td class="num vorp">+23.1</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">50</td>
+      <td class="pl">Roquan Smith</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">BAL</td>
+      <td class="num">156.0</td>
+      <td class="num vorp">+23.1</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">51</td>
+      <td class="pl">Drake Maye</td>
+      <td><span class="pill" style="--pc:#7c6fd1">QB</span></td>
+      <td class="team">NE</td>
+      <td class="num">365.7</td>
+      <td class="num vorp">+22.7</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">52</td>
+      <td class="pl">Jameson Williams</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">DET</td>
+      <td class="num">185.2</td>
+      <td class="num vorp">+22.1</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">53</td>
+      <td class="pl">Tremaine Edmunds</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">NYG</td>
+      <td class="num">154.1</td>
+      <td class="num vorp">+21.2</td>
+    </tr>
+<tr class="wrow anchor">
+      <td class="num">54</td>
+      <td class="pl">George Kittle</td>
+      <td><span class="pill" style="--pc:#d98c2b">TE</span></td>
+      <td class="team">SF</td>
+      <td class="num">151.7</td>
+      <td class="num vorp">+20.3</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">55</td>
+      <td class="pl">Nakobe Dean</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">LV</td>
+      <td class="num">152.4</td>
+      <td class="num vorp">+19.5</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">56</td>
+      <td class="pl">Nate Landman</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">LAR</td>
+      <td class="num">151.8</td>
+      <td class="num vorp">+18.9</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">57</td>
+      <td class="pl">Jalen Hurts</td>
+      <td><span class="pill" style="--pc:#7c6fd1">QB</span></td>
+      <td class="team">PHI</td>
+      <td class="num">361.2</td>
+      <td class="num vorp">+18.2</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">58</td>
+      <td class="pl">David Montgomery</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">HOU</td>
+      <td class="num">183.0</td>
+      <td class="num vorp">+17.9</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">59</td>
+      <td class="pl">Kyle Pitts Sr.</td>
+      <td><span class="pill" style="--pc:#d98c2b">TE</span></td>
+      <td class="team">ATL</td>
+      <td class="num">149.2</td>
+      <td class="num vorp">+17.8</td>
+    </tr></tbody>
+      </table>
+      <p class="anchor-legend">Highlighted row = the realistic &ldquo;board runs true&rdquo; marker for this pick &mdash; real drafts run hot/cold around it, so treat the whole window as your shopping list, not a prediction.</p>
+    </section>
+
+    <section class="turn">
+      <div class="turn-head">
+        <div class="turn-badge">R7</div>
+        <div class="turn-title">
+          <h3>Round 7 &middot; <span class="rp">7.12</span></h3>
+          <p class="turn-sub">Live pick #73 of 187 &middot; overall slot label 84</p>
+        </div>
+      </div>
+      <p class="turn-note">IDP starts to matter here — three D slots need to be filled and the LB tier (Okereke, Spillane, Demario Davis) is deep and largely fungible, so there's no rush, but the WR depth in this window (McLaurin, Rome Odunze, DJ Moore) thins out fast after this if you wait.</p>
+      <table class="board">
+        <thead><tr><th>Avail&nbsp;#</th><th>Player</th><th>Pos</th><th>Team</th><th>Proj</th><th>VORP</th></tr></thead>
+        <tbody><tr class="wrow">
+      <td class="num">66</td>
+      <td class="pl">Travis Kelce</td>
+      <td><span class="pill" style="--pc:#d98c2b">TE</span></td>
+      <td class="team">KC</td>
+      <td class="num">144.4</td>
+      <td class="num vorp">+13.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">67</td>
+      <td class="pl">Dak Prescott</td>
+      <td><span class="pill" style="--pc:#7c6fd1">QB</span></td>
+      <td class="team">DAL</td>
+      <td class="num">355.9</td>
+      <td class="num vorp">+12.9</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">68</td>
+      <td class="pl">Demario Davis</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">NYJ</td>
+      <td class="num">145.8</td>
+      <td class="num vorp">+12.9</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">69</td>
+      <td class="pl">Dre Greenlaw</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">SF</td>
+      <td class="num">145.7</td>
+      <td class="num vorp">+12.8</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">70</td>
+      <td class="pl">Tucker Kraft</td>
+      <td><span class="pill" style="--pc:#d98c2b">TE</span></td>
+      <td class="team">GB</td>
+      <td class="num">144.2</td>
+      <td class="num vorp">+12.8</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">71</td>
+      <td class="pl">Daiyan Henley</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">LAC</td>
+      <td class="num">145.4</td>
+      <td class="num vorp">+12.5</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">72</td>
+      <td class="pl">Terry McLaurin</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">WAS</td>
+      <td class="num">175.0</td>
+      <td class="num vorp">+11.9</td>
+    </tr>
+<tr class="wrow anchor">
+      <td class="num">73</td>
+      <td class="pl">Barrett Carter</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">CIN</td>
+      <td class="num">144.7</td>
+      <td class="num vorp">+11.8</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">74</td>
+      <td class="pl">Edgerrin Cooper</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">GB</td>
+      <td class="num">144.2</td>
+      <td class="num vorp">+11.3</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">75</td>
+      <td class="pl">Patrick Queen</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">PIT</td>
+      <td class="num">144.2</td>
+      <td class="num vorp">+11.3</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">76</td>
+      <td class="pl">Rome Odunze</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">CHI</td>
+      <td class="num">174.1</td>
+      <td class="num vorp">+11.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">77</td>
+      <td class="pl">DJ Moore</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">BUF</td>
+      <td class="num">173.6</td>
+      <td class="num vorp">+10.5</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">78</td>
+      <td class="pl">Azeez Al-Shaair</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">HOU</td>
+      <td class="num">143.4</td>
+      <td class="num vorp">+10.5</td>
+    </tr></tbody>
+      </table>
+      <p class="anchor-legend">Highlighted row = the realistic &ldquo;board runs true&rdquo; marker for this pick &mdash; real drafts run hot/cold around it, so treat the whole window as your shopping list, not a prediction.</p>
+    </section>
+
+    <section class="turn">
+      <div class="turn-head">
+        <div class="turn-badge">R8</div>
+        <div class="turn-title">
+          <h3>Round 8 &middot; <span class="rp">8.01</span></h3>
+          <p class="turn-sub">Live pick #74 of 187 &middot; overall slot label 85</p>
+        </div>
+      </div>
+      <p class="turn-note">Same live-pick pool carries over from 7.12 (you're a run of two picks close together again). If you punted IDP at 7.12 for a receiver, grab your first D piece here — Tucker Kraft is also a sneaky TE2/streaming option if you want a safety net.</p>
+      <table class="board">
+        <thead><tr><th>Avail&nbsp;#</th><th>Player</th><th>Pos</th><th>Team</th><th>Proj</th><th>VORP</th></tr></thead>
+        <tbody><tr class="wrow">
+      <td class="num">67</td>
+      <td class="pl">Dak Prescott</td>
+      <td><span class="pill" style="--pc:#7c6fd1">QB</span></td>
+      <td class="team">DAL</td>
+      <td class="num">355.9</td>
+      <td class="num vorp">+12.9</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">68</td>
+      <td class="pl">Demario Davis</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">NYJ</td>
+      <td class="num">145.8</td>
+      <td class="num vorp">+12.9</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">69</td>
+      <td class="pl">Dre Greenlaw</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">SF</td>
+      <td class="num">145.7</td>
+      <td class="num vorp">+12.8</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">70</td>
+      <td class="pl">Tucker Kraft</td>
+      <td><span class="pill" style="--pc:#d98c2b">TE</span></td>
+      <td class="team">GB</td>
+      <td class="num">144.2</td>
+      <td class="num vorp">+12.8</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">71</td>
+      <td class="pl">Daiyan Henley</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">LAC</td>
+      <td class="num">145.4</td>
+      <td class="num vorp">+12.5</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">72</td>
+      <td class="pl">Terry McLaurin</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">WAS</td>
+      <td class="num">175.0</td>
+      <td class="num vorp">+11.9</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">73</td>
+      <td class="pl">Barrett Carter</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">CIN</td>
+      <td class="num">144.7</td>
+      <td class="num vorp">+11.8</td>
+    </tr>
+<tr class="wrow anchor">
+      <td class="num">74</td>
+      <td class="pl">Edgerrin Cooper</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">GB</td>
+      <td class="num">144.2</td>
+      <td class="num vorp">+11.3</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">75</td>
+      <td class="pl">Patrick Queen</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">PIT</td>
+      <td class="num">144.2</td>
+      <td class="num vorp">+11.3</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">76</td>
+      <td class="pl">Rome Odunze</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">CHI</td>
+      <td class="num">174.1</td>
+      <td class="num vorp">+11.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">77</td>
+      <td class="pl">DJ Moore</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">BUF</td>
+      <td class="num">173.6</td>
+      <td class="num vorp">+10.5</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">78</td>
+      <td class="pl">Azeez Al-Shaair</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">HOU</td>
+      <td class="num">143.4</td>
+      <td class="num vorp">+10.5</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">79</td>
+      <td class="pl">Jaylen Waddle</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">DEN</td>
+      <td class="num">173.2</td>
+      <td class="num vorp">+10.1</td>
+    </tr></tbody>
+      </table>
+      <p class="anchor-legend">Highlighted row = the realistic &ldquo;board runs true&rdquo; marker for this pick &mdash; real drafts run hot/cold around it, so treat the whole window as your shopping list, not a prediction.</p>
+    </section>
+
+    <section class="turn">
+      <div class="turn-head">
+        <div class="turn-badge">R9</div>
+        <div class="turn-title">
+          <h3>Round 9 &middot; <span class="rp">9.12</span></h3>
+          <p class="turn-sub">Live pick #94 of 187 &middot; overall slot label 108</p>
+        </div>
+      </div>
+      <p class="turn-note">A real gap opens up before this pick (~20 live selections). RB is scarce in this range (mostly handcuffs and pass-catching complementary backs) — Rhamondre Stevenson is the notable name — while a QB2/handcuff QB (Trevor Lawrence, Caleb Williams, Brock Purdy) is available if you want lottery-ticket QB upside, which is low priority with Burrow locked.</p>
+      <table class="board">
+        <thead><tr><th>Avail&nbsp;#</th><th>Player</th><th>Pos</th><th>Team</th><th>Proj</th><th>VORP</th></tr></thead>
+        <tbody><tr class="wrow">
+      <td class="num">87</td>
+      <td class="pl">Rhamondre Stevenson</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">NE</td>
+      <td class="num">171.1</td>
+      <td class="num vorp">+6.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">88</td>
+      <td class="pl">Mark Andrews</td>
+      <td><span class="pill" style="--pc:#d98c2b">TE</span></td>
+      <td class="team">BAL</td>
+      <td class="num">137.3</td>
+      <td class="num vorp">+5.9</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">89</td>
+      <td class="pl">Kaden Elliss</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">NO</td>
+      <td class="num">138.7</td>
+      <td class="num vorp">+5.8</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">90</td>
+      <td class="pl">Devin Bush Jr.</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">CHI</td>
+      <td class="num">138.3</td>
+      <td class="num vorp">+5.4</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">91</td>
+      <td class="pl">Nick Scott</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">CAR</td>
+      <td class="num">138.2</td>
+      <td class="num vorp">+5.3</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">92</td>
+      <td class="pl">Christian Watson</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">GB</td>
+      <td class="num">168.3</td>
+      <td class="num vorp">+5.2</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">93</td>
+      <td class="pl">DeMarvion Overshown</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">DAL</td>
+      <td class="num">138.1</td>
+      <td class="num vorp">+5.2</td>
+    </tr>
+<tr class="wrow anchor">
+      <td class="num">94</td>
+      <td class="pl">Trevor Lawrence</td>
+      <td><span class="pill" style="--pc:#7c6fd1">QB</span></td>
+      <td class="team">JAC</td>
+      <td class="num">347.6</td>
+      <td class="num vorp">+4.6</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">95</td>
+      <td class="pl">Caleb Williams</td>
+      <td><span class="pill" style="--pc:#7c6fd1">QB</span></td>
+      <td class="team">CHI</td>
+      <td class="num">347.0</td>
+      <td class="num vorp">+4.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">96</td>
+      <td class="pl">Brock Purdy</td>
+      <td><span class="pill" style="--pc:#7c6fd1">QB</span></td>
+      <td class="team">SF</td>
+      <td class="num">346.4</td>
+      <td class="num vorp">+3.4</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">97</td>
+      <td class="pl">Budda Baker</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">ARI</td>
+      <td class="num">135.7</td>
+      <td class="num vorp">+2.8</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">98</td>
+      <td class="pl">Isaiah Likely</td>
+      <td><span class="pill" style="--pc:#d98c2b">TE</span></td>
+      <td class="team">NYG</td>
+      <td class="num">133.9</td>
+      <td class="num vorp">+2.5</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">99</td>
+      <td class="pl">Patrick Mahomes II</td>
+      <td><span class="pill" style="--pc:#7c6fd1">QB</span></td>
+      <td class="team">KC</td>
+      <td class="num">344.8</td>
+      <td class="num vorp">+1.8</td>
+    </tr></tbody>
+      </table>
+      <p class="anchor-legend">Highlighted row = the realistic &ldquo;board runs true&rdquo; marker for this pick &mdash; real drafts run hot/cold around it, so treat the whole window as your shopping list, not a prediction.</p>
+    </section>
+
+    <section class="turn skip">
+      <div class="turn-head">
+        <div class="turn-badge skip">R10</div>
+        <div class="turn-title">
+          <h3>Round 10 &middot; <span class="rp">10.01</span></h3>
+          <p class="turn-sub">No live pick &mdash; keeper slot</p>
+        </div>
+      </div>
+      <p class="skip-note">This round is already spent: <strong>Joe Burrow</strong> (QB) occupies your Round 10 keeper cost.
+      The draft clock skips your slot entirely here &mdash; treat your next live turn as coming right after a full round of other teams drafting.</p>
+    </section>
+
+    <section class="turn">
+      <div class="turn-head">
+        <div class="turn-badge">R11</div>
+        <div class="turn-title">
+          <h3>Round 11 &middot; <span class="rp">11.12</span></h3>
+          <p class="turn-sub">Live pick #115 of 187 &middot; overall slot label 132</p>
+        </div>
+      </div>
+      <p class="turn-note">Your R10 pick is spent (Burrow keeper) — you skip an entire round again, same as R4. Expect a big chunk of the board to turn over; this is bench-and-flex territory (Mike Evans, DK Metcalf as WR depth, Dalton Kincaid as a TE2 option) plus your first realistic DB targets for the IDP slots.</p>
+      <table class="board">
+        <thead><tr><th>Avail&nbsp;#</th><th>Player</th><th>Pos</th><th>Team</th><th>Proj</th><th>VORP</th></tr></thead>
+        <tbody><tr class="wrow">
+      <td class="num">108</td>
+      <td class="pl">Mike Evans</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">SF</td>
+      <td class="num">163.1</td>
+      <td class="num vorp">+0.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">109</td>
+      <td class="pl">Frankie Luvu</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">WAS</td>
+      <td class="num">132.9</td>
+      <td class="num vorp">+0.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">110</td>
+      <td class="pl">Kam Curl</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">LAR</td>
+      <td class="num">132.9</td>
+      <td class="num vorp">+0.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">111</td>
+      <td class="pl">Dalton Kincaid</td>
+      <td><span class="pill" style="--pc:#d98c2b">TE</span></td>
+      <td class="team">BUF</td>
+      <td class="num">131.4</td>
+      <td class="num vorp">+0.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">112</td>
+      <td class="pl">DK Metcalf</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">PIT</td>
+      <td class="num">163.0</td>
+      <td class="num vorp">-0.1</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">113</td>
+      <td class="pl">Tykee Smith</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">TB</td>
+      <td class="num">132.5</td>
+      <td class="num vorp">-0.4</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">114</td>
+      <td class="pl">Christian Elliss</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">NE</td>
+      <td class="num">132.3</td>
+      <td class="num vorp">-0.6</td>
+    </tr>
+<tr class="wrow anchor">
+      <td class="num">115</td>
+      <td class="pl">Alohi Gilman</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">KC</td>
+      <td class="num">131.9</td>
+      <td class="num vorp">-1.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">116</td>
+      <td class="pl">Jake Ferguson</td>
+      <td><span class="pill" style="--pc:#d98c2b">TE</span></td>
+      <td class="team">DAL</td>
+      <td class="num">130.4</td>
+      <td class="num vorp">-1.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">117</td>
+      <td class="pl">Jared Goff</td>
+      <td><span class="pill" style="--pc:#7c6fd1">QB</span></td>
+      <td class="team">DET</td>
+      <td class="num">341.5</td>
+      <td class="num vorp">-1.5</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">118</td>
+      <td class="pl">Jacob Rodriguez</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">MIA</td>
+      <td class="num">130.9</td>
+      <td class="num vorp">-2.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">119</td>
+      <td class="pl">Zaire Franklin</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">GB</td>
+      <td class="num">130.9</td>
+      <td class="num vorp">-2.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">120</td>
+      <td class="pl">Bo Nix</td>
+      <td><span class="pill" style="--pc:#7c6fd1">QB</span></td>
+      <td class="team">DEN</td>
+      <td class="num">340.6</td>
+      <td class="num vorp">-2.4</td>
+    </tr></tbody>
+      </table>
+      <p class="anchor-legend">Highlighted row = the realistic &ldquo;board runs true&rdquo; marker for this pick &mdash; real drafts run hot/cold around it, so treat the whole window as your shopping list, not a prediction.</p>
+    </section>
+
+    <section class="turn">
+      <div class="turn-head">
+        <div class="turn-badge">R12</div>
+        <div class="turn-title">
+          <h3>Round 12 &middot; <span class="rp">12.01</span></h3>
+          <p class="turn-sub">Live pick #116 of 187 &middot; overall slot label 133</p>
+        </div>
+      </div>
+      <p class="turn-note">Right behind 11.12. Good spot for IDP depth (Frankie Luvu, Kam Curl, Alohi Gilman all project as usable Ds) or a change-of-pace RB if your RB room still looks thin.</p>
+      <table class="board">
+        <thead><tr><th>Avail&nbsp;#</th><th>Player</th><th>Pos</th><th>Team</th><th>Proj</th><th>VORP</th></tr></thead>
+        <tbody><tr class="wrow">
+      <td class="num">109</td>
+      <td class="pl">Frankie Luvu</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">WAS</td>
+      <td class="num">132.9</td>
+      <td class="num vorp">+0.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">110</td>
+      <td class="pl">Kam Curl</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">LAR</td>
+      <td class="num">132.9</td>
+      <td class="num vorp">+0.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">111</td>
+      <td class="pl">Dalton Kincaid</td>
+      <td><span class="pill" style="--pc:#d98c2b">TE</span></td>
+      <td class="team">BUF</td>
+      <td class="num">131.4</td>
+      <td class="num vorp">+0.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">112</td>
+      <td class="pl">DK Metcalf</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">PIT</td>
+      <td class="num">163.0</td>
+      <td class="num vorp">-0.1</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">113</td>
+      <td class="pl">Tykee Smith</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">TB</td>
+      <td class="num">132.5</td>
+      <td class="num vorp">-0.4</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">114</td>
+      <td class="pl">Christian Elliss</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">NE</td>
+      <td class="num">132.3</td>
+      <td class="num vorp">-0.6</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">115</td>
+      <td class="pl">Alohi Gilman</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">KC</td>
+      <td class="num">131.9</td>
+      <td class="num vorp">-1.0</td>
+    </tr>
+<tr class="wrow anchor">
+      <td class="num">116</td>
+      <td class="pl">Jake Ferguson</td>
+      <td><span class="pill" style="--pc:#d98c2b">TE</span></td>
+      <td class="team">DAL</td>
+      <td class="num">130.4</td>
+      <td class="num vorp">-1.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">117</td>
+      <td class="pl">Jared Goff</td>
+      <td><span class="pill" style="--pc:#7c6fd1">QB</span></td>
+      <td class="team">DET</td>
+      <td class="num">341.5</td>
+      <td class="num vorp">-1.5</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">118</td>
+      <td class="pl">Jacob Rodriguez</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">MIA</td>
+      <td class="num">130.9</td>
+      <td class="num vorp">-2.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">119</td>
+      <td class="pl">Zaire Franklin</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">GB</td>
+      <td class="num">130.9</td>
+      <td class="num vorp">-2.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">120</td>
+      <td class="pl">Bo Nix</td>
+      <td><span class="pill" style="--pc:#7c6fd1">QB</span></td>
+      <td class="team">DEN</td>
+      <td class="num">340.6</td>
+      <td class="num vorp">-2.4</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">121</td>
+      <td class="pl">DaRon Bland</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">DAL</td>
+      <td class="num">130.3</td>
+      <td class="num vorp">-2.6</td>
+    </tr></tbody>
+      </table>
+      <p class="anchor-legend">Highlighted row = the realistic &ldquo;board runs true&rdquo; marker for this pick &mdash; real drafts run hot/cold around it, so treat the whole window as your shopping list, not a prediction.</p>
+    </section>
+
+    <section class="turn">
+      <div class="turn-head">
+        <div class="turn-badge">R13</div>
+        <div class="turn-title">
+          <h3>Round 13 &middot; <span class="rp">13.12</span></h3>
+          <p class="turn-sub">Live pick #139 of 187 &middot; overall slot label 156</p>
+        </div>
+      </div>
+      <p class="turn-note">The board has fully turned into replacement-level IDP and bench WR/TE territory. Fill remaining D slots here — Derwin James, Xavier McKinney, and a run of LBs (Cody Barton, Eric Wilson) are all roughly equivalent value.</p>
+      <table class="board">
+        <thead><tr><th>Avail&nbsp;#</th><th>Player</th><th>Pos</th><th>Team</th><th>Proj</th><th>VORP</th></tr></thead>
+        <tbody><tr class="wrow">
+      <td class="num">132</td>
+      <td class="pl">Divine Deablo</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">ATL</td>
+      <td class="num">125.9</td>
+      <td class="num vorp">-7.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">133</td>
+      <td class="pl">Derwin James Jr.</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">LAC</td>
+      <td class="num">125.7</td>
+      <td class="num vorp">-7.2</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">134</td>
+      <td class="pl">Xavier McKinney</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">GB</td>
+      <td class="num">125.7</td>
+      <td class="num vorp">-7.2</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">135</td>
+      <td class="pl">Cody Barton</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">TEN</td>
+      <td class="num">125.6</td>
+      <td class="num vorp">-7.3</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">136</td>
+      <td class="pl">Eric Wilson</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">MIN</td>
+      <td class="num">125.6</td>
+      <td class="num vorp">-7.3</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">137</td>
+      <td class="pl">Chuba Hubbard</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">CAR</td>
+      <td class="num">157.6</td>
+      <td class="num vorp">-7.5</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">138</td>
+      <td class="pl">Juwan Johnson</td>
+      <td><span class="pill" style="--pc:#d98c2b">TE</span></td>
+      <td class="team">NO</td>
+      <td class="num">123.3</td>
+      <td class="num vorp">-8.1</td>
+    </tr>
+<tr class="wrow anchor">
+      <td class="num">139</td>
+      <td class="pl">Cam Lewis</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">CHI</td>
+      <td class="num">124.7</td>
+      <td class="num vorp">-8.2</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">140</td>
+      <td class="pl">Nick Emmanwori</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">SEA</td>
+      <td class="num">123.6</td>
+      <td class="num vorp">-9.3</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">141</td>
+      <td class="pl">Brenton Strange</td>
+      <td><span class="pill" style="--pc:#d98c2b">TE</span></td>
+      <td class="team">JAC</td>
+      <td class="num">121.8</td>
+      <td class="num vorp">-9.6</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">142</td>
+      <td class="pl">Talanoa Hufanga</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">DEN</td>
+      <td class="num">123.2</td>
+      <td class="num vorp">-9.7</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">143</td>
+      <td class="pl">Antoine Winfield Jr.</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">TB</td>
+      <td class="num">123.1</td>
+      <td class="num vorp">-9.8</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">144</td>
+      <td class="pl">Drue Tranquill</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">KC</td>
+      <td class="num">123.1</td>
+      <td class="num vorp">-9.8</td>
+    </tr></tbody>
+      </table>
+      <p class="anchor-legend">Highlighted row = the realistic &ldquo;board runs true&rdquo; marker for this pick &mdash; real drafts run hot/cold around it, so treat the whole window as your shopping list, not a prediction.</p>
+    </section>
+
+    <section class="turn">
+      <div class="turn-head">
+        <div class="turn-badge">R14</div>
+        <div class="turn-title">
+          <h3>Round 14 &middot; <span class="rp">14.01</span></h3>
+          <p class="turn-sub">Live pick #140 of 187 &middot; overall slot label 157</p>
+        </div>
+      </div>
+      <p class="turn-note">Same cluster as 13.12. More DB/IDP depth or a flyer bench RB (Chuba Hubbard as a change-of-pace/injury-handcuff piece).</p>
+      <table class="board">
+        <thead><tr><th>Avail&nbsp;#</th><th>Player</th><th>Pos</th><th>Team</th><th>Proj</th><th>VORP</th></tr></thead>
+        <tbody><tr class="wrow">
+      <td class="num">133</td>
+      <td class="pl">Derwin James Jr.</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">LAC</td>
+      <td class="num">125.7</td>
+      <td class="num vorp">-7.2</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">134</td>
+      <td class="pl">Xavier McKinney</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">GB</td>
+      <td class="num">125.7</td>
+      <td class="num vorp">-7.2</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">135</td>
+      <td class="pl">Cody Barton</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">TEN</td>
+      <td class="num">125.6</td>
+      <td class="num vorp">-7.3</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">136</td>
+      <td class="pl">Eric Wilson</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">MIN</td>
+      <td class="num">125.6</td>
+      <td class="num vorp">-7.3</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">137</td>
+      <td class="pl">Chuba Hubbard</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">CAR</td>
+      <td class="num">157.6</td>
+      <td class="num vorp">-7.5</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">138</td>
+      <td class="pl">Juwan Johnson</td>
+      <td><span class="pill" style="--pc:#d98c2b">TE</span></td>
+      <td class="team">NO</td>
+      <td class="num">123.3</td>
+      <td class="num vorp">-8.1</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">139</td>
+      <td class="pl">Cam Lewis</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">CHI</td>
+      <td class="num">124.7</td>
+      <td class="num vorp">-8.2</td>
+    </tr>
+<tr class="wrow anchor">
+      <td class="num">140</td>
+      <td class="pl">Nick Emmanwori</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">SEA</td>
+      <td class="num">123.6</td>
+      <td class="num vorp">-9.3</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">141</td>
+      <td class="pl">Brenton Strange</td>
+      <td><span class="pill" style="--pc:#d98c2b">TE</span></td>
+      <td class="team">JAC</td>
+      <td class="num">121.8</td>
+      <td class="num vorp">-9.6</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">142</td>
+      <td class="pl">Talanoa Hufanga</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">DEN</td>
+      <td class="num">123.2</td>
+      <td class="num vorp">-9.7</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">143</td>
+      <td class="pl">Antoine Winfield Jr.</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">TB</td>
+      <td class="num">123.1</td>
+      <td class="num vorp">-9.8</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">144</td>
+      <td class="pl">Drue Tranquill</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">KC</td>
+      <td class="num">123.1</td>
+      <td class="num vorp">-9.8</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">145</td>
+      <td class="pl">Parker Washington</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">JAC</td>
+      <td class="num">153.0</td>
+      <td class="num vorp">-10.1</td>
+    </tr></tbody>
+      </table>
+      <p class="anchor-legend">Highlighted row = the realistic &ldquo;board runs true&rdquo; marker for this pick &mdash; real drafts run hot/cold around it, so treat the whole window as your shopping list, not a prediction.</p>
+    </section>
+
+    <section class="turn">
+      <div class="turn-head">
+        <div class="turn-badge">R15</div>
+        <div class="turn-title">
+          <h3>Round 15 &middot; <span class="rp">15.12</span></h3>
+          <p class="turn-sub">Live pick #163 of 187 &middot; overall slot label 180</p>
+        </div>
+      </div>
+      <p class="turn-note">Deep bench and streaming territory. This is a fine spot for your last flex-caliber WR (Michael Pittman) or a speculative bench RB (Jonathon Brooks, MarShawn Lloyd) if your IDP slots are already full.</p>
+      <table class="board">
+        <thead><tr><th>Avail&nbsp;#</th><th>Player</th><th>Pos</th><th>Team</th><th>Proj</th><th>VORP</th></tr></thead>
+        <tbody><tr class="wrow">
+      <td class="num">156</td>
+      <td class="pl">Michael Pittman Jr.</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">PIT</td>
+      <td class="num">150.0</td>
+      <td class="num vorp">-13.1</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">157</td>
+      <td class="pl">Ventrell Miller</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">JAC</td>
+      <td class="num">119.7</td>
+      <td class="num vorp">-13.2</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">158</td>
+      <td class="pl">Kevin Winston Jr.</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">TEN</td>
+      <td class="num">119.6</td>
+      <td class="num vorp">-13.3</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">159</td>
+      <td class="pl">Jonathon Brooks</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">CAR</td>
+      <td class="num">151.7</td>
+      <td class="num vorp">-13.4</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">160</td>
+      <td class="pl">Joshua Metellus</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">MIN</td>
+      <td class="num">119.4</td>
+      <td class="num vorp">-13.5</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">161</td>
+      <td class="pl">MarShawn Lloyd</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">GB</td>
+      <td class="num">151.4</td>
+      <td class="num vorp">-13.7</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">162</td>
+      <td class="pl">Alex Anzalone</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">TB</td>
+      <td class="num">118.8</td>
+      <td class="num vorp">-14.1</td>
+    </tr>
+<tr class="wrow anchor">
+      <td class="num">163</td>
+      <td class="pl">Quentin Lake</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">LAR</td>
+      <td class="num">118.7</td>
+      <td class="num vorp">-14.2</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">164</td>
+      <td class="pl">Ji&#x27;Ayir Brown</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">SF</td>
+      <td class="num">118.3</td>
+      <td class="num vorp">-14.6</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">165</td>
+      <td class="pl">Eric Murray</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">JAC</td>
+      <td class="num">117.5</td>
+      <td class="num vorp">-15.4</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">166</td>
+      <td class="pl">Kamari Lassiter</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">HOU</td>
+      <td class="num">117.2</td>
+      <td class="num vorp">-15.7</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">167</td>
+      <td class="pl">Dalton Schultz</td>
+      <td><span class="pill" style="--pc:#d98c2b">TE</span></td>
+      <td class="team">HOU</td>
+      <td class="num">115.7</td>
+      <td class="num vorp">-15.7</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">168</td>
+      <td class="pl">Tre&#x27;von Moehrig</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">CAR</td>
+      <td class="num">116.9</td>
+      <td class="num vorp">-16.0</td>
+    </tr></tbody>
+      </table>
+      <p class="anchor-legend">Highlighted row = the realistic &ldquo;board runs true&rdquo; marker for this pick &mdash; real drafts run hot/cold around it, so treat the whole window as your shopping list, not a prediction.</p>
+    </section>
+
+    <section class="turn">
+      <div class="turn-head">
+        <div class="turn-badge">R16</div>
+        <div class="turn-title">
+          <h3>Round 16 &middot; <span class="rp">16.01</span></h3>
+          <p class="turn-sub">Live pick #164 of 187 &middot; overall slot label 181</p>
+        </div>
+      </div>
+      <p class="turn-note">One more round of the same tier — round out IDP/DB depth or take a second bench flyer.</p>
+      <table class="board">
+        <thead><tr><th>Avail&nbsp;#</th><th>Player</th><th>Pos</th><th>Team</th><th>Proj</th><th>VORP</th></tr></thead>
+        <tbody><tr class="wrow">
+      <td class="num">157</td>
+      <td class="pl">Ventrell Miller</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">JAC</td>
+      <td class="num">119.7</td>
+      <td class="num vorp">-13.2</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">158</td>
+      <td class="pl">Kevin Winston Jr.</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">TEN</td>
+      <td class="num">119.6</td>
+      <td class="num vorp">-13.3</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">159</td>
+      <td class="pl">Jonathon Brooks</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">CAR</td>
+      <td class="num">151.7</td>
+      <td class="num vorp">-13.4</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">160</td>
+      <td class="pl">Joshua Metellus</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">MIN</td>
+      <td class="num">119.4</td>
+      <td class="num vorp">-13.5</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">161</td>
+      <td class="pl">MarShawn Lloyd</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">GB</td>
+      <td class="num">151.4</td>
+      <td class="num vorp">-13.7</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">162</td>
+      <td class="pl">Alex Anzalone</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">TB</td>
+      <td class="num">118.8</td>
+      <td class="num vorp">-14.1</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">163</td>
+      <td class="pl">Quentin Lake</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">LAR</td>
+      <td class="num">118.7</td>
+      <td class="num vorp">-14.2</td>
+    </tr>
+<tr class="wrow anchor">
+      <td class="num">164</td>
+      <td class="pl">Ji&#x27;Ayir Brown</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">SF</td>
+      <td class="num">118.3</td>
+      <td class="num vorp">-14.6</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">165</td>
+      <td class="pl">Eric Murray</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">JAC</td>
+      <td class="num">117.5</td>
+      <td class="num vorp">-15.4</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">166</td>
+      <td class="pl">Kamari Lassiter</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">HOU</td>
+      <td class="num">117.2</td>
+      <td class="num vorp">-15.7</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">167</td>
+      <td class="pl">Dalton Schultz</td>
+      <td><span class="pill" style="--pc:#d98c2b">TE</span></td>
+      <td class="team">HOU</td>
+      <td class="num">115.7</td>
+      <td class="num vorp">-15.7</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">168</td>
+      <td class="pl">Tre&#x27;von Moehrig</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">CAR</td>
+      <td class="num">116.9</td>
+      <td class="num vorp">-16.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">169</td>
+      <td class="pl">Henry To&#x27;oTo&#x27;o</td>
+      <td><span class="pill" style="--pc:#c25a5a">LB</span></td>
+      <td class="team">HOU</td>
+      <td class="num">116.6</td>
+      <td class="num vorp">-16.3</td>
+    </tr></tbody>
+      </table>
+      <p class="anchor-legend">Highlighted row = the realistic &ldquo;board runs true&rdquo; marker for this pick &mdash; real drafts run hot/cold around it, so treat the whole window as your shopping list, not a prediction.</p>
+    </section>
+
+    <section class="turn">
+      <div class="turn-head">
+        <div class="turn-badge">R17</div>
+        <div class="turn-title">
+          <h3>Round 17 &middot; <span class="rp">17.12</span></h3>
+          <p class="turn-sub">Live pick #187 of 187 &middot; overall slot label 204</p>
+        </div>
+      </div>
+      <p class="turn-note">Your final pick. Kickers are unranked in this build (no projection source), so this is the natural round to take your K if you haven't streamed the position all year, or grab one last DB/IDP depth piece — Jalen Thompson, A.J. Terrell, and a run of otherwise-equivalent DBs sit right in this window.</p>
+      <table class="board">
+        <thead><tr><th>Avail&nbsp;#</th><th>Player</th><th>Pos</th><th>Team</th><th>Proj</th><th>VORP</th></tr></thead>
+        <tbody><tr class="wrow">
+      <td class="num">180</td>
+      <td class="pl">Brian Burns</td>
+      <td><span class="pill" style="--pc:#8a8a8a">DL</span></td>
+      <td class="team">NYG</td>
+      <td class="num">114.1</td>
+      <td class="num vorp">-18.8</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">181</td>
+      <td class="pl">Michael Wilson</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">ARI</td>
+      <td class="num">144.1</td>
+      <td class="num vorp">-19.0</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">182</td>
+      <td class="pl">D.J. Reed Jr.</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">DET</td>
+      <td class="num">113.8</td>
+      <td class="num vorp">-19.1</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">183</td>
+      <td class="pl">Xavier Watts</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">ATL</td>
+      <td class="num">113.7</td>
+      <td class="num vorp">-19.2</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">184</td>
+      <td class="pl">Quentin Johnston</td>
+      <td><span class="pill" style="--pc:#3592c9">WR</span></td>
+      <td class="team">LAC</td>
+      <td class="num">143.8</td>
+      <td class="num vorp">-19.3</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">185</td>
+      <td class="pl">Cooper DeJean</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">PHI</td>
+      <td class="num">113.6</td>
+      <td class="num vorp">-19.3</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">186</td>
+      <td class="pl">Dax Hill</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">CIN</td>
+      <td class="num">113.6</td>
+      <td class="num vorp">-19.3</td>
+    </tr>
+<tr class="wrow anchor">
+      <td class="num">187</td>
+      <td class="pl">Jalen Thompson</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">DAL</td>
+      <td class="num">113.4</td>
+      <td class="num vorp">-19.5</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">188</td>
+      <td class="pl">A.J. Terrell Jr.</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">ATL</td>
+      <td class="num">113.0</td>
+      <td class="num vorp">-19.9</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">189</td>
+      <td class="pl">Cole Bishop</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">BUF</td>
+      <td class="num">112.7</td>
+      <td class="num vorp">-20.2</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">190</td>
+      <td class="pl">Minkah Fitzpatrick</td>
+      <td><span class="pill" style="--pc:#a15ac2">DB</span></td>
+      <td class="team">NYJ</td>
+      <td class="num">112.5</td>
+      <td class="num vorp">-20.4</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">191</td>
+      <td class="pl">Jeffery Simmons</td>
+      <td><span class="pill" style="--pc:#8a8a8a">DL</span></td>
+      <td class="team">TEN</td>
+      <td class="num">112.4</td>
+      <td class="num vorp">-20.5</td>
+    </tr>
+<tr class="wrow">
+      <td class="num">192</td>
+      <td class="pl">Kyle Monangai</td>
+      <td><span class="pill" style="--pc:#3fae6a">RB</span></td>
+      <td class="team">CHI</td>
+      <td class="num">144.5</td>
+      <td class="num vorp">-20.6</td>
+    </tr></tbody>
+      </table>
+      <p class="anchor-legend">Highlighted row = the realistic &ldquo;board runs true&rdquo; marker for this pick &mdash; real drafts run hot/cold around it, so treat the whole window as your shopping list, not a prediction.</p>
+    </section>
+
+  <h2 class="section-title">Default build order (if nothing surprising happens)</h2>
+  <table class="rules">
+    <tr><td class="n">1-2</td><td>Best-player-available, leaning RB — you have zero locked RBs and this is the deepest RB tier of the draft. Take a legitimate TE1 here only if McBride survives to 1.12/2.01, since Bowers and Loveland are already gone to other teams.</td></tr>
+    <tr><td class="n">3</td><td>Second WR (pairs with locked JSN) or your RB2 if you didn't get one in the opening double-turn.</td></tr>
+    <tr><td class="n">5-6</td><td>Round out the RB/WR core; grab a TE1 here if you punted it earlier.</td></tr>
+    <tr><td class="n">7-9</td><td>Start the 3 IDP (D) slots — the linebacker tier here is deep and largely interchangeable, so there's no reason to reach; keep taking the best offensive value until the LB tier you like starts to dry up.</td></tr>
+    <tr><td class="n">11-14</td><td>Finish IDP, add bench WR/RB depth and a TE2 if you want a bye-week hedge.</td></tr>
+    <tr><td class="n">15-16</td><td>Best remaining bench flyers — a change-of-pace RB or a WR3/4 with a path to volume.</td></tr>
+    <tr><td class="n">17</td><td>Kicker (unranked in this build — no projection source), or one last DB/IDP depth piece if you're comfortable streaming K all season.</td></tr>
+  </table>
+
+  <footer>
+    Generated from <code>docs/fantasy/2026_The_League_Overall_Board_Detail.csv</code> (VORP-based custom rankings, rescored for
+    The League's half-PPR/IDP settings) and <code>data/fantasy/the_league_declared_keepers_2026.json</code> (11 of 12 teams locked
+    as of this writing). Pick-position math treats every declared keeper as fully removed from the live draft pool and simulates
+    the standard 12-team snake with your own two keeper rounds (4 and 10) skipped. This is a planning tool, not a live draft
+    tracker — re-check the keeper file if No Talent Ass Clowns declares before your draft.
+  </footer>
+
+</div>
+</body>
+</html>
