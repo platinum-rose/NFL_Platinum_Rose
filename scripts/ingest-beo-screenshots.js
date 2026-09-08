@@ -96,6 +96,7 @@ const VALID_EXTS = new Set(['.png', '.jpg', '.jpeg']);
 // BEO_SBMatchup) always wins over a shorter one (BEO_SB_) that happens to be
 // a literal prefix of it. Matching is case-insensitive.
 const PREFIX_MARKET_MAP = [
+  { prefix: 'BEO_SB_ExactaMatchup', market: 'superbowl_matchup', label: 'Super Bowl Exact Matchup' },
   { prefix: 'BEO_SBMatchup', market: 'superbowl_matchup', label: 'Super Bowl Exact Matchup' },
   { prefix: 'BEO_SB_', market: 'superbowl', label: 'Super Bowl Winner' },
   { prefix: 'BEO_Conf_', market: 'conference', label: 'Conference Winner' },
