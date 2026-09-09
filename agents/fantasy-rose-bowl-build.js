@@ -127,7 +127,7 @@ const sb = createClient(SB_URL, SB_KEY, { auth: { persistSession: false } });
 
 function nameKey(s) {
   return (s || '').toLowerCase()
-    .replace(/[.'`\-]/g, '')
+    .replace(/[.'`-]/g, '')
     .replace(/\b(jr|sr|ii|iii|iv|v)\b/g, '')
     .replace(/[^a-z0-9]+/g, ' ')
     .trim();

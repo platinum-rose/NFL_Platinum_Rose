@@ -24,6 +24,9 @@ _to_delete*/
 *.sln
 *.sw?
 .env
+.env.*
+.env.bak*
+docs/Yahoo_API_keys
 
 # GitHub push token (S321-option-3, adopted 2026-08-09) — persistent, gitignored,
 # chmod 600, fine-grained + repo-scoped + short-expiration PAT only. credential.helper

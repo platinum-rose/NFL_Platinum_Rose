@@ -548,6 +548,20 @@ async function collectManualFuturesImports(sources) {
     });
   }
 
+  const promo = files.find((file) => file.name === 'betonline-superbowl-futures-promo-2026.json');
+  if (promo) {
+    const payload = await readJson(promo.relativePath, {});
+    addSource(sources, {
+      group: 'Futures Portfolio',
+      name: 'BetOnline Super Bowl futures promotion',
+      status: 'context',
+      freshness: payload.updated_at || payload.captured_at || promo.mtime,
+      evidence: `${payload.promotion?.name || 'Sportsbook promotion'}; one-use $10 free-bet credit per regular-season win on the selected qualifying Super Bowl Winner team.`,
+      action: 'Use only for rebate/free-bet value and liability context; it is not price evidence, an official pick, or authorization to place the qualifying wager.',
+      path: promo.relativePath,
+    });
+  }
+
   const executionValidationPath = 'data/futures-imports/odds-execution-validation-latest.json';
   const executionValidationStat = await exists(executionValidationPath);
   if (!executionValidationStat) {

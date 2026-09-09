@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "season": 2026,
-  "as_of": "2026-07-22",
+  "as_of": "2026-09-09",
   "units": {
     "futures_usd": 20,
     "in_season_usd": 10
@@ -15,26 +15,28 @@
   },
   "positions": [
     {
-      "id": "bills_packers_exacta",
-      "market": "superbowl_matchup",
-      "selection": "Buffalo Bills vs Green Bay Packers",
-      "role": "anchor_correlation_amplifier",
-      "stake_usd": 100,
-      "price": 6500,
-      "status": "open",
-      "known_input": true
-    },
-    {
       "id": "bills_sb",
       "market": "superbowl",
       "selection": "Buffalo Bills",
       "role": "anchor_bet",
-      "current_stake_usd": null,
+      "current_stake_usd": 50,
       "target_cap_usd": 200,
-      "blended_price": null,
-      "status": "building",
-      "known_input": false,
-      "estimate_note": "Target cap was supplied; actual entry tickets and blended odds were not supplied."
+      "blended_price": 1000,
+      "status": "open",
+      "known_input": true,
+      "book": "betonline",
+      "book_confirmed": true,
+      "tickets": [
+        {
+          "ticket_number": "994540980",
+          "accepted_date": "2026-09-09",
+          "stake_usd": 50,
+          "price": 1000,
+          "to_win_usd": 500,
+          "result_status": "pending"
+        }
+      ],
+      "estimate_note": "First real stake against the $200 target cap ($150 of cap room remains). Confirmed placed at BetOnline; this wager qualifies for BetOnline's Super Bowl Futures Special ($10/regular-season-win promo) -- see data/futures-imports/betonline-superbowl-futures-promo-2026.json, now marked claimed."
     },
     {
       "id": "packers_sb",
@@ -47,6 +49,22 @@
       "status": "building",
       "known_input": false,
       "estimate_note": "Target cap was supplied; actual entry tickets and blended odds were not supplied."
+    },
+    {
+      "id": "bills_packers_exacta",
+      "market": "superbowl_matchup",
+      "selection": "Green Bay Packers vs Buffalo Bills",
+      "role": "anchor_correlation_amplifier",
+      "stake_usd": 45,
+      "price": 8300,
+      "status": "open",
+      "known_input": true,
+      "book": "betonline",
+      "book_confirmed": true,
+      "ticket_number": "994540980",
+      "accepted_date": "2026-09-09",
+      "to_win_usd": 3735,
+      "result_status": "pending"
     }
   ],
   "open_parlays": {

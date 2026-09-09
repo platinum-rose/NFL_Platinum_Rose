@@ -48,13 +48,17 @@ export const EVIDENCE_LANE_FILES = Object.freeze([
   // outside this repo -- out of scope for this change, which only makes the
   // staleness VISIBLE to a dossier build rather than silently invisible.
   { key: 'podcast_narratives', path: 'docs/podcast-narratives/index.json' },
-  // Added 2026-09-02 (BettorDay pipeline wiring). agents/bettorday-newsletter-ingest.js
-  // writes this file locally on every run (dry-run or live) before any Supabase
-  // sync -- confirmed it's the same file agents/portfolio-synthesize.js's new
-  // loadBettorDayTrenchEvidence() reads for local-only fallback context, so a
-  // stale/missing file here is real committee-evidence staleness, not an unused
-  // artifact (same standard applied to podcast_narratives above).
-  { key: 'bettorday_trench', path: 'data/intel/bettorday_trench_ratings_2026.json' },
+  // REMOVED 2026-09-09 (Codex review finding, P1). Was added 2026-09-02 when
+  // loadBettorDayTrenchEvidence() genuinely fed the prompt. As of 2026-09-08
+  // BettorDay was fully removed from slimTeamProfile's keepKeys -- the loader
+  // is now dead code (renamed _loadBettorDayTrenchEvidence, never called) and
+  // its output reaches no team profile field the model ever sees. Tracking
+  // this lane's freshness here meant an unpaywalled/stale BettorDay file could
+  // still BLOCK or WARN a real synthesis run over data that no longer matters
+  // to it -- exactly the kind of "looks wired up but isn't" bug this gate
+  // exists to catch elsewhere. If Andy resumes the BettorDay subscription and
+  // re-wires the loader, re-add this lane (and its LANE_MAX_AGE_DAYS entry
+  // below) at that point, not before.
   // Added 2026-09-04 (Tier-3 pipeline audit). The normalized-intel sidecar
   // (agents/signal-normalize.js's output, consumed by portfolio-dossier.js's
   // makeNormalizedFindLean()) is real committee evidence -- it IS the source
@@ -84,7 +88,6 @@ export const DEFAULT_LANE_MAX_AGE_DAYS = 14;
 // slower than the 14-day default. Keys not listed here use the default.
 export const LANE_MAX_AGE_DAYS = Object.freeze({
   training_camp: 5, // in-season camp intel ages out fast
-  bettorday_trench: 10,
   normalized_signals: 7, // the core intel feed -- should be rebuilt weekly at minimum
 });
 

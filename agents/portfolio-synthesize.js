@@ -41,7 +41,7 @@
 //
 // Usage:
 //   node agents/portfolio-synthesize.js --dossier .nfl/portfolio/dossier-<date>.json
-//     [--models claude-opus-4-8,claude-fable-5] [--max-plays 15] [--only opus|fable|gpt]
+//     [--models claude-opus-5,claude-fable-5-1] [--max-plays 15] [--only opus|fable|gpt]
 //     [--skeptic-model <model>] [--risk-model <model>] [--skip-committee] [--no-persist]
 //     [--primary "Buffalo Bills,Green Bay Packers"] [--out-suffix scenario-v2]
 //     [--proposal-out-dir data/official-picks/proposals]
@@ -76,8 +76,9 @@ import { randomUUID } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import { NFL_TEAMS, normalizeTeam } from '../src/lib/teams.js';
 import { placeableVenuesPromptSentence } from '../src/lib/executionVenues.js';
-import { validateBoardBatch } from './lib/board-validate.js';
+import { validateBoardBatch, enforceEvidenceTierGate, partitionSimPriceOnly, partitionTier4Only, resolvePath, isCurrentSeasonForEvidence } from './lib/board-validate.js';
 import { extractResumePrompt } from './lib/portfolio-local-inputs.js';
+import { fetchAllKeyset } from './lib/supabase-pagination.js';
 import { DEFAULT_LANE_MAX_AGE_DAYS, checkDossierFreshness, collectEvidenceLaneStats, synthesisPreflightDecision } from '../scripts/lib/dossier-freshness-gate.js';
 import 'dotenv/config';
 
@@ -88,7 +89,15 @@ const OUT_DIR = path.join(ROOT, '.nfl', 'portfolio');
 const argv = process.argv.slice(2);
 const getArg = (f, d) => { const i = argv.indexOf(f); return i >= 0 ? argv[i + 1] : d; };
 const DOSSIER = getArg('--dossier', null);
-const MODELS = getArg('--models', 'claude-opus-4-8,claude-fable-5').split(',').map((s) => s.trim()).filter(Boolean);
+// 2026-09-08 (Andy): moved off claude-opus-4-8/claude-fable-5 onto the
+// current-generation Anthropic models -- Opus 5 and Fable 5.1 both carry a
+// standard-priced 1M-token context window (no beta header, no long-context
+// surcharge per Anthropic's own docs), which comfortably covers the
+// shadow-slimmed prompt (~225.8K tokens as of today's book-map/dedup fixes)
+// with room to spare. Opus 4.8's own context window isn't documented anymore
+// (Anthropic's model docs just point migrators at Opus 5), so this is also a
+// safety upgrade, not just a headroom one.
+const MODELS = getArg('--models', 'claude-opus-5,claude-fable-5-1').split(',').map((s) => s.trim()).filter(Boolean);
 const MAX_PLAYS = parseInt(getArg('--max-plays', '15'), 10);
 const ONLY = getArg('--only', null); // 'opus' | 'fable' — run a single model
 const OUT_SUFFIX = getArg('--out-suffix', '').trim();
@@ -132,12 +141,22 @@ const ALLOW_EXPIRED_EVIDENCE_LANES = argv.includes('--allow-expired-evidence-lan
 // down) - it is not a routine flag.
 const ALLOW_BLOCKED_INTEL = argv.includes('--allow-blocked-intel');
 const SKIP_INTEL_AUDIT = argv.includes('--skip-intel-audit'); // --prompt-only/offline dev iteration only
+// 2026-09-09 (Codex review, P2 finding): agents/portfolio-preflight.js is the
+// authoritative go/no-go gate -- it checks every evidence lane's freshness,
+// completeness and wiring (including the money/policy files, Stage B:money)
+// and reports safe_to_run_paid_synthesis -- but nothing here ever ran it or
+// consulted that verdict. A run could satisfy only the narrower local checks
+// above (intel-source audit, dossier freshness) or use their override flags
+// and still proceed while the full preflight tool says false. Last-resort
+// override only, same convention as --allow-blocked-intel.
+const ALLOW_UNSAFE_PREFLIGHT = argv.includes('--allow-unsafe-preflight');
 const SHADOW_SLIM = argv.includes('--shadow-slim');
 const SKEPTIC_MODEL = getArg('--skeptic-model', MODELS[0]);
 const RISK_MODEL = getArg('--risk-model', MODELS[0]);
 const LEDGER_PATH = getArg('--ledger', path.join(ROOT, 'data', 'futures-imports', 'andy-portfolio-ledger-2026.json'));
 const WATCHLIST_PATH = getArg('--watchlist', path.join(ROOT, 'data', 'futures-imports', 'futures-watchlist-2026.json'));
 const OFFICIAL_CONFIG_PATH = getArg('--official-config', path.join(ROOT, 'data', 'futures-imports', 'platinum-rose-ai-official-2026.json'));
+const PROMOTIONS_PATH = getArg('--promotions', path.join(ROOT, 'data', 'futures-imports', 'betonline-superbowl-futures-promo-2026.json'));
 const EXPERT_DOSSIER_INDEX_PATH = getArg('--expert-dossiers', path.join(ROOT, 'data', 'expert-dossiers', 'latest.json'));
 const PROPOSAL_OUT_DIR = getArg('--proposal-out-dir', null);
 const RUN_INSTRUCTIONS_PATH = getArg('--run-instructions', null);
@@ -176,18 +195,29 @@ DOSSIER (your price/odds ground truth): for each futures market/team you get the
 TEAM PROFILES (2026-07-22 live-run fix — schema change from the original design): the four season-aggregate signals below, plus 'prior' and 'sos', are NOT inlined on every market row anymore — the first real run of this pipeline blew past every model's context window (310K tokens vs gpt-4o's 128K) because the original design copied this whole blob onto ~740 rows across up to 11 markets per team. They now live ONCE per team in the top-level TEAM PROFILES map below, keyed by team name. Each market row still carries either a bare 'team_nick' (single-team markets — look up dossier.team_profiles[team_nick]) or 'team_a'/'team_b' (the superbowl_matchup market, which pairs two teams — look up each side separately). A market row's own fields (fair_prob, best_price, value_gap, moves, consensus_line, etc.) stay exactly as described below; only the team-context signals moved. When citing evidence_ids for a team-context field (e.g. 'analytics.off_epa_rank'), that citation is checked against the row's matched team profile, not the row itself — cite it the same way regardless.
 
 Each team profile carries season-aggregate signals, all optional — a null/zero-count signal means "not enough data yet", not "no edge here", especially early in the season:
-- 'analytics' — current-season EPA/play (off/def) with league rank (1=best), EPA per dropback / QB EPA per dropback when populated, success rate, CPOE, explosive rate, pressure/sack profile, and formation tendencies (shotgun/no-huddle/pass rate), from real play-by-play/imported analytic snapshots rather than box scores. Use to CONFIRM or CHALLENGE a record-based thesis (e.g. a team that's 6-1 but def_epa_rank 28 is a regression-down candidate; a 2-5 team with off_epa_rank 8 is a bad-variance bounce-back candidate, not a bad team).
-- 'dvoa' — source-stamped imported DVOA snapshot. Treat it as an imported analytic opinion with source/date/attribution, not as a locally computed metric. Cite the specific DVOA rank/value when it supports or contradicts EPA/price.
-- 'coaching_profile' — structured coaching tendency snapshot (coach/coordinator continuity, fourth-down tier, neutral/early-down pass rate, play-action/motion/no-huddle/pace, red-zone and two-minute tendencies). It can evolve during the season; cite sample dates/games when using it, and flag stale_after or thin samples.
+- 'analytics' — EPA/play (off/def) with league rank (1=best), EPA per dropback / QB EPA per dropback when populated, success rate, CPOE, explosive rate, pressure/sack profile, and formation tendencies (shotgun/no-huddle/pass rate), from real play-by-play/imported analytic snapshots rather than box scores. NOT always current-season: check its 'is_current_season' field first — before this season has enough games played, this may be a PRIOR-SEASON fallback ('is_current_season':false, 'seasons_behind' set, 'staleness_note' explaining it) rather than real current-season form; treat that case as a preseason prior/baseline for context, never as evidence of how this team is playing right now, and say so explicitly if you cite it. When 'is_current_season' is true, use it to CONFIRM or CHALLENGE a record-based thesis (e.g. a team that's 6-1 but def_epa_rank 28 is a regression-down candidate; a 2-5 team with off_epa_rank 8 is a bad-variance bounce-back candidate, not a bad team).
+- 'dvoa' — source-stamped imported DVOA snapshot. Treat it as an imported analytic opinion with source/date/attribution, not as a locally computed metric. Same prior-season-fallback caveat as 'analytics' applies here — check 'is_current_season'/'seasons_behind'/'staleness_note' before treating it as this season's number. Cite the specific DVOA rank/value when it supports or contradicts EPA/price.
+- 'coaching_profile' — structured coaching tendency snapshot (coach/coordinator continuity, fourth-down tier, neutral/early-down pass rate, play-action/motion/no-huddle/pace, red-zone and two-minute tendencies). It can evolve during the season; cite sample dates/games when using it, and flag stale_after or thin samples. Same prior-season-fallback caveat as 'analytics' applies: check 'is_current_season'/'seasons_behind'/'staleness_note' — a false value means these are last season's tendencies standing in as a preseason prior, not necessarily this year's staff/scheme.
 - 'schedule_context' — games/short_rest_games/avg_rest/div_games for the team's OWN 2026 slate (distinct from sos, which is about opponent quality). A high short_rest_games count is a real tailwind for UNDER/fade theses late in a stretch; treat rest_known < games as partial-season coverage.
 - 'officiating_context' — games_with_ref/avg_total_points/avg_total_penalties, averaged across the specific referees already assigned to this team's known games. Ties are USUALLY 0 games early in a season (refs aren't assigned until close to kickoff) — only use this when games_with_ref is meaningfully >0, and always cite its own 'confidence' field ("very low" samples should never carry a thesis alone).
 - 'clv_signal' — n_tracked/avg_closing_move_toward_team (positive = the line has been closing MORE in this team's favor than this app's own tracked-open number) plus sharp_lean_games/public_fade_games from betting-splits divergence (money% vs ticket%). A team with several sharp_lean_games and a positive avg_closing_move is a real "the smart market likes this team" signal, distinct from and complementary to your own analytics-based read — cite it as market behavior, not your own opinion.
 - 'prediction_markets' (2026-09-04, new) — Kalshi contract-implied probabilities, a SEPARATE market from the sportsbooks the rest of the dossier prices off: 'playoff_prob'/'division_win_prob'/'conference_champ_prob' (0-1) and 'market_implied_win_total' (interpolated from the win-totals ladder in 'win_totals_ladder', not the sportsbook wins row). Treat agreement with the sportsbook price as corroboration, and a meaningful DIVERGENCE between market_implied_win_total and the dossier's own wins-market consensus_line as its own tradeable signal (worth naming explicitly, not averaged away) — Kalshi is a thinner, differently-incentivized market and can lead or lag the books. Snapshot can run stale (check 'snapshot_at'); a null field here means this team just isn't covered by the current contract set, not zero probability.
+- 'vault_analytical_reads' (narrative context, TIER 3 — see SOURCE HIERARCHY below) — hand-curated deep-read summaries pulled from Andy's long-trusted podcast/article sources (Sharp or Square, Even Money, BettingPros, Action Network, The Favorites). This is informed analyst narrative, not price evidence and not a probability on its own — use it to explain WHY a price has moved or to surface a read the market may not have caught up to yet, and always attribute it by host/outlet when you cite it.
+- 'master_reports' (narrative context, TIER 3 — see SOURCE HIERARCHY below) — Antigravity's league-wide extraction corpus: exhaustive team-scoped summaries pulled from national articles, AMAs, rankings pieces, and multi-team podcast episodes. Same trust tier and same rules as vault_analytical_reads — corroborating narrative, never a standalone edge source, attribute by source when citing.
+- 'training_camp_intel' (narrative context, TIER 4 — see SOURCE HIERARCHY below) — camp-report narrative: position-battle notes, snap-count buzz, coaching comments. The thinnest tier here — useful only as color for an injury- or personnel-driven thesis that's already grounded in something higher up the hierarchy, never as a thesis's primary driver.
 Separately, the top-level dossier.roster_churn map (not per-market — one entry per team) holds the LATEST week-over-week roster diff: adds/drops/status_changes counts between the two most-recent nflverse roster snapshots. High churn (especially drops/status_changes on a short list) is a real instability signal for win-total unders or fading a division favorite — but it is a raw personnel-movement count, not itself injury-specific, so treat it as a prompt to dig further, not a standalone thesis.
 
 WIN-TOTAL MATH (2026-07-22 fix — previously wins rows had NO code-owned fair probability or edge at all; use these now instead of eyeballing the raw price): each wins row carries 'over_fair_prob'/'under_fair_prob' — a vig-stripped fair probability computed ONLY from books that share the SAME line as the best price (never mixed across lines — an Over 8.5 -105 and an Over 9.5 +120 are NOT the same bet and are never blended) — plus 'best_over_edge_pct'/'best_under_edge_pct' computed directly from that fair prob against the best placeable price, and 'line_consensus_confidence' (over_n_books/under_n_books — how many books actually agree at that specific line; treat a 1-book confidence figure as much weaker than a 4-book one). 'line_value_signal' flags when books disagree on the line itself (>0.5 spread) — treat consensus_line/edge loosely when that fires. Use best_over_edge_pct/best_under_edge_pct as your primary win-total edge signal, not vibes off the raw price.
 
 INJURIES AND PLAYER AVAILABILITY: each team profile carries 'injuries' when available — injury_count, key_position_flags, qb_status, and freshness. It can also carry 'player_availability' from the local availability snapshot: key_returns, key_absences, snap_count_risks, offensive_line_risks, defensive_front_risks, cluster_risks, improving/worsening counts, and review flags. Offensive-line cluster injuries can impair that team's offense, scoring, QB efficiency, and win-total overs. Defensive-front cluster injuries have a reciprocal effect: they may improve the opponent's offensive environment, scoring, rushing/passing efficiency, QB props, and game-total paths. Any thesis that leans on roster health, players returning from injury, snap-count restrictions, PUP/IR timing, setbacks, OL attrition, or defensive-front attrition MUST cite injuries/player_availability or set needs_human_review=true. Do not assume health status from memory when these fields are present and contradict it. NAMED-PLAYER SIZING GATE (2026-08-13): if a team profile carries a non-null named_player_sizing_gate (e.g. an unresolved injury/role status or a disputed team assignment for a specific named player — check its players/reasons fields), that team has at least one fact still under active human review. You may still propose a play on that team, but stake_tier MUST be small or speculative, never core or standard, until the gate clears — this is enforced mechanically after your output (a core/standard stake on a gated team will be flagged), so treat it as a hard cap, not a suggestion.
+
+SOURCE HIERARCHY — HOW TO WEIGH NARRATIVE CONTEXT AGAINST PRICE (2026-09-08, GUARDED-WITH-ENFORCEMENT policy — Andy's explicit call after Codex review; see docs/audits/2026-09-08-intel-pipeline-map/ for the full record): this dossier mixes hard price/market data with informed narrative from trusted sources, and they are NOT interchangeable evidence — stacking narrative citations does not substitute for a real price-based edge. Weigh evidence in this order:
+  TIER 1 — PRIMARY (structured/computed dossier evidence): sportsbook price action (fair_prob, value_gap, cross-book divergence, move_prob) plus every other structured, code-owned dossier signal — the market row's own fields, and each team profile's 'analytics'/EPA, 'sos', 'prior', 'schedule_context', 'clv_signal', 'dvoa', 'coaching_profile', 'officiating_context', 'prediction_markets', 'injuries'/'player_availability', and the top-level 'roster_churn' map. This is the general class of real, traceable structured data — not every field in it carries equal weight (small-sample officiating_context/clv_signal, an imported dvoa opinion, and freshness-flagged injuries/player_availability all still carry the specific cautions already described for them earlier in this prompt). EXCEPTION, not every field under these containers is Tier 1: identity, provenance, and freshness metadata that names WHERE or WHEN a number came from rather than what it says — a season label, a data source name, a snapshot/observed/published timestamp, a book's row-availability flag, and similar bookkeeping fields — never count as evidence on their own, the same way 'team'/'best_book' don't (this is mechanically enforced; citing only a metadata field is treated as no citation at all). Everything else under these containers counts as Tier 1 for this hierarchy, distinct from narrative below. A CORE or STANDARD stake needs real support from this tier.
+  TIER 2 — CORROBORATION: named, timestamped analyst leans from the normalized intel signals (a lean sample's 'who', the 'experts' map) — a specific, dated, directional call tied to a market, not a bare mention count. Real corroboration alongside Tier 1 when independent named sources agree, especially when their calls precede or explain a price move you can also see in Tier 1 — but Tier 2 does NOT by itself unlock a core/standard stake (see GUARDED POLICY below); a citation of 'lean.n'/'lean.avg_strength'/'lean.back'/'lean.fade'/'lean.over'/'lean.under' alone is a tally, not a named call, and does not even count as Tier 2.
+  TIER 3 — SUPPLEMENTARY NARRATIVE: 'vault_analytical_reads' and 'master_reports'. Long-form analyst/podcast/article context — good for explaining WHY a price moved or flagging a read the market hasn't priced in yet, but never itself a probability. A trusted host or outlet's NAME appearing inside one of these does NOT promote the whole container to Tier 2 — treat it as Tier 3 regardless of whose name is in it, unless that specific claim also exists as its own normalized Tier 2 lean (a named speaker + timestamp + explicit market/direction in the normalized intel signals, not narrative prose).
+  TIER 4 — COLOR: 'training_camp_intel'. The thinnest tier — camp-report buzz, useful only to add texture to a thesis already grounded above it, never to originate one.
+GUARDED POLICY (Andy's explicit decision, 2026-09-08, TIGHTENED 2026-09-09 after Codex's final session-close review found the original wording self-contradictory): Tier 1 grounding is REQUIRED for a CORE or STANDARD stake — Tier 2/3 corroboration and Tier 4 color can support and explain a thesis, but none of them substitute for real Tier 1 evidence at core/standard size. A play backed ONLY by Tier 2 and/or Tier 3 citations — real corroboration or narrative, but no Tier 1 support — MAY still be proposed (this pipeline mines the whole market rather than gatekeeping on price evidence alone), but MUST be needs_human_review=true and stake_tier SMALL or SPECULATIVE, never core/standard. Tier 4 is different in kind, not just degree: a play backed ONLY by Tier 4 (training_camp_intel) citations — no Tier 1/2/3 support at all — must NOT be proposed at any stake size; Tier 4 exists solely to add color to a thesis that already has Tier 1/2/3 support underneath it, never to originate one on its own. This is enforced MECHANICALLY after your output (same pattern as the NAMED-PLAYER SIZING GATE below) — a core/standard stake without genuine Tier 1 support, a Tier-2/3-only candidate missing needs_human_review, and any Tier-4-only candidate will all be forced/excluded regardless of what you set — so treat all of this as hard requirements, not suggestions. SCOPE (Andy's explicit decision, 2026-09-09, in response to Codex's round-5 review; rationale corrected 2026-09-09 round 7 after Codex's round-6 review showed the original wording overclaimed): this SOURCE HIERARCHY and GUARDED POLICY apply to the primary candidates list only. hedge_baskets and parlay_ladders are explicitly EXEMPT from mechanical evidence-tier enforcement — Andy's call is a deliberate, ACCEPTED RISK, not a claim that these structures are otherwise gated: nothing mechanically verifies that a hedge basket or parlay ladder actually references a primary candidate that survived the SOURCE HIERARCHY gates above ('primary_hedged_against' is optional free text, never cross-checked against the primary list or its evidence). A hedge/parlay could in principle be built around a thesis that Tier-4-only training-camp buzz alone would never have justified as a primary play, wrapped as "insurance" instead. Andy has accepted this exposure rather than add enforcement — you must still use real evidence to justify a hedge/parlay thesis in prose where you have it, since that is the only check this lane gets.
+Below the hard Tier-1-mandatory and Tier-4-can-never-originate rules above, this is about relative weight, not exclusion — cite every tier that's genuinely relevant to a play, but make it clear (via market_view vs football_view, and evidence_ids) which tier is actually carrying each thesis. When in doubt about whether Tier 3/4 narrative is doing too much work, set needs_human_review=true and size small/speculative rather than guess.
 
 WHAT TO HUNT (do NOT just list chalk):
 - ASYMMETRIC VALUE / LONGSHOTS: teams the market is likely UNDERPRICING because the price is anchored to a misleading prior-year record — e.g. a team that finished poorly on injuries or variance (not lack of talent), now with starters returning, a soft schedule, or a QB/roster/coaching upgrade. A long playoff / division / win-total / conference price on such a team is convex: small stake, large payoff, and true probability may sit well above the implied. NAME why the market is anchored wrong and what you think fair should be.
@@ -198,7 +228,7 @@ WHAT TO HUNT (do NOT just list chalk):
 - EPA/SCHEDULE/CLV DIVERGENCE FROM RECORD: when 'analytics' materially disagrees with a team's raw record/price (e.g. good EPA ranks but a bad record, or the reverse), that gap IS a thesis — name the specific rank/number, don't just gesture at "underlying metrics." Same for a real rest-differential or CLV/sharp-money signal that most bettors reading the record wouldn't see.
 - BE COMPREHENSIVE: scan every market (all 8 divisions, both conferences, win totals, playoffs, Super Bowl, most/least wins). Surface at least 12–20 plays across types, plus a generous watch list — stopping at a handful means you under-mined the market.
 
-USING KNOWLEDGE: prices, teams, and markets come ONLY from the dossier — never invent a price, and if a market is thin/absent say so rather than fabricate. But you MAY use your own NFL knowledge (rosters, prior-season results, injuries, coaching/QB changes) to build a thesis. For SCHEDULE STRENGTH specifically, use the dossier's 'sos' field — it is grounded in the real 2026 slate — rather than your memory of who plays whom; only fall back to recall when a row lacks sos, and flag it. For CURRENT FORM, prefer 'analytics' (real EPA/play-by-play) over your own recall of who's playing well — your training may predate this season's actual play. Whenever a thesis rests on knowledge NOT in the dossier, set knowledge_based=true so the human can verify it, and let the disconfirming_factor flag the risk that your roster/injury knowledge is stale or wrong (your training may predate this season). A "soft/hard schedule" claim should cite the sos rank when it is available.
+USING KNOWLEDGE: prices, teams, and markets come ONLY from the dossier — never invent a price, and if a market is thin/absent say so rather than fabricate. But you MAY use your own NFL knowledge (rosters, prior-season results, injuries, coaching/QB changes) to build a thesis. For SCHEDULE STRENGTH specifically, use the dossier's 'sos' field — it is grounded in the real 2026 slate — rather than your memory of who plays whom; only fall back to recall when a row lacks sos, and flag it. For CURRENT FORM, prefer 'analytics' (real EPA/play-by-play) over your own recall of who's playing well — your training may predate this season's actual play — BUT only when its 'is_current_season' field is true; when it is false (a preseason prior-season fallback, see TEAM PROFILES above), it describes last season, not current form, and must not be presented as if it does. Whenever a thesis rests on knowledge NOT in the dossier, set knowledge_based=true so the human can verify it, and let the disconfirming_factor flag the risk that your roster/injury knowledge is stale or wrong (your training may predate this season). A "soft/hard schedule" claim should cite the sos rank when it is available.
 
 DISCIPLINE:
 - OFFICIAL PAPER TRACKING: if a Platinum Rose AI official tracking contract is supplied, use its bankrolls, unit sizes, cutoff, stake tiers, and market holds when proposing sizes. Do not mark a play official yourself; every output is a proposal until the human verifies the price/source and approves official paper tracking.
@@ -325,6 +355,18 @@ async function loadOfficialConfig() {
   }
 }
 
+async function loadPromotions() {
+  try {
+    const parsed = JSON.parse(await readFile(PROMOTIONS_PATH, 'utf8'));
+    const promotions = Array.isArray(parsed) ? parsed : parsed.promotions || [parsed];
+    if (!Array.isArray(promotions)) throw new Error('expected an array, { promotions: [...] }, or a promotion object');
+    return { source_path: PROMOTIONS_PATH, promotions };
+  } catch (e) {
+    console.warn(`   promotions unavailable (${PROMOTIONS_PATH}): ${e.message}`);
+    return null;
+  }
+}
+
 async function loadRunInstructions() {
   if (!RUN_INSTRUCTIONS_PATH) return '';
   const markdown = await readFile(path.resolve(ROOT, RUN_INSTRUCTIONS_PATH), 'utf8');
@@ -377,7 +419,7 @@ async function loadExpertDossiers() {
   }
 }
 
-function buildUserPrompt(dossier, ledger = null, watchlist = null, officialConfig = null, expertDossiers = null, runInstructions = '', supplementalContext = null, vaultReferenceDocs = null) {
+function buildUserPrompt(dossier, ledger = null, watchlist = null, officialConfig = null, expertDossiers = null, runInstructions = '', supplementalContext = null, vaultReferenceDocs = null, globalMasterReports = null, promotions = null) {
   const promptDossier = SHADOW_SLIM ? slimDossierForPrompt(dossier) : dossier;
   const m = dossier.meta;
   const sig = m.signal_coverage || {};
@@ -388,6 +430,9 @@ function buildUserPrompt(dossier, ledger = null, watchlist = null, officialConfi
     ? `PLATINUM ROSE AI OFFICIAL TRACKING CONTRACT (paper expert rules; proposals only until human verification):\n${JSON.stringify(officialConfig)}\n\n`
     : '';
   const ledgerLine = ledger ? `USER PORTFOLIO LEDGER (authoritative for units, caps, existing tickets, and open-parlay policy; open parlays with eligible_as_required_hedge_resource=false are not guaranteed planning capacity):\n${JSON.stringify(ledger)}\n\n` : '';
+  const promotionsLine = promotions?.promotions?.length
+    ? `SPORTSBOOK PROMOTIONS / FREE-BET CONTEXT (human-supplied, one-use and terms-bound; use only to estimate rebate/free-bet value and liability offset for a proposed team exposure. This is NOT odds/price evidence, NOT an official pick, and NOT authorization to place the qualifying wager. If a promo applies to only the first qualifying wager, explicitly account for the opportunity cost of consuming it on one team):\n${JSON.stringify(promotions)}\n\n`
+    : '';
   const watchlistLine = watchlist?.items?.length
     ? `HUMAN WATCHLIST TARGETS (explicitly evaluate these markets/teams against the dossier. Do not force a bet: for each target, either recommend it, put it in watch with a timing/price trigger, or pass and say why. Expand "ATB" / across_the_board into the listed markets only; exacta targets should become hedge_basket/coverage candidates only when a matching dossier price exists):\n${JSON.stringify(watchlist)}\n\n`
     : '';
@@ -403,7 +448,10 @@ function buildUserPrompt(dossier, ledger = null, watchlist = null, officialConfi
   const vaultReferenceLine = vaultReferenceDocs
     ? `HAND-CURATED BETTING REFERENCE GUIDES (static skill-style reference material from the team vault -- coaching tendencies, DVOA/EPA/CPOE glossary + current-season snapshot, key-number distribution, ATS trend framework and current-season records; NOT price evidence and NOT team-specific signal, use only to interpret other evidence):\n${JSON.stringify(vaultReferenceDocs)}\n\n`
     : '';
-  return `${runInstructionsLine}${officialLine}${primaryLine}${ledgerLine}${watchlistLine}${expertDossierLine}${supplementalContextLine}${vaultReferenceLine}DOSSIER META: season ${m.season}, ${m.snapshot_count} snapshots, books=${(m.books || []).join(',')}, markets=${(m.market_types || []).join(',')}. Intel: ${JSON.stringify(m.intel_coverage)}.
+  const masterReportGlobalLine = globalMasterReports?.length
+    ? `ANTIGRAVITY LEAGUE-WIDE MASTER REPORTS (exhaustive extraction summaries -- rankings, AMAs, multi-team podcast episodes, national articles -- that don't map to one team; each team's own profile.master_reports carries the team-scoped extractions from this same corpus. Use for market/analyst context, not as price evidence):\n${JSON.stringify(globalMasterReports)}\n\n`
+    : '';
+  return `${runInstructionsLine}${officialLine}${primaryLine}${ledgerLine}${promotionsLine}${watchlistLine}${expertDossierLine}${supplementalContextLine}${vaultReferenceLine}${masterReportGlobalLine}DOSSIER META: season ${m.season}, ${m.snapshot_count} snapshots, books=${(m.books || []).join(',')}, markets=${(m.market_types || []).join(',')}. Intel: ${JSON.stringify(m.intel_coverage)}.
 
 Offseason note: many markets (division, conference, awards, playoffs, matchup) may have limited or single-book coverage until preseason; weight coverage in your confidence. Super Bowl and win-total markets are the most liquid now — win totals especially are where bounce-back / longshot value tends to hide.
 
@@ -478,8 +526,36 @@ function takeRows(rows, n) {
   return kept;
 }
 
-function slimBookMap(books, sideFields = false) {
-  return Object.fromEntries(Object.entries(books || {}).map(([book, row]) => [book, sideFields
+// 2026-09-08 prompt-size fix: slimBookMap used to pass every sportsbook's
+// quote through wholesale -- only filtering which FIELDS survived per book,
+// never how many books did. Live measurement: the 32-row "wins" market alone
+// was ~236,820 chars (~59,200 tokens) of the shadow-slimmed prompt, almost
+// entirely per-book price rows the model never singles out individually --
+// it reasons off best_over/best_under/consensus_line and the edge percentages,
+// already carried on the row itself. Now caps each row to the top N books by
+// |edge| (the ones actually informative for line-shopping), always forcing in
+// whichever book(s) the row's own best_* fields point to so that reference
+// never goes stale. n_books on the row (untouched, from keepKeys) still
+// reports the TRUE total book count -- this only trims which raw quotes ride
+// along, not what the model is told about market depth.
+const MAX_BOOKS_PER_ROW = 6;
+
+function slimBookMap(books, sideFields = false, { limit = null, mustKeep = [] } = {}) {
+  const entries = Object.entries(books || {});
+  let selected = entries;
+  if (limit && entries.length > limit) {
+    const mustKeepSet = new Set((mustKeep || []).filter(Boolean));
+    const scored = entries.map(([book, row]) => {
+      const score = sideFields
+        ? Math.max(Math.abs(row?.over_edge ?? 0), Math.abs(row?.under_edge ?? 0))
+        : Math.abs((row?.price != null && row?.fair != null) ? row.price - row.fair
+          : (row?.yes_price != null && row?.fair_yes != null) ? row.yes_price - row.fair_yes : 0);
+      return { book, row, score, forced: mustKeepSet.has(book) };
+    });
+    scored.sort((a, b) => Number(b.forced) - Number(a.forced) || b.score - a.score);
+    selected = scored.slice(0, limit).map(({ book, row }) => [book, row]);
+  }
+  return Object.fromEntries(selected.map(([book, row]) => [book, sideFields
     ? keepKeys(row, ['line', 'over', 'under', 'fair_over', 'fair_under', 'over_edge', 'under_edge', 'observed_at', 'quote_age_hours', 'availability_status'])
     : keepKeys(row, ['price', 'yes_price', 'no_price', 'fair', 'fair_yes', 'fair_no', 'observed_at', 'quote_age_hours', 'availability_status'])
   ]));
@@ -489,17 +565,17 @@ function slimMarketRow(row) {
   if (row.consensus_line != null) {
     return {
       ...keepKeys(row, ['team', 'team_nick', 'consensus_line', 'line_spread', 'over_fair_prob', 'under_fair_prob', 'best_over_edge_pct', 'best_under_edge_pct', 'best_over', 'best_over_book', 'best_under', 'best_under_book', 'line_consensus_confidence', 'line_value_signal', 'lean', 'sim_win_total']),
-      books: slimBookMap(row.books, true),
+      books: slimBookMap(row.books, true, { limit: MAX_BOOKS_PER_ROW, mustKeep: [row.best_over_book, row.best_under_book] }),
     };
   }
   return {
     ...keepKeys(row, ['team', 'team_nick', 'team_a', 'team_b', 'fair_prob', 'fair_american', 'best_price', 'best_book', 'best_prob', 'best_observed_at', 'best_quote_age_hours', 'best_availability_status', 'value_gap', 'book_divergence', 'n_books', 'lean', 'sim']),
-    books: row.books ? slimBookMap(row.books, false) : undefined,
+    books: row.books ? slimBookMap(row.books, false, { limit: MAX_BOOKS_PER_ROW, mustKeep: [row.best_book] }) : undefined,
   };
 }
 
 function slimTeamProfile(profile) {
-  return keepKeys(profile, ['team', 'prior', 'sos', 'analytics', 'dvoa', 'coaching_profile', 'schedule_context', 'officiating_context', 'clv_signal', 'injuries', 'player_availability', 'vault_analytical_reads', 'bettorday_trench', 'training_camp_intel', 'named_player_sizing_gate', 'prediction_markets']);
+  return keepKeys(profile, ['team', 'prior', 'sos', 'analytics', 'dvoa', 'coaching_profile', 'schedule_context', 'officiating_context', 'clv_signal', 'injuries', 'player_availability', 'vault_analytical_reads', 'master_reports', 'training_camp_intel', 'named_player_sizing_gate', 'prediction_markets']);
 }
 
 function slimDossierForPrompt(dossier) {
@@ -592,8 +668,8 @@ const RISK_EDITOR_SYSTEM_PROMPT = `You are the RISK/PORTFOLIO ANALYST and final 
 
 - Look across ALL surviving candidates together (not one at a time) for correlation: multiple plays that would all win/lose together (same team, same division, same underlying driver) inflate real risk beyond what each play's own confidence suggests — note this in portfolio_notes and consider trimming or downgrading stake_tier on the redundant ones.
 - Set bet_threshold per candidate: the worst price still worth taking given its edge — below that price, the edge is gone. Be a real number/line, not vague.
-- Set needs_human_review: true for anything resting on thin data, real disagreement between market_view and football_view, a "downgrade" verdict from the Skeptic, or correlation with 2+ other candidates.
-- Set (or revise) stake_tier: core|standard|small|speculative — favorites/value can be core|standard; longshots and anything correlated with a bigger position should be small|speculative.
+- Set needs_human_review: true for anything resting on thin data, real disagreement between market_view and football_view, a "downgrade" verdict from the Skeptic, or correlation with 2+ other candidates. Each candidate you receive already carries an incoming needs_human_review value from the earlier stages — you may only ADD true, never clear an incoming true back to false (this is enforced mechanically after you respond regardless of what you set, so treat it as a floor, not a suggestion).
+- Set (or revise) stake_tier: core|standard|small|speculative — favorites/value can be core|standard; longshots and anything correlated with a bigger position should be small|speculative. GUARDED POLICY (per SYSTEM_PROMPT's SOURCE HIERARCHY, tightened 2026-09-09): a candidate whose evidence_ids resolve to no Tier 1 structured signal — even if it has real Tier 2 (named/dated lean) and/or Tier 3 (vault_analytical_reads/master_reports) support — must stay needs_human_review:true and stake_tier small|speculative; do not upgrade it to core/standard even if its thesis reads well. A candidate whose evidence_ids resolve to ONLY Tier 4 (training_camp_intel) must not be proposed at all — Tier 4 can only support a thesis already grounded in Tier 1/2/3, never originate one. Both are enforced mechanically after you respond.
 - You MAY pass on a candidate for portfolio reasons even if the Skeptic held it — e.g. too correlated with a bigger, better-supported play, or the book/portfolio is already overexposed to that team/division. Put these in "passes" with a reason distinct from the Skeptic's own reasoning.
 - If scenario structures are supplied (hedge baskets, parlay ladders, or portfolio_strategy), evaluate them as a scenario book: maximum dead cost if legs fail, effective cost basis if early ladder legs win, whether matchup/exacta coverage spans enough plausible playoff paths, conference/division/QB-driver concentration, and whether each longshot creates real later hedge optionality rather than just another standalone lottery ticket.
 - For a surviving anchor_bet-role candidate whose thesis the Skeptic did NOT downgrade, but whose current price makes a full-size entry marginal or slightly negative-edge: instead of passing on it outright, you may recommend a SCALED ENTRY -- a smaller stake_tier now plus an explicit price/condition at which the position would be sized up later. This is not adding a new pick; it is a sizing/timing decision on a candidate you already have. Only use this when the underlying edge case (injury return, roster/coaching change, schedule) is still intact and it is specifically the price that is currently unfavorable -- not when the thesis itself is broken (that is still a pass). When you use this pattern, include an entry_plan on that candidate: { "pattern": "scale_in", "add_trigger": "<price/line/condition that would justify adding to the position>", "note": "<=1 sentence on why partial entry beats an outright pass>" }. Omit entry_plan entirely for a normal full-size entry.
@@ -607,6 +683,12 @@ function buildRiskEditorUserPrompt(candidates, scenarioInput = {}) {
     price: c.price, book: c.book, edge_pct: c.edge_pct, confidence: c.confidence, stake_tier: c.stake_tier,
     thesis: c.thesis, disconfirming_factor: c.disconfirming_factor, skeptic_note: c.skeptic_note,
     skeptic_verdict: c.skeptic_verdict, correlated_week1: c.correlated_week1,
+    // 2026-09-08 (Codex review, Stage 5 guarded-policy fix): the Risk/Editor
+    // previously never saw the incoming needs_human_review value or which
+    // evidence tier backed a candidate, so it had no way to honor the
+    // SOURCE HIERARCHY's guarded policy (Tier-3/4-only plays must stay
+    // flagged + capped) even if it wanted to. Both now carried through.
+    needs_human_review: !!c.needs_human_review, evidence_ids: c.evidence_ids || [],
   }));
   const scenarios = {
     primary_positions: scenarioInput.primary || [],
@@ -720,7 +802,7 @@ async function callModel(model, systemPrompt, userContent) {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: { 'x-api-key': ANTHROPIC_KEY, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
-      body: JSON.stringify({ model, max_tokens: MAX_OUTPUT_TOKENS, system: systemPrompt, messages: [{ role: 'user', content: userContent }] }), // temperature omitted: deprecated/rejected by newer Anthropic models (claude-opus-4-8, claude-fable-5)
+      body: JSON.stringify({ model, max_tokens: MAX_OUTPUT_TOKENS, system: systemPrompt, messages: [{ role: 'user', content: userContent }] }), // temperature omitted: deprecated/rejected by current Anthropic models (claude-opus-5, claude-fable-5-1, and their claude-opus-4-8/claude-fable-5 predecessors)
       signal,
     });
     if (!res.ok) throw new Error(`${model} HTTP ${res.status}: ${(await res.text()).slice(0, 300)}`);
@@ -772,20 +854,11 @@ const edgePctFromFair = (fairProb, price) => (fairProb == null || price == null)
 // validateRecommendation, code-owned per Codex's own principle) can check the
 // claim traces to something real rather than a plausible-sounding fabrication.
 // Supports one level of array indexing per path segment.
-function resolvePath(obj, pathStr) {
-  if (obj == null || !pathStr) return undefined;
-  const parts = String(pathStr).split('.').flatMap((seg) => {
-    const m = seg.match(/^([^[]+)(\[(\d+)\])?$/);
-    if (!m) return [seg];
-    return m[3] != null ? [m[1], Number(m[3])] : [m[1]];
-  });
-  let cur = obj;
-  for (const p of parts) {
-    if (cur == null) return undefined;
-    cur = cur[p];
-  }
-  return cur;
-}
+// resolvePath() moved to agents/lib/board-validate.js in round 8 (Codex
+// round-7 review P1 -- hardened against prototype-chain traversal and
+// property access on already-terminal primitives; moving it there also
+// makes it directly unit-testable, since this file runs a top-level IIFE
+// on import and can't safely be imported by a test file). Imported above.
 
 // Finds the dossier synthesis_input row a market+selection should trace back
 // to: match on market key (exact — must equal a dossier synthesis_input key)
@@ -946,16 +1019,29 @@ function matchupKeyFromRow(row) {
 }
 
 // Resolves a candidate's evidence_ids against its matched dossier row. Returns
-// one entry per id: { id, value, resolved }. resolved=false means the pointer
-// didn't resolve to anything (bad path, or no dossier row match at all) — a
-// signal the citation may be fabricated or the row-match failed, not proof of
-// fraud on its own (some fields are legitimately null/absent).
+// one entry per id: { id, value, resolved, is_current_season }. resolved=false
+// means the pointer didn't resolve to anything (bad path, or no dossier row
+// match at all) — a signal the citation may be fabricated or the row-match
+// failed, not proof of fraud on its own (some fields are legitimately
+// null/absent).
+//
+// isCurrentSeasonForEvidence() moved to agents/lib/board-validate.js in
+// round 9 (Codex P1, flagged 2026-09-09) -- same rationale as resolvePath()'s
+// round-8 move: this file's top-level IIFE runs main() unconditionally on
+// import, so a pure function living only here can't be unit-tested without
+// executing the whole synthesis pipeline. See board-validate.js for the
+// full rewrite rationale (ancestor walk + field_provenance resolution).
 function resolveEvidenceIds(evidenceIds, dossierRow) {
   if (!evidenceIds?.length) return [];
   return evidenceIds.map((id) => {
-    if (!dossierRow) return { id, value: null, resolved: false };
+    if (!dossierRow) return { id, value: null, resolved: false, is_current_season: null };
     const value = resolvePath(dossierRow, id);
-    return { id, value: value === undefined ? null : value, resolved: value !== undefined && value !== null };
+    return {
+      id,
+      value: value === undefined ? null : value,
+      resolved: value !== undefined && value !== null,
+      is_current_season: isCurrentSeasonForEvidence(id, dossierRow),
+    };
   });
 }
 
@@ -1187,11 +1273,35 @@ async function loadVaultReferenceEvidence() {
     const { createClient } = await import('@supabase/supabase-js');
     const sb = createClient(SB_URL, SB_KEY, { auth: { persistSession: false } });
 
+    // 2026-09-09 preflight fix (A:rowcap BLOCK): PostgREST silently caps any
+    // unpaginated read at 1000 rows, and vault_notes has grown past that.
+    // The reference-docs query below is inherently bounded by docPaths'
+    // length (currently 6, from REFERENCE_DOC_FILES) regardless of table
+    // size -- .in() can never match more distinct rows than the array it's
+    // given.
+    //
+    // 2026-09-09 revision (Codex targeted fix, flagged 2026-09-09): the
+    // original .limit(docPaths.length) was itself a scanner false-BLOCK
+    // magnet for a different reason -- a *variable* limit derived from
+    // array length isn't a literal the generic scanner can trust as a
+    // genuine bound (it can't prove the filtered column is unique, so
+    // teaching it "every .limit(array.length) is safe" would weaken row-cap
+    // detection generally). Codex's recommended targeted resolution:
+    // assert the array is within the literal bound at runtime, and use a
+    // scanner-recognizable literal .limit() at the call site itself, rather
+    // than asking the scanner to reason about docPaths.length. vault_notes
+    // paths are unique (enforced by intel-to-vault-sync.js's upsert-by-path
+    // writes), so .in('path', docPaths) with docPaths.length <= 999 can
+    // never return more rows than distinct entries in docPaths.
     const docPaths = Object.values(REFERENCE_DOC_FILES).map((f) => `NFL/Reference/${f}`);
+    if (docPaths.length > 999) {
+      throw new Error(`loadVaultReferenceEvidence: REFERENCE_DOC_FILES has grown to ${docPaths.length} entries, exceeding the 999-row bound assumed by the reference-docs query's literal .limit(999) -- raise the limit and re-verify the query is still provably bounded before proceeding.`);
+    }
     const { data: docRows, error: docErr } = await sb
       .from('vault_notes')
       .select('path, content')
-      .in('path', docPaths);
+      .in('path', docPaths)
+      .limit(999);
     if (docErr) throw new Error(`reference docs fetch: ${docErr.message}`);
     const referenceDocs = {};
     for (const [key, file] of Object.entries(REFERENCE_DOC_FILES)) {
@@ -1199,12 +1309,50 @@ async function loadVaultReferenceEvidence() {
       if (row?.content) referenceDocs[key] = row.content;
     }
 
-    const { data: teamRows, error: teamErr } = await sb
-      .from('vault_notes')
-      .select('path, content')
-      .like('path', 'NFL/Teams/%')
-      .not('path', 'like', 'NFL/Teams/%-%'); // excludes ABBR-Suffix.md stat-import variants
-    if (teamErr) throw new Error(`team notes fetch: ${teamErr.message}`);
+    // The team-notes query below is the genuine risk: 'NFL/Teams/%' is not
+    // bounded by anything the model controls, and vault_notes is already
+    // past the 1000-row silent-truncation threshold. Ordering by `path` (a
+    // per-row-unique vault key) gives a total order so pages can't repeat
+    // or drop rows in the single-writer case.
+    //
+    // 2026-09-09 fix (P2, flagged 0830 handoff, Andy: fix now): the
+    // original version paginated with offset-based .range(from, from+PAGE),
+    // which Codex correctly flagged as unsafe under CONCURRENT writes --
+    // if a row sorting earlier than the current page is inserted between
+    // two .range() calls, every subsequent offset shifts by one and either
+    // repeats or skips a row. Switched to keyset/cursor pagination: each
+    // page asks for path > <last row's path seen so far> instead of a
+    // fixed numeric offset, so a page's boundary is anchored to actual row
+    // content, not position -- immune to rows shifting ahead of or behind
+    // the cursor. `path` is already the sort key and is a unique vault key
+    // (confirmed via this same file's REFERENCE_DOC_FILES lookups keying
+    // off exact path equality), so it's a safe, already-available cursor
+    // with no schema change needed.
+    // 2026-09-09 fix (Codex review P2 -- "the scanner recognizes keyset
+    // syntax without proving pagination"): a hand-rolled loop with the
+    // right-looking `.order()`/`.gt()`/`.limit()` shape is exactly what a
+    // one-shot, non-iterating query with the same three calls would also
+    // look like to a purely structural scanner -- so the loop itself moved
+    // into fetchAllKeyset() (agents/lib/supabase-pagination.js), a shared
+    // helper the preflight scanner now recognizes structurally (see
+    // portfolio-preflight.js's isLexicallyInsideCall()), which is what
+    // actually proves iteration rather than guessing from clause shape.
+    //
+    // 2026-09-09 revision (Codex round-2, same finding): fetchAllKeyset()
+    // now owns ordering/the cursor filter/the limit itself -- this call
+    // site supplies only the table, select, and base (non-pagination)
+    // filters via applyFilters. See supabase-pagination.js for why.
+    const TEAM_NOTES_PAGE = 1000;
+    const teamRows = await fetchAllKeyset('team notes fetch', {
+      sb,
+      table: 'vault_notes',
+      select: 'path, content',
+      cursorColumn: 'path',
+      pageSize: TEAM_NOTES_PAGE,
+      applyFilters: (query) => query
+        .like('path', 'NFL/Teams/%')
+        .not('path', 'like', 'NFL/Teams/%-%'), // excludes ABBR-Suffix.md stat-import variants
+    });
 
     const teamDeepReads = {};
     const itemRe = /-\s*\*\*\[(.+?)\]\((.+?)\)\*\*\s*\u2014\s*(.+?)\s*\((\d{4}-\d{2}-\d{2})\)\n\s*-\s*(.+)/g;
@@ -1252,6 +1400,250 @@ async function loadVaultReferenceEvidence() {
   }
 }
 
+// Antigravity master-report bridge (2026-09-08). agents/master-reports-to-vault-sync.js
+// syncs every scratch/*_master_100percent_exhaustive.md report into Supabase
+// vault_notes at path `NFL/Reference/Reports/<filename>` -- confirmed live,
+// 79 rows synced as of the 2026-08-28 Antigravity refresh -- but nothing in
+// this file ever queried that path prefix (loadVaultReferenceEvidence()
+// above only reads a fixed NFL/Reference/*.md allowlist and NFL/Teams/%),
+// so the entire corpus was fully synced and completely invisible to
+// synthesis. This reads NFL/Reference/Reports/% and splits each report two
+// ways:
+//   1. Reports with per-team '## 🏆 <Team Name>' section headers (the
+//      division/conference betting-preview format -- afc_north, nfc_west,
+//      etc.) get parsed into a compact per-team chunk (win/division/
+//      conference/Super Bowl odds bullets + the first synopsis paragraph)
+//      and attached to that team's own profile.
+//   2. Reports naming exactly one team in their Source Episode / title
+//      (single-team article recaps, e.g. a Cowboys preseason recap) get a
+//      compact whole-doc summary attached to that one team.
+//   3. Everything else (QB/unit rankings, Reddit AMAs, multi-team podcast
+//      episodes, national articles) has no reliable single-team home, so
+//      it's surfaced as league-wide reference context instead of guessing
+//      at a team assignment.
+// Sizes are capped throughout (6 reports/team, 900-char summaries, 25
+// global entries) to keep this a bounded addition to an already-large
+// prompt, not a raw dump of ~80 multi-KB files.
+const TEAM_FULLNAME_TO_ABBR = Object.fromEntries(
+  Object.values(NFL_TEAMS).map((t) => [t.fullName.toLowerCase(), t.abbreviation])
+);
+const TEAM_ALIAS_TO_ABBR = (() => {
+  const map = {};
+  for (const t of Object.values(NFL_TEAMS)) {
+    for (const alias of [t.name, t.fullName, ...(t.aliases || [])]) {
+      if (alias && alias.length > 3) map[alias.toLowerCase()] = t.abbreviation;
+    }
+  }
+  return map;
+})();
+
+// 2026-09-09 Codex review fix: single-team report matching used to be
+// nameForMatch.includes(alias) -- a plain substring test, so e.g. an alias
+// like "Jets" would match inside an unrelated word containing that
+// substring, and a short national-article title mentioning several teams
+// in passing could accidentally register a hit on one alias and get
+// mis-scoped to that team instead of staying league-wide context. Match on
+// word boundaries instead so an alias only counts when it appears as a
+// whole word (or whole phrase, for multi-word aliases/full names).
+function escapeRegExp(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+const TEAM_ALIAS_PATTERNS = Object.entries(TEAM_ALIAS_TO_ABBR).map(([alias, abbr]) => ({
+  abbr,
+  re: new RegExp(`\\b${escapeRegExp(alias)}\\b`, 'i'),
+}));
+
+function condenseTeamReportSection(sectionText) {
+  const oddsLines = [];
+  const oddsRe = /-\s*(Win Total|Division Odds|Conference Odds|Super Bowl Odds|Make\/Miss Playoff Odds & Specials):\s*(.+)/g;
+  let m;
+  while ((m = oddsRe.exec(sectionText)) && oddsLines.length < 5) {
+    oddsLines.push(`${m[1]}: ${m[2].trim()}`);
+  }
+  const synopsisMatch = sectionText.match(/Comprehensive Narrative Synopsis\*?\*?\s*\n+\s*([\s\S]+?)(?:\n\s*\n|\n\s*-\s*\*\*|$)/);
+  let synopsis = synopsisMatch ? synopsisMatch[1].trim().replace(/\s+/g, ' ') : '';
+  if (synopsis.length > 600) synopsis = `${synopsis.slice(0, 600)}\u2026`;
+  return { odds: oddsLines, synopsis };
+}
+
+async function loadMasterReportEvidence() {
+  const SB_URL = process.env.SUPABASE_URL;
+  const SB_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!SB_URL || !SB_KEY) return { teamMasterReports: {}, globalMasterReports: [], reportManifest: { teams: {}, global: { total: 0, included: [], excluded: [] } } };
+  try {
+    const { createClient } = await import('@supabase/supabase-js');
+    const sb = createClient(SB_URL, SB_KEY, { auth: { persistSession: false } });
+    // 2026-09-09 Codex review fix: page explicitly so the result is complete
+    // and deterministic regardless of corpus size. Switched from
+    // offset-based .range() to keyset/cursor pagination on `path` in a
+    // same-day follow-up (P2, same concurrent-write-safety rationale as
+    // loadVaultReferenceEvidence()'s team-notes fetch above -- see that
+    // comment for the full explanation) -- both pages of this same table
+    // should use a consistent, equally-safe pagination strategy.
+    // Same fetchAllKeyset() helper as loadVaultReferenceEvidence()'s
+    // team-notes fetch above -- see that comment and supabase-pagination.js
+    // for the Codex P2 rationale (including the round-2 ownership revision).
+    const PAGE_SIZE = 500;
+    const rows = await fetchAllKeyset('master reports fetch', {
+      sb,
+      table: 'vault_notes',
+      select: 'path, content, updated_at',
+      cursorColumn: 'path',
+      pageSize: PAGE_SIZE,
+      applyFilters: (query) => query.like('path', 'NFL/Reference/Reports/%'),
+    });
+
+    const teamCandidates = {};
+    const globalCandidates = [];
+    const teamHeaderRe = /^##\s*🏆\s*(.+)$/gm;
+
+    for (const row of rows || []) {
+      const content = row.content || '';
+      const filename = row.path.split('/').pop();
+      const titleMatch = content.match(/^#\s*(?:🏈\s*)?(.+)$/m);
+      const title = titleMatch ? titleMatch[1].trim() : filename;
+      const sourceMatch = content.match(/\*\*Source Episode(?:\s*ID)?:\*\*\s*(.+)/);
+      const expertsMatch = content.match(/\*\*Experts Attributed:\*\*\s*(.+)/);
+      const updatedAtMs = row.updated_at ? new Date(row.updated_at).getTime() : 0;
+
+      // Bonus scoring: week-1 targeted match-up intel and game betting takes precedence over generic season drafts
+      const isWeek1OrMatchup = /(?:week[\s_-]*1|matchup|preview|primer|picks|bets|props|spread|total|_vs_|\bvs\b)/i.test(`${filename} ${title}`);
+      const isPowerRanking = /power[\s_-]*rankings/i.test(`${filename} ${title}`);
+
+      teamHeaderRe.lastIndex = 0;
+      const headerMatches = [...content.matchAll(teamHeaderRe)];
+
+      if (headerMatches.length) {
+        // Specificity scoring: fewer teams in report = deeper, more targeted coverage (e.g. 2-team matchup vs 32-team draft)
+        let specificityScore = 20; // 32-team default
+        if (headerMatches.length <= 2) specificityScore = 100; // targeted game/matchup preview (e.g. Patriots vs Seahawks)
+        else if (headerMatches.length <= 4) specificityScore = 60;
+        else if (headerMatches.length <= 8) specificityScore = 40; // division preview
+
+        const baseScore = specificityScore + (isWeek1OrMatchup ? 30 : 0) + (isPowerRanking ? 15 : 0);
+
+        for (let i = 0; i < headerMatches.length; i++) {
+          const teamName = headerMatches[i][1].trim();
+          const abbr = TEAM_FULLNAME_TO_ABBR[teamName.toLowerCase()];
+          if (!abbr) continue;
+          const startIdx = headerMatches[i].index + headerMatches[i][0].length;
+          const endIdx = i + 1 < headerMatches.length ? headerMatches[i + 1].index : content.length;
+          const section = content.slice(startIdx, endIdx);
+          const { odds, synopsis } = condenseTeamReportSection(section);
+
+          if (!teamCandidates[abbr]) teamCandidates[abbr] = [];
+          teamCandidates[abbr].push({
+            entry: {
+              source_document: filename,
+              title,
+              experts: expertsMatch ? expertsMatch[1].trim() : null,
+              odds,
+              synopsis,
+            },
+            score: baseScore,
+            updatedAtMs,
+            filename,
+          });
+        }
+
+        // League-wide reports (16+ teams, e.g. 32-team power rankings or drafts) also provide macro context to globalMasterReports
+        if (headerMatches.length >= 16) {
+          const execSummaryMatch = content.match(/##\s*(?:📌\s*)?Executive (?:Intelligence|Summary)[^\n]*\n+([\s\S]+?)(?:\n##\s|$)/);
+          if (execSummaryMatch) {
+            let summary = execSummaryMatch[1].trim().replace(/\s+/g, ' ');
+            if (summary.length > 900) summary = `${summary.slice(0, 900)}…`;
+            globalCandidates.push({
+              entry: { source_document: filename, title, experts: expertsMatch ? expertsMatch[1].trim() : null, summary },
+              score: (isWeek1OrMatchup ? 50 : 30) + (isPowerRanking ? 25 : 0),
+              updatedAtMs,
+              filename,
+            });
+          }
+        }
+        continue;
+      }
+
+      const nameForMatch = `${title} ${sourceMatch ? sourceMatch[1] : ''}`;
+      const singleTeamHits = new Set();
+      for (const { abbr, re } of TEAM_ALIAS_PATTERNS) {
+        if (re.test(nameForMatch)) singleTeamHits.add(abbr);
+      }
+      const execSummaryMatch = content.match(/##\s*(?:📌\s*)?Executive (?:Intelligence|Summary)[^\n]*\n+([\s\S]+?)(?:\n##\s|$)/);
+      let summary = execSummaryMatch ? execSummaryMatch[1].trim() : content.slice(0, 900);
+      summary = summary.replace(/\s+/g, ' ').trim();
+      if (summary.length > 900) summary = `${summary.slice(0, 900)}…`;
+
+      if (singleTeamHits.size === 1) {
+        const abbr = [...singleTeamHits][0];
+        if (!teamCandidates[abbr]) teamCandidates[abbr] = [];
+        teamCandidates[abbr].push({
+          entry: { source_document: filename, title, experts: expertsMatch ? expertsMatch[1].trim() : null, summary },
+          score: 100 + (isWeek1OrMatchup ? 30 : 0),
+          updatedAtMs,
+          filename,
+        });
+      } else {
+        globalCandidates.push({
+          entry: { source_document: filename, title, experts: expertsMatch ? expertsMatch[1].trim() : null, summary },
+          score: (isWeek1OrMatchup ? 50 : 20) + (isPowerRanking ? 15 : 0),
+          updatedAtMs,
+          filename,
+        });
+      }
+    }
+
+    const teamMasterReports = {};
+    const reportManifest = {
+      teams: {},
+      global: { total: 0, included: [], excluded: [] },
+    };
+
+    const MAX_PER_TEAM = 6;
+    let totalCappedAcrossTeams = 0;
+
+    for (const [abbr, candidates] of Object.entries(teamCandidates)) {
+      // Sort by score DESC, then recency DESC, then filename ASC for determinism
+      candidates.sort((a, b) => (b.score - a.score) || (b.updatedAtMs - a.updatedAtMs) || a.filename.localeCompare(b.filename));
+
+      const included = candidates.slice(0, MAX_PER_TEAM);
+      const excluded = candidates.slice(MAX_PER_TEAM);
+
+      teamMasterReports[abbr] = included.map(c => c.entry);
+      reportManifest.teams[abbr] = {
+        total: candidates.length,
+        included: included.map(c => c.filename),
+        excluded: excluded.map(c => c.filename),
+      };
+
+      if (excluded.length > 0) {
+        totalCappedAcrossTeams += excluded.length;
+      }
+    }
+
+    // Sort global reports by score DESC, recency DESC, filename ASC
+    globalCandidates.sort((a, b) => (b.score - a.score) || (b.updatedAtMs - a.updatedAtMs) || a.filename.localeCompare(b.filename));
+    const MAX_GLOBAL = 25;
+    const includedGlobal = globalCandidates.slice(0, MAX_GLOBAL);
+    const excludedGlobal = globalCandidates.slice(MAX_GLOBAL);
+
+    const globalMasterReports = includedGlobal.map(c => c.entry);
+    reportManifest.global = {
+      total: globalCandidates.length,
+      included: includedGlobal.map(c => c.filename),
+      excluded: excludedGlobal.map(c => c.filename),
+    };
+
+    if (totalCappedAcrossTeams > 0 || excludedGlobal.length > 0) {
+      console.log(`   master-report bridge: prioritization applied across ${Object.keys(teamCandidates).length} teams (${totalCappedAcrossTeams} lower-priority team entries capped at max ${MAX_PER_TEAM}/team, ${excludedGlobal.length} global entries capped)`);
+    }
+
+    return { teamMasterReports, globalMasterReports, reportManifest };
+  } catch (err) {
+    console.warn(`  [WARN] master report evidence: ${err.message}`);
+    return { teamMasterReports: {}, globalMasterReports: [], reportManifest: { teams: {}, global: { total: 0, included: [], excluded: [] } } };
+  }
+}
+
 // Bridges agents/bettorday-newsletter-ingest.js's trench composite/SOS data
 // into the committee prompt. Added 2026-09-02, same pattern as
 // loadVaultReferenceEvidence() above: best-effort, silent no-op if
@@ -1269,7 +1661,7 @@ async function loadVaultReferenceEvidence() {
 // (the difficulty of the fronts that team's units will face this season).
 // These are kept as two separate objects per team, never merged/averaged,
 // since they measure different things on different scales.
-async function loadBettorDayTrenchEvidence() {
+async function _loadBettorDayTrenchEvidence() {
   const empty = { byTeam: {}, sourceMode: 'none' };
   let rows = null;
   let sourceMode = 'none';
@@ -1990,6 +2382,30 @@ function resolveLegAgainstDossier(leg, dossier) {
     },
   };
 }
+// 2026-09-09 (Codex round-5 review P1, Andy's explicit decision; rationale
+// corrected round 7 after Codex's round-6 review): neither
+// validateParlayLadder() nor validateHedgeBasket() below does any SOURCE
+// HIERARCHY evidence-tier checking -- both only resolve legs against
+// dossier prices (resolveLegAgainstDossier()). Codex correctly flagged
+// this as a real gap: parlay_ladders/hedge_baskets have no `evidence_ids`
+// field in their output schema at all (see the SYSTEM_PROMPT contract
+// above), so a model could in principle originate one purely from Tier-4
+// training-camp buzz with zero citation trail, and it would still render
+// as a valid structure. Andy's explicit call: this is INTENTIONAL, not an
+// oversight to fix -- hedge_baskets/parlay_ladders are exempt from
+// mechanical SOURCE HIERARCHY enforcement (see the "SCOPE" sentence in
+// SYSTEM_PROMPT's GUARDED POLICY paragraph). IMPORTANT (round 7
+// correction): round 6's comment here claimed these structures "are
+// already evidence-gated on the primary candidates list" -- Codex showed
+// that claim does not hold mechanically. `primary_hedged_against` is
+// optional free text and nothing here cross-checks it, or a parlay leg's
+// team, against whether that team's primary candidate actually survived
+// hasQualifyingGrounding()/enforceEvidenceTierGate()/partitionTier4Only()
+// above. This is an ACCEPTED, UNENFORCED risk Andy chose to take, not a
+// real invariant -- do not re-add "already gated" language here or in
+// SYSTEM_PROMPT without actually building the cross-check. Do not
+// re-flag the underlying exemption as a bypass without checking for a
+// newer decision superseding this one.
 function validateParlayLadder(ladder, dossier) {
   const resolved = [], notes = [];
   for (const leg of (ladder?.legs || [])) {
@@ -2001,6 +2417,8 @@ function validateParlayLadder(ladder, dossier) {
   return { status: notes.length ? 'flagged' : 'ok',
     ladder: { team: ladder.team, thesis: ladder.thesis, proposed_by: ladder.proposed_by, ...math, unresolved_legs: notes } };
 }
+// See the SOURCE HIERARCHY exemption note above validateParlayLadder() --
+// applies identically here.
 function validateHedgeBasket(basket, dossier) {
   const resolved = [], notes = [];
   for (const leg of (basket?.legs || [])) {
@@ -2300,7 +2718,15 @@ function applyRiskEditor(candidates, riskOutput) {
     final.push(f ? {
       ...c,
       bet_threshold: f.bet_threshold ?? c.bet_threshold ?? null,
-      needs_human_review: f.needs_human_review ?? c.needs_human_review ?? false,
+      // 2026-09-08 (Codex review, Stage 5 source-hierarchy fix): monotonic
+      // OR, not `??`. `??` only falls through on null/undefined, so a
+      // Risk/Editor pass that explicitly writes needs_human_review:false
+      // was silently erasing an earlier Stage 1/Skeptic `true` -- exactly
+      // the kind of narrative-only-thesis flag the new SOURCE HIERARCHY
+      // guarded policy depends on surviving to the final candidate. A
+      // review flag, once raised by any stage, must never be un-raised by
+      // a later one.
+      needs_human_review: !!(c.needs_human_review || f.needs_human_review),
       stake_tier: f.stake_tier || c.stake_tier,
       risk_note: f.risk_note || null,
       // 2026-09-03 (Andy): scale-in/wait-for-better-price pattern for anchor
@@ -3114,9 +3540,62 @@ async function persistRecommendationRuns(meta, trail) {
     console.warn('⚠ dossier freshness could not be determined but --allow-unknown-dossier-freshness was set — proceeding without a freshness guarantee.');
   }
 
+  // 2026-09-09 full-preflight enforcement (Codex review, P2 finding). The two
+  // checks above are narrower, synth-local gates -- agents/portfolio-preflight.js
+  // is the actual authoritative tool (every evidence lane, including the
+  // money/policy files below) and reports safe_to_run_paid_synthesis, but
+  // nothing here ever consulted it. Skipped for --prompt-only (no model calls,
+  // nothing to protect against spending on). A real Stage 1 call is the one
+  // thing this gate exists to prevent when the pipeline isn't ready.
+  if (!PROMPT_ONLY) {
+    console.log('🔎 Running full preflight gate (agents/portfolio-preflight.js --json)...');
+    const preflightRun = spawnSync('node', ['agents/portfolio-preflight.js', '--json', '--warn-only'], {
+      cwd: ROOT, encoding: 'utf8', maxBuffer: 1024 * 1024 * 16,
+    });
+    if (preflightRun.error) {
+      console.error(`✖ full preflight could not run: ${preflightRun.error.message}`);
+      if (!ALLOW_UNSAFE_PREFLIGHT) {
+        console.error('  Fix agents/portfolio-preflight.js or pass --allow-unsafe-preflight (last resort) to proceed without this check.');
+        process.exit(1);
+      }
+      console.warn('⚠ full preflight failed to run but --allow-unsafe-preflight was set — proceeding without this check.');
+    } else {
+      let preflightResult = null;
+      try {
+        preflightResult = JSON.parse(preflightRun.stdout);
+      } catch (e) {
+        console.error(`✖ full preflight produced unparseable output: ${e.message}`);
+        if (preflightRun.stderr) console.error(preflightRun.stderr.trim().split('\n').map((l) => `   ${l}`).join('\n'));
+        if (!ALLOW_UNSAFE_PREFLIGHT) {
+          console.error('  Investigate agents/portfolio-preflight.js, or pass --allow-unsafe-preflight (last resort) to proceed without this check.');
+          process.exit(1);
+        }
+        console.warn('⚠ full preflight output unparseable but --allow-unsafe-preflight was set — proceeding without this check.');
+      }
+      if (preflightResult) {
+        console.log(`   full preflight: ${preflightResult.summary.block} BLOCK · ${preflightResult.summary.warn} WARN · ${preflightResult.summary.error} ERROR · ${preflightResult.summary.pass} PASS`);
+        if (!preflightResult.safe_to_run_paid_synthesis) {
+          const blockingLanes = (preflightResult.results || []).filter((r) => r.status === 'BLOCK');
+          console.error('✖ full preflight reports safe_to_run_paid_synthesis: false — blocking lane(s):');
+          for (const b of blockingLanes) console.error(`    - [${b.stage}] ${b.lane}: ${b.detail}`);
+          if (!ALLOW_UNSAFE_PREFLIGHT) {
+            console.error('  Resolve the blocking lane(s) above (see agents/portfolio-preflight.js), or pass --allow-unsafe-preflight (last resort, documented) to proceed anyway.');
+            process.exit(1);
+          }
+          console.warn('⚠ full preflight reports safe_to_run_paid_synthesis: false but --allow-unsafe-preflight was set — proceeding anyway. This should not be routine.');
+        } else {
+          console.log('   full preflight: safe_to_run_paid_synthesis: true.');
+        }
+      }
+    }
+  } else {
+    console.log('   full preflight: skipped (--prompt-only — no model calls, nothing to gate).');
+  }
+
   const ledger = await loadLedger();
   const watchlist = await loadWatchlist();
   const officialConfig = await loadOfficialConfig();
+  const promotions = await loadPromotions();
   const runInstructions = await loadRunInstructions();
   const supplementalContext = await loadSupplementalContext();
   if (watchlist?.items?.length) {
@@ -3124,6 +3603,9 @@ async function persistRecommendationRuns(meta, trail) {
   }
   if (officialConfig?.expert_id) {
     console.log(`   official paper expert: ${officialConfig.display_name || officialConfig.expert_id} from ${OFFICIAL_CONFIG_PATH}`);
+  }
+  if (promotions?.promotions?.length) {
+    console.log(`   sportsbook promotions: ${promotions.promotions.length} offer(s) from ${PROMOTIONS_PATH}`);
   }
   if (runInstructions) {
     console.log(`   run instructions: ${RUN_INSTRUCTIONS_PATH}`);
@@ -3157,21 +3639,33 @@ async function persistRecommendationRuns(meta, trail) {
   } else {
     console.log('   vault reference bridge: SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY not set, or fetch failed -- proceeding without it');
   }
-  const bettordayTrench = await loadBettorDayTrenchEvidence();
-  if (Object.keys(bettordayTrench.byTeam).length) {
-    let teamsWithTrench = 0;
-    for (const [abbr, metrics] of Object.entries(bettordayTrench.byTeam)) {
+  const { teamMasterReports, globalMasterReports } = await loadMasterReportEvidence();
+  {
+    let teamsWithMasterReports = 0;
+    for (const [abbr, reports] of Object.entries(teamMasterReports)) {
       const nick = abbrToNick[abbr];
       if (nick && dossier.team_profiles?.[nick]) {
-        dossier.team_profiles[nick].bettorday_trench = metrics;
-        teamsWithTrench += 1;
+        dossier.team_profiles[nick].master_reports = reports;
+        teamsWithMasterReports += 1;
       }
     }
-    console.log(`   bettorday trench bridge (${bettordayTrench.sourceMode}): ${Object.keys(bettordayTrench.byTeam).length} team(s) with trench data, ${teamsWithTrench} matched into team_profiles`);
-  } else {
-    console.log('   bettorday trench bridge: no data available (Supabase table empty/missing and no local data/intel/bettorday_trench_ratings_2026.json) -- proceeding without it');
+    const totalTeamReports = Object.values(teamMasterReports).reduce((sum, r) => sum + r.length, 0);
+    console.log(`   antigravity master-report bridge: ${teamsWithMasterReports} team(s) with report context (${totalTeamReports} team-scoped entries), ${globalMasterReports.length} league-wide entr${globalMasterReports.length === 1 ? 'y' : 'ies'}`);
   }
-  const userContent = buildUserPrompt(dossier, ledger, watchlist, officialConfig, expertDossiers, runInstructions, supplementalContext, vaultReferenceDocs);
+  // 2026-09-08: Andy's explicit call -- drop BettorDay from the prompt
+  // entirely. He isn't paying for the subscription, so its proprietary
+  // trench/line-quality grades are likely thin-to-nonexistent behind a
+  // paywall, and it was never explained to the model anyway (no
+  // interpretive guidance in SYSTEM_PROMPT for this lane -- see
+  // docs/audits/2026-09-08-intel-pipeline-map/). Weight goes instead to his
+  // long-trusted podcast/article sources (Sharp or Square, Even Money,
+  // BettingPros, Action Network, The Favorites) via vault_analytical_reads
+  // and the normalized-signals lean data, both already wired in above.
+  // loadBettorDayTrenchEvidence() is left defined below (unused) rather than
+  // deleted, in case Andy resumes a paid BettorDay subscription later and
+  // wants this reconnected -- do not call it or re-add 'bettorday_trench' to
+  // slimTeamProfile's keepKeys without checking with Andy first.
+  const userContent = buildUserPrompt(dossier, ledger, watchlist, officialConfig, expertDossiers, runInstructions, supplementalContext, vaultReferenceDocs, globalMasterReports, promotions);
   if (PROMPT_ONLY) {
     const promptOut = path.resolve(ROOT, PROMPT_OUT_PATH);
     const preview = {
@@ -3233,7 +3727,7 @@ async function persistRecommendationRuns(meta, trail) {
     return (Array.isArray(s) ? s : [s]).map((strategy) => ({ ...strategy, proposed_by: m }));
   });
 
-  const meta = { date: new Date().toISOString().slice(0, 10), season: dossier.meta.season, committee_ran: !SKIP_COMMITTEE, run_id: randomUUID(), watchlist_path: watchlist?.items?.length ? WATCHLIST_PATH : null, watchlist_count: watchlist?.items?.length || 0, stage1_errors: stage1Errors.length ? stage1Errors : null };
+  const meta = { date: new Date().toISOString().slice(0, 10), season: dossier.meta.season, committee_ran: !SKIP_COMMITTEE, run_id: randomUUID(), watchlist_path: watchlist?.items?.length ? WATCHLIST_PATH : null, watchlist_count: watchlist?.items?.length || 0, promotions_path: promotions?.promotions?.length ? PROMOTIONS_PATH : null, promotions_count: promotions?.promotions?.length || 0, stage1_errors: stage1Errors.length ? stage1Errors : null };
   let final = candidates, passed = [], killed = [];
   const raw2 = {};
   let scenarioReview = null;
@@ -3303,6 +3797,53 @@ async function persistRecommendationRuns(meta, trail) {
   final = validateBoardBatch(final, dossier);
   const boardFlagged = final.filter((c) => c.validation?.length).length;
   if (boardFlagged) console.log(`   board validator: ${boardFlagged} candidate(s) flagged (kept, annotated) — see 'validation' on each rec`);
+
+  // 2026-09-08 (round 3, guarded-with-enforcement policy, Codex second-review
+  // P1/P2 fixes). Two steps, both BEFORE ranking/proposal export/report
+  // render/persistence so every downstream consumer of `final` sees the
+  // enforced result:
+  //
+  // 1. partitionSimPriceOnly(): excludes superbowl_matchup candidates from
+  //    `final` entirely (locked decision #4 says they're sim-price context
+  //    only, never a card — validateBoardBatch above already annotates this,
+  //    but annotation alone let them still reach reports/persistence). This
+  //    also sidesteps the exacta team_b evidence-resolution gap (P2) rather
+  //    than requiring team-qualified evidence-ID resolution.
+  const { kept: simFiltered, excluded: simExcluded } = partitionSimPriceOnly(final);
+  if (simExcluded.length) {
+    console.log(`   sim-price-only exclusion: ${simExcluded.length} candidate(s) removed from final (superbowl_matchup is never carded, per locked decision #4)`);
+    passed = [...passed, ...simExcluded];
+  }
+  final = simFiltered;
+
+  // 2026-09-09 (round 5, Andy's explicit Tier-4-never-originates clarification;
+  // predicate corrected in round 6 after Codex found the original every()-based
+  // check bypassable): a candidate that cites Tier 4 (training_camp_intel) at
+  // all -- resolved or not -- AND has NO resolved, qualifying Tier 1/2/3
+  // support cannot be proposed, not even capped to small/speculative -- that
+  // cap is what the policy DOES allow for Tier-3-only. A genuinely mixed-
+  // evidence candidate (Tier 4 alongside real resolved Tier 1/2/3) is NOT
+  // excluded here -- that's Tier 4 doing its allowed job of adding color to a
+  // thesis grounded above it. Excluded the same way superbowl_matchup is,
+  // immediately before the Tier 1 enforcement gate below (which handles the
+  // Tier-2/3-only and zero-evidence cases via capping, not exclusion).
+  const { kept: tier4Filtered, excluded: tier4Excluded } = partitionTier4Only(final);
+  if (tier4Excluded.length) {
+    console.log(`   tier4-only exclusion: ${tier4Excluded.length} candidate(s) removed from final (Tier 4 color/narrative cannot originate a play alone, per Andy's 2026-09-09 clarification)`);
+    passed = [...passed, ...tier4Excluded];
+  }
+  final = tier4Filtered;
+
+  // 2. enforceEvidenceTierGate(): unlike validateBoardBatch's annotate-and-
+  //    keep convention, this ACTUALLY normalizes needs_human_review/
+  //    stake_tier on a candidate that lacks qualifying Tier 1 grounding
+  //    (round 5: Tier 2 alone no longer qualifies) (Codex's P1 finding —
+  //    annotation alone left unsafe values reaching reports/proposal
+  //    export/persistence unchanged). Returns new objects; never mutates.
+  final = final.map(enforceEvidenceTierGate);
+  const tierEnforced = final.filter((c) => c.evidence_tier_enforced).length;
+  if (tierEnforced) console.log(`   evidence-tier gate: ${tierEnforced} candidate(s) forced to needs_human_review=true + capped stake_tier (no qualifying Tier 1 grounding)`);
+
   // Tier-3 fix: an empty final book used to render a complete, clean-looking
   // report and exit 0 — visually indistinguishable from "the model looked
   // and found nothing worth playing" (the actual 2026-09-01/09-02 incidents).
@@ -3339,6 +3880,7 @@ async function persistRecommendationRuns(meta, trail) {
   await writeFile(`${base}.md`, renderMD(ranked, passed, killed, byModel, meta, validLadders, validBaskets, portfolioStrategy, watchlistReview));
   await writeFile(`${base}.raw.json`, JSON.stringify({ meta, models: ok, raw, stage2_3: raw2, candidates, final, passed, killed,
     human_watchlist: watchlist,
+    sportsbook_promotions: promotions,
     human_watchlist_review: watchlistReview,
     hedge_baskets: { raw: rawHedgeBaskets, valid: validBaskets },
     parlay_ladders: { raw: rawParlayLadders, valid: validLadders },

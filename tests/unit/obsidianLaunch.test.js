@@ -6,7 +6,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { ensureObsidianReachable } from '../../agents/lib/obsidian-launch.js';
 
-const FAST = { maxWaitMs: 30, pollIntervalMs: 5 };
+const FAST = { maxWaitMs: 300, pollIntervalMs: 10 };
 
 describe('ensureObsidianReachable', () => {
   it('returns immediately without launching if already reachable', async () => {

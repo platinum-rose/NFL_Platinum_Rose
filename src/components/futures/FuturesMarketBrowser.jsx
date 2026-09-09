@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { getLatestFuturesOdds } from '../../lib/supabase';
 import { TEAM_LOGOS, NFL_TEAMS } from '../../lib/teams';
+import { aggregateSelectionQuotes } from '../../lib/futuresQuoteSelection';
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 const MARKET_LABELS = {
@@ -152,27 +153,12 @@ export default function FuturesMarketBrowser() {
     // Compute derived fields
     const rows = Array.from(byTeam.values()).map(entry => {
       const bookEntries = Array.from(entry.books.values());
-      // Best price for the bettor = longest payout (lowest implied probability).
-      // Manual rows may omit implied_prob, so derive it from American odds.
-      const implied = (row) => row.implied_prob ?? (row.odds > 0
-        ? 100 / (row.odds + 100)
-        : Math.abs(row.odds) / (Math.abs(row.odds) + 100));
-      const best = bookEntries.reduce((b, r) => (!b || implied(r) < implied(b) ? r : b), null);
-      const worst = bookEntries.reduce((w, r) => (!w || implied(r) > implied(w) ? r : w), null);
-
-      const avgImplied = bookEntries.length > 0
-        ? bookEntries.reduce((s, r) => s + (r.implied_prob || 0), 0) / bookEntries.length
-        : 0;
+      const stats = aggregateSelectionQuotes(bookEntries);
 
       return {
         team: entry.team,
         books: entry.books,
-        bestOdds: best?.odds ?? null,
-        bestBook: best?.book ?? null,
-        bestImplied: best?.implied_prob ?? null,
-        worstOdds: worst?.odds ?? null,
-        avgImplied,
-        bookCount: bookEntries.length,
+        ...stats,
         meta: getTeamMeta(entry.team),
       };
     });

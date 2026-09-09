@@ -417,25 +417,63 @@ export { PLACEABLE_SPORTSBOOK_KEYS as PLACEABLE_BOOKS } from './executionVenues.
  * @param {number} days        — how far back (default 365 days, preserving the season movement arc)
  * @param {number} [season]    — defaults to current year; pass null to disable the filter
  */
-export async function getFuturesOddsHistory(team, marketType, days = 365, season = new Date().getFullYear()) {
-  if (!isAvailable() || !team || !marketType) return [];
-  try {
-    const cutoff = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
-    const matchup = marketType === 'superbowl_matchup' ? canonicalExactMatchup(team) : null;
-    let query = supabase
+/**
+ * Paged retrieval helper for historical futures odds using keyset pagination over
+ * (snapshot_time ASC, id ASC) to guarantee a stable, deterministic total order.
+ * Exported so regression tests can exercise the exact production paging loop directly.
+ */
+export async function fetchFuturesOddsHistoryPaged(client, {
+  team,
+  marketType,
+  days = 365,
+  season = new Date().getFullYear(),
+  pageSize = 1000,
+}) {
+  if (!client || !team || !marketType) return [];
+  const cutoff = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
+  const matchup = marketType === 'superbowl_matchup' ? canonicalExactMatchup(team) : null;
+  const allRows = [];
+  let lastTs = null;
+  let lastId = null;
+
+  while (true) {
+    let query = client
       .from('futures_odds_snapshots')
-      .select('snapshot_time, team, selection, book, odds, implied_prob, season')
+      .select('id, snapshot_time, team, selection, book, odds, implied_prob, season')
       .eq('market_type', marketType)
-      .gte('snapshot_time', cutoff)
-      .order('snapshot_time', { ascending: true });
+      .order('snapshot_time', { ascending: true })
+      .order('id', { ascending: true })
+      .limit(pageSize);
+
+    if (lastTs != null && lastId != null) {
+      query = query.or(`snapshot_time.gt.${lastTs},and(snapshot_time.eq.${lastTs},id.gt.${lastId})`);
+    } else {
+      query = query.gte('snapshot_time', cutoff);
+    }
+
     query = matchup ? query.in('team', matchup.queryLabels) : query.eq('team', team);
     if (season != null) query = query.eq('season', season);
     const { data, error } = await query;
 
-    if (error || !data) return [];
-    return matchup
-      ? data.map((row) => ({ ...row, team: matchup.label, selection: matchup.label, matchup_key: matchup.key }))
-      : data;
+    if (error) throw error;
+    if (!data || data.length === 0) break;
+    allRows.push(...data);
+    if (data.length < pageSize) break;
+
+    const lastRow = data[data.length - 1];
+    lastTs = lastRow.snapshot_time;
+    lastId = lastRow.id;
+  }
+
+  return matchup
+    ? allRows.map((row) => ({ ...row, team: matchup.label, selection: matchup.label, matchup_key: matchup.key }))
+    : allRows;
+}
+
+export async function getFuturesOddsHistory(team, marketType, days = 365, season = new Date().getFullYear()) {
+  if (!isAvailable() || !team || !marketType) return [];
+  try {
+    return await fetchFuturesOddsHistoryPaged(supabase, { team, marketType, days, season });
   } catch (e) {
     logger.warn('[supabase] getFuturesOddsHistory failed:', e.message);
     return [];

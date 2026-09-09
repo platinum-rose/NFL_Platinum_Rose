@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "id": "betonline-superbowl-futures-special-2026",
+  "book": "betonline",
+  "source": "user_supplied_terms",
+  "captured_at": "2026-09-08",
+  "updated_at": "2026-09-09",
+  "season": 2026,
+  "status": "claimed_qualifying_wager_placed",
+  "purpose": "Portfolio synthesis context for evaluating Super Bowl Winner exposure and team-season liability. This is not a betting instruction.",
+  "promotion": {
+    "name": "Super Bowl Futures Special - Win $10 Every Week",
+    "eligible_market": {
+      "market_type": "superbowl",
+      "label": "Super Bowl 2027 LXI Winner futures odds",
+      "book": "betonline"
+    },
+    "qualifying_period": {
+      "starts_at_et": "2026-07-17T00:00:00-04:00",
+      "ends_at_et": "2026-09-11T23:59:00-04:00"
+    },
+    "minimum_qualifying_wager_usd": 50,
+    "one_use_only": true,
+    "account_limit": 1,
+    "first_qualifying_wager_only": true,
+    "qualifying_wager_note": "Only the first real-money BetOnline Super Bowl Winner wager of $50 or more during the qualifying period is eligible. Bets under $50 do not qualify.",
+    "eligible_candidate_teams": [
+      "Buffalo Bills",
+      "Green Bay Packers",
+      "Baltimore Ravens",
+      "any BetOnline Super Bowl Winner selection"
+    ],
+    "reward": {
+      "type": "free_bet_credit",
+      "amount_usd_per_regular_season_win": 10,
+      "regular_season_only": true,
+      "credit_timing": "By 7:00 pm ET on the Wednesday after each week in which the selected team wins.",
+      "must_claim_in_account_notifications": true,
+      "claim_window_days": 30,
+      "free_bet_expires_days": 30,
+      "rollover": "1x",
+      "risk_amount_returned": false,
+      "cash_redeemable": false,
+      "winnings_paid_to_cash_balance": true
+    }
+  },
+  "portfolio_modeling": {
+    "use_as": "team_outcome_rebate_context",
+    "not_price_evidence": true,
+    "not_official_pick": true,
+    "not_autonomous_bet_authorization": true,
+    "selected_team_unknown_until_human_places_qualifying_wager": false,
+    "nominal_credit_formula": "regular_season_wins * 10",
+    "max_nominal_credit_usd": 170,
+    "cash_equivalent_note": "Free-bet credits are not cash and stake is not returned, so the model should haircut nominal value when estimating EV or liability offset.",
+    "liability_note": "Use the selected team's win distribution to estimate expected weekly free-bet credits and downside/upside exposure. Because the offer can be used once, choosing Packers/Bills/Ravens consumes the option for all other teams.",
+    "human_review_required_before_use": true,
+    "selected_team": "Buffalo Bills",
+    "qualifying_wager_ref": {
+      "ledger_position_id": "bills_sb",
+      "ticket_number": "994540980",
+      "accepted_date": "2026-09-09",
+      "stake_usd": 50
+    }
+  },
+  "terms_summary": [
+    "BetOnline account must be in good standing with at least one lifetime deposit.",
+    "Place a real-money wager of $50 or more on Super Bowl 2027 LXI Winner futures odds between 2026-07-17 12:00 am ET and 2026-09-11 11:59 pm ET.",
+    "Only one promotion per account, and only the first qualifying $50+ Super Bowl Winner wager during the promotional period qualifies.",
+    "Each regular-season win by the selected team earns a $10 Free Bet credited the following Wednesday by 7:00 pm ET.",
+    "Reward must be claimed from account notifications within 30 days.",
+    "Free Bet credits require one-time wagering before withdrawal eligibility; the Free Bet risk amount is not included in returns or winnings.",
+    "Free Bet credits are non-transferable, not redeemable for cash, and expire in 30 days unless otherwise stated.",
+    "BetOnline may alter or amend terms without notice; BetOnline general rules also apply."
+  ]
+}

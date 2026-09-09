@@ -1,9 +1,42 @@
 import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
 import { buildPredictionMarketMap } from '../../scripts/build-prediction-market-map.js';
 import { buildCrossMarketCoherence } from '../../scripts/build-cross-market-coherence.js';
 
 const FIXTURE = 'tests/fixtures/prediction-market-evidence-cleanup-mini.json';
 const GENERATED_AT = '2026-08-11T20:00:00.000Z';
+
+// 2026-09-09 fix (P2, flagged in the 2026-09-09 0830 handoff as "just
+// update the fixture assertion" -- turned out to need one more step than
+// that once actually run). This test was reading the LIVE
+// `data/prediction-markets/latest.json` for its 'map'/'snapshot' checks,
+// not a frozen fixture -- that file gets overwritten every time the real
+// ingestion pipeline regenerates it. Two independent staleness bugs
+// surfaced from that, not one:
+//   1. map.meta.source_generated_at was asserted against a hardcoded
+//      '2026-08-22T20:44:38.351Z' literal -- broke the instant latest.json's
+//      timestamp advanced past it (it's now 2026-09-09, mid-session).
+//   2. Less obviously: map.meta.liquidity_warning_rate_pct was asserted
+//      >= 77%, which also broke -- NOT because of a bug, but because Andy
+//      has been actively staging fresher book captures this week (see
+//      nfl_dashboard_pipeline_intel_map.md, "Andy is staging fresh BKR/BEO/
+//      BetUS captures 2026-09-09"), which legitimately drove live
+//      liquidity-warning coverage down to ~71.79%. A live, improving data
+//      file is fundamentally the wrong thing for a regression test asserting
+//      "this specific historical snapshot still shows >=77% warnings" to
+//      read from -- the assertion and the data source were never going to
+//      stay in sync.
+// Real fix: point this test at the actual frozen, checked-in
+// `data/prediction-markets/prediction-markets-2026-08-22.json` snapshot
+// (confirmed identical meta.generated_at to the original hardcoded literal)
+// instead of the live, mutating `latest.json` -- the same pattern the
+// `legacyCoherence` assertions above already use for the 07-31 snapshot.
+// This is a real, permanent fix rather than deferring the same staleness
+// bug forward to whenever the live file's content next drifts.
+const FROZEN_SOURCE = 'data/prediction-markets/prediction-markets-2026-08-22.json';
+const FROZEN_SOURCE_GENERATED_AT = JSON.parse(
+  readFileSync(FROZEN_SOURCE, 'utf8')
+).meta?.generated_at;
 
 describe('prediction-market evidence cleanup P01-P02', () => {
   it('gates taxonomy and 2026 season before disambiguated team mapping', async () => {
@@ -177,7 +210,7 @@ describe('prediction-market evidence cleanup P01-P02', () => {
       dryRun: true,
     });
     const { snapshot: map } = await buildPredictionMarketMap({
-      source: 'data/prediction-markets/latest.json',
+      source: FROZEN_SOURCE,
       generatedAt: GENERATED_AT,
       season: 2026,
       dryRun: true,
@@ -194,7 +227,11 @@ describe('prediction-market evidence cleanup P01-P02', () => {
     expect(legacyCoherence.meta.actionable_contract_count).toBe(0);
     expect(legacyCoherence.meta.source_liquidity_warning_rate_pct).toBeGreaterThanOrEqual(77);
     expect(legacyCoherence.meta.execution_source_status).toBe('blocked_settlement_terms_unverified');
-    expect(map.meta.source_generated_at).toBe('2026-08-22T20:44:38.351Z');
+    // Sanity: the frozen fixture actually has a generated_at to propagate
+    // (guards against this becoming a vacuously-true `undefined === undefined`
+    // check if the fixture's shape ever changes).
+    expect(FROZEN_SOURCE_GENERATED_AT).toBeTruthy();
+    expect(map.meta.source_generated_at).toBe(FROZEN_SOURCE_GENERATED_AT);
     expect(map.meta.liquidity_warning_rate_pct).toBeGreaterThanOrEqual(77);
     expect(map.meta.execution_eligible_count).toBe(0);
     expect(map.meta.execution_source_status).toBe('blocked_settlement_terms_unverified');

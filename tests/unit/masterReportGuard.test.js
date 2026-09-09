@@ -64,9 +64,28 @@ Comprehensive team-by-team quarterback rotation analysis across all Week 3 prese
 - Compiled by Adam Burke, August 24, 2026.
 `;
 
-    const res = validateMasterReport(validReport, { minBytes: 300, requireSections: true });
+    const res = validateMasterReport(validReport, { minBytes: 300, requireSections: true, requireTerminalSection: true });
     expect(res.valid).toBe(true);
-    expect(() => assertValidMasterReport(validReport, { minBytes: 300, requireSections: true })).not.toThrow();
+    expect(() => assertValidMasterReport(validReport, { minBytes: 300, requireSections: true, requireTerminalSection: true })).not.toThrow();
+  });
+
+  it('rejects abruptly truncated reports (cut off mid-sentence or mid-table)', () => {
+    const truncated1 = `# 📰 Test Report\n\n---\n\n## 📌 Executive Summary\nSummary text\n\n## 🏆 Chicago Bears\n- Secondary injuries: Free-agent cornerback Cobie Durant is out`;
+    const res1 = validateMasterReport(truncated1, { minBytes: 50 });
+    expect(res1.valid).toBe(false);
+    expect(res1.reason).toBe('truncated_output');
+
+    const truncated2 = `# 📰 Test Report\n\n---\n\n## 📌 Executive Summary\nSummary\n\n| Round | Pick | Team |\n|---|---|---|\n| 1 | 1 | Rams |\n|`;
+    const res2 = validateMasterReport(truncated2, { minBytes: 50 });
+    expect(res2.valid).toBe(false);
+    expect(res2.reason).toBe('truncated_output');
+  });
+
+  it('rejects reports missing terminal closing section when requireTerminalSection is true', () => {
+    const noTerminal = `# 📰 Test Report\n\n---\n\n## 📌 Executive Summary\nSummary text\n\n## 🏆 Chicago Bears\nAnalysis text\n\n## 💡 Betting & Fantasy Rationale\nRationale text`;
+    const res = validateMasterReport(noTerminal, { minBytes: 50, requireSections: true, requireTerminalSection: true });
+    expect(res.valid).toBe(false);
+    expect(res.reason).toBe('missing_terminal_section');
   });
 
   it('assertValidMasterReport throws MasterReportValidationError on failure', () => {

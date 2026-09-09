@@ -5,13 +5,17 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { FUTURES_IMPORT_KEYS as KEYS, computeSemanticHash } from '../src/lib/futuresImportAudit.js';
 
-const KEYS = [
-  'snapshot_time', 'captured_at', 'season', 'book', 'market_type', 'team',
-  'selection', 'odds', 'price', 'implied_prob', 'line', 'over_price', 'under_price',
-];
-const DIR = 'data/futures-imports';
-const MANIFEST_PATH = path.join(DIR, 'import-manifest-2026.json');
+export const DIR = 'data/futures-imports';
+export const MANIFEST_PATH = path.join(DIR, 'import-manifest-2026.json');
+
+export function manifestPathForMode(mode, dir = DIR) {
+  return mode === 'dry-run'
+    ? path.join(dir, 'import-manifest-2026.dry-run.json')
+    : path.join(dir, 'import-manifest-2026.json');
+}
 const FILE_RE = /^(betonline|betus|bookmaker)-\d{4}-\d{2}-\d{2}\.json$/;
 const DRY_RUN = process.argv.includes('--dry-run');
 const WRITE_MANIFEST = !process.argv.includes('--no-manifest');
@@ -26,12 +30,6 @@ function loadEnv(p = '.env') {
     env[key] ??= rest.join('=').trim().replace(/^['"]|['"]$/g, '');
   }
   return env;
-}
-
-function stable(value) {
-  if (Array.isArray(value)) return value.map(stable);
-  if (!value || typeof value !== 'object') return value;
-  return Object.fromEntries(Object.keys(value).sort().map((key) => [key, stable(value[key])]));
 }
 
 function sha256(value) {
@@ -88,8 +86,6 @@ function loadFile(file) {
   }
   const markets = {};
   for (const row of rows) markets[row.market_type] = (markets[row.market_type] || 0) + 1;
-  const semanticRows = rows.map(({ snapshot_time: _snapshot, captured_at: _captured, ...row }) => stable(row));
-  semanticRows.sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b)));
   return {
     file,
     rows,
@@ -100,7 +96,7 @@ function loadFile(file) {
     row_count: rows.length,
     markets,
     sha256: sha256(rawText),
-    semantic_sha256: sha256(JSON.stringify(semanticRows)),
+    semantic_sha256: computeSemanticHash(rows),
   };
 }
 
@@ -185,8 +181,9 @@ function writeManifest(entries, mode) {
     totals,
     files: entries.map(({ rows: _rows, anomalies, ...entry }) => ({ ...entry, anomalies })),
   };
-  fs.writeFileSync(MANIFEST_PATH, `${JSON.stringify(manifest, null, 2)}\n`);
-  console.log(`Manifest: ${MANIFEST_PATH}`);
+  const targetPath = manifestPathForMode(mode, DIR);
+  fs.writeFileSync(targetPath, `${JSON.stringify(manifest, null, 2)}\n`);
+  console.log(`Manifest (${mode}): ${targetPath}`);
 }
 
 async function main() {
@@ -228,7 +225,9 @@ async function main() {
   }
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}

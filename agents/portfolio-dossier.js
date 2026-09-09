@@ -433,21 +433,96 @@ function latestByTeam(rows, mapRow) {
 async function loadGeneratedProfileRows(prefix) {
   const dir = path.join(ROOT, 'data', 'generated', 'team-profiles');
   try {
-    const files = (await readdir(dir))
-      .filter((name) => name.startsWith(prefix) && name.endsWith('.json') && name.includes(String(SEASON)));
+    // Deliberately does NOT filter filenames by SEASON up front (2026-09-09
+    // fix) -- a brand-new season has no games played yet to compute
+    // analytics/coaching-tendency/DVOA snapshots from, so the only artifact
+    // on disk for weeks is last season's. The old filename/meta season
+    // filter excluded that artifact outright, so this fallback -- whose
+    // whole purpose is to catch Supabase coming back empty -- also silently
+    // returned nothing. Now every artifact matching the prefix is read, and
+    // a prior season is used as a stale-but-useful prior when nothing for
+    // the current season exists yet.
+    const files = (await readdir(dir)).filter((name) => name.startsWith(prefix) && name.endsWith('.json'));
     const payloads = [];
     for (const file of files) {
       try {
         const payload = JSON.parse(await readFile(path.join(dir, file), 'utf8'));
-        if (Array.isArray(payload.rows) && Number(payload.meta?.season) === SEASON) {
-          payloads.push({ file, generated_at: payload.meta?.generated_at || '', rows: payload.rows });
+        const season = Number(payload.meta?.season);
+        // 2026-09-09 fix (Codex post-round-10 review P1): an artifact whose
+        // rows array is empty (a partial/failed generation run) used to
+        // still count as "the current-season artifact exists" and would
+        // short-circuit the whole function to [] instead of falling
+        // through to a perfectly good prior-season artifact. Excluding
+        // empty-rows payloads here means an empty current-season file can
+        // no longer suppress a valid prior-season fallback below.
+        if (Array.isArray(payload.rows) && payload.rows.length && Number.isFinite(season)) {
+          // Sort key is a PARSED timestamp, not a string comparison. Every
+          // artifact this repo currently generates uses ISO 8601 by default
+          // (`new Date().toISOString()` in every build-*-snapshots.js
+          // script -- verified live across all 4 on-disk artifacts as of
+          // this fix), so lexicographic sort happened to work today, but
+          // generated_at is overridable via each script's --snapshot-at
+          // flag with an arbitrary string, and a non-ISO value (e.g. a
+          // locale-formatted date) would silently corrupt string ordering.
+          // Date.parse() on an unparseable/missing value returns NaN, which
+          // is treated as -Infinity (sorts last) rather than crashing.
+          const generatedAtMsRaw = Date.parse(payload.meta?.generated_at || '');
+          payloads.push({
+            file,
+            season,
+            generated_at: payload.meta?.generated_at || '',
+            generatedAtMs: Number.isFinite(generatedAtMsRaw) ? generatedAtMsRaw : -Infinity,
+            rows: payload.rows,
+          });
         }
       } catch {
         // Ignore malformed local review artifacts; Supabase remains primary.
       }
     }
-    payloads.sort((a, b) => String(b.generated_at).localeCompare(String(a.generated_at)));
-    return payloads[0]?.rows || [];
+    if (!payloads.length) return [];
+
+    // 2026-09-09 fix (Codex post-round-10 review P1): fallback rows were
+    // returned as a bare passthrough with no marker distinguishing "this
+    // season's real data" from "last season's data being used as a
+    // preseason prior" -- coaching_profile in particular relied only on an
+    // already-expired stale_after field to communicate this, and analytics
+    // only accidentally retained a warning via mergeAnalytics()'s object
+    // spread. Every row this function returns (both branches below) now
+    // carries the same three fields uniformly, so every consumer (prompt
+    // text, markdown renderers, evidence-tier classification) can check
+    // one consistent shape regardless of which branch supplied the row.
+    const stampRows = (rows, { isCurrentSeason, seasonsBehind, staleNote }) => rows.map((r) => ({
+      ...r,
+      is_current_season: isCurrentSeason,
+      seasons_behind: seasonsBehind,
+      staleness_note: staleNote,
+    }));
+
+    const currentSeasonPayloads = payloads.filter((p) => p.season === SEASON);
+    if (currentSeasonPayloads.length) {
+      currentSeasonPayloads.sort((a, b) => b.generatedAtMs - a.generatedAtMs);
+      return stampRows(currentSeasonPayloads[0].rows, { isCurrentSeason: true, seasonsBehind: 0, staleNote: null });
+    }
+
+    // No current-season artifact (or its rows were empty -- see above).
+    // Fall back to the most recent PRIOR season (never a future one) rather
+    // than returning nothing. Each row still carries its own season/
+    // snapshot_at fields from the source artifact untouched -- this
+    // fallback does not relabel them -- plus the three staleness fields
+    // above, so downstream freshness checks and the prompt itself see this
+    // honestly as prior-season data, not current-season data.
+    const priorSeasonPayloads = payloads.filter((p) => p.season < SEASON);
+    if (!priorSeasonPayloads.length) return [];
+    const bestSeason = Math.max(...priorSeasonPayloads.map((p) => p.season));
+    const bestSeasonPayloads = priorSeasonPayloads
+      .filter((p) => p.season === bestSeason)
+      .sort((a, b) => b.generatedAtMs - a.generatedAtMs);
+    const chosen = bestSeasonPayloads[0];
+    if (!chosen) return [];
+    const seasonsBehind = SEASON - bestSeason;
+    const staleNote = `Prior-season fallback: no season-${SEASON} data yet (pre-kickoff) -- using season-${bestSeason} as a preseason prior, generated ${chosen.generated_at || 'unknown time'} (${chosen.file}). Not this season's actual form.`;
+    console.warn(`   ${prefix}: no season-${SEASON} artifact found; using season-${bestSeason} as a stale prior (${chosen.file})`);
+    return stampRows(chosen.rows, { isCurrentSeason: false, seasonsBehind, staleNote });
   } catch {
     return [];
   }
@@ -510,8 +585,67 @@ async function fetchPlayerAvailabilityContext() {
       if (!nick) continue;
       const events = (team.events || [])
         .filter((event) => isSourceTeamAligned(abbr, event.source));
+      const mapAvailabilityEvent = (event) => ({
+        player_name: event.player_name,
+        position: event.position,
+        event_type: event.event_type,
+        status: event.normalized_status,
+        impact_bucket: event.impact_bucket,
+        availability_group: event.availability_group,
+        summary: event.short_summary,
+        source: event.source,
+        published_at: event.published_at,
+        needs_human_review: event.needs_human_review,
+      });
+      // 2026-09-08 dedup fix: offensive_line_risks / defensive_front_risks /
+      // snap_count_risks all filter from this SAME `events` array as
+      // key_absences ("worsening") below, so a worsening offensive-line or
+      // defensive-front event -- or any event whose summary mentions a snap
+      // count -- was landing in key_absences AND its specific-group list
+      // verbatim (confirmed live: Rams' "Eddie Walls III IR" appeared
+      // identically in both key_absences and defensive_front_risks). No new
+      // information, pure prompt-token waste. Compute the most-specific
+      // buckets FIRST, mark those events seen, then exclude them from the
+      // more generic snap_count_risks/key_absences/key_returns lists below --
+      // the model still sees each event, just once, in its most useful bucket.
+      const offensiveLineRisks = events
+        .filter((event) => event.availability_group === 'offensive_line' && event.availability_trend === 'worsening')
+        .slice(0, 8)
+        .map(mapAvailabilityEvent);
+      const defensiveFrontRisks = events
+        .filter((event) => event.availability_group === 'defensive_front' && event.availability_trend === 'worsening')
+        .slice(0, 8)
+        .map(mapAvailabilityEvent);
+      const clusterRisks = clusterAvailabilitySummary(events);
+
+      const dedupedRefs = new Set();
+      for (const e of offensiveLineRisks) dedupedRefs.add(e);
+      for (const e of defensiveFrontRisks) dedupedRefs.add(e);
+      // mapAvailabilityEvent returns a NEW object per call, so `events` items
+      // themselves are never in dedupedRefs -- dedupe on the source `event`
+      // identity instead by re-deriving which raw events fed those two lists.
+      const specificEventRefs = new Set([
+        ...events.filter((event) => event.availability_group === 'offensive_line' && event.availability_trend === 'worsening').slice(0, 8),
+        ...events.filter((event) => event.availability_group === 'defensive_front' && event.availability_trend === 'worsening').slice(0, 8),
+      ]);
+
+      const snapCountRisksEvents = events
+        .filter((event) => /limited|snap_count/.test(event.event_type) || /snap count|limited snap|pitch count/i.test(event.short_summary || ''))
+        .filter((event) => !specificEventRefs.has(event))
+        .slice(0, 6);
+      for (const e of snapCountRisksEvents) specificEventRefs.add(e);
+      const snapCountRisks = snapCountRisksEvents.map((event) => ({
+        player_name: event.player_name,
+        position: event.position,
+        event_type: event.event_type,
+        summary: event.short_summary,
+        source: event.source,
+        published_at: event.published_at,
+      }));
+
       const improving = events
         .filter((event) => event.availability_trend === 'improving')
+        .filter((event) => !specificEventRefs.has(event))
         .slice(0, 6)
         .map((event) => ({
           player_name: event.player_name,
@@ -525,6 +659,7 @@ async function fetchPlayerAvailabilityContext() {
         }));
       const worsening = events
         .filter((event) => event.availability_trend === 'worsening')
+        .filter((event) => !specificEventRefs.has(event))
         .slice(0, 6)
         .map((event) => ({
           player_name: event.player_name,
@@ -537,38 +672,6 @@ async function fetchPlayerAvailabilityContext() {
           published_at: event.published_at,
           needs_human_review: event.needs_human_review,
         }));
-      const snapCountRisks = events
-        .filter((event) => /limited|snap_count/.test(event.event_type) || /snap count|limited snap|pitch count/i.test(event.short_summary || ''))
-        .slice(0, 6)
-        .map((event) => ({
-          player_name: event.player_name,
-          position: event.position,
-          event_type: event.event_type,
-          summary: event.short_summary,
-          source: event.source,
-          published_at: event.published_at,
-        }));
-      const mapAvailabilityEvent = (event) => ({
-        player_name: event.player_name,
-        position: event.position,
-        event_type: event.event_type,
-        status: event.normalized_status,
-        impact_bucket: event.impact_bucket,
-        availability_group: event.availability_group,
-        summary: event.short_summary,
-        source: event.source,
-        published_at: event.published_at,
-        needs_human_review: event.needs_human_review,
-      });
-      const offensiveLineRisks = events
-        .filter((event) => event.availability_group === 'offensive_line' && event.availability_trend === 'worsening')
-        .slice(0, 8)
-        .map(mapAvailabilityEvent);
-      const defensiveFrontRisks = events
-        .filter((event) => event.availability_group === 'defensive_front' && event.availability_trend === 'worsening')
-        .slice(0, 8)
-        .map(mapAvailabilityEvent);
-      const clusterRisks = clusterAvailabilitySummary(events);
       // 2026-09-04 Tier-4 fix: agents/lib/player-availability.js caps team.events
       // at 12 per team AT WRITE TIME (buildAvailabilitySnapshotFromEvents) but
       // computes team.event_count / improving_count / worsening_count / major_count
@@ -809,6 +912,15 @@ async function fetchAdvancedAnalytics() {
     play_action_rate: r.play_action_rate ?? null,
     motion_rate: r.motion_rate ?? null,
     attribution_note: r.attribution_note ?? null,
+    // 2026-09-09 fix (Codex post-round-10 review P1): stamp the same three
+    // staleness fields loadGeneratedProfileRows() now stamps on its fallback
+    // rows, so every consumer sees one uniform shape regardless of which
+    // path supplied the row. Rows reaching this branch came from the
+    // `.eq('season', SEASON)` Supabase query above, so they are current-
+    // season by construction.
+    is_current_season: true,
+    seasons_behind: 0,
+    staleness_note: null,
   }));
 }
 async function fetchDvoaSnapshots() {
@@ -847,6 +959,9 @@ async function fetchDvoaSnapshots() {
     weighted_dvoa: r.weighted_dvoa ?? null,
     weighted_dvoa_rank: r.weighted_dvoa_rank ?? null,
     attribution_note: r.attribution_note ?? null,
+    is_current_season: true,
+    seasons_behind: 0,
+    staleness_note: null,
   }));
 }
 async function fetchCoachingProfiles() {
@@ -895,11 +1010,41 @@ async function fetchCoachingProfiles() {
     ats_by_role: r.ats_by_role ?? null,
     trend_notes: r.trend_notes ?? null,
     stale_after: r.stale_after ?? null,
+    is_current_season: true,
+    seasons_behind: 0,
+    staleness_note: null,
   }));
 }
 function mergeAnalytics(base, advanced) {
   if (!base && !advanced) return null;
-  return { ...(base || {}), ...(advanced || {}) };
+  const merged = { ...(base || {}), ...(advanced || {}) };
+  // 2026-09-09 fix (Codex P1, flagged 2026-09-09): base and advanced are two
+  // independently-sourced objects, each with its OWN is_current_season /
+  // seasons_behind stamp. The flat spread above collapses them onto a single
+  // root-level flag (whichever source spreads last wins), so a field that
+  // only base defines (e.g. pass_rate) can silently inherit advanced's
+  // freshness instead of its own -- and downstream evidence-tier resolution
+  // (isCurrentSeasonForEvidence in portfolio-synthesize.js) has no way to
+  // tell the two sources apart from the merged object alone.
+  // Fix: when both sources exist, stamp an explicit, plain-JSON-serializable
+  // field_provenance record carrying base's own season stamp plus the list
+  // of keys that ONLY base defines (i.e. keys advanced does not also own).
+  // Keep this minimal -- analytics flows unfiltered into the LLM prompt via
+  // slimTeamProfile()'s whole-key allowlist, which is already tight against
+  // the model's context budget.
+  if (base && advanced) {
+    const baseOnlyFields = Object.keys(base).filter(
+      (k) => !Object.prototype.propertyIsEnumerable.call(advanced, k),
+    );
+    merged.field_provenance = {
+      base_season: {
+        is_current_season: base.is_current_season ?? null,
+        seasons_behind: base.seasons_behind ?? null,
+      },
+      base_only_fields: baseOnlyFields,
+    };
+  }
+  return merged;
 }
 // 2026 schedule spine — grounds strength-of-schedule in the ACTUAL released slate,
 // not the model's (possibly stale) memory of who plays whom. Extended S296-follow-up
@@ -1270,9 +1415,16 @@ function makeNormalizedFindLean(signals) {
       const e = (byTeamMarket[`${team}|${mk}`] ??= { back: 0, fade: 0, over: 0, under: 0, n: 0, strength: 0, samples: [] });
       if (['back', 'fade', 'over', 'under'].includes(dir)) e[dir]++;
       e.n++; e.strength += (typeof s.strength === 'number' ? s.strength : 0.5);
-      if (e.samples.length < 5) e.samples.push({ who, dir, strength: s.strength ?? null, why: (s.rationale || '').slice(0, 120) });
+      // 2026-09-09 (round 5, Codex final review P1): captured_at now flows
+      // through from signal-normalize.js's pick-signal/host-summary rows --
+      // carry it onto the sample so a genuine Tier 2 citation can actually
+      // satisfy the SOURCE HIERARCHY's "specific, dated, directional call"
+      // definition. null for the LLM-normalization path until that path's
+      // own upstream date-plumbing gap (see signal-normalize.js note) is
+      // fixed -- left null rather than fabricated.
+      if (e.samples.length < 5) e.samples.push({ who, dir, strength: s.strength ?? null, why: (s.rationale || '').slice(0, 120), captured_at: s.captured_at || null });
     } else {
-      (adjacentByTeam[team] ??= []).push({ market: mk, direction: dir, strength: s.strength ?? null, who, why: (s.rationale || '').slice(0, 120) });
+      (adjacentByTeam[team] ??= []).push({ market: mk, direction: dir, strength: s.strength ?? null, who, why: (s.rationale || '').slice(0, 120), captured_at: s.captured_at || null });
     }
   }
   const findLean = (team, dossierMk) => {
@@ -1294,26 +1446,26 @@ function resolveNflTeam(str, ctx) {
 function buildLeanView(pickSignals, userPicks, podcastRows) {
   const leans = {};
   const cov = { article: { kept: 0, dropped: 0 }, expert: { kept: 0, dropped: 0 }, podcast_pick: { kept: 0, dropped: 0 }, podcast_intel_unparsed: 0 };
-  const add = (team, bucket, dir, note, who) => {
+  const add = (team, bucket, dir, note, who, capturedAt) => {
     const e = (leans[team] ??= { team, article: 0, expert: 0, podcast: 0, back: 0, fade: 0, over: 0, under: 0, samples: [] });
     e[bucket]++;
     const d = String(dir || '').toLowerCase();
     if (/\bunder\b/.test(d)) e.under++; else if (/\bover\b/.test(d)) e.over++;
     else if (/\b(fade|against|avoid|no|short)\b/.test(d)) e.fade++; else e.back++;
-    if (e.samples.length < 6) e.samples.push({ who, dir: dir || 'back', note: (note || '').slice(0, 160) });
+    if (e.samples.length < 6) e.samples.push({ who, dir: dir || 'back', note: (note || '').slice(0, 160), captured_at: capturedAt || null });
   };
   for (const s of pickSignals) {
     const ctx = `${s.team_or_market || ''} ${s.bet_type || ''} ${s.lean || ''} ${s.rationale || ''}`;
     const team = resolveNflTeam(s.team_or_market, ctx) || resolveNflTeam(s.lean, ctx);
     if (!team) { cov.article.dropped++; continue; }
-    cov.article.kept++; add(team, 'article', s.lean || s.bet_type, s.rationale, s.author || s.source);
+    cov.article.kept++; add(team, 'article', s.lean || s.bet_type, s.rationale, s.author || s.source, s.captured_at);
   }
   for (const p of userPicks) {
     const ctx = `${p.selection || ''} ${p.home || ''} ${p.visitor || ''} ${p.rationale || ''}`;
     const team = resolveNflTeam(p.selection, ctx) || resolveNflTeam(p.home, ctx);
     if (!team) { cov.expert.dropped++; continue; }
     cov.expert.kept++;
-    add(team, 'expert', /^(over|under)$/i.test(p.selection || '') ? p.selection : p.pick_type, p.rationale, p.expert || p.source);
+    add(team, 'expert', /^(over|under)$/i.test(p.selection || '') ? p.selection : p.pick_type, p.rationale, p.expert || p.source, p.created_at);
   }
   for (const row of podcastRows) {
     const intel = Array.isArray(row.intel) ? row.intel : [];
@@ -1324,7 +1476,7 @@ function buildLeanView(pickSignals, userPicks, podcastRows) {
       const ctx = `${pk.selection || ''} ${pk.team1 || ''} ${pk.team2 || ''} ${pk.summary || ''}`;
       const team = resolveNflTeam(pk.selection, ctx) || resolveNflTeam(pk.team1, ctx) || resolveNflTeam(pk.team2, ctx);
       if (!team) { cov.podcast_pick.dropped++; continue; }
-      cov.podcast_pick.kept++; add(team, 'podcast', pk.type || pk.lean, pk.summary, show);
+      cov.podcast_pick.kept++; add(team, 'podcast', pk.type || pk.lean, pk.summary, show, row.podcast_episodes?.pub_date || row.processed_at || null);
     }
   }
   const findLean = (team) => {
@@ -1629,6 +1781,18 @@ function sosMd(s) {
   if (s.prior != null) parts.push(`prior ${s.prior}${s.prior_rank != null ? ` #${s.prior_rank}` : ''}`);
   return parts.length ? ` · SoS ${parts.join(' / ')}` : '';
 }
+// 2026-09-09 fix (Codex post-round-10 review P1): the compact markdown
+// dossier summary (read by anyone reviewing the dossier by eye, and by
+// build-intel-source-audit-report.js) previously showed analytics/DVOA/
+// coaching numbers with no season or freshness marker at all -- a
+// 2025 preseason-prior fallback rendered identically to real current-
+// season data. Every one of these three renderers now appends the same
+// compact staleness suffix when is_current_season is explicitly false.
+function stalenessSuffixMd(obj) {
+  if (!obj || obj.is_current_season !== false) return '';
+  const behind = obj.seasons_behind != null ? `${obj.seasons_behind}yr prior` : 'prior season';
+  return ` [${behind}]`;
+}
 function analyticsMd(a) {
   if (!a) return '';
   const parts = [];
@@ -1638,7 +1802,7 @@ function analyticsMd(a) {
   if (a.qb_epa_per_dropback != null) parts.push(`QB EPA/db ${a.qb_epa_per_dropback}`);
   if (a.success_rate != null) parts.push(`success ${a.success_rate}`);
   if (a.cpoe != null) parts.push(`CPOE ${a.cpoe}`);
-  return parts.length ? ` · ${parts.join(' / ')}` : '';
+  return parts.length ? ` · ${parts.join(' / ')}${stalenessSuffixMd(a)}` : '';
 }
 function dvoaMd(d) {
   if (!d) return '';
@@ -1646,7 +1810,7 @@ function dvoaMd(d) {
   if (d.overall_dvoa != null) parts.push(`overall ${d.overall_dvoa}${d.overall_dvoa_rank != null ? ` #${d.overall_dvoa_rank}` : ''}`);
   if (d.offensive_dvoa != null) parts.push(`off ${d.offensive_dvoa}${d.offensive_dvoa_rank != null ? ` #${d.offensive_dvoa_rank}` : ''}`);
   if (d.defensive_dvoa != null) parts.push(`def ${d.defensive_dvoa}${d.defensive_dvoa_rank != null ? ` #${d.defensive_dvoa_rank}` : ''}`);
-  return parts.length ? ` · DVOA ${parts.join(' / ')}` : '';
+  return parts.length ? ` · DVOA ${parts.join(' / ')}${stalenessSuffixMd(d)}` : '';
 }
 function coachingMd(c) {
   if (!c) return '';
@@ -1655,7 +1819,7 @@ function coachingMd(c) {
   if (c.fourth_down_aggression_tier) parts.push(`4D ${c.fourth_down_aggression_tier}`);
   if (c.neutral_pass_rate != null) parts.push(`neutral pass ${c.neutral_pass_rate}`);
   if (c.play_action_rate != null) parts.push(`PA ${c.play_action_rate}`);
-  return parts.length ? ` · coach ${parts.join(' / ')}` : '';
+  return parts.length ? ` · coach ${parts.join(' / ')}${stalenessSuffixMd(c)}` : '';
 }
 function scheduleMd(s) {
   if (!s || !s.rest_known) return '';

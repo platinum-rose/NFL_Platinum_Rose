@@ -88,7 +88,7 @@ const HONEY_BADGERS_KEEPERS = new Set();
 if (fs.existsSync(HONEY_BADGERS_KEEPERS_PATH)) {
   try {
     const kData = JSON.parse(fs.readFileSync(HONEY_BADGERS_KEEPERS_PATH, 'utf8'));
-    for (const [tName, tInfo] of Object.entries(kData.teams || {})) {
+    for (const tInfo of Object.values(kData.teams || {})) {
       for (const k of (tInfo.keepers || [])) {
         HONEY_BADGERS_KEEPERS.add(k.player.toLowerCase());
       }
@@ -145,7 +145,7 @@ const sb = createClient(SB_URL, SB_KEY, { auth: { persistSession: false } });
 
 function nameKey(s) {
   return (s || '').toLowerCase()
-    .replace(/[.'`\-]/g, '')
+    .replace(/[.'`-]/g, '')
     .replace(/\b(jr|sr|ii|iii|iv|v)\b/g, '')
     .replace(/[^a-z0-9]+/g, ' ')
     .trim();

@@ -29,9 +29,13 @@
 import 'dotenv/config';
 import { createClient } from '@supabase/supabase-js';
 import { readFile, readdir, stat } from 'node:fs/promises';
-import { createHash } from 'node:crypto';
 // Validate the SHIPPING logic, never a copy of it — see agents/lib/injury-status.js
 import { normalizeInjuryStatus, INJURY_RELEVANT_STATUS } from './lib/injury-status.js';
+import { isNflRelevantEpisode } from './lib/nfl-relevance.js';
+import {
+  fetchPersistedImportRowsPaged,
+  auditFuturesImportManifest,
+} from '../src/lib/futuresImportAudit.js';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -130,20 +134,180 @@ const SCANNED_SOURCES = [
 /**
  * Find every `from('<table>')` call site in a source file and judge whether that
  * particular read is bounded safely. A site is SAFE when it paginates
- * (`.range(` / `fetchAllPaged`), only counts (`head: true`), expects one row
- * (`.single()` / `.maybeSingle()`), or takes a deliberate sub-1000 `.limit(n)`.
- * Anything else on a table of >=1000 rows is silently truncated.
+ * (`.range(` / `fetchAllPaged` / keyset cursor pagination -- `.order(col)` +
+ * `.limit(` + a `.gt(`/`.gte(` filter on that same order column), only counts
+ * (`head: true`), expects one row (`.single()` / `.maybeSingle()`), or takes
+ * a deliberate sub-1000 `.limit(n)`. Anything else on a table of >=1000 rows
+ * is silently truncated.
+ *
+ * 2026-09-09 fix (P2 #4, flagged 2026-09-08): the per-site scope window used
+ * to judge a call site was a flat 900 characters after the `.from(` match.
+ * A live scan of this repo's own call sites found several whose real
+ * pagination/limit clause sits well past that boundary -- long multi-column
+ * `.select(...)` strings alone routinely run 200-600+ chars in this codebase
+ * (see e.g. portfolio-dossier.js's fetchTeamStats(), which tries 3
+ * progressively-shorter column lists), pushing the actual `.range()`/
+ * `.limit()`/`.single()` call outside a 900-char window and causing a real,
+ * safely-bounded site to misreport as "unpaginated". Fix: the window now
+ * extends until whichever comes first of (a) the next `.from(` call site
+ * in the file, (b) the next top-level function declaration, or (c) a
+ * generous 3000-char hard cap -- verified against every current call site
+ * in SCANNED_SOURCES (none needed more than ~2900 chars to reach their own
+ * real pagination signal).
  */
-function scanCallSites(src, file) {
+// Finds where the method-chain statement containing a `.from(` call actually
+// ends, by tracking parenthesis depth from that point forward and stopping at
+// the first `;` seen once depth returns to (or below) its starting level --
+// i.e. the semicolon that closes the enclosing `const {...} = await sb.from(...)
+// .select(...)....xxx();` statement, not just a flat character count. This is
+// what actually bounds a call site's scope to ITS OWN statement: a purely
+// forward character-count window (even a generous one) risks bleeding into a
+// LATER, unrelated statement's `.order()`/`.limit()`/etc and misclassifying
+// the current site as safe because of a sibling site's pagination clause a
+// few lines further down -- confirmed live: widening the old 900-char window
+// to "next .from() or 3000 chars" caused exactly that bleed-through on
+// agents/portfolio-synthesize.js's reference-docs query, which sits right
+// before a genuinely-paginated team-notes query a few dozen lines later.
+function findStatementEnd(src, fromIdx, hardCap) {
+  let depth = 0;
+  const end = Math.min(src.length, fromIdx + hardCap);
+  for (let i = fromIdx; i < end; i++) {
+    const ch = src[i];
+    if (ch === '(') depth++;
+    else if (ch === ')') depth--;
+    else if (ch === ';' && depth <= 0) return i + 1;
+  }
+  return end;
+}
+
+// 2026-09-09 (Codex round-2 review, same P2 finding): the original
+// wrapper-detection checks (`wrappedInFetchAllPaged`, `wrappedInFetchAllKeyset`)
+// just tested whether the helper's NAME appeared as text somewhere in the
+// preceding 400 characters. Codex reproduced two false passes against that:
+// a comment containing the helper name sitting in front of an unwrapped
+// query, and an unrelated, already-CLOSED helper call earlier in the file.
+// Neither actually proves the `.from()` call is inside that helper's
+// argument list.
+//
+// Fixed by proving real lexical nesting instead of proximity: mask out
+// every comment and string/template literal (so a name mentioned in either
+// can't be mistaken for a real identifier), then walk the masked source
+// tracking paren balance with a stack that remembers which identifier, if
+// any, opened each paren. At the point being checked, the target name must
+// still be sitting open on that stack -- i.e. its call has been opened but
+// not yet closed by the time we reach this `.from()`. A comment's text
+// never opens a real paren (it gets masked to blanks first), and an
+// already-closed call has already been popped off the stack, so both of
+// Codex's repro cases are rejected by construction, not by pattern luck.
+function maskCommentsAndStrings(src) {
+  let out = '';
+  let i = 0;
+  const n = src.length;
+  while (i < n) {
+    const c = src[i];
+    const c2 = src[i + 1];
+    if (c === '/' && c2 === '/') {
+      let j = i;
+      while (j < n && src[j] !== '\n') j++;
+      out += src.slice(i, j).replace(/[^\n]/g, ' ');
+      i = j;
+    } else if (c === '/' && c2 === '*') {
+      let j = i + 2;
+      while (j < n && !(src[j] === '*' && src[j + 1] === '/')) j++;
+      j = Math.min(j + 2, n);
+      out += src.slice(i, j).replace(/[^\n]/g, ' ');
+      i = j;
+    } else if (c === "'" || c === '"' || c === '`') {
+      const quote = c;
+      let j = i + 1;
+      while (j < n && src[j] !== quote) {
+        if (src[j] === '\\') j++; // skip escaped char, e.g. \' inside a string
+        j++;
+      }
+      j = Math.min(j + 1, n);
+      out += src.slice(i, j).replace(/[^\n]/g, ' ');
+      i = j;
+    } else {
+      out += c;
+      i++;
+    }
+  }
+  return out;
+}
+
+function isLexicallyInsideCall(src, atIndex, calleeName) {
+  const masked = maskCommentsAndStrings(src.slice(0, atIndex));
+  const identRe = /[A-Za-z_$][A-Za-z0-9_$]*$/;
+  const stack = [];
+  for (let i = 0; i < masked.length; i++) {
+    const ch = masked[i];
+    if (ch === '(') {
+      const m = masked.slice(0, i).match(identRe);
+      stack.push(m ? m[0] : null);
+    } else if (ch === ')') {
+      stack.pop();
+    }
+  }
+  return stack.includes(calleeName);
+}
+
+// exported 2026-09-09 (Codex P2 negative-test recommendation, flagged
+// 2026-09-09): this file's main() previously ran unconditionally on
+// import, same issue as portfolio-synthesize.js/futures-odds-ingest.js
+// before them -- so scanCallSites() couldn't be unit-tested without
+// executing the whole preflight run. Exported the pure scanner function and
+// guarded the main() invocation at the bottom of the file with the repo's
+// standard entry-point check (see draftsharks-idp-ingest.js et al.).
+export function scanCallSites(src, file) {
   const sites = [];
   for (const m of src.matchAll(/\.from\(\s*['"]([a-zA-Z0-9_]+)['"]\s*\)/g)) {
     const table = m[1];
     const line = src.slice(0, m.index).split('\n').length;
-    const win = src.slice(m.index, m.index + 900);
-    const stop = win.search(/\n\s*(async\s+)?function\s/);
-    const scope = stop > 0 ? win.slice(0, stop) : win;
+    // 2026-09-09 fix (P2 #4, flagged 2026-09-08): the per-site scope window
+    // used to judge a call site was a flat 900 characters after the `.from(`
+    // match. A live scan of this repo's own call sites found several whose
+    // real pagination/limit clause sits well past that boundary -- long
+    // multi-column `.select(...)` strings alone routinely run 200-600+ chars
+    // in this codebase (see e.g. portfolio-dossier.js's fetchTeamStats(),
+    // which tries 3 progressively-shorter column lists), pushing the actual
+    // `.range()`/`.limit()`/`.single()` call outside a 900-char window and
+    // causing a real, safely-bounded site to misreport as "unpaginated".
+    // Fix: bound the scope to the call site's OWN statement (via
+    // findStatementEnd()'s paren-depth tracking above) rather than a flat
+    // character count -- this naturally covers however long a real
+    // `.select()`/`.range()`/`.limit()` chain runs without risking bleed
+    // into a later, unrelated statement.
+    const HARD_CAP = 3000;
+    const stop = findStatementEnd(src, m.index, HARD_CAP) - m.index;
+    const win = src.slice(m.index, m.index + stop);
+    const funcBoundary = win.search(/\n\s*(async\s+)?function\s/);
+    const scope = funcBoundary > 0 ? win.slice(0, funcBoundary) : win;
 
-    const paginated = /\.range\(/.test(scope) || /fetchAllPaged/.test(src.slice(Math.max(0, m.index - 400), m.index + 900));
+    // fetchAllPaged(label, (from, to) => sb.from(...)) always puts the
+    // 'fetchAllPaged(' text BEFORE the '.from(' call it wraps (same line,
+    // as an outer function call) -- a forward-only scope can never see it,
+    // so this still needs its own backward-looking window, same as before
+    // the P2 #4 window fix above.
+    // fetchAllPaged(label, (from, to) => sb.from(...)) and
+    // fetchAllKeyset(label, {..., applyFilters: (q) => q.from(...)... })
+    // both always put the helper name BEFORE the '.from(' call they wrap
+    // (as an outer function call) -- a forward-only scope can never see
+    // that, so wrapper detection is inherently a backward lookup. Proven
+    // by real lexical nesting (isLexicallyInsideCall above), not text
+    // proximity -- see the 2026-09-09 round-2 comment above it for why.
+    const wrappedInFetchAllPaged = isLexicallyInsideCall(src, m.index, 'fetchAllPaged');
+    // 2026-09-09 fix (Codex P2, flagged 2026-09-09): the previous
+    // isKeysetPaginated heuristic recognized bare `.order()+.gt()+.limit()`
+    // syntax as "safely paginated" -- but that syntax proves nothing about
+    // iteration. A one-shot query with those three calls and no loop or
+    // advancing cursor only ever fetches the first page, yet would have
+    // been reported safe. The durable fix is to require the call site to
+    // be wrapped in the shared, audited fetchAllKeyset() helper (see
+    // agents/lib/supabase-pagination.js, which as of the round-2 revision
+    // also owns ordering/the cursor filter/the limit itself, so a caller
+    // can no longer get those wrong even if the wrapping is genuine).
+    const wrappedInFetchAllKeyset = isLexicallyInsideCall(src, m.index, 'fetchAllKeyset');
+    const paginated = /\.range\(/.test(scope) || wrappedInFetchAllPaged || wrappedInFetchAllKeyset;
     const countOnly = /head:\s*true/.test(scope);
     const singleRow = /\.(maybe)?[Ss]ingle\(/.test(scope);
     const limitM = scope.match(/\.limit\(\s*(\d+)\s*\)/);
@@ -152,7 +316,7 @@ function scanCallSites(src, file) {
     sites.push({
       table, file, line,
       safe: paginated || countOnly || singleRow || boundedSmall,
-      why: paginated ? 'paginated' : countOnly ? 'count-only' : singleRow ? 'single-row'
+      why: paginated ? (wrappedInFetchAllKeyset && !/\.range\(/.test(scope) && !wrappedInFetchAllPaged ? 'paginated (keyset)' : 'paginated') : countOnly ? 'count-only' : singleRow ? 'single-row'
            : boundedSmall ? `bounded .limit(${limitM[1]})` : (limitM ? `.limit(${limitM[1]}) — inert, PostgREST caps at 1000` : 'unpaginated'),
     });
   }
@@ -166,9 +330,15 @@ async function stageA() {
   await check('A:database', 'nfl_team_season_stats', async () => {
     const cur = await rowCount('nfl_team_season_stats', { season: SEASON });
     if (cur === 0) {
+      const status = await getSeasonStatus();
+      if (status.started === false) {
+        add('A:database', 'nfl_team_season_stats', PASS,
+          `ZERO rows for season ${SEASON}, but week 1 hasn't kicked off yet (${status.firstKickoff}, in ${status.daysToKickoff?.toFixed(1)}d) -- there's no game data yet to compute season stats from, so this is the expected state, not a gap. Re-check this lane once games begin.`);
+        return;
+      }
       const { ts } = await newestTs('nfl_team_season_stats', ['updated_at', 'created_at']);
       add('A:database', 'nfl_team_season_stats', BLOCK,
-        `ZERO rows for season ${SEASON} (last updated ${fmtAge(daysSince(ts))} ago). currentAnalytics() silently serves the ${SEASON - 1} row instead, and SYSTEM_PROMPT tells the model to trust it as "this season's actual play".`,
+        `ZERO rows for season ${SEASON} (last updated ${fmtAge(daysSince(ts))} ago) and the season HAS started${status.firstKickoff ? ` (kickoff was ${status.firstKickoff})` : ''}. currentAnalytics() silently serves the ${SEASON - 1} row instead, and SYSTEM_PROMPT tells the model to trust it as "this season's actual play".`,
         'portfolio-dossier.js:360 — refuse to present a prior-season row as current form');
     } else if (cur < 32) {
       add('A:database', 'nfl_team_season_stats', WARN, `only ${cur}/32 teams have ${SEASON} rows`);
@@ -180,8 +350,14 @@ async function stageA() {
   await check('A:database', 'team_analytic_snapshots', async () => {
     const cur = await rowCount('team_analytic_snapshots', { season: SEASON });
     if (cur === 0) {
+      const status = await getSeasonStatus();
+      if (status.started === false) {
+        add('A:database', 'team_analytic_snapshots', PASS,
+          `ZERO rows for season ${SEASON}, but week 1 hasn't kicked off yet (${status.firstKickoff}, in ${status.daysToKickoff?.toFixed(1)}d) -- expected, not a gap. Re-check once games begin.`);
+        return;
+      }
       add('A:database', 'team_analytic_snapshots', BLOCK,
-        `ZERO rows for season ${SEASON}. fetchAdvancedAnalytics() hard-filters .eq('season',${SEASON}) then falls back to a local file filtered on filename includes('${SEASON}') — which matches nothing. Result: success_rate, cpoe, explosive_*, pressure_*, sack_* are 0/32 with NO warning printed.`,
+        `ZERO rows for season ${SEASON} and the season HAS started. fetchAdvancedAnalytics() hard-filters .eq('season',${SEASON}) then falls back to a local file filtered on filename includes('${SEASON}') — which matches nothing. Result: success_rate, cpoe, explosive_*, pressure_*, sack_* are 0/32 with NO warning printed.`,
         'portfolio-dossier.js:588 — fail loud when the season filter returns nothing');
     } else add('A:database', 'team_analytic_snapshots', PASS, `${cur} rows for ${SEASON}`);
   });
@@ -228,36 +404,23 @@ async function stageA() {
       return;
     }
     const filePattern = /^(betonline|betus|bookmaker)-\d{4}-\d{2}-\d{2}\.json$/;
-    const names = (await readdir(path.join(ROOT, 'data', 'futures-imports'))).filter((name) => filePattern.test(name)).sort();
-    const entries = new Map((manifestFile.json.files || []).map((entry) => [entry.file, entry]));
-    const problems = [];
-    for (const name of names) {
-      const entry = entries.get(name);
-      if (!entry) { problems.push(`${name}: absent from manifest`); continue; }
-      const bytes = await readFile(path.join(ROOT, 'data', 'futures-imports', name));
-      const hash = createHash('sha256').update(bytes).digest('hex');
-      if (hash !== entry.sha256) problems.push(`${name}: content changed after reconciliation`);
-      if (!['persisted', 'invalid_duplicate'].includes(entry.status)) problems.push(`${name}: status=${entry.status}`);
-      if (entry.status === 'invalid_duplicate' && !entry.duplicate_of) problems.push(`${name}: duplicate has no retained source`);
-      const liveCount = await rowCount('futures_odds_snapshots', {
-        season: entry.season, book: entry.book, snapshot_time: entry.snapshot_time,
-      });
-      if (entry.status === 'persisted' && liveCount !== entry.row_count) {
-        problems.push(`${name}: live database has ${liveCount}/${entry.row_count} rows`);
-      }
-      if (entry.status === 'invalid_duplicate' && liveCount !== 0) {
-        problems.push(`${name}: invalid duplicate has ${liveCount} live database rows`);
-      }
-    }
-    for (const name of entries.keys()) if (!names.includes(name)) problems.push(`${name}: manifest entry has no source file`);
-    if (manifestFile.json.mode !== 'applied') problems.push(`manifest mode=${manifestFile.json.mode || 'missing'} (expected applied)`);
+    const dirPath = path.join(ROOT, 'data', 'futures-imports');
+    const names = (await readdir(dirPath)).filter((name) => filePattern.test(name)).sort();
+
+    const { problems, totals } = await auditFuturesImportManifest({
+      manifestJson: manifestFile.json,
+      fileNames: names,
+      readFileBytes: async (name) => readFile(path.join(dirPath, name)),
+      rowCount: (table, filter) => rowCount(table, filter),
+      fetchPersistedRows: (entry) => fetchPersistedImportRowsPaged(sb, entry),
+    });
+
     if (problems.length) {
       add('A:database', 'futures_import_manifest', BLOCK, problems.join(' | '),
         'Run node scripts/backfill-futures-imports.js --dry-run to inspect, then apply the idempotent reconciliation with explicit database-write approval.');
     } else {
-      const totals = manifestFile.json.totals || {};
       add('A:database', 'futures_import_manifest', PASS,
-        `${names.length} dated imports accounted for: ${totals.persisted_valid_files || 0} persisted, ${totals.invalid_duplicate_files || 0} invalid duplicate(s), ${totals.valid_rows || 0} valid rows`);
+        `${names.length} dated imports accounted for: ${totals?.persisted_valid_files || 0} persisted, ${totals?.invalid_duplicate_files || 0} invalid duplicate(s), ${totals?.valid_rows || 0} valid rows`);
     }
   });
 
@@ -273,6 +436,12 @@ async function stageA() {
   });
 
   // --- Roster churn needs >=2 distinct weeks or it silently returns {}
+  // NOTE 2026-09-08 (Codex review, P3): fetchRosterChurn() in portfolio-dossier.js
+  // already paginates both the week-discovery query and the per-week row reads via
+  // fetchAllPaged() (confirmed fixed as of commit 65d47e3, 2026-09-04). The single-week
+  // state below is an expected preseason data-timing gap (kickoff 2026-09-11, no roster
+  // moves yet), not an active pagination risk -- this WARN just flags that roster_churn
+  // will be empty in the prompt until week 2 data lands.
   await check('A:database', 'nfl_rosters', async () => {
     const { data, error } = await sb.from('nfl_rosters').select('week').eq('season', SEASON).order('week', { ascending: false }).limit(1000);
     if (error) throw new Error(error.message);
@@ -280,7 +449,7 @@ async function stageA() {
     if (weeks.length < 2) {
       add('A:database', 'nfl_rosters', WARN,
         `only ${weeks.length} distinct week(s) for ${SEASON} — fetchRosterChurn() returns {} silently (no warn). roster_churn is empty in the prompt.`,
-        'ARMED LANDMINE: once week 2 lands, the unpaginated per-week read (1000 of ~3575 rows) will diff two arbitrary 28% slices and emit hundreds of fake adds/drops per team. Paginate portfolio-dossier.js:799 BEFORE week 2.');
+        'Expected pre-kickoff state, not a code risk: fetchRosterChurn() is already paginated (fetchAllPaged(), fixed 2026-09-04). This will self-resolve once week 2 roster data lands.');
     } else add('A:database', 'nfl_rosters', PASS, `${weeks.length} weeks available`);
   });
 
@@ -337,14 +506,47 @@ async function stageA() {
   });
 
   await check('A:database', 'podcast_extraction_coverage', async () => {
-    const transcripts = await rowCount('podcast_transcripts');
+    // 2026-09-08 fix (Codex review + Andy spot-check): the denominator used to
+    // be ALL podcast_transcripts rows, including non-NFL episodes (PGA, NBA,
+    // UFC, World Cup, March Madness, etc. from multi-sport betting feeds) that
+    // should never have needed a host-summary extraction in the first place.
+    // Filter both sides of the ratio down to NFL-relevant episodes (the same
+    // isNflRelevantEpisode() filter podcast-ingest.js and
+    // podcast-diarize-backfill.js already apply) so this check measures real
+    // backlog, not irrelevant content dragging the percentage down.
+    const { data: transcriptRows } = await sb.from('podcast_transcripts').select('episode_id');
+    const transcriptIds = [...new Set((transcriptRows || []).map((r) => r.episode_id).filter(Boolean))];
+    let relevantIds = new Set(transcriptIds); // fallback: treat all as relevant if episode lookup fails
+    try {
+      const { data: episodeRows } = await sb.from('podcast_episodes').select('id, title').in('id', transcriptIds);
+      relevantIds = new Set((episodeRows || []).filter((e) => isNflRelevantEpisode(e.title || '')).map((e) => e.id));
+    } catch { /* podcast_episodes lookup failed -- fall back to unfiltered count above */ }
+    const transcripts = relevantIds.size;
+    // 2026-09-08 fix: this used to measure ONLY podcast_reextractions -- a
+    // 6-row pilot batch from 2026-09-04 that never grew into the real
+    // pipeline. The table signal-normalize.js actually reads for
+    // full-transcript-fidelity extraction is podcast_host_summaries
+    // (confirmed in that file's own wiring comment, and re-verified by the
+    // podcast_host_summaries wiring check just above). Count DISTINCT
+    // episode_id there, since a multi-host episode can have several rows.
     let reex = 0; try { reex = await rowCount('podcast_reextractions'); } catch { /* table may not exist */ }
-    const pct = transcripts ? (reex / transcripts * 100) : 0;
-    if (pct < 100) {
-      add('A:database', 'podcast_extraction_coverage', BLOCK,
-        `${reex}/${transcripts} transcripts (${pct.toFixed(1)}%) have a full-transcript re-extraction. podcast-ingest.js only ever sent the first 12,000 chars to the model, so the rest are extracted from ~24% of their content.`,
-        'Run agents/podcast-reextract.js to completion, THEN point signal-normalize.js at podcast_reextractions (it currently reads podcast_transcripts only).');
-    } else add('A:database', 'podcast_extraction_coverage', PASS, `${reex}/${transcripts} re-extracted`);
+    let hostSummaryEpisodes = 0;
+    try {
+      const { data } = await sb.from('podcast_host_summaries').select('episode_id');
+      hostSummaryEpisodes = new Set((data || []).map((r) => r.episode_id).filter((id) => relevantIds.has(id))).size;
+    } catch { /* table may not exist */ }
+    const covered = Math.max(reex, hostSummaryEpisodes);
+    const pct = transcripts ? (covered / transcripts * 100) : 0;
+    const detail = `${hostSummaryEpisodes}/${transcripts} NFL-relevant transcripts (${pct.toFixed(1)}%) have a full-transcript host-summary extraction (podcast_host_summaries) -- the pipeline signal-normalize.js actually reads. (${transcriptIds.length} total podcast_transcripts rows exist; ${transcriptIds.length - transcripts} were filtered out as non-NFL content via isNflRelevantEpisode() and don't count toward this ratio. podcast_reextractions, a separate older/abandoned re-extraction table, has ${reex} rows -- kept only as a secondary reference.) A transcript without either is still only extracted from the first ~12,000 characters podcast-ingest.js originally sent the model.`;
+    if (pct === 0) {
+      add('A:database', 'podcast_extraction_coverage', BLOCK, detail,
+        'Run agents/podcast-host-summary.js to build initial coverage.');
+    } else if (pct < 90) {
+      add('A:database', 'podcast_extraction_coverage', WARN, detail,
+        'Run agents/podcast-host-summary.js against the remaining transcripts -- it safely skips episodes already covered for the target --model, and skips multi-host episodes with no speaker diarization yet rather than guessing at attribution.');
+    } else {
+      add('A:database', 'podcast_extraction_coverage', PASS, detail);
+    }
   });
 
   await check('A:database', 'podcast_host_summaries', async () => {
@@ -400,14 +602,25 @@ async function stageA() {
 // The existing freshness gate hashes files and detects drift only. A file frozen
 // since August has a stable hash and passes forever. These are absolute-age checks.
 
+// 2026-09-08: Andy's explicit call -- these maxAgeDays were tuned for
+// in-season cadence (injury reports and market prices genuinely move fast
+// once games are being played). During preseason, older "stale" values are
+// still relevant context, not garbage to discard -- so each lane also
+// carries a wider preseasonMaxAgeDays, used only while getSeasonStatus()
+// says the season hasn't started yet. Once games begin, the tighter
+// in-season limit applies automatically again -- nothing to remember to
+// revert. Numbers below are a starting assumption (roughly 2x, capped),
+// not a measured cadence -- tune per-lane if a specific one still fires
+// false alarms during preseason.
 const FILE_LANES = [
-  { rel: 'data/player-availability/latest.json', maxAgeDays: 7,  required: true,  feeds: 'player_availability (32/32 teams)' },
-  { rel: `data/training-camp/${SEASON}/latest.json`, maxAgeDays: 14, required: false, feeds: 'training_camp_intel' },
-  { rel: 'data/expert-dossiers/latest.json',    maxAgeDays: 14, required: false, feeds: 'expertDossierLine in the prompt' },
-  { rel: 'data/prediction-markets/latest.json', maxAgeDays: 7,  required: false, feeds: 'prediction_markets (team_profiles.prediction_markets, 2026-09-04)' },
+  { rel: 'data/player-availability/latest.json', maxAgeDays: 7,  preseasonMaxAgeDays: 14, required: true,  feeds: 'player_availability (32/32 teams)' },
+  { rel: `data/training-camp/${SEASON}/latest.json`, maxAgeDays: 14, preseasonMaxAgeDays: 21, required: false, feeds: 'training_camp_intel' },
+  { rel: 'data/expert-dossiers/latest.json',    maxAgeDays: 14, preseasonMaxAgeDays: 21, required: false, feeds: 'expertDossierLine in the prompt' },
+  { rel: 'data/prediction-markets/latest.json', maxAgeDays: 7,  preseasonMaxAgeDays: 14, required: false, feeds: 'prediction_markets (team_profiles.prediction_markets, 2026-09-04)' },
 ];
 
 async function stageB() {
+  const status = await getSeasonStatus();
   for (const lane of FILE_LANES) {
     await check('B:files', lane.rel, async () => {
       const f = await readJsonIf(lane.rel);
@@ -419,10 +632,13 @@ async function stageB() {
       const cts = contentTs(f.json);
       const age = daysSince(cts) ?? daysSince(f.mtime);
       const src = cts ? 'content timestamp' : 'file mtime';
-      if (age != null && age > lane.maxAgeDays) {
-        add('B:files', lane.rel, BLOCK, `${fmtAge(age)} old by ${src} (limit ${lane.maxAgeDays}d) — feeds ${lane.feeds}`,
+      const preseason = status.started === false && lane.preseasonMaxAgeDays != null;
+      const limit = preseason ? lane.preseasonMaxAgeDays : lane.maxAgeDays;
+      const limitNote = preseason ? ` (preseason limit ${limit}d, in-season limit ${lane.maxAgeDays}d)` : ` (limit ${limit}d)`;
+      if (age != null && age > limit) {
+        add('B:files', lane.rel, BLOCK, `${fmtAge(age)} old by ${src}${limitNote} — feeds ${lane.feeds}`,
           'Rebuild this lane, or accept that the model is reasoning on stale inputs.');
-      } else add('B:files', lane.rel, PASS, `${fmtAge(age)} old by ${src}`);
+      } else add('B:files', lane.rel, PASS, `${fmtAge(age)} old by ${src}${limitNote}`);
     });
   }
 
@@ -430,6 +646,7 @@ async function stageB() {
   const MONEY = [
     { rel: 'data/futures-imports/platinum-rose-ai-official-2026.json', label: 'contract (bankroll + sizing_map)', maxAgeDays: null },
     { rel: 'data/futures-imports/andy-portfolio-ledger-2026.json',     label: 'ledger (live exposure)',           maxAgeDays: 21 },
+    { rel: 'data/futures-imports/betonline-superbowl-futures-promo-2026.json', label: 'sportsbook promotions',     maxAgeDays: null },
     { rel: 'data/futures-imports/futures-watchlist-2026.json',         label: 'watchlist',                        maxAgeDays: 21 },
   ];
   for (const m of MONEY) {
@@ -470,6 +687,29 @@ async function findLatestDossier() {
 }
 
 let DOSSIER = null;
+
+// 2026-09-08 fix: neither the season-stats checks below nor the file-freshness
+// checks in Stage B knew whether the season had actually started -- a dossier
+// built 3 days before week 1 kickoff got the exact same "ZERO rows / BLOCK"
+// treatment as one built mid-season with a genuinely broken ingest. Compute
+// this once (memoized) from the real schedule: if week 1's kickoff is still
+// in the future, zero current-season rows is the CORRECT state, not a gap.
+let SEASON_STATUS = null;
+async function getSeasonStatus() {
+  if (SEASON_STATUS) return SEASON_STATUS;
+  if (!sb) { SEASON_STATUS = { started: null, firstKickoff: null, daysToKickoff: null }; return SEASON_STATUS; }
+  try {
+    const { data, error } = await sb.from('games').select('kickoff_utc')
+      .eq('season', SEASON).eq('season_type', 2).order('kickoff_utc', { ascending: true }).limit(1);
+    if (error || !data?.length) { SEASON_STATUS = { started: null, firstKickoff: null, daysToKickoff: null }; return SEASON_STATUS; }
+    const firstKickoff = data[0].kickoff_utc;
+    SEASON_STATUS = { started: new Date(firstKickoff).getTime() <= NOW, firstKickoff, daysToKickoff: -daysSince(firstKickoff) };
+  } catch {
+    SEASON_STATUS = { started: null, firstKickoff: null, daysToKickoff: null };
+  }
+  return SEASON_STATUS;
+}
+
 
 async function stageC() {
   await check('C:runorder', 'dossier', async () => {
@@ -805,4 +1045,6 @@ async function main() {
   if (!WARN_ONLY && blocks.length > 0) process.exit(1);
 }
 
-main().catch(e => { console.error('preflight crashed:', e); process.exit(2); });
+if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+  main().catch(e => { console.error('preflight crashed:', e); process.exit(2); });
+}

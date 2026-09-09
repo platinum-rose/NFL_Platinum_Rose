@@ -136,7 +136,7 @@ describe('article evidence integrity', () => {
   it('reports body evidence and unresolved pick-oriented records without calling them reviewed', () => {
     const report = buildReport([
       article({ id: 'missing', title: 'NFL Best Bets', body: '' }),
-      article({ id: 'truncated', title: 'NFL Picks', body: 'NFL football '.repeat(400) }),
+      article({ id: 'truncated', title: 'NFL Picks', body: 'NFL football '.repeat(1600) }),
       article({ id: 'available', title: 'NFL team analysis' }),
     ], SINCE, collection({ database_rows: 3, deduped_records: 3 }));
 

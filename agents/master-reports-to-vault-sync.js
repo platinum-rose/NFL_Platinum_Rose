@@ -3,10 +3,16 @@
 // Master Reports to Vault Sync Agent
 //
 // Reads all 100% exhaustive master breakdown reports generated in scratch/
-// and pushes them into:
-//   1. Supabase `vault_notes` table (so AI agents can read via read_vault_note)
-//   2. Team canonical notes in `vault_notes` at `NFL/Teams/<ABBR>.md`
-//   3. Obsidian Local REST API (if reachable or requested)
+// (agents/*_master_100percent_exhaustive.md) and upserts each one into the
+// Supabase `vault_notes` table at path `NFL/Reference/Reports/<filename>`.
+//
+// CORRECTED 2026-09-08 (was previously wrong): this agent does NOT write to
+// `NFL/Teams/<ABBR>.md` (that path is owned by the separate
+// intel-to-vault-sync.js script) and does NOT touch the Obsidian Local REST
+// API at all -- it is a pure Supabase upsert. Team-scoped access to this
+// corpus is provided by agents/portfolio-synthesize.js's
+// loadMasterReportEvidence(), which queries `NFL/Reference/Reports/%` and
+// maps each report's team sections onto the matching team_profiles entry.
 // ═══════════════════════════════════════════════════════════════════════════════
 
 import 'dotenv/config';
@@ -57,10 +63,10 @@ async function syncReportsToVault() {
     const filePath = path.join(scratchDir, filename);
     const rawContent = fs.readFileSync(filePath, 'utf-8');
 
-    // Validation Guard: reject LLM refusals or suspiciously short files
-    const validation = validateMasterReport(rawContent);
+    // Validation Guard: reject LLM refusals, suspiciously short files, and abrupt truncation cutoffs
+    const validation = validateMasterReport(rawContent, { minBytes: 1500 });
     if (!validation.valid) {
-      console.warn(`⚠️ SKIPPING CORRUPTED/REFUSAL REPORT: "${filename}" - ${validation.reason} (${validation.details || ''})`);
+      console.warn(`⚠️ SKIPPING INCOMPLETE/REFUSAL REPORT: "${filename}" - ${validation.reason} (${validation.details || ''})`);
       rejectedCount++;
       continue;
     }

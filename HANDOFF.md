@@ -4,7 +4,58 @@
 **Date:** 2026-09-08T00:00:00.000Z
 **Branch:** main
 
-## Current Pick Up Here (fantasy-football session closeout; NEXT SESSION PIVOTS TO FUTURES PORTFOLIO)
+## Current Pick Up Here (Codex-review triage + 3-way reconciliation + BKR/BetUS ingest closeout, 2026-09-08)
+
+**Session closed 2026-09-08 21:04 UTC.** Full detail:
+`handoffs/2026-09-08-2104-claude-session-close-handoff.md` (read this
+first, it links everything else this session produced).
+
+Summary: Codex independently reviewed the futures-portfolio pipeline
+(`docs/CODEX_REVIEW_FUTURES_PORTFOLIO_PIPELINE_2026-09-08.md`) and returned
+6 findings. Claude fixed 5 and corrected the 6th's denominator rather than
+just flipping its threshold; Antigravity and Codex each independently
+verified the fixes against live code (three handoffs dated 2026-09-08 in
+`handoffs/`, all in agreement, nothing reverted). Andy then had Claude
+ingest fresh BKR/BetUS futures odds
+(`docs/Futures_Odds/BKR_Odds_0908`/`BetUS_Odds_0908` → parsed via
+`scripts/parse-futures-text.js` → written via `scripts/ingest_futures_json.py`,
+736 rows total). All of this is now folded into
+`docs/audits/2026-09-08-intel-pipeline-map/PRE_COMMITTEE_CHECKLIST.md` and
+the spec doc above, both updated in place.
+
+**New team structure**: Antigravity now owns podcast+article ingestion
+(already active — see `handoffs/2026-09-08-1405-antigravity-batch1-
+exhaustion-handoff.md`, master-report corpus grew 79→83). Claude implements
+portfolio-synthesis pipeline changes; Codex reviews/approves before
+anything ships.
+
+**Live state at close**: `main` 1 commit ahead of `origin/main` at `0fc6112`
+(Codex's own commit, stuck on their invalid GitHub token, not a conflict).
+Preflight: `3 BLOCK / 8 WARN / 22 PASS`, `safe_to_run_paid_synthesis: false`
+— remaining blockers are `caesars`/`circa` odds gaps (bookmaker/betus now
+fresh) and two stale intel files (player-availability, prediction-markets),
+none of them code defects, none touched this session.
+
+**Nothing committed/staged/pushed by Claude this session.** Two Supabase
+writes occurred (the BKR/BetUS odds upserts above), both dry-run verified
+first and explicitly authorized by Andy per-write.
+
+**Next session**: pick up portfolio-synthesis pipeline implementation
+(Claude) with Codex reviewing. Top open item per the spec doc's own
+ranking: Section 5's source-weighting/interpretive-framing prompt guidance
+for `vault_analytical_reads`/`training_camp_intel`/`master_reports`.
+
+## Historical: fantasy-football session closeout, superseded above (2026-09-05 through 2026-09-08)
+
+**Codex reconciliation note, 2026-09-08:** `HANDOFF_PROMPT.md` and
+`WORKING-CONTEXT.md` have been refreshed for the next session's review of Claude
+team's active portfolio-synthesis pipeline work. Live Git now shows `main`
+aligned with `origin/main` at `d3d4b9e`; current dirty review targets are
+`agents/portfolio-preflight.js` and `agents/portfolio-synthesize.js`. The
+`board-validate.js` loose end below appears superseded in live code:
+`agents/lib/board-validate.js` is clean and contains the `quotedComboFor()`
+non-wins-market fix. Verify before relying on it, but do not start by blindly
+committing/restoring that file.
 
 This session (2026-09-05 through 2026-09-08) was entirely fantasy-football work
 across The League and Honey Badgers. **The next session should pivot back to

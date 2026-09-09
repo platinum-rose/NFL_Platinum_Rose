@@ -137,6 +137,7 @@ describe('validateBoard', () => {
     const dossier = makeDossier();
     const candidate = {
       market: 'wins', selection: 'Bills Over 6.5', book: 'bookmaker', price: 130, edge_pct: 3.5,
+      evidence_resolved: [{ id: 'analytics.off_epa_rank', resolved: true }],
     };
     expect(validateBoard(candidate, dossier)).toEqual([]);
   });
@@ -201,7 +202,7 @@ describe('validateBoardBatch (annotate-and-keep)', () => {
   it('stamps validation onto failing candidates without dropping any candidate', () => {
     const dossier = makeDossier();
     const candidates = [
-      { key: 'clean', market: 'wins', selection: 'Bills Over 6.5', book: 'bookmaker', price: 130, edge_pct: 3.5 },
+      { key: 'clean', market: 'wins', selection: 'Bills Over 6.5', book: 'bookmaker', price: 130, edge_pct: 3.5, evidence_resolved: [{ id: 'analytics.off_epa_rank', resolved: true }] },
       { key: 'bad-book', market: 'playoffs', selection: 'Giants to make the playoffs', book: 'fanduel', price: 140 },
       { key: 'thin', market: 'most_wins', selection: 'Kansas City Chiefs to lead the league in wins', book: 'bookmaker', price: 800 },
     ];

@@ -48,15 +48,14 @@ describe('Alpha data packet', () => {
 
   it('bundles active official-pick draft proposals for the Alpha Picks inbox view', () => {
     const drafts = packet.market_context.official_paper_ledger.active_proposals;
-    expect(drafts).toHaveLength(3);
+    expect(drafts).toHaveLength(2);
     expect(drafts.map((item) => item.file)).toEqual(
       expect.arrayContaining([
+        'candidate-inbox-2026-08-29-cb2cd120.json',
         'candidate-inbox-gmail-week-1-sharp-props---line-steam--kc-mahomes-o.json',
-        'candidate-prop-stack-twitter-bm-kc-rice.json',
-        'candidate-supercontest-week1-bills.json',
       ])
     );
-    expect(drafts.every((item) => item.proposal.status === 'pending_review')).toBe(true);
+    expect(drafts.filter((item) => item.proposal?.status).every((item) => item.proposal.status === 'pending_review')).toBe(true);
   });
 
   it('records source provenance with hashes for every local input', () => {

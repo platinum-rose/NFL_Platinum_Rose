@@ -14,6 +14,7 @@
     "ingest-schedule": "node agents/schedule-ingest.js --year 2026 --season-type 2 --start-week 1 --end-week 18",
     "ingest-schedule:full": "node agents/schedule-ingest.js --year 2026 --season-type 2 --start-week 1 --end-week 18 --include-playoffs",
     "ingest-futures": "node agents/futures-odds-ingest.js --season 2026",
+    "ingest-futures:caesars": "node scripts/scrape-vegasinsider-futures.js --book caesars",
     "ingest-futures:dry": "node agents/futures-odds-ingest.js --season 2026 --dry-run",
     "ingest-win-totals": "node agents/win-totals-ingest.js --season 2026",
     "ingest-win-totals:dry": "node agents/win-totals-ingest.js --season 2026 --dry-run",

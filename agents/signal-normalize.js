@@ -180,6 +180,14 @@ async function gatherHostSummaryRows() {
           strength: typeof f.confidence === 'number' ? Math.max(0, Math.min(1, f.confidence / 100)) : null,
           is_nfl: true,
           rationale: (f.quote || f.prediction || '').slice(0, 200),
+          // 2026-09-09 (round 5, Codex final review P1): captured_at/created_at
+          // was queried from the DB but never carried into the row, so every
+          // downstream lean.samples entry ended up with no timestamp at all --
+          // even a legitimate named call couldn't satisfy Tier 2's own "dated
+          // call" definition. r.created_at is the podcast_host_summaries row's
+          // timestamp (one row can span multiple futures entries, so it's the
+          // best available date for this specific future).
+          captured_at: r.created_at || null,
         });
       });
     }
@@ -273,6 +281,10 @@ async function gatherPickSignalRows() {
         strength: typeof r.confidence === 'number' ? Math.max(0, Math.min(1, r.confidence)) : null,
         is_nfl: true,
         rationale: (r.rationale || '').slice(0, 200),
+        // 2026-09-09 (round 5, Codex final review P1) -- see matching note in
+        // gatherHostSummaryRows() above; r.captured_at was already selected
+        // from research_pick_signals but silently dropped here.
+        captured_at: r.captured_at || null,
       });
     }
     if (page.length < 1000) break;
@@ -353,6 +365,13 @@ async function normalizeBatch(batch) {
     for (const sig of r.signals) {
       const canon = normalizeTeam(sig.team); // canonical NFL nickname or null
       if (!canon) { dropped++; continue; }    // team didn't resolve → drop (non-NFL / vague)
+      // NOTE (2026-09-09, round 5): unlike gatherPickSignalRows/gatherHostSummaryRows,
+      // this LLM-normalization path's source items (article/podcast_intel/podcast_pick/
+      // expert_pick, built above in this file) never carried a captured_at/created_at
+      // field through to `item` in the first place -- there's no date to forward here
+      // yet. Flagged for Codex/Andy: needs the same fix one level further upstream
+      // (wherever `items.push({ source_type, source_ref, raw_text, author })` is built)
+      // before this path's lean samples can carry timestamps too.
       rows.push({
         model: MODEL, source_type: item.source_type, source_ref: item.source_ref,
         author: item.author || null,
