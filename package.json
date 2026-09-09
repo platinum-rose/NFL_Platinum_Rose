@@ -35,6 +35,7 @@
     "futures:betonline-0810": "node scripts/build-betonline-0810-import.js",
     "futures:ingest-beo-screenshots": "node scripts/ingest-beo-screenshots.js",
     "futures:ingest-beo-screenshots:dry": "node scripts/ingest-beo-screenshots.js --dry-run",
+    "futures:reconcile-imports": "node scripts/backfill-futures-imports.js --dry-run",
     "futures:odds-execution-validation": "node scripts/build-futures-odds-execution-validation.js",
     "futures:evidence-rebuild": "node scripts/rebuild-futures-evidence.js",
     "verify:futures-evidence": "node scripts/verify-futures-evidence.js",

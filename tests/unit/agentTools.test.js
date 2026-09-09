@@ -947,6 +947,23 @@ describe('agentTools', () => {
       expect(result.placeable_books_only).toBe(false);
     });
 
+    it('tracks exacta movement across asynchronous book captures for the full season', async () => {
+      const { getFuturesOddsHistory } = await import('../../src/lib/supabase.js');
+      getFuturesOddsHistory.mockResolvedValueOnce([
+        { snapshot_time: '2026-06-26T00:00:00Z', book: 'betus', odds: 6500 },
+        { snapshot_time: '2026-09-07T12:00:00Z', book: 'betonline', odds: 8300 },
+        { snapshot_time: '2026-09-08T00:00:00Z', book: 'betus', odds: 7000 },
+      ]);
+      const label = 'Buffalo Bills vs Green Bay Packers';
+      const result = await executeTool('get_futures_odds_movement', { team: label, market_type: 'superbowl_matchup', season: 2026 });
+      expect(getFuturesOddsHistory).toHaveBeenCalledWith(label, 'superbowl_matchup', 365, 2026);
+      expect(result.current).toMatchObject({ odds: '+8300', book: 'betonline', latest_market_timestamp: '2026-09-08T00:00:00Z' });
+      expect(result.per_book_movement).toEqual(expect.arrayContaining([
+        expect.objectContaining({ book: 'betus', opening_odds: '+6500', current_odds: '+7000', snapshots: 2 }),
+        expect.objectContaining({ book: 'betonline', opening_odds: '+8300', current_odds: '+8300', snapshots: 1 }),
+      ]));
+    });
+
     it('picks the best PLACEABLE price at each snapshot round, ignoring a better non-placeable quote', async () => {
       const { getFuturesOddsHistory } = await import('../../src/lib/supabase.js');
       getFuturesOddsHistory.mockResolvedValueOnce([

@@ -29,6 +29,7 @@
 import 'dotenv/config';
 import { createClient } from '@supabase/supabase-js';
 import { readFile, readdir, stat } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 // Validate the SHIPPING logic, never a copy of it — see agents/lib/injury-status.js
 import { normalizeInjuryStatus, INJURY_RELEVANT_STATUS } from './lib/injury-status.js';
 import path from 'node:path';
@@ -212,6 +213,52 @@ async function stageA() {
       add('A:database', 'futures_odds_snapshots', BLOCK, detail,
         'Stale placeable quotes are demoted but still emitted as best_price. Re-ingest before running, or accept that best_price may be a weeks-old number you cannot actually bet.');
     } else add('A:database', 'futures_odds_snapshots', PASS, detail);
+  });
+
+  // The newest automated quote for a book cannot prove that older manual
+  // market families (notably exact matchups) were persisted. Reconcile every
+  // dated import file against the durable manifest and its content hash.
+  await check('A:database', 'futures_import_manifest', async () => {
+    const rel = 'data/futures-imports/import-manifest-2026.json';
+    const manifestFile = await readJsonIf(rel);
+    if (manifestFile.error) {
+      add('A:database', 'futures_import_manifest', BLOCK,
+        `${rel} is missing or unreadable (${manifestFile.error})`,
+        'Run node scripts/backfill-futures-imports.js --dry-run, inspect the ledger, then run it without --dry-run only with write approval.');
+      return;
+    }
+    const filePattern = /^(betonline|betus|bookmaker)-\d{4}-\d{2}-\d{2}\.json$/;
+    const names = (await readdir(path.join(ROOT, 'data', 'futures-imports'))).filter((name) => filePattern.test(name)).sort();
+    const entries = new Map((manifestFile.json.files || []).map((entry) => [entry.file, entry]));
+    const problems = [];
+    for (const name of names) {
+      const entry = entries.get(name);
+      if (!entry) { problems.push(`${name}: absent from manifest`); continue; }
+      const bytes = await readFile(path.join(ROOT, 'data', 'futures-imports', name));
+      const hash = createHash('sha256').update(bytes).digest('hex');
+      if (hash !== entry.sha256) problems.push(`${name}: content changed after reconciliation`);
+      if (!['persisted', 'invalid_duplicate'].includes(entry.status)) problems.push(`${name}: status=${entry.status}`);
+      if (entry.status === 'invalid_duplicate' && !entry.duplicate_of) problems.push(`${name}: duplicate has no retained source`);
+      const liveCount = await rowCount('futures_odds_snapshots', {
+        season: entry.season, book: entry.book, snapshot_time: entry.snapshot_time,
+      });
+      if (entry.status === 'persisted' && liveCount !== entry.row_count) {
+        problems.push(`${name}: live database has ${liveCount}/${entry.row_count} rows`);
+      }
+      if (entry.status === 'invalid_duplicate' && liveCount !== 0) {
+        problems.push(`${name}: invalid duplicate has ${liveCount} live database rows`);
+      }
+    }
+    for (const name of entries.keys()) if (!names.includes(name)) problems.push(`${name}: manifest entry has no source file`);
+    if (manifestFile.json.mode !== 'applied') problems.push(`manifest mode=${manifestFile.json.mode || 'missing'} (expected applied)`);
+    if (problems.length) {
+      add('A:database', 'futures_import_manifest', BLOCK, problems.join(' | '),
+        'Run node scripts/backfill-futures-imports.js --dry-run to inspect, then apply the idempotent reconciliation with explicit database-write approval.');
+    } else {
+      const totals = manifestFile.json.totals || {};
+      add('A:database', 'futures_import_manifest', PASS,
+        `${names.length} dated imports accounted for: ${totals.persisted_valid_files || 0} persisted, ${totals.invalid_duplicate_files || 0} invalid duplicate(s), ${totals.valid_rows || 0} valid rows`);
+    }
   });
 
   // --- Schedule

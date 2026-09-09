@@ -698,13 +698,14 @@ export const FUTURES_TOOLS = [
           enum: ['superbowl', 'conference_afc', 'conference_nfc',
             'division_afc_east', 'division_afc_north', 'division_afc_south', 'division_afc_west',
             'division_nfc_east', 'division_nfc_north', 'division_nfc_south', 'division_nfc_west',
-            'wins', 'playoffs'],
+            'wins', 'playoffs', 'most_wins', 'least_wins',
+            'conference_no_1_seed', 'superbowl_matchup'],
           required: true,
           description: 'Futures market to track movement for.',
         },
         days: {
           type: 'number',
-          description: 'Look-back window in days. Default: 30.',
+          description: 'Look-back window in days. Default: 365 (full-season movement).',
         },
         season: {
           type: 'number',
@@ -2314,13 +2315,13 @@ async function toolGetStrengthOfSchedule({ team, season } = {}) {
  * per book, and a consensus (median-across-books) movement figure — plus the
  * old single best-vs-best comparison, kept as the headline read.
  */
-async function toolGetFuturesOddsMovement({ team, market_type, days = 30, season } = {}) {
+async function toolGetFuturesOddsMovement({ team, market_type, days = 365, season } = {}) {
   if (!team || !market_type) {
     return { status: 'invalid', message: 'team and market_type are required.' };
   }
 
-  const teamData = getTeam(team);
-  const fullName = teamData?.fullName || team;
+  const teamData = market_type === 'superbowl_matchup' ? null : getTeam(team);
+  const fullName = market_type === 'superbowl_matchup' ? team : (teamData?.fullName || team);
   const yr = season || new Date().getFullYear();
 
   let history = [];
@@ -2349,22 +2350,33 @@ async function toolGetFuturesOddsMovement({ team, market_type, days = 30, season
   const bestAt = (time) => pool.filter(h => h.snapshot_time === time)
     .reduce((best, h) => (best == null || h.odds > best.odds ? h : best), null); // higher american odds = better payout for the bettor
   const opening = bestAt(earliestTime);
-  const current = bestAt(latestTime);
-  const openProb = toImpliedProb(opening?.odds);
-  const curProb = toImpliedProb(current?.odds);
 
-  // per-book movement: each book's own first vs. last snapshot in the window
+  // Each book is captured on its own cadence. "Current" therefore means the
+  // best latest observation from every placeable book, not only books present
+  // at the single newest global timestamp.
   const byBook = {};
   for (const h of pool) (byBook[h.book] ??= []).push(h);
-  const perBookMovement = Object.entries(byBook).map(([book, rows]) => {
+  const bookSeries = Object.entries(byBook).map(([book, rows]) => {
     const sorted = [...rows].sort((a, b) => new Date(a.snapshot_time) - new Date(b.snapshot_time));
-    const first = sorted[0], last = sorted[sorted.length - 1];
-    return { book, opening_odds: fmtOdds(first.odds), current_odds: fmtOdds(last.odds), snapshots: sorted.length };
+    return { book, rows: sorted, first: sorted[0], last: sorted[sorted.length - 1] };
   });
+  const current = bookSeries.map((series) => series.last)
+    .reduce((best, row) => (best == null || row.odds > best.odds ? row : best), null);
+  const openProb = toImpliedProb(opening?.odds);
+  const curProb = toImpliedProb(current?.odds);
+  const perBookMovement = bookSeries.map(({ book, rows, first, last }) => ({
+    book,
+    opening_odds: fmtOdds(first.odds),
+    opening_date: first.snapshot_time,
+    current_odds: fmtOdds(last.odds),
+    current_date: last.snapshot_time,
+    snapshots: rows.length,
+  }));
 
-  // consensus movement: median implied prob across all books at the earliest vs. latest snapshot round
-  const consensusOpenProb = median(pool.filter(h => h.snapshot_time === earliestTime).map(h => toImpliedProb(h.odds)).filter(p => p != null));
-  const consensusCurProb = median(pool.filter(h => h.snapshot_time === latestTime).map(h => toImpliedProb(h.odds)).filter(p => p != null));
+  // Compare each book's own first and latest observations, so asynchronous
+  // capture dates do not cause one-book "consensus" rounds.
+  const consensusOpenProb = median(bookSeries.map(({ first }) => toImpliedProb(first.odds)).filter((p) => p != null));
+  const consensusCurProb = median(bookSeries.map(({ last }) => toImpliedProb(last.odds)).filter((p) => p != null));
 
   return {
     status: 'ok',
@@ -2375,7 +2387,7 @@ async function toolGetFuturesOddsMovement({ team, market_type, days = 30, season
     snapshot_count: history.length,
     placeable_books_only: !usedFallback,
     opening: { date: opening?.snapshot_time, odds: fmtOdds(opening?.odds), book: opening?.book },
-    current: { date: current?.snapshot_time, odds: fmtOdds(current?.odds), book: current?.book },
+    current: { date: current?.snapshot_time, odds: fmtOdds(current?.odds), book: current?.book, latest_market_timestamp: latestTime },
     direction: (opening?.odds === current?.odds) ? 'flat'
       : (curProb > openProb ? 'shortening (more likely)' : 'lengthening (less likely)'),
     best_price_movement_pts: (openProb != null && curProb != null) ? +((curProb - openProb) * 100).toFixed(1) : null,

@@ -29,7 +29,10 @@ import 'dotenv/config';
 
 const MAX_RETRIES = 3;
 const MAX_RUNTIME_MS = 90_000; // 90s — more endpoints than regular agent
-const SNAPSHOT_TTL_DAYS = 30; // Futures move slowly; keep 30 days of history
+// Futures are season-long instruments. Manual/offshore snapshots are often the
+// only durable observation for a market, so a global age-based delete destroys
+// the line-movement record. Retain full history; archive by season only through
+// an explicit, separately reviewed operation if storage becomes material.
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -335,19 +338,6 @@ export async function writeSnapshots(supabase, rows, useEnhancedColumns) {
   return written;
 }
 
-// ── Prune old snapshots ───────────────────────────────────────────────────────
-
-async function pruneOldSnapshots(supabase) {
-  const cutoff = new Date(Date.now() - SNAPSHOT_TTL_DAYS * 24 * 60 * 60 * 1000).toISOString();
-  const { error, count } = await supabase
-    .from('futures_odds_snapshots')
-    .delete()
-    .lt('snapshot_time', cutoff);
-
-  if (error) console.warn('  ⚠️  Prune failed:', error.message);
-  else if (count > 0) console.log(`  🗑  Pruned ${count} rows older than ${SNAPSHOT_TTL_DAYS}d`);
-}
-
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -474,8 +464,6 @@ async function main() {
   const written = await writeSnapshots(supabase, allRows, hasEnhancedSchema);
   console.log(`  ✅ Wrote ${written} rows to futures_odds_snapshots`);
 
-  // Prune old data
-  await pruneOldSnapshots(supabase);
 
   const receiptPath = await writeReceipt(receipt);
   console.log(`🧾 Run receipt: ${receiptPath}`);

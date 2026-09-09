@@ -11,11 +11,22 @@ import { TEAM_LOGOS, NFL_TEAMS } from '../../lib/teams';
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 const MARKET_LABELS = {
-  superbowl:  'Super Bowl Winner',
-  conference: 'Conference Winner',
-  division:   'Division Winner',
+  superbowl: 'Super Bowl Winner',
+  conference_afc: 'AFC Winner', conference_nfc: 'NFC Winner',
+  division_afc_east: 'AFC East', division_afc_north: 'AFC North',
+  division_afc_south: 'AFC South', division_afc_west: 'AFC West',
+  division_nfc_east: 'NFC East', division_nfc_north: 'NFC North',
+  division_nfc_south: 'NFC South', division_nfc_west: 'NFC West',
+  wins: 'Win Totals (Over)', playoffs: 'Make Playoffs',
+  most_wins: 'Most Wins', least_wins: 'Least Wins',
+  conference_no_1_seed: 'Conference No. 1 Seed',
+  superbowl_matchup: 'Super Bowl Exact Matchup', exacta: 'Conference Seeding Exacta',
+  award_mvp: 'MVP', award_super_bowl_mvp: 'Super Bowl MVP',
+  award_offensive_player_of_year: 'OPOY', award_defensive_player_of_year: 'DPOY',
+  award_offensive_rookie_of_year: 'OROY', award_defensive_rookie_of_year: 'DROY',
+  award_comeback_player_of_year: 'Comeback Player',
 };
-const MARKET_ORDER = ['superbowl', 'conference', 'division'];
+const MARKET_ORDER = Object.keys(MARKET_LABELS);
 
 const BOOK_NAMES = {
   draftkings: 'DK',
@@ -23,6 +34,7 @@ const BOOK_NAMES = {
   betmgm:     'MGM',
   caesars:    'CZR',
   betonline:  'BOL',
+  betus:      'BTU',
   bookmaker:  'BKR',
 };
 const BOOK_FULL = {
@@ -31,9 +43,10 @@ const BOOK_FULL = {
   betmgm:     'BetMGM',
   caesars:    'Caesars',
   betonline:  'BetOnline',
+  betus:      'BetUS',
   bookmaker:  'Bookmaker',
 };
-const BOOK_ORDER = ['draftkings', 'fanduel', 'betmgm', 'caesars', 'betonline', 'bookmaker'];
+const BOOK_ORDER = ['betonline', 'betus', 'bookmaker', 'betmgm', 'caesars', 'draftkings', 'fanduel'];
 
 const fmtOdds = (o) => (o == null ? '—' : o >= 0 ? `+${o}` : `${o}`);
 
@@ -139,22 +152,13 @@ export default function FuturesMarketBrowser() {
     // Compute derived fields
     const rows = Array.from(byTeam.values()).map(entry => {
       const bookEntries = Array.from(entry.books.values());
-      // Best odds = shortest (most favorable to team winning) = lowest positive / most negative
-      const best = bookEntries.reduce((b, r) => {
-        if (!b) return r;
-        // For American odds: lower positive = more likely, shorter odds
-        // For the bettor browsing: most relevant is implied probability
-        const bProb = r.implied_prob ?? 0;
-        const bestProb = b.implied_prob ?? 0;
-        return bProb > bestProb ? r : b;
-      }, null);
-
-      const worst = bookEntries.reduce((w, r) => {
-        if (!w) return r;
-        const rProb = r.implied_prob ?? 1;
-        const wProb = w.implied_prob ?? 1;
-        return rProb < wProb ? r : w;
-      }, null);
+      // Best price for the bettor = longest payout (lowest implied probability).
+      // Manual rows may omit implied_prob, so derive it from American odds.
+      const implied = (row) => row.implied_prob ?? (row.odds > 0
+        ? 100 / (row.odds + 100)
+        : Math.abs(row.odds) / (Math.abs(row.odds) + 100));
+      const best = bookEntries.reduce((b, r) => (!b || implied(r) < implied(b) ? r : b), null);
+      const worst = bookEntries.reduce((w, r) => (!w || implied(r) > implied(w) ? r : w), null);
 
       const avgImplied = bookEntries.length > 0
         ? bookEntries.reduce((s, r) => s + (r.implied_prob || 0), 0) / bookEntries.length
@@ -218,7 +222,9 @@ export default function FuturesMarketBrowser() {
     for (const row of teamRows) {
       for (const book of row.books.keys()) books.add(book);
     }
-    return BOOK_ORDER.filter(b => books.has(b));
+    const known = BOOK_ORDER.filter((book) => books.has(book));
+    const extra = [...books].filter((book) => !BOOK_ORDER.includes(book)).sort();
+    return [...known, ...extra];
   }, [teamRows]);
 
   const hasData    = marketData.length > 0;

@@ -362,6 +362,7 @@ async function main() {
     `**Snapshot Time:** \`${capturedAt}\``,
     `**Book:** \`${book}\``,
     `**Total Normalized Records:** \`${allRows.length}\``,
+    `**Persistence Status:** \`${DRY_RUN ? 'local_only_dry_run' : 'pending_supabase_write'}\``,
     `**Source Screenshots:** ${matched.map((m) => `\`${m.file}\``).join(', ')}`,
     '',
     '## Market Record Breakdown',
@@ -410,6 +411,12 @@ async function main() {
     console.log(`  upserted ${written}/${allRows.length}`);
   }
   console.log(`OK — upserted ${written} row(s) into futures_odds_snapshots.`);
+  const persistedAt = new Date().toISOString();
+  const persistedReview = fs.readFileSync(mdPath, 'utf8').replace(
+    '**Persistence Status:** `pending_supabase_write`',
+    `**Persistence Status:** \`persisted\` (${written} rows verified written at \`${persistedAt}\`)`,
+  );
+  fs.writeFileSync(mdPath, persistedReview, 'utf8');
 
   // ── Archive the processed screenshots ───────────────────────────────────
   const archiveDir = path.join(ARCHIVE_ROOT, `BetOnline_${date}`);

@@ -8,6 +8,7 @@
 
 import logger from './logger';
 import { createClient } from '@supabase/supabase-js';
+import { canonicalExactMatchup } from './futuresMarketIdentity.js';
 
 const SUPABASE_URL      = import.meta.env.VITE_SUPABASE_URL || '';
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
@@ -360,38 +361,39 @@ export async function getFantasyRankingsAvailableWeeks({ season = new Date().get
 export async function getLatestFuturesOdds() {
   if (!isAvailable()) return [];
   try {
-    // Get timestamps of most recent snapshot per market_type so we can filter to it
-    const { data: latest, error: latestErr } = await supabase
-      .from('futures_odds_snapshots')
-      .select('market_type, snapshot_time')
-      .order('snapshot_time', { ascending: false })
-      .limit(3); // one per market type
-
-    if (latestErr || !latest?.length) return [];
-
-    // Group latest snapshot_time by market_type
-    const latestByMarket = new Map();
-    for (const row of latest) {
-      if (!latestByMarket.has(row.market_type)) {
-        latestByMarket.set(row.market_type, row.snapshot_time);
-      }
-    }
-
-    // Fetch all rows within 15 minutes of the latest snapshot per market
-    const allRows = [];
-    for (const [marketType, latestTime] of latestByMarket) {
-      const windowStart = new Date(new Date(latestTime).getTime() - 15 * 60 * 1000).toISOString();
+    // There is no one-row-per-market guarantee: manual books can be captured
+    // on different dates, and rare markets may be absent from the newest
+    // global batch. Page the season exhaustively, newest-first, then retain
+    // the first row for every market+selection+book identity.
+    const pageSize = 1000;
+    const latest = new Map();
+    const season = new Date().getFullYear();
+    for (let from = 0; ; from += pageSize) {
       const { data, error } = await supabase
         .from('futures_odds_snapshots')
-        .select('market_type, team, book, odds, implied_prob, snapshot_time')
-        .eq('market_type', marketType)
-        .gte('snapshot_time', windowStart)
-        .order('snapshot_time', { ascending: false });
-
-      if (!error && data) allRows.push(...data);
+        .select('market_type, team, selection, book, odds, implied_prob, snapshot_time')
+        .eq('season', season)
+        .order('snapshot_time', { ascending: false })
+        .order('market_type', { ascending: true })
+        .order('team', { ascending: true })
+        .order('book', { ascending: true })
+        .range(from, from + pageSize - 1);
+      if (error) throw error;
+      for (const row of data || []) {
+        const matchup = row.market_type === 'superbowl_matchup'
+          ? canonicalExactMatchup(row.team || row.selection)
+          : null;
+        const teamKey = matchup?.key || row.team || row.selection || '';
+        const key = [row.market_type, teamKey, row.book].join('|');
+        if (!latest.has(key)) {
+          latest.set(key, matchup
+            ? { ...row, team: matchup.label, selection: matchup.label, matchup_key: matchup.key }
+            : row);
+        }
+      }
+      if (!data || data.length < pageSize) break;
     }
-
-    return allRows;
+    return [...latest.values()];
   } catch (e) {
     logger.warn('[supabase] getLatestFuturesOdds failed:', e.message);
     return [];
@@ -412,25 +414,28 @@ export { PLACEABLE_SPORTSBOOK_KEYS as PLACEABLE_BOOKS } from './executionVenues.
  * silently mixing offseasons once more than one season's data accumulates.
  * @param {string} team        — exact team name as stored
  * @param {string} marketType  — 'superbowl' | 'conference' | 'division'
- * @param {number} days        — how far back (default 30 days)
+ * @param {number} days        — how far back (default 365 days, preserving the season movement arc)
  * @param {number} [season]    — defaults to current year; pass null to disable the filter
  */
-export async function getFuturesOddsHistory(team, marketType, days = 30, season = new Date().getFullYear()) {
+export async function getFuturesOddsHistory(team, marketType, days = 365, season = new Date().getFullYear()) {
   if (!isAvailable() || !team || !marketType) return [];
   try {
     const cutoff = new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
+    const matchup = marketType === 'superbowl_matchup' ? canonicalExactMatchup(team) : null;
     let query = supabase
       .from('futures_odds_snapshots')
-      .select('snapshot_time, book, odds, implied_prob, season')
-      .eq('team', team)
+      .select('snapshot_time, team, selection, book, odds, implied_prob, season')
       .eq('market_type', marketType)
       .gte('snapshot_time', cutoff)
       .order('snapshot_time', { ascending: true });
+    query = matchup ? query.in('team', matchup.queryLabels) : query.eq('team', team);
     if (season != null) query = query.eq('season', season);
     const { data, error } = await query;
 
     if (error || !data) return [];
-    return data;
+    return matchup
+      ? data.map((row) => ({ ...row, team: matchup.label, selection: matchup.label, matchup_key: matchup.key }))
+      : data;
   } catch (e) {
     logger.warn('[supabase] getFuturesOddsHistory failed:', e.message);
     return [];

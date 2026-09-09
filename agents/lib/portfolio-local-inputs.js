@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { sourcePrimaryTeam } from './team-identity.js';
+import { canonicalFuturesMarketIdentity } from '../../src/lib/futuresMarketIdentity.js';
 
 function normalizedPart(value) {
   return String(value ?? '').trim().toLowerCase();
@@ -15,10 +16,11 @@ export function splitInputPaths(value, root = process.cwd()) {
 }
 
 export function snapshotIdentity(row) {
+  const marketIdentity = canonicalFuturesMarketIdentity(row);
   return [
     row?.market_type,
-    row?.team,
-    row?.selection,
+    marketIdentity?.key || row?.team,
+    marketIdentity?.key || row?.selection,
     row?.book,
     row?.snapshot_time || row?.captured_at,
     row?.line,

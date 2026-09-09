@@ -5,7 +5,10 @@ import {
   mergeSnapshotSources,
   splitInputPaths,
   validateLocalSnapshotRows,
+  snapshotIdentity,
 } from '../../agents/lib/portfolio-local-inputs.js';
+import { canonicalExactMatchup, isTeamEligibleForFuturesMarket } from '../../src/lib/futuresMarketIdentity.js';
+import { isBetterFuturesOffer } from '../../src/lib/futuresQuoteSelection.js';
 
 describe('portfolio local inputs', () => {
   it('adds local snapshots while deduplicating identical database rows', () => {
@@ -22,6 +25,34 @@ describe('portfolio local inputs', () => {
 
     const correctedCurrent = { ...current, price: 1050 };
     expect(mergeSnapshotSources([historical, current], [correctedCurrent])).toEqual([historical, correctedCurrent]);
+  });
+
+  it('canonicalizes exact-matchup order for grouping and deduplication', () => {
+    const forward = canonicalExactMatchup('Green Bay Packers vs Buffalo Bills');
+    const reverse = canonicalExactMatchup('Buffalo Bills vs Green Bay Packers');
+    expect(forward).toEqual(reverse);
+    expect(forward).toMatchObject({ key: 'bills|packers', label: 'Buffalo Bills vs Green Bay Packers' });
+
+    const base = { market_type: 'superbowl_matchup', book: 'betus', snapshot_time: '2026-09-08T00:00:00Z' };
+    expect(snapshotIdentity({ ...base, team: 'Green Bay Packers vs Buffalo Bills' }))
+      .toBe(snapshotIdentity({ ...base, team: 'Buffalo Bills vs Green Bay Packers' }));
+  });
+
+  it('quarantines teams assigned to the wrong division or conference market', () => {
+    expect(isTeamEligibleForFuturesMarket('New Orleans Saints', 'division_nfc_west')).toBe(false);
+    expect(isTeamEligibleForFuturesMarket('New Orleans Saints', 'division_nfc_south')).toBe(true);
+    expect(isTeamEligibleForFuturesMarket('Buffalo Bills', 'conference_nfc')).toBe(false);
+    expect(isTeamEligibleForFuturesMarket('Buffalo Bills', 'conference_afc')).toBe(true);
+    expect(isTeamEligibleForFuturesMarket('Buffalo Bills', 'superbowl')).toBe(true);
+  });
+
+  it('shops the best price inside the current window but never promotes stale over current', () => {
+    const currentNewer = { availability_status: 'current', quote_age_hours: 12 };
+    const currentOlder = { availability_status: 'current', quote_age_hours: 36 };
+    const stale = { availability_status: 'stale', quote_age_hours: 96 };
+    expect(isBetterFuturesOffer(8300, currentOlder, 7000, currentNewer)).toBe(true);
+    expect(isBetterFuturesOffer(10000, stale, 7000, currentNewer)).toBe(false);
+    expect(isBetterFuturesOffer(7000, currentOlder, 7000, currentNewer)).toBe(false);
   });
 
   it('rejects malformed rows and filters other seasons', () => {

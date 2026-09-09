@@ -60,7 +60,8 @@ import { normalizeTeam } from '../src/lib/teams.js';
 import { canonicalSportsbookKey } from '../src/lib/executionVenues.js';
 
 const MAX_RUNTIME_MS = 60_000;
-const SNAPSHOT_TTL_DAYS = 30; // same retention as futures-odds-ingest.js
+// Retain full season history. Manual/offshore observations share this table
+// and must not be globally deleted by an automated vendor ingester.
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -375,16 +376,6 @@ export async function writeSnapshots(supabase, rows, useEnhancedColumns) {
   return written;
 }
 
-async function pruneOldSnapshots(supabase) {
-  const cutoff = new Date(Date.now() - SNAPSHOT_TTL_DAYS * 24 * 60 * 60 * 1000).toISOString();
-  const { error, count } = await supabase
-    .from('futures_odds_snapshots')
-    .delete()
-    .lt('snapshot_time', cutoff);
-  if (error) console.warn('  ⚠️  Prune failed:', error.message);
-  else if (count > 0) console.log(`  🗑  Pruned ${count} rows older than ${SNAPSHOT_TTL_DAYS}d`);
-}
-
 async function writeReceipt(receipt) {
   await mkdir(RECEIPTS_DIR, { recursive: true });
   const ts = new Date().toISOString().replace(/[:.]/g, '-');
@@ -464,7 +455,6 @@ async function main() {
   const written = await writeSnapshots(supabase, valid, hasEnhancedSchema);
   console.log(`  ✅ Wrote ${written} rows to futures_odds_snapshots`);
 
-  await pruneOldSnapshots(supabase);
 
   const receiptPath = await writeReceipt(receipt);
   console.log(`🧾 Run receipt: ${receiptPath}`);
