@@ -26,6 +26,9 @@ import { canonicalFuturesMarketIdentity, isTeamEligibleForFuturesMarket } from '
 import { isBetterFuturesOffer } from '../src/lib/futuresQuoteSelection.js';
 import { clusterAvailabilitySummary } from './lib/player-availability.js';
 import { computeTeamSizingGates, validateNamedStatusReview } from './lib/named-status-review.js';
+import { isBetterRow, latestByTeam as latestByTeamReduce } from './lib/row-reduction.js';
+import { fetchAllRows } from './lib/supabase-pagination.js';
+import { buildPickSignalFilters } from './lib/pick-signal-floor.js';
 import { stampEvidenceLaneVersions } from '../scripts/lib/dossier-freshness-gate.js';
 import {
   isSourceTeamAligned,
@@ -49,10 +52,24 @@ const MODEL = getArg('--model', 'gpt-4o');
 const SIGNALS_PATH = getArg('--signals', null);
 const LOCAL_IMPORT_PATHS = splitInputPaths(getArg('--local-imports', ''), ROOT);
 
-const SB_URL = process.env.SUPABASE_URL;
-const SB_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
-if (!SB_URL || !SB_KEY) { console.error('✖ Need SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY in .env'); process.exit(1); }
-const sb = createClient(SB_URL, SB_KEY, { auth: { persistSession: false } });
+// 2026-09-11 fix (Phase 3b addendum, Codex Phase 3c v5 review P1): env
+// validation + client creation used to run unconditionally at module scope,
+// so merely IMPORTING this file (as tests/unit/pickSignalFloor.test.js
+// already does, dynamically, to reach the real fetchPickSignals()/
+// fetchUserPicks()) called process.exit(1) in any environment without
+// live Supabase credentials -- including a clean CI checkout, since
+// .github/workflows/ci.yml's test step sets none. Deferred to a lazy
+// ensureEnv(), called only from main() (the real-script entry point) --
+// importing this module now does nothing but define functions.
+let sb = null;
+function ensureEnv() {
+  if (sb) return sb;
+  const SB_URL = process.env.SUPABASE_URL;
+  const SB_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!SB_URL || !SB_KEY) { console.error('✖ Need SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY in .env'); process.exit(1); }
+  sb = createClient(SB_URL, SB_KEY, { auth: { persistSession: false } });
+  return sb;
+}
 
 // ── odds math ────────────────────────────────────────────────────────────────
 const americanToProb = (a) => {
@@ -274,17 +291,62 @@ async function fetchSnapshots() {
   }
   return all;
 }
-async function fetchPickSignals() {
-  const { data } = await sb.from('research_pick_signals')
-    .select('source, author, team_or_market, bet_type, lean, rationale, confidence, captured_at')
-    .order('captured_at', { ascending: false }).limit(1000);
-  return data || [];
+// 2026-09-10 fix (Round 9 v8 step 5, Phase 3b): migrated from a raw
+// .order().limit(1000) (a silent-truncation risk on a growing table, and
+// non-deterministic on a captured_at tie with no secondary sort) to
+// fetchTopRows() (Phase 1, approved), which adds a deterministic secondary
+// sort key and a cap-drift check. Also applies the season-keyed
+// training-camp-start floor (RULES.md exception, v7/v8 Finding 3) so the
+// query is bounded by relevance, not just by row count -- see
+// agents/lib/pick-signal-floor.js for the accessor and its wiring test.
+// 2026-09-10 fix (Codex Phase 3b re-review, P1 x2): v8's proposal
+// (docs/CODEX_ROUND9_QUERY_DIALECT_MIGRATION_PROPOSAL_v8_2026-09-10.md:16)
+// explicitly specifies "research_pick_signals, exhaustive via
+// fetchAllRows(), this floor as a filter" -- fetchTopRows() (a bounded
+// top-N shape) was the wrong primitive for this call site regardless of
+// how comfortably 800 rows fit under a 1000 cap today. Same correction
+// applies to fetchUserPicks() per the review. Migrated both to
+// fetchAllRows().
+export function buildPickSignalRequest() {
+  return {
+    sb, table: 'research_pick_signals',
+    select: 'source, author, team_or_market, bet_type, lean, rationale, confidence, captured_at',
+    filters: buildPickSignalFilters(SEASON),
+  };
 }
-async function fetchUserPicks() {
-  const { data } = await sb.from('user_picks')
-    .select('source, pick_type, selection, home, visitor, line, confidence, expert, rationale, created_at, result')
-    .order('created_at', { ascending: false }).limit(1000);
-  return data || [];
+export async function fetchPickSignals() {
+  // 2026-09-10 fix (Codex Phase 3b re-review, P1): buildPickSignalFilters()
+  // (and the signalFloorForSeason() it calls) must NOT be inside this
+  // try/catch -- a missing TRAINING_CAMP_START_BY_SEASON entry is a
+  // configuration bug that is supposed to fail loud (that's the whole
+  // point of the RULES.md exception's fail-loud requirement), not get
+  // silently downgraded to the same "disabled, continue anyway" path as a
+  // transient network error. Only the actual fetchAllRows() network/query
+  // call is caught, so the dossier's Promise.all() doesn't fail whole over
+  // one table's transient error -- but a bad config still throws and stops
+  // the build, as it should.
+  const request = buildPickSignalRequest();
+  try {
+    return await fetchAllRows('fetchPickSignals', request);
+  } catch (e) { console.warn(`   ⚠ research_pick_signals: ${e.message} — pick signals disabled`); return []; }
+}
+// 2026-09-10 fix (Round 9 v8 step 5, Phase 3b): same fetchAllRows() shape as
+// fetchPickSignals() above, minus the training-camp floor (no product
+// requirement to bound this table by date, and no fail-loud config value to
+// protect -- safe to build inline).
+export function buildUserPicksRequest() {
+  return {
+    sb, table: 'user_picks',
+    select: 'source, pick_type, selection, home, visitor, line, confidence, expert, rationale, created_at, result',
+  };
+}
+export async function fetchUserPicks() {
+  // Same reasoning as fetchPickSignals() above -- preserve graceful
+  // degradation for a real query error instead of failing the whole
+  // Promise.all() over one table.
+  try {
+    return await fetchAllRows('fetchUserPicks', buildUserPicksRequest());
+  } catch (e) { console.warn(`   ⚠ user_picks: ${e.message} — user picks disabled`); return []; }
 }
 // Injuries as a first-class batch signal (2026-07-22, Codex review). Table:
 // player_injuries (migration 016, ESPN-sourced, ingested Mon/Wed/Thu/Fri).
@@ -309,20 +371,26 @@ async function fetchInjuryContext() {
     // captured_at alone is not a total order (many rows share a timestamp), which
     // makes .range() paging non-deterministic — espn_player_id is the tiebreaker.
     data = await fetchAllPaged('player_injuries', (from, to) => sb.from('player_injuries')
-      .select('espn_player_id, player_name, team_abbr, position, injury_status, injury_type, reported_at, captured_at')
+      .select('id, espn_player_id, player_name, team_abbr, position, injury_status, injury_type, reported_at, captured_at')
       .order('captured_at', { ascending: false })
       .order('espn_player_id', { ascending: false })
       .range(from, to));
   } catch (e) { console.warn(`   ⚠ player_injuries: ${e.message} — injury context disabled`); return {}; }
 
-  // de-dup to the latest report per player (rows already newest-first)
-  const seen = new Set();
-  const latest = [];
+  // Round 9 v8: explicit comparison-based reduction rather than relying on
+  // page order alone -- captured_at ties for the SAME player were previously
+  // broken only by espn_player_id, which is identical for every row of a
+  // given player and so breaks nothing among them, leaving the effective
+  // pick among same-timestamp rows implementation-defined. id is this
+  // table's real PK (TABLE_UNIQUE_KEYS) and is now the explicit secondary key.
+  const bestByPlayer = {};
   for (const r of data || []) {
     const k = r.espn_player_id || `${r.player_name}|${r.team_abbr}`;
-    if (seen.has(k)) continue;
-    seen.add(k); latest.push(r);
+    if (isBetterRow(r, bestByPlayer[k], { tsField: 'captured_at', idField: 'id', direction: 'latest' })) {
+      bestByPlayer[k] = r;
+    }
   }
+  const latest = Object.values(bestByPlayer);
 
   const byTeam = {};
   let droppedUnknownStatus = 0;
@@ -374,15 +442,39 @@ async function fetchPodcastIntel() {
 // EPA/formation-tendency columns (migration 014/015) that were already in this
 // table but never surfaced to the synthesis model — previously only wins/
 // losses/ATS made it into the dossier.
-async function fetchTeamStats() {
+// 2026-09-11 fix (Round 9 v8 step 5, Phase 3c site 1): migrated from a raw
+// unpaginated .select().gte().lte() (silently capped at PostgREST's 1000-row
+// default once nfl_team_season_stats grows past it) to fetchAllRows(). The
+// three-column-list schema fallback (older deploys may be missing the EPA/
+// formation columns from migrations 014/015) is preserved exactly -- first
+// candidate that doesn't throw wins, exactly as the prior `!r.error` check
+// selected the first non-erroring candidate. If all three fail, this used
+// to leave `data` at `null` with no warning at all (an existing gap, unlike
+// every sibling fetch function in this file); closed here with an explicit
+// console.warn while keeping the same non-throwing, empty-object degrade.
+const TEAM_STATS_COLUMN_CANDIDATES = [
+  'team, season, wins, losses, ats_wins, ats_losses, off_epa_per_play, def_epa_per_play, off_epa_rank, def_epa_rank, shotgun_rate, no_huddle_rate, pass_rate',
+  'team, season, wins, losses, ats_wins, ats_losses',
+  'team, season, ats_wins, ats_losses',
+];
+export function buildTeamStatsRequest(cols) {
+  return {
+    sb, table: 'nfl_team_season_stats',
+    select: cols,
+    filters: [
+      { column: 'season', op: 'gte', value: 2023 },
+      { column: 'season', op: 'lte', value: SEASON },
+    ],
+  };
+}
+export async function fetchTeamStats() {
   let data = null;
-  for (const cols of [
-    'team, season, wins, losses, ats_wins, ats_losses, off_epa_per_play, def_epa_per_play, off_epa_rank, def_epa_rank, shotgun_rate, no_huddle_rate, pass_rate',
-    'team, season, wins, losses, ats_wins, ats_losses',
-    'team, season, ats_wins, ats_losses',
-  ]) {
-    const r = await sb.from('nfl_team_season_stats').select(cols).gte('season', 2023).lte('season', SEASON);
-    if (!r.error) { data = r.data; break; }
+  for (const cols of TEAM_STATS_COLUMN_CANDIDATES) {
+    try { data = await fetchAllRows('fetchTeamStats', buildTeamStatsRequest(cols)); break; }
+    catch { /* try the next, narrower candidate -- unchanged fallback intent */ }
+  }
+  if (data === null) {
+    console.warn('   ⚠ nfl_team_season_stats: all column-list candidates failed — team stats disabled');
   }
   const byTeam = {}; // canonical nickname -> [{season,wins,losses,ats_wins,ats_losses,off_epa_per_play,...}], season-desc
   for (const r of data || []) {
@@ -421,14 +513,17 @@ function currentAnalytics(seasons) {
     pass_rate: r.pass_rate ?? null,
   };
 }
-function latestByTeam(rows, mapRow) {
-  const out = {};
-  for (const r of rows || []) {
-    const nick = normalizeTeam(r.team);
-    if (!nick || out[nick]) continue;
-    out[nick] = mapRow(r);
-  }
-  return out;
+// Round 9 v8 reducer rule (isBetterRow/latestByTeam) lives in
+// ./lib/row-reduction.js so it is directly unit-testable -- this file is a
+// top-level script with no exports of its own. `fromLocalFallback` must be
+// true for rows loaded via loadGeneratedProfileRows() -- generated artifact
+// rows have no primary key by design, unlike the Supabase-sourced rows below
+// (which now select "id" explicitly), so only that path opts out of the
+// fail-loud missing-secondary-key check.
+function latestByTeam(rows, mapRow, { fromLocalFallback = false } = {}) {
+  return latestByTeamReduce(rows, mapRow, normalizeTeam, {
+    tsField: 'snapshot_at', idField: 'id', allowMissingSecondaryKey: fromLocalFallback,
+  });
 }
 async function loadGeneratedProfileRows(prefix) {
   const dir = path.join(ROOT, 'data', 'generated', 'team-profiles');
@@ -858,16 +953,24 @@ async function fetchNamedPlayerSizingGates() {
 }
 
 async function fetchAdvancedAnalytics() {
-  const { data, error } = await sb.from('team_analytic_snapshots')
-    .select('season, week, team, source_key, source_name, source_url, snapshot_at, games_played, off_epa_per_play, def_epa_per_play, off_epa_rank, def_epa_rank, epa_per_dropback, qb_epa_per_dropback, dropback_success_rate, success_rate, cpoe, explosive_play_rate, explosive_pass_rate, explosive_run_rate, pressure_rate_allowed, pressure_rate_generated, sack_rate_allowed, sack_rate_generated, neutral_pass_rate, early_down_pass_rate, shotgun_rate, no_huddle_rate, play_action_rate, motion_rate, attribution_note')
-    .eq('season', SEASON)
-    .order('snapshot_at', { ascending: false })
-    .limit(2000);
+  // 2026-09-10 fix (Round 9 v8 step 5, Phase 3): .limit(2000) silently
+  // truncated once this table's season rows exceeded 2000 -- migrated to
+  // fetchAllRows() (exhaustive keyset pagination). Safe now that Phase 2
+  // made latestByTeam()'s reduction explicit-comparison-based rather than
+  // delivery-order-dependent, so fetchAllRows()'s PK-ascending order (NOT
+  // snapshot_at order) no longer matters here.
+  let data, error;
+  try {
+    data = await fetchAllRows('fetchAdvancedAnalytics', {
+      sb, table: 'team_analytic_snapshots', select: 'id, season, week, team, source_key, source_name, source_url, snapshot_at, games_played, off_epa_per_play, def_epa_per_play, off_epa_rank, def_epa_rank, epa_per_dropback, qb_epa_per_dropback, dropback_success_rate, success_rate, cpoe, explosive_play_rate, explosive_pass_rate, explosive_run_rate, pressure_rate_allowed, pressure_rate_generated, sack_rate_allowed, sack_rate_generated, neutral_pass_rate, early_down_pass_rate, shotgun_rate, no_huddle_rate, play_action_rate, motion_rate, attribution_note',
+      filters: [{ column: 'season', op: 'eq', value: SEASON }],
+    });
+  } catch (e) { error = e; }
   if (error) {
     console.warn(`   team_analytic_snapshots unavailable: ${error.message} - advanced analytics disabled`);
     const localRows = await loadGeneratedProfileRows('team-analytic-snapshots-');
     if (localRows.length) console.warn(`   using ${localRows.length} local generated analytics row(s)`);
-    return latestByTeam(localRows, (r) => r);
+    return latestByTeam(localRows, (r) => r, { fromLocalFallback: true });
   }
   if (!(data || []).length) {
     const localRows = await loadGeneratedProfileRows('team-analytic-snapshots-');
@@ -879,7 +982,7 @@ async function fetchAdvancedAnalytics() {
       // and sack_* null for all 32 teams with no indication anything was missing.
       console.warn(`   ⚠ team_analytic_snapshots: NO rows for season ${SEASON} and no local fallback file — advanced analytics (success_rate, cpoe, explosive_*, pressure_*, sack_*) will be null for ALL teams`);
     }
-    return latestByTeam(localRows, (r) => r);
+    return latestByTeam(localRows, (r) => r, { fromLocalFallback: true });
   }
   return latestByTeam(data, (r) => ({
     season: r.season ?? null,
@@ -924,21 +1027,29 @@ async function fetchAdvancedAnalytics() {
   }));
 }
 async function fetchDvoaSnapshots() {
-  const { data, error } = await sb.from('team_dvoa_snapshots')
-    .select('season, week, team, source_key, source_name, source_url, snapshot_at, games_played, overall_dvoa, overall_dvoa_rank, offensive_dvoa, offensive_dvoa_rank, defensive_dvoa, defensive_dvoa_rank, special_teams_dvoa, special_teams_dvoa_rank, weighted_dvoa, weighted_dvoa_rank, attribution_note')
-    .eq('season', SEASON)
-    .order('snapshot_at', { ascending: false })
-    .limit(2000);
+  // 2026-09-10 fix (Round 9 v8 step 5, Phase 3): .limit(2000) silently
+  // truncated once this table's season rows exceeded 2000 -- migrated to
+  // fetchAllRows() (exhaustive keyset pagination). Safe now that Phase 2
+  // made latestByTeam()'s reduction explicit-comparison-based rather than
+  // delivery-order-dependent, so fetchAllRows()'s PK-ascending order (NOT
+  // snapshot_at order) no longer matters here.
+  let data, error;
+  try {
+    data = await fetchAllRows('fetchDvoaSnapshots', {
+      sb, table: 'team_dvoa_snapshots', select: 'id, season, week, team, source_key, source_name, source_url, snapshot_at, games_played, overall_dvoa, overall_dvoa_rank, offensive_dvoa, offensive_dvoa_rank, defensive_dvoa, defensive_dvoa_rank, special_teams_dvoa, special_teams_dvoa_rank, weighted_dvoa, weighted_dvoa_rank, attribution_note',
+      filters: [{ column: 'season', op: 'eq', value: SEASON }],
+    });
+  } catch (e) { error = e; }
   if (error) {
     console.warn(`   team_dvoa_snapshots unavailable: ${error.message} - DVOA disabled`);
     const localRows = await loadGeneratedProfileRows('team-dvoa-snapshots-');
     if (localRows.length) console.warn(`   using ${localRows.length} local generated DVOA row(s)`);
-    return latestByTeam(localRows, (r) => r);
+    return latestByTeam(localRows, (r) => r, { fromLocalFallback: true });
   }
   if (!(data || []).length) {
     const localRows = await loadGeneratedProfileRows('team-dvoa-snapshots-');
     if (localRows.length) console.warn(`   using ${localRows.length} local generated DVOA row(s)`);
-    return latestByTeam(localRows, (r) => r);
+    return latestByTeam(localRows, (r) => r, { fromLocalFallback: true });
   }
   return latestByTeam(data, (r) => ({
     season: r.season ?? null,
@@ -965,21 +1076,29 @@ async function fetchDvoaSnapshots() {
   }));
 }
 async function fetchCoachingProfiles() {
-  const { data, error } = await sb.from('team_coaching_tendency_snapshots')
-    .select('season, week, team, head_coach, offensive_coordinator, defensive_coordinator, source_key, source_name, source_url, snapshot_at, sample_start, sample_end, games_sample, coordinator_continuity, fourth_down_aggression_rate, fourth_down_aggression_tier, neutral_pass_rate, early_down_pass_rate, shotgun_rate, no_huddle_rate, play_action_rate, motion_rate, rpo_rate, pace_seconds_per_play, red_zone_pass_rate, two_minute_aggression_tier, ats_by_role, trend_notes, stale_after')
-    .eq('season', SEASON)
-    .order('snapshot_at', { ascending: false })
-    .limit(2000);
+  // 2026-09-10 fix (Round 9 v8 step 5, Phase 3): .limit(2000) silently
+  // truncated once this table's season rows exceeded 2000 -- migrated to
+  // fetchAllRows() (exhaustive keyset pagination). Safe now that Phase 2
+  // made latestByTeam()'s reduction explicit-comparison-based rather than
+  // delivery-order-dependent, so fetchAllRows()'s PK-ascending order (NOT
+  // snapshot_at order) no longer matters here.
+  let data, error;
+  try {
+    data = await fetchAllRows('fetchCoachingProfiles', {
+      sb, table: 'team_coaching_tendency_snapshots', select: 'id, season, week, team, head_coach, offensive_coordinator, defensive_coordinator, source_key, source_name, source_url, snapshot_at, sample_start, sample_end, games_sample, coordinator_continuity, fourth_down_aggression_rate, fourth_down_aggression_tier, neutral_pass_rate, early_down_pass_rate, shotgun_rate, no_huddle_rate, play_action_rate, motion_rate, rpo_rate, pace_seconds_per_play, red_zone_pass_rate, two_minute_aggression_tier, ats_by_role, trend_notes, stale_after',
+      filters: [{ column: 'season', op: 'eq', value: SEASON }],
+    });
+  } catch (e) { error = e; }
   if (error) {
     console.warn(`   team_coaching_tendency_snapshots unavailable: ${error.message} - coaching profiles disabled`);
     const localRows = await loadGeneratedProfileRows('team-coaching-tendency-snapshots-');
     if (localRows.length) console.warn(`   using ${localRows.length} local generated coaching row(s)`);
-    return latestByTeam(localRows, (r) => r);
+    return latestByTeam(localRows, (r) => r, { fromLocalFallback: true });
   }
   if (!(data || []).length) {
     const localRows = await loadGeneratedProfileRows('team-coaching-tendency-snapshots-');
     if (localRows.length) console.warn(`   using ${localRows.length} local generated coaching row(s)`);
-    return latestByTeam(localRows, (r) => r);
+    return latestByTeam(localRows, (r) => r, { fromLocalFallback: true });
   }
   return latestByTeam(data, (r) => ({
     season: r.season ?? null,
@@ -1051,13 +1170,25 @@ function mergeAnalytics(base, advanced) {
 // to also carry the migration-039 game-context columns (rest/travel, div flag,
 // referee, closing lines) needed for the new schedule/officiating/CLV signals below
 // — same query, no extra round-trip, since SoS already needed this table.
-async function fetchSchedule() {
-  const { data, error } = await sb.from('games')
-    .select('game_id, season, week, season_type, home_team, away_team, home_abbrev, away_abbrev, ' +
-      'away_rest, home_rest, div_game, referee, closing_spread_line, closing_total_line')
-    .eq('season', SEASON);
-  if (error) { console.warn(`   ⚠ schedule: ${error.message} — SoS disabled`); return []; }
-  return data || [];
+// 2026-09-11 fix (Round 9 v8 step 5, Phase 3c site 2): migrated from a raw
+// unpaginated .select().eq() to fetchAllRows(). game_id was already the
+// first selected column, so fetchAllRows()'s cursor auto-inject/strip logic
+// is a no-op here -- nothing is injected or stripped, since the caller's own
+// select already includes the games table's unique key. Error-to-[] degrade
+// preserved exactly (SoS just goes without schedule context, doesn't fail
+// the whole dossier build).
+export function buildScheduleRequest() {
+  return {
+    sb, table: 'games',
+    select: 'game_id, season, week, season_type, home_team, away_team, home_abbrev, away_abbrev, ' +
+      'away_rest, home_rest, div_game, referee, closing_spread_line, closing_total_line',
+    filters: [{ column: 'season', op: 'eq', value: SEASON }],
+  };
+}
+export async function fetchSchedule() {
+  try {
+    return await fetchAllRows('fetchSchedule', buildScheduleRequest());
+  } catch (e) { console.warn(`   ⚠ schedule: ${e.message} — SoS disabled`); return []; }
 }
 // Earliest-tracked spread snapshot per game this season, for CLV comparison
 // against games.closing_spread_line (migration 039's nflverse consensus close).
@@ -1070,16 +1201,18 @@ async function fetchGameOddsOpen() {
     // 0.6% slice" and CLV was silently meaningless. game_id is the tiebreaker
     // that makes captured_at ordering total across pages.
     data = await fetchAllPaged('game_odds_snapshots', (from, to) => sb.from('game_odds_snapshots')
-      .select('game_id, season, week, home_team, away_team, market, spread, captured_at')
+      .select('id, game_id, season, week, home_team, away_team, market, spread, captured_at')
       .eq('season', SEASON).eq('market', 'spread')
       .order('captured_at', { ascending: true })
       .order('game_id', { ascending: true })
       .range(from, to));
   } catch (e) { console.warn(`   ⚠ game_odds_snapshots: ${e.message} — CLV disabled`); return []; }
-  const earliest = {}; // game key -> first row seen (rows already ordered oldest-first)
+  const earliest = {};
   for (const r of data || []) {
     const key = `${r.season}-${r.week}-${normalizeTeam(r.home_team)}-${normalizeTeam(r.away_team)}`;
-    if (!(key in earliest)) earliest[key] = r;
+    if (isBetterRow(r, earliest[key], { tsField: 'captured_at', idField: 'id', direction: 'earliest' })) {
+      earliest[key] = r;
+    }
   }
   return earliest;
 }
@@ -1087,24 +1220,50 @@ async function fetchGameOddsOpen() {
 // (money% vs ticket%) as a CLV-adjacent signal. Table: game_splits_history
 // (migration 024) — first tool/pipeline ever to read it for this purpose (S296).
 async function fetchGameSplitsLatest() {
-  const { data, error } = await sb.from('game_splits_history')
-    .select('game_id, season, week, home_team, away_team, spread_home_bettors, spread_home_money, captured_at')
-    .eq('season', SEASON)
-    .order('captured_at', { ascending: true }); // oldest-first so the loop below keeps the LAST (latest) row per game
+  // 2026-09-10 fix (Round 9 v8 step 5, Phase 3): no .limit() at all meant
+  // PostgREST's own 1000-row default silently capped this read once the
+  // season's rows exceeded it. Migrated to fetchAllRows(); the old
+  // ascending-captured_at .order() existed only to feed the pre-Phase-2
+  // "last row wins" reduce, which is now explicit-comparison-based (see
+  // isBetterRow() below) and doesn't need delivery order at all.
+  let data, error;
+  try {
+    data = await fetchAllRows('fetchGameSplitsLatest', {
+      sb, table: 'game_splits_history',
+      select: 'id, game_id, season, week, home_team, away_team, spread_home_bettors, spread_home_money, captured_at',
+      filters: [{ column: 'season', op: 'eq', value: SEASON }],
+    });
+  } catch (e) { error = e; }
   if (error) { console.warn(`   ⚠ game_splits_history: ${error.message} — sharp-divergence disabled`); return {}; }
   const latest = {};
   for (const r of data || []) {
     const key = `${r.season}-${r.week}-${normalizeTeam(r.home_team)}-${normalizeTeam(r.away_team)}`;
-    latest[key] = r; // overwritten each time -> ends up on the latest row since input is oldest-first
+    if (isBetterRow(r, latest[key], { tsField: 'captured_at', idField: 'id', direction: 'latest' })) {
+      latest[key] = r;
+    }
   }
   return latest;
 }
 // Per-referee historical tendencies (migration 040) — small samples, always
 // carry games_officiated alongside any average so the model can judge confidence.
-async function fetchRefereeTendencies() {
-  const { data, error } = await sb.from('referee_tendencies')
-    .select('referee, games_officiated, avg_total_points, avg_total_penalties, home_win_pct');
-  if (error) { console.warn(`   ⚠ referee_tendencies: ${error.message} — officiating context disabled`); return {}; }
+// 2026-09-11 fix (Round 9 v8 step 5, Phase 3c site 3): migrated from a raw
+// unpaginated .select() (no filter -- the whole table) to fetchAllRows().
+// `referee` is DB-unique (migration 040_referee_tendencies.sql:23 --
+// `referee text not null unique`), so grouping "last row wins" per referee
+// name is unaffected by fetchAllRows() making no delivery-order guarantee --
+// there is only ever one row per referee to begin with. Error-to-{} degrade
+// preserved exactly.
+export function buildRefereeTendenciesRequest() {
+  return {
+    sb, table: 'referee_tendencies',
+    select: 'referee, games_officiated, avg_total_points, avg_total_penalties, home_win_pct',
+  };
+}
+export async function fetchRefereeTendencies() {
+  let data;
+  try {
+    data = await fetchAllRows('fetchRefereeTendencies', buildRefereeTendenciesRequest());
+  } catch (e) { console.warn(`   ⚠ referee_tendencies: ${e.message} — officiating context disabled`); return {}; }
   const byRef = {};
   for (const r of data || []) byRef[r.referee] = r;
   return byRef;
@@ -1888,7 +2047,15 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
 }
 
 // ── main ─────────────────────────────────────────────────────────────────────
-(async () => {
+// 2026-09-10 fix (Codex Phase 3b re-review, P2): this file previously ran its
+// whole dossier-build IIFE unconditionally on import, which made it
+// impossible to import fetchPickSignals()/fetchUserPicks() for a real
+// call-site wiring test without triggering a live Supabase build + file
+// writes as a side effect. Guarded exactly like agents/portfolio-preflight.js
+// already does, so `node agents/portfolio-dossier.js` still runs main() as
+// before, but `import` from a test does not.
+async function main() {
+  ensureEnv();
   console.log(`📊 Portfolio dossier — season ${SEASON}${SINCE ? ` since ${SINCE}` : ''}`);
   const [dbSnaps, localSnapshots, pickSignals, userPicks, podcastRows, priorByTeam, games, oddsOpenByGame, splitsLatestByGame, refereeByName, rosterChurnByTeam, injuriesByTeam, advancedAnalyticsByTeam, dvoaByTeam, coachingByTeam, trainingCampIntelByTeam, playerAvailabilityByTeam, namedPlayerSizing, predictionMarketsByTeam, evidenceLaneVersions] = await Promise.all([
     fetchSnapshots(), loadLocalSnapshotFiles(LOCAL_IMPORT_PATHS, { season: SEASON }), fetchPickSignals(), fetchUserPicks(), fetchPodcastIntel(), fetchTeamStats(), fetchSchedule(),
@@ -2001,4 +2168,7 @@ function toMarkdown(meta, synth, experts, teamProfiles) {
   console.log(`✅ wrote ${jsonPath}`);
   console.log(`✅ wrote ${mdPath}`);
   console.log(`   next: node agents/portfolio-synthesize.js --dossier "${jsonPath}"`);
-})().catch((e) => { console.error('✖', e.message); process.exitCode = 1; });
+}
+if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+  main().catch((e) => { console.error('✖', e.message); process.exitCode = 1; });
+}

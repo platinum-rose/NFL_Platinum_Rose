@@ -56,6 +56,7 @@ import { fileURLToPath } from 'node:url';
 import { createClient } from '@supabase/supabase-js';
 import { normalizeTeam } from '../src/lib/teams.js';
 import { isNflBettingIntel } from './lib/sportsRelevanceFilter.js';
+import { fetchAllRows } from './lib/supabase-pagination.js';
 import 'dotenv/config';
 
 const OUT_DIR = path.join(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'), '.nfl', 'portfolio');
@@ -68,15 +69,32 @@ const LIMIT = parseInt(getArg('--limit', '0'), 10) || 0;   // 0 = all
 const ONLY_SOURCE = getArg('--source', null);
 const BATCH = parseInt(getArg('--batch', '12'), 10);
 
-const SB_URL = process.env.SUPABASE_URL;
-const SB_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
-const OPENAI_KEY = process.env.OPENAI_API_KEY;
-const ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY;
-if (!SB_URL || !SB_KEY) { console.error('✖ Need SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY in .env'); process.exit(1); }
 const isOpenAI = (m) => /^(gpt|o[13])/i.test(m);
-if (isOpenAI(MODEL) && !OPENAI_KEY) { console.error('✖ OPENAI_API_KEY not set'); process.exit(1); }
-if (!isOpenAI(MODEL) && !ANTHROPIC_KEY) { console.error('✖ ANTHROPIC_API_KEY not set'); process.exit(1); }
-const sb = createClient(SB_URL, SB_KEY, { auth: { persistSession: false } });
+
+// 2026-09-11 fix (Phase 3c site 4, Codex v4 review P1): env validation +
+// key loading + client creation used to run unconditionally at module
+// scope, so merely importing this file for a test (as the new
+// gatherExpertPicks.test.js wiring tests need to, to reach the real
+// exported gatherExpertPicks()/buildExpertPicksRequest()) called
+// process.exit(1) in any environment without live credentials -- including
+// a clean CI checkout. Deferred to a lazy ensureEnv(), called only from
+// main() (the real-script entry point) -- importing this module now does
+// nothing but define functions.
+let sb = null;
+let OPENAI_KEY = null;
+let ANTHROPIC_KEY = null;
+function ensureEnv() {
+  if (sb) return sb;
+  const SB_URL = process.env.SUPABASE_URL;
+  const SB_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  OPENAI_KEY = process.env.OPENAI_API_KEY;
+  ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY;
+  if (!SB_URL || !SB_KEY) { console.error('✖ Need SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY in .env'); process.exit(1); }
+  if (isOpenAI(MODEL) && !OPENAI_KEY) { console.error('✖ OPENAI_API_KEY not set'); process.exit(1); }
+  if (!isOpenAI(MODEL) && !ANTHROPIC_KEY) { console.error('✖ ANTHROPIC_API_KEY not set'); process.exit(1); }
+  sb = createClient(SB_URL, SB_KEY, { auth: { persistSession: false } });
+  return sb;
+}
 
 const SYSTEM_PROMPT = `You convert raw NFL betting intel into structured signals. For each NUMBERED item decide whether it expresses an ACTIONABLE NFL betting lean — a view that a team/market will over- or under-perform — as opposed to a mere mention, injury/roster news, human-interest, or another sport.
 
@@ -307,7 +325,7 @@ async function gatherItems() {
     const data = [];
     for (let from = 0; ; from += 1000) {
       const { data: page, error } = await sb.from('research_intel_notes')
-        .select('id, title, summary, source, author')
+        .select('id, title, summary, source, author, captured_at')
         .order('captured_at', { ascending: false })
         .order('id', { ascending: false })
         .range(from, from + 999);
@@ -316,6 +334,19 @@ async function gatherItems() {
       data.push(...page);
       if (page.length < 1000) break;
     }
+    // 2026-09-10 fix (Round 9 v8 step 3, Phase 2 review finding #1): the ordering
+    // above is a live-query guarantee, not a stored one -- once this call site is
+    // migrated to fetchAllRows() (PK-ascending pagination only), that guarantee
+    // disappears. Sort explicitly, in JS, by parsed captured_at desc then id desc,
+    // so the result this function hands to `items.slice(0, LIMIT)` does not
+    // silently depend on the query's own delivery order.
+    data.sort((a, b) => {
+      const at = Date.parse(a.captured_at); const bt = Date.parse(b.captured_at);
+      const av = Number.isFinite(at) ? at : -Infinity;
+      const bv = Number.isFinite(bt) ? bt : -Infinity;
+      if (av !== bv) return bv - av;
+      return (b.id ?? 0) - (a.id ?? 0);
+    });
     console.log(`   articles: ${data.length} note(s) loaded`);
     for (const n of data || []) {
       const text = [n.title, n.summary].filter(Boolean).join(' — ');
@@ -342,14 +373,65 @@ async function gatherItems() {
     }
   }
   if (want('expert')) {
-    const { data } = await sb.from('user_picks')
-      .select('id, pick_type, selection, home, visitor, rationale, expert').eq('source', 'EXPERT').limit(1000);
-    for (const p of data || []) {
-      const text = [p.pick_type, p.selection, p.home && `${p.visitor} @ ${p.home}`, p.rationale].filter(Boolean).join(' | ');
-      if (text.trim()) items.push({ source_type: 'expert_pick', source_ref: `pick:${p.id}`, raw_text: `[${p.expert || 'expert'}] ${text}`, author: p.expert || 'expert' });
-    }
+    items.push(...(await gatherExpertPicksSafe()));
   }
   return LIMIT ? items.slice(0, LIMIT) : items;
+}
+
+// ── expert-pick lane (Round 9 v8 step 5, Phase 3c site 4) ─────────────────────
+// 2026-09-11 fix: migrated off the raw, unpaginated, unordered
+// .select().eq().limit(1000) (non-deterministic once user_picks exceeds 1000
+// EXPERT rows -- flagged and left unfixed at Phase 2) onto fetchAllRows(),
+// which is exhaustive rather than capped at 1000. Ordering is now an
+// explicit, deliberate choice rather than an accident of delivery order:
+// created_at descending (most-recent-first), then id descending as a
+// deterministic tiebreak -- Andy-authorized 2026-09-11 (Codex Phase 3c v5
+// approval). This ordering controls which expert items survive
+// `items.slice(0, LIMIT)` when --limit is set; it does not make any pick
+// official or authorize betting activity.
+export function buildExpertPicksRequest() {
+  return {
+    sb, table: 'user_picks',
+    select: 'id, pick_type, selection, home, visitor, rationale, expert, created_at',
+    filters: [{ column: 'source', op: 'eq', value: 'EXPERT' }],
+  };
+}
+export async function gatherExpertPicks() {
+  const data = await fetchAllRows('gatherExpertPicks', buildExpertPicksRequest());
+  // Invalid/missing created_at sorts last (both when compared to each other,
+  // via the -Infinity fallback, and relative to any valid date, since
+  // -Infinity is never greater than a real parsed timestamp).
+  const sorted = [...data].sort((a, b) => {
+    const at = Date.parse(a.created_at); const bt = Date.parse(b.created_at);
+    const av = Number.isFinite(at) ? at : -Infinity;
+    const bv = Number.isFinite(bt) ? bt : -Infinity;
+    if (av !== bv) return bv - av;
+    // user_picks.id is a client-generated `text` primary key (migration
+    // 004_user_data.sql), not numeric -- localeCompare, not subtraction.
+    return String(b.id ?? '').localeCompare(String(a.id ?? ''));
+  });
+  const items = [];
+  for (const p of sorted) {
+    const text = [p.pick_type, p.selection, p.home && `${p.visitor} @ ${p.home}`, p.rationale].filter(Boolean).join(' | ');
+    if (text.trim()) items.push({ source_type: 'expert_pick', source_ref: `pick:${p.id}`, raw_text: `[${p.expert || 'expert'}] ${text}`, author: p.expert || 'expert' });
+  }
+  return items;
+}
+// fetchAllRows() throws on a query error by design; the raw call this
+// replaced never checked its `error` at all, so a failure here silently
+// produced zero expert items without affecting the article/podcast lanes.
+// This wrapper preserves that same "degrade, don't abort" behavior for the
+// migrated primitive (which does throw), now with an explicit warning where
+// before there was silent swallowing -- and, critically, keeps a failure
+// here from propagating out of gatherItems() and aborting the article and
+// podcast lanes' already-gathered results too (Codex Phase 3c v4 review P1).
+export async function gatherExpertPicksSafe() {
+  try {
+    return await gatherExpertPicks();
+  } catch (e) {
+    console.warn(`   ⚠ gatherExpertPicks: ${e.message} — expert-pick lane skipped`);
+    return [];
+  }
 }
 
 // ── normalize one batch via the LLM → rows ────────────────────────────────────
@@ -387,7 +469,14 @@ async function normalizeBatch(batch) {
 }
 
 // ── main ─────────────────────────────────────────────────────────────────────
-(async () => {
+// 2026-09-11 fix (Phase 3c site 4, Codex v3 review P1): extracted to a named
+// function invoked only behind the import.meta.url entry-point guard below --
+// matching agents/portfolio-dossier.js's own approved pattern exactly (named
+// main(), guard does nothing but call it) rather than wrapping an anonymous
+// function expression inside the guard, which a test importing this module
+// could not reference, export, or reason about independently.
+async function main() {
+  ensureEnv();
   console.log(`🧭 signal-normalize — model ${MODEL}${DRY ? ' (DRY RUN)' : ''}${ONLY_SOURCE ? ` source=${ONLY_SOURCE}` : ''}`);
   const items = await gatherItems();
   const bySrc = items.reduce((a, it) => ((a[it.source_type] = (a[it.source_type] || 0) + 1), a), {});
@@ -453,4 +542,8 @@ async function normalizeBatch(batch) {
   }
   if (dbErr) console.warn(`   ⚠ Supabase upsert skipped (${dbErr.slice(0, 90)}) — signals saved to JSON; apply migration 031 for the DB copy`);
   else console.log(`✅ upserted ${wrote} rows to normalized_signals (model=${MODEL})`);
-})().catch((e) => { console.error('✖', e.message); process.exitCode = 1; });
+}
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+  main().catch((e) => { console.error('✖', e.message); process.exitCode = 1; });
+}
