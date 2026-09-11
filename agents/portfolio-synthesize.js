@@ -1644,94 +1644,6 @@ async function loadMasterReportEvidence() {
   }
 }
 
-// Bridges agents/bettorday-newsletter-ingest.js's trench composite/SOS data
-// into the committee prompt. Added 2026-09-02, same pattern as
-// loadVaultReferenceEvidence() above: best-effort, silent no-op if
-// unavailable, never blocks synthesis. Two data-availability layers,
-// checked in order:
-//   1. Supabase nfl_trench_ratings (migration 053) -- the live, current
-//      source once the ingest agent has actually run non-dry-run.
-//   2. Local data/intel/bettorday_trench_ratings_2026.json -- whatever the
-//      ingest agent last wrote locally (dry-run included). Falls back here
-//      when Supabase creds are absent or the table doesn't exist yet, so
-//      this bridge is exercisable/testable before migration 053 is run.
-// Per the audit response (docs/specs/BETTORDAY_INTEL_PIPELINE_AUDIT_RESPONSE_2026-09-02.md
-// §2) and the e95137d fix, rows are partitioned by metric_type --
-// 'team_composite' (a team's own O-line/D-line quality) and 'schedule_sos'
-// (the difficulty of the fronts that team's units will face this season).
-// These are kept as two separate objects per team, never merged/averaged,
-// since they measure different things on different scales.
-async function _loadBettorDayTrenchEvidence() {
-  const empty = { byTeam: {}, sourceMode: 'none' };
-  let rows = null;
-  let sourceMode = 'none';
-
-  const SB_URL = process.env.SUPABASE_URL;
-  const SB_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (SB_URL && SB_KEY) {
-    try {
-      const { createClient } = await import('@supabase/supabase-js');
-      const sb = createClient(SB_URL, SB_KEY, { auth: { persistSession: false } });
-      const { data, error } = await sb
-        .from('nfl_trench_ratings')
-        .select('team, metric_type, rank_overall, score_overall, run_block_z, pass_block_z, run_defense_z, pass_rush_z, as_of_date')
-        .order('as_of_date', { ascending: false });
-      if (error) throw new Error(error.message);
-      if (data?.length) {
-        rows = data;
-        sourceMode = 'supabase';
-      }
-    } catch (err) {
-      console.warn(`  [WARN] bettorday trench evidence (supabase): ${err.message}`);
-    }
-  }
-
-  if (!rows) {
-    try {
-      const localPath = path.join(ROOT, 'data', 'intel', 'bettorday_trench_ratings_2026.json');
-      const raw = await readFile(localPath, 'utf8');
-      const parsed = JSON.parse(raw);
-      if (Array.isArray(parsed) && parsed.length) {
-        rows = parsed;
-        sourceMode = 'local_file';
-      }
-    } catch {
-      // No local file either -- genuinely nothing available yet, not an error.
-    }
-  }
-
-  if (!rows) return empty;
-
-  // Keep only the most-recent as_of_date per (team, metric_type) -- both
-  // sources can carry more than one date's rows.
-  const latest = new Map();
-  for (const r of rows) {
-    const key = `${r.team}|${r.metric_type}`;
-    const existing = latest.get(key);
-    if (!existing || r.as_of_date > existing.as_of_date) latest.set(key, r);
-  }
-
-  const byTeam = {};
-  for (const r of latest.values()) {
-    byTeam[r.team] ||= {};
-    const slot = r.metric_type === 'team_composite' ? 'team_composite'
-      : r.metric_type === 'schedule_sos' ? 'schedule_sos'
-      : null;
-    if (!slot) continue; // unknown metric_type -- skip rather than guess
-    byTeam[r.team][slot] = {
-      rank_overall: r.rank_overall,
-      score_overall: r.score_overall,
-      run_block_z: r.run_block_z,
-      pass_block_z: r.pass_block_z,
-      run_defense_z: r.run_defense_z,
-      pass_rush_z: r.pass_rush_z,
-      as_of_date: r.as_of_date,
-    };
-  }
-
-  return { byTeam, sourceMode };
-}
-
 async function loadPodcastNarrativeEvidenceRows() {
   const indexPath = path.join(ROOT, 'docs', 'podcast-narratives', 'index.json');
   let index = null;
@@ -3661,10 +3573,12 @@ async function persistRecommendationRuns(meta, trail) {
   // long-trusted podcast/article sources (Sharp or Square, Even Money,
   // BettingPros, Action Network, The Favorites) via vault_analytical_reads
   // and the normalized-signals lean data, both already wired in above.
-  // loadBettorDayTrenchEvidence() is left defined below (unused) rather than
-  // deleted, in case Andy resumes a paid BettorDay subscription later and
-  // wants this reconnected -- do not call it or re-add 'bettorday_trench' to
-  // slimTeamProfile's keepKeys without checking with Andy first.
+  // 2026-09-11: the dormant _loadBettorDayTrenchEvidence() helper (formerly
+  // defined below, unused, zero call sites) has been removed outright --
+  // BettorDay is gone for good, not just paused, so there was nothing left
+  // to keep it around for. Re-adding a trench/line-quality evidence lane
+  // would mean writing it fresh against whatever source replaces it, not
+  // reconnecting this.
   const userContent = buildUserPrompt(dossier, ledger, watchlist, officialConfig, expertDossiers, runInstructions, supplementalContext, vaultReferenceDocs, globalMasterReports, promotions);
   if (PROMPT_ONLY) {
     const promptOut = path.resolve(ROOT, PROMPT_OUT_PATH);

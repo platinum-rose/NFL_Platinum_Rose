@@ -6,6 +6,8 @@
 
 ## Current Pick Up Here (Codex-review triage + 3-way reconciliation + BKR/BetUS ingest closeout, 2026-09-08)
 
+> **SUPERSEDING NOTE (2026-09-11, scoped closeout, not a rewrite of history below):** every reference in this file to an `nfl_trench_ratings` surrogate-key migration, a `_loadBettorDayTrenchEvidence()` Site 5 carve-out, or BettorDay-lane authorization being pending is now stale. Andy's explicit call: BettorDay is retired for good, not deferred. The dead function was deleted (not migrated), and the daily ingest workflow (`.github/workflows/bettorday-intel-ingest.yml`) plus its writer (`agents/bettorday-newsletter-ingest.js`) were retired in the same pass, LOCALLY — prepared and committed-pending on this machine, not yet pushed. The daily GitHub Actions job remains operationally live on `origin/main` until this is pushed and remote-verified; treat it as still running until then. No surrogate-key migration will run; the historical entries below are left as-is (not broadly rewritten) — read them as superseded record, not as open next steps. Full detail: `docs/CODEX_BETTORDAY_REMOVAL_SPEC_2026-09-11.md`.
+
 **Session closed 2026-09-08 21:04 UTC.** Full detail:
 `handoffs/2026-09-08-2104-claude-session-close-handoff.md` (read this
 first, it links everything else this session produced).

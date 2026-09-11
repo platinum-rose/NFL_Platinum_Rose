@@ -56,9 +56,14 @@ export const EVIDENCE_LANE_FILES = Object.freeze([
   // this lane's freshness here meant an unpaywalled/stale BettorDay file could
   // still BLOCK or WARN a real synthesis run over data that no longer matters
   // to it -- exactly the kind of "looks wired up but isn't" bug this gate
-  // exists to catch elsewhere. If Andy resumes the BettorDay subscription and
-  // re-wires the loader, re-add this lane (and its LANE_MAX_AGE_DAYS entry
-  // below) at that point, not before.
+  // exists to catch elsewhere. UPDATE 2026-09-11: BettorDay is retired for
+  // good (both loadBettorDayTrenchEvidence() and the daily ingest workflow/
+  // writer that fed it were deleted outright, not paused -- see
+  // docs/CODEX_BETTORDAY_REMOVAL_SPEC_2026-09-11.md). This is not expected to
+  // be reactivated. Any future trench/line-quality evidence lane would be a
+  // fresh addition against a new source, not a re-wiring of this one -- if
+  // that happens, add a new freshness-gate lane for it rather than restoring
+  // this one.
   // Added 2026-09-04 (Tier-3 pipeline audit). The normalized-intel sidecar
   // (agents/signal-normalize.js's output, consumed by portfolio-dossier.js's
   // makeNormalizedFindLean()) is real committee evidence -- it IS the source
