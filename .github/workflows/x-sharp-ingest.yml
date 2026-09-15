@@ -1,9 +1,21 @@
 name: X Sharp-Account Ingest Agent
 
+# DISABLED 2026-09-15: no real data received since 2026-06-02 (last
+# .nfl/receipts/x-sharp-ingest-*.json receipt is
+# x-sharp-ingest-2026-06-02T21-20-37-754.json; agents/x-sharp-ingest.js and
+# this workflow have had no commits since 2026-06-02 either). Superseded by
+# the Antigravity Twitter/X harvester (scripts/twitter-bookmarks-cron.js,
+# spec: docs/specs/TWITTER_X_AUTOMATED_HARVESTER_SPEC_2026-08-31.md), which
+# covers both personal bookmarks and tracked sharp-account timelines and is
+# actively producing fresh data (.nfl/reports/twitter-bookmarks/ has entries
+# through 2026-09-13). Scheduled trigger removed below; workflow_dispatch
+# kept so this can still be run manually if ever needed.
+# See git commit disabling this file for full evidence.
+
 on:
-  schedule:
-    - cron: '30 */4 * * *'        # Every 4h offseason (30-min offset from other agents)
-    - cron: '30 * * * 0,1,4'      # Hourly on Sun/Mon/Thu (game days)
+  # schedule:
+  #   - cron: '30 */4 * * *'        # Every 4h offseason (30-min offset from other agents)
+  #   - cron: '30 * * * 0,1,4'      # Hourly on Sun/Mon/Thu (game days)
   workflow_dispatch:
     inputs:
       dry_run:
