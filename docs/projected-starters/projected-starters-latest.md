@@ -1,47 +1,189 @@
-# Projected Starters Snapshot - 2026-08-12
+# Projected Starters Snapshot - 2026-09-15
 
 > Local projected/likely-starter evidence only. This is research context, not a depth-chart source of truth and not a betting recommendation.
 
 Season: 2026
-Generated: 2026-08-12T05:30:00.000Z
-Players: 223 | Teams with signals: 32 | Manual rows: 0 | Estimated rows: 223
+Generated: 2026-09-15T21:56:59.641Z
+Players: 159 | Teams with signals: 32 | Manual rows: 47 | Estimated rows: 112
 
 ## Coverage
 
 | Team | Status | Players | Missing |
 |---|---:|---:|---|
-| ARI | estimated_from_local_starter_language | 4 | manual all-position depth chart; independent source confirmation |
-| ATL | estimated_from_local_starter_language | 11 | manual all-position depth chart; independent source confirmation |
-| BAL | estimated_from_local_starter_language | 5 | manual all-position depth chart; independent source confirmation |
-| BUF | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation; Connor McGovern: withheld pending confirmation |
-| CAR | estimated_from_local_starter_language | 4 | manual all-position depth chart; independent source confirmation |
-| CHI | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation |
-| CIN | estimated_from_local_starter_language | 8 | manual all-position depth chart; independent source confirmation |
-| CLE | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation |
-| DAL | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation |
-| DEN | estimated_from_local_starter_language | 3 | manual all-position depth chart; independent source confirmation |
-| DET | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation |
-| GB | estimated_from_local_starter_language | 4 | manual all-position depth chart; independent source confirmation; Micah Parsons: conflicted team assignment |
-| HOU | estimated_from_local_starter_language | 13 | manual all-position depth chart; independent source confirmation |
-| IND | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation |
-| JAX | estimated_from_local_starter_language | 11 | manual all-position depth chart; independent source confirmation |
-| KC | estimated_from_local_starter_language | 2 | manual all-position depth chart; independent source confirmation |
-| LAC | estimated_from_local_starter_language | 11 | manual all-position depth chart; independent source confirmation |
-| LAR | estimated_from_local_starter_language | 9 | manual all-position depth chart; independent source confirmation |
-| LV | estimated_from_local_starter_language | 9 | manual all-position depth chart; independent source confirmation |
-| MIA | estimated_from_local_starter_language | 6 | manual all-position depth chart; independent source confirmation |
-| MIN | estimated_from_local_starter_language | 13 | manual all-position depth chart; independent source confirmation |
-| NE | estimated_from_local_starter_language | 5 | manual all-position depth chart; independent source confirmation |
-| NO | estimated_from_local_starter_language | 2 | manual all-position depth chart; independent source confirmation |
-| NYG | estimated_from_local_starter_language | 4 | manual all-position depth chart; independent source confirmation |
-| NYJ | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation |
-| PHI | estimated_from_local_starter_language | 6 | manual all-position depth chart; independent source confirmation |
-| PIT | estimated_from_local_starter_language | 10 | manual all-position depth chart; independent source confirmation |
-| SEA | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation |
-| SF | estimated_from_local_starter_language | 6 | manual all-position depth chart; independent source confirmation |
-| TB | estimated_from_local_starter_language | 7 | manual all-position depth chart; independent source confirmation |
-| TEN | estimated_from_local_starter_language | 4 | manual all-position depth chart; independent source confirmation |
-| WAS | estimated_from_local_starter_language | 10 | manual all-position depth chart; independent source confirmation |
+| ARI | estimated_from_local_starter_language | 6 | manual all-position depth chart; independent source confirmation |
+| ATL | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
+| BAL | manual_and_estimated_signals | 5 | independent second-source depth-chart reconciliation |
+| BUF | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation; Connor McGovern: withheld pending confirmation |
+| CAR | manual_and_estimated_signals | 5 | independent second-source depth-chart reconciliation |
+| CHI | manual_and_estimated_signals | 7 | independent second-source depth-chart reconciliation |
+| CIN | manual_and_estimated_signals | 6 | independent second-source depth-chart reconciliation |
+| CLE | manual_and_estimated_signals | 7 | independent second-source depth-chart reconciliation |
+| DAL | manual_and_estimated_signals | 6 | independent second-source depth-chart reconciliation |
+| DEN | manual_and_estimated_signals | 6 | independent second-source depth-chart reconciliation |
+| DET | manual_and_estimated_signals | 7 | independent second-source depth-chart reconciliation |
+| GB | manual_and_estimated_signals | 6 | independent second-source depth-chart reconciliation; Micah Parsons: conflicted team assignment |
+| HOU | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
+| IND | manual_and_estimated_signals | 8 | independent second-source depth-chart reconciliation |
+| JAX | manual_and_estimated_signals | 6 | independent second-source depth-chart reconciliation |
+| KC | manual_and_estimated_signals | 5 | independent second-source depth-chart reconciliation |
+| LAC | manual_and_estimated_signals | 6 | independent second-source depth-chart reconciliation |
+| LAR | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
+| LV | manual_and_estimated_signals | 8 | independent second-source depth-chart reconciliation |
+| MIA | manual_and_estimated_signals | 8 | independent second-source depth-chart reconciliation |
+| MIN | estimated_from_local_starter_language | 3 | manual all-position depth chart; independent source confirmation |
+| NE | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
+| NO | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
+| NYG | manual_and_estimated_signals | 4 | independent second-source depth-chart reconciliation |
+| NYJ | manual_and_estimated_signals | 7 | independent second-source depth-chart reconciliation |
+| PHI | manual_and_estimated_signals | 4 | independent second-source depth-chart reconciliation |
+| PIT | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
+| SEA | estimated_from_local_starter_language | 1 | manual all-position depth chart; independent source confirmation |
+| SF | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
+| TB | estimated_from_local_starter_language | 6 | manual all-position depth chart; independent source confirmation |
+| TEN | manual_and_estimated_signals | 6 | independent second-source depth-chart reconciliation |
+| WAS | manual_and_estimated_signals | 8 | independent second-source depth-chart reconciliation |
+
+## ⚠ Needs Human Review
+
+134 player(s) flagged for review -- usually a single-week usage sample (RB/WR/TE committee) rather than a confirmed depth-chart entry. Spot-check before leaning on these.
+
+| Team | Player | Pos | Role | Confidence | Why flagged |
+|---|---|---|---|---:|---|
+| ARI | Jacoby Brissett | QB | likely_starter_or_primary | 0.7 | Brissett is listed with the first-team offense on the Cardinals' unofficial depth chart. |
+| ARI | Marvin Harrison Jr. | WR | likely_starter_or_primary | 0.7 | Harrison is listed as a starter on the Cardinals' unofficial depth chart. |
+| ARI | Trey McBride | TE | likely_starter_or_primary | 0.7 | McBride is listed as the Cardinals' No. 1 TE on the team's unofficial depth chart. |
+| ARI | Tyler Allgeier | RB | likely_starter_or_primary | 0.7 | Allgeier was listed as the starting running back on the Cardinals' unofficial depth chart in advance of Sunday's season opener versus the Chargers, Bo Brack of GoPHNX.com reports. |
+| ARI | Michael Wilson | WR | roster_depth_signal | 0.42 | The Cardinals signed Wilson to a three-year, $75 million contract extension Thursday, Adam Schefter of ESPN reports. |
+| ARI | Hjalte Froholdt | C | roster_depth_signal | 0.42 | Arizona signed Froholdt to a two-year, $20 million contract extension Tuesday, Ian Rapoport of ESPN and NFL Network reports. |
+| ATL | Bijan Robinson | RB | starter | 0.8 | Week 1 2026 usage leader at RB for ATL (usage score 26.0 vs runner-up 9.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| ATL | Cooper Rush | QB | likely_starter_or_primary | 0.7 | Rush will start Sunday's game at Pittsburgh after Tua Tagovailoa (oblique) was ruled out for Week 1 action, NFL reporter Jordan Schultz reports. |
+| ATL | Jack Strand | QB | competition_or_rotation | 0.5 | Strand will serve as the Falcons' backup quarterback behind Cooper Rush for Sunday's game against the Steelers, Marc Raimondi of ESPN.com reports. |
+| BAL | Jovaughn Gwyn | G | likely_starter_or_primary | 0.7 | Gwyn will serve as the starting center for the Ravens' Week 1 contest with the Colts. |
+| BAL | Derrick Henry | RB | competition_or_rotation | 0.5 | Henry will head into the Ravens' Week 1 game against the Colts with Justice Hill and Rasheen Ali as his backup options, Ryan Mink of the team's official site reports. |
+| BAL | Joe Fagnano | QB | roster_depth_signal | 0.42 | Fagnano is included on the Ravens' initial 53-man roster, Ryan Mink of the team's official site reports. |
+| BAL | Mark Andrews | TE | roster_depth_signal | 0.42 | Andrews is one of four tight ends on the Ravens' 53-man roster, along with Durham Smythe, Matthew Hibner and Josh Cuevas. |
+| BUF | James Cook | RB | starter | 0.8 | Week 1 2026 usage leader at RB for BUF (usage score 15.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| BUF | Alec Anderson | OT | likely_starter_or_primary | 0.7 | The Bills have named Anderson as their starting left guard, Alaina Getzenberg of ESPN reports. |
+| CAR | Jalen Coker | WR | likely_starter_or_primary | 0.7 | Coker is listed as a starting wide receiver on the Panthers' unofficial depth chart. |
+| CAR | Tommy Tremble | TE | starter | 0.7 | Week 1 2026 usage leader at TE for CAR (usage score 5.0 vs runner-up 2.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| CAR | Bobby Okereke | LB | roster_depth_signal | 0.42 | Okereke is signing a contract with the Panthers, NFL reporter Jordan Schultz reports. |
+| CAR | AJ Dillon | RB | roster_depth_signal | 0.42 | Dillon secured the third running back spot on Carolina's 53-man roster, Darin Gantt of the Panthers' official site reports. |
+| CHI | Cole Kmet | TE | likely_starter_or_primary | 0.7 | Kmet is listed as a starting tight end along with Colston Loveland on the Bears' unofficial depth chart heading into the Sept. 13 season opener versus the Panthers. |
+| CHI | Colston Loveland | TE | likely_starter_or_primary | 0.7 | Loveland is listed as a starting tight end along with Cole Kmet on the Bears' unofficial depth chart. |
+| CHI | Kalif Raymond | WR | starter | 0.65 | Week 1 2026 usage leader at WR for CHI (usage score 9.0 vs runner-up 5.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| CHI | Jack Sanborn | LB | roster_depth_signal | 0.42 | Chicago signed Sanborn to the active roster Tuesday. |
+| CHI | D'Andre Swift | RB | roster_depth_signal | 0.42 | The Bears and Swift agreed to a three-year, $33.75 million contract Friday, Adam Schefter of ESPN reports. |
+| CHI | Roschon Johnson | RB | roster_depth_signal | 0.42 | Johnson currently is the only healthy running back on the Bears' active roster after D'Andre Swift (abdomen) exited Thursday's practice due to an injury, Sean Hammond of the Chicago Tribune reports. |
+| CIN | Chase Brown | RB | starter | 0.8 | Week 1 2026 usage leader at RB for CIN (usage score 19.0 vs runner-up 6.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| CIN | Josh Newton | CB | likely_starter_or_primary | 0.7 | Newton (hamstring) is expected to compete for the Bengals' starting cornerback role, Chris Roling of USA Today reports. |
+| CIN | Jack Endries | TE | competition_or_rotation | 0.5 | Endries caught a 17-yard touchdown reception from Joe Flacco in Thursday's preseason opener against the Lions. He's competing with veteran Tanner Hudson for a roster spot, Geoff Hobson of Bengals.com reports. |
+| CIN | Samaje Perine | RB | competition_or_rotation | 0.5 | Perine is listed as the No. 2 RB behind Chase Brown on the Bengals' unofficial depth chart. |
+| CIN | Dohnte Meyers | WR | roster_depth_signal | 0.42 | Meyers has made the Bengals' initial 53-man roster, Charlie Clifford of NBC 5 Cincinnati reports. |
+| CLE | Quinshon Judkins | RB | starter | 0.8 | Week 1 2026 usage leader at RB for CLE (usage score 13.0 vs runner-up 2.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| CLE | Shedeur Sanders | QB | likely_starter_or_primary | 0.78 | Sanders will open the season as the Browns' backup quarterback after the team named Deshaun Watson its starter Monday, multiple sources tell NFL reporter Jordan Schultz. |
+| CLE | Denzel Boston | WR | likely_starter_or_primary | 0.7 | Boston is listed as a starting wide receiver along with veteran Jerry Jeudy and 2026 first-round pick KC Concepcion on the Browns' unofficial depth chart. |
+| CLE | Deshaun Watson | QB | likely_starter_or_primary | 0.7 | The Browns named Watson their starting quarterback Monday, multiple sources tell NFL reporter Jordan Schultz. |
+| CLE | Jerry Jeudy | WR | likely_starter_or_primary | 0.7 | Jeudy is listed as a starting wide receiver on Cleveland's initial depth chart ahead of the team's Week 1 game against the Jaguars. |
+| CLE | Mekhi Blackmon | CB | roster_depth_signal | 0.42 | The Browns claimed Blackmon off waivers from the Colts on Friday, Howard Balzer of USA Today reports. |
+| CLE | Sam Williams | LB | roster_depth_signal | 0.42 | The Browns are set to sign Williams to their active roster, Jeremy Fowler of ESPN.com reports. |
+| DAL | Javonte Williams | RB | starter | 0.8 | Week 1 2026 usage leader at RB for DAL (usage score 14.5 vs runner-up 2.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| DAL | Sam Howell | QB | competition_or_rotation | 0.5 | Howell is set to be the backup quarterback to Dak Prescott for the Cowboys' Week 1 game against the Giants. |
+| DAL | Brevyn Spann-Ford | TE | roster_depth_signal | 0.42 | Spann-Ford signed a three-year extension with the Cowboys on Thursday, Adam Schefter of ESPN reports. |
+| DAL | Camden Brown | WR | roster_depth_signal | 0.42 | Browns is one of six wide receivers on the Cowboys' initial 53-man roster, Tommy Yarrish of the Cowboys' official site reports. |
+| DAL | Ryan Flournoy | WR | roster_depth_signal | 0.42 | Flournoy agreed to a one-year contract extension worth up to $6 million with Dallas on Thursday, NFL reporter Jordan Schultz reports. |
+| DEN | Courtland Sutton | WR | likely_starter_or_primary | 0.7 | Sutton is listed as a starting wide receiver on the Broncos' unofficial depth chart. |
+| DEN | Jonah Coleman | RB | likely_starter_or_primary | 0.7 | Coleman is likely to serve as the Broncos' between-the-tackles complement to starter J.K. Dobbins this season, Nick Kosmider of The Athletic reports. |
+| DEN | RJ Harvey | RB | likely_starter_or_primary | 0.62 | Harvey is expected to handle a key role in the Denver passing game in 2026, Jon Heath of USA Today reports. "That's where you felt the initial impact," Broncos coach Sean Payton said last week, in reference to Harvey's receiving ability. "And you saw marks of that in college and you also saw him... |
+| DEN | Jarrett Stidham | QB | competition_or_rotation | 0.5 | Coach Sean Payton said Wednesday that Stidham will be the Broncos' backup quarterback to begin the 2026 season, Zac Stevens of TheDNVR.com reports. |
+| DEN | Tyler Badie | RB | roster_depth_signal | 0.42 | Badie was one of four running backs to make the Broncos' 53-man roster following the conclusion of training camp, Aric DiLalla of the team's official site reports. |
+| DET | Jahmyr Gibbs | RB | starter | 0.8 | Week 1 2026 usage leader at RB for DET (usage score 31.5 vs runner-up 2.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| DET | Sione Vaki | RB | competition_or_rotation | 0.5 | Coach Dan Campbell said Monday that neither Vaki nor Jacob Saylors is viewed as the Lions' strict RB2, and Detroit will use a committee approach behind Jahmyr Gibbs, Nolan Bianchi of The Detroit News reports. |
+| DET | Joe Bachie | LB | roster_depth_signal | 0.42 | Bachie was promoted from the practice squad to the active roster Monday, Dave Birkett of the Detroit Free Press reports. |
+| DET | Tay Martin | WR | roster_depth_signal | 0.42 | Martin is the fourth and final wide receiver on the Lions' 53-man active roster for the regular season, Tim Twentyman of the team's official site reports. |
+| DET | Tom Kennedy | WR | roster_depth_signal | 0.42 | The Lions signed Kennedy from their practice squad to their active roster Thursday. |
+| DET | Tyler Conklin | TE | roster_depth_signal | 0.42 | The Lions signed Conklin on Tuesday. |
+| GB | MarShawn Lloyd | RB | starter | 0.8 | Week 1 2026 usage leader at RB for GB (usage score 13.5 vs runner-up 7.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| GB | Tucker Kraft | TE | starter | 0.7 | Week 1 2026 usage leader at TE for GB (usage score 6.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| GB | Skyy Moore | WR | likely_starter_or_primary | 0.62 | Moore will operate as the Packers' primary retuner on both kicks and punts to open the regular season, Matt Schneidman of The Athletic reports. |
+| GB | Christian Watson | WR | roster_depth_signal | 0.42 | Watson is one of six wide receivers on the Packers' initial 53-man roster, per Wes Hodkiewicz of the team's official site. |
+| GB | Jayden Reed | WR | roster_depth_signal | 0.42 | Reed is one of six wide receivers on the Packers' initial 53-man roster, Wes Hodkiewicz of the team's official site reports. |
+| HOU | Nico Collins | WR | likely_starter_or_primary | 0.78 | Collins is the clear No. 1 wide receiver for the Texans heading into the regular season, but the pecking order at the position behind him is uncertain, as Xavier Hutchinson, Jaylin Noel (hamstring), Kayshon Boutte and Jared Wayne are vying for roles, while Jonathan M. Alexander of the Houston Chr... |
+| HOU | David Montgomery | RB | roster_depth_signal | 0.42 | Montgomery is one of three running backs on Houston's 53-man roster, along with Woody Marks and British Brooks, Jared Koch of SI.com reports. |
+| IND | Jonathan Taylor | RB | starter | 0.8 | Week 1 2026 usage leader at RB for IND (usage score 21.0 vs runner-up 0.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| IND | Adonai Mitchell | WR | likely_starter_or_primary | 0.7 | Mitchell is listed as a starting wide receiver on the Jets' initial depth chart ahead of a Week 1 matchup against the Titans. |
+| IND | Tyler Warren | TE | starter | 0.7 | Week 1 2026 usage leader at TE for IND (usage score 5.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| IND | Anthony Richardson Sr. | QB | competition_or_rotation | 0.5 | Richardson will open the season as the Colts' backup quarterback, Nathan Brown of The Indianapolis Star reports. |
+| IND | Kenneth Harris | CB | roster_depth_signal | 0.42 | The Colts signed Harris to a contract Wednesday. |
+| IND | Ashton Dulin | WR | roster_depth_signal | 0.42 | Dulin may play more on special teams after the Colts signed Keenan Allen this summer, Nathan Brown of The Indianapolis Star reports. |
+| IND | Rigoberto Sanchez | P | roster_depth_signal | 0.42 | Sanchez signed an extension through 2028 with the Colts on Thursday, Stephen Holder of ESPN.com reports. |
+| JAX | Parker Washington | WR | likely_starter_or_primary | 0.9 | Jaguars head coach Liam Coen confirmed Friday that Washington will be the team's primary punt returner to start the season, Ryan O'Halloran of The Florida Times-Union reports. |
+| JAX | Bhayshul Tuten | RB | starter | 0.8 | Week 1 2026 usage leader at RB for JAX (usage score 15.5 vs runner-up 6.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| JAX | Brenton Strange | TE | likely_starter_or_primary | 0.7 | Strange is the Jaguars' projected Week 1 starter at tight end following the NFL's cut-down day, John Oehser of the team's official site reports. |
+| JAX | Trevor Lawrence | QB | competition_or_rotation | 0.5 | Lawrence will have a new backup in 2026, as Ian Rapoport of NFL Network reports that the Jaguars traded for Quinn Ewers from the Dolphins on Saturday. |
+| JAX | Ameer Abdullah | RB | roster_depth_signal | 0.42 | Abdullah earned a spot on the Jaguars' 53-man roster following a strong training camp, John Oehser of the team's official site reports. |
+| JAX | Chris Rodriguez Jr. | RB | roster_depth_signal | 0.42 | Rodriguez currently is one of two healthy running backs on the Jaguars' roster along with Ameer Abdullah due to health concerns for Bhayshul Tuten (illness) and LeQuint Allen (undisclosed). |
+| KC | Kenneth Walker III | RB | starter | 0.8 | Week 1 2026 usage leader at RB for KC (usage score 26.0 vs runner-up 9.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| KC | Cyrus Allen | WR | competition_or_rotation | 0.5 | Allen is listed as a backup receiver on Kansas City's unofficial depth chart ahead of Monday's season opener versus the Broncos, Charles Goldsmith of AtoZSports.com reports. |
+| KC | Emmett Johnson | RB | competition_or_rotation | 0.5 | Johnson is in line to be Kenneth Walker's backup for the Chiefs this season. |
+| KC | Brashard Smith | RB | roster_depth_signal | 0.42 | Smith is the third and final running back on the Chiefs' 53-man roster for the 2026 regular season, Matt McMullen of the team's official site reports. |
+| LAC | Omarion Hampton | RB | starter | 0.8 | Week 1 2026 usage leader at RB for LAC (usage score 12.0 vs runner-up 4.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| LAC | David Njoku | TE | starter | 0.7 | Week 1 2026 usage leader at TE for LAC (usage score 5.0 vs runner-up 2.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| LAC | Jake Slaughter | C | likely_starter_or_primary | 0.7 | Head coach John Harbaugh told reporters Saturday that Slaughter will be the Chargers' starting center for the upcoming season, Alex Insdorf of BoltBeat.com reports. |
+| LAC | Trey Lance | QB | competition_or_rotation | 0.5 | Lance has won the Chargers' backup quarterback job, Matt Zenitz of CBSSports.com reports. |
+| LAC | Tony Jefferson | S | roster_depth_signal | 0.42 | Jefferson will be a member of the Chargers' initial 53-man roster, Adam Schefter of ESPN reports. |
+| LAR | Aaron Donald | DT | roster_depth_signal | 0.42 | Donald had his roster exemption lifted by the NFL on Friday, per the league's transaction log. |
+| LV | Ashton Jeanty | RB | starter | 0.8 | Week 1 2026 usage leader at RB for LV (usage score 26.0 vs runner-up 7.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| LV | Fernando Mendoza | QB | likely_starter_or_primary | 0.78 | With coach Klint Kubiak naming Kirk Cousins the Raiders' starting quarterback Wednesday, Mendoza will open the season as the backup, Sam Warren of The Athletic reports. |
+| LV | Treydan Stukes | S | likely_starter_or_primary | 0.7 | Stukes is listed as the Raiders' starting free safety heading into Week 1 against the Dolphins on Sunday, Levi Edwards of the Raiders' official site reports. |
+| LV | Kirk Cousins | QB | likely_starter_or_primary | 0.7 | Coach Klint Kubiak named Cousins the Raiders' starting quarterback Wednesday, Sam Warren of The Athletic reports. |
+| LV | Michael Mayer | TE | likely_starter_or_primary | 0.7 | Mayer appears lined up to take on a pronounced role as the Raiders' top tight end in Sunday's season opener against the Dolphins after Brock Bowers underwent a meniscus trim Tuesday and is expected to be out for "a game or two," Adam Schefter of ESPN reports. |
+| LV | Darrell Luter Jr. | CB | roster_depth_signal | 0.42 | The Raiders claimed Luter off waivers from the 49ers on Monday. |
+| LV | Folorunso Fatukasi | DT | roster_depth_signal | 0.42 | The Raiders signed Fatukasi to a contract Saturday, Jeremy Fowler of ESPN.com reports. |
+| LV | Dylan Laube | RB | roster_depth_signal | 0.42 | Laube made the Raiders' 53-man roster at the end of training camp and could operate in an elevated role on offense against the Dolphins in Week 1 if Ashton Jeanty (ankle) is limited or ruled out. |
+| MIA | Caleb Douglas | WR | likely_starter_or_primary | 0.7 | Douglas is listed as a starting wide receiver on Miami's initial depth chart headed into a Week 1 matchup against the Raiders. |
+| MIA | Malik Washington | WR | likely_starter_or_primary | 0.7 | Washington is listed as a starting wide receiver on the Dolphins' unofficial depth chart. |
+| MIA | De'Von Achane | RB | likely_starter_or_primary | 0.62 | Achane is set to lead a Dolphins backfield in 2026 that will also include Jaylen Wright and Ollie Gordon (ribs), based on Miami's initial 53-man roster. |
+| MIA | Reese Taylor | CB | roster_depth_signal | 0.42 | The Dolphins claimed Taylor (concussion) off waivers from the Broncos on Monday. |
+| MIA | Brady Cook | QB | roster_depth_signal | 0.42 | The Dolphins claimed Cook off waivers from the Jets on Monday. |
+| MIA | Justin Joly | TE | roster_depth_signal | 0.42 | The Dolphins claimed Joly off waivers from the Broncos on Monday. |
+| MIA | Chukwuebuka Godrick | OT | roster_depth_signal | 0.42 | The Dolphins claimed Godrick (ankle) off waivers from the Chiefs on Monday. |
+| MIN | Aaron Jones Sr. | RB | likely_starter_or_primary | 0.7 | Jones and Jordan Mason are listed as co-starting running backs on the Vikings' unofficial depth chart following cut-down day Sunday, Rob Kleifield of the team's official site reports. |
+| MIN | Jordan Mason | RB | likely_starter_or_primary | 0.7 | Mason and Aaron Jones are listed as co-starting running backs on the Vikings' unofficial depth chart following cutdown day Sunday, Rob Kleifield of the team's official site reports. |
+| MIN | Carson Wentz | QB | competition_or_rotation | 0.5 | Coach Kevin O'Connell announced Wednesday that Wentz will serve as Kyler Murray's backup for Sunday's game against the Packers. |
+| NE | Rhamondre Stevenson | RB | starter | 0.8 | Week 1 2026 usage leader at RB for NE (usage score 21.0 vs runner-up 6.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| NO | Daniel Carlson | PK | competition_or_rotation | 0.5 | Carlson has won the Saints' kicker competition, Nick Underhill of NewOrleans.Football reports. |
+| NO | Colby Wooden | DT | roster_depth_signal | 0.42 | The Saints claimed Wooden off waivers from the Colts on Monday. |
+| NYG | Cam Skattebo | RB | starter | 0.8 | Week 1 2026 usage leader at RB for NYG (usage score 18.0 vs runner-up 8.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| NYG | Isaiah Likely | TE | competition_or_rotation | 0.5 | Likely could emerge as the second option in the Giants' passing game behind Malik Nabers (knee), according to Dan Graziano of ESPN.com. |
+| NYG | Odell Beckham Jr. | WR | roster_depth_signal | 0.42 | Beckham has earned a spot on the 53-man roster for the Giants, Jordan Raanan of ESPN.com reports. |
+| NYJ | Breece Hall | RB | starter | 0.8 | Week 1 2026 usage leader at RB for NYJ (usage score 23.0 vs runner-up 10.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| NYJ | Mason Taylor | TE | likely_starter_or_primary | 0.7 | Taylor is listed as a starting tight end on the Jets' initial depth chart ahead of a Week 1 game against the Titans. |
+| NYJ | Braelon Allen | RB | competition_or_rotation | 0.5 | Allen is listed second on the Jets' unofficial depth chart behind Breece Hall. |
+| NYJ | Cade Klubnik | QB | competition_or_rotation | 0.5 | Head coach Aaron Glenn confirmed Monday that Klubnik will open the season as the Jets' No. 2 quarterback behind Geno Smith, Zack Rosenblatt of The Athletic reports. |
+| NYJ | Omar Cooper Jr. | WR | competition_or_rotation | 0.5 | Cooper is listed as a backup wide receiver on the Jets' unofficial depth chart. |
+| NYJ | Trevin Wallace | LB | roster_depth_signal | 0.42 | The Jets claimed Wallace off waivers from the Panthers on Monday. |
+| PHI | Dontayvion Wicks | WR | likely_starter_or_primary | 0.7 | Wicks is listed as a starter on the Eagles' unofficial depth chart. |
+| PHI | Makai Lemon | WR | likely_starter_or_primary | 0.7 | Lemon is listed as a starting wide receiver for the Eagles and their top punt returner on the unofficial depth chart released Tuesday, Andrew DiCecco of InsideTheBirds.com reports. |
+| SEA | Drew Lock | QB | likely_starter_or_primary | 0.7 | Lock is likely to start Week 2 against the Cardinals, as Ian Rapoport of ESPN and NFL Network reports that Sam Darnold (hip) is expected to miss at least one game. |
+| TB | Cade Otton | TE | likely_starter_or_primary | 0.7 | Otton is listed as the No. 1 TE on the Buccaneers' unofficial depth chart. |
+| TB | Bucky Irving | RB | likely_starter_or_primary | 0.62 | Irving is set to lead a Buccaneers backfield that also includes Kenny Gainwell and Sean Tucker (undisclosed), the latter of whom didn't practice Wednesday, per Greg Auman of Fox Sports. |
+| TB | Chase McLaughlin | PK | likely_starter_or_primary | 0.62 | McLaughlin is slated to be Tampa Bay's primary placekicker for the fourth consecutive campaign in 2026. |
+| TB | Jalon Daniels | QB | competition_or_rotation | 0.5 | Daniels is moving forward as Tampa Bay's backup quarterback behind Baker Mayfield after impressing throughout training camp, Ian Rapoport of NFL Network reports. |
+| TB | Baker Mayfield | QB | roster_depth_signal | 0.42 | Mayfield and the Buccaneers agreed Tuesday on a three-year, $165 million contract extension, Adam Schefter and Ian Rapoport of ESPN report. |
+| TB | Kenny Gainwell | RB | roster_depth_signal | 0.42 | Gainwell is one of three running backs on Tampa Bay's 53-man roster, along with Bucky Irving and Sean Tucker (undisclosed), the latter of whom didn't practice Wednesday, per Greg Auman of Fox Sports. |
+| TEN | Gunnar Helm | TE | starter | 0.7 | Week 1 2026 usage leader at TE for TEN (usage score 5.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| TEN | Tony Pollard | RB | likely_starter_or_primary | 0.62 | Pollard is set to lead a group of four running backs that made the Titans' initial 53-man roster. |
+| TEN | Mario Goodrich III | CB | roster_depth_signal | 0.42 | The Titans signed Goodrich to a contract Saturday, Jim Wyatt of the team's official site reports. |
+| TEN | Calvin Ridley | WR | roster_depth_signal | 0.42 | Ridley is among the five wide receivers on the Titans' initial 53-man roster. |
+| TEN | Tyjae Spears | RB | roster_depth_signal | 0.42 | Spears is among the four running backs that made the Titans' initial 53-man roster. |
+| WAS | Jacory Croskey-Merritt | RB | starter | 0.8 | Week 1 2026 usage leader at RB for WAS (usage score 16.5 vs runner-up 8.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
+| WAS | Chig Okonkwo | TE | likely_starter_or_primary | 0.7 | Okonkwo is listed as a starting tight end on the Commanders' unofficial depth chart. |
+| WAS | Terry McLaurin | WR | likely_starter_or_primary | 0.62 | McLaurin is set to lead a group of seven wide receivers that made Washington's initial 53-man roster. |
+| WAS | Athan Kaliakmanis | QB | competition_or_rotation | 0.5 | Kaliakmanis made the Commanders' 53-man roster as the third-string quarterback, but he could be the team's backup for Week 1 against the Eagles if Marcus Mariota (knee) is not cleared to play. |
+| WAS | Fabian Moreau | CB | roster_depth_signal | 0.42 | The Commanders re-signed Moreau on Monday. |
+| WAS | Shy Tuttle | DT | roster_depth_signal | 0.42 | The Commanders re-signed Tuttle on Monday. |
+| WAS | Stefon Diggs | WR | roster_depth_signal | 0.42 | Diggs is among the seven wide receivers on Washington's initial 53-man roster. |
+
 
 ## Named Status Review Gate
 
@@ -56,766 +198,574 @@ Players: 223 | Teams with signals: 32 | Manual rows: 0 | Estimated rows: 223
 
 ### ARI
 
-- Brodric Martin-Rhodes (DT): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_front_major | Review: yes
-  - Evidence: The Cardinals signed Martin (undisclosed) to a contract Friday, Matt Zenitz of CBSSports.com reports.
-- Evan Hull (RB): roster_depth_signal, starter 0.42, roster 0.6
+- Jacoby Brissett (QB): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: qb_major | Review: yes
+  - Evidence: Brissett is listed with the first-team offense on the Cardinals' unofficial depth chart.
+- Marvin Harrison Jr. (WR): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: skill_major | Review: yes
+  - Evidence: Harrison is listed as a starter on the Cardinals' unofficial depth chart.
+- Trey McBride (TE): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: skill_major | Review: yes
+  - Evidence: McBride is listed as the Cardinals' No. 1 TE on the team's unofficial depth chart.
+- Tyler Allgeier (RB): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: skill_major | Review: yes
+  - Evidence: Allgeier was listed as the starting running back on the Cardinals' unofficial depth chart in advance of Sunday's season opener versus the Chargers, Bo Brack of GoPHNX.com reports.
+- Michael Wilson (WR): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Cardinals claimed Hull off waivers Monday, Tyler Drake of ArizonaSports.com reports.
-- Shawn Bowman (TE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Cardinals signed Bowman to a contract Sunday, Zach Gershman of the team's official site reports.
-- Tejhaun Palmer (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Patriots claimed Palmer off waivers from the Cardinals on Tuesday.
+  - Evidence: The Cardinals signed Wilson to a three-year, $75 million contract extension Thursday, Adam Schefter of ESPN reports.
+- Hjalte Froholdt (C): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: offensive_line_major | Review: yes
+  - Evidence: Arizona signed Froholdt to a two-year, $20 million contract extension Tuesday, Ian Rapoport of ESPN and NFL Network reports.
 
 ### ATL
 
-- Darnell Mooney (WR): likely_starter_or_primary, starter 0.62, roster 0.6
-  - Tags: primary_role | Impact: skill_major | Review: yes
-  - Evidence: Mooney is expected to work as the Giants' primary option in the slot, Alex Smith of SNY.tv reports.
-- Olamide Zaccheaus (WR): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: Zaccheaus enters training camp in a battle against Jahan Dotson and rookie third-rounder Zachariah Branch for the Falcons' No. 2 wide receiver job behind Drake London (undisclosed), Tim Weaver of USA Today reports.
-- Cameron Sample (DE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_front_major | Review: yes
-  - Evidence: The Falcons signed Sample (knee) on Monday, Will McFadden and Tori McElhaney of the team's official site report.
-- Cobee Bryant (CB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: Bryant (concussion) is battling for a spot on the Falcons' 53-man roster for the 2026 season, Scott Kennedy of SI.com reports.
-- Antwane Wells Jr. (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Falcons signed Wells on Wednesday.
-- Bijan Robinson (RB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Robinson and the Falcons agreed to terms Tuesday on a three-year extension worth up to $75 million, Adam Schefter of ESPN reports.
-- Cooper Rush (QB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: qb_major | Review: yes
-  - Evidence: Rush signed a contract with Atlanta on Wednesday.
-- Kristian Wilkerson (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Falcons signed Wilkerson on Friday, Will McFadden of the team's official site reports.
-- Kyle Pitts Sr. (TE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Pitts and the Falcons agreed to terms Tuesday on a three-year, $54 million contract extension, Adam Schefter of ESPN reports.
-- Trey Sermon (RB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Falcons signed Sermon on Monday, Tori McElhaney of the team's official site reports.
-- Matthew Bergeron (G): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: offensive_line_major | Review: yes
-  - Evidence: The Falcons signed Bergeron to a four-year $96 million contract extension Saturday, Will McFadden and Tori McElhaney of the team's official site report.
+- Bijan Robinson (RB): starter, starter 0.8, roster 0.85
+  - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: yes
+  - Evidence: Week 1 2026 usage leader at RB for ATL (usage score 26.0 vs runner-up 9.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Cooper Rush (QB): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: qb_major | Review: yes
+  - Evidence: Rush will start Sunday's game at Pittsburgh after Tua Tagovailoa (oblique) was ruled out for Week 1 action, NFL reporter Jordan Schultz reports.
+- Jack Strand (QB): competition_or_rotation, starter 0.5, roster 0.6
+  - Tags: competition | Impact: qb_major | Review: yes
+  - Evidence: Strand will serve as the Falcons' backup quarterback behind Cooper Rush for Sunday's game against the Steelers, Marc Raimondi of ESPN.com reports.
 
 ### BAL
 
-- Rashod Bateman (WR): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: skill_major | Review: yes
-  - Evidence: As the coming season approaches, Bateman is projected to start at WR for the Ravens alongside Zay Flowers, Clifton Brown of the team's official site reports.
-- Danny Pinter (C): likely_starter_or_primary, starter 0.7, roster 0.66
+- Lamar Jackson (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for BAL (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Jovaughn Gwyn (G): likely_starter_or_primary, starter 0.7, roster 0.66
   - Tags: starter | Impact: offensive_line_major | Review: yes
-  - Evidence: Pinter will enter training camp with a chance to compete alongside Jovaughn Gwyn, Corey Bullock and Nick Dawkins for the Ravens' starting center gig, Ryan Mink &amp; Clifton Brown of the team's official site report.
-- Jamon Johnson (LB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: The Ravens signed Johnson to a contract Saturday, Clifton Brown of the team's official site reports.
-- Chris Moore (WR): roster_depth_signal, starter 0.42, roster 0.6
+  - Evidence: Gwyn will serve as the starting center for the Ravens' Week 1 contest with the Colts.
+- Derrick Henry (RB): competition_or_rotation, starter 0.5, roster 0.6
+  - Tags: competition | Impact: skill_major | Review: yes
+  - Evidence: Henry will head into the Ravens' Week 1 game against the Colts with Justice Hill and Rasheen Ali as his backup options, Ryan Mink of the team's official site reports.
+- Joe Fagnano (QB): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: qb_major | Review: yes
+  - Evidence: Fagnano is included on the Ravens' initial 53-man roster, Ryan Mink of the team's official site reports.
+- Mark Andrews (TE): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Moore signed a contract with the Ravens on Friday, Jeff Zrebiec of The Athletic reports.
-- Tyler Loop (PK): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: depth_only | Review: yes
-  - Evidence: Ravens coach Jesse Minter said in June that the team remains confident in Loop, who was the only kicker on the roster for offseason practices, Brian Wacker of The Baltimore Sun reports.
+  - Evidence: Andrews is one of four tight ends on the Ravens' 53-man roster, along with Durham Smythe, Matthew Hibner and Josh Cuevas.
 
 ### BUF
 
-- Michael Hoecht (DE): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: defensive_front_major | Review: yes
-  - Evidence: The Bills have been working Hoecht (Achilles) into full team drills since the start of training camp, Tim Graham of The Athletic reports.
-- Khalil Shakir (WR): likely_starter_or_primary, starter 0.62, roster 0.6
-  - Tags: primary_role | Impact: skill_major | Review: yes
-  - Evidence: As his fifth season with Bills approaches, Shakir remains a key component of a WR corps that's been bolstered by offseason trade acquisition DJ Moore and rookie fourth-rounder Skyler Bell.
-- Rasul Douglas (CB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: Douglas is set to sign with Washington on a one-year contract worth up to $3.8 million, Adam Schefter of ESPN reports.
-- Dante Pettis (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Bills signed Pettis to a contract Thursday.
-- Ian Wheeler (RB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Bills signed Wheeler to a one-year deal on Thursday, Alec White of the team's official site reports.
-- Max Tomczak (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Tomczak signed with the Bills on Thursday.
-- Quentin Skinner (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Buffalo claimed Skinner (undisclosed) off waivers Tuesday, Alaina Getzenberg of ESPN.com reports.
+- Josh Allen (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for BUF (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- James Cook (RB): starter, starter 0.8, roster 0.85
+  - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: yes
+  - Evidence: Week 1 2026 usage leader at RB for BUF (usage score 15.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Alec Anderson (OT): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: offensive_line_major | Review: yes
+  - Evidence: The Bills have named Anderson as their starting left guard, Alaina Getzenberg of ESPN reports.
 
 ### CAR
 
-- John Metchie III (WR): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: Metchie is competing for a depth role in Carolina, Mike Kaye of The Charlotte Observer reports.
-- Elijah Cooks (WR): roster_depth_signal, starter 0.42, roster 0.6
+- Bryce Young (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for CAR (usage score 37.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Jalen Coker (WR): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: skill_major | Review: yes
+  - Evidence: Coker is listed as a starting wide receiver on the Panthers' unofficial depth chart.
+- Tommy Tremble (TE): starter, starter 0.7, roster 0.8
+  - Tags: locked_starter, week1_usage_dominant | Impact: te_uncertain | Review: yes
+  - Evidence: Week 1 2026 usage leader at TE for CAR (usage score 5.0 vs runner-up 2.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Bobby Okereke (LB): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: defensive_major | Review: yes
+  - Evidence: Okereke is signing a contract with the Panthers, NFL reporter Jordan Schultz reports.
+- AJ Dillon (RB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Cooks signed a contract with the Panthers on Tuesday, Darin Gantt of the team's official site reports.
-- Kyle Trask (QB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: qb_major | Review: yes
-  - Evidence: The Panthers signed Trask to a contract Sunday, Kassidy Hill of the team's official site reports.
-- Roc Taylor (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Panthers signed Taylor to a contract Tuesday, Darin Gantt of the team's official site reports.
+  - Evidence: Dillon secured the third running back spot on Carolina's 53-man roster, Darin Gantt of the Panthers' official site reports.
 
 ### CHI
 
-- Deshaun Watson (QB): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: qb_major | Review: yes
-  - Evidence: Coach Todd Monken noted Monday that he hasn't decided whether Watson or Shedeur Sanders will start Saturday's preseason opener against the Bears, Daniel Oyefusi of ESPN.com reports.
-- Shedeur Sanders (QB): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: qb_major | Review: yes
-  - Evidence: Coach Todd Monken noted Monday that he hasn't decided whether Sanders or Deshaun Watson will start Saturday's preseason opener against the Bears, Mary Kay Cabot of The Cleveland Plain Dealer reports.
-- Jedrick Wills Jr. (OT): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: offensive_line_major | Review: yes
-  - Evidence: Wills (knee) will compete for Chicago's starting left tackle role, Mike Moraitis of Sports Illustrated reports.
-- Beanie Bishop Jr. (CB): roster_depth_signal, starter 0.42, roster 0.6
+- Caleb Williams (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for CHI (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Cole Kmet (TE): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: skill_major | Review: yes
+  - Evidence: Kmet is listed as a starting tight end along with Colston Loveland on the Bears' unofficial depth chart heading into the Sept. 13 season opener versus the Panthers.
+- Colston Loveland (TE): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: skill_major | Review: yes
+  - Evidence: Loveland is listed as a starting tight end along with Cole Kmet on the Bears' unofficial depth chart.
+- Kalif Raymond (WR): starter, starter 0.65, roster 0.75
+  - Tags: locked_starter, week1_usage_dominant | Impact: wr_uncertain | Review: yes
+  - Evidence: Week 1 2026 usage leader at WR for CHI (usage score 9.0 vs runner-up 5.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Jack Sanborn (LB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: The Bears signed Bishop (suspension) to a contract Sunday.
-- Xavier Woods (S): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: Chicago signed Woods (hamstring) on Friday.
-- Ray-Ray McCloud III (WR): roster_depth_signal, starter 0.42, roster 0.6
+  - Evidence: Chicago signed Sanborn to the active roster Tuesday.
+- D'Andre Swift (RB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Bears signed McCloud to a contract Monday, Brad Biggs of the Chicago Tribune reports.
-- Darnell Wright (OT): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: offensive_line_major | Review: yes
-  - Evidence: The Bears and Wright agreed to terms on a four-year extension Tuesday, Jeremy Fowler of ESPN.com reports.
+  - Evidence: The Bears and Swift agreed to a three-year, $33.75 million contract Friday, Adam Schefter of ESPN reports.
+- Roschon Johnson (RB): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: Johnson currently is the only healthy running back on the Bears' active roster after D'Andre Swift (abdomen) exited Thursday's practice due to an injury, Sean Hammond of the Chicago Tribune reports.
 
 ### CIN
 
+- Joe Burrow (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for CIN (usage score 35.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Chase Brown (RB): starter, starter 0.8, roster 0.85
+  - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: yes
+  - Evidence: Week 1 2026 usage leader at RB for CIN (usage score 19.0 vs runner-up 6.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
 - Josh Newton (CB): likely_starter_or_primary, starter 0.7, roster 0.66
   - Tags: starter | Impact: defensive_major | Review: yes
   - Evidence: Newton (hamstring) is expected to compete for the Bengals' starting cornerback role, Chris Roling of USA Today reports.
-- Samaje Perine (RB): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: primary_role, competition | Impact: skill_major | Review: yes
-  - Evidence: Perine is set to reprise his backup role behind Chase Brown this coming season, John Sheeran of atozsports.com reports.
-- Evan McPherson (PK): likely_starter_or_primary, starter 0.62, roster 0.6
-  - Tags: primary_role | Impact: depth_only | Review: yes
-  - Evidence: McPherson will again work as Cincinnati's primary kicker during the upcoming season following a bounce-back performance last year, John Sheeran of A to Z Sports reports.
-- Tahj Brooks (RB): competition_or_rotation, starter 0.5, roster 0.6
+- Jack Endries (TE): competition_or_rotation, starter 0.5, roster 0.6
+  - Tags: competition, roster_signal | Impact: skill_major | Review: yes
+  - Evidence: Endries caught a 17-yard touchdown reception from Joe Flacco in Thursday's preseason opener against the Lions. He's competing with veteran Tanner Hudson for a roster spot, Geoff Hobson of Bengals.com reports.
+- Samaje Perine (RB): competition_or_rotation, starter 0.5, roster 0.6
   - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: Brooks will compete against Samaje Perine in training camp for the No. 2 running back role behind Chase Brown, Michael Hull of the Bengals' official site reports.
-- Tee Higgins (WR): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: Higgins remains entrenched as Cincinnati's No. 2 wide receiver behind Ja'Marr Chase, John Sheeran of A to Z Sports reports.
-- Jamal Haynes (RB): roster_depth_signal, starter 0.42, roster 0.6
+  - Evidence: Perine is listed as the No. 2 RB behind Chase Brown on the Bengals' unofficial depth chart.
+- Dohnte Meyers (WR): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Haynes signed with the Bengals as an undrafted free agent Friday.
-- Kentrel Bullock (RB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Bengals signed Bullock as an undrafted free agent Friday.
-- Noah Thomas (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Thomas signed with the Bengals as an undrafted free agent Friday.
+  - Evidence: Meyers has made the Bengals' initial 53-man roster, Charlie Clifford of NBC 5 Cincinnati reports.
 
 ### CLE
 
+- Quinshon Judkins (RB): starter, starter 0.8, roster 0.85
+  - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: yes
+  - Evidence: Week 1 2026 usage leader at RB for CLE (usage score 13.0 vs runner-up 2.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Shedeur Sanders (QB): likely_starter_or_primary, starter 0.78, roster 0.74
+  - Tags: starter, competition | Impact: qb_major | Review: yes
+  - Evidence: Sanders will open the season as the Browns' backup quarterback after the team named Deshaun Watson its starter Monday, multiple sources tell NFL reporter Jordan Schultz.
 - Denzel Boston (WR): likely_starter_or_primary, starter 0.7, roster 0.66
   - Tags: starter | Impact: skill_major | Review: yes
-  - Evidence: Coach Todd Monken said Monday that Boston will start working with the first-team offense in practice this week, Daniel Oyefusi of ESPN.com reports.
-- Dillon Gabriel (QB): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Evidence: Boston is listed as a starting wide receiver along with veteran Jerry Jeudy and 2026 first-round pick KC Concepcion on the Browns' unofficial depth chart.
+- Deshaun Watson (QB): likely_starter_or_primary, starter 0.7, roster 0.66
   - Tags: starter | Impact: qb_major | Review: yes
-  - Evidence: Browns head coach Todd Monken said Monday that Gabriel is on track to receive more reps in future practices after the second-year quarterback has had a strong start to training camp, Mary Kay Cabot of The Cleveland Plain Dealer reports. "It's up to the player to take advantage and maximize those...
-- Dawand Jones (OT): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: offensive_line_major | Review: yes
-  - Evidence: Jones (knee) got reps as the starting left tackle during Cleveland's training camp Wednesday, Daniel Oyefusi of ESPN reports.
-- Damarri Mathis (CB): roster_depth_signal, starter 0.42, roster 0.6
+  - Evidence: The Browns named Watson their starting quarterback Monday, multiple sources tell NFL reporter Jordan Schultz.
+- Jerry Jeudy (WR): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: skill_major | Review: yes
+  - Evidence: Jeudy is listed as a starting wide receiver on Cleveland's initial depth chart ahead of the team's Week 1 game against the Jaguars.
+- Mekhi Blackmon (CB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: Cleveland signed Mathis (knee) to a contract Tuesday.
-- Denzel Ward (CB): roster_depth_signal, starter 0.42, roster 0.6
+  - Evidence: The Browns claimed Blackmon off waivers from the Colts on Friday, Howard Balzer of USA Today reports.
+- Sam Williams (LB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: Ward (neck) and the Browns have agreed to a two-year, $62.2 million contract extension, Ian Rapoport of NFL Network reports.
-- Aaron Anderson (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Anderson (undisclosed) reverted from waivers to Cleveland's injured reserve list Wednesday, per the NFL's transaction log.
-- Jamari Thrash (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Thrash (undisclosed) reverted to the Browns' reserve/injured list Saturday after clearing waivers, per the NFL's transaction log.
+  - Evidence: The Browns are set to sign Williams to their active roster, Jeremy Fowler of ESPN.com reports.
 
 ### DAL
 
-- Malik Davis (RB): likely_starter_or_primary, starter 0.78, roster 0.74
-  - Tags: starter, competition | Impact: skill_major | Review: yes
-  - Evidence: Davis will battle Jaydon Blue and Phil Mafah in training camp for the top backup job at running back behind starter Javonte Williams, Todd Archer of ESPN.com reports.
-- CeeDee Lamb (WR): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: skill_major | Review: yes
-  - Evidence: Lamb worked with the Cowboys' first-team offense in the first team drill of Wednesday's practice, Jon Machota of The Athletic reports.
-- Tyler Smith (G): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: offensive_line_major | Review: yes
-  - Evidence: Head coach Brian Schottenheimer told reporters Wednesday that Smith (knee) will start at left guard this season but will also get some reps at left tackle during training camp, Nick Eatman of the Cowboys' official site reports.
-- Trevor Keegan (G): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition, roster_signal | Impact: offensive_line_major | Review: yes
-  - Evidence: Keegan (neck) is competing for a depth role on Dallas' roster, Kenneth Ball of USA Today reports.
-- Quinnen Williams (DT): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_front_major | Review: yes
-  - Evidence: The Cowboys signed Williams to a three-year, $105.9 million contract extension Monday, Ian Rapoport of NFL Network reports.
-- Jashaun Corbin (RB): roster_depth_signal, starter 0.42, roster 0.6
+- Dak Prescott (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for DAL (usage score 34.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Javonte Williams (RB): starter, starter 0.8, roster 0.85
+  - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: yes
+  - Evidence: Week 1 2026 usage leader at RB for DAL (usage score 14.5 vs runner-up 2.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Sam Howell (QB): competition_or_rotation, starter 0.5, roster 0.6
+  - Tags: competition | Impact: qb_major | Review: yes
+  - Evidence: Howell is set to be the backup quarterback to Dak Prescott for the Cowboys' Week 1 game against the Giants.
+- Brevyn Spann-Ford (TE): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Cowboys signed Corbin to a contract Friday.
-- Zack Kuntz (TE): roster_depth_signal, starter 0.42, roster 0.6
+  - Evidence: Spann-Ford signed a three-year extension with the Cowboys on Thursday, Adam Schefter of ESPN reports.
+- Camden Brown (WR): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Dallas claimed Kuntz off waivers Thursday.
+  - Evidence: Browns is one of six wide receivers on the Cowboys' initial 53-man roster, Tommy Yarrish of the Cowboys' official site reports.
+- Ryan Flournoy (WR): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: Flournoy agreed to a one-year contract extension worth up to $6 million with Dallas on Thursday, NFL reporter Jordan Schultz reports.
 
 ### DEN
 
-- Jaleel McLaughlin (RB): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: McLaughlin will enter training camp competing with Tyler Badie for what appears to be the No. 4 role in the Broncos' backfield, Luca Evans of The Denver Post reports.
-- Kyre Duplessis (WR): roster_depth_signal, starter 0.42, roster 0.6
+- Bo Nix (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for DEN (usage score 28.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Courtland Sutton (WR): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: skill_major | Review: yes
+  - Evidence: Sutton is listed as a starting wide receiver on the Broncos' unofficial depth chart.
+- Jonah Coleman (RB): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: skill_major | Review: yes
+  - Evidence: Coleman is likely to serve as the Broncos' between-the-tackles complement to starter J.K. Dobbins this season, Nick Kosmider of The Athletic reports.
+- RJ Harvey (RB): likely_starter_or_primary, starter 0.62, roster 0.6
+  - Tags: primary_role | Impact: skill_major | Review: yes
+  - Evidence: Harvey is expected to handle a key role in the Denver passing game in 2026, Jon Heath of USA Today reports. "That's where you felt the initial impact," Broncos coach Sean Payton said last week, in reference to Harvey's receiving ability. "And you saw marks of that in college and you also saw him...
+- Jarrett Stidham (QB): competition_or_rotation, starter 0.5, roster 0.6
+  - Tags: competition | Impact: qb_major | Review: yes
+  - Evidence: Coach Sean Payton said Wednesday that Stidham will be the Broncos' backup quarterback to begin the 2026 season, Zac Stevens of TheDNVR.com reports.
+- Tyler Badie (RB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Broncos signed Duplessis on Friday, Jon Heath of USA Today reports.
-- Kyrese Rowan (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Broncos signed Rowan on Friday, Luca Evans of The Denver Post reports.
+  - Evidence: Badie was one of four running backs to make the Broncos' 53-man roster following the conclusion of training camp, Aric DiLalla of the team's official site reports.
 
 ### DET
 
-- Amen Ogbongbemiga (LB): roster_depth_signal, starter 0.42, roster 0.6
+- Jared Goff (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for DET (usage score 39.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Jahmyr Gibbs (RB): starter, starter 0.8, roster 0.85
+  - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: yes
+  - Evidence: Week 1 2026 usage leader at RB for DET (usage score 31.5 vs runner-up 2.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Sione Vaki (RB): competition_or_rotation, starter 0.5, roster 0.6
+  - Tags: competition | Impact: skill_major | Review: yes
+  - Evidence: Coach Dan Campbell said Monday that neither Vaki nor Jacob Saylors is viewed as the Lions' strict RB2, and Detroit will use a committee approach behind Jahmyr Gibbs, Nolan Bianchi of The Detroit News reports.
+- Joe Bachie (LB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: The Lions signed Ogbongbemiga to a contract Sunday.
-- Devin White (LB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: The Lions signed White to a one-year contract Saturday, NFL reporter Jordan Schultz reports.
-- Jahmyr Gibbs (RB): roster_depth_signal, starter 0.42, roster 0.6
+  - Evidence: Bachie was promoted from the practice squad to the active roster Monday, Dave Birkett of the Detroit Free Press reports.
+- Tay Martin (WR): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Lions and Gibbs (back) agreed to terms on a three-year extension Thursday, Adam Schefter of ESPN reports.
-- Joshua Dobbs (QB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: qb_major | Review: yes
-  - Evidence: Dobbs signed a one-year, $1.425 million contract with the Lions on Sunday, Mike Garafolo of NFL Network reports.
-- Raheem Blackshear (RB): roster_depth_signal, starter 0.42, roster 0.6
+  - Evidence: Martin is the fourth and final wide receiver on the Lions' 53-man active roster for the regular season, Tim Twentyman of the team's official site reports.
+- Tom Kennedy (WR): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Lions signed Blackshear on Tuesday.
-- Tarik Black (WR): roster_depth_signal, starter 0.42, roster 0.6
+  - Evidence: The Lions signed Kennedy from their practice squad to their active roster Thursday.
+- Tyler Conklin (TE): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Lions signed Black to a contract Wednesday.
-- Zach Horton (TE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Lions signed Horton on Tuesday.
+  - Evidence: The Lions signed Conklin on Tuesday.
 
 ### GB
 
-- Kisean Johnson (WR): roster_depth_signal, starter 0.42, roster 0.6
+- Jordan Love (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for GB (usage score 42.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- MarShawn Lloyd (RB): starter, starter 0.8, roster 0.85
+  - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: yes
+  - Evidence: Week 1 2026 usage leader at RB for GB (usage score 13.5 vs runner-up 7.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Tucker Kraft (TE): starter, starter 0.7, roster 0.8
+  - Tags: locked_starter, week1_usage_dominant | Impact: te_uncertain | Review: yes
+  - Evidence: Week 1 2026 usage leader at TE for GB (usage score 6.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Skyy Moore (WR): likely_starter_or_primary, starter 0.62, roster 0.6
+  - Tags: primary_role | Impact: skill_major | Review: yes
+  - Evidence: Moore will operate as the Packers' primary retuner on both kicks and punts to open the regular season, Matt Schneidman of The Athletic reports.
+- Christian Watson (WR): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Packers signed Johnson to a contract Sunday.
-- Luke Lachey (TE): roster_depth_signal, starter 0.42, roster 0.6
+  - Evidence: Watson is one of six wide receivers on the Packers' initial 53-man roster, per Wes Hodkiewicz of the team's official site.
+- Jayden Reed (WR): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Lachey (foot) reverted from waivers to Green Bay's injured reserve list Wednesday, per the NFL's transaction log.
-- McCallan Castles (TE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Packers signed Castles on Tuesday.
-- RJ Maryland (TE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Maryland (hamstring) reverted from waivers to the Packers' injured reserve list Wednesday, per the NFL's transaction log.
+  - Evidence: Reed is one of six wide receivers on the Packers' initial 53-man roster, Wes Hodkiewicz of the team's official site reports.
 
 ### HOU
 
-- Davis Mills (QB): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: qb_major | Review: yes
-  - Evidence: Mills is expected to reprise his role as the Texans' backup quarterback behind C.J. Stroud and ahead of Graham Mertz for the 2026 season, Jared Koch of SI.com reports.
-- Andre Carter II (LB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: The Chargers signed Carter on Monday, Aaron Wilson of KPRC 2 Houston reports.
-- Eric Watts (DE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_front_major | Review: yes
-  - Evidence: Watts (undisclosed) reverted from waivers to the Jets' injured reserve list Thursday, Aaron Wilson of KPRC 2 Houston reports.
-- Henry To'oTo'o (LB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: To'oTo'o signed a two-year, $16 million extension with Houston on Thursday, Mike Garafolo of NFL Network reports.
-- Jadeveon Clowney (DE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_front_major | Review: yes
-  - Evidence: The Texans signed Clowney to a one-year deal Sunday, Aaron Wilson of KPRC 2 Houston reports.
-- JT Woods (S): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: The Giants signed Woods to a contract Sunday, Aaron Wilson of KPRC 2 Houston reports.
-- Mario Edwards Jr. (DT): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_front_major | Review: yes
-  - Evidence: The Texans re-signed Edwards on Sunday, Aaron Wilson of KPRC 2 Houston reports.
-- Zech McPhearson (CB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: The Rams signed McPhearson to a contract Sunday, Aaron Wilson of KPRC 2 Houston reports.
-- Chris Hilton Jr. (WR): roster_depth_signal, starter 0.42, roster 0.6
+- C.J. Stroud (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for HOU (usage score 38.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Nico Collins (WR): likely_starter_or_primary, starter 0.78, roster 0.74
+  - Tags: starter, competition | Impact: skill_major | Review: yes
+  - Evidence: Collins is the clear No. 1 wide receiver for the Texans heading into the regular season, but the pecking order at the position behind him is uncertain, as Xavier Hutchinson, Jaylin Noel (hamstring), Kayshon Boutte and Jared Wayne are vying for roles, while Jonathan M. Alexander of the Houston Chr...
+- David Montgomery (RB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Packers claimed Hilton off waivers Sunday, Aaron Wilson of KPRC 2 Houston reports.
-- Juwann Winfree (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Texans signed Winfree to a contract Monday.
-- Kobe Prentice (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Patriots claimed Prentice off waivers Saturday, Aaron Wilson of KPRC 2 Houston reports.
-- Mason Pline (TE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Pline (upper body) signed with the Chiefs on Wednesday, Aaron Wilson of KPRC 2 Houston reports.
-- Owen Wright (RB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Texans signed Wright to a contract Saturday.
+  - Evidence: Montgomery is one of three running backs on Houston's 53-man roster, along with Woody Marks and British Brooks, Jared Koch of SI.com reports.
 
 ### IND
 
-- Nick Westbrook-Ikhine (WR): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: Westbrook-Ikhine's stock has risen in training camp as he battles for the Colts' WR3 role behind Alec Pierce (ankle) and Josh Downs (groin), James Boyd of The Athletic reports.
-- Seth McGowan (RB): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: James Boyd of The Athletic suggests that McGowan has emerged as the Colts' top backup running back.
-- Cameron Mitchell (CB): roster_depth_signal, starter 0.42, roster 0.6
+- Daniel Jones (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for IND (usage score 31.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Jonathan Taylor (RB): starter, starter 0.8, roster 0.85
+  - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: yes
+  - Evidence: Week 1 2026 usage leader at RB for IND (usage score 21.0 vs runner-up 0.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Adonai Mitchell (WR): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: skill_major | Review: yes
+  - Evidence: Mitchell is listed as a starting wide receiver on the Jets' initial depth chart ahead of a Week 1 matchup against the Titans.
+- Tyler Warren (TE): starter, starter 0.7, roster 0.8
+  - Tags: locked_starter, week1_usage_dominant | Impact: te_uncertain | Review: yes
+  - Evidence: Week 1 2026 usage leader at TE for IND (usage score 5.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Anthony Richardson Sr. (QB): competition_or_rotation, starter 0.5, roster 0.6
+  - Tags: competition | Impact: qb_major | Review: yes
+  - Evidence: Richardson will open the season as the Colts' backup quarterback, Nathan Brown of The Indianapolis Star reports.
+- Kenneth Harris (CB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: Mitchell (undisclosed) reverted to the Colts' reserve/injured list Tuesday after clearing waivers, per the NFL's transaction log.
-- D.J. Montgomery (WR): roster_depth_signal, starter 0.42, roster 0.6
+  - Evidence: The Colts signed Harris to a contract Wednesday.
+- Ashton Dulin (WR): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Colts signed Montgomery to a contract Sunday.
-- Jonathan Taylor (RB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Taylor agreed to terms Thursday with the Colts on a two-year, $44 million contract extension, Adam Schefter of ESPN reports.
-- Pharaoh Brown (TE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Colts signed Brown to a contract Thursday.
-- Roydell Williams (RB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Indianapolis signed Williams on Friday.
+  - Evidence: Dulin may play more on special teams after the Colts signed Keenan Allen this summer, Nathan Brown of The Indianapolis Star reports.
+- Rigoberto Sanchez (P): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: depth_only | Review: yes
+  - Evidence: Sanchez signed an extension through 2028 with the Colts on Thursday, Stephen Holder of ESPN.com reports.
 
 ### JAX
 
-- Brian Thomas Jr. (WR): likely_starter_or_primary, starter 0.7, roster 0.66
+- Parker Washington (WR): likely_starter_or_primary, starter 0.9, roster 0.86
+  - Tags: starter, primary_role | Impact: skill_major | Review: yes
+  - Evidence: Jaguars head coach Liam Coen confirmed Friday that Washington will be the team's primary punt returner to start the season, Ryan O'Halloran of The Florida Times-Union reports.
+- Bhayshul Tuten (RB): starter, starter 0.8, roster 0.85
+  - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: yes
+  - Evidence: Week 1 2026 usage leader at RB for JAX (usage score 15.5 vs runner-up 6.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Brenton Strange (TE): likely_starter_or_primary, starter 0.7, roster 0.66
   - Tags: starter | Impact: skill_major | Review: yes
-  - Evidence: Thomas has followed up his impressive spring with a good start to training camp, according to Michael DiRocco of ESPN.com.
-- Cam Little (PK): likely_starter_or_primary, starter 0.62, roster 0.6
-  - Tags: primary_role | Impact: depth_only | Review: yes
-  - Evidence: Little is set to reprise his role as Jacksonville's primary kicker during the upcoming season and will look to further cement his place as one of the NFL's top players at his position, Casandra Chesser of Jaguars Wire reports.
-- Danny Striggow (DE): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: defensive_front_major | Review: yes
-  - Evidence: Striggow enters training camp competing against Wesley Williams and Zach Durfee for rotational snaps at defensive end behind starters Josh Hines-Allen and Travon Walker, Paul Bretl of USA Today reports.
-- Nate Boerkircher (TE): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: John Shipley of SI.com considers Boerkircher the favorite to secure the Jaguars' No. 2 TE role behind Brenton Strange.
-- Corey Ballentine (CB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: Jacksonville signed Ballentine on Tuesday.
-- Jahlani Tavai (LB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: Tavai and the Jaguars agreed on a contract Thursday.
+  - Evidence: Strange is the Jaguars' projected Week 1 starter at tight end following the NFL's cut-down day, John Oehser of the team's official site reports.
+- Trevor Lawrence (QB): competition_or_rotation, starter 0.5, roster 0.6
+  - Tags: competition | Impact: qb_major | Review: yes
+  - Evidence: Lawrence will have a new backup in 2026, as Ian Rapoport of NFL Network reports that the Jaguars traded for Quinn Ewers from the Dolphins on Saturday.
 - Ameer Abdullah (RB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Jacksonville signed Abdullah to a contract Monday.
-- Brenton Strange (TE): roster_depth_signal, starter 0.42, roster 0.6
+  - Evidence: Abdullah earned a spot on the Jaguars' 53-man roster following a strong training camp, John Oehser of the team's official site reports.
+- Chris Rodriguez Jr. (RB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Strange agreed to terms Wednesday on a three-year extension with the Jaguars, Tom Pelissero of NFL Network reports.
-- J'Mari Taylor (RB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Jaguars signed Taylor as an undrafted free agent Sunday.
-- Trebor Pena (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Jaguars signed Pena as an undrafted free agent Sunday.
-- Ross Matiscik (LS): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: starter_uncertain | Review: yes
-  - Evidence: Matiscik signed a two-year, $3.8 million extension with the Jaguars on Wednesday, Ian Rapoport of NFL Network reports.
+  - Evidence: Rodriguez currently is one of two healthy running backs on the Jaguars' roster along with Ameer Abdullah due to health concerns for Bhayshul Tuten (illness) and LeQuint Allen (undisclosed).
 
 ### KC
 
+- Patrick Mahomes (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for KC (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Kenneth Walker III (RB): starter, starter 0.8, roster 0.85
+  - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: yes
+  - Evidence: Week 1 2026 usage leader at RB for KC (usage score 26.0 vs runner-up 9.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Cyrus Allen (WR): competition_or_rotation, starter 0.5, roster 0.6
+  - Tags: competition | Impact: skill_major | Review: yes
+  - Evidence: Allen is listed as a backup receiver on Kansas City's unofficial depth chart ahead of Monday's season opener versus the Broncos, Charles Goldsmith of AtoZSports.com reports.
 - Emmett Johnson (RB): competition_or_rotation, starter 0.5, roster 0.6
   - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: Jesse Newell of The Athletic indicates Johnson has been fourth in the team's RB pecking order behind top option Kenneth Walker, as well as both Emari Demercado and Brashard Smith to this point in training camp.
-- Noah Gray (TE): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: Gray is expected to reprise his complementary No. 2 tight end role behind Travis Kelce during the 2026 season, Matt McMullen of the Chiefs' official site reports.
+  - Evidence: Johnson is in line to be Kenneth Walker's backup for the Chiefs this season.
+- Brashard Smith (RB): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: Smith is the third and final running back on the Chiefs' 53-man roster for the 2026 regular season, Matt McMullen of the team's official site reports.
 
 ### LAC
 
-- Joshua Palmer (WR): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: skill_major | Review: yes
-  - Evidence: After working off to the side during OTAs, Palmer (ankle) has been back as a participant during mandatory minicamp, Alec White and Maddy Glab of the Bills' official site report. "I'm feeling a lot better, starting to feel a lot more like myself," Palmer said after Wednesday's practice. "(I'm) clo...
-- Ladd McConkey (WR): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: skill_major | Review: yes
-  - Evidence: McConkey (hamstring) said he'll be "full go" for the start of training camp Wednesday, Daniel Popper of The Athletic reports.
-- Cameron Dicker (PK): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: starter_uncertain | Review: yes
-  - Evidence: Dicker is entering his fifth NFL campaign, his fourth as the Chargers' undisputed starting kicker.
-- Kimani Vidal (RB): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: Vidal was listed a co-backup in the the Chargers' first unofficial depth chart Monday, Eric Smith of the team's official website reports.
-- Oronde Gadsden (TE): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: Gadsden faces increased competition for snaps and targets in 2026 after free agent David Njoku agreed to a one-year deal with the Chargers on Monday, Ian Rapoport of NFL Network reports.
-- Derwin James Jr. (S): roster_depth_signal, starter 0.42, roster 0.6
+- Justin Herbert (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for LAC (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Omarion Hampton (RB): starter, starter 0.8, roster 0.85
+  - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: yes
+  - Evidence: Week 1 2026 usage leader at RB for LAC (usage score 12.0 vs runner-up 4.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- David Njoku (TE): starter, starter 0.7, roster 0.8
+  - Tags: locked_starter, week1_usage_dominant | Impact: te_uncertain | Review: yes
+  - Evidence: Week 1 2026 usage leader at TE for LAC (usage score 5.0 vs runner-up 2.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Jake Slaughter (C): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: offensive_line_major | Review: yes
+  - Evidence: Head coach John Harbaugh told reporters Saturday that Slaughter will be the Chargers' starting center for the upcoming season, Alex Insdorf of BoltBeat.com reports.
+- Trey Lance (QB): competition_or_rotation, starter 0.5, roster 0.6
+  - Tags: competition | Impact: qb_major | Review: yes
+  - Evidence: Lance has won the Chargers' backup quarterback job, Matt Zenitz of CBSSports.com reports.
+- Tony Jefferson (S): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: James agreed to terms Tuesday on a three-year, $75.6 million contract extension with the Chargers, Adam Schefter of ESPN reports.
-- Devonte Ross (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Chargers signed Ross as an undrafted free agent Saturday.
-- Evan Svoboda (TE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Chargers signed Svoboda as an undrafted free agent Saturday.
-- Greg Desrosiers Jr. (RB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Chargers signed Desrosiers as an undrafted free agent Saturday.
-- Jerand Bradley (TE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Chargers signed Bradley as an undrafted free agent Saturday.
-- Sincere Brown (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Brown signed with the Chargers as an undrafted free agent Saturday.
+  - Evidence: Jefferson will be a member of the Chargers' initial 53-man roster, Adam Schefter of ESPN reports.
 
 ### LAR
 
-- Colby Parkinson (TE): likely_starter_or_primary, starter 0.9, roster 0.86
-  - Tags: starter, primary_role | Impact: skill_major | Review: yes
-  - Evidence: As the regular season approaches, Cameron DaSilva of USA Today notes that Parkinson is expected to remain the Rams' No. 1 tight end.
-- Blake Corum (RB): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: skill_major | Review: yes
-  - Evidence: Corum remains positioned atop the running back depth chart alongside starter Kyren Williams following the Rams' offseason program, Stu Jackson of the team's official site reports.
-- Cooper Kupp (WR): likely_starter_or_primary, starter 0.62, roster 0.6
-  - Tags: primary_role | Impact: skill_major | Review: yes
-  - Evidence: As the coming season approaches, Kupp is line to reprise a key role in a Seahawks wide receiver corps led by reigning Offensive Player of the Year Jaxon Smith-Njigba, Justin Melo of USA Today reports.
-- Jordan Whittington (WR): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: Whittington looks like the early leader in the competition for the Rams' No. 3 receiver job, according to Cameron DaSilva of Rams Wire.
-- Tomon Fox (LB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: The Rams signed Fox on Tuesday.
-- Dean Connors (RB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Rams signed Connors as an undrafted free agent Tuesday.
-- Matthew Caldwell (QB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: qb_major | Review: yes
-  - Evidence: The Rams signed Caldwell as an undrafted free agent Tuesday.
-- Rohan Jones (TE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Rams signed Jones as an undrafted free agent Tuesday.
-- Blake Hance (G): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: offensive_line_major | Review: yes
-  - Evidence: The Rams signed Hance (shoulder) on Tuesday, per the NFL's transaction log.
+- Matthew Stafford (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for LA (usage score 25.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Aaron Donald (DT): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: defensive_front_major | Review: yes
+  - Evidence: Donald had his roster exemption lifted by the NFL on Friday, per the league's transaction log.
 
 ### LV
 
-- Kirk Cousins (QB): likely_starter_or_primary, starter 0.78, roster 0.74
+- Ashton Jeanty (RB): starter, starter 0.8, roster 0.85
+  - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: yes
+  - Evidence: Week 1 2026 usage leader at RB for LV (usage score 26.0 vs runner-up 7.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Fernando Mendoza (QB): likely_starter_or_primary, starter 0.78, roster 0.74
   - Tags: starter, competition | Impact: qb_major | Review: yes
-  - Evidence: The Raiders returned to their usual QB rotation during Monday's practice, with Cousins working with the first-team offense and Fernando Mendoza with the second unit, Ryan McFadden of ESPN.com reports.
-- Maxx Crosby (DE): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: defensive_front_major | Review: yes
-  - Evidence: Crosby (knee) has been cleared for the start of training camp and will practice Wednesday, Ryan McFadden of ESPN.com reports.
-- Matt Gay (PK): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: depth_only | Review: yes
-  - Evidence: Gay worked as the first-team kicker at Friday's training camp practice and made all of his attempts, Sam Warren of the Athletic reports.
-- Jakobi Meyers (WR): likely_starter_or_primary, starter 0.62, roster 0.6
-  - Tags: primary_role | Impact: skill_major | Review: yes
-  - Evidence: As the coming season approaches, Meyers is in line to maintain a key role in a Jacksonville WR corps that also features Brian Thomas, Parker Washington and Travis Hunter (knee), Paul Bretl of Jaguars Wire reports.
-- Tre Tucker (WR): likely_starter_or_primary, starter 0.62, roster 0.6
-  - Tags: primary_role | Impact: skill_major | Review: yes
-  - Evidence: As his fourth season as a pro approaches, Tucker is set to reprise his key role in a Raiders WR corps that also includes free-agent addition Jalen Nailor, 2025 draftees Jack Bech and Dont'e Thornton and sixth-round rookie Malik Benson, Levi Edwards of the team's official site reports.
-- Patrick Johnson (DE): roster_depth_signal, starter 0.42, roster 0.6
+  - Evidence: With coach Klint Kubiak naming Kirk Cousins the Raiders' starting quarterback Wednesday, Mendoza will open the season as the backup, Sam Warren of The Athletic reports.
+- Treydan Stukes (S): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: defensive_major | Review: yes
+  - Evidence: Stukes is listed as the Raiders' starting free safety heading into Week 1 against the Dolphins on Sunday, Levi Edwards of the Raiders' official site reports.
+- Kirk Cousins (QB): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: qb_major | Review: yes
+  - Evidence: Coach Klint Kubiak named Cousins the Raiders' starting quarterback Wednesday, Sam Warren of The Athletic reports.
+- Michael Mayer (TE): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: skill_major | Review: yes
+  - Evidence: Mayer appears lined up to take on a pronounced role as the Raiders' top tight end in Sunday's season opener against the Dolphins after Brock Bowers underwent a meniscus trim Tuesday and is expected to be out for "a game or two," Adam Schefter of ESPN reports.
+- Darrell Luter Jr. (CB): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: defensive_major | Review: yes
+  - Evidence: The Raiders claimed Luter off waivers from the 49ers on Monday.
+- Folorunso Fatukasi (DT): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: defensive_front_major | Review: yes
-  - Evidence: Johnson signed with the Raiders on Monday.
-- Chris Myarick (TE): roster_depth_signal, starter 0.42, roster 0.6
+  - Evidence: The Raiders signed Fatukasi to a contract Saturday, Jeremy Fowler of ESPN.com reports.
+- Dylan Laube (RB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Las Vegas signed Myarick on Wednesday.
-- Dare Ogunbowale (RB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Ogunbowale signed a contract with the Raiders on Wednesday.
-- Deven Thompkins (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Thompkins signed with the Raiders on Monday.
+  - Evidence: Laube made the Raiders' 53-man roster at the end of training camp and could operate in an elevated role on offense against the Dolphins in Week 1 if Ashton Jeanty (ankle) is limited or ruled out.
 
 ### MIA
 
-- Jalen Ramsey (CB): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: defensive_major | Review: yes
-  - Evidence: The Steelers have placed Ramsey (knee) on the active/physically unable to perform list to start training camp, Teresa Varley of the team's official site reports.
-- Ollie Gordon II (RB): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: Gordon and Jaylen Wright are in line to compete for backup slotting behind De'Von Achane in training camp, Mike Masala of USA Today reports.
-- Jordyn Brooks (LB): roster_depth_signal, starter 0.42, roster 0.6
+- Malik Willis (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for MIA (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Caleb Douglas (WR): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: skill_major | Review: yes
+  - Evidence: Douglas is listed as a starting wide receiver on Miami's initial depth chart headed into a Week 1 matchup against the Raiders.
+- Malik Washington (WR): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: skill_major | Review: yes
+  - Evidence: Washington is listed as a starting wide receiver on the Dolphins' unofficial depth chart.
+- De'Von Achane (RB): likely_starter_or_primary, starter 0.62, roster 0.6
+  - Tags: primary_role, roster_signal | Impact: skill_major | Review: yes
+  - Evidence: Achane is set to lead a Dolphins backfield in 2026 that will also include Jaylen Wright and Ollie Gordon (ribs), based on Miami's initial 53-man roster.
+- Reese Taylor (CB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: Brooks and the Dolphins agreed to terms Tuesday on a three-year, $51.3 million contract extension, Adam Schefter of ESPN reports.
-- Nick McCloud (CB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: The Dolphins signed McCloud to a contract Monday.
-- Jeremiah Franklin (TE): roster_depth_signal, starter 0.42, roster 0.6
+  - Evidence: The Dolphins claimed Taylor (concussion) off waivers from the Broncos on Monday.
+- Brady Cook (QB): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: qb_major | Review: yes
+  - Evidence: The Dolphins claimed Cook off waivers from the Jets on Monday.
+- Justin Joly (TE): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Miami claimed Franklin off waivers Wednesday.
-- Riley Patterson (PK): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: depth_only | Review: yes
-  - Evidence: With Zane Gonzalez (undisclosed) having been placed on IR, Patterson is now the only kicker on the Dolphins' active roster.
+  - Evidence: The Dolphins claimed Joly off waivers from the Broncos on Monday.
+- Chukwuebuka Godrick (OT): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: offensive_line_major | Review: yes
+  - Evidence: The Dolphins claimed Godrick (ankle) off waivers from the Chiefs on Monday.
 
 ### MIN
 
-- J.J. McCarthy (QB): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: qb_major | Review: yes
-  - Evidence: McCarthy has taken around one-third of the first-team snaps at training camp so far, according to ESPN's Kevin Seifert.
-- Kyler Murray (QB): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: qb_major | Review: yes
-  - Evidence: Murray has taken around two-thirds of the first-team snaps at training camp, according to ESPN's Kevin Seifert.
-- Aaron Jones Sr. (RB): likely_starter_or_primary, starter 0.62, roster 0.6
-  - Tags: primary_role | Impact: skill_major | Review: yes
-  - Evidence: Ahead of training camp, Jones is set to reclaim a key role in a Minnesota backfield that also includes Jordan Mason and rookie sixth-rounder Demond Claiborne, Alec Lewis of The Athletic reports.
-- Will Reichard (PK): likely_starter_or_primary, starter 0.62, roster 0.6
-  - Tags: primary_role | Impact: depth_only | Review: yes
-  - Evidence: Reichard is set to reprise his role as Minnesota's kicker in 2026, Kevin Seifert of ESPN.com reports.
-- Eric Johnson II (DT): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_front_major | Review: yes
-  - Evidence: The Vikings signed Johnson on Wednesday, Lindsey Young of the team's official site reports.
-- Isaiahh Loudermilk (DT): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_front_major | Review: yes
-  - Evidence: Loudermilk signed with the Vikings on Thursday.
-- Jamal Adams (LB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: Adams signed with the Vikings on Monday, NFL reporter Jordan Schultz reports.
-- Jordan Mims (RB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Vikings signed Mims to a one-year contract Tuesday.
-- Marcus Sanders Jr. (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Vikings signed Sanders as an undrafted free agent Saturday.
-- Marshall Lang (TE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Minnesota signed Lang on Tuesday.
-- Michael Briscoe (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Minnesota signed Briscoe (undisclosed) on Thursday, Rob Kleifield of the Vikings' official site reports.
-- Trayvon Rudolph (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Vikings signed Rudolph on Thursday, Rob Kleifield of the team's official site reports.
-- Brian O'Neill (OT): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: offensive_line_major | Review: yes
-  - Evidence: The Vikings signed O'Neill to a contract extension Tuesday, Alec Lewis of The Athletic reports.
+- Aaron Jones Sr. (RB): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: skill_major | Review: yes
+  - Evidence: Jones and Jordan Mason are listed as co-starting running backs on the Vikings' unofficial depth chart following cut-down day Sunday, Rob Kleifield of the team's official site reports.
+- Jordan Mason (RB): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: skill_major | Review: yes
+  - Evidence: Mason and Aaron Jones are listed as co-starting running backs on the Vikings' unofficial depth chart following cutdown day Sunday, Rob Kleifield of the team's official site reports.
+- Carson Wentz (QB): competition_or_rotation, starter 0.5, roster 0.6
+  - Tags: competition | Impact: qb_major | Review: yes
+  - Evidence: Coach Kevin O'Connell announced Wednesday that Wentz will serve as Kyler Murray's backup for Sunday's game against the Packers.
 
 ### NE
 
-- DeMario Douglas (WR): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: skill_major | Review: yes
-  - Evidence: Douglas is working with the first-team offense to begin training camp, Andrew Callahan of the Boston Herald reports.
-- Terrell Jennings (RB): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: skill_major | Review: yes
-  - Evidence: Jennings worked alongside Rhamondre Stevenson and TreVeyon Henderson with the Patriots' starting offense during Wednesday's practice, Andrew Callahan of the Boston Herald reports.
-- Isaiah Iton (DT): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_front_major | Review: yes
-  - Evidence: Iton agreed to terms on a one-year contract with the Patriots on Monday, Mike Reiss of ESPN.com reports.
-- Hunter Henry (TE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Henry agreed to a two-year, $16 million contract extension with the Patriots on Monday, Adam Schefter of ESPN reports.
-- Mitch Van Vooren (TE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: New England signed Van Vooren on Wednesday.
+- Drake Maye (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for NE (usage score 33.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Rhamondre Stevenson (RB): starter, starter 0.8, roster 0.85
+  - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: yes
+  - Evidence: Week 1 2026 usage leader at RB for NE (usage score 21.0 vs runner-up 6.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
 
 ### NO
 
-- Nathan Shepherd (DT): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: defensive_front_major | Review: yes
-  - Evidence: Shepherd could be a candidate for an increased snap count in 2026 if Bryan Bresee (knee) cannot play, Doug Joubert of Sports Illustrated reports.
-- Deion Jones (LB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: The Saints signed Jones to a one-year contract Friday, Adam Schefter of ESPN reports.
+- Tyler Shough (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for NO (usage score 56.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Daniel Carlson (PK): competition_or_rotation, starter 0.5, roster 0.6
+  - Tags: competition | Impact: depth_only | Review: yes
+  - Evidence: Carlson has won the Saints' kicker competition, Nick Underhill of NewOrleans.Football reports.
+- Colby Wooden (DT): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: defensive_front_major | Review: yes
+  - Evidence: The Saints claimed Wooden off waivers from the Colts on Monday.
 
 ### NYG
 
-- Odell Beckham Jr. (WR): competition_or_rotation, starter 0.5, roster 0.6
+- Jaxson Dart (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for NYG (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Cam Skattebo (RB): starter, starter 0.8, roster 0.85
+  - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: yes
+  - Evidence: Week 1 2026 usage leader at RB for NYG (usage score 18.0 vs runner-up 8.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Isaiah Likely (TE): competition_or_rotation, starter 0.5, roster 0.6
   - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: Beckham is competing for one of the final receiver spots on the Giants' depth chart this summer, Jordan Raanan of ESPN.com reports.
-- Anfernee Orji (LB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: The Giants signed Orji (knee) Thursday, Dan Salomone of the Giants' official site reports.
-- Grant Finley (FB): roster_depth_signal, starter 0.42, roster 0.6
+  - Evidence: Likely could emerge as the second option in the Giants' passing game behind Malik Nabers (knee), according to Dan Graziano of ESPN.com.
+- Odell Beckham Jr. (WR): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Giants signed Finley to a contract Thursday, Dan Salomone of the Giants' official site reports.
-- Brenden Jaimes (G): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: offensive_line_major | Review: yes
-  - Evidence: The Giants signed Jaimes to a contract Saturday, Dan Salomone of the team's official site reports.
+  - Evidence: Beckham has earned a spot on the 53-man roster for the Giants, Jordan Raanan of ESPN.com reports.
 
 ### NYJ
 
-- Breece Hall (RB): likely_starter_or_primary, starter 0.9, roster 0.86
-  - Tags: starter, primary_role | Impact: skill_major | Review: yes
-  - Evidence: Hall is expected to be featured more prominently as the Jets' lead back this season, Connor Hughes of SNY.TV reports.
-- Geno Smith (QB): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: qb_major | Review: yes
-  - Evidence: Smith is the clear top quarterback for the Jets, but a battle between Bailey Zappe, Cade Klubnik and Brady Cook is ongoing for the second spot on the depth chart, Zack Rosenblatt of The Athletic reports.
-- Kenyon Sadiq (TE): competition_or_rotation, starter 0.5, roster 0.6
+- Geno Smith (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for NYJ (usage score 24.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Breece Hall (RB): starter, starter 0.8, roster 0.85
+  - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: yes
+  - Evidence: Week 1 2026 usage leader at RB for NYJ (usage score 23.0 vs runner-up 10.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Mason Taylor (TE): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: skill_major | Review: yes
+  - Evidence: Taylor is listed as a starting tight end on the Jets' initial depth chart ahead of a Week 1 game against the Titans.
+- Braelon Allen (RB): competition_or_rotation, starter 0.5, roster 0.6
   - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: Sadiq (hernia) is listed as Mason Taylor's backup at tight end on the Jets' first unofficial depth chart Monday, Eric Allen of the team's official site reports.
+  - Evidence: Allen is listed second on the Jets' unofficial depth chart behind Breece Hall.
+- Cade Klubnik (QB): competition_or_rotation, starter 0.5, roster 0.6
+  - Tags: competition | Impact: qb_major | Review: yes
+  - Evidence: Head coach Aaron Glenn confirmed Monday that Klubnik will open the season as the Jets' No. 2 quarterback behind Geno Smith, Zack Rosenblatt of The Athletic reports.
 - Omar Cooper Jr. (WR): competition_or_rotation, starter 0.5, roster 0.6
   - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: Cooper is listed behind Garrett Wilson and Adonai Mitchellon the Jets' initial unofficial depth chart, Eric Allen of the team's official site reports.
-- Jason Sanders (PK): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: depth_only | Review: yes
-  - Evidence: Sanders is set to battle Cade York (groin) for the Jets' kicker job in training camp, Jack Bell of the Jets' official site reports.
-- Cam Camper (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Jets signed Camper on Friday.
-- Quincy Skinner Jr. (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Jets signed Skinner to a contract Thursday, Eric Allen of the team's official site reports.
+  - Evidence: Cooper is listed as a backup wide receiver on the Jets' unofficial depth chart.
+- Trevin Wallace (LB): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: defensive_major | Review: yes
+  - Evidence: The Jets claimed Wallace off waivers from the Panthers on Monday.
 
 ### PHI
 
+- Saquon Barkley (RB): starter, starter 0.97, roster 0.97
+  - Tags: locked_starter, workhorse | Impact: rb_major | Review: no
+  - Evidence: Unquestioned RB1, workhorse role, no committee/competition -- verified by Andy 2026-09-15.
+- Jalen Hurts (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for PHI (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Dontayvion Wicks (WR): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: skill_major | Review: yes
+  - Evidence: Wicks is listed as a starter on the Eagles' unofficial depth chart.
 - Makai Lemon (WR): likely_starter_or_primary, starter 0.7, roster 0.66
   - Tags: starter | Impact: skill_major | Review: yes
-  - Evidence: Lemon appears unlikely to start for the Eagles early in the season while he's missed time in the spring and during training camp due to a lingering hamstring injury, Jimmy Kempski of PhillyVoice.com reports.
-- Tank Bigsby (RB): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: primary_role, competition | Impact: skill_major | Review: yes
-  - Evidence: Bigsby is expected to enter the 2026 season as the Eagles' primary backup behind Saquon Barkley, Glenn Erby of Eagles Wire reports.
-- Jake Elliott (PK): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: starter_uncertain | Review: yes
-  - Evidence: Elliott is expected to again serve as Philadelphia's starting kicker in 2026, Jimmy Kempski of PhillyVoice.com reports.
-- Tarron Jackson (LB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: The Eagles signed Jackson to a contract Monday.
-- Brandon Hayes (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Eagles signed Hayes to a contract Wednesday, Dave Zangaro of NBC Sports Philadelphia reports.
-- Ja'Quinden Jackson (RB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Eagles signed Jackson to a contract Monday.
+  - Evidence: Lemon is listed as a starting wide receiver for the Eagles and their top punt returner on the unofficial depth chart released Tuesday, Andrew DiCecco of InsideTheBirds.com reports.
 
 ### PIT
 
-- DeShon Elliott (S): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: defensive_major | Review: yes
-  - Evidence: Elliott (knee) took first-team reps in Friday's practice after being held out of Thursday's session, Andrew Vasquez of USA Today reports.
-- Germie Bernard (WR): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: skill_major | Review: yes
-  - Evidence: Bernard got most of his reps in the slot with the first-team offense at Friday's practice, Alan Saunders of Steelers Now reports.
-- Tua Tagovailoa (QB): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: qb_major | Review: yes
-  - Evidence: Coach Kevin Stefanski said Monday that the Falcons don't have a timeline to name a starting quarterback for the team's Week 1 game at Pittsburgh, Josh Kendall of The Athletic reports.
-- Pat Freiermuth (TE): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: Freiermuth is a candidate to take on a larger role in Pittsburgh's passing game during the 2026 campaign, Ray Fittipaldo of the Pittsburgh Post-Gazette reports.
-- Rayshawn Jenkins (S): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: The Steelers signed Jenkins to a contract Saturday, Nick Farabaugh of PennLive.com reports.
-- Cole Burgess (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Burgess (undisclosed) reverted from waivers to Pittsburgh's injured reserve list Wednesday, Alan Saunders of SteelersNow.com reports.
-- Cornell Powell (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Pittsburgh signed Powell on Monday, Brooke Pryor of ESPN.com reports.
-- Isaiah Winstead (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Winstead and the Steelers agreed on a contract Sunday, Alan Saunders of SteelersNow.com reports.
-- Jakobie Keeney-James (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Steelers signed Keeney-James on Tuesday.
-- Lance Mason (TE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Steelers claimed Mason off waivers from the Seahawks on Friday, Aaron Wilson of KPRC 2 Houston reports.
+- Aaron Rodgers (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for PIT (usage score 40.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
 
 ### SEA
 
-- Jason Myers (PK): likely_starter_or_primary, starter 0.9, roster 0.86
-  - Tags: starter, primary_role | Impact: depth_only | Review: yes
-  - Evidence: As the coming season approaches, Myers is set to retain his role as the Seahawks' top kicker, Michael Hanich of SI.com reports.
-- George Holani (RB): likely_starter_or_primary, starter 0.78, roster 0.74
-  - Tags: starter, competition | Impact: skill_major | Review: yes
-  - Evidence: Holani and rookie first-round pick Jadarian Price have split first-team reps during the early days of training camp, Gregg Bell of The News Tribune reports.
-- AJ Barner (TE): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: skill_major | Review: yes
-  - Evidence: Barner (undisclosed) is participating in the start of Seattle's training camp, Curtis Crabtree of Fox 13 reports.
-- Elijah Arroyo (TE): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: Arroyo will enter training camp as a candidate to secure an expanded role on offense with the Seahawks, Justin Melo of USA Today reports.
-- Brock Lampe (FB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Seattle signed Lampe on Thursday, John Boyle of the Seahawks' official site reports.
-- Nick Vannett (TE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Seahawks signed Vannett to a contract Friday, John Boyle of the team's official site reports.
-- TJ Harden (RB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Seattle signed Harden on Wednesday, Ari Horton of the Seahawks' official site reports.
+- Drew Lock (QB): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: qb_major | Review: yes
+  - Evidence: Lock is likely to start Week 2 against the Cardinals, as Ian Rapoport of ESPN and NFL Network reports that Sam Darnold (hip) is expected to miss at least one game.
 
 ### SF
 
-- Brock Purdy (QB): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: qb_major | Review: yes
-  - Evidence: Purdy and rookie wide receiver De'Zhaun Stribling have been starting to connect more frequently at training camp, Marc Adams of 49ers Webzone reports.
-- Ogbo Okoronkwo (LB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: The 49ers signed Okoronko on Wednesday, Jeremy Fowler of ESPN reports.
-- Jauan Jennings (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Jennings and the Vikings agreed on a one-year, $13 million contract Thursday, Adam Schefter of ESPN reports.
-- KhaDarel Hodge (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The 49ers signed Hodge to a contract Wednesday, Jeremy Fowler of ESPN.com reports.
-- Khalil Herbert (RB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The 49ers signed Herbert to a one-year deal Sunday.
-- Kion Smith (G): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: offensive_line_major | Review: yes
-  - Evidence: Smith and the 49ers agreed on a one-year contract Thursday.
+- Brock Purdy (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for SF (usage score 34.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
 
 ### TB
 
-- Calijah Kancey (DT): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_front_major | Review: yes
-  - Evidence: The Buccaneers exercised the fifth-year option on Kancey's contract Monday, Scott Smith of the team's official site reports.
-- Ifeatu Melifonwu (S): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: The Buccaneers signed Melifonwu to a one-year contract Wednesday, Adam Schefter of ESPN reports.
-- Roman Parodie (CB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: The Bucs signed Parodie to a contract Monday, Gabriel Kahalan of the team's official site reports.
+- Cade Otton (TE): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: skill_major | Review: yes
+  - Evidence: Otton is listed as the No. 1 TE on the Buccaneers' unofficial depth chart.
+- Bucky Irving (RB): likely_starter_or_primary, starter 0.62, roster 0.6
+  - Tags: primary_role | Impact: skill_major | Review: yes
+  - Evidence: Irving is set to lead a Buccaneers backfield that also includes Kenny Gainwell and Sean Tucker (undisclosed), the latter of whom didn't practice Wednesday, per Greg Auman of Fox Sports.
+- Chase McLaughlin (PK): likely_starter_or_primary, starter 0.62, roster 0.6
+  - Tags: primary_role | Impact: depth_only | Review: yes
+  - Evidence: McLaughlin is slated to be Tampa Bay's primary placekicker for the fourth consecutive campaign in 2026.
+- Jalon Daniels (QB): competition_or_rotation, starter 0.5, roster 0.6
+  - Tags: competition | Impact: qb_major | Review: yes
+  - Evidence: Daniels is moving forward as Tampa Bay's backup quarterback behind Baker Mayfield after impressing throughout training camp, Ian Rapoport of NFL Network reports.
 - Baker Mayfield (QB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: qb_major | Review: yes
-  - Evidence: Mayfield said Thursday that he felt "disrespected a little bit" during contract negotiations with the Buccaneers this summer, ESPN.com's Jenna Laine reports.
-- Jalon Daniels (QB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: qb_major | Review: yes
-  - Evidence: Daniels signed with the Buccaneers as an undrafted free agent Friday.
-- B.T. Potter (PK): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: depth_only | Review: yes
-  - Evidence: The Buccaneers signed Potter on Monday, Brianna Dix of the team's official site reports.
-- Chase McLaughlin (PK): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: depth_only | Review: yes
-  - Evidence: McLaughlin is slated to play out the 2026 season on the final year of his current contract, Logan Robinson and River Wells of SI.com report.
+  - Evidence: Mayfield and the Buccaneers agreed Tuesday on a three-year, $165 million contract extension, Adam Schefter and Ian Rapoport of ESPN report.
+- Kenny Gainwell (RB): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: Gainwell is one of three running backs on Tampa Bay's 53-man roster, along with Bucky Irving and Sean Tucker (undisclosed), the latter of whom didn't practice Wednesday, per Greg Auman of Fox Sports.
 
 ### TEN
 
-- Michael Carter (RB): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: Carter will enter training camp competing for a depth role in Tennessee's backfield, Mark Mihalko of USA Today reports.
-- Tony Pollard (RB): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: As training camp approaches, Pollard -- who started all 17 games at running back for the Titans in 2025 -- is expected to again lead a backfield that returns last season's top backup in Tyjae Spears, and which added Nicholas Singleton in the fifth round of April's NFL Draft.
-- Will Levis (QB): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: qb_major | Review: yes
-  - Evidence: Levis is set to compete with Mitchell Trubisky for the backup quarterback role, Turron Davenport of ESPN.com reports.
+- Cam Ward (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for TEN (usage score 32.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Gunnar Helm (TE): starter, starter 0.7, roster 0.8
+  - Tags: locked_starter, week1_usage_dominant | Impact: te_uncertain | Review: yes
+  - Evidence: Week 1 2026 usage leader at TE for TEN (usage score 5.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Tony Pollard (RB): likely_starter_or_primary, starter 0.62, roster 0.6
+  - Tags: primary_role, roster_signal | Impact: skill_major | Review: yes
+  - Evidence: Pollard is set to lead a group of four running backs that made the Titans' initial 53-man roster.
 - Mario Goodrich III (CB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: defensive_major | Review: yes
   - Evidence: The Titans signed Goodrich to a contract Saturday, Jim Wyatt of the team's official site reports.
+- Calvin Ridley (WR): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: Ridley is among the five wide receivers on the Titans' initial 53-man roster.
+- Tyjae Spears (RB): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: Spears is among the four running backs that made the Titans' initial 53-man roster.
 
 ### WAS
 
-- Tim Settle (DT): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: defensive_front_major | Review: yes
-  - Evidence: Settle (foot) is healthy for the start of Washington's training camp, Ben Standig of Big 100 Washington D.C. reports.
-- Antonio Williams (WR): likely_starter_or_primary, starter 0.7, roster 0.66
+- Jayden Daniels (QB): starter, starter 0.95, roster 0.95
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
+  - Evidence: Week 1 2026 usage leader at QB for WAS (usage score 34.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Jacory Croskey-Merritt (RB): starter, starter 0.8, roster 0.85
+  - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: yes
+  - Evidence: Week 1 2026 usage leader at RB for WAS (usage score 16.5 vs runner-up 8.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Chig Okonkwo (TE): likely_starter_or_primary, starter 0.7, roster 0.66
   - Tags: starter | Impact: skill_major | Review: yes
-  - Evidence: Williams received some reps with the Commanders' first-team offense during Tuesday's practice, Denton Day of 106-7 The Fan Washington reports.
-- Jahan Dotson (WR): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: skill_major | Review: yes
-  - Evidence: Dotson is playing with Atlanta's first-team offense at training camp, Will McFadden of the Falcons' official site reports.
-- Parker Washington (WR): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: skill_major | Review: yes
-  - Evidence: Washington is off to a good start in training camp, according to John Shipley of SI.com.
-- Chig Okonkwo (TE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Ahead of training camp, Zach Selby of the Commanders' official site relays that Okonkwo (who signed a three-year deal with the team in March) and QB Jayden Daniels have already developed a strong connection through their work during OTAs and minicamp.
-- Montrell Washington (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Texans signed Washington on Tuesday, Aaron Wilson of KPRC 2 Houston reports.
-- River Cracraft (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Commanders signed Cracraft to a contract Wednesday, Alain Poupart of SI.com reports.
+  - Evidence: Okonkwo is listed as a starting tight end on the Commanders' unofficial depth chart.
+- Terry McLaurin (WR): likely_starter_or_primary, starter 0.62, roster 0.6
+  - Tags: primary_role, roster_signal | Impact: skill_major | Review: yes
+  - Evidence: McLaurin is set to lead a group of seven wide receivers that made Washington's initial 53-man roster.
+- Athan Kaliakmanis (QB): competition_or_rotation, starter 0.5, roster 0.6
+  - Tags: competition, roster_signal | Impact: qb_major | Review: yes
+  - Evidence: Kaliakmanis made the Commanders' 53-man roster as the third-string quarterback, but he could be the team's backup for Week 1 against the Eagles if Marcus Mariota (knee) is not cleared to play.
+- Fabian Moreau (CB): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: defensive_major | Review: yes
+  - Evidence: The Commanders re-signed Moreau on Monday.
+- Shy Tuttle (DT): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: defensive_front_major | Review: yes
+  - Evidence: The Commanders re-signed Tuttle on Monday.
 - Stefon Diggs (WR): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Diggs is slated to sign a one-year, $12 million contract with the Commanders, John Keim of ESPN.com reports.
-- Terry McLaurin (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: McLaurin will be joined by Diggs in the Commanders' receiving corps after the latter agreed to a one-year contract with the team Wednesday, John Keim and Seth Walder of ESPN.com report.
-- Max Scharping (G): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: offensive_line_major | Review: yes
-  - Evidence: Scharping (knee) agreed to a contract with the Commanders on Saturday.
+  - Evidence: Diggs is among the seven wide receivers on Washington's initial 53-man roster.
 

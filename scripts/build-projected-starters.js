@@ -13,6 +13,7 @@ const ROOT = path.resolve(__dirname, '..');
 const DEFAULT_SEASON = 2026;
 const OUT_DIR = path.join(ROOT, 'data', 'projected-starters', String(DEFAULT_SEASON));
 const DOCS_DIR = path.join(ROOT, 'docs', 'projected-starters');
+const HUMAN_REVIEW_DECISIONS_FILENAME = 'human-review-decisions.json';
 
 const STARTER_PATTERNS = [
   ['starter', /\b(starter|starting|starts?|first[- ]team|no\.?\s*1|number one|top (?:kicker|tight end|receiver|back)|lead(?:ing)? back)\b/i],
@@ -153,6 +154,7 @@ async function readManualStarterRows(manualDir) {
   const rows = [];
   for (const entry of entries) {
     if (!entry.isFile() || !entry.name.endsWith('.json')) continue;
+    if (entry.name === HUMAN_REVIEW_DECISIONS_FILENAME) continue; // human-review decisions, not a starter-override row file
     const payload = JSON.parse(await readFile(path.join(manualDir, entry.name), 'utf8'));
     const items = Array.isArray(payload) ? payload : payload.players || payload.rows || [];
     for (const item of items) {
@@ -205,6 +207,81 @@ function mergeStarterRows(rows) {
     if (row.role === 'manual_projection') existing.role = row.role;
   }
   return [...byPlayer.values()];
+}
+
+// ── HUMAN REVIEW DECISIONS (persisted overrides that survive snapshot regeneration) ──────────
+// Stable key shared by dedupe merging above and by the Human Review approve/reject flow so a
+// decision recorded today keeps matching the same player/team/position across regenerations.
+export function starterRowKey(row) {
+  return `${row.team}|${String(row.player_name).toLowerCase()}|${row.position || ''}`;
+}
+
+function humanReviewDecisionsPath(manualDir) {
+  return path.join(manualDir, HUMAN_REVIEW_DECISIONS_FILENAME);
+}
+
+// Load recorded approve/reject decisions for a manual directory. Returns a Map keyed by
+// starterRowKey() -> { decision: 'approved'|'rejected', decided_at, team, player_name, position }.
+export async function loadHumanReviewDecisions(manualDir) {
+  try {
+    const raw = await readFile(humanReviewDecisionsPath(manualDir), 'utf8');
+    const payload = JSON.parse(raw);
+    const entries = Object.entries(payload.decisions || {});
+    return new Map(entries);
+  } catch (err) {
+    if (err.code === 'ENOENT') return new Map();
+    throw err;
+  }
+}
+
+// Record one or more human-review decisions (approve/reject), merging into whatever is already
+// on disk. Does not touch latest.json directly -- callers should re-run buildProjectedStarters()
+// afterwards so the snapshot + markdown report are regenerated honoring the new decisions.
+export async function recordHumanReviewDecisions(manualDir, decisions) {
+  const existing = await loadHumanReviewDecisions(manualDir);
+  const nowStamp = nowIso();
+  for (const d of decisions) {
+    const team = getTeamAbbreviation(d.team) || d.team;
+    const row = { team, player_name: d.player_name, position: d.position || '' };
+    const key = starterRowKey(row);
+    if (d.decision !== 'approved' && d.decision !== 'rejected') {
+      throw new Error(`Invalid decision "${d.decision}" for ${d.player_name} (must be "approved" or "rejected")`);
+    }
+    existing.set(key, {
+      decision: d.decision,
+      decided_at: nowStamp,
+      team,
+      player_name: d.player_name,
+      position: d.position || '',
+    });
+  }
+  await mkdir(manualDir, { recursive: true });
+  const payload = {
+    schema: 'human_review_decisions_v1',
+    updated_at: nowStamp,
+    decisions: Object.fromEntries(existing),
+  };
+  await writeFile(humanReviewDecisionsPath(manualDir), `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
+  return existing;
+}
+
+// Apply recorded decisions to a merged player-row list: an "approved" player is cleared out of
+// the review queue (needs_human_review forced false) and a "rejected" player is dropped from the
+// snapshot's players array entirely so it stops appearing as an active starter.
+export function applyHumanReviewDecisions(players, decisionsMap) {
+  if (!decisionsMap || decisionsMap.size === 0) return players;
+  const kept = [];
+  for (const row of players) {
+    const decision = decisionsMap.get(starterRowKey(row));
+    if (decision?.decision === 'rejected') continue; // excluded from the snapshot entirely
+    if (decision?.decision === 'approved') {
+      row.needs_human_review = false;
+      row.human_review_decision = 'approved';
+      row.human_review_decided_at = decision.decided_at;
+    }
+    kept.push(row);
+  }
+  return kept;
 }
 
 function buildTeams(rows, namedReviews = []) {
@@ -283,6 +360,27 @@ function renderMarkdown(snapshot) {
     lines.push(`| ${team.team} | ${team.coverage_status} | ${team.players.length} | ${team.missing.join('; ')} |`);
   }
 
+  const reviewPlayers = Object.values(snapshot.teams)
+    .flatMap((team) => team.players.filter((p) => p.needs_human_review))
+    .sort((a, b) => (a.team < b.team ? -1 : a.team > b.team ? 1 : 0));
+
+  lines.push('', '## \u26a0 Needs Human Review', '');
+  if (!reviewPlayers.length) {
+    lines.push('None -- every current signal is high-confidence.', '');
+  } else {
+    lines.push(
+      `${reviewPlayers.length} player(s) flagged for review -- usually a single-week usage sample ` +
+      '(RB/WR/TE committee) rather than a confirmed depth-chart entry. Spot-check before leaning on these.',
+      ''
+    );
+    lines.push('| Team | Player | Pos | Role | Confidence | Why flagged |', '|---|---|---|---|---:|---|');
+    for (const p of reviewPlayers) {
+      const why = p.sources?.[0]?.evidence || p.evidence_tags?.join(', ') || '';
+      lines.push(`| ${p.team} | ${p.player_name} | ${p.position || 'UNK'} | ${p.role} | ${p.starter_confidence} | ${why} |`);
+    }
+    lines.push('');
+  }
+
   lines.push('', '## Named Status Review Gate', '');
   for (const review of snapshot.named_status_reviews || []) {
     lines.push(`- ${review.expected_team} ${review.player_name}: ${review.review_status}; synthesis eligible ${review.eligible_for_synthesis ? 'yes' : 'no'}`);
@@ -324,7 +422,9 @@ export async function buildProjectedStarters(options = {}) {
     .map(starterSignalFromEvent)
     .filter(Boolean);
   const eligibleManualRows = manualRows.filter((row) => namedReviewIndex.get(String(row.player_name || '').toLowerCase())?.eligible_for_synthesis !== false);
-  const players = mergeStarterRows([...eligibleManualRows, ...estimatedRows]);
+  const mergedStarterRows = mergeStarterRows([...eligibleManualRows, ...estimatedRows]);
+  const humanReviewDecisions = await loadHumanReviewDecisions(manualDir);
+  const players = applyHumanReviewDecisions(mergedStarterRows, humanReviewDecisions);
   const teams = buildTeams(players, namedStatusReview.cases || []);
   const snapshot = {
     meta: {
@@ -337,6 +437,8 @@ export async function buildProjectedStarters(options = {}) {
       eligible_manual_row_count: eligibleManualRows.length,
       estimated_row_count: estimatedRows.length,
       withheld_named_manual_row_count: manualRows.length - eligibleManualRows.length,
+      human_review_approved_count: [...humanReviewDecisions.values()].filter((d) => d.decision === 'approved').length,
+      human_review_rejected_count: [...humanReviewDecisions.values()].filter((d) => d.decision === 'rejected').length,
       teams_with_signals: Object.values(teams).filter((team) => team.players.length).length,
       teams_needing_manual_depth_chart: Object.values(teams).filter((team) => !team.known.length).length,
       named_status_review_validation: namedReviewValidation,
