@@ -309,6 +309,127 @@ async function deleteProjectedPlayoffs(supabase, year) {
   }
 }
 
+// ─── Live odds enrichment (Supabase odds_snapshots, refreshed every 4h) ─────
+// DS-FIX 2026-09-15: schedule-ingest previously only used ESPN's bundled
+// comp.odds[0] snapshot, refreshed weekly (Tuesdays) — up to 6+ days stale
+// by the time Andy builds his card. agents/odds-ingest.js polls TheOddsAPI
+// (including Bookmaker.eu, Andy's actual book) every 4h into odds_snapshots.
+// This overlay prefers that live data, falling back to the ESPN snapshot
+// only when no live match exists (e.g. odds-ingest hasn't run yet, or a
+// game genuinely has no market coverage from any tracked book).
+const PREFERRED_BOOK_ORDER = [
+  'bookmaker', 'draftkings', 'fanduel', 'betmgm',
+  'caesars', 'betonline', 'pointsbet', 'unibet',
+];
+
+async function fetchLatestOddsSnapshot(supabase) {
+  if (!supabase) return null;
+  const { data, error } = await supabase
+    .from('odds_snapshots')
+    .select('fetched_at, games')
+    .order('fetched_at', { ascending: false })
+    .limit(1)
+    .single();
+
+  if (error) {
+    console.warn(`  Live odds snapshot fetch failed — falling back to ESPN odds: ${error.message}`);
+    return null;
+  }
+  return data;
+}
+
+function roundToHalf(n) {
+  return Math.round(n * 2) / 2;
+}
+
+function buildLiveOddsMap(snapshot) {
+  const map = new Map();
+  if (!snapshot?.games) return map;
+
+  for (const game of snapshot.games) {
+    const homeCanonical = normalizeTeam(game.home_team) || game.home_team;
+    const awayCanonical = normalizeTeam(game.away_team) || game.away_team;
+    if (!homeCanonical || !awayCanonical) continue;
+
+    let spread = null;
+    let total = null;
+    let sourceBook = null;
+
+    for (const bookKey of PREFERRED_BOOK_ORDER) {
+      const book = game.bookmakers?.[bookKey];
+      if (!book) continue;
+      const homeLine = book.markets?.spread?.home_line;
+      const totalLine = book.markets?.total?.line;
+      if (spread === null && homeLine != null) {
+        spread = homeLine;
+        sourceBook = sourceBook || bookKey;
+      }
+      if (total === null && totalLine != null) {
+        total = totalLine;
+        sourceBook = sourceBook || bookKey;
+      }
+      if (spread !== null && total !== null) break;
+    }
+
+    // Fallback: average whatever books are present if the preferred order
+    // still left a gap (e.g. Bookmaker.eu posted a total but not a spread).
+    if (spread === null || total === null) {
+      const spreads = [];
+      const totals = [];
+      for (const book of Object.values(game.bookmakers || {})) {
+        const hl = book?.markets?.spread?.home_line;
+        const tl = book?.markets?.total?.line;
+        if (hl != null) spreads.push(hl);
+        if (tl != null) totals.push(tl);
+      }
+      if (spread === null && spreads.length) {
+        spread = roundToHalf(spreads.reduce((a, b) => a + b, 0) / spreads.length);
+        sourceBook = sourceBook || 'consensus';
+      }
+      if (total === null && totals.length) {
+        total = roundToHalf(totals.reduce((a, b) => a + b, 0) / totals.length);
+        sourceBook = sourceBook || 'consensus';
+      }
+    }
+
+    if (spread === null && total === null) continue;
+
+    map.set(`${awayCanonical}|${homeCanonical}`, {
+      spread,
+      total,
+      sourceBook: sourceBook || 'unknown',
+    });
+  }
+
+  return map;
+}
+
+function applyLiveOdds(rows, liveOddsMap, snapshotFetchedAt) {
+  let applied = 0;
+  let skippedFinal = 0;
+  const missing = [];
+
+  for (const row of rows) {
+    if (row.status === 'post' || row.status === 'STATUS_FINAL') {
+      skippedFinal += 1;
+      continue; // preserve ESPN's closing-line record for completed games
+    }
+    const key = `${row.away_team}|${row.home_team}`;
+    const live = liveOddsMap.get(key);
+    if (live && (live.spread != null || live.total != null)) {
+      if (live.spread != null) row.spread = Number(live.spread);
+      if (live.total != null) row.total = Number(live.total);
+      row.odds_source = live.sourceBook;
+      row.odds_fetched_at = snapshotFetchedAt || null;
+      applied += 1;
+    } else {
+      missing.push(row.game_id);
+    }
+  }
+
+  return { applied, skippedFinal, missing };
+}
+
 function writeScheduleCache(rows) {
   const cacheRows = rows
     .map((r) => ({
@@ -328,6 +449,8 @@ function writeScheduleCache(rows) {
       time: r.time,
       spread: r.spread,
       total: r.total,
+      odds_source: r.odds_source || 'espn',
+      odds_fetched_at: r.odds_fetched_at || null,
     }))
     .sort((a, b) => new Date(a.kickoff_utc) - new Date(b.kickoff_utc));
 
@@ -411,6 +534,21 @@ async function run() {
     console.warn(`  Duplicate IDs: ${validation.duplicateIds.slice(0, 5).join(', ')}`);
   }
 
+  const supabase = buildSupabaseClient();
+
+  const oddsSnapshot = await fetchLatestOddsSnapshot(supabase);
+  const liveOddsMap = buildLiveOddsMap(oddsSnapshot);
+  const oddsResult = applyLiveOdds(allRows, liveOddsMap, oddsSnapshot?.fetched_at);
+  if (oddsSnapshot) {
+    console.log(
+      `  Live odds (odds_snapshots @ ${oddsSnapshot.fetched_at}): applied to ${oddsResult.applied} game(s), ` +
+      `${oddsResult.skippedFinal} already final, ${oddsResult.missing.length} on ESPN fallback` +
+      (oddsResult.missing.length ? ` (${oddsResult.missing.slice(0, 5).join(', ')}${oddsResult.missing.length > 5 ? ', ...' : ''})` : '')
+    );
+  } else {
+    console.log('  No live odds snapshot available — all rows using ESPN bundled odds.');
+  }
+
   writeScheduleCache(allRows);
   console.log(`  Cache updated: ${CACHE_PATH}`);
 
@@ -436,7 +574,6 @@ async function run() {
     return;
   }
 
-  const supabase = buildSupabaseClient();
   if (!supabase) {
     console.log('  Missing SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY: skipping DB upsert.');
     const receiptPath = await writeReceipt({
