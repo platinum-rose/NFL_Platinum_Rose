@@ -92,3 +92,23 @@ dist-verify-*/
 # quirk on the Windows-bridged sandbox filesystem, 2026-08-16) — ignored here so
 # they stop showing as noise in `git status` until that's resolved natively.
 data/research-intel/reacquisition/_TEST_*
+
+# Throwaway probe/check scripts accumulated across agent sessions (2026-09-15 git triage).
+# The files themselves were left on disk (deletes are blocked on the Windows-bridged
+# sandbox filesystem); these patterns only stop them cluttering `git status`.
+# Repo root: one-off *_tmp probes and ad hoc Supabase row-count checks.
+/*_tmp.mjs
+/*_tmp.py
+/scripts_tmp_*.mjs
+/c3.mjs
+/c4.mjs
+# scripts/: underscore-prefixed probe and temp verification scripts.
+scripts/_probe_*
+scripts/_tmp_*
+scripts/_priority_host_summary_runner.mjs
+# scratch/: temp probes only. scratch/ also holds canonical research corpus files
+# (*_master_100percent_exhaustive.md etc.), so it is NOT ignored wholesale.
+scratch/_*_tmp*
+scratch/_tmp_*
+scratch/*_tmp.mjs
+scratch/*-tmp*.mjs
