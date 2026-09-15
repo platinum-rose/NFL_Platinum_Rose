@@ -39,7 +39,18 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = SCRIPT_DIR.parent
 OUTPUT_DIR = PROJECT_ROOT / "data" / "vault-seed" / "nflverse"
 
-DEFAULT_YEARS: list[int] = [2022, 2023, 2024, 2025]
+def _current_nfl_season(today: datetime | None = None) -> int:
+    """NFL seasons are named for the year they kick off in (Sept-Feb).
+    Before March, we're still inside the prior season year's playoffs/offseason
+    lull, so treat Jan/Feb as belonging to the season that started the previous
+    September. This keeps DEFAULT_YEARS current without a hardcoded season list
+    that goes stale every year (see: this list stopping at 2025 mid-2026-season)."""
+    now = today or datetime.now(timezone.utc)
+    return now.year if now.month >= 3 else now.year - 1
+
+
+DEFAULT_YEARS: list[int] = [2022, 2023, 2024, 2025, _current_nfl_season()]
+DEFAULT_YEARS = sorted(set(DEFAULT_YEARS))
 FRESHNESS_DAYS: int = 7  # skip re-download if file modified within this many days
 
 # ---------------------------------------------------------------------------
