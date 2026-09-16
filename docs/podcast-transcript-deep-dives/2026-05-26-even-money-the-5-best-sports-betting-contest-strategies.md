@@ -7,8 +7,8 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 ## Speaker Map
 
 - A: Ross Tucker
+- C: Steve Fezzik
 - B: Guest
-- C: Guest
 
 ## Expected Participants
 
@@ -26,7 +26,7 @@ Generated offline from the M6 diarized transcript export. No model/API calls.
 
 ### 1. Total (0:08-1:22)
 
-Speakers: Guest (Speaker B), Guest (Speaker C)
+Speakers: Guest (Speaker B), Steve Fezzik (Speaker C)
 
 Topics: Total
 
@@ -44,21 +44,21 @@ Summary: No firm pick surfaced in this beat; it is mostly context around Total. 
 
 Mindset / reasoning clues:
   - Guest (Speaker B): If you like to make your NFL games a little bit more interesting, you've come to the right place.
-  - Guest (Speaker C): Today, though, a lot of you are going to love it is Steve's contest commandments.
+  - Steve Fezzik (Speaker C): Today, though, a lot of you are going to love it is Steve's contest commandments.
 
 Betting language / picks:
-  - Guest (Speaker C): We win like every year and certainly over time we definitely win.
-  - Guest (Speaker C): We'll get into more of that over the course of the off season.
-  - Guest (Speaker C): It is the Even Money Betting podcast, the number one NFL betting podcast in the world.
+  - Steve Fezzik (Speaker C): We win like every year and certainly over time we definitely win.
+  - Steve Fezzik (Speaker C): We'll get into more of that over the course of the off season.
+  - Steve Fezzik (Speaker C): It is the Even Money Betting podcast, the number one NFL betting podcast in the world.
 
 Representative lines:
-  - Guest (Speaker C): There's a lot of public contests out there for football season.
+  - Steve Fezzik (Speaker C): There's a lot of public contests out there for football season.
   - Guest (Speaker B): It's the Even Money Podcast with Ross Tucker and Steve Pezyk.
-  - Guest (Speaker C): Everybody's got their full squad mini camps next week.
+  - Steve Fezzik (Speaker C): Everybody's got their full squad mini camps next week.
 
 ### 2. Eagles / Total (1:22-2:41)
 
-Speakers: Guest (Speaker C)
+Speakers: Steve Fezzik (Speaker C)
 
 Topics: Eagles, Total
 
@@ -75,22 +75,22 @@ Current market: No current public-line snapshot loaded for this matchup.
 Summary: No firm pick surfaced in this beat; it is mostly context around Eagles, Total. Rationale themes: market price/line movement, injury and availability, offensive personnel.
 
 Mindset / reasoning clues:
-  - Guest (Speaker C): If there's someone that's better, we would love to have them on the show.
-  - Guest (Speaker C): We would love to hear about him.
+  - Steve Fezzik (Speaker C): If there's someone that's better, we would love to have them on the show.
+  - Steve Fezzik (Speaker C): We would love to hear about him.
 
 Betting language / picks:
-  - Guest (Speaker C): We happen to have the guy that, as far as I know, is the best publicly available contest participant over the last 30 years.
-  - Guest (Speaker C): Got a little over two months to enjoy.
-  - Guest (Speaker C): There's a number of imposters trying to profit off of his name, off of his success.
+  - Steve Fezzik (Speaker C): We happen to have the guy that, as far as I know, is the best publicly available contest participant over the last 30 years.
+  - Steve Fezzik (Speaker C): Got a little over two months to enjoy.
+  - Steve Fezzik (Speaker C): There's a number of imposters trying to profit off of his name, off of his success.
 
 Representative lines:
-  - Guest (Speaker C): Before the grind starts with the Eagles first preseason game in August.
-  - Guest (Speaker C): I'm at Ross Tucker NFL, the former NFL offensive lineman that now calls games for CBS on television, Westwood One on radio.
-  - Guest (Speaker C): What about the contests that are just amongst your friends or maybe our friends at Splash Sports or what?
+  - Steve Fezzik (Speaker C): Before the grind starts with the Eagles first preseason game in August.
+  - Steve Fezzik (Speaker C): I'm at Ross Tucker NFL, the former NFL offensive lineman that now calls games for CBS on television, Westwood One on radio.
+  - Steve Fezzik (Speaker C): What about the contests that are just amongst your friends or maybe our friends at Splash Sports or what?
 
 ### 3. Draft / Injuries (2:41-3:54)
 
-Speakers: Guest (Speaker C)
+Speakers: Steve Fezzik (Speaker C)
 
 Topics: Draft, Injuries
 
@@ -107,19 +107,19 @@ Current market: No current public-line snapshot loaded for this matchup.
 Summary: No firm pick surfaced in this beat; it is mostly context around Draft, Injuries. Rationale themes: injury and availability.
 
 Mindset / reasoning clues:
-  - Guest (Speaker C): Certainly even like here in Pennsylvania.
+  - Steve Fezzik (Speaker C): Certainly even like here in Pennsylvania.
 
 Betting language / picks:
   - None pulled.
 
 Representative lines:
-  - Guest (Speaker C): Crazy interesting to hear from Will Levis, his mom, Beth Levis the last couple days with what she's doing during Mental health awareness Month, how her kids, including will have been affected.
-  - Guest (Speaker C): Steve, before we get into your commandments, before we get into, you know, different strategies or what are the different type of contests that are available, what are the most well known contests?
-  - Guest (Speaker C): We're breaking down every draft choice and the Ross Tucker Football Podcast.
+  - Steve Fezzik (Speaker C): Crazy interesting to hear from Will Levis, his mom, Beth Levis the last couple days with what she's doing during Mental health awareness Month, how her kids, including will have been affected.
+  - Steve Fezzik (Speaker C): Steve, before we get into your commandments, before we get into, you know, different strategies or what are the different type of contests that are available, what are the most well known contests?
+  - Steve Fezzik (Speaker C): We're breaking down every draft choice and the Ross Tucker Football Podcast.
 
 ### 4. Raiders / Spread (3:54-5:06)
 
-Speakers: Guest (Speaker C), Ross Tucker (Speaker A)
+Speakers: Steve Fezzik (Speaker C), Ross Tucker (Speaker A)
 
 Topics: Raiders, Spread
 
@@ -147,16 +147,16 @@ Betting language / picks:
 
 Representative lines:
   - Ross Tucker (Speaker A): So obviously I live in Las Vegas, so I'm Vegas centric, but it's.
-  - Guest (Speaker C): I mean there's a lot out there that seems to be one of the most popular ones.
-  - Guest (Speaker C): What, what are the different contests that are available, Steve?
+  - Steve Fezzik (Speaker C): I mean there's a lot out there that seems to be one of the most popular ones.
+  - Steve Fezzik (Speaker C): What, what are the different contests that are available, Steve?
 
 ### 5. Total (5:06-6:21)
 
-Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
+Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker C)
 
 Topics: Total
 
-Conclusion: Guest (Speaker C): Obviously you won the super contest at the Westgate multiple years back to back, and correct me if I'm wrong, but you, you were in the money by a pretty solid margin in both at both circa and the Westgate last year, is that right?
+Conclusion: Steve Fezzik (Speaker C): Obviously you won the super contest at the Westgate multiple years back to back, and correct me if I'm wrong, but you, you were in the money by a pretty solid margin in both at both circa and the Westgate last year, is that right?
 
 Matchup: Not inferred.
 
@@ -173,7 +173,7 @@ Mindset / reasoning clues:
 
 Betting language / picks:
   - Ross Tucker (Speaker A): The Westgate sportsbook has been taken over by Caesars.
-  - Guest (Speaker C): Obviously you won the super contest at the Westgate multiple years back to back, and correct me if I'm wrong, but you, you were in the money by a pretty solid margin in both at both circa and the Westgate last year, is that right?
+  - Steve Fezzik (Speaker C): Obviously you won the super contest at the Westgate multiple years back to back, and correct me if I'm wrong, but you, you were in the money by a pretty solid margin in both at both circa and the Westgate last year, is that right?
 
 Representative lines:
   - Ross Tucker (Speaker A): There are some contests, obviously people trying to make a name, trying to grow a fan base and they just put up a prize pool and it's free for everyone.
@@ -182,7 +182,7 @@ Representative lines:
 
 ### 6. Spread (6:21-7:33)
 
-Speakers: Guest (Speaker C), Ross Tucker (Speaker A)
+Speakers: Steve Fezzik (Speaker C), Ross Tucker (Speaker A)
 
 Topics: Spread
 
@@ -199,11 +199,11 @@ Current market: No current public-line snapshot loaded for this matchup.
 Summary: No firm pick surfaced in this beat; it is mostly context around Spread. Reasoning clue: Ross Tucker (Speaker A) - So because of that it's, it's a lot more attractive. Rationale themes: trend or regression angle.
 
 Mindset / reasoning clues:
-  - Guest (Speaker C): So they do that so that people that do terrible in the first half, like evidently you did still have incentive or still are excited about it 100%.
+  - Steve Fezzik (Speaker C): So they do that so that people that do terrible in the first half, like evidently you did still have incentive or still are excited about it 100%.
   - Ross Tucker (Speaker A): So because of that it's, it's a lot more attractive.
 
 Betting language / picks:
-  - Guest (Speaker C): Like how many, how many games do you pick each week?
+  - Steve Fezzik (Speaker C): Like how many, how many games do you pick each week?
 
 Representative lines:
   - Ross Tucker (Speaker A): That where there's quarterly prizes, there are first half prizes, there are booby prizes for the worst finishers.
@@ -212,7 +212,7 @@ Representative lines:
 
 ### 7. General discussion (7:33-9:24)
 
-Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
+Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker C)
 
 Topics: General
 
@@ -226,12 +226,12 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: The beat is mainly about general football context. Reasoning clue: Guest (Speaker C) - You did horrible in the first half, but then because you won the second half, you won 50,000.
+Summary: The beat is mainly about general football context. Reasoning clue: Steve Fezzik (Speaker C) - You did horrible in the first half, but then because you won the second half, you won 50,000.
 
 Mindset / reasoning clues:
-  - Guest (Speaker C): Okay, so places like Circa and Westgate have, what do they call just the super contest or whatever and you're picking five games a week.
+  - Steve Fezzik (Speaker C): Okay, so places like Circa and Westgate have, what do they call just the super contest or whatever and you're picking five games a week.
   - Ross Tucker (Speaker A): And so people are like, okay, maybe he knows what he's talking about with these contests and you should listen.
-  - Guest (Speaker C): You did horrible in the first half, but then because you won the second half, you won 50,000.
+  - Steve Fezzik (Speaker C): You did horrible in the first half, but then because you won the second half, you won 50,000.
   - Ross Tucker (Speaker A): What could he possibly know that, that these hall of fame bookmakers don't know and he's smoking crack and like he doesn't even have a positive expectation.
   - Ross Tucker (Speaker A): And then after I won like my sixth contest, people said, well, all right, maybe dude has a Point, but there was a period of time where I had a drought.
 
@@ -246,7 +246,7 @@ Representative lines:
 
 ### 8. Spread / Total (9:24-10:37)
 
-Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
+Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker C)
 
 Topics: Spread, Total
 
@@ -273,13 +273,13 @@ Betting language / picks:
   - Ross Tucker (Speaker A): Ross, it's winner take all.
 
 Representative lines:
-  - Guest (Speaker C): I don't remember and correct me if I'm wrong, I don't remember you killing it on this show with our bets every week, the second half of last year, if you remember.
+  - Steve Fezzik (Speaker C): I don't remember and correct me if I'm wrong, I don't remember you killing it on this show with our bets every week, the second half of last year, if you remember.
   - Ross Tucker (Speaker A): But with that luck, the Everyman has a much better chance to go ahead and go all the way and get the big title.
   - Ross Tucker (Speaker A): Although it's very unlikely and it's the most exciting contest.
 
 ### 9. Vikings / Packers / Week 1 (10:37-25:10)
 
-Speakers: Guest (Speaker C), Ross Tucker (Speaker A)
+Speakers: Steve Fezzik (Speaker C), Ross Tucker (Speaker A)
 
 Topics: Vikings, Packers, Week 1, Coaching, Spread
 
@@ -311,12 +311,12 @@ Betting language / picks:
 
 Representative lines:
   - Ross Tucker (Speaker A): I'm sorry, Minnesota's plus one and a half.
-  - Guest (Speaker C): I mean, I know you did well the second half of the year, but not whatever that number you just threw out there.
+  - Steve Fezzik (Speaker C): I mean, I know you did well the second half of the year, but not whatever that number you just threw out there.
   - Ross Tucker (Speaker A): I like them at any spread.
 
 ### 10. Cowboys / Eagles (11:48-12:58)
 
-Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
+Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker C)
 
 Topics: Cowboys, Eagles
 
@@ -342,13 +342,13 @@ Betting language / picks:
   - Ross Tucker (Speaker A): It's all about getting the best of the number.
 
 Representative lines:
-  - Guest (Speaker C): So when your team is staring down third and long crack a cold one, roast responsibly and give a toast to the people who give you the hardest time.
-  - Guest (Speaker C): Summer has officially started in my mind, which means it's even a better time to get some labat beer.
-  - Guest (Speaker C): Man, there's way too many stories I can't escape and just enough roasting to keep things honest.
+  - Steve Fezzik (Speaker C): So when your team is staring down third and long crack a cold one, roast responsibly and give a toast to the people who give you the hardest time.
+  - Steve Fezzik (Speaker C): Summer has officially started in my mind, which means it's even a better time to get some labat beer.
+  - Steve Fezzik (Speaker C): Man, there's way too many stories I can't escape and just enough roasting to keep things honest.
 
 ### 11. Bears / Cowboys / Lions (12:58-13:55)
 
-Speakers: Guest (Speaker C), Ross Tucker (Speaker A)
+Speakers: Steve Fezzik (Speaker C), Ross Tucker (Speaker A)
 
 Topics: Bears, Cowboys, Lions, Packers
 
@@ -373,11 +373,11 @@ Betting language / picks:
 Representative lines:
   - Ross Tucker (Speaker A): Green Bay at the Rams, Chicago at Detroit, Philly at Dallas.
   - Ross Tucker (Speaker A): Well, last year all the favorites lost on Thanksgiving and that was wreaked havoc in survivor.
-  - Guest (Speaker C): All right, so you mentioned specifically Thanksgiving and Christmas.
+  - Steve Fezzik (Speaker C): All right, so you mentioned specifically Thanksgiving and Christmas.
 
 ### 12. Bills / Broncos / Chiefs (13:55-14:54)
 
-Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
+Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker C)
 
 Topics: Bills, Broncos, Chiefs, Steelers
 
@@ -402,15 +402,15 @@ Betting language / picks:
 Representative lines:
   - Ross Tucker (Speaker A): You've got Kansas City at Buffalo, you've got Denver at Pittsburgh.
   - Ross Tucker (Speaker A): None of those spreads are higher than three and a half, which is going to make it very difficult trying to chart your path in terms of which teams you want to save potentially for that weekend.
-  - Guest (Speaker C): them so wait, do you think a lot of people should or will try to save picks, save teams for Thanksgiving and Christmas?
+  - Steve Fezzik (Speaker C): them so wait, do you think a lot of people should or will try to save picks, save teams for Thanksgiving and Christmas?
 
 ### 13. Bears / Bills / Broncos (14:54-16:09)
 
-Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
+Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker C)
 
 Topics: Bears, Bills, Broncos, Rams, Spread, Total, Week 1, Win Totals
 
-Conclusion: Guest (Speaker C): Back the, give me commandment number one.
+Conclusion: Steve Fezzik (Speaker C): Back the, give me commandment number one.
 
 Matchup: Rams vs Broncos
 
@@ -429,18 +429,18 @@ Mindset / reasoning clues:
 Betting language / picks:
   - Ross Tucker (Speaker A): So you know, the only advice I can really give is that the Rams, Denver, Chicago and Buffalo, those four teams, Rams, Denver, Chicago, Buffalo, play early week Thanksgiving and early week Christmas because they have two games.
   - Ross Tucker (Speaker A): Now this seems so simplistic I shouldn't even have to list it, but it's actually my number one commandment because it's remarkable how many people don't do it to the point that we're going to put an over under on the number of people who forget to, to put in their picks.
-  - Guest (Speaker C): Give me the, give me commandment number one.
-  - Guest (Speaker C): He has the five commandments of good contest play in ATS contests.
-  - Guest (Speaker C): By the way, Steve does have a week one best bet that we will get to in a little bit.
+  - Steve Fezzik (Speaker C): Give me the, give me commandment number one.
+  - Steve Fezzik (Speaker C): He has the five commandments of good contest play in ATS contests.
+  - Steve Fezzik (Speaker C): By the way, Steve does have a week one best bet that we will get to in a little bit.
 
 Representative lines:
-  - Guest (Speaker C): But we've got to get to your number one commandment.
+  - Steve Fezzik (Speaker C): But we've got to get to your number one commandment.
   - Ross Tucker (Speaker A): Steve, get your picks in before the deadline.
   - Ross Tucker (Speaker A): That, that's a quick 10,000.
 
 ### 14. General discussion (16:09-18:27)
 
-Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
+Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker C)
 
 Topics: General
 
@@ -466,7 +466,7 @@ Mindset / reasoning clues:
 Betting language / picks:
   - Ross Tucker (Speaker A): So if everybody tied each and every week, everyone would get back an 8% return on investment.
   - Ross Tucker (Speaker A): I can't, I can't, I can't go play the tournament.
-  - Guest (Speaker C): Ooh, okay, what's commandment number two, Steve?
+  - Steve Fezzik (Speaker C): Ooh, okay, what's commandment number two, Steve?
 
 Representative lines:
   - Ross Tucker (Speaker A): Although to be fair, to be fair, I remember there was the poker player Phil Ivey one time entered a $10,000 World Series of Poker tournament and he was playing apparently in some game in Vegas, high level game that was so valuable he's like, oh this is like I should be making 5,000 an hour in this game.
@@ -475,7 +475,7 @@ Representative lines:
 
 ### 15. Injuries (18:27-19:39)
 
-Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
+Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker C)
 
 Topics: Injuries
 
@@ -497,7 +497,7 @@ Mindset / reasoning clues:
 
 Betting language / picks:
   - Ross Tucker (Speaker A): You're firing against stale numbers, mind you, so you can take advantage oftentimes of playing a stale number with late breaking injury information.
-  - Guest (Speaker C): Given that, what is commandment number three?
+  - Steve Fezzik (Speaker C): Given that, what is commandment number three?
   - Ross Tucker (Speaker A): Don't play the Thursday game.
 
 Representative lines:
@@ -507,7 +507,7 @@ Representative lines:
 
 ### 16. Injuries (19:39-20:52)
 
-Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
+Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker C)
 
 Topics: Injuries
 
@@ -532,7 +532,7 @@ Betting language / picks:
   - Ross Tucker (Speaker A): Because then you're just pulling your hair out when the Friday injury reports come out and you have played with incomplete imperfect information and wind up with a bad number.
   - Ross Tucker (Speaker A): Splash sports, you can submit your five picks, but if the game hasn't started, you can go back and change it.
   - Ross Tucker (Speaker A): If a line is minus three and it steams up to minus five, and for contest purposes you can lay minus three, it's poker players have a term.
-  - Guest (Speaker C): Okay, Steve Fesik five commandments of contest strategies commandment number four.
+  - Steve Fezzik (Speaker C): Okay, Steve Fesik five commandments of contest strategies commandment number four.
   - Ross Tucker (Speaker A): If that's the case, you can absolutely play the Thursday game.
 
 Representative lines:
@@ -542,7 +542,7 @@ Representative lines:
 
 ### 17. Week 1 (20:52-22:08)
 
-Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
+Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker C)
 
 Topics: Week 1
 
@@ -575,7 +575,7 @@ Representative lines:
 
 ### 18. General discussion (22:08-23:59)
 
-Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
+Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker C)
 
 Topics: General
 
@@ -589,30 +589,30 @@ Total: Not surfaced.
 
 Current market: No current public-line snapshot loaded for this matchup.
 
-Summary: No firm pick surfaced in this beat; it is mostly context around general football context. Reasoning clue: Guest (Speaker C) - I want to make sure, by the way, everybody knows these next couple months we're going to get to a lot of your email questions, which is super fun because you guys, we get them all. Rationale themes: market price/line movement, offensive personnel.
+Summary: No firm pick surfaced in this beat; it is mostly context around general football context. Reasoning clue: Steve Fezzik (Speaker C) - I want to make sure, by the way, everybody knows these next couple months we're going to get to a lot of your email questions, which is super fun because you guys, we get them all. Rationale themes: market price/line movement, offensive personnel.
 
 Mindset / reasoning clues:
-  - Guest (Speaker C): I want to make sure, by the way, everybody knows these next couple months we're going to get to a lot of your email questions, which is super fun because you guys, we get them all.
+  - Steve Fezzik (Speaker C): I want to make sure, by the way, everybody knows these next couple months we're going to get to a lot of your email questions, which is super fun because you guys, we get them all.
 
 Betting language / picks:
   - Ross Tucker (Speaker A): So if you love a game and you got screwed by the contest and they gave you a bad number, just leave it off.
-  - Guest (Speaker C): But we got to make sure we get to the best bet because we try to do a best bet every week.
-  - Guest (Speaker C): And if you take advantage of any of our sponsors or if you just rate and review the show, we'll put your question at the top of the queue to make sure it gets answered.
-  - Guest (Speaker C): All right, so number one, get your picks in.
+  - Steve Fezzik (Speaker C): But we got to make sure we get to the best bet because we try to do a best bet every week.
+  - Steve Fezzik (Speaker C): And if you take advantage of any of our sponsors or if you just rate and review the show, we'll put your question at the top of the queue to make sure it gets answered.
+  - Steve Fezzik (Speaker C): All right, so number one, get your picks in.
   - Ross Tucker (Speaker A): That's the way to invest in that team rather than take the bad number in the contest.
 
 Representative lines:
   - Ross Tucker (Speaker A): Your contest card and just bet more at DraftKings +3/2 or some other book.
-  - Guest (Speaker C): Number five, rarely correct to play a bad number.
-  - Guest (Speaker C): Number three, you can't play the Thursday game.
+  - Steve Fezzik (Speaker C): Number five, rarely correct to play a bad number.
+  - Steve Fezzik (Speaker C): Number three, you can't play the Thursday game.
 
 ### 19. General discussion (25:10-26:21)
 
-Speakers: Ross Tucker (Speaker A), Guest (Speaker C)
+Speakers: Ross Tucker (Speaker A), Steve Fezzik (Speaker C)
 
 Topics: General
 
-Conclusion: Guest (Speaker C): We'll be back next week with some of your questions.
+Conclusion: Steve Fezzik (Speaker C): We'll be back next week with some of your questions.
 
 Matchup: Not inferred.
 
@@ -630,14 +630,14 @@ Mindset / reasoning clues:
   - Ross Tucker (Speaker A): Ross, Jason Jarvis, this dude I believe I don't have the details.
 
 Betting language / picks:
-  - Guest (Speaker C): We'll be back next week with some of your questions.
+  - Steve Fezzik (Speaker C): We'll be back next week with some of your questions.
   - Ross Tucker (Speaker A): By the way, for those going to the Bet Bash seminar, which I would recommend, I will be on a panel Bet Bash that is the following week.
   - Ross Tucker (Speaker A): Circa millions two of the last three years finished in the top 21 out of 5,000 plus people.
 
 Representative lines:
   - Ross Tucker (Speaker A): So anyone who's listening to Fez saying, well, he did well with these contests, but of course he doesn't bring up someone better.
   - Ross Tucker (Speaker A): So you can incorporate both if you want to come out to Vegas, you, you know, for a full week.
-  - Guest (Speaker C): What you all should do is make sure you're rating and reviewing.
+  - Steve Fezzik (Speaker C): What you all should do is make sure you're rating and reviewing.
 
 ## Extracted Picks From Existing Host Summary Rows
 
