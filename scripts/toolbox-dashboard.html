@@ -463,6 +463,29 @@
     .btn-review-reject { background: #7F1D1D; color: #FCA5A5; border: 1px solid #DC2626; }
     .btn-review-reject:hover { background: #DC2626; color: #FFF; }
 
+    /* Human Review: Excluded (rejected) players panel */
+    .excluded-panel { margin-top: 16px; border: 1px solid #1E293B; border-radius: 8px; background: rgba(15, 23, 42, 0.5); }
+    .excluded-panel-header {
+      width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 10px;
+      background: transparent; border: none; color: #CBD5E1; padding: 10px 12px; cursor: pointer;
+      font-size: 0.78rem; font-weight: 800; text-align: left;
+    }
+    .excluded-panel-header:hover { color: #FFF; }
+    .excluded-panel-caret { font-size: 0.72rem; color: var(--text-muted); }
+    .excluded-panel-body { display: none; padding: 0 12px 12px; }
+    .excluded-panel.is-open .excluded-panel-body { display: block; }
+    .excluded-panel-desc { font-size: 0.7rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 10px; }
+    .excluded-row { border-color: #3F1D1D; }
+    .review-rejected-badge {
+      font-size: 0.62rem; font-weight: 800; padding: 2px 6px; border-radius: 4px;
+      background: rgba(220, 38, 38, 0.12); color: #FCA5A5; border: 1px solid #7F1D1D;
+    }
+    .btn-review-restore {
+      border-radius: 6px; padding: 6px 12px; font-size: 0.72rem; font-weight: 700; cursor: pointer; transition: all 0.15s;
+      background: #1E293B; color: #93C5FD; border: 1px solid #3B82F6;
+    }
+    .btn-review-restore:hover { background: #3B82F6; color: #FFF; }
+
     /* ══════════════════════════════════════════════════════════════
        DOCKABLE PERSISTENT BOTTOM CONSOLE DRAWER
        ══════════════════════════════════════════════════════════════ */
@@ -734,6 +757,17 @@
         </div>
 
         <div class="review-list" id="review-list"></div>
+
+        <div class="excluded-panel" id="excluded-panel">
+          <button type="button" class="excluded-panel-header" onclick="toggleExcludedPanel()" aria-expanded="false" aria-controls="excluded-panel-body" id="excluded-panel-toggle">
+            <span>🚫 Excluded <span id="excluded-count">(…)</span></span>
+            <span class="excluded-panel-caret" id="excluded-panel-caret">⯈</span>
+          </button>
+          <div class="excluded-panel-body" id="excluded-panel-body">
+            <div class="excluded-panel-desc">Players you rejected. They are dropped from every Projected Starters rebuild until restored. Restoring does not approve them: they return as normal candidates and are re-checked for review on the rebuild.</div>
+            <div class="review-list" id="excluded-list"></div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1306,6 +1340,7 @@
         renderReviewQueue();
         const badge = document.getElementById('human-review-count-badge');
         if (badge) badge.textContent = '(' + currentReviewQueue.length + ')';
+        loadExcludedPlayers();
       } catch (e) {
         countLine.textContent = 'Could not load the review queue: ' + e.message;
         listEl.innerHTML = '';
@@ -1386,9 +1421,104 @@
         if (!data.ok) throw new Error(data.error || 'Unknown error');
         currentReviewQueue = data.queue || [];
         renderReviewQueue();
+        if (decisions.some(d => d.decision === 'rejected')) loadExcludedPlayers();
       } catch (e) {
         alert('Could not save that decision: ' + e.message);
         loadHumanReview();
+      }
+    }
+
+    // ── EXCLUDED (REJECTED) PLAYERS PANEL (view + restore) ──
+    let currentExcluded = [];
+
+    function escHtml(v) {
+      return String(v == null ? '' : v).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+    }
+
+    window.toggleExcludedPanel = function() {
+      const panel = document.getElementById('excluded-panel');
+      if (!panel) return;
+      const open = panel.classList.toggle('is-open');
+      document.getElementById('excluded-panel-caret').textContent = open ? '⯆' : '⯈';
+      document.getElementById('excluded-panel-toggle').setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+
+    window.loadExcludedPlayers = async function() {
+      const listEl = document.getElementById('excluded-list');
+      if (!listEl) return;
+      try {
+        const res = await fetch('/api/human-review/excluded');
+        const data = await res.json();
+        if (!data.ok) throw new Error(data.error || 'Unknown error');
+        currentExcluded = data.excluded || [];
+        renderExcludedPlayers();
+      } catch (e) {
+        document.getElementById('excluded-count').textContent = '(?)';
+        listEl.innerHTML = '<div class="review-empty-state">Could not load excluded players: ' + escHtml(e.message) + '</div>';
+      }
+    };
+
+    function formatRejectedAt(iso) {
+      if (!iso) return 'date unknown';
+      const d = new Date(iso);
+      return isNaN(d) ? escHtml(iso) : d.toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+    }
+
+    function renderExcludedPlayers() {
+      const listEl = document.getElementById('excluded-list');
+      document.getElementById('excluded-count').textContent = '(' + currentExcluded.length + ')';
+      if (!currentExcluded.length) {
+        listEl.innerHTML = '<div class="review-empty-state">No excluded players. Anyone you reject will show up here.</div>';
+        return;
+      }
+      listEl.innerHTML = currentExcluded.map(row => {
+        const key = escHtml(row.key);
+        const conf = row.starter_confidence != null ? '<span class="review-conf-badge">' + Math.round(row.starter_confidence * 100) + '% confidence</span>' : '';
+        const context = (row.role ? ('Role: ' + escHtml(row.role) + '. ') : '') + (row.evidence ? escHtml(row.evidence) : '');
+        return '<div class="review-row excluded-row" data-excluded-key="' + key + '">' +
+          '<div class="review-row-main">' +
+            '<div class="review-row-title">' +
+              '<span class="review-team-badge">' + escHtml(row.team) + '</span>' +
+              '<span>' + escHtml(row.player_name) + ' &middot; ' + escHtml(row.position || 'UNK') + '</span>' +
+              '<span class="review-rejected-badge">Rejected ' + formatRejectedAt(row.rejected_at) + '</span>' +
+              conf +
+            '</div>' +
+            (context ? '<div class="review-row-evidence">' + context + '</div>' : '') +
+          '</div>' +
+          '<div class="review-row-actions">' +
+            '<button class="btn-review-restore" data-restore-key="' + key + '">↩ Restore</button>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+    }
+
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-restore-key]');
+      if (!btn) return;
+      e.preventDefault();
+      restoreExcludedPlayer(btn.getAttribute('data-restore-key'));
+    });
+
+    async function restoreExcludedPlayer(key) {
+      const rowEl = [...document.querySelectorAll('[data-excluded-key]')].find(el => el.getAttribute('data-excluded-key') === key);
+      if (rowEl) rowEl.classList.add('is-deciding');
+      try {
+        const res = await fetch('/api/human-review/restore', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ keys: [key] })
+        });
+        const data = await res.json();
+        if (!data.ok) throw new Error(data.error || 'Unknown error');
+        currentExcluded = data.excluded || [];
+        renderExcludedPlayers();
+        currentReviewQueue = data.queue || [];
+        renderReviewQueue();
+        const badge = document.getElementById('human-review-count-badge');
+        if (badge) badge.textContent = '(' + currentReviewQueue.length + ')';
+      } catch (e) {
+        alert('Could not restore that player: ' + e.message);
+        loadExcludedPlayers();
       }
     }
 

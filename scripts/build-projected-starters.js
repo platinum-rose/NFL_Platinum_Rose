@@ -247,13 +247,20 @@ export async function recordHumanReviewDecisions(manualDir, decisions) {
     if (d.decision !== 'approved' && d.decision !== 'rejected') {
       throw new Error(`Invalid decision "${d.decision}" for ${d.player_name} (must be "approved" or "rejected")`);
     }
-    existing.set(key, {
+    const record = {
       decision: d.decision,
       decided_at: nowStamp,
       team,
       player_name: d.player_name,
       position: d.position || '',
-    });
+    };
+    // Optional, display-only snapshot of why the player was flagged, kept on rejects so the
+    // Human Review tab's "Excluded" list can show context after the row leaves latest.json.
+    // applyHumanReviewDecisions() ignores it -- only `decision` / `decided_at` drive the rebuild.
+    if (d.decision === 'rejected' && d.review_context && typeof d.review_context === 'object') {
+      record.review_context = d.review_context;
+    }
+    existing.set(key, record);
   }
   await mkdir(manualDir, { recursive: true });
   const payload = {
@@ -263,6 +270,35 @@ export async function recordHumanReviewDecisions(manualDir, decisions) {
   };
   await writeFile(humanReviewDecisionsPath(manualDir), `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
   return existing;
+}
+
+// Restore previously rejected players by deleting their "rejected" decision entries (keyed by
+// starterRowKey()). This does NOT approve them -- with no decision on file the next rebuild
+// re-evaluates them through the normal needs_human_review heuristic like any other player.
+// Keys that are missing or hold a non-rejected decision are left untouched and reported back.
+export async function restoreRejectedHumanReviewDecisions(manualDir, keys) {
+  const existing = await loadHumanReviewDecisions(manualDir);
+  const restored = [];
+  const skipped = [];
+  for (const key of keys) {
+    const entry = existing.get(key);
+    if (entry?.decision === 'rejected') {
+      existing.delete(key);
+      restored.push({ key, ...entry });
+    } else {
+      skipped.push({ key, reason: entry ? `decision is "${entry.decision}", not "rejected"` : 'no decision on file' });
+    }
+  }
+  if (restored.length) {
+    await mkdir(manualDir, { recursive: true });
+    const payload = {
+      schema: 'human_review_decisions_v1',
+      updated_at: nowIso(),
+      decisions: Object.fromEntries(existing),
+    };
+    await writeFile(humanReviewDecisionsPath(manualDir), `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
+  }
+  return { restored, skipped };
 }
 
 // Apply recorded decisions to a merged player-row list: an "approved" player is cleared out of

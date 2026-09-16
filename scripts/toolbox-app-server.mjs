@@ -25,7 +25,13 @@ import { stat, readFile, writeFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { generateLiveTracker } from './generate-live-tracker.mjs';
-import { buildProjectedStarters, recordHumanReviewDecisions } from './build-projected-starters.js';
+import {
+  buildProjectedStarters,
+  recordHumanReviewDecisions,
+  loadHumanReviewDecisions,
+  restoreRejectedHumanReviewDecisions,
+  starterRowKey
+} from './build-projected-starters.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -945,6 +951,51 @@ async function getHumanReviewQueue() {
   }
 }
 
+const HUMAN_REVIEW_MANUAL_DIR = path.resolve(ROOT, 'data', 'projected-starters', '2026', 'manual');
+
+// Before a reject is recorded the player is still in latest.json, so capture a small
+// display-only context snapshot (role / confidence / evidence) for the Excluded list --
+// once rejected, the rebuild drops the row from latest.json and that context is gone.
+async function attachRejectContext(decisions) {
+  if (!decisions.some((d) => d.decision === 'rejected')) return decisions;
+  let byKey = new Map();
+  try {
+    const snapshot = JSON.parse(await readFile(path.resolve(ROOT, 'data', 'projected-starters', '2026', 'latest.json'), 'utf8'));
+    byKey = new Map((snapshot.players || []).map((p) => [starterRowKey(p), p]));
+  } catch { /* no snapshot: rejects are still recorded, just without context */ }
+  return decisions.map((d) => {
+    if (d.decision !== 'rejected') return d;
+    const p = byKey.get(starterRowKey({ team: d.team, player_name: d.player_name, position: d.position || '' }));
+    if (!p) return d;
+    const row = toReviewRow(p);
+    return { ...d, review_context: { role: row.role || null, starter_confidence: row.starter_confidence ?? null, impact_bucket: row.impact_bucket, evidence: row.evidence } };
+  });
+}
+
+// Rejected players, read straight from human-review-decisions.json (the source of truth the
+// rebuild uses to drop them), shaped for the Human Review tab's Excluded panel.
+async function getExcludedPlayers() {
+  try {
+    const decisions = await loadHumanReviewDecisions(HUMAN_REVIEW_MANUAL_DIR);
+    const excluded = [...decisions.entries()]
+      .filter(([, d]) => d?.decision === 'rejected')
+      .map(([key, d]) => ({
+        key,
+        team: d.team,
+        player_name: d.player_name,
+        position: d.position || 'UNK',
+        rejected_at: d.decided_at || null,
+        role: d.review_context?.role || null,
+        starter_confidence: d.review_context?.starter_confidence ?? null,
+        evidence: d.review_context?.evidence || ''
+      }))
+      .sort((a, b) => String(b.rejected_at || '').localeCompare(String(a.rejected_at || '')) || a.team.localeCompare(b.team) || a.player_name.localeCompare(b.player_name));
+    return { ok: true, count: excluded.length, excluded };
+  } catch (err) {
+    return { ok: false, count: 0, excluded: [], error: `Could not read human-review decisions (${err.message})` };
+  }
+}
+
 // Allowed dev/loopback origins
 const ALLOWED_ORIGINS = new Set([
   'http://localhost:5180',
@@ -1311,8 +1362,8 @@ const server = http.createServer(async (req, res) => {
             throw new Error('Each decision needs team, player_name, and decision of "approved" or "rejected".');
           }
         }
-        const manualDir = path.resolve(ROOT, 'data', 'projected-starters', '2026', 'manual');
-        await recordHumanReviewDecisions(manualDir, decisions);
+        const manualDir = HUMAN_REVIEW_MANUAL_DIR;
+        await recordHumanReviewDecisions(manualDir, await attachRejectContext(decisions));
         const summary = decisions.map((d) => `${d.player_name} (${d.decision})`).join(', ');
         broadcastLog(`\n🧐 Recorded ${decisions.length} human-review decision(s): ${summary}\n`, 'system');
         const { snapshot } = await buildProjectedStarters({});
@@ -1322,6 +1373,55 @@ const server = http.createServer(async (req, res) => {
         res.end(JSON.stringify({ ...payload, applied: decisions.length }));
       } catch (err) {
         broadcastLog(`\n✖ Human review decision failed: ${err.message}\n`, 'system');
+        res.writeHead(400, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ ok: false, error: err.message }));
+      }
+    });
+    return;
+  }
+
+  // 8c. Human Review API — list rejected ("excluded") players from human-review-decisions.json
+  if (req.method === 'GET' && url.pathname === '/api/human-review/excluded') {
+    const payload = await getExcludedPlayers();
+    res.writeHead(payload.ok ? 200 : 500, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(payload));
+    return;
+  }
+
+  // 8d. Human Review API — restore rejected players: delete their "rejected" decision (NOT an
+  //     approval), then rebuild so they re-enter the snapshot and get re-evaluated normally.
+  //     Body: { keys: ["TEAM|name|POS", ...] } or { key } or { team, player_name, position }.
+  if (req.method === 'POST' && url.pathname === '/api/human-review/restore') {
+    let body = '';
+    req.on('data', (chunk) => { body += chunk; });
+    req.on('end', async () => {
+      try {
+        const parsed = JSON.parse(body || '{}');
+        let keys = Array.isArray(parsed.keys) ? parsed.keys : (parsed.key ? [parsed.key] : []);
+        if (!keys.length && parsed.team && parsed.player_name) {
+          keys = [starterRowKey({ team: parsed.team, player_name: parsed.player_name, position: parsed.position || '' })];
+        }
+        keys = keys.filter((k) => typeof k === 'string' && k.includes('|'));
+        if (!keys.length) throw new Error('No players to restore (send keys, key, or team + player_name + position).');
+        const { restored, skipped } = await restoreRejectedHumanReviewDecisions(HUMAN_REVIEW_MANUAL_DIR, keys);
+        if (!restored.length) throw new Error(`Nothing restored: ${skipped.map((s) => `${s.key} (${s.reason})`).join('; ')}`);
+        broadcastLog(`\n↩ Restored ${restored.length} excluded player(s): ${restored.map((r) => r.player_name).join(', ')}\n`, 'system');
+        const { snapshot } = await buildProjectedStarters({});
+        broadcastLog(`✔ Projected Starters snapshot rebuilt (${snapshot.meta.player_count} players; ${snapshot.meta.human_review_approved_count} approved / ${snapshot.meta.human_review_rejected_count} rejected on file).\n`, 'system');
+        const excludedPayload = await getExcludedPlayers();
+        const queuePayload = await getHumanReviewQueue();
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({
+          ok: true,
+          restored: restored.map((r) => ({ key: r.key, team: r.team, player_name: r.player_name, position: r.position })),
+          skipped,
+          count: excludedPayload.count,
+          excluded: excludedPayload.excluded,
+          queueCount: queuePayload.count,
+          queue: queuePayload.queue
+        }));
+      } catch (err) {
+        broadcastLog(`\n✖ Restore excluded player failed: ${err.message}\n`, 'system');
         res.writeHead(400, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ ok: false, error: err.message }));
       }
