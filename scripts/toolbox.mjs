@@ -10,7 +10,7 @@
  *   node scripts/toolbox.mjs                   # Launches interactive menu
  *   node scripts/toolbox.mjs --cadence <day>   # Runs automated pipeline for a specific day
  *   node scripts/toolbox.mjs --generate-tracker [--week <num>]
- *   node scripts/toolbox.mjs --launch-tracker [melbourne|sunday]
+ *   node scripts/toolbox.mjs --launch-tracker
  *   node scripts/toolbox.mjs --reconcile [--dry-run] [--force]
  *   node scripts/toolbox.mjs --status
  *   node scripts/toolbox.mjs --help
@@ -260,26 +260,23 @@ async function interactiveMenu() {
       console.log(`\n${c.cyan}${c.bright}--- LIVE MULTI-GAME TRACKER ---${c.reset}`);
       console.log(`  [1] Compile Sunday Multi-Game Tracker HTML`);
       console.log(`  [2] Launch Sunday Tracker in Browser (public/live-tracker-sunday.html)`);
-      console.log(`  [3] Launch Melbourne Tracker in Browser (public/live-tracker-melbourne.html)`);
-      console.log(`  [4] Test Live ESPN Scoreboard & Boxscore API`);
+      console.log(`  [3] Test Live ESPN Scoreboard & Boxscore API`);
       console.log(`  [0] Back to Main Menu\n`);
 
-      const tChoice = await rl.question(`${c.yellow}Select Option [0-4]: ${c.reset}`);
+      const tChoice = await rl.question(`${c.yellow}Select Option [0-3]: ${c.reset}`);
       if (tChoice === '1') {
         await runCmd('node', ['scripts/generate-live-tracker.mjs', '--week', '1']);
         await rl.question(`\nPress ENTER to continue...`);
       } else if (tChoice === '2') {
         await launchInBrowser('public/live-tracker-sunday.html');
       } else if (tChoice === '3') {
-        await launchInBrowser('public/live-tracker-melbourne.html');
-      } else if (tChoice === '4') {
         await runCmd('node', ['-e', "fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard').then(r=>r.json()).then(d=>console.log('✅ ESPN Connected: ' + (d.events||[]).length + ' games in feed.'))"]);
         await rl.question(`\nPress ENTER to continue...`);
       }
     } else if (choice === '3') {
       console.log(`\n${c.cyan}${c.bright}--- BANKROLL & SETTLEMENT RECONCILIATION ---${c.reset}`);
       console.log(`  [1] Preview Boxscore Reconciliation (Dry Run)`);
-      console.log(`  [2] Force Grade Live In-Progress Stats (Melbourne Preview)`);
+      console.log(`  [2] Force Grade Live In-Progress Stats (Preview)`);
       console.log(`  [3] Commit Final Reconciliation & Update Ledger`);
       console.log(`  [4] Mark Alejandro Ledger as Settled ($0 balance)`);
       console.log(`  [0] Back to Main Menu\n`);
@@ -345,7 +342,7 @@ Usage:
   node scripts/toolbox.mjs                          # Interactive menu
   node scripts/toolbox.mjs --cadence <day>          # tuesday, wednesday, thursday, friday, saturday, sunday, monday
   node scripts/toolbox.mjs --generate-tracker       # Generates public/live-tracker-sunday.html
-  node scripts/toolbox.mjs --launch-tracker [name]  # Launches sunday or melbourne tracker in browser
+  node scripts/toolbox.mjs --launch-tracker         # Launches sunday tracker in browser
   node scripts/toolbox.mjs --reconcile [--dry-run]  # Grades wagers and reconciles split ledger
   node scripts/toolbox.mjs --status                 # Shows portfolio and ledger totals
 `);
@@ -367,8 +364,7 @@ Usage:
 
   const launchIdx = args.indexOf('--launch-tracker');
   if (launchIdx >= 0) {
-    const target = args[launchIdx + 1] === 'melbourne' ? 'public/live-tracker-melbourne.html' : 'public/live-tracker-sunday.html';
-    await launchInBrowser(target);
+    await launchInBrowser('public/live-tracker-sunday.html');
     process.exit(0);
   }
 
