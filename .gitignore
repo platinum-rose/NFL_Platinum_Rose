@@ -112,3 +112,9 @@ scratch/_*_tmp*
 scratch/_tmp_*
 scratch/*_tmp.mjs
 scratch/*-tmp*.mjs
+
+# Personal wager/financial data — never commit
+/data/official-picks/alejandro-ledger-history.json
+/data/official-picks/user-placed-wagers-2026.json
+/public/user-placed-wagers-2026.json
+/data/official-picks/missed-plays-2026.json
