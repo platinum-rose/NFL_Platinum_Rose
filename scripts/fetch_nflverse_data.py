@@ -32,6 +32,16 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
+# Force UTF-8 stdout/stderr regardless of the OS console codepage. Without this,
+# Windows falls back to cp1252 when this script's output is piped (e.g. spawned
+# as a child process by the toolbox), which can't encode the arrows/checkmarks
+# this script prints (-> checkmark X-mark etc. in source) and crashes with
+# UnicodeEncodeError partway through a fetch.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 # ---------------------------------------------------------------------------
 # Output directory (relative to this script's location: scripts/ → project root)
 # ---------------------------------------------------------------------------
