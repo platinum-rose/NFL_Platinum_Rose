@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏈 NFL Operations Mission Control • Weekly Cadence & Repo Command Center</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/favicon.ico" type="image/svg+xml">
+  <style>
+    :root {
+      --bg-main: #0B1120;
+      --bg-card: #151F32;
+      --bg-card-hover: #1C2A44;
+      --border: #273752;
+      --accent-blue: #3B82F6;
+      --accent-green: #10B981;
+      --accent-gold: #F59E0B;
+      --accent-cyan: #38BDF8;
+      --accent-purple: #818CF8;
+      --accent-red: #EF4444;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding: 14px 14px 280px 14px;
+      line-height: 1.4;
+      max-width: 1780px;
+      margin: 0 auto;
+    }
+
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(11, 17, 32, 0.5); }
+    ::-webkit-scrollbar-thumb { background: #273752; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
+
+    /* Top Header */
+    .header {
+      background: linear-gradient(135deg, #131E33 0%, #1A2845 100%);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+    .header-left { display: flex; align-items: center; gap: 14px; }
+    .header-logo { font-size: 1.3rem; font-weight: 900; letter-spacing: 0.5px; color: #FFF; }
+    .pulse-dot {
+      width: 10px; height: 10px; border-radius: 50%; background: var(--accent-green);
+      display: inline-block; animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    .top-badges { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .top-badge {
+      font-size: 0.68rem; font-weight: 800; padding: 3px 9px; border-radius: 6px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .top-badge.season { background: #1E293B; color: #CBD5E1; border: 1px solid #334155; }
+    .top-badge.today { background: #78350F; color: #FDE68A; border: 1px solid #D97706; animation: pulse 2s infinite; }
+    .top-badge.verified { background: #064E3B; color: #A7F3D0; border: 1px solid #059669; }
+
+    /* Top Action Launchers */
+    .top-launchers-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .launcher-btn {
+      background: #1E293B;
+      color: #F8FAFC;
+      border: 1px solid #334155;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .launcher-btn:hover {
+      background: #273752;
+      border-color: var(--accent-blue);
+      transform: translateY(-1px);
+    }
+    .launcher-btn.primary {
+      background: linear-gradient(135deg, #1E3A8A 0%, #1D4ED8 100%);
+      border-color: #3B82F6;
+    }
+    .launcher-btn.primary:hover { background: #2563EB; }
+    .launcher-btn.emerald {
+      background: linear-gradient(135deg, #064E3B 0%, #059669 100%);
+      border-color: #10B981;
+    }
+    .launcher-btn.emerald:hover { background: #10B981; }
+    .launcher-btn.purple {
+      background: linear-gradient(135deg, #312E81 0%, #4F46E5 100%);
+      border-color: #6366F1;
+    }
+    .launcher-btn.purple:hover { background: #4F46E5; }
+
+    /* Instant Cadence Verification Strip */
+    .verification-strip {
+      background: #0F172A;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      margin: 14px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .strip-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .day-strip-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+    .day-strip-pill {
+      background: #1E293B;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #E2E8F0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s;
+    }
+    .day-strip-pill:hover { background: #334155; border-color: var(--accent-blue); }
+    .day-strip-pill.active-today {
+      border-color: var(--accent-gold);
+      background: #2D1A07;
+      color: #FDE68A;
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+    .dot.fresh { background: var(--accent-green); }
+    .dot.stale { background: var(--accent-gold); }
+    .dot.missing { background: var(--accent-red); }
+
+    /* Controls Toolbar */
+    .controls-toolbar {
+      background: #111B2E;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 14px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .filter-group { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .filter-label { font-size: 0.7rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-right: 4px; }
+    .filter-btn {
+      background: #1E293B; color: #CBD5E1; border: 1px solid #334155;
+      padding: 5px 11px; border-radius: 6px; font-size: 0.72rem; font-weight: 600;
+      cursor: pointer; transition: all 0.15s;
+    }
+    .filter-btn:hover { background: #334155; color: #FFF; }
+    .filter-btn.active { background: var(--accent-blue); border-color: #60A5FA; color: #FFF; font-weight: 700; }
+
+    .view-actions { display: flex; align-items: center; gap: 8px; }
+    .action-link-btn {
+      background: transparent; color: var(--text-muted); border: none; font-size: 0.72rem;
+      cursor: pointer; padding: 4px 6px; border-radius: 4px; font-weight: 600;
+    }
+    .action-link-btn:hover { color: #FFF; background: rgba(255,255,255,0.06); }
+
+    /* Sections Container & Cards */
+    .sections-container { display: flex; flex-direction: column; gap: 14px; }
+
+    .section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      transition: all 0.2s ease;
+    }
+    .section-card:hover { border-color: #384F73; }
+    .section-card.is-collapsed .section-body { display: none; }
+    .section-card.is-today-card {
+      border: 2px solid #38BDF8 !important;
+      background: #121F35;
+    }
+
+    .section-header {
+      padding: 12px 18px;
+      background: #182338;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .section-title-wrap { display: flex; align-items: center; gap: 10px; }
+    .section-title { font-size: 0.92rem; font-weight: 800; color: #FFF; display: flex; align-items: center; gap: 10px; }
+    .btn-collapse {
+      background: transparent; border: none; color: var(--text-muted); font-size: 0.85rem;
+      cursor: pointer; padding: 4px 8px; border-radius: 4px;
+    }
+    .btn-collapse:hover { color: #FFF; background: rgba(255,255,255,0.08); }
+
+    .section-body { padding: 16px 18px; }
+    .section-desc { font-size: 0.74rem; color: var(--text-muted); margin-bottom: 14px; }
+
+    /* Cadence Day Tabs */
+    .cadence-tabs-row {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 14px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+    .cadence-day-tab {
+      background: #1E293B;
+      color: #CBD5E1;
+      border: 1px solid #334155;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+    .cadence-day-tab:hover { background: #334155; color: #FFF; }
+    .cadence-day-tab.active { background: #2563EB; border-color: #3B82F6; color: #FFF; font-weight: 700; }
+    .cadence-day-tab.today { border-color: var(--accent-gold); color: #FDE68A; }
+    .cadence-day-tab.today.active { background: #D97706; border-color: #F59E0B; color: #FFF; }
+
+    /* Day Cards Inside Cadence */
+    .cadence-days-container { display: flex; flex-direction: column; gap: 12px; }
+    .cadence-day-card {
+      background: #10192A;
+      border: 1px solid #24344D;
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: all 0.15s;
+    }
+    .cadence-day-card:hover { border-color: #3B82F6; background: #131E33; }
+    .cadence-day-card.today-highlight {
+      border: 2px solid #38BDF8 !important;
+      background: #0E1F38;
+    }
+
+    .card-top-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .card-day-title { font-size: 0.9rem; font-weight: 800; color: #FFF; display: flex; align-items: center; gap: 8px; }
+    .day-status-badge {
+      font-size: 0.65rem; font-weight: 800; padding: 3px 8px; border-radius: 4px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .day-status-badge.fresh { background: #064E3B; color: #6EE7B7; border: 1px solid #059669; }
+    .day-status-badge.stale { background: #78350F; color: #FDE68A; border: 1px solid #D97706; }
+    .day-status-badge.missing { background: #7F1D1D; color: #FCA5A5; border: 1px solid #DC2626; }
+
+    .card-mission-text { font-size: 0.76rem; color: #CBD5E1; line-height: 1.4; }
+
+    /* Deliverables Grid */
+    .deliverables-box {
+      background: #080D18;
+      border: 1px solid #1E293B;
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+    .deliverables-title {
+      font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
+      color: var(--text-muted); letter-spacing: 0.5px; margin-bottom: 6px;
+    }
+    .deliverables-list { display: flex; flex-direction: column; gap: 5px; }
+    .deliverable-item {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.72rem; color: #E2E8F0; padding: 2px 0;
+    }
+    .deliv-path { font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-muted); }
+    .deliv-badge {
+      font-size: 0.62rem; font-weight: 700; padding: 2px 6px; border-radius: 4px;
+    }
+    .deliv-badge.fresh { background: rgba(16, 185, 129, 0.15); color: #34D399; }
+    .deliv-badge.stale { background: rgba(245, 158, 11, 0.15); color: #FBBF24; }
+    .deliv-badge.missing { background: rgba(239, 68, 68, 0.15); color: #F87171; }
+
+    /* Button Grids */
+    .actions-grid {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 10px;
+      align-items: stretch;
+    }
+    @media (max-width: 900px) {
+      .actions-grid { grid-template-columns: 1fr; }
+    }
+
+    .tool-btn {
+      background: #1E293B;
+      color: #F8FAFC;
+      border: 1px solid #334155;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3px;
+      transition: all 0.15s ease;
+      text-align: left;
+    }
+    .tool-btn:hover {
+      background: #273752;
+      border-color: var(--accent-blue);
+      transform: translateY(-1px);
+    }
+    .tool-btn .btn-sub { font-size: 0.65rem; font-weight: normal; color: var(--text-muted); }
+    .tool-btn.primary { background: linear-gradient(135deg, #1E3A8A 0%, #1D4ED8 100%); border-color: #3B82F6; }
+    .tool-btn.primary:hover { background: #2563EB; }
+    .tool-btn.emerald { background: linear-gradient(135deg, #064E3B 0%, #059669 100%); border-color: #10B981; }
+    .tool-btn.emerald:hover { background: #10B981; }
+    .tool-btn.purple { background: linear-gradient(135deg, #312E81 0%, #4F46E5 100%); border-color: #6366F1; }
+    .tool-btn.purple:hover { background: #4F46E5; }
+    .tool-btn.gold { background: linear-gradient(135deg, #78350F 0%, #D97706 100%); border-color: #F59E0B; }
+    .tool-btn.gold:hover { background: #D97706; }
+
+    .subtasks-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+    .sub-task-btn {
+      background: #1A263B;
+      color: #CBD5E1;
+      border: 1px solid #2B3D59;
+      padding: 7px 10px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      transition: all 0.15s;
+      flex: 1;
+      min-width: 140px;
+    }
+    .sub-task-btn:hover { background: #243552; color: #FFF; border-color: var(--accent-cyan); }
+    .sub-task-desc { font-size: 0.62rem; color: var(--text-muted); font-weight: normal; }
+
+    .tool-btn.is-running, .sub-task-btn.is-running {
+      border-color: var(--accent-cyan) !important;
+      background: #0C4A6E !important;
+      color: #E0F2FE !important;
+      animation: pulse 1s infinite;
+    }
+
+    /* Diagnostics Utility Bar */
+    .diagnostics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       DOCKABLE PERSISTENT BOTTOM CONSOLE DRAWER
+       ══════════════════════════════════════════════════════════════ */
+    .bottom-console-drawer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: #060911;
+      border-top: 2px solid var(--border);
+      box-shadow: 0 -8px 25px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+      transition: height 0.25s ease;
+      height: 240px;
+    }
+    .bottom-console-drawer.collapsed {
+      height: 42px;
+    }
+
+    .drawer-top-bar {
+      height: 42px;
+      background: #0F172A;
+      border-bottom: 1px solid #1E293B;
+      padding: 0 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .drawer-status-group { display: flex; align-items: center; gap: 10px; }
+    .status-badge {
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .status-idle { background: #1E293B; color: #94A3B8; }
+    .status-running { background: #1E3A8A; color: #93C5FD; animation: pulse 1s infinite; }
+    .status-completed { background: #064E3B; color: #6EE7B7; }
+    .status-failed { background: #7F1D1D; color: #FCA5A5; }
+
+    .drawer-task-info { font-size: 0.74rem; color: #CBD5E1; display: flex; align-items: center; gap: 8px; }
+    .drawer-log-preview {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: #94A3B8;
+      max-width: 550px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .drawer-controls { display: flex; align-items: center; gap: 6px; }
+    .drawer-btn {
+      background: #1E293B; color: #CBD5E1; border: 1px solid #334155;
+      padding: 4px 9px; border-radius: 4px; font-size: 0.7rem; font-weight: 600;
+      cursor: pointer; transition: all 0.15s; display: flex; align-items: center; gap: 4px;
+    }
+    .drawer-btn:hover { background: #334155; color: #FFF; }
+    .drawer-btn.danger { background: #7F1D1D; border-color: #991B1B; color: #FECACA; }
+    .drawer-btn.danger:hover { background: #991B1B; }
+    .drawer-toggle-btn {
+      background: #2563EB; color: #FFF; border: 1px solid #3B82F6;
+      font-weight: 700;
+    }
+
+    .drawer-body {
+      flex: 1;
+      padding: 12px 16px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: #E2E8F0;
+      line-height: 1.45;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP HEADER & PRIMARY MISSION LAUNCHERS -->
+  <header class="header">
+    <div class="header-left">
+      <span class="pulse-dot"></span>
+      <div style="display:flex; flex-direction:column;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span class="header-logo">🏈 NFL PLATINUM ROSE TOOLBOX</span>
+          <span class="top-badge verified" id="hdr-server-status">● MISSION CONTROL ACTIVE</span>
+        </div>
+        <div class="top-badges" style="margin-top:4px;">
+          <span class="top-badge season">WEEK 1 REGULAR SEASON</span>
+          <span class="top-badge today" id="hdr-today-badge">⚡ TODAY: LOADING...</span>
+          <span style="font-size:0.68rem; color:var(--text-muted);" id="header-datetime">Operational Center</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top-Level Launchers (NFL Dashboard, Trackers, Re-verification) -->
+    <div class="top-launchers-row">
+      <button class="launcher-btn primary" data-task="launch-dashboard" title="Open Main React NFL Dashboard in Browser">
+        <span>🚀 Launch NFL Dashboard</span>
+      </button>
+      <button class="launcher-btn emerald" data-task="launch-gameday" title="Open Live Gameday Multi-Game Tracker in Browser">
+        <span>🏈 Live Gameday Tracker</span>
+      </button>
+      <button class="launcher-btn" id="btn-verify-health" title="Re-Audit All Deliverables and Refresh Health Status">
+        <span>🔄 Verify Health</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- INSTANT CADENCE VERIFICATION STRIP (7-DAY STATUS) -->
+  <div class="verification-strip" id="verification-strip">
+    <div class="strip-label">
+      <span>⚡ WEEKLY CADENCE HEALTH:</span>
+    </div>
+    <div class="day-strip-badges" id="day-strip-badges">
+      <div class="day-strip-pill" id="pill-tuesday" onclick="focusDay('tuesday')">
+        <span class="dot" id="dot-tuesday"></span> Tue: Schedule
+      </div>
+      <div class="day-strip-pill" id="pill-wednesday" onclick="focusDay('wednesday')">
+        <span class="dot" id="dot-wednesday"></span> Wed: Intel
+      </div>
+      <div class="day-strip-pill" id="pill-thursday" onclick="focusDay('thursday')">
+        <span class="dot" id="dot-thursday"></span> Thu: TNF Prep
+      </div>
+      <div class="day-strip-pill" id="pill-friday" onclick="focusDay('friday')">
+        <span class="dot" id="dot-friday"></span> Fri: Alpha Packet
+      </div>
+      <div class="day-strip-pill" id="pill-saturday" onclick="focusDay('saturday')">
+        <span class="dot" id="dot-saturday"></span> Sat: Card Lock
+      </div>
+      <div class="day-strip-pill" id="pill-sunday" onclick="focusDay('sunday')">
+        <span class="dot" id="dot-sunday"></span> Sun: Slate Board
+      </div>
+      <div class="day-strip-pill" id="pill-monday" onclick="focusDay('monday')">
+        <span class="dot" id="dot-monday"></span> Mon: Settlement
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTROLS & FILTER TOOLBAR -->
+  <div class="controls-toolbar">
+    <div class="filter-group">
+      <span class="filter-label">Filter:</span>
+      <button class="filter-btn active" id="cfilter-all" onclick="setCategoryFilter('all')">🌟 All Sections</button>
+      <button class="filter-btn" id="cfilter-cadence" onclick="setCategoryFilter('cadence')">📅 Weekly Cadence</button>
+      <button class="filter-btn" id="cfilter-trackers" onclick="setCategoryFilter('trackers')">🏈 Live Trackers</button>
+      <button class="filter-btn" id="cfilter-diagnostics" onclick="setCategoryFilter('diagnostics')">🔍 Diagnostics & Cloud</button>
+    </div>
+
+    <div class="view-actions">
+      <button class="action-link-btn" onclick="expandAllSections()">⯆ Expand All</button>
+      <span style="color:var(--border);">|</span>
+      <button class="action-link-btn" onclick="collapseAllSections()">⯈ Collapse All</button>
+    </div>
+  </div>
+
+  <!-- MAIN SECTIONS CONTAINER -->
+  <div class="sections-container" id="sections-container">
+
+    <!-- SECTION 1: WEEKLY OPERATING CADENCE -->
+    <div class="section-card" id="section-cadence" data-category="cadence">
+      <div class="section-header" onclick="toggleSectionCollapse('section-cadence')">
+        <div class="section-title-wrap">
+          <div class="section-title">
+            <span>📅 Weekly Operating Cadence</span>
+            <span style="font-size:0.68rem; font-weight:700; color:var(--accent-gold);" id="cadence-header-day-badge">⚡ TODAY</span>
+          </div>
+        </div>
+        <div class="section-controls" onclick="event.stopPropagation()">
+          <button class="btn-collapse" id="btn-collapse-section-cadence" onclick="toggleSectionCollapse('section-cadence')">⯆</button>
+        </div>
+      </div>
+
+      <div class="section-body">
+        <div class="section-desc">Verify daily deliverables, monitor data freshness, and launch automated pipelines or individual subtasks.</div>
+
+        <!-- Cadence Day Filter Tabs -->
+        <div class="cadence-tabs-row" id="cadence-tabs-row">
+          <button class="cadence-day-tab today active" id="tab-day-today" onclick="selectCadenceDay('today')">⚡ Today's Focus (<span id="tab-today-name">Friday</span>)</button>
+          <button class="cadence-day-tab" id="tab-day-all" onclick="selectCadenceDay('all')">📅 All 7 Days</button>
+          <button class="cadence-day-tab" id="tab-day-tuesday" onclick="selectCadenceDay('tuesday')">Tue: Schedule</button>
+          <button class="cadence-day-tab" id="tab-day-wednesday" onclick="selectCadenceDay('wednesday')">Wed: Intel</button>
+          <button class="cadence-day-tab" id="tab-day-thursday" onclick="selectCadenceDay('thursday')">Thu: TNF Prep</button>
+          <button class="cadence-day-tab" id="tab-day-friday" onclick="selectCadenceDay('friday')">Fri: Alpha Packet</button>
+          <button class="cadence-day-tab" id="tab-day-saturday" onclick="selectCadenceDay('saturday')">Sat: Lock &amp; Sync</button>
+          <button class="cadence-day-tab" id="tab-day-sunday" onclick="selectCadenceDay('sunday')">Sun: Gameday</button>
+          <button class="cadence-day-tab" id="tab-day-monday" onclick="selectCadenceDay('monday')">Mon: Settlement</button>
+        </div>
+
+        <!-- Dynamic Cadence Cards Container -->
+        <div class="cadence-days-container" id="cadence-days-container">
+          <!-- Dynamically populated by JS renderCadenceCards() -->
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: LIVE MULTI-GAME TRACKERS -->
+    <div class="section-card" id="section-trackers" data-category="trackers">
+      <div class="section-header" onclick="toggleSectionCollapse('section-trackers')">
+        <div class="section-title-wrap">
+          <div class="section-title">
+            <span>🏈 Live Multi-Game Sunday Trackers</span>
+          </div>
+        </div>
+        <div class="section-controls" onclick="event.stopPropagation()">
+          <button class="btn-collapse" id="btn-collapse-section-trackers" onclick="toggleSectionCollapse('section-trackers')">⯆</button>
+        </div>
+      </div>
+
+      <div class="section-body">
+        <div class="section-desc">Multi-game live tracking boards with automated box score polling, settled card clearing, and ticket creation.</div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:12px;">
+          <div style="background:#0F172A; border:1px solid #1E293B; border-radius:8px; padding:12px; display:flex; flex-direction:column; gap:8px;">
+            <div style="font-size:0.82rem; font-weight:800; color:#FFF;">🏈 Sunday Multi-Game Tracker</div>
+            <div style="font-size:0.72rem; color:var(--text-muted);">Main slate tracker covering Ticket #6 (7-Team Open Parlay) and Sunday wagers.</div>
+            <div style="display:flex; gap:8px; margin-top:4px;">
+              <button class="tool-btn primary" style="flex:1;" data-task="launch-sunday">
+                <span>⚡ Launch Board</span>
+                <span class="btn-sub">Open in browser</span>
+              </button>
+              <button class="tool-btn" style="flex:1;" data-task="compile-sunday">
+                <span>🔄 Compile HTML</span>
+                <span class="btn-sub">Regenerate board</span>
+              </button>
+            </div>
+          </div>
+
+          <div style="background:#0F172A; border:1px solid #1E293B; border-radius:8px; padding:12px; display:flex; flex-direction:column; gap:8px;">
+            <div style="font-size:0.82rem; font-weight:800; color:#FFF;">⚡ Melbourne Kickoff Tracker</div>
+            <div style="font-size:0.72rem; color:var(--text-muted);">Season opener board with finalized game cap and 1-click [🧹 Clear Settled].</div>
+            <div style="display:flex; gap:8px; margin-top:4px;">
+              <button class="tool-btn emerald" style="flex:1;" data-task="launch-melbourne">
+                <span>⚡ Launch Melbourne</span>
+                <span class="btn-sub">Open in browser</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: REPOSITORY DIAGNOSTICS & CLOUD SYNC -->
+    <div class="section-card" id="section-diagnostics" data-category="diagnostics">
+      <div class="section-header" onclick="toggleSectionCollapse('section-diagnostics')">
+        <div class="section-title-wrap">
+          <div class="section-title">
+            <span>🔍 Repository Diagnostics, Feeds & Cloud Sync</span>
+          </div>
+        </div>
+        <div class="section-controls" onclick="event.stopPropagation()">
+          <button class="btn-collapse" id="btn-collapse-section-diagnostics" onclick="toggleSectionCollapse('section-diagnostics')">⯆</button>
+        </div>
+      </div>
+
+      <div class="section-body">
+        <div class="section-desc">Maintain repo health, test external feeds, synchronize live market lines, and sync placed wagers to Supabase.</div>
+
+        <div class="diagnostics-grid">
+          <button class="tool-btn" data-task="smoke-test">
+            <span>🧪 Season Readiness Smoke Test</span>
+            <span class="btn-sub">Audit all data files & schema</span>
+          </button>
+          <button class="tool-btn" data-task="test-espn">
+            <span>🩺 Test ESPN Scoreboard Feed</span>
+            <span class="btn-sub">Verify live API CDN connection</span>
+          </button>
+          <button class="tool-btn" data-task="sync-odds">
+            <span>⚡ Sync Live Market Odds</span>
+            <span class="btn-sub">Update current spreads & CLV</span>
+          </button>
+          <button class="tool-btn emerald" data-task="sync-bankroll">
+            <span>☁️ Sync Bankroll to Supabase</span>
+            <span class="btn-sub">Dual-sync public & cloud table</span>
+          </button>
+          <button class="tool-btn purple" data-task="reconcile-force">
+            <span>⚡ Reconcile Settlement (Force)</span>
+            <span class="btn-sub">Re-grade boxscores & sync</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DOCKED BOTTOM CONSOLE DRAWER -->
+  <div class="bottom-console-drawer" id="bottom-console-drawer">
+    <div class="drawer-top-bar" onclick="toggleConsoleDrawer()">
+      <div class="drawer-status-group">
+        <span class="status-badge status-idle" id="drawer-status-badge">READY</span>
+        <div class="drawer-task-info">
+          <span id="drawer-task-name">Idle</span>
+          <span style="color:var(--border);">|</span>
+          <span id="drawer-elapsed">0.0s</span>
+        </div>
+        <div class="drawer-log-preview" id="drawer-log-preview">Ready for command execution.</div>
+      </div>
+
+      <div class="drawer-controls" onclick="event.stopPropagation()">
+        <label style="font-size:0.68rem; color:var(--text-muted); display:flex; align-items:center; gap:4px; margin-right:6px; cursor:pointer;">
+          <input type="checkbox" id="chk-autoscroll" checked> Auto-scroll
+        </label>
+        <button class="drawer-btn" onclick="clearConsole()" title="Clear Console Log">Clear</button>
+        <button class="drawer-btn" onclick="copyConsole()" title="Copy to Clipboard">Copy</button>
+        <button class="drawer-btn danger" onclick="stopProcess()" title="Stop Active Process">Stop</button>
+        <button class="drawer-btn drawer-toggle-btn" id="btn-toggle-drawer" onclick="toggleConsoleDrawer()">⯆ Collapse</button>
+      </div>
+    </div>
+
+    <div class="drawer-body" id="console-output"></div>
+  </div>
+
+  <!-- CLIENT SCRIPTS -->
+  <script>
+    // State
+    let activeCategoryFilter = 'all';
+    let activeCadenceDayFilter = 'today';
+    let cadenceHealthData = {};
+    let todayDayName = 'friday';
+    let currentlyRunningBtn = null;
+    let currentlyRunningOriginalHtml = '';
+    let eventSource = null;
+
+    // Elements
+    const bottomConsoleDrawer = document.getElementById('bottom-console-drawer');
+    const consoleOutput = document.getElementById('console-output');
+    const drawerStatusBadge = document.getElementById('drawer-status-badge');
+    const drawerTaskName = document.getElementById('drawer-task-name');
+    const drawerElapsed = document.getElementById('drawer-elapsed');
+    const drawerLogPreview = document.getElementById('drawer-log-preview');
+    const btnToggleDrawer = document.getElementById('btn-toggle-drawer');
+    const chkAutoScroll = document.getElementById('chk-autoscroll');
+
+    // Initialize
+    function init() {
+      initClock();
+      initSSE();
+      try { localStorage.removeItem('toolbox_sections_order'); } catch (e) {}
+      fetchStatus();
+      loadCollapsedState();
+      setupEventDelegation();
+    }
+
+    // Live Eastern Time clock
+    function initClock() {
+      const update = () => {
+        const d = new Date();
+        const opts = { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+        const timeStr = d.toLocaleTimeString('en-US', opts);
+        const dayStr = d.toLocaleDateString('en-US', { timeZone: 'America/New_York', weekday: 'short', month: 'short', day: 'numeric' });
+        const hdrEl = document.getElementById('header-datetime');
+        if (hdrEl) hdrEl.textContent = dayStr + ' • ' + timeStr + ' EDT';
+      };
+      update();
+      setInterval(update, 1000);
+    }
+
+    // Event Delegation for All Action Buttons
+    function setupEventDelegation() {
+      document.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-task]');
+        if (btn) {
+          e.preventDefault();
+          e.stopPropagation();
+          const task = btn.getAttribute('data-task');
+          if (task) runTool(task, btn);
+        }
+      });
+
+      const verifyBtn = document.getElementById('btn-verify-health');
+      if (verifyBtn) {
+        verifyBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          fetchStatus();
+        });
+      }
+    }
+
+    // ── CADENCE CARDS RENDERING ──
+    function renderCadenceCards() {
+      const container = document.getElementById('cadence-days-container');
+      if (!container) return;
+      container.innerHTML = '';
+
+      const dayKeys = ['tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'monday'];
+      // Order days with todayDayName first, followed by the remaining days in sequence
+      const orderedDays = [todayDayName, ...dayKeys.filter(d => d !== todayDayName)];
+
+      orderedDays.forEach(dayKey => {
+        const dayData = cadenceHealthData[dayKey];
+        if (!dayData) return;
+
+        const isToday = dayKey === todayDayName;
+        const effectiveTarget = activeCadenceDayFilter === 'today' ? todayDayName : activeCadenceDayFilter;
+        const isVisible = (activeCadenceDayFilter === 'all') || (dayKey === effectiveTarget);
+
+        const card = document.createElement('div');
+        card.className = 'cadence-day-card' + (isToday ? ' today-highlight' : '');
+        card.id = 'cadence-card-' + dayKey;
+        card.setAttribute('data-day', dayKey);
+        card.style.display = isVisible ? 'flex' : 'none';
+
+        // Overall status badge text
+        let badgeClass = 'fresh';
+        let badgeText = '● CURRENT';
+        if (dayData.status === 'missing') {
+          badgeClass = 'missing';
+          badgeText = '✖ MISSING DELIVERABLES';
+        } else if (dayData.status === 'stale') {
+          badgeClass = 'stale';
+          badgeText = '▲ STALE DELIVERABLES';
+        }
+
+        // Deliverables list HTML
+        let delivHtml = '';
+        if (dayData.deliverables && dayData.deliverables.length > 0) {
+          delivHtml = dayData.deliverables.map(d => {
+            const pillClass = d.status;
+            const pillText = d.status === 'missing' ? 'Missing' : (d.status === 'fresh' ? 'Fresh (' + d.relativeTime + ')' : 'Stale (' + d.relativeTime + ')');
+            return '<div class="deliverable-item">' +
+              '<div><strong>' + d.name + '</strong> <span class="deliv-path">(' + d.path + ')</span></div>' +
+              '<span class="deliv-badge ' + pillClass + '">' + pillText + '</span>' +
+            '</div>';
+          }).join('');
+        }
+
+        // Subtasks HTML using clean data-task attribute
+        let subtasksHtml = '';
+        if (dayData.subtasks && dayData.subtasks.length > 0) {
+          subtasksHtml = dayData.subtasks.map(s => {
+            return '<button class="sub-task-btn" data-task="' + s.key + '">' +
+              '<span>' + s.name + '</span>' +
+              '<span class="sub-task-desc">' + s.desc + '</span>' +
+            '</button>';
+          }).join('');
+        }
+
+        const dayTitleClean = dayData.title.split('•')[0].trim();
+
+        card.innerHTML = 
+          '<div class="card-top-row">' +
+            '<div class="card-day-title">' +
+              '<span>' + dayData.title + '</span>' +
+              (isToday ? '<span class="top-badge today">⚡ TODAY\'S ACTIVE PIPELINE</span>' : '') +
+            '</div>' +
+            '<span class="day-status-badge ' + badgeClass + '">' + badgeText + '</span>' +
+          '</div>' +
+          '<div class="card-mission-text">' + dayData.objective + '</div>' +
+          '<div class="deliverables-box">' +
+            '<div class="deliverables-title">Deliverables & Data Artifacts:</div>' +
+            '<div class="deliverables-list">' + delivHtml + '</div>' +
+          '</div>' +
+          '<div class="actions-grid">' +
+            '<button class="tool-btn primary" id="btn-cadence-' + dayKey + '" data-task="' + dayData.pipelineTask + '">' +
+              '<span>▶ Run Full ' + dayTitleClean + ' Pipeline</span>' +
+              '<span class="btn-sub">Execute automated ' + dayTitleClean + ' sequence</span>' +
+            '</button>' +
+            '<div class="subtasks-row">' + subtasksHtml + '</div>' +
+          '</div>';
+
+        container.appendChild(card);
+      });
+    }
+
+    // Update the top 7-day verification strip
+    function updateVerificationStrip() {
+      const dayKeys = ['tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'monday'];
+      dayKeys.forEach(dayKey => {
+        const dayData = cadenceHealthData[dayKey];
+        const dot = document.getElementById('dot-' + dayKey);
+        const pill = document.getElementById('pill-' + dayKey);
+        if (!dayData || !dot || !pill) return;
+
+        dot.className = 'dot ' + dayData.status;
+        if (dayKey === todayDayName) {
+          pill.classList.add('active-today');
+        } else {
+          pill.classList.remove('active-today');
+        }
+      });
+    }
+
+    // Jump / Focus to specific day
+    window.focusDay = function(dayKey) {
+      selectCadenceDay(dayKey);
+      const card = document.getElementById('cadence-card-' + dayKey);
+      if (card) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    };
+
+    // Select cadence day filter tab
+    window.selectCadenceDay = function(dayKey) {
+      activeCadenceDayFilter = dayKey;
+      document.querySelectorAll('.cadence-day-tab').forEach(t => t.classList.remove('active'));
+      const activeTab = document.getElementById('tab-day-' + dayKey);
+      if (activeTab) activeTab.classList.add('active');
+
+      const effectiveTarget = dayKey === 'today' ? todayDayName : dayKey;
+
+      document.querySelectorAll('.cadence-day-card').forEach(c => {
+        if (dayKey === 'all') {
+          c.style.display = 'flex';
+        } else {
+          c.style.display = c.getAttribute('data-day') === effectiveTarget ? 'flex' : 'none';
+        }
+      });
+    };
+
+    // Category filter
+    window.setCategoryFilter = function(category) {
+      activeCategoryFilter = category;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      const btn = document.getElementById('cfilter-' + category);
+      if (btn) btn.classList.add('active');
+
+      document.querySelectorAll('.section-card').forEach(sec => {
+        const cat = sec.getAttribute('data-category');
+        if (category === 'all' || cat === category) {
+          sec.style.display = 'block';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
+    };
+
+    // Section collapse
+    window.toggleSectionCollapse = function(sectionId) {
+      const sec = document.getElementById(sectionId);
+      if (!sec) return;
+      sec.classList.toggle('is-collapsed');
+      const isCollapsed = sec.classList.contains('is-collapsed');
+      const btn = document.getElementById('btn-collapse-' + sectionId);
+      if (btn) btn.textContent = isCollapsed ? '⯈' : '⯆';
+      saveCollapsedState();
+    };
+
+    window.expandAllSections = function() {
+      document.querySelectorAll('.section-card').forEach(sec => {
+        sec.classList.remove('is-collapsed');
+        const btn = sec.querySelector('.btn-collapse');
+        if (btn) btn.textContent = '⯆';
+      });
+      saveCollapsedState();
+    };
+
+    window.collapseAllSections = function() {
+      document.querySelectorAll('.section-card').forEach(sec => {
+        sec.classList.add('is-collapsed');
+        const btn = sec.querySelector('.btn-collapse');
+        if (btn) btn.textContent = '⯈';
+      });
+      saveCollapsedState();
+    };
+
+    function saveCollapsedState() {
+      const state = {};
+      document.querySelectorAll('.section-card').forEach(sec => {
+        state[sec.id] = sec.classList.contains('is-collapsed');
+      });
+      localStorage.setItem('toolbox_sections_collapsed', JSON.stringify(state));
+    }
+
+    function loadCollapsedState() {
+      try {
+        const raw = localStorage.getItem('toolbox_sections_collapsed');
+        if (!raw) return;
+        const state = JSON.parse(raw);
+        for (const [id, isCollapsed] of Object.entries(state)) {
+          const sec = document.getElementById(id);
+          if (sec && isCollapsed) {
+            sec.classList.add('is-collapsed');
+            const btn = document.getElementById('btn-collapse-' + id);
+            if (btn) btn.textContent = '⯈';
+          }
+        }
+      } catch (e) {}
+    }
+
+
+    // ── BOTTOM CONSOLE DRAWER LOGIC ──
+    window.toggleConsoleDrawer = function() {
+      bottomConsoleDrawer.classList.toggle('collapsed');
+      const isCollapsed = bottomConsoleDrawer.classList.contains('collapsed');
+      btnToggleDrawer.textContent = isCollapsed ? '⯅ Console' : '⯆ Collapse';
+    };
+
+    function openConsoleDrawer() {
+      bottomConsoleDrawer.classList.remove('collapsed');
+      btnToggleDrawer.textContent = '⯆ Collapse';
+    }
+
+    // ── SSE REAL-TIME LOG STREAMING ──
+    function initSSE() {
+      if (eventSource) eventSource.close();
+      eventSource = new EventSource('/api/stream');
+
+      eventSource.onmessage = (event) => {
+        try {
+          const msg = JSON.parse(event.data);
+          if (msg.type === 'stdout' || msg.type === 'stderr' || msg.type === 'system') {
+            appendLog(msg.data);
+          } else if (msg.type === 'status') {
+            updateStatusBadge(msg.status, msg.task, msg.elapsed, msg.exitCode);
+            if (msg.status === 'completed' || msg.status === 'failed') {
+              fetchStatus();
+            }
+          }
+        } catch (e) {
+          console.error('SSE Error:', e);
+        }
+      };
+
+      eventSource.onerror = () => {
+        setTimeout(initSSE, 3000);
+      };
+    }
+
+    function appendLog(text) {
+      const clean = text.replace(/\x1b\[[0-9;]*m/g, '');
+      consoleOutput.innerHTML += clean;
+
+      const stripped = clean.replace(/<[^>]*>/g, '').trim();
+      if (stripped) {
+        const lines = stripped.split(/\r?\n/);
+        drawerLogPreview.textContent = lines[lines.length - 1] || 'Running...';
+      }
+
+      if (chkAutoScroll.checked) {
+        consoleOutput.scrollTop = consoleOutput.scrollHeight;
+      }
+    }
+
+    function updateStatusBadge(status, task, elapsed, exitCode) {
+      drawerStatusBadge.className = 'status-badge status-' + status;
+      drawerStatusBadge.textContent = status.toUpperCase();
+      if (elapsed) drawerElapsed.textContent = elapsed + 's';
+      if (task) drawerTaskName.textContent = '• ' + task;
+      else drawerTaskName.textContent = 'Ready';
+
+      if (status === 'running') {
+        openConsoleDrawer();
+      } else if (status === 'completed' || status === 'failed') {
+        resetRunningButton(exitCode === 0);
+      }
+    }
+
+    window.clearConsole = function() {
+      consoleOutput.innerHTML = '';
+      drawerLogPreview.textContent = 'Console cleared.';
+    };
+
+    window.copyConsole = function() {
+      navigator.clipboard.writeText(consoleOutput.textContent);
+      alert('Console log copied to clipboard!');
+    };
+
+    // ── TOOL EXECUTION ──
+    window.runTool = async function(taskKey, btnElement = null) {
+      let preOpenedWindow = null;
+      if (taskKey.startsWith('launch-')) {
+        // Pre-open blank tab synchronously in user gesture context to avoid popup blocker
+        try {
+          preOpenedWindow = window.open('about:blank', '_blank');
+        } catch (e) {
+          console.warn('Could not pre-open window:', e);
+        }
+      }
+
+      if (btnElement) {
+        currentlyRunningBtn = btnElement;
+        currentlyRunningOriginalHtml = btnElement.innerHTML;
+        btnElement.classList.add('is-running');
+        btnElement.innerHTML = '<span>⏳ ' + (taskKey.startsWith('launch-') ? 'Launching ' : 'Running ') + taskKey + '...</span><span class="btn-sub">' + (taskKey.startsWith('launch-') ? 'Opening in browser' : 'Executing in background') + '</span>';
+      }
+
+      openConsoleDrawer();
+      appendLog('<br>=======================================================<br>');
+      updateStatusBadge('running', taskKey, 0);
+
+      try {
+        const res = await fetch('/api/run', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ task: taskKey })
+        });
+        const data = await res.json();
+        if (!data.ok) {
+          if (preOpenedWindow && !preOpenedWindow.closed) {
+            preOpenedWindow.close();
+          }
+          appendLog('<br>❌ ' + data.error + '<br>');
+          updateStatusBadge('failed', taskKey, 0);
+          resetRunningButton(false);
+        } else if (taskKey.startsWith('launch-')) {
+          resetRunningButton(true);
+          const fallbackUrl = (taskKey === 'launch-dashboard')
+            ? 'http://localhost:5180/platinum-rose-app/'
+            : (taskKey === 'launch-melbourne' ? 'http://127.0.0.1:4567/public/live-tracker-melbourne.html' : 'http://localhost:5180/live-tracker-sunday.html?tab=supercontest');
+          const targetUrl = data.url || fallbackUrl;
+
+          if (preOpenedWindow && !preOpenedWindow.closed) {
+            preOpenedWindow.location.href = targetUrl;
+          } else {
+            window.open(targetUrl, '_blank');
+          }
+          appendLog('<br>🌐 Launched tab: <a href="' + targetUrl + '" target="_blank" style="color:var(--accent-cyan);text-decoration:underline;font-weight:bold;">' + targetUrl + '</a><br>');
+        }
+      } catch (err) {
+        if (preOpenedWindow && !preOpenedWindow.closed) {
+          preOpenedWindow.close();
+        }
+        appendLog('<br>❌ Fetch error: ' + err.message + '<br>');
+        updateStatusBadge('failed', taskKey, 0);
+        resetRunningButton(false);
+      }
+    };
+
+    function resetRunningButton(success = true) {
+      if (currentlyRunningBtn) {
+        currentlyRunningBtn.classList.remove('is-running');
+        if (success) {
+          currentlyRunningBtn.innerHTML = '<span>✔ Completed!</span><span class="btn-sub">Success</span>';
+        } else {
+          currentlyRunningBtn.innerHTML = '<span>✖ Failed</span><span class="btn-sub">Check console output</span>';
+        }
+        const b = currentlyRunningBtn;
+        const orig = currentlyRunningOriginalHtml;
+        setTimeout(() => {
+          b.innerHTML = orig;
+        }, 2200);
+        currentlyRunningBtn = null;
+        currentlyRunningOriginalHtml = '';
+      }
+    }
+
+    window.stopProcess = async function() {
+      await fetch('/api/kill', { method: 'POST' });
+    };
+
+    // Fetch Status & Deliverables Health
+    window.fetchStatus = async function() {
+      try {
+        const res = await fetch('/api/status');
+        const data = await res.json();
+
+        cadenceHealthData = data.cadenceHealth || {};
+        todayDayName = data.todayName || 'friday';
+
+        const upperToday = todayDayName.toUpperCase();
+        const capToday = todayDayName.charAt(0).toUpperCase() + todayDayName.slice(1);
+        const hdrBadge = document.getElementById('hdr-today-badge');
+        if (hdrBadge) hdrBadge.textContent = '⚡ TODAY: ' + upperToday;
+        const cadenceBadge = document.getElementById('cadence-header-day-badge');
+        if (cadenceBadge) cadenceBadge.textContent = '⚡ TODAY: ' + upperToday;
+        const tabTodayName = document.getElementById('tab-today-name');
+        if (tabTodayName) tabTodayName.textContent = capToday;
+
+        renderCadenceCards();
+        updateVerificationStrip();
+        selectCadenceDay(activeCadenceDayFilter);
+      } catch (e) {
+        console.warn('Status poll error:', e);
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
