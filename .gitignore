@@ -42,7 +42,10 @@ playwright-report/
 test-results/
 .playwright/
 # Generated / transient runtime artifacts
-betting_splits.json
+# NOTE: public/betting_splits.json is intentionally tracked (2026-09-16) so the
+# betting-splits-ingest.yml workflow can commit fresh data back to the repo, the
+# same pattern weekly-update.yml uses for public/schedule.json. dist/betting_splits.json
+# stays ignored via the blanket "dist" rule above.
 public/*.bak
 .nfl/session-log.jsonl
 .nfl/reports/

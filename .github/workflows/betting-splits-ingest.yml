@@ -44,7 +44,11 @@ on:
         type: string
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: git-push-main
+  cancel-in-progress: false
 
 jobs:
   betting-splits-ingest:
@@ -76,3 +80,21 @@ jobs:
           if [ "${{ inputs.dump }}" = "true" ]; then ARGS="$ARGS --dump"; fi
           if [ -n "${{ inputs.season }}" ]; then ARGS="$ARGS --season ${{ inputs.season }}"; fi
           node agents/betting-splits-ingest.js $ARGS
+
+      - name: Commit and Push Changes
+        # Skip the commit-back on dry runs / schema-dump runs, which don't write
+        # public/betting_splits.json intentionally (or write nothing meaningful).
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          git config --global user.name "GitHub Action Bot"
+          git config --global user.email "actions@github.com"
+          git add public/betting_splits.json
+          # Only commit and push if the splits file actually changed
+          if ! { git diff --quiet && git diff --staged --quiet; }; then
+            git commit -m "Auto-update betting splits"
+            for i in 1 2 3; do
+              git pull --rebase origin main && git push && break
+              echo "Push attempt $i failed, retrying in $((i * 5))s..."
+              sleep $((i * 5))
+            done
+          fi
