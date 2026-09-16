@@ -40,6 +40,8 @@
 
 - **Bankroll bet ID type mismatch**: Bet IDs are created as `Date.now()` (number) but filtering may use string comparison. Always normalize: `const sids = new Set([...ids].map(String))` and filter with `!sids.has(String(b.id))`.
 
+- **Placed-wager tickets logged outside the master ledger**: `data/official-picks/user-placed-wagers-2026.json` is the SINGLE SOURCE OF TRUTH for every placed real-money/promo wager. On 2026-09-13, 3 Week 1 tickets (1 DraftKings Predictions combo + 2 Bookmaker.eu parlays) were logged into `data/futures-imports/andy-portfolio-ledger-2026.json` (a raw sportsbook-import staging file) instead, and never made it into the master ledger, `public/user-placed-wagers-2026.json`, or Supabase — they sat invisible to grading and the live tracker for days. Rule: a placed wager gets written ONLY to the master ledger, by hand or script. Never write ticket data directly to `public/user-placed-wagers-2026.json` (it's a generated hydration copy), to Supabase `user_bankroll_bets` (it's a sync target), to `data/futures-imports/*` (that's for raw sportsbook account/futures exports, not weekly wager tickets), or to any dashboard HTML. After adding/editing a ticket in the master file, always run `node scripts/sync-placed-wagers-to-bankroll.mjs` (propagates to `public/` + Supabase) and `node scripts/generate-live-tracker.mjs` (rebuilds both tracker HTML copies) — never hand-edit those downstream files.
+
 ---
 
 ## API & Network

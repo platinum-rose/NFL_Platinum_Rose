@@ -93,6 +93,9 @@ SUPABASE_SERVICE_ROLE_KEY      # Bypasses RLS for agent writes
 | `'props'` | `<PropsAgentChat>` — PROPS Tier-1 agent chat (F-8; violet theme, Zap icon) |
 | `'dfs'` | `<DFSOptimizer>` — DraftKings/FanDuel lineup builder (F-7) |
 
+## Placed Wagers Ledger (Manually-Placed Real/Promo Tickets)
+`data/official-picks/user-placed-wagers-2026.json` is the SINGLE SOURCE OF TRUTH for every wager Andy has actually placed at a sportsbook (Bovada, Bookmaker.eu, BetOnline, DraftKings Predictions, etc.) — distinct from `platinum-rose-ai-2026.json` (the AI's own paper-tracked picks). Every new or edited ticket goes into this file ONLY. Never write ticket data directly to `public/user-placed-wagers-2026.json` (a generated hydration copy), the Supabase `user_bankroll_bets` table (a sync target), `data/futures-imports/*` (raw sportsbook account/futures exports — not weekly wager tickets, see `docs/ANTI_PATTERNS.md` Storage & Data), or either live-tracker HTML file. After any change to the master ledger, run `node scripts/sync-placed-wagers-to-bankroll.mjs` to propagate to `public/` + Supabase, then `node scripts/generate-live-tracker.mjs` to rebuild both tracker HTML copies. See `docs/ANTI_PATTERNS.md` for the 2026-09-13 incident where 3 tickets were logged to the wrong file and went untracked for days.
+
 ## localStorage Keys
 All keys are catalogued in `PR_STORAGE_KEYS` in `src/lib/storage.js`. Use `loadFromStorage`/`saveToStorage`/`clearStorage` — never call `localStorage` directly.
 

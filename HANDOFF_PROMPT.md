@@ -1,127 +1,16 @@
-# Resume Prompt - NFL_Dashboard portfolio synthesis pipeline
+# Resume Prompt — Week 1 Intel Refresh, Then Betting Card Synthesis (2026-09-13)
 
-Resume in `E:\dev\projects\NFL_Dashboard`.
+Resume Platinum Rose NFL. Read `handoffs/2026-09-13-0625-claude-frontier-synthesis-week1-intel-handoff.md` in full before touching anything -- it covers three concurrent threads (frontier-synthesis rev-23-followup4 status, a live retroactive `agents/portfolio-synthesize.js` run, and a Week 1 betting-card/intel inventory) plus a deferred Twitter dual-identity extension. This prompt only covers what to do next; the handoff has the full context.
 
-Start by reconciling live state, not memory alone. This prompt was refreshed
-by Claude on 2026-09-08 at session close, following a full round of
-Codex-review triage, three-way reconciliation, and a fresh futures-odds
-ingest.
+## Do this first, in order
 
-## First Reads
+1. **Check Thread 1**: has Codex responded to the `codex_rev23_followup4_status_update.md` sent last session (it declared `READY_FOR_CODEX_REVIEW`)? If yes, verify any findings independently against live code before accepting them, per the standing rule.
+2. **Check Thread 2**: is the retroactive `agents/portfolio-synthesize.js` run (against `dossier-2026-09-09.json`, launched with `--allow-unsafe-preflight` under Andy's explicit authorization) finished? If so, read its output report under `.nfl/portfolio/` and report back to Andy -- it was run with `--no-persist`, so nothing has been written to Supabase yet, and any persistence needs separate authorization.
+3. **Run the Week 1 intel refresh Andy asked for**, before resuming betting-card work:
+   - **BettingPros**: Andy expects Antigravity's tooling to have transcribed/ingested more recent BettingPros episodes than what last session found (`scratch/bettingpros_ep1051...`, `ep1052...`, and a stale/wrong `ep1013`). Check `docs/antigravity/source-inventory-and-freshness-latest.md` (stale as of 2026-08-29) against what's actually in `scratch/*_master_100percent_exhaustive.md` now, and consider requesting a fresh Antigravity discovery/transcription pass using the refresh-request template in `docs/antigravity/CANONICAL_EXTRACTION_PIPELINE.md` if BettingPros coverage of the live 13-game Week 1 slate is still thin.
+   - **Twitter bookmarks**: re-verify `agents/twitter-bookmarks-agent.js`'s actual current recency against Supabase (`research_intel_notes`, source = `Twitter/X Bookmarks (Personal)`) rather than trusting `docs/player-props-intel/platinum-rose-parlays-and-twitter-audit.md`'s own freshness claims at face value -- last session only spot-checked two individual tweets for authenticity, not pipeline-wide current freshness. This is also the natural point to build the Platinum Rose dual-identity extension (Thread 4 in the handoff) if Andy wants it before pulling more Twitter intel.
+   - **Article ingestion**: check whether `data/podcasts/actionable_betting_recommendations_2026.json` (stale since Aug 27, despite 40+ newer master reports in `scratch/` since then) needs a promotion pass, or whether Antigravity needs to be asked to run one.
+4. **Resume Week 1 betting-card synthesis** once the refresh is done. The handoff has the full 13-game slate, the podcast/prop/article/Twitter inventory already collected, and five specific cross-source conflicts (NYJ@TEN, NO@DET, WAS@PHI total, MIA@LV total, ARI@LAC) that need resolving before finalizing picks -- don't re-derive these from scratch, just re-verify anything the refresh pass changes.
 
-- `HANDOFF.md` (read the top "Current Pick Up Here" block first)
-- `WORKING-CONTEXT.md`
-- `handoffs/2026-09-08-2104-claude-session-close-handoff.md` — the fullest
-  account of this session's close; links to everything else below
-- `handoffs/2026-09-08-1322-claude-codex-review-triage-handoff.md`
-- `handoffs/2026-09-08-1335-antigravity-reconciliation-handoff.md`
-- `handoffs/2026-09-08-1336-codex-claude-triage-reconciliation-handoff.md`
-- `handoffs/2026-09-08-1405-antigravity-batch1-exhaustion-handoff.md`
-- `docs/audits/2026-09-08-intel-pipeline-map/PRE_COMMITTEE_CHECKLIST.md`
-- `docs/CODEX_REVIEW_FUTURES_PORTFOLIO_PIPELINE_2026-09-08.md`
-
-Then run:
-
-- `git status --short --branch`
-- `git log -n 8 --oneline --decorate`
-- `node agents/portfolio-preflight.js --json --warn-only` (confirm current
-  BLOCK/WARN/PASS counts match what's documented below before trusting it)
-
-## Current Verified State (as of session close, 2026-09-08 21:04 UTC)
-
-- Branch: `main`
-- HEAD: `0fc6112 chore(futures): add betonline exacta matchup snapshot` — 1
-  commit ahead of `origin/main`. This is **Codex's own commit** (their
-  BetOnline dry-run artifact), stuck locally only because their GitHub
-  token is currently invalid — not a conflict with anything else in flight.
-- Worktree is dirty; preserve it.
-- Nothing was staged, committed, or pushed this session.
-
-## Team Structure (new as of 2026-09-08)
-
-- **Antigravity** owns the podcast+article ingestion pipeline. Already
-  active — Batch 1 landed same day (master-report corpus grew 79 → 83
-  reports, 100% test suite passing, 0 ESLint errors).
-- **Claude** implements changes to the portfolio-synthesis pipeline
-  (`agents/portfolio-dossier.js`, `agents/portfolio-preflight.js`,
-  `agents/portfolio-synthesize.js`, `scripts/lib/dossier-freshness-gate.js`,
-  and related).
-- **Codex** independently reviews and approves Claude's pipeline changes
-  before anything is treated as ready to ship or run for real.
-- Any of the three finding something that conflicts with another's
-  in-flight work gets reconciled via a dated handoff in `handoffs/`, per
-  the pattern set this session — never silently overwritten.
-
-## What Landed This Session (all verified live, nothing assumed)
-
-1. **All 6 findings from Codex's independent pipeline review resolved.**
-   5 fixed outright (master-report pagination + word-boundary alias
-   matching in `loadMasterReportEvidence()`; full preflight gate now
-   enforced inside `portfolio-synthesize.js` via a new
-   `--allow-unsafe-preflight`-overridable check; dead `bettorday_trench`
-   evidence lane removed from `dossier-freshness-gate.js`; stale
-   roster-churn warning text in `portfolio-preflight.js` corrected). The
-   6th (podcast-coverage WARN-vs-BLOCK threshold) was investigated further
-   at Andy's prompt — the denominator was counting non-NFL episodes,
-   corrected via the existing `isNflRelevantEpisode()` filter to
-   **55/128 (43.0%)**, not 56/167 (33.5%); threshold intentionally left at
-   WARN.
-2. **Three-way reconciliation.** Antigravity and Codex each independently
-   verified these fixes against live code and filed their own handoffs —
-   full agreement, nothing reverted or in conflict.
-3. **Fresh BKR + BetUS futures odds ingested** (`docs/Futures_Odds/
-   BKR_Odds_0908`, `BetUS_Odds_0908` → `scripts/parse-futures-text.js` →
-   `scripts/ingest_futures_json.py`, 256 + 480 rows, dry-run verified then
-   written on Andy's explicit go-ahead). `futures_odds_snapshots` now shows
-   `bookmaker`/`betus` at 0.9 days fresh; still BLOCKs overall on `caesars`
-   (10d stale) and `circa` (never captured) — unrelated to this session's
-   code work, needs Andy to source those two books.
-4. **Both planning docs updated in place** to reflect all of the above —
-   `PRE_COMMITTEE_CHECKLIST.md` (new dated banner, 6 new checked-off Stage 0
-   items, Stage 1's odds item marked done, Decision #3 updated) and the
-   spec doc (new Section 8a, Section 9's "what changed" expanded, Section
-   10's gap list corrected, Section 12 records the new team split).
-
-## Live Preflight at Close
-
-```
-3 BLOCK / 8 WARN / 22 PASS, safe_to_run_paid_synthesis: false
-BLOCK lanes:
-  - futures_odds_snapshots: caesars stale (10.0d), circa never captured
-    (bookmaker 0.9d, betus 0.9d, betonline 0.3d, betmgm 0.3d — all fresh)
-  - data/player-availability/latest.json: 26.5d old (preseason limit 14d)
-  - data/prediction-markets/latest.json: 17.0d old (limit 7d)
-```
-
-The two file-freshness BLOCKs are pre-existing, not from this session, and
-not yet explicitly assigned to either Antigravity's new scope or anyone
-else — worth raising with Andy if picking up intel-freshness work.
-
-## Review Stance for the Next Session
-
-If continuing pipeline implementation: pick the next item from
-`PRE_COMMITTEE_CHECKLIST.md` or the spec doc's Section 10 gap list. Top
-open item by the spec doc's own ranking: **Section 5's interpretive/trust
-framing** for `vault_analytical_reads`, `training_camp_intel`, and
-`master_reports` in `SYSTEM_PROMPT` — currently these reach the model as
-raw JSON with zero guidance on how much to trust them relative to price
-action. Confirm with Andy before starting, per this repo's standing
-approval pattern, unless he's already specified the next target.
-
-If reviewing (Codex persona): spot-check the 5 fixes above against current
-`git diff` (all uncommitted), and re-run
-`node agents/portfolio-preflight.js --json --warn-only` plus a
-`--prompt-only --shadow-slim` dry-run to confirm nothing regressed since
-this handoff was written.
-
-## Standing Constraints (unchanged)
-
-- Preserve the dirty worktree; no cleanup/reset/stash/broad staging/commit/
-  push without Andy's explicit approval; scoped `git add <files>` only when
-  approved.
-- No Supabase writes without per-write authorization.
-- No paid committee synthesis (`agents/portfolio-synthesize.js` against
-  real models) without explicit authorization.
-- No betting picks, official-pick promotions, or portfolio/bankroll
-  mutations without explicit authorization.
-- No Yahoo Fantasy work.
+## Constraints (unchanged, carried from prior sessions)
+No commits/push without Andy's explicit, separate approval. No Supabase writes/migrations without per-change authorization. No paid model/committee synthesis runs without explicit authorization. `--allow-unsafe-preflight`-class overrides always require Andy's own explicit call, never assumed. Every Codex finding gets independently re-verified against live code/git/data before being accepted or acted on. No Yahoo Fantasy work. No amendment to `RULES.md` or other governance docs without Andy's explicit authorization. The working tree is large, shared, and heavily dirty (per multiple prior sessions' own notes) -- never `git add -A`; any future commit must be scoped to exactly the files a specific authorized change touched.

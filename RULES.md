@@ -81,7 +81,7 @@
 
 ### Code Quality
 - **NEVER call `normalizeTeam()` inside `.find()` or `.filter()` inside `.map()`.** This is O(n²). Pre-build a `Map` and use `Map.get()`.
-- **NEVER add hardcoded date thresholds** to production logic without a corresponding `vi.useFakeTimers()` pattern in the test file.
+- **NEVER add hardcoded date thresholds** to production logic without a corresponding `vi.useFakeTimers()` pattern in the test file. **Exception (Andy, 2026-09-10, Codex v7 query-dialect review):** this applies to wall-clock expiry logic -- code whose behavior depends on comparing against *today's date at run time* (e.g. "is this row stale", "has this window closed"), where `vi.useFakeTimers()` is how a test controls what "today" means. It does NOT apply to a static per-season configuration value (e.g. `TRAINING_CAMP_START_BY_SEASON[season]`) that never reads the current date at all -- there is no wall clock for a fake timer to control. A static per-season constant still may not be a bare inline literal at its use site: it must be named, keyed by the season variable already governing the surrounding reads, and fail loudly (throw) rather than silently reuse a stale value when a season has no entry. Its test coverage is a plain unit test on the accessor (returns the right value per season, throws on a missing one) plus a wiring assertion at the call site proving the resolved value actually reaches the query (e.g. asserting `.gte()` was called with the accessor's return value) -- no `vi.useFakeTimers()` needed, since nothing in the accessor or the call site reads the current date.
 - **NEVER add new storage keys** without first adding them to `PR_STORAGE_KEYS` in `src/lib/storage.js`.
 
 ---
