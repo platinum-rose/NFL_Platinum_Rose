@@ -1,7 +1,7 @@
 # ??? Antigravity Source Inventory & Freshness Report
 
 > **Status:** Canonical source inventory and cross-agent freshness assessment for Codex, Claude, Antigravity, and Copilot.
-> **Generated:** 2026-08-28T14:35:00-07:00
+> **Generated:** 2026-09-13T00:15:00-07:00
 > **Current Corpus State:** 79 Exhaustive Master Reports (`scratch/`), 57 Diarized Podcast Episodes (`manifest.json`), 653 Assessed Article Records (`data/research-intel/review/`), 10 Fresh Action Network Aug. 28 matchup candidates, 5 Fresh BettingPros latest-visible NFL articles, 1 Fresh Live Reddit AMA.
 > **Guardrails:** Pure offline research artifact. Zero official-pick mutation, zero bankroll/portfolio mutation, zero Supabase writes, zero paid API calls.
 
@@ -14,7 +14,7 @@
 | **Exhaustive Master Reports** | 56 | **79** | +23 | ? Squeezed 100% uncapped with speaker attribution & quotes; Aug. 28 Action and latest-visible BettingPros candidates added |
 | **Podcast Manifest Episodes** | 57 | **57** | 0 | ? Canonical diarized inventory (`data/podcasts/m6-diarized-all/`) |
 | **Live Social / Forum AMAs** | 0 | **1** | +1 | ? Live Reddit AMA parsed (`r/fantasyfootball` - Sean Koerner) |
-| **Structured Recommendations** | 209 | **209** | 0 | ?? Preserved intact; candidates isolated in master reports and local article candidate JSON |
+| **Structured Recommendations** | 209 | **394** | +185 | ?? Preserved intact; candidates isolated in master reports and local article candidate JSON |
 | **Assessed Article Records** | 653 | **653** | 0 | ? Active review lane (`data/research-intel/review/`) |
 | **YouTube Candidates Assessed** | 152 | **152** | 0 | ? Local queue reconciliation (`docs/antigravity/`) |
 

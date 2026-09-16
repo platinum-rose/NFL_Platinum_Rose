@@ -1,0 +1,2163 @@
+{
+  "schema": "player_props_intel_v1",
+  "generated_at": "2026-09-12T05:06:07.097Z",
+  "summary": {
+    "articles_scanned": 406,
+    "total_props": 43,
+    "tier_1_props": 32,
+    "touchdown_props": 12,
+    "curated_parlays": 7,
+    "games_covered": 8
+  },
+  "parlayCards": [
+    {
+      "id": "parlay__ne_sea__aerial_volume_stack",
+      "title": "Patriots Aerial Volume SGP (Super Bowl Rematch Air Show)",
+      "game": "NE @ SEA",
+      "game_slate": "Wednesday Night Kickoff",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 3,
+      "legs": [
+        {
+          "id": "prop__zachary_cohen__drake_maye_passing_yards",
+          "player": "Drake Maye",
+          "team": "NE",
+          "game": "NE @ SEA",
+          "game_slate": "Wednesday Kickoff",
+          "category": "passing_yards",
+          "category_label": "Passing Yards",
+          "stat_type": "passing",
+          "line": "226.5",
+          "side": "over",
+          "price": "-117",
+          "book": "DraftKings",
+          "analyst": "Zachary Cohen (VSiN)",
+          "tier": 1,
+          "tier_label": "Tier 1: Recommended Best Bet",
+          "weight": 1,
+          "rationale": "MVP runner-up averaged 248.7 pass yds/game across 21 games. Threw for 295 yds against Seattle in Super Bowl LX. With Henderson banged up and Brown/Doubs added, volume will be massive.",
+          "parlay_utility": {
+            "role": "Primary Air-Show Engine",
+            "synergy_tags": [
+              "trailing_pass_volume",
+              "alpha_target_infusion",
+              "super_bowl_rematch_form"
+            ],
+            "positive_correlations": [
+              "A.J. Brown Over Receptions / Yards",
+              "Hunter Henry Over Receptions",
+              "Patriots +3.5"
+            ]
+          },
+          "selection": "Over 226.5 Passing Yards"
+        },
+        {
+          "id": "prop__phil_wood__aj_brown_receptions",
+          "player": "A.J. Brown",
+          "team": "NE",
+          "game": "NE @ SEA",
+          "game_slate": "Wednesday Kickoff",
+          "category": "receptions",
+          "category_label": "Receptions",
+          "stat_type": "receiving",
+          "line": "5.5",
+          "side": "over",
+          "price": "+121",
+          "book": "DraftKings",
+          "analyst": "Phil Wood (BettingPros)",
+          "tier": 1,
+          "tier_label": "Tier 1: Recommended Best Bet",
+          "weight": 1,
+          "rationale": "Patriots brought in Brown as their unquestioned WR1. In his first game with Drake Maye against a Seattle defense missing key secondary pieces, expect 8-11 targets minimum.",
+          "parlay_utility": {
+            "role": "High-Volume Reception Engine",
+            "synergy_tags": [
+              "wr1_target_funnel",
+              "trailing_game_script",
+              "plus_money_value"
+            ],
+            "positive_correlations": [
+              "Drake Maye Over Passing Yards",
+              "A.J. Brown 70+ Receiving Yards",
+              "Patriots +3.5 Spread"
+            ]
+          },
+          "selection": "Over 5.5 Receptions"
+        },
+        {
+          "id": "prop__travis_pulver__hunter_henry_receptions",
+          "player": "Hunter Henry",
+          "team": "NE",
+          "game": "NE @ SEA",
+          "game_slate": "Wednesday Kickoff",
+          "category": "receptions",
+          "category_label": "Receptions",
+          "stat_type": "receiving",
+          "line": "3.5",
+          "side": "over",
+          "price": "+148",
+          "book": "FanDuel",
+          "analyst": "Travis Pulver (BettingPros)",
+          "tier": 1,
+          "tier_label": "Tier 1: Recommended Best Bet",
+          "weight": 1,
+          "rationale": "While defense keys on A.J. Brown and Romeo Doubs, Drake Maye will rely on Henry as his security blanket on clutch downs. Tight ends heavily exploited Seattle's zone scheme last season.",
+          "parlay_utility": {
+            "role": "Passing Chain-Mover Anchor",
+            "synergy_tags": [
+              "zone_coverage_beater",
+              "security_blanket",
+              "trailing_pass_volume"
+            ],
+            "positive_correlations": [
+              "Drake Maye Over Passing Yards",
+              "Patriots +3.5 Spread"
+            ]
+          },
+          "selection": "Over 3.5 Receptions"
+        }
+      ],
+      "estimated_odds": "+785",
+      "payout_multiplier": "8.85x",
+      "payout_on_10": "$88.50",
+      "payout_on_25": "$221.25",
+      "correlation_rating": "High Positive (+)",
+      "synergy_rationale": "Strong pass-heavy trailing game script: When Maye throws 30+ times, Brown and Henry command over 50% of the team target share. Exploits Seattle's depleted secondary missing Riq Woolen and Nick Emmanwori."
+    },
+    {
+      "id": "parlay__ne_sea__seahawks_offensive_engine",
+      "title": "Seahawks Dynamic Offense SGP (Lumen Field Fast Start)",
+      "game": "NE @ SEA",
+      "game_slate": "Wednesday Night Kickoff",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 3,
+      "legs": [
+        {
+          "id": "prop__phil_wood__jaxon_smith_njigba_rec_yards",
+          "player": "Jaxon Smith-Njigba",
+          "team": "SEA",
+          "game": "NE @ SEA",
+          "game_slate": "Wednesday Kickoff",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "82.5",
+          "side": "over",
+          "price": "-113",
+          "book": "DraftKings",
+          "analyst": "Phil Wood (BettingPros)",
+          "tier": 1,
+          "tier_label": "Tier 1: Recommended Best Bet",
+          "weight": 1,
+          "rationale": "Smith-Njigba is Seattle's undisputed focal point in the passing game under the new offense. High target share and dynamic run-after-catch ability against a rebuilt Patriots secondary.",
+          "parlay_utility": {
+            "role": "Core Yardage Anchor Leg",
+            "synergy_tags": [
+              "alpha_target_share",
+              "rac_upside",
+              "seattle_lead_script"
+            ],
+            "positive_correlations": [
+              "Seahawks -3.5 Spread",
+              "Darnold Over Passing Yards"
+            ]
+          },
+          "selection": "Over 82.5 Receiving Yards"
+        },
+        {
+          "id": "prop__travis_pulver__jadarian_price_receptions",
+          "player": "Jadarian Price",
+          "team": "SEA",
+          "game": "NE @ SEA",
+          "game_slate": "Wednesday Kickoff",
+          "category": "receptions",
+          "category_label": "Receptions",
+          "stat_type": "receiving",
+          "line": "1.5",
+          "side": "over",
+          "price": "+124",
+          "book": "FanDuel",
+          "analyst": "Travis Pulver (BettingPros)",
+          "tier": 1,
+          "tier_label": "Tier 1: Recommended Best Bet",
+          "weight": 1,
+          "rationale": "Seahawks OC Brian Fleury comes from the Kyle Shanahan tree where backs receive high target share. Charbonnet is out, leaving Price as the primary backfield receiver against New England.",
+          "parlay_utility": {
+            "role": "Complementary Pass Catcher",
+            "synergy_tags": [
+              "pass_heavy_script",
+              "scheme_target_boost",
+              "safe_floor_plus_money"
+            ],
+            "positive_correlations": [
+              "Jadarian Price Anytime TD",
+              "Sam Darnold Pass Completions Over"
+            ]
+          },
+          "selection": "Over 1.5 Receptions"
+        },
+        {
+          "id": "prop__travis_pulver__sam_darnold_rushing_yards",
+          "player": "Sam Darnold",
+          "team": "SEA",
+          "game": "NE @ SEA",
+          "game_slate": "Wednesday Kickoff",
+          "category": "rushing_yards",
+          "category_label": "Rushing Yards",
+          "stat_type": "rushing",
+          "line": "10+",
+          "side": "over",
+          "price": "+178",
+          "book": "FanDuel",
+          "analyst": "Travis Pulver (BettingPros)",
+          "tier": 1,
+          "tier_label": "Tier 1: Recommended Best Bet",
+          "weight": 1,
+          "rationale": "With Kenneth Walker III gone and a rookie RB, early-season offensive hiccups will force Darnold to scramble when plays break down. Only needs 2-4 scrambles to clear 10+ yards.",
+          "parlay_utility": {
+            "role": "High-Value Plus-Money Anchor",
+            "synergy_tags": [
+              "qb_scramble_upside",
+              "broken_play_value"
+            ],
+            "positive_correlations": [
+              "Seahawks Moneyline",
+              "Under 44.5 Total"
+            ]
+          },
+          "selection": "10+ Rushing Yards"
+        }
+      ],
+      "estimated_odds": "+810",
+      "payout_multiplier": "9.10x",
+      "payout_on_10": "$91.00",
+      "payout_on_25": "$227.50",
+      "correlation_rating": "High Positive (+)",
+      "synergy_rationale": "Brian Fleury's Shanahan-tree offense spreads the field: JSN controls intermediate and deep passing, Price catches passes in the flat on designed RB screens, and Darnold tucks and runs against aggressive pass-rush angles."
+    },
+    {
+      "id": "parlay__sf_lar__rams_ground_control",
+      "title": "Rams Dual-Headed Ground Control SGP (Melbourne Turf Dominance)",
+      "game": "SF @ LAR",
+      "game_slate": "Thursday Night Melbourne Opener",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 3,
+      "legs": [
+        {
+          "id": "prop__scott_bogman__blake_corum_rushing_yards",
+          "player": "Blake Corum",
+          "team": "LAR",
+          "game": "SF @ LAR",
+          "game_slate": "Thursday Melbourne Opener",
+          "category": "rushing_yards",
+          "category_label": "Rushing Yards",
+          "stat_type": "rushing",
+          "line": "44.5",
+          "side": "over",
+          "price": "-110",
+          "book": "DraftKings / BettingPros",
+          "analyst": "Scott Bogman (BettingPros Ep. 1054)",
+          "tier": 1,
+          "tier_label": "Tier 1: Recommended Best Bet",
+          "weight": 1,
+          "rationale": "Corum cleared 44.5 rush yds in 7 of 9 games from Week 13 through the postseason last year. Generates a 16% explosive run rate (vs Kyren's 10%) against a 49ers interior front line vulnerable to outside zone. McVay will lean heavily on Corum to close in the second half.",
+          "parlay_utility": {
+            "role": "Second-Half Closer / Ground Anchor",
+            "synergy_tags": [
+              "explosive_run_rate",
+              "second_half_closer",
+              "vulnerable_rush_defense"
+            ],
+            "positive_correlations": [
+              "Kyren Williams Over Rushing Yards",
+              "Rams -3.5 Spread",
+              "Under 48.5 Total"
+            ]
+          },
+          "selection": "Over 44.5 Rushing Yards"
+        },
+        {
+          "id": "prop__tara_roberts__kyren_williams_rushing_yards",
+          "player": "Kyren Williams",
+          "team": "LAR",
+          "game": "SF @ LAR",
+          "game_slate": "Thursday Melbourne Opener",
+          "category": "rushing_yards",
+          "category_label": "Rushing Yards",
+          "stat_type": "rushing",
+          "line": "56.5",
+          "side": "over",
+          "price": "-115",
+          "book": "DraftKings / BettingPros",
+          "analyst": "Tara Roberts (BettingPros Ep. 1054)",
+          "tier": 1,
+          "tier_label": "Tier 1: Recommended Best Bet",
+          "weight": 1,
+          "rationale": "Averaged 4.8 YPC last season and consistently clears 56+ yards (82.4% season hit rate in StatTree model, 5/5 L5, 73.7 Yds/G). Rams offensive line is fully healthy and San Francisco cannot stack the box against Stafford, Nacua, and Davante Adams.",
+          "parlay_utility": {
+            "role": "Primary Workhorse Ground Engine",
+            "synergy_tags": [
+              "bell_cow_volume",
+              "elite_hit_rate",
+              "offensive_line_advantage"
+            ],
+            "positive_correlations": [
+              "Blake Corum Over Rushing Yards",
+              "Rams -3.5 Spread",
+              "Kyren Williams Anytime TD"
+            ]
+          },
+          "selection": "Over 56.5 Rushing Yards"
+        },
+        {
+          "id": "prop__steve_fezzik__sf_lar_second_half_over",
+          "player": "Game Derivative (SF @ LAR)",
+          "team": "LAR",
+          "game": "SF @ LAR",
+          "game_slate": "Thursday Melbourne Opener",
+          "category": "game_derivative",
+          "category_label": "2nd Half Total Points",
+          "stat_type": "total",
+          "line": "23.5",
+          "side": "over",
+          "price": "-110",
+          "book": "DraftKings (Reduced Juice)",
+          "analyst": "Steve Fezzik (Even Money Podcast)",
+          "tier": 1,
+          "tier_label": "Tier 1: Recommended Market Derivative",
+          "weight": 1,
+          "rationale": "Key hook on 24 points: Teams traveling across the globe start sluggish in the 1st half. Halftime schematic adjustments and trailing urgency dramatically accelerate 2nd half scoring.",
+          "parlay_utility": {
+            "role": "Second-Half Acceleration Anchor",
+            "synergy_tags": [
+              "halftime_adjustments",
+              "trailing_pace",
+              "key_hook_value"
+            ],
+            "positive_correlations": [
+              "Blake Corum Over Rushing Yards",
+              "Deshaun Stribling Over Receiving Yards"
+            ]
+          },
+          "selection": "Over 23.5 2nd Half Total Points"
+        }
+      ],
+      "estimated_odds": "+580",
+      "payout_multiplier": "6.80x",
+      "payout_on_10": "$68.00",
+      "payout_on_25": "$170.00",
+      "correlation_rating": "High Positive (+)",
+      "synergy_rationale": "Complementary backfield split: Kyren Williams establishes the early ground foundation with 4.8 YPC, while Blake Corum dominates second-half clock drainage with 16% explosive run rate. Steve Fezzik's 2nd half total over capitalizes on rapid second-half scoring adjustments following travel fatigue."
+    },
+    {
+      "id": "parlay__sf_lar__melbourne_target_funnel",
+      "title": "Melbourne Aerial Target Funnel SGP (SF @ LAR)",
+      "game": "SF @ LAR",
+      "game_slate": "Thursday Night Melbourne Opener",
+      "type": "same_game_parlay",
+      "book": "DraftKings / BetMGM",
+      "leg_count": 3,
+      "legs": [
+        {
+          "id": "prop__stattree__puka_nacua_receptions",
+          "player": "Puka Nacua",
+          "team": "LAR",
+          "game": "SF @ LAR",
+          "game_slate": "Thursday Melbourne Opener",
+          "category": "receptions",
+          "category_label": "Receptions",
+          "stat_type": "receiving",
+          "line": "7.5",
+          "side": "over",
+          "price": "+116",
+          "book": "DraftKings / StatTree Model",
+          "analyst": "StatTree Quantitative Model",
+          "tier": 1,
+          "tier_label": "Tier 1: 5-Star Scheme Mismatch",
+          "weight": 1,
+          "rationale": "StatTree Scheme Read Score 11: Averaging 10.4 targets/game at an 83% catch rate. Generates 10.8 yds/target against zone coverage. 49ers run zone coverage on 74% of dropbacks (9th highest in NFL). Commands 30% team target share.",
+          "parlay_utility": {
+            "role": "Zone-Coverage Funnel Anchor",
+            "synergy_tags": [
+              "zone_coverage_mismatch",
+              "elite_target_share",
+              "plus_money_alpha"
+            ],
+            "positive_correlations": [
+              "Matthew Stafford Over Passing TDs",
+              "Rams -3.5 Spread"
+            ]
+          },
+          "selection": "Over 7.5 Receptions"
+        },
+        {
+          "id": "prop__stattree__george_kittle_receptions",
+          "player": "George Kittle",
+          "team": "SF",
+          "game": "SF @ LAR",
+          "game_slate": "Thursday Melbourne Opener",
+          "category": "receptions",
+          "category_label": "Receptions",
+          "stat_type": "receiving",
+          "line": "3.5",
+          "side": "over",
+          "price": "-110",
+          "book": "DraftKings / StatTree Model",
+          "analyst": "StatTree Quantitative Model",
+          "tier": 1,
+          "tier_label": "Tier 1: High-Floor Blitz Valve",
+          "weight": 1,
+          "rationale": "StatTree 90.9% season hit rate (10/11 games) and 5/5 in last 5. Averages 5.18 rec/g on 6.27 targets (82.6% catch rate). Acts as Brock Purdy's primary quick safety valve against Rams pass rush (Garrett, Donald, Turner).",
+          "parlay_utility": {
+            "role": "High-Floor Safety Valve Leg",
+            "synergy_tags": [
+              "blitz_beater_valve",
+              "90pct_hit_rate",
+              "quick_release_target"
+            ],
+            "positive_correlations": [
+              "Christian McCaffrey Over Receptions",
+              "49ers Under Team Total"
+            ]
+          },
+          "selection": "Over 3.5 Receptions"
+        },
+        {
+          "id": "prop__zachary_cohen__kyle_juszczyk_receiving_yards",
+          "player": "Kyle Juszczyk",
+          "team": "SF",
+          "game": "SF @ LAR",
+          "game_slate": "Thursday Melbourne Opener",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "4.5",
+          "side": "over",
+          "price": "-120",
+          "book": "DraftKings",
+          "analyst": "Zachary Cohen (VSiN)",
+          "tier": 1,
+          "tier_label": "Tier 1: Recommended Best Bet",
+          "weight": 1,
+          "rationale": "Averaged 14.5 rec yds/game vs Rams last season. Shanahan schemes him open with extended prep time. OptaAI projects 12.62 receiving yards (35.5% edge, 3-star confidence play).",
+          "parlay_utility": {
+            "role": "Micro-Line Floor Anchor",
+            "synergy_tags": [
+              "micro_line_edge",
+              "opta_ai_3_star",
+              "high_probability_leg"
+            ],
+            "positive_correlations": [
+              "Brock Purdy Over Passing Yards",
+              "Over 48.5 Game Total"
+            ]
+          },
+          "selection": "Over 4.5 Receiving Yards"
+        }
+      ],
+      "estimated_odds": "+655",
+      "payout_multiplier": "7.55x",
+      "payout_on_10": "$75.50",
+      "payout_on_25": "$188.75",
+      "correlation_rating": "High Positive (+)",
+      "synergy_rationale": "Exploits high-frequency scheme mismatches: 49ers play 74% zone coverage where Puka Nacua commands a 30% target share and 10.8 yds/target. Meanwhile, Brock Purdy faces severe pressure from the Rams upgraded pass rush (Myles Garrett, Aaron Donald, Kobie Turner), funneling rapid short-yardage targets to George Kittle (90.9% hit rate) and Kyle Juszczyk (OptaAI 12.62 yd projection)."
+    },
+    {
+      "id": "parlay__sf_lar__melbourne_primetime_shootout",
+      "title": "Melbourne Primetime Shootout SGP (SF @ LAR)",
+      "game": "SF @ LAR",
+      "game_slate": "Thursday Night Melbourne Opener",
+      "type": "same_game_parlay",
+      "book": "DraftKings / BetMGM",
+      "leg_count": 3,
+      "legs": [
+        {
+          "id": "prop__mike_spector__mike_evans_anytime_td",
+          "player": "Mike Evans",
+          "team": "SF",
+          "game": "SF @ LAR",
+          "game_slate": "Thursday Melbourne Opener",
+          "category": "anytime_td",
+          "category_label": "Anytime Touchdown Scorer",
+          "stat_type": "touchdown",
+          "line": "Anytime TD",
+          "side": "yes",
+          "price": "+175",
+          "book": "DraftKings",
+          "analyst": "Mike Spector (BettingPros)",
+          "tier": 1,
+          "tier_label": "Tier 1: Recommended Best Bet",
+          "weight": 1,
+          "rationale": "49ers rushed for just 2.7 ypc against the Rams last season. With Pearsall out, Kirk on IR, and Kittle questionable, Evans is the primary alpha end-zone target (182 end-zone targets since 2024).",
+          "parlay_utility": {
+            "role": "Red-Zone Anchor Leg",
+            "synergy_tags": [
+              "endzone_target_dominance",
+              "wr_attrition_boost",
+              "shootout_upside"
+            ],
+            "positive_correlations": [
+              "Brock Purdy Over Passing TDs",
+              "Over 48.5 Game Total"
+            ]
+          },
+          "selection": "Anytime Touchdown Scorer"
+        },
+        {
+          "id": "prop__steve_krebs__christian_mccaffrey_rush_yards",
+          "player": "Christian McCaffrey",
+          "team": "SF",
+          "game": "SF @ LAR",
+          "game_slate": "Thursday Melbourne Opener",
+          "category": "rushing_yards",
+          "category_label": "Rushing Yards",
+          "stat_type": "rushing",
+          "line": "61+",
+          "side": "over",
+          "price": "-115",
+          "book": "DraftKings",
+          "analyst": "Steve Krebs (BettingPros)",
+          "tier": 1,
+          "tier_label": "Tier 1: Early Parlay Leg",
+          "weight": 1,
+          "rationale": "Line continues to drop into dangerous territory for sportsbooks. Shanahan will give McCaffrey 18+ touches on the Melbourne pitch.",
+          "parlay_utility": {
+            "role": "Elite Workhorse Floor Leg",
+            "synergy_tags": [
+              "depressed_line_value",
+              "elite_all_purpose_rb"
+            ],
+            "positive_correlations": [
+              "49ers +3.5 Spread",
+              "Christian McCaffrey Anytime TD"
+            ]
+          },
+          "selection": "61+ Rushing Yards"
+        },
+        {
+          "id": "prop__zachary_cohen__kyle_juszczyk_receiving_yards",
+          "player": "Kyle Juszczyk",
+          "team": "SF",
+          "game": "SF @ LAR",
+          "game_slate": "Thursday Melbourne Opener",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "4.5",
+          "side": "over",
+          "price": "-120",
+          "book": "DraftKings",
+          "analyst": "Zachary Cohen (VSiN)",
+          "tier": 1,
+          "tier_label": "Tier 1: Recommended Best Bet",
+          "weight": 1,
+          "rationale": "Averaged 14.5 rec yds/game vs Rams last season. Shanahan schemes him open with extended prep time. OptaAI projects 12.62 receiving yards (35.5% edge, 3-star confidence play).",
+          "parlay_utility": {
+            "role": "Micro-Line Floor Anchor",
+            "synergy_tags": [
+              "micro_line_edge",
+              "opta_ai_3_star",
+              "high_probability_leg"
+            ],
+            "positive_correlations": [
+              "Brock Purdy Over Passing Yards",
+              "Over 48.5 Game Total"
+            ]
+          },
+          "selection": "Over 4.5 Receiving Yards"
+        }
+      ],
+      "estimated_odds": "+645",
+      "payout_multiplier": "7.45x",
+      "payout_on_10": "$74.50",
+      "payout_on_25": "$186.25",
+      "correlation_rating": "High Positive (+)",
+      "synergy_rationale": "High game total (48.5): 49ers offensive personnel distribution. Juszczyk clears 4.5 yards on a single flat pass, McCaffrey provides the ground engine, and Mike Evans capitalizes as the 6'5\" red-zone monster against Rams' smaller cornerbacks."
+    },
+    {
+      "id": "parlay__sunday__touchdown_hunters_cross_game",
+      "title": "Sunday Workhorse Touchdown Trio (Cross-Game Parlay)",
+      "game": "Multi-Game Slate",
+      "game_slate": "Sunday 1:00 PM Slate",
+      "type": "cross_game_parlay",
+      "book": "Consensus (Shop Across Books)",
+      "leg_count": 3,
+      "legs": [
+        {
+          "id": "prop__richard_janvrin__rhamondre_stevenson_anytime_td",
+          "player": "Rhamondre Stevenson",
+          "team": "NE",
+          "game": "NE @ SEA",
+          "game_slate": "Wednesday Kickoff",
+          "category": "anytime_td",
+          "category_label": "Anytime Touchdown Scorer",
+          "stat_type": "touchdown",
+          "line": "Anytime TD",
+          "side": "yes",
+          "price": "+100",
+          "book": "DraftKings",
+          "analyst": "Richard Janvrin (BettingPros)",
+          "tier": 1,
+          "tier_label": "Tier 1: Recommended Best Bet",
+          "weight": 1,
+          "rationale": "TreVeyon Henderson is dealing with injury and missed practice. Stevenson commands all goal-line and high-leverage touches as the bell cow of Mike Vrabel's offense.",
+          "parlay_utility": {
+            "role": "Goal-Line Workhorse Anchor",
+            "synergy_tags": [
+              "bell_cow_volume",
+              "goal_line_monopoly",
+              "even_money_value"
+            ],
+            "positive_correlations": [
+              "Rhamondre Stevenson Over Rushing Yards",
+              "Patriots Over Team Total"
+            ]
+          },
+          "selection": "Anytime Touchdown Scorer"
+        },
+        {
+          "id": "prop__mike_spector__mike_evans_anytime_td",
+          "player": "Mike Evans",
+          "team": "SF",
+          "game": "SF @ LAR",
+          "game_slate": "Thursday Melbourne Opener",
+          "category": "anytime_td",
+          "category_label": "Anytime Touchdown Scorer",
+          "stat_type": "touchdown",
+          "line": "Anytime TD",
+          "side": "yes",
+          "price": "+175",
+          "book": "DraftKings",
+          "analyst": "Mike Spector (BettingPros)",
+          "tier": 1,
+          "tier_label": "Tier 1: Recommended Best Bet",
+          "weight": 1,
+          "rationale": "49ers rushed for just 2.7 ypc against the Rams last season. With Pearsall out, Kirk on IR, and Kittle questionable, Evans is the primary alpha end-zone target (182 end-zone targets since 2024).",
+          "parlay_utility": {
+            "role": "Red-Zone Anchor Leg",
+            "synergy_tags": [
+              "endzone_target_dominance",
+              "wr_attrition_boost",
+              "shootout_upside"
+            ],
+            "positive_correlations": [
+              "Brock Purdy Over Passing TDs",
+              "Over 48.5 Game Total"
+            ]
+          },
+          "selection": "Anytime Touchdown Scorer"
+        },
+        {
+          "id": "prop__adam_burke__james_cook_first_td",
+          "player": "James Cook",
+          "team": "BUF",
+          "game": "BUF @ HOU",
+          "game_slate": "Sunday 1:00 PM ET",
+          "category": "first_td",
+          "category_label": "First Touchdown Scorer",
+          "stat_type": "touchdown",
+          "line": "First TD",
+          "side": "yes",
+          "price": "+550",
+          "book": "DraftKings",
+          "analyst": "Adam Burke (VSiN)",
+          "tier": 2,
+          "tier_label": "Tier 2: Model Best First TD Leg",
+          "weight": 0.85,
+          "rationale": "Bills led the NFL with 10 opening-possession TDs in 19 games. Cook was their most frequent scorer with 13 first team TDs over the last 2 seasons.",
+          "parlay_utility": {
+            "role": "Opening Possession Striker",
+            "synergy_tags": [
+              "opening_possession_td_leader",
+              "goal_line_punch"
+            ],
+            "positive_correlations": [
+              "Bills Moneyline",
+              "James Cook Anytime TD"
+            ]
+          },
+          "selection": "First Touchdown Scorer"
+        }
+      ],
+      "estimated_odds": "+765",
+      "payout_multiplier": "8.65x",
+      "payout_on_10": "$86.50",
+      "payout_on_25": "$216.25",
+      "correlation_rating": "Independent Cross-Game (+EV Stacking)",
+      "synergy_rationale": "Anchors three undisputed goal-line alphas who monopolize their teams' inside-the-5 touches without competing against each other in the same game script."
+    },
+    {
+      "id": "parlay__safe_floor__reception_yardage_builder",
+      "title": "Safe Floor Reception & Yardage 3-Leg Parlay",
+      "game": "Multi-Game Slate",
+      "game_slate": "Week 1 Primetime & Sunday",
+      "type": "cross_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 3,
+      "legs": [
+        {
+          "id": "prop__travis_pulver__jadarian_price_receptions",
+          "player": "Jadarian Price",
+          "team": "SEA",
+          "game": "NE @ SEA",
+          "game_slate": "Wednesday Kickoff",
+          "category": "receptions",
+          "category_label": "Receptions",
+          "stat_type": "receiving",
+          "line": "1.5",
+          "side": "over",
+          "price": "+124",
+          "book": "FanDuel",
+          "analyst": "Travis Pulver (BettingPros)",
+          "tier": 1,
+          "tier_label": "Tier 1: Recommended Best Bet",
+          "weight": 1,
+          "rationale": "Seahawks OC Brian Fleury comes from the Kyle Shanahan tree where backs receive high target share. Charbonnet is out, leaving Price as the primary backfield receiver against New England.",
+          "parlay_utility": {
+            "role": "Complementary Pass Catcher",
+            "synergy_tags": [
+              "pass_heavy_script",
+              "scheme_target_boost",
+              "safe_floor_plus_money"
+            ],
+            "positive_correlations": [
+              "Jadarian Price Anytime TD",
+              "Sam Darnold Pass Completions Over"
+            ]
+          },
+          "selection": "Over 1.5 Receptions"
+        },
+        {
+          "id": "prop__zachary_cohen__bucky_irving_rush_attempts",
+          "player": "Bucky Irving",
+          "team": "TB",
+          "game": "TB @ CIN",
+          "game_slate": "Sunday 1:00 PM ET",
+          "category": "rushing_attempts",
+          "category_label": "Rushing Attempts",
+          "stat_type": "rushing",
+          "line": "14.5",
+          "side": "over",
+          "price": "-103",
+          "book": "DraftKings",
+          "analyst": "Zachary Cohen (VSiN)",
+          "tier": 1,
+          "tier_label": "Tier 1: Recommended Best Bet",
+          "weight": 1,
+          "rationale": "OptaAI projection models 15.53 carries against a Bengals defense susceptible to outside-zone running. Clear RB1 volume workload.",
+          "parlay_utility": {
+            "role": "Sunday Workhorse Anchor",
+            "synergy_tags": [
+              "workhorse_volume",
+              "opta_ai_edge"
+            ],
+            "positive_correlations": [
+              "Buccaneers +3.5 Spread",
+              "Under 47.5 Total"
+            ]
+          },
+          "selection": "Over 14.5 Rushing Attempts"
+        },
+        {
+          "id": "prop__zachary_cohen__alec_pierce_receiving_yards",
+          "player": "Alec Pierce",
+          "team": "IND",
+          "game": "BAL @ IND",
+          "game_slate": "Sunday 1:00 PM ET",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "44.5",
+          "side": "over",
+          "price": "-113",
+          "book": "DraftKings",
+          "analyst": "Zachary Cohen (VSiN)",
+          "tier": 1,
+          "tier_label": "Tier 1: Recommended Best Bet",
+          "weight": 1,
+          "rationale": "OptaAI projection calls for 72.60 receiving yards. Ravens were 21st in dropback EPA/play allowed (0.101). Pierce is Daniel Jones' premier vertical target.",
+          "parlay_utility": {
+            "role": "High-Upside Vertical Leg",
+            "synergy_tags": [
+              "massive_projection_edge",
+              "deep_ball_efficiency"
+            ],
+            "positive_correlations": [
+              "Colts +3.5 Spread",
+              "Over 46.5 Total"
+            ]
+          },
+          "selection": "Over 44.5 Receiving Yards"
+        }
+      ],
+      "estimated_odds": "+715",
+      "payout_multiplier": "8.15x",
+      "payout_on_10": "$81.50",
+      "payout_on_25": "$203.75",
+      "correlation_rating": "Volume & Metric Edge Stacking",
+      "synergy_rationale": "Combines three plays backed by mathematical models (OptaAI 15.53 carries for Irving, OptaAI 72.60 receiving yards for Pierce, and Shanahan-scheme backfield target funnel for Price)."
+    }
+  ],
+  "props": [
+    {
+      "id": "prop__zachary_cohen__kyle_juszczyk_receiving_yards",
+      "player": "Kyle Juszczyk",
+      "team": "SF",
+      "game": "SF @ LAR",
+      "game_slate": "Thursday Melbourne Opener",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "4.5",
+      "side": "over",
+      "price": "-120",
+      "book": "DraftKings",
+      "analyst": "Zachary Cohen (VSiN)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended Best Bet",
+      "weight": 1,
+      "rationale": "Averaged 14.5 rec yds/game vs Rams last season. Shanahan schemes him open with extended prep time. OptaAI projects 12.62 receiving yards (35.5% edge, 3-star confidence play).",
+      "parlay_utility": {
+        "role": "Micro-Line Floor Anchor",
+        "synergy_tags": [
+          "micro_line_edge",
+          "opta_ai_3_star",
+          "high_probability_leg"
+        ],
+        "positive_correlations": [
+          "Brock Purdy Over Passing Yards",
+          "Over 48.5 Game Total"
+        ]
+      },
+      "selection": "Over 4.5 Receiving Yards"
+    },
+    {
+      "id": "prop__zachary_cohen__drake_maye_passing_yards",
+      "player": "Drake Maye",
+      "team": "NE",
+      "game": "NE @ SEA",
+      "game_slate": "Wednesday Kickoff",
+      "category": "passing_yards",
+      "category_label": "Passing Yards",
+      "stat_type": "passing",
+      "line": "226.5",
+      "side": "over",
+      "price": "-117",
+      "book": "DraftKings",
+      "analyst": "Zachary Cohen (VSiN)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended Best Bet",
+      "weight": 1,
+      "rationale": "MVP runner-up averaged 248.7 pass yds/game across 21 games. Threw for 295 yds against Seattle in Super Bowl LX. With Henderson banged up and Brown/Doubs added, volume will be massive.",
+      "parlay_utility": {
+        "role": "Primary Air-Show Engine",
+        "synergy_tags": [
+          "trailing_pass_volume",
+          "alpha_target_infusion",
+          "super_bowl_rematch_form"
+        ],
+        "positive_correlations": [
+          "A.J. Brown Over Receptions / Yards",
+          "Hunter Henry Over Receptions",
+          "Patriots +3.5"
+        ]
+      },
+      "selection": "Over 226.5 Passing Yards"
+    },
+    {
+      "id": "prop__zachary_cohen__bucky_irving_rush_attempts",
+      "player": "Bucky Irving",
+      "team": "TB",
+      "game": "TB @ CIN",
+      "game_slate": "Sunday 1:00 PM ET",
+      "category": "rushing_attempts",
+      "category_label": "Rushing Attempts",
+      "stat_type": "rushing",
+      "line": "14.5",
+      "side": "over",
+      "price": "-103",
+      "book": "DraftKings",
+      "analyst": "Zachary Cohen (VSiN)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended Best Bet",
+      "weight": 1,
+      "rationale": "OptaAI projection models 15.53 carries against a Bengals defense susceptible to outside-zone running. Clear RB1 volume workload.",
+      "parlay_utility": {
+        "role": "Sunday Workhorse Anchor",
+        "synergy_tags": [
+          "workhorse_volume",
+          "opta_ai_edge"
+        ],
+        "positive_correlations": [
+          "Buccaneers +3.5 Spread",
+          "Under 47.5 Total"
+        ]
+      },
+      "selection": "Over 14.5 Rushing Attempts"
+    },
+    {
+      "id": "prop__zachary_cohen__alec_pierce_receiving_yards",
+      "player": "Alec Pierce",
+      "team": "IND",
+      "game": "BAL @ IND",
+      "game_slate": "Sunday 1:00 PM ET",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "44.5",
+      "side": "over",
+      "price": "-113",
+      "book": "DraftKings",
+      "analyst": "Zachary Cohen (VSiN)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended Best Bet",
+      "weight": 1,
+      "rationale": "OptaAI projection calls for 72.60 receiving yards. Ravens were 21st in dropback EPA/play allowed (0.101). Pierce is Daniel Jones' premier vertical target.",
+      "parlay_utility": {
+        "role": "High-Upside Vertical Leg",
+        "synergy_tags": [
+          "massive_projection_edge",
+          "deep_ball_efficiency"
+        ],
+        "positive_correlations": [
+          "Colts +3.5 Spread",
+          "Over 46.5 Total"
+        ]
+      },
+      "selection": "Over 44.5 Receiving Yards"
+    },
+    {
+      "id": "prop__zachary_cohen__geno_smith_interception",
+      "player": "Geno Smith",
+      "team": "NYJ",
+      "game": "NYJ @ TEN",
+      "game_slate": "Sunday 1:00 PM ET",
+      "category": "interceptions",
+      "category_label": "To Throw An Interception",
+      "stat_type": "passing",
+      "line": "0.5",
+      "side": "over",
+      "price": "-103",
+      "book": "DraftKings",
+      "analyst": "Zachary Cohen (VSiN)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended Best Bet",
+      "weight": 1,
+      "rationale": "Titans revamped defensive front under Dennard Wilson will force turnover-prone Smith into contested sideline throws under duress.",
+      "parlay_utility": {
+        "role": "Defensive Pressure Synergy Leg",
+        "synergy_tags": [
+          "turnover_prone_qb",
+          "blitz_pressure_forcing"
+        ],
+        "positive_correlations": [
+          "Titans -1.5 Spread",
+          "Under 41.5 Game Total"
+        ]
+      },
+      "selection": "Over 0.5 To Throw An Interception"
+    },
+    {
+      "id": "prop__andrew_erickson__rhamondre_receiving_yards",
+      "player": "Rhamondre Stevenson",
+      "team": "NE",
+      "game": "NE @ SEA",
+      "game_slate": "Wednesday Kickoff",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "23.5",
+      "side": "over",
+      "price": "-110",
+      "book": "Consensus",
+      "analyst": "Andrew Erickson (BettingPros)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended Best Bet",
+      "weight": 1,
+      "rationale": "Seattle allowed a league-high 5.7 receptions per game to RBs (37.6 ypg). Stevenson cleared this number in 5 of 6 games as an underdog and will be the center of New England's pass-catching checkdown game.",
+      "parlay_utility": {
+        "role": "High-Floor Checkdown Prop",
+        "synergy_tags": [
+          "trailing_script_receptions",
+          "defensive_matchup_leak"
+        ],
+        "positive_correlations": [
+          "Maye Over Passing Yards",
+          "Rhamondre Over Rushing Yards",
+          "Patriots +3.5"
+        ]
+      },
+      "selection": "Over 23.5 Receiving Yards"
+    },
+    {
+      "id": "prop__andrew_erickson__drake_maye_rushing_yards",
+      "player": "Drake Maye",
+      "team": "NE",
+      "game": "NE @ SEA",
+      "game_slate": "Wednesday Kickoff",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "24.5",
+      "side": "over",
+      "price": "-110",
+      "book": "Consensus",
+      "analyst": "Andrew Erickson (BettingPros)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended Best Bet",
+      "weight": 1,
+      "rationale": "Maye consistently clears 25+ rushing yards in high-leverage games against aggressive pass rushes. Mobile QB facing a hostile Lumen Field crowd creates organic scramble opportunities.",
+      "parlay_utility": {
+        "role": "Dual-Threat QB Floor Prop",
+        "synergy_tags": [
+          "mobile_qb_floor",
+          "pass_rush_escape"
+        ],
+        "positive_correlations": [
+          "Patriots +3.5 Spread",
+          "Drake Maye Over Passing Yards"
+        ]
+      },
+      "selection": "Over 24.5 Rushing Yards"
+    },
+    {
+      "id": "prop__andrew_erickson__rashid_shaheed_receiving_yards",
+      "player": "Rashid Shaheed",
+      "team": "SEA",
+      "game": "NE @ SEA",
+      "game_slate": "Wednesday Kickoff",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "29.5",
+      "side": "over",
+      "price": "-110",
+      "book": "Consensus",
+      "analyst": "Andrew Erickson (BettingPros)",
+      "tier": 2,
+      "tier_label": "Tier 2: Analyst Best Lean",
+      "weight": 0.85,
+      "rationale": "Shaheed averaged 25.3 air yards per target in the postseason. Extension signals an expanded role on manufactured touches and deep shot crossers against a Patriots secondary vulnerable to explosive speed.",
+      "parlay_utility": {
+        "role": "Deep Threat Yardage Anchor",
+        "synergy_tags": [
+          "explosive_play_upside",
+          "low_bar_yardage"
+        ],
+        "positive_correlations": [
+          "Over 44.5 Total",
+          "Darnold Over Passing Yards"
+        ]
+      },
+      "selection": "Over 29.5 Receiving Yards"
+    },
+    {
+      "id": "prop__andrew_erickson__hunter_henry_anytime_td",
+      "player": "Hunter Henry",
+      "team": "NE",
+      "game": "NE @ SEA",
+      "game_slate": "Wednesday Kickoff",
+      "category": "anytime_td",
+      "category_label": "Anytime Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "Anytime TD",
+      "side": "yes",
+      "price": "+270",
+      "book": "DraftKings",
+      "analyst": "Andrew Erickson (BettingPros)",
+      "tier": 2,
+      "tier_label": "Tier 2: Plus-Money Red Zone Target",
+      "weight": 0.85,
+      "rationale": "Henry scored 6 TDs last season and is Maye's top red-zone seam option. +270 provides tremendous standalone and parlay multiplier value.",
+      "parlay_utility": {
+        "role": "High-Payout Red-Zone Multiplier",
+        "synergy_tags": [
+          "red_zone_seam_target",
+          "plus_money_payout_boost"
+        ],
+        "positive_correlations": [
+          "Maye Passing TDs Over 1.5",
+          "Patriots Over Team Total"
+        ]
+      },
+      "selection": "Anytime Touchdown Scorer"
+    },
+    {
+      "id": "prop__andrew_erickson__jadarian_price_rush_attempts",
+      "player": "Jadarian Price",
+      "team": "SEA",
+      "game": "NE @ SEA",
+      "game_slate": "Wednesday Kickoff",
+      "category": "rushing_attempts",
+      "category_label": "Rushing Attempts",
+      "stat_type": "rushing",
+      "line": "13.5",
+      "side": "under",
+      "price": "-115",
+      "book": "Consensus",
+      "analyst": "Andrew Erickson (BettingPros)",
+      "tier": 2,
+      "tier_label": "Tier 2: Analyst Under Lean",
+      "weight": 0.85,
+      "rationale": "Rookie in his first start; coaching staff will limit between-the-tackles pounding against a rugged Patriots defensive interior, leaning on passes and rotation.",
+      "parlay_utility": {
+        "role": "Negative Correlation Hedge / Game Script Under",
+        "synergy_tags": [
+          "rookie_touch_cap",
+          "pass_centric_game_flow"
+        ],
+        "positive_correlations": [
+          "Jadarian Price Over Receptions",
+          "Darnold Over Pass Attempts"
+        ]
+      },
+      "selection": "Under 13.5 Rushing Attempts"
+    },
+    {
+      "id": "prop__travis_pulver__jadarian_price_receptions",
+      "player": "Jadarian Price",
+      "team": "SEA",
+      "game": "NE @ SEA",
+      "game_slate": "Wednesday Kickoff",
+      "category": "receptions",
+      "category_label": "Receptions",
+      "stat_type": "receiving",
+      "line": "1.5",
+      "side": "over",
+      "price": "+124",
+      "book": "FanDuel",
+      "analyst": "Travis Pulver (BettingPros)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended Best Bet",
+      "weight": 1,
+      "rationale": "Seahawks OC Brian Fleury comes from the Kyle Shanahan tree where backs receive high target share. Charbonnet is out, leaving Price as the primary backfield receiver against New England.",
+      "parlay_utility": {
+        "role": "Complementary Pass Catcher",
+        "synergy_tags": [
+          "pass_heavy_script",
+          "scheme_target_boost",
+          "safe_floor_plus_money"
+        ],
+        "positive_correlations": [
+          "Jadarian Price Anytime TD",
+          "Sam Darnold Pass Completions Over"
+        ]
+      },
+      "selection": "Over 1.5 Receptions"
+    },
+    {
+      "id": "prop__travis_pulver__sam_darnold_rushing_yards",
+      "player": "Sam Darnold",
+      "team": "SEA",
+      "game": "NE @ SEA",
+      "game_slate": "Wednesday Kickoff",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "10+",
+      "side": "over",
+      "price": "+178",
+      "book": "FanDuel",
+      "analyst": "Travis Pulver (BettingPros)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended Best Bet",
+      "weight": 1,
+      "rationale": "With Kenneth Walker III gone and a rookie RB, early-season offensive hiccups will force Darnold to scramble when plays break down. Only needs 2-4 scrambles to clear 10+ yards.",
+      "parlay_utility": {
+        "role": "High-Value Plus-Money Anchor",
+        "synergy_tags": [
+          "qb_scramble_upside",
+          "broken_play_value"
+        ],
+        "positive_correlations": [
+          "Seahawks Moneyline",
+          "Under 44.5 Total"
+        ]
+      },
+      "selection": "10+ Rushing Yards"
+    },
+    {
+      "id": "prop__travis_pulver__hunter_henry_receptions",
+      "player": "Hunter Henry",
+      "team": "NE",
+      "game": "NE @ SEA",
+      "game_slate": "Wednesday Kickoff",
+      "category": "receptions",
+      "category_label": "Receptions",
+      "stat_type": "receiving",
+      "line": "3.5",
+      "side": "over",
+      "price": "+148",
+      "book": "FanDuel",
+      "analyst": "Travis Pulver (BettingPros)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended Best Bet",
+      "weight": 1,
+      "rationale": "While defense keys on A.J. Brown and Romeo Doubs, Drake Maye will rely on Henry as his security blanket on clutch downs. Tight ends heavily exploited Seattle's zone scheme last season.",
+      "parlay_utility": {
+        "role": "Passing Chain-Mover Anchor",
+        "synergy_tags": [
+          "zone_coverage_beater",
+          "security_blanket",
+          "trailing_pass_volume"
+        ],
+        "positive_correlations": [
+          "Drake Maye Over Passing Yards",
+          "Patriots +3.5 Spread"
+        ]
+      },
+      "selection": "Over 3.5 Receptions"
+    },
+    {
+      "id": "prop__phil_wood__jaxon_smith_njigba_rec_yards",
+      "player": "Jaxon Smith-Njigba",
+      "team": "SEA",
+      "game": "NE @ SEA",
+      "game_slate": "Wednesday Kickoff",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "82.5",
+      "side": "over",
+      "price": "-113",
+      "book": "DraftKings",
+      "analyst": "Phil Wood (BettingPros)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended Best Bet",
+      "weight": 1,
+      "rationale": "Smith-Njigba is Seattle's undisputed focal point in the passing game under the new offense. High target share and dynamic run-after-catch ability against a rebuilt Patriots secondary.",
+      "parlay_utility": {
+        "role": "Core Yardage Anchor Leg",
+        "synergy_tags": [
+          "alpha_target_share",
+          "rac_upside",
+          "seattle_lead_script"
+        ],
+        "positive_correlations": [
+          "Seahawks -3.5 Spread",
+          "Darnold Over Passing Yards"
+        ]
+      },
+      "selection": "Over 82.5 Receiving Yards"
+    },
+    {
+      "id": "prop__phil_wood__aj_brown_receptions",
+      "player": "A.J. Brown",
+      "team": "NE",
+      "game": "NE @ SEA",
+      "game_slate": "Wednesday Kickoff",
+      "category": "receptions",
+      "category_label": "Receptions",
+      "stat_type": "receiving",
+      "line": "5.5",
+      "side": "over",
+      "price": "+121",
+      "book": "DraftKings",
+      "analyst": "Phil Wood (BettingPros)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended Best Bet",
+      "weight": 1,
+      "rationale": "Patriots brought in Brown as their unquestioned WR1. In his first game with Drake Maye against a Seattle defense missing key secondary pieces, expect 8-11 targets minimum.",
+      "parlay_utility": {
+        "role": "High-Volume Reception Engine",
+        "synergy_tags": [
+          "wr1_target_funnel",
+          "trailing_game_script",
+          "plus_money_value"
+        ],
+        "positive_correlations": [
+          "Drake Maye Over Passing Yards",
+          "A.J. Brown 70+ Receiving Yards",
+          "Patriots +3.5 Spread"
+        ]
+      },
+      "selection": "Over 5.5 Receptions"
+    },
+    {
+      "id": "prop__adam_burke__jonathan_taylor_first_td",
+      "player": "Jonathan Taylor",
+      "team": "IND",
+      "game": "BAL @ IND",
+      "game_slate": "Sunday 1:00 PM ET",
+      "category": "first_td",
+      "category_label": "First Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "First TD",
+      "side": "yes",
+      "price": "+400",
+      "book": "DraftKings",
+      "analyst": "Adam Burke (VSiN)",
+      "tier": 2,
+      "tier_label": "Tier 2: Model Best First TD Leg",
+      "weight": 0.85,
+      "rationale": "Colts led the entire NFL in 2025 by scoring the first TD in 15 of 17 games (88.2%). Taylor scored 5 first team TDs last year. Shane Steichen scripted drives are elite.",
+      "parlay_utility": {
+        "role": "Elite Scripted Touchdown Multiplier",
+        "synergy_tags": [
+          "league_best_first_td_rate",
+          "steichen_scripted_drive"
+        ],
+        "positive_correlations": [
+          "Colts 1st Half Spread",
+          "Jonathan Taylor Anytime TD"
+        ]
+      },
+      "selection": "First Touchdown Scorer"
+    },
+    {
+      "id": "prop__adam_burke__james_cook_first_td",
+      "player": "James Cook",
+      "team": "BUF",
+      "game": "BUF @ HOU",
+      "game_slate": "Sunday 1:00 PM ET",
+      "category": "first_td",
+      "category_label": "First Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "First TD",
+      "side": "yes",
+      "price": "+550",
+      "book": "DraftKings",
+      "analyst": "Adam Burke (VSiN)",
+      "tier": 2,
+      "tier_label": "Tier 2: Model Best First TD Leg",
+      "weight": 0.85,
+      "rationale": "Bills led the NFL with 10 opening-possession TDs in 19 games. Cook was their most frequent scorer with 13 first team TDs over the last 2 seasons.",
+      "parlay_utility": {
+        "role": "Opening Possession Striker",
+        "synergy_tags": [
+          "opening_possession_td_leader",
+          "goal_line_punch"
+        ],
+        "positive_correlations": [
+          "Bills Moneyline",
+          "James Cook Anytime TD"
+        ]
+      },
+      "selection": "First Touchdown Scorer"
+    },
+    {
+      "id": "prop__adam_burke__parker_washington_first_td",
+      "player": "Parker Washington",
+      "team": "JAX",
+      "game": "CLE @ JAX",
+      "game_slate": "Sunday 1:00 PM ET",
+      "category": "first_td",
+      "category_label": "First Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "First TD",
+      "side": "yes",
+      "price": "+850",
+      "book": "DraftKings",
+      "analyst": "Adam Burke (VSiN)",
+      "tier": 3,
+      "tier_label": "Tier 3: Longshot Value Scorer",
+      "weight": 0.75,
+      "rationale": "Jaguars scored first TD at 72.2% clip under Liam Coen. Washington led the team with 4 first TDs as Coen loves throwing inside the 10.",
+      "parlay_utility": {
+        "role": "Longshot Red Zone Target",
+        "synergy_tags": [
+          "red_zone_quick_slants",
+          "coen_scheme_boost"
+        ],
+        "positive_correlations": [
+          "Jaguars Moneyline",
+          "Jaguars 1st Quarter Over"
+        ]
+      },
+      "selection": "First Touchdown Scorer"
+    },
+    {
+      "id": "prop__adam_burke__harold_fannin_first_td",
+      "player": "Harold Fannin",
+      "team": "CLE",
+      "game": "CLE @ JAX",
+      "game_slate": "Sunday 1:00 PM ET",
+      "category": "first_td",
+      "category_label": "First Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "First TD",
+      "side": "yes",
+      "price": "+1700",
+      "book": "DraftKings",
+      "analyst": "Adam Burke (VSiN)",
+      "tier": 3,
+      "tier_label": "Tier 3: Mega-Longshot Multiplier",
+      "weight": 0.75,
+      "rationale": "Todd Monken offense from Baltimore scored first in 73% of games over 3 seasons and heavily utilizes tight ends in the red zone.",
+      "parlay_utility": {
+        "role": "Mega-Odds SGP Booster",
+        "synergy_tags": [
+          "te_red_zone_package",
+          "monken_scheme"
+        ],
+        "positive_correlations": [
+          "Browns +8 Spread",
+          "Fannin Anytime TD"
+        ]
+      },
+      "selection": "First Touchdown Scorer"
+    },
+    {
+      "id": "prop__adam_burke__dalton_kincaid_first_td",
+      "player": "Dalton Kincaid",
+      "team": "BUF",
+      "game": "BUF @ HOU",
+      "game_slate": "Sunday 1:00 PM ET",
+      "category": "first_td",
+      "category_label": "First Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "First TD",
+      "side": "yes",
+      "price": "+1700",
+      "book": "DraftKings",
+      "analyst": "Adam Burke (VSiN)",
+      "tier": 3,
+      "tier_label": "Tier 3: Mega-Longshot Multiplier",
+      "weight": 0.75,
+      "rationale": "Kincaid caught 3 first-team touchdowns early last season as Josh Allen's favorite early-read target in the red zone.",
+      "parlay_utility": {
+        "role": "TE Red Zone Longshot",
+        "synergy_tags": [
+          "allen_early_read",
+          "seam_touchdown"
+        ],
+        "positive_correlations": [
+          "Josh Allen Over Passing TDs",
+          "Bills Over Team Total"
+        ]
+      },
+      "selection": "First Touchdown Scorer"
+    },
+    {
+      "id": "prop__richard_janvrin__rhamondre_stevenson_anytime_td",
+      "player": "Rhamondre Stevenson",
+      "team": "NE",
+      "game": "NE @ SEA",
+      "game_slate": "Wednesday Kickoff",
+      "category": "anytime_td",
+      "category_label": "Anytime Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "Anytime TD",
+      "side": "yes",
+      "price": "+100",
+      "book": "DraftKings",
+      "analyst": "Richard Janvrin (BettingPros)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended Best Bet",
+      "weight": 1,
+      "rationale": "TreVeyon Henderson is dealing with injury and missed practice. Stevenson commands all goal-line and high-leverage touches as the bell cow of Mike Vrabel's offense.",
+      "parlay_utility": {
+        "role": "Goal-Line Workhorse Anchor",
+        "synergy_tags": [
+          "bell_cow_volume",
+          "goal_line_monopoly",
+          "even_money_value"
+        ],
+        "positive_correlations": [
+          "Rhamondre Stevenson Over Rushing Yards",
+          "Patriots Over Team Total"
+        ]
+      },
+      "selection": "Anytime Touchdown Scorer"
+    },
+    {
+      "id": "prop__richard_janvrin__jadarian_price_first_td",
+      "player": "Jadarian Price",
+      "team": "SEA",
+      "game": "NE @ SEA",
+      "game_slate": "Wednesday Kickoff",
+      "category": "first_td",
+      "category_label": "First Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "First TD",
+      "side": "yes",
+      "price": "+650",
+      "book": "DraftKings",
+      "analyst": "Richard Janvrin (BettingPros)",
+      "tier": 3,
+      "tier_label": "Tier 3: High-Multiplier SGP Anchor",
+      "weight": 0.75,
+      "rationale": "Seahawks scored first in 75% of games last season. Price steps into Kenneth Walker's early-down red zone role with huge opening drive scoring potential at +650.",
+      "parlay_utility": {
+        "role": "Opening Script Payout Multiplier",
+        "synergy_tags": [
+          "opening_possession_scorer",
+          "favorite_fast_start"
+        ],
+        "positive_correlations": [
+          "Seahawks 1st Quarter ML",
+          "Jadarian Price Anytime TD"
+        ]
+      },
+      "selection": "First Touchdown Scorer"
+    },
+    {
+      "id": "prop__john_hansen__rhamondre_rushing_yards",
+      "player": "Rhamondre Stevenson",
+      "team": "NE",
+      "game": "NE @ SEA",
+      "game_slate": "Wednesday Kickoff",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "57.5",
+      "side": "over",
+      "price": "-111",
+      "book": "VSiN Pro Picks (Consensus)",
+      "analyst": "John Hansen (\"The Guru\", VSiN Pro Picks)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended Best Bet",
+      "weight": 1,
+      "rationale": "Primary bell cow rusher in Mike Vrabel's ground-and-pound game plan. Will command 16-20 carries with Henderson sidelined.",
+      "parlay_utility": {
+        "role": "Workhorse Rushing Foundation",
+        "synergy_tags": [
+          "ground_and_pound",
+          "carries_monopoly"
+        ],
+        "positive_correlations": [
+          "Patriots +3.5 Spread",
+          "Rhamondre Stevenson Anytime TD"
+        ]
+      },
+      "selection": "Over 57.5 Rushing Yards"
+    },
+    {
+      "id": "prop__john_hansen__hunter_henry_receiving_yards",
+      "player": "Hunter Henry",
+      "team": "NE",
+      "game": "NE @ SEA",
+      "game_slate": "Wednesday Kickoff",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "34.5",
+      "side": "over",
+      "price": "-110",
+      "book": "VSiN Pro Picks (Consensus)",
+      "analyst": "John Hansen (\"The Guru\", VSiN Pro Picks)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended Best Bet",
+      "weight": 1,
+      "rationale": "Henry averaged 42.1 receiving yards per game with Maye last season and remains the primary target over the middle.",
+      "parlay_utility": {
+        "role": "TE Chain-Mover Yardage Leg",
+        "synergy_tags": [
+          "middle_field_target",
+          "low_total_clearance"
+        ],
+        "positive_correlations": [
+          "Hunter Henry Over Receptions",
+          "Drake Maye Over Passing Yards"
+        ]
+      },
+      "selection": "Over 34.5 Receiving Yards"
+    },
+    {
+      "id": "prop__mike_spector__puka_nacua_first_td",
+      "player": "Puka Nacua",
+      "team": "LAR",
+      "game": "SF @ LAR",
+      "game_slate": "Thursday Melbourne Opener",
+      "category": "first_td",
+      "category_label": "First Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "First TD",
+      "side": "yes",
+      "price": "+800",
+      "book": "DraftKings",
+      "analyst": "Mike Spector (BettingPros)",
+      "tier": 3,
+      "tier_label": "Tier 3: High-Multiplier SGP Anchor",
+      "weight": 0.75,
+      "rationale": "Matthew Stafford had 46 passing TDs last season. Nacua hauled in 32.4% of Rams receiving yards since 2023 and torched SF for 225 yds and 165 yds in their last two meetings. 8-1 odds offer immense value.",
+      "parlay_utility": {
+        "role": "Longshot Payout Multiplier",
+        "synergy_tags": [
+          "red_zone_alpha",
+          "scripted_first_drive",
+          "high_game_total"
+        ],
+        "positive_correlations": [
+          "Puka Nacua Anytime TD",
+          "Rams 1st Half Spread",
+          "Stafford Over Passing TDs"
+        ]
+      },
+      "selection": "First Touchdown Scorer"
+    },
+    {
+      "id": "prop__mike_spector__mike_evans_anytime_td",
+      "player": "Mike Evans",
+      "team": "SF",
+      "game": "SF @ LAR",
+      "game_slate": "Thursday Melbourne Opener",
+      "category": "anytime_td",
+      "category_label": "Anytime Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "Anytime TD",
+      "side": "yes",
+      "price": "+175",
+      "book": "DraftKings",
+      "analyst": "Mike Spector (BettingPros)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended Best Bet",
+      "weight": 1,
+      "rationale": "49ers rushed for just 2.7 ypc against the Rams last season. With Pearsall out, Kirk on IR, and Kittle questionable, Evans is the primary alpha end-zone target (182 end-zone targets since 2024).",
+      "parlay_utility": {
+        "role": "Red-Zone Anchor Leg",
+        "synergy_tags": [
+          "endzone_target_dominance",
+          "wr_attrition_boost",
+          "shootout_upside"
+        ],
+        "positive_correlations": [
+          "Brock Purdy Over Passing TDs",
+          "Over 48.5 Game Total"
+        ]
+      },
+      "selection": "Anytime Touchdown Scorer"
+    },
+    {
+      "id": "prop__mike_spector__terrance_ferguson_anytime_td",
+      "player": "Terrance Ferguson",
+      "team": "LAR",
+      "game": "SF @ LAR",
+      "game_slate": "Thursday Melbourne Opener",
+      "category": "anytime_td",
+      "category_label": "Anytime Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "Anytime TD",
+      "side": "yes",
+      "price": "+400",
+      "book": "DraftKings",
+      "analyst": "Mike Spector (BettingPros)",
+      "tier": 2,
+      "tier_label": "Tier 2: High-Value Value Scorer",
+      "weight": 0.85,
+      "rationale": "Stafford led the NFL in passing touchdowns against blitzes and man coverage. Ferguson operates as a big red-zone mismatch against a 49ers defense vulnerable to athletic tight ends.",
+      "parlay_utility": {
+        "role": "High-Value SGP Multiplier",
+        "synergy_tags": [
+          "red_zone_mismatch",
+          "blitz_beater"
+        ],
+        "positive_correlations": [
+          "Stafford Over 265.5 Pass Yds",
+          "Rams -3.5 Spread"
+        ]
+      },
+      "selection": "Anytime Touchdown Scorer"
+    },
+    {
+      "id": "prop__walter_football__drake_maye_alt_rushing_yards",
+      "player": "Drake Maye",
+      "team": "NE",
+      "game": "NE @ SEA",
+      "game_slate": "Wednesday Kickoff",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards (Alt Milestone)",
+      "stat_type": "rushing",
+      "line": "25+",
+      "side": "over",
+      "price": "+110",
+      "book": "DraftKings",
+      "analyst": "Walter Cherepinsky (Walter Football)",
+      "tier": 1,
+      "tier_label": "Tier 1: Official SGP Pick",
+      "weight": 1,
+      "rationale": "Key leg of official Walter Football SGP (+1050). Maye's rushing floor is essential against Seattle's aggressive front.",
+      "parlay_utility": {
+        "role": "Official SGP Core Leg",
+        "synergy_tags": [
+          "walter_football_official",
+          "qb_mobility"
+        ],
+        "positive_correlations": [
+          "A.J. Brown 60+ Rec Yds",
+          "Seahawks -3.5 Spread"
+        ]
+      },
+      "selection": "25+ Rushing Yards (Alt Milestone)"
+    },
+    {
+      "id": "prop__walter_football__aj_brown_alt_rec_yards",
+      "player": "A.J. Brown",
+      "team": "NE",
+      "game": "NE @ SEA",
+      "game_slate": "Wednesday Kickoff",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards (Alt Milestone)",
+      "stat_type": "receiving",
+      "line": "60+",
+      "side": "over",
+      "price": "-135",
+      "book": "DraftKings",
+      "analyst": "Walter Cherepinsky (Walter Football)",
+      "tier": 1,
+      "tier_label": "Tier 1: Official SGP Pick",
+      "weight": 1,
+      "rationale": "Primary target in New England passing offense. Safest yardage floor leg for SGP construction.",
+      "parlay_utility": {
+        "role": "Official SGP Core Leg",
+        "synergy_tags": [
+          "walter_football_official",
+          "target_floor"
+        ],
+        "positive_correlations": [
+          "Drake Maye 25+ Rush Yds",
+          "Seahawks -3.5 Spread"
+        ]
+      },
+      "selection": "60+ Receiving Yards (Alt Milestone)"
+    },
+    {
+      "id": "prop__joe_holka__zay_flowers_rec_yards",
+      "player": "Zay Flowers",
+      "team": "BAL",
+      "game": "BAL @ IND",
+      "game_slate": "Sunday 1:00 PM ET",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "64.5",
+      "side": "over",
+      "price": "-114",
+      "book": "DraftKings",
+      "analyst": "Joe Holka (Twitter/X Bookmarks)",
+      "tier": 1,
+      "tier_label": "Tier 1: High-Volume Parlay Target",
+      "weight": 1,
+      "rationale": "Ranked 6th in NFL in receiving yards last season (71.1 ypg). Colts allowed 2nd-most receiving yards to WRs. Cleared in 4 of final 5 games.",
+      "parlay_utility": {
+        "role": "Sunday Matchup Exploit Leg",
+        "synergy_tags": [
+          "vulnerable_secondary",
+          "alpha_target_share"
+        ],
+        "positive_correlations": [
+          "Ravens Moneyline",
+          "Lamar Jackson Over Pass Yds"
+        ]
+      },
+      "selection": "Over 64.5 Receiving Yards"
+    },
+    {
+      "id": "prop__joe_holka__omarion_hampton_rushing_yards",
+      "player": "Omarion Hampton",
+      "team": "LAC",
+      "game": "ARI @ LAC",
+      "game_slate": "Sunday 4:25 PM ET",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "65.5",
+      "side": "over",
+      "price": "-114",
+      "book": "DraftKings",
+      "analyst": "Joe Holka (Twitter/X Bookmarks)",
+      "tier": 1,
+      "tier_label": "Tier 1: High-Volume Parlay Target",
+      "weight": 1,
+      "rationale": "Jim Harbaugh ground-and-pound commitment against a soft Cardinals run defense. Hampton commands workhorse carries.",
+      "parlay_utility": {
+        "role": "Harbaugh Workhorse Anchor",
+        "synergy_tags": [
+          "harbaugh_ground_game",
+          "soft_run_defense"
+        ],
+        "positive_correlations": [
+          "Chargers -3.5 Spread",
+          "Omarion Hampton Anytime TD"
+        ]
+      },
+      "selection": "Over 65.5 Rushing Yards"
+    },
+    {
+      "id": "prop__steve_krebs__christian_mccaffrey_rush_yards",
+      "player": "Christian McCaffrey",
+      "team": "SF",
+      "game": "SF @ LAR",
+      "game_slate": "Thursday Melbourne Opener",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "61+",
+      "side": "over",
+      "price": "-115",
+      "book": "DraftKings",
+      "analyst": "Steve Krebs (BettingPros)",
+      "tier": 1,
+      "tier_label": "Tier 1: Early Parlay Leg",
+      "weight": 1,
+      "rationale": "Line continues to drop into dangerous territory for sportsbooks. Shanahan will give McCaffrey 18+ touches on the Melbourne pitch.",
+      "parlay_utility": {
+        "role": "Elite Workhorse Floor Leg",
+        "synergy_tags": [
+          "depressed_line_value",
+          "elite_all_purpose_rb"
+        ],
+        "positive_correlations": [
+          "49ers +3.5 Spread",
+          "Christian McCaffrey Anytime TD"
+        ]
+      },
+      "selection": "61+ Rushing Yards"
+    },
+    {
+      "id": "prop__curtis_hirsch__aj_brown_alt_rec_yards",
+      "player": "A.J. Brown",
+      "team": "NE",
+      "game": "NE @ SEA",
+      "game_slate": "Wednesday Kickoff",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards (Alt Milestone)",
+      "stat_type": "receiving",
+      "line": "70+",
+      "side": "over",
+      "price": "+115",
+      "book": "DraftKings",
+      "analyst": "Curtis Hirsch (Sharp Football)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended SGP Leg",
+      "weight": 1,
+      "rationale": "Patriots paid a future first-round pick for Brown and will feature him on NFL Opening Night against a Seattle secondary missing Riq Woolen and Coby Bryant.",
+      "parlay_utility": {
+        "role": "Alpha WR Milestone Anchor",
+        "synergy_tags": [
+          "milestone_ladder",
+          "featured_debut"
+        ],
+        "positive_correlations": [
+          "Maye Over Passing Yards",
+          "Patriots +3.5 Spread"
+        ]
+      },
+      "selection": "70+ Receiving Yards (Alt Milestone)"
+    },
+    {
+      "id": "prop__curtis_hirsch__rashid_shaheed_alt_rec_yards",
+      "player": "Rashid Shaheed",
+      "team": "SEA",
+      "game": "NE @ SEA",
+      "game_slate": "Wednesday Kickoff",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards (Alt Milestone)",
+      "stat_type": "receiving",
+      "line": "40+",
+      "side": "over",
+      "price": "+125",
+      "book": "DraftKings",
+      "analyst": "Curtis Hirsch (Sharp Football)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended SGP Leg",
+      "weight": 1,
+      "rationale": "New offensive coordinator giving Shaheed increased short/intermediate crossing routes and screen packages to complement deep ball ability.",
+      "parlay_utility": {
+        "role": "Dynamic Playmaker SGP Leg",
+        "synergy_tags": [
+          "yac_scheme_boost",
+          "explosive_crossing_routes"
+        ],
+        "positive_correlations": [
+          "Over 44.5 Total",
+          "Darnold Over Passing Yards"
+        ]
+      },
+      "selection": "40+ Receiving Yards (Alt Milestone)"
+    },
+    {
+      "id": "prop__scott_bogman__blake_corum_rushing_yards",
+      "player": "Blake Corum",
+      "team": "LAR",
+      "game": "SF @ LAR",
+      "game_slate": "Thursday Melbourne Opener",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "44.5",
+      "side": "over",
+      "price": "-110",
+      "book": "DraftKings / BettingPros",
+      "analyst": "Scott Bogman (BettingPros Ep. 1054)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended Best Bet",
+      "weight": 1,
+      "rationale": "Corum cleared 44.5 rush yds in 7 of 9 games from Week 13 through the postseason last year. Generates a 16% explosive run rate (vs Kyren's 10%) against a 49ers interior front line vulnerable to outside zone. McVay will lean heavily on Corum to close in the second half.",
+      "parlay_utility": {
+        "role": "Second-Half Closer / Ground Anchor",
+        "synergy_tags": [
+          "explosive_run_rate",
+          "second_half_closer",
+          "vulnerable_rush_defense"
+        ],
+        "positive_correlations": [
+          "Kyren Williams Over Rushing Yards",
+          "Rams -3.5 Spread",
+          "Under 48.5 Total"
+        ]
+      },
+      "selection": "Over 44.5 Rushing Yards"
+    },
+    {
+      "id": "prop__tara_roberts__kyren_williams_rushing_yards",
+      "player": "Kyren Williams",
+      "team": "LAR",
+      "game": "SF @ LAR",
+      "game_slate": "Thursday Melbourne Opener",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "56.5",
+      "side": "over",
+      "price": "-115",
+      "book": "DraftKings / BettingPros",
+      "analyst": "Tara Roberts (BettingPros Ep. 1054)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended Best Bet",
+      "weight": 1,
+      "rationale": "Averaged 4.8 YPC last season and consistently clears 56+ yards (82.4% season hit rate in StatTree model, 5/5 L5, 73.7 Yds/G). Rams offensive line is fully healthy and San Francisco cannot stack the box against Stafford, Nacua, and Davante Adams.",
+      "parlay_utility": {
+        "role": "Primary Workhorse Ground Engine",
+        "synergy_tags": [
+          "bell_cow_volume",
+          "elite_hit_rate",
+          "offensive_line_advantage"
+        ],
+        "positive_correlations": [
+          "Blake Corum Over Rushing Yards",
+          "Rams -3.5 Spread",
+          "Kyren Williams Anytime TD"
+        ]
+      },
+      "selection": "Over 56.5 Rushing Yards"
+    },
+    {
+      "id": "prop__scott_bogman__deshaun_stribling_rec_yards",
+      "player": "Deshaun Stribling",
+      "team": "SF",
+      "game": "SF @ LAR",
+      "game_slate": "Thursday Melbourne Opener",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "35.5",
+      "side": "over",
+      "price": "-110",
+      "book": "BettingPros Consensus",
+      "analyst": "Scott Bogman (BettingPros Ep. 1054)",
+      "tier": 1,
+      "tier_label": "Tier 1: Rookie Breakout Target",
+      "weight": 1,
+      "rationale": "Electric preseason showing. With 49ers expected to trail late in negative game script, and with Mike Evans gimpy/snap count, Christian Kirk on IR, and George Kittle managed, Stribling only needs 3-4 catches on intermediate routes to clear 35.5 yards.",
+      "parlay_utility": {
+        "role": "Trailing Script Value Receiver",
+        "synergy_tags": [
+          "trailing_pass_script",
+          "wr_target_vacancy",
+          "rookie_breakout"
+        ],
+        "positive_correlations": [
+          "Brock Purdy Over Pass Attempts",
+          "49ers +3.5 Spread"
+        ]
+      },
+      "selection": "Over 35.5 Receiving Yards"
+    },
+    {
+      "id": "prop__tara_roberts__deebo_samuel_rec_yards",
+      "player": "Deebo Samuel",
+      "team": "SF",
+      "game": "SF @ LAR",
+      "game_slate": "Thursday Melbourne Opener",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "29.5",
+      "side": "over",
+      "price": "-110",
+      "book": "BettingPros Consensus",
+      "analyst": "Tara Roberts (BettingPros Ep. 1054)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended Best Bet",
+      "weight": 1,
+      "rationale": "Healthy, reliable target in Kyle Shanahan's creative system, projected at 33.6 yards by BettingPros model. With Evans and Kittle on snap management, Deebo will be used heavily on intermediate touches, jets, and quick screens.",
+      "parlay_utility": {
+        "role": "Intermediate Safety Valve",
+        "synergy_tags": [
+          "veteran_health_floor",
+          "manufactured_touches",
+          "shanahan_scheme"
+        ],
+        "positive_correlations": [
+          "Christian McCaffrey Over Receptions",
+          "Brock Purdy Over Completions"
+        ]
+      },
+      "selection": "Over 29.5 Receiving Yards"
+    },
+    {
+      "id": "prop__stattree__puka_nacua_receptions",
+      "player": "Puka Nacua",
+      "team": "LAR",
+      "game": "SF @ LAR",
+      "game_slate": "Thursday Melbourne Opener",
+      "category": "receptions",
+      "category_label": "Receptions",
+      "stat_type": "receiving",
+      "line": "7.5",
+      "side": "over",
+      "price": "+116",
+      "book": "DraftKings / StatTree Model",
+      "analyst": "StatTree Quantitative Model",
+      "tier": 1,
+      "tier_label": "Tier 1: 5-Star Scheme Mismatch",
+      "weight": 1,
+      "rationale": "StatTree Scheme Read Score 11: Averaging 10.4 targets/game at an 83% catch rate. Generates 10.8 yds/target against zone coverage. 49ers run zone coverage on 74% of dropbacks (9th highest in NFL). Commands 30% team target share.",
+      "parlay_utility": {
+        "role": "Zone-Coverage Funnel Anchor",
+        "synergy_tags": [
+          "zone_coverage_mismatch",
+          "elite_target_share",
+          "plus_money_alpha"
+        ],
+        "positive_correlations": [
+          "Matthew Stafford Over Passing TDs",
+          "Rams -3.5 Spread"
+        ]
+      },
+      "selection": "Over 7.5 Receptions"
+    },
+    {
+      "id": "prop__stattree__davante_adams_anytime_td",
+      "player": "Davante Adams",
+      "team": "LAR",
+      "game": "SF @ LAR",
+      "game_slate": "Thursday Melbourne Opener",
+      "category": "anytime_td",
+      "category_label": "Anytime Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "Anytime TD",
+      "side": "yes",
+      "price": "+140",
+      "book": "DraftKings / StatTree Model",
+      "analyst": "StatTree Quantitative Model",
+      "tier": 1,
+      "tier_label": "Tier 1: #1 Ranked ATD Board Edge",
+      "weight": 1,
+      "rationale": "StatTree ATD Score 16.8 (#1 on entire NFL Week 1 board). Model gap +0.194 over implied probability. Commanded 32 prior red-zone targets, serving as Stafford's primary red-zone isolated threat.",
+      "parlay_utility": {
+        "role": "Red-Zone Payout Multiplier",
+        "synergy_tags": [
+          "red_zone_target_leader",
+          "stattree_rank_1",
+          "isolated_endzone_threat"
+        ],
+        "positive_correlations": [
+          "Matthew Stafford Over 1.5 Passing TDs",
+          "Rams Over Team Total"
+        ]
+      },
+      "selection": "Anytime Touchdown Scorer"
+    },
+    {
+      "id": "prop__stattree__george_kittle_receptions",
+      "player": "George Kittle",
+      "team": "SF",
+      "game": "SF @ LAR",
+      "game_slate": "Thursday Melbourne Opener",
+      "category": "receptions",
+      "category_label": "Receptions",
+      "stat_type": "receiving",
+      "line": "3.5",
+      "side": "over",
+      "price": "-110",
+      "book": "DraftKings / StatTree Model",
+      "analyst": "StatTree Quantitative Model",
+      "tier": 1,
+      "tier_label": "Tier 1: High-Floor Blitz Valve",
+      "weight": 1,
+      "rationale": "StatTree 90.9% season hit rate (10/11 games) and 5/5 in last 5. Averages 5.18 rec/g on 6.27 targets (82.6% catch rate). Acts as Brock Purdy's primary quick safety valve against Rams pass rush (Garrett, Donald, Turner).",
+      "parlay_utility": {
+        "role": "High-Floor Safety Valve Leg",
+        "synergy_tags": [
+          "blitz_beater_valve",
+          "90pct_hit_rate",
+          "quick_release_target"
+        ],
+        "positive_correlations": [
+          "Christian McCaffrey Over Receptions",
+          "49ers Under Team Total"
+        ]
+      },
+      "selection": "Over 3.5 Receptions"
+    },
+    {
+      "id": "prop__stattree__cmc_receptions",
+      "player": "Christian McCaffrey",
+      "team": "SF",
+      "game": "SF @ LAR",
+      "game_slate": "Thursday Melbourne Opener",
+      "category": "receptions",
+      "category_label": "Receptions",
+      "stat_type": "receiving",
+      "line": "4.5",
+      "side": "over",
+      "price": "+104",
+      "book": "DraftKings / StatTree Model",
+      "analyst": "StatTree Quantitative Model",
+      "tier": 1,
+      "tier_label": "Tier 1: Plus-Money Volume Play",
+      "weight": 1,
+      "rationale": "StatTree Scheme Read Score 8: 7.6 targets/game, 86% catch rate, 23% target share (24th of 182). Cleared in 13 of 17 games (76%). Vital screen and checkdown outlet against Aaron Donald and Myles Garrett.",
+      "parlay_utility": {
+        "role": "Dual-Threat Volume Floor",
+        "synergy_tags": [
+          "pass_protection_dumpoff",
+          "plus_money_floor",
+          "target_share_leader"
+        ],
+        "positive_correlations": [
+          "Christian McCaffrey 61+ Rushing Yards",
+          "George Kittle Over Receptions"
+        ]
+      },
+      "selection": "Over 4.5 Receptions"
+    },
+    {
+      "id": "prop__steve_fezzik__sf_lar_second_half_over",
+      "player": "Game Derivative (SF @ LAR)",
+      "team": "LAR",
+      "game": "SF @ LAR",
+      "game_slate": "Thursday Melbourne Opener",
+      "category": "game_derivative",
+      "category_label": "2nd Half Total Points",
+      "stat_type": "total",
+      "line": "23.5",
+      "side": "over",
+      "price": "-110",
+      "book": "DraftKings (Reduced Juice)",
+      "analyst": "Steve Fezzik (Even Money Podcast)",
+      "tier": 1,
+      "tier_label": "Tier 1: Recommended Market Derivative",
+      "weight": 1,
+      "rationale": "Key hook on 24 points: Teams traveling across the globe start sluggish in the 1st half. Halftime schematic adjustments and trailing urgency dramatically accelerate 2nd half scoring.",
+      "parlay_utility": {
+        "role": "Second-Half Acceleration Anchor",
+        "synergy_tags": [
+          "halftime_adjustments",
+          "trailing_pace",
+          "key_hook_value"
+        ],
+        "positive_correlations": [
+          "Blake Corum Over Rushing Yards",
+          "Deshaun Stribling Over Receiving Yards"
+        ]
+      },
+      "selection": "Over 23.5 2nd Half Total Points"
+    }
+  ]
+}
