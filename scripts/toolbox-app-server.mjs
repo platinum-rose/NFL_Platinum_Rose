@@ -254,7 +254,8 @@ const DIAGNOSTIC_FILE_SOURCES = [
     detail: 'Pulled from ESPN. Powers every day\'s game list and kickoff countdowns.',
     path: 'public/schedule.json',
     maxAgeHours: 168,
-    group: 'Game & Player Data'
+    group: 'Game & Player Data',
+    runTask: 'tuesday-schedule'
   },
   {
     key: 'odds',
@@ -262,7 +263,8 @@ const DIAGNOSTIC_FILE_SOURCES = [
     detail: 'Live market lines from TheOddsAPI, used for CLV tracking and card locking.',
     path: 'data/supercontest/live-market-comparison.json',
     maxAgeHours: 48,
-    group: 'Betting Markets'
+    group: 'Betting Markets',
+    runTask: 'sync-odds'
   },
   {
     key: 'player_stats',
@@ -270,7 +272,8 @@ const DIAGNOSTIC_FILE_SOURCES = [
     detail: 'Weekly box-score stats from nflverse, used to spot workload/usage trends.',
     path: 'data/vault-seed/nflverse/player_stats_weekly.csv',
     maxAgeHours: 168,
-    group: 'Game & Player Data'
+    group: 'Game & Player Data',
+    runTask: 'tuesday-player-stats-refresh'
   },
   {
     key: 'availability',
@@ -278,7 +281,8 @@ const DIAGNOSTIC_FILE_SOURCES = [
     detail: 'Practice participation and game-status designations for every roster.',
     path: 'data/player-availability/latest.json',
     maxAgeHours: 24,
-    group: 'Game & Player Data'
+    group: 'Game & Player Data',
+    runTask: 'thursday-injuries'
   },
   {
     key: 'projected_starters',
@@ -286,7 +290,8 @@ const DIAGNOSTIC_FILE_SOURCES = [
     detail: 'Weekly starter projections, feeding the Human Review queue.',
     path: 'data/projected-starters/2026/latest.json',
     maxAgeHours: 48,
-    group: 'Game & Player Data'
+    group: 'Game & Player Data',
+    runTask: 'friday-starters'
   },
   {
     key: 'dvoa',
@@ -294,7 +299,8 @@ const DIAGNOSTIC_FILE_SOURCES = [
     detail: 'Efficiency ratings for every team, used to sanity-check spreads and totals against a second opinion.',
     path: 'data/generated/team-profiles/team-dvoa-snapshots-2026.json',
     maxAgeHours: 240,
-    group: 'Game & Player Data'
+    group: 'Game & Player Data',
+    runTask: 'dvoa-refresh'
   },
   {
     key: 'betting_splits',
@@ -302,7 +308,8 @@ const DIAGNOSTIC_FILE_SOURCES = [
     detail: 'What percentage of bets and money is on each side of a game, used to spot where the public and sharp money disagree.',
     path: 'public/betting_splits.json',
     maxAgeHours: 48,
-    group: 'Betting Markets'
+    group: 'Betting Markets',
+    runTask: 'betting-splits-refresh'
   },
   {
     key: 'prediction_markets',
@@ -310,7 +317,8 @@ const DIAGNOSTIC_FILE_SOURCES = [
     detail: 'Real-money forecasts for the Super Bowl and other season-long outcomes from prediction-market exchanges.',
     path: 'data/prediction-markets/latest.json',
     maxAgeHours: 168,
-    group: 'Betting Markets'
+    group: 'Betting Markets',
+    runTask: 'prediction-markets-refresh'
   },
   {
     key: 'alpha_packet',
@@ -318,7 +326,8 @@ const DIAGNOSTIC_FILE_SOURCES = [
     detail: 'The unified Friday packet combining odds, injuries, and starters.',
     path: 'public/alpha/alpha-packet-2026.json',
     maxAgeHours: 48,
-    group: 'System & Master Feeds'
+    group: 'System & Master Feeds',
+    runTask: 'friday-alpha'
   }
 ];
 
@@ -341,7 +350,8 @@ async function checkFileSource(source) {
     lastUpdated: audited.mtime,
     relativeTime: audited.relativeTime,
     checkType: 'file_freshness',
-    group: source.group || 'Other'
+    group: source.group || 'Other',
+    runTask: source.runTask || null
   };
 }
 
@@ -826,6 +836,20 @@ export function runTask(taskKey) {
     case 'reconcile-commit':
       cmd = 'node';
       args = ['scripts/reconcile-settlement.mjs'];
+      break;
+
+    // ── DATA SOURCE HEALTH TAB: RUN NOW (sources with no existing cadence subtask) ──
+    case 'betting-splits-refresh':
+      cmd = 'node';
+      args = ['agents/betting-splits-ingest.js'];
+      break;
+    case 'dvoa-refresh':
+      cmd = 'node';
+      args = ['scripts/build-dvoa-snapshots.js', '--season', '2026'];
+      break;
+    case 'prediction-markets-refresh':
+      cmd = 'node';
+      args = ['scripts/build-prediction-markets.js'];
       break;
 
     // ── DIAGNOSTICS & SYSTEM HEALTH ──

@@ -415,6 +415,13 @@
     .diag-status-pill.stale { background: rgba(245, 158, 11, 0.15); color: #FBBF24; border: 1px solid #D97706; }
     .diag-status-pill.broken { background: rgba(239, 68, 68, 0.15); color: #F87171; border: 1px solid #DC2626; }
     .diag-status-pill.not_configured { background: rgba(148, 163, 184, 0.15); color: #94A3B8; border: 1px solid #475569; }
+    .diag-run-btn {
+      align-self: flex-start; margin-top: 4px; background: #132033; color: #7DD3FC;
+      border: 1px solid #1D4E6E; border-radius: 6px; padding: 5px 10px; font-size: 0.68rem;
+      font-weight: 800; cursor: pointer; transition: all 0.15s; white-space: normal; text-align: left;
+    }
+    .diag-run-btn:hover { background: #1D4E6E; color: #FFF; border-color: #38BDF8; }
+    .diag-run-btn.is-running { opacity: 0.75; cursor: wait; }
     .diag-group-heading { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: #94A3B8; margin: 14px 0 6px; }
     .diag-group-heading:first-child { margin-top: 0; }
     .diag-group-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; margin-bottom: 4px; }
@@ -1096,6 +1103,7 @@
             updateStatusBadge(msg.status, msg.task, msg.elapsed, msg.exitCode);
             if (msg.status === 'completed' || msg.status === 'failed') {
               fetchStatus();
+              if (typeof window.loadDiagnostics === 'function') window.loadDiagnostics();
             }
           }
         } catch (e) {
@@ -1288,6 +1296,9 @@
           const timeLine = s.checkType === 'live_probe'
             ? s.relativeTime
             : (s.lastUpdated ? ('Last updated ' + s.relativeTime) : 'No file found yet');
+          const runBtn = s.runTask
+            ? '<button class="diag-run-btn" data-task="' + s.runTask + '" title="Run the pipeline that refreshes this source">&#9654; Run Now</button>'
+            : '';
           return '<div class="diag-card">' +
             '<div class="diag-card-top">' +
               '<div class="diag-card-label">' + s.label + '</div>' +
@@ -1295,6 +1306,7 @@
             '</div>' +
             '<div class="diag-card-detail">' + s.detail + '</div>' +
             '<div class="diag-card-time">' + timeLine + '</div>' +
+            runBtn +
           '</div>';
         }
 
