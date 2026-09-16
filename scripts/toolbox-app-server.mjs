@@ -303,15 +303,6 @@ const DIAGNOSTIC_FILE_SOURCES = [
     runTask: 'dvoa-refresh'
   },
   {
-    key: 'betting_splits',
-    label: 'Betting Splits (Public vs. Sharp Money)',
-    detail: 'What percentage of bets and money is on each side of a game, used to spot where the public and sharp money disagree.',
-    path: 'public/betting_splits.json',
-    maxAgeHours: 48,
-    group: 'Betting Markets',
-    runTask: 'betting-splits-refresh'
-  },
-  {
     key: 'prediction_markets',
     label: 'Prediction Markets (Kalshi / Polymarket)',
     detail: 'Real-money forecasts for the Super Bowl and other season-long outcomes from prediction-market exchanges.',
@@ -507,6 +498,60 @@ async function checkSupabase() {
   }
 }
 
+// Live freshness probe for Betting Splits -- reads the most recent captured_at directly
+// from Supabase's game_splits table instead of a local file's mtime. public/betting_splits.json
+// is written locally (by the ingest agent and by this card's own Run Now button) but is
+// intentionally not git-tracked (2026-09-16): the dashboard reads game_splits straight from
+// Supabase, so a local file's mtime can't reflect a cloud cron run anyway -- Supabase itself
+// is the only freshness signal that's accurate regardless of where the last run happened.
+async function checkBettingSplitsFreshness() {
+  const key = 'betting_splits';
+  const label = 'Betting Splits (Public vs. Sharp Money)';
+  const detail = 'What percentage of bets and money is on each side of a game, used to spot where the public and sharp money disagree.';
+  const group = 'Betting Markets';
+  const runTask = 'betting-splits-refresh';
+  const maxAgeHours = 48;
+  const url = process.env.SUPABASE_URL;
+  const apiKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !apiKey) {
+    return { key, label, detail, path: null, status: 'not_configured', lastUpdated: null, relativeTime: 'No cloud credentials configured on this machine', checkType: 'live_probe', group, runTask };
+  }
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000);
+    let response;
+    try {
+      response = await fetch(`${url}/rest/v1/game_splits?select=captured_at&order=captured_at.desc&limit=1`, {
+        headers: { apikey: apiKey, Authorization: `Bearer ${apiKey}` },
+        signal: controller.signal
+      });
+    } finally {
+      clearTimeout(timeout);
+    }
+    if (!response.ok) {
+      return { key, label, detail, path: null, status: 'broken', lastUpdated: null, relativeTime: `Responded with an error (HTTP ${response.status})`, checkType: 'live_probe', group, runTask };
+    }
+    const rows = await response.json();
+    const latest = rows?.[0]?.captured_at;
+    if (!latest) {
+      return { key, label, detail, path: null, status: 'broken', lastUpdated: null, relativeTime: 'No rows in game_splits yet', checkType: 'live_probe', group, runTask };
+    }
+    const capturedAt = new Date(latest);
+    const hoursAgo = (Date.now() - capturedAt.getTime()) / (1000 * 60 * 60);
+    const isFresh = hoursAgo <= maxAgeHours;
+    return {
+      key, label, detail, path: null,
+      status: isFresh ? 'healthy' : 'stale',
+      lastUpdated: capturedAt.toISOString(),
+      relativeTime: formatRelativeTime(capturedAt),
+      checkType: 'live_probe', group, runTask
+    };
+  } catch (err) {
+    const reason = err.name === 'AbortError' ? 'Timed out after 5s' : err.message;
+    return { key, label, detail, path: null, status: 'broken', lastUpdated: null, relativeTime: `Could not connect (${reason})`, checkType: 'live_probe', group, runTask };
+  }
+}
+
 // Live intel pipelines that write a NEW file per run (dated bookmark reports, timestamped
 // ingest receipts) rather than overwriting one fixed path. Checked with
 // checkLatestFileInDirSource / checkFreshestOfCandidates instead of checkFileSource.
@@ -570,8 +615,8 @@ export async function getDiagnosticsPayload() {
   const fileResults = await Promise.all(DIAGNOSTIC_FILE_SOURCES.map(checkFileSource));
   const dirResults = await Promise.all(DIAGNOSTIC_DIR_SOURCES.map(checkLatestFileInDirSource));
   const multiResults = await Promise.all(DIAGNOSTIC_MULTI_SOURCES.map(checkFreshestOfCandidates));
-  const supabaseResult = await checkSupabase();
-  const sources = [...fileResults, ...dirResults, ...multiResults, supabaseResult];
+  const [supabaseResult, bettingSplitsResult] = await Promise.all([checkSupabase(), checkBettingSplitsFreshness()]);
+  const sources = [...fileResults, ...dirResults, ...multiResults, bettingSplitsResult, supabaseResult];
   const healthyCount = sources.filter((s) => s.status === 'healthy').length;
   return {
     generatedAt: new Date().toISOString(),

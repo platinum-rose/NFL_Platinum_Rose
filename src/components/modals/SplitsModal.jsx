@@ -87,7 +87,9 @@ const SplitsModal = ({ isOpen, onClose, games }) => {
                 <AlertTriangle size={48} className="mb-4 opacity-50" />
                 <p className="text-lg font-medium">No Splits Data Found</p>
                 <p className="text-sm mt-2 text-center max-w-md">
-                    Waiting for Cron Job to populate <code>betting_splits.json</code>...
+                    No betting splits in Supabase yet for this week. The Action Network
+                    ingest agent refreshes this on its normal schedule, or run it now from
+                    the Toolbox's Data Source Health tab.
                 </p>
             </div>
           ) : (

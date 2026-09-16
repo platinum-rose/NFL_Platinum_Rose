@@ -42,10 +42,14 @@ playwright-report/
 test-results/
 .playwright/
 # Generated / transient runtime artifacts
-# NOTE: public/betting_splits.json is intentionally tracked (2026-09-16) so the
-# betting-splits-ingest.yml workflow can commit fresh data back to the repo, the
-# same pattern weekly-update.yml uses for public/schedule.json. dist/betting_splits.json
-# stays ignored via the blanket "dist" rule above.
+# betting_splits.json: written locally by agents/betting-splits-ingest.js and by the
+# Toolbox's "Run Now" button, but intentionally NOT git-tracked (reverted 2026-09-16).
+# The live dashboard reads game_splits straight from Supabase (see useSchedule.js),
+# and the Data Source Health check for this source now probes Supabase's most recent
+# captured_at directly instead of this file's mtime -- so committing it just added
+# noisy bot commits (up to ~12/day on game days) that triggered a CI run + a GitHub
+# Pages redeploy for a file nothing in production actually reads.
+betting_splits.json
 public/*.bak
 .nfl/session-log.jsonl
 .nfl/reports/
