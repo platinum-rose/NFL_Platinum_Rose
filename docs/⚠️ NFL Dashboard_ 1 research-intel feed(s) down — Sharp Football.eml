@@ -1,0 +1,46 @@
+Return-Path: <andrewlrose@gmail.com>
+Received: from [127.0.0.1] ([172.212.165.177])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-47df86a1db4sm11511661fac.4.2026.09.15.06.59.52
+        for <andrewlrose@hotmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 15 Sep 2026 06:59:52 -0700 (PDT)
+From: NFL Dashboard <andrewlrose@gmail.com>
+To: andrewlrose@hotmail.com
+Subject: =?UTF-8?Q?=E2=9A=A0=EF=B8=8F_NFL_Dashboard=3A_1_re?=
+ =?UTF-8?Q?search-intel_feed=28s=29_down_=E2=80=94_?=
+ =?UTF-8?Q?Sharp_Football?=
+Message-ID: <a6ebc696-ce4b-c379-1a44-954fa18af6bc@gmail.com>
+Date: Tue, 15 Sep 2026 13:59:51 +0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--_NmP-0bb3024972711ab0-Part_1"
+
+----_NmP-0bb3024972711ab0-Part_1
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+research-intel-ingest.js feed health check (2026-09-15T13:59:48.886Z)
+
+DOWN (1):
+  - Sharp Football: Feed payload too large (> 2000000 bytes) (2 =
+consecutive failed checks, last succeeded 2026-09-14T15:27:05.521+00:00)
+
+Alerts fire after 2+ consecutive failed checks (this job runs twice daily),=
+ and again once a feed recovers -- not every run. See TASK_BOARD.md's =
+B-actionnetwork-feed-403 entry for background.
+----_NmP-0bb3024972711ab0-Part_1
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<pre style=3D"font-family:monospace;white-space:pre-wrap">research-intel-in=
+gest.js feed health check (2026-09-15T13:59:48.886Z)
+
+DOWN (1):
+  - Sharp Football: Feed payload too large (> 2000000 bytes) (2 consecutive=
+ failed checks, last succeeded 2026-09-14T15:27:05.521+00:00)
+
+Alerts fire after 2+ consecutive failed checks (this job runs twice daily),=
+ and again once a feed recovers -- not every run. See TASK_BOARD.md's =
+B-actionnetwork-feed-403 entry for background.=
+</pre>
+----_NmP-0bb3024972711ab0-Part_1--

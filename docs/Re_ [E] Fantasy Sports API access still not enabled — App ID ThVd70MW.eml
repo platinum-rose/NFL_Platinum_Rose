@@ -1,0 +1,488 @@
+Received: from SJ0P220MB0527.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:301::13)
+ by CO6P220MB0324.NAMP220.PROD.OUTLOOK.COM with HTTPS; Mon, 7 Sep 2026
+ 05:14:23 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=mKo+B9htEjVxbcGwdMhTuMX6qc+vYWh5TFZm1wBGQzWy58c+tlDTqGvAZBUdUwYbA2RYLwMePeFMmaPgrrYsxxekKSwDY7oqJajmth4NxZzZgEqLUz7VhSF/IEGiWASuQQp1EfR32PsNulRviiwfprRDOuJUzO+gwB7w9f4U1Pbpq1t4bv18VkTo8mKjehO+A94rBLe58mBsYjucpC7rS9Mki7cfi6LdWhI6A5XVCjOYhwcITvK6qzEJi7c27ZxxO1w6bBrTZN9MCtu4QZjIM954LeHrRtNxs88ApkoDpuXz24kyGXhYqfnU2OYY8uepauaIdy+jIvuJqRByIf4Www==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MUaqkF1d4PVc1qiH4iBx2MpHHvRWNihbNnS6y+d4MB0=;
+ b=kAb/WVqQcWnf4vpKuJ425ZTnC3zTmWakaqOBVbfqndLpptZxACtmrs/Nox+Z3yZ4ug/9h3QxPmLlW5KBnq3asH9ydWAJS2YqJdWe++SoDUb69+PzLQ7ZFFD9FjcBIZ8oXDGtvGSA410dGKe7dJwGjqFA0sHDoPIfgwynpe73IeQr3dL/Ugm67LexUZ8179k9h89/hWp7cEZMIl25Zx9XBHkMBFmDXcuTNZOPFLKURaEq3oaxZ3KkXLPjoEVVQpiuaOKc4ZEbdYKxVot5QWG30nlcMYgr44NZZj4Y8AwgcsvRfo/pmcuOU3sr+SoMe7vOPDIn7YurnkcR7YGrkZusVw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 148.163.139.55) smtp.rcpttodomain=hotmail.com smtp.mailfrom=yahooinc.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=yahoosports.com; dkim=pass (signature was verified)
+ header.d=yahoosports.com; dkim=pass (signature was verified)
+ header.d=yahoosports.com; arc=pass (0 oda=0 ltdi=1)
+Received: from AS9PR06CA0378.eurprd06.prod.outlook.com (2603:10a6:20b:460::18)
+ by SJ0P220MB0527.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:301::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.15; Mon, 7 Sep
+ 2026 05:14:22 +0000
+Received: from AM3PEPF00009B9F.eurprd04.prod.outlook.com
+ (2603:10a6:20b:460:cafe::37) by AS9PR06CA0378.outlook.office365.com
+ (2603:10a6:20b:460::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.15 via Frontend Transport; Mon, 7
+ Sep 2026 05:14:20 +0000
+Authentication-Results: spf=pass (sender IP is 148.163.139.55)
+ smtp.mailfrom=yahooinc.com; dkim=pass (signature was verified)
+ header.d=yahoosports.com;dkim=pass (signature was verified)
+ header.d=yahoosports.com;dmarc=pass action=none
+ header.from=yahoosports.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of yahooinc.com designates
+ 148.163.139.55 as permitted sender) receiver=protection.outlook.com;
+ client-ip=148.163.139.55; helo=mx0b-00505701.pphosted.com; pr=C
+Received: from mx0b-00505701.pphosted.com (148.163.139.55) by
+ AM3PEPF00009B9F.mail.protection.outlook.com (10.167.16.24) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.406.5
+ via Frontend Transport; Mon, 7 Sep 2026 05:14:19 +0000
+X-IncomingTopHeaderMarker: OriginalChecksum:4774B242B4F3C5A78D23923D5CE4E2D26FCE9725845F5D76B79ACD7393432446;UpperCasedChecksum:A05B3ED155961A85054A447E7A2BCC59BE4B0F54C0E2BEBB741903570B792E2F;SizeAsReceived:7849;Count:30
+Received: from pps.filterd (m0212275.ppops.net [127.0.0.1])
+	by mx0b-00505701.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6873juhX1601154
+	for <andrewlrose@hotmail.com>; Mon, 7 Sep 2026 05:14:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoosports.com;
+	 h=content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pps1; bh=MUaqkF1d4PVc1qiH4iBx2MpHHvRWN
+	ihbNnS6y+d4MB0=; b=cWbsjMFVXAnQ0abakFDWLCzE0VgnH/EH43iDrso5nJ2qX
+	pEjbunrSshfVxOQo36PRDU4xpACiCjfnmvNA5guVZOqboj3IW/YXw9b3jasQBktf
+	lFo847se6M5tmaaxPxn+kn6q95wpeCAxDW8C5XAl1bI+qAuSzkrOLS/36YQTdhhz
+	H2S5bdF1QDT8LAleA5zuzr7U/TXAlHBfGv3FPHX6if5MyJy805XGQN1L9jN7uRFW
+	cvkR39y9RDTD4S9BA4+5+Rn15cj8ARIU1gQDwisvSG+kxBsH8KfGQ+XaZlC/reng
+	NaAY15WPhUK/g70J3m2Tc1nujeuhhAYxeiMMgFzAw==
+Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com [209.85.208.71])
+	by mx0b-00505701.pphosted.com (PPS) with ESMTPS id 4ghnhfr869-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <andrewlrose@hotmail.com>; Mon, 07 Sep 2026 05:14:18 +0000 (GMT)
+Received: by mail-ed1-f71.google.com with SMTP id 4fb4d7f45d1cf-6a5f79c6c4cso3656552a12.0
+        for <andrewlrose@hotmail.com>; Sun, 06 Sep 2026 22:14:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788758057; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ic8/uru8wkFHfH6Pk0ADwpyVJtRIgmGVp1fpm9Du9nLdSwElh4jWDOZTE/ENMR7Af6
+         JroFOD8adpYIoYE5fbW7g30uIOdtHgXOUh9LQqwz1RZnZhny8eYp8XGABsveP2Bn9YXb
+         65rzdv6plOAptj0LN3+wDHDQdssbpf8ByjrYAixH31bzJUougR+buJZ63s3E8zs9x3e3
+         Jtk8evGFyDL6xesab20HLZDFhlMY2/Pu8K77oUc0WmLUdAvflObm4Xnu+55MFxIcQ1gR
+         KdPyRXNF4os8Thv9cBsagGJ8bQ+qNWX7O+iP+qAm+xyhPT93aCmEDfVXvIRmZ+mD/ufz
+         7PHw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=MUaqkF1d4PVc1qiH4iBx2MpHHvRWNihbNnS6y+d4MB0=;
+        fh=6QJPc1gbVhb/5WswLK7A4felanuQP9BLKG/OfvZOw9Q=;
+        b=GY/KHvhC/15PqIh2389wK0Lq0f+LtWQHh3289CYn3UhfmQKH+YomhdUIJKY4xZl5jU
+         ElhsWY6WrGXC8MiXs5OodltqZuhaBkgQxmgYc33RgDH5f47UBiMiGuL3IuOqf4febmKA
+         KXFGjPUpKxTUK7G18lOEfEB5pHnjkTV+EmZjvNcV7CNd5NSvMcJkS+nNQzTGt2+YH9iQ
+         0TrZ+YJK7o09QM8/NwHp8LPJAxlJWvgNz6DM8LMoQjq6HJ2NruOomQ97A/D0Sbl/CnbS
+         oHLPbDCx/eCjVjzlAximy7oMRQjuAinU/bIYLIGJFuAr30LTz64OaScrMKQdAnppgmC/
+         3TdQ==;
+        darn=hotmail.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=yahoosports.com; s=google; t=1788758057; x=1789362857; darn=hotmail.com;
+        h=content-type:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=MUaqkF1d4PVc1qiH4iBx2MpHHvRWNihbNnS6y+d4MB0=;
+        b=WJnRtxlIW4iKXt/nhnP9PyIhk98DlKwjIUYlwSUv4G0AbXdL4aL4uVAtS+mMcjizEP
+         KheYy8/AaJ8S2pzHVhhxo0WimuymrkdzjaOBZuKwxSiT4dXsTlHs7cOGShACtOL4SV8B
+         YCsHNehmMac7HLtpir6rZ0q+hQgthn0XwDnH33RlabiK8AU+ii7k+LXEGlZYAp2mFrl4
+         bc9IMmSbd/OZzZAwfFdmkLGMoSMrO0JH6OFIPA4la9JltZ85dhy0GHitDKQZVpxj5TO4
+         ErM/VdRaChU6fd4ZrGCW6oQKmS4zd/uwygGaW3tdaQ5hNJ0udRgE0CMhILiDv4iIUrkC
+         znSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788758057; x=1789362857;
+        h=content-type:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=MUaqkF1d4PVc1qiH4iBx2MpHHvRWNihbNnS6y+d4MB0=;
+        b=UlsxoFI3r9lTDydUgWqWYqLEB0jyentoGugvpvQy1DGGsY87oYZtPZsZIxT1CLrjht
+         +9Th7pzPhYWAe+Q7Ruc+VesFEoI/G8vz9pcclCR/ROYNQYumNzSBIYOD/MJCFkbt1Ll/
+         jjWRK50wkU/DrE0THhgWo9gquh+ycebnPl5hMijfbP9PrXCjtOJZoCIK5xSLRQLI1o55
+         xDtSAp57QYRiAJbOao3bhgRl770DZF0t0Io9nAQf44x6LalB+ZnSA/Yms2vq44UEehdR
+         rVtr8gmEPnnxANj5SpsFg64k/uJrogdkSjxTXLcn9RZHcPqVlzPSE/RhmFTqMSHMk3XQ
+         7Qog==
+X-Gm-Message-State: AFuF++kSA1cyEJhnvjcQyroNjT1mdwvP0YR7vFnCGhS0VSECqh9Nu6s3
+	PIPteexwETJOVy6Nb0RevhCDa8J5dc8ejlDBklEv12Tasc1cmssMALeNBDfrAeU5Kse0qOqhTpL
+	nYEya/zZTL3BCtW22yu0HVceRJQM0XBhlDIEUlb+ukFsc9956CNNi49JIQrvx8v5sFE4e5tKuAO
+	eBP3ff+Av0Fym4WJ6QzYoQqLgJF2lOREDOPEbKuJvo9d8FTQ==
+X-Gm-Gg: AYBFou090pBA1Fxilk37xtHyGysN327vJAMDRh871zYxN0LTvO4/k3GJtnZdFXL1JF/
+	sO6bfze7G+ayxcWrQy17CoBzoCpMlzom1AkLMDIATxyGXxmP0Dr41CZ0qDmwGbsJ4Tu3gb9SN9g
+	1hSSgagvziIOzE8Vz8mGUoEOw7SVJ6onnXN7K9ohdqVbv+s5xClUgVzC9/ZWAi+BGCObnM3t4Dp
+	dT6/fO5ox2jNAPtoxK/t4p4YQgMJEiesImjW6BKRcEO7gbFyoeYyfWMNCy/hX+8X4dK+ttbDkv0
+	+oCcX0Ryae0=
+X-Received: by 2002:a05:6402:270a:b0:6a6:32f5:90b4 with SMTP id 4fb4d7f45d1cf-6a7e90a5f76mr11817452a12.22.1788758056833;
+        Sun, 06 Sep 2026 22:14:16 -0700 (PDT)
+X-Received: by 2002:a05:6402:270a:b0:6a6:32f5:90b4 with SMTP id
+ 4fb4d7f45d1cf-6a7e90a5f76mr11817418a12.22.1788758056233; Sun, 06 Sep 2026
+ 22:14:16 -0700 (PDT)
+References: <CAMmkCfGBuUoWWhcx4ux1+LiE5KycNNPBKc3j-jf+e038efMO6w@mail.gmail.com>
+ <SJ2SPRMB005024ACAAF143FB3CAF42A7A3B62@SJ2SPRMB0050.NAMP220.PROD.OUTLOOK.COM>
+In-Reply-To: <SJ2SPRMB005024ACAAF143FB3CAF42A7A3B62@SJ2SPRMB0050.NAMP220.PROD.OUTLOOK.COM>
+From: Yahoo Fantasy API <fantasyapideveloper@yahoosports.com>
+Date: Sun, 6 Sep 2026 22:13:39 -0700
+X-Gm-Features: AcwNN1UgYHq37dL5q5bw4nrWooNe4JDtnDo8OIMQyaFo3jjI4WPyqQH0Ya5-Yjc
+Message-ID: <CAMmkCfEdZuywroAEK8n1PVp_hEzAj-8CRE95UC9wTh8cFwvs1g@mail.gmail.com>
+Subject: =?UTF-8?Q?Re=3A_=5BE=5D_Fantasy_Sports_API_access_still_not_enabled_?=
+	=?UTF-8?Q?=E2=80=94_App_ID_ThVd70MW?=
+To: andrew rose <andrewlrose@hotmail.com>
+Content-Type: multipart/alternative; boundary="000000000000880e2a065addb039"
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTA3MDA1NCBTYWx0ZWRfX8j2+8qHPbGWZ
+ lVtJWfoTLOdGAvWFCvBbDHN1QyHOlAn25mNLA6Isnr12ODFkltfAVoPLXOCD4XYEvDlXNUz+9s0
+ SGeBTafVUyTS2s8nMh6HSe8gRV4HD1rp2pILxUC9WZVlksX7wqiMRqPxJLU8xk8MWODyyqNDV35
+ zpVxj+DzkuWhIHGyasqRQrZYiOgF01HmkNOnnaYYHcFmPkCEMWyboHOhoCcw2xWHe8DAQlubaVU
+ jdOvgF+cBfR3VyYTgj90J5DZrvZiOI68CCuBgYiuRcM6avXH1qZcmRtbAIFGg5WrTx7ypeYpbJi
+ OpQ480448oFbvnajAZMyS8ChkINXAHkRrMTuLw/rB6UmUCrDbEpOrePjEBONy8Zaf4azxXgAGMl
+ A4TOWtmkDsOf+RW7ods4FwLpCvXCnQ+PfBHWqqcjdVWLjHF4h/vZMwpWTMxAq98OXFsa+yll4X1
+ 5dDqNswrYRMneuyu9Ow==
+X-Authority-Analysis: v=2.4 cv=X+Vi7mTe c=1 sm=1 tr=0 ts=6a9e482a cx=c_pps
+ a=9KvDgq78n9V61H3VJbnhTw==:117 a=VdqzKS8jKosA:10 a=5KLPUuaC_9wA:10
+ a=EC0FHGf9sPEA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u8QFZ7G3zswoLw1xUYwH:22
+ a=lc3OWpJlImL6PmylPj1n:22 a=JiJJ2C05AAAA:8 a=jU4qhlNgAAAA:8 a=69EAbJreAAAA:8
+ a=CjxXgO3LAAAA:8 a=xKByVoyvAAAA:8 a=TWzjMPlIJrXHmUojgEMA:9 a=QEXdDO2ut3YA:10
+ a=tg5O5JC8SRUwdvptD9sA:9 a=8QOPfkS9Hqc5_dpw:21 a=lqcHg5cX4UMA:10
+ a=PRpDppDLrCsA:10 a=j5kO0B45gQVIxiUYEfTy:22 a=XgUKnStsnQBKgbKMukdY:22
+ a=5pqbfWEU51TvA6f1uiz8:22
+X-Proofpoint-ORIG-GUID: FJP1giWPhjKcfK6LMbsFOhZPnE94Wqff
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTA3MDA1NCBTYWx0ZWRfX8E8QCYn/Gs1s
+ wKiJWhA/so7ZPq2GBYfIl8BRrydsWr26kxYnNyBs/G7c3VM7aRMSrKRgoj0JHO6cDNBmf7lgHhT
+ CkaNb1mTpiqXFz38hFQoHJfNY4qdiUnMsslMBcurq6Xc9P5mN+uW
+X-Proofpoint-GUID: FJP1giWPhjKcfK6LMbsFOhZPnE94Wqff
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-07_01,2026-09-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 malwarescore=0 suspectscore=0 phishscore=0 impostorscore=0
+ priorityscore=1501 lowpriorityscore=0 adultscore=0 spamscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609070054
+X-IncomingHeaderCount: 30
+Return-Path: dipesh.raichura@yahooinc.com
+X-MS-Exchange-Organization-ExpirationStartTime: 07 Sep 2026 05:14:20.1532
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: e7f5265f-daf3-43d7-bf67-08df0c9edf5a
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM3PEPF00009B9F:EE_|SJ0P220MB0527:EE_|CO6P220MB0324:EE_
+X-MS-Exchange-Organization-AuthSource: AM3PEPF00009B9F.eurprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 9/7/2026 4:18:54 AM
+X-MS-Office365-Filtering-Correlation-Id: e7f5265f-daf3-43d7-bf67-08df0c9edf5a
+X-Sender-IP: 148.163.139.55
+X-MS-Exchange-EOPDirect: true
+X-SID-PRA: FANTASYAPIDEVELOPER@YAHOOSPORTS.COM
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:1444111002|36140799009|32060799003|9400799043|260826003000599003|3069299007|32080799009|2120399003|35120799009|4302099013|3412199025|440099028|1360799030|1370799030|1380799030|1602099012|2607281247196008|5090599003|30041999003;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2026 05:14:19.6863
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e7f5265f-daf3-43d7-bf67-08df0c9edf5a
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF00009B9F.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0P220MB0527
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.8357368
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0382.004
+X-Microsoft-Antispam-Mailbox-Delivery:
+	wl:1;pcwl:1;ucf:0;jmr:0;ex:1;auth:1;dest:I;OFR:TrustedSenderList;ENG:(5062000311)(920221119095)(90000117)(920221120095)(90013020)(91025020)(91040095)(9050020)(9060121)(9100341)(1010050)(944500132)(2008001181)(4810010)(4910033)(9920006)(9510006)(10105021)(9439006)(9310011)(9220031)(120001)(1110175);
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MTtHRD0xO1NDTD0tMQ==
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?Y0gyOURPTUVva25ObzQ5WUQ0Y0RKc0t4MCt6dUl2dDRKWTBWenV6aGJZRVA4?=
+ =?utf-8?B?NjlsK1hkYjVpUVYyMFNJcUVnbWFnNU5LN2dhcFNaSFJaTWt6MHVWd3c2OGhi?=
+ =?utf-8?B?QnJLRUhzdFVFOG5oVHJrVE4rZFlkTzA3Unh3clE4SUJpSG9vcEd2aXZRQkNC?=
+ =?utf-8?B?ekJHRUpvRDdTdkJKTXRQZkRTQmFVYThSN1UybFAyc1ZYL0NKWWp3dWQ0djZV?=
+ =?utf-8?B?T3RYNk1ZRGtCY0s0T2N1TlV4eUc0K3RHVXB5VXhJRXpHWXYzVVZwbTh1UUJH?=
+ =?utf-8?B?RVN0RHkwWGl1SWpNQ3pZQlUwSlI1WDRtTzR6eW5zeU9ZZnYzR21ubkZMT1VR?=
+ =?utf-8?B?bnFzcWVzbjhQalc5bnFJTkYzTmpDN05EU1ViQUw3dDgrMXo3TEtmNG9wQ3Rl?=
+ =?utf-8?B?UG0rUm1CSUltTHJxMTljVlhnbTN0NjRZNVJyZHgranAyTmxucXd1ZWRjcVVT?=
+ =?utf-8?B?ZkpxYUZRMGhvVnpiRWp0NlQyOFpHVzB1L1FKSUFQSTVVNmpQWDhCbDc3d3ZO?=
+ =?utf-8?B?UWlHSVRHRmQybmlGdkZ5cGVJMDJNazR0RnNUNEFBK0JsMlN3YUdxdjFMaFRx?=
+ =?utf-8?B?K28zQ1h4UmFETXJmTVNVckdlTUhGY3ZoTWs5Z0lORENHa250MW1HVlQ3UVFp?=
+ =?utf-8?B?WnV3VzhxTHoyUHdUYUhoeEkzcHA2ckF0bWkxaitUYVdVMm01ZlVvcGoxWUtN?=
+ =?utf-8?B?amtYMFNjNitYNW9kWjM2S0JoNUpJaDRnMkI1Uk9VZGExMk1IWFd3bmdBR3R6?=
+ =?utf-8?B?UmZETGpDTWlZUWNmZWFZaEsvMVN3NXhmbWYyc3hYakszaHJST0tiV0dMQ2VU?=
+ =?utf-8?B?V1ZLbDV1OFFaQkJTcnBXOWh2cFVrZDhaRUxHU0ROd0dOeE5mc2NJN3RGZWVD?=
+ =?utf-8?B?SFFSMG1SaTdLNlByUHpKbVFjVFJTUW9iOVR1eE5hUDc2MEsyNURTdTNzaFp3?=
+ =?utf-8?B?dERjNGdyM1d1QXBNVHVlMDk4RTgraU4ybXV5TWthNHpPY0pRUXNGZm9DdGxQ?=
+ =?utf-8?B?c3l5WmozQzdXaitQbTY1cnYzS284WmZRNDhuVFFlUzZjbytoUlFIVFkrU01F?=
+ =?utf-8?B?bjRjc0hYcXBQamdWZGJGSERzeElmM2U1ZnBvbGJJaFhnTTNxYm1WZXNLMnl5?=
+ =?utf-8?B?blFXLzlvczVnamNpVkZpVXpkVEc1Q2JHU1ZPODBVaDRLSE1Dcm1oQUxwVlc0?=
+ =?utf-8?B?YVU3MFBlT0ZCTjlDNitxVkRyR2pKbjJ5NVBtd0NzeGtSL1J0bEpOQWtpVFlh?=
+ =?utf-8?B?dy9pOGFEYndOUjYyVk8wYTJJUUQ5WHZsUyt3YldHVDV3Q1o2NUJHSjhYMmVI?=
+ =?utf-8?B?RDZaUjNlNldLTjRLY0dJUCtFNUhHS1o1YkFRVzNpWi9OSllzUUw2bTREUjBX?=
+ =?utf-8?B?Tkt2ekcwRUdvcWpOTTdJU096Y0Q5cWZNRWdpZTR3czNSLy9tSEhLV2tkTW1T?=
+ =?utf-8?B?bmN5WnJwcjN0Qk1xUG5xZmxkUHJneDFZVWc2aytDR1gxd1RFcGJVK0ROamxS?=
+ =?utf-8?B?S0NkVTFtU3oxUDVrTTQ3aXl5WkNPRHR2V3p3VWhIazBEZnFxTDhUbnRjZlZs?=
+ =?utf-8?B?a1ZRZm53eXVFdkZ6ZlQvRUJXTjcxZjhBbjZGNklmS2pENGlvWThRUFZ1c2tF?=
+ =?utf-8?B?d1pjdWNpQjlnOXpCdm9GWWE0OWNJMGpONWg3ZnlYdUVTaTYvTVhlSWJzQkdZ?=
+ =?utf-8?B?QzhYMmNnQzZlMnBPQk5mNjUrMCs4U0hQZk1tMmI3S1d6SUxNck9aR3ZwVGg3?=
+ =?utf-8?B?R1crTisxZThLc3pUVExaaXIycEFZcGx4VFlZa2JhdnN5N3N0by9tY25EK25T?=
+ =?utf-8?B?VGFFZkRmcmVKV2t3TWplRC9HZWFlWkFDZjhkM0hFVmE1TUo0UHJjUnk3Y1hw?=
+ =?utf-8?B?MGFiOURUc2tmamdtWDRtVVcxVWJzU28xbll1TXUwZnVjLy83aUZtVmRaWS9x?=
+ =?utf-8?B?ZWRYVHhsRmxnMTE5TXRMYkd6RU9OVGtuSld0eEc0QzNmdnJBTy9QMkRhRTlD?=
+ =?utf-8?B?YzhSc3NVMDc4VVd2UEVUcHA1V1ZiakpkZ0V3SWhJVVJwZGJrTmhyZU54Q3NZ?=
+ =?utf-8?B?Wnp2cDNySVNucFlsVWFKMTJkc0Q2SUlYU1JYNXF4TDBuQ1l5aEtGNEN3SWJZ?=
+ =?utf-8?B?ZHJlVFdGcjdxQlpVKzFRMVNNb2hkbTNIbWRmQWZhblhYaVphWkg2SVlReHBH?=
+ =?utf-8?B?ZVd0RWNWbUpKaEVSSFRvQys4c2RRVEIxOWJWUW5DVy80WGJTQTg2SE5YeHQ2?=
+ =?utf-8?B?SzhuNHB1NGFaZHRUVldkRVh5UmFXQlJaeDlLVWxERHV1T1NCcVlUdU5CbzZi?=
+ =?utf-8?B?ZEFYZkNKMTgzYVRVU3laNTJpMHhxUmlHeHlSdnhwcFFtNlFCYmNWM2pyZ3J6?=
+ =?utf-8?B?cFJoS1FXbGpydDNEalFrL1pPSkswSWlWazRucGFOcVlZVktSWGs5TlBOaUVx?=
+ =?utf-8?B?SHh2ZTBQUjd4R1NXYUJITjlTdENMdkRlWXJoQWk2RGJQSTkxckV0MXBnV3pr?=
+ =?utf-8?B?VU1Sa3hWWDNOakd0UHVCS0E3bHdCdUM5Y09MbWhHeUZmSmlvVUJyRkc2TVh2?=
+ =?utf-8?B?a0wrbmgrckUwRFJhWHA4VFlXUjVWYUhlL2liS25DRnRHWkVtM0grRkZwTHFM?=
+ =?utf-8?B?QWduOGZVcnZlR1dzazIvbUt5Zk1mZmRQeWMrREpZSFFlNHNudWNIcCt5MVJv?=
+ =?utf-8?B?TE4zSUMranFuOXRUdkF2L3oxc1dGODhqSmZpdmhiMHQvK2pKVEVvRHhzOEc3?=
+ =?utf-8?B?aVlzc2VTR3ZXUkhKdjFRZVgzUWd5clpRbE9lT2l3bVBHUnJWaVl3ZHVhNEo2?=
+ =?utf-8?B?bWdWL2doVEVoR1o1SktYZ2l5UGhvTU5NbXNzeVozcHg5OElCcWtnczFEYzJZ?=
+ =?utf-8?B?L1ZvT1dFUnlCNmlCbXVPK0dQWVU0elpza25zTWw5YVNQMUJEazcrT2paUDQ0?=
+ =?utf-8?B?S1ZQMkNXRU9xWm1HdERodjlHTHRHcFFuYWdYamxnK2ViUTBIc21hc3hpL2lx?=
+ =?utf-8?B?ZmJmMmhKZnE0SGJLVkVseTNqekZUUWJkT0M1UVcreU5xSGZ3WXJkWjdSRk8y?=
+ =?utf-8?B?ZXFkcjlqL1piMXlHN2xkWUxzTm1rMEdON0tDYkRiQzRESjhxS0pya2p0aEZ5?=
+ =?utf-8?B?UVcxak5wTFN0RWVjS2pWVDFYaGt6RXo4STB1T1FhQVVkQ1l6RjdMeUZONkJJ?=
+ =?utf-8?B?c2tWS2dTSmtQcXVWdzlVNS9udXptZGI4Zk5BbHp4dVlEUUptME5BL2lqdGN1?=
+ =?utf-8?B?T3dsOEJDaWw3NjVJVVZraVgvRmhIYWRCTEVKRjRPSmdvMmVCcDVadE40bTBX?=
+ =?utf-8?B?aXo5eXdLeHdoUG03RThkdkJPUVl5aVpudVp4cUVPL2ZrRnExbHVYM09aRkZN?=
+ =?utf-8?Q?=3D?=
+MIME-Version: 1.0
+
+--000000000000880e2a065addb039
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Access for your Client ID (
+dj0yJmk9bGhWZnY1UkdkYWZ2JmQ9WVdrOVZHaFdaRGN3VFZjbWNHbzlNQT09JnM9Y29uc3VtZXJ=
+zZWNyZXQmc3Y9MCZ4PWY2)
+has been live since Sept 2nd. If you are still encountering issues, the
+application permissions are likely not configured correctly.
+
+Could you please create a new application, ensuring that "Fantasy Sports"
+is selected under the API permissions, and reply with the new Client ID?
+
+Regards,
+
+Yahoo Fantasy API Team
+
+
+
+On Wed, Sep 2, 2026 at 11:56=E2=80=AFPM andrew rose <andrewlrose@hotmail.co=
+m> wrote:
+
+> Hi,
+> I received the "Fantasy Sports API access is now live" notification on
+> 9/2/2026 (see below), but access still isn't working for my application.
+>
+>    - *App name:* ATLAS NFL Dashboard
+>    - *App ID:* ThVd70MW
+>    - *Client ID:* (same one I originally submitted with my access
+>    application)
+>
+> Since receiving the notification I've confirmed:
+>
+>    1. OAuth token issuance and refresh both work normally (valid client
+>    credentials).
+>    2. Every Fantasy Sports API call =E2=80=94 including basic calls like =
+GET
+>    /fantasy/v2/game/nfl =E2=80=94 still returns 401:
+>    oauth_problem=3D"additional_authorization_required", the same error I
+>    was getting before the approval email.
+>    3. On my app's settings page (developer.yahoo.com/apps/ThVd70MW/), the
+>    "API Permissions" section shows no Fantasy Sports option to select at =
+all =E2=80=94
+>    it appears empty, exactly as it did before approval.
+>
+> This suggests the approval hasn't actually propagated to my app's
+> configuration yet, or there's a bug preventing the permission from
+> appearing. Could you check the status of App ID ThVd70MW and let me know
+> what's needed on my end, if anything?
+> Thanks,
+> Andrew Rose
+>
+>
+> *Andrew Rose* / Virtual Production - Performance Capture Specialist
+>
+> andrewlrose@hotmail.com / 3106214166 <(310)%20621-4166>
+>
+> linkedin.com/in/andrewlrose
+> <https://urldefense.com/v3/__https://signature-maker.net/linkedin.com/in/=
+andrewlrose__;!!Op6eflyXZCqGR5I!ExuJhLIx60cEu9d2hrMZ5KkJ30fG_zRCQcu-XtK7Mes=
+x2I-9SH0h4l8HjroDFpzJ5CU960gRk4Z3ezUKzE9pYqlZnwCGqgUGn48$>
+>
+>
+> ------------------------------
+> *From:* Yahoo Fantasy API <fantasyapideveloper@yahoosports.com>
+> *Sent:* Wednesday, September 2, 2026 5:19 PM
+> *To:* fantasyapideveloper <fantasyapideveloper@yahoosports.com>
+> *Subject:* Fantasy Sports API access is now live
+>
+> Hi there,
+>
+> Your Yahoo Fantasy Sports API access is now live. The credentials for you=
+r
+> application are enabled, and authorized calls will go through now.
+>
+> Best regards,
+> Yahoo Fantasy
+>
+
+--000000000000880e2a065addb039
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr"><div><span style=3D"font-size:10pt;font-family:Arial"><br>Ac=
+cess for your Client ID (</span>dj0yJmk9bGhWZnY1UkdkYWZ2JmQ9WVdrOVZHaFdaRGN=
+3VFZjbWNHbzlNQT09JnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PWY2<span style=3D"font-si=
+ze:10pt;font-family:Arial">) has been live since Sept 2nd. If you are still=
+ encountering issues, the application permissions are likely not configured=
+ correctly.<br><br>Could you please create a new application, ensuring that=
+ &quot;Fantasy Sports&quot; is selected under the API permissions, and repl=
+y with the new Client ID?<br><br>Regards,<br><br>Yahoo Fantasy API Team<br>=
+</span></div><span style=3D"font-size:12pt;font-family:Calibri,Arial"><div>=
+<span style=3D"font-size:12pt;font-family:Calibri,Arial"><br></span></div><=
+br></span></div><br><div class=3D"gmail_quote gmail_quote_container"><div d=
+ir=3D"ltr" class=3D"gmail_attr">On Wed, Sep 2, 2026 at 11:56=E2=80=AFPM and=
+rew rose &lt;<a href=3D"mailto:andrewlrose@hotmail.com">andrewlrose@hotmail=
+.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"mar=
+gin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1=
+ex"><div class=3D"msg-4671186377975590225">
+
+
+
+
+<div dir=3D"ltr">
+<div style=3D"direction:ltr;margin-top:1em;margin-bottom:1em;font-family:Ca=
+libri,Helvetica,sans-serif;font-size:12pt;color:rgb(0,0,0)">
+Hi,</div>
+<div style=3D"direction:ltr;margin-top:1em;margin-bottom:1em;font-family:Ca=
+libri,Helvetica,sans-serif;font-size:12pt;color:rgb(0,0,0)">
+I received the &quot;Fantasy Sports API access is now live&quot; notificati=
+on on 9/2/2026 (see below), but access still isn't working for my applicati=
+on.</div>
+<ul style=3D"direction:ltr">
+<li style=3D"font-family:Calibri,Helvetica,sans-serif;font-size:12pt;color:=
+rgb(0,0,0)">
+<b>App name:</b> ATLAS NFL Dashboard</li><li style=3D"font-family:Calibri,H=
+elvetica,sans-serif;font-size:12pt;color:rgb(0,0,0)">
+<b>App ID:</b> ThVd70MW</li><li style=3D"font-family:Calibri,Helvetica,sans=
+-serif;font-size:12pt;color:rgb(0,0,0)">
+<b>Client ID:</b> (same one I originally submitted with my access applicati=
+on)</li></ul>
+<div style=3D"direction:ltr;margin-top:1em;margin-bottom:1em;font-family:Ca=
+libri,Helvetica,sans-serif;font-size:12pt;color:rgb(0,0,0)">
+Since receiving the notification I've confirmed:</div>
+<ol start=3D"1" style=3D"direction:ltr">
+<li style=3D"font-family:Calibri,Helvetica,sans-serif;font-size:12pt;color:=
+rgb(0,0,0)">
+OAuth token issuance and refresh both work normally (valid client credentia=
+ls).</li><li style=3D"font-family:Calibri,Helvetica,sans-serif;font-size:12=
+pt;color:rgb(0,0,0)">
+Every Fantasy Sports API call =E2=80=94 including basic calls like <code>GE=
+T /fantasy/v2/game/nfl</code> =E2=80=94 still returns
+<code>401: oauth_problem=3D&quot;additional_authorization_required&quot;</c=
+ode>, the same error I was getting before the approval email.</li><li style=
+=3D"font-family:Calibri,Helvetica,sans-serif;font-size:12pt;color:rgb(0,0,0=
+)">
+On my app's settings page (<a href=3D"https://na01.safelinks.protection.out=
+look.com/?url=3Dhttp%3A%2F%2Fdeveloper.yahoo.com%2Fapps%2FThVd70MW%2F&amp;d=
+ata=3D05%7C02%7C%7Ce7f5265fdaf343d7bf6708df0c9edf5a%7C84df9e7fe9f640afb435a=
+aaaaaaaaaaa%7C1%7C0%7C639243548646256258%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU=
+1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyf=
+Q%3D%3D%7C0%7C%7C%7C&amp;sdata=3DF4QM9v6P%2FxD5qNsIgcrwMdTmKTouOY6CbUuF6qk%=
+2FPoQ%3D&amp;reserved=3D0" originalsrc=3D"http://developer.yahoo.com/apps/T=
+hVd70MW/" target=3D"_blank">developer.yahoo.com/apps/ThVd70MW/</a>), the &q=
+uot;API Permissions&quot; section shows no Fantasy Sports option to select =
+at all =E2=80=94 it appears empty, exactly as it did before approval.</li><=
+/ol>
+<div style=3D"direction:ltr;margin-top:1em;margin-bottom:1em;font-family:Ca=
+libri,Helvetica,sans-serif;font-size:12pt;color:rgb(0,0,0)">
+This suggests the approval hasn't actually propagated to my app's configura=
+tion yet, or there's a bug preventing the permission from appearing. Could =
+you check the status of App ID ThVd70MW and let me know what's needed on my=
+ end, if anything?</div>
+<div style=3D"direction:ltr;margin-top:1em;margin-bottom:1em;font-family:Ca=
+libri,Helvetica,sans-serif;font-size:12pt;color:rgb(0,0,0)">
+Thanks,<br>
+Andrew Rose</div>
+<div style=3D"font-family:Calibri,Helvetica,sans-serif;font-size:12pt;color=
+:rgb(0,0,0)">
+<br>
+</div>
+<div id=3D"m_7929841841855411888Signature">
+<div style=3D"font-family:Calibri,Helvetica,sans-serif;font-size:12pt;color=
+:rgb(0,0,0)">
+<br>
+</div>
+<div id=3D"m_7929841841855411888divtagdefaultwrapper">
+<p style=3D"direction:ltr;text-align:left;line-height:14px;background-color=
+:rgb(255,255,255);margin:0px 0px 10px;font-family:Helvetica,sans-serif;font=
+-size:12px;color:rgb(51,51,51)">
+<b>Andrew Rose</b>&nbsp;/ Virtual Production - Performance Capture Speciali=
+st</p>
+<p style=3D"direction:ltr;text-align:left;line-height:14px;background-color=
+:rgb(255,255,255);margin:0px 0px 10px;font-family:Helvetica,sans-serif;font=
+-size:12px;color:rgb(51,51,51)">
+<span style=3D"color:rgb(66,139,202)"><a href=3D"mailto:andrewlrose@hotmail=
+.com" id=3D"m_7929841841855411888OWA4abf497b-714f-0080-605b-9eccc6b7b0f1" s=
+tyle=3D"color:rgb(66,139,202);margin-top:0px;margin-bottom:0px" target=3D"_=
+blank">andrewlrose@hotmail.com</a></span>&nbsp;/ <a href=3D"tel:(310)%20621=
+-4166" value=3D"+13106214166" target=3D"_blank">3106214166</a></p>
+<p style=3D"direction:ltr;text-align:left;line-height:14px;background-color=
+:rgb(255,255,255);margin-top:1em;margin-bottom:1em;font-family:Helvetica,sa=
+ns-serif;font-size:12px;color:rgb(51,51,51)">
+<span style=3D"color:rgb(66,139,202)"><a href=3D"https://na01.safelinks.pro=
+tection.outlook.com/?url=3Dhttps%3A%2F%2Furldefense.com%2Fv3%2F__https%3A%2=
+F%2Fsignature-maker.net%2Flinkedin.com%2Fin%2Fandrewlrose__%3B!!Op6eflyXZCq=
+GR5I!ExuJhLIx60cEu9d2hrMZ5KkJ30fG_zRCQcu-XtK7Mesx2I-9SH0h4l8HjroDFpzJ5CU960=
+gRk4Z3ezUKzE9pYqlZnwCGqgUGn48%24&amp;data=3D05%7C02%7C%7Ce7f5265fdaf343d7bf=
+6708df0c9edf5a%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C639243548646289=
+121%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlA=
+iOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3DrDeD=
+lmg%2BOqaPT0wGMBRemNbQbY9DHwCWl1T6OEvb4pk%3D&amp;reserved=3D0" originalsrc=
+=3D"https://urldefense.com/v3/__https://signature-maker.net/linkedin.com/in=
+/andrewlrose__;!!Op6eflyXZCqGR5I!ExuJhLIx60cEu9d2hrMZ5KkJ30fG_zRCQcu-XtK7Me=
+sx2I-9SH0h4l8HjroDFpzJ5CU960gRk4Z3ezUKzE9pYqlZnwCGqgUGn48$" id=3D"m_7929841=
+841855411888OWAbf2b1c98-4b09-46c0-7a7c-67afe694d5cb" rel=3D"nofollow" style=
+=3D"color:rgb(66,139,202);margin-top:0px;margin-bottom:0px" target=3D"_blan=
+k">linkedin.com/in/andrewlrose</a></span>&nbsp;<br>
+</p>
+<div style=3D"margin:5px 0px;display:block"></div>
+<div style=3D"direction:ltr;font-family:Calibri,Helvetica,sans-serif;font-s=
+ize:12pt;color:rgb(0,0,0)">
+<br>
+</div>
+</div>
+</div>
+<div id=3D"m_7929841841855411888appendonsend"></div>
+<hr style=3D"display:inline-block;width:98%">
+<div id=3D"m_7929841841855411888divRplyFwdMsg" dir=3D"ltr"><font face=3D"Ca=
+libri, sans-serif" style=3D"font-size:11pt" color=3D"#000000"><b>From:</b> =
+Yahoo Fantasy API &lt;<a href=3D"mailto:fantasyapideveloper@yahoosports.com=
+" target=3D"_blank">fantasyapideveloper@yahoosports.com</a>&gt;<br>
+<b>Sent:</b> Wednesday, September 2, 2026 5:19 PM<br>
+<b>To:</b> fantasyapideveloper &lt;<a href=3D"mailto:fantasyapideveloper@ya=
+hoosports.com" target=3D"_blank">fantasyapideveloper@yahoosports.com</a>&gt=
+;<br>
+<b>Subject:</b> Fantasy Sports API access is now live</font>
+<div>&nbsp;</div>
+</div>
+<div>
+<div dir=3D"ltr"><span style=3D"font-size:10pt;font-family:Arial">Hi there,=
+<br>
+<br>
+Your Yahoo Fantasy Sports API access is now live. The credentials for your =
+application are enabled, and authorized calls will go through now.<br>
+<br>
+Best regards,<br>
+Yahoo Fantasy</span></div>
+</div>
+</div>
+
+</div></blockquote></div>
+
+--000000000000880e2a065addb039--

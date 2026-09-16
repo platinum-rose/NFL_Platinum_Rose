@@ -1,0 +1,263 @@
+Received: from SJ2P220MB1068.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:594::17)
+ by SJ2SPRMB0050.NAMP220.PROD.OUTLOOK.COM with HTTPS; Thu, 3 Sep 2026 00:20:32
+ +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=VudIfUuDVzi+LlYndXRjV47YE0H+rdZJplhpm7zVVn+rPALlyxR3VhupJbz51YTAND06BCDoDegTJywqgp8pibVEJ9gjxz+ElAQiuBqmKOt0Y2H8LoBHxDjDW+JS32om8NpCx93Z3/VnYU2ElHPh+oRxpXJ3KS9hJu3S8uVbXzV0j4iHG+6+DtdbO1oDPDwOn4vcGc7gobz3RoSZyMTMg/4+N2I0Bh17zA5WLYMupt+eSClkA0tJ67PSF7J7+Pl6YjthOd6dlwC6TGnlW56fVjQ+4eCjxlkDp8zc8eHuEpB6Ql/UMUcr3cT8eV0Wj+Hx9+8rZmNV8ff0jT144OZI2g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=k8pgh1cz1RDNHEt+TfkL4YOQCQ03PJDTLPDDl/Up+MI=;
+ b=Bb13YxDLFZuDrTr1J5am/5XizQ+zkkFoXMZNoPYejQNCXznJyM/uUl+YZivgodX02QaGkQ2vltq/RJ7JpW2zLZx8yINLGlxKcjrjxeQCXsrcKle1Cq09Q6gQrGzYGOqq1GZukDK4MskEvww0SthVez7zpCdbJR0+livzXeLwRO+RSt+i1IIwDFvXIZTccqlAhBzaXNUEj+aCCdxTpRQSEeK4nls9vSCaEaOIGsr3tg6QP9rj5QdhQST2lSoh86/IyiEZ8y8qX31KEW9/iY3gvv6Y7YVlHXW67c/YJ5vpxgNVMaTDT5ublX9xI8uQDFh3EVGNM5NcvScgZlDzYKb2DA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 148.163.135.35) smtp.rcpttodomain=hotmail.com smtp.mailfrom=yahooinc.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=yahoosports.com; dkim=pass (signature was verified)
+ header.d=yahoosports.com; dkim=pass (signature was verified)
+ header.d=yahoosports.com; arc=pass (0 oda=0 ltdi=1)
+Received: from BN9PR03CA0304.namprd03.prod.outlook.com (2603:10b6:408:112::9)
+ by SJ2P220MB1068.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:594::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Thu, 3 Sep
+ 2026 00:20:31 +0000
+Received: from LV8PEPF0000005D.namprd02.prod.outlook.com
+ (2603:10b6:408:112:cafe::1c) by BN9PR03CA0304.outlook.office365.com
+ (2603:10b6:408:112::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.11 via Frontend Transport; Thu, 3
+ Sep 2026 00:20:30 +0000
+Authentication-Results: spf=pass (sender IP is 148.163.135.35)
+ smtp.mailfrom=yahooinc.com; dkim=pass (signature was verified)
+ header.d=yahoosports.com;dkim=pass (signature was verified)
+ header.d=yahoosports.com;dmarc=pass action=none
+ header.from=yahoosports.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of yahooinc.com designates
+ 148.163.135.35 as permitted sender) receiver=protection.outlook.com;
+ client-ip=148.163.135.35; helo=mx0a-00505701.pphosted.com; pr=C
+Received: from mx0a-00505701.pphosted.com (148.163.135.35) by
+ LV8PEPF0000005D.mail.protection.outlook.com (10.167.245.134) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.8
+ via Frontend Transport; Thu, 3 Sep 2026 00:20:29 +0000
+X-IncomingTopHeaderMarker: OriginalChecksum:B761D8404BB8692853A67E4A586504BCB6369197CA3A1FBDE764E8BFEE20BF40;UpperCasedChecksum:7AB42616F8E842ACD67CAA761B6518A752D1567C13C9A3F889155E58878A600F;SizeAsReceived:7337;Count:29
+Received: from pps.filterd (m0277467.ppops.net [127.0.0.1])
+	by mx0b-00505701.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 682NNlBB3888259
+	for <andrewlrose@hotmail.com>; Thu, 3 Sep 2026 00:20:29 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoosports.com;
+	 h=content-type:date:from:message-id:mime-version:subject:to; s=
+	pps1; bh=k8pgh1cz1RDNHEt+TfkL4YOQCQ03PJDTLPDDl/Up+MI=; b=Jztgh6y
+	Zeu6w3JSAcVu+JTcOv8pZLJotIEhN+eK6nKX7ZD3FWYoCGxqBcXnuRfghhzC1KP1
+	RxvFoI8RzIZS2joOKmVA3N5mD9zISeFNG2jsNf5+MWpQecKPcxBqQ6AAXVIuQJf8
+	+N4A9kBtpOzpjOWOHdbRcGoz/vlhWKTWAF16ac41rwQdssSbcGpkrJznZZUyalyc
+	+6XVuJ1Bn7FZSYmlHAwcd7Ao9fRZtlfgyS8acCNvloHegjBymhjY67BsvUQ7vpBe
+	gg8kwNzC3EpppjJGnotSLksemK+sSWooZ14DLn2yW383uyAyXo3SawMVDnY6Qn6d
+	DcAZ4+o7k/P+8WQ==
+Received: from mail-ed1-f69.google.com (mail-ed1-f69.google.com [209.85.208.69])
+	by mx0b-00505701.pphosted.com (PPS) with ESMTPS id 4geg8kvu6k-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <andrewlrose@hotmail.com>; Thu, 03 Sep 2026 00:20:28 +0000 (GMT)
+Received: by mail-ed1-f69.google.com with SMTP id 4fb4d7f45d1cf-6a60c4a94e9so1543303a12.1
+        for <andrewlrose@hotmail.com>; Wed, 02 Sep 2026 17:20:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788394827; cv=none;
+        d=google.com; s=arc-20260327;
+        b=FZbErRpBlrVhOTPDHYOJ5SLZfNiUDfb/PE9U/5trN7PkXx8EhHjU9lhcyU+ecxOUGa
+         u490tNwhHc1bwA5NAb4rrbF7KRVmNirzDhlXMtM7oIgDnvKjB0VjsASBjfUmDGfVcHH6
+         MCHSLP8lVmzwjmi/oAmDsxMV/t3nCcWGGBcuHkMye6Oh7zrUcjPESombai7JRTysOBT2
+         A0xN/yFOKCuT2X04UzjvqimgNGY7K1QPkbbjdPqse7ZB6P9dTX506AJ2FEAOIkNoq9Fy
+         FB7HwXRp9/thSKqr5OgyHtoQdXx+L8llhiv5t4eSmRUFD1Te5pGHcNHM0aXjxSHsNGVF
+         YxaA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=k8pgh1cz1RDNHEt+TfkL4YOQCQ03PJDTLPDDl/Up+MI=;
+        fh=OVnlcpdQ3NA3SWCZle4NojVD/Aje4orbovDUc7Bj5o8=;
+        b=f93fT7a9hrSu5x6edYaflXQHvSAFXdiDNMhBcLbGmr51HRKqIMkSue0MS4aA+x/oaF
+         aFVoFDFyklEFyn3282BN4PEQoiaI3bsifCXTc2l5g4rgpb//VcogbcS2MLJm81HpHCYF
+         9xVwypkiW1Cdver+yNTJQdxGGxuq2mTJ3mkANJczWRrOCY6ujN39+i4R2FW59nyDwMgc
+         jJAEYiH/RQs5Z/geqbQVrmFupeNmThLfJSuytqfLFN4KGW6+f2Qx6nnzf7FstqTbRb28
+         hwCU2AGWF8ZDB83XBnBui5ULA1kRRCuzEaNkuINFW+YOjWAsKgzrjHNk+iQ+on1qWwLc
+         7NIw==;
+        darn=hotmail.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=yahoosports.com; s=google; t=1788394827; x=1788999627; darn=hotmail.com;
+        h=content-type:to:subject:message-id:date:from:mime-version:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=k8pgh1cz1RDNHEt+TfkL4YOQCQ03PJDTLPDDl/Up+MI=;
+        b=PPtffCWELuXu/joBTxDHh8Dr/WZVWG2hHXN7TjH6BXEC8Zg+cNDXlOFChBFs5S7isJ
+         d1Dm4qiWPk+IlRK8OVWjvEx2jqCJ/9AawvcprAJVp1hBAj3usUYZcaGLE+hjCFJ3JqJO
+         R3KGfX006usZnDhy8TMGjnJSJLmadER47ZPdDdA4QQddkoGiKLmt4bsysOZc8oA5E3Pr
+         +vTfzL5dDjBJVHSn5FtHygNIi2a5nreCrBenv8fKPj/LcXvBL9wCzKDygzxisbXhXm1O
+         Xu/XO+Q7fhF122V97hB2TmrlN7I1KLPJlue+70O+6SNFtf5dRpPs1FhGGjadbaXwKQTP
+         yfCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788394827; x=1788999627;
+        h=content-type:to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=k8pgh1cz1RDNHEt+TfkL4YOQCQ03PJDTLPDDl/Up+MI=;
+        b=JlounKZz1Xf75r+uWu0DnrAimsVT8QhTzZV6UbLeTdRbarRZfshD8Mmky0QUssrMfN
+         sMssMIVvQpkB3GNPdiTELopNuZi1Eh2fxIcHuoCv7o1M0N0ME01rF7I61nobKYDNUmNK
+         vXiJC1fQZfBFFhOHt3l4tJt4pTuGy7XhpjloO9+4eX5eFcxPvCk8VjE9FQrBuchruRwr
+         E5VCfa7J1GjZ8MybGN5k60khtU9aKUNBGakTqOQnwM8ru6Bb+IxVnMJZapw2574JAROM
+         T3cjQQNkVH6kSqeb1jmAoUWXRTPhMNAMGTVl27jZXVto3qOWX7Qti+7SJagcNa/a/kA1
+         cYCQ==
+X-Forwarded-Encrypted: i=1; AKwUvBwe13ZMymrRP3Ob8629hJ4RcMJrjufRWJwK/kIf4Xt0i29wvm0pU76fAAWb9x4UkPM5nPF62nr/lGjQaA==@hotmail.com
+X-Gm-Message-State: AFuF++lx4HXd4dD3B7/YnwbrZGis2+q5J0MiPP4Het4JLhBsOtqJt+Nc
+	eN/ISy++RtcO9NbauLIDGr/oi+NwzK0Ul7r6WCmo1CzpRBpKzAY7wttfmWONduXHg+NCJA6oiwj
+	GkTurrlBgQbvcisvAzJtYnoBFRcb8zkN+QCbu5W+PDBhPuA5+bCm60mMEF/tHftY6gqrAKS7587
+	seVaVBJCN8kzP7PfWRFullqjflZ46AhMXi
+X-Gm-Gg: AYBFou2A9ZlbXrlOxH2ZXAhFnVwBipPaGZ9whtFEXYbudx6JyP3nhdKbMJYqZANNjg7
+	b7lJoUUIXeKEHGIEJgaf+VXLOR/pqEKeb5HcJr5tus9NOVcBztf5RRrvyVeecf7wDSkQSXRdzV4
+	VLaGWPYvXCjYA4LhyAYv/512nnMJlfBz7shCxOP8R656kZiYXb5huwmKe7k82NIZJkiNxDMysaV
+	Vegk9wvE2w1S64VpIprfLufO1vYtJUUQJNMeA4NpqVtTO8CVfJ27XyGvhoYEWiTahea6yQMm+D7
+	7rs5ggFspA==
+X-Received: by 2002:a05:6402:2b9a:b0:6a5:f9c7:7f61 with SMTP id 4fb4d7f45d1cf-6a682567034mr6166811a12.3.1788394827385;
+        Wed, 02 Sep 2026 17:20:27 -0700 (PDT)
+X-Received: by 2002:a05:6402:2b9a:b0:6a5:f9c7:7f61 with SMTP id
+ 4fb4d7f45d1cf-6a682567034mr6166792a12.3.1788394827003; Wed, 02 Sep 2026
+ 17:20:27 -0700 (PDT)
+From: Yahoo Fantasy API <fantasyapideveloper@yahoosports.com>
+Date: Wed, 2 Sep 2026 17:19:50 -0700
+X-Gm-Features: AcwNN1UQaz6CJGJ_mmqmoIP20b4kvrslDj_iebLLDPiNFGYDV1FIU0PNq7Xy1vw
+Message-ID: <CAMmkCfGBuUoWWhcx4ux1+LiE5KycNNPBKc3j-jf+e038efMO6w@mail.gmail.com>
+Subject: Fantasy Sports API access is now live
+To: fantasyapideveloper <fantasyapideveloper@yahoosports.com>
+Content-Type: multipart/alternative; boundary="00000000000061cf20065a891e3b"
+X-Proofpoint-Spam-Info: AW1haW4tMjYwOTAzMDAwMSBTYWx0ZWRfX3D8C2x4DTOgy
+ yTEkopDAUAzQu+QE13i0G89/oVKfABJFQ0HWnt4RgejFnbS3Vyk4OOKHfKjcBSA9bT8Q1x+xcqL
+ pwBu9KVq73YY1lxdHwCY4rGRVj6FHB2rIjc0MWGvyA1lhhxux5ge
+X-Proofpoint-ORIG-GUID: pjw45oHVsvygmvjnmcUzxrG6qAfidvWX
+X-Authority-Analysis: v=2.4 cv=Xa65Co55 c=1 sm=1 tr=0 ts=6a98bd4c cx=c_pps
+ a=Tczdrg5if7+wQeIJmxD/XA==:117 a=VdqzKS8jKosA:10 a=EC0FHGf9sPEA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u8QFZ7G3zswoLw1xUYwH:22 a=z2fGZ93gutMRQ-vEBTuJ:22
+ a=6xTC_5zFlwU_3mV8DRwA:9 a=QEXdDO2ut3YA:10 a=zZCYzV9kfG8A:10
+ a=hS9C0m7TU3dm2bL12MUA:9 a=1oAhN8tkTtOBK6_UvoHx:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwOTAzMDAwMSBTYWx0ZWRfX9TMko6z2tIwS
+ MahLqKdxFw16C+uO8cnBDlD3kIFSY3Am3vE3A6/JXYz6Lx4xLnxUJUdFGREhmXDiix9IbEV70It
+ J/ZuwQyHbaGxDc4jGx8rc2w1rTOB8GLmlig6te4U2hxR4c8oC+vxAeiPNNBnOLMpdXK1XWOOYNT
+ nsJ4g6RDIaK5VYzehy8BbC78qfyHzJFZtH+lG/idwYQ5ODnRexAqp/6ooUaTIZYWsWdCg9t/vHi
+ WnQFZSA/0XSIXi2nxJ7nmJoOf6oNt1tsqMmOVMr9g8P9fVC/RwpKZIF9/J3kgnWbKrdryZRLb4d
+ X145etdjoZuEp78L4wRAaCwAqJYP+m7nEEl5NxU5ujauQkLl2po7Lgtvm/BX9+0nKyxF0gYwWEC
+ eFbka0RcT4HwB3gVexVQCXx1JF34/Pjw1bxwJ1MYMTMTxVeNXBgvDVw5CuljPjvq+FZEVNgPBPE
+ VRojxr+0b+h729YP13w==
+X-Proofpoint-GUID: pjw45oHVsvygmvjnmcUzxrG6qAfidvWX
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-09-02_06,2026-09-02_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 impostorscore=0 suspectscore=0 clxscore=1015 lowpriorityscore=0
+ adultscore=0 malwarescore=0 spamscore=0 bulkscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2609030001
+X-IncomingHeaderCount: 29
+Return-Path: dipesh.raichura@yahooinc.com
+X-MS-Exchange-Organization-ExpirationStartTime: 03 Sep 2026 00:20:30.1623
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 3d56b1da-6002-45f9-a0ab-08df09512968
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PEPF0000005D:EE_|SJ2P220MB1068:EE_|SJ2SPRMB0050:EE_
+X-MS-Exchange-Organization-AuthSource: LV8PEPF0000005D.namprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 9/3/2026 12:05:39 AM
+X-MS-Office365-Filtering-Correlation-Id: 3d56b1da-6002-45f9-a0ab-08df09512968
+X-Sender-IP: 148.163.135.35
+X-MS-Exchange-EOPDirect: true
+X-SID-PRA: FANTASYAPIDEVELOPER@YAHOOSPORTS.COM
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:1444111002|2120399003|35120799009|3069299007|7009299003|36140799009|32060799003|36030799006|29090799004|260826003000599003|5090599003|30041999003|2607281247196008|1360799030|1370799030|1380799030|440099028|3412199025|1710799026;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Sep 2026 00:20:29.8284
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3d56b1da-6002-45f9-a0ab-08df09512968
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource: LV8PEPF0000005D.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2P220MB1068
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.7191155
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0360.006
+X-Microsoft-Antispam-Mailbox-Delivery:
+	wl:1;pcwl:1;ucf:0;jmr:0;ex:1;auth:1;dest:I;OFR:TrustedSenderList;ENG:(5062000311)(920221119095)(90000117)(920221120095)(90013020)(91025020)(91040095)(9050020)(9060121)(9100341)(944500132)(2008001181)(4810010)(4910033)(9930004)(9545005)(10172021)(9439006)(9310011)(9220031)(120001)(1110175);
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MTtHRD0xO1NDTD0tMQ==
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?RUMrUStWZmVRd3J4TUlkK21CaU5LazkyNjA4cERrUzBqMmVNa0xpWW5mb0hz?=
+ =?utf-8?B?WVMyU2w5aHMyK3lWRFVPalVOUG5WTFhWVDJjNUl6V1RBdjQ2bHJkblpaa3Zp?=
+ =?utf-8?B?SlZwVWk2UTJFeCs5ek1pZFVxM01qcFNDbzY2WmZQWTM2NURmckJZSWppWjND?=
+ =?utf-8?B?aHk4UmVXL2owdDFIMHJLWDF5bzAxbEZHUk5rMnlpL1BLSmRLQUpsaWYxWDRh?=
+ =?utf-8?B?YjhwTGZqeXZZaDVpa3FBY0p1OFhjeEVDQjJjQ1graTBxZnkxT0M3MjV2NzRj?=
+ =?utf-8?B?SzJXZHUzRWxCdEsrS2xRRW5qOWpLZzFGaVhpeWIvZ2R6RFFWTTdJbUFuKzlE?=
+ =?utf-8?B?RnJlK2xCN1BOTEZrNDRybnFOMVBvZ3dhZGZhQU1QaWhUZEx2RzlLTE5UZnFj?=
+ =?utf-8?B?OTZiMVVja1pFc3JXelA2NHVhc0ZoN0plWEwwSWNBdDVMQ0Q4TXlzclcwZXZR?=
+ =?utf-8?B?MC9vbzZVbU9YejYxNitmUTVNQ1VQWFZCN2FnUmlFdlB2bng2T0xiTVhWWkE5?=
+ =?utf-8?B?dldJc284bWUreVRXYWZ5cmpVczBiTUxzYnN4WUwwZ2UyeWIvM3dvY29KVjFs?=
+ =?utf-8?B?bTdZRE8wTE5iMmgvRERVZXBudWZ0bWNYS0ZkVTF4RHF2bldyZ1N3RlI1NXd3?=
+ =?utf-8?B?eS96bnZ4a1dWSXJpOUEweXJhcFhzRXRYVllmb0ZSNlIwdE00WE9iWFI3ZjFI?=
+ =?utf-8?B?QnprcEw0N0tjbGRTbnFaNldONi8wYjJBd3YxV05USFNnN2RaSGk3QjRmeGt5?=
+ =?utf-8?B?ZnFwTm1ZMG04V2FrTXBSaUhkSkRmcEQ1MUdpdXl1VjJ5aVRSOWx6OFpZdUdW?=
+ =?utf-8?B?STIyRDUrQzc4SXBQSFAzdGtxTHJRTlg2WnZQeVJFRFlLMXdhWXQ1WU1WM2lU?=
+ =?utf-8?B?ZjJLcDd1d2JSVHp2bGgzek5oS0RTNWhmRXpaaTdZRGQzc2Y5SDI2OGxsakQ2?=
+ =?utf-8?B?SlpERVI3bEVwNktvek02NzNNSUNqNGFOaUgxVHY4TkJMajBCWDZlZFVRVlpl?=
+ =?utf-8?B?cVgreTEzVEJmbHM2Rkc5Q2lhdUg1emtkdnQvcG5jZzBVdTNqT3BhK01iSG02?=
+ =?utf-8?B?ajRSTzUwemdpN0JGcnFsVTFSWmFWR1JlNGwvOXltSjNHYzE0UmZ4L1hSVEFD?=
+ =?utf-8?B?VHJNdzF5QjBBOG12Q015YS9HbUFGc2QzSWw0Q2htYmtxZ3l5dzQ0alp1dXp3?=
+ =?utf-8?B?UitvaHp0Vi9udXVSUG1wSmxuQ2grVVhvTU9rMzcyTDI3K3B1TEF3eFVZUU1X?=
+ =?utf-8?B?Yjg5NTFrOFBCdWtyYVRpdU0wZWNFOUNmVXhoOE1kN1VaQnVVa2VjNndaNzJs?=
+ =?utf-8?B?Z1Z0amFoaHRrZE1TT1JOdnVjT3lWWWRWUTdLWFovTmsvaks0dUJZcHN0dExm?=
+ =?utf-8?B?U2JIdXE2a2dIVE9FTkZNWUVrZFJxdEJFRTU5MUZEdG9lYVVrYUZzWnFiL0RJ?=
+ =?utf-8?B?MUpRcEhLdW5HRlU0N3dUanhIczQ3cDkxNTFvZUw4RTllVEY1dm1NR0hKTDFi?=
+ =?utf-8?B?ZkhobE5QR1dQM2FjMFRHNlpubDZWM3BDUk81QVNIdFZBNUhLNjZQMWZpbW9I?=
+ =?utf-8?B?RE9lL2ZESDBzZ0JlUWE2U1ZOd00ySWlaTG5VYnJxNG1LSlNZYUJEbkpCZVhE?=
+ =?utf-8?B?UTVhbXlLeTFnbUJ2Z3RrRmJlMXhRc2pIY3dLQkJnMmFLQnVkNzF5dFJFTU1V?=
+ =?utf-8?B?NW1CcWY0V2l3YjZ6R2RrU1JLcmpvbm5hR0FCVTlnWm8xRzQ3Uy9MakZMbkFZ?=
+ =?utf-8?B?RGtuR2dMTG9UN2RDZ2I4ZlV1RTlodk9FcldLMXBaS0I0R3dBeEhEbEp5TFB5?=
+ =?utf-8?B?NkpNWUI5VWQ4TUV6QjIyWU1jOXY5QjNtckNSZWVielR0dmlSb1V2bkwySW5X?=
+ =?utf-8?B?ajErZE13VUV1ZUd1VXU1UmF0SGdtL2dQS0U2b0JCYjEzOVc0UnhpUW5mTmFi?=
+ =?utf-8?B?c2ZkcHFnaG5uY2J4T1IwVzVGVnl6SnROUGN2Y0t5SVR0MjVYaGZwb3A3R212?=
+ =?utf-8?B?bFRHWDBjaWtiU0dZY0FzOXhRM3JpakpqZXluNGkydGhGZlQySlFUM1FTRWVM?=
+ =?utf-8?B?Rm42NnYyS2xWNEk4UnZqNm9PT3lBRVBMeTFTODZXaE00d2R0YlpBUGhxaTNR?=
+ =?utf-8?B?MFlnd3QrSmZ4OWM0ZFNJM3M1YiszazNDRkZ2T1lENmt3Z0Q3U3JwS29uVE1R?=
+ =?utf-8?B?NHhrK3lnL1BmZHphSE5CY0orWmNJUjh2RjljTVdObzdsM0pHaDRDTWJmK2pk?=
+ =?utf-8?B?OUo4cTJZZzZINGVhdzhzYU5kR1E2Z00yNWlvRVpLQi9wV2d5RCt4YTFzZ21j?=
+ =?utf-8?B?dHZxYzFsM0JsUWt3NWdJTlNPQlpjV0lwanJlMnpEck1nVlUycTd5bmVLMWxy?=
+ =?utf-8?B?NDBoQzFXQUFNNGlpTitaTFJNUGYxRWRmaEVTb1B1N1ZNZnRlT2JpOWt4dldO?=
+ =?utf-8?B?UEgyenNqanhieSsxWmE5QkxqaE1FSXFsSGhZV0wybElGRXNuMlRhbGYxNHBi?=
+ =?utf-8?B?K2EzU2RtY0c3OVBGYzhycS9ZZkd5bGF2cWZ3QzdLbjI1eXVUODhFTDNpcVdt?=
+ =?utf-8?B?eDRpV2hZN1RTUFh3UWJtODR6MWFwRWNIbU5jZTZ4TlpEU3lGT2VwMzJLeFVJ?=
+ =?utf-8?B?S1hUVzNtQTcwTTgrUUZEZlprZFF4aHpyRnNXV1ZJMTY1MFNlMDRFaXcwTEVM?=
+ =?utf-8?B?V0puQkg1MDJ0a2RkaG1UajZ0a2s3N1pZcHN4NTd2NjdPNFdUeXNwZWRWS0p2?=
+ =?utf-8?B?RjhVRnVPTy9wMDNYM3llN0JrUEpWVU1oc29JaHFGWjYvODVQRkpyMkNVTzV0?=
+ =?utf-8?B?L1VkYWpEUm0yWkc0RU1YZGk3Sytxc3pCNmRydzUyZlRpSm0xbk8yS0czN3Z1?=
+ =?utf-8?B?YjU5UTk2d3VuOVhsUDhDMXREeWVsWFNTTlBseWswVVRZSksyTzRMeDY2YXVJ?=
+ =?utf-8?B?OHo5UUNKS2xzSDNHLzhIeUZrUkFNOUVaVUNKcHJvbnNlQ1VxeUllZFcxbkNi?=
+ =?utf-8?B?dVJGR3R4emM1ZmpJM3ozUDVqWjF2Zzh6a2lIcXFIWk5zVWNCSFRScWpwZEp5?=
+ =?utf-8?B?Q09QcTRoMWFOMmFjZGcycTd6YkRDVnkyNS9FWmo3MzFrcGlSQ0NZZzgxNmxw?=
+ =?utf-8?B?R1YvTXFsZU1IaTgrT3FCZ0ZhM2k0OXU3TmlIeEV2dz09?=
+MIME-Version: 1.0
+
+--00000000000061cf20065a891e3b
+Content-Type: text/plain; charset="UTF-8"
+
+Hi there,
+
+Your Yahoo Fantasy Sports API access is now live. The credentials for your
+application are enabled, and authorized calls will go through now.
+
+Best regards,
+Yahoo Fantasy
+
+--00000000000061cf20065a891e3b
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr"><span style=3D"font-size:10pt;font-family:Arial">Hi there,<b=
+r><br>Your Yahoo Fantasy Sports API access is now live. The credentials for=
+ your application are enabled, and authorized calls will go through now.<br=
+><br>Best regards,<br>Yahoo Fantasy</span></div>
+
+--00000000000061cf20065a891e3b--
