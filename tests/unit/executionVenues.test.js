@@ -8,6 +8,7 @@ import {
   canonicalSportsbookKey,
   isPlaceableSportsbook,
   isPredictionMarketVenue,
+  placeableSportsbookOnlyPromptSentence,
   placeableVenuesPromptSentence,
   sportsbookAccessType,
 } from '../../src/lib/executionVenues.js';
@@ -74,5 +75,26 @@ describe('canonical execution-venue registry', () => {
       expect(sentence).toContain(contextOnly.label);
     }
     expect(sentence.startsWith('PLACEABLE BOOKS ONLY:')).toBe(true);
+  });
+
+  it('rev-23-followup3 (Codex finding #1): placeableSportsbookOnlyPromptSentence names every sportsbook and DK/FD-as-context-only, but NEVER any prediction-market venue or concept', () => {
+    const sentence = placeableSportsbookOnlyPromptSentence();
+    for (const venue of SPORTSBOOK_VENUES) {
+      expect(sentence).toContain(venue.label);
+    }
+    for (const contextOnly of MARKET_CONTEXT_ONLY_VENUES) {
+      expect(sentence).toContain(contextOnly.label);
+    }
+    expect(sentence.startsWith('PLACEABLE BOOKS ONLY:')).toBe(true);
+    for (const pm of PREDICTION_MARKET_VENUES) {
+      expect(sentence).not.toContain(pm.label);
+    }
+    const lower = sentence.toLowerCase();
+    expect(lower).not.toContain('kalshi');
+    expect(lower).not.toContain('polymarket');
+    expect(lower).not.toContain('prediction market');
+    expect(lower).not.toContain('prediction-market');
+    expect(lower).not.toContain('execution-eligible');
+    expect(lower).not.toContain('execution eligible');
   });
 });

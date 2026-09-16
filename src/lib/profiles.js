@@ -321,9 +321,9 @@ const ALPHA_PRESET_PROFILES = [
   // Keeper: Undeclared
   {
     id: 'alejandro',
-    name: 'Alejandro',
-    displayLabel: 'Alejandro (Jesus Take the Wheel / Panda XL)',
-    realName: 'Alejandro',
+    name: 'Alejandro Castro',
+    displayLabel: 'Alejandro Castro (Jesus Take the Wheel / Panda XL)',
+    realName: 'Alejandro Castro',
     nickname: 'Jesus Take the Wheel',
     email: 'alejandro@example.test',
     description: 'Player props and same-game parlay specialist focusing on passing yards, rushing/receiving overs, anytime TDs, and fantasy matchups.',

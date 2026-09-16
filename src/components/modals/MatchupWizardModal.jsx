@@ -135,7 +135,7 @@ function cleanIntelText(text) {
 }
 
 // --- MAIN COMPONENT ---
-export default function MatchupWizardModal({ isOpen, onClose, game, onBet, stats, currentWizardData }) {
+export default function MatchupWizardModal({ isOpen, onClose, game, onBet, stats = [], currentWizardData }) {
   const [selectedBet, setSelectedBet] = useState(null);
 
   // --- MERGE EXPERT PICKS DATA ---
@@ -237,16 +237,16 @@ export default function MatchupWizardModal({ isOpen, onClose, game, onBet, stats
 
   const hRank = ranks[game.home] || { off: '-', def: '-' };
   const vRank = ranks[game.visitor] || { off: '-', def: '-' };
-  const homeEPA = stats.find(s => s.team === game.home)?.off_epa || 0;
-  const visEPA = stats.find(s => s.team === game.visitor)?.off_epa || 0;
+  const homeEPA = (Array.isArray(stats) ? stats.find(s => s.team === game.home) : null)?.off_epa || 0;
+  const visEPA = (Array.isArray(stats) ? stats.find(s => s.team === game.visitor) : null)?.off_epa || 0;
   const projHome = 21 + (homeEPA * 30); 
   const projVis = 21 + (visEPA * 30);
   const projSpread = (projVis - projHome).toFixed(1);
-  const hasEdge = Math.abs(projSpread - game.spread) > 2.0;
+  const hasEdge = game.spread != null && Math.abs(projSpread - game.spread) > 2.0;
   const edgeSide = hasEdge ? (projSpread < game.spread ? game.home : game.visitor) : null;
 
   return (
-    <div className="fixed inset-0 bg-black/90 z-[70] flex items-center justify-center p-4 backdrop-blur-sm">
+    <div className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-4 backdrop-blur-sm">
       <div className="bg-slate-900 border border-slate-700 w-full max-w-4xl rounded-2xl shadow-2xl flex flex-col max-h-[90vh] overflow-hidden animate-in fade-in zoom-in-95 duration-200">
         
         {/* --- SECTION 1: PLATINUM HEADER --- */}

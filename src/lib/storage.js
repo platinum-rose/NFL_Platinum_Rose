@@ -76,6 +76,11 @@ export const PR_STORAGE_KEYS = {
     permanence: 'persistent',
     description: 'SuperContest locked lines, keyed by game id: { value, lockedAt } (older bare-number entries are still read for back-compat -- see App.jsx gamesWithSplits)',
   },
+  SUPERCONTEST_WATCHLIST: {
+    key: 'nfl_supercontest_watchlist_v1',
+    permanence: 'persistent',
+    description: 'SuperContest Andy & Amanda watchlists and locked weekly selections',
+  },
   SIM_RESULTS: {
     key: 'nfl_sim_results',
     permanence: 'persistent',

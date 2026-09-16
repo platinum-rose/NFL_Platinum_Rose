@@ -113,10 +113,10 @@ describe('Alpha profile catalog', () => {
     );
   });
 
-  it('binds Alejandro to Jesus Take the Wheel, Panda XL, TB Bucs, and LA Rams', () => {
+  it('binds Alejandro Castro to Jesus Take the Wheel, Panda XL, TB Bucs, and LA Rams', () => {
     const profile = PRESET_PROFILES.find((p) => p.id === 'alejandro');
     expect(profile).toBeDefined();
-    expect(profile.realName).toBe('Alejandro');
+    expect(profile.realName).toBe('Alejandro Castro');
     expect(profile.usagePriority).toBe('props_and_odds');
     expect(profile.favoriteTeams).toEqual(expect.arrayContaining(['TB', 'LAR']));
     expect(profile.bettingInterests).toEqual(

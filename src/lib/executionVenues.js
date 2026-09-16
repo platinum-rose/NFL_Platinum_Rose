@@ -110,3 +110,29 @@ export function placeableVenuesPromptSentence() {
     + `the equivalent sportsbook price — treat them as market context, not a placeable "book", unless the `
     + `dossier explicitly marks a prediction-market row execution-eligible.`;
 }
+
+// rev-23-followup3 fix (Codex finding #1): a scoped/suppressed run's dossier
+// (buildScopedDossier(), agents/lib/scoped-dossier.js) never carries a
+// prediction_markets field at all -- it is structurally stripped for this
+// frozen Wins/Playoffs-only scope (see that file's header + the Kalshi/
+// prediction-markets disposition note in project memory). The unscoped
+// placeableVenuesPromptSentence() above names Kalshi/Polymarket and
+// "prediction-market row execution-eligible" regardless -- naming a
+// concept that cannot appear in a scoped run's own input data is exactly
+// the kind of prompt contamination the positive-template rule (rev 20)
+// exists to prevent, even though these are legitimate execution-venue
+// names rather than a forbidden hedge/parlay/scenario concept. This sibling
+// function is IDENTICAL except it never constructs or references
+// PREDICTION_MARKET_VENUES at all -- not filtered out after the fact, never
+// built in the first place. Sportsbook-only scoped prompts must use this,
+// never the function above.
+export function placeableSportsbookOnlyPromptSentence() {
+  const direct = SPORTSBOOK_VENUES.filter((v) => v.access === 'direct').map((v) => v.label);
+  const proxy = SPORTSBOOK_VENUES.filter((v) => v.access === 'proxy').map((v) => v.label);
+  return `PLACEABLE BOOKS ONLY: the user bets directly at ${direct.join(', ')}, and via a proxy at `
+    + `${proxy.join(', ')}. best_price/best_book (outrights) and best_over/best_under + their books `
+    + `(win totals) are ALREADY filtered to these placeable books. NEVER recommend a `
+    + `${MARKET_CONTEXT_ONLY_VENUES.map((v) => v.label).join(' or ')} price — those appear only as market `
+    + `context for fair value; the user cannot bet them. Every "book" in your output must be a placeable `
+    + `book (use the dossier's best_* fields).`;
+}

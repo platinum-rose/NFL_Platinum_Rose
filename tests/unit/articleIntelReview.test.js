@@ -176,4 +176,21 @@ describe('article evidence integrity', () => {
     expect(report.articles[0].pick_review_status).toBe('manual_reviewed_no_actionable_actual_pick');
     expect(report.articles[0].manual_review.source_url).toBe(row.url);
   });
+
+  it('correctly classifies Tier 2 analyst best bets with consensus assumed', () => {
+    const row = article({
+      id: 'tuley-1',
+      source: 'VSiN',
+      title: "Dave Tuley's NFL Week 1 Best Bets",
+      author: 'Dave Tuley',
+      summary: 'Best Bet: Cleveland Browns +8. Best Bet: New England Patriots +3.5.',
+    });
+    const report = buildReport([row], SINCE, collection({ database_rows: 1, deduped_records: 1 }));
+    expect(report.tiered_picks).toHaveLength(2);
+    expect(report.tiered_picks[0].tier).toBe(2);
+    expect(report.tiered_picks[0].weight).toBe(0.75);
+    expect(report.tiered_picks[0].analyst).toBe('Dave Tuley (VSiN)');
+    expect(report.tiered_picks[0].selection).toBe('Cleveland Browns +8');
+    expect(report.summary.weighted_picks.tier_2_analyst_best_bets).toBe(2);
+  });
 });

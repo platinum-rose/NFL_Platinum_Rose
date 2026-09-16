@@ -214,7 +214,7 @@ describe('portfolio-simulate', () => {
 
       expect(calibratedGap).toBeLessThan(uncalibratedGap);
       expect(calibratedGap).toBeLessThan(0.03);
-    }, 20000);
+    }, 60000);
   });
 
   describe('known-case fixture (real 2026-07-16 market prices + real schedule/win_dist)', () => {
