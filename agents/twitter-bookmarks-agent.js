@@ -111,7 +111,7 @@ const DRY_RUN = argv.includes('--dry-run') || process.env.DRY_RUN === 'true';
 const SAMPLE_MODE = argv.includes('--sample');
 const TRACKED_ACCOUNTS_MODE = argv.includes('--tracked-accounts');
 const maxDaysArg = argv.find(a => a.startsWith('--max-days='));
-const MAX_DAYS = maxDaysArg ? parseInt(maxDaysArg.split('=')[1], 10) : 30;
+const MAX_DAYS = maxDaysArg ? parseInt(maxDaysArg.split('=')[1], 10) : 8; // current-week intel only (was 30)
 const TRACKED_ACCOUNTS_CONFIG_PATH = path.join(ROOT, 'config', 'twitter-tracked-accounts.json');
 // Caches handle->rest_id lookups (UserByScreenName) across runs so a normal
 // run only spends GraphQL calls on UserTweets, not re-resolving 20 handles
