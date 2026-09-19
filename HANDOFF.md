@@ -1,13 +1,98 @@
 # NFL_Dashboard — Session Handoff
 > Auto-generated at session end. Read this to resume.
 
-**Date:** 2026-09-13T16:50:00-07:00
+**Date:** 2026-09-18T01:10:00-07:00
 **Branch:** main
 
 ## Standing Constraint Update — 2026-09-15
 **The "no commit/push without Andy's explicit approval" guardrail is REPEALED as of 2026-09-15.** It originated as a scoped constraint for the Codex-independent 5-checkpoint repair audit (`docs/audits/2026-08-21-codex-independent/UNIFIED_REPAIR_PLAN_FOR_CLAUDE.md`) and had been carried forward by habit in every session's handoff notes since, well past that audit's relevance. Andy confirmed the full repeal directly. Going forward, commit and push using normal judgment and the existing `RULES.md`/`CLAUDE.md` git conventions (conventional commit messages, `--force-with-lease` never `--force`, check `AGENT_LOCK.json` before force-pushing) — no separate per-commit sign-off is required. The Supabase-writes-need-per-change-authorization and no-paid-synthesis-without-authorization constraints mentioned in older entries below are UNCHANGED and still in effect; only the git commit/push guardrail is lifted.
 
 Note: as of this update the working tree is very large and dirty (hundreds of modified/untracked files spanning real feature work, generated data, and throwaway scratch/probe scripts) — do not blanket `git add -A` and commit it all in one shot. Stage and commit in reviewed, logically-scoped batches.
+
+---
+
+## Current Pick Up Here: 2026-09-19 — Podcast Re-Extract In Flight; Friday Pipeline + Alpha Gate + Podcast Overhaul Shipped
+
+Full detail: [`handoffs/2026-09-19-1040-claude-friday-pipeline-podcast-overhaul-handoff.md`](file:///e:/dev/projects/NFL_Dashboard/handoffs/2026-09-19-1040-claude-friday-pipeline-podcast-overhaul-handoff.md)
+
+**Next session should start by:** verifying the GitHub re-extract run (Podcast Ingest Agent, `reextract_since=2026-09-14`) and the auto-triggered Pick Extraction Agent — Sep 14+ transcripts should show `+gemini-3.6-flash` with much higher pick counts and re-promoted, non-duplicated EXPERT `user_picks`. Then build the Sunday/Monday Week 2 card (read `docs/BETTING_LESSONS_LEARNED.md` first). All code is committed and pushed (main == origin/main, 70c898b). The detailed session log is the 2026-09-18 (evening) entry below.
+
+---
+
+## Current Pick Up Here: 2026-09-18 (evening) — Friday Cadence Run, Human Review + Week-Default Fixes, Odds Terminal Evaluated & Rejected (DONE)
+
+### Status: Friday cadence run by Andy locally (live data OK); fixes below COMMITTED and PUSHED to origin/main (dee1125..bb1972d): d121611 availability, ca80a43 secondary, 63362e5 alpha gate, cccf184 toolbox Human Review. Local main is ahead of origin by 6 (4 of these + 2 earlier local commits, incl. 5a7e8fc fpi). The unrelated "Fantasy Tools" hunk in scripts/toolbox-dashboard.html was deliberately left unstaged. Generated data files were not committed.
+Note for Cowork sessions: git run through device_bash can leave a stale empty .git/index.lock (the shell can't delete files without Andy granting delete permission) — check for it after any git command.
+1. **Friday cadence ran successfully from Andy's own terminal** (1124 availability events / 32 teams, 76 projected-starter signals, 22 players flagged for Human Review). Note: the Cowork `device_bash` shell has NO outbound network, so live-data scripts must be run by Andy locally — a Claude-side run silently degrades to stale inputs.
+2. **Fix — Human Review looked empty after cadence runs:** `scripts/toolbox-dashboard.html` only fetched the queue on page load/filter click. Now refreshes the badge (and the queue if the section is visible) whenever a task completes via SSE. Needs a browser refresh only, no server restart.
+3. **Fix — secondary matchup matrix always built Week 1:** `scripts/build-secondary-matchup-vulnerability.js` had `DEFAULT_WEEK = 1` and the cadence passes no `--week`. Now defaults to `getNFLWeekInfo().week` (same resolver as player-props intel). Re-ran → `secondary-matchup-vulnerability-2026-w02.json`; Alpha packet rebuilt on top. The stale `...-w01.json` from today's runs can be ignored.
+4. **Open — player-props intel is thin (12 props, TNF only):** `extractCuratedPlayerProps()` only matches the strict `Player Over X.5 ... (-110)` format, and many prop articles in `research_intel_notes` are title-only (no body). Candidate fix: add player props to `sync-live-market-lines.mjs` via The Odds API event-odds endpoint (quota cost per game x market — test on one game first).
+5. **DECIDED — Odds Terminal (oddsterminal.org) is NOT a data source for this project.** Evaluated in-browser with Andy logged in: strong coverage (56 books incl. exchanges/prediction markets/DFS pick'em, opening lines, public/money %, props, EV), but it resells OpticOdds data (`cdn.opticodds.com`), has no terms/API, sits behind SMS login + Cloudflare bot checks, rate-limits (429s), and ~half its feeds failed within minutes. Not robust or free enough — do not revisit. At most a manual line-shopping screen.
+
+6. **Verified Andy's 2026-09-19 06:14Z Friday run — all 5 outputs fresh, but found these defects (none fixed yet):**
+   - **Alpha packet ignores the Friday intel entirely.** `build-alpha-data-packet.js` reads none of steps 1-4 (no player-availability, projected-starters, secondary-matchups or player-props files in `source_provenance`); injuries come from static `src/lib/expertInjuries.js`, sportsbook context from 08-22, recs from 09-13. Explains the constant "394 recommendations".
+   - **Availability "major" count inflated:** 397 of 1123 events are ESPN `Active` game-recap blurbs (e.g. Bradley Chubb 1.5 sacks) classed `active_news` and ~368 of them bucketed as *_major; `injury_type` mis-parsed (e.g. "two solo"). Real game-status rows (Out/Doubtful/Questionable) = 249 across all 32 teams — those look right.
+   - **FantasyPros timestamps:** 182 rows have `published_at` up to 6.9h in the future — evidence the naive `injury_update_date` is UTC (not ET); fix = parse as UTC in `agents/lib/fantasypros-injuries.js` (see TIMEZONE CAVEAT there).
+   - **Secondary matrix double-counts absences** listed by both ESPN and FantasyPros (Porter Jr., Adebo, Garrett Williams, Rakestraw, Abney appear twice), inflating severity; top-ranked matchup is the already-played DET@BUF TNF game; season-long IR/PUP depth players drive much of the score.
+   - **Projected starters:** QB backups correctly promoted (MIN Wentz/Murray out, ATL Rush/Penix out, SEA Lock/Darnold out); false positives TB Jalon Daniels + DEN Stidham from "will be the backup" language, and TB has no Mayfield row. ARI has zero signals (needs manual depth chart).
+   - Player props unchanged: 12 TNF-only props (see item 4).
+
+7. **FIXED 2026-09-19 (tests added, 27/27 passing in the two suites):**
+   - Secondary double-counting: new `dedupeSecondaryEvents()` in `agents/lib/secondary-matchup-vulnerability.js` (one absence per team|player, most severe event wins, `corroborating_sources` recorded). Rebuilt matrix: duplicates 0; high tier 7 -> 6 (NE vs PIT 10.50 -> 6.45, SEA vs ARI 8.20 -> 5.05, ARI vs SEA drops to medium).
+   - Active-recap inflation: `parseInjuryType()` now skips stat/roster parentheticals ("two solo", "on five targets", "coach's decision"); new `isMajorAvailabilityEvent()` excludes `active_news` rows with no injury named from `major_count` (team + meta). Estimated on today's data: major 1063 -> ~728. `data/player-availability/latest.json` will only reflect this after Andy's next local cadence/availability run (needs network).
+   - Andy's local re-run confirmed both: Major 728 (was 1063), secondary 17 medium/high (was 21).
+8. **FIXED 2026-09-19 — Alpha packet permanently wired to the Friday intel (happened Week 1 AND Week 2):**
+   - New `agents/lib/alpha-weekly-intel.js` (pure, tested): `WEEKLY_INTEL_INPUTS` (the 4 Friday outputs), `evaluateWeeklyIntelFreshness()` (each input must exist, be <=36h old, and — for secondary + props — match the current NFL week), `buildWeeklyIntelSection()`, `weeklyIntelForTeam()`.
+   - `scripts/build-alpha-data-packet.js` now reads all 4 inputs (in `source_provenance`), **refuses to build and exits 1** with a per-file reason if any is missing/stale/wrong-week (so the toolbox cadence shows a failure instead of "success"), and `--allow-stale` is the only override (stamped as `weekly_intel.freshness.allow_stale_override`).
+   - Packet changes: new top-level `weekly_intel` (availability game-status rows by team, projected starters, secondary matchups, props, freshness report); `injuries` is now `weekly_game_status_availability_v1` from live availability; the static `EXPERT_INJURIES` list survives only as labeled `preseason_expert_injuries`. Each `nfl_team_dashboards[]` entry gets `weekly_intel` + live `injuries`. No UI consumer read the old injuries shape (only `FuturesIntelReport` uses the packet, for team rows/generated_at).
+   - Tests: new `tests/unit/alphaWeeklyIntel.test.js` (gate pass/missing/stale/wrong-week, recap-row exclusion, per-team slicing, script-wiring guards so it can't regress); `alphaDataPacket.test.js` fixed (was hardcoded to 209 recs, already failing at 394) + new "built from this week's Friday intel" assertion. 54/54 across the 6 touched suites.
+   - Pre-existing failures NOT caused by this work (seen in wider run): `survivorAlpha.test.js` detectTrapPicks, `toolboxAppServer.test.js` expects "Live Multi-Game Sunday Trackers" text that isn't in HEAD's dashboard HTML either.
+   - Verified live: current packet built from fresh Week 2 inputs (606 game-status rows, 76 starters, 32 matchups, 12 props); simulated Week 3 / 5-days-stale builds are refused naming each stale file.
+
+9. **Podcast ingest was running with no extraction fallback (FIXED + pushed, bb1972d):** the GPT-4o -> Claude -> Gemini fallback in `agents/podcast-ingest.js` and the Tue-Fri schedule in `.github/workflows/podcast-ingest.yml` were written 2026-09-14 but never committed, so GitHub Actions kept running GPT-4o-only, Fridays, 3/run. OpenAI is out of credits -> every episode since ~Sep 8 errored; Week 2: 2 of 24 episodes transcribed (since Sep 1: 16 done / 30 pending / 18 error). Errored episodes are retried first and eat the per-run slots, starving BettingPros / Move the Sticks / Sharp Football (0 done this season).
+   - Andy TODO: confirm `ANTHROPIC_API_KEY` + `GEMINI_API_KEY` GitHub Actions secrets exist; trigger Podcast Ingest Agent manually (max_per_run >= 6) and check the log for "via claude-sonnet-4-5"/"via gemini" — the fallback has never run in prod and model ids (`claude-sonnet-4-5-20250929`, `gemini-3.6-flash`) are unverified.
+   - Open: ~24 episodes/week vs 3-6 per run means the backlog keeps growing — needs a higher default cap or extra runs (paid; Andy's call). Topping up OpenAI credits also unsticks it.
+
+10. **Podcast extraction made Gemini-first + fail-fast (b87ba33, PUSHED; GEMINI_API_KEY secret added by Andy 2026-09-19):** Andy's manual Actions run (2026-09-19) proved no Claude/Gemini key reaches the job (chain listed only gpt-4o) and each failed episode had already paid AssemblyAI, with failures not counting toward MAX_PER_RUN. New `agents/lib/extraction-providers.js` + tests (`tests/unit/extractionProviders.test.js`, 8/8): order gemini -> claude -> gpt-4o, billing/auth errors kill a provider for the run, run stops (episode left pending) when no extractor is usable. Needs: push + `GEMINI_API_KEY` GitHub secret (Andy's local .env has one). "Antigravity pipeline" clarified: manual agent sessions that read exported transcripts — not an automated/transcription fallback; the free Gemini-audio build (`docs/antigravity/GEMINI_AUDIO_MIGRATION_SPEC.md`) was never implemented (option B, still open). Note: several scripts still reference `gemini-2.0-flash`, which Google has shut down.
+
+11. **Podcast ingest ordering fixed (pushed):** Gemini extraction verified live (6 episodes, model_used `assemblyai-diarized+gemini-3.6-flash`). Run now discovers all feeds, then processes newest-first across feeds (`agents/lib/episode-queue.js`, tests), skips episodes older than `MAX_EPISODE_AGE_DAYS` (default 10, left queued), and `MAX_RUNTIME_MINUTES` (default 10, up to 65; workflow timeout 95) replaces the hardcoded 10-min ceiling that capped runs at ~8 episodes. As of 2026-09-19 ~43 episodes within 10 days were still pending (29 since 9/14), incl. BettingPros/Action Network/Sharp Football Week 2 best-bets shows.
+
+12. **Week 2 podcast backlog ingested (2026-09-19):** Andy's manual run (max_per_run 30, age 5d, runtime 65) processed everything since 9/14 via Gemini; only 2 Week 1 recaps left pending. BUT pick counts exposed that extraction only ever saw `transcript.slice(0,12000)` (~first 10-15 min). Fixed + pushed: full-transcript chunked extraction (`agents/lib/extraction-merge.js`, tests), player_prop/futures types, and `REEXTRACT_SINCE` mode (workflow input `reextract_since`) that re-extracts stored transcripts with no transcription cost. 35 transcripts since 9/14 (1.86M chars); 13 already promoted to signals -> skipped by default (pick-extraction ids picks by index, re-promoting would duplicate). Andy approved overwrite + full re-run (2026-09-19). Cleanup DONE (Andy-authorized Supabase write): 44 PENDING EXPERT `user_picks` promoted from Sep 14+ transcripts backed up to `public.user_picks_backup_20260919_reextract` then deleted; `picks_promoted_at` reset to null on all 35 transcripts (normalized_signals had none for them). Next: Andy triggers re-extract (reextract_since=2026-09-14, max_per_run 40, runtime 65), then pick-extraction re-promotes.
+
+Standing constraints unchanged (git guardrail repealed; Supabase writes need per-change auth; no paid synthesis without auth). Git triage backlog still open.
+
+---
+
+## Current Pick Up Here: 2026-09-18 — Betting Lessons Learned Captured; Handing Off for Token Refresh (DONE)
+
+Full detail: [`handoffs/2026-09-18-0110-claude-lessons-learned-token-handoff.md`](file:///e:/dev/projects/NFL_Dashboard/handoffs/2026-09-18-0110-claude-lessons-learned-token-handoff.md)
+
+### Status: Short continuation session — captured a reusable betting lesson from the TNF card, then handed off to a fresh Claude session to conserve tokens. No pipeline work run.
+1. Wrote `docs/BETTING_LESSONS_LEARNED.md` (new file) — durable, growing log of reusable card-construction lessons, separate from the engineering-only `.atlas/lessons-learned.md`. First entry: TNF DET@BUF — 14 of 18 unique player-prop legs hit clean, but 5 of 6 tickets still lost net because they were multi-leg parlays where one weak leg (Goff 0-INT, or either of Shakir's two near-misses) busts the whole ticket; several high-margin reads (Cook rushing +54.5 over the line, Kincaid receiving +40.5, Gibbs receiving +29.5) never got a standalone payout because they were buried in those same parlays. **Actionable for future cards: fire the highest-margin reads as smaller standalone/2-leg tickets alongside the larger parlays, not only inside them.**
+2. Condensed version of the same lesson appended to project memory (`areas/nfl-dashboard.md`) so it surfaces cross-session even without reading the repo file.
+3. Everything open from the 2026-09-17 session is unchanged and carried forward as-is (see below) — this session did not touch the pipeline, the toolbox server restart, or the git triage backlog.
+
+**Next session should start by**: reading `docs/BETTING_LESSONS_LEARNED.md` before building the Sunday/Monday Week 2 card, then running `node scripts/toolbox.mjs --cadence friday` to process Sunday/Monday intel (injuries → projected starters → secondary matchup matrix → SGP models → Alpha Data Packet) — still intentionally not run across 2 sessions now. Also still open: Andy needs to restart the toolbox server (double-tab fix + 09-15 Human Review fix both need it), and the ~1017-file dirty working tree needs the deliberate git triage pass called out in the 09-15 entry — now overdue across 3 sessions.
+
+Standing constraints unchanged: git guardrail repealed; Supabase writes still need per-change authorization (not a standing green light even though granted twice now); no paid synthesis runs without authorization.
+
+---
+
+## Current Pick Up Here: 2026-09-17 — TNF Bug Fixes, Futures Team Grouping + Price Watch, TNF Tickets Closed & Synced to Bankroll (DONE)
+
+Full detail: [`handoffs/2026-09-17-2130-claude-tnf-close-price-watch-handoff.md`](file:///e:/dev/projects/NFL_Dashboard/handoffs/2026-09-17-2130-claude-tnf-close-price-watch-handoff.md)
+
+### Status: Bug fixes + new Futures features verified against real live ESPN data; all 6 resolvable TNF tickets graded, settled, and synced to Bankroll/Supabase; nothing committed
+1. Fixed the Game Day Tracker double-tab launch bug, the Goff pass-TD/Bills-team-total-reading-0 bug (2-layer root cause across 3 duplicated stat matchers), the "Over 54" showing "On Pace" instead of "Hit" once already mathematically clinched, the Bookmaker.eu SGP payout mislabel ($70.02 total-return shown as "Payout" instead of the $49.90 profit-only "To Win" Andy's books use), and a Player Cheat Sheet fulfillment-logic drift (missing `pass_attempts`/`interceptions_thrown` branches + open-slot legs blocking "Collapse Fulfilled").
+2. Futures Portfolio tab now groups cards by team (collapsible), and ships a new monitor-only "Price Watch" section tracking Bills/Bears SB Win + Exacta Matchup price history for a dip before Andy buys in — config-driven via new `data/futures-imports/price-watch-list-2026.json`.
+3. TNF (DET @ BUF, final BUF 41–31) tickets graded and closed: 5 parlays lost (narrow misses), the Bookmaker.eu SGP won both legs, the DET freebet lost, the 11-team parlay's BUF leg graded WON with the ticket itself left PENDING (10 more legs Sun/Mon). **Net +$17.98 on tonight's settled tickets.**
+4. Synced all 35 wagers to Bankroll (`node scripts/sync-placed-wagers-to-bankroll.mjs`, real run) — Supabase `user_bankroll_bets` updated, `public/user-placed-wagers-2026.json` refreshed. Regenerated both Live Tracker output files.
+
+**Next session should start by**: running `node scripts/toolbox.mjs --cadence friday` to begin processing intel for the Sunday/Monday Week 2 slate (injuries → projected starters → secondary matchup matrix → SGP models → Alpha Data Packet) — intentionally not run this session. Also: Andy still needs to restart the toolbox server (double-tab fix + the pending 09-15 Human Review fix both need it), and the working tree still needs the git triage pass called out in the 09-15 entry below before any broad commit.
+
+**Betting lessons from tonight's TNF card are now captured in [`docs/BETTING_LESSONS_LEARNED.md`](file:///e:/dev/projects/NFL_Dashboard/docs/BETTING_LESSONS_LEARNED.md)** — read it before building the Sunday/Monday cards. Headline: 14 of 18 unique player-prop legs hit clean, but 5 of 6 tickets still lost because they were multi-leg parlays and only needed one weak leg (Goff 0 INT, Shakir's two near-misses) to bust the whole ticket. Several high-margin reads (Cook rushing +54.5, Kincaid receiving +40.5, Gibbs receiving +29.5) never got a standalone payout because they were buried in those same parlays. Consider firing top-margin reads as smaller standalone/2-leg tickets alongside the bigger parlays going into this weekend's card.
+
+Standing constraints unchanged: git guardrail repealed; Supabase writes still need per-change authorization (tonight's Bankroll sync was explicitly authorized by Andy, not a standing green light); no paid synthesis runs without authorization.
 
 ---
 
