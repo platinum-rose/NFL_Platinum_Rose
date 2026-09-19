@@ -41,6 +41,7 @@
 //   node agents/twitter-bookmarks-agent.js --force          # Re-process bookmarks already in the vault (thread/long-form refresh)
 //   node agents/twitter-bookmarks-agent.js --refresh-ids=ID,ID  # Re-process only these tweet ids
 //   node agents/twitter-bookmarks-agent.js --reprocess-zero-signal  # Re-run only notes with no pick signals
+//   node agents/twitter-bookmarks-agent.js --no-articles    # Don't read articles linked from bookmarks
 //   node agents/twitter-bookmarks-agent.js --no-threads     # Skip TweetDetail thread expansion
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -54,6 +55,7 @@ import 'dotenv/config';
 import { isNflBettingIntel, isFantasyDraftMechanics } from './lib/sportsRelevanceFilter.js';
 import { ensureVaultFrontmatter } from './lib/vaultFrontmatter.js';
 import { TWEET_PICK_PROMPT, buildTextPickSignalRows, buildVisionGamePickRows, dedupeSignalRows } from './lib/tweet-pick-signals.js';
+import { isArticleLink, htmlTitle, htmlToText } from './lib/article-text.js';
 import { tweetTextFromResult, extractAuthorThread, mergeThread, mediaUrlsFromResult, videosFromResult, linksFromResult, looksLikeThreadStarter } from './lib/tweet-thread.js';
 
 // Copied verbatim from agents/research-intel-ingest.js (same convention as
@@ -592,6 +594,79 @@ export async function extractTweetPicksWithGemini(text, author) {
   }
 }
 
+// Linked article text. Direct fetch first; many betting sites block Node's fetch
+// (same pattern as Action Network in research-intel-ingest), so fall back to the
+// r.jina.ai reader proxy, which returns readable text.
+export async function fetchLinkedArticle(url) {
+  const headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' };
+  try {
+    const res = await fetch(url, { headers, redirect: 'follow', signal: AbortSignal.timeout(12000) });
+    if (res.ok && /html/i.test(res.headers.get('content-type') || '')) {
+      const html = await res.text();
+      const text = htmlToText(html);
+      if (text.length > 1500) return { url: res.url || url, title: htmlTitle(html), text, via: 'direct' };
+    }
+  } catch { /* fall through to reader */ }
+  try {
+    const res = await fetch(`https://r.jina.ai/${url}`, { headers: { Accept: 'text/plain' }, signal: AbortSignal.timeout(20000) });
+    if (res.ok) {
+      const text = (await res.text()).slice(0, 20000);
+      const title = (text.match(/^Title:\s*(.+)$/m) || [])[1] || null;
+      if (text.length > 500) return { url, title, text, via: 'r.jina.ai' };
+    }
+    console.warn(`  [article] Reader HTTP ${res.status} for ${url}`);
+  } catch (err) {
+    console.warn(`  [article] Could not read ${url}: ${err.message}`);
+  }
+  return null;
+}
+
+// One research_intel_notes row per linked article, with its own pick signals.
+async function ingestLinkedArticles(bm, { sourceLabel }) {
+  const links = (bm.links || []).filter(isArticleLink).slice(0, 3);
+  for (const link of links) {
+    const canonical = canonicalizeUrl(link);
+    const url_hash = sha256(canonical);
+    const { data: existing } = await supabase
+      .from('research_intel_notes').select('id').eq('url_hash', url_hash).maybeSingle();
+    let noteId = existing?.id;
+    if (noteId) {
+      const { count } = await supabase.from('research_pick_signals')
+        .select('id', { count: 'exact', head: true }).eq('note_id', noteId);
+      if (count) { console.log(`  [article] ${link} already ingested (note ${noteId}).`); continue; }
+    }
+    const article = await fetchLinkedArticle(link);
+    if (!article) continue;
+    if (!noteId) {
+      const { data: inserted, error } = await supabase.from('research_intel_notes').insert({
+        source: `${sourceLabel} (linked article)`,
+        source_type: 'article',
+        url: link,
+        canonical_url: canonical,
+        url_hash,
+        content_hash: sha256(article.text),
+        title: (article.title || `Linked by @${bm.author}`).slice(0, 200),
+        summary: `Linked from @${bm.author}: ${bm.url}`,
+        body: article.text,
+        published_at: bm.created_at,
+        confidence: 0.65,
+        author: bm.author_name || bm.author,
+      }).select('id').single();
+      if (error) { console.warn(`  [article] note insert failed for ${link}: ${error.message}`); continue; }
+      noteId = inserted.id;
+    }
+    const picks = await extractTweetPicksWithGemini(article.text, bm.author);
+    const rows = dedupeSignalRows(buildTextPickSignalRows(picks, {
+      noteId, eventRef: link, sourceLabel: `${sourceLabel} (linked article)`, author: bm.author_name || bm.author,
+    }));
+    if (rows.length) {
+      const { error: sigErr } = await supabase.from('research_pick_signals').insert(rows);
+      if (sigErr) { console.warn(`  [article] signal insert failed: ${sigErr.message}`); continue; }
+    }
+    console.log(`  [article] ${article.title || link} via ${article.via}: note ${noteId}, ${rows.length} pick(s).`);
+  }
+}
+
 export async function generateLocalOllamaSummary(text, sport) {
   const ollamaUrl = process.env.OLLAMA_URL || 'http://localhost:11434/api/generate';
   const model = process.env.OLLAMA_MODEL || 'llama3';
@@ -969,6 +1044,13 @@ ${propSection}${videos.length ? `\n## Attached Video(s) -- pending transcription
       }
     } catch (e) {
       console.warn(`  [warn] research pipeline persistence error: ${e.message}`);
+    }
+    if (argv.includes('--no-articles') === false) {
+      try {
+        await ingestLinkedArticles(bm, { sourceLabel });
+      } catch (e) {
+        console.warn(`  [article] linked-article ingest error: ${e.message}`);
+      }
     }
   } else if (supabase && !DRY_RUN && isFantasyDraftMechanics(bm.text)) {
     console.log(`  [scope] Fantasy draft-mechanics content -- kept in vault_notes only, not bridged to research_intel_notes.`);

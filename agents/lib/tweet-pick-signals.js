@@ -8,7 +8,7 @@
 // Only picks the author is making count -- public-money / "most bet" stats stay in the
 // note text as context, not as signals.
 
-export const TWEET_PICK_PROMPT = `You read NFL betting posts from X/Twitter (one tweet or a whole thread).
+export const TWEET_PICK_PROMPT = `You read NFL betting content: an X/Twitter post (one tweet or a whole thread) or an article linked from one.
 Return ONLY JSON: {"picks":[...]}. One entry per distinct bet the AUTHOR is recommending or has placed:
 {
   "is_author_pick": true,            // false for public-betting %, "most bet", line-move reports, or other people's picks
