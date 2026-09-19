@@ -4,6 +4,7 @@
 //   node scripts/load-external-intel-picks.mjs --dry-run          # parse + report, no writes
 //   node scripts/load-external-intel-picks.mjs --emit-json=out.json
 //   node scripts/load-external-intel-picks.mjs                    # insert (Supabase)
+//   node scripts/load-external-intel-picks.mjs --replace          # replace earlier Grok/Antigravity rows for the same tweets
 //
 // Each pick attaches to the research_intel_notes row of its tweet (matched on url); picks
 // whose tweet has no note are inserted with note_id null. Existing identical signals
@@ -36,8 +37,16 @@ const video = files.filter((f) => /^twitter-video-\d+\.md$/i.test(path.basename(
 
 const all = [];
 const skipped = [];
-for (const f of grok) {
-  const r = toSignalRows(parseCsv(await readFile(f, 'utf8')), { sourceLabel: 'Twitter/X Bookmarks (Grok thread capture)' });
+// A re-run CSV supersedes earlier CSVs for the same tweet: newest file wins per tweet_url.
+const { stat } = await import('node:fs/promises');
+const grokByAge = (await Promise.all(grok.map(async (f) => ({ f, t: (await stat(f)).mtimeMs })))).sort((a, b) => b.t - a.t);
+const claimed = new Set();
+for (const { f } of grokByAge) {
+  const parsed = parseCsv(await readFile(f, 'utf8'));
+  const own = parsed.filter((p) => !claimed.has(p.tweet_url));
+  for (const p of parsed) if (p.tweet_url) claimed.add(p.tweet_url);
+  if (own.length < parsed.length) console.log(`  ${path.relative(ROOT, f)}: ${parsed.length - own.length} row(s) superseded by a newer Grok CSV`);
+  const r = toSignalRows(own, { sourceLabel: 'Twitter/X Bookmarks (Grok thread capture)' });
   all.push(...r.rows); skipped.push(...r.skipped.map((s) => ({ ...s, file: path.relative(ROOT, f) })));
 }
 for (const f of video) {
@@ -52,6 +61,16 @@ if (DRY || emit) process.exit(0);
 
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
 const urls = [...new Set(all.map((r) => r.tweet_url))];
+// --replace: drop previously loaded external-intel rows for these tweets first
+// (so a Grok re-run replaces, not duplicates, the earlier capture).
+if (argv.includes('--replace')) {
+  const { error: delErr, count } = await supabase.from('research_pick_signals')
+    .delete({ count: 'exact' })
+    .in('event_ref', urls)
+    .in('source', ['Twitter/X Bookmarks (Grok thread capture)', 'Twitter/X Bookmarks (Antigravity video)']);
+  if (delErr) throw new Error(delErr.message);
+  console.log(`--replace: removed ${count} earlier Grok/Antigravity row(s) for these tweets`);
+}
 const { data: notes, error: nErr } = await supabase.from('research_intel_notes').select('id,url').in('url', urls);
 if (nErr) throw new Error(nErr.message);
 const noteByUrl = new Map((notes || []).map((n) => [n.url, n.id]));

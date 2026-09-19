@@ -68,7 +68,7 @@ export function toSignalRows(picks, { sourceLabel }) {
       skipped.push({ reason: 'incomplete row', pick: p }); continue;
     }
     const noLine = !String(p.line || '').trim() && !String(p.odds || '').trim();
-    if (PLAYER_TYPES.has(betType) && betType !== 'anytime_td' && betType !== 'first_td' && noLine && (!p.market || /best.?bet/i.test(p.market))) {
+    if (PLAYER_TYPES.has(betType) && betType !== 'anytime_td' && betType !== 'first_td' && betType !== 'trend' && noLine && (!p.market || /best.?bet/i.test(p.market))) {
       skipped.push({ reason: 'player named with no market/line', pick: p }); continue;
     }
     const isTdMarket = betType === 'anytime_td' || betType === 'first_td' || /touchdown|\btd\b/i.test(p.market || '');
