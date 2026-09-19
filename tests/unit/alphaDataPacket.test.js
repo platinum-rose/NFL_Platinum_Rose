@@ -40,7 +40,9 @@ describe('Alpha data packet', () => {
 
   it('labels recommendations and market context as non-execution Alpha research context', () => {
     expect(packet.market_context.recommendation_status).toBe('research_context_only_not_betting_execution');
-    expect(packet.market_context.synthesized_recommendations).toHaveLength(209);
+    // Was hardcoded to 209 and silently went stale when the source file grew (394 as of 2026-09-19).
+    const sourceRecommendations = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../data/podcasts/actionable_betting_recommendations_2026.json'), 'utf8'));
+    expect(packet.market_context.synthesized_recommendations).toHaveLength(sourceRecommendations.length);
     expect(packet.market_context.synthesized_recommendations.every((item) => item.execution_authorized === false)).toBe(true);
     expect(packet.market_context.synthesized_recommendations.every((item) => item.alpha_visibility_status === 'research_context_not_official_pick')).toBe(true);
     expect(packet.market_context.official_paper_ledger.read_only).toBe(true);
@@ -89,6 +91,21 @@ describe('Alpha data packet', () => {
     expect(scriptSource).not.toContain('ODDS_API_KEY');
     expect(scriptSource).not.toContain('SUPABASE_');
     expect(scriptSource).not.toMatch(/from ['"][^'"]*(openai|anthropic)/i);
+  });
+
+  it('is built from this week\'s Friday intel, not static preseason data', () => {
+    const provenancePaths = packet.source_provenance.files.map((source) => source.path);
+    expect(provenancePaths).toEqual(expect.arrayContaining([
+      'data/player-availability/latest.json',
+      'data/projected-starters/2026/latest.json',
+      'data/secondary-matchups/latest.json',
+      'data/research-intel/review/player-props-intel-latest.json',
+    ]));
+    expect(packet.weekly_intel.schema).toBe('alpha_weekly_intel_v1');
+    expect(packet.injuries.schema).toBe('weekly_game_status_availability_v1');
+    // Either every input was fresh, or the build was a deliberate, stamped --allow-stale override.
+    expect(packet.weekly_intel.freshness.ok || packet.weekly_intel.freshness.allow_stale_override).toBe(true);
+    expect(packet.nfl_team_dashboards.every((team) => team.weekly_intel && Array.isArray(team.injuries))).toBe(true);
   });
 
   it('is byte-identical between data and public packet targets', () => {

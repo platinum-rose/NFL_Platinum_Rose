@@ -12,6 +12,14 @@ import {
 import { NFL_TEAMS, normalizeTeam } from '../src/lib/teams.js';
 import { EXPERT_INJURIES } from '../src/lib/expertInjuries.js';
 import { validateAlphaPacket } from '../src/lib/alphaPacket.js';
+import { getNFLWeekInfo } from '../src/lib/constants.js';
+import {
+  WEEKLY_INTEL_INPUTS,
+  DEFAULT_MAX_INPUT_AGE_HOURS,
+  evaluateWeeklyIntelFreshness,
+  buildWeeklyIntelSection,
+  weeklyIntelForTeam,
+} from '../agents/lib/alpha-weekly-intel.js';
 
 export const ALPHA_DATA_PACKET_SCHEMA_VERSION = 'alpha_packet_v1';
 export const DEFAULT_ALPHA_PACKET_PATH = 'data/alpha/alpha-packet-2026.json';
@@ -85,6 +93,23 @@ const optionalText = async (repoPath, provenance, label) => {
     mtime: stat.mtime.toISOString(),
   });
   return raw;
+};
+
+// Like requiredJson, but returns null (instead of throwing ENOENT) when the file is absent so
+// the weekly-intel freshness gate can report exactly which Friday input is missing.
+const optionalJson = async (repoPath, provenance, label) => {
+  const absolutePath = resolveRepoPath(repoPath);
+  if (!fs.existsSync(absolutePath)) return null;
+  return requiredJson(repoPath, provenance, label);
+};
+
+// Read every Friday-cadence output. See agents/lib/alpha-weekly-intel.js for why this exists.
+const readWeeklyIntelInputs = async (provenance) => {
+  const inputs = {};
+  for (const [key, repoPath] of Object.entries(WEEKLY_INTEL_INPUTS)) {
+    inputs[key] = await optionalJson(repoPath, provenance, `weekly_intel_${key}`);
+  }
+  return inputs;
 };
 
 const parseCsv = (text) => {
@@ -250,7 +275,7 @@ const buildFantasyPackets = async (profiles, provenance) => {
 
 const buildTeamDashboards = ({
   schedule,
-  injuries,
+  weeklyIntel,
   trainingCamp,
   analytics,
   dvoa,
@@ -278,7 +303,10 @@ const buildTeamDashboards = ({
       conference: team.conference,
       dome: team.dome,
       schedule: teamSchedule,
-      injuries: injuries[team.abbreviation] || [],
+      // Live game-status availability from this week's Friday run (was: static preseason list).
+      injuries: weeklyIntel.availability.by_team[team.abbreviation] || [],
+      weekly_intel: weeklyIntelForTeam(weeklyIntel, team.abbreviation),
+      preseason_expert_injuries: EXPERT_INJURIES[team.abbreviation] || [],
       training_camp: trainingTeams[team.abbreviation] || { team: team.abbreviation, items: [] },
       analytics_snapshot: analytics.get(normalized) || null,
       dvoa_snapshot: dvoa.get(normalized) || null,
@@ -301,8 +329,27 @@ const normalizeRecommendations = (rows) => {
   }));
 };
 
-export const buildAlphaDataPacket = async ({ generatedAt = new Date().toISOString() } = {}) => {
+export const buildAlphaDataPacket = async ({
+  generatedAt = new Date().toISOString(),
+  allowStale = false,
+  maxAgeHours = DEFAULT_MAX_INPUT_AGE_HOURS,
+  currentWeek = getNFLWeekInfo(new Date(generatedAt)).week,
+} = {}) => {
   const provenance = [];
+
+  // ── Weekly intel gate: build from the Friday outputs, or refuse to build. ──────────────
+  const weeklyInputs = await readWeeklyIntelInputs(provenance);
+  const freshness = evaluateWeeklyIntelFreshness({ inputs: weeklyInputs, now: generatedAt, currentWeek, maxAgeHours });
+  if (!freshness.ok && !allowStale) {
+    throw new Error(
+      `Alpha packet NOT built: Friday intel inputs are missing, stale, or for the wrong week (current week ${currentWeek}).\n` +
+      freshness.errors.map((e) => `  - ${e}`).join('\n') +
+      `\nRe-run the Friday cadence (node scripts/toolbox.mjs --cadence friday) first, or pass --allow-stale to build deliberately from old inputs.`
+    );
+  }
+  freshness.allow_stale_override = !freshness.ok && allowStale;
+  const weeklyIntel = buildWeeklyIntelSection({ inputs: weeklyInputs, freshness, currentWeek });
+
   const profiles = getPresetProfilesForMode(PROFILE_MODES.ALPHA);
   const fantasyLeagues = ALPHA_FANTASY_LEAGUES.filter((league) => ALPHA_FANTASY_LEAGUE_IDS.includes(league.id));
   const schedule = await requiredJson('public/schedule.json', provenance, 'canonical_schedule');
@@ -333,7 +380,7 @@ export const buildAlphaDataPacket = async ({ generatedAt = new Date().toISOStrin
   const officialPicksByTeam = groupByTeam(officialPaperLedger.picks || [], (row) => row.team || row.selection);
   const nflTeamDashboards = buildTeamDashboards({
     schedule,
-    injuries: EXPERT_INJURIES,
+    weeklyIntel,
     trainingCamp,
     analytics,
     dvoa,
@@ -371,11 +418,21 @@ export const buildAlphaDataPacket = async ({ generatedAt = new Date().toISOStrin
     nfl_team_dashboards: nflTeamDashboards,
     schedule,
     injuries: {
-      schema: 'expert_injuries_alpha_static_v1',
-      source: 'src/lib/expertInjuries.js',
+      schema: 'weekly_game_status_availability_v1',
+      source: WEEKLY_INTEL_INPUTS.player_availability,
+      generated_at: weeklyIntel.availability.generated_at,
+      week: currentWeek,
       recommendation_status: 'injury_context_only_not_picks',
-      teams: EXPERT_INJURIES,
+      teams: weeklyIntel.availability.by_team,
+      // Hand-curated preseason list, kept only as labeled background context. Never the
+      // primary injury source again (it was, silently, through Week 2 of 2026).
+      preseason_expert_injuries: {
+        schema: 'expert_injuries_alpha_static_v1',
+        source: 'src/lib/expertInjuries.js',
+        teams: EXPERT_INJURIES,
+      },
     },
+    weekly_intel: weeklyIntel,
     market_context: {
       recommendation_status: 'research_context_only_not_betting_execution',
       sportsbook_context: {
@@ -447,7 +504,14 @@ const writePacket = async (packet, repoPath) => {
 };
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const packet = await buildAlphaDataPacket();
+  const allowStale = process.argv.includes('--allow-stale');
+  let packet;
+  try {
+    packet = await buildAlphaDataPacket({ allowStale });
+  } catch (err) {
+    console.error(`✖ ${err.message}`);
+    process.exit(1);
+  }
   await writePacket(packet, DEFAULT_ALPHA_PACKET_PATH);
   await writePacket(packet, DEFAULT_PUBLIC_ALPHA_PACKET_PATH);
   console.log(`Alpha packet written: ${DEFAULT_ALPHA_PACKET_PATH}`);
@@ -457,4 +521,10 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   console.log(`NFL team dashboards: ${packet.nfl_team_dashboards.length}`);
   console.log(`Schedule games: ${packet.schedule.length}`);
   console.log(`Synthesized recommendations: ${packet.market_context.synthesized_recommendations.length}`);
+  const wi = packet.weekly_intel;
+  console.log(`Weekly intel (Week ${wi.week}): ${wi.availability.game_status_count} game-status rows | ${wi.projected_starters.player_count} starter signals | ${wi.secondary_matchups.matchup_count} secondary matchups | ${wi.player_props.props.length} props`);
+  for (const input of wi.freshness.inputs) {
+    console.log(`  [${input.ok ? 'fresh' : 'STALE'}] ${input.key} — ${input.generated_at || 'no timestamp'}${input.age_hours != null ? ` (${input.age_hours}h old)` : ''}${input.week != null ? `, week ${input.week}` : ''}${input.ok ? '' : ` — ${input.problems.join('; ')}`}`);
+  }
+  if (wi.freshness.allow_stale_override) console.log('⚠ Built with --allow-stale: stale inputs are stamped in weekly_intel.freshness.');
 }
