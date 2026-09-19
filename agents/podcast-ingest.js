@@ -20,6 +20,12 @@ import { tmpdir }          from 'node:os';
 import { join }            from 'node:path';
 import { transcribeWithAssemblyAI } from './lib/assemblyai-transcribe.js';
 import { isNflRelevantEpisode } from './lib/nfl-relevance.js';
+import {
+  parseProviderOrder,
+  runExtractionChain,
+  liveProviderCount,
+  ExtractionUnavailableError,
+} from './lib/extraction-providers.js';
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 
@@ -35,7 +41,12 @@ const OPENAI_KEY        = process.env.OPENAI_API_KEY;
 const GROQ_KEY          = process.env.GROQ_API_KEY;          // optional — free Whisper via Groq
 const ASSEMBLYAI_KEY    = process.env.ASSEMBLYAI_API_KEY;    // optional — fallback if Groq rate-limited
 const ANTHROPIC_KEY     = process.env.ANTHROPIC_API_KEY;     // optional — pick/intel extraction fallback #1 (Claude)
-const GEMINI_KEY        = process.env.GEMINI_API_KEY;        // optional — pick/intel extraction fallback #2 (Gemini)
+const GEMINI_KEY        = process.env.GEMINI_API_KEY;        // optional — pick/intel extraction (Gemini, first by default)
+// Extraction provider order (2026-09-19): Gemini first (cheapest / free-tier eligible), then
+// Claude, then GPT-4o. Override with EXTRACTION_PROVIDER_ORDER="gpt-4o,claude,gemini".
+const EXTRACTION_ORDER  = parseProviderOrder(process.env.EXTRACTION_PROVIDER_ORDER);
+// gemini-3.6-flash is a current stable id (checked 2026-09-19); gemini-2.0-flash is shut down.
+const GEMINI_EXTRACTION_MODEL = process.env.GEMINI_EXTRACTION_MODEL || 'gemini-3.6-flash';
 
 // Transcription provider priority:
 //   1. Groq         — free, 7200 sec/hr limit, drop-in Whisper-compatible
@@ -380,7 +391,7 @@ async function extractPicksAndIntelClaude(transcript, sourceName) {
 async function extractPicksAndIntelGemini(transcript, sourceName) {
   if (!GEMINI_KEY) throw new Error('Gemini error: GEMINI_API_KEY not set');
   const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${GEMINI_KEY}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_EXTRACTION_MODEL}:generateContent?key=${GEMINI_KEY}`,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -389,7 +400,9 @@ async function extractPicksAndIntelGemini(transcript, sourceName) {
         contents: [
           { role: 'user', parts: [{ text: EXTRACTION_USER(transcript, sourceName) }] },
         ],
-        generationConfig: { temperature: 0.1, maxOutputTokens: 2048 },
+        // JSON mode avoids fenced/prose output; 8192 leaves room for a full pick list
+        // (2048 risked truncated JSON on long betting shows).
+        generationConfig: { temperature: 0.1, maxOutputTokens: 8192, responseMimeType: 'application/json' },
       }),
       signal: AbortSignal.timeout(60_000),
     }
@@ -410,26 +423,20 @@ async function extractPicksAndIntelGemini(transcript, sourceName) {
 // extraction result plus which model actually produced it, so the caller can
 // record real provenance in podcast_transcripts.model_used instead of always
 // claiming "gpt-4o" even when a fallback silently kicked in.
+const EXTRACTION_PROVIDERS = {
+  'gemini': { key: 'gemini', label: GEMINI_EXTRACTION_MODEL,  keyPresent: !!GEMINI_KEY,    run: extractPicksAndIntelGemini },
+  'claude': { key: 'claude', label: 'claude-sonnet-4-5',      keyPresent: !!ANTHROPIC_KEY, run: extractPicksAndIntelClaude },
+  'gpt-4o': { key: 'gpt-4o', label: 'gpt-4o',                 keyPresent: !!OPENAI_KEY,    run: extractPicksAndIntelOpenAI },
+};
+const ORDERED_EXTRACTION_PROVIDERS = EXTRACTION_ORDER.map((k) => EXTRACTION_PROVIDERS[k]);
+// Providers that failed with billing/auth errors this run (e.g. OpenAI "no credits").
+const deadExtractionProviders = new Set();
+
 async function extractPicksAndIntel(transcript, sourceName) {
-  const providers = [
-    { label: 'gpt-4o',                 keyPresent: !!OPENAI_KEY,    run: extractPicksAndIntelOpenAI },
-    { label: 'claude-sonnet-4-5',      keyPresent: !!ANTHROPIC_KEY, run: extractPicksAndIntelClaude },
-    { label: 'gemini-3.6-flash',       keyPresent: !!GEMINI_KEY,    run: extractPicksAndIntelGemini },
-  ];
-
-  const errors = [];
-  for (const provider of providers) {
-    if (!provider.keyPresent) continue;
-    try {
-      const result = await provider.run(transcript, sourceName);
-      return { ...result, extractionModel: provider.label };
-    } catch (err) {
-      console.warn(`    ⚠ ${provider.label} extraction failed: ${err.message.slice(0, 200)} — trying next provider`);
-      errors.push(`${provider.label}: ${err.message.slice(0, 200)}`);
-    }
-  }
-
-  throw new Error(`All extraction providers failed — ${errors.join(' | ')}`);
+  const { result, provider } = await runExtractionChain(
+    ORDERED_EXTRACTION_PROVIDERS, deadExtractionProviders, [transcript, sourceName], console
+  );
+  return { ...result, extractionModel: provider.label };
 }
 
 // ─── Fetch helpers ────────────────────────────────────────────────────────────
@@ -440,8 +447,8 @@ async function fetchWithRetry(fn, retries = MAX_RETRIES) {
     try {
       return await fn();
     } catch (err) {
-      // Rate limit errors are never retryable within the same run — bail immediately
-      if (err instanceof RateLimitError) throw err;
+      // Rate limit / no-usable-extractor errors are never retryable within the same run
+      if (err instanceof RateLimitError || err instanceof ExtractionUnavailableError) throw err;
       lastErr = err;
       if (i < retries - 1) {
         const delay = 2 ** i * 1000;
@@ -458,7 +465,16 @@ async function fetchWithRetry(fn, retries = MAX_RETRIES) {
 async function run() {
   const startedAt = Date.now();
 
-  if (!OPENAI_KEY)  { console.error('❌ Missing OPENAI_API_KEY'); process.exit(1); }
+  // Need at least one extraction provider, or every transcription we pay for is wasted.
+  if (liveProviderCount(ORDERED_EXTRACTION_PROVIDERS, deadExtractionProviders) === 0) {
+    console.error('❌ No extraction provider key set (GEMINI_API_KEY / ANTHROPIC_API_KEY / OPENAI_API_KEY)');
+    process.exit(1);
+  }
+  if (!GROQ_KEY && !ASSEMBLYAI_KEY && !OPENAI_KEY) {
+    console.error('❌ No transcription provider key set (GROQ_API_KEY / ASSEMBLYAI_API_KEY / OPENAI_API_KEY)');
+    process.exit(1);
+  }
+  console.log(`🤖 Extraction order: ${ORDERED_EXTRACTION_PROVIDERS.map((p) => `${p.label}${p.keyPresent ? '' : ' (no key)'}`).join(' → ')}`);
   if (DRY_RUN) console.log('🔍 DRY RUN mode — no Supabase writes, no transcription');
 
   const supabase = getSupabase();
@@ -474,9 +490,12 @@ async function run() {
 
   let totalDiscovered = 0;
   let totalProcessed  = 0;
+  let totalAttempted  = 0; // successes AND failures count toward MAX_PER_RUN (failures cost money too)
   let totalErrors     = 0;
+  let stopRun         = false;
 
   for (const feed of feeds) {
+    if (stopRun) break;
     if (Date.now() - startedAt > MAX_RUNTIME_MS) {
       console.warn('⏱ Approaching max runtime — stopping early');
       break;
@@ -612,13 +631,15 @@ async function run() {
 
     // 5. Process each episode (up to MAX_PER_RUN total across all feeds)
     for (const ep of toProcess) {
-      if (totalProcessed >= MAX_PER_RUN) {
+      if (stopRun) break;
+      if (totalAttempted >= MAX_PER_RUN) {
         console.log(`  ⏭ Reached MAX_PER_RUN (${MAX_PER_RUN}) — remaining episodes queued`);
         break;
       }
       if (Date.now() - startedAt > MAX_RUNTIME_MS) break;
 
       console.log(`\n  🎙 "${ep.title.slice(0, 70)}"`);
+      totalAttempted++;
 
       // Fetch the episode's DB id (use cached _dbId for pre-existing rows)
       let episodeId = ep._dbId ?? null;
@@ -747,6 +768,22 @@ async function run() {
       } catch (err) {
         // Rate limit: mark back as pending (not error) so next run retries.
         // Stop processing remaining episodes — they'll all fail the same way.
+        // No extraction provider left (all out of credits / bad keys): stop the whole run
+        // now so we don't pay to transcribe more episodes we can't extract. Leave the
+        // episode 'pending' so it is retried once a provider is fixed.
+        if (err instanceof ExtractionUnavailableError) {
+          console.error(`    ⛔ ${err.message}`);
+          console.error('    ⛔ Stopping run: fix a provider key/credits, then re-run.');
+          totalErrors++;
+          stopRun = true;
+          if (episodeId && !DRY_RUN) {
+            await supabase
+              .from('podcast_episodes')
+              .update({ status: 'pending', error_msg: err.message.slice(0, 500) })
+              .eq('id', episodeId);
+          }
+          break;
+        }
         if (err instanceof RateLimitError) {
           console.warn(`    ⏳ ${err.message} — stopping this run early`);
           if (episodeId) {
@@ -755,7 +792,8 @@ async function run() {
               .update({ status: 'pending', error_msg: null })
               .eq('id', episodeId);
           }
-          break; // stop processing this feed's queue; outer loop will stop too
+          stopRun = true; // (previously claimed but not enforced — other feeds kept going)
+          break;
         }
 
         console.error(`    ❌ Processing failed: ${err.message}`);
