@@ -29,6 +29,11 @@
 // no labeled-field structure in tweet prose to anchor on the way the
 // master reports have).
 //
+// UPDATED 2026-09-19 (Andy: capture everything relevant from bookmarks): the
+// tweet/thread text now also goes through a Gemini structured-pick extraction
+// (agents/lib/tweet-pick-signals.js) and Vision game_picks are stored. Only
+// picks the author makes become signals (confidence 0.55 text / 0.5 OCR).
+//
 // Usage:
 //   node agents/twitter-bookmarks-agent.js                  # Ingest live personal bookmarks
 //   node agents/twitter-bookmarks-agent.js --sample         # Test run on sample bookmark fixtures
@@ -47,7 +52,8 @@ import { createClient } from '@supabase/supabase-js';
 import 'dotenv/config';
 import { isNflBettingIntel, isFantasyDraftMechanics } from './lib/sportsRelevanceFilter.js';
 import { ensureVaultFrontmatter } from './lib/vaultFrontmatter.js';
-import { tweetTextFromResult, extractAuthorThread, mergeThread, mediaUrlsFromResult, videosFromResult, looksLikeThreadStarter } from './lib/tweet-thread.js';
+import { TWEET_PICK_PROMPT, buildTextPickSignalRows, buildVisionGamePickRows, dedupeSignalRows } from './lib/tweet-pick-signals.js';
+import { tweetTextFromResult, extractAuthorThread, mergeThread, mediaUrlsFromResult, videosFromResult, linksFromResult, looksLikeThreadStarter } from './lib/tweet-thread.js';
 
 // Copied verbatim from agents/research-intel-ingest.js (same convention as
 // scripts/repoint-corpus-b-articles.js / backfill-action-network-week3-gap.js
@@ -245,7 +251,8 @@ export async function fetchPersonalBookmarks(queryKeywords = [
                   created_at: legacy.created_at,
                   url: `https://x.com/${authorHandle}/status/${legacy.id_str}`,
                   media_urls: mediaUrls,
-                  videos
+                  videos,
+                  links: linksFromResult(tweetResult)
                 });
               }
             }
@@ -531,6 +538,33 @@ export async function analyzeTweetImageWithGeminiVision(imageUrl) {
   return null;
 }
 
+// Structured picks from the tweet/thread text (see agents/lib/tweet-pick-signals.js).
+export async function extractTweetPicksWithGemini(text, author) {
+  if (!GEMINI_API_KEY || !text) return [];
+  const model = process.env.GEMINI_EXTRACTION_MODEL || 'gemini-3.6-flash';
+  try {
+    const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_API_KEY}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: `${TWEET_PICK_PROMPT}\n\nAuthor: @${author}\n\nPost:\n${text.slice(0, 30000)}` }] }],
+        generationConfig: { responseMimeType: 'application/json', temperature: 0 },
+      }),
+    });
+    if (!resp.ok) {
+      console.warn(`  [picks] Gemini ${model} HTTP ${resp.status}: ${(await resp.text()).slice(0, 200)}`);
+      return [];
+    }
+    const data = await resp.json();
+    const raw = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    const parsed = raw ? JSON.parse(raw) : null;
+    return Array.isArray(parsed?.picks) ? parsed.picks : [];
+  } catch (err) {
+    console.warn(`  [picks] Gemini text extraction failed: ${err.message}`);
+    return [];
+  }
+}
+
 export async function generateLocalOllamaSummary(text, sport) {
   const ollamaUrl = process.env.OLLAMA_URL || 'http://localhost:11434/api/generate';
   const model = process.env.OLLAMA_MODEL || 'llama3';
@@ -623,7 +657,8 @@ async function expandBookmarkThread(bm) {
   const merged = mergeThread(thread);
   const videos = [...(bm.videos || [])];
   for (const v of merged.videos) if (!videos.some((x) => x.url === v.url)) videos.push(v);
-  const next = { ...bm, videos, media_urls: [...new Set([...(bm.media_urls || []), ...merged.media_urls])] };
+  const links = [...new Set([...(bm.links || []), ...(merged.links || [])])];
+  const next = { ...bm, videos, links, media_urls: [...new Set([...(bm.media_urls || []), ...merged.media_urls])] };
   if (thread.length > 1) {
     next.text = merged.text;
     console.log(`  [thread] Expanded to ${thread.length} tweets by @${bm.author} (${merged.text.length} chars, ${next.media_urls.length} image(s), ${videos.length} video(s)).`);
@@ -716,6 +751,9 @@ export async function processBookmarkedTweet(bm, opts = {}) {
   console.log(`\n[bookmark] Ingesting ${gate.sport} intel from @${bm.author}: "${bm.subject || bm.text.substring(0, 45)}..."`);
 
   if (canExpand && !expanded) bm = await expandBookmarkThread(bm);
+  if (bm.links?.length && !bm.text.includes('\nLinks: ')) {
+    bm = { ...bm, text: `${bm.text.trim()}\n\nLinks: ${bm.links.join(' ')}` };
+  }
   const videos = bm.videos || [];
   if (videos.length) console.log(`  [video] ${videos.length} attached video(s) -- queued for transcription.`);
 
@@ -879,13 +917,19 @@ ${propSection}${videos.length ? `\n## Attached Video(s) -- pending transcription
         insertSignals = !count;
       }
 
-      const props = visionAnalysis?.player_props || [];
-      if (props.length && noteId && insertSignals) {
-        const signalRows = buildPropSignalRows(props, { noteId, eventRef: bm.url, sourceLabel });
+      if (noteId && insertSignals) {
+        const author = bm.author_name || bm.author;
+        const textPicks = await extractTweetPicksWithGemini(bm.text, bm.author);
+        const ocrRows = buildPropSignalRows(visionAnalysis?.player_props || [], { noteId, eventRef: bm.url, sourceLabel });
+        const gameRows = buildVisionGamePickRows(visionAnalysis?.game_picks || [], { noteId, eventRef: bm.url, sourceLabel, author });
+        const textRows = buildTextPickSignalRows(textPicks, { noteId, eventRef: bm.url, sourceLabel, author });
+        const signalRows = dedupeSignalRows([...textRows, ...ocrRows, ...gameRows]);
         if (signalRows.length) {
           const { error: sigErr } = await supabase.from('research_pick_signals').insert(signalRows);
           if (sigErr) throw new Error(`research_pick_signals insert: ${sigErr.message}`);
-          console.log(`  [supabase] Inserted ${signalRows.length} research_pick_signals row(s) from Vision OCR player props.`);
+          console.log(`  [supabase] Inserted ${signalRows.length} research_pick_signals row(s) (text ${textRows.length}, OCR props ${ocrRows.length}, OCR games ${gameRows.length}).`);
+        } else {
+          console.log(`  [picks] No concrete picks found in this post (text or images).`);
         }
       }
     } catch (e) {

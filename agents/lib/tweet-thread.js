@@ -28,6 +28,17 @@ export function mediaUrlsFromResult(result) {
   return mediaOf(result).filter((m) => !m.type || m.type === 'photo').map((m) => m.media_url_https).filter(Boolean);
 }
 
+// Outbound links (t.co expanded), minus links back to X itself. Posts like "NFL ATS picks
+// for EVERY Week 2 Game ⤵️ <link>" keep their picks in the linked article.
+export function linksFromResult(result) {
+  const r = unwrap(result);
+  const urls = [
+    ...(r?.legacy?.entities?.urls || []),
+    ...(r?.note_tweet?.note_tweet_results?.result?.entity_set?.urls || []),
+  ];
+  return [...new Set(urls.map((u) => u.expanded_url).filter((u) => u && !/^https?:\/\/(x|twitter)\.com\//i.test(u)))];
+}
+
 // Attached videos / GIFs: highest-bitrate mp4 plus poster and duration, so they can be
 // queued for transcription (Antigravity) instead of being OCR'd as a thumbnail.
 export function videosFromResult(result) {
@@ -94,16 +105,18 @@ export function extractAuthorThread(json, rootId, { maxTweets = 25 } = {}) {
     text: tweetTextFromResult(t),
     media_urls: mediaUrlsFromResult(t),
     videos: videosFromResult(t),
+    links: linksFromResult(t),
   }));
 }
 
 export function mergeThread(thread) {
-  if (!Array.isArray(thread) || thread.length === 0) return { text: '', media_urls: [], videos: [] };
+  if (!Array.isArray(thread) || thread.length === 0) return { text: '', media_urls: [], videos: [], links: [] };
   const videos = thread.flatMap((t) => t.videos || []);
-  if (thread.length === 1) return { text: thread[0].text, media_urls: thread[0].media_urls, videos };
+  const links = [...new Set(thread.flatMap((t) => t.links || []))];
+  if (thread.length === 1) return { text: thread[0].text, media_urls: thread[0].media_urls, videos, links };
   const text = thread.map((t, i) => `[${i + 1}/${thread.length}] ${t.text.trim()}`).join('\n\n');
   const media_urls = [...new Set(thread.flatMap((t) => t.media_urls))];
-  return { text, media_urls, videos };
+  return { text, media_urls, videos, links };
 }
 
 // Posts that announce a thread -- expand these before the relevance gate, since the
