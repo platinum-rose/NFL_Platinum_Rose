@@ -21,7 +21,7 @@ on:
         default: '10'
         type: string
       max_runtime_minutes:
-        description: 'Script runtime ceiling in minutes (~1 min/episode; max 40)'
+        description: 'Whole-run ceiling in minutes, checked before each episode (~1-1.5 min/episode incl. hour-long shows; max 65)'
         required: false
         default: '10'
         type: string
@@ -29,7 +29,7 @@ on:
 jobs:
   podcast-ingest:
     runs-on: ubuntu-latest
-    timeout-minutes: 45   # MAX_RUNTIME_MINUTES (script ceiling) must stay below this
+    timeout-minutes: 95   # must exceed MAX_RUNTIME_MINUTES + one worst-case episode (25-min AssemblyAI poll + extraction)
 
     steps:
       - name: Checkout
