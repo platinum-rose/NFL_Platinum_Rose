@@ -1,10 +1,10 @@
 # 🏆 NFL Week 2 SuperContest Master Intelligence Report — DRAFT
 ## Spread-Only Analytical Dossier, Ranked 5-Pick Contest Card & 15-Game ATS Matrix
 
-> **Draft v1 — built 2026-09-19 (Sat) for Andy & Amanda's entry.** Contest lines: `data/supercontest/week-02-lines.json` (captured Thu 09-18 00:48Z).
-> Market lines: 3-book median, `game_odds_snapshots` 09-19 12:00Z. Kalshi: `data/prediction-markets/latest.json` refreshed 09-19.
-> Consensus = distinct shows/writers with a **spread** pick on that side (podcasts Sep 14+, full-transcript re-extract; articles; Twitter/X bookmarks incl. Grok + Antigravity captures). Multi-writer outlets (Action Network, BettingPros, VSiN) can appear on both sides of a game.
-> **Re-check Sunday morning:** Burrow (CIN), Tua/Rush (ATL), Nacua (LAR), NYG OL (Thomas, Mauigoa), Flowers (BAL), Bowers (LV), McConkey (LAC).
+**Draft v1 — built 2026-09-19 (Sat) for Andy & Amanda's entry.** Contest lines: data/supercontest/week-02-lines.json (captured Thu 09-18 00:48Z).
+Market lines: 3-book median, game_odds_snapshots 09-19 12:00Z. Kalshi: data/prediction-markets/latest.json refreshed 09-19.
+Consensus = distinct shows/writers with a **spread** pick on that side (podcasts Sep 14+, full-transcript re-extract; articles; Twitter/X bookmarks incl. Grok + Antigravity captures). Multi-writer outlets (Action Network, BettingPros, VSiN) can appear on both sides of a game.
+**Re-check Sunday morning:** Burrow (CIN), Tua/Rush (ATL), Nacua (LAR), NYG OL (Thomas, Mauigoa), Flowers (BAL), Bowers (LV), McConkey (LAC).
 
 ---
 

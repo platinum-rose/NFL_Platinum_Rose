@@ -1,10 +1,10 @@
 # 🏈 NFL Week 2 Master Betting Intelligence Report — DRAFT
 ## Multi-Platform Consensus, Market Board & Game-by-Game Analytical Dossier (Sunday/Monday slate)
 
-> **Draft v1 — built 2026-09-19 (Sat).** Companion to the Week 2 SuperContest report and the card draft (`docs/cards/2026-W02-sun-mon-card-draft.md`).
-> **Sources this week:** 35 podcast episodes since Sep 14 re-read end-to-end (Even Money — Tucker & Fezzik; Sharp or Square — Hunter & Millman; Action Network; BettingPros; The Favorites; The Athletic — Robert Mays; Move the Sticks — Jeremiah & Brooks; Sharp Football; PFF), article feeds (VSiN, Action Network, BettingPros, Sharp Football, PFF, ESPN, PFT, Rotowire, Walter Football), and 87 Twitter/X bookmarks from the last 6 days (thread-expanded, image OCR, 13 videos transcribed by Antigravity, 19 threads summarized by Grok).
-> **Markets:** 3-book median 09-19 12:00Z; Kalshi/Polymarket refreshed 09-19. **Injuries:** game-status rows from the Friday availability run (06:14Z) — re-check Sunday.
-> Pick counts are distinct shows/writers. Treat "consensus" as a signal of where the betting media is, not proof of an edge.
+**Draft v1 — built 2026-09-19 (Sat).** Companion to the Week 2 SuperContest report and the card draft (docs/cards/2026-W02-sun-mon-card-draft.md).
+**Sources this week:** 35 podcast episodes since Sep 14 re-read end-to-end (Even Money — Tucker & Fezzik; Sharp or Square — Hunter & Millman; Action Network; BettingPros; The Favorites; The Athletic — Robert Mays; Move the Sticks — Jeremiah & Brooks; Sharp Football; PFF), article feeds (VSiN, Action Network, BettingPros, Sharp Football, PFF, ESPN, PFT, Rotowire, Walter Football), and 87 Twitter/X bookmarks from the last 6 days (thread-expanded, image OCR, 13 videos transcribed by Antigravity, 19 threads summarized by Grok).
+**Markets:** 3-book median 09-19 12:00Z; Kalshi/Polymarket refreshed 09-19. **Injuries:** game-status rows from the Friday availability run (06:14Z) — re-check Sunday.
+Pick counts are distinct shows/writers. Treat "consensus" as a signal of where the betting media is, not proof of an edge.
 
 ---
 
@@ -121,7 +121,7 @@ See the SuperContest report §4 for the spread-only breakdown. Additions for tot
 
 ---
 
-## 7. Parlay & Prop Cards (from the card draft — see `docs/cards/2026-W02-sun-mon-card-draft.md`)
+## 7. Parlay & Prop Cards (from the card draft — see docs/cards/2026-W02-sun-mon-card-draft.md)
 - **Hybrid (≤5):** DEN −2.5 · PHI/TEN U39.5 · Jefferson O6.5 rec · Bijan O126.5 · LAR −7
 - **Prop legit stack:** Jefferson O6.5 rec · Bijan O126.5 · Purdy O19.5 comp · Barkley O76.5 rush · Mac Hollins O35.5
 - **Moonshot ATD stack:** Mike Evans +130 · JSN +135 · Mark Andrews +125 · Isaiah Likely +270
