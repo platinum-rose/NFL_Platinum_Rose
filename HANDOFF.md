@@ -11,6 +11,19 @@ Note: as of this update the working tree is very large and dirty (hundreds of mo
 
 ---
 
+## Current Pick Up Here: 2026-09-19 (midday) — Re-extract Verified, Pick Promotion Blocked by Natural Key, Week 2 Card Drafted
+
+1. **Re-extract DONE:** Podcast Ingest (re-extract, run 35458679153) succeeded — all 35 Sep 14+ transcripts now `+gemini-3.6-flash`, 255 picks (was ~44 promoted). E.g. BettingPros "10 Best Bets" 2 -> 16, Action Network Playground 37.
+2. **Pick Extraction FAILED (run 35459409555):** 96 EXPERT rows upserted, but 7 pick-bearing episodes (Action Playground, SoS x3, BettingPros Early, Favorites, Even Money Props, Action Preview/Futures) failed whole-batch on `user_picks_natural_key_unique (source, game_id, pick_type, line)` — two shows on the same side/line, or two props at the same line in one game, collide. Also: prop rows were written as bare "OVER 20.5" (player + market dropped).
+   - Fixed + pushed (9ccc3dd): `agents/lib/expert-pick-selection.js` (tested) — selection now "Bijan Robinson OVER rushing and receiving yards".
+   - Written, **NOT applied**: `supabase/migrations/055_user_picks_natural_key_excludes_expert.sql` (partial unique index `where source <> 'EXPERT'`; EXPERT dedupes on deterministic id). Needs Andy's authorization.
+   - After 055: reset `picks_promoted_at` to null on the Sep 14+ transcripts (Andy-authorized write) and re-run Pick Extraction manually — ids are deterministic, so the 96 existing rows get overwritten with the player-named selections, no duplicates.
+   - `user_picks_backup_20260919_reextract` (44 rows) still in place — drop only after the re-promotion checks out.
+3. **Week 2 Sun/Mon card first pass:** `docs/cards/2026-W02-sun-mon-card-draft.md` (9-slot template + lessons-learned standalones). Missing inputs: Week 2 Sun/Mon prop board (Player_Prop_Odds_Weekly/Week2 is TNF only), Kalshi feed (09-13), SuperContest picks.
+4. New data defects: secondary `target_receivers` use stale rosters; secondary dedupe misses "T.J. Tampa" vs "T.J. Tampa Jr."; CI + Smoke failing on main (pre-existing suites).
+
+---
+
 ## Current Pick Up Here: 2026-09-19 — Podcast Re-Extract In Flight; Friday Pipeline + Alpha Gate + Podcast Overhaul Shipped
 
 Full detail: [`handoffs/2026-09-19-1040-claude-friday-pipeline-podcast-overhaul-handoff.md`](file:///e:/dev/projects/NFL_Dashboard/handoffs/2026-09-19-1040-claude-friday-pipeline-podcast-overhaul-handoff.md)
