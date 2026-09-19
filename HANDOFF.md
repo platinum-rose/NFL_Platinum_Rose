@@ -20,6 +20,8 @@ Note: as of this update the working tree is very large and dirty (hundreds of mo
    - After 055: reset `picks_promoted_at` to null on the Sep 14+ transcripts (Andy-authorized write) and re-run Pick Extraction manually — ids are deterministic, so the 96 existing rows get overwritten with the player-named selections, no duplicates.
    - `user_picks_backup_20260919_reextract` (44 rows) still in place — drop only after the re-promotion checks out.
 3. **Week 2 Sun/Mon card first pass:** `docs/cards/2026-W02-sun-mon-card-draft.md` (9-slot template + lessons-learned standalones). Missing inputs: Week 2 Sun/Mon prop board (Player_Prop_Odds_Weekly/Week2 is TNF only), Kalshi feed (09-13), SuperContest picks.
+5. **Later same session:** migration 055 APPLIED (Andy-authorized). Still pending: reset `picks_promoted_at` on Sep 14+ transcripts + manual Pick Extraction run.
+   Intel fixes (0970276): bookmarks now expand author threads (TweetDetail) + long-form note_tweet text, OCR up to 6 images; `--refresh-ids=` re-processes specific tweets. Article sweep: local cron now fetches bodies and backfills up to 20 body-less notes/run (root cause: local sweep inserted teaser-only rows first, GitHub body-fetch runs then skipped them). TweetDetail query id is unverified live — if the log shows `[thread] TweetDetail HTTP 4xx`, set TWITTER_TWEETDETAIL_QID.
 4. New data defects: secondary `target_receivers` use stale rosters; secondary dedupe misses "T.J. Tampa" vs "T.J. Tampa Jr."; CI + Smoke failing on main (pre-existing suites).
 
 ---
