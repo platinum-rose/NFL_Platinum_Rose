@@ -146,81 +146,95 @@ async function runCadence(day) {
   const d = (day || '').toLowerCase();
   console.log(`\n${c.bright}${c.magenta}=== RUNNING CADENCE: ${d.toUpperCase()} ===${c.reset}\n`);
 
+  // Track per-step success so a crashed/failed sub-task actually fails the
+  // composite cadence run instead of always reporting success (runCmd() already
+  // resolves false on a non-zero exit, but every call site used to discard that).
+  const results = [];
+  const run = async (...runArgs) => { results.push(await runCmd(...runArgs)); };
+
   switch (d) {
     case 'tuesday':
       console.log(`${c.cyan}1. Ingesting Weekly Schedule (ESPN)...${c.reset}`);
-      await runCmd('node', ['agents/schedule-ingest.js', '--year', '2026', '--season-type', '2', '--start-week', '1', '--end-week', '18']);
+      await run('node', ['agents/schedule-ingest.js', '--year', '2026', '--season-type', '2', '--start-week', '1', '--end-week', '18']);
       console.log(`${c.cyan}2. Refreshing Player Stats (nflverse weekly + seasonal)...${c.reset}`);
-      await runCmd('python3', ['scripts/fetch_nflverse_data.py', '--datasets', 'player_stats_weekly', 'player_stats_seasonal', '--force']);
+      await run('python3', ['scripts/fetch_nflverse_data.py', '--datasets', 'player_stats_weekly', 'player_stats_seasonal', '--force']);
       console.log(`${c.cyan}3. Ingesting Player Stats into Supabase...${c.reset}`);
-      await runCmd('node', ['agents/player-stats-ingest.js', '--season', '2026']);
+      await run('node', ['agents/player-stats-ingest.js', '--season', '2026']);
       console.log(`${c.cyan}4. Seeding Weekly Usage-Based Starter Locks...${c.reset}`);
-      await runCmd('node', ['scripts/build-week-usage-locks.js', '--season', '2026']);
+      await run('node', ['scripts/build-week-usage-locks.js', '--season', '2026']);
       console.log(`${c.cyan}5. Rebuilding Projected Starters Snapshot...${c.reset}`);
-      await runCmd('node', ['scripts/build-projected-starters.js']);
+      await run('node', ['scripts/build-projected-starters.js']);
       console.log(`${c.cyan}6. Ingesting Initial Game Odds (TheOddsAPI)...${c.reset}`);
-      await runCmd('node', ['agents/game-odds-ingest.js', '--season', '2026', '--dry-run']);
+      await run('node', ['agents/game-odds-ingest.js', '--season', '2026', '--dry-run']);
       console.log(`${c.cyan}7. Running Roster Audit Baseline...${c.reset}`);
-      await runCmd('node', ['scripts/audit-all32-rosters.js']);
+      await run('node', ['scripts/audit-all32-rosters.js']);
       break;
 
     case 'wednesday':
       console.log(`${c.cyan}1. Running Podcast & YouTube Sweep...${c.reset}`);
-      await runCmd('node', ['scripts/youtube-podcast-sweep.js', '--lookback-days', '3', '--max-per-run', '5']);
+      await run('node', ['scripts/youtube-podcast-sweep.js', '--lookback-days', '3', '--max-per-run', '5']);
       console.log(`${c.cyan}2. Ingesting Research Intel Articles...${c.reset}`);
-      await runCmd('node', ['agents/research-intel-ingest.js', '--dry-run']);
+      await run('node', ['agents/research-intel-ingest.js', '--dry-run']);
       console.log(`${c.cyan}3. Processing Twitter/X Bookmarks...${c.reset}`);
-      await runCmd('node', ['agents/twitter-bookmarks-agent.js', '--dry-run']);
+      await run('node', ['agents/twitter-bookmarks-agent.js', '--dry-run']);
       break;
 
     case 'thursday':
       console.log(`${c.cyan}1. Building Live Player Availability & Practice Injuries...${c.reset}`);
-      await runCmd('node', ['scripts/build-player-availability.js', '--live-injuries']);
+      await run('node', ['scripts/build-player-availability.js', '--live-injuries']);
       console.log(`${c.cyan}2. Syncing Live Market Lines vs SuperContest...${c.reset}`);
-      await runCmd('node', ['scripts/sync-live-market-lines.mjs']);
+      await run('node', ['scripts/sync-live-market-lines.mjs']);
       console.log(`${c.cyan}3. Building TNF Player Props Intel & SGP Cards...${c.reset}`);
-      await runCmd('node', ['scripts/build-player-props-intel.js']);
+      await run('node', ['scripts/build-player-props-intel.js']);
       break;
 
     case 'friday':
       console.log(`${c.cyan}1. Final Friday Injury Reports & Practice Status...${c.reset}`);
-      await runCmd('node', ['scripts/build-player-availability.js', '--live-injuries']);
+      await run('node', ['scripts/build-player-availability.js', '--live-injuries']);
       console.log(`${c.cyan}2. Building Projected Starters...${c.reset}`);
-      await runCmd('node', ['scripts/build-projected-starters.js']);
+      await run('node', ['scripts/build-projected-starters.js']);
       console.log(`${c.cyan}3. Secondary Matchup Vulnerability Matrix...${c.reset}`);
-      await runCmd('node', ['scripts/build-secondary-matchup-vulnerability.js']);
+      await run('node', ['scripts/build-secondary-matchup-vulnerability.js']);
       console.log(`${c.cyan}4. Generating Sunday SGP Models & Curated Parlays...${c.reset}`);
-      await runCmd('node', ['scripts/build-player-props-intel.js']);
-      console.log(`${c.cyan}5. Compiling Alpha Data Packet...${c.reset}`);
-      await runCmd('node', ['scripts/build-alpha-data-packet.js']);
+      await run('node', ['scripts/build-player-props-intel.js']);
+      // 2026-09-19: Kalshi/Polymarket were never refreshed by any cadence (feed sat at 09-13).
+      // Runs before the Alpha packet, which reads data/prediction-markets/.
+      console.log(`${c.cyan}5. Refreshing Kalshi/Polymarket + Market Map + Coherence...${c.reset}`);
+      await run('node', ['scripts/build-prediction-markets.js']);
+      await run('node', ['scripts/build-prediction-market-map.js']);
+      await run('node', ['scripts/build-cross-market-coherence.js']);
+      console.log(`${c.cyan}6. Compiling Alpha Data Packet...${c.reset}`);
+      await run('node', ['scripts/build-alpha-data-packet.js']);
       break;
 
     case 'saturday':
       console.log(`${c.cyan}1. Checking Official Pick Inbox...${c.reset}`);
-      await runCmd('node', ['scripts/official-pick-ledger.js', 'inbox']);
+      await run('node', ['scripts/official-pick-ledger.js', 'inbox']);
       console.log(`${c.cyan}2. Final Pre-Sunday Market Lines CLV Check...${c.reset}`);
-      await runCmd('node', ['scripts/sync-live-market-lines.mjs']);
+      await run('node', ['scripts/sync-live-market-lines.mjs']);
       console.log(`${c.cyan}3. Syncing Placed Wagers & Cloud Bankroll...${c.reset}`);
-      await runCmd('node', ['scripts/sync-placed-wagers-to-bankroll.mjs']);
+      await run('node', ['scripts/sync-placed-wagers-to-bankroll.mjs']);
       break;
 
     case 'sunday':
       console.log(`${c.cyan}1. Pre-Game Inactives Check...${c.reset}`);
-      await runCmd('node', ['scripts/build-player-availability.js', '--live-injuries']);
+      await run('node', ['scripts/build-player-availability.js', '--live-injuries']);
       console.log(`${c.cyan}2. Compiling Sunday Multi-Game Live Tracker...${c.reset}`);
-      await runCmd('node', ['scripts/generate-live-tracker.mjs', '--week', '1']);
+      await run('node', ['scripts/generate-live-tracker.mjs', '--week', '1']);
       console.log(`${c.cyan}3. Launching Live Tracker in Browser...${c.reset}`);
       await launchInBrowser('public/live-tracker-sunday.html');
       break;
 
     case 'monday':
       console.log(`${c.cyan}1. Running Placed Wager Boxscore Reconciliation...${c.reset}`);
-      await runCmd('node', ['scripts/reconcile-settlement.mjs', '--dry-run']);
+      await run('node', ['scripts/reconcile-settlement.mjs', '--dry-run']);
       break;
 
     default:
       console.log(`${c.red}Unknown cadence day: ${day}. Use: tuesday, wednesday, thursday, friday, saturday, sunday, monday.${c.reset}`);
   }
+
+  return results.every(Boolean);
 }
 
 /** Interactive Menu Loop */
@@ -351,8 +365,12 @@ Usage:
 
   const cadIdx = args.indexOf('--cadence');
   if (cadIdx >= 0 && args[cadIdx + 1]) {
-    await runCadence(args[cadIdx + 1]);
-    process.exit(0);
+    const allStepsOk = await runCadence(args[cadIdx + 1]);
+    // Non-zero exit on a failed/crashed sub-task -- this used to hardcode exit(0)
+    // regardless of what happened above, so the Toolbox UI (and Task Scheduler,
+    // if this is ever run unattended) would show a false "completed successfully"
+    // even when a step inside the cadence crashed outright.
+    process.exit(allStepsOk ? 0 : 1);
   }
 
   if (args.includes('--generate-tracker')) {
