@@ -1,7 +1,7 @@
 # 🏆 NFL Week 2 SuperContest Master Intelligence Report — DRAFT
 ## Spread-Only Analytical Dossier, Ranked 5-Pick Contest Card & 15-Game ATS Matrix
 
-**Draft v1 — built 2026-09-19 (Sat) for Andy & Amanda's entry.** Contest lines: data/supercontest/week-02-lines.json (captured Thu 09-18 00:48Z).
+**Draft v2 — updated 2026-09-19 (Sat, late) with the full Grok thread re-run (Covers' every-game ATS picks, VSiN/Wes Reynolds best bets) for Andy & Amanda's entry.** Contest lines: data/supercontest/week-02-lines.json (captured Thu 09-18 00:48Z).
 Market lines: 3-book median, game_odds_snapshots 09-19 12:00Z. Kalshi: data/prediction-markets/latest.json refreshed 09-19.
 Consensus = distinct shows/writers with a **spread** pick on that side (podcasts Sep 14+, full-transcript re-extract; articles; Twitter/X bookmarks incl. Grok + Antigravity captures). Multi-writer outlets (Action Network, BettingPros, VSiN) can appear on both sides of a game.
 **Re-check Sunday morning:** Burrow (CIN), Tua/Rush (ATL), Nacua (LAR), NYG OL (Thomas, Mauigoa), Flowers (BAL), Bowers (LV), McConkey (LAC).
@@ -28,24 +28,26 @@ TNF (DET @ BUF, contest BUF −4.5) is settled: **BUF 41–31, Bills covered.** 
 
 | # | Matchup | Contest line | Market now | Free points | Pick | Grade | Consensus (spread picks) | Why |
 |---|---|---|---|---|---|---|---|---|
-| 1 | MIN @ CHI (Sun 1:00) | CHI −5.5 | CHI −4.5 | **+1.0 for MIN** | **MIN +5.5** | A | 6 vs 2 (Action, Even Money, Lock & Cash, Sharp or Square, VSiN, Wes Reynolds) | Contest gives a full point over the market; Wentz gets a full week of starter prep; Bears slot/seam coverage is thin (Kyler Gordon PUP, Anthony Johnson Jr. out) — MIN→CHI is a HIGH secondary-vulnerability matchup. |
-| 2 | NYG @ LAR (Mon 8:15) | LAR −7 | LAR −7.5 | **+0.5 for LAR** | **LAR −7** | A− | 7 vs 3 (Lock & Cash ×2 — Silencer System + power rating LAR by 9; Action; Sharp or Square; BettingPros; VSiN) | Kalshi: LAR by 7+ ≈ 55%, by 8+ ≈ 46% → at −7 roughly 46% win / 9% push / 45% loss. Top secondary-vulnerability matchup of the week (Banks Q, Korie Black out) and NYG tackles questionable. Risk: Nacua Q, post-Australia travel. |
-| 3 | JAX @ DEN (Sun 4:05) | DEN −2.5 | DEN −2.5 | 0 | **DEN −2.5** | B+ | **11 vs 3** — widest consensus on the slate (Fezzik, Sharp or Square, Action ×2, Even Money, The Favorites, BettingPros, Janvrin, Adee, VSiN, Gavin McHugh) | Short number, no key number to protect; Jaguars WRs Thomas Jr. & Meyers both questionable. Risk: Marvin Mims out for Denver. |
-| 4 | CIN @ HOU (Sun 1:00) | HOU −2.5 | HOU −2.5 | 0 | **HOU −2.5** | B (conditional) | 9 vs 2 (Fezzik, Sharp or Square, Action, BettingPros survivor show, Even Money, Gavin McHugh, Lock & Cash) | Bengals slow-starter angle + Burrow questionable (back). **Swap out if Burrow is a full go and practicing** — Nico Collins (OUT) and Tank Dell (OUT) leave Houston thin at WR. |
-| 5 | MIA @ SF (Sun 4:25) | SF −13.5 | SF −13.5 | 0 | **MIA +13.5** | B | 8 vs 0 (Action, BettingPros ×2, Sharp or Square, The Favorites, Covers' Jason Logan, Adam Burke, VSiN) | Two touchdowns is a lot for a SF team that closes games conservatively; Covers flags a back-to-back cross-country schedule spot. Backdoor-friendly: Miami trails and throws (Chris Bell, Achane volume). |
+| 1 | MIN @ CHI (Sun 1:00) | CHI −5.5 | CHI −4.5 | **+1.0 for MIN** | **MIN +5.5** | A | 6 vs 3 (Action, Even Money, Lock & Cash, Sharp or Square, VSiN, Wes Reynolds · against: BettingPros, VSiN article, Covers CHI −5.5) | Contest gives a full point over the market; Wentz gets a full week of starter prep; Bears slot/seam coverage is thin (Kyler Gordon PUP, Anthony Johnson Jr. out) — MIN→CHI is a HIGH secondary-vulnerability matchup. |
+| 2 | NYG @ LAR (Mon 8:15) | LAR −7 | LAR −7.5 | **+0.5 for LAR** | **LAR −7** | A− | 8 vs 4 (Lock & Cash ×2 — Silencer System + power rating LAR by 9; Action; Sharp or Square; BettingPros; VSiN; Wes Reynolds · against: Covers NYG +6.5, Covers' Jason Logan, The Favorites, Sharp or Square alt) | Kalshi: LAR by 7+ ≈ 55%, by 8+ ≈ 46% → at −7 roughly 46% win / 9% push / 45% loss. Top secondary-vulnerability matchup of the week (Banks Q, Korie Black out) and NYG tackles questionable. Risk: Nacua Q, post-Australia travel. |
+| 3 | JAX @ DEN (Sun 4:05) | DEN −2.5 | DEN −2.5 | 0 | **DEN −2.5** | B+ | **11 vs 4** (+ Wes Reynolds on the DEN moneyline; Covers on JAX +2.5) — widest consensus on the slate (Fezzik, Sharp or Square, Action ×2, Even Money, The Favorites, BettingPros, Janvrin, Adee, VSiN, Gavin McHugh) | Short number, no key number to protect; Jaguars WRs Thomas Jr. & Meyers both questionable. Risk: Marvin Mims out for Denver. |
+| 4 | CIN @ HOU (Sun 1:00) | HOU −2.5 | HOU −2.5 | 0 | **HOU −2.5** | B (conditional) | 9 vs 3 (Covers on CIN +2.5; Fezzik, Sharp or Square, Action, BettingPros survivor show, Even Money, Gavin McHugh, Lock & Cash) | Bengals slow-starter angle + Burrow questionable (back). **Swap out if Burrow is a full go and practicing** — Nico Collins (OUT) and Tank Dell (OUT) leave Houston thin at WR. |
+| 5 | MIA @ SF (Sun 4:25) | SF −13.5 | SF −13.5 | 0 | **MIA +13.5** | B | 8 vs 1 (Covers on SF −13.5; Action, BettingPros ×2, Sharp or Square, The Favorites, Covers' Jason Logan, Adam Burke, VSiN) | Two touchdowns is a lot for a SF team that closes games conservatively; Covers flags a back-to-back cross-country schedule spot. Backdoor-friendly: Miami trails and throws (Chris Bell, Achane volume). |
 
-**Balance:** 2 underdogs + 3 favorites (Week 1 was 4 dogs). No two picks from the same kickoff window outside the 1:00 slate.
+**Balance:** 2 underdogs + 3 favorites (Week 1 was 4 dogs).
+
+**Contrarian check:** Covers' every-game ATS column is on the other side of four of our five (CHI, NYG, JAX, CIN; also SF). Every Top-5 pick still has at least a 2-to-1 edge in distinct backers, and Wes Reynolds (VSiN) independently has MIN, LAR and Denver.
 
 ### Alternates (#6–10)
 | # | Pick | Contest vs market | Case | Why not top 5 |
 |---|---|---|---|---|
 | 6 | **TB −8.5** vs CLE | same | 6 vs 2; BettingPros survivor consensus; Watson-led Browns offense | Laying 8.5 in the contest — better used in a Wong teaser (−2.5). |
 | 7 | **WAS +4.5** @ DAL | +0.5 for WAS (market +4) | Kalshi: WAS covers +4.5 ≈ 52.5%; Even Money, Sharp or Square, Gavin McHugh | Dallas "Silencer" bounce-back and DJ & Bucky both on DAL; Okonkwo out. |
-| 8 | **PIT +5.5** @ NE | +0.5 for PIT (market +5) | Sharp or Square (multiple eps), The Favorites | NE has 3+ extra rest (Stick to the Model: 18-4 SU / 14-8 ATS) and PIT lost CB Joey Porter Jr. — HIGH NE→PIT secondary matchup. |
-| 9 | **NYJ +3.5** vs GB | same | 5 vs 4; heavy-rain forecast; market moved 4.5 → 3.5 toward NYJ | Jets lost Minkah Fitzpatrick, Ossai, Omar Cooper Jr.; value already taken. |
+| 8 | **PIT +5.5** @ NE | +0.5 for PIT (market +5) | Sharp or Square (multiple eps), The Favorites, Covers | NE has 3+ extra rest (Stick to the Model: 18-4 SU / 14-8 ATS) and PIT lost CB Joey Porter Jr. — HIGH NE→PIT secondary matchup. |
+| 9 | **NYJ +3.5** vs GB | same | 6 vs 4 (Covers, Fezzik); heavy-rain forecast; market moved 4.5 → 3.5 toward NYJ | Jets lost Minkah Fitzpatrick, Ossai, Omar Cooper Jr.; value already taken. |
 | 10 | **BAL −8.5** vs NO | same | 5 vs 2; Flowers doubtful keeps Ravens run-heavy | Same as TB — better as a teaser leg. |
 
-**Avoid in the contest:** ARI +3.5 (market is +4 — the contest number is *worse*; the 5-source ARI support is on +4/+4.5), PHI −7 (push risk on 7, split 4–2), IND/KC (split, KC −6.5 ≈ 50% on Kalshi), LV/LAC (split 5–4), CAR/ATL (4–4, Cooper Rush uncertainty).
+**Avoid in the contest:** ARI +3.5 (market is +4 — the contest number is *worse*; the 7-source ARI support — now incl. Covers +4.5 and Wes Reynolds +4 — is on +4/+4.5), PHI −7 (push risk on 7, split 4–2), IND/KC (split 9–7, KC −6.5 ≈ 50% on Kalshi), LV/LAC (split 6–4), CAR/ATL (5–4, Cooper Rush uncertainty).
 
 ---
 
@@ -53,21 +55,21 @@ TNF (DET @ BUF, contest BUF −4.5) is settled: **BUF 41–31, Bills covered.** 
 
 | Kickoff | Matchup | Contest line | Market (09-19) | Δ for dog | Kalshi win % (fav) | Spread consensus | Lean |
 |---|---|---|---|---|---|---|---|
-| Sun 1:00 | MIN @ CHI | CHI −5.5 | CHI −4.5 | **+1.0** | CHI 67% | MIN 6 · CHI 2 | **MIN +5.5 (Top 5)** |
-| Sun 1:00 | PHI @ TEN | PHI −7 | PHI −7 | 0 | PHI 76% | PHI 4 · TEN 2 | Pass (push risk) |
-| Sun 1:00 | GB @ NYJ | GB −3.5 | GB −3.5 | 0 | GB 61% | NYJ 5 · GB 4 | NYJ +3.5 (alt) |
-| Sun 1:00 | CAR @ ATL | CAR −2.5 | CAR −2.5 | 0 | CAR 58% | 4 · 4 | Pass |
-| Sun 1:00 | NO @ BAL | BAL −8.5 | BAL −8.5 | 0 | BAL 79% | BAL 5 · NO 2 | BAL (alt) |
-| Sun 1:00 | CIN @ HOU | HOU −2.5 | HOU −2.5 | 0 | HOU 59% | HOU 9 · CIN 2 | **HOU −2.5 (Top 5, Burrow-conditional)** |
-| Sun 1:00 | CLE @ TB | TB −8.5 | TB −8.5 | 0 | TB 79% | TB 6 · CLE 2 | TB (alt) |
-| Sun 1:00 | PIT @ NE | NE −5.5 | NE −5 | +0.5 | NE 69% | 3 · 3 | PIT +5.5 (alt) |
-| Sun 4:05 | LV @ LAC | LAC −6.5 | LAC −6.5 | 0 | LAC 73% | LV 5 · LAC 4 | Pass |
-| Sun 4:05 | JAX @ DEN | DEN −2.5 | DEN −2.5 | 0 | DEN 58% | **DEN 11** · JAX 3 | **DEN −2.5 (Top 5)** |
-| Sun 4:25 | WAS @ DAL | DAL −4.5 | DAL −4 | +0.5 | DAL 66% | DAL 4 · WAS 3 | WAS +4.5 (alt) |
-| Sun 4:25 | SEA @ ARI | SEA −3.5 | SEA −4 | −0.5 | SEA 66% | ARI 5 · SEA 3 | Pass (contest number worse for ARI) |
-| Sun 4:25 | MIA @ SF | SF −13.5 | SF −13.5 | 0 | SF 90% | **MIA 8** · SF 0 | **MIA +13.5 (Top 5)** |
-| Sun 8:20 | IND @ KC | KC −6.5 | KC −6.5 | 0 | KC 73% | KC 8 · IND 6 | Pass |
-| Mon 8:15 | NYG @ LAR | LAR −7 | LAR −7.5 | −0.5 (fav gets +0.5) | LAR 75% | LAR 7 · NYG 3 | **LAR −7 (Top 5)** |
+| Sun 1:00 | MIN @ CHI | CHI −5.5 | CHI −4.5 | **+1.0** | CHI 67% | MIN 6 · CHI 3 | **MIN +5.5 (Top 5)** |
+| Sun 1:00 | PHI @ TEN | PHI −7 | PHI −7 | 0 | PHI 76% | PHI 5 · TEN 2 | Pass (push risk) |
+| Sun 1:00 | GB @ NYJ | GB −3.5 | GB −3.5 | 0 | GB 61% | NYJ 6 · GB 4 | NYJ +3.5 (alt) |
+| Sun 1:00 | CAR @ ATL | CAR −2.5 | CAR −2.5 | 0 | CAR 58% | CAR 5 · ATL 4 | Pass |
+| Sun 1:00 | NO @ BAL | BAL −8.5 | BAL −8.5 | 0 | BAL 79% | BAL 5 · NO 3 | BAL (alt) |
+| Sun 1:00 | CIN @ HOU | HOU −2.5 | HOU −2.5 | 0 | HOU 59% | HOU 9 · CIN 3 | **HOU −2.5 (Top 5, Burrow-conditional)** |
+| Sun 1:00 | CLE @ TB | TB −8.5 | TB −8.5 | 0 | TB 79% | TB 7 · CLE 2 | TB (alt) |
+| Sun 1:00 | PIT @ NE | NE −5.5 | NE −5 | +0.5 | NE 69% | PIT 4 · NE 3 | PIT +5.5 (alt) |
+| Sun 4:05 | LV @ LAC | LAC −6.5 | LAC −6.5 | 0 | LAC 73% | LV 6 · LAC 4 | Pass |
+| Sun 4:05 | JAX @ DEN | DEN −2.5 | DEN −2.5 | 0 | DEN 58% | **DEN 11** · JAX 4 | **DEN −2.5 (Top 5)** |
+| Sun 4:25 | WAS @ DAL | DAL −4.5 | DAL −4 | +0.5 | DAL 66% | DAL 5 · WAS 3 | WAS +4.5 (alt) |
+| Sun 4:25 | SEA @ ARI | SEA −3.5 | SEA −4 | −0.5 | SEA 66% | ARI 7 · SEA 3 | Pass (contest number worse for ARI) |
+| Sun 4:25 | MIA @ SF | SF −13.5 | SF −13.5 | 0 | SF 90% | **MIA 8** · SF 1 | **MIA +13.5 (Top 5)** |
+| Sun 8:20 | IND @ KC | KC −6.5 | KC −6.5 | 0 | KC 73% | KC 9 · IND 7 | Pass |
+| Mon 8:15 | NYG @ LAR | LAR −7 | LAR −7.5 | −0.5 (fav gets +0.5) | LAR 75% | LAR 8 · NYG 4 | **LAR −7 (Top 5)** |
 
 ---
 
@@ -81,11 +83,13 @@ TNF (DET @ BUF, contest BUF −4.5) is settled: **BUF 41–31, Bills covered.** 
 | **BettingPros** | HOU −2.5, TB −8.5, NE −5.5, PHI −7, MIA +13.5, DAL −3.5, GB −4.5, LAC −7, CHI −5.5, CIN +3 |
 | **The Favorites** | TB −8.5, BAL −8.5, KC −6.5, LAC −6.5, PIT +5.5 |
 | **Robert Mays (The Athletic)** | SEA −3.5 |
+| **Covers — ATS picks for every Week 2 game** | CAR −2.5, CHI −5.5, PHI −7.5, PIT +5.5, NYJ +3.5, TB −8.5, NO +8.5, CIN +2.5, JAX +2.5, LV +6.5, DAL −3.5, ARI +4.5, SF −13.5, KC −6.5, NYG +6.5 |
+| **VSiN — Wes Reynolds best bets** | MIN +5, LAR −7, IND +6.5 (−105), ARI +4, DEN ML (−145), CIN/HOU Under 45.5 |
 | **Lock & Cash (video + posts)** | MIN +5.5 ("official free pick"), LAR −7 (×2), DAL −3.5 (Silencer System) |
 | **Covers — Jason Logan (spot bets)** | NYG +7 (letdown), GB −3.5 (look-ahead), MIA +13.5 (schedule spot) |
 | **Platinum Rose Top 5 (this report)** | MIN +5.5, LAR −7, DEN −2.5, HOU −2.5, MIA +13.5 |
 
-**Panel takeaways:** DEN −2.5 and HOU −2.5 are the two sides almost every panel shares. MIN +5.5 is the best *contest-specific* number (a full point better than the market). LAR −7 has sharp-show support and the best matchup data, but it's the one pick with meaningful push equity (~9%).
+**Panel takeaways:** DEN −2.5 and HOU −2.5 are the two sides almost every panel shares (Covers is the notable dissenter on both). MIN +5.5 is the best *contest-specific* number (a full point better than the market). LAR −7 has sharp-show support and the best matchup data, but it's the one pick with meaningful push equity (~9%).
 
 ---
 
