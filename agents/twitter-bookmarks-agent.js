@@ -33,6 +33,9 @@
 //   node agents/twitter-bookmarks-agent.js                  # Ingest live personal bookmarks
 //   node agents/twitter-bookmarks-agent.js --sample         # Test run on sample bookmark fixtures
 //   node agents/twitter-bookmarks-agent.js --dry-run        # Test fetch without writing to DB
+//   node agents/twitter-bookmarks-agent.js --force          # Re-process bookmarks already in the vault (thread/long-form refresh)
+//   node agents/twitter-bookmarks-agent.js --refresh-ids=ID,ID  # Re-process only these tweet ids
+//   node agents/twitter-bookmarks-agent.js --no-threads     # Skip TweetDetail thread expansion
 // ═══════════════════════════════════════════════════════════════════════════════
 
 import { existsSync } from 'node:fs';
@@ -44,6 +47,7 @@ import { createClient } from '@supabase/supabase-js';
 import 'dotenv/config';
 import { isNflBettingIntel, isFantasyDraftMechanics } from './lib/sportsRelevanceFilter.js';
 import { ensureVaultFrontmatter } from './lib/vaultFrontmatter.js';
+import { tweetTextFromResult, extractAuthorThread, mergeThread } from './lib/tweet-thread.js';
 
 // Copied verbatim from agents/research-intel-ingest.js (same convention as
 // scripts/repoint-corpus-b-articles.js / backfill-action-network-week3-gap.js
@@ -237,7 +241,7 @@ export async function fetchPersonalBookmarks(queryKeywords = [
                   id: legacy.id_str,
                   author: authorHandle,
                   author_name: authorName,
-                  text: legacy.full_text || legacy.text || '',
+                  text: tweetTextFromResult(tweetResult),
                   created_at: legacy.created_at,
                   url: `https://x.com/${authorHandle}/status/${legacy.id_str}`,
                   media_urls: mediaUrls
@@ -540,6 +544,67 @@ export async function generateLocalOllamaSummary(text, sport) {
 
 // ── Process Single Bookmarked Tweet ───────────────────────────────────────────
 
+// ── Thread expansion (2026-09-19) ─────────────────────────────────────────────
+// Bookmarked thread starters ("picks for EVERY game ⤵️") carry the picks in the
+// author's self-replies. TweetDetail returns the conversation; we keep only the
+// author's own reply chain. Same cookie replay / ToS caveat as the bookmark fetch.
+// X rotates GraphQL query ids -- override with TWITTER_TWEETDETAIL_QID if this 404s.
+// Fails soft: on any error the bookmark is ingested with its head tweet only.
+export async function fetchTweetThread(tweetId) {
+  if (!TWITTER_AUTH_TOKEN || argv.includes('--no-threads')) return null;
+  const qid = process.env.TWITTER_TWEETDETAIL_QID || 'nBS-WpgA6ZG0CyNHD517JQ';
+  const op = 'TweetDetail';
+  const variables = {
+    focalTweetId: String(tweetId),
+    with_rux_injections: false,
+    rankingMode: 'Relevance',
+    includePromotedContent: false,
+    withCommunity: true,
+    withQuickPromoteEligibilityTweetFields: true,
+    withBirdwatchNotes: true,
+    withVoice: true,
+  };
+  const features = {
+    rweb_tipjar_consumption_enabled: true,
+    responsive_web_graphql_exclude_directive_enabled: true,
+    verified_phone_label_enabled: false,
+    creator_subscriptions_tweet_preview_api_enabled: true,
+    responsive_web_graphql_timeline_navigation_enabled: true,
+    responsive_web_graphql_skip_user_profile_image_extensions_enabled: false,
+    communities_web_enable_tweet_community_results_fetch: true,
+    c9s_tweet_anatomy_moderator_badge_enabled: true,
+    articles_preview_enabled: true,
+    responsive_web_edit_tweet_api_enabled: true,
+    graphql_is_translatable_rweb_tweet_is_translatable_enabled: true,
+    view_counts_everywhere_api_enabled: true,
+    longform_notetweets_consumption_enabled: true,
+    responsive_web_twitter_article_tweet_consumption_enabled: true,
+    tweet_awards_web_tipping_enabled: false,
+    creator_subscriptions_quote_tweet_preview_enabled: false,
+    freedom_of_speech_not_reach_fetch_enabled: true,
+    standardized_nudges_misinfo: true,
+    tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled: true,
+    rweb_video_timestamps_enabled: true,
+    longform_notetweets_rich_text_read_enabled: true,
+    longform_notetweets_inline_media_enabled: true,
+    responsive_web_enhance_cards_enabled: false,
+  };
+  const fieldToggles = { withArticleRichContentState: true, withArticlePlainText: false, withGrokAnalyze: false, withDisallowedReplyControls: false };
+  const url = `https://x.com/i/api/graphql/${qid}/${op}?variables=${encodeURIComponent(JSON.stringify(variables))}&features=${encodeURIComponent(JSON.stringify(features))}&fieldToggles=${encodeURIComponent(JSON.stringify(fieldToggles))}`;
+  try {
+    const resp = await fetch(url, { headers: XCLIENT_HEADERS() });
+    if (!resp.ok) {
+      const body = (await resp.text()).slice(0, 200);
+      console.warn(`  [thread] TweetDetail HTTP ${resp.status} for ${tweetId} -- head tweet only. ${body}`);
+      return null;
+    }
+    return extractAuthorThread(await resp.json(), tweetId);
+  } catch (err) {
+    console.warn(`  [thread] TweetDetail failed for ${tweetId}: ${err.message} -- head tweet only.`);
+    return null;
+  }
+}
+
 export async function processBookmarkedTweet(bm, opts = {}) {
   // opts lets tracked-account ingestion reuse this exact pipeline (recency
   // gate, dedup, relevance gate, Vision OCR, vault + research bridge write)
@@ -564,7 +629,10 @@ export async function processBookmarkedTweet(bm, opts = {}) {
   // dependent -- see shouldSkipAsAlreadyProcessed()'s own comment for why
   // that matters) so a future edit can't quietly reintroduce the
   // DRY_RUN-only-dedup regression this fixed on 2026-09-01.
-  const FORCE = argv.includes('--force');
+  // --refresh-ids=<id,id> re-processes just those bookmarks (e.g. thread starters
+  // ingested head-only before 2026-09-19) without re-running the whole window.
+  const refreshIds = (argv.find((a) => a.startsWith('--refresh-ids=')) || '').split('=')[1];
+  const FORCE = argv.includes('--force') || (refreshIds ? refreshIds.split(',').includes(String(bm.id)) : false);
   const slug = bm.id.replace(/[^a-zA-Z0-9]/g, '-');
   const filename = `${dateStr}-${bm.author}-${slug}.md`;
   const localReportPath = path.join(REPORTS_DIR, filename);
@@ -584,6 +652,15 @@ export async function processBookmarkedTweet(bm, opts = {}) {
 
   console.log(`\n[bookmark] Ingesting ${gate.sport} intel from @${bm.author}: "${bm.subject || bm.text.substring(0, 45)}..."`);
 
+  if (!SAMPLE_MODE && opts.expandThreads !== false) {
+    const thread = await fetchTweetThread(bm.id);
+    if (thread && thread.length > 1) {
+      const merged = mergeThread(thread);
+      bm = { ...bm, text: merged.text, media_urls: [...new Set([...(bm.media_urls || []), ...merged.media_urls])] };
+      console.log(`  [thread] Expanded to ${thread.length} tweets by @${bm.author} (${merged.text.length} chars, ${bm.media_urls.length} image(s)).`);
+    }
+  }
+
   // Optional local LLM summary via Ollama if enabled
   let localSummary = null;
   if (process.env.USE_LOCAL_LLM === 'true') {
@@ -597,12 +674,13 @@ export async function processBookmarkedTweet(bm, opts = {}) {
   let visionAnalysis = null;
   if (bm.media_urls && bm.media_urls.length > 0) {
     console.log(`  [vision] Found ${bm.media_urls.length} media attachment(s). Running Gemini Vision OCR...`);
-    for (const imgUrl of bm.media_urls) {
+    // Threads often carry one graphic per tweet -- read up to 6, merge their props.
+    for (const imgUrl of bm.media_urls.slice(0, 6)) {
       const vRes = await analyzeTweetImageWithGeminiVision(imgUrl);
       if (vRes) {
-        visionAnalysis = vRes;
+        if (!visionAnalysis) visionAnalysis = { ...vRes, player_props: [] };
+        visionAnalysis.player_props.push(...(vRes.player_props || []));
         console.log(`  [vision] Extracted ${vRes.player_props?.length || 0} player prop(s) from graphic.`);
-        break;
       }
     }
   }
@@ -694,10 +772,11 @@ ${propSection}`;
       const url_hash = sha256(canonical);
       const { data: existingNote } = await supabase
         .from('research_intel_notes')
-        .select('id')
+        .select('id, content_hash')
         .eq('url_hash', url_hash)
         .maybeSingle();
       let noteId = existingNote?.id;
+      let insertSignals = !existingNote;
       if (!noteId) {
         const titleLine = bm.text.trim().split('\n')[0].slice(0, 100);
         const note = {
@@ -722,11 +801,27 @@ ${propSection}`;
         noteId = inserted.id;
         console.log(`  [supabase] Inserted research_intel_notes row ${noteId} for this bookmark.`);
       } else {
-        console.log(`  [supabase] research_intel_notes row ${noteId} already exists for this URL -- skipping duplicate insert.`);
+        const newHash = sha256(bm.text);
+        if (existingNote.content_hash !== newHash) {
+          // --force re-run after thread/long-form expansion: refresh the stored text.
+          const { error: updErr } = await supabase
+            .from('research_intel_notes')
+            .update({ summary: bm.text.trim(), content_hash: newHash })
+            .eq('id', noteId);
+          if (updErr) throw new Error(`research_intel_notes update: ${updErr.message}`);
+          console.log(`  [supabase] research_intel_notes row ${noteId} refreshed with expanded text.`);
+        } else {
+          console.log(`  [supabase] research_intel_notes row ${noteId} already exists for this URL -- skipping duplicate insert.`);
+        }
+        const { count } = await supabase
+          .from('research_pick_signals')
+          .select('id', { count: 'exact', head: true })
+          .eq('note_id', noteId);
+        insertSignals = !count;
       }
 
       const props = visionAnalysis?.player_props || [];
-      if (props.length && noteId) {
+      if (props.length && noteId && insertSignals) {
         const signalRows = buildPropSignalRows(props, { noteId, eventRef: bm.url, sourceLabel });
         if (signalRows.length) {
           const { error: sigErr } = await supabase.from('research_pick_signals').insert(signalRows);

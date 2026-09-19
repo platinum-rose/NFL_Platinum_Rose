@@ -95,6 +95,12 @@ const FETCH_BODY = process.env.INTEL_FETCH_BODY === 'true';
 // length limit, so raising this needs no schema change. See
 // docs/FUTURES_ARTICLE_REACQUISITION_AND_GATES_DESIGN_2026-08-13.md §4.
 const BODY_MAX_CHARS = 20_000;
+// 2026-09-19: the local 30-min scheduled sweep (research-intel-cron.js) ran without
+// INTEL_FETCH_BODY, won the insert race, and the GitHub runs that do fetch bodies then
+// saw nothing "new" -- so most notes stayed title/teaser-only (ESPN 171/171, Action
+// Network 22/22, BettingPros 29/40 in the last 4 days). Each run now also backfills
+// bodies for up to this many recent body-less notes from these feeds.
+const BODY_BACKFILL_LIMIT = Number(process.env.INTEL_BODY_BACKFILL_LIMIT || 20);
 
 const FEEDS = [
   // ── Betting / sharp-money sources ─────────────────────────────────────────
@@ -1077,6 +1083,77 @@ async function main() {
     console.log(`  Additional pick signals found in article bodies: ${bodySignalsAdded}`);
   }
 
+  // Backfill: recent notes from these feeds that were stored without a body.
+  // Body-derived signals for these carry note_id directly and are deduped against the
+  // signals already stored for that note (teaser signals for pre-existing notes are
+  // never re-inserted -- noteIdByHash below stays limited to this run's inserts).
+  const backfillSignals = [];
+  let backfilled = 0;
+  if (FETCH_BODY && BODY_BACKFILL_LIMIT > 0) {
+    const insertedIds = new Set(insertedNotes.map((n) => n.id));
+    const since = new Date(Date.now() - HOURS * 3600 * 1000).toISOString();
+    const { data: bodyless, error: bfErr } = await supabase
+      .from('research_intel_notes')
+      .select('id,url,source,source_type,confidence,title')
+      .is('body', null)
+      .gte('captured_at', since)
+      .in('source', FEEDS.map((f) => f.source))
+      .order('captured_at', { ascending: false })
+      .limit(BODY_BACKFILL_LIMIT + insertedNotes.length);
+    if (bfErr) {
+      console.warn(`  [warn] Body backfill lookup failed: ${bfErr.message}`);
+    } else {
+      const targets = (bodyless || []).filter((n) => !insertedIds.has(n.id)).slice(0, BODY_BACKFILL_LIMIT);
+      if (targets.length > 0) {
+        console.log(`  Backfilling article bodies for ${targets.length} earlier notes…`);
+        const { data: priorSigs } = await supabase
+          .from('research_pick_signals')
+          .select('note_id,team_or_market,bet_type')
+          .in('note_id', targets.map((n) => n.id));
+        const seen = new Set((priorSigs || []).map((s) => `${s.note_id}|${String(s.team_or_market).toLowerCase().trim()}|${s.bet_type}`));
+        for (const note of targets) {
+          const body = await fetchArticleBody(note.url);
+          if (body) {
+            const { error: upErr } = await supabase.from('research_intel_notes').update({ body }).eq('id', note.id);
+            if (upErr) {
+              console.warn(`  [warn] Body backfill failed for note ${note.id}: ${upErr.message}`);
+            } else {
+              backfilled++;
+              if (note.source_type !== 'analytical') {
+                const sigs = extractSignalsFromText(body, {
+                  source: note.source,
+                  baseConfidence: note.confidence,
+                  eventRef: note.url,
+                  fallbackLabel: note.title,
+                  fallbackRationale: body.slice(0, 220),
+                  maxExplicit: 8,
+                });
+                for (const bs of sigs) {
+                  const key = `${note.id}|${String(bs.team_or_market).toLowerCase().trim()}|${bs.bet_type}`;
+                  if (seen.has(key)) continue;
+                  seen.add(key);
+                  backfillSignals.push({
+                    note_id: note.id,
+                    source: bs.source,
+                    author: bs.author || null,
+                    team_or_market: bs.team_or_market,
+                    bet_type: bs.bet_type,
+                    lean: bs.lean,
+                    rationale: bs.rationale,
+                    event_ref: bs.event_ref,
+                    confidence: bs.confidence,
+                  });
+                }
+              }
+            }
+          }
+          await new Promise((r) => setTimeout(r, 300));
+        }
+        console.log(`  Bodies backfilled: ${backfilled}/${targets.length} (+${backfillSignals.length} signals)`);
+      }
+    }
+  }
+
   const noteIdByHash = new Map(insertedNotes.map(n => [n.url_hash, n.id]));
   const signalsToInsert = candidateSignals
     .map(signal => {
@@ -1098,6 +1175,7 @@ async function main() {
     })
     .filter(Boolean);
 
+  signalsToInsert.push(...backfillSignals);
   if (signalsToInsert.length > 0) {
     const { error } = await supabase
       .from('research_pick_signals')
@@ -1117,6 +1195,7 @@ async function main() {
       candidate_signals: candidateSignals.length,
       inserted_notes: insertedNotes.length,
       inserted_signals: signalsToInsert.length,
+      bodies_backfilled: backfilled,
       skipped_existing_notes: uniqueNotes.length - newNotes.length,
     },
   });
