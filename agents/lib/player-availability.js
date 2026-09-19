@@ -217,10 +217,31 @@ export function normalizeInjuryStatus(value) {
   return raw.toUpperCase().replace(/\s+/g, '_');
 }
 
+// ESPN's "Active" rows are often game-recap blurbs ("Chubb logged four tackles (two solo)...",
+// "caught three passes (on five targets)"), so the first parenthetical is frequently a stat
+// line, not an injury. Found 2026-09-19: ~120 bogus injury types like "two solo". Reject
+// parentheticals that read as stats or roster decisions; real ones ("hamstring") pass through.
+const NON_INJURY_PARENTHETICAL = /\b(solo|tackles?|targets?|yards?|carries|catch(es)?|receptions?|sacks?|touchdowns?|tds?|snaps?|attempts?|completions?|coach'?s decision|rest|personal|not injury related)\b|\d/i;
+
 export function parseInjuryType(shortComment) {
   if (!shortComment) return null;
-  const match = String(shortComment).match(/\(([a-z][^)]{1,29})\)/i);
-  return match ? match[1].toLowerCase() : null;
+  const matches = String(shortComment).matchAll(/\(([a-z][^)]{1,29})\)/gi);
+  for (const match of matches) {
+    const candidate = match[1].toLowerCase();
+    if (!NON_INJURY_PARENTHETICAL.test(candidate)) return candidate;
+  }
+  return null;
+}
+
+// An event counts toward major_count only if it is synthesis-eligible, not depth-only, and is
+// actual availability news. Generic ESPN "Active" recap rows (event_type active_news with no
+// injury named) were ~370 of the 1063 "major" events on 2026-09-19 -- healthy starters like
+// Lamar Jackson counted as major injury events purely because of their position bucket.
+export function isMajorAvailabilityEvent(event = {}) {
+  if (event.synthesis_eligible === false) return false;
+  if (event.impact_bucket === 'depth_only') return false;
+  if (event.event_type === 'active_news' && !event.injury_type) return false;
+  return true;
 }
 
 export function classifyAvailabilityEvent({ status, text = '', playerName = null } = {}) {
@@ -714,7 +735,7 @@ export function buildAvailabilitySnapshotFromEvents({
     else team.synthesis_eligible_count += 1;
     if (event.synthesis_eligible !== false && event.availability_trend === 'improving') team.improving_count += 1;
     if (event.synthesis_eligible !== false && event.availability_trend === 'worsening') team.worsening_count += 1;
-    if (event.synthesis_eligible !== false && event.impact_bucket !== 'depth_only') team.major_count += 1;
+    if (isMajorAvailabilityEvent(event)) team.major_count += 1;
     if (event.availability_group === 'offensive_line') {
       team.offensive_line_count += 1;
       if (event.synthesis_eligible !== false && event.availability_trend === 'worsening') team.offensive_line_worsening_count += 1;
@@ -743,7 +764,7 @@ export function buildAvailabilitySnapshotFromEvents({
       teams_with_events: Object.keys(teams).length,
       improving_count: events.filter((e) => e.synthesis_eligible !== false && e.availability_trend === 'improving').length,
       worsening_count: events.filter((e) => e.synthesis_eligible !== false && e.availability_trend === 'worsening').length,
-      major_count: events.filter((e) => e.synthesis_eligible !== false && e.impact_bucket !== 'depth_only').length,
+      major_count: events.filter(isMajorAvailabilityEvent).length,
       offensive_line_worsening_count: events.filter((e) => e.synthesis_eligible !== false && e.availability_group === 'offensive_line' && e.availability_trend === 'worsening').length,
       defensive_front_worsening_count: events.filter((e) => e.synthesis_eligible !== false && e.availability_group === 'defensive_front' && e.availability_trend === 'worsening').length,
       teams_with_ol_cluster_risk: Object.values(teams).filter((team) => team.cluster_risks?.offensive_line?.cluster_risk).length,

@@ -399,3 +399,27 @@ describe('buildAvailabilitySnapshot', () => {
     expect(snapshot.meta.availability_evidence_validation.status).toBe('pass');
   });
 });
+
+// Regression 2026-09-19: ESPN "Active" game-recap rows inflated major_count and produced
+// stat-fragment injury types like "two solo".
+import { parseInjuryType as parseInjuryTypeRegression, isMajorAvailabilityEvent } from '../../agents/lib/player-availability.js';
+
+describe('active_news recap rows (2026-09-19 regression)', () => {
+  it('ignores stat parentheticals when parsing injury type', () => {
+    expect(parseInjuryTypeRegression('Chubb logged four tackles (two solo), including 1.5 sacks.')).toBeNull();
+    expect(parseInjuryTypeRegression('He caught three passes (on five targets) for 40 yards.')).toBeNull();
+    expect(parseInjuryTypeRegression("McCarthy (coach's decision) is inactive.")).toBeNull();
+    expect(parseInjuryTypeRegression('Burrow (ankle) practiced fully Friday.')).toBe('ankle');
+    expect(parseInjuryTypeRegression('Allen logged six tackles (four solo) before leaving (hamstring).')).toBe('hamstring');
+  });
+
+  it('does not count healthy Active recap rows as major events', () => {
+    const recap = { synthesis_eligible: true, impact_bucket: 'qb_major', event_type: 'active_news', injury_type: null };
+    const injuredActive = { ...recap, injury_type: 'hamstring' };
+    const out = { synthesis_eligible: true, impact_bucket: 'skill_major', event_type: 'out', injury_type: null };
+    expect(isMajorAvailabilityEvent(recap)).toBe(false);
+    expect(isMajorAvailabilityEvent(injuredActive)).toBe(true);
+    expect(isMajorAvailabilityEvent(out)).toBe(true);
+    expect(isMajorAvailabilityEvent({ ...out, impact_bucket: 'depth_only' })).toBe(false);
+  });
+});
