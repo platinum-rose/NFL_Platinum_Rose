@@ -15,11 +15,21 @@ on:
         required: false
         default: '6'
         type: string
+      max_episode_age_days:
+        description: 'Skip episodes older than N days (raise for a backfill)'
+        required: false
+        default: '10'
+        type: string
+      max_runtime_minutes:
+        description: 'Script runtime ceiling in minutes (~1 min/episode; max 40)'
+        required: false
+        default: '10'
+        type: string
 
 jobs:
   podcast-ingest:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 45   # MAX_RUNTIME_MINUTES (script ceiling) must stay below this
 
     steps:
       - name: Checkout
@@ -44,4 +54,6 @@ jobs:
           GEMINI_API_KEY:            ${{ secrets.GEMINI_API_KEY }}       # optional — pick/intel extraction fallback #2
           DRY_RUN:                   ${{ inputs.dry_run || 'false' }}
           MAX_PER_RUN:               ${{ inputs.max_per_run || '3' }}
+          MAX_EPISODE_AGE_DAYS:      ${{ inputs.max_episode_age_days || '10' }}
+          MAX_RUNTIME_MINUTES:       ${{ inputs.max_runtime_minutes || '10' }}
         run: node agents/podcast-ingest.js

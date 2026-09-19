@@ -26,13 +26,19 @@ import {
   liveProviderCount,
   ExtractionUnavailableError,
 } from './lib/extraction-providers.js';
+import { planEpisodeQueue, DEFAULT_MAX_EPISODE_AGE_DAYS } from './lib/episode-queue.js';
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 
 const MAX_RETRIES      = 3;
-const MAX_RUNTIME_MS   = 10 * 60 * 1000;   // 10 minutes hard ceiling
+// Hard ceiling (default 10 min). Raise via MAX_RUNTIME_MINUTES for backlog runs (~1 min/episode);
+// keep it below the workflow's timeout-minutes.
+const MAX_RUNTIME_MS   = Number(process.env.MAX_RUNTIME_MINUTES || 10) * 60 * 1000;
 const MAX_AUDIO_BYTES  = 24 * 1024 * 1024; // 24 MB (Whisper limit is 25 MB)
 const MAX_PER_RUN      = parseInt(process.env.MAX_PER_RUN ?? '3', 10);
+// Episodes published longer ago than this are left queued, not processed (set higher for a
+// deliberate backfill, e.g. MAX_EPISODE_AGE_DAYS=365).
+const MAX_EPISODE_AGE_DAYS = Number(process.env.MAX_EPISODE_AGE_DAYS || DEFAULT_MAX_EPISODE_AGE_DAYS);
 const DRY_RUN          = process.env.DRY_RUN === 'true';
 
 const SUPABASE_URL      = process.env.SUPABASE_URL;
@@ -493,6 +499,7 @@ async function run() {
   let totalAttempted  = 0; // successes AND failures count toward MAX_PER_RUN (failures cost money too)
   let totalErrors     = 0;
   let stopRun         = false;
+  const candidates    = []; // every feed's processable episodes; ordered globally after discovery
 
   for (const feed of feeds) {
     if (stopRun) break;
@@ -558,7 +565,7 @@ async function run() {
     //     (status='pending' or 'error') so they don't get stuck forever.
     const { data: queued } = await supabase
       .from('podcast_episodes')
-      .select('id, guid, title, audio_url, duration_secs')
+      .select('id, guid, title, audio_url, duration_secs, pub_date')
       .eq('feed_id', feed.id)
       .in('status', ['pending', 'error'])
       .order('pub_date', { ascending: false })
@@ -604,6 +611,7 @@ async function run() {
           title:         row.title ?? '(untitled)',
           audio_url:     row.audio_url,
           duration_secs: row.duration_secs,
+          pub_date:      row.pub_date ?? null,
           _dbId:         row.id,   // already in DB — skip the id lookup step
         });
       }
@@ -628,9 +636,19 @@ async function run() {
       continue;
     }
     console.log(`  ↳ ${toProcess.length} episode(s) queued for processing`);
+    for (const ep of toProcess) candidates.push({ ...ep, _feed: feed });
+  }
 
-    // 5. Process each episode (up to MAX_PER_RUN total across all feeds)
-    for (const ep of toProcess) {
+  // 5. Process episodes NEWEST-FIRST ACROSS ALL FEEDS (up to MAX_PER_RUN total), skipping
+  //    anything older than MAX_EPISODE_AGE_DAYS (left queued). See agents/lib/episode-queue.js.
+  const { queue: runQueue, tooOld } = planEpisodeQueue(candidates, { now: new Date(), maxAgeDays: MAX_EPISODE_AGE_DAYS });
+  console.log(`\n🗂  ${candidates.length} candidate episode(s) across feeds; processing newest-first (cap ${MAX_PER_RUN})`);
+  if (tooOld.length > 0) {
+    console.log(`  ⏭ ${tooOld.length} older than ${MAX_EPISODE_AGE_DAYS} days left queued (set MAX_EPISODE_AGE_DAYS to backfill)`);
+  }
+  {
+    for (const ep of runQueue) {
+      const feed = ep._feed;
       if (stopRun) break;
       if (totalAttempted >= MAX_PER_RUN) {
         console.log(`  ⏭ Reached MAX_PER_RUN (${MAX_PER_RUN}) — remaining episodes queued`);
@@ -638,7 +656,7 @@ async function run() {
       }
       if (Date.now() - startedAt > MAX_RUNTIME_MS) break;
 
-      console.log(`\n  🎙 "${ep.title.slice(0, 70)}"`);
+      console.log(`\n  🎙 [${feed.name}] ${(ep.pub_date ?? '').slice(0, 10)} "${ep.title.slice(0, 70)}"`);
       totalAttempted++;
 
       // Fetch the episode's DB id (use cached _dbId for pre-existing rows)
