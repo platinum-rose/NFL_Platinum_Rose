@@ -27,6 +27,8 @@ import {
   ExtractionUnavailableError,
 } from './lib/extraction-providers.js';
 import { planEpisodeQueue, DEFAULT_MAX_EPISODE_AGE_DAYS } from './lib/episode-queue.js';
+import { chunkTranscript } from './lib/chunk-text.js';
+import { mergePicks, mergeIntel } from './lib/extraction-merge.js';
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 
@@ -267,25 +269,35 @@ async function transcribeAudio(filePath) {
 
 // ─── Pick extraction via GPT-4o ───────────────────────────────────────────────
 
+// FULL-TRANSCRIPT EXTRACTION (2026-09-19): this prompt used to send only the first 12,000 chars
+// — the first ~10-15 minutes of a 40-100k-char episode — so shows like "10 Best Bets" yielded 2
+// picks. Known since July (agents/podcast-reextract.js was written for it) but never fixed here.
+// Now the whole transcript is extracted in overlapping chunks and merged.
+const EXTRACTION_CHUNK_CHARS   = Number(process.env.EXTRACTION_CHUNK_CHARS || 30000);
+const EXTRACTION_CHUNK_OVERLAP = 1500;
+const EXTRACTION_CALL_DELAY_MS = Number(process.env.EXTRACTION_CALL_DELAY_MS || 1500); // gentle on free-tier RPM
+
 const EXTRACTION_SYSTEM = `You are an NFL betting analyst. 
-Extract all betting picks and notable analysis from the transcript.
+Extract all betting picks and notable analysis from the transcript chunk.
 Return ONLY valid JSON — no prose, no markdown fences.`;
 
-const EXTRACTION_USER = (transcript, source) => `
+const EXTRACTION_USER = (transcript, source, idx = 1, total = 1) => `
 Source: ${source}
-Transcript (may be partial):
+Transcript chunk ${idx} of ${total} (analyze everything present in this chunk; other chunks are handled separately):
 ---
-${transcript.slice(0, 12000)}
+${transcript}
 ---
 
 Return JSON with this exact shape:
 {
   "picks": [
     {
-      "selection": "string (team name, OVER, or UNDER)",
+      "selection": "string (team name, OVER, or UNDER, or the prop outcome e.g. 'Anytime TD')",
+      "player": "string | null (player name for player props, else null)",
+      "market": "string | null (prop market e.g. 'receiving yards', 'anytime TD', 'pass attempts'; null for game lines)",
       "team1": "string (home team or first team)",
       "team2": "string (away team or second team)",
-      "type": "spread | moneyline | total",
+      "type": "spread | moneyline | total | player_prop | futures",
       "line": number | null,
       "summary": "string (brief rationale, max 200 chars)",
       "units": number (1-5),
@@ -305,10 +317,12 @@ Rules:
 - Preserve all decimal numbers (e.g. '10.5 wins', '9.5 wins') and odds numbers completely. Ensure footnote citations or markers do not truncate or distort numbers in the text.
 - "selection" for spreads/ML = the team getting the pick
 - "selection" for totals = "OVER" or "UNDER" (uppercase)
+- Player props: type = "player_prop", fill "player" and "market", "selection" = OVER/UNDER (or the outcome), "line" = the prop number or American odds for yes/no props
+- Every distinct recommended bet is its own pick — a "10 best bets" segment should produce ~10 picks
 - "line" = the spread number (negative for favored) or the total number
 - "units" = bet size 1-5 (use 1 if not mentioned)
 - "confidence" = 50-95 (use 65 if not mentioned)
-- "intel" = up to 10 key analytical points (not picks, just context)
+- "intel" = up to 10 key analytical points from THIS chunk (not picks, just context)
 - If no picks found, return { "picks": [], "intel": [] }
 `.trim();
 
@@ -326,7 +340,7 @@ function parsePicksIntelJson(raw, modelLabel) {
   }
 }
 
-async function extractPicksAndIntelOpenAI(transcript, sourceName) {
+async function extractPicksAndIntelOpenAI(transcript, sourceName, idx = 1, total = 1) {
   if (!OPENAI_KEY) throw new Error('GPT-4o error: OPENAI_API_KEY not set');
   const res = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
@@ -337,10 +351,10 @@ async function extractPicksAndIntelOpenAI(transcript, sourceName) {
     body: JSON.stringify({
       model: 'gpt-4o',
       temperature: 0.1,
-      max_tokens: 2048,
+      max_tokens: 8192,
       messages: [
         { role: 'system', content: EXTRACTION_SYSTEM },
-        { role: 'user',   content: EXTRACTION_USER(transcript, sourceName) },
+        { role: 'user',   content: EXTRACTION_USER(transcript, sourceName, idx, total) },
       ],
     }),
     signal: AbortSignal.timeout(60_000),
@@ -361,7 +375,7 @@ async function extractPicksAndIntelOpenAI(transcript, sourceName) {
 // the OpenAI account ran out of billing credits and stalled the whole podcast
 // pipeline for days with no extraction fallback at all (transcription already
 // had a Groq->AssemblyAI fallback chain -- extraction had none).
-async function extractPicksAndIntelClaude(transcript, sourceName) {
+async function extractPicksAndIntelClaude(transcript, sourceName, idx = 1, total = 1) {
   if (!ANTHROPIC_KEY) throw new Error('Claude error: ANTHROPIC_API_KEY not set');
   const res = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
@@ -372,11 +386,11 @@ async function extractPicksAndIntelClaude(transcript, sourceName) {
     },
     body: JSON.stringify({
       model: 'claude-sonnet-4-5-20250929',
-      max_tokens: 2048,
+      max_tokens: 8192,
       temperature: 0.1,
       system: EXTRACTION_SYSTEM,
       messages: [
-        { role: 'user', content: EXTRACTION_USER(transcript, sourceName) },
+        { role: 'user', content: EXTRACTION_USER(transcript, sourceName, idx, total) },
       ],
     }),
     signal: AbortSignal.timeout(60_000),
@@ -394,7 +408,7 @@ async function extractPicksAndIntelClaude(transcript, sourceName) {
 
 // Fallback #2: Gemini (generateContent REST API). Last resort if both
 // OpenAI and Anthropic are down/out of credits.
-async function extractPicksAndIntelGemini(transcript, sourceName) {
+async function extractPicksAndIntelGemini(transcript, sourceName, idx = 1, total = 1) {
   if (!GEMINI_KEY) throw new Error('Gemini error: GEMINI_API_KEY not set');
   const res = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_EXTRACTION_MODEL}:generateContent?key=${GEMINI_KEY}`,
@@ -404,7 +418,7 @@ async function extractPicksAndIntelGemini(transcript, sourceName) {
       body: JSON.stringify({
         systemInstruction: { parts: [{ text: EXTRACTION_SYSTEM }] },
         contents: [
-          { role: 'user', parts: [{ text: EXTRACTION_USER(transcript, sourceName) }] },
+          { role: 'user', parts: [{ text: EXTRACTION_USER(transcript, sourceName, idx, total) }] },
         ],
         // JSON mode avoids fenced/prose output; 8192 leaves room for a full pick list
         // (2048 risked truncated JSON on long betting shows).
@@ -439,10 +453,26 @@ const ORDERED_EXTRACTION_PROVIDERS = EXTRACTION_ORDER.map((k) => EXTRACTION_PROV
 const deadExtractionProviders = new Set();
 
 async function extractPicksAndIntel(transcript, sourceName) {
-  const { result, provider } = await runExtractionChain(
-    ORDERED_EXTRACTION_PROVIDERS, deadExtractionProviders, [transcript, sourceName], console
-  );
-  return { ...result, extractionModel: provider.label };
+  const chunks = chunkTranscript(transcript || '', EXTRACTION_CHUNK_CHARS, EXTRACTION_CHUNK_OVERLAP);
+  if (chunks.length === 0) return { picks: [], intel: [], extractionModel: 'none', chunkCount: 0 };
+  const allPicks = [];
+  const allIntel = [];
+  const modelsUsed = new Set();
+  for (let i = 0; i < chunks.length; i++) {
+    const { result, provider } = await runExtractionChain(
+      ORDERED_EXTRACTION_PROVIDERS, deadExtractionProviders, [chunks[i], sourceName, i + 1, chunks.length], console
+    );
+    allPicks.push(...(Array.isArray(result?.picks) ? result.picks : []));
+    allIntel.push(...(Array.isArray(result?.intel) ? result.intel : []));
+    modelsUsed.add(provider.label);
+    if (i < chunks.length - 1 && EXTRACTION_CALL_DELAY_MS > 0) await new Promise((r) => setTimeout(r, EXTRACTION_CALL_DELAY_MS));
+  }
+  return {
+    picks: mergePicks(allPicks),
+    intel: mergeIntel(allIntel),
+    extractionModel: [...modelsUsed].join('/'),
+    chunkCount: chunks.length,
+  };
 }
 
 // ─── Fetch helpers ────────────────────────────────────────────────────────────
@@ -466,6 +496,81 @@ async function fetchWithRetry(fn, retries = MAX_RETRIES) {
   throw lastErr;
 }
 
+// ─── Re-extract mode (no transcription) ───────────────────────────────────────
+// REEXTRACT_SINCE=YYYY-MM-DD re-runs full-transcript extraction over transcripts ALREADY stored
+// in podcast_transcripts (episodes published on/after that date) and overwrites their picks/intel.
+// Nothing is re-transcribed, so no AssemblyAI/Groq cost. Episodes whose picks were already
+// promoted to signals (picks_promoted_at set) are skipped unless REEXTRACT_INCLUDE_PROMOTED=true,
+// because pick-extraction.js ids promoted picks by index and re-promoting would duplicate them.
+const REEXTRACT_SINCE            = process.env.REEXTRACT_SINCE || '';
+const REEXTRACT_INCLUDE_PROMOTED = String(process.env.REEXTRACT_INCLUDE_PROMOTED || '').toLowerCase() === 'true';
+
+async function reextractStored(supabase) {
+  console.log(`♻️  RE-EXTRACT mode: stored transcripts for episodes published since ${REEXTRACT_SINCE}` +
+    ` (include promoted: ${REEXTRACT_INCLUDE_PROMOTED}, cap ${MAX_PER_RUN})`);
+  const { data: eps, error: epErr } = await supabase
+    .from('podcast_episodes')
+    .select('id, title, pub_date, feed_id')
+    .gte('pub_date', REEXTRACT_SINCE)
+    .order('pub_date', { ascending: false });
+  if (epErr) throw new Error(`episode query failed: ${epErr.message}`);
+  const epById = new Map((eps ?? []).map((e) => [e.id, e]));
+  if (epById.size === 0) { console.log('  nothing to do'); return { processed: 0, errors: 0 }; }
+
+  const { data: feeds } = await supabase.from('podcast_feeds').select('id, name, expert');
+  const feedById = new Map((feeds ?? []).map((f) => [f.id, f]));
+
+  const { data: rows, error: txErr } = await supabase
+    .from('podcast_transcripts')
+    .select('episode_id, transcript_text, picks, intel, model_used, picks_promoted_at')
+    .in('episode_id', [...epById.keys()]);
+  if (txErr) throw new Error(`transcript query failed: ${txErr.message}`);
+
+  const work = (rows ?? [])
+    .filter((r) => r.transcript_text)
+    .sort((a, b) => String(epById.get(b.episode_id)?.pub_date).localeCompare(String(epById.get(a.episode_id)?.pub_date)));
+
+  let processed = 0, errors = 0, skippedPromoted = 0;
+  const startedAt = Date.now();
+  for (const row of work) {
+    if (processed >= MAX_PER_RUN) { console.log(`  ⏭ Reached MAX_PER_RUN (${MAX_PER_RUN})`); break; }
+    if (Date.now() - startedAt > MAX_RUNTIME_MS) { console.log('  ⏭ Reached MAX_RUNTIME_MINUTES'); break; }
+    const ep = epById.get(row.episode_id);
+    const feed = feedById.get(ep.feed_id) || {};
+    if (row.picks_promoted_at && !REEXTRACT_INCLUDE_PROMOTED) {
+      skippedPromoted++;
+      console.log(`  ⏭ promoted already, skipped: [${feed.name}] "${String(ep.title).slice(0, 60)}"`);
+      continue;
+    }
+    const before = { picks: Array.isArray(row.picks) ? row.picks.length : 0, intel: Array.isArray(row.intel) ? row.intel.length : 0 };
+    console.log(`\n  🎙 [${feed.name}] ${String(ep.pub_date).slice(0, 10)} "${String(ep.title).slice(0, 60)}" (${row.transcript_text.length.toLocaleString()} chars)`);
+    try {
+      const { picks, intel, extractionModel, chunkCount } = await fetchWithRetry(
+        () => extractPicksAndIntel(row.transcript_text, feed.expert || feed.name)
+      );
+      console.log(`    ✅ ${picks.length} picks, ${intel.length} intel over ${chunkCount} chunk(s) via ${extractionModel} (was ${before.picks}/${before.intel})`);
+      processed++;
+      if (DRY_RUN) continue;
+      const transcriptionLeg = String(row.model_used || 'unknown').split('+')[0];
+      const { error: upErr } = await supabase
+        .from('podcast_transcripts')
+        .update({ picks, intel, model_used: `${transcriptionLeg}+${extractionModel}` })
+        .eq('episode_id', row.episode_id);
+      if (upErr) throw new Error(`update failed: ${upErr.message}`);
+    } catch (err) {
+      if (err instanceof ExtractionUnavailableError) {
+        console.error(`    ⛔ ${err.message} — stopping re-extract run`);
+        errors++;
+        break;
+      }
+      console.error(`    ❌ ${err.message}`);
+      errors++;
+    }
+  }
+  console.log(`\n📊 Re-extract complete: ${processed} updated, ${skippedPromoted} skipped (already promoted), ${errors} error(s)`);
+  return { processed, errors };
+}
+
 // ─── Main run ─────────────────────────────────────────────────────────────────
 
 async function run() {
@@ -484,6 +589,12 @@ async function run() {
   if (DRY_RUN) console.log('🔍 DRY RUN mode — no Supabase writes, no transcription');
 
   const supabase = getSupabase();
+
+  if (REEXTRACT_SINCE) {
+    const { errors } = await reextractStored(supabase);
+    if (errors > 0) process.exit(1);
+    return;
+  }
 
   // 1. Load active feeds from Supabase
   const { data: feeds, error: feedErr } = await supabase

@@ -20,6 +20,16 @@ on:
         required: false
         default: '10'
         type: string
+      reextract_since:
+        description: 'RE-EXTRACT ONLY (no transcription): re-run full-transcript extraction for stored transcripts published on/after YYYY-MM-DD. Leave blank for a normal ingest run.'
+        required: false
+        default: ''
+        type: string
+      reextract_include_promoted:
+        description: 'Re-extract: also overwrite episodes whose picks were already promoted to signals'
+        required: false
+        default: false
+        type: boolean
       max_runtime_minutes:
         description: 'Whole-run ceiling in minutes, checked before each episode (~1-1.5 min/episode incl. hour-long shows; max 65)'
         required: false
@@ -56,4 +66,6 @@ jobs:
           MAX_PER_RUN:               ${{ inputs.max_per_run || '3' }}
           MAX_EPISODE_AGE_DAYS:      ${{ inputs.max_episode_age_days || '10' }}
           MAX_RUNTIME_MINUTES:       ${{ inputs.max_runtime_minutes || '10' }}
+          REEXTRACT_SINCE:           ${{ inputs.reextract_since || '' }}
+          REEXTRACT_INCLUDE_PROMOTED: ${{ inputs.reextract_include_promoted || 'false' }}
         run: node agents/podcast-ingest.js
