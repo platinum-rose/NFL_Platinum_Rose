@@ -34,6 +34,8 @@ const SUPABASE_KEY      = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const OPENAI_KEY        = process.env.OPENAI_API_KEY;
 const GROQ_KEY          = process.env.GROQ_API_KEY;          // optional — free Whisper via Groq
 const ASSEMBLYAI_KEY    = process.env.ASSEMBLYAI_API_KEY;    // optional — fallback if Groq rate-limited
+const ANTHROPIC_KEY     = process.env.ANTHROPIC_API_KEY;     // optional — pick/intel extraction fallback #1 (Claude)
+const GEMINI_KEY        = process.env.GEMINI_API_KEY;        // optional — pick/intel extraction fallback #2 (Gemini)
 
 // Transcription provider priority:
 //   1. Groq         — free, 7200 sec/hr limit, drop-in Whisper-compatible
@@ -293,7 +295,22 @@ Rules:
 - If no picks found, return { "picks": [], "intel": [] }
 `.trim();
 
-async function extractPicksAndIntel(transcript, sourceName) {
+function parsePicksIntelJson(raw, modelLabel) {
+  // Strip markdown code fences if the model returned them anyway
+  const clean = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '');
+  try {
+    const parsed = JSON.parse(clean);
+    return {
+      picks: Array.isArray(parsed.picks) ? parsed.picks : [],
+      intel: Array.isArray(parsed.intel) ? parsed.intel : [],
+    };
+  } catch {
+    throw new Error(`${modelLabel} returned invalid JSON: ${clean.slice(0, 200)}`);
+  }
+}
+
+async function extractPicksAndIntelOpenAI(transcript, sourceName) {
+  if (!OPENAI_KEY) throw new Error('GPT-4o error: OPENAI_API_KEY not set');
   const res = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: {
@@ -319,19 +336,100 @@ async function extractPicksAndIntel(transcript, sourceName) {
 
   const data = await res.json();
   const raw  = data.choices?.[0]?.message?.content?.trim() ?? '{}';
+  return parsePicksIntelJson(raw, 'GPT-4o');
+}
 
-  // Strip markdown code fences if GPT returned them anyway
-  const clean = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '');
+// Fallback #1: Claude (Anthropic Messages API). Same system/user prompts as
+// GPT-4o so extraction quality/shape stays comparable. Wired 2026-09-14 after
+// the OpenAI account ran out of billing credits and stalled the whole podcast
+// pipeline for days with no extraction fallback at all (transcription already
+// had a Groq->AssemblyAI fallback chain -- extraction had none).
+async function extractPicksAndIntelClaude(transcript, sourceName) {
+  if (!ANTHROPIC_KEY) throw new Error('Claude error: ANTHROPIC_API_KEY not set');
+  const res = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'x-api-key':         ANTHROPIC_KEY,
+      'anthropic-version': '2023-06-01',
+      'Content-Type':      'application/json',
+    },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-5-20250929',
+      max_tokens: 2048,
+      temperature: 0.1,
+      system: EXTRACTION_SYSTEM,
+      messages: [
+        { role: 'user', content: EXTRACTION_USER(transcript, sourceName) },
+      ],
+    }),
+    signal: AbortSignal.timeout(60_000),
+  });
 
-  try {
-    const parsed = JSON.parse(clean);
-    return {
-      picks: Array.isArray(parsed.picks) ? parsed.picks : [],
-      intel: Array.isArray(parsed.intel) ? parsed.intel : [],
-    };
-  } catch {
-    throw new Error(`GPT-4o returned invalid JSON: ${clean.slice(0, 200)}`);
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`Claude error: ${err}`);
   }
+
+  const data = await res.json();
+  const raw  = data.content?.[0]?.text?.trim() ?? '{}';
+  return parsePicksIntelJson(raw, 'Claude');
+}
+
+// Fallback #2: Gemini (generateContent REST API). Last resort if both
+// OpenAI and Anthropic are down/out of credits.
+async function extractPicksAndIntelGemini(transcript, sourceName) {
+  if (!GEMINI_KEY) throw new Error('Gemini error: GEMINI_API_KEY not set');
+  const res = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${GEMINI_KEY}`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        systemInstruction: { parts: [{ text: EXTRACTION_SYSTEM }] },
+        contents: [
+          { role: 'user', parts: [{ text: EXTRACTION_USER(transcript, sourceName) }] },
+        ],
+        generationConfig: { temperature: 0.1, maxOutputTokens: 2048 },
+      }),
+      signal: AbortSignal.timeout(60_000),
+    }
+  );
+
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`Gemini error: ${err}`);
+  }
+
+  const data = await res.json();
+  const raw  = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim() ?? '{}';
+  return parsePicksIntelJson(raw, 'Gemini');
+}
+
+// Pick/intel extraction with automatic fallback: GPT-4o -> Claude -> Gemini.
+// Each provider is only attempted if its API key is configured. Returns the
+// extraction result plus which model actually produced it, so the caller can
+// record real provenance in podcast_transcripts.model_used instead of always
+// claiming "gpt-4o" even when a fallback silently kicked in.
+async function extractPicksAndIntel(transcript, sourceName) {
+  const providers = [
+    { label: 'gpt-4o',                 keyPresent: !!OPENAI_KEY,    run: extractPicksAndIntelOpenAI },
+    { label: 'claude-sonnet-4-5',      keyPresent: !!ANTHROPIC_KEY, run: extractPicksAndIntelClaude },
+    { label: 'gemini-3.6-flash',       keyPresent: !!GEMINI_KEY,    run: extractPicksAndIntelGemini },
+  ];
+
+  const errors = [];
+  for (const provider of providers) {
+    if (!provider.keyPresent) continue;
+    try {
+      const result = await provider.run(transcript, sourceName);
+      return { ...result, extractionModel: provider.label };
+    } catch (err) {
+      console.warn(`    ⚠ ${provider.label} extraction failed: ${err.message.slice(0, 200)} — trying next provider`);
+      errors.push(`${provider.label}: ${err.message.slice(0, 200)}`);
+    }
+  }
+
+  throw new Error(`All extraction providers failed — ${errors.join(' | ')}`);
 }
 
 // ─── Fetch helpers ────────────────────────────────────────────────────────────
@@ -551,26 +649,26 @@ async function run() {
       const wantsDiarization = feed.needs_diarization === true;
 
       let tmpFile  = null;
-      let modelUsed = 'whisper+gpt-4o'; // updated below per provider
+      let modelUsed = 'whisper'; // transcription leg only; extraction model appended after step 5d
       try {
         let transcript;
         let speakerSegments = [];
 
         if (wantsDiarization) {
           // 5a. Diarized AssemblyAI path — always, even if Groq is available.
-          modelUsed = 'assemblyai-diarized+gpt-4o';
+          modelUsed = 'assemblyai-diarized';
           const result = await transcribeWithAssemblyAI(ep.audio_url, { diarize: true });
           transcript = result.text;
           speakerSegments = result.utterances;
 
         } else if (USE_ASSEMBLYAI) {
           // 5a. AssemblyAI path (Groq unavailable) — submit URL directly, no download needed
-          modelUsed  = 'assemblyai+gpt-4o';
+          modelUsed  = 'assemblyai';
           transcript = (await transcribeWithAssemblyAI(ep.audio_url)).text;
 
         } else {
           // 5a. Whisper path (Groq or OpenAI) — download first
-          modelUsed = GROQ_KEY ? 'groq-whisper-large-v3+gpt-4o' : 'whisper-1+gpt-4o';
+          modelUsed = GROQ_KEY ? 'groq-whisper-large-v3' : 'whisper-1';
           console.log(`    ⬇ Downloading audio...`);
           const { filePath, isPartial, sizeBytes } = await fetchWithRetry(
             () => downloadAudio(ep.audio_url)
@@ -594,7 +692,7 @@ async function run() {
           } catch (err) {
             if (err instanceof RateLimitError && ASSEMBLYAI_KEY) {
               console.warn(`    ⚠ Groq rate-limited — falling back to AssemblyAI`);
-              modelUsed  = 'assemblyai+gpt-4o';
+              modelUsed  = 'assemblyai';
               transcript = (await transcribeWithAssemblyAI(ep.audio_url)).text;
             } else {
               throw err; // propagate — no fallback available
@@ -608,12 +706,19 @@ async function run() {
           .update({ status: 'extracting' })
           .eq('id', episodeId);
 
-        // 5d. Pick + intel extraction via GPT-4o
+        // 5d. Pick + intel extraction — GPT-4o, falling back to Claude then
+        // Gemini if a provider is down or out of credits (see
+        // extractPicksAndIntel's fallback chain above, wired 2026-09-14).
         console.log(`    🤖 Extracting picks + intel...`);
-        const { picks, intel } = await fetchWithRetry(
+        const { picks, intel, extractionModel } = await fetchWithRetry(
           () => extractPicksAndIntel(transcript, feed.expert)
         );
-        console.log(`    ✅ ${picks.length} picks, ${intel.length} intel items`);
+        console.log(`    ✅ ${picks.length} picks, ${intel.length} intel items (via ${extractionModel})`);
+        // modelUsed so far is just the transcription leg (e.g.
+        // 'groq-whisper-large-v3'); append which extraction model actually
+        // produced the picks so podcast_transcripts.model_used reflects
+        // reality even when a fallback silently kicked in.
+        modelUsed = `${modelUsed}+${extractionModel}`;
 
         // 5e. Write transcript to Supabase
         const whisperMinutes = ep.duration_secs ? Math.ceil(ep.duration_secs / 60) : null;
