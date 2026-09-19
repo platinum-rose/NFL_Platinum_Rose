@@ -47,7 +47,7 @@ import { createClient } from '@supabase/supabase-js';
 import 'dotenv/config';
 import { isNflBettingIntel, isFantasyDraftMechanics } from './lib/sportsRelevanceFilter.js';
 import { ensureVaultFrontmatter } from './lib/vaultFrontmatter.js';
-import { tweetTextFromResult, extractAuthorThread, mergeThread } from './lib/tweet-thread.js';
+import { tweetTextFromResult, extractAuthorThread, mergeThread, mediaUrlsFromResult, videosFromResult, looksLikeThreadStarter } from './lib/tweet-thread.js';
 
 // Copied verbatim from agents/research-intel-ingest.js (same convention as
 // scripts/repoint-corpus-b-articles.js / backfill-action-network-week3-gap.js
@@ -234,8 +234,8 @@ export async function fetchPersonalBookmarks(queryKeywords = [
                 const authorHandle = userRes?.core?.screen_name || userRes?.legacy?.screen_name || userRes?.screen_name || 'twitter_user';
                 const authorName = userRes?.core?.name || userRes?.legacy?.name || userRes?.name || authorHandle;
 
-                const mediaItems = legacy.extended_entities?.media || legacy.entities?.media || [];
-                const mediaUrls = mediaItems.map(m => m.media_url_https).filter(Boolean);
+                const mediaUrls = mediaUrlsFromResult(tweetResult);
+                const videos = videosFromResult(tweetResult);
 
                 allTweets.push({
                   id: legacy.id_str,
@@ -244,7 +244,8 @@ export async function fetchPersonalBookmarks(queryKeywords = [
                   text: tweetTextFromResult(tweetResult),
                   created_at: legacy.created_at,
                   url: `https://x.com/${authorHandle}/status/${legacy.id_str}`,
-                  media_urls: mediaUrls
+                  media_urls: mediaUrls,
+                  videos
                 });
               }
             }
@@ -464,7 +465,10 @@ export async function analyzeTweetImageWithGeminiVision(imageUrl) {
 
   try {
     const imgResp = await fetch(imageUrl);
-    if (!imgResp.ok) return null;
+    if (!imgResp.ok) {
+      console.warn(`  [vision] Image fetch HTTP ${imgResp.status}: ${imageUrl}`);
+      return null;
+    }
     const arrayBuffer = await imgResp.arrayBuffer();
     const base64Data = Buffer.from(arrayBuffer).toString('base64');
     const mimeType = imageUrl.endsWith('.png') ? 'image/png' : 'image/jpeg';
@@ -492,7 +496,11 @@ export async function analyzeTweetImageWithGeminiVision(imageUrl) {
   ]
 }`;
 
-    const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+    // 2026-09-19: was hardcoded gemini-2.5-flash and dropped non-200s silently -- every
+    // OCR call in the thread-refresh run returned nothing. Model is now configurable and
+    // matches the podcast extractor's default; failures are logged.
+    const model = process.env.GEMINI_VISION_MODEL || 'gemini-3.6-flash';
+    const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_API_KEY}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -506,13 +514,17 @@ export async function analyzeTweetImageWithGeminiVision(imageUrl) {
       })
     });
 
-    if (resp.ok) {
-      const data = await resp.json();
-      const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-      if (rawText) {
-        return JSON.parse(rawText);
-      }
+    if (!resp.ok) {
+      console.warn(`  [vision] Gemini ${model} HTTP ${resp.status}: ${(await resp.text()).slice(0, 200)}`);
+      return null;
     }
+    const data = await resp.json();
+    const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    if (!rawText) {
+      console.warn(`  [vision] Gemini ${model} returned no text (finishReason ${data.candidates?.[0]?.finishReason || 'n/a'}).`);
+      return null;
+    }
+    return JSON.parse(rawText);
   } catch (err) {
     console.warn(`  [warn] Gemini Vision tweet media OCR error: ${err.message}`);
   }
@@ -605,6 +617,49 @@ export async function fetchTweetThread(tweetId) {
   }
 }
 
+async function expandBookmarkThread(bm) {
+  const thread = await fetchTweetThread(bm.id);
+  if (!thread || thread.length === 0) return bm;
+  const merged = mergeThread(thread);
+  const videos = [...(bm.videos || [])];
+  for (const v of merged.videos) if (!videos.some((x) => x.url === v.url)) videos.push(v);
+  const next = { ...bm, videos, media_urls: [...new Set([...(bm.media_urls || []), ...merged.media_urls])] };
+  if (thread.length > 1) {
+    next.text = merged.text;
+    console.log(`  [thread] Expanded to ${thread.length} tweets by @${bm.author} (${merged.text.length} chars, ${next.media_urls.length} image(s), ${videos.length} video(s)).`);
+  }
+  return next;
+}
+
+// Videos can't be OCR'd; record them for the Antigravity team to transcribe manually.
+const VIDEO_QUEUE_PATH = path.join(ROOT, 'data', 'research-intel', 'twitter-video-queue.json');
+export async function queueTweetVideos(bm, videos) {
+  if (!videos?.length || DRY_RUN) return;
+  const { readFile } = await import('node:fs/promises');
+  let queue = [];
+  try { queue = JSON.parse(await readFile(VIDEO_QUEUE_PATH, 'utf8')); } catch { queue = []; }
+  let added = 0;
+  for (const v of videos) {
+    const key = v.url || `${v.tweet_id}:${v.poster}`;
+    if (queue.some((q) => (q.url || `${q.tweet_id}:${q.poster}`) === key)) continue;
+    queue.push({
+      status: 'pending',
+      queued_at: new Date().toISOString(),
+      author: bm.author,
+      bookmark_url: bm.url,
+      tweet_url: `https://x.com/${bm.author}/status/${v.tweet_id || bm.id}`,
+      tweet_created_at: bm.created_at,
+      context: String(bm.text || '').slice(0, 280),
+      ...v,
+    });
+    added++;
+  }
+  if (!added) return;
+  await mkdir(path.dirname(VIDEO_QUEUE_PATH), { recursive: true });
+  await writeFile(VIDEO_QUEUE_PATH, JSON.stringify(queue, null, 2) + '\n', 'utf8');
+  console.log(`  [video] Added ${added} video(s) to ${path.relative(ROOT, VIDEO_QUEUE_PATH)}`);
+}
+
 export async function processBookmarkedTweet(bm, opts = {}) {
   // opts lets tracked-account ingestion reuse this exact pipeline (recency
   // gate, dedup, relevance gate, Vision OCR, vault + research bridge write)
@@ -642,8 +697,16 @@ export async function processBookmarkedTweet(bm, opts = {}) {
     return { skipped: true, reason: 'Already in local vault' };
   }
 
-  // 3. Run Sports Relevance Gate
-  const gate = isNflBettingIntel(bm.text);
+  // 3. Run Sports Relevance Gate. Thread starters whose head tweet names no team get
+  // expanded first and re-gated; everything else expands after passing the gate.
+  const canExpand = !SAMPLE_MODE && opts.expandThreads !== false;
+  let expanded = false;
+  let gate = isNflBettingIntel(bm.text);
+  if (!gate.isRelevant && canExpand && looksLikeThreadStarter(bm.text)) {
+    bm = await expandBookmarkThread(bm);
+    expanded = true;
+    gate = isNflBettingIntel(bm.text);
+  }
 
   if (!gate.isRelevant) {
     console.log(`  [skipped] Non-target bookmark (${bm.author}): "${bm.text.substring(0, 50)}..." (${gate.reason})`);
@@ -652,14 +715,9 @@ export async function processBookmarkedTweet(bm, opts = {}) {
 
   console.log(`\n[bookmark] Ingesting ${gate.sport} intel from @${bm.author}: "${bm.subject || bm.text.substring(0, 45)}..."`);
 
-  if (!SAMPLE_MODE && opts.expandThreads !== false) {
-    const thread = await fetchTweetThread(bm.id);
-    if (thread && thread.length > 1) {
-      const merged = mergeThread(thread);
-      bm = { ...bm, text: merged.text, media_urls: [...new Set([...(bm.media_urls || []), ...merged.media_urls])] };
-      console.log(`  [thread] Expanded to ${thread.length} tweets by @${bm.author} (${merged.text.length} chars, ${bm.media_urls.length} image(s)).`);
-    }
-  }
+  if (canExpand && !expanded) bm = await expandBookmarkThread(bm);
+  const videos = bm.videos || [];
+  if (videos.length) console.log(`  [video] ${videos.length} attached video(s) -- queued for transcription.`);
 
   // Optional local LLM summary via Ollama if enabled
   let localSummary = null;
@@ -712,7 +770,7 @@ export async function processBookmarkedTweet(bm, opts = {}) {
 \`\`\`text
 ${bm.text.trim()}
 \`\`\`
-${propSection}`;
+${propSection}${videos.length ? `\n## Attached Video(s) -- pending transcription\n${videos.map((v) => `- ${v.type} ${v.duration_ms ? `(${Math.round(v.duration_ms / 1000)}s) ` : ''}${v.url || v.poster} -- tweet ${v.tweet_id || bm.id}`).join('\n')}\n` : ''}`;
 
   const fullContent = ensureVaultFrontmatter(markdownBody, {
     title: `Bookmark: @${bm.author}`,
@@ -730,6 +788,7 @@ ${propSection}`;
   await mkdir(REPORTS_DIR, { recursive: true });
   await writeFile(localReportPath, fullContent, 'utf8');
   console.log(`  [saved] Local vault report: ${localReportPath}`);
+  await queueTweetVideos(bm, videos);
 
   // Upsert to Supabase vault_notes
   if (supabase && !DRY_RUN) {

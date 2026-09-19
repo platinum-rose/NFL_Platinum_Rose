@@ -18,10 +18,33 @@ export function tweetTextFromResult(result) {
   return note || r.legacy?.full_text || r.legacy?.text || '';
 }
 
-export function mediaUrlsFromResult(result) {
+function mediaOf(result) {
   const legacy = unwrap(result)?.legacy;
-  const media = legacy?.extended_entities?.media || legacy?.entities?.media || [];
-  return media.map((m) => m.media_url_https).filter(Boolean);
+  return legacy?.extended_entities?.media || legacy?.entities?.media || [];
+}
+
+// Images only -- a video's media_url_https is just its poster frame.
+export function mediaUrlsFromResult(result) {
+  return mediaOf(result).filter((m) => !m.type || m.type === 'photo').map((m) => m.media_url_https).filter(Boolean);
+}
+
+// Attached videos / GIFs: highest-bitrate mp4 plus poster and duration, so they can be
+// queued for transcription (Antigravity) instead of being OCR'd as a thumbnail.
+export function videosFromResult(result) {
+  const tweetId = unwrap(result)?.legacy?.id_str || null;
+  return mediaOf(result)
+    .filter((m) => m.type === 'video' || m.type === 'animated_gif')
+    .map((m) => {
+      const mp4s = (m.video_info?.variants || []).filter((v) => v.content_type === 'video/mp4');
+      mp4s.sort((a, b) => (b.bitrate || 0) - (a.bitrate || 0));
+      return {
+        tweet_id: tweetId,
+        type: m.type,
+        url: mp4s[0]?.url || null,
+        poster: m.media_url_https || null,
+        duration_ms: m.video_info?.duration_millis ?? null,
+      };
+    });
 }
 
 function authorIdOf(r) {
@@ -70,13 +93,21 @@ export function extractAuthorThread(json, rootId, { maxTweets = 25 } = {}) {
     id: t.legacy.id_str,
     text: tweetTextFromResult(t),
     media_urls: mediaUrlsFromResult(t),
+    videos: videosFromResult(t),
   }));
 }
 
 export function mergeThread(thread) {
-  if (!Array.isArray(thread) || thread.length === 0) return { text: '', media_urls: [] };
-  if (thread.length === 1) return { text: thread[0].text, media_urls: thread[0].media_urls };
+  if (!Array.isArray(thread) || thread.length === 0) return { text: '', media_urls: [], videos: [] };
+  const videos = thread.flatMap((t) => t.videos || []);
+  if (thread.length === 1) return { text: thread[0].text, media_urls: thread[0].media_urls, videos };
   const text = thread.map((t, i) => `[${i + 1}/${thread.length}] ${t.text.trim()}`).join('\n\n');
   const media_urls = [...new Set(thread.flatMap((t) => t.media_urls))];
-  return { text, media_urls };
+  return { text, media_urls, videos };
+}
+
+// Posts that announce a thread -- expand these before the relevance gate, since the
+// head tweet alone often names no team ("🧵 Circa Survivor Week 2 Strategy & Picks").
+export function looksLikeThreadStarter(text = '') {
+  return /🧵|⤵️|👇|\bthread\b|\(1\/\d+\)|\b1\/\d+\b/i.test(String(text));
 }

@@ -12,7 +12,8 @@ const NFL_SPECIFIC_KEYWORDS = [
   'broncos', 'raiders', 'chargers', 'rams', 'seahawks', 'cardinals', 'falcons', 'panthers',
   'saints', 'buccaneers', 'vikings', 'titans', 'giants', 'jets', 'commanders',
   'mahomes', 'lamar', 'mccaffrey', 'allen', 'burrow', 'hurts', 'stroud', 'darnold',
-  'nabers', 'harrison jr', 'pacheco', 'chase', 'jefferson', 'lamb', 'hill', 'kelce'
+  'nabers', 'harrison jr', 'pacheco', 'chase', 'jefferson', 'lamb', 'hill', 'kelce',
+  'tnf', 'mnf', 'snf', 'thursday night football', 'monday night football', 'sunday night football'
 ];
 
 const GENERIC_BETTING_TERMS = [
@@ -28,6 +29,13 @@ const EXCLUDED_KEYWORDS = [
   'crypto', 'bitcoin', 'eth', 'nft', 'politics', 'election', 'democrat', 'republican',
   'recipe', 'movie', 'actor', 'hollywood', 'gaming', 'ps5', 'xbox', 'nba', 'mlb', 'baseball'
 ];
+
+// 2026-09-19: second-tier match for posts that never name a team/player/"NFL" but are
+// plainly NFL betting ("ten favorite plus money props for Week 2", "🧵 Circa Survivor
+// Week 2 Strategy & Picks", "moneyline pick for every Red Zone game"). Needs BOTH an NFL
+// context cue and a betting cue; the college/other exclusions above still run first.
+const NFL_CONTEXT_RE = /\b(week\s?(1[0-8]|[1-9])|red\s?zone|circa|survivor|supercontest|thursday night|sunday night|monday night)\b/i;
+const BET_CONTEXT_RE = /\b(props?|picks?|bets?|betting|plus[- ]money|moneyline|parlays?|spreads?|ats|over|under|odds|survivor|lines?)\b/i;
 
 function hasKeyword(content, kw) {
   return new RegExp(`\\b${kw.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')}\\b`, 'i').test(content);
@@ -84,6 +92,16 @@ export function isNflBettingIntel(text = '') {
       isRelevant: true,
       sport: 'NFL',
       matched_keywords: [...nflMatch, ...bettingMatch]
+    };
+  }
+
+  const ctx = content.match(NFL_CONTEXT_RE);
+  const bet = content.match(BET_CONTEXT_RE);
+  if (ctx && bet) {
+    return {
+      isRelevant: true,
+      sport: 'NFL',
+      matched_keywords: [ctx[0], bet[0], ...bettingMatch]
     };
   }
 
