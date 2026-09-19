@@ -10,6 +10,7 @@
 
 import 'dotenv/config'; // load .env for local runs (no-op in CI where secrets are real env vars)
 import { createClient } from '@supabase/supabase-js';
+import { formatExpertSelection } from './lib/expert-pick-selection.js';
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 
@@ -233,7 +234,7 @@ function buildUserPick(pick, index, episode, feedName, gameLookup) {
     game_id:        gameId,
     source:         'EXPERT',
     pick_type:      pick.type     ?? 'spread',
-    selection:      pick.selection ?? '',
+    selection:      formatExpertSelection(pick),
     line:           pick.line     ?? null,
     edge:           0,
     confidence:     typeof pick.confidence === 'number' ? Math.round(pick.confidence) : 65,
