@@ -1104,6 +1104,11 @@
             if (msg.status === 'completed' || msg.status === 'failed') {
               fetchStatus();
               if (typeof window.loadDiagnostics === 'function') window.loadDiagnostics();
+              // Cadence runs rebuild projected-starters/latest.json -- refresh the Human Review
+              // badge, and the queue itself if that section is on screen, so it never shows a stale snapshot.
+              if (typeof window.refreshHumanReviewBadge === 'function') window.refreshHumanReviewBadge();
+              const reviewSection = document.getElementById('section-human-review');
+              if (reviewSection && reviewSection.offsetParent !== null && typeof window.loadHumanReview === 'function') window.loadHumanReview();
             }
           }
         } catch (e) {
