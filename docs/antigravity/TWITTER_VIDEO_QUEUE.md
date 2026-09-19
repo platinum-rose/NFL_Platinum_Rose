@@ -4,7 +4,7 @@
 since 2026-09-19). Nothing processes it automatically — an Antigravity session has to be started by Andy.
 
 Each entry: `status` (`pending` → `done` / `skipped`), `author`, `tweet_url`, `bookmark_url`,
-`tweet_created_at`, `context` (the post text, ≤280 chars), `type` (`video` | `animated_gif`),
+`tweet_created_at`, `context` (the post text, ≤280 chars), `type` (`video` | `animated_gif` | `youtube` — a linked YouTube video),
 `url` (highest-bitrate mp4), `poster`, `duration_ms`.
 
 ## What to do per `pending` entry

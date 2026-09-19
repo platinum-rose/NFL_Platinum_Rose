@@ -31,3 +31,12 @@ describe('tweet pick signals', () => {
     expect(linksFromResult(r)).toEqual(['https://www.covers.com/nfl/week-2-ats-picks']);
   });
 });
+
+describe('hit-rate trends', () => {
+  it('stores trend lines with the market and a lower confidence', () => {
+    const [row] = buildTextPickSignalRows([
+      { is_author_pick: true, bet_type: 'trend', team_or_market: 'C. Watson', market: 'receptions', selection: 'OVER', line: 2.5, rationale: '80% hit rate L10' },
+    ], ctx);
+    expect(row).toMatchObject({ bet_type: 'trend', team_or_market: 'C. Watson - receptions', lean: 'OVER 2.5', confidence: 0.4 });
+  });
+});

@@ -40,6 +40,7 @@
 //   node agents/twitter-bookmarks-agent.js --dry-run        # Test fetch without writing to DB
 //   node agents/twitter-bookmarks-agent.js --force          # Re-process bookmarks already in the vault (thread/long-form refresh)
 //   node agents/twitter-bookmarks-agent.js --refresh-ids=ID,ID  # Re-process only these tweet ids
+//   node agents/twitter-bookmarks-agent.js --reprocess-zero-signal  # Re-run only notes with no pick signals
 //   node agents/twitter-bookmarks-agent.js --no-threads     # Skip TweetDetail thread expansion
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -121,7 +122,7 @@ const DRY_RUN = argv.includes('--dry-run') || process.env.DRY_RUN === 'true';
 const SAMPLE_MODE = argv.includes('--sample');
 const TRACKED_ACCOUNTS_MODE = argv.includes('--tracked-accounts');
 const maxDaysArg = argv.find(a => a.startsWith('--max-days='));
-const MAX_DAYS = maxDaysArg ? parseInt(maxDaysArg.split('=')[1], 10) : 8; // current-week intel only (was 30)
+const MAX_DAYS = maxDaysArg ? parseInt(maxDaysArg.split('=')[1], 10) : 6; // current-week intel only (was 30, then 8; Andy 2026-09-19: 6)
 const TRACKED_ACCOUNTS_CONFIG_PATH = path.join(ROOT, 'config', 'twitter-tracked-accounts.json');
 // Caches handle->rest_id lookups (UserByScreenName) across runs so a normal
 // run only spends GraphQL calls on UserTweets, not re-resolving 20 handles
@@ -176,6 +177,15 @@ export async function fetchPersonalBookmarks(queryKeywords = [
   'CFB',
   'cutdown',
   'draft',
+  // 2026-09-19: bookmarks like "Parlay Judge MONEYLINE CARD", "Sal Bets 7 Best Bets",
+  // "Harry Lock TD predictions" fell out of the fetch -- each keyword search returned one
+  // 20-item page only. Broader terms + cursor pagination below.
+  'week',
+  'bets',
+  'moneyline',
+  'parlay',
+  'touchdown',
+  'TD',
 ]) {
   if (!TWITTER_AUTH_TOKEN) {
     console.log(`[info] PERSONAL_TWITTER_AUTH_TOKEN not configured in .env.`);
@@ -211,9 +221,16 @@ export async function fetchPersonalBookmarks(queryKeywords = [
   const allTweets = [];
   const seenIds = new Set();
 
+  const maxPages = Number(process.env.TWITTER_BOOKMARK_MAX_PAGES || 5);
+  const cutoffMs = Date.now() - MAX_DAYS * 86400 * 1000;
   for (const q of queryKeywords) {
+   let cursor = null;
+   for (let page = 0; page < maxPages; page++) {
+    let pageNew = 0;
+    let pageRecent = 0;
+    let nextCursor = null;
     try {
-      const variables = { rawQuery: q, count: 20 };
+      const variables = { rawQuery: q, count: 20, ...(cursor ? { cursor } : {}) };
       const url = `https://x.com/i/api/graphql/${qid}/${op}?variables=${encodeURIComponent(JSON.stringify(variables))}&features=${encodeURIComponent(JSON.stringify(features))}`;
 
       const resp = await fetch(url, {
@@ -231,11 +248,15 @@ export async function fetchPersonalBookmarks(queryKeywords = [
         for (const inst of instructions) {
           if (inst.type === 'TimelineAddEntries') {
             for (const entry of (inst.entries || [])) {
+              if (entry?.content?.cursorType === 'Bottom') nextCursor = entry.content.value;
               const tweetResult = entry?.content?.itemContent?.tweet_results?.result;
+              const createdMs = Date.parse((tweetResult?.legacy || tweetResult?.tweet?.legacy)?.created_at || '');
+              if (createdMs >= cutoffMs) pageRecent++;
               const legacy = tweetResult?.legacy || tweetResult?.tweet?.legacy;
               
               if (legacy && legacy.id_str && !seenIds.has(legacy.id_str)) {
                 seenIds.add(legacy.id_str);
+                pageNew++;
                 const userRes = tweetResult?.core?.user_results?.result || tweetResult?.tweet?.core?.user_results?.result;
                 const authorHandle = userRes?.core?.screen_name || userRes?.legacy?.screen_name || userRes?.screen_name || 'twitter_user';
                 const authorName = userRes?.core?.name || userRes?.legacy?.name || userRes?.name || authorHandle;
@@ -262,6 +283,12 @@ export async function fetchPersonalBookmarks(queryKeywords = [
     } catch (err) {
       console.warn(`  [warn] Bookmark search error for "${q}": ${err.message}`);
     }
+    // Stop paging a keyword once a page has nothing inside the recency window
+    // (results are newest-first) or no further cursor.
+    if (!nextCursor || pageRecent === 0 || nextCursor === cursor) break;
+    cursor = nextCursor;
+    void pageNew;
+   }
   }
 
   return allTweets;
@@ -722,7 +749,9 @@ export async function processBookmarkedTweet(bm, opts = {}) {
   // --refresh-ids=<id,id> re-processes just those bookmarks (e.g. thread starters
   // ingested head-only before 2026-09-19) without re-running the whole window.
   const refreshIds = (argv.find((a) => a.startsWith('--refresh-ids=')) || '').split('=')[1];
-  const FORCE = argv.includes('--force') || (refreshIds ? refreshIds.split(',').includes(String(bm.id)) : false);
+  const FORCE = argv.includes('--force')
+    || (refreshIds ? refreshIds.split(',').includes(String(bm.id)) : false)
+    || (opts.zeroSignalUrlHashes ? opts.zeroSignalUrlHashes.has(sha256(canonicalizeUrl(bm.url))) : false);
   const slug = bm.id.replace(/[^a-zA-Z0-9]/g, '-');
   const filename = `${dateStr}-${bm.author}-${slug}.md`;
   const localReportPath = path.join(REPORTS_DIR, filename);
@@ -754,7 +783,13 @@ export async function processBookmarkedTweet(bm, opts = {}) {
   if (bm.links?.length && !bm.text.includes('\nLinks: ')) {
     bm = { ...bm, text: `${bm.text.trim()}\n\nLinks: ${bm.links.join(' ')}` };
   }
-  const videos = bm.videos || [];
+  // Linked YouTube videos (e.g. "Week 2 plays OUT NOW" -> youtu.be) go to the same
+  // Antigravity transcription queue as attached videos.
+  const youtubeLinks = (bm.links || []).filter((u) => /(^https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\//i.test(u));
+  const videos = [
+    ...(bm.videos || []),
+    ...youtubeLinks.map((u) => ({ tweet_id: bm.id, type: 'youtube', url: u, poster: null, duration_ms: null })),
+  ];
   if (videos.length) console.log(`  [video] ${videos.length} attached video(s) -- queued for transcription.`);
 
   // Optional local LLM summary via Ollama if enabled
@@ -1006,9 +1041,27 @@ export async function runBookmarkIngestion() {
     }
   }
 
+  // --reprocess-zero-signal: re-run only bookmarks whose research note has no pick signals yet.
+  let zeroSignalUrlHashes = null;
+  if (argv.includes('--reprocess-zero-signal') && supabase) {
+    const since = new Date(Date.now() - MAX_DAYS * 86400 * 1000).toISOString();
+    const { data: notes } = await supabase
+      .from('research_intel_notes')
+      .select('id, url_hash')
+      .like('source', 'Twitter%')
+      .gte('published_at', since);
+    const ids = (notes || []).map((n) => n.id);
+    const { data: sigs } = ids.length
+      ? await supabase.from('research_pick_signals').select('note_id').in('note_id', ids)
+      : { data: [] };
+    const withSignals = new Set((sigs || []).map((s) => s.note_id));
+    zeroSignalUrlHashes = new Set((notes || []).filter((n) => !withSignals.has(n.id)).map((n) => n.url_hash));
+    console.log(`[reprocess] ${zeroSignalUrlHashes.size} recent bookmark note(s) with no pick signals will be re-run.`);
+  }
+
   const results = [];
   for (const bm of bookmarks) {
-    const res = await processBookmarkedTweet(bm);
+    const res = await processBookmarkedTweet(bm, zeroSignalUrlHashes ? { zeroSignalUrlHashes } : {});
     results.push(res);
   }
 
