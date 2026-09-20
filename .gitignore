@@ -125,3 +125,7 @@ scratch/*-tmp*.mjs
 /data/official-picks/user-placed-wagers-2026.json
 /public/user-placed-wagers-2026.json
 /data/official-picks/missed-plays-2026.json
+
+# Parsed prop boards + derived stats (regenerate with scripts/props/)
+data/generated/props/
+data/generated/prop-availability.json
