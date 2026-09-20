@@ -7,6 +7,9 @@
 import publishedWeek1Data from '../../data/supercontest/week-01-lines.json';
 import publishedWeek2Data from '../../data/supercontest/week-02-lines.json';
 import liveMarketComparison from '../../data/supercontest/live-market-comparison.json';
+// Bookmaker (BKR) "current line" snapshots, pasted by Andy. When a week has one, it
+// drives the Current Line / Movement / total columns instead of the DraftKings feed.
+import bkrCurrentWeek2 from '../../data/supercontest/bkr-current-lines-week-02.json';
 import { PR_STORAGE_KEYS } from './storage.js';
 
 export const WATCHLIST_STORAGE_KEY = PR_STORAGE_KEYS.SUPERCONTEST_WATCHLIST?.key || 'nfl_supercontest_watchlist_v1';
@@ -14,6 +17,8 @@ export const SUNDAY_TRACKER_SC_KEY_PREFIX = 'sunday_supercontest_picks_week_';
 
 /** Wednesday-published contest lines by week. Add each new week's week-NN-lines.json here. */
 const PUBLISHED_LINES_BY_WEEK = { 1: publishedWeek1Data, 2: publishedWeek2Data };
+
+export const BKR_CURRENT_LINES_BY_WEEK = { 2: bkrCurrentWeek2 };
 export const SC_WEEKS = Object.keys(PUBLISHED_LINES_BY_WEEK).map(Number).sort((a, b) => a - b);
 export const SC_LATEST_WEEK = SC_WEEKS[SC_WEEKS.length - 1];
 
@@ -231,16 +236,37 @@ export function getSuperContestMetadata(game) {
   // Opening line:
   const openingSpreadLabel = mktMatch?.opening_spread || mktMatch?.locked_contest_spread || contestSpreadLabel;
 
+  // Bookmaker current line (preferred when this week has a BKR snapshot)
+  const bkr = BKR_CURRENT_LINES_BY_WEEK[Number(game.week) || 1] || null;
+  const bkrMatch = (bkr?.games || []).find(b => {
+    const a = (b.away || '').toUpperCase();
+    const h = (b.home || '').toUpperCase();
+    return (a === visitor && h === home) || (a === home && h === visitor);
+  }) || null;
+  const currentLineSource = bkrMatch ? 'BKR' : (mktMatch?.live_dk_spread ? 'DK' : 'schedule');
+
   // Current live spread:
-  const currentSpreadLabel = mktMatch?.live_dk_spread 
+  const currentSpreadLabel = bkrMatch?.spread_label || mktMatch?.live_dk_spread 
     || (typeof game.spread === 'number' ? `${home} ${game.spread > 0 ? '+' : ''}${game.spread}` : 'N/A');
 
   // Total:
-  const currentTotal = mktMatch?.live_dk_total || (typeof game.total === 'number' && game.total > 0 ? game.total : null);
+  const currentTotal = bkrMatch?.total || mktMatch?.live_dk_total || (typeof game.total === 'number' && game.total > 0 ? game.total : null);
 
   // Movement & steam summary:
-  const movementSummary = mktMatch?.clv_summary || 'Exact match (0.0 movement)';
-  const movementPoints = mktMatch?.clv_points_fav || 0;
+  // Movement = how many points the contest favorite's number has moved since the
+  // contest lock (negative = fewer points laid now, i.e. value on the contest dog).
+  let movementSummary = mktMatch?.clv_summary || 'Exact match (0.0 movement)';
+  let movementPoints = mktMatch?.clv_points_fav || 0;
+  if (bkrMatch && scMatch && publishedSpreadNum !== null) {
+    const contestFav = scMatch.favorite_abbr;
+    const contestDog = scMatch.underdog_abbr;
+    // BKR line expressed from the contest favorite's side
+    const bkrFavLine = bkrMatch.fav_abbr === contestFav ? bkrMatch.spread_fav : -bkrMatch.spread_fav;
+    movementPoints = Math.round(((-bkrFavLine) - (-publishedSpreadNum)) * 10) / 10;
+    movementSummary = movementPoints === 0
+      ? 'Exact match with BKR (0.0 movement)'
+      : `+${Math.abs(movementPoints)} pt CLV on ${movementPoints < 0 ? contestDog : contestFav} (BKR ${bkrMatch.spread_label} vs contest ${contestFav} ${publishedSpreadNum})`;
+  }
 
   const isConcluded = game.status === 'post' || game.status === 'STATUS_FINAL';
 
@@ -254,6 +280,8 @@ export function getSuperContestMetadata(game) {
     contestSpreadLabel,
     openingSpreadLabel,
     currentSpreadLabel,
+    currentLineSource,
+    bkrMatch,
     currentTotal,
     movementSummary,
     movementPoints,

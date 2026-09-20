@@ -538,7 +538,7 @@ export default function SuperContestView({ isOpen, onClose, games = [], onUpdate
                 </span>
               </div>
               <p className="text-[11px] text-slate-400 mt-1">
-                Official locked contest spreads, opening lines, live DraftKings movements, and instant deep-dive match analysis.
+                Official locked contest spreads, opening lines, current Bookmaker lines and movement, and instant deep-dive match analysis.
               </p>
             </div>
           </div>
@@ -1236,10 +1236,10 @@ export default function SuperContestView({ isOpen, onClose, games = [], onUpdate
                           </div>
                         </div>
 
-                        {/* 3. Current Live Line (DraftKings) */}
-                        <div className="text-center">
+                        {/* 3. Current Live Line (Bookmaker snapshot when available, else DraftKings feed) */}
+                        <div className="text-center" title={meta.currentLineSource === 'BKR' ? 'Current line: Bookmaker (BKR)' : meta.currentLineSource === 'DK' ? 'Current line: DraftKings (Odds API)' : 'Current line: schedule feed'}>
                           <div className="text-[10px] font-bold text-cyan-400 uppercase tracking-wider">
-                            Current Line
+                            Current Line{meta.currentLineSource && meta.currentLineSource !== 'schedule' ? <span className="ml-1 text-[8px] text-cyan-300/70 normal-case">({meta.currentLineSource})</span> : null}
                           </div>
                           <div className="text-sm font-mono font-bold text-cyan-200 mt-1">
                             {isConcluded ? 'FINAL' : meta.currentSpreadLabel}
