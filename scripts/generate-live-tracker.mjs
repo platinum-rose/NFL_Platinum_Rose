@@ -916,9 +916,27 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
     return (a.name || '').localeCompare(b.name || '');
   });
 
-  const burntWagers = wagers.filter(w => w.status === 'SETTLED' && (w.result === 'loss' || w.result === 'LOST'));
-  const cashedWagers = wagers.filter(w => w.status === 'SETTLED' && (w.result === 'win' || w.result === 'WON'));
-  const liveWagers = wagers.filter(w => w.status !== 'SETTLED');
+  // A ticket counts as a prop parlay when it has multiple legs and at least one
+  // is a player prop. Legs on sides/totals tickets carry no `player`, so the
+  // named-player test separates them cleanly; the market fallback mirrors the
+  // isPropLeg check in renderCard(). The multi-leg guard keeps straight futures
+  // (e.g. a single-leg Super Bowl ticket, also categorised "Future/Prop") out.
+  const NON_PROP_MARKETS = ['spread', 'moneyline', 'total', 'team_total', 'open_slot'];
+  function isPropParlay(bet) {
+    const legs = Array.isArray(bet.legs) ? bet.legs : [];
+    if (legs.length < 2) return false;
+    return legs.some(l => l && (l.player || (l.market && !NON_PROP_MARKETS.includes(String(l.market).toLowerCase()))));
+  }
+  // Prop legs settle in-game, so Andy watches them live: float those tickets to
+  // the top of each grid. Partitioning (rather than sorting) keeps the existing
+  // relative order inside both groups.
+  function propParlaysFirst(list) {
+    return [...list.filter(isPropParlay), ...list.filter(b => !isPropParlay(b))];
+  }
+
+  const burntWagers = propParlaysFirst(wagers.filter(w => w.status === 'SETTLED' && (w.result === 'loss' || w.result === 'LOST')));
+  const cashedWagers = propParlaysFirst(wagers.filter(w => w.status === 'SETTLED' && (w.result === 'win' || w.result === 'WON')));
+  const liveWagers = propParlaysFirst(wagers.filter(w => w.status !== 'SETTLED'));
   const settledWagers = burntWagers;
 
   const FUTURES_MARKET_LABELS = {
@@ -4394,6 +4412,10 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
     const HIDE_FULFILLED_KEY = 'sunday_hide_fulfilled_week_${week}';
     const ARCHIVE_KEY = 'sunday_settled_archive_week_${week}';
     const ORDER_KEY = 'sunday_card_order_week_${week}';
+    // Bump when the generator's default card order changes, so a previously
+    // saved drag-order does not silently re-apply the old layout on load.
+    const ORDER_LAYOUT_KEY = 'sunday_card_order_layout_week_${week}';
+    const ORDER_LAYOUT_VERSION = 'props-first-v1';
     const COLLAPSED_KEY = 'sunday_card_collapsed_week_${week}';
     const PLAYER_ORDER_KEY = 'sunday_player_order_week_${week}';
     const PLAYER_COLLAPSED_KEY = 'sunday_player_collapsed_week_${week}';
@@ -4531,6 +4553,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
       try { setupPlayerDragAndDrop(); } catch (e) { console.warn(e); }
       try { setupLeagueDragAndDrop(); } catch (e) { console.warn(e); }
       try { restoreCardOrder(); } catch (e) { console.warn(e); }
+      try { sortTicketLegsByStatus(); } catch (e) { console.warn(e); }
       try { restorePlayerCardOrder(); } catch (e) { console.warn(e); }
       try { restoreLeagueOrder(); } catch (e) { console.warn(e); }
 
@@ -5379,6 +5402,56 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
       cards.forEach(c => container.appendChild(c));
     }
     window.sortLeftSidebarGameCards = sortLeftSidebarGameCards;
+
+    // ── TICKET LEG ORDERING ──────────────────────────────────────────────
+    // Legs render chronologically from the generator. At runtime we re-rank
+    // them the same way the left game sidebar ranks its cards: whatever is in
+    // progress floats to the top, not-yet-kicked legs sit in the middle, and
+    // finished legs sink to the bottom. Chronological within each band.
+    function legStatusRank(legEl) {
+      const kickoff = parseFloat(legEl.getAttribute('data-kickoff') || '9999999999999');
+      const abbrs = [];
+      const gameLabel = legEl.getAttribute('data-game') || '';
+      gameLabel.split(/\s*(?:@|vs\.?)\s*/i).forEach(part => {
+        const a = (part || '').trim().toUpperCase();
+        if (a && a.length <= 4) abbrs.push(a);
+      });
+      const teamAttr = (legEl.getAttribute('data-team') || '').trim().toUpperCase();
+      if (teamAttr && teamAttr !== 'TOTAL') abbrs.push(teamAttr);
+
+      const statusMap = window.latestTeamStatusMap || latestTeamStatusMap || {};
+      for (const abbr of abbrs) {
+        const info = statusMap[abbr];
+        if (!info) continue;
+        if (info.isLive) return 0;
+        if (info.isCompleted || (info.statusDesc && info.statusDesc.toLowerCase().includes('final'))) return 2;
+        return 1;
+      }
+      // No scoreboard entry yet (first paint, or a leg we could not map to a
+      // game): fall back to the clock rather than stranding it at the top.
+      if (!isFinite(kickoff) || kickoff >= 9999999999999) return 1;
+      return Date.now() >= kickoff ? 0 : 1;
+    }
+
+    function sortTicketLegsByStatus() {
+      document.querySelectorAll('.card-legs').forEach(container => {
+        const legs = Array.from(container.querySelectorAll(':scope > .leg-item'));
+        if (legs.length < 2) return;
+        legs.sort((a, b) => {
+          const rankA = legStatusRank(a);
+          const rankB = legStatusRank(b);
+          if (rankA !== rankB) return rankA - rankB;
+          const kA = parseFloat(a.getAttribute('data-kickoff') || '9999999999999');
+          const kB = parseFloat(b.getAttribute('data-kickoff') || '9999999999999');
+          if (kA !== kB) return kA - kB;
+          return 0;
+        });
+        // The fulfilled-legs strip is never in this list, so it keeps its spot
+        // at the top of the container while the legs re-append beneath it.
+        legs.forEach(l => container.appendChild(l));
+      });
+    }
+    window.sortTicketLegsByStatus = sortTicketLegsByStatus;
 
     function updateSuperContestLiveScores(events) {
       if (!events || !Array.isArray(events)) return;
@@ -6593,6 +6666,8 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
       });
 
       latestTeamStatusMap = teamStatusMap;
+      window.latestTeamStatusMap = teamStatusMap;
+      try { sortTicketLegsByStatus(); } catch (e) { console.warn('leg sort:', e); }
 
       // Update bench cards based on team game state
       const cards = document.querySelectorAll('.ff-player-card');
@@ -7534,11 +7609,21 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
       const liveCards = Array.from(document.querySelectorAll('#cards-grid .bet-card')).map(c => c.id);
       const cashedCards = Array.from(document.querySelectorAll('#cashed-cards-grid .bet-card')).map(c => c.id);
       const burntCards = Array.from(document.querySelectorAll('#burnt-cards-grid .bet-card')).map(c => c.id);
-      try { localStorage.setItem(ORDER_KEY, JSON.stringify([...liveCards, ...cashedCards, ...burntCards])); } catch (e) {}
+      try {
+        localStorage.setItem(ORDER_KEY, JSON.stringify([...liveCards, ...cashedCards, ...burntCards]));
+        localStorage.setItem(ORDER_LAYOUT_KEY, ORDER_LAYOUT_VERSION);
+      } catch (e) {}
     }
 
     function restoreCardOrder() {
       try {
+        // Discard an order saved under an older layout once, so a new default
+        // ordering actually reaches the board. Drags made after that persist.
+        if (localStorage.getItem(ORDER_LAYOUT_KEY) !== ORDER_LAYOUT_VERSION) {
+          localStorage.removeItem(ORDER_KEY);
+          localStorage.setItem(ORDER_LAYOUT_KEY, ORDER_LAYOUT_VERSION);
+          return;
+        }
         const savedOrder = localStorage.getItem(ORDER_KEY);
         if (!savedOrder) return;
         const order = JSON.parse(savedOrder);
