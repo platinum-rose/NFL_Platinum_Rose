@@ -17,7 +17,7 @@
  *  node scripts/generate-live-tracker.mjs [--week <num>] [--out <path>]
  */
 
-import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -26,6 +26,12 @@ const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
 
 const WAGERS_PATH = path.join(ROOT, 'data', 'official-picks', 'user-placed-wagers-2026.json');
+// Paper (imaginary-money) tickets, e.g. the Platinum Rose AI benchmark card. Shown on the board
+// for comparison only: excluded from every cash/payout total and never synced to the bankroll.
+const PAPER_WAGERS_PATH = path.join(ROOT, 'data', 'official-picks', 'paper-wagers-2026.json');
+const FUTURES_LEDGER_PATH = path.join(ROOT, 'data', 'futures-imports', 'andy-portfolio-ledger-2026.json');
+const FUTURES_IMPORTS_DIR = path.join(ROOT, 'data', 'futures-imports');
+const PRICE_WATCH_LIST_PATH = path.join(FUTURES_IMPORTS_DIR, 'price-watch-list-2026.json');
 const SCHEDULE_PATH = path.join(ROOT, 'public', 'schedule.json');
 const DEFAULT_OUT_PUBLIC = path.join(ROOT, 'public', 'live-tracker-sunday.html');
 const DEFAULT_OUT_DOCS = path.join(ROOT, 'docs', 'tracked-wagers', 'live-tracker-sunday.html');
@@ -226,8 +232,11 @@ async function loadConcludedGameStats(schedule = [], week = 1) {
               const rec = athleteStatsMap[n];
               if (groupName === 'passing') {
                 rec.passCompAtt = s[0] || '0/0';
+                rec.passAtt = parseInt((s[0] || '0/0').split('/')[1] || 0, 10);
+                rec.passComp = parseInt((s[0] || '0/0').split('/')[0] || 0, 10);
                 rec.passYds = parseInt(s[1] || 0, 10);
                 rec.passTd = parseInt(s[3] || 0, 10);
+                rec.passInt = parseInt(s[4] || 0, 10);
               } else if (groupName === 'rushing') {
                 rec.car = parseInt(s[0] || 0, 10);
                 rec.rushYds = parseInt(s[1] || 0, 10);
@@ -279,7 +288,16 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
 
   const rawWagers = await readFile(WAGERS_PATH, 'utf8');
   const allWagers = JSON.parse(rawWagers);
-  const wagers = allWagers.filter(w => w.week === week || !w.week);
+  const wagers = allWagers.filter(w => (w.week === week || !w.week) && w.game !== 'NFL Futures');
+  try {
+    const paper = JSON.parse(await readFile(PAPER_WAGERS_PATH, 'utf8'));
+    for (const w of paper) if (w.week === week) wagers.push({ ...w, is_paper: true });
+  } catch { /* no paper tickets */ }
+  // Season-long futures (Super Bowl winner, MVP, division, etc.) don't belong on a single
+  // game-day board -- they're tracked in their own Futures Portfolio tab below, independent
+  // of which week's tracker is being generated, and are pulled from the full wager list
+  // (not the week-filtered one) since they span the whole season.
+  const futuresWagers = allWagers.filter(w => w.game === 'NFL Futures');
 
   let schedule = [];
   try {
@@ -443,6 +461,17 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
     fantasyData = JSON.parse(rawFantasy);
   } catch (err) {
     console.warn('⚠️ Yahoo live fantasy rosters not loaded:', err.message);
+  }
+
+  // All-positions Available Players Radar (offense, DEF, IDP -- kickers stay
+  // in fantasyData.targetKickers above, which already has its own section).
+  let radarData = { leagues: [], generatedAt: null };
+  try {
+    const radarPath = path.join(ROOT, 'data', 'fantasy', 'available-players-radar.json');
+    const rawRadar = await readFile(radarPath, 'utf8');
+    radarData = JSON.parse(rawRadar);
+  } catch (err) {
+    console.warn('⚠️ Available players radar not loaded:', err.message);
   }
 
   const DEF_POSITIONS = new Set(['DEF', 'D', 'LB', 'DB', 'DL', 'DE', 'DT', 'CB', 'S']);
@@ -691,6 +720,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
   let totalPotentialPayout = 0;
 
   for (const bet of wagers) {
+    if (bet.is_paper) continue; // imaginary money: never counted
     const isPromo = bet.is_promo_credit || bet.funding_type === 'promo_credit';
     if (isPromo) {
       totalPromoRisk += (bet.promo_credit_stake_usd ?? bet.stake_usd ?? 0);
@@ -759,6 +789,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
       book: bet.book,
       ticketNumber: bet.ticket_number || null,
       isPromo,
+      isPaper: !!bet.is_paper,
       cashStake,
       promoStake,
       payout,
@@ -890,6 +921,504 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
   const liveWagers = wagers.filter(w => w.status !== 'SETTLED');
   const settledWagers = burntWagers;
 
+  const FUTURES_MARKET_LABELS = {
+    superbowl: 'Super Bowl Winner',
+    superbowl_matchup: 'Super Bowl Exact Matchup',
+    wins: 'Season Win Total',
+    playoffs: 'Make Playoffs',
+    division: 'Division Winner',
+    conference: 'Conference Winner',
+    mvp: 'MVP',
+    other: 'Futures',
+  };
+
+  function normalizeFuturesTicketStatus(raw) {
+    const s = String(raw || '').toLowerCase();
+    if (s === 'won' || s === 'win') return 'won';
+    if (s === 'lost' || s === 'loss') return 'lost';
+    if (s === 'void' || s === 'voided' || s === 'push') return 'void';
+    return 'pending';
+  }
+
+  // Normalize a data/official-picks/user-placed-wagers-2026.json entry (game === 'NFL Futures')
+  // into the same shape as a ledger position ticket, so both sources can be grouped together.
+  function parseFuturesWagerToTicket(w) {
+    const ticketType = (w.ticket_type || '').toLowerCase();
+    let market = 'other';
+    if (ticketType.includes('matchup')) market = 'superbowl_matchup';
+    else if (ticketType.includes('super bowl')) market = 'superbowl';
+    else if (ticketType.includes('playoff')) market = 'playoffs';
+    else if (ticketType.includes('win total') || ticketType.includes('wins')) market = 'wins';
+    else if (ticketType.includes('division')) market = 'division';
+    else if (ticketType.includes('conference')) market = 'conference';
+    else if (ticketType.includes('mvp')) market = 'mvp';
+
+    let selection = w.game_title || w.game || 'Unknown';
+    const dashIdx = selection.lastIndexOf(' - ');
+    if (dashIdx !== -1) selection = selection.slice(dashIdx + 3).trim();
+
+    return {
+      market,
+      selection,
+      ticket: {
+        source: 'wagers_json',
+        ticket_number: w.book_ticket_number || w.ticket_number || w.id,
+        accepted_date: w.date || (w.placed_at ? String(w.placed_at).slice(0, 10) : null),
+        stake_usd: w.is_promo_credit ? (w.promo_credit_stake_usd ?? 0) : (w.cash_risk_usd ?? w.stake_usd ?? 0),
+        price: w.odds_american,
+        to_win_usd: w.potential_profit_usd ?? 0,
+        book: w.book,
+        status: w.status === 'SETTLED'
+          ? normalizeFuturesTicketStatus(w.result)
+          : 'pending',
+      },
+    };
+  }
+
+  // Normalize an andy-portfolio-ledger-2026.json position into one or more tickets
+  // (a position may already list several individual tickets under `tickets[]`, or be a
+  // single flattened ticket at the top level).
+  function parseFuturesLedgerPosition(p) {
+    const rawTickets = Array.isArray(p.tickets) && p.tickets.length > 0
+      ? p.tickets
+      : [{
+          ticket_number: p.ticket_number,
+          accepted_date: p.accepted_date,
+          stake_usd: p.stake_usd ?? p.current_stake_usd,
+          price: p.price ?? p.blended_price,
+          to_win_usd: p.to_win_usd,
+          result_status: p.result_status,
+        }];
+    return rawTickets.map(t => ({
+      market: p.market || 'other',
+      selection: p.selection || p.id || 'Unknown',
+      ticket: {
+        source: 'ledger',
+        ticket_number: t.ticket_number,
+        accepted_date: t.accepted_date,
+        stake_usd: t.stake_usd ?? 0,
+        price: t.price,
+        to_win_usd: t.to_win_usd ?? 0,
+        book: p.book,
+        status: normalizeFuturesTicketStatus(t.result_status),
+      },
+    }));
+  }
+
+  let futuresLedgerPositions = [];
+  try {
+    const rawLedger = await readFile(FUTURES_LEDGER_PATH, 'utf8');
+    const ledger = JSON.parse(rawLedger);
+    futuresLedgerPositions = Array.isArray(ledger.positions) ? ledger.positions : [];
+  } catch {
+    console.warn(`⚠️ Warning: futures ledger not found at ${FUTURES_LEDGER_PATH}, showing wagers-file futures only.`);
+  }
+
+  const rawFuturesItems = [
+    ...futuresWagers.map(parseFuturesWagerToTicket),
+    ...futuresLedgerPositions.flatMap(parseFuturesLedgerPosition),
+  ];
+
+  const futuresGroupMap = new Map();
+  for (const item of rawFuturesItems) {
+    const groupKey = `${item.market}::${String(item.selection).toLowerCase().trim()}`;
+    if (!futuresGroupMap.has(groupKey)) {
+      futuresGroupMap.set(groupKey, { market: item.market, selection: item.selection, tickets: [] });
+    }
+    futuresGroupMap.get(groupKey).tickets.push(item.ticket);
+  }
+
+  const futuresGroups = Array.from(futuresGroupMap.values()).map(group => {
+    const activeTickets = group.tickets.filter(t => t.status === 'pending');
+    const wonTickets = group.tickets.filter(t => t.status === 'won');
+    const lostTickets = group.tickets.filter(t => t.status === 'lost');
+    const activeStake = activeTickets.reduce((sum, t) => sum + (t.stake_usd || 0), 0);
+    const activeToWin = activeTickets.reduce((sum, t) => sum + (t.to_win_usd || 0), 0);
+    let groupStatus = 'pending';
+    if (wonTickets.length > 0) groupStatus = 'won';
+    else if (activeTickets.length === 0 && lostTickets.length === group.tickets.length) groupStatus = 'lost';
+    return {
+      ...group,
+      marketLabel: FUTURES_MARKET_LABELS[group.market] || FUTURES_MARKET_LABELS.other,
+      tickets: group.tickets.sort((a, b) => String(a.accepted_date || '').localeCompare(String(b.accepted_date || ''))),
+      ticketCount: group.tickets.length,
+      activeStake,
+      activeToWin,
+      status: groupStatus,
+    };
+  }).sort((a, b) => b.activeToWin - a.activeToWin);
+
+  const futuresLive = futuresGroups.filter(g => g.status === 'pending' || (g.status === 'won' && g.activeStake > 0));
+  const futuresResolved = futuresGroups.filter(g => g.status !== 'pending');
+  const futuresStakedTotal = futuresGroups.reduce((sum, g) => sum + g.activeStake, 0);
+  const futuresPotentialTotal = futuresGroups.reduce((sum, g) => sum + g.activeToWin, 0);
+
+  let futuresPriceWatchList = [];
+  try {
+    futuresPriceWatchList = await buildFuturesPriceWatch();
+  } catch (err) {
+    console.warn(`\u26a0\ufe0f Warning: could not build futures price watch: ${err.message}`);
+  }
+
+  // Full team names for the Futures Portfolio "group by team" collapsible sections.
+  // Keyed by the same abbreviations TEAM_MAP already normalizes to.
+  const ABBR_TO_TEAM_NAME = {
+    ARI: 'Arizona Cardinals', ATL: 'Atlanta Falcons', BAL: 'Baltimore Ravens', BUF: 'Buffalo Bills',
+    CAR: 'Carolina Panthers', CHI: 'Chicago Bears', CIN: 'Cincinnati Bengals', CLE: 'Cleveland Browns',
+    DAL: 'Dallas Cowboys', DEN: 'Denver Broncos', DET: 'Detroit Lions', GB: 'Green Bay Packers',
+    HOU: 'Houston Texans', IND: 'Indianapolis Colts', JAX: 'Jacksonville Jaguars', KC: 'Kansas City Chiefs',
+    LV: 'Las Vegas Raiders', LAC: 'Los Angeles Chargers', LAR: 'Los Angeles Rams', MIA: 'Miami Dolphins',
+    MIN: 'Minnesota Vikings', NE: 'New England Patriots', NO: 'New Orleans Saints', NYG: 'New York Giants',
+    NYJ: 'New York Jets', PHI: 'Philadelphia Eagles', PIT: 'Pittsburgh Steelers', SF: 'San Francisco 49ers',
+    SEA: 'Seattle Seahawks', TB: 'Tampa Bay Buccaneers', TEN: 'Tennessee Titans', WAS: 'Washington Commanders',
+  };
+  const FUTURES_TEAM_MATCH_KEYS = Object.keys(TEAM_MAP).sort((a, b) => b.length - a.length);
+
+  // Scans a futures group's free-text selection (and market label) for any NFL team names
+  // it mentions, so the Futures Portfolio can group cards by team. A Super Bowl matchup
+  // future (e.g. "Green Bay Packers vs Buffalo Bills") mentions two teams and is filed
+  // under both -- that position is genuinely exposure to both sides. A future with no
+  // team mentioned (e.g. an MVP future naming only a player) falls back to "Other".
+  function detectFuturesTeams(text) {
+    const upper = String(text || '').toUpperCase();
+    const found = [];
+    for (const key of FUTURES_TEAM_MATCH_KEYS) {
+      const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const re = new RegExp('\\b' + escaped + '\\b');
+      if (re.test(upper)) {
+        const abbr = TEAM_MAP[key];
+        if (!found.includes(abbr)) found.push(abbr);
+      }
+    }
+    return found;
+  }
+
+  // Buckets an array of futures group cards (already deduped by market+selection) into
+  // per-team collapsible sections, sorted by combined active to-win. Any group that
+  // mentions no recognizable team lands in a trailing "Other / Multi-Team" bucket.
+  function groupFuturesByTeam(groups) {
+    const buckets = new Map();
+    const otherBucket = { teamAbbr: null, teamName: 'Other / Multi-Team', groups: [], activeStake: 0, activeToWin: 0, ticketCount: 0 };
+    for (const g of groups) {
+      const teams = detectFuturesTeams(`${g.selection} ${g.marketLabel}`);
+      if (teams.length === 0) {
+        otherBucket.groups.push(g);
+        otherBucket.activeStake += g.activeStake;
+        otherBucket.activeToWin += g.activeToWin;
+        otherBucket.ticketCount += g.ticketCount;
+        continue;
+      }
+      for (const abbr of teams) {
+        if (!buckets.has(abbr)) {
+          buckets.set(abbr, { teamAbbr: abbr, teamName: ABBR_TO_TEAM_NAME[abbr] || abbr, groups: [], activeStake: 0, activeToWin: 0, ticketCount: 0 });
+        }
+        const b = buckets.get(abbr);
+        b.groups.push(g);
+        b.activeStake += g.activeStake;
+        b.activeToWin += g.activeToWin;
+        b.ticketCount += g.ticketCount;
+      }
+    }
+    const result = Array.from(buckets.values()).sort((a, b) => (b.activeToWin - a.activeToWin) || (b.activeStake - a.activeStake));
+    if (otherBucket.groups.length > 0) result.push(otherBucket);
+    return result;
+  }
+
+  // ── FUTURES PRICE WATCH (monitor-only -- teams Andy is NOT buying yet, watched for a
+  // price dip before entering) ───────────────────────────────────────────────────────────
+  // Reads data/futures-imports/price-watch-list-2026.json for which teams/markets to
+  // watch, then reconstructs a price history for each from every dated per-book snapshot
+  // file already sitting in data/futures-imports/ (bookmaker-YYYY-MM-DD.json,
+  // betonline-YYYY-MM-DD.json, betus-YYYY-MM-DD.json -- the same files the rest of the
+  // futures pipeline already produces). No new data source or credentials needed: this is
+  // pure re-derivation from history that's already being captured. It refreshes every time
+  // the tracker is regenerated, the same way the rest of the board does.
+  async function buildFuturesPriceWatch() {
+    let watchConfig;
+    try {
+      const raw = await readFile(PRICE_WATCH_LIST_PATH, 'utf8');
+      watchConfig = JSON.parse(raw);
+    } catch {
+      return [];
+    }
+    const items = Array.isArray(watchConfig.items) ? watchConfig.items : [];
+    if (items.length === 0) return [];
+
+    const bookPolicy = watchConfig.book_policy || {};
+
+    let dirEntries = [];
+    try {
+      dirEntries = await readdir(FUTURES_IMPORTS_DIR);
+    } catch {
+      return [];
+    }
+    const SNAPSHOT_FILE_RE = /^(bookmaker|betonline|betus)-(\d{4}-\d{2}-\d{2})\.json$/;
+    const snapshotFiles = dirEntries
+      .map(name => {
+        const m = name.match(SNAPSHOT_FILE_RE);
+        return m ? { name, book: m[1], date: m[2] } : null;
+      })
+      .filter(Boolean)
+      .sort((a, b) => a.date.localeCompare(b.date));
+
+    // rowsByBookMarket[book][market_type] = [{ date, team, odds, impliedProb }, ...]
+    const rowsByBookMarket = {};
+    for (const sf of snapshotFiles) {
+      let parsed;
+      try {
+        parsed = JSON.parse(await readFile(path.join(FUTURES_IMPORTS_DIR, sf.name), 'utf8'));
+      } catch {
+        continue;
+      }
+      if (!Array.isArray(parsed)) continue;
+      for (const row of parsed) {
+        if (!row || !row.market_type || !row.team) continue;
+        const bookKey = row.book || sf.book;
+        if (!rowsByBookMarket[bookKey]) rowsByBookMarket[bookKey] = {};
+        if (!rowsByBookMarket[bookKey][row.market_type]) rowsByBookMarket[bookKey][row.market_type] = [];
+        const oddsNum = typeof row.odds === 'number' ? row.odds : parseFloat(row.odds);
+        const probNum = typeof row.implied_prob === 'number' ? row.implied_prob : parseFloat(row.implied_prob);
+        if (isNaN(oddsNum) || isNaN(probNum)) continue;
+        rowsByBookMarket[bookKey][row.market_type].push({ date: sf.date, team: row.team, odds: oddsNum, impliedProb: probNum });
+      }
+    }
+
+    // One team-in-a-market's history within a single book: first tracked vs. most recent,
+    // and the relative drop in implied probability between them -- the actual "price dip"
+    // (a falling implied probability means the payout for the same $1 has gotten bigger,
+    // i.e. the price has gotten cheaper to buy into). Returns null if that book has no
+    // snapshots at all for this team/market.
+    function buildTrend(book, marketType, teamMatch) {
+      const rows = (rowsByBookMarket[book]?.[marketType] || [])
+        .filter(r => teamMatch(r.team))
+        .sort((a, b) => a.date.localeCompare(b.date));
+      if (rows.length === 0) return null;
+      const first = rows[0];
+      const last = rows[rows.length - 1];
+      const dipPct = first.impliedProb > 0 ? ((first.impliedProb - last.impliedProb) / first.impliedProb) * 100 : 0;
+      return {
+        book,
+        snapshotCount: rows.length,
+        firstDate: first.date,
+        firstOdds: first.odds,
+        firstProb: first.impliedProb,
+        lastDate: last.date,
+        lastOdds: last.odds,
+        lastProb: last.impliedProb,
+        dipPct,
+      };
+    }
+
+    const teamNameLc = (name) => String(name || '').toLowerCase();
+
+    return items.map(item => {
+      const teamLc = teamNameLc(item.team);
+      const threshold = item.dipThresholdPct || 25;
+      const markets = Array.isArray(item.markets) ? item.markets : [];
+
+      const sbWinBooks = bookPolicy.superbowl || ['bookmaker', 'betonline'];
+      const exactaBooks = bookPolicy.superbowl_matchup || ['betus', 'bookmaker'];
+
+      let sbWinTrends = [];
+      if (markets.includes('superbowl')) {
+        sbWinTrends = sbWinBooks
+          .map(book => buildTrend(book, 'superbowl', t => teamNameLc(t) === teamLc))
+          .filter(Boolean);
+      }
+
+      let exactaRows = [];
+      if (markets.includes('superbowl_matchup')) {
+        const pairingSet = new Set();
+        for (const book of exactaBooks) {
+          for (const r of (rowsByBookMarket[book]?.superbowl_matchup || [])) {
+            if (teamNameLc(r.team).includes(teamLc)) pairingSet.add(r.team);
+          }
+        }
+        exactaRows = Array.from(pairingSet).map(matchupTeam => {
+          const opponent = matchupTeam.replace(item.team, '').replace(/\bvs\b/i, '').trim();
+          // Prefer whichever allowed book has the longer/older history for this specific
+          // pairing (an earlier first-tracked date gives a more meaningful baseline).
+          const trendsByBook = exactaBooks
+            .map(book => buildTrend(book, 'superbowl_matchup', t => t === matchupTeam))
+            .filter(Boolean)
+            .sort((a, b) => a.firstDate.localeCompare(b.firstDate));
+          const primary = trendsByBook[0] || null;
+          return { matchup: matchupTeam, opponent, primary, allBooks: trendsByBook };
+        }).filter(row => row.primary)
+          .sort((a, b) => (b.primary.dipPct ?? -Infinity) - (a.primary.dipPct ?? -Infinity));
+      }
+
+      return {
+        id: item.id,
+        team: item.team,
+        teamAbbr: item.teamAbbr,
+        note: item.note || '',
+        dipThresholdPct: threshold,
+        sbWinTrends,
+        exactaRows,
+      };
+    });
+  }
+
+  function formatAmericanOdds(n) {
+    if (n === null || n === undefined || isNaN(n)) return '\u2014';
+    return n > 0 ? `+${Math.round(n)}` : `${Math.round(n)}`;
+  }
+
+  const BOOK_DISPLAY_NAME = { bookmaker: 'Bookmaker.eu', betonline: 'BetOnline', betus: 'BetUS' };
+
+  function renderPriceWatchTrendRow(trend, label) {
+    if (!trend) {
+      return `<div style="display:flex; justify-content:space-between; align-items:center; font-size:0.72rem; color:#64748B; padding:4px 0;"><span>${label}</span><span>No history yet</span></div>`;
+    }
+    const isDip = trend.dipPct >= 0;
+    const color = trend.dipPct >= 20 ? '#10B981' : (isDip ? '#6EE7B7' : '#F87171');
+    const arrow = isDip ? '\u25BC' : '\u25B2';
+    return `
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; font-size:0.72rem; color:#CBD5E1; padding:4px 0; border-bottom:1px solid rgba(148,163,184,0.08); flex-wrap:wrap;">
+        <span style="color:#94A3B8;">${label}</span>
+        <span style="white-space:nowrap;">
+          ${formatAmericanOdds(trend.firstOdds)} <span style="color:#64748B;">(${trend.firstDate})</span>
+          &rarr; ${formatAmericanOdds(trend.lastOdds)} <span style="color:#64748B;">(${trend.lastDate})</span>
+          <strong style="color:${color}; margin-left:6px;">${arrow} ${Math.abs(trend.dipPct).toFixed(1)}%</strong>
+        </span>
+      </div>
+    `;
+  }
+
+  function renderFuturesPriceWatchTeam(watch) {
+    const threshold = watch.dipThresholdPct;
+    const biggestDip = Math.max(
+      0,
+      ...watch.sbWinTrends.map(t => t.dipPct),
+      ...watch.exactaRows.map(r => r.primary?.dipPct ?? -Infinity)
+    );
+    const hasDipAlert = biggestDip >= threshold;
+    const dipBadge = hasDipAlert
+      ? `<span style="background:rgba(16,185,129,0.2); color:#10B981; border:1px solid rgba(16,185,129,0.4); font-weight:800; font-size:0.65rem; padding:3px 8px; border-radius:4px; text-transform:uppercase;">\ud83d\udce9 Dip Alert &ge; ${threshold}%</span>`
+      : `<span style="background:rgba(148,163,184,0.12); color:#94A3B8; border:1px solid rgba(148,163,184,0.25); font-weight:700; font-size:0.65rem; padding:3px 8px; border-radius:4px; text-transform:uppercase;">Watching</span>`;
+
+    const exactaRowsHtml = watch.exactaRows.map(row => {
+      const p = row.primary;
+      const bookLabel = `${row.opponent} \u2022 ${BOOK_DISPLAY_NAME[p.book] || p.book}`;
+      return renderPriceWatchTrendRow(p, bookLabel);
+    }).join('\n');
+
+    return `
+      <details class="ff-starters-details futures-price-watch-details" style="margin-bottom:12px; background:rgba(15,23,42,0.4); border:1px solid #1E293B; border-radius:8px; padding:10px 12px;" open>
+        <summary style="font-size:0.8rem; color:#60A5FA; cursor:pointer; font-weight:800; user-select:none; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+          <span style="display:flex; align-items:center; gap:6px;">
+            <span class="ff-details-arrow" style="font-size:0.75rem; color:#60A5FA; display:inline-block; transition:transform 0.15s ease;">\u25B6</span>
+            \ud83d\udcc9 ${watch.team} \u2014 Price Watch (Not Bought Yet)
+          </span>
+          ${dipBadge}
+        </summary>
+        ${watch.note ? `<div style="font-size:0.7rem; color:#64748B; margin-top:6px; margin-bottom:8px;">${escapeHtml(watch.note)}</div>` : ''}
+        ${watch.sbWinTrends.length > 0 ? `
+          <div style="margin-top:6px;">
+            <div style="font-size:0.68rem; font-weight:800; color:#94A3B8; text-transform:uppercase; letter-spacing:0.4px; margin-bottom:2px;">SB Win</div>
+            ${watch.sbWinTrends.map(t => renderPriceWatchTrendRow(t, BOOK_DISPLAY_NAME[t.book] || t.book)).join('\n')}
+          </div>
+        ` : ''}
+        ${watch.exactaRows.length > 0 ? `
+          <div style="margin-top:10px;">
+            <div style="font-size:0.68rem; font-weight:800; color:#94A3B8; text-transform:uppercase; letter-spacing:0.4px; margin-bottom:2px;">Exacta Matchup (${watch.exactaRows.length} pairings, biggest movers first)</div>
+            <div style="max-height:260px; overflow-y:auto; padding-right:4px;">
+              ${exactaRowsHtml}
+            </div>
+          </div>
+        ` : ''}
+      </details>
+    `;
+  }
+
+  function renderFuturesPriceWatchSection(watchList) {
+    if (!watchList || watchList.length === 0) return '';
+    return `
+      <div class="tickets-section-header" style="margin-bottom:6px;">
+        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+          <span style="font-size:0.82rem; font-weight:800; letter-spacing:0.5px; color:#F8FAFC; text-transform:uppercase;">
+            \ud83d\udcc9 Price Watch
+          </span>
+          <span style="font-size:0.75rem; color:#94A3B8;">Monitor-only -- not positions. Tracks SB Win &amp; Exacta Matchup price history and flags a team once its price has dipped past its alert threshold.</span>
+        </div>
+      </div>
+      ${watchList.map(watch => renderFuturesPriceWatchTeam(watch)).join('\n')}
+    `;
+  }
+
+  function renderFuturesGroupCard(group) {
+    const statusBadge = group.status === 'won'
+      ? '<span style="background:rgba(16,185,129,0.2); color:#10B981; border:1px solid rgba(16,185,129,0.4); font-weight:800; font-size:0.65rem; padding:3px 8px; border-radius:4px; text-transform:uppercase;">WON</span>'
+      : group.status === 'lost'
+        ? '<span style="background:rgba(248,113,113,0.15); color:#F87171; border:1px solid rgba(248,113,113,0.4); font-weight:800; font-size:0.65rem; padding:3px 8px; border-radius:4px; text-transform:uppercase;">LOST</span>'
+        : '<span style="background:rgba(16,185,129,0.2); color:#10B981; border:1px solid rgba(16,185,129,0.4); font-weight:800; font-size:0.65rem; padding:3px 8px; border-radius:4px; text-transform:uppercase;">ACTIVE</span>';
+
+    const ticketRows = group.tickets.map(t => {
+      const priceNum = typeof t.price === 'string' ? parseInt(t.price.replace(/^\+/, ''), 10) : t.price;
+      const priceStr = (priceNum === null || priceNum === undefined || Number.isNaN(priceNum)) ? '—' : (priceNum > 0 ? `+${priceNum}` : `${priceNum}`);
+      const rowColor = t.status === 'won' ? 'var(--accent-green)' : t.status === 'lost' ? '#F87171' : '#F8FAFC';
+      return `
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; padding:7px 0; border-bottom:1px solid rgba(148,163,184,0.12); font-size:0.76rem; flex-wrap:wrap;">
+          <div style="color:#CBD5E1;">
+            <strong style="color:#F8FAFC;">#${t.ticket_number || '—'}</strong>${t.book ? ` • ${t.book}` : ''}${t.accepted_date ? ` • ${t.accepted_date}` : ''}
+          </div>
+          <div style="text-align:right; color:#94A3B8; white-space:nowrap;">
+            $${(t.stake_usd || 0).toFixed(2)} @ ${priceStr} → <strong style="color:${rowColor};">$${(t.to_win_usd || 0).toFixed(2)}</strong>
+            <span style="margin-left:6px; text-transform:uppercase; font-size:0.62rem; letter-spacing:0.4px; color:${rowColor};">${t.status}</span>
+          </div>
+        </div>
+      `;
+    }).join('\n');
+
+    return `
+      <div class="card" style="background:#0F172A; border:1px solid #1E293B; border-radius:10px; padding:14px; display:flex; flex-direction:column; gap:10px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div>
+            <div style="font-weight:800; font-size:0.92rem; color:#F8FAFC;">${group.selection}</div>
+            <div style="font-size:0.72rem; color:#94A3B8; margin-top:2px;">${group.marketLabel} • ${group.ticketCount} ticket${group.ticketCount === 1 ? '' : 's'}</div>
+          </div>
+          ${statusBadge}
+        </div>
+        <div style="display:flex; gap:16px; flex-wrap:wrap; font-size:0.78rem;">
+          <span style="color:#94A3B8;">Combined Active Stake: <strong style="color:#F8FAFC;">$${group.activeStake.toFixed(2)}</strong></span>
+          <span style="color:#94A3B8;">Combined Active To-Win: <strong style="color:var(--accent-green);">$${group.activeToWin.toFixed(2)}</strong></span>
+        </div>
+        <div>
+          ${ticketRows}
+        </div>
+      </div>
+    `;
+  }
+
+  // Renders a set of team buckets (from groupFuturesByTeam) as collapsible <details>
+  // sections, one per team, each containing that team's futures cards in a normal grid.
+  // Reuses the fantasy-lineup collapsible styling/classes (ff-starters-details /
+  // ff-details-arrow) so no new CSS is needed.
+  function renderFuturesTeamSections(teamBuckets, idPrefix) {
+    if (teamBuckets.length === 0) return '';
+    return teamBuckets.map((b, idx) => {
+      const teamLabel = b.teamAbbr ? `${b.teamName} (${b.teamAbbr})` : b.teamName;
+      return `
+        <details class="ff-starters-details futures-team-details" id="futures-team-${idPrefix}-${b.teamAbbr || 'other'}" style="margin-bottom:14px; background:rgba(15,23,42,0.4); border:1px solid #1E293B; border-radius:8px; padding:10px 12px;" ${idx === 0 ? 'open' : ''}>
+          <summary style="font-size:0.8rem; color:#60A5FA; cursor:pointer; font-weight:800; user-select:none; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+            <span style="display:flex; align-items:center; gap:6px;">
+              <span class="ff-details-arrow" style="font-size:0.75rem; color:#60A5FA; display:inline-block; transition:transform 0.15s ease;">▶</span>
+              🏈 ${teamLabel} • ${b.ticketCount} ticket${b.ticketCount === 1 ? '' : 's'}
+            </span>
+            <span style="font-size:0.7rem; color:#94A3B8; font-weight:600;">
+              Stake: <strong style="color:#F8FAFC;">$${b.activeStake.toFixed(2)}</strong> &nbsp;&bull;&nbsp;
+              To-Win: <strong style="color:var(--accent-green);">$${b.activeToWin.toFixed(2)}</strong>
+            </span>
+          </summary>
+          <div class="cards-grid" style="margin-top:10px;">
+            ${b.groups.map(group => renderFuturesGroupCard(group)).join('\n')}
+          </div>
+        </details>
+      `;
+    }).join('\n');
+  }
+
   function renderCard(bet, initialStatus = 'live') {
     const isPromo = bet.is_promo_credit || bet.funding_type === 'promo_credit';
     const stake = isPromo ? (bet.promo_credit_stake_usd ?? bet.stake_usd ?? 0) : (bet.cash_risk_usd ?? bet.stake_usd ?? 0);
@@ -918,7 +1447,9 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
                 <div class="card-title">${bet.game_title || bet.game}</div>
                 <div class="card-subtitle">${bet.book || 'Sportsbook'} • ${bet.ticket_type}</div>
                 <div class="badges-row">
-                  <span class="badge ${isPromo ? 'badge-promo' : 'badge-cash'}">${isPromo ? '$0 CASH (PROMO)' : 'CASH'}</span>
+                  ${bet.is_paper
+                    ? `<span class="badge badge-promo" title="Not placed. Imaginary money, excluded from all totals." style="background:rgba(168,85,247,0.18);color:#D8B4FE;border-color:rgba(168,85,247,0.5);">📝 PAPER · IMAGINARY $${(bet.stake_usd ?? 0).toFixed(0)} · NOT PLACED</span>`
+                    : `<span class="badge ${isPromo ? 'badge-promo' : 'badge-cash'}">${isPromo ? '$0 CASH (PROMO)' : 'CASH'}</span>`}
                   ${bet.ticket_type?.includes('Open') ? '<span class="badge badge-open">OPEN PARLAY</span>' : ''}
                   <span class="badge badge-cash" id="badge-split-${bet.id}" style="display:none;">🤝 50/50 SPLIT</span>
                   <span class="cashed-badge"${cashedBadgeStyle ? ` style="${cashedBadgeStyle}"` : ''}>CASHED</span>
@@ -926,7 +1457,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
                 </div>
                 <div class="card-bullet-summary" id="bullet-summary-${bet.id}">
                   <span class="badge ${isPromo ? 'badge-promo' : 'badge-cash'}" style="font-size:0.6rem; padding:1px 4px;">${isPromo ? '$0' : '$' + stake.toFixed(0)}</span>
-                  <span id="bullet-payout-${bet.id}" style="color:var(--accent-green); font-size:0.72rem; font-weight:800;">$${(bet.potential_payout_usd || 0).toFixed(2)}</span>
+                  <span id="bullet-payout-${bet.id}" style="color:var(--accent-green); font-size:0.72rem; font-weight:800;">$${(bet.potential_profit_usd ?? ((bet.potential_payout_usd || 0) - stake)).toFixed(2)}</span>
                   <span id="bullet-hits-${bet.id}" style="color:#94A3B8; font-size:0.65rem;">${(() => { const realLegs = (bet.legs || []).filter(l => l.market !== 'open_slot' && l.status !== 'OPEN'); const hits = isCashedInitial ? realLegs.length : realLegs.filter(l => l.status === 'WON').length; return hits + '/' + realLegs.length; })()} Hits</span>
                   ${isCashedInitial ? `<span class="bullet-temp-badge bullet-temp-green" id="bullet-temp-${bet.id}">🟢 Won</span>` : `<span class="bullet-temp-badge bullet-temp-pre" id="bullet-temp-${bet.id}">⚪ Upcoming</span>`}
                 </div>
@@ -947,7 +1478,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
               <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-top:2px;">
                 <span>Stake: <strong>$${stake.toFixed(2)}</strong></span>
                 <span>Odds: <strong style="color:var(--accent-cyan);">${bet.odds_american || bet.price || '-'}</strong></span>
-                <span>Payout: <strong class="payout-val" id="card-payout-${bet.id}" style="color:var(--accent-green);">$${(bet.potential_payout_usd || 0).toFixed(2)}</strong></span>
+                <span>To Win: <strong class="payout-val" id="card-payout-${bet.id}" style="color:var(--accent-green);">$${(bet.potential_profit_usd ?? ((bet.potential_payout_usd || 0) - stake)).toFixed(2)}</strong></span>
               </div>
               <div class="progress-bar-wrap">
                 <div class="${progClass}" id="prog-${bet.id}" style="${progStyle}"></div>
@@ -1014,7 +1545,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
                 const sourceTag = !isBook ? `<span class="source-tag" title="Source: ${rawSource}">🎙️ ${rawSource}</span>` : '';
 
                 // Player prop progress gauge
-                const isPropLeg = !!(leg.player || (leg.market && !['spread', 'moneyline', 'total', 'open_slot'].includes(String(leg.market).toLowerCase())));
+                const isPropLeg = !!(leg.player || (leg.market && !['spread', 'moneyline', 'total', 'team_total', 'open_slot'].includes(String(leg.market).toLowerCase())));
                 const target = leg.line ?? (leg.selection?.match(/(\d+(\.\d+)?)/)?.[1] ? parseFloat(leg.selection.match(/(\d+(\.\d+)?)/)[1]) : 1);
                 const statText = isWon ? (leg.actual_stat ? `${leg.actual_stat} / ${target} ✅` : `${target} / ${target} ✅`) : `0 / ${target}`;
                 const barWidth = isWon ? '100%' : '0%';
@@ -1037,7 +1568,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
                     gameLabel = `${normalizeTeam(schedG.visitor)} @ ${normalizeTeam(schedG.home)}`;
                   }
                 }
-                const isTotalLeg = leg.market === 'total' || (!leg.player && /^(over|under)\b/i.test(cleanSelection));
+                const isTotalLeg = leg.market === 'total' || leg.market === 'team_total' || (!leg.player && /^(over|under)\b/i.test(cleanSelection));
 
                 return `
                 <div class="${legClass} ${initialPacingClass}" id="leg-${legKey}" data-key="${legKey}" data-open-slot="${isOpenSlot ? '1' : '0'}" data-player="${leg.player || ''}" data-market="${leg.market || ''}" data-target="${target}" data-team="${legTeam}" data-opp="${leg.opponent || ''}" data-line="${leg.line ?? ''}" data-selection="${escapeHtml(leg.selection || '')}" data-game="${escapeHtml(gameLabel)}" data-kickoff="${kickoffTimestamp}" data-kickoff-text="${kickoffShort}" onclick="${isOpenSlot ? '' : `toggleLeg('${legKey}', '${bet.id}')`}">
@@ -2810,6 +3341,9 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
           <button class="tab-btn" id="tab-btn-fantasy" onclick="showTab('fantasy')">
             🏈 Fantasy Football (<span id="tab-fantasy-kicker-alert" style="color:#F59E0B; font-weight:800;">${fantasyData.leaguesNeedingKicker || 0} Drop Alerts</span>)
           </button>
+          <button class="tab-btn" id="tab-btn-futures" onclick="showTab('futures')">
+            📈 Futures Portfolio (<span id="tab-futures-count">${futuresLive.length}</span> Active)
+          </button>
         </div>
       </div>
 
@@ -2965,7 +3499,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
                   const prRowClick = prIsOpenSlot ? '' : `toggleLeg('${prLegKey}', '${prTicketId}'); try { renderPlayerCheatSheetStats(latestTeamStatusMap); } catch (e) {}`;
                   const prBurnClick = prIsOpenSlot ? '' : `toggleLegBurn('${prLegKey}', '${prTicketId}', event); try { renderPlayerCheatSheetStats(latestTeamStatusMap); } catch (e) {}`;
                   return `
-                  <div class="sub-gauge-item" id="subgauge-${pr.key}" data-prop-key="${pr.key}" data-leg-key="${prLegKey}" data-ticket-id="${prTicketId}" data-market="${pr.market}" data-target="${pr.target}" ${prIsOpenSlot ? '' : `onclick="${prRowClick}"`} style="cursor:${prIsOpenSlot ? 'default' : 'pointer'};">
+                  <div class="sub-gauge-item" id="subgauge-${pr.key}" data-prop-key="${pr.key}" data-leg-key="${prLegKey}" data-ticket-id="${prTicketId}" data-market="${pr.market}" data-target="${pr.target}" data-open-slot="${prIsOpenSlot ? '1' : '0'}" ${prIsOpenSlot ? '' : `onclick="${prRowClick}"`} style="cursor:${prIsOpenSlot ? 'default' : 'pointer'};">
                     <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.72rem; gap:6px;">
                       <span style="color:var(--text-muted); overflow:hidden; text-overflow:ellipsis;">${pr.selection || pr.market}${pr.ticketLabel ? ` <span style="opacity:0.55; font-size:0.62rem;">(${escapeHtml(String(pr.ticketLabel))})</span>` : ''}</span>
                       <span style="display:flex; align-items:center; gap:5px; flex-shrink:0;">
@@ -3698,6 +4232,97 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
           </div>
         </div>
 
+        <!-- Section 3: Available Players Radar (All Positions -- Offense, DEF, IDP) -->
+        <div id="ff-available-radar" class="sc-header-banner" style="border-left-color:#8B5CF6; margin-top:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+            <div>
+              <div style="display:flex; align-items:center; gap:6px;">
+                <span style="font-size:1.2rem;">📡</span>
+                <h3 style="font-size:0.95rem; font-weight:800; color:#F8FAFC; margin:0;">
+                  Available Players Radar • All Positions
+                </h3>
+              </div>
+              <div style="font-size:0.7rem; color:var(--text-muted); margin-top:2px;">
+                Top available free agents/waivers by league and position, with this week's schedule context.
+                ${radarData.generatedAt ? `Updated ${new Date(radarData.generatedAt).toLocaleString('en-US', { timeZone: 'America/New_York', dateStyle: 'short', timeStyle: 'short' })} ET.` : ''}
+              </div>
+            </div>
+          </div>
+
+          ${(radarData.leagues || []).length === 0 ? `
+            <div style="font-size:0.75rem; color:var(--text-muted); padding:12px 0;">No available-players data yet -- run the nightly sync to populate this.</div>
+          ` : (radarData.leagues || []).map(lg => `
+            <details class="ff-starters-details" style="margin-top:12px; background:rgba(15,23,42,0.4); border:1px solid #1E293B; border-radius:8px; padding:10px 12px;">
+              <summary style="font-size:0.8rem; color:#A78BFA; cursor:pointer; font-weight:800; user-select:none; display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap;">
+                <span>${lg.leagueName}</span>
+                <span style="font-size:0.62rem; color:#64748B; font-weight:600;">${(lg.positionsDetected || []).join(' · ')}</span>
+              </summary>
+              <div style="margin-top:10px; display:flex; flex-direction:column; gap:10px;">
+                ${Object.entries(lg.players || {}).filter(([, list]) => Array.isArray(list) && list.length > 0).map(([pos, list]) => `
+                  <div>
+                    <div style="font-size:0.65rem; font-weight:800; text-transform:uppercase; color:#94A3B8; margin-bottom:4px;">${pos} (${list.length} available)</div>
+                    <div style="display:flex; flex-direction:column; gap:4px;">
+                      ${list.slice(0, 8).map(p => `
+                        <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.72rem; background:rgba(30,41,59,0.5); border-radius:5px; padding:4px 8px; gap:8px;">
+                          <div>
+                            <strong style="color:#E2E8F0;">${p.name}</strong>
+                            <span style="color:#64748B;"> · ${p.nflTeam || '--'}</span>
+                            ${p.injuryStatus ? `<span style="color:#F59E0B; font-weight:700;"> (${p.injuryStatus})</span>` : ''}
+                          </div>
+                          <div style="color:#94A3B8; font-size:0.68rem; text-align:right; white-space:nowrap;">${p.scheduleNote || ''}</div>
+                        </div>
+                      `).join('\n')}
+                    </div>
+                  </div>
+                `).join('\n')}
+              </div>
+            </details>
+          `).join('\n')}
+        </div>
+
+      </div>
+
+      <!-- TAB 5: FUTURES PORTFOLIO (season-long bets -- Super Bowl, MVP, division, etc.) -->
+      <div id="tab-futures-wrap" style="display:none;">
+        <div class="filter-bar">
+          <span>Season-Long Futures Portfolio:</span>
+          <span style="font-size:0.75rem; color:#94A3B8;">Not tied to any single game day -- these ride the whole season. Multiple tickets on the same future are grouped into one card.</span>
+        </div>
+
+        ${renderFuturesPriceWatchSection(futuresPriceWatchList)}
+
+        <div class="tickets-section-header" id="futures-summary-header">
+          <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+            <span style="font-size:0.82rem; font-weight:800; letter-spacing:0.5px; color:#F8FAFC; text-transform:uppercase;">
+              📈 Futures Summary
+            </span>
+            <span style="font-size:0.78rem; color:#94A3B8;">Active Cash Risked: <strong style="color:#F8FAFC;">$${futuresStakedTotal.toFixed(2)}</strong></span>
+            <span style="font-size:0.78rem; color:#94A3B8;">Active Potential Payout: <strong style="color:var(--accent-green);">$${futuresPotentialTotal.toFixed(2)}</strong></span>
+            <span style="font-size:0.78rem; color:#94A3B8;">Positions: <strong style="color:#F8FAFC;">${futuresGroups.length}</strong></span>
+          </div>
+        </div>
+
+        <div id="futures-cards-grid">
+          ${renderFuturesTeamSections(groupFuturesByTeam(futuresLive), 'live')}
+        </div>
+
+        <div id="futures-empty" class="empty-slips-msg" style="display:${futuresLive.length === 0 ? 'block' : 'none'};">
+          No active season-long futures on the board right now.
+        </div>
+
+        <div id="futures-resolved-section-wrap" style="display:${futuresResolved.length > 0 ? 'block' : 'none'};">
+          <div class="cashed-divider-line">
+            <div class="divider-stripe"></div>
+            <div class="divider-label">
+              <span>🏁</span>
+              <strong>RESOLVED FUTURES (${futuresResolved.length})</strong>
+            </div>
+            <div class="divider-stripe"></div>
+          </div>
+          <div id="futures-resolved-cards-grid">
+            ${renderFuturesTeamSections(groupFuturesByTeam(futuresResolved), 'resolved')}
+          </div>
+        </div>
       </div>
     </main>
 
@@ -4084,15 +4709,18 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
       const playersWrap = document.getElementById('tab-players-wrap');
       const scWrap = document.getElementById('tab-supercontest-wrap');
       const fantasyWrap = document.getElementById('tab-fantasy-wrap');
+      const futuresWrap = document.getElementById('tab-futures-wrap');
       const btnTickets = document.getElementById('tab-btn-tickets');
       const btnPlayers = document.getElementById('tab-btn-players');
       const btnSc = document.getElementById('tab-btn-supercontest');
       const btnFantasy = document.getElementById('tab-btn-fantasy');
+      const btnFutures = document.getElementById('tab-btn-futures');
 
       if (ticketsWrap) ticketsWrap.style.display = tabName === 'tickets' ? 'block' : 'none';
       if (playersWrap) playersWrap.style.display = tabName === 'players' ? 'block' : 'none';
       if (scWrap) scWrap.style.display = tabName === 'supercontest' ? 'block' : 'none';
       if (fantasyWrap) fantasyWrap.style.display = tabName === 'fantasy' ? 'block' : 'none';
+      if (futuresWrap) futuresWrap.style.display = tabName === 'futures' ? 'block' : 'none';
 
       if (btnTickets) {
         if (tabName === 'tickets') {
@@ -4120,6 +4748,13 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
           btnFantasy.classList.add('active');
         } else {
           btnFantasy.classList.remove('active');
+        }
+      }
+      if (btnFutures) {
+        if (tabName === 'futures') {
+          btnFutures.classList.add('active');
+        } else {
+          btnFutures.classList.remove('active');
         }
       }
 
@@ -5036,8 +5671,11 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
                 const rec = athleteLiveStatsMap[n];
                 if (groupName === 'passing') {
                   rec.passCompAtt = s[0] || '0/0';
+                  rec.passAtt = parseInt((s[0] || '0/0').split('/')[1] || 0, 10);
+                  rec.passComp = parseInt((s[0] || '0/0').split('/')[0] || 0, 10);
                   rec.passYds = parseInt(s[1] || 0, 10);
                   rec.passTd = parseInt(s[3] || 0, 10);
+                  rec.passInt = parseInt(s[4] || 0, 10);
                 } else if (groupName === 'rushing') {
                   rec.car = parseInt(s[0] || 0, 10);
                   rec.rushYds = parseInt(s[1] || 0, 10);
@@ -5102,7 +5740,8 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
         card.setAttribute('data-is-final', isFinal ? 'true' : 'false');
         card.setAttribute('data-is-live', isLive ? 'true' : 'false');
 
-        const gaugeItems = card.querySelectorAll('.sub-gauge-item');
+        const allGaugeItems = card.querySelectorAll('.sub-gauge-item');
+        const gaugeItems = Array.from(allGaugeItems).filter(item => item.getAttribute('data-open-slot') !== '1');
         let propsHit = 0;
         let totalPct = 0;
 
@@ -5114,7 +5753,12 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
 
           let currentVal = 0;
           if (stats) {
-            if (market.includes('touchdown') || market.includes('td')) {
+            // NOTE: the generic touchdown/td check below is gated with !market.includes('pass')
+            // so it doesn't shadow the more specific "pass ... td" (passing TDs) branch further
+            // down -- a bare .includes('td') matches the substring inside "Pass TDs" too, so
+            // without the exclusion a QB's Passing TDs prop always fell through to
+            // rushTd+recTd (almost always 0 for a passer) and could never show a real value.
+            if ((market.includes('touchdown') || market.includes('td')) && !market.includes('pass')) {
               currentVal = (stats.rushTd || 0) + (stats.recTd || 0);
             } else if (market.includes('rush') && market.includes('yard')) {
               currentVal = stats.rushYds || 0;
@@ -5124,10 +5768,14 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
               currentVal = stats.rec || 0;
             } else if (market.includes('carr') || market.includes('rush_att')) {
               currentVal = stats.car || 0;
+            } else if (market.includes('pass') && (market.includes('att') || market.includes('attempt'))) {
+              currentVal = stats.passAtt || 0;
             } else if (market.includes('pass') && market.includes('yard')) {
               currentVal = stats.passYds || 0;
-            } else if (market.includes('pass') && market.includes('td')) {
+            } else if (market.includes('pass') && (market.includes('td') || market.includes('touchdown'))) {
               currentVal = stats.passTd || 0;
+            } else if (market.includes('interception') && (market.includes('thrown') || market.includes('pass'))) {
+              currentVal = stats.passInt || 0;
             } else if (market.includes('interception')) {
               currentVal = stats.int || 0;
             } else if (market.includes('tackle')) {
@@ -5247,7 +5895,10 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
 
         let currentVal = 0;
         if (stats) {
-          if (market.includes('touchdown') || market.includes('td')) {
+          // See note above: exclude pass markets from the generic touchdown/td catch-all so
+          // "Pass TDs" (which contains the substring "td") reaches the passTd branch below
+          // instead of always resolving to rushTd+recTd (0 for a passer).
+          if ((market.includes('touchdown') || market.includes('td')) && !market.includes('pass')) {
             currentVal = (stats.rushTd || 0) + (stats.recTd || 0);
           } else if (market.includes('rush') && market.includes('yard')) {
             currentVal = stats.rushYds || 0;
@@ -5257,10 +5908,14 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
             currentVal = stats.rec || 0;
           } else if (market.includes('carr') || market.includes('rush_att')) {
             currentVal = stats.car || 0;
+          } else if (market.includes('pass') && (market.includes('att') || market.includes('attempt'))) {
+            currentVal = stats.passAtt || 0;
           } else if (market.includes('pass') && market.includes('yard')) {
             currentVal = stats.passYds || 0;
-          } else if (market.includes('pass') && market.includes('td')) {
+          } else if (market.includes('pass') && (market.includes('td') || market.includes('touchdown'))) {
             currentVal = stats.passTd || 0;
+          } else if (market.includes('interception') && (market.includes('thrown') || market.includes('pass'))) {
+            currentVal = stats.passInt || 0;
           } else if (market.includes('interception')) {
             currentVal = stats.int || 0;
           } else if (market.includes('tackle')) {
@@ -6179,7 +6834,11 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
 
           let currentVal = 0;
           if (stats) {
-            if (rawMarket.includes('touchdown') || rawMarket.includes('td')) {
+            // Exclude pass markets from the generic touchdown/td catch-all -- "Pass TDs"
+            // contains the substring "td" too, so without this exclusion a QB's Passing TDs
+            // leg always fell through to rushTd+recTd (0 for almost every passer) and the
+            // real passTd branch a few lines down was dead code for that market.
+            if ((rawMarket.includes('touchdown') || rawMarket.includes('td')) && !rawMarket.includes('pass')) {
               currentVal = (stats.rushTd || 0) + (stats.recTd || 0);
             } else if (rawMarket.includes('rush') && rawMarket.includes('yard')) {
               currentVal = stats.rushYds || 0;
@@ -6189,10 +6848,14 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
               currentVal = stats.rec || 0;
             } else if (rawMarket.includes('carr') || rawMarket.includes('rush_att')) {
               currentVal = stats.car || 0;
+            } else if (rawMarket.includes('pass') && (rawMarket.includes('att') || rawMarket.includes('attempt'))) {
+              currentVal = stats.passAtt || 0;
             } else if (rawMarket.includes('pass') && rawMarket.includes('yard')) {
               currentVal = stats.passYds || 0;
-            } else if (rawMarket.includes('pass') && rawMarket.includes('td')) {
+            } else if (rawMarket.includes('pass') && (rawMarket.includes('td') || rawMarket.includes('touchdown'))) {
               currentVal = stats.passTd || 0;
+            } else if (rawMarket.includes('interception') && (rawMarket.includes('thrown') || rawMarket.includes('pass'))) {
+              currentVal = stats.passInt || 0;
             } else if (rawMarket.includes('interception')) {
               currentVal = stats.int || 0;
             } else if (rawMarket.includes('tackle')) {
@@ -6229,14 +6892,14 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
               el.classList.add('pace-red');
               if (badge) {
                 badge.className = 'leg-pace-badge badge-pacing-red';
-                badge.innerHTML = '⚠️ Bust Risk (0 TD • Q' + ev.period + ')';
+                badge.innerHTML = '⚠️ Bust Risk (' + currentVal + ' TD • Q' + ev.period + ')';
               }
             } else {
               el.classList.remove('pace-green', 'pace-red', 'pace-pre');
               el.classList.add('pace-yellow');
               if (badge) {
                 badge.className = 'leg-pace-badge badge-pacing-yellow';
-                badge.innerHTML = '🟡 In Play (0 TD • Q' + ev.period + ')';
+                badge.innerHTML = '🟡 In Play (' + currentVal + ' TD • Q' + ev.period + ')';
               }
             }
           } else {
@@ -6270,7 +6933,13 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
         // 2. GAME LINES: SPREAD, MONEYLINE, TOTAL
         const isSpread = rawMarket === 'spread' || (!isNaN(lineVal) && (rawMarket === '' || rawMarket === 'game'));
         const isML = rawMarket === 'moneyline' || rawMarket.includes('ml');
-        const isTotal = rawMarket === 'total' || rawMarket.includes('under') || rawMarket.includes('over');
+        // Team total (e.g. "BUF total points Over 30.5") is its own market -- it must be
+        // checked before/separately from the game-total check below, which never matched it
+        // (rawMarket is literally "team_total", which contains neither "total" alone nor
+        // "over"/"under"), so team total legs always fell through with no live update at all
+        // and stayed frozen at whatever their pre-game/0 default was.
+        const isTeamTotal = rawMarket === 'team_total' || (rawMarket.includes('team') && rawMarket.includes('total'));
+        const isTotal = !isTeamTotal && (rawMarket === 'total' || rawMarket.includes('under') || rawMarket.includes('over'));
 
         if (isSpread && !isNaN(lineVal)) {
           const cushion = (myScore + lineVal) - oppScore;
@@ -6375,9 +7044,117 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
           return;
         }
 
+        if (isTeamTotal && !isNaN(lineVal)) {
+          const curTot = myScore;
+          const isOver = rawMarket.includes('over') || (el.getAttribute('data-selection') || '').toLowerCase().includes('over');
+          if (ev.isCompleted) {
+            const hit = isOver ? (curTot > lineVal) : (curTot < lineVal);
+            if (hit) {
+              el.classList.remove('pace-red', 'pace-yellow', 'pace-pre');
+              el.classList.add('pace-green');
+              if (badge) {
+                badge.className = 'leg-pace-badge badge-pacing-won';
+                badge.innerHTML = '✅ Hit (' + rawTeam + ' ' + curTot + ')';
+              }
+            } else if (curTot === lineVal) {
+              el.classList.remove('pace-green', 'pace-red', 'pace-pre');
+              el.classList.add('pace-yellow');
+              if (badge) {
+                badge.className = 'leg-pace-badge badge-pacing-yellow';
+                badge.innerHTML = '🟡 Push (' + rawTeam + ' ' + curTot + ')';
+              }
+            } else {
+              el.classList.remove('pace-green', 'pace-yellow', 'pace-pre');
+              el.classList.add('pace-red');
+              if (badge) {
+                badge.className = 'leg-pace-badge badge-pacing-lost';
+                badge.innerHTML = '❌ Busted (' + rawTeam + ' ' + curTot + ')';
+              }
+            }
+            return;
+          }
+
+          // Live Team Total: pace this team's score alone (not the combined game total)
+          const projTeamTot = (curTot / minsElapsed) * 60;
+          if (isOver) {
+            if (projTeamTot >= lineVal + 4) {
+              el.classList.remove('pace-red', 'pace-yellow', 'pace-pre');
+              el.classList.add('pace-green');
+              if (badge) {
+                badge.className = 'leg-pace-badge badge-pacing-green';
+                badge.innerHTML = '🟢 On Pace Over (' + rawTeam + ' ' + curTot + ' • Proj ' + Math.round(projTeamTot) + ')';
+              }
+            } else if (minsElapsed >= 25 && projTeamTot <= lineVal - 7) {
+              el.classList.remove('pace-green', 'pace-yellow', 'pace-pre');
+              el.classList.add('pace-red');
+              if (badge) {
+                badge.className = 'leg-pace-badge badge-pacing-red';
+                badge.innerHTML = '⚠️ Under Pace (Bust Risk)';
+              }
+            } else {
+              el.classList.remove('pace-green', 'pace-red', 'pace-pre');
+              el.classList.add('pace-yellow');
+              if (badge) {
+                badge.className = 'leg-pace-badge badge-pacing-yellow';
+                badge.innerHTML = '🟡 Live ' + rawTeam + ' ' + curTot + ' (Proj ' + Math.round(projTeamTot) + ')';
+              }
+            }
+          } else {
+            // Under
+            if (projTeamTot <= lineVal - 4) {
+              el.classList.remove('pace-red', 'pace-yellow', 'pace-pre');
+              el.classList.add('pace-green');
+              if (badge) {
+                badge.className = 'leg-pace-badge badge-pacing-green';
+                badge.innerHTML = '🟢 On Pace Under (' + rawTeam + ' ' + curTot + ' • Proj ' + Math.round(projTeamTot) + ')';
+              }
+            } else if (minsElapsed >= 25 && projTeamTot >= lineVal + 7) {
+              el.classList.remove('pace-green', 'pace-yellow', 'pace-pre');
+              el.classList.add('pace-red');
+              if (badge) {
+                badge.className = 'leg-pace-badge badge-pacing-red';
+                badge.innerHTML = '⚠️ Over Pace (Bust Risk)';
+              }
+            } else {
+              el.classList.remove('pace-green', 'pace-red', 'pace-pre');
+              el.classList.add('pace-yellow');
+              if (badge) {
+                badge.className = 'leg-pace-badge badge-pacing-yellow';
+                badge.innerHTML = '🟡 Live ' + rawTeam + ' ' + curTot + ' (Proj ' + Math.round(projTeamTot) + ')';
+              }
+            }
+          }
+          return;
+        }
+
         if (isTotal && !isNaN(lineVal)) {
           const curTot = ev.homeScore + ev.awayScore;
           const isOver = rawMarket.includes('over') || (el.getAttribute('data-selection') || '').toLowerCase().includes('over');
+
+          // Once the current combined score has already crossed the line, the outcome is
+          // mathematically locked in -- NFL scores never decrease within a game, so an Over
+          // leg that has already cleared the number is a guaranteed Hit right now (no need to
+          // wait for final / a pace projection), and an Under leg that has already been
+          // crossed is already Busted, win or lose on the rest of the game.
+          if (!ev.isCompleted && curTot > lineVal) {
+            if (isOver) {
+              el.classList.remove('pace-red', 'pace-yellow', 'pace-pre');
+              el.classList.add('pace-green');
+              if (badge) {
+                badge.className = 'leg-pace-badge badge-pacing-won';
+                badge.innerHTML = '✅ Hit (' + curTot + ')';
+              }
+            } else {
+              el.classList.remove('pace-green', 'pace-yellow', 'pace-pre');
+              el.classList.add('pace-red');
+              if (badge) {
+                badge.className = 'leg-pace-badge badge-pacing-lost';
+                badge.innerHTML = '❌ Busted (' + curTot + ')';
+              }
+            }
+            return;
+          }
+
           if (ev.isCompleted) {
             const hit = isOver ? (curTot > lineVal) : (curTot < lineVal);
             if (hit) {
@@ -6921,7 +7698,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
         '<div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-top:2px;">' +
         '<span>Stake: <strong>$' + stake.toFixed(2) + '</strong></span>' +
         '<span>Odds: <strong style="color:var(--accent-cyan);">' + odds + '</strong></span>' +
-        '<span>Payout: <strong class="payout-val" id="card-payout-' + tId + '" style="color:var(--accent-green);">$' + payout.toFixed(2) + '</strong></span></div>' +
+        '<span>To Win: <strong class="payout-val" id="card-payout-' + tId + '" style="color:var(--accent-green);">$' + Math.max(0, payout - stake).toFixed(2) + '</strong></span></div>' +
         '<div class="progress-bar-wrap"><div class="progress-fill" id="prog-' + tId + '"></div></div></div>' +
         '<div class="card-legs">' + legRowsHtml + '</div>';
 
@@ -7377,7 +8154,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
       const chips = [];
 
       for (const [tId, config] of Object.entries(TICKET_CONFIG)) {
-        if (splitState[tId]) {
+        if (splitState[tId] && !config.isPaper) {
           splitCount++;
           const card = document.getElementById('card-' + tId);
           const isCashed = card && card.classList.contains('cashed');
@@ -7636,7 +8413,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
         }
 
         if (isBurnt) {
-          burntCount++;
+          if (!config.isPaper) burntCount++;
           if (card) card.classList.add('burnt');
           if (prog) prog.classList.add('burnt');
           if (burnBanner) {
@@ -7658,21 +8435,33 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
           if (prog) prog.classList.remove('burnt');
           if (burnBanner) burnBanner.style.display = 'none';
 
-          totalAlivePotential += cardPotential;
-          totalWon += cardWonPayout;
+          if (!config.isPaper) {
+            totalAlivePotential += cardPotential;
+            totalWon += cardWonPayout;
+          }
+
+          // Display "To Win" (profit only), matching how the sportsbooks themselves label
+          // tickets (Risk / Win) -- cardPotential itself stays a TOTAL RETURN (stake+profit)
+          // because the round-robin combo math above genuinely needs that (a combo's payout
+          // is stake*decimalOdds, which is stake-inclusive by definition); we only subtract
+          // the stake actually still at risk at the point we render it to the user.
+          const stakeAtRisk = config.isRoundRobin
+            ? (config.rrStakePerCombo || 0) * rrAliveCombosCount
+            : ((config.cashStake || 0) + (config.promoStake || 0));
+          const displayToWin = Math.max(0, cardPotential - stakeAtRisk);
 
           if (cardPayoutEl) {
             if (config.isRoundRobin && rrTotalCombosCount > 0) {
               const comboNote = (rrAliveCombosCount < rrTotalCombosCount) 
                 ? ' <span style="font-size:0.68rem; color:#F59E0B; font-weight:700;">(' + rrAliveCombosCount + '/' + rrTotalCombosCount + ' Combos)</span>' 
                 : '';
-              cardPayoutEl.innerHTML = '$' + cardPotential.toFixed(2) + comboNote;
+              cardPayoutEl.innerHTML = '$' + displayToWin.toFixed(2) + comboNote;
             } else {
-              cardPayoutEl.textContent = '$' + cardPotential.toFixed(2);
+              cardPayoutEl.textContent = '$' + displayToWin.toFixed(2);
             }
           }
           if (bulletPayoutEl) {
-            bulletPayoutEl.textContent = '$' + cardPotential.toFixed(2);
+            bulletPayoutEl.textContent = '$' + displayToWin.toFixed(2);
           }
         }
 
@@ -7764,7 +8553,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
               prog.style.width = '100%';
             }
             if (btnCash) btnCash.classList.add('active');
-            totalWon += config.payout;
+            if (!config.isPaper) totalWon += config.payout;
           } else {
             if (card) card.classList.remove('cashed');
             if (prog && !isBurnt) prog.classList.remove('cashed');
@@ -7798,7 +8587,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
 
       const tabLiveCount = document.getElementById('tab-live-count');
       if (tabLiveCount) {
-        const liveCount = Math.max(0, Object.keys(TICKET_CONFIG).length - burntCount);
+        const liveCount = Math.max(0, Object.values(TICKET_CONFIG).filter(c => !c.isPaper).length - burntCount);
         tabLiveCount.textContent = liveCount;
       }
 
@@ -7898,7 +8687,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
         gameTitle: 'Sunday Multi-Game Slate (Week ${week})',
         archivedAt: new Date().toISOString(),
         wagers: Object.entries(TICKET_CONFIG)
-          .filter(([tId, cfg]) => cfg.isSettled)
+          .filter(([tId, cfg]) => cfg.isSettled && !cfg.isPaper)
           .map(([tId, cfg]) => {
             const cardEl = document.getElementById('card-' + tId);
             const isCashed = cardEl?.classList.contains('cashed');
