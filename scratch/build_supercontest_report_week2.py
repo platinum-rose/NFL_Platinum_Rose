@@ -4,7 +4,7 @@
   scratch/nfl_week2_supercontest_intelligence_summary.md
   dist/nfl_week2_master_packet/nfl_week2_supercontest_intelligence_summary.{md,html,docx}
   dist/nfl_week2_master_packet/supercontest.html   (packet page with nav, like Week 1)
-Data as of 2026-09-19 (contest lines 09-18 00:48Z; market 3-book median 09-19 12Z; Kalshi 09-19).
+Data as of 2026-09-19 (contest lines 09-18 00:48Z; market BKR 09-19 evening; Kalshi 09-19).
 """
 import re
 import shutil
@@ -52,109 +52,114 @@ def fmt(x):
     return '0.0' if s in ('+0.0', '-0.0') else s
 
 
-# fav, contest (fav line), open (fav line, Tue 09-15), cur (market 09-19), kalshi fav win %
+# fav, contest (fav line), open (fav line, Tue 09-15), cur (BKR 09-19 evening), kalshi fav win % (09-19)
 G = [
-    dict(away='MIN', home='CHI', kick='Sun 1:00 PM ET', fav='CHI', contest=-5.5, open=-5.5, cur=-4.5, kalshi=67, total=48,
-         pick='MIN', rank=1, grade='A',
-         align=('Media Consensus + Free Point', '6 vs 3',
+    dict(away='MIN', home='CHI', kick='Sun 1:00 PM ET', fav='CHI', contest=-5.5, open=-5.5, cur=-5.0, kalshi=67, total=47.5,
+         pick='MIN', rank=1, grade='A-',
+         align=('Media Consensus + Free Half-Point', '6 vs 3',
                 [('Even Money', 'expert-even-money'), ('Sharp or Square', 'expert-sharp-or-square'), ('Action', 'expert-action-network'),
                  ('Lock &amp; Cash', 'expert-lockandcash'), ('Wes Reynolds', 'expert-vsin')],
                 [('Covers (CHI)', 'expert-covers'), ('BettingPros (CHI)', 'expert-bettingpros')]),
-         why=[('Free Point on the Lock', 'Contest locked CHI -5.5; the market fell to -4.5 after Wentz was named — a full point of value.'),
+         why=[('Free Half-Point on the Lock', 'Contest locked CHI -5.5. The market dipped to -4.5 after Wentz was named and is back to -5 at BKR — still half a point of value.'),
               ('Bears Slot Hole', 'Kyler Gordon (PUP) and S Anthony Johnson Jr. (OUT) leave the middle open — MIN→CHI is a HIGH secondary-vulnerability matchup.'),
               ('Wentz Full-Week Prep', "Kevin O'Connell named Wentz on Friday; Jefferson drew a 53% first-read share with him in Week 1.")],
          adv='Minnesota (Jefferson &amp; Hockenson vs depleted Bears slot/seam coverage)',
          injuries="MIN: Kyler Murray OUT (concussion), Jauan Jennings OUT, Brian O'Neill Q. CHI: S Anthony Johnson Jr. OUT, Kyler Gordon PUP, Kyle Monangai Q.",
          extra=['Lock &amp; Cash made MIN +5.5 its official free pick; its power rating sees value down to +3.5.',
                 'Wes Reynolds (VSiN): MIN +5 — Bears Week 1 total regression; Cover-0 looks Wentz can beat.',
-                'John Ewing: 87% of money on the Over 48 — the public expects a shootout.']),
-    dict(away='NYG', home='LAR', kick='Mon 8:15 PM ET', fav='LAR', contest=-7.0, open=-7.0, cur=-7.5, kalshi=75, total=48,
-         pick='LAR', rank=2, grade='A-',
-         align=('Sharp-Show Lean + Key-7 Push Equity', '8 vs 4',
-                [('Lock &amp; Cash ×2', 'expert-lockandcash'), ('Sharp or Square', 'expert-sharp-or-square'), ('Action', 'expert-action-network'),
-                 ('BettingPros', 'expert-bettingpros'), ('Wes Reynolds', 'expert-vsin')],
-                [('Covers (NYG +6.5)', 'expert-covers'), ('J. Logan', 'expert-covers-jlo')]),
-         why=[('Free Half-Point', 'Contest -7 vs market -7.5; Kalshi: LAR by 7+ ≈55%, by 8+ ≈46% → roughly 46% win / 9% push / 45% loss at -7.'),
-              ('Top Secondary Target', "LAR→NYG is the week's highest vulnerability score (6.49): Deonte Banks Q, Korie Black OUT, Greg Newsome Q."),
-              ('Silencer System', 'Favored in W1, lost outright, W2 total ≥ 47 — Lock &amp; Cash bounce-back qualifier; power rating LAR by 9.')],
-         adv='Los Angeles (Rams passing game vs Giants CB room)',
-         injuries='LAR: Puka Nacua Q, Kam Curl Q, Kamren Kinchens Q, Jordan Whittington Q. NYG: LT Andrew Thomas Q, Francis Mauigoa Q, Deonte Banks Q, Greg Newsome II Q, Korie Black OUT.',
-         extra=["Risk: first home game after the Melbourne opener (BettingPros flags travel); Giants off an emotional upset of Dallas (Covers' Jason Logan: letdown spot).",
-                'Monday night is the last game of the week; a push is worth 0.5.']),
-    dict(away='JAX', home='DEN', kick='Sun 4:05 PM ET', fav='DEN', contest=-2.5, open=-2.5, cur=-2.5, kalshi=58, total=45.5,
-         pick='DEN', rank=3, grade='B+',
-         align=('Widest Consensus of the Week', '11 vs 4',
+                'The line drifting back toward CHI (-4.5 → -5) trims the edge from a full point to a half.']),
+    dict(away='JAX', home='DEN', kick='Sun 4:05 PM ET', fav='DEN', contest=-2.5, open=-2.5, cur=-3.0, kalshi=58, total=45.5,
+         pick='DEN', rank=2, grade='A',
+         align=('Widest Consensus + Hook Under 3', '11 vs 4',
                 [('Fezzik', 'expert-even-money'), ('Sharp or Square', 'expert-sharp-or-square'), ('Action ×2', 'expert-action-network'),
-                 ('The Favorites', 'expert-favorites'), ('BettingPros', 'expert-bettingpros'), ('Wes Reynolds (ML)', 'expert-vsin')],
+                 ('The Favorites', 'expert-favorites'), ('BettingPros', 'expert-bettingpros'), ('Wes Reynolds (ML)', 'expert-vsin'), ('Gavin McHugh', 'expert-x-late')],
                 [('Covers (JAX)', 'expert-covers')]),
-         why=[('11-Source Consensus', 'Fezzik, Sharp or Square, Action, Even Money, The Favorites, BettingPros, Janvrin, Adee, VSiN and Gavin McHugh are all on Denver.'),
-              ('Short Number', 'No key number to protect at -2.5 — a field-goal win covers.'),
+         why=[('Free Half-Point Through 3', 'BKR moved to DEN -3 (+102); the contest still has -2.5. A 3-point Denver win — the most common NFL margin — is a win for us, a push at market.'),
+              ('11-Source Consensus', 'Fezzik, Sharp or Square, Action, Even Money, The Favorites, BettingPros, Janvrin, Adee, VSiN and Gavin McHugh are all on Denver.'),
               ('Jaguars WR Questions', 'Brian Thomas Jr. (shoulder) and Jakobi Meyers (thumb) are both questionable.')],
          adv='Denver (home pass rush vs a banged-up Jaguars WR room)',
          injuries='DEN: Marvin Mims Jr. OUT, RJ Harvey Q. JAX: Brian Thomas Jr. Q, Jakobi Meyers Q, LeQuint Allen Jr. Q.',
          extra=['Total moved 43.5 → 45.5; BettingPros likes the Denver team total Over 21.5.',
                 'Counterpoint: Even Money uses JAX +8.5 as a teaser leg — a teaser, not a side.']),
-    dict(away='CIN', home='HOU', kick='Sun 1:00 PM ET', fav='HOU', contest=-2.5, open=-2.5, cur=-2.5, kalshi=59, total=45.5,
-         pick='HOU', rank=4, grade='B (Burrow-conditional)',
-         align=('Near-Unanimous Favorite', '9 vs 3',
-                [('Fezzik', 'expert-even-money'), ('Sharp or Square', 'expert-sharp-or-square'), ('Action', 'expert-action-network'), ('BettingPros', 'expert-bettingpros')],
-                [('Covers (CIN)', 'expert-covers')]),
-         why=[('Burrow Questionable', 'Joe Burrow is questionable (back); the pick assumes he is limited or out.'),
-              ('Bengals Slow Starts', "BettingPros' survivor show and Fezzik both lean on Cincinnati's September history."),
-              ('WR Risk (why B)', 'Nico Collins and Tank Dell are OUT — Houston is thin outside. Swap to an alternate if Burrow practices fully.')],
-         adv='Houston (front seven vs a compromised Burrow)',
-         injuries='CIN: Joe Burrow Q (back). HOU: Nico Collins OUT, Tank Dell OUT, Jadeveon Clowney OUT.',
-         extra=['Wes Reynolds (VSiN): Under 45.5 in this game.',
-                "Cody Brown: Ja'Marr Chase O70.5 receiving — the Texans allowed two 100-yard WRs in Week 1."]),
-    dict(away='MIA', home='SF', kick='Sun 4:25 PM ET', fav='SF', contest=-13.5, open=-12.5, cur=-13.5, kalshi=90, total=44.5,
-         pick='MIA', rank=5, grade='B',
+    dict(away='GB', home='NYJ', kick='Sun 1:00 PM ET', fav='GB', contest=-3.5, open=-4.5, cur=-3.0, kalshi=61, total=44,
+         pick='NYJ', rank=3, grade='B+',
+         align=('Key-Number Value + Rain', '6 vs 5',
+                [('Fezzik', 'expert-even-money'), ('Sharp or Square', 'expert-sharp-or-square'), ('Covers', 'expert-covers')],
+                [('BettingPros', 'expert-bettingpros'), ('J. Logan', 'expert-covers-jlo'), ('Lock &amp; Cash (Zigzag)', 'expert-lockandcash')]),
+         why=[('Free Half-Point Through 3', 'GB opened -4.5 and is now -3 at BKR; the contest gives +3.5. A Packers win by exactly 3 is a contest win for the Jets.'),
+              ('Prediction Market Agrees', 'Kalshi prices GB at 61% vs 63.6% implied by the BKR moneyline — the prediction market is cooler on Green Bay than the book.'),
+              ('Weather', 'Heavy-rain forecast (heavy-rain unders 202–136) — low scoring helps the dog.')],
+         adv='Green Bay on talent; the Jets are missing Minkah Fitzpatrick, Joseph Ossai and Omar Cooper Jr.',
+         injuries='NYJ: Minkah Fitzpatrick OUT, Joseph Ossai OUT, Omar Cooper Jr. OUT, Will McDonald IV Q. GB: Lukas Van Ness Q.',
+         extra=["Against: Lock &amp; Cash's Zigzag system (late Grok capture) has GB -3.5; Jason Logan calls it a Jets look-ahead spot.",
+                "Fezzik has NYJ +3.5 in his five best; Covers' ATS column also has NYJ +3.5."]),
+    dict(away='MIA', home='SF', kick='Sun 4:25 PM ET', fav='SF', contest=-13.5, open=-12.5, cur=-13.0, kalshi=90, total=45,
+         pick='MIA', rank=4, grade='B+',
          align=('Near-Unanimous Dog', '8 vs 1',
                 [('Sharp or Square', 'expert-sharp-or-square'), ('Action', 'expert-action-network'), ('BettingPros ×2', 'expert-bettingpros'), ('J. Logan', 'expert-covers-jlo')],
                 [('Covers (SF)', 'expert-covers')]),
-         why=[('Two Touchdowns', 'SF closes games conservatively; 13.5 needs a two-score margin to hold into the final minutes.'),
-              ('Schedule Spot', "Covers' Jason Logan: Miami's back-to-back cross-country trips."),
-              ('Backdoor Volume', "Miami trails and throws: Chris Bell (54% routes in W1) and De'Von Achane volume.")],
+         why=[('Free Half-Point', 'BKR has SF -13; the contest gives Miami +13.5.'),
+              ('Two Touchdowns', 'SF closes games conservatively; 13.5 needs a two-score margin to hold into the final minutes.'),
+              ('Backdoor Volume', "Miami trails and throws: Chris Bell (54% routes in W1) and De'Von Achane volume. Covers' Jason Logan: Miami's back-to-back cross-country trips.")],
          adv='San Francisco on talent; Miami on the number',
          injuries="MIA: Chop Robinson OUT, Ronnie Harrison Jr. OUT. SF: De'Zhaun Stribling OUT, Kaelon Black Q.",
-         extra=['The line opened -12.5 and moved to -13.5 — the market is paying more for SF, not less.']),
-    # alternates
-    dict(away='CLE', home='TB', kick='Sun 1:00 PM ET', fav='TB', contest=-8.5, open=-8.5, cur=-8.5, kalshi=79, total=41.5,
-         pick='TB', rank=6, grade='B',
-         align=('Survivor Consensus', '7 vs 2',
-                [('BettingPros', 'expert-bettingpros'), ('Action', 'expert-action-network'), ('The Favorites', 'expert-favorites'), ('Covers', 'expert-covers')],
-                []),
-         why=[('Watson-Led Browns', "BettingPros survivor show: Cleveland's offense is 'non-functional' under Deshaun Watson."),
-              ('Better as a Teaser', '-8.5 → -2.5 crosses 7 and 3 (Even Money uses it).')],
-         adv='Tampa Bay (Egbuka vs a CLE secondary that allowed 3 WR TDs in W1)',
-         injuries='CLE: Tyson Campbell Q. TB: Miles Killebrew Q, Jacob Parrish Q, Jalen McMillan Q.', extra=[]),
-    dict(away='WAS', home='DAL', kick='Sun 4:25 PM ET', fav='DAL', contest=-4.5, open=-3.5, cur=-4.0, kalshi=66, total=50.5,
-         pick='WAS', rank=7, grade='B',
-         align=('Hook Value', '3 vs 5',
-                [('Even Money', 'expert-even-money'), ('Sharp or Square', 'expert-sharp-or-square')],
+         extra=['The line opened -12.5, peaked at -13.5 and is back to -13 at BKR.']),
+    dict(away='WAS', home='DAL', kick='Sun 4:25 PM ET', fav='DAL', contest=-4.5, open=-3.5, cur=-4.0, kalshi=66, total=51,
+         pick='WAS', rank=5, grade='B',
+         align=('Hook Value', '4 vs 5',
+                [('Even Money', 'expert-even-money'), ('Sharp or Square', 'expert-sharp-or-square'), ('Gavin McHugh (+4)', 'expert-x-late')],
                 [('Lock &amp; Cash', 'expert-lockandcash'), ('Covers', 'expert-covers')]),
-         why=[('Free Hook', 'Contest +4.5 vs market +4; Kalshi prices Washington +4.5 at ≈52.5%.'),
-              ('Why Only an Alternate', 'Dallas qualifies for the Silencer bounce-back system; Chig Okonkwo is OUT for WAS.')],
-         adv='Even — highest total on the slate (50.5)',
+         why=[('Free Half-Point', 'Contest +4.5 vs BKR +4; Kalshi priced Washington +4.5 at ≈52.5%.'),
+              ('Replaces LAR in the Top 5', 'The Rams number went the wrong way (market -6.5 vs our -7). WAS keeps a free half-point with a 4-vs-5 panel.'),
+              ('Risk', 'Dallas qualifies for the Silencer bounce-back system; Chig Okonkwo is OUT for WAS.')],
+         adv='Even — highest total on the slate (51)',
          injuries='WAS: Chig Okonkwo OUT. DAL: Malik Hooker OUT.', extra=[]),
-    dict(away='PIT', home='NE', kick='Sun 1:00 PM ET', fav='NE', contest=-5.5, open=-5.5, cur=-5.0, kalshi=69, total=41.5,
-         pick='PIT', rank=8, grade='B-',
+    # alternates
+    dict(away='NYG', home='LAR', kick='Mon 8:15 PM ET', fav='LAR', contest=-7.0, open=-7.0, cur=-6.5, kalshi=75, total=48,
+         pick='LAR', rank=6, grade='B',
+         align=('Sharp-Show Lean, Wrong Number Now', '9 vs 4',
+                [('Lock &amp; Cash ×3', 'expert-lockandcash'), ('Sharp or Square', 'expert-sharp-or-square'), ('Action', 'expert-action-network'),
+                 ('BettingPros', 'expert-bettingpros'), ('Wes Reynolds', 'expert-vsin')],
+                [('Covers (NYG +6.5)', 'expert-covers'), ('J. Logan', 'expert-covers-jlo')]),
+         why=[('Contest Number Now Worse', 'The market went -7.5 → -6.5 at BKR; the contest -7 is half a point worse than market. A Rams win by exactly 7 still pushes (0.5 pts).'),
+              ('Top Secondary Target', "LAR→NYG is the week's highest vulnerability score (6.49): Deonte Banks Q, Korie Black OUT, Greg Newsome Q."),
+              ('Systems', 'Silencer (favored in W1, lost outright, W2 total ≥ 47) and Lock &amp; Cash Zigzag both point to LAR; power rating LAR by 9.')],
+         adv='Los Angeles (Rams passing game vs Giants CB room)',
+         injuries='LAR: Puka Nacua Q, Kam Curl Q, Kamren Kinchens Q, Jordan Whittington Q. NYG: LT Andrew Thomas Q, Francis Mauigoa Q, Deonte Banks Q, Greg Newsome II Q, Korie Black OUT.',
+         extra=['Swap LAR back in for WAS only if Nacua is confirmed active and the market returns to -7 or higher.',
+                "Risk: first home game after the Melbourne opener; Giants off an emotional upset of Dallas (Covers' Jason Logan: letdown spot)."]),
+    dict(away='PIT', home='NE', kick='Sun 1:00 PM ET', fav='NE', contest=-5.5, open=-5.5, cur=-5.0, kalshi=69, total=41,
+         pick='PIT', rank=7, grade='B-',
          align=('Split Panel', '4 vs 3',
                 [('Sharp or Square', 'expert-sharp-or-square'), ('The Favorites', 'expert-favorites'), ('Covers', 'expert-covers')],
                 [('Action', 'expert-action-network'), ('BettingPros', 'expert-bettingpros')]),
-         why=[('Free Half-Point', 'Contest +5.5 vs market +5.'),
+         why=[('Free Half-Point', 'Contest +5.5 vs BKR +5.'),
               ('Why Only an Alternate', 'NE has 3+ extra rest (18-4 SU / 14-8 ATS) and PIT lost CB Joey Porter Jr. — a HIGH NE→PIT matchup.')],
          adv='New England (passing game vs Steelers secondary)',
          injuries='PIT: Joey Porter Jr. OUT, Michael Pittman Jr. Q, Troy Fautanu Q. NE: Dametrious Crownover OUT, Carlton Davis III Q.', extra=[]),
-    dict(away='GB', home='NYJ', kick='Sun 1:00 PM ET', fav='GB', contest=-3.5, open=-4.5, cur=-3.5, kalshi=61, total=44.5,
-         pick='NYJ', rank=9, grade='B-',
-         align=('Fezzik + Rain', '6 vs 4',
-                [('Fezzik', 'expert-even-money'), ('Sharp or Square', 'expert-sharp-or-square'), ('Covers', 'expert-covers')],
-                [('BettingPros', 'expert-bettingpros'), ('J. Logan', 'expert-covers-jlo')]),
-         why=[('Market Moved Our Way', 'Opened GB -4.5, now -3.5 — the value is already gone at the contest number.'),
-              ('Weather', 'Heavy-rain forecast (heavy-rain unders 202–136) — low scoring helps the dog.')],
-         adv='Green Bay on talent; the Jets are missing Minkah Fitzpatrick, Joseph Ossai and Omar Cooper Jr.',
-         injuries='NYJ: Minkah Fitzpatrick OUT, Joseph Ossai OUT, Omar Cooper Jr. OUT, Will McDonald IV Q. GB: Lukas Van Ness Q.', extra=[]),
-    dict(away='NO', home='BAL', kick='Sun 1:00 PM ET', fav='BAL', contest=-8.5, open=-8.5, cur=-8.5, kalshi=79, total=46.5,
+    dict(away='CIN', home='HOU', kick='Sun 1:00 PM ET', fav='HOU', contest=-2.5, open=-2.5, cur=-2.5, kalshi=59, total=45.5,
+         pick='HOU', rank=8, grade='B-',
+         align=('Big Consensus, Thesis Gone', '11 vs 3',
+                [('Fezzik', 'expert-even-money'), ('Sharp or Square', 'expert-sharp-or-square'), ('Action', 'expert-action-network'), ('BettingPros', 'expert-bettingpros'),
+                 ('Lock &amp; Cash (Zigzag)', 'expert-lockandcash'), ('Gavin McHugh', 'expert-x-late')],
+                [('Covers (CIN)', 'expert-covers')]),
+         why=[('Burrow Cleared', 'Joe Burrow had his injury designation removed and will play. Our Top-5 case assumed he was limited or out, so HOU drops to an alternate.'),
+              ('Market Shrugged', 'BKR still has HOU -2.5 and the ML moved toward Houston (-136 → -147) — the market did not treat the news as a big swing.'),
+              ('WR Risk', 'Nico Collins and Tank Dell are OUT — Houston is thin outside.')],
+         adv='Even with Burrow active',
+         injuries='CIN: Joe Burrow — designation removed, will play. HOU: Nico Collins OUT, Tank Dell OUT, Jadeveon Clowney OUT.',
+         extra=['Wes Reynolds (VSiN): Under 45.5 in this game.',
+                "Cody Brown: Ja'Marr Chase O70.5 receiving — stronger with Burrow active."]),
+    dict(away='CLE', home='TB', kick='Sun 1:00 PM ET', fav='TB', contest=-8.5, open=-8.5, cur=-8.5, kalshi=79, total=41.5,
+         pick='TB', rank=9, grade='B-',
+         align=('Survivor Consensus', '7 vs 2',
+                [('BettingPros', 'expert-bettingpros'), ('Action', 'expert-action-network'), ('The Favorites', 'expert-favorites'), ('Covers', 'expert-covers')],
+                []),
+         why=[('No Line Value', 'Contest -8.5 = BKR -8.5.'),
+              ('Better as a Teaser', '-8.5 → -2.5 crosses 7 and 3 (Even Money uses it). Watson-led Browns are "non-functional" (BettingPros).')],
+         adv='Tampa Bay (Egbuka vs a CLE secondary that allowed 3 WR TDs in W1)',
+         injuries='CLE: Tyson Campbell Q. TB: Miles Killebrew Q, Jacob Parrish Q, Jalen McMillan Q.', extra=[]),
+    dict(away='NO', home='BAL', kick='Sun 1:00 PM ET', fav='BAL', contest=-8.5, open=-8.5, cur=-8.5, kalshi=79, total=45.5,
          pick='BAL', rank=10, grade='C+',
          align=('Teaser Leg', '5 vs 3',
                 [('Action', 'expert-action-network'), ('The Favorites', 'expert-favorites'), ('Even Money (teaser)', 'expert-even-money')],
@@ -163,14 +168,14 @@ G = [
          adv='Baltimore (run game)',
          injuries='BAL: Zay Flowers D, Ronnie Stanley Q, Trey Hendrickson Q, T.J. Tampa OUT. NO: Chris Olave Q, Chase Young Q.', extra=[]),
     # passes
-    dict(away='PHI', home='TEN', kick='Sun 1:00 PM ET', fav='PHI', contest=-7.0, open=-7.0, cur=-7.0, kalshi=76, total=39.5,
+    dict(away='PHI', home='TEN', kick='Sun 1:00 PM ET', fav='PHI', contest=-7.0, open=-7.0, cur=-7.0, kalshi=76, total=39,
          pick=None, lean='PHI', rank=None, grade='Pass',
          align=('Totals Game', '5 vs 2',
                 [('Sharp or Square', 'expert-sharp-or-square'), ('BettingPros', 'expert-bettingpros'), ('Covers', 'expert-covers')],
                 [('Action (TEN)', 'expert-action-network')]),
-         why=[('Push Risk', 'A 7-point line in a 39.5 total — a PHI 7-point win is very live. Play the Under 39.5 elsewhere.')],
+         why=[('Push Risk', 'A 7-point line in a 39 total — a PHI 7-point win is very live. Play the Under elsewhere.')],
          adv='Philadelphia', injuries="PHI: Jonathan Greenard OUT, Andrew Mukuba Q. TEN: Cor'Dale Flott Q.", extra=[]),
-    dict(away='CAR', home='ATL', kick='Sun 1:00 PM ET', fav='CAR', contest=-2.5, open=-2.5, cur=-2.5, kalshi=58, total=43.5,
+    dict(away='CAR', home='ATL', kick='Sun 1:00 PM ET', fav='CAR', contest=-2.5, open=-2.5, cur=-2.5, kalshi=58, total=43,
          pick=None, lean='CAR', rank=None, grade='Pass',
          align=('Clash', '5 vs 4',
                 [('BettingPros', 'expert-bettingpros'), ('Covers', 'expert-covers')],
@@ -179,26 +184,26 @@ G = [
          adv='Atlanta run game vs a CAR defense that allowed ~300 rush yds in W1',
          injuries='ATL: Michael Penix Jr. OUT, Tua Tagovailoa D, A.J. Terrell Jr. Q.', extra=[]),
     dict(away='LV', home='LAC', kick='Sun 4:05 PM ET', fav='LAC', contest=-6.5, open=-7.0, cur=-6.5, kalshi=73, total=43.5,
-         pick=None, lean='LV', rank=None, grade='Pass',
-         align=('Clash', '6 vs 4',
-                [('Even Money', 'expert-even-money'), ('Sharp or Square', 'expert-sharp-or-square'), ('Covers', 'expert-covers')],
-                [('The Favorites', 'expert-favorites'), ('BettingPros', 'expert-bettingpros')]),
-         why=[('Split', "Raiders fans travel (little LAC home edge), but Bowers is doubtful and O'Connell questionable.")],
+         pick=None, lean='LAC', rank=None, grade='Pass',
+         align=('Clash', '6 vs 6',
+                [('The Favorites', 'expert-favorites'), ('BettingPros', 'expert-bettingpros'), ('Lock &amp; Cash (Zigzag)', 'expert-lockandcash'), ('Gavin McHugh', 'expert-x-late')],
+                [('Even Money (LV)', 'expert-even-money'), ('Sharp or Square (LV)', 'expert-sharp-or-square'), ('Covers (LV)', 'expert-covers')]),
+         why=[('Split', "The late Grok captures (Lock &amp; Cash Zigzag, Gavin McHugh) even the panel at 6–6. Bowers doubtful and O'Connell questionable vs little LAC home edge.")],
          adv='Even', injuries="LV: Brock Bowers D, Aidan O'Connell Q, Darien Porter OUT. LAC: Ladd McConkey Q, Trey Pipkins III OUT, Elijah Molden OUT.", extra=[]),
     dict(away='SEA', home='ARI', kick='Sun 4:25 PM ET', fav='SEA', contest=-3.5, open=-4.5, cur=-4.0, kalshi=66, total=41,
          pick=None, lean='ARI', rank=None, grade='Pass (contest)',
          align=('Wrong Side of 4', '7 vs 3',
                 [('Fezzik', 'expert-even-money'), ('Sharp or Square', 'expert-sharp-or-square'), ('Covers', 'expert-covers'), ('Wes Reynolds', 'expert-vsin')],
                 [('Robert Mays', 'expert-mays'), ('Action', 'expert-action-network')]),
-         why=[('Contest Number Is Worse', 'ARI backers are on +4/+4.5; the contest gives only +3.5 (market +4).')],
+         why=[('Contest Number Is Worse', 'ARI backers are on +4/+4.5; the contest gives only +3.5 (BKR +4).')],
          adv='Seattle secondary edge (ARI CB Garrett Williams OUT); Drew Lock starts for SEA',
          injuries='SEA: Sam Darnold OUT, Zach Charbonnet OUT, Ty Okada OUT. ARI: Garrett Williams OUT, James Conner OUT, Max Melton Q.', extra=[]),
-    dict(away='IND', home='KC', kick='Sun 8:20 PM ET', fav='KC', contest=-6.5, open=-6.5, cur=-6.5, kalshi=73, total=46.5,
+    dict(away='IND', home='KC', kick='Sun 8:20 PM ET', fav='KC', contest=-6.5, open=-6.5, cur=-6.5, kalshi=73, total=47,
          pick=None, lean='IND', rank=None, grade='Pass',
-         align=('Clash', '9 vs 7',
-                [('Sharp or Square', 'expert-sharp-or-square'), ('Action', 'expert-action-network'), ('Wes Reynolds', 'expert-vsin')],
-                [('The Favorites (KC)', 'expert-favorites'), ('Covers (KC)', 'expert-covers')]),
-         why=[('Coin Flip', 'Kalshi prices KC -6.5 at ≈49.5%. Props instead: Daniel Jones U32.5 attempts, Kenneth Walker O78.5.')],
+         align=('Clash', '10 vs 8',
+                [('Sharp or Square', 'expert-sharp-or-square'), ('Action', 'expert-action-network'), ('Wes Reynolds', 'expert-vsin'), ('Lock &amp; Cash (Zigzag)', 'expert-lockandcash')],
+                [('The Favorites (KC)', 'expert-favorites'), ('Covers (KC)', 'expert-covers'), ('Gavin McHugh (KC)', 'expert-x-late')]),
+         why=[('Coin Flip', 'Kalshi prices KC -6.5 at ≈49.5%. Props instead: Daniel Jones U32.5 attempts, Kenneth Walker O78.5/79.5 (two sources).')],
          adv='Kansas City at home', injuries='IND: Ashton Dulin OUT, DJ Giddens Q. KC: Chamarri Conner OUT, Mansoor Delane Q.', extra=[]),
 ]
 
@@ -289,7 +294,7 @@ HDR = [
     tip("Matchup &amp; Kickoff", "Game Details", "NFL Week 2 matchup, kickoff day/time (ET), team logos, and a Line Stability Score (90 = no movement since Tuesday's open)."),
     tip("Opening Line", "Tuesday Line", "The point spread on Tuesday 09-15 (DraftKings via the schedule feed), before most Week 2 betting action."),
     tip("Contest Line", "Official SuperContest Spread", "The point spread locked by the Westgate SuperContest on Wednesday. This number never changes for our card."),
-    tip("Current Line", "Live Market Spread", "3-book median point spread, Saturday 09-19 12:00Z. Shows where public and sharp money have moved the line."),
+    tip("Current Line", "Live Market Spread", "BKR (sportsbook) point spread, Saturday 09-19 evening. Shows where public and sharp money have moved the line."),
     tip("Movement", "Contest vs. Market", "Points the contest line gives our side versus the current market. Green = free points (CLV) from playing the locked number."),
     tip("Contest Pick &amp; Grade", "Recommended Selection", "Our spread recommendation and conviction grade for Andy and Amanda's contest entry."),
     tip("Expert Alignment", "Podcast, Article &amp; X Consensus", "Distinct shows/writers with a spread pick on our side vs. the other side (podcasts Sep 14+, articles, X bookmarks incl. Grok/Antigravity captures)."),
@@ -299,7 +304,7 @@ THEAD = "<thead>\n<tr>\n" + "\n".join(f"<th>{h}</th>" for h in HDR) + "\n</tr>\n
 
 top5 = [g for g in G if g.get('rank') and g['rank'] <= 5]
 alts = [g for g in G if g.get('rank') and g['rank'] > 5]
-matrix_order = ['MIN', 'PHI', 'NYJ', 'CAR', 'BAL', 'HOU', 'TB', 'PIT', 'LV', 'DEN', 'WAS', 'ARI', 'MIA', 'IND', 'LAR']
+matrix_order = ['MIN', 'PHI', 'NYJ', 'CAR', 'BAL', 'HOU', 'TB', 'PIT', 'LAC', 'DEN', 'WAS', 'ARI', 'MIA', 'IND', 'LAR']
 by_team = {(g['pick'] or g.get('lean')): g for g in G}
 
 
@@ -332,12 +337,13 @@ def pick_item(team, line, game, note):
 
 
 EXPERTS = [
-    ('expert-ai', '1. Platinum Rose Top 5 (Consensus + Contest-Value Card)', [
-        pick_item('MIN', 5.5, gm('MIN', 'CHI'), 'Rank 1 / +1.0 free point vs market / 6-3 consensus'),
-        pick_item('LAR', -7, gm('NYG', 'LAR'), 'Rank 2 / +0.5 vs market / top secondary-vulnerability matchup'),
-        pick_item('DEN', -2.5, gm('JAX', 'DEN'), 'Rank 3 / 11-4 consensus, widest of the week'),
-        pick_item('HOU', -2.5, gm('CIN', 'HOU'), 'Rank 4 / Burrow-conditional / 9-3 consensus'),
-        pick_item('MIA', 13.5, gm('MIA', 'SF'), 'Rank 5 / 8-1 consensus / two-score cushion')]),
+    ('expert-ai', '1. Platinum Rose Top 5 (Consensus + Contest-Value Card, BKR lines)', [
+        pick_item('MIN', 5.5, gm('MIN', 'CHI'), 'Rank 1 / +0.5 vs BKR -5 / 6-3 consensus'),
+        pick_item('DEN', -2.5, gm('JAX', 'DEN'), 'Rank 2 / +0.5 through 3 vs BKR -3 / 11-4 consensus'),
+        pick_item('NYJ', 3.5, gm('GB', 'NYJ'), 'Rank 3 / +0.5 through 3 vs BKR +3 / rain'),
+        pick_item('MIA', 13.5, gm('MIA', 'SF'), 'Rank 4 / +0.5 vs BKR +13 / 8-1 consensus'),
+        pick_item('WAS', 4.5, gm('WAS', 'DAL'), 'Rank 5 / +0.5 vs BKR +4 / replaces LAR'),
+        '* <strong>Out since the first draft:</strong> HOU −2.5 (Burrow cleared) and LAR −7 (market now −6.5).']),
     ('expert-even-money', '2. Even Money (Ross Tucker &amp; Steve Fezzik — 2x SuperContest Champion)', [
         pick_item('MIN', 5.5, gm('MIN', 'CHI'), 'Even Money side'),
         pick_item('NYJ', 3.5, gm('GB', 'NYJ'), "<strong>Fezzik's five</strong> (via Ross Tucker Pod)"),
@@ -379,17 +385,21 @@ EXPERTS = [
     ('expert-lockandcash', '9. Lock &amp; Cash (video + X)', [
         pick_item('MIN', 5.5, gm('MIN', 'CHI'), '<strong>Official free pick</strong>'),
         pick_item('LAR', -7, gm('NYG', 'LAR'), 'Silencer System + power rating LAR by 9'),
-        pick_item('DAL', -3.5, gm('WAS', 'DAL'), 'Silencer System')]),
+        pick_item('DAL', -3.5, gm('WAS', 'DAL'), 'Silencer System'),
+        '* <strong>Zigzag system</strong> (late Grok capture — teams that did not win and cover in W1 vs a non-playoff team that did): GB −3.5, HOU −2.5, LAC −6.5, IND +6.5, LAR −7.']),
     ('expert-covers-jlo', '10. Covers — Jason Logan Spot Bets', [
         pick_item('NYG', 7, gm('NYG', 'LAR'), 'Letdown spot (against our LAR)'),
         pick_item('GB', -3.5, gm('GB', 'NYJ'), 'Look-ahead spot'),
         pick_item('MIA', 13.5, gm('MIA', 'SF'), 'Back-to-back cross-country schedule spot')]),
     ('expert-mays', '11. Robert Mays (The Athletic)', [pick_item('SEA', -3.5, gm('SEA', 'ARI'), '')]),
+    ('expert-x-late', '12. Late X Bookmarks (Grok re-run 2, Sep 19 night)', [
+        '* <strong>Gavin McHugh:</strong> HOU −2.5, LAC −6.5, DEN −2.5, WAS +4, KC −6.5.',
+        '* <strong>thepropdealer:</strong> 14-leg favorites moneyline parlay (CHI, PHI, BAL, NE, TB, GB, CAR, HOU, LAC, DEN, DAL, SEA, SF, KC) — no spread picks.']),
 ]
 
 
 def dossier():
-    order = top5 + alts + [by_team[t] for t in ['PHI', 'CAR', 'LV', 'ARI', 'IND']]
+    order = top5 + alts + [by_team[t] for t in ['PHI', 'CAR', 'LAC', 'ARI', 'IND']]
     out = []
     for i, g in enumerate(order, 1):
         team = g['pick'] or g.get('lean')
@@ -497,14 +507,15 @@ def build_md():
 <summary>📋 SuperContest Rules &amp; Overview (Spread-Only Format, Scoring, Lock Times &amp; Market Data)</summary>
 <div class="rollup-content">
   <div class="status-banner" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); border-left: 5px solid #10B981; padding: 14px 18px; border-radius: 8px; margin-bottom: 12px; color: #F8FAFC;">
-    <div style="font-size: 1.05rem; font-weight: 700; color: #34D399; margin-bottom: 4px;">🟢 Market Snapshot: 3-Book Median + Kalshi Integrated (DRAFT — re-check Sunday)</div>
+    <div style="font-size: 1.05rem; font-weight: 700; color: #34D399; margin-bottom: 4px;">🟢 Market Snapshot: BKR Lines + Kalshi Integrated (Sat night update)</div>
     <div style="font-size: 0.92rem; line-height: 1.5;">
-      • <strong>Market Lines:</strong> 3-book median spreads, <strong>Sep 19, 2026, 12:00 PM UTC</strong>. Kalshi/Polymarket refreshed Sep 19.<br>
+      • <strong>Market Lines:</strong> BKR sportsbook, <strong>Sat Sep 19, 2026 (evening)</strong>. Kalshi/Polymarket refreshed Sep 19.<br>
+      • <strong>Changes since the first draft:</strong> Burrow cleared to play → HOU out of the Top 5; LAR −7 now worse than BKR −6.5 → replaced by WAS +4.5; BKR moves to DEN −3 and GB −3 → DEN up to #2, NYJ in at #3.<br>
       • <strong>Contest Lines:</strong> Westgate SuperContest Week 2 lines captured <strong>Sep 18, 2026, 12:48 AM UTC</strong>.<br>
       • <strong>Contest Format:</strong> <strong>Spread-Only</strong>. Select exactly <strong>five (5) NFL sides</strong> against the locked contest lines. Zero totals, zero moneylines, zero props, zero teasers.<br>
       • <strong>Scoring System:</strong> Win = <strong>1.0 point</strong>, Push/Tie = <strong>0.5 points</strong>, Loss = <strong>0.0 points</strong>.<br>
       • <strong>Game 16 Status (Lions @ Bills, TNF):</strong> 🏁 <strong>FINAL — BUF 41, DET 31</strong> (BUF -4.5 covered). 15 active games remain.<br>
-      • <strong>Sunday Re-Check:</strong> Burrow (CIN), Tua/Rush (ATL), Nacua (LAR), NYG OL (Thomas, Mauigoa), Flowers (BAL), Bowers (LV), McConkey (LAC).<br>
+      • <strong>Sunday Re-Check:</strong> Tua/Rush (ATL), Nacua (LAR), NYG OL (Thomas, Mauigoa), Flowers (BAL), Bowers (LV), McConkey (LAC).<br>
       • <strong>Interactive Sortable Tables:</strong> 💡 Hover over any header marked with <strong>ⓘ</strong> for definitions. <strong>Click any column header to sort</strong> ascending or descending.
     </div>
   </div>
@@ -523,7 +534,7 @@ def build_md():
 | DAL −3.0 @ NYG | ❌ Loss | NYG 28–20 |
 | CAR +3.0 vs CHI | ❌ Loss | CHI 59–37 |
 
-Four of five leaned on "hook through key number 3" logic; the only winner was the pick with real closing-line value. **Week 2 ranking rule: contest-vs-market value and consensus first, key-number narratives second.** Week 2 card balance: 2 dogs, 3 favorites.
+Four of five leaned on "hook through key number 3" logic; the only winner was the pick with real closing-line value. **Week 2 ranking rule: contest-vs-market value and consensus first, key-number narratives second.** Week 2 card balance: 4 dogs, 1 favorite — every pick carries a free half-point against BKR.
 
 </div>
 </details>
@@ -551,7 +562,7 @@ Modeled on the **SuperContest Dashboard Tab**, this board tracks line progressio
 {rollup_table(top5)}
 
 <div style="background:#fff7ed; border-left:4px solid #f97316; padding:12px 16px; margin:14px 0; border-radius:6px; font-size:13px; color:#334155; line-height:1.5;">
-  <strong>⚠️ Contrarian check:</strong> Covers' every-game ATS column is on the other side of four of our five (CHI, NYG, JAX, CIN) and on SF. Every Top-5 pick still holds at least a 2-to-1 edge in distinct backers, and Wes Reynolds (VSiN) independently has MIN, LAR and Denver.
+  <strong>⚠️ Contrarian check:</strong> Covers' every-game ATS column is on the other side of four of our five (CHI, JAX, SF, DAL) and agrees only on NYJ +3.5. WAS (4 vs 5) and NYJ (6 vs 5) are value picks, not consensus picks — the free half-point is the reason they're in. Wes Reynolds (VSiN) independently has MIN and Denver.
 </div>
 
 <details class="rollup-box section-alternates" id="top5-alternates-box" open>
@@ -586,9 +597,10 @@ Modeled on the **SuperContest Dashboard Tab**, this board tracks line progressio
         panel += f'\n<a id="{anchor}"></a>\n### {title}\n' + '\n'.join(items) + '\n'
     panel += """
 ### 🌟 Panel Consensus Takeaways:
-* **DEN −2.5 and HOU −2.5** are the sides almost every panel shares (Covers is the notable dissenter on both).
-* **MIN +5.5** is the best contest-specific number — a full point better than the market.
-* **LAR −7** has the sharp-show support and the best matchup data, with ~9% push equity.
+* **DEN −2.5** is the side almost every panel shares, and BKR's move to −3 now puts the contest number on the right side of 3.
+* **HOU −2.5** had the same breadth, but the case assumed Burrow was limited — he's cleared, so it drops to an alternate.
+* **LAR −7** keeps the sharp-show support (now 9 vs 4 with Lock &amp; Cash's Zigzag), but the market fell to −6.5, so the contest number is half a point worse.
+* **Every Top-5 side now has a free half-point** against BKR (MIN, DEN, NYJ, MIA, WAS).
 """
     md += section(3, 'section-experts', 'expert-comparison-cards', 'Expert Panel Contest Five Showdown',
                   '👥 Section 3: Expert Panel Contest Card Showdown (Even Money, Sharp or Square, Action, BettingPros, The Favorites, Covers, VSiN, Lock &amp; Cash, Platinum Rose)', panel)
@@ -598,18 +610,18 @@ Modeled on the **SuperContest Dashboard Tab**, this board tracks line progressio
     md += section(5, 'section-strategy', 'strategy-guide', 'Strategic Playbook: The 3 Golden Rules of SuperContest Success',
                   '📐 Section 5: The 3 Golden Rules of SuperContest Success', """### 1. Free Points on Locked Lines (Our #1 Rule After Week 1)
 * SuperContest lines lock every Wednesday and never change; late injury news and money move the market for free.
-* **Week 2 Example 1:** The contest locked **CHI −5.5**; the market fell to **−4.5** after Wentz was named — **Vikings +5.5 gets a full free point**.
-* **Week 2 Example 2:** The contest locked **LAR −7**; the market went to **−7.5** — the Rams get the half-point *and* push protection on 7.
-* **Week 2 Example 3:** **WAS +4.5** (market +4) and **PIT +5.5** (market +5) each carry a free half-point (alternates).
-* **Counter-example:** **ARI +3.5** is *worse* than the market's +4 — the seven ARI backers are on +4/+4.5. Don't play the contest number just because the side is popular.
+* **Week 2 Example 1:** The contest locked **DEN −2.5**; BKR is at **−3** — a 3-point Broncos win is a contest win and only a push at the book.
+* **Week 2 Example 2:** The contest locked **GB −3.5**; BKR is at **−3** — **Jets +3.5** owns the hook through 3 for free.
+* **Week 2 Example 3:** **MIN +5.5** (BKR +5), **MIA +13.5** (+13), **WAS +4.5** (+4) and **PIT +5.5** (+5) each carry a free half-point.
+* **Counter-examples:** **LAR −7** is now *worse* than BKR's −6.5, and **ARI +3.5** is worse than the market's +4. Popular sides at a worse number are how Week 1 went 1–4.
 
 ### 2. The Half-Point Hook — Only When It's Free
 * Margins of **3 and 7** are the most common NFL results. In Week 1 four hook-through-3 picks all lost; the hook only helps when the number itself is right.
-* This week the only key-number edge we hold comes from line value (LAR −7 vs −7.5), not from picking dogs at +3.5.
+* This week both key-number edges come from line value: DEN −2.5 vs −3 and NYJ +3.5 vs +3. NYJ +3.5 looks like the Week 1 pattern, but this time the market sits at +3, so the hook is free rather than paid for.
 
 ### 3. The 3.0 &amp; 7.0 Safety Net (Push Economics)
 * On flat numbers like **Rams −7** or **Eagles −7**, a tie awards **0.5 points** instead of 0.0.
-* Kalshi puts roughly a 9% chance on the Rams winning by exactly 7 — worth about 0.05 points of expected contest score on its own.
+* That push equity is why LAR −7 stays the first alternate even at a worse number than market: a Rams win by exactly 7 still scores 0.5.
 """)
     return md
 
