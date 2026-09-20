@@ -1106,10 +1106,10 @@ export default function SuperContestView({ isOpen, onClose, games = [], onUpdate
                         : 'bg-slate-900/50 hover:bg-slate-850 border-slate-800 hover:border-indigo-500/30'
                     }`}
                   >
-                    <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4">
+                    <div className="flex flex-col lg:flex-row lg:flex-wrap lg:items-center justify-between gap-x-4 gap-y-3">
                       
                       {/* MATCHUP TEAMS, LOGOS & STATUS BADGES */}
-                      <div className="w-full xl:w-4/12 flex items-center gap-3">
+                      <div className="w-full lg:w-auto lg:flex-1 lg:min-w-[340px] flex items-center gap-3">
                         <div className="text-xs font-mono font-bold text-slate-500 w-5 text-center shrink-0">
                           #{idx + 1}
                         </div>
@@ -1213,7 +1213,7 @@ export default function SuperContestView({ isOpen, onClose, games = [], onUpdate
                       </div>
 
                       {/* 4-COLUMN ODDS & MOVEMENT STRIP: Opening -> Contest -> Current -> Movement */}
-                      <div className="w-full xl:w-4/12 grid grid-cols-4 gap-2 bg-slate-950/90 p-2.5 rounded-lg border border-slate-800/80">
+                      <div className="w-full lg:w-[400px] shrink-0 grid grid-cols-4 gap-2 bg-slate-950/90 p-2.5 rounded-lg border border-slate-800/80">
                         {/* 1. Opening Line */}
                         <div className="text-center">
                           <div className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">
@@ -1272,7 +1272,7 @@ export default function SuperContestView({ isOpen, onClose, games = [], onUpdate
                       </div>
 
                       {/* ACTION STRIP: ANALYZE, ANDY, AMANDA & ROW-LEVEL LOCK PICK */}
-                      <div className="w-full xl:w-4/12 flex items-center justify-end gap-2 flex-wrap sm:flex-nowrap">
+                      <div className="w-full flex items-center justify-end gap-2 flex-wrap">
                         
                         {/* Analyze Matchup Pop-up Trigger (Direct Local Launch - No Tab Flash) */}
                         <button
