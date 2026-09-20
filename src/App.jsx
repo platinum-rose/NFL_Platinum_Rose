@@ -431,7 +431,7 @@ function App() {
         </div>
       }>
         {modals.pulse && <PulseModal isOpen onClose={() => closeModal('pulse')} games={gamesWithSplits} />}
-        {profileCanAccessOwnerPortfolio && modals.contest && <SuperContestView isOpen onClose={() => closeModal('contest')} games={gamesWithSplits} onUpdateContestLines={setContestLines} onSelectGame={setSelectedGame} />}
+        {profileCanAccessOwnerPortfolio && modals.contest && <SuperContestView isOpen onClose={() => closeModal('contest')} games={gamesWithSplits} stats={stats || []} onUpdateContestLines={setContestLines} onSelectGame={setSelectedGame} />}
         {selectedGame && <MatchupWizardModal isOpen game={selectedGame} stats={stats || []} currentWizardData={expertConsensus?.[selectedGame.id] || null} onClose={() => setSelectedGame(null)} onBet={(id, type, sel, line) => { handleBet(id, type, sel, line); setSelectedGame(null); }} />}
         {profileCanUseLocalTracking && modals.survivor && (
           <div className="fixed inset-0 z-[100] flex items-start justify-center bg-black/80 backdrop-blur-md p-2 md:p-4 pt-14 overflow-y-auto">

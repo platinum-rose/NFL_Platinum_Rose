@@ -239,11 +239,24 @@ export default function MatchupWizardModal({ isOpen, onClose, game, onBet, stats
   const vRank = ranks[game.visitor] || { off: '-', def: '-' };
   const homeEPA = (Array.isArray(stats) ? stats.find(s => s.team === game.home) : null)?.off_epa || 0;
   const visEPA = (Array.isArray(stats) ? stats.find(s => s.team === game.visitor) : null)?.off_epa || 0;
-  const projHome = 21 + (homeEPA * 30); 
-  const projVis = 21 + (visEPA * 30);
-  const projSpread = (projVis - projHome).toFixed(1);
-  const hasEdge = game.spread != null && Math.abs(projSpread - game.spread) > 2.0;
-  const edgeSide = hasEdge ? (projSpread < game.spread ? game.home : game.visitor) : null;
+  // EPA model (21-pt baseline + offensive EPA). Only meaningful when team stats are loaded.
+  const hasStatsModel = Array.isArray(stats) && stats.length > 0;
+  const modelHome = 21 + (homeEPA * 30);
+  const modelVis = 21 + (visEPA * 30);
+  const modelSpread = modelVis - modelHome; // home-relative, same sign convention as game.spread
+
+  // Projected score: market-implied from the current spread + total when available
+  // (home = (total - spread) / 2, visitor = (total + spread) / 2), else the EPA model.
+  const mktSpread = Number(game.spread);
+  const mktTotal = Number(game.total);
+  const hasMarket = game.spread != null && game.total != null && Number.isFinite(mktSpread) && Number.isFinite(mktTotal) && mktTotal > 0;
+  const projHome = hasMarket ? (mktTotal - mktSpread) / 2 : modelHome;
+  const projVis = hasMarket ? (mktTotal + mktSpread) / 2 : modelVis;
+  const projSource = hasMarket ? 'Market-implied' : (hasStatsModel ? 'EPA model' : 'No data');
+
+  // Edge badge: EPA model vs the market line (needs both)
+  const hasEdge = hasStatsModel && game.spread != null && Number.isFinite(mktSpread) && Math.abs(modelSpread - mktSpread) > 2.0;
+  const edgeSide = hasEdge ? (modelSpread < mktSpread ? game.home : game.visitor) : null;
 
   return (
     <div className="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-4 backdrop-blur-sm">
@@ -255,12 +268,13 @@ export default function MatchupWizardModal({ isOpen, onClose, game, onBet, stats
             <div className="flex justify-between items-center gap-4 pr-10">
                 <div className="flex flex-col items-center">
                     <img src={TEAM_LOGOS[game.visitor]} alt={game.visitor} className="w-16 h-16 object-contain mb-2 drop-shadow-lg" />
-                    <div className="text-2xl font-black text-white tracking-tight">{Math.round(projVis)}</div>
-                    <div className="text-[10px] font-mono text-emerald-400">Proj. Score</div>
+                    <div className="text-2xl font-black text-white tracking-tight">{hasMarket ? projVis.toFixed(1) : Math.round(projVis)}</div>
+                    <div className="text-[10px] font-mono text-emerald-400" title={projSource}>Proj. Score</div>
                 </div>
                 <div className="flex flex-col items-center">
                     <div className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Matchup Analysis</div>
                     <div className="text-3xl font-thin text-slate-700">@</div>
+                    <div className="text-[9px] font-mono text-slate-500 mt-1">{projSource}{hasMarket ? ` · ${game.home} ${mktSpread > 0 ? '+' : ''}${mktSpread} · O/U ${mktTotal}` : ''}</div>
                     {hasEdge && (
                         <div className="mt-2 px-3 py-1 bg-purple-900/30 border border-purple-500/50 rounded-full text-purple-300 text-[10px] font-bold flex items-center gap-1">
                             <Zap size={10} className="fill-purple-300" /> Model Likes {edgeSide}
@@ -269,8 +283,8 @@ export default function MatchupWizardModal({ isOpen, onClose, game, onBet, stats
                 </div>
                 <div className="flex flex-col items-center">
                     <img src={TEAM_LOGOS[game.home]} alt={game.home} className="w-16 h-16 object-contain mb-2 drop-shadow-lg" />
-                    <div className="text-2xl font-black text-white tracking-tight">{Math.round(projHome)}</div>
-                    <div className="text-[10px] font-mono text-emerald-400">Proj. Score</div>
+                    <div className="text-2xl font-black text-white tracking-tight">{hasMarket ? projHome.toFixed(1) : Math.round(projHome)}</div>
+                    <div className="text-[10px] font-mono text-emerald-400" title={projSource}>Proj. Score</div>
                 </div>
             </div>
         </div>

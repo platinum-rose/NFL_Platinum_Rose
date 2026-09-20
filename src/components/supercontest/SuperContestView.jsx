@@ -59,6 +59,16 @@ import {
 } from '../../lib/superContest';
 import MatchupWizardModal from '../modals/MatchupWizardModal';
 
+// Analyze pop-up: use the current (BKR) spread/total when this week has a snapshot,
+// so the projected score reflects the line shown in the Current Line column.
+const withCurrentLine = (g) => {
+  if (!g) return g;
+  const bkr = getSuperContestMetadata(g)?.bkrMatch;
+  if (!bkr) return g;
+  const homeSpread = bkr.home === (g.home || '').toUpperCase() ? bkr.home_spread : bkr.away_spread;
+  return { ...g, spread: homeSpread, total: bkr.total };
+};
+
 const postLockedCardToToolbox = async (week, lockedCard) => {
   if (!lockedCard || !Array.isArray(lockedCard)) return false;
   try {
@@ -74,7 +84,7 @@ const postLockedCardToToolbox = async (week, lockedCard) => {
   }
 };
 
-export default function SuperContestView({ isOpen, onClose, games = [], onUpdateContestLines, onSelectGame: _onSelectGame }) {
+export default function SuperContestView({ isOpen, onClose, games = [], stats = [], onUpdateContestLines, onSelectGame: _onSelectGame }) {
   const [selectedWeek, setSelectedWeek] = useState(SC_LATEST_WEEK);
   const [lines, setLines] = useState({});
   const [analyzingGame, setAnalyzingGame] = useState(null);
@@ -1510,8 +1520,8 @@ export default function SuperContestView({ isOpen, onClose, games = [], onUpdate
       {analyzingGame && (
         <MatchupWizardModal
           isOpen={Boolean(analyzingGame)}
-          game={analyzingGame}
-          stats={[]}
+          game={withCurrentLine(analyzingGame)}
+          stats={stats}
           onClose={() => setAnalyzingGame(null)}
         />
       )}
