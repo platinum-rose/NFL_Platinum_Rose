@@ -53,6 +53,8 @@ import {
   WATCHLIST_STORAGE_KEY,
   syncPicksToSundayTracker,
   getRecommendedPickTeam,
+  SC_WEEKS,
+  SC_LATEST_WEEK,
   getTeamContestSpread
 } from '../../lib/superContest';
 import MatchupWizardModal from '../modals/MatchupWizardModal';
@@ -73,7 +75,7 @@ const postLockedCardToToolbox = async (week, lockedCard) => {
 };
 
 export default function SuperContestView({ isOpen, onClose, games = [], onUpdateContestLines, onSelectGame: _onSelectGame }) {
-  const [selectedWeek, setSelectedWeek] = useState(1);
+  const [selectedWeek, setSelectedWeek] = useState(SC_LATEST_WEEK);
   const [lines, setLines] = useState({});
   const [analyzingGame, setAnalyzingGame] = useState(null);
   const [trackerSynced, setTrackerSynced] = useState(false);
@@ -445,7 +447,7 @@ export default function SuperContestView({ isOpen, onClose, games = [], onUpdate
     }
   };
 
-  // Pre-load published SuperContest lines from Wednesday release (week-01-lines.json)
+  // Pre-load published SuperContest lines from Wednesday release (week-NN-lines.json for the selected week)
   useEffect(() => {
     if (isOpen && weekGames.length > 0) {
       const init = {};
@@ -564,7 +566,7 @@ export default function SuperContestView({ isOpen, onClose, games = [], onUpdate
                 Active Slate:
               </span>
               <div className="flex items-center gap-1.5">
-                {[1].map(w => (
+                {SC_WEEKS.map(w => (
                   <button 
                     key={w}
                     onClick={() => setSelectedWeek(w)}

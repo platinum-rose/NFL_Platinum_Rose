@@ -5,11 +5,17 @@
 // ???????????????????????????????????????????????????????????????????????????????
 
 import publishedWeek1Data from '../../data/supercontest/week-01-lines.json';
+import publishedWeek2Data from '../../data/supercontest/week-02-lines.json';
 import liveMarketComparison from '../../data/supercontest/live-market-comparison.json';
 import { PR_STORAGE_KEYS } from './storage.js';
 
 export const WATCHLIST_STORAGE_KEY = PR_STORAGE_KEYS.SUPERCONTEST_WATCHLIST?.key || 'nfl_supercontest_watchlist_v1';
 export const SUNDAY_TRACKER_SC_KEY_PREFIX = 'sunday_supercontest_picks_week_';
+
+/** Wednesday-published contest lines by week. Add each new week's week-NN-lines.json here. */
+const PUBLISHED_LINES_BY_WEEK = { 1: publishedWeek1Data, 2: publishedWeek2Data };
+export const SC_WEEKS = Object.keys(PUBLISHED_LINES_BY_WEEK).map(Number).sort((a, b) => a - b);
+export const SC_LATEST_WEEK = SC_WEEKS[SC_WEEKS.length - 1];
 
 /** Recommended / consensus pick map for Week 1 matchups */
 export const SC_WEEK1_RECOMMENDED_PICKS = {
@@ -30,6 +36,28 @@ export const SC_WEEK1_RECOMMENDED_PICKS = {
   'NO': 'NO', 'CLE': 'NO',
   'SEA': 'SEA', 'NE': 'SEA'
 };
+
+/** Week 2 card (2026-09-19 night, BKR lines, Burrow cleared) -- see docs/cards/2026-W02-sun-mon-card-draft.md */
+export const SC_WEEK2_RECOMMENDED_PICKS = {
+  'MIN': 'MIN', 'CHI': 'MIN', // Vikings +5.5 (#1)
+  'DEN': 'DEN', 'JAX': 'DEN', // Broncos -2.5 (#2, BKR -3)
+  'NYJ': 'NYJ', 'GB': 'NYJ',  // Jets +3.5 (#3, BKR +3)
+  'MIA': 'MIA', 'SF': 'MIA',  // Dolphins +13.5 (#4)
+  'WAS': 'WAS', 'DAL': 'WAS', // Commanders +4.5 (#5)
+  'LAR': 'LAR', 'NYG': 'LAR', // Rams -7 (#6 alternate; market now -6.5)
+  'PIT': 'PIT', 'NE': 'PIT',  // Steelers +5.5 (#7 alternate)
+  'HOU': 'HOU', 'CIN': 'HOU', // Texans -2.5 (#8 alternate; Burrow cleared)
+  'TB': 'TB', 'CLE': 'TB',    // Buccaneers -8.5 (#9 alternate)
+  'BAL': 'BAL', 'NO': 'BAL',  // Ravens -8.5 (#10 alternate)
+  'PHI': 'PHI', 'TEN': 'PHI', // lean only
+  'CAR': 'CAR', 'ATL': 'CAR', // lean only
+  'LAC': 'LAC', 'LV': 'LAC',  // lean only
+  'ARI': 'ARI', 'SEA': 'ARI', // lean only (contest +3.5 worse than market)
+  'IND': 'IND', 'KC': 'IND',  // lean only
+  'BUF': 'BUF', 'DET': 'BUF'  // TNF final
+};
+
+const RECOMMENDED_PICKS_BY_WEEK = { 1: SC_WEEK1_RECOMMENDED_PICKS, 2: SC_WEEK2_RECOMMENDED_PICKS };
 
 export const SUNDAY_TRACKER_LOCKED_CARD_PREFIX = 'sunday_supercontest_locked_card_week_';
 
@@ -78,8 +106,9 @@ export function getRecommendedPickTeam(game) {
   const home = (game.home || '').toUpperCase();
   const visitor = (game.visitor || '').toUpperCase();
 
-  if (SC_WEEK1_RECOMMENDED_PICKS[visitor]) return SC_WEEK1_RECOMMENDED_PICKS[visitor];
-  if (SC_WEEK1_RECOMMENDED_PICKS[home]) return SC_WEEK1_RECOMMENDED_PICKS[home];
+  const recommended = RECOMMENDED_PICKS_BY_WEEK[Number(game.week) || 1] || {};
+  if (recommended[visitor]) return recommended[visitor];
+  if (recommended[home]) return recommended[home];
 
   const meta = getSuperContestMetadata(game);
   if (meta.publishedFav) return meta.publishedFav;
@@ -164,7 +193,8 @@ export function getSuperContestMetadata(game) {
   const visitor = (game.visitor || '').toUpperCase();
 
   // Find in published Wednesday lines
-  const scMatch = (publishedWeek1Data?.games || []).find(s => {
+  const published = PUBLISHED_LINES_BY_WEEK[Number(game.week) || 1] || publishedWeek1Data;
+  const scMatch = (published?.games || []).find(s => {
     const fav = (s.favorite_abbr || '').toUpperCase();
     const dog = (s.underdog_abbr || '').toUpperCase();
     return (fav === home && dog === visitor) || (fav === visitor && dog === home);
