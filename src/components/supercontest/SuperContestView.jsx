@@ -522,7 +522,7 @@ export default function SuperContestView({ isOpen, onClose, games = [], onUpdate
 
       {/* VIEW HEADER */}
       <div className="border-b border-slate-800 bg-slate-950 shadow-lg">
-        <div className="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="bg-gradient-to-br from-orange-600 to-amber-600 w-10 h-10 rounded-xl flex items-center justify-center shadow-lg shadow-orange-900/30">
               <Trophy size={20} className="text-white" />
@@ -556,7 +556,7 @@ export default function SuperContestView({ isOpen, onClose, games = [], onUpdate
 
       {/* MAIN SCROLLABLE CONTENT */}
       <div className="flex-1 overflow-y-auto custom-scrollbar">
-        <div className="max-w-6xl mx-auto px-5 py-6 space-y-6">
+        <div className="max-w-7xl mx-auto px-5 py-6 space-y-6">
 
           {/* TOOLBAR, SLATE CONTROLS & WATCHLIST STATUS */}
           <div className="p-3.5 bg-slate-900/90 border border-slate-800 rounded-xl flex items-center justify-between flex-wrap gap-3">
@@ -1106,23 +1106,23 @@ export default function SuperContestView({ isOpen, onClose, games = [], onUpdate
                         : 'bg-slate-900/50 hover:bg-slate-850 border-slate-800 hover:border-indigo-500/30'
                     }`}
                   >
-                    <div className="flex flex-col lg:flex-row lg:flex-wrap lg:items-center justify-between gap-x-4 gap-y-3">
+                    <div className="flex flex-col lg:flex-row lg:items-center gap-x-5 gap-y-3">
                       
                       {/* MATCHUP TEAMS, LOGOS & STATUS BADGES */}
-                      <div className="w-full lg:w-auto lg:flex-1 lg:min-w-[340px] flex items-center gap-3">
+                      <div className="w-full lg:w-[270px] shrink-0 flex items-center gap-2.5">
                         <div className="text-xs font-mono font-bold text-slate-500 w-5 text-center shrink-0">
                           #{idx + 1}
                         </div>
 
                         {/* Visitor */}
-                        <div className="flex items-center gap-2 flex-1 min-w-0">
+                        <div className="flex items-center gap-2 min-w-0">
                           <img 
                             src={getTeamLogo(g.visitor)} 
                             alt={g.visitor} 
                             className="w-7 h-7 object-contain drop-shadow shrink-0" 
                             onError={(e) => { e.target.style.display = 'none'; }}
                           />
-                          <div className="truncate flex-1 min-w-0">
+                          <div className="truncate min-w-0 max-w-[110px]">
                             <div className="flex items-center gap-1.5 flex-wrap">
                               <span className="font-bold text-slate-200 text-sm">{g.visitor}</span>
                               <span className="text-[10px] font-mono font-bold px-1 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30 shrink-0">
@@ -1154,14 +1154,14 @@ export default function SuperContestView({ isOpen, onClose, games = [], onUpdate
                         <span className="text-xs font-bold text-slate-600 px-0.5">@</span>
 
                         {/* Home */}
-                        <div className="flex items-center gap-2 flex-1 min-w-0">
+                        <div className="flex items-center gap-2 min-w-0">
                           <img 
                             src={getTeamLogo(g.home)} 
                             alt={g.home} 
                             className="w-7 h-7 object-contain drop-shadow shrink-0" 
                             onError={(e) => { e.target.style.display = 'none'; }}
                           />
-                          <div className="truncate flex-1 min-w-0">
+                          <div className="truncate min-w-0 max-w-[110px]">
                             <div className="flex items-center gap-1.5 flex-wrap">
                               <span className="font-bold text-slate-200 text-sm">{g.home}</span>
                               <span className="text-[10px] font-mono font-bold px-1 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30 shrink-0">
@@ -1190,66 +1190,68 @@ export default function SuperContestView({ isOpen, onClose, games = [], onUpdate
                           </div>
                         </div>
 
-                        {/* Badges Container: Stability (Volatile, Stable, Watch) + Row Locked */}
-                        <div className="flex items-center gap-1.5 shrink-0 flex-wrap">
-                          {/* Line Stability Badge */}
-                          <span 
-                            className={`text-[10px] font-bold px-2 py-0.5 rounded border flex items-center gap-1 shrink-0 ${stability.tier.className}`}
-                            title={`Line Stability: ${stability.tier.label} (Score: ${stability.score}/100)${stability.hasConviction ? '' : ' • Estimated splits'} • Drift: ${stability.driftPts > 0 ? `+${stability.driftPts}` : stability.driftPts} pts`}
-                          >
-                            <Activity size={10} className={stability.tier.label === 'Stable' ? 'text-emerald-400' : stability.tier.label === 'Watch' ? 'text-amber-400' : 'text-rose-400'} />
-                            <span>{stability.tier.label}</span>
-                            <span className="text-[9px] opacity-75 font-mono">({stability.score})</span>
-                          </span>
-
-                          {/* Row Locked Badge */}
-                          {isRowLocked && (
-                            <span className="text-[9px] font-bold text-emerald-300 bg-emerald-500/20 border border-emerald-500/40 px-1.5 py-0.5 rounded flex items-center gap-1 shrink-0">
-                              <Lock size={9} className="text-emerald-400" />
-                              {lockedSide ? `${lockedSide} Locked` : 'Locked'}
-                            </span>
-                          )}
-                        </div>
                       </div>
 
+                      {/* CENTER: STABILITY + LINE STRIP + ANALYZE (focus of the row) */}
+                      <div className="flex-1 min-w-0 flex items-center justify-center gap-3 flex-wrap xl:flex-nowrap">
+                          {/* Badges Container: Stability (Volatile, Stable, Watch) + Row Locked */}
+                          <div className="flex flex-col items-center gap-1.5 shrink-0">
+                            {/* Line Stability Badge */}
+                            <span 
+                              className={`text-xs font-bold px-2.5 py-1 rounded-md border flex items-center gap-1 shrink-0 ${stability.tier.className}`}
+                              title={`Line Stability: ${stability.tier.label} (Score: ${stability.score}/100)${stability.hasConviction ? '' : ' • Estimated splits'} • Drift: ${stability.driftPts > 0 ? `+${stability.driftPts}` : stability.driftPts} pts`}
+                            >
+                              <Activity size={10} className={stability.tier.label === 'Stable' ? 'text-emerald-400' : stability.tier.label === 'Watch' ? 'text-amber-400' : 'text-rose-400'} />
+                              <span>{stability.tier.label}</span>
+                              <span className="text-[9px] opacity-75 font-mono">({stability.score})</span>
+                            </span>
+
+                            {/* Row Locked Badge */}
+                            {isRowLocked && (
+                              <span className="text-[9px] font-bold text-emerald-300 bg-emerald-500/20 border border-emerald-500/40 px-1.5 py-0.5 rounded flex items-center gap-1 shrink-0">
+                                <Lock size={9} className="text-emerald-400" />
+                                {lockedSide ? `${lockedSide} Locked` : 'Locked'}
+                              </span>
+                            )}
+                          </div>
                       {/* 4-COLUMN ODDS & MOVEMENT STRIP: Opening -> Contest -> Current -> Movement */}
-                      <div className="w-full lg:w-[400px] shrink-0 grid grid-cols-4 gap-2 bg-slate-950/90 p-2.5 rounded-lg border border-slate-800/80">
+                      <div className="w-full sm:w-[440px] shrink-0 grid grid-cols-4 gap-3 bg-slate-950/90 px-3 py-3 rounded-lg border border-indigo-500/25 shadow-md shadow-indigo-950/30">
                         {/* 1. Opening Line */}
                         <div className="text-center">
-                          <div className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">
+                          <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
                             Opening Line
                           </div>
-                          <div className="text-xs font-mono font-bold text-slate-300 mt-0.5">
+                          <div className="text-sm font-mono font-bold text-slate-300 mt-1">
                             {meta.openingSpreadLabel}
                           </div>
                         </div>
 
                         {/* 2. Official Contest Spread (Wed Lock) */}
                         <div className="text-center">
-                          <div className="text-[9px] font-bold text-amber-400/90 uppercase tracking-wider">
+                          <div className="text-[10px] font-bold text-amber-400/90 uppercase tracking-wider">
                             Contest Line
                           </div>
-                          <div className="text-xs font-mono font-black text-amber-300 mt-0.5">
+                          <div className="text-sm font-mono font-black text-amber-300 mt-1">
                             {meta.contestSpreadLabel}
                           </div>
                         </div>
 
                         {/* 3. Current Live Line (DraftKings) */}
                         <div className="text-center">
-                          <div className="text-[9px] font-bold text-cyan-400 uppercase tracking-wider">
+                          <div className="text-[10px] font-bold text-cyan-400 uppercase tracking-wider">
                             Current Line
                           </div>
-                          <div className="text-xs font-mono font-bold text-cyan-200 mt-0.5">
+                          <div className="text-sm font-mono font-bold text-cyan-200 mt-1">
                             {isConcluded ? 'FINAL' : meta.currentSpreadLabel}
                           </div>
                         </div>
 
                         {/* 4. Movement / Steam Delta (Prominently Highlighted) */}
                         <div className="text-center flex flex-col items-center justify-center">
-                          <div className="text-[9px] font-bold text-slate-300 uppercase tracking-wider">
+                          <div className="text-[10px] font-bold text-slate-300 uppercase tracking-wider">
                             Movement
                           </div>
-                          <div className="mt-0.5 w-full flex justify-center">
+                          <div className="mt-1 w-full flex justify-center">
                             {hasSteam ? (
                               <span 
                                 className={`inline-flex items-center justify-center gap-1 text-xs font-mono font-black px-2 py-0.5 rounded-md border shadow-sm ${
@@ -1271,9 +1273,6 @@ export default function SuperContestView({ isOpen, onClose, games = [], onUpdate
                         </div>
                       </div>
 
-                      {/* ACTION STRIP: ANALYZE, ANDY, AMANDA & ROW-LEVEL LOCK PICK */}
-                      <div className="w-full flex items-center justify-end gap-2 flex-wrap">
-                        
                         {/* Analyze Matchup Pop-up Trigger (Direct Local Launch - No Tab Flash) */}
                         <button
                           type="button"
@@ -1281,13 +1280,18 @@ export default function SuperContestView({ isOpen, onClose, games = [], onUpdate
                             e.stopPropagation();
                             setAnalyzingGame(g);
                           }}
-                          className="px-2.5 py-1.5 rounded-lg bg-indigo-950/60 hover:bg-indigo-900 border border-indigo-500/40 text-indigo-300 hover:text-white text-xs font-bold transition-all shadow-sm flex items-center gap-1.5 shrink-0 cursor-pointer"
+                          className="px-4 py-2.5 rounded-lg bg-indigo-950/60 hover:bg-indigo-900 border border-indigo-500/40 text-indigo-200 hover:text-white text-sm font-bold transition-all shadow-sm flex items-center gap-1.5 shrink-0 cursor-pointer"
                           title={`Analyze Matchup: ${g.visitor} @ ${g.home}`}
                         >
-                          <Microscope size={13} className="text-indigo-400" />
+                          <Microscope size={16} className="text-indigo-400" />
                           <span>Analyze</span>
                         </button>
 
+                      </div>
+
+                      {/* RIGHT RAIL: ANDY, AMANDA & ROW-LEVEL LOCK PICK */}
+                      <div className="w-full lg:w-auto shrink-0 flex flex-row lg:flex-col items-stretch justify-end gap-1.5 flex-wrap">
+                        
                         {/* Andy's Watchlist Selector */}
                         <div className="flex items-center rounded-lg border bg-slate-950/70 border-slate-800 overflow-hidden shrink-0">
                           <button
@@ -1296,7 +1300,7 @@ export default function SuperContestView({ isOpen, onClose, games = [], onUpdate
                               e.stopPropagation();
                               toggleWatchlist('andy', g.id);
                             }}
-                            className={`flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-bold cursor-pointer transition-all ${
+                            className={`flex-1 flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-bold cursor-pointer transition-all ${
                               isAndyChecked
                                 ? 'bg-sky-500/25 text-sky-200'
                                 : 'text-slate-400 hover:text-slate-200'
@@ -1352,7 +1356,7 @@ export default function SuperContestView({ isOpen, onClose, games = [], onUpdate
                               e.stopPropagation();
                               toggleWatchlist('amanda', g.id);
                             }}
-                            className={`flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-bold cursor-pointer transition-all ${
+                            className={`flex-1 flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-bold cursor-pointer transition-all ${
                               isAmandaChecked
                                 ? 'bg-rose-500/25 text-rose-200'
                                 : 'text-slate-400 hover:text-slate-200'
@@ -1408,7 +1412,7 @@ export default function SuperContestView({ isOpen, onClose, games = [], onUpdate
                               e.stopPropagation();
                               toggleRowLock(g.id);
                             }}
-                            className={`flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-bold cursor-pointer transition-all ${
+                            className={`flex-1 flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-bold cursor-pointer transition-all ${
                               isRowLocked
                                 ? 'bg-emerald-500/25 text-emerald-200'
                                 : 'text-slate-400 hover:text-amber-300'
@@ -1481,7 +1485,7 @@ export default function SuperContestView({ isOpen, onClose, games = [], onUpdate
 
       {/* VIEW FOOTER */}
       <div className="border-t border-slate-800 bg-slate-950">
-        <div className="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
           <div className="text-xs text-slate-500">
             {lockedGames.length} of {weekGames.length} Week {selectedWeek} lines locked
           </div>
