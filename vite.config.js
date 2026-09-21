@@ -20,6 +20,13 @@ function officialPicksInboxServerPlugin() {
         stdio: 'inherit',
         windowsHide: true,
       });
+      server.middlewares.use((req, res, next) => {
+        if (req.url && (req.url.startsWith('/live-tracker-sunday.html') || req.url.startsWith('/live-tracker-melbourne.html'))) {
+          req.url = '/platinum-rose-app' + req.url;
+        }
+        next();
+      });
+
       child.on('error', (err) => {
         console.warn('[official-picks-inbox-server] failed to start:', err.message);
       });

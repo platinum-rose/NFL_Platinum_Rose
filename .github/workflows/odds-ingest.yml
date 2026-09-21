@@ -12,9 +12,8 @@ name: Odds Ingest
 
 on:
   schedule:
-    # Once daily at 12:00 UTC — offseason futures don't move much.
-    # Change to '0 */4 * * *' in August when weekly lines are posted.
-    - cron: '0 12 * * *'
+    # In-season: every 4 hours to capture active line movement and juice changes
+    - cron: '0 */4 * * *'
   workflow_dispatch:
     inputs:
       dry_run:

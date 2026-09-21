@@ -2,18 +2,20 @@ name: Player Injury Ingest
 
 on:
   schedule:
-    # Mon 14:00 UTC — post-weekend sweep; captures off-season OTA / roster news
+    # Mon 14:00 UTC (10 AM ET) — post-weekend injury recap & waiver prep
     - cron: '0 14 * * 1'
-    # Wed 14:00 UTC — mid-week practice report window (in-season)
+    # Wed 14:00 UTC (10 AM ET) — mid-week 1st official practice report
     - cron: '0 14 * * 3'
-    # Thu 14:00 UTC — injury estimation day (in-season)
+    # Thu 14:00 UTC (10 AM ET) — Thursday practice reports
     - cron: '0 14 * * 4'
-    # Fri 18:00 UTC — final injury designation before Sunday games (in-season)
+    # Fri 18:00 UTC (2 PM ET) — official Friday final game designations (Out/Doubtful/Questionable)
     - cron: '0 18 * * 5'
-    # Sun 17:10 UTC (9:10am PST) — captures early gameday roster/injury updates
-    - cron: '10 17 * * 0'
-    # Sun 20:10 UTC (12:10pm PST) — pre-afternoon games final sweep
-    - cron: '10 20 * * 0'
+    # Sun 15:45 UTC (11:45 AM ET) — Sunday early window official 90-min inactives (1:00 PM kickoffs)
+    - cron: '45 15 * * 0'
+    # Sun 19:15 UTC (3:15 PM ET) — Sunday late window official 90-min inactives (4:05/4:25 PM kickoffs)
+    - cron: '15 19 * * 0'
+    # Sun/Mon/Thu 23:00 UTC (7:00 PM ET) — Primetime official 90-min inactives (TNF, SNF, MNF)
+    - cron: '0 23 * * 0,1,4'
   workflow_dispatch:
     inputs:
       dry_run:
