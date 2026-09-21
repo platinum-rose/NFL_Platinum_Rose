@@ -723,15 +723,19 @@ export function runTask(taskKey) {
   if (taskKey === 'launch-dashboard') {
     const dashboardUrl = 'http://localhost:5180/platinum-rose-app/';
     spawn('cmd.exe', ['/c', 'start', 'cmd.exe', '/c', 'npm', 'run', 'dev'], { cwd: ROOT, detached: true, stdio: 'ignore' });
-    openBrowser(dashboardUrl);
-    broadcastLog(`🌐 Launched NFL Dashboard in browser (${dashboardUrl})\n`, 'system');
+    // NOTE: the dashboard client (toolbox-dashboard.html runTool()) already opens/navigates
+    // a browser tab to this URL itself (with popup-blocker-safe pre-opened-tab handling).
+    // Calling openBrowser() here too used to spawn a SECOND, separate OS-level browser
+    // launch for the same URL -- that's why clicking the launcher opened two identical
+    // tabs. The server's job is just to start the dev server and hand back the URL.
+    broadcastLog(`🌐 NFL Dashboard ready (${dashboardUrl})\n`, 'system');
     broadcastStatus('idle');
     return { ok: true, task: taskKey, url: dashboardUrl, message: 'Launched NFL Dashboard' };
   }
   if (taskKey === 'launch-gameday' || taskKey === 'launch-sunday') {
     const sunUrl = `http://127.0.0.1:${serverPort}/live-tracker-sunday.html?tab=supercontest`;
-    openBrowser(sunUrl);
-    broadcastLog(`🌐 Launched Live Gameday Tracker in browser\n`, 'system');
+    // See note above -- the client already opens the tab; don't also spawn a second one here.
+    broadcastLog(`🌐 Live Gameday Tracker ready (${sunUrl})\n`, 'system');
     broadcastStatus('idle');
     return { ok: true, task: taskKey, url: sunUrl, message: 'Launched Live Gameday Tracker' };
   }
@@ -895,6 +899,16 @@ export function runTask(taskKey) {
     case 'prediction-markets-refresh':
       cmd = 'node';
       args = ['scripts/build-prediction-markets.js'];
+      break;
+
+    // ── FANTASY TOOLS: RUN NOW (on-demand, not on any cadence) ──
+    case 'fantasy-waiver-scan':
+      cmd = 'node';
+      args = ['scripts/find-waiver-targets.mjs'];
+      break;
+    case 'fantasy-available-pool':
+      cmd = 'node';
+      args = ['scripts/find-available-pool.mjs'];
       break;
 
     // ── DIAGNOSTICS & SYSTEM HEALTH ──

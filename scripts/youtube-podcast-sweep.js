@@ -962,6 +962,13 @@ export {
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch(err => {
     console.error(err.stack || err.message);
-    process.exit(1);
+    // Use exitCode instead of process.exit() here -- forcing an immediate exit right
+    // after an in-flight fetch() throws (e.g. the OAuth token-refresh call above) hits
+    // a known Node-on-Windows libuv bug (UV_HANDLE_CLOSING assertion in src/win/async.c,
+    // reproducible on Node 22-25: https://github.com/nodejs/node/issues/56645) that
+    // crashes the process with a native abort instead of a clean exit(1). Setting
+    // exitCode and letting the event loop drain naturally still exits with code 1,
+    // just without racing handle teardown.
+    process.exitCode = 1;
   });
 }
