@@ -215,28 +215,6 @@ const FEEDS = [
     confidence: 0.65,
     source_type: 'analytical',
   },
-  {
-    // Football Outsiders: DVOA, efficiency metrics, situational analytics
-    // Migrated from x-sharp-ingest (was RSS-backed account, not X content)
-    source: 'Football Outsiders',
-    url: 'https://www.footballoutsiders.com/rss.xml',
-    confidence: 0.68,
-    source_type: 'analytical',
-  },
-  {
-    // THE WINDOW: Matt Russell's sports betting newsletter (EMR, lookahead lines, win totals)
-    // 2026-09-02: fetchMethod:'curl' — feed_health showed 3 consecutive
-    // HTTP 403 fails via Node's native fetch()/undici. Confirmed live via
-    // side-by-side curl-vs-fetch test, same day, same network: curl gets a
-    // clean 200 + real application/xml body (3/3 tries), Node fetch() gets
-    // blocked. Same CloudFront/Node-client-fingerprint pattern as Action
-    // Network (see fetchViaCurl() above, B-actionnetwork-feed-403).
-    source: 'THE WINDOW (Matt Russell)',
-    url: 'https://mrussauthentic.substack.com/feed',
-    confidence: 0.75,
-    source_type: 'newsletter',
-    fetchMethod: 'curl',
-  },
 ];
 
 const NFL_KEYWORDS = [

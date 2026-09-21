@@ -29,6 +29,7 @@
 import 'dotenv/config';
 import { createClient } from '@supabase/supabase-js';
 import { readFile, readdir, stat } from 'node:fs/promises';
+import { parse as parseJs } from 'acorn';
 // Validate the SHIPPING logic, never a copy of it — see agents/lib/injury-status.js
 import { normalizeInjuryStatus, INJURY_RELEVANT_STATUS } from './lib/injury-status.js';
 import { isNflRelevantEpisode } from './lib/nfl-relevance.js';
@@ -132,123 +133,458 @@ const SCANNED_SOURCES = [
 ];
 
 /**
- * Find every `from('<table>')` call site in a source file and judge whether that
- * particular read is bounded safely. A site is SAFE when it paginates
- * (`.range(` / `fetchAllPaged` / keyset cursor pagination -- `.order(col)` +
- * `.limit(` + a `.gt(`/`.gte(` filter on that same order column), only counts
- * (`head: true`), expects one row (`.single()` / `.maybeSingle()`), or takes
- * a deliberate sub-1000 `.limit(n)`. Anything else on a table of >=1000 rows
- * is silently truncated.
+ * Find every `from('<table>')` call site in a source file and judge whether
+ * that particular read is bounded safely. A site is SAFE when it paginates
+ * (`.range(`, a genuine `fetchAllPaged()`/`fetchAllKeyset()` wrapper), only
+ * counts (`head: true`), expects one row (`.single()` / `.maybeSingle()`),
+ * or takes a deliberate sub-1000 `.limit(n)`. Anything else on a table of
+ * >=1000 rows is silently truncated.
  *
- * 2026-09-09 fix (P2 #4, flagged 2026-09-08): the per-site scope window used
- * to judge a call site was a flat 900 characters after the `.from(` match.
- * A live scan of this repo's own call sites found several whose real
- * pagination/limit clause sits well past that boundary -- long multi-column
- * `.select(...)` strings alone routinely run 200-600+ chars in this codebase
- * (see e.g. portfolio-dossier.js's fetchTeamStats(), which tries 3
- * progressively-shorter column lists), pushing the actual `.range()`/
- * `.limit()`/`.single()` call outside a 900-char window and causing a real,
- * safely-bounded site to misreport as "unpaginated". Fix: the window now
- * extends until whichever comes first of (a) the next `.from(` call site
- * in the file, (b) the next top-level function declaration, or (c) a
- * generous 3000-char hard cap -- verified against every current call site
- * in SCANNED_SOURCES (none needed more than ~2900 chars to reach their own
- * real pagination signal).
+ * History (2026-09-08 through 2026-09-09, all superseded): this scanner
+ * went through several regex/text-window designs -- a flat 900-char scope
+ * window, then a per-statement paren-depth-bounded window
+ * (`findStatementEnd()`), then helper-wrapper detection by name proximity,
+ * then by comment/string-masked paren nesting -- each of which closed one
+ * real false-positive/false-negative and then Codex found the next one
+ * (see handoffs/2026-09-08-*, handoffs/2026-09-09-*-p2-*.md for the full
+ * blow-by-blow). The common failure: text and paren-depth heuristics can
+ * always be spoofed by *something* that looks structurally similar but
+ * isn't -- a comment, a sibling statement, an unrelated argument, a
+ * chained call that happens to share a method name.
+ *
+ * 2026-09-09 (Codex round-4, two more fail-opens on the AST version):
+ * (1) the wrapper checks accepted a callback/options-object sitting at ANY
+ * argument position of a genuine fetchAllKeyset()/fetchAllPaged() call,
+ * not specifically the position that function actually reads -- a
+ * function only ever invokes what its own signature wires up, so an extra
+ * ignored argument containing a "real-looking" unsafe query was still
+ * misread as wrapped. (2) the non-wrapper safety signals (`.range(`,
+ * `head: true`, `.single()`, `.limit(n)`) were STILL plain regex over a
+ * text "scope" window, carrying the exact same comment/string-spoofable
+ * weakness as every prior round's wrapper check, just never exercised
+ * because the tests happened not to target them.
+ *
+ * Fixed both by finishing the move to the AST that round 3 started
+ * instead of leaving it half-migrated: `isWrappedInFetchAllKeyset()` /
+ * `isWrappedInFetchAllPaged()` now check the EXACT expected argument index
+ * (`arguments[1]`, matching each helper's real `(label, ...)` signature),
+ * and the four non-wrapper signals are now read directly off the method
+ * CHAIN of real CallExpression nodes rooted at the `.from()` call
+ * (`collectChainedCalls()`) rather than off any text window at all -- a
+ * comment or string can no longer be mistaken for a `.range()`/`.limit()`/
+ * `.single()` call or a `head: true` option, because none of those are
+ * text patterns anymore; they're specific AST node shapes. The old
+ * text-window machinery (`findStatementEnd()`, the `scope`/`win`
+ * substrings) is gone -- there is no longer a regex-based fallback path in
+ * this scanner for anything safety-relevant.
+ *
+ * 2026-09-09 (Codex round-5, three more AST-level fail-opens): (1) proving
+ * a `.from()` chain sits inside the RIGHT wrapper callback still didn't
+ * prove it was the QUERY that callback actually produces -- a decoy or
+ * dead-code `.from()` call elsewhere in that same function body inherited
+ * "wrapped" status just by sharing a function, and for `fetchAllPaged`
+ * specifically (which, unlike `fetchAllKeyset` since round 2, does NOT own
+ * pagination itself -- see `fetchAllPaged()` in portfolio-dossier.js --
+ * it trusts `buildQuery(from, to)` to embed `.range(from, to)`), a
+ * genuinely-wrapped callback that simply forgot `.range()` still read as
+ * paginated. (2) `head: true` was read off ANY call in the chain, not
+ * specifically `.select()` -- the only method where that option means
+ * anything in the Supabase client -- so an unrelated call with an object
+ * argument shaped like `{ head: true }` could be misread as a count-only
+ * query. (3) the top-level `.from()` DISCOVERY step -- the very first
+ * thing the scanner does -- was still a plain regex over raw source text,
+ * carrying the same comment/string-literal spoofability as every
+ * safety-signal regex before it, just one level further out: a `.from(...)`
+ * mentioned only in a comment or a string literal was findable at all
+ * (and, since it can't be a real query, always misclassified) and a
+ * dynamically-named table in a real query (`sb.from(tableVar)`) or a
+ * non-string-literal call was invisible to the scanner entirely -- a
+ * silent audit gap, not merely a false report.
+ *
+ * Fixed by: requiring the `.from()` chain's outermost link to be the
+ * actual value the wrapper function produces (`isChainReturnedByFunction()`
+ * -- either an arrow function's implicit-return expression body, or the
+ * argument of an explicit `return`) before either wrapper check can
+ * succeed; additionally requiring a genuine `.range()` call in that same
+ * chain for `fetchAllPaged` specifically, since being a real, returned
+ * callback still proves nothing about whether it paginated; scoping
+ * `chainHasHeadTrueOption()` to calls whose method name is `select`; and
+ * replacing the regex-based `.from()` discovery with a single AST walk
+ * (`findAllFromCallSites()`) that finds every real `.from()` CallExpression
+ * structurally, with a narrow exclusion for `Buffer.from`/`Array.from`
+ * (real methods sharing the name that a plain property-name match would
+ * otherwise misidentify as a database read). An unparseable file still
+ * falls back to the old regex scan so a parse failure degrades to noisier
+ * (rather than silently absent) reporting -- fail closed, never fail open.
  */
-// Finds where the method-chain statement containing a `.from(` call actually
-// ends, by tracking parenthesis depth from that point forward and stopping at
-// the first `;` seen once depth returns to (or below) its starting level --
-// i.e. the semicolon that closes the enclosing `const {...} = await sb.from(...)
-// .select(...)....xxx();` statement, not just a flat character count. This is
-// what actually bounds a call site's scope to ITS OWN statement: a purely
-// forward character-count window (even a generous one) risks bleeding into a
-// LATER, unrelated statement's `.order()`/`.limit()`/etc and misclassifying
-// the current site as safe because of a sibling site's pagination clause a
-// few lines further down -- confirmed live: widening the old 900-char window
-// to "next .from() or 3000 chars" caused exactly that bleed-through on
-// agents/portfolio-synthesize.js's reference-docs query, which sits right
-// before a genuinely-paginated team-notes query a few dozen lines later.
-function findStatementEnd(src, fromIdx, hardCap) {
-  let depth = 0;
-  const end = Math.min(src.length, fromIdx + hardCap);
-  for (let i = fromIdx; i < end; i++) {
-    const ch = src[i];
-    if (ch === '(') depth++;
-    else if (ch === ')') depth--;
-    else if (ch === ';' && depth <= 0) return i + 1;
-  }
-  return end;
-}
 
-// 2026-09-09 (Codex round-2 review, same P2 finding): the original
-// wrapper-detection checks (`wrappedInFetchAllPaged`, `wrappedInFetchAllKeyset`)
-// just tested whether the helper's NAME appeared as text somewhere in the
-// preceding 400 characters. Codex reproduced two false passes against that:
-// a comment containing the helper name sitting in front of an unwrapped
-// query, and an unrelated, already-CLOSED helper call earlier in the file.
-// Neither actually proves the `.from()` call is inside that helper's
-// argument list.
+// 2026-09-09 (Codex round-3 review, same P2 finding, flagged a THIRD time):
+// the round-2 fix (lexical paren-nesting over a comment/string-masked
+// source) correctly rejected the first two proximity spoofs -- a comment
+// mentioning the helper name, and an unrelated already-closed sibling call
+// -- but Codex found it still fails open on a third case: a `.from()` call
+// nested inside a DIFFERENT, unrelated argument of a genuine, still-open
+// `fetchAllKeyset(...)`/`fetchAllPaged(...)` call. Paren-depth alone proves
+// "somewhere inside these parens", not "inside the SPECIFIC callback that
+// actually gets invoked as the query builder" -- e.g. a `.from()` buried in
+// some unrelated property of the options object passed to fetchAllKeyset()
+// would still read as "wrapped" even though fetchAllKeyset() never touches
+// that property.
 //
-// Fixed by proving real lexical nesting instead of proximity: mask out
-// every comment and string/template literal (so a name mentioned in either
-// can't be mistaken for a real identifier), then walk the masked source
-// tracking paren balance with a stack that remembers which identifier, if
-// any, opened each paren. At the point being checked, the target name must
-// still be sitting open on that stack -- i.e. its call has been opened but
-// not yet closed by the time we reach this `.from()`. A comment's text
-// never opens a real paren (it gets masked to blanks first), and an
-// already-closed call has already been popped off the stack, so both of
-// Codex's repro cases are rejected by construction, not by pattern luck.
-function maskCommentsAndStrings(src) {
-  let out = '';
-  let i = 0;
-  const n = src.length;
-  while (i < n) {
-    const c = src[i];
-    const c2 = src[i + 1];
-    if (c === '/' && c2 === '/') {
-      let j = i;
-      while (j < n && src[j] !== '\n') j++;
-      out += src.slice(i, j).replace(/[^\n]/g, ' ');
-      i = j;
-    } else if (c === '/' && c2 === '*') {
-      let j = i + 2;
-      while (j < n && !(src[j] === '*' && src[j + 1] === '/')) j++;
-      j = Math.min(j + 2, n);
-      out += src.slice(i, j).replace(/[^\n]/g, ' ');
-      i = j;
-    } else if (c === "'" || c === '"' || c === '`') {
-      const quote = c;
-      let j = i + 1;
-      while (j < n && src[j] !== quote) {
-        if (src[j] === '\\') j++; // skip escaped char, e.g. \' inside a string
-        j++;
-      }
-      j = Math.min(j + 1, n);
-      out += src.slice(i, j).replace(/[^\n]/g, ' ');
-      i = j;
-    } else {
-      out += c;
-      i++;
-    }
+// Three rounds of the same category of bug (text proximity, then nesting
+// depth, now nesting IDENTITY) is a sign the underlying approach --
+// approximating structure with regex/paren tricks -- has run out of room.
+// Fixed properly this time with a real parser: `acorn` (already resolved in
+// this repo's node_modules as an eslint transitive dependency; added here
+// as an explicit direct dependency in package.json rather than relying on
+// that indirect resolution, which a future eslint bump or `npm dedupe`
+// could silently remove). The source is parsed once per scanCallSites()
+// call into a real AST; for each `.from()` match, `findAstNodePath()` walks
+// the tree to the exact ancestor chain containing that character offset,
+// then `isWrappedInFetchAllKeyset()`/`isWrappedInFetchAllPaged()` check not
+// just "is there an open call with this name somewhere above", but the
+// SPECIFIC structural relationship that makes the call site real:
+//   - fetchAllKeyset: the nearest enclosing function must be exactly the
+//     value of an `applyFilters` property on an object that is itself one
+//     of fetchAllKeyset(...)'s own arguments -- not any other property.
+//   - fetchAllPaged: the nearest enclosing function must be exactly one of
+//     fetchAllPaged(...)'s own arguments directly (its only callback slot).
+// A `.from()` sitting in an unrelated property/argument no longer matches
+// either shape, closing the fail-open Codex demonstrated.
+//
+// If a file fails to parse (should not happen for this repo's plain ES
+// modules, but preflight is a safety gate, not a linter), wrapper detection
+// fails CLOSED -- every call site in that file is treated as unwrapped
+// rather than silently trusting text that couldn't even be parsed.
+function parseSourceSafely(src, file) {
+  try {
+    return parseJs(src, { ecmaVersion: 'latest', sourceType: 'module' });
+  } catch (e) {
+    console.warn(`portfolio-preflight rowcap scanner: could not parse ${file} (${e.message}) -- every call site in this file will be treated conservatively as unwrapped/unpaginated.`);
+    return null;
   }
-  return out;
 }
 
-function isLexicallyInsideCall(src, atIndex, calleeName) {
-  const masked = maskCommentsAndStrings(src.slice(0, atIndex));
-  const identRe = /[A-Za-z_$][A-Za-z0-9_$]*$/;
-  const stack = [];
-  for (let i = 0; i < masked.length; i++) {
-    const ch = masked[i];
-    if (ch === '(') {
-      const m = masked.slice(0, i).match(identRe);
-      stack.push(m ? m[0] : null);
-    } else if (ch === ')') {
-      stack.pop();
-    }
+const FUNCTION_TYPES = new Set(['ArrowFunctionExpression', 'FunctionExpression', 'FunctionDeclaration']);
+
+function nearestEnclosingFunctionIndex(path) {
+  for (let i = path.length - 1; i >= 0; i--) {
+    if (FUNCTION_TYPES.has(path[i].type)) return i;
   }
-  return stack.includes(calleeName);
+  return -1;
+}
+
+// 2026-09-10 (Codex round-8): a COMPUTED property key (`{ [key]: 'comments'
+// }`) is still an ordinary `Property` node with `property.key.type ===
+// 'Identifier'` -- this function never checked `property.computed` at
+// all, so for a computed key it read the *variable name itself* (e.g.
+// "key") as if it were the literal property name. That variable name can
+// never match a real target key ('foreignTable', 'head', etc.), so every
+// caller silently treated a computed-key scoping option as absent. Only a
+// computed key that is ITSELF a literal (`{ ['referencedTable']: 'comments'
+// }`) can be resolved statically; a computed key holding a variable,
+// member expression, or any other non-literal expression cannot, and now
+// returns null (unresolvable) exactly like any other unreadable key,
+// rather than silently substituting the wrong string.
+function propertyKeyName(property) {
+  if (!property || property.type !== 'Property') return null;
+  if (property.computed) {
+    return property.key.type === 'Literal' ? String(property.key.value) : null;
+  }
+  if (property.key.type === 'Identifier') return property.key.name;
+  if (property.key.type === 'Literal') return String(property.key.value);
+  return null;
+}
+
+// 2026-09-09 (Codex round-4): tightened from "is this function/object ANY
+// argument of the named call" to "is it EXACTLY the argument position that
+// function's own signature actually reads" -- fetchAllKeyset(label, options)
+// only ever destructures its 2nd parameter, fetchAllPaged(label, buildQuery)
+// only ever invokes its 2nd parameter, so a genuine-looking callback/options
+// object sitting at any OTHER position is never actually called at runtime,
+// no matter how safe its own contents look. `arguments[1] === node` (a
+// reference-equality check against the true AST node, not merely "does the
+// arguments list contain something with this shape") is what proves it's in
+// the position that matters.
+//
+// 2026-09-09 (Codex round-5): argument position alone still wasn't enough --
+// a `.from()` chain could sit in the RIGHT callback (right argument
+// position, right property) without being the query that callback actually
+// hands back; a decoy call elsewhere in the same function body inherited
+// "wrapped" status just from sharing a function. `isChainReturnedByFunction()`
+// closes that: it requires the specific chain under test to be the value
+// the function actually produces -- an arrow function's implicit-return
+// expression body, or the argument of an explicit `return` -- not merely
+// "reachable from inside it".
+function isChainReturnedByFunction(path, fnIdx, fromIdx, chainLength) {
+  if (fnIdx < 0 || fromIdx < 0 || chainLength < 1) return false;
+  const fn = path[fnIdx];
+  // Each link in the chain sits 2 path entries further from the root than
+  // the last (a MemberExpression, then the CallExpression wrapping it) --
+  // see collectChainedCalls() below. The outermost link is therefore this
+  // many steps back from the `.from()` call itself.
+  const outermostIdx = fromIdx - 2 * (chainLength - 1);
+  if (outermostIdx < 0) return false;
+  const outermostCall = path[outermostIdx];
+  const parent = outermostIdx - 1 >= 0 ? path[outermostIdx - 1] : null;
+  if (fn.type === 'ArrowFunctionExpression' && fn.expression === true) {
+    // (q) => q.from(...).select(...) -- the chain IS the function's body,
+    // with nothing in between.
+    return parent === fn && fn.body === outermostCall;
+  }
+  // A block-bodied function: the chain must be an explicit `return`'s value.
+  return !!parent && parent.type === 'ReturnStatement' && parent.argument === outermostCall;
+}
+
+function isWrappedInFetchAllKeyset(path, fromIdx, chainLength) {
+  const fnIdx = nearestEnclosingFunctionIndex(path);
+  if (fnIdx < 3) return false; // need Property, ObjectExpression, CallExpression above it
+  const fn = path[fnIdx];
+  const property = path[fnIdx - 1];
+  if (!property || property.type !== 'Property' || property.value !== fn) return false;
+  if (propertyKeyName(property) !== 'applyFilters') return false;
+  const objExpr = path[fnIdx - 2];
+  if (!objExpr || objExpr.type !== 'ObjectExpression') return false;
+  const callNode = path[fnIdx - 3];
+  if (!callNode || callNode.type !== 'CallExpression') return false;
+  if (callNode.callee?.type !== 'Identifier' || callNode.callee.name !== 'fetchAllKeyset') return false;
+  if (callNode.arguments[1] !== objExpr) return false; // fetchAllKeyset(label, options) -- options is arguments[1]
+  return isChainReturnedByFunction(path, fnIdx, fromIdx, chainLength);
+}
+
+function isWrappedInFetchAllPaged(path, fromIdx, chainLength, hasRangeCall) {
+  const fnIdx = nearestEnclosingFunctionIndex(path);
+  if (fnIdx < 1) return false;
+  const fn = path[fnIdx];
+  const callNode = path[fnIdx - 1];
+  if (!callNode || callNode.type !== 'CallExpression') return false;
+  if (callNode.callee?.type !== 'Identifier' || callNode.callee.name !== 'fetchAllPaged') return false;
+  if (callNode.arguments[1] !== fn) return false; // fetchAllPaged(label, buildQuery) -- buildQuery is arguments[1]
+  if (!isChainReturnedByFunction(path, fnIdx, fromIdx, chainLength)) return false;
+  // Unlike fetchAllKeyset (which has owned its own pagination clauses since
+  // round 2), fetchAllPaged trusts buildQuery(from, to) to embed .range(from,
+  // to) itself -- see fetchAllPaged() in portfolio-dossier.js. Being a real,
+  // returned buildQuery callback proves nothing about whether it actually
+  // paginated; only a genuine .range() call in this same chain does.
+  return hasRangeCall;
+}
+
+// 2026-09-09 (Codex round-4): the non-wrapper safety signals (.range(),
+// head:true, .single()/.maybeSingle(), a small literal .limit(n)) used to
+// be plain regex over a text "scope" window -- exactly as spoofable by a
+// comment or string as every wrapper-detection regex before it, just never
+// demonstrated because no test happened to target it. Fixed by reading
+// these directly off the real method-chain CallExpression nodes rooted at
+// the `.from()` call, found structurally rather than by text pattern.
+//
+// A Supabase call reads as `sb.from('t').select(...).order(...).limit(...)`
+// -- in AST terms this NESTS OUTWARD from `.from()`: each `.method()` link
+// is a CallExpression whose callee is a MemberExpression whose `.object` is
+// the previous link. `findAllFromCallSites()` (below) hands `collectChainedCalls()`
+// the exact index of the `.from()` CallExpression within its own ancestor
+// path (no separate re-discovery needed -- the path was built by the same
+// walk that found the call), and `collectChainedCalls()` walks OUTWARD from
+// there confirming each next link is a direct, unbroken continuation of the
+// same chain (not merely "somewhere later in the file" or "textually
+// nearby") -- stopping the instant something breaks that shape, e.g. the
+// chain gets passed into an unrelated wrapper call or used inside a
+// different expression entirely.
+function collectChainedCalls(path, fromIdx) {
+  // `path` is root-to-leaf. Outer chained calls (`.select()`, `.range()`,
+  // etc) are ANCESTORS of the `.from()` call -- they were built by wrapping
+  // around it -- so they sit at SMALLER indices (closer to the root), not
+  // larger ones. Walk backward from fromIdx confirming each next step is a
+  // direct, unbroken continuation of the same chain: the immediately
+  // preceding node must be the MemberExpression whose `.object` is exactly
+  // the current call, and the one before THAT must be the CallExpression
+  // whose `.callee` is exactly that MemberExpression.
+  const calls = [path[fromIdx]];
+  let current = path[fromIdx];
+  let i = fromIdx - 1;
+  while (i - 1 >= 0) {
+    const maybeMember = path[i];
+    if (!maybeMember || maybeMember.type !== 'MemberExpression' || maybeMember.object !== current) break;
+    const maybeCall = path[i - 1];
+    if (!maybeCall || maybeCall.type !== 'CallExpression' || maybeCall.callee !== maybeMember) break;
+    calls.push(maybeCall);
+    current = maybeCall;
+    i -= 2;
+  }
+  return calls;
+}
+
+function chainMethodNames(calls) {
+  return calls.map((c) => c.callee?.property?.name).filter(Boolean);
+}
+
+// 2026-09-09 (Codex round-5): `head: true` only means anything as an option
+// to `.select()` (the Supabase client's count-only shape,
+// `.select(cols, { count, head })`) -- reading it off ANY call in the chain
+// meant an unrelated method with a coincidentally `{ head: true }`-shaped
+// argument (e.g. an `.eq()`/`.match()` value) could be misread as a
+// count-only query. Scoped to calls whose method name is actually `select`.
+// 2026-09-10 (Codex round-7): Supabase only reads options off the SECOND
+// argument to `.select(columns, options)` -- `sb.from(t).select('p', {},
+// { head: true })` performs a normal row-returning GET because the third
+// argument is simply ignored by the client, but scanning ALL arguments let
+// a `{ head: true }`-shaped object sitting at any other position spoof a
+// count-only read. Require `c.arguments[1]` specifically.
+//
+// 2026-09-10 (Codex round-8): checking "does ANY property look like
+// { head: true }" ignored real JS last-write-wins semantics within the
+// object literal itself. `{ head: true, head: false }` is valid modern JS
+// (duplicate keys are allowed; the LAST one wins at runtime) and performs
+// an ordinary GET, not a count-only read -- and `{ head: true,
+// ...runtimeOptions }` MAY do the same, since the spread comes after and
+// could itself carry a `head` key. Walk the object's properties in source
+// order and track the current known value of `head`; a spread, or a
+// computed key that can't be resolved to a literal, makes the current
+// value UNKNOWN (it could silently set `head` to anything) rather than
+// leaving whatever was believed before it standing. Only report
+// count-only when the FINAL state, after every property, is a
+// confidently-known literal `true`.
+function resolvesToHeadTrue(objectExpression) {
+  let headIsTrue = false;
+  for (const p of objectExpression.properties) {
+    if (p.type !== 'Property') { headIsTrue = false; continue; } // spread etc. -- unknown, could override
+    const key = propertyKeyName(p);
+    if (key === null) { headIsTrue = false; continue; } // unresolvable computed key -- unknown, could be 'head'
+    if (key !== 'head') continue; // some other property -- doesn't touch head's value
+    headIsTrue = p.value?.type === 'Literal' && p.value.value === true;
+  }
+  return headIsTrue;
+}
+function chainHasHeadTrueOption(calls) {
+  return calls.some((c) => {
+    if (c.callee?.property?.name !== 'select') return false;
+    const opts = c.arguments?.[1];
+    return opts?.type === 'ObjectExpression' && resolvesToHeadTrue(opts);
+  });
+}
+
+// 2026-09-09 (Codex round-6): the Supabase client accepts a `{ foreignTable }`
+// option on `.range()`, `.order()` and `.limit()` that scopes the call to an
+// EMBEDDED relation (`.select('*, comments(*)').limit(5, { foreignTable:
+// 'comments' })` bounds only the nested `comments` rows) -- it does nothing
+// to the TOP-LEVEL query this call site actually reads. A `.range()`/`.limit()`
+// carrying that option must never count as a safety signal for the row this
+// scanner is judging.
+//
+// 2026-09-10 (Codex round-7): the installed Supabase client accepts --
+// and actually PREFERS -- `referencedTable` as the modern name for this
+// same embedded-relation option; `foreignTable` is the deprecated alias.
+// Checking only `foreignTable` let `.limit(5, { referencedTable: 'comments'
+// })` / `.range(0, 9, { referencedTable: 'comments' })` read as a real
+// top-level bound when they scope only the embedded relation -- the exact
+// same failure mode round-6 closed for one name but not the other.
+// Independently reproduced by Codex against both `.limit()` and `.range()`.
+// Also closes a second gap: `.limit(n, options)` / `.range(a, b, options)`
+// pass the options object at a FIXED argument position (index 1 for
+// `.limit`, index 2 for `.range`) -- if whatever sits there is not a
+// literal object we can read (a variable, a spread call result, a
+// ternary), or if a literal object contains a spread property
+// (`{ ...someOptions }`), static analysis cannot prove it LACKS either
+// scoping key. Fail closed in both cases: treat the call as
+// relation-scoped (i.e. NOT a trustworthy top-level bound) rather than
+// assuming absence just because neither name appears as a literal
+// property we could see.
+const RELATION_SCOPE_KEYS = new Set(['foreignTable', 'referencedTable']);
+const RELATION_OPTIONS_ARG_INDEX = { limit: 1, range: 2 };
+function isForeignTableScoped(call) {
+  const methodName = call.callee?.property?.name;
+  const idx = RELATION_OPTIONS_ARG_INDEX[methodName];
+  if (idx == null) return false; // not a method this scanner calls isForeignTableScoped() for
+  const opts = call.arguments?.[idx];
+  if (!opts) return false; // no options argument supplied at all -- nothing to scope it with
+  if (opts.type !== 'ObjectExpression') return true; // dynamic/non-literal options -- cannot prove absence, fail closed
+  return opts.properties.some((p) => {
+    if (p.type !== 'Property') return true; // SpreadElement etc. -- cannot prove absence, fail closed
+    const key = propertyKeyName(p);
+    // 2026-09-10 (Codex round-8): a computed key that propertyKeyName()
+    // cannot resolve to a literal (e.g. `{ [someVar]: 'comments' }`) is
+    // just as unprovable as a spread -- fail closed rather than treating
+    // "we couldn't read the key" as "the key isn't foreignTable/referencedTable".
+    if (key === null) return true;
+    return RELATION_SCOPE_KEYS.has(key);
+  });
+}
+
+// 2026-09-09 (Codex round-6): `.range()` only bounds the top-level query when
+// it is NOT foreign-table-scoped -- see isForeignTableScoped() above.
+function chainHasRangeCall(calls) {
+  return calls.some((c) => c.callee?.property?.name === 'range' && !isForeignTableScoped(c));
+}
+
+// 2026-09-09 (Codex round-6): rewritten for two real fail-opens Codex found.
+// (1) Supabase mutates the SAME query-builder object on every chained call --
+// when `.limit()` appears more than once in a chain (`.limit(500)...
+// .limit(2000)`), the LAST call actually invoked is what reaches PostgREST,
+// overwriting whatever the earlier call set. The old `calls.find(...)`
+// returned the FIRST `.limit()` in chain order (closest to `.from()`), so an
+// early small, safe-looking `.limit(500)` could report "bounded" while a
+// later `.limit(2000)` silently overrode it at runtime. (2) `.limit(n,
+// { foreignTable })` -- see isForeignTableScoped() -- bounds an embedded
+// relation, not this call site's own top-level rows, and must be skipped
+// entirely rather than treated (or trusted over an later real bound).
+// `calls` is ordered innermost (closest to `.from()`) to outermost, so
+// walking forward and always taking the MOST RECENT applicable match yields
+// the value that actually governs the request.
+function chainSmallLimitValue(calls) {
+  let result = null;
+  for (const c of calls) {
+    if (c.callee?.property?.name !== 'limit') continue;
+    if (isForeignTableScoped(c)) continue;
+    const arg = c.arguments?.[0];
+    result = (arg && arg.type === 'Literal' && typeof arg.value === 'number') ? arg.value : null;
+  }
+  return result;
+}
+
+// Walks the whole AST once, collecting every real `.from(...)` call site
+// as `{ path, fromIdx }` -- `path` is the root-to-node ancestor chain (the
+// same shape the old offset-based lookup used to produce, but built
+// directly during the walk instead of re-discovered from a regex match
+// position afterward) and `fromIdx` is the `.from()` CallExpression's own
+// index within it (always `path.length - 1`, since that's the node being
+// tested when a match is recorded). `Buffer.from`/`Array.from` are
+// excluded: they share the method name with a real database read but are
+// never one, and a bare property-name match would otherwise misidentify
+// them.
+function findAllFromCallSites(ast) {
+  const results = [];
+  const path = [];
+  (function visit(node) {
+    if (!node || typeof node !== 'object' || typeof node.type !== 'string') return;
+    path.push(node);
+    // 2026-09-09 (Codex round-6): `sb['from'](...)` (computed member access)
+    // is a real, if unusual, way to reach the same method -- the original
+    // `!node.callee.computed` requirement made it invisible to discovery
+    // entirely (a silent audit gap, not a false report). Accept EITHER a
+    // plain `.from(...)` (non-computed Identifier property) or a computed
+    // access whose property is the string literal 'from'.
+    const calleeIsFrom = node.callee?.type === 'MemberExpression' && (
+      (!node.callee.computed && node.callee.property?.type === 'Identifier' && node.callee.property.name === 'from')
+      || (node.callee.computed && node.callee.property?.type === 'Literal' && node.callee.property.value === 'from')
+    );
+    if (
+      node.type === 'CallExpression'
+      && calleeIsFrom
+      && !(node.callee.object?.type === 'Identifier' && (node.callee.object.name === 'Buffer' || node.callee.object.name === 'Array'))
+    ) {
+      results.push({ path: path.slice(), fromIdx: path.length - 1 });
+    }
+    for (const key of Object.keys(node)) {
+      if (key === 'start' || key === 'end' || key === 'type' || key === 'loc' || key === 'range' || key === 'parent') continue;
+      const val = node[key];
+      if (Array.isArray(val)) {
+        for (const child of val) visit(child);
+      } else if (val && typeof val === 'object') {
+        visit(val);
+      }
+    }
+    path.pop();
+  })(ast);
+  return results;
 }
 
 // exported 2026-09-09 (Codex P2 negative-test recommendation, flagged
@@ -258,66 +594,150 @@ function isLexicallyInsideCall(src, atIndex, calleeName) {
 // executing the whole preflight run. Exported the pure scanner function and
 // guarded the main() invocation at the bottom of the file with the repo's
 // standard entry-point check (see draftsharks-idp-ingest.js et al.).
+//
+// 2026-09-09 (Codex round-5): discovery of `.from()` call sites was itself
+// still a plain regex over raw source text -- exactly as spoofable by a
+// comment or string literal as every safety-signal regex closed in earlier
+// rounds, and blind to any real call the regex's shape didn't match (a
+// dynamically-named table, unusual whitespace/formatting). Replaced with
+// `findAllFromCallSites()`, a single AST walk that finds every real
+// `.from(...)` CallExpression structurally and hands back its own ancestor
+// path directly -- no comment/string text can produce a phantom site. A
+// file that fails to parse still falls back to the old regex scan (marking
+// every match unsafe) so a parse failure degrades to noisier reporting,
+// never to silently finding nothing.
+// exported 2026-09-10 (Codex round-7 P2): this classification logic used to
+// live inline inside the async A:rowcap check below, reachable only via a
+// full live preflight run against real Supabase tables -- so nothing ever
+// exercised its two failure branches (a site whose table name could not be
+// resolved statically at all, or a resolvable table whose rowCount()
+// lookup itself failed and got recorded as `null`). Codex's live runs only
+// ever walked the all-resolved, all-succeeded path. Extracted as a pure
+// function of (sites, sizes) so both branches can be unit-tested directly
+// against fixture data, with no Supabase connection required.
+// exported 2026-09-10 (Codex round-8 P2): pure classification of a
+// SCANNED_SOURCES read/scan failure -- extracted so the "genuinely absent
+// file (skip)" vs. "any other failure (fail closed with a sentinel)"
+// branch can be tested directly, without needing a real filesystem ENOENT
+// or an actual scanCallSites() exception to trigger it.
+// 2026-09-10 fix (Codex review, v3->v4 query-dialect round, Finding 1): this
+// gate used to be `blocks.length === 0` alone. check() (above) reports a
+// thrown check as ERROR, not BLOCK -- so a check that threw (a schema
+// surprise, a network blip, anything check()'s try/catch caught) could leave
+// safe_to_run_paid_synthesis TRUE even though that lane was never actually
+// verified at all. An ERROR means "this check did not run to completion and
+// tell us anything," which is not the same as "this check ran and passed" --
+// it must gate paid synthesis the same way an explicit BLOCK does. Extracted
+// as its own function (rather than left as an inline boolean expression in
+// main()) so this exact aggregation rule is directly unit-testable without a
+// live Supabase connection or a full main() run, matching the pattern
+// established for classifyRowcapSites()/shouldSkipScanError() below.
+export function isSafeToRunPaidSynthesis(blockCount, errorCount) {
+  return blockCount === 0 && errorCount === 0;
+}
+
+// 2026-09-10 fix (Codex v4 review, Finding 1 continued): isSafeToRunPaidSynthesis()
+// alone wasn't enough -- the JSON output path called it, but the human-readable
+// text report and the process exit code each re-derived their own verdict
+// straight off `blocks.length`, so a run with 0 BLOCKs and 1+ ERRORs printed
+// "SAFE TO RUN PAID SYNTHESIS" to a human even though the JSON field for the
+// exact same run correctly said false. Codex's review noted the 4 existing
+// tests only exercised the pure boolean, so they never caught the CLI/JSON
+// contradiction. This function is the single place that decides the verdict
+// AND the human-facing headline text, and main() uses it for the JSON field,
+// the text report, and the exit code -- so a test can assert on the actual
+// rendered headline (not just a boolean) and know all three surfaces agree.
+export function buildDisposition(blocks, errs) {
+  const safe = isSafeToRunPaidSynthesis(blocks.length, errs.length);
+  const headline = safe
+    ? 'SAFE TO RUN PAID SYNTHESIS — every validated lane is present, fresh and wired.'
+    : 'DO NOT RUN PAID SYNTHESIS.';
+  return { safe, headline };
+}
+
+export function shouldSkipScanError(err) {
+  return !!(err && err.code === 'ENOENT');
+}
+
+export function classifyRowcapSites(sites, sizes) {
+  const risky = sites.filter((x) => !x.safe);
+  const resolvable = risky.filter((x) => x.table !== '(dynamic table)');
+  const unresolved = risky.filter((x) => x.table === '(dynamic table)');
+  // A `null` size means rowCount() itself failed for a resolvable table --
+  // treated the same as "truncating" (unsafe by default), same rationale
+  // as the unresolved-table branch: we cannot prove the read is safe.
+  const truncating = resolvable.filter((x) => sizes[x.table] == null || sizes[x.table] >= 1000);
+  const fine = resolvable.filter((x) => sizes[x.table] != null && sizes[x.table] < 1000);
+  const safeCount = sites.length - risky.length;
+  const blockedCount = truncating.length + unresolved.length;
+  return { risky, resolvable, unresolved, truncating, fine, safeCount, blockedCount };
+}
+
 export function scanCallSites(src, file) {
   const sites = [];
-  for (const m of src.matchAll(/\.from\(\s*['"]([a-zA-Z0-9_]+)['"]\s*\)/g)) {
-    const table = m[1];
-    const line = src.slice(0, m.index).split('\n').length;
-    // 2026-09-09 fix (P2 #4, flagged 2026-09-08): the per-site scope window
-    // used to judge a call site was a flat 900 characters after the `.from(`
-    // match. A live scan of this repo's own call sites found several whose
-    // real pagination/limit clause sits well past that boundary -- long
-    // multi-column `.select(...)` strings alone routinely run 200-600+ chars
-    // in this codebase (see e.g. portfolio-dossier.js's fetchTeamStats(),
-    // which tries 3 progressively-shorter column lists), pushing the actual
-    // `.range()`/`.limit()`/`.single()` call outside a 900-char window and
-    // causing a real, safely-bounded site to misreport as "unpaginated".
-    // Fix: bound the scope to the call site's OWN statement (via
-    // findStatementEnd()'s paren-depth tracking above) rather than a flat
-    // character count -- this naturally covers however long a real
-    // `.select()`/`.range()`/`.limit()` chain runs without risking bleed
-    // into a later, unrelated statement.
-    const HARD_CAP = 3000;
-    const stop = findStatementEnd(src, m.index, HARD_CAP) - m.index;
-    const win = src.slice(m.index, m.index + stop);
-    const funcBoundary = win.search(/\n\s*(async\s+)?function\s/);
-    const scope = funcBoundary > 0 ? win.slice(0, funcBoundary) : win;
+  const ast = parseSourceSafely(src, file);
 
-    // fetchAllPaged(label, (from, to) => sb.from(...)) always puts the
-    // 'fetchAllPaged(' text BEFORE the '.from(' call it wraps (same line,
-    // as an outer function call) -- a forward-only scope can never see it,
-    // so this still needs its own backward-looking window, same as before
-    // the P2 #4 window fix above.
+  if (!ast) {
+    for (const m of src.matchAll(/\.from\(\s*['"]([a-zA-Z0-9_]+)['"]\s*\)/g)) {
+      sites.push({
+        table: m[1], file, line: src.slice(0, m.index).split('\n').length,
+        safe: false, why: 'unpaginated (file could not be parsed -- treated conservatively)',
+      });
+    }
+    // 2026-09-10 (Codex round-7): the regex above only matches a LITERAL
+    // `.from('table')` call -- it independently reproduced two ways a file
+    // that fails to parse can still contribute ZERO sites and therefore no
+    // BLOCK at all: `sb.from(tableVar)` (a variable) and `sb['from'](
+    // 'vault_notes')` (bracket-notation member access). A parse failure
+    // means static analysis cannot verify ANYTHING in this file, regardless
+    // of what the regex fallback did or didn't happen to match -- add one
+    // unconditional file-level unresolved sentinel so a file that fails to
+    // parse always surfaces at least one BLOCK, on top of whatever the
+    // regex found for extra line-level detail.
+    sites.push({
+      table: '(dynamic table)', file, line: 1,
+      safe: false, why: 'file could not be parsed -- static analysis cannot verify any read in this file is bounded',
+    });
+    return sites;
+  }
+
+  for (const { path, fromIdx } of findAllFromCallSites(ast)) {
+    const fromNode = path[fromIdx];
+    const arg0 = fromNode.arguments?.[0];
+    const table = arg0?.type === 'Literal' && typeof arg0.value === 'string' ? arg0.value : '(dynamic table)';
+    const line = src.slice(0, fromNode.start).split('\n').length;
+
+    // The four non-wrapper safety signals are read directly off the real
+    // method-chain CallExpression nodes rooted at this `.from()` call --
+    // see the round-4 comment above collectChainedCalls() for why this
+    // replaced the old text-window regex checks entirely.
+    const chainCalls = collectChainedCalls(path, fromIdx);
+    const methodNames = chainMethodNames(chainCalls);
+    const hasRangeCall = chainHasRangeCall(chainCalls);
+    const hasSingleCall = methodNames.includes('single') || methodNames.includes('maybeSingle');
+    const hasHeadTrue = chainHasHeadTrueOption(chainCalls);
+    const smallLimit = chainSmallLimitValue(chainCalls); // number | null
+
     // fetchAllPaged(label, (from, to) => sb.from(...)) and
     // fetchAllKeyset(label, {..., applyFilters: (q) => q.from(...)... })
     // both always put the helper name BEFORE the '.from(' call they wrap
-    // (as an outer function call) -- a forward-only scope can never see
-    // that, so wrapper detection is inherently a backward lookup. Proven
-    // by real lexical nesting (isLexicallyInsideCall above), not text
-    // proximity -- see the 2026-09-09 round-2 comment above it for why.
-    const wrappedInFetchAllPaged = isLexicallyInsideCall(src, m.index, 'fetchAllPaged');
-    // 2026-09-09 fix (Codex P2, flagged 2026-09-09): the previous
-    // isKeysetPaginated heuristic recognized bare `.order()+.gt()+.limit()`
-    // syntax as "safely paginated" -- but that syntax proves nothing about
-    // iteration. A one-shot query with those three calls and no loop or
-    // advancing cursor only ever fetches the first page, yet would have
-    // been reported safe. The durable fix is to require the call site to
-    // be wrapped in the shared, audited fetchAllKeyset() helper (see
-    // agents/lib/supabase-pagination.js, which as of the round-2 revision
-    // also owns ordering/the cursor filter/the limit itself, so a caller
-    // can no longer get those wrong even if the wrapping is genuine).
-    const wrappedInFetchAllKeyset = isLexicallyInsideCall(src, m.index, 'fetchAllKeyset');
-    const paginated = /\.range\(/.test(scope) || wrappedInFetchAllPaged || wrappedInFetchAllKeyset;
-    const countOnly = /head:\s*true/.test(scope);
-    const singleRow = /\.(maybe)?[Ss]ingle\(/.test(scope);
-    const limitM = scope.match(/\.limit\(\s*(\d+)\s*\)/);
-    const boundedSmall = limitM && Number(limitM[1]) < 1000;
+    // (as an outer function call). Wrapper detection now also requires the
+    // chain to be the value the wrapper function actually returns -- see
+    // the round-5 comment above isChainReturnedByFunction() for why being
+    // lexically inside the right callback wasn't enough on its own.
+    const wrappedInFetchAllPaged = isWrappedInFetchAllPaged(path, fromIdx, chainCalls.length, hasRangeCall);
+    const wrappedInFetchAllKeyset = isWrappedInFetchAllKeyset(path, fromIdx, chainCalls.length);
+
+    const paginated = hasRangeCall || wrappedInFetchAllPaged || wrappedInFetchAllKeyset;
+    const countOnly = hasHeadTrue;
+    const singleRow = hasSingleCall;
+    const boundedSmall = smallLimit != null && smallLimit < 1000;
 
     sites.push({
       table, file, line,
       safe: paginated || countOnly || singleRow || boundedSmall,
-      why: paginated ? (wrappedInFetchAllKeyset && !/\.range\(/.test(scope) && !wrappedInFetchAllPaged ? 'paginated (keyset)' : 'paginated') : countOnly ? 'count-only' : singleRow ? 'single-row'
-           : boundedSmall ? `bounded .limit(${limitM[1]})` : (limitM ? `.limit(${limitM[1]}) — inert, PostgREST caps at 1000` : 'unpaginated'),
+      why: paginated ? (wrappedInFetchAllKeyset && !hasRangeCall && !wrappedInFetchAllPaged ? 'paginated (keyset)' : 'paginated') : countOnly ? 'count-only' : singleRow ? 'single-row'
+           : boundedSmall ? `bounded .limit(${smallLimit})` : (smallLimit != null ? `.limit(${smallLimit}) — inert, PostgREST caps at 1000` : 'unpaginated'),
     });
   }
   return sites;
@@ -443,9 +863,32 @@ async function stageA() {
   // moves yet), not an active pagination risk -- this WARN just flags that roster_churn
   // will be empty in the prompt until week 2 data lands.
   await check('A:database', 'nfl_rosters', async () => {
-    const { data, error } = await sb.from('nfl_rosters').select('week').eq('season', SEASON).order('week', { ascending: false }).limit(1000);
-    if (error) throw new Error(error.message);
-    const weeks = [...new Set((data || []).map(r => r.week))];
+    // 2026-09-10 fix (Round 9 v8 step 3): a single .limit(1000) page ordered by
+    // week desc can span less than one full week (~3,575 rows/week this season),
+    // so weeks computed from just that page can undercount real distinct weeks --
+    // the same failure class fetchRosterChurn() in portfolio-dossier.js was
+    // already fixed for (2026-09-04). Page until exhausted -- no silent ceiling:
+    // a sanity cap that still had a full page on its last iteration means real
+    // data may remain unseen, and that must fail loud, not stop quietly.
+    const seen = new Set();
+    const ROWCAP_SANITY_PAGES = 200; // 200,000 rows -- generous; nfl_rosters is ~3,575/week
+    let pages = 0;
+    let lastPageFull = false;
+    for (let from = 0; pages < ROWCAP_SANITY_PAGES; from += 1000, pages++) {
+      const { data, error } = await sb.from('nfl_rosters').select('week').eq('season', SEASON)
+        .order('week', { ascending: false }).range(from, from + 999);
+      if (error) throw new Error(error.message);
+      for (const r of data || []) seen.add(r.week);
+      lastPageFull = (data || []).length === 1000;
+      if (!lastPageFull) break;
+    }
+    if (lastPageFull) {
+      throw new Error(`nfl_rosters week discovery: hit the ${ROWCAP_SANITY_PAGES}-page sanity cap (${ROWCAP_SANITY_PAGES * 1000} rows) while the last page was still full -- more rows may remain unseen; raise the cap or investigate before trusting this count`);
+    }
+    // Explicit descending sort per v8 step 3 -- Set insertion order happened to
+    // match this season (rows arrive week-desc), but that is not guaranteed for
+    // a Set and should not be relied on.
+    const weeks = [...seen].sort((a, b) => b - a);
     if (weeks.length < 2) {
       add('A:database', 'nfl_rosters', WARN,
         `only ${weeks.length} distinct week(s) for ${SEASON} — fetchRosterChurn() returns {} silently (no warn). roster_churn is empty in the prompt.`,
@@ -568,31 +1011,70 @@ async function stageA() {
   });
 
   // --- Silent 1000-row cap: judge every real call site against its table size
+  //
+  // 2026-09-09 (Codex round-6): a table whose size could not be determined
+  // -- a dynamically-named call site (`table === '(dynamic table)'`, from
+  // scanCallSites() when it can't read a literal string argument) OR a
+  // named table whose rowCount() lookup itself failed (network hiccup,
+  // permissions) -- got `sizes[t] = null`. A null size satisfied NEITHER
+  // the old truncating filter (`>= 1000`, since `null ?? 0` is 0) NOR the
+  // fine filter (`sizes[x.table] !== null`) -- the site silently vanished
+  // from every reported bucket while still being subtracted out of
+  // `safeCount`. An unresolved size is exactly the case this gate exists
+  // for: we cannot prove the read is safe, so it is now BLOCKed by
+  // default rather than dropped.
   await check('A:rowcap', 'scan', async () => {
     const sites = [];
     for (const rel of SCANNED_SOURCES) {
-      try { sites.push(...scanCallSites(await readFile(path.join(ROOT, rel), 'utf8'), rel)); }
-      catch { /* file may not exist in a given checkout */ }
+      try {
+        sites.push(...scanCallSites(await readFile(path.join(ROOT, rel), 'utf8'), rel));
+      } catch (err) {
+        if (shouldSkipScanError(err)) continue; // file genuinely absent in this checkout -- nothing to scan
+        // 2026-09-10 (Codex round-8): any OTHER failure here -- a
+        // permission error reading a file that DOES exist, an encoding
+        // problem, or an unexpected exception thrown by scanCallSites()
+        // itself (a scanner bug) -- used to be swallowed by this same
+        // catch as "file may not exist", silently removing the ENTIRE
+        // file from the gate: it contributed neither sites nor a BLOCK,
+        // so A:rowcap could report PASS/WARN without having actually
+        // scanned every declared source. Fail closed instead: push one
+        // file-level unresolved sentinel so a source that could not be
+        // scanned, for any reason other than genuinely not existing,
+        // always surfaces a BLOCK rather than silently vanishing.
+        sites.push({
+          table: '(dynamic table)', file: rel, line: 1, safe: false,
+          why: `file could not be scanned (${err?.message || err}) -- static analysis cannot verify any read in this file is bounded`,
+        });
+      }
     }
     const risky = sites.filter(x => !x.safe);
-    const tables = [...new Set(risky.map(x => x.table))];
+    const resolvable = risky.filter(x => x.table !== '(dynamic table)');
+    const tables = [...new Set(resolvable.map(x => x.table))];
 
     const sizes = {};
     for (const t of tables) { try { sizes[t] = await rowCount(t); } catch { sizes[t] = null; } }
 
-    const truncating = risky.filter(x => (sizes[x.table] ?? 0) >= 1000);
-    const fine = risky.filter(x => (sizes[x.table] ?? 0) < 1000 && sizes[x.table] !== null);
+    const { unresolved, truncating, fine, safeCount, blockedCount } = classifyRowcapSites(sites, sizes);
 
     if (truncating.length) {
       for (const x of truncating) {
+        const size = sizes[x.table];
         add('A:rowcap', `${x.table} @ ${x.file}:${x.line}`, BLOCK,
-          `${sizes[x.table].toLocaleString()} rows, read ${x.why} — PostgREST silently returns 1000 (${(1000 / sizes[x.table] * 100).toFixed(1)}%).`,
+          size == null
+            ? `Table size could not be verified (rowCount lookup failed), read ${x.why} — treated as unsafe by default rather than assumed small.`
+            : `${size.toLocaleString()} rows, read ${x.why} — PostgREST silently returns 1000 (${(1000 / size * 100).toFixed(1)}%).`,
           'Add a .range() pagination loop (fetchAllPaged() in portfolio-dossier.js is the shared helper).');
       }
     }
-    const safeCount = sites.length - risky.length;
-    add('A:rowcap', 'call-site scan', truncating.length ? WARN : PASS,
-      `${sites.length} Supabase read sites across ${SCANNED_SOURCES.length} agents: ${safeCount} safely bounded, ${truncating.length} truncating, ${fine.length} unbounded but on small tables.`);
+    if (unresolved.length) {
+      for (const x of unresolved) {
+        add('A:rowcap', `${x.table} @ ${x.file}:${x.line}`, BLOCK,
+          `Table name could not be resolved statically, read ${x.why} — size cannot be verified, so this read is treated as unsafe by default.`,
+          'Give this call a literal table name, or bound it explicitly (.range()/.limit()/head:true/.single()) so the scanner can verify it directly.');
+      }
+    }
+    add('A:rowcap', 'call-site scan', blockedCount ? WARN : PASS,
+      `${sites.length} Supabase read sites across ${SCANNED_SOURCES.length} agents: ${safeCount} safely bounded, ${truncating.length} truncating, ${unresolved.length} with an unresolved table name, ${fine.length} unbounded but on small tables.`);
   });
 }
 
@@ -1008,12 +1490,23 @@ async function main() {
   const warns  = results.filter(r => r.status === WARN);
   const errs   = results.filter(r => r.status === ERROR);
   const passes = results.filter(r => r.status === PASS);
+  // 2026-09-10 fix (Codex v4 review, Finding 1 continued): the JSON-output path
+  // and the exit code were the two call sites already fixed to consult
+  // isSafeToRunPaidSynthesis() -- but the human-readable text report below
+  // computed its own "SAFE"/"DO NOT RUN" branch straight off `blocks.length`,
+  // so a run with zero BLOCKs and one or more ERRORs still printed "SAFE TO
+  // RUN PAID SYNTHESIS" to a human reading the CLI output, even though the
+  // JSON `safe_to_run_paid_synthesis` field for that same run correctly said
+  // false. Compute the one verdict once, here, and use it everywhere below --
+  // JSON field, text report, and exit code -- so there is exactly one source
+  // of truth instead of three independent copies of the same condition.
+  const { safe, headline } = buildDisposition(blocks, errs);
 
   if (JSON_OUT) {
     console.log(JSON.stringify({
       generated_at: new Date().toISOString(), season: SEASON, model: MODEL,
       summary: { block: blocks.length, warn: warns.length, error: errs.length, pass: passes.length },
-      safe_to_run_paid_synthesis: blocks.length === 0,
+      safe_to_run_paid_synthesis: safe,
       results,
     }, null, 2));
   } else {
@@ -1033,16 +1526,27 @@ async function main() {
     console.log('\n' + '='.repeat(78));
     console.log(`  ${blocks.length} BLOCK · ${warns.length} WARN · ${errs.length} ERROR · ${passes.length} pass`);
     console.log('='.repeat(78));
-    if (blocks.length) {
-      console.log('\n  DO NOT RUN PAID SYNTHESIS. Blocking issues:\n');
-      blocks.forEach((b, i) => console.log(`   ${i + 1}. [${b.stage}] ${b.lane}`));
+    if (!safe) {
+      console.log('\n  ' + headline);
+      if (blocks.length) {
+        console.log('\n  Blocking issues:\n');
+        blocks.forEach((b, i) => console.log(`   ${i + 1}. [${b.stage}] ${b.lane}`));
+      }
+      if (errs.length) {
+        // A check that threw did not run to completion -- its lane was never
+        // actually verified, which is not the same as having passed. Surface
+        // these separately from BLOCKs so a human reading the report sees
+        // *why* a run with zero blocking issues is still not safe.
+        console.log('\n  Check(s) that did not run to completion (ERROR -- lane unverified):\n');
+        errs.forEach((e, i) => console.log(`   ${i + 1}. [${e.stage}] ${e.lane} — ${e.detail}`));
+      }
       console.log('');
     } else {
-      console.log('\n  SAFE TO RUN PAID SYNTHESIS — every validated lane is present, fresh and wired.\n');
+      console.log('\n  ' + headline + '\n');
     }
   }
 
-  if (!WARN_ONLY && blocks.length > 0) process.exit(1);
+  if (!WARN_ONLY && !safe) process.exit(1);
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
