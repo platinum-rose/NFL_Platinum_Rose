@@ -806,6 +806,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
       rrStakePerCombo,
       legDetails,
       legsWon: (bet.legs || []).filter(l => l.status === 'WON').map((l, idx) => l.key || `leg_${bet.id}_${idx + 1}`),
+      legsPushed: (bet.legs || []).filter(l => l.status === 'PUSH').map((l, idx) => l.key || `leg_${bet.id}_${idx + 1}`),
       openSlotLegs,
       legs
     };
@@ -1526,8 +1527,9 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
                 const isOpenSlot = leg.market === 'open_slot' || leg.status === 'OPEN';
                 const isWon = leg.status === 'WON';
                 const isLost = leg.status === 'LOST';
-                const icon = isOpenSlot ? '⬜' : (isWon ? '✅' : (isLost ? '❌' : '⚪'));
-                const legClass = isOpenSlot ? 'leg-item leg-open-slot' : (isWon ? 'leg-item checked' : (isLost ? 'leg-item leg-missed' : 'leg-item'));
+                const isPush = leg.status === 'PUSH';
+                const icon = isOpenSlot ? '⬜' : (isWon ? '✅' : (isLost ? '❌' : (isPush ? '⚖️' : '⚪')));
+                const legClass = isOpenSlot ? 'leg-item leg-open-slot' : (isWon ? 'leg-item checked' : (isLost ? 'leg-item leg-missed' : (isPush ? 'leg-item leg-pushed' : 'leg-item')));
 
                 const kInfo = getLegKickoffTime(leg, weekSchedule);
                 const kickoffShort = kInfo.shortText || 'TBD';
@@ -1549,7 +1551,11 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
                 } else if (isLost) {
                   initialPacingClass = 'pace-red';
                   initialBadgeClass = 'badge-pacing-lost';
-                  initialBadgeText = '❌ BUSTED';
+                  initialBadgeText = '🔥 BURNT';
+                } else if (isPush) {
+                  initialPacingClass = 'pace-push';
+                  initialBadgeClass = 'badge-pacing-push';
+                  initialBadgeText = '⚖️ PUSH';
                 } else if (kInfo.game && (kInfo.game.status === 'in' || kInfo.game.status === 'live')) {
                   initialPacingClass = 'pace-yellow';
                   initialBadgeClass = 'badge-pacing-yellow';
@@ -1606,6 +1612,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
                       <span class="leg-pace-badge ${initialBadgeClass}" id="pace-badge-${legKey}">${initialBadgeText}</span>
                       <span style="font-size:0.68rem; color:var(--text-muted);">${leg.price || ''}</span>
                       ${isOpenSlot ? '' : `<button class="btn-leg-burn" id="btn-burn-leg-${legKey}" onclick="toggleLegBurn('${legKey}', '${bet.id}', event)" title="Mark Leg Burnt / Missed">🔥</button>`}
+                      ${isOpenSlot ? '' : `<button class="btn-leg-push" id="btn-push-leg-${legKey}" onclick="toggleLegPush('${legKey}', '${bet.id}', event)" title="Mark Leg Push (won't count toward the parlay)">⚖️</button>`}
                     </div>
                   </div>
                   ${isPropLeg ? `
@@ -2922,6 +2929,31 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
       border-color: #EF4444;
       box-shadow: 0 0 6px rgba(239, 68, 68, 0.4);
     }
+    .btn-leg-push {
+      background: #1E293B;
+      border: 1px solid #334155;
+      color: #94A3B8;
+      border-radius: 4px;
+      padding: 1px 5px;
+      font-size: 0.65rem;
+      line-height: 1.2;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-leg-push:hover {
+      background: #334155;
+      color: #D97706;
+      border-color: #92400E;
+    }
+    .btn-leg-push.active, .leg-item.pace-push .btn-leg-push, .leg-item.leg-pushed .btn-leg-push {
+      background: rgba(146, 64, 14, 0.3);
+      color: #D97706;
+      border-color: #92400E;
+      box-shadow: 0 0 6px rgba(146, 64, 14, 0.4);
+    }
 
     /* Player Cheat Sheet — per-leg Hit/Burn toggle rows */
     .sub-gauge-item {
@@ -2970,6 +3002,12 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
       border-left: 4px solid #10B981;
       background: rgba(16, 185, 129, 0.12);
     }
+    .leg-item.pace-push, .leg-item.leg-pushed {
+      border-color: rgba(146, 64, 14, 0.55) !important;
+      border-left: 4px solid #92400E !important;
+      background: rgba(146, 64, 14, 0.14) !important;
+    }
+    .leg-item.pace-push .leg-icon, .leg-item.leg-pushed .leg-icon { color: #D97706 !important; }
 
     .leg-time-pill {
       font-size: 0.62rem;
@@ -3026,6 +3064,12 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
       background: rgba(239, 68, 68, 0.25);
       color: #EF4444;
       border: 1px solid #EF4444;
+      font-weight: 800;
+    }
+    .badge-pacing-push {
+      background: rgba(146, 64, 14, 0.28);
+      color: #D97706;
+      border: 1px solid #92400E;
       font-weight: 800;
     }
     .badge-pacing-open-slot {
@@ -3523,6 +3567,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
                       <span style="display:flex; align-items:center; gap:5px; flex-shrink:0;">
                         <span id="pstat-${pr.key}" style="font-weight:700;">0 / ${pr.target}</span>
                         ${prIsOpenSlot ? '' : `<button class="btn-leg-burn" id="pbtn-burn-leg-${pr.key}" onclick="${prBurnClick}" title="Mark Leg Burnt / Missed">🔥</button>`}
+                        ${prIsOpenSlot ? '' : `<button class="btn-leg-push" id="pbtn-push-leg-${pr.key}" onclick="toggleLegPush('${pr.key}', '${prTicketId}', event)" title="Mark Leg Push">⚖️</button>`}
                       </span>
                     </div>
                     <div class="progress-bar-wrap" style="height:5px; margin-top:2px;">
@@ -4406,6 +4451,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
     const SPLITS_KEY = 'sunday_splits_week_${week}';
     const BURNS_KEY = 'sunday_burns_week_${week}';
     const BURNT_LEGS_KEY = 'sunday_burnt_legs_week_${week}';
+    const PUSHED_LEGS_KEY = 'sunday_pushed_legs_week_${week}';
     const HIDE_BURNT_KEY = 'sunday_hide_burnt_week_${week}';
     const CASHED_KEY = 'sunday_cashed_state_week_${week}';
     const HIDE_CASHED_KEY = 'sunday_hide_cashed_week_${week}';
@@ -4459,6 +4505,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
     let manualBurns = {};
     let manualCashed = {};
     let burntLegsState = {};
+    let pushedLegsState = {};
     let collapsedState = {};
     let playerCollapsedState = {};
     let hideBurnt = false;
@@ -4497,6 +4544,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
       manualBurns = readJsonKey(BURNS_KEY, {});
       manualCashed = readJsonKey(CASHED_KEY, {});
       burntLegsState = readJsonKey(BURNT_LEGS_KEY, {});
+      pushedLegsState = readJsonKey(PUSHED_LEGS_KEY, {});
       hideBurnt = readJsonKey(HIDE_BURNT_KEY, false);
       const chkBurnt = document.getElementById('chk-hide-burnt');
       if (chkBurnt) chkBurnt.checked = !!hideBurnt;
@@ -4601,6 +4649,9 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
     function saveLegBurns() {
       try { localStorage.setItem(BURNT_LEGS_KEY, JSON.stringify(burntLegsState)); } catch (e) {}
     }
+    function savePushedLegs() {
+      try { localStorage.setItem(PUSHED_LEGS_KEY, JSON.stringify(pushedLegsState)); } catch (e) {}
+    }
 
     function getCombinations(arr, k) {
       if (k === 0) return [[]];
@@ -4615,10 +4666,34 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
 
     function toggleLeg(legKey, ticketId) {
       if (OPEN_SLOT_LEG_KEYS.has(legKey)) return; // open slots are placeholders, not real picks
-      checkedState[legKey] = !checkedState[legKey];
-      if (checkedState[legKey] && burntLegsState[legKey]) {
-        delete burntLegsState[legKey];
-        saveLegBurns();
+      // Guard added 2026-09-21: toggleLeg used to just flip the box with zero
+      // awareness of the auto-computed live/final pace badge, so a click on a
+      // leg that already graded FAILED or PUSH after the game ended would
+      // silently mark it HIT (or vice versa) and corrupt the tracked record.
+      // Confirm before allowing a manual override that contradicts the
+      // auto-computed result; manual override is still allowed for real
+      // stat-tracking desyncs, it just can't happen silently anymore.
+      const el = document.getElementById('leg-' + legKey);
+      const nextChecked = !checkedState[legKey];
+      if (el && nextChecked) {
+        if (el.classList.contains('pace-red')) {
+          if (!confirm('This leg\\'s live/final stats show it FAILED. Mark it as HIT anyway?')) return;
+        } else if (el.classList.contains('pace-push')) {
+          if (!confirm('This leg is graded as a PUSH. Mark it as HIT anyway? (This clears its Push status.)')) return;
+        }
+      } else if (el && !nextChecked && el.classList.contains('pace-green')) {
+        if (!confirm('This leg\\'s live/final stats show it HIT. Remove the HIT mark anyway?')) return;
+      }
+      checkedState[legKey] = nextChecked;
+      if (checkedState[legKey]) {
+        if (burntLegsState[legKey]) {
+          delete burntLegsState[legKey];
+          saveLegBurns();
+        }
+        if (pushedLegsState[legKey]) {
+          delete pushedLegsState[legKey];
+          savePushedLegs();
+        }
       }
       saveState();
       render();
@@ -4630,7 +4705,15 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
     function toggleLegBurn(legKey, ticketId, event) {
       if (event && event.stopPropagation) event.stopPropagation();
       if (OPEN_SLOT_LEG_KEYS.has(legKey)) return; // open slots are placeholders, not real picks
+      const el = document.getElementById('leg-' + legKey);
       const isCurrentlyBurnt = !!burntLegsState[legKey];
+      if (!isCurrentlyBurnt && el) {
+        if (el.classList.contains('pace-green')) {
+          if (!confirm('This leg\\'s live/final stats show it HIT. Mark it Burnt/Missed anyway?')) return;
+        } else if (el.classList.contains('pace-push')) {
+          if (!confirm('This leg is graded as a PUSH. Mark it Burnt/Missed anyway? (This clears its Push status.)')) return;
+        }
+      }
       if (isCurrentlyBurnt) {
         delete burntLegsState[legKey];
       } else {
@@ -4638,6 +4721,10 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
         if (checkedState[legKey]) {
           delete checkedState[legKey];
           saveState();
+        }
+        if (pushedLegsState[legKey]) {
+          delete pushedLegsState[legKey];
+          savePushedLegs();
         }
         if (ticketId && cardMinLegsState[ticketId] === undefined) {
           cardMinLegsState[ticketId] = true;
@@ -4651,6 +4738,35 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
       applyHideFulfilledLegs();
     }
     window.toggleLegBurn = toggleLegBurn;
+
+    // Added 2026-09-21 (Andy request): a third manual leg state for Pushes --
+    // e.g. Jets +3 landing on exactly 3. A push doesn't hit or fail; it should
+    // drop out of the parlay's hit/miss count entirely rather than being forced
+    // into one bucket or the other. Mutually exclusive with checked/burnt.
+    function toggleLegPush(legKey, ticketId, event) {
+      if (event && event.stopPropagation) event.stopPropagation();
+      if (OPEN_SLOT_LEG_KEYS.has(legKey)) return; // open slots are placeholders, not real picks
+      const isCurrentlyPushed = !!pushedLegsState[legKey];
+      if (isCurrentlyPushed) {
+        delete pushedLegsState[legKey];
+      } else {
+        pushedLegsState[legKey] = true;
+        if (checkedState[legKey]) {
+          delete checkedState[legKey];
+          saveState();
+        }
+        if (burntLegsState[legKey]) {
+          delete burntLegsState[legKey];
+          saveLegBurns();
+        }
+      }
+      savePushedLegs();
+      render();
+      updateAlejandroLedger();
+      filterCards();
+      applyHideFulfilledLegs();
+    }
+    window.toggleLegPush = toggleLegPush;
 
     function toggleAlejandroSplit(ticketId) {
       splitState[ticketId] = !splitState[ticketId];
@@ -6823,7 +6939,17 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
         const isBurnt = !!burntLegsState[legKey] || el.classList.contains('leg-burnt');
         const isChecked = !!checkedState[legKey] || el.classList.contains('checked');
         const isMissed = el.classList.contains('leg-missed');
+        const isPushed = !!pushedLegsState[legKey] || el.classList.contains('leg-pushed');
 
+        if (isPushed) {
+          el.classList.remove('pace-green', 'pace-red', 'pace-yellow', 'pace-pre');
+          el.classList.add('pace-push');
+          if (badge) {
+            badge.className = 'leg-pace-badge badge-pacing-push';
+            badge.innerHTML = '⚖️ PUSH';
+          }
+          return;
+        }
         if (isBurnt) {
           el.classList.remove('pace-green', 'pace-yellow', 'pace-pre');
           el.classList.add('pace-red', 'leg-burnt');
@@ -6847,7 +6973,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
           el.classList.add('pace-red');
           if (badge) {
             badge.className = 'leg-pace-badge badge-pacing-lost';
-            badge.innerHTML = '❌ BUSTED';
+            badge.innerHTML = '🔥 BURNT';
           }
           return;
         }
@@ -6955,7 +7081,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
             el.classList.add('pace-red');
             if (badge) {
               badge.className = 'leg-pace-badge badge-pacing-lost';
-              badge.innerHTML = '❌ BUSTED (' + currentVal + '/' + targetVal + ')';
+              badge.innerHTML = '🔥 BURNT (' + currentVal + '/' + targetVal + ')';
             }
             return;
           }
@@ -7036,11 +7162,13 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
                 badge.innerHTML = '❌ Failed (' + cushion.toFixed(1) + ')';
               }
             } else {
-              el.classList.remove('pace-green', 'pace-red', 'pace-pre');
-              el.classList.add('pace-yellow');
+              el.classList.remove('pace-green', 'pace-red', 'pace-yellow', 'pace-pre');
+              el.classList.add('pace-push');
+              pushedLegsState[legKey] = true;
+              savePushedLegs();
               if (badge) {
-                badge.className = 'leg-pace-badge badge-pacing-yellow';
-                badge.innerHTML = '🟡 Push (0.0)';
+                badge.className = 'leg-pace-badge badge-pacing-push';
+                badge.innerHTML = '⚖️ PUSH (0.0)';
               }
             }
             return;
@@ -7132,18 +7260,20 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
                 badge.innerHTML = '✅ Hit (' + rawTeam + ' ' + curTot + ')';
               }
             } else if (curTot === lineVal) {
-              el.classList.remove('pace-green', 'pace-red', 'pace-pre');
-              el.classList.add('pace-yellow');
+              el.classList.remove('pace-green', 'pace-red', 'pace-yellow', 'pace-pre');
+              el.classList.add('pace-push');
+              pushedLegsState[legKey] = true;
+              savePushedLegs();
               if (badge) {
-                badge.className = 'leg-pace-badge badge-pacing-yellow';
-                badge.innerHTML = '🟡 Push (' + rawTeam + ' ' + curTot + ')';
+                badge.className = 'leg-pace-badge badge-pacing-push';
+                badge.innerHTML = '⚖️ PUSH (' + rawTeam + ' ' + curTot + ')';
               }
             } else {
               el.classList.remove('pace-green', 'pace-yellow', 'pace-pre');
               el.classList.add('pace-red');
               if (badge) {
                 badge.className = 'leg-pace-badge badge-pacing-lost';
-                badge.innerHTML = '❌ Busted (' + rawTeam + ' ' + curTot + ')';
+                badge.innerHTML = '🔥 Burnt (' + rawTeam + ' ' + curTot + ')';
               }
             }
             return;
@@ -7224,7 +7354,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
               el.classList.add('pace-red');
               if (badge) {
                 badge.className = 'leg-pace-badge badge-pacing-lost';
-                badge.innerHTML = '❌ Busted (' + curTot + ')';
+                badge.innerHTML = '🔥 Burnt (' + curTot + ')';
               }
             }
             return;
@@ -7240,18 +7370,20 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
                 badge.innerHTML = '✅ Hit (' + curTot + ')';
               }
             } else if (curTot === lineVal) {
-              el.classList.remove('pace-green', 'pace-red', 'pace-pre');
-              el.classList.add('pace-yellow');
+              el.classList.remove('pace-green', 'pace-red', 'pace-yellow', 'pace-pre');
+              el.classList.add('pace-push');
+              pushedLegsState[legKey] = true;
+              savePushedLegs();
               if (badge) {
-                badge.className = 'leg-pace-badge badge-pacing-yellow';
-                badge.innerHTML = '🟡 Push (' + curTot + ')';
+                badge.className = 'leg-pace-badge badge-pacing-push';
+                badge.innerHTML = '⚖️ PUSH (' + curTot + ')';
               }
             } else {
               el.classList.remove('pace-green', 'pace-yellow', 'pace-pre');
               el.classList.add('pace-red');
               if (badge) {
                 badge.className = 'leg-pace-badge badge-pacing-lost';
-                badge.innerHTML = '❌ Busted (' + curTot + ')';
+                badge.innerHTML = '🔥 Burnt (' + curTot + ')';
               }
             }
             return;
@@ -7358,7 +7490,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
           card.classList.add('temp-red');
           if (tempBadge) {
             tempBadge.className = 'bullet-temp-badge bullet-temp-red';
-            tempBadge.innerHTML = '⚠️ Risk / Busted';
+            tempBadge.innerHTML = '⚠️ Risk / Burnt';
           }
         } else if (pacingGreenCount > 0 && pacingRedCount === 0) {
           card.classList.add('temp-green');
@@ -7429,8 +7561,8 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
 
           if (hasLostLeg) {
             return '<div style="background:rgba(239,68,68,0.12); border:1px solid rgba(239,68,68,0.35); border-radius:4px; padding:3px 6px; font-size:0.65rem; color:#FCA5A5; display:flex; justify-content:space-between; align-items:center;">' +
-              '<span>💀 <strong>DEAD PARLAY:</strong> ' + escapeHtml(t.ticketName) + ' (' + (bustedBy ? 'Busted by ' + escapeHtml(bustedBy) : 'Busted') + ')</span>' +
-              '<span style="font-size:0.6rem; color:#EF4444; font-weight:800;">BUSTED</span>' +
+              '<span>💀 <strong>DEAD PARLAY:</strong> ' + escapeHtml(t.ticketName) + ' (' + (bustedBy ? 'Burnt by ' + escapeHtml(bustedBy) : 'Burnt') + ')</span>' +
+              '<span style="font-size:0.6rem; color:#EF4444; font-weight:800;">🔥 BURNT</span>' +
             '</div>';
           } else {
             return '<div style="background:rgba(59,130,246,0.12); border:1px solid rgba(59,130,246,0.35); border-radius:4px; padding:3px 6px; font-size:0.65rem; color:#93C5FD; display:flex; justify-content:space-between; align-items:center;">' +
@@ -7765,6 +7897,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
           '<div class="leg-right" style="display:flex; align-items:center; gap:6px;">' +
           '<span style="font-size:0.68rem; color:var(--text-muted);">-110</span>' +
           '<button class="btn-leg-burn" id="btn-burn-leg-' + lKey + '" onclick="toggleLegBurn(&apos;' + lKey + '&apos;, &apos;' + tId + '&apos;, event)" title="Mark Leg Burnt / Missed">🔥</button>' +
+          '<button class="btn-leg-push" id="btn-push-leg-' + lKey + '" onclick="toggleLegPush(&apos;' + lKey + '&apos;, &apos;' + tId + '&apos;, event)" title="Mark Leg Push">⚖️</button>' +
           '</div></div>';
       }).join('');
 
@@ -8440,6 +8573,11 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
         const ticketLegs = config.legs || [];
         const burntLegsInTicket = ticketLegs.filter(lKey => !!burntLegsState[lKey]);
         const hitLegsInTicket = ticketLegs.filter(lKey => !!checkedState[lKey] || (config.legsWon && config.legsWon.includes(lKey)));
+        const pushedLegsInTicket = ticketLegs.filter(lKey => !!pushedLegsState[lKey] || (config.legsPushed && config.legsPushed.includes(lKey)));
+        // A pushed leg is removed from the parlay entirely (neither a hit nor a bust
+        // requirement) -- exclude it from the "X / Y Hits" denominator so a ticket with
+        // a push doesn't show a permanently-short hit count.
+        const gradableLegsCount = ticketLegs.length - pushedLegsInTicket.length;
 
         let isBurnt = false;
         let cardPotential = config.payout || 0;
@@ -8469,6 +8607,10 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
             let comboMult = 1;
             let allLegsWon = true;
             combo.forEach(lKey => {
+              // A pushed leg is removed from this combo's math entirely -- it neither
+              // multiplies the payout nor needs to hit for the remaining legs to cash.
+              // Added 2026-09-21 (Andy: ungraded pushes, e.g. Jets +3, need real handling).
+              if (pushedLegsState[lKey] || (config.legsPushed && config.legsPushed.includes(lKey))) return;
               comboMult *= (oddsMap[lKey] || 1.9091);
               if (!checkedState[lKey] && !(config.legsWon && config.legsWon.includes(lKey))) {
                 allLegsWon = false;
@@ -8551,7 +8693,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
         }
 
         if (bulletHitsEl) {
-          bulletHitsEl.textContent = hitLegsInTicket.length + '/' + ticketLegs.length + ' Hits' + (burntLegsInTicket.length > 0 ? ' (' + burntLegsInTicket.length + '🔥)' : '');
+          bulletHitsEl.textContent = hitLegsInTicket.length + '/' + gradableLegsCount + ' Hits' + (burntLegsInTicket.length > 0 ? ' (' + burntLegsInTicket.length + '🔥)' : '') + (pushedLegsInTicket.length > 0 ? ' (' + pushedLegsInTicket.length + '⚖️)' : '');
         }
 
         if (btnSplit) {
@@ -8574,8 +8716,42 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
 
           const isLegBurnt = !!burntLegsState[lKey];
           const isLegHit = !!checkedState[lKey] || (config.legsWon && config.legsWon.includes(lKey));
+          const isLegPushed = !!pushedLegsState[lKey] || (config.legsPushed && config.legsPushed.includes(lKey));
 
-          if (isLegBurnt) {
+          if (isLegPushed) {
+            // A push satisfies the leg's requirement (removed from the parlay, not a loss) --
+            // count it toward completedLegs so it doesn't block the ticket from cashing when
+            // every other leg has genuinely hit. Added 2026-09-21 per Andy's report of
+            // ungraded pushes (e.g. Jets +3) leaving tickets stuck as neither hit nor failed.
+            completedLegs++;
+            if (el) {
+              el.classList.add('leg-pushed');
+              el.classList.remove('checked', 'leg-burnt');
+              const icon = el.querySelector('.leg-icon');
+              if (icon) icon.textContent = '⚖️';
+            }
+            if (btnBurnLeg) {
+              btnBurnLeg.classList.remove('active');
+            }
+            if (paceBadge) {
+              paceBadge.className = 'leg-pace-badge badge-pacing-push';
+              paceBadge.innerHTML = '⚖️ PUSH';
+            }
+            // Fix 2026-09-21: cardStat (the "X / Y" line on the ticket card) previously
+            // only ever got refreshed in the isLegHit branch below -- burnt and pushed
+            // legs left it frozen on its generation-time placeholder (e.g. a stale
+            // "0 / 46.5" on a game-total leg forever, even once the badge correctly
+            // flipped to Busted). Game-line legs (spread/total) have no per-leg
+            // currentVal tracked at this scope, so we show a plain status instead of a
+            // fabricated number.
+            if (cardStat) {
+              cardStat.innerHTML = '<span style="color:#D97706;">⚖️ Push</span>';
+            }
+            if (cardBar) {
+              cardBar.style.width = '100%';
+              cardBar.className = 'progress-fill';
+            }
+          } else if (isLegBurnt) {
             if (el) {
               el.classList.add('leg-burnt');
               el.classList.remove('checked');
@@ -8588,6 +8764,13 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
             if (paceBadge) {
               paceBadge.className = 'leg-pace-badge badge-pacing-lost';
               paceBadge.innerHTML = '❌ BURNT';
+            }
+            if (cardStat) {
+              cardStat.innerHTML = '<span style="color:#EF4444;">🔥 Burnt</span>';
+            }
+            if (cardBar) {
+              cardBar.style.width = '100%';
+              cardBar.className = 'progress-fill burnt';
             }
           } else if (isLegHit) {
             completedLegs++;
@@ -8705,6 +8888,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
         splitState = {};
         manualBurns = {};
         burntLegsState = {};
+        pushedLegsState = {};
         collapsedState = {};
         playerCollapsedState = {};
         cardMinLegsState = {};
@@ -8715,6 +8899,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
           localStorage.removeItem(HIDE_FULFILLED_LEGS_KEY);
           localStorage.removeItem(SC_PICKS_KEY);
           localStorage.removeItem(BURNT_LEGS_KEY);
+          localStorage.removeItem(PUSHED_LEGS_KEY);
         } catch (e) {}
         const chkMin = document.getElementById('chk-hide-fulfilled-legs');
         if (chkMin) chkMin.checked = false;
@@ -8722,6 +8907,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
         saveSplits();
         saveBurns();
         saveLegBurns();
+        savePushedLegs();
         saveCollapsed();
         savePlayerCollapsed();
         applyCollapsedState();
