@@ -11,6 +11,19 @@ Note: as of this update the working tree is very large and dirty (hundreds of mo
 
 ---
 
+## Current Pick Up Here: 2026-09-21 — The League Week 2 Private Recap Voice/HTML (DONE)
+
+1. **Private fantasy recap package created for `2026 - The League` Week 2:** this was entertainment-only for the league managers, not public fantasy advice, betting content, or official reporting. Yahoo matchup status was still `midevent` while drafting, so future continuation should verify final scores before treating the recap as final.
+2. **New artifacts:**
+   - `docs/fantasy/the-league-week-2-recap-2026.html` — standalone one-column HTML recap with the comedy-club layout direction.
+   - `docs/fantasy/THE_LEAGUE_MANAGER_PROFILES.md` — manager/team context and roast levels for future recaps.
+   - `docs/fantasy/THE_LEAGUE_RECAP_VOICE_GUIDE.md` — durable voice, joke, formatting, and Week 3 resume guidance.
+3. **Voice lessons captured:** fuller comic sentences landed better than ultra-short fragments; manager profiles should inform jokes quietly, not appear as an intro roll call; starter points, bench points, and pending players must stay clearly separated; do not roast a zero when the player has not played yet.
+4. **Confirmed joke/formatting preferences:** Amanda liked the Mahomes/ketchup/law joke; Andy favorites included "two people standing very far apart professionally," "regret to have a scoring format," "two-point staring contest," "the branding department is undefeated," and fantasy football using "normally" only when someone needs to be hurt. Keep punchline emphasis subtle and uniform so it feels like one speaker, not a second narrator.
+5. **Avoid next time:** opaque surreal tags that do not connect to football logic ("waiting for Monday in a suit," "knows where the scissors are," "wrong adults"), reversed fantasy logic (players touch the ball to gain points, not lose them), overdesigned cards/callouts, jarring bold colors, and overusing "those points did not count" unless repetition is the joke.
+6. **Week 3 resume path:** start with `docs/fantasy/THE_LEAGUE_RECAP_VOICE_GUIDE.md` and `docs/fantasy/THE_LEAGUE_MANAGER_PROFILES.md`, pull live Yahoo Week 3 data, verify `final` vs `midevent`, then write a private manager-only recap in the same original deadpan fantasy-football monologue style.
+
+---
 ## Current Pick Up Here: 2026-09-19 (midday) — Re-extract Verified, Pick Promotion Blocked by Natural Key, Week 2 Card Drafted
 
 1. **Re-extract DONE:** Podcast Ingest (re-extract, run 35458679153) succeeded — all 35 Sep 14+ transcripts now `+gemini-3.6-flash`, 255 picks (was ~44 promoted). E.g. BettingPros "10 Best Bets" 2 -> 16, Action Network Playground 37.
