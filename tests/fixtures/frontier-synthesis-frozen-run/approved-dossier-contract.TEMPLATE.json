@@ -1,0 +1,7 @@
+{
+  "_comment": "TEMPLATE ONLY -- not a real approved contract. Do not pass this file as --approved-dossier-contract as-is; every value below must be replaced with the real, reviewed identity of the dossier Andy has explicitly approved as this run's frozen pre-kickoff snapshot. See agents/lib/dossier-provenance.js's assertDossierProvenanceApproved() for exactly how each field is checked.",
+  "resolved_path": "<absolute path of the exact dossier file Andy has reviewed and approved, e.g. /the/real/path/to/dossier-2026-09-XX.json>",
+  "sha256": "<SHA-256 of that file's exact raw bytes, 64 lowercase hex characters -- e.g. run: node -e \"console.log(require('crypto').createHash('sha256').update(require('fs').readFileSync('<path>')).digest('hex'))\">",
+  "generated_at": "<that dossier's own meta.generated_at field, copied exactly -- an ISO-8601 timestamp>",
+  "kickoff_at": "<ISO-8601 instant of this season's Week-1 kickoff (or whatever cutoff Andy considers the boundary of pre-kickoff) -- generated_at above must be strictly BEFORE this>"
+}
