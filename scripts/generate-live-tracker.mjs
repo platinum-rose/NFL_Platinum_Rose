@@ -20,6 +20,7 @@
 import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { getNFLWeekInfo } from '../src/lib/constants.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -283,7 +284,11 @@ async function loadConcludedGameStats(schedule = [], week = 1) {
 
 }
 
-export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PUBLIC, DEFAULT_OUT_DOCS] } = {}) {
+// Resolve the current NFL week when no --week flag is passed (same pattern as
+// build-secondary-matchup-vulnerability.js) instead of silently defaulting to Week 1.
+const DEFAULT_WEEK = getNFLWeekInfo().week || 1;
+
+export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEFAULT_OUT_PUBLIC, DEFAULT_OUT_DOCS] } = {}) {
   console.log(`\n🏈 Generating Sunday Multi-Game Live Tracker for Week ${week}...`);
 
   const rawWagers = await readFile(WAGERS_PATH, 'utf8');
@@ -1613,6 +1618,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
                       <span style="font-size:0.68rem; color:var(--text-muted);">${leg.price || ''}</span>
                       ${isOpenSlot ? '' : `<button class="btn-leg-burn" id="btn-burn-leg-${legKey}" onclick="toggleLegBurn('${legKey}', '${bet.id}', event)" title="Mark Leg Burnt / Missed">🔥</button>`}
                       ${isOpenSlot ? '' : `<button class="btn-leg-push" id="btn-push-leg-${legKey}" onclick="toggleLegPush('${legKey}', '${bet.id}', event)" title="Mark Leg Push (won't count toward the parlay)">⚖️</button>`}
+                      ${isOpenSlot ? '' : `<button class="btn-leg-out" id="btn-out-leg-${legKey}" onclick="toggleLegOut('${legKey}', '${bet.id}', event)" title="Mark Player Out / Inactive (left the game)">🚑</button>`}
                     </div>
                   </div>
                   ${isPropLeg ? `
@@ -2895,6 +2901,12 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
       background: rgba(239, 68, 68, 0.12) !important;
     }
     .leg-item.leg-burnt .leg-icon { color: #EF4444 !important; }
+    .leg-item.leg-out {
+      border-color: #8B5CF6 !important;
+      border-left: 4px solid #8B5CF6 !important;
+      background: rgba(139, 92, 246, 0.12) !important;
+    }
+    .leg-item.leg-out .leg-icon { color: #8B5CF6 !important; }
     .leg-item.leg-open-slot {
       border-color: #334155 !important;
       background: rgba(100, 116, 139, 0.06) !important;
@@ -2954,6 +2966,31 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
       border-color: #92400E;
       box-shadow: 0 0 6px rgba(146, 64, 14, 0.4);
     }
+    .btn-leg-out {
+      background: #1E293B;
+      border: 1px solid #334155;
+      color: #94A3B8;
+      border-radius: 4px;
+      padding: 1px 5px;
+      font-size: 0.65rem;
+      line-height: 1.2;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-leg-out:hover {
+      background: #334155;
+      color: #8B5CF6;
+      border-color: #8B5CF6;
+    }
+    .btn-leg-out.active, .leg-item.leg-out .btn-leg-out {
+      background: rgba(139, 92, 246, 0.25);
+      color: #8B5CF6;
+      border-color: #8B5CF6;
+      box-shadow: 0 0 6px rgba(139, 92, 246, 0.4);
+    }
 
     /* Player Cheat Sheet — per-leg Hit/Burn toggle rows */
     .sub-gauge-item {
@@ -2976,6 +3013,16 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
       color: #EF4444;
       border-color: #EF4444;
       box-shadow: 0 0 6px rgba(239, 68, 68, 0.4);
+    }
+    .sub-gauge-item.sg-out {
+      border-color: rgba(139, 92, 246, 0.5);
+      background: rgba(139, 92, 246, 0.08);
+    }
+    .sub-gauge-item.sg-out .btn-leg-out, .sub-gauge-item .btn-leg-out.active {
+      background: rgba(139, 92, 246, 0.25);
+      color: #8B5CF6;
+      border-color: #8B5CF6;
+      box-shadow: 0 0 6px rgba(139, 92, 246, 0.4);
     }
 
     /* Live Pacing & Risk Grades */
@@ -3065,6 +3112,11 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
       color: #EF4444;
       border: 1px solid #EF4444;
       font-weight: 800;
+    }
+    .badge-pacing-out {
+      background: rgba(139, 92, 246, 0.18);
+      color: #C4B5FD;
+      border: 1px solid rgba(139, 92, 246, 0.5);
     }
     .badge-pacing-push {
       background: rgba(146, 64, 14, 0.28);
@@ -3568,6 +3620,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
                         <span id="pstat-${pr.key}" style="font-weight:700;">0 / ${pr.target}</span>
                         ${prIsOpenSlot ? '' : `<button class="btn-leg-burn" id="pbtn-burn-leg-${pr.key}" onclick="${prBurnClick}" title="Mark Leg Burnt / Missed">🔥</button>`}
                         ${prIsOpenSlot ? '' : `<button class="btn-leg-push" id="pbtn-push-leg-${pr.key}" onclick="toggleLegPush('${pr.key}', '${prTicketId}', event)" title="Mark Leg Push">⚖️</button>`}
+                        ${prIsOpenSlot ? '' : `<button class="btn-leg-out" id="pbtn-out-leg-${pr.key}" onclick="toggleLegOut('${pr.key}', '${prTicketId}', event); try { renderPlayerCheatSheetStats(latestTeamStatusMap); } catch (e) {}" title="Mark Player Out / Inactive">🚑</button>`}
                       </span>
                     </div>
                     <div class="progress-bar-wrap" style="height:5px; margin-top:2px;">
@@ -4452,6 +4505,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
     const BURNS_KEY = 'sunday_burns_week_${week}';
     const BURNT_LEGS_KEY = 'sunday_burnt_legs_week_${week}';
     const PUSHED_LEGS_KEY = 'sunday_pushed_legs_week_${week}';
+    const OUT_LEGS_KEY = 'sunday_out_legs_week_${week}';
     const HIDE_BURNT_KEY = 'sunday_hide_burnt_week_${week}';
     const CASHED_KEY = 'sunday_cashed_state_week_${week}';
     const HIDE_CASHED_KEY = 'sunday_hide_cashed_week_${week}';
@@ -4506,6 +4560,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
     let manualCashed = {};
     let burntLegsState = {};
     let pushedLegsState = {};
+    let outLegsState = {};
     let collapsedState = {};
     let playerCollapsedState = {};
     let hideBurnt = false;
@@ -4545,6 +4600,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
       manualCashed = readJsonKey(CASHED_KEY, {});
       burntLegsState = readJsonKey(BURNT_LEGS_KEY, {});
       pushedLegsState = readJsonKey(PUSHED_LEGS_KEY, {});
+      outLegsState = readJsonKey(OUT_LEGS_KEY, {});
       hideBurnt = readJsonKey(HIDE_BURNT_KEY, false);
       const chkBurnt = document.getElementById('chk-hide-burnt');
       if (chkBurnt) chkBurnt.checked = !!hideBurnt;
@@ -4652,6 +4708,9 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
     function savePushedLegs() {
       try { localStorage.setItem(PUSHED_LEGS_KEY, JSON.stringify(pushedLegsState)); } catch (e) {}
     }
+    function saveLegOut() {
+      try { localStorage.setItem(OUT_LEGS_KEY, JSON.stringify(outLegsState)); } catch (e) {}
+    }
 
     function getCombinations(arr, k) {
       if (k === 0) return [[]];
@@ -4694,6 +4753,10 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
           delete pushedLegsState[legKey];
           savePushedLegs();
         }
+        if (outLegsState[legKey]) {
+          delete outLegsState[legKey];
+          saveLegOut();
+        }
       }
       saveState();
       render();
@@ -4716,8 +4779,16 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
       }
       if (isCurrentlyBurnt) {
         delete burntLegsState[legKey];
+        if (outLegsState[legKey]) {
+          delete outLegsState[legKey];
+          saveLegOut();
+        }
       } else {
         burntLegsState[legKey] = true;
+        if (outLegsState[legKey]) {
+          delete outLegsState[legKey];
+          saveLegOut();
+        }
         if (checkedState[legKey]) {
           delete checkedState[legKey];
           saveState();
@@ -4759,6 +4830,10 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
           delete burntLegsState[legKey];
           saveLegBurns();
         }
+        if (outLegsState[legKey]) {
+          delete outLegsState[legKey];
+          saveLegOut();
+        }
       }
       savePushedLegs();
       render();
@@ -4767,6 +4842,54 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
       applyHideFulfilledLegs();
     }
     window.toggleLegPush = toggleLegPush;
+
+    // Added 2026-09-21 (Andy request, S244 item 5): a fourth manual leg state for a
+    // player who leaves the game injured/inactive (e.g. Alec Pierce) -- the leg is
+    // effectively dead for grading purposes exactly like Burnt (it busts the ticket /
+    // counts as lost in every downstream calc, since it sets burntLegsState too), but
+    // is labeled and styled distinctly ("OUT" not "BURNT") so Andy can tell at a glance
+    // *why* a leg died -- a missed prediction vs. a player who left hurt. Mutually
+    // exclusive with checked/burnt/pushed.
+    function toggleLegOut(legKey, ticketId, event) {
+      if (event && event.stopPropagation) event.stopPropagation();
+      if (OPEN_SLOT_LEG_KEYS.has(legKey)) return; // open slots are placeholders, not real picks
+      const el = document.getElementById('leg-' + legKey);
+      const isCurrentlyOut = !!outLegsState[legKey];
+      if (!isCurrentlyOut && el) {
+        if (el.classList.contains('pace-green')) {
+          if (!confirm('This leg\\'s live/final stats show it HIT. Mark it Out/Inactive anyway?')) return;
+        } else if (el.classList.contains('pace-push')) {
+          if (!confirm('This leg is graded as a PUSH. Mark it Out/Inactive anyway? (This clears its Push status.)')) return;
+        }
+      }
+      if (isCurrentlyOut) {
+        delete outLegsState[legKey];
+        delete burntLegsState[legKey];
+        saveLegBurns();
+      } else {
+        outLegsState[legKey] = true;
+        burntLegsState[legKey] = true;
+        if (checkedState[legKey]) {
+          delete checkedState[legKey];
+          saveState();
+        }
+        if (pushedLegsState[legKey]) {
+          delete pushedLegsState[legKey];
+          savePushedLegs();
+        }
+        saveLegBurns();
+        if (ticketId && cardMinLegsState[ticketId] === undefined) {
+          cardMinLegsState[ticketId] = true;
+          try { localStorage.setItem(CARD_MIN_LEGS_KEY, JSON.stringify(cardMinLegsState)); } catch (e) {}
+        }
+      }
+      saveLegOut();
+      render();
+      updateAlejandroLedger();
+      filterCards();
+      applyHideFulfilledLegs();
+    }
+    window.toggleLegOut = toggleLegOut;
 
     function toggleAlejandroSplit(ticketId) {
       splitState[ticketId] = !splitState[ticketId];
@@ -5975,12 +6098,14 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
           }
 
           const isLegBurnt = !!burntLegsState[legKey] || !!burntLegsState[pKey];
+          const isLegOut = !!outLegsState[legKey] || !!outLegsState[pKey];
           const isLegChecked = !isLegBurnt && (!!checkedState[legKey] || !!checkedState[pKey]);
           const isHit = !isLegBurnt && (isLegChecked || (currentVal >= target));
           if (isHit) propsHit++;
 
           item.classList.toggle('sg-hit', isHit);
-          item.classList.toggle('sg-burnt', isLegBurnt);
+          item.classList.toggle('sg-burnt', isLegBurnt && !isLegOut);
+          item.classList.toggle('sg-out', isLegBurnt && isLegOut);
 
           const pct = Math.min(100, Math.max(0, isLegBurnt ? 0 : (isLegChecked ? 100 : (target > 0 ? (currentVal / target) * 100 : 0))));
           totalPct += pct;
@@ -5989,7 +6114,9 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
           const pbarEl = document.getElementById('pbar-' + pKey);
 
           if (pstatEl) {
-            if (isLegBurnt) {
+            if (isLegBurnt && isLegOut) {
+              pstatEl.innerHTML = currentVal + ' / ' + target + ' <span style="color:#8B5CF6;">🚑 Out</span>';
+            } else if (isLegBurnt) {
               pstatEl.innerHTML = currentVal + ' / ' + target + ' <span style="color:#EF4444;">🔥 Burnt</span>';
             } else if (isHit) {
               pstatEl.innerHTML = currentVal + ' / ' + target + ' <span style="color:#10B981;">✅</span>';
@@ -6937,6 +7064,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
         const legKey = el.getAttribute('data-key');
         const badge = document.getElementById('pace-badge-' + legKey);
         const isBurnt = !!burntLegsState[legKey] || el.classList.contains('leg-burnt');
+        const isOut = !!outLegsState[legKey] || el.classList.contains('leg-out');
         const isChecked = !!checkedState[legKey] || el.classList.contains('checked');
         const isMissed = el.classList.contains('leg-missed');
         const isPushed = !!pushedLegsState[legKey] || el.classList.contains('leg-pushed');
@@ -6953,9 +7081,15 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
         if (isBurnt) {
           el.classList.remove('pace-green', 'pace-yellow', 'pace-pre');
           el.classList.add('pace-red', 'leg-burnt');
+          if (isOut) el.classList.add('leg-out'); else el.classList.remove('leg-out');
           if (badge) {
-            badge.className = 'leg-pace-badge badge-pacing-lost';
-            badge.innerHTML = '❌ BURNT';
+            if (isOut) {
+              badge.className = 'leg-pace-badge badge-pacing-out';
+              badge.innerHTML = '🚑 OUT';
+            } else {
+              badge.className = 'leg-pace-badge badge-pacing-lost';
+              badge.innerHTML = '❌ BURNT';
+            }
           }
           return;
         }
@@ -7898,6 +8032,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
           '<span style="font-size:0.68rem; color:var(--text-muted);">-110</span>' +
           '<button class="btn-leg-burn" id="btn-burn-leg-' + lKey + '" onclick="toggleLegBurn(&apos;' + lKey + '&apos;, &apos;' + tId + '&apos;, event)" title="Mark Leg Burnt / Missed">🔥</button>' +
           '<button class="btn-leg-push" id="btn-push-leg-' + lKey + '" onclick="toggleLegPush(&apos;' + lKey + '&apos;, &apos;' + tId + '&apos;, event)" title="Mark Leg Push">⚖️</button>' +
+          '<button class="btn-leg-out" id="btn-out-leg-' + lKey + '" onclick="toggleLegOut(&apos;' + lKey + '&apos;, &apos;' + tId + '&apos;, event)" title="Mark Player Out / Inactive">🚑</button>' +
           '</div></div>';
       }).join('');
 
@@ -8715,6 +8850,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
           const btnBurnLeg = document.getElementById('btn-burn-leg-' + lKey);
 
           const isLegBurnt = !!burntLegsState[lKey];
+          const isLegOut = !!outLegsState[lKey];
           const isLegHit = !!checkedState[lKey] || (config.legsWon && config.legsWon.includes(lKey));
           const isLegPushed = !!pushedLegsState[lKey] || (config.legsPushed && config.legsPushed.includes(lKey));
 
@@ -8755,18 +8891,30 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
             if (el) {
               el.classList.add('leg-burnt');
               el.classList.remove('checked');
+              if (isLegOut) el.classList.add('leg-out'); else el.classList.remove('leg-out');
               const icon = el.querySelector('.leg-icon');
-              if (icon) icon.textContent = '🔥';
+              if (icon) icon.textContent = isLegOut ? '🚑' : '🔥';
             }
             if (btnBurnLeg) {
-              btnBurnLeg.classList.add('active');
+              btnBurnLeg.classList.toggle('active', !isLegOut);
+            }
+            const btnOutLeg = document.getElementById('btn-out-leg-' + lKey) || document.getElementById('pbtn-out-leg-' + lKey);
+            if (btnOutLeg) {
+              btnOutLeg.classList.toggle('active', isLegOut);
             }
             if (paceBadge) {
-              paceBadge.className = 'leg-pace-badge badge-pacing-lost';
-              paceBadge.innerHTML = '❌ BURNT';
+              if (isLegOut) {
+                paceBadge.className = 'leg-pace-badge badge-pacing-out';
+                paceBadge.innerHTML = '🚑 OUT';
+              } else {
+                paceBadge.className = 'leg-pace-badge badge-pacing-lost';
+                paceBadge.innerHTML = '❌ BURNT';
+              }
             }
             if (cardStat) {
-              cardStat.innerHTML = '<span style="color:#EF4444;">🔥 Burnt</span>';
+              cardStat.innerHTML = isLegOut
+                ? '<span style="color:#8B5CF6;">🚑 Out/Inactive</span>'
+                : '<span style="color:#EF4444;">🔥 Burnt</span>';
             }
             if (cardBar) {
               cardBar.style.width = '100%';
@@ -8889,6 +9037,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
         manualBurns = {};
         burntLegsState = {};
         pushedLegsState = {};
+        outLegsState = {};
         collapsedState = {};
         playerCollapsedState = {};
         cardMinLegsState = {};
@@ -8900,6 +9049,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
           localStorage.removeItem(SC_PICKS_KEY);
           localStorage.removeItem(BURNT_LEGS_KEY);
           localStorage.removeItem(PUSHED_LEGS_KEY);
+          localStorage.removeItem(OUT_LEGS_KEY);
         } catch (e) {}
         const chkMin = document.getElementById('chk-hide-fulfilled-legs');
         if (chkMin) chkMin.checked = false;
@@ -8908,6 +9058,7 @@ export async function generateLiveTracker({ week = 1, outPaths = [DEFAULT_OUT_PU
         saveBurns();
         saveLegBurns();
         savePushedLegs();
+        saveLegOut();
         saveCollapsed();
         savePlayerCollapsed();
         applyCollapsedState();
@@ -9365,7 +9516,7 @@ const isMain = process.argv[1] && path.resolve(process.argv[1]) === __filename;
 if (isMain) {
   const args = process.argv.slice(2);
   const weekIdx = args.indexOf('--week');
-  const week = weekIdx >= 0 ? parseInt(args[weekIdx + 1], 10) : 1;
+  const week = weekIdx >= 0 ? parseInt(args[weekIdx + 1], 10) : DEFAULT_WEEK;
   const outIdx = args.indexOf('--out');
   const customOut = outIdx >= 0 ? [path.resolve(ROOT, args[outIdx + 1])] : [DEFAULT_OUT_PUBLIC, DEFAULT_OUT_DOCS];
 
