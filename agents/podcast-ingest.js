@@ -7,10 +7,16 @@
 // Env vars:   SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, OPENAI_API_KEY
 // Optional:   GROQ_API_KEY       — free Whisper via Groq (7200 sec/hr limit)
 //             ASSEMBLYAI_API_KEY — fallback if Groq rate-limited; passes URL directly, no download
+//             GEMINI_API_KEY     — diarized-show transcription (see below) + extraction fallback #2
 //             DRY_RUN=true       — discover episodes but skip transcription + writes
 //             MAX_PER_RUN=2      — limit new episodes processed per run (default: 3)
 //
-// Transcription priority: Groq → AssemblyAI → OpenAI Whisper
+// Transcription priority (single-host shows): Groq → AssemblyAI → OpenAI Whisper
+// Transcription priority (diarized/multi-host shows, podcast_feeds.needs_diarization):
+//   Gemini (native diarization) → AssemblyAI (speaker_labels), since 2026-09-24 — see
+//   handoffs/2026-09-22-...-gemini-podcast-pipeline-handoff.md. Before that, diarized
+//   shows were AssemblyAI-only with no fallback at all, which went fully dark for a
+//   week when AssemblyAI's balance went negative.
 
 import 'dotenv/config';    // load .env for local runs (no-op in CI where secrets are real env vars)
 import { createClient }    from '@supabase/supabase-js';
@@ -19,6 +25,7 @@ import { pipeline }        from 'node:stream/promises';
 import { tmpdir }          from 'node:os';
 import { join }            from 'node:path';
 import { transcribeWithAssemblyAI } from './lib/assemblyai-transcribe.js';
+import { transcribeWithGeminiAudio } from './lib/gemini-audio-transcribe.js';
 import { isNflRelevantEpisode } from './lib/nfl-relevance.js';
 import {
   parseProviderOrder,
@@ -49,7 +56,7 @@ const OPENAI_KEY        = process.env.OPENAI_API_KEY;
 const GROQ_KEY          = process.env.GROQ_API_KEY;          // optional — free Whisper via Groq
 const ASSEMBLYAI_KEY    = process.env.ASSEMBLYAI_API_KEY;    // optional — fallback if Groq rate-limited
 const ANTHROPIC_KEY     = process.env.ANTHROPIC_API_KEY;     // optional — pick/intel extraction fallback #1 (Claude)
-const GEMINI_KEY        = process.env.GEMINI_API_KEY;        // optional — pick/intel extraction (Gemini, first by default)
+const GEMINI_KEY        = process.env.GEMINI_API_KEY;        // optional — diarized-show transcription (default since 2026-09-24) + pick/intel extraction (first by default)
 // Extraction provider order (2026-09-19): Gemini first (cheapest / free-tier eligible), then
 // Claude, then GPT-4o. Override with EXTRACTION_PROVIDER_ORDER="gpt-4o,claude,gemini".
 const EXTRACTION_ORDER  = parseProviderOrder(process.env.EXTRACTION_PROVIDER_ORDER);
@@ -793,9 +800,16 @@ async function run() {
         .eq('id', episodeId);
 
       // Multi-host shows need real diarization for per-host attribution (see
-      // agents/lib/speaker-attribution.js) — force AssemblyAI + speaker_labels
-      // for these regardless of Groq availability. Single-host shows keep using
-      // the free Groq default; diarization would be wasted spend for them.
+      // agents/lib/speaker-attribution.js). Single-host shows keep using the
+      // free Groq default; diarization would be wasted spend for them.
+      //
+      // 2026-09-24: diarized shows now default to Gemini (agents/lib/gemini-
+      // audio-transcribe.js), which does native speaker diarization and has
+      // no AssemblyAI-style balance dependency. AssemblyAI is kept as a
+      // fallback if Gemini fails or GEMINI_API_KEY isn't set — before this
+      // change, diarized shows were AssemblyAI-only with NO fallback, which
+      // is what left 5 shows fully blocked when AssemblyAI's balance went
+      // negative on 2026-09-21.
       const wantsDiarization = feed.needs_diarization === true;
 
       let tmpFile  = null;
@@ -805,11 +819,34 @@ async function run() {
         let speakerSegments = [];
 
         if (wantsDiarization) {
-          // 5a. Diarized AssemblyAI path — always, even if Groq is available.
-          modelUsed = 'assemblyai-diarized';
-          const result = await transcribeWithAssemblyAI(ep.audio_url, { diarize: true });
-          transcript = result.text;
-          speakerSegments = result.utterances;
+          // 5a. Diarized path — Gemini first (native diarization, no
+          // download-size cap), falling back to AssemblyAI if Gemini fails
+          // or no GEMINI_API_KEY is configured.
+          if (GEMINI_KEY) {
+            try {
+              modelUsed = 'gemini-diarized';
+              const result = await transcribeWithGeminiAudio(ep.audio_url, { displayName: ep.title });
+              transcript = result.text;
+              speakerSegments = result.utterances;
+            } catch (err) {
+              if (ASSEMBLYAI_KEY) {
+                console.warn(`    ⚠ Gemini diarization failed (${err.message}) — falling back to AssemblyAI`);
+                modelUsed = 'assemblyai-diarized';
+                const result = await transcribeWithAssemblyAI(ep.audio_url, { diarize: true });
+                transcript = result.text;
+                speakerSegments = result.utterances;
+              } else {
+                throw err; // no fallback available — propagate
+              }
+            }
+          } else if (ASSEMBLYAI_KEY) {
+            modelUsed = 'assemblyai-diarized';
+            const result = await transcribeWithAssemblyAI(ep.audio_url, { diarize: true });
+            transcript = result.text;
+            speakerSegments = result.utterances;
+          } else {
+            throw new Error('Diarized show but neither GEMINI_API_KEY nor ASSEMBLYAI_API_KEY is set');
+          }
 
         } else if (USE_ASSEMBLYAI) {
           // 5a. AssemblyAI path (Groq unavailable) — submit URL directly, no download needed

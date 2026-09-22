@@ -61,7 +61,7 @@ jobs:
           GROQ_API_KEY:              ${{ secrets.GROQ_API_KEY }}         # optional — free Whisper; takes priority over AssemblyAI
           ASSEMBLYAI_API_KEY:        ${{ secrets.ASSEMBLYAI_API_KEY }}   # optional — fallback if Groq rate-limited
           ANTHROPIC_API_KEY:         ${{ secrets.ANTHROPIC_API_KEY }}    # optional — pick/intel extraction fallback #1 if GPT-4o fails (e.g. out of credits)
-          GEMINI_API_KEY:            ${{ secrets.GEMINI_API_KEY }}       # optional — pick/intel extraction fallback #2
+          GEMINI_API_KEY:            ${{ secrets.GEMINI_API_KEY }}       # optional — diarized-show transcription (default) + pick/intel extraction fallback #2
           DRY_RUN:                   ${{ inputs.dry_run || 'false' }}
           MAX_PER_RUN:               ${{ inputs.max_per_run || '3' }}
           MAX_EPISODE_AGE_DAYS:      ${{ inputs.max_episode_age_days || '10' }}
