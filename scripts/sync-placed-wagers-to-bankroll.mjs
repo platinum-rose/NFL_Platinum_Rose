@@ -77,6 +77,12 @@ export function normalizeWagerForBankroll(w) {
     profit = -cashRisk;
   }
 
+  // A recorded settled profit (e.g. a round robin that paid only some combos)
+  // overrides the all-legs-hit potential win.
+  if (graded && w.profit_usd != null && Number.isFinite(parseFloat(w.profit_usd))) {
+    profit = parseFloat(w.profit_usd);
+  }
+
   // Parse odds
   let numericOdds = 100;
   if (w.odds_american) {
