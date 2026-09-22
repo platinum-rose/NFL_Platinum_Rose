@@ -123,17 +123,14 @@ Tier 2 agents do not chat. They build. Tier 1 reads what Tier 2 builds.
 ## Unified Session Context Protocol (Claude, Codex, Antigravity, VS Code Copilot)
 
 ### Session Start Protocol (Targeted Read)
-1. **Dynamic Session Counter**: Evaluate `global.total_sessions` from `.atlas/memory.json` or `HANDOFF.md §Pick Up Here`. Do not assume session numbers.
-2. **Targeted State Read**:
-   - Read `HANDOFF.md` §`Pick Up Here` (stop at historical archive).
-   - Read `HANDOFF.md` §`Persistent Backlogs` (if present).
-   - Read machine state (`.atlas/memory.json` or `.atlas-bridge/` state).
-3. **Git State Verification**: Run `git status --short` and `git log -n 5 --oneline` to note recent commits and uncommitted files.
-4. **Surface Brief**: Print compact summary (Last Commit, Active Task, Open Backlog Count) and confirm next steps with user.
+1. **Root State Read**: Read `HANDOFF.md`. Treat it as the current-state index, not a transcript.
+2. **Git State Verification**: Run `git status -sb`, `git branch --show-current`, and `git log -5 --oneline`.
+3. **Targeted Detail Read**: Read only the dated handoff(s) linked from `HANDOFF.md` for the active lane.
+4. **Surface Brief**: Print compact summary (branch/HEAD, dirty-state warning, active task, stop conditions) and confirm next steps when needed.
 
 ### Session Close Protocol (State Persistence)
-1. **Update Memory State**: Write updated domain/task state to `.atlas/memory.json` (including `last_session_platform` = `claude` | `codex` | `antigravity` | `copilot`).
-2. **Update Session Handoff**: Write a clean `(DONE)` summary block (≤ 30 lines) to `HANDOFF.md §Pick Up Here`.
+1. **Write Detail Handoff**: Put full session history in a dated `handoffs/` file.
+2. **Update Root Handoff**: Keep `HANDOFF.md` short: current pickup, guardrails, open decisions, and links.
 3. **Update Backlogs**: Reconcile open items in tracking backlog files.
-4. **Snapshot Audit**: Log immutable session log snapshot via `SessionLogger` (if supported).
+4. **Snapshot Audit**: Log immutable session state if the lane has a supported logger.
 <!-- END UNIFIED SESSION CONTEXT PROTOCOL -->

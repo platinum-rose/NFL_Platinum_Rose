@@ -1,16 +1,16 @@
-# Resume Prompt — Week 1 Intel Refresh, Then Betting Card Synthesis (2026-09-13)
+# HANDOFF_PROMPT.md - Archived Prompt Pointer
 
-Resume Platinum Rose NFL. Read `handoffs/2026-09-13-0625-claude-frontier-synthesis-week1-intel-handoff.md` in full before touching anything -- it covers three concurrent threads (frontier-synthesis rev-23-followup4 status, a live retroactive `agents/portfolio-synthesize.js` run, and a Week 1 betting-card/intel inventory) plus a deferred Twitter dual-identity extension. This prompt only covers what to do next; the handoff has the full context.
+This root prompt is no longer an active resume source.
 
-## Do this first, in order
+Start with `HANDOFF.md`, then reconcile live Git state with:
 
-1. **Check Thread 1**: has Codex responded to the `codex_rev23_followup4_status_update.md` sent last session (it declared `READY_FOR_CODEX_REVIEW`)? If yes, verify any findings independently against live code before accepting them, per the standing rule.
-2. **Check Thread 2**: is the retroactive `agents/portfolio-synthesize.js` run (against `dossier-2026-09-09.json`, launched with `--allow-unsafe-preflight` under Andy's explicit authorization) finished? If so, read its output report under `.nfl/portfolio/` and report back to Andy -- it was run with `--no-persist`, so nothing has been written to Supabase yet, and any persistence needs separate authorization.
-3. **Run the Week 1 intel refresh Andy asked for**, before resuming betting-card work:
-   - **BettingPros**: Andy expects Antigravity's tooling to have transcribed/ingested more recent BettingPros episodes than what last session found (`scratch/bettingpros_ep1051...`, `ep1052...`, and a stale/wrong `ep1013`). Check `docs/antigravity/source-inventory-and-freshness-latest.md` (stale as of 2026-08-29) against what's actually in `scratch/*_master_100percent_exhaustive.md` now, and consider requesting a fresh Antigravity discovery/transcription pass using the refresh-request template in `docs/antigravity/CANONICAL_EXTRACTION_PIPELINE.md` if BettingPros coverage of the live 13-game Week 1 slate is still thin.
-   - **Twitter bookmarks**: re-verify `agents/twitter-bookmarks-agent.js`'s actual current recency against Supabase (`research_intel_notes`, source = `Twitter/X Bookmarks (Personal)`) rather than trusting `docs/player-props-intel/platinum-rose-parlays-and-twitter-audit.md`'s own freshness claims at face value -- last session only spot-checked two individual tweets for authenticity, not pipeline-wide current freshness. This is also the natural point to build the Platinum Rose dual-identity extension (Thread 4 in the handoff) if Andy wants it before pulling more Twitter intel.
-   - **Article ingestion**: check whether `data/podcasts/actionable_betting_recommendations_2026.json` (stale since Aug 27, despite 40+ newer master reports in `scratch/` since then) needs a promotion pass, or whether Antigravity needs to be asked to run one.
-4. **Resume Week 1 betting-card synthesis** once the refresh is done. The handoff has the full 13-game slate, the podcast/prop/article/Twitter inventory already collected, and five specific cross-source conflicts (NYJ@TEN, NO@DET, WAS@PHI total, MIA@LV total, ARI@LAC) that need resolving before finalizing picks -- don't re-derive these from scratch, just re-verify anything the refresh pass changes.
+```powershell
+git status -sb
+git branch --show-current
+git log -5 --oneline
+```
 
-## Constraints (unchanged, carried from prior sessions)
-No commits/push without Andy's explicit, separate approval. No Supabase writes/migrations without per-change authorization. No paid model/committee synthesis runs without explicit authorization. `--allow-unsafe-preflight`-class overrides always require Andy's own explicit call, never assumed. Every Codex finding gets independently re-verified against live code/git/data before being accepted or acted on. No Yahoo Fantasy work. No amendment to `RULES.md` or other governance docs without Andy's explicit authorization. The working tree is large, shared, and heavily dirty (per multiple prior sessions' own notes) -- never `git add -A`; any future commit must be scoped to exactly the files a specific authorized change touched.
+Historical one-off resume prompts belong in `handoffs/archive/`. The previous
+Week 1 intel-refresh prompt was archived at:
+
+`handoffs/archive/2026-09-13-HANDOFF_PROMPT-week1-intel-refresh.md`

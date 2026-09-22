@@ -67,11 +67,23 @@ function getLastSessionLog() {
   try { return JSON.parse(lines[lines.length - 1]); } catch { return null; }
 }
 
-// Sections this hook itself regenerates every run. Anything else that was
-// already in HANDOFF.md (Current Pick Up Here, Persistent Backlogs, Previous
-// Sessions, etc.) is hand-maintained by the session and must survive a
-// Stop-hook rewrite.
+// Sections this hook itself regenerates every run.
 const MECHANICAL_HEADERS = ['Uncommitted Changes', 'In Progress', 'Review', 'Last Session Summary'];
+const MAX_STATUS_FILES = 60;
+
+// Only these hand-maintained live-index sections survive a Stop-hook rewrite.
+// Historical session bodies must live in dated files under handoffs/ or
+// handoffs/archive/; preserving every non-mechanical ## section made HANDOFF.md
+// grow back into a rolling transcript.
+const PRESERVED_HEADERS = [
+  'Current Pick Up Here',
+  'Needs Andy / Stop Conditions',
+  'Active Guardrails',
+  'Detailed Handoffs',
+  'Historical Notes',
+  'Maintenance Rule',
+  'Persistent Backlogs',
+];
 
 function extractPreservedSections(existingContent) {
   if (!existingContent) return [];
@@ -89,14 +101,26 @@ function extractPreservedSections(existingContent) {
   if (current) chunks.push(current);
 
   const preserved = [];
+  const seen = new Set();
   for (const c of chunks) {
     const headerText = c.header.replace(/^## /, '').trim();
     const isMechanical = MECHANICAL_HEADERS.some(h => headerText.toLowerCase().startsWith(h.toLowerCase()));
     if (isMechanical) continue;
+    const preservedHeader = PRESERVED_HEADERS.find(h => headerText.toLowerCase() === h.toLowerCase());
+    if (!preservedHeader || seen.has(preservedHeader.toLowerCase())) continue;
+    seen.add(preservedHeader.toLowerCase());
     let body = c.body.join('\n').replace(/\n---\n_Resume by reading[^\n]*_\s*$/, '');
     preserved.push(`\n${c.header}\n${body}`.replace(/\n{3,}$/, '\n'));
   }
   return preserved;
+}
+
+function formatFileList(files) {
+  if (files.length <= MAX_STATUS_FILES) {
+    return files.map(f => `- ${f}`).join('\n');
+  }
+  const shown = files.slice(0, MAX_STATUS_FILES).map(f => `- ${f}`).join('\n');
+  return `${shown}\n- _...and ${files.length - MAX_STATUS_FILES} more; run git status -sb for the full live list_`;
 }
 
 function main() {
@@ -113,8 +137,8 @@ function main() {
   const preserved = extractPreservedSections(existing);
 
   const sections = [
-    `# NFL_Dashboard — Session Handoff`,
-    `> Auto-generated at session end. Read this to resume.`,
+    `# NFL_Dashboard — Current Handoff`,
+    `> Auto-generated at session end. Reconcile live Git before trusting prose.`,
     `\n**Date:** ${now}`,
     `**Branch:** ${branch}`,
     ...preserved,
@@ -124,11 +148,11 @@ function main() {
     sections.push(`\n## Uncommitted Changes`);
     if (modified.length > 0) {
       sections.push(`\n### Modified`);
-      sections.push(modified.map(f => `- ${f}`).join('\n'));
+      sections.push(formatFileList(modified));
     }
     if (staged.length > 0) {
       sections.push(`\n### Staged`);
-      sections.push(staged.map(f => `- ${f}`).join('\n'));
+      sections.push(formatFileList(staged));
     }
   } else {
     sections.push(`\n## Uncommitted Changes\n\n_Working tree clean._`);
