@@ -39,6 +39,15 @@ Current state:
    episode (71 diarized turns, 14 picks extracted). Single-host shows are unaffected
    (still free Groq). See
    `handoffs/2026-09-22-1900-claude-gemini-podcast-diarization-fix-handoff.md`.
+8. Podcast queue cleaned (27 stale Week 1/2 episodes marked `skipped_stale`,
+   non-destructive). One real Gemini failure on the largest file yet (88.6MB)
+   traced to a swallowed `fetch failed` on the generateContent call -- fixed
+   with a retry + err.cause logging (commit `53af810`). Separately, ran the
+   long-dormant YouTube/Gemini intel pipeline (`agents/podcast-gemini-intel.js`)
+   end-to-end for the first time ever -- host-attributed picks/notes (something
+   the main audio pipeline can't do), promoted to the Obsidian vault
+   successfully. Still a one-episode proof of concept, not automated. See
+   `handoffs/2026-09-22-2130-claude-gemini-podcast-hardening-and-youtube-intel-promotion.md`.
 5. Active rules: leg barrier `-350` (flag >2 legs shorter than -200); QB rushing/INT props
    need a stated matchup fit; a player missing from the final box score = lost leg; 2-team
    RRs on Bookmaker; BKR props same-game only.
@@ -80,7 +89,9 @@ Current state:
 
 ## Detailed Handoffs
 
-- Gemini podcast diarization fix (latest):
+- Gemini podcast hardening + first YouTube-intel promotion (latest):
+  `handoffs/2026-09-22-2130-claude-gemini-podcast-hardening-and-youtube-intel-promotion.md`
+- Gemini podcast diarization fix:
   `handoffs/2026-09-22-1900-claude-gemini-podcast-diarization-fix-handoff.md`
 - Antigravity scheduled tasks + Grok scanner closeout:
   `handoffs/2026-09-22-1130-antigravity-scheduled-tasks-and-grok-scanner-handoff.md`
