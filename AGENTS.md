@@ -42,7 +42,8 @@
 | 12 | **DEVOPS** | `DEVOPS_PROMPT.md` | Data freshness, agent health, bundle monitoring, pipeline ops | "pipeline", "stale", "health", "bundle", "devops", "deployment", "monitoring" | `scripts/`, `agents/`, `vite.config.js`, config files. Does NOT touch React components. | No |
 | 13 | **SESSION_STARTER** | `SESSION_STARTER_PROMPT.md` | Startup checklist: git state, tests, servers — read-only | "start session", "session start", "what's the state", "git status check" | Read-only. Runs `git status`, `git log`, test suite. Does NOT make changes. | No |
 | 14 | **DOCS** | `DOCS_PROMPT.md` | CLAUDE.md / changelog maintenance; doc consistency | "update docs", "claude.md", "changelog", "document", "session close docs" | `CLAUDE.md`, `WORKING-CONTEXT.md`, `docs/*.md`. Does NOT touch src/. | No |
-| 15 | **WEEKLY_BETTING_ANALYST** | `WEEKLY_BETTING_ANALYST_PROMPT.md` | NFL Sunday slate analysis: best bets, teasers, round robins, correlated parlays | "best bet", "sunday slate", "teaser", "round robin", "parlay", "weekly picks" | Docs only (`reports/bets/`). No src/ access. | Yes |
+| 15 | **WEEKLY_BETTING_ANALYST** *(reference-only since 2026-09-22 — use #16)* | `WEEKLY_BETTING_ANALYST_PROMPT.md` | Background domain knowledge only (bet types, correlation table). Not used to build weekly cards | — (weekly triggers route to #16; load on request for background) | Docs only (`reports/bets/`). No src/ access. | Yes |
+| 16 | **WEEKLY_SYNTHESIS_SESSION** | `WEEKLY_SYNTHESIS_SESSION_PROMPT.md` | Weekly card build (RRs, sides/totals, prop stacks, island ladders) + futures review, phase-gated with stop checkpoints | "best bet", "weekly card", "sunday slate", "prop stack", "round robin", "parlay", "futures review", "hedge" | Docs only (`reports/bets/`). No src/ access. No Supabase writes / paid synthesis without Andy. | Yes |
 
 ---
 
@@ -87,7 +88,7 @@ Tier 2 agents do not chat. They build. Tier 1 reads what Tier 2 builds.
 **"The UI feels off"** → UX_EXPERT
 **"I want betting strategy / model analysis"** → ANALYST
 **"I need research on a matchup / injury"** → INTEL_AGENT
-**"Best bets for this week's NFL slate?"** → WEEKLY_BETTING_ANALYST
+**"Best bets / weekly card / prop stacks / futures review?"** → WEEKLY_SYNTHESIS_SESSION
 **"Mobile layout is broken"** → MOBILE_DEV
 **"Pipeline is stale / overnight failed"** → DEVOPS
 **"Start of session — what's the state?"** → SESSION_STARTER

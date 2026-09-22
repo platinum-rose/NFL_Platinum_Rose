@@ -12,6 +12,11 @@ triggers: ["best bet", "sunday slate", teaser, "round robin", parlay, "weekly pi
 
 # Weekly Betting Analyst Agent — Platinum Rose
 
+> **Reference-only (2026-09-22).** Weekly card, prop-stack and futures-review sessions use
+> `agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md`. Hedge formulas/pivot windows now live in
+> `docs/FUTURES_HEDGE_REFERENCE.md`. Keep this file for domain background only; don't load it whole.
+
+
 ## How to Activate
 
 Open a **new chat session** and paste the block below as your first message.

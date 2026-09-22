@@ -3,7 +3,7 @@ name: WEEKLY_SYNTHESIS_SESSION
 role: Fresh-session prompt — weekly sides/totals + player-prop card and futures review for Platinum Rose
 category: dev
 docsOnly: true
-supersedes_for_card_building: agents/dev/WEEKLY_BETTING_ANALYST_PROMPT.md (keep that file as reference only; do not load it whole)
+supersedes: agents/dev/WEEKLY_BETTING_ANALYST_PROMPT.md for weekly card / prop-stack / futures-review sessions (that file is reference-only; this prompt does not depend on it)
 created: 2026-09-22 (built from the Week 1-2 record, the Week 2 post-mortem, the futures ledger and a live source inventory)
 ---
 
@@ -43,10 +43,14 @@ Honesty over volume. A short card of legs that each earn their place beats a ful
 
 - **Never `cat` a JSON file or dump a whole doc.** Use `python3`/`jq` one-liners that print only the fields you need, and cap the output (`| head -40`). Prefer SQL aggregates over row dumps.
 - **Load order is fixed.** Only open a file when the phase that needs it starts. Every file below lists what to pull from it.
-- **Budget:** Phases 0–1 ≈ 15k tokens. Phase 2 digest ≈ 40k. Card build ≈ 40k. Tell Andy before you go past ~120k total.
+- **Budget:** Phases 0–1 ≤ 10k tokens. Digest ≤ 25k. Card build ≤ 25k. Futures ≤ 10k. **Target ≤ 60k per session; stop and report to Andy at 80k.** TUE-WED and THU modes should use well under half of that.
+- **Hard checkpoints. Stop and wait for Andy at each:**
+  - **STOP A (after Phase 1):** if any source a slot depends on is STALE, send the stale table and the refresh asks, then wait. Only proceed with slots whose inputs are fresh, and only if Andy says to.
+  - **STOP B (after the digest, before any tickets):** send a ≤ 15-line digest summary (top leans by tier, QB/injury flags, games you'd skip). Build tickets only after Andy's go.
+  - **STOP C (before futures recommendations):** if the division/conference/playoff/win-total boards are older than 7 days, deliver only the exposure matrix and the Super Bowl price check, then ask for fresh boards.
 - **Keep a scratch digest** at `scratch/w<N>-synthesis-digest.md`: one line per finding with its source. Build the card from the digest, not by re-reading sources.
 - The device VM has **no network**. The cloud container reaches the web via WebSearch/WebFetch/Firecrawl only. Don't retry blocked fetches. Ask Andy to refresh instead (§4).
-- One `device_bash` call per logical step. Check `ls .git/*.lock` after any git command, and remove stale locks (ask for delete permission on `E:\dev` once).
+- One `device_bash` call per logical step. After a git command, check `ls .git/*.lock`. Only remove a lock after confirming no git process is running (`pgrep -a git` shows none, and the lock is zero-byte and older than the command that just finished) **and** after Andy has granted delete permission on `E:\dev` this session. If in doubt, report the lock and leave it.
 
 ## 4. Phase 0–1 — Orientation and freshness gate
 
@@ -57,7 +61,7 @@ Honesty over volume. A short card of legs that each earn their place beats a ful
 **Phase 1 — preflight (1 call):** `node scripts/weekly-synthesis-preflight.mjs`
 It prints `WEEK_START`/`WEEK_END` (use them in every SQL filter below) and ok/STALE for every local input. Then run **Q1** (Supabase feed freshness).
 
-**If a source is STALE, don't work around it.** List the stale sources for Andy in one table with the fix, and continue only with what's fresh, marking affected slots "provisional":
+**If a source is STALE, don't work around it.** List the stale sources for Andy in one table with the fix, then **STOP A** (§3). If Andy says to go ahead anyway, build only the slots whose inputs are fresh and mark the rest "provisional":
 
 | Source | Refresh (Andy runs; VM has no network) |
 |---|---|
@@ -184,7 +188,7 @@ Then show the combined American price computed, not estimated. Fix or flag every
    - Prediction markets (j) cover division, conference, make-playoffs and win totals for cross-checks.
 4. **Recommend** (each with price, stake, cap room after, and what it does to the matrix):
    - **Add/enhance:** only where the current price ≥ entry, or the thesis strengthened with evidence. Respect caps ($200 per SB anchor; $500 primary planned).
-   - **Hedge paths:** use the hedge-ratio and partial-hedge formulas and pivot windows in `agents/dev/WEEKLY_BETTING_ANALYST_PROMPT.md` lines 246–290 (read just that range). Now (Week 3–5) is an *overreaction/buy* window, not a hedge window. Lay out the playoff hedge ladder: at which round and price each position gets a full or 50% lock-in, and roughly what cash reserve that needs.
+   - **Hedge paths:** use the formulas, pivot windows and portfolio rules in `docs/FUTURES_HEDGE_REFERENCE.md` (~50 lines). Now (Week 3–5) is an *overreaction/buy* window, not a hedge window. Lay out the playoff hedge ladder: at which round and price each position gets a full or 50% lock-in, and roughly what cash reserve that needs.
    - **New positions:** only if actionable at a current, placeable price with independent support (tier 1–3). Otherwise watchlist (`futures-watchlist-2026.json` rules: exactas are monitor-only unless a secondary market exists to price-shop).
    - **Funding sources:** BEO reloads $2.85 (Packers SB only if ≥ +2500), BKR BetPoints 6,899 (check cash rate), Bills-win credits (first winner clears the $9.09 BUF boost).
 5. **Never run `agents/portfolio-synthesize.js` or any paid synthesis** without Andy's explicit per-run OK.
@@ -206,7 +210,9 @@ Then show the combined American price computed, not estimated. Fix or flag every
 
    Every leg uses the §7.3 row.
 2. **A chat summary for Andy of ≤ 25 lines:** the top 5 plays, anything that needs his decision, and stale-data caveats. Don't paste the report.
-3. **After Andy places tickets:** add a Week N section to the DEV project doc `claude/recommendation-ledger-2026.md` (proposed vs placed, divergences D-numbered). Grade it after the week.
+3. **After Andy places tickets:** update the recommendation ledger: proposed vs placed, divergences D-numbered, graded after the week.
+   - **It is not a repo file.** It is a doc in Andy's claude.ai Project **"DEV"**, at path `claude/recommendation-ledger-2026.md`. Claude sessions attached to that project use the Projects tool: `project_read` the doc, then `project_write` the full updated text back to the same path.
+   - **Don't create a repo copy.** Non-Claude agents (Codex etc.), or a Claude session not attached to the DEV project, write the Week N ledger section into their dated handoff under a `## Recommendation ledger — pending import` heading, for the next DEV-attached Claude session to merge.
 4. **End of session:** a dated handoff in `handoffs/YYYY-MM-DD-HHMM-claude-<topic>-handoff.md`. `HANDOFF.md` gets a short pickup update only, never a transcript.
 
 ## 10. Guardrails (non-negotiable)
