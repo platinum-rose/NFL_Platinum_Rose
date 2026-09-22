@@ -5,8 +5,8 @@
 > `handoffs/` and `handoffs/archive/`.
 
 **Last governance trim:** 2026-09-22 by Codex
-**Last verified HEAD:** `7d49901 feat(wagers): add interactive/CLI wager-entry utility`
-**Last verified branch:** `wip/yahoo-sync` (`origin/wip/yahoo-sync`, ahead 1)
+**Last verified HEAD:** `e02482e fix(bankroll): use recorded settled profit for partial round-robin wins`
+**Last verified branch:** `wip/yahoo-sync` (`origin/wip/yahoo-sync`, in sync)
 **Workspace state:** very dirty/shared; run `git status -sb` before trusting any
 handoff prose. A full copy of the pre-trim rolling handoff was archived at
 `handoffs/archive/2026-09-22-legacy-rolling-HANDOFF-before-governance-trim.md`.
@@ -14,6 +14,10 @@ handoff prose. A full copy of the pre-trim rolling handoff was archived at
 ## Current Pick Up Here
 
 Latest active handoff source:
+`handoffs/2026-09-21-2310-claude-week2-closeout-handoff.md` (Week 2 fully
+settled and reconciled across wagers JSON, futures ledger, Supabase and git;
+Week 3 tracker built; rule corrections: -350 leg barrier, QB rush/INT on
+matchup fit, missing-from-box-score = loss). Earlier context:
 `handoffs/2026-09-22-0240-claude-to-claude-full-project-handoff.md`
 
 Active Week 2 / MNF state from the trimmed rolling handoff:
