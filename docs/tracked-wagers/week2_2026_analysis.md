@@ -71,8 +71,8 @@ By family (season): props 93-102 (−10%), sides 39-43-1 (−14%), totals 10-9 (
 | Sunday early window | 21-20-1 | 51% | −1% |
 | Sunday late window | 18-33 | 35% | −30% |
 | MNF (NYG@LAR) | 12-20 | 38% | −32% |
-| Bookmaker legs | 29-26-1 | 53% | −1% |
-| BetOnline legs | 56-62 | 47% | −11% |
+| Bookmaker legs | 25-25-1 | 50% | ≈−5% |
+| BetOnline legs | 60-63 | 49% | ≈−9% |
 
 The game-script split is the strongest Week 2 signal. The same prop types went 56% on the team that won and 39% on the team that lost. The Dart injury on MNF was the extreme case (Giants props 4-10), but it wasn't the only one: Dolphins props went 0-5, Commanders 2-3 and Colts 4-5. The one exception was Detroit at 5-2, in a 41-31 shootout where the losing offense still threw all night. The time-slot rows mostly repeat individual games (MIA@SF 3-12, LV@LAC 2-7 drove the late window), so don't read them as a time-of-day effect.
 
@@ -107,7 +107,7 @@ The game-script split is the strongest Week 2 signal. The same prop types went 5
 | Ticket | Price | Would have paid | Killer leg |
 |---|---|---|---|
 | IND@KC 8-leg SGP (BEO) | +15700 | $940 | Alec Pierce 3+ rec (−159): **1** |
-| IND@KC 6-leg SGP (BKR) | +3600 | $370 | Alec Pierce 46+ rec yds: **11** |
+| IND@KC 6-leg SGP (BEO 998181629) | +3600 | $370 | Alec Pierce 46+ rec yds: **11** |
 | TNF 8-leg shootout | +5500 | $280 | Khalil Shakir 44.5+ rec yds: **38** |
 | IND@KC side + total | +253 | $105 | Under 46.5: **63** (OT) |
 | TNF 6-leg prop/spread | +1400 | $75 | Goff 1+ INT: **0** |
@@ -150,7 +150,7 @@ Ranked by how much evidence is behind each one. Two weeks is still a small sampl
 7. **Build more 2-leg tickets and 2-team round robins.** All three winners this week were 2-leg or 2-team structures, and 0 of 26 straight parlays with 5+ legs cashed. The best reads (SNF legs went 16-10) are being lost to one bad leg in 7- and 8-leg tickets. Format (5-selection prop RR and 6-selection dog-ML RR, 2u each) is in `NFL_WEEKLY_CARD_PROCESS.md` → "2-team round robin format".
 8. **Price receptions honestly.** They're a coin flip at 50%, but the prices paid imply 59%, and misses usually come down to one catch. Take fewer of them, and only for players with a proven target share on the side you expect to win.
 
-**Watch list (interesting but thin):** defensive props overall (+8%, n=17), Bookmaker legs ahead of BetOnline (53% vs 47%), both weeks' Unders around breakeven.
+**Watch list (interesting but thin):** defensive props overall (+8%, n=17), both weeks' Unders around breakeven. (The Bookmaker-over-BetOnline edge dropped off after the 2026-09-22 book correction: 50% vs 49%.)
 
 ---
 
@@ -160,3 +160,4 @@ Ranked by how much evidence is behind each one. Two weeks is still a small sampl
 - Round-robin returns confirmed against Bookmaker's settlement (matched the leg-price estimates to the cent).
 - Week 1 figures here are unique-leg regrades and won't exactly match `week1_2026_analysis.md`, which counted every placed leg.
 - The game-script cut uses Week 2 finals only (Week 1 legs weren't tagged the same way).
+- **Book correction (2026-09-22):** the $10 IND@KC 6-leg SGP was logged as Bookmaker but was placed at BetOnline (receipt Bet ID 998181629-1). Five of its legs (Pierce lost; Worthy, Walker, Bolton, Rice won) moved from the Bookmaker row to the BetOnline row. Taylor ATD was already counted on BetOnline. The flat-ROI figures in those two rows are adjusted by those legs' results and are approximate (≈). Ticket counts and P&L are unchanged.
