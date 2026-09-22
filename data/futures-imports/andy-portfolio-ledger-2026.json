@@ -1,82 +1,267 @@
 {
+ "schema_version": "1.0",
+ "season": 2026,
+ "as_of": "2026-09-21",
+ "units": {
+  "futures_usd": 20,
+  "in_season_usd": 10
+ },
+ "limits": {
+  "primary_planned_cap_usd": 500,
+  "bills_superbowl_target_cap_usd": 200,
+  "packers_superbowl_target_cap_usd": 200,
+  "in_season_reserve_usd": null,
+  "playoff_cash_hedge_reserve_usd": null
+ },
+ "positions": [
+  {
+   "id": "bills_sb",
+   "market": "superbowl",
+   "selection": "Buffalo Bills",
+   "role": "anchor_bet",
+   "current_stake_usd": 59.09,
+   "target_cap_usd": 200,
+   "blended_price": 992,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "tickets": [
+    {
+     "ticket_number": "994540980",
+     "accepted_date": "2026-09-09",
+     "stake_usd": 50,
+     "price": 1000,
+     "to_win_usd": 500,
+     "result_status": "pending"
+    },
+    {
+     "ticket_number": "996987591",
+     "accepted_date": "2026-09-17",
+     "stake_usd": 9.09,
+     "price": 950,
+     "to_win_usd": 86.36,
+     "result_status": "pending",
+     "funding": "cash",
+     "note": "Boost placed before TNF DET@BUF on the theory the price would be better pre-game. Moved here from user-placed-wagers-2026.json on 2026-09-21 (futures belong in this ledger). Target: clear this stake with Bills-win promo credits (see data/sportsbooks/promotions-2026.json)."
+    }
+   ],
+   "estimate_note": "First real stake against the $200 target cap ($150 of cap room remains). Confirmed placed at BetOnline; this wager qualifies for BetOnline's Super Bowl Futures Special ($10/regular-season-win promo) -- see data/futures-imports/betonline-superbowl-futures-promo-2026.json, now marked claimed. | 2026-09-21: added ticket 996987591 ($9.09 @ +950); stake now $59.09, blended +992, $140.91 of cap room."
+  },
+  {
+   "id": "packers_sb",
+   "market": "superbowl",
+   "selection": "Green Bay Packers",
+   "role": "anchor_bet",
+   "current_stake_usd": 40,
+   "target_cap_usd": 200,
+   "blended_price": 2500,
+   "status": "open",
+   "known_input": true,
+   "estimate_note": "First real stake against the $200 target cap ($160 of cap room remains). Confirmed placed at BetOnline. Does not separately qualify for the BetOnline Super Bowl Futures Special promo -- below the $50 minimum, and the account's one-time promo slot is already claimed by the bills_sb wager.",
+   "book": "betonline",
+   "book_confirmed": true,
+   "tickets": [
+    {
+     "ticket_number": "994610591",
+     "accepted_date": "2026-09-09",
+     "stake_usd": 40,
+     "price": 2500,
+     "to_win_usd": 1000,
+     "result_status": "pending"
+    }
+   ]
+  },
+  {
+   "id": "bills_packers_exacta",
+   "market": "superbowl_matchup",
+   "selection": "Green Bay Packers vs Buffalo Bills",
+   "role": "anchor_correlation_amplifier",
+   "stake_usd": 45,
+   "price": 8300,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "994540980",
+   "accepted_date": "2026-09-09",
+   "to_win_usd": 3735,
+   "result_status": "pending"
+  },
+  {
+   "id": "buf_sea_exacta",
+   "market": "superbowl_matchup",
+   "selection": "Seattle Seahawks vs Buffalo Bills",
+   "role": "exacta_amplifier",
+   "stake_usd": 7.42,
+   "price": 5100,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "994659710",
+   "accepted_date": "2026-09-09",
+   "to_win_usd": 378.42,
+   "result_status": "pending",
+   "estimate_note": "Opening exacta position surrounding the Packers/Bills anchor bets -- official play, logged verbatim from Andy's BetOnline ticket text."
+  },
+  {
+   "id": "buf_det_exacta",
+   "market": "superbowl_matchup",
+   "selection": "Detroit Lions vs Buffalo Bills",
+   "role": "exacta_amplifier",
+   "stake_usd": 5.0,
+   "price": 7700,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "994659710",
+   "accepted_date": "2026-09-09",
+   "to_win_usd": 385.0,
+   "result_status": "pending",
+   "estimate_note": "Opening exacta position surrounding the Packers/Bills anchor bets -- official play, logged verbatim from Andy's BetOnline ticket text."
+  },
+  {
+   "id": "buf_phi_exacta",
+   "market": "superbowl_matchup",
+   "selection": "Philadelphia Eagles vs Buffalo Bills",
+   "role": "exacta_amplifier",
+   "stake_usd": 5.0,
+   "price": 6700,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "994659710",
+   "accepted_date": "2026-09-09",
+   "to_win_usd": 335.0,
+   "result_status": "pending",
+   "estimate_note": "Opening exacta position surrounding the Packers/Bills anchor bets -- official play, logged verbatim from Andy's BetOnline ticket text."
+  },
+  {
+   "id": "gb_bal_exacta",
+   "market": "superbowl_matchup",
+   "selection": "Green Bay Packers vs Baltimore Ravens",
+   "role": "exacta_amplifier",
+   "stake_usd": 12.0,
+   "price": 10300,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "994658662",
+   "accepted_date": "2026-09-09",
+   "to_win_usd": 1236.0,
+   "result_status": "pending",
+   "estimate_note": "Opening exacta position surrounding the Packers/Bills anchor bets -- official play, logged verbatim from Andy's BetOnline ticket text."
+  },
+  {
+   "id": "gb_kc_exacta",
+   "market": "superbowl_matchup",
+   "selection": "Green Bay Packers vs Kansas City Chiefs",
+   "role": "exacta_amplifier",
+   "stake_usd": 11.0,
+   "price": 10300,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "994658662",
+   "accepted_date": "2026-09-09",
+   "to_win_usd": 1133.0,
+   "result_status": "pending",
+   "estimate_note": "Opening exacta position surrounding the Packers/Bills anchor bets -- official play, logged verbatim from Andy's BetOnline ticket text."
+  },
+  {
+   "id": "gb_cin_exacta",
+   "market": "superbowl_matchup",
+   "selection": "Green Bay Packers vs Cincinnati Bengals",
+   "role": "exacta_amplifier",
+   "stake_usd": 8.0,
+   "price": 14200,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "994658662",
+   "accepted_date": "2026-09-09",
+   "to_win_usd": 1136.0,
+   "result_status": "pending",
+   "estimate_note": "Opening exacta position surrounding the Packers/Bills anchor bets -- official play, logged verbatim from Andy's BetOnline ticket text."
+  },
+  {
+   "id": "gb_pit_exacta",
+   "market": "superbowl_matchup",
+   "selection": "Green Bay Packers vs Pittsburgh Steelers",
+   "role": "exacta_amplifier",
+   "stake_usd": 6.0,
+   "price": 53200,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "994658662",
+   "accepted_date": "2026-09-09",
+   "to_win_usd": 3192.0,
+   "result_status": "pending",
+   "estimate_note": "Opening exacta position surrounding the Packers/Bills anchor bets -- official play, logged verbatim from Andy's BetOnline ticket text."
+  },
+  {
+   "id": "bills_wins_over_10_5",
+   "market": "wins",
+   "selection": "Buffalo Bills Over 10.5 Regular Season Wins",
+   "role": "anchor_ladder",
+   "stake_usd": 20,
+   "line": 10.5,
+   "direction": "over",
+   "price": -135,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "995676044",
+   "accepted_date": "2026-09-13",
+   "to_win_usd": 14.81,
+   "result_status": "pending",
+   "estimate_note": "Official anchor-ladder position, logged verbatim from Andy's BetOnline ticket. Settles on Buffalo's 2026 regular-season win total."
+  },
+  {
+   "id": "packers_make_playoffs_yes",
+   "market": "playoffs",
+   "selection": "Green Bay Packers to Make the Playoffs - Yes",
+   "role": "anchor_ladder",
+   "stake_usd": 20,
+   "line": null,
+   "direction": "yes",
+   "price": -120,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "995676044",
+   "accepted_date": "2026-09-13",
+   "to_win_usd": 16.67,
+   "result_status": "pending",
+   "estimate_note": "Official anchor-ladder position, logged verbatim from Andy's BetOnline ticket. Settles on Green Bay qualifying for the 2026 postseason."
+  }
+ ],
+ "open_parlays": {
+  "source": "data/futures-imports/open-parlays-2026.json",
+  "availability_status": "unverified_house_rule_conflict",
+  "eligible_as_required_hedge_resource": false,
+  "summary": {
+   "total_tickets": 6,
+   "total_open_slots": 11,
+   "total_risked_usd": 162.5,
+   "displayed_potential_win_usd": 3327.12
+  },
+  "policy": "Preserve all records as open/unverified contingent assets. Do not fill, close, or rely on the slots as guaranteed capacity without explicit user approval."
+ },
+ "week1_inseason_bets": {
   "schema_version": "1.0",
   "season": 2026,
-  "as_of": "2026-09-09",
-  "units": {
-    "futures_usd": 20,
-    "in_season_usd": 10
-  },
-  "limits": {
-    "primary_planned_cap_usd": 500,
-    "bills_superbowl_target_cap_usd": 200,
-    "packers_superbowl_target_cap_usd": 200,
-    "in_season_reserve_usd": null,
-    "playoff_cash_hedge_reserve_usd": null
-  },
-  "positions": [
-    {
-      "id": "bills_sb",
-      "market": "superbowl",
-      "selection": "Buffalo Bills",
-      "role": "anchor_bet",
-      "current_stake_usd": 50,
-      "target_cap_usd": 200,
-      "blended_price": 1000,
-      "status": "open",
-      "known_input": true,
-      "book": "betonline",
-      "book_confirmed": true,
-      "tickets": [
-        {
-          "ticket_number": "994540980",
-          "accepted_date": "2026-09-09",
-          "stake_usd": 50,
-          "price": 1000,
-          "to_win_usd": 500,
-          "result_status": "pending"
-        }
-      ],
-      "estimate_note": "First real stake against the $200 target cap ($150 of cap room remains). Confirmed placed at BetOnline; this wager qualifies for BetOnline's Super Bowl Futures Special ($10/regular-season-win promo) -- see data/futures-imports/betonline-superbowl-futures-promo-2026.json, now marked claimed."
-    },
-    {
-      "id": "packers_sb",
-      "market": "superbowl",
-      "selection": "Green Bay Packers",
-      "role": "anchor_bet",
-      "current_stake_usd": null,
-      "target_cap_usd": 200,
-      "blended_price": null,
-      "status": "building",
-      "known_input": false,
-      "estimate_note": "Target cap was supplied; actual entry tickets and blended odds were not supplied."
-    },
-    {
-      "id": "bills_packers_exacta",
-      "market": "superbowl_matchup",
-      "selection": "Green Bay Packers vs Buffalo Bills",
-      "role": "anchor_correlation_amplifier",
-      "stake_usd": 45,
-      "price": 8300,
-      "status": "open",
-      "known_input": true,
-      "book": "betonline",
-      "book_confirmed": true,
-      "ticket_number": "994540980",
-      "accepted_date": "2026-09-09",
-      "to_win_usd": 3735,
-      "result_status": "pending"
-    }
-  ],
-  "open_parlays": {
-    "source": "data/futures-imports/open-parlays-2026.json",
-    "availability_status": "unverified_house_rule_conflict",
-    "eligible_as_required_hedge_resource": false,
-    "summary": {
-      "total_tickets": 6,
-      "total_open_slots": 11,
-      "total_risked_usd": 162.5,
-      "displayed_potential_win_usd": 3327.12
-    },
-    "policy": "Preserve all records as open/unverified contingent assets. Do not fill, close, or rely on the slots as guaranteed capacity without explicit user approval."
-  }
+  "week": 1,
+  "note": "MIGRATED 2026-09-13 to data/official-picks/user-placed-wagers-2026.json, the single source of truth for all placed wagers. This file (futures-imports/) is a staging/import location for raw sportsbook exports, not the wager ledger -- do not log new Week 1 (or any in-season) tickets here going forward. The 3 tickets formerly stored in this key are now ticket ids bet_20260909_dkp_ne_sea_w1_combo, bet_20260909_bm_738444813_2team, and bet_20260906_bm_738317559_2team in the master ledger."
+ }
 }

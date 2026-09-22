@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "season": 2026,
+  "updated_at": "2026-09-21",
+  "purpose": "Running tracker of sportsbook promotions, rewards and bonus cash that change how tickets should be built or funded. Check the 'active' items at every card build. Reward cash is logged here first, then as funding on the ticket it is applied to.",
+  "how_promo_type_changes_the_build": {
+    "cash_no_strings": "Same as your own money: stake comes back on a win. Just shop the best price.",
+    "free_bet_credit": "Stake is NOT returned on a win, so the credit is worth more on longer prices. Use on +300 or longer where possible.",
+    "parlay_insurance_cash_refund": "The losing outcome is refunded, so build the longest, highest-payout ticket that still qualifies, up to the max insured stake. Don't spend the insured slot on a safe chalk ticket."
+  },
+  "items": [
+    {
+      "id": "beo-sb-futures-special-bills",
+      "book": "betonline",
+      "name": "Super Bowl Futures Special - $10 free bet per Bills regular-season win",
+      "type": "free_bet_credit",
+      "status": "active",
+      "details_file": "data/futures-imports/betonline-superbowl-futures-promo-2026.json",
+      "credit_timing": "By 7:00 pm ET the Wednesday after each Bills win",
+      "expected_credits": [
+        {
+          "week": 1,
+          "result": "BUF 36-31 W at HOU",
+          "amount_usd": 10,
+          "status": "received_used",
+          "applied_to": "bet_20260917_997008079_tnf_det_spread_freebet (DET +5.5, lost)"
+        },
+        {
+          "week": 2,
+          "result": "BUF 41-31 W vs DET",
+          "amount_usd": 10,
+          "status": "due_2026-09-23",
+          "plan": "Cover the $9.09 BUF SB cash boost (bet_20260917_996987591, +950): any price -110 or better returns >= $9.09 profit"
+        }
+      ],
+      "use": "Free roll on a side/total at -110. Each winner pays $9.09.",
+      "season_projection": {
+        "projected_bills_wins": 11,
+        "credits_remaining_incl_week2": 10,
+        "face_value_usd": 100,
+        "expected_return_usd": 45
+      },
+      "strategy": "Put each credit on the week's highest-conviction side or total as soon as it lands (Wednesday), shopping the best number around key numbers 3/7. Avoid spread underdogs (10-20 season). First winner clears the $9.09 BUF SB boost (bet_20260917_996987591); later winners go to the BUF futures bankroll. Expect ~5 winners from ~10 credits (~$45). Hedging via the Bills opponent spread is optional, only when it is also the best read.",
+      "restrictions": "Credit usable ONLY on sides or totals at about -110 (Andy, 2026-09-21). Stake not returned; a win pays $9.09."
+    },
+    {
+      "id": "beo-reloads",
+      "book": "betonline",
+      "name": "BetOnline Reloads",
+      "type": "cash_no_strings",
+      "status": "active",
+      "balance_log": [
+        {
+          "date": "week of 2026-09-14",
+          "claimed_usd": 2.85,
+          "detail": "3 reloads at $0.95",
+          "applied_to": null,
+          "plan": "Packers Super Bowl at BetOnline if +2500 or longer; else hold for exacta market"
+        }
+      ],
+      "use": "Boost best available futures price for Packers or Bills, or Super Bowl exacta when BetOnline reposts that market."
+    },
+    {
+      "id": "bkr-betpoints",
+      "book": "bookmaker",
+      "name": "BetPoints (Platinum level)",
+      "type": "cash_no_strings",
+      "status": "active",
+      "balance_log": [
+        {
+          "date": "2026-09-21",
+          "betpoints": 6899.35,
+          "level": "Platinum",
+          "cash_value_usd": null,
+          "note": "Check Cash Back page for conversion rate"
+        }
+      ],
+      "earning_rules": "No BetPoints on moneylines, free plays or live dealer casino. Spread/total round robins earn; moneyline dog RRs do not.",
+      "use": "Convert in season to add to the best-priced futures positions."
+    },
+    {
+      "id": "beo-primetime-parlay-insurance",
+      "book": "betonline",
+      "name": "Primetime Parlay Insurance",
+      "type": "parlay_insurance_cash_refund",
+      "status": "recurring_unconfirmed",
+      "seen": [
+        {
+          "date": "2026-09-14",
+          "game": "DEN @ KC (Week 1 MNF)"
+        }
+      ],
+      "qualifying": "4+ leg same-game parlay in the BetOnline Prop Shop at +400 or longer, on the promoted primetime game",
+      "refund": "Stake refunded as cash with no restrictions if the parlay loses",
+      "unknown_terms": [
+        "max insured stake",
+        "whether refund requires exactly one leg to miss or any loss",
+        "which primetime games each week",
+        "opt-in requirement"
+      ],
+      "terms_url": "https://www.betonline.ag/promotions/sports/primetime-parlay-insurance",
+      "use": "Build the Island Game Tier 3 moonshot here at the max insured stake. Verify terms on the promo page first."
+    }
+  ]
+}
