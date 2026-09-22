@@ -13,16 +13,16 @@
 | Tickets (excl. BUF Super Bowl future) | 34 | 27 | 61 |
 | Tickets that paid | 3 | 2 | 5 |
 | Cash risked | $428.79 | $370.77 | $799.56 |
-| Cash returned | $131.24* | $80.56 | $211.80 |
+| Cash returned | $131.24 | $80.56 | $211.80 |
 | **Net P&L** | **−$297.55** | −$290.21 | **−$587.76** |
 | Unique legs graded | 85-88-1 (49%) | 57-66 (46%) | 142-154-1 (48%) |
 | Breakeven on prices paid | ~55% | ~55% | ~55% |
 
-*Includes two round robins estimated from leg prices ($44.83 and $16.39). Bookmaker's settled payout governs.
+*Round-robin returns confirmed against Bookmaker settlement: 739004327 $44.83 (+$24.88), 739003867 $16.39 (+$1.39).*
 
 The legs went 49%, but the prices paid needed about 55%. **Graded as straight bets at the prices actually taken, the Week 2 board loses about 8%.** The parlays then multiplied that edge: 3 of 34 tickets paid, and every straight parlay of 5+ legs lost (0 for 26).
 
-**The three tickets that paid:** the TNF BUF −5 / Over 54 two-leg SGP ($20.12 → $70.02), the Sunday underdog-moneyline 2-team round robin (CLE, LV and CIN hit; ≈$44.83 on $19.95), and the SuperContest-fade 2-team round robin (NYJ, TEN and DAL hit; ≈$16.39 on $15).
+**The three tickets that paid:** the TNF BUF −5 / Over 54 two-leg SGP ($20.12 → $70.02), the Sunday underdog-moneyline 2-team round robin (CLE, LV and CIN hit; $44.83 on $19.95, ticket 739004327), and the SuperContest-fade 2-team round robin (NYJ, TEN and DAL hit; $16.39 on $15, ticket 739003867).
 
 ---
 
@@ -157,6 +157,6 @@ Ranked by how much evidence is behind each one. Two weeks is still a small sampl
 ## Data notes
 
 - Tyler Higbee ATD and Mike Gesicki receiving yards were both graded LOST: neither appears in the final box score. Standing grading rule (Andy): a player missing from the final box score means the leg lost.
-- Round-robin returns are estimated from logged leg prices and stake per combination. Confirm against Bookmaker's settlement.
+- Round-robin returns confirmed against Bookmaker's settlement (matched the leg-price estimates to the cent).
 - Week 1 figures here are unique-leg regrades and won't exactly match `week1_2026_analysis.md`, which counted every placed leg.
 - The game-script cut uses Week 2 finals only (Week 1 legs weren't tagged the same way).
