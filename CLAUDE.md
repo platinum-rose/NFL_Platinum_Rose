@@ -11,7 +11,7 @@ Integrates real-time odds from 8 sportsbooks, tracks betting performance, manage
 
 ## Orchestration Directives
 1. **Agent-first**: Route work to the specialist agent with deepest domain knowledge. See `AGENTS.md` routing guide.
-2. **Context check**: Read `WORKING-CONTEXT.md` at session start. Current mode determines current priorities.
+2. **Context check**: Read `HANDOFF.md` at session start, then reconcile live Git state. Current mode determines current priorities.
 3. **Rules are laws**: `RULES.md` must-never rules require explicit Creator approval to override.
 4. **Anti-patterns are supreme**: Read `docs/ANTI_PATTERNS.md` before touching dates, team names, storage keys, or scoring logic.
 5. **Quality gates are self-enforced**: Run tests before closing tasks, lint changed files, check for stray `console.log` before commit.
@@ -151,36 +151,26 @@ DraftKings, FanDuel, BetMGM, Caesars, BetOnline, Bookmaker, PointsBet, Unibet
 ## Session Protocols
 
 ### Session Start
-> **Note (2026-08-25):** this section predates the "Unified Session Context Protocol" near
-> the end of this file, which is the current canonical targeted-read procedure (kept in sync
-> across ATLAS/APS/NFL_Dashboard/Rosie). The two used to disagree — this section said to
-> unconditionally read all of `WORKING-CONTEXT.md` before touching any file, while the unified
-> protocol does a targeted read of just HANDOFF.md + Persistent Backlogs + machine state and
-> never mentions WORKING-CONTEXT.md. `WORKING-CONTEXT.md` was also 39KB of mostly-stale stacked
-> history at the time (see `docs/archive/WORKING-CONTEXT_archive_2026-08-25.md`), so "read it
-> every session" was a real, avoidable cost. It's now trimmed to a short current-state pointer
-> (~1.6KB) that always defers to HANDOFF.md, so reading it is cheap again — but treat the
-> Unified Session Context Protocol below as the authoritative order of operations, not this list.
-- **Tight turnaround (< 4 hrs since last session):** Use the resume command → HANDOFF_PROMPT.md only.
-- **Overnight gap or unsure if tree is clean:** Paste `agents/dev/SESSION_STARTER_PROMPT.md` activation block first — it runs live git/vitest/server checks.
-- Either way: read `WORKING-CONTEXT.md` before touching any file (now brief — see note above).
-- **Persistent Backlogs:** Check `HANDOFF.md`'s `## Persistent Backlogs` table — if it has open rows, read each referenced file and surface open items before proceeding.
+1. Read `HANDOFF.md` first. It is the root current-state index.
+2. Reconcile live Git before trusting handoff prose:
+   - `git status -sb`
+   - `git branch --show-current`
+   - `git log -5 --oneline`
+3. If `HANDOFF.md` has `Needs Andy / Stop Conditions`, surface those before editing.
+4. If `HANDOFF.md` links a dated handoff for the current lane, read only that dated handoff.
+5. If `HANDOFF.md`, a dated handoff, memory, or live Git disagree, live Git wins; stop and report the mismatch.
 
 ### Resume Command Format (Gen-4 canonical)
 ```
-Resume Platinum Rose NFL. HEAD = {commit} ({branch}). Suite: {N/N}. {one-sentence state}. Next: {task}. Read HANDOFF_PROMPT.md for full context before touching any file.
+Resume Platinum Rose NFL. HEAD = {commit} ({branch}). Suite: {N/N}. {one-sentence state}. Next: {task}. Read HANDOFF.md, reconcile live Git, then read only the dated handoff for the active lane.
 ```
 - NEVER paste a resume command without HEAD commit + test count
 
-### Session Close (every session, in order)
-```bash
-git add -A
-git commit -m "S{N}: {description}"
-git push origin main
-# Then run /handoff to update HANDOFF_PROMPT.md
-```
-- Commit message format: `S{session number}: {what changed}`
-- **Persistent Backlogs:** Mark completed items `[x]` in each referenced backlog file; update Open Items count and Last Touched column in `HANDOFF.md`.
+### Session Close
+- Create or update a dated handoff in `handoffs/` for detailed session history.
+- Keep root `HANDOFF.md` short: current pickup, guardrails, open decisions, and links only.
+- Do not broad-stage. Stage narrow, reviewed file sets only.
+- Commit/push only when the current scope is ready, verified, and does not include unrelated dirty work.
 
 ### Git Rejected Push Recovery
 - **1–3 commits ahead, no agent conflicts**: `git push --force-with-lease origin main`
@@ -193,7 +183,7 @@ git push origin main
 ## Custom Commands
 
 ### /handoff
-Produce: (1) session summary with CRITICAL / IMPORTANT / Blockers labels + **Resume Command printed at the bottom**, (2) a self-contained context briefing block with all modified files, current state, next steps, and a Resume Command that points the next session to `HANDOFF_PROMPT.md` for details, and (3) overwrite `HANDOFF_PROMPT.md` with the context briefing.
+Produce: (1) a dated handoff in `handoffs/` with CRITICAL / IMPORTANT / Blockers labels and a resume command, and (2) a short update to root `HANDOFF.md` that links to the dated handoff. Do not overwrite `HANDOFF_PROMPT.md`; it is an archived-prompt pointer only.
 
 ---
 
@@ -343,24 +333,22 @@ If a previous session's fix is incomplete, **amend the original bug entry** — 
 - `docs/HANDOFF.md` — `/handoff` command output format; load on `/handoff`
 - `docs/ANTI_PATTERNS.md` — Categorized anti-patterns; load before touching dates, team names, storage keys
 - `AGENTS.md` — Agent routing guide + lock protocol; load when delegating work
-- `WORKING-CONTEXT.md` — Live operational state; load at session start
+- `HANDOFF.md` — Current root handoff index; load at session start
+- `WORKING-CONTEXT.md` — Compatibility pointer; load only if a tool/prompt still references it
 - `RULES.md` — Must-always / must-never rules; load for any code change
 
 <!-- BEGIN UNIFIED SESSION CONTEXT PROTOCOL -->
 ## Unified Session Context Protocol (Claude, Codex, Antigravity, VS Code Copilot)
 
 ### Session Start Protocol (Targeted Read)
-1. **Dynamic Session Counter**: Evaluate `global.total_sessions` from `.atlas/memory.json` or `HANDOFF.md §Pick Up Here`. Do not assume session numbers.
-2. **Targeted State Read**:
-   - Read `HANDOFF.md` §`Pick Up Here` (stop at historical archive).
-   - Read `HANDOFF.md` §`Persistent Backlogs` (if present).
-   - Read machine state (`.atlas/memory.json` or `.atlas-bridge/` state).
-3. **Git State Verification**: Run `git status --short` and `git log -n 5 --oneline` to note recent commits and uncommitted files.
-4. **Surface Brief**: Print compact summary (Last Commit, Active Task, Open Backlog Count) and confirm next steps with user.
+1. **Root State Read**: Read `HANDOFF.md`. Treat it as the current-state index, not a transcript.
+2. **Git State Verification**: Run `git status -sb`, `git branch --show-current`, and `git log -5 --oneline`.
+3. **Targeted Detail Read**: Read only the dated handoff(s) linked from `HANDOFF.md` for the active lane.
+4. **Surface Brief**: Print compact summary (branch/HEAD, dirty-state warning, active task, stop conditions) and confirm next steps when needed.
 
 ### Session Close Protocol (State Persistence)
-1. **Update Memory State**: Write updated domain/task state to `.atlas/memory.json` (including `last_session_platform` = `claude` | `codex` | `antigravity` | `copilot`).
-2. **Update Session Handoff**: Write a clean `(DONE)` summary block (≤ 30 lines) to `HANDOFF.md §Pick Up Here`.
+1. **Write Detail Handoff**: Put full session history in a dated `handoffs/` file.
+2. **Update Root Handoff**: Keep `HANDOFF.md` short: current pickup, guardrails, open decisions, and links.
 3. **Update Backlogs**: Reconcile open items in tracking backlog files.
-4. **Snapshot Audit**: Log immutable session log snapshot via `SessionLogger` (if supported).
+4. **Snapshot Audit**: Log immutable session state if the lane has a supported logger.
 <!-- END UNIFIED SESSION CONTEXT PROTOCOL -->
