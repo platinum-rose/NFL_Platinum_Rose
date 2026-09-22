@@ -61,9 +61,25 @@ trench/IDP ratings, alpha packet, and the live `get_betting_splits`/CLV tools in
 just `public/schedule.json`/`public/weekly_stats.json`. Use it as the standing methodology for the slot 1-2
 first-pass build.
 
+## 2-team round robin format — added 2026-09-21 (Week 2 post-mortem)
+
+Unit = **$10**. Every selection must come from a **different game**.
+
+| Format | Selections | Combos | Stake | Break-even (all legs at the typical price) | Where |
+|---|---|---|---|---|---|
+| **Prop RR** (T+A, passing TDs, legs you'd play as singles, −105 to −250) | **5** | 10 | $2 each = **$20 (2u)** | 3 of 5 at −110; 4 of 5 if legs average −150 | BEO (confirm prop RRs are allowed; BKR props are single-game only) |
+| **Dog ML RR** (slot 2) | **6** | 15 | $1.33 each = **$20 (2u)** | 3 of 6 at +200 average | BKR |
+
+- **Why 5 and 6.** A round robin doesn't change the expected value of its legs. It changes how many have to hit before you get paid. At about −110, 5 selections break even at 3 hits and every hit after that roughly doubles the return. 4 selections needs 3 of 4, 6 needs 4 of 6, and 8 needs 5 of 8, so 5 is the most forgiving size for chalk-priced legs. Plus-money dogs pay about 9x per pair, so a sixth selection is cheap insurance there.
+- **Only use legs you'd bet as singles.** Each pair is a 2-leg parlay, and it only makes money if the legs beat their prices. Season categories that have: tackles + assists (+22%), passing TDs (+14%), dog MLs (+21%).
+- **Optional "by 2s and 5s":** add $5 on the straight 5-leg parlay of the same selections. The RR pays with 3 hits, and the straight parlay covers the everything-hits case, where it pays far more.
+- **Week 2 proof of concept (hindsight):** the five T+A / passing-TD legs on the Sunday morning card (Lloyd 8+, Hill Jr. 8+, Love 2+ TD, Trotter 8+, Dak 2+ TD) went 5-for-5. As a Prop RR ($20) that returns **$61.48**. Adding every afternoon leg in the same two categories (8 selections, 6 hit) still returns $44.59 on $28.
+
 ## Prop stack rules (slot 7) — added 2026-09-19 after the Week 1 Sunday prop tickets
 - Build 7a–7e every week, split by kickoff window so each ticket's legs settle together; keep a night-game leg in the Hybrid and ATD tickets to keep them alive for live hedges.
-- No QB rushing or INT props in stacks (Week 1: Allen O30.5 rush, Shough O18.5 rush, Geno O0.5 INT all missed).
+- **Leg price barrier: −350** (Andy, 2026-09-21; replaces a −150 cap a Claude session had written in on 2026-09-20 without Andy setting it). Legs from −151 to −350 are available for stacks. Season data to keep in view: legs at −200 or shorter hit 69% vs 73% implied, and legs from −151 to −199 hit 43% vs 62%, so each heavy leg is a real bust risk for a small price bump. Flag the count when a stack carries more than two legs shorter than −200.
+- **QB rushing and INT props are allowed when the matchup fits** (Andy, 2026-09-21; replaces the 2026-09-19 blanket ban, which rested on three Week 1 misses). State the fit when proposing one: e.g. a mobile QB against a man-heavy or blitz-heavy defense, a QB expected to trail, a young QB against a high-pressure or ball-hawking secondary. Note BKR does not allow INT legs in same-game parlays.
+- **Grading:** a player missing from the final box score is graded as a loss (Andy, 2026-09-21).
 - No 70+/80+ receiving ladders in SNF combos (all missed in Week 1); use 40+/50+/60+.
 - Prefer legs with a streak/hit-rate source (4 straight vs this opponent, 90% L10) or a HIGH secondary-matchup tier over tight median lines.
 - Highest-margin reads also go out as singles (BETTING_LESSONS_LEARNED.md).
