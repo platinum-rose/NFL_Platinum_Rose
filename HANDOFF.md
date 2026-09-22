@@ -5,8 +5,8 @@
 > `handoffs/` and `handoffs/archive/`.
 
 **Last governance trim:** 2026-09-22 by Codex
-**Last verified HEAD:** `a0ad4b4 docs(agents): PM prompt roster routes weekly card work to WEEKLY_SYNTHESIS_SESSION`
-**Last verified branch:** `wip/yahoo-sync` (`origin/wip/yahoo-sync`, in sync)
+**Last verified HEAD:** `f95e460 docs(governance): align Claude session protocol with handoff index`
+**Last verified branch:** `wip/yahoo-sync` (`origin/wip/yahoo-sync`, ahead 1 before handoff doc edits)
 **Workspace state:** very dirty/shared; run `git status -sb` before trusting any
 handoff prose. A full copy of the pre-trim rolling handoff was archived at
 `handoffs/archive/2026-09-22-legacy-rolling-HANDOFF-before-governance-trim.md`.
@@ -14,21 +14,24 @@ handoff prose. A full copy of the pre-trim rolling handoff was archived at
 ## Current Pick Up Here
 
 Latest active handoff source:
-`handoffs/2026-09-22-0120-claude-week3-tuesday-setup-synthesis-prompt-handoff.md`
+`handoffs/2026-09-22-1110-codex-governance-weekly-synthesis-review-handoff.md`
 (it contains the resume prompt for the next session).
 
 Current state:
 
-1. Week 2 closed and reconciled. Every Week 2 ticket now has a ticket number in the local
+1. Governance/context cleanup is closed for now. `CLAUDE.md`, `AGENTS.md`, PM routing,
+   `HANDOFF.md`, `HANDOFF_PROMPT.md`, and `WORKING-CONTEXT.md` now align around the
+   short root handoff + dated handoff model.
+2. Week 2 closed and reconciled. Every Week 2 ticket now has a ticket number in the local
    wagers JSON; the $10 IND@KC 6-leg SGP was corrected to BetOnline. The Supabase sync of
    those changes is **pending Andy's OK**.
-2. Weekly card/prop/futures sessions now start from
+3. Weekly card/prop/futures sessions now start from
    `agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md` (AGENTS.md #16). The old
    `WEEKLY_BETTING_ANALYST_PROMPT.md` is reference-only. Run
    `node scripts/weekly-synthesis-preflight.mjs` first.
-3. Next: Week 3 intel gathering in TUE-WED mode. 10 of 21 local inputs were stale at
+4. Next: Week 3 intel gathering in TUE-WED mode. 10 of 21 local inputs were stale at
    01:00 PT Tue, and podcasts are blocked on the AssemblyAI balance.
-4. Active rules: leg barrier `-350` (flag >2 legs shorter than -200); QB rushing/INT props
+5. Active rules: leg barrier `-350` (flag >2 legs shorter than -200); QB rushing/INT props
    need a stated matchup fit; a player missing from the final box score = lost leg; 2-team
    RRs on Bookmaker; BKR props same-game only.
 
@@ -65,6 +68,8 @@ Current state:
 
 ## Detailed Handoffs
 
+- Codex governance + weekly synthesis review closeout:
+  `handoffs/2026-09-22-1110-codex-governance-weekly-synthesis-review-handoff.md`
 - Week 3 Tuesday setup + synthesis prompt (latest):
   `handoffs/2026-09-22-0120-claude-week3-tuesday-setup-synthesis-prompt-handoff.md`
 - Latest Week 2 close-out:
