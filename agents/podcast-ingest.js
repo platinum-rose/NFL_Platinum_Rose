@@ -830,7 +830,7 @@ async function run() {
               speakerSegments = result.utterances;
             } catch (err) {
               if (ASSEMBLYAI_KEY) {
-                console.warn(`    ⚠ Gemini diarization failed (${err.message}) — falling back to AssemblyAI`);
+                console.warn(`    ⚠ Gemini diarization failed (${err.message}${err.cause ? `, cause: ${err.cause}` : ''}) — falling back to AssemblyAI`);
                 modelUsed = 'assemblyai-diarized';
                 const result = await transcribeWithAssemblyAI(ep.audio_url, { diarize: true });
                 transcript = result.text;

@@ -202,29 +202,50 @@ export async function transcribeWithGeminiAudio(audioUrl, { apiKey, model, displ
     const active = await waitForFileActive(uploaded.name, key);
 
     console.log(`    🧠 Requesting diarized transcript (this can take a few minutes for long episodes)...`);
-    const genRes = await fetch(`${GEMINI_BASE}/v1beta/models/${useModel}:generateContent?key=${key}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{
-          role: 'user',
-          parts: [
-            { fileData: { mimeType: active.mimeType ?? mimeType, fileUri: active.uri } },
-            { text: DIARIZATION_PROMPT },
-          ],
-        }],
-        generationConfig: {
-          temperature: 0.1,
-          maxOutputTokens: 65536,
-          responseMimeType: 'application/json',
-          responseSchema: RESPONSE_SCHEMA,
-        },
-      }),
-      // Long episodes -> long generation. Diarizing a 90-min show can take
-      // several minutes; give it real room rather than the 60s ceiling used
-      // for text-only extraction calls elsewhere in this codebase.
-      signal: AbortSignal.timeout(600_000),
-    });
+
+    // The generateContent call is the longest-running, most network-exposed
+    // leg of this pipeline (a 90-min diarization request can run for several
+    // minutes), so it is the leg most likely to hit a transient connection
+    // drop (socket reset, DNS blip, TLS hiccup) rather than an actual API
+    // error. Node's fetch() collapses all of those into a bare
+    // "TypeError: fetch failed" with the real reason in err.cause, so one
+    // retry here is cheap insurance against a one-off network fault —
+    // especially important right now since AssemblyAI (the fallback for this
+    // whole module) is balance-blocked and offers no safety net of its own.
+    const GENERATION_ATTEMPTS = 2;
+    let genRes;
+    for (let attempt = 1; attempt <= GENERATION_ATTEMPTS; attempt++) {
+      try {
+        genRes = await fetch(`${GEMINI_BASE}/v1beta/models/${useModel}:generateContent?key=${key}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{
+              role: 'user',
+              parts: [
+                { fileData: { mimeType: active.mimeType ?? mimeType, fileUri: active.uri } },
+                { text: DIARIZATION_PROMPT },
+              ],
+            }],
+            generationConfig: {
+              temperature: 0.1,
+              maxOutputTokens: 65536,
+              responseMimeType: 'application/json',
+              responseSchema: RESPONSE_SCHEMA,
+            },
+          }),
+          // Long episodes -> long generation. Diarizing a 90-min show can take
+          // several minutes; give it real room rather than the 60s ceiling used
+          // for text-only extraction calls elsewhere in this codebase.
+          signal: AbortSignal.timeout(600_000),
+        });
+        break;
+      } catch (err) {
+        if (attempt >= GENERATION_ATTEMPTS) throw err;
+        console.warn(`    ⚠ Gemini generateContent network error (${err.message}${err.cause ? `, cause: ${err.cause}` : ''}) — retrying (${attempt}/${GENERATION_ATTEMPTS - 1})...`);
+        await new Promise((r) => setTimeout(r, 5000));
+      }
+    }
 
     if (!genRes.ok) {
       const err = await genRes.text();
