@@ -6,6 +6,28 @@ are actually free to use on a new ticket.
 Lived in `~/pp/` on the device VM through Week 2 and was wiped when the VM recycled
 its scratch space — hence living in the repo now.
 
+## Live capture (agent-assisted)
+
+Board dumps (below) are pasted text. `betonline-live-parser.mjs` and its Bookmaker
+counterpart instead parse a live, rendered sportsbook page -- no copy/paste. Because
+both books are real-money accounts with no public API, capture stays human/agent-driven
+on purpose: a Toolbox button ("Open BetOnline NFL Props" / "Open Bookmaker.eu NFL Lines")
+opens the matchup in your own logged-in browser, then you ask Claude or Codex to read the
+rendered page and run the parser against it.
+
+```bash
+# BetOnline: parser + CLI already committed
+node scripts/props/betonline-live-parser.mjs --in <raw-capture.json> --out data/generated/props/betonline-live-<date>-<game>.json
+
+# Bookmaker: parser not yet committed as reusable CLI (2026-09-21) -- an agent runs the
+# capture inline for now. Once a committed bookmaker-live-parser.mjs lands, mirror the
+# --in/--out convention above.
+```
+
+Output convention: `data/generated/props/<book>-live-<YYYY-MM-DD>-<away>-at-<home>.json`
+(gitignored, same as `beo.json`/`props.json` below) -- not `scratch/`, so it's discoverable
+the same way as the pasted-board pipeline.
+
 ## Pipeline
 
 ```bash
