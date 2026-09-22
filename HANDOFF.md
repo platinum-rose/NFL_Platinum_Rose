@@ -4,18 +4,18 @@
 > current-state index, not a rolling archive. Historical detail belongs in
 > `handoffs/` and `handoffs/archive/`.
 
-**Last governance trim:** 2026-09-22 by Codex
-**Last verified HEAD:** `f95e460 docs(governance): align Claude session protocol with handoff index`
-**Last verified branch:** `wip/yahoo-sync` (`origin/wip/yahoo-sync`, ahead 1 before handoff doc edits)
+**Last governance trim:** 2026-09-22 by Antigravity & Codex
+**Last verified HEAD:** `85f70be docs(handoff): record Codex governance closeout`
+**Last verified branch:** `wip/yahoo-sync` (`origin/wip/yahoo-sync`, ahead 2 before handoff edits)
 **Workspace state:** very dirty/shared; run `git status -sb` before trusting any
 handoff prose. A full copy of the pre-trim rolling handoff was archived at
 `handoffs/archive/2026-09-22-legacy-rolling-HANDOFF-before-governance-trim.md`.
 
 ## Current Pick Up Here
 
-Latest active handoff source:
-`handoffs/2026-09-22-1110-codex-governance-weekly-synthesis-review-handoff.md`
-(it contains the resume prompt for the next session).
+Latest active handoff sources:
+- `handoffs/2026-09-22-1130-antigravity-scheduled-tasks-and-grok-scanner-handoff.md` (Antigravity automation & scheduled tasks closeout)
+- `handoffs/2026-09-22-1110-codex-governance-weekly-synthesis-review-handoff.md` (Codex governance review)
 
 Current state:
 
@@ -34,6 +34,9 @@ Current state:
 5. Active rules: leg barrier `-350` (flag >2 legs shorter than -200); QB rushing/INT props
    need a stated matchup fit; a player missing from the final box score = lost leg; 2-team
    RRs on Bookmaker; BKR props same-game only.
+6. Automation: Grok Thread Scanner & Windows Scheduled Tasks suite (13 tasks) are active
+   in hidden mode. Week 3 rollover active; grok thread prompt generated in
+   `data/research-intel/grok-thread-prompt-latest.md`.
 
 ## Needs Andy / Stop Conditions
 
@@ -68,6 +71,8 @@ Current state:
 
 ## Detailed Handoffs
 
+- Antigravity scheduled tasks + Grok scanner closeout:
+  `handoffs/2026-09-22-1130-antigravity-scheduled-tasks-and-grok-scanner-handoff.md`
 - Codex governance + weekly synthesis review closeout:
   `handoffs/2026-09-22-1110-codex-governance-weekly-synthesis-review-handoff.md`
 - Week 3 Tuesday setup + synthesis prompt (latest):
