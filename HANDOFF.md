@@ -30,7 +30,15 @@ Current state:
    `WEEKLY_BETTING_ANALYST_PROMPT.md` is reference-only. Run
    `node scripts/weekly-synthesis-preflight.mjs` first.
 4. Next: Week 3 intel gathering in TUE-WED mode. 10 of 21 local inputs were stale at
-   01:00 PT Tue, and podcasts are blocked on the AssemblyAI balance.
+   01:00 PT Tue. Podcasts were blocked on the AssemblyAI balance for the 5 diarized
+   (multi-host) shows — fixed 2026-09-22, see item 7.
+7. Diarized-show podcast transcription now defaults to Gemini (native diarization),
+   falling back to AssemblyAI only if Gemini fails or its key is unset. Before this,
+   diarized shows were AssemblyAI-only with no fallback at all, which is why every
+   Week 3 episode for those 5 shows was erroring. Verified end-to-end on a real
+   episode (71 diarized turns, 14 picks extracted). Single-host shows are unaffected
+   (still free Groq). See
+   `handoffs/2026-09-22-1900-claude-gemini-podcast-diarization-fix-handoff.md`.
 5. Active rules: leg barrier `-350` (flag >2 legs shorter than -200); QB rushing/INT props
    need a stated matchup fit; a player missing from the final box score = lost leg; 2-team
    RRs on Bookmaker; BKR props same-game only.
@@ -44,7 +52,8 @@ Current state:
   reviewed next; see
   `handoffs/2026-09-21-1810-claude-codex-request-bookmaker-live-parser-cli.md`.
 - Approve (or not) the Supabase sync: 19 Week 2 ticket numbers + 1 book fix.
-- Top up AssemblyAI (podcast ingest is failing on a negative balance).
+- Top up AssemblyAI when convenient — no longer blocking (diarized shows default to
+  Gemini now), but AssemblyAI is still the fallback if Gemini ever fails.
 - Bills-win free-bet credit lands Wed 9/23 by 7pm ET. Choose the play.
 - Retry eslint on `scripts/generate-live-tracker.mjs` when the device bridge is
   reliable.
@@ -71,6 +80,8 @@ Current state:
 
 ## Detailed Handoffs
 
+- Gemini podcast diarization fix (latest):
+  `handoffs/2026-09-22-1900-claude-gemini-podcast-diarization-fix-handoff.md`
 - Antigravity scheduled tasks + Grok scanner closeout:
   `handoffs/2026-09-22-1130-antigravity-scheduled-tasks-and-grok-scanner-handoff.md`
 - Codex governance + weekly synthesis review closeout:
