@@ -56,7 +56,8 @@ Your agent team (prompts in agents/dev/):
   UX_EXPERT_PROMPT.md              — UI/UX analysis, design system, deprecation
   ANALYST_PROMPT.md                — Betting model analysis, strategy R&D (docs only, no code)
   INTEL_AGENT_PROMPT.md            — Intel collection, injury assessment, matchup analysis (docs only, no code)
-  WEEKLY_BETTING_ANALYST_PROMPT.md — NFL Sunday slate analysis, best bets, teasers, parlays (docs only, no code)
+  WEEKLY_SYNTHESIS_SESSION_PROMPT.md — weekly card (RRs, sides/totals, prop stacks) + futures review, phase-gated (docs only, no code)
+  WEEKLY_BETTING_ANALYST_PROMPT.md — REFERENCE-ONLY background; do not route weekly card work here
   MOBILE_DEV_PROMPT.md             — Desktop-to-mobile responsive conversion
   DEVOPS_PROMPT.md                 — Data freshness, agent health, bundle monitoring, pipeline ops
   SESSION_STARTER_PROMPT.md        — Startup checklist: git state, build, servers (read-only)
