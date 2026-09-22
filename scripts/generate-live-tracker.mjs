@@ -108,8 +108,15 @@ async function loadConcludedGameStats(schedule = [], week = 1) {
   const concludedGames = weekGames.filter(g => g.status === 'post' || g.status === 'final');
 
   const eventIds = new Set(concludedGames.map(g => g.id || g.game_id).filter(Boolean));
-  eventIds.add('401872656');
-  eventIds.add('401872657');
+  // REMOVED 2026-09-21: these were two hardcoded WEEK 1 event ids
+  //   401872656 = SEA 13 @ NE 10  (wk1)
+  //   401872657 = LAR  7 @ SF 27  (wk1)
+  // Because the stat merge below OVERWRITES rather than accumulates, and a live
+  // game's boxscore only contains athletes who have already recorded a stat, any
+  // player without a touch yet tonight kept his WEEK 1 line in athleteStatsMap.
+  // Live effect: Kyren Williams showed 11 car / 41 rush yds and Stafford showed
+  // 15/25 for 155 while the real game was 0-0. Never seed the map with event ids
+  // from a different week than the one being rendered.
 
   try {
     const sbRes = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard');
@@ -1618,7 +1625,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
                       <span style="font-size:0.68rem; color:var(--text-muted);">${leg.price || ''}</span>
                       ${isOpenSlot ? '' : `<button class="btn-leg-burn" id="btn-burn-leg-${legKey}" onclick="toggleLegBurn('${legKey}', '${bet.id}', event)" title="Mark Leg Burnt / Missed">🔥</button>`}
                       ${isOpenSlot ? '' : `<button class="btn-leg-push" id="btn-push-leg-${legKey}" onclick="toggleLegPush('${legKey}', '${bet.id}', event)" title="Mark Leg Push (won't count toward the parlay)">⚖️</button>`}
-                      ${isOpenSlot ? '' : `<button class="btn-leg-out" id="btn-out-leg-${legKey}" onclick="toggleLegOut('${legKey}', '${bet.id}', event)" title="Mark Player Out / Inactive (left the game)">🚑</button>`}
+                      ${(isOpenSlot || !isPropLeg) ? '' : `<button class="btn-leg-out" id="btn-out-leg-${legKey}" onclick="toggleLegOut('${legKey}', '${bet.id}', event)" title="Mark Player Out / Inactive (left the game)">🚑</button>`}
                     </div>
                   </div>
                   ${isPropLeg ? `
@@ -3486,6 +3493,10 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             <input type="checkbox" id="chk-hide-fulfilled-legs" onchange="toggleHideFulfilledLegs(this.checked)">
             <span>⚡ Minimize Hit &amp; Burnt Legs</span>
           </label>
+          <label class="filter-toggle-label" style="color:#C4B5FD; border-color:rgba(139,92,246,0.4);">
+            <input type="checkbox" id="chk-hide-injured-legs" onchange="toggleHideInjuredLegs(this.checked)">
+            <span>🚑 Hide Injured Legs</span>
+          </label>
           <button class="filter-btn" id="btn-clear-settled" onclick="toggleClearSettled()" style="color:#FCA5A5; border-color:rgba(239,68,68,0.4);" title="Clear settled / concluded slips from the active board (preserved in History)">
             🧹 Clear Settled
           </button>
@@ -4526,6 +4537,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     const CUSTOM_SLIPS_KEY = 'sunday_custom_slips_week_${week}';
     const ACTIVE_TAB_KEY = 'sunday_active_tab_week_${week}';
     const HIDE_FULFILLED_LEGS_KEY = 'sunday_hide_fulfilled_legs_week_${week}';
+    const HIDE_INJURED_LEGS_KEY = 'sunday_hide_injured_legs_week_${week}';
     const CARD_MIN_LEGS_KEY = 'sunday_card_min_legs_week_${week}';
     const SC_PICKS_KEY = 'sunday_supercontest_picks_week_${week}';
     const SC_LOCKED_CARD_KEY = 'sunday_supercontest_locked_card_week_${week}';
@@ -4548,6 +4560,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     let isBoardCleared = false;
     let activeTab = 'tickets';
     let hideFulfilledLegs = false;
+    let hideInjuredLegs = false;
     let cardMinLegsState = {};
     let scPicks = {};
     let scCardCollapsedState = {};
@@ -4623,6 +4636,10 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       hideFulfilledLegs = readJsonKey(HIDE_FULFILLED_LEGS_KEY, false);
       const chkFulfilledLegs = document.getElementById('chk-hide-fulfilled-legs');
       if (chkFulfilledLegs) chkFulfilledLegs.checked = !!hideFulfilledLegs;
+
+      hideInjuredLegs = readJsonKey(HIDE_INJURED_LEGS_KEY, false);
+      const chkInjuredLegs = document.getElementById('chk-hide-injured-legs');
+      if (chkInjuredLegs) chkInjuredLegs.checked = !!hideInjuredLegs;
 
       cardMinLegsState = readJsonKey(CARD_MIN_LEGS_KEY, {});
       scPicks = readJsonKey(SC_PICKS_KEY, {});
@@ -4862,26 +4879,16 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
           if (!confirm('This leg is graded as a PUSH. Mark it Out/Inactive anyway? (This clears its Push status.)')) return;
         }
       }
+      // (Andy, 2026-09-22) 🚑 Out is now purely informational -- it no longer also
+      // marks the leg Burnt. The leg keeps tracking its real live stat progress (so you
+      // can still watch how close the parlay gets) right up until the game actually ends;
+      // mark it 🔥 Burnt yourself once it's officially failed, or let the normal
+      // final-stat grading call it. Un-toggling Out here does NOT touch burntLegsState --
+      // if the leg was separately marked Burnt (e.g. via 🔥), that status is untouched.
       if (isCurrentlyOut) {
         delete outLegsState[legKey];
-        delete burntLegsState[legKey];
-        saveLegBurns();
       } else {
         outLegsState[legKey] = true;
-        burntLegsState[legKey] = true;
-        if (checkedState[legKey]) {
-          delete checkedState[legKey];
-          saveState();
-        }
-        if (pushedLegsState[legKey]) {
-          delete pushedLegsState[legKey];
-          savePushedLegs();
-        }
-        saveLegBurns();
-        if (ticketId && cardMinLegsState[ticketId] === undefined) {
-          cardMinLegsState[ticketId] = true;
-          try { localStorage.setItem(CARD_MIN_LEGS_KEY, JSON.stringify(cardMinLegsState)); } catch (e) {}
-        }
       }
       saveLegOut();
       render();
@@ -6104,8 +6111,8 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
           if (isHit) propsHit++;
 
           item.classList.toggle('sg-hit', isHit);
-          item.classList.toggle('sg-burnt', isLegBurnt && !isLegOut);
-          item.classList.toggle('sg-out', isLegBurnt && isLegOut);
+          item.classList.toggle('sg-burnt', isLegBurnt);
+          item.classList.toggle('sg-out', isLegOut && !isLegBurnt);
 
           const pct = Math.min(100, Math.max(0, isLegBurnt ? 0 : (isLegChecked ? 100 : (target > 0 ? (currentVal / target) * 100 : 0))));
           totalPct += pct;
@@ -6114,12 +6121,12 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
           const pbarEl = document.getElementById('pbar-' + pKey);
 
           if (pstatEl) {
-            if (isLegBurnt && isLegOut) {
-              pstatEl.innerHTML = currentVal + ' / ' + target + ' <span style="color:#8B5CF6;">🚑 Out</span>';
-            } else if (isLegBurnt) {
+            if (isLegBurnt) {
               pstatEl.innerHTML = currentVal + ' / ' + target + ' <span style="color:#EF4444;">🔥 Burnt</span>';
             } else if (isHit) {
               pstatEl.innerHTML = currentVal + ' / ' + target + ' <span style="color:#10B981;">✅</span>';
+            } else if (isLegOut) {
+              pstatEl.innerHTML = currentVal + ' / ' + target + ' <span style="color:#8B5CF6;">🚑 Out</span>';
             } else if (isFinal) {
               pstatEl.innerHTML = currentVal + ' / ' + target + ' <span style="color:#EF4444;">❌ Final</span>';
             } else {
@@ -7069,6 +7076,11 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         const isMissed = el.classList.contains('leg-missed');
         const isPushed = !!pushedLegsState[legKey] || el.classList.contains('leg-pushed');
 
+        // 🚑 Out is independent of Burnt now (Andy, 2026-09-22) -- keep the purple
+        // "out" tint synced regardless of which pace branch below ends up firing, so an
+        // injured-but-not-yet-burnt leg still tracks its real live pace/progress.
+        el.classList.toggle('leg-out', isOut);
+
         if (isPushed) {
           el.classList.remove('pace-green', 'pace-red', 'pace-yellow', 'pace-pre');
           el.classList.add('pace-push');
@@ -7734,6 +7746,15 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     }
     window.toggleHideFulfilledLegs = toggleHideFulfilledLegs;
 
+    function toggleHideInjuredLegs(checked) {
+      hideInjuredLegs = checked;
+      try {
+        localStorage.setItem(HIDE_INJURED_LEGS_KEY, JSON.stringify(hideInjuredLegs));
+      } catch (e) {}
+      applyHideFulfilledLegs();
+    }
+    window.toggleHideInjuredLegs = toggleHideInjuredLegs;
+
     function toggleCardFulfilledLegs(ticketId) {
       const currentlyMin = cardMinLegsState[ticketId] !== undefined ? cardMinLegsState[ticketId] : hideFulfilledLegs;
       cardMinLegsState[ticketId] = !currentlyMin;
@@ -7802,7 +7823,13 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             if (!el) return;
             const isWon = checkedState[lKey] || (config.legsWon && config.legsWon.includes(lKey));
             const isBurnt = !!burntLegsState[lKey];
-            if (isMin && (isWon || isBurnt)) {
+            // Injured/Out is its own independent filter (chk-hide-injured-legs) --
+            // deliberately OR'd in alongside the Hit/Burnt minimize toggle so either
+            // one can hide an out leg regardless of the other's state (an out leg is
+            // always also burnt, so leaving this out of the OR would make the two
+            // toggles impossible to disentangle).
+            const isOut = !!outLegsState[lKey];
+            if ((isMin && (isWon || isBurnt)) || (hideInjuredLegs && isOut)) {
               el.style.setProperty('display', 'none', 'important');
             } else {
               el.style.removeProperty('display');
@@ -8707,6 +8734,12 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
 
         const ticketLegs = config.legs || [];
         const burntLegsInTicket = ticketLegs.filter(lKey => !!burntLegsState[lKey]);
+        // Legs burnt specifically because they're flagged 🚑 Out (injured/inactive) are
+        // guaranteed-dead for that leg's own math, but (Andy, 2026-09-22) an injury alone
+        // should NOT auto-eliminate the whole ticket to the Burnt/Eliminated section the way
+        // a manually-burnt or genuinely-missed leg does -- only count non-injury burnt legs
+        // toward busting the entire standard parlay/SGP ticket below.
+        const nonInjuryBurntLegsInTicket = burntLegsInTicket.filter(lKey => !outLegsState[lKey]);
         const hitLegsInTicket = ticketLegs.filter(lKey => !!checkedState[lKey] || (config.legsWon && config.legsWon.includes(lKey)));
         const pushedLegsInTicket = ticketLegs.filter(lKey => !!pushedLegsState[lKey] || (config.legsPushed && config.legsPushed.includes(lKey)));
         // A pushed leg is removed from the parlay entirely (neither a hit nor a bust
@@ -8767,8 +8800,10 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             cardPotential = rrLivePotential;
           }
         } else {
-          // Standard single or parlay wager: any burnt leg busts the ticket
-          if (burntLegsInTicket.length > 0) {
+          // Standard single or parlay wager: a non-injury burnt leg busts the ticket.
+          // An Out-only leg (🚑) stays dead on its own but no longer forces the whole
+          // ticket into the Burnt/Eliminated section -- see nonInjuryBurntLegsInTicket above.
+          if (nonInjuryBurntLegsInTicket.length > 0) {
             isBurnt = true;
             cardPotential = 0;
           }
@@ -8924,12 +8959,16 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             completedLegs++;
             if (el) {
               el.classList.add('checked');
-              el.classList.remove('leg-burnt');
+              el.classList.remove('leg-burnt', 'leg-out');
               const icon = el.querySelector('.leg-icon');
               if (icon) icon.textContent = '✅';
             }
             if (btnBurnLeg) {
               btnBurnLeg.classList.remove('active');
+            }
+            const btnOutLegHit = document.getElementById('btn-out-leg-' + lKey) || document.getElementById('pbtn-out-leg-' + lKey);
+            if (btnOutLegHit) {
+              btnOutLegHit.classList.remove('active');
             }
             if (cardBar) {
               cardBar.style.width = '100%';
@@ -8939,15 +8978,40 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
               const target = el?.getAttribute('data-target') || '1';
               cardStat.innerHTML = target + ' / ' + target + ' <span style="color:#10B981;">✅</span>';
             }
+          } else if (isLegOut) {
+            // 🚑 Out is purely informational now (Andy, 2026-09-22): it no longer implies
+            // Burnt, so this branch fires for a leg that's flagged Out but hasn't hit or
+            // been manually burnt yet. Leave cardStat/cardBar/paceBadge alone here -- the
+            // periodic live-stat refresh and the Player Cheat Sheet renderer populate those
+            // from real athleteLiveStatsMap data independently of this render() pass, so the
+            // leg keeps tracking its real live pace/progress right up until it's actually
+            // marked Burnt or the game ends.
+            if (el) {
+              el.classList.remove('checked', 'leg-burnt');
+              el.classList.add('leg-out');
+              const icon = el.querySelector('.leg-icon');
+              if (icon) icon.textContent = '🚑';
+            }
+            if (btnBurnLeg) {
+              btnBurnLeg.classList.remove('active');
+            }
+            const btnOutLegOnly = document.getElementById('btn-out-leg-' + lKey) || document.getElementById('pbtn-out-leg-' + lKey);
+            if (btnOutLegOnly) {
+              btnOutLegOnly.classList.add('active');
+            }
           } else {
             if (el) {
               el.classList.remove('checked');
-              el.classList.remove('leg-burnt');
+              el.classList.remove('leg-burnt', 'leg-out');
               const icon = el.querySelector('.leg-icon');
               if (icon) icon.textContent = '⚪';
             }
             if (btnBurnLeg) {
               btnBurnLeg.classList.remove('active');
+            }
+            const btnOutLegReset = document.getElementById('btn-out-leg-' + lKey) || document.getElementById('pbtn-out-leg-' + lKey);
+            if (btnOutLegReset) {
+              btnOutLegReset.classList.remove('active');
             }
           }
         });
