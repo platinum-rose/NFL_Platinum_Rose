@@ -5,7 +5,7 @@
 > `handoffs/` and `handoffs/archive/`.
 
 **Last governance trim:** 2026-09-22 by Codex
-**Last verified HEAD:** `e02482e fix(bankroll): use recorded settled profit for partial round-robin wins`
+**Last verified HEAD:** `a0ad4b4 docs(agents): PM prompt roster routes weekly card work to WEEKLY_SYNTHESIS_SESSION`
 **Last verified branch:** `wip/yahoo-sync` (`origin/wip/yahoo-sync`, in sync)
 **Workspace state:** very dirty/shared; run `git status -sb` before trusting any
 handoff prose. A full copy of the pre-trim rolling handoff was archived at
@@ -14,42 +14,35 @@ handoff prose. A full copy of the pre-trim rolling handoff was archived at
 ## Current Pick Up Here
 
 Latest active handoff source:
-`handoffs/2026-09-21-2310-claude-week2-closeout-handoff.md` (Week 2 fully
-settled and reconciled across wagers JSON, futures ledger, Supabase and git;
-Week 3 tracker built; rule corrections: -350 leg barrier, QB rush/INT on
-matchup fit, missing-from-box-score = loss). Earlier context:
-`handoffs/2026-09-22-0240-claude-to-claude-full-project-handoff.md`
+`handoffs/2026-09-22-0120-claude-week3-tuesday-setup-synthesis-prompt-handoff.md`
+(it contains the resume prompt for the next session).
 
-Active Week 2 / MNF state from the trimmed rolling handoff:
+Current state:
 
-1. Live tracker Week 1 stat leak was fixed and verified in
-   `scripts/generate-live-tracker.mjs`.
-2. BetOnline stop-label parsing was fixed and covered by
-   `tests/unit/betonlineLiveParser.test.js`.
-3. Bookmaker live-capture regressions were patched via
-   `scripts/props/bookmaker-live-normalize.mjs` and
-   `tests/unit/bookmakerLiveNormalize.test.js`; this is a stopgap until a real
-   reusable Bookmaker parser exists.
-4. The live tracker now treats injured-player `Out` as informational and
-   separate from `Burnt`; do not re-couple those states.
-5. Six MNF NYG @ LAR tickets were logged in
-   `data/official-picks/user-placed-wagers-2026.json`; grading was pending in
-   the old handoff because the game was still live.
-6. Nine WAS @ DAL player-prop legs were graded at leg level only; ticket-level
-   settlement was intentionally left untouched.
-7. A larger Week 2 Sunday backlog remains: the old handoff found 131 pending
-   legs from final Sunday games. Do not bulk-grade or settle silently.
-8. The requested "Graveyard" list of proposed-but-unused prop legs was searched
-   for and not found anywhere in the repo.
+1. Week 2 closed and reconciled. Every Week 2 ticket now has a ticket number in the local
+   wagers JSON; the $10 IND@KC 6-leg SGP was corrected to BetOnline. The Supabase sync of
+   those changes is **pending Andy's OK**.
+2. Weekly card/prop/futures sessions now start from
+   `agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md` (AGENTS.md #16). The old
+   `WEEKLY_BETTING_ANALYST_PROMPT.md` is reference-only. Run
+   `node scripts/weekly-synthesis-preflight.mjs` first.
+3. Next: Week 3 intel gathering in TUE-WED mode. 10 of 21 local inputs were stale at
+   01:00 PT Tue, and podcasts are blocked on the AssemblyAI balance.
+4. Active rules: leg barrier `-350` (flag >2 legs shorter than -200); QB rushing/INT props
+   need a stated matchup fit; a player missing from the final box score = lost leg; 2-team
+   RRs on Bookmaker; BKR props same-game only.
 
 ## Needs Andy / Stop Conditions
 
-- Ask how to handle the 131-leg Week 2 Sunday grading backlog before changing
-  real wager settlement state.
-- Ask what Andy means by the "Graveyard" list before creating a replacement.
 - Confirm whether a reusable `bookmaker-live-parser.mjs` CLI should be built or
   reviewed next; see
   `handoffs/2026-09-21-1810-claude-codex-request-bookmaker-live-parser-cli.md`.
+- Approve (or not) the Supabase sync: 19 Week 2 ticket numbers + 1 book fix.
+- Top up AssemblyAI (podcast ingest is failing on a negative balance).
+- Bills-win free-bet credit lands Wed 9/23 by 7pm ET. Choose the play.
+- Retry eslint on `scripts/generate-live-tracker.mjs` when the device bridge is
+  reliable.
+- Paper AI Master RR remains pending in `paper-wagers-2026.json`.
 - Any Supabase write, paid synthesis, betting/account mutation, official-pick
   promotion, or real wager settlement requires explicit current scope.
 - If live Git status contradicts this file, live Git wins and the mismatch
@@ -72,6 +65,10 @@ Active Week 2 / MNF state from the trimmed rolling handoff:
 
 ## Detailed Handoffs
 
+- Week 3 Tuesday setup + synthesis prompt (latest):
+  `handoffs/2026-09-22-0120-claude-week3-tuesday-setup-synthesis-prompt-handoff.md`
+- Latest Week 2 close-out:
+  `handoffs/2026-09-21-2310-claude-week2-closeout-handoff.md`
 - Full current orientation:
   `handoffs/2026-09-22-0240-claude-to-claude-full-project-handoff.md`
 - Bookmaker parser request:
