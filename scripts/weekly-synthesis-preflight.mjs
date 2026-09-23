@@ -68,8 +68,8 @@ const SOURCES = [
     return { note: `${n} board file(s)`, fail: n === 0 };
   }],
   ['Futures ledger', 'data/futures-imports/andy-portfolio-ledger-2026.json', 168],
-  ['BEO futures board (import)', () => `data/futures-imports/${newest('data/futures-imports', /^betonline-2026-\d\d-\d\d\.json$/)}`, 168],
-  ['BKR futures board (import)', () => `data/futures-imports/${newest('data/futures-imports', /^bookmaker-2026-\d\d-\d\d\.json$/)}`, 168],
+  ['BEO futures board (import)', () => `data/futures-imports/${newest('data/futures-imports', /^betonline-2026-\d\d-\d\d(-.*)?\.json$/)}`, 168],
+  ['BKR futures board (import)', () => `data/futures-imports/${newest('data/futures-imports', /^bookmaker-2026-\d\d-\d\d(-.*)?\.json$/)}`, 168],
   ['Promotions', 'data/sportsbooks/promotions-2026.json', 168],
 ];
 
