@@ -81,7 +81,8 @@ export const DELIVERABLES_CONFIG = {
     subtasks: [
       { key: 'wednesday-sweep', name: 'YouTube / Podcast Sweep', desc: 'M6 diarization lookback' },
       { key: 'wednesday-articles', name: 'Research Intel Ingest', desc: 'Beat writer & analyst articles' },
-      { key: 'wednesday-bookmarks', name: 'Twitter / X Bookmarks', desc: 'Dossier sharp notes' }
+      { key: 'wednesday-bookmarks', name: 'Twitter / X Bookmarks', desc: 'Dossier sharp notes' },
+      { key: 'wednesday-pm-refresh', name: 'PM Refresh (after practice reports)', desc: 'Availability, starters, prediction markets + coherence, Alpha packet' }
     ]
   },
   thursday: {
@@ -816,6 +817,10 @@ export function runTask(taskKey) {
       cmd = 'node';
       args = ['agents/research-intel-ingest.js', '--dry-run'];
       break;
+    case 'wednesday-pm-refresh':
+      cmd = 'node';
+      args = ['scripts/toolbox.mjs', '--cadence', 'wednesday-pm'];
+      break;
     case 'wednesday-bookmarks':
       cmd = 'node';
       args = ['agents/twitter-bookmarks-agent.js', '--dry-run'];
@@ -862,7 +867,8 @@ export function runTask(taskKey) {
       break;
     case 'compile-sunday':
       cmd = 'node';
-      args = ['scripts/generate-live-tracker.mjs', '--week', '1'];
+      // 2026-09-23: no --week -> generate-live-tracker uses the current NFL week.
+      args = ['scripts/generate-live-tracker.mjs'];
       break;
 
     // ── RECONCILIATION & SYNC ──
@@ -894,7 +900,8 @@ export function runTask(taskKey) {
       break;
     case 'prediction-markets-refresh':
       cmd = 'node';
-      args = ['scripts/build-prediction-markets.js'];
+      // 2026-09-23: run the full chain (markets -> map -> coherence), not just step 1.
+      args = ['scripts/toolbox.mjs', '--cadence', 'prediction-markets'];
       break;
 
     // ── DIAGNOSTICS & SYSTEM HEALTH ──

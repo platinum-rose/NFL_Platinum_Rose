@@ -179,6 +179,30 @@ async function runCadence(day) {
       await run('node', ['agents/twitter-bookmarks-agent.js', '--dry-run']);
       break;
 
+    case 'wednesday-pm':
+      // 2026-09-23: Wednesday-afternoon refresh for a preliminary weekly synthesis.
+      // Run after the first official practice reports post (~1-2 PM PT).
+      console.log(`${c.cyan}1. Building Live Player Availability & Practice Injuries...${c.reset}`);
+      await run('node', ['scripts/build-player-availability.js', '--live-injuries']);
+      console.log(`${c.cyan}2. Rebuilding Projected Starters...${c.reset}`);
+      await run('node', ['scripts/build-projected-starters.js']);
+      console.log(`${c.cyan}3. Refreshing Kalshi/Polymarket + Market Map + Coherence...${c.reset}`);
+      await run('node', ['scripts/build-prediction-markets.js']);
+      await run('node', ['scripts/build-prediction-market-map.js']);
+      await run('node', ['scripts/build-cross-market-coherence.js']);
+      console.log(`${c.cyan}4. Compiling Alpha Data Packet...${c.reset}`);
+      await run('node', ['scripts/build-alpha-data-packet.js']);
+      break;
+
+    case 'prediction-markets':
+      // 2026-09-23: full prediction-market refresh (the Data Source Health "Run Now"
+      // button used to run only the first step, leaving map + coherence stale).
+      console.log(`${c.cyan}1. Refreshing Kalshi/Polymarket + Market Map + Coherence...${c.reset}`);
+      await run('node', ['scripts/build-prediction-markets.js']);
+      await run('node', ['scripts/build-prediction-market-map.js']);
+      await run('node', ['scripts/build-cross-market-coherence.js']);
+      break;
+
     case 'thursday':
       console.log(`${c.cyan}1. Building Live Player Availability & Practice Injuries...${c.reset}`);
       await run('node', ['scripts/build-player-availability.js', '--live-injuries']);
@@ -220,7 +244,9 @@ async function runCadence(day) {
       console.log(`${c.cyan}1. Pre-Game Inactives Check...${c.reset}`);
       await run('node', ['scripts/build-player-availability.js', '--live-injuries']);
       console.log(`${c.cyan}2. Compiling Sunday Multi-Game Live Tracker...${c.reset}`);
-      await run('node', ['scripts/generate-live-tracker.mjs', '--week', '1']);
+      // 2026-09-23: was hardcoded '--week 1'; with no --week the tracker uses
+      // getNFLWeekInfo() (src/lib/constants.js) for the current NFL week.
+      await run('node', ['scripts/generate-live-tracker.mjs']);
       console.log(`${c.cyan}3. Launching Live Tracker in Browser...${c.reset}`);
       await launchInBrowser('public/live-tracker-sunday.html');
       break;
@@ -231,7 +257,7 @@ async function runCadence(day) {
       break;
 
     default:
-      console.log(`${c.red}Unknown cadence day: ${day}. Use: tuesday, wednesday, thursday, friday, saturday, sunday, monday.${c.reset}`);
+      console.log(`${c.red}Unknown cadence day: ${day}. Use: tuesday, wednesday, wednesday-pm, thursday, friday, saturday, sunday, monday, prediction-markets.${c.reset}`);
   }
 
   return results.every(Boolean);
@@ -354,7 +380,7 @@ NFL Toolbox CLI Runner
 
 Usage:
   node scripts/toolbox.mjs                          # Interactive menu
-  node scripts/toolbox.mjs --cadence <day>          # tuesday, wednesday, thursday, friday, saturday, sunday, monday
+  node scripts/toolbox.mjs --cadence <day>          # tuesday, wednesday, wednesday-pm, thursday, friday, saturday, sunday, monday, prediction-markets
   node scripts/toolbox.mjs --generate-tracker       # Generates public/live-tracker-sunday.html
   node scripts/toolbox.mjs --launch-tracker         # Launches sunday tracker in browser
   node scripts/toolbox.mjs --reconcile [--dry-run]  # Grades wagers and reconciles split ledger
