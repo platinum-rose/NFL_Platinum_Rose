@@ -10,6 +10,7 @@ import { createClient } from '@supabase/supabase-js';
 import nodemailer from 'nodemailer';
 import 'dotenv/config';
 import { planRevisions } from './lib/intel-revisions.js';
+import { isCollegeFootballItem } from './lib/college-football-filter.js';
 
 const execFileAsync = promisify(execFile);
 // 2026-09-01: Action Network's feed sits behind CloudFront and started
@@ -480,6 +481,10 @@ function normalizeForMatch(value = '') {
 }
 
 function looksNflRelevant(item, source = '') {
+  // 2026-09-23: BettingPros/VSiN mix college football into the same feed, and
+  // the "football" escape hatch below let CFB titles through. Reject first.
+  if (isCollegeFootballItem(item)) return false;
+
   const titleHaystack = normalizeForMatch([source, item.title].join(' '));
   const fullHaystack = normalizeForMatch([
     source,
