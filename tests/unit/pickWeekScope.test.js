@@ -4,6 +4,7 @@ import {
   buildWeekScope,
   isTranscriptInScope,
   buildWeekGameLookup,
+  canonTeam,
 } from '../../agents/lib/pick-week-scope.js';
 
 // Trimmed real 2026 shapes: Week 2 SNF/MNF, Week 3 TNF/Sun/MNF, a Week 17 rematch.
@@ -63,5 +64,20 @@ describe('buildWeekGameLookup', () => {
   it('resolves both orderings of a real Week 3 pairing', () => {
     expect(lookup.get('BUF_vs_LAC').id).toBe('w3-buf');
     expect(lookup.get('LAC_vs_BUF').id).toBe('w3-buf');
+  });
+});
+
+describe('team-code normalisation', () => {
+  const games = [{ id: 'w3-seawas', week: 3, home: 'WAS', visitor: 'SEA', kickoff_utc: '2026-09-27T17:00:00.000Z' }];
+  const lookup = buildWeekGameLookup(games);
+  it('a WSH-coded pick finds the WAS-coded schedule game', () => {
+    expect(lookup.get(`${canonTeam('WSH')}_vs_${canonTeam('SEA')}`).id).toBe('w3-seawas');
+    expect(lookup.get(canonTeam('wsh')).id).toBe('w3-seawas');
+  });
+  it('maps LA -> LAR and JAC -> JAX, leaves others alone', () => {
+    expect(canonTeam('LA')).toBe('LAR');
+    expect(canonTeam('JAC')).toBe('JAX');
+    expect(canonTeam('KC')).toBe('KC');
+    expect(canonTeam(null)).toBeNull();
   });
 });
