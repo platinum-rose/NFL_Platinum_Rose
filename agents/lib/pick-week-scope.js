@@ -66,6 +66,16 @@ export function isTranscriptInScope(pubDate, processedAt, scope) {
   return ms >= scope.windowStart.getTime() && ms <= scope.windowEnd.getTime();
 }
 
+// Known code splits across our sources: ESPN schedule uses WAS / LAR / JAX,
+// odds tables and the agent's alias map use WSH, nflverse uses LA. Normalise
+// both sides of every lookup so a Washington pick can't silently miss.
+const TEAM_CODE_CANON = { WSH: 'WAS', LA: 'LAR', JAC: 'JAX' };
+export function canonTeam(code) {
+  if (!code) return code;
+  const up = String(code).toUpperCase();
+  return TEAM_CODE_CANON[up] ?? up;
+}
+
 // Same key shape the agent always used ("HOME_vs_VIS", both orders, plus a
 // single-team fallback) but built ONLY from the target week's games, so every
 // key is unique (each team plays at most once per week).
@@ -73,10 +83,12 @@ export function buildWeekGameLookup(games) {
   const lookup = new Map();
   for (const game of games ?? []) {
     if (!game.home || !game.visitor) continue;
-    lookup.set(`${game.home}_vs_${game.visitor}`, game);
-    lookup.set(`${game.visitor}_vs_${game.home}`, game);
-    lookup.set(game.home, game);
-    lookup.set(game.visitor, game);
+    const home = canonTeam(game.home);
+    const visitor = canonTeam(game.visitor);
+    lookup.set(`${home}_vs_${visitor}`, game);
+    lookup.set(`${visitor}_vs_${home}`, game);
+    lookup.set(home, game);
+    lookup.set(visitor, game);
   }
   return lookup;
 }

@@ -24,6 +24,7 @@ import {
   buildWeekScope,
   isTranscriptInScope,
   buildWeekGameLookup,
+  canonTeam,
 } from './lib/pick-week-scope.js';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -196,7 +197,10 @@ function loadLocalSchedule() {
  * Attempt to find a matching game for the two team abbreviations.
  * Returns the game object or null.
  */
-function findGame(abbr1, abbr2, gameLookup) {
+function findGame(rawAbbr1, rawAbbr2, gameLookup) {
+  // Normalise WSH/WAS, LA/LAR, JAC/JAX so alias-map codes match schedule codes.
+  const abbr1 = canonTeam(rawAbbr1);
+  const abbr2 = canonTeam(rawAbbr2);
   if (!abbr1) return null;
   if (abbr2) {
     return gameLookup.get(`${abbr1}_vs_${abbr2}`)
@@ -239,7 +243,7 @@ function buildUserPick(pick, index, episode, feedName, gameLookup) {
   const selAbbr = resolveTeam(pick.selection);
   let isHomeTeam = false;
   if (selAbbr && game) {
-    isHomeTeam = game.home === selAbbr;
+    isHomeTeam = canonTeam(game.home) === canonTeam(selAbbr);
   }
 
   return {
