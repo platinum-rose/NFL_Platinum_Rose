@@ -115,6 +115,11 @@ const FEEDS = [
     // blocked. Remove this flag if Action Network's CloudFront config ever
     // stops discriminating against Node's client fingerprint.
     source: 'Action Network',
+    // 2026-09-23: AN rewrites the Betting Primer / Live QB Rankings / TD Machine
+    // in place each week under a fixed URL -- store newer pubDates as revisions
+    // (agents/lib/intel-revisions.js). Opt-in per feed: other feeds republish
+    // hub/tool pages daily and would duplicate every day.
+    trackRevisions: true,
     // 2026-09-02: switched to routing through the r.jina.ai reader proxy
     // (prefix + original URL). The direct-curl fix above stopped working
     // from GitHub Actions specifically -- confirmed via two consecutive
@@ -993,8 +998,9 @@ async function main() {
   // 2026-09-23: evergreen pages rewritten in place under a fixed URL (Action
   // Network primer / QB rankings / TD Machine) come back with a newer pubDate;
   // store those as revision rows instead of skipping them (agents/lib/intel-revisions.js).
+  const revisionSources = new Set(FEEDS.filter(f => f.trackRevisions).map(f => f.source));
   const { revisions: revisionCandidates, revisionHashByBase } = planRevisions(
-    uniqueNotes.filter(n => existingHashes.has(n.url_hash)),
+    uniqueNotes.filter(n => existingHashes.has(n.url_hash) && revisionSources.has(n.source)),
     storedPublishedByHash,
     sha256
   );
