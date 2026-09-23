@@ -26,6 +26,7 @@ import {
   buildWeekGameLookup,
   canonTeam,
 } from './lib/pick-week-scope.js';
+import { classifyTeaser, teaserLabel, dedupeKey } from './lib/pick-normalize.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -246,13 +247,22 @@ function buildUserPick(pick, index, episode, feedName, gameLookup) {
     isHomeTeam = canonTeam(game.home) === canonTeam(selAbbr);
   }
 
+  // Teaser legs: relabel instead of promoting a spread at a line no book
+  // offers. Needs the selected side resolved against the matched game.
+  const teaser = (selAbbr && game) ? classifyTeaser(pick, game, isHomeTeam) : null;
+  const pickType = teaser ? 'teaser' : (pick.type ?? 'spread');
+  const line = teaser ? (teaser.teasedLine ?? pick.line ?? null) : (pick.line ?? null);
+  const rationale = teaser
+    ? `${teaserLabel(teaser, canonTeam(selAbbr))} ${pick.summary ?? ''}`.trim()
+    : (pick.summary ?? '');
+
   return {
     id:             pickId,
     game_id:        gameId,
     source:         'EXPERT',
-    pick_type:      pick.type     ?? 'spread',
+    pick_type:      pickType,
     selection:      formatExpertSelection(pick),
-    line:           pick.line     ?? null,
+    line:           line,
     edge:           0,
     confidence:     typeof pick.confidence === 'number' ? Math.round(pick.confidence) : 65,
     home:           homeName,
@@ -263,7 +273,7 @@ function buildUserPick(pick, index, episode, feedName, gameLookup) {
     is_home_team:   isHomeTeam,
     result:         'PENDING',
     // Store rationale in a non-schema field — pick tracker reads pick.rationale
-    rationale:      pick.summary   ?? '',
+    rationale:      rationale,
     // context: expert name from podcast feed
     expert:         feedName,
     units:          pick.units ?? 1,
@@ -332,6 +342,8 @@ async function run() {
   let totalPicks    = 0;
   let totalSkipped  = 0;
   let totalOffWeek  = 0;
+  let totalDupes    = 0;
+  let totalTeasers  = 0;
   let totalUpserted = 0;
   let totalErrors   = 0;
 
@@ -358,6 +370,7 @@ async function run() {
 
     // Build user_picks rows — skip non-NFL picks (UFC, NBA, etc.)
     const rows = [];
+    const seen = new Map(); // dedupeKey -> index in rows
     let transcriptErrors = 0;
     for (let i = 0; i < picks.length; i++) {
       const pick = picks[i];
@@ -386,10 +399,29 @@ async function run() {
 
       try {
         const row = buildUserPick(pick, i, episode, feedName, gameLookup);
+
+        // Same episode + same host + same game/type/selection = one pick.
+        // Audio-path picks carry no per-speaker field, so host = pick.speaker
+        // when present, else the feed's expert.
+        const key = dedupeKey({
+          episodeId: episode.id, host: pick.speaker ?? feedName,
+          gameId: row.game_id, pickType: row.pick_type, selection: row.selection,
+        });
+        if (seen.has(key)) {
+          const prev = rows[seen.get(key)];
+          if ((prev.line === null || prev.line === undefined) && row.line !== null && row.line !== undefined) {
+            rows[seen.get(key)] = { ...row, id: prev.id };
+          }
+          console.log(`   [${i + 1}] ⏭ DUPLICATE of an earlier pick in this episode: ${row.selection} ${row.line ?? ''}`);
+          totalDupes++;
+          continue;
+        }
+        seen.set(key, rows.length);
         rows.push(row);
+        if (row.pick_type === 'teaser') totalTeasers++;
 
         const matchedGame = row.game_id.startsWith('podcast_') ? '(no game match)' : `game ${row.game_id}`;
-        console.log(`   [${i + 1}] ${pick.type?.toUpperCase()} — ${pick.selection} ${pick.line ?? ''} → ${matchedGame}`);
+        console.log(`   [${i + 1}] ${row.pick_type.toUpperCase()} — ${row.selection} ${row.line ?? ''} → ${matchedGame}${row.pick_type === 'teaser' ? `  ${row.rationale.split(']')[0]}]` : ''}`);
         totalPicks++;
       } catch (buildErr) {
         console.error(`   ❌ Failed to build pick ${i}: ${buildErr.message}`);
@@ -441,6 +473,8 @@ async function run() {
   console.log(`   Picks built: ${totalPicks}`);
   console.log(`   Skipped:     ${totalSkipped}  (non-NFL — UFC/NBA/etc.)`);
   console.log(`   Off-week:    ${totalOffWeek}  (no Week ${scope.week} game match)`);
+  console.log(`   Duplicates:  ${totalDupes}  (same host, same episode)`);
+  console.log(`   Teasers:     ${totalTeasers}  (relabelled from spread)`);
   console.log(`   Upserted:    ${totalUpserted}`);
   console.log(`   Errors:      ${totalErrors}`);
 
