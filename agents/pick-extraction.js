@@ -6,15 +6,34 @@
 // Trigger:    After podcast-ingest workflow completes (workflow_run) + manual
 // Env vars:   SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
 // Optional:   DRY_RUN=true  — log picks without writing to Supabase
-//             SCHEDULE_URL  — override URL for schedule.json (default: GitHub raw)
+//             SCHEDULE_URL  — override URL for schedule.json (default: GitHub raw;
+//                             falls back to local public/schedule.json)
+//             PICK_WEEK     — force the target NFL week (default: the week of the
+//                             earliest unfinished game in the schedule)
+//
+// Week scoping (2026-09-22): only transcripts published inside the target
+// week's window are considered, and only picks that match a game IN that week
+// are promoted. Older transcripts are skipped untouched (no writes). See
+// agents/lib/pick-week-scope.js for the rules.
 
 import 'dotenv/config'; // load .env for local runs (no-op in CI where secrets are real env vars)
 import { createClient } from '@supabase/supabase-js';
 import { formatExpertSelection } from './lib/expert-pick-selection.js';
+import {
+  resolveTargetWeek,
+  buildWeekScope,
+  isTranscriptInScope,
+  buildWeekGameLookup,
+} from './lib/pick-week-scope.js';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 
 const DRY_RUN      = process.env.DRY_RUN === 'true';
+const PICK_WEEK    = process.env.PICK_WEEK;
+const LOCAL_SCHEDULE_PATH = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'public', 'schedule.json');
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
@@ -150,34 +169,28 @@ async function loadSchedule() {
       signal: AbortSignal.timeout(15_000),
     });
     if (!res.ok) {
-      console.warn(`⚠ Schedule fetch failed (HTTP ${res.status}) — will use synthetic game IDs`);
-      return [];
+      console.warn(`⚠ Schedule fetch failed (HTTP ${res.status}) — trying local ${LOCAL_SCHEDULE_PATH}`);
+      return loadLocalSchedule();
     }
     const data = await res.json();
+    return Array.isArray(data) && data.length ? data : loadLocalSchedule();
+  } catch (err) {
+    console.warn(`⚠ Schedule fetch error: ${err.message} — trying local ${LOCAL_SCHEDULE_PATH}`);
+    return loadLocalSchedule();
+  }
+}
+
+function loadLocalSchedule() {
+  try {
+    const data = JSON.parse(fs.readFileSync(LOCAL_SCHEDULE_PATH, 'utf8'));
     return Array.isArray(data) ? data : [];
   } catch (err) {
-    console.warn(`⚠ Schedule fetch error: ${err.message} — will use synthetic game IDs`);
+    console.warn(`⚠ Local schedule unreadable: ${err.message}`);
     return [];
   }
 }
 
 // ─── Game matching ────────────────────────────────────────────────────────────
-
-/**
- * Build a lookup map: "ABB1_vs_ABB2" → game object (both orderings).
- * This gives O(1) game lookups.
- */
-function buildGameLookup(schedule) {
-  const lookup = new Map();
-  for (const game of schedule) {
-    if (!game.home || !game.visitor) continue;
-    lookup.set(`${game.home}_vs_${game.visitor}`, game);
-    lookup.set(`${game.visitor}_vs_${game.home}`, game);
-    lookup.set(game.home, game);              // single-team fallback
-    lookup.set(game.visitor, game);           // single-team fallback
-  }
-  return lookup;
-}
 
 /**
  * Attempt to find a matching game for the two team abbreviations.
@@ -266,8 +279,17 @@ async function run() {
   // 1. Load schedule for game matching
   console.log('📅 Loading schedule...');
   const schedule   = await loadSchedule();
-  const gameLookup = buildGameLookup(schedule);
   console.log(`   ${schedule.length} games loaded`);
+
+  const targetWeek = resolveTargetWeek(schedule, new Date(), PICK_WEEK);
+  const scope      = targetWeek ? buildWeekScope(schedule, targetWeek) : null;
+  if (!scope) {
+    console.error('❌ Could not resolve the target NFL week from the schedule — refusing to promote unscoped picks.');
+    console.error('   Set PICK_WEEK=<n> or fix the schedule source, then re-run.');
+    process.exit(1);
+  }
+  const gameLookup = buildWeekGameLookup(scope.games);
+  console.log(`🗓  Target week ${scope.week}: ${scope.games.length} games | transcript window ${scope.windowStart.toISOString()} → ${scope.windowEnd.toISOString()}`);
 
   // 2. Fetch unpromoted transcripts with picks
   const { data: transcripts, error: txErr } = await supabase
@@ -277,6 +299,7 @@ async function run() {
       picks,
       episode_id,
       picks_promoted_at,
+      processed_at,
       podcast_episodes (
         id,
         title,
@@ -297,14 +320,18 @@ async function run() {
     return;
   }
 
-  console.log(`\n📋 Found ${transcripts.length} unpromoted transcript(s) with picks\n`);
+  const inScope = transcripts.filter((t) =>
+    isTranscriptInScope(t.podcast_episodes?.pub_date, t.processed_at, scope));
+  const staleCount = transcripts.length - inScope.length;
+  console.log(`\n📋 Found ${transcripts.length} unpromoted transcript(s) with picks — ${inScope.length} in Week ${scope.week} window, ${staleCount} outside it (skipped, left untouched)\n`);
 
   let totalPicks    = 0;
   let totalSkipped  = 0;
+  let totalOffWeek  = 0;
   let totalUpserted = 0;
   let totalErrors   = 0;
 
-  for (const transcript of transcripts) {
+  for (const transcript of inScope) {
     const episode  = transcript.podcast_episodes;
     const feed     = episode?.podcast_feeds;
     const feedName = feed?.expert ?? feed?.name ?? 'Unknown';
@@ -341,6 +368,15 @@ async function run() {
         const t2 = pick.team2 ?? '?';
         console.log(`   [${i + 1}] ⏭ SKIPPED (non-NFL): "${t1}" vs "${t2}" — ${pick.type ?? 'unknown type'}`);
         totalSkipped++;
+        continue;
+      }
+
+      // Guard: the pick must match a game in the target week. Recap picks
+      // (last week's games) and look-aheads are skipped instead of getting a
+      // synthetic podcast_* id or a wrong-week game.
+      if (!findGame(abbr1, abbr2, gameLookup)) {
+        console.log(`   [${i + 1}] ⏭ SKIPPED (not a Week ${scope.week} game): ${pick.team1 ?? '?'} vs ${pick.team2 ?? '?'} — ${pick.selection ?? ''}`);
+        totalOffWeek++;
         continue;
       }
 
@@ -396,9 +432,11 @@ async function run() {
   }
 
   console.log('\n📊 Run complete');
-  console.log(`   Transcripts: ${transcripts.length}`);
+  console.log(`   Target week: ${scope.week}`);
+  console.log(`   Transcripts: ${inScope.length} in window (${staleCount} outside window, untouched)`);
   console.log(`   Picks built: ${totalPicks}`);
   console.log(`   Skipped:     ${totalSkipped}  (non-NFL — UFC/NBA/etc.)`);
+  console.log(`   Off-week:    ${totalOffWeek}  (no Week ${scope.week} game match)`);
   console.log(`   Upserted:    ${totalUpserted}`);
   console.log(`   Errors:      ${totalErrors}`);
 
