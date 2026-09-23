@@ -268,8 +268,8 @@ function AllPicksTab({ onRefresh }) {
               {/* Pick details */}
               <div className="flex-1 min-w-0">
                 <div className="text-sm font-bold text-white truncate">
-                  {p.pickType === 'spread'
-                    ? `${p.selection} ${p.line > 0 ? '+' : ''}${p.line}`
+                  {p.pickType === 'spread' || p.pickType === 'teaser'
+                    ? `${p.selection} ${p.line > 0 ? '+' : ''}${p.line}${p.pickType === 'teaser' ? ' (teaser leg)' : ''}`
                     : p.pickType === 'moneyline'
                     ? `${p.selection} ${p.line > 0 ? '+' : ''}${p.line} ML`
                     : `${p.selection} ${p.line}`
@@ -419,8 +419,8 @@ function GradeTab({ onRefresh, onOpenGradeModal, onAutoGrade, autoGrading }) {
                     <span className={`px-1.5 py-0.5 rounded text-[9px] font-bold border ${sourceBadge(p.source)}`}>
                       {p.source === 'AI_LAB' ? 'AI' : p.source === 'EXPERT' ? 'EX' : p.source}
                     </span>
-                    {p.pickType === 'spread'
-                      ? `${p.selection} ${p.line > 0 ? '+' : ''}${p.line}`
+                    {p.pickType === 'spread' || p.pickType === 'teaser'
+                      ? `${p.selection} ${p.line > 0 ? '+' : ''}${p.line}${p.pickType === 'teaser' ? ' (teaser leg)' : ''}`
                       : p.pickType === 'moneyline'
                       ? `${p.selection} ${p.line > 0 ? '+' : ''}${p.line} ML`
                       : `${p.selection} ${p.line}`

@@ -317,7 +317,7 @@ export const gradePick = (pickId, homeScore, visitorScore) => {
 
   const pick = picks[idx];
   const result =
-    pick.pickType === 'spread'    ? gradeSpread(pick, homeScore, visitorScore)
+    (pick.pickType === 'spread' || pick.pickType === 'teaser') ? gradeSpread(pick, homeScore, visitorScore)
     : pick.pickType === 'moneyline' ? gradeMoneyline(pick, homeScore, visitorScore)
     :                                 gradeTotal(pick, homeScore, visitorScore);
 
@@ -346,7 +346,7 @@ export const gradeGame = (gameId, homeScore, visitorScore) => {
     if (pick.gameId !== gameId || pick.result !== 'PENDING') return pick;
 
     const result =
-      pick.pickType === 'spread'    ? gradeSpread(pick, homeScore, visitorScore)
+      (pick.pickType === 'spread' || pick.pickType === 'teaser') ? gradeSpread(pick, homeScore, visitorScore)
       : pick.pickType === 'moneyline' ? gradeMoneyline(pick, homeScore, visitorScore)
       :                                 gradeTotal(pick, homeScore, visitorScore);
 

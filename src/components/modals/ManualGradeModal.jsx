@@ -85,8 +85,8 @@ export default function ManualGradeModal({ isOpen, onClose, gameData, onGraded }
                       {p.source === 'AI_LAB' ? 'AI' : p.source === 'EXPERT' ? 'EX' : p.source}
                     </span>
                     <span className="text-white font-bold">
-                      {p.pickType === 'spread'
-                        ? `${p.selection} ${p.line > 0 ? '+' : ''}${p.line}`
+                      {p.pickType === 'spread' || p.pickType === 'teaser'
+                        ? `${p.selection} ${p.line > 0 ? '+' : ''}${p.line}${p.pickType === 'teaser' ? ' (teaser leg)' : ''}`
                         : `${p.selection} ${p.line}`
                       }
                     </span>
