@@ -9,6 +9,7 @@ import os from 'node:os';
 import { createClient } from '@supabase/supabase-js';
 import nodemailer from 'nodemailer';
 import 'dotenv/config';
+import { planRevisions } from './lib/intel-revisions.js';
 
 const execFileAsync = promisify(execFile);
 // 2026-09-01: Action Network's feed sits behind CloudFront and started
@@ -214,28 +215,6 @@ const FEEDS = [
     url: 'https://www.rotowire.com/rss/news.php?sport=NFL',
     confidence: 0.65,
     source_type: 'analytical',
-  },
-  {
-    // Football Outsiders: DVOA, efficiency metrics, situational analytics
-    // Migrated from x-sharp-ingest (was RSS-backed account, not X content)
-    source: 'Football Outsiders',
-    url: 'https://www.footballoutsiders.com/rss.xml',
-    confidence: 0.68,
-    source_type: 'analytical',
-  },
-  {
-    // THE WINDOW: Matt Russell's sports betting newsletter (EMR, lookahead lines, win totals)
-    // 2026-09-02: fetchMethod:'curl' — feed_health showed 3 consecutive
-    // HTTP 403 fails via Node's native fetch()/undici. Confirmed live via
-    // side-by-side curl-vs-fetch test, same day, same network: curl gets a
-    // clean 200 + real application/xml body (3/3 tries), Node fetch() gets
-    // blocked. Same CloudFront/Node-client-fingerprint pattern as Action
-    // Network (see fetchViaCurl() above, B-actionnetwork-feed-403).
-    source: 'THE WINDOW (Matt Russell)',
-    url: 'https://mrussauthentic.substack.com/feed',
-    confidence: 0.75,
-    source_type: 'newsletter',
-    fetchMethod: 'curl',
   },
 ];
 
@@ -994,17 +973,44 @@ async function main() {
   );
 
   let existingHashes = new Set();
+  const storedPublishedByHash = new Map();
   if (uniqueNotes.length > 0) {
     const { data, error } = await supabase
       .from('research_intel_notes')
-      .select('url_hash')
+      .select('url_hash,published_at')
       .in('url_hash', uniqueNotes.map(n => n.url_hash));
 
     if (error) throw new Error(`Lookup failed: ${error.message}`);
     existingHashes = new Set((data || []).map(d => d.url_hash));
+    for (const d of data || []) storedPublishedByHash.set(d.url_hash, d.published_at);
   }
 
-  const newNotes = uniqueNotes.filter(n => !existingHashes.has(n.url_hash));
+  // 2026-09-23: evergreen pages rewritten in place under a fixed URL (Action
+  // Network primer / QB rankings / TD Machine) come back with a newer pubDate;
+  // store those as revision rows instead of skipping them (agents/lib/intel-revisions.js).
+  const { revisions: revisionCandidates, revisionHashByBase } = planRevisions(
+    uniqueNotes.filter(n => existingHashes.has(n.url_hash)),
+    storedPublishedByHash,
+    sha256
+  );
+  let revisionNotes = [];
+  if (revisionCandidates.length > 0) {
+    const { data, error } = await supabase
+      .from('research_intel_notes')
+      .select('url_hash')
+      .in('url_hash', revisionCandidates.map(n => n.url_hash));
+    if (error) throw new Error(`Revision lookup failed: ${error.message}`);
+    const storedRevisions = new Set((data || []).map(d => d.url_hash));
+    revisionNotes = revisionCandidates.filter(n => !storedRevisions.has(n.url_hash));
+    if (revisionNotes.length > 0) {
+      console.log(`  Revised evergreen pages: ${revisionNotes.map(n => `${n.source}: ${n.title}`).join(' | ')}`);
+    }
+  }
+
+  const newNotes = [
+    ...uniqueNotes.filter(n => !existingHashes.has(n.url_hash)),
+    ...revisionNotes,
+  ];
 
   let insertedNotes = [];
   if (newNotes.length > 0) {
@@ -1159,7 +1165,7 @@ async function main() {
     .map(signal => {
       const canonical = canonicalizeUrl(signal.event_ref);
       const hash = sha256(canonical);
-      const noteId = noteIdByHash.get(hash);
+      const noteId = noteIdByHash.get(hash) ?? noteIdByHash.get(revisionHashByBase.get(hash));
       if (!noteId) return null;
       return {
         note_id: noteId,
@@ -1197,6 +1203,7 @@ async function main() {
       inserted_signals: signalsToInsert.length,
       bodies_backfilled: backfilled,
       skipped_existing_notes: uniqueNotes.length - newNotes.length,
+      revised_evergreen_notes: revisionNotes.length,
     },
   });
 
