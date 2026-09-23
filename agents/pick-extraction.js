@@ -405,7 +405,10 @@ async function run() {
         // when present, else the feed's expert.
         const key = dedupeKey({
           episodeId: episode.id, host: pick.speaker ?? feedName,
-          gameId: row.game_id, pickType: row.pick_type, selection: row.selection,
+          gameId: row.game_id, pickType: row.pick_type,
+          // "Vikings" and "Minnesota Vikings" are the same side: key sides on
+          // the resolved team code, totals/props on the formatted selection.
+          selection: canonTeam(resolveTeam(pick.selection)) ?? row.selection,
         });
         if (seen.has(key)) {
           const prev = rows[seen.get(key)];
