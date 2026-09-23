@@ -72,6 +72,8 @@ Current state:
 
 ## Needs Andy / Stop Conditions
 
+- **BRANCH-CONSOLIDATE-MAIN (P1):** main and wip/yahoo-sync have diverged both ways; GitHub automation runs main. Fresh-session task to merge, make main current and retire wip: `handoffs/2026-09-23-1455-claude-task-branch-consolidation-main.md` (Codex may assist).
+
 - Confirm whether a reusable `bookmaker-live-parser.mjs` CLI should be built or
   reviewed next; see
   `handoffs/2026-09-21-1810-claude-codex-request-bookmaker-live-parser-cli.md`.
