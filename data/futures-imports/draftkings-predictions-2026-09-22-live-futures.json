@@ -1,0 +1,67 @@
+{
+  "source": "DraftKings Predictions authenticated rendered page",
+  "book": "draftkings_predictions",
+  "season": 2026,
+  "capturedAt": "2026-09-22T19:37:24.8719345Z",
+  "priceFormat": "event-contract displayed percent; not sportsbook American odds",
+  "captureScope": {
+    "superBowlWinner": 32,
+    "divisionWinner": 32,
+    "conferenceWinner": 32,
+    "makePlayoffs": 32,
+    "regularSeasonWinContracts": 304
+  },
+  "markets": {
+    "superBowlWinner": ["LA Rams|15", "BUF Bills|12", "SEA Seahawks|9", "SF 49ers|8", "KC Chiefs|8", "CIN Bengals|7", "BAL Ravens|7", "PHI Eagles|5", "DEN Broncos|4", "DAL Cowboys|4", "DET Lions|4", "NE Patriots|4", "MIN Vikings|4", "CHI Bears|3", "JAX Jaguars|3", "GB Packers|3", "HOU Texans|3", "LA Chargers|2", "CAR Panthers|2", "CLE Browns|1", "TB Buccaneers|1", "ARI Cardinals|1", "IND Colts|1", "WAS Commanders|1", "MIA Dolphins|1", "ATL Falcons|1", "NY Giants|1", "NY Jets|1", "LV Raiders|1", "NO Saints|1", "PIT Steelers|1", "TEN Titans|1"],
+    "divisionWinner": {
+      "AFC East": ["BUF Bills|70", "NE Patriots|28", "NY Jets|5", "MIA Dolphins|1"],
+      "AFC North": ["CIN Bengals|45", "BAL Ravens|45", "PIT Steelers|11", "CLE Browns|2"],
+      "AFC South": ["JAX Jaguars|45", "HOU Texans|41", "IND Colts|17", "TEN Titans|3"],
+      "AFC West": ["KC Chiefs|57", "DEN Broncos|28", "LV Raiders|8", "LA Chargers|7"],
+      "NFC East": ["PHI Eagles|61", "DAL Cowboys|28", "NY Giants|6", "WAS Commanders|3"],
+      "NFC North": ["MIN Vikings|34", "DET Lions|34", "CHI Bears|21", "GB Packers|19"],
+      "NFC South": ["NO Saints|44", "CAR Panthers|26", "TB Buccaneers|26", "ATL Falcons|8"],
+      "NFC West": ["SF 49ers|38", "SEA Seahawks|37", "LA Rams|33", "ARI Cardinals|3"]
+    },
+    "conferenceWinner": {
+      "NFC": ["LA Rams|22", "SF 49ers|17", "SEA Seahawks|15", "PHI Eagles|13", "DET Lions|8", "MIN Vikings|8", "CHI Bears|7", "DAL Cowboys|7", "GB Packers|6", "NY Giants|3", "CAR Panthers|3", "NO Saints|3", "TB Buccaneers|2", "WAS Commanders|2", "ARI Cardinals|1", "ATL Falcons|1"],
+      "AFC": ["BUF Bills|23", "KC Chiefs|16", "BAL Ravens|14", "CIN Bengals|13", "DEN Broncos|8", "JAX Jaguars|8", "NE Patriots|8", "HOU Texans|7", "LA Chargers|4", "LV Raiders|3", "PIT Steelers|3", "IND Colts|2", "CLE Browns|1", "MIA Dolphins|1", "NY Jets|1", "TEN Titans|1"]
+    },
+    "makePlayoffs": ["BUF Bills|91", "SEA Seahawks|83", "BAL Ravens|82", "CIN Bengals|82", "PHI Eagles|81", "KC Chiefs|81", "SF 49ers|78", "LA Rams|77", "DET Lions|65", "MIN Vikings|62", "NE Patriots|62", "DEN Broncos|60", "JAX Jaguars|60", "HOU Texans|54", "NO Saints|51", "DAL Cowboys|51", "CHI Bears|50", "GB Packers|44", "CAR Panthers|37", "LV Raiders|33", "NY Giants|33", "TB Buccaneers|28", "IND Colts|28", "PIT Steelers|25", "LA Chargers|22", "NY Jets|18", "WAS Commanders|18", "ATL Falcons|16", "ARI Cardinals|11", "CLE Browns|11", "TEN Titans|7", "MIA Dolphins|4"],
+    "regularSeasonWins": {
+      "ARI Cardinals": ["O2.5|99", "U2.5|24", "O3.5|94", "U3.5|39", "O4.5|79", "U4.5|52", "O5.5|66", "U5.5|69", "O6.5|49", "U6.5|84"],
+      "ATL Falcons": ["O5.5|76", "U5.5|65", "O6.5|79", "U6.5|83", "O7.5|35", "U7.5|91", "O8.5|45", "U8.5|99", "O9.5|34", "U9.5|99"],
+      "BAL Ravens": ["O8.5|93", "U8.5|43", "O9.5|85", "U9.5|42", "O10.5|76", "U10.5|55", "O11.5|52", "U11.5|69", "O12.5|45", "U12.5|85"],
+      "BUF Bills": ["O9.5|98", "U9.5|31", "O10.5|88", "U10.5|44", "O11.5|75", "U11.5|55", "O12.5|56", "U12.5|72", "O13.5|71", "U13.5|83"],
+      "CAR Panthers": ["O5.5|90", "U5.5|87", "O6.5|77", "U6.5|57", "O7.5|61", "U7.5|70", "O8.5|79", "U8.5|99"],
+      "CHI Bears": ["O8.5|68", "U8.5|65", "O9.5|55", "U9.5|76", "O10.5|45", "U10.5|94", "O11.5|34", "U11.5|99", "O12.5|54", "U12.5|99"],
+      "CIN Bengals": ["O9.5|90", "U9.5|37", "O10.5|80", "U10.5|50", "O11.5|62", "U11.5|68", "O12.5|79", "U12.5|99", "O13.5|68", "U13.5|93"],
+      "CLE Browns": ["O4.5|82", "U4.5|50", "O5.5|64", "U5.5|69", "O6.5|49", "U6.5|82", "O7.5|37", "U7.5|89", "O8.5|47", "U8.5|93"],
+      "DAL Cowboys": ["O8.5|72", "U8.5|58", "O9.5|57", "U9.5|70", "O10.5|72", "U10.5|86", "O11.5|34", "U11.5|99", "O12.5|54", "U12.5|99"],
+      "DEN Broncos": ["O9.5|67", "U9.5|64", "O10.5|49", "U10.5|80", "O11.5|40", "U11.5|91", "O12.5|59", "U12.5|99"],
+      "DET Lions": ["O9.5|76", "U9.5|52", "O10.5|63", "U10.5|68", "O11.5|47", "U11.5|85", "O12.5|36", "U12.5|93", "O13.5|57", "U13.5|99"],
+      "GB Packers": ["O8.5|76", "U8.5|60", "O9.5|55", "U9.5|74", "O10.5|45", "U10.5|87", "O11.5|34", "U11.5|96", "O12.5|59", "U12.5|99"],
+      "HOU Texans": ["O8.5|77", "U8.5|55", "O9.5|61", "U9.5|70", "O10.5|47", "U10.5|84", "O11.5|40", "U11.5|99", "O12.5|54", "U12.5|99"],
+      "IND Colts": ["O7.5|76", "U7.5|99", "O8.5|63", "U8.5|82", "O9.5|66", "U9.5|93", "O10.5|59", "U10.5|99", "O11.5|54", "U11.5|99"],
+      "JAX Jaguars": ["O7.5|99", "U7.5|86", "O8.5|83", "U8.5|72", "O9.5|86", "U9.5|99", "O10.5|56", "U10.5|96", "O11.5|39", "U11.5|99"],
+      "KC Chiefs": ["O8.5|99", "U8.5|29", "O9.5|88", "U9.5|43", "O10.5|72", "U10.5|60", "O11.5|59", "U11.5|74", "O12.5|44", "U12.5|84"],
+      "LA Chargers": ["O8.5|38", "U8.5|86", "O9.5|28", "U9.5|99", "O10.5|21", "U10.5|99"],
+      "LA Rams": ["O10.5|99", "U10.5|91", "O11.5|85", "U11.5|79", "O12.5|63", "U12.5|87", "O13.5|50", "U13.5|99", "O14.5|27", "U14.5|99"],
+      "LV Raiders": ["O4.5|99", "U4.5|64", "O5.5|93", "U5.5|37", "O6.5|79", "U6.5|47", "O7.5|67", "U7.5|68", "O8.5|79", "U8.5|72"],
+      "MIA Dolphins": ["O2.5|67", "U2.5|59", "O3.5|53", "U3.5|78", "O4.5|38", "U4.5|92", "O5.5|28", "U5.5|99", "O6.5|54", "U6.5|99"],
+      "MIN Vikings": ["O6.5|99", "U6.5|25", "O7.5|97", "U7.5|31", "O8.5|89", "U8.5|42", "O9.5|74", "U9.5|56", "O10.5|60", "U10.5|72"],
+      "NE Patriots": ["O7.5|92", "U7.5|35", "O8.5|81", "U8.5|49", "O9.5|68", "U9.5|60", "O10.5|54", "U10.5|75", "O11.5|43", "U11.5|86"],
+      "NO Saints": ["O5.5|99", "U5.5|68", "O6.5|90", "U6.5|42", "O7.5|80", "U7.5|43", "O8.5|68", "U8.5|57", "O9.5|59", "U9.5|70"],
+      "NY Giants": ["O5.5|85", "U5.5|87", "O6.5|65", "U6.5|97", "O7.5|54", "U7.5|83", "O8.5|40", "U8.5|95", "O9.5|30", "U9.5|98"],
+      "NY Jets": ["O5.5|79", "U5.5|49", "O6.5|65", "U6.5|64", "O7.5|54", "U7.5|80", "O8.5|68", "U8.5|86", "O9.5|49", "U9.5|97"],
+      "PHI Eagles": ["O8.5|99", "U8.5|69", "O9.5|86", "U9.5|75", "O10.5|67", "U10.5|57", "O11.5|54", "U11.5|73", "O12.5|72", "U12.5|99"],
+      "PIT Steelers": ["O6.5|85", "U6.5|52", "O7.5|57", "U7.5|69", "O8.5|53", "U8.5|78", "O9.5|41", "U9.5|90"],
+      "SEA Seahawks": ["O8.5|99", "U8.5|68", "O9.5|86", "U9.5|43", "O10.5|77", "U10.5|57", "O11.5|61", "U11.5|76", "O12.5|49", "U12.5|85"],
+      "SF 49ers": ["O8.5|99", "U8.5|29", "O9.5|87", "U9.5|47", "O10.5|76", "U10.5|48", "O11.5|62", "U11.5|76", "O12.5|46", "U12.5|90"],
+      "TB Buccaneers": ["O6.5|81", "U6.5|94", "O7.5|64", "U7.5|65", "O8.5|48", "U8.5|82", "O9.5|40", "U9.5|92", "O10.5|59", "U10.5|99"],
+      "TEN Titans": ["O5.5|49", "U5.5|99", "O6.5|30", "U6.5|99", "O8.5|53", "U8.5|99"],
+      "WAS Commanders": ["O5.5|65", "U5.5|59", "O6.5|54", "U6.5|74", "O7.5|46", "U7.5|86", "O8.5|35", "U8.5|99"]
+    }
+  },
+  "encoding": "Each compact value is selection|displayedPercent. In regularSeasonWins, O/U prefix is Over/Under and the number is wins."
+}

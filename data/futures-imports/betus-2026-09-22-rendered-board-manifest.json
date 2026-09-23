@@ -1,0 +1,19 @@
+{
+  "source": "BetUS authenticated rendered sportsbook page",
+  "captured_at": "2026-09-22T19:10:20Z",
+  "url": "https://www.betus.com.pa/sportsbook/lines/",
+  "odds_format": "American",
+  "rendered_tables": {
+    "conference_winners": {"AFC": 16, "NFC": 16},
+    "division_winners": {"AFC East": 4, "AFC North": 4, "AFC South": 4, "AFC West": 4, "NFC East": 4, "NFC North": 4, "NFC South": 4, "NFC West": 4},
+    "make_playoffs": 31,
+    "regular_season_wins": 31,
+    "super_bowl_winner": 32,
+    "super_bowl_matchups": 256
+  },
+  "notes": [
+    "Captured read-only from the rendered page; no market selection was clicked.",
+    "Miami Dolphins make-playoffs showed a Yes price (+2500) but no displayed No price.",
+    "The source page exposed all six listed market families in one rendered board."
+  ]
+}

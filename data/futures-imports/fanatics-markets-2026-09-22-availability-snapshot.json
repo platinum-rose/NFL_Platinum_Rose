@@ -1,0 +1,101 @@
+{
+  "source": "Fanatics Markets rendered public pages",
+  "capturedAt": "2026-09-22T20:28:00Z",
+  "access": "public, signed out, read only",
+  "priceFormat": "event-contract percentages when a quote is displayed",
+  "futures": {
+    "nflChampion": {
+      "offeredTeams": 32,
+      "displayedPrices": 32,
+      "status": "The rendered browser accessibility tree fails to expose styled numeral strings reliably, but the full rendered page screenshot contains all 32 team's Yes/No prices."
+    },
+    "catalogue": {
+      "status": "Catalogue present but displayed Payout unavailable for visible selections.",
+      "familiesObserved": ["NFL Champion", "AFC Champion", "NFC Champion", "all eight division winners", "To Make Playoffs", "Best/Worst Record", "MVP", "Coach of the Year", "Offensive/Defensive Player of the Year", "Offensive Rookie of the Year", "Comeback Player of the Year"]
+    },
+    "afcChampion": {
+      "displayedPrices": 16,
+      "prices": [
+        "Buffalo Bills|yes 23|no 79", "Kansas City Chiefs|yes 16|no 88", "Baltimore Ravens|yes 14|no 89", "Cincinnati Bengals|yes 13|no 90", "Denver Broncos|yes 8|no 94", "Jacksonville Jaguars|yes 8|no 94", "New England Patriots|yes 8|no 95", "Houston Texans|yes 7|no 97", "Los Angeles Chargers|yes 4|no 99", "Pittsburgh Steelers|yes 3|no 99", "Indianapolis Colts|yes 3|no 97", "Las Vegas Raiders|yes 3|no 97", "Cleveland Browns|yes 2|no 98", "Miami Dolphins|yes 2|no 98", "New York Jets|yes 2|no 98", "Tennessee Titans|yes 2|no 98"
+      ]
+    },
+    "nfcChampion": {
+      "displayedPrices": 16,
+      "prices": [
+        "Los Angeles Rams|yes 22|no 82", "San Francisco 49ers|yes 17|no 87", "Seattle Seahawks|yes 15|no 89", "Philadelphia Eagles|yes 13|no 90", "Detroit Lions|yes 8|no 95", "Dallas Cowboys|yes 7|no 95", "Minnesota Vikings|yes 7|no 95", "Chicago Bears|yes 7|no 96", "Green Bay Packers|yes 6|no 97", "New Orleans Saints|yes 4|no 99", "Tampa Bay Buccaneers|yes 3|no 97", "Carolina Panthers|yes 3|no 97", "Arizona Cardinals|yes 2|no 98", "Washington Commanders|yes 2|no 98", "Atlanta Falcons|yes 2|no 98", "New York Giants|yes 2|no 98"
+      ]
+    },
+    "makePlayoffs": {
+      "offeredTeams": 32,
+      "displayedPrices": 32,
+      "status": "Expanded the rendered page through its final Show more control; no teams remain hidden.",
+      "prices": [
+        "Baltimore Ravens|yes 91|no 34", "Los Angeles Chargers|yes 32|no 92", "Seattle Seahawks|yes 89|no 41", "Kansas City Chiefs|yes 91|no 30", "San Francisco 49ers|yes 88|no 39", "Los Angeles Rams|yes 89|no 29", "Cincinnati Bengals|yes 92|no 31", "Detroit Lions|yes 75|no 52", "Houston Texans|yes 64|no 61", "Denver Broncos|yes 70|no 55", "Philadelphia Eagles|yes 88|no 42", "Dallas Cowboys|yes 61|no 61", "Buffalo Bills|yes 99|no 25", "Jacksonville Jaguars|yes 70|no 54", "Green Bay Packers|yes 54|no 75", "Chicago Bears|yes 57|no 67", "New England Patriots|yes 72|no 50", "Tampa Bay Buccaneers|yes 39|no 83", "Minnesota Vikings|yes 72|no 54", "Pittsburgh Steelers|yes 35|no 85", "Indianapolis Colts|yes 38|no 86", "New Orleans Saints|yes 61|no 63", "New York Giants|yes 38|no 87", "Atlanta Falcons|yes 25|no 94", "Carolina Panthers|yes 47|no 78", "Washington Commanders|yes 23|no 99", "Tennessee Titans|yes 17|no 98", "Las Vegas Raiders|yes 42|no 77", "New York Jets|yes 28|no 93", "Cleveland Browns|yes 21|no 99", "Miami Dolphins|yes 14|no 98", "Arizona Cardinals|yes 20|no 94"
+      ]
+    },
+    "divisionWinners": {
+      "afcNorth": {"status": "quoted", "prices": ["Baltimore Ravens|yes 45|no 59", "Cincinnati Bengals|yes 46|no 57", "Pittsburgh Steelers|yes 10|no 92", "Cleveland Browns|yes 3|no 99"]},
+      "afcSouth": {"status": "quoted", "prices": ["Houston Texans|yes 41|no 62", "Jacksonville Jaguars|yes 45|no 58", "Indianapolis Colts|yes 17|no 84", "Tennessee Titans|yes 3|no 99"]},
+      "afcEast": {"status": "unavailable", "teams": ["Buffalo Bills", "New England Patriots", "New York Jets", "Miami Dolphins"], "note": "All rendered Yes/No controls and order-book toggles were disabled and contained no percentage."},
+      "afcWest": {"status": "unavailable", "teams": ["Los Angeles Chargers", "Denver Broncos", "Kansas City Chiefs", "Las Vegas Raiders"], "note": "All rendered Yes/No controls and order-book toggles were disabled and contained no percentage."},
+      "nfcEast": {"status": "quoted", "prices": ["Philadelphia Eagles|yes 62|no 42", "Dallas Cowboys|yes 31|no 72", "New York Giants|yes 7|no 96", "Washington Commanders|yes 4|no 99"]},
+      "nfcNorth": {"status": "quoted", "prices": ["Detroit Lions|yes 33|no 68", "Green Bay Packers|yes 20|no 83", "Chicago Bears|yes 21|no 82", "Minnesota Vikings|yes 35|no 68"]},
+      "nfcSouth": {"status": "quoted", "prices": ["Atlanta Falcons|yes 8|no 95", "Tampa Bay Buccaneers|yes 26|no 78", "New Orleans Saints|yes 44|no 59", "Carolina Panthers|yes 26|no 77"]},
+      "nfcWest": {"status": "quoted", "prices": ["Los Angeles Rams|yes 32|no 72", "Seattle Seahawks|yes 35|no 66", "San Francisco 49ers|yes 38|no 65", "Arizona Cardinals|yes 3|no 99"]}
+    }
+  },
+  "visualChampionSnapshot": {
+    "sourceFile": "docs/Futures_Odds/Fanatics_SB1.PNG",
+    "capturedAtFileMetadata": "2026-09-22T13:30:42",
+    "prices": [
+      "Los Angeles Rams|yes 15|no 87", "Buffalo Bills|yes 12|no 89", "Seattle Seahawks|yes 9|no 93", "San Francisco 49ers|yes 8|no 93", "Kansas City Chiefs|yes 8|no 93", "Baltimore Ravens|yes 7|no 95", "Cincinnati Bengals|yes 7|no 96", "Philadelphia Eagles|yes 5|no 96", "Denver Broncos|yes 4|no 97", "Dallas Cowboys|yes 4|no 97", "Detroit Lions|yes 4|no 97", "New England Patriots|yes 4|no 97", "Minnesota Vikings|yes 4|no 98", "Chicago Bears|yes 3|no 98", "Jacksonville Jaguars|yes 3|no 98", "Green Bay Packers|yes 3|no 98", "Houston Texans|yes 3|no 98", "Los Angeles Chargers|yes 2|no 99", "Carolina Panthers|yes 2|no 98", "Cleveland Browns|yes 1|no 99", "Tampa Bay Buccaneers|yes 1|no 99", "Arizona Cardinals|yes 1|no 99", "Indianapolis Colts|yes 1|no 99", "Washington Commanders|yes 1|no 99", "Miami Dolphins|yes 1|no 99", "Atlanta Falcons|yes 1|no 99", "New York Giants|yes 1|no 99", "New York Jets|yes 1|no 99", "Las Vegas Raiders|yes 1|no 99", "New Orleans Saints|yes 1|no 99", "Pittsburgh Steelers|yes 1|no 99", "Tennessee Titans|yes 1|no 99"
+    ]
+  },
+  "week3": {
+    "falconsAtPackers": {
+      "date": "2026-09-24 17:15",
+      "moneyline": {"GB Packers yes": 72, "ATL Falcons yes": 29},
+      "spread": {"GB Packers": -6.5, "ATL Falcons": 6.5},
+      "total": {"over": 44.5, "under": 44.5}
+    },
+    "otherWeek3BoardStatus": "Game catalogue displayed Seattle-Washington through Arizona-San Francisco, but most moneyline payout fields were unavailable or blank in signed-out rendering."
+  },
+  "playerProps": {
+    "event": "GB Packers at ATL Falcons",
+    "quoted": [
+      "Bijan Robinson under 18.5 rushing attempts|yes 99|no 59",
+      "Bijan Robinson over 18.5 rushing attempts|yes 57|no 99",
+      "Matthew Golden over 52.5 receiving yards|yes 53|no 52",
+      "Matthew Golden under 52.5 receiving yards|yes 51|no 53",
+      "Bijan Robinson over 40.5 receiving yards|yes 53|no 53",
+      "Bijan Robinson under 40.5 receiving yards|yes 52|no 52",
+      "Christian Watson over 66.5 receiving yards|yes 52|no 52",
+      "Christian Watson under 66.5 receiving yards|yes 51|no 52",
+      "Drake London over 4.5 receptions|yes 62|no 41",
+      "Matthew Golden under 4.5 receptions|yes 59|no 44",
+      "Tucker Kraft over 3.5 receptions|yes 58|no 45",
+      "Kyle Pitts Sr. over 3.5 receptions|yes 55|no 49",
+      "Bijan Robinson over 4.5 receptions|yes 54|no 49",
+      "Christian Watson over 4.5 receptions|yes 53|no 51",
+      "Christian Watson under 4.5 receptions|yes 51|no 53",
+      "Bijan Robinson under 4.5 receptions|yes 49|no 54",
+      "Kyle Pitts Sr. under 3.5 receptions|yes 49|no 55",
+      "Tucker Kraft under 3.5 receptions|yes 46|no 58",
+      "Drake London under 22.5 longest reception|yes 62|no 57",
+      "Drake London over 22.5 longest reception|yes 57|no 62",
+      "Tucker Kraft over 19.5 longest reception|yes 68|no 32"
+    ],
+    "unquotedObserved": [
+      "Bijan Robinson over/under 83.5 rushing yards",
+      "Drake London over/under 61.5 receiving yards",
+      "Kyle Pitts Sr. over/under 37.5 receiving yards",
+      "Tucker Kraft over/under 41.5 receiving yards",
+      "Tucker Kraft under 19.5 longest reception",
+      "Christian Watson over/under 25.5 longest reception",
+      "Bijan Robinson over/under 15.5 longest reception",
+      "Kyle Pitts Sr. over/under 16.5 longest reception"
+    ],
+    "note": "Unquoted means the rendered control explicitly displayed price unavailable; it is not a probability estimate."
+  },
+  "guardrail": "No order, quote request, sign-in, promotion interaction, or portfolio mutation was performed."
+}
