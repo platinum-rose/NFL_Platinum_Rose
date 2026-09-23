@@ -14,6 +14,7 @@ handoff prose. A full copy of the pre-trim rolling handoff was archived at
 ## Current Pick Up Here
 
 Latest active handoff sources:
+- `handoffs/2026-09-22-2300-claude-preflight-fix-bkr-manual-capture-week3-resume.md` (preflight regex fix, manual BKR futures capture, Week 3 synthesis still at STOP A)
 - `handoffs/2026-09-22-1130-antigravity-scheduled-tasks-and-grok-scanner-handoff.md` (Antigravity automation & scheduled tasks closeout)
 - `handoffs/2026-09-22-1110-codex-governance-weekly-synthesis-review-handoff.md` (Codex governance review)
 
@@ -48,6 +49,18 @@ Current state:
    the main audio pipeline can't do), promoted to the Obsidian vault
    successfully. Still a one-episode proof of concept, not automated. See
    `handoffs/2026-09-22-2130-claude-gemini-podcast-hardening-and-youtube-intel-promotion.md`.
+9. Week 3 TUE-WED synthesis session (`agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md`)
+   resumed and advanced its STOP A freshness pass: fixed a preflight regex bug that
+   was misreporting fresh BEO/BKR futures-board captures as stale (only matched the
+   old bare-date filename convention), refreshed prediction-markets and
+   secondary-matchups for Week 3, and manually captured BKR's (BookMaker) Super Bowl
+   LXI + AFC/NFC futures from the live "Odds to Win" page after Claude in Chrome
+   would not connect (Andy read the board and pasted the odds directly). Preflight
+   now shows 5 stale of 21 (down from 6): roster map, BKR current lines (separate
+   from the futures board), alpha packet, a long-stale legacy podcast-recs file, and
+   Week 3 prop boards (0 files found). Phase 2 (evidence digest) not yet started --
+   still sitting at STOP A. See
+   `handoffs/2026-09-22-2300-claude-preflight-fix-bkr-manual-capture-week3-resume.md`.
 5. Active rules: leg barrier `-350` (flag >2 legs shorter than -200); QB rushing/INT props
    need a stated matchup fit; a player missing from the final box score = lost leg; 2-team
    RRs on Bookmaker; BKR props same-game only.
