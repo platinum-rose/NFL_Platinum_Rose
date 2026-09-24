@@ -5,7 +5,7 @@
 > `handoffs/` and `handoffs/archive/`.
 
 **Last governance trim:** 2026-09-22 by Antigravity & Codex
-**Last verified HEAD:** `5a0e211` (main = consolidated wip + main, 2026-09-23 20:21 PT)
+**Last verified HEAD:** `3b3dc2b` (main, 2026-09-23 21:15 PT; consolidated at `5a0e211`)
 **Last verified branch:** `main` — **the only working branch.** `wip/yahoo-sync` is retired (archived as tag `archive/wip-yahoo-sync-2026-09-23`; remote branch deleted after a clean automation week). Commit to `main`.
 **Workspace state:** very dirty/shared; run `git status -sb` before trusting any
 handoff prose. A full copy of the pre-trim rolling handoff was archived at
@@ -14,6 +14,7 @@ handoff prose. A full copy of the pre-trim rolling handoff was archived at
 ## Current Pick Up Here
 
 Latest active handoff sources:
+- `handoffs/2026-09-24-1100-claude-week3-reprice-branch-consolidation-handoff.md` (LATEST: re-enable the 12 scheduled tasks first; Week 3 card re-priced on BKR 9/23 18:39 after PM Refresh, QBs resolved, STOP B sent — awaiting Andy's go; THU mode next (TNF ATL@GB); main is the only branch; CI-GREEN + props-intel WIP open. Contains the resume prompt.)
 - `handoffs/2026-09-23-1630-claude-branch-consolidation-inventory.md` + `handoffs/2026-09-23-1831-codex-consolidation-merge-report.md` (BRANCH-CONSOLIDATE-MAIN: wip merged into main `e8d1279`, pushed 2026-09-23; checkout switched to main via `E:\dev\projects\switch-to-main.ps1`. Open: CI-GREEN, B-props-intel-rewrite-wip, governance docs pass)
 - `handoffs/2026-09-23-1420-claude-week3-intel-health-pick-extraction-prelim-card-handoff.md` (LATEST: intel fixes (AN revisions, CFB filter, cleanup), 64 Week 3 expert picks via fixed extractor on main, toolbox PM Refresh, Circa sheet fair prices, preliminary game-parlay card `reports/bets/2026-w03-card.md`; next = PM Refresh after practice reports, Bills credit, TNF)
 - `handoffs/2026-09-23-0055-claude-week3-futures-circa-plan-pick-extraction-handoff.md` ( preflight 2/21 stale, pick-extraction week-scope/teaser/dedupe fixes, futures audit, Circa run plan for Wed 9/23 — reconvene when proxy sends live Circa odds)
