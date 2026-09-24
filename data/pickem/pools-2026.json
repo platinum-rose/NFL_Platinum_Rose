@@ -1,0 +1,60 @@
+{
+  "schema": "pickem_pools_v1",
+  "season": 2026,
+  "updated_at": "2026-09-24T19:20:00.000Z",
+  "notes": "Andy's pick'em / confidence pools. Games lock at each game's kickoff in all three. Strategy profiles drive scripts/pickem-card.mjs; standings are filled in from Andy's leaderboard screenshots.",
+  "pools": [
+    {
+      "id": "simplysportsware",
+      "name": "SimplySportsware confidence pool",
+      "platform": "SimplySportsware",
+      "format": "confidence",
+      "scoring": "confidence 1..N (N = games that week)",
+      "entrants": 95,
+      "entrants_note": "about 90-100",
+      "lock": "per_game_kickoff",
+      "prizes": ["weekly", "quarterly", "four_game_segment", "season"],
+      "strategy": "market",
+      "strategy_note": "Three of four prizes are cumulative -> maximize expected points; evidence nudges of 1 slot only, placed by hand.",
+      "standings": null
+    },
+    {
+      "id": "yahoo",
+      "name": "Yahoo confidence pool",
+      "platform": "Yahoo",
+      "format": "confidence",
+      "scoring": "confidence 1..N (N = games that week)",
+      "entrants": 95,
+      "entrants_note": "about 90-100",
+      "lock": "per_game_kickoff",
+      "prizes": ["weekly", "season"],
+      "strategy": "weekly_leverage",
+      "strategy_note": "Weekly prize in a ~95 field -> cheap differentiation: at most one heavy-favorite fade (fav >= 65%) at a low slot plus contrarian sides on near coin flips, all backed by tier 1-2 card evidence, within an expected-points budget.",
+      "leverage": {
+        "max_heavy_fades": 1,
+        "heavy_fav_min_prob": 0.65,
+        "heavy_fade_slot": 3,
+        "max_coinflip_flips": 2,
+        "coinflip_max_prob": 0.57,
+        "max_tier": 2,
+        "max_ev_cost": 2.5
+      },
+      "standings": null
+    },
+    {
+      "id": "cbs",
+      "name": "CBS straight-up pick'em",
+      "platform": "CBS Sports",
+      "format": "straight_up",
+      "scoring": "1 point per correct pick",
+      "entrants": 95,
+      "entrants_note": "about 90-100",
+      "lock": "per_game_kickoff",
+      "prizes": ["weekly", "season"],
+      "strategy": "su_flips",
+      "strategy_note": "Market favorites; differentiate only on near coin flips (fav <= 57%) where tier 1-2 evidence backs the dog.",
+      "flips": { "max": 2, "coinflip_max_prob": 0.57, "max_tier": 2 },
+      "standings": null
+    }
+  ]
+}
