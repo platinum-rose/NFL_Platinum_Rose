@@ -1,4 +1,10 @@
-# OddsIngestAgent - scheduled odds polling + line movement detection
+# OddsIngestAgent - RETIRED 2026-09-24 (manual dispatch only)
+#
+# Superseded by game-odds-ingest.yml: agents/game-odds-ingest.js is now the single
+# scheduled TheOddsAPI caller and also writes `line_movements`. This workflow made
+# the identical API call (h2h/spreads/totals, 3 credits) every 4h and stored a JSON
+# blob in `odds_snapshots`, which nothing reads any more. Kept for one manual
+# fallback run; delete together with the odds_snapshots table after a clean week.
 #
 # Required repo secrets (Settings > Secrets > Actions):
 #   SUPABASE_URL              - https://aambmuzfcojxqvbzhngp.supabase.co
@@ -11,9 +17,6 @@
 name: Odds Ingest
 
 on:
-  schedule:
-    # In-season: every 4 hours to capture active line movement and juice changes
-    - cron: '0 */4 * * *'
   workflow_dispatch:
     inputs:
       dry_run:

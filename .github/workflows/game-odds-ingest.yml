@@ -5,10 +5,18 @@
 #   SUPABASE_URL              — https://aambmuzfcojxqvbzhngp.supabase.co
 #   SUPABASE_SERVICE_ROLE_KEY — service_role JWT
 #
-# Rate budget:
-#   1 request per run × 3 markets = 1 API call (h2h+spreads+totals in one call)
-#   4×/day offseason ≈ 120 calls/month (minimal)
-#   6×/day in-season ≈ 180 calls/month — stays well within free-tier limits
+# Single source of truth (2026-09-24): the ONLY scheduled TheOddsAPI game-odds
+# caller. Writes game_odds_snapshots AND derives line_movements (odds-ingest.yml
+# is retired); the local toolbox sync reads game_odds_snapshots (0 credits).
+#
+# Rate budget (TheOddsAPI bills markets × regions = 3 credits per run):
+#   11 runs/week × 3 = 33 credits/week ≈ 143/month
+#   + futures-odds-ingest (2×/week) ≈ 50/month → ~200 of the 500 free credits.
+#   The agent skips itself when fewer than ODDS_QUOTA_FLOOR (15) credits remain;
+#   use the `force` input to spend the reserve (e.g. Sunday closing lines).
+# Times (UTC; PT = UTC-7 until Nov 1, then UTC-8):
+#   Sun 14:30 / 16:30 / 19:30 / 23:30 — morning, pre-early, pre-late, pre-SNF
+#   Mon 23:30 pre-MNF · Thu 23:30 pre-TNF · Tue–Sat 16:30 daily
 #
 # Offseason behavior:
 #   TheOddsAPI returns 404/422 when no NFL games are scheduled.
@@ -18,16 +26,17 @@ name: Game Odds Ingest
 
 on:
   schedule:
-    # In-season: every 4 hours on Sunday (captures line movement through game day)
-    - cron: '30 */4 * * 0'
-    # In-season: every 4 hours on Thursday + Monday (other game days)
-    - cron: '30 */4 * * 1'
-    - cron: '30 */4 * * 4'
-    # All other days: twice daily (8 AM + 8 PM UTC — offseason futures check)
-    - cron: '30 8  * * 2,3,5,6'
-    - cron: '30 20 * * 2,3,5,6'
+    - cron: '30 14,16,19,23 * * 0'   # Sunday: morning, pre-1pm ET, pre-4pm ET, pre-SNF
+    - cron: '30 23 * * 1'            # Monday pre-MNF
+    - cron: '30 16 * * 2-6'          # Tue–Sat daily snapshot
+    - cron: '30 23 * * 4'            # Thursday pre-TNF
   workflow_dispatch:
     inputs:
+      force:
+        description: 'Ignore the quota floor (spend the reserve credits)'
+        required: false
+        default: false
+        type: boolean
       dry_run:
         description: 'Dry run (fetch + parse only, no Supabase writes)'
         required: false
@@ -72,6 +81,7 @@ jobs:
           ARGS=""
           if [ "${{ inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
           if [ -n "${{ inputs.season }}" ]; then ARGS="$ARGS --season ${{ inputs.season }}"; fi
+          if [ "${{ inputs.force }}" = "true" ]; then ARGS="$ARGS --force"; fi
           node agents/game-odds-ingest.js $ARGS
 
       - name: Log completion

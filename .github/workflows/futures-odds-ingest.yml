@@ -15,8 +15,9 @@ name: Futures Odds Ingest
 
 on:
   schedule:
-    # Once daily at 10:00 UTC (6am ET) — futures markets are stable overnight
-    - cron: '0 10 * * *'
+    # In-season: Tue + Fri 10:00 UTC (quota: game-odds-ingest is the priority caller;
+    # the weekly futures review reads Tuesday's prices). Was daily until 2026-09-24.
+    - cron: '0 10 * * 2,5'
   workflow_dispatch:
     inputs:
       dry_run:

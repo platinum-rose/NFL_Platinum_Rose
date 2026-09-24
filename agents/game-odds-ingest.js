@@ -22,6 +22,14 @@
 //   DRY_RUN                   "true" to skip writes
 //   GAME_ODDS_SEASON          Override season year (default: current year)
 //   SNAPSHOT_TTL_DAYS         Days to retain snapshots (default: 90)
+//   ODDS_QUOTA_FLOOR          Skip the run when TheOddsAPI credits remaining < this (default: 15)
+//
+// Single source of truth (2026-09-24): this agent is the ONLY scheduled caller
+// of TheOddsAPI game odds. It also derives `line_movements` (previously written
+// by the retired agents/odds-ingest.js) by diffing each snapshot bucket against
+// the previous one. The toolbox's scripts/sync-live-market-lines.mjs reads
+// game_odds_snapshots instead of calling the API.
+//   --force   ignore ODDS_QUOTA_FLOOR for this run
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { mkdir, writeFile } from 'node:fs/promises';
@@ -58,6 +66,9 @@ const MARKETS           = 'spreads,h2h,totals';
 const MAX_RUNTIME_MS    = 90_000;
 const MAX_RETRIES       = 2;
 const RETRY_DELAY_MS    = 1_500;
+const QUOTA_FLOOR       = Number(process.env.ODDS_QUOTA_FLOOR ?? 15);
+const FORCE             = process.argv.includes('--force') || process.env.ODDS_FORCE === 'true';
+const MOVEMENT_TTL_DAYS = 7;
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -71,6 +82,27 @@ async function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+export function readQuota(res) {
+  const rem  = res?.headers?.get?.('x-requests-remaining');
+  const used = res?.headers?.get?.('x-requests-used');
+  return {
+    remaining: rem  == null || rem  === '' ? null : Number(rem),
+    used:      used == null || used === '' ? null : Number(used),
+  };
+}
+
+// GET /v4/sports does not count against the usage quota, but it returns the
+// same x-requests-* headers, so it is a free pre-flight quota check.
+async function checkQuota() {
+  try {
+    const res = await fetch(`https://api.the-odds-api.com/v4/sports?apiKey=${ODDS_API_KEY}`);
+    if (!res.ok) return { remaining: null, used: null, error: `HTTP ${res.status}` };
+    return readQuota(res);
+  } catch (err) {
+    return { remaining: null, used: null, error: err.message };
+  }
+}
+
 async function fetchWithRetry(url, retries = MAX_RETRIES) {
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
@@ -82,7 +114,7 @@ async function fetchWithRetry(url, retries = MAX_RETRIES) {
         throw new Error(`HTTP ${res.status}: ${res.statusText}`);
       }
       const data = await res.json();
-      return { status: 'available', data };
+      return { status: 'available', data, quota: readQuota(res) };
     } catch (err) {
       if (attempt === retries) {
         return { status: 'error', reason: err.message, data: null };
@@ -247,6 +279,102 @@ async function pruneOldSnapshots(supabase) {
   else if (count > 0) console.log(`  🗑  Pruned ${count} rows older than ${SNAPSHOT_TTL_DAYS}d`);
 }
 
+// ── Line movements (replaces agents/odds-ingest.js) ─────────────────────────
+
+/**
+ * Pure: diff two snapshot buckets and return `line_movements` rows.
+ * Same semantics as the retired odds-ingest agent: spread = home line,
+ * total = total line, moneyline = home price. `names` maps game_id →
+ * { home, away } full team names so game_key keeps the "Away_Home" format
+ * the dashboard (LineMovementTracker / SteamMoveTracker / LineHistoryChart) reads.
+ */
+export function detectMovements(prevRows, currRows, names, detectedAt) {
+  const prev = new Map(prevRows.map(r => [`${r.game_id}|${r.book}|${r.market}`, r]));
+  const out = [];
+  for (const c of currRows) {
+    const p = prev.get(`${c.game_id}|${c.book}|${c.market}`);
+    if (!p) continue;
+    let from = null;
+    let to = null;
+    if (c.market === 'spread')         { from = p.spread;     to = c.spread; }
+    else if (c.market === 'total')     { from = p.total;      to = c.total; }
+    else if (c.market === 'moneyline') { from = p.home_price; to = c.home_price; }
+    else continue;
+    if (from == null || to == null) continue;
+    const f = Number(from);
+    const t = Number(to);
+    if (!Number.isFinite(f) || !Number.isFinite(t) || f === t) continue;
+    const n = names?.get?.(c.game_id) || { home: c.home_team, away: c.away_team };
+    out.push({
+      detected_at: detectedAt,
+      game_key:    `${n.away}_${n.home}`,
+      home_team:   n.home,
+      away_team:   n.away,
+      book:        c.book,
+      type:        c.market,
+      from_line:   f,
+      to_line:     t,
+      movement:    Number((t - f).toFixed(2)),
+    });
+  }
+  return out;
+}
+
+async function bucketExists(supabase, capturedAt) {
+  const { data, error } = await supabase
+    .from('game_odds_snapshots')
+    .select('id')
+    .eq('captured_at', capturedAt)
+    .limit(1);
+  if (error) throw new Error(error.message);
+  return (data || []).length > 0;
+}
+
+async function previousCapturedAt(supabase, capturedAt) {
+  const { data, error } = await supabase
+    .from('game_odds_snapshots')
+    .select('captured_at')
+    .lt('captured_at', capturedAt)
+    .order('captured_at', { ascending: false })
+    .limit(1);
+  if (error) throw new Error(error.message);
+  return data?.[0]?.captured_at ?? null;
+}
+
+async function fetchBucketRows(supabase, capturedAt) {
+  const PAGE = 1000;
+  const rows = [];
+  for (let from = 0; ; from += PAGE) {
+    const { data, error } = await supabase
+      .from('game_odds_snapshots')
+      .select('game_id, book, market, spread, total, home_price')
+      .eq('captured_at', capturedAt)
+      .order('id', { ascending: true })
+      .range(from, from + PAGE - 1);
+    if (error) throw new Error(error.message);
+    rows.push(...(data || []));
+    if (!data || data.length < PAGE) break;
+  }
+  return rows;
+}
+
+async function writeMovements(supabase, movements) {
+  const CHUNK = 500;
+  let written = 0;
+  for (let i = 0; i < movements.length; i += CHUNK) {
+    const { error } = await supabase.from('line_movements').insert(movements.slice(i, i + CHUNK));
+    if (error) console.error('  ✗ line_movements insert error:', error.message);
+    else written += Math.min(CHUNK, movements.length - i);
+  }
+  return written;
+}
+
+async function pruneOldMovements(supabase) {
+  const cutoff = new Date(Date.now() - MOVEMENT_TTL_DAYS * 86400 * 1000).toISOString();
+  const { error } = await supabase.from('line_movements').delete().lt('detected_at', cutoff);
+  if (error) console.warn('  ✗ line_movements prune failed:', error.message);
+}
+
 // ── Receipt ───────────────────────────────────────────────────────────────────
 
 async function writeReceipt(data) {
@@ -277,6 +405,24 @@ async function main() {
 
   const effectiveDryRun = DRY_RUN || !SUPABASE_URL || !SUPABASE_KEY;
   const supabase = effectiveDryRun ? null : getSupabase();
+
+  // Free pre-flight quota check — stop cleanly instead of failing once credits run out.
+  const quotaBefore = await checkQuota();
+  if (quotaBefore.remaining != null) {
+    console.log(`📊 TheOddsAPI quota: ${quotaBefore.remaining} remaining (used ${quotaBefore.used}) | floor=${QUOTA_FLOOR}${FORCE ? ' (forced)' : ''}`);
+  } else {
+    console.log(`📊 TheOddsAPI quota: unknown (${quotaBefore.error || 'no header'}) — continuing`);
+  }
+  if (!FORCE && quotaBefore.remaining != null && quotaBefore.remaining < QUOTA_FLOOR) {
+    console.log(`⏸  ${quotaBefore.remaining} credits < floor ${QUOTA_FLOOR} — skipping this run (use --force / ODDS_QUOTA_FLOOR to override).`);
+    const receiptPath = await writeReceipt({
+      run_started_at: runStartedAt, captured_at: capturedAt, completed_at: new Date().toISOString(),
+      season: SEASON, dry_run: effectiveDryRun, status: 'skipped_quota', quota: quotaBefore,
+      quota_floor: QUOTA_FLOOR, events: 0, rows_written: 0,
+    });
+    console.log(`🧾 Run receipt: ${receiptPath}`);
+    return;
+  }
 
   // Build URL — fetch upcoming events with odds
   const url =
@@ -313,6 +459,9 @@ async function main() {
   }
 
   const raw    = result.data;
+  if (result.quota?.remaining != null) {
+    console.log(`  📊 After fetch: ${result.quota.remaining} credits remaining (used ${result.quota.used})`);
+  }
   const parsed = parseGameOdds(raw, capturedAt);
   const valid  = validateRows(parsed);
   const invalid = parsed.length - valid.length;
@@ -341,6 +490,8 @@ async function main() {
     rows_valid: valid.length,
     rows_invalid: invalid,
     rows_written: 0,
+    quota: result.quota ?? null,
+    movements_written: 0,
   };
 
   if (effectiveDryRun) {
@@ -364,11 +515,43 @@ async function main() {
   }
 
   console.log('\n💾 Writing to Supabase…');
+  // A re-run inside the same UTC hour upserts the same bucket; don't re-emit movements for it.
+  let rerun = false;
+  try { rerun = await bucketExists(supabase, capturedAt); }
+  catch (e) { console.warn(`  ⚠️  bucket check failed (${e.message}) — movements skipped this run`); rerun = true; }
+
   const written = await writeSnapshots(supabase, valid);
   receipt.rows_written = written;
   console.log(`  ✅ Wrote ${written} rows to game_odds_snapshots`);
 
+  // Derive line_movements vs the previous bucket (non-fatal on failure).
+  if (rerun) {
+    console.log('  ↪  Same-hour re-run — line movements already recorded for this bucket.');
+  } else {
+    try {
+      const prevAt = await previousCapturedAt(supabase, capturedAt);
+      if (!prevAt) {
+        console.log('  ℹ️  No previous bucket — no movements to compute.');
+      } else {
+        const prevRows = await fetchBucketRows(supabase, prevAt);
+        const names = new Map();
+        for (const ev of raw) {
+          const h = normalizeTeam(ev.home_team);
+          const a = normalizeTeam(ev.away_team);
+          names.set(buildGameId(h, a, ev.commence_time, SEASON), { home: ev.home_team, away: ev.away_team });
+        }
+        const movements = detectMovements(prevRows, valid, names, runStartedAt);
+        receipt.movements_prev_bucket = prevAt;
+        receipt.movements_written = movements.length ? await writeMovements(supabase, movements) : 0;
+        console.log(`  📈 ${movements.length} line movement(s) vs ${prevAt} → ${receipt.movements_written} written to line_movements`);
+      }
+    } catch (e) {
+      console.warn(`  ⚠️  line movement step failed: ${e.message}`);
+    }
+  }
+
   await pruneOldSnapshots(supabase);
+  await pruneOldMovements(supabase);
 
   const receiptPath = await writeReceipt(receipt);
   console.log(`🧾 Run receipt: ${receiptPath}`);
