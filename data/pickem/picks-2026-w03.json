@@ -4,8 +4,28 @@
   "week": 3,
   "notes": "Picks per pool keyed by the PICKED team. status: proposed (recommended, not confirmed) | submitted (Andy confirmed it is in). Locked games are fixed when the card is rebuilt.",
   "pools": {
-    "simplysportsware": { "GB": { "confidence": 10, "status": "proposed", "at": "2026-09-24T19:10:00.000Z" } },
-    "yahoo": { "ATL": { "confidence": 3, "status": "proposed", "at": "2026-09-24T19:13:00.000Z" } },
-    "cbs": { "GB": { "status": "proposed", "at": "2026-09-24T19:10:00.000Z" } }
+    "simplysportsware": {
+      "GB": {
+        "confidence": 10,
+        "status": "submitted",
+        "at": "2026-09-24T19:10:00.000Z",
+        "submitted_at": "2026-09-24T14:25:00-07:00"
+      }
+    },
+    "yahoo": {
+      "ATL": {
+        "confidence": 3,
+        "status": "submitted",
+        "at": "2026-09-24T19:13:00.000Z",
+        "submitted_at": "2026-09-24T14:25:00-07:00"
+      }
+    },
+    "cbs": {
+      "GB": {
+        "status": "submitted",
+        "at": "2026-09-24T19:10:00.000Z",
+        "submitted_at": "2026-09-24T14:25:00-07:00"
+      }
+    }
   }
 }
