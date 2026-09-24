@@ -476,3 +476,67 @@ than restructuring instructions another tool might be relying on verbatim).
 - **Not yet built** -- logged here as a real, felt gap to prioritize, not fixed in this session.
 
 *(Added 2026-09-21, Claude/Cowork)*
+
+---
+
+## S245 (2026-09-21/22) — Stale notes, a stat-leak bug, and a model that failed its own backtest
+
+### 1. A stale HANDOFF note is worse than no note
+Two entries in `HANDOFF.md` described a repo state that had since changed, and both were
+believed and acted on before being disproven:
+- "the Cowork `device_bash` shell has NO outbound network" — **false**; the bridge fetches
+  ESPN fine (HTTP 200). This had been steering live-data work away from the bridge.
+- "the tracker has no concept of a player leaving the game injured" — **false**; the 🚑
+  Out/Inactive flag was built after that note and the note was never updated. Time was spent
+  preparing to build a feature that already existed.
+- **Rule:** when a HANDOFF claim is disproven, correct it in place in the same session, with a
+  dated `CORRECTED (SXXX)` marker. Do not leave it for later. Both corrections are now inline.
+
+### 2. Never seed a live tracker with event ids from another week
+`generate-live-tracker.mjs` hardcoded two Week 1 ESPN event ids. Because the stat merge
+**overwrites** rather than accumulates, and a live boxscore only contains athletes who have
+already recorded a stat, every Rams player without a touch yet retained his **Week 1** line —
+Kyren Williams reading 11 car / 41 yds and Stafford 15/25 for 155 while the game sat 0-0.
+The asymmetry (Rams corrupted, Giants clean) is the tell: only LAR had a Week 1 event in the
+fetch set. **Rule:** `eventIds` must never contain an id from a week other than the one being
+rendered, and a merge that overwrites needs the freshest source processed last *and* a
+guarantee the source is complete.
+
+### 3. Validate a model before trusting a single number it produces
+A prop projection model (shrinkage blend + Poisson/gamma) was built, and it looked plausible
+until it was backtested against 73 real graded legs: **Brier 0.2583 vs 0.2500 for simply
+predicting the base rate — skill of −3.3%**, with near-inverted calibration. Its first version
+also failed an obvious smell test, recommending almost exclusively one team because with one
+game played it was just extrapolating that team's best game and the opponent's worst.
+**Rule:** a model output does not get used for sizing or selection until it beats the base rate
+on the user's own graded history. Publish the negative result as loudly as a positive one.
+What survived was direct observation, not modelling: yardage props are bimodal, receptions are
+tight, and the −120..−100 price band is where the losses concentrate.
+
+### 4. Roster facts come from data, never from training memory
+Three separate times, current players were called "data contamination" from stale priors:
+Isaiah Likely / Patrick Ricard / Najee Harris (all Giants under HC John Harbaugh in 2026),
+Myles Garrett (a Ram), and Aaron Donald (unretired, 1yr/$20M). Each was real and verifiable.
+**Rule (now also in `docs/BETTING_LESSONS_LEARNED.md`):** cross-check
+`data/nfl-rosters/roster-map-latest.json`, verify anything surprising against a live source,
+and never conclude "contamination" without doing so. **Corollary found the same night:** that
+roster map holds only ~815 players (~25/team) and does not cover most defensive backs — its
+silence is not evidence a player doesn't exist.
+
+### 5. Separate extractor defects from market movement before reporting either
+A prop-movement report showed 313 added / 329 removed rows, which read as enormous churn.
+Decomposition showed **94% of removed and 92% of added were artifacts**: a TD player-field
+regression (player set to the section title), a market misclassified because section titles
+gained a `Giants vs Rams: ` prefix, and a genuine-but-not-movement ladder re-anchor (the book
+shifted its alternate-line grid by one yard, so every line-keyed row failed to match).
+**Rule:** when a diff is dominated by added+removed rather than changed, suspect the key before
+believing the churn. Report extractor defects and market movement in separate sections.
+
+### 6. A green test suite only covers the paths it tests
+The BEO parser's 5 tests all passed while the parser silently dropped 42 rows — including every
+Terrance Ferguson and Tyler Higbee market — because the main loop `break`s on a stop label and
+208 lines of real markets sat after it. No test covered "markets appearing after a stop label."
+**Rule:** when a parser has an early-termination construct, there must be a test asserting that
+valid content *after* the termination point is still captured.
+
+*(Added 2026-09-22, Claude/Cowork — S245)*

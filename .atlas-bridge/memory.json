@@ -1,9 +1,9 @@
 {
   "project_name": "NFL_Dashboard",
   "bridge_version": "1.0",
-  "last_updated": "2026-09-21",
+  "last_updated": "2026-09-22",
   "last_atlas_sync": "2026-07-26",
-  "session_count": 13,
+  "session_count": 14,
   "last_session_platform": "cowork",
   "health": {
     "status": "active",
@@ -12,7 +12,7 @@
     "last_commit_msg": "chore(handoff): record commit push and m6 sync closeout",
     "last_commit_author": "andrewlrose"
   },
-  "status_summary": "NFL betting analytics dashboard in preseason + Fantasy Football Keeper Suite. Codex completed the 2026-09-04/05 git untangle closeout: committed the reviewed Tier 4 futures fixes, Antigravity roster/Survivor work, master report guard, Survivor shell wiring, intel hardening, The League rankings bundle, Twitter harvester/vault sync lane, public schedule odds snapshot, and remaining approved dashboard artifacts through work-stack commit 53c3967, then added a state-only handoff closeout commit. Local dirty exclusions remain intentionally preserved: Vite dev-server change, .nfl gmail test summaries, sensitive Yahoo files, and scratch/tmp piles.",
+  "status_summary": "S245 (2026-09-21/22 MNF): corrected 2 stale HANDOFF notes; FIXED a Week-1 stat leak in generate-live-tracker.mjs; REVIEW-ONLY audit of the BEO/BKR prop re-pull found 1 critical parser bug + 2 BKR regressions (none fixed); logged 6 MNF tickets ($50 at risk); prop projection model failed backtest validation and must not be used for sizing.",
   "alerts": [
     {
       "id": "yahoo_api_pending_approval",
@@ -87,6 +87,51 @@
       "priority": 1,
       "created_at": "2026-09-21T04:35:00.000Z",
       "owner": "Andy"
+    },
+    {
+      "id": "mnf_week2_island_stacks_nyg_lar",
+      "description": "Build tonight (2026-09-21 MNF, NYG @ LAR, Week 2) Island-game 3-tier player-prop parlay stacks using the locked template (memory: nfl_dashboard_island_game_parlay_template.md) against the already-captured Bookmaker lines in scratch/bookmaker-sgp-live-2026-09-21-nyg-lar.json (530 rows, verified clean). BetOnline has no saved raw data file for this game -- only the parser exists, do not look for one.",
+      "priority": 1,
+      "created_at": "2026-09-21T20:45:00.000Z",
+      "owner": "Andy",
+      "status": "closed",
+      "closed_at": "2026-09-22",
+      "closed_in": "S245"
+    },
+    {
+      "id": "beo_parser_stop_label_bug",
+      "priority": 1,
+      "status": "open",
+      "opened_in": "S245",
+      "description": "CRITICAL: scripts/props/betonline-live-parser.mjs breaks the main loop on DEFAULT_STOP_LABELS ('Team to Commit 1st Accepted Penalty') while 208 lines of real markets follow it. Silently drops 42 rows incl. ALL 5 Terrance Ferguson markets and both Tyler Higbee markets. The saved go-forward BEO baseline is missing players Andy had live action on. Fix: skip-and-continue instead of break, plus a regression test for props after a stop label (none of the 5 existing tests cover it)."
+    },
+    {
+      "id": "bkr_td_player_field_regression",
+      "priority": 2,
+      "status": "open",
+      "opened_in": "S245",
+      "description": "BKR re-pull sets player = section title ('Player To Score 1st Touchdown') on all first_td/atd_1_plus/td_2_plus/td_3_plus rows. Real name survives in `selection` so it is recoverable. Breaks every join and inflates the movement report's added/removed by ~100 rows each way."
+    },
+    {
+      "id": "bkr_carries_section_prefix_misclassification",
+      "priority": 2,
+      "status": "open",
+      "opened_in": "S245",
+      "description": "All 44 BKR carries rows are captured but typed 'unknown' because section titles now carry a 'Giants vs Rams: ' prefix the classifier does not strip (the comparison script strips it; upstream classification does not). Presents as a phantom 44-row market removal."
+    },
+    {
+      "id": "codex_bookmaker_parser_cli_followup",
+      "priority": 3,
+      "status": "open",
+      "opened_in": "S245",
+      "description": "Still unsent across several sessions: ask Codex to commit a reusable bookmaker-live-parser.mjs CLI mirroring BetOnline's --in/--out convention. Bookmaker extraction is still an ad-hoc live pass, which is why every price quoted after 8pm on 2026-09-21 came from a frozen capture."
+    },
+    {
+      "id": "mnf_week2_ticket_metadata_gaps",
+      "priority": 3,
+      "status": "open",
+      "opened_in": "S245",
+      "description": "Two BEO 7-leg MNF tickets (+21700, +1200) logged without ticket numbers; 396981556 and 396982644 logged without per-leg prices (BetOnline UI did not display them). Does not block grading; blocks real CLV analysis in the postmortem."
     }
   ],
   "session_log": [

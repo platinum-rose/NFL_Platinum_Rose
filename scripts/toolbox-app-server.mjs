@@ -740,6 +740,29 @@ export function runTask(taskKey) {
     broadcastStatus('idle');
     return { ok: true, task: taskKey, url: sunUrl, message: 'Launched Live Gameday Tracker' };
   }
+  if (taskKey === 'launch-betonline-props') {
+    // Agent-assisted live capture, not unattended scraping: these are real-money
+    // sportsbook accounts, so the page is opened in Andy's own logged-in browser
+    // and a Claude/Codex session drives the actual capture+parse from there --
+    // same workflow verified in the 2026-09-21 BetOnline/Bookmaker handoffs.
+    // See scripts/props/README.md "Live capture (agent-assisted)" for the steps.
+    const betOnlineUrl = 'https://www.betonline.ag/sportsbook/futures-and-props/nfl-game-props/';
+    broadcastLog(`🌐 BetOnline NFL Game Props opened (${betOnlineUrl})\n`, 'system');
+    broadcastLog(`   Next: navigate to the matchup, then ask your agent to run\n`, 'system');
+    broadcastLog(`   scripts/props/betonline-live-parser.mjs against the rendered page\n`, 'system');
+    broadcastLog(`   and save to data/generated/props/betonline-live-<date>-<game>.json\n`, 'system');
+    broadcastStatus('idle');
+    return { ok: true, task: taskKey, url: betOnlineUrl, message: 'Opened BetOnline NFL Game Props' };
+  }
+  if (taskKey === 'launch-bookmaker-props') {
+    // Same agent-assisted model as launch-betonline-props above.
+    const bookmakerUrl = 'https://be.bookmaker.eu/en/sports/football/nfl/game-lines/';
+    broadcastLog(`🌐 Bookmaker.eu NFL Game Lines opened (${bookmakerUrl})\n`, 'system');
+    broadcastLog(`   Next: navigate to the matchup, then ask your agent to capture the\n`, 'system');
+    broadcastLog(`   SGP/prop sections and save to data/generated/props/bookmaker-live-<date>-<game>.json\n`, 'system');
+    broadcastStatus('idle');
+    return { ok: true, task: taskKey, url: bookmakerUrl, message: 'Opened Bookmaker.eu NFL Game Lines' };
+  }
   if (activeProcess) {
     return { ok: false, error: 'Another task is currently running. Please stop it first or wait for completion.' };
   }
