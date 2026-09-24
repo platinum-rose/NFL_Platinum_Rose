@@ -64,9 +64,18 @@ async function syncLiveMarketLines() {
   const events = await res.json();
   const capturedAt = new Date().toISOString();
 
-  // Load locked SuperContest lines
-  const scPath = 'E:/dev/projects/NFL_Dashboard/data/supercontest/week-01-lines.json';
-  const scData = JSON.parse(await import('fs').then(fs => fs.readFileSync(scPath, 'utf8')));
+  // Load locked SuperContest lines -- always read the *latest* captured week via the
+  // pointer file agents/supercontest-lines-ingest.js maintains (data/supercontest/latest.json),
+  // instead of a hardcoded week number. This used to point at week-01-lines.json forever,
+  // which silently compared live odds against a finished week's lines on every run.
+  const scPath = 'E:/dev/projects/NFL_Dashboard/data/supercontest/latest.json';
+  let scData;
+  try {
+    scData = JSON.parse(await import('fs').then(fs => fs.readFileSync(scPath, 'utf8')));
+  } catch (err) {
+    throw new Error(`Could not read locked SuperContest lines from ${scPath}: ${err.message}. Run "node agents/supercontest-lines-ingest.js" first to capture this week's lines.`);
+  }
+  console.log(`📌 Comparing against SuperContest Week ${scData.week} locked lines (captured ${scData.captured_at}).`);
 
   const liveResults = [];
 

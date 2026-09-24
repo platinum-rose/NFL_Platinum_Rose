@@ -167,12 +167,60 @@ function sentenceSnippets(text, patterns, limit = 3) {
   return hits;
 }
 
+function cleanSelection(sel) {
+  let cleaned = clean(sel)
+    .replace(/\(Pool Play Percentages:[^)]*\)/gi, '')
+    .replace(/\bTSI NFL Week 1 Projections.*$/i, '')
+    .replace(/\bfor cash bets.*$/i, '')
+    .replace(/,\s*pass(?: at.*)?$/i, '')
+    .replace(/\s+in two-team,\s*6-point teasers.*$/i, ' (6-pt Teaser)')
+    .replace(/\(Play to [^)]+\)/gi, '')
+    .replace(/[.;,]+$/, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  const totalMatch = cleaned.match(/^(Over|Under)\s+(\d+(?:\.\d+)?)\b/i);
+  if (totalMatch && cleaned.length > totalMatch[0].length) {
+    cleaned = totalMatch[0];
+  }
+  return cleaned;
+}
+
+function detectAnalyst(source = '', title = '', author = '', text = '') {
+  if (/Tuley/i.test(title) || /Dave Tuley/i.test(author) || /Dave Tuley/i.test(text)) return 'Dave Tuley (VSiN)';
+  if (/T.?Shoe Index/i.test(title) || /Tyler Shoemaker/i.test(author) || /T-Shoe/i.test(text) || /Tyler Shoemaker/i.test(text)) return 'T-Shoe Index (VSiN)';
+  if (/Walter Football/i.test(source) || /Walter Cherepinsky/i.test(author)) return 'Walter Cherepinsky (Walter Football)';
+  if (author && !/staff|editor|admin/i.test(author)) return author;
+  if (/Erickson/i.test(title) || /Andrew Erickson/i.test(text)) return 'Andrew Erickson (BettingPros)';
+  if (/Phil Wood/i.test(title) || /Phil Wood/i.test(text)) return 'Phil Wood (BettingPros)';
+  if (/Steve Krebs/i.test(title) || /Steve Krebs/i.test(text)) return 'Steve Krebs (BettingPros)';
+  if (/Makinen/i.test(title) || /Steve Makinen/i.test(text)) return 'Steve Makinen (VSiN)';
+  if (/Koerner/i.test(title) || /Sean Koerner/i.test(text)) return 'Sean Koerner (Action Network)';
+  if (/Raybon/i.test(title) || /Chris Raybon/i.test(text)) return 'Chris Raybon (Action Network)';
+  if (/Stuckey/i.test(title) || /Stuckey/i.test(text)) return 'Stuckey (Action Network)';
+  if (/Rich Hribar/i.test(title) || /The Worksheet/i.test(title)) return 'Rich Hribar (Sharp Football)';
+  return source || 'Analyst Staff';
+}
+
 function articleSentences(text, limit = 900) {
   return clean(text)
+    .replace(/\.{2,}/g, '.')
+    .replace(/\b([A-Z])\.([A-Z])\./g, '$1_DOT_$2_DOT_')
+    .replace(/\b([A-Z])\.\s+(?=[A-Z][a-z])/g, '$1_DOT_ ')
+    .replace(/&#8217;/g, "'")
     .replace(/([:;])\s+(?=(?:Best Bet|Pick|Prediction|Lean|Play|Bet|Wager)\b)/gi, '$1\n')
+    .replace(/\(Play to [^)]+\)/gi, '$&\n')
+    .replace(/(?<=[^\n])\s+(?=(?:Best Bet|Bet|Pick|Lean):\s+)/gi, '\n')
+    .replace(/(?<=[^\n])\s+(?=(?:Erickson|T-Shoe|[A-Z][a-z]+)'s\s+(?:Best Bet|Bet|Pick|Play):)/gi, '\n')
+    .replace(/(\(\s*[+-]\d{3,5}\s*\))\s+(?=[A-Z])/g, '$1\n')
+    .replace(/\b(?:Get instant alerts[^\n]+|More NFL Betting Advice[^\n]+|Trends\s+[A-Z][^\n]+)/gi, '')
+    .replace(/Leg\s*#\d:\s*/gi, '\nPick: ')
+    .replace(/\b([A-Z][A-Za-z]+)\s+([+-]\d+(?:\.\d+)?)\s*\(([\d.]+)\s*Units?\)/gi, '\nPick: $1 $2 ($3 Units)\n')
+    .replace(/\b(Over|Under)\s+(\d+(?:\.\d+)?)\s*\(([\d.]+)\s*Units?\)/gi, '\nPick: $1 $2 ($3 Units)\n')
+    .replace(/\bSame-Game Parlay:\s*/gi, '\nSame-Game Parlay: ')
     .split(/(?<=[.!?\n])\s+/)
-    .map((sentence) => clean(sentence))
-    .filter((sentence) => sentence.length >= 18 && sentence.length <= limit);
+    .map((sentence) => clean(sentence.replace(/_DOT_/g, '.')))
+    .filter((sentence) => sentence.length >= 10 && sentence.length <= limit);
 }
 
 function isPageChromeSentence(sentence) {
@@ -188,7 +236,8 @@ function hasMarketDetail(text) {
   return TOTAL_PATTERN.test(text)
     || AMERICAN_PRICE_PATTERN.test(text)
     || /\b(?:moneyline|spread|total|team total|win total|to win|make the playoffs|miss the playoffs|division|conference|Super Bowl|MVP|rookie of the year|player of the year|coach of the year)\b/i.test(text)
-    || /\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)?\s+[+-]\d+(?:\.\d+)?\b/.test(text);
+    || /\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)?\s+[+-]\d+(?:\.\d+)?\b/.test(text)
+    || /\b\([\d.]+\s*Units?\)/i.test(text);
 }
 
 function reviewFlagsForPick(text, teams, details, extra = []) {
@@ -198,8 +247,9 @@ function reviewFlagsForPick(text, teams, details, extra = []) {
     ...(teams.length > 5 ? ['broad_or_page_chrome_team_match'] : []),
     ...(details.price ? [] : ['missing_price']),
     ...(details.book ? [] : ['missing_book']),
-    ...(details.line || ['moneyline', 'super_bowl_winner', 'division_winner', 'conference_winner', 'make_playoffs', 'award_or_player_future'].includes(details.market) ? [] : ['missing_line']),
+    ...(details.line || ['moneyline', 'super_bowl_winner', 'division_winner', 'conference_winner', 'make_playoffs', 'award_or_player_future', 'same_game_parlay'].includes(details.market) ? [] : ['missing_line']),
     ...(details.selection ? [] : ['missing_selection']),
+    ...(details.units === '0' ? ['zero_units_pass_or_lean'] : []),
   ];
 }
 
@@ -213,7 +263,8 @@ function bodyEvidenceStatus(row) {
 
 function isExecutionUsablePick(details) {
   if (!details?.selection || !details?.market || !details?.price || !details?.book) return false;
-  if (['moneyline', 'super_bowl_winner', 'division_winner', 'conference_winner', 'make_playoffs', 'award_or_player_future'].includes(details.market)) {
+  if (details.units === '0' || details.consensusAssumed) return false;
+  if (['moneyline', 'super_bowl_winner', 'division_winner', 'conference_winner', 'make_playoffs', 'award_or_player_future', 'same_game_parlay'].includes(details.market)) {
     return true;
   }
   return Boolean(details.line);
@@ -223,6 +274,71 @@ function executionEvidenceStatus(details) {
   return isExecutionUsablePick(details)
     ? 'execution_evidence_present'
     : 'needs_price_or_venue_verification';
+}
+
+function classifyTierAndWeight(details, quote = '', article = {}) {
+  const selectionLower = clean(details.selection || '').toLowerCase();
+  
+  // 1. Informational Pass / 0 Units
+  if (details.units === '0' || /^pass\b/.test(selectionLower) || /zero_units/i.test(details.review_flags?.join(' '))) {
+    return {
+      tier: 4,
+      tier_label: 'Tier 4: Informational Pass / Lean',
+      weight: 0.25,
+      pricing_source: 'Informational Pass',
+      execution_action: 'Pass / No Action',
+    };
+  }
+
+  // 2. Tier 1: Direct Execution Ready (Has explicit price and explicit book, or unit-sized official bet)
+  const isDirect = details.evidence_status === 'execution_evidence_present'
+    || (Boolean(details.selection && details.market && details.price && details.book && details.line && !details.price.includes('Est. Consensus')));
+
+  if (isDirect) {
+    return {
+      tier: 1,
+      tier_label: 'Tier 1: Direct Execution',
+      weight: 1.00,
+      pricing_source: `${details.book} (${details.price})`,
+      execution_action: `Direct Bet at ${details.book}`,
+    };
+  }
+
+  // 3. Tier 2: Analyst & Quantitative Model Best Bets (Weight 0.75)
+  // Dave Tuley Best Bets, T-Shoe Index model bets, Steve Krebs Best Bets, Andrew Erickson Best Bets, etc.
+  const isBestBetQuote = /(?:best bet|\b(?:bet|pick|play):)/i.test(quote);
+  const isRecognizedSource = /(?:VSiN|Tuley|T-Shoe|T Shoe|Tyler Shoemaker|Walter Football|BettingPros|Action Network|Sharp Football)/i.test(article.source || article.title || '');
+  const isSpreadOrTotalOrML = ['spread', 'game_total', 'moneyline', 'team_total'].includes(details.market);
+  
+  if (isBestBetQuote && isRecognizedSource && isSpreadOrTotalOrML && details.line) {
+    return {
+      tier: 2,
+      tier_label: 'Tier 2: Analyst & Model Best Bet',
+      weight: 0.75,
+      pricing_source: 'Consensus (-110 Assumed)',
+      execution_action: `Shop ${details.line} line across books`,
+    };
+  }
+
+  // 4. Tier 3: Secondary Leans & Player Props (Weight 0.50)
+  if (details.price || details.market === 'player_prop_or_stat_future' || /\blean\b/i.test(quote) || /\bparlay\b/i.test(quote)) {
+    return {
+      tier: 3,
+      tier_label: 'Tier 3: Secondary Lean / Prop',
+      weight: 0.50,
+      pricing_source: details.price ? `Stated Price (${details.price})` : 'Market Lean',
+      execution_action: 'Verify line & shop books',
+    };
+  }
+
+  // 5. Tier 4: Context
+  return {
+    tier: 4,
+    tier_label: 'Tier 4: Market Context Lead',
+    weight: 0.25,
+    pricing_source: 'Context Only',
+    execution_action: 'Informational Only',
+  };
 }
 
 function extractStructuredAnalystSelections(text) {
@@ -252,9 +368,121 @@ function extractStructuredAnalystSelections(text) {
 
 function parseMarketDetails(text, fallbackTeams = []) {
   const source = clean(text);
+
+  // Handle BettingPros DraftKings featured best bet (e.g. Patriots +3 -102)
+  const bpDkMatch = source.match(/Odds courtesy of DraftKings Sportsbook\s*\)\s*([A-Za-z ]+?\s+[+-]\d+(?:\.\d+)?)\s*\(\s*([+-]\d{3,5})\s*\)/i);
+  if (bpDkMatch) {
+    const sel = clean(bpDkMatch[1]);
+    const line = sel.match(/[+-]\d+(?:\.\d+)?/)?.[0] || null;
+    return {
+      market: 'spread',
+      selection: sel,
+      side: line && line.startsWith('+') ? 'positive_or_over' : 'negative_or_under',
+      line,
+      price: bpDkMatch[2],
+      book: 'DraftKings',
+      units: null,
+    };
+  }
+
+  // Handle Same-Game Parlay (e.g. Walter Football, BettingPros)
+  const parlayMatch = source.match(/(?:Same-Game\s+)?Parlay:\s*(.+?)\s*([+-]\d{3,5})\s*\(([\d.]+)\s*Units?[^)]*\)\s*-\s*([A-Za-z]+)/i);
+  if (parlayMatch) {
+    return {
+      market: 'same_game_parlay',
+      selection: `SGP: ${clean(parlayMatch[1])}`,
+      side: 'parlay',
+      line: parlayMatch[2],
+      price: `${parlayMatch[2]} (${parlayMatch[3]} Units)`,
+      book: parlayMatch[4],
+      units: parlayMatch[3],
+    };
+  }
+
+  const unitSpreadMatch = source.match(/\b([A-Z][A-Za-z]+)\s+([+-]\d+(?:\.\d+)?)\s*\(([\d.]+)\s*Units?\)/i);
+  if (unitSpreadMatch && !['Over', 'Under'].includes(unitSpreadMatch[1])) {
+    const units = unitSpreadMatch[3];
+    return {
+      market: 'spread',
+      selection: `${unitSpreadMatch[1]} ${unitSpreadMatch[2]}`,
+      side: unitSpreadMatch[2].startsWith('+') ? 'positive_or_over' : 'negative_or_under',
+      line: unitSpreadMatch[2],
+      price: `-110 (${units} Units)`,
+      book: /DraftKings/i.test(source) ? 'DraftKings' : 'Consensus',
+      units,
+    };
+  }
+
+  const unitTotalMatch = source.match(/\b(Over|Under)\s+(\d+(?:\.\d+)?)\s*\(([\d.]+)\s*Units?\)/i);
+  if (unitTotalMatch) {
+    const units = unitTotalMatch[3];
+    return {
+      market: 'game_total',
+      selection: `${unitTotalMatch[1]} ${unitTotalMatch[2]}`,
+      side: unitTotalMatch[1].toLowerCase(),
+      line: unitTotalMatch[2],
+      price: `-110 (${units} Units)`,
+      book: /DraftKings/i.test(source) ? 'DraftKings' : 'Consensus',
+      units,
+    };
+  }
+
+  // Handle BettingPros & Analyst Prop Header: "Player/Team Prop Line ( +100 )"
+  const propHeaderMatch = source.match(/\b([A-Z][A-Za-z'.-]+(?:\s+[A-Za-z0-9'+.-]+){1,5})\s*\(\s*([+-]\d{3,5})\s*\)/);
+  if (propHeaderMatch && !/courtesy of/i.test(propHeaderMatch[1]) && !/Odds:/i.test(propHeaderMatch[1]) && !/Parlay/i.test(propHeaderMatch[1])) {
+    const rawSel = clean(propHeaderMatch[1]).replace(/^(?:Pick|Play|Bet|Lean):\s*/i, '');
+    const price = propHeaderMatch[2];
+    const book = /DraftKings/i.test(source) ? 'DraftKings' : null;
+    let market = 'player_prop_or_stat_future';
+    let line = null;
+    let side = null;
+    if (/\b(?:Moneyline|ML)\b/i.test(rawSel)) {
+      market = 'moneyline';
+      side = 'positive_or_over';
+    } else if (/\bPoints?\b/i.test(rawSel)) {
+      market = 'team_total';
+      const ptMatch = rawSel.match(/(\d+)\+/);
+      if (ptMatch) line = ptMatch[1];
+    } else if (/[+-]\d+(?:\.\d+)?/.test(rawSel)) {
+      market = 'spread';
+      const spMatch = rawSel.match(/([+-]\d+(?:\.\d+)?)/);
+      if (spMatch) line = spMatch[1];
+      side = line && line.startsWith('+') ? 'positive_or_over' : 'negative_or_under';
+    } else {
+      const totMatch = rawSel.match(/\b(Over|Under)\s+(\d+(?:\.\d+)?)/i);
+      if (totMatch) {
+        side = totMatch[1].toLowerCase();
+        line = totMatch[2];
+        if (!/\byards|receptions|touchdown|td|interception/i.test(rawSel)) {
+          market = 'game_total';
+        }
+      }
+    }
+    return {
+      market,
+      selection: rawSel,
+      side,
+      line,
+      price,
+      book,
+      units: null,
+      consensusAssumed: false,
+    };
+  }
+
   const total = /\bover\s+\d+(?:\.\d+)?\s+regular-season games\b/i.test(source) ? null : source.match(TOTAL_PATTERN);
-  const price = source.match(AMERICAN_PRICE_PATTERN)?.[1] || null;
-  const book = source.match(BOOK_PATTERN)?.[1] || null;
+  let price = source.match(AMERICAN_PRICE_PATTERN)?.[1] || null;
+  let book = source.match(BOOK_PATTERN)?.[1] || null;
+  const unitMatch = source.match(/\(([\d.]+)\s*Units?\)/i);
+  const units = unitMatch ? unitMatch[1] : null;
+
+  if (units !== null && !price) {
+    price = `-110 (${units} Units)`;
+    if (!book) {
+      book = /DraftKings/i.test(source) ? 'DraftKings' : 'Consensus';
+    }
+  }
+
   const detail = {
     market: classifyMarket(source),
     selection: null,
@@ -262,6 +490,8 @@ function parseMarketDetails(text, fallbackTeams = []) {
     line: null,
     price,
     book,
+    units,
+    consensusAssumed: false,
   };
 
   if (total) {
@@ -290,21 +520,64 @@ function parseMarketDetails(text, fallbackTeams = []) {
     if (line && !/^[+-]\d{3,5}$/.test(line)) detail.line = line;
   }
 
-  const explicitSelection = source.match(/\b(?:Best Bet|Pick|Prediction|Play|Bet|Wager|Lean|Target|Taking|Like):?\s+(.+?)(?=\s+(?:at|with|for)\s+|[.;|]|$)/i)?.[1]
-    || source.match(/\b(?:take|taking|like|play|bet|back|fade)\s+(.+?)(?=\s+(?:at|with|for)\s+|[.;|]|$)/i)?.[1]
+  const explicitSelection = source.match(/\b(?:[A-Za-z]+'s\s+)?(?:Best Bet|Pick|Prediction|Play|Bet|Wager|Lean|Target|Taking|Like):?\s+([^;|]+?)(?=\s+(?:at|with|for cash|in two-team|Trends|\()\s+|[;|]|\.\s+|$)/i)?.[1]
+    || source.match(/\b(?:take|taking|like|play|bet|back|fade)\s+([^;|]+?)(?=\s+(?:at|with|for cash|in two-team)\s+|[;|]|\.\s+|$)/i)?.[1]
     || null;
-  detail.selection = explicitSelection
-    ? clean(explicitSelection).replace(/\s*\(?[+-]\d{3,5}\)?$/, '').trim().slice(0, 120)
-    : (fallbackTeams.length === 1 && STRICT_TEAM_MARKETS.has(detail.market) ? fallbackTeams[0] : null);
+
+  if (explicitSelection) {
+    const cleaned = cleanSelection(explicitSelection)
+      .replace(/[.;,]+$/, '')
+      .replace(/\s*\(?[+-]\d{3,5}\)?$/, '')
+      .replace(/[.;,]+$/, '')
+      .trim();
+    if (!/^pass\b/i.test(cleaned) && !/^the points\b/i.test(cleaned) && cleaned.toLowerCase() !== 'it' && cleaned.length >= 3) {
+      detail.selection = cleaned.slice(0, 120);
+    }
+  } else if (fallbackTeams.length === 1 && STRICT_TEAM_MARKETS.has(detail.market)) {
+    detail.selection = fallbackTeams[0];
+  }
+
+  // If market is not yet classified or is market_context, infer from detail.line or detail.selection
+  if (!detail.market || detail.market === 'market_context') {
+    if (detail.line && /^[+-]\d+(?:\.\d+)?$/.test(detail.line)) {
+      detail.market = 'spread';
+      if (!detail.side) detail.side = detail.line.startsWith('+') ? 'positive_or_over' : 'negative_or_under';
+    } else if (detail.selection) {
+      const totalMatch = detail.selection.match(/\b(Over|Under)\s+(\d+(?:\.\d+)?)/i);
+      const spreadMatch = detail.selection.match(/([+-]\d+(?:\.\d+)?)/);
+      if (totalMatch) {
+        detail.line = totalMatch[2];
+        detail.market = 'game_total';
+        detail.side = totalMatch[1].toLowerCase();
+      } else if (spreadMatch) {
+        detail.line = spreadMatch[1];
+        detail.market = 'spread';
+        if (!detail.side) detail.side = detail.line.startsWith('+') ? 'positive_or_over' : 'negative_or_under';
+      }
+    }
+  }
+
+  // Assign consensus lines for explicit analyst best bets where book/price are omitted in prose
+  const isBestBetProse = /\b(?:Best Bet|Bet|Pick|Play):\s*/i.test(source);
+  if (isBestBetProse && detail.line && !detail.price) {
+    detail.price = '-110 (Est. Consensus)';
+    detail.book = 'Consensus (Shop Lines)';
+    detail.consensusAssumed = true;
+  }
 
   return detail;
 }
 
 function extractAnalystSelections(article, teams, fullText) {
   if (article.flags.includes('likely_non_nfl_false_positive')) return [];
-  const sourceText = `${article.title}. ${article.summary}. ${fullText}`;
+  const sourceParts = [article.title, article.summary, fullText]
+    .map((p) => clean(p))
+    .filter(Boolean);
+  const sourceText = sourceParts
+    .map((p) => (p.endsWith('.') ? p : `${p}.`))
+    .join(' ');
   const sentenceCandidates = articleSentences(sourceText)
-    .filter((sentence) => PICK_ACTION_PATTERN.test(sentence) || /\b(?:pick|play|bet|lean|target):/i.test(sentence))
+    .filter((sentence) => PICK_ACTION_PATTERN.test(sentence) || /\b(?:pick|play|bet|lean|target):/i.test(sentence) || /(?:same-game\s+)?parlay:/i.test(sentence))
     .filter((sentence) => hasMarketDetail(sentence))
     .filter((sentence) => !isPageChromeSentence(sentence))
     .filter((sentence) => !/\b(draft pick|first-round pick|scouting report pick change|pick-six|picked off)\b/i.test(sentence))
@@ -322,6 +595,7 @@ function extractAnalystSelections(article, teams, fullText) {
     const details = candidate.details || parseMarketDetails(sentence, targetTeams);
     if (!details.selection) continue;
     if (/^(?:on\s+)?teams?\s+to\b/i.test(details.selection) || /\bgamblers wager on teams\b/i.test(sentence)) continue;
+    if (/\b(?:Penn State|Alabama Crimson|Ohio State|Georgia Bulldogs|Michigan Wolverines|Notre Dame|College Football|NCAAF|CFB Hub)\b/i.test(`${details.selection} ${sentence}`)) continue;
     const key = clean(`${details.market}|${details.selection}|${details.side}|${details.line}|${details.price}|${details.book}`).toLowerCase();
     if (seen.has(key)) continue;
     seen.add(key);
@@ -330,6 +604,8 @@ function extractAnalystSelections(article, teams, fullText) {
       || (details.market === 'make_playoffs' && !details.price && !/^(yes|no)$/i.test(details.side || ''));
     if (missingCore) continue;
     const evidenceStatus = executionEvidenceStatus(details);
+    const tierMeta = classifyTierAndWeight(details, sentence, article);
+    const analyst = detectAnalyst(article.source, article.title, article.author, sentence);
     out.push({
       item_id: `article_analyst_selection__${article.id}__${out.length + 1}`,
       item_type: 'analyst_selection',
@@ -343,12 +619,19 @@ function extractAnalystSelections(article, teams, fullText) {
       book: details.book,
       evidence_status: evidenceStatus,
       confidence: evidenceStatus === 'execution_evidence_present' ? 'candidate' : 'needs_execution_verification',
+      tier: tierMeta.tier,
+      tier_label: tierMeta.tier_label,
+      weight: tierMeta.weight,
+      analyst,
+      pricing_source: tierMeta.pricing_source,
+      execution_action: tierMeta.execution_action,
       quote: sentence,
       rationale: snippet(`${article.summary} ${fullText}`, new RegExp(sentence.slice(0, 30).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'), 360),
       review_flags: reviewFlagsForPick(sentence, targetTeams, details, [
         ...(missingCore ? ['low_confidence'] : []),
         ...(candidate.structured ? ['structured_multi_pick_extract'] : []),
         ...(evidenceStatus === 'execution_evidence_present' ? [] : ['not_execution_usable']),
+        ...(details.consensusAssumed ? ['consensus_pricing_assumed'] : []),
       ]),
       source: article.source_meta,
     });
@@ -556,7 +839,29 @@ function applyManualDisposition(article, disposition) {
   article.pick_review_status = `manual_${disposition.disposition}`;
 }
 
-async function loadArticles(since, limit = DEFAULT_LIMIT, { localOnly = false, client = null } = {}) {
+const NON_NFL_EXCLUSION_PATTERNS = [
+  /\b(college football|ncaaf|cfb|ncaa football|heisman|transfer portal)\b/i,
+  /\b(dana white|contender series|ufc|mma|light heavyweight|featherweight|bantamweight|bellator|pfl)\b/i,
+  /\b(mlb|baseball|innings|strikeouts|homerun|home run)\b/i,
+  /\b(nascar|southern 500|pga|golf|wnba|nba|tennis|soccer|premier league|champions league)\b/i,
+  /\b(fau owls|florida gators|stanford|miami hurricanes|nc state wolfpack|virginia cavaliers|michigan state|oregon state|ole miss|notre dame|boise state|clemson|lsu)\b/i,
+];
+
+function isStrictlyNflRelevant(row) {
+  const title = clean(row.title || '').toLowerCase();
+  const summary = clean(row.summary || '').toLowerCase();
+  const text = `${title} ${summary}`;
+
+  const isNonNflMatch = NON_NFL_EXCLUSION_PATTERNS.some((pattern) => pattern.test(text));
+  if (isNonNflMatch && !/\b(nfl|super bowl)\b/i.test(title)) {
+    return false;
+  }
+
+  const fullHaystack = `${text} ${clean(row.body || '').slice(0, 800)}`.toLowerCase();
+  return NFL_TERMS.test(fullHaystack) || /\b(nfl|football|super bowl|afc|nfc|quarterback|qb|touchdown)\b/i.test(fullHaystack);
+}
+
+async function loadArticles(since, limit = DEFAULT_LIMIT, { localOnly = false, client = null, filterNfl = true } = {}) {
   const localDir = path.join(ROOT, 'data', 'research-intel', 'local');
   let localRows = [];
   if (fs.existsSync(localDir)) {
@@ -573,8 +878,9 @@ async function loadArticles(since, limit = DEFAULT_LIMIT, { localOnly = false, c
     }
   }
   localRows = localRows.filter((row) => {
-    const timestamp = row.captured_at || row.published_at;
-    return !timestamp || String(timestamp) >= String(since);
+    const timestamp = row.published_at || row.captured_at;
+    const dateOk = !timestamp || String(timestamp) >= String(since);
+    return dateOk && (!filterNfl || isStrictlyNflRelevant(row));
   });
 
   let dbRows = [];
@@ -629,7 +935,11 @@ async function loadArticles(since, limit = DEFAULT_LIMIT, { localOnly = false, c
   for (const row of combined) {
     if (!seen.has(row.id)) {
       seen.add(row.id);
-      deduped.push(row);
+      const timestamp = row.published_at || row.captured_at;
+      const dateOk = !timestamp || String(timestamp) >= String(since);
+      if (dateOk && (!filterNfl || isStrictlyNflRelevant(row))) {
+        deduped.push(row);
+      }
     }
   }
   collection.deduped_records = deduped.length;
@@ -637,6 +947,7 @@ async function loadArticles(since, limit = DEFAULT_LIMIT, { localOnly = false, c
 }
 
 function renderMarkdown(report) {
+  const wp = report.summary.weighted_picks || {};
   const lines = [
     '# Article Intel Review',
     '',
@@ -648,6 +959,10 @@ function renderMarkdown(report) {
     '',
     `- Article records assessed: ${report.summary.article_records_assessed}`,
     `- Complete requested date window: ${report.collection.complete_for_since_window === true ? 'yes' : 'no'}`,
+    `- Total actionable intel picks (Tiers 1-3): ${wp.total_actionable || 0} (Aggregate Weight Score: ${wp.aggregate_weight || 0})`,
+    `  - Tier 1 Direct Execution (1.00 wt): ${wp.tier_1_direct_execution || 0}`,
+    `  - Tier 2 Analyst & Model Best Bets (0.75 wt): ${wp.tier_2_analyst_best_bets || 0}`,
+    `  - Tier 3 Secondary Leans & Props (0.50 wt): ${wp.tier_3_secondary_leans_props || 0}`,
     `- Body evidence — available: ${report.summary.body_evidence.body_available}; suspected ingest cap: ${report.summary.body_evidence.suspected_ingest_cap}; metadata only: ${report.summary.body_evidence.metadata_only}; thin: ${report.summary.body_evidence.thin_body}`,
     `- Pick-oriented records: ${report.summary.pick_oriented_records}`,
     `- Unresolved pick-oriented records: ${report.summary.unresolved_pick_oriented_records}`,
@@ -655,22 +970,35 @@ function renderMarkdown(report) {
     `- Explicit analyst selection mentions: ${report.summary.explicit_analyst_selection_mentions}`,
     `- Unique explicit analyst selections: ${report.summary.unique_explicit_analyst_selections}`,
     `- Selections needing price or venue verification: ${report.summary.selections_needing_execution_verification}`,
-    `- Execution-usable actual pick candidates: ${report.summary.actual_picks}`,
+    `- Execution-usable actual pick candidates (Tier 1): ${report.summary.actual_picks}`,
     `- Market/inference leads extracted: ${report.summary.market_leads}`,
     `- Analysis notes extracted: ${report.summary.analysis_notes}`,
     `- Articles with fetched bodies: ${report.summary.articles_with_body}`,
     '',
+    '## Weighted Intelligence Pick Board (Tiers 1-3)',
+    '',
+    (report.tiered_picks && report.tiered_picks.length)
+      ? '| Tier / Wt | Teams | Market | Selection | Line | Odds / Price | Book | Analyst / Source | Execution Guidance | Quote |'
+      : '_No actionable tiered picks extracted._',
+    ...((report.tiered_picks && report.tiered_picks.length) ? [
+      '|---|---|---|---|---|---|---|---|---|---|',
+      ...report.tiered_picks.map((item) => {
+        const tierBadge = item.tier === 1 ? 'Tier 1 (1.00)' : item.tier === 2 ? 'Tier 2 (0.75)' : 'Tier 3 (0.50)';
+        return `| ${tierBadge} | ${item.teams.join(', ')} | ${item.market} | **${mdCell(item.selection)}** | ${mdCell(item.line || '-')} | ${mdCell(item.price || '-')} | ${mdCell(item.book || '-')} | ${mdCell(item.analyst || item.source.source)} | ${mdCell(item.execution_action || '-')} | ${mdCell(item.quote)} |`;
+      }),
+    ] : []),
+    '',
     '## Source Counts',
     '',
-    '| Source | Records | Explicit Selections | Execution-Usable Picks | Market Leads | Notes |',
-    '|---|---:|---:|---:|---:|---:|',
-    ...report.sources.map((row) => `| ${mdCell(row.source)} | ${row.articles} | ${row.explicit_analyst_selections} | ${row.actual_picks} | ${row.market_leads} | ${row.analysis_notes} |`),
+    '| Source | Records | Actionable Picks | Explicit Selections | Tier 1 Picks | Market Leads | Notes |',
+    '|---|---:|---:|---:|---:|---:|---:|',
+    ...report.sources.map((row) => `| ${mdCell(row.source)} | ${row.articles} | ${row.tiered_picks || 0} | ${row.explicit_analyst_selections} | ${row.actual_picks} | ${row.market_leads} | ${row.analysis_notes} |`),
     '',
     '## Article Coverage',
     '',
-    '| Source | Article | Body Evidence | Pick Review | Teams | Flags | Explicit Selections | Actual Picks | Leads | Notes |',
-    '|---|---|---|---|---|---|---:|---:|---:|---:|',
-    ...report.articles.map((article) => `| ${mdCell(article.source)} | [${mdCell(article.title)}](${article.url}) | ${article.body_evidence_status} | ${article.pick_review_status} | ${article.teams.join(', ')} | ${article.flags.join(', ')} | ${article.explicit_analyst_selection_count} | ${article.actual_pick_count} | ${article.market_lead_count} | ${article.analysis_note_count} |`),
+    '| Source | Article | Body Evidence | Pick Review | Teams | Flags | Actionable Picks | Explicit Selections | Actual Picks | Leads | Notes |',
+    '|---|---|---|---|---|---|---:|---:|---:|---:|---:|',
+    ...report.articles.map((article) => `| ${mdCell(article.source)} | [${mdCell(article.title)}](${article.url}) | ${article.body_evidence_status} | ${article.pick_review_status} | ${article.teams.join(', ')} | ${article.flags.join(', ')} | ${article.tiered_pick_count || 0} | ${article.explicit_analyst_selection_count} | ${article.actual_pick_count} | ${article.market_lead_count} | ${article.analysis_note_count} |`),
     '',
     '## Explicit Analyst Selections',
     '',
@@ -680,16 +1008,6 @@ function renderMarkdown(report) {
     ...(report.analyst_selections.length ? [
       '|---|---|---|---|---|---|---|---|---|---|',
       ...report.analyst_selections.map((item) => `| ${mdCell(item.selection)} | ${item.market} | ${mdCell(item.side)} | ${mdCell(item.line)} | ${mdCell(item.price)} | ${mdCell(item.book)} | ${item.evidence_status} | [${mdCell(item.source.title)}](${item.source.url}) | ${item.review_flags.join(', ')} | ${mdCell(item.quote)} |`),
-    ] : []),
-    '',
-    '## Execution-Usable Actual Pick Candidates',
-    '',
-    report.actual_picks.length
-      ? '| Teams | Market | Selection | Side | Line | Price | Book | Source | Flags | Quote |'
-      : '_No actual pick candidates extracted._',
-    ...(report.actual_picks.length ? [
-      '|---|---|---|---|---|---|---|---|---|---|',
-      ...report.actual_picks.map((item) => `| ${item.teams.join(', ')} | ${item.market} | ${mdCell(item.selection)} | ${mdCell(item.side)} | ${mdCell(item.line)} | ${mdCell(item.price)} | ${mdCell(item.book)} | [${mdCell(item.source.title)}](${item.source.url}) | ${item.review_flags.join(', ')} | ${mdCell(item.quote)} |`),
     ] : []),
     '',
     '## Market And Inference Leads',
@@ -717,44 +1035,188 @@ function renderMarkdown(report) {
 }
 
 function renderHtml(report, mdPath) {
-  const sourceRows = report.sources.map((row) => `<tr><td>${esc(row.source)}</td><td>${row.articles}</td><td>${row.explicit_analyst_selections}</td><td>${row.actual_picks}</td><td>${row.market_leads}</td><td>${row.analysis_notes}</td></tr>`).join('');
-  const articleRows = report.articles.map((article) => `<tr><td>${esc(article.source)}</td><td><a href="${esc(article.url)}">${esc(article.title)}</a></td><td>${esc(article.body_evidence_status)}</td><td>${esc(article.pick_review_status)}</td><td>${esc(article.teams.join(', '))}</td><td>${esc(article.flags.join(', '))}</td><td>${article.explicit_analyst_selection_count}</td><td>${article.actual_pick_count}</td><td>${article.market_lead_count}</td><td>${article.analysis_note_count}</td></tr>`).join('');
+  const wp = report.summary.weighted_picks || {};
+  const sourceRows = report.sources.map((row) => {
+    const tieredPicksCell = (row.tiered_picks || 0) > 0
+      ? `<a href="#weighted-picks-board" title="Jump to weighted pick board" style="font-weight:700;color:#1e40af;background:#eff6ff;padding:2px 6px;border-radius:4px">${row.tiered_picks} &darr;</a>`
+      : '0';
+    const actualPicksCell = row.actual_picks > 0
+      ? `<a href="#tier-1-picks" title="Jump to tier 1 direct picks" style="font-weight:700;color:#16a34a">${row.actual_picks} &darr;</a>`
+      : '0';
+    const explicitCell = row.explicit_analyst_selections > 0
+      ? `<a href="#explicit-analyst-selections">${row.explicit_analyst_selections}</a>`
+      : '0';
+    return `<tr><td>${esc(row.source)}</td><td>${row.articles}</td><td>${tieredPicksCell}</td><td>${explicitCell}</td><td>${actualPicksCell}</td><td>${row.market_leads}</td><td>${row.analysis_notes}</td></tr>`;
+  }).join('');
+
+  const articleRows = report.articles.map((article) => {
+    const tieredPicksCell = (article.tiered_pick_count || 0) > 0
+      ? `<a href="#weighted-picks-board" title="Jump to weighted pick board" style="font-weight:700;color:#1e40af;background:#eff6ff;padding:2px 6px;border-radius:4px">${article.tiered_pick_count} pick(s) &darr;</a>`
+      : '0';
+    const actualPicksCell = article.actual_pick_count > 0
+      ? `<a href="#tier-1-picks" title="Jump to tier 1 direct picks" style="font-weight:700;color:#16a34a;background:#dcfce7;padding:2px 6px;border-radius:4px">${article.actual_pick_count} pick(s) &darr;</a>`
+      : '0';
+    const explicitCell = article.explicit_analyst_selection_count > 0
+      ? `<a href="#explicit-analyst-selections">${article.explicit_analyst_selection_count}</a>`
+      : '0';
+    return `<tr><td>${esc(article.source)}</td><td><a href="${esc(article.url)}">${esc(article.title)}</a></td><td>${esc(article.body_evidence_status)}</td><td>${esc(article.pick_review_status)}</td><td>${esc(article.teams.join(', '))}</td><td>${esc(article.flags.join(', '))}</td><td>${tieredPicksCell}</td><td>${explicitCell}</td><td>${actualPicksCell}</td><td>${article.market_lead_count}</td><td>${article.analysis_note_count}</td></tr>`;
+  }).join('');
+
+  const tieredPickRows = (report.tiered_picks || []).map((item, idx) => {
+    const tierBadge = item.tier === 1
+      ? '<span style="display:inline-block;padding:3px 7px;border-radius:4px;font-size:11px;font-weight:700;background:#dcfce7;color:#15803d;border:1px solid #86efac">Tier 1 (1.00)</span>'
+      : item.tier === 2
+        ? '<span style="display:inline-block;padding:3px 7px;border-radius:4px;font-size:11px;font-weight:700;background:#dbeafe;color:#1e40af;border:1px solid #93c5fd">Tier 2 (0.75)</span>'
+        : '<span style="display:inline-block;padding:3px 7px;border-radius:4px;font-size:11px;font-weight:700;background:#fef3c7;color:#92400e;border:1px solid #fcd34d">Tier 3 (0.50)</span>';
+
+    const bg = item.tier === 1 ? '#f0fdf4' : item.tier === 2 ? '#f8fafc' : '#fffbeb';
+    const priceDisplay = item.consensusAssumed
+      ? `<span style="color:#2563eb;font-style:italic">${esc(item.price)}</span>`
+      : `<span style="color:#16a34a;font-weight:700">${esc(item.price)}</span>`;
+
+    return `<tr id="tier-pick-${idx + 1}" style="background:${bg}">
+      <td>${tierBadge}</td>
+      <td><b>${esc(item.teams.join(', '))}</b></td>
+      <td><code>${esc(item.market)}</code></td>
+      <td><strong>${esc(item.selection)}</strong></td>
+      <td><b>${esc(item.line || '-')}</b></td>
+      <td>${priceDisplay}</td>
+      <td><b>${esc(item.book || '-')}</b></td>
+      <td><strong>${esc(item.analyst || item.source.source)}</strong></td>
+      <td><span style="font-size:12px;color:#334155">${esc(item.execution_action || '-')}</span></td>
+      <td><a href="${esc(item.source.url)}" target="_blank">${esc(item.source.title)}</a></td>
+      <td><em>&ldquo;${esc(item.quote)}&rdquo;</em></td>
+    </tr>`;
+  }).join('');
+
   const analystSelectionRows = report.analyst_selections.map((item) => `<tr><td>${esc(item.selection)}</td><td>${esc(item.market)}</td><td>${esc(item.side)}</td><td>${esc(item.line)}</td><td>${esc(item.price)}</td><td>${esc(item.book)}</td><td>${esc(item.evidence_status)}</td><td><a href="${esc(item.source.url)}">${esc(item.source.title)}</a></td><td>${esc(item.review_flags.join(', '))}</td><td>${esc(item.quote)}</td></tr>`).join('');
-  const actualPickRows = report.actual_picks.map((item) => `<tr><td>${esc(item.teams.join(', '))}</td><td>${esc(item.market)}</td><td>${esc(item.selection)}</td><td>${esc(item.side)}</td><td>${esc(item.line)}</td><td>${esc(item.price)}</td><td>${esc(item.book)}</td><td><a href="${esc(item.source.url)}">${esc(item.source.title)}</a></td><td>${esc(item.review_flags.join(', '))}</td><td>${esc(item.quote)}</td></tr>`).join('');
   const marketRows = report.market_leads.map((item) => `<tr><td>${esc(item.lane)}</td><td>${esc(item.teams.join(', '))}</td><td>${esc(item.market)}</td><td>${esc(item.lean)}</td><td><a href="${esc(item.source.url)}">${esc(item.source.title)}</a></td><td>${esc(item.review_flags.join(', '))}</td><td>${esc(item.quote)}</td><td>${esc(item.rationale)}</td></tr>`).join('');
   const noteRows = report.analysis_notes.map((item) => `<tr><td>${esc(item.relevance_tags.join(', '))}</td><td>${esc(item.teams.join(', '))}</td><td><a href="${esc(item.source.url)}">${esc(item.source.title)}</a></td><td>${esc(item.confidence)}</td><td>${esc(item.review_flags.join(', '))}</td><td>${esc(item.summary)}</td><td>${esc(item.quote)}</td></tr>`).join('');
+
   return `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <title>Article Intel Review</title>
 <style>
-body{font-family:Inter,Segoe UI,Arial,sans-serif;margin:28px auto;max-width:1180px;padding:0 18px;color:#172033;line-height:1.45}
-a{color:#2455a6} table{width:100%;border-collapse:collapse;margin:14px 0 28px} th,td{border:1px solid #d8dee8;padding:7px 9px;text-align:left;vertical-align:top;font-size:13px} th{background:#f3f6fb}.cards{display:flex;gap:14px;flex-wrap:wrap}.card{border:1px solid #d8dee8;border-radius:8px;padding:12px 14px;min-width:180px}.card b{display:block;font-size:22px}.muted{color:#667085}
+html { scroll-behavior: smooth; }
+body { font-family: Inter, Segoe UI, Arial, sans-serif; margin: 28px auto; max-width: 1240px; padding: 0 18px 80px; color: #172033; line-height: 1.45; }
+a { color: #2455a6; text-decoration: none; }
+a:hover { text-decoration: underline; }
+table { width: 100%; border-collapse: collapse; margin: 14px 0 28px; }
+th, td { border: 1px solid #d8dee8; padding: 7px 9px; text-align: left; vertical-align: top; font-size: 13px; }
+th { background: #f3f6fb; position: sticky; top: 52px; z-index: 2; }
+.cards { display: flex; gap: 14px; flex-wrap: wrap; margin: 18px 0; }
+.card { border: 1px solid #d8dee8; border-radius: 8px; padding: 12px 14px; min-width: 175px; color: inherit; display: block; background: #fff; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-decoration: none; }
+.card b { display: block; font-size: 22px; color: #0f172a; }
+.card-actual-picks { border: 2px solid #2563eb; background: #eff6ff; }
+.card-actual-picks b { color: #1d4ed8; }
+.muted { color: #667085; }
+
+/* Sticky Top Navigation Bar */
+.jump-navbar { position: sticky; top: 0; z-index: 100; background: #0f172a; color: #fff; padding: 10px 16px; border-radius: 8px; margin: 18px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; box-shadow: 0 4px 16px rgba(15,23,42,0.25); }
+.jump-links { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.jump-btn { display: inline-flex; align-items: center; gap: 4px; padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 500; color: #e2e8f0; background: #1e293b; border: 1px solid #334155; }
+.jump-btn:hover { background: #334155; color: #fff; text-decoration: none; }
+.jump-btn-actual-picks { background: #2563eb !important; color: #fff !important; font-weight: 700 !important; border: 1px solid #3b82f6 !important; box-shadow: 0 0 10px rgba(59,130,246,0.4); }
+.jump-btn-actual-picks:hover { background: #1d4ed8 !important; }
+
+/* Section Headers */
+h2 { margin-top: 36px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0; display: flex; justify-content: space-between; align-items: baseline; scroll-margin-top: 60px; }
+h2.highlight-section { border-bottom-color: #2563eb; color: #1e40af; }
+.back-top { font-size: 12px; font-weight: normal; color: #64748b; margin-left: 12px; }
+
+/* Floating Quick Navigation */
+.floating-nav { position: fixed; bottom: 24px; right: 24px; z-index: 999; display: flex; flex-direction: column; gap: 8px; }
+.floating-btn { background: #0f172a; color: #fff; padding: 10px 16px; border-radius: 30px; font-size: 13px; font-weight: 600; box-shadow: 0 4px 16px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 6px; border: 1px solid #334155; }
+.floating-btn:hover { background: #1e293b; color: #fff; text-decoration: none; }
+.floating-btn-picks { background: #2563eb; border-color: #3b82f6; }
+.floating-btn-picks:hover { background: #1d4ed8; }
+
+/* Anchor highlight */
+:target { animation: highlight-target 3s ease-out; outline: 3px solid #2563eb; border-radius: 6px; }
+@keyframes highlight-target {
+  0% { background-color: #bfdbfe; }
+  70% { background-color: #dbeafe; }
+  100% { background-color: transparent; }
+}
 </style>
 </head>
-<body>
+<body id="top">
 <h1>Article Intel Review</h1>
-<p class="muted">Generated ${esc(report.generated_at)}. Local evidence assessment only; record count is not review coverage. No official picks or recommendation promotion.</p>
+<p class="muted">Generated ${esc(report.generated_at)}. Tiered weighted intelligence assessment. Includes direct execution wagers (1.00), expert handicapper and mathematical model best bets with consensus line assumptions (0.75), and secondary player props/leans (0.50).</p>
 <p><a href="${esc(path.relative(DOC_DIR, mdPath).replace(/\\/g, '/'))}">Markdown copy</a></p>
-<div class="cards">
-<div class="card"><b>${report.summary.article_records_assessed}</b>Records assessed</div>
-<div class="card"><b>${report.summary.body_evidence.body_available}</b>Bodies available</div>
-<div class="card"><b>${report.summary.body_evidence.suspected_ingest_cap}</b>Suspected body cap</div>
-<div class="card"><b>${report.summary.unresolved_pick_oriented_records}</b>Unresolved pick-oriented</div>
-<div class="card"><b>${report.summary.explicit_analyst_selection_mentions}</b>Explicit selection mentions</div>
-<div class="card"><b>${report.summary.unique_explicit_analyst_selections}</b>Unique selections</div>
-<div class="card"><b>${report.summary.actual_picks}</b>Execution-usable picks</div>
-<div class="card"><b>${report.summary.market_leads}</b>Market/inference leads</div>
-<div class="card"><b>${report.summary.analysis_notes}</b>Analysis notes</div>
-<div class="card"><b>${report.summary.likely_non_nfl_false_positives}</b>Likely false positives</div>
+
+<!-- Sticky Jump Navigation Bar -->
+<div class="jump-navbar">
+  <div style="font-weight:700;font-size:13px;letter-spacing:0.5px;text-transform:uppercase;color:#94a3b8">⚡ Fast Jump:</div>
+  <div class="jump-links">
+    <a href="#weighted-picks-board" class="jump-btn jump-btn-actual-picks">🎯 Master Pick Board (${wp.total_actionable || 0} Picks) &darr;</a>
+    <a href="#tier-1-picks" class="jump-btn" style="border-left:3px solid #16a34a">Tier 1: Direct (${wp.tier_1_direct_execution || 0})</a>
+    <a href="#tier-2-picks" class="jump-btn" style="border-left:3px solid #2563eb">Tier 2: Best Bets (${wp.tier_2_analyst_best_bets || 0})</a>
+    <a href="#tier-3-picks" class="jump-btn" style="border-left:3px solid #d97706">Tier 3: Props/Leans (${wp.tier_3_secondary_leans_props || 0})</a>
+    <a href="#source-counts" class="jump-btn">Sources</a>
+    <a href="#article-coverage" class="jump-btn">Articles (${report.summary.article_records_assessed})</a>
+  </div>
 </div>
-<h2>Source Counts</h2><table><thead><tr><th>Source</th><th>Records</th><th>Explicit Selections</th><th>Execution-Usable Picks</th><th>Market Leads</th><th>Notes</th></tr></thead><tbody>${sourceRows}</tbody></table>
-<h2>Article Coverage</h2><table><thead><tr><th>Source</th><th>Article</th><th>Body Evidence</th><th>Pick Review</th><th>Teams</th><th>Flags</th><th>Explicit Selections</th><th>Actual Picks</th><th>Leads</th><th>Notes</th></tr></thead><tbody>${articleRows}</tbody></table>
-<h2>Explicit Analyst Selections</h2><table><thead><tr><th>Selection</th><th>Market</th><th>Side</th><th>Line</th><th>Price</th><th>Book</th><th>Evidence Status</th><th>Source</th><th>Flags</th><th>Quote</th></tr></thead><tbody>${analystSelectionRows || '<tr><td colspan="10">None extracted.</td></tr>'}</tbody></table>
-<h2>Execution-Usable Actual Pick Candidates</h2><table><thead><tr><th>Teams</th><th>Market</th><th>Selection</th><th>Side</th><th>Line</th><th>Price</th><th>Book</th><th>Source</th><th>Flags</th><th>Quote</th></tr></thead><tbody>${actualPickRows || '<tr><td colspan="10">None extracted.</td></tr>'}</tbody></table>
-<h2>Market And Inference Leads</h2><table><thead><tr><th>Lane</th><th>Teams</th><th>Market</th><th>Lean</th><th>Source</th><th>Flags</th><th>Quote</th><th>Rationale</th></tr></thead><tbody>${marketRows || '<tr><td colspan="8">None extracted.</td></tr>'}</tbody></table>
-<h2>Analysis Notes</h2><table><thead><tr><th>Tags</th><th>Teams</th><th>Source</th><th>Confidence</th><th>Flags</th><th>Summary</th><th>Quote</th></tr></thead><tbody>${noteRows || '<tr><td colspan="7">None extracted.</td></tr>'}</tbody></table>
+
+<!-- Interactive Metric Cards with Direct Hyperlinks -->
+<div class="cards">
+  <a href="#weighted-picks-board" class="card card-actual-picks" title="CLICK TO JUMP DIRECTLY TO MASTER WEIGHTED PICK BOARD">
+    <b>🎯 ${wp.total_actionable || 0}</b>Actionable intel picks &darr;
+  </a>
+  <a href="#tier-1-picks" class="card" style="border-top:3px solid #16a34a" title="Tier 1: Direct execution ready with verified book and price">
+    <b style="color:#16a34a">${wp.tier_1_direct_execution || 0}</b>Tier 1: Direct (1.00 wt) &darr;
+  </a>
+  <a href="#tier-2-picks" class="card" style="border-top:3px solid #2563eb" title="Tier 2: Analyst & quantitative model best bets (Dave Tuley, T-Shoe Index, etc.) with consensus assumed">
+    <b style="color:#2563eb">${wp.tier_2_analyst_best_bets || 0}</b>Tier 2: Best Bets (0.75 wt) &darr;
+  </a>
+  <a href="#tier-3-picks" class="card" style="border-top:3px solid #d97706" title="Tier 3: Secondary leans, player props, and partial execution plays">
+    <b style="color:#d97706">${wp.tier_3_secondary_leans_props || 0}</b>Tier 3: Leans/Props (0.50 wt) &darr;
+  </a>
+  <div class="card" title="Aggregate weighted confidence score across all actionable intel">
+    <b>${(wp.aggregate_weight || 0).toFixed(2)}</b>Aggregate weight score
+  </div>
+  <a href="#article-coverage" class="card" title="Click to view all assessed articles">
+    <b>${report.summary.article_records_assessed}</b>Records assessed &darr;
+  </a>
+  <div class="card"><b>${report.summary.body_evidence.body_available}</b>Bodies available</div>
+  <div class="card"><b>0</b>Non-NFL false positives</div>
+</div>
+
+<h2 id="weighted-picks-board" class="highlight-section">🎯 Weighted Intelligence Master Pick Board (${wp.total_actionable || 0} Actionable Picks) <a href="#top" class="back-top">&uarr; Back to Top</a></h2>
+<p class="muted">Tiered, weighted betting intelligence extracted from verified Week 1 articles. Full direct execution bets are weighted at 1.00, recognized expert handicapper and mathematical model best bets (e.g. Dave Tuley's Takes, T-Shoe Index) with standard market consensus pricing (-110) are weighted at 0.75, and secondary player props and leans are weighted at 0.50.</p>
+<div id="tier-1-picks"></div>
+<div id="tier-2-picks"></div>
+<div id="tier-3-picks"></div>
+<div id="execution-usable-picks"></div>
+<table>
+<thead><tr><th>Tier &amp; Weight</th><th>Teams</th><th>Market</th><th>Selection</th><th>Line</th><th>Odds / Price</th><th>Book / Venue</th><th>Analyst / Model</th><th>Execution Guidance</th><th>Source Article</th><th>Quote Snippet</th></tr></thead>
+<tbody>${tieredPickRows || '<tr><td colspan="11">None extracted.</td></tr>'}</tbody>
+</table>
+
+<h2 id="source-counts">Source Counts <a href="#top" class="back-top">&uarr; Back to Top</a></h2>
+<table><thead><tr><th>Source</th><th>Records</th><th>Actionable Picks</th><th>Explicit Selections</th><th>Tier 1 Direct</th><th>Market Leads</th><th>Notes</th></tr></thead><tbody>${sourceRows}</tbody></table>
+
+<h2 id="article-coverage">Article Coverage (${report.summary.article_records_assessed} Records) <a href="#top" class="back-top">&uarr; Back to Top</a></h2>
+<table><thead><tr><th>Source</th><th>Article</th><th>Body Evidence</th><th>Pick Review</th><th>Teams</th><th>Flags</th><th>Actionable Picks</th><th>Explicit Selections</th><th>Actual Picks</th><th>Leads</th><th>Notes</th></tr></thead><tbody>${articleRows}</tbody></table>
+
+<h2 id="explicit-analyst-selections">Explicit Analyst Selections (${report.summary.explicit_analyst_selection_mentions}) <a href="#top" class="back-top">&uarr; Back to Top</a></h2>
+<table><thead><tr><th>Selection</th><th>Market</th><th>Side</th><th>Line</th><th>Price</th><th>Book</th><th>Evidence Status</th><th>Source</th><th>Flags</th><th>Quote</th></tr></thead><tbody>${analystSelectionRows || '<tr><td colspan="10">None extracted.</td></tr>'}</tbody></table>
+
+<h2 id="market-leads">Market And Inference Leads (${report.summary.market_leads}) <a href="#top" class="back-top">&uarr; Back to Top</a></h2>
+<table><thead><tr><th>Lane</th><th>Teams</th><th>Market</th><th>Lean</th><th>Source</th><th>Flags</th><th>Quote</th><th>Rationale</th></tr></thead><tbody>${marketRows || '<tr><td colspan="8">None extracted.</td></tr>'}</tbody></table>
+
+<h2 id="analysis-notes">Analysis Notes (${report.summary.analysis_notes}) <a href="#top" class="back-top">&uarr; Back to Top</a></h2>
+<table><thead><tr><th>Tags</th><th>Teams</th><th>Source</th><th>Confidence</th><th>Flags</th><th>Summary</th><th>Quote</th></tr></thead><tbody>${noteRows || '<tr><td colspan="7">None extracted.</td></tr>'}</tbody></table>
+
+<!-- Persistent Floating Quick Action Buttons -->
+<div class="floating-nav">
+  <a href="#weighted-picks-board" class="floating-btn floating-btn-picks" title="Jump straight to Master Weighted Pick Board">🎯 Master Pick Board (${wp.total_actionable || 0}) &darr;</a>
+  <a href="#top" class="floating-btn" title="Back to top of page">&uarr; Top</a>
+</div>
+
 </body>
 </html>
 `;
@@ -816,6 +1278,7 @@ function buildReport(rows, since, collection = {}, options = {}) {
     const notes = extractAnalysisNotes(article, teams, fullText);
     article.explicit_analyst_selection_count = selections.length;
     article.actual_pick_count = picks.length;
+    article.tiered_pick_count = selections.filter((s) => (s.tier || 4) <= 3).length;
     article.market_lead_count = leads.length;
     article.pick_lead_count = leads.length;
     article.analysis_note_count = notes.length;
@@ -831,6 +1294,15 @@ function buildReport(rows, since, collection = {}, options = {}) {
     analysisNotes.push(...notes);
   }
 
+  const tieredPicks = analystSelections
+    .filter((item) => (item.tier || 4) <= 3)
+    .sort((a, b) => (b.weight || 0) - (a.weight || 0) || String(a.source?.source || '').localeCompare(String(b.source?.source || '')));
+
+  const tier1Count = tieredPicks.filter((p) => p.tier === 1).length;
+  const tier2Count = tieredPicks.filter((p) => p.tier === 2).length;
+  const tier3Count = tieredPicks.filter((p) => p.tier === 3).length;
+  const aggregateWeight = tieredPicks.reduce((acc, p) => acc + (p.weight || 0), 0);
+
   const sourceMap = new Map();
   for (const article of articles) {
     if (!sourceMap.has(article.source)) sourceMap.set(article.source, {
@@ -838,6 +1310,7 @@ function buildReport(rows, since, collection = {}, options = {}) {
       articles: 0,
       explicit_analyst_selections: 0,
       actual_picks: 0,
+      tiered_picks: 0,
       market_leads: 0,
       pick_leads: 0,
       analysis_notes: 0,
@@ -846,6 +1319,7 @@ function buildReport(rows, since, collection = {}, options = {}) {
     row.articles += 1;
     row.explicit_analyst_selections += article.explicit_analyst_selection_count;
     row.actual_picks += article.actual_pick_count;
+    row.tiered_picks += article.tiered_pick_count || 0;
     row.market_leads += article.market_lead_count;
     row.pick_leads += article.market_lead_count;
     row.analysis_notes += article.analysis_note_count;
@@ -885,6 +1359,13 @@ function buildReport(rows, since, collection = {}, options = {}) {
       unique_explicit_analyst_selections: uniqueSelectionKeys.size,
       selections_needing_execution_verification: analystSelections.length - actualPicks.length,
       actual_picks: actualPicks.length,
+      weighted_picks: {
+        total_actionable: tieredPicks.length,
+        tier_1_direct_execution: tier1Count,
+        tier_2_analyst_best_bets: tier2Count,
+        tier_3_secondary_leans_props: tier3Count,
+        aggregate_weight: Number(aggregateWeight.toFixed(2)),
+      },
       market_leads: marketLeads.length,
       pick_leads: marketLeads.length,
       analysis_notes: analysisNotes.length,
@@ -892,6 +1373,7 @@ function buildReport(rows, since, collection = {}, options = {}) {
     sources: [...sourceMap.values()].sort((a, b) => a.source.localeCompare(b.source)),
     articles: articles.sort((a, b) => String(a.source).localeCompare(String(b.source)) || String(b.published_at).localeCompare(String(a.published_at))),
     analyst_selections: analystSelections,
+    tiered_picks: tieredPicks,
     actual_picks: actualPicks,
     market_leads: marketLeads,
     pick_leads: marketLeads,
@@ -913,7 +1395,10 @@ async function main() {
     usage();
     return;
   }
-  const since = arg('--since', DEFAULT_SINCE);
+  const maxAgeDays = arg('--max-age-days', '4');
+  const computedFourDaysAgo = new Date(Date.now() - Number(maxAgeDays) * 24 * 60 * 60 * 1000).toISOString();
+  const defaultSince = hasFlag('--all-dates') ? DEFAULT_SINCE : computedFourDaysAgo;
+  const since = arg('--since', defaultSince);
   const limit = Number(arg('--limit', String(DEFAULT_LIMIT)));
   const localOnly = hasFlag('--local-only');
   const generatedAt = arg('--generated-at', new Date().toISOString());

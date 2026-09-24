@@ -1,10 +1,10 @@
 {
   "project_name": "NFL_Dashboard",
   "bridge_version": "1.0",
-  "last_updated": "2026-09-05",
+  "last_updated": "2026-09-21",
   "last_atlas_sync": "2026-07-26",
-  "session_count": 11,
-  "last_session_platform": "codex",
+  "session_count": 13,
+  "last_session_platform": "cowork",
   "health": {
     "status": "active",
     "days_since_push": 0,
@@ -80,6 +80,13 @@
       "priority": 2,
       "created_at": "2026-07-26T00:00:00",
       "owner": "ATLAS"
+    },
+    {
+      "id": "week2_postmortem_review",
+      "description": "Review the full Week 2 Sun/Mon betting postmortem (auto-completed by scheduled task trig_01F8qCezGevyizk1DMpVW7q1 after MNF) appended to docs/BETTING_LESSONS_LEARNED.md -- 2-leg/teaser construction issue, underdog-selection miss rate, game-script risk on volume props.",
+      "priority": 1,
+      "created_at": "2026-09-21T04:35:00.000Z",
+      "owner": "Andy"
     }
   ],
   "session_log": [
@@ -118,6 +125,12 @@
       "date": "2026-09-05",
       "summary": "Committed reviewed Tier 4 futures fixes and approved dashboard artifacts in scoped commits, pushed main to origin, and fast-forwarded M6 from ee0931b to 53c3967 while preserving M6 local Gmail-summary artifacts and one modified official-picks active proposal.",
       "head": "53c3967"
+    },
+    {
+      "sessions": "antigravity-2026-09-13-ticketboard-spec",
+      "date": "2026-09-13",
+      "summary": "Authored comprehensive 31.5KB engineering specification docs/specs/TICKETBOARD_PARLAY_CARD_AND_LEG_MINIMIZATION_SPEC_2026.md for Claude/Codex team detailing Ticketboard DOM architecture, LocalStorage schemas, Round Robin k-combination payout math, burnt leg minimization, and live scoring isolation boundaries.",
+      "head": "working-tree-uncommitted"
     }
   ]
 }

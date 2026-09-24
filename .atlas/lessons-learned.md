@@ -390,3 +390,89 @@ than restructuring instructions another tool might be relying on verbatim).
 - **Rule:** Explicitly state: "Alpha UI residue reverted; uncommitted S243 market/injury files preserved."
 
 *(Added 2026-08-26, Antigravity/Codex Audit)*
+
+
+## S244 — 2026-09-20/21: Live Tracker Grading Bugs Found Live, Mid-Game
+
+### 1. Verify the GENERATED output's syntax, not just the generator's
+- **Root cause:** `scripts/generate-live-tracker.mjs` builds its entire HTML/JS payload as one giant
+  outer template literal. `node --check scripts/generate-live-tracker.mjs` only validates that outer
+  file's own JS grammar -- it says nothing about whether the STRING CONTENT that literal evaluates to
+  is itself valid JS/HTML. A confirm-dialog message written with a single-escaped apostrophe
+  (`\'`) survived `node --check` cleanly, then the outer template literal's own evaluation
+  un-escaped it one level early, leaving a bare `'` inside a single-quoted JS string in the emitted
+  `<script>` block. Result: the entire inline script failed to parse in the browser -- zero JS ran,
+  so nothing looked reset (checked/burnt state in localStorage was completely untouched), but nothing
+  rendered either, which looked indistinguishable from real data loss to the user for a stressful
+  20 minutes mid-live-game.
+- **Rule:** after any edit to a generator script that emits inline `<script>` content via a template
+  literal, extract the actual `<script>...</script>` body from the GENERATED file and run
+  `node --check` on that extracted content too, not just the generator. A one-line Python/regex
+  extraction is enough; do this before telling the user anything is fixed.
+- **Escaping rule of thumb for this file specifically:** an apostrophe meant to survive into the
+  final browser-facing JS string needs to be written as `\\'` (two backslashes) in the generator's
+  own template-literal source, so the outer evaluation's one round of unescaping leaves `\'` (one
+  backslash) in the output -- which is what a real escaped apostrophe looks like to the browser's
+  own JS parser.
+
+### 2. A `market` field typo makes a leg silently un-gradeable, with no error anywhere
+- **Root cause:** Manually logged a wager leg with `"market": "total_points"`. The live-grading
+  function (`updateAllLegPacingGrades`) only recognizes the exact string `"total"` (plus
+  `"team_total"` for team-specific totals) -- `"total_points"` matches none of `isSpread` / `isML` /
+  `isTeamTotal` / `isTotal`, so the leg fell through every branch and just sat frozen at its
+  pre-game placeholder forever, with no error, warning, or visual difference from a leg genuinely
+  awaiting kickoff. Confirmed via `grep` that every other `"total"`-market leg in
+  `data/official-picks/user-placed-wagers-2026.json`, going back the whole season, uses the exact
+  string `"total"` -- this was a one-off typo, not a schema drift.
+- **Rule:** when hand-authoring a wager JSON entry, grep the existing file for an example of the
+  same market type first and copy its exact `market` string verbatim, rather than writing a
+  plausible-sounding value. The grading code matches on literal strings, not intent.
+
+### 3. Two labels for one concept is worse than either label alone
+- **Root cause:** "Burnt" (`burntLegsState`, manually toggled via a button) and "Busted"
+  (auto-computed by the live-pacing badge logic) were used across the file for the exact same
+  outcome -- a leg that lost -- depending on which code path produced it. This made debugging
+  tonight's other issues slower (having to mentally normalize "is Burnt different from Busted?"
+  before reasoning about a symptom) and is the kind of inconsistency a user will eventually
+  build an incorrect mental model around ("burnt means X, busted means Y") even when no such
+  distinction was ever intended.
+- **Rule:** when two code paths converge on the same real-world meaning, they get the same
+  label. Consolidated everything to 🔥 **BURNT** (the deeper, more architecturally-embedded
+  term -- state variable names, function names, and CSS classes all already used "burnt";
+  changing the leaf-level display strings was far lower-risk than renaming the underlying model).
+
+### 4. A manual override button with no awareness of the auto-computed truth is a silent-corruption risk
+- **Root cause:** `toggleLeg()`/`toggleLegBurn()` were pure boolean flips
+  (`checkedState[legKey] = !checkedState[legKey]`) with no knowledge of what the live/final stats
+  already determined. A click on a leg the system had already correctly graded Failed (or Push)
+  would silently override it to Hit with no confirmation, no warning, nothing in the UI to suggest
+  anything unusual had happened -- a single misclick or habitual click after a game ended could
+  corrupt the tracked record with zero trace.
+- **Rule:** any manual override control sitting next to an auto-computed result must check that
+  result before applying the override, and confirm with the user when the two disagree. Silent
+  overrides of a system's own computed truth are never safe, even when manual override itself is a
+  legitimate, needed capability (e.g. for real stat-tracking desyncs).
+
+### 5. The tracker has no concept of "player left the game and isn't coming back"
+- **Root cause:** Andy had two live tickets needing Alec Pierce receptions to hit. Pierce was
+  injured earlier in the game and never returned -- but nothing in the tracker reflected that.
+  The player-prop pacing logic (`updateAllLegPacingGrades`) only ever reads accumulated stats
+  from `athleteLiveStatsMap` (receptions/yards/etc. so far) and projects forward assuming the
+  player keeps playing at the same rate for the rest of the game. There is no injury/inactive
+  signal anywhere in the pipeline, so a leg needing "2 more catches" from a player who is done
+  for the night just sits showing a neutral/on-pace-ish read indefinitely -- no red flag, no
+  warning, nothing to distinguish "still playing, hasn't gotten the catches yet" from
+  "mathematically dead, the player is in the locker room." Andy found out by accident, not from
+  the tool.
+- **Impact:** both tickets riding on those legs were effectively burnt well before the game
+  ended, and Andy had no way to know without independently tracking the injury news himself.
+- **Rule / open feature gap:** the tracker needs a way to reflect a player exiting the game --
+  at minimum a manual override in the same family as the Burnt/Push buttons added tonight (e.g.
+  an "Out/Inactive" flag a user can set mid-game that immediately reads as burnt for any leg
+  needing that player to do something more), and ideally an actual live signal (ESPN's
+  scoreboard/boxscore feed already used elsewhere in this file for scores generally also carries
+  player-out/inactive status during a live game -- worth checking whether `fetchLiveScoreboard()`
+  already pulls something usable here before building a new manual-only flag).
+- **Not yet built** -- logged here as a real, felt gap to prioritize, not fixed in this session.
+
+*(Added 2026-09-21, Claude/Cowork)*

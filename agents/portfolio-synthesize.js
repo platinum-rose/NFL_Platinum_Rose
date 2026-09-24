@@ -80,6 +80,14 @@ import { validateBoardBatch, enforceEvidenceTierGate, partitionSimPriceOnly, par
 import { extractResumePrompt } from './lib/portfolio-local-inputs.js';
 import { fetchAllKeyset } from './lib/supabase-pagination.js';
 import { DEFAULT_LANE_MAX_AGE_DAYS, checkDossierFreshness, collectEvidenceLaneStats, synthesisPreflightDecision } from '../scripts/lib/dossier-freshness-gate.js';
+import { parseJSON } from './lib/parse-json.js';
+import { SKEPTIC_SYSTEM_PROMPT, RISK_EDITOR_SYSTEM_PROMPT as FULL_RISK_EDITOR_SYSTEM_PROMPT, runSkepticStage, runRiskEditorStage, buildRiskEditorUserPrompt } from './lib/committee.js';
+import { buildPersistenceOptions, persistPortfolioRun } from './lib/persistence.js';
+import { buildRunIdentity, buildFailureAuditArtifact, writeAuditArtifact } from './lib/audit-artifact.js';
+import { quarantineStage1, assertScopeClean, checkStartupInvariant } from './lib/scope-enforcement.js';
+import { buildActiveSystemPrompt, buildActiveRiskEditorPrompt, buildScopedUserPrompt, buildScopedRiskEditorUserPrompt } from './lib/scoped-prompts.js';
+import { buildScopedDossier } from './lib/scoped-dossier.js';
+import { computeDossierProvenance, assertDossierProvenancePinned, assertDossierProvenanceApproved } from './lib/dossier-provenance.js';
 import 'dotenv/config';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -151,6 +159,27 @@ const SKIP_INTEL_AUDIT = argv.includes('--skip-intel-audit'); // --prompt-only/o
 // override only, same convention as --allow-blocked-intel.
 const ALLOW_UNSAFE_PREFLIGHT = argv.includes('--allow-unsafe-preflight');
 const SHADOW_SLIM = argv.includes('--shadow-slim');
+// 2026-09-12 (frozen pre-kickoff Wins/Playoffs-only snapshot run, Codex
+// rev 8-19 design review, DESIGN APPROVED): restricts this run's Stage 1/
+// Risk-Editor output to ONLY the 'wins'/'playoffs' markets across all 32
+// teams -- no scenario-book structures, no other-market candidates. See
+// agents/lib/scope-enforcement.js for the two-layer enforcement this flag
+// gates (quarantine + final assertion) and agents/lib/scoped-prompts.js for
+// the positive-template prompt variants it selects.
+const SUPPRESS_SCENARIO_STRUCTURES = argv.includes('--suppress-scenario-structures');
+// 2026-09-12 (rev-20-review, Codex CHANGES REQUESTED P1 fix): this run's
+// frozen-input contract requires the Supabase-backed vault-reference/
+// master-report bridges (and any other live, non-dossier context source) to
+// be OFF, not merely undocumented in the scoped prompt text -- see
+// checkStartupInvariant() in agents/lib/scope-enforcement.js, which requires
+// this flag whenever --suppress-scenario-structures is set.
+const DISABLE_LIVE_CONTEXT_BRIDGES = argv.includes('--disable-live-context-bridges');
+// rev-23-followup4 fix (Codex finding #3): recording provenance (path/
+// hash/generated_at) is not the same as verifying it against an explicitly
+// approved dossier identity -- see agents/lib/dossier-provenance.js's
+// assertDossierProvenanceApproved() for what this file must contain and
+// why its values cannot be invented by this tool.
+const APPROVED_DOSSIER_CONTRACT_PATH = getArg('--approved-dossier-contract', null);
 const SKEPTIC_MODEL = getArg('--skeptic-model', MODELS[0]);
 const RISK_MODEL = getArg('--risk-model', MODELS[0]);
 const LEDGER_PATH = getArg('--ledger', path.join(ROOT, 'data', 'futures-imports', 'andy-portfolio-ledger-2026.json'));
@@ -324,6 +353,15 @@ Return STRICT JSON only (no prose, no markdown fences), shape:
   },
   "portfolio_notes": "<=4 sentences on overall construction, correlation clusters, and coverage gaps"
 }`;
+
+// Positive-template selection (rev 8-19 design review): under
+// --suppress-scenario-structures, Stage 1 and the Risk/Editor both use
+// completely separate, independently-written scoped prompt variants (see
+// agents/lib/scoped-prompts.js) instead of the full prompts above with a
+// deletion list patched over them. The Skeptic prompt needs no scoped
+// variant -- it only attacks structured JSON already quarantined by then.
+const ACTIVE_SYSTEM_PROMPT = buildActiveSystemPrompt({ suppressed: SUPPRESS_SCENARIO_STRUCTURES, maxPlays: MAX_PLAYS, fullSystemPrompt: SYSTEM_PROMPT });
+const ACTIVE_RISK_EDITOR_SYSTEM_PROMPT = buildActiveRiskEditorPrompt({ suppressed: SUPPRESS_SCENARIO_STRUCTURES, fullRiskEditorSystemPrompt: FULL_RISK_EDITOR_SYSTEM_PROMPT });
 
 async function loadLedger() {
   try {
@@ -642,63 +680,11 @@ function slimDossierForPrompt(dossier) {
 // Codex's six categories using the edge_type stage 1 already tagged.
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const SKEPTIC_SYSTEM_PROMPT = `You are the SKEPTIC on a betting-analyst committee. You did NOT generate these recommendations — a different analysis pass did. Your only job is to attack each one independently and report whether it survives.
-
-For each candidate you receive (market, selection, price, book, model_fair_prob, edge_pct, confidence, thesis, disconfirming_factor, market_view, football_view, sources, knowledge_based, evidence_ids):
-- Actively look for reasons the thesis is WRONG, not reasons to agree. Consider: is the "edge" just juice or a book pricing error rather than a real mispricing? Is the football_view thesis actually supported by the cited evidence_ids, or is it a plausible-sounding story with thin backing? Is the existing disconfirming_factor actually the strongest one, or is there a bigger risk the analyst missed? If knowledge_based is true, is the cited knowledge plausibly stale (analyst training may predate this season's actual events)?
-- Do NOT rewrite the thesis or invent a new pick — you are auditing, not re-analyzing.
-- Assign a confidence_delta: a negative number (typically -5 to -40) if you found a real weakness, 0 if the thesis holds up under attack, and (rarely, max +5) if the existing disconfirming_factor is actually weaker than stated and the case is more solid than the original confidence suggests.
-- verdict: "hold" (thesis survives, keep as-is aside from the delta), "downgrade" (real weakness found but still worth including), or "kill" (the case doesn't hold up at all — should not appear in the final portfolio).
-- If you found a stronger or more precise disconfirming factor than the one given, provide it in stronger_disconfirming_factor; otherwise omit that field.
-
-Return STRICT JSON only: { "verdicts": [ { "key": "<the candidate's key, copied exactly>", "skeptic_note": "<=2 sentences on what you found>", "confidence_delta": <number>, "verdict": "hold|downgrade|kill", "stronger_disconfirming_factor": "<optional>" } ] }`;
-
-function buildSkepticUserPrompt(candidates) {
-  const compact = candidates.map((c) => ({
-    key: c.key, market: c.market, selection: c.selection, price: c.price, book: c.book,
-    model_fair_prob: c.model_fair_prob, edge_pct: c.edge_pct, confidence: c.confidence,
-    edge_type: c.edge_type, knowledge_based: c.knowledge_based,
-    market_view: c.market_view, football_view: c.football_view, thesis: c.thesis,
-    disconfirming_factor: c.disconfirming_factor, sources: c.sources, evidence_ids: c.evidence_ids,
-  }));
-  return `CANDIDATES (${compact.length}) — attack each one independently:\n${JSON.stringify(compact)}\n\nReturn one verdict per candidate, matched by "key".`;
-}
-
-const RISK_EDITOR_SYSTEM_PROMPT = `You are the RISK/PORTFOLIO ANALYST and final EDITOR on a betting-analyst committee. You receive the candidates that survived an independent Skeptic pass (already attacked once — do not re-litigate the thesis itself). Your job is purely PORTFOLIO-LEVEL:
-
-- Look across ALL surviving candidates together (not one at a time) for correlation: multiple plays that would all win/lose together (same team, same division, same underlying driver) inflate real risk beyond what each play's own confidence suggests — note this in portfolio_notes and consider trimming or downgrading stake_tier on the redundant ones.
-- Set bet_threshold per candidate: the worst price still worth taking given its edge — below that price, the edge is gone. Be a real number/line, not vague.
-- Set needs_human_review: true for anything resting on thin data, real disagreement between market_view and football_view, a "downgrade" verdict from the Skeptic, or correlation with 2+ other candidates. Each candidate you receive already carries an incoming needs_human_review value from the earlier stages — you may only ADD true, never clear an incoming true back to false (this is enforced mechanically after you respond regardless of what you set, so treat it as a floor, not a suggestion).
-- Set (or revise) stake_tier: core|standard|small|speculative — favorites/value can be core|standard; longshots and anything correlated with a bigger position should be small|speculative. GUARDED POLICY (per SYSTEM_PROMPT's SOURCE HIERARCHY, tightened 2026-09-09): a candidate whose evidence_ids resolve to no Tier 1 structured signal — even if it has real Tier 2 (named/dated lean) and/or Tier 3 (vault_analytical_reads/master_reports) support — must stay needs_human_review:true and stake_tier small|speculative; do not upgrade it to core/standard even if its thesis reads well. A candidate whose evidence_ids resolve to ONLY Tier 4 (training_camp_intel) must not be proposed at all — Tier 4 can only support a thesis already grounded in Tier 1/2/3, never originate one. Both are enforced mechanically after you respond.
-- You MAY pass on a candidate for portfolio reasons even if the Skeptic held it — e.g. too correlated with a bigger, better-supported play, or the book/portfolio is already overexposed to that team/division. Put these in "passes" with a reason distinct from the Skeptic's own reasoning.
-- If scenario structures are supplied (hedge baskets, parlay ladders, or portfolio_strategy), evaluate them as a scenario book: maximum dead cost if legs fail, effective cost basis if early ladder legs win, whether matchup/exacta coverage spans enough plausible playoff paths, conference/division/QB-driver concentration, and whether each longshot creates real later hedge optionality rather than just another standalone lottery ticket.
-- For a surviving anchor_bet-role candidate whose thesis the Skeptic did NOT downgrade, but whose current price makes a full-size entry marginal or slightly negative-edge: instead of passing on it outright, you may recommend a SCALED ENTRY -- a smaller stake_tier now plus an explicit price/condition at which the position would be sized up later. This is not adding a new pick; it is a sizing/timing decision on a candidate you already have. Only use this when the underlying edge case (injury return, roster/coaching change, schedule) is still intact and it is specifically the price that is currently unfavorable -- not when the thesis itself is broken (that is still a pass). When you use this pattern, include an entry_plan on that candidate: { "pattern": "scale_in", "add_trigger": "<price/line/condition that would justify adding to the position>", "note": "<=1 sentence on why partial entry beats an outright pass>" }. Omit entry_plan entirely for a normal full-size entry.
-- Do not add new picks. Only finalize sizing/thresholds or pass on what you were given.
-
-Return STRICT JSON only: { "finalized": [ { "key": "<copied exactly>", "bet_threshold": "<...>", "needs_human_review": <bool>, "stake_tier": "core|standard|small|speculative", "risk_note": "<=1 sentence", "entry_plan": { "pattern": "scale_in", "add_trigger": "<...>", "note": "<=1 sentence" } } (entry_plan optional, scale_in pattern only) ], "passes": [ { "key": "<copied exactly>", "reason": "<why this doesn't make the final book>" } ], "scenario_review": { "max_exposure_note": "<=1 sentence>", "funded_liability_note": "<=1 sentence>", "coverage_note": "<=1 sentence>", "concentration_note": "<=1 sentence>", "hedge_optionality_note": "<=1 sentence>", "needs_human_review": <bool> }, "portfolio_notes": "<=4 sentences on correlation clusters, overall exposure, coverage gaps>" }`;
-
-function buildRiskEditorUserPrompt(candidates, scenarioInput = {}) {
-  const compact = candidates.map((c) => ({
-    key: c.key, market: c.market, selection: c.selection, type: c.type, edge_type: c.edge_type,
-    price: c.price, book: c.book, edge_pct: c.edge_pct, confidence: c.confidence, stake_tier: c.stake_tier,
-    thesis: c.thesis, disconfirming_factor: c.disconfirming_factor, skeptic_note: c.skeptic_note,
-    skeptic_verdict: c.skeptic_verdict, correlated_week1: c.correlated_week1,
-    // 2026-09-08 (Codex review, Stage 5 guarded-policy fix): the Risk/Editor
-    // previously never saw the incoming needs_human_review value or which
-    // evidence tier backed a candidate, so it had no way to honor the
-    // SOURCE HIERARCHY's guarded policy (Tier-3/4-only plays must stay
-    // flagged + capped) even if it wanted to. Both now carried through.
-    needs_human_review: !!c.needs_human_review, evidence_ids: c.evidence_ids || [],
-  }));
-  const scenarios = {
-    primary_positions: scenarioInput.primary || [],
-    user_portfolio_ledger: scenarioInput.ledger || null,
-    hedge_baskets: scenarioInput.hedge_baskets || [],
-    parlay_ladders: scenarioInput.parlay_ladders || [],
-    portfolio_strategy: scenarioInput.portfolio_strategy || [],
-  };
-  return `SURVIVING CANDIDATES (${compact.length}, post-Skeptic) — judge the PORTFOLIO as a whole:\n${JSON.stringify(compact)}\n\nSCENARIO STRUCTURES (stage-1 proposals, not yet code-math-validated here — evaluate their portfolio logic, not their arithmetic):\n${JSON.stringify(scenarios)}\n\nReturn one finalized entry per surviving candidate you keep, plus any you pass on, matched by "key", and include scenario_review for the scenario structures.`;
-}
+// SKEPTIC_SYSTEM_PROMPT, RISK_EDITOR_SYSTEM_PROMPT (full/unscoped variant),
+// buildSkepticUserPrompt(), buildRiskEditorUserPrompt() all moved to
+// agents/lib/committee.js (rev 17-19 design review) -- imported above.
+// runSkepticStage()/runRiskEditorStage() call the prompt builders internally;
+// the CLI no longer calls them directly.
 
 // Flattens the A/B (or single-model) stage-1 results into one candidate list,
 // keyed by normalized market|selection, carrying per-model agreement visibly
@@ -731,7 +717,7 @@ function mergeStage1(byModel) {
   return { names, candidates };
 }
 
-function clampConfidence(n) { return Math.max(0, Math.min(100, Math.round(n))); }
+// clampConfidence() moved to agents/lib/committee.js (private helper there).
 
 // manual abort timer we always clear — avoids a dangling libuv handle at exit (Node v24)
 async function withTimeout(ms, fn) {
@@ -824,18 +810,8 @@ async function callModel(model, systemPrompt, userContent) {
   return out;
 }
 
-// tolerant JSON extraction (strips fences / surrounding prose) — handles both
-// object ({...}) and array ([...]) top-level shapes, since stage 2/3 return
-// { "verdicts": [...] } / { "finalized": [...], "passes": [...] } objects too.
-function parseJSON(text) {
-  let t = text.trim().replace(/^```(?:json)?/i, '').replace(/```$/, '').trim();
-  const firstObj = t.indexOf('{'), lastObj = t.lastIndexOf('}');
-  const firstArr = t.indexOf('['), lastArr = t.lastIndexOf(']');
-  const useObj = firstObj >= 0 && (firstArr < 0 || firstObj <= firstArr);
-  if (useObj && lastObj > firstObj) t = t.slice(firstObj, lastObj + 1);
-  else if (firstArr >= 0 && lastArr > firstArr) t = t.slice(firstArr, lastArr + 1);
-  return JSON.parse(t);
-}
+// parseJSON() moved to agents/lib/parse-json.js (imported above) -- used
+// identically by Stage 1 here and by agents/lib/committee.js.
 
 const norm = (r) => `${(r.market || '').toLowerCase()}|${(r.selection || '').toLowerCase().replace(/[^a-z0-9. ]/g, '').trim()}`;
 
@@ -2132,7 +2108,18 @@ function candidateToOfficialProposal(candidate, dossier, meta, officialConfig) {
     evidence_ids: candidate.evidence_ids || [],
     sources: candidate.sources || [],
     timing: candidate.timing || null,
-    correlated_positions: candidate.correlated_week1 || [],
+    // rev-23-followup fix: this field is a renamed copy of
+    // candidate.correlated_week1 -- a structurally-forbidden,
+    // scenario/correlation artifact under the frozen Wins/Playoffs scope.
+    // Unconditionally including it here (even as `[]`) previously let it
+    // reach every exported official-proposal draft file regardless of
+    // --suppress-scenario-structures, invisible to assertScopeClean()
+    // (which only recognizes the literal key "correlated_week1", not this
+    // rename) -- a lexical-enforcement gap in a spot none of the scope-
+    // enforcement hardening work had touched. Fixed at the source, positive-
+    // template style: the key is structurally absent under suppression,
+    // not merely emptied.
+    ...(SUPPRESS_SCENARIO_STRUCTURES ? {} : { correlated_positions: candidate.correlated_week1 || [] }),
     data_snapshot: {
       proposal_exported_by: 'agents/portfolio-synthesize.js',
       exported_at: new Date().toISOString(),
@@ -2186,10 +2173,17 @@ function renderProposalInboxMarkdown(manifest) {
   return lines.join('\n');
 }
 
-async function exportOfficialProposalDrafts(finalCandidates, dossier, meta, officialConfig) {
+// rev-23-followup fix: split into a pure build step (no filesystem I/O)
+// and a separate write step, so the full proposal objects -- not just the
+// summary manifest -- can be scope-asserted BEFORE any proposal draft file
+// reaches disk, matching the same "assert before any write" contract as
+// the HTML/MD/raw.json outputs below. Previously this one function built
+// AND wrote in the same pass, so a proposal draft could hit disk before
+// the complete-payload assertScopeClean() call ever ran.
+function buildOfficialProposalDrafts(finalCandidates, dossier, meta, officialConfig) {
   if (!PROPOSAL_OUT_DIR) return null;
   const outDir = path.resolve(ROOT, PROPOSAL_OUT_DIR);
-  await mkdir(outDir, { recursive: true });
+  const entries = [];
   const manifest = {
     generated_at: new Date().toISOString(),
     run_id: meta.run_id,
@@ -2209,7 +2203,7 @@ async function exportOfficialProposalDrafts(finalCandidates, dossier, meta, offi
       proposal.pick_id.slice(0, 8),
     ].join('-') + '.json';
     const filePath = path.join(outDir, fileName);
-    await writeFile(filePath, JSON.stringify(proposal, null, 2) + '\n', 'utf8');
+    entries.push({ proposal, filePath });
     manifest.proposals.push({
       pick_id: proposal.pick_id,
       selection: proposal.selection,
@@ -2222,6 +2216,16 @@ async function exportOfficialProposalDrafts(finalCandidates, dossier, meta, offi
     });
   }
   const manifestBase = path.join(outDir, `candidate-inbox-${meta.date}-${meta.run_id.slice(0, 8)}`);
+  return { outDir, entries, manifest, manifestBase };
+}
+
+async function writeOfficialProposalDrafts(built) {
+  if (!built) return null;
+  const { outDir, entries, manifest, manifestBase } = built;
+  await mkdir(outDir, { recursive: true });
+  for (const { proposal, filePath } of entries) {
+    await writeFile(filePath, JSON.stringify(proposal, null, 2) + '\n', 'utf8');
+  }
   await writeFile(`${manifestBase}.json`, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
   await writeFile(`${manifestBase}.md`, renderProposalInboxMarkdown(manifest), 'utf8');
   console.log(`   proposal drafts: ${manifest.proposals.length} exported to ${path.relative(ROOT, outDir)}`);
@@ -2593,65 +2597,17 @@ function buildPortfolioStrategy({ primary, baskets, ladders, rawStrategies, scen
   };
 }
 
-// ── Stage 2 (Skeptic) merge ────────────────────────────────────────────────────
-// Applies each verdict onto its candidate by key; kills go to a separate list
-// (with the reason) instead of silently disappearing.
-function applySkepticVerdicts(candidates, verdicts) {
-  const vByKey = new Map((verdicts || []).map((v) => [v.key, v]));
-  const survivors = [], killed = [];
-  for (const c of candidates) {
-    const v = vByKey.get(c.key);
-    if (!v) { survivors.push({ ...c, skeptic_note: null, skeptic_verdict: 'unreviewed' }); continue; }
-    const next = {
-      ...c,
-      confidence: clampConfidence((c.confidence || 0) + (v.confidence_delta || 0)),
-      skeptic_note: v.skeptic_note || null,
-      skeptic_verdict: v.verdict || 'hold',
-      disconfirming_factor: v.stronger_disconfirming_factor || c.disconfirming_factor,
-    };
-    if (v.verdict === 'kill') killed.push({ ...c, reason: v.skeptic_note || 'Skeptic pass killed this candidate.', stage: 'skeptic' });
-    else survivors.push(next);
-  }
-  return { survivors, killed };
-}
-
-// ── Stage 3 (Risk/Editor) merge ────────────────────────────────────────────────
-function applyRiskEditor(candidates, riskOutput) {
-  const finalizedByKey = new Map((riskOutput.finalized || []).map((f) => [f.key, f]));
-  const passKeys = new Set((riskOutput.passes || []).map((p) => p.key));
-  const final = [], passed = [];
-  for (const c of candidates) {
-    if (passKeys.has(c.key)) {
-      const p = (riskOutput.passes || []).find((x) => x.key === c.key);
-      passed.push({ ...c, reason: p?.reason || 'Risk/Editor pass excluded this from the final book.', stage: 'risk_editor' });
-      continue;
-    }
-    const f = finalizedByKey.get(c.key);
-    final.push(f ? {
-      ...c,
-      bet_threshold: f.bet_threshold ?? c.bet_threshold ?? null,
-      // 2026-09-08 (Codex review, Stage 5 source-hierarchy fix): monotonic
-      // OR, not `??`. `??` only falls through on null/undefined, so a
-      // Risk/Editor pass that explicitly writes needs_human_review:false
-      // was silently erasing an earlier Stage 1/Skeptic `true` -- exactly
-      // the kind of narrative-only-thesis flag the new SOURCE HIERARCHY
-      // guarded policy depends on surviving to the final candidate. A
-      // review flag, once raised by any stage, must never be un-raised by
-      // a later one.
-      needs_human_review: !!(c.needs_human_review || f.needs_human_review),
-      stake_tier: f.stake_tier || c.stake_tier,
-      risk_note: f.risk_note || null,
-      // 2026-09-03 (Andy): scale-in/wait-for-better-price pattern for anchor
-      // positions -- carries the Risk/Editor's optional entry_plan (smaller
-      // stake now + an explicit add_trigger price/condition) through instead
-      // of silently dropping it, the way every other risk-editor field here
-      // already does. null when the Risk/Editor didn't propose one (the
-      // normal case -- a full-size entry or an outright pass).
-      entry_plan: f.entry_plan || null,
-    } : { ...c, risk_note: null });
-  }
-  return { final, passed };
-}
+// rev-21-review P2 fix (finding #7): the real applySkepticVerdicts()/
+// applyRiskEditor() implementations live in agents/lib/committee.js (see
+// the import at the top of this file) since the rev 17-19 design review
+// moved committee logic out of this CLI. The duplicate copies formerly
+// here were dead leftovers from before that move -- unused (this file
+// calls runSkepticStage()/runRiskEditorStage() from committee.js, which
+// call committee.js's own private versions of these functions), and one of
+// them referenced clampConfidence(), which really did move to committee.js
+// and no longer exists in this file at all. ESLint already caught this
+// (`applySkepticVerdicts`/`applyRiskEditor` defined-but-unused,
+// `clampConfidence` not-defined) -- removed rather than fixed in place.
 
 // ── Ranking (code-owned, deterministic — Codex's own principle: the model
 // proposes, code ranks/audits). These are now tags for a single card, not
@@ -2717,16 +2673,24 @@ function labelMarket(market) {
   return String(market || 'Market').replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 }
 function humanizeMarketRefs(text) {
-  return String(text || '')
-    .replace(/\(superbowl_matchup\)/g, '(Super Bowl Matchup)')
-    .replace(/\(conference_afc\)/g, '(Win AFC)')
-    .replace(/\(conference_nfc\)/g, '(Win NFC)')
-    .replace(/\(superbowl\)/g, '(Win Super Bowl)')
+  let result = String(text || '')
     .replace(/\(playoffs\)/g, '(Make the Playoffs)')
-    .replace(/\(wins\)/g, '(Win Total)')
-    .replace(/\bsuperbowl_matchup\b/g, 'Super Bowl Matchup')
-    .replace(/\bconference_afc\b/g, 'Win AFC')
-    .replace(/\bconference_nfc\b/g, 'Win NFC');
+    .replace(/\(wins\)/g, '(Win Total)');
+  // Suppressed runs never carry these markets (quarantined at Layer 1) --
+  // gated so the renderer doesn't teach the reader about a market/badge
+  // that has no place in a wins/playoffs-only report, even in a stray
+  // free-text string (e.g. a validator reason) that happens to mention one.
+  if (!SUPPRESS_SCENARIO_STRUCTURES) {
+    result = result
+      .replace(/\(superbowl_matchup\)/g, '(Super Bowl Matchup)')
+      .replace(/\(conference_afc\)/g, '(Win AFC)')
+      .replace(/\(conference_nfc\)/g, '(Win NFC)')
+      .replace(/\(superbowl\)/g, '(Win Super Bowl)')
+      .replace(/\bsuperbowl_matchup\b/g, 'Super Bowl Matchup')
+      .replace(/\bconference_afc\b/g, 'Win AFC')
+      .replace(/\bconference_nfc\b/g, 'Win NFC');
+  }
+  return result;
 }
 function labelType(type) {
   const t = String(type || '').toLowerCase();
@@ -2766,12 +2730,12 @@ function badge(cls, text, help) {
 }
 function badgeKeyHTML() {
   const items = [
-    ['Market', 'What bet market this card is about, such as Make the Playoffs, Win Total, or Super Bowl Matchup.'],
-    ['Pick Type', 'The shape of the bet: favorite price, value bet, longshot, or hedge.'],
+    ['Market', SUPPRESS_SCENARIO_STRUCTURES ? 'What bet market this card is about: Make the Playoffs or Win Total.' : 'What bet market this card is about, such as Make the Playoffs, Win Total, or Super Bowl Matchup.'],
+    ['Pick Type', SUPPRESS_SCENARIO_STRUCTURES ? 'The shape of the bet: favorite price, value bet, or longshot.' : 'The shape of the bet: favorite price, value bet, longshot, or hedge.'],
     ['Edge Type', 'Why it is here: math edge is code-supported price value; thesis-driven means football/portfolio logic carries the case.'],
     ['Needs Review', 'The report is asking for human judgment before action, usually because the price is expensive, evidence conflicts, or portfolio correlation matters.'],
     ['Board Validator Flag', 'A mechanical, code-owned check failed (bettable book, thin-market n_books>=3 kill switch, sim-price-only market policy, or a dossier-edge cross-check) — kept visible per annotate-and-keep policy, not auto-dropped. Treat as a hard stop-and-review, not a stylistic warning.'],
-    ['Stake Tier', 'Suggested sizing bucket only. Speculative means small/coverage exposure, not a core position.'],
+    ['Stake Tier', SUPPRESS_SCENARIO_STRUCTURES ? 'Suggested sizing bucket only. Speculative means a small position, not a core one.' : 'Suggested sizing bucket only. Speculative means small/coverage exposure, not a core position.'],
     ['Fair / Edge', 'Fair is the model probability. Edge is expected value at the shown quote using that fair probability.'],
     ['Simulation', 'Offline code forecast used as validation: probability, uncertainty range, and lower-bound edge when available.'],
     ['Threshold', 'The worst price the report would normally accept. If the current quote is worse than the threshold, it is usually a pass or wait.'],
@@ -2946,7 +2910,7 @@ function anchorId(prefix, value) {
 function recommendationBlurb(rec) {
   const tags = reportTags(rec).join(' and ');
   const action = rec.timing?.action === 'pass' ? 'is currently a pass/wait' : rec.timing?.action === 'bet_now' ? 'is marked as playable now if the price holds' : 'is mainly a watch/wait candidate';
-  const coverage = /coverage|exacta|hedge/i.test(`${rec.thesis || ''} ${rec.market_view || ''} ${rec.football_view || ''} ${rec.risk_note || ''}`)
+  const coverage = (!SUPPRESS_SCENARIO_STRUCTURES && /coverage|exacta|hedge/i.test(`${rec.thesis || ''} ${rec.market_view || ''} ${rec.football_view || ''} ${rec.risk_note || ''}`))
     ? ' but appears most useful as portfolio or exacta coverage rather than a clean standalone bet'
     : '';
   return `${rec.selection} matches ${tags}; it ${action}${coverage}.`;
@@ -2965,14 +2929,20 @@ function teamSectionsHTML(recs = []) {
   if (!groups.length) return '<p>No final recommendations survived validation.</p>';
   return groups.map(([team, rows]) => `<details class="team-section" id="${attr(anchorId('team', team))}" open><summary>${esc(team)} (${rows.length})</summary>${teamQuickReadHTML(rows)}${rows.map(recCard).join('')}</details>`).join('');
 }
-function reportTOCHTML(ranked, { ladders = [], baskets = [], passed = [], killed = [], watchCount = 0 } = {}) {
+function reportTOCHTML(ranked, { ladders = [], baskets = [], passed = [], killed = [], watchCount = 0, suppressed = false } = {}) {
   const teams = groupRecommendationsByTeam(ranked?.all || []);
   const teamLinks = teams.map(([team, rows]) => `<a class="toc-team" href="#${attr(anchorId('team', team))}">${esc(team)} <span>${rows.length}</span></a>`).join('');
   const sections = [
     ['#human-watchlist', 'Human Watchlist', null],
-    ['#scenario-book', 'Scenario Book', null],
-    ['#parlay-ladders', 'Parlay Ladders', ladders.length],
-    ['#hedge-baskets', 'Hedge Baskets', baskets.length],
+    // rev-20-review P1 fix: structurally omit these three TOC entries under
+    // suppression rather than linking to a section that renders "None
+    // proposed this run" -- an empty array/null value doesn't satisfy the
+    // omission contract Codex flagged.
+    ...(suppressed ? [] : [
+      ['#scenario-book', 'Scenario Book', null],
+      ['#parlay-ladders', 'Parlay Ladders', ladders.length],
+      ['#hedge-baskets', 'Hedge Baskets', baskets.length],
+    ]),
     ['#passed-killed', 'Passed / Killed', passed.length + killed.length],
     ['#watch-list', 'Watch List', watchCount],
     ['#construction-notes', 'Notes', null],
@@ -3083,8 +3053,15 @@ function degradationProblems(meta) {
   if (meta.stage1_errors?.length) {
     problems.push(`${meta.stage1_errors.length} Stage-1 model call(s) failed and were excluded from this run: ${meta.stage1_errors.map((e) => `${e.model} (${e.error})`).join('; ')}. This report used fewer analysts than configured.`);
   }
-  if (meta.committee_ran === false) {
-    problems.push(`The Skeptic/Risk committee crashed${meta.committee_error ? ` (${meta.committee_error})` : ''} — this report falls back to unreviewed Stage-1 candidates. No Skeptic verdict, no Risk/Editor pass, no scenario review.`);
+  // rev 17/18/19 fix: keyed off explicit skeptic_status/risk_editor_status
+  // now, never the old single committee_ran boolean -- that conflated a
+  // deliberate --skip-committee run (disabled_by_flag, which must render
+  // ONLY as the neutral "(stage 1 only)" sub-header text below, never here)
+  // with an actual crash (attempt_failed).
+  if (meta.skeptic_status?.status === 'attempt_failed') {
+    problems.push(`The Skeptic stage failed during ${meta.skeptic_status.failure_phase} (${meta.skeptic_status.error}) — this report falls back to unreviewed Stage-1 candidates. No Skeptic verdict, no Risk/Editor pass${SUPPRESS_SCENARIO_STRUCTURES ? '' : ', no scenario review'}.`);
+  } else if (meta.risk_editor_status?.status === 'attempt_failed') {
+    problems.push(`The Risk/Editor stage failed during ${meta.risk_editor_status.failure_phase} (${meta.risk_editor_status.error}) — this report falls back to Skeptic-reviewed survivors without portfolio-level finalization${SUPPRESS_SCENARIO_STRUCTURES ? '' : ' or scenario review'}.`);
   }
   if (meta.final_empty) {
     problems.push('The final book is EMPTY — zero recommendations survived to this report. Treat this run as failed, not as "the model looked and found nothing."');
@@ -3102,7 +3079,7 @@ function degradationBannerMD(meta) {
   return ['> ⚠ **DEGRADED RUN — review before trusting this report.**', ...problems.map((p) => `> - ${p}`), ''];
 }
 
-function renderHTML(ranked, passed, killed, byModel, meta, ladders = [], baskets = [], portfolioStrategy = null, watchlistReview = []) {
+function renderHTML(ranked, passed, killed, byModel, meta, ladders = [], baskets = [], portfolioStrategy = null, watchlistReview = [], suppressed = false) {
   const names = modelNames(byModel);
   const watch = names.flatMap((n) => (byModel[n].watch || []).map((w) => `<li><b>${esc(humanizeMarketRefs(w.selection))}</b> <span class="mk">${esc(labelMarket(w.market))}</span> — ${esc(humanizeMarketRefs(w.why))} <i>(${esc(n)})</i></li>`)).join('');
   const passList = [...killed, ...passed].map((p) => `<li><b>${esc(humanizeMarketRefs(p.selection))}</b> <span class="mk">${esc(labelMarket(p.market))}</span> — ${esc(humanizeMarketRefs(p.reason))} <i>(${esc(p.stage)})</i></li>`).join('');
@@ -3163,18 +3140,18 @@ function renderHTML(ranked, passed, killed, byModel, meta, ladders = [], baskets
  .fold-body{padding:2px 12px 12px}.fold-body>.rec{margin:10px 0}.fold-body ul{margin:8px 0 0 18px;padding:0}
 </style>
 <h1>NFL Futures Portfolio — Analyst Committee</h1>
-<div class="sub">${meta.date} · models: ${esc(names.join(' + '))} · season ${esc(meta.season)}${meta.committee_ran === false ? ' · <b>committee skipped (stage 1 only)</b>' : ''}</div>
+<div class="sub">${meta.date} · models: ${esc(names.join(' + '))} · season ${esc(meta.season)}${meta.skeptic_status?.status === 'disabled_by_flag' ? ' · <b>committee skipped (stage 1 only)</b>' : ''}</div>
 ${degradationBannerHTML(meta)}
 <div class="banner"><b>Decision support only.</b> These are model proposals for your review — not instructions to bet. Sizing and whether to play at all are your call. Every play lists its strongest disconfirming factor and (once through the committee) a Skeptic verdict; read both first.</div>
 ${badgeKeyHTML()}
-${reportTOCHTML(ranked, { ladders, baskets, passed, killed, watchCount: names.reduce((sum, n) => sum + (byModel[n].watch || []).length, 0) })}
+${reportTOCHTML(ranked, { ladders, baskets, passed, killed, suppressed, watchCount: names.reduce((sum, n) => sum + (byModel[n].watch || []).length, 0) })}
 ${quickReadHTML(ranked.all)}
 <h2 id="human-watchlist">Human Watchlist Review</h2>${watchlistReviewHTML(watchlistReview)}
 <h2>Recommendations by Team</h2>
 ${teamSectionsHTML(ranked.all)}
-<h2 id="scenario-book">Scenario Book / Playoff Hedge Map</h2>${scenarioBookHTML(portfolioStrategy)}
+${suppressed ? '' : `<h2 id="scenario-book">Scenario Book / Playoff Hedge Map</h2>${scenarioBookHTML(portfolioStrategy)}
 <details class="fold-section" id="parlay-ladders"><summary>Parlay ladders - self-funding stacks (${ladders.length})</summary><div class="fold-body">${ladders.length ? ladders.map(ladderCard).join('') : '<p>None proposed this run.</p>'}</div></details>
-<details class="fold-section" id="hedge-baskets"><summary>Hedge baskets - variance insurance (${baskets.length})</summary><div class="fold-body">${baskets.length ? baskets.map(basketCard).join('') : '<p>None proposed this run.</p>'}</div></details>
+<details class="fold-section" id="hedge-baskets"><summary>Hedge baskets - variance insurance (${baskets.length})</summary><div class="fold-body">${baskets.length ? baskets.map(basketCard).join('') : '<p>None proposed this run.</p>'}</div></details>`}
 <details class="fold-section" id="passed-killed"><summary>Passed / killed (${passed.length + killed.length})</summary><div class="fold-body"><ul>${passList || '<li>None.</li>'}</ul></div></details>
 <details class="fold-section" id="watch-list"><summary>Watch list</summary><div class="fold-body"><ul>${watch || '<li>None.</li>'}</ul></div></details>
 <h2 id="construction-notes">Construction notes</h2>${notes}`;
@@ -3254,7 +3231,7 @@ function teamSectionsMD(recs = [], line) {
   if (!groups.length) return 'No final recommendations survived validation.';
   return groups.map(([team, rows]) => [`### ${team} (${rows.length})`, ...rows.map((r) => `${line(r)}${simulationBlockMD(r)}${signalBlockMD(r.dossier_signals)}`), ''].join('\n')).join('\n');
 }
-function renderMD(ranked, passed, killed, byModel, meta, ladders = [], baskets = [], portfolioStrategy = null, watchlistReview = []) {
+function renderMD(ranked, passed, killed, byModel, meta, ladders = [], baskets = [], portfolioStrategy = null, watchlistReview = [], suppressed = false) {
   const names = modelNames(byModel);
   const line = (r) => `- **${r.selection}** · ${labelMarket(r.market)} · ${labelType(r.type)} · ${labelEdgeType(r.edge_type)}${r.needs_human_review ? ' · Needs Review' : ''}${r.validation?.length ? ' · 🚫 BOARD VALIDATOR FLAG' : ''}\n  - Quote: ${r.price}@${r.book} · ${labelStakeTier(r.stake_tier)} · Confidence ${r.confidence}\n  - Fair probability: ${percent(r.model_fair_prob) || r.model_fair_prob} · Estimated edge: ${r.edge_pct}%${r.agreement ? ` · Models: ${r.agreement.count} of ${r.agreement.of}` : ''}${r.bet_threshold ? ` · Play only at: ${r.bet_threshold}` : ''}\n  - Source quality: ${sourceQuality(r).label}\n${r.market_view ? `  - Market: ${r.market_view}\n` : ''}${r.football_view ? `  - Football: ${r.football_view}\n` : ''}  - ${r.thesis}\n  - ⚠ ${r.disconfirming_factor}${r.validation?.length ? `\n  - 🚫 Board validator: ${r.validation.join(' · ')}` : ''}${r.skeptic_note ? `\n  - 🕵 Skeptic (${r.skeptic_verdict}): ${r.skeptic_note}` : ''}${r.risk_note ? `\n  - ⚖ Risk: ${r.risk_note}` : ''}${r.entry_plan?.pattern === 'scale_in' ? `\n  - 📐 Scale-in: smaller entry now, add at ${r.entry_plan.add_trigger}${r.entry_plan.note ? ` — ${r.entry_plan.note}` : ''}` : ''}${r.evidence_resolved?.length ? `\n  - 🔗 ${r.evidence_resolved.map((e) => `${e.id}${e.resolved ? `=${JSON.stringify(e.value)}` : ' (unresolved)'}`).join(', ')}` : (r.evidence_ids?.length ? `\n  - 🔗 ${r.evidence_ids.join(', ')} (unresolved — no dossier row match)` : '')}${r.sources?.length ? `\n  - 📣 sources: ${r.sources.join(', ')}` : ''}\n  - timing: **${r.timing?.action}**${r.timing?.trigger ? ` — ${r.timing.trigger}` : ''}${r.timing?.expected_move ? ` (${r.timing.expected_move})` : ''}`;
   const L = [`# NFL Futures Portfolio (Analyst Committee) — ${meta.date}`, '', `Models: ${names.join(' + ')} · season ${meta.season}`, '',
@@ -3269,12 +3246,14 @@ function renderMD(ranked, passed, killed, byModel, meta, ladders = [], baskets =
   L.push(watchlistReviewMD(watchlistReview), '');
   L.push('## Recommendations by Team');
   L.push(teamSectionsMD(ranked.all, line));
-  L.push('## Scenario Book / Playoff Hedge Map');
-  L.push(scenarioBookMD(portfolioStrategy), '');
-  L.push(`## Parlay ladders — self-funding stacks (${ladders.length})`);
-  L.push(ladders.length ? ladders.map(ladderMD).join('\n') : 'None proposed this run.', '');
-  L.push(`## Hedge baskets — variance insurance (${baskets.length})`);
-  L.push(baskets.length ? baskets.map(basketMD).join('\n') : 'None proposed this run.', '');
+  if (!suppressed) {
+    L.push('## Scenario Book / Playoff Hedge Map');
+    L.push(scenarioBookMD(portfolioStrategy), '');
+    L.push(`## Parlay ladders — self-funding stacks (${ladders.length})`);
+    L.push(ladders.length ? ladders.map(ladderMD).join('\n') : 'None proposed this run.', '');
+    L.push(`## Hedge baskets — variance insurance (${baskets.length})`);
+    L.push(baskets.length ? baskets.map(basketMD).join('\n') : 'None proposed this run.', '');
+  }
   L.push(`## Passed / killed (${passed.length + killed.length})`);
   for (const p of [...killed, ...passed]) L.push(`- **${humanizeMarketRefs(p.selection)}** (${labelMarket(p.market)}) — ${humanizeMarketRefs(p.reason)} _(${p.stage})_`);
   L.push('', '## Construction notes');
@@ -3282,88 +3261,90 @@ function renderMD(ranked, passed, killed, byModel, meta, ladders = [], baskets =
   return L.join('\n');
 }
 
-// ── persistence (backtesting foundation) ───────────────────────────────────────
-// Logs the final book to Supabase (migration 042, extended by 043 with run_id)
-// so results can eventually be graded — see docs/FUTURES_AGENT_DATA_INVENTORY
-// doc for what's built vs. deferred. Non-fatal: local .html/.md/.raw.json
-// always get written regardless of whether this succeeds, so a missing/blocked
-// Supabase connection never loses the run's output.
-//
-// 2026-07-22 follow-up (Codex review — backtesting log completeness): the
-// original unique(run_date, key) constraint meant a second same-day run
-// silently overwrote the first. Migration 043 adds run_id (one per invocation,
-// meta.run_id below) and repoints the uniqueness to (run_id, key), so re-runs
-// on the same date no longer clobber each other.
-async function persistRecommendations(final, meta) {
-  if (NO_PERSIST) { console.log('   (persistence skipped: --no-persist)'); return; }
-  const SB_URL = process.env.SUPABASE_URL;
-  const SB_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!SB_URL || !SB_KEY) { console.log('   (persistence skipped: SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY not set)'); return; }
-  try {
-    const { createClient } = await import('@supabase/supabase-js');
-    const sb = createClient(SB_URL, SB_KEY, { auth: { persistSession: false } });
-    const rows = final.map((r) => ({
-      run_id: meta.run_id, run_date: meta.date, season: meta.season, key: r.key, market: r.market, selection: r.selection,
-      edge_type: r.edge_type || null, type: r.type || null, book: r.book || null, price: r.price ?? null,
-      model_fair_prob: r.model_fair_prob ?? null, edge_pct: r.edge_pct ?? null, confidence: r.confidence ?? null,
-      stake_tier: r.stake_tier || null, knowledge_based: !!r.knowledge_based,
-      thesis: r.thesis || null, disconfirming_factor: r.disconfirming_factor || null,
-      market_view: r.market_view || null, football_view: r.football_view || null,
-      skeptic_note: r.skeptic_note || null, skeptic_verdict: r.skeptic_verdict || null,
-      bet_threshold: r.bet_threshold || null, needs_human_review: !!r.needs_human_review,
-      sources: r.sources || [], evidence_ids: r.evidence_ids || [],
-      timing: r.timing || null, correlated_week1: r.correlated_week1 || null,
-      models: r.agreement || null, status: 'pending',
-    }));
-    const { error } = await sb.from('futures_recommendations').upsert(rows, { onConflict: 'run_id,key' });
-    if (error) throw new Error(error.message);
-    console.log(`   ✅ persisted ${rows.length} recommendations to futures_recommendations (run_id=${meta.run_id})`);
-  } catch (e) {
-    console.warn(`   ⚠ persistence failed (local files still written): ${e.message}`);
-  }
-}
-
-// 2026-07-22 follow-up (Codex review — backtesting log completeness, item #3):
-// futures_recommendations only ever held the FINAL book — everything the
-// committee/validator rejected disappeared once the run's .raw.json aged out of
-// attention. futures_recommendation_runs (migration 043) persists EVERY
-// candidate at EVERY stage — stage1 proposal, skeptic kill, risk/editor pass,
-// validator invalidation, and final survivor — one row each, tagged by stage,
-// so the full reasoning trail (including what got killed and why) is queryable
-// later, not just what made the final cut. Non-fatal, same pattern as above.
-async function persistRecommendationRuns(meta, trail) {
-  if (NO_PERSIST) return;
-  const SB_URL = process.env.SUPABASE_URL;
-  const SB_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!SB_URL || !SB_KEY) return;
-  try {
-    const { createClient } = await import('@supabase/supabase-js');
-    const sb = createClient(SB_URL, SB_KEY, { auth: { persistSession: false } });
-    const rowFor = (c, stage, reason) => ({
-      run_id: meta.run_id, run_date: meta.date, season: meta.season, stage, key: c.key,
-      market: c.market || null, selection: c.selection || null, edge_type: c.edge_type || null,
-      price: c.price ?? null, book: c.book || null, model_fair_prob: c.model_fair_prob ?? null,
-      edge_pct: c.edge_pct ?? null, confidence: c.confidence ?? null,
-      reason: reason || null, models: c.agreement || null, payload: c,
-    });
-    const rows = [
-      ...(trail.stage1 || []).map((c) => rowFor(c, 'stage1_candidate', null)),
-      ...(trail.killed || []).map((c) => rowFor(c, 'skeptic_killed', c.reason)),
-      ...(trail.passed || []).map((c) => rowFor(c, c.stage === 'validator' ? 'validator_invalidated' : 'risk_passed', c.reason)),
-      ...(trail.final || []).map((c) => rowFor(c, 'final', null)),
-    ];
-    if (!rows.length) return;
-    const { error } = await sb.from('futures_recommendation_runs').insert(rows);
-    if (error) throw new Error(error.message);
-    console.log(`   ✅ persisted ${rows.length} candidate-trail rows to futures_recommendation_runs (run_id=${meta.run_id})`);
-  } catch (e) {
-    console.warn(`   ⚠ candidate-trail persistence failed (local files still written): ${e.message}`);
-  }
-}
+// persistRecommendations()/persistRecommendationRuns()/persistPortfolioRun()
+// all moved to agents/lib/persistence.js (rev 16-19 design review) --
+// imported above. The CLI's two former independent calls collapse into one
+// call to persistPortfolioRun() at the bottom of this file.
 
 // ── main ─────────────────────────────────────────────────────────────────────
 (async () => {
-  const dossier = JSON.parse(await readFile(DOSSIER, 'utf8'));
+  // Startup invariant (rev 15-19 design review): checked before the dossier
+  // read, before any model call, before any write. loadWatchlist() moves
+  // here (was much further down) because the invariant needs its RESULT --
+  // an exactly-empty items array, when suppressed -- before anything else
+  // in the run happens; it is not re-loaded at its old call site below.
+  const watchlist = await loadWatchlist();
+  // rev-21-review P1 fix (finding #4): loadPromotions() moves up here, same
+  // reason loadWatchlist() was already moved here in an earlier review --
+  // checkStartupInvariant() needs its RESULT (every loaded promotion's
+  // eligible_market.market_type in scope, when suppressed) before anything
+  // else in the run happens. Not re-loaded at its old call site below.
+  const promotions = await loadPromotions();
+  const startupCheck = checkStartupInvariant({
+    suppressed: SUPPRESS_SCENARIO_STRUCTURES,
+    noPersist: NO_PERSIST,
+    proposalOutDir: PROPOSAL_OUT_DIR,
+    watchlist,
+    disableLiveContextBridges: DISABLE_LIVE_CONTEXT_BRIDGES,
+    promotions,
+  });
+  if (!startupCheck.ok) {
+    console.error('✖ suppressed-run startup invariant FAILED:');
+    for (const problem of startupCheck.problems) console.error(`  - ${problem}`);
+    process.exit(1);
+  }
+
+  // rev-23-followup3 fix (Codex finding #4): capture the RAW bytes read
+  // from disk (not a re-serialization of the parsed object) so provenance
+  // hashing attests to exactly what a human approver would see if they
+  // opened this same file.
+  const dossierRawText = await readFile(DOSSIER, 'utf8');
+  const dossier = JSON.parse(dossierRawText);
+  const dossierProvenance = computeDossierProvenance(DOSSIER, dossierRawText, dossier);
+  console.log(`   dossier: ${dossierProvenance.resolved_path} (sha256 ${dossierProvenance.sha256.slice(0, 12)}…, generated_at ${dossierProvenance.generated_at ?? 'MISSING'})`);
+  if (SUPPRESS_SCENARIO_STRUCTURES) {
+    // Fail closed: a suppressed "frozen pre-kickoff" run must be able to
+    // pin WHEN its dossier claims to have been generated, not merely be
+    // structurally complete (see dossier-provenance.js header).
+    try {
+      assertDossierProvenancePinned(dossierProvenance);
+    } catch (e) {
+      console.error(`✖ ${e.message}`);
+      process.exit(1);
+    }
+    // rev-23-followup4 fix (Codex finding #3): being "pinned" (able to
+    // attest its own generation time) is still not the same as being THE
+    // approved frozen pre-kickoff snapshot -- verify the computed
+    // provenance against an explicit, externally-supplied approved
+    // contract. See agents/lib/dossier-provenance.js's
+    // assertDossierProvenanceApproved() header for exactly what this file
+    // must contain; those values are never invented by this tool.
+    if (!APPROVED_DOSSIER_CONTRACT_PATH) {
+      console.error('✖ Dossier provenance check failed: --approved-dossier-contract is required under suppression.');
+      console.error('  No approved-dossier contract exists yet in this codebase. Andy must supply a JSON file with:');
+      console.error('    {');
+      console.error('      "resolved_path": "<the exact absolute path of the dossier file Andy has reviewed and approved>",');
+      console.error('      "sha256": "<its SHA-256, computed over the exact raw file bytes>",');
+      console.error('      "generated_at": "<that dossier\'s own meta.generated_at, copied exactly>",');
+      console.error('      "kickoff_at": "<ISO-8601 instant of this season\'s Week-1 kickoff (or whatever cutoff Andy considers pre-kickoff)>"');
+      console.error('    }');
+      console.error('  Then pass --approved-dossier-contract <path to that file>.');
+      process.exit(1);
+    }
+    let approvedDossierContract;
+    try {
+      approvedDossierContract = JSON.parse(await readFile(APPROVED_DOSSIER_CONTRACT_PATH, 'utf8'));
+    } catch (e) {
+      console.error(`✖ Dossier provenance check failed: could not read/parse --approved-dossier-contract at ${APPROVED_DOSSIER_CONTRACT_PATH}: ${e.message}`);
+      process.exit(1);
+    }
+    try {
+      assertDossierProvenanceApproved(dossierProvenance, approvedDossierContract);
+    } catch (e) {
+      console.error(`✖ ${e.message}`);
+      process.exit(1);
+    }
+  }
 
   // 2026-09-03 intel-source-integrity preflight (Andy, trust audit) — runs
   // scripts/build-intel-source-audit-report.js --strict and refuses to start
@@ -3461,7 +3442,15 @@ async function persistRecommendationRuns(meta, trail) {
   // thing this gate exists to prevent when the pipeline isn't ready.
   if (!PROMPT_ONLY) {
     console.log('🔎 Running full preflight gate (agents/portfolio-preflight.js --json)...');
-    const preflightRun = spawnSync('node', ['agents/portfolio-preflight.js', '--json', '--warn-only'], {
+    // rev-21-review P2 fix (finding #6): forward this CLI's own --dossier
+    // (when set) so the preflight subprocess checks the SAME dossier this
+    // run is actually synthesizing against, instead of always falling back
+    // to portfolio-preflight.js's own "latest dossier-<date>.json in
+    // .nfl/portfolio/" auto-discovery -- which silently diverges from this
+    // run whenever --dossier explicitly points at a non-latest file.
+    const preflightArgs = ['agents/portfolio-preflight.js', '--json', '--warn-only'];
+    if (DOSSIER) preflightArgs.push('--dossier', DOSSIER);
+    const preflightRun = spawnSync('node', preflightArgs, {
       cwd: ROOT, encoding: 'utf8', maxBuffer: 1024 * 1024 * 16,
     });
     if (preflightRun.error) {
@@ -3505,9 +3494,9 @@ async function persistRecommendationRuns(meta, trail) {
   }
 
   const ledger = await loadLedger();
-  const watchlist = await loadWatchlist();
   const officialConfig = await loadOfficialConfig();
-  const promotions = await loadPromotions();
+  // promotions already loaded above (before checkStartupInvariant) -- not
+  // re-loaded here, same pattern as watchlist.
   const runInstructions = await loadRunInstructions();
   const supplementalContext = await loadSupplementalContext();
   if (watchlist?.items?.length) {
@@ -3537,32 +3526,46 @@ async function persistRecommendationRuns(meta, trail) {
     console.log('   podcast source context: no local Futures_Picks_Summary file found; dossier signals will render without host-summary links');
   }
   const abbrToNick = Object.fromEntries(Object.entries(NFL_TEAMS).map(([nick, data]) => [data.abbreviation, nick]));
-  const { referenceDocs: vaultReferenceDocs, teamDeepReads } = await loadVaultReferenceEvidence();
-  if (vaultReferenceDocs) {
-    let teamsWithReads = 0;
-    for (const [abbr, reads] of Object.entries(teamDeepReads)) {
-      const nick = abbrToNick[abbr];
-      if (nick && dossier.team_profiles?.[nick]) {
-        dossier.team_profiles[nick].vault_analytical_reads = reads;
-        teamsWithReads += 1;
-      }
-    }
-    console.log(`   vault reference bridge: ${Object.keys(vaultReferenceDocs).length} reference guide(s), ${teamsWithReads} team(s) with vault analytical-read context`);
+  // rev-20-review P1 fix: both Supabase-backed live-context bridges must be
+  // OFF when --disable-live-context-bridges is set (required by the startup
+  // invariant whenever --suppress-scenario-structures is set) -- previously
+  // both ran unconditionally regardless of suppression.
+  let vaultReferenceDocs, globalMasterReports;
+  if (DISABLE_LIVE_CONTEXT_BRIDGES) {
+    console.log('   vault reference bridge: disabled (--disable-live-context-bridges)');
+    console.log('   antigravity master-report bridge: disabled (--disable-live-context-bridges)');
   } else {
-    console.log('   vault reference bridge: SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY not set, or fetch failed -- proceeding without it');
-  }
-  const { teamMasterReports, globalMasterReports } = await loadMasterReportEvidence();
-  {
-    let teamsWithMasterReports = 0;
-    for (const [abbr, reports] of Object.entries(teamMasterReports)) {
-      const nick = abbrToNick[abbr];
-      if (nick && dossier.team_profiles?.[nick]) {
-        dossier.team_profiles[nick].master_reports = reports;
-        teamsWithMasterReports += 1;
+    const vaultResult = await loadVaultReferenceEvidence();
+    vaultReferenceDocs = vaultResult.referenceDocs;
+    const teamDeepReads = vaultResult.teamDeepReads;
+    if (vaultReferenceDocs) {
+      let teamsWithReads = 0;
+      for (const [abbr, reads] of Object.entries(teamDeepReads)) {
+        const nick = abbrToNick[abbr];
+        if (nick && dossier.team_profiles?.[nick]) {
+          dossier.team_profiles[nick].vault_analytical_reads = reads;
+          teamsWithReads += 1;
+        }
       }
+      console.log(`   vault reference bridge: ${Object.keys(vaultReferenceDocs).length} reference guide(s), ${teamsWithReads} team(s) with vault analytical-read context`);
+    } else {
+      console.log('   vault reference bridge: SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY not set, or fetch failed -- proceeding without it');
     }
-    const totalTeamReports = Object.values(teamMasterReports).reduce((sum, r) => sum + r.length, 0);
-    console.log(`   antigravity master-report bridge: ${teamsWithMasterReports} team(s) with report context (${totalTeamReports} team-scoped entries), ${globalMasterReports.length} league-wide entr${globalMasterReports.length === 1 ? 'y' : 'ies'}`);
+    const masterResult = await loadMasterReportEvidence();
+    const teamMasterReports = masterResult.teamMasterReports;
+    globalMasterReports = masterResult.globalMasterReports;
+    {
+      let teamsWithMasterReports = 0;
+      for (const [abbr, reports] of Object.entries(teamMasterReports)) {
+        const nick = abbrToNick[abbr];
+        if (nick && dossier.team_profiles?.[nick]) {
+          dossier.team_profiles[nick].master_reports = reports;
+          teamsWithMasterReports += 1;
+        }
+      }
+      const totalTeamReports = Object.values(teamMasterReports).reduce((sum, r) => sum + r.length, 0);
+      console.log(`   antigravity master-report bridge: ${teamsWithMasterReports} team(s) with report context (${totalTeamReports} team-scoped entries), ${globalMasterReports.length} league-wide entr${globalMasterReports.length === 1 ? 'y' : 'ies'}`);
+    }
   }
   // 2026-09-08: Andy's explicit call -- drop BettorDay from the prompt
   // entirely. He isn't paying for the subscription, so its proprietary
@@ -3579,20 +3582,41 @@ async function persistRecommendationRuns(meta, trail) {
   // to keep it around for. Re-adding a trench/line-quality evidence lane
   // would mean writing it fresh against whatever source replaces it, not
   // reconnecting this.
-  const userContent = buildUserPrompt(dossier, ledger, watchlist, officialConfig, expertDossiers, runInstructions, supplementalContext, vaultReferenceDocs, globalMasterReports, promotions);
+  // rev-20-review P1 fix: a suppressed run uses the genuinely scoped user-
+  // prompt builder over a genuinely scoped dossier view (agents/lib/scoped-
+  // dossier.js, agents/lib/scoped-prompts.js buildScopedUserPrompt()) --
+  // NOT the full buildUserPrompt() with its PRIMARY/ledger/watchlist/
+  // team_a-b/adjacent-signals framing, none of which exists in this run's
+  // scope.
+  const userContent = SUPPRESS_SCENARIO_STRUCTURES
+    ? buildScopedUserPrompt(buildScopedDossier(dossier))
+    : buildUserPrompt(dossier, ledger, watchlist, officialConfig, expertDossiers, runInstructions, supplementalContext, vaultReferenceDocs, globalMasterReports, promotions);
   if (PROMPT_ONLY) {
     const promptOut = path.resolve(ROOT, PROMPT_OUT_PATH);
     const preview = {
       generated_at: new Date().toISOString(),
       model_calls: false,
-      system_prompt: SYSTEM_PROMPT,
+      system_prompt: ACTIVE_SYSTEM_PROMPT,
       user_prompt: userContent,
       size: {
-        system_characters: SYSTEM_PROMPT.length,
+        system_characters: ACTIVE_SYSTEM_PROMPT.length,
         user_characters: userContent.length,
-        approximate_tokens_at_four_characters_each: Math.ceil((SYSTEM_PROMPT.length + userContent.length) / 4),
+        // rev-20-review P2 fix: this used to read SYSTEM_PROMPT.length (the
+        // always-full, unscoped prompt) even though system_characters two
+        // lines up already correctly used ACTIVE_SYSTEM_PROMPT -- a
+        // suppressed preview reported a materially inflated token estimate.
+        approximate_tokens_at_four_characters_each: Math.ceil((ACTIVE_SYSTEM_PROMPT.length + userContent.length) / 4),
       },
     };
+    // rev-20-review P1 follow-up: a suppressed run's prompt-only preview
+    // also surfaces the Risk/Editor's fully assembled system+user prompts
+    // (empty sample candidate list -- real survivors don't exist until
+    // Stage 1 actually runs) so both stages' assembled prompts are
+    // inspectable here, not only preview.system_prompt for Stage 1.
+    if (SUPPRESS_SCENARIO_STRUCTURES) {
+      preview.risk_editor_system_prompt = ACTIVE_RISK_EDITOR_SYSTEM_PROMPT;
+      preview.risk_editor_user_prompt_sample = buildScopedRiskEditorUserPrompt([]);
+    }
     await mkdir(path.dirname(promptOut), { recursive: true });
     await writeFile(promptOut, `${JSON.stringify(preview, null, 2)}\n`);
     console.log(`   prompt-only preview: ${promptOut}`);
@@ -3601,6 +3625,26 @@ async function persistRecommendationRuns(meta, trail) {
   }
   const models = ONLY ? MODELS.filter((m) => m.includes(ONLY)) : MODELS;
   console.log(`🧠 Stage 1 (Market+Football Analyst) with: ${models.join(' + ')}`);
+
+  // Built once, immediately before the Stage-1 loop begins, so a
+  // failure-only artifact and any normal artifact from this same run share
+  // the identical run_id (rev 18 fix: avoids a meta-construction ordering
+  // bug -- `meta` itself isn't built until well after the all-Stage-1-failed
+  // early return below could fire).
+  const runIdentity = buildRunIdentity({
+    date: new Date().toISOString().slice(0, 10),
+    season: dossier.meta.season,
+    watchlistPath: watchlist?.items?.length ? WATCHLIST_PATH : null,
+    watchlistCount: watchlist?.items?.length || 0,
+    promotionsPath: promotions?.promotions?.length ? PROMOTIONS_PATH : null,
+    promotionsCount: promotions?.promotions?.length || 0,
+    suppressed: SUPPRESS_SCENARIO_STRUCTURES,
+    noPersistEnforcedBySuppression: SUPPRESS_SCENARIO_STRUCTURES && NO_PERSIST,
+    // rev-23-followup3 fix (Codex finding #4): threaded into BOTH the
+    // normal-run `meta` object and the all-Stage-1-failed audit artifact,
+    // since both spread `runIdentity` -- see agents/lib/audit-artifact.js.
+    dossierProvenance,
+  });
 
   const byModel = {}; const raw = {};
   // Tier-3 fix: a per-model Stage-1 failure used to only print to the
@@ -3613,18 +3657,40 @@ async function persistRecommendationRuns(meta, trail) {
   const stage1Errors = [];
   for (const model of models) {
     try {
-      const { text, usage } = await callModel(model, SYSTEM_PROMPT, userContent);
+      const { text, usage } = await callModel(model, ACTIVE_SYSTEM_PROMPT, userContent);
       raw[model] = { text, usage };
-      byModel[model] = parseJSON(text);
+      const parsed = parseJSON(text);
+      // Layer 1 scope enforcement (rev 8-19): quarantine immediately after
+      // parse, BEFORE assignment into byModel -- see
+      // agents/lib/scope-enforcement.js for the four operations this runs.
+      byModel[model] = SUPPRESS_SCENARIO_STRUCTURES ? quarantineStage1(parsed) : parsed;
       console.log(`   ${model}: ${(byModel[model].recommendations || []).length} plays, ${(byModel[model].watch || []).length} watch`);
+      if (SUPPRESS_SCENARIO_STRUCTURES && byModel[model].__quarantine) {
+        const q = byModel[model].__quarantine;
+        console.log(`   ${model}: quarantine removed ${q.recommendations_removed}/${q.recommendations_seen} recommendation(s), ${q.watch_removed}/${q.watch_seen} watch row(s); top-level keys stripped: [${q.removed_top_level_keys.join(', ') || 'none'}]`);
+      }
     } catch (e) {
       console.error(`   ✖ ${model}: ${e.message}`);
-      raw[model] = { error: e.message };
+      // rev 15/16 fix: MERGE onto any already-captured { text, usage }
+      // rather than overwriting it -- a parse/quarantine failure AFTER a
+      // successful call used to silently discard the model's raw text/usage.
+      raw[model] = { ...raw[model], error: e.message };
       stage1Errors.push({ model, error: e.message });
     }
   }
   const ok = Object.keys(byModel);
-  if (!ok.length) { console.error('✖ no model returned a valid portfolio'); process.exitCode = 1; return; }
+  if (!ok.length) {
+    console.error('✖ no model returned a valid portfolio');
+    // rev 15/19 fix: previously nothing was ever written to disk on this
+    // path -- the early return happens well before the normal .raw.json
+    // write. Writes a run-ID-qualified failure-only artifact under
+    // <OUT_DIR>/failed/ so this failure leaves a durable audit trail.
+    const failureArtifact = buildFailureAuditArtifact(runIdentity, raw);
+    const failurePath = await writeAuditArtifact(OUT_DIR, failureArtifact);
+    console.error(`   wrote failure audit artifact: ${failurePath}`);
+    process.exitCode = 1;
+    return;
+  }
   if (stage1Errors.length) console.error(`   ⚠ ${stage1Errors.length}/${models.length} Stage-1 model(s) failed — continuing with ${ok.length} model(s), but this run and its report are DEGRADED.`);
 
   const { candidates } = mergeStage1(byModel);
@@ -3641,49 +3707,91 @@ async function persistRecommendationRuns(meta, trail) {
     return (Array.isArray(s) ? s : [s]).map((strategy) => ({ ...strategy, proposed_by: m }));
   });
 
-  const meta = { date: new Date().toISOString().slice(0, 10), season: dossier.meta.season, committee_ran: !SKIP_COMMITTEE, run_id: randomUUID(), watchlist_path: watchlist?.items?.length ? WATCHLIST_PATH : null, watchlist_count: watchlist?.items?.length || 0, promotions_path: promotions?.promotions?.length ? PROMOTIONS_PATH : null, promotions_count: promotions?.promotions?.length || 0, stage1_errors: stage1Errors.length ? stage1Errors : null };
+  const meta = {
+    ...runIdentity,
+    stage1_errors: stage1Errors.length ? stage1Errors : null,
+    // rev-20-review P1 fix: "restore the promised quarantine counts/reasons
+    // in the audit metadata or console" -- surfaced here per-model (also
+    // logged to console at removal time above).
+    quarantine: SUPPRESS_SCENARIO_STRUCTURES
+      ? Object.fromEntries(Object.keys(byModel).map((m) => [m, byModel[m].__quarantine || null]))
+      : null,
+  };
   let final = candidates, passed = [], killed = [];
   const raw2 = {};
   let scenarioReview = null;
+  // Four-state stage-status model (rev 15/17/19): 'disabled_by_flag' (a
+  // deliberate --skip-committee run), 'not_reached_due_to_upstream_failure',
+  // 'attempt_failed' + failure_phase ('call'/'parse'/'apply'), or explicit
+  // 'success' -- never inferred from raw-output presence.
+  meta.skeptic_status = { status: 'disabled_by_flag' };
+  meta.risk_editor_status = { status: 'disabled_by_flag' };
 
   if (SKIP_COMMITTEE) {
     console.log('   (committee skipped: --skip-committee — stage 1 candidates used as-is)');
   } else {
     console.log(`🕵 Stage 2 (Skeptic) with: ${SKEPTIC_MODEL}`);
-    try {
-      const { text, usage } = await callModel(SKEPTIC_MODEL, SKEPTIC_SYSTEM_PROMPT, buildSkepticUserPrompt(candidates));
-      raw2.skeptic = { text, usage };
-      const { verdicts } = parseJSON(text);
-      const applied = applySkepticVerdicts(candidates, verdicts);
-      console.log(`   skeptic: ${applied.survivors.length} survive, ${applied.killed.length} killed`);
-      killed = applied.killed;
-      // Tier-3 fix: narrow `final` to the skeptic-filtered survivors NOW, so
-      // that if the Stage-3 call below throws, the catch block's fallback is
-      // "final stays what the Skeptic already approved" rather than "final
-      // reverts to the untouched, pre-Skeptic candidate list" — which would
-      // silently resurrect every candidate `killed` above just listed as
-      // rejected.
-      final = applied.survivors;
+    const skepticResult = await runSkepticStage(candidates, { systemPrompt: SKEPTIC_SYSTEM_PROMPT, model: SKEPTIC_MODEL, callModel });
+    if (skepticResult.status !== 'success') {
+      meta.skeptic_status = { status: 'attempt_failed', failure_phase: skepticResult.failure_phase, error: skepticResult.error };
+      meta.risk_editor_status = { status: 'not_reached_due_to_upstream_failure' };
+      // rev-20-review P1 fix: preserve the raw call result even on failure
+      // (committee.js now returns { raw: { text, usage } } alongside
+      // attempt_failed) so audit_raw_unsanitized isn't silently missing
+      // whatever the model actually said.
+      raw2.skeptic = skepticResult.raw;
+      console.error(`   ✖ skeptic stage failed (${skepticResult.failure_phase}): ${skepticResult.error} — falling back to stage-1 candidates as-is`);
+    } else {
+      meta.skeptic_status = { status: 'success' };
+      raw2.skeptic = skepticResult.raw;
+      console.log(`   skeptic: ${skepticResult.survivors.length} survive, ${skepticResult.killed.length} killed`);
+      killed = skepticResult.killed;
+      // Tier-3 fix (preserved): narrow `final` to the skeptic-filtered
+      // survivors NOW, so that if the Risk/Editor stage below fails, the
+      // fallback is "final stays what the Skeptic already approved" rather
+      // than silently resurrecting every candidate just listed as killed.
+      final = skepticResult.survivors;
 
       console.log(`⚖ Stage 3 (Risk/Portfolio + Editor) with: ${RISK_MODEL}`);
-      const { text: riskText, usage: riskUsage } = await callModel(RISK_MODEL, RISK_EDITOR_SYSTEM_PROMPT, buildRiskEditorUserPrompt(applied.survivors, {
+      // rev-20-review P1 fix: under suppression, don't pass PRIMARY, ledger,
+      // or scenario arrays to the Risk/Editor at all (previously only the
+      // hedge/parlay/strategy arrays were conditionally emptied -- primary/
+      // ledger were passed unconditionally). Also inject the genuinely
+      // scoped user-prompt builder (agents/lib/scoped-prompts.js
+      // buildScopedRiskEditorUserPrompt()), which contains only the
+      // candidate portfolio review -- no correlated_week1 field, no
+      // "SCENARIO STRUCTURES" framing, no scenario_review ask.
+      const riskResult = await runRiskEditorStage(skepticResult.survivors, SUPPRESS_SCENARIO_STRUCTURES ? {} : {
         primary: PRIMARY,
         ledger,
         hedge_baskets: rawHedgeBaskets,
         parlay_ladders: rawParlayLadders,
         portfolio_strategy: rawPortfolioStrategies,
-      }));
-      raw2.risk_editor = { text: riskText, usage: riskUsage };
-      const riskOutput = parseJSON(riskText);
-      const applied2 = applyRiskEditor(applied.survivors, riskOutput);
-      final = applied2.final; passed = applied2.passed;
-      scenarioReview = riskOutput.scenario_review || null;
-      console.log(`   risk/editor: ${final.length} final, ${passed.length} passed`);
-      byModel.__committee_notes = riskOutput.portfolio_notes || null;
-    } catch (e) {
-      console.error(`   ✖ committee pass failed, falling back to stage-1 candidates as-is: ${e.message}`);
-      meta.committee_ran = false;
-      meta.committee_error = e.message;
+      }, {
+        systemPrompt: ACTIVE_RISK_EDITOR_SYSTEM_PROMPT,
+        model: RISK_MODEL,
+        callModel,
+        buildUserPrompt: SUPPRESS_SCENARIO_STRUCTURES ? buildScopedRiskEditorUserPrompt : buildRiskEditorUserPrompt,
+        // rev-23-followup4 fix (Codex finding #6): scenario_review is only
+        // required in normal (non-suppressed) mode -- see
+        // agents/lib/committee.js's assertCompleteRiskEditor()/
+        // assertCompleteScenarioReview(). Explicit, not inferred.
+        suppressed: SUPPRESS_SCENARIO_STRUCTURES,
+      });
+      if (riskResult.status !== 'success') {
+        meta.risk_editor_status = { status: 'attempt_failed', failure_phase: riskResult.failure_phase, error: riskResult.error };
+        // rev-20-review P1 fix: same raw-preservation-on-failure fix as the
+        // Skeptic branch above.
+        raw2.risk_editor = riskResult.raw;
+        console.error(`   ✖ risk/editor stage failed (${riskResult.failure_phase}): ${riskResult.error} — falling back to skeptic survivors as-is`);
+      } else {
+        meta.risk_editor_status = { status: 'success' };
+        raw2.risk_editor = riskResult.raw;
+        final = riskResult.final; passed = riskResult.passed;
+        scenarioReview = riskResult.scenarioReview;
+        console.log(`   risk/editor: ${final.length} final, ${passed.length} passed`);
+        byModel.__committee_notes = riskResult.portfolioNotes;
+      }
     }
   }
 
@@ -3768,14 +3876,24 @@ async function persistRecommendationRuns(meta, trail) {
   // validateRecommendation above) — resolves every leg against the real
   // dossier price, drops structures where NO leg resolved, keeps partial
   // matches flagged with their unresolved legs visible rather than hidden.
-  console.log(`🧺 Validating ${rawHedgeBaskets.length} hedge basket(s) + ${rawParlayLadders.length} parlay ladder(s)`);
-  const basketResults = rawHedgeBaskets.map((b) => validateHedgeBasket(b, dossier));
-  const ladderResults = rawParlayLadders.map((l) => validateParlayLadder(l, dossier));
-  const validBaskets = basketResults.filter((r) => r.status !== 'invalid').map((r) => r.basket);
-  const validLadders = ladderResults.filter((r) => r.status !== 'invalid').map((r) => r.ladder);
-  const invalidStacks = [...basketResults, ...ladderResults].filter((r) => r.status === 'invalid');
-  console.log(`   ${validBaskets.length} valid basket(s), ${validLadders.length} valid ladder(s) (${invalidStacks.length} invalidated: no leg resolved)`);
-  const portfolioStrategy = buildPortfolioStrategy({
+  // rev-20-review P1 fix: skip hedge/parlay validation entirely under
+  // suppression -- rawHedgeBaskets/rawParlayLadders are already empty
+  // (quarantineStage1 strips those top-level keys before this point), but
+  // running the validators anyway implied they were still a live concern
+  // for this run.
+  let validBaskets = [], validLadders = [], invalidStacks = [];
+  if (SUPPRESS_SCENARIO_STRUCTURES) {
+    console.log('🧺 Hedge basket / parlay ladder validation skipped (--suppress-scenario-structures: out of scope for this run)');
+  } else {
+    console.log(`🧺 Validating ${rawHedgeBaskets.length} hedge basket(s) + ${rawParlayLadders.length} parlay ladder(s)`);
+    const basketResults = rawHedgeBaskets.map((b) => validateHedgeBasket(b, dossier));
+    const ladderResults = rawParlayLadders.map((l) => validateParlayLadder(l, dossier));
+    validBaskets = basketResults.filter((r) => r.status !== 'invalid').map((r) => r.basket);
+    validLadders = ladderResults.filter((r) => r.status !== 'invalid').map((r) => r.ladder);
+    invalidStacks = [...basketResults, ...ladderResults].filter((r) => r.status === 'invalid');
+    console.log(`   ${validBaskets.length} valid basket(s), ${validLadders.length} valid ladder(s) (${invalidStacks.length} invalidated: no leg resolved)`);
+  }
+  const portfolioStrategy = SUPPRESS_SCENARIO_STRUCTURES ? null : buildPortfolioStrategy({
     primary: PRIMARY,
     baskets: validBaskets,
     ladders: validLadders,
@@ -3784,15 +3902,63 @@ async function persistRecommendationRuns(meta, trail) {
     invalidStacks,
   });
   const watchlistReview = buildWatchlistReview(dossier, watchlist);
+  // Layer 2 scope enforcement (rev 8-19): throws if anything out-of-scope
+  // survived quarantine/committee/validation. See
+  // agents/lib/scope-enforcement.js for what this checks and why it takes
+  // only `final`, never a recursive scan of the whole run state.
+  if (SUPPRESS_SCENARIO_STRUCTURES) {
+    // rev-20-review P1 fix: walk the COMPLETE assembled derived-output
+    // object -- every model's own recommendations/watch (including nested
+    // stage1_versions inside each merged candidate), final, passed, killed,
+    // the watchlist review, and the (null-under-suppression) portfolio
+    // strategy/scenario review -- not just the flat `final` list.
+    // audit_raw_unsanitized (raw/raw2, assembled separately below) is
+    // deliberately excluded -- see agents/lib/scope-enforcement.js header.
+    assertScopeClean({ byModel, candidates, final, passed, killed, watchlistReview, portfolioStrategy, scenarioReview });
+  }
 
   const ranked = rankByAxis(final);
-  const proposalInbox = await exportOfficialProposalDrafts(final, dossier, meta, officialConfig);
-  await mkdir(OUT_DIR, { recursive: true });
-  const safeSuffix = OUT_SUFFIX ? `-${OUT_SUFFIX.replace(/[^a-z0-9_-]+/gi, '-').replace(/^-+|-+$/g, '')}` : '';
-  const base = path.join(OUT_DIR, `portfolio-${meta.date}${safeSuffix}`);
-  await writeFile(`${base}.html`, renderHTML(ranked, passed, killed, byModel, meta, validLadders, validBaskets, portfolioStrategy, watchlistReview));
-  await writeFile(`${base}.md`, renderMD(ranked, passed, killed, byModel, meta, validLadders, validBaskets, portfolioStrategy, watchlistReview));
-  await writeFile(`${base}.raw.json`, JSON.stringify({ meta, models: ok, raw, stage2_3: raw2, candidates, final, passed, killed,
+  // rev-23-followup fix: build (no I/O) now, write only after the complete-
+  // payload assertion below passes -- see buildOfficialProposalDrafts()'s
+  // header comment for why this was split from the old single-pass
+  // exportOfficialProposalDrafts().
+  const builtProposalDrafts = buildOfficialProposalDrafts(final, dossier, meta, officialConfig);
+  const proposalInbox = builtProposalDrafts ? builtProposalDrafts.manifest : null;
+  const proposalDraftsFull = builtProposalDrafts ? builtProposalDrafts.entries.map((e) => e.proposal) : [];
+
+  // rev-22-review P2 fix (finding #4): the complete-payload assertion (and
+  // the payload it checks) now gets built BEFORE any output file is
+  // written at all -- previously HTML/MD were written first and only
+  // .raw.json's write was gated by this check. Neither renderer actually
+  // consumes promotions/proposalInbox (confirmed: renderHTML/renderMD's
+  // call signatures below don't pass them), so the prior ordering never
+  // let an out-of-scope value reach a rendered file, but the CONTRACT --
+  // "assert the real payload before any report write" -- is now literally
+  // true, not just true in practice for today's renderer inputs.
+  //
+  // rev-22-review P2 fix (finding #5): a committee stage that never ran
+  // (disabled_by_flag) is now distinguished from one that ran and failed
+  // (attempt_failed) or wasn't reached because an earlier stage failed
+  // (not_reached_due_to_upstream_failure) -- previously both collapsed to
+  // a bare `null` in audit_raw_unsanitized, indistinguishable from each
+  // other or from an unexpectedly-absent result. meta.skeptic_status/
+  // meta.risk_editor_status already carry the correct classification (set
+  // where each stage is actually run, above); this just threads it
+  // through instead of discarding it at the `|| null` fallback.
+  const auditRawUnsanitized = {
+    stage1: raw,
+    skeptic: { status: meta.skeptic_status?.status || 'unknown', raw: raw2.skeptic || null },
+    risk_editor: { status: meta.risk_editor_status?.status || 'unknown', raw: raw2.risk_editor || null },
+  };
+  const rawJsonPayload = SUPPRESS_SCENARIO_STRUCTURES ? {
+    meta, models: ok, candidates, final, passed, killed,
+    human_watchlist: watchlist,
+    sportsbook_promotions: promotions,
+    human_watchlist_review: watchlistReview,
+    official_proposal_inbox: proposalInbox,
+    audit_raw_unsanitized: auditRawUnsanitized,
+  } : {
+    meta, models: ok, raw, stage2_3: raw2, candidates, final, passed, killed,
     human_watchlist: watchlist,
     sportsbook_promotions: promotions,
     human_watchlist_review: watchlistReview,
@@ -3800,9 +3966,43 @@ async function persistRecommendationRuns(meta, trail) {
     parlay_ladders: { raw: rawParlayLadders, valid: validLadders },
     portfolio_strategy: { raw: rawPortfolioStrategies, final: portfolioStrategy },
     official_proposal_inbox: proposalInbox,
-    invalidated_stacks: invalidStacks }, null, 2));
-  await persistRecommendations(final, meta);
-  await persistRecommendationRuns(meta, { stage1: candidates, killed, passed, final });
+    invalidated_stacks: invalidStacks,
+  };
+  // Complete-payload assertion (rev-21-review P1 fix, finding #4, now
+  // moved ahead of every output write per the rev-22-review P2 fix above).
+  // Checks the literal object about to be written (minus
+  // audit_raw_unsanitized, per the exclusion documented in
+  // agents/lib/scope-enforcement.js's file header) -- so persistence is
+  // gated on the real payload, not an earlier approximation of it. The
+  // EARLIER assertScopeClean() call above (before `ranked`/`proposalInbox`
+  // existed) is kept as a cheaper first-pass check on model/committee
+  // output alone.
+  if (SUPPRESS_SCENARIO_STRUCTURES) {
+    const { audit_raw_unsanitized: _audit_raw_unsanitized, ...reportFacing } = rawJsonPayload;
+    // rev-23-followup fix: the FULL proposal-draft objects (not just the
+    // manifest summary already in reportFacing.official_proposal_inbox)
+    // are included here so the assertion covers exactly what
+    // writeOfficialProposalDrafts() is about to put on disk, not an
+    // approximation of it. This key exists only for this assertion call --
+    // it is deliberately never added to rawJsonPayload itself.
+    assertScopeClean({ ...reportFacing, official_proposal_drafts_full: proposalDraftsFull });
+  }
+
+  // Nothing above this line writes to disk. Proposal drafts, HTML, MD, and
+  // raw.json are all written only after the assertion above has passed.
+  await writeOfficialProposalDrafts(builtProposalDrafts);
+  await mkdir(OUT_DIR, { recursive: true });
+  const safeSuffix = OUT_SUFFIX ? `-${OUT_SUFFIX.replace(/[^a-z0-9_-]+/gi, '-').replace(/^-+|-+$/g, '')}` : '';
+  const base = path.join(OUT_DIR, `portfolio-${meta.date}${safeSuffix}`);
+  await writeFile(`${base}.html`, renderHTML(ranked, passed, killed, byModel, meta, validLadders, validBaskets, portfolioStrategy, watchlistReview, SUPPRESS_SCENARIO_STRUCTURES));
+  await writeFile(`${base}.md`, renderMD(ranked, passed, killed, byModel, meta, validLadders, validBaskets, portfolioStrategy, watchlistReview, SUPPRESS_SCENARIO_STRUCTURES));
+  await writeFile(`${base}.raw.json`, JSON.stringify(rawJsonPayload, null, 2));
+  await persistPortfolioRun(final, meta, { stage1: candidates, killed, passed, final }, buildPersistenceOptions({
+    suppressed: SUPPRESS_SCENARIO_STRUCTURES,
+    noPersist: NO_PERSIST,
+    supabaseUrl: process.env.SUPABASE_URL,
+    supabaseKey: process.env.SUPABASE_SERVICE_ROLE_KEY,
+  }));
   console.log(`\n✅ ${base}.html`);
   console.log(`✅ ${base}.md`);
   console.log(`   final book: ${final.length} · passed/killed: ${passed.length + killed.length}`);
@@ -3814,7 +4014,8 @@ async function persistRecommendationRuns(meta, trail) {
   // detect "this needs a human look" without parsing the HTML.
   const degradedReasons = [
     meta.stage1_errors ? `${meta.stage1_errors.length} Stage-1 model error(s)` : null,
-    meta.committee_ran === false ? `committee crashed (${meta.committee_error || 'no error message captured'})` : null,
+    meta.skeptic_status?.status === 'attempt_failed' ? `skeptic stage failed (${meta.skeptic_status.error || 'no error message captured'})` : null,
+    meta.risk_editor_status?.status === 'attempt_failed' ? `risk/editor stage failed (${meta.risk_editor_status.error || 'no error message captured'})` : null,
     meta.final_empty ? 'final book is empty' : null,
   ].filter(Boolean);
   if (degradedReasons.length) {
