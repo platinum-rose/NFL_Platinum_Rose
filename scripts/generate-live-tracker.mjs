@@ -93,6 +93,87 @@ export function formatPlayerStatString(stats, pos, isConcluded) {
   return parts.join(' • ');
 }
 
+
+// ---------------------------------------------------------------------------
+// First-TD scorer grading (2026-09-24). A `first_touchdown` leg used to fall into
+// the generic "touchdown/td" branch (rushTd + recTd >= 1), so ANY TD by the player
+// showed as a hit -- Bijan's TNF rush TD (2nd TD of the game) graded HIT on the
+// 1st-TD SGP even though Watson scored first. These helpers read the actual first
+// TD scorer from ESPN summary.scoringPlays (chronological). They are serialized
+// into the client page via Function#toString so the build-time snapshot and the
+// live browser poll share one implementation (and no template-literal escaping).
+// They must stay self-contained (no references to outer variables).
+// ---------------------------------------------------------------------------
+function ftdNormName(s) {
+  return String(s || '').toLowerCase()
+    .replace(/\b(sr|jr|iii|ii|iv)\b\.?/g, '')
+    .replace(/['.\-]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function isFirstTdMarket(market) {
+  const m = String(market || '').toLowerCase();
+  if (!(m.includes('td') || m.includes('touchdown'))) return false;
+  return /first|1st/.test(m);
+}
+
+function extractFirstTdFromSummary(data) {
+  const plays = (data && data.scoringPlays) || [];
+  const comp = data && data.header && data.header.competitions && data.header.competitions[0];
+  const teams = ((comp && comp.competitors) || []).map(c => c && c.team && c.team.abbreviation).filter(Boolean);
+  if (!teams.length) return null;
+  const out = { teams, game: null, byTeam: {} };
+  for (const p of plays) {
+    const isTd = (p && p.scoringType && String(p.scoringType.name || '').toLowerCase() === 'touchdown') ||
+      /touchdown/i.test((p && p.type && p.type.text) || '');
+    if (!isTd) continue;
+    const text = String(p.text || '');
+    const m = text.match(/^(.+?)\s+\d+\s+(?:yd|yard)/i);
+    const scorerRaw = (m ? m[1] : text.split(/\s+(?:pass|run|rush|fumble|interception|punt|kickoff|kick|blocked)\b/i)[0]).trim();
+    const team = String((p.team && (p.team.abbreviation || p.team)) || '').toUpperCase();
+    const rec = {
+      scorer: ftdNormName(scorerRaw),
+      scorerDisplay: scorerRaw,
+      text,
+      team,
+      period: p.period && p.period.number,
+      clock: p.clock && p.clock.displayValue
+    };
+    if (!out.game) out.game = rec;
+    if (team && !out.byTeam[team]) out.byTeam[team] = rec;
+  }
+  return out;
+}
+
+function registerFirstTd(map, ftd) {
+  if (!map || !ftd) return;
+  const alias = { WSH: 'WAS', WAS: 'WSH', JAC: 'JAX', JAX: 'JAC', LA: 'LAR', LAR: 'LA' };
+  for (const t of ftd.teams || []) {
+    const T = String(t).toUpperCase();
+    map[T] = ftd;
+    if (alias[T]) map[alias[T]] = ftd;
+  }
+}
+
+// Returns { resolved, hit, label }. resolved=false until a TD has been scored in the
+// game (or by the player's team, for a team-scoped first-TD market).
+function firstTdLegState(player, team, market, map) {
+  const T = String(team || '').toUpperCase();
+  const info = map && map[T];
+  if (!info) return { resolved: false, hit: false, label: '' };
+  const alias = { WSH: 'WAS', WAS: 'WSH', JAC: 'JAX', JAX: 'JAC', LA: 'LAR', LAR: 'LA' };
+  const teamScoped = String(market || '').toLowerCase().includes('team');
+  const rec = teamScoped ? (info.byTeam[T] || info.byTeam[alias[T]]) : info.game;
+  if (!rec) return { resolved: false, hit: false, label: '' };
+  const p = ftdNormName(player);
+  const pp = p.split(' ');
+  const sp = rec.scorer.split(' ');
+  const hit = !!p && (rec.scorer === p ||
+    (pp.length > 1 && sp.length > 1 && pp[pp.length - 1] === sp[sp.length - 1] && pp[0][0] === sp[0][0]));
+  return { resolved: true, hit, label: rec.scorerDisplay + (rec.period ? ' Q' + rec.period + (rec.clock ? ' ' + rec.clock : '') : '') };
+}
+
 async function loadConcludedGameStats(schedule = [], week = 1) {
   const boxscoresDir = path.join(ROOT, 'data', 'fantasy', 'boxscores');
   await mkdir(boxscoresDir, { recursive: true });
@@ -101,6 +182,7 @@ async function loadConcludedGameStats(schedule = [], week = 1) {
   const athleteInjuriesMap = {};
   const teamStatusMap = {};
   const teamScoreMap = {};
+  const firstTdByTeam = {};
   const NORM_ABBR = { WSH: 'WAS', JAC: 'JAX' };
   const normAbbr = (a) => NORM_ABBR[a] || a;
   const weekGames = schedule.filter(g => g.week === week);
@@ -187,6 +269,9 @@ async function loadConcludedGameStats(schedule = [], week = 1) {
         console.warn(`⚠️ Could not load summary for event ${eventId}`);
       }
     }
+
+    // First-TD scorer for this event (grades first_touchdown legs; see helpers above).
+    try { registerFirstTd(firstTdByTeam, extractFirstTdFromSummary(data)); } catch { /* non-fatal */ }
 
     if (data?.injuries) {
       for (const t of data.injuries) {
@@ -286,7 +371,7 @@ async function loadConcludedGameStats(schedule = [], week = 1) {
     }
   }
 
-  return { athleteStatsMap, athleteInjuriesMap, teamStatusMap, teamScoreMap };
+  return { athleteStatsMap, athleteInjuriesMap, teamStatusMap, teamScoreMap, firstTdByTeam };
 
 
 }
@@ -506,7 +591,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
   }
 
   // Pre-load ESPN summary boxscores for concluded games (e.g. SF @ LAR Melbourne, NE @ SEA)
-  const { athleteStatsMap: boxscoreAthleteStats, athleteInjuriesMap: boxscoreAthleteInjuries, teamStatusMap: initialTeamStatusMap, teamScoreMap: initialTeamScoreMap } = await loadConcludedGameStats(schedule, week);
+  const { athleteStatsMap: boxscoreAthleteStats, athleteInjuriesMap: boxscoreAthleteInjuries, teamStatusMap: initialTeamStatusMap, teamScoreMap: initialTeamScoreMap, firstTdByTeam: initialFirstTdByTeam } = await loadConcludedGameStats(schedule, week);
 
 
 
@@ -5879,6 +5964,13 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     // already-finished games render as final immediately on load, not only after a
     // live poll succeeds in the browser.
     let latestTeamStatusMap = ${JSON.stringify(initialTeamStatusMap)};
+    // First-TD scorer per team abbr (build snapshot, refreshed by fetchSummaryForEvent).
+    let firstTdByTeam = ${JSON.stringify(initialFirstTdByTeam || {})};
+    ${ftdNormName.toString()}
+    ${isFirstTdMarket.toString()}
+    ${extractFirstTdFromSummary.toString()}
+    ${registerFirstTd.toString()}
+    ${firstTdLegState.toString()}
 
 
     function formatPlayerStatString(stats, pos, isConcluded) {
@@ -5940,6 +6032,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         const res = await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=' + eventId);
         if (!res.ok) return;
         const data = await res.json();
+        try { registerFirstTd(firstTdByTeam, extractFirstTdFromSummary(data)); } catch (e) { /* non-fatal */ }
         if (data?.injuries) {
           data.injuries.forEach(t => {
             (t.injuries || []).forEach(inj => {
@@ -6070,8 +6163,12 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
           const market = (item.getAttribute('data-market') || '').toLowerCase();
           const target = parseFloat(item.getAttribute('data-target') || 1);
 
+          // First-TD legs grade on the game's actual first TD scorer, not "any TD".
+          const ftdState = isFirstTdMarket(market) ? firstTdLegState(pName, team, market, firstTdByTeam) : null;
           let currentVal = 0;
-          if (stats) {
+          if (ftdState) {
+            currentVal = ftdState.hit ? 1 : 0;
+          } else if (stats) {
             // NOTE: the generic touchdown/td check below is gated with !market.includes('pass')
             // so it doesn't shadow the more specific "pass ... td" (passing TDs) branch further
             // down -- a bare .includes('td') matches the substring inside "Pass TDs" too, so
@@ -6096,7 +6193,11 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             } else if (market.includes('interception') && (market.includes('thrown') || market.includes('pass'))) {
               currentVal = stats.passInt || 0;
             } else if (market.includes('interception')) {
-              currentVal = stats.int || 0;
+              // Bare "interceptions" market (e.g. BEO "Penix 1+ Pass Interceptions" stored as
+              // market=interceptions): a player with pass attempts is graded on INTs THROWN;
+              // only non-passers fall back to defensive INTs. Before this, QB INT legs read
+              // stats.int (defensive) and never moved off 0.
+              currentVal = ((stats.passAtt || 0) > 0 || (stats.passInt || 0) > 0) ? (stats.passInt || 0) : (stats.int || 0);
             } else if (market.includes('tackle')) {
               currentVal = stats.tkl || 0;
             } else if (market.includes('sack')) {
@@ -6104,7 +6205,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             }
           }
 
-          const isLegBurnt = !!burntLegsState[legKey] || !!burntLegsState[pKey];
+          const isLegBurnt = !!burntLegsState[legKey] || !!burntLegsState[pKey] || !!(ftdState && ftdState.resolved && !ftdState.hit);
           const isLegOut = !!outLegsState[legKey] || !!outLegsState[pKey];
           const isLegChecked = !isLegBurnt && (!!checkedState[legKey] || !!checkedState[pKey]);
           const isHit = !isLegBurnt && (isLegChecked || (currentVal >= target));
@@ -6216,8 +6317,12 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         const market = (el.getAttribute('data-market') || '').toLowerCase();
         const target = parseFloat(el.getAttribute('data-target') || 1);
 
+        const ftdState2 = isFirstTdMarket(market) ? firstTdLegState(pName, el.getAttribute('data-team'), market, firstTdByTeam) : null;
+        const ftdLost2 = !!(ftdState2 && ftdState2.resolved && !ftdState2.hit);
         let currentVal = 0;
-        if (stats) {
+        if (ftdState2) {
+          currentVal = ftdState2.hit ? 1 : 0;
+        } else if (stats) {
           // See note above: exclude pass markets from the generic touchdown/td catch-all so
           // "Pass TDs" (which contains the substring "td") reaches the passTd branch below
           // instead of always resolving to rushTd+recTd (0 for a passer).
@@ -6240,7 +6345,11 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
           } else if (market.includes('interception') && (market.includes('thrown') || market.includes('pass'))) {
             currentVal = stats.passInt || 0;
           } else if (market.includes('interception')) {
-            currentVal = stats.int || 0;
+            // Bare "interceptions" market (e.g. BEO "Penix 1+ Pass Interceptions" stored as
+            // market=interceptions): a player with pass attempts is graded on INTs THROWN;
+            // only non-passers fall back to defensive INTs. Before this, QB INT legs read
+            // stats.int (defensive) and never moved off 0.
+            currentVal = ((stats.passAtt || 0) > 0 || (stats.passInt || 0) > 0) ? (stats.passInt || 0) : (stats.int || 0);
           } else if (market.includes('tackle')) {
             currentVal = stats.tkl || 0;
           } else if (market.includes('sack')) {
@@ -6249,13 +6358,15 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         }
 
         const isLegChecked = !!checkedState[legKey];
-        const isHit = isLegChecked || (currentVal >= target);
+        const isHit = !ftdLost2 && (isLegChecked || (currentVal >= target));
         const pct = Math.min(100, Math.max(0, isLegChecked ? 100 : (target > 0 ? (currentVal / target) * 100 : 0)));
 
         const cardStat = document.getElementById('card-stat-' + legKey);
         const cardBar = document.getElementById('card-bar-' + legKey);
         if (cardStat) {
-          if (isHit) {
+          if (ftdLost2) {
+            cardStat.innerHTML = '1st TD: ' + escapeHtml(ftdState2.label) + ' <span style="color:#EF4444;">🔥 Burnt</span>';
+          } else if (isHit) {
             cardStat.innerHTML = currentVal + ' / ' + target + ' <span style="color:#10B981;">✅</span>';
           } else {
             cardStat.textContent = currentVal + ' / ' + target;
@@ -7179,6 +7290,36 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
           const cleanP = pName.replace(/['.\-]/g, '').replace(/\s+/g, ' ').trim();
           const stats = athleteLiveStatsMap[pName] || athleteLiveStatsMap[baseName] || athleteLiveStatsMap[cleanP] || null;
 
+          // First-TD legs: decided the moment anyone scores the game's first TD.
+          if (isFirstTdMarket(rawMarket)) {
+            const fs3 = firstTdLegState(rawPlayer, rawTeam, rawMarket, firstTdByTeam);
+            if (fs3.resolved) {
+              el.classList.remove('pace-green', 'pace-red', 'pace-yellow', 'pace-pre');
+              el.classList.add(fs3.hit ? 'pace-green' : 'pace-red');
+              if (badge) {
+                badge.className = 'leg-pace-badge ' + (fs3.hit ? 'badge-pacing-green' : 'badge-pacing-lost');
+                badge.innerHTML = (fs3.hit ? '🟢 HIT' : '🔥 BURNT') + ' (1st TD: ' + escapeHtml(fs3.label) + ')';
+              }
+              return;
+            }
+            if (ev.isCompleted) {
+              el.classList.remove('pace-green', 'pace-yellow', 'pace-pre');
+              el.classList.add('pace-red');
+              if (badge) {
+                badge.className = 'leg-pace-badge badge-pacing-lost';
+                badge.innerHTML = '🔥 BURNT (no TD scored)';
+              }
+              return;
+            }
+            el.classList.remove('pace-green', 'pace-red', 'pace-pre');
+            el.classList.add('pace-yellow');
+            if (badge) {
+              badge.className = 'leg-pace-badge badge-pacing-yellow';
+              badge.innerHTML = '🟡 In Play (no TD yet • Q' + ev.period + ')';
+            }
+            return;
+          }
+
           let currentVal = 0;
           if (stats) {
             // Exclude pass markets from the generic touchdown/td catch-all -- "Pass TDs"
@@ -7204,7 +7345,11 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             } else if (rawMarket.includes('interception') && (rawMarket.includes('thrown') || rawMarket.includes('pass'))) {
               currentVal = stats.passInt || 0;
             } else if (rawMarket.includes('interception')) {
-              currentVal = stats.int || 0;
+              // Bare "interceptions" market (e.g. BEO "Penix 1+ Pass Interceptions" stored as
+              // market=interceptions): a player with pass attempts is graded on INTs THROWN;
+              // only non-passers fall back to defensive INTs. Before this, QB INT legs read
+              // stats.int (defensive) and never moved off 0.
+              currentVal = ((stats.passAtt || 0) > 0 || (stats.passInt || 0) > 0) ? (stats.passInt || 0) : (stats.int || 0);
             } else if (rawMarket.includes('tackle')) {
               currentVal = stats.tkl || 0;
             } else if (rawMarket.includes('sack')) {
