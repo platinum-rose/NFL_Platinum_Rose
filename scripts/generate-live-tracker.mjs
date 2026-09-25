@@ -104,6 +104,15 @@ export function formatPlayerStatString(stats, pos, isConcluded) {
 // live browser poll share one implementation (and no template-literal escaping).
 // They must stay self-contained (no references to outer variables).
 // ---------------------------------------------------------------------------
+// Player-prop direction. Wager legs carry `direction` inconsistently (Love U19.5 has
+// direction=under; Stafford U20.5 only says "Under" in the selection), so fall back
+// to the selection text. Everything else grades as an Over.
+function legDirection(leg) {
+  const d = String((leg && leg.direction) || '').toLowerCase();
+  if (d === 'under' || d === 'over') return d;
+  return /\bunder\b/i.test(String((leg && leg.selection) || '')) ? 'under' : 'over';
+}
+
 function ftdNormName(s) {
   return String(s || '').toLowerCase()
     .replace(/\b(sr|jr|iii|ii|iv)\b\.?/g, '')
@@ -951,6 +960,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             actualStat: (leg.actual_stat ?? null),
             ticketId: bet.id,
             ticketLabel: bet.game_title || bet.game || bet.id,
+            direction: legDirection(leg),
             target: leg.line ?? (leg.selection?.match(/(\d+(\.\d+)?)/)?.[1] ? parseFloat(leg.selection.match(/(\d+(\.\d+)?)/)[1]) : 1)
           });
         }
@@ -1692,7 +1702,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
                 const isTotalLeg = leg.market === 'total' || leg.market === 'team_total' || (!leg.player && /^(over|under)\b/i.test(cleanSelection));
 
                 return `
-                <div class="${legClass} ${initialPacingClass}" id="leg-${legKey}" data-key="${legKey}" data-open-slot="${isOpenSlot ? '1' : '0'}" data-player="${leg.player || ''}" data-market="${leg.market || ''}" data-target="${target}" data-team="${legTeam}" data-opp="${leg.opponent || ''}" data-line="${leg.line ?? ''}" data-selection="${escapeHtml(leg.selection || '')}" data-game="${escapeHtml(gameLabel)}" data-kickoff="${kickoffTimestamp}" data-kickoff-text="${kickoffShort}" onclick="${isOpenSlot ? '' : `toggleLeg('${legKey}', '${bet.id}')`}">
+                <div class="${legClass} ${initialPacingClass}" id="leg-${legKey}" data-key="${legKey}" data-open-slot="${isOpenSlot ? '1' : '0'}" data-player="${leg.player || ''}" data-market="${leg.market || ''}" data-target="${target}" data-direction="${legDirection(leg)}" data-team="${legTeam}" data-opp="${leg.opponent || ''}" data-line="${leg.line ?? ''}" data-selection="${escapeHtml(leg.selection || '')}" data-game="${escapeHtml(gameLabel)}" data-kickoff="${kickoffTimestamp}" data-kickoff-text="${kickoffShort}" onclick="${isOpenSlot ? '' : `toggleLeg('${legKey}', '${bet.id}')`}">
                   <div class="leg-row">
                     <div class="leg-left">
                       <span class="leg-icon">${icon}</span>
@@ -3709,7 +3719,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
                   const prRowClick = prIsOpenSlot ? '' : `toggleLeg('${prLegKey}', '${prTicketId}'); try { renderPlayerCheatSheetStats(latestTeamStatusMap); } catch (e) {}`;
                   const prBurnClick = prIsOpenSlot ? '' : `toggleLegBurn('${prLegKey}', '${prTicketId}', event); try { renderPlayerCheatSheetStats(latestTeamStatusMap); } catch (e) {}`;
                   return `
-                  <div class="sub-gauge-item" id="subgauge-${pr.key}" data-prop-key="${pr.key}" data-leg-key="${prLegKey}" data-ticket-id="${prTicketId}" data-market="${pr.market}" data-target="${pr.target}" data-open-slot="${prIsOpenSlot ? '1' : '0'}" ${prIsOpenSlot ? '' : `onclick="${prRowClick}"`} style="cursor:${prIsOpenSlot ? 'default' : 'pointer'};">
+                  <div class="sub-gauge-item" id="subgauge-${pr.key}" data-prop-key="${pr.key}" data-leg-key="${prLegKey}" data-ticket-id="${prTicketId}" data-market="${pr.market}" data-target="${pr.target}" data-direction="${pr.direction || 'over'}" data-open-slot="${prIsOpenSlot ? '1' : '0'}" ${prIsOpenSlot ? '' : `onclick="${prRowClick}"`} style="cursor:${prIsOpenSlot ? 'default' : 'pointer'};">
                     <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.72rem; gap:6px;">
                       <span style="color:var(--text-muted); overflow:hidden; text-overflow:ellipsis;">${pr.selection || pr.market}${pr.ticketLabel ? ` <span style="opacity:0.55; font-size:0.62rem;">(${escapeHtml(String(pr.ticketLabel))})</span>` : ''}</span>
                       <span style="display:flex; align-items:center; gap:5px; flex-shrink:0;">
@@ -6176,6 +6186,8 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             // rushTd+recTd (almost always 0 for a passer) and could never show a real value.
             if ((market.includes('touchdown') || market.includes('td')) && !market.includes('pass')) {
               currentVal = (stats.rushTd || 0) + (stats.recTd || 0);
+            } else if (market.includes('complet')) {
+              currentVal = stats.passComp || 0;
             } else if (market.includes('rush') && market.includes('yard')) {
               currentVal = stats.rushYds || 0;
             } else if (market.includes('rec') && market.includes('yard')) {
@@ -6205,10 +6217,12 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             }
           }
 
-          const isLegBurnt = !!burntLegsState[legKey] || !!burntLegsState[pKey] || !!(ftdState && ftdState.resolved && !ftdState.hit);
+          // Unders: burnt the moment the line is reached, hit only once the game is final.
+          const isUnder = item.getAttribute('data-direction') === 'under';
+          const isLegBurnt = !!burntLegsState[legKey] || !!burntLegsState[pKey] || !!(ftdState && ftdState.resolved && !ftdState.hit) || (isUnder && currentVal >= target);
           const isLegOut = !!outLegsState[legKey] || !!outLegsState[pKey];
           const isLegChecked = !isLegBurnt && (!!checkedState[legKey] || !!checkedState[pKey]);
-          const isHit = !isLegBurnt && (isLegChecked || (currentVal >= target));
+          const isHit = !isLegBurnt && (isLegChecked || (isUnder ? (isFinal && currentVal < target) : (currentVal >= target)));
           if (isHit) propsHit++;
 
           item.classList.toggle('sg-hit', isHit);
@@ -6328,7 +6342,9 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
           // instead of always resolving to rushTd+recTd (0 for a passer).
           if ((market.includes('touchdown') || market.includes('td')) && !market.includes('pass')) {
             currentVal = (stats.rushTd || 0) + (stats.recTd || 0);
-          } else if (market.includes('rush') && market.includes('yard')) {
+          } else if (market.includes('complet')) {
+              currentVal = stats.passComp || 0;
+            } else if (market.includes('rush') && market.includes('yard')) {
             currentVal = stats.rushYds || 0;
           } else if (market.includes('rec') && market.includes('yard')) {
             currentVal = stats.recYds || 0;
@@ -6358,13 +6374,19 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         }
 
         const isLegChecked = !!checkedState[legKey];
-        const isHit = !ftdLost2 && (isLegChecked || (currentVal >= target));
+        const isUnder2 = el.getAttribute('data-direction') === 'under';
+        const tInfo2 = latestTeamStatusMap[(el.getAttribute('data-team') || '').toUpperCase()];
+        const isFinal2 = !!(tInfo2 && (tInfo2.isCompleted || String(tInfo2.statusDesc || '').toLowerCase().includes('final')));
+        const underLost2 = isUnder2 && currentVal >= target;
+        const isHit = !ftdLost2 && !underLost2 && (isLegChecked || (isUnder2 ? (isFinal2 && currentVal < target) : (currentVal >= target)));
         const pct = Math.min(100, Math.max(0, isLegChecked ? 100 : (target > 0 ? (currentVal / target) * 100 : 0)));
 
         const cardStat = document.getElementById('card-stat-' + legKey);
         const cardBar = document.getElementById('card-bar-' + legKey);
         if (cardStat) {
-          if (ftdLost2) {
+          if (underLost2) {
+            cardStat.innerHTML = currentVal + ' / U' + target + ' <span style="color:#EF4444;">🔥 Burnt</span>';
+          } else if (ftdLost2) {
             cardStat.innerHTML = '1st TD: ' + escapeHtml(ftdState2.label) + ' <span style="color:#EF4444;">🔥 Burnt</span>';
           } else if (isHit) {
             cardStat.innerHTML = currentVal + ' / ' + target + ' <span style="color:#10B981;">✅</span>';
@@ -7328,6 +7350,8 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             // real passTd branch a few lines down was dead code for that market.
             if ((rawMarket.includes('touchdown') || rawMarket.includes('td')) && !rawMarket.includes('pass')) {
               currentVal = (stats.rushTd || 0) + (stats.recTd || 0);
+            } else if (rawMarket.includes('complet')) {
+              currentVal = stats.passComp || 0;
             } else if (rawMarket.includes('rush') && rawMarket.includes('yard')) {
               currentVal = stats.rushYds || 0;
             } else if (rawMarket.includes('rec') && rawMarket.includes('yard')) {
@@ -7355,6 +7379,22 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             } else if (rawMarket.includes('sack')) {
               currentVal = stats.sck || 0;
             }
+          }
+
+          if (el.getAttribute('data-direction') === 'under') {
+            const setPace = (cls, badgeCls, html) => {
+              el.classList.remove('pace-green', 'pace-red', 'pace-yellow', 'pace-pre');
+              el.classList.add(cls);
+              if (badge) { badge.className = 'leg-pace-badge ' + badgeCls; badge.innerHTML = html; }
+            };
+            const uLbl = currentVal + '/U' + targetVal;
+            if (currentVal >= targetVal) { setPace('pace-red', 'badge-pacing-lost', '🔥 BURNT (' + uLbl + ')'); return; }
+            if (ev.isCompleted) { setPace('pace-green', 'badge-pacing-green', '🟢 HIT (' + uLbl + ')'); return; }
+            const uProj = (currentVal / minsElapsed) * 60;
+            if (uProj < targetVal * 0.9) setPace('pace-green', 'badge-pacing-green', '🟢 On Pace (' + uLbl + ' • Proj ' + Math.round(uProj) + ')');
+            else if (minsElapsed >= 22 && uProj >= targetVal * 1.1) setPace('pace-red', 'badge-pacing-red', '⚠️ Bust Risk (' + uLbl + ' • Proj ' + Math.round(uProj) + ')');
+            else setPace('pace-yellow', 'badge-pacing-yellow', '🟡 In Play (' + uLbl + ' • Proj ' + Math.round(uProj) + ')');
+            return;
           }
 
           if (currentVal >= targetVal) {
