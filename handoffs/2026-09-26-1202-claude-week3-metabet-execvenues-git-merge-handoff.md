@@ -171,3 +171,12 @@
   without explicit OS-level delete permission (already granted for
   `E:\dev` for the remainder of any session that needs it, via
   `mcp__remote-devices__device_request_delete_permission`).
+
+## Resume prompt
+```
+Resume NFL_Dashboard ("Platinum Rose") — Week 3 SAT. Repo E:\dev\projects\NFL_Dashboard (device_bash $HOME/mnt/dev/projects/NFL_Dashboard), branch main; HEAD 0ec6651, fully in sync with origin/main (pushed).
+Read: HANDOFF.md → handoffs/2026-09-26-1202-claude-week3-metabet-execvenues-git-merge-handoff.md → src/lib/executionVenues.js (PREDICTION_MARKET_VENUES comment) → docs/FUTURES_ARTICLE_REACQUISITION_AND_GATES_DESIGN_2026-08-13.md §1.
+State: Metabet wired into Toolbox Diagnostics (36ab3ff). DraftKings/FanDuel moved to placeable in the execution-venue registry (44c30bf); Kalshi deliberately NOT moved. 2 unprocessed BKR/BetUS futures text batches backfilled + pushed (7acc444). fc1b7b2 sibling-commit git fork with origin/main resolved + merged + pushed (b7ce30c).
+First: Kalshi execution-eligibility decision with Andy — (a) build the real bid/ask/fee-aware execution-eligibility check against the matching sportsbook market (never built, warned against skipping in executionVenues.js's own comment), or (b) a lighter override that just treats Kalshi's price like a sportsbook price and accepts the fee/liquidity blind spot. Do not move Kalshi into SPORTSBOOK_VENUES without picking one. Then: confirm whether Fanatics futures ingestion is in scope yet (Andy said "next week" on 2026-09-26); Circa screenshots (7 raw captures in docs/Futures_Odds/, no parser); 739211245's 2 open spots (PHI ML/BAL ML recommended, still unconfirmed); TheOddsAPI key ~11 requests remaining (Andy hasn't responded); Bills $10 credit still not placed; player-props-intel stale-game bug still not fixed.
+Standing constraints: no git add -A; never reset/clean/stash; Supabase writes need per-change OK; no bet placement/account actions; Andy pushes (unless he asks); docs/Futures_Odds/ untracked; no team power ratings as evidence; $6.81 free money unassigned; local scheduled tasks run from this checkout; paste-slip check on every ticket; keep file scans scoped (bridge stalls); git can't unlink lock files on the E: mount without delete permission — request it once or hand Andy the commit command.
+```
