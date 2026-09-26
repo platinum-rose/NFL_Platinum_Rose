@@ -211,6 +211,7 @@ const FEEDS = [
     // Pro Football Focus: grades, snap counts, advanced metrics
     source: 'PFF',
     url: 'https://www.pff.com/feed',
+    nflOnly: true,
     confidence: 0.67,
     source_type: 'analytical',
   },
@@ -219,6 +220,12 @@ const FEEDS = [
     // Migrated from x-sharp-ingest (was RSS-backed account, not X content)
     source: 'Rotowire NFL',
     url: 'https://www.rotowire.com/rss/news.php?sport=NFL',
+    // 2026-09-26: every Rotowire <link> is the PLAYER page, not the news
+    // item, so url_hash dedupe silently dropped every update for any player
+    // who already had a note (e.g. Caleb Williams ruled out for MNF). Key
+    // dedupe on the per-item <guid> (nfl639290...) instead.
+    itemKey: 'guid',
+    nflOnly: true,
     confidence: 0.65,
     source_type: 'analytical',
   },
@@ -375,6 +382,7 @@ function parseRssItems(xml) {
       return {
         title: title || '(untitled)',
         link: link || guid,
+        guid: guid || null,
         description: description || '',
         published_at: publishedAt,
         author,
@@ -485,10 +493,16 @@ function normalizeForMatch(value = '') {
   return ` ${String(value).toLowerCase().replace(/\s+/g, ' ').trim()} `;
 }
 
-function looksNflRelevant(item, source = '') {
+function looksNflRelevant(item, source = '', options = {}) {
   // 2026-09-23: BettingPros/VSiN mix college football into the same feed, and
   // the "football" escape hatch below let CFB titles through. Reject first.
   if (isCollegeFootballItem(item)) return false;
+
+  // 2026-09-26: NFL-only feeds (PFF, Rotowire NFL) skip the keyword gate --
+  // it dropped real NFL items with no generic football word in them, e.g.
+  // PFF "The Packers' offensive line has been a catastrophic problem..."
+  // and "PFF Protection Tracker". CFB is still rejected above.
+  if (options.nflOnly) return true;
 
   const titleHaystack = normalizeForMatch([source, item.title].join(' '));
   const fullHaystack = normalizeForMatch([
@@ -905,7 +919,7 @@ async function main() {
       .filter(item => !item.published_at || item.published_at >= cutoff)
       .slice(0, LIMIT_PER_FEED);
 
-    const feedItems = recentItems.filter(item => looksNflRelevant(item, feed.source));
+    const feedItems = recentItems.filter(item => looksNflRelevant(item, feed.source, { nflOnly: feed.nflOnly === true }));
 
     const notes = feedItems.map(item => {
       const canonical = canonicalizeUrl(item.link);
@@ -915,7 +929,7 @@ async function main() {
         source_type: feed.source_type ?? 'article',
         url: item.link,
         canonical_url: canonical,
-        url_hash: sha256(canonical),
+        url_hash: sha256(feed.itemKey === 'guid' && item.guid ? `${canonical}#guid=${item.guid}` : canonical),
         content_hash: sha256(`${item.title}|${summary}`),
         title: item.title,
         summary,
