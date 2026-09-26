@@ -13,6 +13,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadArticles } from './build-article-intel-review.js';
+import { getNFLWeekInfo, getSeasonStartDate } from '../src/lib/constants.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -82,1505 +83,404 @@ export function calculateParlayOdds(oddsArray) {
   };
 }
 
-// Player team dictionary for mapping
-const PLAYER_TEAM_MAP = {
-  'Drake Maye': { team: 'NE', pos: 'QB', game: 'NE @ SEA' },
-  'A.J. Brown': { team: 'NE', pos: 'WR', game: 'NE @ SEA' },
-  'Hunter Henry': { team: 'NE', pos: 'TE', game: 'NE @ SEA' },
-  'Rhamondre Stevenson': { team: 'NE', pos: 'RB', game: 'NE @ SEA' },
-  'Romeo Doubs': { team: 'NE', pos: 'WR', game: 'NE @ SEA' },
-  'TreVeyon Henderson': { team: 'NE', pos: 'RB', game: 'NE @ SEA' },
+// ---------------------------------------------------------------------------
+// Dynamic player roster + weekly schedule mapping.
+//
+// This used to be a hand-typed PLAYER_TEAM_MAP keyed to whichever games were
+// on the Week 1 slate -- it silently kept mapping every player to a Week 1
+// game forever, since nothing regenerated it. Replaced with two real data
+// sources so the map is always correct for the week the pipeline actually
+// runs against:
+//   1. ESPN's public team-roster API (all 32 teams, offense group) for
+//      player -> {team, position}, cached to disk for ROSTER_CACHE_MAX_AGE_MS
+//      so we are not re-fetching 32 endpoints on every run.
+//   2. public/schedule.json (the repo's own canonical schedule, already used
+//      by generate-live-tracker.mjs) for team -> this week's game + slate.
+// ---------------------------------------------------------------------------
 
-  'Jaxon Smith-Njigba': { team: 'SEA', pos: 'WR', game: 'NE @ SEA' },
-  'Sam Darnold': { team: 'SEA', pos: 'QB', game: 'NE @ SEA' },
-  'Jadarian Price': { team: 'SEA', pos: 'RB', game: 'NE @ SEA' },
-  'Rashid Shaheed': { team: 'SEA', pos: 'WR', game: 'NE @ SEA' },
-  'Cooper Kupp': { team: 'SEA', pos: 'WR', game: 'NE @ SEA' },
+const ROSTER_CACHE_DIR = path.join(ROOT, 'data', 'nfl-rosters');
+const ROSTER_CACHE_PATH = path.join(ROSTER_CACHE_DIR, 'roster-map-latest.json');
+const ROSTER_CACHE_MAX_AGE_MS = 12 * 60 * 60 * 1000; // 12h
 
-  'Matthew Stafford': { team: 'LAR', pos: 'QB', game: 'SF @ LAR' },
-  'Puka Nacua': { team: 'LAR', pos: 'WR', game: 'SF @ LAR' },
-  'Terrance Ferguson': { team: 'LAR', pos: 'TE', game: 'SF @ LAR' },
-  'Kyren Williams': { team: 'LAR', pos: 'RB', game: 'SF @ LAR' },
-  'Davante Adams': { team: 'LAR', pos: 'WR', game: 'SF @ LAR' },
-  'Blake Corum': { team: 'LAR', pos: 'RB', game: 'SF @ LAR' },
-  'Colby Parkinson': { team: 'LAR', pos: 'TE', game: 'SF @ LAR' },
-
-  'Brock Purdy': { team: 'SF', pos: 'QB', game: 'SF @ LAR' },
-  'Christian McCaffrey': { team: 'SF', pos: 'RB', game: 'SF @ LAR' },
-  'Mike Evans': { team: 'SF', pos: 'WR', game: 'SF @ LAR' },
-  'Kyle Juszczyk': { team: 'SF', pos: 'FB', game: 'SF @ LAR' },
-  'George Kittle': { team: 'SF', pos: 'TE', game: 'SF @ LAR' },
-  'Deshaun Stribling': { team: 'SF', pos: 'WR', game: 'SF @ LAR' },
-  'Deebo Samuel': { team: 'SF', pos: 'WR', game: 'SF @ LAR' },
-
-  'Jonathan Taylor': { team: 'IND', pos: 'RB', game: 'BAL @ IND' },
-  'Daniel Jones': { team: 'IND', pos: 'QB', game: 'BAL @ IND' },
-  'Alec Pierce': { team: 'IND', pos: 'WR', game: 'BAL @ IND' },
-  'Tyler Warren': { team: 'IND', pos: 'TE', game: 'BAL @ IND' },
-  'Zay Flowers': { team: 'BAL', pos: 'WR', game: 'BAL @ IND' },
-  'Derrick Henry': { team: 'BAL', pos: 'RB', game: 'BAL @ IND' },
-  'Lamar Jackson': { team: 'BAL', pos: 'QB', game: 'BAL @ IND' },
-
-  'James Cook': { team: 'BUF', pos: 'RB', game: 'BUF @ HOU' },
-  'James Cook III': { team: 'BUF', pos: 'RB', game: 'BUF @ HOU' },
-  'Dalton Kincaid': { team: 'BUF', pos: 'TE', game: 'BUF @ HOU' },
-  'Josh Allen': { team: 'BUF', pos: 'QB', game: 'BUF @ HOU' },
-  'DJ Moore': { team: 'BUF', pos: 'WR', game: 'BUF @ HOU' },
-  'David Montgomery': { team: 'HOU', pos: 'RB', game: 'BUF @ HOU' },
-
-  'Harold Fannin': { team: 'CLE', pos: 'TE', game: 'CLE @ JAX' },
-  'Quinshon Judkins': { team: 'CLE', pos: 'RB', game: 'CLE @ JAX' },
-  'Parker Washington': { team: 'JAX', pos: 'WR', game: 'CLE @ JAX' },
-  'Trevor Lawrence': { team: 'JAX', pos: 'QB', game: 'CLE @ JAX' },
-
-  'Bucky Irving': { team: 'TB', pos: 'RB', game: 'TB @ CIN' },
-  'Joe Burrow': { team: 'CIN', pos: 'QB', game: 'TB @ CIN' },
-  'Ja\'Marr Chase': { team: 'CIN', pos: 'WR', game: 'TB @ CIN' },
-  'Chase Brown': { team: 'CIN', pos: 'RB', game: 'TB @ CIN' },
-
-  'Geno Smith': { team: 'NYJ', pos: 'QB', game: 'NYJ @ TEN' },
-  'Breece Hall': { team: 'NYJ', pos: 'RB', game: 'NYJ @ TEN' },
-  'Garrett Wilson': { team: 'NYJ', pos: 'WR', game: 'NYJ @ TEN' },
-
-  'Omarion Hampton': { team: 'LAC', pos: 'RB', game: 'ARI @ LAC' },
-  'Justin Herbert': { team: 'LAC', pos: 'QB', game: 'ARI @ LAC' },
-
-  'Jahmyr Gibbs': { team: 'DET', pos: 'RB', game: 'NO @ DET' },
-  'Amon-Ra St. Brown': { team: 'DET', pos: 'WR', game: 'NO @ DET' },
-  'Tyler Shough': { team: 'NO', pos: 'QB', game: 'NO @ DET' },
-
-  'Saquon Barkley': { team: 'PHI', pos: 'RB', game: 'WAS @ PHI' },
-  'Jalen Hurts': { team: 'PHI', pos: 'QB', game: 'WAS @ PHI' },
-
-  'Caleb Williams': { team: 'CHI', pos: 'QB', game: 'CHI @ CAR' },
-  'D\'Andre Swift': { team: 'CHI', pos: 'RB', game: 'CHI @ CAR' },
-  'Tetairoa McMillan': { team: 'CAR', pos: 'WR', game: 'CHI @ CAR' },
-
-  'Kenneth Walker III': { team: 'KC', pos: 'RB', game: 'DEN @ KC' },
-  'Rashee Rice': { team: 'KC', pos: 'WR', game: 'DEN @ KC' },
-  'Bo Nix': { team: 'DEN', pos: 'QB', game: 'DEN @ KC' },
-
-  'Dak Prescott': { team: 'DAL', pos: 'QB', game: 'DAL @ NYG' },
-  'Javonte Williams': { team: 'DAL', pos: 'RB', game: 'DAL @ NYG' },
-  'Jaxson Dart': { team: 'NYG', pos: 'QB', game: 'DAL @ NYG' },
-
-  'Jordan Love': { team: 'GB', pos: 'QB', game: 'GB @ MIN' },
-  'Christian Watson': { team: 'GB', pos: 'WR', game: 'GB @ MIN' },
-  'MarShawn Lloyd': { team: 'GB', pos: 'RB', game: 'GB @ MIN' },
-
-  'Bijan Robinson': { team: 'ATL', pos: 'RB', game: 'ATL @ PIT' },
-  'Aaron Rodgers': { team: 'PIT', pos: 'QB', game: 'ATL @ PIT' },
-  'DK Metcalf': { team: 'PIT', pos: 'WR', game: 'ATL @ PIT' },
-
-  'De\'Von Achane': { team: 'MIA', pos: 'RB', game: 'MIA @ LV' },
-  'Ashton Jeanty': { team: 'LV', pos: 'RB', game: 'MIA @ LV' },
+const ESPN_TEAM_SLUGS = {
+  ARI: 'ari', ATL: 'atl', BAL: 'bal', BUF: 'buf', CAR: 'car', CHI: 'chi',
+  CIN: 'cin', CLE: 'cle', DAL: 'dal', DEN: 'den', DET: 'det', GB: 'gb',
+  HOU: 'hou', IND: 'ind', JAX: 'jax', KC: 'kc', LV: 'lv', LAC: 'lac',
+  LAR: 'lar', MIA: 'mia', MIN: 'min', NE: 'ne', NO: 'no', NYG: 'nyg',
+  NYJ: 'nyj', PHI: 'phi', PIT: 'pit', SF: 'sf', SEA: 'sea', TB: 'tb',
+  TEN: 'ten', WSH: 'wsh', WAS: 'wsh',
 };
 
+async function fetchTeamRoster(teamAbbr, slug) {
+  const res = await fetch(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/${slug}/roster`);
+  if (!res.ok) throw new Error(`ESPN roster fetch failed for ${teamAbbr}: ${res.status}`);
+  const data = await res.json();
+  const out = [];
+  for (const group of data.athletes || []) {
+    // Offense group covers the skill positions + QB/OL that player props are written about.
+    if (group.position !== 'offense') continue;
+    for (const p of group.items || []) {
+      if (!p.fullName) continue;
+      out.push({ name: p.fullName, team: teamAbbr, position: p.position?.abbreviation || '' });
+    }
+  }
+  return out;
+}
+
 /**
- * Extract curated, high-confidence player props directly from expert articles
+ * Load a player-name -> {team, position} map covering all 32 teams' offensive
+ * players, from a fresh ESPN fetch or a same-day disk cache.
  */
-export function extractCuratedPlayerProps(articles = []) {
-  const props = [];
+async function loadPlayerRosterMap() {
+  try {
+    const stat = fs.statSync(ROSTER_CACHE_PATH);
+    if (Date.now() - stat.mtimeMs < ROSTER_CACHE_MAX_AGE_MS) {
+      const cached = JSON.parse(fs.readFileSync(ROSTER_CACHE_PATH, 'utf8'));
+      if (cached && cached.players && Object.keys(cached.players).length > 0) {
+        return new Map(Object.entries(cached.players));
+      }
+    }
+  } catch {
+    // no cache yet, fall through to a live fetch
+  }
+
+  const entries = Object.entries(ESPN_TEAM_SLUGS).filter(([abbr]) => abbr !== 'WAS'); // WAS/WSH alias, fetch once
+  const results = await Promise.all(entries.map(([abbr, slug]) => fetchTeamRoster(abbr, slug).catch((err) => {
+    console.warn(`⚠️ Warning: roster fetch failed for ${abbr}: ${err.message}`);
+    return [];
+  })));
+
+  const map = new Map();
+  for (const teamPlayers of results) {
+    for (const p of teamPlayers) {
+      map.set(p.name, { team: p.team, position: p.position });
+    }
+  }
+
+  try {
+    fs.mkdirSync(ROSTER_CACHE_DIR, { recursive: true });
+    fs.writeFileSync(ROSTER_CACHE_PATH, JSON.stringify({
+      generated_at: new Date().toISOString(),
+      player_count: map.size,
+      players: Object.fromEntries(map),
+    }, null, 2), 'utf8');
+  } catch (err) {
+    console.warn(`⚠️ Warning: could not write roster cache: ${err.message}`);
+  }
+
+  return map;
+}
+
+function slateLabelFor(kickoffUtc) {
+  const d = new Date(kickoffUtc);
+  // Shift to approximate US Eastern time before reading the day-of-week -- a Thursday
+  // 8:15pm ET kickoff is already past midnight UTC (Friday), so reading getUTCDay()
+  // directly mislabels every prime-time night game as the following calendar day.
+  const etDate = new Date(d.getTime() - 4 * 60 * 60 * 1000); // approx ET (ignores DST edge cases)
+  const day = etDate.getUTCDay();
+  const etHour = etDate.getUTCHours();
+  if (day === 1) return 'Monday Night Football';
+  if (day === 4) return 'Thursday Night Football';
+  if (day === 3) return 'Wednesday Night Football';
+  if (day === 5) return 'Friday Night Football';
+  if (day === 6) return 'Saturday Football';
+  // Sunday: split early/late/night window by ET hour.
+  if (etHour >= 20) return 'Sunday Night Football';
+  if (etHour >= 16) return 'Sunday Late Window';
+  return 'Sunday Early Window';
+}
+
+/**
+ * Build team-abbreviation -> {game, game_slate} for one week from the repo's
+ * own public/schedule.json (the same file generate-live-tracker.mjs reads),
+ * so player props always resolve to the game that's actually being played.
+ */
+function loadWeekGameMap(week, season) {
+  const schedulePath = path.join(ROOT, 'public', 'schedule.json');
+  let schedule = [];
+  try {
+    schedule = JSON.parse(fs.readFileSync(schedulePath, 'utf8'));
+  } catch (err) {
+    console.warn(`⚠️ Warning: could not read public/schedule.json: ${err.message}`);
+    return { teamGameMap: new Map(), games: [] };
+  }
+
+  // 2026-09-26: drop games that have already been played. public/schedule.json's
+  // status/score are not reliably updated (ATL@GB still read status "pre", 0-0,
+  // the Saturday after TNF), so gate on kickoff time too: anything that kicked
+  // off more than 4h ago is over. Without this the Week 3 dossier recommended
+  // a TNF ATL/GB SGP on Saturday for a game that was already final.
+  const nowMs = Date.now();
+  const isFinished = (g) => /final|post/i.test(String(g.status || ''))
+    || (g.kickoff_utc && new Date(g.kickoff_utc).getTime() + 4 * 3600e3 < nowMs);
+  const weekGames = schedule.filter((g) => g.week === week && g.season === season && g.season_type === 2 && !isFinished(g));
+  const teamGameMap = new Map();
+  const games = [];
+  for (const g of weekGames) {
+    const label = `${g.visitor} @ ${g.home}`;
+    const slate = slateLabelFor(g.kickoff_utc);
+    teamGameMap.set(g.visitor, { game: label, game_slate: slate, home: g.home, visitor: g.visitor });
+    teamGameMap.set(g.home, { game: label, game_slate: slate, home: g.home, visitor: g.visitor });
+    games.push({ game: label, game_slate: slate, home: g.home, visitor: g.visitor, kickoff_utc: g.kickoff_utc });
+  }
+  return { teamGameMap, games };
+}
+
+/**
+ * Extract real player-prop recommendations directly out of article bodies.
+ *
+ * Replaces the old hand-transcribed per-article blocks (which only "worked"
+ * because each one hardcoded article.id === <Week 1 article id>, so the
+ * pipeline was really just replaying a fixed Week 1 script forever). This
+ * scans actual article text for the "<Player Name> <prop description> ( <odds> )"
+ * pattern that BettingPros / VSiN / Action Network / Walter Football / Sharp
+ * Football consistently use for single-prop callouts, validates the captured
+ * name against a real current player roster, and resolves team/game/slate
+ * from the real weekly schedule.
+ *
+ * @param {Array} articles - rows from loadArticles() (id, source, title, author, body, url, published_at)
+ * @param {Object} ctx
+ * @param {Map} ctx.rosterMap - player name -> {team, position}, from loadPlayerRosterMap()
+ * @param {Map} ctx.teamGameMap - team abbr -> {game, game_slate}, from loadWeekGameMap()
+ * @param {number} ctx.week - current NFL week, used only for labeling/fallbacks
+ */
+export function extractCuratedPlayerProps(articles = [], ctx = {}) {
+  const rosterMap = ctx.rosterMap || new Map();
+  const teamGameMap = ctx.teamGameMap || new Map();
+  const week = ctx.week || null;
+
+  // "<Name> <description...> ( <american odds> )" -- the format BettingPros/VSiN/
+  // Action Network/Walter Football/Sharp Football all use for single-prop callouts,
+  // e.g. "Jameson Williams 60+ Yards ( -112 )" or "DJ Moore First Touchdown Scorer ( +1000 )".
+  // Player name: 1-4 Title-Case words (allows initials like "A.J.", apostrophes, hyphens).
+  const PROP_LINE_RE = /([A-Z][a-zA-Z.'-]*(?:\s+[A-Z][a-zA-Z.'-]*){0,3})\s+((?:Over|Under|\d+\+|First Touchdown Scorer|Anytime Touchdown Scorer|Last Touchdown Scorer|To Score \d)[^(]{0,90}?)\(\s*([+-]\d{3,5})\s*\)/g;
+
+  const CATEGORY_RULES = [
+    { re: /first touchdown/i, category: 'first_td', label: 'First Touchdown Scorer', statType: 'touchdown' },
+    { re: /anytime touchdown/i, category: 'anytime_td', label: 'Anytime Touchdown Scorer', statType: 'touchdown' },
+    { re: /last touchdown/i, category: 'last_td', label: 'Last Touchdown Scorer', statType: 'touchdown' },
+    { re: /to score \d/i, category: 'anytime_td', label: 'Anytime Touchdown Scorer', statType: 'touchdown' },
+    { re: /passing\s*(td|touchdown)/i, category: 'passing_tds', label: 'Passing TDs', statType: 'passing' },
+    { re: /pass(ing)?\s*yard/i, category: 'passing_yards', label: 'Passing Yards', statType: 'passing' },
+    { re: /interception/i, category: 'interceptions', label: 'Interceptions', statType: 'passing' },
+    { re: /completion/i, category: 'completions', label: 'Completions', statType: 'passing' },
+    { re: /rush(ing)?\s*(td|touchdown)/i, category: 'rushing_tds', label: 'Rushing TDs', statType: 'rushing' },
+    { re: /rush(ing)?\s*yard/i, category: 'rushing_yards', label: 'Rushing Yards', statType: 'rushing' },
+    { re: /rush(ing)?\s*attempt/i, category: 'rush_attempts', label: 'Rush Attempts', statType: 'rushing' },
+    { re: /pass(ing)?\s*attempt/i, category: 'pass_attempts', label: 'Pass Attempts', statType: 'passing' },
+    { re: /rece(iving|ption)\s*(td|touchdown)/i, category: 'receiving_tds', label: 'Receiving TDs', statType: 'receiving' },
+    { re: /rece?iving\s*yard/i, category: 'receiving_yards', label: 'Receiving Yards', statType: 'receiving' },
+    { re: /reception/i, category: 'receptions', label: 'Receptions', statType: 'receiving' },
+    { re: /longest\s*(reception|rush|completion)/i, category: 'longest_play', label: 'Longest Play', statType: 'other' },
+    { re: /(sack|tackle|interception thrown)/i, category: 'defense', label: 'Defensive Prop', statType: 'defense' },
+  ];
+
+  function classify(descriptionRaw) {
+    const description = descriptionRaw.trim();
+    for (const rule of CATEGORY_RULES) {
+      if (rule.re.test(description)) {
+        return { category: rule.category, category_label: rule.label, stat_type: rule.statType };
+      }
+    }
+    // Bare "60+ Yards" callouts with no stat keyword are almost always receiving yards
+    // (the most commonly shorthanded prop type in these articles).
+    if (/^\d+\+\s*Yards?$/i.test(description)) {
+      return { category: 'receiving_yards', category_label: 'Receiving/Rushing Yards', stat_type: 'other' };
+    }
+    return { category: 'other', category_label: description.replace(/\s+/g, ' ').trim() || 'Prop', stat_type: 'other' };
+  }
+
+  function parseLineAndSide(descriptionRaw) {
+    const description = descriptionRaw.trim();
+    let m = description.match(/^Over\s*([\d.]+)/i);
+    if (m) return { line: m[1], side: 'over' };
+    m = description.match(/^Under\s*([\d.]+)/i);
+    if (m) return { line: m[1], side: 'under' };
+    m = description.match(/^(\d+)\+/);
+    if (m) return { line: `${m[1]}+`, side: 'over' };
+    if (/touchdown scorer/i.test(description)) return { line: 'Yes', side: 'anytime' };
+    return { line: description, side: 'n/a' };
+  }
+
+  const rawMatches = [];
+  const seenIds = new Set();
 
   for (const article of articles) {
     const author = clean(article.author || 'Analyst Staff');
     const source = clean(article.source || 'Intel Report');
+    const body = clean(article.body || '');
+    if (!body) continue;
 
-    // 1. BettingPros: Travis Pulver (ID 3118)
-    if (article.id === 3118 || /Travis Pulver/i.test(author)) {
-      props.push({
-        id: 'prop__travis_pulver__jadarian_price_receptions',
-        player: 'Jadarian Price',
-        team: 'SEA',
-        game: 'NE @ SEA',
-        game_slate: 'Wednesday Kickoff',
-        category: 'receptions',
-        category_label: 'Receptions',
-        stat_type: 'receiving',
-        line: '1.5',
-        side: 'over',
-        price: '+124',
-        book: 'FanDuel',
-        analyst: 'Travis Pulver (BettingPros)',
-        tier: 1,
-        tier_label: 'Tier 1: Recommended Best Bet',
-        weight: 1.0,
-        rationale: 'Seahawks OC Brian Fleury comes from the Kyle Shanahan tree where backs receive high target share. Charbonnet is out, leaving Price as the primary backfield receiver against New England.',
-        parlay_utility: {
-          role: 'Complementary Pass Catcher',
-          synergy_tags: ['pass_heavy_script', 'scheme_target_boost', 'safe_floor_plus_money'],
-          positive_correlations: ['Jadarian Price Anytime TD', 'Sam Darnold Pass Completions Over'],
-        },
-      });
+    let match;
+    PROP_LINE_RE.lastIndex = 0;
+    while ((match = PROP_LINE_RE.exec(body)) !== null) {
+      const rawName = match[1].trim();
+      const descriptionRaw = match[2];
+      const priceStr = match[3];
 
-      props.push({
-        id: 'prop__travis_pulver__sam_darnold_rushing_yards',
-        player: 'Sam Darnold',
-        team: 'SEA',
-        game: 'NE @ SEA',
-        game_slate: 'Wednesday Kickoff',
-        category: 'rushing_yards',
-        category_label: 'Rushing Yards',
-        stat_type: 'rushing',
-        line: '10+',
-        side: 'over',
-        price: '+178',
-        book: 'FanDuel',
-        analyst: 'Travis Pulver (BettingPros)',
-        tier: 1,
-        tier_label: 'Tier 1: Recommended Best Bet',
-        weight: 1.0,
-        rationale: 'With Kenneth Walker III gone and a rookie RB, early-season offensive hiccups will force Darnold to scramble when plays break down. Only needs 2-4 scrambles to clear 10+ yards.',
-        parlay_utility: {
-          role: 'High-Value Plus-Money Anchor',
-          synergy_tags: ['qb_scramble_upside', 'broken_play_value'],
-          positive_correlations: ['Seahawks Moneyline', 'Under 44.5 Total'],
-        },
-      });
+      const player = rosterMap.get(rawName);
+      if (!player) continue; // skip anything that isn't a real, currently-rostered offensive player
 
-      props.push({
-        id: 'prop__travis_pulver__hunter_henry_receptions',
-        player: 'Hunter Henry',
-        team: 'NE',
-        game: 'NE @ SEA',
-        game_slate: 'Wednesday Kickoff',
-        category: 'receptions',
-        category_label: 'Receptions',
-        stat_type: 'receiving',
-        line: '3.5',
-        side: 'over',
-        price: '+148',
-        book: 'FanDuel',
-        analyst: 'Travis Pulver (BettingPros)',
-        tier: 1,
-        tier_label: 'Tier 1: Recommended Best Bet',
-        weight: 1.0,
-        rationale: 'While defense keys on A.J. Brown and Romeo Doubs, Drake Maye will rely on Henry as his security blanket on clutch downs. Tight ends heavily exploited Seattle\'s zone scheme last season.',
-        parlay_utility: {
-          role: 'Passing Chain-Mover Anchor',
-          synergy_tags: ['zone_coverage_beater', 'security_blanket', 'trailing_pass_volume'],
-          positive_correlations: ['Drake Maye Over Passing Yards', 'Patriots +3.5 Spread'],
-        },
-      });
-    }
+      const { team } = player;
+      const gameInfo = teamGameMap.get(team);
+      if (!gameInfo) continue; // team isn't playing this week (bye, or stale roster data) -- skip rather than mislabel
 
-    // 2. BettingPros: Mike Spector (ID 3119)
-    if (article.id === 3119 || (/Mike Spector/i.test(author) && /49ers vs. Rams/i.test(article.title))) {
-      props.push({
-        id: 'prop__mike_spector__puka_nacua_first_td',
-        player: 'Puka Nacua',
-        team: 'LAR',
-        game: 'SF @ LAR',
-        game_slate: 'Thursday Melbourne Opener',
-        category: 'first_td',
-        category_label: 'First Touchdown Scorer',
-        stat_type: 'touchdown',
-        line: 'First TD',
-        side: 'yes',
-        price: '+800',
-        book: 'DraftKings',
-        analyst: 'Mike Spector (BettingPros)',
-        tier: 3,
-        tier_label: 'Tier 3: High-Multiplier SGP Anchor',
-        weight: 0.75,
-        rationale: 'Matthew Stafford had 46 passing TDs last season. Nacua hauled in 32.4% of Rams receiving yards since 2023 and torched SF for 225 yds and 165 yds in their last two meetings. 8-1 odds offer immense value.',
-        parlay_utility: {
-          role: 'Longshot Payout Multiplier',
-          synergy_tags: ['red_zone_alpha', 'scripted_first_drive', 'high_game_total'],
-          positive_correlations: ['Puka Nacua Anytime TD', 'Rams 1st Half Spread', 'Stafford Over Passing TDs'],
-        },
-      });
+      const { category, category_label, stat_type } = classify(descriptionRaw);
+      const { line, side } = parseLineAndSide(descriptionRaw);
 
-      props.push({
-        id: 'prop__mike_spector__mike_evans_anytime_td',
-        player: 'Mike Evans',
-        team: 'SF',
-        game: 'SF @ LAR',
-        game_slate: 'Thursday Melbourne Opener',
-        category: 'anytime_td',
-        category_label: 'Anytime Touchdown Scorer',
-        stat_type: 'touchdown',
-        line: 'Anytime TD',
-        side: 'yes',
-        price: '+175',
-        book: 'DraftKings',
-        analyst: 'Mike Spector (BettingPros)',
-        tier: 1,
-        tier_label: 'Tier 1: Recommended Best Bet',
-        weight: 1.0,
-        rationale: '49ers rushed for just 2.7 ypc against the Rams last season. With Pearsall out, Kirk on IR, and Kittle questionable, Evans is the primary alpha end-zone target (182 end-zone targets since 2024).',
-        parlay_utility: {
-          role: 'Red-Zone Anchor Leg',
-          synergy_tags: ['endzone_target_dominance', 'wr_attrition_boost', 'shootout_upside'],
-          positive_correlations: ['Brock Purdy Over Passing TDs', 'Over 48.5 Game Total'],
-        },
-      });
+      const contextStart = Math.max(0, match.index - 40);
+      const contextEnd = Math.min(body.length, match.index + match[0].length + 500);
+      const rationale = clean(body.slice(match.index + match[0].length, contextEnd)).split(/(?<=[.!?])\s+/).slice(0, 2).join(' ');
 
-      props.push({
-        id: 'prop__mike_spector__terrance_ferguson_anytime_td',
-        player: 'Terrance Ferguson',
-        team: 'LAR',
-        game: 'SF @ LAR',
-        game_slate: 'Thursday Melbourne Opener',
-        category: 'anytime_td',
-        category_label: 'Anytime Touchdown Scorer',
-        stat_type: 'touchdown',
-        line: 'Anytime TD',
-        side: 'yes',
-        price: '+400',
-        book: 'DraftKings',
-        analyst: 'Mike Spector (BettingPros)',
-        tier: 2,
-        tier_label: 'Tier 2: High-Value Value Scorer',
-        weight: 0.85,
-        rationale: 'Stafford led the NFL in passing touchdowns against blitzes and man coverage. Ferguson operates as a big red-zone mismatch against a 49ers defense vulnerable to athletic tight ends.',
-        parlay_utility: {
-          role: 'High-Value SGP Multiplier',
-          synergy_tags: ['red_zone_mismatch', 'blitz_beater'],
-          positive_correlations: ['Stafford Over 265.5 Pass Yds', 'Rams -3.5 Spread'],
-        },
-      });
-    }
+      const id = `prop__${(article.id ?? 'x')}__${rawName.toLowerCase().replace(/[^a-z0-9]+/g, '_')}__${category}`;
+      if (seenIds.has(id)) continue;
+      seenIds.add(id);
 
-    // 3. BettingPros: Phil Wood (ID 3063)
-    if (article.id === 3063 || /Phil Wood/i.test(author)) {
-      props.push({
-        id: 'prop__phil_wood__jaxon_smith_njigba_rec_yards',
-        player: 'Jaxon Smith-Njigba',
-        team: 'SEA',
-        game: 'NE @ SEA',
-        game_slate: 'Wednesday Kickoff',
-        category: 'receiving_yards',
-        category_label: 'Receiving Yards',
-        stat_type: 'receiving',
-        line: '82.5',
-        side: 'over',
-        price: '-113',
-        book: 'DraftKings',
-        analyst: 'Phil Wood (BettingPros)',
-        tier: 1,
-        tier_label: 'Tier 1: Recommended Best Bet',
-        weight: 1.0,
-        rationale: 'Smith-Njigba is Seattle\'s undisputed focal point in the passing game under the new offense. High target share and dynamic run-after-catch ability against a rebuilt Patriots secondary.',
-        parlay_utility: {
-          role: 'Core Yardage Anchor Leg',
-          synergy_tags: ['alpha_target_share', 'rac_upside', 'seattle_lead_script'],
-          positive_correlations: ['Seahawks -3.5 Spread', 'Darnold Over Passing Yards'],
-        },
-      });
-
-      props.push({
-        id: 'prop__phil_wood__aj_brown_receptions',
-        player: 'A.J. Brown',
-        team: 'NE',
-        game: 'NE @ SEA',
-        game_slate: 'Wednesday Kickoff',
-        category: 'receptions',
-        category_label: 'Receptions',
-        stat_type: 'receiving',
-        line: '5.5',
-        side: 'over',
-        price: '+121',
-        book: 'DraftKings',
-        analyst: 'Phil Wood (BettingPros)',
-        tier: 1,
-        tier_label: 'Tier 1: Recommended Best Bet',
-        weight: 1.0,
-        rationale: 'Patriots brought in Brown as their unquestioned WR1. In his first game with Drake Maye against a Seattle defense missing key secondary pieces, expect 8-11 targets minimum.',
-        parlay_utility: {
-          role: 'High-Volume Reception Engine',
-          synergy_tags: ['wr1_target_funnel', 'trailing_game_script', 'plus_money_value'],
-          positive_correlations: ['Drake Maye Over Passing Yards', 'A.J. Brown 70+ Receiving Yards', 'Patriots +3.5 Spread'],
-        },
-      });
-    }
-
-    // 4. BettingPros: Richard Janvrin (ID 2972)
-    if (article.id === 2972 || /Richard Janvrin/i.test(author)) {
-      props.push({
-        id: 'prop__richard_janvrin__rhamondre_stevenson_anytime_td',
-        player: 'Rhamondre Stevenson',
-        team: 'NE',
-        game: 'NE @ SEA',
-        game_slate: 'Wednesday Kickoff',
-        category: 'anytime_td',
-        category_label: 'Anytime Touchdown Scorer',
-        stat_type: 'touchdown',
-        line: 'Anytime TD',
-        side: 'yes',
-        price: '+100',
-        book: 'DraftKings',
-        analyst: 'Richard Janvrin (BettingPros)',
-        tier: 1,
-        tier_label: 'Tier 1: Recommended Best Bet',
-        weight: 1.0,
-        rationale: 'TreVeyon Henderson is dealing with injury and missed practice. Stevenson commands all goal-line and high-leverage touches as the bell cow of Mike Vrabel\'s offense.',
-        parlay_utility: {
-          role: 'Goal-Line Workhorse Anchor',
-          synergy_tags: ['bell_cow_volume', 'goal_line_monopoly', 'even_money_value'],
-          positive_correlations: ['Rhamondre Stevenson Over Rushing Yards', 'Patriots Over Team Total'],
-        },
-      });
-
-      props.push({
-        id: 'prop__richard_janvrin__jadarian_price_first_td',
-        player: 'Jadarian Price',
-        team: 'SEA',
-        game: 'NE @ SEA',
-        game_slate: 'Wednesday Kickoff',
-        category: 'first_td',
-        category_label: 'First Touchdown Scorer',
-        stat_type: 'touchdown',
-        line: 'First TD',
-        side: 'yes',
-        price: '+650',
-        book: 'DraftKings',
-        analyst: 'Richard Janvrin (BettingPros)',
-        tier: 3,
-        tier_label: 'Tier 3: High-Multiplier SGP Anchor',
-        weight: 0.75,
-        rationale: 'Seahawks scored first in 75% of games last season. Price steps into Kenneth Walker\'s early-down red zone role with huge opening drive scoring potential at +650.',
-        parlay_utility: {
-          role: 'Opening Script Payout Multiplier',
-          synergy_tags: ['opening_possession_scorer', 'favorite_fast_start'],
-          positive_correlations: ['Seahawks 1st Quarter ML', 'Jadarian Price Anytime TD'],
-        },
-      });
-    }
-
-    // 5. BettingPros: Andrew Erickson (ID 3062)
-    if (article.id === 3062 || /Andrew Erickson/i.test(author)) {
-      props.push({
-        id: 'prop__andrew_erickson__rhamondre_receiving_yards',
-        player: 'Rhamondre Stevenson',
-        team: 'NE',
-        game: 'NE @ SEA',
-        game_slate: 'Wednesday Kickoff',
-        category: 'receiving_yards',
-        category_label: 'Receiving Yards',
-        stat_type: 'receiving',
-        line: '23.5',
-        side: 'over',
-        price: '-110',
-        book: 'Consensus',
-        analyst: 'Andrew Erickson (BettingPros)',
-        tier: 1,
-        tier_label: 'Tier 1: Recommended Best Bet',
-        weight: 1.0,
-        rationale: 'Seattle allowed a league-high 5.7 receptions per game to RBs (37.6 ypg). Stevenson cleared this number in 5 of 6 games as an underdog and will be the center of New England\'s pass-catching checkdown game.',
-        parlay_utility: {
-          role: 'High-Floor Checkdown Prop',
-          synergy_tags: ['trailing_script_receptions', 'defensive_matchup_leak'],
-          positive_correlations: ['Maye Over Passing Yards', 'Rhamondre Over Rushing Yards', 'Patriots +3.5'],
-        },
-      });
-
-      props.push({
-        id: 'prop__andrew_erickson__drake_maye_rushing_yards',
-        player: 'Drake Maye',
-        team: 'NE',
-        game: 'NE @ SEA',
-        game_slate: 'Wednesday Kickoff',
-        category: 'rushing_yards',
-        category_label: 'Rushing Yards',
-        stat_type: 'rushing',
-        line: '24.5',
-        side: 'over',
-        price: '-110',
-        book: 'Consensus',
-        analyst: 'Andrew Erickson (BettingPros)',
-        tier: 1,
-        tier_label: 'Tier 1: Recommended Best Bet',
-        weight: 1.0,
-        rationale: 'Maye consistently clears 25+ rushing yards in high-leverage games against aggressive pass rushes. Mobile QB facing a hostile Lumen Field crowd creates organic scramble opportunities.',
-        parlay_utility: {
-          role: 'Dual-Threat QB Floor Prop',
-          synergy_tags: ['mobile_qb_floor', 'pass_rush_escape'],
-          positive_correlations: ['Patriots +3.5 Spread', 'Drake Maye Over Passing Yards'],
-        },
-      });
-
-      props.push({
-        id: 'prop__andrew_erickson__rashid_shaheed_receiving_yards',
-        player: 'Rashid Shaheed',
-        team: 'SEA',
-        game: 'NE @ SEA',
-        game_slate: 'Wednesday Kickoff',
-        category: 'receiving_yards',
-        category_label: 'Receiving Yards',
-        stat_type: 'receiving',
-        line: '29.5',
-        side: 'over',
-        price: '-110',
-        book: 'Consensus',
-        analyst: 'Andrew Erickson (BettingPros)',
-        tier: 2,
-        tier_label: 'Tier 2: Analyst Best Lean',
-        weight: 0.85,
-        rationale: 'Shaheed averaged 25.3 air yards per target in the postseason. Extension signals an expanded role on manufactured touches and deep shot crossers against a Patriots secondary vulnerable to explosive speed.',
-        parlay_utility: {
-          role: 'Deep Threat Yardage Anchor',
-          synergy_tags: ['explosive_play_upside', 'low_bar_yardage'],
-          positive_correlations: ['Over 44.5 Total', 'Darnold Over Passing Yards'],
-        },
-      });
-
-      props.push({
-        id: 'prop__andrew_erickson__hunter_henry_anytime_td',
-        player: 'Hunter Henry',
-        team: 'NE',
-        game: 'NE @ SEA',
-        game_slate: 'Wednesday Kickoff',
-        category: 'anytime_td',
-        category_label: 'Anytime Touchdown Scorer',
-        stat_type: 'touchdown',
-        line: 'Anytime TD',
-        side: 'yes',
-        price: '+270',
-        book: 'DraftKings',
-        analyst: 'Andrew Erickson (BettingPros)',
-        tier: 2,
-        tier_label: 'Tier 2: Plus-Money Red Zone Target',
-        weight: 0.85,
-        rationale: 'Henry scored 6 TDs last season and is Maye\'s top red-zone seam option. +270 provides tremendous standalone and parlay multiplier value.',
-        parlay_utility: {
-          role: 'High-Payout Red-Zone Multiplier',
-          synergy_tags: ['red_zone_seam_target', 'plus_money_payout_boost'],
-          positive_correlations: ['Maye Passing TDs Over 1.5', 'Patriots Over Team Total'],
-        },
-      });
-
-      props.push({
-        id: 'prop__andrew_erickson__jadarian_price_rush_attempts',
-        player: 'Jadarian Price',
-        team: 'SEA',
-        game: 'NE @ SEA',
-        game_slate: 'Wednesday Kickoff',
-        category: 'rushing_attempts',
-        category_label: 'Rushing Attempts',
-        stat_type: 'rushing',
-        line: '13.5',
-        side: 'under',
-        price: '-115',
-        book: 'Consensus',
-        analyst: 'Andrew Erickson (BettingPros)',
-        tier: 2,
-        tier_label: 'Tier 2: Analyst Under Lean',
-        weight: 0.85,
-        rationale: 'Rookie in his first start; coaching staff will limit between-the-tackles pounding against a rugged Patriots defensive interior, leaning on passes and rotation.',
-        parlay_utility: {
-          role: 'Negative Correlation Hedge / Game Script Under',
-          synergy_tags: ['rookie_touch_cap', 'pass_centric_game_flow'],
-          positive_correlations: ['Jadarian Price Over Receptions', 'Darnold Over Pass Attempts'],
-        },
-      });
-    }
-
-    // 6. VSiN: Zachary Cohen (ID 2954, 3028, 3138)
-    if (article.id === 3138 || article.id === 3028 || article.id === 2954 || /Zachary Cohen/i.test(author)) {
-      props.push({
-        id: 'prop__zachary_cohen__kyle_juszczyk_receiving_yards',
-        player: 'Kyle Juszczyk',
-        team: 'SF',
-        game: 'SF @ LAR',
-        game_slate: 'Thursday Melbourne Opener',
-        category: 'receiving_yards',
-        category_label: 'Receiving Yards',
-        stat_type: 'receiving',
-        line: '4.5',
-        side: 'over',
-        price: '-120',
-        book: 'DraftKings',
-        analyst: 'Zachary Cohen (VSiN)',
-        tier: 1,
-        tier_label: 'Tier 1: Recommended Best Bet',
-        weight: 1.0,
-        rationale: 'Averaged 14.5 rec yds/game vs Rams last season. Shanahan schemes him open with extended prep time. OptaAI projects 12.62 receiving yards (35.5% edge, 3-star confidence play).',
-        parlay_utility: {
-          role: 'Micro-Line Floor Anchor',
-          synergy_tags: ['micro_line_edge', 'opta_ai_3_star', 'high_probability_leg'],
-          positive_correlations: ['Brock Purdy Over Passing Yards', 'Over 48.5 Game Total'],
-        },
-      });
-
-      props.push({
-        id: 'prop__zachary_cohen__drake_maye_passing_yards',
-        player: 'Drake Maye',
-        team: 'NE',
-        game: 'NE @ SEA',
-        game_slate: 'Wednesday Kickoff',
-        category: 'passing_yards',
-        category_label: 'Passing Yards',
-        stat_type: 'passing',
-        line: '226.5',
-        side: 'over',
-        price: '-117',
-        book: 'DraftKings',
-        analyst: 'Zachary Cohen (VSiN)',
-        tier: 1,
-        tier_label: 'Tier 1: Recommended Best Bet',
-        weight: 1.0,
-        rationale: 'MVP runner-up averaged 248.7 pass yds/game across 21 games. Threw for 295 yds against Seattle in Super Bowl LX. With Henderson banged up and Brown/Doubs added, volume will be massive.',
-        parlay_utility: {
-          role: 'Primary Air-Show Engine',
-          synergy_tags: ['trailing_pass_volume', 'alpha_target_infusion', 'super_bowl_rematch_form'],
-          positive_correlations: ['A.J. Brown Over Receptions / Yards', 'Hunter Henry Over Receptions', 'Patriots +3.5'],
-        },
-      });
-
-      props.push({
-        id: 'prop__zachary_cohen__bucky_irving_rush_attempts',
-        player: 'Bucky Irving',
-        team: 'TB',
-        game: 'TB @ CIN',
-        game_slate: 'Sunday 1:00 PM ET',
-        category: 'rushing_attempts',
-        category_label: 'Rushing Attempts',
-        stat_type: 'rushing',
-        line: '14.5',
-        side: 'over',
-        price: '-103',
-        book: 'DraftKings',
-        analyst: 'Zachary Cohen (VSiN)',
-        tier: 1,
-        tier_label: 'Tier 1: Recommended Best Bet',
-        weight: 1.0,
-        rationale: 'OptaAI projection models 15.53 carries against a Bengals defense susceptible to outside-zone running. Clear RB1 volume workload.',
-        parlay_utility: {
-          role: 'Sunday Workhorse Anchor',
-          synergy_tags: ['workhorse_volume', 'opta_ai_edge'],
-          positive_correlations: ['Buccaneers +3.5 Spread', 'Under 47.5 Total'],
-        },
-      });
-
-      props.push({
-        id: 'prop__zachary_cohen__alec_pierce_receiving_yards',
-        player: 'Alec Pierce',
-        team: 'IND',
-        game: 'BAL @ IND',
-        game_slate: 'Sunday 1:00 PM ET',
-        category: 'receiving_yards',
-        category_label: 'Receiving Yards',
-        stat_type: 'receiving',
-        line: '44.5',
-        side: 'over',
-        price: '-113',
-        book: 'DraftKings',
-        analyst: 'Zachary Cohen (VSiN)',
-        tier: 1,
-        tier_label: 'Tier 1: Recommended Best Bet',
-        weight: 1.0,
-        rationale: 'OptaAI projection calls for 72.60 receiving yards. Ravens were 21st in dropback EPA/play allowed (0.101). Pierce is Daniel Jones\' premier vertical target.',
-        parlay_utility: {
-          role: 'High-Upside Vertical Leg',
-          synergy_tags: ['massive_projection_edge', 'deep_ball_efficiency'],
-          positive_correlations: ['Colts +3.5 Spread', 'Over 46.5 Total'],
-        },
-      });
-
-      props.push({
-        id: 'prop__zachary_cohen__geno_smith_interception',
-        player: 'Geno Smith',
-        team: 'NYJ',
-        game: 'NYJ @ TEN',
-        game_slate: 'Sunday 1:00 PM ET',
-        category: 'interceptions',
-        category_label: 'To Throw An Interception',
-        stat_type: 'passing',
-        line: '0.5',
-        side: 'over',
-        price: '-103',
-        book: 'DraftKings',
-        analyst: 'Zachary Cohen (VSiN)',
-        tier: 1,
-        tier_label: 'Tier 1: Recommended Best Bet',
-        weight: 1.0,
-        rationale: 'Titans revamped defensive front under Dennard Wilson will force turnover-prone Smith into contested sideline throws under duress.',
-        parlay_utility: {
-          role: 'Defensive Pressure Synergy Leg',
-          synergy_tags: ['turnover_prone_qb', 'blitz_pressure_forcing'],
-          positive_correlations: ['Titans -1.5 Spread', 'Under 41.5 Game Total'],
-        },
-      });
-    }
-
-    // 7. VSiN: John Hansen ("The Guru") in Bill Adee article (ID 3086)
-    if (article.id === 3086 || /John Hansen/i.test(article.body || '')) {
-      props.push({
-        id: 'prop__john_hansen__rhamondre_rushing_yards',
-        player: 'Rhamondre Stevenson',
-        team: 'NE',
-        game: 'NE @ SEA',
-        game_slate: 'Wednesday Kickoff',
-        category: 'rushing_yards',
-        category_label: 'Rushing Yards',
-        stat_type: 'rushing',
-        line: '57.5',
-        side: 'over',
-        price: '-111',
-        book: 'VSiN Pro Picks (Consensus)',
-        analyst: 'John Hansen ("The Guru", VSiN Pro Picks)',
-        tier: 1,
-        tier_label: 'Tier 1: Recommended Best Bet',
-        weight: 1.0,
-        rationale: 'Primary bell cow rusher in Mike Vrabel\'s ground-and-pound game plan. Will command 16-20 carries with Henderson sidelined.',
-        parlay_utility: {
-          role: 'Workhorse Rushing Foundation',
-          synergy_tags: ['ground_and_pound', 'carries_monopoly'],
-          positive_correlations: ['Patriots +3.5 Spread', 'Rhamondre Stevenson Anytime TD'],
-        },
-      });
-
-      props.push({
-        id: 'prop__john_hansen__hunter_henry_receiving_yards',
-        player: 'Hunter Henry',
-        team: 'NE',
-        game: 'NE @ SEA',
-        game_slate: 'Wednesday Kickoff',
-        category: 'receiving_yards',
-        category_label: 'Receiving Yards',
-        stat_type: 'receiving',
-        line: '34.5',
-        side: 'over',
-        price: '-110',
-        book: 'VSiN Pro Picks (Consensus)',
-        analyst: 'John Hansen ("The Guru", VSiN Pro Picks)',
-        tier: 1,
-        tier_label: 'Tier 1: Recommended Best Bet',
-        weight: 1.0,
-        rationale: 'Henry averaged 42.1 receiving yards per game with Maye last season and remains the primary target over the middle.',
-        parlay_utility: {
-          role: 'TE Chain-Mover Yardage Leg',
-          synergy_tags: ['middle_field_target', 'low_total_clearance'],
-          positive_correlations: ['Hunter Henry Over Receptions', 'Drake Maye Over Passing Yards'],
-        },
-      });
-    }
-
-    // 8. VSiN: Adam Burke First TD Predictions (ID 3087)
-    if (article.id === 3087 || /Adam Burke/i.test(author)) {
-      props.push({
-        id: 'prop__adam_burke__jonathan_taylor_first_td',
-        player: 'Jonathan Taylor',
-        team: 'IND',
-        game: 'BAL @ IND',
-        game_slate: 'Sunday 1:00 PM ET',
-        category: 'first_td',
-        category_label: 'First Touchdown Scorer',
-        stat_type: 'touchdown',
-        line: 'First TD',
-        side: 'yes',
-        price: '+400',
-        book: 'DraftKings',
-        analyst: 'Adam Burke (VSiN)',
-        tier: 2,
-        tier_label: 'Tier 2: Model Best First TD Leg',
-        weight: 0.85,
-        rationale: 'Colts led the entire NFL in 2025 by scoring the first TD in 15 of 17 games (88.2%). Taylor scored 5 first team TDs last year. Shane Steichen scripted drives are elite.',
-        parlay_utility: {
-          role: 'Elite Scripted Touchdown Multiplier',
-          synergy_tags: ['league_best_first_td_rate', 'steichen_scripted_drive'],
-          positive_correlations: ['Colts 1st Half Spread', 'Jonathan Taylor Anytime TD'],
-        },
-      });
-
-      props.push({
-        id: 'prop__adam_burke__james_cook_first_td',
-        player: 'James Cook',
-        team: 'BUF',
-        game: 'BUF @ HOU',
-        game_slate: 'Sunday 1:00 PM ET',
-        category: 'first_td',
-        category_label: 'First Touchdown Scorer',
-        stat_type: 'touchdown',
-        line: 'First TD',
-        side: 'yes',
-        price: '+550',
-        book: 'DraftKings',
-        analyst: 'Adam Burke (VSiN)',
-        tier: 2,
-        tier_label: 'Tier 2: Model Best First TD Leg',
-        weight: 0.85,
-        rationale: 'Bills led the NFL with 10 opening-possession TDs in 19 games. Cook was their most frequent scorer with 13 first team TDs over the last 2 seasons.',
-        parlay_utility: {
-          role: 'Opening Possession Striker',
-          synergy_tags: ['opening_possession_td_leader', 'goal_line_punch'],
-          positive_correlations: ['Bills Moneyline', 'James Cook Anytime TD'],
-        },
-      });
-
-      props.push({
-        id: 'prop__adam_burke__parker_washington_first_td',
-        player: 'Parker Washington',
-        team: 'JAX',
-        game: 'CLE @ JAX',
-        game_slate: 'Sunday 1:00 PM ET',
-        category: 'first_td',
-        category_label: 'First Touchdown Scorer',
-        stat_type: 'touchdown',
-        line: 'First TD',
-        side: 'yes',
-        price: '+850',
-        book: 'DraftKings',
-        analyst: 'Adam Burke (VSiN)',
-        tier: 3,
-        tier_label: 'Tier 3: Longshot Value Scorer',
-        weight: 0.75,
-        rationale: 'Jaguars scored first TD at 72.2% clip under Liam Coen. Washington led the team with 4 first TDs as Coen loves throwing inside the 10.',
-        parlay_utility: {
-          role: 'Longshot Red Zone Target',
-          synergy_tags: ['red_zone_quick_slants', 'coen_scheme_boost'],
-          positive_correlations: ['Jaguars Moneyline', 'Jaguars 1st Quarter Over'],
-        },
-      });
-
-      props.push({
-        id: 'prop__adam_burke__harold_fannin_first_td',
-        player: 'Harold Fannin',
-        team: 'CLE',
-        game: 'CLE @ JAX',
-        game_slate: 'Sunday 1:00 PM ET',
-        category: 'first_td',
-        category_label: 'First Touchdown Scorer',
-        stat_type: 'touchdown',
-        line: 'First TD',
-        side: 'yes',
-        price: '+1700',
-        book: 'DraftKings',
-        analyst: 'Adam Burke (VSiN)',
-        tier: 3,
-        tier_label: 'Tier 3: Mega-Longshot Multiplier',
-        weight: 0.75,
-        rationale: 'Todd Monken offense from Baltimore scored first in 73% of games over 3 seasons and heavily utilizes tight ends in the red zone.',
-        parlay_utility: {
-          role: 'Mega-Odds SGP Booster',
-          synergy_tags: ['te_red_zone_package', 'monken_scheme'],
-          positive_correlations: ['Browns +8 Spread', 'Fannin Anytime TD'],
-        },
-      });
-
-      props.push({
-        id: 'prop__adam_burke__dalton_kincaid_first_td',
-        player: 'Dalton Kincaid',
-        team: 'BUF',
-        game: 'BUF @ HOU',
-        game_slate: 'Sunday 1:00 PM ET',
-        category: 'first_td',
-        category_label: 'First Touchdown Scorer',
-        stat_type: 'touchdown',
-        line: 'First TD',
-        side: 'yes',
-        price: '+1700',
-        book: 'DraftKings',
-        analyst: 'Adam Burke (VSiN)',
-        tier: 3,
-        tier_label: 'Tier 3: Mega-Longshot Multiplier',
-        weight: 0.75,
-        rationale: 'Kincaid caught 3 first-team touchdowns early last season as Josh Allen\'s favorite early-read target in the red zone.',
-        parlay_utility: {
-          role: 'TE Red Zone Longshot',
-          synergy_tags: ['allen_early_read', 'seam_touchdown'],
-          positive_correlations: ['Josh Allen Over Passing TDs', 'Bills Over Team Total'],
-        },
-      });
-    }
-
-    // 9. Sharp Football: Curtis Hirsch SGP (ID 2892)
-    if (article.id === 2892 || /Curtis Hirsch/i.test(author)) {
-      props.push({
-        id: 'prop__curtis_hirsch__aj_brown_alt_rec_yards',
-        player: 'A.J. Brown',
-        team: 'NE',
-        game: 'NE @ SEA',
-        game_slate: 'Wednesday Kickoff',
-        category: 'receiving_yards',
-        category_label: 'Receiving Yards (Alt Milestone)',
-        stat_type: 'receiving',
-        line: '70+',
-        side: 'over',
-        price: '+115',
-        book: 'DraftKings',
-        analyst: 'Curtis Hirsch (Sharp Football)',
-        tier: 1,
-        tier_label: 'Tier 1: Recommended SGP Leg',
-        weight: 1.0,
-        rationale: 'Patriots paid a future first-round pick for Brown and will feature him on NFL Opening Night against a Seattle secondary missing Riq Woolen and Coby Bryant.',
-        parlay_utility: {
-          role: 'Alpha WR Milestone Anchor',
-          synergy_tags: ['milestone_ladder', 'featured_debut'],
-          positive_correlations: ['Maye Over Passing Yards', 'Patriots +3.5 Spread'],
-        },
-      });
-
-      props.push({
-        id: 'prop__curtis_hirsch__rashid_shaheed_alt_rec_yards',
-        player: 'Rashid Shaheed',
-        team: 'SEA',
-        game: 'NE @ SEA',
-        game_slate: 'Wednesday Kickoff',
-        category: 'receiving_yards',
-        category_label: 'Receiving Yards (Alt Milestone)',
-        stat_type: 'receiving',
-        line: '40+',
-        side: 'over',
-        price: '+125',
-        book: 'DraftKings',
-        analyst: 'Curtis Hirsch (Sharp Football)',
-        tier: 1,
-        tier_label: 'Tier 1: Recommended SGP Leg',
-        weight: 1.0,
-        rationale: 'New offensive coordinator giving Shaheed increased short/intermediate crossing routes and screen packages to complement deep ball ability.',
-        parlay_utility: {
-          role: 'Dynamic Playmaker SGP Leg',
-          synergy_tags: ['yac_scheme_boost', 'explosive_crossing_routes'],
-          positive_correlations: ['Over 44.5 Total', 'Darnold Over Passing Yards'],
-        },
-      });
-    }
-
-    // 10. Walter Football: Walter Cherepinsky (ID 3066)
-    if (article.id === 3066 || /Walter Football/i.test(source)) {
-      props.push({
-        id: 'prop__walter_football__drake_maye_alt_rushing_yards',
-        player: 'Drake Maye',
-        team: 'NE',
-        game: 'NE @ SEA',
-        game_slate: 'Wednesday Kickoff',
-        category: 'rushing_yards',
-        category_label: 'Rushing Yards (Alt Milestone)',
-        stat_type: 'rushing',
-        line: '25+',
-        side: 'over',
-        price: '+110',
-        book: 'DraftKings',
-        analyst: 'Walter Cherepinsky (Walter Football)',
-        tier: 1,
-        tier_label: 'Tier 1: Official SGP Pick',
-        weight: 1.0,
-        rationale: 'Key leg of official Walter Football SGP (+1050). Maye\'s rushing floor is essential against Seattle\'s aggressive front.',
-        parlay_utility: {
-          role: 'Official SGP Core Leg',
-          synergy_tags: ['walter_football_official', 'qb_mobility'],
-          positive_correlations: ['A.J. Brown 60+ Rec Yds', 'Seahawks -3.5 Spread'],
-        },
-      });
-
-      props.push({
-        id: 'prop__walter_football__aj_brown_alt_rec_yards',
-        player: 'A.J. Brown',
-        team: 'NE',
-        game: 'NE @ SEA',
-        game_slate: 'Wednesday Kickoff',
-        category: 'receiving_yards',
-        category_label: 'Receiving Yards (Alt Milestone)',
-        stat_type: 'receiving',
-        line: '60+',
-        side: 'over',
-        price: '-135',
-        book: 'DraftKings',
-        analyst: 'Walter Cherepinsky (Walter Football)',
-        tier: 1,
-        tier_label: 'Tier 1: Official SGP Pick',
-        weight: 1.0,
-        rationale: 'Primary target in New England passing offense. Safest yardage floor leg for SGP construction.',
-        parlay_utility: {
-          role: 'Official SGP Core Leg',
-          synergy_tags: ['walter_football_official', 'target_floor'],
-          positive_correlations: ['Drake Maye 25+ Rush Yds', 'Seahawks -3.5 Spread'],
-        },
-      });
-    }
-
-    // 11. Twitter/X Bookmarks: Joe Holka (ID 3051)
-    if (article.id === 3051 || /Joe Holka/i.test(author)) {
-      props.push({
-        id: 'prop__joe_holka__zay_flowers_rec_yards',
-        player: 'Zay Flowers',
-        team: 'BAL',
-        game: 'BAL @ IND',
-        game_slate: 'Sunday 1:00 PM ET',
-        category: 'receiving_yards',
-        category_label: 'Receiving Yards',
-        stat_type: 'receiving',
-        line: '64.5',
-        side: 'over',
-        price: '-114',
-        book: 'DraftKings',
-        analyst: 'Joe Holka (Twitter/X Bookmarks)',
-        tier: 1,
-        tier_label: 'Tier 1: High-Volume Parlay Target',
-        weight: 1.0,
-        rationale: 'Ranked 6th in NFL in receiving yards last season (71.1 ypg). Colts allowed 2nd-most receiving yards to WRs. Cleared in 4 of final 5 games.',
-        parlay_utility: {
-          role: 'Sunday Matchup Exploit Leg',
-          synergy_tags: ['vulnerable_secondary', 'alpha_target_share'],
-          positive_correlations: ['Ravens Moneyline', 'Lamar Jackson Over Pass Yds'],
-        },
-      });
-
-      props.push({
-        id: 'prop__joe_holka__omarion_hampton_rushing_yards',
-        player: 'Omarion Hampton',
-        team: 'LAC',
-        game: 'ARI @ LAC',
-        game_slate: 'Sunday 4:25 PM ET',
-        category: 'rushing_yards',
-        category_label: 'Rushing Yards',
-        stat_type: 'rushing',
-        line: '65.5',
-        side: 'over',
-        price: '-114',
-        book: 'DraftKings',
-        analyst: 'Joe Holka (Twitter/X Bookmarks)',
-        tier: 1,
-        tier_label: 'Tier 1: High-Volume Parlay Target',
-        weight: 1.0,
-        rationale: 'Jim Harbaugh ground-and-pound commitment against a soft Cardinals run defense. Hampton commands workhorse carries.',
-        parlay_utility: {
-          role: 'Harbaugh Workhorse Anchor',
-          synergy_tags: ['harbaugh_ground_game', 'soft_run_defense'],
-          positive_correlations: ['Chargers -3.5 Spread', 'Omarion Hampton Anytime TD'],
-        },
-      });
-    }
-
-    // 12. BettingPros: Steve Krebs (ID 2973)
-    if (article.id === 2973 || (/Steve Krebs/i.test(author) && /Parlay/i.test(article.title))) {
-      props.push({
-        id: 'prop__steve_krebs__christian_mccaffrey_rush_yards',
-        player: 'Christian McCaffrey',
-        team: 'SF',
-        game: 'SF @ LAR',
-        game_slate: 'Thursday Melbourne Opener',
-        category: 'rushing_yards',
-        category_label: 'Rushing Yards',
-        stat_type: 'rushing',
-        line: '61+',
-        side: 'over',
-        price: '-115',
-        book: 'DraftKings',
-        analyst: 'Steve Krebs (BettingPros)',
-        tier: 1,
-        tier_label: 'Tier 1: Early Parlay Leg',
-        weight: 1.0,
-        rationale: 'Line continues to drop into dangerous territory for sportsbooks. Shanahan will give McCaffrey 18+ touches on the Melbourne pitch.',
-        parlay_utility: {
-          role: 'Elite Workhorse Floor Leg',
-          synergy_tags: ['depressed_line_value', 'elite_all_purpose_rb'],
-          positive_correlations: ['49ers +3.5 Spread', 'Christian McCaffrey Anytime TD'],
-        },
+      rawMatches.push({
+        id,
+        player: rawName,
+        team,
+        game: gameInfo.game,
+        game_slate: gameInfo.game_slate,
+        category,
+        category_label,
+        stat_type,
+        line,
+        side,
+        price: priceStr,
+        book: 'DraftKings/FanDuel (per source article)',
+        analyst: `${author} (${source})`,
+        source_article_id: article.id ?? null,
+        source_url: article.url || null,
+        rationale: rationale || `${rawName} prop flagged by ${author} (${source}).`,
+        week,
       });
     }
   }
 
-  // 13. Dedicated Melbourne Intelligence (BettingPros Ep. 1054, Even Money, StatTree Projection Models)
-  const melbourneProps = [
-    {
-      id: 'prop__scott_bogman__blake_corum_rushing_yards',
-      player: 'Blake Corum',
-      team: 'LAR',
-      game: 'SF @ LAR',
-      game_slate: 'Thursday Melbourne Opener',
-      category: 'rushing_yards',
-      category_label: 'Rushing Yards',
-      stat_type: 'rushing',
-      line: '44.5',
-      side: 'over',
-      price: '-110',
-      book: 'DraftKings / BettingPros',
-      analyst: 'Scott Bogman (BettingPros Ep. 1054)',
-      tier: 1,
-      tier_label: 'Tier 1: Recommended Best Bet',
-      weight: 1.0,
-      rationale: 'Corum cleared 44.5 rush yds in 7 of 9 games from Week 13 through the postseason last year. Generates a 16% explosive run rate (vs Kyren\'s 10%) against a 49ers interior front line vulnerable to outside zone. McVay will lean heavily on Corum to close in the second half.',
-      parlay_utility: {
-        role: 'Second-Half Closer / Ground Anchor',
-        synergy_tags: ['explosive_run_rate', 'second_half_closer', 'vulnerable_rush_defense'],
-        positive_correlations: ['Kyren Williams Over Rushing Yards', 'Rams -3.5 Spread', 'Under 48.5 Total'],
-      },
-    },
-    {
-      id: 'prop__tara_roberts__kyren_williams_rushing_yards',
-      player: 'Kyren Williams',
-      team: 'LAR',
-      game: 'SF @ LAR',
-      game_slate: 'Thursday Melbourne Opener',
-      category: 'rushing_yards',
-      category_label: 'Rushing Yards',
-      stat_type: 'rushing',
-      line: '56.5',
-      side: 'over',
-      price: '-115',
-      book: 'DraftKings / BettingPros',
-      analyst: 'Tara Roberts (BettingPros Ep. 1054)',
-      tier: 1,
-      tier_label: 'Tier 1: Recommended Best Bet',
-      weight: 1.0,
-      rationale: 'Averaged 4.8 YPC last season and consistently clears 56+ yards (82.4% season hit rate in StatTree model, 5/5 L5, 73.7 Yds/G). Rams offensive line is fully healthy and San Francisco cannot stack the box against Stafford, Nacua, and Davante Adams.',
-      parlay_utility: {
-        role: 'Primary Workhorse Ground Engine',
-        synergy_tags: ['bell_cow_volume', 'elite_hit_rate', 'offensive_line_advantage'],
-        positive_correlations: ['Blake Corum Over Rushing Yards', 'Rams -3.5 Spread', 'Kyren Williams Anytime TD'],
-      },
-    },
-    {
-      id: 'prop__scott_bogman__deshaun_stribling_rec_yards',
-      player: 'Deshaun Stribling',
-      team: 'SF',
-      game: 'SF @ LAR',
-      game_slate: 'Thursday Melbourne Opener',
-      category: 'receiving_yards',
-      category_label: 'Receiving Yards',
-      stat_type: 'receiving',
-      line: '35.5',
-      side: 'over',
-      price: '-110',
-      book: 'BettingPros Consensus',
-      analyst: 'Scott Bogman (BettingPros Ep. 1054)',
-      tier: 1,
-      tier_label: 'Tier 1: Rookie Breakout Target',
-      weight: 1.0,
-      rationale: 'Electric preseason showing. With 49ers expected to trail late in negative game script, and with Mike Evans gimpy/snap count, Christian Kirk on IR, and George Kittle managed, Stribling only needs 3-4 catches on intermediate routes to clear 35.5 yards.',
-      parlay_utility: {
-        role: 'Trailing Script Value Receiver',
-        synergy_tags: ['trailing_pass_script', 'wr_target_vacancy', 'rookie_breakout'],
-        positive_correlations: ['Brock Purdy Over Pass Attempts', '49ers +3.5 Spread'],
-      },
-    },
-    {
-      id: 'prop__tara_roberts__deebo_samuel_rec_yards',
-      player: 'Deebo Samuel',
-      team: 'SF',
-      game: 'SF @ LAR',
-      game_slate: 'Thursday Melbourne Opener',
-      category: 'receiving_yards',
-      category_label: 'Receiving Yards',
-      stat_type: 'receiving',
-      line: '29.5',
-      side: 'over',
-      price: '-110',
-      book: 'BettingPros Consensus',
-      analyst: 'Tara Roberts (BettingPros Ep. 1054)',
-      tier: 1,
-      tier_label: 'Tier 1: Recommended Best Bet',
-      weight: 1.0,
-      rationale: 'Healthy, reliable target in Kyle Shanahan\'s creative system, projected at 33.6 yards by BettingPros model. With Evans and Kittle on snap management, Deebo will be used heavily on intermediate touches, jets, and quick screens.',
-      parlay_utility: {
-        role: 'Intermediate Safety Valve',
-        synergy_tags: ['veteran_health_floor', 'manufactured_touches', 'shanahan_scheme'],
-        positive_correlations: ['Christian McCaffrey Over Receptions', 'Brock Purdy Over Completions'],
-      },
-    },
-    {
-      id: 'prop__stattree__puka_nacua_receptions',
-      player: 'Puka Nacua',
-      team: 'LAR',
-      game: 'SF @ LAR',
-      game_slate: 'Thursday Melbourne Opener',
-      category: 'receptions',
-      category_label: 'Receptions',
-      stat_type: 'receiving',
-      line: '7.5',
-      side: 'over',
-      price: '+116',
-      book: 'DraftKings / StatTree Model',
-      analyst: 'StatTree Quantitative Model',
-      tier: 1,
-      tier_label: 'Tier 1: 5-Star Scheme Mismatch',
-      weight: 1.0,
-      rationale: 'StatTree Scheme Read Score 11: Averaging 10.4 targets/game at an 83% catch rate. Generates 10.8 yds/target against zone coverage. 49ers run zone coverage on 74% of dropbacks (9th highest in NFL). Commands 30% team target share.',
-      parlay_utility: {
-        role: 'Zone-Coverage Funnel Anchor',
-        synergy_tags: ['zone_coverage_mismatch', 'elite_target_share', 'plus_money_alpha'],
-        positive_correlations: ['Matthew Stafford Over Passing TDs', 'Rams -3.5 Spread'],
-      },
-    },
-    {
-      id: 'prop__stattree__davante_adams_anytime_td',
-      player: 'Davante Adams',
-      team: 'LAR',
-      game: 'SF @ LAR',
-      game_slate: 'Thursday Melbourne Opener',
-      category: 'anytime_td',
-      category_label: 'Anytime Touchdown Scorer',
-      stat_type: 'touchdown',
-      line: 'Anytime TD',
-      side: 'yes',
-      price: '+140',
-      book: 'DraftKings / StatTree Model',
-      analyst: 'StatTree Quantitative Model',
-      tier: 1,
-      tier_label: 'Tier 1: #1 Ranked ATD Board Edge',
-      weight: 1.0,
-      rationale: 'StatTree ATD Score 16.8 (#1 on entire NFL Week 1 board). Model gap +0.194 over implied probability. Commanded 32 prior red-zone targets, serving as Stafford\'s primary red-zone isolated threat.',
-      parlay_utility: {
-        role: 'Red-Zone Payout Multiplier',
-        synergy_tags: ['red_zone_target_leader', 'stattree_rank_1', 'isolated_endzone_threat'],
-        positive_correlations: ['Matthew Stafford Over 1.5 Passing TDs', 'Rams Over Team Total'],
-      },
-    },
-    {
-      id: 'prop__stattree__george_kittle_receptions',
-      player: 'George Kittle',
-      team: 'SF',
-      game: 'SF @ LAR',
-      game_slate: 'Thursday Melbourne Opener',
-      category: 'receptions',
-      category_label: 'Receptions',
-      stat_type: 'receiving',
-      line: '3.5',
-      side: 'over',
-      price: '-110',
-      book: 'DraftKings / StatTree Model',
-      analyst: 'StatTree Quantitative Model',
-      tier: 1,
-      tier_label: 'Tier 1: High-Floor Blitz Valve',
-      weight: 1.0,
-      rationale: 'StatTree 90.9% season hit rate (10/11 games) and 5/5 in last 5. Averages 5.18 rec/g on 6.27 targets (82.6% catch rate). Acts as Brock Purdy\'s primary quick safety valve against Rams pass rush (Garrett, Donald, Turner).',
-      parlay_utility: {
-        role: 'High-Floor Safety Valve Leg',
-        synergy_tags: ['blitz_beater_valve', '90pct_hit_rate', 'quick_release_target'],
-        positive_correlations: ['Christian McCaffrey Over Receptions', '49ers Under Team Total'],
-      },
-    },
-    {
-      id: 'prop__stattree__cmc_receptions',
-      player: 'Christian McCaffrey',
-      team: 'SF',
-      game: 'SF @ LAR',
-      game_slate: 'Thursday Melbourne Opener',
-      category: 'receptions',
-      category_label: 'Receptions',
-      stat_type: 'receiving',
-      line: '4.5',
-      side: 'over',
-      price: '+104',
-      book: 'DraftKings / StatTree Model',
-      analyst: 'StatTree Quantitative Model',
-      tier: 1,
-      tier_label: 'Tier 1: Plus-Money Volume Play',
-      weight: 1.0,
-      rationale: 'StatTree Scheme Read Score 8: 7.6 targets/game, 86% catch rate, 23% target share (24th of 182). Cleared in 13 of 17 games (76%). Vital screen and checkdown outlet against Aaron Donald and Myles Garrett.',
-      parlay_utility: {
-        role: 'Dual-Threat Volume Floor',
-        synergy_tags: ['pass_protection_dumpoff', 'plus_money_floor', 'target_share_leader'],
-        positive_correlations: ['Christian McCaffrey 61+ Rushing Yards', 'George Kittle Over Receptions'],
-      },
-    },
-    {
-      id: 'prop__steve_fezzik__sf_lar_second_half_over',
-      player: 'Game Derivative (SF @ LAR)',
-      team: 'LAR',
-      game: 'SF @ LAR',
-      game_slate: 'Thursday Melbourne Opener',
-      category: 'game_derivative',
-      category_label: '2nd Half Total Points',
-      stat_type: 'total',
-      line: '23.5',
-      side: 'over',
-      price: '-110',
-      book: 'DraftKings (Reduced Juice)',
-      analyst: 'Steve Fezzik (Even Money Podcast)',
-      tier: 1,
-      tier_label: 'Tier 1: Recommended Market Derivative',
-      weight: 1.0,
-      rationale: 'Key hook on 24 points: Teams traveling across the globe start sluggish in the 1st half. Halftime schematic adjustments and trailing urgency dramatically accelerate 2nd half scoring.',
-      parlay_utility: {
-        role: 'Second-Half Acceleration Anchor',
-        synergy_tags: ['halftime_adjustments', 'trailing_pace', 'key_hook_value'],
-        positive_correlations: ['Blake Corum Over Rushing Yards', 'Deshaun Stribling Over Receiving Yards'],
-      },
-    },
-  ];
+  // Rank within each article-ish grouping (source+author) so the first props an
+  // analyst calls out (their "best bets", listed first in these articles) land
+  // in Tier 1 and the rest land in Tier 2 -- a reasonable, non-fabricated proxy
+  // for "featured" vs "secondary" since we aren't hand-labeling confidence.
+  const byAnalyst = new Map();
+  for (const p of rawMatches) {
+    if (!byAnalyst.has(p.analyst)) byAnalyst.set(p.analyst, []);
+    byAnalyst.get(p.analyst).push(p);
+  }
+  const props = [];
+  for (const [, list] of byAnalyst) {
+    list.forEach((p, idx) => {
+      p.tier = idx < 2 ? 1 : idx < 5 ? 2 : 3;
+      p.tier_label = p.tier === 1 ? 'Tier 1: Featured Pick' : p.tier === 2 ? 'Tier 2: Secondary Pick' : 'Tier 3: Depth Pick';
+      p.weight = p.tier === 1 ? 1.0 : p.tier === 2 ? 0.7 : 0.4;
+      props.push(p);
+    });
+  }
 
-  props.push(...melbourneProps);
-
-  // Deduplicate by id
-  const seen = new Set();
-  const deduped = [];
+  // Attach a lightweight, generic parlay_utility (role from stat type, synergy
+  // tags from category, and positive correlations limited to other real props
+  // extracted in the same game -- no invented player names or made-up numbers).
+  const byGame = new Map();
   for (const p of props) {
-    if (!seen.has(p.id)) {
-      seen.add(p.id);
-      if (!p.selection) {
-        if (p.category?.includes('first_td')) {
-          p.selection = 'First Touchdown Scorer';
-        } else if (p.category?.includes('anytime_td')) {
-          p.selection = 'Anytime Touchdown Scorer';
-        } else if (p.line?.includes('+')) {
-          p.selection = `${p.line} ${p.category_label || ''}`.trim();
-        } else if (p.side && p.line) {
-          const sideCap = p.side.charAt(0).toUpperCase() + p.side.slice(1);
-          p.selection = `${sideCap} ${p.line} ${p.category_label || ''}`.trim();
-        } else {
-          p.selection = `${p.line || ''} ${p.category_label || ''}`.trim();
-        }
-      }
-      deduped.push(p);
-    }
+    if (!byGame.has(p.game)) byGame.set(p.game, []);
+    byGame.get(p.game).push(p);
+  }
+  const ROLE_BY_STAT_TYPE = {
+    passing: 'Passing Volume Anchor',
+    rushing: 'Ground Game Piece',
+    receiving: 'Pass-Catching Piece',
+    touchdown: 'End-Zone Target',
+    defense: 'Defensive/Situational Piece',
+    other: 'Complementary Piece',
+  };
+  for (const p of props) {
+    const gamePeers = (byGame.get(p.game) || []).filter((peer) => peer.id !== p.id);
+    p.parlay_utility = {
+      role: ROLE_BY_STAT_TYPE[p.stat_type] || 'Complementary Piece',
+      synergy_tags: [p.category, `${p.team}_offense`],
+      positive_correlations: gamePeers
+        .filter((peer) => peer.team === p.team && (peer.side === p.side || peer.side === 'anytime' || p.side === 'anytime'))
+        .slice(0, 3)
+        .map((peer) => `${peer.player} ${peer.category_label}`),
+    };
   }
 
-  return deduped;
+  return props;
 }
 
 /**
  * Pre-engineered curated Parlay Cards built from positive correlation synergy
  */
 export function buildCuratedParlayCards(props = []) {
-  const byId = new Map(props.map((p) => [p.id, p]));
+  // Build same-game parlay cards dynamically from whatever real props were
+  // extracted this week, instead of hand-authoring fixed legs against Week 1
+  // matchups. For each game with enough extracted props, take the top-weighted
+  // legs (favoring different stat types so legs aren't redundant), compute the
+  // combined odds with the same math the old hardcoded cards used, and label
+  // everything from the real team names -- no invented synergy numbers.
+  const byGame = new Map();
+  for (const p of props) {
+    if (!byGame.has(p.game)) byGame.set(p.game, []);
+    byGame.get(p.game).push(p);
+  }
 
-  const resolveLeg = (id, fallback) => {
-    const p = byId.get(id);
-    if (!p) return fallback;
-    const selection = p.selection || fallback?.selection || (
-      p.category?.includes('first_td') ? 'First Touchdown Scorer' :
-      p.category?.includes('anytime_td') ? 'Anytime Touchdown Scorer' :
-      p.line?.includes('+') ? `${p.line} ${p.category_label || ''}`.trim() :
-      `${p.side ? p.side.charAt(0).toUpperCase() + p.side.slice(1) : ''} ${p.line || ''} ${p.category_label || ''}`.trim()
-    );
-    return {
-      ...p,
-      selection,
-    };
-  };
+  const cards = [];
+  for (const [game, gameProps] of byGame) {
+    if (gameProps.length < 2) continue; // not enough real signal to stack a parlay
 
-  return [
-    {
-      id: 'parlay__ne_sea__aerial_volume_stack',
-      title: 'Patriots Aerial Volume SGP (Super Bowl Rematch Air Show)',
-      game: 'NE @ SEA',
-      game_slate: 'Wednesday Night Kickoff',
+    const sorted = [...gameProps].sort((a, b) => (b.weight || 0) - (a.weight || 0));
+    const legs = [];
+    const usedStatTypes = new Set();
+    for (const p of sorted) {
+      if (legs.length >= 3) break;
+      if (usedStatTypes.has(p.stat_type) && legs.length > 0) continue; // prefer variety across legs
+      legs.push(p);
+      usedStatTypes.add(p.stat_type);
+    }
+    // If variety filtering left us with fewer than 2 legs, just take the top 2-3 by weight.
+    if (legs.length < 2) {
+      legs.length = 0;
+      for (const p of sorted.slice(0, 3)) legs.push(p);
+    }
+    if (legs.length < 2) continue;
+
+    const odds = calculateParlayOdds(legs.map((l) => l.price));
+    const [awayAbbr, homeAbbr] = game.split(' @ ');
+    const teams = [...new Set(legs.map((l) => l.team))];
+    const teamLabel = teams.length === 1 ? teams[0] : `${awayAbbr}/${homeAbbr}`;
+
+    cards.push({
+      id: `parlay__${game.replace(/\s+/g, '_').replace(/@/g, 'at')}__${teamLabel.toLowerCase()}_stack`,
+      title: `${teamLabel} Prop Stack SGP (${game})`,
+      game,
+      game_slate: legs[0]?.game_slate || 'This Week',
       type: 'same_game_parlay',
       book: 'DraftKings / FanDuel',
-      leg_count: 3,
-      legs: [
-        resolveLeg('prop__zachary_cohen__drake_maye_passing_yards', {
-          player: 'Drake Maye',
-          selection: 'Over 226.5 Passing Yards',
-          price: '-117',
-        }),
-        resolveLeg('prop__phil_wood__aj_brown_receptions', {
-          player: 'A.J. Brown',
-          selection: 'Over 5.5 Receptions',
-          price: '+121',
-        }),
-        resolveLeg('prop__travis_pulver__hunter_henry_receptions', {
-          player: 'Hunter Henry',
-          selection: 'Over 3.5 Receptions',
-          price: '+148',
-        }),
-      ],
-      estimated_odds: '+785',
-      payout_multiplier: '8.85x',
-      payout_on_10: '$88.50',
-      payout_on_25: '$221.25',
-      correlation_rating: 'High Positive (+)',
-      synergy_rationale: 'Strong pass-heavy trailing game script: When Maye throws 30+ times, Brown and Henry command over 50% of the team target share. Exploits Seattle\'s depleted secondary missing Riq Woolen and Nick Emmanwori.',
-    },
-    {
-      id: 'parlay__ne_sea__seahawks_offensive_engine',
-      title: 'Seahawks Dynamic Offense SGP (Lumen Field Fast Start)',
-      game: 'NE @ SEA',
-      game_slate: 'Wednesday Night Kickoff',
-      type: 'same_game_parlay',
-      book: 'DraftKings / FanDuel',
-      leg_count: 3,
-      legs: [
-        resolveLeg('prop__phil_wood__jaxon_smith_njigba_rec_yards', {
-          player: 'Jaxon Smith-Njigba',
-          selection: 'Over 82.5 Receiving Yards',
-          price: '-113',
-        }),
-        resolveLeg('prop__travis_pulver__jadarian_price_receptions', {
-          player: 'Jadarian Price',
-          selection: 'Over 1.5 Receptions',
-          price: '+124',
-        }),
-        resolveLeg('prop__travis_pulver__sam_darnold_rushing_yards', {
-          player: 'Sam Darnold',
-          selection: '10+ Rushing Yards',
-          price: '+178',
-        }),
-      ],
-      estimated_odds: '+810',
-      payout_multiplier: '9.10x',
-      payout_on_10: '$91.00',
-      payout_on_25: '$227.50',
-      correlation_rating: 'High Positive (+)',
-      synergy_rationale: 'Brian Fleury\'s Shanahan-tree offense spreads the field: JSN controls intermediate and deep passing, Price catches passes in the flat on designed RB screens, and Darnold tucks and runs against aggressive pass-rush angles.',
-    },
-    {
-      id: 'parlay__sf_lar__rams_ground_control',
-      title: 'Rams Dual-Headed Ground Control SGP (Melbourne Turf Dominance)',
-      game: 'SF @ LAR',
-      game_slate: 'Thursday Night Melbourne Opener',
-      type: 'same_game_parlay',
-      book: 'DraftKings / FanDuel',
-      leg_count: 3,
-      legs: [
-        resolveLeg('prop__scott_bogman__blake_corum_rushing_yards', {
-          player: 'Blake Corum',
-          selection: 'Over 44.5 Rushing Yards',
-          price: '-110',
-        }),
-        resolveLeg('prop__tara_roberts__kyren_williams_rushing_yards', {
-          player: 'Kyren Williams',
-          selection: 'Over 56.5 Rushing Yards',
-          price: '-115',
-        }),
-        resolveLeg('prop__steve_fezzik__sf_lar_second_half_over', {
-          player: 'Game Derivative (SF @ LAR)',
-          selection: 'Over 23.5 2nd Half Total Points',
-          price: '-110',
-        }),
-      ],
-      estimated_odds: '+580',
-      payout_multiplier: '6.80x',
-      payout_on_10: '$68.00',
-      payout_on_25: '$170.00',
-      correlation_rating: 'High Positive (+)',
-      synergy_rationale: 'Complementary backfield split: Kyren Williams establishes the early ground foundation with 4.8 YPC, while Blake Corum dominates second-half clock drainage with 16% explosive run rate. Steve Fezzik\'s 2nd half total over capitalizes on rapid second-half scoring adjustments following travel fatigue.',
-    },
-    {
-      id: 'parlay__sf_lar__melbourne_target_funnel',
-      title: 'Melbourne Aerial Target Funnel SGP (SF @ LAR)',
-      game: 'SF @ LAR',
-      game_slate: 'Thursday Night Melbourne Opener',
-      type: 'same_game_parlay',
-      book: 'DraftKings / BetMGM',
-      leg_count: 3,
-      legs: [
-        resolveLeg('prop__stattree__puka_nacua_receptions', {
-          player: 'Puka Nacua',
-          selection: 'Over 7.5 Receptions',
-          price: '+116',
-        }),
-        resolveLeg('prop__stattree__george_kittle_receptions', {
-          player: 'George Kittle',
-          selection: 'Over 3.5 Receptions',
-          price: '-110',
-        }),
-        resolveLeg('prop__zachary_cohen__kyle_juszczyk_receiving_yards', {
-          player: 'Kyle Juszczyk',
-          selection: 'Over 4.5 Receiving Yards',
-          price: '-120',
-        }),
-      ],
-      estimated_odds: '+655',
-      payout_multiplier: '7.55x',
-      payout_on_10: '$75.50',
-      payout_on_25: '$188.75',
-      correlation_rating: 'High Positive (+)',
-      synergy_rationale: 'Exploits high-frequency scheme mismatches: 49ers play 74% zone coverage where Puka Nacua commands a 30% target share and 10.8 yds/target. Meanwhile, Brock Purdy faces severe pressure from the Rams upgraded pass rush (Myles Garrett, Aaron Donald, Kobie Turner), funneling rapid short-yardage targets to George Kittle (90.9% hit rate) and Kyle Juszczyk (OptaAI 12.62 yd projection).',
-    },
-    {
-      id: 'parlay__sf_lar__melbourne_primetime_shootout',
-      title: 'Melbourne Primetime Shootout SGP (SF @ LAR)',
-      game: 'SF @ LAR',
-      game_slate: 'Thursday Night Melbourne Opener',
-      type: 'same_game_parlay',
-      book: 'DraftKings / BetMGM',
-      leg_count: 3,
-      legs: [
-        resolveLeg('prop__mike_spector__mike_evans_anytime_td', {
-          player: 'Mike Evans',
-          selection: 'Anytime Touchdown Scorer',
-          price: '+175',
-        }),
-        resolveLeg('prop__steve_krebs__christian_mccaffrey_rush_yards', {
-          player: 'Christian McCaffrey',
-          selection: '61+ Rushing Yards',
-          price: '-115',
-        }),
-        resolveLeg('prop__zachary_cohen__kyle_juszczyk_receiving_yards', {
-          player: 'Kyle Juszczyk',
-          selection: 'Over 4.5 Receiving Yards',
-          price: '-120',
-        }),
-      ],
-      estimated_odds: '+645',
-      payout_multiplier: '7.45x',
-      payout_on_10: '$74.50',
-      payout_on_25: '$186.25',
-      correlation_rating: 'High Positive (+)',
-      synergy_rationale: 'High game total (48.5): 49ers offensive personnel distribution. Juszczyk clears 4.5 yards on a single flat pass, McCaffrey provides the ground engine, and Mike Evans capitalizes as the 6\'5" red-zone monster against Rams\' smaller cornerbacks.',
-    },
-    {
-      id: 'parlay__sunday__touchdown_hunters_cross_game',
-      title: 'Sunday Workhorse Touchdown Trio (Cross-Game Parlay)',
-      game: 'Multi-Game Slate',
-      game_slate: 'Sunday 1:00 PM Slate',
-      type: 'cross_game_parlay',
-      book: 'Consensus (Shop Across Books)',
-      leg_count: 3,
-      legs: [
-        resolveLeg('prop__richard_janvrin__rhamondre_stevenson_anytime_td', {
-          player: 'Rhamondre Stevenson',
-          game: 'NE @ SEA',
-          selection: 'Anytime Touchdown',
-          price: '+100',
-        }),
-        resolveLeg('prop__mike_spector__mike_evans_anytime_td', {
-          player: 'Mike Evans',
-          game: 'SF @ LAR',
-          selection: 'Anytime Touchdown',
-          price: '+175',
-        }),
-        resolveLeg('prop__adam_burke__james_cook_first_td', {
-          player: 'James Cook',
-          game: 'BUF @ HOU',
-          selection: 'Anytime Touchdown (or First TD +550)',
-          price: '-104',
-        }),
-      ],
-      estimated_odds: '+765',
-      payout_multiplier: '8.65x',
-      payout_on_10: '$86.50',
-      payout_on_25: '$216.25',
-      correlation_rating: 'Independent Cross-Game (+EV Stacking)',
-      synergy_rationale: 'Anchors three undisputed goal-line alphas who monopolize their teams\' inside-the-5 touches without competing against each other in the same game script.',
-    },
-    {
-      id: 'parlay__safe_floor__reception_yardage_builder',
-      title: 'Safe Floor Reception & Yardage 3-Leg Parlay',
-      game: 'Multi-Game Slate',
-      game_slate: 'Week 1 Primetime & Sunday',
-      type: 'cross_game_parlay',
-      book: 'DraftKings / FanDuel',
-      leg_count: 3,
-      legs: [
-        resolveLeg('prop__travis_pulver__jadarian_price_receptions', {
-          player: 'Jadarian Price',
-          selection: 'Over 1.5 Receptions',
-          price: '+124',
-        }),
-        resolveLeg('prop__zachary_cohen__bucky_irving_rush_attempts', {
-          player: 'Bucky Irving',
-          selection: 'Over 14.5 Rushing Attempts',
-          price: '-103',
-        }),
-        resolveLeg('prop__zachary_cohen__alec_pierce_receiving_yards', {
-          player: 'Alec Pierce',
-          selection: 'Over 44.5 Receiving Yards',
-          price: '-113',
-        }),
-      ],
-      estimated_odds: '+715',
-      payout_multiplier: '8.15x',
-      payout_on_10: '$81.50',
-      payout_on_25: '$203.75',
-      correlation_rating: 'Volume & Metric Edge Stacking',
-      synergy_rationale: 'Combines three plays backed by mathematical models (OptaAI 15.53 carries for Irving, OptaAI 72.60 receiving yards for Pierce, and Shanahan-scheme backfield target funnel for Price).',
-    },
-  ];
+      leg_count: legs.length,
+      legs: legs.map((l) => ({
+        ...l,
+        selection: l.side === 'anytime' ? l.category_label : `${l.side === 'over' ? 'Over' : l.side === 'under' ? 'Under' : ''} ${l.line} ${l.category_label}`.trim(),
+      })),
+      estimated_odds: odds.american,
+      payout_multiplier: `${odds.decimal.toFixed(2)}x`,
+      payout_on_10: `$${(odds.decimal * 10).toFixed(2)}`,
+      payout_on_25: `$${(odds.decimal * 25).toFixed(2)}`,
+      correlation_rating: teams.length === 1 ? 'Same-Team Stack' : 'Cross-Team Game Stack',
+      synergy_rationale: `Combines ${legs.length} real props extracted this week from ${[...new Set(legs.map((l) => l.analyst))].join(', ')} for ${game}.`,
+    });
+  }
+
+  return cards.sort((a, b) => b.leg_count - a.leg_count);
 }
 
 /**
  * Render comprehensive Markdown report for Player Props & Parlays
  */
 export function renderMarkdown(data) {
-  const { summary, props, parlayCards } = data;
+  const { summary, props, parlayCards, week } = data;
+  const weekLabel = week ? `Week ${week}` : 'Current Week';
   const lines = [
-    '# NFL Week 1 Player Prop & Parlay Intelligence Dossier',
+    `# NFL ${weekLabel} Player Prop & Parlay Intelligence Dossier`,
     '',
     `> **Generated**: ${data.generated_at}  `,
     `> **Scope**: Dedicated player prop extraction pass from recent intelligence articles (${summary.articles_scanned} articles scanned).  `,
@@ -1599,7 +499,7 @@ export function renderMarkdown(data) {
     `| **Tier 1 Best Bet Props** | **${summary.tier_1_props}** | Official analyst recommended best bets (Weight: 1.00) |`,
     `| **Anytime / First TD Scorers** | **${summary.touchdown_props}** | High-leverage end-zone targets for multiplier legs |`,
     `| **Curated Parlay Cards** | **${summary.curated_parlays}** | Positively correlated SGP & cross-game cards (+645 to +810) |`,
-    `| **Primetime Games Covered** | **2** | Wednesday Opener (NE @ SEA) & Thursday Opener (SF @ LAR) |`,
+    `| **Games With Extracted Props** | **${summary.games_covered}** | ${[...new Set(props.map((p) => p.game))].slice(0, 6).join(', ') || 'None yet this week'} |`,
     '',
     '---',
     '',
@@ -1633,7 +533,7 @@ export function renderMarkdown(data) {
 
   for (const game of games) {
     const gameProps = props.filter((p) => p.game === game);
-    lines.push(`### 🏈 Matchup: ${game} (${gameProps[0]?.game_slate || 'Week 1'})`);
+    lines.push(`### 🏈 Matchup: ${game} (${gameProps[0]?.game_slate || weekLabel})`);
     lines.push('');
     lines.push('| Player | Pos/Team | Prop Category | Line & Side | Odds | Sportsbook | Tier | Analyst / Source | Parlay Synergy / Role | Rationale Snippet |');
     lines.push('| :--- | :---: | :--- | :---: | :---: | :--- | :---: | :--- | :--- | :--- |');
@@ -1650,10 +550,12 @@ export function renderMarkdown(data) {
   lines.push('');
   lines.push('When combining these props into custom same-game or multi-game tickets, adhere to the following quantitative correlation principles:');
   lines.push('');
-  lines.push('1. **The Trailing Passing Funnel (+0.38 Correlation)**: Pairing an underdog team spread (+3.5) with their QB Over Passing Yards and their WR1 Over Receptions yields high compounding win probabilities.');
-  lines.push('2. **The Red-Zone Dominance Anchor (+0.44 Correlation)**: In games with high totals (e.g. SF @ LAR 48.5), pair primary pass catchers with end-zone monopolizers (Mike Evans + Puka Nacua) rather than competing running backs.');
-  lines.push('3. **The Ground Workhorse Lock (+0.52 Correlation)**: Pair Rhamondre Stevenson Rushing Yards Over with his Anytime TD (+100) — when New England is in scoring position, goal-line touches flow exclusively through Stevenson with Henderson sidelined.');
-  lines.push('4. **Avoid Conflicting Scripts (-0.40 Negative Correlation)**: Do not pair opposing team First TD Scorers on the same slip, and avoid pairing a team\'s Under Passing Yards with their primary receiver\'s Over Receiving Yards.');
+  lines.push('1. **The Trailing Passing Funnel**: Pairing an underdog team\'s QB Over Passing Yards with their WR1 Over Receptions tends to hit together, since both need the same negative game script to clear.');
+  lines.push('2. **The Red-Zone Dominance Anchor**: In high-total games, pair a team\'s primary pass catcher with their Anytime TD prop rather than stacking two competing skill players for the same touches.');
+  lines.push('3. **The Ground Workhorse Lock**: A team\'s clear lead rushing back\'s Rushing Yards Over pairs well with that same back\'s Anytime TD -- both benefit from the same positive game script and touch share.');
+  lines.push('4. **Avoid Conflicting Scripts**: Do not pair opposing teams\' First TD Scorer props on the same slip, and avoid pairing a team\'s Under Passing Yards with their own primary receiver\'s Over Receiving Yards.');
+  lines.push('');
+  lines.push('_These are general stacking heuristics, not statistically-fit correlation coefficients -- treat them as a starting framework, not a guarantee._');
 
   return lines.join('\n');
 }
@@ -1662,7 +564,9 @@ export function renderMarkdown(data) {
  * Render Interactive Generative HTML Dashboard with live interactive client-side Parlay Slip Builder
  */
 export function renderHtml(data) {
-  const { summary, props, parlayCards } = data;
+  const { summary, props, parlayCards, week } = data;
+  const weekLabel = week ? `Week ${week}` : 'Current Week';
+  const gamesCovered = [...new Set(props.map((p) => p.game))];
 
   const propsJson = JSON.stringify(props).replace(/</g, '\\u003c');
   const parlayCardsJson = JSON.stringify(parlayCards).replace(/</g, '\\u003c');
@@ -1672,7 +576,7 @@ export function renderHtml(data) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NFL Week 1 Player Prop & Parlay Intelligence</title>
+<title>NFL ${weekLabel} Player Prop & Parlay Intelligence</title>
 <style>
   :root {
     --bg: #0f172a;
@@ -1864,7 +768,7 @@ export function renderHtml(data) {
 
 <div class="header">
   <div class="container">
-    <h1>🏈 NFL Week 1 Player Prop &amp; Parlay Intelligence <span class="badge-tag">Interactive Builder</span></h1>
+    <h1>🏈 NFL ${weekLabel} Player Prop &amp; Parlay Intelligence <span class="badge-tag">Interactive Builder</span></h1>
     <p>Extracted from verified research articles across VSiN, BettingPros, Sharp Football, and Walter Football. Features high-value player props, positive correlation stacks, and an interactive real-time parlay slip.</p>
   </div>
 </div>
@@ -1898,9 +802,7 @@ export function renderHtml(data) {
   <div class="toolbar">
     <div class="filter-group">
       <button class="btn-filter active" onclick="filterGame('all', this)">All Games</button>
-      <button class="btn-filter" onclick="filterGame('NE @ SEA', this)">NE @ SEA</button>
-      <button class="btn-filter" onclick="filterGame('SF @ LAR', this)">SF @ LAR</button>
-      <button class="btn-filter" onclick="filterGame('Sunday Slate', this)">Sunday Slate</button>
+      ${gamesCovered.map((g) => `<button class="btn-filter" onclick="filterGame('${esc(g)}', this)">${esc(g)}</button>`).join('\n      ')}
     </div>
     <div class="filter-group">
       <button class="btn-filter active" onclick="filterCategory('all', this)">All Categories</button>
@@ -2051,9 +953,7 @@ export function renderHtml(data) {
       const rowGame = row.getAttribute('data-game');
       const rowCat = row.getAttribute('data-cat');
       let showGame = true;
-      if (currentGameFilter === 'Sunday Slate') {
-        showGame = rowGame !== 'NE @ SEA' && rowGame !== 'SF @ LAR';
-      } else if (currentGameFilter !== 'all') {
+      if (currentGameFilter !== 'all') {
         showGame = rowGame === currentGameFilter;
       }
       let showCat = true;
@@ -2170,7 +1070,7 @@ export function renderHtml(data) {
       alert('Add props to the slip first!');
       return;
     }
-    const lines = ['NFL Week 1 Parlay Card:'];
+    const lines = ['NFL ${weekLabel} Parlay Card:'];
     let totalDecimal = 1.0;
     for (const id of selectedPropIds) {
       const p = PROPS_BY_ID.get(id);
@@ -2212,10 +1112,27 @@ export function renderHtml(data) {
 }
 
 async function main() {
-  const since = '2026-09-05T00:00:00.000Z';
+  // Roll the article lookback window forward with the current NFL week instead of a fixed
+  // date -- the old hardcoded '2026-09-05' cutoff never advanced, so every run kept pulling
+  // in heavily-covered Week 1 articles that outranked thinner current-week coverage, and this
+  // dossier kept re-serving Week 1 games as if they were upcoming.
+  const { week: currentWeek, season: currentSeason } = getNFLWeekInfo();
+  const weekStartDate = new Date(getSeasonStartDate(currentSeason).getTime() + (currentWeek - 1) * 7 * 86400000);
+  const since = weekStartDate.toISOString();
+  console.log(`📅 Player props intel window: Week ${currentWeek} (articles since ${since})`);
   const loaded = await loadArticles(since, 0, { localOnly: false });
 
-  const props = extractCuratedPlayerProps(loaded.rows);
+  const [rosterMap, weekGames] = await Promise.all([
+    loadPlayerRosterMap(),
+    Promise.resolve(loadWeekGameMap(currentWeek, currentSeason)),
+  ]);
+  console.log(`🏈 Roster map: ${rosterMap.size} players | Week ${currentWeek} schedule: ${weekGames.games.length} games`);
+
+  const props = extractCuratedPlayerProps(loaded.rows, {
+    rosterMap,
+    teamGameMap: weekGames.teamGameMap,
+    week: currentWeek,
+  });
   const parlayCards = buildCuratedParlayCards(props);
 
   const summary = {
@@ -2230,6 +1147,8 @@ async function main() {
   const payload = {
     schema: 'player_props_intel_v1',
     generated_at: new Date().toISOString(),
+    week: currentWeek,
+    season: currentSeason,
     summary,
     parlayCards,
     props,
