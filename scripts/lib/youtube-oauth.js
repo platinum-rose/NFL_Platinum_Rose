@@ -139,7 +139,17 @@ export async function refreshAccessToken(clientConfig, token) {
 
   const json = await res.json();
   if (!res.ok) {
-    throw new Error(`Token refresh failed (${res.status}): ${JSON.stringify(json)}`);
+    // 2026-09-26: invalid_grant = the refresh token itself is dead. With the
+    // Google OAuth consent screen in "Testing" status, refresh tokens expire
+    // after ~7 days (this token carried refresh_token_expires_in), so this
+    // recurs weekly until the app is published to "In production".
+    const hint = json?.error === 'invalid_grant'
+      ? '\n  -> YouTube refresh token expired/revoked. Re-authorize on the Windows machine from the repo root:'
+        + '\n       node scripts/youtube-oauth-setup.js'
+        + '\n     (opens a Google consent URL; the callback listens on localhost:53682).'
+        + '\n     Permanent fix: Google Cloud Console -> OAuth consent screen -> Publish app, so tokens stop expiring every ~7 days.'
+      : '';
+    throw new Error(`Token refresh failed (${res.status}): ${JSON.stringify(json)}${hint}`);
   }
 
   return normalizeToken({

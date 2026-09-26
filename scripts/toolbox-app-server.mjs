@@ -80,7 +80,7 @@ export const DELIVERABLES_CONFIG = {
     ],
     subtasks: [
       { key: 'wednesday-sweep', name: 'YouTube / Podcast Sweep', desc: 'M6 diarization lookback' },
-      { key: 'wednesday-articles', name: 'Research Intel Ingest', desc: 'Beat writer & analyst articles' },
+      { key: 'wednesday-articles', name: 'Research Intel Ingest (preview)', desc: 'Dry-run preview only -- the real article ingest runs on GitHub Actions (09:00/21:00 UTC daily)' },
       { key: 'wednesday-bookmarks', name: 'Twitter / X Bookmarks', desc: 'Dossier sharp notes' },
       { key: 'wednesday-pm-refresh', name: 'PM Refresh (after practice reports)', desc: 'Availability, starters, prediction markets + coherence, Alpha packet' }
     ]
