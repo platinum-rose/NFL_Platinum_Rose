@@ -52,21 +52,17 @@ export const SPORTSBOOK_VENUES = Object.freeze([
 // (see docs/FUTURES_ARTICLE_REACQUISITION_AND_GATES_DESIGN_2026-08-13.md §1).
 // Never fold these into SPORTSBOOK_VENUES or a sportsbook-price execution gate.
 //
-// 2026-09-26 (Andy): Andy said "DraftKings, FanDuel, and Kalshi are no
-// longer context-only, they are placeable books" in the same breath as the
-// DK/FD move above. Kalshi is deliberately NOT moved here-into-
-// SPORTSBOOK_VENUES or given a placeable flag yet -- this file's own
-// long-standing warning (directly above) is that prediction-market
-// execution eligibility needs a separate bid/ask/fee-aware check that has
-// never been built, and silently reclassifying Kalshi as a plain
-// sportsbook would remove that guardrail rather than build the check it's
-// guarding for. Flagged back to Andy to confirm: does he want (a) that
-// bid/ask/fee-aware check actually built now, or (b) a lighter-weight
-// "Kalshi is placeable, treat its price like a sportsbook price" override
-// while accepting the fee/liquidity blind spot this comment warns about?
+// 2026-09-26 (Andy, decision (a)): Kalshi IS placeable -- but only through
+// that check, which now exists: src/lib/predictionMarketExecution.js
+// (prediction_market_execution_v1). agents/portfolio-dossier.js runs it and
+// marks matching synthesis_input rows with prediction_market_execution[];
+// agents/portfolio-synthesize.js and agents/lib/board-validate.js accept a
+// Kalshi book ONLY when that row carries an execution_eligible entry at the
+// cited price. `placeable: true` below means "placeable via the gate", not
+// "a sportsbook". Polymarket stays context-only (placeable: false).
 export const PREDICTION_MARKET_VENUES = Object.freeze([
-  { key: 'kalshi', label: 'Kalshi', aliases: [] },
-  { key: 'polymarket', label: 'Polymarket', aliases: [] },
+  { key: 'kalshi', label: 'Kalshi', aliases: [], placeable: true, execution_gate: 'prediction_market_execution_v1' },
+  { key: 'polymarket', label: 'Polymarket', aliases: [], placeable: false, execution_gate: null },
 ]);
 
 // Market-context-only books: useful for fair-value/divergence reads, but the
@@ -112,6 +108,11 @@ export function sportsbookAccessType(book) {
   return SPORTSBOOK_VENUES.find((venue) => venue.key === canonical)?.access || null;
 }
 
+export function isPlaceablePredictionMarketVenue(venue) {
+  const key = String(venue ?? '').trim().toLowerCase();
+  return PREDICTION_MARKET_VENUES.some((pm) => pm.key === key && pm.placeable === true);
+}
+
 export function isPredictionMarketVenue(venue) {
   const key = String(venue ?? '').trim().toLowerCase();
   return PREDICTION_MARKET_VENUES.some((pm) => pm.key === key);
@@ -123,7 +124,6 @@ export function isPredictionMarketVenue(venue) {
 export function placeableVenuesPromptSentence() {
   const direct = SPORTSBOOK_VENUES.filter((v) => v.access === 'direct').map((v) => v.label);
   const proxy = SPORTSBOOK_VENUES.filter((v) => v.access === 'proxy').map((v) => v.label);
-  const pmLabels = PREDICTION_MARKET_VENUES.map((v) => v.label);
   // MARKET_CONTEXT_ONLY_VENUES can be empty (it is, as of 2026-09-26 -- see
   // its own comment) -- skip the "NEVER recommend a ... price" clause
   // entirely rather than emit a dangling "NEVER recommend a  price" with a
@@ -132,14 +132,22 @@ export function placeableVenuesPromptSentence() {
     ? ` NEVER recommend a ${MARKET_CONTEXT_ONLY_VENUES.map((v) => v.label).join(' or ')} price — those appear `
       + `only as market context for fair value; the user cannot bet them.`
     : '';
+  const placeablePm = PREDICTION_MARKET_VENUES.filter((v) => v.placeable).map((v) => v.label);
+  const contextPm = PREDICTION_MARKET_VENUES.filter((v) => !v.placeable).map((v) => v.label);
+  const pmClause = placeablePm.length
+    ? `${placeablePm.join(' and ')} is placeable ONLY for a dossier row whose prediction_market_execution `
+      + `array carries an entry with execution_eligible=true (code-checked: bought at the live ask, after `
+      + `fees, liquidity, settlement equivalence, and beating the best placeable sportsbook price) — cite `
+      + `that entry's venue as the book and its net_american_at_ask as the price. Never cite a `
+      + `${placeablePm.join('/')} price that is not on such an entry.`
+    : '';
+  const contextPmClause = contextPm.length
+    ? ` ${contextPm.join(' and ')} ${contextPm.length > 1 ? 'are' : 'is'} market context only, never a placeable book.`
+    : '';
   return `PLACEABLE BOOKS ONLY: the user bets directly at ${direct.join(', ')}, and via a proxy at `
     + `${proxy.join(', ')}. best_price/best_book (outrights) and best_over/best_under + their books `
     + `(win totals) are ALREADY filtered to these placeable books.${contextOnlyClause} Every "book" in your `
-    + `output must be a placeable book (use the dossier's best_* fields). ${pmLabels.join(' and ')} are `
-    + `separate execution candidates only when their net executable price (after fees, accounting for `
-    + `bid/ask and fillable size) beats the equivalent sportsbook price — treat them as market context, `
-    + `not a placeable "book", unless the dossier explicitly marks a prediction-market row `
-    + `execution-eligible.`;
+    + `output must be a placeable book (use the dossier's best_* fields). ${pmClause}${contextPmClause}`;
 }
 
 // rev-23-followup3 fix (Codex finding #1): a scoped/suppressed run's dossier

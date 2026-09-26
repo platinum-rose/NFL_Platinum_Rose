@@ -25,6 +25,8 @@
 
 import { NAMED_PLAYER_SIZING_CAP_TIERS } from './named-status-review.js';
 import { normalizeTeam } from '../../src/lib/teams.js';
+import { isPlaceablePredictionMarketVenue } from '../../src/lib/executionVenues.js';
+import { eligiblePredictionMarketEntry } from '../../src/lib/predictionMarketExecution.js';
 
 // 2026-09-26: added draftkings,fanduel -- Andy confirmed both are now
 // placeable books (see src/lib/executionVenues.js's SPORTSBOOK_VENUES and
@@ -139,6 +141,17 @@ export function quotedComboFor(row, candidate) {
   const bookKey = normBook(candidate?.book);
   if (!bookKey) return null;
 
+  // 2026-09-26: a placeable prediction-market venue (Kalshi) never matches a
+  // sportsbook quote -- only an execution_eligible prediction_market_execution
+  // entry at exactly the cited net-at-ask price
+  // (src/lib/predictionMarketExecution.js).
+  if (isPlaceablePredictionMarketVenue(bookKey)) {
+    const entries = Array.isArray(row?.prediction_market_execution) ? row.prediction_market_execution : [];
+    const hit = entries.find((e) => e.execution_eligible && e.venue === bookKey
+      && Number(e.net_american_at_ask) === Number(candidate.price));
+    return hit ? { line: hit.line, price: hit.net_american_at_ask, side: hit.side === 'over' ? 'over' : null, edge_pct: null } : null;
+  }
+
   if (isWinsRow(row)) {
     if (!row?.books) return null;
     const entry = row.books[bookKey] ?? row.books[candidate.book];
@@ -179,6 +192,8 @@ export function quotedComboFor(row, candidate) {
 export function recomputedEdgePct(row, candidate) {
   if (candidate?.code_edge_pct != null) return candidate.code_edge_pct;
   if (!row) return null;
+  // Sportsbook edge fields don't describe a Kalshi price -- no cross-check.
+  if (isPlaceablePredictionMarketVenue(candidate?.book)) return null;
   if (isWinsRow(row)) {
     const side = sideOfSelection(candidate?.selection);
     if (side === 'under') return row.best_under_edge_pct ?? null;
@@ -213,7 +228,12 @@ export function validateBoard(candidate, dossier) {
   }
 
   const bettable = bettableBooks();
-  if (candidate.book && !bettable.has(normBook(candidate.book))) {
+  if (candidate.book && isPlaceablePredictionMarketVenue(candidate.book)) {
+    // 2026-09-26: Kalshi is placeable only via the execution-eligibility gate.
+    if (!eligiblePredictionMarketEntry(row, normBook(candidate.book))) {
+      violations.push(`prediction_market_not_execution_eligible: "${candidate.book}" has no execution_eligible prediction_market_execution entry on this dossier row — not placeable here.`);
+    }
+  } else if (candidate.book && !bettable.has(normBook(candidate.book))) {
     violations.push(`book_not_bettable: "${candidate.book}" is not in BETTABLE_BOOKS — the user cannot place this bet at this book.`);
   }
 

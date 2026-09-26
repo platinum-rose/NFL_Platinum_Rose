@@ -11,7 +11,10 @@
  * @returns {number} American odds (e.g. -150, +186, +100)
  */
 export function probabilityToAmerican(p) {
-  const prob = Math.max(0.001, Math.min(0.999, Number(p) || 0.5));
+  // 2026-09-26: `Number(p) || 0.5` turned a real 0 into a fake 50% (falsy-zero
+  // bug) -- only a missing/non-numeric input falls back to 0.5 now.
+  const n = p == null || p === '' ? NaN : Number(p);
+  const prob = Math.max(0.001, Math.min(0.999, Number.isFinite(n) ? n : 0.5));
   if (Math.abs(prob - 0.5) < 0.0001) return 100;
   if (prob > 0.5) {
     const odds = Math.round((prob / (1 - prob)) * 100);
@@ -56,7 +59,8 @@ export function americanToDecimal(american) {
  * @returns {number} Fee fraction (e.g. 0.0175 for 50c)
  */
 export function calculateKalshiFee(priceCents) {
-  const p = Math.max(0.01, Math.min(0.99, (Number(priceCents) || 50) / 100));
+  const c = priceCents == null || priceCents === '' ? NaN : Number(priceCents);
+  const p = Math.max(0.01, Math.min(0.99, (Number.isFinite(c) ? c : 50) / 100));
   const feeDollars = 0.07 * p * (1 - p);
   return Number(feeDollars.toFixed(4));
 }
@@ -82,7 +86,10 @@ export function calculatePolymarketFee(priceCents, customFeePct = 1.5) {
  * @returns {Object} { priceCents, grossProb, feeFraction, netOutlay, netProfit, grossAmericanOdds, netAmericanOdds, decimalOdds }
  */
 export function calculateNetOdds({ priceCents, exchange = 'kalshi', customFeePct = 1.5, applyFee = true }) {
-  const cents = Math.max(1, Math.min(99, Number(priceCents) || 50));
+  // 2026-09-26 falsy-zero fix: a real 0c longshot clamps to 1c (~+9900), it
+  // is no longer silently rewritten to a fake 50c.
+  const raw = priceCents == null || priceCents === '' ? NaN : Number(priceCents);
+  const cents = Math.max(1, Math.min(99, Number.isFinite(raw) ? raw : 50));
   const p = cents / 100;
   let fee = 0;
 

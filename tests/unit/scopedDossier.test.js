@@ -70,6 +70,17 @@ describe('buildScopedDossier — allowlist shape', () => {
     expect(Object.keys(scoped.synthesis_input).sort()).toEqual([...SCOPED_MARKETS].sort());
   });
 
+  it('strips prediction_market_execution (Kalshi execution entries) from every scoped row', () => {
+    const d = makeDossier();
+    d.synthesis_input.playoffs[0] = { ...d.synthesis_input.playoffs[0], prediction_market_execution: [{ venue: 'kalshi', execution_eligible: true }] };
+    const scoped = buildScopedDossier(d);
+    for (const market of SCOPED_MARKETS) {
+      for (const row of scoped.synthesis_input[market]) expect(row).not.toHaveProperty('prediction_market_execution');
+    }
+    expect(JSON.stringify(scoped).toLowerCase()).not.toContain('kalshi');
+    expect(d.synthesis_input.playoffs[0]).toHaveProperty('prediction_market_execution');
+  });
+
   it('team_profiles drops the extra unscoped field on every team', () => {
     const scoped = buildScopedDossier(makeDossier());
     for (const team of CANONICAL_TEAMS) {

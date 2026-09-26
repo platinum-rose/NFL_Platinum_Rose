@@ -179,7 +179,17 @@ export function buildScopedDossier(dossier) {
 
   const synthesis_input = {};
   for (const market of SCOPED_MARKETS) {
-    if (dossier.synthesis_input[market] !== undefined) synthesis_input[market] = dossier.synthesis_input[market];
+    // 2026-09-26: rows may carry prediction_market_execution (Kalshi
+    // execution-eligibility entries, src/lib/predictionMarketExecution.js).
+    // The scoped run is sportsbook-only by construction -- strip it so no
+    // prediction-market concept reaches the scoped prompt.
+    if (dossier.synthesis_input[market] !== undefined) {
+      synthesis_input[market] = dossier.synthesis_input[market].map((row) => {
+        if (!isPlainObject(row) || !('prediction_market_execution' in row)) return row;
+        const { prediction_market_execution: _pm, ...rest } = row;
+        return rest;
+      });
+    }
   }
 
   const team_profiles = {};

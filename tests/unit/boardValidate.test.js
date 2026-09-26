@@ -47,8 +47,11 @@ describe('helper functions', () => {
     const set = bettableBooks({});
     expect(set.has('bookmaker')).toBe(true);
     expect(set.has('betonline')).toBe(true);
-    expect(set.has('fanduel')).toBe(false);
-    expect(set.has('draftkings')).toBe(false);
+    // 2026-09-26: DK/FD placeable (44c30bf); Kalshi goes through the PM gate, not this set.
+    expect(set.has('fanduel')).toBe(true);
+    expect(set.has('draftkings')).toBe(true);
+    expect(set.has('kalshi')).toBe(false);
+    expect(set.has('pinnacle')).toBe(false);
   });
 
   it('bettableBooks respects a BETTABLE_BOOKS env override', () => {
@@ -171,7 +174,7 @@ describe('validateBoard', () => {
 
   it('flags book_not_bettable when the candidate cites a non-placeable book', () => {
     const dossier = makeDossier();
-    const violations = validateBoard({ market: 'playoffs', selection: 'Giants to make the playoffs', book: 'fanduel', price: 140 }, dossier);
+    const violations = validateBoard({ market: 'playoffs', selection: 'Giants to make the playoffs', book: 'pinnacle', price: 140 }, dossier);
     expect(violations.some((v) => v.startsWith('book_not_bettable'))).toBe(true);
   });
 
@@ -203,7 +206,7 @@ describe('validateBoardBatch (annotate-and-keep)', () => {
     const dossier = makeDossier();
     const candidates = [
       { key: 'clean', market: 'wins', selection: 'Bills Over 6.5', book: 'bookmaker', price: 130, edge_pct: 3.5, evidence_resolved: [{ id: 'analytics.off_epa_rank', resolved: true }] },
-      { key: 'bad-book', market: 'playoffs', selection: 'Giants to make the playoffs', book: 'fanduel', price: 140 },
+      { key: 'bad-book', market: 'playoffs', selection: 'Giants to make the playoffs', book: 'pinnacle', price: 140 },
       { key: 'thin', market: 'most_wins', selection: 'Kansas City Chiefs to lead the league in wins', book: 'bookmaker', price: 800 },
     ];
     const result = validateBoardBatch(candidates, dossier);

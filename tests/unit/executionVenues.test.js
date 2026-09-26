@@ -14,9 +14,10 @@ import {
 } from '../../src/lib/executionVenues.js';
 
 describe('canonical execution-venue registry', () => {
-  it('recognizes all six sportsbooks Andy stated as currently usable execution venues', () => {
+  // 2026-09-26: DraftKings/FanDuel moved to placeable (commit 44c30bf).
+  it('recognizes all eight sportsbooks Andy stated as currently usable execution venues', () => {
     const keys = SPORTSBOOK_VENUES.map((v) => v.key).sort();
-    expect(keys).toEqual(['betmgm', 'betonline', 'betus', 'bookmaker', 'caesars', 'circa']);
+    expect(keys).toEqual(['betmgm', 'betonline', 'betus', 'bookmaker', 'caesars', 'circa', 'draftkings', 'fanduel']);
   });
 
   it('marks direct-access books distinctly from proxy-access books', () => {
@@ -36,28 +37,29 @@ describe('canonical execution-venue registry', () => {
     expect(canonicalSportsbookKey('unknown_book')).toBeNull();
   });
 
-  it('isPlaceableSportsbook is case/whitespace tolerant and rejects market-context-only books', () => {
+  it('isPlaceableSportsbook is case/whitespace tolerant and rejects non-sportsbook venues', () => {
     expect(isPlaceableSportsbook(' BetMGM ')).toBe(true);
     expect(isPlaceableSportsbook('betmgm')).toBe(true);
-    expect(isPlaceableSportsbook('draftkings')).toBe(false);
-    expect(isPlaceableSportsbook('fanduel')).toBe(false);
+    expect(isPlaceableSportsbook('DK')).toBe(true);
+    expect(isPlaceableSportsbook('fanduel')).toBe(true);
+    expect(isPlaceableSportsbook('kalshi')).toBe(false);
+    expect(isPlaceableSportsbook('pinnacle')).toBe(false);
     expect(isPlaceableSportsbook('')).toBe(false);
     expect(isPlaceableSportsbook(undefined)).toBe(false);
   });
 
-  it('PLACEABLE_SPORTSBOOK_KEYS Set and PLACEABLE_SPORTSBOOK_LABELS Map cover the same six books', () => {
+  it('PLACEABLE_SPORTSBOOK_KEYS Set and PLACEABLE_SPORTSBOOK_LABELS Map cover the same eight books', () => {
     for (const venue of SPORTSBOOK_VENUES) {
       expect(PLACEABLE_SPORTSBOOK_KEYS.has(venue.key)).toBe(true);
       expect(PLACEABLE_SPORTSBOOK_LABELS.get(venue.key)).toBe(venue.label);
     }
-    expect(PLACEABLE_SPORTSBOOK_LABELS.size).toBe(6);
+    expect(PLACEABLE_SPORTSBOOK_LABELS.size).toBe(8);
   });
 
-  it('keeps prediction-market venues and market-context-only books out of the sportsbook set', () => {
+  it('keeps prediction-market venues out of the sportsbook set (Kalshi is placeable only via the execution gate)', () => {
     expect(PLACEABLE_SPORTSBOOK_KEYS.has('kalshi')).toBe(false);
     expect(PLACEABLE_SPORTSBOOK_KEYS.has('polymarket')).toBe(false);
-    expect(PLACEABLE_SPORTSBOOK_KEYS.has('draftkings')).toBe(false);
-    expect(PLACEABLE_SPORTSBOOK_KEYS.has('fanduel')).toBe(false);
+    expect(MARKET_CONTEXT_ONLY_VENUES).toEqual([]);
     expect(isPredictionMarketVenue('kalshi')).toBe(true);
     expect(isPredictionMarketVenue('polymarket')).toBe(true);
     expect(isPredictionMarketVenue('betmgm')).toBe(false);

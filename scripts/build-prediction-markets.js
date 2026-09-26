@@ -124,9 +124,11 @@ async function fetchKalshiNflMarkets() {
       for (const m of payload.markets || []) {
         const yesAskCents = m.yes_ask_dollars ? Math.round(parseFloat(m.yes_ask_dollars) * 100) : null;
         const yesBidCents = m.yes_bid_dollars ? Math.round(parseFloat(m.yes_bid_dollars) * 100) : null;
+        // 2026-09-26: no last trade AND no ask used to fabricate a 50c
+        // contract (`yesAskCents || 50`); now it falls to the <=0 skip below.
         const lastCents = m.last_price_dollars
           ? Math.round(parseFloat(m.last_price_dollars) * 100)
-          : yesAskCents || 50;
+          : (yesAskCents ?? 0);
 
         if (!lastCents || lastCents <= 0 || lastCents >= 100) continue;
 

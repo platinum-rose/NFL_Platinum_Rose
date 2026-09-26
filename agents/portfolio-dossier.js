@@ -37,6 +37,7 @@ import {
   splitInputPaths,
 } from './lib/portfolio-local-inputs.js';
 import { classifyMove, devigPair, fitWinDist, probOverLine, tailTable } from './lib/win-dist.js';
+import { annotateSynthesisInputWithPredictionMarketExecution } from '../src/lib/predictionMarketExecution.js';
 import 'dotenv/config';
 import { normalizeInjuryStatus, INJURY_RELEVANT_STATUS, INJURY_SEVERITY } from './lib/injury-status.js';
 
@@ -901,6 +902,19 @@ async function fetchPredictionMarkets() {
     return byTeam;
   } catch (_err) {
     return {};
+  }
+}
+
+// 2026-09-26 (Andy, option (a)): raw contract list for the Kalshi
+// execution-eligibility check (src/lib/predictionMarketExecution.js). Kept
+// separate from fetchPredictionMarkets() above, which only summarizes
+// probabilities for team_profiles and never looks at bid/ask/volume.
+async function loadPredictionMarketContracts() {
+  try {
+    const parsed = JSON.parse(await readFile(path.join(ROOT, 'data', 'prediction-markets', 'latest.json'), 'utf8'));
+    return { contracts: Array.isArray(parsed.contracts) ? parsed.contracts : [], generatedAt: parsed.meta?.generated_at || null };
+  } catch (_err) {
+    return { contracts: [], generatedAt: null };
   }
 }
 
@@ -2119,6 +2133,15 @@ async function main() {
   const team_profiles = buildTeamProfiles([...teamNickSet], priorByTeam, sos.findSos, teamSignals, injuriesByTeam, advancedAnalyticsByTeam, dvoaByTeam, coachingByTeam, trainingCampIntelByTeam, playerAvailabilityByTeam, namedPlayerSizing.byTeam, predictionMarketsByTeam);
 
   const synthesis_input = buildSynthesisInput(markets, findLean);
+  // 2026-09-26: mark Kalshi contracts execution-eligible ONLY where the
+  // bid/ask/fee/liquidity/settlement/contemporaneity check passes against the
+  // matching placeable sportsbook row. Adds row.prediction_market_execution
+  // to matching synthesis_input rows; summary goes in meta.
+  const pmContracts = await loadPredictionMarketContracts();
+  const predictionMarketExecution = annotateSynthesisInputWithPredictionMarketExecution(synthesis_input, pmContracts.contracts, {
+    placeableBooks: BETTABLE_BOOKS,
+    sourceGeneratedAt: pmContracts.generatedAt,
+  });
   const signal_coverage = {
     teams_with_analytics: analyticsTeamCount,
     teams_with_dvoa: Object.keys(dvoaByTeam).length,
@@ -2143,6 +2166,7 @@ async function main() {
     // --allow-missing-named-status-review escape hatch stamps a blocking marker
     // here instead of silently treating missing named cases as "no gate."
     named_player_sizing_gates: namedPlayerSizing.meta,
+    prediction_market_execution: predictionMarketExecution,
     // 2026-08-13: hash+mtime stamp of every local evidence-lane file this
     // dossier reflects at build time — see
     // scripts/lib/dossier-freshness-gate.js and
