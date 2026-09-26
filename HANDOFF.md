@@ -5,7 +5,7 @@
 > `handoffs/` and `handoffs/archive/`.
 
 **Last governance trim:** 2026-09-22 by Antigravity & Codex
-**Last verified HEAD:** `3a7eb35` (2026-09-25 17:57 PT) — sibling commit of `origin/main` `bf60e47` (same parent `fc1b7b2`, identical message, byte-identical trees); benign, unresolved, re-verified 2026-09-26.
+**Last verified HEAD:** merge of local `3a7eb35`-lineage + `origin/main` `bf60e47` (same-content sibling fork at parent `fc1b7b2`, resolved via merge 2026-09-26; both sides' trees were byte-identical, only the HANDOFF.md pointer text itself conflicted).
 **Last verified branch:** `main` — **the only working branch.** `wip/yahoo-sync` is retired (archived as tag `archive/wip-yahoo-sync-2026-09-23`; remote branch deleted after a clean automation week). Commit to `main`.
 **Workspace state:** very dirty/shared; run `git status -sb` before trusting any
 handoff prose. A full copy of the pre-trim rolling handoff was archived at
