@@ -617,6 +617,24 @@ const DIAGNOSTIC_MULTI_SOURCES = [
       { dir: '.nfl/receipts', predicate: (name) => name.startsWith('futures-ingest-') && name.endsWith('.json') },
       { path: 'data/win-totals/2026.json' }
     ]
+  },
+  {
+    key: 'metabet_futures',
+    label: 'Metabet Futures (Free, Multi-Book)',
+    // 2026-09-26: separate button from futures_markets on purpose -- this hits
+    // metabet.static.api.areyouwatchingthis.com, a free/unauthenticated public
+    // endpoint (no TheOddsAPI quota cost), and covers ~30 books (DraftKings,
+    // FanDuel, Kalshi, Polymarket, BetMGM, Caesars/William Hill, ESPNBet,
+    // Fanatics, and more) across Super Bowl/conference/division/win-totals/
+    // playoffs/awards. Folding this into futures_markets' button would make
+    // every click also burn TheOddsAPI's paid quota -- keep them independent.
+    detail: 'Free multi-book futures odds (Super Bowl, conference/division, awards) from the public Metabet/AYWT endpoint -- no API quota cost.',
+    maxAgeHours: 72,
+    group: 'Betting Markets',
+    runTask: 'metabet-refresh',
+    candidates: [
+      { dir: '.nfl/receipts', predicate: (name) => name.startsWith('metabet-futures-ingest-') && name.endsWith('.json') }
+    ]
   }
 ];
 
@@ -953,6 +971,16 @@ export function runTask(taskKey) {
       // agents/futures-odds-ingest.js. The "quota guard" mentioned in past handoffs
       // as a follow-up item is still open -- this button has no built-in rate limit.
       args = ['agents/futures-odds-ingest.js'];
+      break;
+    case 'metabet-refresh':
+      cmd = 'node';
+      // 2026-09-26: Metabet/AYWT is a free, unauthenticated public endpoint --
+      // unlike futures-refresh above, this has no API quota cost, so click it
+      // as often as needed. Writes .nfl/receipts/metabet-futures-ingest-*.json
+      // and upserts into futures_odds_snapshots (book column keyed by provider
+      // code, normalized via src/lib/executionVenues.js's canonicalSportsbookKey
+      // where recognized, passed through as-is otherwise).
+      args = ['agents/metabet-futures-ingest.js'];
       break;
 
     // ── FANTASY TOOLS: RUN NOW (on-demand, not on any cadence) ──
