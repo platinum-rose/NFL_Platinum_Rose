@@ -116,7 +116,7 @@ const EXPECTED_SOURCES = [
   { name: 'Pro Football Talk',  type: 'rss_article', status: 'active' },
   { name: 'PFF',                type: 'rss_article', status: 'active' },
   { name: 'Rotowire NFL',       type: 'rss_article', status: 'active' },
-  { name: 'Football Outsiders', type: 'rss_article', status: 'active' },
+  // Football Outsiders + THE WINDOW RSS feeds removed from research-intel-ingest.js 2026-09-23 (1e35dda).
   // Podcasts (podcast_feeds table)
   { name: 'Sharp or Square',              type: 'podcast', status: 'active' },
   { name: 'Even Money',                   type: 'podcast', status: 'active' },

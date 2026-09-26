@@ -991,7 +991,7 @@ async function collectResearchArticleIntel(sources) {
     'Pro Football Talk',
     'PFF',
     'Rotowire NFL',
-    'Football Outsiders',
+    // Football Outsiders + THE WINDOW feeds removed 2026-09-23 (1e35dda) -- not expected anymore.
   ];
   const missingExpected = expectedSources.filter((source) => !configuredSources.has(source.toLowerCase()));
 
