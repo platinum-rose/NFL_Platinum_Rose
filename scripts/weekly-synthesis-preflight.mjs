@@ -56,7 +56,17 @@ const SOURCES = [
   ['Prediction markets', 'data/prediction-markets/latest.json', 48, (j) => ({ note: `${j?.meta?.contract_count ?? '?'} contracts` })],
   ['Cross-market coherence', 'data/prediction-markets/cross-market-coherence-latest.json', 48],
   ['SuperContest live mkt', 'data/supercontest/live-market-comparison.json', 48],
-  ['BKR current lines', () => `data/odds/${newest('data/odds', /^BKR_current_lines/)}`, 36],
+  // 2026-09-26: BKR game lines are also captured as a rendered snapshot next to
+  // the week's prop boards (docs/Player_Prop_Odds_Weekly/Week<N>/BKR_Week<N>_current_game_lines.md);
+  // take whichever of the two locations is newer instead of false-flagging STALE.
+  ['BKR current lines', () => {
+    const cands = [
+      newest('data/odds', /^BKR_current_lines/) && `data/odds/${newest('data/odds', /^BKR_current_lines/)}`,
+      newest(`docs/Player_Prop_Odds_Weekly/Week${WEEK}`, /^BKR_Week\d+_current_game_lines/) && `docs/Player_Prop_Odds_Weekly/Week${WEEK}/${newest(`docs/Player_Prop_Odds_Weekly/Week${WEEK}`, /^BKR_Week\d+_current_game_lines/)}`,
+    ].filter(Boolean);
+    const mtime = (f) => { try { return fs.statSync(rel(f)).mtimeMs; } catch { return 0; } };
+    return cands.sort((x, y) => mtime(y) - mtime(x))[0] || 'data/odds/BKR_current_lines_missing';
+  }, 36],
   ['Alpha packet', 'data/alpha/alpha-packet-2026.json', 48],
   ['Expert dossiers', () => `data/expert-dossiers/${newest('data/expert-dossiers', /\.json$/)}`, 168],
   ['Host citations', 'data/generated/host-citations-latest.json', 168],
