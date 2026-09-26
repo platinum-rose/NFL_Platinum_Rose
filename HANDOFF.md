@@ -5,7 +5,7 @@
 > `handoffs/` and `handoffs/archive/`.
 
 **Last governance trim:** 2026-09-22 by Antigravity & Codex
-**Last verified HEAD:** merge of local `3a7eb35`-lineage + `origin/main` `bf60e47` (same-content sibling fork at parent `fc1b7b2`, resolved via merge 2026-09-26; both sides' trees were byte-identical, only the HANDOFF.md pointer text itself conflicted).
+**Last verified HEAD:** `b7ce30c` (2026-09-26 12:02 PT) — merge commit resolving the `fc1b7b2` sibling-commit fork with `origin/main`'s `bf60e47` (byte-identical trees, only HANDOFF.md's pointer text conflicted); pushed, fully in sync with origin/main.
 **Last verified branch:** `main` — **the only working branch.** `wip/yahoo-sync` is retired (archived as tag `archive/wip-yahoo-sync-2026-09-23`; remote branch deleted after a clean automation week). Commit to `main`.
 **Workspace state:** very dirty/shared; run `git status -sb` before trusting any
 handoff prose. A full copy of the pre-trim rolling handoff was archived at
@@ -14,7 +14,8 @@ handoff prose. A full copy of the pre-trim rolling handoff was archived at
 ## Current Pick Up Here
 
 Latest active handoff sources:
-- `handoffs/2026-09-26-1057-claude-week3-saturday-intel-health-handoff.md` (LATEST: 739211245 still has 2 open spots — PHI ML/BAL ML recommended, unconfirmed; confirmed no other Week 3 weekend tickets placed; rebuilt the recommendation ledger from scratch — it lives in claude.ai Project "DEV" at `claude/recommendation-ledger-2026.md`, not a repo file; Friday cadence ran clean, found a stale-game bug in player-props-intel; next = intel-source health check once Codex's Saturday line capture lands, then synthesize new parlay basket. Contains context for the next session.)
+- `handoffs/2026-09-26-1202-claude-week3-metabet-execvenues-git-merge-handoff.md` (LATEST: metabet-futures-ingest wired into Toolbox Diagnostics; DraftKings/FanDuel moved to placeable in src/lib/executionVenues.js (Kalshi deliberately NOT moved — needs Andy's decision on the never-built bid/ask/fee-aware prediction-market execution check, PRIMARY next-session task); backfilled+pushed 2 unprocessed BKR/BetUS text futures batches; resolved+merged the fc1b7b2 sibling-commit git fork with origin/main and pushed. Fanatics ingestion deferred to next week per Andy. Contains context for the next session.)
+- `handoffs/2026-09-26-1057-claude-week3-saturday-intel-health-handoff.md` (PREVIOUS: 739211245 still has 2 open spots — PHI ML/BAL ML recommended, unconfirmed; confirmed no other Week 3 weekend tickets placed; rebuilt the recommendation ledger from scratch — it lives in claude.ai Project "DEV" at `claude/recommendation-ledger-2026.md`, not a repo file; Friday cadence ran clean, found a stale-game bug in player-props-intel.)
 - `handoffs/2026-09-24-2110-claude-week3-tnf-graded-tracker-fixes-handoff.md` (PREVIOUS: TNF graded ATL 35-14, −$96.48, only 739211245 alive; Live Tracker fixes `c717932`/`fc1b7b2` — first-TD, QB INTs, completions, Unders; ledger D13–D15 IRRELEVANT; next = Friday items. Contains the resume prompt.)
 - `handoffs/2026-09-24-1805-claude-week3-tnf-night-favorites-parlay-late-adds-handoff.md` (PREVIOUS: favorites longshot 9-leg placed at BKR +9098; three late BKR tickets (8-team open, 1st-TD SGP, GB −4/BUF −6.5 open); wagers JSON 68 entries; Live Tracker regenerated; ledger D14/D15; next = grade TNF. Contains the resume prompt.)
 - `handoffs/2026-09-24-1435-claude-week3-tnf-props-odds-single-source-pickem-handoff.md` (PREVIOUS: TheOddsAPI single-source + quota guard (`040318f`); pick'em/confidence tools (`db7acec`); TNF island ladder placed (3 tickets); favorites longshot parlay pending Codex's fresh BEO/BKR lines before TNF kickoff. Contains the resume prompt.)
