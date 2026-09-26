@@ -37,6 +37,13 @@ export const SPORTSBOOK_VENUES = Object.freeze([
   { key: 'betmgm', label: 'BetMGM', access: 'proxy', aliases: ['mgm'] },
   { key: 'caesars', label: 'Caesars/William Hill', access: 'proxy', aliases: ['williamhill', 'williamhill_us', 'william_hill'] },
   { key: 'circa', label: 'Circa', access: 'proxy', aliases: [] },
+  // 2026-09-26 (Andy): DraftKings and FanDuel are no longer context-only --
+  // Andy confirmed both are now placeable books for him. Moved out of
+  // MARKET_CONTEXT_ONLY_VENUES below (which is now empty; see its comment).
+  // access: 'direct' per Andy's framing ("no longer context-only, they are
+  // placeable books") -- flag to Andy if either actually needs a proxy.
+  { key: 'draftkings', label: 'DraftKings', access: 'direct', aliases: ['dk'] },
+  { key: 'fanduel', label: 'FanDuel', access: 'direct', aliases: ['fd'] },
 ]);
 
 // Prediction-market venues. These are NOT sportsbooks. Execution eligibility
@@ -44,6 +51,19 @@ export const SPORTSBOOK_VENUES = Object.freeze([
 // equivalence check against the matching sportsbook market — not yet built
 // (see docs/FUTURES_ARTICLE_REACQUISITION_AND_GATES_DESIGN_2026-08-13.md §1).
 // Never fold these into SPORTSBOOK_VENUES or a sportsbook-price execution gate.
+//
+// 2026-09-26 (Andy): Andy said "DraftKings, FanDuel, and Kalshi are no
+// longer context-only, they are placeable books" in the same breath as the
+// DK/FD move above. Kalshi is deliberately NOT moved here-into-
+// SPORTSBOOK_VENUES or given a placeable flag yet -- this file's own
+// long-standing warning (directly above) is that prediction-market
+// execution eligibility needs a separate bid/ask/fee-aware check that has
+// never been built, and silently reclassifying Kalshi as a plain
+// sportsbook would remove that guardrail rather than build the check it's
+// guarding for. Flagged back to Andy to confirm: does he want (a) that
+// bid/ask/fee-aware check actually built now, or (b) a lighter-weight
+// "Kalshi is placeable, treat its price like a sportsbook price" override
+// while accepting the fee/liquidity blind spot this comment warns about?
 export const PREDICTION_MARKET_VENUES = Object.freeze([
   { key: 'kalshi', label: 'Kalshi', aliases: [] },
   { key: 'polymarket', label: 'Polymarket', aliases: [] },
@@ -51,10 +71,14 @@ export const PREDICTION_MARKET_VENUES = Object.freeze([
 
 // Market-context-only books: useful for fair-value/divergence reads, but the
 // Creator cannot place a bet there. Never treat as placeable/execution-eligible.
-export const MARKET_CONTEXT_ONLY_VENUES = Object.freeze([
-  { key: 'draftkings', label: 'DraftKings', aliases: ['dk'] },
-  { key: 'fanduel', label: 'FanDuel', aliases: ['fd'] },
-]);
+//
+// 2026-09-26 (Andy): empty for now -- DraftKings and FanDuel (the only two
+// entries this list ever had) both moved up into SPORTSBOOK_VENUES. Kept as
+// an exported empty array (not deleted) so placeableVenuesPromptSentence()/
+// placeableSportsbookOnlyPromptSentence() below and any other consumer keep
+// working with zero special-casing if a book ever gets demoted back to
+// context-only.
+export const MARKET_CONTEXT_ONLY_VENUES = Object.freeze([]);
 
 function allKeys(venue) {
   return [venue.key, ...(venue.aliases || [])];
@@ -100,15 +124,22 @@ export function placeableVenuesPromptSentence() {
   const direct = SPORTSBOOK_VENUES.filter((v) => v.access === 'direct').map((v) => v.label);
   const proxy = SPORTSBOOK_VENUES.filter((v) => v.access === 'proxy').map((v) => v.label);
   const pmLabels = PREDICTION_MARKET_VENUES.map((v) => v.label);
+  // MARKET_CONTEXT_ONLY_VENUES can be empty (it is, as of 2026-09-26 -- see
+  // its own comment) -- skip the "NEVER recommend a ... price" clause
+  // entirely rather than emit a dangling "NEVER recommend a  price" with a
+  // blank label list.
+  const contextOnlyClause = MARKET_CONTEXT_ONLY_VENUES.length
+    ? ` NEVER recommend a ${MARKET_CONTEXT_ONLY_VENUES.map((v) => v.label).join(' or ')} price — those appear `
+      + `only as market context for fair value; the user cannot bet them.`
+    : '';
   return `PLACEABLE BOOKS ONLY: the user bets directly at ${direct.join(', ')}, and via a proxy at `
     + `${proxy.join(', ')}. best_price/best_book (outrights) and best_over/best_under + their books `
-    + `(win totals) are ALREADY filtered to these placeable books. NEVER recommend a `
-    + `${MARKET_CONTEXT_ONLY_VENUES.map((v) => v.label).join(' or ')} price — those appear only as market `
-    + `context for fair value; the user cannot bet them. Every "book" in your output must be a placeable `
-    + `book (use the dossier's best_* fields). ${pmLabels.join(' and ')} are separate execution candidates `
-    + `only when their net executable price (after fees, accounting for bid/ask and fillable size) beats `
-    + `the equivalent sportsbook price — treat them as market context, not a placeable "book", unless the `
-    + `dossier explicitly marks a prediction-market row execution-eligible.`;
+    + `(win totals) are ALREADY filtered to these placeable books.${contextOnlyClause} Every "book" in your `
+    + `output must be a placeable book (use the dossier's best_* fields). ${pmLabels.join(' and ')} are `
+    + `separate execution candidates only when their net executable price (after fees, accounting for `
+    + `bid/ask and fillable size) beats the equivalent sportsbook price — treat them as market context, `
+    + `not a placeable "book", unless the dossier explicitly marks a prediction-market row `
+    + `execution-eligible.`;
 }
 
 // rev-23-followup3 fix (Codex finding #1): a scoped/suppressed run's dossier
@@ -129,10 +160,13 @@ export function placeableVenuesPromptSentence() {
 export function placeableSportsbookOnlyPromptSentence() {
   const direct = SPORTSBOOK_VENUES.filter((v) => v.access === 'direct').map((v) => v.label);
   const proxy = SPORTSBOOK_VENUES.filter((v) => v.access === 'proxy').map((v) => v.label);
+  // See the identical empty-list guard in placeableVenuesPromptSentence() above.
+  const contextOnlyClause = MARKET_CONTEXT_ONLY_VENUES.length
+    ? ` NEVER recommend a ${MARKET_CONTEXT_ONLY_VENUES.map((v) => v.label).join(' or ')} price — those appear `
+      + `only as market context for fair value; the user cannot bet them.`
+    : '';
   return `PLACEABLE BOOKS ONLY: the user bets directly at ${direct.join(', ')}, and via a proxy at `
     + `${proxy.join(', ')}. best_price/best_book (outrights) and best_over/best_under + their books `
-    + `(win totals) are ALREADY filtered to these placeable books. NEVER recommend a `
-    + `${MARKET_CONTEXT_ONLY_VENUES.map((v) => v.label).join(' or ')} price — those appear only as market `
-    + `context for fair value; the user cannot bet them. Every "book" in your output must be a placeable `
-    + `book (use the dossier's best_* fields).`;
+    + `(win totals) are ALREADY filtered to these placeable books.${contextOnlyClause} Every "book" in your `
+    + `output must be a placeable book (use the dossier's best_* fields).`;
 }

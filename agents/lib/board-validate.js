@@ -26,7 +26,17 @@
 import { NAMED_PLAYER_SIZING_CAP_TIERS } from './named-status-review.js';
 import { normalizeTeam } from '../../src/lib/teams.js';
 
-const DEFAULT_BETTABLE_BOOKS = 'bookmaker,betonline,betus,betmgm,caesars,williamhill_us,williamhill,circa,mgm';
+// 2026-09-26: added draftkings,fanduel -- Andy confirmed both are now
+// placeable books (see src/lib/executionVenues.js's SPORTSBOOK_VENUES and
+// its matching 2026-09-26 comment). This list had already drifted out of
+// sync with portfolio-dossier.js's BETTABLE_BOOKS once (that file migrated
+// to importing PLACEABLE_SPORTSBOOK_KEYS from the registry on 2026-08-13;
+// this one didn't, per the deliberate-duplication note below) -- if this
+// drifts again, consider importing PLACEABLE_SPORTSBOOK_KEYS from
+// '../../src/lib/executionVenues.js' instead of hand-copying the registry a
+// second time (this file already imports across that same boundary for
+// normalizeTeam, so there's no new precedent to set).
+const DEFAULT_BETTABLE_BOOKS = 'bookmaker,betonline,betus,betmgm,caesars,williamhill_us,williamhill,circa,mgm,draftkings,fanduel';
 
 // Same env override + default set as portfolio-dossier.js's BETTABLE_BOOKS —
 // duplicated intentionally ("code owns math", per this codebase's existing

@@ -105,9 +105,12 @@ const MULTIWAY = new Set(['superbowl', 'conference_afc', 'conference_nfc',
 const isMultiway = (mk) => MULTIWAY.has(mk) || mk.startsWith('award_');
 const MAX_QUOTE_AGE_HOURS = Number(process.env.FUTURES_MAX_QUOTE_AGE_HOURS || 72);
 
-// Books the user can actually place at (BKR/BEO/BetUS directly; Vegas books via a
-// proxy). FanDuel/DraftKings are EXCLUDED from best-price selection — they still
-// inform fair value/divergence, but are never offered as the price to bet.
+// Books the user can actually place at (BKR/BEO/BetUS/DraftKings/FanDuel
+// directly; Vegas books via a proxy). DraftKings/FanDuel were context-only
+// (excluded from best-price selection) until 2026-09-26, when Andy confirmed
+// both are now placeable for him -- they moved into the registry's
+// SPORTSBOOK_VENUES and this comment was updated to match; see
+// src/lib/executionVenues.js's own 2026-09-26 comment for the change.
 // Default now comes from the canonical execution-venue registry
 // (src/lib/executionVenues.js, 2026-08-13) instead of a second hand-copied
 // list — see docs/FUTURES_ARTICLE_REACQUISITION_AND_GATES_DESIGN_2026-08-13.md §1.
