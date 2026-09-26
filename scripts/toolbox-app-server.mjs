@@ -391,7 +391,8 @@ async function checkLatestFileInDirSource(source) {
       lastUpdated: null,
       relativeTime: 'Missing',
       checkType: 'file_freshness',
-      group: source.group || 'Other'
+      group: source.group || 'Other',
+      runTask: source.runTask || null
     };
   }
   const hoursAgo = (Date.now() - newest.mtime.getTime()) / (1000 * 60 * 60);
@@ -405,7 +406,8 @@ async function checkLatestFileInDirSource(source) {
     lastUpdated: newest.mtime.toISOString(),
     relativeTime: formatRelativeTime(newest.mtime),
     checkType: 'file_freshness',
-    group: source.group || 'Other'
+    group: source.group || 'Other',
+    runTask: source.runTask || null
   };
 }
 
@@ -447,7 +449,8 @@ async function checkFreshestOfCandidates(source) {
       lastUpdated: null,
       relativeTime: 'Missing',
       checkType: 'file_freshness',
-      group: source.group || 'Other'
+      group: source.group || 'Other',
+      runTask: source.runTask || null
     };
   }
   const hoursAgo = (Date.now() - newestMtime.getTime()) / (1000 * 60 * 60);
@@ -461,7 +464,8 @@ async function checkFreshestOfCandidates(source) {
     lastUpdated: newestMtime.toISOString(),
     relativeTime: formatRelativeTime(newestMtime),
     checkType: 'file_freshness',
-    group: source.group || 'Other'
+    group: source.group || 'Other',
+    runTask: source.runTask || null
   };
 }
 
@@ -564,7 +568,8 @@ const DIAGNOSTIC_DIR_SOURCES = [
     dir: 'data/podcasts/m6-diarized',
     predicate: (name) => name === 'manifest.json',
     maxAgeHours: 100,
-    group: 'Media & Research Intel'
+    group: 'Media & Research Intel',
+    runTask: 'wednesday-sweep'
   },
   {
     key: 'article_intel',
@@ -573,7 +578,8 @@ const DIAGNOSTIC_DIR_SOURCES = [
     dir: 'data/research-intel/review',
     predicate: (name) => name === 'article-intel-review-latest.json',
     maxAgeHours: 30,
-    group: 'Media & Research Intel'
+    group: 'Media & Research Intel',
+    runTask: 'wednesday-articles'
   },
   {
     key: 'twitter_bookmarks',
@@ -582,7 +588,8 @@ const DIAGNOSTIC_DIR_SOURCES = [
     dir: '.nfl/reports/twitter-bookmarks',
     predicate: (name) => name.endsWith('.md'),
     maxAgeHours: 96,
-    group: 'Media & Research Intel'
+    group: 'Media & Research Intel',
+    runTask: 'wednesday-bookmarks'
   },
   {
     key: 'twitter_sharp',
@@ -591,7 +598,8 @@ const DIAGNOSTIC_DIR_SOURCES = [
     dir: '.nfl/receipts',
     predicate: (name) => name.startsWith('x-sharp-ingest-') && name.endsWith('.json'),
     maxAgeHours: 48,
-    group: 'Media & Research Intel'
+    group: 'Media & Research Intel',
+    runTask: 'x-sharp-refresh'
   }
 ];
 
@@ -604,6 +612,7 @@ const DIAGNOSTIC_MULTI_SOURCES = [
     detail: 'Super Bowl, MVP, and season win-total odds -- markets that play out over the full year, not one game.',
     maxAgeHours: 72,
     group: 'Betting Markets',
+    runTask: 'futures-refresh',
     candidates: [
       { dir: '.nfl/receipts', predicate: (name) => name.startsWith('futures-ingest-') && name.endsWith('.json') },
       { path: 'data/win-totals/2026.json' }
@@ -929,6 +938,21 @@ export function runTask(taskKey) {
       cmd = 'node';
       // 2026-09-23: run the full chain (markets -> map -> coherence), not just step 1.
       args = ['scripts/toolbox.mjs', '--cadence', 'prediction-markets'];
+      break;
+    case 'x-sharp-refresh':
+      cmd = 'node';
+      args = ['agents/x-sharp-ingest.js'];
+      break;
+    case 'futures-refresh':
+      cmd = 'node';
+      // 2026-09-26: added for the Diagnostics tab's "Run Now" button. This hits
+      // TheOddsAPI futures/outrights endpoints directly (2x request cost each,
+      // ~20 requests per run off-season, more once seasonal markets are live) --
+      // there is no cheaper/dry-run path, --dry-run only skips the Supabase write,
+      // not the fetch. Click deliberately, not repeatedly. See the quota note atop
+      // agents/futures-odds-ingest.js. The "quota guard" mentioned in past handoffs
+      // as a follow-up item is still open -- this button has no built-in rate limit.
+      args = ['agents/futures-odds-ingest.js'];
       break;
 
     // ── FANTASY TOOLS: RUN NOW (on-demand, not on any cadence) ──
