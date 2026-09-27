@@ -1548,6 +1548,31 @@ function initSideTips() {{
   }});
 }}
 
+function initPickSheet() {{
+  const boxes = Array.from(document.querySelectorAll('input.sc-pick'));
+  if (!boxes.length) return;
+  const key = 'sc-picks:' + document.title;
+  let saved = null;
+  try {{ saved = JSON.parse(localStorage.getItem(key) || 'null'); }} catch (e) {{ saved = null; }}
+  boxes.forEach(b => {{ b.checked = saved ? saved.includes(b.dataset.side) : b.dataset.default === '1'; }});
+  const update = () => {{
+    const on = boxes.filter(b => b.checked).map(b => b.dataset.side);
+    const c = document.getElementById('pick-count');
+    if (c) {{ c.textContent = on.length + ' of 5 picked' + (on.length > 5 ? ' (too many)' : ''); c.style.color = on.length === 5 ? '' : '#b45309'; }}
+    const l = document.getElementById('pick-list');
+    if (l) l.textContent = on.join(' · ');
+    try {{ localStorage.setItem(key, JSON.stringify(on)); }} catch (e) {{}}
+  }};
+  boxes.forEach(b => b.addEventListener('change', update));
+  window.copyPicks = () => {{
+    const on = boxes.filter(b => b.checked).map(b => b.dataset.side).join('\\n');
+    const done = () => {{ const c = document.getElementById('pick-count'); if (c) c.textContent = 'Copied: ' + c.textContent; }};
+    if (navigator.clipboard) navigator.clipboard.writeText(on).then(done).catch(() => {{ window.prompt && window.prompt('Copy:', on); }});
+  }};
+  window.resetPicks = () => {{ boxes.forEach(b => {{ b.checked = b.dataset.default === '1'; }}); update(); }};
+  update();
+}}
+
 function initTableFilters() {{
   document.querySelectorAll('.table-filter').forEach(bar => {{
     if (bar.dataset.ready) return;
@@ -1595,12 +1620,14 @@ window.addEventListener('DOMContentLoaded', () => {{
   initTableFilters();
   initGroupSort();
   initSideTips();
+  initPickSheet();
 }});
 if (document.readyState !== 'loading') {{
   initSortableTables();
   initTableFilters();
   initGroupSort();
   initSideTips();
+  initPickSheet();
 }}
 
 document.addEventListener('click', (e) => {{

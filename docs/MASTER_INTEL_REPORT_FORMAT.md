@@ -95,8 +95,16 @@ Archive the five files to Andy's Google Drive after every Saturday build (a fold
 
 **Codex:** same steps; Codex has no browser, so it starts from an existing BKR capture file and Andy-saved DK pages.
 
+## 8. Companion: the SuperContest report
+
+Every build also writes `nfl_week<N>_supercontest_intelligence_summary.{html,md,docx,json}` (+ pdf via export_pdf.py) from the same data, when `data/supercontest/week-<NN>-lines.json` (the locked contest lines) exists. It is for Andy & Amanda's contest review, not for clients.
+- **Sections:** How the contest works · Contest status (season record, played games, contest-vs-market value, key-number watch) · **Our Five** (each pick: contest vs market line, projected room, experts, big money, stars, the case, what breaks it, key-number warning) · **Pick sheet** (checkboxes pre-filled with our five, counter, Copy / Reset; saved in the browser only) · 1. Every side ranked (filter favorites/underdogs) · 2. Contest vs market · 3. Expert panel · 4. Game-by-game · 5. Season review (graded from `data/supercontest/locked-card-week-<N>.json` + box scores) and rules of thumb · Disclaimer.
+- **Contest score** (ranks sides; not a win chance): room vs contest line (capped at 7) + 1.5 × line value + 0.5 per net expert (±3) ± 0.5 big money ± 0.5 key number gained/lost.
+- **Inputs:** the SuperContest 5 line in the card (`## SuperContest` block) and `## SUPERCONTEST` reasons in the narratives file. Save the final joint five to `data/supercontest/locked-card-week-<N>.json` after it's locked, so next week's review grades it.
+
 ## 7. Change log
 
 | Date | Change | Approved by |
 |---|---|---|
 | 2026-09-26 | Template v1 locked (Week 3 build) | Andy |
+| 2026-09-26 | SuperContest companion report added | Andy |
