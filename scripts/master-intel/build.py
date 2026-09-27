@@ -31,6 +31,9 @@ CITY = {v: ' '.join(k.split()[:-1]).lower() for k, v in FULL.items()}
 ALIAS = {'WSH': 'WAS', 'LA': 'LAR', 'JAC': 'JAX', 'LVR': 'LV', 'NOS': 'NO'}
 LOW_TRUST_CITY = {'NYG', 'NYJ', 'LAC', 'LAR'}  # shared cities: match only by nickname
 
+def FULL_NAME(ab): return next((k for k, v in FULL.items() if v == ab), ab)
+def NICK_FULL(ab): return FULL_NAME(ab)
+
 def J(p, d=None):
     try: return json.load(open(ROOT / p))
     except Exception: return d
@@ -47,6 +50,29 @@ def teams_in(text):
         elif ab not in LOW_TRUST_CITY and CITY[ab] and re.search(r'\b' + re.escape(CITY[ab]) + r'\b', t): hit.add(ab)
     if 'niners' in t: hit.add('SF')
     return hit
+
+def roll(cls, rid, summary, is_open=False):
+    return [f'<details class="rollup-box {cls}" id="{rid}"{" open" if is_open else ""}>', f'<summary>{summary}</summary>', '<div class="rollup-content">', '']
+
+ROLL_END = ['', '[⬆ Back to Executive Master Board](#executive-master-board)', '</div>', '</details>']
+
+def controls(cls, label):
+    return ['<div class="rollup-controls">', f'  <button class="btn-toggle btn-primary" onclick="toggleRollups(\'{cls}\', true)">Expand {label}</button>',
+            f'  <button class="btn-toggle" onclick="toggleRollups(\'{cls}\', false)">Collapse {label}</button>', '</div>', '']
+
+def final_scores(week):
+    out = {}
+    for f in glob.glob(str(ROOT / 'data/fantasy/boxscores/espn-*.json')):
+        try:
+            d = json.load(open(f))
+            if d['header'].get('week') != week: continue
+            c = d['header']['competitions'][0]
+            if not c.get('status', {}).get('type', {}).get('completed'): continue
+            t = {x['homeAway']: (ALIAS.get(x['team']['abbreviation'], x['team']['abbreviation']), int(x.get('score') or 0)) for x in c['competitors']}
+            out[f"{t['away'][0]}@{t['home'][0]}"] = t
+        except Exception:
+            continue
+    return out
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--week', type=int, required=True); ap.add_argument('--date', required=True)
@@ -184,8 +210,8 @@ def main():
     asof = bkr['rows'][0].get('capturedAt', '')[:16]
     L += [f'# 🏈 NFL Week {W} Master Betting Intelligence Report',
           '## Multi-Platform Consensus, Market-Implied Board & Game-by-Game Analytical Dossier',
-          f'### Built {datetime.datetime.now(PT).strftime("%a %b %d %Y %H:%M PT")} by `scripts/master-intel/build.py` — prices are BKR {D} capture ({asof}Z); verify every slip',
-          '', '> Proposals and research context only. Nothing here is placed. Sportsbook prices ≠ prediction-market percentages; never mix them without a fee/spread check.', '',
+          f'### Built {datetime.datetime.now(PT).strftime("%a %b %d %Y %H:%M PT")} by scripts/master-intel/build.py — prices are BKR {D} capture ({asof}Z); verify every slip',
+          '', '_Proposals and research context only. Nothing here is placed. Sportsbook prices ≠ prediction-market percentages; never mix them without a fee/spread check._', '',
           '| Input | Status |', '|---|---|',
           f"| BKR SGP + game lines | {len(G)} games, {len(bkr['rows'])} lines |",
           f"| BEO prop boards | {len({r['game'] for r in beo})} games |",
@@ -194,6 +220,58 @@ def main():
           f"| Podcast transcripts processed | {pull.get('podcast_transcripts_processed')} |",
           f"| YouTube picks (cleaned) | {len(yt.get('picks', []))} |",
           f"| Splits | {len(SPL)} games |", '']
+    FS = final_scores(W)
+    done = [g for g in sched if g['done']]
+    def gsid(gid): return 'game-' + gid.lower().replace('@', '-')
+    qb_notes = []
+    for g in live:
+        for t in (g['visitor'], g['home']):
+            for n, e in INJ.get(t, {}).items():
+                if e.get('position') == 'QB' and str(e.get('normalized_status', '')).upper().startswith(('OUT', 'DOUBTFUL')): qb_notes.append(f'{t} {n} {e["normalized_status"].title()}')
+    sharp = []
+    for g in live:
+        sp_ = SPL.get(g['id']) or SPL.get(g['id'].replace('WAS', 'WSH'))
+        if not sp_: continue
+        if (sp_['spread_home_money'] or 0) - (sp_['spread_home_bettors'] or 0) >= 15: sharp.append(f"{g['home']} spread")
+        if (sp_['spread_home_bettors'] or 0) - (sp_['spread_home_money'] or 0) >= 15: sharp.append(f"{g['visitor']} spread")
+        if (sp_['total_over_money'] or 0) - (sp_['total_over_bettors'] or 0) >= 15: sharp.append(f"{g['id']} Over")
+        if (sp_['total_over_bettors'] or 0) - (sp_['total_over_money'] or 0) >= 15: sharp.append(f"{g['id']} Under")
+    pulled_all = []
+    for gid_, b_ in G.items():
+        pp = sorted({r['player'] for r in b_['rows'] if not r['available']})
+        if pp: pulled_all.append(f"{gid_}: {', '.join(pp)}")
+    results = []
+    for g in done:
+        f_ = FS.get(g['id'])
+        results.append(f"<strong>{g['id']}</strong> 🏁 FINAL — {f_['away'][0]} {f_['away'][1]}, {f_['home'][0]} {f_['home'][1]}" if f_ else f"<strong>{g['id']}</strong> 🏁 FINAL")
+    L += ['<div class="status-banner" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); border-left: 5px solid #3B82F6; padding: 14px 18px; border-radius: 8px; margin-bottom: 20px; color: #F8FAFC;">',
+          f'  <div style="font-size: 1.05rem; font-weight: 700; color: #60A5FA; margin-bottom: 4px;">🚨 Slate Status ({datetime.datetime.now(PT).strftime("%a %b %d, %Y %H:%M PT")} — BKR lines {D})</div>',
+          '  <div style="font-size: 0.92rem; line-height: 1.5;">',
+          f"    • <strong>Played:</strong> {'; '.join(results) or 'none yet'}. <strong>{len(live)} games remain.</strong><br>",
+          f"    • <strong>QB changes (Out/Doubtful):</strong> {', '.join(qb_notes) or 'none'}.<br>",
+          f"    • <strong>Sharp money (money − tickets ≥ 15 pts):</strong> {', '.join(sharp) or 'none'}.<br>",
+          f"    • <strong>Pulled at BKR (listed, no odds — status check):</strong> {'; '.join(pulled_all) or 'none'}.<br>",
+          '    • <strong>Known gaps:</strong> __GAPS__ — details in §11.<br>',
+          '    • <strong>Sortable tables:</strong> click any column header to sort; use the controls below §1 to expand/collapse every dossier.',
+          '  </div>', '</div>', '']
+    # Executive summary
+    L += ['<a id="executive-summary"></a>', '## 📌 Executive Summary', '']
+    tops = [x for x in LEANS if x['tier'].startswith('1') and x['lean'].lower() not in ('skip', 'split', '—')][:6]
+    if tops:
+        L.append('**Top matchup-data reads (tier 1 = secondary-matchup HIGH/MED or verified role + expert support):**'); L.append('')
+        for x in tops: L.append(f"- **{esc(x['game'])} — {esc(x['market'])}** → {esc(x['lean'])} ({esc(x['tier'])})")
+        L.append('')
+    one_sided = []
+    clashes = []
+    for g in live:
+        c_ = CONS.get(g['id'], {}); A_, H_ = g['visitor'], g['home']; na, nh = len(c_.get(A_, ())), len(c_.get(H_, ()))
+        if max(na, nh) >= 4 and min(na, nh) <= 1: one_sided.append(f"{A_ if na > nh else H_} ({max(na, nh)}–{min(na, nh)})")
+        if na >= 3 and nh >= 3: clashes.append(f"{g['id']} ({na}–{nh})")
+    L += [f"- **Most one-sided consensus:** {', '.join(one_sided) or 'none'}.",
+          f"- **Biggest clashes (≥3 sources each side):** {', '.join(clashes) or 'none'}.",
+          f"- **Sharp-money flags:** {', '.join(sharp) or 'none'}.",
+          f"- **QB watch:** {', '.join(qb_notes) or 'none'}.",
+          f"- **Card:** {len(TICK)} tickets in `{card_p}`" + (f" — total ${sum(float(t[2]) for t in TICK):.0f} as built." if TICK else '.'), '']
     # 1
     L += ['<a id="executive-master-board"></a>', '## 1. Executive Master Board: Best Bets, Props, Tickets & Teasers', '']
     if LEANS:
@@ -204,8 +282,12 @@ def main():
     if TICK:
         L += ['', f'**Card tickets** (full leg tables: `{card_p}`)', '', '| Ticket | Book | Stake | Price / structure |', '|---|---|---|---|']
         for n, b, st, pr, ret in TICK: L.append(f'| {esc(n)} | {esc(b)} | ${st} | {esc(pr)} — {esc(ret)} |')
+    L += ['', '<div class="global-rollup-bar">', '  <span class="bar-title">⚡ Matchup &amp; Section Dossier Controls:</span>',
+          '  <button class="btn-toggle btn-primary" onclick="toggleAllRollups(true)">Expand All Sections</button>',
+          '  <button class="btn-toggle" onclick="toggleAllRollups(false)">Collapse All Sections</button>',
+          '  <span class="bar-hint">💡 Click any matchup link to jump to its dossier. Click any table header to sort.</span>', '</div>', '', '---']
     # 2
-    L += ['', '## 2. Platinum Rose Market-Implied Forecast Board', '', '_Implied scores = total/2 ± spread/2 (BKR). Win % = no-vig BKR moneyline. Splits: Action Network tickets / money (home side for spread & ML, Over for total). **Sharp** = money − tickets ≥ 15 pts._', '',
+    L += ['', '<a id="synth-engine-section"></a>', '## 2. Platinum Rose Market-Implied Forecast Board', ''] + controls('section-synth', 'Section 2') + roll('section-synth', 'platinum-rose-board', '📊 Full market board — implied scores, no-vig win %, splits &amp; sharp flags', True) + [ '_Implied scores = total/2 ± spread/2 (BKR). Win % = no-vig BKR moneyline. Splits: Action Network tickets / money (home side for spread & ML, Over for total). **Sharp** = money − tickets ≥ 15 pts._', '',
           '| Kickoff (PT) | Game | Fav / spread | Total | Implied score | Win % (no-vig) | Spread tix/$ (home) | Total tix/$ (over) | Flag |', '|---|---|---|---|---|---|---|---|---|']
     for g in live:
         gid = g['id']; b = G.get(gid)
@@ -222,21 +304,48 @@ def main():
             if (sp['spread_home_bettors'] or 0) - (sp['spread_home_money'] or 0) >= 15: flag.append(f"sharp {b['away']} spread")
             if (sp['total_over_money'] or 0) - (sp['total_over_bettors'] or 0) >= 15: flag.append('sharp Over')
             if (sp['total_over_bettors'] or 0) - (sp['total_over_money'] or 0) >= 15: flag.append('sharp Under')
-        L.append(f"| {g['k'].astimezone(PT):%a %H:%M} | {gid} | {f} {s:+g} | {t} | {imps} | {wp} | {sp and str(sp['spread_home_bettors'])+'/'+str(sp['spread_home_money'])} | {sp and str(sp['total_over_bettors'])+'/'+str(sp['total_over_money'])} | {', '.join(flag)} |")
+        L.append(f"| {g['k'].astimezone(PT):%a %H:%M} | [{gid}](#{gsid(gid)}) | {f} {s:+g} | {t} | {imps} | {wp} | {sp and str(sp['spread_home_bettors'])+'/'+str(sp['spread_home_money'])} | {sp and str(sp['total_over_bettors'])+'/'+str(sp['total_over_money'])} | {', '.join(flag)} |")
+    L += ROLL_END
     # 3
-    L += ['', '## 3. In-Depth Multi-Platform Consensus & High-Stakes Clashes', '', '_Each source (writer/outlet, podcast expert, YouTube host) counts **once per game**, on the side it leaned to most often; ties are dropped. Note: outlet-level feeds (ESPN NFL, VSiN) aggregate several writers, so treat them as one vote. A **clash** = both sides have ≥2 sources._', '',
+    L += ['', '<a id="consensus-section"></a>', '## 3. In-Depth Multi-Platform Consensus & High-Stakes Clashes', ''] + controls('section-3', 'Section 3') + roll('section-3', 'consensus-overview', '🧭 Consensus overview — every game', True) + [ '_Each source (writer/outlet, podcast expert, YouTube host) counts **once per game**, on the side it leaned to most often; ties are dropped. Note: outlet-level feeds (ESPN NFL, VSiN) aggregate several writers, so treat them as one vote. A **clash** = both sides have ≥2 sources._', '',
           '| Game | Side A (sources) | Side B (sources) | Total lean | Clash? |', '|---|---|---|---|---|']
     for g in live:
         gid = g['id']; c = CONS.get(gid, {}); A, H = g['visitor'], g['home']
         a_, h_ = c.get(A, set()), c.get(H, set()); u, o = c.get('Under', set()), c.get('Over', set())
         tl = f"Under ({len(u)})" if len(u) > len(o) else (f"Over ({len(o)})" if o else '—')
         L.append(f"| {gid} | {A} {len(a_)} — {esc(', '.join(sorted(a_))[:90])} | {H} {len(h_)} — {esc(', '.join(sorted(h_))[:90])} | {tl} | {'**yes**' if len(a_) >= 2 and len(h_) >= 2 else ''} |")
+    L += ROLL_END
+    ranked = []
+    for g in live:
+        c_ = CONS.get(g['id'], {}); A_, H_ = g['visitor'], g['home']
+        a_, h_ = c_.get(A_, set()), c_.get(H_, set())
+        side, n1, n2, fr, ag = (A_, len(a_), len(h_), a_, h_) if len(a_) >= len(h_) else (H_, len(h_), len(a_), h_, a_)
+        if n1 >= 2: ranked.append((n1 - n2, n1, g, side, fr, ag))
+    ranked.sort(key=lambda x: (-x[0], -x[1]))
+    for i, (m_, n1, g, side, fr, ag) in enumerate(ranked):
+        n2 = len(ag); badge = '🌟 Near-Unanimous' if n2 == 0 or n1 >= 3 * max(n2, 1) else ('🔥 Majority' if m_ >= 2 else '⚔️ Clash')
+        b_ = G.get(g['id']); f_, s_ = fav(g['id']); tot_ = b_ and (b_['tot'].get('Over') or (None,))[0]
+        ln = b_ and b_['sp'].get(side); nv = novig(g['id']).get(side)
+        L += roll('section-3', 'consensus-' + g['id'].lower().replace('@', '-'), f"{badge} #{i+1}: {NICK_FULL(side)} {ln[0]:+g} — {g['visitor']} at {g['home']} ({n1} vs {n2})" if ln else f"{badge} #{i+1}: {side} — {g['id']} ({n1} vs {n2})")
+        L += [f"* **Game Details:** {g['k'].astimezone(PT):%a %H:%M PT} | **Market Spread:** {f_} {s_:+g} | **Total:** {tot_}" if f_ else f"* **Game Details:** {g['k'].astimezone(PT):%a %H:%M PT}",
+              f"* **Consensus Count:** {badge} ({n1} vs {n2}) — for: {esc(', '.join(sorted(fr)))} | against: {esc(', '.join(sorted(ag))) or 'none'}",
+              f"* **Market Read:** no-vig win % {side} {nv*100:.0f}%" if nv else '* **Market Read:** n/a']
+        for r in EXP.get(g['id'], [])[:4]:
+            L.append(f"  * _{esc(r.get('expert'))}_: {esc(r.get('pick_type'))} **{esc(r.get('selection'))}** {esc(r.get('line') or '')} — {esc(r.get('rationale'))[:120]}")
+        for x in LEANS:
+            if x['game'].split(' ')[0] == g['id']: L.append(f"* **Card lean:** {esc(x['market'])} → {esc(x['lean'])} (tier {esc(x['tier'])})")
+        L.append(f"* **Full breakdown:** [game dossier](#{gsid(g['id'])})")
+        L += ROLL_END
     # 4
-    L += ['', '## 4. High-Conviction Feature Plays & Signature Expert Bets', '']
+    L += ['', '<a id="feature-plays"></a>', '## 4. High-Conviction Feature Plays & Signature Expert Bets', ''] + controls('section-4', 'Section 4')
     feats = [x for x in LEANS if x['tier'].startswith('1')]
-    if feats:
-        for x in feats: L.append(f"- **{esc(x['game'])} — {esc(x['market'])}** (tier {esc(x['tier'])}): {esc(x['source'])}")
-    else: L.append('- No tier-1 leans in the digest.')
+    for i, x in enumerate(feats):
+        L += roll('section-4', f'feature-{i+1}', f"🎯 #{i+1} {esc(x['game'])} — {esc(x['market'])} (tier {esc(x['tier'])})")
+        L += [f"* **Lean:** {esc(x['lean'])}", f"* **Evidence:** {esc(x['source'])}"]
+        gid_ = x['game'].split(' ')[0]
+        if gid_ in ids: L.append(f"* **Full breakdown:** [game dossier](#{gsid(gid_)})")
+        L += ROLL_END
+    if not feats: L.append('- No tier-1 leans in the digest.')
     L += ['', '**Signature expert bets (week-specific, named):**', '']
     seen = set()
     for gid in ids:
@@ -258,11 +367,14 @@ def main():
     dogrr = [t for t in TICK if 'Dog' in t[0]]
     if dogrr: L += ['', f'**Underdog ML round robin:** {esc(dogrr[0][0])} — {esc(dogrr[0][1])} — ${dogrr[0][2]} — {esc(dogrr[0][3])} ({esc(dogrr[0][4])}). Legs in the card.']
     # 6
-    L += ['', '## 6. Full Chronological Analytical Dossier (With Market Cards)', '']
+    L += ['', '<a id="game-dossier"></a>', '## 6. Full Chronological Analytical Dossier (With Market Cards)', ''] + controls('section-6', 'Section 6')
     for g in sched:
         gid = g['id']; A, H = g['visitor'], g['home']
-        L += [f"### {A} @ {H} — {g['k'].astimezone(PT):%a %b %d %H:%M PT}" + (' — **FINAL (already played)**' if g['done'] else ''), '']
-        if g['done']: L += ['_Played before this build; excluded from every slot._', '[⬆ Back to Executive Master Board](#executive-master-board)', '']; continue
+        b0 = G.get(gid); f0, s0 = fav(gid) if b0 else (None, None); t0 = b0 and (b0['tot'].get('Over') or (None,))[0]
+        fsc = FS.get(gid)
+        head = f"⏰ {g['k'].astimezone(PT):%a %H:%M PT} — {FULL_NAME(A)} @ {FULL_NAME(H)}" + (f" — {f0} {s0:+g} · O/U {t0}" if f0 else '') + ((f" — 🏁 FINAL {fsc['away'][0]} {fsc['away'][1]}–{fsc['home'][0]} {fsc['home'][1]}" if fsc else ' — 🏁 FINAL') if g['done'] else '')
+        L += [f'<a id="{gsid(gid)}"></a>'] + roll('section-6', gsid(gid) + '-box', head)
+        if g['done']: L += ['_Played before this build; excluded from every slot._'] + ROLL_END; continue
         b = G.get(gid)
         if b:
             L += ['| | ' + A + ' | ' + H + ' |', '|---|---|---|',
@@ -312,15 +424,16 @@ def main():
                 L.append('- **DK Predictions (contract %, pre-fee):** ' + ' · '.join(f"{r['side']} {r['market'].replace('game_', '')} {('' if r['line'] is None else format(r['line'], '+g') if 'spread' in r['market'] else r['line'])} {r['prob']*100:.0f}%" for r in gl.values()))
         for x in LEANS:
             if x['game'].split(' ')[0] == gid: L.append(f"- **Card lean:** {esc(x['market'])} → {esc(x['lean'])} (tier {esc(x['tier'])})")
-        L += ['', '[⬆ Back to Executive Master Board](#executive-master-board)', '']
+        L += ROLL_END
     # 7
-    L += ['## 7. Platinum Rose Parlay Cards & Construction Rules', '']
+    L += ['', '<a id="parlay-cards"></a>', '## 7. Platinum Rose Parlay Cards & Construction Rules', ''] + controls('section-7', 'Section 7') + roll('section-7', 'parlay-card-list', '🎟️ Card tickets &amp; season build rules', True)
     if TICK:
         L += ['| Ticket | Book | Stake | Price |', '|---|---|---|---|'] + [f'| {esc(n)} | {esc(b)} | ${s} | {esc(p)} |' for n, b, s, p, r in TICK]
     m = re.search(r'\*\*Build rules that come from the data\.[^\n]*\n\n(\|.*?\n)(?:\n)', (ROOT / 'agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md').read_text(encoding='utf-8'), re.S)
     if m: L += ['', '**Build rules from the season record** (`agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md` §5):', '', m.group(1).strip()]
+    L += ROLL_END
     # 8
-    L += ['', '## 8. Master Player Prop & Exotic Wager Card', '']
+    L += ['', '<a id="prop-card"></a>', '## 8. Master Player Prop & Exotic Wager Card', ''] + controls('section-8', 'Section 8') + roll('section-8', 'prop-card-box', '🧾 Props: article tier-1, tackles+assists, 2+ pass TD', True)
     ppi = J('data/research-intel/review/player-props-intel-latest.json', {}) or {}
     pl = ppi.get('props') or ppi.get('rows') or []
     live_games = {f"{g['visitor']} @ {g['home']}" for g in live}
@@ -339,8 +452,9 @@ def main():
         for r in sorted(best.values(), key=lambda r: r['game']): L.append(f"| {r['game']} | {r['player']} | {r['line']:g}+ | {r['odds']:+d} |")
     ptd = sorted([r for r in bkr['rows'] if r['market'] == 'pass_td' and r['threshold'] == 2 and r['available']], key=lambda r: r['odds'])
     if ptd: L += ['', '**2+ passing TD (BKR):** ' + ' · '.join(f"{r['player']} {r['odds']:+d}" for r in ptd)]
+    L += ROLL_END
     # 9
-    L += ['', '## 9. Master Survivor Contest Strategy Hierarchy', '']
+    L += ['', '<a id="survivor"></a>', '## 9. Master Survivor Contest Strategy Hierarchy', '']
     se = J('data/survivor/yahoo-survivor-entrants-2026.json', {}) or {}
     for gr in se.get('groups', []):
         me = [e for e in gr['entrants'] if e.get('is_user_team')]
@@ -373,7 +487,8 @@ def main():
     L += ['', '### Known Gaps', ''] + [f'- {x}' for x in gaps]
     out_dir = ROOT / f'dist/nfl_week{W}_master_packet'; out_dir.mkdir(parents=True, exist_ok=True)
     md = out_dir / f'nfl_week{W}_master_betting_intelligence_summary.md'
-    md.write_text('\n'.join(L) + '\n', encoding='utf-8')
+    txt = '\n'.join(L).replace('__GAPS__', '; '.join(gaps) if gaps else 'none')
+    md.write_text(txt + '\n', encoding='utf-8')
     print(f'wrote {md} ({len(L)} lines)')
     if not a.no_export:
         sys.path.insert(0, str(Path(__file__).parent))
