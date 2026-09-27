@@ -55,54 +55,61 @@ def teams_in(text):
 
 # Column-header tooltips (Week 2 "term-tooltip" markup; convert_summary.py styles them in html and strips them from docx).
 TIPS = {
-    'Tier': ('Sourcing Tier', '1 = matchup data (secondary-matchup HIGH/MED or a verified role/usage edge). 2 = named expert, week-specific, 2+ independent sources. 3 = prediction market beats the book. 4 = price only. "1+2" has both.'),
-    'Lean': ('Lean', 'The side or outcome the evidence points to. A lean is not a ticket; tickets live in the card.'),
-    'Sources': ('Evidence', 'Where the lean comes from: matchup data, named experts/podcasts, splits, injuries.'),
-    'Price / structure': ('Price & Structure', 'Combined American price (naive multiply for parlays; same-game parlays price lower at the book) or round-robin combos with average returns by hits.'),
-    'Stake': ('Stake', 'Template stake for the ticket (unit = $10).'),
-    'Fav / spread': ('Favorite & Spread', 'Bookmaker (BKR) spread on the favorite at capture time.'),
-    'Total': ('Game Total', 'BKR over/under points line.'),
-    'Projected': ('Projected Final Score', 'Written projection from §6: market-implied score adjusted for injuries, secondary-matchup tier, sharp splits, line movement and expert consensus. Not a model output.'),
-    'Implied score': ('Market-Implied Score', 'Favorite = total/2 + spread/2, underdog = total/2 − spread/2. What the betting market expects, not a simulation.'),
-    'Win % (no-vig)': ('No-Vig Win Probability', 'Both BKR moneylines converted to implied probability, then scaled so they sum to 100% (vig removed).'),
-    'Spread tix/$ (home)': ('Spread Splits', 'Action Network share of spread tickets / share of spread money on the HOME team. Money well above tickets = bigger (sharper) bets on that side.'),
-    'Total tix/$ (over)': ('Total Splits', 'Share of total tickets / money on the OVER.'),
-    'Flag': ('Sharp-Money Flag', 'Raised when money share minus ticket share is 15+ points on one side: fewer, larger bets.'),
-    'Side A (sources)': ('Away-Side Sources', 'Distinct sources leaning to the away team. Each source counts once per game, on the side it picked most often; ties dropped.'),
-    'Side B (sources)': ('Home-Side Sources', 'Distinct sources leaning to the home team (same counting rule).'),
-    'Total lean': ('Total Consensus', 'Over/Under side with more distinct sources (count in brackets).'),
-    'Clash?': ('Clash', 'Both sides have 2+ distinct sources: a genuine disagreement, not a consensus.'),
-    'Leg': ('Teaser Leg', 'The side in a 6-point teaser. Wong strategy: favorites −7.5 to −8.5 down, dogs +1.5 to +2.5 up, crossing both 3 and 7.'),
-    'Current': ('Current Line', 'BKR spread and price at capture time.'),
-    'Teased': ('Teased Line', 'The line after the 6-point adjustment.'),
-    'Consensus on that side': ('Consensus Support', 'Distinct sources on that side (from §3).'),
-    'Rung': ('Ladder Rung', 'Threshold for an "N+" prop ladder; N+ equals Over N−0.5. Shown rung is the one priced closest to −110.'),
-    'Price': ('Quoted Price', 'Book price at capture time. Re-check the slip before placing.'),
-    'No-vig win %': ('No-Vig Win Probability', 'Survivor ranking by vig-free BKR moneyline probability.'),
-    'Market': ('Market', 'Bet type and line as quoted.'),
-    'Source': ('Source', 'Outlet or analyst the pick came from.'),
-    'Type': ('Bet Type', 'Side = who wins or covers the spread. Total = over/under combined points. Prop = an individual player stat.'),
-    'Confidence': ('Confidence (0.5–5 ★)', 'How strongly our evidence backs this play, relative to our other plays. Starts from the evidence tier and moves ±0.5 for expert consensus, big-money signals and status flags. Not a win probability.'),
-    'Rank': ('Rank', 'Order from strongest to weakest by the score in this table.'),
-    'Pick': ('Pick', 'The bet as it appears on the card, with the price at capture.'),
-    'Evidence': ('Evidence', 'What the play is built on: matchup data, named experts, splits, injuries.'),
-    'Favorite & spread': ('Favorite & Spread', 'The team expected to win and by how many points. BUF −7 = Buffalo must win by 8+ to cover.'),
-    'Total points': ('Total Points Line', 'The over/under line on combined points for both teams.'),
-    'Score the lines imply': ('Score the Lines Imply', 'The final score the spread and total point to together. Favorite = total/2 + spread/2; underdog = the rest.'),
-    'Our projection': ('Our Projected Final', 'Platinum Rose projection from the game write-ups: the line-implied score adjusted for cited evidence.'),
-    'Win chance (no-vig)': ('Win Chance', 'Moneylines turned into win probabilities with the sportsbook\'s built-in cut removed.'),
-    'Home spread: % bets / % money': ('Spread Bets vs Money', 'Share of spread tickets and share of spread dollars on the home team. Money well above tickets = bigger bets on that side.'),
-    'Over: % bets / % money': ('Total Bets vs Money', 'Share of tickets and dollars on the Over.'),
-    'Big-money signal': ('Big-Money Signal', 'Money share beats ticket share by 15+ points on this side: usually larger, sharper bettors.'),
-    'Consensus side': ('Consensus Side', 'The team more sources picked.'),
-    'For – Against': ('Source Count', 'Sources on the consensus side vs. the other side (each source counted once per game).'),
-    'Strength': ('Consensus Strength', '🌟 near-unanimous (3× or more, or none against), 🔥 majority (ahead by 2+), ⚔️ clash (close split).'),
-    'Details': ('Links', 'Jump to the game write-up, every expert pick for the game, or the consensus breakdown.'),
-    'What moves it': ('Score Adjustments', 'The tier the score starts from and each ±0.5 adjustment applied.'),
-    'Structure & payout': ('Structure & Payout', 'Parlay price (legs multiplied) or round-robin combinations, and what it returns.'),
-    "Book's win chance (no-vig)": ('Book Win Chance', 'The chance to win implied by the moneyline, with the sportsbook cut removed.'),
-    'Experts for – against': ('Expert Count', 'Sources on this dog vs. on its opponent.'),
-    'Moneyline move': ('Moneyline Movement', 'Bookmaker moneyline at the earliest snapshot this week → now. A shorter price means money came in on this team.'),
+    'Tier': ('Evidence level', 'How much backs the pick. 1 = our own matchup numbers point this way. 2 = at least two named experts picked it this week. 1+2 = both agree. A minus sign means only partly.'),
+    'Lean': ('Our lean', 'The side or result we think the evidence favors. A lean is an opinion; the tickets are the actual bets.'),
+    'Sources': ('Where it comes from', 'The matchup data, named experts, betting splits or injury news behind the pick.'),
+    'Price / structure': ('Price and payout', 'What the bet pays and how the ticket is built.'),
+    'Stake': ('Stake', 'How much the ticket risks.'),
+    'Fav / spread': ('Favorite and spread', 'Who the sportsbook expects to win, and by how many points.'),
+    'Total': ('Total', 'The combined points line for both teams (over/under).'),
+    'Implied score': ('Score the lines point to', 'The final score the spread and total suggest together.'),
+    'Win % (no-vig)': ('Win chance', 'The moneyline turned into a percent chance to win, with the sportsbook\'s cut taken out.'),
+    'Spread tix/$ (home)': ('Bets vs. money', 'Share of bets and share of dollars on the home team.'),
+    'Total tix/$ (over)': ('Bets vs. money on the Over', 'Share of bets and share of dollars on the Over.'),
+    'Flag': ('Big-money alert', 'Shows where the dollars are much heavier than the number of bets: fewer, bigger bettors.'),
+    'Side A (sources)': ('Away-team backers', 'How many experts picked the away team.'),
+    'Side B (sources)': ('Home-team backers', 'How many experts picked the home team.'),
+    'Total lean': ('Over or Under?', 'Whether more experts picked the Over or the Under (count in brackets).'),
+    'Clash?': ('Split opinion', 'Experts are divided: at least two on each side.'),
+    'Leg': ('Teaser leg', 'The team you would move 6 points in your favor.'),
+    'Current': ('Line now', 'The spread and price at the sportsbook right now.'),
+    'Teased': ('Line after teasing', 'The spread after you move it 6 points your way.'),
+    'Consensus on that side': ('Experts on that side', 'How many experts picked that team.'),
+    'Rung': ('Line', 'The number the player has to reach. "9+" means 9 or more.'),
+    'Price': ('Price', 'What the bet pays. −150 = risk $150 to win $100. +150 = risk $100 to win $150. Check your slip; prices move.'),
+    'No-vig win %': ('Win chance', 'The sportsbook\'s moneyline turned into a percent chance to win, with its cut taken out.'),
+    'Market': ('Bet', 'The bet and the line.'),
+    'Source': ('Source', 'Who made the pick.'),
+    'Type': ('Bet type', 'Side = pick a team to win or cover. Total = over/under on combined points. Prop = a single player\'s stat.'),
+    'Confidence': ('How strong the case is', 'More stars = more evidence lines up behind the bet (matchup data, expert agreement, big money). It ranks our picks against each other; it is not a win percentage.'),
+    'Rank': ('Rank', 'Strongest first.'),
+    'Pick': ('Pick', 'The bet, with the price we saw.'),
+    'Evidence': ('Why we like it', 'What the pick is built on: matchup numbers, experts, betting splits, injuries.'),
+    'Why': ('Why', 'The short reason this is on the card.'),
+    'Favorite & spread': ('Favorite and spread', 'Who the sportsbook expects to win, and by how many. "BUF −7" means Buffalo has to win by 8 or more to cover.'),
+    'Total points': ('Total points', 'The over/under line on both teams\' combined score.'),
+    'Score the lines imply': ('Score the lines point to', 'Put the spread and total together and this is the final score the sportsbook is expecting.'),
+    'Our projection': ('Our projected score', 'Our own call on the final score, after injuries, matchups, expert opinion and money moves.'),
+    'Win chance (no-vig)': ('Win chance', 'Each team\'s chance to win according to the moneyline, with the sportsbook\'s cut taken out.'),
+    'Home spread: % bets / % money': ('Who is betting the home team', 'First number: share of bets. Second: share of dollars. When dollars run well ahead of bets, bigger bettors are on that side.'),
+    'Over: % bets / % money': ('Who is betting the Over', 'Share of bets and share of dollars on the Over.'),
+    'Big-money signal': ('Big-money alert', 'The dollars are much heavier than the number of bets on this side, usually a sign of experienced bettors.'),
+    'Consensus side': ('Expert favorite', 'The team more experts picked.'),
+    'For – Against': ('Expert count', 'Experts on the favored side vs. the other side. Each expert counts once per game.'),
+    'Strength': ('How strong the agreement is', '🌟 almost everyone agrees · 🔥 clear majority · ⚔️ experts are split.'),
+    'Details': ('More', 'Jump to the game write-up, all expert picks for the game, or the full breakdown.'),
+    'What moves it': ('Why this many stars', 'What raised or lowered the score: evidence level, expert agreement, big money, injury flags.'),
+    'Structure & payout': ('How it pays', 'What the ticket returns and how it is built.'),
+    "Book's win chance (no-vig)": ('Win chance', 'The sportsbook\'s own estimate of this team\'s chance to win, with its cut taken out.'),
+    'Experts for – against': ('Expert count', 'Experts picking this underdog vs. its opponent.'),
+    'Moneyline move': ('Price move this week', 'Earlier price → now. When an underdog\'s price shrinks (+126 → +120), money has been coming in on it.'),
+    'Tier / source': ('Evidence level and source', 'How the prop made the list: our card, a named expert, or an article pick.'),
+    'Prop': ('Prop', 'The player and the number he has to reach.'),
+    'Book': ('Sportsbook', 'Where the price came from: BKR = Bookmaker, BEO = BetOnline.'),
+    'Legs': ('Legs', 'How many bets are combined in the ticket.'),
+    'Ticket': ('Ticket', 'The bet slip. Open it for every leg.'),
+    'Contest line': ('Contest line', 'The locked spread the SuperContest uses for this game.'),
+    'Game': ('Game', 'Click to jump to the full game write-up.'),
 }
 
 def tip(term, title, desc):
@@ -138,6 +145,16 @@ def load_narratives(path):
         m = re.search(r'^projection:\s*([A-Z]{2,3})\s+(\d+)\s*,\s*([A-Z]{2,3})\s+(\d+)', body, re.M)
         secs = [(t.strip(), b.strip()) for t, b in re.findall(r'^### (.+?)\n(.*?)(?=^### |\Z)', body, re.M | re.S)]
         out[gid] = dict(proj=((m.group(1), int(m.group(2))), (m.group(3), int(m.group(4)))) if m else None, secs=secs)
+    return out
+
+def load_ticket_notes(path, block='TICKETS'):
+    out = {}
+    if not path.exists(): return out
+    txt = re.sub(r'<!--.*?-->', '', path.read_text(encoding='utf-8'), flags=re.S)
+    m = re.search(r'^## ' + block + r'\n(.*?)(?=^## |\Z)', txt, re.M | re.S)
+    for ln in (m.group(1).splitlines() if m else []):
+        mm = re.match(r'^- (.+?): (.+)$', ln.strip())
+        if mm: out[mm.group(1).strip()] = mm.group(2).strip()
     return out
 
 def opening_lines(sched):
@@ -248,6 +265,8 @@ def main():
     card = (ROOT / card_p).read_text(encoding='utf-8') if (ROOT / card_p).exists() else ''
     nar_p = f'reports/intel/master-intel-narratives-{a.season}-w{WW}.md'
     NAR = load_narratives(ROOT / nar_p)
+    TNOTE = load_ticket_notes(ROOT / nar_p)
+    SCNOTE = load_ticket_notes(ROOT / nar_p, 'SUPERCONTEST')
     OPEN = opening_lines(sched)
 
     # ---------- BKR per game ----------
@@ -454,7 +473,7 @@ def main():
             elif f'{gid} {other}' in sharp: v -= 0.5; why.append('big money disagrees')
         if 'flag' in t: v -= 0.5; why.append('status flag — verify before placing')
         return max(0.5, min(5.0, v)), why
-    def stars(v): n = int(round(v)); return f"{v:.1f} " + '★' * n + '☆' * (5 - n)
+    def stars(v): n = int(v + 0.5); return f"{v:.1f} " + '★' * n + '☆' * (5 - n)
     RANKED = []
     for x in LEANS:
         v, why = conf(x)
@@ -557,21 +576,90 @@ def main():
           '</div>'] + RE
 
     # ---------------- ⭐ Recommendations ----------------
+    kick = {g['id']: g['k'] for g in live}
+    def tnote(t):
+        for k_, v_ in TNOTE.items():
+            if t['name'].startswith(k_) or k_.startswith(t['name']): return v_
+        return ''
+    def gwhy(gid, key='Why the card leans this way'):
+        return ' '.join(dict((NAR.get(gid) or {}).get('secs', [])).get(key, '').split())
+    def ticket_box(t, cls):
+        out = roll(cls, t['id'], f"🎟️ {esc(t['name'])} — {esc(t['book'])} — ${t['stake']} — {esc(t['price'])}")
+        note = tnote(t)
+        if note: out += [f"💬 **What it is and why:** {esc(note)}", '']
+        out += [f"**Payout:** {esc(t['ret'])}", '', '| Game | Leg | Book | Price | Tier | Why |', '|---|---|---|---|---|---|'] + [
+                f"| {glink(lg['game'])} | {esc(lg['market'])} | {esc(lg['book'])} | {esc(lg['price'])} | {esc(lg['tier'])} | {esc(lg['why'])} |" for lg in t['legs']] + RE
+        return out
+    def fbar(col, opts, scope='', sort_scope=''):
+        out = [f'<div class="table-filter rollup-controls" data-col="{col}"' + (f' data-scope="{scope}"' if scope else '') + '>',
+               '  <button class="btn-toggle btn-primary" data-filter="all">All</button>'] + [f'  <button class="btn-toggle" data-filter="{o}">{o}</button>' for o in opts]
+        if sort_scope:
+            out += [f'  <span class="bar-hint" style="margin-left: 12px;">Sort:</span>',
+                    f'  <button class="btn-toggle group-sort btn-primary" data-scope="{sort_scope}" data-key="conf">Strongest first</button>',
+                    f'  <button class="btn-toggle group-sort" data-scope="{sort_scope}" data-key="kick">Kickoff</button>',
+                    f'  <button class="btn-toggle group-sort" data-scope="{sort_scope}" data-key="game">A–Z</button>']
+        return out + ['</div>', '']
     L += ['', '<a id="recommendations"></a>', '## ⭐ Platinum Rose Recommendations: What to Bet This Week', '',
-          'Everything Platinum Rose recommends this week, in one place. Prices are Bookmaker (BKR) or BetOnline (BEO) at capture time — **check the price on your slip before placing**. Confidence scores are explained in [§4](#section-4-box).', '']
+          'Everything Platinum Rose recommends this week, in one place. Prices are Bookmaker (BKR) or BetOnline (BEO) at capture time: **check the price on your slip before placing**. More stars = more evidence behind the bet ([how stars work](#confidence-defs)).', '']
     straight = [r for r in RANKED if r['type'] in ('Side', 'Total')]
-    L += roll('section-rec', 'rec-straight', f'✅ Straight bets — sides &amp; totals ({len(straight)})', True) + [
-          '| Pick | Type | Game | Confidence | Why |', '|---|---|---|---|---|'] + [
-          f"| **{esc(r['market'])}** → {esc(r['lean'])} | {r['type']} | {glink(r['gid'])} | {stars(r['conf'])} | {esc(r['source'])[:130]} <em>({esc('; '.join(r['conf_why']))})</em> |" for r in straight] + RE
+    bygame = collections.OrderedDict()
+    for r in straight: bygame.setdefault(r['gid'], []).append(r)
+    L += roll('section-rec', 'rec-straight', f'✅ Straight bets: sides &amp; totals — {len(straight)} picks in {len(bygame)} games', True) + [
+          'Grouped by game. Filter to only sides or only totals, and sort by strength, kickoff or name. Open a game for our projected score and the reasoning.', '']
+    L += fbar('Type', ['Side', 'Total'], 'rec-games', 'rec-games') + ['<div id="rec-games">']
+    for gid, rs in bygame.items():
+        best = max(r['conf'] for r in rs); k_ = kick.get(gid)
+        head = f"{FULL_NAME(gid.split('@')[0])} @ {FULL_NAME(gid.split('@')[1])} — " + ' · '.join(f"{esc(r['market'])} ({r['conf']:.1f}★)" for r in rs) + (f" — {k_.astimezone(PT):%a %H:%M PT}" if k_ else '')
+        L += [f'<details class="rollup-box section-rec filter-group sort-group" id="rec-{slug(gid)}" data-conf="{best:.2f}" data-kick="{k_.isoformat() if k_ else ""}" data-game="{gid}">', f'<summary>🏈 {head}</summary>', '<div class="rollup-content">', '',
+              '| Type | Pick | Lean | Confidence | Why |', '|---|---|---|---|---|'] + [
+              f"| {r['type']} | **{esc(r['market'])}** | {esc(r['lean'])} | {stars(r['conf'])} | {esc(r['source'])[:130]} <em>({esc('; '.join(r['conf_why']))})</em> |" for r in rs]
+        if proj_txt(gid): L += ['', f"🎯 **Our projected score:** {proj_txt(gid)}"]
+        if gwhy(gid): L += ['', f"🧠 **Why:** {esc(gwhy(gid))}"]
+        L += ['', f"[Full game write-up →](#{gsid(gid)}) · [all expert picks →](#experts-{slug(gid)})"] + RE
+    L += ['</div>'] + RE
     parl = [t for t in TK if not ticket_is_props(t)]; stacks = [t for t in TK if ticket_is_props(t)]
-    def tk_rows(ts): return ['| Ticket | Book | Stake | Structure & payout | Legs |', '|---|---|---|---|---|'] + [
-        f"| [{esc(t['name'])}](#{t['id']}) | {esc(t['book'])} | ${t['stake']} | {esc(t['price'])} — {esc(t['ret'])} | {len(t['legs'])} |" for t in ts]
-    L += roll('section-rec', 'rec-parlays', f'🎟️ Parlays &amp; round robins ({len(parl)})', True) + tk_rows(parl) + RE
-    L += roll('section-rec', 'rec-props', f'🧾 Player prop stacks ({len(stacks)})', True) + tk_rows(stacks) + [
-          '', f'**Build your own:** every actionable prop on the card and from the experts is listed in the [props pool](#prop-pool), filterable by prop type.'] + RE
-    if sc_line: L += ['', f'🏆 **SuperContest 5 (locked contest lines):** {esc(sc_line.group(1).strip())}']
+    L += roll('section-rec', 'rec-parlays', f'🎟️ Parlays &amp; round robins — {len(parl)} tickets', True) + [
+          'Each ticket opens to show what it is, why it\'s on the card, and every leg. Parlay prices shown are the legs multiplied together; same-game parlays price lower at the book.', '',
+          '<div class="rollup-controls">', "  <button class=\"btn-toggle btn-primary\" onclick=\"toggleRollups('section-tickets', true)\">Open all tickets</button>",
+          "  <button class=\"btn-toggle\" onclick=\"toggleRollups('section-tickets', false)\">Close all tickets</button>", '</div>', '']
+    for t in parl: L += ticket_box(t, 'section-tickets')
+    L += RE
+    L += roll('section-rec', 'rec-props', f'🧾 Player prop stacks — {len(stacks)} tickets', True)
+    for t in stacks: L += ticket_box(t, 'section-tickets')
+    L += ['', f'**Build your own:** every actionable prop on the card and from the experts is in the [props pool](#prop-pool), grouped by game and filterable by prop type.'] + RE
+    if sc_line:
+        picks = re.findall(r'\b([A-Z]{2,3}) ([+−-]\s?[\d.]+)', sc_line.group(1).split('(alt')[0])
+        alt = re.search(r'\(alt: ([A-Z]{2,3}) ([+−-][\d.]+)\)', sc_line.group(1))
+        L += roll('section-rec', 'rec-supercontest', f'🏆 SuperContest 5 — {" · ".join(t_ + " " + l_ for t_, l_ in picks)}', True) + [
+              'Five picks against the contest\'s locked spreads (only covering the spread counts).' + (f' Alternate if a pick is unavailable: **{alt.group(1)} {alt.group(2)}**.' if alt else ''), '',
+              '| Pick | Game | Contest line | Our projection | Why |', '|---|---|---|---|---|']
+        for t_, l_ in picks:
+            gid = next((g['id'] for g in live if t_ in (g['visitor'], g['home'])), None)
+            w_ = SCNOTE.get(t_) or ((gwhy(gid).split('. ')[0] + '.') if gid and gwhy(gid) else '')
+            L.append(f"| **{t_}** | {glink(gid) if gid else '—'} | {t_} {l_} | {proj_txt(gid) if gid else ''} | {esc(w_)} |")
+        L += RE
     if left_off:
-        L += roll('section-rec', 'rec-passes', '🚫 Games we are passing on, and why') + [ln for ln in left_off.group(1).strip().splitlines() if ln.strip()] + RE
+        def linkify_pass(ln):
+            gids = []
+            for m_ in re.finditer(r'\b([A-Z]{2,3})\s*[@/]\s*([A-Z]{2,3})\b', ln):
+                gg = f'{m_.group(1)}@{m_.group(2)}'
+                if gg in ids: gids.append(gg)
+            if not gids and re.search(r'\bSNF\b', ln):
+                sun = [g for g in live if g['k'].astimezone(PT).strftime('%a') == 'Sun']
+                if sun: gids.append(max(sun, key=lambda g: g['k'])['id'])
+            if not gids and re.search(r'\bMNF\b', ln):
+                mon = [g for g in live if g['k'].astimezone(PT).strftime('%a') == 'Mon']
+                if mon: gids.append(mon[0]['id'])
+            if not gids:
+                for nm in re.findall(r'\b([A-Z][a-z]+ [A-Z][a-z]+)\b', ln):
+                    gg = next((g_ for g_, ps in POOL.items() if any(nm in p['text'] for p in ps)), None)
+                    if gg: gids.append(gg); break
+            if not gids:
+                for tok in re.findall(r'\b([A-Z]{2,3})\b', ln):
+                    gg = next((g['id'] for g in live if tok in (g['visitor'], g['home'])), None)
+                    if gg and gg not in gids: gids.append(gg); break
+            return ln + (' → ' + ' · '.join(f'[{g_} write-up](#{gsid(g_)})' for g_ in gids) if gids else '')
+        L += roll('section-rec', 'rec-passes', '🚫 Games and bets we are passing on, and why') + [linkify_pass(ln) for ln in left_off.group(1).strip().splitlines() if ln.strip()] + RE
 
     # ---------------- 📌 Executive summary ----------------
     L += ['', '<a id="executive-summary"></a>', '## 📌 Executive Summary', '']
@@ -595,32 +683,27 @@ def main():
           f"- **Card:** {len(TK)} tickets, ${sum(float(t['stake']) for t in TK):.0f} total as built — see [card tickets](#card-tickets)." if TK else '- **Card:** no tickets found.', '']
 
     # ---------------- 1. Executive master board ----------------
-    def fbar(col, opts, scope=''):
-        return [f'<div class="table-filter rollup-controls" data-col="{col}"' + (f' data-scope="{scope}"' if scope else '') + '>',
-                '  <button class="btn-toggle btn-primary" data-filter="all">All</button>'] + [f'  <button class="btn-toggle" data-filter="{o}">{o}</button>' for o in opts] + ['</div>', '']
     L += ['', '<a id="executive-master-board"></a>', '## 1. Executive Master Board: Best Bets, Props, Tickets & Teasers', '',
           'Every lean on the card in one table, ranked by confidence. Use the buttons to show only **sides**, **totals** or **player props**; click a column header to re-sort; click a game to jump to its full breakdown.', '']
     L += fbar('Type', ['Side', 'Total', 'Prop']) + ['| Rank | Type | Game | Pick | Lean | Confidence | Tier | Evidence |', '|---|---|---|---|---|---|---|---|']
     for i, r in enumerate(RANKED):
         L.append(f"| {i+1} | {r['type']} | {glink(r['gid']) if r['gid'] else esc(r['game'])} | {esc(r['market'])} | {esc(r['lean'])} | {stars(r['conf'])} | {esc(r['tier'])} | {esc(r['source'])[:150]} |")
-    L += ['', '<a id="card-tickets"></a>', '### 🎟️ Card tickets', '', 'Each ticket opens to show every leg. Straight-parlay prices are "naive" (legs multiplied); same-game parlays price lower at the book.', '',
-          '<div class="rollup-controls">', "  <button class=\"btn-toggle btn-primary\" onclick=\"toggleRollups('section-tickets', true)\">Open all tickets</button>",
-          "  <button class=\"btn-toggle\" onclick=\"toggleRollups('section-tickets', false)\">Close all tickets</button>", '</div>', '']
-    for t in TK:
-        L += roll('section-tickets', t['id'], f"🎟️ {esc(t['name'])} — {esc(t['book'])} — ${t['stake']} — {esc(t['price'])}")
-        L += [f"**Payout:** {esc(t['ret'])}" + (f" · {esc(t['flags'])}" if t['flags'] else ''), '',
-              '| Game | Leg | Book | Price | Tier | Why |', '|---|---|---|---|---|---|'] + [
-              f"| {glink(lg['game'])} | {esc(lg['market'])} | {esc(lg['book'])} | {esc(lg['price'])} | {esc(lg['tier'])} | {esc(lg['why'])} |" for lg in t['legs']] + RE
+    L += ['', '<a id="card-tickets"></a>', '### 🎟️ Card tickets', '', 'All tickets, with what each one is, why it is on the card and every leg, are in the [Parlays &amp; round robins](#rec-parlays) and [Player prop stacks](#rec-props) boxes at the top of the report.', '']
     kinds = ['Tackles+Assists', 'Rushing', 'Receiving', 'Passing', 'Anytime TD', 'First TD', '2+ TDs']
+    pool_games = [g for g in live if POOL.get(g['id'])]
     L += ['', '<a id="prop-pool"></a>', '### 🧰 Build your own: actionable props pool', '',
-          'Every player prop that is on the card, in a card lean, called by a named expert, or rated tier 1 by the article feed — grouped by game so you can build your own stacks. Filter by prop type. "Card" rows passed our build rules; "expert" rows are calls we have not independently verified.', '']
-    L += fbar('Type', kinds, 'prop-pool-tables') + ['<div id="prop-pool-tables">']
-    for g in live:
-        rows_ = sorted(POOL.get(g['id'], []), key=lambda p: (kinds.index(p['kind']) if p['kind'] in kinds else 99))
-        if not rows_: continue
-        L += ['<div class="pool-group">', f'<a id="props-{slug(g["id"])}"></a>', f"#### {glink(g['id'], FULL_NAME(g['visitor']) + ' @ ' + FULL_NAME(g['home']))}", '',
+          'Every player prop that is on the card, in a card lean, called by a named expert, or rated tier 1 by the article feed, grouped by game so you can build your own stacks. **"Card"** rows passed our build rules; **"expert"** rows are calls we have not checked ourselves.', '',
+          '**Jump to a game:** ' + ' · '.join(f"[{g['id']} ({len(POOL[g['id']])})](#props-{slug(g['id'])})" for g in pool_games), '']
+    L += fbar('Type', kinds, 'prop-pool-tables') + [
+          '<div class="rollup-controls">', "  <button class=\"btn-toggle\" onclick=\"toggleRollups('section-pool', true)\">Open all games</button>",
+          "  <button class=\"btn-toggle\" onclick=\"toggleRollups('section-pool', false)\">Close all games</button>", '</div>', '', '<div id="prop-pool-tables">']
+    for g in pool_games:
+        rows_ = sorted(POOL[g['id']], key=lambda p: (kinds.index(p['kind']) if p['kind'] in kinds else 99))
+        L += [f'<details class="rollup-box section-pool filter-group" id="props-{slug(g["id"])}">',
+              f"<summary>🧾 {FULL_NAME(g['visitor'])} @ {FULL_NAME(g['home'])} — {len(rows_)} props · {g['k'].astimezone(PT):%a %H:%M PT}</summary>", '<div class="rollup-content">', '',
               '| Type | Prop | Price | Book | Tier / source | Why |', '|---|---|---|---|---|---|'] + [
-              f"| {p['kind']} | {esc(p['text'])} | {esc(p['price'])} | {esc(p['book'])} | {esc(p['tier'])} ({esc(p['src'])[:40]}) | {p['why'] if '](' in p['why'] else esc(p['why'])[:140]} |" for p in rows_] + ['</div>', '']
+              f"| {p['kind']} | {esc(p['text'])} | {esc(p['price'])} | {esc(p['book'])} | {esc(p['tier'])} ({esc(p['src'])[:40]}) | {p['why'] if '](' in p['why'] else esc(p['why'])[:140]} |" for p in rows_] + [
+              '', f"[Full game write-up →](#{gsid(g['id'])})", '</div>', '</details>']
     L += ['</div>', '', '---']
 
     # ---------------- 2. Market board ----------------
@@ -702,7 +785,7 @@ def main():
     # ---------------- 4. Feature plays ranked + expert registry ----------------
     L += ['', '<a id="feature-plays"></a>', '## 4. High-Conviction Feature Plays & Signature Expert Bets', ''] + controls('section-4', 'Section 4') + [
           'Every play on the card, **ranked by confidence and grouped by bet type**. Below the rankings is the full registry of named expert picks for each game — the citations the game write-ups link to.', '']
-    L += roll('section-4', 'confidence-defs', '📖 How the confidence score works (0.5–5 ★)') + [
+    L += roll('section-4', 'confidence-defs', '📖 How the stars work (0.5–5 ★)') + [
           '- **Starting point = evidence tier.** Tier 1+2 (our matchup data **and** named experts) starts at 3.5; tier 1 (matchup data) 3.0; tier 2 (two or more named experts) 2.5; tier 1− / 2− (partial support) 2.0.',
           '- **+0.5** when experts line up on this side at least 2-to-1 with 4+ sources, or when the big-money signal agrees.',
           '- **−0.5** when more experts are on the other side, when big money is on the other side, or when a player-status flag is open.',

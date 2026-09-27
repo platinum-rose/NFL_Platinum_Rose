@@ -1181,14 +1181,14 @@ def generate_html(md_path, html_path):
       background: #334155;
     }}
   }}
-  details.rollup-box summary::after {{
+  details.rollup-box > summary::after {{
     content: '▼';
     font-size: 11px;
     color: var(--muted);
     transition: transform 0.2s ease;
     transform: rotate(-90deg);
   }}
-  details.rollup-box[open] summary::after {{
+  details.rollup-box[open] > summary::after {{
     transform: rotate(0deg);
   }}
   details.rollup-box .rollup-content {{
@@ -1505,6 +1505,22 @@ function initSortableTables() {{
   }});
 }}
 
+function initGroupSort() {{
+  document.querySelectorAll('button.group-sort').forEach(btn => {{
+    if (btn.dataset.ready) return;
+    btn.dataset.ready = '1';
+    btn.addEventListener('click', () => {{
+      const sc = document.getElementById(btn.dataset.scope);
+      if (!sc) return;
+      const key = btn.dataset.key;
+      const items = Array.from(sc.querySelectorAll(':scope > .sort-group'));
+      items.sort((a, b) => key === 'conf' ? (parseFloat(b.dataset.conf) - parseFloat(a.dataset.conf)) : String(a.dataset[key]).localeCompare(String(b.dataset[key])));
+      items.forEach(i => sc.appendChild(i));
+      btn.parentElement.querySelectorAll('button.group-sort').forEach(b => b.classList.toggle('btn-primary', b === btn));
+    }});
+  }});
+}}
+
 function initTableFilters() {{
   document.querySelectorAll('.table-filter').forEach(bar => {{
     if (bar.dataset.ready) return;
@@ -1536,8 +1552,8 @@ function initTableFilters() {{
           tr.style.display = ok ? '' : 'none';
           if (ok) shown++;
         }});
-        const grp = t.closest('.pool-group');
-        if (grp) grp.style.display = shown ? '' : 'none';
+        const grp = t.closest('.pool-group, .filter-group');
+        if (grp) {{ grp.style.display = shown ? '' : 'none'; if (grp.tagName === 'DETAILS' && want !== 'all' && shown) grp.open = true; }}
       }});
     }}));
   }});
@@ -1550,10 +1566,12 @@ window.addEventListener('DOMContentLoaded', () => {{
   }}
   initSortableTables();
   initTableFilters();
+  initGroupSort();
 }});
 if (document.readyState !== 'loading') {{
   initSortableTables();
   initTableFilters();
+  initGroupSort();
 }}
 
 document.addEventListener('click', (e) => {{
