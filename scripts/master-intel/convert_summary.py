@@ -512,6 +512,7 @@ def generate_docx(md_path, docx_path):
 def generate_html(md_path, html_path):
     lines = Path(md_path).read_text(encoding='utf-8').splitlines()
     body_html = []
+    outside_html = []
     in_table = False
     table_lines = []
     in_code = False
@@ -615,6 +616,10 @@ def generate_html(md_path, html_path):
                 body_html.append(f'<summary><span class="sum-text">{md_inline(content)}</span></summary>')
             else:
                 body_html.append(s)
+            continue
+
+        if s.startswith('<div class="side-toc"') or s.startswith('<button class="toc-toggle"'):
+            outside_html.append(s)
             continue
 
         if s.startswith('<style') or s.startswith('<details') or s.startswith('</details') or s.startswith('</summary') or s.startswith('<div') or s.startswith('</div') or s.startswith('<button') or s.startswith('</button') or s.startswith('<a id='):
@@ -1352,6 +1357,7 @@ def generate_html(md_path, html_path):
 </style>
 </head>
 <body>
+{"".join(outside_html)}
 <div class="container">
 {"".join(body_html)}
 </div>
