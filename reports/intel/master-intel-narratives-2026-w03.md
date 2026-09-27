@@ -192,3 +192,29 @@ Tier 1+2 on PHI ML: Joe Gibbs and Chris Welsh (−4.5) on the side, a HIGH secon
 
 ### What breaks it
 A healthy Bagent and a Bears run game that wins time of possession. At −3 there's less cushion than at −4.5. If Bagent is ruled out Monday, the side gets stronger; if he's cleared and the line goes back to −3.5, reconsider.
+
+## TICKETS
+<!-- One line per card ticket: "- <ticket name as in the card heading>: <what it is and why it's on the card, for a casual Sunday bettor>". build.py matches by name prefix. -->
+- Slot 2 Dog-ML 2-team RR: Five underdogs (TEN, NYJ, IND, CLE, TB) split into ten $2 two-team parlays, so you have an upset to root for in almost every window. Every dog has matchup data or big money behind it. Two winners gets $11 back; three or more is profit.
+- Slot 1 Master RR (optional): Our eight best-supported favorites and totals in every 4-team combination at $1 each. Losing a leg or two doesn't sink it, but it only profits when six of the eight win, and at $70 it's the priciest ticket, so it's optional.
+- Slot 3 Morning parlay: Four favorites the evidence backs (JAX, CIN, SF −8.5, LAR) on one $20 ticket paying about 8-to-1. The LAR leg is Sunday night, so this one sweats all day.
+- Slot 4 Afternoon parlay: BAL, SEA −7.5, the Panthers–Browns Under and LAR on one $20 ticket paying about 9-to-1. It leans on defense-first game scripts.
+- Slot 5 Hybrid: Our four "tier 1+2" plays, where matchup data and experts agree (TEN, CIN −3, SF −8.5, PHI on Monday night), on one $20 ticket paying about 11-to-1. This is the strongest evidence on the card, and it runs into Monday.
+- Prop RR (T+A / pass TD): Five player props from the season's best-hitting types (tackles plus assists, and 2+ passing TDs) in ten $2 two-leg parlays. It's a steady sweat, not a big payout: four of five hitting is needed to profit.
+- 7a Morning prop stack: Five early-game props from players with verified roles (Chase Brown and Tuten rushing, Jadarian Price rushing, Rodriguez tackles, Parker Washington catches). $5 wins about $46.
+- 7b Afternoon prop stack: Three late-game props (Lamar rushing, Caleb Downs tackles, McCaffrey TD). $5 wins about $15, the safest-priced stack on the card.
+- 7d Hybrid 8-leg: The five Prop RR legs plus Tuten, Downs and Corum in one $10 ticket. It's a long shot (about 107-to-1) built only from props we trust.
+- 7e Anytime TD 7-leg: Seven lead scorers to find the end zone, $5 to win about $386. Treat it as entertainment: seven-leg TD tickets are 0-for-11 this season.
+- 8a First TD 3-leg: McCaffrey, Henry and Chase Brown each to score their team's first touchdown. A $5 lottery ticket at about 90-to-1.
+- 8b 2+ TD 3-leg: The same three backs to score twice. $5 wins about $164; also a moonshot.
+- Island SNF Tier 1: Sunday-night same-game parlay on Rams at Broncos: LAR to win, with Kyren and Corum rushing and two catch/yardage legs. It fits the run-heavy script from the write-up. It's the safest of the three island tickets, and the book will price it below the +897 shown.
+- Island SNF Tier 2: The passing side of the same game: Stafford and Nix touchdowns and yards, Waddle catches, Sutton yards. $5 at a longer price, for Sunday-night action.
+- Island SNF Tier 3: Rushing and touchdown long shots (Nix rushing, Engram, Higbee and RJ Harvey TDs). $5 lottery ticket for the night game.
+
+## SUPERCONTEST
+<!-- One line per SuperContest pick: "- <TEAM>: <why, in plain English>". -->
+- TEN: Jameis Winston starts for the injured Jaxson Dart, Tennessee has the HIGH-graded passing matchup, and the line has moved our way (+2.5 → +2). We project a Titans win outright.
+- NYJ: The Jets have the most lopsided passing matchup on the slate against Detroit's secondary. We project a 3-point Lions win, so +6.5 covers with room to spare.
+- CIN: Five sources and most of the money back Cincinnati's rebuilt defense against a Steelers backfield missing Rico Dowdle. We project a 6-point Bengals win.
+- JAX: New England's offensive line is missing Mike Onwenu, and the Jaguars are 8-3 against the spread at home under Liam Coen. We project a 4-point win, just clearing −3.
+- SF: The 49ers' passing game has a HIGH-graded matchup and Arizona is without James Conner. We project a 13-point win; the risk is backing the heavily public side at a big number.
