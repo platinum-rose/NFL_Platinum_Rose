@@ -14,6 +14,8 @@ Inputs (all local, all read-only; missing optional inputs are listed under "Know
   optional  data/generated/props/dk-predictions-<date>-*.json         (scripts/props/dk-predictions-mhtml-parse.py)
   optional  data/podcasts/youtube-extracted-picks-2026-w<NN>.json     (cleaned YouTube digest)
   optional  scratch/w<NN>-synthesis-digest-sat.md (or w<NN>-synthesis-digest.md)  (lean table, "game | market | lean | source | tier")
+  optional  reports/intel/master-intel-narratives-<season>-w<NN>.md  (hand/LLM-written §6 game scripts + projected scores; see runbook)
+  optional  data/odds/BKR_current_lines_*                          (earlier BKR pastes; earliest one for the week = line-move baseline)
   optional  reports/bets/2026-w<NN>-card.md                           (card; "### <ticket> — <book> — **$x** — price" headings)
   optional  data/player-availability/latest.json, data/secondary-matchups/latest.json,
             data/nfl-rosters/roster-map-latest.json, data/survivor/*, data/research-intel/review/player-props-intel-latest.json
@@ -60,6 +62,7 @@ TIPS = {
     'Stake': ('Stake', 'Template stake for the ticket (unit = $10).'),
     'Fav / spread': ('Favorite & Spread', 'Bookmaker (BKR) spread on the favorite at capture time.'),
     'Total': ('Game Total', 'BKR over/under points line.'),
+    'Projected': ('Projected Final Score', 'Written projection from §6: market-implied score adjusted for injuries, secondary-matchup tier, sharp splits, line movement and expert consensus. Not a model output.'),
     'Implied score': ('Market-Implied Score', 'Favorite = total/2 + spread/2, underdog = total/2 − spread/2. What the betting market expects, not a simulation.'),
     'Win % (no-vig)': ('No-Vig Win Probability', 'Both BKR moneylines converted to implied probability, then scaled so they sum to 100% (vig removed).'),
     'Spread tix/$ (home)': ('Spread Splits', 'Action Network share of spread tickets / share of spread money on the HOME team. Money well above tickets = bigger (sharper) bets on that side.'),
@@ -102,6 +105,42 @@ ROLL_END = ['', '[⬆ Back to Executive Master Board](#executive-master-board)',
 def controls(cls, label):
     return ['<div class="rollup-controls">', f'  <button class="btn-toggle btn-primary" onclick="toggleRollups(\'{cls}\', true)">Expand {label}</button>',
             f'  <button class="btn-toggle" onclick="toggleRollups(\'{cls}\', false)">Collapse {label}</button>', '</div>', '']
+
+def load_narratives(path):
+    """## AWAY@HOME blocks: 'projection: TEAM pts, TEAM pts' then ### subsections."""
+    out = {}
+    if not path.exists(): return out
+    txt = re.sub(r'<!--.*?-->', '', path.read_text(encoding='utf-8'), flags=re.S)
+    for blk in re.split(r'^## ', txt, flags=re.M)[1:]:
+        head, _, body = blk.partition('\n'); gid = head.strip()
+        m = re.search(r'^projection:\s*([A-Z]{2,3})\s+(\d+)\s*,\s*([A-Z]{2,3})\s+(\d+)', body, re.M)
+        secs = [(t.strip(), b.strip()) for t, b in re.findall(r'^### (.+?)\n(.*?)(?=^### |\Z)', body, re.M | re.S)]
+        out[gid] = dict(proj=((m.group(1), int(m.group(2))), (m.group(3), int(m.group(4)))) if m else None, secs=secs)
+    return out
+
+def opening_lines(sched):
+    """Earliest pasted BKR game-line snapshot (data/odds/BKR_current_lines_*) whose date header matches each game's PT kickoff date."""
+    want = {g['id']: g['k'].astimezone(PT).strftime('%b %d').upper() for g in sched}
+    pat = re.compile(r'^(\w+) @ (\w+) \d+:\d+.*?\s(\w+) ([+-][\d.]+)[+-]\d+ / (\w+) ([+-][\d.]+)[+-]\d+\s+o([\d.]+)[+-]\d+ u[\d.]+[+-]\d+\s+(\w+) ([+-]\d+) (\w+) ([+-]\d+)')
+    out = {}
+    files = sorted(glob.glob(str(ROOT / 'data/odds/BKR_current_lines_*')), key=os.path.getmtime)
+    for f in files:
+        try: lines = open(f, encoding='utf-8').read().splitlines()
+        except Exception: continue
+        label = Path(f).name.replace('BKR_current_lines_', ''); day = None
+        for ln in lines:
+            h = re.match(r'GAME LINES - (\w{3}) (\d+)', ln)
+            if h: day = f'{h.group(1).upper()} {int(h.group(2)):02d}'; continue
+            m = pat.match(ln.strip())
+            if not m: continue
+            aw, hm = ALIAS.get(m.group(1), m.group(1)), ALIAS.get(m.group(2), m.group(2)); gid = f'{aw}@{hm}'
+            if gid in out or want.get(gid) != day: continue
+            out[gid] = dict(src=label, sp={ALIAS.get(m.group(3), m.group(3)): float(m.group(4)), ALIAS.get(m.group(5), m.group(5)): float(m.group(6))},
+                            tot=float(m.group(7)), ml={ALIAS.get(m.group(8), m.group(8)): int(m.group(9)), ALIAS.get(m.group(10), m.group(10)): int(m.group(11))})
+    return out
+
+def md_inline(t):
+    return re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', re.sub(r'(?<![*\w])_(.+?)_(?![*\w])', r'<em>\1</em>', t))
 
 def final_scores(week):
     out = {}
@@ -146,6 +185,9 @@ def main():
     digest_p = next((p for p in [f'scratch/w{WW}-synthesis-digest-sat.md', f'scratch/w{WW}-synthesis-digest.md'] if (ROOT / p).exists()), None)
     card_p = f'reports/bets/{a.season}-w{WW}-card.md'
     card = (ROOT / card_p).read_text(encoding='utf-8') if (ROOT / card_p).exists() else ''
+    nar_p = f'reports/intel/master-intel-narratives-{a.season}-w{WW}.md'
+    NAR = load_narratives(ROOT / nar_p)
+    OPEN = opening_lines(sched)
 
     # ---------- BKR per game ----------
     ev = collections.defaultdict(list)
@@ -234,6 +276,8 @@ def main():
                 LEANS.append(dict(game=c[0], market=c[1], lean=c[2], source=c[3], tier=c[4]))
     else: gaps.append('No synthesis digest (scratch/w<NN>-synthesis-digest*.md) — sections 1/4 fall back to consensus counts only.')
     # ---------- card tickets ----------
+    miss_nar = [g['id'] for g in live if not (NAR.get(g['id']) or {}).get('secs')]
+    if miss_nar: gaps.append(f'No §6 narrative/projection for: {", ".join(miss_nar)} ({nar_p}).')
     TICK = re.findall(r'^### (.+?) — (.+?) — \*\*\$([\d.]+)\*\* — (.+?) — (.+)$', card, re.M)
     if not TICK: gaps.append(f'No card tickets found in {card_p}.')
 
@@ -266,6 +310,9 @@ def main():
     FS = final_scores(W)
     done = [g for g in sched if g['done']]
     def gsid(gid): return 'game-' + gid.lower().replace('@', '-')
+    def proj_txt(gid):
+        pj = (NAR.get(gid) or {}).get('proj')
+        return f'{pj[0][0]} {pj[0][1]} – {pj[1][0]} {pj[1][1]}' if pj else ''
     qb_notes = []
     for g in live:
         for t in (g['visitor'], g['home']):
@@ -331,10 +378,10 @@ def main():
           '  <span class="bar-hint">💡 Click any matchup link to jump to its dossier. Click any table header to sort.</span>', '</div>', '', '---']
     # 2
     L += ['', '<a id="synth-engine-section"></a>', '## 2. Platinum Rose Market-Implied Forecast Board', ''] + controls('section-synth', 'Section 2') + roll('section-synth', 'platinum-rose-board', '📊 Full market board — implied scores, no-vig win %, splits &amp; sharp flags', True) + [ '_Implied scores = total/2 ± spread/2 (BKR). Win % = no-vig BKR moneyline. Splits: Action Network tickets / money (home side for spread & ML, Over for total). **Sharp** = money − tickets ≥ 15 pts._', '',
-          '| Kickoff (PT) | Game | Fav / spread | Total | Implied score | Win % (no-vig) | Spread tix/$ (home) | Total tix/$ (over) | Flag |', '|---|---|---|---|---|---|---|---|---|']
+          '| Kickoff (PT) | Game | Fav / spread | Total | Implied score | Projected | Win % (no-vig) | Spread tix/$ (home) | Total tix/$ (over) | Flag |', '|---|---|---|---|---|---|---|---|---|---|']
     for g in live:
         gid = g['id']; b = G.get(gid)
-        if not b: L.append(f"| {g['k'].astimezone(PT):%a %H:%M} | {gid} | not on BKR capture | | | | | | |"); continue
+        if not b: L.append(f"| {g['k'].astimezone(PT):%a %H:%M} | {gid} | not on BKR capture | | | | | | | |"); continue
         f, s = fav(gid); t = (b['tot'].get('Over') or (None,))[0]
         imps = ''
         if f is not None and t is not None:
@@ -347,7 +394,7 @@ def main():
             if (sp['spread_home_bettors'] or 0) - (sp['spread_home_money'] or 0) >= 15: flag.append(f"sharp {b['away']} spread")
             if (sp['total_over_money'] or 0) - (sp['total_over_bettors'] or 0) >= 15: flag.append('sharp Over')
             if (sp['total_over_bettors'] or 0) - (sp['total_over_money'] or 0) >= 15: flag.append('sharp Under')
-        L.append(f"| {g['k'].astimezone(PT):%a %H:%M} | [{gid}](#{gsid(gid)}) | {f} {s:+g} | {t} | {imps} | {wp} | {sp and str(sp['spread_home_bettors'])+'/'+str(sp['spread_home_money'])} | {sp and str(sp['total_over_bettors'])+'/'+str(sp['total_over_money'])} | {', '.join(flag)} |")
+        L.append(f"| {g['k'].astimezone(PT):%a %H:%M} | [{gid}](#{gsid(gid)}) | {f} {s:+g} | {t} | {imps} | {proj_txt(gid)} | {wp} | {sp and str(sp['spread_home_bettors'])+'/'+str(sp['spread_home_money'])} | {sp and str(sp['total_over_bettors'])+'/'+str(sp['total_over_money'])} | {', '.join(flag)} |")
     L += ROLL_END
     # 3
     L += ['', '<a id="consensus-section"></a>', '## 3. In-Depth Multi-Platform Consensus & High-Stakes Clashes', ''] + controls('section-3', 'Section 3') + roll('section-3', 'consensus-overview', '🧭 Consensus overview — every game', True) + [ '_Each source (writer/outlet, podcast expert, YouTube host) counts **once per game**, on the side it leaned to most often; ties are dropped. Note: outlet-level feeds (ESPN NFL, VSiN) aggregate several writers, so treat them as one vote. A **clash** = both sides have ≥2 sources._', '',
@@ -410,15 +457,48 @@ def main():
     dogrr = [t for t in TICK if 'Dog' in t[0]]
     if dogrr: L += ['', f'**Underdog ML round robin:** {esc(dogrr[0][0])} — {esc(dogrr[0][1])} — ${dogrr[0][2]} — {esc(dogrr[0][3])} ({esc(dogrr[0][4])}). Legs in the card.']
     # 6
-    L += ['', '<a id="game-dossier"></a>', '## 6. Full Chronological Analytical Dossier (With Market Cards)', ''] + controls('section-6', 'Section 6')
+    L += ['', '<a id="game-dossier"></a>', '## 6. Full Chronological Analytical Dossier (With Market Cards)', '', '_Each game opens with a written game script, projected final score and the reasoning behind the card lean (source: `' + nar_p + '`), then the evidence it was built from._', ''] + controls('section-6', 'Section 6')
     for g in sched:
         gid = g['id']; A, H = g['visitor'], g['home']
         b0 = G.get(gid); f0, s0 = fav(gid) if b0 else (None, None); t0 = b0 and (b0['tot'].get('Over') or (None,))[0]
         fsc = FS.get(gid)
-        head = f"⏰ {g['k'].astimezone(PT):%a %H:%M PT} — {FULL_NAME(A)} @ {FULL_NAME(H)}" + (f" — {f0} {s0:+g} · O/U {t0}" if f0 else '') + ((f" — 🏁 FINAL {fsc['away'][0]} {fsc['away'][1]}–{fsc['home'][0]} {fsc['home'][1]}" if fsc else ' — 🏁 FINAL') if g['done'] else '')
+        head = f"⏰ {g['k'].astimezone(PT):%a %H:%M PT} — {FULL_NAME(A)} @ {FULL_NAME(H)}" + (f" — {f0} {s0:+g} · O/U {t0}" if f0 else '') + ((f" · Proj {proj_txt(gid)}") if proj_txt(gid) and not g['done'] else '') + ((f" — 🏁 FINAL {fsc['away'][0]} {fsc['away'][1]}–{fsc['home'][0]} {fsc['home'][1]}" if fsc else ' — 🏁 FINAL') if g['done'] else '')
         L += [f'<a id="{gsid(gid)}"></a>'] + roll('section-6', gsid(gid) + '-box', head)
         if g['done']: L += ['_Played before this build; excluded from every slot._'] + ROLL_END; continue
         b = G.get(gid)
+        nar = NAR.get(gid) or {}
+        if nar.get('secs') or nar.get('proj'):
+            L += ['<div class="game-narrative" style="border-left: 4px solid #3B82F6; background: rgba(59,130,246,0.07); padding: 12px 16px; border-radius: 6px; margin: 4px 0 16px 0;">']
+            pj = nar.get('proj')
+            if pj:
+                (t1, s1), (t2, s2) = pj; w_, l_ = ((t1, s1), (t2, s2)) if s1 >= s2 else ((t2, s2), (t1, s1))
+                ctx = []
+                f_, sp_ = fav(gid) if b else (None, None); tt_ = b and (b['tot'].get('Over') or (None,))[0]
+                if f_ is not None and tt_ is not None:
+                    dog_ = b['home'] if f_ == b['away'] else b['away']; fs_ = tt_ / 2 - sp_ / 2
+                    ctx.append(f"market-implied {f_} {fs_:.1f} – {dog_} {tt_ - fs_:.1f}")
+                    fav_margin = (s1 - s2) if t1 == f_ else (s2 - s1)
+                    cov = f_ if fav_margin > -sp_ else (dog_ if fav_margin < -sp_ else 'push')
+                    ctx.append(f"projected margin {w_[0]} by {w_[1] - l_[1]} → covers: {cov} ({f_} {sp_:+g})")
+                    ctx.append(f"total {s1 + s2} vs {tt_} → {'Over' if s1 + s2 > tt_ else 'Under' if s1 + s2 < tt_ else 'push'}")
+                L.append(f'<div style="font-size: 1.08rem; font-weight: 700; margin-bottom: 4px;">🎯 Projected final: {w_[0]} {w_[1]}, {l_[0]} {l_[1]}</div>')
+                if ctx: L.append(f'<div style="font-size: 0.86rem; opacity: 0.85; margin-bottom: 8px;">{" · ".join(ctx)}</div>')
+            o = OPEN.get(gid)
+            if o and b:
+                mv = []
+                for t in (A, H):
+                    if t in o['sp'] and t in b['sp'] and o['sp'][t] < 0 or (t in o['sp'] and t in b['sp'] and o['sp'][t] == 0):
+                        mv.append(f"spread {t} {o['sp'][t]:+g} → {b['sp'][t][0]:+g}")
+                if b['tot'].get('Over'): mv.append(f"total {o['tot']:g} → {b['tot']['Over'][0]:g}")
+                for t in (A, H):
+                    if t in o['ml'] and t in b['ml']: mv.append(f"ML {t} {o['ml'][t]:+d} → {b['ml'][t]:+d}")
+                L.append(f'<div style="font-size: 0.86rem; margin-bottom: 8px;">📈 <strong>Line movement</strong> (BKR {o["src"]} → {D} capture): {" · ".join(mv)}</div>')
+            icons = {'game script': '📖', 'why the card leans this way': '🧠', 'what breaks it': '⚠️'}
+            for t, body in nar.get('secs', []):
+                L.append(f'<div style="font-weight: 700; margin-top: 8px;">{icons.get(t.lower(), "•")} {t}</div>')
+                for para in [x.strip() for x in body.split('\n\n') if x.strip()]:
+                    L.append(f'<p style="margin: 4px 0 6px 0;">{md_inline(" ".join(para.splitlines()))}</p>')
+            L += ['</div>', '']
         if b:
             L += ['| | ' + A + ' | ' + H + ' |', '|---|---|---|',
                   f"| Spread (BKR) | {b['sp'].get(A, ('', 0))[0]:+g} ({b['sp'].get(A, ('', 0))[1]:+d}) | {b['sp'].get(H, ('', 0))[0]:+g} ({b['sp'].get(H, ('', 0))[1]:+d}) |" if A in b['sp'] and H in b['sp'] else '| Spread | n/a | n/a |',
