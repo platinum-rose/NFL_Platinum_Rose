@@ -28,6 +28,27 @@ const WEEK_START = new Date(Date.parse('2026-09-08T04:00:00Z') + (WEEK - 1) * 7 
 const WEEK_END = new Date(+WEEK_START + 7 * 86400000);
 
 const rel = (p) => path.join(ROOT, p);
+// Python for the roster gate. Agent sandboxes on Windows often have no working `python3` alias (Codex, 2026-09-27),
+// so try $PYTHON, then the usual launchers, then the known install paths on Andy's machine.
+function findPython() {
+  const la = process.env.LOCALAPPDATA || '';
+  const cands = [
+    process.env.PYTHON && [process.env.PYTHON],
+    ['python3'], ['python'], ['py', '-3'],
+    la && [path.join(la, 'Python', 'pythoncore-3.14-64', 'python.exe')],
+    la && [path.join(la, 'Python', 'bin', 'python.exe')],
+    ['C:\\Users\\andre\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe'],
+    ['C:\\Users\\andre\\anaconda3\\python.exe'],
+  ].filter(Boolean);
+  for (const [cmd, ...pre] of cands) {
+    const r = spawnSync(cmd, [...pre, '-c', 'import sys; print(sys.version_info[0])'], { encoding: 'utf8', timeout: 20000 });
+    if (r.status === 0 && String(r.stdout).trim() === '3') return [cmd, ...pre];
+  }
+  return null;
+}
+const PY = findPython();
+const py = (args, opts) => (PY ? spawnSync(PY[0], [...PY.slice(1), ...args], { encoding: 'utf8', env: { ...process.env, PYTHONIOENCODING: 'utf-8' }, ...opts })
+  : { status: 1, stdout: '', stderr: 'NO PYTHON FOUND: set PYTHON=<path to python.exe> (e.g. C:\\Users\\andre\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe)' });
 const readJson = (p) => { try { return JSON.parse(fs.readFileSync(rel(p), 'utf8')); } catch { return null; } };
 const mtime = (p) => { try { return fs.statSync(rel(p)).mtime; } catch { return null; } };
 const newest = (dir, re) => {
@@ -54,14 +75,14 @@ const SOURCES = [
     const p = 'data/nfl-rosters/espn-full-rosters-latest.json';
     const j = readJson(p);
     const age = j?.generated_at ? (now - new Date(j.generated_at)) / 3600000 : Infinity;
-    if (age > 24 && !argv.includes('--no-fetch')) spawnSync('python3', [rel('scripts/nfl-rosters/fetch_espn_rosters.py')], { cwd: ROOT, encoding: 'utf8', timeout: 120000 });
+    if (age > 24 && !argv.includes('--no-fetch')) py([rel('scripts/nfl-rosters/fetch_espn_rosters.py')], { cwd: ROOT, timeout: 120000 });
     return p;
   }, 24, (j) => ({ note: `${j?.player_count ?? '?'} players, ${j?.team_count ?? '?'} teams`, fail: (j?.team_count ?? 0) !== 32 })],
   ['ROSTER VET (gate)', null, null, () => {
     const d = new Date(now); const date = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles' }).format(d);
-    const r = spawnSync('python3', [rel('scripts/nfl-rosters/roster_vet.py'), '--week', String(WEEK), '--date', argVal('--date') || date, '--quiet'], { cwd: ROOT, encoding: 'utf8', timeout: 170000 });
+    const r = py([rel('scripts/nfl-rosters/roster_vet.py'), '--week', String(WEEK), '--date', argVal('--date') || date, '--quiet'], { cwd: ROOT, timeout: 170000 });
     const line = (r.stdout || r.stderr || 'did not run').trim().split('\n').pop();
-    return { note: `${line}  -> details: data/generated/master-intel/w${String(WEEK).padStart(2, '0')}-roster-vet.json`, fail: !/ROSTER VET: PASS/.test(line) };
+    return { note: `${line}  [python: ${PY ? PY.join(' ') : 'NOT FOUND'}]  -> details: data/generated/master-intel/w${String(WEEK).padStart(2, '0')}-roster-vet.json`, fail: !/ROSTER VET: PASS/.test(line) };
   }],
   ['Secondary matchups', 'data/secondary-matchups/latest.json', 96, (j) => ({ note: `week ${j?.meta?.week}`, fail: j?.meta?.week !== WEEK })],
   ['Usage trends (season)', 'data/generated/player-usage-trends-2026.json', 72, (j) => ({ note: `through wk ${j?.last_updated_week}`, fail: j?.last_updated_week !== WEEK - 1 })],

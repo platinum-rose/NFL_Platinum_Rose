@@ -62,6 +62,18 @@ Several inputs are gitignored and exist only in that local folder (dist/, data/g
 so do not work from a fresh clone. Kickoffs (PT): Sun 10:00 LAC@BUF, CAR@CLE, NYJ@DET, HOU@IND, KC@MIA, TEN@NYG, CIN@PIT, SEA@WAS, NE@JAX ·
 13:05 ARI@SF, MIN@TB · 13:25 BAL@DAL (Rio), LV@NO · SNF 17:20 LAR@DEN · MNF Mon 17:15 PHI@CHI.
 
+## Environment notes (added 01:25 PT after Codex's first STOP A)
+- No `python3` alias in your sandbox? Use the npm wrappers, which find Python themselves: `npm run roster:vet -- --week 3 --date 2026-09-26 --fetch --strict`,
+  `npm run roster:fetch`, `npm run roster:test`, `npm run roster:seeds`. Direct path if needed: C:\Users\andre\AppData\Local\Python\pythoncore-3.14-64\python.exe
+  (or set PYTHON=<that path>; the preflight honors it). build.py: `<that python> scripts/master-intel/build.py --week 3 --date 2026-09-26`.
+- Verified on this machine 01:25 PT: preflight ROSTER VET row = PASS (30 card legs); `npm run roster:test` = all regression checks pass.
+- Remaining preflight STALE rows are cleared to proceed by Andy: Usage trends is complete through Week 2 (stale only by age — Week 3 games
+  haven't been played); SuperContest live market isn't needed (SuperContest is out of scope today; if wanted, `npm run odds:sync-live` WITHOUT
+  `--live` costs no API credits); legacy podcast recs file is legacy.
+- Don't `git pull` over the dirty checkout: main already equals origin/main. Commit only your own narrow file set.
+- Fresh BKR/BEO boards: Andy pastes them Sunday morning. Until then, do task 2 (case re-check) and task 3 (availability) on the Saturday-night boards
+  and mark prices "Sat 22:59 BKR / 23:06 BEO — re-price pending".
+
 ## 0. Read first (in this order)
 1. HANDOFF.md → "Current Pick Up Here", then handoffs/2026-09-27-0100-claude-week3-roster-gate-intel-fix-codex-sunday-handoff.md (why the intel changed)
    and handoffs/2026-09-27-0012-claude-week3-sunday-cards-reprice-intel-errors-handoff.md (card state before the fix).
@@ -73,7 +85,7 @@ Never state a player's team, role or status from memory. 2026 rosters moved a lo
 Davante Adams LAR, Jaylen Waddle DEN, DJ Moore BUF, Kenneth Walker III KC, Kyler Murray MIN, Dexter Lawrence CIN, Deebo Samuel SF).
 - Start: `node scripts/weekly-synthesis-preflight.mjs --week 3 --date 2026-09-26` (refreshes ESPN rosters if >24h, runs the vet).
 - Look up any player in data/nfl-rosters/espn-full-rosters-latest.json (team + group: offense/defense/injuredReserveOrOut/practiceSquad).
-- After you edit the card: `python3 scripts/nfl-rosters/roster_vet.py --week 3 --date 2026-09-26 --fetch --strict` must print `ROSTER VET: PASS`
+- After you edit the card: `npm run roster:vet -- --week 3 --date 2026-09-26 --fetch --strict` must print `ROSTER VET: PASS`
   before you show Andy anything. It blocks wrong-team / off-roster / practice-squad / OUT-IR players on card legs.
 - If you rebuild the intel report, build.py runs the same gate and exits on failure. Do not use --allow-roster-issues without Andy's OK.
 

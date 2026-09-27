@@ -26,6 +26,9 @@ Writes data/generated/master-intel/wNN-roster-vet.json.
 """
 import json, re, argparse, pathlib, collections, sys, subprocess, datetime
 ROOT = pathlib.Path(__file__).resolve().parents[2]
+for _s in (sys.stdout, sys.stderr):
+    try: _s.reconfigure(errors='replace')   # Windows cp1252 consoles can't print '−' / '→' from narrative context
+    except Exception: pass
 ap = argparse.ArgumentParser()
 ap.add_argument('--week', type=int, required=True); ap.add_argument('--date', required=True)
 ap.add_argument('--season', type=int, default=2026); ap.add_argument('--strict', action='store_true'); ap.add_argument('--fetch', action='store_true')
@@ -45,7 +48,7 @@ if a.fetch and age_h() > a.max_age_h:
     r = subprocess.run([sys.executable, str(ROOT / 'scripts/nfl-rosters/fetch_espn_rosters.py')], capture_output=True, text=True)
     print((r.stdout or r.stderr).strip())
 E = J('data/nfl-rosters/espn-full-rosters-latest.json')
-if not E: print('ROSTER VET: BLOCK — no ESPN roster snapshot (python3 scripts/nfl-rosters/fetch_espn_rosters.py)'); sys.exit(1 if a.strict else 0)
+if not E: print('ROSTER VET: BLOCK - no ESPN roster snapshot (python3 scripts/nfl-rosters/fetch_espn_rosters.py)'); sys.exit(1 if a.strict else 0)
 AGE = age_h()
 
 FIX = {'WAS': 'WSH', 'JAC': 'JAX', 'LA': 'LAR', 'LVR': 'LV', 'NOS': 'NO', 'KCC': 'KC', 'GBP': 'GB', 'NEP': 'NE', 'SFO': 'SF', 'TBB': 'TB'}
@@ -216,5 +219,5 @@ if not a.quiet:
 status = 'BLOCK' if block else 'PASS'
 json.dump({'week': a.week, 'status': status, 'roster_source': E['generated_at'], 'roster_age_h': round(AGE, 1), 'totals': tot,
            'blocking': block, 'sections': out}, open(ROOT / f'data/generated/master-intel/w{WW}-roster-vet.json', 'w'), indent=1, default=list)
-print(f"\nROSTER VET: {status} — {len(block)} blocking issue(s); player legs resolved: card {LEGS['card']}, digest {LEGS['digest']}; ESPN rosters {E['generated_at'][:16]}Z ({AGE:.1f}h old, {E['player_count']} players)")
+print(f"\nROSTER VET: {status} - {len(block)} blocking issue(s); player legs resolved: card {LEGS['card']}, digest {LEGS['digest']}; ESPN rosters {E['generated_at'][:16]}Z ({AGE:.1f}h old, {E['player_count']} players)")
 if a.strict and block: sys.exit(1)
