@@ -687,12 +687,45 @@ def main():
         return ''
     def gwhy(gid, key='Why the card leans this way'):
         return ' '.join(dict((NAR.get(gid) or {}).get('secs', [])).get(key, '').split())
+    def mid_words(team, ln_):
+        pts = list(range(1, int(-(-ln_ // 1))))
+        pts = [x for x in pts if x < ln_]
+        txt = f"{team} wins by " + (' or '.join(str(x) for x in pts) if len(pts) <= 2 else f"1 to {pts[-1]}") + (' point' if pts == [1] else ' points')
+        return txt + (f"; by exactly {ln_:g} the hedge is refunded" if float(ln_).is_integer() else '')
+    def night_cap(t):
+        """A straight parlay whose last leg is a moneyline in the latest (night) game on the ticket: the hedge anchor."""
+        if 'round robin' in t['disp'].lower() or len(t['legs']) < 2: return None
+        gl = [lg for lg in t['legs'] if lg['game'] in kick]
+        if len({lg['game'] for lg in gl}) < 2: return None
+        last = max(gl, key=lambda lg: kick[lg['game']])
+        if kick[last['game']].astimezone(PT).hour < 17 or not re.search(r'\bML\b', last['market']): return None
+        team = last['market'].split()[0]; A_, H_ = last['game'].split('@'); opp = H_ if team == A_ else A_
+        b_ = G.get(last['game']) or {}
+        pm = re.search(r'([+-]\d+)', t['price'])
+        if not pm or opp not in b_.get('ml', {}): return None
+        R = float(t['stake']) * dec(int(pm.group(1))); st = float(t['stake'])
+        opts = []
+        d_ml = dec(b_['ml'][opp]); H1 = R / d_ml
+        opts.append(dict(label=f"{tl(opp)}{opp} moneyline {b_['ml'][opp]:+d}", H=H1, lock=R - st - H1, middle=None))
+        if opp in b_.get('sp', {}):
+            ln_, pr_ = b_['sp'][opp]
+            if ln_ > 0:
+                d_sp = dec(pr_); H2 = R / d_sp
+                opts.append(dict(label=f"{tl(opp)}{opp} {ln_:+g} ({pr_:+d})", H=H2, lock=R - st - H2, middle=R - st + H2 * (d_sp - 1), mid_txt=mid_words(team, ln_)))
+        return dict(team=team, opp=opp, game=last['game'], when=kick[last['game']].astimezone(PT).strftime('%a %H:%M PT'), R=R, stake=st, opts=opts)
     def ticket_box(t, cls):
         out = roll(cls, t['id'], f"🎟️ {esc(t['disp'])} — {esc(t['book'])} — ${t['stake']} — {esc(t['price'])}")
         note = tnote(t)
         if note: out += [f"💬 **What it is and why:** {esc(note)}", '']
         out += [f"**Payout:** {esc(t['ret'])}", '', '| Game | Leg | Book | Price | Tier | Why |', '|---|---|---|---|---|---|'] + [
-                f"| {glink(lg['game'])} | {esc(lg['market'])} | {esc(lg['book'])} | {esc(lg['price'])} | {esc(lg['tier'])} | {link_sources(lg['why'], lg['game'])} |" for lg in t['legs']] + RE
+                f"| {glink(lg['game'])} | {esc(lg['market'])} | {esc(lg['book'])} | {esc(lg['price'])} | {esc(lg['tier'])} | {link_sources(lg['why'], lg['game'])} |" for lg in t['legs']]
+        nc = night_cap(t)
+        if nc:
+            out += ['', f"🛡️ **The night-game hedge.** The {tl(nc['team'])}{nc['team']} moneyline ({nc['when']}) is a placeholder, not a pick we need to win. If every other leg hits, this ticket is worth **${nc['R']:.2f}** going into the night game, and you can bet the other side ({nc['opp']}) to lock in a profit no matter who wins. [How the night-game hedge works](#night-cap-howto).", '',
+                    '| Hedge bet (prices at build time) | Stake to lock profit | Profit locked either way | If it lands in the middle |', '|---|---|---|---|'] + [
+                    f"| {o['label']} | ${o['H']:.2f} | **${o['lock']:.2f}** | " + (f"both tickets win: **${o['middle']:.2f}** ({o['mid_txt']})" if o['middle'] else '—') + ' |' for o in nc['opts']] + [
+                    '', '<em>Recalculate with live prices before hedging: the numbers above use this build\'s lines. You can also hedge a smaller amount and keep some upside.</em>']
+        out += RE
         return out
     def fbar(col, opts, scope='', sort_scope=''):
         out = [f'<div class="table-filter rollup-controls" data-col="{col}"' + (f' data-scope="{scope}"' if scope else '') + '>',
@@ -726,6 +759,13 @@ def main():
           'Each ticket opens to show what it is, why it\'s on the card, and every leg.', '', '💡 **"(est.)" price:** each leg\'s odds multiplied together, the standard way to estimate what a parlay pays. The book\'s actual payout can differ a little, and same-game parlays (several legs from one game) pay noticeably less because the legs are related. Check the payout on your slip.', '',
           '<div class="rollup-controls">', "  <button class=\"btn-toggle btn-primary\" onclick=\"toggleRollups('section-tickets', true)\">Open all tickets</button>",
           "  <button class=\"btn-toggle\" onclick=\"toggleRollups('section-tickets', false)\">Close all tickets</button>", '</div>', '']
+    if any(night_cap(t) for t in TK):
+        L += ['<a id="night-cap-howto"></a>'] + roll('section-tickets', 'night-cap-explainer', '🛡️ How the night-game hedge works (read this first)') + [
+              '- **Why the last leg is a night game.** These parlays end with the moneyline favorite in the Sunday-night (or Monday-night) game. That leg is a **placeholder**: it keeps the ticket alive until night so that, if the morning and afternoon legs all win, you still have a decision to make.',
+              '- **Locking in a profit.** Once only the night leg is left, bet the **underdog** in that same game. Size the bet so you come out ahead whichever team wins: if the favorite wins, the parlay pays; if the underdog wins, the hedge pays. Each ticket below shows the stake and the profit it locks at today\'s prices.',
+              '- **Finding a middle.** Instead of the underdog moneyline, you can hedge with the underdog **plus the points**. If the favorite wins but by less than the spread, **both** bets win. Middles are uncommon, but they are the best outcome on these tickets. If the underdog wins outright, the hedge still covers you.',
+              '- **What it costs.** The hedge is a bigger second bet, often ten times the parlay stake, and prices will have moved by the night game, so recalculate first. Hedging part of the way is fine if you want to keep some upside.',
+              '- **The formula.** Hedge stake = what the parlay pays back (stake included) ÷ the hedge bet\'s decimal odds. Profit locked = parlay payback − parlay stake − hedge stake.'] + RE
     for t in parl: L += ticket_box(t, 'section-tickets')
     L += RE
     L += roll('section-rec', 'rec-props', f'🧾 Player prop stacks — {len(stacks)} tickets')
