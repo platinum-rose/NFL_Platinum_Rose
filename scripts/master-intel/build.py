@@ -142,6 +142,45 @@ def opening_lines(sched):
 def md_inline(t):
     return re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', re.sub(r'(?<![*\w])_(.+?)_(?![*\w])', r'<em>\1</em>', t))
 
+SEC_ICON = {'📌': '📌', '1': '🏆', '2': '📊', '3': '🧭', '4': '🎯', '5': '🔁', '6': '🔍', '7': '🎟️', '8': '🧾', '9': '🛡️', '10': '📐', '11': '📚'}
+
+def wrap_sections(lines):
+    """Week-2 SuperContest pattern: every top-level '## ' section body sits in its own
+    collapsible <details class="rollup-box section-main"> box (open by default), with
+    Expand/Collapse buttons for the section plus any sub-box buttons the section already had."""
+    heads = [i for i, ln in enumerate(lines) if ln.startswith('## ') and not ln.startswith('## Multi-Platform')]
+    if not heads: return lines, []
+    out = lines[:heads[0]]; toc = []
+    for n, h in enumerate(heads):
+        end = heads[n + 1] if n + 1 < len(heads) else len(lines)
+        title = lines[h][3:].strip()
+        num = title.split('.')[0] if title[0].isdigit() else 'exec'
+        key = f'secmain-{num}'; rid = f'section-{num}-box'
+        label = '§' + num if num != 'exec' else 'Summary'
+        short = title.split(':')[0] if num != 'exec' else title.replace('📌 ', '')
+        toc.append((rid, (f'§{num} ' if num != 'exec' else '') + (title.split('. ', 1)[-1].split(':')[0] if num != 'exec' else 'Executive Summary')))
+        body = lines[h + 1:end]
+        # trailing anchors/blank lines belong to the NEXT section
+        tail = []
+        while body and (not body[-1].strip() or body[-1].startswith('<a id=')):
+            tail.insert(0, body.pop())
+        # pull an existing controls block (right after the heading) out of the body
+        j = next((x for x in range(min(6, len(body))) if body[x].startswith('<div class="rollup-controls">')), None)
+        sub = []
+        if j is not None:
+            k = j
+            while body[k].strip() != '</div>': k += 1
+            what = 'games' if num == '6' else 'boxes'
+            sub = [re.sub(r'>Expand Section [^<]*<', f'>Open all {what}<', re.sub(r'>Collapse Section [^<]*<', f'>Close all {what}<', b)) for b in body[j + 1:k]]
+            body = body[:j] + body[k + 1:]
+        ctl = ['<div class="rollup-controls">',
+               f'  <button class="btn-toggle btn-primary" onclick="toggleRollups(\'{key}\', true)">Expand {label}</button>',
+               f'  <button class="btn-toggle" onclick="toggleRollups(\'{key}\', false)">Collapse {label}</button>'] + sub + ['</div>', '']
+        icon = SEC_ICON.get(num, '📄')
+        summ = f'{icon} ' + (f'Section {num}: ' + title.split('. ', 1)[-1] if num != 'exec' else 'Executive Summary')
+        out += [lines[h], ''] + ctl + [f'<details class="rollup-box section-main {key}" id="{rid}" open>', f'<summary>{summ}</summary>', '<div class="rollup-content">', ''] + body + ['', '</div>', '</details>'] + tail
+    return out, toc
+
 def final_scores(week):
     out = {}
     for f in glob.glob(str(ROOT / 'data/fantasy/boxscores/espn-*.json')):
@@ -304,7 +343,7 @@ def main():
     L += [f'# 🏈 NFL Week {W} Master Betting Intelligence Report',
           '## Multi-Platform Consensus, Market-Implied Board & Game-by-Game Analytical Dossier',
           f'### Built {datetime.datetime.now(PT).strftime("%a %b %d %Y %H:%M PT")} by scripts/master-intel/build.py — prices are BKR {D} capture ({asof}Z); verify every slip',
-          '', '_Proposals and research context only. Nothing here is placed. Sportsbook prices ≠ prediction-market percentages; never mix them without a fee/spread check._', '',
+          '', '<em>Proposals and research context only. Nothing here is placed. Sportsbook prices ≠ prediction-market percentages; never mix them without a fee/spread check.</em>', '',
           '| Input | Status |', '|---|---|',
           f"| BKR SGP + game lines | {len(G)} games, {len(bkr['rows'])} lines |",
           f"| BEO prop boards | {len({r['game'] for r in beo})} games |",
@@ -616,6 +655,16 @@ def main():
     L += ['', '### Known Gaps', ''] + [f'- {x}' for x in gaps]
     out_dir = ROOT / f'dist/nfl_week{W}_master_packet'; out_dir.mkdir(parents=True, exist_ok=True)
     md = out_dir / f'nfl_week{W}_master_betting_intelligence_summary.md'
+    L, TOC = wrap_sections(L)
+    nav = ['<div class="global-rollup-bar" id="report-controls">', '  <span class="bar-title">⚡ Report Sections:</span>',
+           '  <button class="btn-toggle btn-primary" onclick="toggleAllMainSections(true)">Expand All Sections</button>',
+           '  <button class="btn-toggle" onclick="toggleAllMainSections(false)">Collapse All Sections</button>',
+           '  <button class="btn-toggle" onclick="toggleAllRollups(true)">Open Everything</button>',
+           '  <button class="btn-toggle" onclick="toggleAllRollups(false)">Close Everything</button>', '</div>',
+           '<div class="section-jump" style="display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 0.86rem; margin: -12px 0 22px 0;">'] + \
+          [f'  <a href="#{rid}" onclick="openTargetDetails(\'#{rid}\')">{name}</a>' for rid, name in TOC] + ['</div>', '']
+    at = next(i for i, ln in enumerate(L) if ln.startswith('<a id="executive-summary"'))
+    L = L[:at] + nav + L[at:]
     txt = '\n'.join(add_tooltips(L)).replace('__GAPS__', '; '.join(gaps) if gaps else 'none')
     md.write_text(txt + '\n', encoding='utf-8')
     print(f'wrote {md} ({len(L)} lines)')
