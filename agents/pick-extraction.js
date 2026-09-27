@@ -388,6 +388,16 @@ async function run() {
         continue;
       }
 
+      // Guard: both sides were named but one doesn't resolve to an NFL team
+      // (e.g. "Texas" vs "Tennessee" college picks). The resolvable side
+      // would otherwise fall back to that NFL team's game (Texas -4.5 was
+      // tagged to TEN@NYG in 2026 wk3).
+      if ((pick.team1 && !abbr1) || (pick.team2 && !abbr2)) {
+        console.log(`   [${i + 1}] ⏭ SKIPPED (opponent not an NFL team, likely college): "${pick.team1 ?? '?'}" vs "${pick.team2 ?? '?'}" — ${pick.selection ?? ''}`);
+        totalSkipped++;
+        continue;
+      }
+
       // Guard: the pick must match a game in the target week. Recap picks
       // (last week's games) and look-aheads are skipped instead of getting a
       // synthetic podcast_* id or a wrong-week game.

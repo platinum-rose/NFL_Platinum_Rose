@@ -228,10 +228,15 @@ def main():
             else: side = None
             if side: VOTES[gid][who][side] += 1
     EXP = collections.defaultdict(list)
+    exp_dropped = []
     for r in pull['expert']:
         T = teams_in(f"{r.get('visitor')} {r.get('home')}")
         for gid, g in ids.items():
             if {g['visitor'], g['home']} <= T:
+                # side picks must name one of this game's teams; otherwise it's a mis-tagged pick
+                # (e.g. college "Texas -4.5" stored against TEN@NYG because "Tennessee" resolved to TEN)
+                if r.get('pick_type') in ('spread', 'moneyline', 'teaser') and not (teams_in(str(r.get('selection') or '')) & {g['visitor'], g['home']}):
+                    exp_dropped.append(f"{gid}: {r.get('expert')} {r.get('pick_type')} {r.get('selection')} {r.get('line') or ''}".strip()); continue
                 EXP[gid].append(r)
                 sel = str(r.get('selection') or ''); ls = teams_in(sel) & {g['visitor'], g['home']}
                 side = 'Under' if 'under' in sel.lower() else 'Over' if 'over' in sel.lower() and r.get('pick_type') == 'total' else (list(ls)[0] if len(ls) == 1 and r.get('pick_type') in ('spread', 'moneyline') else None)
@@ -276,6 +281,7 @@ def main():
                 LEANS.append(dict(game=c[0], market=c[1], lean=c[2], source=c[3], tier=c[4]))
     else: gaps.append('No synthesis digest (scratch/w<NN>-synthesis-digest*.md) — sections 1/4 fall back to consensus counts only.')
     # ---------- card tickets ----------
+    if exp_dropped: gaps.append('Dropped mis-tagged expert side picks (selection names neither team): ' + '; '.join(exp_dropped))
     miss_nar = [g['id'] for g in live if not (NAR.get(g['id']) or {}).get('secs')]
     if miss_nar: gaps.append(f'No §6 narrative/projection for: {", ".join(miss_nar)} ({nar_p}).')
     TICK = re.findall(r'^### (.+?) — (.+?) — \*\*\$([\d.]+)\*\* — (.+?) — (.+)$', card, re.M)
