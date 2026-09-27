@@ -502,7 +502,8 @@ def main():
                 d_ = dict(zip(hdr, c))
                 legs.append(dict(game=d_.get('game', ''), market=d_.get('market & line', ''), book=d_.get('book', ''), price=d_.get('price', ''), tier=d_.get('tier', ''), why=d_.get('why', '')))
         flags = re.search(r'^Flags:.*$', body_, re.M)
-        TK.append(dict(name=m.group(1).strip(), disp=ticket_display(m.group(1)), book=m.group(2).strip(), stake=m.group(3), price=m.group(4).strip(), ret=m.group(5).strip(), legs=legs,
+        _px = lambda z: re.sub(r'\s*\bnaive\b', ' (est.)', z.strip())
+        TK.append(dict(name=m.group(1).strip(), disp=ticket_display(m.group(1)), book=m.group(2).strip(), stake=m.group(3), price=_px(m.group(4)), ret=_px(m.group(5)), legs=legs,
                        flags=flags.group(0) if flags else '', id='ticket-' + slug(m.group(1))))
     sc_line = re.search(r'^## SuperContest[^\n]*\n([^\n]+)', card_cur, re.M)
     left_off = re.search(r'^## Left off and why\n(.*?)(?=^## |\Z)', card_cur, re.M | re.S)
@@ -707,7 +708,7 @@ def main():
     straight = [r for r in RANKED if r['type'] in ('Side', 'Total')]
     bygame = collections.OrderedDict()
     for r in straight: bygame.setdefault(r['gid'], []).append(r)
-    L += roll('section-rec', 'rec-straight', f'✅ Straight bets: sides &amp; totals — {len(straight)} picks in {len(bygame)} games', True) + [
+    L += roll('section-rec', 'rec-straight', f'✅ Straight bets: sides &amp; totals — {len(straight)} picks in {len(bygame)} games') + [
           'Grouped by game. Filter to only sides or only totals, and sort by strength, kickoff or name. Open a game for our projected score and the reasoning.', '']
     L += fbar('Type', ['Side', 'Total'], 'rec-games', 'rec-games') + ['<div id="rec-games">']
     for gid, rs in bygame.items():
@@ -721,19 +722,19 @@ def main():
         L += ['', f"[Full game write-up →](#{gsid(gid)}) · [all expert picks →](#experts-{slug(gid)})"] + RE
     L += ['</div>'] + RE
     parl = [t for t in TK if not ticket_is_props(t)]; stacks = [t for t in TK if ticket_is_props(t)]
-    L += roll('section-rec', 'rec-parlays', f'🎟️ Parlays &amp; round robins — {len(parl)} tickets', True) + [
-          'Each ticket opens to show what it is, why it\'s on the card, and every leg. Parlay prices shown are the legs multiplied together; same-game parlays price lower at the book.', '',
+    L += roll('section-rec', 'rec-parlays', f'🎟️ Parlays &amp; round robins — {len(parl)} tickets') + [
+          'Each ticket opens to show what it is, why it\'s on the card, and every leg.', '', '💡 **"(est.)" price:** each leg\'s odds multiplied together, the standard way to estimate what a parlay pays. The book\'s actual payout can differ a little, and same-game parlays (several legs from one game) pay noticeably less because the legs are related. Check the payout on your slip.', '',
           '<div class="rollup-controls">', "  <button class=\"btn-toggle btn-primary\" onclick=\"toggleRollups('section-tickets', true)\">Open all tickets</button>",
           "  <button class=\"btn-toggle\" onclick=\"toggleRollups('section-tickets', false)\">Close all tickets</button>", '</div>', '']
     for t in parl: L += ticket_box(t, 'section-tickets')
     L += RE
-    L += roll('section-rec', 'rec-props', f'🧾 Player prop stacks — {len(stacks)} tickets', True)
+    L += roll('section-rec', 'rec-props', f'🧾 Player prop stacks — {len(stacks)} tickets')
     for t in stacks: L += ticket_box(t, 'section-tickets')
     L += ['', f'**Build your own:** every actionable prop on the card and from the experts is in the [props pool](#prop-pool), grouped by game and filterable by prop type.'] + RE
     if sc_line:
         picks = re.findall(r'\b([A-Z]{2,3}) ([+−-]\s?[\d.]+)', sc_line.group(1).split('(alt')[0])
         alt = re.search(r'\(alt: ([A-Z]{2,3}) ([+−-][\d.]+)\)', sc_line.group(1))
-        L += roll('section-rec', 'rec-supercontest', f'🏆 SuperContest 5 — {" · ".join(t_ + " " + l_ for t_, l_ in picks)}', True) + [
+        L += roll('section-rec', 'rec-supercontest', f'🏆 SuperContest 5 — {" · ".join(t_ + " " + l_ for t_, l_ in picks)}') + [
               'Five picks against the contest\'s locked spreads (only covering the spread counts).' + (f' Alternate if a pick is unavailable: **{alt.group(1)} {alt.group(2)}**.' if alt else ''), '',
               '| Pick | Game | Contest line | Our projection | Why |', '|---|---|---|---|---|']
         for t_, l_ in picks:
@@ -832,7 +833,7 @@ def main():
           '- **Win chance:** each moneyline turned into a win probability, with the sportsbook\'s built-in cut removed so the two sides add up to 100%.',
           '- **Spread / Total (bets / money):** for each side, the share of bets placed and the share of dollars wagered. Example: "O 25/51 · U 75/49" means only 25% of bets are on the Over but they carry 51% of the money.',
           '- **💰 Big-money signal:** a side where the money share beats the bet share by 15+ points — fewer, bigger bets, usually experienced ("sharp") bettors. We record **the exact line when the signal first appears**, so later builds show whether the line has moved toward or away from that side since.'] + RE
-    L += roll('section-synth', 'platinum-rose-board', '📊 All games at a glance', True) + [
+    L += roll('section-synth', 'platinum-rose-board', '📊 All games at a glance') + [
           '| Kickoff (PT) | Game | Favorite & spread | Total points | Score the lines imply | Our projection | Win chance (no-vig) | Spread: bets / money | Total: bets / money | Big-money signal |', '|---|---|---|---|---|---|---|---|---|---|']
     for g in live:
         gid = g['id']; b = G.get(gid); A_, H_ = g['visitor'], g['home']
@@ -906,7 +907,7 @@ def main():
         return '🌟 Near-unanimous' if n2 == 0 or n1 >= 3 * max(n2, 1) else ('🔥 Majority' if m_ >= 2 else '⚔️ Clash')
     BRANK = {'🌟 Near-unanimous': 4, '🔥 Majority': 3, '⚔️ Clash': 2, '⚖️ Split': 1, '—': 0}
     ranked.sort(key=lambda x: (-BRANK[badge(x[1], len(x[5]), x[0])], -x[0], -x[1]))
-    L += roll('section-3', 'consensus-overview', '🧭 Consensus ranking — every game', True) + [
+    L += roll('section-3', 'consensus-overview', '🧭 Consensus ranking — every game') + [
           '| Rank | Game | Consensus side | For – Against | Strength | Total lean | Details |', '|---|---|---|---|---|---|---|']
     for i, (m_, n1, g, side, fr, ag) in enumerate(ranked):
         c_ = CONS.get(g['id'], {}); u, o = c_.get('Under', set()), c_.get('Over', set())
@@ -920,7 +921,7 @@ def main():
         if bd != cur_bd:
             if cur_bd is not None: L += RE
             cnt = sum(1 for r in ranked if r[1] >= 2 and badge(r[1], len(r[5]), r[0]) == bd)
-            L += roll('section-3', 'cgroup-' + slug(bd), f"{bd} — {cnt} game{'s' if cnt != 1 else ''}", True); cur_bd = bd
+            L += roll('section-3', 'cgroup-' + slug(bd), f"{bd} — {cnt} game{'s' if cnt != 1 else ''}"); cur_bd = bd
         b_ = G.get(g['id']); f_, s_ = fav(g['id']); tot_ = b_ and (b_['tot'].get('Over') or (None,))[0]
         ln = b_ and b_['sp'].get(side); nv = novig(g['id']).get(side)
         if n1 == n2: ln = None; side = f"{g['visitor']}/{g['home']} split"
@@ -948,7 +949,7 @@ def main():
     for typ, icon, label in (('Side', '✅', 'Sides (who wins / covers)'), ('Total', '📈', 'Totals (over / under)'), ('Prop', '🧾', 'Player props')):
         rs = [r for r in RANKED if r['type'] == typ]
         if not rs: continue
-        L += roll('section-4', f'feature-{typ.lower()}', f'{icon} {label} — {len(rs)} ranked', True) + [
+        L += roll('section-4', f'feature-{typ.lower()}', f'{icon} {label} — {len(rs)} ranked') + [
               '| Rank | Pick | Lean | Game | Confidence | What moves it | Evidence |', '|---|---|---|---|---|---|---|'] + [
               f"| {i+1} | **{esc(r['market'])}** | {esc(r['lean'])} | {glink(r['gid']) if r['gid'] else esc(r['game'])} | {stars(r['conf'])} | {esc('; '.join(r['conf_why']))} | {link_sources(r['source'], r['gid'])} |" for i, r in enumerate(rs)] + ROLL_END
     L += ['', '<a id="expert-registry"></a>', '### 🎙️ Expert pick registry by game', '', 'Every named expert pick we captured this week, by game. The game write-ups in §7 link here when they cite an expert.', '']
@@ -1126,7 +1127,7 @@ def main():
     # ---------------- 8. Props + under the hood ----------------
     L += ['', '<a id="prop-card"></a>', '## 8. Master Player Prop & Exotic Wager Card', ''] + controls('section-8', 'Section 8') + [
           f'Reference boards for player props. For the props we actually recommend, see the [props pool](#prop-pool) and the prop stacks in [card tickets](#card-tickets).', '']
-    L += roll('section-8', 'prop-card-box', '🧾 Props: article tier-1, tackles + assists, 2+ passing TDs', True)
+    L += roll('section-8', 'prop-card-box', '🧾 Props: article tier-1, tackles + assists, 2+ passing TDs')
     t1x = t1[:24]
     if t1x:
         L += ['**Article-sourced tier-1 props** (completed games excluded):', '', '| Game | Player | Market | Line | Price | Source |', '|---|---|---|---|---|---|']
@@ -1214,7 +1215,7 @@ def main():
         TR.append(dict(gid=gm[0], txt=txt, pick=pick_, src=(r.get('author') or r.get('source') or '?').replace('Twitter/X Bookmarks (Personal)', 'X/Twitter (saved post)'), kind=trend_kind(txt, pick_)))
     kick_ = {g['id']: g['k'] for g in live}
     TR.sort(key=lambda z: (kick_.get(z['gid']), z['gid']))
-    L += roll('section-10', 'trend-table', f'📐 Trends by game — {len(TR)} trends tied to a side', True) + fbar('Type', ['Situational spot', 'Team / coach record', 'Totals']) + [
+    L += roll('section-10', 'trend-table', f'📐 Trends by game — {len(TR)} trends tied to a side') + fbar('Type', ['Situational spot', 'Team / coach record', 'Totals']) + [
           '| Game | Type | Trend | Points to | Source |', '|---|---|---|---|---|'] + [
           f"| {glink(z['gid'])} | {z['kind']} | {esc(_html.unescape(z['txt']))[:220]} | **{esc(z['pick'])[:60]}** | {link_sources(z['src'], z['gid'])} |" for z in TR] + RE
     sysn = [n for n in pull['notes'] if re.search(r'\b(system|trend|ATS|since 20\d\d|\d+-\d+ (ATS|SU))\b', f"{n.get('title')} {n.get('summary')}", re.I)]
