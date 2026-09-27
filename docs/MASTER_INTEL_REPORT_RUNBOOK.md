@@ -95,3 +95,25 @@ Articles ingest runs on its own (GitHub Actions, twice daily). The Toolbox "Rese
 - Outlet feeds (ESPN NFL, VSiN, BettingPros) aggregate several writers and count as one vote. Podcast shows and their hosts (e.g. "Sharp or Square" and "Simon Hunter") can each appear. Read the names.
 - No Monte Carlo. §2 is market-implied only.
 - DK and Kalshi percentages are shown raw (pre-fee). Execution-eligibility for Kalshi lives in `src/lib/predictionMarketExecution.js` (dossier futures path), not here.
+
+## 8. Section 6 game narratives and projected scores (written step, before the final build)
+
+`build.py` reads `reports/intel/master-intel-narratives-<season>-w<NN>.md`. There is one `## AWAY@HOME` block per remaining game:
+
+```
+## TEN@NYG
+projection: TEN 19, NYG 16
+
+### Game script
+...how the game plays out, citing only evidence in the dossier...
+### Why the card leans this way
+...consensus, splits, line movement, injuries, secondary tier; name the card tickets...
+### What breaks it
+...the counter-case and what to re-check before kickoff...
+```
+
+- Build a first pass with `--no-export`, then write the narratives from that week's §6 evidence: BKR lines, splits, secondary matchups, injuries, expert/YouTube picks and card leans. Rebuild after.
+- Projection method: start at the market-implied score, then move it only for evidence that is cited in the text. It is not a model output, and no edge % is used. If the projection disagrees with a card lean (for example a dog ML that is a price bet, not a predicted win), say so.
+- Line movement is automatic. The baseline is the earliest `data/odds/BKR_current_lines_*` paste whose `GAME LINES - MON DD` header matches the kickoff date. Paste a Tuesday snapshot every week so there is a baseline.
+- Build.py prints the projected margin and total against the market in each box and adds the Projected column to §2. Missing games are listed under Known gaps.
+- Rewrite a game's block when the lines, the QB or the card change (for example after tonight's DK saves).
