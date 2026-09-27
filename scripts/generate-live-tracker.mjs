@@ -704,7 +704,8 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     if (Array.isArray(parsed) && parsed.length > 0) {
       scTop5List = parsed.map((item, idx) => {
         const team = item.team || item.pickTeam;
-        const rankInfo = SC_RANKINGS[team] || {};
+        // SC_RANKINGS is the hardcoded Week 1 board; only use it to enrich Week 1 picks.
+        const rankInfo = (Number(week) === 1 ? SC_RANKINGS[team] : null) || {};
         return {
           rank: idx + 1,
           grade: rankInfo.grade || 'A',
@@ -725,7 +726,12 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     }
   } catch {}
 
-  const scAlternatesList = [
+  // When a real locked card exists for this week, the contest matrix ranks come from
+  // that card and the hardcoded Week 1 alternates are not shown.
+  const SC_RANK_LOOKUP = hasLockedCardFile
+    ? Object.fromEntries(scTop5List.map(p => [p.pickTeam, { ...p, isTop5: true, isAlt: false }]))
+    : SC_RANKINGS;
+  const scAlternatesList = hasLockedCardFile ? [] : [
     SC_RANKINGS['PHI'],
     SC_RANKINGS['MIA'],
     SC_RANKINGS['SF'],
@@ -738,7 +744,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     const dog = g.underdog_abbr;
     const line = g.contest_line;
     const mkt = scMarketMap[`${fav}_${dog}`] || {};
-    const rankInfo = SC_RANKINGS[fav] || SC_RANKINGS[dog] || null;
+    const rankInfo = SC_RANK_LOOKUP[fav] || SC_RANK_LOOKUP[dog] || null;
 
     // Real conclusion/cover state from the build-time ESPN scoreboard snapshot
     // (initialTeamScoreMap), instead of a hardcoded 2-team Thursday allowlist that
@@ -3940,7 +3946,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
                 </div>
               </div>
             </div>
-            <span style="font-size:0.68rem; color:var(--text-muted);">5 Alternates Available</span>
+            <span style="font-size:0.68rem; color:var(--text-muted);">${scAlternatesList.length} Alternates Available</span>
           </div>
 
           <div class="sc-alternates-grid" id="sc-alternates-container">
@@ -4644,7 +4650,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     const SC_TOP5_INITIAL = ${JSON.stringify(scTop5List).replace(/<\/script/gi, '<\\/script')};
     const HAS_LOCKED_CARD = ${hasLockedCardFile};
     const SC_LOCKED_CARD_INITIAL = ${JSON.stringify(hasLockedCardFile ? scTop5List : []).replace(/<\/script/gi, '<\\/script')};
-    const SC_RANKINGS_MAP = ${JSON.stringify(SC_RANKINGS).replace(/<\/script/gi, '<\\/script')};
+    const SC_RANKINGS_MAP = ${JSON.stringify(SC_RANK_LOOKUP).replace(/<\/script/gi, '<\\/script')};
     const PLAYER_TICKET_MAP = ${JSON.stringify(playerTicketMap).replace(/<\/script/gi, '<\\/script')};
     const INITIAL_INJURIES = ${JSON.stringify(boxscoreAthleteInjuries).replace(/<\/script/gi, '<\\/script')};
 
