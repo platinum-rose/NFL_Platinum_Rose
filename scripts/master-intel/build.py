@@ -1227,6 +1227,23 @@ def main():
     out_dir = ROOT / f'dist/nfl_week{W}_master_packet'; out_dir.mkdir(parents=True, exist_ok=True)
     md = out_dir / f'nfl_week{W}_master_betting_intelligence_summary.md'
     L, TOC = wrap_sections(L)
+    PLAIN = {'rec': 'Our Picks This Week', 'exec': 'The Week at a Glance', '1': 'Every Bet, Ranked', '2': 'What the Odds Predict',
+             '3': 'What the Experts Say', '4': 'Strongest Plays & Expert Picks', '5': 'Teaser Bets', '6': 'The Underdog Upset Ticket',
+             '7': 'Game-by-Game Breakdowns', '8': 'Player Props & How the Card Was Built', '9': 'Survivor Pool Picks', '10': 'Betting Trends', '11': 'Sources & Data Notes'}
+    SHORT_TIP = {'rec': 'Everything we recommend betting this week in one place: straight bets, parlays, prop stacks and SuperContest picks.',
+                 'exec': 'The six things to know about this week before you read anything else.',
+                 '1': 'Every pick on the card in one table, strongest first. Filter to sides, totals or player props, plus a pool of props to build your own tickets.',
+                 '2': 'What the sportsbook lines say the final score will be, our own projected score, and where the public and the big-money bettors are putting their money.',
+                 '3': 'How many betting experts picked each side of every game, and where they agree or are split.',
+                 '4': 'Our plays ranked by how much evidence backs them (the star ratings), plus every named expert pick for each game.',
+                 '5': 'Games where a 6-point teaser (moving the spread in your favor for a smaller payout) makes the most sense.',
+                 '6': 'The five underdogs we like to win outright, and why each one is on the ticket.',
+                 '7': 'A full write-up for every game: how we think it plays out, our projected score, the reasoning, and what could go wrong.',
+                 '8': 'Reference boards for player props, and the behind-the-scenes rules we use to build the card.',
+                 '9': 'The safest teams to pick in a survivor pool this week, how popular each pick is, and who to save for later.',
+                 '10': 'Past betting records and situations that point to a side this week. Useful for breaking ties, not a reason on their own.',
+                 '11': 'Where the information came from, which feeds were working, and what data is missing this week.'}
+    def toc_label(num): return (f'{num}. ' if num[0].isdigit() else '') + PLAIN.get(num, num)
     BLURB = {'rec': 'What we recommend betting, in one place', 'exec': 'The week at a glance', '1': 'Every lean, sortable & filterable · tickets · props pool',
              '2': 'What the betting lines predict, in plain English', '3': 'Where the experts agree and disagree, ranked', '4': 'Plays ranked by confidence + expert pick registry',
              '5': '6-point teaser candidates', '6': 'The underdogs on the ticket and why', '7': 'Game-by-game scripts, projections & evidence',
@@ -1238,14 +1255,16 @@ def main():
            '  <button class="btn-toggle" onclick="toggleAllRollups(false)">Close Everything</button>', '</div>',
            '<div class="toc-title" style="font-weight: 700; font-size: 0.95rem; margin: 4px 0 8px 0; color: var(--primary);">📑 Table of Contents</div>',
            '<div class="toc-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px; margin: 0 0 26px 0;">'] + \
-          [f'<div style="border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; background: var(--highlight);"><a href="#{rid}" style="font-weight: 700; text-decoration: none; color: var(--primary);">{SEC_ICON.get(num, "📄")} {("§" + num + " ") if num[0].isdigit() else ""}{name}</a><div style="font-size: 0.8rem; color: var(--muted); line-height: 1.35; margin-top: 2px;">{BLURB.get(num, "")}</div></div>' for rid, num, name in TOC] + ['</div>', '']
-    side = ('<div class="side-toc" id="side-toc"><div class="side-toc-title">📑 Contents</div>'
-            + ''.join(f'<a href="#{rid}" onclick="document.body.classList.remove(\'toc-open\')">{SEC_ICON.get(num, "📄")} {("§" + num + " ") if num[0].isdigit() else ""}{name}</a>' for rid, num, name in TOC)
-            + '<a href="#disclaimer" onclick="document.body.classList.remove(\'toc-open\')">⚖️ Disclaimer</a></div>')
+          [f'<div style="border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; background: var(--highlight);"><a href="#{rid}" style="font-weight: 700; text-decoration: none; color: var(--primary);">{SEC_ICON.get(num, "📄")} {toc_label(num)}</a><div style="font-size: 0.8rem; color: var(--muted); line-height: 1.35; margin-top: 2px;">{SHORT_TIP.get(num, "")}</div></div>' for rid, num, name in TOC] + ['</div>', '']
+    side = ('<div class="side-toc" id="side-toc"><div class="side-toc-title">Contents</div>'
+            + ''.join(f'<a href="#{rid}" data-tip="{SHORT_TIP.get(num, "")}" onclick="document.body.classList.remove(\'toc-open\')"><span class="toc-ico">{SEC_ICON.get(num, "📄")}</span><span class="toc-txt">{toc_label(num)}</span></a>' for rid, num, name in TOC)
+            + '<a href="#disclaimer" data-tip="The fine print: this report is for entertainment only, and every bet is your own decision and risk." onclick="document.body.classList.remove(\'toc-open\')"><span class="toc-ico">⚖️</span><span class="toc-txt">Disclaimer</span></a></div>')
     side_btn = '<button class="toc-toggle" type="button" onclick="document.body.classList.toggle(\'toc-open\')">☰ Contents</button>'
     side_css = ('<style>.side-toc{position:fixed;top:16px;left:16px;bottom:16px;width:236px;overflow-y:auto;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 8px;font-size:13px;z-index:50;display:none;box-shadow:0 4px 14px rgba(0,0,0,.10);}'
                 '.side-toc a{display:block;padding:6px 8px;border-radius:6px;color:var(--primary);text-decoration:none;line-height:1.3;}.side-toc a:hover{background:var(--highlight);}'
                 '.side-toc-title{font-weight:700;margin:2px 8px 6px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em;}'
+                '.side-toc a{display:flex;gap:8px;align-items:flex-start;}.toc-ico{flex:0 0 20px;text-align:center;}.toc-txt{flex:1 1 auto;}'
+                '.side-tip{position:fixed;z-index:70;max-width:280px;background:#0f172a;color:#f8fafc;font-size:12.5px;line-height:1.45;padding:9px 11px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.25);pointer-events:none;display:none;}'
                 '.toc-toggle{position:fixed;top:12px;left:12px;z-index:60;background:var(--primary);color:#fff;border:0;border-radius:8px;padding:8px 12px;font-weight:600;font-size:13px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.2);}'
                 'body.toc-open .side-toc{display:block;top:56px;}'
                 '@media (min-width:1420px){.side-toc{display:block;top:16px;}.toc-toggle{display:none;}.container{margin-left:276px !important;margin-right:auto !important;}}</style>')
@@ -1258,6 +1277,7 @@ def main():
           'the author and Platinum Rose accept no responsibility or liability for any wager, loss or other outcome arising from use of this report. Bet only where it is legal for you, only if you are of legal age, and only what you can afford to lose. '
           'If gambling stops being fun, help is available at 1-800-GAMBLER.</div>']
     txt = '\n'.join(add_tooltips(L)).replace('__GAPS__', '; '.join(gaps) if gaps else 'none')
+    txt = re.sub(r'§\s?(\d+)', r'Section \1', txt).replace('§', '')
     md.write_text(txt + '\n', encoding='utf-8')
     print(f'wrote {md} ({len(L)} lines)')
     if not a.no_export:

@@ -1530,6 +1530,24 @@ function initGroupSort() {{
   }});
 }}
 
+function initSideTips() {{
+  const tip = document.createElement('div');
+  tip.className = 'side-tip';
+  document.body.appendChild(tip);
+  document.querySelectorAll('.side-toc a[data-tip]').forEach(a => {{
+    a.addEventListener('mouseenter', () => {{
+      const r = a.getBoundingClientRect();
+      tip.textContent = a.dataset.tip;
+      tip.style.display = 'block';
+      const top = Math.min(r.top, window.innerHeight - tip.offsetHeight - 8);
+      tip.style.top = Math.max(8, top) + 'px';
+      tip.style.left = (r.right + 12) + 'px';
+      if (r.right + 12 + tip.offsetWidth > window.innerWidth) {{ tip.style.left = Math.max(8, r.left) + 'px'; tip.style.top = (r.bottom + 6) + 'px'; }}
+    }});
+    a.addEventListener('mouseleave', () => {{ tip.style.display = 'none'; }});
+  }});
+}}
+
 function initTableFilters() {{
   document.querySelectorAll('.table-filter').forEach(bar => {{
     if (bar.dataset.ready) return;
@@ -1576,11 +1594,13 @@ window.addEventListener('DOMContentLoaded', () => {{
   initSortableTables();
   initTableFilters();
   initGroupSort();
+  initSideTips();
 }});
 if (document.readyState !== 'loading') {{
   initSortableTables();
   initTableFilters();
   initGroupSort();
+  initSideTips();
 }}
 
 document.addEventListener('click', (e) => {{
