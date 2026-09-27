@@ -16,7 +16,7 @@ counterpart referenced in slot 9 below.
 | 3 | Morning-Weighted Parlay(s) | varies | $20-30 each | $300-400+ | Heavy favorites AM, 1 confident PM leg, capped with SNF favorite |
 | 4 | Afternoon-Weighted Parlay(s) | varies | $20-30 each | $300-400+ | Heavy favorites PM + AM favorites for value, capped with SNF favorite |
 | 5 | Hybrid Parlay(s) | max 5-6 legs | ~$20 each | — | Highest-conviction picks only, spans both windows |
-| 6 | SuperContest 5-teamer | 5 legs | — | — | Mirrors actual SuperContest picks; optional bought half-point or 1 open slot |
+| 6 | SuperContest 5-teamer (split stake) | 5 legs | ~$25 total: **~$15 5-team parlay + $10 2-team RR (10 × $1) on the same five** | — | Mirrors actual SuperContest picks; optional bought half-point or 1 open slot. Split stake adopted 2026-09-27 (from Week 4) — see "SuperContest split stake" below |
 | 7 | Player Prop Parlays | multiple slips | $25-30 total | $300-400 on $5-10 slips | A couple moonshots + a few legit stacks. Runs every week alongside slots 3-5, not as a substitute. **Standing shape (from the Week 1 placements):** 7a Morning 6-leg ($5), 7b Afternoon 6-leg ($5), 7c Evening/SNF combos (DK Predictions 4/6/8-pick), 7d Hybrid 8-leg ($10), 7e Anytime TD 7-leg ($5) — see "Prop stack rules" below |
 | 8a | First Touchdown Scorer Stack | 3 legs | $5 | Well above +7000 | Highest-variance TD market — who scores their game's literal first TD, not just any TD. Real example: 3 legs at +550/+300/+420 combined to +13,420 (that ticket was $40; ours targets $5) |
 | 8b | 2+ Touchdown Scorer Stack | 3 legs | $5 | Well above +7000 (aspirational — 2+ TD props individually price shorter than First-TD-Scorer props, so 3 legs may not reach this; flag the realistic combined odds when building rather than force a number) | Favorite RB/skill players for 2+ TD in-game (e.g. Derrick Henry, Ashton Jeanty) |
@@ -67,7 +67,7 @@ Unit = **$10**. Every selection must come from a **different game**.
 
 | Format | Selections | Combos | Stake | Break-even (all legs at the typical price) | Where |
 |---|---|---|---|---|---|
-| **Prop RR** (T+A, passing TDs, legs you'd play as singles, −105 to −250) | **5** | 10 | $2 each = **$20 (2u)** | 3 of 5 at −110; 4 of 5 if legs average −150 | BEO (confirm prop RRs are allowed; BKR props are single-game only) |
+| ~~Prop RR~~ **RETIRED 2026-09-27 (Andy: no round robins with player props; use the slot 7/8 stack templates)** | — | — | — | — | — |
 | **Dog ML RR** (slot 2) | **6** | 15 | $1.33 each = **$20 (2u)** | 3 of 6 at +200 average | BKR |
 
 - **Why 5 and 6.** A round robin doesn't change the expected value of its legs. It changes how many have to hit before you get paid. At about −110, 5 selections break even at 3 hits and every hit after that roughly doubles the return. 4 selections needs 3 of 4, 6 needs 4 of 6, and 8 needs 5 of 8, so 5 is the most forgiving size for chalk-priced legs. Plus-money dogs pay about 9x per pair, so a sixth selection is cheap insurance there.
@@ -84,6 +84,16 @@ Unit = **$10**. Every selection must come from a **different game**.
 - Prefer legs with a streak/hit-rate source (4 straight vs this opponent, 90% L10) or a HIGH secondary-matchup tier over tight median lines.
 - Highest-margin reads also go out as singles (BETTING_LESSONS_LEARNED.md).
 
+## SuperContest split stake (slot 6) — adopted 2026-09-27, starts Week 4
+
+Andy's decision after Week 3 (single $25.08 5-team parlay, #739360142): split the ~$25 slot-6 stake so a 3-of-5 week isn't a total loss.
+
+- **Ticket A:** ~$15 straight 5-team parlay on the five SuperContest picks (Bookmaker).
+- **Ticket B:** $10 2-team round robin on the **same** five (10 combos × $1, Bookmaker).
+- Approximate returns at about −110 per leg (ticket B): 5/5 ≈ $36, 4/5 ≈ $22, 3/5 ≈ $11 (≈ stake back), 2/5 ≈ $3.6. Ticket A pays only on 5/5 (about +2400 → ~$370 on $15).
+- Why not an opposite-side reverse RR (evaluated 2026-09-27): sizing it to return $25 when 3 legs lose needed ~$23 of stake that only nets +$2 in that case, lost everything on 0–1 losses, and cost ~9% of its stake in vig every week. Rejected.
+- The only positive-edge hedge: when the book line moves past the fixed SuperContest line, bet the other side at the book for a middle. Check `data/supercontest/live-market-comparison.json` each week and flag any gap of ≥ 1.5 points.
+
 ## Build-day sequence
 
 1. **Pull the board.** Parse the week's `docs/Player_Prop_Odds_Weekly` files and `public/schedule.json` fresh
@@ -98,7 +108,7 @@ Unit = **$10**. Every selection must come from a **different game**.
    build a first-pass recommendation directly (see "Round Robin build approach" above) for Andy to react to.
 5. **Fill slots 3-5 (side/total-weighted + Hybrid parlays)**, applying the sourcing tier below to every leg
    before it goes in, and locking the SNF-favorite leg once so slots 3 and 4 share the identical selection.
-6. **Fill slot 6 (SuperContest 5-teamer)** directly from that week's SuperContest picks — flag any half-point
+6. **Fill slot 6 (SuperContest 5-teamer, split stake: ~$15 parlay + $10 2-team RR)** directly from that week's SuperContest picks — flag any half-point
    buy or open-slot decision explicitly rather than assuming.
 7. **Fill slot 7 (Player Prop Parlays)** using the moonshot + legit-stack pattern from Week 1.
 8. **Fill slots 8a and 8b (First TD Scorer Stack + 2+ TD Scorer Stack)** — 2 separate 3-leg, $5 tickets.

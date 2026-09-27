@@ -1,0 +1,188 @@
+{
+ "schema": "w03_prop_candidate_prices_v1",
+ "saved_at_utc": "2026-09-27T10:11:42.440718Z",
+ "note": "Consolidated snapshot of the prop prices used for the 2026-09-27 Sunday prop card. These are the latest captures on disk (Saturday afternoon); no Sunday re-capture existed. Confirm every price on the slip before placement.",
+ "legs": [
+  {
+   "book": "BEO",
+   "source": "docs/Player_Prop_Odds_Weekly/Week3 (parsed data/generated/props/beo-w03.json)",
+   "captured_pt": "2026-09-26 ~12:44-12:50 PT (file mtime)",
+   "game": "LAC_BUF",
+   "market": "pass_td",
+   "player": "Josh Allen",
+   "team": "Buffalo Bills",
+   "line": 2.0,
+   "odds": -150
+  },
+  {
+   "book": "BEO",
+   "source": "docs/Player_Prop_Odds_Weekly/Week3 (parsed data/generated/props/beo-w03.json)",
+   "captured_pt": "2026-09-26 ~12:44-12:50 PT (file mtime)",
+   "game": "ARI_SF",
+   "market": "pass_td",
+   "player": "Brock Purdy",
+   "team": "San Francisco 49ers",
+   "line": 2.0,
+   "odds": -164
+  },
+  {
+   "book": "BEO",
+   "source": "docs/Player_Prop_Odds_Weekly/Week3 (parsed data/generated/props/beo-w03.json)",
+   "captured_pt": "2026-09-26 ~12:44-12:50 PT (file mtime)",
+   "game": "CAR_CLE",
+   "market": "tackles_assists",
+   "player": "Carson Schwesinger",
+   "team": "Cleveland Browns",
+   "line": 9.0,
+   "odds": -145
+  },
+  {
+   "book": "BEO",
+   "source": "docs/Player_Prop_Odds_Weekly/Week3 (parsed data/generated/props/beo-w03.json)",
+   "captured_pt": "2026-09-26 ~12:44-12:50 PT (file mtime)",
+   "game": "BAL_DAL",
+   "market": "tackles_assists",
+   "player": "Roquan Smith",
+   "team": "Baltimore Ravens",
+   "line": 8.0,
+   "odds": -121
+  },
+  {
+   "book": "BEO",
+   "source": "docs/Player_Prop_Odds_Weekly/Week3 (parsed data/generated/props/beo-w03.json)",
+   "captured_pt": "2026-09-26 ~12:44-12:50 PT (file mtime)",
+   "game": "NE_JAX",
+   "market": "rush_yds",
+   "player": "Bhayshul Tuten",
+   "team": "Jacksonville Jaguars",
+   "line": 53.0,
+   "odds": -114
+  },
+  {
+   "book": "BEO",
+   "source": "docs/Player_Prop_Odds_Weekly/Week3 (parsed data/generated/props/beo-w03.json)",
+   "captured_pt": "2026-09-26 ~12:44-12:50 PT (file mtime)",
+   "game": "KC_MIA",
+   "market": "pass_td",
+   "player": "Patrick Mahomes",
+   "team": "Kansas City Chiefs",
+   "line": 2.0,
+   "odds": -189
+  },
+  {
+   "book": "BEO",
+   "source": "docs/Player_Prop_Odds_Weekly/Week3 (parsed data/generated/props/beo-w03.json)",
+   "captured_pt": "2026-09-26 ~12:44-12:50 PT (file mtime)",
+   "game": "SEA_WAS",
+   "market": "tackles_assists",
+   "player": "Drake Thomas",
+   "team": "Seattle Seahawks",
+   "line": 7.0,
+   "odds": -107
+  },
+  {
+   "book": "BEO",
+   "source": "docs/Player_Prop_Odds_Weekly/Week3 (parsed data/generated/props/beo-w03.json)",
+   "captured_pt": "2026-09-26 ~12:44-12:50 PT (file mtime)",
+   "game": "BAL_DAL",
+   "market": "tackles_assists",
+   "player": "Caleb Downs",
+   "team": "Dallas Cowboys",
+   "line": 7.0,
+   "odds": 110
+  },
+  {
+   "book": "BEO",
+   "source": "docs/Player_Prop_Odds_Weekly/Week3 (parsed data/generated/props/beo-w03.json)",
+   "captured_pt": "2026-09-26 ~12:44-12:50 PT (file mtime)",
+   "game": "LAC_BUF",
+   "market": "atd",
+   "player": "Josh Allen",
+   "team": "Buffalo Bills",
+   "line": 2.0,
+   "odds": 300
+  },
+  {
+   "book": "BEO",
+   "source": "docs/Player_Prop_Odds_Weekly/Week3 (parsed data/generated/props/beo-w03.json)",
+   "captured_pt": "2026-09-26 ~12:44-12:50 PT (file mtime)",
+   "game": "BAL_DAL",
+   "market": "atd",
+   "player": "Derrick Henry",
+   "team": "Baltimore Ravens",
+   "line": 2.0,
+   "odds": 200
+  },
+  {
+   "book": "BEO",
+   "source": "docs/Player_Prop_Odds_Weekly/Week3 (parsed data/generated/props/beo-w03.json)",
+   "captured_pt": "2026-09-26 ~12:44-12:50 PT (file mtime)",
+   "game": "ARI_SF",
+   "market": "atd",
+   "player": "Christian McCaffrey",
+   "team": "San Francisco 49ers",
+   "line": 2.0,
+   "odds": 150
+  },
+  {
+   "book": "BKR",
+   "source": "data/generated/props/bookmaker-live-2026-09-26-texans-at-colts.json",
+   "captured_pt": "2026-09-26T20:48:32.660Z",
+   "player": "Jonathan Taylor",
+   "market": "rush_yds",
+   "line": 81.5,
+   "odds": -106,
+   "event": "Houston Texans @ Indianapolis Colts"
+  },
+  {
+   "book": "BKR",
+   "source": "data/generated/props/bookmaker-live-2026-09-26-cardinals-at-49ers.json",
+   "captured_pt": "2026-09-26T20:49:41.666Z",
+   "player": "George Kittle",
+   "market": "atd_1_plus",
+   "line": null,
+   "odds": 170,
+   "event": "Arizona Cardinals @ San Francisco 49ers"
+  },
+  {
+   "book": "BKR",
+   "source": "data/generated/props/bookmaker-live-2026-09-26-chargers-at-bills.json",
+   "captured_pt": "2026-09-26T20:49:19.655Z",
+   "player": "Josh Allen",
+   "market": "pass_td",
+   "line": 1.5,
+   "odds": -139,
+   "event": "Los Angeles Chargers @ Buffalo Bills"
+  },
+  {
+   "book": "BKR",
+   "source": "data/generated/props/bookmaker-live-2026-09-26-cardinals-at-49ers.json",
+   "captured_pt": "2026-09-26T20:49:41.666Z",
+   "player": "Brock Purdy",
+   "market": "pass_td",
+   "line": 1.5,
+   "odds": -153,
+   "event": "Arizona Cardinals @ San Francisco 49ers"
+  },
+  {
+   "book": "BKR",
+   "source": "data/generated/props/bookmaker-live-2026-09-26-rams-at-broncos.json",
+   "captured_pt": "2026-09-26T20:50:30.653Z",
+   "player": "Kyren Williams",
+   "market": "rush_yds",
+   "line": 53.5,
+   "odds": -105,
+   "event": "Los Angeles Rams @ Denver Broncos"
+  },
+  {
+   "book": "BKR",
+   "source": "data/generated/props/bookmaker-live-2026-09-26-rams-at-broncos.json",
+   "captured_pt": "2026-09-26T20:50:30.653Z",
+   "player": "Kyren Williams",
+   "market": "carries",
+   "line": 12.5,
+   "odds": 108,
+   "event": "Los Angeles Rams @ Denver Broncos"
+  }
+ ]
+}

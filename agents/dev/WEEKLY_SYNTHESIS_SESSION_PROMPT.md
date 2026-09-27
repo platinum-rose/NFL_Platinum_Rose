@@ -91,7 +91,7 @@ Source: `docs/tracked-wagers/week2_2026_analysis.md`. Read only "Patterns to use
 | # | Rule | Evidence (season, unique legs) |
 |---|---|---|
 | 1 | **No −120 to −100 connector legs** unless sourcing tier 1–2 (§6). Take −121 or longer, or plus money. | 31-45-1, 41% vs 53% needed, −23% (n=76), bad both weeks |
-| 2 | **No points on underdogs.** If you like the dog, use the ML (singles or the dog-ML RR). | Spread dogs 10-20, −44%; dog MLs +21% |
+| 2 | **Underdog spreads are allowed when the matchup and price case are stated.** Do not use points merely to make a parlay leg feel safer. | Week 1 spread dogs were 10-20, −44%; that is a review signal, not a prohibition. |
 | 3 | **Lean on tackles+assists and passing TDs.** Keep sacks and receiving yards to a minimum. | T+A 9-4 +22%, pass TD 8-3 +14%; rec yds −27%, receptions −18%, sacks 2-3 |
 | 4 | **Props go on the side you expect to win.** Never stack an offense you fade elsewhere on the card. | 56% vs 39% (Week 2) |
 | 5 | **Each starting QB is one shared risk** across every leg on his offense. Count those legs as one exposure. | MNF Dart injury: Giants legs 4-15 |
@@ -138,11 +138,11 @@ Key traps: nflverse codes the Rams `LA` (roster map `LAR`); odds tables use `WSH
 ### 7.1 Slots (from `docs/NFL_WEEKLY_CARD_PROCESS.md`, reweighted by §5 rule 7)
 
 Order: RRs first, then sides/totals, then props.
-- **Dog-ML 2-team RR** (Bookmaker): 6 selections × $1.33 = $20. Dogs you'd bet as singles. No points.
-- **Prop 2-team RR**: 5 selections from different games × $2 = $20. T+A / passing TD / legs you'd play as singles, −105 to −250. Confirm the book allows prop RRs. BKR props are same-game only; if BKR RR is impossible, say so.
+- **Dog 2-team RR** (Bookmaker): 6 selections × $1.33 = $20. Dogs you would bet as singles; use the moneyline or spread only when its documented case supports that market.
+- **No prop round robins** (Andy, 2026-09-27). Player props go in the slot 7/8 stack templates only (7a Morning, 7b Afternoon, 7c SNF DK combos, 7d Hybrid 8-leg, 7e ATD 7-leg, 8a First TD, 8b 2+ TD); see `docs/NFL_WEEKLY_CARD_PROCESS.md`.
 - **Master RR** (slot 1): only if 8 legs survive §5 filters. Otherwise say it's skipped and why.
 - **2-leg tickets / singles** for the highest-margin reads (`BETTING_LESSONS_LEARNED.md`: fire best reads standalone, don't bury them).
-- **SuperContest 5**: from Andy's contest picks. Flag half-point buys.
+- **SuperContest 5**: from Andy's contest picks. Flag half-point buys. **Split stake (from Week 4):** ~$15 5-team parlay + $10 2-team RR (10 × $1) on the same five, both Bookmaker; flag any book line that has moved ≥ 1.5 pts past the contest line (middle opportunity). See `docs/NFL_WEEKLY_CARD_PROCESS.md` "SuperContest split stake".
 - **Prop stacks** (slot 7): at most 1–2 straight stacks of 5+ legs, $5 moonshots. Otherwise 3–4 leg stacks split by kickoff window, and one night-game leg in hybrids for live hedges.
 - **Island ladder** (TNF/SNF/MNF): the Tier 1/2/3 ladder, diversified legs, no shared anchor. BEO Primetime Parlay Insurance goes on Tier 3 if its terms are verified (`data/sportsbooks/promotions-2026.json`).
 
@@ -156,7 +156,7 @@ Stakes follow the card-process doc. Flag any deviation; never invent new staking
 - **Books:** 2-team round robins → Bookmaker. BKR props → **same-game only**. Multi-game prop stacks → BetOnline.
 - **BEO correlation trim** starts above 2 legs per game (Week 2: 5 same-game legs cut the price 15.4%). Keep ≤2 legs per game on BEO multi-game stacks.
 - One leg per game where possible; props independent of the sides/totals parlays; no exact duplicate legs across live tickets.
-- The Bills free-bet credit ($10, **sides/totals ~−110 only**, stake not returned, lands Wed by 7 pm ET). Andy's default is **Bills' opponent + points**. Rule 2 says avoid spread dogs, so show both Andy's default and the best −110 side/total on the slate. Andy picks.
+- The Bills free-bet credit ($10, **sides/totals ~−110 only**, stake not returned, lands Wed by 7 pm ET). Andy's default is **Bills' opponent + points**. Underdog spreads are allowed when their matchup and price case are stated; show both Andy's default and the best-supported −110 side/total on the slate. Andy picks.
 
 ### 7.3 Per-leg fields (every proposed leg, one table row)
 
@@ -175,7 +175,7 @@ Leg states come from the tracker export or Andy's mid-day reconcile. The VM can'
 
 A short python pass over the proposed-card table that counts, per ticket:
 - legs in −120..−100 without tier 1–2
-- spread-dog legs
+- spread-dog legs, each with a stated matchup and price case
 - ML ≤ −290 legs
 - legs shorter than −200 (>2 = flag)
 - legs per game (>2 on BEO = flag)
