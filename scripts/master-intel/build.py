@@ -43,6 +43,20 @@ def logo_css():
         f = ROOT / 'data/team-logos' / f'{ab}.png'
         if f.exists(): rules.append(f".tl-{ab.lower()}{{background-image:url(data:image/png;base64,{base64.b64encode(f.read_bytes()).decode()});}}")
     return '<style>' + ''.join(rules) + '</style>'
+def ticket_display(name):
+    """Reader-facing ticket name: drop internal slot/template codes ('Slot 2', '7a', '(= ...)') and spell out shorthand."""
+    n = re.sub(r'^Slot \d+\s+', '', name.strip())
+    n = re.sub(r'^\d+[a-z]\s+', '', n)
+    n = re.sub(r'\s*\(=.*?\)', '', n)
+    n = re.sub(r'^Island SNF Tier (\d+)', r'Sunday Night Island Game — Tier \1', n)
+    if n.strip().lower() == 'hybrid': n = 'Hybrid parlay'
+    n = re.sub(r'^Dog-ML 2-team RR', 'Underdog Moneyline Round Robin (2-team combos)', n)
+    for a_, b_ in ((r'\bDog-ML\b', 'Underdog Moneyline'), (r'\bRR\b', 'Round Robin'), (r'\bT\+A\b', 'Tackles + Assists'), (r'\bpass TD\b', 'Passing TDs'),
+                   (r'\bATD\b', 'Anytime TD'), (r'\bSNF\b', 'Sunday Night')):
+        n = re.sub(a_, b_, n)
+    n = re.sub(r'\b(parlay|prop|stack|hybrid|leg|optional)\b', lambda m: m.group(1).capitalize(), n)
+    return n[0].upper() + n[1:] if n else name
+
 def matchup(gid, full=True):
     if not gid or '@' not in gid: return gid or ''
     a_, h_ = gid.split('@')
@@ -488,7 +502,7 @@ def main():
                 d_ = dict(zip(hdr, c))
                 legs.append(dict(game=d_.get('game', ''), market=d_.get('market & line', ''), book=d_.get('book', ''), price=d_.get('price', ''), tier=d_.get('tier', ''), why=d_.get('why', '')))
         flags = re.search(r'^Flags:.*$', body_, re.M)
-        TK.append(dict(name=m.group(1).strip(), book=m.group(2).strip(), stake=m.group(3), price=m.group(4).strip(), ret=m.group(5).strip(), legs=legs,
+        TK.append(dict(name=m.group(1).strip(), disp=ticket_display(m.group(1)), book=m.group(2).strip(), stake=m.group(3), price=m.group(4).strip(), ret=m.group(5).strip(), legs=legs,
                        flags=flags.group(0) if flags else '', id='ticket-' + slug(m.group(1))))
     sc_line = re.search(r'^## SuperContest[^\n]*\n([^\n]+)', card_cur, re.M)
     left_off = re.search(r'^## Left off and why\n(.*?)(?=^## |\Z)', card_cur, re.M | re.S)
@@ -598,7 +612,7 @@ def main():
         seenp.add(k); POOL[gid].append(dict(kind=prop_kind(text), text=text, price=price, book=book, tier=tier, why=why, src=src))
     for t in TK:
         for lg in t['legs']:
-            if is_prop_text(lg['market']): pool_add(lg['game'], lg['market'], lg['price'], lg['book'], lg['tier'], lg['why'], f"card: {t['name']}")
+            if is_prop_text(lg['market']): pool_add(lg['game'], lg['market'], lg['price'], lg['book'], lg['tier'], lg['why'], f"card: {t['disp']}")
     for x in RANKED:
         if x['type'] == 'Prop' and x['gid'] and not x['game'].startswith('Pass TD'):
             pool_add(x['gid'], x['market'] + (' T+A' if x['game'].startswith('T+A') else ''), '', 'BKR/BEO', x['tier'], x['source'], 'card lean')
@@ -673,7 +687,7 @@ def main():
     def gwhy(gid, key='Why the card leans this way'):
         return ' '.join(dict((NAR.get(gid) or {}).get('secs', [])).get(key, '').split())
     def ticket_box(t, cls):
-        out = roll(cls, t['id'], f"🎟️ {esc(t['name'])} — {esc(t['book'])} — ${t['stake']} — {esc(t['price'])}")
+        out = roll(cls, t['id'], f"🎟️ {esc(t['disp'])} — {esc(t['book'])} — ${t['stake']} — {esc(t['price'])}")
         note = tnote(t)
         if note: out += [f"💬 **What it is and why:** {esc(note)}", '']
         out += [f"**Payout:** {esc(t['ret'])}", '', '| Game | Leg | Book | Price | Tier | Why |', '|---|---|---|---|---|---|'] + [
@@ -729,6 +743,15 @@ def main():
         L += RE
     if left_off:
         def linkify_pass(ln):
+            for t_ in TK:
+                mm = re.match(r'^(\d+[a-z])\s', t_['name'])
+                if mm: ln = re.sub(r'\b' + mm.group(1) + r'\b', t_['disp'], ln)
+            ln = re.sub(r'\b7c SNF DK combos\b', 'Sunday-night DraftKings combos', ln)
+            ln = re.sub(r'\b8a/8b\b', 'the First TD and 2+ TD tickets', ln)
+            ln = re.sub(r'^(-\s*)Rule \d+:\s*', r'\1House rule: ', ln)
+            ln = re.sub(r'\bdog RR\b', 'underdog round robin', ln)
+            ln = re.sub(r'\s*\(rule \d+(?::[^)]*)?\)', ' (house rule)', ln, flags=re.I)
+            ln = re.sub(r'\brule (\d+)\b', 'our house rule', ln, flags=re.I)
             gids = []
             for m_ in re.finditer(r'\b([A-Z]{2,3})\s*[@/]\s*([A-Z]{2,3})\b', ln):
                 gg = f'{m_.group(1)}@{m_.group(2)}'
@@ -1120,7 +1143,7 @@ def main():
     if ptd_all: L += ['', '**2+ passing TDs (Bookmaker):** ' + ' · '.join(f"{r['player']} {r['odds']:+d}" for r in sorted(ptd_all, key=lambda r: r['odds']))]
     L += ROLL_END
     L += roll('section-8', 'under-the-hood', '🔧 Under the hood: how the card was built (ticket list &amp; season build rules)')
-    if TK: L += ['| Ticket | Book | Stake | Price |', '|---|---|---|---|'] + [f"| [{esc(t['name'])}](#{t['id']}) | {esc(t['book'])} | ${t['stake']} | {esc(t['price'])} |" for t in TK]
+    if TK: L += ['| Ticket | Book | Stake | Price |', '|---|---|---|---|'] + [f"| [{esc(t['disp'])}](#{t['id']}) | {esc(t['book'])} | ${t['stake']} | {esc(t['price'])} |" for t in TK]
     m = re.search(r'\*\*Build rules that come from the data\.[^\n]*\n\n(\|.*?\n)(?:\n)', (ROOT / 'agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md').read_text(encoding='utf-8'), re.S)
     if m: L += ['', '**Build rules from the season record:**', '', m.group(1).strip()]
     L += ROLL_END

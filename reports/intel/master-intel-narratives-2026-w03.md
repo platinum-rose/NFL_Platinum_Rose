@@ -203,7 +203,7 @@ A healthy Bagent and a Bears run game that wins time of possession. At −3 ther
 - Prop RR (T+A / pass TD): Five player props from the season's best-hitting types (tackles plus assists, and 2+ passing TDs) in ten $2 two-leg parlays. It's a steady sweat, not a big payout: four of five hitting is needed to profit.
 - 7a Morning prop stack: Five early-game props from players with verified roles (Chase Brown and Tuten rushing, Jadarian Price rushing, Rodriguez tackles, Parker Washington catches). $5 wins about $46.
 - 7b Afternoon prop stack: Three late-game props (Lamar rushing, Caleb Downs tackles, McCaffrey TD). $5 wins about $15, the safest-priced stack on the card.
-- 7d Hybrid 8-leg: The five Prop RR legs plus Tuten, Downs and Corum in one $10 ticket. It's a long shot (about 107-to-1) built only from props we trust.
+- 7d Hybrid 8-leg: The five Prop Round Robin legs plus Tuten, Downs and Corum in one $10 ticket. It's a long shot (about 107-to-1) built only from props we trust.
 - 7e Anytime TD 7-leg: Seven lead scorers to find the end zone, $5 to win about $386. Treat it as entertainment: seven-leg TD tickets are 0-for-11 this season.
 - 8a First TD 3-leg: McCaffrey, Henry and Chase Brown each to score their team's first touchdown. A $5 lottery ticket at about 90-to-1.
 - 8b 2+ TD 3-leg: The same three backs to score twice. $5 wins about $164; also a moonshot.
