@@ -1,2163 +1,2243 @@
 {
   "schema": "player_props_intel_v1",
-  "generated_at": "2026-09-12T05:06:07.097Z",
+  "generated_at": "2026-09-26T20:38:13.554Z",
+  "week": 3,
+  "season": 2026,
   "summary": {
-    "articles_scanned": 406,
-    "total_props": 43,
-    "tier_1_props": 32,
-    "touchdown_props": 12,
-    "curated_parlays": 7,
-    "games_covered": 8
+    "articles_scanned": 546,
+    "total_props": 36,
+    "tier_1_props": 18,
+    "touchdown_props": 6,
+    "curated_parlays": 11,
+    "games_covered": 13
   },
   "parlayCards": [
     {
-      "id": "parlay__ne_sea__aerial_volume_stack",
-      "title": "Patriots Aerial Volume SGP (Super Bowl Rematch Air Show)",
-      "game": "NE @ SEA",
-      "game_slate": "Wednesday Night Kickoff",
+      "id": "parlay__BAL_at_DAL__bal/dal_stack",
+      "title": "BAL/DAL Prop Stack SGP (BAL @ DAL)",
+      "game": "BAL @ DAL",
+      "game_slate": "Sunday Late Window",
       "type": "same_game_parlay",
       "book": "DraftKings / FanDuel",
       "leg_count": 3,
       "legs": [
         {
-          "id": "prop__zachary_cohen__drake_maye_passing_yards",
-          "player": "Drake Maye",
-          "team": "NE",
-          "game": "NE @ SEA",
-          "game_slate": "Wednesday Kickoff",
+          "id": "prop__5141__dak_prescott__passing_tds",
+          "player": "Dak Prescott",
+          "team": "DAL",
+          "game": "BAL @ DAL",
+          "game_slate": "Sunday Late Window",
+          "category": "passing_tds",
+          "category_label": "Passing TDs",
+          "stat_type": "passing",
+          "line": "1.5",
+          "side": "over",
+          "price": "-140",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Mike Fanelli (BettingPros)",
+          "source_article_id": 5141,
+          "source_url": "https://www.bettingpros.com/articles/nfl-week-3-player-props-bets-ravens-vs-cowboys-international-series/",
+          "rationale": "The Cowboys have one of the NFL's top passing attacks, thanks to their elite wide receiver duo. Dak Prescott had 30 passing touchdowns last year, the fourth-most in the league.",
+          "week": 3,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Passing Volume Anchor",
+            "synergy_tags": [
+              "passing_tds",
+              "DAL_offense"
+            ],
+            "positive_correlations": []
+          },
+          "selection": "Over 1.5 Passing TDs"
+        },
+        {
+          "id": "prop__5141__lamar_jackson__rushing_yards",
+          "player": "Lamar Jackson",
+          "team": "BAL",
+          "game": "BAL @ DAL",
+          "game_slate": "Sunday Late Window",
+          "category": "rushing_yards",
+          "category_label": "Rushing Yards",
+          "stat_type": "rushing",
+          "line": "38.5",
+          "side": "over",
+          "price": "-115",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Mike Fanelli (BettingPros)",
+          "source_article_id": 5141,
+          "source_url": "https://www.bettingpros.com/articles/nfl-week-3-player-props-bets-ravens-vs-cowboys-international-series/",
+          "rationale": "There might not be a more dangerous NFL quarterback in the open field than Lamar Jackson. Therefore, bettors should feel extremely comfortable with this player prop bet.",
+          "week": 3,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Ground Game Piece",
+            "synergy_tags": [
+              "rushing_yards",
+              "BAL_offense"
+            ],
+            "positive_correlations": [
+              "Zay Flowers Receiving Yards"
+            ]
+          },
+          "selection": "Over 38.5 Rushing Yards"
+        },
+        {
+          "id": "prop__5004__zay_flowers__receiving_yards",
+          "player": "Zay Flowers",
+          "team": "BAL",
+          "game": "BAL @ DAL",
+          "game_slate": "Sunday Late Window",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "90+",
+          "side": "over",
+          "price": "+154",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Ben Solak, Seth Walder and Matt Bowen (ESPN NFL)",
+          "source_article_id": 5004,
+          "source_url": "https://www.espn.com/espn/betting/story/_/id/49997133/week-3-nfl-odds-spreads-lines-props-best-bets-sunday-football-games",
+          "rationale": "I have all of the Flowers overs and alts for similar reasons listed above. Flowers was red hot in Week 1, with five catches for 150 yards and a score on six targets in just the first half against Indianapolis.",
+          "week": 3,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Pass-Catching Piece",
+            "synergy_tags": [
+              "receiving_yards",
+              "BAL_offense"
+            ],
+            "positive_correlations": [
+              "Lamar Jackson Rushing Yards"
+            ]
+          },
+          "selection": "Over 90+ Receiving Yards"
+        }
+      ],
+      "estimated_odds": "+714",
+      "payout_multiplier": "8.14x",
+      "payout_on_10": "$81.41",
+      "payout_on_25": "$203.53",
+      "correlation_rating": "Cross-Team Game Stack",
+      "synergy_rationale": "Combines 3 real props extracted this week from Mike Fanelli (BettingPros), Ben Solak, Seth Walder and Matt Bowen (ESPN NFL) for BAL @ DAL."
+    },
+    {
+      "id": "parlay__LAC_at_BUF__lac/buf_stack",
+      "title": "LAC/BUF Prop Stack SGP (LAC @ BUF)",
+      "game": "LAC @ BUF",
+      "game_slate": "Sunday Early Window",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 3,
+      "legs": [
+        {
+          "id": "prop__5142__justin_herbert__completions",
+          "player": "Justin Herbert",
+          "team": "LAC",
+          "game": "LAC @ BUF",
+          "game_slate": "Sunday Early Window",
+          "category": "completions",
+          "category_label": "Completions",
+          "stat_type": "passing",
+          "line": "21.5",
+          "side": "under",
+          "price": "-135",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Steve Krebs (BettingPros)",
+          "source_article_id": 5142,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+          "rationale": "Mike McDaniel was brought in to bolster the Chargers' offense and take it to heights far exceeding those of the last few seasons. So far, that hasn't been the case whatsoever.",
+          "week": 3,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Passing Volume Anchor",
+            "synergy_tags": [
+              "completions",
+              "LAC_offense"
+            ],
+            "positive_correlations": []
+          },
+          "selection": "Under 21.5 Completions"
+        },
+        {
+          "id": "prop__5142__dalton_kincaid__receiving_yards",
+          "player": "Dalton Kincaid",
+          "team": "BUF",
+          "game": "LAC @ BUF",
+          "game_slate": "Sunday Early Window",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "25+",
+          "side": "over",
+          "price": "-620",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Steve Krebs (BettingPros)",
+          "source_article_id": 5142,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+          "rationale": "If you drafted Dalton Kincaid in your fantasy leagues, you are well aware of the season the tight end is having. Kincaid has finished with at least 95 yards and five receptions in each contest.",
+          "week": 3,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Pass-Catching Piece",
+            "synergy_tags": [
+              "receiving_yards",
+              "BUF_offense"
+            ],
+            "positive_correlations": []
+          },
+          "selection": "Over 25+ Receiving Yards"
+        },
+        {
+          "id": "prop__5006__omarion_hampton__other",
+          "player": "Omarion Hampton",
+          "team": "LAC",
+          "game": "LAC @ BUF",
+          "game_slate": "Sunday Early Window",
+          "category": "other",
+          "category_label": "2+ Touchdowns",
+          "stat_type": "other",
+          "line": "2+",
+          "side": "over",
+          "price": "+450",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Phil Wood (BettingPros)",
+          "source_article_id": 5006,
+          "source_url": "https://www.bettingpros.com/articles/nfl-week-3-picks-sleepers-longshot-bets-2026/",
+          "rationale": "It may seem crazy to take the running back of a 0-2 team heading on the road as 7-point underdogs to have a huge game on the ground, but this is a great matchup for Omarion Hampton. He rushed for 94 yards last week in a 12-point loss, averaging 4.1 yards per carry.",
+          "week": 3,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Complementary Piece",
+            "synergy_tags": [
+              "other",
+              "LAC_offense"
+            ],
+            "positive_correlations": [
+              "Justin Herbert Passing Yards",
+              "Oronde Gadsden Receiving Yards"
+            ]
+          },
+          "selection": "Over 2+ 2+ Touchdowns"
+        }
+      ],
+      "estimated_odds": "+1012",
+      "payout_multiplier": "11.12x",
+      "payout_on_10": "$111.18",
+      "payout_on_25": "$277.95",
+      "correlation_rating": "Cross-Team Game Stack",
+      "synergy_rationale": "Combines 3 real props extracted this week from Steve Krebs (BettingPros), Phil Wood (BettingPros) for LAC @ BUF."
+    },
+    {
+      "id": "parlay__CAR_at_CLE__car_stack",
+      "title": "CAR Prop Stack SGP (CAR @ CLE)",
+      "game": "CAR @ CLE",
+      "game_slate": "Sunday Early Window",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 3,
+      "legs": [
+        {
+          "id": "prop__5142__bryce_young__passing_yards",
+          "player": "Bryce Young",
+          "team": "CAR",
+          "game": "CAR @ CLE",
+          "game_slate": "Sunday Early Window",
           "category": "passing_yards",
           "category_label": "Passing Yards",
           "stat_type": "passing",
-          "line": "226.5",
+          "line": "200+",
           "side": "over",
-          "price": "-117",
-          "book": "DraftKings",
-          "analyst": "Zachary Cohen (VSiN)",
-          "tier": 1,
-          "tier_label": "Tier 1: Recommended Best Bet",
-          "weight": 1,
-          "rationale": "MVP runner-up averaged 248.7 pass yds/game across 21 games. Threw for 295 yds against Seattle in Super Bowl LX. With Henderson banged up and Brown/Doubs added, volume will be massive.",
+          "price": "-191",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Steve Krebs (BettingPros)",
+          "source_article_id": 5142,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+          "rationale": "Bryce Young has taken a tremendous step forward this season and continues to pile up the passing yards. Young is averaging over 300 yards per game, while throwing for six touchdowns.",
+          "week": 3,
+          "tier": 2,
+          "tier_label": "Tier 2: Secondary Pick",
+          "weight": 0.7,
           "parlay_utility": {
-            "role": "Primary Air-Show Engine",
+            "role": "Passing Volume Anchor",
             "synergy_tags": [
-              "trailing_pass_volume",
-              "alpha_target_infusion",
-              "super_bowl_rematch_form"
+              "passing_yards",
+              "CAR_offense"
             ],
             "positive_correlations": [
-              "A.J. Brown Over Receptions / Yards",
-              "Hunter Henry Over Receptions",
-              "Patriots +3.5"
+              "Tetairoa McMillan Receiving Yards",
+              "Chuba Hubbard Rush Attempts"
             ]
           },
-          "selection": "Over 226.5 Passing Yards"
+          "selection": "Over 200+ Passing Yards"
         },
         {
-          "id": "prop__phil_wood__aj_brown_receptions",
-          "player": "A.J. Brown",
-          "team": "NE",
-          "game": "NE @ SEA",
-          "game_slate": "Wednesday Kickoff",
-          "category": "receptions",
-          "category_label": "Receptions",
-          "stat_type": "receiving",
-          "line": "5.5",
+          "id": "prop__4982__chuba_hubbard__rush_attempts",
+          "player": "Chuba Hubbard",
+          "team": "CAR",
+          "game": "CAR @ CLE",
+          "game_slate": "Sunday Early Window",
+          "category": "rush_attempts",
+          "category_label": "Rush Attempts",
+          "stat_type": "rushing",
+          "line": "16.5",
           "side": "over",
-          "price": "+121",
-          "book": "DraftKings",
-          "analyst": "Phil Wood (BettingPros)",
-          "tier": 1,
-          "tier_label": "Tier 1: Recommended Best Bet",
-          "weight": 1,
-          "rationale": "Patriots brought in Brown as their unquestioned WR1. In his first game with Drake Maye against a Seattle defense missing key secondary pieces, expect 8-11 targets minimum.",
+          "price": "-130",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dustin Swedelson (VSiN)",
+          "source_article_id": 4982,
+          "source_url": "https://vsin.com/nfl/favorite-week-3-nfl-player-props-from-dustin-swedelson-and-optaai/",
+          "rationale": "Cleveland was respectable against the run last season. This year?",
+          "week": 3,
+          "tier": 2,
+          "tier_label": "Tier 2: Secondary Pick",
+          "weight": 0.7,
           "parlay_utility": {
-            "role": "High-Volume Reception Engine",
+            "role": "Ground Game Piece",
             "synergy_tags": [
-              "wr1_target_funnel",
-              "trailing_game_script",
-              "plus_money_value"
+              "rush_attempts",
+              "CAR_offense"
             ],
             "positive_correlations": [
-              "Drake Maye Over Passing Yards",
-              "A.J. Brown 70+ Receiving Yards",
-              "Patriots +3.5 Spread"
+              "Bryce Young Passing Yards",
+              "Tetairoa McMillan Receiving Yards"
             ]
           },
-          "selection": "Over 5.5 Receptions"
+          "selection": "Over 16.5 Rush Attempts"
         },
         {
-          "id": "prop__travis_pulver__hunter_henry_receptions",
-          "player": "Hunter Henry",
-          "team": "NE",
-          "game": "NE @ SEA",
-          "game_slate": "Wednesday Kickoff",
-          "category": "receptions",
-          "category_label": "Receptions",
+          "id": "prop__5142__tetairoa_mcmillan__receiving_yards",
+          "player": "Tetairoa McMillan",
+          "team": "CAR",
+          "game": "CAR @ CLE",
+          "game_slate": "Sunday Early Window",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
           "stat_type": "receiving",
-          "line": "3.5",
+          "line": "40+",
           "side": "over",
-          "price": "+148",
-          "book": "FanDuel",
-          "analyst": "Travis Pulver (BettingPros)",
-          "tier": 1,
-          "tier_label": "Tier 1: Recommended Best Bet",
-          "weight": 1,
-          "rationale": "While defense keys on A.J. Brown and Romeo Doubs, Drake Maye will rely on Henry as his security blanket on clutch downs. Tight ends heavily exploited Seattle's zone scheme last season.",
+          "price": "-302",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Steve Krebs (BettingPros)",
+          "source_article_id": 5142,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+          "rationale": "Two weeks in a row, we have taken the young receiver to eclipse 40+ yards, and each time we have walked away successful. No need to switch it up until something drastically changes.",
+          "week": 3,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
           "parlay_utility": {
-            "role": "Passing Chain-Mover Anchor",
+            "role": "Pass-Catching Piece",
             "synergy_tags": [
-              "zone_coverage_beater",
-              "security_blanket",
-              "trailing_pass_volume"
+              "receiving_yards",
+              "CAR_offense"
             ],
             "positive_correlations": [
-              "Drake Maye Over Passing Yards",
-              "Patriots +3.5 Spread"
+              "Bryce Young Passing Yards",
+              "Chuba Hubbard Rush Attempts"
             ]
           },
-          "selection": "Over 3.5 Receptions"
+          "selection": "Over 40+ Receiving Yards"
         }
       ],
-      "estimated_odds": "+785",
-      "payout_multiplier": "8.85x",
-      "payout_on_10": "$88.50",
-      "payout_on_25": "$221.25",
-      "correlation_rating": "High Positive (+)",
-      "synergy_rationale": "Strong pass-heavy trailing game script: When Maye throws 30+ times, Brown and Henry command over 50% of the team target share. Exploits Seattle's depleted secondary missing Riq Woolen and Nick Emmanwori."
+      "estimated_odds": "+259",
+      "payout_multiplier": "3.59x",
+      "payout_on_10": "$35.88",
+      "payout_on_25": "$89.70",
+      "correlation_rating": "Same-Team Stack",
+      "synergy_rationale": "Combines 3 real props extracted this week from Steve Krebs (BettingPros), Dustin Swedelson (VSiN) for CAR @ CLE."
     },
     {
-      "id": "parlay__ne_sea__seahawks_offensive_engine",
-      "title": "Seahawks Dynamic Offense SGP (Lumen Field Fast Start)",
-      "game": "NE @ SEA",
-      "game_slate": "Wednesday Night Kickoff",
+      "id": "parlay__NYJ_at_DET__nyj/det_stack",
+      "title": "NYJ/DET Prop Stack SGP (NYJ @ DET)",
+      "game": "NYJ @ DET",
+      "game_slate": "Sunday Early Window",
       "type": "same_game_parlay",
       "book": "DraftKings / FanDuel",
       "leg_count": 3,
       "legs": [
         {
-          "id": "prop__phil_wood__jaxon_smith_njigba_rec_yards",
+          "id": "prop__5006__adonai_mitchell__receiving_yards",
+          "player": "Adonai Mitchell",
+          "team": "NYJ",
+          "game": "NYJ @ DET",
+          "game_slate": "Sunday Early Window",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "90+",
+          "side": "over",
+          "price": "+445",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Phil Wood (BettingPros)",
+          "source_article_id": 5006,
+          "source_url": "https://www.bettingpros.com/articles/nfl-week-3-picks-sleepers-longshot-bets-2026/",
+          "rationale": "Adonai Mitchell has very quietly racked up 123 receiving yards this season. But what's most exciting about his production is its consistency.",
+          "week": 3,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Pass-Catching Piece",
+            "synergy_tags": [
+              "receiving_yards",
+              "NYJ_offense"
+            ],
+            "positive_correlations": [
+              "Geno Smith Passing TDs"
+            ]
+          },
+          "selection": "Over 90+ Receiving Yards"
+        },
+        {
+          "id": "prop__5008__amon_ra_st_brown__anytime_td",
+          "player": "Amon-Ra St. Brown",
+          "team": "DET",
+          "game": "NYJ @ DET",
+          "game_slate": "Sunday Early Window",
+          "category": "anytime_td",
+          "category_label": "Anytime Touchdown Scorer",
+          "stat_type": "touchdown",
+          "line": "Yes",
+          "side": "anytime",
+          "price": "-125",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dan Servodidio (BettingPros)",
+          "source_article_id": 5008,
+          "source_url": "https://www.bettingpros.com/articles/nfl-week-3-anytime-td-scorer-win-parlays-2026/",
+          "rationale": "Let's begin our touchdown-and-win parlays with the Lions hosting the Jets this weekend. Detroit should win this game at home as a 6.5-point favorite.",
+          "week": 3,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "End-Zone Target",
+            "synergy_tags": [
+              "anytime_td",
+              "DET_offense"
+            ],
+            "positive_correlations": [
+              "Amon-Ra St. Brown Receptions",
+              "Jameson Williams Receiving Yards"
+            ]
+          },
+          "selection": "Anytime Touchdown Scorer"
+        },
+        {
+          "id": "prop__5004__geno_smith__passing_tds",
+          "player": "Geno Smith",
+          "team": "NYJ",
+          "game": "NYJ @ DET",
+          "game_slate": "Sunday Early Window",
+          "category": "passing_tds",
+          "category_label": "Passing TDs",
+          "stat_type": "passing",
+          "line": "2+",
+          "side": "over",
+          "price": "+157",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Ben Solak, Seth Walder and Matt Bowen (ESPN NFL)",
+          "source_article_id": 5004,
+          "source_url": "https://www.espn.com/espn/betting/story/_/id/49997133/week-3-nfl-odds-spreads-lines-props-best-bets-sunday-football-games",
+          "rationale": "There's huge familiarity here between Detroit Lions head coach Dan Campbell and New York Jets head coach Aaron Glenn, who was Campbell's defensive coordinator in Detroit for three seasons. Glenn's linebackers coach, Kelvin Sheppard, has replaced him and runs a similar, but slightly more versatile defense.",
+          "week": 3,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Passing Volume Anchor",
+            "synergy_tags": [
+              "passing_tds",
+              "NYJ_offense"
+            ],
+            "positive_correlations": [
+              "Adonai Mitchell Receiving Yards"
+            ]
+          },
+          "selection": "Over 2+ Passing TDs"
+        }
+      ],
+      "estimated_odds": "+2421",
+      "payout_multiplier": "25.21x",
+      "payout_on_10": "$252.12",
+      "payout_on_25": "$630.30",
+      "correlation_rating": "Cross-Team Game Stack",
+      "synergy_rationale": "Combines 3 real props extracted this week from Phil Wood (BettingPros), Dan Servodidio (BettingPros), Ben Solak, Seth Walder and Matt Bowen (ESPN NFL) for NYJ @ DET."
+    },
+    {
+      "id": "parlay__TEN_at_NYG__nyg_stack",
+      "title": "NYG Prop Stack SGP (TEN @ NYG)",
+      "game": "TEN @ NYG",
+      "game_slate": "Sunday Early Window",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 3,
+      "legs": [
+        {
+          "id": "prop__4982__cam_skattebo__rushing_yards",
+          "player": "Cam Skattebo",
+          "team": "NYG",
+          "game": "TEN @ NYG",
+          "game_slate": "Sunday Early Window",
+          "category": "rushing_yards",
+          "category_label": "Rushing Yards",
+          "stat_type": "rushing",
+          "line": "57.5",
+          "side": "over",
+          "price": "-114",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dustin Swedelson (VSiN)",
+          "source_article_id": 4982,
+          "source_url": "https://vsin.com/nfl/favorite-week-3-nfl-player-props-from-dustin-swedelson-and-optaai/",
+          "rationale": "The Giants will be without Jaxson Dart this week, but despite movement from the opening numbers, New York is still favored against Tennessee. I like correlating rushing props with favorites whenever I can, and this number feels heavily discounted for Cam Skattebo given the matchup and New York’s quarterback situation.",
+          "week": 3,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Ground Game Piece",
+            "synergy_tags": [
+              "rushing_yards",
+              "NYG_offense"
+            ],
+            "positive_correlations": [
+              "Jameis Winston Interceptions",
+              "Darnell Mooney Receiving Yards"
+            ]
+          },
+          "selection": "Over 57.5 Rushing Yards"
+        },
+        {
+          "id": "prop__5142__jameis_winston__interceptions",
+          "player": "Jameis Winston",
+          "team": "NYG",
+          "game": "TEN @ NYG",
+          "game_slate": "Sunday Early Window",
+          "category": "interceptions",
+          "category_label": "Interceptions",
+          "stat_type": "passing",
+          "line": "1+",
+          "side": "over",
+          "price": "-185",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Steve Krebs (BettingPros)",
+          "source_article_id": 5142,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+          "rationale": "When Jameis Winston was called upon to take over at the quarterback position on Monday, my immediate thought was interception. Unfortunately, that was not an option at the time.",
+          "week": 3,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
+          "parlay_utility": {
+            "role": "Passing Volume Anchor",
+            "synergy_tags": [
+              "interceptions",
+              "NYG_offense"
+            ],
+            "positive_correlations": [
+              "Darnell Mooney Receiving Yards",
+              "Cam Skattebo Rushing Yards"
+            ]
+          },
+          "selection": "Over 1+ Interceptions"
+        },
+        {
+          "id": "prop__5142__darnell_mooney__receiving_yards",
+          "player": "Darnell Mooney",
+          "team": "NYG",
+          "game": "TEN @ NYG",
+          "game_slate": "Sunday Early Window",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "15+",
+          "side": "over",
+          "price": "-141",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Steve Krebs (BettingPros)",
+          "source_article_id": 5142,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+          "rationale": "The quarterback situation leaves a lot to be desired. That said, Darnell Mooney seemed to be one of Jameis Winston's more reliable targets.",
+          "week": 3,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
+          "parlay_utility": {
+            "role": "Pass-Catching Piece",
+            "synergy_tags": [
+              "receiving_yards",
+              "NYG_offense"
+            ],
+            "positive_correlations": [
+              "Jameis Winston Interceptions",
+              "Cam Skattebo Rushing Yards"
+            ]
+          },
+          "selection": "Over 15+ Receiving Yards"
+        }
+      ],
+      "estimated_odds": "+394",
+      "payout_multiplier": "4.94x",
+      "payout_on_10": "$49.43",
+      "payout_on_25": "$123.57",
+      "correlation_rating": "Same-Team Stack",
+      "synergy_rationale": "Combines 3 real props extracted this week from Dustin Swedelson (VSiN), Steve Krebs (BettingPros) for TEN @ NYG."
+    },
+    {
+      "id": "parlay__SEA_at_WAS__sea_stack",
+      "title": "SEA Prop Stack SGP (SEA @ WAS)",
+      "game": "SEA @ WAS",
+      "game_slate": "Sunday Early Window",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 2,
+      "legs": [
+        {
+          "id": "prop__5142__jaxon_smith_njigba__anytime_td",
           "player": "Jaxon Smith-Njigba",
           "team": "SEA",
-          "game": "NE @ SEA",
-          "game_slate": "Wednesday Kickoff",
+          "game": "SEA @ WAS",
+          "game_slate": "Sunday Early Window",
+          "category": "anytime_td",
+          "category_label": "Anytime Touchdown Scorer",
+          "stat_type": "touchdown",
+          "line": "Yes",
+          "side": "anytime",
+          "price": "+100",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Steve Krebs (BettingPros)",
+          "source_article_id": 5142,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+          "rationale": "And who is the dominant force in the Seattle offense, you ask? Well, none other than Jaxon Smith-Njigba.",
+          "week": 3,
+          "tier": 2,
+          "tier_label": "Tier 2: Secondary Pick",
+          "weight": 0.7,
+          "parlay_utility": {
+            "role": "End-Zone Target",
+            "synergy_tags": [
+              "anytime_td",
+              "SEA_offense"
+            ],
+            "positive_correlations": [
+              "Jaxon Smith-Njigba Receiving Yards"
+            ]
+          },
+          "selection": "Anytime Touchdown Scorer"
+        },
+        {
+          "id": "prop__5142__jaxon_smith_njigba__receiving_yards",
+          "player": "Jaxon Smith-Njigba",
+          "team": "SEA",
+          "game": "SEA @ WAS",
+          "game_slate": "Sunday Early Window",
           "category": "receiving_yards",
           "category_label": "Receiving Yards",
           "stat_type": "receiving",
-          "line": "82.5",
+          "line": "60+",
           "side": "over",
-          "price": "-113",
-          "book": "DraftKings",
-          "analyst": "Phil Wood (BettingPros)",
-          "tier": 1,
-          "tier_label": "Tier 1: Recommended Best Bet",
-          "weight": 1,
-          "rationale": "Smith-Njigba is Seattle's undisputed focal point in the passing game under the new offense. High target share and dynamic run-after-catch ability against a rebuilt Patriots secondary.",
+          "price": "-364",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Steve Krebs (BettingPros)",
+          "source_article_id": 5142,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+          "rationale": "Jaxon Smith-Njigba has accumulated over 275 yards through two contests, while averaging 16.2 yards per reception. The Seahawks wide receiver saw at least 11 targets in two consecutive games and brought in 17 of his 22 targets.",
+          "week": 3,
+          "tier": 2,
+          "tier_label": "Tier 2: Secondary Pick",
+          "weight": 0.7,
           "parlay_utility": {
-            "role": "Core Yardage Anchor Leg",
+            "role": "Pass-Catching Piece",
             "synergy_tags": [
-              "alpha_target_share",
-              "rac_upside",
-              "seattle_lead_script"
+              "receiving_yards",
+              "SEA_offense"
             ],
             "positive_correlations": [
-              "Seahawks -3.5 Spread",
-              "Darnold Over Passing Yards"
+              "Jaxon Smith-Njigba Anytime Touchdown Scorer"
             ]
           },
-          "selection": "Over 82.5 Receiving Yards"
-        },
-        {
-          "id": "prop__travis_pulver__jadarian_price_receptions",
-          "player": "Jadarian Price",
-          "team": "SEA",
-          "game": "NE @ SEA",
-          "game_slate": "Wednesday Kickoff",
-          "category": "receptions",
-          "category_label": "Receptions",
-          "stat_type": "receiving",
-          "line": "1.5",
-          "side": "over",
-          "price": "+124",
-          "book": "FanDuel",
-          "analyst": "Travis Pulver (BettingPros)",
-          "tier": 1,
-          "tier_label": "Tier 1: Recommended Best Bet",
-          "weight": 1,
-          "rationale": "Seahawks OC Brian Fleury comes from the Kyle Shanahan tree where backs receive high target share. Charbonnet is out, leaving Price as the primary backfield receiver against New England.",
-          "parlay_utility": {
-            "role": "Complementary Pass Catcher",
-            "synergy_tags": [
-              "pass_heavy_script",
-              "scheme_target_boost",
-              "safe_floor_plus_money"
-            ],
-            "positive_correlations": [
-              "Jadarian Price Anytime TD",
-              "Sam Darnold Pass Completions Over"
-            ]
-          },
-          "selection": "Over 1.5 Receptions"
-        },
-        {
-          "id": "prop__travis_pulver__sam_darnold_rushing_yards",
-          "player": "Sam Darnold",
-          "team": "SEA",
-          "game": "NE @ SEA",
-          "game_slate": "Wednesday Kickoff",
-          "category": "rushing_yards",
-          "category_label": "Rushing Yards",
-          "stat_type": "rushing",
-          "line": "10+",
-          "side": "over",
-          "price": "+178",
-          "book": "FanDuel",
-          "analyst": "Travis Pulver (BettingPros)",
-          "tier": 1,
-          "tier_label": "Tier 1: Recommended Best Bet",
-          "weight": 1,
-          "rationale": "With Kenneth Walker III gone and a rookie RB, early-season offensive hiccups will force Darnold to scramble when plays break down. Only needs 2-4 scrambles to clear 10+ yards.",
-          "parlay_utility": {
-            "role": "High-Value Plus-Money Anchor",
-            "synergy_tags": [
-              "qb_scramble_upside",
-              "broken_play_value"
-            ],
-            "positive_correlations": [
-              "Seahawks Moneyline",
-              "Under 44.5 Total"
-            ]
-          },
-          "selection": "10+ Rushing Yards"
+          "selection": "Over 60+ Receiving Yards"
         }
       ],
-      "estimated_odds": "+810",
-      "payout_multiplier": "9.10x",
-      "payout_on_10": "$91.00",
-      "payout_on_25": "$227.50",
-      "correlation_rating": "High Positive (+)",
-      "synergy_rationale": "Brian Fleury's Shanahan-tree offense spreads the field: JSN controls intermediate and deep passing, Price catches passes in the flat on designed RB screens, and Darnold tucks and runs against aggressive pass-rush angles."
+      "estimated_odds": "+155",
+      "payout_multiplier": "2.55x",
+      "payout_on_10": "$25.49",
+      "payout_on_25": "$63.73",
+      "correlation_rating": "Same-Team Stack",
+      "synergy_rationale": "Combines 2 real props extracted this week from Steve Krebs (BettingPros) for SEA @ WAS."
     },
     {
-      "id": "parlay__sf_lar__rams_ground_control",
-      "title": "Rams Dual-Headed Ground Control SGP (Melbourne Turf Dominance)",
-      "game": "SF @ LAR",
-      "game_slate": "Thursday Night Melbourne Opener",
+      "id": "parlay__KC_at_MIA__kc_stack",
+      "title": "KC Prop Stack SGP (KC @ MIA)",
+      "game": "KC @ MIA",
+      "game_slate": "Sunday Early Window",
       "type": "same_game_parlay",
       "book": "DraftKings / FanDuel",
-      "leg_count": 3,
+      "leg_count": 2,
       "legs": [
         {
-          "id": "prop__scott_bogman__blake_corum_rushing_yards",
-          "player": "Blake Corum",
-          "team": "LAR",
-          "game": "SF @ LAR",
-          "game_slate": "Thursday Melbourne Opener",
+          "id": "prop__5142__kenneth_walker_iii__rushing_yards",
+          "player": "Kenneth Walker III",
+          "team": "KC",
+          "game": "KC @ MIA",
+          "game_slate": "Sunday Early Window",
           "category": "rushing_yards",
           "category_label": "Rushing Yards",
           "stat_type": "rushing",
-          "line": "44.5",
+          "line": "80+",
           "side": "over",
-          "price": "-110",
-          "book": "DraftKings / BettingPros",
-          "analyst": "Scott Bogman (BettingPros Ep. 1054)",
-          "tier": 1,
-          "tier_label": "Tier 1: Recommended Best Bet",
-          "weight": 1,
-          "rationale": "Corum cleared 44.5 rush yds in 7 of 9 games from Week 13 through the postseason last year. Generates a 16% explosive run rate (vs Kyren's 10%) against a 49ers interior front line vulnerable to outside zone. McVay will lean heavily on Corum to close in the second half.",
+          "price": "-135",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Steve Krebs (BettingPros)",
+          "source_article_id": 5142,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+          "rationale": "There's not too much to go over on this leg of the parlay. Kenneth Walker III is averaging 145 yards per game this season and has carried the ball at least 23 times in each of the previous two games.",
+          "week": 3,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
           "parlay_utility": {
-            "role": "Second-Half Closer / Ground Anchor",
+            "role": "Ground Game Piece",
             "synergy_tags": [
-              "explosive_run_rate",
-              "second_half_closer",
-              "vulnerable_rush_defense"
+              "rushing_yards",
+              "KC_offense"
             ],
             "positive_correlations": [
-              "Kyren Williams Over Rushing Yards",
-              "Rams -3.5 Spread",
-              "Under 48.5 Total"
+              "Emmett Johnson Rushing Yards"
             ]
           },
-          "selection": "Over 44.5 Rushing Yards"
+          "selection": "Over 80+ Rushing Yards"
         },
         {
-          "id": "prop__tara_roberts__kyren_williams_rushing_yards",
-          "player": "Kyren Williams",
-          "team": "LAR",
-          "game": "SF @ LAR",
-          "game_slate": "Thursday Melbourne Opener",
+          "id": "prop__5142__emmett_johnson__rushing_yards",
+          "player": "Emmett Johnson",
+          "team": "KC",
+          "game": "KC @ MIA",
+          "game_slate": "Sunday Early Window",
           "category": "rushing_yards",
           "category_label": "Rushing Yards",
           "stat_type": "rushing",
-          "line": "56.5",
+          "line": "15+",
           "side": "over",
-          "price": "-115",
-          "book": "DraftKings / BettingPros",
-          "analyst": "Tara Roberts (BettingPros Ep. 1054)",
-          "tier": 1,
-          "tier_label": "Tier 1: Recommended Best Bet",
-          "weight": 1,
-          "rationale": "Averaged 4.8 YPC last season and consistently clears 56+ yards (82.4% season hit rate in StatTree model, 5/5 L5, 73.7 Yds/G). Rams offensive line is fully healthy and San Francisco cannot stack the box against Stafford, Nacua, and Davante Adams.",
+          "price": "-354",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Steve Krebs (BettingPros)",
+          "source_article_id": 5142,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+          "rationale": "Now we get to the interesting part of this parlay. While Kenneth Walker III is providing the kind of gaudy numbers that immediately stand out, Emmett Johnson has been quietly clearing the alt line for rushing yards in two consecutive contests.",
+          "week": 3,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
           "parlay_utility": {
-            "role": "Primary Workhorse Ground Engine",
+            "role": "Ground Game Piece",
             "synergy_tags": [
-              "bell_cow_volume",
-              "elite_hit_rate",
-              "offensive_line_advantage"
+              "rushing_yards",
+              "KC_offense"
             ],
             "positive_correlations": [
-              "Blake Corum Over Rushing Yards",
-              "Rams -3.5 Spread",
-              "Kyren Williams Anytime TD"
+              "Kenneth Walker III Rushing Yards"
             ]
           },
-          "selection": "Over 56.5 Rushing Yards"
-        },
-        {
-          "id": "prop__steve_fezzik__sf_lar_second_half_over",
-          "player": "Game Derivative (SF @ LAR)",
-          "team": "LAR",
-          "game": "SF @ LAR",
-          "game_slate": "Thursday Melbourne Opener",
-          "category": "game_derivative",
-          "category_label": "2nd Half Total Points",
-          "stat_type": "total",
-          "line": "23.5",
-          "side": "over",
-          "price": "-110",
-          "book": "DraftKings (Reduced Juice)",
-          "analyst": "Steve Fezzik (Even Money Podcast)",
-          "tier": 1,
-          "tier_label": "Tier 1: Recommended Market Derivative",
-          "weight": 1,
-          "rationale": "Key hook on 24 points: Teams traveling across the globe start sluggish in the 1st half. Halftime schematic adjustments and trailing urgency dramatically accelerate 2nd half scoring.",
-          "parlay_utility": {
-            "role": "Second-Half Acceleration Anchor",
-            "synergy_tags": [
-              "halftime_adjustments",
-              "trailing_pace",
-              "key_hook_value"
-            ],
-            "positive_correlations": [
-              "Blake Corum Over Rushing Yards",
-              "Deshaun Stribling Over Receiving Yards"
-            ]
-          },
-          "selection": "Over 23.5 2nd Half Total Points"
+          "selection": "Over 15+ Rushing Yards"
         }
       ],
-      "estimated_odds": "+580",
-      "payout_multiplier": "6.80x",
-      "payout_on_10": "$68.00",
-      "payout_on_25": "$170.00",
-      "correlation_rating": "High Positive (+)",
-      "synergy_rationale": "Complementary backfield split: Kyren Williams establishes the early ground foundation with 4.8 YPC, while Blake Corum dominates second-half clock drainage with 16% explosive run rate. Steve Fezzik's 2nd half total over capitalizes on rapid second-half scoring adjustments following travel fatigue."
+      "estimated_odds": "+123",
+      "payout_multiplier": "2.23x",
+      "payout_on_10": "$22.32",
+      "payout_on_25": "$55.80",
+      "correlation_rating": "Same-Team Stack",
+      "synergy_rationale": "Combines 2 real props extracted this week from Steve Krebs (BettingPros) for KC @ MIA."
     },
     {
-      "id": "parlay__sf_lar__melbourne_target_funnel",
-      "title": "Melbourne Aerial Target Funnel SGP (SF @ LAR)",
-      "game": "SF @ LAR",
-      "game_slate": "Thursday Night Melbourne Opener",
+      "id": "parlay__CIN_at_PIT__cin/pit_stack",
+      "title": "CIN/PIT Prop Stack SGP (CIN @ PIT)",
+      "game": "CIN @ PIT",
+      "game_slate": "Sunday Early Window",
       "type": "same_game_parlay",
-      "book": "DraftKings / BetMGM",
-      "leg_count": 3,
+      "book": "DraftKings / FanDuel",
+      "leg_count": 2,
       "legs": [
         {
-          "id": "prop__stattree__puka_nacua_receptions",
-          "player": "Puka Nacua",
-          "team": "LAR",
-          "game": "SF @ LAR",
-          "game_slate": "Thursday Melbourne Opener",
+          "id": "prop__5097__pat_freiermuth__receiving_yards",
+          "player": "Pat Freiermuth",
+          "team": "PIT",
+          "game": "CIN @ PIT",
+          "game_slate": "Sunday Early Window",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "36.5",
+          "side": "over",
+          "price": "-114",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Josh Shepardson (Sharp Football)",
+          "source_article_id": 5097,
+          "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-3-2026/",
+          "rationale": "Oronde Gadsden Over 35.5 Receiving Yards (-114) Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 3 Best Prop Bet: Tony Pollard Over 48.5 Rushing Yards (-114) Week 1 is often lies, and Tennessee's play-calling could be a perfect example. According to the Fantasy Points Data Suite, the Titans led the league in pass rate over expected (12.2% PROE) in the season opener.",
+          "week": 3,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Pass-Catching Piece",
+            "synergy_tags": [
+              "receiving_yards",
+              "PIT_offense"
+            ],
+            "positive_correlations": []
+          },
+          "selection": "Over 36.5 Receiving Yards"
+        },
+        {
+          "id": "prop__5142__chase_brown__anytime_td",
+          "player": "Chase Brown",
+          "team": "CIN",
+          "game": "CIN @ PIT",
+          "game_slate": "Sunday Early Window",
+          "category": "anytime_td",
+          "category_label": "Anytime Touchdown Scorer",
+          "stat_type": "touchdown",
+          "line": "Yes",
+          "side": "anytime",
+          "price": "-110",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Steve Krebs (BettingPros)",
+          "source_article_id": 5142,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+          "rationale": "This return is very surprising, given that Chase Brown has only one touchdown this season. Truth be told, we were certainly looking for a better payout on this leg.",
+          "week": 3,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
+          "parlay_utility": {
+            "role": "End-Zone Target",
+            "synergy_tags": [
+              "anytime_td",
+              "CIN_offense"
+            ],
+            "positive_correlations": [
+              "Tee Higgins Receiving Yards"
+            ]
+          },
+          "selection": "Anytime Touchdown Scorer"
+        }
+      ],
+      "estimated_odds": "+258",
+      "payout_multiplier": "3.58x",
+      "payout_on_10": "$35.84",
+      "payout_on_25": "$89.60",
+      "correlation_rating": "Cross-Team Game Stack",
+      "synergy_rationale": "Combines 2 real props extracted this week from Josh Shepardson (Sharp Football), Steve Krebs (BettingPros) for CIN @ PIT."
+    },
+    {
+      "id": "parlay__NE_at_JAX__jax_stack",
+      "title": "JAX Prop Stack SGP (NE @ JAX)",
+      "game": "NE @ JAX",
+      "game_slate": "Sunday Early Window",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 2,
+      "legs": [
+        {
+          "id": "prop__5142__parker_washington__receptions",
+          "player": "Parker Washington",
+          "team": "JAX",
+          "game": "NE @ JAX",
+          "game_slate": "Sunday Early Window",
           "category": "receptions",
           "category_label": "Receptions",
           "stat_type": "receiving",
-          "line": "7.5",
+          "line": "4+",
           "side": "over",
-          "price": "+116",
-          "book": "DraftKings / StatTree Model",
-          "analyst": "StatTree Quantitative Model",
-          "tier": 1,
-          "tier_label": "Tier 1: 5-Star Scheme Mismatch",
-          "weight": 1,
-          "rationale": "StatTree Scheme Read Score 11: Averaging 10.4 targets/game at an 83% catch rate. Generates 10.8 yds/target against zone coverage. 49ers run zone coverage on 74% of dropbacks (9th highest in NFL). Commands 30% team target share.",
+          "price": "-383",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Steve Krebs (BettingPros)",
+          "source_article_id": 5142,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+          "rationale": "With all the murkiness surrounding this contest, we felt it best to play it safe for the last two legs. Parker Washington has been one of the most consistent receivers in the league, and the clear first option for Trevor Lawrence.",
+          "week": 3,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
           "parlay_utility": {
-            "role": "Zone-Coverage Funnel Anchor",
+            "role": "Pass-Catching Piece",
             "synergy_tags": [
-              "zone_coverage_mismatch",
-              "elite_target_share",
-              "plus_money_alpha"
+              "receptions",
+              "JAX_offense"
             ],
             "positive_correlations": [
-              "Matthew Stafford Over Passing TDs",
-              "Rams -3.5 Spread"
+              "Parker Washington Receiving Yards"
             ]
           },
-          "selection": "Over 7.5 Receptions"
+          "selection": "Over 4+ Receptions"
         },
         {
-          "id": "prop__stattree__george_kittle_receptions",
-          "player": "George Kittle",
+          "id": "prop__5142__parker_washington__receiving_yards",
+          "player": "Parker Washington",
+          "team": "JAX",
+          "game": "NE @ JAX",
+          "game_slate": "Sunday Early Window",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "50+",
+          "side": "over",
+          "price": "-224",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Steve Krebs (BettingPros)",
+          "source_article_id": 5142,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+          "rationale": "The high rate of receptions has resulted in a boatload of yards. Washington has finished with 80+ yards in both games this season.",
+          "week": 3,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
+          "parlay_utility": {
+            "role": "Pass-Catching Piece",
+            "synergy_tags": [
+              "receiving_yards",
+              "JAX_offense"
+            ],
+            "positive_correlations": [
+              "Parker Washington Receptions"
+            ]
+          },
+          "selection": "Over 50+ Receiving Yards"
+        }
+      ],
+      "estimated_odds": "-121",
+      "payout_multiplier": "1.82x",
+      "payout_on_10": "$18.24",
+      "payout_on_25": "$45.60",
+      "correlation_rating": "Same-Team Stack",
+      "synergy_rationale": "Combines 2 real props extracted this week from Steve Krebs (BettingPros) for NE @ JAX."
+    },
+    {
+      "id": "parlay__ARI_at_SF__sf_stack",
+      "title": "SF Prop Stack SGP (ARI @ SF)",
+      "game": "ARI @ SF",
+      "game_slate": "Sunday Late Window",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 2,
+      "legs": [
+        {
+          "id": "prop__5018__brock_purdy__passing_yards",
+          "player": "Brock Purdy",
           "team": "SF",
-          "game": "SF @ LAR",
-          "game_slate": "Thursday Melbourne Opener",
+          "game": "ARI @ SF",
+          "game_slate": "Sunday Late Window",
+          "category": "passing_yards",
+          "category_label": "Passing Yards",
+          "stat_type": "passing",
+          "line": "236.5",
+          "side": "over",
+          "price": "-114",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Jason Radowitz (BettingPros)",
+          "source_article_id": 5018,
+          "source_url": "https://www.bettingpros.com/articles/best-nfl-bets-for-week-3-2026/",
+          "rationale": "Brock Purdy prop flagged by Jason Radowitz (BettingPros).",
+          "week": 3,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Passing Volume Anchor",
+            "synergy_tags": [
+              "passing_yards",
+              "SF_offense"
+            ],
+            "positive_correlations": [
+              "Brock Purdy 2+ Touchdowns",
+              "Brock Purdy Completions"
+            ]
+          },
+          "selection": "Over 236.5 Passing Yards"
+        },
+        {
+          "id": "prop__5142__brock_purdy__other",
+          "player": "Brock Purdy",
+          "team": "SF",
+          "game": "ARI @ SF",
+          "game_slate": "Sunday Late Window",
+          "category": "other",
+          "category_label": "2+ Touchdowns",
+          "stat_type": "other",
+          "line": "2+",
+          "side": "over",
+          "price": "-158",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Steve Krebs (BettingPros)",
+          "source_article_id": 5142,
+          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+          "rationale": "Brock Purdy has been razor-sharp to start the season, and there's nothing about the Arizona defense to suggest it can stop the young quarterback from throwing two touchdowns. Purdy has completed over 80% of his attempts through two games and has thrown five touchdowns.",
+          "week": 3,
+          "tier": 3,
+          "tier_label": "Tier 3: Depth Pick",
+          "weight": 0.4,
+          "parlay_utility": {
+            "role": "Complementary Piece",
+            "synergy_tags": [
+              "other",
+              "SF_offense"
+            ],
+            "positive_correlations": [
+              "Brock Purdy Completions",
+              "Brock Purdy Passing Yards"
+            ]
+          },
+          "selection": "Over 2+ 2+ Touchdowns"
+        }
+      ],
+      "estimated_odds": "+207",
+      "payout_multiplier": "3.06x",
+      "payout_on_10": "$30.65",
+      "payout_on_25": "$76.63",
+      "correlation_rating": "Same-Team Stack",
+      "synergy_rationale": "Combines 2 real props extracted this week from Jason Radowitz (BettingPros), Steve Krebs (BettingPros) for ARI @ SF."
+    },
+    {
+      "id": "parlay__HOU_at_IND__hou/ind_stack",
+      "title": "HOU/IND Prop Stack SGP (HOU @ IND)",
+      "game": "HOU @ IND",
+      "game_slate": "Sunday Early Window",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 2,
+      "legs": [
+        {
+          "id": "prop__5018__xavier_hutchinson__receptions",
+          "player": "Xavier Hutchinson",
+          "team": "HOU",
+          "game": "HOU @ IND",
+          "game_slate": "Sunday Early Window",
           "category": "receptions",
           "category_label": "Receptions",
           "stat_type": "receiving",
           "line": "3.5",
-          "side": "over",
-          "price": "-110",
-          "book": "DraftKings / StatTree Model",
-          "analyst": "StatTree Quantitative Model",
+          "side": "under",
+          "price": "-143",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Jason Radowitz (BettingPros)",
+          "source_article_id": 5018,
+          "source_url": "https://www.bettingpros.com/articles/best-nfl-bets-for-week-3-2026/",
+          "rationale": "Low Vig Favorites Rushing Yards Overs in Windy Weather A lot of people are writing off the New York Giants after losing Jaxson Dart for the season. But not Cam Skattebo.",
+          "week": 3,
           "tier": 1,
-          "tier_label": "Tier 1: High-Floor Blitz Valve",
+          "tier_label": "Tier 1: Featured Pick",
           "weight": 1,
-          "rationale": "StatTree 90.9% season hit rate (10/11 games) and 5/5 in last 5. Averages 5.18 rec/g on 6.27 targets (82.6% catch rate). Acts as Brock Purdy's primary quick safety valve against Rams pass rush (Garrett, Donald, Turner).",
           "parlay_utility": {
-            "role": "High-Floor Safety Valve Leg",
+            "role": "Pass-Catching Piece",
             "synergy_tags": [
-              "blitz_beater_valve",
-              "90pct_hit_rate",
-              "quick_release_target"
+              "receptions",
+              "HOU_offense"
             ],
-            "positive_correlations": [
-              "Christian McCaffrey Over Receptions",
-              "49ers Under Team Total"
-            ]
+            "positive_correlations": []
           },
-          "selection": "Over 3.5 Receptions"
+          "selection": "Under 3.5 Receptions"
         },
         {
-          "id": "prop__zachary_cohen__kyle_juszczyk_receiving_yards",
-          "player": "Kyle Juszczyk",
-          "team": "SF",
-          "game": "SF @ LAR",
-          "game_slate": "Thursday Melbourne Opener",
-          "category": "receiving_yards",
-          "category_label": "Receiving Yards",
-          "stat_type": "receiving",
-          "line": "4.5",
-          "side": "over",
-          "price": "-120",
-          "book": "DraftKings",
-          "analyst": "Zachary Cohen (VSiN)",
-          "tier": 1,
-          "tier_label": "Tier 1: Recommended Best Bet",
-          "weight": 1,
-          "rationale": "Averaged 14.5 rec yds/game vs Rams last season. Shanahan schemes him open with extended prep time. OptaAI projects 12.62 receiving yards (35.5% edge, 3-star confidence play).",
-          "parlay_utility": {
-            "role": "Micro-Line Floor Anchor",
-            "synergy_tags": [
-              "micro_line_edge",
-              "opta_ai_3_star",
-              "high_probability_leg"
-            ],
-            "positive_correlations": [
-              "Brock Purdy Over Passing Yards",
-              "Over 48.5 Game Total"
-            ]
-          },
-          "selection": "Over 4.5 Receiving Yards"
-        }
-      ],
-      "estimated_odds": "+655",
-      "payout_multiplier": "7.55x",
-      "payout_on_10": "$75.50",
-      "payout_on_25": "$188.75",
-      "correlation_rating": "High Positive (+)",
-      "synergy_rationale": "Exploits high-frequency scheme mismatches: 49ers play 74% zone coverage where Puka Nacua commands a 30% target share and 10.8 yds/target. Meanwhile, Brock Purdy faces severe pressure from the Rams upgraded pass rush (Myles Garrett, Aaron Donald, Kobie Turner), funneling rapid short-yardage targets to George Kittle (90.9% hit rate) and Kyle Juszczyk (OptaAI 12.62 yd projection)."
-    },
-    {
-      "id": "parlay__sf_lar__melbourne_primetime_shootout",
-      "title": "Melbourne Primetime Shootout SGP (SF @ LAR)",
-      "game": "SF @ LAR",
-      "game_slate": "Thursday Night Melbourne Opener",
-      "type": "same_game_parlay",
-      "book": "DraftKings / BetMGM",
-      "leg_count": 3,
-      "legs": [
-        {
-          "id": "prop__mike_spector__mike_evans_anytime_td",
-          "player": "Mike Evans",
-          "team": "SF",
-          "game": "SF @ LAR",
-          "game_slate": "Thursday Melbourne Opener",
-          "category": "anytime_td",
-          "category_label": "Anytime Touchdown Scorer",
-          "stat_type": "touchdown",
-          "line": "Anytime TD",
-          "side": "yes",
-          "price": "+175",
-          "book": "DraftKings",
-          "analyst": "Mike Spector (BettingPros)",
-          "tier": 1,
-          "tier_label": "Tier 1: Recommended Best Bet",
-          "weight": 1,
-          "rationale": "49ers rushed for just 2.7 ypc against the Rams last season. With Pearsall out, Kirk on IR, and Kittle questionable, Evans is the primary alpha end-zone target (182 end-zone targets since 2024).",
-          "parlay_utility": {
-            "role": "Red-Zone Anchor Leg",
-            "synergy_tags": [
-              "endzone_target_dominance",
-              "wr_attrition_boost",
-              "shootout_upside"
-            ],
-            "positive_correlations": [
-              "Brock Purdy Over Passing TDs",
-              "Over 48.5 Game Total"
-            ]
-          },
-          "selection": "Anytime Touchdown Scorer"
-        },
-        {
-          "id": "prop__steve_krebs__christian_mccaffrey_rush_yards",
-          "player": "Christian McCaffrey",
-          "team": "SF",
-          "game": "SF @ LAR",
-          "game_slate": "Thursday Melbourne Opener",
-          "category": "rushing_yards",
-          "category_label": "Rushing Yards",
-          "stat_type": "rushing",
-          "line": "61+",
-          "side": "over",
-          "price": "-115",
-          "book": "DraftKings",
-          "analyst": "Steve Krebs (BettingPros)",
-          "tier": 1,
-          "tier_label": "Tier 1: Early Parlay Leg",
-          "weight": 1,
-          "rationale": "Line continues to drop into dangerous territory for sportsbooks. Shanahan will give McCaffrey 18+ touches on the Melbourne pitch.",
-          "parlay_utility": {
-            "role": "Elite Workhorse Floor Leg",
-            "synergy_tags": [
-              "depressed_line_value",
-              "elite_all_purpose_rb"
-            ],
-            "positive_correlations": [
-              "49ers +3.5 Spread",
-              "Christian McCaffrey Anytime TD"
-            ]
-          },
-          "selection": "61+ Rushing Yards"
-        },
-        {
-          "id": "prop__zachary_cohen__kyle_juszczyk_receiving_yards",
-          "player": "Kyle Juszczyk",
-          "team": "SF",
-          "game": "SF @ LAR",
-          "game_slate": "Thursday Melbourne Opener",
-          "category": "receiving_yards",
-          "category_label": "Receiving Yards",
-          "stat_type": "receiving",
-          "line": "4.5",
-          "side": "over",
-          "price": "-120",
-          "book": "DraftKings",
-          "analyst": "Zachary Cohen (VSiN)",
-          "tier": 1,
-          "tier_label": "Tier 1: Recommended Best Bet",
-          "weight": 1,
-          "rationale": "Averaged 14.5 rec yds/game vs Rams last season. Shanahan schemes him open with extended prep time. OptaAI projects 12.62 receiving yards (35.5% edge, 3-star confidence play).",
-          "parlay_utility": {
-            "role": "Micro-Line Floor Anchor",
-            "synergy_tags": [
-              "micro_line_edge",
-              "opta_ai_3_star",
-              "high_probability_leg"
-            ],
-            "positive_correlations": [
-              "Brock Purdy Over Passing Yards",
-              "Over 48.5 Game Total"
-            ]
-          },
-          "selection": "Over 4.5 Receiving Yards"
-        }
-      ],
-      "estimated_odds": "+645",
-      "payout_multiplier": "7.45x",
-      "payout_on_10": "$74.50",
-      "payout_on_25": "$186.25",
-      "correlation_rating": "High Positive (+)",
-      "synergy_rationale": "High game total (48.5): 49ers offensive personnel distribution. Juszczyk clears 4.5 yards on a single flat pass, McCaffrey provides the ground engine, and Mike Evans capitalizes as the 6'5\" red-zone monster against Rams' smaller cornerbacks."
-    },
-    {
-      "id": "parlay__sunday__touchdown_hunters_cross_game",
-      "title": "Sunday Workhorse Touchdown Trio (Cross-Game Parlay)",
-      "game": "Multi-Game Slate",
-      "game_slate": "Sunday 1:00 PM Slate",
-      "type": "cross_game_parlay",
-      "book": "Consensus (Shop Across Books)",
-      "leg_count": 3,
-      "legs": [
-        {
-          "id": "prop__richard_janvrin__rhamondre_stevenson_anytime_td",
-          "player": "Rhamondre Stevenson",
-          "team": "NE",
-          "game": "NE @ SEA",
-          "game_slate": "Wednesday Kickoff",
-          "category": "anytime_td",
-          "category_label": "Anytime Touchdown Scorer",
-          "stat_type": "touchdown",
-          "line": "Anytime TD",
-          "side": "yes",
-          "price": "+100",
-          "book": "DraftKings",
-          "analyst": "Richard Janvrin (BettingPros)",
-          "tier": 1,
-          "tier_label": "Tier 1: Recommended Best Bet",
-          "weight": 1,
-          "rationale": "TreVeyon Henderson is dealing with injury and missed practice. Stevenson commands all goal-line and high-leverage touches as the bell cow of Mike Vrabel's offense.",
-          "parlay_utility": {
-            "role": "Goal-Line Workhorse Anchor",
-            "synergy_tags": [
-              "bell_cow_volume",
-              "goal_line_monopoly",
-              "even_money_value"
-            ],
-            "positive_correlations": [
-              "Rhamondre Stevenson Over Rushing Yards",
-              "Patriots Over Team Total"
-            ]
-          },
-          "selection": "Anytime Touchdown Scorer"
-        },
-        {
-          "id": "prop__mike_spector__mike_evans_anytime_td",
-          "player": "Mike Evans",
-          "team": "SF",
-          "game": "SF @ LAR",
-          "game_slate": "Thursday Melbourne Opener",
-          "category": "anytime_td",
-          "category_label": "Anytime Touchdown Scorer",
-          "stat_type": "touchdown",
-          "line": "Anytime TD",
-          "side": "yes",
-          "price": "+175",
-          "book": "DraftKings",
-          "analyst": "Mike Spector (BettingPros)",
-          "tier": 1,
-          "tier_label": "Tier 1: Recommended Best Bet",
-          "weight": 1,
-          "rationale": "49ers rushed for just 2.7 ypc against the Rams last season. With Pearsall out, Kirk on IR, and Kittle questionable, Evans is the primary alpha end-zone target (182 end-zone targets since 2024).",
-          "parlay_utility": {
-            "role": "Red-Zone Anchor Leg",
-            "synergy_tags": [
-              "endzone_target_dominance",
-              "wr_attrition_boost",
-              "shootout_upside"
-            ],
-            "positive_correlations": [
-              "Brock Purdy Over Passing TDs",
-              "Over 48.5 Game Total"
-            ]
-          },
-          "selection": "Anytime Touchdown Scorer"
-        },
-        {
-          "id": "prop__adam_burke__james_cook_first_td",
-          "player": "James Cook",
-          "team": "BUF",
-          "game": "BUF @ HOU",
-          "game_slate": "Sunday 1:00 PM ET",
-          "category": "first_td",
-          "category_label": "First Touchdown Scorer",
-          "stat_type": "touchdown",
-          "line": "First TD",
-          "side": "yes",
-          "price": "+550",
-          "book": "DraftKings",
-          "analyst": "Adam Burke (VSiN)",
-          "tier": 2,
-          "tier_label": "Tier 2: Model Best First TD Leg",
-          "weight": 0.85,
-          "rationale": "Bills led the NFL with 10 opening-possession TDs in 19 games. Cook was their most frequent scorer with 13 first team TDs over the last 2 seasons.",
-          "parlay_utility": {
-            "role": "Opening Possession Striker",
-            "synergy_tags": [
-              "opening_possession_td_leader",
-              "goal_line_punch"
-            ],
-            "positive_correlations": [
-              "Bills Moneyline",
-              "James Cook Anytime TD"
-            ]
-          },
-          "selection": "First Touchdown Scorer"
-        }
-      ],
-      "estimated_odds": "+765",
-      "payout_multiplier": "8.65x",
-      "payout_on_10": "$86.50",
-      "payout_on_25": "$216.25",
-      "correlation_rating": "Independent Cross-Game (+EV Stacking)",
-      "synergy_rationale": "Anchors three undisputed goal-line alphas who monopolize their teams' inside-the-5 touches without competing against each other in the same game script."
-    },
-    {
-      "id": "parlay__safe_floor__reception_yardage_builder",
-      "title": "Safe Floor Reception & Yardage 3-Leg Parlay",
-      "game": "Multi-Game Slate",
-      "game_slate": "Week 1 Primetime & Sunday",
-      "type": "cross_game_parlay",
-      "book": "DraftKings / FanDuel",
-      "leg_count": 3,
-      "legs": [
-        {
-          "id": "prop__travis_pulver__jadarian_price_receptions",
-          "player": "Jadarian Price",
-          "team": "SEA",
-          "game": "NE @ SEA",
-          "game_slate": "Wednesday Kickoff",
-          "category": "receptions",
-          "category_label": "Receptions",
-          "stat_type": "receiving",
-          "line": "1.5",
-          "side": "over",
-          "price": "+124",
-          "book": "FanDuel",
-          "analyst": "Travis Pulver (BettingPros)",
-          "tier": 1,
-          "tier_label": "Tier 1: Recommended Best Bet",
-          "weight": 1,
-          "rationale": "Seahawks OC Brian Fleury comes from the Kyle Shanahan tree where backs receive high target share. Charbonnet is out, leaving Price as the primary backfield receiver against New England.",
-          "parlay_utility": {
-            "role": "Complementary Pass Catcher",
-            "synergy_tags": [
-              "pass_heavy_script",
-              "scheme_target_boost",
-              "safe_floor_plus_money"
-            ],
-            "positive_correlations": [
-              "Jadarian Price Anytime TD",
-              "Sam Darnold Pass Completions Over"
-            ]
-          },
-          "selection": "Over 1.5 Receptions"
-        },
-        {
-          "id": "prop__zachary_cohen__bucky_irving_rush_attempts",
-          "player": "Bucky Irving",
-          "team": "TB",
-          "game": "TB @ CIN",
-          "game_slate": "Sunday 1:00 PM ET",
-          "category": "rushing_attempts",
-          "category_label": "Rushing Attempts",
-          "stat_type": "rushing",
-          "line": "14.5",
-          "side": "over",
-          "price": "-103",
-          "book": "DraftKings",
-          "analyst": "Zachary Cohen (VSiN)",
-          "tier": 1,
-          "tier_label": "Tier 1: Recommended Best Bet",
-          "weight": 1,
-          "rationale": "OptaAI projection models 15.53 carries against a Bengals defense susceptible to outside-zone running. Clear RB1 volume workload.",
-          "parlay_utility": {
-            "role": "Sunday Workhorse Anchor",
-            "synergy_tags": [
-              "workhorse_volume",
-              "opta_ai_edge"
-            ],
-            "positive_correlations": [
-              "Buccaneers +3.5 Spread",
-              "Under 47.5 Total"
-            ]
-          },
-          "selection": "Over 14.5 Rushing Attempts"
-        },
-        {
-          "id": "prop__zachary_cohen__alec_pierce_receiving_yards",
-          "player": "Alec Pierce",
+          "id": "prop__4982__tyler_warren__receiving_yards",
+          "player": "Tyler Warren",
           "team": "IND",
-          "game": "BAL @ IND",
-          "game_slate": "Sunday 1:00 PM ET",
+          "game": "HOU @ IND",
+          "game_slate": "Sunday Early Window",
           "category": "receiving_yards",
           "category_label": "Receiving Yards",
           "stat_type": "receiving",
           "line": "44.5",
           "side": "over",
-          "price": "-113",
-          "book": "DraftKings",
-          "analyst": "Zachary Cohen (VSiN)",
+          "price": "-114",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dustin Swedelson (VSiN)",
+          "source_article_id": 4982,
+          "source_url": "https://vsin.com/nfl/favorite-week-3-nfl-player-props-from-dustin-swedelson-and-optaai/",
+          "rationale": "Houston has allowed the fifth-most receiving yards per game to opposing tight ends to start the season. Almost all of that damage came in Week 1, when Buffalo’s Dalton Kincaid caught five passes for 130 yards, but it’s still an appealing setup for Tyler Warren.",
+          "week": 3,
           "tier": 1,
-          "tier_label": "Tier 1: Recommended Best Bet",
+          "tier_label": "Tier 1: Featured Pick",
           "weight": 1,
-          "rationale": "OptaAI projection calls for 72.60 receiving yards. Ravens were 21st in dropback EPA/play allowed (0.101). Pierce is Daniel Jones' premier vertical target.",
           "parlay_utility": {
-            "role": "High-Upside Vertical Leg",
+            "role": "Pass-Catching Piece",
             "synergy_tags": [
-              "massive_projection_edge",
-              "deep_ball_efficiency"
+              "receiving_yards",
+              "IND_offense"
             ],
-            "positive_correlations": [
-              "Colts +3.5 Spread",
-              "Over 46.5 Total"
-            ]
+            "positive_correlations": []
           },
           "selection": "Over 44.5 Receiving Yards"
         }
       ],
-      "estimated_odds": "+715",
-      "payout_multiplier": "8.15x",
-      "payout_on_10": "$81.50",
-      "payout_on_25": "$203.75",
-      "correlation_rating": "Volume & Metric Edge Stacking",
-      "synergy_rationale": "Combines three plays backed by mathematical models (OptaAI 15.53 carries for Irving, OptaAI 72.60 receiving yards for Pierce, and Shanahan-scheme backfield target funnel for Price)."
+      "estimated_odds": "+219",
+      "payout_multiplier": "3.19x",
+      "payout_on_10": "$31.90",
+      "payout_on_25": "$79.75",
+      "correlation_rating": "Cross-Team Game Stack",
+      "synergy_rationale": "Combines 2 real props extracted this week from Jason Radowitz (BettingPros), Dustin Swedelson (VSiN) for HOU @ IND."
     }
   ],
   "props": [
     {
-      "id": "prop__zachary_cohen__kyle_juszczyk_receiving_yards",
-      "player": "Kyle Juszczyk",
-      "team": "SF",
-      "game": "SF @ LAR",
-      "game_slate": "Thursday Melbourne Opener",
+      "id": "prop__5141__dak_prescott__passing_tds",
+      "player": "Dak Prescott",
+      "team": "DAL",
+      "game": "BAL @ DAL",
+      "game_slate": "Sunday Late Window",
+      "category": "passing_tds",
+      "category_label": "Passing TDs",
+      "stat_type": "passing",
+      "line": "1.5",
+      "side": "over",
+      "price": "-140",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Mike Fanelli (BettingPros)",
+      "source_article_id": 5141,
+      "source_url": "https://www.bettingpros.com/articles/nfl-week-3-player-props-bets-ravens-vs-cowboys-international-series/",
+      "rationale": "The Cowboys have one of the NFL's top passing attacks, thanks to their elite wide receiver duo. Dak Prescott had 30 passing touchdowns last year, the fourth-most in the league.",
+      "week": 3,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Passing Volume Anchor",
+        "synergy_tags": [
+          "passing_tds",
+          "DAL_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__5141__lamar_jackson__rushing_yards",
+      "player": "Lamar Jackson",
+      "team": "BAL",
+      "game": "BAL @ DAL",
+      "game_slate": "Sunday Late Window",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "38.5",
+      "side": "over",
+      "price": "-115",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Mike Fanelli (BettingPros)",
+      "source_article_id": 5141,
+      "source_url": "https://www.bettingpros.com/articles/nfl-week-3-player-props-bets-ravens-vs-cowboys-international-series/",
+      "rationale": "There might not be a more dangerous NFL quarterback in the open field than Lamar Jackson. Therefore, bettors should feel extremely comfortable with this player prop bet.",
+      "week": 3,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rushing_yards",
+          "BAL_offense"
+        ],
+        "positive_correlations": [
+          "Zay Flowers Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__5142__justin_herbert__completions",
+      "player": "Justin Herbert",
+      "team": "LAC",
+      "game": "LAC @ BUF",
+      "game_slate": "Sunday Early Window",
+      "category": "completions",
+      "category_label": "Completions",
+      "stat_type": "passing",
+      "line": "21.5",
+      "side": "under",
+      "price": "-135",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 5142,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+      "rationale": "Mike McDaniel was brought in to bolster the Chargers' offense and take it to heights far exceeding those of the last few seasons. So far, that hasn't been the case whatsoever.",
+      "week": 3,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Passing Volume Anchor",
+        "synergy_tags": [
+          "completions",
+          "LAC_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__5142__dalton_kincaid__receiving_yards",
+      "player": "Dalton Kincaid",
+      "team": "BUF",
+      "game": "LAC @ BUF",
+      "game_slate": "Sunday Early Window",
       "category": "receiving_yards",
       "category_label": "Receiving Yards",
       "stat_type": "receiving",
-      "line": "4.5",
+      "line": "25+",
       "side": "over",
-      "price": "-120",
-      "book": "DraftKings",
-      "analyst": "Zachary Cohen (VSiN)",
+      "price": "-620",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 5142,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+      "rationale": "If you drafted Dalton Kincaid in your fantasy leagues, you are well aware of the season the tight end is having. Kincaid has finished with at least 95 yards and five receptions in each contest.",
+      "week": 3,
       "tier": 1,
-      "tier_label": "Tier 1: Recommended Best Bet",
+      "tier_label": "Tier 1: Featured Pick",
       "weight": 1,
-      "rationale": "Averaged 14.5 rec yds/game vs Rams last season. Shanahan schemes him open with extended prep time. OptaAI projects 12.62 receiving yards (35.5% edge, 3-star confidence play).",
       "parlay_utility": {
-        "role": "Micro-Line Floor Anchor",
+        "role": "Pass-Catching Piece",
         "synergy_tags": [
-          "micro_line_edge",
-          "opta_ai_3_star",
-          "high_probability_leg"
+          "receiving_yards",
+          "BUF_offense"
         ],
-        "positive_correlations": [
-          "Brock Purdy Over Passing Yards",
-          "Over 48.5 Game Total"
-        ]
-      },
-      "selection": "Over 4.5 Receiving Yards"
+        "positive_correlations": []
+      }
     },
     {
-      "id": "prop__zachary_cohen__drake_maye_passing_yards",
-      "player": "Drake Maye",
-      "team": "NE",
-      "game": "NE @ SEA",
-      "game_slate": "Wednesday Kickoff",
+      "id": "prop__5142__jaxon_smith_njigba__anytime_td",
+      "player": "Jaxon Smith-Njigba",
+      "team": "SEA",
+      "game": "SEA @ WAS",
+      "game_slate": "Sunday Early Window",
+      "category": "anytime_td",
+      "category_label": "Anytime Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "Yes",
+      "side": "anytime",
+      "price": "+100",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 5142,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+      "rationale": "And who is the dominant force in the Seattle offense, you ask? Well, none other than Jaxon Smith-Njigba.",
+      "week": 3,
+      "tier": 2,
+      "tier_label": "Tier 2: Secondary Pick",
+      "weight": 0.7,
+      "parlay_utility": {
+        "role": "End-Zone Target",
+        "synergy_tags": [
+          "anytime_td",
+          "SEA_offense"
+        ],
+        "positive_correlations": [
+          "Jaxon Smith-Njigba Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__5142__jaxon_smith_njigba__receiving_yards",
+      "player": "Jaxon Smith-Njigba",
+      "team": "SEA",
+      "game": "SEA @ WAS",
+      "game_slate": "Sunday Early Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "60+",
+      "side": "over",
+      "price": "-364",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 5142,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+      "rationale": "Jaxon Smith-Njigba has accumulated over 275 yards through two contests, while averaging 16.2 yards per reception. The Seahawks wide receiver saw at least 11 targets in two consecutive games and brought in 17 of his 22 targets.",
+      "week": 3,
+      "tier": 2,
+      "tier_label": "Tier 2: Secondary Pick",
+      "weight": 0.7,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "SEA_offense"
+        ],
+        "positive_correlations": [
+          "Jaxon Smith-Njigba Anytime Touchdown Scorer"
+        ]
+      }
+    },
+    {
+      "id": "prop__5142__bryce_young__passing_yards",
+      "player": "Bryce Young",
+      "team": "CAR",
+      "game": "CAR @ CLE",
+      "game_slate": "Sunday Early Window",
       "category": "passing_yards",
       "category_label": "Passing Yards",
       "stat_type": "passing",
-      "line": "226.5",
+      "line": "200+",
       "side": "over",
-      "price": "-117",
-      "book": "DraftKings",
-      "analyst": "Zachary Cohen (VSiN)",
-      "tier": 1,
-      "tier_label": "Tier 1: Recommended Best Bet",
-      "weight": 1,
-      "rationale": "MVP runner-up averaged 248.7 pass yds/game across 21 games. Threw for 295 yds against Seattle in Super Bowl LX. With Henderson banged up and Brown/Doubs added, volume will be massive.",
+      "price": "-191",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 5142,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+      "rationale": "Bryce Young has taken a tremendous step forward this season and continues to pile up the passing yards. Young is averaging over 300 yards per game, while throwing for six touchdowns.",
+      "week": 3,
+      "tier": 2,
+      "tier_label": "Tier 2: Secondary Pick",
+      "weight": 0.7,
       "parlay_utility": {
-        "role": "Primary Air-Show Engine",
+        "role": "Passing Volume Anchor",
         "synergy_tags": [
-          "trailing_pass_volume",
-          "alpha_target_infusion",
-          "super_bowl_rematch_form"
+          "passing_yards",
+          "CAR_offense"
         ],
         "positive_correlations": [
-          "A.J. Brown Over Receptions / Yards",
-          "Hunter Henry Over Receptions",
-          "Patriots +3.5"
+          "Tetairoa McMillan Receiving Yards",
+          "Chuba Hubbard Rush Attempts"
         ]
-      },
-      "selection": "Over 226.5 Passing Yards"
+      }
     },
     {
-      "id": "prop__zachary_cohen__bucky_irving_rush_attempts",
-      "player": "Bucky Irving",
-      "team": "TB",
-      "game": "TB @ CIN",
-      "game_slate": "Sunday 1:00 PM ET",
-      "category": "rushing_attempts",
-      "category_label": "Rushing Attempts",
-      "stat_type": "rushing",
-      "line": "14.5",
-      "side": "over",
-      "price": "-103",
-      "book": "DraftKings",
-      "analyst": "Zachary Cohen (VSiN)",
-      "tier": 1,
-      "tier_label": "Tier 1: Recommended Best Bet",
-      "weight": 1,
-      "rationale": "OptaAI projection models 15.53 carries against a Bengals defense susceptible to outside-zone running. Clear RB1 volume workload.",
-      "parlay_utility": {
-        "role": "Sunday Workhorse Anchor",
-        "synergy_tags": [
-          "workhorse_volume",
-          "opta_ai_edge"
-        ],
-        "positive_correlations": [
-          "Buccaneers +3.5 Spread",
-          "Under 47.5 Total"
-        ]
-      },
-      "selection": "Over 14.5 Rushing Attempts"
-    },
-    {
-      "id": "prop__zachary_cohen__alec_pierce_receiving_yards",
-      "player": "Alec Pierce",
-      "team": "IND",
-      "game": "BAL @ IND",
-      "game_slate": "Sunday 1:00 PM ET",
+      "id": "prop__5142__tetairoa_mcmillan__receiving_yards",
+      "player": "Tetairoa McMillan",
+      "team": "CAR",
+      "game": "CAR @ CLE",
+      "game_slate": "Sunday Early Window",
       "category": "receiving_yards",
       "category_label": "Receiving Yards",
       "stat_type": "receiving",
-      "line": "44.5",
+      "line": "40+",
       "side": "over",
-      "price": "-113",
-      "book": "DraftKings",
-      "analyst": "Zachary Cohen (VSiN)",
-      "tier": 1,
-      "tier_label": "Tier 1: Recommended Best Bet",
-      "weight": 1,
-      "rationale": "OptaAI projection calls for 72.60 receiving yards. Ravens were 21st in dropback EPA/play allowed (0.101). Pierce is Daniel Jones' premier vertical target.",
+      "price": "-302",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 5142,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+      "rationale": "Two weeks in a row, we have taken the young receiver to eclipse 40+ yards, and each time we have walked away successful. No need to switch it up until something drastically changes.",
+      "week": 3,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
       "parlay_utility": {
-        "role": "High-Upside Vertical Leg",
+        "role": "Pass-Catching Piece",
         "synergy_tags": [
-          "massive_projection_edge",
-          "deep_ball_efficiency"
+          "receiving_yards",
+          "CAR_offense"
         ],
         "positive_correlations": [
-          "Colts +3.5 Spread",
-          "Over 46.5 Total"
+          "Bryce Young Passing Yards",
+          "Chuba Hubbard Rush Attempts"
         ]
-      },
-      "selection": "Over 44.5 Receiving Yards"
+      }
     },
     {
-      "id": "prop__zachary_cohen__geno_smith_interception",
-      "player": "Geno Smith",
-      "team": "NYJ",
-      "game": "NYJ @ TEN",
-      "game_slate": "Sunday 1:00 PM ET",
+      "id": "prop__5142__amon_ra_st_brown__receptions",
+      "player": "Amon-Ra St. Brown",
+      "team": "DET",
+      "game": "NYJ @ DET",
+      "game_slate": "Sunday Early Window",
+      "category": "receptions",
+      "category_label": "Receptions",
+      "stat_type": "receiving",
+      "line": "7+",
+      "side": "over",
+      "price": "-149",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 5142,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+      "rationale": "Amon-Ra St. Brown has been absolutely feasting this season, and we feel he continues to see a massive target share on Sundays.",
+      "week": 3,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receptions",
+          "DET_offense"
+        ],
+        "positive_correlations": [
+          "Jameson Williams Receiving Yards",
+          "Amon-Ra St. Brown Anytime Touchdown Scorer"
+        ]
+      }
+    },
+    {
+      "id": "prop__5142__jameson_williams__receiving_yards",
+      "player": "Jameson Williams",
+      "team": "DET",
+      "game": "NYJ @ DET",
+      "game_slate": "Sunday Early Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "40+",
+      "side": "over",
+      "price": "-233",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 5142,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+      "rationale": "To close out this parlay, we are going back to the well on Jameson Williams' receiving yards. The young receiver is coming off a solid outing against the Saints and will no doubt look to keep the good fortune going.",
+      "week": 3,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "DET_offense"
+        ],
+        "positive_correlations": [
+          "Amon-Ra St. Brown Receptions",
+          "Amon-Ra St. Brown Anytime Touchdown Scorer"
+        ]
+      }
+    },
+    {
+      "id": "prop__5142__kenneth_walker_iii__rushing_yards",
+      "player": "Kenneth Walker III",
+      "team": "KC",
+      "game": "KC @ MIA",
+      "game_slate": "Sunday Early Window",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "80+",
+      "side": "over",
+      "price": "-135",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 5142,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+      "rationale": "There's not too much to go over on this leg of the parlay. Kenneth Walker III is averaging 145 yards per game this season and has carried the ball at least 23 times in each of the previous two games.",
+      "week": 3,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rushing_yards",
+          "KC_offense"
+        ],
+        "positive_correlations": [
+          "Emmett Johnson Rushing Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__5142__emmett_johnson__rushing_yards",
+      "player": "Emmett Johnson",
+      "team": "KC",
+      "game": "KC @ MIA",
+      "game_slate": "Sunday Early Window",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "15+",
+      "side": "over",
+      "price": "-354",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 5142,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+      "rationale": "Now we get to the interesting part of this parlay. While Kenneth Walker III is providing the kind of gaudy numbers that immediately stand out, Emmett Johnson has been quietly clearing the alt line for rushing yards in two consecutive contests.",
+      "week": 3,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rushing_yards",
+          "KC_offense"
+        ],
+        "positive_correlations": [
+          "Kenneth Walker III Rushing Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__5142__chase_brown__anytime_td",
+      "player": "Chase Brown",
+      "team": "CIN",
+      "game": "CIN @ PIT",
+      "game_slate": "Sunday Early Window",
+      "category": "anytime_td",
+      "category_label": "Anytime Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "Yes",
+      "side": "anytime",
+      "price": "-110",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 5142,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+      "rationale": "This return is very surprising, given that Chase Brown has only one touchdown this season. Truth be told, we were certainly looking for a better payout on this leg.",
+      "week": 3,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "End-Zone Target",
+        "synergy_tags": [
+          "anytime_td",
+          "CIN_offense"
+        ],
+        "positive_correlations": [
+          "Tee Higgins Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__5142__tee_higgins__receiving_yards",
+      "player": "Tee Higgins",
+      "team": "CIN",
+      "game": "CIN @ PIT",
+      "game_slate": "Sunday Early Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "40+",
+      "side": "over",
+      "price": "-253",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 5142,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+      "rationale": "Tee Higgins has been the most reliable receiving option for the Bengals, and Pittsburgh's defense may not have an answer for the young receiver. Ja'Marr Chase will garner most of the attention, as usual.",
+      "week": 3,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "CIN_offense"
+        ],
+        "positive_correlations": [
+          "Chase Brown Anytime Touchdown Scorer"
+        ]
+      }
+    },
+    {
+      "id": "prop__5142__parker_washington__receptions",
+      "player": "Parker Washington",
+      "team": "JAX",
+      "game": "NE @ JAX",
+      "game_slate": "Sunday Early Window",
+      "category": "receptions",
+      "category_label": "Receptions",
+      "stat_type": "receiving",
+      "line": "4+",
+      "side": "over",
+      "price": "-383",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 5142,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+      "rationale": "With all the murkiness surrounding this contest, we felt it best to play it safe for the last two legs. Parker Washington has been one of the most consistent receivers in the league, and the clear first option for Trevor Lawrence.",
+      "week": 3,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receptions",
+          "JAX_offense"
+        ],
+        "positive_correlations": [
+          "Parker Washington Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__5142__parker_washington__receiving_yards",
+      "player": "Parker Washington",
+      "team": "JAX",
+      "game": "NE @ JAX",
+      "game_slate": "Sunday Early Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "50+",
+      "side": "over",
+      "price": "-224",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 5142,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+      "rationale": "The high rate of receptions has resulted in a boatload of yards. Washington has finished with 80+ yards in both games this season.",
+      "week": 3,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "JAX_offense"
+        ],
+        "positive_correlations": [
+          "Parker Washington Receptions"
+        ]
+      }
+    },
+    {
+      "id": "prop__5142__jameis_winston__interceptions",
+      "player": "Jameis Winston",
+      "team": "NYG",
+      "game": "TEN @ NYG",
+      "game_slate": "Sunday Early Window",
       "category": "interceptions",
-      "category_label": "To Throw An Interception",
+      "category_label": "Interceptions",
       "stat_type": "passing",
-      "line": "0.5",
+      "line": "1+",
       "side": "over",
-      "price": "-103",
-      "book": "DraftKings",
-      "analyst": "Zachary Cohen (VSiN)",
-      "tier": 1,
-      "tier_label": "Tier 1: Recommended Best Bet",
-      "weight": 1,
-      "rationale": "Titans revamped defensive front under Dennard Wilson will force turnover-prone Smith into contested sideline throws under duress.",
+      "price": "-185",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 5142,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+      "rationale": "When Jameis Winston was called upon to take over at the quarterback position on Monday, my immediate thought was interception. Unfortunately, that was not an option at the time.",
+      "week": 3,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
       "parlay_utility": {
-        "role": "Defensive Pressure Synergy Leg",
+        "role": "Passing Volume Anchor",
         "synergy_tags": [
-          "turnover_prone_qb",
-          "blitz_pressure_forcing"
+          "interceptions",
+          "NYG_offense"
         ],
         "positive_correlations": [
-          "Titans -1.5 Spread",
-          "Under 41.5 Game Total"
+          "Darnell Mooney Receiving Yards",
+          "Cam Skattebo Rushing Yards"
         ]
-      },
-      "selection": "Over 0.5 To Throw An Interception"
+      }
     },
     {
-      "id": "prop__andrew_erickson__rhamondre_receiving_yards",
-      "player": "Rhamondre Stevenson",
-      "team": "NE",
-      "game": "NE @ SEA",
-      "game_slate": "Wednesday Kickoff",
+      "id": "prop__5142__darnell_mooney__receiving_yards",
+      "player": "Darnell Mooney",
+      "team": "NYG",
+      "game": "TEN @ NYG",
+      "game_slate": "Sunday Early Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "15+",
+      "side": "over",
+      "price": "-141",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 5142,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+      "rationale": "The quarterback situation leaves a lot to be desired. That said, Darnell Mooney seemed to be one of Jameis Winston's more reliable targets.",
+      "week": 3,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "NYG_offense"
+        ],
+        "positive_correlations": [
+          "Jameis Winston Interceptions",
+          "Cam Skattebo Rushing Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__5142__brock_purdy__other",
+      "player": "Brock Purdy",
+      "team": "SF",
+      "game": "ARI @ SF",
+      "game_slate": "Sunday Late Window",
+      "category": "other",
+      "category_label": "2+ Touchdowns",
+      "stat_type": "other",
+      "line": "2+",
+      "side": "over",
+      "price": "-158",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 5142,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+      "rationale": "Brock Purdy has been razor-sharp to start the season, and there's nothing about the Arizona defense to suggest it can stop the young quarterback from throwing two touchdowns. Purdy has completed over 80% of his attempts through two games and has thrown five touchdowns.",
+      "week": 3,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Complementary Piece",
+        "synergy_tags": [
+          "other",
+          "SF_offense"
+        ],
+        "positive_correlations": [
+          "Brock Purdy Completions",
+          "Brock Purdy Passing Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__5142__brock_purdy__completions",
+      "player": "Brock Purdy",
+      "team": "SF",
+      "game": "ARI @ SF",
+      "game_slate": "Sunday Late Window",
+      "category": "completions",
+      "category_label": "Completions",
+      "stat_type": "passing",
+      "line": "20+",
+      "side": "over",
+      "price": "-156",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 5142,
+      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/",
+      "rationale": "Brock Purdy to complete 20+ passes at home is becoming an automatic bet. The 49ers quarterback has thrown at least 20 passes in six out of his last seven games.",
+      "week": 3,
+      "tier": 3,
+      "tier_label": "Tier 3: Depth Pick",
+      "weight": 0.4,
+      "parlay_utility": {
+        "role": "Passing Volume Anchor",
+        "synergy_tags": [
+          "completions",
+          "SF_offense"
+        ],
+        "positive_correlations": [
+          "Brock Purdy 2+ Touchdowns",
+          "Brock Purdy Passing Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__5110__pat_bryant__receiving_yards",
+      "player": "Pat Bryant",
+      "team": "DEN",
+      "game": "LAR @ DEN",
+      "game_slate": "Sunday Night Football",
       "category": "receiving_yards",
       "category_label": "Receiving Yards",
       "stat_type": "receiving",
       "line": "23.5",
       "side": "over",
-      "price": "-110",
-      "book": "Consensus",
-      "analyst": "Andrew Erickson (BettingPros)",
+      "price": "-117",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Zachary Cohen (VSiN)",
+      "source_article_id": 5110,
+      "source_url": "https://vsin.com/nfl/rams-vs-broncos-predictions-week-3-sunday-night-football-odds-picks-and-player-props/",
+      "rationale": "If you become a VSiN Pro subscriber, you'll have access to hundreds of OptaAI player prop projections each week. I love looking at these to see if any of them match up with my initial leans.",
+      "week": 3,
       "tier": 1,
-      "tier_label": "Tier 1: Recommended Best Bet",
+      "tier_label": "Tier 1: Featured Pick",
       "weight": 1,
-      "rationale": "Seattle allowed a league-high 5.7 receptions per game to RBs (37.6 ypg). Stevenson cleared this number in 5 of 6 games as an underdog and will be the center of New England's pass-catching checkdown game.",
       "parlay_utility": {
-        "role": "High-Floor Checkdown Prop",
+        "role": "Pass-Catching Piece",
         "synergy_tags": [
-          "trailing_script_receptions",
-          "defensive_matchup_leak"
+          "receiving_yards",
+          "DEN_offense"
         ],
-        "positive_correlations": [
-          "Maye Over Passing Yards",
-          "Rhamondre Over Rushing Yards",
-          "Patriots +3.5"
-        ]
-      },
-      "selection": "Over 23.5 Receiving Yards"
+        "positive_correlations": []
+      }
     },
     {
-      "id": "prop__andrew_erickson__drake_maye_rushing_yards",
-      "player": "Drake Maye",
-      "team": "NE",
-      "game": "NE @ SEA",
-      "game_slate": "Wednesday Kickoff",
-      "category": "rushing_yards",
-      "category_label": "Rushing Yards",
-      "stat_type": "rushing",
-      "line": "24.5",
-      "side": "over",
-      "price": "-110",
-      "book": "Consensus",
-      "analyst": "Andrew Erickson (BettingPros)",
-      "tier": 1,
-      "tier_label": "Tier 1: Recommended Best Bet",
-      "weight": 1,
-      "rationale": "Maye consistently clears 25+ rushing yards in high-leverage games against aggressive pass rushes. Mobile QB facing a hostile Lumen Field crowd creates organic scramble opportunities.",
-      "parlay_utility": {
-        "role": "Dual-Threat QB Floor Prop",
-        "synergy_tags": [
-          "mobile_qb_floor",
-          "pass_rush_escape"
-        ],
-        "positive_correlations": [
-          "Patriots +3.5 Spread",
-          "Drake Maye Over Passing Yards"
-        ]
-      },
-      "selection": "Over 24.5 Rushing Yards"
-    },
-    {
-      "id": "prop__andrew_erickson__rashid_shaheed_receiving_yards",
-      "player": "Rashid Shaheed",
-      "team": "SEA",
-      "game": "NE @ SEA",
-      "game_slate": "Wednesday Kickoff",
-      "category": "receiving_yards",
-      "category_label": "Receiving Yards",
-      "stat_type": "receiving",
-      "line": "29.5",
-      "side": "over",
-      "price": "-110",
-      "book": "Consensus",
-      "analyst": "Andrew Erickson (BettingPros)",
-      "tier": 2,
-      "tier_label": "Tier 2: Analyst Best Lean",
-      "weight": 0.85,
-      "rationale": "Shaheed averaged 25.3 air yards per target in the postseason. Extension signals an expanded role on manufactured touches and deep shot crossers against a Patriots secondary vulnerable to explosive speed.",
-      "parlay_utility": {
-        "role": "Deep Threat Yardage Anchor",
-        "synergy_tags": [
-          "explosive_play_upside",
-          "low_bar_yardage"
-        ],
-        "positive_correlations": [
-          "Over 44.5 Total",
-          "Darnold Over Passing Yards"
-        ]
-      },
-      "selection": "Over 29.5 Receiving Yards"
-    },
-    {
-      "id": "prop__andrew_erickson__hunter_henry_anytime_td",
-      "player": "Hunter Henry",
-      "team": "NE",
-      "game": "NE @ SEA",
-      "game_slate": "Wednesday Kickoff",
-      "category": "anytime_td",
-      "category_label": "Anytime Touchdown Scorer",
-      "stat_type": "touchdown",
-      "line": "Anytime TD",
-      "side": "yes",
-      "price": "+270",
-      "book": "DraftKings",
-      "analyst": "Andrew Erickson (BettingPros)",
-      "tier": 2,
-      "tier_label": "Tier 2: Plus-Money Red Zone Target",
-      "weight": 0.85,
-      "rationale": "Henry scored 6 TDs last season and is Maye's top red-zone seam option. +270 provides tremendous standalone and parlay multiplier value.",
-      "parlay_utility": {
-        "role": "High-Payout Red-Zone Multiplier",
-        "synergy_tags": [
-          "red_zone_seam_target",
-          "plus_money_payout_boost"
-        ],
-        "positive_correlations": [
-          "Maye Passing TDs Over 1.5",
-          "Patriots Over Team Total"
-        ]
-      },
-      "selection": "Anytime Touchdown Scorer"
-    },
-    {
-      "id": "prop__andrew_erickson__jadarian_price_rush_attempts",
-      "player": "Jadarian Price",
-      "team": "SEA",
-      "game": "NE @ SEA",
-      "game_slate": "Wednesday Kickoff",
-      "category": "rushing_attempts",
-      "category_label": "Rushing Attempts",
-      "stat_type": "rushing",
-      "line": "13.5",
-      "side": "under",
-      "price": "-115",
-      "book": "Consensus",
-      "analyst": "Andrew Erickson (BettingPros)",
-      "tier": 2,
-      "tier_label": "Tier 2: Analyst Under Lean",
-      "weight": 0.85,
-      "rationale": "Rookie in his first start; coaching staff will limit between-the-tackles pounding against a rugged Patriots defensive interior, leaning on passes and rotation.",
-      "parlay_utility": {
-        "role": "Negative Correlation Hedge / Game Script Under",
-        "synergy_tags": [
-          "rookie_touch_cap",
-          "pass_centric_game_flow"
-        ],
-        "positive_correlations": [
-          "Jadarian Price Over Receptions",
-          "Darnold Over Pass Attempts"
-        ]
-      },
-      "selection": "Under 13.5 Rushing Attempts"
-    },
-    {
-      "id": "prop__travis_pulver__jadarian_price_receptions",
-      "player": "Jadarian Price",
-      "team": "SEA",
-      "game": "NE @ SEA",
-      "game_slate": "Wednesday Kickoff",
-      "category": "receptions",
-      "category_label": "Receptions",
-      "stat_type": "receiving",
-      "line": "1.5",
-      "side": "over",
-      "price": "+124",
-      "book": "FanDuel",
-      "analyst": "Travis Pulver (BettingPros)",
-      "tier": 1,
-      "tier_label": "Tier 1: Recommended Best Bet",
-      "weight": 1,
-      "rationale": "Seahawks OC Brian Fleury comes from the Kyle Shanahan tree where backs receive high target share. Charbonnet is out, leaving Price as the primary backfield receiver against New England.",
-      "parlay_utility": {
-        "role": "Complementary Pass Catcher",
-        "synergy_tags": [
-          "pass_heavy_script",
-          "scheme_target_boost",
-          "safe_floor_plus_money"
-        ],
-        "positive_correlations": [
-          "Jadarian Price Anytime TD",
-          "Sam Darnold Pass Completions Over"
-        ]
-      },
-      "selection": "Over 1.5 Receptions"
-    },
-    {
-      "id": "prop__travis_pulver__sam_darnold_rushing_yards",
-      "player": "Sam Darnold",
-      "team": "SEA",
-      "game": "NE @ SEA",
-      "game_slate": "Wednesday Kickoff",
-      "category": "rushing_yards",
-      "category_label": "Rushing Yards",
-      "stat_type": "rushing",
-      "line": "10+",
-      "side": "over",
-      "price": "+178",
-      "book": "FanDuel",
-      "analyst": "Travis Pulver (BettingPros)",
-      "tier": 1,
-      "tier_label": "Tier 1: Recommended Best Bet",
-      "weight": 1,
-      "rationale": "With Kenneth Walker III gone and a rookie RB, early-season offensive hiccups will force Darnold to scramble when plays break down. Only needs 2-4 scrambles to clear 10+ yards.",
-      "parlay_utility": {
-        "role": "High-Value Plus-Money Anchor",
-        "synergy_tags": [
-          "qb_scramble_upside",
-          "broken_play_value"
-        ],
-        "positive_correlations": [
-          "Seahawks Moneyline",
-          "Under 44.5 Total"
-        ]
-      },
-      "selection": "10+ Rushing Yards"
-    },
-    {
-      "id": "prop__travis_pulver__hunter_henry_receptions",
-      "player": "Hunter Henry",
-      "team": "NE",
-      "game": "NE @ SEA",
-      "game_slate": "Wednesday Kickoff",
-      "category": "receptions",
-      "category_label": "Receptions",
-      "stat_type": "receiving",
-      "line": "3.5",
-      "side": "over",
-      "price": "+148",
-      "book": "FanDuel",
-      "analyst": "Travis Pulver (BettingPros)",
-      "tier": 1,
-      "tier_label": "Tier 1: Recommended Best Bet",
-      "weight": 1,
-      "rationale": "While defense keys on A.J. Brown and Romeo Doubs, Drake Maye will rely on Henry as his security blanket on clutch downs. Tight ends heavily exploited Seattle's zone scheme last season.",
-      "parlay_utility": {
-        "role": "Passing Chain-Mover Anchor",
-        "synergy_tags": [
-          "zone_coverage_beater",
-          "security_blanket",
-          "trailing_pass_volume"
-        ],
-        "positive_correlations": [
-          "Drake Maye Over Passing Yards",
-          "Patriots +3.5 Spread"
-        ]
-      },
-      "selection": "Over 3.5 Receptions"
-    },
-    {
-      "id": "prop__phil_wood__jaxon_smith_njigba_rec_yards",
-      "player": "Jaxon Smith-Njigba",
-      "team": "SEA",
-      "game": "NE @ SEA",
-      "game_slate": "Wednesday Kickoff",
-      "category": "receiving_yards",
-      "category_label": "Receiving Yards",
-      "stat_type": "receiving",
-      "line": "82.5",
-      "side": "over",
-      "price": "-113",
-      "book": "DraftKings",
-      "analyst": "Phil Wood (BettingPros)",
-      "tier": 1,
-      "tier_label": "Tier 1: Recommended Best Bet",
-      "weight": 1,
-      "rationale": "Smith-Njigba is Seattle's undisputed focal point in the passing game under the new offense. High target share and dynamic run-after-catch ability against a rebuilt Patriots secondary.",
-      "parlay_utility": {
-        "role": "Core Yardage Anchor Leg",
-        "synergy_tags": [
-          "alpha_target_share",
-          "rac_upside",
-          "seattle_lead_script"
-        ],
-        "positive_correlations": [
-          "Seahawks -3.5 Spread",
-          "Darnold Over Passing Yards"
-        ]
-      },
-      "selection": "Over 82.5 Receiving Yards"
-    },
-    {
-      "id": "prop__phil_wood__aj_brown_receptions",
-      "player": "A.J. Brown",
-      "team": "NE",
-      "game": "NE @ SEA",
-      "game_slate": "Wednesday Kickoff",
-      "category": "receptions",
-      "category_label": "Receptions",
-      "stat_type": "receiving",
-      "line": "5.5",
-      "side": "over",
-      "price": "+121",
-      "book": "DraftKings",
-      "analyst": "Phil Wood (BettingPros)",
-      "tier": 1,
-      "tier_label": "Tier 1: Recommended Best Bet",
-      "weight": 1,
-      "rationale": "Patriots brought in Brown as their unquestioned WR1. In his first game with Drake Maye against a Seattle defense missing key secondary pieces, expect 8-11 targets minimum.",
-      "parlay_utility": {
-        "role": "High-Volume Reception Engine",
-        "synergy_tags": [
-          "wr1_target_funnel",
-          "trailing_game_script",
-          "plus_money_value"
-        ],
-        "positive_correlations": [
-          "Drake Maye Over Passing Yards",
-          "A.J. Brown 70+ Receiving Yards",
-          "Patriots +3.5 Spread"
-        ]
-      },
-      "selection": "Over 5.5 Receptions"
-    },
-    {
-      "id": "prop__adam_burke__jonathan_taylor_first_td",
-      "player": "Jonathan Taylor",
-      "team": "IND",
-      "game": "BAL @ IND",
-      "game_slate": "Sunday 1:00 PM ET",
-      "category": "first_td",
-      "category_label": "First Touchdown Scorer",
-      "stat_type": "touchdown",
-      "line": "First TD",
-      "side": "yes",
-      "price": "+400",
-      "book": "DraftKings",
-      "analyst": "Adam Burke (VSiN)",
-      "tier": 2,
-      "tier_label": "Tier 2: Model Best First TD Leg",
-      "weight": 0.85,
-      "rationale": "Colts led the entire NFL in 2025 by scoring the first TD in 15 of 17 games (88.2%). Taylor scored 5 first team TDs last year. Shane Steichen scripted drives are elite.",
-      "parlay_utility": {
-        "role": "Elite Scripted Touchdown Multiplier",
-        "synergy_tags": [
-          "league_best_first_td_rate",
-          "steichen_scripted_drive"
-        ],
-        "positive_correlations": [
-          "Colts 1st Half Spread",
-          "Jonathan Taylor Anytime TD"
-        ]
-      },
-      "selection": "First Touchdown Scorer"
-    },
-    {
-      "id": "prop__adam_burke__james_cook_first_td",
-      "player": "James Cook",
-      "team": "BUF",
-      "game": "BUF @ HOU",
-      "game_slate": "Sunday 1:00 PM ET",
-      "category": "first_td",
-      "category_label": "First Touchdown Scorer",
-      "stat_type": "touchdown",
-      "line": "First TD",
-      "side": "yes",
-      "price": "+550",
-      "book": "DraftKings",
-      "analyst": "Adam Burke (VSiN)",
-      "tier": 2,
-      "tier_label": "Tier 2: Model Best First TD Leg",
-      "weight": 0.85,
-      "rationale": "Bills led the NFL with 10 opening-possession TDs in 19 games. Cook was their most frequent scorer with 13 first team TDs over the last 2 seasons.",
-      "parlay_utility": {
-        "role": "Opening Possession Striker",
-        "synergy_tags": [
-          "opening_possession_td_leader",
-          "goal_line_punch"
-        ],
-        "positive_correlations": [
-          "Bills Moneyline",
-          "James Cook Anytime TD"
-        ]
-      },
-      "selection": "First Touchdown Scorer"
-    },
-    {
-      "id": "prop__adam_burke__parker_washington_first_td",
-      "player": "Parker Washington",
-      "team": "JAX",
-      "game": "CLE @ JAX",
-      "game_slate": "Sunday 1:00 PM ET",
-      "category": "first_td",
-      "category_label": "First Touchdown Scorer",
-      "stat_type": "touchdown",
-      "line": "First TD",
-      "side": "yes",
-      "price": "+850",
-      "book": "DraftKings",
-      "analyst": "Adam Burke (VSiN)",
-      "tier": 3,
-      "tier_label": "Tier 3: Longshot Value Scorer",
-      "weight": 0.75,
-      "rationale": "Jaguars scored first TD at 72.2% clip under Liam Coen. Washington led the team with 4 first TDs as Coen loves throwing inside the 10.",
-      "parlay_utility": {
-        "role": "Longshot Red Zone Target",
-        "synergy_tags": [
-          "red_zone_quick_slants",
-          "coen_scheme_boost"
-        ],
-        "positive_correlations": [
-          "Jaguars Moneyline",
-          "Jaguars 1st Quarter Over"
-        ]
-      },
-      "selection": "First Touchdown Scorer"
-    },
-    {
-      "id": "prop__adam_burke__harold_fannin_first_td",
-      "player": "Harold Fannin",
-      "team": "CLE",
-      "game": "CLE @ JAX",
-      "game_slate": "Sunday 1:00 PM ET",
-      "category": "first_td",
-      "category_label": "First Touchdown Scorer",
-      "stat_type": "touchdown",
-      "line": "First TD",
-      "side": "yes",
-      "price": "+1700",
-      "book": "DraftKings",
-      "analyst": "Adam Burke (VSiN)",
-      "tier": 3,
-      "tier_label": "Tier 3: Mega-Longshot Multiplier",
-      "weight": 0.75,
-      "rationale": "Todd Monken offense from Baltimore scored first in 73% of games over 3 seasons and heavily utilizes tight ends in the red zone.",
-      "parlay_utility": {
-        "role": "Mega-Odds SGP Booster",
-        "synergy_tags": [
-          "te_red_zone_package",
-          "monken_scheme"
-        ],
-        "positive_correlations": [
-          "Browns +8 Spread",
-          "Fannin Anytime TD"
-        ]
-      },
-      "selection": "First Touchdown Scorer"
-    },
-    {
-      "id": "prop__adam_burke__dalton_kincaid_first_td",
-      "player": "Dalton Kincaid",
-      "team": "BUF",
-      "game": "BUF @ HOU",
-      "game_slate": "Sunday 1:00 PM ET",
-      "category": "first_td",
-      "category_label": "First Touchdown Scorer",
-      "stat_type": "touchdown",
-      "line": "First TD",
-      "side": "yes",
-      "price": "+1700",
-      "book": "DraftKings",
-      "analyst": "Adam Burke (VSiN)",
-      "tier": 3,
-      "tier_label": "Tier 3: Mega-Longshot Multiplier",
-      "weight": 0.75,
-      "rationale": "Kincaid caught 3 first-team touchdowns early last season as Josh Allen's favorite early-read target in the red zone.",
-      "parlay_utility": {
-        "role": "TE Red Zone Longshot",
-        "synergy_tags": [
-          "allen_early_read",
-          "seam_touchdown"
-        ],
-        "positive_correlations": [
-          "Josh Allen Over Passing TDs",
-          "Bills Over Team Total"
-        ]
-      },
-      "selection": "First Touchdown Scorer"
-    },
-    {
-      "id": "prop__richard_janvrin__rhamondre_stevenson_anytime_td",
-      "player": "Rhamondre Stevenson",
-      "team": "NE",
-      "game": "NE @ SEA",
-      "game_slate": "Wednesday Kickoff",
-      "category": "anytime_td",
-      "category_label": "Anytime Touchdown Scorer",
-      "stat_type": "touchdown",
-      "line": "Anytime TD",
-      "side": "yes",
-      "price": "+100",
-      "book": "DraftKings",
-      "analyst": "Richard Janvrin (BettingPros)",
-      "tier": 1,
-      "tier_label": "Tier 1: Recommended Best Bet",
-      "weight": 1,
-      "rationale": "TreVeyon Henderson is dealing with injury and missed practice. Stevenson commands all goal-line and high-leverage touches as the bell cow of Mike Vrabel's offense.",
-      "parlay_utility": {
-        "role": "Goal-Line Workhorse Anchor",
-        "synergy_tags": [
-          "bell_cow_volume",
-          "goal_line_monopoly",
-          "even_money_value"
-        ],
-        "positive_correlations": [
-          "Rhamondre Stevenson Over Rushing Yards",
-          "Patriots Over Team Total"
-        ]
-      },
-      "selection": "Anytime Touchdown Scorer"
-    },
-    {
-      "id": "prop__richard_janvrin__jadarian_price_first_td",
-      "player": "Jadarian Price",
-      "team": "SEA",
-      "game": "NE @ SEA",
-      "game_slate": "Wednesday Kickoff",
-      "category": "first_td",
-      "category_label": "First Touchdown Scorer",
-      "stat_type": "touchdown",
-      "line": "First TD",
-      "side": "yes",
-      "price": "+650",
-      "book": "DraftKings",
-      "analyst": "Richard Janvrin (BettingPros)",
-      "tier": 3,
-      "tier_label": "Tier 3: High-Multiplier SGP Anchor",
-      "weight": 0.75,
-      "rationale": "Seahawks scored first in 75% of games last season. Price steps into Kenneth Walker's early-down red zone role with huge opening drive scoring potential at +650.",
-      "parlay_utility": {
-        "role": "Opening Script Payout Multiplier",
-        "synergy_tags": [
-          "opening_possession_scorer",
-          "favorite_fast_start"
-        ],
-        "positive_correlations": [
-          "Seahawks 1st Quarter ML",
-          "Jadarian Price Anytime TD"
-        ]
-      },
-      "selection": "First Touchdown Scorer"
-    },
-    {
-      "id": "prop__john_hansen__rhamondre_rushing_yards",
-      "player": "Rhamondre Stevenson",
-      "team": "NE",
-      "game": "NE @ SEA",
-      "game_slate": "Wednesday Kickoff",
-      "category": "rushing_yards",
-      "category_label": "Rushing Yards",
-      "stat_type": "rushing",
-      "line": "57.5",
+      "id": "prop__4657__justin_herbert__passing_yards",
+      "player": "Justin Herbert",
+      "team": "LAC",
+      "game": "LAC @ BUF",
+      "game_slate": "Sunday Early Window",
+      "category": "passing_yards",
+      "category_label": "Passing Yards",
+      "stat_type": "passing",
+      "line": "219.5",
       "side": "over",
       "price": "-111",
-      "book": "VSiN Pro Picks (Consensus)",
-      "analyst": "John Hansen (\"The Guru\", VSiN Pro Picks)",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Zachary Cohen (VSiN)",
+      "source_article_id": 4657,
+      "source_url": "https://vsin.com/nfl/expert-nfl-picks-week-3-best-bets-predictions-and-player-props-from-zachary-cohen/",
+      "rationale": "vs. Bills I will likely add more once I dive into the SNF and MNF games!",
+      "week": 3,
       "tier": 1,
-      "tier_label": "Tier 1: Recommended Best Bet",
+      "tier_label": "Tier 1: Featured Pick",
       "weight": 1,
-      "rationale": "Primary bell cow rusher in Mike Vrabel's ground-and-pound game plan. Will command 16-20 carries with Henderson sidelined.",
       "parlay_utility": {
-        "role": "Workhorse Rushing Foundation",
+        "role": "Passing Volume Anchor",
         "synergy_tags": [
-          "ground_and_pound",
-          "carries_monopoly"
+          "passing_yards",
+          "LAC_offense"
         ],
         "positive_correlations": [
-          "Patriots +3.5 Spread",
-          "Rhamondre Stevenson Anytime TD"
+          "Oronde Gadsden Receiving Yards",
+          "Omarion Hampton 2+ Touchdowns"
         ]
-      },
-      "selection": "Over 57.5 Rushing Yards"
+      }
     },
     {
-      "id": "prop__john_hansen__hunter_henry_receiving_yards",
-      "player": "Hunter Henry",
-      "team": "NE",
-      "game": "NE @ SEA",
-      "game_slate": "Wednesday Kickoff",
+      "id": "prop__5097__pat_freiermuth__receiving_yards",
+      "player": "Pat Freiermuth",
+      "team": "PIT",
+      "game": "CIN @ PIT",
+      "game_slate": "Sunday Early Window",
       "category": "receiving_yards",
       "category_label": "Receiving Yards",
       "stat_type": "receiving",
-      "line": "34.5",
-      "side": "over",
-      "price": "-110",
-      "book": "VSiN Pro Picks (Consensus)",
-      "analyst": "John Hansen (\"The Guru\", VSiN Pro Picks)",
-      "tier": 1,
-      "tier_label": "Tier 1: Recommended Best Bet",
-      "weight": 1,
-      "rationale": "Henry averaged 42.1 receiving yards per game with Maye last season and remains the primary target over the middle.",
-      "parlay_utility": {
-        "role": "TE Chain-Mover Yardage Leg",
-        "synergy_tags": [
-          "middle_field_target",
-          "low_total_clearance"
-        ],
-        "positive_correlations": [
-          "Hunter Henry Over Receptions",
-          "Drake Maye Over Passing Yards"
-        ]
-      },
-      "selection": "Over 34.5 Receiving Yards"
-    },
-    {
-      "id": "prop__mike_spector__puka_nacua_first_td",
-      "player": "Puka Nacua",
-      "team": "LAR",
-      "game": "SF @ LAR",
-      "game_slate": "Thursday Melbourne Opener",
-      "category": "first_td",
-      "category_label": "First Touchdown Scorer",
-      "stat_type": "touchdown",
-      "line": "First TD",
-      "side": "yes",
-      "price": "+800",
-      "book": "DraftKings",
-      "analyst": "Mike Spector (BettingPros)",
-      "tier": 3,
-      "tier_label": "Tier 3: High-Multiplier SGP Anchor",
-      "weight": 0.75,
-      "rationale": "Matthew Stafford had 46 passing TDs last season. Nacua hauled in 32.4% of Rams receiving yards since 2023 and torched SF for 225 yds and 165 yds in their last two meetings. 8-1 odds offer immense value.",
-      "parlay_utility": {
-        "role": "Longshot Payout Multiplier",
-        "synergy_tags": [
-          "red_zone_alpha",
-          "scripted_first_drive",
-          "high_game_total"
-        ],
-        "positive_correlations": [
-          "Puka Nacua Anytime TD",
-          "Rams 1st Half Spread",
-          "Stafford Over Passing TDs"
-        ]
-      },
-      "selection": "First Touchdown Scorer"
-    },
-    {
-      "id": "prop__mike_spector__mike_evans_anytime_td",
-      "player": "Mike Evans",
-      "team": "SF",
-      "game": "SF @ LAR",
-      "game_slate": "Thursday Melbourne Opener",
-      "category": "anytime_td",
-      "category_label": "Anytime Touchdown Scorer",
-      "stat_type": "touchdown",
-      "line": "Anytime TD",
-      "side": "yes",
-      "price": "+175",
-      "book": "DraftKings",
-      "analyst": "Mike Spector (BettingPros)",
-      "tier": 1,
-      "tier_label": "Tier 1: Recommended Best Bet",
-      "weight": 1,
-      "rationale": "49ers rushed for just 2.7 ypc against the Rams last season. With Pearsall out, Kirk on IR, and Kittle questionable, Evans is the primary alpha end-zone target (182 end-zone targets since 2024).",
-      "parlay_utility": {
-        "role": "Red-Zone Anchor Leg",
-        "synergy_tags": [
-          "endzone_target_dominance",
-          "wr_attrition_boost",
-          "shootout_upside"
-        ],
-        "positive_correlations": [
-          "Brock Purdy Over Passing TDs",
-          "Over 48.5 Game Total"
-        ]
-      },
-      "selection": "Anytime Touchdown Scorer"
-    },
-    {
-      "id": "prop__mike_spector__terrance_ferguson_anytime_td",
-      "player": "Terrance Ferguson",
-      "team": "LAR",
-      "game": "SF @ LAR",
-      "game_slate": "Thursday Melbourne Opener",
-      "category": "anytime_td",
-      "category_label": "Anytime Touchdown Scorer",
-      "stat_type": "touchdown",
-      "line": "Anytime TD",
-      "side": "yes",
-      "price": "+400",
-      "book": "DraftKings",
-      "analyst": "Mike Spector (BettingPros)",
-      "tier": 2,
-      "tier_label": "Tier 2: High-Value Value Scorer",
-      "weight": 0.85,
-      "rationale": "Stafford led the NFL in passing touchdowns against blitzes and man coverage. Ferguson operates as a big red-zone mismatch against a 49ers defense vulnerable to athletic tight ends.",
-      "parlay_utility": {
-        "role": "High-Value SGP Multiplier",
-        "synergy_tags": [
-          "red_zone_mismatch",
-          "blitz_beater"
-        ],
-        "positive_correlations": [
-          "Stafford Over 265.5 Pass Yds",
-          "Rams -3.5 Spread"
-        ]
-      },
-      "selection": "Anytime Touchdown Scorer"
-    },
-    {
-      "id": "prop__walter_football__drake_maye_alt_rushing_yards",
-      "player": "Drake Maye",
-      "team": "NE",
-      "game": "NE @ SEA",
-      "game_slate": "Wednesday Kickoff",
-      "category": "rushing_yards",
-      "category_label": "Rushing Yards (Alt Milestone)",
-      "stat_type": "rushing",
-      "line": "25+",
-      "side": "over",
-      "price": "+110",
-      "book": "DraftKings",
-      "analyst": "Walter Cherepinsky (Walter Football)",
-      "tier": 1,
-      "tier_label": "Tier 1: Official SGP Pick",
-      "weight": 1,
-      "rationale": "Key leg of official Walter Football SGP (+1050). Maye's rushing floor is essential against Seattle's aggressive front.",
-      "parlay_utility": {
-        "role": "Official SGP Core Leg",
-        "synergy_tags": [
-          "walter_football_official",
-          "qb_mobility"
-        ],
-        "positive_correlations": [
-          "A.J. Brown 60+ Rec Yds",
-          "Seahawks -3.5 Spread"
-        ]
-      },
-      "selection": "25+ Rushing Yards (Alt Milestone)"
-    },
-    {
-      "id": "prop__walter_football__aj_brown_alt_rec_yards",
-      "player": "A.J. Brown",
-      "team": "NE",
-      "game": "NE @ SEA",
-      "game_slate": "Wednesday Kickoff",
-      "category": "receiving_yards",
-      "category_label": "Receiving Yards (Alt Milestone)",
-      "stat_type": "receiving",
-      "line": "60+",
-      "side": "over",
-      "price": "-135",
-      "book": "DraftKings",
-      "analyst": "Walter Cherepinsky (Walter Football)",
-      "tier": 1,
-      "tier_label": "Tier 1: Official SGP Pick",
-      "weight": 1,
-      "rationale": "Primary target in New England passing offense. Safest yardage floor leg for SGP construction.",
-      "parlay_utility": {
-        "role": "Official SGP Core Leg",
-        "synergy_tags": [
-          "walter_football_official",
-          "target_floor"
-        ],
-        "positive_correlations": [
-          "Drake Maye 25+ Rush Yds",
-          "Seahawks -3.5 Spread"
-        ]
-      },
-      "selection": "60+ Receiving Yards (Alt Milestone)"
-    },
-    {
-      "id": "prop__joe_holka__zay_flowers_rec_yards",
-      "player": "Zay Flowers",
-      "team": "BAL",
-      "game": "BAL @ IND",
-      "game_slate": "Sunday 1:00 PM ET",
-      "category": "receiving_yards",
-      "category_label": "Receiving Yards",
-      "stat_type": "receiving",
-      "line": "64.5",
+      "line": "36.5",
       "side": "over",
       "price": "-114",
-      "book": "DraftKings",
-      "analyst": "Joe Holka (Twitter/X Bookmarks)",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Josh Shepardson (Sharp Football)",
+      "source_article_id": 5097,
+      "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-3-2026/",
+      "rationale": "Oronde Gadsden Over 35.5 Receiving Yards (-114) Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 3 Best Prop Bet: Tony Pollard Over 48.5 Rushing Yards (-114) Week 1 is often lies, and Tennessee's play-calling could be a perfect example. According to the Fantasy Points Data Suite, the Titans led the league in pass rate over expected (12.2% PROE) in the season opener.",
+      "week": 3,
       "tier": 1,
-      "tier_label": "Tier 1: High-Volume Parlay Target",
+      "tier_label": "Tier 1: Featured Pick",
       "weight": 1,
-      "rationale": "Ranked 6th in NFL in receiving yards last season (71.1 ypg). Colts allowed 2nd-most receiving yards to WRs. Cleared in 4 of final 5 games.",
       "parlay_utility": {
-        "role": "Sunday Matchup Exploit Leg",
+        "role": "Pass-Catching Piece",
         "synergy_tags": [
-          "vulnerable_secondary",
-          "alpha_target_share"
+          "receiving_yards",
+          "PIT_offense"
         ],
-        "positive_correlations": [
-          "Ravens Moneyline",
-          "Lamar Jackson Over Pass Yds"
-        ]
-      },
-      "selection": "Over 64.5 Receiving Yards"
+        "positive_correlations": []
+      }
     },
     {
-      "id": "prop__joe_holka__omarion_hampton_rushing_yards",
-      "player": "Omarion Hampton",
+      "id": "prop__5097__oronde_gadsden__receiving_yards",
+      "player": "Oronde Gadsden",
       "team": "LAC",
-      "game": "ARI @ LAC",
-      "game_slate": "Sunday 4:25 PM ET",
-      "category": "rushing_yards",
-      "category_label": "Rushing Yards",
-      "stat_type": "rushing",
-      "line": "65.5",
-      "side": "over",
-      "price": "-114",
-      "book": "DraftKings",
-      "analyst": "Joe Holka (Twitter/X Bookmarks)",
-      "tier": 1,
-      "tier_label": "Tier 1: High-Volume Parlay Target",
-      "weight": 1,
-      "rationale": "Jim Harbaugh ground-and-pound commitment against a soft Cardinals run defense. Hampton commands workhorse carries.",
-      "parlay_utility": {
-        "role": "Harbaugh Workhorse Anchor",
-        "synergy_tags": [
-          "harbaugh_ground_game",
-          "soft_run_defense"
-        ],
-        "positive_correlations": [
-          "Chargers -3.5 Spread",
-          "Omarion Hampton Anytime TD"
-        ]
-      },
-      "selection": "Over 65.5 Rushing Yards"
-    },
-    {
-      "id": "prop__steve_krebs__christian_mccaffrey_rush_yards",
-      "player": "Christian McCaffrey",
-      "team": "SF",
-      "game": "SF @ LAR",
-      "game_slate": "Thursday Melbourne Opener",
-      "category": "rushing_yards",
-      "category_label": "Rushing Yards",
-      "stat_type": "rushing",
-      "line": "61+",
-      "side": "over",
-      "price": "-115",
-      "book": "DraftKings",
-      "analyst": "Steve Krebs (BettingPros)",
-      "tier": 1,
-      "tier_label": "Tier 1: Early Parlay Leg",
-      "weight": 1,
-      "rationale": "Line continues to drop into dangerous territory for sportsbooks. Shanahan will give McCaffrey 18+ touches on the Melbourne pitch.",
-      "parlay_utility": {
-        "role": "Elite Workhorse Floor Leg",
-        "synergy_tags": [
-          "depressed_line_value",
-          "elite_all_purpose_rb"
-        ],
-        "positive_correlations": [
-          "49ers +3.5 Spread",
-          "Christian McCaffrey Anytime TD"
-        ]
-      },
-      "selection": "61+ Rushing Yards"
-    },
-    {
-      "id": "prop__curtis_hirsch__aj_brown_alt_rec_yards",
-      "player": "A.J. Brown",
-      "team": "NE",
-      "game": "NE @ SEA",
-      "game_slate": "Wednesday Kickoff",
-      "category": "receiving_yards",
-      "category_label": "Receiving Yards (Alt Milestone)",
-      "stat_type": "receiving",
-      "line": "70+",
-      "side": "over",
-      "price": "+115",
-      "book": "DraftKings",
-      "analyst": "Curtis Hirsch (Sharp Football)",
-      "tier": 1,
-      "tier_label": "Tier 1: Recommended SGP Leg",
-      "weight": 1,
-      "rationale": "Patriots paid a future first-round pick for Brown and will feature him on NFL Opening Night against a Seattle secondary missing Riq Woolen and Coby Bryant.",
-      "parlay_utility": {
-        "role": "Alpha WR Milestone Anchor",
-        "synergy_tags": [
-          "milestone_ladder",
-          "featured_debut"
-        ],
-        "positive_correlations": [
-          "Maye Over Passing Yards",
-          "Patriots +3.5 Spread"
-        ]
-      },
-      "selection": "70+ Receiving Yards (Alt Milestone)"
-    },
-    {
-      "id": "prop__curtis_hirsch__rashid_shaheed_alt_rec_yards",
-      "player": "Rashid Shaheed",
-      "team": "SEA",
-      "game": "NE @ SEA",
-      "game_slate": "Wednesday Kickoff",
-      "category": "receiving_yards",
-      "category_label": "Receiving Yards (Alt Milestone)",
-      "stat_type": "receiving",
-      "line": "40+",
-      "side": "over",
-      "price": "+125",
-      "book": "DraftKings",
-      "analyst": "Curtis Hirsch (Sharp Football)",
-      "tier": 1,
-      "tier_label": "Tier 1: Recommended SGP Leg",
-      "weight": 1,
-      "rationale": "New offensive coordinator giving Shaheed increased short/intermediate crossing routes and screen packages to complement deep ball ability.",
-      "parlay_utility": {
-        "role": "Dynamic Playmaker SGP Leg",
-        "synergy_tags": [
-          "yac_scheme_boost",
-          "explosive_crossing_routes"
-        ],
-        "positive_correlations": [
-          "Over 44.5 Total",
-          "Darnold Over Passing Yards"
-        ]
-      },
-      "selection": "40+ Receiving Yards (Alt Milestone)"
-    },
-    {
-      "id": "prop__scott_bogman__blake_corum_rushing_yards",
-      "player": "Blake Corum",
-      "team": "LAR",
-      "game": "SF @ LAR",
-      "game_slate": "Thursday Melbourne Opener",
-      "category": "rushing_yards",
-      "category_label": "Rushing Yards",
-      "stat_type": "rushing",
-      "line": "44.5",
-      "side": "over",
-      "price": "-110",
-      "book": "DraftKings / BettingPros",
-      "analyst": "Scott Bogman (BettingPros Ep. 1054)",
-      "tier": 1,
-      "tier_label": "Tier 1: Recommended Best Bet",
-      "weight": 1,
-      "rationale": "Corum cleared 44.5 rush yds in 7 of 9 games from Week 13 through the postseason last year. Generates a 16% explosive run rate (vs Kyren's 10%) against a 49ers interior front line vulnerable to outside zone. McVay will lean heavily on Corum to close in the second half.",
-      "parlay_utility": {
-        "role": "Second-Half Closer / Ground Anchor",
-        "synergy_tags": [
-          "explosive_run_rate",
-          "second_half_closer",
-          "vulnerable_rush_defense"
-        ],
-        "positive_correlations": [
-          "Kyren Williams Over Rushing Yards",
-          "Rams -3.5 Spread",
-          "Under 48.5 Total"
-        ]
-      },
-      "selection": "Over 44.5 Rushing Yards"
-    },
-    {
-      "id": "prop__tara_roberts__kyren_williams_rushing_yards",
-      "player": "Kyren Williams",
-      "team": "LAR",
-      "game": "SF @ LAR",
-      "game_slate": "Thursday Melbourne Opener",
-      "category": "rushing_yards",
-      "category_label": "Rushing Yards",
-      "stat_type": "rushing",
-      "line": "56.5",
-      "side": "over",
-      "price": "-115",
-      "book": "DraftKings / BettingPros",
-      "analyst": "Tara Roberts (BettingPros Ep. 1054)",
-      "tier": 1,
-      "tier_label": "Tier 1: Recommended Best Bet",
-      "weight": 1,
-      "rationale": "Averaged 4.8 YPC last season and consistently clears 56+ yards (82.4% season hit rate in StatTree model, 5/5 L5, 73.7 Yds/G). Rams offensive line is fully healthy and San Francisco cannot stack the box against Stafford, Nacua, and Davante Adams.",
-      "parlay_utility": {
-        "role": "Primary Workhorse Ground Engine",
-        "synergy_tags": [
-          "bell_cow_volume",
-          "elite_hit_rate",
-          "offensive_line_advantage"
-        ],
-        "positive_correlations": [
-          "Blake Corum Over Rushing Yards",
-          "Rams -3.5 Spread",
-          "Kyren Williams Anytime TD"
-        ]
-      },
-      "selection": "Over 56.5 Rushing Yards"
-    },
-    {
-      "id": "prop__scott_bogman__deshaun_stribling_rec_yards",
-      "player": "Deshaun Stribling",
-      "team": "SF",
-      "game": "SF @ LAR",
-      "game_slate": "Thursday Melbourne Opener",
+      "game": "LAC @ BUF",
+      "game_slate": "Sunday Early Window",
       "category": "receiving_yards",
       "category_label": "Receiving Yards",
       "stat_type": "receiving",
       "line": "35.5",
       "side": "over",
-      "price": "-110",
-      "book": "BettingPros Consensus",
-      "analyst": "Scott Bogman (BettingPros Ep. 1054)",
+      "price": "-114",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Josh Shepardson (Sharp Football)",
+      "source_article_id": 5097,
+      "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-3-2026/",
+      "rationale": "Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 3 Best Prop Bet: Tony Pollard Over 48.5 Rushing Yards (-114) Week 1 is often lies, and Tennessee's play-calling could be a perfect example. According to the Fantasy Points Data Suite, the Titans led the league in pass rate over expected (12.2% PROE) in the season opener.",
+      "week": 3,
       "tier": 1,
-      "tier_label": "Tier 1: Rookie Breakout Target",
+      "tier_label": "Tier 1: Featured Pick",
       "weight": 1,
-      "rationale": "Electric preseason showing. With 49ers expected to trail late in negative game script, and with Mike Evans gimpy/snap count, Christian Kirk on IR, and George Kittle managed, Stribling only needs 3-4 catches on intermediate routes to clear 35.5 yards.",
       "parlay_utility": {
-        "role": "Trailing Script Value Receiver",
+        "role": "Pass-Catching Piece",
         "synergy_tags": [
-          "trailing_pass_script",
-          "wr_target_vacancy",
-          "rookie_breakout"
+          "receiving_yards",
+          "LAC_offense"
         ],
         "positive_correlations": [
-          "Brock Purdy Over Pass Attempts",
-          "49ers +3.5 Spread"
+          "Justin Herbert Passing Yards",
+          "Omarion Hampton 2+ Touchdowns"
         ]
-      },
-      "selection": "Over 35.5 Receiving Yards"
+      }
     },
     {
-      "id": "prop__tara_roberts__deebo_samuel_rec_yards",
-      "player": "Deebo Samuel",
-      "team": "SF",
-      "game": "SF @ LAR",
-      "game_slate": "Thursday Melbourne Opener",
-      "category": "receiving_yards",
-      "category_label": "Receiving Yards",
-      "stat_type": "receiving",
-      "line": "29.5",
+      "id": "prop__5097__tony_pollard__rushing_yards",
+      "player": "Tony Pollard",
+      "team": "TEN",
+      "game": "TEN @ NYG",
+      "game_slate": "Sunday Early Window",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "48.5",
       "side": "over",
-      "price": "-110",
-      "book": "BettingPros Consensus",
-      "analyst": "Tara Roberts (BettingPros Ep. 1054)",
-      "tier": 1,
-      "tier_label": "Tier 1: Recommended Best Bet",
-      "weight": 1,
-      "rationale": "Healthy, reliable target in Kyle Shanahan's creative system, projected at 33.6 yards by BettingPros model. With Evans and Kittle on snap management, Deebo will be used heavily on intermediate touches, jets, and quick screens.",
+      "price": "-114",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Josh Shepardson (Sharp Football)",
+      "source_article_id": 5097,
+      "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-3-2026/",
+      "rationale": "Week 1 is often lies, and Tennessee's play-calling could be a perfect example. According to the Fantasy Points Data Suite, the Titans led the league in pass rate over expected (12.2% PROE) in the season opener.",
+      "week": 3,
+      "tier": 2,
+      "tier_label": "Tier 2: Secondary Pick",
+      "weight": 0.7,
       "parlay_utility": {
-        "role": "Intermediate Safety Valve",
+        "role": "Ground Game Piece",
         "synergy_tags": [
-          "veteran_health_floor",
-          "manufactured_touches",
-          "shanahan_scheme"
+          "rushing_yards",
+          "TEN_offense"
         ],
-        "positive_correlations": [
-          "Christian McCaffrey Over Receptions",
-          "Brock Purdy Over Completions"
-        ]
-      },
-      "selection": "Over 29.5 Receiving Yards"
+        "positive_correlations": []
+      }
     },
     {
-      "id": "prop__stattree__puka_nacua_receptions",
-      "player": "Puka Nacua",
-      "team": "LAR",
-      "game": "SF @ LAR",
-      "game_slate": "Thursday Melbourne Opener",
-      "category": "receptions",
-      "category_label": "Receptions",
-      "stat_type": "receiving",
-      "line": "7.5",
-      "side": "over",
-      "price": "+116",
-      "book": "DraftKings / StatTree Model",
-      "analyst": "StatTree Quantitative Model",
-      "tier": 1,
-      "tier_label": "Tier 1: 5-Star Scheme Mismatch",
-      "weight": 1,
-      "rationale": "StatTree Scheme Read Score 11: Averaging 10.4 targets/game at an 83% catch rate. Generates 10.8 yds/target against zone coverage. 49ers run zone coverage on 74% of dropbacks (9th highest in NFL). Commands 30% team target share.",
-      "parlay_utility": {
-        "role": "Zone-Coverage Funnel Anchor",
-        "synergy_tags": [
-          "zone_coverage_mismatch",
-          "elite_target_share",
-          "plus_money_alpha"
-        ],
-        "positive_correlations": [
-          "Matthew Stafford Over Passing TDs",
-          "Rams -3.5 Spread"
-        ]
-      },
-      "selection": "Over 7.5 Receptions"
-    },
-    {
-      "id": "prop__stattree__davante_adams_anytime_td",
-      "player": "Davante Adams",
-      "team": "LAR",
-      "game": "SF @ LAR",
-      "game_slate": "Thursday Melbourne Opener",
-      "category": "anytime_td",
-      "category_label": "Anytime Touchdown Scorer",
-      "stat_type": "touchdown",
-      "line": "Anytime TD",
-      "side": "yes",
-      "price": "+140",
-      "book": "DraftKings / StatTree Model",
-      "analyst": "StatTree Quantitative Model",
-      "tier": 1,
-      "tier_label": "Tier 1: #1 Ranked ATD Board Edge",
-      "weight": 1,
-      "rationale": "StatTree ATD Score 16.8 (#1 on entire NFL Week 1 board). Model gap +0.194 over implied probability. Commanded 32 prior red-zone targets, serving as Stafford's primary red-zone isolated threat.",
-      "parlay_utility": {
-        "role": "Red-Zone Payout Multiplier",
-        "synergy_tags": [
-          "red_zone_target_leader",
-          "stattree_rank_1",
-          "isolated_endzone_threat"
-        ],
-        "positive_correlations": [
-          "Matthew Stafford Over 1.5 Passing TDs",
-          "Rams Over Team Total"
-        ]
-      },
-      "selection": "Anytime Touchdown Scorer"
-    },
-    {
-      "id": "prop__stattree__george_kittle_receptions",
-      "player": "George Kittle",
-      "team": "SF",
-      "game": "SF @ LAR",
-      "game_slate": "Thursday Melbourne Opener",
+      "id": "prop__5018__xavier_hutchinson__receptions",
+      "player": "Xavier Hutchinson",
+      "team": "HOU",
+      "game": "HOU @ IND",
+      "game_slate": "Sunday Early Window",
       "category": "receptions",
       "category_label": "Receptions",
       "stat_type": "receiving",
       "line": "3.5",
-      "side": "over",
-      "price": "-110",
-      "book": "DraftKings / StatTree Model",
-      "analyst": "StatTree Quantitative Model",
+      "side": "under",
+      "price": "-143",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Jason Radowitz (BettingPros)",
+      "source_article_id": 5018,
+      "source_url": "https://www.bettingpros.com/articles/best-nfl-bets-for-week-3-2026/",
+      "rationale": "Low Vig Favorites Rushing Yards Overs in Windy Weather A lot of people are writing off the New York Giants after losing Jaxson Dart for the season. But not Cam Skattebo.",
+      "week": 3,
       "tier": 1,
-      "tier_label": "Tier 1: High-Floor Blitz Valve",
+      "tier_label": "Tier 1: Featured Pick",
       "weight": 1,
-      "rationale": "StatTree 90.9% season hit rate (10/11 games) and 5/5 in last 5. Averages 5.18 rec/g on 6.27 targets (82.6% catch rate). Acts as Brock Purdy's primary quick safety valve against Rams pass rush (Garrett, Donald, Turner).",
       "parlay_utility": {
-        "role": "High-Floor Safety Valve Leg",
+        "role": "Pass-Catching Piece",
         "synergy_tags": [
-          "blitz_beater_valve",
-          "90pct_hit_rate",
-          "quick_release_target"
+          "receptions",
+          "HOU_offense"
         ],
-        "positive_correlations": [
-          "Christian McCaffrey Over Receptions",
-          "49ers Under Team Total"
-        ]
-      },
-      "selection": "Over 3.5 Receptions"
+        "positive_correlations": []
+      }
     },
     {
-      "id": "prop__stattree__cmc_receptions",
-      "player": "Christian McCaffrey",
+      "id": "prop__5018__brock_purdy__passing_yards",
+      "player": "Brock Purdy",
       "team": "SF",
-      "game": "SF @ LAR",
-      "game_slate": "Thursday Melbourne Opener",
-      "category": "receptions",
-      "category_label": "Receptions",
-      "stat_type": "receiving",
-      "line": "4.5",
+      "game": "ARI @ SF",
+      "game_slate": "Sunday Late Window",
+      "category": "passing_yards",
+      "category_label": "Passing Yards",
+      "stat_type": "passing",
+      "line": "236.5",
       "side": "over",
-      "price": "+104",
-      "book": "DraftKings / StatTree Model",
-      "analyst": "StatTree Quantitative Model",
+      "price": "-114",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Jason Radowitz (BettingPros)",
+      "source_article_id": 5018,
+      "source_url": "https://www.bettingpros.com/articles/best-nfl-bets-for-week-3-2026/",
+      "rationale": "Brock Purdy prop flagged by Jason Radowitz (BettingPros).",
+      "week": 3,
       "tier": 1,
-      "tier_label": "Tier 1: Plus-Money Volume Play",
+      "tier_label": "Tier 1: Featured Pick",
       "weight": 1,
-      "rationale": "StatTree Scheme Read Score 8: 7.6 targets/game, 86% catch rate, 23% target share (24th of 182). Cleared in 13 of 17 games (76%). Vital screen and checkdown outlet against Aaron Donald and Myles Garrett.",
       "parlay_utility": {
-        "role": "Dual-Threat Volume Floor",
+        "role": "Passing Volume Anchor",
         "synergy_tags": [
-          "pass_protection_dumpoff",
-          "plus_money_floor",
-          "target_share_leader"
+          "passing_yards",
+          "SF_offense"
         ],
         "positive_correlations": [
-          "Christian McCaffrey 61+ Rushing Yards",
-          "George Kittle Over Receptions"
+          "Brock Purdy 2+ Touchdowns",
+          "Brock Purdy Completions"
         ]
-      },
-      "selection": "Over 4.5 Receptions"
+      }
     },
     {
-      "id": "prop__steve_fezzik__sf_lar_second_half_over",
-      "player": "Game Derivative (SF @ LAR)",
-      "team": "LAR",
-      "game": "SF @ LAR",
-      "game_slate": "Thursday Melbourne Opener",
-      "category": "game_derivative",
-      "category_label": "2nd Half Total Points",
-      "stat_type": "total",
-      "line": "23.5",
+      "id": "prop__5006__adonai_mitchell__receiving_yards",
+      "player": "Adonai Mitchell",
+      "team": "NYJ",
+      "game": "NYJ @ DET",
+      "game_slate": "Sunday Early Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "90+",
       "side": "over",
-      "price": "-110",
-      "book": "DraftKings (Reduced Juice)",
-      "analyst": "Steve Fezzik (Even Money Podcast)",
+      "price": "+445",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Phil Wood (BettingPros)",
+      "source_article_id": 5006,
+      "source_url": "https://www.bettingpros.com/articles/nfl-week-3-picks-sleepers-longshot-bets-2026/",
+      "rationale": "Adonai Mitchell has very quietly racked up 123 receiving yards this season. But what's most exciting about his production is its consistency.",
+      "week": 3,
       "tier": 1,
-      "tier_label": "Tier 1: Recommended Market Derivative",
+      "tier_label": "Tier 1: Featured Pick",
       "weight": 1,
-      "rationale": "Key hook on 24 points: Teams traveling across the globe start sluggish in the 1st half. Halftime schematic adjustments and trailing urgency dramatically accelerate 2nd half scoring.",
       "parlay_utility": {
-        "role": "Second-Half Acceleration Anchor",
+        "role": "Pass-Catching Piece",
         "synergy_tags": [
-          "halftime_adjustments",
-          "trailing_pace",
-          "key_hook_value"
+          "receiving_yards",
+          "NYJ_offense"
         ],
         "positive_correlations": [
-          "Blake Corum Over Rushing Yards",
-          "Deshaun Stribling Over Receiving Yards"
+          "Geno Smith Passing TDs"
         ]
-      },
-      "selection": "Over 23.5 2nd Half Total Points"
+      }
+    },
+    {
+      "id": "prop__5006__omarion_hampton__other",
+      "player": "Omarion Hampton",
+      "team": "LAC",
+      "game": "LAC @ BUF",
+      "game_slate": "Sunday Early Window",
+      "category": "other",
+      "category_label": "2+ Touchdowns",
+      "stat_type": "other",
+      "line": "2+",
+      "side": "over",
+      "price": "+450",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Phil Wood (BettingPros)",
+      "source_article_id": 5006,
+      "source_url": "https://www.bettingpros.com/articles/nfl-week-3-picks-sleepers-longshot-bets-2026/",
+      "rationale": "It may seem crazy to take the running back of a 0-2 team heading on the road as 7-point underdogs to have a huge game on the ground, but this is a great matchup for Omarion Hampton. He rushed for 94 yards last week in a 12-point loss, averaging 4.1 yards per carry.",
+      "week": 3,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Complementary Piece",
+        "synergy_tags": [
+          "other",
+          "LAC_offense"
+        ],
+        "positive_correlations": [
+          "Justin Herbert Passing Yards",
+          "Oronde Gadsden Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__5008__amon_ra_st_brown__anytime_td",
+      "player": "Amon-Ra St. Brown",
+      "team": "DET",
+      "game": "NYJ @ DET",
+      "game_slate": "Sunday Early Window",
+      "category": "anytime_td",
+      "category_label": "Anytime Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "Yes",
+      "side": "anytime",
+      "price": "-125",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 5008,
+      "source_url": "https://www.bettingpros.com/articles/nfl-week-3-anytime-td-scorer-win-parlays-2026/",
+      "rationale": "Let's begin our touchdown-and-win parlays with the Lions hosting the Jets this weekend. Detroit should win this game at home as a 6.5-point favorite.",
+      "week": 3,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "End-Zone Target",
+        "synergy_tags": [
+          "anytime_td",
+          "DET_offense"
+        ],
+        "positive_correlations": [
+          "Amon-Ra St. Brown Receptions",
+          "Jameson Williams Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__5008__emeka_egbuka__anytime_td",
+      "player": "Emeka Egbuka",
+      "team": "TB",
+      "game": "MIN @ TB",
+      "game_slate": "Sunday Late Window",
+      "category": "anytime_td",
+      "category_label": "Anytime Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "Yes",
+      "side": "anytime",
+      "price": "+240",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dan Servodidio (BettingPros)",
+      "source_article_id": 5008,
+      "source_url": "https://www.bettingpros.com/articles/nfl-week-3-anytime-td-scorer-win-parlays-2026/",
+      "rationale": "It's desperation time for the Buccaneers after their 0-2 start to the season. Tampa Bay was favored to win the NFC South before this year, but public opinion of the squad has unsurprisingly changed.",
+      "week": 3,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "End-Zone Target",
+        "synergy_tags": [
+          "anytime_td",
+          "TB_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__5004__zay_flowers__receiving_yards",
+      "player": "Zay Flowers",
+      "team": "BAL",
+      "game": "BAL @ DAL",
+      "game_slate": "Sunday Late Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "90+",
+      "side": "over",
+      "price": "+154",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Ben Solak, Seth Walder and Matt Bowen (ESPN NFL)",
+      "source_article_id": 5004,
+      "source_url": "https://www.espn.com/espn/betting/story/_/id/49997133/week-3-nfl-odds-spreads-lines-props-best-bets-sunday-football-games",
+      "rationale": "I have all of the Flowers overs and alts for similar reasons listed above. Flowers was red hot in Week 1, with five catches for 150 yards and a score on six targets in just the first half against Indianapolis.",
+      "week": 3,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "BAL_offense"
+        ],
+        "positive_correlations": [
+          "Lamar Jackson Rushing Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__5004__geno_smith__passing_tds",
+      "player": "Geno Smith",
+      "team": "NYJ",
+      "game": "NYJ @ DET",
+      "game_slate": "Sunday Early Window",
+      "category": "passing_tds",
+      "category_label": "Passing TDs",
+      "stat_type": "passing",
+      "line": "2+",
+      "side": "over",
+      "price": "+157",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Ben Solak, Seth Walder and Matt Bowen (ESPN NFL)",
+      "source_article_id": 5004,
+      "source_url": "https://www.espn.com/espn/betting/story/_/id/49997133/week-3-nfl-odds-spreads-lines-props-best-bets-sunday-football-games",
+      "rationale": "There's huge familiarity here between Detroit Lions head coach Dan Campbell and New York Jets head coach Aaron Glenn, who was Campbell's defensive coordinator in Detroit for three seasons. Glenn's linebackers coach, Kelvin Sheppard, has replaced him and runs a similar, but slightly more versatile defense.",
+      "week": 3,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Passing Volume Anchor",
+        "synergy_tags": [
+          "passing_tds",
+          "NYJ_offense"
+        ],
+        "positive_correlations": [
+          "Adonai Mitchell Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__4982__tyler_warren__receiving_yards",
+      "player": "Tyler Warren",
+      "team": "IND",
+      "game": "HOU @ IND",
+      "game_slate": "Sunday Early Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "44.5",
+      "side": "over",
+      "price": "-114",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dustin Swedelson (VSiN)",
+      "source_article_id": 4982,
+      "source_url": "https://vsin.com/nfl/favorite-week-3-nfl-player-props-from-dustin-swedelson-and-optaai/",
+      "rationale": "Houston has allowed the fifth-most receiving yards per game to opposing tight ends to start the season. Almost all of that damage came in Week 1, when Buffalo’s Dalton Kincaid caught five passes for 130 yards, but it’s still an appealing setup for Tyler Warren.",
+      "week": 3,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "IND_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__4982__cam_skattebo__rushing_yards",
+      "player": "Cam Skattebo",
+      "team": "NYG",
+      "game": "TEN @ NYG",
+      "game_slate": "Sunday Early Window",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "57.5",
+      "side": "over",
+      "price": "-114",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dustin Swedelson (VSiN)",
+      "source_article_id": 4982,
+      "source_url": "https://vsin.com/nfl/favorite-week-3-nfl-player-props-from-dustin-swedelson-and-optaai/",
+      "rationale": "The Giants will be without Jaxson Dart this week, but despite movement from the opening numbers, New York is still favored against Tennessee. I like correlating rushing props with favorites whenever I can, and this number feels heavily discounted for Cam Skattebo given the matchup and New York’s quarterback situation.",
+      "week": 3,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rushing_yards",
+          "NYG_offense"
+        ],
+        "positive_correlations": [
+          "Jameis Winston Interceptions",
+          "Darnell Mooney Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__4982__chuba_hubbard__rush_attempts",
+      "player": "Chuba Hubbard",
+      "team": "CAR",
+      "game": "CAR @ CLE",
+      "game_slate": "Sunday Early Window",
+      "category": "rush_attempts",
+      "category_label": "Rush Attempts",
+      "stat_type": "rushing",
+      "line": "16.5",
+      "side": "over",
+      "price": "-130",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dustin Swedelson (VSiN)",
+      "source_article_id": 4982,
+      "source_url": "https://vsin.com/nfl/favorite-week-3-nfl-player-props-from-dustin-swedelson-and-optaai/",
+      "rationale": "Cleveland was respectable against the run last season. This year?",
+      "week": 3,
+      "tier": 2,
+      "tier_label": "Tier 2: Secondary Pick",
+      "weight": 0.7,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rush_attempts",
+          "CAR_offense"
+        ],
+        "positive_correlations": [
+          "Bryce Young Passing Yards",
+          "Tetairoa McMillan Receiving Yards"
+        ]
+      }
     }
   ]
 }

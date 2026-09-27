@@ -1,0 +1,1884 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NFL Week 3 Player Prop & Parlay Intelligence</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --card-bg: #1e293b;
+    --card-border: #334155;
+    --text: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent: #3b82f6;
+    --accent-hover: #2563eb;
+    --green: #10b981;
+    --amber: #f59e0b;
+    --purple: #8b5cf6;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #090d16;
+    color: #e2e8f0;
+    margin: 0;
+    padding: 0 0 100px 0;
+    line-height: 1.5;
+  }
+  a { color: #60a5fa; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .container { max-width: 1380px; margin: 0 auto; padding: 24px 20px; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    border-bottom: 1px solid #334155;
+    padding: 32px 0 24px;
+    margin-bottom: 24px;
+  }
+  .header h1 { margin: 0 0 8px 0; font-size: 28px; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 12px; }
+  .header p { margin: 0; color: #94a3b8; font-size: 14px; }
+  .badge-tag { background: #2563eb; color: #fff; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* Stat Grid */
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 24px; }
+  .stat-card { background: #111827; border: 1px solid #1f2937; border-radius: 10px; padding: 14px 16px; }
+  .stat-val { font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+  .stat-label { font-size: 12px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* Navigation Toolbar */
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #334155;
+    padding: 12px 0;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .filter-group { display: flex; gap: 8px; flex-wrap: wrap; }
+  .btn-filter {
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: #cbd5e1;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .btn-filter:hover, .btn-filter.active { background: #3b82f6; border-color: #60a5fa; color: #fff; }
+
+  /* Section Title */
+  h2 { font-size: 20px; font-weight: 700; color: #f1f5f9; margin: 32px 0 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #1e293b; padding-bottom: 8px; }
+
+  /* Parlay Cards Grid */
+  .parlay-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 20px; margin-bottom: 32px; }
+  .parlay-card {
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .parlay-card::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #3b82f6; }
+  .parlay-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+  .parlay-title { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .parlay-meta { font-size: 12px; color: #94a3b8; }
+  .parlay-odds-badge { background: #065f46; color: #34d399; font-size: 18px; font-weight: 800; padding: 4px 12px; border-radius: 8px; border: 1px solid #059669; }
+  .parlay-legs { list-style: none; padding: 0; margin: 12px 0; display: flex; flex-direction: column; gap: 8px; }
+  .parlay-leg { background: #1e293b; padding: 8px 12px; border-radius: 6px; font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
+  .parlay-leg-name { font-weight: 600; color: #f8fafc; }
+  .parlay-leg-odds { color: #60a5fa; font-weight: 700; font-family: monospace; }
+  .parlay-rationale { font-size: 12px; color: #94a3b8; font-style: italic; margin-top: 8px; line-height: 1.4; }
+  .btn-load-parlay {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: background 0.15s;
+  }
+  .btn-load-parlay:hover { background: #1d4ed8; }
+
+  /* Master Props Table */
+  .table-wrapper { overflow-x: auto; background: #111827; border: 1px solid #1f2937; border-radius: 10px; margin-bottom: 40px; }
+  table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
+  th { background: #1f2937; color: #cbd5e1; padding: 12px 14px; font-weight: 600; border-bottom: 2px solid #374151; }
+  td { padding: 12px 14px; border-bottom: 1px solid #1f2937; vertical-align: top; color: #e2e8f0; }
+  tr:hover { background: #1e293b; }
+  .cell-player { font-weight: 700; color: #fff; font-size: 14px; }
+  .cell-line { font-family: monospace; font-weight: 700; color: #38bdf8; background: #0c4a6e; padding: 2px 6px; border-radius: 4px; display: inline-block; }
+  .cell-odds { font-family: monospace; font-weight: 800; font-size: 14px; color: #10b981; }
+  .badge-tier1 { background: #065f46; color: #6ee7b7; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+  .badge-tier2 { background: #1e3a8a; color: #93c5fd; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+  .badge-tier3 { background: #78350f; color: #fcd34d; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+  .checkbox-cell { text-align: center; width: 44px; }
+  .prop-checkbox { width: 18px; height: 18px; cursor: pointer; accent-color: #2563eb; }
+
+  /* Floating Parlay Slip Drawer */
+  .parlay-slip-drawer {
+    position: fixed;
+    bottom: 0;
+    right: 24px;
+    width: 380px;
+    max-height: 540px;
+    background: #0f172a;
+    border: 2px solid #3b82f6;
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 -4px 30px rgba(0,0,0,0.6);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .slip-header {
+    background: #1e293b;
+    padding: 12px 16px;
+    border-bottom: 1px solid #334155;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  .slip-header h3 { margin: 0; font-size: 15px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 8px; }
+  .slip-count-badge { background: #2563eb; color: #fff; padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: 700; }
+  .slip-content { padding: 14px; overflow-y: auto; flex: 1; max-height: 340px; }
+  .slip-empty { text-align: center; color: #64748b; font-size: 13px; padding: 20px 0; }
+  .slip-item { background: #1e293b; border: 1px solid #334155; border-radius: 6px; padding: 8px 10px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+  .slip-item-name { font-weight: 600; color: #fff; }
+  .slip-item-remove { color: #ef4444; background: none; border: none; font-size: 16px; cursor: pointer; padding: 0 4px; }
+  .slip-footer {
+    background: #111827;
+    border-top: 1px solid #334155;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .slip-summary-row { display: flex; justify-content: space-between; align-items: baseline; }
+  .slip-odds-label { font-size: 12px; color: #94a3b8; font-weight: 600; }
+  .slip-odds-val { font-size: 22px; font-weight: 800; color: #34d399; font-family: monospace; }
+  .slip-payout-text { font-size: 12px; color: #cbd5e1; text-align: right; }
+  .slip-actions { display: flex; gap: 8px; margin-top: 4px; }
+  .btn-slip-action { flex: 1; padding: 8px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; border: none; text-align: center; }
+  .btn-copy { background: #10b981; color: #fff; }
+  .btn-copy:hover { background: #059669; }
+  .btn-clear { background: #374151; color: #cbd5e1; }
+  .btn-clear:hover { background: #4b5563; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="container">
+    <h1>🏈 NFL Week 3 Player Prop &amp; Parlay Intelligence <span class="badge-tag">Interactive Builder</span></h1>
+    <p>Extracted from verified research articles across VSiN, BettingPros, Sharp Football, and Walter Football. Features high-value player props, positive correlation stacks, and an interactive real-time parlay slip.</p>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Metrics Header -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-val">36</div>
+      <div class="stat-label">Total Player Props</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" style="color: #34d399;">18</div>
+      <div class="stat-label">Tier 1 Recommended Bets</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" style="color: #60a5fa;">6</div>
+      <div class="stat-label">Touchdown Scorers</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" style="color: #f59e0b;">11</div>
+      <div class="stat-label">Curated Parlay Cards</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">13</div>
+      <div class="stat-label">Matchups Covered</div>
+    </div>
+  </div>
+
+  <!-- Filter Toolbar -->
+  <div class="toolbar">
+    <div class="filter-group">
+      <button class="btn-filter active" onclick="filterGame('all', this)">All Games</button>
+      <button class="btn-filter" onclick="filterGame('BAL @ DAL', this)">BAL @ DAL</button>
+      <button class="btn-filter" onclick="filterGame('LAC @ BUF', this)">LAC @ BUF</button>
+      <button class="btn-filter" onclick="filterGame('SEA @ WAS', this)">SEA @ WAS</button>
+      <button class="btn-filter" onclick="filterGame('CAR @ CLE', this)">CAR @ CLE</button>
+      <button class="btn-filter" onclick="filterGame('NYJ @ DET', this)">NYJ @ DET</button>
+      <button class="btn-filter" onclick="filterGame('KC @ MIA', this)">KC @ MIA</button>
+      <button class="btn-filter" onclick="filterGame('CIN @ PIT', this)">CIN @ PIT</button>
+      <button class="btn-filter" onclick="filterGame('NE @ JAX', this)">NE @ JAX</button>
+      <button class="btn-filter" onclick="filterGame('TEN @ NYG', this)">TEN @ NYG</button>
+      <button class="btn-filter" onclick="filterGame('ARI @ SF', this)">ARI @ SF</button>
+      <button class="btn-filter" onclick="filterGame('LAR @ DEN', this)">LAR @ DEN</button>
+      <button class="btn-filter" onclick="filterGame('HOU @ IND', this)">HOU @ IND</button>
+      <button class="btn-filter" onclick="filterGame('MIN @ TB', this)">MIN @ TB</button>
+    </div>
+    <div class="filter-group">
+      <button class="btn-filter active" onclick="filterCategory('all', this)">All Categories</button>
+      <button class="btn-filter" onclick="filterCategory('touchdown', this)">Touchdowns</button>
+      <button class="btn-filter" onclick="filterCategory('receiving', this)">Receiving</button>
+      <button class="btn-filter" onclick="filterCategory('rushing', this)">Rushing</button>
+      <button class="btn-filter" onclick="filterCategory('passing', this)">Passing</button>
+    </div>
+  </div>
+
+  <!-- Curated Parlay Stacks -->
+  <h2>🎯 Pre-Engineered Same Game Parlay (SGP) Cards</h2>
+  <div class="parlay-grid">
+    
+      <div class="parlay-card" data-game="BAL @ DAL">
+        <div>
+          <div class="parlay-header">
+            <div>
+              <div class="parlay-title">BAL/DAL Prop Stack SGP (BAL @ DAL)</div>
+              <div class="parlay-meta">BAL @ DAL &bull; DraftKings / FanDuel</div>
+            </div>
+            <div class="parlay-odds-badge">+714</div>
+          </div>
+          <ul class="parlay-legs">
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Dak Prescott: Over 1.5 Passing TDs</span>
+                <span class="parlay-leg-odds">-140</span>
+              </li>
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Lamar Jackson: Over 38.5 Rushing Yards</span>
+                <span class="parlay-leg-odds">-115</span>
+              </li>
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Zay Flowers: Over 90+ Receiving Yards</span>
+                <span class="parlay-leg-odds">+154</span>
+              </li>
+            
+          </ul>
+          <div class="parlay-rationale">Combines 3 real props extracted this week from Mike Fanelli (BettingPros), Ben Solak, Seth Walder and Matt Bowen (ESPN NFL) for BAL @ DAL.</div>
+        </div>
+        <button class="btn-load-parlay" onclick="loadPrebuiltParlay('parlay__BAL_at_DAL__bal/dal_stack')">
+          ⚡ Load Legs into Parlay Slip (+714)
+        </button>
+      </div>
+    
+      <div class="parlay-card" data-game="LAC @ BUF">
+        <div>
+          <div class="parlay-header">
+            <div>
+              <div class="parlay-title">LAC/BUF Prop Stack SGP (LAC @ BUF)</div>
+              <div class="parlay-meta">LAC @ BUF &bull; DraftKings / FanDuel</div>
+            </div>
+            <div class="parlay-odds-badge">+1012</div>
+          </div>
+          <ul class="parlay-legs">
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Justin Herbert: Under 21.5 Completions</span>
+                <span class="parlay-leg-odds">-135</span>
+              </li>
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Dalton Kincaid: Over 25+ Receiving Yards</span>
+                <span class="parlay-leg-odds">-620</span>
+              </li>
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Omarion Hampton: Over 2+ 2+ Touchdowns</span>
+                <span class="parlay-leg-odds">+450</span>
+              </li>
+            
+          </ul>
+          <div class="parlay-rationale">Combines 3 real props extracted this week from Steve Krebs (BettingPros), Phil Wood (BettingPros) for LAC @ BUF.</div>
+        </div>
+        <button class="btn-load-parlay" onclick="loadPrebuiltParlay('parlay__LAC_at_BUF__lac/buf_stack')">
+          ⚡ Load Legs into Parlay Slip (+1012)
+        </button>
+      </div>
+    
+      <div class="parlay-card" data-game="CAR @ CLE">
+        <div>
+          <div class="parlay-header">
+            <div>
+              <div class="parlay-title">CAR Prop Stack SGP (CAR @ CLE)</div>
+              <div class="parlay-meta">CAR @ CLE &bull; DraftKings / FanDuel</div>
+            </div>
+            <div class="parlay-odds-badge">+259</div>
+          </div>
+          <ul class="parlay-legs">
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Bryce Young: Over 200+ Passing Yards</span>
+                <span class="parlay-leg-odds">-191</span>
+              </li>
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Chuba Hubbard: Over 16.5 Rush Attempts</span>
+                <span class="parlay-leg-odds">-130</span>
+              </li>
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Tetairoa McMillan: Over 40+ Receiving Yards</span>
+                <span class="parlay-leg-odds">-302</span>
+              </li>
+            
+          </ul>
+          <div class="parlay-rationale">Combines 3 real props extracted this week from Steve Krebs (BettingPros), Dustin Swedelson (VSiN) for CAR @ CLE.</div>
+        </div>
+        <button class="btn-load-parlay" onclick="loadPrebuiltParlay('parlay__CAR_at_CLE__car_stack')">
+          ⚡ Load Legs into Parlay Slip (+259)
+        </button>
+      </div>
+    
+      <div class="parlay-card" data-game="NYJ @ DET">
+        <div>
+          <div class="parlay-header">
+            <div>
+              <div class="parlay-title">NYJ/DET Prop Stack SGP (NYJ @ DET)</div>
+              <div class="parlay-meta">NYJ @ DET &bull; DraftKings / FanDuel</div>
+            </div>
+            <div class="parlay-odds-badge">+2421</div>
+          </div>
+          <ul class="parlay-legs">
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Adonai Mitchell: Over 90+ Receiving Yards</span>
+                <span class="parlay-leg-odds">+445</span>
+              </li>
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Amon-Ra St. Brown: Anytime Touchdown Scorer</span>
+                <span class="parlay-leg-odds">-125</span>
+              </li>
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Geno Smith: Over 2+ Passing TDs</span>
+                <span class="parlay-leg-odds">+157</span>
+              </li>
+            
+          </ul>
+          <div class="parlay-rationale">Combines 3 real props extracted this week from Phil Wood (BettingPros), Dan Servodidio (BettingPros), Ben Solak, Seth Walder and Matt Bowen (ESPN NFL) for NYJ @ DET.</div>
+        </div>
+        <button class="btn-load-parlay" onclick="loadPrebuiltParlay('parlay__NYJ_at_DET__nyj/det_stack')">
+          ⚡ Load Legs into Parlay Slip (+2421)
+        </button>
+      </div>
+    
+      <div class="parlay-card" data-game="TEN @ NYG">
+        <div>
+          <div class="parlay-header">
+            <div>
+              <div class="parlay-title">NYG Prop Stack SGP (TEN @ NYG)</div>
+              <div class="parlay-meta">TEN @ NYG &bull; DraftKings / FanDuel</div>
+            </div>
+            <div class="parlay-odds-badge">+394</div>
+          </div>
+          <ul class="parlay-legs">
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Cam Skattebo: Over 57.5 Rushing Yards</span>
+                <span class="parlay-leg-odds">-114</span>
+              </li>
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Jameis Winston: Over 1+ Interceptions</span>
+                <span class="parlay-leg-odds">-185</span>
+              </li>
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Darnell Mooney: Over 15+ Receiving Yards</span>
+                <span class="parlay-leg-odds">-141</span>
+              </li>
+            
+          </ul>
+          <div class="parlay-rationale">Combines 3 real props extracted this week from Dustin Swedelson (VSiN), Steve Krebs (BettingPros) for TEN @ NYG.</div>
+        </div>
+        <button class="btn-load-parlay" onclick="loadPrebuiltParlay('parlay__TEN_at_NYG__nyg_stack')">
+          ⚡ Load Legs into Parlay Slip (+394)
+        </button>
+      </div>
+    
+      <div class="parlay-card" data-game="SEA @ WAS">
+        <div>
+          <div class="parlay-header">
+            <div>
+              <div class="parlay-title">SEA Prop Stack SGP (SEA @ WAS)</div>
+              <div class="parlay-meta">SEA @ WAS &bull; DraftKings / FanDuel</div>
+            </div>
+            <div class="parlay-odds-badge">+155</div>
+          </div>
+          <ul class="parlay-legs">
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Jaxon Smith-Njigba: Anytime Touchdown Scorer</span>
+                <span class="parlay-leg-odds">+100</span>
+              </li>
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Jaxon Smith-Njigba: Over 60+ Receiving Yards</span>
+                <span class="parlay-leg-odds">-364</span>
+              </li>
+            
+          </ul>
+          <div class="parlay-rationale">Combines 2 real props extracted this week from Steve Krebs (BettingPros) for SEA @ WAS.</div>
+        </div>
+        <button class="btn-load-parlay" onclick="loadPrebuiltParlay('parlay__SEA_at_WAS__sea_stack')">
+          ⚡ Load Legs into Parlay Slip (+155)
+        </button>
+      </div>
+    
+      <div class="parlay-card" data-game="KC @ MIA">
+        <div>
+          <div class="parlay-header">
+            <div>
+              <div class="parlay-title">KC Prop Stack SGP (KC @ MIA)</div>
+              <div class="parlay-meta">KC @ MIA &bull; DraftKings / FanDuel</div>
+            </div>
+            <div class="parlay-odds-badge">+123</div>
+          </div>
+          <ul class="parlay-legs">
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Kenneth Walker III: Over 80+ Rushing Yards</span>
+                <span class="parlay-leg-odds">-135</span>
+              </li>
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Emmett Johnson: Over 15+ Rushing Yards</span>
+                <span class="parlay-leg-odds">-354</span>
+              </li>
+            
+          </ul>
+          <div class="parlay-rationale">Combines 2 real props extracted this week from Steve Krebs (BettingPros) for KC @ MIA.</div>
+        </div>
+        <button class="btn-load-parlay" onclick="loadPrebuiltParlay('parlay__KC_at_MIA__kc_stack')">
+          ⚡ Load Legs into Parlay Slip (+123)
+        </button>
+      </div>
+    
+      <div class="parlay-card" data-game="CIN @ PIT">
+        <div>
+          <div class="parlay-header">
+            <div>
+              <div class="parlay-title">CIN/PIT Prop Stack SGP (CIN @ PIT)</div>
+              <div class="parlay-meta">CIN @ PIT &bull; DraftKings / FanDuel</div>
+            </div>
+            <div class="parlay-odds-badge">+258</div>
+          </div>
+          <ul class="parlay-legs">
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Pat Freiermuth: Over 36.5 Receiving Yards</span>
+                <span class="parlay-leg-odds">-114</span>
+              </li>
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Chase Brown: Anytime Touchdown Scorer</span>
+                <span class="parlay-leg-odds">-110</span>
+              </li>
+            
+          </ul>
+          <div class="parlay-rationale">Combines 2 real props extracted this week from Josh Shepardson (Sharp Football), Steve Krebs (BettingPros) for CIN @ PIT.</div>
+        </div>
+        <button class="btn-load-parlay" onclick="loadPrebuiltParlay('parlay__CIN_at_PIT__cin/pit_stack')">
+          ⚡ Load Legs into Parlay Slip (+258)
+        </button>
+      </div>
+    
+      <div class="parlay-card" data-game="NE @ JAX">
+        <div>
+          <div class="parlay-header">
+            <div>
+              <div class="parlay-title">JAX Prop Stack SGP (NE @ JAX)</div>
+              <div class="parlay-meta">NE @ JAX &bull; DraftKings / FanDuel</div>
+            </div>
+            <div class="parlay-odds-badge">-121</div>
+          </div>
+          <ul class="parlay-legs">
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Parker Washington: Over 4+ Receptions</span>
+                <span class="parlay-leg-odds">-383</span>
+              </li>
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Parker Washington: Over 50+ Receiving Yards</span>
+                <span class="parlay-leg-odds">-224</span>
+              </li>
+            
+          </ul>
+          <div class="parlay-rationale">Combines 2 real props extracted this week from Steve Krebs (BettingPros) for NE @ JAX.</div>
+        </div>
+        <button class="btn-load-parlay" onclick="loadPrebuiltParlay('parlay__NE_at_JAX__jax_stack')">
+          ⚡ Load Legs into Parlay Slip (-121)
+        </button>
+      </div>
+    
+      <div class="parlay-card" data-game="ARI @ SF">
+        <div>
+          <div class="parlay-header">
+            <div>
+              <div class="parlay-title">SF Prop Stack SGP (ARI @ SF)</div>
+              <div class="parlay-meta">ARI @ SF &bull; DraftKings / FanDuel</div>
+            </div>
+            <div class="parlay-odds-badge">+207</div>
+          </div>
+          <ul class="parlay-legs">
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Brock Purdy: Over 236.5 Passing Yards</span>
+                <span class="parlay-leg-odds">-114</span>
+              </li>
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Brock Purdy: Over 2+ 2+ Touchdowns</span>
+                <span class="parlay-leg-odds">-158</span>
+              </li>
+            
+          </ul>
+          <div class="parlay-rationale">Combines 2 real props extracted this week from Jason Radowitz (BettingPros), Steve Krebs (BettingPros) for ARI @ SF.</div>
+        </div>
+        <button class="btn-load-parlay" onclick="loadPrebuiltParlay('parlay__ARI_at_SF__sf_stack')">
+          ⚡ Load Legs into Parlay Slip (+207)
+        </button>
+      </div>
+    
+      <div class="parlay-card" data-game="HOU @ IND">
+        <div>
+          <div class="parlay-header">
+            <div>
+              <div class="parlay-title">HOU/IND Prop Stack SGP (HOU @ IND)</div>
+              <div class="parlay-meta">HOU @ IND &bull; DraftKings / FanDuel</div>
+            </div>
+            <div class="parlay-odds-badge">+219</div>
+          </div>
+          <ul class="parlay-legs">
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Xavier Hutchinson: Under 3.5 Receptions</span>
+                <span class="parlay-leg-odds">-143</span>
+              </li>
+            
+              <li class="parlay-leg">
+                <span class="parlay-leg-name">Tyler Warren: Over 44.5 Receiving Yards</span>
+                <span class="parlay-leg-odds">-114</span>
+              </li>
+            
+          </ul>
+          <div class="parlay-rationale">Combines 2 real props extracted this week from Jason Radowitz (BettingPros), Dustin Swedelson (VSiN) for HOU @ IND.</div>
+        </div>
+        <button class="btn-load-parlay" onclick="loadPrebuiltParlay('parlay__HOU_at_IND__hou/ind_stack')">
+          ⚡ Load Legs into Parlay Slip (+219)
+        </button>
+      </div>
+    
+  </div>
+
+  <!-- Master Props Table -->
+  <h2>📋 Master Player Prop Intelligence Board</h2>
+  <p style="color: #94a3b8; font-size: 13px; margin-top: -8px; margin-bottom: 16px;">
+    Check the box on any prop to build a custom parlay slip with automated combined payout math.
+  </p>
+
+  <div class="table-wrapper">
+    <table id="props-table">
+      <thead>
+        <tr>
+          <th class="checkbox-cell">Slip</th>
+          <th>Player</th>
+          <th>Team / Game</th>
+          <th>Category</th>
+          <th>Line &amp; Side</th>
+          <th>Odds</th>
+          <th>Sportsbook</th>
+          <th>Tier</th>
+          <th>Analyst / Model</th>
+          <th>Parlay Synergy &amp; Rationale</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr class="prop-row" data-game="BAL @ DAL" data-cat="passing" id="row-prop__5141__dak_prescott__passing_tds">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5141__dak_prescott__passing_tds" onchange="toggleProp('prop__5141__dak_prescott__passing_tds')">
+            </td>
+            <td>
+              <div class="cell-player">Dak Prescott</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">DAL</span>
+              <div style="font-size: 11px; color: #94a3b8;">BAL @ DAL</div>
+            </td>
+            <td>Passing TDs</td>
+            <td><span class="cell-line">1.5 OVER</span></td>
+            <td><span class="cell-odds">-140</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier1">Tier 1</span></td>
+            <td>
+              <div style="font-weight: 600;">Mike Fanelli (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Passing Volume Anchor
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                The Cowboys have one of the NFL's top passing attacks, thanks to their elite wide receiver duo. Dak Prescott had 30 passing touchdowns last year, the fourth-most in the league.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="BAL @ DAL" data-cat="rushing" id="row-prop__5141__lamar_jackson__rushing_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5141__lamar_jackson__rushing_yards" onchange="toggleProp('prop__5141__lamar_jackson__rushing_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Lamar Jackson</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">BAL</span>
+              <div style="font-size: 11px; color: #94a3b8;">BAL @ DAL</div>
+            </td>
+            <td>Rushing Yards</td>
+            <td><span class="cell-line">38.5 OVER</span></td>
+            <td><span class="cell-odds">-115</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier1">Tier 1</span></td>
+            <td>
+              <div style="font-weight: 600;">Mike Fanelli (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Ground Game Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                There might not be a more dangerous NFL quarterback in the open field than Lamar Jackson. Therefore, bettors should feel extremely comfortable with this player prop bet.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="LAC @ BUF" data-cat="passing" id="row-prop__5142__justin_herbert__completions">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5142__justin_herbert__completions" onchange="toggleProp('prop__5142__justin_herbert__completions')">
+            </td>
+            <td>
+              <div class="cell-player">Justin Herbert</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">LAC</span>
+              <div style="font-size: 11px; color: #94a3b8;">LAC @ BUF</div>
+            </td>
+            <td>Completions</td>
+            <td><span class="cell-line">21.5 UNDER</span></td>
+            <td><span class="cell-odds">-135</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier1">Tier 1</span></td>
+            <td>
+              <div style="font-weight: 600;">Steve Krebs (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Passing Volume Anchor
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                Mike McDaniel was brought in to bolster the Chargers' offense and take it to heights far exceeding those of the last few seasons. So far, that hasn't been the case whatsoever.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="LAC @ BUF" data-cat="receiving" id="row-prop__5142__dalton_kincaid__receiving_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5142__dalton_kincaid__receiving_yards" onchange="toggleProp('prop__5142__dalton_kincaid__receiving_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Dalton Kincaid</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">BUF</span>
+              <div style="font-size: 11px; color: #94a3b8;">LAC @ BUF</div>
+            </td>
+            <td>Receiving Yards</td>
+            <td><span class="cell-line">25+ OVER</span></td>
+            <td><span class="cell-odds">-620</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier1">Tier 1</span></td>
+            <td>
+              <div style="font-weight: 600;">Steve Krebs (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Pass-Catching Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                If you drafted Dalton Kincaid in your fantasy leagues, you are well aware of the season the tight end is having. Kincaid has finished with at least 95 yards and five receptions in each contest.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="SEA @ WAS" data-cat="touchdown" id="row-prop__5142__jaxon_smith_njigba__anytime_td">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5142__jaxon_smith_njigba__anytime_td" onchange="toggleProp('prop__5142__jaxon_smith_njigba__anytime_td')">
+            </td>
+            <td>
+              <div class="cell-player">Jaxon Smith-Njigba</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">SEA</span>
+              <div style="font-size: 11px; color: #94a3b8;">SEA @ WAS</div>
+            </td>
+            <td>Anytime Touchdown Scorer</td>
+            <td><span class="cell-line">Yes ANYTIME</span></td>
+            <td><span class="cell-odds">+100</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier2">Tier 2</span></td>
+            <td>
+              <div style="font-weight: 600;">Steve Krebs (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                End-Zone Target
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                And who is the dominant force in the Seattle offense, you ask? Well, none other than Jaxon Smith-Njigba.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="SEA @ WAS" data-cat="receiving" id="row-prop__5142__jaxon_smith_njigba__receiving_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5142__jaxon_smith_njigba__receiving_yards" onchange="toggleProp('prop__5142__jaxon_smith_njigba__receiving_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Jaxon Smith-Njigba</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">SEA</span>
+              <div style="font-size: 11px; color: #94a3b8;">SEA @ WAS</div>
+            </td>
+            <td>Receiving Yards</td>
+            <td><span class="cell-line">60+ OVER</span></td>
+            <td><span class="cell-odds">-364</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier2">Tier 2</span></td>
+            <td>
+              <div style="font-weight: 600;">Steve Krebs (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Pass-Catching Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                Jaxon Smith-Njigba has accumulated over 275 yards through two contests, while averaging 16.2 yards per reception. The Seahawks wide receiver saw at least 11 targets in two consecutive games and brought in 17 of his 22 targets.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="CAR @ CLE" data-cat="passing" id="row-prop__5142__bryce_young__passing_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5142__bryce_young__passing_yards" onchange="toggleProp('prop__5142__bryce_young__passing_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Bryce Young</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">CAR</span>
+              <div style="font-size: 11px; color: #94a3b8;">CAR @ CLE</div>
+            </td>
+            <td>Passing Yards</td>
+            <td><span class="cell-line">200+ OVER</span></td>
+            <td><span class="cell-odds">-191</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier2">Tier 2</span></td>
+            <td>
+              <div style="font-weight: 600;">Steve Krebs (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Passing Volume Anchor
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                Bryce Young has taken a tremendous step forward this season and continues to pile up the passing yards. Young is averaging over 300 yards per game, while throwing for six touchdowns.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="CAR @ CLE" data-cat="receiving" id="row-prop__5142__tetairoa_mcmillan__receiving_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5142__tetairoa_mcmillan__receiving_yards" onchange="toggleProp('prop__5142__tetairoa_mcmillan__receiving_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Tetairoa McMillan</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">CAR</span>
+              <div style="font-size: 11px; color: #94a3b8;">CAR @ CLE</div>
+            </td>
+            <td>Receiving Yards</td>
+            <td><span class="cell-line">40+ OVER</span></td>
+            <td><span class="cell-odds">-302</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier3">Tier 3</span></td>
+            <td>
+              <div style="font-weight: 600;">Steve Krebs (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Pass-Catching Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                Two weeks in a row, we have taken the young receiver to eclipse 40+ yards, and each time we have walked away successful. No need to switch it up until something drastically changes.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="NYJ @ DET" data-cat="receiving" id="row-prop__5142__amon_ra_st_brown__receptions">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5142__amon_ra_st_brown__receptions" onchange="toggleProp('prop__5142__amon_ra_st_brown__receptions')">
+            </td>
+            <td>
+              <div class="cell-player">Amon-Ra St. Brown</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">DET</span>
+              <div style="font-size: 11px; color: #94a3b8;">NYJ @ DET</div>
+            </td>
+            <td>Receptions</td>
+            <td><span class="cell-line">7+ OVER</span></td>
+            <td><span class="cell-odds">-149</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier3">Tier 3</span></td>
+            <td>
+              <div style="font-weight: 600;">Steve Krebs (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Pass-Catching Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                Amon-Ra St. Brown has been absolutely feasting this season, and we feel he continues to see a massive target share on Sundays.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="NYJ @ DET" data-cat="receiving" id="row-prop__5142__jameson_williams__receiving_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5142__jameson_williams__receiving_yards" onchange="toggleProp('prop__5142__jameson_williams__receiving_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Jameson Williams</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">DET</span>
+              <div style="font-size: 11px; color: #94a3b8;">NYJ @ DET</div>
+            </td>
+            <td>Receiving Yards</td>
+            <td><span class="cell-line">40+ OVER</span></td>
+            <td><span class="cell-odds">-233</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier3">Tier 3</span></td>
+            <td>
+              <div style="font-weight: 600;">Steve Krebs (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Pass-Catching Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                To close out this parlay, we are going back to the well on Jameson Williams' receiving yards. The young receiver is coming off a solid outing against the Saints and will no doubt look to keep the good fortune going.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="KC @ MIA" data-cat="rushing" id="row-prop__5142__kenneth_walker_iii__rushing_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5142__kenneth_walker_iii__rushing_yards" onchange="toggleProp('prop__5142__kenneth_walker_iii__rushing_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Kenneth Walker III</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">KC</span>
+              <div style="font-size: 11px; color: #94a3b8;">KC @ MIA</div>
+            </td>
+            <td>Rushing Yards</td>
+            <td><span class="cell-line">80+ OVER</span></td>
+            <td><span class="cell-odds">-135</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier3">Tier 3</span></td>
+            <td>
+              <div style="font-weight: 600;">Steve Krebs (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Ground Game Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                There's not too much to go over on this leg of the parlay. Kenneth Walker III is averaging 145 yards per game this season and has carried the ball at least 23 times in each of the previous two games.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="KC @ MIA" data-cat="rushing" id="row-prop__5142__emmett_johnson__rushing_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5142__emmett_johnson__rushing_yards" onchange="toggleProp('prop__5142__emmett_johnson__rushing_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Emmett Johnson</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">KC</span>
+              <div style="font-size: 11px; color: #94a3b8;">KC @ MIA</div>
+            </td>
+            <td>Rushing Yards</td>
+            <td><span class="cell-line">15+ OVER</span></td>
+            <td><span class="cell-odds">-354</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier3">Tier 3</span></td>
+            <td>
+              <div style="font-weight: 600;">Steve Krebs (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Ground Game Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                Now we get to the interesting part of this parlay. While Kenneth Walker III is providing the kind of gaudy numbers that immediately stand out, Emmett Johnson has been quietly clearing the alt line for rushing yards in two consecutive contests.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="CIN @ PIT" data-cat="touchdown" id="row-prop__5142__chase_brown__anytime_td">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5142__chase_brown__anytime_td" onchange="toggleProp('prop__5142__chase_brown__anytime_td')">
+            </td>
+            <td>
+              <div class="cell-player">Chase Brown</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">CIN</span>
+              <div style="font-size: 11px; color: #94a3b8;">CIN @ PIT</div>
+            </td>
+            <td>Anytime Touchdown Scorer</td>
+            <td><span class="cell-line">Yes ANYTIME</span></td>
+            <td><span class="cell-odds">-110</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier3">Tier 3</span></td>
+            <td>
+              <div style="font-weight: 600;">Steve Krebs (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                End-Zone Target
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                This return is very surprising, given that Chase Brown has only one touchdown this season. Truth be told, we were certainly looking for a better payout on this leg.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="CIN @ PIT" data-cat="receiving" id="row-prop__5142__tee_higgins__receiving_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5142__tee_higgins__receiving_yards" onchange="toggleProp('prop__5142__tee_higgins__receiving_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Tee Higgins</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">CIN</span>
+              <div style="font-size: 11px; color: #94a3b8;">CIN @ PIT</div>
+            </td>
+            <td>Receiving Yards</td>
+            <td><span class="cell-line">40+ OVER</span></td>
+            <td><span class="cell-odds">-253</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier3">Tier 3</span></td>
+            <td>
+              <div style="font-weight: 600;">Steve Krebs (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Pass-Catching Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                Tee Higgins has been the most reliable receiving option for the Bengals, and Pittsburgh's defense may not have an answer for the young receiver. Ja'Marr Chase will garner most of the attention, as usual.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="NE @ JAX" data-cat="receiving" id="row-prop__5142__parker_washington__receptions">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5142__parker_washington__receptions" onchange="toggleProp('prop__5142__parker_washington__receptions')">
+            </td>
+            <td>
+              <div class="cell-player">Parker Washington</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">JAX</span>
+              <div style="font-size: 11px; color: #94a3b8;">NE @ JAX</div>
+            </td>
+            <td>Receptions</td>
+            <td><span class="cell-line">4+ OVER</span></td>
+            <td><span class="cell-odds">-383</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier3">Tier 3</span></td>
+            <td>
+              <div style="font-weight: 600;">Steve Krebs (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Pass-Catching Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                With all the murkiness surrounding this contest, we felt it best to play it safe for the last two legs. Parker Washington has been one of the most consistent receivers in the league, and the clear first option for Trevor Lawrence.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="NE @ JAX" data-cat="receiving" id="row-prop__5142__parker_washington__receiving_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5142__parker_washington__receiving_yards" onchange="toggleProp('prop__5142__parker_washington__receiving_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Parker Washington</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">JAX</span>
+              <div style="font-size: 11px; color: #94a3b8;">NE @ JAX</div>
+            </td>
+            <td>Receiving Yards</td>
+            <td><span class="cell-line">50+ OVER</span></td>
+            <td><span class="cell-odds">-224</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier3">Tier 3</span></td>
+            <td>
+              <div style="font-weight: 600;">Steve Krebs (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Pass-Catching Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                The high rate of receptions has resulted in a boatload of yards. Washington has finished with 80+ yards in both games this season.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="TEN @ NYG" data-cat="passing" id="row-prop__5142__jameis_winston__interceptions">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5142__jameis_winston__interceptions" onchange="toggleProp('prop__5142__jameis_winston__interceptions')">
+            </td>
+            <td>
+              <div class="cell-player">Jameis Winston</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">NYG</span>
+              <div style="font-size: 11px; color: #94a3b8;">TEN @ NYG</div>
+            </td>
+            <td>Interceptions</td>
+            <td><span class="cell-line">1+ OVER</span></td>
+            <td><span class="cell-odds">-185</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier3">Tier 3</span></td>
+            <td>
+              <div style="font-weight: 600;">Steve Krebs (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Passing Volume Anchor
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                When Jameis Winston was called upon to take over at the quarterback position on Monday, my immediate thought was interception. Unfortunately, that was not an option at the time.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="TEN @ NYG" data-cat="receiving" id="row-prop__5142__darnell_mooney__receiving_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5142__darnell_mooney__receiving_yards" onchange="toggleProp('prop__5142__darnell_mooney__receiving_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Darnell Mooney</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">NYG</span>
+              <div style="font-size: 11px; color: #94a3b8;">TEN @ NYG</div>
+            </td>
+            <td>Receiving Yards</td>
+            <td><span class="cell-line">15+ OVER</span></td>
+            <td><span class="cell-odds">-141</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier3">Tier 3</span></td>
+            <td>
+              <div style="font-weight: 600;">Steve Krebs (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Pass-Catching Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                The quarterback situation leaves a lot to be desired. That said, Darnell Mooney seemed to be one of Jameis Winston's more reliable targets.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="ARI @ SF" data-cat="other" id="row-prop__5142__brock_purdy__other">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5142__brock_purdy__other" onchange="toggleProp('prop__5142__brock_purdy__other')">
+            </td>
+            <td>
+              <div class="cell-player">Brock Purdy</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">SF</span>
+              <div style="font-size: 11px; color: #94a3b8;">ARI @ SF</div>
+            </td>
+            <td>2+ Touchdowns</td>
+            <td><span class="cell-line">2+ OVER</span></td>
+            <td><span class="cell-odds">-158</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier3">Tier 3</span></td>
+            <td>
+              <div style="font-weight: 600;">Steve Krebs (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Complementary Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                Brock Purdy has been razor-sharp to start the season, and there's nothing about the Arizona defense to suggest it can stop the young quarterback from throwing two touchdowns. Purdy has completed over 80% of his attempts through two games and has thrown five touchdowns.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="ARI @ SF" data-cat="passing" id="row-prop__5142__brock_purdy__completions">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5142__brock_purdy__completions" onchange="toggleProp('prop__5142__brock_purdy__completions')">
+            </td>
+            <td>
+              <div class="cell-player">Brock Purdy</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">SF</span>
+              <div style="font-size: 11px; color: #94a3b8;">ARI @ SF</div>
+            </td>
+            <td>Completions</td>
+            <td><span class="cell-line">20+ OVER</span></td>
+            <td><span class="cell-odds">-156</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier3">Tier 3</span></td>
+            <td>
+              <div style="font-weight: 600;">Steve Krebs (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Passing Volume Anchor
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                Brock Purdy to complete 20+ passes at home is becoming an automatic bet. The 49ers quarterback has thrown at least 20 passes in six out of his last seven games.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="LAR @ DEN" data-cat="receiving" id="row-prop__5110__pat_bryant__receiving_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5110__pat_bryant__receiving_yards" onchange="toggleProp('prop__5110__pat_bryant__receiving_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Pat Bryant</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">DEN</span>
+              <div style="font-size: 11px; color: #94a3b8;">LAR @ DEN</div>
+            </td>
+            <td>Receiving Yards</td>
+            <td><span class="cell-line">23.5 OVER</span></td>
+            <td><span class="cell-odds">-117</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier1">Tier 1</span></td>
+            <td>
+              <div style="font-weight: 600;">Zachary Cohen (VSiN)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Pass-Catching Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                If you become a VSiN Pro subscriber, you'll have access to hundreds of OptaAI player prop projections each week. I love looking at these to see if any of them match up with my initial leans.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="LAC @ BUF" data-cat="passing" id="row-prop__4657__justin_herbert__passing_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__4657__justin_herbert__passing_yards" onchange="toggleProp('prop__4657__justin_herbert__passing_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Justin Herbert</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">LAC</span>
+              <div style="font-size: 11px; color: #94a3b8;">LAC @ BUF</div>
+            </td>
+            <td>Passing Yards</td>
+            <td><span class="cell-line">219.5 OVER</span></td>
+            <td><span class="cell-odds">-111</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier1">Tier 1</span></td>
+            <td>
+              <div style="font-weight: 600;">Zachary Cohen (VSiN)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Passing Volume Anchor
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                vs. Bills I will likely add more once I dive into the SNF and MNF games!
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="CIN @ PIT" data-cat="receiving" id="row-prop__5097__pat_freiermuth__receiving_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5097__pat_freiermuth__receiving_yards" onchange="toggleProp('prop__5097__pat_freiermuth__receiving_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Pat Freiermuth</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">PIT</span>
+              <div style="font-size: 11px; color: #94a3b8;">CIN @ PIT</div>
+            </td>
+            <td>Receiving Yards</td>
+            <td><span class="cell-line">36.5 OVER</span></td>
+            <td><span class="cell-odds">-114</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier1">Tier 1</span></td>
+            <td>
+              <div style="font-weight: 600;">Josh Shepardson (Sharp Football)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Pass-Catching Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                Oronde Gadsden Over 35.5 Receiving Yards (-114) Sharp Betting Tools: NFL Props: Lines &amp; Odds NFL Spreads, Totals, &amp; Moneylines NFL Weather Forecast &amp; Potential Impact NFL Implied Team Totals NFL Week 3 Best Prop Bet: Tony Pollard Over 48.5 Rushing Yards (-114) Week 1 is often lies, and Tennessee's play-calling could be a perfect example. According to the Fantasy Points Data Suite, the Titans led the league in pass rate over expected (12.2% PROE) in the season opener.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="LAC @ BUF" data-cat="receiving" id="row-prop__5097__oronde_gadsden__receiving_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5097__oronde_gadsden__receiving_yards" onchange="toggleProp('prop__5097__oronde_gadsden__receiving_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Oronde Gadsden</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">LAC</span>
+              <div style="font-size: 11px; color: #94a3b8;">LAC @ BUF</div>
+            </td>
+            <td>Receiving Yards</td>
+            <td><span class="cell-line">35.5 OVER</span></td>
+            <td><span class="cell-odds">-114</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier1">Tier 1</span></td>
+            <td>
+              <div style="font-weight: 600;">Josh Shepardson (Sharp Football)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Pass-Catching Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                Sharp Betting Tools: NFL Props: Lines &amp; Odds NFL Spreads, Totals, &amp; Moneylines NFL Weather Forecast &amp; Potential Impact NFL Implied Team Totals NFL Week 3 Best Prop Bet: Tony Pollard Over 48.5 Rushing Yards (-114) Week 1 is often lies, and Tennessee's play-calling could be a perfect example. According to the Fantasy Points Data Suite, the Titans led the league in pass rate over expected (12.2% PROE) in the season opener.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="TEN @ NYG" data-cat="rushing" id="row-prop__5097__tony_pollard__rushing_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5097__tony_pollard__rushing_yards" onchange="toggleProp('prop__5097__tony_pollard__rushing_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Tony Pollard</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">TEN</span>
+              <div style="font-size: 11px; color: #94a3b8;">TEN @ NYG</div>
+            </td>
+            <td>Rushing Yards</td>
+            <td><span class="cell-line">48.5 OVER</span></td>
+            <td><span class="cell-odds">-114</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier2">Tier 2</span></td>
+            <td>
+              <div style="font-weight: 600;">Josh Shepardson (Sharp Football)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Ground Game Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                Week 1 is often lies, and Tennessee's play-calling could be a perfect example. According to the Fantasy Points Data Suite, the Titans led the league in pass rate over expected (12.2% PROE) in the season opener.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="HOU @ IND" data-cat="receiving" id="row-prop__5018__xavier_hutchinson__receptions">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5018__xavier_hutchinson__receptions" onchange="toggleProp('prop__5018__xavier_hutchinson__receptions')">
+            </td>
+            <td>
+              <div class="cell-player">Xavier Hutchinson</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">HOU</span>
+              <div style="font-size: 11px; color: #94a3b8;">HOU @ IND</div>
+            </td>
+            <td>Receptions</td>
+            <td><span class="cell-line">3.5 UNDER</span></td>
+            <td><span class="cell-odds">-143</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier1">Tier 1</span></td>
+            <td>
+              <div style="font-weight: 600;">Jason Radowitz (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Pass-Catching Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                Low Vig Favorites Rushing Yards Overs in Windy Weather A lot of people are writing off the New York Giants after losing Jaxson Dart for the season. But not Cam Skattebo.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="ARI @ SF" data-cat="passing" id="row-prop__5018__brock_purdy__passing_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5018__brock_purdy__passing_yards" onchange="toggleProp('prop__5018__brock_purdy__passing_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Brock Purdy</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">SF</span>
+              <div style="font-size: 11px; color: #94a3b8;">ARI @ SF</div>
+            </td>
+            <td>Passing Yards</td>
+            <td><span class="cell-line">236.5 OVER</span></td>
+            <td><span class="cell-odds">-114</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier1">Tier 1</span></td>
+            <td>
+              <div style="font-weight: 600;">Jason Radowitz (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Passing Volume Anchor
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                Brock Purdy prop flagged by Jason Radowitz (BettingPros).
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="NYJ @ DET" data-cat="receiving" id="row-prop__5006__adonai_mitchell__receiving_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5006__adonai_mitchell__receiving_yards" onchange="toggleProp('prop__5006__adonai_mitchell__receiving_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Adonai Mitchell</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">NYJ</span>
+              <div style="font-size: 11px; color: #94a3b8;">NYJ @ DET</div>
+            </td>
+            <td>Receiving Yards</td>
+            <td><span class="cell-line">90+ OVER</span></td>
+            <td><span class="cell-odds">+445</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier1">Tier 1</span></td>
+            <td>
+              <div style="font-weight: 600;">Phil Wood (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Pass-Catching Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                Adonai Mitchell has very quietly racked up 123 receiving yards this season. But what's most exciting about his production is its consistency.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="LAC @ BUF" data-cat="other" id="row-prop__5006__omarion_hampton__other">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5006__omarion_hampton__other" onchange="toggleProp('prop__5006__omarion_hampton__other')">
+            </td>
+            <td>
+              <div class="cell-player">Omarion Hampton</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">LAC</span>
+              <div style="font-size: 11px; color: #94a3b8;">LAC @ BUF</div>
+            </td>
+            <td>2+ Touchdowns</td>
+            <td><span class="cell-line">2+ OVER</span></td>
+            <td><span class="cell-odds">+450</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier1">Tier 1</span></td>
+            <td>
+              <div style="font-weight: 600;">Phil Wood (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Complementary Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                It may seem crazy to take the running back of a 0-2 team heading on the road as 7-point underdogs to have a huge game on the ground, but this is a great matchup for Omarion Hampton. He rushed for 94 yards last week in a 12-point loss, averaging 4.1 yards per carry.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="NYJ @ DET" data-cat="touchdown" id="row-prop__5008__amon_ra_st_brown__anytime_td">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5008__amon_ra_st_brown__anytime_td" onchange="toggleProp('prop__5008__amon_ra_st_brown__anytime_td')">
+            </td>
+            <td>
+              <div class="cell-player">Amon-Ra St. Brown</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">DET</span>
+              <div style="font-size: 11px; color: #94a3b8;">NYJ @ DET</div>
+            </td>
+            <td>Anytime Touchdown Scorer</td>
+            <td><span class="cell-line">Yes ANYTIME</span></td>
+            <td><span class="cell-odds">-125</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier1">Tier 1</span></td>
+            <td>
+              <div style="font-weight: 600;">Dan Servodidio (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                End-Zone Target
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                Let's begin our touchdown-and-win parlays with the Lions hosting the Jets this weekend. Detroit should win this game at home as a 6.5-point favorite.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="MIN @ TB" data-cat="touchdown" id="row-prop__5008__emeka_egbuka__anytime_td">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5008__emeka_egbuka__anytime_td" onchange="toggleProp('prop__5008__emeka_egbuka__anytime_td')">
+            </td>
+            <td>
+              <div class="cell-player">Emeka Egbuka</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">TB</span>
+              <div style="font-size: 11px; color: #94a3b8;">MIN @ TB</div>
+            </td>
+            <td>Anytime Touchdown Scorer</td>
+            <td><span class="cell-line">Yes ANYTIME</span></td>
+            <td><span class="cell-odds">+240</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier1">Tier 1</span></td>
+            <td>
+              <div style="font-weight: 600;">Dan Servodidio (BettingPros)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                End-Zone Target
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                It's desperation time for the Buccaneers after their 0-2 start to the season. Tampa Bay was favored to win the NFC South before this year, but public opinion of the squad has unsurprisingly changed.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="BAL @ DAL" data-cat="receiving" id="row-prop__5004__zay_flowers__receiving_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5004__zay_flowers__receiving_yards" onchange="toggleProp('prop__5004__zay_flowers__receiving_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Zay Flowers</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">BAL</span>
+              <div style="font-size: 11px; color: #94a3b8;">BAL @ DAL</div>
+            </td>
+            <td>Receiving Yards</td>
+            <td><span class="cell-line">90+ OVER</span></td>
+            <td><span class="cell-odds">+154</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier1">Tier 1</span></td>
+            <td>
+              <div style="font-weight: 600;">Ben Solak, Seth Walder and Matt Bowen (ESPN NFL)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Pass-Catching Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                I have all of the Flowers overs and alts for similar reasons listed above. Flowers was red hot in Week 1, with five catches for 150 yards and a score on six targets in just the first half against Indianapolis.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="NYJ @ DET" data-cat="passing" id="row-prop__5004__geno_smith__passing_tds">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__5004__geno_smith__passing_tds" onchange="toggleProp('prop__5004__geno_smith__passing_tds')">
+            </td>
+            <td>
+              <div class="cell-player">Geno Smith</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">NYJ</span>
+              <div style="font-size: 11px; color: #94a3b8;">NYJ @ DET</div>
+            </td>
+            <td>Passing TDs</td>
+            <td><span class="cell-line">2+ OVER</span></td>
+            <td><span class="cell-odds">+157</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier1">Tier 1</span></td>
+            <td>
+              <div style="font-weight: 600;">Ben Solak, Seth Walder and Matt Bowen (ESPN NFL)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Passing Volume Anchor
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                There's huge familiarity here between Detroit Lions head coach Dan Campbell and New York Jets head coach Aaron Glenn, who was Campbell's defensive coordinator in Detroit for three seasons. Glenn's linebackers coach, Kelvin Sheppard, has replaced him and runs a similar, but slightly more versatile defense.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="HOU @ IND" data-cat="receiving" id="row-prop__4982__tyler_warren__receiving_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__4982__tyler_warren__receiving_yards" onchange="toggleProp('prop__4982__tyler_warren__receiving_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Tyler Warren</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">IND</span>
+              <div style="font-size: 11px; color: #94a3b8;">HOU @ IND</div>
+            </td>
+            <td>Receiving Yards</td>
+            <td><span class="cell-line">44.5 OVER</span></td>
+            <td><span class="cell-odds">-114</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier1">Tier 1</span></td>
+            <td>
+              <div style="font-weight: 600;">Dustin Swedelson (VSiN)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Pass-Catching Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                Houston has allowed the fifth-most receiving yards per game to opposing tight ends to start the season. Almost all of that damage came in Week 1, when Buffalo’s Dalton Kincaid caught five passes for 130 yards, but it’s still an appealing setup for Tyler Warren.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="TEN @ NYG" data-cat="rushing" id="row-prop__4982__cam_skattebo__rushing_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__4982__cam_skattebo__rushing_yards" onchange="toggleProp('prop__4982__cam_skattebo__rushing_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Cam Skattebo</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">NYG</span>
+              <div style="font-size: 11px; color: #94a3b8;">TEN @ NYG</div>
+            </td>
+            <td>Rushing Yards</td>
+            <td><span class="cell-line">57.5 OVER</span></td>
+            <td><span class="cell-odds">-114</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier1">Tier 1</span></td>
+            <td>
+              <div style="font-weight: 600;">Dustin Swedelson (VSiN)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Ground Game Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                The Giants will be without Jaxson Dart this week, but despite movement from the opening numbers, New York is still favored against Tennessee. I like correlating rushing props with favorites whenever I can, and this number feels heavily discounted for Cam Skattebo given the matchup and New York’s quarterback situation.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="CAR @ CLE" data-cat="rushing" id="row-prop__4982__chuba_hubbard__rush_attempts">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__4982__chuba_hubbard__rush_attempts" onchange="toggleProp('prop__4982__chuba_hubbard__rush_attempts')">
+            </td>
+            <td>
+              <div class="cell-player">Chuba Hubbard</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">CAR</span>
+              <div style="font-size: 11px; color: #94a3b8;">CAR @ CLE</div>
+            </td>
+            <td>Rush Attempts</td>
+            <td><span class="cell-line">16.5 OVER</span></td>
+            <td><span class="cell-odds">-130</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier2">Tier 2</span></td>
+            <td>
+              <div style="font-weight: 600;">Dustin Swedelson (VSiN)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Ground Game Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                Cleveland was respectable against the run last season. This year?
+              </div>
+            </td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Floating Parlay Slip Drawer -->
+<div class="parlay-slip-drawer" id="parlay-slip">
+  <div class="slip-header" onclick="toggleSlipDrawer()">
+    <h3>🎯 Active Parlay Slip <span class="slip-count-badge" id="slip-count">0</span></h3>
+    <span id="drawer-toggle-icon" style="color: #94a3b8; font-size: 14px;">&minus;</span>
+  </div>
+  <div class="slip-content" id="slip-items">
+    <div class="slip-empty">No props selected yet.<br>Click checkboxes in the table above to add legs!</div>
+  </div>
+  <div class="slip-footer">
+    <div class="slip-summary-row">
+      <span class="slip-odds-label">Total Parlay Odds:</span>
+      <span class="slip-odds-val" id="slip-total-odds">+0</span>
+    </div>
+    <div class="slip-payout-text" id="slip-payout-math">$10 bet pays $0.00 | $25 pays $0.00</div>
+    <div class="slip-actions">
+      <button class="btn-slip-action btn-copy" onclick="copyParlaySlip()">📋 Copy Ticket</button>
+      <button class="btn-slip-action btn-clear" onclick="clearParlaySlip()">Clear All</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const ALL_PROPS = [{"id":"prop__5141__dak_prescott__passing_tds","player":"Dak Prescott","team":"DAL","game":"BAL @ DAL","game_slate":"Sunday Late Window","category":"passing_tds","category_label":"Passing TDs","stat_type":"passing","line":"1.5","side":"over","price":"-140","book":"DraftKings/FanDuel (per source article)","analyst":"Mike Fanelli (BettingPros)","source_article_id":5141,"source_url":"https://www.bettingpros.com/articles/nfl-week-3-player-props-bets-ravens-vs-cowboys-international-series/","rationale":"The Cowboys have one of the NFL's top passing attacks, thanks to their elite wide receiver duo. Dak Prescott had 30 passing touchdowns last year, the fourth-most in the league.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Passing Volume Anchor","synergy_tags":["passing_tds","DAL_offense"],"positive_correlations":[]}},{"id":"prop__5141__lamar_jackson__rushing_yards","player":"Lamar Jackson","team":"BAL","game":"BAL @ DAL","game_slate":"Sunday Late Window","category":"rushing_yards","category_label":"Rushing Yards","stat_type":"rushing","line":"38.5","side":"over","price":"-115","book":"DraftKings/FanDuel (per source article)","analyst":"Mike Fanelli (BettingPros)","source_article_id":5141,"source_url":"https://www.bettingpros.com/articles/nfl-week-3-player-props-bets-ravens-vs-cowboys-international-series/","rationale":"There might not be a more dangerous NFL quarterback in the open field than Lamar Jackson. Therefore, bettors should feel extremely comfortable with this player prop bet.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Ground Game Piece","synergy_tags":["rushing_yards","BAL_offense"],"positive_correlations":["Zay Flowers Receiving Yards"]}},{"id":"prop__5142__justin_herbert__completions","player":"Justin Herbert","team":"LAC","game":"LAC @ BUF","game_slate":"Sunday Early Window","category":"completions","category_label":"Completions","stat_type":"passing","line":"21.5","side":"under","price":"-135","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"Mike McDaniel was brought in to bolster the Chargers' offense and take it to heights far exceeding those of the last few seasons. So far, that hasn't been the case whatsoever.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Passing Volume Anchor","synergy_tags":["completions","LAC_offense"],"positive_correlations":[]}},{"id":"prop__5142__dalton_kincaid__receiving_yards","player":"Dalton Kincaid","team":"BUF","game":"LAC @ BUF","game_slate":"Sunday Early Window","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"25+","side":"over","price":"-620","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"If you drafted Dalton Kincaid in your fantasy leagues, you are well aware of the season the tight end is having. Kincaid has finished with at least 95 yards and five receptions in each contest.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","BUF_offense"],"positive_correlations":[]}},{"id":"prop__5142__jaxon_smith_njigba__anytime_td","player":"Jaxon Smith-Njigba","team":"SEA","game":"SEA @ WAS","game_slate":"Sunday Early Window","category":"anytime_td","category_label":"Anytime Touchdown Scorer","stat_type":"touchdown","line":"Yes","side":"anytime","price":"+100","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"And who is the dominant force in the Seattle offense, you ask? Well, none other than Jaxon Smith-Njigba.","week":3,"tier":2,"tier_label":"Tier 2: Secondary Pick","weight":0.7,"parlay_utility":{"role":"End-Zone Target","synergy_tags":["anytime_td","SEA_offense"],"positive_correlations":["Jaxon Smith-Njigba Receiving Yards"]}},{"id":"prop__5142__jaxon_smith_njigba__receiving_yards","player":"Jaxon Smith-Njigba","team":"SEA","game":"SEA @ WAS","game_slate":"Sunday Early Window","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"60+","side":"over","price":"-364","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"Jaxon Smith-Njigba has accumulated over 275 yards through two contests, while averaging 16.2 yards per reception. The Seahawks wide receiver saw at least 11 targets in two consecutive games and brought in 17 of his 22 targets.","week":3,"tier":2,"tier_label":"Tier 2: Secondary Pick","weight":0.7,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","SEA_offense"],"positive_correlations":["Jaxon Smith-Njigba Anytime Touchdown Scorer"]}},{"id":"prop__5142__bryce_young__passing_yards","player":"Bryce Young","team":"CAR","game":"CAR @ CLE","game_slate":"Sunday Early Window","category":"passing_yards","category_label":"Passing Yards","stat_type":"passing","line":"200+","side":"over","price":"-191","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"Bryce Young has taken a tremendous step forward this season and continues to pile up the passing yards. Young is averaging over 300 yards per game, while throwing for six touchdowns.","week":3,"tier":2,"tier_label":"Tier 2: Secondary Pick","weight":0.7,"parlay_utility":{"role":"Passing Volume Anchor","synergy_tags":["passing_yards","CAR_offense"],"positive_correlations":["Tetairoa McMillan Receiving Yards","Chuba Hubbard Rush Attempts"]}},{"id":"prop__5142__tetairoa_mcmillan__receiving_yards","player":"Tetairoa McMillan","team":"CAR","game":"CAR @ CLE","game_slate":"Sunday Early Window","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"40+","side":"over","price":"-302","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"Two weeks in a row, we have taken the young receiver to eclipse 40+ yards, and each time we have walked away successful. No need to switch it up until something drastically changes.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","CAR_offense"],"positive_correlations":["Bryce Young Passing Yards","Chuba Hubbard Rush Attempts"]}},{"id":"prop__5142__amon_ra_st_brown__receptions","player":"Amon-Ra St. Brown","team":"DET","game":"NYJ @ DET","game_slate":"Sunday Early Window","category":"receptions","category_label":"Receptions","stat_type":"receiving","line":"7+","side":"over","price":"-149","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"Amon-Ra St. Brown has been absolutely feasting this season, and we feel he continues to see a massive target share on Sundays.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receptions","DET_offense"],"positive_correlations":["Jameson Williams Receiving Yards","Amon-Ra St. Brown Anytime Touchdown Scorer"]}},{"id":"prop__5142__jameson_williams__receiving_yards","player":"Jameson Williams","team":"DET","game":"NYJ @ DET","game_slate":"Sunday Early Window","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"40+","side":"over","price":"-233","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"To close out this parlay, we are going back to the well on Jameson Williams' receiving yards. The young receiver is coming off a solid outing against the Saints and will no doubt look to keep the good fortune going.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","DET_offense"],"positive_correlations":["Amon-Ra St. Brown Receptions","Amon-Ra St. Brown Anytime Touchdown Scorer"]}},{"id":"prop__5142__kenneth_walker_iii__rushing_yards","player":"Kenneth Walker III","team":"KC","game":"KC @ MIA","game_slate":"Sunday Early Window","category":"rushing_yards","category_label":"Rushing Yards","stat_type":"rushing","line":"80+","side":"over","price":"-135","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"There's not too much to go over on this leg of the parlay. Kenneth Walker III is averaging 145 yards per game this season and has carried the ball at least 23 times in each of the previous two games.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"Ground Game Piece","synergy_tags":["rushing_yards","KC_offense"],"positive_correlations":["Emmett Johnson Rushing Yards"]}},{"id":"prop__5142__emmett_johnson__rushing_yards","player":"Emmett Johnson","team":"KC","game":"KC @ MIA","game_slate":"Sunday Early Window","category":"rushing_yards","category_label":"Rushing Yards","stat_type":"rushing","line":"15+","side":"over","price":"-354","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"Now we get to the interesting part of this parlay. While Kenneth Walker III is providing the kind of gaudy numbers that immediately stand out, Emmett Johnson has been quietly clearing the alt line for rushing yards in two consecutive contests.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"Ground Game Piece","synergy_tags":["rushing_yards","KC_offense"],"positive_correlations":["Kenneth Walker III Rushing Yards"]}},{"id":"prop__5142__chase_brown__anytime_td","player":"Chase Brown","team":"CIN","game":"CIN @ PIT","game_slate":"Sunday Early Window","category":"anytime_td","category_label":"Anytime Touchdown Scorer","stat_type":"touchdown","line":"Yes","side":"anytime","price":"-110","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"This return is very surprising, given that Chase Brown has only one touchdown this season. Truth be told, we were certainly looking for a better payout on this leg.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"End-Zone Target","synergy_tags":["anytime_td","CIN_offense"],"positive_correlations":["Tee Higgins Receiving Yards"]}},{"id":"prop__5142__tee_higgins__receiving_yards","player":"Tee Higgins","team":"CIN","game":"CIN @ PIT","game_slate":"Sunday Early Window","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"40+","side":"over","price":"-253","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"Tee Higgins has been the most reliable receiving option for the Bengals, and Pittsburgh's defense may not have an answer for the young receiver. Ja'Marr Chase will garner most of the attention, as usual.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","CIN_offense"],"positive_correlations":["Chase Brown Anytime Touchdown Scorer"]}},{"id":"prop__5142__parker_washington__receptions","player":"Parker Washington","team":"JAX","game":"NE @ JAX","game_slate":"Sunday Early Window","category":"receptions","category_label":"Receptions","stat_type":"receiving","line":"4+","side":"over","price":"-383","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"With all the murkiness surrounding this contest, we felt it best to play it safe for the last two legs. Parker Washington has been one of the most consistent receivers in the league, and the clear first option for Trevor Lawrence.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receptions","JAX_offense"],"positive_correlations":["Parker Washington Receiving Yards"]}},{"id":"prop__5142__parker_washington__receiving_yards","player":"Parker Washington","team":"JAX","game":"NE @ JAX","game_slate":"Sunday Early Window","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"50+","side":"over","price":"-224","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"The high rate of receptions has resulted in a boatload of yards. Washington has finished with 80+ yards in both games this season.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","JAX_offense"],"positive_correlations":["Parker Washington Receptions"]}},{"id":"prop__5142__jameis_winston__interceptions","player":"Jameis Winston","team":"NYG","game":"TEN @ NYG","game_slate":"Sunday Early Window","category":"interceptions","category_label":"Interceptions","stat_type":"passing","line":"1+","side":"over","price":"-185","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"When Jameis Winston was called upon to take over at the quarterback position on Monday, my immediate thought was interception. Unfortunately, that was not an option at the time.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"Passing Volume Anchor","synergy_tags":["interceptions","NYG_offense"],"positive_correlations":["Darnell Mooney Receiving Yards","Cam Skattebo Rushing Yards"]}},{"id":"prop__5142__darnell_mooney__receiving_yards","player":"Darnell Mooney","team":"NYG","game":"TEN @ NYG","game_slate":"Sunday Early Window","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"15+","side":"over","price":"-141","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"The quarterback situation leaves a lot to be desired. That said, Darnell Mooney seemed to be one of Jameis Winston's more reliable targets.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","NYG_offense"],"positive_correlations":["Jameis Winston Interceptions","Cam Skattebo Rushing Yards"]}},{"id":"prop__5142__brock_purdy__other","player":"Brock Purdy","team":"SF","game":"ARI @ SF","game_slate":"Sunday Late Window","category":"other","category_label":"2+ Touchdowns","stat_type":"other","line":"2+","side":"over","price":"-158","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"Brock Purdy has been razor-sharp to start the season, and there's nothing about the Arizona defense to suggest it can stop the young quarterback from throwing two touchdowns. Purdy has completed over 80% of his attempts through two games and has thrown five touchdowns.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"Complementary Piece","synergy_tags":["other","SF_offense"],"positive_correlations":["Brock Purdy Completions","Brock Purdy Passing Yards"]}},{"id":"prop__5142__brock_purdy__completions","player":"Brock Purdy","team":"SF","game":"ARI @ SF","game_slate":"Sunday Late Window","category":"completions","category_label":"Completions","stat_type":"passing","line":"20+","side":"over","price":"-156","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"Brock Purdy to complete 20+ passes at home is becoming an automatic bet. The 49ers quarterback has thrown at least 20 passes in six out of his last seven games.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"Passing Volume Anchor","synergy_tags":["completions","SF_offense"],"positive_correlations":["Brock Purdy 2+ Touchdowns","Brock Purdy Passing Yards"]}},{"id":"prop__5110__pat_bryant__receiving_yards","player":"Pat Bryant","team":"DEN","game":"LAR @ DEN","game_slate":"Sunday Night Football","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"23.5","side":"over","price":"-117","book":"DraftKings/FanDuel (per source article)","analyst":"Zachary Cohen (VSiN)","source_article_id":5110,"source_url":"https://vsin.com/nfl/rams-vs-broncos-predictions-week-3-sunday-night-football-odds-picks-and-player-props/","rationale":"If you become a VSiN Pro subscriber, you'll have access to hundreds of OptaAI player prop projections each week. I love looking at these to see if any of them match up with my initial leans.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","DEN_offense"],"positive_correlations":[]}},{"id":"prop__4657__justin_herbert__passing_yards","player":"Justin Herbert","team":"LAC","game":"LAC @ BUF","game_slate":"Sunday Early Window","category":"passing_yards","category_label":"Passing Yards","stat_type":"passing","line":"219.5","side":"over","price":"-111","book":"DraftKings/FanDuel (per source article)","analyst":"Zachary Cohen (VSiN)","source_article_id":4657,"source_url":"https://vsin.com/nfl/expert-nfl-picks-week-3-best-bets-predictions-and-player-props-from-zachary-cohen/","rationale":"vs. Bills I will likely add more once I dive into the SNF and MNF games!","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Passing Volume Anchor","synergy_tags":["passing_yards","LAC_offense"],"positive_correlations":["Oronde Gadsden Receiving Yards","Omarion Hampton 2+ Touchdowns"]}},{"id":"prop__5097__pat_freiermuth__receiving_yards","player":"Pat Freiermuth","team":"PIT","game":"CIN @ PIT","game_slate":"Sunday Early Window","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"36.5","side":"over","price":"-114","book":"DraftKings/FanDuel (per source article)","analyst":"Josh Shepardson (Sharp Football)","source_article_id":5097,"source_url":"https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-3-2026/","rationale":"Oronde Gadsden Over 35.5 Receiving Yards (-114) Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 3 Best Prop Bet: Tony Pollard Over 48.5 Rushing Yards (-114) Week 1 is often lies, and Tennessee's play-calling could be a perfect example. According to the Fantasy Points Data Suite, the Titans led the league in pass rate over expected (12.2% PROE) in the season opener.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","PIT_offense"],"positive_correlations":[]}},{"id":"prop__5097__oronde_gadsden__receiving_yards","player":"Oronde Gadsden","team":"LAC","game":"LAC @ BUF","game_slate":"Sunday Early Window","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"35.5","side":"over","price":"-114","book":"DraftKings/FanDuel (per source article)","analyst":"Josh Shepardson (Sharp Football)","source_article_id":5097,"source_url":"https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-3-2026/","rationale":"Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 3 Best Prop Bet: Tony Pollard Over 48.5 Rushing Yards (-114) Week 1 is often lies, and Tennessee's play-calling could be a perfect example. According to the Fantasy Points Data Suite, the Titans led the league in pass rate over expected (12.2% PROE) in the season opener.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","LAC_offense"],"positive_correlations":["Justin Herbert Passing Yards","Omarion Hampton 2+ Touchdowns"]}},{"id":"prop__5097__tony_pollard__rushing_yards","player":"Tony Pollard","team":"TEN","game":"TEN @ NYG","game_slate":"Sunday Early Window","category":"rushing_yards","category_label":"Rushing Yards","stat_type":"rushing","line":"48.5","side":"over","price":"-114","book":"DraftKings/FanDuel (per source article)","analyst":"Josh Shepardson (Sharp Football)","source_article_id":5097,"source_url":"https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-3-2026/","rationale":"Week 1 is often lies, and Tennessee's play-calling could be a perfect example. According to the Fantasy Points Data Suite, the Titans led the league in pass rate over expected (12.2% PROE) in the season opener.","week":3,"tier":2,"tier_label":"Tier 2: Secondary Pick","weight":0.7,"parlay_utility":{"role":"Ground Game Piece","synergy_tags":["rushing_yards","TEN_offense"],"positive_correlations":[]}},{"id":"prop__5018__xavier_hutchinson__receptions","player":"Xavier Hutchinson","team":"HOU","game":"HOU @ IND","game_slate":"Sunday Early Window","category":"receptions","category_label":"Receptions","stat_type":"receiving","line":"3.5","side":"under","price":"-143","book":"DraftKings/FanDuel (per source article)","analyst":"Jason Radowitz (BettingPros)","source_article_id":5018,"source_url":"https://www.bettingpros.com/articles/best-nfl-bets-for-week-3-2026/","rationale":"Low Vig Favorites Rushing Yards Overs in Windy Weather A lot of people are writing off the New York Giants after losing Jaxson Dart for the season. But not Cam Skattebo.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receptions","HOU_offense"],"positive_correlations":[]}},{"id":"prop__5018__brock_purdy__passing_yards","player":"Brock Purdy","team":"SF","game":"ARI @ SF","game_slate":"Sunday Late Window","category":"passing_yards","category_label":"Passing Yards","stat_type":"passing","line":"236.5","side":"over","price":"-114","book":"DraftKings/FanDuel (per source article)","analyst":"Jason Radowitz (BettingPros)","source_article_id":5018,"source_url":"https://www.bettingpros.com/articles/best-nfl-bets-for-week-3-2026/","rationale":"Brock Purdy prop flagged by Jason Radowitz (BettingPros).","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Passing Volume Anchor","synergy_tags":["passing_yards","SF_offense"],"positive_correlations":["Brock Purdy 2+ Touchdowns","Brock Purdy Completions"]}},{"id":"prop__5006__adonai_mitchell__receiving_yards","player":"Adonai Mitchell","team":"NYJ","game":"NYJ @ DET","game_slate":"Sunday Early Window","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"90+","side":"over","price":"+445","book":"DraftKings/FanDuel (per source article)","analyst":"Phil Wood (BettingPros)","source_article_id":5006,"source_url":"https://www.bettingpros.com/articles/nfl-week-3-picks-sleepers-longshot-bets-2026/","rationale":"Adonai Mitchell has very quietly racked up 123 receiving yards this season. But what's most exciting about his production is its consistency.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","NYJ_offense"],"positive_correlations":["Geno Smith Passing TDs"]}},{"id":"prop__5006__omarion_hampton__other","player":"Omarion Hampton","team":"LAC","game":"LAC @ BUF","game_slate":"Sunday Early Window","category":"other","category_label":"2+ Touchdowns","stat_type":"other","line":"2+","side":"over","price":"+450","book":"DraftKings/FanDuel (per source article)","analyst":"Phil Wood (BettingPros)","source_article_id":5006,"source_url":"https://www.bettingpros.com/articles/nfl-week-3-picks-sleepers-longshot-bets-2026/","rationale":"It may seem crazy to take the running back of a 0-2 team heading on the road as 7-point underdogs to have a huge game on the ground, but this is a great matchup for Omarion Hampton. He rushed for 94 yards last week in a 12-point loss, averaging 4.1 yards per carry.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Complementary Piece","synergy_tags":["other","LAC_offense"],"positive_correlations":["Justin Herbert Passing Yards","Oronde Gadsden Receiving Yards"]}},{"id":"prop__5008__amon_ra_st_brown__anytime_td","player":"Amon-Ra St. Brown","team":"DET","game":"NYJ @ DET","game_slate":"Sunday Early Window","category":"anytime_td","category_label":"Anytime Touchdown Scorer","stat_type":"touchdown","line":"Yes","side":"anytime","price":"-125","book":"DraftKings/FanDuel (per source article)","analyst":"Dan Servodidio (BettingPros)","source_article_id":5008,"source_url":"https://www.bettingpros.com/articles/nfl-week-3-anytime-td-scorer-win-parlays-2026/","rationale":"Let's begin our touchdown-and-win parlays with the Lions hosting the Jets this weekend. Detroit should win this game at home as a 6.5-point favorite.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"End-Zone Target","synergy_tags":["anytime_td","DET_offense"],"positive_correlations":["Amon-Ra St. Brown Receptions","Jameson Williams Receiving Yards"]}},{"id":"prop__5008__emeka_egbuka__anytime_td","player":"Emeka Egbuka","team":"TB","game":"MIN @ TB","game_slate":"Sunday Late Window","category":"anytime_td","category_label":"Anytime Touchdown Scorer","stat_type":"touchdown","line":"Yes","side":"anytime","price":"+240","book":"DraftKings/FanDuel (per source article)","analyst":"Dan Servodidio (BettingPros)","source_article_id":5008,"source_url":"https://www.bettingpros.com/articles/nfl-week-3-anytime-td-scorer-win-parlays-2026/","rationale":"It's desperation time for the Buccaneers after their 0-2 start to the season. Tampa Bay was favored to win the NFC South before this year, but public opinion of the squad has unsurprisingly changed.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"End-Zone Target","synergy_tags":["anytime_td","TB_offense"],"positive_correlations":[]}},{"id":"prop__5004__zay_flowers__receiving_yards","player":"Zay Flowers","team":"BAL","game":"BAL @ DAL","game_slate":"Sunday Late Window","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"90+","side":"over","price":"+154","book":"DraftKings/FanDuel (per source article)","analyst":"Ben Solak, Seth Walder and Matt Bowen (ESPN NFL)","source_article_id":5004,"source_url":"https://www.espn.com/espn/betting/story/_/id/49997133/week-3-nfl-odds-spreads-lines-props-best-bets-sunday-football-games","rationale":"I have all of the Flowers overs and alts for similar reasons listed above. Flowers was red hot in Week 1, with five catches for 150 yards and a score on six targets in just the first half against Indianapolis.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","BAL_offense"],"positive_correlations":["Lamar Jackson Rushing Yards"]}},{"id":"prop__5004__geno_smith__passing_tds","player":"Geno Smith","team":"NYJ","game":"NYJ @ DET","game_slate":"Sunday Early Window","category":"passing_tds","category_label":"Passing TDs","stat_type":"passing","line":"2+","side":"over","price":"+157","book":"DraftKings/FanDuel (per source article)","analyst":"Ben Solak, Seth Walder and Matt Bowen (ESPN NFL)","source_article_id":5004,"source_url":"https://www.espn.com/espn/betting/story/_/id/49997133/week-3-nfl-odds-spreads-lines-props-best-bets-sunday-football-games","rationale":"There's huge familiarity here between Detroit Lions head coach Dan Campbell and New York Jets head coach Aaron Glenn, who was Campbell's defensive coordinator in Detroit for three seasons. Glenn's linebackers coach, Kelvin Sheppard, has replaced him and runs a similar, but slightly more versatile defense.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Passing Volume Anchor","synergy_tags":["passing_tds","NYJ_offense"],"positive_correlations":["Adonai Mitchell Receiving Yards"]}},{"id":"prop__4982__tyler_warren__receiving_yards","player":"Tyler Warren","team":"IND","game":"HOU @ IND","game_slate":"Sunday Early Window","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"44.5","side":"over","price":"-114","book":"DraftKings/FanDuel (per source article)","analyst":"Dustin Swedelson (VSiN)","source_article_id":4982,"source_url":"https://vsin.com/nfl/favorite-week-3-nfl-player-props-from-dustin-swedelson-and-optaai/","rationale":"Houston has allowed the fifth-most receiving yards per game to opposing tight ends to start the season. Almost all of that damage came in Week 1, when Buffalo’s Dalton Kincaid caught five passes for 130 yards, but it’s still an appealing setup for Tyler Warren.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","IND_offense"],"positive_correlations":[]}},{"id":"prop__4982__cam_skattebo__rushing_yards","player":"Cam Skattebo","team":"NYG","game":"TEN @ NYG","game_slate":"Sunday Early Window","category":"rushing_yards","category_label":"Rushing Yards","stat_type":"rushing","line":"57.5","side":"over","price":"-114","book":"DraftKings/FanDuel (per source article)","analyst":"Dustin Swedelson (VSiN)","source_article_id":4982,"source_url":"https://vsin.com/nfl/favorite-week-3-nfl-player-props-from-dustin-swedelson-and-optaai/","rationale":"The Giants will be without Jaxson Dart this week, but despite movement from the opening numbers, New York is still favored against Tennessee. I like correlating rushing props with favorites whenever I can, and this number feels heavily discounted for Cam Skattebo given the matchup and New York’s quarterback situation.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Ground Game Piece","synergy_tags":["rushing_yards","NYG_offense"],"positive_correlations":["Jameis Winston Interceptions","Darnell Mooney Receiving Yards"]}},{"id":"prop__4982__chuba_hubbard__rush_attempts","player":"Chuba Hubbard","team":"CAR","game":"CAR @ CLE","game_slate":"Sunday Early Window","category":"rush_attempts","category_label":"Rush Attempts","stat_type":"rushing","line":"16.5","side":"over","price":"-130","book":"DraftKings/FanDuel (per source article)","analyst":"Dustin Swedelson (VSiN)","source_article_id":4982,"source_url":"https://vsin.com/nfl/favorite-week-3-nfl-player-props-from-dustin-swedelson-and-optaai/","rationale":"Cleveland was respectable against the run last season. This year?","week":3,"tier":2,"tier_label":"Tier 2: Secondary Pick","weight":0.7,"parlay_utility":{"role":"Ground Game Piece","synergy_tags":["rush_attempts","CAR_offense"],"positive_correlations":["Bryce Young Passing Yards","Tetairoa McMillan Receiving Yards"]}}];
+  const PREBUILT_CARDS = [{"id":"parlay__BAL_at_DAL__bal/dal_stack","title":"BAL/DAL Prop Stack SGP (BAL @ DAL)","game":"BAL @ DAL","game_slate":"Sunday Late Window","type":"same_game_parlay","book":"DraftKings / FanDuel","leg_count":3,"legs":[{"id":"prop__5141__dak_prescott__passing_tds","player":"Dak Prescott","team":"DAL","game":"BAL @ DAL","game_slate":"Sunday Late Window","category":"passing_tds","category_label":"Passing TDs","stat_type":"passing","line":"1.5","side":"over","price":"-140","book":"DraftKings/FanDuel (per source article)","analyst":"Mike Fanelli (BettingPros)","source_article_id":5141,"source_url":"https://www.bettingpros.com/articles/nfl-week-3-player-props-bets-ravens-vs-cowboys-international-series/","rationale":"The Cowboys have one of the NFL's top passing attacks, thanks to their elite wide receiver duo. Dak Prescott had 30 passing touchdowns last year, the fourth-most in the league.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Passing Volume Anchor","synergy_tags":["passing_tds","DAL_offense"],"positive_correlations":[]},"selection":"Over 1.5 Passing TDs"},{"id":"prop__5141__lamar_jackson__rushing_yards","player":"Lamar Jackson","team":"BAL","game":"BAL @ DAL","game_slate":"Sunday Late Window","category":"rushing_yards","category_label":"Rushing Yards","stat_type":"rushing","line":"38.5","side":"over","price":"-115","book":"DraftKings/FanDuel (per source article)","analyst":"Mike Fanelli (BettingPros)","source_article_id":5141,"source_url":"https://www.bettingpros.com/articles/nfl-week-3-player-props-bets-ravens-vs-cowboys-international-series/","rationale":"There might not be a more dangerous NFL quarterback in the open field than Lamar Jackson. Therefore, bettors should feel extremely comfortable with this player prop bet.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Ground Game Piece","synergy_tags":["rushing_yards","BAL_offense"],"positive_correlations":["Zay Flowers Receiving Yards"]},"selection":"Over 38.5 Rushing Yards"},{"id":"prop__5004__zay_flowers__receiving_yards","player":"Zay Flowers","team":"BAL","game":"BAL @ DAL","game_slate":"Sunday Late Window","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"90+","side":"over","price":"+154","book":"DraftKings/FanDuel (per source article)","analyst":"Ben Solak, Seth Walder and Matt Bowen (ESPN NFL)","source_article_id":5004,"source_url":"https://www.espn.com/espn/betting/story/_/id/49997133/week-3-nfl-odds-spreads-lines-props-best-bets-sunday-football-games","rationale":"I have all of the Flowers overs and alts for similar reasons listed above. Flowers was red hot in Week 1, with five catches for 150 yards and a score on six targets in just the first half against Indianapolis.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","BAL_offense"],"positive_correlations":["Lamar Jackson Rushing Yards"]},"selection":"Over 90+ Receiving Yards"}],"estimated_odds":"+714","payout_multiplier":"8.14x","payout_on_10":"$81.41","payout_on_25":"$203.53","correlation_rating":"Cross-Team Game Stack","synergy_rationale":"Combines 3 real props extracted this week from Mike Fanelli (BettingPros), Ben Solak, Seth Walder and Matt Bowen (ESPN NFL) for BAL @ DAL."},{"id":"parlay__LAC_at_BUF__lac/buf_stack","title":"LAC/BUF Prop Stack SGP (LAC @ BUF)","game":"LAC @ BUF","game_slate":"Sunday Early Window","type":"same_game_parlay","book":"DraftKings / FanDuel","leg_count":3,"legs":[{"id":"prop__5142__justin_herbert__completions","player":"Justin Herbert","team":"LAC","game":"LAC @ BUF","game_slate":"Sunday Early Window","category":"completions","category_label":"Completions","stat_type":"passing","line":"21.5","side":"under","price":"-135","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"Mike McDaniel was brought in to bolster the Chargers' offense and take it to heights far exceeding those of the last few seasons. So far, that hasn't been the case whatsoever.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Passing Volume Anchor","synergy_tags":["completions","LAC_offense"],"positive_correlations":[]},"selection":"Under 21.5 Completions"},{"id":"prop__5142__dalton_kincaid__receiving_yards","player":"Dalton Kincaid","team":"BUF","game":"LAC @ BUF","game_slate":"Sunday Early Window","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"25+","side":"over","price":"-620","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"If you drafted Dalton Kincaid in your fantasy leagues, you are well aware of the season the tight end is having. Kincaid has finished with at least 95 yards and five receptions in each contest.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","BUF_offense"],"positive_correlations":[]},"selection":"Over 25+ Receiving Yards"},{"id":"prop__5006__omarion_hampton__other","player":"Omarion Hampton","team":"LAC","game":"LAC @ BUF","game_slate":"Sunday Early Window","category":"other","category_label":"2+ Touchdowns","stat_type":"other","line":"2+","side":"over","price":"+450","book":"DraftKings/FanDuel (per source article)","analyst":"Phil Wood (BettingPros)","source_article_id":5006,"source_url":"https://www.bettingpros.com/articles/nfl-week-3-picks-sleepers-longshot-bets-2026/","rationale":"It may seem crazy to take the running back of a 0-2 team heading on the road as 7-point underdogs to have a huge game on the ground, but this is a great matchup for Omarion Hampton. He rushed for 94 yards last week in a 12-point loss, averaging 4.1 yards per carry.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Complementary Piece","synergy_tags":["other","LAC_offense"],"positive_correlations":["Justin Herbert Passing Yards","Oronde Gadsden Receiving Yards"]},"selection":"Over 2+ 2+ Touchdowns"}],"estimated_odds":"+1012","payout_multiplier":"11.12x","payout_on_10":"$111.18","payout_on_25":"$277.95","correlation_rating":"Cross-Team Game Stack","synergy_rationale":"Combines 3 real props extracted this week from Steve Krebs (BettingPros), Phil Wood (BettingPros) for LAC @ BUF."},{"id":"parlay__CAR_at_CLE__car_stack","title":"CAR Prop Stack SGP (CAR @ CLE)","game":"CAR @ CLE","game_slate":"Sunday Early Window","type":"same_game_parlay","book":"DraftKings / FanDuel","leg_count":3,"legs":[{"id":"prop__5142__bryce_young__passing_yards","player":"Bryce Young","team":"CAR","game":"CAR @ CLE","game_slate":"Sunday Early Window","category":"passing_yards","category_label":"Passing Yards","stat_type":"passing","line":"200+","side":"over","price":"-191","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"Bryce Young has taken a tremendous step forward this season and continues to pile up the passing yards. Young is averaging over 300 yards per game, while throwing for six touchdowns.","week":3,"tier":2,"tier_label":"Tier 2: Secondary Pick","weight":0.7,"parlay_utility":{"role":"Passing Volume Anchor","synergy_tags":["passing_yards","CAR_offense"],"positive_correlations":["Tetairoa McMillan Receiving Yards","Chuba Hubbard Rush Attempts"]},"selection":"Over 200+ Passing Yards"},{"id":"prop__4982__chuba_hubbard__rush_attempts","player":"Chuba Hubbard","team":"CAR","game":"CAR @ CLE","game_slate":"Sunday Early Window","category":"rush_attempts","category_label":"Rush Attempts","stat_type":"rushing","line":"16.5","side":"over","price":"-130","book":"DraftKings/FanDuel (per source article)","analyst":"Dustin Swedelson (VSiN)","source_article_id":4982,"source_url":"https://vsin.com/nfl/favorite-week-3-nfl-player-props-from-dustin-swedelson-and-optaai/","rationale":"Cleveland was respectable against the run last season. This year?","week":3,"tier":2,"tier_label":"Tier 2: Secondary Pick","weight":0.7,"parlay_utility":{"role":"Ground Game Piece","synergy_tags":["rush_attempts","CAR_offense"],"positive_correlations":["Bryce Young Passing Yards","Tetairoa McMillan Receiving Yards"]},"selection":"Over 16.5 Rush Attempts"},{"id":"prop__5142__tetairoa_mcmillan__receiving_yards","player":"Tetairoa McMillan","team":"CAR","game":"CAR @ CLE","game_slate":"Sunday Early Window","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"40+","side":"over","price":"-302","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"Two weeks in a row, we have taken the young receiver to eclipse 40+ yards, and each time we have walked away successful. No need to switch it up until something drastically changes.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","CAR_offense"],"positive_correlations":["Bryce Young Passing Yards","Chuba Hubbard Rush Attempts"]},"selection":"Over 40+ Receiving Yards"}],"estimated_odds":"+259","payout_multiplier":"3.59x","payout_on_10":"$35.88","payout_on_25":"$89.70","correlation_rating":"Same-Team Stack","synergy_rationale":"Combines 3 real props extracted this week from Steve Krebs (BettingPros), Dustin Swedelson (VSiN) for CAR @ CLE."},{"id":"parlay__NYJ_at_DET__nyj/det_stack","title":"NYJ/DET Prop Stack SGP (NYJ @ DET)","game":"NYJ @ DET","game_slate":"Sunday Early Window","type":"same_game_parlay","book":"DraftKings / FanDuel","leg_count":3,"legs":[{"id":"prop__5006__adonai_mitchell__receiving_yards","player":"Adonai Mitchell","team":"NYJ","game":"NYJ @ DET","game_slate":"Sunday Early Window","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"90+","side":"over","price":"+445","book":"DraftKings/FanDuel (per source article)","analyst":"Phil Wood (BettingPros)","source_article_id":5006,"source_url":"https://www.bettingpros.com/articles/nfl-week-3-picks-sleepers-longshot-bets-2026/","rationale":"Adonai Mitchell has very quietly racked up 123 receiving yards this season. But what's most exciting about his production is its consistency.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","NYJ_offense"],"positive_correlations":["Geno Smith Passing TDs"]},"selection":"Over 90+ Receiving Yards"},{"id":"prop__5008__amon_ra_st_brown__anytime_td","player":"Amon-Ra St. Brown","team":"DET","game":"NYJ @ DET","game_slate":"Sunday Early Window","category":"anytime_td","category_label":"Anytime Touchdown Scorer","stat_type":"touchdown","line":"Yes","side":"anytime","price":"-125","book":"DraftKings/FanDuel (per source article)","analyst":"Dan Servodidio (BettingPros)","source_article_id":5008,"source_url":"https://www.bettingpros.com/articles/nfl-week-3-anytime-td-scorer-win-parlays-2026/","rationale":"Let's begin our touchdown-and-win parlays with the Lions hosting the Jets this weekend. Detroit should win this game at home as a 6.5-point favorite.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"End-Zone Target","synergy_tags":["anytime_td","DET_offense"],"positive_correlations":["Amon-Ra St. Brown Receptions","Jameson Williams Receiving Yards"]},"selection":"Anytime Touchdown Scorer"},{"id":"prop__5004__geno_smith__passing_tds","player":"Geno Smith","team":"NYJ","game":"NYJ @ DET","game_slate":"Sunday Early Window","category":"passing_tds","category_label":"Passing TDs","stat_type":"passing","line":"2+","side":"over","price":"+157","book":"DraftKings/FanDuel (per source article)","analyst":"Ben Solak, Seth Walder and Matt Bowen (ESPN NFL)","source_article_id":5004,"source_url":"https://www.espn.com/espn/betting/story/_/id/49997133/week-3-nfl-odds-spreads-lines-props-best-bets-sunday-football-games","rationale":"There's huge familiarity here between Detroit Lions head coach Dan Campbell and New York Jets head coach Aaron Glenn, who was Campbell's defensive coordinator in Detroit for three seasons. Glenn's linebackers coach, Kelvin Sheppard, has replaced him and runs a similar, but slightly more versatile defense.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Passing Volume Anchor","synergy_tags":["passing_tds","NYJ_offense"],"positive_correlations":["Adonai Mitchell Receiving Yards"]},"selection":"Over 2+ Passing TDs"}],"estimated_odds":"+2421","payout_multiplier":"25.21x","payout_on_10":"$252.12","payout_on_25":"$630.30","correlation_rating":"Cross-Team Game Stack","synergy_rationale":"Combines 3 real props extracted this week from Phil Wood (BettingPros), Dan Servodidio (BettingPros), Ben Solak, Seth Walder and Matt Bowen (ESPN NFL) for NYJ @ DET."},{"id":"parlay__TEN_at_NYG__nyg_stack","title":"NYG Prop Stack SGP (TEN @ NYG)","game":"TEN @ NYG","game_slate":"Sunday Early Window","type":"same_game_parlay","book":"DraftKings / FanDuel","leg_count":3,"legs":[{"id":"prop__4982__cam_skattebo__rushing_yards","player":"Cam Skattebo","team":"NYG","game":"TEN @ NYG","game_slate":"Sunday Early Window","category":"rushing_yards","category_label":"Rushing Yards","stat_type":"rushing","line":"57.5","side":"over","price":"-114","book":"DraftKings/FanDuel (per source article)","analyst":"Dustin Swedelson (VSiN)","source_article_id":4982,"source_url":"https://vsin.com/nfl/favorite-week-3-nfl-player-props-from-dustin-swedelson-and-optaai/","rationale":"The Giants will be without Jaxson Dart this week, but despite movement from the opening numbers, New York is still favored against Tennessee. I like correlating rushing props with favorites whenever I can, and this number feels heavily discounted for Cam Skattebo given the matchup and New York’s quarterback situation.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Ground Game Piece","synergy_tags":["rushing_yards","NYG_offense"],"positive_correlations":["Jameis Winston Interceptions","Darnell Mooney Receiving Yards"]},"selection":"Over 57.5 Rushing Yards"},{"id":"prop__5142__jameis_winston__interceptions","player":"Jameis Winston","team":"NYG","game":"TEN @ NYG","game_slate":"Sunday Early Window","category":"interceptions","category_label":"Interceptions","stat_type":"passing","line":"1+","side":"over","price":"-185","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"When Jameis Winston was called upon to take over at the quarterback position on Monday, my immediate thought was interception. Unfortunately, that was not an option at the time.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"Passing Volume Anchor","synergy_tags":["interceptions","NYG_offense"],"positive_correlations":["Darnell Mooney Receiving Yards","Cam Skattebo Rushing Yards"]},"selection":"Over 1+ Interceptions"},{"id":"prop__5142__darnell_mooney__receiving_yards","player":"Darnell Mooney","team":"NYG","game":"TEN @ NYG","game_slate":"Sunday Early Window","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"15+","side":"over","price":"-141","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"The quarterback situation leaves a lot to be desired. That said, Darnell Mooney seemed to be one of Jameis Winston's more reliable targets.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","NYG_offense"],"positive_correlations":["Jameis Winston Interceptions","Cam Skattebo Rushing Yards"]},"selection":"Over 15+ Receiving Yards"}],"estimated_odds":"+394","payout_multiplier":"4.94x","payout_on_10":"$49.43","payout_on_25":"$123.57","correlation_rating":"Same-Team Stack","synergy_rationale":"Combines 3 real props extracted this week from Dustin Swedelson (VSiN), Steve Krebs (BettingPros) for TEN @ NYG."},{"id":"parlay__SEA_at_WAS__sea_stack","title":"SEA Prop Stack SGP (SEA @ WAS)","game":"SEA @ WAS","game_slate":"Sunday Early Window","type":"same_game_parlay","book":"DraftKings / FanDuel","leg_count":2,"legs":[{"id":"prop__5142__jaxon_smith_njigba__anytime_td","player":"Jaxon Smith-Njigba","team":"SEA","game":"SEA @ WAS","game_slate":"Sunday Early Window","category":"anytime_td","category_label":"Anytime Touchdown Scorer","stat_type":"touchdown","line":"Yes","side":"anytime","price":"+100","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"And who is the dominant force in the Seattle offense, you ask? Well, none other than Jaxon Smith-Njigba.","week":3,"tier":2,"tier_label":"Tier 2: Secondary Pick","weight":0.7,"parlay_utility":{"role":"End-Zone Target","synergy_tags":["anytime_td","SEA_offense"],"positive_correlations":["Jaxon Smith-Njigba Receiving Yards"]},"selection":"Anytime Touchdown Scorer"},{"id":"prop__5142__jaxon_smith_njigba__receiving_yards","player":"Jaxon Smith-Njigba","team":"SEA","game":"SEA @ WAS","game_slate":"Sunday Early Window","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"60+","side":"over","price":"-364","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"Jaxon Smith-Njigba has accumulated over 275 yards through two contests, while averaging 16.2 yards per reception. The Seahawks wide receiver saw at least 11 targets in two consecutive games and brought in 17 of his 22 targets.","week":3,"tier":2,"tier_label":"Tier 2: Secondary Pick","weight":0.7,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","SEA_offense"],"positive_correlations":["Jaxon Smith-Njigba Anytime Touchdown Scorer"]},"selection":"Over 60+ Receiving Yards"}],"estimated_odds":"+155","payout_multiplier":"2.55x","payout_on_10":"$25.49","payout_on_25":"$63.73","correlation_rating":"Same-Team Stack","synergy_rationale":"Combines 2 real props extracted this week from Steve Krebs (BettingPros) for SEA @ WAS."},{"id":"parlay__KC_at_MIA__kc_stack","title":"KC Prop Stack SGP (KC @ MIA)","game":"KC @ MIA","game_slate":"Sunday Early Window","type":"same_game_parlay","book":"DraftKings / FanDuel","leg_count":2,"legs":[{"id":"prop__5142__kenneth_walker_iii__rushing_yards","player":"Kenneth Walker III","team":"KC","game":"KC @ MIA","game_slate":"Sunday Early Window","category":"rushing_yards","category_label":"Rushing Yards","stat_type":"rushing","line":"80+","side":"over","price":"-135","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"There's not too much to go over on this leg of the parlay. Kenneth Walker III is averaging 145 yards per game this season and has carried the ball at least 23 times in each of the previous two games.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"Ground Game Piece","synergy_tags":["rushing_yards","KC_offense"],"positive_correlations":["Emmett Johnson Rushing Yards"]},"selection":"Over 80+ Rushing Yards"},{"id":"prop__5142__emmett_johnson__rushing_yards","player":"Emmett Johnson","team":"KC","game":"KC @ MIA","game_slate":"Sunday Early Window","category":"rushing_yards","category_label":"Rushing Yards","stat_type":"rushing","line":"15+","side":"over","price":"-354","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"Now we get to the interesting part of this parlay. While Kenneth Walker III is providing the kind of gaudy numbers that immediately stand out, Emmett Johnson has been quietly clearing the alt line for rushing yards in two consecutive contests.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"Ground Game Piece","synergy_tags":["rushing_yards","KC_offense"],"positive_correlations":["Kenneth Walker III Rushing Yards"]},"selection":"Over 15+ Rushing Yards"}],"estimated_odds":"+123","payout_multiplier":"2.23x","payout_on_10":"$22.32","payout_on_25":"$55.80","correlation_rating":"Same-Team Stack","synergy_rationale":"Combines 2 real props extracted this week from Steve Krebs (BettingPros) for KC @ MIA."},{"id":"parlay__CIN_at_PIT__cin/pit_stack","title":"CIN/PIT Prop Stack SGP (CIN @ PIT)","game":"CIN @ PIT","game_slate":"Sunday Early Window","type":"same_game_parlay","book":"DraftKings / FanDuel","leg_count":2,"legs":[{"id":"prop__5097__pat_freiermuth__receiving_yards","player":"Pat Freiermuth","team":"PIT","game":"CIN @ PIT","game_slate":"Sunday Early Window","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"36.5","side":"over","price":"-114","book":"DraftKings/FanDuel (per source article)","analyst":"Josh Shepardson (Sharp Football)","source_article_id":5097,"source_url":"https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-3-2026/","rationale":"Oronde Gadsden Over 35.5 Receiving Yards (-114) Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 3 Best Prop Bet: Tony Pollard Over 48.5 Rushing Yards (-114) Week 1 is often lies, and Tennessee's play-calling could be a perfect example. According to the Fantasy Points Data Suite, the Titans led the league in pass rate over expected (12.2% PROE) in the season opener.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","PIT_offense"],"positive_correlations":[]},"selection":"Over 36.5 Receiving Yards"},{"id":"prop__5142__chase_brown__anytime_td","player":"Chase Brown","team":"CIN","game":"CIN @ PIT","game_slate":"Sunday Early Window","category":"anytime_td","category_label":"Anytime Touchdown Scorer","stat_type":"touchdown","line":"Yes","side":"anytime","price":"-110","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"This return is very surprising, given that Chase Brown has only one touchdown this season. Truth be told, we were certainly looking for a better payout on this leg.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"End-Zone Target","synergy_tags":["anytime_td","CIN_offense"],"positive_correlations":["Tee Higgins Receiving Yards"]},"selection":"Anytime Touchdown Scorer"}],"estimated_odds":"+258","payout_multiplier":"3.58x","payout_on_10":"$35.84","payout_on_25":"$89.60","correlation_rating":"Cross-Team Game Stack","synergy_rationale":"Combines 2 real props extracted this week from Josh Shepardson (Sharp Football), Steve Krebs (BettingPros) for CIN @ PIT."},{"id":"parlay__NE_at_JAX__jax_stack","title":"JAX Prop Stack SGP (NE @ JAX)","game":"NE @ JAX","game_slate":"Sunday Early Window","type":"same_game_parlay","book":"DraftKings / FanDuel","leg_count":2,"legs":[{"id":"prop__5142__parker_washington__receptions","player":"Parker Washington","team":"JAX","game":"NE @ JAX","game_slate":"Sunday Early Window","category":"receptions","category_label":"Receptions","stat_type":"receiving","line":"4+","side":"over","price":"-383","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"With all the murkiness surrounding this contest, we felt it best to play it safe for the last two legs. Parker Washington has been one of the most consistent receivers in the league, and the clear first option for Trevor Lawrence.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receptions","JAX_offense"],"positive_correlations":["Parker Washington Receiving Yards"]},"selection":"Over 4+ Receptions"},{"id":"prop__5142__parker_washington__receiving_yards","player":"Parker Washington","team":"JAX","game":"NE @ JAX","game_slate":"Sunday Early Window","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"50+","side":"over","price":"-224","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"The high rate of receptions has resulted in a boatload of yards. Washington has finished with 80+ yards in both games this season.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","JAX_offense"],"positive_correlations":["Parker Washington Receptions"]},"selection":"Over 50+ Receiving Yards"}],"estimated_odds":"-121","payout_multiplier":"1.82x","payout_on_10":"$18.24","payout_on_25":"$45.60","correlation_rating":"Same-Team Stack","synergy_rationale":"Combines 2 real props extracted this week from Steve Krebs (BettingPros) for NE @ JAX."},{"id":"parlay__ARI_at_SF__sf_stack","title":"SF Prop Stack SGP (ARI @ SF)","game":"ARI @ SF","game_slate":"Sunday Late Window","type":"same_game_parlay","book":"DraftKings / FanDuel","leg_count":2,"legs":[{"id":"prop__5018__brock_purdy__passing_yards","player":"Brock Purdy","team":"SF","game":"ARI @ SF","game_slate":"Sunday Late Window","category":"passing_yards","category_label":"Passing Yards","stat_type":"passing","line":"236.5","side":"over","price":"-114","book":"DraftKings/FanDuel (per source article)","analyst":"Jason Radowitz (BettingPros)","source_article_id":5018,"source_url":"https://www.bettingpros.com/articles/best-nfl-bets-for-week-3-2026/","rationale":"Brock Purdy prop flagged by Jason Radowitz (BettingPros).","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Passing Volume Anchor","synergy_tags":["passing_yards","SF_offense"],"positive_correlations":["Brock Purdy 2+ Touchdowns","Brock Purdy Completions"]},"selection":"Over 236.5 Passing Yards"},{"id":"prop__5142__brock_purdy__other","player":"Brock Purdy","team":"SF","game":"ARI @ SF","game_slate":"Sunday Late Window","category":"other","category_label":"2+ Touchdowns","stat_type":"other","line":"2+","side":"over","price":"-158","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":5142,"source_url":"https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-week-3-2026/","rationale":"Brock Purdy has been razor-sharp to start the season, and there's nothing about the Arizona defense to suggest it can stop the young quarterback from throwing two touchdowns. Purdy has completed over 80% of his attempts through two games and has thrown five touchdowns.","week":3,"tier":3,"tier_label":"Tier 3: Depth Pick","weight":0.4,"parlay_utility":{"role":"Complementary Piece","synergy_tags":["other","SF_offense"],"positive_correlations":["Brock Purdy Completions","Brock Purdy Passing Yards"]},"selection":"Over 2+ 2+ Touchdowns"}],"estimated_odds":"+207","payout_multiplier":"3.06x","payout_on_10":"$30.65","payout_on_25":"$76.63","correlation_rating":"Same-Team Stack","synergy_rationale":"Combines 2 real props extracted this week from Jason Radowitz (BettingPros), Steve Krebs (BettingPros) for ARI @ SF."},{"id":"parlay__HOU_at_IND__hou/ind_stack","title":"HOU/IND Prop Stack SGP (HOU @ IND)","game":"HOU @ IND","game_slate":"Sunday Early Window","type":"same_game_parlay","book":"DraftKings / FanDuel","leg_count":2,"legs":[{"id":"prop__5018__xavier_hutchinson__receptions","player":"Xavier Hutchinson","team":"HOU","game":"HOU @ IND","game_slate":"Sunday Early Window","category":"receptions","category_label":"Receptions","stat_type":"receiving","line":"3.5","side":"under","price":"-143","book":"DraftKings/FanDuel (per source article)","analyst":"Jason Radowitz (BettingPros)","source_article_id":5018,"source_url":"https://www.bettingpros.com/articles/best-nfl-bets-for-week-3-2026/","rationale":"Low Vig Favorites Rushing Yards Overs in Windy Weather A lot of people are writing off the New York Giants after losing Jaxson Dart for the season. But not Cam Skattebo.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receptions","HOU_offense"],"positive_correlations":[]},"selection":"Under 3.5 Receptions"},{"id":"prop__4982__tyler_warren__receiving_yards","player":"Tyler Warren","team":"IND","game":"HOU @ IND","game_slate":"Sunday Early Window","category":"receiving_yards","category_label":"Receiving Yards","stat_type":"receiving","line":"44.5","side":"over","price":"-114","book":"DraftKings/FanDuel (per source article)","analyst":"Dustin Swedelson (VSiN)","source_article_id":4982,"source_url":"https://vsin.com/nfl/favorite-week-3-nfl-player-props-from-dustin-swedelson-and-optaai/","rationale":"Houston has allowed the fifth-most receiving yards per game to opposing tight ends to start the season. Almost all of that damage came in Week 1, when Buffalo’s Dalton Kincaid caught five passes for 130 yards, but it’s still an appealing setup for Tyler Warren.","week":3,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receiving_yards","IND_offense"],"positive_correlations":[]},"selection":"Over 44.5 Receiving Yards"}],"estimated_odds":"+219","payout_multiplier":"3.19x","payout_on_10":"$31.90","payout_on_25":"$79.75","correlation_rating":"Cross-Team Game Stack","synergy_rationale":"Combines 2 real props extracted this week from Jason Radowitz (BettingPros), Dustin Swedelson (VSiN) for HOU @ IND."}];
+  const PROPS_BY_ID = new Map(ALL_PROPS.map(p => [p.id, p]));
+
+  let selectedPropIds = new Set();
+  let currentGameFilter = 'all';
+  let currentCatFilter = 'all';
+  let isDrawerCollapsed = false;
+
+  function filterGame(game, btn) {
+    currentGameFilter = game;
+    document.querySelectorAll('.filter-group:first-child .btn-filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilters();
+  }
+
+  function filterCategory(cat, btn) {
+    currentCatFilter = cat;
+    document.querySelectorAll('.filter-group:last-child .btn-filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilters();
+  }
+
+  function applyFilters() {
+    const rows = document.querySelectorAll('.prop-row');
+    rows.forEach(row => {
+      const rowGame = row.getAttribute('data-game');
+      const rowCat = row.getAttribute('data-cat');
+      let showGame = true;
+      if (currentGameFilter !== 'all') {
+        showGame = rowGame === currentGameFilter;
+      }
+      let showCat = true;
+      if (currentCatFilter !== 'all') {
+        showCat = rowCat === currentCatFilter;
+      }
+      row.style.display = (showGame && showCat) ? '' : 'none';
+    });
+  }
+
+  function toggleProp(propId) {
+    if (selectedPropIds.has(propId)) {
+      selectedPropIds.delete(propId);
+    } else {
+      selectedPropIds.add(propId);
+    }
+    syncCheckboxes();
+    renderSlip();
+  }
+
+  function syncCheckboxes() {
+    document.querySelectorAll('.prop-checkbox').forEach(chk => {
+      const id = chk.id.replace('chk-', '');
+      chk.checked = selectedPropIds.has(id);
+    });
+  }
+
+  function loadPrebuiltParlay(cardId) {
+    const card = PREBUILT_CARDS.find(c => c.id === cardId);
+    if (!card) return;
+    selectedPropIds.clear();
+    for (const leg of card.legs) {
+      if (leg.id) selectedPropIds.add(leg.id);
+      else {
+        // match by player and game
+        const match = ALL_PROPS.find(p => p.player === leg.player && p.game === card.game);
+        if (match) selectedPropIds.add(match.id);
+      }
+    }
+    syncCheckboxes();
+    renderSlip();
+  }
+
+  function parseAmerican(str) {
+    const m = String(str).match(/([+-]\d+)/);
+    return m ? parseInt(m[1], 10) : 100;
+  }
+
+  function americanToDec(am) {
+    if (am > 0) return 1 + (am / 100);
+    return 1 + (100 / Math.abs(am));
+  }
+
+  function decToAmerican(dec) {
+    if (dec >= 2.0) return '+' + Math.round((dec - 1) * 100);
+    return '-' + Math.round(100 / (dec - 1));
+  }
+
+  function renderSlip() {
+    const countBadge = document.getElementById('slip-count');
+    const itemsContainer = document.getElementById('slip-items');
+    const oddsVal = document.getElementById('slip-total-odds');
+    const payoutMath = document.getElementById('slip-payout-math');
+
+    countBadge.textContent = selectedPropIds.size;
+
+    if (selectedPropIds.size === 0) {
+      itemsContainer.innerHTML = '<div class="slip-empty">No props selected yet.<br>Click checkboxes in the table above to add legs!</div>';
+      oddsVal.textContent = '+0';
+      payoutMath.textContent = '$10 bet pays $0.00 | $25 pays $0.00';
+      return;
+    }
+
+    let html = '';
+    let totalDecimal = 1.0;
+    const selectedProps = [];
+
+    for (const id of selectedPropIds) {
+      const prop = PROPS_BY_ID.get(id);
+      if (!prop) continue;
+      selectedProps.push(prop);
+      const dec = americanToDec(parseAmerican(prop.price));
+      totalDecimal *= dec;
+
+      html += '<div class="slip-item">' +
+        '<div>' +
+          '<div class="slip-item-name">' + prop.player + ' &bull; ' + prop.line + ' ' + prop.side.toUpperCase() + '</div>' +
+          '<div style="font-size: 11px; color: #94a3b8;">' + prop.game + ' &bull; ' + prop.category_label + '</div>' +
+        '</div>' +
+        '<div style="display: flex; align-items: center; gap: 8px;">' +
+          '<span style="font-family: monospace; font-weight: 700; color: #60a5fa;">' + prop.price + '</span>' +
+          '<button class="slip-item-remove" onclick="toggleProp(\'' + prop.id + '\')">&times;</button>' +
+        '</div>' +
+      '</div>';
+    }
+
+    itemsContainer.innerHTML = html;
+    const americanOdds = decToAmerican(totalDecimal);
+    oddsVal.textContent = americanOdds;
+
+    const payout10 = (10 * totalDecimal).toFixed(2);
+    const payout25 = (25 * totalDecimal).toFixed(2);
+    payoutMath.textContent = '$10 bet pays $' + payout10 + ' | $25 pays $' + payout25;
+  }
+
+  function clearParlaySlip() {
+    selectedPropIds.clear();
+    syncCheckboxes();
+    renderSlip();
+  }
+
+  function copyParlaySlip() {
+    if (selectedPropIds.size === 0) {
+      alert('Add props to the slip first!');
+      return;
+    }
+    const lines = ['NFL Week 3 Parlay Card:'];
+    let totalDecimal = 1.0;
+    for (const id of selectedPropIds) {
+      const p = PROPS_BY_ID.get(id);
+      if (p) {
+        lines.push('- ' + p.player + ' (' + p.team + '): ' + p.line + ' ' + p.side.toUpperCase() + ' (' + p.price + ') [' + p.category_label + ']');
+        totalDecimal *= americanToDec(parseAmerican(p.price));
+      }
+    }
+    lines.push('Total Combined Odds: ' + decToAmerican(totalDecimal));
+    lines.push('Estimated Payout ($25 bet): $' + (25 * totalDecimal).toFixed(2));
+
+    navigator.clipboard.writeText(lines.join('\n')).then(() => {
+      alert('Parlay card copied to clipboard!');
+    }).catch(() => {
+      prompt('Copy parlay slip:', lines.join('\n'));
+    });
+  }
+
+  function toggleSlipDrawer() {
+    const slip = document.getElementById('parlay-slip');
+    const content = document.getElementById('slip-items');
+    const footer = document.querySelector('.slip-footer');
+    const icon = document.getElementById('drawer-toggle-icon');
+    isDrawerCollapsed = !isDrawerCollapsed;
+    if (isDrawerCollapsed) {
+      content.style.display = 'none';
+      footer.style.display = 'none';
+      icon.innerHTML = '&#43;';
+    } else {
+      content.style.display = '';
+      footer.style.display = '';
+      icon.innerHTML = '&minus;';
+    }
+  }
+</script>
+</body>
+</html>

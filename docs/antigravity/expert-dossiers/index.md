@@ -1,6 +1,6 @@
 # Expert Dossiers Index
 
-Generated: 2026-08-21T00:11:37.518Z
+Generated: 2026-09-26T21:35:26.090Z
 
 > Local expert dossiers are compact inference context. They do not promote picks or provide price evidence.
 
@@ -18,4 +18,4 @@ Generated: 2026-08-21T00:11:37.518Z
 | Scott Bogman | 7 | 0 | [Markdown](scott-bogman.md) |
 | Seth Woolcock | 117 | 0 | [Markdown](seth-woolcock.md) |
 | Simon Hunter | 539 | 1 | [Markdown](simon-hunter.md) |
-| Steve Fezzik | 70 | 0 | [Markdown](steve-fezzik.md) |
+| Steve Fezzik | 91 | 0 | [Markdown](steve-fezzik.md) |

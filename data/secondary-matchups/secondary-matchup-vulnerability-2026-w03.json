@@ -3,11 +3,11 @@
     "schema": "secondary_matchup_vulnerability_snapshot_v1",
     "season": 2026,
     "week": 3,
-    "generated_at": "2026-09-22T23:55:48.571Z",
+    "generated_at": "2026-09-26T20:36:18.966Z",
     "game_count": 16,
     "matchup_count": 32,
-    "matchups_with_secondary_absences": 29,
-    "high_or_medium_vulnerabilities": 16,
+    "matchups_with_secondary_absences": 31,
+    "high_or_medium_vulnerabilities": 22,
     "recommendation_status": "manual_matchup_intel_only_not_picks",
     "manual_seed_coverage": {
       "required_team_count": 32,
@@ -81,7 +81,7 @@
       {
         "source": "Player availability snapshot",
         "status": "available",
-        "evidence": "975 availability event(s) from data/player-availability/latest.json."
+        "evidence": "1155 availability event(s) from data/player-availability/latest.json."
       },
       {
         "source": "Schedule spine",
@@ -125,7 +125,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -145,7 +145,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -252,13 +252,75 @@
             "FantasyPros injuries API",
             "ESPN injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:01.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
           "primary_receiver_archetypes_impacted": [],
           "weakness_tags": [],
           "severity_score": 1.35,
+          "needs_human_review": true
+        },
+        {
+          "player_name": "Billy Bowman Jr.",
+          "team": "ATL",
+          "position": "CB",
+          "event_type": "setback",
+          "availability_trend": "worsening",
+          "summary": "Bowman (Achilles) is available for Thursday's game versus the Packers.",
+          "source": "ESPN injuries API",
+          "corroborating_sources": [
+            "ESPN injuries API"
+          ],
+          "published_at": "2026-09-24T23:12:00.000Z",
+          "role": null,
+          "side": null,
+          "impact_tier": "unrated",
+          "primary_receiver_archetypes_impacted": [],
+          "weakness_tags": [],
+          "severity_score": 0.85,
+          "needs_human_review": true
+        },
+        {
+          "player_name": "Robert Longerbeam",
+          "team": "ATL",
+          "position": "CB",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "summary": "Robert Longerbeam OUT",
+          "source": "FantasyPros injuries API",
+          "corroborating_sources": [
+            "FantasyPros injuries API",
+            "ESPN injuries API"
+          ],
+          "published_at": "2026-09-24T23:00:02.000Z",
+          "role": null,
+          "side": null,
+          "impact_tier": "unrated",
+          "primary_receiver_archetypes_impacted": [],
+          "weakness_tags": [],
+          "severity_score": 1.2,
+          "needs_human_review": true
+        },
+        {
+          "player_name": "Malcolm DeWalt IV",
+          "team": "ATL",
+          "position": "CB",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "summary": "Malcolm DeWalt IV OUT",
+          "source": "FantasyPros injuries API",
+          "corroborating_sources": [
+            "FantasyPros injuries API",
+            "ESPN injuries API"
+          ],
+          "published_at": "2026-09-24T23:00:02.000Z",
+          "role": null,
+          "side": null,
+          "impact_tier": "unrated",
+          "primary_receiver_archetypes_impacted": [],
+          "weakness_tags": [],
+          "severity_score": 1.2,
           "needs_human_review": true
         }
       ],
@@ -349,10 +411,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 1.35,
+      "severity_score": 4.6,
       "elite_absence_count": 0,
-      "vulnerability_tier": "watch",
-      "confidence": 0.74,
+      "vulnerability_tier": "medium",
+      "confidence": 0.93,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -398,7 +460,28 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
+          "role": null,
+          "side": null,
+          "impact_tier": "unrated",
+          "primary_receiver_archetypes_impacted": [],
+          "weakness_tags": [],
+          "severity_score": 1.35,
+          "needs_human_review": true
+        },
+        {
+          "player_name": "Jordan Hancock",
+          "team": "BUF",
+          "position": "CB",
+          "event_type": "ir",
+          "availability_trend": "worsening",
+          "summary": "The Bills placed Hancock (hamstring) on injured reserve Friday.",
+          "source": "ESPN injuries API",
+          "corroborating_sources": [
+            "ESPN injuries API",
+            "FantasyPros injuries API"
+          ],
+          "published_at": "2026-09-26T01:05:00.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -475,10 +558,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 1.9,
+      "severity_score": 3.25,
       "elite_absence_count": 0,
-      "vulnerability_tier": "watch",
-      "confidence": 0.72,
+      "vulnerability_tier": "medium",
+      "confidence": 0.81,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -512,7 +595,29 @@
         "source_url": "https://www.ourlads.com/nfl-depth-charts/",
         "notes": "Jesse Minter Ravens-style match zone structure with Derwin James in hybrid role."
       },
-      "secondary_absences": [],
+      "secondary_absences": [
+        {
+          "player_name": "Elijah Molden",
+          "team": "LAC",
+          "position": "CB",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "summary": "Molden (hamstring) has been ruled out for Sunday's game against the Bills.",
+          "source": "ESPN injuries API",
+          "corroborating_sources": [
+            "ESPN injuries API",
+            "FantasyPros injuries API"
+          ],
+          "published_at": "2026-09-25T21:43:00.000Z",
+          "role": null,
+          "side": null,
+          "impact_tier": "unrated",
+          "primary_receiver_archetypes_impacted": [],
+          "weakness_tags": [],
+          "severity_score": 1.2,
+          "needs_human_review": true
+        }
+      ],
       "weakness_tags": [
         "inside_seam_boost",
         "post_cross_boost",
@@ -584,10 +689,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 0,
+      "severity_score": 1.2,
       "elite_absence_count": 0,
-      "vulnerability_tier": "low",
-      "confidence": 0.64,
+      "vulnerability_tier": "watch",
+      "confidence": 0.71,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -633,7 +738,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -755,20 +860,21 @@
           "player_name": "Nick Scott",
           "team": "CAR",
           "position": "S",
-          "event_type": "setback",
+          "event_type": "out",
           "availability_trend": "worsening",
-          "summary": "Scott has been ruled out for the remainder of Sunday's game against the Falcons due to an abdominal injury, Mike Kaye of ESPN.com reports.",
+          "summary": "Scott (ribs) has been ruled out for Sunday's game against the Browns.",
           "source": "ESPN injuries API",
           "corroborating_sources": [
-            "ESPN injuries API"
+            "ESPN injuries API",
+            "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-20T17:53:00.000Z",
+          "published_at": "2026-09-25T21:20:00.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
           "primary_receiver_archetypes_impacted": [],
           "weakness_tags": [],
-          "severity_score": 0.85,
+          "severity_score": 1.2,
           "needs_human_review": true
         }
       ],
@@ -821,10 +927,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 0.85,
+      "severity_score": 1.2,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
-      "confidence": 0.59,
+      "confidence": 0.61,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -870,7 +976,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": "hybrid_safety",
           "side": "slot",
           "impact_tier": "plus",
@@ -898,7 +1004,7 @@
             "FantasyPros injuries API",
             "ESPN injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -918,7 +1024,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": "deep_safety",
           "side": "middle",
           "impact_tier": "elite",
@@ -931,6 +1037,27 @@
             "post_cross_boost"
           ],
           "severity_score": 3.15,
+          "needs_human_review": true
+        },
+        {
+          "player_name": "Thomas Harper",
+          "team": "DET",
+          "position": "S",
+          "event_type": "ir",
+          "availability_trend": "worsening",
+          "summary": "Harper (ankle) has been ruled out for Sunday's game against the Jets, Tim Twentyman of the Lions' official site reports.",
+          "source": "ESPN injuries API",
+          "corroborating_sources": [
+            "ESPN injuries API",
+            "FantasyPros injuries API"
+          ],
+          "published_at": "2026-09-25T22:51:00.000Z",
+          "role": null,
+          "side": null,
+          "impact_tier": "unrated",
+          "primary_receiver_archetypes_impacted": [],
+          "weakness_tags": [],
+          "severity_score": 1.35,
           "needs_human_review": true
         },
         {
@@ -1008,7 +1135,7 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 7.91,
+      "severity_score": 9.26,
       "elite_absence_count": 2,
       "vulnerability_tier": "high",
       "confidence": 0.95,
@@ -1057,13 +1184,34 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
           "primary_receiver_archetypes_impacted": [],
           "weakness_tags": [],
           "severity_score": 1.35,
+          "needs_human_review": true
+        },
+        {
+          "player_name": "Minkah Fitzpatrick",
+          "team": "NYJ",
+          "position": "S",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "summary": "Fitzpatrick (groin) won't play in Sunday's game versus Detroit, Rich Cimini of ESPN.com reports.",
+          "source": "ESPN injuries API",
+          "corroborating_sources": [
+            "ESPN injuries API",
+            "FantasyPros injuries API"
+          ],
+          "published_at": "2026-09-25T21:17:00.000Z",
+          "role": null,
+          "side": null,
+          "impact_tier": "unrated",
+          "primary_receiver_archetypes_impacted": [],
+          "weakness_tags": [],
+          "severity_score": 1.2,
           "needs_human_review": true
         },
         {
@@ -1077,7 +1225,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-16T19:00:00.000Z",
+          "published_at": "2026-09-16T12:00:00.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -1154,10 +1302,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 2.55,
+      "severity_score": 3.75,
       "elite_absence_count": 0,
       "vulnerability_tier": "medium",
-      "confidence": 0.83,
+      "confidence": 0.9,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1202,7 +1350,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -1305,20 +1453,40 @@
           "player_name": "M.J. Stewart Jr.",
           "team": "HOU",
           "position": "CB",
-          "event_type": "pup",
+          "event_type": "out",
           "availability_trend": "worsening",
-          "summary": "M.J. Stewart Jr. PUP",
+          "summary": "M.J. Stewart Jr. OUT",
           "source": "FantasyPros injuries API",
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-25T00:00:00.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
           "primary_receiver_archetypes_impacted": [],
           "weakness_tags": [],
-          "severity_score": 1.05,
+          "severity_score": 1.2,
+          "needs_human_review": true
+        },
+        {
+          "player_name": "M.J. Stewart",
+          "team": "HOU",
+          "position": "S",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "summary": "The Texans designated Stewart (quadriceps) for return from their reserve/PUP list Wednesday.",
+          "source": "ESPN injuries API",
+          "corroborating_sources": [
+            "ESPN injuries API"
+          ],
+          "published_at": "2026-09-24T01:56:00.000Z",
+          "role": null,
+          "side": null,
+          "impact_tier": "unrated",
+          "primary_receiver_archetypes_impacted": [],
+          "weakness_tags": [],
+          "severity_score": 1.2,
           "needs_human_review": true
         },
         {
@@ -1332,7 +1500,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-16T19:00:00.000Z",
+          "published_at": "2026-09-16T12:00:00.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -1388,10 +1556,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 2.25,
+      "severity_score": 3.6,
       "elite_absence_count": 0,
-      "vulnerability_tier": "watch",
-      "confidence": 0.74,
+      "vulnerability_tier": "medium",
+      "confidence": 0.83,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1427,6 +1595,26 @@
       },
       "secondary_absences": [
         {
+          "player_name": "Ronnie Harrison Jr.",
+          "team": "MIA",
+          "position": "S",
+          "event_type": "ir",
+          "availability_trend": "worsening",
+          "summary": "Ronnie Harrison Jr. IR",
+          "source": "FantasyPros injuries API",
+          "corroborating_sources": [
+            "FantasyPros injuries API"
+          ],
+          "published_at": "2026-09-26T20:30:02.000Z",
+          "role": null,
+          "side": null,
+          "impact_tier": "unrated",
+          "primary_receiver_archetypes_impacted": [],
+          "weakness_tags": [],
+          "severity_score": 1.35,
+          "needs_human_review": true
+        },
+        {
           "player_name": "Darrell Baker Jr.",
           "team": "MIA",
           "position": "CB",
@@ -1437,7 +1625,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:02.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -1457,33 +1645,13 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:02.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
           "primary_receiver_archetypes_impacted": [],
           "weakness_tags": [],
           "severity_score": 1.05,
-          "needs_human_review": true
-        },
-        {
-          "player_name": "Ronnie Harrison Jr.",
-          "team": "MIA",
-          "position": "S",
-          "event_type": "ir",
-          "availability_trend": "worsening",
-          "summary": "Ronnie Harrison Jr. IR",
-          "source": "FantasyPros injuries API",
-          "corroborating_sources": [
-            "FantasyPros injuries API"
-          ],
-          "published_at": "2026-09-23T06:20:01.000Z",
-          "role": null,
-          "side": null,
-          "impact_tier": "unrated",
-          "primary_receiver_archetypes_impacted": [],
-          "weakness_tags": [],
-          "severity_score": 1.35,
           "needs_human_review": true
         }
       ],
@@ -1614,7 +1782,28 @@
         "source_url": "https://www.ourlads.com/nfl-depth-charts/",
         "notes": "Steve Spagnuolo intricate blitz packages and post-snap rotation around Trent McDuffie."
       },
-      "secondary_absences": [],
+      "secondary_absences": [
+        {
+          "player_name": "Chamarri Conner",
+          "team": "KC",
+          "position": "S",
+          "event_type": "doubtful",
+          "availability_trend": "worsening",
+          "summary": "Chamarri Conner DOUBTFUL",
+          "source": "FantasyPros injuries API",
+          "corroborating_sources": [
+            "FantasyPros injuries API"
+          ],
+          "published_at": "2026-09-25T00:00:00.000Z",
+          "role": null,
+          "side": null,
+          "impact_tier": "unrated",
+          "primary_receiver_archetypes_impacted": [],
+          "weakness_tags": [],
+          "severity_score": 0.9,
+          "needs_human_review": true
+        }
+      ],
       "weakness_tags": [
         "hot_read_boost",
         "inside_seam_boost",
@@ -1685,10 +1874,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 0,
+      "severity_score": 0.9,
       "elite_absence_count": 0,
-      "vulnerability_tier": "low",
-      "confidence": 0.67,
+      "vulnerability_tier": "watch",
+      "confidence": 0.72,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1731,10 +1920,9 @@
           "summary": "Paulson Adebo IR",
           "source": "FantasyPros injuries API",
           "corroborating_sources": [
-            "FantasyPros injuries API",
-            "ESPN injuries API"
+            "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -1754,7 +1942,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -1774,7 +1962,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -1784,17 +1972,43 @@
           "needs_human_review": true
         },
         {
-          "player_name": "Greg Newsome II",
+          "player_name": "Deonte Banks",
           "team": "NYG",
           "position": "CB",
           "event_type": "limited",
           "availability_trend": "stable",
-          "summary": "Newsome (ribs) does not have any injury designation ahead of Monday night's game against the Rams, Dan Salomone of the Giants' official site reports.",
+          "summary": "Banks (calf) is listed as questionable for Sunday's game versus the Titans, Mike Garafolo of NFL Network reports.",
           "source": "ESPN injuries API",
           "corroborating_sources": [
             "ESPN injuries API"
           ],
-          "published_at": "2026-09-19T19:49:00.000Z",
+          "published_at": "2026-09-25T23:26:00.000Z",
+          "role": "outside_cb1",
+          "side": "boundary",
+          "impact_tier": "plus",
+          "primary_receiver_archetypes_impacted": [
+            "alpha_x"
+          ],
+          "weakness_tags": [
+            "outside_wr_boost",
+            "alpha_wr_boost",
+            "boundary_wr_boost"
+          ],
+          "severity_score": 1.24,
+          "needs_human_review": true
+        },
+        {
+          "player_name": "Tyler Nubin",
+          "team": "NYG",
+          "position": "S",
+          "event_type": "limited",
+          "availability_trend": "stable",
+          "summary": "Nubin (calf) is listed as questionable for Sunday's game versus Tennessee, Mike Garafolo of NFL Network reports.",
+          "source": "ESPN injuries API",
+          "corroborating_sources": [
+            "ESPN injuries API"
+          ],
+          "published_at": "2026-09-25T23:21:00.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -1814,7 +2028,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-16T19:00:00.000Z",
+          "published_at": "2026-09-16T12:00:00.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -1826,6 +2040,7 @@
       ],
       "weakness_tags": [
         "alpha_wr_boost",
+        "boundary_wr_boost",
         "hot_read_boost",
         "outside_wr_boost",
         "slot_wr_boost"
@@ -1845,9 +2060,10 @@
           ],
           "matched_weakness_tags": [
             "outside_wr_boost",
-            "alpha_wr_boost"
+            "alpha_wr_boost",
+            "boundary_wr_boost"
           ],
-          "opportunity_score": 3,
+          "opportunity_score": 4.5,
           "notes": "TEN Veteran HOF WR.",
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         },
@@ -1889,8 +2105,8 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 5.8,
-      "elite_absence_count": 0,
+      "severity_score": 7.04,
+      "elite_absence_count": 1,
       "vulnerability_tier": "high",
       "confidence": 0.95,
       "use_cases": [
@@ -1937,7 +2153,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -1957,13 +2173,33 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
           "primary_receiver_archetypes_impacted": [],
           "weakness_tags": [],
           "severity_score": 1.35,
+          "needs_human_review": true
+        },
+        {
+          "player_name": "Cor'Dale Flott",
+          "team": "TEN",
+          "position": "CB",
+          "event_type": "limited",
+          "availability_trend": "stable",
+          "summary": "Flott (quadriceps) is listed as questionable for Sunday's game against the Giants.",
+          "source": "ESPN injuries API",
+          "corroborating_sources": [
+            "ESPN injuries API"
+          ],
+          "published_at": "2026-09-25T22:15:00.000Z",
+          "role": null,
+          "side": null,
+          "impact_tier": "unrated",
+          "primary_receiver_archetypes_impacted": [],
+          "weakness_tags": [],
+          "severity_score": 0.55,
           "needs_human_review": true
         },
         {
@@ -1977,7 +2213,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-16T19:00:00.000Z",
+          "published_at": "2026-09-16T12:00:00.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -2076,10 +2312,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 3.9,
+      "severity_score": 4.45,
       "elite_absence_count": 0,
       "vulnerability_tier": "medium",
-      "confidence": 0.9,
+      "confidence": 0.93,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -2115,26 +2351,6 @@
       },
       "secondary_absences": [
         {
-          "player_name": "Donte Kent",
-          "team": "PIT",
-          "position": "CB",
-          "event_type": "pup",
-          "availability_trend": "worsening",
-          "summary": "Donte Kent PUP",
-          "source": "FantasyPros injuries API",
-          "corroborating_sources": [
-            "FantasyPros injuries API"
-          ],
-          "published_at": "2026-09-23T06:20:02.000Z",
-          "role": null,
-          "side": null,
-          "impact_tier": "unrated",
-          "primary_receiver_archetypes_impacted": [],
-          "weakness_tags": [],
-          "severity_score": 1.05,
-          "needs_human_review": true
-        },
-        {
           "player_name": "DeShon Elliott",
           "team": "PIT",
           "position": "S",
@@ -2145,7 +2361,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -2165,7 +2381,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -2175,30 +2391,43 @@
           "needs_human_review": true
         },
         {
-          "player_name": "Joey Porter Jr.",
+          "player_name": "Donte Kent",
           "team": "PIT",
           "position": "CB",
-          "event_type": "setback",
+          "event_type": "pup",
           "availability_trend": "worsening",
-          "summary": "Porter will be evaluated Wednesday for a back injury he aggravated during practice last week, Alan Saunders of SteelersNow.com reports.",
+          "summary": "Donte Kent PUP",
+          "source": "FantasyPros injuries API",
+          "corroborating_sources": [
+            "FantasyPros injuries API"
+          ],
+          "published_at": "2026-09-26T20:30:02.000Z",
+          "role": null,
+          "side": null,
+          "impact_tier": "unrated",
+          "primary_receiver_archetypes_impacted": [],
+          "weakness_tags": [],
+          "severity_score": 1.05,
+          "needs_human_review": true
+        },
+        {
+          "player_name": "Jamel Dean",
+          "team": "PIT",
+          "position": "CB",
+          "event_type": "limited",
+          "availability_trend": "stable",
+          "summary": "Dean (ankle) is listed as questionable for Sunday's game against the Bengals, Adam Caplan of SiriusXM NFL Radio reports.",
           "source": "ESPN injuries API",
           "corroborating_sources": [
             "ESPN injuries API"
           ],
-          "published_at": "2026-09-21T21:42:00.000Z",
-          "role": "outside_cb1",
-          "side": "boundary",
-          "impact_tier": "plus",
-          "primary_receiver_archetypes_impacted": [
-            "alpha_x",
-            "z_receiver"
-          ],
-          "weakness_tags": [
-            "outside_wr_boost",
-            "boundary_wr_boost",
-            "alpha_wr_boost"
-          ],
-          "severity_score": 1.91,
+          "published_at": "2026-09-25T22:45:00.000Z",
+          "role": null,
+          "side": null,
+          "impact_tier": "unrated",
+          "primary_receiver_archetypes_impacted": [],
+          "weakness_tags": [],
+          "severity_score": 0.55,
           "needs_human_review": true
         }
       ],
@@ -2281,10 +2510,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 5.66,
-      "elite_absence_count": 1,
-      "vulnerability_tier": "high",
-      "confidence": 0.95,
+      "severity_score": 4.3,
+      "elite_absence_count": 0,
+      "vulnerability_tier": "medium",
+      "confidence": 0.91,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -2327,10 +2556,9 @@
           "summary": "Ja'Sir Taylor IR",
           "source": "FantasyPros injuries API",
           "corroborating_sources": [
-            "FantasyPros injuries API",
-            "ESPN injuries API"
+            "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -2461,13 +2689,34 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
           "primary_receiver_archetypes_impacted": [],
           "weakness_tags": [],
           "severity_score": 1.35,
+          "needs_human_review": true
+        },
+        {
+          "player_name": "Nick Cross",
+          "team": "WAS",
+          "position": "S",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "summary": "Nick Cross OUT",
+          "source": "FantasyPros injuries API",
+          "corroborating_sources": [
+            "FantasyPros injuries API",
+            "ESPN injuries API"
+          ],
+          "published_at": "2026-09-25T00:00:00.000Z",
+          "role": null,
+          "side": null,
+          "impact_tier": "unrated",
+          "primary_receiver_archetypes_impacted": [],
+          "weakness_tags": [],
+          "severity_score": 1.2,
           "needs_human_review": true
         }
       ],
@@ -2516,10 +2765,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 1.35,
+      "severity_score": 2.55,
       "elite_absence_count": 0,
-      "vulnerability_tier": "watch",
-      "confidence": 0.63,
+      "vulnerability_tier": "medium",
+      "confidence": 0.7,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -2565,13 +2814,60 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
           "primary_receiver_archetypes_impacted": [],
           "weakness_tags": [],
           "severity_score": 1.35,
+          "needs_human_review": true
+        },
+        {
+          "player_name": "Ty Okada",
+          "team": "SEA",
+          "position": "S",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "summary": "Okada (hamstring) has been ruled out ahead of Sunday's game against the Commanders, John Boyle of the Seahawks' official site reports.",
+          "source": "ESPN injuries API",
+          "corroborating_sources": [
+            "ESPN injuries API",
+            "FantasyPros injuries API"
+          ],
+          "published_at": "2026-09-26T00:01:00.000Z",
+          "role": null,
+          "side": null,
+          "impact_tier": "unrated",
+          "primary_receiver_archetypes_impacted": [],
+          "weakness_tags": [],
+          "severity_score": 1.2,
+          "needs_human_review": true
+        },
+        {
+          "player_name": "Julian Love",
+          "team": "SEA",
+          "position": "S",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "summary": "Love (calf) has been ruled out ahead of Sunday's game against the Commanders, John Boyle of the Seahawks' official site reports.",
+          "source": "ESPN injuries API",
+          "corroborating_sources": [
+            "ESPN injuries API",
+            "FantasyPros injuries API"
+          ],
+          "published_at": "2026-09-25T23:56:00.000Z",
+          "role": "free_safety",
+          "side": "middle",
+          "impact_tier": "plus",
+          "primary_receiver_archetypes_impacted": [
+            "field_stretcher"
+          ],
+          "weakness_tags": [
+            "deep_pass_boost",
+            "post_cross_boost"
+          ],
+          "severity_score": 2.7,
           "needs_human_review": true
         }
       ],
@@ -2673,10 +2969,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 1.35,
-      "elite_absence_count": 0,
-      "vulnerability_tier": "watch",
-      "confidence": 0.77,
+      "severity_score": 5.25,
+      "elite_absence_count": 1,
+      "vulnerability_tier": "high",
+      "confidence": 0.95,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -2722,7 +3018,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2025-04-03T19:00:00.000Z",
+          "published_at": "2025-04-03T12:00:00.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -2846,9 +3142,10 @@
           "summary": "Brenden Schooler IR",
           "source": "FantasyPros injuries API",
           "corroborating_sources": [
-            "FantasyPros injuries API"
+            "FantasyPros injuries API",
+            "ESPN injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -2861,40 +3158,41 @@
           "player_name": "Dell Pettus",
           "team": "NE",
           "position": "S",
-          "event_type": "setback",
+          "event_type": "ir",
           "availability_trend": "worsening",
-          "summary": "Pettus (ankle) has been ruled out for the remainder of Sunday's game against the Steelers.",
-          "source": "ESPN injuries API",
+          "summary": "Dell Pettus IR",
+          "source": "FantasyPros injuries API",
           "corroborating_sources": [
+            "FantasyPros injuries API",
             "ESPN injuries API"
           ],
-          "published_at": "2026-09-20T19:46:00.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
           "primary_receiver_archetypes_impacted": [],
           "weakness_tags": [],
-          "severity_score": 0.85,
+          "severity_score": 1.35,
           "needs_human_review": true
         },
         {
           "player_name": "Craig Woodson",
           "team": "NE",
           "position": "S",
-          "event_type": "setback",
-          "availability_trend": "worsening",
-          "summary": "Woodson (shoulder) has been ruled out for the rest of Sunday's game against the Steelers.",
+          "event_type": "limited",
+          "availability_trend": "stable",
+          "summary": "Woodson (shoulder) is listed as questionable for Sunday's game against the Jaguars.",
           "source": "ESPN injuries API",
           "corroborating_sources": [
             "ESPN injuries API"
           ],
-          "published_at": "2026-09-20T19:33:00.000Z",
+          "published_at": "2026-09-26T00:53:00.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
           "primary_receiver_archetypes_impacted": [],
           "weakness_tags": [],
-          "severity_score": 0.85,
+          "severity_score": 0.55,
           "needs_human_review": true
         }
       ],
@@ -2990,10 +3288,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 3.05,
+      "severity_score": 3.25,
       "elite_absence_count": 0,
       "vulnerability_tier": "medium",
-      "confidence": 0.86,
+      "confidence": 0.87,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -3039,7 +3337,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -3059,7 +3357,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -3164,7 +3462,28 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:01.000Z",
+          "role": null,
+          "side": null,
+          "impact_tier": "unrated",
+          "primary_receiver_archetypes_impacted": [],
+          "weakness_tags": [],
+          "severity_score": 1.35,
+          "needs_human_review": true
+        },
+        {
+          "player_name": "Will Johnson",
+          "team": "ARI",
+          "position": "CB",
+          "event_type": "ir",
+          "availability_trend": "worsening",
+          "summary": "Will Johnson IR",
+          "source": "FantasyPros injuries API",
+          "corroborating_sources": [
+            "FantasyPros injuries API",
+            "ESPN injuries API"
+          ],
+          "published_at": "2026-09-26T20:30:01.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -3182,10 +3501,9 @@
           "summary": "Kitan Crawford IR",
           "source": "FantasyPros injuries API",
           "corroborating_sources": [
-            "FantasyPros injuries API",
-            "ESPN injuries API"
+            "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:01.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -3195,18 +3513,44 @@
           "needs_human_review": true
         },
         {
-          "player_name": "Will Johnson",
+          "player_name": "Max Melton",
           "team": "ARI",
           "position": "CB",
-          "event_type": "out",
-          "availability_trend": "worsening",
-          "summary": "injured",
-          "source": "FantasyPros injuries API",
+          "event_type": "limited",
+          "availability_trend": "stable",
+          "summary": "Melton (toe) is listed as questionable for Sunday's game versus San Francisco, Darren Urban of the Cardinals' official site reports.",
+          "source": "ESPN injuries API",
           "corroborating_sources": [
-            "FantasyPros injuries API",
             "ESPN injuries API"
           ],
-          "published_at": "2026-09-22T19:00:00.000Z",
+          "published_at": "2026-09-26T00:29:00.000Z",
+          "role": "outside_cb1",
+          "side": "boundary",
+          "impact_tier": "starter",
+          "primary_receiver_archetypes_impacted": [
+            "alpha_x"
+          ],
+          "weakness_tags": [
+            "outside_wr_boost",
+            "boundary_wr_boost",
+            "alpha_wr_boost"
+          ],
+          "severity_score": 0.83,
+          "needs_human_review": true
+        },
+        {
+          "player_name": "Dadrion Taylor-Demerson",
+          "team": "ARI",
+          "position": "S",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "summary": "Taylor-Demerson (back) is listed as out for Sunday's game against the 49ers, Darren Urban of the Cardinals' official site reports.",
+          "source": "ESPN injuries API",
+          "corroborating_sources": [
+            "ESPN injuries API",
+            "FantasyPros injuries API"
+          ],
+          "published_at": "2026-09-26T00:28:00.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -3217,7 +3561,10 @@
         }
       ],
       "weakness_tags": [
+        "alpha_wr_boost",
+        "boundary_wr_boost",
         "inside_seam_boost",
+        "outside_wr_boost",
         "post_cross_boost",
         "slot_wr_boost",
         "underneath_volume_boost"
@@ -3238,13 +3585,37 @@
             "intermediate"
           ],
           "matched_weakness_tags": [
+            "outside_wr_boost",
             "post_cross_boost",
             "slot_wr_boost",
             "inside_seam_boost",
             "underneath_volume_boost"
           ],
-          "opportunity_score": 6,
+          "opportunity_score": 7.5,
           "notes": "SF All-Pro Wide Back.",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Brandon Aiyuk",
+          "team": "SF",
+          "roles": [
+            "alpha_x",
+            "field_stretcher"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "boundary",
+            "deep",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "outside_wr_boost",
+            "alpha_wr_boost",
+            "boundary_wr_boost",
+            "post_cross_boost"
+          ],
+          "opportunity_score": 6,
+          "notes": "SF All-Pro Route Master.",
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         },
         {
@@ -3263,9 +3634,10 @@
           ],
           "matched_weakness_tags": [
             "inside_seam_boost",
-            "post_cross_boost"
+            "post_cross_boost",
+            "alpha_wr_boost"
           ],
-          "opportunity_score": 3,
+          "opportunity_score": 4.5,
           "notes": "SF All-Pro YAC Monster.",
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         },
@@ -3289,32 +3661,12 @@
           "opportunity_score": 2.4,
           "notes": "SF 3rd Down Clutch WR.",
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
-        },
-        {
-          "player_name": "Brandon Aiyuk",
-          "team": "SF",
-          "roles": [
-            "alpha_x",
-            "field_stretcher"
-          ],
-          "target_share_tier": "alpha",
-          "route_area_tags": [
-            "boundary",
-            "deep",
-            "intermediate"
-          ],
-          "matched_weakness_tags": [
-            "post_cross_boost"
-          ],
-          "opportunity_score": 1.5,
-          "notes": "SF All-Pro Route Master.",
-          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 3.9,
+      "severity_score": 6.08,
       "elite_absence_count": 0,
-      "vulnerability_tier": "medium",
-      "confidence": 0.87,
+      "vulnerability_tier": "high",
+      "confidence": 0.95,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -3361,7 +3713,7 @@
             "FantasyPros injuries API",
             "ESPN injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -3448,7 +3800,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -3468,27 +3820,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
-          "role": null,
-          "side": null,
-          "impact_tier": "unrated",
-          "primary_receiver_archetypes_impacted": [],
-          "weakness_tags": [],
-          "severity_score": 1.35,
-          "needs_human_review": true
-        },
-        {
-          "player_name": "Marcus Allen",
-          "team": "MIN",
-          "position": "CB",
-          "event_type": "ir",
-          "availability_trend": "worsening",
-          "summary": "Marcus Allen IR",
-          "source": "FantasyPros injuries API",
-          "corroborating_sources": [
-            "FantasyPros injuries API"
-          ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -3583,10 +3915,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 4.05,
+      "severity_score": 2.7,
       "elite_absence_count": 0,
       "vulnerability_tier": "medium",
-      "confidence": 0.95,
+      "confidence": 0.88,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -3622,38 +3954,39 @@
       },
       "secondary_absences": [
         {
-          "player_name": "Malik Hooker",
+          "player_name": "P.J. Locke",
           "team": "DAL",
           "position": "S",
-          "event_type": "doubtful",
+          "event_type": "ir",
           "availability_trend": "worsening",
-          "summary": "doubtful",
+          "summary": "The Cowboys placed Locke (foot) on injured reserve Saturday.",
           "source": "ESPN injuries API",
           "corroborating_sources": [
-            "ESPN injuries API"
+            "ESPN injuries API",
+            "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-22T20:56:00.000Z",
+          "published_at": "2026-09-26T18:27:00.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
           "primary_receiver_archetypes_impacted": [],
           "weakness_tags": [],
-          "severity_score": 0.9,
+          "severity_score": 1.35,
           "needs_human_review": true
         },
         {
-          "player_name": "P.J. Locke",
+          "player_name": "Cobie Durant",
           "team": "DAL",
-          "position": "S",
+          "position": "CB",
           "event_type": "out",
           "availability_trend": "worsening",
-          "summary": "injured",
-          "source": "FantasyPros injuries API",
+          "summary": "Durant (hamstring) has been ruled out for Sunday's matchup against the Ravens in Brazil.",
+          "source": "ESPN injuries API",
           "corroborating_sources": [
-            "FantasyPros injuries API",
-            "ESPN injuries API"
+            "ESPN injuries API",
+            "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-22T19:00:00.000Z",
+          "published_at": "2026-09-25T01:44:00.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -3663,18 +3996,18 @@
           "needs_human_review": true
         },
         {
-          "player_name": "Cobie Durant",
+          "player_name": "Malik Hooker",
           "team": "DAL",
-          "position": "CB",
+          "position": "S",
           "event_type": "out",
           "availability_trend": "worsening",
-          "summary": "injured",
-          "source": "FantasyPros injuries API",
+          "summary": "Hooker (forearm) has already been ruled out for Sunday's matchup with the Ravens in Brazil.",
+          "source": "ESPN injuries API",
           "corroborating_sources": [
-            "FantasyPros injuries API",
-            "ESPN injuries API"
+            "ESPN injuries API",
+            "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-22T19:00:00.000Z",
+          "published_at": "2026-09-25T01:33:00.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -3694,7 +4027,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-16T19:00:00.000Z",
+          "published_at": "2026-09-16T12:00:00.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -3778,10 +4111,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 4.5,
+      "severity_score": 4.95,
       "elite_absence_count": 0,
       "vulnerability_tier": "medium",
-      "confidence": 0.91,
+      "confidence": 0.94,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -3827,7 +4160,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -3847,7 +4180,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -3887,7 +4220,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-16T19:00:00.000Z",
+          "published_at": "2026-09-16T12:00:00.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -4044,7 +4377,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -4064,7 +4397,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -4084,13 +4417,33 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
           "primary_receiver_archetypes_impacted": [],
           "weakness_tags": [],
           "severity_score": 1.35,
+          "needs_human_review": true
+        },
+        {
+          "player_name": "Martin Emerson Jr.",
+          "team": "NO",
+          "position": "CB",
+          "event_type": "limited",
+          "availability_trend": "stable",
+          "summary": "Emerson (shoulder) is listed as questionable for Sunday's game versus the Raiders.",
+          "source": "ESPN injuries API",
+          "corroborating_sources": [
+            "ESPN injuries API"
+          ],
+          "published_at": "2026-09-25T22:22:00.000Z",
+          "role": null,
+          "side": null,
+          "impact_tier": "unrated",
+          "primary_receiver_archetypes_impacted": [],
+          "weakness_tags": [],
+          "severity_score": 0.55,
           "needs_human_review": true
         }
       ],
@@ -4165,10 +4518,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 4.05,
+      "severity_score": 4.6,
       "elite_absence_count": 0,
       "vulnerability_tier": "medium",
-      "confidence": 0.88,
+      "confidence": 0.91,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -4213,13 +4566,34 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
           "primary_receiver_archetypes_impacted": [],
           "weakness_tags": [],
           "severity_score": 1.35,
+          "needs_human_review": true
+        },
+        {
+          "player_name": "Treydan Stukes",
+          "team": "LV",
+          "position": "S",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "summary": "Stukes (concussion) has been ruled out for Sunday's game against the Saints, Ryan McFadden of ESPN.com reports.",
+          "source": "ESPN injuries API",
+          "corroborating_sources": [
+            "ESPN injuries API",
+            "FantasyPros injuries API"
+          ],
+          "published_at": "2026-09-25T21:53:00.000Z",
+          "role": null,
+          "side": null,
+          "impact_tier": "unrated",
+          "primary_receiver_archetypes_impacted": [],
+          "weakness_tags": [],
+          "severity_score": 1.2,
           "needs_human_review": true
         }
       ],
@@ -4273,10 +4647,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 1.35,
+      "severity_score": 2.55,
       "elite_absence_count": 0,
-      "vulnerability_tier": "watch",
-      "confidence": 0.65,
+      "vulnerability_tier": "medium",
+      "confidence": 0.72,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -4427,23 +4801,24 @@
       },
       "secondary_absences": [
         {
-          "player_name": "Kam Curl",
+          "player_name": "Kamren Kinchens",
           "team": "LAR",
           "position": "S",
-          "event_type": "setback",
+          "event_type": "doubtful",
           "availability_trend": "worsening",
-          "summary": "Curl (ankle) does not have any injury designation ahead of Monday night's game against the Giants, Benjamin Royer of The Orange County Register reports.",
+          "summary": "Kinchens (hamstring) is listed as doubtful for Sunday's game against Denver, Sarah Barshop of ESPN.com reports.",
           "source": "ESPN injuries API",
           "corroborating_sources": [
-            "ESPN injuries API"
+            "ESPN injuries API",
+            "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-19T20:57:00.000Z",
+          "published_at": "2026-09-26T00:00:00.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
           "primary_receiver_archetypes_impacted": [],
           "weakness_tags": [],
-          "severity_score": 0.85,
+          "severity_score": 0.9,
           "needs_human_review": true
         }
       ],
@@ -4473,7 +4848,7 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 0.85,
+      "severity_score": 0.9,
       "elite_absence_count": 0,
       "vulnerability_tier": "watch",
       "confidence": 0.59,
@@ -4521,38 +4896,13 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
           "primary_receiver_archetypes_impacted": [],
           "weakness_tags": [],
           "severity_score": 1.35,
-          "needs_human_review": true
-        },
-        {
-          "player_name": "Kyler Gordon",
-          "team": "CHI",
-          "position": "CB",
-          "event_type": "pup",
-          "availability_trend": "worsening",
-          "summary": "Kyler Gordon PUP",
-          "source": "FantasyPros injuries API",
-          "corroborating_sources": [
-            "FantasyPros injuries API"
-          ],
-          "published_at": "2026-09-23T06:20:01.000Z",
-          "role": "slot_cb",
-          "side": "slot",
-          "impact_tier": "plus",
-          "primary_receiver_archetypes_impacted": [
-            "slot"
-          ],
-          "weakness_tags": [
-            "slot_wr_boost",
-            "inside_seam_boost"
-          ],
-          "severity_score": 2.36,
           "needs_human_review": true
         },
         {
@@ -4566,7 +4916,7 @@
           "corroborating_sources": [
             "ESPN injuries API"
           ],
-          "published_at": "2026-09-22T23:00:00.000Z",
+          "published_at": "2026-09-26T20:21:00.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -4593,6 +4943,31 @@
           "primary_receiver_archetypes_impacted": [],
           "weakness_tags": [],
           "severity_score": 0.55,
+          "needs_human_review": true
+        },
+        {
+          "player_name": "Kyler Gordon",
+          "team": "CHI",
+          "position": "CB",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "summary": "injured",
+          "source": "FantasyPros injuries API",
+          "corroborating_sources": [
+            "FantasyPros injuries API"
+          ],
+          "published_at": "2026-09-16T12:00:00.000Z",
+          "role": "slot_cb",
+          "side": "slot",
+          "impact_tier": "plus",
+          "primary_receiver_archetypes_impacted": [
+            "slot"
+          ],
+          "weakness_tags": [
+            "slot_wr_boost",
+            "inside_seam_boost"
+          ],
+          "severity_score": 2.7,
           "needs_human_review": true
         }
       ],
@@ -4621,10 +4996,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 5.61,
+      "severity_score": 5.95,
       "elite_absence_count": 1,
       "vulnerability_tier": "high",
-      "confidence": 0.89,
+      "confidence": 0.91,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -4670,7 +5045,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -4690,33 +5065,13 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-23T06:20:01.000Z",
+          "published_at": "2026-09-26T20:30:02.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
           "primary_receiver_archetypes_impacted": [],
           "weakness_tags": [],
           "severity_score": 1.35,
-          "needs_human_review": true
-        },
-        {
-          "player_name": "Andrew Mukuba",
-          "team": "PHI",
-          "position": "S",
-          "event_type": "setback",
-          "availability_trend": "worsening",
-          "summary": "Mukuba (knee) is active for Sunday's game against the Titans.",
-          "source": "ESPN injuries API",
-          "corroborating_sources": [
-            "ESPN injuries API"
-          ],
-          "published_at": "2026-09-20T15:51:00.000Z",
-          "role": null,
-          "side": null,
-          "impact_tier": "unrated",
-          "primary_receiver_archetypes_impacted": [],
-          "weakness_tags": [],
-          "severity_score": 0.85,
           "needs_human_review": true
         },
         {
@@ -4730,7 +5085,7 @@
           "corroborating_sources": [
             "FantasyPros injuries API"
           ],
-          "published_at": "2026-09-16T19:00:00.000Z",
+          "published_at": "2026-09-16T12:00:00.000Z",
           "role": null,
           "side": null,
           "impact_tier": "unrated",
@@ -4829,10 +5184,10 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         }
       ],
-      "severity_score": 4.75,
+      "severity_score": 3.9,
       "elite_absence_count": 0,
       "vulnerability_tier": "medium",
-      "confidence": 0.95,
+      "confidence": 0.93,
       "use_cases": [
         "wr_props",
         "qb_props",

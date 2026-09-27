@@ -1,20 +1,20 @@
 # Expert Dossier: Steve Fezzik
 
-Generated: 2026-08-21T00:11:37.515Z
+Generated: 2026-09-26T21:35:26.087Z
 
 > Expert dossiers are context for interpreting analyst priors and possible bias. They are not betting authority, not price evidence, and not official-pick support unless a signal is separately promoted through an approved review gate.
 
 ## Coverage
 
-- Host citations: 70
+- Host citations: 91
 - Local recovery signals: 0
 - Context-only recovery signals: 0
 
 ## Host Citation Profile
 
-- Sentiment counts: {"bullish":61,"bearish":9}
-- Top teams: ARI (10), CAR (5), CLE (4), BUF (4), DET (4), KC (4), CHI (4), LV (3), NYJ (3), LAR (3)
-- Top markets: general (32), division (13), superbowl (12), conference (8), wins (4), playoffs (1)
+- Sentiment counts: {"bearish":16,"bullish":75}
+- Top teams: ARI (10), KC (6), CAR (5), BUF (5), CHI (5), IND (4), CLE (4), DEN (4), LAR (4), DET (4)
+- Top markets: general (42), division (18), superbowl (12), wins (10), conference (8), playoffs (1)
 
 ## Tendency Signals
 

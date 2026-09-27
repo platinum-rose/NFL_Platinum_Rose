@@ -1,0 +1,370 @@
+{
+  "episode_slug": "youtube-5OPcene4ODI",
+  "show": "YouTube Discovery",
+  "date": "manual",
+  "priority": "manual",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "input_source": "youtube_video_url",
+  "reprocess_required": false,
+  "reprocess_reason": null,
+  "quality_flags": [],
+  "run": {
+    "run_id": "youtube_gemini_dc6e3803e2ed",
+    "mode": "live-youtube",
+    "model": "gemini-3.5-flash",
+    "input_source": "youtube_video_url",
+    "youtube_url": "https://www.youtube.com/watch?v=5OPcene4ODI",
+    "latency_ms": 473706,
+    "estimated_cost_usd": 0.036964,
+    "input_tokens": 349746,
+    "output_tokens": 4973,
+    "raw_model_response": "{\n  \"transcript_summary\": \"Chad Millman and Simon Hunter analyze the NFL Week 3 betting board, highlighting line movements, sharp vs. square discrepancies, and key coaching trends. They lock in their favorite spread picks, totals, and weekly parlays, featuring a strong position on the Chargers as their Brass Balls selection.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 3822,\n    \"last_analyzed_timestamp\": 3822,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 150.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Welcome to Sharp or Square, we are brought to you by Polymarket and we are part of the Volume Podcast Network. I am Chad Millman, joined as always by my BFF, my companion, Simon Hunter. We kick off Week 3 discussing Caleb Williams' Wolverine-like recovery from his hamstring injury, making him potentially ready for Monday night, and Jackson Dart's knee injury status.\"\n    },\n    {\n      \"start\": 150.0,\n      \"end\": 340.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"The Giants are also in focus, with Eli Manning's durability records being discussed alongside trade rumors for J.J. McCarthy or Mac Jones to salvage their season after a rough start. The books have already adjusted their division odds significantly.\"\n    },\n    {\n      \"start\": 340.0,\n      \"end\": 510.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Don't forget to sign up for our free $25,000 Pick 'Em Contest at sharporsquare.thevolume.com. We drop everyone's lowest weekly score after Week 5, so you still have a great chance to compete and win cash prizes.\"\n    },\n    {\n      \"start\": 510.0,\n      \"end\": 620.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Let's dive into Sharp Calls. The Atlanta game is highly discussed with Penix returning from injury. Professionally, there is big money coming in on Atlanta, moving the line down to 4.5. Also, the Florida vs. Ole Miss college matchup has all the sharp money backing Florida.\"\n    },\n    {\n      \"start\": 620.0,\n      \"end\": 785.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Moving to Patriots at Jaguars, JAX is currently a 3-point favorite, though it opened at 2.5. This was my choice, and despite JAX's defensive questions against New England's heavily simplified offense without AJ Brown, I still like JAX at 2.5.\"\n    },\n    {\n      \"start\": 785.0,\n      \"end\": 900.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"We also have Titans at Giants. With the line moving from 3.5 to 2.5, I can't recommend Tennessee anymore. Jameis Winston is historically poor as a favorite, and the value is completely gone at this current number.\"\n    },\n    {\n      \"start\": 900.0,\n      \"end\": 1095.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"For Seahawks at Commanders, Seattle is a solid play. Mike Macdonald has been an absolute machine against the spread as a favorite, especially on the road. Mariota's deep-ball inconsistency against this secondary is going to put Washington in a very tough spot.\"\n    },\n    {\n      \"start\": 1095.0,\n      \"end\": 1340.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Our Brass Balls play of the week has to be the Los Angeles Chargers +7.5 against the Bills. Herbert as a big underdog is an elite cover artist. Plus, Harbaugh has a phenomenal track record when playing with a rest disadvantage against highly-rated teams.\"\n    },\n    {\n      \"start\": 1340.0,\n      \"end\": 1430.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"In Jets at Lions, the professionals are taking Jets +6.5. Geno Smith's ability to keep pace with Jared Goff is the key question, but Detroit's defense is shaky enough that the Jets on the moneyline at +250 is worth a look.\"\n    },\n    {\n      \"start\": 1430.0,\n      \"end\": 1705.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"The Panthers play the Browns. While Bryce Young and the Panthers are surprising road favorites, the Browns at +2.5 or +3 is the side to be on. We also have a fun Discord group prop on Deshaun Watson Anytime Touchdown at +330.\"\n    },\n    {\n      \"start\": 1705.0,\n      \"end\": 2085.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Texans at Colts is a classic sharp play. Indy is a home divisional underdog at 0-2, and major books are already taking professional money, driving the Colts down to +1.5. C.J. Stroud has the stats, but Houston's run defense is highly exploitable.\"\n    },\n    {\n      \"start\": 2085.0,\n      \"end\": 2300.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Vikings at Bucs has a massive coaching trend. Kevin O'Connell is 13-0 straight up as a road favorite when the total is under 45. Tampa Bay looked incredibly sloppy last week, making Minnesota a very solid favorite play.\"\n    },\n    {\n      \"start\": 2300.0,\n      \"end\": 2525.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Cardinals at Niners is currently at 8.5. San Francisco is getting all the public tickets, but pros are taking Arizona. Marvin Harrison Jr. looks completely unmotivated and is catching heat for not blocking, but Jacoby Brissett can find a backdoor cover here.\"\n    },\n    {\n      \"start\": 2525.0,\n      \"end\": 2745.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Chiefs are 11-point favorites at the Dolphins. Andy Reid's tendency to stall out and play extremely conservative with a second-half lead makes Miami a great double-digit underdog home play.\"\n    },\n    {\n      \"start\": 2745.0,\n      \"end\": 3070.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Raiders are visiting the Saints. New Orleans is down their best tackle against Maxx Crosby, and Kirk Cousins is finding supreme comfort in Kubiak's scheme. I love the Raiders at +3 or +3.5.\"\n    },\n    {\n      \"start\": 3070.0,\n      \"end\": 3240.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Rams are at the Broncos. With Kupp and Puka injured, Denver's defense should limit the passing game, and Bo Nix has a solid opportunity to bounce back at home in the altitude.\"\n    },\n    {\n      \"start\": 3240.0,\n      \"end\": 3390.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Finally, Eagles at Bears is a stay-away for the contest. With Caleb Williams injured and Bagent in concussion protocol, Case Keenum likely gets the nod, but the fluctuating line makes it too volatile.\"\n    },\n    {\n      \"start\": 3390.0,\n      \"end\": 3822.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"We wrap up by summarizing our Underdog Moneyline Parlay (Jets, Raiders, Colts, Browns, Broncos) and our Favorites Parlay (Seahawks, Chiefs, Jaguars, Ravens, Bengals), and lock in the Chiefs as our Survivor pick.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"ATL\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"ATL\",\n      \"line\": 4.5,\n      \"price\": null,\n      \"week\": 3,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 620,\n      \"rationale\": \"Atlanta with Penix back from injury represents a strong sharp trend on an 0-2 road dog.\"\n    },\n    {\n      \"team\": \"FLA\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"FLA\",\n      \"line\": 3.5,\n      \"price\": null,\n      \"week\": null,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 644,\n      \"rationale\": \"Every pro bettor is hammering Florida as a 3.5-point home dog against a highly ranked Ole Miss team.\"\n    },\n    {\n      \"team\": \"JAX\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"JAX\",\n      \"line\": -2.5,\n      \"price\": null,\n      \"week\": 3,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 1122,\n      \"rationale\": \"Jacksonville is the healthier, more complete team compared to a Patriots roster struggling with receiver depth.\"\n    },\n    {\n      \"team\": \"SEA\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"SEA\",\n      \"line\": -7.0,\n      \"price\": null,\n      \"week\": 3,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1555,\n      \"rationale\": \"Macdonald's superb ATS road favorite trends make Seattle a high-conviction play against Mariota.\"\n    },\n    {\n      \"team\": \"LAC\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"LAC\",\n      \"line\": 7.5,\n      \"price\": null,\n      \"week\": 3,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1827,\n      \"rationale\": \"Herbert is excellent as a multi-point dog, and Harbaugh thrives with a rest disadvantage.\"\n    },\n    {\n      \"team\": \"CLE\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"CLE\",\n      \"line\": 2.5,\n      \"price\": null,\n      \"week\": 3,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 2504,\n      \"rationale\": \"Chad locked in the Browns at +3 earlier, fading the Panthers in back-to-back road favorite situations.\"\n    },\n    {\n      \"team\": \"CLE\",\n      \"player\": \"Deshaun Watson\",\n      \"market\": \"anytime_touchdown\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 330,\n      \"week\": 3,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 2501,\n      \"rationale\": \"A creative prop option submitted and backed by the Discord betting community.\"\n    },\n    {\n      \"team\": \"IND\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"IND\",\n      \"line\": 2.5,\n      \"price\": null,\n      \"week\": 3,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 3007,\n      \"rationale\": \"Classic sharp buy-low spot on an 0-2 home divisional underdog with significant live line movement.\"\n    },\n    {\n      \"team\": \"MIN\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"MIN\",\n      \"line\": -1.5,\n      \"price\": null,\n      \"week\": 3,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 3518,\n      \"rationale\": \"Kevin O'Connell has an outstanding record straight up as a road favorite in low-total games.\"\n    },\n    {\n      \"team\": \"TB\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"TB\",\n      \"line\": 2.5,\n      \"price\": null,\n      \"week\": 3,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 3510,\n      \"rationale\": \"Chad backed the Bucs earlier at 2.5, expecting a response on a classic bounce-back spot.\"\n    },\n    {\n      \"team\": \"ARI\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"ARI\",\n      \"line\": 8.5,\n      \"price\": null,\n      \"week\": 3,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 3845,\n      \"rationale\": \"The divisional line is bloated at 8.5, and Jacoby Brissett represents excellent backdoor cover security.\"\n    },\n    {\n      \"team\": \"MIA\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"MIA\",\n      \"line\": 11.0,\n      \"price\": null,\n      \"week\": 3,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 4211,\n      \"rationale\": \"Double-digit home dogs off a loss have highly profitable historical trends, especially with Andy Reid's conservative leads.\"\n    },\n    {\n      \"team\": \"LV\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"LV\",\n      \"line\": 3.5,\n      \"price\": null,\n      \"week\": 3,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 4552,\n      \"rationale\": \"Cousins is settling nicely into the offense, and the Saints' tackle injuries spell trouble against Maxx Crosby.\"\n    },\n    {\n      \"team\": \"BAL\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"BAL\",\n      \"line\": -3.5,\n      \"price\": null,\n      \"week\": 3,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 4850,\n      \"rationale\": \"Lamar Jackson has exceptionally strong bounce-back historical data coming off embarrassing losses.\"\n    },\n    {\n      \"team\": \"KC\",\n      \"player\": null,\n      \"market\": \"survivor_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 3,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 118,\n      \"rationale\": \"A safe spot to use the Chiefs as they go on the road to play a struggling Dolphins team.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"CHI\"],\n      \"players\": [\"Caleb Williams\"],\n      \"topic\": \"Williams hamstring injury\",\n      \"summary\": \"Caleb Williams is dealing with a hamstring injury, but his Wolverine-like recovery has him potentially playing on Monday against the Eagles.\",\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 36,\n      \"quote\": \"Caleb Williams, because he is Wolverine... he might still play on Monday.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"OLEMISS\"],\n      \"players\": [\"Jackson Dart\"],\n      \"topic\": \"Dart knee injury status\",\n      \"summary\": \"Jackson Dart walked off the field and was seen standing on the sidelines; John Harbaugh mentioned his injury is fine or at least not catastrophic.\",\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 46,\n      \"quote\": \"Jackson Dart, who went out of the game, was standing on the sideline.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"SEA\"],\n      \"players\": [\"Mike Macdonald\"],\n      \"topic\": \"Macdonald road favorite trend\",\n      \"summary\": \"Since the start of last season, Mike Macdonald is 14-4 ATS as a favorite and 9-1 ATS as a road favorite.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1558,\n      \"quote\": \"As a road favorite in his career, he is 9 and 1 against the spread.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"LAC\"],\n      \"players\": [\"Justin Herbert\"],\n      \"topic\": \"Herbert ATS as underdog\",\n      \"summary\": \"Justin Herbert is 13-2 ATS in his career when playing as an underdog of 3.5 points or more.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1954,\n      \"quote\": \"As a dog, Herbert, three and a half or more, he is 13 and 2 against the spread.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"market_sentiment\",\n      \"teams\": [\"IND\", \"HOU\"],\n      \"players\": [],\n      \"topic\": \"Colts public/sharp split\",\n      \"summary\": \"The Colts are a classic sharp-backed 0-2 home divisional dog, with the line moving down to +1.5 at major books due to professional action despite public backing of Houston.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 3030,\n      \"quote\": \"Who is backing this Colts team other than sharps?\",\n      \"confidence\": \"implied\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"MIN\"],\n      \"players\": [\"Kevin O'Connell\"],\n      \"topic\": \"O'Connell road favorite under trend\",\n      \"summary\": \"Kevin O'Connell is 13-0 straight up as a road favorite in games with a game total under 45 points.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 3550,\n      \"quote\": \"Kevin O'Connell is basically, as a road favorite in his career, 13 and 0 on the moneyline.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"ARI\"],\n      \"players\": [\"Marvin Harrison Jr.\"],\n      \"topic\": \"Harrison Jr. blocking and motivation\",\n      \"summary\": \"Marvin Harrison Jr. has looked unmotivated and showed lazy tape not blocking for his running back, causing concern among analysts.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 4005,\n      \"quote\": \"He just looks unmotivated... there's tape of him last week not blocking.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"KC\"],\n      \"players\": [\"Andy Reid\"],\n      \"topic\": \"Reid second half conservativeness\",\n      \"summary\": \"Andy Reid tends to play as slow and conservative as possible in the second half when holding a lead, reducing the risk of opponent backdoor covers.\",\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 4440,\n      \"quote\": \"Andy Reid has shown a tendency if he's got a lead in the second half, he's going as slow as possible.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Macdonald Favorite Trend\",\n      \"timestamp\": 1558,\n      \"speaker\": \"Simon Hunter\",\n      \"quote\": \"As a road favorite in his career, he is 9 and 1 against the spread.\"\n    },\n    {\n      \"topic\": \"Herbert Underdog Trend\",\n      \"timestamp\": 1954,\n      \"speaker\": \"Simon Hunter\",\n      \"quote\": \"As a dog, Herbert, three and a half or more, he is 13 and 2 against the spread.\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 620,\n      \"field\": \"line\",\n      \"reason\": \"Atlanta line was shifting rapidly between 4.5 and 7, requiring careful selection of the settled market.\"\n    }\n  ]\n}",
+    "extracted_picks": [
+      {
+        "team": "ATL",
+        "player": null,
+        "market": "spread",
+        "side": "ATL",
+        "line": 4.5,
+        "price": null,
+        "week": 3,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 620,
+        "rationale": "Atlanta with Penix back from injury represents a strong sharp trend on an 0-2 road dog."
+      },
+      {
+        "team": "FLA",
+        "player": null,
+        "market": "spread",
+        "side": "FLA",
+        "line": 3.5,
+        "price": null,
+        "week": null,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 644,
+        "rationale": "Every pro bettor is hammering Florida as a 3.5-point home dog against a highly ranked Ole Miss team."
+      },
+      {
+        "team": "JAX",
+        "player": null,
+        "market": "spread",
+        "side": "JAX",
+        "line": -2.5,
+        "price": null,
+        "week": 3,
+        "speaker": "Chad Millman",
+        "source_timestamp": 1122,
+        "rationale": "Jacksonville is the healthier, more complete team compared to a Patriots roster struggling with receiver depth."
+      },
+      {
+        "team": "SEA",
+        "player": null,
+        "market": "spread",
+        "side": "SEA",
+        "line": -7,
+        "price": null,
+        "week": 3,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 1555,
+        "rationale": "Macdonald's superb ATS road favorite trends make Seattle a high-conviction play against Mariota."
+      },
+      {
+        "team": "LAC",
+        "player": null,
+        "market": "spread",
+        "side": "LAC",
+        "line": 7.5,
+        "price": null,
+        "week": 3,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 1827,
+        "rationale": "Herbert is excellent as a multi-point dog, and Harbaugh thrives with a rest disadvantage."
+      },
+      {
+        "team": "CLE",
+        "player": null,
+        "market": "spread",
+        "side": "CLE",
+        "line": 2.5,
+        "price": null,
+        "week": 3,
+        "speaker": "Chad Millman",
+        "source_timestamp": 2504,
+        "rationale": "Chad locked in the Browns at +3 earlier, fading the Panthers in back-to-back road favorite situations."
+      },
+      {
+        "team": "CLE",
+        "player": "Deshaun Watson",
+        "market": "anytime_touchdown",
+        "side": "YES",
+        "line": null,
+        "price": 330,
+        "week": 3,
+        "speaker": "Chad Millman",
+        "source_timestamp": 2501,
+        "rationale": "A creative prop option submitted and backed by the Discord betting community."
+      },
+      {
+        "team": "IND",
+        "player": null,
+        "market": "spread",
+        "side": "IND",
+        "line": 2.5,
+        "price": null,
+        "week": 3,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 3007,
+        "rationale": "Classic sharp buy-low spot on an 0-2 home divisional underdog with significant live line movement."
+      },
+      {
+        "team": "MIN",
+        "player": null,
+        "market": "spread",
+        "side": "MIN",
+        "line": -1.5,
+        "price": null,
+        "week": 3,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 3518,
+        "rationale": "Kevin O'Connell has an outstanding record straight up as a road favorite in low-total games."
+      },
+      {
+        "team": "TB",
+        "player": null,
+        "market": "spread",
+        "side": "TB",
+        "line": 2.5,
+        "price": null,
+        "week": 3,
+        "speaker": "Chad Millman",
+        "source_timestamp": 3510,
+        "rationale": "Chad backed the Bucs earlier at 2.5, expecting a response on a classic bounce-back spot."
+      },
+      {
+        "team": "ARI",
+        "player": null,
+        "market": "spread",
+        "side": "ARI",
+        "line": 8.5,
+        "price": null,
+        "week": 3,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 3845,
+        "rationale": "The divisional line is bloated at 8.5, and Jacoby Brissett represents excellent backdoor cover security."
+      },
+      {
+        "team": "MIA",
+        "player": null,
+        "market": "spread",
+        "side": "MIA",
+        "line": 11,
+        "price": null,
+        "week": 3,
+        "speaker": "Chad Millman",
+        "source_timestamp": 4211,
+        "rationale": "Double-digit home dogs off a loss have highly profitable historical trends, especially with Andy Reid's conservative leads."
+      },
+      {
+        "team": "LV",
+        "player": null,
+        "market": "spread",
+        "side": "LV",
+        "line": 3.5,
+        "price": null,
+        "week": 3,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 4552,
+        "rationale": "Cousins is settling nicely into the offense, and the Saints' tackle injuries spell trouble against Maxx Crosby."
+      },
+      {
+        "team": "BAL",
+        "player": null,
+        "market": "spread",
+        "side": "BAL",
+        "line": -3.5,
+        "price": null,
+        "week": 3,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 4850,
+        "rationale": "Lamar Jackson has exceptionally strong bounce-back historical data coming off embarrassing losses."
+      },
+      {
+        "team": "KC",
+        "player": null,
+        "market": "survivor_pick",
+        "side": "NO",
+        "line": null,
+        "price": null,
+        "week": 3,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 118,
+        "rationale": "A safe spot to use the Chiefs as they go on the road to play a struggling Dolphins team."
+      }
+    ],
+    "analysis_notes": [
+      {
+        "note_type": "injury_or_health",
+        "teams": [
+          "CHI"
+        ],
+        "players": [
+          "Caleb Williams"
+        ],
+        "topic": "Williams hamstring injury",
+        "summary": "Caleb Williams is dealing with a hamstring injury, but his Wolverine-like recovery has him potentially playing on Monday against the Eagles.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 36,
+        "quote": "Caleb Williams, because he is Wolverine... he might still play on Monday.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "injury_or_health",
+        "teams": [
+          "OLE"
+        ],
+        "players": [
+          "Jackson Dart"
+        ],
+        "topic": "Dart knee injury status",
+        "summary": "Jackson Dart walked off the field and was seen standing on the sidelines; John Harbaugh mentioned his injury is fine or at least not catastrophic.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 46,
+        "quote": "Jackson Dart, who went out of the game, was standing on the sideline.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "coaching_or_scheme",
+        "teams": [
+          "SEA"
+        ],
+        "players": [
+          "Mike Macdonald"
+        ],
+        "topic": "Macdonald road favorite trend",
+        "summary": "Since the start of last season, Mike Macdonald is 14-4 ATS as a favorite and 9-1 ATS as a road favorite.",
+        "speaker": "Simon Hunter",
+        "source_timestamp": 1558,
+        "quote": "As a road favorite in his career, he is 9 and 1 against the spread.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "team_evaluation",
+        "teams": [
+          "LAC"
+        ],
+        "players": [
+          "Justin Herbert"
+        ],
+        "topic": "Herbert ATS as underdog",
+        "summary": "Justin Herbert is 13-2 ATS in his career when playing as an underdog of 3.5 points or more.",
+        "speaker": "Simon Hunter",
+        "source_timestamp": 1954,
+        "quote": "As a dog, Herbert, three and a half or more, he is 13 and 2 against the spread.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "market_sentiment",
+        "teams": [
+          "IND",
+          "HOU"
+        ],
+        "players": [],
+        "topic": "Colts public/sharp split",
+        "summary": "The Colts are a classic sharp-backed 0-2 home divisional dog, with the line moving down to +1.5 at major books due to professional action despite public backing of Houston.",
+        "speaker": "Simon Hunter",
+        "source_timestamp": 3030,
+        "quote": "Who is backing this Colts team other than sharps?",
+        "confidence": "implied"
+      },
+      {
+        "note_type": "coaching_or_scheme",
+        "teams": [
+          "MIN"
+        ],
+        "players": [
+          "Kevin O'Connell"
+        ],
+        "topic": "O'Connell road favorite under trend",
+        "summary": "Kevin O'Connell is 13-0 straight up as a road favorite in games with a game total under 45 points.",
+        "speaker": "Simon Hunter",
+        "source_timestamp": 3550,
+        "quote": "Kevin O'Connell is basically, as a road favorite in his career, 13 and 0 on the moneyline.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "ARI"
+        ],
+        "players": [
+          "Marvin Harrison Jr."
+        ],
+        "topic": "Harrison Jr. blocking and motivation",
+        "summary": "Marvin Harrison Jr. has looked unmotivated and showed lazy tape not blocking for his running back, causing concern among analysts.",
+        "speaker": "Simon Hunter",
+        "source_timestamp": 4005,
+        "quote": "He just looks unmotivated... there's tape of him last week not blocking.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "coaching_or_scheme",
+        "teams": [
+          "KC"
+        ],
+        "players": [
+          "Andy Reid"
+        ],
+        "topic": "Reid second half conservativeness",
+        "summary": "Andy Reid tends to play as slow and conservative as possible in the second half when holding a lead, reducing the risk of opponent backdoor covers.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 4440,
+        "quote": "Andy Reid has shown a tendency if he's got a lead in the second half, he's going as slow as possible.",
+        "confidence": "stated"
+      }
+    ],
+    "quote_timestamps": [
+      {
+        "topic": "Macdonald Favorite Trend",
+        "timestamp": 1558,
+        "speaker": "Simon Hunter",
+        "quote": "As a road favorite in his career, he is 9 and 1 against the spread."
+      },
+      {
+        "topic": "Herbert Underdog Trend",
+        "timestamp": 1954,
+        "speaker": "Simon Hunter",
+        "quote": "As a dog, Herbert, three and a half or more, he is 13 and 2 against the spread."
+      }
+    ],
+    "coverage_assessment": {
+      "last_covered_timestamp": 4850,
+      "self_reported_reached_end": true,
+      "duration_used_for_check": 3822,
+      "segment_start_seconds": null,
+      "segment_end_seconds": null,
+      "suspected_incomplete": false,
+      "reason": null,
+      "coverage_ratio": 1.269
+    }
+  },
+  "scoring": {
+    "score_status": "not_scored",
+    "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+    "total_ground_truth": 0,
+    "total_shadow_extracted": 15,
+    "full_exact_matches": 0,
+    "precision_pct": "not scored",
+    "recall_pct": "not scored",
+    "f1_score_pct": "not scored",
+    "dimension_accuracy": {
+      "team": null,
+      "market": null,
+      "side": null,
+      "line": null,
+      "price": null,
+      "speaker": null,
+      "source_timestamp": null
+    }
+  }
+}
