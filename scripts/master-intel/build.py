@@ -51,6 +51,49 @@ def teams_in(text):
     if 'niners' in t: hit.add('SF')
     return hit
 
+# Column-header tooltips (Week 2 "term-tooltip" markup; convert_summary.py styles them in html and strips them from docx).
+TIPS = {
+    'Tier': ('Sourcing Tier', '1 = matchup data (secondary-matchup HIGH/MED or a verified role/usage edge). 2 = named expert, week-specific, 2+ independent sources. 3 = prediction market beats the book. 4 = price only. "1+2" has both.'),
+    'Lean': ('Lean', 'The side or outcome the evidence points to. A lean is not a ticket; tickets live in the card.'),
+    'Sources': ('Evidence', 'Where the lean comes from: matchup data, named experts/podcasts, splits, injuries.'),
+    'Price / structure': ('Price & Structure', 'Combined American price (naive multiply for parlays; same-game parlays price lower at the book) or round-robin combos with average returns by hits.'),
+    'Stake': ('Stake', 'Template stake for the ticket (unit = $10).'),
+    'Fav / spread': ('Favorite & Spread', 'Bookmaker (BKR) spread on the favorite at capture time.'),
+    'Total': ('Game Total', 'BKR over/under points line.'),
+    'Implied score': ('Market-Implied Score', 'Favorite = total/2 + spread/2, underdog = total/2 − spread/2. What the betting market expects, not a simulation.'),
+    'Win % (no-vig)': ('No-Vig Win Probability', 'Both BKR moneylines converted to implied probability, then scaled so they sum to 100% (vig removed).'),
+    'Spread tix/$ (home)': ('Spread Splits', 'Action Network share of spread tickets / share of spread money on the HOME team. Money well above tickets = bigger (sharper) bets on that side.'),
+    'Total tix/$ (over)': ('Total Splits', 'Share of total tickets / money on the OVER.'),
+    'Flag': ('Sharp-Money Flag', 'Raised when money share minus ticket share is 15+ points on one side: fewer, larger bets.'),
+    'Side A (sources)': ('Away-Side Sources', 'Distinct sources leaning to the away team. Each source counts once per game, on the side it picked most often; ties dropped.'),
+    'Side B (sources)': ('Home-Side Sources', 'Distinct sources leaning to the home team (same counting rule).'),
+    'Total lean': ('Total Consensus', 'Over/Under side with more distinct sources (count in brackets).'),
+    'Clash?': ('Clash', 'Both sides have 2+ distinct sources: a genuine disagreement, not a consensus.'),
+    'Leg': ('Teaser Leg', 'The side in a 6-point teaser. Wong strategy: favorites −7.5 to −8.5 down, dogs +1.5 to +2.5 up, crossing both 3 and 7.'),
+    'Current': ('Current Line', 'BKR spread and price at capture time.'),
+    'Teased': ('Teased Line', 'The line after the 6-point adjustment.'),
+    'Consensus on that side': ('Consensus Support', 'Distinct sources on that side (from §3).'),
+    'Rung': ('Ladder Rung', 'Threshold for an "N+" prop ladder; N+ equals Over N−0.5. Shown rung is the one priced closest to −110.'),
+    'Price': ('Quoted Price', 'Book price at capture time. Re-check the slip before placing.'),
+    'No-vig win %': ('No-Vig Win Probability', 'Survivor ranking by vig-free BKR moneyline probability.'),
+    'Market': ('Market', 'Bet type and line as quoted.'),
+    'Source': ('Source', 'Outlet or analyst the pick came from.'),
+}
+
+def tip(term, title, desc):
+    return f'<span class="term-tooltip">{term}<span class="tip-text"><strong>{title}</strong>{desc}</span></span>'
+
+def add_tooltips(lines):
+    out = []
+    for i, ln in enumerate(lines):
+        nxt = lines[i + 1] if i + 1 < len(lines) else ''
+        if ln.startswith('|') and re.match(r'^\|(\s*:?-{3,}:?\s*\|)+\s*$', nxt):
+            cells = ln.strip().strip('|').split('|')
+            cells = [(' ' + tip(c.strip(), *TIPS[c.strip()]) + ' ') if c.strip() in TIPS else c for c in cells]
+            ln = '|' + '|'.join(cells) + '|'
+        out.append(ln)
+    return out
+
 def roll(cls, rid, summary, is_open=False):
     return [f'<details class="rollup-box {cls}" id="{rid}"{" open" if is_open else ""}>', f'<summary>{summary}</summary>', '<div class="rollup-content">', '']
 
@@ -252,7 +295,7 @@ def main():
           f"    • <strong>Sharp money (money − tickets ≥ 15 pts):</strong> {', '.join(sharp) or 'none'}.<br>",
           f"    • <strong>Pulled at BKR (listed, no odds — status check):</strong> {'; '.join(pulled_all) or 'none'}.<br>",
           '    • <strong>Known gaps:</strong> __GAPS__ — details in §11.<br>',
-          '    • <strong>Sortable tables:</strong> click any column header to sort; use the controls below §1 to expand/collapse every dossier.',
+          '    • <strong>Interactive tooltips &amp; sortable tables:</strong> 💡 hover any underlined column header for its definition; click any column header to sort; use the controls below §1 to expand/collapse every dossier.',
           '  </div>', '</div>', '']
     # Executive summary
     L += ['<a id="executive-summary"></a>', '## 📌 Executive Summary', '']
@@ -487,7 +530,7 @@ def main():
     L += ['', '### Known Gaps', ''] + [f'- {x}' for x in gaps]
     out_dir = ROOT / f'dist/nfl_week{W}_master_packet'; out_dir.mkdir(parents=True, exist_ok=True)
     md = out_dir / f'nfl_week{W}_master_betting_intelligence_summary.md'
-    txt = '\n'.join(L).replace('__GAPS__', '; '.join(gaps) if gaps else 'none')
+    txt = '\n'.join(add_tooltips(L)).replace('__GAPS__', '; '.join(gaps) if gaps else 'none')
     md.write_text(txt + '\n', encoding='utf-8')
     print(f'wrote {md} ({len(L)} lines)')
     if not a.no_export:
