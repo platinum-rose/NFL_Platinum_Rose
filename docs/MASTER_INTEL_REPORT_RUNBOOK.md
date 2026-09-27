@@ -96,7 +96,7 @@ Articles ingest runs on its own (GitHub Actions, twice daily). The Toolbox "Rese
 - No Monte Carlo. §2 is market-implied only.
 - DK and Kalshi percentages are shown raw (pre-fee). Execution-eligibility for Kalshi lives in `src/lib/predictionMarketExecution.js` (dossier futures path), not here.
 
-## 8. Section 6 game narratives and projected scores (written step, before the final build)
+## 8. Section 7 game narratives and projected scores (dossier) (written step, before the final build)
 
 `build.py` reads `reports/intel/master-intel-narratives-<season>-w<NN>.md`. There is one `## AWAY@HOME` block per remaining game:
 

@@ -1505,15 +1505,55 @@ function initSortableTables() {{
   }});
 }}
 
+function initTableFilters() {{
+  document.querySelectorAll('.table-filter').forEach(bar => {{
+    if (bar.dataset.ready) return;
+    bar.dataset.ready = '1';
+    const tables = () => {{
+      if (bar.dataset.scope) {{
+        const sc = document.getElementById(bar.dataset.scope);
+        return sc ? Array.from(sc.querySelectorAll('table')) : [];
+      }}
+      let el = bar.nextElementSibling;
+      while (el && el.tagName !== 'TABLE' && !el.querySelector('table')) el = el.nextElementSibling;
+      return el ? [el.tagName === 'TABLE' ? el : el.querySelector('table')] : [];
+    }};
+    bar.querySelectorAll('button[data-filter]').forEach(btn => btn.addEventListener('click', () => {{
+      bar.querySelectorAll('button[data-filter]').forEach(b => b.classList.toggle('btn-primary', b === btn));
+      const want = btn.dataset.filter.toLowerCase();
+      tables().forEach(t => {{
+        const ths = Array.from(t.querySelectorAll('thead th'));
+        const idx = ths.findIndex(th => {{
+          const c = th.cloneNode(true);
+          c.querySelectorAll('.tip-text,.sort-icon').forEach(e => e.remove());
+          return c.textContent.trim().toLowerCase() === (bar.dataset.col || '').toLowerCase();
+        }});
+        let shown = 0;
+        t.querySelectorAll('tbody tr').forEach(tr => {{
+          const cell = idx >= 0 ? tr.children[idx] : null;
+          const v = cell ? cell.textContent.trim().toLowerCase() : '';
+          const ok = want === 'all' || idx < 0 || v === want;
+          tr.style.display = ok ? '' : 'none';
+          if (ok) shown++;
+        }});
+        const grp = t.closest('.pool-group');
+        if (grp) grp.style.display = shown ? '' : 'none';
+      }});
+    }}));
+  }});
+}}
+
 window.addEventListener('hashchange', () => openTargetDetails(location.hash));
 window.addEventListener('DOMContentLoaded', () => {{
   if (location.hash) {{
     openTargetDetails(location.hash);
   }}
   initSortableTables();
+  initTableFilters();
 }});
 if (document.readyState !== 'loading') {{
   initSortableTables();
+  initTableFilters();
 }}
 
 document.addEventListener('click', (e) => {{
