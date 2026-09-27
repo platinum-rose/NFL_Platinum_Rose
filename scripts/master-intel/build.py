@@ -1343,6 +1343,49 @@ def main():
     txt = '\n'.join(add_tooltips(L)).replace('__GAPS__', '; '.join(gaps) if gaps else 'none')
     txt = re.sub(r'§\s?(\d+)', r'Section \1', txt).replace('§', '')
     md.write_text(txt + '\n', encoding='utf-8')
+    # ---------- structured JSON export (archive / downstream tools) ----------
+    def _j(v):
+        if isinstance(v, datetime.datetime): return v.isoformat()
+        if isinstance(v, set): return sorted(v)
+        if isinstance(v, tuple): return list(v)
+        return str(v)
+    games_out = []
+    for g in live:
+        gid = g['id']; b_ = G.get(gid) or {}; nar = NAR.get(gid) or {}; sp_ = SPL.get(gid) or SPL.get(gid.replace('WAS', 'WSH')) or {}
+        games_out.append(dict(
+            game=gid, away=g['visitor'], home=g['home'], kickoff_utc=g['k'].isoformat(), kickoff_pt=g['k'].astimezone(PT).strftime('%a %H:%M'),
+            lines=dict(spread={k: dict(line=v[0], price=v[1]) for k, v in (b_.get('sp') or {}).items()}, moneyline=b_.get('ml') or {},
+                       total={k: dict(line=v[0], price=v[1]) for k, v in (b_.get('tot') or {}).items()}),
+            opening_lines=OPEN.get(gid), win_chance_no_vig={k: round(v, 4) for k, v in novig(gid).items()},
+            projection=dict(nar['proj']) if nar.get('proj') else None, write_up={t: body for t, body in nar.get('secs', [])},
+            splits=dict(spread_home_bets=sp_.get('spread_home_bettors'), spread_home_money=sp_.get('spread_home_money'),
+                        total_over_bets=sp_.get('total_over_bettors'), total_over_money=sp_.get('total_over_money'),
+                        ml_home_bets=sp_.get('ml_home_bettors'), ml_home_money=sp_.get('ml_home_money'), captured_at=sp_.get('captured_at')) if sp_ else None,
+            big_money_signals=[{k: x[k] for k in ('market', 'side', 'bets', 'money', 'line', 'price')} | dict(first_line=(x.get('flag') or {}).get('first_line'), first_seen=(x.get('flag') or {}).get('splits_at')) for x in SIG.get(gid, [])],
+            expert_consensus={k: sorted(v) for k, v in CONS.get(gid, {}).items()},
+            injuries_skill=[dict(player=n, position=e.get('position'), status=e.get('normalized_status')) for t_ in (g['visitor'], g['home']) for n, e in INJ.get(t_, {}).items()],
+            expert_picks=[dict(expert=r.get('expert'), type=r.get('pick_type'), selection=r.get('selection'), line=r.get('line'), rationale=r.get('rationale')) for r in EXP.get(gid, [])]
+                         + [dict(expert=p_['speaker'], type='youtube', selection=p_['pick'], line=p_.get('price'), rationale=p_.get('verify') or '') for p_ in YT.get(gid, [])],
+            actionable_props=POOL.get(gid, [])))
+    export = dict(
+        schema='master_intel_report_v1', season=a.season, week=W, bkr_capture_date=D, built_at=datetime.datetime.now(PT).isoformat(),
+        disclaimer='For entertainment purposes only. Not financial, investment, legal or betting advice. Every wager is the reader\'s own decision and risk; the author and Platinum Rose accept no liability.',
+        recommendations=dict(
+            straight_bets=[dict(game=r['gid'], type=r['type'], pick=r['market'], lean=r['lean'], tier=r['tier'], stars=r['conf'], why=r['source'], score_notes=r['conf_why']) for r in RANKED if r['type'] in ('Side', 'Total')],
+            tickets=[dict(name=t['disp'], card_name=t['name'], book=t['book'], stake=float(t['stake']), price=t['price'], payout=t['ret'], summary=tnote(t),
+                          kind='prop_stack' if ticket_is_props(t) else 'parlay_or_round_robin', legs=t['legs'],
+                          night_hedge=(lambda nc: None if not nc else dict(night_leg=nc['team'], hedge_team=nc['opp'], game=nc['game'], parlay_payback=round(nc['R'], 2),
+                                       options=[dict(bet=re.sub(r'<[^>]+>', '', o['label']), stake=round(o['H'], 2), profit_locked=round(o['lock'], 2), middle_payout=(round(o['middle'], 2) if o['middle'] else None)) for o in nc['opts']]))(night_cap(t)))
+                     for t in TK],
+            supercontest=[dict(team=t_, line=l_, note=SCNOTE.get(t_, '')) for t_, l_ in (picks if sc_line else [])],
+            passing_on=[ln.strip('- ').strip() for ln in (left_off.group(1).strip().splitlines() if left_off else []) if ln.strip()]),
+        ranked_plays=[dict(game=r['gid'], type=r['type'], pick=r['market'], lean=r['lean'], tier=r['tier'], stars=r['conf'], score_notes=r['conf_why'], evidence=r['source']) for r in RANKED],
+        consensus_ranking=[dict(rank=i + 1, game=g_['id'], side=side_, sources_for=sorted(fr_), sources_against=sorted(ag_), strength=badge(n1_, len(ag_), m_)) for i, (m_, n1_, g_, side_, fr_, ag_) in enumerate(ranked)],
+        games=games_out,
+        survivor=[dict(rank=i + 1, team=t_, game=gid_, win_chance=round(p_, 4), **{k: v for k, v in (spt.get(t_) or {}).items()}) for i, (p_, t_, gid_) in enumerate(cands[:12])],
+        trends=[dict(game=z['gid'], type=z['kind'], trend=z['txt'], points_to=z['pick'], source=z['src']) for z in TR],
+        known_gaps=gaps)
+    json.dump(export, open(md.with_suffix('.json'), 'w', encoding='utf-8'), indent=1, ensure_ascii=False, default=_j)
     print(f'wrote {md} ({len(L)} lines)')
     if not a.no_export:
         sys.path.insert(0, str(Path(__file__).parent))

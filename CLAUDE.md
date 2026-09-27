@@ -328,6 +328,7 @@ If a previous session's fix is incomplete, **amend the original bug entry** — 
 - `docs/ARCHITECTURE.md` — Component/hook/lib internals; load when editing any `src/` file
 - `docs/PIPELINE_AGENTS.md` — GHA pipeline agent system, workflows, Supabase tables; load when working in `agents/` or `.github/`
 - `docs/antigravity/CANONICAL_EXTRACTION_PIPELINE.md` — canonical Antigravity exhaustive extraction source contract; load before synthesizing betting recommendations or reporting podcast/article coverage gaps
+- `docs/MASTER_INTEL_REPORT_FORMAT.md` + `docs/MASTER_INTEL_REPORT_RUNBOOK.md` — weekly Saturday-night Master Intel Report: locked template v1 format, hand-written inputs, build steps, 5-format export (html/pdf/docx/md/json); load when asked for the intel report
 - `docs/TESTING.md` — Verification checklists; load after changes to App.jsx, storage, or parsers
 - `docs/ROADMAP.md` — Feature tracking & completed phases; load for planning tasks
 - `docs/HANDOFF.md` — `/handoff` command output format; load on `/handoff`
