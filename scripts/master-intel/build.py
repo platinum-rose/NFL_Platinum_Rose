@@ -22,7 +22,7 @@ Inputs (all local, all read-only; missing optional inputs are listed under "Know
 Outputs:
   dist/nfl_week<N>_master_packet/nfl_week<N>_master_betting_intelligence_summary.{md,html,docx}
 """
-import argparse, collections, datetime, glob, json, os, re, sys, zoneinfo
+import argparse, base64, collections, datetime, glob, json, os, re, sys, zoneinfo
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -34,6 +34,20 @@ ALIAS = {'WSH': 'WAS', 'LA': 'LAR', 'JAC': 'JAX', 'LVR': 'LV', 'NOS': 'NO'}
 LOW_TRUST_CITY = {'NYG', 'NYJ', 'LAC', 'LAR'}  # shared cities: match only by nickname
 
 def FULL_NAME(ab): return next((k for k, v in FULL.items() if v == ab), ab)
+def tl(ab):
+    """Small team logo (CSS class filled by logo_css(); falls back to nothing if the logo file is missing)."""
+    return f'<span class="tl tl-{str(ab).lower()}" title="{FULL_NAME(ab)}"></span>' if ab in FULL.values() else ''
+def logo_css():
+    rules = ['.tl{display:inline-block;width:20px;height:20px;background-size:contain;background-repeat:no-repeat;background-position:center;vertical-align:-4px;margin:0 4px 0 1px;}']
+    for ab in FULL.values():
+        f = ROOT / 'data/team-logos' / f'{ab}.png'
+        if f.exists(): rules.append(f".tl-{ab.lower()}{{background-image:url(data:image/png;base64,{base64.b64encode(f.read_bytes()).decode()});}}")
+    return '<style>' + ''.join(rules) + '</style>'
+def matchup(gid, full=True):
+    if not gid or '@' not in gid: return gid or ''
+    a_, h_ = gid.split('@')
+    txt = f"{tl(a_)}{FULL_NAME(a_) if full else a_} @ {tl(h_)}{FULL_NAME(h_) if full else h_}"
+    return txt if full else f'<span style="white-space:nowrap">{txt}</span>'
 def NICK_FULL(ab): return FULL_NAME(ab)
 
 def J(p, d=None):
@@ -209,7 +223,7 @@ def wrap_sections(lines):
         if j is not None:
             k = j
             while body[k].strip() != '</div>': k += 1
-            what = 'games' if 'Dossier' in title else 'boxes'
+            what = 'games' if ('Dossier' in title or 'Forecast Board' in title) else 'boxes'
             sub = [re.sub(r'>Expand Section [^<]*<', f'>Open all {what}<', re.sub(r'>Collapse Section [^<]*<', f'>Close all {what}<', b)) for b in body[j + 1:k]]
             body = body[:j] + body[k + 1:]
         ctl = ['<div class="rollup-controls">',
@@ -379,14 +393,68 @@ def main():
         r = [x for x in rows if x['player'] == player and x['market'] == market and x['available'] and x['odds'] is not None]
         return min(r, key=lambda x: abs(dec(x['odds']) - 1.91), default=None)
 
-    sharp = []
+    sharp = []          # 'TEAM spread' / 'GID Over|Under' keys (used by the confidence score)
+    SIG = collections.defaultdict(list)   # gid -> signals with the exact line
+    def _sig(gid, market, side, bets, money):
+        b_ = G.get(gid) or {}
+        if market == 'spread' and side in b_.get('sp', {}): ln_, pr_ = b_['sp'][side]
+        elif market == 'total' and side in b_.get('tot', {}): ln_, pr_ = b_['tot'][side]
+        elif market == 'moneyline' and side in b_.get('ml', {}): ln_, pr_ = None, b_['ml'][side]
+        else: ln_, pr_ = None, None
+        SIG[gid].append(dict(gid=gid, market=market, side=side, bets=bets, money=money, line=ln_, price=pr_))
     for g in live:
         sp_ = SPL.get(g['id']) or SPL.get(g['id'].replace('WAS', 'WSH'))
         if not sp_: continue
-        if (sp_['spread_home_money'] or 0) - (sp_['spread_home_bettors'] or 0) >= 15: sharp.append(f"{g['home']} spread")
-        if (sp_['spread_home_bettors'] or 0) - (sp_['spread_home_money'] or 0) >= 15: sharp.append(f"{g['visitor']} spread")
-        if (sp_['total_over_money'] or 0) - (sp_['total_over_bettors'] or 0) >= 15: sharp.append(f"{g['id']} Over")
-        if (sp_['total_over_bettors'] or 0) - (sp_['total_over_money'] or 0) >= 15: sharp.append(f"{g['id']} Under")
+        A_, H_ = g['visitor'], g['home']
+        hb, hm = sp_['spread_home_bettors'] or 0, sp_['spread_home_money'] or 0
+        ob, om = sp_['total_over_bettors'] or 0, sp_['total_over_money'] or 0
+        mb, mm = sp_['ml_home_bettors'] or 0, sp_['ml_home_money'] or 0
+        if hm - hb >= 15: sharp.append(f"{H_} spread"); _sig(g['id'], 'spread', H_, hb, hm)
+        if hb - hm >= 15: sharp.append(f"{A_} spread"); _sig(g['id'], 'spread', A_, 100 - hb, 100 - hm)
+        if om - ob >= 15: sharp.append(f"{g['id']} Over"); _sig(g['id'], 'total', 'Over', ob, om)
+        if ob - om >= 15: sharp.append(f"{g['id']} Under"); _sig(g['id'], 'total', 'Under', 100 - ob, 100 - om)
+        if mm - mb >= 15: _sig(g['id'], 'moneyline', H_, mb, mm)
+        if mb - mm >= 15: _sig(g['id'], 'moneyline', A_, 100 - mb, 100 - mm)
+    # persist: first time a signal is seen we store its line; later builds show drift from that number
+    flag_p = ROOT / f'data/generated/master-intel/big-money-flags-{a.season}-w{WW}.json'
+    FLAGS = {}
+    try: FLAGS = json.load(open(flag_p)) if flag_p.exists() else {}
+    except Exception: FLAGS = {}
+    now_iso = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    for k_ in FLAGS: FLAGS[k_]['active'] = False
+    for gid, ss in SIG.items():
+        sp_ = SPL.get(gid) or SPL.get(gid.replace('WAS', 'WSH')) or {}
+        for x in ss:
+            k_ = f"{gid}|{x['market']}|{x['side']}"
+            rec = FLAGS.get(k_) or dict(first_line=x['line'], first_price=x['price'], first_bets=x['bets'], first_money=x['money'],
+                                        first_seen=now_iso, splits_at=sp_.get('captured_at'))
+            rec.update(active=True, last_line=x['line'], last_price=x['price'], last_bets=x['bets'], last_money=x['money'], last_seen=now_iso)
+            FLAGS[k_] = rec; x['flag'] = rec
+    flag_p.parent.mkdir(parents=True, exist_ok=True)
+    json.dump(FLAGS, open(flag_p, 'w'), indent=1)
+    def sig_label(x, line=None, price=None):
+        ln_ = x['line'] if line is None else line; pr_ = x['price'] if price is None else price
+        if x['market'] == 'moneyline': return f"{x['side']} ML {pr_:+d}" if pr_ is not None else f"{x['side']} ML"
+        if x['market'] == 'spread': return f"{x['side']} {ln_:+g} ({pr_:+d})" if ln_ is not None else f"{x['side']} spread"
+        return f"{x['side']} {ln_:g} ({pr_:+d})" if ln_ is not None else x['side']
+    def sig_drift(x):
+        f_ = x.get('flag') or {}; l0, l1 = f_.get('first_line'), x['line']; p0, p1 = f_.get('first_price'), x['price']
+        when = ''
+        try: when = datetime.datetime.fromisoformat(f_.get('splits_at') or f_['first_seen']).astimezone(PT).strftime('%a %H:%M PT')
+        except Exception: pass
+        base = f"First flagged on the {when} splits, at {sig_label(x, l0, p0)}"
+        if x['market'] == 'moneyline':
+            if p0 is None or p1 is None or p0 == p1: return base + ' — no move since'
+            toward = dec(p1) < dec(p0)
+            return base + f" — now {p1:+d}, moved {'toward' if toward else 'away from'} {x['side']}"
+        if l0 is None or l1 is None: return base
+        d_ = l1 - l0
+        if d_ == 0: return base + ' — no move since' + (f' (price {p0:+d} → {p1:+d})' if p0 != p1 and p0 is not None else '')
+        if x['market'] == 'spread': toward = d_ < 0
+        else: toward = (d_ > 0) == (x['side'] == 'Over')
+        return base + f" — now {l1:+g}, moved {abs(d_):g} {'toward' if toward else 'away from'} this side"
+    def sig_short(gid): return ', '.join(f"💰 {sig_label(x)}" for x in SIG.get(gid, []))
+    SIG_ALL = [f"{sig_label(x)} ({gid})" for gid, ss in SIG.items() for x in ss]
     # ======================================================================
     # Reader-facing layout (v3, 2026-09-26): recommendations up top, ranked
     # and filterable boards, lay-language definitions, linked dossiers.
@@ -395,7 +463,7 @@ def main():
     done = [g for g in sched if g['done']]
     def gsid(gid): return 'game-' + gid.lower().replace('@', '-')
     def slug(s): return re.sub(r'[^a-z0-9]+', '-', str(s).lower()).strip('-')
-    def glink(gid, text=None): return f'[{text or gid}](#{gsid(gid)})' if gid in ids else (text or gid or '—')
+    def glink(gid, text=None): return f'[{text or matchup(gid, False)}](#{gsid(gid)})' if gid in ids else (text or gid or '—')
     def proj_txt(gid):
         pj = (NAR.get(gid) or {}).get('proj')
         return f'{pj[0][0]} {pj[0][1]} – {pj[1][0]} {pj[1][1]}' if pj else ''
@@ -538,7 +606,7 @@ def main():
     L = []
     asof = bkr['rows'][0].get('capturedAt', '')[:16]
     RE = ['', '</div>', '</details>']  # rollup end without back-link
-    L += [f'# 🏈 NFL Week {W} Master Betting Intelligence Report',
+    L += [logo_css(), f'# 🏈 NFL Week {W} Master Betting Intelligence Report',
           '## Multi-Platform Consensus, Market-Implied Board & Game-by-Game Analytical Dossier',
           f'### Built {datetime.datetime.now(PT).strftime("%a %b %d %Y %H:%M PT")} — prices are Bookmaker (BKR) {D} capture ({asof}Z); verify every slip',
           '', '<em>Proposals and research context only. Nothing here is placed. Sportsbook prices ≠ prediction-market percentages; never mix them without a fee/spread check.</em>', '']
@@ -569,7 +637,7 @@ def main():
           '<div class="status-banner" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); border-left: 5px solid #3B82F6; padding: 14px 18px; border-radius: 8px; color: #F8FAFC; font-size: 0.92rem; line-height: 1.55;">',
           f"<div>• <strong>Played:</strong> {'; '.join(results) or 'none yet'}. <strong>{len(live)} games remain.</strong></div>",
           f"<div>• <strong>Quarterback changes (out or doubtful):</strong> {', '.join(qb_notes) or 'none'}.</div>",
-          f"<div>• <strong>Big-money (\"sharp\") signals</strong> — share of money beats share of bets by 15+ points: {', '.join(sharp) or 'none'}.</div>",
+          f"<div>• <strong>Big-money (\"sharp\") signals</strong> — share of money beats share of bets by 15+ points, at the line when first seen: {', '.join(SIG_ALL) or 'none'}. Full detail in §2.</div>",
           f"<div>• <strong>Pulled from the Bookmaker menu (listed without odds — check status):</strong> {'; '.join(pulled_all) or 'none'}.</div>",
           '<div>• <strong>Known data gaps:</strong> __GAPS__ — details in §11.</div>',
           '<div>• <strong>How to use this page:</strong> 💡 hover or tap an underlined column header for its definition; click a header to sort; use the buttons on each section to open or close it.</div>',
@@ -609,7 +677,7 @@ def main():
     L += fbar('Type', ['Side', 'Total'], 'rec-games', 'rec-games') + ['<div id="rec-games">']
     for gid, rs in bygame.items():
         best = max(r['conf'] for r in rs); k_ = kick.get(gid)
-        head = f"{FULL_NAME(gid.split('@')[0])} @ {FULL_NAME(gid.split('@')[1])} — " + ' · '.join(f"{esc(r['market'])} ({r['conf']:.1f}★)" for r in rs) + (f" — {k_.astimezone(PT):%a %H:%M PT}" if k_ else '')
+        head = f"{matchup(gid)} — " + ' · '.join(f"{esc(r['market'])} ({r['conf']:.1f}★)" for r in rs) + (f" — {k_.astimezone(PT):%a %H:%M PT}" if k_ else '')
         L += [f'<details class="rollup-box section-rec filter-group sort-group" id="rec-{slug(gid)}" data-conf="{best:.2f}" data-kick="{k_.isoformat() if k_ else ""}" data-game="{gid}">', f'<summary>🏈 {head}</summary>', '<div class="rollup-content">', '',
               '| Type | Pick | Lean | Confidence | Why |', '|---|---|---|---|---|'] + [
               f"| {r['type']} | **{esc(r['market'])}** | {esc(r['lean'])} | {stars(r['conf'])} | {esc(r['source'])[:130]} <em>({esc('; '.join(r['conf_why']))})</em> |" for r in rs]
@@ -678,7 +746,7 @@ def main():
         if na >= 3 and nh >= 3: clashes.append(f"{glink(g['id'])} ({na}–{nh})")
     L += [f"- **Most one-sided expert consensus:** {', '.join(one_sided) or 'none'} — ranked in [§3](#section-3-box).",
           f"- **Biggest expert clashes (3+ sources each side):** {', '.join(clashes) or 'none'}.",
-          f"- **Big-money signals:** {', '.join(sharp) or 'none'}.",
+          f"- **Big-money signals:** {', '.join(SIG_ALL) or 'none'} — [details and line moves](#synth-engine-section).",
           f"- **Quarterback watch:** {', '.join(qb_notes) or 'none'}.",
           f"- **Card:** {len(TK)} tickets, ${sum(float(t['stake']) for t in TK):.0f} total as built — see [card tickets](#card-tickets)." if TK else '- **Card:** no tickets found.', '']
 
@@ -700,43 +768,78 @@ def main():
     for g in pool_games:
         rows_ = sorted(POOL[g['id']], key=lambda p: (kinds.index(p['kind']) if p['kind'] in kinds else 99))
         L += [f'<details class="rollup-box section-pool filter-group" id="props-{slug(g["id"])}">',
-              f"<summary>🧾 {FULL_NAME(g['visitor'])} @ {FULL_NAME(g['home'])} — {len(rows_)} props · {g['k'].astimezone(PT):%a %H:%M PT}</summary>", '<div class="rollup-content">', '',
+              f"<summary>🧾 {matchup(g['id'])} — {len(rows_)} props · {g['k'].astimezone(PT):%a %H:%M PT}</summary>", '<div class="rollup-content">', '',
               '| Type | Prop | Price | Book | Tier / source | Why |', '|---|---|---|---|---|---|'] + [
               f"| {p['kind']} | {esc(p['text'])} | {esc(p['price'])} | {esc(p['book'])} | {esc(p['tier'])} ({esc(p['src'])[:40]}) | {p['why'] if '](' in p['why'] else esc(p['why'])[:140]} |" for p in rows_] + [
               '', f"[Full game write-up →](#{gsid(g['id'])})", '</div>', '</details>']
     L += ['</div>', '', '---']
 
     # ---------------- 2. Market board ----------------
-    L += ['', '<a id="synth-engine-section"></a>', '## 2. Platinum Rose Market-Implied Forecast Board', '',
-          '**What the betting lines are predicting.** Every point spread and total is really a forecast. Put the two together and you get the final score the sportsbook expects; the moneylines tell you each team\'s chance of winning. Next to that we show **our own projected score** (from the game write-ups in [§7](#section-7-box)) and where the public\'s bets and money are going.', '']
+    def bar(x):
+        x = max(0, min(100, int(x or 0)))
+        return f'<span style="display:inline-block;width:64px;height:8px;border-radius:4px;vertical-align:middle;margin-right:6px;background:linear-gradient(90deg,var(--primary) 0 {x}%,var(--border) {x}% 100%);"></span>{x}%'
+    L += ['', '<a id="synth-engine-section"></a>', '## 2. Platinum Rose Market-Implied Forecast Board', ''] + controls('section-board', 'Market Board') + [
+          '**What the betting lines are predicting.** Every point spread and total is really a forecast. Put the two together and you get the final score the sportsbook expects; the moneylines give each team\'s chance of winning. Next to that is **our own projected score** (from the game write-ups in [§7](#section-7-box)) and **where the bets and the money are landing**, on both sides of every market.', '']
     L += roll('section-synth', 'board-defs', '📖 What each column means (plain English)') + [
-          '- **Favorite & spread:** the team expected to win and by how many points. "BUF −7" means Buffalo has to win by more than 7 for a Buffalo spread bet to cash.',
+          '- **Favorite & spread:** the team expected to win and by how many points. "BUF −7" means Buffalo has to win by 8 or more for a Buffalo spread bet to cash.',
           '- **Total points:** the combined score the sportsbook set as its over/under line.',
-          '- **Score the lines imply:** the final score that the spread and total point to together. Example: total 50.5 and BUF −7 → Buffalo about 28.8, Chargers about 21.8.',
-          '- **Our projection:** Platinum Rose\'s own projected final, starting from the line and adjusting for injuries, matchups, expert consensus and money movement. Not a computer-model output.',
-          '- **Win chance (no-vig):** each moneyline turned into a win probability, after removing the sportsbook\'s built-in cut so the two sides add up to 100%.',
-          '- **Home spread: % bets / % money:** the share of spread bets (tickets) and the share of dollars on the home team. When the money share is much higher than the ticket share, fewer but bigger bets are on that side.',
-          '- **Over: % bets / % money:** the same, for the Over.',
-          '- **Big-money signal:** shown when money share beats ticket share by 15+ points on one side — usually a sign that larger, more experienced ("sharp") bettors are on it.'] + RE
-    L += roll('section-synth', 'platinum-rose-board', '📊 Full market board', True) + [
-          '| Kickoff (PT) | Game | Favorite & spread | Total points | Score the lines imply | Our projection | Win chance (no-vig) | Home spread: % bets / % money | Over: % bets / % money | Big-money signal |', '|---|---|---|---|---|---|---|---|---|---|']
+          '- **Score the lines imply:** the final score the spread and total point to together. Example: total 50.5 and BUF −7 → Buffalo about 28.8, Chargers about 21.8.',
+          '- **Our projection:** Platinum Rose\'s own projected final: the line, adjusted for injuries, matchups, expert opinion and money moves. Not a computer-model output.',
+          '- **Win chance:** each moneyline turned into a win probability, with the sportsbook\'s built-in cut removed so the two sides add up to 100%.',
+          '- **Spread / Total (bets / money):** for each side, the share of bets placed and the share of dollars wagered. Example: "O 25/51 · U 75/49" means only 25% of bets are on the Over but they carry 51% of the money.',
+          '- **💰 Big-money signal:** a side where the money share beats the bet share by 15+ points — fewer, bigger bets, usually experienced ("sharp") bettors. We record **the exact line when the signal first appears**, so later builds show whether the line has moved toward or away from that side since.'] + RE
+    L += roll('section-synth', 'platinum-rose-board', '📊 All games at a glance', True) + [
+          '| Kickoff (PT) | Game | Favorite & spread | Total points | Score the lines imply | Our projection | Win chance (no-vig) | Spread: bets / money | Total: bets / money | Big-money signal |', '|---|---|---|---|---|---|---|---|---|---|']
     for g in live:
-        gid = g['id']; b = G.get(gid)
+        gid = g['id']; b = G.get(gid); A_, H_ = g['visitor'], g['home']
         if not b: L.append(f"| {g['k'].astimezone(PT):%a %H:%M} | {glink(gid)} | not on BKR capture | | | | | | | |"); continue
-        f, s = fav(gid); t = (b['tot'].get('Over') or (None,))[0]
+        f, s_ = fav(gid); t = (b['tot'].get('Over') or (None,))[0]
         imps = ''
         if f is not None and t is not None:
-            dog = b['home'] if f == b['away'] else b['away']; fs = t / 2 - s / 2; imps = f'{f} {fs:.1f} – {dog} {t - fs:.1f}'
+            dog = b['home'] if f == b['away'] else b['away']; fs = t / 2 - s_ / 2; imps = f'{f} {fs:.1f} – {dog} {t - fs:.1f}'
         nv = novig(gid); wp = ' / '.join(f'{k} {v*100:.0f}%' for k, v in sorted(nv.items(), key=lambda x: -x[1]))
         sp = SPL.get(gid) or SPL.get(gid.replace('WAS', 'WSH'))
-        flag = []
+        spc = f"{A_} {100 - sp['spread_home_bettors']}/{100 - sp['spread_home_money']}<br>{H_} {sp['spread_home_bettors']}/{sp['spread_home_money']}" if sp else ''
+        toc_ = f"O {sp['total_over_bettors']}/{sp['total_over_money']}<br>U {100 - sp['total_over_bettors']}/{100 - sp['total_over_money']}" if sp else ''
+        L.append(f"| {g['k'].astimezone(PT):%a %H:%M} | [{matchup(gid, False)}](#board-{slug(gid)}) | {f} {s_:+g} | {t} | {imps} | {proj_txt(gid)} | {wp} | {spc} | {toc_} | {sig_short(gid)} |")
+    L += RE
+    L += ['', '**Game by game** — open a game for both sides of every market, the split between bets and money, and any big-money signal with the line it started at.', '']
+    for g in live:
+        gid = g['id']; b = G.get(gid); A_, H_ = g['visitor'], g['home']
+        if not b: continue
+        f, s_ = fav(gid); t = (b['tot'].get('Over') or (None,))[0]
+        L += roll('section-board', f'board-{slug(gid)}', f"📊 {matchup(gid)} — {f} {s_:+g} · O/U {t}" + (f" · Proj {proj_txt(gid)}" if proj_txt(gid) else '') + (' · ' + sig_short(gid) if SIG.get(gid) else ''))
+        nv = novig(gid); fs = t / 2 - s_ / 2 if f is not None and t is not None else None
+        imp_ = {f: fs, (H_ if f == A_ else A_): (t - fs)} if fs is not None else {}
+        pj = (NAR.get(gid) or {}).get('proj'); pjd = dict(pj) if pj else {}
+        L += ['| | ' + tl(A_) + A_ + ' | ' + tl(H_) + H_ + ' |', '|---|---|---|',
+              f"| Spread | {b['sp'][A_][0]:+g} ({b['sp'][A_][1]:+d}) | {b['sp'][H_][0]:+g} ({b['sp'][H_][1]:+d}) |" if A_ in b['sp'] and H_ in b['sp'] else '| Spread | n/a | n/a |',
+              f"| Moneyline | {b['ml'].get(A_, 0):+d} | {b['ml'].get(H_, 0):+d} |" if b['ml'] else '| Moneyline | n/a | n/a |',
+              f"| Win chance (no-vig) | {nv.get(A_, 0)*100:.0f}% | {nv.get(H_, 0)*100:.0f}% |" if nv else '| Win chance | n/a | n/a |',
+              f"| Score the lines imply | {imp_.get(A_, 0):.1f} | {imp_.get(H_, 0):.1f} |" if imp_ else '| Score the lines imply | n/a | n/a |',
+              f"| Our projection | {pjd.get(A_, '')} | {pjd.get(H_, '')} |", '']
+        sp = SPL.get(gid) or SPL.get(gid.replace('WAS', 'WSH'))
         if sp:
-            if (sp['spread_home_money'] or 0) - (sp['spread_home_bettors'] or 0) >= 15: flag.append(f"{b['home']} spread")
-            if (sp['spread_home_bettors'] or 0) - (sp['spread_home_money'] or 0) >= 15: flag.append(f"{b['away']} spread")
-            if (sp['total_over_money'] or 0) - (sp['total_over_bettors'] or 0) >= 15: flag.append('Over')
-            if (sp['total_over_bettors'] or 0) - (sp['total_over_money'] or 0) >= 15: flag.append('Under')
-        L.append(f"| {g['k'].astimezone(PT):%a %H:%M} | {glink(gid)} | {f} {s:+g} | {t} | {imps} | {proj_txt(gid)} | {wp} | {sp and str(sp['spread_home_bettors'])+'% / '+str(sp['spread_home_money'])+'%'} | {sp and str(sp['total_over_bettors'])+'% / '+str(sp['total_over_money'])+'%'} | {', '.join(flag)} |")
-    L += ROLL_END
+            flagged = {(x['market'], x['side']) for x in SIG.get(gid, [])}
+            def row(mk, lab, side, bets, money, line_txt):
+                gap = money - bets; mark = '💰 ' if (mk, side) in flagged else ''
+                return f"| {lab} | {mark}{tl(side) if side in (A_, H_) else ''}{side} {line_txt} | {bar(bets)} | {bar(money)} | {gap:+d} |"
+            spA = b['sp'].get(A_, (None, None)); spH = b['sp'].get(H_, (None, None))
+            oo = b['tot'].get('Over', (None, None)); uu = b['tot'].get('Under', (None, None))
+            try: when_ = datetime.datetime.fromisoformat(sp['captured_at']).astimezone(PT).strftime('%a %H:%M PT')
+            except Exception: when_ = ''
+            L += [f"**Where the bets are landing** (Action Network splits, {when_}; 💰 = big-money signal)", '',
+                  '| Market | Side | % of bets | % of money | Money minus bets |', '|---|---|---|---|---|',
+                  row('spread', 'Spread', A_, 100 - sp['spread_home_bettors'], 100 - sp['spread_home_money'], f"{spA[0]:+g}" if spA[0] is not None else ''),
+                  row('spread', 'Spread', H_, sp['spread_home_bettors'], sp['spread_home_money'], f"{spH[0]:+g}" if spH[0] is not None else ''),
+                  row('total', 'Total', 'Over', sp['total_over_bettors'], sp['total_over_money'], f"{oo[0]:g}" if oo[0] is not None else ''),
+                  row('total', 'Total', 'Under', 100 - sp['total_over_bettors'], 100 - sp['total_over_money'], f"{uu[0]:g}" if uu[0] is not None else ''),
+                  row('moneyline', 'Moneyline', A_, 100 - sp['ml_home_bettors'], 100 - sp['ml_home_money'], f"{b['ml'].get(A_, 0):+d}" if b['ml'] else ''),
+                  row('moneyline', 'Moneyline', H_, sp['ml_home_bettors'], sp['ml_home_money'], f"{b['ml'].get(H_, 0):+d}" if b['ml'] else ''), '']
+        for x in SIG.get(gid, []):
+            L.append(f"- 💰 **Big-money signal: {sig_label(x)}** — {x['bets']}% of bets but {x['money']}% of the money. {sig_drift(x)}.")
+        if not SIG.get(gid): L.append('- No big-money signal in this game (no side where money beats bets by 15+ points).')
+        L += ['', f"[Full game write-up →](#{gsid(gid)}) · [expert consensus →](#experts-{slug(gid)})"] + RE
 
     # ---------------- 3. Consensus ----------------
     L += ['', '<a id="consensus-section"></a>', '## 3. In-Depth Multi-Platform Consensus & High-Stakes Clashes', ''] + controls('section-3', 'Section 3') + [
@@ -744,7 +847,7 @@ def main():
     L += roll('section-3', 'consensus-defs', '📖 How to read this section') + [
           '- **Source:** one outlet, podcast host or writer. Outlets that publish several writers (ESPN, VSiN) still count as one vote.',
           '- **For – Against:** sources backing the consensus side vs. the other side. Ties inside one source are dropped.',
-          '- **Strength:** 🌟 Near-unanimous = at least 3× as many sources on one side (or none against); 🔥 Majority = ahead by 2+; ⚔️ Clash = close split.',
+          '- **Strength** (the table is ordered by this first): 🌟 Near-unanimous = at least 3× as many sources on one side, or none against · 🔥 Majority = ahead by 2 or more · ⚔️ Clash = ahead by only 1 · ⚖️ Split = dead even.',
           '- **Total lean:** whether more sources picked the Over or the Under.',
           '- **Agreement is not a guarantee.** Heavy consensus on a popular side can already be priced into the line; see the big-money column in §2.'] + ROLL_END
     ranked = []
@@ -753,25 +856,31 @@ def main():
         a_, h_ = c_.get(A_, set()), c_.get(H_, set())
         side, n1, n2, fr, ag = (A_, len(a_), len(h_), a_, h_) if len(a_) >= len(h_) else (H_, len(h_), len(a_), h_, a_)
         ranked.append((n1 - n2, n1, g, side, fr, ag))
-    ranked.sort(key=lambda x: (-x[0], -x[1]))
     def badge(n1, n2, m_):
         if n1 < 2: return '—'
-        if n1 == n2: return '⚔️ Split'
+        if n1 == n2: return '⚖️ Split'
         return '🌟 Near-unanimous' if n2 == 0 or n1 >= 3 * max(n2, 1) else ('🔥 Majority' if m_ >= 2 else '⚔️ Clash')
+    BRANK = {'🌟 Near-unanimous': 4, '🔥 Majority': 3, '⚔️ Clash': 2, '⚖️ Split': 1, '—': 0}
+    ranked.sort(key=lambda x: (-BRANK[badge(x[1], len(x[5]), x[0])], -x[0], -x[1]))
     L += roll('section-3', 'consensus-overview', '🧭 Consensus ranking — every game', True) + [
           '| Rank | Game | Consensus side | For – Against | Strength | Total lean | Details |', '|---|---|---|---|---|---|---|']
     for i, (m_, n1, g, side, fr, ag) in enumerate(ranked):
         c_ = CONS.get(g['id'], {}); u, o = c_.get('Under', set()), c_.get('Over', set())
-        tl = f"Under ({len(u)})" if len(u) > len(o) else (f"Over ({len(o)})" if o else '—')
+        tlean = f"Under ({len(u)})" if len(u) > len(o) else (f"Over ({len(o)})" if o else '—')
         det = [f"[game](#{gsid(g['id'])})", f"[experts](#experts-{slug(g['id'])})"] + ([f"[breakdown](#consensus-{g['id'].lower().replace('@', '-')})"] if n1 >= 2 else [])
-        L.append(f"| {i+1} | {glink(g['id'])} | {('split ' + g['visitor'] + '/' + g['home']) if n1 and n1 == len(ag) else (side if n1 else '—')} | {n1} – {len(ag)} | {badge(n1, len(ag), m_)} | {tl} | {' · '.join(det)} |")
+        L.append(f"| {i+1} | {glink(g['id'])} | {('split ' + g['visitor'] + '/' + g['home']) if n1 and n1 == len(ag) else (side if n1 else '—')} | {n1} – {len(ag)} | <span data-sort='{BRANK[badge(n1, len(ag), m_)] * 100 + max(0, m_)}'>{badge(n1, len(ag), m_)}</span> | {tlean} | {' · '.join(det)} |")
     L += ROLL_END
+    cur_bd = None
     for i, (m_, n1, g, side, fr, ag) in enumerate([r for r in ranked if r[1] >= 2]):
         n2 = len(ag); bd = badge(n1, n2, m_)
+        if bd != cur_bd:
+            if cur_bd is not None: L += RE
+            cnt = sum(1 for r in ranked if r[1] >= 2 and badge(r[1], len(r[5]), r[0]) == bd)
+            L += roll('section-3', 'cgroup-' + slug(bd), f"{bd} — {cnt} game{'s' if cnt != 1 else ''}", True); cur_bd = bd
         b_ = G.get(g['id']); f_, s_ = fav(g['id']); tot_ = b_ and (b_['tot'].get('Over') or (None,))[0]
         ln = b_ and b_['sp'].get(side); nv = novig(g['id']).get(side)
         if n1 == n2: ln = None; side = f"{g['visitor']}/{g['home']} split"
-        L += roll('section-3', 'consensus-' + g['id'].lower().replace('@', '-'), f"{bd} #{i+1}: {NICK_FULL(side)} {ln[0]:+g} — {g['visitor']} at {g['home']} ({n1} vs {n2})" if ln else f"{bd} #{i+1}: {side} — {g['id']} ({n1} vs {n2})")
+        L += roll('section-3', 'consensus-' + g['id'].lower().replace('@', '-'), f"#{i+1}: {tl(side)}{NICK_FULL(side)} {ln[0]:+g} — {matchup(g['id'], False)} ({n1} vs {n2})" if ln else f"#{i+1}: {side} — {matchup(g['id'], False)} ({n1} vs {n2})")
         L += [f"* **Game:** {g['k'].astimezone(PT):%a %H:%M PT} | **Spread:** {f_} {s_:+g} | **Total:** {tot_}" if f_ else f"* **Game:** {g['k'].astimezone(PT):%a %H:%M PT}",
               f"* **Count:** {bd} ({n1} vs {n2}) — for: {esc(', '.join(sorted(fr)))} | against: {esc(', '.join(sorted(ag))) or 'none'}",
               f"* **Market read:** the book gives {side} a {nv*100:.0f}% chance to win" if nv and n1 != n2 else '* **Market read:** n/a']
@@ -781,6 +890,7 @@ def main():
             if x['gid'] == g['id']: L.append(f"* **Card lean:** {esc(x['market'])} → {esc(x['lean'])} (confidence {stars(x['conf'])})")
         L.append(f"* **Full breakdown:** [game dossier](#{gsid(g['id'])}) · [all expert picks](#experts-{slug(g['id'])})")
         L += ROLL_END
+    if cur_bd is not None: L += RE
 
     # ---------------- 4. Feature plays ranked + expert registry ----------------
     L += ['', '<a id="feature-plays"></a>', '## 4. High-Conviction Feature Plays & Signature Expert Bets', ''] + controls('section-4', 'Section 4') + [
@@ -800,7 +910,7 @@ def main():
     for g in live:
         ex, yp = EXP.get(g['id'], []), YT.get(g['id'], [])
         if not ex and not yp: continue
-        L += roll('section-4', f"experts-{slug(g['id'])}", f"🎙️ {FULL_NAME(g['visitor'])} @ {FULL_NAME(g['home'])} — {len(ex) + len(yp)} picks")
+        L += roll('section-4', f"experts-{slug(g['id'])}", f"🎙️ {matchup(g['id'])} — {len(ex) + len(yp)} picks")
         used = set()
         def anc(name):
             i_ = EXPANCH[g['id']].get(name)
@@ -847,7 +957,7 @@ def main():
             gid = lg['game']; team = lg['market'].split()[0]
             if gid not in ids: continue
             nar = NAR.get(gid) or {}; why = dict(nar.get('secs', [])).get('Why the card leans this way', ''); brk = dict(nar.get('secs', [])).get('What breaks it', '')
-            L += roll('section-dogs', f'dog-{slug(gid)}', f"🐶 {FULL_NAME(team)} {esc(lg['price'])} — {gid} · tier {esc(lg['tier'])}" + (f" · our projection {proj_txt(gid)}" if proj_txt(gid) else ''))
+            L += roll('section-dogs', f'dog-{slug(gid)}', f"🐶 {tl(team)}{FULL_NAME(team)} {esc(lg['price'])} — {gid} · tier {esc(lg['tier'])}" + (f" · our projection {proj_txt(gid)}" if proj_txt(gid) else ''))
             L += [f"**Why it's on the ticket:** {' '.join(why.split())}" if why else f"**Why:** {esc(lg['why'])}", '',
                   f"**What breaks it:** {' '.join(brk.split())}" if brk else '', '', f"**Card evidence:** {esc(lg['why'])} · [full game write-up](#{gsid(gid)})"] + ROLL_END
     else:
@@ -861,7 +971,7 @@ def main():
         gid = g['id']; A, H = g['visitor'], g['home']
         b0 = G.get(gid); f0, s0 = fav(gid) if b0 else (None, None); t0 = b0 and (b0['tot'].get('Over') or (None,))[0]
         fsc = FS.get(gid)
-        head = f"⏰ {g['k'].astimezone(PT):%a %H:%M PT} — {FULL_NAME(A)} @ {FULL_NAME(H)}" + (f" — {f0} {s0:+g} · O/U {t0}" if f0 else '') + ((f" · Proj {proj_txt(gid)}") if proj_txt(gid) and not g['done'] else '') + ((f" — 🏁 FINAL {fsc['away'][0]} {fsc['away'][1]}–{fsc['home'][0]} {fsc['home'][1]}" if fsc else ' — 🏁 FINAL') if g['done'] else '')
+        head = f"⏰ {g['k'].astimezone(PT):%a %H:%M PT} — {matchup(gid)}" + (f" — {f0} {s0:+g} · O/U {t0}" if f0 else '') + ((f" · Proj {proj_txt(gid)}") if proj_txt(gid) and not g['done'] else '') + ((f" — 🏁 FINAL {fsc['away'][0]} {fsc['away'][1]}–{fsc['home'][0]} {fsc['home'][1]}" if fsc else ' — 🏁 FINAL') if g['done'] else '')
         L += [f'<a id="{gsid(gid)}"></a>'] + roll('section-7', gsid(gid) + '-box', head)
         if g['done']: L += ['_Played before this build; excluded from every slot._'] + ROLL_END; continue
         b = G.get(gid); nar = NAR.get(gid) or {}

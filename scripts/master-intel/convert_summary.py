@@ -383,7 +383,7 @@ def generate_docx(md_path, docx_path):
             i += 1
             continue
 
-        if stripped.startswith('<div') or stripped.startswith('</div') or stripped.startswith('<button') or stripped.startswith('</button') or stripped.startswith('<span') or stripped.startswith('</span'):
+        if stripped.startswith('<style') or stripped.startswith('<div') or stripped.startswith('</div') or stripped.startswith('<button') or stripped.startswith('</button') or stripped.startswith('<span') or stripped.startswith('</span'):
             m_div_anc = re.search(r'<(?:div|a)\s+id=[\'"]([a-zA-Z0-9_-]+)[\'"]', stripped)
             if m_div_anc:
                 bm_name = m_div_anc.group(1)
@@ -612,12 +612,12 @@ def generate_html(md_path, html_path):
             m_sum = re.match(r'<summary(?:\s+class=[\'"][^\'"]*[\'"])?>(.*?)</summary>', s)
             if m_sum:
                 content = m_sum.group(1)
-                body_html.append(f'<summary>{md_inline(content)}</summary>')
+                body_html.append(f'<summary><span class="sum-text">{md_inline(content)}</span></summary>')
             else:
                 body_html.append(s)
             continue
 
-        if s.startswith('<details') or s.startswith('</details') or s.startswith('</summary') or s.startswith('<div') or s.startswith('</div') or s.startswith('<button') or s.startswith('</button') or s.startswith('<a id='):
+        if s.startswith('<style') or s.startswith('<details') or s.startswith('</details') or s.startswith('</summary') or s.startswith('<div') or s.startswith('</div') or s.startswith('<button') or s.startswith('</button') or s.startswith('<a id='):
             body_html.extend(close_lists())
             body_html.append(s)
             continue
@@ -1181,6 +1181,7 @@ def generate_html(md_path, html_path):
       background: #334155;
     }}
   }}
+  details.rollup-box > summary .sum-text {{ flex: 1 1 auto; min-width: 0; }}
   details.rollup-box > summary::after {{
     content: '▼';
     font-size: 11px;
@@ -1394,6 +1395,8 @@ function openTargetDetails(hash) {{
 
 function parseCellValue(cell) {{
   if (!cell) return {{ type: 'empty', val: '' }};
+  const ds = cell.querySelector('[data-sort]');
+  if (ds) return {{ type: 'num', val: parseFloat(ds.getAttribute('data-sort')) }};
   const clone = cell.cloneNode(true);
   clone.querySelectorAll('.tip-text').forEach(el => el.remove());
   const txt = (clone.innerText || clone.textContent || '').trim();
