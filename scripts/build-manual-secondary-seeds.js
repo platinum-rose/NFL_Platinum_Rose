@@ -626,6 +626,14 @@ async function main() {
     'utf8'
   );
 
+  // 2026-09-27: the SECONDARY_ROLES / RECEIVER_ROLES arrays below are a July depth chart (69 players on the wrong
+  // 2026 team). The role files are now rebuilt from live ESPN rosters by scripts/nfl-rosters/rebuild_matchup_seeds.py
+  // and checked by scripts/nfl-rosters/roster_vet.py. This script must never overwrite them again.
+  if (!process.argv.includes('--i-know-these-rosters-are-stale')) {
+    console.log('Skipping secondary-roles-2026.json and receiver-roles-2026.json: their arrays here are stale (July 2026).');
+    console.log('Use: python3 scripts/nfl-rosters/rebuild_matchup_seeds.py');
+    return;
+  }
   console.log(`Writing ${SECONDARY_ROLES.length} secondary DB roles to secondary-roles-2026.json...`);
   await writeFile(
     path.join(MANUAL_DIR, 'secondary-roles-2026.json'),

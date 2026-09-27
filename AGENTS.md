@@ -122,6 +122,10 @@ Tier 2 agents do not chat. They build. Tier 1 reads what Tier 2 builds.
 
 <RULE[E:\dev\projects\NFL_Dashboard\AGENTS.md]>
 <!-- BEGIN UNIFIED SESSION CONTEXT PROTOCOL -->
+## NFL Roster Gate (all agents, every weekly card / intel build)
+
+**ROSTER GATE (mandatory since 2026-09-27).** Never state a player's team, role or status from memory — 2026 rosters have changed (A.J. Brown is a Patriot, Mike Evans a 49er, Rachaad White a Commander). Every player named in the digest, card, narratives, matchup seeds and picks must pass `python3 scripts/nfl-rosters/roster_vet.py --week <N> --date <capture-date> --fetch --strict` against the live ESPN 2026 rosters (all 32 teams incl. IR and practice squad; auto-refreshed when >24h old). A BLOCK means stop and fix; nothing is presented, built or placed on a failing vet. The preflight and `scripts/master-intel/build.py` both run it and fail on it.
+
 ## Unified Session Context Protocol (Claude, Codex, Antigravity, VS Code Copilot)
 
 ### Session Start Protocol (Targeted Read)

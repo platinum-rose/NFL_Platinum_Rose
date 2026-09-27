@@ -59,7 +59,10 @@ Honesty over volume. A short card of legs that each earn their place beats a ful
 2. Open the dated handoff that `HANDOFF.md` names as latest. Skim only its open-items section.
 
 **Phase 1 — preflight (1 call):** `node scripts/weekly-synthesis-preflight.mjs`
-It prints `WEEK_START`/`WEEK_END` (use them in every SQL filter below) and ok/STALE for every local input. Then run **Q1** (Supabase feed freshness).
+It prints `WEEK_START`/`WEEK_END` (use them in every SQL filter below) and ok/STALE for every local input, including **ESPN rosters 2026 (full)** and **ROSTER VET (gate)**. Then run **Q1** (Supabase feed freshness).
+
+**ROSTER GATE (mandatory since 2026-09-27).** Never state a player's team, role or status from memory — 2026 rosters have changed (A.J. Brown is a Patriot, Mike Evans a 49er, Rachaad White a Commander). Every player named in the digest, card, narratives, matchup seeds and picks must pass `python3 scripts/nfl-rosters/roster_vet.py --week <N> --date <capture-date> --fetch --strict` against the live ESPN 2026 rosters (all 32 teams incl. IR and practice squad; auto-refreshed when >24h old). A BLOCK means stop and fix; nothing is presented, built or placed on a failing vet. The preflight and `scripts/master-intel/build.py` both run it and fail on it.
+If the ROSTER VET row is STALE, that is a STOP A item with no "go ahead anyway" option: fix the listed players first (details in `data/generated/master-intel/w<NN>-roster-vet.json`).
 
 **If a source is STALE, don't work around it.** List the stale sources for Andy in one table with the fix, then **STOP A** (§3). If Andy says to go ahead anyway, build only the slots whose inputs are fresh and mark the rest "provisional":
 
@@ -69,6 +72,8 @@ It prints `WEEK_START`/`WEEK_END` (use them in every SQL filter below) and ok/ST
 | Secondary matchups (must be current week) | `npm run secondary-matchups` |
 | Prediction markets + coherence | `node scripts/build-prediction-markets.js` → `npm run prediction-markets:map` → `npm run prediction-markets:coherence` |
 | Roster map | NFL Roster Refresh workflow (GitHub Actions) |
+| ESPN rosters 2026 (full) | `python3 scripts/nfl-rosters/fetch_espn_rosters.py` (the preflight does this itself when >24h old) |
+| ROSTER VET (gate) | Fix what `data/generated/master-intel/w<NN>-roster-vet.json` lists: narratives/digest/card by hand; matchup seeds via `python3 scripts/nfl-rosters/rebuild_matchup_seeds.py` then `npm run secondary-matchups`; mis-tagged picks at their source file |
 | Alpha packet (gated: fails on stale inputs) | `npm run alpha:packet` after the above |
 | Prop boards | Andy pastes BEO boards into `docs/Player_Prop_Odds_Weekly/Week<N>/`, or live capture via `scripts/props/betonline-live-parser.mjs` (see `scripts/props/README.md`) |
 | BKR current lines | Andy's capture into `data/odds/BKR_current_lines_<MMDD>` |
@@ -115,7 +120,7 @@ For each source: pull **only** what's listed, and write a one-line digest entry 
 | a | Slate + lines | 16 games, kickoff PT, open→current spread, total, ML | **Q2**. Books there are DK/FD/MGM; Andy's real prices come from BKR lines / BEO boards |
 | b | Injuries | QB/RB/WR/TE Out/Doubtful/Questionable by team | **Q5**, then `data/player-availability/latest.json` for `improving`/conflicted rows only. **Game-day truth = team reports/live search near kickoff.** The file has known misclassifications |
 | c | QB starters | Any team with a QB change or doubt | `data/projected-starters/2026/<latest>` (filter `position=='QB'`). Known false positives: "will be the backup" phrasing |
-| d | Rosters | Only for players you'll propose | `data/nfl-rosters/roster-map-latest.json` with a normalized first-initial+surname match (Cam/Cameron, Jr./II). **Never judge a player's team from memory.** If it's surprising, check live before calling anything "contamination" |
+| d | Rosters | **Every player you name** (digest, card, narratives) | `data/nfl-rosters/espn-full-rosters-latest.json` (full 2026 rosters incl. IR/practice squad; `roster-map-latest.json` is a partial ~800-player map and can't catch a trade). **Never judge a player's team, role or status from memory.** Run `roster_vet.py --strict` after writing the digest and again after the card; it must PASS |
 | e | Role/usage | Targets, carries, snaps, trend for candidate players | `data/generated/player-usage-trends-2026.json` (`players[...]`, filter by name); box scores in `data/fantasy/boxscores/espn-*.json` for exact lines |
 | f | Secondary matchups | HIGH/MED vulnerabilities for this week | `data/secondary-matchups/latest.json` → `matchups[]` where tier HIGH/MEDIUM (must say `week == N`) |
 | g | Consensus signals | Leans with ≥2 distinct sources | **Q3**. Dedupe handle vs display name (e.g. "Sal Bets" = "salbets_"). Drop anything about games not on this week's slate |
@@ -178,6 +183,8 @@ A short python pass over the proposed-card table that counts, per ticket:
 
 Then show the combined American price computed, not estimated. Fix or flag every hit.
 
+**Then run the roster gate on the card:** `python3 scripts/nfl-rosters/roster_vet.py --week <N> --date <capture-date> --fetch --strict`. It resolves every card leg to a player on one of that game's two 2026 rosters and BLOCKs wrong-team, off-roster, practice-squad and ruled-out (OUT/IR) players. Don't present the card until it prints `ROSTER VET: PASS`. Re-run it before any placement talk on game day.
+
 ## 8. Futures review (TUE-WED mode; one pass, ~15k tokens)
 
 1. **Portfolio:** `data/futures-imports/andy-portfolio-ledger-2026.json` → `positions[]` (id, selection, stake, price, cap), `limits`. As of 9/21: 12 open positions, $238.51 staked. BUF SB $59.09 @ blended +992 (cap $200). GB SB $40 @ +2500 (cap $200). Six SB exactas (GB–BUF $45 @ +8300 is the big one). BUF O10.5 wins. GB make playoffs. `open_parlays` are **unverified contingent assets**: never count them as hedge capacity.
@@ -217,6 +224,7 @@ Then show the combined American price computed, not estimated. Fix or flag every
 
 ## 10. Guardrails (non-negotiable)
 
+- **ROSTER GATE (mandatory since 2026-09-27).** Never state a player's team, role or status from memory — 2026 rosters have changed (A.J. Brown is a Patriot, Mike Evans a 49er, Rachaad White a Commander). Every player named in the digest, card, narratives, matchup seeds and picks must pass `python3 scripts/nfl-rosters/roster_vet.py --week <N> --date <capture-date> --fetch --strict` against the live ESPN 2026 rosters (all 32 teams incl. IR and practice squad; auto-refreshed when >24h old). A BLOCK means stop and fix; nothing is presented, built or placed on a failing vet. The preflight and `scripts/master-intel/build.py` both run it and fail on it.
 - **Supabase writes need Andy's per-change OK.** Reads are fine.
 - No bet placement or account actions. Browser use on sportsbook sites is read-only and needs Andy's go-ahead.
 - Git:

@@ -11,8 +11,6 @@ for the evidence the card uses: injuries and QB changes, secondary-matchup tier,
 and the expert/podcast consensus. This is a written synthesis, not a model output. The quant prop model failed
 validation, so no edge % is used here. A projection can disagree with a card lean, and when it does the text says so.
 Written Sat 2026-09-26 from the 13:47 PT BKR capture; DK Predictions only for CAR@CLE.
-Roster-vetted Sun 2026-09-27 against live ESPN rosters (scripts/nfl-rosters/roster_vet.py): removed A.J. Brown (PHI@CHI), Mike Evans and
-Rachaad White (MIN@TB), DeAndre Hopkins (not on a roster) and the practice-squad Joey Aguilar QB line; secondary grades updated to the rebuilt seeds.
 -->
 
 ## LAC@BUF
@@ -43,7 +41,7 @@ Young protects the ball and Carolina's back-to-back road trip doesn't show up. A
 projection: DET 26, NYJ 23
 
 ### Game script
-Detroit comes in off extended rest after Thursday and scores through Jahmyr Gibbs (−531 anytime TD) and Amon-Ra St. Brown. The Jets have the matchup of the week, though: NYJ passing offense against the Detroit secondary grades HIGH at a 9.79 severity (Brian Branch and Kerby Joseph on PUP), the most lopsided number on the slate. Geno Smith finds Garrett Wilson over the top often enough (Warren Sharp and Rich Hribar both have Wilson o62.5) to keep it a one-score game. The Lions hold on late, but the Jets cover the 6.5 and the game goes Over.
+Detroit comes in off extended rest after Thursday and scores through Jahmyr Gibbs (−531 anytime TD) and Amon-Ra St. Brown. The Jets have the matchup of the week, though: NYJ passing offense against the Detroit secondary grades HIGH at a 9.26 severity, the most lopsided number on the slate. Geno Smith finds Garrett Wilson over the top often enough (Warren Sharp and Rich Hribar both have Wilson o62.5) to keep it a one-score game. The Lions hold on late, but the Jets cover the 6.5 and the game goes Over.
 
 ### Why the card leans this way
 The card's NYJ moneyline (+234, tier 1+2) is a price bet. The projection has Detroit winning. At +234 the Jets need to win about 30% of the time, and a HIGH secondary grade plus Action Network and Sharp or Square on the Jets makes a 30%+ upset chance reasonable. The market drifted toward New York all week: the Detroit moneyline went from −301 (Tue) to −274 with the spread flat. Over money is 51% against 25% of tickets, a 26-point sharp gap, which fits the high-scoring script here. Note that the live ticket 739211245 still has DET ML, so the card is on both sides of this game.
@@ -79,7 +77,7 @@ Achane breaks two long runs and Miami stays within a score into the fourth quart
 projection: TEN 19, NYG 16
 
 ### Game script
-The Giants start Jameis Winston for the injured Jaxson Dart. BettingPros notes Winston is 0-5 straight-up in his last five starts. The total fell from 40 (Tue) to 37, the biggest total move of the week, and the script follows it: two defensive fronts led by Jeffery Simmons for Tennessee, few explosive plays, and Winston's turnover risk deciding it. Tennessee's passing game has the HIGH-graded matchup (severity 7.32) against the Giants' secondary, which gives Cam Ward a shot or two to Calvin Ridley and Carnell Tate. Tennessee wins a low, ugly game.
+The Giants start Jameis Winston for the injured Jaxson Dart. BettingPros notes Winston is 0-5 straight-up in his last five starts. The total fell from 40 (Tue) to 37, the biggest total move of the week, and the script follows it: two defensive fronts led by Jeffrey Simmons for Tennessee, few explosive plays, and Winston's turnover risk deciding it. Tennessee's passing game has the HIGH-graded matchup (severity 7.04) against the Giants' secondary, which gives Cam Ward a shot or two to Calvin Ridley and DeAndre Hopkins. Tennessee wins a low, ugly game.
 
 ### Why the card leans this way
 The card's strongest dog pick (TEN moneyline +117, tier 1+2; TEN +2.5 in the SuperContest). The quoted consensus shows 5 sources on NYG, but the writers who addressed the Dart injury directly are on Tennessee. Even Money's Fezzik and Ross made it their best bet at +3.5, Sharp or Square had "desperate 0-2 Titans" at +3.5, and BettingPros cites a 0-2 vs 1-1 trend at 68.9% ATS since 2010. The line followed: NYG −2.5 (Tue) to −2, and the TEN moneyline from +123 to +117.
@@ -109,19 +107,19 @@ Washington starts Marcus Mariota for Jayden Daniels (dislocation, OUT). Even Mon
 Four sources on SEA against one (VSiN). The ML moved the most of any favorite this week, from −324 (Tue) to −388, and the spread went from −7 to −7.5. Only 10–11% of tickets and money are on Washington. The card has SEA −7.5 at tier 2, plus Drake Thomas 7+ tackles, Price 42+ rush, and JSN and Price anytime TDs, all expecting Seattle to control the game. The live ticket 739211245 has SEA ML.
 
 ### What breaks it
-The WAS passing offense against Seattle's secondary grades HIGH (5.85; Julian Love and Ty Okada out), which is the counterargument. If Mariota finds Terry McLaurin downfield, a late backdoor score lands inside 7.5.
+The WAS passing offense against Seattle's secondary grades HIGH (5.25), which is the counterargument. If Mariota finds Terry McLaurin downfield, a late backdoor score lands inside 7.5.
 
 ## NE@JAX
 projection: JAX 24, NE 20
 
 ### Game script
-The Patriots' line is missing Mike Onwenu (IR), and BettingPros says the offense has stagnated without A.J. Brown (IR). Jacksonville's blitz rate (Chad Millman's "Chad's Choice") keeps Maye uncomfortable. Trevor Lawrence runs a balanced offense: Bhayshul Tuten (53+ rush, 66 and 65 yards in weeks 1–2) and Parker Washington underneath (5 and 7 catches), with Brian Thomas Jr. on the MEDIUM matchup. New England stays close through the third quarter before Jacksonville's depth wins out. Jaguars by four.
+The Patriots' line is missing Mike Onwenu and Drake Maye has struggled without A.J. Brown. Jacksonville's blitz rate (Chad Millman's "Chad's Choice") keeps Maye uncomfortable. Trevor Lawrence runs a balanced offense: Bhayshul Tuten (53+ rush, 66 and 65 yards in weeks 1–2) and Parker Washington underneath (5 and 7 catches), with Brian Thomas Jr. on the MEDIUM matchup. New England stays close through the third quarter before Jacksonville's depth wins out. Jaguars by four.
 
 ### Why the card leans this way
-Four sources on JAX (BettingPros twice, Sharp or Square three times, Millman and VSiN) against one on NE (Fezzik on Even Money, who rates New England higher and says Jacksonville is coming off a grueling altitude game). BettingPros has the Jaguars 8-3 ATS at home under Liam Coen. Money supports it quietly: 46% of spread money on JAX against 37% of tickets, and the ML moved from −157 (Tue) to −161. JAX −3 is in the SuperContest, JAX ML is tier 2, and there are four Tuten and Washington legs across the prop tickets.
+Four sources on JAX (BettingPros twice, Sharp or Square three times, Millman and VSiN) against one on NE (Fezzik on Even Money, who cites the Jaguars' previous altitude game). BettingPros has the Jaguars 8-3 ATS at home under Liam Coen. Money supports it quietly: 46% of spread money on JAX against 37% of tickets, and the ML moved from −157 (Tue) to −161. JAX −3 is in the SuperContest, JAX ML is tier 2, and there are four Tuten and Washington legs across the prop tickets.
 
 ### What breaks it
-Maye moves the ball on short throws, Jacksonville settles for field goals in the red zone, and a three-point finish lands exactly on the contest number. The total also rose from 45 to 46 while our script projects 44.
+Joey Aguilar is listed Questionable at QB. If Lawrence isn't the starter, pull every JAX leg. The total also rose from 45 to 46 while our script projects 44.
 
 ## ARI@SF
 projection: SF 30, ARI 17
@@ -139,7 +137,7 @@ The public side at a big number. Sharp or Square's "buy-low divisional" +8.5 and
 projection: TB 21, MIN 19
 
 ### Game script
-Two defensive coordinators known for red-zone stops (Brian Flores for Minnesota) keep this game in field-goal range. Kyler Murray moves the ball between the 20s, and Baker Mayfield attacks Minnesota's heavy blitz quickly with Chris Godwin, Cade Otton and Jalen McMillan on the MEDIUM matchup. An 0-2 Tampa team at home in Week 3 wins by a field goal.
+Two defensive coordinators known for red-zone stops (Brian Flores for Minnesota) keep this game in field-goal range. Kyler Murray moves the ball between the 20s, and Baker Mayfield attacks Minnesota's heavy blitz quickly with Chris Godwin, Mike Evans and Cade Otton on the MEDIUM matchup. Rachaad White is the outlet: Brandon Anderson laddered his receptions to 5.5. An 0-2 Tampa team at home in Week 3 wins by a field goal.
 
 ### Why the card leans this way
 Seven sources on TB against three on MIN, most of them on the same Week 3 trend: 0-2 teams against non-0-2 opponents cover 63% of the time since 2010 (Action Network's "Kitchen Sink"). The Favorites, Sharp or Square and the Even Money Wong teaser (+1.5 → +7.5) are all on Tampa. The line moved slightly toward TB (−1.5 to −1). TB ML +102 is tier 2, in the dog RR.
@@ -151,7 +149,7 @@ BettingPros' fade: Tampa is 0-11 ATS in its last 11 and the losing streak is rea
 projection: BAL 30, DAL 24
 
 ### Game script
-In Rio de Janeiro, Baltimore bounces back behind Derrick Henry (−251 ATD) and Lamar Jackson's legs (34+ rush; Warren Sharp has o38.5). The Ravens run on a Dallas defense Action Network calls weak against the run. Both passing games have a real matchup: Baltimore's grades HIGH (6.15) against a Dallas secondary missing Malik Hooker and Cobie Durant, and Dallas's grades MEDIUM (3.9) with George Pickens and CeeDee Lamb, so Dak Prescott keeps pace in the first half. Baltimore's run game controls the fourth quarter. This is the highest total on the slate (53) and the projection lands on the Over.
+In Rio de Janeiro, Baltimore bounces back behind Derrick Henry (−251 ATD) and Lamar Jackson's legs (34+ rush; Warren Sharp has o38.5). The Ravens run on a Dallas defense Action Network calls weak against the run. Dallas has the HIGH-graded passing matchup (severity 5.25) with George Pickens and CeeDee Lamb against the Baltimore secondary, so Dak Prescott keeps pace in the first half. Baltimore's run game controls the fourth quarter. This is the highest total on the slate (53) and the projection lands on the Over.
 
 ### Why the card leans this way
 Sharp or Square has Lamar covering around 80% of the time after losing as a 7+ point favorite. Action Network, Sharp or Square and Simon Hunter are on BAL. The splits show sharp money on Baltimore: DAL gets 51% of spread tickets but only 31% of the money. The line moved from −3 (Tue) to −3.5 and the moneyline from −174 to −181. BAL ML is tier 2 with a flag, and the Roquan Smith 8+ and Caleb Downs 7+ tackle legs use the game's high snap count.
@@ -187,10 +185,10 @@ The market is telling us Denver. A one-point projection is a coin flip, so the L
 projection: PHI 23, CHI 16
 
 ### Game script
-Chicago is without Caleb Williams, and Tyson Bagent is himself questionable, so the Bears may be down to a third option (Action Network refers to Keenum). The Bears run the ball and shorten the game. Philadelphia's passing game has the HIGH-graded matchup (severity 5.95) but loses its tight ends (Goedert and Calcaterra out) and Hollywood Brown (ankle, out). That funnels targets to DeVonta Smith (o5.5 catches, Scott Bogman) and Makai Lemon. Philadelphia wins a controlled, low Monday night game by a touchdown.
+Chicago is without Caleb Williams, and Tyson Bagent is himself questionable, so the Bears may be down to a third option (Action Network refers to Keenum). The Bears run the ball and shorten the game. Philadelphia's passing game has the HIGH-graded matchup (severity 5.95) but loses its tight ends (Goedert and Calcaterra out) and Hollywood Brown. That funnels targets to A.J. Brown and DeVonta Smith (o5.5 catches, Scott Bogman). Philadelphia wins a controlled, low Monday night game by a touchdown.
 
 ### Why the card leans this way
-Tier 1+2 on PHI ML: Joe Gibbs and Chris Welsh (−4.5) on the side, a HIGH secondary grade, and a Chicago QB room that may be on its third option. The line tells a real story: PHI −4.5 (Tue) to −3 after the Goedert and Hollywood Brown news, the moneyline from −232 to −180, and CHI ML money at 21% against 7% of tickets. Most of the CHI consensus (Action Network, Brandon Anderson, Sharp or Square at +4.5) was taken at the pre-news number. The Under (4 sources: BettingPros, Welsh, Gibbs, Bogman) and D.Smith receptions follow from the same script. The live ticket 739211245 carries PHI ML.
+Tier 1+2 on PHI ML: Joe Gibbs and Chris Welsh (−4.5) on the side, a HIGH secondary grade, and a Chicago QB room that may be on its third option. The line tells a real story: PHI −4.5 (Tue) to −3 after the Goedert and Brown news, the moneyline from −232 to −180, and CHI ML money at 21% against 7% of tickets. Most of the CHI consensus (Action Network, Brandon Anderson, Sharp or Square at +4.5) was taken at the pre-news number. The Under (4 sources: BettingPros, Welsh, Gibbs, Bogman) and D.Smith receptions follow from the same script. The live ticket 739211245 carries PHI ML.
 
 ### What breaks it
 A healthy Bagent and a Bears run game that wins time of possession. At −3 there's less cushion than at −4.5. If Bagent is ruled out Monday, the side gets stronger; if he's cleared and the line goes back to −3.5, reconsider.

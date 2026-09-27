@@ -265,6 +265,7 @@ def final_scores(week):
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--week', type=int, required=True); ap.add_argument('--date', required=True)
     ap.add_argument('--season', type=int, default=2026); ap.add_argument('--no-export', action='store_true')
+    ap.add_argument('--allow-roster-issues', action='store_true', help='build even if the roster gate fails (needs Andy OK; issues are printed in the report)')
     a = ap.parse_args(); W, WW, D = a.week, f'{a.week:02d}', a.date
     gaps = []
     sched = [g for g in J('public/schedule.json', []) if g.get('week') == W and g.get('season') == a.season and g.get('season_type') == 2]
@@ -372,8 +373,13 @@ def main():
 
     # ---------- injuries ----------
     INJ = collections.defaultdict(dict)
+    # Practice-squad players aren't game-day options, so their injury tags don't belong in a game's
+    # key context (2026-09-27: JAX practice-squad QB Joey Aguilar printed as "Questionable at QB").
+    ESPN_R = (J('data/nfl-rosters/espn-full-rosters-latest.json', {}) or {}).get('players', {})
+    practice_squad = {n for n, rs in ESPN_R.items() if rs and all(r.get('group') == 'practiceSquad' for r in rs)}
     for e in avail:
         if e.get('position') not in ('QB', 'RB', 'WR', 'TE'): continue
+        if e.get('player_name') in practice_squad: continue
         st = str(e.get('normalized_status') or '').upper()
         if not re.match(r'^(OUT|DOUBTFUL|QUESTIONABLE)', st): continue
         t = e.get('team_abbr'); n = e['player_name']
@@ -392,6 +398,23 @@ def main():
     if exp_dropped: gaps.append('Dropped mis-tagged expert side picks (selection names neither team): ' + '; '.join(exp_dropped))
     miss_nar = [g['id'] for g in live if not (NAR.get(g['id']) or {}).get('secs')]
     if miss_nar: gaps.append(f'No game narrative/projection for: {", ".join(miss_nar)} ({nar_p}).')
+    # ---------- ROSTER GATE (mandatory; added 2026-09-27 after A.J. Brown / Mike Evans / Rachaad White were printed on old teams) ----------
+    # Every player->team claim in the card, digest, narratives, matchup seeds and picks is checked against the live 2026 ESPN rosters
+    # (refreshed automatically when older than 24h). Any blocking issue STOPS the build. --allow-roster-issues overrides it only
+    # with Andy's explicit OK, and the report then carries the issues in its gaps list.
+    import subprocess
+    rv_p = ROOT / f'data/generated/master-intel/w{WW}-roster-vet.json'
+    rv_run = subprocess.run([sys.executable, str(ROOT / 'scripts/nfl-rosters/roster_vet.py'), '--week', str(W), '--date', D, '--season', str(a.season), '--fetch', '--strict'],
+                            cwd=ROOT, capture_output=True, text=True)
+    print(rv_run.stdout.strip().splitlines()[-1] if rv_run.stdout.strip() else rv_run.stderr.strip())
+    if rv_run.returncode:
+        rv = json.load(open(rv_p, encoding='utf-8')) if rv_p.exists() else {'blocking': []}
+        issues = [f"{b[0]}: {b[1]} {b[2]} (says {'/'.join(b[3]) if b[3] else '-'}, roster {'/'.join(b[4]) if isinstance(b[4], list) else b[4]})" for b in rv.get('blocking', [])]
+        if not a.allow_roster_issues:
+            print(rv_run.stdout)
+            sys.exit('ROSTER GATE FAILED — fix every issue above (narratives by hand; seeds via scripts/nfl-rosters/rebuild_matchup_seeds.py '
+                     '+ npm run secondary-matchups; picks at their source) and rebuild. Details: ' + str(rv_p.relative_to(ROOT)))
+        gaps.append(f'⛔ ROSTER GATE OVERRIDDEN (--allow-roster-issues) — {len(issues)} unverified player/team claims: ' + '; '.join(issues[:25]))
     TICK = re.findall(r'^### (.+?) — (.+?) — \*\*\$([\d.]+)\*\* — (.+?) — (.+)$', card, re.M)
     if not TICK: gaps.append(f'No card tickets found in {card_p}.')
 

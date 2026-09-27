@@ -21,11 +21,14 @@
 | 6 | Weekly refreshes: availability → starters → secondary → prediction markets → alpha packet (§5) | `data/player-availability/latest.json` etc. | yes (stale injuries = wrong report) |
 | 7 | Synthesis digest + card (agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md) | `scratch/w<NN>-synthesis-digest-sat.md`, `reports/bets/2026-w<NN>-card.md` | optional (sections 1/4/5/7 are richer with it) |
 | 8 | `node scripts/master-intel/pull.mjs --week <N>` | `data/generated/master-intel/w<NN>-pull.json` (signals, articles, expert picks, splits, feed health) | **yes** |
+| 7b | **Roster gate:** `python3 scripts/nfl-rosters/roster_vet.py --week <N> --date <date> --fetch --strict` (live 2026 ESPN rosters; after the digest + card) | `data/generated/master-intel/w<NN>-roster-vet.json` | **yes: BLOCK = stop and fix** |
 | 8b | Write the narratives file (game write-ups, `## TICKETS`, `## SUPERCONTEST`) and `data/survivor/pick-intel-<season>-w<NN>.json` (§8, format doc §3) | `reports/intel/master-intel-narratives-<season>-w<NN>.md` | **yes** |
 | 9 | `python3 scripts/master-intel/build.py --week <N> --date <date>` | md + html + docx + json in `dist/nfl_week<N>_master_packet/` | **yes** |
 | 9b | `python3 scripts/master-intel/export_pdf.py dist/nfl_week<N>_master_packet/nfl_week<N>_master_betting_intelligence_summary.html` | pdf (all boxes expanded). Needs Playwright + Chromium; if the local machine lacks them, run it wherever they exist | **yes** |
 | 9c | Archive the five files to Google Drive (`Platinum Rose / Master Intel / <season> / Week <NN>`) | — | **yes** |
 | 10 | QA checklist (§6) | — | **yes** |
+
+**Roster gate (since 2026-09-27):** `build.py` runs `roster_vet.py --fetch --strict` itself and **exits** if any player in the card, digest, narratives, matchup seeds or picks is on the wrong 2026 team, on no roster, on the practice squad, or (for card legs) ruled out. Narratives: every capitalized name must be a 2026 roster player or be listed in `data/nfl-rosters/non-player-names.json` (coaches, analysts, shows). Never write a player's team or role from memory. `--allow-roster-issues` builds anyway only with Andy's explicit OK and prints the issues in the report's gaps. If the matchup seeds fail, run `python3 scripts/nfl-rosters/rebuild_matchup_seeds.py` then `npm run secondary-matchups` (never `scripts/build-manual-secondary-seeds.js`, whose rosters are stale).
 
 `--date` is the BKR capture date (it's in the capture filenames). Use `--no-export` to skip html/docx while iterating.
 Export uses `scripts/master-intel/convert_summary.py` (vendored copy of the Week 1/2 converter; needs `python-docx`).

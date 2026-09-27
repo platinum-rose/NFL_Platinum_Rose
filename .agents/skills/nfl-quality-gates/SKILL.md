@@ -28,5 +28,11 @@ Before marking any task complete or committing to Git, ensure the following chec
 - **Protect localStorage Keys**: Detect changes to canonical localStorage key strings (e.g., `pr_picks_v1`, `nfl_bankroll_data_v1`, `nfl_futures_portfolio_v1`, `nfl_expert_consensus`, `nfl_splits`, `nfl_my_bets`) in `src/lib/storage.js`, `picksDatabase.js`, `bankroll.js`, or `futures.js`.
 - **Migration Helper REQUIRED**: If any localStorage key name is changed, a migration helper MUST be written and committed alongside it.
 
+### 5. NFL Roster Gate (betting cards, intel reports, narratives)
+- Never state a player's 2026 team, role or status from memory.
+- Before presenting a card, building the Master Intel / SuperContest report, or any placement talk:
+  `python3 scripts/nfl-rosters/roster_vet.py --week <N> --date <capture-date> --fetch --strict` must print `ROSTER VET: PASS`.
+- Regression check after touching the gate: `python3 scripts/nfl-rosters/test_roster_vet.py` (all Week 3 2026 errors must still BLOCK).
+
 ## Verification Gate Reminder
 A task is **not done** until it is proven to work. Check the console, verify UI behavior, and confirm `localStorage` state before considering a fix or feature complete. For grading/scoring changes, manually verify at least one bet grades correctly end-to-end.

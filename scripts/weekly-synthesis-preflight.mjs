@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 // scripts/weekly-synthesis-preflight.mjs
 // Compact freshness report for the weekly card + futures synthesis session
-// (agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md). Reads LOCAL files only -- safe in
-// the no-network device VM. Prints ~30 lines so a session can check every input without
+// (agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md). Reads local files, except the 2026 ESPN roster refresh. Prints ~30 lines so a session can check every input without
 // opening large JSON files.
 //
-// Usage: node scripts/weekly-synthesis-preflight.mjs [--week N] [--json]
+// Usage: node scripts/weekly-synthesis-preflight.mjs [--week N] [--date YYYY-MM-DD] [--json] [--no-fetch]
+// The ESPN roster refresh is the one network call (free public API); --no-fetch skips it.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { spawnSync } from 'node:child_process';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
@@ -47,6 +48,21 @@ const SOURCES = [
   ['Player availability', 'data/player-availability/latest.json', 24, (j) => ({ note: `${j?.meta?.event_count ?? '?'} events` })],
   ['Projected starters', () => `data/projected-starters/2026/${newest('data/projected-starters/2026', /^projected-starters-.*\.json$/)}`, 36],
   ['Roster map', 'data/nfl-rosters/roster-map-latest.json', 72, (j) => ({ note: `${j?.player_count ?? '?'} players` })],
+  // 2026-09-27 ROSTER GATE: the full 2026 ESPN rosters (incl. IR / practice squad) are the only accepted source for
+  // "which team is this player on". Refreshed here automatically when >24h old; the vet below must PASS before any card work.
+  ['ESPN rosters 2026 (full)', () => {
+    const p = 'data/nfl-rosters/espn-full-rosters-latest.json';
+    const j = readJson(p);
+    const age = j?.generated_at ? (now - new Date(j.generated_at)) / 3600000 : Infinity;
+    if (age > 24 && !argv.includes('--no-fetch')) spawnSync('python3', [rel('scripts/nfl-rosters/fetch_espn_rosters.py')], { cwd: ROOT, encoding: 'utf8', timeout: 120000 });
+    return p;
+  }, 24, (j) => ({ note: `${j?.player_count ?? '?'} players, ${j?.team_count ?? '?'} teams`, fail: (j?.team_count ?? 0) !== 32 })],
+  ['ROSTER VET (gate)', null, null, () => {
+    const d = new Date(now); const date = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles' }).format(d);
+    const r = spawnSync('python3', [rel('scripts/nfl-rosters/roster_vet.py'), '--week', String(WEEK), '--date', argVal('--date') || date, '--quiet'], { cwd: ROOT, encoding: 'utf8', timeout: 170000 });
+    const line = (r.stdout || r.stderr || 'did not run').trim().split('\n').pop();
+    return { note: `${line}  -> details: data/generated/master-intel/w${String(WEEK).padStart(2, '0')}-roster-vet.json`, fail: !/ROSTER VET: PASS/.test(line) };
+  }],
   ['Secondary matchups', 'data/secondary-matchups/latest.json', 96, (j) => ({ note: `week ${j?.meta?.week}`, fail: j?.meta?.week !== WEEK })],
   ['Usage trends (season)', 'data/generated/player-usage-trends-2026.json', 72, (j) => ({ note: `through wk ${j?.last_updated_week}`, fail: j?.last_updated_week !== WEEK - 1 })],
   ['ESPN box scores', null, null, () => {
