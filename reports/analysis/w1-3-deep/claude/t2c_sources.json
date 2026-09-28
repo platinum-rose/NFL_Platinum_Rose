@@ -1,0 +1,1804 @@
+{
+ "who": {
+  "AI-proposed, placed": {
+   "all": {
+    "w": 83,
+    "n": 182,
+    "hit": 0.45604395604395603,
+    "ci": [
+     0.3853374521366934,
+     0.5285677230232276
+    ],
+    "priced": 161,
+    "wp": 74,
+    "be": 0.5252061788626161,
+    "roi": -0.09604506030736819,
+    "z": -1.6663233870807403,
+    "evidence": "moderate (hypothesis)"
+   },
+   "sides": {
+    "w": 36,
+    "n": 87,
+    "hit": 0.41379310344827586,
+    "ci": [
+     0.3160914661073315,
+     0.5187859468840734
+    ],
+    "priced": 83,
+    "wp": 33,
+    "be": 0.5436053017716823,
+    "roi": -0.25976570076970584,
+    "z": -2.670694452089812,
+    "evidence": "strong"
+   },
+   "props": {
+    "w": 47,
+    "n": 95,
+    "hit": 0.49473684210526314,
+    "ci": [
+     0.3963740546246646,
+     0.5935087477581378
+    ],
+    "priced": 78,
+    "wp": 41,
+    "be": 0.5056276249978401,
+    "roi": 0.07817049300512025,
+    "z": 0.35352953059027925,
+    "evidence": "weak (hypothesis)"
+   }
+  },
+  "Andy (own / not in AI log)": {
+   "all": {
+    "w": 120,
+    "n": 247,
+    "hit": 0.48582995951417,
+    "ci": [
+     0.424194865180329,
+     0.5478990777701226
+    ],
+    "priced": 190,
+    "wp": 95,
+    "be": 0.5311262061764367,
+    "roi": -0.03336338304161218,
+    "z": -0.8597578407650492,
+    "evidence": "weak (hypothesis)"
+   },
+   "sides": {
+    "w": 27,
+    "n": 49,
+    "hit": 0.5510204081632653,
+    "ci": [
+     0.41314866799678107,
+     0.6814737507036366
+    ],
+    "priced": 43,
+    "wp": 24,
+    "be": 0.5503601241751327,
+    "roi": 0.09007545894488188,
+    "z": 0.10254749088121844,
+    "evidence": "weak (hypothesis)"
+   },
+   "props": {
+    "w": 93,
+    "n": 198,
+    "hit": 0.4696969696969697,
+    "ci": [
+     0.40141849474412705,
+     0.5391289444359033
+    ],
+    "priced": 147,
+    "wp": 71,
+    "be": 0.5254999580543691,
+    "roi": -0.06947134362269558,
+    "z": -1.0320772565596212,
+    "evidence": "weak (hypothesis)"
+   }
+  },
+  "AI-proposed, not placed": {
+   "all": {
+    "w": 40,
+    "n": 86,
+    "hit": 0.46511627906976744,
+    "ci": [
+     0.36345695311713955,
+     0.5697588400121011
+    ],
+    "priced": 38,
+    "wp": 22,
+    "be": 0.5338590367022166,
+    "roi": 0.2173627182804933,
+    "z": 0.5571652615889555,
+    "evidence": "weak (hypothesis)"
+   },
+   "sides": {
+    "w": 5,
+    "n": 14,
+    "hit": 0.35714285714285715,
+    "ci": [
+     0.16344490737202735,
+     0.6123599531785959
+    ],
+    "priced": 0,
+    "wp": 0,
+    "be": null,
+    "roi": null,
+    "z": 0.0,
+    "evidence": "thin (hypothesis)"
+   },
+   "props": {
+    "w": 35,
+    "n": 72,
+    "hit": 0.4861111111111111,
+    "ci": [
+     0.3743248074300839,
+     0.5993044408980104
+    ],
+    "priced": 38,
+    "wp": 22,
+    "be": 0.5338590367022166,
+    "roi": 0.2173627182804933,
+    "z": 0.5571652615889555,
+    "evidence": "weak (hypothesis)"
+   }
+  }
+ },
+ "ai_split": {
+  "QB": {
+   "w": 17,
+   "n": 28,
+   "hit": 0.6071428571428571,
+   "ci": [
+    0.42408726034906297,
+    0.7643454817241996
+   ],
+   "priced": 18,
+   "wp": 13,
+   "be": 0.5498000720769218,
+   "roi": 0.2981078638498524,
+   "z": 1.4703617698416362,
+   "evidence": "weak (hypothesis)"
+  },
+  "TD scorer": {
+   "w": 25,
+   "n": 51,
+   "hit": 0.49019607843137253,
+   "ci": [
+    0.35857262142306195,
+    0.623193045515904
+   ],
+   "priced": 35,
+   "wp": 19,
+   "be": 0.41421700301349335,
+   "roi": 0.4824403532150271,
+   "z": 1.544998933009965,
+   "evidence": "moderate (hypothesis)"
+  },
+  "defense": {
+   "w": 5,
+   "n": 14,
+   "hit": 0.35714285714285715,
+   "ci": [
+    0.16344490737202735,
+    0.6123599531785959
+   ],
+   "priced": 11,
+   "wp": 5,
+   "be": 0.49959134581665104,
+   "roi": -0.19685629806309085,
+   "z": -0.29880073918582106,
+   "evidence": "thin (hypothesis)"
+  },
+  "side/total": {
+   "w": 41,
+   "n": 101,
+   "hit": 0.40594059405940597,
+   "ci": [
+    0.31532231224182006,
+    0.5034519147825671
+   ],
+   "priced": 83,
+   "wp": 33,
+   "be": 0.5436053017716823,
+   "roi": -0.25976570076970584,
+   "z": -2.670694452089812,
+   "evidence": "strong"
+  },
+  "volume/yardage": {
+   "w": 35,
+   "n": 74,
+   "hit": 0.47297297297297297,
+   "ci": [
+    0.36338517790283736,
+    0.5852284168845255
+   ],
+   "priced": 52,
+   "wp": 26,
+   "be": 0.5737710949553027,
+   "roi": -0.11017024777059867,
+   "z": -1.0757147391526802,
+   "evidence": "weak (hypothesis)"
+  }
+ },
+ "andy_split": {
+  "QB": {
+   "w": 20,
+   "n": 35,
+   "hit": 0.5714285714285714,
+   "ci": [
+    0.4085712925897337,
+    0.7201566691832108
+   ],
+   "priced": 26,
+   "wp": 17,
+   "be": 0.5984245941029522,
+   "roi": 0.09682403262678982,
+   "z": 0.5764705793472534,
+   "evidence": "weak (hypothesis)"
+  },
+  "TD scorer": {
+   "w": 20,
+   "n": 57,
+   "hit": 0.3508771929824561,
+   "ci": [
+    0.24000246078174026,
+    0.48058345411859105
+   ],
+   "priced": 36,
+   "wp": 13,
+   "be": 0.41011064666854846,
+   "roi": -0.00897200630268359,
+   "z": -0.597733247464956,
+   "evidence": "weak (hypothesis)"
+  },
+  "defense": {
+   "w": 13,
+   "n": 25,
+   "hit": 0.52,
+   "ci": [
+    0.334982179531473,
+    0.6996899607103998
+   ],
+   "priced": 24,
+   "wp": 12,
+   "be": 0.49034022988681736,
+   "roi": -0.030062851353102715,
+   "z": 0.09466369924722938,
+   "evidence": "weak (hypothesis)"
+  },
+  "side/total": {
+   "w": 27,
+   "n": 49,
+   "hit": 0.5510204081632653,
+   "ci": [
+    0.41314866799678107,
+    0.6814737507036366
+   ],
+   "priced": 43,
+   "wp": 24,
+   "be": 0.5503601241751327,
+   "roi": 0.09007545894488188,
+   "z": 0.10254749088121844,
+   "evidence": "weak (hypothesis)"
+  },
+  "volume/yardage": {
+   "w": 40,
+   "n": 81,
+   "hit": 0.49382716049382713,
+   "ci": [
+    0.38771930018551176,
+    0.6004940291246379
+   ],
+   "priced": 61,
+   "wp": 29,
+   "be": 0.5763492719666242,
+   "roi": -0.19156084756494562,
+   "z": -1.5954343485916465,
+   "evidence": "moderate (hypothesis)"
+  }
+ },
+ "by_cat": {
+  "2+ TD": {
+   "AI-proposed, placed": {
+    "w": 3,
+    "n": 4,
+    "hit": 0.75,
+    "ci": [
+     0.3006360524426366,
+     0.9544139373553637
+    ],
+    "priced": 4,
+    "wp": 3,
+    "be": 0.33888888888888885,
+    "roi": 1.5,
+    "z": 1.737093987900276,
+    "evidence": "thin (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 1,
+    "n": 1,
+    "hit": 1.0,
+    "ci": [
+     0.20654329147389294,
+     1
+    ],
+    "priced": 1,
+    "wp": 1,
+    "be": 0.3333333333333333,
+    "roi": 2.0,
+    "z": 1.4142135623730951,
+    "evidence": "thin (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 0,
+    "n": 3,
+    "hit": 0.0,
+    "ci": [
+     0,
+     0.5615060804490177
+    ],
+    "priced": 0,
+    "wp": 0,
+    "be": null,
+    "roi": null,
+    "z": 0.0,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "Anytime TD": {
+   "AI-proposed, placed": {
+    "w": 13,
+    "n": 20,
+    "hit": 0.65,
+    "ci": [
+     0.43285051021946463,
+     0.8188104521320554
+    ],
+    "priced": 15,
+    "wp": 11,
+    "be": 0.4602961625379432,
+    "roi": 0.759173652694611,
+    "z": 2.1216364818178244,
+    "evidence": "strong"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 18,
+    "n": 53,
+    "hit": 0.33962264150943394,
+    "ci": [
+     0.22686862857429074,
+     0.4740546388917903
+    ],
+    "priced": 32,
+    "wp": 11,
+    "be": 0.4327286441687837,
+    "roi": -0.10384350709051904,
+    "z": -1.0159153531335687,
+    "evidence": "weak (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 6,
+    "n": 12,
+    "hit": 0.5,
+    "ci": [
+     0.2537781703934222,
+     0.7462218296065778
+    ],
+    "priced": 9,
+    "wp": 4,
+    "be": 0.5582314250063792,
+    "roi": -0.16691026976591297,
+    "z": -0.6873996042698857,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "Carries": {
+   "AI-proposed, placed": {
+    "w": 2,
+    "n": 2,
+    "hit": 1.0,
+    "ci": [
+     0.34237195288961925,
+     1
+    ],
+    "priced": 2,
+    "wp": 2,
+    "be": 0.5538540677429566,
+    "roi": 0.8126133126133126,
+    "z": 1.2692751918921021,
+    "evidence": "thin (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 1,
+    "n": 2,
+    "hit": 0.5,
+    "ci": [
+     0.09452865480086614,
+     0.9054713451991339
+    ],
+    "priced": 1,
+    "wp": 1,
+    "be": 0.5412844036697247,
+    "roi": 0.847457627118644,
+    "z": 0.9205746178983235,
+    "evidence": "thin (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 0,
+    "n": 2,
+    "hit": 0.0,
+    "ci": [
+     0,
+     0.6576280471103807
+    ],
+    "priced": 2,
+    "wp": 0,
+    "be": 0.5922478353396039,
+    "roi": -1.0,
+    "z": -1.704388523501559,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "Defensive INT": {
+   "AI-proposed, placed": {
+    "w": 0,
+    "n": 0,
+    "hit": null,
+    "ci": [
+     0.0,
+     1.0
+    ],
+    "priced": 0,
+    "wp": 0,
+    "be": null,
+    "roi": null,
+    "z": 0.0,
+    "evidence": "thin (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 0,
+    "n": 2,
+    "hit": 0.0,
+    "ci": [
+     0,
+     0.6576280471103807
+    ],
+    "priced": 2,
+    "wp": 0,
+    "be": 0.10703307962529274,
+    "roi": -1.0,
+    "z": -0.48961681345888913,
+    "evidence": "thin (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 0,
+    "n": 0,
+    "hit": null,
+    "ci": [
+     0.0,
+     1.0
+    ],
+    "priced": 0,
+    "wp": 0,
+    "be": null,
+    "roi": null,
+    "z": 0.0,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "First TD": {
+   "AI-proposed, placed": {
+    "w": 0,
+    "n": 5,
+    "hit": 0.0,
+    "ci": [
+     0,
+     0.43449149475208104
+    ],
+    "priced": 5,
+    "wp": 0,
+    "be": 0.20103619069136308,
+    "roi": -1.0,
+    "z": -1.1216531275933443,
+    "evidence": "thin (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 1,
+    "n": 3,
+    "hit": 0.3333333333333333,
+    "ci": [
+     0.0614903152761605,
+     0.7923450448735121
+    ],
+    "priced": 3,
+    "wp": 1,
+    "be": 0.19444444444444442,
+    "roi": 0.3333333333333333,
+    "z": 0.607830673854831,
+    "evidence": "thin (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 3,
+    "n": 7,
+    "hit": 0.42857142857142855,
+    "ci": [
+     0.15821692226262685,
+     0.7495457695909742
+    ],
+    "priced": 2,
+    "wp": 1,
+    "be": 0.10416666666666666,
+    "roi": 3.0,
+    "z": 1.8325227242475661,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "Half total": {
+   "AI-proposed, placed": {
+    "w": 0,
+    "n": 0,
+    "hit": null,
+    "ci": [
+     0.0,
+     1.0
+    ],
+    "priced": 0,
+    "wp": 0,
+    "be": null,
+    "roi": null,
+    "z": 0.0,
+    "evidence": "thin (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 0,
+    "n": 0,
+    "hit": null,
+    "ci": [
+     0.0,
+     1.0
+    ],
+    "priced": 0,
+    "wp": 0,
+    "be": null,
+    "roi": null,
+    "z": 0.0,
+    "evidence": "thin (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 1,
+    "n": 1,
+    "hit": 1.0,
+    "ci": [
+     0.20654329147389294,
+     1
+    ],
+    "priced": 0,
+    "wp": 0,
+    "be": null,
+    "roi": null,
+    "z": 0.0,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "Kicker FGs": {
+   "AI-proposed, placed": {
+    "w": 0,
+    "n": 0,
+    "hit": null,
+    "ci": [
+     0.0,
+     1.0
+    ],
+    "priced": 0,
+    "wp": 0,
+    "be": null,
+    "roi": null,
+    "z": 0.0,
+    "evidence": "thin (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 1,
+    "n": 1,
+    "hit": 1.0,
+    "ci": [
+     0.20654329147389294,
+     1
+    ],
+    "priced": 0,
+    "wp": 0,
+    "be": null,
+    "roi": null,
+    "z": 0.0,
+    "evidence": "thin (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 0,
+    "n": 0,
+    "hit": null,
+    "ci": [
+     0.0,
+     1.0
+    ],
+    "priced": 0,
+    "wp": 0,
+    "be": null,
+    "roi": null,
+    "z": 0.0,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "Moneyline (dog)": {
+   "AI-proposed, placed": {
+    "w": 5,
+    "n": 15,
+    "hit": 0.3333333333333333,
+    "ci": [
+     0.15176100694691236,
+     0.5828687484878701
+    ],
+    "priced": 15,
+    "wp": 5,
+    "be": 0.3678568032945938,
+    "roi": -0.05199999999999984,
+    "z": -0.27727642083474385,
+    "evidence": "weak (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 3,
+    "n": 6,
+    "hit": 0.5,
+    "ci": [
+     0.18761280689940868,
+     0.8123871931005913
+    ],
+    "priced": 6,
+    "wp": 3,
+    "be": 0.2973251796629047,
+    "roi": 0.8016666666666667,
+    "z": 1.0861314298819855,
+    "evidence": "thin (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 1,
+    "n": 3,
+    "hit": 0.3333333333333333,
+    "ci": [
+     0.0614903152761605,
+     0.7923450448735121
+    ],
+    "priced": 0,
+    "wp": 0,
+    "be": null,
+    "roi": null,
+    "z": 0.0,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "Moneyline (fav)": {
+   "AI-proposed, placed": {
+    "w": 10,
+    "n": 16,
+    "hit": 0.625,
+    "ci": [
+     0.3864064709793481,
+     0.815190174452472
+    ],
+    "priced": 16,
+    "wp": 10,
+    "be": 0.7157199497204288,
+    "roi": -0.1327568363709133,
+    "z": -0.8044851632434037,
+    "evidence": "weak (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 9,
+    "n": 13,
+    "hit": 0.6923076923076923,
+    "ci": [
+     0.4236888781333764,
+     0.8731950283838191
+    ],
+    "priced": 13,
+    "wp": 9,
+    "be": 0.6835687287963125,
+    "roi": 0.05943725954342405,
+    "z": 0.06774867576153612,
+    "evidence": "thin (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 0,
+    "n": 0,
+    "hit": null,
+    "ci": [
+     0.0,
+     1.0
+    ],
+    "priced": 0,
+    "wp": 0,
+    "be": null,
+    "roi": null,
+    "z": 0.0,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "Passing TDs": {
+   "AI-proposed, placed": {
+    "w": 6,
+    "n": 9,
+    "hit": 0.6666666666666666,
+    "ci": [
+     0.35419734749908977,
+     0.879418401317257
+    ],
+    "priced": 9,
+    "wp": 6,
+    "be": 0.5738345333189078,
+    "roi": 0.12116175124382285,
+    "z": 0.563166895737988,
+    "evidence": "thin (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 9,
+    "n": 12,
+    "hit": 0.75,
+    "ci": [
+     0.46768966087934005,
+     0.9110599603710386
+    ],
+    "priced": 10,
+    "wp": 8,
+    "be": 0.6717685992426944,
+    "roi": 0.23546091562102694,
+    "z": 0.8635638890883768,
+    "evidence": "thin (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 1,
+    "n": 1,
+    "hit": 1.0,
+    "ci": [
+     0.20654329147389294,
+     1
+    ],
+    "priced": 1,
+    "wp": 1,
+    "be": 0.4016064257028112,
+    "roi": 1.4900000000000002,
+    "z": 1.2206555615733705,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "QB INT thrown": {
+   "AI-proposed, placed": {
+    "w": 3,
+    "n": 4,
+    "hit": 0.75,
+    "ci": [
+     0.3006360524426366,
+     0.9544139373553637
+    ],
+    "priced": 3,
+    "wp": 3,
+    "be": 0.5294243939754776,
+    "roi": 0.8899344665260708,
+    "z": 1.632951772077671,
+    "evidence": "thin (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 5,
+    "n": 8,
+    "hit": 0.625,
+    "ci": [
+     0.30573785458380187,
+     0.863158240538479
+    ],
+    "priced": 5,
+    "wp": 3,
+    "be": 0.539081473293985,
+    "roi": 0.12563025210084042,
+    "z": 0.27327198275418124,
+    "evidence": "thin (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 0,
+    "n": 1,
+    "hit": 0.0,
+    "ci": [
+     0,
+     0.7934567085261071
+    ],
+    "priced": 0,
+    "wp": 0,
+    "be": null,
+    "roi": null,
+    "z": 0.0,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "QB rushing yds": {
+   "AI-proposed, placed": {
+    "w": 1,
+    "n": 3,
+    "hit": 0.3333333333333333,
+    "ci": [
+     0.0614903152761605,
+     0.7923450448735121
+    ],
+    "priced": 2,
+    "wp": 1,
+    "be": 0.540169133192389,
+    "roi": -0.0652173913043479,
+    "z": -0.11398390091091425,
+    "evidence": "thin (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 2,
+    "n": 5,
+    "hit": 0.4,
+    "ci": [
+     0.1176182311592533,
+     0.769280067791163
+    ],
+    "priced": 3,
+    "wp": 2,
+    "be": 0.6090190118763337,
+    "roi": 0.05514311061306435,
+    "z": 0.204620445739692,
+    "evidence": "thin (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 4,
+    "n": 5,
+    "hit": 0.8,
+    "ci": [
+     0.3755282641185388,
+     0.9637768390302125
+    ],
+    "priced": 2,
+    "wp": 1,
+    "be": 0.5511006289308177,
+    "roi": -0.27064220183486243,
+    "z": -0.14529520811933944,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "QB volume": {
+   "AI-proposed, placed": {
+    "w": 0,
+    "n": 2,
+    "hit": 0.0,
+    "ci": [
+     0,
+     0.6576280471103807
+    ],
+    "priced": 0,
+    "wp": 0,
+    "be": null,
+    "roi": null,
+    "z": 0.0,
+    "evidence": "thin (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 4,
+    "n": 10,
+    "hit": 0.4,
+    "ci": [
+     0.16817758120350967,
+     0.6873304525498135
+    ],
+    "priced": 8,
+    "wp": 4,
+    "be": 0.5398611315188607,
+    "roi": -0.07884561253214084,
+    "z": -0.22620860720259706,
+    "evidence": "thin (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 2,
+    "n": 3,
+    "hit": 0.6666666666666666,
+    "ci": [
+     0.2076549551264879,
+     0.9385096847238394
+    ],
+    "priced": 1,
+    "wp": 1,
+    "be": 0.5594713656387665,
+    "roi": 0.7874015748031495,
+    "z": 0.8873565094161138,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "Receiving yds": {
+   "AI-proposed, placed": {
+    "w": 6,
+    "n": 10,
+    "hit": 0.6,
+    "ci": [
+     0.3126695474501864,
+     0.8318224187964902
+    ],
+    "priced": 8,
+    "wp": 4,
+    "be": 0.5528589623716942,
+    "roi": -0.05644592172305263,
+    "z": -0.30070052393851815,
+    "evidence": "thin (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 17,
+    "n": 37,
+    "hit": 0.4594594594594595,
+    "ci": [
+     0.31038327828457724,
+     0.6161622047523264
+    ],
+    "priced": 27,
+    "wp": 11,
+    "be": 0.5623560666294894,
+    "roi": -0.26329380297204996,
+    "z": -1.622944079969463,
+    "evidence": "moderate (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 8,
+    "n": 15,
+    "hit": 0.5333333333333333,
+    "ci": [
+     0.3011663015105079,
+     0.7519077474025355
+    ],
+    "priced": 6,
+    "wp": 4,
+    "be": 0.5296823501287878,
+    "roi": 0.25148448908599574,
+    "z": 0.6722689964038778,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "Receptions": {
+   "AI-proposed, placed": {
+    "w": 5,
+    "n": 16,
+    "hit": 0.3125,
+    "ci": [
+     0.14164435051961052,
+     0.5559606813326594
+    ],
+    "priced": 15,
+    "wp": 5,
+    "be": 0.5710102851137955,
+    "roi": -0.41477977820752215,
+    "z": -1.859890144250998,
+    "evidence": "moderate (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 15,
+    "n": 30,
+    "hit": 0.5,
+    "ci": [
+     0.33153851227173764,
+     0.6684614877282624
+    ],
+    "priced": 24,
+    "wp": 12,
+    "be": 0.5867144060255839,
+    "roi": -0.18425720810822485,
+    "z": -0.8626971532117351,
+    "evidence": "weak (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 5,
+    "n": 7,
+    "hit": 0.7142857142857143,
+    "ci": [
+     0.35892909014821267,
+     0.9177828342909844
+    ],
+    "priced": 6,
+    "wp": 5,
+    "be": 0.5855686548842206,
+    "roi": 0.4566262253987953,
+    "z": 1.2319690854379077,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "Rushing yds": {
+   "AI-proposed, placed": {
+    "w": 7,
+    "n": 12,
+    "hit": 0.5833333333333334,
+    "ci": [
+     0.3195073356553728,
+     0.8067425380947535
+    ],
+    "priced": 8,
+    "wp": 5,
+    "be": 0.6353030921418813,
+    "roi": 0.024165908529325986,
+    "z": -0.060541900805924115,
+    "evidence": "thin (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 6,
+    "n": 11,
+    "hit": 0.5454545454545454,
+    "ci": [
+     0.28008775568998817,
+     0.7872904245601196
+    ],
+    "priced": 9,
+    "wp": 5,
+    "be": 0.5945846269649032,
+    "roi": -0.11128485041528524,
+    "z": -0.23848031064143535,
+    "evidence": "thin (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 2,
+    "n": 10,
+    "hit": 0.2,
+    "ci": [
+     0.056680947980693314,
+     0.5098431532792765
+    ],
+    "priced": 5,
+    "wp": 1,
+    "be": 0.5563872777234066,
+    "roi": -0.6245614035087719,
+    "z": -1.6040452022340739,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "Sacks": {
+   "AI-proposed, placed": {
+    "w": 0,
+    "n": 4,
+    "hit": 0.0,
+    "ci": [
+     0,
+     0.48990002040399916
+    ],
+    "priced": 3,
+    "wp": 0,
+    "be": 0.3146198830409357,
+    "roi": -1.0,
+    "z": -1.17351314683818,
+    "evidence": "thin (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 4,
+    "n": 9,
+    "hit": 0.4444444444444444,
+    "ci": [
+     0.188775429471914,
+     0.7333526542559703
+    ],
+    "priced": 9,
+    "wp": 4,
+    "be": 0.47532478109853343,
+    "roi": -0.03372759856630836,
+    "z": -0.18550805689061964,
+    "evidence": "thin (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 0,
+    "n": 2,
+    "hit": 0.0,
+    "ci": [
+     0,
+     0.6576280471103807
+    ],
+    "priced": 0,
+    "wp": 0,
+    "be": null,
+    "roi": null,
+    "z": 0.0,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "Spread (dog)": {
+   "AI-proposed, placed": {
+    "w": 11,
+    "n": 25,
+    "hit": 0.44,
+    "ci": [
+     0.2666537494700256,
+     0.6293298298043557
+    ],
+    "priced": 24,
+    "wp": 10,
+    "be": 0.5440025301508998,
+    "roi": -0.24251158466201916,
+    "z": -1.252491197264334,
+    "evidence": "weak (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 2,
+    "n": 10,
+    "hit": 0.2,
+    "ci": [
+     0.056680947980693314,
+     0.5098431532792765
+    ],
+    "priced": 9,
+    "wp": 2,
+    "be": 0.5398579138993477,
+    "roi": -0.5744917850181008,
+    "z": -1.9118985192058686,
+    "evidence": "thin (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 1,
+    "n": 4,
+    "hit": 0.25,
+    "ci": [
+     0.045586062644636216,
+     0.6993639475573634
+    ],
+    "priced": 0,
+    "wp": 0,
+    "be": null,
+    "roi": null,
+    "z": 0.0,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "Spread (fav)": {
+   "AI-proposed, placed": {
+    "w": 5,
+    "n": 14,
+    "hit": 0.35714285714285715,
+    "ci": [
+     0.16344490737202735,
+     0.6123599531785959
+    ],
+    "priced": 14,
+    "wp": 5,
+    "be": 0.5378333051502472,
+    "roi": -0.3272648765754746,
+    "z": -1.3560510632298803,
+    "evidence": "thin (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 5,
+    "n": 8,
+    "hit": 0.625,
+    "ci": [
+     0.30573785458380187,
+     0.863158240538479
+    ],
+    "priced": 6,
+    "wp": 3,
+    "be": 0.5321169443487078,
+    "roi": -0.06885057762250746,
+    "z": -0.15766585176417003,
+    "evidence": "thin (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 0,
+    "n": 1,
+    "hit": 0.0,
+    "ci": [
+     0,
+     0.7934567085261071
+    ],
+    "priced": 0,
+    "wp": 0,
+    "be": null,
+    "roi": null,
+    "z": 0.0,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "Tackles+Ast": {
+   "AI-proposed, placed": {
+    "w": 1,
+    "n": 4,
+    "hit": 0.25,
+    "ci": [
+     0.045586062644636216,
+     0.6993639475573634
+    ],
+    "priced": 4,
+    "wp": 1,
+    "be": 0.5546587642860935,
+    "roi": -0.5163551401869159,
+    "z": -1.2259825172044936,
+    "evidence": "thin (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 9,
+    "n": 14,
+    "hit": 0.6428571428571429,
+    "ci": [
+     0.3876400468214042,
+     0.8365550926279727
+    ],
+    "priced": 13,
+    "wp": 8,
+    "be": 0.5597058713958641,
+    "roi": 0.1216953811247928,
+    "z": 0.4043986783318085,
+    "evidence": "thin (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 4,
+    "n": 4,
+    "hit": 1.0,
+    "ci": [
+     0.5100999795960008,
+     1
+    ],
+    "priced": 4,
+    "wp": 4,
+    "be": 0.583252524428995,
+    "roi": 0.7250003205134159,
+    "z": 1.6905895142431695,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "Team total": {
+   "AI-proposed, placed": {
+    "w": 0,
+    "n": 1,
+    "hit": 0.0,
+    "ci": [
+     0,
+     0.7934567085261071
+    ],
+    "priced": 1,
+    "wp": 0,
+    "be": 0.5475113122171946,
+    "roi": -1.0,
+    "z": -1.1,
+    "evidence": "thin (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 1,
+    "n": 1,
+    "hit": 1.0,
+    "ci": [
+     0.20654329147389294,
+     1
+    ],
+    "priced": 1,
+    "wp": 1,
+    "be": 0.5,
+    "roi": 1.0,
+    "z": 1.0,
+    "evidence": "thin (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 0,
+    "n": 0,
+    "hit": null,
+    "ci": [
+     0.0,
+     1.0
+    ],
+    "priced": 0,
+    "wp": 0,
+    "be": null,
+    "roi": null,
+    "z": 0.0,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "Total Over": {
+   "AI-proposed, placed": {
+    "w": 1,
+    "n": 1,
+    "hit": 1.0,
+    "ci": [
+     0.20654329147389294,
+     1
+    ],
+    "priced": 1,
+    "wp": 1,
+    "be": 0.4926108374384236,
+    "roi": 1.0300000000000002,
+    "z": 1.014889156509222,
+    "evidence": "thin (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 2,
+    "n": 4,
+    "hit": 0.5,
+    "ci": [
+     0.15003570882017148,
+     0.8499642911798285
+    ],
+    "priced": 2,
+    "wp": 1,
+    "be": 0.5727272727272728,
+    "roi": -0.08333333333333326,
+    "z": -0.20791498015612017,
+    "evidence": "thin (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 0,
+    "n": 1,
+    "hit": 0.0,
+    "ci": [
+     0,
+     0.7934567085261071
+    ],
+    "priced": 0,
+    "wp": 0,
+    "be": null,
+    "roi": null,
+    "z": 0.0,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "Total Under": {
+   "AI-proposed, placed": {
+    "w": 4,
+    "n": 15,
+    "hit": 0.26666666666666666,
+    "ci": [
+     0.1089727610318281,
+     0.5195088965768675
+    ],
+    "priced": 12,
+    "wp": 2,
+    "be": 0.5436683047269306,
+    "roi": -0.6903714565004888,
+    "z": -2.621962859661615,
+    "evidence": "thin (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 5,
+    "n": 7,
+    "hit": 0.7142857142857143,
+    "ci": [
+     0.35892909014821267,
+     0.9177828342909844
+    ],
+    "priced": 6,
+    "wp": 5,
+    "be": 0.5497105584267147,
+    "roi": 0.5067927596883367,
+    "z": 1.3963805976364798,
+    "evidence": "thin (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 2,
+    "n": 4,
+    "hit": 0.5,
+    "ci": [
+     0.15003570882017148,
+     0.8499642911798285
+    ],
+    "priced": 0,
+    "wp": 0,
+    "be": null,
+    "roi": null,
+    "z": 0.0,
+    "evidence": "thin (hypothesis)"
+   }
+  }
+ },
+ "by_week": {
+  "1": {
+   "AI-proposed, placed": {
+    "w": 18,
+    "n": 40,
+    "hit": 0.45,
+    "ci": [
+     0.30705075280944694,
+     0.6017117011155924
+    ],
+    "priced": 32,
+    "wp": 13,
+    "be": 0.5227713432798512,
+    "roi": -0.18628595291287608,
+    "z": -1.319657797237899,
+    "evidence": "weak (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 35,
+    "n": 76,
+    "hit": 0.4605263157894737,
+    "ci": [
+     0.3530754655326989,
+     0.5717757398539667
+    ],
+    "priced": 34,
+    "wp": 17,
+    "be": 0.5899461488184323,
+    "roi": -0.15723917519392144,
+    "z": -1.0663392592996623,
+    "evidence": "weak (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 11,
+    "n": 26,
+    "hit": 0.4230769230769231,
+    "ci": [
+     0.255441899027294,
+     0.6105170307888017
+    ],
+    "priced": 0,
+    "wp": 0,
+    "be": null,
+    "roi": null,
+    "z": 0.0,
+    "evidence": "thin (hypothesis)"
+   }
+  },
+  "2": {
+   "AI-proposed, placed": {
+    "w": 22,
+    "n": 45,
+    "hit": 0.4888888888888889,
+    "ci": [
+     0.3495678935302451,
+     0.6299577567351026
+    ],
+    "priced": 42,
+    "wp": 21,
+    "be": 0.5448825500560837,
+    "roi": -0.04029349839537505,
+    "z": -0.584102379592751,
+    "evidence": "weak (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 63,
+    "n": 129,
+    "hit": 0.4883720930232558,
+    "ci": [
+     0.4037032622727371,
+     0.5737134505642055
+    ],
+    "priced": 118,
+    "wp": 58,
+    "be": 0.5414548275173633,
+    "roi": -0.0940697526326799,
+    "z": -1.0884919108252287,
+    "evidence": "weak (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 14,
+    "n": 34,
+    "hit": 0.4117647058823529,
+    "ci": [
+     0.26365737785688864,
+     0.5777869585348072
+    ],
+    "priced": 18,
+    "wp": 9,
+    "be": 0.49829511125291215,
+    "roi": 0.23787110537775627,
+    "z": 0.01446654482929662,
+    "evidence": "weak (hypothesis)"
+   }
+  },
+  "3": {
+   "AI-proposed, placed": {
+    "w": 43,
+    "n": 97,
+    "hit": 0.44329896907216493,
+    "ci": [
+     0.34847429559980314,
+     0.5424437382275061
+    ],
+    "priced": 87,
+    "wp": 40,
+    "be": 0.5166028127536826,
+    "roi": -0.08976755498469453,
+    "z": -1.060785209565576,
+    "evidence": "weak (hypothesis)"
+   },
+   "Andy (own / not in AI log)": {
+    "w": 22,
+    "n": 42,
+    "hit": 0.5238095238095238,
+    "ci": [
+     0.3772221394020704,
+     0.6664063552403504
+    ],
+    "priced": 38,
+    "wp": 20,
+    "be": 0.44642474912229907,
+    "roi": 0.2659821049827172,
+    "z": 0.9906663477382965,
+    "evidence": "weak (hypothesis)"
+   },
+   "AI-proposed, not placed": {
+    "w": 15,
+    "n": 26,
+    "hit": 0.5769230769230769,
+    "ci": [
+     0.3894829692111983,
+     0.744558100972706
+    ],
+    "priced": 20,
+    "wp": 13,
+    "be": 0.5658665696065904,
+    "roi": 0.1989051698929572,
+    "z": 0.759127913736876,
+    "evidence": "weak (hypothesis)"
+   }
+  }
+ },
+ "filter": {
+  "no expert": {
+   "w": 117,
+   "n": 253,
+   "hit": 0.4624505928853755,
+   "ci": [
+    0.4020327485071318,
+    0.5239916961311198
+   ],
+   "priced": 171,
+   "wp": 85,
+   "be": 0.5171082087206067,
+   "roi": -0.015389535217973297,
+   "z": -0.5242165854180524,
+   "evidence": "weak (hypothesis)"
+  },
+  "keep-list expert": {
+   "w": 32,
+   "n": 56,
+   "hit": 0.5714285714285714,
+   "ci": [
+    0.4413738892040555,
+    0.6923123758690708
+   ],
+   "priced": 44,
+   "wp": 26,
+   "be": 0.5381834955757153,
+   "roi": 0.2698397271514517,
+   "z": 0.7015326978574574,
+   "evidence": "weak (hypothesis)"
+  },
+  "any expert": {
+   "w": 58,
+   "n": 112,
+   "hit": 0.5178571428571429,
+   "ci": [
+    0.42626821184923186,
+    0.6082616979586438
+   ],
+   "priced": 92,
+   "wp": 49,
+   "be": 0.5277020466009162,
+   "roi": 0.07365657346516594,
+   "z": 0.0942706472073384,
+   "evidence": "weak (hypothesis)"
+  },
+  "other / mixed expert": {
+   "w": 21,
+   "n": 40,
+   "hit": 0.525,
+   "ci": [
+    0.37497106853929735,
+    0.6706477044981831
+   ],
+   "priced": 34,
+   "wp": 19,
+   "be": 0.5241781150589012,
+   "roi": 0.04623737359658411,
+   "z": 0.4045046974493362,
+   "evidence": "weak (hypothesis)"
+  },
+  "fade-list expert only": {
+   "w": 5,
+   "n": 16,
+   "hit": 0.3125,
+   "ci": [
+    0.14164435051961052,
+    0.5559606813326594
+   ],
+   "priced": 14,
+   "wp": 4,
+   "be": 0.5033184692821542,
+   "roi": -0.4763295670108879,
+   "z": -1.6284364675353464,
+   "evidence": "thin (hypothesis)"
+  }
+ },
+ "filter_placed": {
+  "no expert": {
+   "w": 91,
+   "n": 204,
+   "hit": 0.44607843137254904,
+   "ci": [
+    0.3794875143298431,
+    0.5146626461770043
+   ],
+   "priced": 148,
+   "wp": 69,
+   "be": 0.5100821064725026,
+   "roi": -0.060785825914077565,
+   "z": -1.067520220951521,
+   "evidence": "weak (hypothesis)"
+  },
+  "keep-list expert": {
+   "w": 26,
+   "n": 42,
+   "hit": 0.6190476190476191,
+   "ci": [
+    0.46813768219996377,
+    0.7500047910121407
+   ],
+   "priced": 34,
+   "wp": 22,
+   "be": 0.5464581845328665,
+   "roi": 0.2522749599325215,
+   "z": 1.1782923640998961,
+   "evidence": "weak (hypothesis)"
+  },
+  "any expert": {
+   "w": 49,
+   "n": 89,
+   "hit": 0.550561797752809,
+   "ci": [
+    0.4472614742822269,
+    0.6496778287888101
+   ],
+   "priced": 77,
+   "wp": 43,
+   "be": 0.5350038548817322,
+   "roi": 0.06339367762528027,
+   "z": 0.4123417290310594,
+   "evidence": "weak (hypothesis)"
+  },
+  "other / mixed expert": {
+   "w": 19,
+   "n": 35,
+   "hit": 0.5428571428571428,
+   "ci": [
+    0.38189451340137515,
+    0.6953422636623914
+   ],
+   "priced": 32,
+   "wp": 18,
+   "be": 0.5238550833519652,
+   "roi": 0.05320329640289234,
+   "z": 0.43771578320776006,
+   "evidence": "weak (hypothesis)"
+  },
+  "fade-list expert only": {
+   "w": 4,
+   "n": 12,
+   "hit": 0.3333333333333333,
+   "ci": [
+    0.13811783989736134,
+    0.609382412602386
+   ],
+   "priced": 11,
+   "wp": 3,
+   "be": 0.5320323531375487,
+   "roi": -0.4907764495865182,
+   "z": -1.7235759775012283,
+   "evidence": "thin (hypothesis)"
+  }
+ },
+ "by_nexp": {
+  "0": {
+   "w": 117,
+   "n": 253,
+   "hit": 0.4624505928853755,
+   "ci": [
+    0.4020327485071318,
+    0.5239916961311198
+   ],
+   "priced": 171,
+   "wp": 85,
+   "be": 0.5171082087206067,
+   "roi": -0.015389535217973297,
+   "z": -0.5242165854180524,
+   "evidence": "weak (hypothesis)"
+  },
+  "1": {
+   "w": 32,
+   "n": 63,
+   "hit": 0.5079365079365079,
+   "ci": [
+    0.38762677115387556,
+    0.6273339718564653
+   ],
+   "priced": 48,
+   "wp": 24,
+   "be": 0.5259530771239976,
+   "roi": 0.03607788774096695,
+   "z": -0.3601018146692069,
+   "evidence": "weak (hypothesis)"
+  },
+  "2": {
+   "w": 26,
+   "n": 49,
+   "hit": 0.5306122448979592,
+   "ci": [
+    0.39380627019919845,
+    0.6629671810210522
+   ],
+   "priced": 44,
+   "wp": 25,
+   "be": 0.5296100133030089,
+   "roi": 0.11465150334611077,
+   "z": 0.5126124754865404,
+   "evidence": "weak (hypothesis)"
+  }
+ },
+ "ledger": [
+  {
+   "d": "D1",
+   "what": "Love INT: Claude U0.5 INT, Andy swapped to 1+ INT",
+   "winner": "Andy",
+   "note": "Love threw an INT; ticket lost on other legs"
+  },
+  {
+   "d": "D2",
+   "what": "Golden: Claude ATD (+200) in early draft, placed 57+ rec yds",
+   "winner": "both hit",
+   "note": "Golden 100 yds and a TD; ticket lost elsewhere"
+  },
+  {
+   "d": "D3",
+   "what": "GB ML swapped for ATL/GB U43.5",
+   "winner": "neither",
+   "note": "GB lost outright; total 49"
+  },
+  {
+   "d": "D4",
+   "what": "Claude flagged GB -4 / BUF -6.5 as overpriced; Andy placed",
+   "winner": "Claude",
+   "note": "GB lost 14-35; $60 ticket dead"
+  },
+  {
+   "d": "D5",
+   "what": "739211245 open spots PHI ML / BAL ML",
+   "winner": "moot",
+   "note": "ticket died before spots were filled"
+  },
+  {
+   "d": "D6",
+   "what": "Official 4-leg (SF -7.5 + 3 Unders) vs placed 5-leg (SF -7, +BUF -6.5)",
+   "winner": "neither",
+   "note": "both lost on CIN/PIT U43.5 (57)"
+  },
+  {
+   "d": "D7",
+   "what": "7b rebuilt to a 6-leg +5500 (Andy wanted +2000 or longer)",
+   "winner": "Claude (legs)",
+   "note": "dropped Roquan 8+ T+A and Cousins 2+ pass TD both hit; placed 6-leg lost"
+  },
+  {
+   "d": "D8",
+   "what": "Slot 4: Andy bought half-points and took BAL ML over BAL -3.5",
+   "winner": "neither",
+   "note": "ticket lost on U45 / TB ML"
+  },
+  {
+   "d": "D9",
+   "what": "Stack A swaps (Kittle ATD, Wiggins T+A out; Jeanty carries, Andrews 45+, Henry 83+, a Dallas safety tackles leg in)",
+   "winner": "Claude (legs)",
+   "note": "Kittle ATD and Wiggins 4+ both hit; Andrews and the safety tackles leg (swapped in) lost"
+  },
+  {
+   "d": "D10",
+   "what": "Stack B: Corum dropped, Nix INT / Dak 2+ TD / Shough rush / Juwan ATD boosters added",
+   "winner": "neither",
+   "note": "ticket lost"
+  },
+  {
+   "d": "D11",
+   "what": "SNF Tier 3: Andy rejected 1H U22.5 (halftime-kill risk)",
+   "winner": "Claude (leg)",
+   "note": "LAR led 16-0 at half: the Under hit, but Tier 3 still lost on Adams/Engram/Turner"
+  }
+ ],
+ "ledger_tally": {
+  "Andy": 1,
+  "both hit": 1,
+  "neither": 4,
+  "Claude": 1,
+  "moot": 1,
+  "Claude (legs)": 2,
+  "Claude (leg)": 1
+ },
+ "caveat": "W1-W2 legs not in the AI logs are tagged \"unlogged\" by Team 1 and grouped with Andy here; W3 has explicit andy/agree tags. AI-only legs are mostly unpriced in W1."
+}

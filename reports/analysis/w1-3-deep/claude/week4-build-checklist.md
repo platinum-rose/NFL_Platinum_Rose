@@ -1,0 +1,41 @@
+# Week 4 build checklist (Claude Team 2, from the W1–3 deep analysis)
+
+For the weekly synthesis session (`agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md`). Evidence: `SUMMARY.md` and `w1-3-basket-review.html` in this folder. Nothing here is a wager. Every ticket still needs Andy's go.
+
+- [ ] **Budget.** Core basket ≈ $165 a week (lean ≈ $105), including the SuperContest 5-team $15 and 2-team RR $10. Cash only; promo and trade credits are tracked separately.
+- [ ] **Slot 1: dog-ML 2-team RR ($20–25).**
+  - 4–5 dogs at +110 to +250, each from a different game.
+  - Andy's side reads lead; take the ML, not the spread (dog spreads $0.67 per $1, n=33).
+- [ ] **Slot 2: QB-market singles or 2-leg tickets ($30–40).**
+  - Pass-TD overs and INT-yes.
+  - Each leg needs a stated matchup fit and a projected 30+ pass attempts.
+- [ ] **Slot 3: three hand-built 2-leg prop tickets (~$10 each).**
+  - Anytime TD at +150 or longer, on a team with a team total of 24+, paired with a QB leg.
+  - No prop round robins.
+- [ ] **Slot 4: islands (TNF PIT@CLE, SNF, MNF).**
+  - One ticket per game, at most 3 legs, $10 each.
+  - No receptions or receiving-yard legs unless that team is projected to throw 35+ times.
+- [ ] **Slot 5: lotto.**
+  - One 5-leg ticket, $10 max, ATD and QB legs only.
+  - First TD is fun money only ($5 max).
+- [ ] **Cut:**
+  - 4-team master RR (−46% EV)
+  - straight parlays of 5+ side legs
+  - dog spreads
+  - full-game Unders in parlays
+  - sacks
+  - AI side/total picks without Andy or a second source agreeing (−26%, 2.7 SE)
+- [ ] **Exposure.**
+  - Max $25 of cash risk tied to one game across all tickets.
+  - A side plus its matching total counts as one read.
+  - Don't pair a side read with props that need the opposite script.
+- [ ] **Prices.**
+  - No parlay leg shorter than −200; avoid −121 to −199 connectors; prefer props at +100 or longer.
+  - Record every leg's price on the ticket.
+- [ ] **Experts.**
+  - Screen ideas from Joe Holka, Sal Bets, Cody Brown and Harry Lock (standard lines only), then check the line and price yourself.
+  - Tag a leg "keep-list agree" when one of them has it.
+  - Don't tail Dan's AI, SharpieMatters or FirstTDBets.
+  - No handicapper's sides get extra weight.
+- [ ] **Roster gate.** Run `npm run roster:vet -- --week 4 --date <capture-date> --fetch --strict` on the card before anything is proposed.
+- [ ] **After Week 4.** Re-run `reports/analysis/w1-3-deep/claude/scripts/` (t2a → t2d, then build_report) with Week 4 added. Promote a hypothesis to a rule only at 2 SE.
