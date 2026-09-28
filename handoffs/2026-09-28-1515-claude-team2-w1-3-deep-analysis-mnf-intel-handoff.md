@@ -15,7 +15,8 @@
 | 3 | T2-A…T2-E deep analysis | `reports/analysis/w1-3-deep/claude/`: `SUMMARY.md` (one page), `week4-build-checklist.md`, `w1-3-basket-review.html`, t2a–t2d JSON, `scripts/` (core, t2a_burn, t2b_experts, t2c_sources, t2d_basket, build_report, box, zero_sweep). FINDINGS.md has 7 `[claude]` entries. Artifact: **W1–3 Basket Review** https://claude.ai/artifact/K7YdWU2GMvdqG7HFfZUFMF (draft, pre-MNF). |
 | 4 | @thepropdealer tracked | Added to `config/twitter-tracked-accounts.json` (tier 3, td_parlays) and `src/lib/experts.js` (id 58). Record: only one gradeable pre-game slip (W2 2+ TD, 2/6). Team 1's 3 W3 rows for him come from a recap image and should be excluded. Grade only pre-kickoff slips. |
 | 5 | MNF prop stacks from Monday bookmarks | `reports/bets/week3-mnf-phi-chi-prop-stacks-2026-09-28.md`. Nothing placed. Roster gate PASS. |
-| 6 | Commits (pushed to main) | `ed47173` (analysis) → `c4ac9b7` (propdealer + MNF stacks). This handoff is the next commit. |
+| 6 | Read-only article + podcast sweep (~15:00 PT) | `reports/bets/week3-mnf-phi-chi-intel-update-2026-09-28.md`: Supabase `podcast_transcripts` + `research_pick_signals` (read-only, 72h) plus 4 MNF articles re-read via Firecrawl. Adds **Ticket C: Keenum 1+ INT single (~−129)**. Raymond now has 3 sources; Burden has 3 but stays out of core. Market PHI −3.5, total 41.5. |
+| 7 | Commits (pushed to main) | `ed47173` (analysis) → `c4ac9b7` (propdealer + MNF stacks) → `814674c` (MNF sweep) → this handoff. |
 
 ## 2. Headline findings (details in `claude/SUMMARY.md`; anything under 2 SE is a hypothesis)
 - **W1–3 net:** −$1,015 on $1,266 staked (MNF excluded).
@@ -55,7 +56,7 @@
   - As planned: Hurts ATD / Lemon 4+ rec / Kmet 20+ yds / Loveland 5+ rec = 65.02x. Risk: Loveland has 1 catch in 2 games; Lemon had 1 target in W2.
   - Confidence alternative: Swift 14+ carries / Wicks 42+ yds (± Raymond 3+ rec).
   - Min 1.50x; pay with the trade credit; expires **Tue 9/29 5:00 PM ET**.
-- **Proposed (unplaced) BKR stacks** from `week3-mnf-phi-chi-prop-stacks-2026-09-28.md`:
+- **Proposed (unplaced) BKR stacks** from `week3-mnf-phi-chi-prop-stacks-2026-09-28.md` (**C:** Keenum 1+ INT single ~−129, $10, added at 15:00):
   - **A ($10):** Swift 14+ carries −151 / Raymond 3+ rec −144 / Wicks 42+ rec yds −109.
   - **B ($10):** Hurts 2+ pass TD +143 / Saquon U17.5 carries.
   - Prices are from the **Sat 9/26 BKR capture**, so re-price on the slip.
@@ -63,37 +64,34 @@
 - **Market:** CHI +4.5 was a top sharp side at Prime. The market is around PHI −4.5, and our master-RR leg is PHI −3.
 - **Bookmarks already read** (9/27 late → 9/28 12:27 PT): salbets_, CodyBrownBets, NoExpertFS, johnewing, MattyChucks, DanGambleAI (fade), thepropdealer (paywalled), CoversJLo (W4), PatrickE_Vegas / BFawkes22. **Anything bookmarked after ~12:45 PT is unread.**
 
-## 4. YOUR FIRST TASK — article + podcast extraction for tonight (before ~4:45 PT)
-Andy asked for the article and podcast extraction protocols to be run for new MNF intel. The standing rule is that Supabase writes need explicit OK. **Andy asked for these protocols to run**, but confirm with him in one line that the ingest writes are OK. If you can't reach him, run the `--dry-run`/`DRY_RUN=true` variants and the local-only steps.
+## 4. YOUR FIRST TASK — finish the extraction protocols for tonight (before ~4:45 PT)
+Andy asked for the article and podcast extraction protocols to be run for new MNF intel. **A read-only pass is already done**: see `reports/bets/week3-mnf-phi-chi-intel-update-2026-09-28.md` (existing transcripts, research signals, 4 articles). What remains is the steps that write, plus anything published after ~15:00 PT. The standing rule is that Supabase writes need explicit OK. Andy asked for these protocols, but **confirm in one line before any write step**.
 
-1. **Articles**
-   - `npm run ingest-research-intel:dry`, then `npm run ingest-research-intel` (writes research signals).
-   - `npm run article:intel-review` (local review JSON: `data/research-intel/review/article-intel-review-latest.json`).
-   - `npm run article:player-props` (props/SGP extraction from VSiN, BettingPros, Sharp Football, Walter Football, Action Network and bookmarks).
-   - Filter everything to PHI @ CHI.
-2. **Podcasts (audio)**
-   - `DRY_RUN=true MAX_PER_RUN=3 node agents/podcast-ingest.js` to see which Monday/MNF episodes exist.
-   - Then run for real with `MAX_PER_RUN=3`. Diarized shows use Gemini; single-host use Groq.
-   - Then `PICK_WEEK=3 DRY_RUN=true node agents/pick-extraction.js`, and the real run if the picks look right.
-   - The week-3 window check is in `agents/lib/pick-week-scope.js`.
-3. **Podcasts (YouTube / Gemini)**
-   - `npm run youtube:sweep:capped`, then `npm run podcast:gemini-intel` on MNF episodes.
-   - Then `npm run podcast:gemini-intel:review`.
-   - **Promote only with Andy's OK** (`:promote` writes the vault/Supabase gate).
-4. **Bookmarks:** the harvester daemon writes `.nfl/reports/twitter-bookmarks/`. Read anything newer than `2026-09-28-thepropdealer-2104654129717256389.md`.
-5. **Output**
-   - Append an "MNF intel update (Mon PM)" section to `reports/bets/week3-mnf-phi-chi-prop-stacks-2026-09-28.md`, covering:
-     - new picks, with source and whether it's a keep-list or fade-list source
-     - agreement or conflict with stacks A/B and Novig #2
-     - any inactive / availability change after 3:45 PT
-   - Run `npm run roster:vet -- --week 3 --date 2026-09-26 --fetch --strict --card <that file>` (legs must be in `| PHI@CHI | Player leg | … |` table rows).
-   - Message Andy the changes before kickoff.
-6. Apply the Team 2 rules:
-   - ≤3 legs, $10 per ticket
-   - receiving legs only with a pass-volume case
-   - ATD needs the team-total case
-   - no Odunze/Loveland overs unless the new intel changes the picture
-   - Dan's AI is a fade source
+1. **Pick promotion (write, needs OK).**
+   - Pick extraction has not promoted any picks since 9/25. No 9/26–9/28 transcript has `picks_promoted_at`, so `user_picks` is stale.
+   - Run `PICK_WEEK=3 DRY_RUN=true node agents/pick-extraction.js`, review, then the real run with OK.
+2. **Sharp Football "Week 3 Takeaways and MNF Best Bets" (9/28).**
+   - The transcript is truncated at 24.7k chars, so the MNF segment is missing and 0 picks were extracted.
+   - Re-transcribe or re-extract with `node agents/podcast-reextract.js` (read its header for args), or with `npm run podcast:gemini-intel` if the episode has a YouTube URL (`npm run youtube:resolve-episode-urls`).
+   - Promoting with `podcast:gemini-intel:promote` needs OK.
+3. **New podcast episodes since 14:37 PT.**
+   - `DRY_RUN=true MAX_PER_RUN=3 node agents/podcast-ingest.js`, then the real run with OK. Diarized shows use Gemini; single-host use Groq.
+4. **Articles.**
+   - `npm run ingest-research-intel:dry`, then the real run with OK.
+   - Then `npm run article:intel-review` and `npm run article:player-props` (local outputs).
+   - The article extractor stores titles and odds fragments as "leans" for Action Network/ESPN. Re-read MNF articles in full (Firecrawl scrape) for the actual picks, as the sweep did.
+5. **Bookmarks.** Read `.nfl/reports/twitter-bookmarks/` files newer than `2026-09-28-thepropdealer-2104654129717256389.md`.
+6. **Inactives (~3:45 PT).** Confirm Saquon (collar/stinger), D. Smith, Greenard, and Keenum vs Bagent.
+7. **Output.**
+   - Append "MNF intel update (Mon PM, part 2)" to `week3-mnf-phi-chi-intel-update-2026-09-28.md`, with changes to stacks A/B/C and Novig #2.
+   - Add any new legs to the stacks card as `| PHI@CHI | Player leg | … |` rows.
+   - Run `npm run roster:vet -- --week 3 --date 2026-09-26 --fetch --strict --card <file>`.
+   - Message Andy before kickoff.
+8. **Team 2 rules apply:**
+   - ≤3 legs, $10 per ticket.
+   - Receiving legs only with a pass-volume case; ATD needs the team-total case.
+   - No Odunze/Loveland overs unless new intel changes the picture.
+   - Dan's AI is a fade source.
 
 ## 5. After MNF (game ends ~8:30 PT)
 1. Fetch the final box score:
@@ -104,7 +102,7 @@ Andy asked for the article and podcast extraction protocols to be run for new MN
    - Novig #1 (PHI ML + U41.5)
    - Novig #2 and any BKR tickets **Andy reports placing** (ask for ticket numbers)
    - the paper legs (D6 paper 4-leg had PHI/CHI U43, still pending)
-   - the unplaced stacks A/B, as paper
+   - the unplaced stacks A/B/C, as paper
 3. Update the wagers file (local). **Don't sync to Supabase or Bankroll without Andy's per-action OK.**
 4. **Settle Week 3** and update the ledger:
    - claude.ai DEV project `claude/recommendation-ledger-2026.md`, mirrored to `docs/claude-project-dev/recommendation-ledger-2026.md`.
@@ -137,9 +135,9 @@ Andy asked for the article and podcast extraction protocols to be run for new MN
 ## 7. Resume prompt — next Claude team
 
 ```
-You are the Claude team picking up NFL_Dashboard betting work from Claude Team 2. Work in E:\dev\projects\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard). Read HANDOFF.md, then handoffs/2026-09-28-1515-claude-team2-w1-3-deep-analysis-mnf-intel-handoff.md end to end, then reports/bets/week3-mnf-phi-chi-prop-stacks-2026-09-28.md and reports/analysis/w1-3-deep/claude/SUMMARY.md. Reconcile Git without pull/reset/clean/stash; stale lock files exist, so commit via a temp GIT_INDEX_FILE + read-tree <origin sha from ls-remote> + commit-tree and push with `git push origin <sha>:refs/heads/main`.
+You are the Claude team picking up NFL_Dashboard betting work from Claude Team 2. Work in E:\dev\projects\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard). Read HANDOFF.md, then handoffs/2026-09-28-1515-claude-team2-w1-3-deep-analysis-mnf-intel-handoff.md end to end, then reports/bets/week3-mnf-phi-chi-prop-stacks-2026-09-28.md, reports/bets/week3-mnf-phi-chi-intel-update-2026-09-28.md and reports/analysis/w1-3-deep/claude/SUMMARY.md. Reconcile Git without pull/reset/clean/stash; stale lock files exist, so commit via a temp GIT_INDEX_FILE + read-tree <origin sha from ls-remote> + commit-tree and push with `git push origin <sha>:refs/heads/main`.
 
-TIME-SENSITIVE (MNF PHI @ CHI kicks off 5:15 PT; inactives ~3:45 PT): run the article and podcast extraction protocols in handoff §4 for new intel on tonight's game. Confirm with Andy that the Supabase-writing ingest steps are OK; otherwise use the dry-run variants. Read Twitter bookmarks newer than 2026-09-28-thepropdealer-2104654129717256389.md. Append an "MNF intel update" to the prop-stacks file, roster-vet it, and message Andy what changes for stacks A/B and Novig credit #2 (expires Tue 9/29 5:00 PM ET, must be paid with the trade credit) before kickoff.
+TIME-SENSITIVE (MNF PHI @ CHI kicks off 5:15 PT; inactives ~3:45 PT): finish the article and podcast extraction protocols in handoff §4. A read-only sweep is already in reports/bets/week3-mnf-phi-chi-intel-update-2026-09-28.md. Remaining: pick promotion (stale since 9/25), the truncated Sharp Football MNF transcript, episodes and articles after 15:00 PT, and inactives. Confirm with Andy before each Supabase-writing step; otherwise use the dry-run variants. Read Twitter bookmarks newer than 2026-09-28-thepropdealer-2104654129717256389.md. Append an "MNF intel update" to the prop-stacks file, roster-vet it, and message Andy what changes for stacks A/B and Novig credit #2 (expires Tue 9/29 5:00 PM ET, must be paid with the trade credit) before kickoff.
 
 After the game: grade master RR #739361263 (PHI −3), Novig credits #1/#2 and any tickets Andy reports, settle Week 3, update the ledger (claude.ai DEV project claude/recommendation-ledger-2026.md, mirrored to docs/claude-project-dev/), re-run reports/analysis/w1-3-deep/claude/scripts with MNF, republish the W1–3 Basket Review artifact (https://claude.ai/artifact/K7YdWU2GMvdqG7HFfZUFMF), and hand off with a dated file in handoffs/ plus an HANDOFF.md entry. No wagers, account actions, TheOddsAPI calls, Supabase writes or Bankroll sync without Andy's explicit per-action OK. Every player named must pass `npm run roster:vet -- --week 3 --date 2026-09-26 --fetch --strict`. Prop round robins are ruled out.
 ```
