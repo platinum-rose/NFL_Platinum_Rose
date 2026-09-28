@@ -735,6 +735,18 @@ export const EXPERTS = [
     record: '0-0',
     lastWeek: '0-0',
   },
+  {
+    id: 58,
+    name: 'The Prop Dealer (@thepropdealer)',
+    source: 'Twitter/X',
+    sourceType: 'tweet',
+    ingestStatus: 'active',
+    note: 'Twitter TD-parlay / moneyline-model tout (@thepropdealer). Most posts are paywalled or winner recaps: grade only picks posted before kickoff with a visible slip; exclude recap posts. Added 2026-09-28 for evaluation.',
+    aliases: ['thepropdealer', 'the prop dealer', 'prop dealer', '@thepropdealer'],
+    isShow: false,
+    record: '0-0',
+    lastWeek: '0-0',
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════════

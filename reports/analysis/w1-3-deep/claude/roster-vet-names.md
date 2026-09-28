@@ -26,3 +26,12 @@
 | NYG@LAR | Malachi Fields 27+ rec yds | T2 report |
 | BAL@DAL | Derrick Henry 83+ rush | T2 report |
 | LV@NO | Ashton Jeanty 18+ carries | T2 report |
+| PHI@CHI | Makai Lemon 4+ rec | MNF stacks |
+| PHI@CHI | Colston Loveland 5+ rec | MNF stacks |
+| PHI@CHI | Cole Kmet 20+ rec yds | MNF stacks |
+| PHI@CHI | Rome Odunze U25.5 | MNF stacks |
+| PHI@CHI | Luther Burden 35+ | MNF stacks |
+| PHI@CHI | Tank Bigsby 13+ rush | MNF stacks |
+| PHI@CHI | DeVonta Smith 50+ | MNF stacks |
+| PHI@CHI | Jalen Hurts ATD | MNF stacks |
+| PHI@CHI | Case Keenum 1+ INT | MNF stacks |
