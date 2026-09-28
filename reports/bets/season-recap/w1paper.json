@@ -1,0 +1,308 @@
+[
+ {
+  "name": "AI card: Melbourne Primetime SGP (Evans ATD / CMC 61+ / Juszczyk 5+ yds)",
+  "paper": true,
+  "legs": [
+   {
+    "label": "Mike Evans 1+ atd",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Mike Evans"
+   },
+   {
+    "label": "Christian McCaffrey 61+ rush_yds",
+    "result": "W",
+    "actual": 68.0,
+    "margin": 7.0,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 61,
+    "player": "Christian McCaffrey"
+   },
+   {
+    "label": "Kyle Juszczyk 4.5+ rec_yds",
+    "result": "L",
+    "actual": 0,
+    "margin": -4.5,
+    "kind": "prop",
+    "key": "rec_yds",
+    "thr": 4.5,
+    "player": "Kyle Juszczyk"
+   }
+  ]
+ },
+ {
+  "name": "AI card: Melbourne 4-leg expansion (+ Purdy 15+ rush)",
+  "paper": true,
+  "legs": [
+   {
+    "label": "Mike Evans 1+ atd",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Mike Evans"
+   },
+   {
+    "label": "Christian McCaffrey 61+ rush_yds",
+    "result": "W",
+    "actual": 68.0,
+    "margin": 7.0,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 61,
+    "player": "Christian McCaffrey"
+   },
+   {
+    "label": "Kyle Juszczyk 4.5+ rec_yds",
+    "result": "L",
+    "actual": 0,
+    "margin": -4.5,
+    "kind": "prop",
+    "key": "rec_yds",
+    "thr": 4.5,
+    "player": "Kyle Juszczyk"
+   },
+   {
+    "label": "Brock Purdy 14.5+ rush_yds",
+    "result": "W",
+    "actual": 29.0,
+    "margin": 14.5,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 14.5,
+    "player": "Brock Purdy"
+   }
+  ]
+ },
+ {
+  "name": "AI card: Sunday Workhorse TD Trio (Taylor / Hurts / Hampton ATD)",
+  "paper": true,
+  "legs": [
+   {
+    "label": "Jonathan Taylor 1+ atd",
+    "result": "W",
+    "actual": 2.0,
+    "margin": 1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Jonathan Taylor"
+   },
+   {
+    "label": "Jalen Hurts 1+ atd",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Jalen Hurts"
+   },
+   {
+    "label": "Omarion Hampton 1+ atd",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Omarion Hampton"
+   }
+  ]
+ },
+ {
+  "name": "AI card: Safe Floor Builder (Flowers 50+ / Pierce 45+ / S. Tucker 15+ rush)",
+  "paper": true,
+  "legs": [
+   {
+    "label": "Zay Flowers 50+ rec_yds",
+    "result": "W",
+    "actual": 150.0,
+    "margin": 100.0,
+    "kind": "prop",
+    "key": "rec_yds",
+    "thr": 50,
+    "player": "Zay Flowers"
+   },
+   {
+    "label": "Alec Pierce 44.5+ rec_yds",
+    "result": "W",
+    "actual": 61.0,
+    "margin": 16.5,
+    "kind": "prop",
+    "key": "rec_yds",
+    "thr": 44.5,
+    "player": "Alec Pierce"
+   },
+   {
+    "label": "Sean Tucker 14.5+ rush_yds",
+    "result": "L",
+    "actual": 0,
+    "margin": -14.5,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 14.5,
+    "player": "Sean Tucker"
+   }
+  ]
+ },
+ {
+  "name": "AI forecast board A+ plays (CAR +3.5 / HOU +7.5 / TB +3.5 / ARI +10)",
+  "paper": true,
+  "legs": [
+   {
+    "label": "CAR +3.5",
+    "result": "L",
+    "actual": "CAR 37-59",
+    "margin": -18.5,
+    "kind": "spread",
+    "key": null,
+    "thr": 3.5,
+    "player": null
+   },
+   {
+    "label": "HOU +7.5",
+    "result": "W",
+    "actual": "HOU 31-36",
+    "margin": 2.5,
+    "kind": "spread",
+    "key": null,
+    "thr": 7.5,
+    "player": null
+   },
+   {
+    "label": "TB +3.5",
+    "result": "L",
+    "actual": "TB 27-33",
+    "margin": -2.5,
+    "kind": "spread",
+    "key": null,
+    "thr": 3.5,
+    "player": null
+   },
+   {
+    "label": "ARI +10",
+    "result": "W",
+    "actual": "ARI 26-14",
+    "margin": 22,
+    "kind": "spread",
+    "key": null,
+    "thr": 10,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "AI forecast board totals (7 Unders + 2 Overs)",
+  "paper": true,
+  "legs": [
+   {
+    "label": "NE @ SEA Under 44.5",
+    "result": "W",
+    "actual": "total 23",
+    "margin": 21.5,
+    "kind": "total",
+    "key": null,
+    "thr": 44.5,
+    "player": null
+   },
+   {
+    "label": "SF @ LAR Under 48.5",
+    "result": "W",
+    "actual": "total 34",
+    "margin": 14.5,
+    "kind": "total",
+    "key": null,
+    "thr": 48.5,
+    "player": null
+   },
+   {
+    "label": "TB @ CIN Under 50.5",
+    "result": "L",
+    "actual": "total 60",
+    "margin": -9.5,
+    "kind": "total",
+    "key": null,
+    "thr": 50.5,
+    "player": null
+   },
+   {
+    "label": "NYJ @ TEN Under 41.5",
+    "result": "W",
+    "actual": "total 33",
+    "margin": 8.5,
+    "kind": "total",
+    "key": null,
+    "thr": 41.5,
+    "player": null
+   },
+   {
+    "label": "NO @ DET Under 48.5",
+    "result": "L",
+    "actual": "total 61",
+    "margin": -12.5,
+    "kind": "total",
+    "key": null,
+    "thr": 48.5,
+    "player": null
+   },
+   {
+    "label": "GB @ MIN Under 46.5",
+    "result": "L",
+    "actual": "total 61",
+    "margin": -14.5,
+    "kind": "total",
+    "key": null,
+    "thr": 46.5,
+    "player": null
+   },
+   {
+    "label": "DAL @ NYG Under 48.5",
+    "result": "W",
+    "actual": "total 48",
+    "margin": 0.5,
+    "kind": "total",
+    "key": null,
+    "thr": 48.5,
+    "player": null
+   },
+   {
+    "label": "DEN @ KC Under 43.5",
+    "result": "W",
+    "actual": "total 41",
+    "margin": 2.5,
+    "kind": "total",
+    "key": null,
+    "thr": 43.5,
+    "player": null
+   },
+   {
+    "label": "BAL @ IND Over 48",
+    "result": "W",
+    "actual": "total 64",
+    "margin": 16,
+    "kind": "total",
+    "key": null,
+    "thr": 48,
+    "player": null
+   },
+   {
+    "label": "MIA @ LV Over 40.5",
+    "result": "L",
+    "actual": "total 40",
+    "margin": -0.5,
+    "kind": "total",
+    "key": null,
+    "thr": 40.5,
+    "player": null
+   }
+  ]
+ }
+]
