@@ -26,3 +26,6 @@ Local append-only record (shared JSON ledgers not touched; no Supabase/Bankroll 
 - Last-minute 8-leg (~09:58 PT): L. Williams sack +114 / Maye INT +100 / Herbert INT -112 / Shough 34+ att -109 / Rodgers 36+ att -125 / Chase Brown 54+ rush -213 / Chase ATD +100 / Dallas Turner sack +110 — $5 @ +16300, return $820. Ticket # not shown. Added to wagers file + tracker.
 
 - 739360142 (5-team, $25.08) = official Week 3 SuperContest picks: TEN +3 / PHI -4 / CIN -3 / JAX -3 / SF -8 (Andy, 2026-09-27).
+
+- #1000172970 (8a First TD) graded LOSS: CIN@PIT first TD was PIT (Roman Wilson, Q1 13:10).
+- First TD 3-leg re-run (~10:40 PT): Henry +350 / McCaffrey +270 / Kyren Williams +500 — $5 @ +9890, return $499.50. Ticket # not shown. Kyren replaced Chase Brown (Claude rec; roster vet PASS). Added to wagers file + tracker.

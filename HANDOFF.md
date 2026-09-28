@@ -5,7 +5,7 @@
 > `handoffs/` and `handoffs/archive/`.
 
 **Last governance trim:** 2026-09-22 by Antigravity & Codex
-**Last verified HEAD:** `b7ce30c` (2026-09-26 12:02 PT) — merge commit resolving the `fc1b7b2` sibling-commit fork with `origin/main`'s `bf60e47` (byte-identical trees, only HANDOFF.md's pointer text conflicted); pushed, fully in sync with origin/main.
+**Last verified HEAD:** `fbed7cc` + the 2026-09-27 21:30 handoff commit — pushed; stale `.git/index.lock` and `.git/HEAD.lock` present (commit via GIT_INDEX_FILE/commit-tree).
 **Last verified branch:** `main` — **the only working branch.** `wip/yahoo-sync` is retired (archived as tag `archive/wip-yahoo-sync-2026-09-23`; remote branch deleted after a clean automation week). Commit to `main`.
 **Workspace state:** very dirty/shared; run `git status -sb` before trusting any
 handoff prose. A full copy of the pre-trim rolling handoff was archived at
@@ -14,7 +14,8 @@ handoff prose. A full copy of the pre-trim rolling handoff was archived at
 ## Current Pick Up Here
 
 Latest active handoff sources:
-- `handoffs/2026-09-27-1010-claude-week3-sunday-props-placed-tracker-supercontest-handoff.md` (LATEST: all Week 3 official tickets (BEO props + BKR game tickets incl. SuperContest five #739360142) loaded into the wagers file + Live Tracker; no prop RRs; SuperContest split stake from Week 4; 739211245 still has 2 open spots. Contains the resume prompt.)
+- `handoffs/2026-09-27-2130-claude-week3-sunday-graded-mnf-prep-handoff.md` (LATEST: Week 3 Sunday fully graded — only the dog-ML RR won; master RR alive on PHI −3; SNF ladder + moonshots lost (DEN 30–26). SuperContest Week 3 card locked + tracker fix `fbed7cc`. Next: MNF PHI @ CHI — Twitter intel, Novig trade credit #2 (pending 4-pick SGP, credits expire Tue 9/29 5 PM ET), BKR MNF ladder; then grade + settle Week 3. Contains the resume prompt.)
+- `handoffs/2026-09-27-1010-claude-week3-sunday-props-placed-tracker-supercontest-handoff.md` (PREVIOUS: all Week 3 official tickets (BEO props + BKR game tickets incl. SuperContest five #739360142) loaded into the wagers file + Live Tracker; no prop RRs; SuperContest split stake from Week 4; 739211245 still has 2 open spots. Contains the resume prompt.)
 - `handoffs/2026-09-27-0315-claude-week3-sunday-props-card-handoff.md` (PREVIOUS — Sunday prop card v2 (stack templates 7a/7b/7d/7e/8a/8b; no prop RRs per Andy) at `reports/bets/2026-w03-sunday-props-2026-09-27.md` on Saturday-captured prices (confirm on slip); strict roster vet PASS; SNF ladder held; nothing placed.)
 - `handoffs/2026-09-27-0245-codex-week3-game-parlays-placed-props-handoff.md` (LATEST — game-parlay closeout recorded: official Platinum Rose four-leg paper recommendation was disregarded; placed tickets #739361263, #739361262, and #739361521 are review-only and pending grading. Resume with player-prop stacks only.)
 - `handoffs/2026-09-27-0125-codex-week3-full-template-synthesis-handoff.md` (LATEST — all established weekend parlay/prop templates evaluated in conditional `SUNDAY v5`; roster gate PASS after live availability refresh. Saturday BKR/BEO prices are explicitly re-price pending; fresh manual boards + inactives are next. No bets changed.)
