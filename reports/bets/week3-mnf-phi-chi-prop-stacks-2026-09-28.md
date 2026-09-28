@@ -42,3 +42,9 @@ Prices: BKR SGP capture Sat 9/26 13:50 PT (`data/generated/props/bookmaker-live-
 
 ## Avoid
 Odunze overs (Keenum downgrade; NoExpert has the Under) · Loveland/Kmet receptions overs on BKR · Saquon overs · anything from Dan's AI hit-rate list.
+
+## Update ~15:00 PT (article + podcast sweep, see `week3-mnf-phi-chi-intel-update-2026-09-28.md`)
+| Game | Leg | Price | Ticket | Backing |
+|---|---|---|---|---|
+| PHI@CHI | Case Keenum 1+ INT | ~−129 | C (single, $10) | "Early Week Mistakes" podcast; QB INT-yes market |
+- Raymond now has 3 sources (Cody, ESPN Loza o24.5 yds, BetMGM money). Burden has 3 (Action ×2, BetMGM) but stays out of core tickets (trailing-script receiving leg).

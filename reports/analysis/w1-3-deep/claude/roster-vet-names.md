@@ -35,3 +35,4 @@
 | PHI@CHI | DeVonta Smith 50+ | MNF stacks |
 | PHI@CHI | Jalen Hurts ATD | MNF stacks |
 | PHI@CHI | Case Keenum 1+ INT | MNF stacks |
+| PHI@CHI | Tyson Bagent 1+ INT | intel |
