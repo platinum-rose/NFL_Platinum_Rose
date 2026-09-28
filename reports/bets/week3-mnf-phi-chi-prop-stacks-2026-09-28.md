@@ -48,3 +48,11 @@ Odunze overs (Keenum downgrade; NoExpert has the Under) · Loveland/Kmet recepti
 |---|---|---|---|---|
 | PHI@CHI | Case Keenum 1+ INT | ~−129 | C (single, $10) | "Early Week Mistakes" podcast; QB INT-yes market |
 - Raymond now has 3 sources (Cody, ESPN Loza o24.5 yds, BetMGM money). Burden has 3 (Action ×2, BetMGM) but stays out of core tickets (trailing-script receiving leg).
+
+## Update ~16:25 PT (inactives + part 2 sweep)
+| Game | Leg | Price | Ticket | Backing |
+|---|---|---|---|---|
+| PHI@CHI | Jalen Hurts 2+ pass TD | +143 | B′ | QB-market class; replaces B |
+| PHI@CHI | Case Keenum 1+ INT | ~−127 | B′ / C | Early Week Mistakes pod, CBS; CHI LT Trapilo OUT, Greenard debut |
+| PHI@CHI | Dontayvion Wicks 42+ rec yds | −113 | A | + CBS, FanDuel (5 sources) |
+- Saquon U17.5 carries **dropped** (no designation, full practices). See intel-update part 2.

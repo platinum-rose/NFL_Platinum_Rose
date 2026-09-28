@@ -45,3 +45,31 @@ Twitter (earlier today): Sal Bets, Cody Brown, NoExpertFS, BetMGM money, MattyCh
 - **Pick extraction has not promoted picks since 9/25.** No 9/26–9/28 transcript has `picks_promoted_at`, so `user_picks` is stale. The Pick Extraction Agent run writes to Supabase, so it needs Andy's OK.
 - The Sharp Football "Week 3 Takeaways and MNF Best Bets" (9/28) transcript is truncated at 24.7k chars. The MNF segment with Curtis is missing and 0 picks were extracted, so it needs a re-transcribe.
 - The article extractor stores titles and odds fragments as "leans" for Action Network/ESPN (e.g. "Over 3.5", "Philadelphia is a -210"). The actual picks above came from re-reading the articles.
+
+## MNF intel update (Mon PM, part 2) — Claude Team 3, ~16:25 PT
+Read-only. No Supabase writes, nothing placed.
+
+### Inactives (posted ~15:45 PT)
+- **CHI OUT:** QB Caleb Williams, **LT Ozzy Trapilo**, OG Jordan McFadden, DE Jamree Kromah, DT Jayden Loving. **Keenum starts**; Bagent active as QB2.
+- **PHI OUT:** TE Goedert, WR Hollywood Brown (Elijah Moore dresses), T Fred Johnson, QB McKee (emergency), QB Payton, EDGE Epenesa.
+- **PHI active:** Saquon (no designation, two full practices Fri/Sat — reports now say standard workload), **Greenard active (Eagles debut)**, **Zach Ertz elevated from practice squad** (roster gate should now read ACTIVE; still no Ertz props).
+- Net read: CHI playing a backup LT with a 3rd-string QB vs PHI pass rush with Greenard added → more pressure on Keenum.
+
+### New sources since 15:00
+| Source | Pick | Price |
+|---|---|---|
+| CBS Sports expert best bets | PHI −3.5 · **Keenum o0.5 INT** · **Wicks o41.5 rec yds** · Saquon ATD · Swift ATD | INT −127, Wicks +126 |
+| FanDuel Research (9/28) | PHI −3.5 (−115) · **Wicks o41.5 rec yds (−113)** · Keenum o5.5 rush yds (−120) | |
+
+### Pipeline (dry runs)
+- `pick-extraction.js` (PICK_WEEK=3, DRY_RUN): 10 transcripts in window, 85 picks would upsert, 0 errors. MNF picks in it are ones already in part 1 (U41.5, Keenum INT, Hurts/Odunze/Burden ATD). Real run is bookkeeping for grading, not new intel — run with Andy's OK.
+- `podcast-ingest.js` (DRY_RUN): **0 new episodes** across feeds.
+- `research-intel-ingest.js --dry-run`: produced no output within 150s (hung after start). Not re-run.
+- Sharp Football MNF transcript: `podcast-reextract.js` only re-extracts from the stored (truncated) transcript and uses OpenAI gpt-4o (account has no credits), so it can't recover the MNF segment. Needs a re-transcribe; deferred.
+- Twitter bookmarks: none newer than the thepropdealer file.
+
+### Changes to the card
+- **Ticket A (Swift 14+ car / Raymond 3+ rec / Wicks 42+ yds): unchanged.** Wicks o41.5 now has 5 sources (Cody, Sal, NoExpert, CBS, FanDuel).
+- **Ticket B: drop Saquon U17.5 carries.** The stinger-limited premise is gone (no designation, full practices, standard workload expected). Replace with **B′ — Hurts 2+ pass TD / Keenum 1+ INT, $10 SGP** (both ride a PHI-leads script; Trapilo out + Greenard in helps the INT).
+- **Ticket C (Keenum 1+ INT single, ~−127/−129):** now 2 sources + pressure matchup. Play C **or** B′, not both, to keep Keenum-INT exposure to one ticket — prefer C if you want the single, B′ if you want the price.
+- **Novig credit #2:** still prefer the confidence alternative (Swift 14+ car / Wicks 42+ yds, ± Raymond 3+ rec) over the 65x TE plan. Ertz's elevation adds another PHI TE mouth but doesn't change CHI's Loveland/Kmet problem.
