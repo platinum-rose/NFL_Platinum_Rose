@@ -1,0 +1,12 @@
+{
+  "_about": "Who a ticket came from, for the Claude-recommended vs Andy-built split in weekly_review.py. by = claude | mixed | andy. Tickets not listed fall back to a `recommended_by` field on the ticket, then Team 1 leg origins (W1-3), then progress-note keywords. From Week 4, record `recommended_by` on each ticket when it is logged and add an entry here only to correct a guess. Sources: the recommendation ledger (docs/claude-project-dev/recommendation-ledger-2026.md).",
+  "tickets": {
+    "bet_20260928_novig_credit2_5leg_sgp": {"by": "claude", "why": "Ledger D12: Claude's 3-leg confidence SGP plus Claude's two suggested extension legs"},
+    "bet_20260928_beo_mnf_d1_def_3leg": {"by": "claude", "why": "Ledger D13 D1: agreement, placed as proposed"},
+    "bet_20260928_beo_mnf_d3_def_6leg": {"by": "mixed", "why": "Ledger D13 D3: Claude DEF-ladder moonshot; Andy kept Saquon 16+ carries against advice and added Keenum 27+ att"},
+    "bet_20260928_betonline_1000554327": {"by": "andy", "why": "Ledger: Andy-built, independent action"},
+    "bet_20260928_betonline_1000553845": {"by": "mixed", "why": "Ledger: Andy-built from Claude's yardage-moonshot list at softer lines"},
+    "bet_20260928_betonline_1000553267": {"by": "andy", "why": "Ledger: Andy-built, independent action"},
+    "bet_20260927_novig_credit1_phi_ml_u415": {"by": "claude", "why": "Claude rec: credit 1 = PHI ML + Under"}
+  }
+}

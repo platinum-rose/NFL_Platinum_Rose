@@ -138,3 +138,35 @@ Andy's decision after Week 3 (single $25.08 5-team parlay, #739360142): split th
   flag it when Kalshi's net price beats the board.
 - **DraftKings Predictions**: no live feed in this repo. Every DK leg has to come from Andy relaying what the
   app is currently showing before a card locks — I can't check it proactively the way I can Kalshi.
+
+## End-of-week close-out — added 2026-09-28 (Claude Team 2)
+
+Run after the last game of the week (usually Tuesday morning, after MNF). Scripts live in
+`reports/analysis/season/claude/scripts/` (Claude-owned; Codex's canonical tables, when they land in
+`reports/analysis/w1-3-deep/codex/`, replace the leg inputs). Nothing here places, changes or syncs a wager.
+
+1. **Cache the finals.** `node scripts/generate-live-tracker.mjs --week <N>` writes every ESPN summary to
+   `data/fantasy/boxscores/espn-<eventId>.json`. Check the week's games show `STATUS_FINAL` before grading.
+   If ESPN is blocked from the machine, pull the box score some other way and save it in the same ESPN summary shape.
+2. **Grade and settle (dry run first).** `python grade_week.py --week <N>` lists every open leg with its box-score
+   stat and what each open ticket would settle to. Round robins and any ticket with a push need the book's real
+   payout from Andy: `--payout <ticket#>=<USD>`. Then re-run with `--apply` (it backs the wagers file up as
+   `…json.bak-team2-<timestamp>` first). Convention: `status SETTLED`, `result`, `settled_payout_usd`, `profit_usd`,
+   `graded_at` + a progress note. Promo/credit tickets record their credit-funded value, never cash.
+3. **Confirm 0 open tickets** for the week (`grade_week.py` prints any left), then regenerate the Live Tracker.
+4. **Weekly analysis.** `python weekly_review.py --week <N>` → `out/week-NN.json`, `out/season-through-wNN.json`,
+   `out/week-NN-summary.md`: stake/return/net by book, ticket family, legs per ticket, price band and
+   provenance (Claude vs mixed vs Andy); leg hit rates by market with Wilson intervals and return per $1 where the
+   leg price is known; the W1–3 hypotheses (H1–H6) re-tested; build-checklist compliance; cash exposure per game.
+   Anything under 2 SE is a hypothesis. A hypothesis becomes a card rule only at 2 SE.
+5. **Provenance.** Log `recommended_by: claude | mixed | andy` on each ticket when it is placed. Correct any
+   guess in `reports/analysis/season/claude/provenance.json`.
+6. **Season page.** `python build_season_report.py --week <N>` → `reports/analysis/season/claude/season-review.html`;
+   republish it to the "Platinum Rose Season Review" artifact (same URL every week).
+7. **Post-mortem + ledger.** Write the week's post-mortem in `reports/bets/season-recap/` (Week 1/2 format), update the
+   season-to-date table in every earlier post-mortem, and close the week in the recommendation ledger
+   (`docs/claude-project-dev/recommendation-ledger-2026.md` and the claude.ai DEV project copy).
+8. **Findings.** Append `[claude]` lines to `reports/analysis/w1-3-deep/FINDINGS.md` (append-only, shared with Codex)
+   for anything that crossed 2 SE or reversed.
+9. **Needs Andy's explicit OK, every time:** Supabase writes, the Bankroll sync
+   (`scripts/sync-placed-wagers-to-bankroll.mjs`), and any account action.

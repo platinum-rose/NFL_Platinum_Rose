@@ -223,14 +223,14 @@ a{{color:var(--accent)}} :focus-visible{{outline:2px solid var(--accent);outline
 </style>
 <div class="wrap">
 <header class="top">
-  <div class="eyebrow">Platinum Rose · Claude Team 2 · Weeks 1–3 deep analysis · built Mon 9/28</div>
+  <div class="eyebrow">Platinum Rose · Claude Team 2 · Weeks 1–3 deep analysis · built Mon 9/28 · MNF added Tue 9/29</div>
   <h1>W1–3 Basket Review</h1>
-  <p class="lede">Weeks 1–3 lost $1,015 on $1,266 staked. The main causes were structural: too many legs per ticket, too many dollars on side parlays and master round robins, and receiving props bet without a pass-heavy script. The proposal below cuts the weekly outlay by about 60%. It moves money to the only markets that have paid so far: QB props, anytime TDs at plus money and dog moneylines in 2-team round robins. Most of the market edges are hypotheses. The structural savings hold even if every edge is noise.</p>
+  <p class="lede">Weeks 1–3 lost $1,047 on $1,298 staked, MNF included. The main causes were structural: too many legs per ticket, too many dollars on side parlays and master round robins, and receiving props bet without a pass-heavy script. The proposal below cuts the weekly outlay by about 60%. It moves money to the only markets that have paid so far: QB props, anytime TDs at plus money and dog moneylines in 2-team round robins. Most of the market edges are hypotheses. The structural savings hold even if every edge is noise.</p>
   <div class="kpis">
-    <div class="kpi"><span class="n neg">−$1,015</span><span class="l">Net, W1–3 (MNF excluded). $1,266 staked, $251 back</span></div>
+    <div class="kpi"><span class="n neg">−$1,047</span><span class="l">Net, W1–3 with MNF. $1,298 staked, $251 back</span></div>
     <div class="kpi"><span class="n neg">{money(bk("A")[1]["observed (shrunk) | rho=0.15"]["ev"])}</span><span class="l">Modeled EV per week of the W1–3 mix ({sgn(bk("A")[1]["observed (shrunk) | rho=0.15"]["ev_pct"])})</span></div>
     <div class="kpi"><span class="n">{money(bk("C")[1]["observed (shrunk) | rho=0.15"]["ev"])} / {money(bk("C")[1]["no edge (0.95/leg) | rho=0.15"]["ev"])}</span><span class="l">Team 2 core, ${bk("C")[1]["observed (shrunk) | rho=0.15"]["stake"]:.0f}/wk: EV with observed edges / with no edge</span></div>
-    <div class="kpi"><span class="n pos">≈ +$65</span><span class="l">Weekly saving from structure alone (no-edge case, core vs W1–3 mix)</span></div>
+    <div class="kpi"><span class="n pos">≈ +$67</span><span class="l">Weekly saving from structure alone (no-edge case, core vs W1–3 mix)</span></div>
   </div>
 </header>
 
@@ -245,7 +245,7 @@ a{{color:var(--accent)}} :focus-visible{{outline:2px solid var(--accent);outline
     <div class="panel"><h4>W1–3 mix: EV by slot (observed edges)</h4><table class="t"><thead><tr><th>Slot</th><th>Stake</th><th>EV</th><th>P(cash)</th></tr></thead><tbody>{parts_rows(partsA)}</tbody></table></div>
     <div class="panel"><h4>Team 2 core: EV by slot (observed edges)</h4><table class="t"><thead><tr><th>Slot</th><th>Stake</th><th>EV</th><th>P(cash)</th></tr></thead><tbody>{parts_rows(partsC)}</tbody></table></div>
   </div>
-  <p class="note">Read the table this way. In the no-edge column, the drop from about −$84 a week (W1–3 mix) to about −$18 (Team 2 core) comes from structure alone: fewer legs per ticket and fewer dollars in markets that have lost. That part is robust. The move from −$18 to +$8 depends on the QB, anytime-TD and dog-ML edges being real, and each of those is under 2 standard errors, so treat it as a hypothesis. The SuperContest entries are modeled as plain parlays. Their contest value depends on the prize pool, which isn't modeled.</p>
+  <p class="note">Read the table this way. In the no-edge column, the drop from about −$84 a week (W1–3 mix) to about −$18 (Team 2 core) comes from structure alone: fewer legs per ticket and fewer dollars in markets that have lost. That part is robust. The move from −$18 to +$4 depends on the QB, anytime-TD and dog-ML edges being real, and each of those is under 2 standard errors, so treat it as a hypothesis. The SuperContest entries are modeled as plain parlays. Their contest value depends on the prize pool, which isn't modeled.</p>
 </section>
 
 <section id="week4">
@@ -256,7 +256,7 @@ a{{color:var(--accent)}} :focus-visible{{outline:2px solid var(--accent);outline
     <li><b>Budget.</b> Core basket ≈ $165 (lean ≈ $105), including the SuperContest $15 five and $10 2-team RR. Cash only. Promo credits are separate.</li>
     <li><b>Slot 1, dog-ML 2-team RR ($20–25).</b> 4–5 dogs at +110 to +250, all from different games. Andy's side reads lead here.</li>
     <li><b>Slot 2, QB-market singles or 2-leg tickets ($30–40).</b> Pass-TD overs and INT-yes. Each needs a stated matchup fit and a projected 30+ pass attempts.</li>
-    <li><b>Slot 3, three hand-built 2-leg prop tickets ($30).</b> Anytime TD at +150 or longer paired with a QB leg. Take the TD leg only on a team with a team total of 24+ (ATD hit 54% when the team scored 3+ TDs, 26% otherwise). Prop round robins stay out.</li>
+    <li><b>Slot 3, three hand-built 2-leg prop tickets ($30).</b> Anytime TD at +150 or longer paired with a QB leg. Take the TD leg only on a team with a team total of 24+ (ATD hit 53% when the team scored 3+ TDs, 26% otherwise). Prop round robins stay out.</li>
     <li><b>Slot 4, islands (TNF PIT@CLE, SNF, MNF).</b> One ticket per game, 3 legs or fewer, $10 each. No receptions or receiving-yard legs unless the team is projected to throw 35+ times.</li>
     <li><b>Slot 5, lotto.</b> One 5-leg ticket, $10 max, with ATD and QB legs only. First TD is fun money only ($5).</li>
     <li><b>Cut.</b> 4-team master RR (−46% EV). Straight parlays of 5+ side legs. Dog spreads (take the ML instead). Full-game Unders inside parlays. Sacks. AI side/total picks unless Andy or a second source agrees.</li>

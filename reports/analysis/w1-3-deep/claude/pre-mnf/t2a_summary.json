@@ -1,6 +1,6 @@
 {
- "n_positions": 554,
- "n_burnt": 297,
+ "n_positions": 516,
+ "n_burnt": 272,
  "by_week": {
   "1": {
    "QB game script": 6,
@@ -19,12 +19,12 @@
    "Sack / INT / tackle didn't happen": 6
   },
   "3": {
-   "QB game script": 12,
-   "Sack / INT / tackle didn't happen": 18,
-   "Player didn't get the volume": 23,
-   "TD went to someone else": 23,
-   "Side or total lost": 28,
-   "Volume there, production not": 6
+   "QB game script": 8,
+   "Sack / INT / tackle didn't happen": 13,
+   "Player didn't get the volume": 16,
+   "TD went to someone else": 20,
+   "Side or total lost": 24,
+   "Volume there, production not": 4
   }
  },
  "placed_by_week": {
@@ -45,21 +45,21 @@
    "Sack / INT / tackle didn't happen": 6
   },
   "3": {
-   "QB game script": 11,
-   "Sack / INT / tackle didn't happen": 17,
-   "Player didn't get the volume": 19,
-   "TD went to someone else": 19,
-   "Side or total lost": 27,
-   "Volume there, production not": 6
+   "QB game script": 7,
+   "Sack / INT / tackle didn't happen": 12,
+   "Player didn't get the volume": 12,
+   "TD went to someone else": 16,
+   "Side or total lost": 23,
+   "Volume there, production not": 4
   }
  },
  "season": {
-  "QB game script": 24,
-  "TD went to someone else": 66,
-  "Player didn't get the volume": 77,
-  "Volume there, production not": 18,
-  "Sack / INT / tackle didn't happen": 26,
-  "Side or total lost": 86
+  "QB game script": 20,
+  "TD went to someone else": 63,
+  "Player didn't get the volume": 70,
+  "Volume there, production not": 16,
+  "Sack / INT / tackle didn't happen": 21,
+  "Side or total lost": 82
  },
  "w3_team1": {
   "QB game script": 8,
@@ -70,12 +70,12 @@
   "Volume there, production not": 4
  },
  "w3_team2": {
-  "QB game script": 12,
-  "Sack / INT / tackle didn't happen": 18,
-  "Player didn't get the volume": 23,
-  "TD went to someone else": 23,
-  "Side or total lost": 28,
-  "Volume there, production not": 6
+  "QB game script": 8,
+  "Sack / INT / tackle didn't happen": 13,
+  "Player didn't get the volume": 16,
+  "TD went to someone else": 20,
+  "Side or total lost": 24,
+  "Volume there, production not": 4
  },
  "w3_label_agreement": [
   85,
@@ -83,34 +83,34 @@
  ],
  "percause": {
   "Side or total lost": {
-   "n": 86,
+   "n": 82,
    "near": 18,
-   "ticket_hits": 106
+   "ticket_hits": 100
   },
   "TD went to someone else": {
-   "n": 66,
+   "n": 63,
    "near": 0,
-   "ticket_hits": 60
+   "ticket_hits": 57
   },
   "Player didn't get the volume": {
-   "n": 77,
+   "n": 70,
    "near": 10,
-   "ticket_hits": 62
+   "ticket_hits": 55
   },
   "Sack / INT / tackle didn't happen": {
-   "n": 26,
+   "n": 21,
    "near": 12,
-   "ticket_hits": 24
+   "ticket_hits": 19
   },
   "QB game script": {
-   "n": 24,
+   "n": 20,
    "near": 4,
-   "ticket_hits": 26
+   "ticket_hits": 21
   },
   "Volume there, production not": {
-   "n": 18,
+   "n": 16,
    "near": 3,
-   "ticket_hits": 18
+   "ticket_hits": 16
   }
  },
  "cats": {
@@ -131,18 +131,18 @@
    "grp": "TD scorer"
   },
   "Anytime TD": {
-   "w": 38,
-   "n": 89,
-   "hit": 0.42696629213483145,
-   "priced": 57,
-   "wp": 27,
-   "be": 0.45986882630236947,
-   "flat_roi": 0.1377617567654271,
-   "z": 0.20928292120168843,
+   "w": 37,
+   "n": 85,
+   "hit": 0.43529411764705883,
+   "priced": 56,
+   "wp": 26,
+   "be": 0.46028289065227923,
+   "flat_roi": 0.1171860738505239,
+   "z": 0.06009868369373725,
    "evidence": "weak (hypothesis)",
    "ci": [
-    0.32932584473480486,
-    0.5306507174959193
+    0.33495605811400164,
+    0.5412280718431356
    ],
    "grp": "TD scorer"
   },
@@ -163,18 +163,18 @@
    "grp": "side/total"
   },
   "Carries": {
-   "w": 4,
-   "n": 8,
+   "w": 3,
+   "n": 6,
    "hit": 0.5,
-   "priced": 6,
+   "priced": 5,
    "wp": 3,
-   "be": 0.5865038001716357,
-   "flat_roi": -0.08788595794245513,
-   "z": -0.43026858215714436,
+   "be": 0.5666976419669691,
+   "flat_roi": 0.09453685046905384,
+   "z": 0.15027569969486415,
    "evidence": "weak (hypothesis)",
    "ci": [
-    0.21521252682444186,
-    0.7847874731755582
+    0.18761280689940868,
+    0.8123871931005913
    ],
    "grp": "volume/yardage"
   },
@@ -260,56 +260,56 @@
   },
   "Moneyline (fav)": {
    "w": 19,
-   "n": 30,
-   "hit": 0.6333333333333333,
-   "priced": 30,
+   "n": 29,
+   "hit": 0.6551724137931034,
+   "priced": 29,
    "wp": 19,
-   "be": 0.7011011540366143,
-   "flat_roi": -0.07838083359567018,
-   "z": -0.8108335064551935,
+   "be": 0.7013073334441008,
+   "flat_roi": -0.04660086234034846,
+   "z": -0.5428280702000914,
    "evidence": "weak (hypothesis)",
    "ci": [
-    0.45513246433604937,
-    0.7812629779598231
+    0.47344776507155983,
+    0.8005949125080951
    ],
    "grp": "side/total"
   },
   "Passing TDs": {
    "w": 16,
-   "n": 24,
-   "hit": 0.6666666666666666,
-   "priced": 21,
+   "n": 22,
+   "hit": 0.7272727272727273,
+   "priced": 20,
    "wp": 15,
-   "be": 0.6068872719565467,
-   "flat_roi": 0.18738404368593684,
-   "z": 1.007616017351937,
+   "be": 0.6141901608999961,
+   "flat_roi": 0.24675324587023367,
+   "z": 1.2476941980011662,
    "evidence": "weak (hypothesis)",
    "ci": [
-    0.4670595949408046,
-    0.8202802131162036
+    0.5184787630099802,
+    0.8684941798418556
    ],
    "grp": "QB"
   },
   "QB INT thrown": {
    "w": 8,
-   "n": 15,
-   "hit": 0.5333333333333333,
-   "priced": 9,
+   "n": 13,
+   "hit": 0.6153846153846154,
+   "priced": 8,
    "wp": 6,
-   "be": 0.5426311720440398,
-   "flat_roi": 0.2553282955647127,
-   "z": 0.7469328968323596,
+   "be": 0.5354600685495446,
+   "flat_roi": 0.4122443325103018,
+   "z": 1.2166847388467696,
    "evidence": "weak (hypothesis)",
    "ci": [
-    0.3011663015105079,
-    0.7519077474025355
+    0.35522480972268555,
+    0.8229055341876319
    ],
    "grp": "QB"
   },
   "QB rushing yds": {
    "w": 7,
-   "n": 14,
-   "hit": 0.5,
+   "n": 13,
+   "hit": 0.5384615384615384,
    "priced": 7,
    "wp": 4,
    "be": 0.5727995085536307,
@@ -317,30 +317,30 @@
    "z": -0.00733245433825987,
    "evidence": "weak (hypothesis)",
    "ci": [
-    0.2679886791947528,
-    0.7320113208052472
+    0.2914343243183205,
+    0.7679424569851186
    ],
    "grp": "QB"
   },
   "QB volume": {
-   "w": 7,
-   "n": 16,
-   "hit": 0.4375,
-   "priced": 10,
-   "wp": 6,
-   "be": 0.5454631604230331,
-   "flat_roi": 0.08919307921930812,
-   "z": 0.34635599620635027,
+   "w": 6,
+   "n": 15,
+   "hit": 0.4,
+   "priced": 9,
+   "wp": 5,
+   "be": 0.5420400464210725,
+   "flat_roi": 0.01740407494955814,
+   "z": 0.08138122575561182,
    "evidence": "weak (hypothesis)",
    "ci": [
-    0.2309836333518552,
-    0.6682180439322347
+    0.19824228082594664,
+    0.642535572434923
    ],
    "grp": "QB"
   },
   "Receiving yds": {
-   "w": 35,
-   "n": 70,
+   "w": 31,
+   "n": 62,
    "hit": 0.5,
    "priced": 41,
    "wp": 19,
@@ -349,15 +349,15 @@
    "z": -1.189513740014793,
    "evidence": "weak (hypothesis)",
    "ci": [
-    0.3859551898733622,
-    0.6140448101266378
+    0.37922532216457727,
+    0.6207746778354227
    ],
    "grp": "volume/yardage"
   },
   "Receptions": {
-   "w": 28,
-   "n": 59,
-   "hit": 0.4745762711864407,
+   "w": 25,
+   "n": 53,
+   "hit": 0.4716981132075472,
    "priced": 45,
    "wp": 22,
    "be": 0.5813269322361394,
@@ -365,15 +365,15 @@
    "z": -1.2569247175622806,
    "evidence": "weak (hypothesis)",
    "ci": [
-    0.35265669027401325,
-    0.5996042324268729
+    0.343820276089814,
+    0.6034014769924354
    ],
    "grp": "volume/yardage"
   },
   "Rushing yds": {
-   "w": 16,
-   "n": 34,
-   "hit": 0.47058823529411764,
+   "w": 15,
+   "n": 33,
+   "hit": 0.45454545454545453,
    "priced": 22,
    "wp": 11,
    "be": 0.6007101258380096,
@@ -381,24 +381,24 @@
    "z": -0.9645124863761974,
    "evidence": "weak (hypothesis)",
    "ci": [
-    0.31451251633111366,
-    0.6326355957994516
+    0.298426891258915,
+    0.6201434205625044
    ],
    "grp": "volume/yardage"
   },
   "Sacks": {
    "w": 4,
-   "n": 20,
-   "hit": 0.2,
-   "priced": 15,
+   "n": 15,
+   "hit": 0.26666666666666666,
+   "priced": 12,
    "wp": 4,
-   "be": 0.4303651906139565,
-   "flat_roi": -0.420236559139785,
-   "z": -1.280482254866918,
+   "be": 0.435148556584134,
+   "flat_roi": -0.27529569892473127,
+   "z": -0.7114058724183363,
    "evidence": "weak (hypothesis)",
    "ci": [
-    0.0806563532712,
-    0.41602172202575993
+    0.1089727610318281,
+    0.5195088965768675
    ],
    "grp": "defense"
   },
@@ -420,17 +420,17 @@
   },
   "Spread (fav)": {
    "w": 10,
-   "n": 25,
-   "hit": 0.4,
-   "priced": 22,
+   "n": 23,
+   "hit": 0.43478260869565216,
+   "priced": 20,
    "wp": 8,
-   "be": 0.5338373442106664,
-   "flat_roi": -0.31794598808144053,
-   "z": -1.6002954961147957,
-   "evidence": "moderate (hypothesis)",
+   "be": 0.5361183969097854,
+   "flat_roi": -0.24974058688958456,
+   "z": -1.2206689389958034,
+   "evidence": "weak (hypothesis)",
    "ci": [
-    0.23403057664190918,
-    0.5926087221487266
+    0.25634368332198654,
+    0.6318895069498304
    ],
    "grp": "side/total"
   },
@@ -452,17 +452,17 @@
   },
   "Team total": {
    "w": 1,
-   "n": 3,
-   "hit": 0.3333333333333333,
-   "priced": 3,
+   "n": 2,
+   "hit": 0.5,
+   "priced": 2,
    "wp": 1,
-   "be": 0.5237736120089062,
-   "flat_roi": -0.3333333333333333,
-   "z": -0.6604514533837343,
+   "be": 0.5237556561085973,
+   "flat_roi": 0.0,
+   "z": -0.06726710685107196,
    "evidence": "weak (hypothesis)",
    "ci": [
-    0.0614903152761605,
-    0.7923450448735121
+    0.09452865480086614,
+    0.9054713451991339
    ],
    "grp": "side/total"
   },
@@ -483,61 +483,61 @@
    "grp": "side/total"
   },
   "Total Under": {
-   "w": 13,
-   "n": 28,
-   "hit": 0.4642857142857143,
-   "priced": 19,
-   "wp": 8,
-   "be": 0.5451140383270363,
-   "flat_roi": -0.23021766855181802,
-   "z": -1.0859718090838333,
+   "w": 11,
+   "n": 26,
+   "hit": 0.4230769230769231,
+   "priced": 18,
+   "wp": 7,
+   "be": 0.5456823892935253,
+   "flat_roi": -0.2913167177708804,
+   "z": -1.3360249035258582,
    "evidence": "weak (hypothesis)",
    "ci": [
-    0.29531303739659587,
-    0.6418760485789833
+    0.255441899027294,
+    0.6105170307888017
    ],
    "grp": "side/total"
   }
  },
  "clustering": {
-  "p": 0.4629294755877034,
-  "chi": 65.18043840943439,
-  "df": 48,
-  "perm_p": 0.018,
-  "perm_mean": 45.39022941114862,
+  "p": 0.47184466019417476,
+  "chi": 62.6380665685905,
+  "df": 47,
+  "perm_p": 0.0235,
+  "perm_mean": 44.3464458460085,
   "same_game_phi": [
-   0.03899882020268635,
-   4715
+   0.04084061893618227,
+   4012
   ]
  },
  "script": {
   "team won": {
-   "w": 95,
-   "n": 178,
-   "hit": 0.5337078651685393,
-   "be": 0.5351022126318381,
-   "z": 0.510227275609806
+   "w": 87,
+   "n": 166,
+   "hit": 0.5240963855421686,
+   "be": 0.5342033417744059,
+   "z": 0.5469990122115368
   },
   "team lost": {
-   "w": 73,
-   "n": 172,
-   "hit": 0.42441860465116277,
-   "be": 0.5154192518118423,
-   "z": -1.082807996472347
+   "w": 70,
+   "n": 157,
+   "hit": 0.445859872611465,
+   "be": 0.515081751338866,
+   "z": -0.985843193304
   },
   "led at half": {
-   "w": 93,
-   "n": 180,
-   "hit": 0.5166666666666667,
-   "be": 0.5242466944694405,
-   "z": 0.3942654304630565
+   "w": 85,
+   "n": 168,
+   "hit": 0.5059523809523809,
+   "be": 0.523145161732356,
+   "z": 0.4303760000620146
   },
   "trailed at half": {
-   "w": 64,
-   "n": 151,
-   "hit": 0.423841059602649,
-   "be": 0.5326631285590755,
-   "z": -1.3578067712072577
+   "w": 61,
+   "n": 136,
+   "hit": 0.4485294117647059,
+   "be": 0.5328255641969807,
+   "z": -1.2579606213473586
   }
  },
  "volume": {
@@ -549,25 +549,25 @@
    "z": 1.8194350412880038
   },
   "receiving legs, team threw <35": {
-   "w": 38,
-   "n": 96,
-   "hit": 0.3958333333333333,
+   "w": 31,
+   "n": 82,
+   "hit": 0.3780487804878049,
    "be": 0.569972240679615,
    "z": -3.320824510039356
   },
   "rushing legs, team ran >=28": {
-   "w": 14,
-   "n": 22,
-   "hit": 0.6363636363636364,
+   "w": 12,
+   "n": 20,
+   "hit": 0.6,
    "be": 0.5993760858560601,
    "z": 0.3320060290447971
   },
   "rushing legs, team ran <28": {
    "w": 6,
-   "n": 18,
-   "hit": 0.3333333333333333,
-   "be": 0.6009895335043309,
-   "z": -1.593130860742103
+   "n": 17,
+   "hit": 0.35294117647058826,
+   "be": 0.5939441120301113,
+   "z": -1.2504847821314262
   }
  },
  "defense": {
@@ -580,35 +580,35 @@
   },
   "sack legs, opp threw <35": {
    "w": 2,
-   "n": 15,
-   "hit": 0.13333333333333333,
-   "be": 0.4263042516152091,
-   "z": -1.8186852148711627
+   "n": 10,
+   "hit": 0.2,
+   "be": 0.43132842657586323,
+   "z": -1.2666405091259112
   }
  },
  "tdconc": {
-  "lost": 66,
-  "team_scored_2plus": 46,
-  "team_scored_0_1": 20,
+  "lost": 63,
+  "team_scored_2plus": 45,
+  "team_scored_0_1": 18,
   "hit_when_team_3plus": {
    "w": 29,
-   "n": 55,
-   "hit": 0.5272727272727272,
+   "n": 54,
+   "hit": 0.5370370370370371,
    "be": 0.4827186778600831,
    "z": 1.0328483865894553
   },
   "hit_when_team_0_2": {
-   "w": 9,
-   "n": 34,
-   "hit": 0.2647058823529412,
-   "be": 0.41759660092059925,
-   "z": -1.0663980411507765
+   "w": 8,
+   "n": 31,
+   "hit": 0.25806451612903225,
+   "be": 0.4165921471423453,
+   "z": -1.3566176005371509
   }
  },
  "stack": {
   "tickets": {
    ">=50% one game": 5,
-   "single-game (SGP/island)": 40,
+   "single-game (SGP/island)": 35,
    "spread across games": 47
   },
   "cashed": {
@@ -618,17 +618,13 @@
   }
  },
  "coburn": {
-  "rate": 0.5454545454545454,
-  "n": 583,
-  "base_loss": 0.532967032967033
+  "rate": 0.5202558635394456,
+  "n": 469,
+  "base_loss": 0.5234375
  },
  "top_games": [
   [
    "W2 NYG@LAR",
-   25
-  ],
-  [
-   "W3 PHI@CHI",
    25
   ],
   [
@@ -670,6 +666,10 @@
   [
    "W2 PHI@TEN",
    8
+  ],
+  [
+   "W3 CIN@PIT",
+   7
   ]
  ]
 }

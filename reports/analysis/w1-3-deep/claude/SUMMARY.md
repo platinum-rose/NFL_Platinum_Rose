@@ -69,3 +69,6 @@ Report: `w1-3-basket-review.html` (claude.ai artifact "W1–3 Basket Review"). S
 
 ## Week 4
 See `week4-build-checklist.md`.
+
+## MNF update (2026-09-29)
+MNF (CHI 27, PHI 7) is now included; every MNF ticket lost. W1–3: **$1,298 staked, $251 back, −$1,047.** Re-run baskets: W1–3 mix −$136/wk observed (−$85 no edge); Team 2 core +$4 observed / −$18 no edge / −$26 conservative. No recommendation changes. Pre-MNF outputs are in `pre-mnf/`. Weekly re-tests now come from `reports/analysis/season/claude/` (see its README).

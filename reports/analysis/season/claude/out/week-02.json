@@ -1,0 +1,1659 @@
+{
+ "weeks": [
+  2
+ ],
+ "open_tickets": [],
+ "totals": {
+  "tickets": 33,
+  "won": 3,
+  "staked": 428.79,
+  "returned": 131.24,
+  "net": -297.55,
+  "roi": -0.6939
+ },
+ "promo": {
+  "tickets": 1,
+  "credit_staked": 10.0,
+  "credit_value_returned": 0.0,
+  "detail": [
+   {
+    "id": "bet_20260917_997008079_tnf_det_spread_freebet",
+    "book": "BetOnline",
+    "title": "Week 2 TNF Free Bet -- Detroit Lions +5.5 (BEO Super Bowl Promo Offset)",
+    "stake": 10,
+    "result": "loss",
+    "value": 0.0
+   }
+  ]
+ },
+ "by_week": {
+  "Week 2": {
+   "tickets": 33,
+   "won": 3,
+   "staked": 428.79,
+   "returned": 131.24,
+   "net": -297.55,
+   "roi": -0.6939
+  }
+ },
+ "by_book": {
+  "Bookmaker.eu": {
+   "tickets": 13,
+   "won": 3,
+   "staked": 319.97,
+   "returned": 131.24,
+   "net": -188.73,
+   "roi": -0.5898
+  },
+  "BetOnline": {
+   "tickets": 20,
+   "won": 0,
+   "staked": 108.82,
+   "returned": 0.0,
+   "net": -108.82,
+   "roi": -1.0
+  }
+ },
+ "by_family": {
+  "Game-line parlay": {
+   "tickets": 10,
+   "won": 1,
+   "staked": 180.02,
+   "returned": 70.02,
+   "net": -110.0,
+   "roi": -0.611
+  },
+  "2-team RR": {
+   "tickets": 2,
+   "won": 2,
+   "staked": 34.95,
+   "returned": 61.22,
+   "net": 26.27,
+   "roi": 0.7516
+  },
+  "4-team master RR": {
+   "tickets": 1,
+   "won": 0,
+   "staked": 105.0,
+   "returned": 0.0,
+   "net": -105.0,
+   "roi": -1.0
+  },
+  "Prop parlay / stack": {
+   "tickets": 8,
+   "won": 0,
+   "staked": 40.95,
+   "returned": 0.0,
+   "net": -40.95,
+   "roi": -1.0
+  },
+  "Island SGP ladder (TNF/SNF/MNF)": {
+   "tickets": 12,
+   "won": 0,
+   "staked": 67.87,
+   "returned": 0.0,
+   "net": -67.87,
+   "roi": -1.0
+  }
+ },
+ "by_legs": {
+  "2": {
+   "tickets": 3,
+   "won": 1,
+   "staked": 74.95,
+   "returned": 70.02,
+   "net": -4.93,
+   "roi": -0.0658
+  },
+  "5-6": {
+   "tickets": 13,
+   "won": 0,
+   "staked": 126.92,
+   "returned": 0.0,
+   "net": -126.92,
+   "roi": -1.0
+  },
+  "7+": {
+   "tickets": 14,
+   "won": 0,
+   "staked": 86.97,
+   "returned": 0.0,
+   "net": -86.97,
+   "roi": -1.0
+  },
+  "RR": {
+   "tickets": 3,
+   "won": 2,
+   "staked": 139.95,
+   "returned": 61.22,
+   "net": -78.73,
+   "roi": -0.5626
+  }
+ },
+ "by_band": {
+  "+151 to +400": {
+   "tickets": 3,
+   "won": 1,
+   "staked": 74.95,
+   "returned": 70.02,
+   "net": -4.93,
+   "roi": -0.0658
+  },
+  "+1001 to +3000": {
+   "tickets": 8,
+   "won": 0,
+   "staked": 96.92,
+   "returned": 0.0,
+   "net": -96.92,
+   "roi": -1.0
+  },
+  "> +3000": {
+   "tickets": 19,
+   "won": 0,
+   "staked": 116.97,
+   "returned": 0.0,
+   "net": -116.97,
+   "roi": -1.0
+  },
+  "RR (n/a)": {
+   "tickets": 3,
+   "won": 2,
+   "staked": 139.95,
+   "returned": 61.22,
+   "net": -78.73,
+   "roi": -0.5626
+  }
+ },
+ "by_prov": {
+  "claude": {
+   "tickets": 10,
+   "won": 1,
+   "staked": 264.85,
+   "returned": 44.83,
+   "net": -220.02,
+   "roi": -0.8307
+  },
+  "mixed": {
+   "tickets": 11,
+   "won": 1,
+   "staked": 65.95,
+   "returned": 16.39,
+   "net": -49.56,
+   "roi": -0.7515
+  },
+  "andy": {
+   "tickets": 12,
+   "won": 1,
+   "staked": 97.99,
+   "returned": 70.02,
+   "net": -27.97,
+   "roi": -0.2854
+  }
+ },
+ "legs": {
+  "instances": 211,
+  "unique": 174,
+  "won_unique": 85,
+  "from_box": 2
+ },
+ "by_market": {
+  "Anytime TD": {
+   "n": 32,
+   "won": 13,
+   "hit": 0.406,
+   "ci": [
+    0.255,
+    0.577
+   ],
+   "priced": 28,
+   "ret_per_1": 0.902,
+   "breakeven": 0.46,
+   "z_vs_price": -0.33,
+   "evidence": "hypothesis (<1.5 SE)",
+   "grp": "TD scorer"
+  },
+  "Receptions": {
+   "n": 25,
+   "won": 13,
+   "hit": 0.52,
+   "ci": [
+    0.335,
+    0.7
+   ],
+   "priced": 23,
+   "ret_per_1": 0.922,
+   "breakeven": 0.605,
+   "z_vs_price": -0.39,
+   "evidence": "hypothesis (<1.5 SE)",
+   "grp": "volume/yardage"
+  },
+  "Receiving yds": {
+   "n": 22,
+   "won": 10,
+   "hit": 0.455,
+   "ci": [
+    0.269,
+    0.653
+   ],
+   "priced": 22,
+   "ret_per_1": 0.85,
+   "breakeven": 0.536,
+   "z_vs_price": -0.77,
+   "evidence": "hypothesis (<1.5 SE)",
+   "grp": "volume/yardage"
+  },
+  "Spread (dog)": {
+   "n": 16,
+   "won": 6,
+   "hit": 0.375,
+   "ci": [
+    0.185,
+    0.614
+   ],
+   "priced": 15,
+   "ret_per_1": 0.617,
+   "breakeven": 0.541,
+   "z_vs_price": -1.61,
+   "evidence": "hypothesis (1.5\u20132 SE)",
+   "grp": "side/total"
+  },
+  "Moneyline (fav)": {
+   "n": 11,
+   "won": 8,
+   "hit": 0.727,
+   "ci": [
+    0.434,
+    0.903
+   ],
+   "priced": 11,
+   "ret_per_1": 1.068,
+   "breakeven": 0.711,
+   "z_vs_price": 0.12,
+   "evidence": "hypothesis (<1.5 SE)",
+   "grp": "side/total"
+  },
+  "Spread (fav)": {
+   "n": 10,
+   "won": 5,
+   "hit": 0.5,
+   "ci": [
+    0.237,
+    0.763
+   ],
+   "priced": 8,
+   "ret_per_1": 0.703,
+   "breakeven": 0.538,
+   "z_vs_price": -0.92,
+   "evidence": "hypothesis (<1.5 SE)",
+   "grp": "side/total"
+  },
+  "Tackles+Ast": {
+   "n": 10,
+   "won": 6,
+   "hit": 0.6,
+   "ci": [
+    0.313,
+    0.832
+   ],
+   "priced": 9,
+   "ret_per_1": 0.979,
+   "breakeven": 0.563,
+   "z_vs_price": -0.05,
+   "evidence": "hypothesis (<1.5 SE)",
+   "grp": "defense"
+  },
+  "Rushing yds": {
+   "n": 9,
+   "won": 3,
+   "hit": 0.333,
+   "ci": [
+    0.121,
+    0.646
+   ],
+   "priced": 8,
+   "ret_per_1": 0.644,
+   "breakeven": 0.574,
+   "z_vs_price": -1.14,
+   "evidence": "hypothesis (<1.5 SE)",
+   "grp": "volume/yardage"
+  },
+  "Total Under": {
+   "n": 7,
+   "won": 3,
+   "hit": 0.429,
+   "ci": [
+    0.158,
+    0.75
+   ],
+   "priced": 6,
+   "ret_per_1": 0.9,
+   "breakeven": 0.545,
+   "z_vs_price": -0.22,
+   "evidence": "hypothesis (<1.5 SE)",
+   "grp": "side/total"
+  },
+  "Passing TDs": {
+   "n": 6,
+   "won": 5,
+   "hit": 0.833,
+   "ci": [
+    0.436,
+    0.97
+   ],
+   "priced": 6,
+   "ret_per_1": 1.38,
+   "breakeven": 0.632,
+   "z_vs_price": 1.02,
+   "evidence": "hypothesis (<1.5 SE)",
+   "grp": "QB"
+  },
+  "Moneyline (dog)": {
+   "n": 6,
+   "won": 3,
+   "hit": 0.5,
+   "ci": [
+    0.188,
+    0.812
+   ],
+   "priced": 6,
+   "ret_per_1": 1.7,
+   "breakeven": 0.302,
+   "z_vs_price": 1.06,
+   "evidence": "hypothesis (<1.5 SE)",
+   "grp": "side/total"
+  },
+  "QB rushing yds": {
+   "n": 4,
+   "won": 2,
+   "hit": 0.5,
+   "ci": [
+    0.15,
+    0.85
+   ],
+   "priced": 2,
+   "ret_per_1": 0.913,
+   "breakeven": 0.54,
+   "z_vs_price": -0.11,
+   "evidence": "hypothesis (<1.5 SE)",
+   "grp": "QB"
+  },
+  "Sacks": {
+   "n": 4,
+   "won": 2,
+   "hit": 0.5,
+   "ci": [
+    0.15,
+    0.85
+   ],
+   "priced": 4,
+   "ret_per_1": 0.952,
+   "breakeven": 0.532,
+   "z_vs_price": -0.13,
+   "evidence": "hypothesis (<1.5 SE)",
+   "grp": "defense"
+  },
+  "QB volume": {
+   "n": 4,
+   "won": 2,
+   "hit": 0.5,
+   "ci": [
+    0.15,
+    0.85
+   ],
+   "priced": 4,
+   "ret_per_1": 0.894,
+   "breakeven": 0.542,
+   "z_vs_price": -0.17,
+   "evidence": "hypothesis (<1.5 SE)",
+   "grp": "QB"
+  },
+  "Total Over": {
+   "n": 3,
+   "won": 1,
+   "hit": 0.333,
+   "ci": [
+    0.061,
+    0.792
+   ],
+   "priced": 1,
+   "ret_per_1": 0.0,
+   "breakeven": 0.6,
+   "z_vs_price": -1.22,
+   "evidence": "hypothesis (<1.5 SE)",
+   "grp": "side/total"
+  },
+  "QB INT thrown": {
+   "n": 2,
+   "won": 0,
+   "hit": 0.0,
+   "ci": [
+    0,
+    0.658
+   ],
+   "priced": 2,
+   "ret_per_1": 0.0,
+   "breakeven": 0.545,
+   "z_vs_price": -1.55,
+   "evidence": "hypothesis (1.5\u20132 SE)",
+   "grp": "QB"
+  },
+  "Team total": {
+   "n": 1,
+   "won": 1,
+   "hit": 1.0,
+   "ci": [
+    0.207,
+    1
+   ],
+   "priced": 1,
+   "ret_per_1": 2.0,
+   "breakeven": 0.5,
+   "z_vs_price": 1.0,
+   "evidence": "hypothesis (<1.5 SE)",
+   "grp": "side/total"
+  },
+  "2+ TD": {
+   "n": 1,
+   "won": 1,
+   "hit": 1.0,
+   "ci": [
+    0.207,
+    1
+   ],
+   "priced": 1,
+   "ret_per_1": 2.5,
+   "breakeven": 0.4,
+   "z_vs_price": 1.22,
+   "evidence": "hypothesis (<1.5 SE)",
+   "grp": "TD scorer"
+  },
+  "Carries": {
+   "n": 1,
+   "won": 1,
+   "hit": 1.0,
+   "ci": [
+    0.207,
+    1
+   ],
+   "priced": 1,
+   "ret_per_1": 1.847,
+   "breakeven": 0.541,
+   "z_vs_price": 0.92,
+   "evidence": "hypothesis (<1.5 SE)",
+   "grp": "volume/yardage"
+  }
+ },
+ "by_group": {
+  "side/total": {
+   "n": 54,
+   "won": 27,
+   "hit": 0.5,
+   "ci": [
+    0.371,
+    0.629
+   ],
+   "priced": 48,
+   "ret_per_1": 0.921,
+   "breakeven": 0.55,
+   "z_vs_price": -0.99,
+   "evidence": "hypothesis (<1.5 SE)"
+  },
+  "TD scorer": {
+   "n": 33,
+   "won": 14,
+   "hit": 0.424,
+   "ci": [
+    0.272,
+    0.592
+   ],
+   "priced": 29,
+   "ret_per_1": 0.957,
+   "breakeven": 0.458,
+   "z_vs_price": -0.11,
+   "evidence": "hypothesis (<1.5 SE)"
+  },
+  "QB": {
+   "n": 16,
+   "won": 9,
+   "hit": 0.562,
+   "ci": [
+    0.332,
+    0.769
+   ],
+   "priced": 14,
+   "ret_per_1": 0.977,
+   "breakeven": 0.581,
+   "z_vs_price": -0.07,
+   "evidence": "hypothesis (<1.5 SE)"
+  },
+  "volume/yardage": {
+   "n": 57,
+   "won": 27,
+   "hit": 0.474,
+   "ci": [
+    0.35,
+    0.601
+   ],
+   "priced": 54,
+   "ret_per_1": 0.868,
+   "breakeven": 0.571,
+   "z_vs_price": -1.05,
+   "evidence": "hypothesis (<1.5 SE)"
+  },
+  "defense": {
+   "n": 14,
+   "won": 8,
+   "hit": 0.571,
+   "ci": [
+    0.326,
+    0.786
+   ],
+   "priced": 13,
+   "ret_per_1": 0.97,
+   "breakeven": 0.554,
+   "z_vs_price": -0.11,
+   "evidence": "hypothesis (<1.5 SE)"
+  }
+ },
+ "hypotheses": {
+  "H1": {
+   "team 35+ att": {
+    "n": 13,
+    "won": 10,
+    "hit": 0.769,
+    "ci": [
+     0.497,
+     0.918
+    ],
+    "priced": 13,
+    "ret_per_1": 1.384,
+    "breakeven": 0.55,
+    "z_vs_price": 1.59,
+    "evidence": "hypothesis (1.5\u20132 SE)"
+   },
+   "team <35 att": {
+    "n": 34,
+    "won": 13,
+    "hit": 0.382,
+    "ci": [
+     0.239,
+     0.55
+    ],
+    "priced": 32,
+    "ret_per_1": 0.685,
+    "breakeven": 0.58,
+    "z_vs_price": -1.99,
+    "evidence": "hypothesis (1.5\u20132 SE)"
+   },
+   "z_diff": 2.37,
+   "evidence": "strong (\u22652 SE)"
+  },
+  "H2": {
+   "team 3+ TDs": {
+    "n": 21,
+    "won": 11,
+    "hit": 0.524,
+    "ci": [
+     0.324,
+     0.717
+    ],
+    "priced": 19,
+    "ret_per_1": 1.072,
+    "breakeven": 0.471,
+    "z_vs_price": 0.48,
+    "evidence": "hypothesis (<1.5 SE)"
+   },
+   "team <3 TDs": {
+    "n": 11,
+    "won": 2,
+    "hit": 0.182,
+    "ci": [
+     0.051,
+     0.477
+    ],
+    "priced": 9,
+    "ret_per_1": 0.543,
+    "breakeven": 0.435,
+    "z_vs_price": -1.29,
+    "evidence": "hypothesis (<1.5 SE)"
+   },
+   "z_diff": 1.87,
+   "evidence": "hypothesis (1.5\u20132 SE)"
+  },
+  "H3": {
+   "Passing TD over": {
+    "n": 6,
+    "won": 5,
+    "hit": 0.833,
+    "ci": [
+     0.436,
+     0.97
+    ],
+    "priced": 6,
+    "ret_per_1": 1.38,
+    "breakeven": 0.632,
+    "z_vs_price": 1.02,
+    "evidence": "hypothesis (<1.5 SE)"
+   },
+   "QB INT yes": {
+    "n": 2,
+    "won": 0,
+    "hit": 0.0,
+    "ci": [
+     0,
+     0.658
+    ],
+    "priced": 2,
+    "ret_per_1": 0.0,
+    "breakeven": 0.545,
+    "z_vs_price": -1.55,
+    "evidence": "hypothesis (1.5\u20132 SE)"
+   }
+  },
+  "H4": {
+   "Sacks": {
+    "n": 4,
+    "won": 2,
+    "hit": 0.5,
+    "ci": [
+     0.15,
+     0.85
+    ],
+    "priced": 4,
+    "ret_per_1": 0.952,
+    "breakeven": 0.532,
+    "z_vs_price": -0.13,
+    "evidence": "hypothesis (<1.5 SE)"
+   }
+  },
+  "H5": {
+   "Moneyline (dog)": {
+    "n": 6,
+    "won": 3,
+    "hit": 0.5,
+    "ci": [
+     0.188,
+     0.812
+    ],
+    "priced": 6,
+    "ret_per_1": 1.7,
+    "breakeven": 0.302,
+    "z_vs_price": 1.06,
+    "evidence": "hypothesis (<1.5 SE)"
+   },
+   "Spread (dog)": {
+    "n": 16,
+    "won": 6,
+    "hit": 0.375,
+    "ci": [
+     0.185,
+     0.614
+    ],
+    "priced": 15,
+    "ret_per_1": 0.617,
+    "breakeven": 0.541,
+    "z_vs_price": -1.61,
+    "evidence": "hypothesis (1.5\u20132 SE)"
+   },
+   "Spread (fav)": {
+    "n": 10,
+    "won": 5,
+    "hit": 0.5,
+    "ci": [
+     0.237,
+     0.763
+    ],
+    "priced": 8,
+    "ret_per_1": 0.703,
+    "breakeven": 0.538,
+    "z_vs_price": -0.92,
+    "evidence": "hypothesis (<1.5 SE)"
+   }
+  },
+  "H6": {
+   "prop on losing team": {
+    "n": 51,
+    "won": 20,
+    "hit": 0.392,
+    "ci": [
+     0.27,
+     0.529
+    ],
+    "priced": 46,
+    "ret_per_1": 0.78,
+    "breakeven": 0.529,
+    "z_vs_price": -1.58,
+    "evidence": "hypothesis (1.5\u20132 SE)"
+   },
+   "prop on winning team": {
+    "n": 69,
+    "won": 38,
+    "hit": 0.551,
+    "ci": [
+     0.434,
+     0.662
+    ],
+    "priced": 64,
+    "ret_per_1": 1.017,
+    "breakeven": 0.548,
+    "z_vs_price": 0.23,
+    "evidence": "hypothesis (<1.5 SE)"
+   },
+   "z_diff": -1.72,
+   "evidence": "hypothesis (1.5\u20132 SE)"
+  }
+ },
+ "hyp_text": [
+  [
+   "H1",
+   "Receiving props hit when the team throws 35+ times",
+   "W1\u20133: 25/32 with 35+ team attempts vs 31/82 otherwise (post-game split)."
+  ],
+  [
+   "H2",
+   "Anytime TDs hit when the team scores 3+ TDs",
+   "W1\u20133: 54% with 3+ team TDs vs 26% otherwise."
+  ],
+  [
+   "H3",
+   "QB markets (pass-TD overs, INT yes) are positive",
+   "W1\u20133: INT yes $1.41/$1 (n=8), pass-TD over $1.25 (n=20)."
+  ],
+  [
+   "H4",
+   "Sacks are negative",
+   "W1\u20133: $0.72 per $1."
+  ],
+  [
+   "H5",
+   "Dog ML beats dog spread",
+   "W1\u20133: dog ML $1.19 (n=21) vs dog spread $0.67 (n=33, 2.1 SE)."
+  ],
+  [
+   "H6",
+   "Props on the losing team underperform",
+   "W1\u20133: 70/157 on the losing team (\u22121.0 SE)."
+  ]
+ ],
+ "checklist": {
+  "rules": {
+   "more than 3 legs": {
+    "tickets": 27,
+    "staked": 213.89,
+    "returned": 0.0,
+    "net": -213.89
+   },
+   "5+ side-leg parlay": {
+    "tickets": 7,
+    "staked": 105.07,
+    "returned": 0.0,
+    "net": -105.07
+   },
+   "dog spread": {
+    "tickets": 9,
+    "staked": 159.9,
+    "returned": 0.0,
+    "net": -159.9
+   },
+   "leg shorter than \u2212200": {
+    "tickets": 13,
+    "staked": 98.89,
+    "returned": 0.0,
+    "net": -98.89
+   },
+   "sack leg": {
+    "tickets": 5,
+    "staked": 27.87,
+    "returned": 0.0,
+    "net": -27.87
+   },
+   "4-team master RR": {
+    "tickets": 1,
+    "staked": 105.0,
+    "returned": 0.0,
+    "net": -105.0
+   },
+   "full-game Under in a parlay": {
+    "tickets": 4,
+    "staked": 169.9,
+    "returned": 0.0,
+    "net": -169.9
+   }
+  },
+  "broke": {
+   "tickets": 30,
+   "staked": 373.72,
+   "returned": 0.0,
+   "net": -373.72
+  },
+  "kept": {
+   "tickets": 3,
+   "staked": 55.07,
+   "returned": 131.24,
+   "net": 76.17
+  },
+  "tickets": [
+   {
+    "id": "bet_20260917_738825741_bkr_11team_ml_parlay",
+    "num": "738825741",
+    "week": 2,
+    "title": "Week 2 11-Team Moneyline/Spread Parlay (TNF BUF + Sunday Card)",
+    "stake": 10.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs",
+     "5+ side-leg parlay",
+     "dog spread",
+     "leg shorter than \u2212200"
+    ]
+   },
+   {
+    "id": "bet_20260917_996992070_tnf_6leg_prop_parlay",
+    "num": "996992070",
+    "week": 2,
+    "title": "Week 2 TNF 6-Leg Player Prop Parlay (Lions at Bills)",
+    "stake": 6.92,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs",
+     "sack leg",
+     "leg shorter than \u2212200"
+    ]
+   },
+   {
+    "id": "bet_20260917_996990924_tnf_8leg_shootout_parlay",
+    "num": "996990924",
+    "week": 2,
+    "title": "Week 2 TNF 8-Leg Shootout Prop Parlay (Lions at Bills)",
+    "stake": 5.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs"
+    ]
+   },
+   {
+    "id": "bet_20260917_996986499_tnf_8leg_script_parlay",
+    "num": "996986499",
+    "week": 2,
+    "title": "Week 2 TNF 8-Leg Game-Script Prop Parlay (Lions at Bills)",
+    "stake": 5.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs",
+     "sack leg"
+    ]
+   },
+   {
+    "id": "bet_20260917_738851934_bkr_sgp_2team",
+    "num": "738851934",
+    "week": 2,
+    "title": "Bookmaker.eu SGP 2-Team Parlay (BUF -5 & Over 54) -- TNF",
+    "stake": 20.12,
+    "returned": 70.02,
+    "rules": []
+   },
+   {
+    "id": "bet_20260917_997008979_tnf_6leg_prop_spread_parlay",
+    "num": "997008979",
+    "week": 2,
+    "title": "Week 2 TNF 6-Leg Prop+Spread Parlay (Lions at Bills)",
+    "stake": 5.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs"
+    ]
+   },
+   {
+    "id": "bet_20260919_739002434_bm_compact_round_robin",
+    "num": "739002434",
+    "week": 2,
+    "title": "Week 2 Master Compact Round Robin (70P-4T)",
+    "stake": 105.0,
+    "returned": 0.0,
+    "rules": [
+     "4-team master RR",
+     "full-game Under in a parlay"
+    ]
+   },
+   {
+    "id": "bet_20260920_739003737_bm_5team_parlay",
+    "num": "739003737",
+    "week": 2,
+    "title": "SuperContest AI Top 5 Parlay (Week 2)",
+    "stake": 5.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs",
+     "5+ side-leg parlay",
+     "dog spread"
+    ]
+   },
+   {
+    "id": "bet_20260920_739003807_bm_5team_parlay",
+    "num": "739003807",
+    "week": 2,
+    "title": "Week 2 Five-Team Parlay (former SuperContest card, not entered)",
+    "stake": 25.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs",
+     "5+ side-leg parlay",
+     "dog spread"
+    ]
+   },
+   {
+    "id": "bet_20260920_739003867_bm_compact_round_robin",
+    "num": "739003867",
+    "week": 2,
+    "title": "SuperContest Fade Compact Round Robin (10P-2T)",
+    "stake": 15.0,
+    "returned": 16.39,
+    "rules": []
+   },
+   {
+    "id": "bet_20260920_739003866_bm_5team_parlay",
+    "num": "739003866",
+    "week": 2,
+    "title": "SuperContest Fade 5-Team Parlay",
+    "stake": 5.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs",
+     "5+ side-leg parlay",
+     "dog spread"
+    ]
+   },
+   {
+    "id": "bet_20260920_739004327_bm_compact_round_robin",
+    "num": "739004327",
+    "week": 2,
+    "title": "Underdog ML Compact Round Robin (15P-2T)",
+    "stake": 19.95,
+    "returned": 44.83,
+    "rules": []
+   },
+   {
+    "id": "bet_20260920_739004834_bm_6team_parlay",
+    "num": "739004834",
+    "week": 2,
+    "title": "AM-Weighted 6-Team Parlay (KC ML cap)",
+    "stake": 20.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs",
+     "5+ side-leg parlay",
+     "dog spread",
+     "full-game Under in a parlay",
+     "leg shorter than \u2212200"
+    ]
+   },
+   {
+    "id": "bet_20260920_739005151_bm_8team_parlay",
+    "num": "739005151",
+    "week": 2,
+    "title": "Favorites + Unders 8-Team Parlay (KC ML cap)",
+    "stake": 15.07,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs",
+     "5+ side-leg parlay",
+     "dog spread",
+     "full-game Under in a parlay",
+     "leg shorter than \u2212200"
+    ]
+   },
+   {
+    "id": "bet_20260920_997920156_beo_morning_props",
+    "num": "997920156",
+    "week": 2,
+    "title": "Morning Props 7-Leg (one leg per game, independent of sides/totals)",
+    "stake": 5.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs",
+     "sack leg"
+    ]
+   },
+   {
+    "id": "bet_20260920_beo_hybrid8_props_0345",
+    "num": "997921455",
+    "week": 2,
+    "title": "Hybrid Props 8-Leg (one leg per game, independent of sides/totals)",
+    "stake": 5.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs"
+    ]
+   },
+   {
+    "id": "bet_20260920_beo_atd8_0355",
+    "num": "997921877",
+    "week": 2,
+    "title": "Anytime TD 8-Leg",
+    "stake": 5.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs",
+     "leg shorter than \u2212200"
+    ]
+   },
+   {
+    "id": "bet_20260920_beo_mixed8_0410",
+    "num": "997922441",
+    "week": 2,
+    "title": "Mixed Props 8-Leg (QB TDs, tackles, TDs, KC ML)",
+    "stake": 5.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs",
+     "leg shorter than \u2212200"
+    ]
+   },
+   {
+    "id": "bet_20260920_739047494_bm_supercontest_5team",
+    "num": "739047494",
+    "week": 2,
+    "title": "Official SuperContest Week 2 Card Parlay (Andy & Amanda)",
+    "stake": 25.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs",
+     "5+ side-leg parlay",
+     "dog spread"
+    ]
+   },
+   {
+    "id": "bet_20260920_beo_afternoon8_props_1215",
+    "num": "998079641",
+    "week": 2,
+    "title": "Afternoon/SNF Prop 8-Leg",
+    "stake": 5.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs",
+     "leg shorter than \u2212200"
+    ]
+   },
+   {
+    "id": "bet_20260920_beo_afternoon6_props_1250",
+    "num": "998093322",
+    "week": 2,
+    "title": "Afternoon Prop 6-Leg (Rodriguez core)",
+    "stake": 5.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs",
+     "sack leg"
+    ]
+   },
+   {
+    "id": "bet_20260920_beo_atd6_1300",
+    "num": "998099763",
+    "week": 2,
+    "title": "Anytime TD 6-Leg (PM/SNF)",
+    "stake": 5.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs"
+    ]
+   },
+   {
+    "id": "bet_20260920_beo_afternoon8_mixed_1320",
+    "num": "998108893",
+    "week": 2,
+    "title": "Afternoon Mixed 8-Leg (MIA/SF heavy)",
+    "stake": 5.95,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs",
+     "sack leg",
+     "leg shorter than \u2212200"
+    ]
+   },
+   {
+    "id": "bet_20260920_bkr_indkc_sidetotal_739074857",
+    "num": "739074857",
+    "week": 2,
+    "title": "SNF Correlated Side + Total (2 Teams Parlay)",
+    "stake": 29.83,
+    "returned": 0.0,
+    "rules": [
+     "dog spread",
+     "full-game Under in a parlay"
+    ]
+   },
+   {
+    "id": "bet_20260920_bkr_indkc_sgp6_1959",
+    "num": "998181629",
+    "week": 2,
+    "title": "SNF Same-Game Parlay (6 Legs)",
+    "stake": 10.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs"
+    ]
+   },
+   {
+    "id": "bet_20260920_beo_indkc_sgp8_2010",
+    "num": "998187144",
+    "week": 2,
+    "title": "SNF Same-Game Parlay (8 Legs)",
+    "stake": 5.95,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs",
+     "leg shorter than \u2212200"
+    ]
+   },
+   {
+    "id": "bet_20260920_beo_indkc_sgp6_moonshot_2022",
+    "num": "998189138",
+    "week": 2,
+    "title": "SNF Same-Game Parlay -- Moonshot (6 Legs)",
+    "stake": 5.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs",
+     "leg shorter than \u2212200"
+    ]
+   },
+   {
+    "id": "bet_20260921_bkr_nyglar_sidetotal_739096481",
+    "num": "739096481",
+    "week": 2,
+    "title": "MNF Correlated Side + Total (2 Teams Parlay)",
+    "stake": 25.0,
+    "returned": 0.0,
+    "rules": [
+     "dog spread"
+    ]
+   },
+   {
+    "id": "bet_20260921_mnf_nyglar_8leg_396980322",
+    "num": "396980322",
+    "week": 2,
+    "title": "MNF Week 2 Island Game - 8-Leg SGP Over-anchored (Adams TD / Singletary TD+rec / Likely / Over 45.5 / Stafford / Nabers / Dart rush)",
+    "stake": 5.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs",
+     "leg shorter than \u2212200"
+    ]
+   },
+   {
+    "id": "bet_20260921_mnf_nyglar_6leg_396981556",
+    "num": "396981556",
+    "week": 2,
+    "title": "MNF Week 2 Island Game - 6-Leg SGP (Likely TD / Parkinson TD+rec / Skattebo / Newsome / Dart rush)",
+    "stake": 5.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs"
+    ]
+   },
+   {
+    "id": "bet_20260921_mnf_nyglar_6leg_396982644",
+    "num": "396982644",
+    "week": 2,
+    "title": "MNF Week 2 Island Game - 6-Leg SGP (Dart TD / Adams / Ferguson TD / Kyren / Nabers / Singletary)",
+    "stake": 5.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs"
+    ]
+   },
+   {
+    "id": "bet_20260921_mnf_nyglar_7leg_stafford_under",
+    "num": "998421961",
+    "week": 2,
+    "title": "MNF Week 2 - 7-Leg Parlay (Higbee TD / Stafford UNDER cmp / Corum TD / Dart pass TD / Adams / Ferguson / Kyren)",
+    "stake": 5.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs",
+     "leg shorter than \u2212200"
+    ]
+   },
+   {
+    "id": "bet_20260921_mnf_nyglar_7leg_chalk",
+    "num": "998424379",
+    "week": 2,
+    "title": "MNF Week 2 - 7-Leg Chalk Stack (Fields x2 / Likely / Parkinson / Kyren / Skattebo / Stafford)",
+    "stake": 5.0,
+    "returned": 0.0,
+    "rules": [
+     "more than 3 legs",
+     "leg shorter than \u2212200"
+    ]
+   }
+  ]
+ },
+ "exposure_over_25": [
+  {
+   "week": 2,
+   "game": "IND@KC",
+   "cash": 110.85,
+   "tickets": 11
+  },
+  {
+   "week": 2,
+   "game": "WAS@DAL",
+   "cash": 105.95,
+   "tickets": 12
+  },
+  {
+   "week": 2,
+   "game": "NYG@LAR",
+   "cash": 105.0,
+   "tickets": 9
+  },
+  {
+   "week": 2,
+   "game": "MIA@SF",
+   "cash": 86.02,
+   "tickets": 10
+  },
+  {
+   "week": 2,
+   "game": "LV@LAC",
+   "cash": 85.07,
+   "tickets": 7
+  },
+  {
+   "week": 2,
+   "game": "JAX@DEN",
+   "cash": 85.07,
+   "tickets": 7
+  },
+  {
+   "week": 2,
+   "game": "PHI@TEN",
+   "cash": 80.0,
+   "tickets": 8
+  },
+  {
+   "week": 2,
+   "game": "GB@NYJ",
+   "cash": 65.07,
+   "tickets": 6
+  },
+  {
+   "week": 2,
+   "game": "MIN@CHI",
+   "cash": 55.07,
+   "tickets": 6
+  },
+  {
+   "week": 2,
+   "game": "DET@BUF",
+   "cash": 52.04,
+   "tickets": 6
+  },
+  {
+   "week": 2,
+   "game": "SEA@ARI",
+   "cash": 50.95,
+   "tickets": 6
+  },
+  {
+   "week": 2,
+   "game": "PIT@NE",
+   "cash": 35.07,
+   "tickets": 4
+  },
+  {
+   "week": 2,
+   "game": "CIN@HOU",
+   "cash": 35.0,
+   "tickets": 4
+  },
+  {
+   "week": 2,
+   "game": "NO@BAL",
+   "cash": 30.07,
+   "tickets": 3
+  }
+ ],
+ "provenance": [
+  {
+   "id": "bet_20260917_738825741_bkr_11team_ml_parlay",
+   "num": "738825741",
+   "week": 2,
+   "by": "claude",
+   "why": "Team 1 leg origins (64% AI-agree)",
+   "family": "Game-line parlay",
+   "stake": 10.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260917_996992070_tnf_6leg_prop_parlay",
+   "num": "996992070",
+   "week": 2,
+   "by": "andy",
+   "why": "Team 1 leg origins (0% AI-agree)",
+   "family": "Island SGP ladder (TNF/SNF/MNF)",
+   "stake": 6.92,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260917_996990924_tnf_8leg_shootout_parlay",
+   "num": "996990924",
+   "week": 2,
+   "by": "andy",
+   "why": "Team 1 leg origins (0% AI-agree)",
+   "family": "Island SGP ladder (TNF/SNF/MNF)",
+   "stake": 5.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260917_996986499_tnf_8leg_script_parlay",
+   "num": "996986499",
+   "week": 2,
+   "by": "andy",
+   "why": "Team 1 leg origins (0% AI-agree)",
+   "family": "Island SGP ladder (TNF/SNF/MNF)",
+   "stake": 5.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260917_738851934_bkr_sgp_2team",
+   "num": "738851934",
+   "week": 2,
+   "by": "andy",
+   "why": "Team 1 leg origins (0% AI-agree)",
+   "family": "Game-line parlay",
+   "stake": 20.12,
+   "returned": 70.02
+  },
+  {
+   "id": "bet_20260917_997008079_tnf_det_spread_freebet",
+   "num": "997008079",
+   "week": 2,
+   "by": "andy",
+   "why": "Team 1 leg origins (0% AI-agree)",
+   "family": "Promo / trade credit",
+   "stake": 0.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260917_997008979_tnf_6leg_prop_spread_parlay",
+   "num": "997008979",
+   "week": 2,
+   "by": "andy",
+   "why": "Team 1 leg origins (0% AI-agree)",
+   "family": "Island SGP ladder (TNF/SNF/MNF)",
+   "stake": 5.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260919_739002434_bm_compact_round_robin",
+   "num": "739002434",
+   "week": 2,
+   "by": "claude",
+   "why": "Team 1 leg origins (75% AI-agree)",
+   "family": "4-team master RR",
+   "stake": 105.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260920_739003737_bm_5team_parlay",
+   "num": "739003737",
+   "week": 2,
+   "by": "claude",
+   "why": "Team 1 leg origins (80% AI-agree)",
+   "family": "Game-line parlay",
+   "stake": 5.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260920_739003807_bm_5team_parlay",
+   "num": "739003807",
+   "week": 2,
+   "by": "claude",
+   "why": "Team 1 leg origins (60% AI-agree)",
+   "family": "Game-line parlay",
+   "stake": 25.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260920_739003867_bm_compact_round_robin",
+   "num": "739003867",
+   "week": 2,
+   "by": "mixed",
+   "why": "Team 1 leg origins (20% AI-agree)",
+   "family": "2-team RR",
+   "stake": 15.0,
+   "returned": 16.39
+  },
+  {
+   "id": "bet_20260920_739003866_bm_5team_parlay",
+   "num": "739003866",
+   "week": 2,
+   "by": "mixed",
+   "why": "Team 1 leg origins (20% AI-agree)",
+   "family": "Game-line parlay",
+   "stake": 5.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260920_739004327_bm_compact_round_robin",
+   "num": "739004327",
+   "week": 2,
+   "by": "claude",
+   "why": "Team 1 leg origins (50% AI-agree)",
+   "family": "2-team RR",
+   "stake": 19.95,
+   "returned": 44.83
+  },
+  {
+   "id": "bet_20260920_739004834_bm_6team_parlay",
+   "num": "739004834",
+   "week": 2,
+   "by": "claude",
+   "why": "Team 1 leg origins (67% AI-agree)",
+   "family": "Game-line parlay",
+   "stake": 20.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260920_739005151_bm_8team_parlay",
+   "num": "739005151",
+   "week": 2,
+   "by": "claude",
+   "why": "Team 1 leg origins (50% AI-agree)",
+   "family": "Game-line parlay",
+   "stake": 15.07,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260920_997920156_beo_morning_props",
+   "num": "997920156",
+   "week": 2,
+   "by": "mixed",
+   "why": "Team 1 leg origins (14% AI-agree)",
+   "family": "Prop parlay / stack",
+   "stake": 5.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260920_beo_hybrid8_props_0345",
+   "num": "997921455",
+   "week": 2,
+   "by": "andy",
+   "why": "Team 1 leg origins (0% AI-agree)",
+   "family": "Prop parlay / stack",
+   "stake": 5.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260920_beo_atd8_0355",
+   "num": "997921877",
+   "week": 2,
+   "by": "mixed",
+   "why": "Team 1 leg origins (38% AI-agree)",
+   "family": "Prop parlay / stack",
+   "stake": 5.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260920_beo_mixed8_0410",
+   "num": "997922441",
+   "week": 2,
+   "by": "mixed",
+   "why": "Team 1 leg origins (25% AI-agree)",
+   "family": "Prop parlay / stack",
+   "stake": 5.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260920_739047494_bm_supercontest_5team",
+   "num": "739047494",
+   "week": 2,
+   "by": "claude",
+   "why": "Team 1 leg origins (80% AI-agree)",
+   "family": "Game-line parlay",
+   "stake": 25.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260920_beo_afternoon8_props_1215",
+   "num": "998079641",
+   "week": 2,
+   "by": "mixed",
+   "why": "Team 1 leg origins (25% AI-agree)",
+   "family": "Prop parlay / stack",
+   "stake": 5.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260920_beo_afternoon6_props_1250",
+   "num": "998093322",
+   "week": 2,
+   "by": "mixed",
+   "why": "Team 1 leg origins (17% AI-agree)",
+   "family": "Prop parlay / stack",
+   "stake": 5.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260920_beo_atd6_1300",
+   "num": "998099763",
+   "week": 2,
+   "by": "mixed",
+   "why": "Team 1 leg origins (33% AI-agree)",
+   "family": "Prop parlay / stack",
+   "stake": 5.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260920_beo_afternoon8_mixed_1320",
+   "num": "998108893",
+   "week": 2,
+   "by": "andy",
+   "why": "Team 1 leg origins (0% AI-agree)",
+   "family": "Prop parlay / stack",
+   "stake": 5.95,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260920_bkr_indkc_sidetotal_739074857",
+   "num": "739074857",
+   "week": 2,
+   "by": "claude",
+   "why": "Team 1 leg origins (50% AI-agree)",
+   "family": "Game-line parlay",
+   "stake": 29.83,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260920_bkr_indkc_sgp6_1959",
+   "num": "998181629",
+   "week": 2,
+   "by": "claude",
+   "why": "Team 1 leg origins (83% AI-agree)",
+   "family": "Island SGP ladder (TNF/SNF/MNF)",
+   "stake": 10.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260920_beo_indkc_sgp8_2010",
+   "num": "998187144",
+   "week": 2,
+   "by": "mixed",
+   "why": "Team 1 leg origins (25% AI-agree)",
+   "family": "Island SGP ladder (TNF/SNF/MNF)",
+   "stake": 5.95,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260920_beo_indkc_sgp6_moonshot_2022",
+   "num": "998189138",
+   "week": 2,
+   "by": "andy",
+   "why": "Team 1 leg origins (0% AI-agree)",
+   "family": "Island SGP ladder (TNF/SNF/MNF)",
+   "stake": 5.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260921_bkr_nyglar_sidetotal_739096481",
+   "num": "739096481",
+   "week": 2,
+   "by": "andy",
+   "why": "Team 1 leg origins (0% AI-agree)",
+   "family": "Game-line parlay",
+   "stake": 25.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260921_mnf_nyglar_8leg_396980322",
+   "num": "396980322",
+   "week": 2,
+   "by": "andy",
+   "why": "Team 1 leg origins (0% AI-agree)",
+   "family": "Island SGP ladder (TNF/SNF/MNF)",
+   "stake": 5.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260921_mnf_nyglar_6leg_396981556",
+   "num": "396981556",
+   "week": 2,
+   "by": "mixed",
+   "why": "Team 1 leg origins (33% AI-agree)",
+   "family": "Island SGP ladder (TNF/SNF/MNF)",
+   "stake": 5.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260921_mnf_nyglar_6leg_396982644",
+   "num": "396982644",
+   "week": 2,
+   "by": "andy",
+   "why": "Team 1 leg origins (0% AI-agree)",
+   "family": "Island SGP ladder (TNF/SNF/MNF)",
+   "stake": 5.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260921_mnf_nyglar_7leg_stafford_under",
+   "num": "998421961",
+   "week": 2,
+   "by": "andy",
+   "why": "Team 1 leg origins (0% AI-agree)",
+   "family": "Island SGP ladder (TNF/SNF/MNF)",
+   "stake": 5.0,
+   "returned": 0.0
+  },
+  {
+   "id": "bet_20260921_mnf_nyglar_7leg_chalk",
+   "num": "998424379",
+   "week": 2,
+   "by": "mixed",
+   "why": "Team 1 leg origins (29% AI-agree)",
+   "family": "Island SGP ladder (TNF/SNF/MNF)",
+   "stake": 5.0,
+   "returned": 0.0
+  }
+ ]
+}

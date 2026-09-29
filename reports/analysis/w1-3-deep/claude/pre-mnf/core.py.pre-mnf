@@ -177,12 +177,8 @@ def load_all():
         for l in d['ai_only']:
             l = dict(l); l['week'] = w; l['origin'] = 'ai_only'; l.setdefault('price', None); ai_only.append(l)
     paper = {1: jl(os.path.join(SR, 'w1paper.json')), 2: jl(os.path.join(SR, 'w2paper.json')), 3: jl(os.path.join(W3R, 'w3paper.json'))}
-    mnf = None
-    if os.environ.get('INCLUDE_MNF', '1') != '0':
-        import mnf_patch; mnf = mnf_patch.patch(tickets, legs, RET)
-    legs[:] = [l for l in legs if l.get('result') != 'pending']
     for l in legs + ai_only: enrich(l, G, B)
-    return dict(G=G, B=B, tickets=tickets, legs=legs, ai_only=ai_only, paper=paper, mnf=mnf)
+    return dict(G=G, B=B, tickets=tickets, legs=legs, ai_only=ai_only, paper=paper)
 
 def unique_positions(legs):
     U = collections.OrderedDict()

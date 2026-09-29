@@ -2,9 +2,9 @@
 
 **Purpose (Andy's standing request):** a running record of what Claude proposed vs. what Andy actually placed, so divergences can be graded over time. Log agreements too, not just disagreements — this isn't meant to read as adversarial.
 
-**2026-09-25 rebuild note:** This doc previously lived at this same path but had gone missing (the attached "dev" Project showed 0 docs when this session checked). The prior D1–D12 divergence history could not be recovered from the repo, handoffs, or any other accessible source — if Andy has it saved elsewhere, it can be merged back in. Numbering restarts at **D1** below, picking up from Week 3 (the earliest material still fully documented in the repo/handoffs). Everything from here forward is kept current per-session.
+**2026-09-25 rebuild note:** This doc previously lived at this same path but had gone missing (the attached "dev" Project showed 0 docs when this session checked). The prior D1–D12 divergence history could not be recovered from the repo, handoffs, or any other accessible source — if Andy has it saved elsewhere, it can be merged back in. **Update 2026-09-29 (Claude Team 2): recovered.** The older version was still in the claude.ai DEV project; it is preserved verbatim as `claude/recommendation-ledger-2026-pre-rebuild.md` (repo mirror `docs/claude-project-dev/recommendation-ledger-2026-pre-rebuild.md`). Cite its entries as **P-D1…P-D15** (Week 2 D1–D12 all IRRELEVANT; Week 3 TNF P-D13–P-D15 overlap D1–D4 here). Numbering restarts at **D1** below, picking up from Week 3 (the earliest material still fully documented in the repo/handoffs). Everything from here forward is kept current per-session.
 
-**Last updated:** 2026-09-28 ~19:15 PT by Claude Team 3 (MNF PHI @ CHI placements logged, all pending; Weeks 1–2 and Week 3 Sunday settled in the wagers file). Earlier: 2026-09-27 ~10:20 PT.
+**Last updated:** 2026-09-28 ~20:40 PT by Claude Team 2 (MNF graded — CHI 27, PHI 7 — and Week 3 closed: −$459.20 on $498.41 cash). Earlier: 2026-09-28 ~19:15 PT (Team 3, MNF placements), 2026-09-27 ~10:20 PT.
 
 ---
 
@@ -89,25 +89,42 @@ The low-scoring, Rams-run read was wrong: Denver scored 30 (two 2-pt conversions
 - **Paper 7-leg (not placed):** lost, 2 of 7 (Shough 42 att, Javonte TD).
 - Week 3 cash to date: 33 tickets, $466.55 staked; $336.55 lost outright; +$14.21 net on the dog RR; master RR ($105) pending. Novig promo SGP (PHI ML + U41.5) pending, no cash at risk.
 
-### MNF PHI @ CHI (Mon 9/28) — placements logged by Claude Team 3, all pending
+### MNF PHI @ CHI (Mon 9/28) — placements logged by Claude Team 3; graded by Claude Team 2 (final CHI 27, PHI 7, total 34)
 Context: Keenum starts (Caleb Williams OUT), CHI LT Trapilo OUT, Greenard (PHI) debut, Saquon no designation. Market PHI −3.5, total 41.5.
 
-**D12 — Novig credit #2 (trade credit, placed 16:28 PT, 24.01x → $240).** Planned: Hurts ATD / Lemon 4+ / Kmet 20+ / Loveland 5+ (65.02x). Claude recommended the 3-leg confidence version (Swift 15+ carries / Wicks 42+ yds / Raymond 3+ rec, ~5–6x) and advised against a first 5-leg draft (Hurts 2+ TD / Saquon ATD added; 14.99x vs ~33x naive). Andy extended the 3-leg with DeVonta Smith 50+ yds and Swift 3+ rec (Claude's suggested 4th-leg options); SGP paid 24.01x vs 22.85x naive. **Placed:** Swift 15+ att / Wicks 42+ / Raymond 3+ rec / D. Smith 50+ / Swift 3+ rec. **Status: pending.**
+**D12 — Novig credit #2 (trade credit, placed 16:28 PT, 24.01x → $240).** Planned: Hurts ATD / Lemon 4+ / Kmet 20+ / Loveland 5+ (65.02x). Claude recommended the 3-leg confidence version (Swift 15+ carries / Wicks 42+ yds / Raymond 3+ rec, ~5–6x) and advised against a first 5-leg draft (Hurts 2+ TD / Saquon ATD added; 14.99x vs ~33x naive). Andy extended the 3-leg with DeVonta Smith 50+ yds and Swift 3+ rec (Claude's suggested 4th-leg options); SGP paid 24.01x vs 22.85x naive. **Placed:** Swift 15+ att / Wicks 42+ / Raymond 3+ rec / D. Smith 50+ / Swift 3+ rec. **Result: lost, 3 of 5 — $0 credit value.** Swift 20 carries ✓ · Raymond 6 rec ✓ · D. Smith 65 yds ✓ · Wicks 32 yds ✗ · Swift 2 rec ✗. **Grade: IRRELEVANT.** Claude's 3-leg confidence version (Swift 15+ / Wicks 42+ / Raymond 3+) would also have lost on the shared Wicks leg. Of Andy's two added legs, D. Smith hit and Swift 3+ rec missed.
 
 **D13 — BEO "DEF ladder" (Andy asked for +650–750 / ~+2000 / +4000+ tickets built on defensive legs vs a 3rd-string QB).**
-- **D1 #1000551349** ($10 @ +850): Hurts 2+ pass TD / Nolan Smith Jr. sack / CHI TT U18.5 — **agreement** (Andy considered adding Swift 14+ carries → +1400; Claude advised against, placed as 3-leg).
+- **D1 #1000551349** ($10 @ +850): Hurts 2+ pass TD / Nolan Smith Jr. sack / CHI TT U18.5 — **agreement**. **Lost 0/3** (Hurts 0 pass TD, Smith 0 sacks, CHI 27) (Andy considered adding Swift 14+ carries → +1400; Claude advised against, placed as 3-leg).
 - **D2** (Keenum 2+ INT / Hunt sack / Carter sack, +1800) — proposed, **not placed**.
-- **D3 #1000552599** ($5 @ +4100): Hunt sack / Carter sack / Keenum 1+ INT / **Saquon 16+ carries** / Hurts 1+ TD / Keenum 27+ att. Claude flagged Saquon 16+ carries as the weak leg (15 and 4 carries in W1/W2) and suggested Keenum 31+ att instead; Andy kept Saquon and added Keenum 27+ att. Def/ST TD (+265) could not be parlayed at BEO.
+- **D3 #1000552599** ($5 @ +4100): Hunt sack / Carter sack / Keenum 1+ INT / **Saquon 16+ carries** / Hurts 1+ TD / Keenum 27+ att. Claude flagged Saquon 16+ carries as the weak leg (15 and 4 carries in W1/W2) and suggested Keenum 31+ att instead; Andy kept Saquon and added Keenum 27+ att. **Lost 2/6** (Hurts TD ✓, Keenum 34 att ✓; Hunt 0, Carter 0 sacks, Keenum 0 INT, Saquon 15 carries ✗). **Grade: IRRELEVANT** — the shared sack and INT legs missed; Saquon (15) missed by one carry and Keenum 31+ would have hit (34). Def/ST TD (+265) could not be parlayed at BEO.
 - Stacks A / B′ / C (`reports/bets/week3-mnf-phi-chi-prop-stacks-2026-09-28.md`) — **not placed** (paper).
 
 **Andy-built BEO tickets (independent action):** #1000554327 ($5 → $530, 7-leg: Ertz o10.5 / Carter sack / Saquon 2+ rec / Odunze o26.5 / Keenum INT / Wicks o43.5 / Wicks TD) · #1000553845 ($5 → $275, 7-leg yardage: Hurts o26.5 rush / Saquon o13.5 rec yds / Swift o63.5 rush / Hunt sack / Keenum INT / Burden o36.5 / Lemon o25.5 — built from Claude's yardage-moonshot list at softer lines) · #1000553267 ($6.86 → $644.84, 6-leg: Ertz TD / Ertz o1.5 rec / Hurts 2+ pass TD / Swift 2+ rec / Odunze TD / Burden 3+ rec).
 
-MNF cash added: $31.86 (Week 3 cash total $498.41). Still live from Sunday: master RR #739361263 (PHI −3), Novig credit #1 (PHI ML + U41.5).
+MNF cash added: $31.86 (Week 3 cash total $498.41).
+
+**MNF results (graded 2026-09-28 ~20:20 PT from the ESPN final box score):**
+| Ticket | Result |
+|---|---|
+| Master RR #739361263 ($105) | PHI −3 lost → last live combo dead, **$0** (derived by grading; Andy to confirm the Bookmaker ticket) |
+| Novig credit #1 (PHI ML + U41.5) | Lost (PHI ML ✗, Under ✓ at 34) — $0 credit value |
+| Novig credit #2 (D12) | Lost 3/5 — $0 credit value |
+| BEO D1 #1000551349 ($10) | Lost 0/3 |
+| BEO D3 #1000552599 ($5) | Lost 2/6 |
+| #1000554327 ($5, Andy-built) | Lost 1/7 (Odunze 44 yds only) |
+| #1000553845 ($5, from Claude's yardage list) | Lost 3/7 (Swift 84 rush, Burden 61, Lemon 29 hit) |
+| #1000553267 ($6.86, Andy-built) | Lost 2/6 (Swift 2 rec, Burden 7 rec hit) |
+
+Read: PHI threw 26 times — its receiving legs on our tickets went 2 of 8 and both Hurts 2+ pass-TD legs lost; CHI threw 34 and its receiving legs went 5 of 6. The DEF ladder (PHI sacks, Keenum INT) went 0 for 8. Stacks A/B′/C (paper) are graded in the MNF stacks card.
+
+### Week 3 close-out
+**Week 3: 38 cash tickets, $498.41 staked, $39.21 returned (dog-ML RR #739358766), net −$459.20.** Novig trade credits: 2 × $10 credit, $0 value won. Divergence tally for Week 3 in this ledger: D1 (Andy's INT swap) right, D4 (GB −4 / BUF −6.5) Claude right, D12 and D13 IRRELEVANT (shared legs lost), all others IRRELEVANT or moot. Season through Week 3: $1,297.97 staked, $251.01 back, **−$1,046.96**.
 
 ---
 
 ## Season scorecard reference
-Per-leg/per-type performance (Weeks 1–2, regraded standalone) lives separately in `docs/tracked-wagers/week2_2026_analysis.md` in the repo — season net P&L through Week 2 was **−$587.76** (61 tickets, 5 paid). Week 3 TNF alone: **−$96.48** across 6 settled tickets (739211245 alive on the ATL +5 leg). Week 3 Sunday/Monday: pending grading.
+Per-leg/per-type performance (Weeks 1–2, regraded standalone) lives separately in `docs/tracked-wagers/week2_2026_analysis.md` in the repo — season net P&L through Week 2 was **−$587.76** (61 tickets, 5 paid). Week 3 (TNF through MNF): **−$459.20** on $498.41 (38 cash tickets, 1 paid). Season through Week 3: **−$1,046.96** on $1,297.97. Week-by-week cuts (book, ticket family, legs, price band, Claude vs Andy) are rebuilt each week by `reports/analysis/season/claude/scripts/weekly_review.py` and published as the "Platinum Rose Season Review" artifact.
 
 ## Known data-hygiene note
 739211245's `progress_notes` field in the repo ledger carries a leftover note ("Leg 1 (SF +4) WON...") that actually describes ticket 738490212's leg 1, not this ticket's — looks like copy/paste residue from an earlier session, not something that affects grading, but worth a cleanup pass sometime.
