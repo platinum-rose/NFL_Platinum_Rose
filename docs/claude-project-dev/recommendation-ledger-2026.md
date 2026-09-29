@@ -4,7 +4,7 @@
 
 **2026-09-25 rebuild note:** This doc previously lived at this same path but had gone missing (the attached "dev" Project showed 0 docs when this session checked). The prior D1–D12 divergence history could not be recovered from the repo, handoffs, or any other accessible source — if Andy has it saved elsewhere, it can be merged back in. Numbering restarts at **D1** below, picking up from Week 3 (the earliest material still fully documented in the repo/handoffs). Everything from here forward is kept current per-session.
 
-**Last updated:** 2026-09-27 ~10:20 PT (Week 3 Sunday tickets logged; First TD re-run, slot 4 parlay and Stack A added ~12:15 PT; grading in progress).
+**Last updated:** 2026-09-28 ~19:15 PT by Claude Team 3 (MNF PHI @ CHI placements logged, all pending; Weeks 1–2 and Week 3 Sunday settled in the wagers file). Earlier: 2026-09-27 ~10:20 PT.
 
 ---
 
@@ -88,6 +88,21 @@ The low-scoring, Rams-run read was wrong: Denver scored 30 (two 2-pt conversions
 - **Master RR #739361263:** SF −8 and U44.5 lost → one 4-leg combo alive (IND / NYJ-DET O47.5 / JAX / PHI −3), needs PHI −3 Monday.
 - **Paper 7-leg (not placed):** lost, 2 of 7 (Shough 42 att, Javonte TD).
 - Week 3 cash to date: 33 tickets, $466.55 staked; $336.55 lost outright; +$14.21 net on the dog RR; master RR ($105) pending. Novig promo SGP (PHI ML + U41.5) pending, no cash at risk.
+
+### MNF PHI @ CHI (Mon 9/28) — placements logged by Claude Team 3, all pending
+Context: Keenum starts (Caleb Williams OUT), CHI LT Trapilo OUT, Greenard (PHI) debut, Saquon no designation. Market PHI −3.5, total 41.5.
+
+**D12 — Novig credit #2 (trade credit, placed 16:28 PT, 24.01x → $240).** Planned: Hurts ATD / Lemon 4+ / Kmet 20+ / Loveland 5+ (65.02x). Claude recommended the 3-leg confidence version (Swift 15+ carries / Wicks 42+ yds / Raymond 3+ rec, ~5–6x) and advised against a first 5-leg draft (Hurts 2+ TD / Saquon ATD added; 14.99x vs ~33x naive). Andy extended the 3-leg with DeVonta Smith 50+ yds and Swift 3+ rec (Claude's suggested 4th-leg options); SGP paid 24.01x vs 22.85x naive. **Placed:** Swift 15+ att / Wicks 42+ / Raymond 3+ rec / D. Smith 50+ / Swift 3+ rec. **Status: pending.**
+
+**D13 — BEO "DEF ladder" (Andy asked for +650–750 / ~+2000 / +4000+ tickets built on defensive legs vs a 3rd-string QB).**
+- **D1 #1000551349** ($10 @ +850): Hurts 2+ pass TD / Nolan Smith Jr. sack / CHI TT U18.5 — **agreement** (Andy considered adding Swift 14+ carries → +1400; Claude advised against, placed as 3-leg).
+- **D2** (Keenum 2+ INT / Hunt sack / Carter sack, +1800) — proposed, **not placed**.
+- **D3 #1000552599** ($5 @ +4100): Hunt sack / Carter sack / Keenum 1+ INT / **Saquon 16+ carries** / Hurts 1+ TD / Keenum 27+ att. Claude flagged Saquon 16+ carries as the weak leg (15 and 4 carries in W1/W2) and suggested Keenum 31+ att instead; Andy kept Saquon and added Keenum 27+ att. Def/ST TD (+265) could not be parlayed at BEO.
+- Stacks A / B′ / C (`reports/bets/week3-mnf-phi-chi-prop-stacks-2026-09-28.md`) — **not placed** (paper).
+
+**Andy-built BEO tickets (independent action):** #1000554327 ($5 → $530, 7-leg: Ertz o10.5 / Carter sack / Saquon 2+ rec / Odunze o26.5 / Keenum INT / Wicks o43.5 / Wicks TD) · #1000553845 ($5 → $275, 7-leg yardage: Hurts o26.5 rush / Saquon o13.5 rec yds / Swift o63.5 rush / Hunt sack / Keenum INT / Burden o36.5 / Lemon o25.5 — built from Claude's yardage-moonshot list at softer lines) · #1000553267 ($6.86 → $644.84, 6-leg: Ertz TD / Ertz o1.5 rec / Hurts 2+ pass TD / Swift 2+ rec / Odunze TD / Burden 3+ rec).
+
+MNF cash added: $31.86 (Week 3 cash total $498.41). Still live from Sunday: master RR #739361263 (PHI −3), Novig credit #1 (PHI ML + U41.5).
 
 ---
 
