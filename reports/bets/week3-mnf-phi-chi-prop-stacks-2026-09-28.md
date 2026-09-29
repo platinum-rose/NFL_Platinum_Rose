@@ -56,3 +56,36 @@ Odunze overs (Keenum downgrade; NoExpert has the Under) · Loveland/Kmet recepti
 | PHI@CHI | Case Keenum 1+ INT | ~−127 | B′ / C | Early Week Mistakes pod, CBS; CHI LT Trapilo OUT, Greenard debut |
 | PHI@CHI | Dontayvion Wicks 42+ rec yds | −113 | A | + CBS, FanDuel (5 sources) |
 - Saquon U17.5 carries **dropped** (no designation, full practices). See intel-update part 2.
+
+## Update ~16:40 PT — BEO live board + placed Novig #2
+- Novig credit #2 PLACED 16:28 (5-leg SGP 24.01x, trade credit): Swift 15+ att / Wicks 42+ yds / Raymond 3+ rec / D. Smith 50+ yds / Swift 3+ rec. Ticket A legs are now all covered there → **skip Ticket A** (same script doubled).
+- BEO live (Andy paste): PHI −3.5 −115, total 41.5, PHI TT 22.5, CHI TT 18.5.
+| Game | Leg | Price (BEO live) | Ticket | Backing |
+|---|---|---|---|---|
+| PHI@CHI | Jalen Hurts 2+ pass TD | +118 | B′ | QB-market class; PHI-leads script (opposite of Novig #2 → diversifies) |
+| PHI@CHI | Case Keenum 1+ INT | −150 | B′ | 2 sources + CHI LT Trapilo OUT / Greenard debut |
+- B′ naive ≈ +263 (2.18 × 1.667). Keenum INT single at −150 is worse than the −127/−129 quoted earlier → prefer B′ over C.
+
+## Update ~16:45 PT — Andy's DEF-ladder request (BEO live prices; naive products, SGP will price lower)
+| Game | Leg | Price (BEO live) | Ticket | Backing |
+|---|---|---|---|---|
+| PHI@CHI | Jalen Hurts 2+ pass TD | +118 | D1, D3 | QB-market class |
+| PHI@CHI | Nolan Smith 1+ sack | +135 | D1 | CHI LT Trapilo OUT; 3rd-string QB |
+| PHI@CHI | CHI team total Under 18.5 | −110 | D1, D3 | U41.5 consensus; Keenum start |
+| PHI@CHI | Case Keenum 2+ INT | +290 | D2, D3 | Keenum INT sources (pod, CBS); pressure |
+| PHI@CHI | Jalyx Hunt 1+ sack | +145 | D2 | vs backup LT |
+| PHI@CHI | Jalen Carter 1+ sack | +150 | D2 | interior pressure |
+| PHI@CHI | Defensive/ST TD scored — Yes | +265 | D3 | turnover script |
+- D1 (~+650–750): Hurts 2+ TD / N. Smith sack / CHI U18.5 — naive +878.
+- D2 (~+2000): Keenum 2+ INT / Hunt sack / Carter sack — naive +2290.
+- D3 (moonshot): Def/ST TD / Keenum 2+ INT / Hurts 2+ TD / CHI U18.5 — naive +5820 (4 legs, Andy-requested).
+
+## Update ~17:10 PT — placed + yardage moonshot candidates
+- PLACED (BEO): D1 3-leg +850 $10 (Hurts 2+ pass TD / Nolan Smith Jr. sack / CHI U18.5). D3 6-leg +4100 $5 (Hunt sack / Carter sack / Keenum 1+ INT / Saquon 16+ car / Hurts ATD / Keenum 27+ att).
+| Game | Leg | Price (BEO live) | Ticket | Backing |
+|---|---|---|---|---|
+| PHI@CHI | Luther Burden 47+ rec yds | +122 | Y | Action (Prince o32.5), BetMGM money o34.5 |
+| PHI@CHI | Makai Lemon 38+ rec yds | +124 | Y | Sal (3+ rec), BettingPros 5-star 3+ rec; Goedert/Brown OUT |
+| PHI@CHI | Jalen Hurts 36+ rush yds | +134 | Y | MattyChucks o19.5 |
+| PHI@CHI | Saquon Barkley 14+ rec yds | −114 | Y | BettingPros o13.5 |
+| PHI@CHI | D'Andre Swift 74+ rush yds | +129 | Y | NoExpert o68.5, Matty o69.5, Sal 87+ R+R |
