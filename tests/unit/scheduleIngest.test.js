@@ -89,6 +89,24 @@ describe('fetchWeek', () => {
     });
 });
 
+describe('game_odds_snapshots schedule overlay', () => {
+    it('uses the preferred bookmaker’s spread and total from normalized game-odds rows', async () => {
+        const { buildLiveOddsMapFromGameOddsRows } = await import('../../agents/schedule-ingest.js');
+        const odds = buildLiveOddsMapFromGameOddsRows([
+            { home_team: 'Cleveland Browns', away_team: 'Pittsburgh Steelers', book: 'fanduel', market: 'spread', spread: -2.5 },
+            { home_team: 'Cleveland Browns', away_team: 'Pittsburgh Steelers', book: 'fanduel', market: 'total', total: 40.5 },
+            { home_team: 'CLE', away_team: 'PIT', book: 'bookmaker', market: 'spread', spread: -3 },
+            { home_team: 'CLE', away_team: 'PIT', book: 'bookmaker', market: 'total', total: 39.5 },
+        ]);
+
+        expect(odds.get('Steelers|Browns')).toEqual({
+            spread: -3,
+            total: 39.5,
+            sourceBook: 'bookmaker',
+        });
+    });
+});
+
 // ── per-week resilience (loop try/catch) ─────────────────────────────────────
 describe('per-week resilience', () => {
     let fetchWeek;

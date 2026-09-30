@@ -1,0 +1,97 @@
+{
+  "generated_at": "2026-09-30T05:38:51.625Z",
+  "method": "Deterministic bootstrap of individually graded W1-W3 NFL legs, de-duplicated to distinct positions; each basket uses distinct game labels as an independence proxy.",
+  "limitations": [
+    "This is a retrospective hit-rate exercise, not an estimate of future edge or a recommendation.",
+    "It does not calculate ROI because prices and settlement rules are incomplete or heterogeneous in the source ledger.",
+    "Three weeks is too small to infer stable probabilities; same-game correlation is excluded rather than modeled."
+  ],
+  "all_supported_markets": {
+    "seed": 20260929,
+    "trials_requested": 10000,
+    "resolved_legs": 547,
+    "unique_positions_sampled": 475,
+    "scenarios": [
+      {
+        "scenario": "single",
+        "legs": 1,
+        "trials": 10000,
+        "all_legs_won_rate": 0.4636
+      },
+      {
+        "scenario": "two_leg_parlay",
+        "legs": 2,
+        "trials": 10000,
+        "all_legs_won_rate": 0.2141
+      },
+      {
+        "scenario": "three_leg_parlay",
+        "legs": 3,
+        "trials": 10000,
+        "all_legs_won_rate": 0.1008
+      },
+      {
+        "scenario": "four_leg_parlay",
+        "legs": 4,
+        "trials": 10000,
+        "all_legs_won_rate": 0.049
+      },
+      {
+        "scenario": "five_leg_parlay",
+        "legs": 5,
+        "trials": 10000,
+        "all_legs_won_rate": 0.0211
+      },
+      {
+        "scenario": "two_team_round_robin_from_three",
+        "legs": 3,
+        "trials": 10000,
+        "mean_winning_combos_of_three": 0.6505
+      }
+    ]
+  },
+  "player_props_only": {
+    "seed": 20260930,
+    "trials_requested": 10000,
+    "resolved_legs": 354,
+    "unique_positions_sampled": 329,
+    "scenarios": [
+      {
+        "scenario": "single",
+        "legs": 1,
+        "trials": 10000,
+        "all_legs_won_rate": 0.4785
+      },
+      {
+        "scenario": "two_leg_parlay",
+        "legs": 2,
+        "trials": 10000,
+        "all_legs_won_rate": 0.2264
+      },
+      {
+        "scenario": "three_leg_parlay",
+        "legs": 3,
+        "trials": 10000,
+        "all_legs_won_rate": 0.1007
+      },
+      {
+        "scenario": "four_leg_parlay",
+        "legs": 4,
+        "trials": 10000,
+        "all_legs_won_rate": 0.0477
+      },
+      {
+        "scenario": "five_leg_parlay",
+        "legs": 5,
+        "trials": 10000,
+        "all_legs_won_rate": 0.0214
+      },
+      {
+        "scenario": "two_team_round_robin_from_three",
+        "legs": 3,
+        "trials": 10000,
+        "mean_winning_combos_of_three": 0.6755
+      }
+    ]
+  }
+}

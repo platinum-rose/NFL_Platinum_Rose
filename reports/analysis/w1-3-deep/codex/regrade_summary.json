@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-09-30T05:38:51.551Z",
+  "weeks": [
+    1,
+    2,
+    3
+  ],
+  "tickets": 101,
+  "legs": 559,
+  "result_counts": {
+    "UNRESOLVED": 11,
+    "WON": 256,
+    "LOST": 291,
+    "PUSH": 1
+  },
+  "ledger_terminal_mismatches": 0,
+  "baseline_terminal_mismatches": 0,
+  "ledger_comparison_counts": {
+    "independent_unresolved": 11,
+    "match": 546,
+    "ledger_pending": 2
+  },
+  "baseline_comparison_counts": {
+    "independent_unresolved": 3,
+    "match": 421,
+    "not_published": 128,
+    "baseline_pending": 7
+  },
+  "unresolved_by_reason": {
+    "no_supported_nfl_boxscore": 6,
+    "unresolved_player": 5
+  }
+}
