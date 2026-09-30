@@ -60,7 +60,6 @@ async function runCmd(command, args = [], cwd = ROOT) {
   return new Promise((resolve) => {
     const proc = spawn(command, args, {
       cwd,
-      shell: true,
       stdio: 'inherit',
       env: { ...process.env }
     });
@@ -252,7 +251,7 @@ async function runCadence(day) {
       break;
 
     case 'monday':
-      console.log(`${c.cyan}1. Running Placed Wager Boxscore Reconciliation...${c.reset}`);
+      console.log(`${c.cyan}1. Previewing current-week completed-game settlement (MNF remains pending until final)...${c.reset}`);
       await run('node', ['scripts/reconcile-settlement.mjs', '--dry-run']);
       break;
 

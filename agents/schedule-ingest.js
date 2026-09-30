@@ -309,30 +309,62 @@ async function deleteProjectedPlayoffs(supabase, year) {
   }
 }
 
-// ─── Live odds enrichment (Supabase odds_snapshots, refreshed every 4h) ─────
+// ─── Live odds enrichment (Supabase game_odds_snapshots) ─────────────────────
 // DS-FIX 2026-09-15: schedule-ingest previously only used ESPN's bundled
 // comp.odds[0] snapshot, refreshed weekly (Tuesdays) — up to 6+ days stale
-// by the time Andy builds his card. agents/odds-ingest.js polls TheOddsAPI
-// (including Bookmaker.eu, Andy's actual book) every 4h into odds_snapshots.
-// This overlay prefers that live data, falling back to the ESPN snapshot
-// only when no live match exists (e.g. odds-ingest hasn't run yet, or a
-// game genuinely has no market coverage from any tracked book).
+// by the time Andy builds his card. game-odds-ingest is the active TheOddsAPI
+// caller and stores per-book, per-market rows in game_odds_snapshots. The
+// retired aggregate odds_snapshots table remains a compatibility fallback.
 const PREFERRED_BOOK_ORDER = [
   'bookmaker', 'draftkings', 'fanduel', 'betmgm',
   'caesars', 'betonline', 'pointsbet', 'unibet',
 ];
 
-async function fetchLatestOddsSnapshot(supabase) {
+async function fetchLatestGameOddsSnapshot(supabase) {
+  if (!supabase) return null;
+  const { data: latest, error: latestError } = await supabase
+    .from('game_odds_snapshots')
+    .select('captured_at')
+    .order('captured_at', { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  if (latestError || !latest?.captured_at) {
+    if (latestError) console.warn(`  Active game odds snapshot fetch failed: ${latestError.message}`);
+    return null;
+  }
+
+  const PAGE = 1000;
+  const rows = [];
+  for (let from = 0; ; from += PAGE) {
+    const { data, error } = await supabase
+      .from('game_odds_snapshots')
+      .select('home_team, away_team, book, market, spread, total')
+      .eq('captured_at', latest.captured_at)
+      .order('id', { ascending: true })
+      .range(from, from + PAGE - 1);
+    if (error) {
+      console.warn(`  Active game odds rows fetch failed: ${error.message}`);
+      return null;
+    }
+    rows.push(...(data || []));
+    if (!data || data.length < PAGE) break;
+  }
+
+  return rows.length ? { captured_at: latest.captured_at, rows } : null;
+}
+
+async function fetchLatestLegacyOddsSnapshot(supabase) {
   if (!supabase) return null;
   const { data, error } = await supabase
     .from('odds_snapshots')
     .select('fetched_at, games')
     .order('fetched_at', { ascending: false })
     .limit(1)
-    .single();
+    .maybeSingle();
 
   if (error) {
-    console.warn(`  Live odds snapshot fetch failed — falling back to ESPN odds: ${error.message}`);
+    console.warn(`  Legacy odds snapshot fetch failed — falling back to ESPN odds: ${error.message}`);
     return null;
   }
   return data;
@@ -402,6 +434,62 @@ function buildLiveOddsMap(snapshot) {
   }
 
   return map;
+}
+
+export function buildLiveOddsMapFromGameOddsRows(rows) {
+  const games = new Map();
+  for (const row of rows || []) {
+    const homeCanonical = normalizeTeam(row.home_team) || row.home_team;
+    const awayCanonical = normalizeTeam(row.away_team) || row.away_team;
+    if (!homeCanonical || !awayCanonical || !row.book) continue;
+
+    const key = `${awayCanonical}|${homeCanonical}`;
+    if (!games.has(key)) games.set(key, new Map());
+    const books = games.get(key);
+    if (!books.has(row.book)) books.set(row.book, {});
+    const market = books.get(row.book);
+    if (row.market === 'spread' && row.spread != null) market.spread = row.spread;
+    if (row.market === 'total' && row.total != null) market.total = row.total;
+  }
+
+  const liveOdds = new Map();
+  for (const [key, books] of games) {
+    let spread = null;
+    let total = null;
+    let sourceBook = null;
+
+    for (const bookKey of PREFERRED_BOOK_ORDER) {
+      const book = books.get(bookKey);
+      if (!book) continue;
+      if (spread === null && book.spread != null) {
+        spread = book.spread;
+        sourceBook = sourceBook || bookKey;
+      }
+      if (total === null && book.total != null) {
+        total = book.total;
+        sourceBook = sourceBook || bookKey;
+      }
+      if (spread !== null && total !== null) break;
+    }
+
+    if (spread === null || total === null) {
+      const bookRows = [...books.values()];
+      const spreads = bookRows.map((book) => book.spread).filter((line) => line != null);
+      const totals = bookRows.map((book) => book.total).filter((line) => line != null);
+      if (spread === null && spreads.length) {
+        spread = roundToHalf(spreads.reduce((sum, line) => sum + Number(line), 0) / spreads.length);
+        sourceBook = sourceBook || 'consensus';
+      }
+      if (total === null && totals.length) {
+        total = roundToHalf(totals.reduce((sum, line) => sum + Number(line), 0) / totals.length);
+        sourceBook = sourceBook || 'consensus';
+      }
+    }
+
+    if (spread !== null || total !== null) liveOdds.set(key, { spread, total, sourceBook: sourceBook || 'unknown' });
+  }
+
+  return liveOdds;
 }
 
 function applyLiveOdds(rows, liveOddsMap, snapshotFetchedAt) {
@@ -536,12 +624,18 @@ async function run() {
 
   const supabase = buildSupabaseClient();
 
-  const oddsSnapshot = await fetchLatestOddsSnapshot(supabase);
-  const liveOddsMap = buildLiveOddsMap(oddsSnapshot);
-  const oddsResult = applyLiveOdds(allRows, liveOddsMap, oddsSnapshot?.fetched_at);
+  const gameOddsSnapshot = await fetchLatestGameOddsSnapshot(supabase);
+  const legacyOddsSnapshot = gameOddsSnapshot ? null : await fetchLatestLegacyOddsSnapshot(supabase);
+  const oddsSnapshot = gameOddsSnapshot || legacyOddsSnapshot;
+  const liveOddsMap = gameOddsSnapshot
+    ? buildLiveOddsMapFromGameOddsRows(gameOddsSnapshot.rows)
+    : buildLiveOddsMap(legacyOddsSnapshot);
+  const oddsFetchedAt = gameOddsSnapshot?.captured_at || legacyOddsSnapshot?.fetched_at;
+  const oddsResult = applyLiveOdds(allRows, liveOddsMap, oddsFetchedAt);
   if (oddsSnapshot) {
+    const source = gameOddsSnapshot ? 'game_odds_snapshots' : 'odds_snapshots (legacy fallback)';
     console.log(
-      `  Live odds (odds_snapshots @ ${oddsSnapshot.fetched_at}): applied to ${oddsResult.applied} game(s), ` +
+      `  Live odds (${source} @ ${oddsFetchedAt}): applied to ${oddsResult.applied} game(s), ` +
       `${oddsResult.skippedFinal} already final, ${oddsResult.missing.length} on ESPN fallback` +
       (oddsResult.missing.length ? ` (${oddsResult.missing.slice(0, 5).join(', ')}${oddsResult.missing.length > 5 ? ', ...' : ''})` : '')
     );
@@ -623,7 +717,9 @@ async function run() {
   console.log(`🧾 Run receipt: ${receiptPath}`);
 }
 
-run().catch((err) => {
-  console.error('ScheduleIngestAgent error:', err.message);
-  process.exit(1);
-});
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  run().catch((err) => {
+    console.error('ScheduleIngestAgent error:', err.message);
+    process.exit(1);
+  });
+}
