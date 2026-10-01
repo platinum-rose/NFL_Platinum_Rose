@@ -9,7 +9,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 OUT = ROOT / 'data/nfl-rosters/espn-full-rosters-latest.json'
 FIX = {'WSH': 'WSH', 'WAS': 'WSH'}
 def get(u):
-    with urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'Mozilla/5.0'}), timeout=30) as r:
+    with urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'curl/8.5.0'}), timeout=30) as r:
         return json.load(r)
 teams = get('https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams')['sports'][0]['leagues'][0]['teams']
 players, per_team = {}, {}
