@@ -1,0 +1,2930 @@
+{
+  "meta": {
+    "schema": "projected_starters_snapshot_v1",
+    "season": 2026,
+    "generated_at": "2026-10-01T08:59:37.681Z",
+    "source_policy": "manual_depth_chart_rows_plus_local_availability_starter_language",
+    "player_count": 42,
+    "manual_row_count": 0,
+    "eligible_manual_row_count": 0,
+    "estimated_row_count": 42,
+    "withheld_named_manual_row_count": 0,
+    "human_review_approved_count": 0,
+    "human_review_rejected_count": 0,
+    "teams_with_signals": 24,
+    "teams_needing_manual_depth_chart": 32,
+    "named_status_review_validation": {
+      "schema": "named_status_review_validation_v1",
+      "status": "pass",
+      "required_case_count": 2,
+      "recorded_case_count": 2,
+      "confirmed_count": 0,
+      "withheld_count": 2,
+      "synthesis_eligible_count": 0,
+      "missing_required_case_count": 0,
+      "missing_required_cases": [],
+      "invalid_case_count": 0,
+      "invalid_cases": [],
+      "duplicate_case_count": 0
+    },
+    "inputs": {
+      "availability": {
+        "path": "data/player-availability/latest.json",
+        "generated_at": "2026-10-01T08:59:36.955Z",
+        "evidence_validation_status": "pass"
+      },
+      "named_status_review": {
+        "path": "data/projected-starters/2026/named-status-review.json",
+        "reviewed_at": "2026-08-12T03:38:40.822Z",
+        "validation_status": "pass"
+      },
+      "manual_directory": "data/projected-starters/2026/manual"
+    },
+    "recommendation_status": "research_context_only_not_picks",
+    "guardrails": {
+      "live_model_calls": false,
+      "network_fetches": false,
+      "supabase_writes": false,
+      "official_picks_generated": false
+    }
+  },
+  "named_status_reviews": [
+    {
+      "id": "named-status-buf-connor-mcgovern-2026-08-11",
+      "player_name": "Connor McGovern",
+      "expected_team": "BUF",
+      "observed_team_assignments": [
+        "BUF"
+      ],
+      "position": "C",
+      "review_status": "withheld_pending_confirmation",
+      "human_verified": false,
+      "human_review_required": true,
+      "eligible_for_synthesis": false,
+      "known": [
+        "The current local ESPN-derived availability row belongs to Buffalo and reports that McGovern left the August 8 practice early with an apparent right-leg issue.",
+        "The current projected-starters artifact contains no Connor McGovern row, so the local packet does not establish a current starting role."
+      ],
+      "missing": [
+        "current official or directly reviewed practice/health update after the reported early exit",
+        "current human-verified Bills depth-chart or first-team role confirmation"
+      ],
+      "evidence": [
+        {
+          "artifact_path": "data/player-availability/latest.json",
+          "evidence_id": "availability_evidence_9ec68e38b32469e22e38",
+          "published_at": "2026-08-09T01:05:00.000Z",
+          "source": "ESPN injuries API",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries"
+        }
+      ],
+      "disposition": "Keep the injury item in needs-confirmation context. Do not treat it as a confirmed absence, recovery, or starter-impact input."
+    },
+    {
+      "id": "named-status-gb-micah-parsons-2026-08-11",
+      "player_name": "Micah Parsons",
+      "expected_team": "GB",
+      "observed_team_assignments": [
+        "DAL",
+        "GB"
+      ],
+      "position": "DE",
+      "review_status": "conflicted_team_assignment",
+      "human_verified": false,
+      "human_review_required": true,
+      "eligible_for_synthesis": false,
+      "known": [
+        "The current ESPN-derived availability evidence was originally tagged DAL while its text describes a Week 6 game against Dallas and carries GB as related context.",
+        "A current Green Bay beat artifact owns a Micah Parsons Week 6 return-target item under GB, but it remains human-review context rather than an official team/depth-chart confirmation.",
+        "The current projected-starters artifact contains no Micah Parsons row."
+      ],
+      "missing": [
+        "current human-verified official roster/team confirmation",
+        "current human-verified PUP, injury, and return-timeline status",
+        "source-reconciled starter/role confirmation"
+      ],
+      "evidence": [
+        {
+          "artifact_path": "data/player-availability/latest.json",
+          "evidence_id": "availability_evidence_d0467a76b82aada690c5",
+          "published_at": "2026-08-04T19:29:00.000Z",
+          "source": "ESPN injuries API",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries"
+        },
+        {
+          "artifact_path": "data/training-camp/2026/latest.json",
+          "evidence_id": "camp_evidence_82b39fc9d9f87f59ad73",
+          "published_at": "2026-08-10T19:10:00.000Z",
+          "source": "GB Beat - Acme Packing Co",
+          "source_url": "https://www.acmepackingcompany.com/green-bay-packers-injuries/84590/micah-parsons-says-his-most-optimistic-return-target-is-week-6-vs-cowboys"
+        }
+      ],
+      "disposition": "Treat the team assignment and injury signal as conflicted intel. Withhold from team aggregates and starter-impact synthesis until human confirmation resolves both ownership and status."
+    }
+  ],
+  "teams": {
+    "ARI": {
+      "team": "ARI",
+      "team_name": "Arizona Cardinals",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Starling Thomas V CB"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_2aad90cb31253d7c",
+          "team": "ARI",
+          "team_nick": "Cardinals",
+          "player_name": "Starling Thomas V",
+          "position": "CB",
+          "unit": "defense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-24T00:20:00.000Z",
+              "evidence": "The Cardinals signed Thomas to the active roster from their practice squad Wednesday, Darren Urban of the team's official site reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "defensive_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "ATL": {
+      "team": "ATL",
+      "team_name": "Atlanta Falcons",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Gervon Dexter Sr. DT",
+        "Zach Harrison DE",
+        "C.J. Henderson CB"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_fa62941e47520b56",
+          "team": "ATL",
+          "team_nick": "Falcons",
+          "player_name": "C.J. Henderson",
+          "position": "CB",
+          "unit": "defense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.66,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-22T23:11:00.000Z",
+              "evidence": "Henderson is expected to step into a starting role at cornerback in Week 3, Tori McElhaney of the Falcons' official website reports."
+            }
+          ],
+          "evidence_tags": [
+            "starter"
+          ],
+          "impact_bucket": "defensive_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_b44112b040b4f9cc",
+          "team": "ATL",
+          "team_nick": "Falcons",
+          "player_name": "Gervon Dexter Sr.",
+          "position": "DT",
+          "unit": "defense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-30T23:58:00.000Z",
+              "evidence": "The Falcons signed Dexter to a four-year, $78 million contract extension Wednesday, Adam Schefter of ESPN reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "defensive_front_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_ff6c780e40f45470",
+          "team": "ATL",
+          "team_nick": "Falcons",
+          "player_name": "Zach Harrison",
+          "position": "DE",
+          "unit": "defense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-23T00:28:00.000Z",
+              "evidence": "The Falcons signed Harrison to the active roster from their practice squad Tuesday, Tori McElhaney of the team's official site reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "defensive_front_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "BAL": {
+      "team": "BAL",
+      "team_name": "Baltimore Ravens",
+      "coverage_status": "needs_manual_depth_chart",
+      "known": [],
+      "estimated": [],
+      "missing": [
+        "verified all-position depth chart",
+        "manual source count reconciliation"
+      ],
+      "players": [],
+      "named_status_reviews": []
+    },
+    "BUF": {
+      "team": "BUF",
+      "team_name": "Buffalo Bills",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Greg Dortch WR"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation",
+        "Connor McGovern: withheld pending confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_62a8786f6172fc88",
+          "team": "BUF",
+          "team_nick": "Bills",
+          "player_name": "Greg Dortch",
+          "position": "WR",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-26T00:33:00.000Z",
+              "evidence": "The Bills signed Dortch from the practice squad to the active roster Friday, Maddy Glabb reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": [
+        {
+          "player_name": "Connor McGovern",
+          "review_status": "withheld_pending_confirmation",
+          "eligible_for_synthesis": false,
+          "missing": [
+            "current official or directly reviewed practice/health update after the reported early exit",
+            "current human-verified Bills depth-chart or first-team role confirmation"
+          ]
+        }
+      ]
+    },
+    "CAR": {
+      "team": "CAR",
+      "team_name": "Carolina Panthers",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "David Moore WR",
+        "Anthony Tyus III RB",
+        "Isaiah Simmons S"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_57711a569eba3a85",
+          "team": "CAR",
+          "team_nick": "Panthers",
+          "player_name": "Isaiah Simmons",
+          "position": "S",
+          "unit": "defense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-24T00:09:00.000Z",
+              "evidence": "The Panthers signed Simmons to the active roster from their practice squad Wednesday, Darin Gantt of the team's official site reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "defensive_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_e31f36f2599b8617",
+          "team": "CAR",
+          "team_nick": "Panthers",
+          "player_name": "Anthony Tyus III",
+          "position": "RB",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-30T15:29:00.000Z",
+              "evidence": "The Panthers signed Tyus from the practice squad to the active roster Wednesday."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_6b0c310138a7a0c3",
+          "team": "CAR",
+          "team_nick": "Panthers",
+          "player_name": "David Moore",
+          "position": "WR",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-30T15:31:00.000Z",
+              "evidence": "The Panthers signed Moore off the practice squad to the active roster Wednesday."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "CHI": {
+      "team": "CHI",
+      "team_name": "Chicago Bears",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Tyson Bagent QB"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_91d78327c9efc060",
+          "team": "CHI",
+          "team_nick": "Bears",
+          "player_name": "Tyson Bagent",
+          "position": "QB",
+          "unit": "offense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.94,
+          "roster_confidence": 0.9,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-28T13:29:00.000Z",
+              "evidence": "Bagent (concussion) is expected to remain the Bears' backup quarterback for Monday's game against the Eagles, while Case Keenum starts in place of the injured Caleb Williams (hamstring), Ian Rapoport of NFL Network reports."
+            }
+          ],
+          "evidence_tags": [
+            "starter",
+            "primary_role",
+            "competition"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "CIN": {
+      "team": "CIN",
+      "team_name": "Cincinnati Bengals",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Tanner Hudson TE",
+        "Mitchell Tinsley WR"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_fceaa45650840259",
+          "team": "CIN",
+          "team_nick": "Bengals",
+          "player_name": "Mitchell Tinsley",
+          "position": "WR",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-29T23:08:00.000Z",
+              "evidence": "The Bengals signed Tinsley off the Texans' practice squad to the active roster Tuesday."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_0a96381b3a202ab3",
+          "team": "CIN",
+          "team_nick": "Bengals",
+          "player_name": "Tanner Hudson",
+          "position": "TE",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-29T23:11:00.000Z",
+              "evidence": "The Bengals signed Hudson off the practice squad to the active roster Tuesday."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "CLE": {
+      "team": "CLE",
+      "team_name": "Cleveland Browns",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Mekhi Blackmon CB"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_fd31c4dd6f382242",
+          "team": "CLE",
+          "team_nick": "Browns",
+          "player_name": "Mekhi Blackmon",
+          "position": "CB",
+          "unit": "defense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.66,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-27T16:16:00.000Z",
+              "evidence": "Blackmon will start at outside cornerback against the Panthers on Sunday due to the absence of Tyson Campbell (ankle/hip/knee), Daniel Oyefusi of ESPN.com reports."
+            }
+          ],
+          "evidence_tags": [
+            "starter"
+          ],
+          "impact_bucket": "defensive_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "DAL": {
+      "team": "DAL",
+      "team_name": "Dallas Cowboys",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Justin Barron LB"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_24d5fc8f24492e38",
+          "team": "DAL",
+          "team_nick": "Cowboys",
+          "player_name": "Justin Barron",
+          "position": "LB",
+          "unit": "defense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-26T18:29:00.000Z",
+              "evidence": "The Cowboys signed Barron from the practice squad to the active roster Saturday."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "defensive_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "DEN": {
+      "team": "DEN",
+      "team_name": "Denver Broncos",
+      "coverage_status": "needs_manual_depth_chart",
+      "known": [],
+      "estimated": [],
+      "missing": [
+        "verified all-position depth chart",
+        "manual source count reconciliation"
+      ],
+      "players": [],
+      "named_status_reviews": []
+    },
+    "DET": {
+      "team": "DET",
+      "team_name": "Detroit Lions",
+      "coverage_status": "needs_manual_depth_chart",
+      "known": [],
+      "estimated": [],
+      "missing": [
+        "verified all-position depth chart",
+        "manual source count reconciliation"
+      ],
+      "players": [],
+      "named_status_reviews": []
+    },
+    "GB": {
+      "team": "GB",
+      "team_name": "Green Bay Packers",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Kevin Zeitler G",
+        "Laken Tomlinson G"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation",
+        "Micah Parsons: conflicted team assignment"
+      ],
+      "players": [
+        {
+          "id": "starter_fc88fd7bbcc486e8",
+          "team": "GB",
+          "team_nick": "Packers",
+          "player_name": "Kevin Zeitler",
+          "position": "G",
+          "unit": "offensive_line",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-10-01T00:50:00.000Z",
+              "evidence": "The Packers signed Zeitler to a one-year contract Wednesday, Rob Demovsky of ESPN.com reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "offensive_line_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_5e83a4a6bab08fca",
+          "team": "GB",
+          "team_nick": "Packers",
+          "player_name": "Laken Tomlinson",
+          "position": "G",
+          "unit": "offensive_line",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-26T17:42:00.000Z",
+              "evidence": "The Packers signed Tomlinson off the Cowboys' practice squad Saturday, Ian Rapoport of NFL Network reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "offensive_line_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": [
+        {
+          "player_name": "Micah Parsons",
+          "review_status": "conflicted_team_assignment",
+          "eligible_for_synthesis": false,
+          "missing": [
+            "current human-verified official roster/team confirmation",
+            "current human-verified PUP, injury, and return-timeline status",
+            "source-reconciled starter/role confirmation"
+          ]
+        }
+      ]
+    },
+    "HOU": {
+      "team": "HOU",
+      "team_name": "Houston Texans",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Chris Braswell DE",
+        "Dare Ogunbowale RB",
+        "Xavier Hutchinson WR"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_bd61169f903879fb",
+          "team": "HOU",
+          "team_nick": "Texans",
+          "player_name": "Xavier Hutchinson",
+          "position": "WR",
+          "unit": "offense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.66,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-27T15:56:00.000Z",
+              "evidence": "Hutchinson is in line to serve as the Texans' No. 1 receiver for the second consecutive game in Sunday's Week 3 matchup against the Colts due to Nico Collins (hamstring) being ruled inactive for the contest."
+            }
+          ],
+          "evidence_tags": [
+            "starter"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_c47b74218a04f36a",
+          "team": "HOU",
+          "team_nick": "Texans",
+          "player_name": "Chris Braswell",
+          "position": "DE",
+          "unit": "defense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-10-01T00:46:00.000Z",
+              "evidence": "The Texans signed Braswell from the practice squad to the active roster Wednesday."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "defensive_front_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_f5a695aeab8b902d",
+          "team": "HOU",
+          "team_nick": "Texans",
+          "player_name": "Dare Ogunbowale",
+          "position": "RB",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-29T23:43:00.000Z",
+              "evidence": "The Texans signed Ogunbowale off the Raiders' practice squad Tuesday."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "IND": {
+      "team": "IND",
+      "team_name": "Indianapolis Colts",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Anthony Gould WR"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_ae82ff805be8b01c",
+          "team": "IND",
+          "team_nick": "Colts",
+          "player_name": "Anthony Gould",
+          "position": "WR",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-26T16:25:00.000Z",
+              "evidence": "The Colts signed Gould from the practice squad to the active roster Saturday."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "JAX": {
+      "team": "JAX",
+      "team_name": "Jacksonville Jaguars",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Quinn Ewers QB"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_7e66f20233853604",
+          "team": "JAX",
+          "team_nick": "Jaguars",
+          "player_name": "Quinn Ewers",
+          "position": "QB",
+          "unit": "offense",
+          "role": "competition_or_rotation",
+          "starter_confidence": 0.5,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-26T21:08:00.000Z",
+              "evidence": "Ewers is set to be the backup quarterback for the Jaguars in Sunday's game against the Patriots, Ryan O'Halloran of The Florida Times-Union reports."
+            }
+          ],
+          "evidence_tags": [
+            "competition"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "KC": {
+      "team": "KC",
+      "team_name": "Kansas City Chiefs",
+      "coverage_status": "needs_manual_depth_chart",
+      "known": [],
+      "estimated": [],
+      "missing": [
+        "verified all-position depth chart",
+        "manual source count reconciliation"
+      ],
+      "players": [],
+      "named_status_reviews": []
+    },
+    "LV": {
+      "team": "LV",
+      "team_name": "Las Vegas Raiders",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Cody White WR"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_ef0ea1e508f377aa",
+          "team": "LV",
+          "team_nick": "Raiders",
+          "player_name": "Cody White",
+          "position": "WR",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-29T23:29:00.000Z",
+              "evidence": "The Raiders signed White from their practice squad to their active roster Tuesday."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "LAC": {
+      "team": "LAC",
+      "team_name": "Los Angeles Chargers",
+      "coverage_status": "needs_manual_depth_chart",
+      "known": [],
+      "estimated": [],
+      "missing": [
+        "verified all-position depth chart",
+        "manual source count reconciliation"
+      ],
+      "players": [],
+      "named_status_reviews": []
+    },
+    "LAR": {
+      "team": "LAR",
+      "team_name": "Los Angeles Rams",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Dean Connors RB"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_84a1d794ee84ccda",
+          "team": "LAR",
+          "team_nick": "Rams",
+          "player_name": "Dean Connors",
+          "position": "RB",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-30T00:14:00.000Z",
+              "evidence": "The Rams signed Connors from the practice squad to the active roster Tuesday."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "MIA": {
+      "team": "MIA",
+      "team_name": "Miami Dolphins",
+      "coverage_status": "needs_manual_depth_chart",
+      "known": [],
+      "estimated": [],
+      "missing": [
+        "verified all-position depth chart",
+        "manual source count reconciliation"
+      ],
+      "players": [],
+      "named_status_reviews": []
+    },
+    "MIN": {
+      "team": "MIN",
+      "team_name": "Minnesota Vikings",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Kyle Van Noy LB",
+        "Max Brosmer QB"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_22d003a3b5c760a3",
+          "team": "MIN",
+          "team_nick": "Vikings",
+          "player_name": "Kyle Van Noy",
+          "position": "LB",
+          "unit": "defense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-30T00:20:00.000Z",
+              "evidence": "The Vikings signed Van Noy from the practice squad to the active roster Tuesday, Craig Peters of the team's official site reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "defensive_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_84c09e0e1c8b1506",
+          "team": "MIN",
+          "team_nick": "Vikings",
+          "player_name": "Max Brosmer",
+          "position": "QB",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-29T17:25:00.000Z",
+              "evidence": "The Vikings signed Brosmer off their practice squad Tuesday, Craig Peters of the team's official site reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "NE": {
+      "team": "NE",
+      "team_name": "New England Patriots",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Jaylen Reed S"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_4e42063dd1ded7ec",
+          "team": "NE",
+          "team_nick": "Patriots",
+          "player_name": "Jaylen Reed",
+          "position": "S",
+          "unit": "defense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.66,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-27T16:32:00.000Z",
+              "evidence": "Reed is expected to start alongside Kevin Byard at safety against the Jaguars on Sunday, Evan Lazar of the Patriots' official site reports."
+            }
+          ],
+          "evidence_tags": [
+            "starter"
+          ],
+          "impact_bucket": "defensive_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "NO": {
+      "team": "NO",
+      "team_name": "New Orleans Saints",
+      "coverage_status": "needs_manual_depth_chart",
+      "known": [],
+      "estimated": [],
+      "missing": [
+        "verified all-position depth chart",
+        "manual source count reconciliation"
+      ],
+      "players": [],
+      "named_status_reviews": []
+    },
+    "NYG": {
+      "team": "NYG",
+      "team_name": "New York Giants",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Charlie Jones WR",
+        "Braxton Berrios WR",
+        "Jameis Winston QB",
+        "Ar'Darius Washington S"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_8327395fd44546f9",
+          "team": "NYG",
+          "team_nick": "Giants",
+          "player_name": "Ar'Darius Washington",
+          "position": "S",
+          "unit": "defense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.66,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-27T16:19:00.000Z",
+              "evidence": "With Tyler Nubin (calf) inactive, Washington will start at safety against the Titans on Sunday, Jordan Raanan of ESPN.com reports."
+            }
+          ],
+          "evidence_tags": [
+            "starter"
+          ],
+          "impact_bucket": "defensive_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_f23c0981074a1b8d",
+          "team": "NYG",
+          "team_nick": "Giants",
+          "player_name": "Jameis Winston",
+          "position": "QB",
+          "unit": "offense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.66,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-28T20:04:00.000Z",
+              "evidence": "Head coach John Harbaugh reaffirmed that Winston is the Giants' starting quarterback after the team acquired J.J. McCarthy from the Vikings on Monday, Evan Barnes of Newsday reports."
+            }
+          ],
+          "evidence_tags": [
+            "starter"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_cd22bf37d84b7974",
+          "team": "NYG",
+          "team_nick": "Giants",
+          "player_name": "Braxton Berrios",
+          "position": "WR",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-29T18:06:00.000Z",
+              "evidence": "The Giants signed Berrios off their practice squad Tuesday, Dan Salomone of the team's official site reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_fb5d8abba5c39d1c",
+          "team": "NYG",
+          "team_nick": "Giants",
+          "player_name": "Charlie Jones",
+          "position": "WR",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-29T23:55:00.000Z",
+              "evidence": "The Giants signed Jones to the active roster from their practice squad Tuesday, Dan Salomone of the team's official site reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "NYJ": {
+      "team": "NYJ",
+      "team_name": "New York Jets",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Jason Sanders PK",
+        "Jamaal Pritchett WR"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_d2e43efd236ed00a",
+          "team": "NYJ",
+          "team_nick": "Jets",
+          "player_name": "Jamaal Pritchett",
+          "position": "WR",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-26T16:19:00.000Z",
+              "evidence": "The Jets signed Pritchett from the practice squad to the active roster Saturday, Zack Rosenblatt of The Athletic reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_71a33f47dba57d17",
+          "team": "NYJ",
+          "team_nick": "Jets",
+          "player_name": "Jason Sanders",
+          "position": "PK",
+          "unit": "special_teams",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-29T17:18:00.000Z",
+              "evidence": "The Jets signed Sanders off their practice squad Tuesday, Eric Allen of the team's official site reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "depth_only",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "PHI": {
+      "team": "PHI",
+      "team_name": "Philadelphia Eagles",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Kenny Moore II CB"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_4af05a574008e571",
+          "team": "PHI",
+          "team_nick": "Eagles",
+          "player_name": "Kenny Moore II",
+          "position": "CB",
+          "unit": "defense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-29T23:22:00.000Z",
+              "evidence": "The Eagles signed Moore from the practice squad to the active roster Tuesday."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "defensive_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "PIT": {
+      "team": "PIT",
+      "team_name": "Pittsburgh Steelers",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Brock Hoffman C",
+        "Max Iheanachor OT",
+        "Travis Homer RB"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_98955fdda64310e6",
+          "team": "PIT",
+          "team_nick": "Steelers",
+          "player_name": "Brock Hoffman",
+          "position": "C",
+          "unit": "offensive_line",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.66,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-27T15:21:00.000Z",
+              "evidence": "Hoffman will start at right guard against the Bengals on Sunday, Ian Rapoport of NFL Network reports."
+            }
+          ],
+          "evidence_tags": [
+            "starter"
+          ],
+          "impact_bucket": "offensive_line_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_152cc0591aefc0ef",
+          "team": "PIT",
+          "team_nick": "Steelers",
+          "player_name": "Max Iheanachor",
+          "position": "OT",
+          "unit": "offensive_line",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.66,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-27T15:19:00.000Z",
+              "evidence": "Iheanachor will start at right tackle against the Bengals on Sunday, Ian Rapoport of NFL Network reports."
+            }
+          ],
+          "evidence_tags": [
+            "starter"
+          ],
+          "impact_bucket": "offensive_line_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_5019178a0d9554b6",
+          "team": "PIT",
+          "team_nick": "Steelers",
+          "player_name": "Travis Homer",
+          "position": "RB",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-26T20:54:00.000Z",
+              "evidence": "The Steelers signed Homer from the practice squad to the active roster Saturday, Teresa Varley of the team's official site reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "SF": {
+      "team": "SF",
+      "team_name": "San Francisco 49ers",
+      "coverage_status": "needs_manual_depth_chart",
+      "known": [],
+      "estimated": [],
+      "missing": [
+        "verified all-position depth chart",
+        "manual source count reconciliation"
+      ],
+      "players": [],
+      "named_status_reviews": []
+    },
+    "SEA": {
+      "team": "SEA",
+      "team_name": "Seattle Seahawks",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Drew Lock QB",
+        "Rodney Thomas II S"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_28aa8b210bde7b33",
+          "team": "SEA",
+          "team_nick": "Seahawks",
+          "player_name": "Drew Lock",
+          "position": "QB",
+          "unit": "offense",
+          "role": "competition_or_rotation",
+          "starter_confidence": 0.5,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-25T22:54:00.000Z",
+              "evidence": "Lock will return to a backup role for Sunday's game at Washington after coach Mike Macdonald said Friday that Sam Darnold (glute) is \"going to play,\" John Boyle of the Seahawks' official site reports."
+            }
+          ],
+          "evidence_tags": [
+            "competition"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_14b281c5bf012d87",
+          "team": "SEA",
+          "team_nick": "Seahawks",
+          "player_name": "Rodney Thomas II",
+          "position": "S",
+          "unit": "defense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-23T21:24:00.000Z",
+              "evidence": "The Seahawks signed Thomas from the practice squad to the active roster Wednesday, John Boyle of the team's official site reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "defensive_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "TB": {
+      "team": "TB",
+      "team_name": "Tampa Bay Buccaneers",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Ifeatu Melifonwu S",
+        "Jalon Daniels QB"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_6e60ab9496a02b66",
+          "team": "TB",
+          "team_nick": "Buccaneers",
+          "player_name": "Jalon Daniels",
+          "position": "QB",
+          "unit": "offense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.66,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-28T16:55:00.000Z",
+              "evidence": "Head coach Todd Bowles said Monday that Daniels will step in as the Buccaneers' new starting quarterback while Baker Mayfield is out for a \"minimum of three weeks\" due to a dislocated right thumb, Cameron Wolfe of NFL Network reports."
+            }
+          ],
+          "evidence_tags": [
+            "starter"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_2a3fa8a22c42cb26",
+          "team": "TB",
+          "team_nick": "Buccaneers",
+          "player_name": "Ifeatu Melifonwu",
+          "position": "S",
+          "unit": "defense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-30T00:52:00.000Z",
+              "evidence": "The Buccaneers signed Melifonwu from the practice squad to the active roster Tuesday, Greg Auman of Fox Sports reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "defensive_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "TEN": {
+      "team": "TEN",
+      "team_name": "Tennessee Titans",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Michael Carter RB",
+        "Erick Hallett II S"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_0f55a9e6127512ba",
+          "team": "TEN",
+          "team_nick": "Titans",
+          "player_name": "Erick Hallett II",
+          "position": "S",
+          "unit": "defense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-26T16:43:00.000Z",
+              "evidence": "The Titans signed Hallett from the practice squad to the active roster Saturday."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "defensive_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_2d61f927fd7aec6d",
+          "team": "TEN",
+          "team_nick": "Titans",
+          "player_name": "Michael Carter",
+          "position": "RB",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-29T23:24:00.000Z",
+              "evidence": "The Titans signed Carter off their practice squad to their 53-man roster Tuesday, Jim Wyatt of the team's official site reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "WAS": {
+      "team": "WAS",
+      "team_name": "Washington Commanders",
+      "coverage_status": "estimated_from_local_starter_language",
+      "known": [],
+      "estimated": [
+        "Austin Ekeler RB"
+      ],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_5940d10a92161cdf",
+          "team": "WAS",
+          "team_nick": "Commanders",
+          "player_name": "Austin Ekeler",
+          "position": "RB",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-09-29T20:13:00.000Z",
+              "evidence": "Ekeler signed a one-year contract with the Commanders on Tuesday, Zach Selby of the team's official site reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    }
+  },
+  "players": [
+    {
+      "id": "starter_fc88fd7bbcc486e8",
+      "team": "GB",
+      "team_nick": "Packers",
+      "player_name": "Kevin Zeitler",
+      "position": "G",
+      "unit": "offensive_line",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-01T00:50:00.000Z",
+          "evidence": "The Packers signed Zeitler to a one-year contract Wednesday, Rob Demovsky of ESPN.com reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "offensive_line_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_c47b74218a04f36a",
+      "team": "HOU",
+      "team_nick": "Texans",
+      "player_name": "Chris Braswell",
+      "position": "DE",
+      "unit": "defense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-01T00:46:00.000Z",
+          "evidence": "The Texans signed Braswell from the practice squad to the active roster Wednesday."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "defensive_front_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_b44112b040b4f9cc",
+      "team": "ATL",
+      "team_nick": "Falcons",
+      "player_name": "Gervon Dexter Sr.",
+      "position": "DT",
+      "unit": "defense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-30T23:58:00.000Z",
+          "evidence": "The Falcons signed Dexter to a four-year, $78 million contract extension Wednesday, Adam Schefter of ESPN reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "defensive_front_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_6b0c310138a7a0c3",
+      "team": "CAR",
+      "team_nick": "Panthers",
+      "player_name": "David Moore",
+      "position": "WR",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-30T15:31:00.000Z",
+          "evidence": "The Panthers signed Moore off the practice squad to the active roster Wednesday."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_e31f36f2599b8617",
+      "team": "CAR",
+      "team_nick": "Panthers",
+      "player_name": "Anthony Tyus III",
+      "position": "RB",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-30T15:29:00.000Z",
+          "evidence": "The Panthers signed Tyus from the practice squad to the active roster Wednesday."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_2a3fa8a22c42cb26",
+      "team": "TB",
+      "team_nick": "Buccaneers",
+      "player_name": "Ifeatu Melifonwu",
+      "position": "S",
+      "unit": "defense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-30T00:52:00.000Z",
+          "evidence": "The Buccaneers signed Melifonwu from the practice squad to the active roster Tuesday, Greg Auman of Fox Sports reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "defensive_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_22d003a3b5c760a3",
+      "team": "MIN",
+      "team_nick": "Vikings",
+      "player_name": "Kyle Van Noy",
+      "position": "LB",
+      "unit": "defense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-30T00:20:00.000Z",
+          "evidence": "The Vikings signed Van Noy from the practice squad to the active roster Tuesday, Craig Peters of the team's official site reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "defensive_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_84a1d794ee84ccda",
+      "team": "LAR",
+      "team_nick": "Rams",
+      "player_name": "Dean Connors",
+      "position": "RB",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-30T00:14:00.000Z",
+          "evidence": "The Rams signed Connors from the practice squad to the active roster Tuesday."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_fb5d8abba5c39d1c",
+      "team": "NYG",
+      "team_nick": "Giants",
+      "player_name": "Charlie Jones",
+      "position": "WR",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-29T23:55:00.000Z",
+          "evidence": "The Giants signed Jones to the active roster from their practice squad Tuesday, Dan Salomone of the team's official site reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_f5a695aeab8b902d",
+      "team": "HOU",
+      "team_nick": "Texans",
+      "player_name": "Dare Ogunbowale",
+      "position": "RB",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-29T23:43:00.000Z",
+          "evidence": "The Texans signed Ogunbowale off the Raiders' practice squad Tuesday."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_ef0ea1e508f377aa",
+      "team": "LV",
+      "team_nick": "Raiders",
+      "player_name": "Cody White",
+      "position": "WR",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-29T23:29:00.000Z",
+          "evidence": "The Raiders signed White from their practice squad to their active roster Tuesday."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_2d61f927fd7aec6d",
+      "team": "TEN",
+      "team_nick": "Titans",
+      "player_name": "Michael Carter",
+      "position": "RB",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-29T23:24:00.000Z",
+          "evidence": "The Titans signed Carter off their practice squad to their 53-man roster Tuesday, Jim Wyatt of the team's official site reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_4af05a574008e571",
+      "team": "PHI",
+      "team_nick": "Eagles",
+      "player_name": "Kenny Moore II",
+      "position": "CB",
+      "unit": "defense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-29T23:22:00.000Z",
+          "evidence": "The Eagles signed Moore from the practice squad to the active roster Tuesday."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "defensive_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_0a96381b3a202ab3",
+      "team": "CIN",
+      "team_nick": "Bengals",
+      "player_name": "Tanner Hudson",
+      "position": "TE",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-29T23:11:00.000Z",
+          "evidence": "The Bengals signed Hudson off the practice squad to the active roster Tuesday."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_fceaa45650840259",
+      "team": "CIN",
+      "team_nick": "Bengals",
+      "player_name": "Mitchell Tinsley",
+      "position": "WR",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-29T23:08:00.000Z",
+          "evidence": "The Bengals signed Tinsley off the Texans' practice squad to the active roster Tuesday."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_5940d10a92161cdf",
+      "team": "WAS",
+      "team_nick": "Commanders",
+      "player_name": "Austin Ekeler",
+      "position": "RB",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-29T20:13:00.000Z",
+          "evidence": "Ekeler signed a one-year contract with the Commanders on Tuesday, Zach Selby of the team's official site reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_cd22bf37d84b7974",
+      "team": "NYG",
+      "team_nick": "Giants",
+      "player_name": "Braxton Berrios",
+      "position": "WR",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-29T18:06:00.000Z",
+          "evidence": "The Giants signed Berrios off their practice squad Tuesday, Dan Salomone of the team's official site reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_84c09e0e1c8b1506",
+      "team": "MIN",
+      "team_nick": "Vikings",
+      "player_name": "Max Brosmer",
+      "position": "QB",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-29T17:25:00.000Z",
+          "evidence": "The Vikings signed Brosmer off their practice squad Tuesday, Craig Peters of the team's official site reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_71a33f47dba57d17",
+      "team": "NYJ",
+      "team_nick": "Jets",
+      "player_name": "Jason Sanders",
+      "position": "PK",
+      "unit": "special_teams",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-29T17:18:00.000Z",
+          "evidence": "The Jets signed Sanders off their practice squad Tuesday, Eric Allen of the team's official site reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "depth_only",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_f23c0981074a1b8d",
+      "team": "NYG",
+      "team_nick": "Giants",
+      "player_name": "Jameis Winston",
+      "position": "QB",
+      "unit": "offense",
+      "role": "likely_starter_or_primary",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.66,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-28T20:04:00.000Z",
+          "evidence": "Head coach John Harbaugh reaffirmed that Winston is the Giants' starting quarterback after the team acquired J.J. McCarthy from the Vikings on Monday, Evan Barnes of Newsday reports."
+        }
+      ],
+      "evidence_tags": [
+        "starter"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_6e60ab9496a02b66",
+      "team": "TB",
+      "team_nick": "Buccaneers",
+      "player_name": "Jalon Daniels",
+      "position": "QB",
+      "unit": "offense",
+      "role": "likely_starter_or_primary",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.66,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-28T16:55:00.000Z",
+          "evidence": "Head coach Todd Bowles said Monday that Daniels will step in as the Buccaneers' new starting quarterback while Baker Mayfield is out for a \"minimum of three weeks\" due to a dislocated right thumb, Cameron Wolfe of NFL Network reports."
+        }
+      ],
+      "evidence_tags": [
+        "starter"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_91d78327c9efc060",
+      "team": "CHI",
+      "team_nick": "Bears",
+      "player_name": "Tyson Bagent",
+      "position": "QB",
+      "unit": "offense",
+      "role": "likely_starter_or_primary",
+      "starter_confidence": 0.94,
+      "roster_confidence": 0.9,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-28T13:29:00.000Z",
+          "evidence": "Bagent (concussion) is expected to remain the Bears' backup quarterback for Monday's game against the Eagles, while Case Keenum starts in place of the injured Caleb Williams (hamstring), Ian Rapoport of NFL Network reports."
+        }
+      ],
+      "evidence_tags": [
+        "starter",
+        "primary_role",
+        "competition"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_4e42063dd1ded7ec",
+      "team": "NE",
+      "team_nick": "Patriots",
+      "player_name": "Jaylen Reed",
+      "position": "S",
+      "unit": "defense",
+      "role": "likely_starter_or_primary",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.66,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-27T16:32:00.000Z",
+          "evidence": "Reed is expected to start alongside Kevin Byard at safety against the Jaguars on Sunday, Evan Lazar of the Patriots' official site reports."
+        }
+      ],
+      "evidence_tags": [
+        "starter"
+      ],
+      "impact_bucket": "defensive_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_8327395fd44546f9",
+      "team": "NYG",
+      "team_nick": "Giants",
+      "player_name": "Ar'Darius Washington",
+      "position": "S",
+      "unit": "defense",
+      "role": "likely_starter_or_primary",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.66,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-27T16:19:00.000Z",
+          "evidence": "With Tyler Nubin (calf) inactive, Washington will start at safety against the Titans on Sunday, Jordan Raanan of ESPN.com reports."
+        }
+      ],
+      "evidence_tags": [
+        "starter"
+      ],
+      "impact_bucket": "defensive_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_fd31c4dd6f382242",
+      "team": "CLE",
+      "team_nick": "Browns",
+      "player_name": "Mekhi Blackmon",
+      "position": "CB",
+      "unit": "defense",
+      "role": "likely_starter_or_primary",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.66,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-27T16:16:00.000Z",
+          "evidence": "Blackmon will start at outside cornerback against the Panthers on Sunday due to the absence of Tyson Campbell (ankle/hip/knee), Daniel Oyefusi of ESPN.com reports."
+        }
+      ],
+      "evidence_tags": [
+        "starter"
+      ],
+      "impact_bucket": "defensive_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_bd61169f903879fb",
+      "team": "HOU",
+      "team_nick": "Texans",
+      "player_name": "Xavier Hutchinson",
+      "position": "WR",
+      "unit": "offense",
+      "role": "likely_starter_or_primary",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.66,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-27T15:56:00.000Z",
+          "evidence": "Hutchinson is in line to serve as the Texans' No. 1 receiver for the second consecutive game in Sunday's Week 3 matchup against the Colts due to Nico Collins (hamstring) being ruled inactive for the contest."
+        }
+      ],
+      "evidence_tags": [
+        "starter"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_98955fdda64310e6",
+      "team": "PIT",
+      "team_nick": "Steelers",
+      "player_name": "Brock Hoffman",
+      "position": "C",
+      "unit": "offensive_line",
+      "role": "likely_starter_or_primary",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.66,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-27T15:21:00.000Z",
+          "evidence": "Hoffman will start at right guard against the Bengals on Sunday, Ian Rapoport of NFL Network reports."
+        }
+      ],
+      "evidence_tags": [
+        "starter"
+      ],
+      "impact_bucket": "offensive_line_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_152cc0591aefc0ef",
+      "team": "PIT",
+      "team_nick": "Steelers",
+      "player_name": "Max Iheanachor",
+      "position": "OT",
+      "unit": "offensive_line",
+      "role": "likely_starter_or_primary",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.66,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-27T15:19:00.000Z",
+          "evidence": "Iheanachor will start at right tackle against the Bengals on Sunday, Ian Rapoport of NFL Network reports."
+        }
+      ],
+      "evidence_tags": [
+        "starter"
+      ],
+      "impact_bucket": "offensive_line_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_7e66f20233853604",
+      "team": "JAX",
+      "team_nick": "Jaguars",
+      "player_name": "Quinn Ewers",
+      "position": "QB",
+      "unit": "offense",
+      "role": "competition_or_rotation",
+      "starter_confidence": 0.5,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-26T21:08:00.000Z",
+          "evidence": "Ewers is set to be the backup quarterback for the Jaguars in Sunday's game against the Patriots, Ryan O'Halloran of The Florida Times-Union reports."
+        }
+      ],
+      "evidence_tags": [
+        "competition"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_5019178a0d9554b6",
+      "team": "PIT",
+      "team_nick": "Steelers",
+      "player_name": "Travis Homer",
+      "position": "RB",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-26T20:54:00.000Z",
+          "evidence": "The Steelers signed Homer from the practice squad to the active roster Saturday, Teresa Varley of the team's official site reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_24d5fc8f24492e38",
+      "team": "DAL",
+      "team_nick": "Cowboys",
+      "player_name": "Justin Barron",
+      "position": "LB",
+      "unit": "defense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-26T18:29:00.000Z",
+          "evidence": "The Cowboys signed Barron from the practice squad to the active roster Saturday."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "defensive_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_5e83a4a6bab08fca",
+      "team": "GB",
+      "team_nick": "Packers",
+      "player_name": "Laken Tomlinson",
+      "position": "G",
+      "unit": "offensive_line",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-26T17:42:00.000Z",
+          "evidence": "The Packers signed Tomlinson off the Cowboys' practice squad Saturday, Ian Rapoport of NFL Network reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "offensive_line_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_0f55a9e6127512ba",
+      "team": "TEN",
+      "team_nick": "Titans",
+      "player_name": "Erick Hallett II",
+      "position": "S",
+      "unit": "defense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-26T16:43:00.000Z",
+          "evidence": "The Titans signed Hallett from the practice squad to the active roster Saturday."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "defensive_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_ae82ff805be8b01c",
+      "team": "IND",
+      "team_nick": "Colts",
+      "player_name": "Anthony Gould",
+      "position": "WR",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-26T16:25:00.000Z",
+          "evidence": "The Colts signed Gould from the practice squad to the active roster Saturday."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_d2e43efd236ed00a",
+      "team": "NYJ",
+      "team_nick": "Jets",
+      "player_name": "Jamaal Pritchett",
+      "position": "WR",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-26T16:19:00.000Z",
+          "evidence": "The Jets signed Pritchett from the practice squad to the active roster Saturday, Zack Rosenblatt of The Athletic reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_62a8786f6172fc88",
+      "team": "BUF",
+      "team_nick": "Bills",
+      "player_name": "Greg Dortch",
+      "position": "WR",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-26T00:33:00.000Z",
+          "evidence": "The Bills signed Dortch from the practice squad to the active roster Friday, Maddy Glabb reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_28aa8b210bde7b33",
+      "team": "SEA",
+      "team_nick": "Seahawks",
+      "player_name": "Drew Lock",
+      "position": "QB",
+      "unit": "offense",
+      "role": "competition_or_rotation",
+      "starter_confidence": 0.5,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-25T22:54:00.000Z",
+          "evidence": "Lock will return to a backup role for Sunday's game at Washington after coach Mike Macdonald said Friday that Sam Darnold (glute) is \"going to play,\" John Boyle of the Seahawks' official site reports."
+        }
+      ],
+      "evidence_tags": [
+        "competition"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_2aad90cb31253d7c",
+      "team": "ARI",
+      "team_nick": "Cardinals",
+      "player_name": "Starling Thomas V",
+      "position": "CB",
+      "unit": "defense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-24T00:20:00.000Z",
+          "evidence": "The Cardinals signed Thomas to the active roster from their practice squad Wednesday, Darren Urban of the team's official site reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "defensive_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_57711a569eba3a85",
+      "team": "CAR",
+      "team_nick": "Panthers",
+      "player_name": "Isaiah Simmons",
+      "position": "S",
+      "unit": "defense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-24T00:09:00.000Z",
+          "evidence": "The Panthers signed Simmons to the active roster from their practice squad Wednesday, Darin Gantt of the team's official site reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "defensive_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_14b281c5bf012d87",
+      "team": "SEA",
+      "team_nick": "Seahawks",
+      "player_name": "Rodney Thomas II",
+      "position": "S",
+      "unit": "defense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-23T21:24:00.000Z",
+          "evidence": "The Seahawks signed Thomas from the practice squad to the active roster Wednesday, John Boyle of the team's official site reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "defensive_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_ff6c780e40f45470",
+      "team": "ATL",
+      "team_nick": "Falcons",
+      "player_name": "Zach Harrison",
+      "position": "DE",
+      "unit": "defense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-23T00:28:00.000Z",
+          "evidence": "The Falcons signed Harrison to the active roster from their practice squad Tuesday, Tori McElhaney of the team's official site reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "defensive_front_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_fa62941e47520b56",
+      "team": "ATL",
+      "team_nick": "Falcons",
+      "player_name": "C.J. Henderson",
+      "position": "CB",
+      "unit": "defense",
+      "role": "likely_starter_or_primary",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.66,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-22T23:11:00.000Z",
+          "evidence": "Henderson is expected to step into a starting role at cornerback in Week 3, Tori McElhaney of the Falcons' official website reports."
+        }
+      ],
+      "evidence_tags": [
+        "starter"
+      ],
+      "impact_bucket": "defensive_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    }
+  ]
+}
