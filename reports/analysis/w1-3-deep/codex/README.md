@@ -14,14 +14,21 @@ The grader reads only the placed-wagers ledger and local ESPN box-score captures
 
 ## Outputs
 
-- `legs_all.csv` — one independently re-graded row per ledger leg, including its evidence state and Team 1 comparison fields.
+- `legs_all.csv` — the canonical W1–3 leg catalog for Codex analysis: one independently re-graded row per ledger leg, including its evidence state and Team 1 comparison fields. Run the input-provenance audit before treating any terminal result or pre-game join as reproducible.
 - `tickets_all.csv` — ticket-level rollup; round robins are evaluated at the individual-combination level.
 - `regrade_legs.json` and `regrade_summary.json` — machine-readable inputs and audit totals.
 - `alternative_baskets.json` — deterministic retrospective bootstrap of alternate basket shapes.
+- `input_provenance_audit.json` / `.md` — checks whether the committed historical schedule markets and same-week ESPN boxes can reproduce C1 and support a pre-game proxy analysis. It blocks rule promotion when source coverage is incomplete.
+
+To re-run the audit:
+
+```powershell
+node scripts/analysis/season-post-mortem/audit-input-provenance.mjs
+```
 
 ## Audit result — 2026-09-29
 
-The local ledger has 101 tickets and 559 Week 1–3 legs. The independent grader settled 547 legs from the local NFL captures: 256 won, 291 lost, and one pushed. It intentionally left 11 unresolved: six CFB/open-slot entries without a supporting NFL box score and five players that could not be uniquely matched in the local capture.
+The local ledger has 101 tickets and 559 Week 1–3 legs. The C1 artifact records 548 terminal results: 256 won, 291 lost, and one pushed. It intentionally left 11 unresolved: six CFB/open-slot entries without a supporting NFL box score and five players that could not be uniquely matched in the local capture. (The earlier “547” prose count was an arithmetic typo; 256 + 291 + 1 = 548.)
 
 There are zero terminal-result mismatches against the present ledger and zero against the Team 1 W1/W2/W3 published leg files. This validates the 14 corrections already recorded in the shared findings; it does not change the ledger. Two ledger legs are still marked `PENDING` despite independently resolving as losses. Team 1's baseline also retains seven `pending` W3 rows despite final results being present locally. These are stale-status issues, not newly applied settlement changes.
 
