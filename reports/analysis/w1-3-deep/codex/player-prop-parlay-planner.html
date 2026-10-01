@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Player Prop Parlay Planner</title>
+  <style>
+    :root { color-scheme: dark; --bg:#0b1120; --panel:#131d33; --panel-2:#172442; --line:#263657; --text:#e8edf8; --muted:#9cadc8; --accent:#8b5cf6; --accent-2:#c4b5fd; --good:#6ee7b7; --warn:#fbbf24; --danger:#fca5a5; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:14px/1.45 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--text); background:radial-gradient(circle at top left,#172554 0,transparent 34%),var(--bg); }
+    button, input, select, textarea { font:inherit; }
+    button { cursor:pointer; }
+    header { padding:28px max(20px,calc((100vw - 1320px)/2)); border-bottom:1px solid var(--line); background:rgba(11,17,32,.82); backdrop-filter:blur(12px); }
+    h1 { margin:0; font-size:clamp(24px,4vw,36px); letter-spacing:-.04em; }
+    h1 span { color:var(--accent-2); }
+    .sub { margin:8px 0 0; color:var(--muted); max-width:850px; }
+    .page { max-width:1320px; margin:auto; padding:20px; }
+    .notice { display:flex; gap:10px; align-items:flex-start; margin-bottom:18px; padding:13px 15px; border:1px solid #6d4d1b; border-radius:12px; color:#fde68a; background:rgba(120,83,17,.17); }
+    .notice strong { color:#fef3c7; }
+    .layout { display:grid; grid-template-columns:minmax(0,1.65fr) minmax(310px,.8fr); gap:18px; align-items:start; }
+    .panel { background:rgba(19,29,51,.94); border:1px solid var(--line); border-radius:16px; box-shadow:0 16px 38px rgba(0,0,0,.16); overflow:hidden; }
+    .panel-head { display:flex; gap:12px; align-items:center; justify-content:space-between; padding:16px 18px; border-bottom:1px solid var(--line); }
+    .panel h2 { margin:0; font-size:16px; letter-spacing:-.01em; }
+    .count, .chip { border-radius:999px; padding:4px 9px; font-size:11px; font-weight:700; background:#253452; color:#cbd5e1; white-space:nowrap; }
+    .chip.live { background:rgba(110,231,183,.12); color:var(--good); }
+    .filters { display:grid; grid-template-columns:1.1fr 1fr; gap:10px; padding:14px 18px; border-bottom:1px solid var(--line); }
+    .field { display:flex; flex-direction:column; gap:5px; color:var(--muted); font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
+    input, select, textarea { width:100%; border:1px solid #33456a; border-radius:9px; color:var(--text); background:#0e1730; padding:9px 10px; outline:none; }
+    input:focus, select:focus, textarea:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(139,92,246,.18); }
+    .market-tabs { display:flex; flex-wrap:wrap; gap:7px; padding:13px 18px 0; }
+    .tab { border:1px solid #3b4d71; color:#b9c6de; background:transparent; border-radius:999px; padding:6px 10px; font-size:12px; }
+    .tab.active { border-color:var(--accent); color:#f5f3ff; background:rgba(139,92,246,.24); }
+    .lines { max-height:620px; overflow:auto; padding:10px; }
+    .section-controls { display:flex; justify-content:flex-end; gap:7px; padding:10px 18px 0; }
+    .section-control { border:1px solid #3b4d71; border-radius:7px; color:#cbd5e1; background:transparent; padding:5px 8px; font-size:11px; font-weight:700; }
+    .market-section { margin:0 0 9px; overflow:hidden; border:1px solid rgba(59,77,113,.9); border-radius:10px; background:#101a31; }
+    .market-section summary { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 12px; cursor:pointer; list-style:none; user-select:none; }
+    .market-section summary::-webkit-details-marker { display:none; }
+    .market-section summary::before { content:'›'; margin-right:7px; color:var(--accent-2); font-size:18px; transition:transform .15s ease; }
+    .market-section[open] summary::before { transform:rotate(90deg); }
+    .section-title { display:flex; flex:1; min-width:0; align-items:baseline; gap:8px; }
+    .section-game { overflow:hidden; color:#dbeafe; font-size:12px; font-weight:800; text-overflow:ellipsis; white-space:nowrap; }
+    .section-market { overflow:hidden; color:var(--muted); font-size:12px; text-overflow:ellipsis; white-space:nowrap; }
+    .section-count { color:var(--accent-2); font-size:11px; font-weight:800; white-space:nowrap; }
+    .section-rows { border-top:1px solid rgba(51,69,106,.55); }
+    .category-section { margin:0 0 12px; overflow:hidden; border:1px solid #4c3b7c; border-radius:12px; background:rgba(32,23,67,.44); }
+    .category-section > summary { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 14px; cursor:pointer; list-style:none; user-select:none; font-size:14px; font-weight:850; color:#ede9fe; }
+    .category-section > summary::-webkit-details-marker { display:none; }
+    .category-section > summary::before { content:'›'; margin-right:7px; color:var(--accent-2); font-size:19px; transition:transform .15s ease; }
+    .category-section[open] > summary::before { transform:rotate(90deg); }
+    .category-body { padding:0 9px 1px; border-top:1px solid rgba(99,78,155,.48); }
+    .player-group { padding:12px; border-bottom:1px solid rgba(51,69,106,.55); }
+    .player-group:last-child { border-bottom:0; }
+    .player-group-head { display:flex; gap:9px; align-items:baseline; margin-bottom:9px; }
+    .player-group-head .game { white-space:nowrap; }
+    .player-options { display:flex; flex-wrap:wrap; gap:7px; }
+    .option-button { display:grid; min-width:64px; gap:2px; border:1px solid #465a82; border-radius:8px; padding:7px 9px; color:#f5f3ff; background:#172442; text-align:center; }
+    .option-button:hover { border-color:var(--accent-2); background:#2c1d56; }
+    .option-button.is-selected { border-color:var(--good); background:rgba(16,109,81,.24); color:#d1fae5; }
+    .option-label { font-weight:800; line-height:1.1; }
+    .option-odds { color:var(--good); font:700 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .line { display:grid; grid-template-columns:minmax(150px,1.1fr) minmax(115px,.8fr) minmax(150px,1fr) 68px; gap:12px; align-items:center; padding:11px 9px; border-bottom:1px solid rgba(51,69,106,.55); }
+    .line:last-child { border-bottom:0; }
+    .player { font-weight:750; }
+    .game, .market { color:var(--muted); font-size:12px; }
+    .selection { color:#e9d5ff; font-weight:650; }
+    .odds { font:700 13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color:var(--good); }
+    .add, .primary, .ghost { border:0; border-radius:8px; padding:8px 10px; font-weight:750; }
+    .add { background:#2c1d56; color:#ddd6fe; }
+    .add:hover, .primary:hover { filter:brightness(1.15); }
+    .primary { background:var(--accent); color:white; }
+    .ghost { background:#223150; color:#ced8ed; }
+    .empty { padding:32px 18px; text-align:center; color:var(--muted); }
+    .builder { position:sticky; top:16px; }
+    .stake { display:flex; gap:8px; align-items:end; padding:14px 18px; border-bottom:1px solid var(--line); }
+    .stake .field { flex:1; }
+    .legs { padding:8px 12px; min-height:140px; max-height:370px; overflow:auto; }
+    .leg { display:grid; grid-template-columns:1fr auto; gap:10px; padding:11px 6px; border-bottom:1px solid rgba(51,69,106,.55); }
+    .leg-name { font-weight:700; }
+    .leg-meta { margin-top:2px; color:var(--muted); font-size:12px; }
+    .remove { align-self:start; border:0; color:#fecaca; background:transparent; font-size:18px; line-height:1; }
+    .summary { padding:16px 18px; border-top:1px solid var(--line); background:rgba(11,17,32,.28); }
+    .summary-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:12px 0; }
+    .metric { padding:10px; border:1px solid #2a3b5f; border-radius:10px; background:#0d162c; }
+    .metric small { display:block; color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:.05em; font-size:10px; }
+    .metric b { display:block; margin-top:3px; font-size:18px; letter-spacing:-.03em; }
+    .muted { color:var(--muted); }
+    .fine { margin:9px 0 0; color:#9caeca; font-size:11px; }
+    .import { margin-top:18px; }
+    .import-body { padding:15px 18px 18px; }
+    textarea { min-height:104px; resize:vertical; font:12px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .import-actions { display:flex; gap:8px; margin-top:10px; align-items:center; flex-wrap:wrap; }
+    .result { color:var(--good); font-size:12px; min-height:18px; }
+    .drafts { padding:14px 18px; border-top:1px solid var(--line); }
+    .drafts h3 { margin:0; font-size:13px; }
+    .draft-controls { display:grid; grid-template-columns:1fr auto; gap:8px; align-items:end; margin-top:10px; }
+    .draft-actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+    .draft-list { display:grid; gap:7px; margin-top:11px; }
+    .draft-card { display:grid; grid-template-columns:1fr auto; gap:8px; padding:9px 10px; border:1px solid #2a3b5f; border-radius:9px; background:#0d162c; }
+    .draft-card.active { border-color:var(--accent); }
+    .draft-name { font-weight:800; }
+    .draft-meta { margin-top:2px; color:var(--muted); font-size:11px; }
+    .draft-buttons { display:flex; gap:5px; align-items:start; }
+    .draft-button { border:1px solid #3b4d71; border-radius:6px; padding:4px 6px; color:#cbd5e1; background:transparent; font-size:10px; font-weight:800; }
+    code { color:#ddd6fe; }
+    @media (max-width:900px) { .layout { grid-template-columns:1fr; } .builder { position:static; } }
+    @media (max-width:620px) { .filters { grid-template-columns:1fr; } .line { grid-template-columns:1fr auto; gap:5px 10px; } .line .market { grid-column:1; } .line .odds { grid-column:2; grid-row:1; } .line .add { grid-column:2; grid-row:2; } .draft-controls { grid-template-columns:1fr; } .player-group-head { flex-wrap:wrap; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Player Prop <span>Parlay Planner</span></h1>
+    <p class="sub">A local research workspace for Alejandro and Andy. It estimates a raw multi-leg payout from captured BetOnline prices; it never signs in, sends selections, creates a bet slip, or records a wager.</p>
+  </header>
+
+  <main class="page">
+    <div class="notice"><span>⚠</span><div><strong>Estimate only.</strong> Same-game parlays are priced by the book with correlation and eligibility rules. The raw multiplication shown here is not a BetOnline quote. Recheck every line and the final payout at the book before taking any action.</div></div>
+
+    <section class="layout">
+      <div>
+        <section class="panel">
+          <div class="panel-head"><div><h2>Captured market selections</h2><span class="muted" id="captureNote"></span></div><span class="chip live" id="lineCount"></span></div>
+          <div class="filters">
+            <label class="field">Game<select id="gameFilter"></select></label>
+            <label class="field">Find a player or selection<input id="search" placeholder="e.g., Flowers, Over, 27.5"></label>
+          </div>
+          <div class="market-tabs" id="marketTabs"></div>
+          <div class="section-controls"><button class="section-control" id="expandSections">Expand filtered</button><button class="section-control" id="collapseSections">Collapse filtered</button></div>
+          <div class="lines" id="lineList"></div>
+        </section>
+
+        <section class="panel import">
+          <div class="panel-head"><div><h2>Add more captured BEO lines</h2><span class="muted">Paste only lines you already collected; nothing is fetched.</span></div></div>
+          <div class="import-body">
+            <div class="notice"><span>ⓘ</span><div><strong>Authoritative PIT–CLE compact capture:</strong> pasted from BEO pre-kickoff on Oct. 1 at 8:15 PM ET. The group names mirror the captured BEO headings. The compact source did not separate a Game Props subsection, so its game rows remain under <em>Game Markets (Parlays only)</em>; First Touchdown Scorer had no pasted rows.</div></div>
+            <label class="field">One line per selection: <code>GAME | PLAYER | MARKET | SELECTION | AMERICAN_ODDS</code>
+              <textarea id="importText" placeholder="IND @ WAS | Example Player | Receptions | Over 4.5 | -115"></textarea>
+            </label>
+            <div class="import-actions"><button class="primary" id="importButton">Add pasted lines</button><button class="ghost" id="downloadButton">Download planner JSON</button><span class="result" id="importResult"></span></div>
+            <p class="fine">Use exact, dated captures. The planner treats imported lines as historical until you replace them; it does not validate player status, market availability, or parlay eligibility.</p>
+          </div>
+        </section>
+      </div>
+
+      <aside class="panel builder">
+        <div class="panel-head"><h2>Research stack</h2><span class="count" id="legCount">0 legs</span></div>
+        <div class="stake"><label class="field">Stake<input id="stake" type="number" min="0" step="0.01" value="10"></label><button class="ghost" id="clearButton">Clear</button></div>
+        <div class="legs" id="legList"><div class="empty">Add a line from the left to model a payout.</div></div>
+        <div class="summary">
+          <div class="summary-grid">
+            <div class="metric"><small>Estimated odds</small><b id="combinedOdds">—</b></div>
+            <div class="metric"><small>Decimal multiplier</small><b id="decimalOdds">—</b></div>
+            <div class="metric"><small>Estimated return</small><b id="estimatedReturn">—</b></div>
+            <div class="metric"><small>Estimated profit</small><b id="estimatedProfit">—</b></div>
+          </div>
+          <div id="correlationNote" class="fine">Select two or more legs to see the estimate.</div>
+        </div>
+        <section class="drafts">
+          <h3>Draft stacks</h3>
+          <p class="fine">Saved only in this browser. Export a draft JSON to send for final odds verification; nothing is sent automatically.</p>
+          <div class="draft-controls"><label class="field">Draft name<input id="draftName" maxlength="80" placeholder="e.g., Thursday primary card"></label><button class="primary" id="saveDraft">Save draft</button></div>
+          <div class="draft-actions"><button class="ghost" id="newDraft">New stack</button><button class="ghost" id="exportDraft">Export active draft</button><span class="result" id="draftStatus"></span></div>
+          <div class="draft-list" id="draftList"></div>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <script id="pitCleCompact" type="text/plain">
+# BEO (BetOnline) PIT @ CLE, pasted by Andy 2026-10-01 (pre-kickoff 8:15pm ET). Compact transcription of the page text; prices American.
+# Formats: GM|market|selA:price|selB:price   OU|market|player|team|line|over|under   LAD|market|player|team|thr:price,...   TD|player|team|1+|2+|3+   EX|market|player|team|n:price,...
+# Header on page: "Game Markets (Parlays only)" for the first block.
+GM|spread|PIT -2.5:-125|CLE +2.5:+100
+GM|total 38.5|Over:-115|Under:-115
+GM|moneyline|PIT:-150|CLE:+114
+GM|1H spread|PIT -0.5:-110|CLE +0.5:-115
+GM|1H total 19.5|Over:-110|Under:-115
+GM|CLE total 17.5|Over:-106|Under:-121
+GM|PIT total 19.5|Over:-130|Under:+104
+GM|total touchdowns 3.5|Over:-164|Under:+129
+GM|1Q spread|PIT -0.5:+129|CLE +0.5:-170
+GM|1Q total 7.5|Over:+135|Under:-176
+GM|highest scoring quarter|Q1:+700|Q2:+195|Q3:+600|Q4:+235|equal:+550
+GM|CLE score on first drive|yes:+180|no:-244
+GM|PIT score on first drive|yes:+194|no:-264
+GM|first drive result|punt:-132|any other:+550|offensive TD:+401|FG attempt:+403
+GM|first score is TD|yes:-129|no:-110
+GM|time of first score 7 min|Under:-108|Over:-121
+GM|3 straight scores by either team|yes:-159|no:+121
+GM|defensive or ST TD|yes:+270|no:-385
+GM|both teams score over 19.5|yes:+225|no:-323
+GM|both teams score over 24.5|yes:+800|no:-2500
+GM|team to score first|CLE:-102|PIT:-130
+GM|team to score last|CLE:-103|PIT:-129
+GM|team to score first wins|yes:-159|no:+122
+GM|team to score last wins|yes:-278|no:+201
+GM|race to 10|CLE:+108|PIT:-139
+GM|race to 15|CLE:+114|PIT:-145
+GM|race to 20|CLE:+117|PIT:-150
+GM|largest lead 14.5|Over:+125|Under:-164
+GM|PIT total TDs 2.5|Over:+134|Under:-189
+GM|CLE total TDs 1.5|Over:-152|Under:+109
+GM|PIT total FGs 1.5|Over:-159|Under:+115
+GM|CLE total FGs 1.5|Over:-125|Under:-110
+GM|longest TD 34.5|Over:-114|Under:-114
+GM|total first downs 39.5|Over:+328|Under:-501
+GM|most first downs|CLE:+127|PIT:-170
+GM|any team 40+ pts|yes:+950|no:-3334
+GM|highest scoring half|first:-109|second:-120
+GM|scoreless quarter|yes:+200|no:-271
+GM|overtime|yes:+1000|no:-3334
+GM|safety|yes:+900|no:-2500
+GM|total points odd|yes:-137|no:+107
+OU|pass_yds|Aaron Rodgers|PIT|214.5|-114|-114
+OU|pass_yds|Deshaun Watson|CLE|185.5|-117|-112
+OU|pass_cmp|Aaron Rodgers|PIT|19.5|-130|+100
+OU|pass_cmp|Deshaun Watson|CLE|18.5|-115|-113
+OU|pass_td|Aaron Rodgers|PIT|1.5|+152|-200
+OU|pass_td|Deshaun Watson|CLE|0.5|-213|+160
+OU|pass_att|Aaron Rodgers|PIT|34.5|+100|-130
+OU|pass_att|Deshaun Watson|CLE|28.5|-134|+102
+OU|rush_yds|Deshaun Watson|CLE|28.5|-117|-112
+OU|rush_yds|Jaylen Warren|PIT|75.5|-117|-112
+OU|rush_yds|Quinshon Judkins|CLE|55.5|-117|-112
+OU|rush_yds|Raheim Sanders|CLE|5.5|-117|-112
+OU|rush_yds|Travis Homer|PIT|6.5|-120|-109
+OU|carries|Deshaun Watson|CLE|5.5|-157|+120
+OU|carries|Jaylen Warren|PIT|17.5|-108|-121
+OU|carries|Quinshon Judkins|CLE|16.5|-110|-118
+OU|rec_yds|DK Metcalf|PIT|46.5|-121|-108
+OU|rec_yds|Darnell Washington|PIT|16.5|-114|-114
+OU|rec_yds|Denzel Boston|CLE|38.5|-114|-114
+OU|rec_yds|Germie Bernard|PIT|8.5|-115|-113
+OU|rec_yds|Harold Fannin|CLE|40.5|-117|-112
+OU|rec_yds|Jaylen Warren|PIT|26.5|-114|-114
+OU|rec_yds|Jerry Jeudy|CLE|14.5|-117|-112
+OU|rec_yds|KC Concepcion|CLE|35.5|-117|-112
+OU|rec_yds|Michael Pittman|PIT|33.5|-120|-109
+OU|rec_yds|Pat Freiermuth|PIT|26.5|-115|-113
+OU|rec_yds|Quinshon Judkins|CLE|11.5|-108|-121
+OU|rec_yds|Raheim Sanders|CLE|11.5|-114|-114
+OU|rec_yds|Roman Wilson|PIT|21.5|-114|-114
+OU|rec|DK Metcalf|PIT|3.5|-143|+110
+OU|rec|Darnell Washington|PIT|1.5|-157|+120
+OU|rec|Denzel Boston|CLE|2.5|-150|+114
+OU|rec|Germie Bernard|PIT|1.5|+158|-209
+OU|rec|Harold Fannin|CLE|4.5|-104|-125
+OU|rec|Jaylen Warren|PIT|3.5|+100|-130
+OU|rec|Jerry Jeudy|CLE|1.5|+112|-145
+OU|rec|KC Concepcion|CLE|4.5|+120|-157
+OU|rec|Michael Pittman|PIT|3.5|+102|-134
+OU|rec|Pat Freiermuth|PIT|3.5|+129|-170
+OU|rec|Quinshon Judkins|CLE|2.5|+144|-189
+OU|rec|Raheim Sanders|CLE|1.5|-157|+120
+OU|rec|Roman Wilson|PIT|2.5|+140|-186
+OU|pass_int|Aaron Rodgers|PIT|0.5|+102|-134
+OU|pass_int|Deshaun Watson|CLE|0.5|-121|-108
+OU|tackles_assists|Carson Schwesinger|CLE|8.5|-125|-104
+OU|tackles_assists|Denzel Ward|CLE|3.5|-106|-124
+OU|tackles_assists|Grant Delpit|CLE|4.5|-157|+120
+OU|tackles_assists|Jaquan Brisker|PIT|6.5|-121|-108
+OU|tackles_assists|Patrick Queen|PIT|7.5|-104|-125
+OU|tackles_assists|Payton Wilson|PIT|6.5|-114|-114
+OU|tackles_assists|Quincy Williams|CLE|6.5|-136|+104
+OU|tackles_assists|Ronnie Hickman|CLE|6.5|+100|-130
+OU|sacks|Alex Highsmith|PIT|0.5|-143|+110
+OU|sacks|Cameron Heyward|PIT|0.5|+309|-455
+OU|sacks|Derrick Harmon|PIT|0.5|+200|-271
+OU|sacks|Isaiah McGuire|CLE|0.5|+229|-323
+OU|sacks|Jared Verse|CLE|0.5|+195|-264
+OU|sacks|Maliek Collins|CLE|0.5|+225|-313
+OU|sacks|Mason Graham|CLE|0.5|+150|-197
+OU|sacks|TJ Watt|PIT|0.5|-164|+125
+TD|Jaylen Warren|PIT|-112|+450|+2400
+TD|Quinshon Judkins|CLE|+120|+600|+3400
+TD|DK Metcalf|PIT|+220|+1400|+9400
+TD|Harold Fannin|CLE|+270|+1900|+11000
+TD|Denzel Boston|CLE|+270|+1900|+11000
+TD|KC Concepcion|CLE|+300|+2400|+12000
+TD|Pat Freiermuth|PIT|+350|+2900|+15000
+TD|Michael Pittman|PIT|+350|+2900|+15000
+TD|Deshaun Watson|CLE|+400|+3400|+15000
+TD|Darnell Washington|PIT|+450|+3600|+17500
+TD|Roman Wilson|PIT|+450|+3600|+17500
+TD|Raheim Sanders|CLE|+650|+5400|+20000
+TD|Jerry Jeudy|CLE|+900|+7900|+20000
+TD|Germie Bernard|PIT|+900|+7900|+20000
+TD|Travis Homer|PIT|+1000|+8400|+20000
+TD|Ben Skowronek|PIT|+1100|+8900|+25000
+TD|Blake Whiteheart|CLE|+1100|+8900|+25000
+TD|Aaron Rodgers|PIT|+1100|+8900|+25000
+TD|Isaiah Bond|CLE|+1400|+10000|+30000
+TD|Tylan Wallace|CLE|+1400|+10000|+30000
+TD|Kaden Wetjen|PIT|+1400|+10000|+30000
+TD|Jaleel McLaughlin|CLE|+1400|+10000|+30000
+TD|Malachi Corley|CLE|+1900|+12000|+30000
+TD|Riley Nowakowski|PIT|+1900|+12000|+30000
+TD|Robert Tonyan|PIT|+1900|+12000|+30000
+TD|Eli Heidenreich|PIT|+1900|+12000|+30000
+TD|Michael Burton|CLE|+2900|+14000|+30000
+TD|Carsen Ryan|CLE|+3400|+15000|+30000
+# First Touchdown Scorer: header present on page with no rows pasted.
+LAD|pass_yds|Aaron Rodgers|PIT|195:-200,205:-150,215:-114,225:+108,235:+134,245:+164,255:+200,265:+250,275:+309,285:+380,295:+475,305:+600,315:+750,325:+950,335:+1250,345:+1600,355:+2100
+LAD|pass_yds|Deshaun Watson|CLE|166:-205,176:-154,186:-117,196:+102,206:+121,216:+142,226:+168,236:+198,246:+229,256:+280,266:+330,276:+390,286:+475,296:+550,306:+675,316:+800,326:+1000
+LAD|pass_cmp|Aaron Rodgers|PIT|18:-278,20:-130,22:+127,24:+210,26:+330,28:+550,30:+950,32:+1650
+LAD|pass_cmp|Deshaun Watson|CLE|17:-239,19:-115,21:+141,23:+229,25:+370,27:+625,29:+1050,31:+1900
+LAD|pass_td|Aaron Rodgers|PIT|1:-400,2:+152,3:+330,4:+875
+LAD|pass_td|Deshaun Watson|CLE|1:-213,2:+183,3:+625,4:+2300
+LAD|pass_att|Aaron Rodgers|PIT|33:-162,35:+100,37:+137,39:+193,41:+270,43:+390,45:+550,47:+825
+LAD|pass_att|Deshaun Watson|CLE|27:-244,29:-134,31:+114,33:+171,35:+260,37:+390,39:+600,41:+950
+LAD|pass_int|Aaron Rodgers|PIT|1:+102,2:+400,3:+1550
+LAD|pass_int|Deshaun Watson|CLE|1:-121,2:+270,3:+800
+# Bands/Exact headers for passing yards/completions/attempts present on page with no rows pasted.
+LAD|rush_yds|Deshaun Watson|CLE|19:-251,29:-117,39:+131,49:+200,59:+309,69:+500,79:+775,89:+1300,99:+2200,109:+4000
+LAD|rush_yds|Jaylen Warren|PIT|56:-358,66:-200,76:-117,86:+122,96:+173,106:+240,116:+350,126:+500,136:+750,146:+1100,156:+1700
+LAD|rush_yds|Quinshon Judkins|CLE|36:-501,46:-228,56:-117,66:+124,76:+175,86:+250,96:+359,106:+525,116:+800,126:+1200,136:+1850
+LAD|rush_yds|Raheim Sanders|CLE|16:+174,26:+350,36:+750,46:+1750,56:+4400
+LAD|rush_yds|Travis Homer|PIT|17:+179,27:+380,37:+875,47:+2100
+LAD|carries|Deshaun Watson|CLE|4:-626,5:-313,6:-157,7:-104,8:+141,9:+210,10:+300,11:+450,12:+675,13:+1050,14:+1650
+LAD|carries|Jaylen Warren|PIT|16:-233,17:-157,18:-108,19:+118,20:+150,21:+193,22:+250,23:+320,24:+400,25:+550,26:+700
+LAD|carries|Quinshon Judkins|CLE|15:-218,16:-154,17:-110,18:+110,19:+136,20:+167,21:+210,22:+250,23:+309,24:+390,25:+475
+LAD|rec_yds|DK Metcalf|PIT|37:-223,47:-121,57:+120,67:+170,77:+240,87:+350,97:+500,107:+750,117:+1100,127:+1700
+LAD|rec_yds|Darnell Washington|PIT|17:-114,27:+138,37:+220,47:+340,57:+550,67:+900,77:+1500,87:+2700
+LAD|rec_yds|Denzel Boston|CLE|29:-223,39:-114,49:+123,59:+171,69:+240,79:+330,89:+475,99:+675,109:+1000,119:+1500
+LAD|rec_yds|Germie Bernard|PIT|19:+133,29:+200,39:+309,49:+475,59:+750,69:+1250,79:+2100,89:+3600
+LAD|rec_yds|Harold Fannin|CLE|31:-233,41:-117,51:+120,61:+165,71:+229,81:+320,91:+450,101:+625,111:+900,121:+1350
+LAD|rec_yds|Jaylen Warren|PIT|17:-278,27:-114,37:+142,47:+229,57:+370,67:+625,77:+1100,87:+1900,97:+3700
+LAD|rec_yds|Jerry Jeudy|CLE|15:-117,25:+125,35:+179,45:+260,55:+380,65:+550,75:+825,85:+1250,95:+2000
+LAD|rec_yds|KC Concepcion|CLE|26:-228,36:-117,46:+121,56:+168,66:+229,76:+330,86:+475,96:+675,106:+1000,116:+1450
+LAD|rec_yds|Michael Pittman|PIT|24:-233,34:-120,44:+119,54:+166,64:+229,74:+330,84:+450,94:+675,104:+950,114:+1450
+LAD|rec_yds|Pat Freiermuth|PIT|17:-264,27:-115,37:+127,47:+184,57:+270,67:+400,77:+600,87:+900,97:+1400,107:+2200
+LAD|rec_yds|Quinshon Judkins|CLE|12:-108,22:+138,32:+210,42:+320,52:+500,62:+800,72:+1300,82:+2200,92:+3800
+LAD|rec_yds|Raheim Sanders|CLE|12:-114,22:+138,32:+220,42:+340,52:+550,62:+900,72:+1550,82:+2700
+LAD|rec_yds|Roman Wilson|PIT|12:-295,22:-114,32:+140,42:+220,52:+359,62:+575,72:+1000,82:+1700,92:+3100
+LAD|rec|DK Metcalf|PIT|3:-556,4:-143,5:+144,6:+280,7:+550,8:+1100,9:+2300
+LAD|rec|Darnell Washington|PIT|2:-157,3:+142,4:+290,5:+600,6:+1250,7:+2700
+LAD|rec|Denzel Boston|CLE|2:-715,3:-150,4:+136,5:+250,6:+475,7:+900,8:+1800
+LAD|rec|Germie Bernard|PIT|2:+158,3:+250,4:+450,5:+875,6:+1700,7:+3400
+LAD|rec|Harold Fannin|CLE|4:-334,5:-104,6:+165,7:+290,8:+500,9:+900,10:+1650
+LAD|rec|Jaylen Warren|PIT|3:-323,4:+100,5:+185,6:+350,7:+675,8:+1350,9:+2800
+LAD|rec|Jerry Jeudy|CLE|2:+112,3:+210,4:+425,5:+850,6:+1800,7:+3900
+LAD|rec|KC Concepcion|CLE|4:-233,5:+120,6:+191,7:+330,8:+575,9:+1050,10:+1900
+LAD|rec|Michael Pittman|PIT|3:-228,4:+102,5:+158,6:+250,7:+400,8:+650,9:+1100
+LAD|rec|Pat Freiermuth|PIT|3:-251,4:+129,5:+200,6:+359,7:+650,8:+1200,9:+2200
+LAD|rec|Quinshon Judkins|CLE|2:-218,3:+144,4:+260,5:+525,6:+1100,7:+2300
+LAD|rec|Raheim Sanders|CLE|2:-157,3:+139,4:+270,5:+525,6:+1100,7:+2200
+LAD|rec|Roman Wilson|PIT|2:-233,3:+140,4:+210,5:+359,6:+625,7:+1100,8:+2000
+# Receiving yards Bands / receptions Bands headers present with no rows pasted.
+EX|rec|DK Metcalf|PIT|0:+2100,1:+900,2:+375,3:+225,4:+200,5:+275,6:+500,7:+1500,8+:+1000
+EX|rec|Darnell Washington|PIT|0:+250,1:+200,2:+175,3:+250,4:+600,5:+1900,6+:+1400
+EX|rec|Denzel Boston|CLE|0:+600,1:+375,2:+225,3:+200,4:+250,5:+525,6:+1400,7+:+900
+EX|rec|Harold Fannin|CLE|0:+3000,1:+1300,2:+600,3:+300,4:+225,5:+225,6:+350,7:+700,8:+1700,9+:+1000
+EX|rec|Jaylen Warren|PIT|0:+1200,1:+600,2:+275,3:+200,4:+200,5:+350,6:+800,7:+2500,8+:+1500
+EX|rec|Jerry Jeudy|CLE|0:+129,1:+175,2:+200,3:+375,4:+1100,5:+4500,6+:+2600
+EX|rec|KC Concepcion|CLE|0:+2100,1:+1000,2:+450,3:+275,4:+225,5:+250,6:+400,7:+900,8:+2400,9+:+1300
+EX|rec|Michael Pittman|PIT|0:+450,1:+500,2:+325,3:+275,4:+300,5:+400,6:+600,7:+1200,8:+2800,9+:+1200
+EX|rec|Pat Freiermuth|PIT|0:+800,1:+450,2:+250,3:+200,4:+225,5:+425,6:+1100,7:+3700,8+:+2000
+EX|rec|Quinshon Judkins|CLE|0:+290,1:+225,2:+175,3:+225,4:+475,5:+1500,6+:+1200
+EX|rec|Raheim Sanders|CLE|0:+250,1:+200,2:+175,3:+250,4:+600,5:+1900,6+:+1400
+EX|rec|Roman Wilson|PIT|0:+240,1:+225,2:+200,3:+250,4:+450,5:+1200,6:+4200,7+:+2200
+LAD|tackles_assists|Carson Schwesinger|CLE|8:-251,9:-125,10:+129,11:+200,12:+320,13:+500
+LAD|tackles_assists|Denzel Ward|CLE|3:-233,4:-106,5:+147,6:+229,7:+359,8:+575
+LAD|tackles_assists|Grant Delpit|CLE|4:-358,5:-157,6:+110,7:+179,8:+290,9:+475
+LAD|tackles_assists|Jaquan Brisker|PIT|6:-244,7:-121,8:+131,9:+210,10:+320,11:+525
+LAD|tackles_assists|Patrick Queen|PIT|7:-193,8:-104,9:+138,10:+200,11:+290,12:+425
+LAD|tackles_assists|Payton Wilson|PIT|6:-205,7:-114,8:+129,9:+189,10:+280,11:+400
+LAD|tackles_assists|Quincy Williams|CLE|6:-295,7:-136,8:+120,9:+185,10:+290,11:+450
+LAD|tackles_assists|Ronnie Hickman|CLE|6:-197,7:+100,8:+150,9:+229,10:+359,11:+575
+LAD|sacks|Alex Highsmith|PIT|1:-143,2:+400
+LAD|sacks|Cameron Heyward|PIT|1:+309,2:+900
+LAD|sacks|Derrick Harmon|PIT|1:+200,2:+900
+LAD|sacks|Isaiah McGuire|CLE|1:+229,2:+900
+LAD|sacks|Jared Verse|CLE|1:+195,2:+900
+LAD|sacks|Maliek Collins|CLE|1:+225,2:+600
+LAD|sacks|Mason Graham|CLE|1:+150,2:+900
+LAD|sacks|TJ Watt|PIT|1:-164,2:+250
+  </script>
+
+  <script>
+    // Verified read-only BEO Props Builder snapshot. No selection was clicked or added to a bet slip.
+    const marketOrder = [
+      'Game Markets (Parlays only)', 'Game Props',
+      'Over/Under (passing yards)', 'Over/Under (pass completions)', 'Over/Under (passing TDs)', 'Over/Under (pass attempts)',
+      'Over/Under (rushing yards)', 'Over/Under (carries)', 'Over/Under (receiving yards)', 'Over/Under (receptions)',
+      'Over/Under (pass interceptions)', 'Over/Under (Tackles + Assists)', 'Over/Under (sacks)',
+      'Touchdowns', 'First Touchdown Scorer',
+      'Passing Yards', 'Pass Completions', 'Passing TDs', 'Pass Attempts', 'Pass Interceptions', 'Rushing Yards', 'Carries',
+      'Receiving Yards', 'Receptions', 'Tackles + Assists', 'Sacks'
+    ];
+    const emptyMarketGroups = new Set(['Game Props', 'First Touchdown Scorer']);
+    const categoryOrder = ['Game', 'Touchdowns', 'Passing', 'Rushing', 'Receiving', 'DEF'];
+    const categoryMarkets = {
+      Game:new Set(['Game Markets (Parlays only)', 'Game Props']),
+      Touchdowns:new Set(['Touchdowns', 'First Touchdown Scorer']),
+      Passing:new Set(['Over/Under (passing yards)', 'Over/Under (pass completions)', 'Over/Under (passing TDs)', 'Over/Under (pass attempts)', 'Over/Under (pass interceptions)', 'Passing Yards', 'Pass Completions', 'Passing TDs', 'Pass Attempts', 'Pass Interceptions']),
+      Rushing:new Set(['Over/Under (rushing yards)', 'Over/Under (carries)', 'Rushing Yards', 'Carries']),
+      Receiving:new Set(['Over/Under (receiving yards)', 'Over/Under (receptions)', 'Receiving Yards', 'Receptions']),
+      DEF:new Set(['Over/Under (Tackles + Assists)', 'Over/Under (sacks)', 'Tackles + Assists', 'Sacks'])
+    };
+    const categoryForMarket = market => categoryOrder.find(category => categoryMarkets[category].has(market)) || 'Other';
+    const overUnderGroups = {
+      pass_yds:'Over/Under (passing yards)', pass_cmp:'Over/Under (pass completions)', pass_td:'Over/Under (passing TDs)',
+      pass_att:'Over/Under (pass attempts)', rush_yds:'Over/Under (rushing yards)', carries:'Over/Under (carries)',
+      rec_yds:'Over/Under (receiving yards)', rec:'Over/Under (receptions)', pass_int:'Over/Under (pass interceptions)',
+      tackles_assists:'Over/Under (Tackles + Assists)', sacks:'Over/Under (sacks)'
+    };
+    const ladderGroups = {
+      pass_yds:'Passing Yards', pass_cmp:'Pass Completions', pass_td:'Passing TDs', pass_att:'Pass Attempts', pass_int:'Pass Interceptions',
+      rush_yds:'Rushing Yards', carries:'Carries', rec_yds:'Receiving Yards', rec:'Receptions', tackles_assists:'Tackles + Assists', sacks:'Sacks'
+    };
+    function parseSelectionPrice(item) {
+      const splitAt = item.lastIndexOf(':');
+      if (splitAt < 1) return null;
+      const odds = Number(item.slice(splitAt + 1));
+      return Number.isFinite(odds) && odds !== 0 ? { selection:item.slice(0, splitAt), odds } : null;
+    }
+    function parsePitCleCompact(raw) {
+      const parsed = [];
+      raw.split('\n').map(row => row.trim()).filter(row => row && !row.startsWith('#')).forEach((row, rowIndex) => {
+        const cells = row.split('|');
+        const type = cells[0];
+        const add = (player, market, selection, odds) => parsed.push({ id:`pit-cle-compact-${rowIndex}-${parsed.length}`, game:'PIT @ CLE', player, market, selection, odds, capturedAt:'2026-10-01 20:15 ET', source:'BEO Week 4 compact capture' });
+        if (type === 'GM') {
+          cells.slice(2).map(parseSelectionPrice).filter(Boolean).forEach(item => add('Game market', 'Game Markets (Parlays only)', `${cells[1]} · ${item.selection}`, item.odds));
+        } else if (type === 'OU' && cells.length === 7) {
+          const [, key, player, team, line, over, under] = cells;
+          [[`Over ${line}`, Number(over)], [`Under ${line}`, Number(under)]].filter(([, odds]) => Number.isFinite(odds) && odds !== 0).forEach(([selection, odds]) => add(`${player} (${team})`, overUnderGroups[key], selection, odds));
+        } else if (type === 'LAD' && cells.length >= 5) {
+          const [, key, player, team, ...items] = cells;
+          items.flatMap(item => item.split(',')).map(parseSelectionPrice).filter(Boolean).forEach(item => add(`${player} (${team})`, ladderGroups[key], item.selection.endsWith('+') ? item.selection : `${item.selection}+`, item.odds));
+        } else if (type === 'TD' && cells.length === 6) {
+          const [, player, team, one, two, three] = cells;
+          [['1+ TD', Number(one)], ['2+ TD', Number(two)], ['3+ TD', Number(three)]].filter(([, odds]) => Number.isFinite(odds) && odds !== 0).forEach(([selection, odds]) => add(`${player} (${team})`, 'Touchdowns', selection, odds));
+        } else if (type === 'EX' && cells.length >= 5) {
+          const [, key, player, team, ...items] = cells;
+          items.flatMap(item => item.split(',')).map(parseSelectionPrice).filter(Boolean).forEach(item => add(`${player} (${team})`, ladderGroups[key], `Exact receptions: ${item.selection}`, item.odds));
+        }
+      });
+      return parsed;
+    }
+    const pitCleCompactLines = parsePitCleCompact(document.getElementById('pitCleCompact').textContent);
+    let lines = pitCleCompactLines;
+    let legs = [];
+    let activeMarket = 'All';
+    const draftStorageKey = 'nfl-dashboard-player-prop-drafts-v1';
+    const loadDrafts = () => { try { const stored = JSON.parse(localStorage.getItem(draftStorageKey) || '[]'); return Array.isArray(stored) ? stored.filter(draft => draft && typeof draft.id === 'string' && Array.isArray(draft.legs)) : []; } catch { return []; } };
+    let drafts = loadDrafts();
+    let activeDraftId = null;
+    const $ = id => document.getElementById(id);
+    const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#039;' })[char]);
+    const displayOdds = odds => odds > 0 ? `+${odds}` : String(odds);
+    const toDecimal = odds => odds > 0 ? 1 + odds / 100 : 1 + 100 / Math.abs(odds);
+    const toAmerican = decimal => decimal >= 2 ? Math.round((decimal - 1) * 100) : Math.round(-100 / (decimal - 1));
+    const money = value => new Intl.NumberFormat('en-US', { style:'currency', currency:'USD' }).format(value || 0);
+
+    function renderFilters() {
+      const games = ['All games', ...new Set(lines.map(x => x.game))];
+      const prior = $('gameFilter').value || 'All games';
+      $('gameFilter').innerHTML = games.map(game => `<option ${game === prior ? 'selected' : ''}>${escapeHtml(game)}</option>`).join('');
+      const knownMarkets = new Set(lines.map(x => x.market));
+      const markets = ['All', ...marketOrder.filter(market => knownMarkets.has(market) || emptyMarketGroups.has(market))];
+      $('marketTabs').innerHTML = markets.map(m => `<button class="tab ${m === activeMarket ? 'active' : ''}" data-market="${escapeHtml(m)}">${escapeHtml(m)}</button>`).join('');
+      $('marketTabs').querySelectorAll('button').forEach(button => button.addEventListener('click', () => { activeMarket = button.dataset.market; renderLines(); renderFilters(); }));
+    }
+
+    function filteredLines() {
+      const game = $('gameFilter').value;
+      const search = $('search').value.trim().toLowerCase();
+      return lines.filter(line => (game === 'All games' || line.game === game) && (activeMarket === 'All' || line.market === activeMarket) && (!search || `${line.player} ${line.selection} ${line.market}`.toLowerCase().includes(search)));
+    }
+
+    function renderLines() {
+      const visible = filteredLines();
+      $('lineCount').textContent = `${lines.length} captured selections`;
+      $('captureNote').textContent = `${new Set(lines.map(x => x.game)).size} game${new Set(lines.map(x => x.game)).size === 1 ? '' : 's'} loaded locally`;
+      const sections = new Map();
+      visible.forEach(line => {
+        const key = `${line.game}\u0000${line.market}`;
+        if (!sections.has(key)) sections.set(key, { game:line.game, market:line.market, lines:[] });
+        sections.get(key).lines.push(line);
+      });
+      const search = $('search').value.trim();
+      const showEmptyGroups = !search && (activeMarket === 'All' || emptyMarketGroups.has(activeMarket));
+      if (showEmptyGroups) {
+        emptyMarketGroups.forEach(market => {
+          if (activeMarket !== 'All' && activeMarket !== market) return;
+          const key = `PIT @ CLE\u0000${market}`;
+          if (!sections.has(key)) sections.set(key, { game:'PIT @ CLE', market, lines:[], empty:true });
+        });
+      }
+      const rank = market => { const index = marketOrder.indexOf(market); return index < 0 ? marketOrder.length : index; };
+      const orderedSections = [...sections.values()].sort((a, b) => rank(a.market) - rank(b.market));
+      const categories = new Map();
+      orderedSections.forEach(section => {
+        const category = categoryForMarket(section.market);
+        if (!categories.has(category)) categories.set(category, { name:category, sections:[], count:0 });
+        const bucket = categories.get(category); bucket.sections.push(section); bucket.count += section.lines.length;
+      });
+      const renderSection = section => {
+        const playerGroups = new Map();
+        section.lines.forEach(line => {
+          const player = line.player === 'Game market' ? line.selection.split(' · ')[0] : line.player;
+          if (!playerGroups.has(player)) playerGroups.set(player, []);
+          playerGroups.get(player).push(line);
+        });
+        const renderPlayerGroup = ([player, options]) => `<div class="player-group"><div class="player-group-head"><div class="player">${escapeHtml(player)}</div><div class="game">${escapeHtml(section.game)}</div></div><div class="player-options">${options.map(line => { const label = line.player === 'Game market' ? line.selection.split(' · ').slice(1).join(' · ') : line.selection; const selected = legs.some(leg => leg.id === line.id); return `<button class="option-button ${selected ? 'is-selected' : ''}" data-id="${line.id}" title="Add ${escapeHtml(line.player)} ${escapeHtml(line.selection)}"><span class="option-label">${escapeHtml(label)}</span><span class="option-odds">(${displayOdds(line.odds)})</span></button>`; }).join('')}</div></div>`;
+        return `<details class="market-section"><summary><span class="section-title"><span class="section-game">${escapeHtml(section.game)}</span><span class="section-market">${escapeHtml(section.market)}</span></span><span class="section-count">${section.lines.length} selection${section.lines.length === 1 ? '' : 's'}</span></summary><div class="section-rows">${section.lines.length ? [...playerGroups.entries()].map(renderPlayerGroup).join('') : '<div class="empty">No selection rows were supplied for this BEO heading.</div>'}</div></details>`;
+      };
+      const orderedCategories = [...categories.values()].sort((a, b) => { const left = categoryOrder.indexOf(a.name); const right = categoryOrder.indexOf(b.name); return (left < 0 ? categoryOrder.length : left) - (right < 0 ? categoryOrder.length : right); });
+      $('lineList').innerHTML = orderedCategories.length ? orderedCategories.map(category => `<details class="category-section" open><summary><span>${escapeHtml(category.name)}</span><span class="section-count">${category.count} selection${category.count === 1 ? '' : 's'}</span></summary><div class="category-body">${category.sections.map(renderSection).join('')}</div></details>`).join('') : '<div class="empty">No captured selections match these filters.</div>';
+      $('lineList').querySelectorAll('.option-button').forEach(button => button.addEventListener('click', () => addLeg(button.dataset.id)));
+    }
+
+    function addLeg(id) {
+      const line = lines.find(x => x.id === id);
+      if (!line || legs.some(x => x.id === id)) return;
+      legs.push(line); renderBuilder(); renderLines();
+    }
+
+    function renderBuilder() {
+      $('legCount').textContent = `${legs.length} leg${legs.length === 1 ? '' : 's'}`;
+      $('legList').innerHTML = legs.length ? legs.map(line => `<div class="leg"><div><div class="leg-name">${escapeHtml(line.player)} · ${escapeHtml(line.selection)} <span class="odds">${displayOdds(line.odds)}</span></div><div class="leg-meta">${escapeHtml(line.game)} · ${escapeHtml(line.market)}</div></div><button class="remove" aria-label="Remove ${escapeHtml(line.player)}" data-id="${line.id}">×</button></div>`).join('') : '<div class="empty">Add a line from the left to model a payout.</div>';
+      $('legList').querySelectorAll('.remove').forEach(button => button.addEventListener('click', () => { legs = legs.filter(x => x.id !== button.dataset.id); renderBuilder(); renderLines(); }));
+      const stake = Math.max(0, Number($('stake').value) || 0);
+      const decimal = legs.reduce((total, leg) => total * toDecimal(leg.odds), 1);
+      const hasEstimate = legs.length > 0;
+      $('combinedOdds').textContent = hasEstimate ? displayOdds(toAmerican(decimal)) : '—';
+      $('decimalOdds').textContent = hasEstimate ? `${decimal.toFixed(3)}×` : '—';
+      $('estimatedReturn').textContent = hasEstimate ? money(stake * decimal) : '—';
+      $('estimatedProfit').textContent = hasEstimate ? money(stake * decimal - stake) : '—';
+      const games = new Set(legs.map(x => x.game));
+      $('correlationNote').textContent = !hasEstimate ? 'Select two or more legs to see the estimate.' : games.size < legs.length ? 'Same-game legs detected. The book’s actual SGP price can differ materially from this raw multiplication.' : 'Cross-game raw parlay estimate. Recheck price, eligibility, and limits at the book.';
+    }
+
+    function estimateFor(selectedLegs, stake) {
+      const decimal = selectedLegs.reduce((total, leg) => total * toDecimal(leg.odds), 1);
+      return selectedLegs.length ? { american:toAmerican(decimal), decimal:Number(decimal.toFixed(6)), stake, estimatedReturn:Number((stake * decimal).toFixed(2)), estimatedProfit:Number((stake * decimal - stake).toFixed(2)) } : null;
+    }
+    function persistDrafts() { try { localStorage.setItem(draftStorageKey, JSON.stringify(drafts)); return true; } catch { $('draftStatus').textContent = 'Could not save drafts in this browser.'; return false; } }
+    function renderDrafts() {
+      $('draftList').innerHTML = drafts.length ? drafts.slice().sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)).map(draft => `<div class="draft-card ${draft.id === activeDraftId ? 'active' : ''}"><div><div class="draft-name">${escapeHtml(draft.name)}</div><div class="draft-meta">${draft.legs.length} leg${draft.legs.length === 1 ? '' : 's'} · saved ${escapeHtml(new Date(draft.updatedAt).toLocaleString())}</div></div><div class="draft-buttons"><button class="draft-button" data-draft-action="load" data-id="${draft.id}">Load</button><button class="draft-button" data-draft-action="export" data-id="${draft.id}">Export</button><button class="draft-button" data-draft-action="delete" data-id="${draft.id}">Delete</button></div></div>`).join('') : '<p class="fine">No drafts saved yet.</p>';
+      $('draftList').querySelectorAll('[data-draft-action]').forEach(button => button.addEventListener('click', () => {
+        const draft = drafts.find(item => item.id === button.dataset.id);
+        if (!draft) return;
+        if (button.dataset.draftAction === 'load') loadDraft(draft);
+        if (button.dataset.draftAction === 'export') exportDraft(draft);
+        if (button.dataset.draftAction === 'delete') deleteDraft(draft.id);
+      }));
+    }
+    function saveDraft() {
+      if (!legs.length) { $('draftStatus').textContent = 'Add at least one selection before saving a draft.'; return; }
+      const now = new Date().toISOString();
+      const name = $('draftName').value.trim() || `Stack ${drafts.length + 1}`;
+      const snapshot = { name, legs:[...legs], stake:Math.max(0, Number($('stake').value) || 0), updatedAt:now };
+      const active = drafts.find(draft => draft.id === activeDraftId);
+      if (active) Object.assign(active, snapshot);
+      else { activeDraftId = `draft-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`; drafts.push({ id:activeDraftId, createdAt:now, ...snapshot }); }
+      if (persistDrafts()) { $('draftName').value = name; $('draftStatus').textContent = 'Draft saved locally.'; renderDrafts(); }
+    }
+    function newDraft() {
+      legs = []; activeDraftId = null; $('draftName').value = ''; $('draftStatus').textContent = 'New empty stack.'; renderBuilder(); renderLines(); renderDrafts();
+    }
+    function loadDraft(draft) {
+      legs = [...draft.legs]; activeDraftId = draft.id; $('draftName').value = draft.name; $('stake').value = draft.stake; $('draftStatus').textContent = 'Draft loaded.'; renderBuilder(); renderLines(); renderDrafts();
+    }
+    function deleteDraft(id) {
+      drafts = drafts.filter(draft => draft.id !== id);
+      if (activeDraftId === id) activeDraftId = null;
+      if (persistDrafts()) { $('draftStatus').textContent = 'Draft deleted from this browser.'; renderDrafts(); }
+    }
+    function exportDraft(draft = drafts.find(item => item.id === activeDraftId)) {
+      if (!draft) { $('draftStatus').textContent = 'Save or load a draft before exporting it.'; return; }
+      const payload = { exportedAt:new Date().toISOString(), purpose:'Final odds verification only; not a sportsbook quote or wager record.', draft:{ ...draft, estimate:estimateFor(draft.legs, draft.stake) } };
+      const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2)], { type:'application/json' })); a.download = `${draft.name.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '') || 'stack'}-verification-draft.json`; a.click(); URL.revokeObjectURL(a.href);
+      $('draftStatus').textContent = 'Verification draft downloaded.';
+    }
+
+    function importLines() {
+      const rows = $('importText').value.trim().split('\n').map(x => x.trim()).filter(Boolean);
+      const added = [];
+      const invalid = [];
+      rows.forEach((row, index) => {
+        const cells = row.split('|').map(x => x.trim());
+        const odds = Number(cells[4]);
+        if (cells.length !== 5 || !cells.slice(0,4).every(Boolean) || !Number.isFinite(odds) || odds === 0) { invalid.push(index + 1); return; }
+        added.push({ id:`import-${Date.now()}-${index}`, game:cells[0], player:cells[1], market:cells[2], selection:cells[3], odds, capturedAt:'user pasted', source:'User-provided BEO capture' });
+      });
+      lines.push(...added); $('importText').value = '';
+      $('importResult').textContent = `Added ${added.length} line${added.length === 1 ? '' : 's'}${invalid.length ? `; skipped rows ${invalid.join(', ')}` : ''}.`;
+      renderFilters(); renderLines();
+    }
+
+    function downloadPlanner() {
+      const payload = { exportedAt:new Date().toISOString(), disclaimer:'Research only. Not a sportsbook quote or wager record.', lines, legs, estimated: legs.length ? { american:toAmerican(legs.reduce((t,l) => t * toDecimal(l.odds), 1)), stake:Number($('stake').value) || 0 } : null };
+      const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2)], { type:'application/json' })); a.download = 'player-prop-parlay-planner.json'; a.click(); URL.revokeObjectURL(a.href);
+    }
+
+    $('gameFilter').addEventListener('change', renderLines);
+    $('search').addEventListener('input', renderLines);
+    $('expandSections').addEventListener('click', () => $('lineList').querySelectorAll('details').forEach(section => { section.open = true; }));
+    $('collapseSections').addEventListener('click', () => $('lineList').querySelectorAll('details').forEach(section => { section.open = false; }));
+    $('stake').addEventListener('input', renderBuilder);
+    $('clearButton').addEventListener('click', () => { legs = []; renderBuilder(); renderLines(); });
+    $('importButton').addEventListener('click', importLines);
+    $('downloadButton').addEventListener('click', downloadPlanner);
+    $('saveDraft').addEventListener('click', saveDraft);
+    $('newDraft').addEventListener('click', newDraft);
+    $('exportDraft').addEventListener('click', () => exportDraft());
+    renderFilters(); renderLines(); renderBuilder(); renderDrafts();
+  </script>
+</body>
+</html>
