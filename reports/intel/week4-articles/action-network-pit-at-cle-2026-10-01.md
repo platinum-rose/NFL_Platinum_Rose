@@ -63,3 +63,58 @@ All PIT/CLE players named above resolve to the stated team. Notes: Joey Porter J
 - Warren rush yds: A3 cites 73.5-76.5; BKR/BEO main 75.5.
 - Metcalf rec yds: BKR 45.5, BEO 46.5; A4 cites 41.5 (stale, since moved).
 - Concepcion rec 5+: BKR +130, BEO +120 vs A4's +162 (stale).
+
+---
+
+# Addendum (2026-10-01, later): three more pages
+
+| # | Article (author) | Published / updated (ET) | URL |
+|---|---|---|---|
+| A9 | Steelers vs Browns Player Props, Picks, Predictions & TNF Odds (staff best bets: Billy Ward, Nick Galaida, John Lanfranca, Grant Neiffer) | Oct 1 5:38pm | https://www.actionnetwork.com/nfl/steelers-vs-browns-picks-props-odds-predictions-thursday-night-football-oct-1 |
+| A10 | NFL Betting Primer: Trends, Stats, Systems for Every Game (Evan Abrams), page data stamped 5:34pm | Oct 1 11:20am, data 5:34pm | https://www.actionnetwork.com/nfl/nfl-betting-primer-trends-stats-systems-for-every-game |
+| A11 | Browns vs. Steelers Picks and Combos to Grab Now at Prediction Markets (Pablo Planovsky) — Polymarket **promo** | Oct 1 11:03am | https://www.actionnetwork.com/nfl/browns-vs-steelers-picks-and-combos-to-grab-now-at-prediction-markets |
+
+Not captured and still outstanding: the PRO Luck Rankings Dashboard (paywalled; A9 cites it only to say the Browns rank third-luckiest), the A6 PRO system pick, the Novig/Polymarket promo pieces, and the Week 4 Pick'em PRO piece. I did not use the user's logged-in account or Brave.
+
+## A9 staff best bets (picks as printed; opinion, not ours)
+- Steelers -2.5 (-120 FanDuel; table says -110) [Ward]: Browns are the third-luckiest team in Action's luck rankings; their wins came against two teams a combined 1-5; Watson faced clean pockets against weaker fronts, and in Week 1 against a top-adjusted-sack-rate Jaguars front he was sacked five times with his only turnover.
+- Steelers ML (-142 table / -146 slip) [Galaida]: Browns' Week 3 scoring drives were short or helped by a pass-interference call; first-time head coaches reportedly 20-40 SU in their first TNF game since 2000 (cited to Clevta; unverified).
+- Under 38.5 (-108; "bet to Under 38") [Lanfranca]: Rodgers' downfield throw rate is the highest since 2011, which needs time that Cleveland's pressure (second-highest pressure rate over the last two games, 46%) takes away; Browns averaging 18 ppg; Judkins 3.0 ypc, 26% success rate.
+- Watson over 28.5 pass attempts (-115 DK; slip -148) [Neiffer]: over hit in each of the last two games; his model has 60% over.
+- Harold Fannin Jr. anytime TD (+295 DK; slip +290) [Neiffer]: 15 targets and a 25% target share the last two games, two TDs last week; his fair price is about +250.
+- The article's copy calls tonight "Sunday Night Football" and misspells Fannin. Treat as a sloppy edit; the numbers match the other pages.
+- Mike McCarthy as Steelers HC is now stated in A7, A8, A9 and A11 (all Action Network, none independent). Corroborated within the source family only.
+
+## A11 (promo; low weight)
+Argues the Browns ML/spread and the Under on short-week/home-crowd narratives and says Cleveland is averaging under 270 yards per game (798 total, one of the lowest marks). The 798/3 = 266 matches our staging baseline (CLE 266 yards/game). It also says Watson's last Thursday game was in 2020 and calls Rodgers "on the wrong side of 40"; neither is a betting fact.
+
+## A10 primer: what it adds (page data as of ~5:34pm ET; book not stated)
+PIT@CLE: spread PIT -2.5, total 37.5 (opened 38.5, -1), Rodgers vs Watson. Wind 12 mph out of the SSW (crosswind), forecast agrees with A1/A2 (**not** "cold, wet"). Bet Labs "Med to High Wind Games" Under system lists PIT/CLE Under 37.5 (record 1285-1112-32, +3.7% ROI): historical system, not a forecast, and the weather is only moderate. Tickets: PIT -2.5 51%, PIT ML 77%, Over 37.5 72%.
+
+League-wide "top things to know" (history, not forecasts): 0-3 teams facing a team with at least one win are 47-25-1 ATS since 2005 (this week: MIA, LAC, HOU, TB, TEN); the public (51%+ tickets) is 1-8 SU/ATS in primetime games this season and 17-29-1 ATS overall; teams coming off an International Series game as road dogs are 10-21-1 SU since 2018; when two unbeaten teams meet in Week 4+, home sides are 26-16-1 SU and home dogs 13-3 ATS (the primer calls this week "just the 2nd of these games since 2021"; by its own systems list that is KC@LV, though the primer does not name the game in the text captured).
+
+All 16 games per the primer (current lines at 5:34pm; QBs as listed; "BK" is the primer's tag, which the injury feed suggests means a backup starter):
+
+| Game | Time (ET) | Spread / total (opened total, from weather table) | Listed QBs | Tickets O/U |
+|---|---|---|---|---|
+| PIT @ CLE | Thu 8:15pm | PIT -2.5 / 37.5 (38.5) | Rodgers vs Watson | Over 72% |
+| IND @ WAS | Sun 9:30am (London) | IND -3.5 / 48.5 (49.5) | D. Jones vs Mariota (BK) | Under 93% |
+| LAR @ PHI | 1:00pm | LAR -3 / 43.5 (46.5) | Stafford vs Hurts | Over 53% |
+| GB @ TB | 1:00pm | GB -3.5 / 38.5 (46.5) | Love vs J. Daniels (BK) | Over 66% |
+| NYJ @ CHI | 1:00pm | CHI -3.5 / 42.5 (44.5) | G. Smith vs TBD | Over 53% |
+| NE @ BUF | 1:00pm | BUF -7 / 48.5 (50.5) | Maye vs Allen | Under 56% |
+| JAX @ CIN | 1:00pm | CIN -2.5 / 51.5 (51.5) | Lawrence vs Burrow | Under 60% |
+| TEN @ BAL | 1:00pm | BAL -11.5 / 44.5 (45.5) | Cam Ward vs L. Jackson | Under 53% |
+| DAL @ HOU | 1:00pm | HOU -3 / 48.5 (46.5) | Prescott vs Stroud | Under 62% |
+| ARI @ NYG | 1:00pm | ARI -2.5 / 44.5 (44.5) | Brissett vs Winston (BK) | Under 56% |
+| MIA @ MIN | 4:05pm | MIN -10.5 / 38.5 (42) | Willis vs K. Murray | Over 64% |
+| DEN @ SF | 4:25pm | SF -2.5 / 47.5 (45.5) | Nix vs Purdy | Under 59% |
+| LAC @ SEA | 4:25pm | SEA -7 / 42.5 (45.5) | Herbert vs Darnold | Under 53% |
+| KC @ LV | 4:25pm | KC -4.5 / 47.5 (42.5) | Mahomes vs Cousins | Under 60% |
+| DET @ CAR | Sun 8:20pm | DET -3.5 / 50.5 (46.5) | Goff vs B. Young | Under 61% |
+| ATL @ NO | Mon 8:15pm | NO -2.5 / 47.5 (44.5) | Penix vs Shough | Under 62% |
+
+Caveats on the primer: (1) its "Team Records" table states in its own footnote that the records are placeholders from a mock, so **do not use that table** (it also disagrees with the staging baseline in places); (2) its Matchups tab notes (the per-game "Notes" counts) are collapsed in the scrape and were not captured, so the per-game systems and notes are only what appears in the Bet Labs and Top Things sections; (3) the book behind its lines is not stated, and several totals differ from our BKR paste (for example IND@WAS 48.5 vs BKR 47.5, DAL@HOU 48.5 vs BKR 48.5 equal, KC@LV 47.5 vs BKR 48).
+
+## Roster-gate for the addendum
+All 29 quarterbacks named in the primer resolve to the stated team on the live ESPN rosters (WAS shows as WSH in ESPN's abbreviations). The injury feed (9/30) explains the "BK" tags: WAS Jayden Daniels questionable (elbow, limited), TB Baker Mayfield out (thumb), NYG Jaxson Dart on IR (knee surgery). Also flagged there: CHI Caleb Williams doubtful (consistent with "TBD"), BAL Lamar Jackson questionable (back), LAC Trey Lance and LV Aidan O'Connell questionable. Not final inactives. Fannin, Watson, Judkins, Rodgers, Boston, Concepcion, Jeudy, Warren, Dowdle, Hoffman, Iheanachor were already gated above.
