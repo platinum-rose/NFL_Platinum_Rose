@@ -1,0 +1,42 @@
+{
+  "pick_id": "64cbb0bd-ac09-4bb2-825c-e0298db02d9c",
+  "pick_scope": "weekly",
+  "market_type": "parlay",
+  "week": "Week 4",
+  "sport": "NFL",
+  "season": 2026,
+  "observed_at": "2026-10-02T00:08:16Z",
+  "proposal_status": "draft - needs Andy review; not placed, not in ledger",
+  "sources": [
+    "Claude session 2026-10-01 (M6)",
+    "reports/analysis/week4-intel/tnf-pit-cle-source-check-and-scenario-drafts-2026-10-01.md",
+    "docs Player_Prop_Odds_Weekly/Week4 (BKR/BEO captures)",
+    "reports/intel/week4-articles/action-network-pit-at-cle-2026-10-01.md"
+  ],
+  "audit_note": "AI proposal drafted 2026-10-01. Prices are stale captures unless stated; the book's actual same-game-parlay payout must be obtained before any stake. Nothing placed; no ledger, Supabase or account action.",
+  "market": "sgp_5leg_lotto",
+  "selection": "PIT@CLE 5-leg lotto (live quote): Rodgers 2+ pass TD (+146) + Watson 2+ pass TD (+183) + Rodgers 1+ INT (+114) + Fannin 1+ TD (+270) + Freiermuth 1+ TD (+350)",
+  "team": "PIT@CLE",
+  "book": "BetOnline (BEO)",
+  "price": 9400,
+  "stake_tier": "speculative",
+  "stake_units": 0.5,
+  "confidence": 15,
+  "thesis": "Single coherent shootout script: passing touchdowns feed receiver touchdown legs. QB and anytime-TD legs only (weekly lotto slot).",
+  "disconfirming_factor": "Book trimmed the payout about 62% (product +24,700 vs quote +9,400) because the legs are correlated. Break-even needs roughly 4.3x the independent hit chance. Conflicts with the Under articles and BettingPros projections. Estimated EV about -$3.90 per $10 even with the book's own correlation view.",
+  "bet_threshold": "Flyer only, $5 max, at +9,400 or better. Stale after kickoff.",
+  "minimum_edge_pct": 0,
+  "evidence_ids": [
+    "w4.tnf.lotto.quote",
+    "w4.tnf.rodgers.td2",
+    "w4.tnf.watson.td2"
+  ],
+  "checklist": "Weekly lotto: ATD and QB legs only, $10 cap; counts toward the $25 per-game exposure cap.",
+  "data_snapshot": {
+    "captured": "2026-10-01",
+    "prices_are_stale": true
+  },
+  "source_ref": "reports/analysis/week4-intel/tnf-pit-cle-source-check-and-scenario-drafts-2026-10-01.md (Claude M6 session 2026-10-01); prices from BKR/BEO captures and user slips, stale",
+  "market_view": "Live BEO quote +9,400 vs product +24,700 (62% trim).",
+  "football_view": "Pass-heavy shootout script; contradicts the three Under articles and BettingPros pass-TD projections."
+}

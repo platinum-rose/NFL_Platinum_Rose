@@ -1,13 +1,13 @@
-# Cross-Market Coherence - 2026-09-26
+# Cross-Market Coherence - 2026-10-01
 
 > Consensus context only. Actionable means eligible for deterministic coherence math, not approved or executable.
 > Liquidity-warned/ineligible rows are excluded from the calculations. Settlement terms remain unverified.
 
-Generated: 2026-09-26T20:37:25.368Z
-Eligible-context contracts: 645 | Actionable coherence contracts: 349 | Context-only contracts: 296
+Generated: 2026-10-01T09:00:21.085Z
+Eligible-context contracts: 717 | Actionable coherence contracts: 252 | Context-only contracts: 465
 Eligible-context teams: 32 | Actionable teams: 32 | Execution-eligible contracts: 0
-Incoherent actionable teams: 1 | Ladder inversions: 1 | Nesting violations: 0
-Source liquidity warnings: 3647 (76.51%)
+Incoherent actionable teams: 0 | Ladder inversions: 0 | Nesting violations: 0
+Source liquidity warnings: 3370 (84.65%)
 
 ## Required Caveats
 
@@ -19,41 +19,35 @@ Source liquidity warnings: 3647 (76.51%)
 
 | Team | Eligible Context | Actionable | Max Div % | Softest | SB% | Conf% | Div% | Playoff% | Impl. Median Wins | Ladder Mono |
 |---|---:|---:|---:|---|---:|---:|---:|---:|---:|---|
-| GB | 19 | 14 | 2 | win_total_5 | 1.5 | 3 | 8 | 25 | 7.74 | no |
-| ARI | 18 | 10 | 0 |  | 1 |  |  | 9 | 5.94 | yes |
-| ATL | 19 | 12 | 0 |  | 1 | 2 | 16 | 25 | 7.05 | yes |
-| BAL | 20 | 10 | 0 |  | 6.5 |  |  | 78 | 11.6 | yes |
-| BUF | 19 | 11 | 0 |  | 13 |  |  | 90 | 13.24 | yes |
-| CAR | 19 | 9 | 0 |  | 1 |  | 24 | 34 | 7.94 | yes |
-| CHI | 20 | 11 | 0 |  | 2.5 | 7 | 26 | 40 | 9.63 | yes |
-| CIN | 20 | 10 | 0 |  | 6 |  | 43 | 80 | 11.89 | yes |
-| CLE | 17 | 13 | 0 |  | 1 |  | 2 | 11 | 6.44 | yes |
-| DAL | 20 | 11 | 0 |  | 3.5 | 5 |  | 49 | 9.65 | yes |
-| DEN | 25 | 8 | 0 |  | 3.5 |  | 27 | 59 | 10.37 | yes |
-| DET | 20 | 10 | 0 |  | 3.5 | 7 | 35 | 65 | 11.06 | yes |
-| HOU | 25 | 12 | 0 |  | 2.5 |  | 41 | 53 | 9.72 | yes |
-| IND | 17 | 9 | 0 |  | 1 |  | 15 | 28 | 7.75 | yes |
-| JAX | 17 | 10 | 0 |  | 3 |  | 43 | 60 | 10.18 | yes |
-| KC | 24 | 11 | 0 |  | 8.5 |  | 59 | 83 | 11.87 | yes |
-| LAC | 20 | 14 | 0 |  | 1.5 |  | 6 | 20 | 6.92 | yes |
-| LAR | 29 | 11 | 0 |  | 12.5 | 19 | 28 | 73 | 11.67 | yes |
-| LV | 20 | 10 | 0 |  | 1 |  | 10 | 32 | 8 | yes |
-| MIA | 18 | 11 | 0 |  | 1 |  |  | 3 | 3.12 | yes |
-| MIN | 20 | 14 | 0 |  | 3 | 7 | 36 | 63 | 10.67 | yes |
-| NE | 20 | 12 | 0 |  | 4 |  |  | 63 | 9.93 | yes |
-| NO | 20 | 12 | 0 |  | 1 |  | 42 | 53 | 9.56 | yes |
-| NYG | 23 | 10 | 0 |  | 1 |  | 7 | 17 | 6.8 | yes |
-| NYJ | 19 | 9 | 0 |  | 1 |  |  | 18 | 7.13 | yes |
-| PHI | 25 | 12 | 0 |  | 5 | 11 |  | 78 | 11.47 | yes |
-| PIT | 17 | 9 | 0 |  | 1 |  |  | 28 | 7.77 | yes |
-| SEA | 20 | 17 | 0 |  | 9 | 14 | 36 | 77 | 12.25 | yes |
-| SF | 20 | 13 | 0 |  | 8 | 16 |  | 77 | 12.07 | yes |
-| TB | 19 | 8 | 0 |  | 1 |  | 22 | 27 | 7.5 | yes |
-| TEN | 18 | 8 | 0 |  | 1 |  |  |  | 4.86 | yes |
-| WAS | 18 | 8 | 0 |  | 1 | 1 |  |  | 6 | yes |
-
-## Detected Actionable-Coherence Inconsistencies
-
-### GB - max divergence 2pp
-- Ladder inversion: P(>=5) exceeds P(>=4) by 2pp
-
+| ARI | 22 | 7 | 0 |  | 1 | 5 |  | 5 | 5.88 | yes |
+| ATL | 22 | 9 | 0 |  | 1 | 2 | 21 | 28 | 7.17 | yes |
+| BAL | 22 | 6 | 0 |  | 8.5 | 14 | 52 | 81 |  | yes |
+| BUF | 23 | 8 | 0 |  | 14 | 23 | 78 | 93 | 13.45 | yes |
+| CAR | 22 | 8 | 0 |  | 1 | 2 |  | 26 | 7.06 | yes |
+| CHI | 22 | 10 | 0 |  | 3.5 | 8 | 21 | 54 | 10 | yes |
+| CIN | 21 | 4 | 0 |  | 4.5 |  |  | 72 |  | yes |
+| CLE | 21 | 10 | 0 |  | 1 |  |  | 17 | 6.88 | yes |
+| DAL | 23 | 9 | 0 |  | 3 | 5 | 26 | 45 | 9.39 | yes |
+| DEN | 22 | 6 | 0 |  | 4.5 |  | 26 | 66 |  | yes |
+| DET | 23 | 7 | 0 |  | 4 | 8 | 38 | 70 | 11.29 | yes |
+| GB | 23 | 8 | 0 |  | 1.5 | 3 | 7 | 32 | 8.4 | yes |
+| HOU | 27 | 10 | 0 |  | 2 |  | 21 | 40 | 8.85 | yes |
+| IND | 24 | 7 | 0 |  | 1 |  |  | 37 |  | yes |
+| JAX | 21 | 6 | 0 |  | 5 |  | 54 | 70 | 10.71 | yes |
+| KC | 21 | 5 | 0 |  | 8.5 | 16 | 57 | 85 |  | yes |
+| LAC | 20 | 8 | 0 |  | 1 | 2 |  | 13 | 6.8 | yes |
+| LAR | 23 | 4 | 0 |  | 11.5 | 16 |  | 72 |  | yes |
+| LV | 22 | 11 | 0 |  | 2 |  | 19 | 38 | 8.57 | yes |
+| MIA | 20 | 10 | 0 |  | 1 |  | 1 | 2 | 3.24 | yes |
+| MIN | 23 | 10 | 0 |  | 3.5 | 9 |  | 69 | 11.21 | yes |
+| NE | 23 | 8 | 0 |  | 2 |  | 14 | 44 | 9.44 | yes |
+| NO | 22 | 8 | 0 |  | 1 | 2 | 41 | 50 | 8.78 | yes |
+| NYG | 23 | 10 | 0 |  | 1 | 1.5 |  | 19 | 7.31 | yes |
+| NYJ | 21 | 7 | 0 |  | 1 |  | 3 | 15 | 6.82 | yes |
+| PHI | 28 | 13 | 0 |  | 3.5 | 9 |  | 67 | 10.82 | yes |
+| PIT | 19 | 5 | 0 |  | 1 |  |  | 37 | 8.71 | yes |
+| SEA | 23 | 8 | 0 |  | 7.5 | 13 |  | 69 | 11.27 | yes |
+| SF | 28 | 13 | 0 |  | 9.5 | 17.5 |  | 81 | 11.92 | yes |
+| TB | 22 | 5 | 0 |  | 1 | 1 | 14 | 16 |  | yes |
+| TEN | 19 | 5 | 0 |  | 1 |  |  | 5 |  | yes |
+| WAS | 22 | 7 | 0 |  | 1 | 2 | 8 | 20 |  | yes |

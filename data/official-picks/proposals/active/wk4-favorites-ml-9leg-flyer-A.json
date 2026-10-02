@@ -1,0 +1,40 @@
+{
+  "pick_id": "3b9104ab-efd3-4720-9798-8c52b8f28739",
+  "pick_scope": "weekly",
+  "market_type": "parlay",
+  "week": "Week 4",
+  "sport": "NFL",
+  "season": 2026,
+  "observed_at": "2026-10-02T00:08:16Z",
+  "proposal_status": "draft - needs Andy review; not placed, not in ledger",
+  "sources": [
+    "Claude session 2026-10-01 (M6)",
+    "reports/analysis/week4-intel/tnf-pit-cle-source-check-and-scenario-drafts-2026-10-01.md",
+    "docs Player_Prop_Odds_Weekly/Week4 (BKR/BEO captures)",
+    "reports/intel/week4-articles/action-network-pit-at-cle-2026-10-01.md"
+  ],
+  "audit_note": "AI proposal drafted 2026-10-01. Prices are stale captures unless stated; the book's actual same-game-parlay payout must be obtained before any stake. Nothing placed; no ledger, Supabase or account action.",
+  "market": "ml_parlay_favorites_9leg",
+  "selection": "Week 4 favorites ML 9-leg flyer (BKR, stale): ARI -141, SF -144, NO -148 (Mon), CIN -152, HOU -155, GB -179, IND -188, DET -192, KC -198",
+  "team": "Multi-Team",
+  "book": "Bookmaker (BKR)",
+  "price": 7134,
+  "stake_tier": "speculative",
+  "stake_units": 0.5,
+  "confidence": 10,
+  "thesis": "Low-wager flyer built to pay about +7,500 using the shortest-priced favorites that avoid dog-system flags and doubtful QBs (CHI excluded).",
+  "disconfirming_factor": "Fair hit chance about 1.04% (1 in 96); expected value about -$1.23 per $5 before hold; 9-leg parlays have no record in our data and 5+ leg parlays went 0 for 58.",
+  "bet_threshold": "$5 max flyer; re-price from live moneylines and trim to land nearest +7,500. Runs into Monday night.",
+  "minimum_edge_pct": 0,
+  "evidence_ids": [
+    "w4.fav.ml.board"
+  ],
+  "checklist": "Violates cut list (straight parlays of 5+ side legs); flyer override only.",
+  "data_snapshot": {
+    "captured": "2026-10-01",
+    "prices_are_stale": true
+  },
+  "source_ref": "reports/analysis/week4-intel/tnf-pit-cle-source-check-and-scenario-drafts-2026-10-01.md (Claude M6 session 2026-10-01); prices from BKR/BEO captures and user slips, stale",
+  "market_view": "BKR moneylines, shortest-priced favorites; 9 legs reach +7,134.",
+  "football_view": "Avoids CHI (QB doubtful) and dog-system flags (LAR/PHI, KC/LV is included at -198)."
+}
