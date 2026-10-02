@@ -108,3 +108,4 @@ Every build also writes `nfl_week<N>_supercontest_intelligence_summary.{html,md,
 |---|---|---|
 | 2026-09-26 | Template v1 locked (Week 3 build) | Andy |
 | 2026-09-26 | SuperContest companion report added | Andy |
+| 2026-10-01 | **Template v2 order (review build, pending Andy's approval):** Part A What to bet (⭐ Our Picks · 1 Every Bet, Ranked (old §1 + §4 ranked tables) · 2 Player Props (old §1 props pool + §8 boards) · 3 Teasers · 4 Underdog ticket · 5 Survivor) → Part B Why we like them (📌 Week at a Glance · 6 Game-by-Game, with old §2's per-game odds/money box folded into each game · 7 What the Experts Say) → Part C Reference (8 Expert Pick Registry · 9 Trends · 10 How the Card Was Built · 11 Sources, with the data-inputs box). `reorder_sections()` in build.py; `scripts/master-intel/rebuild_review.py` re-lays out a past week's md. Week 3 review copy: `dist/nfl_week3_master_packet_v2/`. §2 table above still describes v1 until approved. | pending |

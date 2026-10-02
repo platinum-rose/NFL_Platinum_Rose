@@ -157,7 +157,7 @@ def add_tooltips(lines):
 def roll(cls, rid, summary, is_open=False):
     return [f'<details class="rollup-box {cls}" id="{rid}"{" open" if is_open else ""}>', f'<summary>{summary}</summary>', '<div class="rollup-content">', '']
 
-ROLL_END = ['', '[⬆ Back to Executive Master Board](#executive-master-board)', '</div>', '</details>']
+ROLL_END = ['', '[⬆ Back to Our Picks](#recommendations)', '</div>', '</details>']
 
 def controls(cls, label):
     return ['<div class="rollup-controls">', f'  <button class="btn-toggle btn-primary" onclick="toggleRollups(\'{cls}\', true)">Expand {label}</button>',
@@ -209,7 +209,7 @@ def opening_lines(sched):
 def md_inline(t):
     return re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', re.sub(r'(?<![*\w])_(.+?)_(?![*\w])', r'<em>\1</em>', t))
 
-SEC_ICON = {'rec': '⭐', 'exec': '📌', '1': '🏆', '2': '📊', '3': '🧭', '4': '🎯', '5': '🔁', '6': '🐶', '7': '🔍', '8': '🧾', '9': '🛡️', '10': '📐', '11': '📚'}
+SEC_ICON = {'rec': '⭐', 'exec': '📌', '1': '🏆', '2': '🧾', '3': '🔁', '4': '🐶', '5': '🛡️', '6': '🔍', '7': '🧭', '8': '🎙️', '9': '📐', '10': '🔧', '11': '📚'}
 
 def wrap_sections(lines, icons=None, names=None):
     """Week-2 SuperContest pattern: every top-level '## ' section body sits in its own
@@ -229,7 +229,7 @@ def wrap_sections(lines, icons=None, names=None):
         body = lines[h + 1:end]
         # trailing anchors/blank lines belong to the NEXT section
         tail = []
-        while body and (not body[-1].strip() or body[-1].startswith('<a id=')):
+        while body and (not body[-1].strip() or body[-1].startswith(('<a id=', '<div class="part-banner'))):
             tail.insert(0, body.pop())
         # pull an existing controls block (right after the heading) out of the body
         j = next((x for x in range(min(6, len(body))) if body[x].startswith('<div class="rollup-controls">')), None)
@@ -237,7 +237,7 @@ def wrap_sections(lines, icons=None, names=None):
         if j is not None:
             k = j
             while body[k].strip() != '</div>': k += 1
-            what = 'games' if ('Dossier' in title or 'Forecast Board' in title) else 'boxes'
+            what = 'games' if ('Dossier' in title or 'Forecast Board' in title or 'Game-by-Game' in title) else 'boxes'
             sub = [re.sub(r'>Expand Section [^<]*<', f'>Open all {what}<', re.sub(r'>Collapse Section [^<]*<', f'>Close all {what}<', b)) for b in body[j + 1:k]]
             body = body[:j] + body[k + 1:]
         ctl = ['<div class="rollup-controls">',
@@ -247,6 +247,155 @@ def wrap_sections(lines, icons=None, names=None):
         summ = f'{icon} ' + (f'Section {num}: ' + title.split('. ', 1)[-1] if num[0].isdigit() else (names or {}).get(num) or {'rec': 'Platinum Rose Recommendations — what to bet this week', 'exec': 'Executive Summary'}[num])
         out += [lines[h], ''] + ctl + [f'<details class="rollup-box section-main {key}" id="{rid}" open>', f'<summary>{summ}</summary>', '<div class="rollup-content">', ''] + body + ['', '</div>', '</details>'] + tail
     return out, toc
+
+
+# ======================================================================
+# Template v2 (2026-10-01, Andy): picks first, reasoning second, reference last.
+#   Part A  What to bet:      ⭐ Our Picks · 1 Every Bet, Ranked · 2 Player Props · 3 Teasers · 4 Underdog ticket · 5 Survivor
+#   Part B  Why we like them: 📌 The Week at a Glance · 6 Game-by-Game (odds + money folded in) · 7 What the Experts Say
+#   Part C  Reference:        8 Expert Pick Registry · 9 Betting Trends · 10 How the Card Was Built · 11 Sources & Data Notes
+# The section builders still emit the v1 order; reorder_sections() rearranges the
+# pre-wrap lines and remaps every in-report section reference (§N / Section N / #section-N-box).
+# ======================================================================
+OLD2NEW = {'1': '1', '2': '6', '3': '7', '4': '8', '5': '3', '6': '4', '7': '6', '8': '2', '9': '5', '10': '9', '11': '11'}
+V2_TITLES = {
+    '1': 'Every Bet, Ranked: Sides, Totals & Props by Confidence',
+    '2': 'Player Props: Build-Your-Own Pool & Prop Boards',
+    '3': 'Teaser Bets: 6-Point Wong Teasers',
+    '4': 'The Underdog Upset Ticket: The Dogs and Why',
+    '5': 'Survivor Pool Picks: Safest Teams This Week',
+    '6': 'Game-by-Game Breakdowns: Odds, Money, Projections & the Case',
+    '7': 'What the Experts Say: Consensus & Clashes',
+    '8': 'Expert Pick Registry by Game',
+    '9': 'Betting Trends & Systems',
+    '10': 'How the Card Was Built',
+    '11': 'Sources, Feed Health & Known Gaps'}
+PART_OF = {'rec': 'A', '1': 'A', '2': 'A', '3': 'A', '4': 'A', '5': 'A', 'exec': 'B', '6': 'B', '7': 'B', '8': 'C', '9': 'C', '10': 'C', '11': 'C'}
+PART_LABEL = {'A': ('🎯', 'Part A — What to bet', 'Every pick and ticket, ready for the slip.'),
+              'B': ('🧠', 'Part B — Why we like them', 'The week at a glance, then the case for every game.'),
+              'C': ('📚', 'Part C — Reference', 'Expert registry, trends, build rules and data notes.')}
+
+def remap_refs(text):
+    """Old (v1) section numbers -> v2 numbers in §N, 'Section N' and #section-N-box references. Apply once."""
+    def f(m):
+        if m.group(1): return '§' + OLD2NEW.get(m.group(1), m.group(1))
+        if m.group(2): return 'Section ' + OLD2NEW.get(m.group(2), m.group(2))
+        return '#section-' + OLD2NEW.get(m.group(3), m.group(3)) + '-box'
+    return re.sub(r'§\s?(\d+)\b|\bSection (\d+)\b|#section-(\d+)-box', f, text)
+
+def _block_end(lines, i):
+    d = 0
+    for j in range(i, len(lines)):
+        d += lines[j].count('<details') - lines[j].count('</details>')
+        if d <= 0: return j
+    return len(lines) - 1
+
+def part_banner(p):
+    ico, title, sub = PART_LABEL[p]
+    return ['', f'<div class="part-banner part-{p.lower()}"><span class="pb-ico">{ico}</span><strong>{title}</strong><span class="pb-sub">{sub}</span></div>']
+
+def reorder_sections(L):
+    heads = [i for i, ln in enumerate(L) if ln.startswith('## ') and not (i > 0 and L[i - 1].startswith('# '))]
+    def key_of(t):
+        t = t[3:].strip()
+        if t.startswith('⭐'): return 'rec'
+        if t.startswith('📌'): return 'exec'
+        m = re.match(r'(\d+)\.', t); return m.group(1) if m else None
+    starts = []
+    for h in heads:
+        s0 = h
+        while s0 > 0 and (L[s0 - 1].startswith('<a id=') or not L[s0 - 1].strip()): s0 -= 1
+        starts.append(s0)
+    if not starts: return L
+    seg = {}
+    for n, (s0, h) in enumerate(zip(starts, heads)):
+        e = starts[n + 1] if n + 1 < len(starts) else len(L)
+        seg[key_of(L[h])] = dict(pre=[x for x in L[s0:h] if x.startswith('<a id=')], head=L[h], body=L[h + 1:e])
+    if not ({'rec', 'exec'} | {str(i) for i in range(1, 12)}) <= set(seg):
+        print('WARN reorder_sections: unexpected section layout, leaving v1 order'); return L
+    def cut_block(lines, marker):
+        i = next((k for k, x in enumerate(lines) if x.lstrip().startswith('<details') and marker in x), None)
+        if i is None: return lines, []
+        j = _block_end(lines, i); return lines[:i] + lines[j + 1:], lines[i:j + 1]
+    def split_at(lines, pred):
+        k = next((i for i, x in enumerate(lines) if pred(x)), len(lines)); return lines[:k], lines[k:]
+    def strip_controls(lines):
+        i = next((k for k, x in enumerate(lines[:8]) if x.startswith('<div class="rollup-controls">')), None)
+        if i is None: return lines
+        j = next(k for k in range(i, len(lines)) if lines[k].strip() == '</div>'); return lines[:i] + lines[j + 1:]
+    pre, inputs = cut_block(L[:starts[0]], 'id="inputs-box"')
+    b1a, b1b = split_at(seg['1']['body'], lambda x: x.startswith('<a id="prop-pool"'))
+    b4a, b4b = split_at(seg['4']['body'], lambda x: x.startswith('<a id="expert-registry"'))
+    b4a = ['', '### 🎯 The same plays, grouped by bet type', ''] + [x for x in strip_controls(b4a) if not x.startswith('Every play on the card, **ranked')]
+    b4b = [x for x in b4b if not x.startswith('### 🎙️ Expert pick registry')]
+    b8a, b8b = split_at(seg['8']['body'], lambda x: x.startswith('<details') and 'id="under-the-hood"' in x)
+    b8a = ['', '### 📋 Prop boards: article tier-1, tackles + assists, 2+ passing TDs', ''] + [x for x in strip_controls(b8a) if not x.startswith('Reference boards for player props.')]
+    if b8b and ' open' not in b8b[0]: b8b = [b8b[0][:-1] + ' open>'] + b8b[1:]
+    # fold §2's per-game odds/money boxes into each game's §7 box
+    b2 = strip_controls(seg['2']['body']); boards = {}
+    while True:
+        i = next((k for k, x in enumerate(b2) if x.startswith('<details') and 'id="board-' in x and 'id="board-defs"' not in x), None)
+        if i is None: break
+        j = _block_end(b2, i); rid = re.search(r'id="board-([^"]+)"', b2[i]).group(1); blk = b2[i:j + 1]
+        blk = [re.sub(r'^\[Full game write-up →\]\([^)]*\)( · )?', '', x) for x in blk]
+        if len(blk) > 1:
+            m = re.match(r'<summary>📊 (.*?) — (.*)</summary>$', blk[1])
+            if m: blk[1] = f'<summary>💵 Odds, win chance &amp; where the money is — {m.group(2)}</summary>'
+        boards[rid] = blk; b2 = b2[:i] + b2[j + 1:]
+    b2 = [x for x in b2 if not x.startswith('**Game by game**')]
+    b7 = list(seg['7']['body'])
+    for rid, blk in boards.items():
+        i = next((k for k, x in enumerate(b7) if x.startswith('<details') and f'id="game-{rid}-box"' in x), None)
+        if i is None: continue
+        j = _block_end(b7, i)
+        k = next((k for k in range(i + 1, j) if b7[k].startswith('<details') and f'id="game-{rid}-context"' in b7[k]), None)
+        if k is None: k = next((k for k in range(j, i, -1) if b7[k].startswith('[⬆ Back')), j)
+        b7 = b7[:k] + blk + [''] + b7[k:]
+    ci = next((k for k, x in enumerate(b7[:10]) if x.startswith('<div class="rollup-controls">')), None)
+    if ci is not None:
+        ce = next(k for k in range(ci, len(b7)) if b7[k].strip() == '</div>'); b7_head, b7_rest = b7[:ce + 1], b7[ce + 1:]
+    else:
+        b7_head, b7_rest = [], b7
+    b6 = b7_head + [''] + b2 + [''] + b7_rest
+    def sec(num, pre_, body):
+        return [''] + pre_ + [f'## {num}. {V2_TITLES[num]}', ''] + body
+    out = pre + part_banner('A') + [''] + seg['rec']['pre'] + [seg['rec']['head']] + seg['rec']['body']
+    out += sec('1', seg['1']['pre'] + seg['4']['pre'], b1a + b4a)
+    out += sec('2', seg['8']['pre'], b1b + b8a)
+    out += sec('3', seg['5']['pre'], seg['5']['body'])
+    out += sec('4', seg['6']['pre'], seg['6']['body'])
+    out += sec('5', seg['9']['pre'], seg['9']['body'])
+    out += part_banner('B') + [''] + seg['exec']['pre'] + ['## 📌 The Week at a Glance', ''] + seg['exec']['body']
+    out += sec('6', seg['7']['pre'] + seg['2']['pre'], b6)
+    out += sec('7', seg['3']['pre'], seg['3']['body'])
+    out += part_banner('C') + sec('8', [], b4b)
+    out += sec('9', seg['10']['pre'], seg['10']['body'])
+    out += sec('10', ['<a id="how-card-built"></a>'], b8b)
+    out += sec('11', seg['11']['pre'], (['**What this report was built from:**', ''] + inputs + [''] if inputs else []) + seg['11']['body'])
+    return [remap_refs(x) for x in out]
+
+V2_PLAIN = {'rec': 'Our Picks This Week', 'exec': 'The Week at a Glance', '1': 'Every Bet, Ranked', '2': 'Player Props', '3': 'Teaser Bets',
+            '4': 'The Underdog Upset Ticket', '5': 'Survivor Pool Picks', '6': 'Game-by-Game Breakdowns', '7': 'What the Experts Say',
+            '8': 'Expert Pick Registry', '9': 'Betting Trends', '10': 'How the Card Was Built', '11': 'Sources & Data Notes'}
+V2_TIP = {'rec': 'Everything we recommend betting this week in one place: straight bets, parlays, prop stacks and SuperContest picks.',
+          '1': 'Every pick on the card, strongest first, then the same plays grouped by sides, totals and props. Stars rank our picks against each other; they are not win chances.',
+          '2': 'A pool of player props to build your own tickets, grouped by game, plus the prop boards (tackles + assists, 2+ passing TDs, article favorites).',
+          '3': 'Games where a 6-point teaser (moving the spread in your favor for a smaller payout) makes the most sense.',
+          '4': 'The underdogs we like to win outright, and why each one is on the ticket.',
+          '5': 'The safest teams to pick in a survivor pool this week, how popular each pick is, and who to save for later.',
+          'exec': 'The handful of things to know about this week: top reads, one-sided consensus, clashes, big money and quarterback news.',
+          '6': 'One box per game: our projected score, the case for the pick and what could go wrong, plus the odds, win chances and where the bets and money are going.',
+          '7': 'How many betting experts picked each side of every game, and where they agree or are split.',
+          '8': 'Every named expert pick we captured, by game. The game write-ups link here when they cite an expert.',
+          '9': 'Past betting records and situations that point to a side this week. Useful for breaking ties, not a reason on their own.',
+          '10': 'Every ticket on the card and the season build rules behind them.',
+          '11': 'What the report was built from, which feeds were working, and what data is missing this week.'}
+
+V2_CSS = ('<style>.part-banner{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;margin:38px 0 12px;padding:11px 16px;border-radius:9px;'
+          'background:var(--primary);color:#fff;font-size:1.08rem;letter-spacing:.01em;box-shadow:0 2px 8px rgba(0,0,0,.12);}'
+          '.part-banner .pb-sub{opacity:.88;font-size:.86rem;font-weight:400;}.part-banner.part-b{background:#0f766e;}.part-banner.part-c{background:#475569;}'
+          '.toc-part{grid-column:1/-1;font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:8px 2px 0;}'
+          '.side-toc .side-part{font-weight:800;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:10px 8px 2px;}</style>')
 
 def final_scores(week):
     out = {}
@@ -261,6 +410,65 @@ def final_scores(week):
         except Exception:
             continue
     return out
+
+def finalize_report(L, gaps):
+    """Wrap sections, add the grouped TOC, side menu and disclaimer; return the report markdown text."""
+    L, TOC = wrap_sections(L, names={'exec': 'The Week at a Glance — what to know before the reasoning'})
+    PLAIN = V2_PLAIN
+    _PLAIN_V1 = {'rec': 'Our Picks This Week', 'exec': 'The Week at a Glance', '1': 'Every Bet, Ranked', '2': 'What the Odds Predict',
+             '3': 'What the Experts Say', '4': 'Strongest Plays & Expert Picks', '5': 'Teaser Bets', '6': 'The Underdog Upset Ticket',
+             '7': 'Game-by-Game Breakdowns', '8': 'Player Props & How the Card Was Built', '9': 'Survivor Pool Picks', '10': 'Betting Trends', '11': 'Sources & Data Notes'}
+    SHORT_TIP = V2_TIP
+    _TIP_V1 = {'rec': 'Everything we recommend betting this week in one place: straight bets, parlays, prop stacks and SuperContest picks.',
+                 'exec': 'The six things to know about this week before you read anything else.',
+                 '1': 'Every pick on the card in one table, strongest first. Filter to sides, totals or player props, plus a pool of props to build your own tickets.',
+                 '2': 'What the sportsbook lines say the final score will be, our own projected score, and where the public and the big-money bettors are putting their money.',
+                 '3': 'How many betting experts picked each side of every game, and where they agree or are split.',
+                 '4': 'Our plays ranked by how much evidence backs them (the star ratings), plus every named expert pick for each game.',
+                 '5': 'Games where a 6-point teaser (moving the spread in your favor for a smaller payout) makes the most sense.',
+                 '6': 'The five underdogs we like to win outright, and why each one is on the ticket.',
+                 '7': 'A full write-up for every game: how we think it plays out, our projected score, the reasoning, and what could go wrong.',
+                 '8': 'Reference boards for player props, and the behind-the-scenes rules we use to build the card.',
+                 '9': 'The safest teams to pick in a survivor pool this week, how popular each pick is, and who to save for later.',
+                 '10': 'Past betting records and situations that point to a side this week. Useful for breaking ties, not a reason on their own.',
+                 '11': 'Where the information came from, which feeds were working, and what data is missing this week.'}
+    def toc_label(num): return (f'{num}. ' if num[0].isdigit() else '') + PLAIN.get(num, num)
+    BLURB = {'rec': 'What we recommend betting, in one place', 'exec': 'The week at a glance', '1': 'Every lean, sortable & filterable · tickets · props pool',
+             '2': 'What the betting lines predict, in plain English', '3': 'Where the experts agree and disagree, ranked', '4': 'Plays ranked by confidence + expert pick registry',
+             '5': '6-point teaser candidates', '6': 'The underdogs on the ticket and why', '7': 'Game-by-game scripts, projections & evidence',
+             '8': 'Player prop boards + how the card was built', '9': 'Survivor pool ranking', '10': 'Systems & trends worth reading', '11': 'Sources, feed health & known gaps'}
+    nav = ['<div class="global-rollup-bar" id="report-controls">', '  <span class="bar-title">⚡ Report Sections:</span>',
+           '  <button class="btn-toggle btn-primary" onclick="toggleAllMainSections(true)">Expand All Sections</button>',
+           '  <button class="btn-toggle" onclick="toggleAllMainSections(false)">Collapse All Sections</button>',
+           '  <button class="btn-toggle" onclick="toggleAllRollups(true)">Open Everything</button>',
+           '  <button class="btn-toggle" onclick="toggleAllRollups(false)">Close Everything</button>', '</div>',
+           '<div class="toc-title" style="font-weight: 700; font-size: 0.95rem; margin: 4px 0 8px 0; color: var(--primary);">📑 Table of Contents</div>',
+           '<div class="toc-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px; margin: 0 0 26px 0;">'] + \
+          sum((([f'<div class="toc-part">{PART_LABEL[PART_OF[num]][0]} {PART_LABEL[PART_OF[num]][1]}</div>'] if PART_OF.get(num) and (i == 0 or PART_OF.get(TOC[i - 1][1]) != PART_OF.get(num)) else []) + [f'<div style="border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; background: var(--highlight);"><a href="#{rid}" style="font-weight: 700; text-decoration: none; color: var(--primary);">{SEC_ICON.get(num, "📄")} {toc_label(num)}</a><div style="font-size: 0.8rem; color: var(--muted); line-height: 1.35; margin-top: 2px;">{SHORT_TIP.get(num, "")}</div></div>'] for i, (rid, num, name) in enumerate(TOC)), []) + ['</div>', '']
+    side = ('<div class="side-toc" id="side-toc"><div class="side-toc-title">Contents</div>'
+            + ''.join((f'<div class="side-part">{PART_LABEL[PART_OF[num]][1]}</div>' if PART_OF.get(num) and (i == 0 or PART_OF.get(TOC[i - 1][1]) != PART_OF.get(num)) else '') + f'<a href="#{rid}" data-tip="{SHORT_TIP.get(num, "")}" onclick="document.body.classList.remove(\'toc-open\')"><span class="toc-ico">{SEC_ICON.get(num, "📄")}</span><span class="toc-txt">{toc_label(num)}</span></a>' for i, (rid, num, name) in enumerate(TOC))
+            + '<a href="#disclaimer" data-tip="The fine print: this report is for entertainment only, and every bet is your own decision and risk." onclick="document.body.classList.remove(\'toc-open\')"><span class="toc-ico">⚖️</span><span class="toc-txt">Disclaimer</span></a></div>')
+    side_btn = '<button class="toc-toggle" type="button" onclick="document.body.classList.toggle(\'toc-open\')">☰ Contents</button>'
+    side_css = ('<style>.side-toc{position:fixed;top:16px;left:16px;bottom:16px;width:236px;overflow-y:auto;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 8px;font-size:13px;z-index:50;display:none;box-shadow:0 4px 14px rgba(0,0,0,.10);}'
+                '.side-toc a{display:block;padding:6px 8px;border-radius:6px;color:var(--primary);text-decoration:none;line-height:1.3;}.side-toc a:hover{background:var(--highlight);}'
+                '.side-toc-title{font-weight:700;margin:2px 8px 6px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em;}'
+                '.side-toc a{display:flex;gap:8px;align-items:flex-start;}.toc-ico{flex:0 0 20px;text-align:center;}.toc-txt{flex:1 1 auto;}'
+                '.side-tip{position:fixed;z-index:70;max-width:280px;background:#0f172a;color:#f8fafc;font-size:12.5px;line-height:1.45;padding:9px 11px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.25);pointer-events:none;display:none;}'
+                '.toc-toggle{position:fixed;top:12px;left:12px;z-index:60;background:var(--primary);color:#fff;border:0;border-radius:8px;padding:8px 12px;font-weight:600;font-size:13px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.2);}'
+                'body.toc-open .side-toc{display:block;top:56px;}'
+                '@media (min-width:1420px){.side-toc{display:block;top:16px;}.toc-toggle{display:none;}.container{margin-left:276px !important;margin-right:auto !important;}}</style>')
+    at = next((i for i, ln in enumerate(L) if ln.startswith('<div class="part-banner')), None)
+    if at is None: at = next(i for i, ln in enumerate(L) if ln.startswith('<a id="recommendations"'))
+    L = [side_css, V2_CSS, side, side_btn] + L[:at] + nav + L[at:]
+    L += ['', '<a id="disclaimer"></a>',
+          '<div class="legal-disclaimer" style="margin-top: 36px; padding: 16px 18px; border: 1px solid var(--border); border-radius: 8px; background: var(--highlight); font-size: 0.82rem; line-height: 1.55; color: var(--muted);">'
+          '<strong style="color: var(--text);">⚖️ Disclaimer — for entertainment purposes only.</strong> This report is opinion and research for entertainment and informational purposes. It is not financial, investment, legal or betting advice, and no result is guaranteed. '
+          'Odds, lines and player availability change, and the information here may be incomplete or out of date. Sports betting involves real risk of loss. Any bet you place is your own decision, made at your own risk: '
+          'the author and Platinum Rose accept no responsibility or liability for any wager, loss or other outcome arising from use of this report. Bet only where it is legal for you, only if you are of legal age, and only what you can afford to lose. '
+          'If gambling stops being fun, help is available at 1-800-GAMBLER.</div>']
+    txt = '\n'.join(add_tooltips(L)).replace('__GAPS__', '; '.join(gaps) if gaps else 'none')
+    txt = re.sub(r'§\s?(\d+)', r'Section \1', txt).replace('§', '')
+    return txt
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--week', type=int, required=True); ap.add_argument('--date', required=True)
@@ -427,7 +635,7 @@ def main():
         if not m or len(m) < 2: return {}
         p = {k: imp(v) for k, v in m.items()}; s = sum(p.values()); return {k: v / s for k, v in p.items()}
     def main_rung(player, market, rows):
-        r = [x for x in rows if x['player'] == player and x['market'] == market and x['available'] and x['odds'] is not None]
+        r = [x for x in rows if x['player'] == player and x['market'] == market and x['available'] and x['odds'] is not None and x.get('threshold') is not None]
         return min(r, key=lambda x: abs(dec(x['odds']) - 1.91), default=None)
 
     sharp = []          # 'TEAM spread' / 'GID Over|Under' keys (used by the confidence score)
@@ -640,7 +848,7 @@ def main():
     for x in RANKED:
         if x['type'] == 'Prop' and x['gid'] and not x['game'].startswith('Pass TD'):
             pool_add(x['gid'], x['market'] + (' T+A' if x['game'].startswith('T+A') else ''), '', 'BKR/BEO', x['tier'], x['source'], 'card lean')
-    ptd_all = [r for r in bkr['rows'] if r['market'] == 'pass_td' and r['threshold'] == 2 and r['available']]
+    ptd_all = [r for r in bkr['rows'] if r['market'] == 'pass_td' and r.get('threshold') == 2 and r['available']]
     for x in RANKED:
         if x['game'].startswith('Pass TD'):
             for r in ptd_all:
@@ -685,7 +893,7 @@ def main():
                 if e.get('position') == 'QB' and str(e.get('normalized_status', '')).upper().startswith(('OUT', 'DOUBTFUL')): qb_notes.append(f'{t} {n} {e["normalized_status"].title()}')
     pulled_all = []
     for gid_, b_ in G.items():
-        pp = sorted({r['player'] for r in b_['rows'] if not r['available']})
+        pp = sorted({r['player'] for r in b_['rows'] if not r['available'] and r.get('player')})
         if pp: pulled_all.append(f"{gid_}: {', '.join(pp)}")
     results = []
     for g in done:
@@ -1180,7 +1388,7 @@ def main():
             atd = sorted([r for r in rows if r['market'] == 'atd_1_plus' and r['odds'] is not None], key=lambda r: r['odds'])[:3]
             if key: grp['Prop'].append('- **Bookmaker main lines (priced near −110):** ' + ' · '.join(key))
             if atd: grp['Prop'].append('- **Shortest anytime-TD prices (Bookmaker):** ' + ' · '.join(f"{r['player']} {r['odds']:+d}" for r in atd))
-            pulled = sorted({r['player'] for r in rows if not r['available']})
+            pulled = sorted({r['player'] for r in rows if not r['available'] and r.get('player')})
             if pulled: grp['Prop'].append('- **Listed without odds at Bookmaker (check status):** ' + ', '.join(pulled))
         if POOL.get(gid): grp['Prop'].append(f"- 🧰 [All actionable props for this game](#props-{slug(gid)})")
         for k_, lab in (('Side', '⚖️ Sides'), ('Total', '📈 Totals'), ('Prop', '🧾 Player props')):
@@ -1313,58 +1521,9 @@ def main():
     L += ['', '### Known Gaps', ''] + [f'- {x}' for x in gaps]
     out_dir = ROOT / f'dist/nfl_week{W}_master_packet'; out_dir.mkdir(parents=True, exist_ok=True)
     md = out_dir / f'nfl_week{W}_master_betting_intelligence_summary.md'
-    L, TOC = wrap_sections(L)
-    PLAIN = {'rec': 'Our Picks This Week', 'exec': 'The Week at a Glance', '1': 'Every Bet, Ranked', '2': 'What the Odds Predict',
-             '3': 'What the Experts Say', '4': 'Strongest Plays & Expert Picks', '5': 'Teaser Bets', '6': 'The Underdog Upset Ticket',
-             '7': 'Game-by-Game Breakdowns', '8': 'Player Props & How the Card Was Built', '9': 'Survivor Pool Picks', '10': 'Betting Trends', '11': 'Sources & Data Notes'}
-    SHORT_TIP = {'rec': 'Everything we recommend betting this week in one place: straight bets, parlays, prop stacks and SuperContest picks.',
-                 'exec': 'The six things to know about this week before you read anything else.',
-                 '1': 'Every pick on the card in one table, strongest first. Filter to sides, totals or player props, plus a pool of props to build your own tickets.',
-                 '2': 'What the sportsbook lines say the final score will be, our own projected score, and where the public and the big-money bettors are putting their money.',
-                 '3': 'How many betting experts picked each side of every game, and where they agree or are split.',
-                 '4': 'Our plays ranked by how much evidence backs them (the star ratings), plus every named expert pick for each game.',
-                 '5': 'Games where a 6-point teaser (moving the spread in your favor for a smaller payout) makes the most sense.',
-                 '6': 'The five underdogs we like to win outright, and why each one is on the ticket.',
-                 '7': 'A full write-up for every game: how we think it plays out, our projected score, the reasoning, and what could go wrong.',
-                 '8': 'Reference boards for player props, and the behind-the-scenes rules we use to build the card.',
-                 '9': 'The safest teams to pick in a survivor pool this week, how popular each pick is, and who to save for later.',
-                 '10': 'Past betting records and situations that point to a side this week. Useful for breaking ties, not a reason on their own.',
-                 '11': 'Where the information came from, which feeds were working, and what data is missing this week.'}
-    def toc_label(num): return (f'{num}. ' if num[0].isdigit() else '') + PLAIN.get(num, num)
-    BLURB = {'rec': 'What we recommend betting, in one place', 'exec': 'The week at a glance', '1': 'Every lean, sortable & filterable · tickets · props pool',
-             '2': 'What the betting lines predict, in plain English', '3': 'Where the experts agree and disagree, ranked', '4': 'Plays ranked by confidence + expert pick registry',
-             '5': '6-point teaser candidates', '6': 'The underdogs on the ticket and why', '7': 'Game-by-game scripts, projections & evidence',
-             '8': 'Player prop boards + how the card was built', '9': 'Survivor pool ranking', '10': 'Systems & trends worth reading', '11': 'Sources, feed health & known gaps'}
-    nav = ['<div class="global-rollup-bar" id="report-controls">', '  <span class="bar-title">⚡ Report Sections:</span>',
-           '  <button class="btn-toggle btn-primary" onclick="toggleAllMainSections(true)">Expand All Sections</button>',
-           '  <button class="btn-toggle" onclick="toggleAllMainSections(false)">Collapse All Sections</button>',
-           '  <button class="btn-toggle" onclick="toggleAllRollups(true)">Open Everything</button>',
-           '  <button class="btn-toggle" onclick="toggleAllRollups(false)">Close Everything</button>', '</div>',
-           '<div class="toc-title" style="font-weight: 700; font-size: 0.95rem; margin: 4px 0 8px 0; color: var(--primary);">📑 Table of Contents</div>',
-           '<div class="toc-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px; margin: 0 0 26px 0;">'] + \
-          [f'<div style="border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; background: var(--highlight);"><a href="#{rid}" style="font-weight: 700; text-decoration: none; color: var(--primary);">{SEC_ICON.get(num, "📄")} {toc_label(num)}</a><div style="font-size: 0.8rem; color: var(--muted); line-height: 1.35; margin-top: 2px;">{SHORT_TIP.get(num, "")}</div></div>' for rid, num, name in TOC] + ['</div>', '']
-    side = ('<div class="side-toc" id="side-toc"><div class="side-toc-title">Contents</div>'
-            + ''.join(f'<a href="#{rid}" data-tip="{SHORT_TIP.get(num, "")}" onclick="document.body.classList.remove(\'toc-open\')"><span class="toc-ico">{SEC_ICON.get(num, "📄")}</span><span class="toc-txt">{toc_label(num)}</span></a>' for rid, num, name in TOC)
-            + '<a href="#disclaimer" data-tip="The fine print: this report is for entertainment only, and every bet is your own decision and risk." onclick="document.body.classList.remove(\'toc-open\')"><span class="toc-ico">⚖️</span><span class="toc-txt">Disclaimer</span></a></div>')
-    side_btn = '<button class="toc-toggle" type="button" onclick="document.body.classList.toggle(\'toc-open\')">☰ Contents</button>'
-    side_css = ('<style>.side-toc{position:fixed;top:16px;left:16px;bottom:16px;width:236px;overflow-y:auto;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 8px;font-size:13px;z-index:50;display:none;box-shadow:0 4px 14px rgba(0,0,0,.10);}'
-                '.side-toc a{display:block;padding:6px 8px;border-radius:6px;color:var(--primary);text-decoration:none;line-height:1.3;}.side-toc a:hover{background:var(--highlight);}'
-                '.side-toc-title{font-weight:700;margin:2px 8px 6px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em;}'
-                '.side-toc a{display:flex;gap:8px;align-items:flex-start;}.toc-ico{flex:0 0 20px;text-align:center;}.toc-txt{flex:1 1 auto;}'
-                '.side-tip{position:fixed;z-index:70;max-width:280px;background:#0f172a;color:#f8fafc;font-size:12.5px;line-height:1.45;padding:9px 11px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.25);pointer-events:none;display:none;}'
-                '.toc-toggle{position:fixed;top:12px;left:12px;z-index:60;background:var(--primary);color:#fff;border:0;border-radius:8px;padding:8px 12px;font-weight:600;font-size:13px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.2);}'
-                'body.toc-open .side-toc{display:block;top:56px;}'
-                '@media (min-width:1420px){.side-toc{display:block;top:16px;}.toc-toggle{display:none;}.container{margin-left:276px !important;margin-right:auto !important;}}</style>')
-    at = next(i for i, ln in enumerate(L) if ln.startswith('<a id="recommendations"'))
-    L = [side_css, side, side_btn] + L[:at] + nav + L[at:]
-    L += ['', '<a id="disclaimer"></a>',
-          '<div class="legal-disclaimer" style="margin-top: 36px; padding: 16px 18px; border: 1px solid var(--border); border-radius: 8px; background: var(--highlight); font-size: 0.82rem; line-height: 1.55; color: var(--muted);">'
-          '<strong style="color: var(--text);">⚖️ Disclaimer — for entertainment purposes only.</strong> This report is opinion and research for entertainment and informational purposes. It is not financial, investment, legal or betting advice, and no result is guaranteed. '
-          'Odds, lines and player availability change, and the information here may be incomplete or out of date. Sports betting involves real risk of loss. Any bet you place is your own decision, made at your own risk: '
-          'the author and Platinum Rose accept no responsibility or liability for any wager, loss or other outcome arising from use of this report. Bet only where it is legal for you, only if you are of legal age, and only what you can afford to lose. '
-          'If gambling stops being fun, help is available at 1-800-GAMBLER.</div>']
-    txt = '\n'.join(add_tooltips(L)).replace('__GAPS__', '; '.join(gaps) if gaps else 'none')
-    txt = re.sub(r'§\s?(\d+)', r'Section \1', txt).replace('§', '')
+    L = reorder_sections(L)
+    gaps[:] = [remap_refs(x) for x in gaps]
+    txt = finalize_report(L, gaps)
     md.write_text(txt + '\n', encoding='utf-8')
     # ---------- structured JSON export (archive / downstream tools) ----------
     def _j(v):
