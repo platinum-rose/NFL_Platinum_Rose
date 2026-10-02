@@ -1,0 +1,42 @@
+{
+  "pick_id": "a8e453db-50ef-44b2-a8e8-51b3c1e52324",
+  "pick_scope": "weekly",
+  "market_type": "parlay",
+  "week": "Week 4",
+  "sport": "NFL",
+  "season": 2026,
+  "observed_at": "2026-10-02T00:08:16Z",
+  "proposal_status": "draft - needs Andy review; not placed, not in ledger",
+  "sources": [
+    "Claude session 2026-10-01 (M6)",
+    "reports/analysis/week4-intel/tnf-pit-cle-source-check-and-scenario-drafts-2026-10-01.md",
+    "docs Player_Prop_Odds_Weekly/Week4 (BKR/BEO captures)",
+    "reports/intel/week4-articles/action-network-pit-at-cle-2026-10-01.md"
+  ],
+  "audit_note": "AI proposal drafted 2026-10-01. Prices are stale captures unless stated; the book's actual same-game-parlay payout must be obtained before any stake. Nothing placed; no ledger, Supabase or account action.",
+  "market": "sgp_3leg",
+  "selection": "PIT@CLE SGP (BEO): Jaylen Warren over 75.5 rush yds (-117) + Aaron Rodgers under 19.5 completions (+100) + Ronnie Hickman 7+ tackles+assists (+100)",
+  "team": "PIT@CLE",
+  "book": "BetOnline (BEO)",
+  "price": 450,
+  "stake_tier": "speculative",
+  "stake_units": 1,
+  "confidence": 35,
+  "thesis": "Pittsburgh-control script: Dowdle out (confirmed on ESPN provisional inactives) gives Warren a dominant rushing role; Cleveland man-coverage/pressure profile supports fewer Rodgers completions; extra Warren carries give CLE defenders tackle chances.",
+  "disconfirming_factor": "Cleveland scores first or Pittsburgh trails, forcing more Rodgers throws and fewer Warren carries (the script that has hurt PIT all season). Leg evidence is hypothesis-level (W1-3 tackles $1.12 on n=21; DEF ladders 0 for 8).",
+  "bet_threshold": "Only at the book's real SGP quote of about +350 to +525 or better; product of leg prices is about +640 and the book trims correlated legs. Kickoff 2026-10-02T00:15Z; stale after kickoff.",
+  "minimum_edge_pct": 0,
+  "evidence_ids": [
+    "w4.tnf.warren.rush",
+    "w4.tnf.rodgers.comp.under",
+    "w4.tnf.hickman.tkl"
+  ],
+  "checklist": "Week 4 build checklist: island game, 3 legs, $10, no receiving legs, no sacks, avoid -121..-199 connectors (Warren -117 passes).",
+  "data_snapshot": {
+    "captured": "2026-10-01",
+    "prices_are_stale": true
+  },
+  "source_ref": "reports/analysis/week4-intel/tnf-pit-cle-source-check-and-scenario-drafts-2026-10-01.md (Claude M6 session 2026-10-01); prices from BKR/BEO captures and user slips, stale",
+  "market_view": "BEO/BKR PIT -2.5 to -3, total 37.5-38.5 (opened 38.5); BEO prices vs BKR/FanDuel agree within a half point on player lines; captures hours old.",
+  "football_view": "Dowdle out, Warren 90% snaps last week; Cleveland 22nd in rush DVOA; CLE man-heavy pressure defense vs Rodgers' deep-throw tendency."
+}
