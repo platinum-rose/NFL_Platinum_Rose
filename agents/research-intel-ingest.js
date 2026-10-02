@@ -11,6 +11,7 @@ import nodemailer from 'nodemailer';
 import 'dotenv/config';
 import { planRevisions } from './lib/intel-revisions.js';
 import { isCollegeFootballItem } from './lib/college-football-filter.js';
+import { extractAnalyticalSignals } from './lib/analytical-picks.js';
 
 const execFileAsync = promisify(execFile);
 // 2026-09-01: Action Network's feed sits behind CloudFront and started
@@ -167,6 +168,13 @@ const FEEDS = [
     url: 'https://walterfootball.com/rss.xml',
     confidence: 0.63,
     source_type: 'analytical',
+    // 2026-10-01: Walter's weekly picks pages are published Tuesday and the
+    // "Week N NFL Pick:" blocks are filled in/updated through Thursday, so the
+    // body captured at first insert usually has no picks yet. Re-fetch bodies
+    // of recent Walter notes every run and re-extract (deduped per note).
+    // The full early-games page can run past the default 20k-char cap.
+    refreshBodyDays: 7,
+    maxBodyChars: 120_000,
   },
   {
     // ESPN NFL: migrated 2026-09-02 from the www.espn.com RSS feed (blocked
@@ -315,7 +323,7 @@ function cleanHtml(input = '') {
     .trim();
 }
 // F-11 Ph.2: Fetch + strip article body (text only, capped at BODY_MAX_CHARS)
-async function fetchArticleBody(url) {
+async function fetchArticleBody(url, maxChars = BODY_MAX_CHARS) {
   try {
     const res = await fetch(url, {
       headers: { 'User-Agent': 'Mozilla/5.0 (compatible; PlatinumRoseBot/1.0)' },
@@ -331,10 +339,10 @@ async function fetchArticleBody(url) {
       .replace(/&[a-z]+;/g, ' ')
       .replace(/\s+/g, ' ')
       .trim();
-    if (stripped.length > BODY_MAX_CHARS) {
-      console.warn(`   [warn] article body still exceeds BODY_MAX_CHARS (${BODY_MAX_CHARS}) after the 2026-08-13 raise — truncating ${stripped.length} -> ${BODY_MAX_CHARS} chars for ${url}`);
+    if (stripped.length > maxChars) {
+      console.warn(`   [warn] article body exceeds ${maxChars} chars — truncating ${stripped.length} -> ${maxChars} chars for ${url}`);
     }
-    return stripped.slice(0, BODY_MAX_CHARS) || null;
+    return stripped.slice(0, maxChars) || null;
   } catch {
     return null;
   }
@@ -578,6 +586,26 @@ function extractSignals(item, source, baseConfidence) {
     fallbackLabel: item.title,
     fallbackRationale: item.description.slice(0, 220),
   });
+}
+
+// Body-text pick extraction, routed by feed type: betting/news feeds keep the
+// original extractor; analytical feeds use agents/lib/analytical-picks.js.
+function bodySignalsFor({ source, sourceType, confidence, url, title, body }) {
+  if (sourceType === 'analytical') {
+    return extractAnalyticalSignals(body, { source, baseConfidence: confidence, eventRef: url });
+  }
+  return extractSignalsFromText(body, {
+    source,
+    baseConfidence: confidence,
+    eventRef: url,
+    fallbackLabel: title,
+    fallbackRationale: body.slice(0, 220),
+    maxExplicit: 8, // a full article can reasonably cover several games' picks
+  });
+}
+
+function maxBodyCharsFor(source) {
+  return FEEDS.find((f) => f.source === source)?.maxBodyChars || BODY_MAX_CHARS;
 }
 
 async function fetchFeed(feed) {
@@ -939,10 +967,16 @@ async function main() {
       };
     });
 
-    // Analytical sources produce contextual articles, not explicit pick
-    // signals — skip signal extraction to avoid low-quality noise.
+    // Analytical sources (2026-10-01): no longer skipped. Their articles go
+    // through extractAnalyticalSignals() -- source-specific parsers, predicted
+    // scores, and pick-language-gated lines, with no title-as-pick fallback --
+    // instead of the betting-feed extractor (see agents/lib/analytical-picks.js).
     const signals = feed.source_type === 'analytical'
-      ? []
+      ? feedItems.flatMap(item =>
+          extractAnalyticalSignals(`${item.title}. ${item.description}`, {
+            source: feed.source, baseConfidence: feed.confidence, eventRef: item.link,
+          }).map(s => ({ ...s, author: item.author || null }))
+        )
       : feedItems.flatMap(item =>
           extractSignals(item, feed.source, feed.confidence).map(s => ({ ...s, author: item.author || null }))
         );
@@ -1064,7 +1098,7 @@ async function main() {
     let bodiesFetched = 0;
     let bodySignalsAdded = 0;
     for (const note of insertedNotes) {
-      const body = await fetchArticleBody(note.url);
+      const body = await fetchArticleBody(note.url, maxBodyCharsFor(noteMetaByHash.get(note.url_hash)?.source));
       if (!body) continue;
       // Update body — the tsvector trigger handles tsv column automatically
       const { error: bodyErr } = await supabase
@@ -1078,17 +1112,15 @@ async function main() {
       }
 
       const meta = noteMetaByHash.get(note.url_hash);
-      // Analytical sources are excluded from signal extraction above too
-      // ("contextual articles, not explicit pick signals") — keep that rule
-      // consistent for body-derived signals.
-      if (meta && meta.source_type !== 'analytical') {
-        const bodySignals = extractSignalsFromText(body, {
+      // Analytical sources are routed to the analytical parser (see bodySignalsFor).
+      if (meta) {
+        const bodySignals = bodySignalsFor({
           source: meta.source,
-          baseConfidence: meta.confidence,
-          eventRef: note.url,
-          fallbackLabel: meta.title,
-          fallbackRationale: body.slice(0, 220),
-          maxExplicit: 8, // a full article can reasonably cover several games' picks
+          sourceType: meta.source_type,
+          confidence: meta.confidence,
+          url: note.url,
+          title: meta.title,
+          body,
         });
         // Dedup against whatever the teaser pass already found for this
         // same note (matched by event_ref, since candidateSignals hasn't
@@ -1143,21 +1175,21 @@ async function main() {
           .in('note_id', targets.map((n) => n.id));
         const seen = new Set((priorSigs || []).map((s) => `${s.note_id}|${String(s.team_or_market).toLowerCase().trim()}|${s.bet_type}`));
         for (const note of targets) {
-          const body = await fetchArticleBody(note.url);
+          const body = await fetchArticleBody(note.url, maxBodyCharsFor(note.source));
           if (body) {
             const { error: upErr } = await supabase.from('research_intel_notes').update({ body }).eq('id', note.id);
             if (upErr) {
               console.warn(`  [warn] Body backfill failed for note ${note.id}: ${upErr.message}`);
             } else {
               backfilled++;
-              if (note.source_type !== 'analytical') {
-                const sigs = extractSignalsFromText(body, {
+              {
+                const sigs = bodySignalsFor({
                   source: note.source,
-                  baseConfidence: note.confidence,
-                  eventRef: note.url,
-                  fallbackLabel: note.title,
-                  fallbackRationale: body.slice(0, 220),
-                  maxExplicit: 8,
+                  sourceType: note.source_type,
+                  confidence: note.confidence,
+                  url: note.url,
+                  title: note.title,
+                  body,
                 });
                 for (const bs of sigs) {
                   const key = `${note.id}|${String(bs.team_or_market).toLowerCase().trim()}|${bs.bet_type}`;
@@ -1183,6 +1215,56 @@ async function main() {
         console.log(`  Bodies backfilled: ${backfilled}/${targets.length} (+${backfillSignals.length} signals)`);
       }
     }
+  }
+
+  // Body refresh (2026-10-01): feeds whose articles keep changing after first
+  // capture (Walter's weekly picks pages fill in "Week N NFL Pick:" blocks
+  // Tue-Thu) are re-fetched every run for `refreshBodyDays`, the body is
+  // updated when it changed, and signals are re-extracted -- deduped against
+  // every signal already stored for that note, so nothing is double-counted.
+  let bodiesRefreshed = 0;
+  if (FETCH_BODY) {
+    const insertedIds = new Set(insertedNotes.map((n) => n.id));
+    for (const feed of FEEDS.filter((f) => f.refreshBodyDays > 0)) {
+      const since = new Date(Date.now() - feed.refreshBodyDays * 86400 * 1000).toISOString();
+      const { data: recent, error: rfErr } = await supabase
+        .from('research_intel_notes')
+        .select('id,url,source,source_type,confidence,title,body')
+        .eq('source', feed.source)
+        .gte('captured_at', since)
+        .order('captured_at', { ascending: false })
+        .limit(10);
+      if (rfErr) { console.warn(`  [warn] Body refresh lookup failed for ${feed.source}: ${rfErr.message}`); continue; }
+      const targets = (recent || []).filter((n) => !insertedIds.has(n.id));
+      if (targets.length === 0) continue;
+      const { data: priorSigs } = await supabase
+        .from('research_pick_signals')
+        .select('note_id,team_or_market,bet_type')
+        .in('note_id', targets.map((n) => n.id));
+      const seen = new Set((priorSigs || []).map((x) => `${x.note_id}|${String(x.team_or_market).toLowerCase().trim()}|${x.bet_type}`));
+      for (const sig of backfillSignals) seen.add(`${sig.note_id}|${String(sig.team_or_market).toLowerCase().trim()}|${sig.bet_type}`);
+      for (const note of targets) {
+        const body = await fetchArticleBody(note.url, feed.maxBodyChars || BODY_MAX_CHARS);
+        if (!body) continue;
+        if (body !== note.body) {
+          const { error: upErr } = await supabase.from('research_intel_notes').update({ body }).eq('id', note.id);
+          if (upErr) { console.warn(`  [warn] Body refresh failed for note ${note.id}: ${upErr.message}`); continue; }
+          bodiesRefreshed++;
+        }
+        const sigs = bodySignalsFor({ source: note.source, sourceType: note.source_type || feed.source_type, confidence: note.confidence ?? feed.confidence, url: note.url, title: note.title, body });
+        for (const bs of sigs) {
+          const key = `${note.id}|${String(bs.team_or_market).toLowerCase().trim()}|${bs.bet_type}`;
+          if (seen.has(key)) continue;
+          seen.add(key);
+          backfillSignals.push({
+            note_id: note.id, source: bs.source, author: bs.author || null, team_or_market: bs.team_or_market,
+            bet_type: bs.bet_type, lean: bs.lean, rationale: bs.rationale, event_ref: bs.event_ref, confidence: bs.confidence,
+          });
+        }
+        await new Promise((r) => setTimeout(r, 300));
+      }
+    }
+    if (bodiesRefreshed > 0) console.log(`  Bodies refreshed (changed since capture): ${bodiesRefreshed}`);
   }
 
   const noteIdByHash = new Map(insertedNotes.map(n => [n.url_hash, n.id]));
@@ -1227,6 +1309,7 @@ async function main() {
       inserted_notes: insertedNotes.length,
       inserted_signals: signalsToInsert.length,
       bodies_backfilled: backfilled,
+      bodies_refreshed: bodiesRefreshed,
       skipped_existing_notes: uniqueNotes.length - newNotes.length,
       revised_evergreen_notes: revisionNotes.length,
     },
