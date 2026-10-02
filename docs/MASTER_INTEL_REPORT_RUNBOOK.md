@@ -112,3 +112,4 @@ projection: TEN 19, NYG 16
 - Line movement is automatic. The baseline is the earliest `data/odds/BKR_current_lines_*` paste whose `GAME LINES - MON DD` header matches the kickoff date. Paste a Tuesday snapshot every week so there is a baseline.
 - Build.py prints the projected margin and total against the market in each box and adds the Projected column to §2. Missing games are listed under Known gaps.
 - Rewrite a game's block when the lines, the QB or the card change (for example after tonight's DK saves).
+- **Quality bar:** every block must meet the game narrative minimum in `docs/MASTER_INTEL_REPORT_FORMAT.md` §3 (named players and prices, expert split with names, bets-vs-money split, card tickets or why we pass, specific "what breaks it"). Don't write narratives before the card, splits and expert registry exist for the week.

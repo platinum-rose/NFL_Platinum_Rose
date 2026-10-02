@@ -59,6 +59,14 @@ Writing rules for these:
 - Projection = the market-implied score, moved only for evidence named in the text. Say it when the projection disagrees with a card lean.
 - Honest ticket lines: say when a ticket needs most of its legs to profit, or when it's a long shot or a template moonshot.
 
+**Game narrative minimum (Andy, 2026-10-01). The Week 3 file (`reports/intel/master-intel-narratives-2026-w03.md`) is the reference; LAC@BUF is the model block.** Every remaining game must meet all of these before the build, roughly 200–300 words per game:
+1. **When:** write narratives only on Saturday (or Sunday-morning rewrites), **after** the card, the Action Network splits, the expert pick registry, injuries and the secondary-matchup tiers exist for the week. Never write market-only placeholder narratives earlier in the week; a game with no narrative shows up under Known gaps, which is the honest state.
+2. **Game script:** a concrete path to the projected final, naming the players who drive it (QB, lead back, the receivers on the matchup) and at least one price or stat from the dossier (e.g. an anytime-TD price, a scoring split, a matchup tier). End with how the final margin lands relative to the spread.
+3. **Why the card leans this way:** the expert split **with names on each side** (e.g. "4–4: Sharp or Square and Wes Reynolds on LAC; BettingPros, ESPN, VSiN on BUF"); the bets-vs-money split and whether there is a sharp gap; which card ticket(s) touch the game by ticket number or name, or why the card passes; how the projected total compares with the total line.
+4. **What breaks it:** a specific failure path tied to named players or events (questionable players by name, turnovers, a QB change), and how it would change the margin.
+5. **Roster-clean:** every capitalized name is a 2026 roster player or a listed non-player name; never write a player's team from memory (the build's roster gate blocks otherwise).
+6. **No boilerplate:** no "No card is present" / "no ticket yet" filler. If something genuinely doesn't exist yet, the narrative isn't ready to be written.
+
 ## 4. Card templates the report depends on
 
 The report explains the card; it doesn't build it (that's `agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md` + `docs/NFL_WEEKLY_CARD_PROCESS.md`). Two templates must hold because the report explains them:
@@ -109,3 +117,4 @@ Every build also writes `nfl_week<N>_supercontest_intelligence_summary.{html,md,
 | 2026-09-26 | Template v1 locked (Week 3 build) | Andy |
 | 2026-09-26 | SuperContest companion report added | Andy |
 | 2026-10-01 | **Template v2 order (review build, pending Andy's approval):** Part A What to bet (⭐ Our Picks · 1 Every Bet, Ranked (old §1 + §4 ranked tables) · 2 Player Props (old §1 props pool + §8 boards) · 3 Teasers · 4 Underdog ticket · 5 Survivor) → Part B Why we like them (📌 Week at a Glance · 6 Game-by-Game, with old §2's per-game odds/money box folded into each game · 7 What the Experts Say) → Part C Reference (8 Expert Pick Registry · 9 Trends · 10 How the Card Was Built · 11 Sources, with the data-inputs box). `reorder_sections()` in build.py; `scripts/master-intel/rebuild_review.py` re-lays out a past week's md. Week 3 review copy: `dist/nfl_week3_master_packet_v2/`. §2 table above still describes v1 until approved. | pending |
+| 2026-10-01 | Game narrative minimum checklist added to §3 (Week 3 LAC@BUF as the model; Saturday-only, no market-only placeholders) | Andy |
