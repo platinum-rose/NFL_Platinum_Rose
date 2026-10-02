@@ -919,6 +919,10 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       legDetails,
       legsWon: (bet.legs || []).filter(l => l.status === 'WON').map((l, idx) => l.key || `leg_${bet.id}_${idx + 1}`),
       legsPushed: (bet.legs || []).filter(l => l.status === 'PUSH').map((l, idx) => l.key || `leg_${bet.id}_${idx + 1}`),
+      // Legs whose player left the game injured / was inactive (ledger leg flag
+      // `injury_exit: true`). Seeds the 🚑 Out state so injury bad beats survive a
+      // tracker regenerate. Keys use the leg's ORIGINAL index (not the filtered index).
+      legsOut: (bet.legs || []).map((l, idx) => ({ l, k: l.key || `leg_${bet.id}_${idx + 1}` })).filter(({ l }) => l.injury_exit === true || l.injured === true).map(({ k }) => k),
       openSlotLegs,
       legs
     };
@@ -1586,6 +1590,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
                   <span class="badge badge-cash" id="badge-split-${bet.id}" style="display:none;">🤝 50/50 SPLIT</span>
                   <span class="cashed-badge"${cashedBadgeStyle ? ` style="${cashedBadgeStyle}"` : ''}>CASHED</span>
                   <span class="burnt-badge"${burntBadgeStyle ? ` style="${burntBadgeStyle}"` : ''}>BURNT</span>
+                  <span class="injury-beat-badge" id="injury-beat-badge-${bet.id}" style="display:none;" title="Burnt, and the only missed leg was a player who left injured / inactive">🚑 INJURY BEAT</span>
                 </div>
                 <div class="card-bullet-summary" id="bullet-summary-${bet.id}">
                   <span class="badge ${isPromo ? 'badge-promo' : 'badge-cash'}" style="font-size:0.6rem; padding:1px 4px;">${isPromo ? '$0' : '$' + stake.toFixed(0)}</span>
@@ -2523,6 +2528,11 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       letter-spacing: 0.5px;
     }
     .bet-card.burnt .burnt-badge { display: inline-flex !important; }
+    .injury-beat-badge {
+      background: rgba(139,92,246,0.18); color: #C4B5FD; border: 1px solid rgba(139,92,246,0.55);
+      border-radius: 4px; padding: 1px 6px; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.4px;
+    }
+    .bet-card.burnt.injury-beat { border-color: rgba(139,92,246,0.6) !important; }
     .bet-card.burnt .payout-val { text-decoration: line-through; color: #EF4444 !important; opacity: 0.7; }
     .cashed-badge {
       display: none;
@@ -3648,6 +3658,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
               <span>🔥</span>
               <strong>BURNT / ELIMINATED SLIPS (<span id="burnt-section-count">${burntWagers.length}</span>)</strong>
               <span style="font-size:0.65rem; opacity:0.85; margin-left:4px;">• DROPPED BELOW LINE</span>
+              <span id="injury-beat-summary" style="display:none; font-size:0.65rem; color:#C4B5FD; margin-left:6px; font-weight:800;"></span>
             </div>
             <div class="divider-stripe"></div>
           </div>
@@ -4760,6 +4771,13 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             }
           });
         }
+        if (cfg && cfg.legsOut) {
+          cfg.legsOut.forEach(lKey => {
+            if (outLegsState[lKey] === undefined) {
+              outLegsState[lKey] = true;
+            }
+          });
+        }
       }
 
       try { applyBoardClearState(); } catch (e) { console.warn(e); }
@@ -4895,18 +4913,14 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
           if (!confirm('This leg is graded as a PUSH. Mark it Burnt/Missed anyway? (This clears its Push status.)')) return;
         }
       }
+      // (Andy, 2026-10-01) 🔥 Burnt no longer clears 🚑 Out. Out is informational and
+      // independent of Burnt since 2026-09-22, so a leg can be BOTH: the player left
+      // injured AND the leg missed. Keeping both is what lets the tracker flag an
+      // injury bad beat (a parlay whose only miss was an injured player).
       if (isCurrentlyBurnt) {
         delete burntLegsState[legKey];
-        if (outLegsState[legKey]) {
-          delete outLegsState[legKey];
-          saveLegOut();
-        }
       } else {
         burntLegsState[legKey] = true;
-        if (outLegsState[legKey]) {
-          delete outLegsState[legKey];
-          saveLegOut();
-        }
         if (checkedState[legKey]) {
           delete checkedState[legKey];
           saveState();
@@ -8913,6 +8927,8 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       let totalWon = 0;
       let totalAlivePotential = 0;
       let burntCount = 0;
+      let injuryBeatCount = 0;
+      let injuryBeatToWin = 0;
 
       for (const [tId, config] of Object.entries(TICKET_CONFIG)) {
         const card = document.getElementById('card-' + tId);
@@ -8998,10 +9014,33 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
           // Standard single or parlay wager: a non-injury burnt leg busts the ticket.
           // An Out-only leg (🚑) stays dead on its own but no longer forces the whole
           // ticket into the Burnt/Eliminated section -- see nonInjuryBurntLegsInTicket above.
-          if (nonInjuryBurntLegsInTicket.length > 0) {
+          // (Andy, 2026-10-01) An Out-only leg (🚑 without 🔥) still does NOT bust the
+          // ticket. A leg marked BOTH Out and Burnt is a real miss and does.
+          if (burntLegsInTicket.length > 0) {
             isBurnt = true;
             cardPotential = 0;
           }
+        }
+
+        // 🚑 INJURY BEAT (Andy, 2026-10-01): the ticket is burnt and its ONLY miss is a
+        // leg flagged 🚑 Out (player left injured / inactive). Every other leg hit or
+        // pushed. Tracks parlays that had a real shot to cash and died on an injury.
+        let injuryBeatLegKey = null;
+        if (isBurnt && !config.isRoundRobin) {
+          const missLegKeys = ticketLegs.filter(lKey =>
+            !(typeof OPEN_SLOT_LEG_KEYS !== 'undefined' && OPEN_SLOT_LEG_KEYS.has(lKey)) &&
+            !hitLegsInTicket.includes(lKey) && !pushedLegsInTicket.includes(lKey));
+          if (missLegKeys.length === 1 && outLegsState[missLegKeys[0]] && hitLegsInTicket.length > 0) {
+            injuryBeatLegKey = missLegKeys[0];
+          }
+        }
+        const injuryBeatBadge = document.getElementById('injury-beat-badge-' + tId);
+        if (injuryBeatBadge) injuryBeatBadge.style.display = injuryBeatLegKey ? 'inline-block' : 'none';
+        if (card) card.classList.toggle('injury-beat', !!injuryBeatLegKey);
+        if (injuryBeatLegKey && !config.isPaper) {
+          injuryBeatCount++;
+          // payout is a total return (stake + profit); report the profit that was lost.
+          injuryBeatToWin += Math.max(0, (config.initialPayout || config.payout || 0) - (config.cashStake || 0));
         }
 
         if (isBurnt) {
@@ -9018,6 +9057,14 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
               burnBanner.innerHTML = '<span>🔥</span><strong>Burnt / Eliminated:</strong> Leg marked burnt eliminated this parlay.';
             } else {
               burnBanner.innerHTML = '<span>🔥</span><strong>Burnt / Eliminated:</strong> Ticket marked burnt.';
+            }
+            if (injuryBeatLegKey) {
+              const ibEl = document.getElementById('leg-' + injuryBeatLegKey);
+              const ibPlayer = ibEl ? (ibEl.getAttribute('data-player') || '') : '';
+              const ibSel = ibEl ? (ibEl.getAttribute('data-selection') || '') : '';
+              const ibLabel = (ibSel || ibPlayer || 'one leg').replace(/</g, '&lt;');
+              burnBanner.innerHTML = '<span>🚑</span><strong>Injury Beat:</strong> ' + hitLegsInTicket.length + ' / ' + gradableLegsCount +
+                ' legs hit. Only miss: ' + ibLabel + ' (player left injured / inactive).';
             }
           }
           if (cardPayoutEl) cardPayoutEl.textContent = '$0.00';
@@ -9256,6 +9303,13 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       if (potEl) potEl.textContent = '$' + totalAlivePotential.toFixed(2);
 
       const filterBurntCount = document.getElementById('tfilter-burnt-count');
+      const injuryBeatSummary = document.getElementById('injury-beat-summary');
+      if (injuryBeatSummary) {
+        injuryBeatSummary.style.display = injuryBeatCount > 0 ? 'inline' : 'none';
+        injuryBeatSummary.textContent = injuryBeatCount > 0
+          ? '• 🚑 ' + injuryBeatCount + ' INJURY BEAT' + (injuryBeatCount === 1 ? '' : 'S') + ' ($' + injuryBeatToWin.toFixed(2) + ' to-win lost)'
+          : '';
+      }
       if (filterBurntCount) filterBurntCount.textContent = burntCount;
       const chkBurntCount = document.getElementById('chk-burnt-count');
       if (chkBurntCount) chkBurntCount.textContent = burntCount;
