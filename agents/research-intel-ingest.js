@@ -166,15 +166,13 @@ const FEEDS = [
   {
     source: 'Walter Football',
     url: 'https://walterfootball.com/rss.xml',
-    confidence: 0.63,
+    // 2026-10-01: deprioritized per Andy. Walter moved all but ~2 picks a
+    // week behind a paywall (WalterFootball Premium), which we won't buy.
+    // Still ingested and parsed (agents/lib/analytical-picks.js handles his
+    // free "Week N NFL Pick:" blocks), but at low confidence and without the
+    // per-run body re-fetch.
+    confidence: 0.5,
     source_type: 'analytical',
-    // 2026-10-01: Walter's weekly picks pages are published Tuesday and the
-    // "Week N NFL Pick:" blocks are filled in/updated through Thursday, so the
-    // body captured at first insert usually has no picks yet. Re-fetch bodies
-    // of recent Walter notes every run and re-extract (deduped per note).
-    // The full early-games page can run past the default 20k-char cap.
-    refreshBodyDays: 7,
-    maxBodyChars: 120_000,
   },
   {
     // ESPN NFL: migrated 2026-09-02 from the www.espn.com RSS feed (blocked
